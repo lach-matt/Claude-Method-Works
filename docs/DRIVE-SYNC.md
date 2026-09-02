@@ -1,7 +1,8 @@
 # Getting Google Drive into this repository
 
-This repository mirrors two Google Drive folders — **The Method Materials** (with its
-subfolders `COWORK`, `LOWDIN-DELIVERY-1`, `THREEBODY-DELIVERY-1`) and
+This repository mirrors two Google Drive folders — **The Method Materials** (with its subfolders
+`COWORK`, `LOWDIN-DELIVERY-1`, `THREEBODY-DELIVERY-1`, `CORPUS`, `BUILD175-PARTS`,
+`Claude Memories`, `Claude Metadata`, `Claude Projects` and `Claude Chats`) and
 **The Method Prints & Proofs** — into [`drive/`](../drive/).
 
 Short answer to "how do I get my Drive content into my GitHub repo?":
@@ -13,49 +14,67 @@ The full walkthrough is [Route 2](#route-2--toolsdrive_syncpy-run-locally-recomm
 
 ## 1. What is already mirrored
 
-| | |
-| --- | --- |
-| Files in the two Drive folders | **444** |
-| Mirrored into `drive/` | **413** |
-| Still only in Drive | **31** |
-| Bytes on disk under `drive/` | 531,208,218 B (506.6 MiB) |
-| Bytes still outstanding | 220,527,615 B (210.3 MiB) across 31 paths, but only **16 unique files** (111,959,412 B) — the rest are copies of the same build in a second and third folder |
+Drive holds **823 files** across the two mirrored folders. They arrived in the repo in three waves,
+and it matters which is which, because each has a different reason for being incomplete:
 
-Layout:
+| Group | Files | Where it is recorded |
+| --- | --- | --- |
+| Inventoried by the first mirroring pass | 444 | `drive/MANIFEST.tsv` |
+| Added to Drive *after* that pass ran | 18 | `drive/PENDING.tsv` |
+| In six subfolders the first pass never walked | 361 | `drive/PENDING.tsv` |
 
-```
-drive/
-├── MANIFEST.tsv                     # inventory of all 444 Drive files
-├── README.md                        # short status note
-├── The Method Materials/            # 430 rows
-│   ├── COWORK/
-│   ├── LOWDIN-DELIVERY-1/
-│   └── THREEBODY-DELIVERY-1/
-└── The Method Prints & Proofs/      # 14 rows
-```
+The six subfolders missed entirely were `CORPUS` (346 files), `BUILD175-PARTS`, `Claude Memories`,
+`Claude Metadata`, `Claude Projects` and `Claude Chats`. The five folders that *were* mirrored are
+intact: every one of the 444 manifest rows was re-checked against Drive and each is still present,
+in the folder its `repo_path` implies, with no size drift and no md5 mismatch.
 
-`drive/MANIFEST.tsv` is tab-separated with a header row and exactly eight columns:
+### The two inventories
+
+`drive/MANIFEST.tsv` is what the mirror contains. Tab-separated, header row, eight columns:
 
 ```
 repo_path  drive_id  drive_title  mime_type  drive_size_bytes  drive_modified  md5  status
 ```
 
-`repo_path` is relative to `drive/`. `status` is `ok` for a verified transfer, or a short reason
-string otherwise. Useful one-liners, run from the repo root:
+`drive/PENDING.tsv` is what it is still missing, and why. Six columns:
 
-```sh
-# everything that is not a clean transfer
-awk -F'\t' 'NR>1 && $8 !~ /^ok/ {print $8"\t"$1}' drive/MANIFEST.tsv
-
-# what is still outstanding, and how big
-awk -F'\t' 'NR>1 && $8 ~ /not-transferred/ {print $5"\t"$1}' drive/MANIFEST.tsv | sort -n
-
-# row count (444 files + 1 header)
-wc -l < drive/MANIFEST.tsv
+```
+repo_path  drive_id  drive_title  drive_size_bytes  source  reason
 ```
 
-The 31 outstanding files are all `The_Method_1_6_BUILD<N>_compendia_papers_audits.md`,
-BUILD143 through BUILD158. Why they are missing is [Route 1](#route-1--the-claude-google-drive-connector-what-produced-the-current-mirror).
+Regenerate the second one after any sync; a file drops out of it as soon as the local copy matches
+the size Drive reports.
+
+### Why files are still outstanding
+
+There are only four reasons, and only one of them needs a decision from you:
+
+1. **Not yet transferred.** Ordinary backlog. `tools/drive_sync.py` clears these.
+2. **Above the ~6 MiB connector ceiling.** These cannot come through the Claude Drive connector at
+   all — see [Route 1](#route-1--the-claude-google-drive-connector-what-produced-the-current-mirror).
+   The script has no such limit.
+3. **Above GitHub's 100 MB per-file hard limit.** Two copies of `conversations.json` in
+   `Claude Chats` are 370 MB each. No transfer method puts these in the repo as ordinary git
+   objects; they need Git LFS or storage outside the repo. See [`REPO-SIZE.md`](REPO-SIZE.md).
+4. **Held back pending your decision.** `Claude Metadata/users.json` and
+   `Claude Metadata/login_history.json` are Claude account records; the second contains login IP
+   addresses, timestamps and user agents. They were left out because git history is permanent and
+   awkward to purge, so including them should be a deliberate choice rather than a side effect of a
+   bulk sync. To include them, sync that folder explicitly:
+   `python3 tools/drive_sync.py --only "Claude Metadata"`
+
+Useful one-liners, from the repo root:
+
+```sh
+# everything in the manifest that is not a clean transfer
+awk -F'\t' 'NR>1 && $8 !~ /^ok/ {print $8"\t"$1}' drive/MANIFEST.tsv
+
+# what is still outstanding, grouped by reason
+awk -F'\t' 'NR>1 {print $6}' drive/PENDING.tsv | sort | uniq -c | sort -rn
+
+# outstanding files by size, largest first
+awk -F'\t' 'NR>1 {print $4"\t"$1}' drive/PENDING.tsv | sort -rn | head
+```
 
 ---
 

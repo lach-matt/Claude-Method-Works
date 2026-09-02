@@ -11,9 +11,14 @@ all works for the books
 | [`drive/The Method Prints & Proofs/`](drive/The%20Method%20Prints%20%26%20Proofs/) | Prints and proofs |
 | [`drive/MANIFEST.tsv`](drive/MANIFEST.tsv) | File-by-file inventory: repo path, Drive id, title, size, modified time, md5, status |
 
-**413 of 444 Drive files are mirrored.** The remaining 31 (BUILD143–BUILD158, all over 6 MiB) hit a
-hard payload ceiling in the Claude Drive connector and are still only in Drive. See
-[`drive/README.md`](drive/README.md) for the detail.
+Drive holds **823 files** across those two folders. `drive/MANIFEST.tsv` inventories what the mirror
+contains; [`drive/PENDING.tsv`](drive/PENDING.tsv) lists what it is still missing and why, one row per
+file. Four reasons account for everything outstanding: not yet transferred, above the ~6 MiB ceiling
+of the Claude Drive connector, above GitHub's 100 MB per-file hard limit (two 370 MB
+`conversations.json` exports), or deliberately held back pending your decision (the two
+`Claude Metadata` account-record files, one of which contains login IP addresses).
+
+See [`drive/README.md`](drive/README.md) for the detail.
 
 ## Getting the rest — and keeping it in sync
 
