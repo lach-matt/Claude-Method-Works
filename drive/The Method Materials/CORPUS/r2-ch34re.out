@@ -1,0 +1,250 @@
+
+====================================================================================================
+§0 IDENTITY AND BOUNDARIES
+====================================================================================================
+  The_Method_1_6-2.md                              md5 4aef772b  11855 lines
+  The_Method_1_6___The_Register-2.md               md5 79aaf239  6612 lines
+  LW1-ground.py                                    md5 236975ac  130 lines
+  r2lib.py                                         md5 580d2ea2  454 lines
+  tower-2.py                                       md5 c0bce27a  31 lines
+  tower-2 loaded via r2lib.load_tower(); public names: FMAX L10 L11 L12 L13 L8 L9 PHI STAGES
+  heading_line(34) = 9494 '## 34. The Löwdin challenge' | all exact-token hits [157, 9494]
+  section_span(34) = (9494, 9716) -> next heading '## 35. The Löwdin solution' | body_range(34) = (9494, 9500) -> next heading '### 34.1 The problem, and the wrong target'
+  the two resolvers differ by 216 lines (body_range stops at ### 34.1; section_span spans the chapter to ## 35.) — section_span governs the census
+   L9494-L9499   6 lines  ## 34. The Löwdin challenge
+   L9500-L9531  32 lines  ### 34.1 The problem, and the wrong target
+   L9532-L9561  30 lines  ### 34.2 The three bodies, and the pair that has no variable
+   L9562-L9577  16 lines  ### 34.3 What the ladders can and cannot reach
+   L9578-L9608  31 lines  ### 34.4 The rule
+   L9609-L9621  13 lines  ### 34.5 The corridor
+   L9622-L9633  12 lines  ### 34.6 The walk
+   L9634-L9648  15 lines  ### 34.7 The entry point
+   L9649-L9660  12 lines  ### 34.8 The provenance
+   L9661-L9672  12 lines  ### 34.9 Domain, stated by the law itself
+   L9673-L9715  43 lines  ### 34.10 How the method delivered it
+
+====================================================================================================
+§1 NUMERAL CENSUS OF THE CHAPTER (digit-bounded both sides; trailing non-thousands comma admitted; count words listed separately)
+====================================================================================================
+  numerals: 160 on 65 lines
+   L9494: 34
+   L9496: 1969
+   L9500: 34.1
+   L9504: 108
+   L9507: 1 2 2 3 3 4 3 4 5 4 5 6 5 4 6 7 6 5 7
+   L9509: 5 4 6 5 5 57 4
+   L9510: 6 89 5
+   L9514: 89
+   L9515: 34.4
+   L9518: 1 2 2 1
+   L9521: 2 2 1
+   L9523: 2 2 1
+   L9527: 2 2 1
+   L9528: 0.187 0.041 3 0.119
+   L9529: 0.028 4 0.088 0.018 5 0.059 0.021 6 0.086 0.047 5
+   L9532: 34.2
+   L9534: 1
+   L9537: 0
+   L9562: 34.3
+   L9564: 1
+   L9578: 34.4
+   L9580: 34.5 34.7
+   L9581: 2 2 1
+   L9583: 1 2 2 1
+   L9586: 34.1
+   L9589: 34.6 34.3
+   L9592: 108
+   L9593: 34.10
+   L9594: 1 2 2 1
+   L9595: 34.5
+   L9596: 34.6 34.8
+   L9599: 1936
+   L9600: 1929 1969
+   L9604: 34.1
+   L9605: 35 89
+   L9606: 34.1
+   L9609: 34.5
+   L9616: 106
+   L9619: 1 1 4 3,
+   L9620: 0.5773503 1.0000000 1.2168450 1.3938270 4 7
+   L9622: 34.6
+   L9625: 8 6
+   L9626: 4
+   L9629: 104 106
+   L9634: 34.7
+   L9639: 1 2
+   L9641: 1.028 1.785
+   L9642: 3 0.19 1
+   L9646: 1.120 1.049 1.022 1.002 3, 4, 5, 6 6 0.2
+   L9649: 34.8
+   L9653: 1
+   L9654: 2 2 1
+   L9655: 1
+   L9661: 34.9
+   L9663: 106 3 108,
+   L9666: 1 0,
+   L9673: 34.10
+   L9692: 1.029
+   L9695: 1.029
+   L9699: 106 106, 200 200
+   L9702: 1
+   L9704: 1 2 1
+   L9705: 1 2
+   L9710: 1
+   L9712: 36
+  count words: 46 -> L9511:Seventeen L9511:nineteen L9511:two L9513:two L9525:one L9530:one L9532:three L9534:three L9534:one L9564:two L9564:three L9565:one L9565:two L9575:Three L9576:three L9587:one L9589:one L9604:two L9606:two L9611:one L9616:Nineteen L9624:eighteen L9625:one L9629:two L9630:four L9630:one L9641:four L9641:two L9677:two L9679:four L9685:four L9688:six L9689:six L9689:one L9690:two L9692:two L9697:Eighteen L9698:Seven L9698:eight L9702:one L9702:four L9705:One L9705:six L9710:three L9710:one L9712:three
+
+====================================================================================================
+§2 THE OBSERVED ORDER (LW1-ground.py, Register 1306) — the input every corridor figure is computed on
+====================================================================================================
+  elements in GROUND: 108 Z = 1 to 108 | electron-count check Z == occupancy: 108 of 108
+  opening sequence (first Z at which each subshell gains an electron): 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 5d 4f 6p 7s 6d 5f 7p | count 19
+  openings by Z: 1s@1 2s@3 2p@5 3s@11 3p@13 4s@19 3d@21 4p@31 5s@37 4d@39 5p@49 6s@55 5d@57 4f@58 6p@81 7s@87 6d@89 5f@91 7p@103
+  printed sequence at L[9507]: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 5d 4f 6p 7s 6d 5f 7p | count 19
+  VERDICT opening sequence: MEASURED equal
+  Madelung (n+l, then n) restricted to the opened set: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f 6d 7p
+  CONVENTION named — two readings of "Seventeen of nineteen openings agree; two do not" (L[9511]): (a) position-wise agreement 15 of 19; (b) inverted adjacent pairs 2 (5d/4f, 6d/5f), i.e. 19 - 2 = 17 openings not displaced
+  89% (L[9514, 9605]): 17/19 = 89.5 %; 15/19 = 78.9 %  (ROUND_HALF_EVEN, 1 dp)
+  VERDICT "17 of 19 / two / 89%": MEASURED equal under convention (b) [inversions]; MEASURED differs under (a) [positions: 15 of 19, 78.9%]; the sentence names neither — docket 34
+  Z=57 La entrant 5d MEASURED equal
+  Z=58 Ce entrant 4f MEASURED equal
+  Z=89 Ac entrant 6d MEASURED equal
+  Z=91 Pa entrant 5f MEASURED equal
+  steps where more than one subshell moves (a two-electron rearrangement): 24Cr:3d+2,4s-1 29Cu:3d+2,4s-1 41Nb:4d+2,5s-1 44Ru:4d+2,5s-1 46Pd:4d+2,5s-1 59Pr:4f+2,5d-1 65Tb:4f+2,5d-1 78Pt:5d+2,6s-1 91Pa:5f+2,6d-1 94Pu:5f+2,6d-1 97Bk:5f+2,6d-1 104Rf:6d+2,7p-1
+
+====================================================================================================
+§3 THE CORRIDOR (§34.5, Register 1309 / 1350 / 1460): L(Z) < a < U(Z) from nu_g < nu_r for every admissible rival
+====================================================================================================
+  CONVENTIONS named: candidate subshells (n,l) with n <= N_MAX, l <= min(n-1, 3); a rival is admissible at step Z iff its occupancy at Z-1 is
+  below 2(2l+1); the entrant g is the differentiating subshell of §2; form A (1309): p = n-l-1; form B (1350): p = n-l-1 + q/2(2l+1) with q the
+  occupancy at Z-1; the inequality nu_g < nu_r is a(sqrt p_r - sqrt p_g) < n_r - n_g; a bound is an endpoint Dn/(sqrt p_r - sqrt p_g);
+  sqrt p_r == sqrt p_g requires n_r > n_g (violated -> the corridor is empty); L = max of lower bounds, U = min of upper bounds; NON-EMPTY iff L < U.
+  form A, N_MAX=7: non-empty 106 of 106 | distinct finite endpoint values (10 dp) 17
+    the 17 distinct endpoints: -0E-7 0.5000000 0.5773503 0.7071068 0.8090170 1.0000000 1.2167605 1.3660254 1.3938469 1.7071068 1.9840594 2.2247449 2.4142136 3.1462644 3.7320508 4.2360680 4.6855577
+    empty corridors: none
+  form A, N_MAX=8: non-empty 106 of 106 | distinct finite endpoint values (10 dp) 19
+  form B, N_MAX=7: non-empty 106 of 106 | distinct finite endpoint values (10 dp) 121
+  form B, N_MAX=8: non-empty 106 of 106 | distinct finite endpoint values (10 dp) 125
+  VERDICT "All 106 non-empty" (L[9616]): MEASURED equal (form A, N_MAX 7 and 8)
+  VERDICT "Nineteen distinct surds" (L[9616]): generator named — form A, N_MAX 7 gives 17, N_MAX 8 gives 19 (zero, Pa's degenerate L per 1403, counted as one value: True); MEASURED equal under the n<=8 generator, which the chapter does not name — DOCKET §1 convention, docket 34 / 16z-03
+  the six named in 1309 as endpoints: 1/sqrt3 0.5773503  1/sqrt2 0.7071068  1  1/(sqrt3-1) 1.3660254  1+1/sqrt2 1.7071068  1/(sqrt2-1) 2.4142136
+  named six present among the endpoints (form A, N_MAX 8): 6 of 6; absent: []
+  crossing for ns/(n-1)d (L[9619]): (sqrt(n-1) + sqrt(n-4))/3 at n = 4..7 (7 dp, ROUND_HALF_EVEN): 0.5773503 1.0000000 1.2167605 1.3938469
+  VERDICT crossing values: MEASURED differs (printed 0.5773503 1.0000000 1.2168450 1.3938270) — n = 4, 5 equal; n = 6, 7 differ at the fifth decimal from the chapter's OWN formula (1.2167605 vs 1.2168450; 1.3938469 vs 1.3938270): 16z-04 (docket 12) confirmed by measurement; 1403's 4 dp values 1.2168 / 1.3938 are consistent with the formula
+    Z=19 K entrant 4s: L=0.5773503 from (3, 2), U=3.7320508 from (5, 0)
+    Z=37 Rb entrant 5s: L=1.0000000 from (4, 2), U=4.2360680 from (6, 0)
+    Z=55 Cs entrant 6s: L=1.2167605 from (5, 2), U=4.6855577 from (7, 0)
+    Z=87 Fr entrant 7s: L=1.3938469 from (6, 2), U=inf from None
+
+====================================================================================================
+§4 THE WALK (§34.6; Register 1401 / 1402 / 1403 / 1445 / 1463): the running intersection, the placement rules, the eight a values
+====================================================================================================
+  CONVENTION: running intersection I := I ∩ (L_Z, U_Z) over Z = 3..108 in form A, N_MAX 7; a FORCED reset is a Z at which I empties (I := (L_Z,U_Z)).
+  forced resets (form A, N_MAX 7): [37, 42, 43, 45, 55, 58, 64, 65, 80, 91, 96, 97, 103, 104] | count 14
+  VERDICT 1401/1463 fourteen forced at [37, 42, 43, 45, 55, 58, 64, 65, 80, 91, 96, 97, 103, 104] : MEASURED equal
+  forced resets under form A, N_MAX 8: [37, 42, 43, 45, 55, 58, 64, 65, 80, 91, 96, 97, 103, 104] | count 14 (= 1401)
+  forced resets under form B, N_MAX 7: [25, 43, 58, 64, 65, 87, 91, 96, 97, 103, 104] | count 11 (differs from 1401)
+  single a for the whole table (1463): running intersection over all 106 empties 14 times -> INFEASIBLE as one system
+   Z=  3 Li entrant 2s (prev 1s) madelung 2s -> opening
+   Z= 19 K  entrant 4s (prev 3p) madelung 4s -> opening
+   Z= 37 Rb entrant 5s (prev 4p) madelung 5s -> opening
+   Z= 42 Mo entrant 4d (prev 4d) madelung 5s -> exception  [SAME subshell as Z-1: a mid-subshell reset]
+   Z= 43 Tc entrant 5s (prev 4d) madelung 5s -> return
+   Z= 45 Rh entrant 4d (prev 4d) madelung 5s -> exception  [SAME subshell as Z-1: a mid-subshell reset]
+   Z= 55 Cs entrant 6s (prev 5p) madelung 6s -> opening
+   Z= 58 Ce entrant 4f (prev 5d) madelung 4f -> opening
+   Z= 64 Gd entrant 5d (prev 4f) madelung 4f -> exception
+   Z= 65 Tb entrant 4f (prev 5d) madelung 4f -> return
+   Z= 80 Hg entrant 6s (prev 5d) madelung 6s -> return
+   Z= 81 Tl entrant 6p (prev 6s) madelung 6p -> opening
+   Z= 87 Fr entrant 7s (prev 6p) madelung 7s -> opening
+   Z= 91 Pa entrant 5f (prev 6d) madelung 5f -> opening
+   Z= 96 Cm entrant 6d (prev 5f) madelung 5f -> exception
+   Z= 97 Bk entrant 5f (prev 6d) madelung 5f -> return
+   Z=103 Lr entrant 7p (prev 5f) madelung 6d -> opening
+   Z=104 Rf entrant 6d (prev 7p) madelung 6d -> return
+  the record's eighteen (1401: 14 forced + Li 3, K 19, Tl 81, Fr 87) classified on the observed order: {'opening': 9, 'exception': 4, 'return': 5}
+  VERDICT §34.6 "eighteen … opening (8), exception (6), return (4)" (L[9624]): MEASURED differs on the record's list | returns named Tc/Tb/Bk/Hg: ['Tc', 'Tb', 'Hg', 'Bk', 'Rf']
+  VERDICT "never resets mid-subshell" (L[9626]; Register 1350): MEASURED differs — CONVENTION: a reset is mid-subshell iff the entrant subshell at Z equals the entrant at Z-1; failing members of 1401's own list: [(42, 'Mo', '4d', 'single-electron step'), (45, 'Rh', '4d', 'single-electron step')]
+  under the other priority (exception before opening): {'opening': 8, 'exception': 5, 'return': 5} | returns: ['Tc', 'Tb', 'Hg', 'Bk', 'Rf'] | exceptions: ['Mo', 'Rh', 'Gd', 'Cm', 'Lr']
+  NOTE: neither priority gives 8 / 6 / 4; the four named returns Tc, Tb, Bk, Hg exclude Rf 104, whose 6d follows Lr 103's 7p — LW1-ground.py's own docstring records Lr as [Rn]5f14 7s2 7p, not 6d (Register 1306); the 8 / 6 / 4 partition is consistent with a Lr = 6d table (INFERRED)
+  NOTE (1402 / 1460): the count eighteen is a property of one trajectory — 1402 gives ten to thirty-three under other rules; the eighteen is not derivable from the corridor alone.
+  CONVENTION (reconstruction): a held while L <= a <= U (closed, so an endpoint placement is "inside"); when it leaves, re-placed by the rule;
+  an infinite endpoint is replaced by the finite one; random = uniform on (L,U) with seeds 0..199; median = lower median (even count).
+   rule nearest   resets 10 (1402 says 10) MEASURED equal  score 106/106
+   rule lower     resets 10 (1402 says 12) MEASURED differs (reconstruction)  score 106/106
+   rule upper     resets 13 (1402 says 17) MEASURED differs (reconstruction)  score 106/106
+   rule midpoint  resets 13 (1402 says 21) MEASURED differs (reconstruction)  score 106/106
+   rule farther   resets 15 (1402 says 22) MEASURED differs (reconstruction)  score 106/106
+   rule random    resets min 17 max 32 lower-median 25 over 200 seeds (1402: 18-33, median 26) — reconstruction, seeds not the record's
+   rule 1403 (L if finite and > 0 else U): resets 10 (1403 says ten) MEASURED equal; reset Z: [3, 5, 37, 55, 58, 80, 81, 87, 91, 103]
+  the eight a values of 1403 (RECONSTRUCTIONS per its WARNING) against the corridor endpoints, form A, N_MAX 7, 4 dp ROUND_HALF_EVEN:
+   Z= 19 K  entrant 4s  L=0.5774 U=3.7321  1403: L=0.5774 -> MEASURED equal
+   Z= 37 Rb entrant 5s  L=1.0000 U=4.2361  1403: L=1.0000 -> MEASURED equal
+   Z= 55 Cs entrant 6s  L=1.2168 U=4.6856  1403: L=1.2168 -> MEASURED equal
+   Z= 57 La entrant 5d  L=0.7071 U=1.7071  1403: L=0.7071 -> MEASURED equal
+   Z= 80 Hg entrant 6s  L=0.8090 U=4.6856  1403: L=0.8090 -> MEASURED equal
+   Z= 87 Fr entrant 7s  L=1.3938 U=inf  1403: L=1.3938 -> MEASURED equal
+   Z=103 Lr entrant 7p  L=1.9841 U=inf  1403: L=1.9841 -> MEASURED equal
+   Z= 91 Pa entrant 5f  L=-inf U=1.3660  1403: U=1.3660 -> MEASURED equal
+  the nine "leak" steps of 1445 (Li 3, Rb 37, In 49, Cs 55, Hg 80, Tl 81, Fr 87, Lr 103, Rf 104): in the forced list [37, 55, 80, 103, 104] | not forced [3, 49, 81, 87] | In 49 in the record's eighteen: False
+
+====================================================================================================
+§5 THE MEMORYLESS TEST (§34.6 "104 of 106"; Register 1332; docket 37 / 1448 "vacuous") — one named reconstruction
+====================================================================================================
+  CONVENTION (reconstruction): at each Z, for every admissible candidate c (the entrant included), build c's own corridor as if c were the entrant;
+  set a = the midpoint of (L_c, U_c) when both are finite, L_c + 1 or U_c - 1 when one is infinite ("its own crossing value" read as an interior point of its own corridor;
+  a placement AT the endpoint ties c with the rival that defines it and can never be strict-least — self-caught, rewritten); c is SELF-CONSISTENT iff at that a its nu is least (strict) among admissibles.
+  self-consistent candidates per step (count: steps): {3: 29, 4: 33, 5: 28, 6: 14, 7: 2} | steps with 2..4: 62 of 106 | observed among them: 106 of 106
+  VERDICT 1332 "104 of 106 admit two to four; the observed always among them": MEASURED differs under this convention — docket 37 already records the figure as not reconstructible from the stated convention; the record stands (G0c)
+
+====================================================================================================
+§6 THE ENTRY POINT AND Λ_t (§34.7; Register 1350 / 1353 / 1354) — arithmetic on printed figures; the measured a values are not in the bundle
+====================================================================================================
+  t(l) = sqrt(l(l+1)/2): p -> 1.0000, d -> 1.7321, f -> 2.4495 (4 dp)
+  1.785 / 1.028 = 1.73638; against sqrt3 = 1.73205 the deviation is 0.25 % (printed 0.19%; 2 dp ROUND_HALF_EVEN)
+  VERDICT "ratio is sqrt3 to 0.19%" (L[9642]): MEASURED differs: 0.25 % at printed precision (1.785 / 1.028); Register 1350 states the same 0.19% — the underlying unrounded values are record-carried
+  p row (L[9646]) 1.120 1.049 1.022 1.002: mean 1.0482, median 1.0355; "1.028 at p across four subshells" (L[9641]) — neither the mean nor the median of the printed row
+  VERDICT "1.028 at p across four subshells": UNREPRODUCIBLE from the chapter's own row (mean 1.048, median 1.036); Register 1214 / 1350 carry 1.028 — the four subshells behind it are not the Λ_t p row (INFERRED); budget: the per-subshell a values (ionisation energies) are not in the bundle (REQUEST-LOWDIN)
+  6p 0.2% above 1.0000 (L[9646]): 1.002/1.0000 - 1 = 0.2 % -> MEASURED equal
+  §34.1 scatter 0.187->0.041 · 0.119->0.028 · 0.088->0.018 · 0.059->0.021 · 0.086->0.047 (L[9528]): equal to Register 1348 token-for-token; UNREPRODUCIBLE — needs a per element from ionisation energies (not in the bundle); budget: REQUEST-LOWDIN delivery
+
+====================================================================================================
+§7 DOMAIN (§34.9) AND THE DEMOTED / WITHDRAWN RESTATEMENTS (Register 1350 / 1445 / 1460 WARNING lines, grepped before scoring)
+====================================================================================================
+  Z = 3 to 108 -> 106 elements (printed 106): MEASURED equal
+  f opening 4f at Z=58 Ce: p = n-l-1 = 0; L = -inf (from None), U = 0.7071
+  f opening 5f at Z=91 Pa: p = n-l-1 = 1; L = -inf (from None), U = 1.3660
+  VERDICT "At any f opening p = 0 … L = -inf" (L[9666]): MEASURED equal at 4f (p = 0, L = -inf), MEASURED differs at 5f (p = 1) — 16z-05 / 17a-04 confirmed by measurement
+  'No parameter is fitted'         sites L[9596, 9659] — 1350 WARNING: qualified by R 1445 (the 99 was FITTED; held out 90 vs null 96)
+  'Exceptionless on 106 elements'  sites L[9663] — 1350 WARNING: holds only in the fitted sense
+  'resets eighteen times'          sites L[9624] — 1460: the half-capacity mechanism and all six placement rules demote with nu; 1402: ten to thirty-three under other rules
+  'Nineteen distinct surds'        sites L[9616] — 1460: the nineteen surds demote with nu (true of the form, not of the table)
+  'All 106 non-empty'              sites L[9616] — 1460: retained — a result about the FORM; 1463: 106 separate one-dimensional results, not one system
+  '104 of 106'                     sites L[9629] — 1448: the per-atom fixed point is vacuous; docket 37
+  't(ℓ) → √( ℓ(ℓ+1) / 2 )'         sites L[9639] — 1460: the entry point is among what demotes? — listed items: surds, bounds, crossing, eight a values, half-capacity, 99/90/72, horizon, six rules; the entry point is NOT in either list (INFERRED)
+  'corridor is forced'             sites L[9699] — 1460: the corridor is the instrument and survives intact — consistent
+  VERDICT: §34.4 L9596 / §34.8 L9659 "No parameter is fitted", §34.9 L9663 "Exceptionless", §34.5 L9616 "Nineteen … surds", §34.6 L9624 "resets eighteen times" restate as live what 1350's WARNING qualifies and 1460 demotes — 16z-01 / 16z-02 (docket 23 / 35), re-confirmed by measurement; no new class
+  §34.10 L[9698] "Seven of eight rules give 106/106, and random interior points on 200 of 200 seeds" = Register 1331 token-for-token (rules over the same intervals: any a inside every interval reproduces the entrant by construction — the score is the corridor's non-emptiness restated); the 74/106 farther-endpoint failure and the seed count are trajectory figures, UNREPRODUCIBLE without brack.py/scorer.py (not in the bundle; budget: REQUEST-LOWDIN)
+  §34.10 L[9692, 9695] "1.029 factor": one main site; Register grep for "1.029 " gives no entry (r2-ch34re §7) — single-witness, docket 17 (INFERRED not a corridor figure)
+
+====================================================================================================
+§7b REGISTER GREP FOR LATER OR EXACT STATEMENTS OF THE FIGURES SCORED ABOVE (entry numbers; the Register's WARNING lines are where a figure is withdrawn)
+====================================================================================================
+  'return from one'        -> entries []
+  'subshell opening'       -> entries ['529', '530', '1333']
+  'mid-subshell'           -> entries ['1350']
+  '0.19%'                  -> entries ['1337', '1350']
+  '1.2168450'              -> entries ['1330']
+  '1.3938270'              -> entries ['1330']
+  'Seventeen of nineteen'  -> entries []
+  '17 of 19'               -> entries []
+  'ten resets'             -> entries ['1402', '1403']
+  'In 49'                  -> entries ['1445', '1470']
+  'two hundred random'     -> entries ['1402']
+
+====================================================================================================
+§8 TOWER IDENTITIES 1460 KEEPS (M = 2n - p - 1; p = n - l - 1 >= 0) on the candidate set, and the tower gate
+====================================================================================================
+  22 candidate subshells n<=7, l<=3: p = n-l-1 >= 0 at all: True; M = 2n-p-1 = n+l: True; p ≡ M+1 (mod 2) i.e. (n-l-1) ≡ (n+l+1) (mod 2): True
+  tower-2 module attributes carrying a cell count (introspected, names only): ['L8']

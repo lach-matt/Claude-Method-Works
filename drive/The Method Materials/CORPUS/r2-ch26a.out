@@ -1,0 +1,113 @@
+
+== §0 the unit, measured by scan (never carried): `## Appendix F` (LAST hit) to `## Appendix G` (LAST hit)
+  F L11222, G L11361, unit 139 lines; headings 9:
+   L11222 ## Appendix F — The numbers, indexed
+   L11235 ### F.1 The population
+   L11253 ### F.2 The fibring of a quantity-kind over an ordered ground
+   L11278 ### F.3 The index, built
+   L11301 ### F.3.1 The closure, represented as it must be
+   L11328 ### F.4 The readings
+   L11330 ### F.4.1 Two ratios the book had never measured about itself
+   L11338 ### F.4.2 The ideal withdrawal ratio
+   L11343 ### F.4.3 Time, which this work has and does not read
+  blank 33; 4-space code lines 3 ([11260, 11262, 11264]); `|` rows outside code 14
+  unmarked heading-form lines (no #): none
+
+== §1 the two `|` tables — DATA-row set fixed and printed before any count word (header + `|---|` separator excluded)
+  table L11240–L11247: header L11240 | kind | what it counts | the ground it is carried over |; DATA rows 6:
+    L11242 | **extent** | admitted cells of an index | the tower, as a chain |
+    L11243 | **defect** | the departure of a level from its hydrogenic position | the series ground, ordered by principal
+    L11244 | **bound** | the occupancy a shell admits | the periodic ground, ordered by proton number |
+    L11245 | **share** | a subset of a population against that population | whichever ground carries the population |
+    L11246 | **depth** | distance from a root in a dependence order | the dependence order of the compendia |
+    L11247 | **grade** | the warrant a statement carries | the audit hierarchy |
+  table L11284–L11289: header L11284 | column | what it requires | what its absence costs |; DATA rows 4:
+    L11286 | **the method** | the procedure named, not described | the reading cannot be repeated |
+    L11287 | **the input set** | the population named and bounded | the reading has no denominator |
+    L11288 | **the inputs** | every input printed, not summarised | the reading cannot be checked |
+    L11289 | **the refutation** | the test that would kill the claim | the reading cannot be wrong, and so says nothing |
+  kinds table DATA rows = 6 ['extent', 'defect', 'bound', 'share', 'depth', 'grade']; F.1 L11238 "Six kinds recur": True
+  columns table DATA rows = 4 ['the method', 'the input set', 'the inputs', 'the refutation']; F.3 L11280 "the standard has four columns": True
+  "seventh candidate" sites in unit: [11250, 11345] — 6 kinds + 1 refused = 7: True
+  F.2 clauses (i)–(iii) at [11259, 11261, 11263] = 3; "(i)–(iii)" cited at L11273: True
+  Register 1780 states "Six quantity-kinds … closed by construction": True
+
+== §2 F.2 clause (iii) on the periodic ground — "the values admitted at a proton number and charge are a function of the electron count alone, on every pair the coordinate file carries and with no exception (register 1779)"
+  Register 1779 heading: True; body sentences carrying "electron":
+    R6563: Both rows now state what the file states.* **Every other figure in that account was measured against the file and every one stands:** *7,260 (Z, charge) pairs; 13,104 keys of (Z, charge, 2S+1); δ from −0.2367 to 6.0207; the bound nonzero on 36,917 cells; grades at 929 exact, 358 measured, 103,545 computed; and the claim that the multiplicities admitted at a pair are a function of the electron count Z − charge alone, 
+  1779 tokens: "electron count" 1, "function of" 1, "multiplicit" 1, "(iii)" 0, "7,260" 2
+  file COORDINATES-2_13.csv: 104832 rows; columns ['Z', 'charge', 'l', 'mult', 'delta', 'grade', 'source', 'B', 'witness', 'bound']
+  CONVENTION: a "pair" is a distinct (Z, charge); the file's charge column is the spectroscopic stage (Z = 1, charge = 1 is H I, one electron: row 1 says so), so N = Z − charge + 1 (fault 3: first scored as Z − charge, a bijection — the equal-set test is unchanged, the parity test was not); "values admitted at a pair" = the set of mult over its rows; the claim holds iff every two pairs with equal N admit equal sets
+  N range 1–120; min-N pair (1, 1)
+  pairs 7260 (Register 1779 / SC: 7,260); distinct N 120; N with more than one admitted set: 0 {}
+  (iii) on the periodic ground, as F.2 states it: HOLDS on every pair, no exception
+  stronger reading (mult − 1 ≡ N mod 2 on every row): pairs violating 0
+  admitted-set sizes over pairs: {1: 1416, 2: 5844}
+  row (Z 1, charge 1): source "one electron, delta = 0 by symmetry" — the file's charge is the stage, Z − charge = 0 electrons is one short of "one electron"; 1779 writes "electron count Z − charge" (its sentence above)
+    SC ctra_Compendium-2.md L16: **Z** the atomic number · **charge** the ionisation stage, 1 for the neutral · **ℓ** the Rydberg orbital · **2S+1** the multiplicity, which Hund's rule on the core derives from the ground state and do
+    SC ctra_Compendium-2.md L124: | `charge` | 1 … Z | the ion; charge ≤ Z is the triangle, 7,260 (Z, charge) pairs |
+    SC ctra_Compendium-2.md L243: | charge | 1 … Z | given |
+    SC ctra_Compendium-2.md L269: **This is why the compendium holds Ne-like and Na-like ions at charge 15 and 16 and no open-shell ion above charge 6.** An open-shell core does not produce the object a quantum-defect index holds.
+    SC ctra_Compendium-2.md L951: **Along a sequence of fixed electron count, a channel's defect follows δ(c) = A + B·ln(c+1)/c.** Fitted per sequence on the 52 with three or more charge states it reaches a median rms of **0.0083** — 
+    SC ctra_Compendium-2.md L953: **And A is fixed rather than fitted.** As charge grows at constant electron count the core collapses to a point and the ion becomes hydrogenic, so δ → 0. That is the periodic table's own edge, and set
+    SC ctra_Compendium-2.md L1065: **Seven families, 1,816 rows, of which 1,262 were captured from a published compilation and verified before they were held.** *Almost none of it is computed by this work. It is the outside world, brou
+    SC ctra_Compendium-2.md L1146: **This is the charge-edge extension, and it is the only held source that supplies a complete ladder for a species.** *Register 1585 identifies it as the most valuable of the extensions available, for 
+
+== §3 the numerals the unit prints (appf.py's occurrence rule: a number in body text or a table; §/register/chapter/figure locators excluded) — against §32.1.4's row "Appendix F, the numbers … 33"
+  numeral occurrences in body text/tables after locator exclusion: 3 [(11293, '6'), (11293, '12'), (11293, '24')]
+  §32.1.4 row L8974: Appendix F, the numbers                    3  33     thirty-three
+  §32.1.4.1 L[9023] cites "the counts of Appendices D, E and F"
+  1,105 in unit: 0
+  1,442 in unit: 0
+  1,061 in unit: 0
+  1105 in unit: 0
+  1442 in unit: 0
+  1061 in unit: 0
+  1,738 in unit: 0
+  1,748 in unit: 0
+  735,860 in unit: 0
+  4.21 in unit: 0
+  0.192 in unit: 0
+  0.705 in unit: 0
+  witness: the 20a-01 / 21a-04 / 16z-01 figures and Chapter 34's are printed nowhere in the unit; the WARNING lines 1309 / 1350 / 1401 / 1403 / 1461 are not engaged by any figure here
+
+== §4 Register entries the unit cites or that name it — heading present, first body line, WARNING lines in the entry
+  Register entries naming Appendix F / F.n: {296: [1109], 367: [1361], 371: [1373], 372: [1377], 388: [1441], 390: [1449], 392: [1457], 1729: [6447], 1734: [6455], 1755: [6491], 1762: [6503], 1780: [6567], 1781: [6570], 1786: [6589]}
+  296: heading R1107; WARNING lines none; body: **TWO MEASUREMENTS OF THE BOOK'S OWN SHAPE NAMED AT F.4.1 — THE WITHDRAWAL RATIO AND THE METHOD RATIO.** *Appendix F indexes every number this book pr
+  297: heading R1111; WARNING lines none; body: **THE IDEAL WITHDRAWAL RATIO DERIVED AS 1 : 1 — AT PARITY A CLAIM'S SURVIVAL CARRIES EXACTLY ONE BIT — AND FOUND UNMEASURABLE: THE DENOMINATOR SPANS A
+  320: heading R1187; WARNING lines none; body: **THE BOOK IS PROCEDURAL RATHER THAN EXPLORATORY, AND THE CHANGE IS MEASURABLE** *: defects found by hand fall 88% to 55% while defects found by instr
+  321: heading R1191; WARNING lines none; body: **THE BOOK REARRANGED TO AGREE WITH WHAT IT IS.** *The procedure was Appendix B, behind the mathematics it governs; it is now PART I, and the lattice,
+  367: heading R1359; WARNING lines none; body: **ITEM M'S SECOND ROUTE SUCCEEDED AT THE THIRD ATTEMPT, AND E FALLS FROM 38 TO 24.** *The constraint the coordinates were missing is not a judgement a
+  371: heading R1371; WARNING lines none; body: **ITEM M IS WITHDRAWN RATHER THAN CLOSED.** *It asked for E(G) = 33 to be* *resolved**, meaning driven to zero, and register 370 shows the count was n
+  372: heading R1375; WARNING lines none; body: **E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER.** *Stated as nought fibred and one unfibred, it is 4 unfibred on the table as it now stands — 
+  388: heading R1439; WARNING lines none; body: **ITEM M CLOSED BY STATING ONE NUMBER TO THE STANDARD NO NUMBER IN THIS BOOK HAD REACHED.** *Register 387 found ten of eleven admitted cells dominated
+  390: heading R1447; WARNING lines none; body: **THE MEASUREMENT FIBRE'S TOP CELL OCCUPIED AT §6.2.1, AND THE RECOMPUTATION IS A RESULT.** *§6.2 reported E = 9 on the measured nuclide chart at one 
+  392: heading R1455; WARNING lines none; body: **ITEM M CLOSED. ALL SIX FIBRES NOW CARRY A NUMBER AT THE HIGHEST STANDARD THE COORDINATES ALLOW.** *The last was* *rate**, occupied at §12.11.1.2 by 
+  1729: heading R6445; WARNING lines none; body: **Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED.** *The four
+  1734: heading R6453; WARNING lines none; body: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPT
+  1755: heading R6489; WARNING lines none; body: **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: what a closure cannot supply is e
+  1762: heading R6501; WARNING lines none; body: **RULING 25: A SURVIVING CLAIM IS DEFINED, THE MOVE §D.5.3 MADE FOR *ELEMENT* — AND F.4.2'S WITHDRAWAL RATIO, IN Q SINCE REGISTER 297, HAS A VALUE: 4.
+  1779: heading R6561; WARNING lines none; body: **THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET.** *The Spectra Co
+  1780: heading R6565; WARNING lines none; body: **APPENDIX F REBUILT ON A DIFFERENT DOMAIN: THE KINDS OF QUANTITY AND THE GROUNDS THEY ARE CARRIED OVER, NOT THE NUMBERS THIS BOOK PRINTS ABOUT ITSELF
+  1781: heading R6569; WARNING lines none; body: **THE FOUR CITATION FIGURES ARE DRIVEN TO THEIR FIXED POINT, AND THE FRONT MATTER'S OWN SHAPE WITH THEM.** *Register 1780 cites register 1779, and App
+  1786: heading R6588; WARNING lines none; body: **APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. 
+  entries later than 1780 (the rebuild) naming the appendix: [1781, 1786]
+
+== §5 F.3's rule in the Register ("refuted by its own extent" — "several of the corrections the Register carries are exactly this rule firing")
+  Register entries matching: 0 {}
+  main sites of "refuted by its own extent": [11024, 11295] (enclosing: ['### E.1.5 The fourteenth item, the colum', '### F.3 The index, built'])
+  CONVENTION: "several" scored as ≥ 3 distinct Register entries whose text matches the rule's words or its outcome (empty / whole extent); the probe is a token probe and is stated as such
+
+== §6 24b-06 re-take: #P-complete sites in the main volume, with enclosing heading (chat 137 recorded F.4.3 as a site)
+  L4080 [### 14.6 The family of closed indexes is open] *Counting the closed sets of a closure system is #P-complete —* **Kuznetsov**, *and* **Kuznetsov & O
+  L8227 [### 28.10 What removing the register cost, and wha] finding is: the Γ-free literature at §30.3.9, the #P-completeness of counting closed sets at §14.6,
+  L11024 [### E.1.5 The fourteenth item, the column that was] #P-complete (§29). A constraint refuted by its own extent is dead, which is F.3's rule, and it dies
+  L11762 [### R.5 Order, lattices and closure] 927–933; and **Kuznetsov & Obiedkov**, Counting pseudo-intents and #P-completeness (2006). — cited
+  L11763 [### R.5 Order, lattices and closure] for Q item R: counting the closed sets of a closure system is #P-complete in general, which confirms
+  F.4.3 body (L11343–L11360) carries "#P": 0; "complete": 0
+
+== §7 24b-05 re-take: F.3.3 / F.3.2 / F.3.1 tokens, main and Register (Register 1786 renumbered F.3.3 → F.3.1)
+  F.3.3: main []; Register (line, entry) [(1373, 371), (1377, 372), (6567, 1780), (6589, 1786)]
+  F.3.2: main []; Register (line, entry) [(6589, 1786)]
+  F.3.1: main [1082, 1093, 1097, 10955, 10965, 10983, 11301]; Register (line, entry) [(6589, 1786)]
+  1786 body: **APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. There was never an F.3.1 or an F.3.2 — F.3 carried a single child and that child was numbered third, a numeral inherited across the rebuild without being read.* **Nothing anywhere 

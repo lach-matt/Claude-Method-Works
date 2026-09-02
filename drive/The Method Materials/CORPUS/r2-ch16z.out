@@ -1,0 +1,203 @@
+
+================================================================================================
+1  RULING 45 -- build or editorial-process remarks (chat-115 discriminator: the WORK'S OWN MAKING)
+================================================================================================
+  L9675  [the book exists for]  *This is the part of the chapter the book exists for.*
+  L9681  [the session]  fit of the session had been applied to the whole of `a` — which is why the
+  L9687  [the session]  parameter the closed index says cannot exist.** Replayed against the session's own
+  L9698  [was reported]  was reported before the selection rule was tested. **Seven of eight rules give
+  L9700  [was mine]  the trajectory was mine.*
+  L9702  [had been recorded]  **And the one microscope caught the largest thing.** ℓ(ℓ+1) had been recorded four
+  §34.10 is headed "How the method delivered it" and opens "This is the part of the chapter the book exists for":
+  the whole section narrates the work's own making by design; its sites are candidates under the discriminator,
+  not members, except where the sentence is ABOUT the session rather than about the object (L9681, L9687, L9698, L9700).
+
+================================================================================================
+2  RULING 46 -- script names, build numbers, internal file references (CASE-SENSITIVE)
+================================================================================================
+  Ruling 46 sites in the unit: 0   (register 1336 names domain_protocol.py; the unit says "the domain protocol")
+  backticked variable `a` in reader-facing prose (a code-font remark, docket 28): sites [9624, 9627, 9636, 9677, 9681]
+
+================================================================================================
+3  FIRST PERSON -- guarded for the Roman numeral in "He I"; "mine" ADDED (chat 126's probe lacked it)
+================================================================================================
+  L9700  mine   roman-numeral context: False  ::  the trajectory was mine.*
+  first-person sites in the unit: 1
+  "mine" across the six volumes (word-bounded, case-sensitive): main [25, 5865, 9700, 10771] | reg [28, 31, 1505, 1765, 1973, 2101, 4177, 5145, 5213, 5317] | mc [] | pc [] | ioi [] | sc []
+  "was mine" / "were mine" in main: [9700]
+
+================================================================================================
+4  UNMARKED SUB-HEADINGS -- blank line above required
+================================================================================================
+  L9659  **No parameter is fitted.**
+  L9675  *This is the part of the chapter the book exists for.*
+  unmarked sub-headings in the unit: 2 hits, 0 headings (L9659 is a bold one-sentence paragraph closing the table; L9675 an italic one-line epigraph to §34.10)
+
+================================================================================================
+5  DUPLICATED-SECTION SWEEP (docket 27) -- long unit lines recurring elsewhere in the volume
+================================================================================================
+  0 of 48 long lines recur outside the unit
+
+================================================================================================
+6  PRINTS & PROOFS -- titles both sides stripped; then the WHOLE unit diffed against PP at the offset
+================================================================================================
+  §34.5   L9609   "The corridor"  -> PP [9484]  offset [-125]
+  §34.6   L9622   "The walk"  -> PP [9497]  offset [-125]
+  §34.7   L9634   "The entry point"  -> PP [9509]  offset [-125]
+  §34.8   L9649   "The provenance"  -> PP [9524]  offset [-125]
+  §34.9   L9661   "Domain, stated by the law itself"  -> PP [9536]  offset [-125]
+  §34.10  L9673   "How the method delivered it"  -> PP [9548]  offset [-125]
+  §35     L9716   "The Löwdin solution"  -> PP []  offset []
+  modal offset -125 ; PP numbers its ### headings? ['### The corridor']
+  aligned diff of the unit (main L9609-L9715) against PP P9484-P9590: 16 differing lines
+    -### The corridor
+    +### 34.5 The corridor
+    -### The walk
+    +### 34.6 The walk
+    -### The entry point
+    +### 34.7 The entry point
+    -### The provenance
+    +### 34.8 The provenance
+    -### Domain, stated by the law itself
+    +### 34.9 Domain, stated by the law itself
+    -### How the method delivered it
+    +### 34.10 How the method delivered it
+    -three-body problem but a statement about which pairs exist.*
+    +three-body problem but a statement about which pairs exist — Chapter 36 takes this up.*
+    +---
+    -# APPENDICES
+  -> every figure of the unit tested above is therefore to be read against the diff above
+
+================================================================================================
+7  COUNT WORDS -- each against its own body, its data rows, its numeral span and the Register entry that restates it
+================================================================================================
+  L9624 "resets eighteen times" / L9625-L9626 "(8) ... (6) ... (4)": 8+6+4 = 18; returns listed: ['Tc after Mo', 'Tb after Gd', 'Bk after Cm', 'Hg after Au'] -> 4
+  L9641 "1.028 at p across four subshells ... 1.785 at d across two": register 1337 prints p at 3p 4p 5p 6p = 4, d at 4d 5d = 2
+  L9646 "1.120, 1.049, 1.022, 1.002 at n = 3, 4, 5, 6": numerals 4, n-values 4; ioi L1759 p row ['1.120', '1.049', '1.022', '1.002', '1.000']
+  §34.8 table rows L9651-L9657: 7 pipe rows = header + rule + 5 DATA rows (FAULT 4 self-caught: a substring test on "term" had dropped the centrifugal-term row)
+  L9685 "The domain protocol blocked four fits" -- fits named in L9685-L9690: ['blocks the ℓ-spread on six hand-picked species', 'the amplitude Gaussian across the whole table', 'six occupancy slopes pooled for one scaling ']
+    register 1336 replay sentence: "law 2 on six species BLOCKED (wrong carrier, pooling); the Gaussian across the table BLOCKED (spans three domain cells); six slopes pooled for one scaling BLOCKED. Law 2 in the right carrier and the 4d slope within 4d both PASS."
+    objects BLOCKED: 3 ['law 2 on six species', 'the Gaussian across the table', 'six slopes pooled for one scaling'] ; objects PASS: 2 (one "both PASS" over two named objects)  (FAULT 5 self-caught: the token PASS occurs once)
+    register 1355 headline: "**THE PROTOCOL BLOCKED THE FIT I WAS ABOUT TO OFFER.** *The gap to the limit falls 0.1200 " -- a fourth blocked fit, named nowhere in the unit
+  L9692 "Λ_chem dissolved two residuals": named -> 1.029 factor, missing f test = 2; register 1337 "Not derived": ['a common factor of 1.029', 'no f test']
+  L9698 "Seven of eight rules give 106/106, and random interior points on 200 of 200 seeds": register 1331 L4997 -> ['seven give 106/106', '200 of 200 seeds', '74/106']
+  L9702-L9705 "four separate times ... fifth and sixth ... One object, six appearances": 4 + 2 = 6;
+    register 1340 L5033 keeps ℓ(ℓ+1) [gate, collapse, barrier, Seaton, t(ℓ)] and 2ℓ+1 [1/(2ℓ+1), h₀√(2ℓ+1)] as TWO objects: ['1/(2ℓ+1) from the angular algebra and h₀√(2ℓ+1) from the collapse data', 'ℓ(ℓ+1) a new discovery in t(ℓ) when it is the same quantity that gives the gate']
+  L9663 "106 elements, Z = 3 to 108": 108 − 3 + 1 = 106
+  L9629 "104 of 106": other sites main [9629, 10856] | reg [5001] | mc [3649, 3751] | pc [] | ioi [] | sc []
+
+================================================================================================
+8  FALSE-UNIVERSAL AND SUPERLATIVE SWEEP (docket 19) -- each with the entry that tests it
+================================================================================================
+  "All 106 non-empty"                                  unit sites [9615, 9616]   R1445 "survives untouched"; R1463: 106 SEPARATE one-dimensional results, the table infeasible
+  "No measurement enters"                              unit sites [9616]         R1309 "No spectroscopy enters: only Pauli, the node count, and the observed ground configurations"
+  "never resets mid-subshell"                          unit sites [9626]         R1333; count itself rule-dependent (R1402)
+  "always among them and never uniquely determined"    unit sites [9630]         R1332; R1448 calls a self-consistency test of this shape vacuous
+  "No parameter is fitted"                             unit sites [9658, 9659]   R1350 WARNING: qualified by R1445 -- "the 99 of 106 was FITTED"
+  "Exceptionless on 106 elements"                      unit sites [9662, 9663]   R1350 WARNING: "holds only in that fitted sense"; R1437: 99 of 106; R1445: 90 held out
+  "including every aufbau anomaly"                     unit sites [9662, 9663]   R1437 misses Mn Tc Ce Gd Pa Cm Rf
+  "At any f opening p = n−ℓ−1 = 0"                     unit sites [9665, 9666]   5f: p = 1 (r2-ch16y §5)
+  "no analysis or statistics language"                 unit sites [9677, 9678]   R1318 "no analysis language"; R1327 "no statistics language"
+  "cannot be fitted and needs no fitting"              unit sites [9679, 9680]   R1318
+  "the only place ℓ enters"                            unit sites [9641, 9642]   R1337 "the ONLY place ℓ enters the radial Schrödinger equation"
+  "the ℓ-spread on six hand-picked species"            unit sites [9687, 9688]   R1336 "law 2 on six species"
+  "The corridor is forced; the trajectory was mine"    unit sites [9699]         R1331; R1402 "a property of one trajectory"
+
+================================================================================================
+9  POINTERS AND NAMED OBJECTS -- resolved under body_range AND section_span, target read
+================================================================================================
+  § pointers in the unit: []
+  chapter pointers in the unit: [(9712, 'Chapter 36')]
+  "Chapter 36 takes this up" (L9712): ## 36. at L9892 "Three bodies, and what a complete index is allowed to say"; body_range (9892, 9896), section_span (9892, 11856) -> differ (chapter head carries subsections; resolver semantics)
+    "pair" sites inside Chapter 36 (section_span): [9979, 9996, 10306, 10536, 10887, 10949, 11057, 11071, 11076, 11114, 11268, 11421]
+    "three-body"/"three bodies" sites in ch.36: [9898, 9910, 9914, 9926, 9934, 10498, 10792, 11434, 11783, 11818]
+  Λ_phys   Index of Indices entry heading: ioi [1504, 1671]
+  Λ_chem   Index of Indices entry heading: ioi [1722]
+  Λ_t      Index of Indices entry heading: ioi [1751]
+  "the cypher" -> §33 "The cypher analysis" at L9399; "the domain protocol" main sites [9486, 9685] (§33 L9486 = 33.5)
+  L9702-L9703 "recorded four separate times — as the gate, the collapse switch, the barrier and Seaton's ratio":
+    literal phrases in main: "Seaton's ratio" [9703] ; "collapse switch" [9703] ; "the barrier" [9703]  (a literal phrase is NOT a test)
+    Seaton       word-bounded sites: main 1 | reg 33 | mc 28 | pc 14 | ioi 5 | sc 2
+    collapse     word-bounded sites: main 17 | reg 52 | mc 22 | pc 11 | ioi 2 | sc 8
+    centrifugal  word-bounded sites: main 3 | reg 13 | mc 2 | pc 2 | ioi 1 | sc 0
+    barrier      word-bounded sites: main 1 | reg 11 | mc 1 | pc 1 | ioi 0 | sc 0
+    gate         word-bounded sites: main 1 | reg 31 | mc 1 | pc 1 | ioi 0 | sc 0
+    ℓ(ℓ+1) itself: main 6 | reg 17 | mc 2 | pc 4 | ioi 1 | sc 0
+  "the one microscope" (L9702): register 1340 L5033 "**A CORRECTION TO HOW I HAVE BEEN WORKING, RECORDED AT THE PERSON'S INSISTENCE.** *I have repeatedly treated a"
+  Register citations in the unit: NONE
+  restatements of the unit's figures elsewhere in the main volume: 104 of 106 [9629, 10856] ; "the corridor" appendix rows [10850, 10856]
+    L9731 operator.* Chapter 34 then measured the consequence — with no carried state, 104
+    L9732 of 106 steps admit two to four self-consistent subshells, so **the table is not
+    L10850 the corridor, 106 consistent inequalities theorem · analysis verified · exhaustive · none found
+    L10851 the nineteen surds, the complete endpoint set measurement · analysis measured · exhaustive · none found
+    L10856 the necessity of state, 104 of 106 steps theorem · physics verified · exhaustive · none found
+
+================================================================================================
+10  ATTRIBUTIONS -- against the ## References BODY (L11503-L11855) and R.7, both directions
+================================================================================================
+  Pauli        unit sites [9617]                 References-body sites []
+  Schrödinger  unit sites [9643]                 References-body sites []
+  Seaton       unit sites [9703]                 References-body sites []
+  Löwdin       unit sites []                     References-body sites [11807, 11809, 11810, 11816]
+  Madelung     unit sites []                     References-body sites [11815]
+  Gaussian     unit sites [9689]                 References-body sites []
+  R.7 heading: [11806]
+
+================================================================================================
+11  ELEMENTS NAMED IN THE UNIT (docket 20, notation-tolerant) across six volumes: symbol | name
+================================================================================================
+  Tc technetium  main 1|0  reg 7|7  mc 0|0  pc 0|0  ioi 0|0  sc 0|0
+  Mo molybdenum  main 1|0  reg 8|5  mc 0|0  pc 1|0  ioi 0|0  sc 0|0
+  Tb terbium     main 1|0  reg 6|2  mc 1|0  pc 0|0  ioi 0|0  sc 0|0
+  Gd gadolinium  main 1|0  reg 8|4  mc 1|0  pc 1|0  ioi 0|0  sc 0|0
+  Bk berkelium   main 1|0  reg 11|8  mc 1|0  pc 0|0  ioi 0|0  sc 0|2
+  Cm curium      main 1|0  reg 14|11  mc 1|0  pc 1|0  ioi 0|0  sc 0|2
+  Hg mercury     main 6|1  reg 21|9  mc 2|0  pc 1|0  ioi 0|0  sc 10|0
+  Au gold        main 1|0  reg 7|2  mc 0|0  pc 1|0  ioi 0|1  sc 0|0
+
+================================================================================================
+12  WRAPPED SENTENCES read on the normalised JOIN
+================================================================================================
+  L9616-L9617  **All 106 non-empty. Nineteen distinct surds across the whole table. No measurement enters — only Pauli's capacity and the node count.**
+  L9619-L9620  *For every ns/(n−1)d competition the crossing is (√(n−1) + √(n−4))/3, giving 0.5773503, 1.0000000, 1.2168450, 1.3938270 at n = 4 to 7.*
+  L9624-L9627  **`a` is carried between elements and resets eighteen times.** Every reset is a **subshell opening** (8), an **aufbau exception** (6), or the **return from one** (4) — Tc
+  L9629-L9632  **And the state is necessary.** With no carried value, 104 of 106 steps admit two to four self-consistent subshells. *The observed one is always among them and never uniq
+  L9641-L9643  **Measured 1.028 at p across four subshells and 1.785 at d across two: the ratio is √3 to 0.19%.** *ℓ(ℓ+1) is the centrifugal term, the only place ℓ enters the radial Sch
+  L9645-L9647  **And it is a limit approached along n**, not a constant: the p row of Λ_t reads 1.120, 1.049, 1.022, 1.002 at n = 3, 4, 5, 6 — **6p sits 0.2% above the centrifugal value
+  L9663-L9664  **Exceptionless on 106 elements**, Z = 3 to 108, including every aufbau anomaly, **and right where n+ℓ is wrong.**
+  L9666-L9669  **f is outside the domain and the law says so.** At any f opening p = n−ℓ−1 = 0, the floor of the node count — no subshell has fewer nodes than none — **so no rival lies 
+  L9685-L9690  **The domain protocol blocked four fits.** Λ_phys closes with no parameter of this work in the universal column, so **a pooled fit across regions asserts a universal para
+  L9697-L9700  **The falsification withdrew a result.** Eighteen resets landing on exact surds was reported before the selection rule was tested. **Seven of eight rules give 106/106, an
+  L9702-L9706  **And the one microscope caught the largest thing.** ℓ(ℓ+1) had been recorded four separate times — as the gate, the collapse switch, the barrier and Seaton's ratio — bef
+  L9710-L9712  *A Rydberg atom is three bodies: a nucleus, a core of Nₑ−1 electrons, and one outer electron. The method's contribution is not a solution to the general three-body proble
+
+================================================================================================
+13  NUMERAL SITES of the unit across six volumes (thousands separator and word form aware)
+================================================================================================
+  0.5773503  main [9620] | reg [4993] | mc [3595] | pc [] | ioi [] | sc []
+  1.2168450  main [9620] | reg [4993] | mc [3595] | pc [] | ioi [] | sc []
+  1.3938270  main [9620] | reg [4993] | mc [3595] | pc [] | ioi [] | sc []
+  1.028      main [9641] | reg [4545, 5073] | mc [] | pc [] | ioi [] | sc []
+  1.785      main [9641] | reg [5073] | mc [] | pc [] | ioi [] | sc []
+  0.19%      main [2049, 9642] | reg [5021, 5073] | mc [1664] | pc [] | ioi [] | sc []
+  1.120      main [9646] | reg [5089] | mc [] | pc [] | ioi [1759] | sc []
+  1.049      main [9646] | reg [4005, 5089] | mc [] | pc [] | ioi [1759] | sc []
+  1.022      main [9646] | reg [4005, 5081, 5089] | mc [] | pc [] | ioi [1759] | sc []
+  1.002      main [9646] | reg [5089] | mc [] | pc [] | ioi [1759] | sc []
+  0.2%       main [2894, 4366, 7396, 9646] | reg [3033, 5089] | mc [] | pc [] | ioi [1763] | sc []
+  1.029      main [9692, 9695] | reg [4761, 5021] | mc [] | pc [666, 735, 742] | ioi [] | sc []
+  106/106    main [9699] | reg [4997] | mc [3634] | pc [] | ioi [] | sc []
+  200 of 200 main [4667, 4674, 7569, 9699, 10855] | reg [4997] | mc [3634] | pc [] | ioi [] | sc []
+  104 of 106 main [9629, 10856] | reg [5001] | mc [3649, 3751] | pc [] | ioi [] | sc []
+  eighteen   main [1525, 1556, 3051, 4151, 4750, 4839, 5823, 9624, 10555] | reg [1669, 1961, 2525, 3909, 4913, 4985, 4997, 5073, 5261, 5265] | mc [30, 1224, 1230, 3638] | pc [] | ioi [345, 2034, 2070] | sc [152, 1080, 1122, 1126, 1138]
+
+================================================================================================
+14  DEFECT-CENSUS rows in range (member main AND all, line 9609-9715)
+================================================================================================
+  columns: ['id', 'class', 'member', 'line', 'item', 'detail']
+  rows in range: 3
+    1196	C9-OVERGENERALISATION-WORD	main	9626	never	(4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
+    1197	C9-OVERGENERALISATION-WORD	main	9630	always	to four self-consistent subshells. *The observed one is always among them and
+    1198	C9-OVERGENERALISATION-WORD	main	9631	never	never uniquely determined. The periodic table is not computable from a single
+
+END r2-ch16z

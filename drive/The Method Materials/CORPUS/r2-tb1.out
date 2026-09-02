@@ -1,0 +1,120 @@
+
+================================================================================================
+§1 THE DELIVERY AS BYTES — TB1-MANIFEST.tsv rows against the TB1-* members (convention: bytes AND md5 must match; PNG rows reported, not members)
+================================================================================================
+  MANIFEST DATA rows: 19 (README says 20 zip members = 19 rows + MANIFEST.tsv itself)
+  README.md                       6,956 B  809c86f4a75d6493e5327ddb93b1f7fa  OK   this file
+  audit.log                       1,620 B  3cc67acaa9d90d25c8c194c57a8772ff  OK   obj 1: re-run log, 78/78, cap 8 closure
+  audit.py                        4,792 B  f12c16616d4e37dfbcb98e0b2c56ee16  OK   obj 1,2,4,5,7: the audit instrument (record: tb_audit.py), corrected s
+  audit_state1_failing.log        1,633 B  4cfc454dbf2403957caf9e5d5667f390  OK   obj 4: re-run log, check A False 13/13
+  audit_state1_failing.py         4,849 B  1f5c97feb5162410dc0ea96ef75de186  OK   obj 4: first-run state, hyper-radius division carried in (line 58) — R
+  caps_table.log                    271 B  bd87625108e27455c0948d988a369cfd  OK   obj 2: re-run table
+  caps_table.py                     618 B  f72a997b8deec05c3a68b77c3f69e8c9  OK   obj 2: per-cap closure table caps 3-12 (new thin driver over audit.py:
+  fig1_shape_sphere.png         183,331 B  65950967081a64f0574e376880332b12  PNG not a member — md5 as manifested; chat 130 measured the re-render byte-identical (W-170)
+  fig2_closure_defect.png        48,636 B  d1e860f916267b355f462b6e728ffc2f  PNG not a member — md5 as manifested; chat 130 measured the re-render byte-identical (W-170)
+  fig3_tower.png                 59,091 B  28e8b6f3c0de4cd304a51b3a78b6e9d0  PNG not a member — md5 as manifested; chat 130 measured the re-render byte-identical (W-170)
+  fig4_equator_potential.png    100,653 B  4b9b16ec1017cec3db3f1ccc704fdba5  PNG not a member — md5 as manifested; chat 130 measured the re-render byte-identical (W-170)
+  fig5_constraint_graphs.png     39,089 B  bd1ce4f3d0a54b0ccff6596310a291d7  PNG not a member — md5 as manifested; chat 130 measured the re-render byte-identical (W-170)
+  figs.log                          222 B  18c3d762264b498ce42d3e314aed6a0b  OK   obj 9: stdout of figure runs (caps list)
+  figs.py                         3,778 B  ec889beba73204de8972599f1828937f  OK   obj 9: figs 1-3 — RECONSTRUCTED incl. in-session view_init patch
+  figs2.py                        2,007 B  c3fcb0be0263bf799f5512ff02479245  OK   obj 9: figs 4-5 — RECONSTRUCTED
+  n8_check.log                    1,221 B  5d140ad0c7cf1b0d26b7482d82bc35e1  OK   obj 3: re-run log
+  n8_check.py                     1,719 B  ab823f22180baa476b623e0f55ae8c06  OK   obj 3: withdrawn polynomial as first written + N8 second-route check —
+  routh_check.log                    90 B  3fa04ee0f0b05e8246bd9eb119d8dd1d  OK   obj 7: re-run log
+  routh_check.py                    366 B  23842800b311327175ecdd0ef311473b  OK   obj 7: Routh threshold computed (record cited only)
+  verdict: 14/14 text files reproduce bytes and md5; 5 PNG rows reported
+  RECONSTRUCTED rows (the word in the purpose column): 5 ; new thin drivers: 1
+
+================================================================================================
+§2 THE DELIVERED INSTRUMENTS RUN AS DELIVERED — stdout against the delivered logs (convention: byte identity; caps_table on its five data columns, its sixth is wall-clock)
+================================================================================================
+  audit                  rc 0  stdout 1,620 B md5 3cc67aca  log md5 3cc67aca  byte-identical: True  stderr empty: True
+  audit_state1_failing   rc 0  stdout 1,633 B md5 4cfc454d  log md5 4cfc454d  byte-identical: True  stderr empty: True
+  n8_check               rc 0  stdout 1,221 B md5 5d140ad0  log md5 5d140ad0  byte-identical: True  stderr empty: True
+  routh_check            rc 0  stdout    90 B md5 3fa04ee0  log md5 3fa04ee0  byte-identical: True  stderr empty: True
+  caps_table.log DATA rows: 10 ; five data columns equal to the delivered operator re-run: True
+  figs.log (the caps list figs.py prints; figs.py itself not run — matplotlib, binary output) equals the re-run string: True
+  audit_state1_failing.py vs audit.py: differing lines (convention: unified diff, non-comment):
+    L2: # (the Register's "tb_audit.py" = this file). FIRST-RUN STATE (check A fails 13/13): hyper  ->  # (the Register's "tb_audit.py" = this file). Corrected state (check A passes).
+    L58: Vs=V0_shape(w,m)/R  ->  Vs=V0_shape(w,m)
+
+================================================================================================
+§3 OWN RE-DERIVATION, INDEPENDENT OF THE DELIVERED CODE
+================================================================================================
+  cap  cells  meet  join  chain   (own)
+    3     24     12     0     0
+    4     52    111     0     0
+    5     95    477     0     0
+    6    156   1488     0     0
+    7    238   3780     0     0
+    8    344   8385     0     0
+    9    477  16812     0     0
+   10    640  31227     0     0
+   11    836  54555     0     0
+   12   1068  90705     0     0
+  own == delivered operator at every cap: True
+  cap 8: cells 344, meet 8,385, join 0, chain 0: True
+  meet failures caps 3-12 = 12 111 477 1488 3780 8385 16812 31227 54555 90705: True
+  join failures all 0: True ; chain failures all 0: True
+  denominator named: pairs at cap 8 = C(344, 2) = 58996 ; meet-failure share 0.1421
+  delivered cases: 13 ; distinct weak orderings realised: 12 ; ordered Bell number for n = 3 is 13: False
+  duplicate orderings among the 13 labels: {'x<z<y': [('x<y, y>z', (1, 3, 2)), ('x<z, z<y', (1, 3, 2.5))]}
+  orderings of three labelled masses never realised by the 13 labels: ['z<x<y'] (of 13 weak orderings)
+  the missing ordering run through the delivered six checks as a 14th case (RNG draws of the 13 unchanged, it is appended): ['z<x<y (added)   |  True          |  True    | True (1 root/ordering) | True   | True |S|=1 | theorem (all m)']
+  all six True for z<x<y: True
+  FINDING ABOUT THE RECONSTRUCTION (labelled reconstruction, no original): the label "x<y, y>z" at (1,3,2) and "x<z, z<y" at (1,3,2.5) are one ordering x<z<y; z<x<y is untested. 1717's 13 x 6 = 78 counts labels; every check is True at all 13, so 78/78 stands as printed. Flag to the three-body project; not a book deviation without the original instrument.
+  symmetry orders |S| over the 13 cases (own count of mass-preserving permutations): [6, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1] ; values {6, 2, 1}: True
+  checks per case 6 (A-F) x 13 = 78: 78
+  N8 compact form == product over (Z/2)^3: True
+  withdrawn U^4 coefficient 6S2^2 - 4S4 + 8S11 in p, q equals 2p^2 + 16q (1719): True ; true is 6p^2 - 8q: True
+  withdrawn U^2 coefficient equals the true one: False (1719: likewise wrong)
+  N8 at u = (3, 5, 7), V = 15 (= 3+5+7, a root by construction): 0
+  Routh mu_1 = (9 - sqrt 69)/18 = 0.0385208965 ; from 27 mu(1-mu) = 1: 0.0385208965 ; equal to 1e-12: True ; 27 mu (1-mu) = 1.000000000000
+  record prints 0.0385209 (README): agrees at 7 decimals HALF_UP: True
+  Euler quintic positive real roots per case (own numpy roots): [1] ; one per ordering at all 13: True
+  Descartes: the quintic has exactly one sign change in its coefficients for positive masses -> exactly one positive root (theorem; the numeric is the witness)
+
+================================================================================================
+§4 THE REGISTER ANCHORS 1713-1724 — existence, bodies (rbody), figures, WARNING lines
+================================================================================================
+  1710: ABSENT
+  1712: present  WARNING: False  len 573
+  1713: present  WARNING: False  len 210
+  1714: present  WARNING: False  len 262
+  1715: present  WARNING: False  len 259
+  1716: present  WARNING: False  len 276
+  1717: present  WARNING: False  len 170
+  1718: present  WARNING: False  len 356
+  1719: present  WARNING: False  len 331
+  1720: present  WARNING: False  len 157
+  1721: present  WARNING: False  len 445
+  1722: present  WARNING: False  len 273
+  1723: present  WARNING: False  len 263
+  1724: present  WARNING: False  len 367
+  1725: ABSENT
+  1756: ABSENT
+  1716 "344 cells" / "0 join failures" / "8,385 meet failures" / "caps 3–12" / "3B.tri" / "chain 0": [True, True, True, True, True, True]
+  1716 figures vs §3a (344 / 8385 / 0 / 0): True
+  1717 "13 mass order-types × 6 checks = 78/78" / "6, 2, 1": True True ; vs §3b: False
+  1718 "failed 13/13" / "hyper-radius": True True ; delivered failing log check A False at 13 rows: 13
+  1719 "2p² + 16q" / "6p² − 8q" / "withdrawn": True True True ; vs §3c: True True
+  1720 "(ℤ/2)³" / "1770": True True
+  1721 "Eight attribution questions" / "seven closed": True True ; README: the ledger file NOT HELD; the delivery states seven + Lagrange 1770 as the eighth — the entry says seven closed; the eighth question is left as the record has it (Segment B tests main L9903)
+  a Register entry citing "tb_audit.py": lines [] (convention: substring over the Register member)
+
+================================================================================================
+§5 STATUS OF THE TEN REQUESTED OBJECTS AS THE DELIVERY STATES THEM (TB1-README.md status table, DATA rows)
+================================================================================================
+   1 `tb_audit.py` (1756; §36.2)                        | RECONSTRUCTED + RE-RUN
+   2 triangle-form closure (1716)                       | **`3B.tri` NOT A FILE** + RE-RUN
+   3 N₈ (1719, 1720)                                    | RECONSTRUCTED + RE-RUN
+   4 shape-potential audit, both states (1718, 1722, 17 | RECONSTRUCTED + RE-RUN, BOTH
+   5 mass-uniformity (§36.4)                            | DERIVATION (no separate code)
+   6 stratification as index (1713, 1714)               | **NOT HELD — never data**
+   7 five points, threshold (§36.3)                     | RE-RUN + CITED→COMPUTED
+   8 eight attribution questions (1721)                 | **NOT HELD as file**; ledger recoverable in transcript only 
+   9 five figures                                       | RECONSTRUCTED + RE-RUN
+   10 paper and record                                  | PDF HELD ON DRIVE; .md NOT HELD
+  status DATA rows: 10 ; REQUEST-THREEBODY.md numbered items: 10
+  reproduced here: objects 1, 2, 3, 4, 7 (instruments) and 9 (logs; PNGs measured out of band); derived by reading: 5; NOT HELD: 6 (never data), 8 (ledger file); 10: PDF on Drive not fetched this chat, .md member is the build's own.
+  REQUEST item 1 cites register 1756 for tb_audit.py: 1756 is ABSENT (§4); main L9903 carries the same citation — Segment B site.

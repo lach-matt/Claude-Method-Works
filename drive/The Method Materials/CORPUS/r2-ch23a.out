@@ -1,0 +1,81 @@
+r2-ch23a — Appendix D part 2 (D.5–D.6), computable claims; conventions named inline
+§1 unit `### D.5` L10462 to `## Appendix E` L10898 − 1 = 436 lines; headings 12 ['D.5', 'D.5.1', 'D.5.2', 'D.5.3', 'D.5.4', 'D.5.5', 'D.5.6', 'D.5.7', 'D.5.8', 'D.5.9', 'D.5.10', 'D.6']
+§2 D.5 table: rows with a ≥3-space gap 23 ; header rows [10467] ; DATA rows 22 at L10468–L10489
+   first raw row: '  definition · order                                                                      2           0'
+   D.5 table: column sum 77 (printed seventy-seven at L10491, L10496, L10508, L10863) ; fibres 24 (the 1-each row = 3 fibres; printed twenty-four) ; E column all 0: True
+   the serving line (join L10320–L10323) prints ['seventy-seven elements, twenty-four fibres'] ; D.5.1 L10525 sums to twenty-seven (arithmetic): 27
+§3 D.5.2 table: DATA rows 27 (printed twenty-seven) ; A-labelled 10 ; unlabelled 17 (printed seventeen)
+   singleton fibres of the twenty-seven (count = 1): [('definition', 'combinatorics'), ('definition', 'order'), ('formula', 'physics'), ('law', 'complexity'), ('measurement', 'algebraic geometry'), ('measurement', 'physics'), ('mechanism', 'order'), ('method', 'analysis'), ('method', 'combinatorics'), ('method', 'order')] ; the nine listed at L10545–L10553 omit definition · order (a closed index, §14.1) — the second clause of L10540–L10541 is a judgement, not a count
+   fibres of the twenty-seven: 16 (printed sixteen, L10526–L10527) ; singleton fibres: 10 (printed nine, L10540–L10542)
+   D.5.6 table: DATA rows 4 ; rows with a column gap < 3 spaces (chat-134 rule would drop them): []
+   D.5.7 table: DATA rows 4 ; rows with a column gap < 3 spaces (chat-134 rule would drop them): [10734]
+   D.5.8 table: DATA rows 8 ; rows with a column gap < 3 spaces (chat-134 rule would drop them): [10764, 10767]
+   D.5.9 table: DATA rows 17 ; rows with a column gap < 3 spaces (chat-134 rule would drop them): [10810]
+   D.5.10 table: DATA rows 12 ; rows with a column gap < 3 spaces (chat-134 rule would drop them): [10860]
+   running totals: {'D.5.2': 27, 'D.5.4': 32, 'D.5.6': 36, 'D.5.7': 40, 'D.5.8': 48, 'D.5.9': 65, 'D.5.10': 77} (printed 27 / 32 / 36 / 40 / 48 / 65 / 77) ; fibres: {'D.5.2': 16, 'D.5.4': 16, 'D.5.6': 16, 'D.5.7': 16, 'D.5.8': 16, 'D.5.9': 22, 'D.5.10': 24} (printed 16 / 16 / 16 / 16 / 16 / 22 / 24)
+   rebuilt per-fibre counts == D.5 table: True ; differences: {}
+   D.5.9 rows: LS 8 3B 9 (printed eight, nine) ; fibres new at D.5.9: [('definition', 'analysis'), ('law', 'physics'), ('mechanism', 'physics'), ('theorem', 'algebraic geometry'), ('theorem', 'complexity'), ('theorem', 'physics')] (printed six)
+   fibres new at D.5.10: [('formula', 'order'), ('measurement', 'analysis')] (printed two: measurement · analysis, formula · order)
+   status values occupied through D.5.6: ['measured', 'proved', 'verified'] ; first conjectured: ['slack = kernel, §18.4.1', 'the observability boundary, tested once'] (printed: D.5.7 slack = kernel first, D.5.10 observability boundary second) ; any *cited* verification: False (printed: none)
+   theorem count of the thirty-two: 15 law 1 (printed 15 / 1, L10667)
+§4 D.5.5 fibration table on the thirty-two (printed E: kind × language 0, kind only 2, language only 3, none 4) — E under each convention:
+   convention A: {'kind × language': 0, 'kind only': 1, 'language only': 3, 'none': 4} ; fibres {'kind × language': 16, 'kind only': 7, 'language only': 6, 'none': 1}
+   convention A+D3: {'kind × language': 0, 'kind only': 1, 'language only': 3, 'none': 4} ; fibres {'kind × language': 16, 'kind only': 7, 'language only': 6, 'none': 1}
+   convention B: {'kind × language': 0, 'kind only': 1, 'language only': 3, 'none': 4} ; fibres {'kind × language': 16, 'kind only': 7, 'language only': 6, 'none': 1}
+   convention B+D3: {'kind × language': 0, 'kind only': 1, 'language only': 3, 'none': 4} ; fibres {'kind × language': 16, 'kind only': 7, 'language only': 6, 'none': 1}
+   kind-only excess by kind, A.5 sampled: {'measurement': 1} ; A.5 exhaustive: {'measurement': 1} (printed kind only E = 2; Register 233 the same)
+   the same with A.5 proved · exhaustive (Register 222): {'A': {'kind × language': 0, 'kind only': 1, 'language only': 2, 'none': 3}, 'B': {'kind × language': 0, 'kind only': 1, 'language only': 2, 'none': 3}}
+   stage closures, convention A (box = occupied value sets), A.5 as printed (sampled):
+   D.5.2: elements 27, fibres 16, E = 0 {}
+   D.5.4: elements 32, fibres 16, E = 0 {}
+   D.5.6: elements 36, fibres 16, E = 0 {}
+   D.5.7: elements 40, fibres 16, E = 0 {}
+   D.5.8: elements 48, fibres 16, E = 0 {}
+   D.5.9: elements 65, fibres 22, E = 0 {}
+   D.5.10: elements 77, fibres 24, E = 0 {}
+   stage closures, convention A, A.5 exhaustive (Register 222):
+   D.5.2: elements 27, fibres 16, E = 0 {}
+   D.5.4: elements 32, fibres 16, E = 0 {}
+   D.5.6: elements 36, fibres 16, E = 0 {}
+   D.5.7: elements 40, fibres 16, E = 0 {}
+   D.5.8: elements 48, fibres 16, E = 0 {}
+   D.5.9: elements 65, fibres 22, E = 0 {}
+   D.5.10: elements 77, fibres 24, E = 0 {}
+   theorem · order cells of the thirty-two, A.5 sampled: [(4, 1, 0), (4, 2, 0), (4, 2, 1)] (printed L10653–L10654: two distinct cells) ; with A.5 exhaustive: [(4, 2, 0), (4, 2, 1)]
+   D.5.6 first run, ℛ closure operator proved · sampled · found, A.5 exhaustive: elements 36, fibres 16, E = 1 {('theorem', 'order'): 1}
+   D.5.6 first run, same, A.5 sampled as printed: elements 36, fibres 16, E = 0 {}
+   D.5.8 first run, separation hypothesis proved · exhaustive · none found: elements 48, fibres 16, E = 1 {('theorem', 'order'): 1}
+   D.5.9 first run, 3B.five and 3B.pot as measured · exhaustive · found: elements 65, fibres 22, E = 1 {('theorem', 'analysis'): 1}
+   D.5.9 first run, 3B.five and 3B.pot as measured · sampled · found: elements 65, fibres 22, E = 3 {('formula', 'analysis'): 2, ('theorem', 'analysis'): 1}
+   D.5.9 first run, 3B.five and 3B.pot as measured · exhaustive · none found: elements 65, fibres 22, E = 0 {}
+   D.5.9 first run, 3B.five and 3B.pot as measured · sampled · none found: elements 65, fibres 22, E = 0 {}
+   D.5.9 first-run search over 16 (3B.five, 3B.pot) coordinate pairs with status measured: pairs giving E = 4 printed above (none printed = none)
+   D.5.9 second run, 3B.pot as verified · sampled · none found, 3B.five proved · exhaustive · found: elements 65, fibres 22, E = 1 {('formula', 'analysis'): 1}
+   D.5.9 second run, 3B.pot as verified · sampled · found, 3B.five proved · exhaustive · found: elements 65, fibres 22, E = 3 {('formula', 'analysis'): 3}
+   D.5.9 second run, 3B.pot as measured · sampled · none found, 3B.five proved · exhaustive · found: elements 65, fibres 22, E = 0 {}
+   D.5.10 first run, corridor verified · exhaustive · found: elements 77, fibres 24, E = 1 {('theorem', 'analysis'): 1}
+   law · physics: elements 4 cells [(1, 1, 0), (3, 2, 0), (4, 2, 0)] (printed four over three) ; box-A cells unoccupied: [(1, 2, 0), (3, 1, 0), (4, 1, 0)] ; box-B unoccupied: 5 (printed: admits conjectured · exhaustive and proved · sampled — two named) ; E_A 0 E_B 0
+   theorem · analysis cells: [((3, 2, 0), 1), ((4, 2, 0), 3), ((4, 2, 1), 3)] ; ℛ closure includes verified · exhaustive · none found: True
+§5 |Λ₈| = 976 ; C(976, 2) = 475800 (printed 475,800 pairs, L10887; convention: unordered pairs of distinct cells)
+   value sets per coordinate: [3, 2, 3, 4, 3, 2, 4, 4] ; Σ(|Aᵢ| − 1) = 17 (printed 17, A.19.0 L10709; word length 17 L10710) ; Σ|Aᵢ| = 25
+   covers 3749 (printed 3,749) ; join-irreducibles (exactly one lower cover) 17 ; meet-irreducibles (exactly one upper cover) 17 (printed 17 = 17, L10735) ; minimal elements 1 ; maximal 1
+   thermometer words of length 17 distinct 976 (printed: Λ as 976 words in {0,1}¹⁷)
+§6 register 219: heading LNone ; grouped-heading hits [] ; WARNING lines None
+§6 register 220: heading LNone ; grouped-heading hits [] ; WARNING lines None
+§6 register 221: heading LNone ; grouped-heading hits [] ; WARNING lines None
+§6 register 222: heading L887 ; grouped-heading hits [] ; WARNING lines []
+§6 register 232: heading L919 ; grouped-heading hits [] ; WARNING lines []
+§6 register 233: heading L923 ; grouped-heading hits [] ; WARNING lines []
+§6 register 275: heading L1055 ; grouped-heading hits [] ; WARNING lines []
+§6 register 282: heading L1079 ; grouped-heading hits [] ; WARNING lines []
+§6 register 301: heading L1127 ; grouped-heading hits [] ; WARNING lines []
+§6 register 304: heading L1139 ; grouped-heading hits [] ; WARNING lines []
+§6 register 305: heading LNone ; grouped-heading hits [] ; WARNING lines None
+§6 register 361: heading L1315 ; grouped-heading hits [] ; WARNING lines []
+§6 register 1718: heading L6409 ; grouped-heading hits [] ; WARNING lines []
+§6 register 1726: heading L6437 ; grouped-heading hits [] ; WARNING lines []
+§6 register 1734: heading L6453 ; grouped-heading hits [] ; WARNING lines []
+   sites of *219*/*220*/*221*/*305* in the Register (any line, digit-bounded): {219: [1157, 1323, 1545, 2249, 2253, 2257], 220: [1323, 4253, 6038, 6199, 6203, 6607], 221: [1323, 6323, 6327], 305: [1327, 4665]}
+   `register NNN` / `Register NNN` / `Registers` pointers in the unit: [(10500, ['registers 305']), (10501, ['Registers 219 to 222']), (10530, ['Registers 219']), (10658, ['Registers 219, 220']), (10700, ['Registers 232 and 233']), (10725, ['Register 282']), (10729, ['register 301']), (10747, ['register 275']), (10755, ['Register 304']), (10788, ['Register 361']), (10830, ["register 1718's correction of the hyper-radius factor, for the potential — E = 0"]), (10835, ['registers 1249–1357']), (10837, ['Register 1726']), (10840, ['registers 1249–1357']), (10883, ['Register 1734'])]
+   Appendix-D-naming entries with WARNING (r2-ch22a §6 re-taken for 230 / 1419 / 1734 / 1738): [(230, []), (1419, []), (1734, []), (1738, [])]
+done

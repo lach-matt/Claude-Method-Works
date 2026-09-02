@@ -1,0 +1,31 @@
+old The_Method_1_6-2.md  779,423 B  md5 4aef772bad512b84d8c0888386472a74  11,854 lines
+old The_Method_1_6___The_Register-2.md  1,203,491 B  md5 79aaf239a42c1649e914b7cba9d5ce2a  6,611 lines
+main: 11 substitutions, reverse recovers md5 4aef772bad512b84d8c0888386472a74 == old: True
+Register: 2 substitutions + 2 entries, reverse recovers md5 79aaf239a42c1649e914b7cba9d5ce2a == old: True
+main line shift: +8 for BUILD90 L >= 9608 (PARA is 7 lines + 1 blank)
+changed lines before the shift: [7373] ; after the shift (BUILD91 numbering = BUILD90 + 8): [9667, 9669, 9671, 9672, 9726, 9739, 9740, 9741, 9750, 10858, 10859, 10864]
+kinds.py --write: 1567 {'a finding': 1356, 'a measurement': 499, 'a withdrawal': 33, 'a correction': 151, 'prior art': 61, 'a new protocol': 23, 'an open question': 23, 'a fault of mine': 16}
+protocol REVIEW candidates (keyword match, not on list): ['48', '211', '313', '326', '402', '449', '590', '615', '617', '618', '681', '727', '738', '790', '819', '872', '930', '945', '977', '1055', '1059', '1080', '1127', '1131', '1135', '1140', '1211', '1249', '1275', '1292', '1316', '1331', '1339', '1400', '1401', '1409', '1434', '1582', '1602', '1607', '1792']
+written 
+kinds.py on BUILD90: 1565 {'a finding': 1356, 'a measurement': 499, 'a withdrawal': 33, 'a correction': 149, 'prior art': 61, 'a new protocol': 23, 'an open question': 23, 'a fault of mine': 16}
+protocol REVIEW candidates (keyword match, not on list): ['48', '211', '313', '326', '402', '449', '590', '615', '617', '618', '681', '727', '738', '790', '819', '872', '930', '945', '977', '1055', '1059', '1080', '1127', '1131', '1135', '1140', '1211', '1249', '1275', '1292', '1316', '1331', '1339', '1400', '1401', '1409', '1434', '1582', '1602', '1607', '1792']
+kinds.py changed Register lines: [23, 31]
+   L23: '| **a correction** | 149 | 370 | something written wrong and put right' -> '| **a correction** | 151 | 370 | something written wrong and put right'
+   L31: '*The kinds overlap: a correction is usually also a measurement, and a ' -> '*The kinds overlap: a correction is usually also a measurement, and a '
+Register (final): reverse from the written bytes recovers md5 79aaf239a42c1649e914b7cba9d5ce2a == old: True
+'1 to 1794': main:7373 The_Register-2.md:6 The_Register-2.md:65
+'1 to 1792': 0 sites
+'\\b1,?635 entries\\b': 0 sites
+'\\b1,?637 entries\\b': main:7373 The_Register-2.md:6 The_Register-2.md:65
+'stated by the law itself': 0 sites
+'stated by the form itself': main:9669
+'Exceptionless on 106': The_Register-2.md:5073
+'165 to 179\\d|165–179\\d': The_Register-2.md:6 The_Register-2.md:65
+'1,47[02] entries': The_Register-2.md:6
+build.py SUBS anchors on The_Method_1_6-2.md: 12 checked; already not unique at BUILD90: 0 []; count changed by this edit: []
+build.py SUBS anchors on The_Method_1_6___The_Register-2.md: 220 checked; already not unique at BUILD90: 5 [('*The Build 16 column is recomputed from this file ', 0), ('\nBuild 9, 2026-08-26. **1629 entries, 1 to 1786** ', 0), ('*A REBUILD — see PROVENANCE.md.*', 0), ('**`QUEUE.md` required this and it is done; all of ', 0), ('*Removed: `.zeno` and `__pycache__`, regenerated o', 0)]; count changed by this edit: []
+bundle reverse recovers md5 49065309b0c4fe8e055f693aed295cca  == old: True
+new The_Method_1_6-2.md  780,356 B  md5 e6d07f1eac46f929a78ca52290ee152e  11,862 lines
+new The_Method_1_6___The_Register-2.md  1,204,306 B  md5 0c45e8a73588a69b3c6d29ee0e53084e  6,619 lines
+new bundle BUILD91  1,984,829 B  md5 2e5e442bde421bb952e665985b0b30d2  18,486 lines  2 members
+DRY RUN — nothing written under /home/claude; BUILD90 stays live (class HELD, chat 128)

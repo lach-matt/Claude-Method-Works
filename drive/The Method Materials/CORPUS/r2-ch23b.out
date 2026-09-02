@@ -1,0 +1,161 @@
+r2-ch23b — Appendix D part 2 (D.5–D.6), prose and pointers
+§1 unit L10462–L10897, 436 lines, 12 headings, 370 non-blank
+§2 PP `# Appendix D` P[9967] `# Appendix E` P[10437]; unmarked ` D.n` sub-headings 21: ['D.1', 'D.2', 'D.3', 'D.4', 'D.4.1', 'D.4.2', 'D.4.3', 'D.4.4', 'D.4.4.1', 'D.4.4.2', 'D.4.4.3', 'D.5', 'D.5.1', 'D.5.2', 'D.5.3', 'D.5.4', 'D.5.5', 'D.5.6', 'D.5.7', 'D.5.8', 'D.6']
+   D.5 L10462 PRESENT P10109 → PP 
+   D.5.1 L10512 PRESENT P10146 → PP 
+   D.5.2 L10562 PRESENT P10196 → PP 
+   D.5.3 L10604 PRESENT P10238 → PP 
+   D.5.4 L10633 PRESENT P10267 → PP 
+   D.5.5 L10661 PRESENT P10295 → PP 
+   D.5.6 L10702 PRESENT P10336 → PP 
+   D.5.7 L10727 PRESENT P10361 → PP 
+   D.5.8 L10757 PRESENT P10391 → PP 
+   D.5.9 L10790 ABSENT → PP (post-PP: D.5.9 / D.5.10)
+   D.5.10 L10839 ABSENT → PP (post-PP: D.5.9 / D.5.10)
+   D.6 L10885 PRESENT P10424 → PP 
+   body: PP non-blank 263, main non-blank 358, shared 221; only-PP 42, only-main 137
+   only-main lines by section: Counter({'D.5.9': 42, 'D.5.10': 41, 'D.5': 26, 'D.5.2': 13, 'D.5.1': 6, 'D.5.4': 4, 'D.5.3': 3, 'D.5.6': 1, 'D.5.7': 1})
+   only-PP lines (first 12):
+      P of thirty-two, and the five that fit no row are A.4, A.5, A.11 and Chapter 16's two theorems.
+      P definition · order 1 0
+      P formula · analysis 3 0
+      P theorem · order 20 0
+      P theorem · analysis 2 0
+      P measurement · combinatorics 5 0
+      P measurement · physics · algebraic geometry 1 each 0
+      P Forty-eight elements over sixteen fibres at the time of writing; the count is recomputed by the
+      P The column sums to forty: thirty-two as §D.5.4 established them, four added by the growth §D.5.6
+      P re-closes, and four by the companion paper at §D.5.7. The table is updated whenever the count is,
+      P which register 269 had to establish once and registers 305 records having to establish twice more.
+      P register 269 records that the table itself stayed wrong for four entries after the correction was
+   only-main lines outside D.5.9/D.5.10 (first 14):
+      L10465 of thirty-two, and the five that fit no row are A.4, A.5, A.11 and Chapter 18's two theorems.
+      L10468 definition · order 2 0
+      L10470 definition · analysis 1 0
+      L10472 mechanism · physics 3 0
+      L10474 formula · order 1 0
+      L10475 formula · analysis 7 0
+      L10477 theorem · order 21 0
+      L10479 theorem · analysis 7 0
+      L10480 theorem · physics 2 0
+      L10481 theorem · complexity 1 0
+      L10482 theorem · algebraic geometry 1 0
+      L10484 law · physics 4 0
+      L10486 measurement · combinatorics 7 0
+      L10487 measurement · analysis 2 0
+§3 §14.1 :: 'closed index' body_range(3682, 3711) 0 / section_span(3682, 3711) 0 :: D.5.2 L10565 a closed index
+§3 §14.2 :: 'closure operator' body_range(3711, 3719) 0 / section_span(3711, 3719) 0 :: D.5.2 L10567 ℛ the closure operator
+§3 §16.2 :: 'closure operator' body_range(4351, 4359) 0 / section_span(4351, 4359) 0 :: D.5.1 L10546 ℛ the closure operator (the same element, §14.2 at L10567)
+§3 §6.1 :: 'E(X)' body_range(1532, 1552) 1 / section_span(1532, 1594) 2 :: E(X) = |ℛ(X)| − |X|
+§3 §11.8 :: 'rank polynomial' body_range(2275, 2282) 1 / section_span(2275, 2304) 1 :: rank polynomial of Λ
+§3 §29.11 :: 'closed' body_range(8123, 8152) 1 / section_span(8123, 8222) 3 :: A.2 precedent found (§29.11)
+§3 §30.3.3 :: 'total-order' body_range(8451, 8476) 0 / section_span(8451, 8476) 0 :: A.8 precedent (§30.3.3)
+§3 §30.3 :: 'reorderab' body_range(8399, 8405) 0 / section_span(8399, 8575) 8 :: the reorderability law
+§3 §7.3 :: '976' body_range(1776, 1789) 1 / section_span(1776, 1789) 1 :: |Λ| = 976 with E(Λ) = 0
+§3 §12.9 :: '1,113,045,672' body_range(2460, 2484) 1 / section_span(2460, 2484) 1 :: maximal chains
+§3 §31.3.4 :: '540' body_range(8728, 8790) 11 / section_span(8728, 8790) 11 :: 540 Kreuzer–Skarke proposals
+§3 §32.1.1 :: 'unfibred' body_range(8808, 8889) 1 / section_span(8808, 8889) 1 :: 4 unfibred flagged
+§3 §32.4.1 :: 'idempot' body_range(9085, 9120) 1 / section_span(9085, 9120) 1 :: ℛ closure operator proved: extensivity, monotonicity, idempotence
+§3 §11.1.1 :: '17' body_range(2094, 2174) 2 / section_span(2094, 2174) 2 :: Λ as 976 words in {0,1}¹⁷
+§3 §18.4.1 :: 'arity' body_range(4999, 5248) 2 / section_span(4999, 5248) 2 :: the cap-arity criterion
+§3 §18.4.1 :: 'slack' body_range(4999, 5248) 4 / section_span(4999, 5248) 4 :: slack = kernel
+§3 §12.11.0.1 :: 'occupancy clock' body_range(2577, 2629) 0 / section_span(2577, 2629) 0 :: 
+§3 §12.11.0.2 :: 'one arrow' body_range(2629, 2676) 0 / section_span(2629, 2676) 0 :: 
+§3 §12.11.0.3 :: 'bridge' body_range(2676, 2725) 6 / section_span(2676, 2725) 6 :: 
+§3 §12.11.0.4 :: 'separation hypothesis' body_range(2725, 2758) 0 / section_span(2725, 2758) 0 :: 
+§3 §12.11.0.5 :: 'decay' body_range(2758, 2783) 0 / section_span(2758, 2783) 0 :: 
+§3 §12.11.0.6 :: 'union' body_range(2783, 2804) 0 / section_span(2783, 2804) 0 :: 
+§3 §16.8.5 :: 'step law' body_range(4733, 4772) 0 / section_span(4733, 4772) 0 :: 
+§3 §18.4.2 :: 'concave' body_range(5248, 5294) 6 / section_span(5248, 5294) 6 :: meet-closure of concave sets
+§3 §16.5 :: '30,000' body_range(4449, 4471) 1 / section_span(4449, 4482) 1 :: A.5 checked on 30,000 sampled points (21a-07 site)
+§3 §16.5 :: 'total' body_range(4449, 4471) 4 / section_span(4449, 4482) 5 :: χ_Λ is total proved
+§3 §16.7.1 :: 'loop' body_range(4578, 4618) 0 / section_span(4578, 4618) 0 :: L10717 §16.7.1's loop (22b-01 twin)
+§3 §2.21 :: 'press' body_range(1081, 1145) 2 / section_span(1081, 1145) 2 :: count recomputed by the press at every build
+§3 §32.1.4 :: 'embarrass' body_range(8963, 8997) 0 / section_span(8963, 9030) 0 ; 'author' body_range(8963, 8997) 0 / section_span(8963, 9030) 0 :: L10785 §32.1.4 working on its author
+§3 §12.11 :: 'tower' body_range(2524, 2535) 1 / section_span(2524, 3508) 26 :: Appendix D predates §12.11
+§3 §35 :: 'entrant' body_range(9716, 9727) 0 / section_span(9716, 9892) 3 :: LS.ent the entrant operator, §35
+§3 §23 :: '4ν/3' body_range(6178, 6180) 0 / section_span(6178, 6623) 5 :: V = 4ν/3, §23
+§3 §22 :: 'Rydberg' body_range(5939, 5943) 0 / section_span(5939, 6178) 5 :: the Rydberg term, §22
+§3 §11 :: 'F(z)' body_range(2075, 2079) 0 / section_span(2075, 2304) 2 :: F(z) the single expression, §11
+§3 §17 :: 'extension' body_range(4789, 4794) 0 / section_span(4789, 4922) 2 :: §17 says an extension should be
+   headings of the zero-hit sections: [('12.11.0.1', "### 12.11.0.1 The clock in the constraint — Λ₉'s composition"), ('12.11.0.2', '### 12.11.0.2 The clock is an assumption, and the assumption'), ('12.11.0.4', '### 12.11.0.4 The separation hypothesis, named'), ('12.11.0.5', '### 12.11.0.5 What the cycle costs propagation — Q item O, c'), ('12.11.0.6', '### 12.11.0.6 The earlier bound on the core, tested — Q item'), ('16.8.5', '### 16.8.5 Nothing can be removed, and the floor is derived '), ('32.1.4', '### 32.1.4 What this book names before anyone tells it')]
+   heading of §14.1 / §14.2 / §16.2: ['### 14.1 The characterisation', '### 14.2 R is a closure operator', '### 16.2 The split, and it is canonical']
+   `closure operator` sites outside the appendix (first 8): [455, 3711, 3746, 4772, 5007, 7623, 9100, 9460]
+   Theorem 7.1                  sites [10619]
+   Theorem 14.1                 sites [3683, 3720, 10557, 10575, 10624]
+   Theorem 17.1                 sites [3587, 4534, 4806, 10558, 10577, 10624]
+   Theorem 18.1                 sites [4932, 10637]
+   Theorem 18.2                 sites [1980, 4940, 5344, 7321, 10638, 10640]
+   P20                          sites [396, 418, 2137, 2139, 5559, 7604, 7869, 7924]
+   P23                          sites [233, 508, 521, 545, 554, 10889, 10891]
+   E.4.1                        sites [10520, 10538, 10930, 10936, 11132]
+   item L                       sites [10658]
+   Audits 2 and 3 / 24 of 24    sites [10887]
+   475,800                      sites [546, 849, 992, 1042, 1824, 2100, 2501, 4737]
+   figure-D.1                   sites [10505]
+   what the law forbids         sites [134, 4922, 5066, 10673]
+   THE LAW                      sites [129, 3677]
+   Theorem 7.1 withdrawn? lines with `withdrawn` within 3 of a Theorem 7.1 site: [10619]
+   Chapter 18 heading: ['## 18. What the law forbids'] ; Part III heading: ['# PART III — THE LAW', '# PART III — THE LAW']
+   Chapter 29 `direction` sites in Chapter 29: [7930, 8112, 8140] ; Chapter 16 `disjoint` sites: [4412, 4426, 4482]
+§4 Fourier     unit sites [10867] ; in References body: False
+§4 Motzkin     unit sites [10867] ; in References body: False
+§4 Euler       unit sites [10826, 10829] ; in References body: True
+§4 Lagrange    unit sites [10826, 10829] ; in References body: True
+§4 Montgomery  unit sites [10829] ; in References body: True
+§4 Kreuzer     unit sites [10553, 10591] ; in References body: True
+§4 Skarke      unit sites [10553, 10591] ; in References body: True
+§5 first-person sites: [(10771, ['mine']), (10779, ['my', 'I']), (10784, ['I']), (10785, ['I'])]
+   R45 candidate lines (process / editorial words): [(10491, ['at the time of writing']), (10492, ['build', 'press']), (10497, ['companion paper']), (10500, ['registers']), (10501, ['registers']), (10530, ['registers']), (10614, ['register']), (10658, ['q item', 'registers']), (10700, ['registers']), (10723, ['entry is kept']), (10725, ['register']), (10727, ['companion paper']), (10729, ['register']), (10747, ['register']), (10755, ['register']), (10757, ['companion paper']), (10758, ['intake']), (10774, ['register']), (10786, ['author']), (10788, ['register']), (10791, ['compendium']), (10822, ['compendium']), (10830, ['register']), (10834, ['compendium']), (10835, ['compendium', 'registers']), (10837, ['register']), (10840, ['registers']), (10841, ['compendium']), (10846, ['compendium']), (10867, ['compendium']), (10868, ['compendium']), (10878, ['compendium']), (10883, ['register'])]
+   R46 candidates (script / file names): [10505]
+   *sixteen fibres* / *sixteen* sites in the unit: [(10463, ['traints and both elements: E = 0 in all sixteen fibres, and **the theorem · o']), (10514, [' bounds, sixteen of them constraining, the tig']), (10526, [' across sixteen fibres, and the appendix says']), (10527, [' fibres — it prints sixteen and the appendix states sixte']), (10593, [' **E = 0 in all sixteen fibres, enumerated — and 4 un']), (10693, [" This appendix's E = 0, at sixteen fibres over"]), (10721, [' and **E = 0 across all sixteen fibres at thirty-six elements']), (10794, ['before anything was added: E = 0 in all sixteen fibres, so the closure was re'])]
+   *thirty-two* sites in the unit: [10465, 10496, 10526, 10529, 10622, 10627, 10679, 10694] ; *seventy-seven*: [10496, 10508, 10863] ; *twenty-four*: [10491, 10508, 10863]
+   (?<![\d,])30,000(?![\d])   unit [10644] ; main total 5 ; MC 0
+   (?<![\d,])1,442(?![\d])    unit [10552, 10590] ; main total 30 ; MC 0
+   4ν/3                       unit [10571, 10640] ; main total 22 ; MC 1
+   (?<![\d,])3,749(?![\d])    unit [10734] ; main total 1 ; MC 0
+   (?<![\d,])650(?![\d,])     unit [10826] ; main total 2 ; MC 1
+   200 of 200                 unit [10855] ; main total 5 ; MC 1
+   104 of 106                 unit [10856] ; main total 2 ; MC 2
+   12 of 12                   unit [10861] ; main total 4 ; MC 2
+   E = 11                     unit [10860] ; main total 2 ; MC 2
+   (?<![\d,])106(?![\d,])     unit [10850, 10856, 10871] ; main total 12 ; MC 5
+   nineteen                   unit [10851, 10870] ; main total 11 ; MC 2
+   20 of 20                   unit [10886] ; main total 3 ; MC 0
+   fifty-five thousand        unit [10894] ; main total 1 ; MC 0
+   three hundred and seventy  unit [] ; main total 0 ; MC 0
+   (?<![\d,])370(?![\d,])     unit [] ; main total 3 ; MC 0
+§6 MC headings naming Löwdin: [(3148, '## LS. The Löwdin solution — the order derived from the equation — 8 o'), (3564, '# THE MATHEMATICS OF THE LÖWDIN WORK'), (3760, '# The Löwdin indexes — Λ_law and Λ_const')]
+   MC `twelve` sites near those headings: [(3028, 'seven far anchors — Cs I np measured at 3.5667, and Th/Ac ns, np, nd, nf from actinide theory at 5.2, 4.75, 3.'), (3569, "*The twelve objects the closing list names are entered in the main volume's Appendix D at §D.5.10 (register 17"), (3756, '| **rival = donor iff not full** | the twelve anomalous steps, from Pauli alone |')]
+   MC LS./3B. tagged headings: Counter({'LS': 1, '3B': 1}) ; LS.* / 3B.* tokens (distinct): ['3B.def', '3B.five', '3B.index', '3B.metric', '3B.norm', '3B.pot', '3B.shape', '3B.tri', 'LS.asym', 'LS.chord', 'LS.coll', 'LS.ent', 'LS.law', 'LS.pin', 'LS.quart', 'LS.twin']
+   MC 3B.five                  sites [3391, 3393, 3534] ; grade lines: []
+   MC 3B.pot                   sites [3538] ; grade lines: []
+   MC five fixed points        sites [3268] ; grade lines: []
+   MC potential on shape space sites [3250] ; grade lines: []
+   MC L3245–L3275 grade words: [] ; MC lines 3250 / 3268: ### The potential on shape space | ### The five fixed points
+   PP twin of L10546 (§16.2 / §14.2): [(10180, 'mechanism · order                  ℛ, the closure operator, §16.2'), (10201, 'mechanism · order                  ℛ, the closure operator, §16.2                      pro'), (10342, 'ℛ is a closure operator (§32.4.1)                    theorem · order           proved · ex')]
+   Register 1734 body: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPTHS AND DEPENDENCE COUNTS RECOMPUTED FROM THEIR OWN GRAPH.** *The twelve objects the Mathematical Compendium lists under "what this work introduces" fo
+   Register 222 body: **ITEM L CLOSED.** *Five results the table had no room for are all theorem · order, placed by reading each proof rather than its subject; A.5's verification was sampled and is now exhaustive.*
+   Register 248 body (the 30,000-sample test): **A.5 RETESTED ON EVERY AMBIENT POINT RATHER THAN 30,000 SAMPLED — THE BOX HOLDS 6,912, SO THE SAMPLING DREW MORE TIMES THAN THERE ARE CELLS AND STILL ESTABLISHED NOTHING.**
+§7 census rows in range: 20
+    2	C2-THEOREM-POINTER-UNPRINTED	main	10619	Theorem 7.1	Theorem 7.1 is absent — withdrawn, and the status coordinate's *withdrawn* value is
+    714	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	10619	7.1	other sites: main=22 reg=1 mc=23 pc=2 ioi=1 sc=3 | Theorem 7.1 is absent — withdrawn, and the status coordinate's *withdrawn* value is
+    1208	C9-OVERGENERALISATION-WORD	main	10519	never	What could not be rechecked was E = 0 itself, because the appendix printed fibre totals and never
+    1209	C9-OVERGENERALISATION-WORD	main	10558	never	printed tag, Theorem 17.1 is A.6, "adjunction never repairs". And a candidate whose language belongs
+    1210	C9-OVERGENERALISATION-WORD	main	10577	never	theorem · order                    A.6 adjunction never repairs (Theorem 17.1)         proved · exhaustive · none found
+    1211	C9-OVERGENERALISATION-WORD	main	10608	never	appendix never said. It says now.
+    1212	C9-OVERGENERALISATION-WORD	main	10620	never	for statements withdrawn after being indexed, not for statements never indexed.
+    1213	C9-OVERGENERALISATION-WORD	main	10744	always	slack = kernel conjecture occupies a value the coordinate has always admitted and no element had
+    1214	C9-OVERGENERALISATION-WORD	main	10755	never	has therefore never been tested against an occupant. Register 304.
+    1215	C9-OVERGENERALISATION-WORD	main	10836	never	and had never been entered here; whether it should be was the next question this appendix owed.
+    1536	C13-HANDLE-LEAK	main	10806	3B.shape	3B.shape the shape sphere                            definition · analysis         proved · exhaustive · found
+    1537	C13-HANDLE-LEAK	main	10807	3B.metric	3B.metric the shape metric                           formula · analysis            proved · exhaustive · found
+    1538	C13-HANDLE-LEAK	main	10809	3B.pot	3B.pot the potential on shape space                  formula · analysis            proved · exhaustive · found
+    1539	C13-HANDLE-LEAK	main	10810	3B.norm	3B.norm the norm variety                             theorem · algebraic geometry  proved · exhaustive · found
+    1540	C13-HANDLE-LEAK	main	10811	3B.five	3B.five the five fixed points                        theorem · analysis            proved · exhaustive · found
+    1541	C13-HANDLE-LEAK	main	10812	3B.tri	3B.tri the triangle form at cap 8                    measurement · combinatorics   measured · exhaustive · none found
+    1542	C13-HANDLE-LEAK	main	10813	3B.def	3B.def the deficit, one level                        theorem · complexity          proved · exhaustive · found
+    1543	C13-HANDLE-LEAK	main	10814	3B.index	3B.index Λ₃, E = 0                                   theorem · order               proved · exhaustive · found
+    1544	C13-HANDLE-LEAK	main	10822	3B.five	**The first run entered 3B.five and 3B.pot as measurements, because the compendium graded them
+    1545	C13-HANDLE-LEAK	main	10822	3B.pot	**The first run entered 3B.five and 3B.pot as measurements, because the compendium graded them
+done

@@ -1,0 +1,110 @@
+
+================================================================================================
+1. EVERY POINTER IN THE UNIT, resolved to the CLAIM and under BOTH resolvers
+================================================================================================
+  §35       cited at [9479]: heading_line=9716  body_range=(9716, 9727)  section_span=(9716, 9892)  DIFFER
+  §36       cited at [9451]: heading_line=9892  body_range=(9892, 9896)  section_span=(9892, 11856)  DIFFER
+  Chapter 12  cited at [9424]: occurrences [126, 2304] -> BODY 2304, span 2304-3507: ## 12. The shape — a cylinder over the transfer
+  Chapter 20  cited at [9406]: occurrences [5551] -> BODY 5551, span 5551-5596: ## 20. The languages, and what each one can close
+  Chapter 27  cited at [9449]: occurrences [147, 7203] -> BODY 7203, span 7203-7365: ## 27. Slack
+
+================================================================================================
+2. THE LÖWDIN EPIGRAPH, PRINTED TWICE SEVEN LINES APART
+================================================================================================
+  §33.5 tail  L9489-L9492: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the Schrödinger equation. It has stood since. This part states what the method delivered, what it cost, and — because the method is the subject of this book — how the method itself did the work.*
+  ch.34 head  L9496-L9498: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the Schrödinger equation. It has stood since. This chapter states the challenge, what the method delivered, and how the method itself did the work.*
+  common prefix, 126 chars: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the Schrödinger equation. It has stood since. This 
+  divergence -> §33.5: "...part states what the method delivered, what it cost, and — because the method is"
+  divergence -> ch.34: "...chapter states the challenge, what the method delivered, and how the method itse"
+  identical: False
+  the Part VII epigraph the §33.5 tail also echoes, L9395-L9397:
+    *Parts I to VI state the method. This part applies it. Each chapter takes a problem posed outside this work, states what the method delivered, and — because the method is the subject — how the method itself did the work.*
+  register 1359 (reg L5105) fixes Part VII's structure:
+    **PART VII — THE CHALLENGES, AND A CHAPTER CUT AFTER AUDIT.** *The part opens with **§33 The cypher analysis** — where it came from, its purpose, how it is used, the singleton criterion, and what it cost to learn — and continues with **§34 The Löwdin challenge
+
+================================================================================================
+3. EVERY ATTRIBUTION IN THE UNIT against the References BODY occurrence and R.7
+================================================================================================
+  "## References" occurrences [173, 11503]; BODY = L11503; R.7 heading [11806]
+    Löwdin         unit sites [9489]  in References body: True
+    Schrödinger    unit sites [9490]  in References body: False
+  the two that fail, given their own witnesses across all six volumes:
+    Schrödinger: main 5, reg 6, mc 0, pc 2, ioi 1, sc 0
+      inside the References body (L11503+): NONE -- unbibliographed
+    Demkov: main 1, reg 5, mc 0, pc 0, ioi 0, sc 0
+      inside the References body (L11503+): NONE -- unbibliographed
+  and where the Demkov-Ostrovsky claim of L9468 does live:
+    main L9468: restated: the Demkov–Ostrovsky slope-½ comparison was an identity, and the closure
+    reg L5449: **THE OUTSIDE LITERATURE, SEARCHED AT LAST, AND OUR COORDINATES ARE FIFTY YEARS OLD.** *A precedent search on the Löwdin challenge itself, owed since 
+    reg L5453: **AND BELOKOLOS ANSWERS THE OBJECTION THAT SANK DEMKOV–OSTROVSKY: THE 2 IS DERIVED, NOT CHOSEN.** *His chain: any central potential carries a dynamica
+    reg L6083: **P2 CLOSED: DEMKOV-OSTROVSKY DERIVE MADELUNG AT E = 0, WHICH IS SEATON'S OWN LIMIT — AND THE CORRIDOR TEST REFUTES THE CONNECTION.** *Board row 11, c
+
+================================================================================================
+4. RULING 45 (build / editorial-process prose) and RULING 46 (script and file names)
+================================================================================================
+  Ruling 45 candidate sites in 101 lines: 5
+    L9396  [\bthis work\b]  problem posed outside this work, states what the method delivered, and — because
+    L9401  [\bwas not designed\b]  *The instrument this part runs on. It was not designed; it was noticed, and then
+    L9479  [\bwas arrived at\b]  **The cypher's diagnosis of §35 was arrived at after the failure it explains.**
+    L9485  [\bit is enforced in code\b]  **A rule follows, and it is enforced in code.** *Never fit across a language
+    L9491  [\bthis book\b]  delivered, what it cost, and — because the method is the subject of this book —
+  Ruling 46 sites in the unit (case-sensitive, word-bounded): 0 []
+  for contrast, the SAME protocol names a script in the Register (permitted there):
+    reg L5017 tail: is a pooled fit in disguise**. Saved as domain_protocol.py.*
+
+================================================================================================
+5. FIRST-PERSON PROSE (guarded against the Roman numeral in species names)
+================================================================================================
+  first-person sites in the unit: 0
+
+================================================================================================
+6. PRINTS & PROOFS -- every unit line anchored on its own text
+================================================================================================
+  offset measured from the first matching unit line: -94
+  unit lines matching PP verbatim: 69;  not matching: 5
+  of those, headings PRESENT in PP but UNNUMBERED: 5
+    L9404 "### 33.1 Where it came from"  ->  PP P9310 "### Where it came from"  (number added at production)
+    L9427 "### 33.2 Its purpose"  ->  PP P9333 "### Its purpose"  (number added at production)
+    L9440 "### 33.3 How it is used"  ->  PP P9346 "### How it is used"  (number added at production)
+    L9455 "### 33.4 The singleton criterion"  ->  PP P9361 "### The singleton criterion"  (number added at production)
+    L9477 "### 33.5 What it cost to learn"  ->  PP P9383 "### What it cost to learn"  (number added at production)
+  genuinely absent from PP: 0
+
+================================================================================================
+7. DEFECT-CENSUS.tsv ROWS IN RANGE (classes main AND all)
+================================================================================================
+  header: ['id', 'class', 'member', 'line', 'item', 'detail']
+  rows with member in (main, all) and line in [9393,9493]: 1
+    1194	C9-OVERGENERALISATION-WORD	main	9474	never	intermediate — it is fitted from a series and never measured. **A quantity the
+
+================================================================================================
+8. DUPLICATED-SECTION SWEEP (DEF-105 item 1) -- long unit lines recurring elsewhere
+================================================================================================
+  long lines examined: 46;  recurring outside the unit: 1
+    L9489 also at [9496]: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule 
+
+================================================================================================
+9. PLACEHOLDER / UNMARKED-HEADING SWEEP inside the unit
+================================================================================================
+  L9393 HEADING  # PART VII — THE CHALLENGES                                    body within 5 lines: yes
+  L9399 HEADING  ## 33. The cypher analysis                                     body within 5 lines: yes
+  L9404 HEADING  ### 33.1 Where it came from                                    body within 5 lines: yes
+  L9427 HEADING  ### 33.2 Its purpose                                           body within 5 lines: yes
+  L9440 HEADING  ### 33.3 How it is used                                        body within 5 lines: yes
+  L9455 HEADING  ### 33.4 The singleton criterion                               body within 5 lines: yes
+  L9477 HEADING  ### 33.5 What it cost to learn                                 body within 5 lines: yes
+  plain body lines reading as sub-headings (short, bold-free, no terminal stop,
+  and starting a paragraph -- a blank line above, which is what makes it a heading):
+    unmarked sub-headings in the unit: 0  (chat 124 found two in §32.7 by the same test)
+
+================================================================================================
+10. THE PRINTED §33 STRUCTURE against register 1359
+================================================================================================
+  L9404  ### 33.1 Where it came from
+  L9427  ### 33.2 Its purpose
+  L9440  ### 33.3 How it is used
+  L9455  ### 33.4 The singleton criterion
+  L9477  ### 33.5 What it cost to learn
+  register 1359 names, in order: where it came from · its purpose · how it is used · the singleton criterion · what it cost to learn
+  register 1359 also states a three-body chapter was CUT; the volume now carries:
+    ## 36. Three bodies, and what a complete index is allowed to say

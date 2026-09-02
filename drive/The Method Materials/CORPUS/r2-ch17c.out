@@ -1,0 +1,175 @@
+
+================================================================================================
+0  UNIT main L9806–L9891 — heading lines by own scan, both resolvers
+================================================================================================
+  §35.4  heading_line  9806  body_range (9806, 9858)  section_span (9806, 9858)
+  §35.5  heading_line  9858  body_range (9858, 9872)  section_span (9858, 9872)
+  §35.6  heading_line  9872  body_range (9872, 9892)  section_span (9872, 9892)
+  §36    heading_line  9892  body_range (9892, 9896)  section_span (9892, 11856)
+  unit bound by body_range: L9806–L9891 = 86 lines; body_range and section_span COINCIDE on §35.4, §35.5, §35.6: True
+  Prints & Proofs: "## 35." body occurrences in PP = 0; "### 35.4" in PP = 0; PP "# APPENDICES" at P[158, 9590] — the unit is post-PP authoring, stated once, not diffed
+
+================================================================================================
+1  §2.14 — "State the number before the interpretation" (L9810–L9811): resolved to the CLAIM under both resolvers
+================================================================================================
+  §2.14 heading L657: '### 2.14 Compute, then write'; body_range (657, 662); section_span (657, 662)
+  number before the interpretation     in §2.14 body: 0 L[]; six-volume sites: main:3[7668,9900,9920] reg:0 mc:0 pc:0 ioi:0 sc:0
+  \bState the number\b                 in §2.14 body: 0 L[]; six-volume sites: main:3[29,7668,9810] reg:0 mc:0 pc:0 ioi:0 sc:0
+  \binterpretation\b                   in §2.14 body: 0 L[]; six-volume sites: main:11[30,3480,3488,3624,6725,6739…] reg:5[365,397,5729,5838,6379] mc:2[1274,1393] pc:0 ioi:0 sc:0
+  the italic phrase at L9810–L9811 (join): '*State the number before the interpretation*'
+
+================================================================================================
+2  §E.5 — "nine things" (L9827) counted at §E.5's BODY (DATA rows / list items), lettered heading resolved exact-token
+================================================================================================
+  "E.5" heading occurrences: [11143] (last = body)
+  §E.5 heading L11143: '### E.5 Precedence, pushed as far as it goes'; body L11144–L11188 (45 lines)
+  list items 0; pipe-table rows 0; bold lead-in paragraphs 0 — the ledger is whitespace-aligned (fault 3: the pipe/list detector matched nothing)
+  ledger header L11147 'what was derived what already had it'; DATA rows (left-column starts) 11:
+    L11149 the recovered bound φ_ij Rival 1973/74 — sublattices are the complement of a closed family of irreducible
+    L11152 "subdirect" — every Larson 1998; named, with the subdirect/tight distinction the book needed
+    L11155 tightness ⟺ acyclic Siggers 2016, Lemma 5.1(iii)
+    L11158 sublattices ↔ preorder Siggers 2016, Cor. 4.2 — verified here on four boxes, offset by the empty
+    L11161 the axis system as a Birkhoff 1937 · Dilworth 1950 · Larson 1998
+    L11165 the step law, 3·2^(d−2) Rival 1973 — \ K ≤ L for a
+    L11170 the subcube-removal Chen–Koh–Tan — maximal sublattices are L − [a,b]
+    L11173 the large sublattices of catalogued; the maximal ones in finite topology, Sharp, Stephen
+    L11176 the unbounded Tucker 1972
+    L11179 C1P and the linear Booth & Lueker 1976 · Fulkerson & Gross 1965
+    L11182 the constraint-language Schaefer 1978
+  the ledger's own totals line: [(11185, "Nine components, nine precedents. The subcube-removal construction is Rival's interval")]; count word at L9827 "nine things": DATA rows 11 — NOT EQUAL (the convention yielding nine is unnamed; the closing note folds the step law and the subcube-removal construction into Rival)
+  "Every component of §30.3" — §30.3 L8399–L8574: bold lead-in paragraphs 0; sub-headings 10; list items 0
+  L11165–L11168: the step-law row's right column is typeset as a broken fraction over four lines (production; incidental)
+  §E.5 opening lines:
+    L11143 ### E.5 Precedence, pushed as far as it goes
+    L11144 Every component of §30.3 was found in print after being derived from scratch. The register
+    L11145 carries the corrections; this is the ledger.
+    L11147 what was derived what already had it
+  count words in §E.5 body: ['Nine', 'four', 'nine']
+  "already in print" / "in print" in §E.5 body: [11144]
+  six-volume sites of "nine things": main:3[68,4051,9827] reg:0 mc:0 pc:0 ioi:0 sc:0 ; of "§E\.5": main:6[70,1288,8502,9827,9922,11207] reg:2[6371,6423] mc:0 pc:0 ioi:0 sc:0
+
+================================================================================================
+3  "the twenty-two audits' principle" (L9824) — counted at §3's DATA (sub-headings, rows, list items); docket 33
+================================================================================================
+  §3 heading L1003: '## 3. The twenty-two prime audits, ordered by what a failure costs'; section_span L1003–L1080
+  §3 sub-headings: 1
+    L1006 ### 3.0 Ten of the twenty-two test the index; twelve test the book
+  §3 "audit" token lines: 7; count words with "audits" in §3: ['ten', 'twenty-two']
+  §3 DATA: ten-list rows 10 (L[1010, 1019]); twelve named 12 (CONSISTENCY REDUNDANCY ARTEFACT COHERENCE ATTRIBUTION ANTECEDENT MARKUP ENUMERATION FIDELITY MEASURE SEQUENCE CENSUS); 10 + 12 = 22 (Decimal); audits described in the body 7 (docket 33 / 15i-08: seven of twenty-two) at L[1040, 1045, 1049, 1053, 1058, 1063, 1069]
+  L79 (front matter) says "world outside the book"; L9824 says "world outside the work": True / True
+  six-volume sites of "twenty-two audits": main:5[79,1004,1140,1399,9824] reg:1[4593] mc:0 pc:0 ioi:1[271] sc:0 ; of "twenty-two": main:19[79,116,526,732,751,1003…] reg:21[1257,1409,1969,2081,2217,2373…] mc:0 pc:0 ioi:1[271] sc:0
+    reg L4593 **AND 22 CENSUS CAUGHT THE CHANGE THAT ADDED THE THREE AUDITS.** *Promoting GRAPH, CYCLE and NOMENCLATURE to prime status meant the book said twenty-f
+  "The audit reads the object, the source, the artefact and the world outside the work" — a four-object list: 4
+  six-volume sites of "world outside the work": main:1[9824] reg:0 mc:0 pc:0 ioi:0 sc:0
+
+================================================================================================
+4  YEARS — Pulay 1969 · Löwdin 1950 · Griffin, Andrew and Cowan 1969 and 1971 · the 1969 challenge; References body lines
+================================================================================================
+  References body L11503; R.7 heading [11806]
+  Pulay    References-body lines 1: L11813 · Pulay, P. (1969). *Mol. Phys.* **17**, 197. — the occupation-parameter term that is the walk's one defect.
+  Löwdin   References-body lines 4: L11807 **The Löwdin solution.** Entered at registers 1701–1712. The companion paper carries the full list; these are the works Chapter 35 | L11809 · Löwdin, P.-O. (1969). Some comments on the periodic system of the elements. *Int. J. Quantum Chem.* **3**(S3A), 331–334. — the c | L11810 · Löwdin, P.-O. (1950). On the non-orthogonality problem. *J. Chem. Phys.* **18**, 365. — the multiplier identity is an instance. | L11816 · Lach, M. (2026). *The Löwdin Solution.* — the companion paper; the formal statement.
+  Griffin  References-body lines 1: L11812 · Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). *Phys. Rev.* **177**, 62–71; Griffin, Cowan & Andrew (1971). — orbital coll
+  Andrew   References-body lines 2: L11507 · Cowan, R. D. and Andrew, K. L. (1965). Coupling considerations in two-electron spectra. *JOSA* | L11812 · Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). *Phys. Rev.* **177**, 62–71; Griffin, Cowan & Andrew (1971). — orbital coll
+  Cowan    References-body lines 3: L11507 · Cowan, R. D. and Andrew, K. L. (1965). Coupling considerations in two-electron spectra. *JOSA* | L11512 · Cowan, R. D. (1981). *The Theory of Atomic Structure and Spectra.* University of California Press. | L11812 · Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). *Phys. Rev.* **177**, 62–71; Griffin, Cowan & Andrew (1971). — orbital coll
+  years on those lines: {'Pulay': ['1969'], 'Löwdin': ['1950', '1969', '2026'], 'Griffin': ['1969', '1971'], 'Cowan': ['1965', '1969', '1971', '1981']}
+  unit asserts: Pulay 1969 True; Löwdin 1950 True; Griffin/Andrew/Cowan 1969 True and 1971 True; Löwdin challenge 1969 True
+  "nineteen years before" (L9876): 1969 − 1950 = 19 (Decimal; convention: challenge year minus identity year)
+  "Three of the load-bearing works are dated 1969" (L9874): named — the challenge (Löwdin 1969), the Pulay term (Pulay 1969), the collapse computation (Griffin/Andrew/Cowan 1969): items named 3; References lines dated 1969 among those names: 3
+  all References-body lines dated 1969: [(11809, '· Löwdin, P.-O. (1969). Some comments on the periodic system of the elements. *I'), (11812, '· Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). *Phys. Rev.* **177**, 62–'), (11813, '· Pulay, P. (1969). *Mol. Phys.* **17**, 197. — the occupation-parameter term th')]
+
+================================================================================================
+5  COUNT WORDS in §35.4 — three discrepancies / all three; twice / two entries; four refusals / the fifth; five evaluations
+================================================================================================
+  "three numerical discrepancies … All three" — items enumerated at L9831–L9834: 3 (force-versus-gradient, operator asymmetry, two-branch f physics)
+  "A nothing was defined … twice" / "Two entries … reclassified": items at L9839–L9846: 2
+  "exactly quartic … five evaluations determine every coefficient" (L9844–L9846): degree 4 ⇒ 5 coefficients; 5 exact evaluations recover them: True (Vandermonde, Fractions, no truncation)
+  "Four of this book's results exist because a conclusion was refused; … the fifth" (L9855–L9856): six-volume sites of refus*: main:43[4,50,51,618,1649,1652…] reg:61[42,1249,1497,1505,1697,1785…] mc:8[92,112,404,1374,1842,2643…] pc:1[356] ioi:5[281,360,361,1564,1912] sc:1[994]
+    main L4 |∏ᵢ Aᵢ| = |X| + E(X) + refused ··· 6,912 = 976 + 0 + 5,936
+    main L50 **Four of this book's results exist because a conclusion was refused and reasoning resumed from the
+    main L51 refusal.** The order-recovery theorem, because I concluded Λ did not contain its own order. The ⅅ_def
+    main L618 No third state. A quantity is admissible or it is refused; it is never silently defaulted.
+    main L1649 refused, **67% admissible**.
+    main L1652 place here is that it is *mechanical*: **where an index refuses, a mechanism is entering that the
+    main L1653 coordinates do not carry**, and the refusal map says where without being told what. The periodic
+    main L2795 was the wrong bound, and had it survived, the index would have refused states the physics produces.
+    main L3527 self-reference, refusal, and the price of certainty* — four terms that named four Parts, where the
+    main L3748 is worth stating here because the asymmetry is ℛ's own, one level up.** ℛ carries meets and refuses
+    main L4459 **Worked case.** A species was misidentified — Na II read as neutral neon, and the wrong ionisation limit applied. Every
+    main L4475 Index (step, visible, alternatives, committed) under **visible ≤ committed** — that nothing of an answer may be visible 
+  Register sites naming a count with refus*: [(42, "| **1581** | 9× | Six candidate axes tested: five are determined, Z is refused at 2.1%, and H1's re-coordinati"), (1505, '**THE REFERENCE INDEX REFUSED FOUR CELLS THE BOOK OCCUPIES** *— the four blocked pre-digital sources — and the'), (1857, '**EIGHTEEN POINTS GIVE AN EXPRESSION, AND IT IS ADDITIVE.** *Sweeping parent count against alphabet on one bas'), (1977, '**EXTENDED TO EVERY ELEMENT: 18,288 TESTS, ZERO FAILURES.** *Register 487 reported 3,964 tests across 57 eleme'), (1981, '**Λ DOES NOT INDEX ATOMIC NUMBER, MASS OR IONISATION ENERGY — THE METHOD DOES, AND REGISTER 529 SAID OTHERWISE'), (2389, '**AND ITS FIFTH SECTION IS THE ONE THAT MATTERS.** **Sound** *is indexable and would index a material rather t')]
+  the four at L50–L55 (front matter): 4 items — order-recovery theorem | ⅅ_def and ⅅ_phys split | perturbation bounds of §12 | reframing of §25.6
+  "reasoning sound, destination wrong" (L9851) in its printed order at L54: True; six-volume sites of "destination wrong": main:2[54,9851] reg:0 mc:0 pc:0 ioi:0 sc:0; "collaborator" sites: main:10[17,18,42,90,108,7469…] reg:5[969,1225,5593,5738,5858] mc:0 pc:0 ioi:0 sc:0
+  contents L108: 'Nothing is something definable — a note from the collaborator'
+  "this book paid for that sentence twice" (L9819): six-volume sites of "wrong artefact": main:3[75,81,1254] reg:0 mc:0 pc:0 ioi:0 sc:0
+    L75 'And twice an audit passed something it should have caught, because it read the wrong artefact:'
+    events named at L75–L78: 2 (cross-references; the operator not printing); L81 carries the sentence verbatim: True
+
+================================================================================================
+6  §35.5 TABLE L9860–L9868 — DATA rows counted; each delivered/rests-on pair against the Register entry that carries it
+================================================================================================
+  table lines 8: header 1 + DATA rows 7; columns per row: [2]
+    | **the ordering law, 107/107** | the many-electron equation, one constant |
+    | **the three exceptions** | the collapse condition, from the field |
+    | **no g block below 121** | the pinned channels, −1/(2n²) |
+    | **the correlation clause** | second order, complete, at the five close rows |
+    | **the relativistic table** | the c → ∞ twin walk, eleven elements apart |
+    | **twelve unwitnessed rows** | the same walk past the last measurement |
+    | **zero unexplained residue** | Pulay 1969 · Löwdin 1950 · exact quartics |
+  "107/107" (row 1) — entries whose BODY carries "107 of 107|107/107": [1701, 1706]; six-volume sites of "107/107": main:1[9862] reg:2[6347,6367] mc:2[3162,3216] pc:1[237] ioi:0 sc:0; of "107 of 107": main:1[9746] reg:0 mc:1[3154] pc:1[213] ioi:1[1915] sc:1[190]
+  "one constant" (row 1) — entries whose body carries 137.035999: [1701]; c = 137.035999 sites: main:1[9737] reg:1[6347] mc:2[3154,3216] pc:2[209,595] ioi:0 sc:0
+  "the three exceptions" (row 2) — 1703 body names: La, Ac, Th → 3; "collapse" in 1703: True
+  "no g block below 121" (row 3) — 1704 body: 'NO G BLOCK BELOW Z = 121, AND THE FIELD SAYS SO WITHOUT BEING ASKED. Measured across the walk: 5g at −0.020000 over 65 elements · 6g at −0.013889 over 70 · 7g at −0.010204 over 57 · 8g at −0.0078125 o'
+    1704 carries "121": True; "−1/(2n²)" / "1/(2n" in 1704: True; six-volume sites of "below 121|below Z = 121": main:2[9763,9864] reg:0 mc:1[3182] pc:0 ioi:0 sc:0
+  "the correlation clause … second order, complete, at the five close rows" (row 4) — 1705 body: 'THE CORRELATION CLAUSE, COMPLETE AT ALL FIVE CONTESTED ROWS — EVERY COMPETITION WIDENS. Z = 38, 56, 72, 89, 105; full second order (entrant pairs, core–core closed at all five, near-degenerate block resummed with the con'
+    1705 "second order" True; Z values listed: ['38', '56', '72', '89', '105'] (count 5); "five" in 1705: True
+  "the relativistic table … c → ∞ twin walk, eleven elements apart" (row 5) — 1706 body: 'ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL. The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese an'
+    1706 elements: 11; "c → ∞|c→∞|nonrelativistic" in 1706: True
+  "twelve unwitnessed rows … past the last measurement" (row 6) — 1712 body: 'OPEN — TWELVE ROWS UNWITNESSED, AND WHAT WOULD WITNESS THEM. Z = 109–120: entrants 6d (109–112), 7p (113–118), 8s (119–120); margins 0.058–0.264 Ha; spin-orbit worst case 0.083 Ha cleared by all. No g'
+    convention A (1712: rows 109–120 past Z = 108): 12 rows; convention B (1446: the observational edge is 102; rows past it to 120): 18 rows — 17a-02's class, second site
+    1446 headline: 'AND THE OBSERVATIONAL EDGE IS 102, NOT 108 — THERE ARE FOUR EDGES, NOT TWO. NIST ASD returns five rows for Rf–Og: it holds no neutral ground configurations past Z = 108, and `ground.py` matches all five exactly, so our table is fa'
+  "zero unexplained residue" (row 7) — entries whose body carries "residue": [1707, 1711]; six-volume sites of "unexplained residue": main:1[9868] reg:1[6283] mc:1[3206] pc:0 ioi:0 sc:0
+    "Pulay" in 1707–1712 bodies: [1707]; "quartic" in 1701–1712: [1709, 1711]; six-volume sites of "quartic": main:2[9844,10803] reg:2[6379,6383] mc:3[2034,3196,3198] pc:0 ioi:0 sc:0
+  "No parameter is fitted. No observation enters upstream of the score." (L9870) — the derivation's own claim (DEF-128 item 8): six-volume sites of "No parameter is fitted": main:3[9596,9659,9870] reg:1[5073] mc:0 pc:0 ioi:0 sc:0; "upstream of the score": main:1[9870] reg:0 mc:0 pc:0 ioi:0 sc:0
+
+================================================================================================
+7  CODA L9884–L9888 — "Chapter 34 read the order out of the table's own coordinates"; the corridor's silence at f; the collapse condition's address
+================================================================================================
+  \bcoordinates?\b     in Chapter 34 (L9494–L9715): 3 sites L[9530, 9553, 9556]
+  \bcorridor\b         in Chapter 34 (L9494–L9715): 5 sites L[9595, 9609, 9636, 9694, 9699]
+  \bsilen(?:ce|t)\b    in Chapter 34 (L9494–L9715): 0 sites L[]
+  \bdomain\b           in Chapter 34 (L9494–L9715): 3 sites L[9661, 9666, 9685]
+  −∞|-∞                in Chapter 34 (L9494–L9715): 1 sites L[9668]
+  \bcollapse\b         in Chapter 34 (L9494–L9715): 2 sites L[9550, 9703]
+  carried state        in Chapter 34 (L9494–L9715): 0 sites L[]
+  computab             in Chapter 34 (L9494–L9715): 1 sites L[9631]
+  "corridor" in the unit: L[9886, 9887]; in Chapter 35 (L9716–L9891): 6; Register entries 1701–1712 carrying "corridor": [1703]
+  six-volume sites of "reached from both ends": main:1[9888] reg:0 mc:0 pc:0 ioi:0 sc:0 ; "closed in the middle": main:1[9888] reg:0 mc:0 pc:0 ioi:0 sc:0
+
+================================================================================================
+8  DOCKET 27 — unit lines ≥ 60 chars recurring anywhere in the six volumes (whitespace-normalised)
+================================================================================================
+  56 long lines tested; recurring: none
+
+================================================================================================
+9  NUMERALS AND PHRASES — sites across the six volumes
+================================================================================================
+  \b107/107\b                  main:1[9862] reg:2[6347,6367] mc:2[3162,3216] pc:1[237] ioi:0 sc:0
+  \b1969\b                     main:11[9489,9496,9600,9722,9832,9834…] reg:7[4569,4573,4673,6355,6371,6499…] mc:12[2858,2862,3066,3070,3106,3174…] pc:2[449,559] ioi:1[1508] sc:0
+  \b1950\b                     main:7[9342,9833,9868,11161,11551,11661…] reg:2[4577,6375] mc:21[644,648,696,698,1228,1230…] pc:1[877] ioi:1[1500] sc:0
+  \b1971\b                     main:4[9834,9906,11812,11828] reg:2[5493,6355] mc:17[1228,1230,1238,1240,2148,2150…] pc:0 ioi:1[1534] sc:0
+  \btwenty-two\b               main:19[79,116,526,732,751,1003…] reg:21[1257,1409,1969,2081,2217,2373…] mc:0 pc:0 ioi:1[271] sc:0
+  \bnine things\b              main:3[68,4051,9827] reg:0 mc:0 pc:0 ioi:0 sc:0
+  \bfive evaluations\b         main:1[9845] reg:1[6379] mc:1[3198] pc:0 ioi:0 sc:0
+  \bexactly quartic\b          main:1[9844] reg:1[6379] mc:1[3198] pc:0 ioi:0 sc:0
+  \bfourth\b|\bthe fifth\b     main:38[794,802,815,820,827,828…] reg:59[89,413,761,977,1057,1349…] mc:2[1214,1334] pc:1[684] ioi:2[1824,1828] sc:0
+  \bnineteen years\b           main:1[9876] reg:1[6375] mc:0 pc:0 ioi:0 sc:0
+  \bcryptographic\b            main:1[9810] reg:0 mc:0 pc:0 ioi:0 sc:0
+  \bprediction file\b          main:0 reg:2[5882,5890] mc:0 pc:0 ioi:0 sc:0
+  \bhash\b                     main:2[9813,10200] reg:2[6351,6515] mc:0 pc:0 ioi:0 sc:2[994,1096]
+  \bsealed copy\b              main:1[9822] reg:1[6351] mc:0 pc:0 ioi:0 sc:0
+  \bnightly\b                  main:1[9825] reg:0 mc:0 pc:0 ioi:0 sc:0
+  \bfault ledger\b             main:1[9846] reg:0 mc:0 pc:1[303] ioi:0 sc:0
+  \bg block\b                  main:4[9763,9840,9864,10801] reg:2[5345,6359] mc:1[3178] pc:1[219] ioi:0 sc:0
+  \bunwitnessed\b              main:2[9780,9867] reg:16[5926,5930,5942,5946,5994,6095…] mc:1[800] pc:2[200,214] ioi:6[318,322,1906,1910,1966,1971] sc:10[40,44,93,131,132,191…]
+
+END r2-ch17c

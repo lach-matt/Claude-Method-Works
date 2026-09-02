@@ -1,0 +1,281 @@
+
+====================================================================================================
+§0 IDENTITY AND BOUNDARIES
+====================================================================================================
+  The_Method_1_6-2.md                                  md5 4aef772b  11855 lines
+  The_Method_1_6___The_Register-2.md                   md5 79aaf239  6612 lines
+  The_Method_1_6___Mathematical_Compendium-2.md        md5 99a616ec  3803 lines
+  The_Method_1_6___The_Physics_Compendium-2.md         md5 5a964610  879 lines
+  The_Method_1_6___The_Index_of_Indices-2.md           md5 27d387ef  2094 lines
+  The_Method_1_6___Spectra_Compendium-2.md             md5 5ba7f61c  1160 lines
+  r2lib.py                                             md5 580d2ea2  454 lines
+  tower-2.py                                           md5 c0bce27a  31 lines
+  tower-2 loaded via r2lib.load_tower(): True
+  §25.2    heading_line  6890 '### 25.2 Five exclusions, which are three mechanisms'       hits [6890] | section_span (6890, 6931) | body_range (6890, 6931) | differ by 0
+  §25.6    heading_line  6991 '### 25.6 The one deduction, and why it is not a prediction' hits [6991] | section_span (6991, 7117) | body_range (6991, 7003) | differ by 114
+  §25.6.1  heading_line  7003 '### 25.6.1 The bracket, from monotonicity alone'            hits [7003] | section_span (7003, 7021) | body_range (7003, 7021) | differ by 0
+  §25.6.2  heading_line  7021 '### 25.6.2 And convexity tightens it, without leaving it'   hits [7021] | section_span (7021, 7039) | body_range (7021, 7039) | differ by 0
+  §25.6.3  heading_line  7039 '### 25.6.3 What was already solved — not a prediction'      hits [7039] | section_span (7039, 7059) | body_range (7039, 7059) | differ by 0
+  §25.6.4  heading_line  7059 '### 25.6.4 The point estimates, and the one that was wrong' hits [7059] | section_span (7059, 7071) | body_range (7059, 7071) | differ by 0
+  §25.6.5  heading_line  7071 '### 25.6.5 Nothing was fetched'                             hits [7071] | section_span (7071, 7093) | body_range (7071, 7093) | differ by 0
+  §25.6.6  heading_line  7093 '### 25.6.6 A second route to the same prediction'           hits [7093] | section_span (7093, 7117) | body_range (7093, 7117) | differ by 0
+  §32.5.1  heading_line  9168 '### 32.5.1 The prediction, recomputed from the text'        hits [9168] | section_span (9168, 9185) | body_range (9168, 9185) | differ by 0
+  §18.6.3  heading_line  5352 '### 18.6.3 Where prediction actually lives'                 hits [5352] | section_span (5352, 5368) | body_range (5352, 5368) | differ by 0
+  §22.2.1  heading_line  6055 '### 22.2.1 Each rule justified by ablation'                 hits [6055] | section_span (6055, 6070) | body_range (6055, 6070) | differ by 0
+  §28.9    heading_line  7772 '### 28.9 The register, indexed and closed'                  hits [7772] | section_span (7772, 7856) | body_range (7772, 7774) | differ by 82
+  lettered(C.3) = [10283] '### C.3 What was inherited and not recomputed'
+  lettered(C.4) = [10305] '### C.4 Computational methods'
+  lettered(E.3) = [11054] '### E.3 Each open item, in full'
+  lettered(E.4) = [] (no heading line — E.4 is 24b-02's unmarked line)
+  lettered(E.5) = [11143] '### E.5 Precedence, pushed as far as it goes'
+  C.3 span by lettered heading (10283, 10305) | E.3 span to E.5 (11054, 11143) | E.4 unmarked heading candidate inside it [11105] (E.3 proper ends there; item A is L11058–L11060)
+  the census spans: §25.2, §25.6 (section_span, six subsections), §32.5.1, C.3 (to C.4), E.3 item A, plus every other main-volume line naming Sc VI
+
+====================================================================================================
+§1 THE FAMILY LOCATED — figure sites in six volumes, the Register grepped for a later statement, the pointers
+====================================================================================================
+  892,700  main [6914]
+  696,400  main [10303]
+  648,096  main [10303]
+  735,091  main [7064, 7066, 10300]
+  735,092  main [10301]
+  735,860  main [7018, 7030, 7033, 7045, 7077, 9175, 11058]
+  737,380  main [7033, 7045, 7077, 7081, 7091, 9178, 11058]
+  738,547  main [7018, 7030, 7081, 7091, 9176]
+  736,688  main [7045, 7063, 9174]
+  2,687    main [7018, 7030, 7088, 9177]
+  1,520    main [7033, 7089, 9179] sc [531, 532, 533, 534]
+  1,398    main [7066]
+  784,416  main [7050]
+  784,128  main [7050, 7053]
+  785,209  main [7050]
+  784,605  main [7053]
+  1,081    main [7050]
+  478      main [7053] reg [1775] ioi [858]
+  1,594    main [7105]
+  2,169    main [7106]
+  1.0057   main [6114, 7004]
+  0.9812   main [6114, 7004, 7014, 7030, 7033, 7066, 7485, 10303]
+  1.0889   main [7010]
+  0.9376   main [7010, 7014, 7030]
+  0.9679   main [7010, 7063]
+  0.9567   main [7025, 7033, 7089]
+  0.9934   main [6114, 7064, 7066, 7485]
+  13.5743  main [7045]
+  13.5615  main [7046, 11059]
+  13.5895  main [7046, 11059]
+  91.338   main [7046, 11059]
+  0.514    main [10303] reg [165, 169]
+  129      main [7550] reg [587, 3893, 3897, 4373, 6159] mc [2882, 3054] ioi [509]
+  "Sc VI" (also Sc⁵⁺) by volume: {'main': 30, 'reg': 0, 'mc': 0, 'pc': 0, 'ioi': 0, 'sc': 0} | main lines [757, 5355, 6098, 6114, 6914, 6916, 6919, 6992, 7018, 7045, 7075, 7087, 7094, 7097, 7105, 7485, 7550, 9186, 10268, 10287, 10299, 10303, 10946, 10952, 11058, 11093, 11111, 11117, 11461, 11579]
+  scandium in the Register (any case): ['957', '1302', '1303', '1411', '1444', '1575', '1591', '1596', '1620', '1627', '1639'] — none is the Sc VI channel (read: 957 spectra list, 1302/1303 Sc I ground, 1411 block openings, 1444, 1575, 1591, 1596, 1620, 1627, 1639 reading lists)
+  the Register prints NONE of the family's figures (bounded probe above, reg column empty for all 33) — the family has no Register home; "1,520" hits 1303 only as the substring of 11,520 under an unbounded probe (regex artefact, not a site)
+  register pointers inside the family spans: [(11056, 384), (11070, 387)]
+  Register 384 body: **E.3 DETAILED SIX ITEMS WHERE ELEVEN WERE OPEN, AND ONE OF THE SIX WAS ANSWERED.** *It is subordinate to E.1.2 and the two must list the same items; 
+    WARNING lines in entry: 0
+  Register 387 body: **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: every figure the printed slice specifies reproduces — 208 cell
+    WARNING lines in entry: 0
+  §-pointers printed in the family spans: ['12.11.1', '16.3', '2.13', '23.11', '24.2', '24.6', '25.6', '25.6.1', '25.6.2', '3.5']
+    §24.2 = L6653 '### 24.2 The largest contributors'
+    §24.6 = L6710 '### 24.6 The isoelectronic pairs'
+    §23.11 = L6519 '### 23.11 The refusal pattern carries four verdicts, not one'
+    §24.6 cited at L7115 for "the deductive bracket" — the bracket is §25.6.1–§25.6.2's (a pointer finding, checked under both resolvers: §24.6 body carries none of the family figures: [] )
+
+====================================================================================================
+§2 CENSUS — every numeral printed in the family spans, one line each
+====================================================================================================
+  §25.2                L6894  5
+  §25.2                L6895  5 · 60 · 6
+  §25.2                L6898  79% · 100% · 11
+  §25.2                L6903  3 · 22%
+  §25.2                L6904  2 · 7 · 2 · 6, · 3 · 6 · 17
+  §25.2                L6905  58.8% · 3
+  §25.2                L6907  35.3% · 35.3% · 41.2% · 3 · 58.8%
+  §25.2                L6910  23 · 26
+  §25.2                L6911  55,000 · 42,000
+  §25.2                L6912  40 · 50%
+  §25.2                L6914  892,700 · 400 · 6 · 10 · 5
+  §25.2                L6916  6
+  §25.2                L6922  5,
+  §25.6                L6993  3
+  §25.6                L6997  0
+  §25.6                L6998  11 · 13
+  §25.6                L7000  36 · 0
+  §25.6                L7004  4 · 1.0057 · 5 · 0.9812 · 0.025
+  §25.6                L7010  1 · 16 · 1 · 25 · 1.0889 · 0.9376 · 6 · 0.9679
+  §25.6                L7012  6
+  §25.6                L7014  0.9376 · 6 · 5 · 0.9812
+  §25.6                L7018  735,860 · 6 · 738,547 · 2,687
+  §25.6                L7019  400
+  §25.6                L7022  1
+  §25.6                L7025  6 · 2 · 5 · 4 · 0.9567
+  §25.6                L7030  0.9376 · 0.9812 · 735,860 · 738,547 · 2,687
+  §25.6                L7033  0.9567 · 0.9812 · 735,860 · 737,380 · 1,520
+  §25.6                L7041  0
+  §25.6                L7045  3 · 6 · 736,688 · 735,860, · 737,380 · 13.5743
+  §25.6                L7046  13.5615 · 13.5895 · 91.338
+  §25.6                L7048  7 · 6
+  §25.6                L7050  7 · 784,416 · 784,128, · 785,209 · 1,081 · 6
+  §25.6                L7053  7 · 784,128, · 784,605 · 478 · 6
+  §25.6                L7055  6 · 7
+  §25.6                L7056  7
+  §25.6                L7061  6
+  §25.6                L7063  0.9679 · 736,688
+  §25.6                L7064  4 · 0.9934 · 735,091
+  §25.6                L7066  735,091 · 1,398 · 0.9934 · 5 · 0.9812
+  §25.6                L7068  4
+  §25.6                L7075  1 · 3 · 6 · 6
+  §25.6                L7077  735,860, · 737,380
+  §25.6                L7081  737,380 · 738,547
+  §25.6                L7088  6 · 5 · 2,687 · 6
+  §25.6                L7089  2 · 5 · 4 · 0.9567 · 1,520
+  §25.6                L7091  737,380 · 738,547
+  §25.6                L7094  4 · 5
+  §25.6                L7097  3 · 3.5% · 17%
+  §25.6                L7099  4
+  §25.6                L7105  4 · 5 · 4 · 1,594
+  §25.6                L7106  3.5% · 2,169
+  §32.5.1              L9169  4 · 5
+  §32.5.1              L9174  6 · 736,688 · 736,688
+  §32.5.1              L9175  735,860 · 735,860
+  §32.5.1              L9176  738,547 · 738,547
+  §32.5.1              L9177  2,687 · 2,687
+  §32.5.1              L9178  737,380 · 737,380
+  §32.5.1              L9179  1,520 · 1,520
+  C.3                  L10290 140 · 164
+  C.3                  L10291 160
+  C.3                  L10296 28
+  C.3                  L10300 735,091
+  C.3                  L10301 735,092
+  C.3                  L10303 5 · 696,400 · 5 · 0.9812 · 696,400 · 0.514 · 5 · 648,096 · 696,400 · 5
+  E.3 item A           L11058 3 · 6 · 735,860, · 737,380
+  E.3 item A           L11059 13.5615 · 13.5895 · 91.338
+  §22.2.1 clause site  L6114  4 · 1.0057 · 5 · 0.9812 · 0.9934 · 5
+  §28 item 49          L7485  49 · 0.9934 · 5 · 0.9812 · 4
+  §18.6.3 cell claim   L5355  6
+  numerals censused: 200 on 69 lines (section numbers excluded; every one scored in §3–§6 or named unreproducible in §7)
+
+====================================================================================================
+§3 CONVENTIONS NAMED BEFORE SCORING
+====================================================================================================
+  E(ns) = I − R·Z²/(n − δ)²  with I = 892,700 (L6914, ±400 not applied to the point values: L7018–L7019 "to be added at both edges"),
+  Z = 6 (L7075: Z_eff = 6 — the Rydberg electron outside Sc⁵⁺), R = R∞ = 109737.31568160 cm⁻¹ (CODATA 2018; L9183 "R* is the only import")
+  rival R_Sc = R∞/(1 + m_e/M(⁴⁵Sc)) = 109735.97662 (reduced mass, A = 44.955908) — tested as convention R2
+  δ(4s) = 1.0057, δ(5s) = 0.9812 READ from L7004 (inputs, not computed; C.3 L10287 "the input defects … not recomputed")
+  Ritz two-point: δ₂ = (δ₄ − δ₅)/(1/16 − 1/25), δ∞ = δ₄ − δ₂/16, δ(ns) = δ∞ + δ₂/n²; convex tangent δ(6s) ≥ 2δ(5s) − δ(4s); 7s tangent 2δ(6s) − δ(5s)
+  chain convention U: every δ carried unrounded (prec 40); chain convention P: each δ quantized to the 4 dp the book prints before use
+  Rule 4 constant defect δ̄ = (δ₄ + δ₅)/2 (L6114 "the constant form"); printed 0.9934 — 0.99345 at ROUND_HALF_EVEN → 0.9934, at half-up → 0.9935: the book's 4 dp is the half-even (or truncated) form
+  λ = 10⁷/E nm; eV = E·hc/e with hc/e = 1.239841984e-4 eV·cm; all figures quantized ROUND_HALF_EVEN at the printed precision
+
+====================================================================================================
+§4 RE-DERIVATIONS — §25.6.1 / §25.6.2 / §25.6.3 / §25.6.4 / §32.5.1 / E.3 / C.3
+====================================================================================================
+  — chain convention U
+  δ₂ (L7010)                         printed 1.0889       derived 1.0889         EQUAL  
+  δ∞ (L7010, L7014)                  printed 0.9376       derived 0.9376         EQUAL  
+  δ(6s) Ritz (L7010, L7063)          printed 0.9679       derived 0.9679         EQUAL  
+  δ(6s) convex bound (L7025)         printed 0.9567       derived 0.9567         EQUAL  
+  E(6s) point (L7045, L7063, L9174)  printed 736,688      derived 736,688        EQUAL  
+  E lower = E at δ(5s) (L7018, L7030) printed 735,860      derived 735,860        EQUAL  
+  E upper monotone = E at δ∞ (L7018) printed 738,547      derived 738,547        EQUAL  
+  E upper convex = E at 0.9567 (L7033) printed 737,380      derived 737,380        EQUAL  
+  width monotone (L7018, L7030)      printed 2,687        derived 2,687          EQUAL  
+  width convex (L7033)               printed 1,520        derived 1,520          EQUAL  
+  factor tighter (L7035)             printed 1.8          derived 1.8            EQUAL  
+  E(7s) point (L7050)                printed 784,416      derived 784,416        EQUAL  
+  7s lower = E at δ(6s) (L7050)      printed 784,128      derived 784,128        EQUAL  
+  7s upper = E at δ∞ (L7050)         printed 785,209      derived 785,209        EQUAL  
+  7s width (L7050)                   printed 1,081        derived 1,081          EQUAL  
+  7s convex upper (L7053)            printed 784,605      derived 784,605        EQUAL  
+  7s convex width (L7053)            printed 478          derived 478            EQUAL  
+  λ(6s) nm (L7045)                   printed 13.5743      derived 13.5743        EQUAL  
+  window low nm = 10⁷/737,380 (L7046, L11059) printed 13.5615      derived 13.5615        EQUAL  
+  window high nm = 10⁷/735,860 (L7046, L11059) printed 13.5895      derived 13.5895        EQUAL  
+  eV (L7046, L11059)                 printed 91.338       derived 91.338         EQUAL  
+  δ̄ Rule 4 (L6114, L7064, L7066, L7485) printed 0.9934       derived 0.9934         EQUAL  
+  E at δ̄ (L7064, L7066, L10300)     printed 735,091      derived 735,091        EQUAL  (printed-δ̄ 0.9934 gives 735,095; unrounded 0.99345 gives 735,091)
+  C.3 δ from 696,400 (L10303 "0.514") printed 0.514        derived 0.514          EQUAL  
+  C.3 5s at δ = 0.9812 (L10303)      printed 648,096      derived 648,096        EQUAL  
+  — chain convention P
+  δ₂ (L7010)                         printed 1.0889       derived 1.0889         EQUAL  
+  δ∞ (L7010, L7014)                  printed 0.9376       derived 0.9376         EQUAL  
+  δ(6s) Ritz (L7010, L7063)          printed 0.9679       derived 0.9678         DIFFERS  
+  δ(6s) convex bound (L7025)         printed 0.9567       derived 0.9567         EQUAL  
+  E(6s) point (L7045, L7063, L9174)  printed 736,688      derived 736,694        DIFFERS  
+  E lower = E at δ(5s) (L7018, L7030) printed 735,860      derived 735,860        EQUAL  
+  E upper monotone = E at δ∞ (L7018) printed 738,547      derived 738,550        DIFFERS  
+  E upper convex = E at 0.9567 (L7033) printed 737,380      derived 737,380        EQUAL  
+  width monotone (L7018, L7030)      printed 2,687        derived 2,690          DIFFERS  
+  width convex (L7033)               printed 1,520        derived 1,520          EQUAL  
+  factor tighter (L7035)             printed 1.8          derived 1.8            EQUAL  
+  E(7s) point (L7050)                printed 784,416      derived 784,419        DIFFERS  
+  7s lower = E at δ(6s) (L7050)      printed 784,128      derived 784,131        DIFFERS  
+  7s upper = E at δ∞ (L7050)         printed 785,209      derived 785,210        DIFFERS  
+  7s width (L7050)                   printed 1,081        derived 1,079          DIFFERS  
+  7s convex upper (L7053)            printed 784,605      derived 784,612        DIFFERS  
+  7s convex width (L7053)            printed 478          derived 481            DIFFERS  
+  λ(6s) nm (L7045)                   printed 13.5743      derived 13.5742        DIFFERS  
+  window low nm = 10⁷/737,380 (L7046, L11059) printed 13.5615      derived 13.5615        EQUAL  
+  window high nm = 10⁷/735,860 (L7046, L11059) printed 13.5895      derived 13.5895        EQUAL  
+  eV (L7046, L11059)                 printed 91.338       derived 91.338         EQUAL  
+  δ̄ Rule 4 (L6114, L7064, L7066, L7485) printed 0.9934       derived 0.9934         EQUAL  
+  E at δ̄ (L7064, L7066, L10300)     printed 735,091      derived 735,095        DIFFERS  (printed-δ̄ 0.9934 gives 735,095; unrounded 0.99345 gives 735,091)
+  C.3 δ from 696,400 (L10303 "0.514") printed 0.514        derived 0.514          EQUAL  
+  C.3 5s at δ = 0.9812 (L10303)      printed 648,096      derived 648,096        EQUAL  
+  — convention R2 (reduced-mass R_Sc) on the point value: 736,691 vs printed 736,688 — DIFFERS ; R∞ is the constant the book used (L9183)
+  — E(6s) under R∞ but Z = 5 (a rival charge convention): 784,363 — DIFFERS; Z_eff = 6 as L7075 states
+  §32.5.1's six of six (L9174–L9179): 736,688 · 735,860 · 738,547 · 2,687 · 737,380 · 1,520 — under U: 6 of 6 EQUAL; under P: 3 of 6 (the book carried δ unrounded: U is its convention)
+  E.3 item A (L11058–L11059) = §25.6.3's bracket, window and eV token for token: True | the point value 736,688 is absent from E.3 (DEF-138 item 12 re-measured): True
+  C.3 L10300–L10301 "735,091 against 735,092": 735,091 = §25.6.4's δ̄ row (retired at L7066); 735,092 has no site outside C.3 (§1) —
+    the two differ by the δ̄ rounding: E(δ̄ = 0.9934) = 735,095, E(δ̄ = 0.99345) = 735,091 (R∞); under R_Sc: 735,097 / 735,093
+  735,092 under rival conventions — δ̄ half-up 0.9935: 735,088 ; δ̄ 0.99345 with R∞ at 6 dp 109,737.316: 735,091 ; with R = 109,737 exactly: 735,092 ; with R_Sc: 735,093 ; truncation instead of half-even of 735,091.4: 735,091 → 735,092 reproduces under exactly one rival tried: R = 109,737 (R∞ at integer precision) — C.3's "independent" 735,092 and §25.6.4's 735,091 differ by the constant's precision alone; 735,092 stays unsited outside C.3 (21a-03 re-measured; a convention datum for docket 34)
+  the "± 1,398" of L7066 (an earlier version's spread) and §25.6.6's "± 1,594" / "± 2,169" (L7105–L7106): conventions tried —
+    half the monotone width 2,687/2                  1,344
+    half the δ̄-form miss: |735,091 − 736,688|       1,597
+    dE/dδ · 3.5 % of δ(6s)                           2,101
+    dE/dδ · 3.5 % of δ(5s)                           2,129
+    dE/dδ · (δ₄ − δ₅)                                1,519
+    dE/dδ · half (δ₄ − δ₅)                           760
+    E(δ₅) − E(δ̄) spread of the Rule-4 form          765
+    E(δ∞)−E(δ̄)                                      3,455
+    none gives 1,398, 1,594 or 2,169 at printed precision → the three spreads are UNREPRODUCIBLE from the page (their convention is unprinted; §7 budget)
+
+====================================================================================================
+§5 THE TOWER — L5355 "the Sc VI 6s cell of §25.6 is in Λ — its coordinates are ordinary integers"
+====================================================================================================
+  Λ₈ at the book's caps (n_max 3): 976 cells; n ranges [1, 2, 3] — a 6s cell (n = 6) lies outside the capped rebuild by construction (caps (3,3,1,3,1), CLAUDE.md §2)
+  L5355 prints no coordinates for the cell; convention: the seven constraints of the generator with the caps lifted to n_max = e_max = 6 admit any 8-tuple with n = 6, ℓ = 0 iff 1 ≤ k ≤ 2, 0 ≤ q ≤ k, 1 ≤ e, 0 ≤ f ≤ min(1, e−1), 0 ≤ g ≤ min(4f+2, q), 0 ≤ 2S ≤ k
+  cells with (n, ℓ) = (6, 0) admitted under those constraints: 264 (> 0: the claim "in Λ" holds for every completion; which completion is Sc VI's is unprinted — INFERRED reading, unscored)
+  membership of the printed 4s / 5s / 6s coordinates cannot be tested cell by cell: no 8-tuple is printed at L5355, §25.6 or E.3 (MEASURED: no parenthesised 8-tuple of integers in those spans: True )
+
+====================================================================================================
+§6 §25.2's OTHER FIGURES — spectra data, not tower arithmetic
+====================================================================================================
+  79%      L6898 Sr I node coverage                 sites main [6898]                       SC []
+  100%     L6898 away from node, 11 cells           sites main [3739, 3740, 3741, 3749, 4005, 4022] SC []
+  60       L6895 collapse factor                    sites main [2019, 2465, 2705, 2894, 3132, 3581] SC []
+  58.8%    L6905 Rule 3 coverage, 17 cells          sites main [6905, 6907]                 SC []
+  35.3%    L6907 earlier version                    sites main [2435, 2597, 6907]           SC []
+  41.2%    L6907 directional bracket                sites main [6907]                       SC []
+  23       L6910 Ti I channels                      sites main [143, 233, 251, 508, 521, 545] SC [420, 561, 578, 579, 580, 582]
+  26       L6910 Ti I members                       sites main [146, 297, 2597, 3220, 4126, 4537] SC [297, 406, 890, 980, 994]
+  55,000   L6911 Ti I limit                         sites main [6911]                       SC []
+  42,000   L6911                                    sites main [6911]                       SC []
+  892,700  L6914 Sc VI limit                        sites main [6914]                       SC []
+  400      L6914 ± limit                            sites main [3700, 5108, 5151, 6914, 7019, 8817] SC []
+  6        L6914 channels                           sites main [4, 12, 120, 200, 212, 291]  SC [20, 61, 101, 107, 127, 203]
+  10       L6914 configurations                     sites main [124, 233, 262, 325, 329, 1014] SC [93, 201, 205, 259, 283, 306]
+  the coverages (79 %, 100 % on 11, 58.8 %, 35.3 %, 41.2 %, 2 of 7 / 2 of 6 / 3 of 6) need Sr I, Ca II, Ba II level tables and the bracket code; the Ti I inventory (23 / 26) and Sc VI's 6 channels / 10 configurations need their ASD captures —
+  held in the bundle: Sc VI level table? no member names Sc VI or ScVI (MEASURED: [] ); the Spectra Compendium names Sc VI at [] lines → UNREPRODUCIBLE, budget: the ASD captures of DEF-133 (COORDINATES-2_13.csv, not attached — HANDOFF-97 §0a) and the bracket instrument (not a member)
+  the 17-cell denominators: 58.8 % = 10/17 = 58.8 ; 35.3 % = 6/17 = 35.3 ; 41.2 % = 7/17 = 41.2 — all three are k/17 at printed precision (EQUAL as fractions; the numerators are the bracket code's); the 2 + 2 + 3 = 7 reversing steps equal the directional bracket's numerator 7 — INFERRED coincidence, recorded unscored; the 17 cells themselves need the three series' member counts, unprinted
+  79 % on the Sr I node: no k/N with N ≤ 20 at printed precision except [(11, 14), (15, 19)] → the cell count of the node span is unprinted; 100 % on 11 cells = 11/11
+  L7550 (§28 item 69) "129× worse": T-bracket width / δ-bracket width relative: 0.1 ; absolute cm⁻¹ per unit δ at 6s: 62,007 ; neither is 129 → UNREPRODUCIBLE from the page (the convention is unprinted; §28 was read at chat 116 — out of family, recorded)
+
+====================================================================================================
+§7 SUMMARY
+====================================================================================================
+  convention U: scored re-derivations 25, EQUAL 25, DIFFERS 0; DIFFERS rows: none
+  convention P: scored re-derivations 25, EQUAL 13, DIFFERS 12; DIFFERS rows: ['δ(6s) Ritz (L7010, L7063)', 'E(6s) point (L7045, L7063, L9174)', 'E upper monotone = E at δ∞ (L7018)', 'width monotone (L7018, L7030)', 'E(7s) point (L7050)', '7s lower = E at δ(6s) (L7050)', '7s upper = E at δ∞ (L7050)', '7s width (L7050)', '7s convex upper (L7053)', '7s convex width (L7053)', 'λ(6s) nm (L7045)', 'E at δ̄ (L7064, L7066, L10300)']
+  a DIFFERS under P alone is a convention datum (the book carried δ unrounded), not a defect; a DIFFERS under U would be a finding about this instrument first (G0c)
+  UNREPRODUCIBLE with budget (record-carried, never withdrawn): 1,398 · 1,594 · 2,169 (spread conventions unprinted); the §25.2 coverages and inventories (spectra captures + bracket code); 129× (L7550)
+  the family's Register home: NONE (§1) — every figure of §25.6 / §32.5.1 / C.3 / E.3 lives only in the main volume; the one register pointer in the spans is 384 (E.3's own audit); docket 9(c)/30 gains the class "a committed prediction with no Register entry"

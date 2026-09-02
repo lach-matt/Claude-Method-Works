@@ -1,0 +1,169 @@
+r2-25b.py — 25b-03: E.8 "Sixty-odd corrections come from §30.3 alone" against Chapter 28
+members: The_Method_1_6-2.md md5 4aef772b | The_Method_1_6___The_Register-2.md md5 79aaf239
+
+§1 SITES (located this chat; member line numbers are never carried between chats)
+   lettered("E.8") hits: [11212] -> '### E.8 What closed, and what it cost'
+   E.8 sentence, one site                                     1                          OK
+   L11217 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
+   sentence inside E.8                                        True                       OK
+   numeric resolver on "E.8": None — a lettered heading is invisible to it (DOCKET conventions)
+   §28.7    heading_line 7481   body_range (7481, 7506)   section_span (7481, 7721)   DIFFER — both reported
+   §28.7.1  heading_line 7506   body_range (7506, 7531)   section_span (7506, 7531)   AGREE
+   §28.7.2  heading_line 7531   body_range (7531, 7559)   section_span (7531, 7559)   AGREE
+   §28.7.3  heading_line 7559   body_range (7559, 7644)   section_span (7559, 7644)   AGREE
+   §28.7.4  heading_line 7644   body_range (7644, 7664)   section_span (7644, 7664)   AGREE
+   §28.7.5  heading_line 7664   body_range (7664, 7677)   section_span (7664, 7677)   AGREE
+   §30.3    heading_line 8399   body_range (8399, 8405)   section_span (8399, 8575)   DIFFER — both reported
+   §30.4    heading_line 8575   body_range (8575, 8583)   section_span (8575, 8609)   DIFFER — both reported
+   §32.2    heading_line 9030   body_range (9030, 9038)   section_span (9030, 9038)   AGREE
+
+§2 CENSUS — every count word in §28.7 and its subsections against its DATA rows
+   (chat-133 convention: the DATA-row set is fixed before a count word is scored; a count word counts DATA rows)
+   §28.7    L7481   lead-ins  6  numbers   6  distinct   6  range 49-54      dup -      unprinted-in-span -
+   §28.7.1  L7506   lead-ins  8  numbers   8  distinct   8  range 55-62      dup -      unprinted-in-span -
+   §28.7.2  L7531   lead-ins 10  numbers  13  distinct  13  range 59-74      dup -      unprinted-in-span [60, 61, 62]
+   §28.7.3  L7559   lead-ins 15  numbers  64  distinct  63  range 75-149     dup [118]  unprinted-in-span [99, 100, 101, 102, 103, 104, 105, 140, 141, 142, 143, 144]
+   §28.7.4  L7644   lead-ins  2  numbers  15  distinct  15  range 150-164    dup -      unprinted-in-span -
+   §28.7.5  L7664   lead-ins  0  numbers   0  distinct   0  range -          dup -      unprinted-in-span -
+
+   §28.7 heading: '### 28.7 Six made after the register was closed, two printed here — retained in the compendium'
+   §28.7 "Six" vs distinct DATA rows                          6                          OK
+   §28.7 "two printed here" vs lead-ins printed               6                          DEVIATION (25b-07) — printed 2
+      -> 25b-07: the heading says *two printed here*; six lead-ins (49-54) are printed, and the block's own
+         closing line reads *Two of these six are corrections of corrections* — the count word does not count its rows.
+   §28.7.1 "Eight more" vs distinct rows                      8                          OK
+   §28.7.2 "Twelve more" vs distinct numbers in span          13                         DEVIATION (25b-09) — printed 12
+      -> 25b-09: §28.7.2 carries a SECOND entry numbered 59 (L7533), the number already used in §28.7.1 (L7517);
+         §28.7.2's own block is 63-74 = 12 and the count word is right; the numeral is the defect (docket 31).
+         §28.7.1 59: '**59. Purity as a perturbation measure.** It measured **numerical resolution**: the deep, clean '
+         §28.7.2 59: '59. The cheapest undetectable forgery in Λ is 60 cells, not one.'
+
+   §28.7.3 heading: '### 28.7.3 Seventy-five more from the audit work of the final session, all printed — retained in the compendium here'
+   §28.7.3 "Seventy-five" vs span 75-149                      75                         OK
+   §28.7.3 distinct numbers actually printed                  63                         OK
+   §28.7.3 "all printed" — numbers in span not printed        12                         DEVIATION (25b-08) — printed 0
+      -> 25b-08: the count word counts the RANGE 75-149 (75), not the rows; 12 of the 75 are not printed
+         (99-105, 140-144) and 118 is printed twice — *all printed* is false at 63 of 75 (docket 34 / 31 / 23).
+         118 appears in lead-ins at L7604, L7608
+   §28.7.3 carries the 123-139 lead-in                        1                          OK
+   L7619 "123–139. Seventeen from one question. §30.3's reorderability problem produced more corrections"
+   *Ten of the seventeen* present                             1                          OK
+   L7626 'Ten of the seventeen produced the characterisation in §30.3.1. Seven produced nothing'
+   ten + seven == seventeen                                   17                         OK
+   §28.7.5 names *Thirty-one of the forty*                    True                       OK
+   §28.7.5 names the two audit entries 186 and 189            True                       OK
+
+§3 THE FORTY — the DATA-row set fixed before any share is scored
+   §28.7.4 heading: '### 28.7.4 Forty more, from the session that closed §30.3 and §32.2 — retained in the compendium'
+   §28.7.4 heading names §30.3 AND §32.2                      ['§30.3', '§32.2']         OK
+   150-189 is forty                                           40                         OK
+   §28.7.5's 186 and 189 lie in 150-189                       True                       OK
+   printed as lead-ins in §28.7.4                             (150, 164, 15)             OK
+   of the forty, entry headings in the Register               38                         OK
+   176 and 177 carry no heading (grouped under 175)           [176, 177]                 OK
+   175 carries 176-177 in its body                            True                       OK
+   superseded band inside the forty                           (150, 164, 15)             OK
+   the Register's front matter: *genesis 1-94, superseded 95-164, mature record 165-1792* — 150-164 carry no
+   text of their own (all read **SUPERSEDED (Λ₈ successor development); see register 313.**), so for those fifteen
+   Chapter 28 is the only witness of what they were (25b-10, docket 17). 165-189 are read from the Register.
+   DATA rows: 15 chapter lead-ins + 25 Register entries       40                         OK
+
+§4 THE READING — each of the forty scored for its section, with the deciding phrase from its own text
+   CONVENTION SUBJ: an entry is §30.3's when its own text is about the objects §30.3 defines (§30.3.1-§30.3.9:
+   ℛ-closure / sublattice of chains, relabelling and order recovery, the alphabet, arity-2-SAT-linear-Schaefer,
+   PQ-trees / C1P / intervals, d = 2 against d ≥ 3, the procedure and its cost, the residue, and §30.3.1's named
+   sources Rival / Larson / Siggers); §32.2's when it is about self-reference (S1 alphabet, S2 order, S3 bounds,
+   P22, completeness); NEITHER when it is about another section or the audits; UNATTRIBUTED when its own text
+   decides neither. Every verdict's deciding phrase is asserted present in that entry below.
+   SUBJ scores every one of the forty once                    [150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189] OK
+   150 CH  NEITHER   "cross-references to §24.4"            §24.4 / §18.4 — a citation defect; see 186
+   151 CH  NEITHER   "cross-references to §24.4"            §24.4 / §18.4 — a citation defect; see 186
+   152 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   153 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   154 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   155 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   156 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   157 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   158 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   159 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   160 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   161 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   162 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   163 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   164 CH  30.3      "PQ-tree analogue"                     §30.3.3 — the interval machinery (C1P, monotone endpoints, PQ-trees)
+   165 RG  30.3      "fails to recover Λ's order"           order recovery
+   166 RG  30.3      "ℛ recovers its alphabet"              §30.3.1 — the closure operator and the moving ground set
+   167 RG  32.2      "SELF-REFERENCE CLAIM"                 §32.2 — P22, completeness descends
+   168 RG  30.3      "MONOTONE CLOSURE"                     §30.3.5 — what a procedure is
+   169 RG  30.3      "ALPHABET OF SIZE 4"                   the obstruction census by alphabet
+   170 RG  30.3      "ALPHABET READING ITSELF"              the census parameterised by cells
+   171 RG  30.3      "IDENTICAL-FIBRE QUOTIENT"             the quotient offered as a simplification
+   172 RG  UNATT     "THREE CELL STATISTICS"                statistics agreement — §30.2's landscape as readily as §30.3
+   173 RG  30.3      "VIOLATED AT D ≥ 3"                    exact at d = 2, violated at d ≥ 3
+   174 RG  30.3      "SUBLATTICES PRESERVE REORDERABILITY"  reorderability, named
+   175 RG  30.3      "COMPUTABLE"                           the procedure's cost language
+   176 RG  30.3      "recovered-versus-declared alphabet"   the d = 2 census and the d = 3 bound system
+   177 RG  30.3      "recovered-versus-declared alphabet"   the d = 2 census and the d = 3 bound system
+   178 RG  30.3      "D = 2 IS CLOSED"                      E.8's own *characterisation closed at d = 2*
+   179 RG  30.3      "HIERARCHY CONVERGES"                  the d = 3 / d = 4 columns
+   180 RG  30.3      "non-reorderable 3-subset"             the sub-instance necessary condition
+   181 RG  30.3      "VACUOUS DOWNSET TEST"                 the downset test on observed classes
+   182 RG  UNATT     "MEDIANS ABOVE IT READ 36 AGAINST 72"  no section-identifying object in its own text
+   183 RG  30.3      "LINEAR COVERAGE IS 9%"                the law's linear regime
+   184 RG  30.3      "Generation matched exhaustion"        the generator against exhaustion
+   185 RG  30.3      "NO POLYNOMIAL PROCEDURE"              §30.3.5 / §30.3.8 — the procedure and the residue
+   186 RG  NEITHER   "COHERENCE audit"                      §28.7.5 names 186 an entry about the audits
+   187 RG  30.3      "NON-MONOTONE MAP"                     the image of the map at d = 3, d = 4
+   188 RG  30.3      "Larson's correspondence"              §30.3.1's named sources — Larson 1998, Siggers 2016
+   189 RG  NEITHER   "VACUOUS AUDIT TEST"                   §28.7.5 names 189 an entry about the audits
+   every deciding phrase present in its own entry             []                         OK
+   SUBJ over the forty: §30.3 33 | §32.2 1 | NEITHER 4 | UNATTRIBUTED 2
+   SUBJ totals to forty                                       40                         OK
+
+§5 THE ARITHMETIC — §30.3's share under four named conventions against *Sixty-odd*
+   CONVENTION BAND, two readings of the count word, both scored (INFERRED — an English count word, not a figure):
+     STRICT *sixty-odd* = 60-69 (sixty and some); LOOSE *sixty-odd* = about sixty, 55-65.
+   The blocks Chapter 28 attributes: 123-139 = 17, whose lead-in gives the corrections to *the
+   reorderability problem* of §30.3 and names §2.15 only as where ten of them are tabulated;
+   145-149 = 5 to Chapter 30 *against its own §30.4*; 150-189 = 40 to *the session that closed
+   §30.3 and §32.2*.
+   HEAD  §30.3 alone by heading attribution        17   STRICT outside  LOOSE outside  the seventeen only; the forty are a shared block
+   BLOCK the whole shared forty given to §30.3     57   STRICT outside  LOOSE in       DEF-138's reading
+   BLOCK+30.4 the forty and §30.4's five as well   62   STRICT in       LOOSE in       requires two other sections' blocks
+   SUBJ  the forty read entry by entry             50   STRICT outside  LOOSE outside  this chat's reading, §4 above
+   SUBJ+ the two unattributed given to §30.3       52   STRICT outside  LOOSE outside  the reading's upper bound
+   conventions reproducing *Sixty-odd* STRICT                 ["BLOCK+30.4 the forty and §30.4's five as well"] OK
+   conventions reproducing *Sixty-odd* LOOSE                  ['BLOCK the whole shared forty given to §30.3', "BLOCK+30.4 the forty and §30.4's five as well"] OK
+   Under LOOSE the figure is reachable at 57 — but only by BLOCK, which gives §30.3 the whole of a block
+   the chapter itself shares with §32.2. Under every convention that respects *alone* the figure is
+   outside both bands. The word carrying the defect is *alone*, not *Sixty-odd*.
+   33 of the forty are §30.3's under SUBJ = 82.5 % (Decimal.quantize, ROUND_HALF_UP; never round()).
+
+§6 REGISTER SWEEP — before any figure is called unreproducible
+   WARNING lines on any entry of the family                   []                         OK
+   WARNING lines in the Register at all: 39 — none of them on this family (docket 35's instrument, run)
+   *sixty-odd* site: The_Method_1_6-2.md L11217 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
+   *sixty-odd* sites in main + Register                       1                          OK
+   the forty cited as "register N" in the main volume         []                         OK
+   E.8's sentence is a single witness (docket 17, already recorded) and no later statement in either volume
+   qualifies it; the figure is scored against Chapter 28, which E.8 itself names as the record.
+
+VERDICT
+   25b-03 CONFIRMED and NARROWED by reading, no budget owed. The forty ARE readable — fifteen lead-ins in
+   §28.7.4 and twenty-five entry bodies at Register 165-189 — so DEF-138's owed reading is DONE, and the
+   token probe it warned about is not what closed it. §30.3's share of the forty is 33 of 40 (upper bound 35);
+   with the seventeen of 123-139 that is 50 (upper bound 52), against E.8's *Sixty-odd*. NO convention that
+   respects *alone* reaches either band: the strict band is reached only by 62, which hands §30.3 both
+   §32.2's shared block and §30.4's five, and the loose band only by 57, which hands it the shared block
+   entire. The defective word is *alone*: §30.3's own share of the record is 50. 25b-03 stands as recorded,
+   now on a reading of all forty rather than an arithmetic of two headings (DEF-138 item 6 DISCHARGED).
+   New this unit: 25b-07 (§28.7 *two printed here*, six printed), 25b-08 (§28.7.3 *Seventy-five … all printed*,
+   63 of 75 printed, 12 unprinted, 118 twice), 25b-09 (a second entry numbered 59 in §28.7.2), 25b-10
+   (150-164 SUPERSEDED in the source Register — Chapter 28 is their single witness).
+
+DEVIATIONS RECORDED (findings, not instrument faults):
+   25b-07   §28.7 "two printed here" vs lead-ins printed             measured 6 against printed 2
+   25b-09   §28.7.2 "Twelve more" vs distinct numbers in span        measured 13 against printed 12
+   25b-08   §28.7.3 "all printed" — numbers in span not printed      measured 12 against printed 0
+
+ALL INSTRUMENT CHECKS OK — 3 deviations recorded

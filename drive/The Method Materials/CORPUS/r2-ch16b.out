@@ -1,0 +1,173 @@
+====================================================================================================
+r2-ch16b  COMPUTABLE  chat 117  main L8451-L8574  (§30.3.3 - §30.3.9)
+====================================================================================================
+
+## 1  §30.3.3 THE FOURTH LEMMA, re-proved over its own stated population
+  claim L8467-L8471: "all 2,354 interval sets of two to four intervals on ground sets
+  of two to five points: zero counterexamples"; ordinary containment "refutes the lemma
+  on 1,098 of those 2,354 sets".
+  ground set sizes 2..5, set sizes 2..4:
+     n=2   3 intervals available  C(m,2)+C(m,3)+C(m,4) =     4 sets
+     n=3   6 intervals available  C(m,2)+C(m,3)+C(m,4) =    50 sets
+     n=4  10 intervals available  C(m,2)+C(m,3)+C(m,4) =   375 sets
+     n=5  15 intervals available  C(m,2)+C(m,3)+C(m,4) =  1925 sets
+  POPULATION measured 2,354   printed 2,354   MATCH True
+  strict-nesting reading : counterexamples 0   printed "zero counterexamples"  MATCH True
+  ordinary-containment reading : sets refuting the lemma 1,098   printed 1,098   MATCH True
+  "Strictly is load-bearing": the two readings differ on 1098 of 2354 sets = 46.64%
+
+  the three independently verified lemmas, and the fourth --- count word L8454-L8459
+  §30.3.3 body_range (8451, 8476)  section_span (8451, 8476)  COINCIDE
+     2,047    unit 2 site(s) | six volumes {'main': 2}
+     3,751    unit 2 site(s) | six volumes {'main': 2}
+     20,000   unit 2 site(s) | six volumes {'main': 2}
+     2,354    unit 2 site(s) | six volumes {'main': 3}
+     1,098    unit 1 site(s) | six volumes {'main': 1}
+     247      unit 1 site(s) | six volumes {'main': 1, 'reg': 7, 'mc': 3, 'pc': 2, 'ioi': 1}
+  "Four lemmas, three verified independently" -- figures printed for the three: 3
+  the fourth is discharged in the unit itself at L8462-L8471: PROVED and MEASURED here
+
+## 2  §30.3.4 THE STEP LAW, the twelve boxes and the three-quarters subset
+  printed table rows (header printed TWICE, L8480 and L8483):
+     d=2  step 1  boxes eight, all 2-D    2^(d-2) = 1   MATCH True
+     d=3  step 2  boxes three             2^(d-2) = 2   MATCH True
+     d=4  step 4  boxes one               2^(d-2) = 4   MATCH True
+  count word L8478 "twelve boxes" against its own row labels: 8 + 3 + 1 = 12   MATCH True
+  caption L8495 extends to d=5 by construction: 2^(5-2) = 8   printed 8   MATCH True
+
+  largest reorderable proper subset = 3*2^(d-2) cells, "three quarters"
+     d=2  box  4 cells  subset  3 cells  ratio 0.75   three quarters True
+     d=3  box  8 cells  subset  6 cells  ratio 0.75   three quarters True
+     d=4  box 16 cells  subset 12 cells  ratio 0.75   three quarters True
+     d=5  box 32 cells  subset 24 cells  ratio 0.75   three quarters True
+  caption L8496 prints 3, 6, 12, 24: measured [3, 6, 12, 24]   MATCH True
+  removed cells = box - subset = 2^(d-2) = a subcube of dimension d-2: [True, True, True, True]
+  NOT RE-DERIVED HERE: "one-fewer failing at all four" needs §30.1's reorderability
+  predicate for a general box, which the unit does not print.  Recorded as requiring the
+  model, not as refuted.  The arithmetic it rests on (3*2^(d-2)+1 > 3/4 of the box) holds.
+
+  RIVAL 1973, the bound as printed at L8497 (caption) and L8500 (body)
+     printed form:  |K| <= (3/2)|L|   "for a maximal sublattice"
+     standard form: K a maximal sublattice of L  =>  |L| <= (3/2)|K|, i.e. |K| >= (2/3)|L|
+     under the printed form, with K a sublattice of L, |K| <= |L| <= (3/2)|L| always:
+     the inequality is VACUOUS and bounds nothing.   Boolean case measured: 3/4 = 0.75
+     "the Boolean case is tighter" has content only under the standard form:
+        2/3 = 0.67  <  3/4 = 0.75   -> tighter  True
+        under the printed form 3/4 <= 3/2 is true but says nothing.  BOTH SITES carry it.
+
+## 3  §30.3.5 THE PROCEDURE AND ITS COST
+  Lambda cells 976   d = 8   axis alphabet sizes [3, 2, 3, 4, 3, 2, 4, 4]
+  prod |A_i|! measured 11,943,936   printed 11,943,936   MATCH True
+  join-irreducibles (exactly one lower cover) measured 17   printed |J(Lambda)| = 17   MATCH True
+  height of Lambda (longest chain, edges) measured 17 ; chain of 18 elements
+  printed "|J(Lambda)| = 17 = height"  -> equality holds: True
+  width of J(Lambda) by Dilworth (n - max matching) measured 7   printed "width 7 <= 8"   MATCH True
+  WHERE 17 COMES FROM: sum of (|A_i| - 1) over the axes = [2, 1, 2, 3, 2, 1, 3, 3] = 17   MATCH |J| True
+  of the 17 join-irreducibles, 7 raise exactly one coordinate above the bottom and 10
+  raise more than one, because Lambda is a CONSTRAINED product, not a full one.  No map
+  from join-irreducibles to axes is printed in the unit, so the identification of the
+  chain decomposition with the axis system is NOT re-derived here.
+  What IS measurable: width 7, axes 8.  Dilworth yields a MINIMUM decomposition, so it
+  yields 7 chains, not 8; an 8-chain decomposition exists but is not Dilworth's.
+  "width 7 <= 8" is EXACT; the definite article in "the chain decomposition ... IS the
+  axis system" cites Dilworth for a decomposition Dilworth does not produce.
+  cost formula L8513  |YES| * |X|^(2^(d-2)):  exponent at d=8 is 2^6 = 64
+     18,736       unit 2 | six volumes {'main': 2}
+     47.8         unit 1 | six volumes {'main': 1}
+     86           unit 1 | six volumes {'main': 5, 'reg': 11, 'mc': 2, 'pc': 1, 'ioi': 1}
+     1,834        unit 1 | six volumes {'main': 1}
+     0.12         unit 1 | six volumes {'main': 3, 'reg': 4}
+     401          unit 2 | six volumes {'main': 5, 'reg': 2, 'ioi': 1}
+     11,943,936   unit 1 | six volumes {'main': 1}
+     17           unit 1 | six volumes {'main': 64, 'reg': 33, 'mc': 31, 'pc': 1, 'ioi': 10, 'sc': 3}
+  "47.8 s against 86" -- the 86 carries NO UNIT on the line: Verified end to end at 2×3×3 by growth against exhaustion: 18,736 = 18,736, in 47.8 s against
+
+## 4  §30.3.6 THE SIGNATURE BOXES AND THEIR TOTAL
+     box 2x2x2     8 cells  2^8 = 256       printed 256       MATCH True   classes printed 30
+     box 2x2x3    12 cells  2^12 = 4,096     printed 4,096     MATCH True   classes printed 210
+     box 2x3x3    18 cells  2^18 = 262,144   printed 262,144   MATCH True   classes printed 4,168
+  count word L8530 "Three complete boxes": rows in the table = 3   MATCH True
+  total subsets measured 266,496   printed "267,000"
+     nearest thousand (Decimal, HALF_UP)  : 266,000
+     three significant figures (HALF_UP)  : 266,000
+     ceiling to the thousand              : 267,000
+     printed 267,000 exceeds the measured total by 504 and is reachable ONLY by rounding
+     UP to the thousand; nearest-thousand and 3-s.f. both give 266,000.
+  "no signature containing both answers" (mixed = 0 in all three rows): the canonical-form
+  predicate is not printed in the unit, so the class counts 30 / 210 / 4,168 and the mixed
+  column are NOT RE-DERIVED.  Recorded as requiring the model, not as refuted.
+  "the 19 canonical forms reduce to 12": 19 is printed NOWHERE in the unit as an input --
+     19 in unit 1 site(s); 12 in unit 2 site(s)
+
+## 5  §30.3.7 THREE METHOD CLASSES, count word against its own body
+  §30.3.7 body_range (8533, 8548)  section_span (8533, 8548)  COINCIDE
+  paragraph openings in the body (heading line excluded): 4
+     L8534  LEAD-IN Each with its measurement, and each a result rather than a failure:
+     L8536  CLASS  Projection-based criteria. §18.4: closure is a d-dimensional condition and no 
+     L8540  CLASS  Local search through valid orders. The valid set is DISCONNECTED — 1.66 to 2.1
+     L8544  CLASS  Forbidden-substructure procedures. Tucker's families are unbounded, so no fini
+  a colon-terminated lead-in is not a class: lead-ins 1, classes 3
+  count word "Three method classes ruled out" MATCH True
+  "Thirteen of seventeen attempted criteria": 13 <= 17 True ; four unaccounted for = 4
+     1.66   unit 1 | six volumes {'main': 1, 'mc': 1}
+     2.19   unit 1 | six volumes {'main': 3, 'reg': 3}
+     493    unit 2 | six volumes {'main': 5, 'reg': 1, 'ioi': 1}
+     89.8   unit 1 | six volumes {'main': 1}
+     96.7   unit 1 | six volumes {'main': 1}
+  "1.66 to 2.19 components" -- a mean over an UNPRINTED population; "exact on 493 of 493"
+  gives 493 as the only population figure on the line: and the components are orbits of the identical-fibre swap group, exact on 493 of 493. So descent
+
+## 6  §30.3.8 THE RESIDUE
+  "d vertices and up to 2^d - 1 hyperedges.  It is complete"
+     d=3  non-empty subsets 2^d - 1 = 7
+     d=4  non-empty subsets 2^d - 1 = 15
+     d=8  non-empty subsets 2^d - 1 = 255
+  a complete hypergraph on d vertices has exactly 2^d - 1 non-empty hyperedges: EXACT
+  count word L8552 "Three reduction attempts": the body names 0 of them --
+     the sentence states the direction of all three and enumerates none.
+  BLOCKQUOTE L8559-L8560 "Three walls", against the three items it then lists:
+     L8559  Three walls: hardness blocked at realisability, tractability blocked at the completeness of
+     L8560  the hypergraph, and the FPT bound between them as the best known.
+     item 1: hardness blocked at realisability              names a WALL: True
+     item 2: tractability blocked at the completeness       names a WALL: True
+     item 3: the FPT bound between them as the best known   names a WALL: False
+  items listed: 3.  items that are walls: 2.  The third is named as what lies BETWEEN
+  the walls, so the count word is right about the rows and wrong about the class its
+  own labels name -- docket 21's shape (chat 115's "five unlocated results").
+
+## 7  §30.3.9 LAMBDA'S CONSTRAINT GRAPH, THE INTERVALS, AND THE PRESERVING RULES
+  edges read off L8_at's generator (each axis against the axes bounding it):
+     [('n', 'l'), ('l', 'k'), ('k', 'q'), ('e', 'f'), ('f', 'g'), ('q', 'g'), ('k', 'S2')]
+  vertices 8  edges 7  is_tree True   printed "Lambda's constraint graph is a tree"
+  complete graph on 8 vertices has C(8,2) = 28 edges; the tree uses 7, leaving 21
+  printed "Its nine recovered extra edges are implied": 9 is not derivable from the
+  tree alone (28 - 7 = 21).  Recorded as requiring the recovery procedure named earlier
+  in the volume, and LOCATED by the prose batch rather than re-derived here.
+
+  "Every sublattice and interval of Lambda has E = 0"
+  ordered comparable pairs x < y measured 115,162 (convention: ORDERED, strict)
+  every interval [x,y] of a lattice is closed under join and meet by construction, so a
+  closure-defect E vanishes on it definitionally; measured on a bounded exhaustive check:
+     intervals tested 4,112   join/meet leaks 0   E = 0 holds on all tested: True
+  "box -> interval -> sublattice -> product, three preserving rules": arrows in the chain
+     = 3, objects = 4.  count word MATCH True
+
+## 8  EVERY COUNT WORD IN THE UNIT, against its own body and its numeral span
+  L8454   Four lemmas                      = 4    lemmas named in the sentence
+  L8454   three verified independently     = 3    figures printed: 2,047 / 3,751 / 20,000
+  L8478   twelve boxes                     = 12   row labels sum 8 + 3 + 1
+  L8489   at d = 2, 3, 4 and 5             = 4    four dimensions, "failing at all four"
+  L8510   nine rounds                      = 9    not printed as rows
+  L8530   Three complete boxes             = 3    table rows
+  L8533   Three method classes ruled out   = 3    body paragraphs
+  L8537   Thirteen of seventeen            = 13   of 17 attempted
+  L8552   Three reduction attempts         = 3    none enumerated in the body
+  L8559   Three walls                      = 3    items listed 3, items that are walls 2
+  L8563   nine recovered extra edges       = 9    not derivable from the tree
+  L8567   three preserving rules           = 3    arrows in the chain
+
+## 9  DECIMAL DISCIPLINE
+  every ratio above quantised with Decimal, ROUND_HALF_UP, 2 dp, convention named at use.
+  builtin round() call sites in this instrument (SELF-CHECK line excluded): [73]
+
+END r2-ch16b

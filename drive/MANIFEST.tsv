@@ -10,6 +10,7 @@ The Method Materials/B10-CERTIFICATE.md	1bPM0oU_3naJ67kGXSNvPynG5oAtjLhT9	B10-CE
 The Method Materials/B10-PARTIAL-CERTIFICATE.md	1uEk7YB6u7AIOvuWS5KqbPYqdlGmKuPVE	B10-PARTIAL-CERTIFICATE.md	text/markdown	4964	2026-08-29T21:34:04.019Z	a4e8931fbf1a68762ca7961b3f8c267e	ok
 The Method Materials/B7-CHANGE-CERTIFICATE.md	1OAks3U9eb4ry1DtkC4piyPnXWYBbzX23	B7-CHANGE-CERTIFICATE.md	text/markdown	4324	2026-08-29T19:50:02.273Z	86f189fd9ff42a656580b8df662a6dd9	ok
 The Method Materials/B8-BINDING-CERTIFICATE.md	1Yk2Y3kgKLwc9uHOrUpaQQm21E7iULTtq	B8-BINDING-CERTIFICATE.md	text/markdown	4271	2026-08-29T20:04:28.115Z	347f2cf05d55261c8849ca93cf864c16	ok
+The Method Materials/BUILD175-PARTS/W-184.md	1yeARKFKgaGoWU4dHqdy4Pp2kpx5nGv5v	W-184.md	text/markdown	5437	2026-09-02T08:49:27.929Z	0abc13eb7ffdece271da2c1e50e1f2fc	ok
 The Method Materials/BiIII_asd.tsv	1wsqLO9Ya2iwy4HXURU4q20EnZOSgJDZ8	BiIII_asd.tsv	text/tab-separated-values	2370	2026-08-24T18:07:36.410Z	4904ad97ce81c8412a4d46d7e7461b90	ok
 The Method Materials/BiIII_asd__1WST7mh1GbHbOpWlSj7Z8ltJ4DRU-4S1-.tsv	1WST7mh1GbHbOpWlSj7Z8ltJ4DRU-4S1-	BiIII_asd.tsv	text/tab-separated-values	2370	2026-08-24T18:07:35.219Z	4904ad97ce81c8412a4d46d7e7461b90	ok
 The Method Materials/BiIII_asd__1mCh-F_Yz63ytb4XlVCDhDp9qkaREte8n.tsv	1mCh-F_Yz63ytb4XlVCDhDp9qkaREte8n	BiIII_asd.tsv	text/tab-separated-values	2370	2026-08-24T18:07:33.909Z	4904ad97ce81c8412a4d46d7e7461b90	ok
@@ -21,12 +22,370 @@ The Method Materials/CI_full__19nk_g2TRacvGV18jkKdkIoiMytw6IvNa.tsv	19nk_g2TRacv
 The Method Materials/CI_full__1U-iq5HsfqWrKgCWYQq0xfOB9aF9u_hIa.tsv	1U-iq5HsfqWrKgCWYQq0xfOB9aF9u_hIa	CI_full.tsv	text/tab-separated-values	591	2026-08-24T18:07:32.089Z	96c93a93b45edd77622bca0770a873ef	ok
 The Method Materials/CLAUDE.md	1P4my3wQHE5isj2npWumurtVZayTPeNjW	CLAUDE.md	text/markdown	13157	2026-08-30T17:48:25.384Z	e72d4bc9cd07e1a87f56dd69b8c8886b	ok
 The Method Materials/CONVERSION-CERTIFICATE-BUILD77.md	1y3MGQF8_RW-j_sj5Sqp-KoRbXmjTterV	CONVERSION-CERTIFICATE-BUILD77.md	text/markdown	2146	2026-08-29T22:39:55.806Z	6d27e5fa9669a3ebf58b962624beab00	ok
-The Method Materials/COORDINATES-2_13.csv	1gblLH2cE6cBX5H_Nm8AB-72iF6eSdxxQ	COORDINATES-2_13.csv	text/comma-separated-values	10912381	2026-08-24T00:13:30.694Z	906d08be19630b6f824ec0164de11773	ok (uploaded directly by owner, size matches Drive)
+The Method Materials/COORDINATES-2_13.csv	1gblLH2cE6cBX5H_Nm8AB-72iF6eSdxxQ	COORDINATES-2_13.csv	text/comma-separated-values	10912381	2026-08-24T00:13:30.694Z	906d08be19630b6f824ec0164de11773	ok
+The Method Materials/CORPUS/.gitattributes	1VhkIXJQFvni0WomiA_x6NT8Bj-jtqnmY	.gitattributes	application/octet-stream	31	2026-09-02T15:13:04.567Z	d4bba987857834a5bb585261861f7956	ok
+The Method Materials/CORPUS/.gitignore	1-9BsS5ta8ZMX4EASteO7lZKJQ9Zx4M6N	.gitignore	application/octet-stream	19	2026-09-02T15:13:05.712Z	ee0ddfac36a14ff01578b1a9fab32ed8	ok
+The Method Materials/CORPUS/BiIII_asd.tsv	1CmjNJu8MBD1TbuQoKKkN_Dx8jyFA2StA	BiIII_asd.tsv	text/tab-separated-values	2370	2026-09-02T15:13:10.397Z	4904ad97ce81c8412a4d46d7e7461b90	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-21a.tsv	1PNuqBDTh0D77IRvRMbBGd5YXnJjEfjGc	CENSUS-CLOSURES-21a.tsv	text/tab-separated-values	18	2026-09-02T15:13:12.380Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-23a.tsv	1sch7LTFQFnTZeSIKdGICM6K-RbNAQscA	CENSUS-CLOSURES-23a.tsv	text/tab-separated-values	675	2026-09-02T15:13:13.606Z	7b4a6c57696563a2b96a812c4627f351	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-24a.tsv	1bpeBFXwcmn2WTQhKQPnPfR79YiuSTic2	CENSUS-CLOSURES-24a.tsv	text/tab-separated-values	18	2026-09-02T15:13:14.909Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-25b.tsv	1w9BE5Uqxh6qFtXU1jxIWm07D6uxXnray	CENSUS-CLOSURES-25b.tsv	text/tab-separated-values	1830	2026-09-02T15:13:16.254Z	22989acb08138d07e011f2f4f887adf4	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-A.tsv	1lrkQHX-wOG8JNCowvVgDZf1d7BALag1n	CENSUS-CLOSURES-A.tsv	text/tab-separated-values	2328	2026-09-02T15:13:17.079Z	1a54d81d329d8b6b392e1096ba41b671	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-B.tsv	1qItsdQXJ8NXLhQmcj2lmK4aJ56MThggk	CENSUS-CLOSURES-B.tsv	text/tab-separated-values	2605	2026-09-02T15:13:18.094Z	dad836e2c5f74b1bf48a623bde593df8	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch10.tsv	1pDOTBfImDg8Pd6EJAuFb9CY2oxU0zgRA	CENSUS-CLOSURES-ch10.tsv	text/tab-separated-values	18	2026-09-02T15:13:19.013Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch11.tsv	1NhcSC6GKku_MkR_OCjqzLd3F6-UtMuLE	CENSUS-CLOSURES-ch11.tsv	text/tab-separated-values	1111	2026-09-02T15:13:20.129Z	20660119d2580e5f556dd2df795c3c23	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16b.tsv	1o0bjirWCoslBXOULJGJVlMMyqrldixH1	CENSUS-CLOSURES-ch16b.tsv	text/tab-separated-values	290	2026-09-02T15:13:21.086Z	61f70f0ed243de18a30698fd5d48a6af	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16d.tsv	1T5HIlDeCeylNRQBzfUkuvr8SZ5zQ-HO1	CENSUS-CLOSURES-ch16d.tsv	text/tab-separated-values	555	2026-09-02T15:13:21.722Z	3c793a7e2c9a4453bd73df69c6b37ddd	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16g.tsv	1qHoREQGlaC4cfK9o766dlrmYhz0VatRF	CENSUS-CLOSURES-ch16g.tsv	text/tab-separated-values	1571	2026-09-02T15:13:22.603Z	c87c77517e02e3ef8ca286a62a5f8280	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16j.tsv	1qS5C9zBC5DBBD2jTtUFktAf6cAtKL01-	CENSUS-CLOSURES-ch16j.tsv	text/tab-separated-values	268	2026-09-02T15:13:23.397Z	2ac0906964714677349cf0bb82c0a936	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16m.tsv	1rmsFCB37xaXntAbhANKp-woSC35iZzg3	CENSUS-CLOSURES-ch16m.tsv	text/tab-separated-values	838	2026-09-02T15:13:24.434Z	be7cf6857732a08c1f8908e4e37221ae	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16o.tsv	1fFjlvFqZhJi5V5t_p8IpsTdc7h8JOhzm	CENSUS-CLOSURES-ch16o.tsv	text/tab-separated-values	492	2026-09-02T15:13:25.693Z	33b89259311b2b77c872a45ca579b323	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16q.tsv	1rBxsuP9gch1kAfZQz0M8hzAP5Z89KiXx	CENSUS-CLOSURES-ch16q.tsv	text/tab-separated-values	587	2026-09-02T15:13:26.846Z	a81596b4c57c3d1f5369a9ee94a8d086	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16r.tsv	1kHkWOtEAi04Ssx588ogZka3Ta_VGtDMO	CENSUS-CLOSURES-ch16r.tsv	text/tab-separated-values	1713	2026-09-02T15:12:37.620Z	ae41e9e236686ed543a5b3e953417427	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16t.tsv	1qY57c-wOiSBLfPsRg3rNMhO-4b32mz6I	CENSUS-CLOSURES-ch16t.tsv	text/tab-separated-values	18	2026-09-02T15:12:38.265Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16v.tsv	1yHqqaxV4IOUynEN8ygfKJ5HJcGjvJ8T9	CENSUS-CLOSURES-ch16v.tsv	text/tab-separated-values	379	2026-09-02T15:12:39.016Z	74ea5288abad09695e27b45a5968da9f	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16x.tsv	1cVh207v_Nb2SZA_KU5Y0oIe-iSr4akMR	CENSUS-CLOSURES-ch16x.tsv	text/tab-separated-values	561	2026-09-02T15:12:39.734Z	395b53827462cffd8db859b2acdcce51	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch16z.tsv	1UtYPEkrM8b80NDKFIAL-iuzIEj9_hAfS	CENSUS-CLOSURES-ch16z.tsv	text/tab-separated-values	1384	2026-09-02T15:12:40.704Z	a88615646eb455272170fb7f44cffcbd	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch17a.tsv	1u9Jbex1DC597Klilut91lHSpegFgUuW9	CENSUS-CLOSURES-ch17a.tsv	text/tab-separated-values	18	2026-09-02T15:12:41.795Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch17c.tsv	1HwUdKkLAHTASyw8XWrLXUMMZKD3WUnJB	CENSUS-CLOSURES-ch17c.tsv	text/tab-separated-values	18	2026-09-02T15:12:42.674Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch17e.tsv	1wvXKmGuRv-5O9CDhMpUSrdFm1r_RVPlS	CENSUS-CLOSURES-ch17e.tsv	text/tab-separated-values	511	2026-09-02T15:12:43.718Z	3400401669261da4c2b910a2112c1ee7	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch18a.tsv	1pvDe-3Aqv1AVKEOBFGz-gDqzrQweNU1F	CENSUS-CLOSURES-ch18a.tsv	text/tab-separated-values	407	2026-09-02T15:12:44.911Z	9ee834d79d5ad89830e3f7e820804959	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch19a.tsv	1vt4TU-OrHPGt8HpC_XTpdZFhl-LBDO87	CENSUS-CLOSURES-ch19a.tsv	text/tab-separated-values	661	2026-09-02T15:12:45.951Z	e2d726fe8d66c3f5e50b49276547f79d	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch20a.tsv	1Gc1ZIW51yaL30q-zIDrP4z0-5A2GKVfc	CENSUS-CLOSURES-ch20a.tsv	text/tab-separated-values	18	2026-09-02T15:12:46.883Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch21a.tsv	15Q5RaSho0_R76GE1zEdbvfzFHuDo3RtT	CENSUS-CLOSURES-ch21a.tsv	text/tab-separated-values	196	2026-09-02T15:12:48.018Z	315b4daf49c87d5490168ee10f07b0bd	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch22a.tsv	1H7OfY4wc7ovOoloP4sybEcs5kk-Lvj-N	CENSUS-CLOSURES-ch22a.tsv	text/tab-separated-values	998	2026-09-02T15:12:48.674Z	0d23f58caf6471da5a2f40554e3cbc2a	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch23a.tsv	1p_On8BhpPMNyN9Q9E6-z9-ZhLKN7K8Pw	CENSUS-CLOSURES-ch23a.tsv	text/tab-separated-values	1916	2026-09-02T15:12:49.516Z	b138b4bf6a3a59c35b8a35d8cd2f187c	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch24a.tsv	1SLVcUTrmQVHu_ZUD8R7sxt8MG06oBr6U	CENSUS-CLOSURES-ch24a.tsv	text/tab-separated-values	1075	2026-09-02T15:12:50.375Z	82cb2c38448c364a078a008ab8236b9b	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch25a.tsv	1Z-Xw6fDpLnAn1rt0ZMGtMTM70Io2_Kly	CENSUS-CLOSURES-ch25a.tsv	text/tab-separated-values	868	2026-09-02T15:12:51.173Z	38c3b00ecdf7fe687359b397d6b196d2	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch26a.tsv	1thUpBFuishk4SiqXXtbeT0ELaso_5FoW	CENSUS-CLOSURES-ch26a.tsv	text/tab-separated-values	819	2026-09-02T15:12:51.931Z	62f2627534a03284dd7026da56da2de9	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch27a.tsv	1w4nKJw1V56lFfZ9zX3frjXhx_3TOJi9Y	CENSUS-CLOSURES-ch27a.tsv	text/tab-separated-values	519	2026-09-02T15:12:52.954Z	9639d90c4948d002d683247b3da0af31	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch28.tsv	1iNHUjqlMxZnGEJncpEIfsJBcCLySw7KO	CENSUS-CLOSURES-ch28.tsv	text/tab-separated-values	294	2026-09-02T15:12:54.065Z	8b667221242c3f5fd2cb868bb42d66c2	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch3.tsv	1TjCW-hDaXv8Eeh4Pm68lblbVNeYa-UCQ	CENSUS-CLOSURES-ch3.tsv	text/tab-separated-values	1321	2026-09-02T15:12:54.860Z	ac56a21c644a6a9c616f07b1920e730f	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch34re.tsv	1_fE7dmy_aWy7E8cxmvMcyWx7SNDWv_wy	CENSUS-CLOSURES-ch34re.tsv	text/tab-separated-values	18	2026-09-02T15:12:55.564Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch4.tsv	11H9WjBz11Ga5LChxZWxlHpvcsLqFRLmp	CENSUS-CLOSURES-ch4.tsv	text/tab-separated-values	262	2026-09-02T15:12:56.313Z	69d2c03c3aa8930903eee9c25ab296ec	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch5.tsv	1dh-jY5e2SDTUh6GKlVq-Ckxaqz3ZEjMZ	CENSUS-CLOSURES-ch5.tsv	text/tab-separated-values	438	2026-09-02T15:12:57.115Z	8ba8c6ddd1b704fb6a9aa8bca8801ff7	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch6.tsv	1UQi_yWg4PYuQ0UQHeH11mBKYRzgQlWMC	CENSUS-CLOSURES-ch6.tsv	text/tab-separated-values	705	2026-09-02T15:12:57.758Z	c3814b8019cc2daa72d804ccea2c7858	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch7.tsv	1XZhdnmEFt9ydd6UbpXPkKTFycvJ0_3jy	CENSUS-CLOSURES-ch7.tsv	text/tab-separated-values	18	2026-09-02T15:12:58.699Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch8.tsv	1YItfjlSJ6GKbFjvy8rJcyI30gfnVWI3j	CENSUS-CLOSURES-ch8.tsv	text/tab-separated-values	394	2026-09-02T15:13:00.470Z	405ceb673597435aa0e0c2c414e5c0f6	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-ch9.tsv	1VdYzRHnWjpzeDo95-AA3FD4BWDkOUkfZ	CENSUS-CLOSURES-ch9.tsv	text/tab-separated-values	18	2026-09-02T15:13:01.850Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-scf.tsv	1dO8UtbG0s1xpkbPYz79cHYgWeD8icvwZ	CENSUS-CLOSURES-scf.tsv	text/tab-separated-values	2355	2026-09-02T15:13:03.427Z	fe6b0a7ae1c0a4ab8c05cc5b1d97a097	ok
+The Method Materials/CORPUS/CENSUS-CLOSURES-warn.tsv	1VCGzGfdQrkcLO_fl-l9FMhuspg3Ns70G	CENSUS-CLOSURES-warn.tsv	text/tab-separated-values	18	2026-09-02T15:12:25.147Z	2deb87a95756d48874feff7dd5098af1	ok
+The Method Materials/CORPUS/CI_full.tsv	1ccBxg8NOd1VeLoqhZbvooMfnqdfJdaCD	CI_full.tsv	text/tab-separated-values	591	2026-09-02T15:12:25.693Z	96c93a93b45edd77622bca0770a873ef	ok
+The Method Materials/CORPUS/CLAUDE.md	1EyiBrZ2B7I5GU_5AQGf-lJcU_a3lHfrb	CLAUDE.md	text/markdown	13157	2026-09-02T15:13:06.547Z	e72d4bc9cd07e1a87f56dd69b8c8886b	ok
+The Method Materials/CORPUS/CdII_full.tsv	1WLmy9JLYid3weeRNkOHtKCff0nAY91Q8	CdII_full.tsv	text/tab-separated-values	931	2026-09-02T15:12:26.301Z	3b88793e5320646d375eb809da11fe05	ok
+The Method Materials/CORPUS/D59_DRAFT.md	1mtYF2X4BVN0gXaNhiA5l-E2zsK2IEvau	D59_DRAFT.md	text/markdown	5855	2026-09-02T15:12:26.859Z	500859137cdaf031f82231cf37513302	ok
+The Method Materials/CORPUS/DEFECT-CENSUS.tsv	1S3qB5QievN_fWN_nJnFZ0xQUz2CjSVGq	DEFECT-CENSUS.tsv	text/tab-separated-values	236171	2026-09-02T15:12:27.554Z	0967efead3f95016bd6ffaa95788d5ac	ok
+The Method Materials/CORPUS/DEFERRED.md	1pRCN7rqRWmgks3fldFhulzeCFAzCdfUB	DEFERRED.md	text/markdown	384883	2026-09-02T15:12:28.305Z	ea1f05275bf0d86cae2986bdf466057f	ok
+The Method Materials/CORPUS/DOCKET.md	12SaWmtZ8qq9iDPRj0ot506qBssnrkZX_	DOCKET.md	text/markdown	49407	2026-09-02T15:12:29.183Z	a00989a9ec21f3943567b7983070a9ac	ok
+The Method Materials/CORPUS/EXCISE-LIST.json	1dRXy8h6ts8w3Way3N8HEkp0bIrINvRPW	EXCISE-LIST.json	application/json	3823	2026-09-02T15:12:29.806Z	9d6b08df7c8c07ff8f3f148498bdf9aa	ok
+The Method Materials/CORPUS/EXCISE-LIST.md	1vn4BqeXB3aYc_Ne9tWVAmhfekiLIKRBi	EXCISE-LIST.md	text/markdown	13159	2026-09-02T15:12:30.382Z	71070341d32642c8d596fee5b2735d8f	ok
+The Method Materials/CORPUS/EXCISE-SITES-BUILD14.json	1HHLAhYaMrldlo5RcKBJ2URPcoWOcGjnU	EXCISE-SITES-BUILD14.json	application/json	9383	2026-09-02T15:12:31.179Z	d8b75a860415ae02adb9f980350abe2b	ok
+The Method Materials/CORPUS/FIGURE_ASSETS.md	1azY6RvzzeT_KwN6B2N6evAwRQKxFz61t	FIGURE_ASSETS.md	text/markdown	3801	2026-09-02T15:12:31.977Z	84b14a238acafe17704c20e11cda2e9c	ok
+The Method Materials/CORPUS/FIGURE_MAP.md	1-Ca9_P2fIS80G4zJw1tf3RZQC5guvqNg	FIGURE_MAP.md	text/markdown	1616	2026-09-02T15:12:32.840Z	65373456aecad892a0b5f2832c9fdd3d	ok
+The Method Materials/CORPUS/HgII_full.tsv	1kNflTsvpqWs4tXiVMKCyGU355E9CCnKh	HgII_full.tsv	text/tab-separated-values	970	2026-09-02T15:12:33.783Z	4837812fd7c93736149b780eced59aab	ok
+The Method Materials/CORPUS/INTEGRATION-transitions.md	1N1JVYTefZbp4kvKQwn5A2kmtnc-Kz9OC	INTEGRATION-transitions.md	text/markdown	16966	2026-09-02T15:12:34.592Z	010a3279944767ab58825bcf9905a346	ok
+The Method Materials/CORPUS/IOI_SPEC_AUDIT.md	1n0f5MpI8X5w3x4o3V9veo-hNwVbrehiZ	IOI_SPEC_AUDIT.md	text/markdown	2287	2026-09-02T15:12:35.233Z	96a94a4bd7b58bd718eac6b09a92e724	ok
+The Method Materials/CORPUS/LESSONS.md	1xzmr0MQfd2yhEPUtV2skwNfJdRJwgt1C	LESSONS.md	text/markdown	4017	2026-09-02T15:12:35.969Z	85bc9f63f7929e56b77355230bda5d04	ok
+The Method Materials/CORPUS/LIMITS-B.tsv	1vUT8HbCk329Tgo7R433E7AOumzQV_n9t	LIMITS-B.tsv	text/tab-separated-values	155	2026-09-02T15:12:36.983Z	be85bf4ab318b2c0529be1ab83930aa8	ok
+The Method Materials/CORPUS/LW1-MANIFEST.tsv	16GesqlScgSbMhpkMMifqqsfGnndDnGXm	LW1-MANIFEST.tsv	text/tab-separated-values	366	2026-09-02T15:11:26.333Z	cff61f590b071cb42245ac8f26ffa11d	ok
+The Method Materials/CORPUS/LW1-README.md	1wvPUN4U35HyKatGpnD_5quRzywPwzsFs	LW1-README.md	text/markdown	2764	2026-09-02T15:11:27.186Z	fe8c1f52c8c6a7920f7b79ee3e359fde	ok
+The Method Materials/CORPUS/LW1-ground-run.log	19187Rx0s6hvX6stIDtuRpCBALwJiUZD4	LW1-ground-run.log	text/plain	294	2026-09-02T15:11:27.994Z	6bc5a6196d6de9348b6618fb92d27fe4	ok
+The Method Materials/CORPUS/LW1-ground.py	1hfbTAWy2WDxDdSNcMk8ddStPdfu3XOTK	LW1-ground.py	text/x-python	6472	2026-09-02T15:11:28.650Z	236975ac23aa29960d4f7c2a4d200cd6	ok
+The Method Materials/CORPUS/MAIN_AUDIT.md	1ivK180gl_0CH4_wxZ4WivSegK2afRAWC	MAIN_AUDIT.md	text/markdown	39577	2026-09-02T15:11:29.431Z	46306dabfd51a3fe828ba244b9532d07	ok
+The Method Materials/CORPUS/MANIFEST.md	1BMQGBSMzqXBKUBNwj1Ky3A_QNVxbIlDm	MANIFEST.md	text/markdown	2728	2026-09-02T15:11:30.331Z	efa0e4d08f0ef8793e3abcc1592a9d98	ok
+The Method Materials/CORPUS/MANIFEST.tsv	1Fwi74o3C-Skynpw2bKzCtWoCuLZVfB4S	MANIFEST.tsv	text/tab-separated-values	22726	2026-09-02T15:11:31.128Z	3d58ceea492acca0099fd88d84f670c6	ok
+The Method Materials/CORPUS/MATH_AUDIT.md	1F3Dt7UCFrlf1kfxXBy0_gKGjZuYBHJmE	MATH_AUDIT.md	text/markdown	3451	2026-09-02T15:11:31.835Z	6f7ae942f767d381d0a4135673fc89a9	ok
+The Method Materials/CORPUS/MEMBER-INDEX.tsv	1-qSeMQG9N7sUmuHhJ6wxhPuGJZyfTBp2	MEMBER-INDEX.tsv	text/tab-separated-values	28871	2026-09-02T15:13:07.396Z	dd2dd50df4e29ba8add1e22b2fad1e38	ok
+The Method Materials/CORPUS/MEMBERS-126-concatenated.tsv	1zvtoYVTV-iJQrlBleLhItiSLCyu6gWzb	MEMBERS-126-concatenated.tsv	text/tab-separated-values	29050	2026-09-02T15:11:32.532Z	2e4d139a254ce2fbdfc7b997030c570e	ok
+The Method Materials/CORPUS/MEMBERS-126.tsv	1tb_WLrpFqK-shB4c3N4iZ9BUL383oAPf	MEMBERS-126.tsv	text/tab-separated-values	31763	2026-09-02T15:11:33.334Z	96cb6ea908f26e1c125b577d642e7328	ok
+The Method Materials/CORPUS/NI_full.tsv	1-vIOXBbtuAquMW_l4yba6Ahk2GgKyQ6B	NI_full.tsv	text/tab-separated-values	698	2026-09-02T15:11:34.051Z	7d871319df87b99a126b6d384ede933b	ok
+The Method Materials/CORPUS/ORIGINAL-3B-TEXT.txt	1iQdvpMwHUaSa50Nny6F-AiOI71jR-5j3	ORIGINAL-3B-TEXT.txt	text/plain	20633	2026-09-02T15:11:07.185Z	f75c5e262a03daca06a9477d5cd15732	ok
+The Method Materials/CORPUS/PHYS_AUDIT.md	1TG-eUycYqHNKAZE4W5O1XmfNGABRJydH	PHYS_AUDIT.md	text/markdown	2279	2026-09-02T15:11:07.721Z	eb62df8262283a64f8f01097b2519700	ok
+The Method Materials/CORPUS/POINTERS-BUILD14.json	1RBTdPB1dn_gN8OOdDSVDqRnKA44s-IR2	POINTERS-BUILD14.json	application/json	4103	2026-09-02T15:11:08.643Z	9bffb644ca893e5f3cba1be433db836f	ok
+The Method Materials/CORPUS/R3-CLASS-WL.md	1AbG0C24R8MZlHZJ_s7DzxaBUeLTFRkTG	R3-CLASS-WL.md	text/markdown	7146	2026-09-02T15:11:09.316Z	100c84cab4c56d61b432183697e7498f	ok
+The Method Materials/CORPUS/READ-21a.md	1niH5GGVS9CbQsUyeknnUKVXxUjDoctM7	READ-21a.md	text/markdown	9825	2026-09-02T15:11:10.117Z	ff5660f12e4acbc3a0606fd0a8db75de	ok
+The Method Materials/CORPUS/READ-23a.md	1T9BCaXiURNYn1bfkUKFkyUQCqQluYJ1x	READ-23a.md	text/markdown	9828	2026-09-02T15:11:10.697Z	3113eafb64a0577f462b4fd7a9ea2f03	ok
+The Method Materials/CORPUS/READ-24a.md	1q1bv4Jl-Mpg4_HRLt8wwM_ntZKraF3jY	READ-24a.md	text/markdown	10455	2026-09-02T15:11:11.389Z	5f0c0ed165a827964e28d2e2d2c1b760	ok
+The Method Materials/CORPUS/READ-25b.md	1-Q__DXTbsFZBD-1C34WA6du4DYx6dzYY	READ-25b.md	text/markdown	7374	2026-09-02T15:11:12.271Z	b1b6ef51dff6f7a9ac74e01785db20a5	ok
+The Method Materials/CORPUS/READ-ch1-A.md	1KBjn3DgL3i-udVJHt9v3tro6C3u81tM7	READ-ch1-A.md	text/markdown	17750	2026-09-02T15:11:12.757Z	43e915fa2a54f1d7ae18f3d6561dad95	ok
+The Method Materials/CORPUS/READ-ch1-B.md	1DcygC30xX07q1IXblmjwwj0opqxozP2Q	READ-ch1-B.md	text/markdown	9681	2026-09-02T15:11:13.197Z	ef67759001f8824876b39903029490ae	ok
+The Method Materials/CORPUS/READ-ch10.md	1DmPvGDMvB6ZKWZxXiiqfZTdiBwiX6hXr	READ-ch10.md	text/markdown	7558	2026-09-02T15:11:13.838Z	f80183b6bf3cb06ed576f36d68ac363d	ok
+The Method Materials/CORPUS/READ-ch11.md	1xKdOyGd7S20NvUoQC48Mz5VZXSCeudd1	READ-ch11.md	text/markdown	8026	2026-09-02T15:11:14.697Z	211f6f65adce4c3ed88b9ed31a96f020	ok
+The Method Materials/CORPUS/READ-ch16b.md	1MrgDkpcQ4oI7Gky4KhW7mmHur_wRn1_j	READ-ch16b.md	text/markdown	13640	2026-09-02T15:11:15.306Z	07f94f3500381b30ba437e3541159da2	ok
+The Method Materials/CORPUS/READ-ch16d.md	1o7vX_BTH5i_l2GL50k-qkT9BcchpbhLj	READ-ch16d.md	text/markdown	12649	2026-09-02T15:11:16.141Z	6d41a6fa95c7b2da1f73233c6d0958c1	ok
+The Method Materials/CORPUS/READ-ch16g.md	1Bmn00UJFnum4qHxDUh9kefSNFMjMa4vu	READ-ch16g.md	text/markdown	15932	2026-09-02T15:11:16.697Z	ab63a484219e76543bfff7a67d192741	ok
+The Method Materials/CORPUS/READ-ch16j.md	1DMEXLb4iQE0nKPJK7NeFsOzxZqYGq-jd	READ-ch16j.md	text/markdown	10806	2026-09-02T15:11:17.433Z	1bc3ee7a45b590cf6fdfdd44d94cf1f5	ok
+The Method Materials/CORPUS/READ-ch16m.md	19zK4gkmrxnIM01bfX3cwtEYS5NLtvBi5	READ-ch16m.md	text/markdown	11915	2026-09-02T15:11:18.085Z	af31895c6aaab38869f18baab04eacd2	ok
+The Method Materials/CORPUS/READ-ch16o.md	1NZZ7ioLkGnesDpMDYwnb32ot57MmkITz	READ-ch16o.md	text/markdown	14706	2026-09-02T15:11:18.697Z	348143969e8b13a0e43a65e4bc66e51d	ok
+The Method Materials/CORPUS/READ-ch16q.md	1LaiGBmX2rmZICeHqZJJo37tygUaXJtxQ	READ-ch16q.md	text/markdown	12296	2026-09-02T15:11:19.388Z	607c3ae18722c49f53ab4f74d7040d61	ok
+The Method Materials/CORPUS/READ-ch16r.md	1I_vlylYmewGVJ9uLpM3bM1oA9Rcu8R39	READ-ch16r.md	text/markdown	13458	2026-09-02T15:11:20.010Z	fecc258c9c3d0fa8665a443d6c6c8875	ok
+The Method Materials/CORPUS/READ-ch16t.md	1M4MX9rJVHf1YQf2Wh_3OjTEqESZ_FHxt	READ-ch16t.md	text/markdown	10720	2026-09-02T15:11:20.487Z	680a8f10cfcabdb5224dd00ba6c15be6	ok
+The Method Materials/CORPUS/READ-ch16v.md	1gYqwbx1w_QCEETA2W18Ho6inGxQEef8g	READ-ch16v.md	text/markdown	13877	2026-09-02T15:11:21.637Z	7f664293c5901b5f797751e2113d81bd	ok
+The Method Materials/CORPUS/READ-ch16x.md	1K6plzCK595lIErt1gWfu9KeTmjKCwTkj	READ-ch16x.md	text/markdown	13943	2026-09-02T15:11:22.424Z	b100714a7b1c1a817793ff38464fa0da	ok
+The Method Materials/CORPUS/READ-ch16z.md	19NqsbWgWjpVYKS0Clz6uDhGFuA5CuM52	READ-ch16z.md	text/markdown	15938	2026-09-02T15:11:23.107Z	972e0c916ad1c8696fa81d9cbf5e30a8	ok
+The Method Materials/CORPUS/READ-ch17a.md	1IgVUYhW37mAg5qaZLSc866OhtBxlPylL	READ-ch17a.md	text/markdown	8868	2026-09-02T15:11:23.863Z	2eeb44f24f2dfc98f5d0a76158b28939	ok
+The Method Materials/CORPUS/READ-ch17c.md	1iSXnbqTc2d8ZvEmTOwcihRf2-BLiwqNd	READ-ch17c.md	text/markdown	8256	2026-09-02T15:11:24.494Z	77aacba350b2f4112d8c05ea87e9575c	ok
+The Method Materials/CORPUS/READ-ch17e.md	1NZ7D_gfBbPR0ql56IVamk9J2GSUhKW1Y	READ-ch17e.md	text/markdown	10249	2026-09-02T15:11:25.076Z	568f9b65c26ef5c4caaad2e955ff5e23	ok
+The Method Materials/CORPUS/READ-ch18a.md	1oVv5zpLoMFAP8sOqDJKlH8YFv5y8FoFp	READ-ch18a.md	text/markdown	10860	2026-09-02T15:11:25.835Z	ae7c88def6b131cd83c0c934a8ad379a	ok
+The Method Materials/CORPUS/READ-ch19a.md	13irAla0b8y0zumuDP0JOl3PDqq_AOnf1	READ-ch19a.md	text/markdown	11428	2026-09-02T15:10:50.591Z	39c725b49a4da5b4cc07a66a049afc50	ok
+The Method Materials/CORPUS/READ-ch2-A.md	1gpWRQ-KvCemN4mTA0f3kdLNNdDwIIbdS	READ-ch2-A.md	text/markdown	11932	2026-09-02T15:10:51.108Z	34bef016d6b8ec8973826824adcd74ef	ok
+The Method Materials/CORPUS/READ-ch2-B.md	1Yr2Kk5HnK_7RKMHZdHNu1Xd1fWgerxBk	READ-ch2-B.md	text/markdown	6793	2026-09-02T15:10:51.754Z	18f9fc788e9a1b9d3405e2bc81e1fa4d	ok
+The Method Materials/CORPUS/READ-ch20a.md	15Gl3wV5GWEqmRc9Dwwo8Pkoe25IZ_lHi	READ-ch20a.md	text/markdown	15542	2026-09-02T15:10:52.214Z	7d453066c34047b4179d037a42a8bdc0	ok
+The Method Materials/CORPUS/READ-ch21a.md	1QUrx8chtblKJGHUNP4myjKhj9CJXaWQz	READ-ch21a.md	text/markdown	12448	2026-09-02T15:10:52.726Z	c20256590edfd05b6f13802266c098fd	ok
+The Method Materials/CORPUS/READ-ch22a.md	1jtgmgJcSKNlsuk_VVM1w7-uSTLWxsD6K	READ-ch22a.md	text/markdown	6790	2026-09-02T15:10:53.318Z	8a87f02ebc5cbd7c14750e95b39c2c26	ok
+The Method Materials/CORPUS/READ-ch23a.md	15mfcxil0HoEEcMCuLdHgS-s_7YUhc3Nv	READ-ch23a.md	text/markdown	13271	2026-09-02T15:10:53.981Z	a38cbb79b7259a8a74e315d42f0341a1	ok
+The Method Materials/CORPUS/READ-ch24a.md	1GIM37Aa3cwCwf3VsnUF85K41pShnWDQM	READ-ch24a.md	text/markdown	15116	2026-09-02T15:10:54.431Z	9761875ea6a3de3ff577eaf43b933a40	ok
+The Method Materials/CORPUS/READ-ch25a.md	146zQy5KzrvBrvQgm_ouyOOLde8sQsTCz	READ-ch25a.md	text/markdown	16293	2026-09-02T15:10:55.084Z	87e61d5e79132469d444c44fff4fb539	ok
+The Method Materials/CORPUS/READ-ch26a.md	1xTc23JVKqUp3RpNnnX8VO9Wh4fObttI0	READ-ch26a.md	text/markdown	12250	2026-09-02T15:10:55.446Z	b62aabfd69cf3ff5b4c109dc197e4fa1	ok
+The Method Materials/CORPUS/READ-ch27a.md	1PdNCFG82g-jJXLw27XSvoxxmaEJ_bNzB	READ-ch27a.md	text/markdown	12249	2026-09-02T15:10:56.176Z	d63bbc371a75a29168cbf371f1ff61fa	ok
+The Method Materials/CORPUS/READ-ch28a.md	19Od0RpKayQ3aM9mgVINbbiDRX9szyUhc	READ-ch28a.md	text/markdown	12603	2026-09-02T15:10:56.935Z	c9d60947507957a6a00dfcce2ec7c7cd	ok
+The Method Materials/CORPUS/READ-ch3.md	1a5arMVJlzQOBfQkPQfJXEvvUnC53Zon9	READ-ch3.md	text/markdown	21128	2026-09-02T15:10:57.722Z	9fad54661998a315820f0b322c70fcaa	ok
+The Method Materials/CORPUS/READ-ch34re.md	16CwaxsNnqLTnf2oisEK2SSFEqEy8LgAJ	READ-ch34re.md	text/markdown	12083	2026-09-02T15:10:58.329Z	f5e6a194a68f3220e4951e607e14795f	ok
+The Method Materials/CORPUS/READ-ch4.md	1XT6tdegdYfSQrKNmk2hQmdBSf5tOtYae	READ-ch4.md	text/markdown	3134	2026-09-02T15:10:59.111Z	eb6768c6c77f4c1a394f41e1d346b335	ok
+The Method Materials/CORPUS/READ-ch5.md	135DFeOfPDjPlwO-FkGDgPkZcA0j8B9_D	READ-ch5.md	text/markdown	4929	2026-09-02T15:10:59.608Z	c64800c9b133eb312ce9a6e7b1272d70	ok
+The Method Materials/CORPUS/READ-ch6.md	1vWiwoVejeWXQtfg9lmEELkrEP-5zYU1o	READ-ch6.md	text/markdown	8495	2026-09-02T15:11:00.136Z	ba8a0ed391e56780d130885ff5d2381d	ok
+The Method Materials/CORPUS/READ-ch7.md	1kWxvMsNsPZSryuTbkQ-OGHJ58B3bpfsa	READ-ch7.md	text/markdown	7044	2026-09-02T15:11:00.805Z	01e1e9e1dbe40422e8437082dcb619c7	ok
+The Method Materials/CORPUS/READ-ch8.md	1q61JGzcGjWJvT_GDggDDYNNS592FhLVr	READ-ch8.md	text/markdown	7209	2026-09-02T15:11:01.305Z	d2e00c44221c1ebac9181611b71347cf	ok
+The Method Materials/CORPUS/READ-ch9.md	1D9c1qQ5Ls96gPLVMQQHB5tkGqqYDe60p	READ-ch9.md	text/markdown	5883	2026-09-02T15:11:01.863Z	6f77d7ba8a3e7aedfe324abe5086ba06	ok
+The Method Materials/CORPUS/READ-intake1.md	1kBMpZhWPFnKbmmgdRb72M16KmN4bSUhT	READ-intake1.md	text/markdown	10195	2026-09-02T15:11:02.420Z	f94516d34d6e0db33f1e5132ff0e10ce	ok
+The Method Materials/CORPUS/READ-scf.md	1P1Cu8bUba7BKny8gbaSuStXCd_ypaaj1	READ-scf.md	text/markdown	12156	2026-09-02T15:11:02.948Z	07cc557963d8a1715eb14421f0e6b28c	ok
+The Method Materials/CORPUS/READ-warn.md	1M-RBCTYTx7podDMHOM5koxundfoC2fzC	READ-warn.md	text/markdown	10531	2026-09-02T15:11:03.452Z	2503048688c0103a88e1a7119ffb5e2f	ok
+The Method Materials/CORPUS/README.md	1NuyPpjj6HzlxINhQSlkdQw6aC5nBVML0	README.md	text/markdown	4582	2026-09-02T15:13:08.477Z	3df5f6f5db43da7601aa17a2d147b08d	ok
+The Method Materials/CORPUS/REGISTER_AUDIT.md	1sXGpC2ks-Xz1-Vvv3kzVUWoBEBfmYJB7	REGISTER_AUDIT.md	text/markdown	1445	2026-09-02T15:11:04.316Z	971bdbef525d1815fbbba5393d514dc0	ok
+The Method Materials/CORPUS/REQUEST-LOWDIN.md	1i_vEOrXvJF07VK4QOqV-CMPXG8UcEj_f	REQUEST-LOWDIN.md	text/markdown	5810	2026-09-02T15:11:04.985Z	f1d93d9a360bc1afbfdbee0c66414b5c	ok
+The Method Materials/CORPUS/REQUEST-THREEBODY.md	1s9z2pIXwTyv2nZ1GBeca8TQv80NalAbG	REQUEST-THREEBODY.md	text/markdown	5300	2026-09-02T15:11:05.721Z	8e776e353b41e91e6d9bf6f83f9a0628	ok
+The Method Materials/CORPUS/RESPONSE-TO-METHOD-1_6.md	1F9xLOHagdRPoTQ3jIbzjxuBhf8P5ksW4	RESPONSE-TO-METHOD-1_6.md	text/markdown	9706	2026-09-02T15:11:06.468Z	eb435761e5429a245a1ba415e5d0cc37	ok
+The Method Materials/CORPUS/RULING-TOLERANCE-489.md	1LSdGEq87GZ_2h6uDsQX_TT-qum6lkDaX	RULING-TOLERANCE-489.md	text/markdown	3121	2026-09-02T15:10:49.230Z	5a9a3803812c2e157770c6d4c9ca041a	ok
+The Method Materials/CORPUS/RULINGS-R2.md	1vAjEy_RzS1pq8l67jnZO-meeCF1OAw1q	RULINGS-R2.md	text/markdown	17684	2026-09-02T15:10:49.786Z	d42790bbadf9707bb831d21d710aeedb	ok
+The Method Materials/CORPUS/ScIII_asd.tsv	1FS2lk7kbpW8BxWwhzoTGVCslkIyN00jM	ScIII_asd.tsv	text/tab-separated-values	1269	2026-09-02T15:10:50.204Z	f91a0abff919f6922395320344f1d4ac	ok
+The Method Materials/CORPUS/TB1-MANIFEST.tsv	1DObLV7tMUOzz0aC8_naVzCsn5Cf-w29G	TB1-MANIFEST.tsv	text/tab-separated-values	1840	2026-09-02T15:09:57.754Z	2b72f68c7ebf7b595a640976616a5f8c	ok
+The Method Materials/CORPUS/TB1-README.md	1Bi7ngAnIxzvLSko4uLZnYxXJM9GpNS54	TB1-README.md	text/markdown	6956	2026-09-02T15:09:58.334Z	809c86f4a75d6493e5327ddb93b1f7fa	ok
+The Method Materials/CORPUS/TB1-audit.log	15kPS35wd6kxfPr_dmI0NO4z9RdFpe_5u	TB1-audit.log	text/plain	1620	2026-09-02T15:09:58.856Z	3cc67acaa9d90d25c8c194c57a8772ff	ok
+The Method Materials/CORPUS/TB1-audit.py	1II2wi-zrU2hYjnwRCtSxGKBo_Ccq93sy	TB1-audit.py	text/x-python	4792	2026-09-02T15:09:59.381Z	f12c16616d4e37dfbcb98e0b2c56ee16	ok
+The Method Materials/CORPUS/TB1-audit_state1_failing.log	1jqmwmECkCmGZ5MmDCQXK24loYgR3rxL3	TB1-audit_state1_failing.log	text/plain	1633	2026-09-02T15:10:00.174Z	4cfc454dbf2403957caf9e5d5667f390	ok
+The Method Materials/CORPUS/TB1-audit_state1_failing.py	1SAe6bADr7o-alxPoydGYedZOFWBgdcMX	TB1-audit_state1_failing.py	text/x-python	4849	2026-09-02T15:10:00.801Z	1f5c97feb5162410dc0ea96ef75de186	ok
+The Method Materials/CORPUS/TB1-caps_table.log	1QYb3acqV_3UT8tNMG8WfBOWc0TqDuT6X	TB1-caps_table.log	text/plain	271	2026-09-02T15:10:01.557Z	bd87625108e27455c0948d988a369cfd	ok
+The Method Materials/CORPUS/TB1-caps_table.py	1vYhXTW1-KGkCMuBQyUVz7KiVt41V5_Uo	TB1-caps_table.py	text/x-python	618	2026-09-02T15:10:01.983Z	f72a997b8deec05c3a68b77c3f69e8c9	ok
+The Method Materials/CORPUS/TB1-figs.log	14aKn8icX5NXCsKdDxIfeEXMJjmDKsDUE	TB1-figs.log	text/plain	222	2026-09-02T15:10:02.503Z	18c3d762264b498ce42d3e314aed6a0b	ok
+The Method Materials/CORPUS/TB1-figs.py	1qbjUF3fcuGR6fKlJ0S3X0XPZq4DP3BJj	TB1-figs.py	text/x-python	3778	2026-09-02T15:10:03.054Z	ec889beba73204de8972599f1828937f	ok
+The Method Materials/CORPUS/TB1-figs2.py	1m1J8H0KGDoF7y4oiakWwI3G8apHpwJGm	TB1-figs2.py	text/x-python	2007	2026-09-02T15:10:03.784Z	c3fcb0be0263bf799f5512ff02479245	ok
+The Method Materials/CORPUS/TB1-n8_check.log	1051pdgpjJ0Kzf4Eb3WgGTvVlljeE3C4A	TB1-n8_check.log	text/plain	1221	2026-09-02T15:10:04.376Z	5d140ad0c7cf1b0d26b7482d82bc35e1	ok
+The Method Materials/CORPUS/TB1-n8_check.py	1PY-b9uqLtKUTh_MA_hOsGK2L8ionTlfc	TB1-n8_check.py	text/x-python	1719	2026-09-02T15:10:05.027Z	ab823f22180baa476b623e0f55ae8c06	ok
+The Method Materials/CORPUS/TB1-routh_check.log	1gGS0h5WPhnAI1uXOB-UuWPtnb-11a1qa	TB1-routh_check.log	text/plain	90	2026-09-02T15:10:05.490Z	3fa04ee0f0b05e8246bd9eb119d8dd1d	ok
+The Method Materials/CORPUS/TB1-routh_check.py	1skzK3FWPwTkTe3sR7zP0nKHdMM9KklMw	TB1-routh_check.py	text/x-python	366	2026-09-02T15:10:06.056Z	23842800b311327175ecdd0ef311473b	ok
+The Method Materials/CORPUS/THE-LOWDIN-SOLUTION-2.md	1GK-fn0zmA4wijObFAi-qPI2pMBzyVF6m	THE-LOWDIN-SOLUTION-2.md	text/markdown	38040	2026-09-02T15:10:06.627Z	4a06e8930b9f7a7a8226dca2db39e35c	ok
+The Method Materials/CORPUS/The_Method_1_6-2.md	1VUGYwp74zubmRAMY9DrBzOPJB6UXOOTB	The_Method_1_6-2.md	text/markdown	779423	2026-09-02T15:10:07.102Z	4aef772bad512b84d8c0888386472a74	ok
+The Method Materials/CORPUS/The_Method_1_6___Mathematical_Compendium-2.md	1iTLwovd8orummUiYEGAFMy2Qm2yoWd0T	The_Method_1_6___Mathematical_Compendium-2.md	text/markdown	309403	2026-09-02T15:10:07.785Z	99a616ec551ecd3bdb67f81119f9c483	ok
+The Method Materials/CORPUS/The_Method_1_6___Spectra_Compendium-2.md	18Aw2V8b-uMJIlJyZ0d2YFT_R-Z7Ar7i7	The_Method_1_6___Spectra_Compendium-2.md	text/markdown	100790	2026-09-02T15:10:08.297Z	5ba7f61cf031c02b5a0226d2aed8dc4d	ok
+The Method Materials/CORPUS/The_Method_1_6___The_Index_of_Indices-2.md	1CeifDdbd5jxn7APHAPjiYISwvNr50pK_	The_Method_1_6___The_Index_of_Indices-2.md	text/markdown	118373	2026-09-02T15:10:08.764Z	27d387ef8a6175c1b9c85437fe3a7588	ok
+The Method Materials/CORPUS/The_Method_1_6___The_Physics_Compendium-2.md	1CTuz7IR9-ZawRBNyT3G8iz5wOjzMFKAL	The_Method_1_6___The_Physics_Compendium-2.md	text/markdown	61366	2026-09-02T15:10:09.229Z	5a9646100eae8fba6a2c601a549d54db	ok
+The Method Materials/CORPUS/The_Method_1_6___The_Register-2.md	1D4RzqvlNCpgHPjEianzmi-2JfwZ58El7	The_Method_1_6___The_Register-2.md	text/markdown	1203491	2026-09-02T15:10:09.652Z	79aaf239a42c1649e914b7cba9d5ce2a	ok
+The Method Materials/CORPUS/The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	10TdAiRetPAsINH9Wa3zoMhQ2YSU-L297	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	text/markdown	23022	2026-09-02T15:10:10.432Z	f2adca041b5d95d941b40a6e7dfae64c	ok
+The Method Materials/CORPUS/Transitions.md	1Ov3SiLfA-M-RhWT3AwVLBqjiSXuser2L	Transitions.md	text/markdown	121692	2026-09-02T15:09:42.468Z	dabed88eed79835098b0700fc63c82ef	ok
+The Method Materials/CORPUS/WORKING-REGISTER.md	1J46eKr6u3MKIqqR0bSXvCa9f3BTgsOOO	WORKING-REGISTER.md	text/markdown	902542	2026-09-02T15:09:43.060Z	bf77b1f104f2fd31da4732675dae8234	ok
+The Method Materials/CORPUS/amd2_write.py	1VjOdO4H9zrzVEsSQ36E9cD1r7aoNPhgG	amd2_write.py	text/x-python	3704	2026-09-02T15:09:43.602Z	023efa1fb575c8e0127e5b1ffc0fa52a	ok
+The Method Materials/CORPUS/appf.py	1r8NMIyKmks-dBO1wQjEh4bH4ap86l3-z	appf.py	text/x-python	9888	2026-09-02T15:09:43.942Z	0bb90faf9d837a5f289c509b852a8822	ok
+The Method Materials/CORPUS/archive-split.out	1gU-JMVKdNGF3oL2EX6U7egJ7mx2AaHZx	archive-split.out	application/octet-stream	388	2026-09-02T15:09:44.375Z	a6c479930b96f11f90b9174d2b0153a9	ok
+The Method Materials/CORPUS/archive-split.py	1ZvssHxd5no5JQM29wU4XzaAYIaxS2RpL	archive-split.py	text/x-python	30795	2026-09-02T15:09:45.057Z	efa95d2cd75390221c1304db12f3f229	ok
+The Method Materials/CORPUS/bookindex.py	1ZpDBdpIN55c4cMgS8tIgGSBJgLC3_mFg	bookindex.py	text/x-python	2801	2026-09-02T15:09:45.728Z	8410b2152c956b71091eb28d99677b13	ok
+The Method Materials/CORPUS/build.py	1q4KutH8mWQ4s5HZoEzfperye7S7KgXhF	build.py	text/x-python	63738	2026-09-02T15:09:46.267Z	d2fa72523b1f27634d20b84922c8a984	ok
+The Method Materials/CORPUS/build126.py	1ne0Ha3PIPBgS9PmcyHxyNOg2dSI9EUTw	build126.py	text/x-python	5764	2026-09-02T15:09:46.797Z	7962ef041e1e64bfff09ffb8af2944d4	ok
+The Method Materials/CORPUS/bundle.py	1Ys9Zj9BLGYD9jFUSFrA--m03uwcOmGdt	bundle.py	text/x-python	6787	2026-09-02T15:09:47.226Z	0b7da480d03c6e77c9e70ec9b9e4903a	ok
+The Method Materials/CORPUS/census.py	1E9UoNt1y3CqJ5VqL0HzLhkLZZwwe71RQ	census.py	text/x-python	9299	2026-09-02T15:09:47.604Z	f5a73e2b595dd6215ad8d3c8910b6337	ok
+The Method Materials/CORPUS/channels_LIMB.py	1DwECSaSEdNyfOqoaFWgjiVS_suiCUS73	channels_LIMB.py	text/x-python	326	2026-09-02T15:09:48.039Z	185a39862e8e5b38e4b13e67f3dab0b7	ok
+The Method Materials/CORPUS/classify.json	1yfiBhtVlAqbsd-oYcqCgo-fIZ2NvynBe	classify.json	application/json	1371	2026-09-02T15:09:48.969Z	5ed19968f4e6ebb2db8a3ffdc629529b	ok
+The Method Materials/CORPUS/close.py	1wwIeemKnFklhbI4KkkKaQFP6GD7UkmkY	close.py	text/x-python	6456	2026-09-02T15:09:49.391Z	98acae678629305fad0f3830488b3ee9	ok
+The Method Materials/CORPUS/coords.py	1kkv5DwCoXdHzx4_VrvPUQa6sE8VEvftD	coords.py	text/x-python	8006	2026-09-02T15:09:49.777Z	211687a4879c2023cfc448725c54979c	ok
+The Method Materials/CORPUS/corpus-summary.json	1BUUabAWmIcTbOoAb4g8DHi7mu_keBhDD	corpus-summary.json	application/json	1118	2026-09-02T15:13:09.370Z	c575740649f7b5887335c21e923e7a30	ok
+The Method Materials/CORPUS/crop_titles.py	1DoRTRzoIJaaU9l0LUrQwqrzP3JFMv1Y_	crop_titles.py	text/x-python	807	2026-09-02T15:09:50.143Z	4358151cb4c00e1a22f71943e8791f62	ok
+The Method Materials/CORPUS/dclose.py	1tXugq_BtzmfhUgPZAR3SXwavhsr-cnG8	dclose.py	text/x-python	5925	2026-09-02T15:09:50.533Z	02cb091e7aa80068a42a79e95d8135e1	ok
+The Method Materials/CORPUS/depoint.py	1A750JgNhNMBHTMdkQUrRizxrD4TWPxNP	depoint.py	text/x-python	5965	2026-09-02T15:09:51.205Z	e72e22298bb2222ed9f19d3f2dfe977a	ok
+The Method Materials/CORPUS/excise.py	1fdiRYwczHkWmY9cgwLaSCB1juxmJfTC0	excise.py	text/x-python	2840	2026-09-02T15:09:51.668Z	77216203a26321d36bb9b099ef4c3b5d	ok
+The Method Materials/CORPUS/excise_plan.json	1EhhJWPZU9VWEVQNxj2kZXAjL1wYQ_0sy	excise_plan.json	application/json	1757	2026-09-02T15:09:52.110Z	cb54cc364832a9017b57ef6eeb0df445	ok
+The Method Materials/CORPUS/excision_result.json	1Q0Gt5wHmhDqqNJvhAKIFQzHKeCIHBjJ2	excision_result.json	application/json	941	2026-09-02T15:09:52.810Z	ed120e7fb3210f98e49a95a884eba597	ok
+The Method Materials/CORPUS/extent.out	1zkQc5k-YzNn31G_6k70y2vF8wjLn_kHU	extent.out	application/octet-stream	132	2026-09-02T15:09:53.567Z	dd35a6a81319beb337d440449cb2761a	ok
+The Method Materials/CORPUS/fig241_data.json	1372iVHr_I0wzlL-0RFlF-PKkq6Ibg4L8	fig241_data.json	application/json	8186	2026-09-02T15:09:54.212Z	e2b03fb220217fb3f357ee8b9a87b37a	ok
+The Method Materials/CORPUS/fig_rerender.py	1oYLLSexbXuajrqxi67z6evEsgwF_z5c9	fig_rerender.py	text/x-python	6293	2026-09-02T15:09:54.872Z	7c9c956330ea0f38a243d625e14b054e	ok
+The Method Materials/CORPUS/gate.py	1lIbSFSC1PXETdFFxuW7vYpwJKDg0Ba6k	gate.py	text/x-python	9377	2026-09-02T15:09:55.659Z	a01ef15a7920b7a11f3f2e9168d5d130	ok
+The Method Materials/CORPUS/heii.py	1UA2aYRcbRRssX-mCbgL5g-2AftKQUMhG	heii.py	text/x-python	2344	2026-09-02T15:09:56.241Z	049919c10cd77f97dff1aae0466a4df3	ok
+The Method Materials/CORPUS/heii_levels.txt	1vXm-yJSJmNyd1E7dXO1YoOCnkEhsa2SS	heii_levels.txt	text/plain	2187	2026-09-02T15:09:56.826Z	dda9699248cdea825d4367237fcd8490	ok
+The Method Materials/CORPUS/heii_series.json	1gUKouJn6O7UqaoH4nETn9UdFMacttKi0	heii_series.json	application/json	606	2026-09-02T15:09:57.270Z	980b9052236962e11ed754749100c4d0	ok
+The Method Materials/CORPUS/index_gen.py	1ftat92mgiRcX22c0jnduc9iWbEhEa1A2	index_gen.py	text/x-python	5653	2026-09-02T15:09:38.935Z	85330972a30f4fc1f9bffa40c4af0594	ok
+The Method Materials/CORPUS/index_pages.py	1kVi8UP38bAtNphN-2tFWYoueuxNjaMfB	index_pages.py	text/x-python	6797	2026-09-02T15:09:39.309Z	5d5096ae95835886903ab78335e2d64d	ok
+The Method Materials/CORPUS/kinds.out	11JceUpFzCweazHLhR7yauZWgMjIxta0K	kinds.out	application/octet-stream	540	2026-09-02T15:09:39.641Z	e8ab79fb10cb7c88a14fcbc4a3dc0d18	ok
+The Method Materials/CORPUS/kinds.py	1j3OWphIZC5NR_QVGNQFHoz1fgZ4_sqBJ	kinds.py	text/x-python	3370	2026-09-02T15:09:39.996Z	4262f7c52dace40a103cdfa352ec02e5	ok
+The Method Materials/CORPUS/l-ch1.py	1GT6CG2bdAaGl3tDrCoKJv96-X1OqxZTn	l-ch1.py	text/x-python	2087	2026-09-02T15:09:40.429Z	448ef66cc15143fffdfe6e7ebfc007bb	ok
+The Method Materials/CORPUS/l-ch2.py	1k7yFQ7rAvFllALJXPPRQfvWKKFMlV4PU	l-ch2.py	text/x-python	1147	2026-09-02T15:09:41.022Z	e2f4ad4f78ca904e126587134808edde	ok
+The Method Materials/CORPUS/minmax.out	1vHSGLjK9KA4QbwlL_WaQnn30VcTeLbNO	minmax.out	application/octet-stream	563	2026-09-02T15:09:41.429Z	2e8fdd40d731821f77b4d344b8cfa0e8	ok
+The Method Materials/CORPUS/minmax.py	1xIdYqV0Wn8h6Gk7OiUnUhkK0a2jb-h9y	minmax.py	text/x-python	1824	2026-09-02T15:09:41.781Z	26da1d78643f244e3e8b0fa268057300	ok
+The Method Materials/CORPUS/mkref.py	19CxTwOaFGgWmnunjeqgzcF4UY58uxi8G	mkref.py	text/x-python	7199	2026-09-02T15:09:42.140Z	10fc0c63b389e0b30c9f14417cb91c3d	ok
+The Method Materials/CORPUS/numcheck.py	1niOsA3VXBJ7x4Gs1cfptQkgeMKjY4F9B	numcheck.py	text/x-python	795	2026-09-02T15:08:50.899Z	d36764328bd1cb669d5c4fa929763be4	ok
+The Method Materials/CORPUS/qgraph.py	15LupndS1SQER9y7EIyCefI5C5C6ZxakC	qgraph.py	text/x-python	828	2026-09-02T15:08:51.484Z	5aac43b570de45fe5215e2ca17ef5244	ok
+The Method Materials/CORPUS/r2-21a.out	19aOcp_2NKWJ4urlFtkop_3WTpiJkO7jn	r2-21a.out	application/octet-stream	25222	2026-09-02T15:08:52.050Z	d4d140a98fe8d0e85aecd177b8424912	ok
+The Method Materials/CORPUS/r2-21a.py	1bXCMsDFzYv2eKepo3JW3tzZzB_gK5H6k	r2-21a.py	text/x-python	21177	2026-09-02T15:08:52.443Z	b98f2c83d3005ff6bff41d3b361ff2de	ok
+The Method Materials/CORPUS/r2-23a.out	1tO6snZYZOxr7R-FXaeBIBhmL2Orvciqj	r2-23a.out	application/octet-stream	37448	2026-09-02T15:08:52.983Z	459cb55dc0e81238640ee9f68d1d310c	ok
+The Method Materials/CORPUS/r2-23a.py	1_EYb2WYD03fx-NY6sXvIYXgxpxScKPQV	r2-23a.py	text/x-python	20065	2026-09-02T15:08:53.393Z	85bd124a1e6cd5dcd5e6198e15259782	ok
+The Method Materials/CORPUS/r2-24a.out	1EcxXs3o6yQ2KJdXPXQQualsltdBd5_Oi	r2-24a.out	application/octet-stream	24262	2026-09-02T15:08:53.719Z	6560ba589cdb6784820745cbea9567f2	ok
+The Method Materials/CORPUS/r2-24a.py	1Q0-YqngYDBoMsOL5snJszyhwcpxLKPRI	r2-24a.py	text/x-python	28685	2026-09-02T15:08:53.984Z	b905b44fd84c599626c8ef3118c701d5	ok
+The Method Materials/CORPUS/r2-25b.out	1UHQtVsgyZOAG_DCFouyszHH7UjPCesl-	r2-25b.out	application/octet-stream	16449	2026-09-02T15:08:54.519Z	49da811df7c56355c215d11b76176f3b	ok
+The Method Materials/CORPUS/r2-25b.py	1Q27b_X4pHcyqIoxWbVnOnbryHzfHwnVy	r2-25b.py	text/x-python	21612	2026-09-02T15:08:54.929Z	2387c3a5291d209a0bbf048913568cac	ok
+The Method Materials/CORPUS/r2-ch1.py	1OSGe5xTad3zLKskg5_avMojYdSxgnUxl	r2-ch1.py	text/x-python	2940	2026-09-02T15:08:55.227Z	172fb73dacbf30d5d85eb04f4463c064	ok
+The Method Materials/CORPUS/r2-ch10.py	1N4MfmgfRW9ZbursOsjT-SFczbp8FGb0k	r2-ch10.py	text/x-python	5035	2026-09-02T15:08:55.513Z	f1603d3f2310ed33583d01f67eb7020c	ok
+The Method Materials/CORPUS/r2-ch11.py	1BHM0BYBBZnPkGR0Tj-0rfYcWjQ9vDibd	r2-ch11.py	text/x-python	8759	2026-09-02T15:08:56.069Z	ee1555717f4401e80aa3730fe4d6b9f5	ok
+The Method Materials/CORPUS/r2-ch16a.out	1y33DBaxbHLfhEVvTflmIojIg-WkQLaWK	r2-ch16a.out	application/octet-stream	17491	2026-09-02T15:08:56.572Z	1110b82db622df5d362c6941ae9e95d1	ok
+The Method Materials/CORPUS/r2-ch16a.py	1nhMxQm-UNIDoXZItj-9l3rd4qA5LyyBj	r2-ch16a.py	text/x-python	14072	2026-09-02T15:08:57.141Z	b2d71512b926d7a394a7aae99c280f56	ok
+The Method Materials/CORPUS/r2-ch16b.out	1k38qbbOnvdcFRm3l8o7hPXLR7YfzudBt	r2-ch16b.out	application/octet-stream	11957	2026-09-02T15:08:57.409Z	81670a576186c646126ca6aaaacb3232	ok
+The Method Materials/CORPUS/r2-ch16b.py	1U2xpvkwB1Paq_Li-bp_JCapgWi65MyrG	r2-ch16b.py	text/x-python	21250	2026-09-02T15:08:57.706Z	165bf22d271fc7af7b11949b09a284f0	ok
+The Method Materials/CORPUS/r2-ch16c.out	1Ru6rjYAZnrE9Ctl_ju632dJYBfWtOuEB	r2-ch16c.out	application/octet-stream	16427	2026-09-02T15:08:58.030Z	25e135d656a97f664ff2a2848fa195d1	ok
+The Method Materials/CORPUS/r2-ch16c.py	1R-YYMXemhlvNLWFwJbKZwJY0IXRdUywK	r2-ch16c.py	text/x-python	18745	2026-09-02T15:08:58.337Z	5b92aa61b147d3d9327242cf3d4e2e45	ok
+The Method Materials/CORPUS/r2-ch16e.out	1TfkSbGHIiRE6ynDIz_Jd_jsrTkV1pQbs	r2-ch16e.out	application/octet-stream	9894	2026-09-02T15:08:58.672Z	d816d8ea67e3786404b612d488e4fb36	ok
+The Method Materials/CORPUS/r2-ch16e.py	1-vM_1-ahmq2hzK_d0hv1ZykLkXAFiWF5	r2-ch16e.py	text/x-python	18228	2026-09-02T15:08:41.169Z	dd5b6fe7d9f56f7cc5a4e19f68d9daa2	ok
+The Method Materials/CORPUS/r2-ch16f.out	1sOkvl5wPZGwTRlIejbjh15gZHyhEif2n	r2-ch16f.out	application/octet-stream	30925	2026-09-02T15:08:41.421Z	969b3a1042c0174f2d693e0428e416a8	ok
+The Method Materials/CORPUS/r2-ch16f.py	1nhZii3ljvs06Or8s58X9932U_m7Y-l3r	r2-ch16f.py	text/x-python	17508	2026-09-02T15:08:41.677Z	300dd46f4dd1dbc1501a5dc19cfecc39	ok
+The Method Materials/CORPUS/r2-ch16h.out	1KVh9UsWnQnyVIpg3w3kc2yUofp3LxOX4	r2-ch16h.out	application/octet-stream	7780	2026-09-02T15:08:41.940Z	6063a7c10ac234f7c3980e68e880660b	ok
+The Method Materials/CORPUS/r2-ch16h.py	19B6r9sGFwNRg0HHjOwv32wfjvJChFA7k	r2-ch16h.py	text/x-python	14923	2026-09-02T15:08:42.198Z	971c053d890738aecb33746c50ab78a1	ok
+The Method Materials/CORPUS/r2-ch16i.out	169ogLxAadCdyZ7JtJqzlKjVw5Ljv9N2i	r2-ch16i.out	application/octet-stream	19423	2026-09-02T15:08:42.828Z	aa1177df2882f3640abd6d7298a5f8bb	ok
+The Method Materials/CORPUS/r2-ch16i.py	1qkmnYOB1TxO5ZMkL3frEuBnZF_PL_Rm_	r2-ch16i.py	text/x-python	16897	2026-09-02T15:08:43.240Z	3ed8a41888da5e0613fcb322e2a6380c	ok
+The Method Materials/CORPUS/r2-ch16k.out	1G7vvQMhWfrlmxxR47o-z0womLIgOWSEY	r2-ch16k.out	application/octet-stream	7787	2026-09-02T15:08:43.484Z	70b3d1e4a153b0beb92508d75de38a3f	ok
+The Method Materials/CORPUS/r2-ch16k.py	1woxn3qB_xveoto7CZJeZw6Yk8cJHRTi6	r2-ch16k.py	text/x-python	11223	2026-09-02T15:08:43.742Z	da8d609526e0c4d5e35a9095aa38902d	ok
+The Method Materials/CORPUS/r2-ch16l.out	1vUbPuBfTO-l7MMhkxMd6vwTzi5Ab17wj	r2-ch16l.out	application/octet-stream	7857	2026-09-02T15:08:44.110Z	ffae544614b8fa8ffdfbb8299d9754a3	ok
+The Method Materials/CORPUS/r2-ch16l.py	1HsWKlx5_5DJPn-c5UsYd_lIVkybME6Hx	r2-ch16l.py	text/x-python	9134	2026-09-02T15:08:44.646Z	f36814c727d0ae018d597a14c361b9c0	ok
+The Method Materials/CORPUS/r2-ch16m.out	12z7lwZe0llrwAX_pT19m2P8JP2_9h5PX	r2-ch16m.out	application/octet-stream	11481	2026-09-02T15:08:45.024Z	d4755b1bedbd00fe90ac6231de100631	ok
+The Method Materials/CORPUS/r2-ch16m.py	1aQImPlU8boIJpBjPdkonL9AGEwdt2HXW	r2-ch16m.py	text/x-python	15438	2026-09-02T15:08:45.311Z	ff46e7b2a2c086d1317921adbc97df31	ok
+The Method Materials/CORPUS/r2-ch16n.out	1m3nmqE8U2Rhlq8YvbEuSdfegttqYXY3w	r2-ch16n.out	application/octet-stream	19953	2026-09-02T15:08:45.599Z	d2ef24a24e5e63fe4fc3fec9b33e8e82	ok
+The Method Materials/CORPUS/r2-ch16n.py	1YlMajLTcZUrs2uYAyc3_brFWC6dmZsOG	r2-ch16n.py	text/x-python	15533	2026-09-02T15:08:46.257Z	8cdac8e94d45fad7936ef11b9a1cbc34	ok
+The Method Materials/CORPUS/r2-ch16o.out	15VSOJYFc8Fkwz_Y23pKyL3fmElzonnrS	r2-ch16o.out	application/octet-stream	10828	2026-09-02T15:08:46.677Z	146b46f2cad706be7371c22d330b2866	ok
+The Method Materials/CORPUS/r2-ch16o.py	1WlY3hX_35De2yY6KqWaoe5-cnk3LjsDw	r2-ch16o.py	text/x-python	16242	2026-09-02T15:08:46.994Z	7caf86f7af8ab84cbb92b93831aa7ef2	ok
+The Method Materials/CORPUS/r2-ch16p.out	1N1jEK1z5H1fkLMTBrKlsHj1d8Ru_wLyc	r2-ch16p.out	application/octet-stream	31464	2026-09-02T15:08:47.449Z	6944ac1f27bbb8f866ff267af913024c	ok
+The Method Materials/CORPUS/r2-ch16p.py	1qXF7_xZNLCMcY-e1dQI_imnIPr3bSujl	r2-ch16p.py	text/x-python	19134	2026-09-02T15:08:47.984Z	ad69c34b47dc8984ef16aaa9d1fa1980	ok
+The Method Materials/CORPUS/r2-ch16q.out	16BPJ5V2IVFIJfLbmT4yzQGsuA3cSnVxm	r2-ch16q.out	application/octet-stream	14494	2026-09-02T15:08:48.359Z	dd756ed075b8dfa05cde9262e0fdca48	ok
+The Method Materials/CORPUS/r2-ch16q.py	1W6XvbEaYwe37qLuD7ZH6z7NFHd3VG488	r2-ch16q.py	text/x-python	19180	2026-09-02T15:08:48.608Z	9802e46cb07a2540ae20ee67a1b685fd	ok
+The Method Materials/CORPUS/r2-ch16r.out	1SRS_g94dRKzR5aqh8yvnDMXCE4oQ4q_-	r2-ch16r.out	application/octet-stream	39054	2026-09-02T15:08:48.911Z	97074f497efd3de4d5c985447c72d7a4	ok
+The Method Materials/CORPUS/r2-ch16r.py	1GqgdmiKtcWYVi_NBRcjDAYo2TBLfjwaQ	r2-ch16r.py	text/x-python	13585	2026-09-02T15:08:49.178Z	6d2d618560d4b2603f986b9ce82126ce	ok
+The Method Materials/CORPUS/r2-ch16s.out	1nabeOrN6H8rfRUuvktF8ThwdNQkiykc7	r2-ch16s.out	application/octet-stream	13110	2026-09-02T15:08:49.685Z	a9fdd4ff7815626fc775824067fb3e47	ok
+The Method Materials/CORPUS/r2-ch16s.py	1jQuQ7_aOwqPmVXWNxOtWCznovvbGSmaX	r2-ch16s.py	text/x-python	10902	2026-09-02T15:08:50.074Z	ae6c788602776d0169b69381beb7954c	ok
+The Method Materials/CORPUS/r2-ch16t.out	1Tl3R61zVGFjvFTjXia-pUobj66eU85rC	r2-ch16t.out	application/octet-stream	17666	2026-09-02T15:08:50.380Z	92882642231330eb5ab9b4eca38259fc	ok
+The Method Materials/CORPUS/r2-ch16t.py	1Yvq13NYoKgZOBhRR9nhgbphgJWNlgfv5	r2-ch16t.py	text/x-python	12215	2026-09-02T15:08:50.650Z	bf7f0e331a1623c2d4ba2f7d3c193bde	ok
+The Method Materials/CORPUS/r2-ch16u.out	1xw6cdOBGBM92LVDKRTE8qGo13cFIm3xB	r2-ch16u.out	application/octet-stream	15292	2026-09-02T15:08:36.816Z	6a8473620928aad45f23ef66890488ea	ok
+The Method Materials/CORPUS/r2-ch16u.py	1gAiWuulfJtMXpIqHBGCJFgHz6zYUad46	r2-ch16u.py	text/x-python	12078	2026-09-02T15:08:37.102Z	f50c7e286f55e01aebf4d7c32fea8dc2	ok
+The Method Materials/CORPUS/r2-ch16v.out	1pO6ZCP8Wr0y9-Q9HNLNzUO6H4AnLe2hb	r2-ch16v.out	application/octet-stream	9486	2026-09-02T15:08:37.553Z	3bc466f8e73aa2e5f72a2a7cbe021609	ok
+The Method Materials/CORPUS/r2-ch16v.py	1B0BMhGGCxQ7SJS8kPXXUdMh6DMzh-oqg	r2-ch16v.py	text/x-python	12471	2026-09-02T15:08:37.866Z	5221ef3c38fbbe921e393dcb126b34d1	ok
+The Method Materials/CORPUS/r2-ch16w.out	1yMuASXsSu6XKE6dHiNBkk_JM64JjM9qN	r2-ch16w.out	application/octet-stream	22951	2026-09-02T15:08:38.100Z	e4d1ebb373062c372feff8aded063db0	ok
+The Method Materials/CORPUS/r2-ch16w.py	1OFweKn4Y9hqdPykxAC-gm5fOzmhguDC9	r2-ch16w.py	text/x-python	19151	2026-09-02T15:08:38.351Z	511bcb6fddebaeb5632c2ca008be9bf8	ok
+The Method Materials/CORPUS/r2-ch16x.out	1Qozcv5wZM8-D9oBNkObRYIthq_xAYO6K	r2-ch16x.out	application/octet-stream	11228	2026-09-02T15:08:38.743Z	1f9f25cf702395aa03ace3ef6b7f4129	ok
+The Method Materials/CORPUS/r2-ch16x.py	1O7Bro68h9HMCcdmYRpRLeq0D56TFvAhx	r2-ch16x.py	text/x-python	11710	2026-09-02T15:08:39.089Z	2f1d10c68035ac029060dfd74d33c747	ok
+The Method Materials/CORPUS/r2-ch16y.out	1xGbcVfVS242xHyWWE4jSky1Op8VwXuT0	r2-ch16y.out	application/octet-stream	15307	2026-09-02T15:08:39.366Z	979f92ae15f3346394c6b5d3e89770cf	ok
+The Method Materials/CORPUS/r2-ch16y.py	1LmVC212O63Q0AvZe6NTlHNf4Y-Nq6MiJ	r2-ch16y.py	text/x-python	21740	2026-09-02T15:08:39.625Z	265dde3f7c3e1a2b0523ac8ae27dba87	ok
+The Method Materials/CORPUS/r2-ch16z.out	1Mt4mYTFwLq_tDqV-1lw4SdhY0w1A41Wq	r2-ch16z.out	application/octet-stream	18831	2026-09-02T15:08:39.888Z	a41471e0ff1342c806ba37b84636a71d	ok
+The Method Materials/CORPUS/r2-ch16z.py	1y18IUs5cXTnTM6TZW8ZBRUdP51PFSNrH	r2-ch16z.py	text/x-python	17541	2026-09-02T15:08:40.129Z	424cb742a25e4a101f9e505a021b943a	ok
+The Method Materials/CORPUS/r2-ch17a.out	1tCEsVZvKZ0X_CuteT1BT1ZDoWDEwmd_x	r2-ch17a.out	application/octet-stream	9917	2026-09-02T15:08:40.721Z	95c21429279e7df205bd5905f3e9888f	ok
+The Method Materials/CORPUS/r2-ch17a.py	1OTWi-WZ1YsOFGbsrmuC87z9oye41xoGs	r2-ch17a.py	text/x-python	13778	2026-09-02T15:07:56.542Z	31fd7383078d7f30b1760fdf9559811c	ok
+The Method Materials/CORPUS/r2-ch17b.out	1KtQ3Sj_wmAUvnaavf2LwonlFrJTet-ok	r2-ch17b.out	application/octet-stream	11834	2026-09-02T15:07:57.558Z	b3983a508ab4dbb10442899d26933d40	ok
+The Method Materials/CORPUS/r2-ch17b.py	1mFYt3IJtOK70FgBVsKvfDBTIwbNAUcHV	r2-ch17b.py	text/x-python	10535	2026-09-02T15:07:57.895Z	cba74441feed1e3a84fc24e70af97532	ok
+The Method Materials/CORPUS/r2-ch17c.out	1_dS3JMWVre3WVDxDoU8akCKCdJrVtV_f	r2-ch17c.out	application/octet-stream	21091	2026-09-02T15:07:58.248Z	0ed57a3259a79bfb8f569ed7308c0f08	ok
+The Method Materials/CORPUS/r2-ch17c.py	15JE1CO0yGngrAmV7DcdPQB7hAJ9WPEc0	r2-ch17c.py	text/x-python	22444	2026-09-02T15:07:58.513Z	b2c4b233437c8dc4c2e1597bd0401e24	ok
+The Method Materials/CORPUS/r2-ch17d.out	1uxZvxuX-qvAMrI4K6T9hF0-xKLvjFuxh	r2-ch17d.out	application/octet-stream	12732	2026-09-02T15:07:58.830Z	1d383e3a30080064ffdccd025410bd2a	ok
+The Method Materials/CORPUS/r2-ch17d.py	1YyUcI2dsp921MUR0BHMigWbEGFm6m_yx	r2-ch17d.py	text/x-python	12079	2026-09-02T15:07:59.537Z	f277fc45ad42e63d9aaeeb014d504f48	ok
+The Method Materials/CORPUS/r2-ch17e.out	1MqnRP73tkcraPxyYfzl8BQhYMQ21QJZE	r2-ch17e.out	application/octet-stream	12178	2026-09-02T15:07:59.792Z	d869dccee1825d474cf3eb7c9a160081	ok
+The Method Materials/CORPUS/r2-ch17e.py	1cVr5MmVjR4pqczZLuawv1xAyjSZZe0zY	r2-ch17e.py	text/x-python	16718	2026-09-02T15:07:59.998Z	34282b3ec943555464afe74bc2ba32f2	ok
+The Method Materials/CORPUS/r2-ch17f.out	1If5di_ODibOM7ars-_EkGjzJgSRrZYmv	r2-ch17f.out	application/octet-stream	7740	2026-09-02T15:08:00.197Z	6daf47c50f4fa1f5d742303c31a89b7f	ok
+The Method Materials/CORPUS/r2-ch17f.py	1HNPaquixBYifnN0OpoqCV1Sk435zAL9B	r2-ch17f.py	text/x-python	11361	2026-09-02T15:08:00.404Z	9279e3276232f3199dd5ba76c740e6fd	ok
+The Method Materials/CORPUS/r2-ch18a.out	1_SOvVSGtCE367nEuHiu8Ig6iSu1yN33z	r2-ch18a.out	application/octet-stream	20364	2026-09-02T15:08:00.626Z	d5b741a9c2d3e6ebcda0b9117808d64f	ok
+The Method Materials/CORPUS/r2-ch18a.py	16aNuBijwSxbKvEyKm2YuEFLC265Iym3G	r2-ch18a.py	text/x-python	29678	2026-09-02T15:08:01.290Z	7ff90d81589ae5a48a5eea4380cc50c7	ok
+The Method Materials/CORPUS/r2-ch18b.out	1XoS9Wv_NBMkqx_Wy3ClRGwEyrTLITS9P	r2-ch18b.out	application/octet-stream	9256	2026-09-02T15:08:01.575Z	0d29a486695fcb7a533ef40cfc4f3e3f	ok
+The Method Materials/CORPUS/r2-ch18b.py	1jaKlJ_q-1AHyK0j05Sf8wZs-cLib64wV	r2-ch18b.py	text/x-python	9786	2026-09-02T15:08:01.777Z	846485e12a53c6c01090327aad065b15	ok
+The Method Materials/CORPUS/r2-ch19a.out	1kA-FWbsdDUS1dqLhG3ndkB7LGME8TaOZ	r2-ch19a.out	application/octet-stream	21844	2026-09-02T15:08:02.016Z	a04625ba7b814f48d2ba47a770639dd9	ok
+The Method Materials/CORPUS/r2-ch19a.py	1MeXnKzO5YaF5I_eLH37gQtAo-Ap6xX4j	r2-ch19a.py	text/x-python	27521	2026-09-02T15:08:02.265Z	7414bdafd376ba5ebac0c3a3817d125b	ok
+The Method Materials/CORPUS/r2-ch19b.out	1ZzCynSmjFP3ixE3kKXGpZRutt2p_ibhO	r2-ch19b.out	application/octet-stream	23097	2026-09-02T15:07:49.779Z	170804d8a4f194a159988fc807cef3c0	ok
+The Method Materials/CORPUS/r2-ch19b.py	1Kf-l8a_wQUSHVkE05GYiS0IT7hPO0lET	r2-ch19b.py	text/x-python	14688	2026-09-02T15:07:49.948Z	b2044d751378072f8d0315374029f9df	ok
+The Method Materials/CORPUS/r2-ch2.py	1EP4n7pkDXHoNk0jEbx6bLnkxWaf3cn0c	r2-ch2.py	text/x-python	2712	2026-09-02T15:07:50.129Z	64145381de3468efcafdbb1f38fdf94d	ok
+The Method Materials/CORPUS/r2-ch20a.out	1w3BE-EfkFJfd6-E3jYopmsq_b-vw5fU7	r2-ch20a.out	application/octet-stream	25571	2026-09-02T15:07:50.294Z	ac451215b629390590173edc88152c18	ok
+The Method Materials/CORPUS/r2-ch20a.py	1fym1mVvvNuE4-U-tF5Awzy0_Oe_gcivy	r2-ch20a.py	text/x-python	27247	2026-09-02T15:07:50.452Z	40f75d24ab2c930991be1b02323dcf32	ok
+The Method Materials/CORPUS/r2-ch20b.out	15e945bw2Pya1c1TiyRMA1HIMAVCjyciT	r2-ch20b.out	application/octet-stream	10530	2026-09-02T15:07:50.625Z	e87d1c633d4e323b8a84e6fa8c7772fc	ok
+The Method Materials/CORPUS/r2-ch20b.py	1p_AUui_ufGftmVk32rBiSkbTVxUklQE0	r2-ch20b.py	text/x-python	14608	2026-09-02T15:07:51.595Z	87b0f700bf073dca766d6cde0ef308d3	ok
+The Method Materials/CORPUS/r2-ch21a.out	13mPGnEtXZxMqQHShU4P2fCDBAnNBrhR8	r2-ch21a.out	application/octet-stream	26331	2026-09-02T15:07:51.848Z	74f4d9bd531a90a64b61bb6a7e1987b4	ok
+The Method Materials/CORPUS/r2-ch21a.py	1--r655nhB0xtJP-Bot6tkWQdIcTWqSXr	r2-ch21a.py	text/x-python	18582	2026-09-02T15:07:52.042Z	72dd8300ec05c3c02ff7376774add3d3	ok
+The Method Materials/CORPUS/r2-ch21b.out	16gFEXaUJnUnRqr_SfBl_hcFUopvQyqP_	r2-ch21b.out	application/octet-stream	12052	2026-09-02T15:07:52.217Z	aee2c49fad34add53fd0f9c581d4df20	ok
+The Method Materials/CORPUS/r2-ch21b.py	1-sEXJJRCKNpwKQ-gjny3sttzPw8EnnfT	r2-ch21b.py	text/x-python	8826	2026-09-02T15:07:52.396Z	7e0b8578f2260ade998e99bb2e257c77	ok
+The Method Materials/CORPUS/r2-ch22a.out	19ug4n22P2FVpryttuVgkmAEhbiNQSre4	r2-ch22a.out	application/octet-stream	4737	2026-09-02T15:07:52.583Z	c4b8126368beef48475de5d8b455c4b8	ok
+The Method Materials/CORPUS/r2-ch22a.py	1rK_QJNWjO7FK_-ErWdNcWMy-ZkM2M9t0	r2-ch22a.py	text/x-python	12106	2026-09-02T15:07:52.782Z	a96e3451a0306047016134bb8fe914d5	ok
+The Method Materials/CORPUS/r2-ch22b.out	1XPOGLmqmQO1bK8bBXS7W_44QnAUXRXgZ	r2-ch22b.out	application/octet-stream	7963	2026-09-02T15:07:52.984Z	9a41ed042d0b0b4f11d4a323cb9562cb	ok
+The Method Materials/CORPUS/r2-ch22b.py	18lnL4ZsYe6pQAuimA46UYpGoduFxDpef	r2-ch22b.py	text/x-python	10122	2026-09-02T15:07:53.152Z	1647fde8dfa22d7cc4fbf1a05d906f37	ok
+The Method Materials/CORPUS/r2-ch23a.out	1F6suz9yOeDXf8l6rU8ehbrshxBhIRljY	r2-ch23a.out	application/octet-stream	9970	2026-09-02T15:07:53.352Z	76775e080d1c25f09a594e8b5a92e1fc	ok
+The Method Materials/CORPUS/r2-ch23a.py	1vYjzc8FudRmHk7qxQ-4tu3cp3xKNzYkW	r2-ch23a.py	text/x-python	19325	2026-09-02T15:07:53.558Z	98df78713fccb763bc8ac644ad3654d6	ok
+The Method Materials/CORPUS/r2-ch23b.out	1t9opCjWVtIQb5_jLLAZKno17aMmvcTNI	r2-ch23b.out	application/octet-stream	17355	2026-09-02T15:07:54.614Z	1640051160ad27cd6699ff66a1bff399	ok
+The Method Materials/CORPUS/r2-ch23b.py	1lgQWjc8QY42kJly3YuNwbpqxLBzrdUik	r2-ch23b.py	text/x-python	13955	2026-09-02T15:07:54.940Z	566d607fe674f6fb7d608356d266429f	ok
+The Method Materials/CORPUS/r2-ch24a.out	1H1NR3JOu8f4lFlxmJ18ONTr2cZOj5vLX	r2-ch24a.out	application/octet-stream	11806	2026-09-02T15:07:55.159Z	f3cef85df95920c5b9c5ab14bca92e1e	ok
+The Method Materials/CORPUS/r2-ch24a.py	1vGW4ZHba3MQLSLQwyBzOqL0DzPIMBN_r	r2-ch24a.py	text/x-python	18647	2026-09-02T15:07:55.341Z	e99168023a658d8d721227c66eb728ec	ok
+The Method Materials/CORPUS/r2-ch24b.out	1eYrMvbpAlhLJoveKYl3q0G_6mKfNTZDO	r2-ch24b.out	application/octet-stream	29490	2026-09-02T15:07:55.532Z	78620065fe8647900411d7d3497eaee4	ok
+The Method Materials/CORPUS/r2-ch24b.py	1CNLKodv2ARSjbG7ljN01lZ5D4eQr8izn	r2-ch24b.py	text/x-python	13638	2026-09-02T15:07:55.743Z	685d072f7c8449d844dd062a65e30fe5	ok
+The Method Materials/CORPUS/r2-ch25a.out	1ZAVgkyH7mTTO4iGTlg0zgjf2RMbzVVfZ	r2-ch25a.out	application/octet-stream	12009	2026-09-02T15:07:55.967Z	9c68ffc6ee2f49e88b8e72fa0e572aa6	ok
+The Method Materials/CORPUS/r2-ch25a.py	1np1DZ7WAC8pUpWEE9P_2iNerVp6XZVqX	r2-ch25a.py	text/x-python	18313	2026-09-02T15:07:56.155Z	3950aa6a5e409e7612d1e293304a1bb8	ok
+The Method Materials/CORPUS/r2-ch25b.out	1YxtqKlxRDmDW2y9WGet0myLC7SeAN6C4	r2-ch25b.out	application/octet-stream	20682	2026-09-02T15:07:56.347Z	acf7ca5abd2fc5b8e96152cab3f5e057	ok
+The Method Materials/CORPUS/r2-ch25b.py	175v4slmTTMrfpKAyF0RH2Ix-YezZWV2u	r2-ch25b.py	text/x-python	14694	2026-09-02T15:07:46.418Z	eb1442d5984d660e7c894241ff34004d	ok
+The Method Materials/CORPUS/r2-ch26a.out	186YSMeSwBEaVLU1AaYZfPKDe3YH2D17t	r2-ch26a.out	application/octet-stream	13321	2026-09-02T15:07:46.693Z	2e0ea41cf42866cc5bba1b8d51c57ee2	ok
+The Method Materials/CORPUS/r2-ch26a.py	1CXZJAAHiK19NPU0stk9F81aiiXyTfJ37	r2-ch26a.py	text/x-python	12464	2026-09-02T15:07:46.890Z	91c664d4f1a9de951eeb791452cbcd07	ok
+The Method Materials/CORPUS/r2-ch26b.out	13LdBJGeoaMeegWZfnn76Ma73RQbW7xoD	r2-ch26b.out	application/octet-stream	13135	2026-09-02T15:07:47.090Z	68e215433eb88f711551e72650337331	ok
+The Method Materials/CORPUS/r2-ch26b.py	15F2bP2NTseJns5PPo2UaVpQlFBF6AOC0	r2-ch26b.py	text/x-python	16958	2026-09-02T15:07:47.251Z	0befc4c187b8b3353c2a137dab16352b	ok
+The Method Materials/CORPUS/r2-ch27a.out	1sVXYDHqkhBaPsysLTiRnmNn-QRaEfhaa	r2-ch27a.out	application/octet-stream	19325	2026-09-02T15:07:47.377Z	09865804eb88a3fafdd82098a78f666f	ok
+The Method Materials/CORPUS/r2-ch27a.py	19Py34XHefJdGlHLr5Wh1ZEM_XKYSChpK	r2-ch27a.py	text/x-python	27415	2026-09-02T15:07:47.539Z	17aa0bcaa17f60a2709b73862d1b4841	ok
+The Method Materials/CORPUS/r2-ch27b.out	1jg2qd2xBwjCKU4VjqbRf7UY06IS8hfBf	r2-ch27b.out	application/octet-stream	11973	2026-09-02T15:07:47.703Z	cf3d9d819f394ec4240e9fe46e83c92d	ok
+The Method Materials/CORPUS/r2-ch27b.py	1G44P8KXc64ViI8enZzsj7D9Cf4KPHYQv	r2-ch27b.py	text/x-python	13345	2026-09-02T15:07:47.865Z	a0f817be782095b921ccf3c3b1d1b465	ok
+The Method Materials/CORPUS/r2-ch28a.out	1twQaKYshdwGXN-QiJunDvpMYVSMxlhpG	r2-ch28a.out	application/octet-stream	27613	2026-09-02T15:07:48.033Z	e9b25d8f62d770970570c8dbf315190b	ok
+The Method Materials/CORPUS/r2-ch28a.py	1IXBiieu9kYhJCuz0V6r6MKxAEp7yaoGm	r2-ch28a.py	text/x-python	20471	2026-09-02T15:07:48.549Z	010ea4c627fc75e8a04eed8a74cad459	ok
+The Method Materials/CORPUS/r2-ch28b.out	1tyVi0r2wtJFgDKf50xxnAY1DI1hdpQah	r2-ch28b.out	application/octet-stream	25818	2026-09-02T15:07:48.754Z	b279000ec41bd5068dc655768101f33e	ok
+The Method Materials/CORPUS/r2-ch28b.py	1_MzYdajblxRWsCSMNbYxC2qVpaoDgzFV	r2-ch28b.py	text/x-python	18874	2026-09-02T15:07:48.914Z	2e8d1a1a5e556f423989e4141b6fac9d	ok
+The Method Materials/CORPUS/r2-ch3.py	1g2nqEalh9cuFsOqWnAK5xjXQgYQwT_SY	r2-ch3.py	text/x-python	8140	2026-09-02T15:07:49.073Z	3557dc8e0d79a6448c35ea1cf144b202	ok
+The Method Materials/CORPUS/r2-ch34re.out	1qQEQtTOigg7TXrCnC8IdZvArIa22fYDB	r2-ch34re.out	application/octet-stream	20928	2026-09-02T15:07:49.256Z	846745bccf6c7852e602658e8be8816f	ok
+The Method Materials/CORPUS/r2-ch34re.py	1n5hQakj_z5IAhzRyF4gjCrNeQWgl_QEP	r2-ch34re.py	text/x-python	28981	2026-09-02T15:07:49.408Z	216d12f7a691447133b5ac18f94f2277	ok
+The Method Materials/CORPUS/r2-ch6.py	1JbHHQ0dlEqBkwAN25ftbplScHVx17pnm	r2-ch6.py	text/x-python	7411	2026-09-02T15:07:49.583Z	ac48e9ce30d629e2d70230948dea7ae8	ok
+The Method Materials/CORPUS/r2-ch7.py	1IflkLS25ALDEBzlJBK-ta8bfGCsXQOnQ	r2-ch7.py	text/x-python	3733	2026-09-02T15:06:51.902Z	c5bc647be5dea7fc94ed1736e0da84ae	ok
+The Method Materials/CORPUS/r2-ch8.py	1VSz5CRl6S3UsMO6F2Mlo5K-ASl_L7kt9	r2-ch8.py	text/x-python	8309	2026-09-02T15:06:52.029Z	92396fe91ab4e9874bd60b332f853ef1	ok
+The Method Materials/CORPUS/r2-ch9.py	1a1OSDG8nRNhmEdfnfVc2trio5MKyTYhZ	r2-ch9.py	text/x-python	5419	2026-09-02T15:06:52.161Z	008913380bfe6386bdc3748489723b70	ok
+The Method Materials/CORPUS/r2-lw1.out	1NuuTteqKnHZFfPzkugjtrAjChrxt4VIY	r2-lw1.out	application/octet-stream	5606	2026-09-02T15:06:52.322Z	94ce22466b45d2e85cbf0d5e8929d84f	ok
+The Method Materials/CORPUS/r2-lw1.py	1-BPE-ynSQ_gV6yFmxSPNwRYjOZWGV1I5	r2-lw1.py	text/x-python	8975	2026-09-02T15:06:52.452Z	5face9ff9c210979addca70f6461ee83	ok
+The Method Materials/CORPUS/r2-scf.out	1UOcUfPnIyh4INCn1sFxg7uXTnOwbHKcG	r2-scf.out	application/octet-stream	29474	2026-09-02T15:06:52.610Z	da1bb7d2e8cd303880e7ba2beedcf8b0	ok
+The Method Materials/CORPUS/r2-scf.py	10HsyLGR8zTXAp0qruPoV4jnnFCNyFvoL	r2-scf.py	text/x-python	19583	2026-09-02T15:06:52.740Z	70292ea5151a9fe086aab6639529a3d7	ok
+The Method Materials/CORPUS/r2-tb1.out	1xW8qttF3WxKP4bKeOGyi6oJ02Bz1_bdl	r2-tb1.out	application/octet-stream	10827	2026-09-02T15:06:52.880Z	7f79293d9c4f790eae0da949ee9c493a	ok
+The Method Materials/CORPUS/r2-tb1.py	1vgrU-ZFqPp06mGpWaIESyQ9dlGQR6QzO	r2-tb1.py	text/x-python	14072	2026-09-02T15:06:53.023Z	a97e9548c5aa4adf885682ed76fc299d	ok
+The Method Materials/CORPUS/r2-tools-constants.out	1So75theprr5L8uDhr4u5i4mVZjzboKqv	r2-tools-constants.out	application/octet-stream	1032	2026-09-02T15:06:53.182Z	ad0ca7bcc803f3e7a2858c4b40f7e5fd	ok
+The Method Materials/CORPUS/r2-tools.py	16zYAQwPcGXxm40cv3298O3B9ZLUK5Q9Y	r2-tools.py	text/x-python	6529	2026-09-02T15:06:53.313Z	4702f5f937087b1e806e4bc78b17f3c3	ok
+The Method Materials/CORPUS/r2-warn.out	1VPflKVfgtdanfaD-W-4hDPb_54L9fVRK	r2-warn.out	application/octet-stream	38680	2026-09-02T15:06:48.836Z	3616f0595af9637e8763d098e3b3f718	ok
+The Method Materials/CORPUS/r2-warn.py	1HedPEnVBAkf1iX5EyBW8pR6idgRcdigZ	r2-warn.py	text/x-python	13763	2026-09-02T15:06:49.077Z	228d883a25bfce317cd8a8bd9abd5c2d	ok
+The Method Materials/CORPUS/r2lib.py	1H45Dp_H6eIV1QsGM0dfCuccgAlLg8G8w	r2lib.py	text/x-python	21022	2026-09-02T15:06:49.196Z	580d2ea2e43c2ddf78018afcba2f7de7	ok
+The Method Materials/CORPUS/r3-wl.out	1VFTvSahYC3XbQX5HyjOu8nZ9RVezd67q	r3-wl.out	application/octet-stream	3638	2026-09-02T15:06:49.357Z	1bb27e471f8429e4d6e759f528c838f1	ok
+The Method Materials/CORPUS/r3-wl.py	1gVNi1V-6D3DcgSa0z7D7Gjz2ZgR73KVt	r3-wl.py	text/x-python	15100	2026-09-02T15:06:49.471Z	791f540520bc9f48eaed81830996fa1e	ok
+The Method Materials/CORPUS/rclose.py	1z5k1LyHvQ_xCBdKIbAFZLnLuzSP0G97I	rclose.py	text/x-python	1728	2026-09-02T15:06:49.587Z	707a1061b4fede0b94e288d569dc9f0e	ok
+The Method Materials/CORPUS/register_cites.py	1Z2Jso1rqqCpow8KG-ckOmV_afoaR5ad3	register_cites.py	text/x-python	2403	2026-09-02T15:06:49.719Z	c38ad7ee009b9df571c143261b43e9d9	ok
+The Method Materials/CORPUS/ruled_bracket.py	1FdA-_Jk7749OSq5FWzKmzflhOZrGMQ-q	ruled_bracket.py	text/x-python	2721	2026-09-02T15:06:49.834Z	af39145dee35a8da3c96d52d665d9159	ok
+The Method Materials/CORPUS/run489.py	1rxR574taA273Gj28kYcYjxIT1dsGW_rq	run489.py	text/x-python	4611	2026-09-02T15:06:49.948Z	55356e24f309250ab69272ea61c9fa14	ok
+The Method Materials/CORPUS/run489_45.json	1MZUWCwo5q-IK_sRs0VBiuF0w36fZ_pR1	run489_45.json	application/json	8365	2026-09-02T15:06:50.074Z	337f720d4e2525d0b8c010d334f6d482	ok
+The Method Materials/CORPUS/run489_anomalies.json	1mNWIoZ8t2I98Wtcz6djNybry7qqD52v7	run489_anomalies.json	application/json	18496	2026-09-02T15:06:50.187Z	a019f825faf5305e14f8b0a566327409	ok
+The Method Materials/CORPUS/run489_final.json	1wUKy2RZcY9C1P-uvj5ijoLZCkIv6KUQh	run489_final.json	application/json	22410	2026-09-02T15:06:50.304Z	e45a87646723ce0a3b84865c2b01c7d7	ok
+The Method Materials/CORPUS/spectra_count.py	1M5eBsko_TDYEGa6Ip2aiAW3PYpaHtaHX	spectra_count.py	text/x-python	1266	2026-09-02T15:06:50.430Z	3f2c705950f52b88c6dc5e22b74ec0d2	ok
+The Method Materials/CORPUS/split.py	10Vxkb6xfPNgaagQ_daC8czNvvQEOktEu	split.py	text/x-python	2956	2026-09-02T15:06:50.568Z	525a169a46588cbbdb3254c6d5ae48d4	ok
+The Method Materials/CORPUS/tb_audit.py	1NkqH_nHcIe-AedUImuVWkJFpoZIxVtFr	tb_audit.py	text/x-python	3443	2026-09-02T15:06:50.740Z	4021ebf8daa9ea6b8e25a82c715a9260	ok
+The Method Materials/CORPUS/tower-2.out	1AMc75NdSZ2jhjnZZAPRx3zdqrmduLzmS	tower-2.out	application/octet-stream	85	2026-09-02T15:06:51.324Z	433e8fb54120d1aac5e98af2f257080f	ok
+The Method Materials/CORPUS/tower-2.py	1gPDuiH3-wmkV376XYWFEfj5_7Av2tSfU	tower-2.py	text/x-python	1213	2026-09-02T15:06:51.474Z	c0bce27abe23ad939d297ac1022a01d7	ok
+The Method Materials/CORPUS/trueres.py	19BQ4QCbjJ_9_yKN9nG4YxfgaMTjHgllM	trueres.py	text/x-python	1508	2026-09-02T15:06:51.615Z	c3cf804ad06ef4e0ca64bcf45c67a83c	ok
+The Method Materials/CORPUS/verify.py	1-IRvIsb_rD_7jqA78b28MH80C5zu_jpR	verify.py	text/x-python	1598	2026-09-02T15:06:51.745Z	735023bc34ce28f672bd4dd3b33bbd62	ok
 The Method Materials/COWORK — The Method 1.6/HANDOFF-COWORK.md	1OE2zWtqmwNk5nHy9RatEpAsIfvYxggDX	HANDOFF-COWORK.md	text/markdown	10565	2026-09-02T03:51:18.248Z	a3651867f120973b592c0453849a0ada	ok
 The Method Materials/CdII_full.tsv	1iQ6JG_RG523fglbmNKCWWf1ZDqk2IVQw	CdII_full.tsv	text/tab-separated-values	931	2026-08-24T18:07:36.308Z	3b88793e5320646d375eb809da11fe05	ok
 The Method Materials/CdII_full__1LqJlU-xMVrbxg2cDWa269UlexHgVhVNT.tsv	1LqJlU-xMVrbxg2cDWa269UlexHgVhVNT	CdII_full.tsv	text/tab-separated-values	931	2026-08-24T18:07:35.108Z	3b88793e5320646d375eb809da11fe05	ok
 The Method Materials/CdII_full__1OeLfn7fc0SNbRL0USLc28jirvNsiObTb.tsv	1OeLfn7fc0SNbRL0USLc28jirvNsiObTb	CdII_full.tsv	text/tab-separated-values	931	2026-08-24T18:07:31.687Z	3b88793e5320646d375eb809da11fe05	ok
 The Method Materials/CdII_full__1b1N5P_ey8iuK12Ed8vz5DPTHRWaKlsTv.tsv	1b1N5P_ey8iuK12Ed8vz5DPTHRWaKlsTv	CdII_full.tsv	text/tab-separated-values	931	2026-08-24T18:07:33.838Z	3b88793e5320646d375eb809da11fe05	ok
+The Method Materials/Claude Memories/b44b80ef-cbad-492a-8346-4f16631749fd.json	1cppac7EJr09oPAqteeL6k3ADCCCHByQ8	b44b80ef-cbad-492a-8346-4f16631749fd.json	application/json	77708	2026-09-02T13:51:58.461Z	bfa82bfde5cc4f9e24e787707b43395f	ok
+The Method Materials/Claude Metadata/login_history.json	1nBaVgDloymZBol_SDGu3NA50Mw4-J-77	login_history.json	application/json	1218	2026-09-02T13:51:28.586Z	69a1675a352615c94a7651cae9c5b979	ok
+The Method Materials/Claude Metadata/users.json	1QehWgLn3--1uVCnWPxFr-ZYjpmAxnMek	users.json	application/json	142	2026-09-02T13:51:28.453Z	b8c3ce8f3fd668c526534b64fb2a362c	ok
+The Method Materials/Claude Projects/019fa103-63c3-76c1-866c-db3ac181ccbd.json	15BwmlKoYpp-IGDV-Spi3sNF9RoarbL-F	019fa103-63c3-76c1-866c-db3ac181ccbd.json	application/json	342	2026-09-02T13:53:04.289Z	b7aeee3f363c0c5d6fc2d8cf14f41ba9	ok
+The Method Materials/Claude Projects/019fb976-90a6-71ba-b0f5-e2951677c527.json	1iAuTX74NSgDIW2IfOj_K0YXMVluB7xyb	019fb976-90a6-71ba-b0f5-e2951677c527.json	application/json	15147010	2026-09-02T13:53:04.609Z	1cff114e9c4e8241a217a6f6f943625e	ok
+The Method Materials/Claude Projects/019fb977-df47-73ed-a16e-943c1591c491.json	19JqWBsSxWlr9R0cx-dXg9vfy0vbCVuBg	019fb977-df47-73ed-a16e-943c1591c491.json	application/json	63392	2026-09-02T13:53:04.803Z	28eb1d55985ca2ecd93720a7be9edbca	ok
+The Method Materials/Claude Projects/019fb978-342e-7685-92fb-ee703ff525a2.json	1bRgpRBETpaK_ITnkxDOQ6FOEdiWQJu4I	019fb978-342e-7685-92fb-ee703ff525a2.json	application/json	359	2026-09-02T13:53:04.943Z	dabc08093cf07c6eb2433c35e307a991	ok
+The Method Materials/Claude Projects/019fbe48-e641-747a-ad1e-0e9216d51299.json	1VJS5m9_2VJQUt7KLb3Qdke709q8Xw0Tl	019fbe48-e641-747a-ad1e-0e9216d51299.json	application/json	359	2026-09-02T13:53:05.115Z	7572e9ac1f4b17a808eb07f704a4d3c0	ok
+The Method Materials/Claude Projects/019fc4e4-6f5a-7024-be34-d918a737f57e.json	1FKwBci4z-0IxUDcWRkqpAsTgACT87TlJ	019fc4e4-6f5a-7024-be34-d918a737f57e.json	application/json	354	2026-09-02T13:53:05.224Z	a50a4398d6c5f3b13060bd33885a2ee4	ok
+The Method Materials/Claude Projects/01a007df-8496-7003-8ea0-3fc05f77c7bd.json	1kqb7JIqJrwE1_7uEfdWtSITu_htvnbEN	01a007df-8496-7003-8ea0-3fc05f77c7bd.json	application/json	13656478	2026-09-02T13:53:03.695Z	452b3c472080db9adbd4ba2386f95739	ok
+The Method Materials/Claude Projects/01a00c16-a815-7288-b7a8-a8f3d3e57f8f.json	1NcoWx8JHN4V9vGTgIgqm5G8XakIyDE94	01a00c16-a815-7288-b7a8-a8f3d3e57f8f.json	application/json	14401583	2026-09-02T13:53:03.979Z	ef9bacccdc178f8a6a8189d7fff9c05b	ok
+The Method Materials/Claude Projects/01a0304c-4659-7248-b5e1-bba7bdeea529.json	1-Ejef96YqQEKfjOmZCgOnYV6t25aKsao	01a0304c-4659-7248-b5e1-bba7bdeea529.json	application/json	2410179	2026-09-02T13:53:04.093Z	e49506595e81afc4e976c05b3f10927c	ok
 The Method Materials/Conceptual idea, what if each side corresponds to ....md	1YgGoIm6Y5DJS3V5t8UX3Tc2ehDhQPBY7QnH-T22LlCI	Conceptual idea, what if each side corresponds to ...	application/vnd.google-apps.document	8991	2026-08-14T20:00:08.518Z	757b3cce0f3da68d2094dad8d60e5691	ok
 The Method Materials/Conceptual idea, what if each side corresponds to ....pdf	1TtKx_1vGd5hdDB4tLBqsAC7N9MJk55ZC	Conceptual idea, what if each side corresponds to ....pdf	application/pdf	147592	2026-08-14T20:00:37.756Z	d27d4eb7aa97e8b012252ba7c435806e	ok
 The Method Materials/EXPANSION-MC54.md	1cRxi76vCe9J_eeF2e6_dmdOU3UZ2AWLn	EXPANSION-MC54.md	text/markdown	7919	2026-08-28T20:15:50.613Z	55fdb6593114209f0ab4af6b24b702ab	ok
@@ -42,6 +401,9 @@ The Method Materials/FILL-OUTSIDE-RESULTS.txt	1Q7NA9gGCGgNUoT_5lY87nW_Jg0ujS2r4	
 The Method Materials/FILL-VALUE-FINDING.md	1P67Bbg1elPlOSZ4QBh9VUli63bpWMBPj	FILL-VALUE-FINDING.md	text/markdown	6162	2026-08-29T15:59:33.918Z	43b171a38e96a25525999f0a597a6fb4	ok
 The Method Materials/FILL-VALUE-RESULTS.txt	1kg-Qtq8yAXF1slkRlnSvqJerNFCOxGf9	FILL-VALUE-RESULTS.txt	text/plain	1515	2026-08-29T15:59:33.517Z	e139ed9fa1b5b3428d3cbe2c3459ef4e	ok
 The Method Materials/HANDOFF-10.md	15BHFVbm2n-OROEREwtS2HsZN-eqyS5l_	HANDOFF-10.md	text/markdown	12756	2026-08-29T01:19:48.671Z	bb2d3433fcb7c0e03c18d9d9f754cb2c	ok
+The Method Materials/HANDOFF-100.md	1phZ0ELgRX-bWC7AlwtOMSGIeY1OJDu43	HANDOFF-100.md	text/markdown	20161		b012d0fb053d1de3b191734d6642d9a3	ok
+The Method Materials/HANDOFF-101.md	1iS6LSwhjOQYXdlqnAsVU2hCn2k0VeO3u	HANDOFF-101.md	text/markdown	23110		f6619b76278e679e9004d1f72e27f936	ok
+The Method Materials/HANDOFF-102.md	1Iozrgz5-m9cs2_fw86g3LKs8BloVpWpx	HANDOFF-102.md	text/markdown	31160		ecb0ce17ef575e67e503f4ed6c206471	ok
 The Method Materials/HANDOFF-14-4.md	1rsMEp4OqblIV21xsy09spNxEA8AaMxWP	HANDOFF-14-4.md	text/markdown	9604	2026-08-29T23:32:04.517Z	cc4c0ed848a6c0066effb0e163fa88c6	ok
 The Method Materials/HANDOFF-5.md	17aW6i8Ll0HQqJxVeTJA_pKU7F5PXkOcx	HANDOFF-5.md	text/markdown	9687	2026-08-28T16:16:35.715Z	34d7ee63a08b2840affe123f236b3360	ok
 The Method Materials/HANDOFF-7.md	1uCyCy_oAWM7dTPzTJ_o97JT-LmesuEkG	HANDOFF-7.md	text/markdown	6958	2026-08-28T23:15:51.658Z	622862bbc275d6ffa1bf104a1c854dd9	ok
@@ -49,6 +411,8 @@ The Method Materials/HANDOFF-8.md	1fsXsD8-ABcPD47XKddQr1negwENw7lmO	HANDOFF-8.md
 The Method Materials/HANDOFF-9.md	1LWr8WJvLwH45-NUzJI4ONYIv1v-u17I6	HANDOFF-9.md	text/markdown	9929	2026-08-29T00:34:14.358Z	331a9aee8b6c345eefc8ebd241694c7e	ok
 The Method Materials/HANDOFF-96.md	1phzC6FRrWB3rYyvqYDfzHvO9JBH1P643	HANDOFF-96.md	text/markdown	14732	2026-09-02T04:00:41.542Z	a23c518e2b7e6cd14272b932bd9c775e	ok
 The Method Materials/HANDOFF-97.md	1xbRfwjfjzhiLJKITxzjPX8JERrEPwEX6	HANDOFF-97.md	text/markdown	16434	2026-09-02T04:51:40.846Z	6dd12244b0fbb3257499bf54f07e0ab9	ok
+The Method Materials/HANDOFF-98.md	1gfIcdgI6MDh7RO3AsIkVRLb-P0iIgArY	HANDOFF-98.md	text/markdown	17443		fbb3598a01c266e41428044abdfd5bbb	ok
+The Method Materials/HANDOFF-99.md	1VSX9njHA7U_aoyGiU4aY9MIbhEBQrWXI	HANDOFF-99.md	text/markdown	19688		066e04c7dbdc9ba06146201599c2eb61	ok
 The Method Materials/HgII_full.tsv	15y2RH9SZU18MAhflg9tUrvM3BZYIyB2w	HgII_full.tsv	text/tab-separated-values	970	2026-08-24T18:07:36.489Z	4837812fd7c93736149b780eced59aab	ok
 The Method Materials/HgII_full__17pBzh9-yVLkhYe-Zw9sBPzK8lYe7TSjD.tsv	17pBzh9-yVLkhYe-Zw9sBPzK8lYe7TSjD	HgII_full.tsv	text/tab-separated-values	970	2026-08-24T18:07:35.298Z	4837812fd7c93736149b780eced59aab	ok
 The Method Materials/HgII_full__1Qsx4zOLy8lwI8paLGw3zsW6gWHOTh_ju.tsv	1Qsx4zOLy8lwI8paLGw3zsW6gWHOTh_ju	HgII_full.tsv	text/tab-separated-values	970	2026-08-24T18:07:32.285Z	4837812fd7c93736149b780eced59aab	ok
@@ -75,14 +439,14 @@ The Method Materials/LOWDIN-DELIVERY-1/README.md	1c-Vdu6wLuJycue6pLachrj-4zz4qX7
 The Method Materials/LOWDIN-DELIVERY-1/README__1LXqadM8pYp-zRufZbhvxxrnI2OM2oelb.md	1LXqadM8pYp-zRufZbhvxxrnI2OM2oelb	README.md	text/markdown	2764	2026-09-01T20:17:18.613Z	fe8c1f52c8c6a7920f7b79ee3e359fde	ok
 The Method Materials/LOWDIN-DELIVERY-1/README__1aiYruh0eDXlibA3l9fAOhHlH2nY7hvCi.md	1aiYruh0eDXlibA3l9fAOhHlH2nY7hvCi	README.md	text/markdown	2764	2026-09-01T20:13:21.699Z	fe8c1f52c8c6a7920f7b79ee3e359fde	ok
 The Method Materials/LOWDIN-DELIVERY-1/README__1lJjzP5LEQ4bmu8wjYdniSkrIfgjq8fLy.md	1lJjzP5LEQ4bmu8wjYdniSkrIfgjq8fLy	README.md	text/markdown	2764	2026-09-01T20:16:29.071Z	fe8c1f52c8c6a7920f7b79ee3e359fde	ok
-The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD150_compendia_papers_audits.md	1NhVadQdQMgkQkVuu35XYvBn3_nzI1f2b	The_Method_1_6_BUILD150_compendia_papers_audits.md	text/markdown	6936484	2026-09-01T20:17:21.864Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD151_compendia_papers_audits.md	1vM8ae2O_VQoOmYErHR5rkecNw3CidzhF	The_Method_1_6_BUILD151_compendia_papers_audits.md	text/markdown	7035309	2026-09-01T20:17:21.674Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD152_compendia_papers_audits.md	1bqJKU99xHJVWp7n6xcQq5qG_sfxodWcU	The_Method_1_6_BUILD152_compendia_papers_audits.md	text/markdown	7146099	2026-09-01T20:17:21.327Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD153_compendia_papers_audits.md	1OD5F8Pjxf663liTMICZgJ6Yy8VutWqRT	The_Method_1_6_BUILD153_compendia_papers_audits.md	text/markdown	7218771	2026-09-01T20:17:21.184Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD154_compendia_papers_audits.md	1gpbHJCjiTrhgdcFxuHPXLUgZg4uApPZH	The_Method_1_6_BUILD154_compendia_papers_audits.md	text/markdown	7295512	2026-09-01T20:17:21.004Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD155_compendia_papers_audits.md	1rVAC0hOuJdwKvtllU3mE4tQ1vQbVhGtI	The_Method_1_6_BUILD155_compendia_papers_audits.md	text/markdown	7387582	2026-09-01T20:17:20.830Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD156_compendia_papers_audits.md	1Cti7Tibrqwg7Hwl9ED5_QNapYpQdLDcR	The_Method_1_6_BUILD156_compendia_papers_audits.md	text/markdown	7491211	2026-09-01T20:17:20.127Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD157_compendia_papers_audits.md	1Hjr7Oh06sQf6AaHvxnT6UZFEjimRc8RR	The_Method_1_6_BUILD157_compendia_papers_audits.md	text/markdown	7518739	2026-09-01T20:17:19.955Z		not-transferred: Drive connector session expired on every attempt
+The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD150_compendia_papers_audits.md	1NhVadQdQMgkQkVuu35XYvBn3_nzI1f2b	The_Method_1_6_BUILD150_compendia_papers_audits.md	text/markdown	6936484	2026-09-01T20:17:21.864Z	efe4fc5c595446b2432638cce229ff43	ok
+The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD151_compendia_papers_audits.md	1vM8ae2O_VQoOmYErHR5rkecNw3CidzhF	The_Method_1_6_BUILD151_compendia_papers_audits.md	text/markdown	7035309	2026-09-01T20:17:21.674Z	18d6aeebc32cada7dd54d61bf47e55b7	ok
+The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD152_compendia_papers_audits.md	1bqJKU99xHJVWp7n6xcQq5qG_sfxodWcU	The_Method_1_6_BUILD152_compendia_papers_audits.md	text/markdown	7146099	2026-09-01T20:17:21.327Z	38bd45711e2813dc9b73d8335a306103	ok
+The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD153_compendia_papers_audits.md	1OD5F8Pjxf663liTMICZgJ6Yy8VutWqRT	The_Method_1_6_BUILD153_compendia_papers_audits.md	text/markdown	7218771	2026-09-01T20:17:21.184Z	69aae2e381b1a07c5adcb891383373ac	ok
+The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD154_compendia_papers_audits.md	1gpbHJCjiTrhgdcFxuHPXLUgZg4uApPZH	The_Method_1_6_BUILD154_compendia_papers_audits.md	text/markdown	7295512	2026-09-01T20:17:21.004Z	dad6b9fb6985c4fe398cf5b030eb1b0c	ok
+The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD155_compendia_papers_audits.md	1rVAC0hOuJdwKvtllU3mE4tQ1vQbVhGtI	The_Method_1_6_BUILD155_compendia_papers_audits.md	text/markdown	7387582	2026-09-01T20:17:20.830Z	3ab965257137cead542ea706820a4bbb	ok
+The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD156_compendia_papers_audits.md	1Cti7Tibrqwg7Hwl9ED5_QNapYpQdLDcR	The_Method_1_6_BUILD156_compendia_papers_audits.md	text/markdown	7491211	2026-09-01T20:17:20.127Z	2a20e8fe19bcd6f4693b0a25af4b54a9	ok
+The Method Materials/LOWDIN-DELIVERY-1/The_Method_1_6_BUILD157_compendia_papers_audits.md	1Hjr7Oh06sQf6AaHvxnT6UZFEjimRc8RR	The_Method_1_6_BUILD157_compendia_papers_audits.md	text/markdown	7518739	2026-09-01T20:17:19.955Z	10d3b13cf0c3ce627c0f6624c7c08bc6	ok
 The Method Materials/LOWDIN-DELIVERY-1/ground-run.log	1go8SIy-WXAp0toEl0V409BzGy2-dk_5B	ground-run.log	text/plain	294	2026-09-01T20:17:19.847Z	6bc5a6196d6de9348b6618fb92d27fe4	ok
 The Method Materials/LOWDIN-DELIVERY-1/ground-run__1QC2qvFft2iSIjiuDDp9tki2ILbvUemJm.log	1QC2qvFft2iSIjiuDDp9tki2ILbvUemJm	ground-run.log	text/plain	294	2026-09-01T20:16:29.656Z	6bc5a6196d6de9348b6618fb92d27fe4	ok
 The Method Materials/LOWDIN-DELIVERY-1/ground-run__1eSu6LY-mY46_1zOTfkXVaAeZnTUldGH3.log	1eSu6LY-mY46_1zOTfkXVaAeZnTUldGH3	ground-run.log	text/plain	294	2026-09-01T20:13:04.839Z	6bc5a6196d6de9348b6618fb92d27fe4	ok
@@ -132,6 +496,7 @@ The Method Materials/REPAIR-AND-ADDITIONS.md	1c27EhIvnI1eLenFMT1RfaTRHPb1lO3ha	R
 The Method Materials/REPAIR-AND-ADDITIONS__1bl2j1vbvKQT68-EzAwDwq7Nv6Mmrh1by.md	1bl2j1vbvKQT68-EzAwDwq7Nv6Mmrh1by	REPAIR-AND-ADDITIONS.md	text/markdown	4909	2026-08-28T21:36:14.157Z	be723a6705cbaa8de2dd85a0e691adf3	ok
 The Method Materials/REQUEST-5-voidfrac-caps.md	1EXoreRWS_Zd0VlEQL02kJOE2iQA8AJxf	REQUEST-5-voidfrac-caps.md	text/markdown	5665	2026-08-29T00:34:14.506Z	c040219308e994990f0b1763b7ea86d1	ok
 The Method Materials/REQUEST-SPECTRA-DATA.md	1ionifdQJeceda6_X58e681ojZDui6g5U	REQUEST-SPECTRA-DATA.md	text/markdown	5771	2026-08-24T18:07:36.726Z	edf737532cefc0da3543e0e237b9af71	ok
+The Method Materials/RETIRED-handoff-r1-chat149.md	1EhhqCGfzKgYlkuBWNyj9TrseBBz2lqvC	RETIRED-handoff-r1-chat149.md	text/markdown	27730		fa1436b06d5aded15a3ce103ef74e709	ok
 The Method Materials/REWRITE-chapter1-principles.md	1DTnkyhaQPOxWvP6h0Ngz4re0XF_zEzx1	REWRITE-chapter1-principles.md	text/markdown	17565	2026-08-28T16:16:35.942Z	ff2cb3a7c21a204c6283bb9b057590e2	ok
 The Method Materials/REWRITE-chapter10-void.md	1mE8k-_ruXW06KDx7VKO_3KblyPcoSxLa	REWRITE-chapter10-void.md	text/markdown	5671	2026-08-28T16:16:35.244Z	113a3c36bdd99f8170beadc9a012f6f3	ok
 The Method Materials/REWRITE-chapter11-single-expression.md	11Pf92BYFmM5zH2pkd__bbaoRTj7QYk5s	REWRITE-chapter11-single-expression.md	text/markdown	11171	2026-08-28T16:16:35.491Z	dbab0fcd81449b41af8b2029da57ae08	ok
@@ -193,14 +558,14 @@ The Method Materials/THREEBODY-DELIVERY-1/README__1qPfgKxaKykY_nDYl-NaYvx8P-Btim
 The Method Materials/THREEBODY-DELIVERY-1/README__1xnyhE_qyOgL-GU8pRyz9auQWiFywUmaH.md	1xnyhE_qyOgL-GU8pRyz9auQWiFywUmaH	README.md	text/markdown	2764	2026-09-01T20:30:52.849Z	fe8c1f52c8c6a7920f7b79ee3e359fde	ok
 The Method Materials/THREEBODY-DELIVERY-1/THREEBODY-DELIVERY-1.zip	15S2KpEojYecmVrX7brD5eMDNnehPrmT5	THREEBODY-DELIVERY-1.zip	application/zip	413058	2026-09-01T20:30:52.706Z	f30a60d203a098eb098e156b68a45806	ok
 The Method Materials/THREEBODY-DELIVERY-1/THREEBODY-DELIVERY-1__1VrPq6GJe0ofakp1b_ODAwOn-fwLSMkBf.zip	1VrPq6GJe0ofakp1b_ODAwOn-fwLSMkBf	THREEBODY-DELIVERY-1.zip	application/zip	413058	2026-09-01T20:30:30.954Z	f30a60d203a098eb098e156b68a45806	ok
-The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD150_compendia_papers_audits.md	1xvkAKOoa7rTNlkn6j3LnCo7Al5QVnirK	The_Method_1_6_BUILD150_compendia_papers_audits.md	text/markdown	6936484	2026-09-01T20:30:55.096Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD151_compendia_papers_audits.md	1WLS7U5yoopuypwRk5Cet-D_Is6WpzvF4	The_Method_1_6_BUILD151_compendia_papers_audits.md	text/markdown	7035309	2026-09-01T20:30:54.918Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD152_compendia_papers_audits.md	1yvUv73DW1cpjYfrvLyBqDhs2O7s-sLjj	The_Method_1_6_BUILD152_compendia_papers_audits.md	text/markdown	7146099	2026-09-01T20:30:54.763Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD153_compendia_papers_audits.md	1A6LZK6C8M2oR-8r1CtSPV0X7TFahZwV7	The_Method_1_6_BUILD153_compendia_papers_audits.md	text/markdown	7218771	2026-09-01T20:30:54.629Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD154_compendia_papers_audits.md	1ahS9IjKEB-582vOWMjVo7ZHCMucB6fVY	The_Method_1_6_BUILD154_compendia_papers_audits.md	text/markdown	7295512	2026-09-01T20:30:54.485Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD155_compendia_papers_audits.md	1hBszyQfDiXmoFWmaqX-0NMCpzIKe5_jv	The_Method_1_6_BUILD155_compendia_papers_audits.md	text/markdown	7387582	2026-09-01T20:30:54.347Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD156_compendia_papers_audits.md	1nIcd9P-bscV1yxXFZiyz2GgMLEPPIWpu	The_Method_1_6_BUILD156_compendia_papers_audits.md	text/markdown	7491211	2026-09-01T20:30:54.219Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD157_compendia_papers_audits.md	1GrlQ9Y2asaIqPFPhBoWIuzcDn1YoSDf7	The_Method_1_6_BUILD157_compendia_papers_audits.md	text/markdown	7518739	2026-09-01T20:30:53.400Z		not-transferred: Drive connector session expired on every attempt
+The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD150_compendia_papers_audits.md	1xvkAKOoa7rTNlkn6j3LnCo7Al5QVnirK	The_Method_1_6_BUILD150_compendia_papers_audits.md	text/markdown	6936484	2026-09-01T20:30:55.096Z	efe4fc5c595446b2432638cce229ff43	ok
+The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD151_compendia_papers_audits.md	1WLS7U5yoopuypwRk5Cet-D_Is6WpzvF4	The_Method_1_6_BUILD151_compendia_papers_audits.md	text/markdown	7035309	2026-09-01T20:30:54.918Z	18d6aeebc32cada7dd54d61bf47e55b7	ok
+The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD152_compendia_papers_audits.md	1yvUv73DW1cpjYfrvLyBqDhs2O7s-sLjj	The_Method_1_6_BUILD152_compendia_papers_audits.md	text/markdown	7146099	2026-09-01T20:30:54.763Z	38bd45711e2813dc9b73d8335a306103	ok
+The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD153_compendia_papers_audits.md	1A6LZK6C8M2oR-8r1CtSPV0X7TFahZwV7	The_Method_1_6_BUILD153_compendia_papers_audits.md	text/markdown	7218771	2026-09-01T20:30:54.629Z	69aae2e381b1a07c5adcb891383373ac	ok
+The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD154_compendia_papers_audits.md	1ahS9IjKEB-582vOWMjVo7ZHCMucB6fVY	The_Method_1_6_BUILD154_compendia_papers_audits.md	text/markdown	7295512	2026-09-01T20:30:54.485Z	dad6b9fb6985c4fe398cf5b030eb1b0c	ok
+The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD155_compendia_papers_audits.md	1hBszyQfDiXmoFWmaqX-0NMCpzIKe5_jv	The_Method_1_6_BUILD155_compendia_papers_audits.md	text/markdown	7387582	2026-09-01T20:30:54.347Z	3ab965257137cead542ea706820a4bbb	ok
+The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD156_compendia_papers_audits.md	1nIcd9P-bscV1yxXFZiyz2GgMLEPPIWpu	The_Method_1_6_BUILD156_compendia_papers_audits.md	text/markdown	7491211	2026-09-01T20:30:54.219Z	2a20e8fe19bcd6f4693b0a25af4b54a9	ok
+The Method Materials/THREEBODY-DELIVERY-1/The_Method_1_6_BUILD157_compendia_papers_audits.md	1GrlQ9Y2asaIqPFPhBoWIuzcDn1YoSDf7	The_Method_1_6_BUILD157_compendia_papers_audits.md	text/markdown	7518739	2026-09-01T20:30:53.400Z	10d3b13cf0c3ce627c0f6624c7c08bc6	ok
 The Method Materials/THREEBODY-DELIVERY-1/audit.log	1EKPdiITeSarP_dF7iZevjTXtElYtolde	audit.log	text/plain	1620	2026-09-01T20:30:52.240Z	3cc67acaa9d90d25c8c194c57a8772ff	ok
 The Method Materials/THREEBODY-DELIVERY-1/audit.py	1M1gDcMWZexgOHN913Nfow2dNmkXwxDe0	audit.py	text/x-python	4792	2026-09-01T20:30:52.188Z	f12c16616d4e37dfbcb98e0b2c56ee16	ok
 The Method Materials/THREEBODY-DELIVERY-1/audit__1UF_0o9mfk53HzBS3Dxp5kaQseVAFfStV.py	1UF_0o9mfk53HzBS3Dxp5kaQseVAFfStV	audit.py	text/x-python	4792	2026-09-01T20:26:52.183Z	f12c16616d4e37dfbcb98e0b2c56ee16	ok
@@ -245,6 +610,7 @@ The Method Materials/The Method 1.6 — The Physics Compendium-1.md	1BZEEwNPlca3
 The Method Materials/The Method 1.6 — The Register.md	1qnSBllfgl9zD56xZj3jdyFtdAAu3osej	The Method 1.6 — The Register.md	text/markdown	1145832	2026-08-24T01:54:51.569Z	96b5fc2aca602a2d6bc899c93686458e	ok
 The Method Materials/The Method 1.6.md	1ID8TQt-0M4pMrIyl2e4CDkSH17QD09_N	The Method 1.6.md	text/markdown	738550	2026-08-24T01:54:51.787Z	49900cf41f818ab789bb90fc596ac977	ok
 The Method Materials/The Method Preview.pdf	1Yh0gyT2tKiZ3ofa7jV1buCXRHKv-JwCE	The Method Preview.pdf	application/pdf	3450186	2026-07-30T20:10:23.030Z	03cdb040f0c14cf12481e52fb7cf209a	ok
+The Method Materials/The-Method-1_6-corpus-chat149.zip	1JrXjQMmQ1JSPXHUCyUUQeT5pZhyXmX8-	The-Method-1_6-corpus-chat149.zip	application/zip	2925180		54f8b24fe6a82303a04d18ecb1951232	ok
 The Method Materials/The_Method.pdf	1nKNv-rw7PCG-u3aeO1b3mnuDNNJfA7BL	The_Method.pdf	application/pdf	3375364	2026-08-26T14:53:43.291Z	2ec5927d1779c2b72645664c22749f5e	ok
 The Method Materials/The_Method_1_6_ARCHIVE1_legacy_handoffs_ch12-15.md	1mfQaH_81Tg8G0-e2i1x0HKvZb9FY2poz	The_Method_1_6_ARCHIVE1_legacy_handoffs_ch12-15.md	text/markdown	3743970	2026-09-01T21:49:49.465Z	5a5c0829fa234dde4f12ac240fc7dec4	ok
 The Method Materials/The_Method_1_6_BUILD101_compendia_papers_audits.md	1y7hS0RgId6j8sDIVrWLraV0O5k4Nj6JI	The_Method_1_6_BUILD101_compendia_papers_audits.md	text/markdown	3204034	2026-08-30T16:14:38.151Z	893a9826a02ce6065715425d5603a796	ok
@@ -289,21 +655,21 @@ The Method Materials/The_Method_1_6_BUILD139_compendia_papers_audits.md	1w-XbMfN
 The Method Materials/The_Method_1_6_BUILD140_compendia_papers_audits.md	1ns5dmkhyVWqtri_aWfQQ8i-IIGr-lSqa	The_Method_1_6_BUILD140_compendia_papers_audits.md	text/markdown	6111244	2026-09-01T01:20:25.737Z	8c136bd2fe7a8cd106ec734b386b2dba	ok
 The Method Materials/The_Method_1_6_BUILD141_compendia_papers_audits.md	1kwJwGBDKeGCPC9GYevG3J6TbITEXRnEJ	The_Method_1_6_BUILD141_compendia_papers_audits.md	text/markdown	6187658	2026-09-01T01:37:20.113Z	e0c22a537a99a4bc4f9b0451f16a274b	ok
 The Method Materials/The_Method_1_6_BUILD142_compendia_papers_audits.md	1BFQ2cbLLGqB5v1rsQ1Pk7BrBo97BozUY	The_Method_1_6_BUILD142_compendia_papers_audits.md	text/markdown	6303034	2026-09-01T02:24:53.031Z	ddbd9bd1ac53fb656a51ca1ef68b65e1	ok
-The Method Materials/The_Method_1_6_BUILD143_compendia_papers_audits.md	1jkCLwgZ_nLrqI3mGx5OrCUdX7B4hSbhm	The_Method_1_6_BUILD143_compendia_papers_audits.md	text/markdown	6365840	2026-09-01T02:43:06.358Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD144_compendia_papers_audits.md	1nSzHi73TLaSUd8qLOdLCZPpogB2AzCc0	The_Method_1_6_BUILD144_compendia_papers_audits.md	text/markdown	6434811	2026-09-01T03:13:06.780Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD145_compendia_papers_audits.md	1DrVRiOI7Qo78MFheBj2wg3z8MQpZHKCE	The_Method_1_6_BUILD145_compendia_papers_audits.md	text/markdown	6526641	2026-09-01T03:35:04.140Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD146_compendia_papers_audits.md	1qnkltKLSpWXWzyBWBSwfKk7TrZ6dQSWv	The_Method_1_6_BUILD146_compendia_papers_audits.md	text/markdown	6616926	2026-09-01T04:02:50.832Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD147_compendia_papers_audits.md	1HPPH2HxNCkQL4wH87P2jM8eBspu2iBte	The_Method_1_6_BUILD147_compendia_papers_audits.md	text/markdown	6720054	2026-09-01T04:26:13.824Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD148_compendia_papers_audits.md	1pNO1FD2vzwySrPw28xok6GXxA_-gNsmx	The_Method_1_6_BUILD148_compendia_papers_audits.md	text/markdown	6797130	2026-09-01T05:13:11.437Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD149_compendia_papers_audits.md	1ydSyBcmq5_dqhl1C1WzCA6PJN6hleqsO	The_Method_1_6_BUILD149_compendia_papers_audits.md	text/markdown	6850992	2026-09-01T05:31:03.793Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD150_compendia_papers_audits.md	1gt_WfXlecu3zhrxq3sQ05UTY5rFJQsh9	The_Method_1_6_BUILD150_compendia_papers_audits.md	text/markdown	6936484	2026-09-01T13:52:01.637Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD151_compendia_papers_audits.md	1wKZ--dc5t2SUe7mNpzNXmQzh7kj2gmq2	The_Method_1_6_BUILD151_compendia_papers_audits.md	text/markdown	7035309	2026-09-01T14:36:57.003Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD152_compendia_papers_audits.md	1js7qQhgxJSEJikHfg57DtzGYQOoOYXk1	The_Method_1_6_BUILD152_compendia_papers_audits.md	text/markdown	7146099	2026-09-01T15:24:06.860Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD153_compendia_papers_audits.md	1Tv_YzFN1ZvIPcZEY-dsIYkYfuTM70YUt	The_Method_1_6_BUILD153_compendia_papers_audits.md	text/markdown	7218771	2026-09-01T15:54:31.872Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD154_compendia_papers_audits.md	1ZTHKRBy2QtHg5JRdSxz7-LAeyvTQ4Vn3	The_Method_1_6_BUILD154_compendia_papers_audits.md	text/markdown	7295512	2026-09-01T16:54:44.399Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD155_compendia_papers_audits.md	1v0TOGFCBtxxiQz3RmU0CnrxEZzZNGBv8	The_Method_1_6_BUILD155_compendia_papers_audits.md	text/markdown	7387582	2026-09-01T18:17:54.604Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD157_compendia_papers_audits.md	1BWWc7PybcFqxXBXKqLhekE2QRdl3yNfB	The_Method_1_6_BUILD157_compendia_papers_audits.md	text/markdown	7518739	2026-09-01T19:08:19.353Z		not-transferred: Drive connector session expired on every attempt
-The Method Materials/The_Method_1_6_BUILD158_compendia_papers_audits.md	1Ihs1xLSIOFuRQvGLukrVrMtYbBEcOtGD	The_Method_1_6_BUILD158_compendia_papers_audits.md	text/markdown	7617311	2026-09-01T20:33:40.125Z		not-transferred: Drive connector session expired on every attempt
+The Method Materials/The_Method_1_6_BUILD143_compendia_papers_audits.md	1jkCLwgZ_nLrqI3mGx5OrCUdX7B4hSbhm	The_Method_1_6_BUILD143_compendia_papers_audits.md	text/markdown	6365840	2026-09-01T02:43:06.358Z	c911f96bb9e58557364f69e6d9f1cb31	ok
+The Method Materials/The_Method_1_6_BUILD144_compendia_papers_audits.md	1nSzHi73TLaSUd8qLOdLCZPpogB2AzCc0	The_Method_1_6_BUILD144_compendia_papers_audits.md	text/markdown	6434811	2026-09-01T03:13:06.780Z	d4136d66f9d81ef35f25d650d9c7d156	ok
+The Method Materials/The_Method_1_6_BUILD145_compendia_papers_audits.md	1DrVRiOI7Qo78MFheBj2wg3z8MQpZHKCE	The_Method_1_6_BUILD145_compendia_papers_audits.md	text/markdown	6526641	2026-09-01T03:35:04.140Z	0631924be59c4e77b794bea9c0689b09	ok
+The Method Materials/The_Method_1_6_BUILD146_compendia_papers_audits.md	1qnkltKLSpWXWzyBWBSwfKk7TrZ6dQSWv	The_Method_1_6_BUILD146_compendia_papers_audits.md	text/markdown	6616926	2026-09-01T04:02:50.832Z	7c3bd3fdbf6d2f0872c98a782ccffde2	ok
+The Method Materials/The_Method_1_6_BUILD147_compendia_papers_audits.md	1HPPH2HxNCkQL4wH87P2jM8eBspu2iBte	The_Method_1_6_BUILD147_compendia_papers_audits.md	text/markdown	6720054	2026-09-01T04:26:13.824Z	01285a8242804e468568475c1d2f2f34	ok
+The Method Materials/The_Method_1_6_BUILD148_compendia_papers_audits.md	1pNO1FD2vzwySrPw28xok6GXxA_-gNsmx	The_Method_1_6_BUILD148_compendia_papers_audits.md	text/markdown	6797130	2026-09-01T05:13:11.437Z	6c6e559f35afa11fc91194a593a4fb94	ok
+The Method Materials/The_Method_1_6_BUILD149_compendia_papers_audits.md	1ydSyBcmq5_dqhl1C1WzCA6PJN6hleqsO	The_Method_1_6_BUILD149_compendia_papers_audits.md	text/markdown	6850992	2026-09-01T05:31:03.793Z	64ff9011ef74f3e8fb6839767f1da524	ok
+The Method Materials/The_Method_1_6_BUILD150_compendia_papers_audits.md	1gt_WfXlecu3zhrxq3sQ05UTY5rFJQsh9	The_Method_1_6_BUILD150_compendia_papers_audits.md	text/markdown	6936484	2026-09-01T13:52:01.637Z	efe4fc5c595446b2432638cce229ff43	ok
+The Method Materials/The_Method_1_6_BUILD151_compendia_papers_audits.md	1wKZ--dc5t2SUe7mNpzNXmQzh7kj2gmq2	The_Method_1_6_BUILD151_compendia_papers_audits.md	text/markdown	7035309	2026-09-01T14:36:57.003Z	18d6aeebc32cada7dd54d61bf47e55b7	ok
+The Method Materials/The_Method_1_6_BUILD152_compendia_papers_audits.md	1js7qQhgxJSEJikHfg57DtzGYQOoOYXk1	The_Method_1_6_BUILD152_compendia_papers_audits.md	text/markdown	7146099	2026-09-01T15:24:06.860Z	38bd45711e2813dc9b73d8335a306103	ok
+The Method Materials/The_Method_1_6_BUILD153_compendia_papers_audits.md	1Tv_YzFN1ZvIPcZEY-dsIYkYfuTM70YUt	The_Method_1_6_BUILD153_compendia_papers_audits.md	text/markdown	7218771	2026-09-01T15:54:31.872Z	69aae2e381b1a07c5adcb891383373ac	ok
+The Method Materials/The_Method_1_6_BUILD154_compendia_papers_audits.md	1ZTHKRBy2QtHg5JRdSxz7-LAeyvTQ4Vn3	The_Method_1_6_BUILD154_compendia_papers_audits.md	text/markdown	7295512	2026-09-01T16:54:44.399Z	dad6b9fb6985c4fe398cf5b030eb1b0c	ok
+The Method Materials/The_Method_1_6_BUILD155_compendia_papers_audits.md	1v0TOGFCBtxxiQz3RmU0CnrxEZzZNGBv8	The_Method_1_6_BUILD155_compendia_papers_audits.md	text/markdown	7387582	2026-09-01T18:17:54.604Z	3ab965257137cead542ea706820a4bbb	ok
+The Method Materials/The_Method_1_6_BUILD157_compendia_papers_audits.md	1BWWc7PybcFqxXBXKqLhekE2QRdl3yNfB	The_Method_1_6_BUILD157_compendia_papers_audits.md	text/markdown	7518739	2026-09-01T19:08:19.353Z	10d3b13cf0c3ce627c0f6624c7c08bc6	ok
+The Method Materials/The_Method_1_6_BUILD158_compendia_papers_audits.md	1Ihs1xLSIOFuRQvGLukrVrMtYbBEcOtGD	The_Method_1_6_BUILD158_compendia_papers_audits.md	text/markdown	7617311	2026-09-01T20:33:40.125Z	3fc4111aea078f7b78fdc5b5cd1f4b0e	ok
 The Method Materials/The_Method_1_6_BUILD160_compendia_papers_audits.md	1KPlxDJ_RhRyTrR7g-76DGj98uhUap3Aj	The_Method_1_6_BUILD160_compendia_papers_audits.md	text/markdown	3993234	2026-09-01T21:49:49.138Z	23c045d1eef6bc20f97d0862f1684885	ok
 The Method Materials/The_Method_1_6_BUILD161_compendia_papers_audits.md	1iKoY1JRDMIPDX5DHCOpZ6JHksnmMyfEu	The_Method_1_6_BUILD161_compendia_papers_audits.md	text/markdown	4158576	2026-09-01T22:40:36.026Z	2c8d3a9a51daa11d25cddb17b7c9c038	ok
 The Method Materials/The_Method_1_6_BUILD162_compendia_papers_audits.md	12dk7t-WgjMKL4g--7tSIgGS-p4tUI44l	The_Method_1_6_BUILD162_compendia_papers_audits.md	text/markdown	4247153	2026-09-01T23:00:21.349Z	1f081b1f605f74593e7ab76759c0a2aa	ok
@@ -320,6 +686,11 @@ The Method Materials/The_Method_1_6_BUILD172_compendia_papers_audits.md	1WnjRQWN
 The Method Materials/The_Method_1_6_BUILD173_compendia_papers_audits.md	1i7ERGcE7FZeSAMDi3dr9VhBRVRLPbIww	The_Method_1_6_BUILD173_compendia_papers_audits.md	text/markdown	5249269	2026-09-02T03:23:50.635Z	0fe1bce2bc86d0f61e14e8691506b20f	ok
 The Method Materials/The_Method_1_6_BUILD174_compendia_papers_audits.md	1p2c2oLM9PWfpa6gDN5Y1qv8ARKKp-7YK	The_Method_1_6_BUILD174_compendia_papers_audits.md	text/markdown	5321034	2026-09-02T04:00:41.374Z	ca9319a8cf94c4ff276b3ccb5ab14a79	ok
 The Method Materials/The_Method_1_6_BUILD174_compendia_papers_audits__1rS8QUCdwo2CBWupXoZvOtNXsXJQrhdtp.md	1rS8QUCdwo2CBWupXoZvOtNXsXJQrhdtp	The_Method_1_6_BUILD174_compendia_papers_audits.md	text/markdown	5321034	2026-09-02T03:41:13.350Z	ca9319a8cf94c4ff276b3ccb5ab14a79	ok
+The Method Materials/The_Method_1_6_BUILD175_compendia_papers_audits.md	1-NujFJkokjUS61v65lsutjdgnByB-R6o	The_Method_1_6_BUILD175_compendia_papers_audits.md	text/markdown	5395772		8b77760a4dd35ce415d0fa8e062b5c2c	ok
+The Method Materials/The_Method_1_6_BUILD176_compendia_papers_audits.md	1YaoBu9qLClRHQQq5MUnld7-2aUJc4FVY	The_Method_1_6_BUILD176_compendia_papers_audits.md	text/markdown	5462774		adebc327f027ce3794d894c511af54c5	ok
+The Method Materials/The_Method_1_6_BUILD177_compendia_papers_audits.md	1V_Wj-SrzyJ1VRAM1oSWHCFO8eqRu0voc	The_Method_1_6_BUILD177_compendia_papers_audits.md	text/markdown	5541568		256380825da7ed894d1ad6a21b643de3	ok
+The Method Materials/The_Method_1_6_BUILD178_compendia_papers_audits.md	1Dtb_wjVxC8n6FjpRQbTXTK4VMnNi-dXM	The_Method_1_6_BUILD178_compendia_papers_audits.md	text/markdown	5619374		e0a5ff82926f080d3d2fae3ecee3eafe	ok
+The Method Materials/The_Method_1_6_BUILD179_compendia_papers_audits.md	1X317KPEdk7Jvv6jTDMFEUsgXA2adhNk9	The_Method_1_6_BUILD179_compendia_papers_audits.md	text/markdown	5683169		6251dc1351f165aef874b9cf4d8a45c1	ok
 The Method Materials/The_Method_1_6_BUILD53_compendia_papers_audits.REPAIRED.md	1Sp3MiJ5eGHatbDxP3rJ2Nqx-wdbwZ3UQ	The_Method_1_6_BUILD53_compendia_papers_audits.REPAIRED.md	text/markdown	2338544	2026-08-28T22:27:34.723Z	f144bc48869b3e8b5f3b0edc136e9370	ok
 The Method Materials/The_Method_1_6_BUILD53_main_and_register.REPAIRED.md	1dzBg6DhmnAN-JPSgdn3nSVFYbRUhHY1G	The_Method_1_6_BUILD53_main_and_register.REPAIRED.md	text/markdown	1920491	2026-08-28T22:27:34.795Z	3adb9b59d7d2087dc758214225b61812	ok
 The Method Materials/The_Method_1_6_BUILD54_compendia_papers_audits.md	1MlchavJfCc3VDE4rWii1uw0hhH1FElDU	The_Method_1_6_BUILD54_compendia_papers_audits.md	text/markdown	2342703	2026-08-28T16:16:37.005Z	97ba0583bb58df726114c346fab6e753	ok
@@ -368,9 +739,9 @@ The Method Materials/The_Method_1_6_BUILD9_compendia_papers_audits.md	1TLqGqSs8b
 The Method Materials/The_Method_1_6_BUILD9_main_and_register.md	1xr94Hsbq69zB8jLtpcb4xNOqAN7G_1mG	The_Method_1_6_BUILD9_main_and_register.md	text/markdown	2010083	2026-08-24T18:07:37.363Z	9a7fa415fb9329cab3e0a76d8b981c75	ok
 The Method Materials/The_Method_1_6_figures.zip	1vqbc0bylJOSCKJ2oVVBmBNpl1ijCzpuu	The_Method_1_6_figures.zip	application/zip	753237	2026-08-24T00:20:19.453Z	3a2d6d9c452ae06f4d3344667f0ee498	ok
 The Method Materials/The_Method_1_6_figures_BUILD13.zip	1q7pvnxMPILD9AVoH6XjymZHXX79YzITd	The_Method_1_6_figures_BUILD13.zip	application/zip	6299293	2026-08-24T20:30:48.061Z	78888f2078dc5342ab221a59bbcf8921	ok
-The Method Materials/The_Method_1_6_figures_BUILD8.zip	1l-176jSS0yKyeV3sqWh4iGxyGr4p-grG	The_Method_1_6_figures_BUILD8.zip	application/zip	7012585	2026-08-24T03:27:58.052Z	766c8b313ca282cf1cd8cd5d8295ebcc	ok (uploaded directly by owner, size matches Drive)
-The Method Materials/The_Method_1_6_figures_BUILD9.zip	1ZYYhoK3UKzYHA-TtwN5y8OPKZOcGN6g6	The_Method_1_6_figures_BUILD9.zip	application/zip	7480930	2026-08-24T18:07:37.523Z	876281261ff203b07b4ca75b6e839799	ok (uploaded directly by owner, size matches Drive)
-The Method Materials/The_Method_1_6_figures_BUILD9__1AtBAHB7Dwr8QlUmiV1_EaPNMR1X2g-kN.zip	1AtBAHB7Dwr8QlUmiV1_EaPNMR1X2g-kN	The_Method_1_6_figures_BUILD9.zip	application/zip	7480930	2026-08-24T13:57:23.006Z	876281261ff203b07b4ca75b6e839799	ok (placed from the uploaded The_Method_1_6_figures_BUILD9.zip: same title and byte count as this older Drive copy)
+The Method Materials/The_Method_1_6_figures_BUILD8.zip	1l-176jSS0yKyeV3sqWh4iGxyGr4p-grG	The_Method_1_6_figures_BUILD8.zip	application/zip	7012585	2026-08-24T03:27:58.052Z	766c8b313ca282cf1cd8cd5d8295ebcc	ok
+The Method Materials/The_Method_1_6_figures_BUILD9.zip	1ZYYhoK3UKzYHA-TtwN5y8OPKZOcGN6g6	The_Method_1_6_figures_BUILD9.zip	application/zip	7480930	2026-08-24T18:07:37.523Z	876281261ff203b07b4ca75b6e839799	ok
+The Method Materials/The_Method_1_6_figures_BUILD9__1AtBAHB7Dwr8QlUmiV1_EaPNMR1X2g-kN.zip	1AtBAHB7Dwr8QlUmiV1_EaPNMR1X2g-kN	The_Method_1_6_figures_BUILD9.zip	application/zip	7480930	2026-08-24T13:57:23.006Z	876281261ff203b07b4ca75b6e839799	ok
 The Method Materials/The_Method_1_6_figures_complete.zip	1jcoJrEKFh4FfWAdKfXWgbMasDpr4OYvp	The_Method_1_6_figures_complete.zip	application/zip	6299177	2026-08-24T01:45:45.025Z	14500d0e1eea26fd9f79b8066a5f1c9b	ok
 The Method Materials/The_Method_1_6_ioi.pdf	1PdOKN7xMFSLS3iwIaWU_s4jTbOCfcr63	The_Method_1_6_ioi.pdf	application/pdf	4413375	2026-08-28T16:16:37.544Z	1e304c0ab8cda3e31cdab59d7a6d97d1	ok
 The Method Materials/The_Method_1_6_main.pdf	1DAiXXEK7kbcx9kUMiXPiboa8LlYG34B3	The_Method_1_6_main.pdf	application/pdf	4808166	2026-08-28T16:16:37.839Z	4a289e4fbe3f8c667156ee3b18b406e2	ok
@@ -398,17 +769,21 @@ The Method Materials/fill_outside.py	1xKNpdY4SDy3iJ_BPYkVJ7LmT-oY8buFy	fill_outs
 The Method Materials/fill_value.py	1bJ-Qmh3SVT7OrjAeiOdSUhxgBAQOm80s	fill_value.py	text/x-python	2328	2026-08-29T15:59:33.710Z	227a2ff910ae630b3300766e52f9f134	ok
 The Method Materials/ioi.pdf	1kFQ_Hv6GuH1b5Sw7BgJkvtvyYho6wV8S	ioi.pdf	application/pdf	4413375	2026-08-28T16:16:36.399Z	1e304c0ab8cda3e31cdab59d7a6d97d1	ok
 The Method Materials/lam8.py	1-sdL1qCN1E9fr7NFh4ruAKMwE04esw2F	lam8.py	text/x-python	570	2026-08-29T04:22:51.488Z	b837a69ec7c05819b531acff665ae5da	ok
+The Method Materials/light_metadata-000.zip	19X6w7vEELPI2ErNhQ9onLDLcU2MnCgHD	light_metadata-000.zip	application/zip	775		f010cbcd8bed8f12f166101dd6ce781e	ok
 The Method Materials/main.pdf	1u4H_jLkI_qOTp3bbkHHuoyotot7tHPrD	main.pdf	application/pdf	4808166	2026-08-28T16:16:34.911Z	4a289e4fbe3f8c667156ee3b18b406e2	ok
+The Method Materials/manifest-6ce4db26-3392-459c-ba66-4faf61d4fada-1788340183-54b52d66-2026-09-02-09-10-48.json	1F1Tw9vr2CZ0Lf9yRu84tgfDn2ztSBsmv	manifest-6ce4db26-3392-459c-ba66-4faf61d4fada-1788340183-54b52d66-2026-09-02-09-10-48.json	application/json	1237		c121b9dfb7208a27f48e38877f8dc16c	ok
 The Method Materials/math.pdf	1ReXFLhgCFfZOYb2Oi9E7WttilbrrUwkL	math.pdf	application/pdf	1390488	2026-08-28T16:16:36.310Z	048d0c57a079ef5a10945d5f2a08c063	ok
-The Method Materials/method16_rp_A_instruments.tar.gz	18RTwgMdnpN1hNdBDR4TgB7opb4buGedh	method16_rp_A_instruments.tar.gz	application/gzip	1005510	2026-08-24T21:52:52.149Z	4dee09091003caeeb437733af61cba79	ok (uploaded directly by owner, size matches Drive)
-The Method Materials/method16_rp_B_data.tar.gz	12XrDQ3Kkj0P073tnCDzTuTZxZSuKnejN	method16_rp_B_data.tar.gz	application/gzip	6424788	2026-08-24T21:52:52.290Z	204b7dfbb05616c74f9f0e6f8d285e83	ok (uploaded directly by owner, size matches Drive)
-The Method Materials/method16_rp_C_figures.tar.gz	1meiidZD7rBODVXpiKfioDpzAEo3NAXdl	method16_rp_C_figures.tar.gz	application/gzip	6631820	2026-08-24T21:52:52.402Z	b57133edae191c35c3664c529c307dcc	ok (uploaded directly by owner, size matches Drive)
+The Method Materials/memories-000.zip	1L_9wuWYeEL0AnlyegmSGfW7clYi3GA94	memories-000.zip	application/zip	30558		08252c8c7581e3fe23f70c7c4158e682	ok
+The Method Materials/method16_rp_A_instruments.tar.gz	18RTwgMdnpN1hNdBDR4TgB7opb4buGedh	method16_rp_A_instruments.tar.gz	application/gzip	1005510	2026-08-24T21:52:52.149Z	4dee09091003caeeb437733af61cba79	ok
+The Method Materials/method16_rp_B_data.tar.gz	12XrDQ3Kkj0P073tnCDzTuTZxZSuKnejN	method16_rp_B_data.tar.gz	application/gzip	6424788	2026-08-24T21:52:52.290Z	204b7dfbb05616c74f9f0e6f8d285e83	ok
+The Method Materials/method16_rp_C_figures.tar.gz	1meiidZD7rBODVXpiKfioDpzAEo3NAXdl	method16_rp_C_figures.tar.gz	application/gzip	6631820	2026-08-24T21:52:52.402Z	b57133edae191c35c3664c529c307dcc	ok
 The Method Materials/physics.pdf	1ttjfQxHcsZT1W7Bv3bSJyVIhXr0danIN	physics.pdf	application/pdf	496892	2026-08-28T16:16:36.751Z	7312a8852c45831bfc4e7767f4d21993	ok
+The Method Materials/projects-000.zip	1I7jBuKNlX2NfjPSJsksW6f-alMFQ7DjD	projects-000.zip	application/zip	5815062		360e2e10401e636662132b9eedde53f6	ok
 The Method Materials/register.pdf	1PNRO5lZ9roOO663-CXQo_bye525-8MUw	register.pdf	application/pdf	2980456	2026-08-28T16:16:34.789Z	9d2210d70f4d0afbf2d20d8d9389c98f	ok
 The Method Materials/repair-pass-instruments.tar.gz	1AIPTc9Gu3wxXEhGyYWAMlM4jcmgWAXzm	repair-pass-instruments.tar.gz	application/gzip	5262	2026-08-28T22:27:34.874Z	d77413ec5a443c2f06dd261524e712a4	ok
 The Method Materials/repair-pass-instruments.tar__1ngDELaqmipG3LQ2iGK3gdWqUOzjvMPPl.gz	1ngDELaqmipG3LQ2iGK3gdWqUOzjvMPPl	repair-pass-instruments.tar.gz	application/gzip	5262	2026-08-28T22:20:10.075Z	d77413ec5a443c2f06dd261524e712a4	ok
 The Method Materials/req4.py	1R7O_ANKwpuslYu9xUfYjlXvIbJ7X8iJe	req4.py	text/x-python	1015	2026-08-28T21:20:54.941Z	8a9a2b33237e988375fcafd56cbe2c9f	ok
-The Method Materials/restore-point-2_13.tar.gz	19DxBiNaE2wCGFcRD1MFw-8Bz5NtBop1L	restore-point-2_13.tar.gz	application/gzip	14238681	2026-08-24T01:38:14.530Z	5d4335e4a62447e3800260bd8d74c0aa	ok (uploaded directly by owner, size matches Drive)
+The Method Materials/restore-point-2_13.tar.gz	19DxBiNaE2wCGFcRD1MFw-8Bz5NtBop1L	restore-point-2_13.tar.gz	application/gzip	14238681	2026-08-24T01:38:14.530Z	5d4335e4a62447e3800260bd8d74c0aa	ok
 The Method Materials/series_gen.py	1EX2KNFgXjSNB2XMx3KASQ8nW-JUchzNy	series_gen.py	text/x-python	7776	2026-08-24T18:07:35.867Z	e2fa2e6ee1dc21d1ddd62d02a7a6c208	ok
 The Method Materials/series_gen__1CcnS7a75k3eO4zUdf-haG0Pd3dm8dn-q.py	1CcnS7a75k3eO4zUdf-haG0Pd3dm8dn-q	series_gen.py	text/x-python	7776	2026-08-24T18:07:33.185Z	e2fa2e6ee1dc21d1ddd62d02a7a6c208	ok
 The Method Materials/series_gen__1_4dNx0ExlvTXLasiL0w2XR7h4HlcD1GE.py	1_4dNx0ExlvTXLasiL0w2XR7h4HlcD1GE	series_gen.py	text/x-python	7776	2026-08-24T18:07:32.221Z	e2fa2e6ee1dc21d1ddd62d02a7a6c208	ok
