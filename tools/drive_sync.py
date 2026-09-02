@@ -94,6 +94,10 @@ RETRY_BASE_SECONDS = 2.0
 #: Drive refuses to export a native document larger than this.
 EXPORT_SIZE_LIMIT_BYTES = 10 * 1024 * 1024
 MAX_FILENAME_BYTES = 255
+# GitHub rejects any single file over 100 MiB on push, so fetching one costs
+# transfer and disk for something that can never be committed.  Default ceiling
+# for --max-file-bytes; see docs/REPO-SIZE.md.
+GITHUB_FILE_LIMIT_BYTES = 100 * 1024 * 1024
 
 MANIFEST_NAME = "MANIFEST.tsv"
 MANIFEST_COLUMNS: Tuple[str, ...] = (
@@ -126,6 +130,17 @@ RETRYABLE_NETWORK_ERRORS: Tuple[type, ...] = (
     ssl.SSLError,
     http.client.HTTPException,
 )
+
+
+class ContentMismatch(http.client.HTTPException):
+    """A transfer completed but the bytes are not what Drive said they would be.
+
+    Subclasses ``HTTPException`` deliberately, for two reasons: it is in
+    ``RETRYABLE_NETWORK_ERRORS``, so a truncated transfer is retried like any
+    other transport fault; and ``sync_entry`` already treats that class as an
+    I/O failure, so a persistent mismatch becomes a FAILED row rather than
+    crashing the run.
+    """
 
 
 class Action:
@@ -590,16 +605,28 @@ class DriveClient:
 
     # -- content ----------------------------------------------------------- #
 
-    def download_file(self, file_id: str, destination: Path) -> int:
+    def download_file(
+        self,
+        file_id: str,
+        destination: Path,
+        expected_size: Optional[int] = None,
+        expected_md5: str = "",
+    ) -> Tuple[int, str]:
         return self._stream(
             lambda: self.service.files().get_media(  # type: ignore[attr-defined]
                 fileId=file_id, supportsAllDrives=True
             ),
             destination,
             "download {}".format(file_id),
+            expected_size=expected_size,
+            expected_md5=expected_md5,
         )
 
-    def export_file(self, file_id: str, export_mime: str, destination: Path) -> int:
+    def export_file(
+        self, file_id: str, export_mime: str, destination: Path
+    ) -> Tuple[int, str]:
+        # Drive reports neither size nor md5 for a native document, so an export
+        # has nothing to check against; it is verified by the manifest instead.
         return self._stream(
             lambda: self.service.files().export_media(  # type: ignore[attr-defined]
                 fileId=file_id, mimeType=export_mime
@@ -613,14 +640,16 @@ class DriveClient:
         make_request: Callable[[], object],
         destination: Path,
         description: str,
-    ) -> int:
+        expected_size: Optional[int] = None,
+        expected_md5: str = "",
+    ) -> Tuple[int, str]:
         """Stream a media request to ``destination`` via a sibling temp file.
 
         Nothing is ever held in memory beyond one chunk, which is what removes
         the size ceiling the MCP connector has.
         """
 
-        def attempt() -> int:
+        def attempt() -> Tuple[int, str]:
             destination.parent.mkdir(parents=True, exist_ok=True)
             handle_fd, temp_name = tempfile.mkstemp(
                 dir=str(destination.parent), prefix=TEMP_PREFIX, suffix=".part"
@@ -637,15 +666,42 @@ class DriveClient:
                             _progress, done = downloader.next_chunk(num_retries=0)
                     except self._modules.http_error as exc:  # type: ignore[misc]
                         # Drive answers a ranged GET for zero-byte content with
-                        # 416; that is an empty file, not a failure.
+                        # 416; that is an empty file, not a failure.  It only
+                        # means that when NOTHING has been written yet: a 416
+                        # partway through is a truncated transfer, and treating
+                        # it as "empty" would install the partial file as
+                        # complete.
                         if http_status_of(exc) != 416:
                             raise
+                        if handle.tell():
+                            raise ContentMismatch(
+                                "{}: HTTP 416 after {} bytes — transfer truncated".format(
+                                    description, handle.tell()
+                                )
+                            ) from exc
                         LOGGER.debug("%s returned 416: treating as empty", description)
                     handle.flush()
                     os.fsync(handle.fileno())
+
+                # Verify BEFORE installing.  Everything above wrote to a sibling
+                # temp file, so a transfer that fails this check is discarded and
+                # any previously verified copy at `destination` is left intact.
                 size = temp_path.stat().st_size
+                if expected_size is not None and size != expected_size:
+                    raise ContentMismatch(
+                        "{}: got {} bytes, Drive says {}".format(
+                            description, size, expected_size
+                        )
+                    )
+                digest = md5_of_file(temp_path)
+                if expected_md5 and digest != expected_md5:
+                    raise ContentMismatch(
+                        "{}: md5 {} does not match Drive's {}".format(
+                            description, digest, expected_md5
+                        )
+                    )
                 os.replace(str(temp_path), str(destination))
-                return size
+                return size, digest
             except BaseException:
                 remove_quietly(temp_path)
                 raise
@@ -1053,7 +1109,7 @@ def sync_entry(
             )
 
         try:
-            size = client.export_file(entry.file_id, export_mime, target)
+            size, new_md5 = client.export_file(entry.file_id, export_mime, target)
         except client.http_error_class as exc:  # type: ignore[misc]
             if is_export_too_large(exc):
                 status = (
@@ -1073,7 +1129,6 @@ def sync_entry(
                 repo_path, Action.FAILED, build_row(entry, repo_path, entry.size, "", status), status
             )
 
-        new_md5 = md5_of_file(target)
         action = Action.UNCHANGED if new_md5 == local_md5 else Action.EXPORTED
         LOGGER.info("%s %s (%d bytes)", action, repo_path, size)
         return SyncOutcome(
@@ -1113,8 +1168,16 @@ def sync_entry(
             "would " + action,
         )
 
+    # Both checks happen inside download_file, against the temp file, before it
+    # replaces anything.  A mismatch therefore leaves `target` untouched: a bad
+    # transfer can no longer destroy a previously verified copy.
     try:
-        size = client.download_file(entry.file_id, target)
+        size, new_md5 = client.download_file(
+            entry.file_id,
+            target,
+            expected_size=entry.size,
+            expected_md5=entry.md5 or "",
+        )
     except client.http_error_class as exc:  # type: ignore[misc]
         status = "failed: " + short_error(exc)
         LOGGER.error("%s: %s", repo_path, status)
@@ -1128,21 +1191,12 @@ def sync_entry(
             repo_path, Action.FAILED, build_row(entry, repo_path, entry.size, "", status), status
         )
 
-    new_md5 = md5_of_file(target)
-    if entry.md5 and new_md5 != entry.md5:
-        status = "failed: md5 mismatch after download (drive {}, local {})".format(
-            entry.md5, new_md5
-        )
-        LOGGER.error("%s: %s", repo_path, status)
-        return SyncOutcome(
-            repo_path, Action.FAILED, build_row(entry, repo_path, entry.size, new_md5, status), status
-        )
-
     LOGGER.info("%s %s (%d bytes)", action, repo_path, size)
+    # Record the bytes actually written, never Drive's declared size: when both
+    # are known they have just been asserted equal, and when Drive gives no size
+    # this is the only honest number.
     return SyncOutcome(
-        repo_path,
-        action,
-        build_row(entry, repo_path, entry.size if entry.size is not None else size, new_md5, STATUS_OK),
+        repo_path, action, build_row(entry, repo_path, size, new_md5, STATUS_OK)
     )
 
 
@@ -1252,6 +1306,23 @@ def build_parser() -> argparse.ArgumentParser:
         help="only sync files whose repo path contains SUBSTRING; repeatable.",
     )
     parser.add_argument(
+        "--exclude",
+        action="append",
+        default=[],
+        metavar="SUBSTRING",
+        help="never sync files whose repo path contains SUBSTRING; repeatable. "
+        "Applied after --only.",
+    )
+    parser.add_argument(
+        "--max-file-bytes",
+        type=int,
+        default=GITHUB_FILE_LIMIT_BYTES,
+        metavar="N",
+        help="skip files larger than N bytes (default: %(default)s, GitHub's "
+        "per-file hard limit). Git cannot accept a file over this size, so "
+        "downloading one only costs transfer and disk. Pass 0 to disable.",
+    )
+    parser.add_argument(
         "--credentials",
         default=None,
         metavar="PATH",
@@ -1307,6 +1378,20 @@ def selected_by_only(repo_path: str, patterns: Sequence[str]) -> bool:
     return not patterns or any(pattern in repo_path for pattern in patterns)
 
 
+def excluded_reason(
+    entry: DriveEntry, repo_path: str, patterns: Sequence[str], max_bytes: Optional[int]
+) -> str:
+    """Why this file is being left alone, or "" to sync it."""
+    for pattern in patterns:
+        if pattern in repo_path:
+            return "excluded by --exclude {}".format(pattern)
+    if max_bytes is not None and entry.size is not None and entry.size > max_bytes:
+        return "excluded: {} bytes is over --max-file-bytes {}".format(
+            entry.size, max_bytes
+        )
+    return ""
+
+
 def run_sync(
     client: DriveClient,
     assignments: Sequence[Tuple[DriveEntry, str]],
@@ -1320,12 +1405,32 @@ def run_sync(
         return outcomes
     workers = max(1, min(jobs, len(assignments)))
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = [
-            pool.submit(sync_entry, client, entry, repo_path, dest_root, previous, dry_run)
+        futures = {
+            pool.submit(
+                sync_entry, client, entry, repo_path, dest_root, previous, dry_run
+            ): (entry, repo_path)
             for entry, repo_path in assignments
-        ]
+        }
         for future in concurrent.futures.as_completed(futures):
-            outcomes.append(future.result())
+            entry, repo_path = futures[future]
+            try:
+                outcomes.append(future.result())
+            except Exception as exc:  # noqa: BLE001
+                # sync_entry handles HTTP and I/O faults itself, so reaching here
+                # means something unforeseen.  Turn it into a FAILED row instead
+                # of letting it propagate: one bad file used to abort the whole
+                # run and discard the outcomes of every file that had already
+                # succeeded, losing the manifest for all of them.
+                status = "failed: " + short_error(exc)
+                LOGGER.exception("%s: unexpected error", repo_path)
+                outcomes.append(
+                    SyncOutcome(
+                        repo_path,
+                        Action.FAILED,
+                        build_row(entry, repo_path, entry.size, "", status),
+                        status,
+                    )
+                )
     return outcomes
 
 
@@ -1417,22 +1522,34 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     previous = read_manifest(manifest_path)
 
-    selected = [
-        (entry, repo_path)
-        for entry, repo_path in assignments
-        if selected_by_only(repo_path, args.only)
-    ]
-    deferred = [
-        (entry, repo_path)
-        for entry, repo_path in assignments
-        if not selected_by_only(repo_path, args.only)
-    ]
+    max_file_bytes = args.max_file_bytes if args.max_file_bytes > 0 else None
+    selected: List[Tuple[DriveEntry, str]] = []
+    deferred: List[Tuple[DriveEntry, str]] = []
+    excluded: List[Tuple[DriveEntry, str, str]] = []
+    for entry, repo_path in assignments:
+        if not selected_by_only(repo_path, args.only):
+            deferred.append((entry, repo_path))
+            continue
+        reason = excluded_reason(entry, repo_path, args.exclude, max_file_bytes)
+        if reason:
+            excluded.append((entry, repo_path, reason))
+        else:
+            selected.append((entry, repo_path))
     if args.only:
         LOGGER.info(
             "--only matched %d of %d file(s); the rest keep their manifest rows",
-            len(selected),
+            len(selected) + len(excluded),
             len(assignments),
         )
+    if excluded:
+        LOGGER.info(
+            "excluded %d file(s) totalling %d bytes; each keeps a manifest row "
+            "saying why",
+            len(excluded),
+            sum(entry.size or 0 for entry, _path, _reason in excluded),
+        )
+        for _entry, path, reason in excluded:
+            LOGGER.debug("excluded %s: %s", path, reason)
 
     outcomes = run_sync(client, selected, dest_root, previous, args.jobs, args.dry_run)
 
@@ -1445,6 +1562,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             rows.append(
                 build_row(entry, repo_path, entry.size, "", "not-checked: excluded by --only")
             )
+    for entry, repo_path, reason in excluded:
+        # An excluded file that is already mirrored keeps the row it earned; the
+        # exclusion says "do not fetch this", not "forget what we know about it".
+        carried = previous.get(repo_path)
+        if carried is not None and carried.drive_id == entry.file_id and carried.md5:
+            rows.append(carried)
+        else:
+            rows.append(build_row(entry, repo_path, entry.size, "", reason))
 
     extras = find_local_extras(dest_root, root_dir_names, expected_paths)
     pruned = 0
