@@ -1,0 +1,16 @@
+case            | A shape=Newton | B norm=0 | C Euler | D Lagrange | E perm-sym | F Saari
+x=y, y<z        |  True          |  True    | True (1 root/ordering) | True   | True |S|=2 | theorem (all m)
+x=y, y=z        |  True          |  True    | True (1 root/ordering) | True   | True |S|=6 | theorem (all m)
+x=y, y>z        |  True          |  True    | True (1 root/ordering) | True   | True |S|=2 | theorem (all m)
+x<y, y=z        |  True          |  True    | True (1 root/ordering) | True   | True |S|=2 | theorem (all m)
+x>y, y=z        |  True          |  True    | True (1 root/ordering) | True   | True |S|=2 | theorem (all m)
+x<y, y<z        |  True          |  True    | True (1 root/ordering) | True   | True |S|=1 | theorem (all m)
+x>y, y>z        |  True          |  True    | True (1 root/ordering) | True   | True |S|=1 | theorem (all m)
+x<y, y>z        |  True          |  True    | True (1 root/ordering) | True   | True |S|=1 | theorem (all m)
+x>y, y<z        |  True          |  True    | True (1 root/ordering) | True   | True |S|=1 | theorem (all m)
+x=z, x<y        |  True          |  True    | True (1 root/ordering) | True   | True |S|=2 | theorem (all m)
+x=z, x>y        |  True          |  True    | True (1 root/ordering) | True   | True |S|=2 | theorem (all m)
+x<z, z<y        |  True          |  True    | True (1 root/ordering) | True   | True |S|=1 | theorem (all m)
+x>z, z>y        |  True          |  True    | True (1 root/ordering) | True   | True |S|=1 | theorem (all m)
+
+Book §12.11.2 test, cap 8: triangle cells=344, meet failures=8385, join failures=0; two-body chain: failures=0

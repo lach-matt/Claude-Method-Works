@@ -1,0 +1,19 @@
+SOURCE: working chat, Request 3 (1D↔14D transitional connection), 2026-08-28
+ARTEFACT: verify3.py, TRANSCRIPT-ONLY for the derivations
+TITLE: 1D AND 14D ARE THE TWO ENDS OF THE FILL LAW — THE ONE-TRANSITION THESIS NEEDS A NAMED FACTORIZATION LEMMA, AND THE BINARY-ONLY FORM IS REFUSED WITH ITS LAWFUL REPLACEMENT.
+BODY:
+Confirmation question from the main-volume prose pass: is the 1D↔14D connection provable from the books, and is it binary-only? Distinct from Request 2's seed verdict, which stands untouched.
+
+Proved and carriable now, two pieces. *Chains are the fixed points of the rank-to-chain coarsening and one application reaches one — chain(chain(X)) = chain(X) verified — so 1D is where the collapse terminates, immediately, from any height.* *The fill sequence is forced to exactly 1 at D = 1 — a one-coordinate index is its own alphabet — and decreases monotonically wherever each added coordinate is constrained, converging into the recorded [0, 0.42%].* **So 1D and 14D are provably the two ends of one monotone quantity, the fill: top forced, bottom bracketed. That is the provable form of two-ends-of-one-transition.**
+
+Refused: the bridge making them one operation. **The coarsening jumps from any Λ_D to a chain in one step without passing through lower stages, and it is not the tower's inverse — register 334's 12.14 bits per cell lost, 31 percent surviving, branching to 185. The tower ascends by construction, the collapse descends by projection, and nothing on record joins them.**
+
+Binary-only refused on two grounds. **First, a theorem-shaped one: every bit-reading is a function of the full object, so any statement about the bits is a statement about the object by pullback — expressible-only-in-binary is impossible as a category; the most available is natural-in-binary.** *Second, computed: the at-either-extreme bit is non-monotone (min to 1, interior to 0, max to 1), not a lattice homomorphism, and on a closed staircase its image carries E = 1 — the reading breaks the property the proof would live in. The at-top and at-bottom thresholds are each homomorphisms, both images E = 0.* **The lawful binary is the PAIR of threshold bits per coordinate, an admitted re-coordinatisation; the single at-extreme bit is their pointwise OR, and the OR is exactly where the law breaks.**
+
+Origin = horizon: refused as identity, proved as antipodes. **Fill is 1 at the origin and at most 0.0042 at the horizon — the ends are opposite extremes of one law, not one point. The identity form remains licensed for ∅ alone, per Request 2.**
+
+Language-boundary flag for the prose: **§26.2's rank(log q) = 1 lives in the value language — fifteen Rydberg quantities along ν — and is not the D = 1 stage of the tower, which lives in the index language. Joining them without a proved bridge is fitting across a language boundary. No such bridge is on record.**
+
+The missing lemma, named for pursuit: **the rank-to-chain coarsening χ of §12.11.0.12 factors through the tower — χ(Λ_D+1) surjects monotonically onto χ(Λ_D), commuting with the stage maps, for every built stage. If it holds, tower and collapse become one directed system with the 1D chains terminal and the 14D direction its limit, and 1D↔14D is PROVED. If it fails, register 334's branching is the likely obstruction and the failure arrives with a measured witness.** The test is finite on the cells of Λ₈ through Λ₁₃, which this session does not hold — it belongs where the tower's cell sets live. Run it alongside the two-bit lawful reading: decidability from the threshold bits alone would be the proven form of the binary expectation.
+
+One-line reader statements. For §12.11.0.11: "The tower's two ends are the two ends of one law: fill is forced to unity where there is one axis and bracketed near nothing where there are fourteen." For the binary question: "A reading derived from the object can never say what the object cannot; it can only say it more naturally."

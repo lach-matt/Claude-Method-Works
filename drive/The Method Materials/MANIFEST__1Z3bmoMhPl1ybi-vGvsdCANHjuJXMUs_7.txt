@@ -1,0 +1,20 @@
+# spectra_selection_and_levels — cut from restore-point-2_13.tar.gz (sha 80577094..., 708 files) on 2026-08-24
+# Answers REQUEST-SPECTRA-DATA.md (their R 1763 / ruling 26).
+# PART A: series_gen.py is the T8-era selection generator (limits via store_gen.assign_limit, parent-matched/NIST); spectra.py presses the Part II channel table and contains 'The parent-term wall'. MEASUREMENTS-DERIVED.tsv is the per-row intermediate: members_stored/found, count_match, all delta perspectives, limit used per row with status and label. captures/STORE-RECONSTRUCT.tsv is the per-row member reconstruction; READING-LIST-STAGING.tsv its staging. T8-CENSUS.txt is the gen-vs-stored census.
+# PART A CORRECTION: bank register tops at R 1700; 'registers ~1699-1700' is satisfied, but the generator runs against spectra_raw which the receiving side states it already holds.
+# PART B CORRECTION: 'captures post-date restore-point-2_13' is REFUTED — all six species are in this bank as delivered here. LIMITS-B.tsv extracted from channels.py LIM (delivered previously).
+#
+90347  21fb1f8476c5a0bb  ./MEASUREMENTS-DERIVED.tsv
+1395  445a49a2277653f9  ./T8-CENSUS.txt
+243403  fb2164944f4bad78  ./captures/READING-LIST-STAGING.tsv
+126538  9b2684e5bbaaf128  ./captures/STORE-RECONSTRUCT.tsv
+16774  2fd9d50fab08a9d9  ./channels.py
+7776  0b95ad37b46459e6  ./series_gen.py
+18883  5ddd0ffe62a317b3  ./spectra.py
+2370  44a3762d473da6c4  ./spectra_raw/BiIII_asd.tsv
+591  772162d82068e5b6  ./spectra_raw/CI_full.tsv
+931  8370380a46992c3f  ./spectra_raw/CdII_full.tsv
+970  e527a3429836abc5  ./spectra_raw/HgII_full.tsv
+155  1d35ea57d89495bf  ./spectra_raw/LIMITS-B.tsv
+698  61e8baef59952384  ./spectra_raw/NI_full.tsv
+1269  f25476de42f5653f  ./spectra_raw/ScIII_asd.tsv
