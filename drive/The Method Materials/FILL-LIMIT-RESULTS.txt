@@ -1,0 +1,83 @@
+SEGMENT 1 — tower rebuild from tower-1.py (§12.11.1 axis definitions)
+ D      cells          box      fill%    ratio
+ 8        976          6,912  14.1204  
+ 9      1,654         27,648   5.9823  0.4237
+10      2,535        110,592   2.2922  0.3832
+11     13,585        663,552   2.0473  0.8932
+12     70,905      5,308,416   1.3357  0.6524
+13    199,130     47,775,744   0.4168  0.3120
+g-distribution over Λ13 (cells by g = 0..3): [35630, 72480, 76140, 14880]  sum = 199130
+closure of the tower (must reproduce R 249, E = 0):
+  Λ8: E = 0  (box 6,912; sublattice = True)
+  Λ9: E = 0  (box 27,648; sublattice = True)
+  Λ10: E = 0  (box 110,592; sublattice = True)
+  Λ11: E = 0  (box 663,552; sublattice = None)
+segment 1 closed (12.1s)
+
+SEGMENT 2 — closed-form limits over the g-distribution of Λ13
+ m   P: ratio      fill%        Q: ratio      fill%
+  1   0.588221  0.245171%    0.588221  2.452e-01%
+  2   0.666387  0.163379%    0.458194  1.123e-01%
+  3   0.725358  0.118508%    0.403090  4.528e-02%
+  4   0.770782  0.091344%    0.372130  1.685e-02%
+  5   0.807697  0.073778%    0.352114  5.933e-03%
+  6   0.838979  0.061899%    0.338029  2.006e-03%
+  7   0.866072  0.053609%    0.327537  6.569e-04%
+  8   0.889675  0.047694%    0.319395  2.098e-04%
+  9   0.910138  0.043408%    0.312877  6.565e-05%
+ 10   0.927665  0.040268%    0.307534  2.019e-05%
+ 11   0.942441  0.037951%    0.303066  6.119e-06%
+ 12   0.954683  0.036231%    0.299271  1.831e-06%
+ 20   0.994701  0.031651%    0.281621  8.661e-11%
+ 40   0.999983  0.031147%    0.266942  4.367e-22%
+ 80   1.000000  0.031146%    0.258861  2.329e-45%
+P: L = c3/box13 = 14,880/47,775,744 = 0.031146%  (positive; ratio → 1, Σ(1−ratio) < ∞)
+Q: L = 0 (cells grow as a cubic in m, box as 4^m; ratio → 1/4, Σ(1−ratio) = ∞)
+ T: M0     L_T/fill13 (product to convergence)   L_T%
+        4   0.59120315                          0.246414%   (lower bound 1−6/M0 = -0.500000)
+       16   0.83581186                          0.348368%   (lower bound 1−6/M0 = 0.625000)
+       64   0.95160032                          0.396628%   (lower bound 1−6/M0 = 0.906250)
+      256   0.98733294                          0.411522%   (lower bound 1−6/M0 = 0.976562)
+     1024   0.99679569                          0.415466%   (lower bound 1−6/M0 = 0.994141)
+fill13 = 0.416801%  — T approaches it from below as M0 → ∞; never attains it
+segment 2 closed (0.0s)
+
+SEGMENT 3 — direct enumeration on Λ13 (route 2 against segment 2)
+  m=1: P cells 468,530 vs closed form 468,530 (True)  |  Q cells 468,530 vs 468,530 (True)  | new axes realise 4 values each, box = box13·4^1 = 191,102,976
+  m=2: P cells 1,248,890 vs closed form 1,248,890 (True)  |  Q cells 858,710 vs 858,710 (True)  | new axes realise 4 values each, box = box13·4^2 = 764,411,904
+  T(M0=4), m=1: cells 1,265,050 vs 1,265,050 (True); axis realises 8 values, box 382,205,952
+segment 3 closed (0.6s)
+
+SEGMENT 4 — exhaustive closure test E = |R(X)| − |X| on the continuations (small depth)
+  Λ8+P^1: cells 1,654 box 27,648 fill 5.9823%  E = 0  sublattice = True
+  Λ8+P^2: cells 3,416 box 110,592 fill 3.0888%  E = 0  sublattice = True
+  Λ8+P^3: cells 8,254 box 442,368 fill 1.8659%  E = 0  sublattice = -
+  Λ8+Q^1: cells 1,654 box 27,648 fill 5.9823%  E = 0  sublattice = True
+  Λ8+Q^2: cells 2,535 box 110,592 fill 2.2922%  E = 0  sublattice = True
+  Λ8+Q^3: cells 3,635 box 442,368 fill 0.8217%  E = 0  sublattice = True
+  Λ8+T4^1: cells 5,558 box 55,296 fill 10.0514%  E = 0  sublattice = -
+  Λ8+T4^2: cells 54,496 box 663,552 fill 8.2128%  E = 0  sublattice = -
+  Λ8+T4^3: box 13,271,040 above bound — not run (refused, §2.9)
+  Λ9+P^1: cells 3,416 box 110,592 fill 3.0888%  E = 0  sublattice = True
+  Λ9+P^2: cells 8,254 box 442,368 fill 1.8659%  E = 0  sublattice = -
+  Λ9+P^3: cells 22,256 box 1,769,472 fill 1.2578%  E = 0  sublattice = -
+  Λ9+Q^1: cells 3,416 box 110,592 fill 3.0888%  E = 0  sublattice = True
+  Λ9+Q^2: cells 5,835 box 442,368 fill 1.3190%  E = 0  sublattice = -
+  Λ9+Q^3: cells 8,975 box 1,769,472 fill 0.5072%  E = 0  sublattice = -
+  Λ9+T4^1: cells 10,032 box 221,184 fill 4.5356%  E = 0  sublattice = -
+  Λ9+T4^2: cells 102,174 box 2,654,208 fill 3.8495%  E = 0  sublattice = -
+  Λ9+T4^3: box 53,084,160 above bound — not run (refused, §2.9)
+  Λ10+P^1: cells 5,835 box 442,368 fill 1.3190%  E = 0  sublattice = -
+  Λ10+P^2: cells 15,255 box 1,769,472 fill 0.8621%  E = 0  sublattice = -
+  Λ10+P^3: box 7,077,888 above bound — not run (refused, §2.9)
+  Λ10+Q^1: cells 5,835 box 442,368 fill 1.3190%  E = 0  sublattice = -
+  Λ10+Q^2: cells 10,545 box 1,769,472 fill 0.5959%  E = 0  sublattice = -
+  Λ10+Q^3: box 7,077,888 above bound — not run (refused, §2.9)
+  Λ10+T4^1: cells 15,975 box 884,736 fill 1.8056%  E = 0  sublattice = -
+  Λ10+T4^2: box 10,616,832 above bound — not run (refused, §2.9)
+  Λ11+P^1: cells 31,735 box 2,654,208 fill 1.1956%  E = 0  sublattice = -
+  Λ11+P^2: box 10,616,832 above bound — not run (refused, §2.9)
+  Λ11+Q^1: cells 31,735 box 2,654,208 fill 1.1956%  E = 0  sublattice = -
+  Λ11+Q^2: box 10,616,832 above bound — not run (refused, §2.9)
+  Λ11+T4^1: box 5,308,416 above bound — not run (refused, §2.9)
+segment 4 closed (79.9s)
