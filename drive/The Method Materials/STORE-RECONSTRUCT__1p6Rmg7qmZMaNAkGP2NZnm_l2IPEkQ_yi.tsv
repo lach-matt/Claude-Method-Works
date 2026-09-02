@@ -1,0 +1,795 @@
+Z	charge	l	mult	delta	spread	term	parent	language	n_lo	n_hi	members	limit	limit_label	limit_status	delta_status	span	cell_exists	delta_mean	delta_asym	R_status	file
+5	1	0	2	0.92172	0.32363	2S		LS	3	10	8	66928.04	B_II_(2s2_1S<0>)	positional — NIST table convention	usable	series	yes	0.90472	0.87780	R_M	spectra_raw/queue2/BI.tsv
+5	1	0	4	0.99291	0.00385	4P*	3P*	LS	3	4	4	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	series	no	0.99219	0.98953	R_M	spectra_raw/queue2/BI.tsv
+5	1	1	2	0.43700	0.00020	2D	3P*	LS	3	3	2	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	single-n	yes	0.43700	0.43710	R_M	spectra_raw/queue2/BI.tsv
+5	1	1	2			2P	1P*	LS	3	3	0	140324.55	B_II_(2s.2p_1P*<1>)	parent-matched	unusable — no members below limit		yes			R_M	spectra_raw/queue2/BI.tsv
+5	1	1	2	0.47161	0.02394	2P	3P*	LS	3	6	6	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	series	yes	0.47562	0.46509	R_M	spectra_raw/queue2/BI.tsv
+5	1	1	2	0.53527	0.19569	2P*		LS	2	9	11	66928.04	B_II_(2s2_1S<0>)	positional — NIST table convention	usable	series	yes	0.56817	0.52386	R_M	spectra_raw/queue2/BI.tsv
+5	1	1	2	0.35997	0.00000	2S	3P*	LS	3	3	1	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	single-n	yes	0.35997	0.35997	R_M	spectra_raw/queue2/BI.tsv
+5	1	2	2	0.03816	0.10803	2D		LS	3	39	43	66928.04	B_II_(2s2_1S<0>)	positional — NIST table convention	usable	series	yes	0.03314	0.07963	R_M	spectra_raw/queue2/BI.tsv
+5	1	2	2	0.25442	0.00031	2D*	3P*	LS	3	3	2	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	single-n	yes	0.25442	0.25458	R_M	spectra_raw/queue2/BI.tsv
+5	1	2	4	0.18383	0.11909	4D*	3P*	LS	3	5	7	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	series	no	0.17605	0.25844	R_M	spectra_raw/queue2/BI.tsv
+5	1	2	4	0.05118	0.00063	4P*	3P*	LS	3	3	3	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	single-n	no	0.05125	0.05161	R_M	spectra_raw/queue2/BI.tsv
+5	1	3	2	0.01382	0.00449	2F*		LS	4	11	13	66928.04	B_II_(2s2_1S<0>)	positional — NIST table convention	usable	series	yes	0.01354	0.01535	R_M	spectra_raw/queue2/BI.tsv
+11	1	0	2	1.63961	0.23160	2P*	1P*	LS	4	15	12	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	series	yes	1.67041	1.74325	R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2	1.57204	0.45287	2P*	3P*	LS	4	16	13	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes	1.56216	1.55312	R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2	-6.40190	20.28772	2P*,4P*	3P*	LS	7	13	4	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes	-7.81070	-19.36335	R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2	-0.44242	0.00000	2P*,4P*?	3P*	LS	9	9	1	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	single-n	yes	-0.44242	-0.44242	R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2	1.61755	0.00000	2P*?	1P*	LS	5	5	1	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	single-n	yes	1.61755	1.61755	R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2	1.22708	0.63869	2P*?	3P*	LS	6	8	2	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes	1.22708	1.54642	R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2	1.34857	0.02475	2S		LS	3	20	18	41449.451	Na_II_(2p6_1S<0>)	positional — NIST table convention	usable	series	yes	1.35076	1.34815	R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2			2[1]*	1P*<1>	jK	4	10	0	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	unusable — no members below limit		yes			R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2			2[1]*	3D*<1>	jK	4	16	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2			2[1]*	3P*<1>	jK	5	10	0	307139.07	Na_II_(2p5.3s_3P*<1>)	parent-matched	unusable — no members below limit		yes			R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	2			2[2]*	3P*<2>	jK	4	10	0	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	unusable — no members below limit		yes			R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	4	1.56493	14.75494	4P*	3P*	LS	4	10	7	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no	-1.07097	-13.09303	R_M	spectra_raw/queue2/NaI.tsv
+11	1	0	4	1.26176	4.95102	4P*?	3P*	LS	6	9	3	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no	-0.36841	-3.65901	R_M	spectra_raw/queue2/NaI.tsv
+11	1	1	2	1.13804	0.05041	2D	1P*	LS	4	4	2	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	single-n	yes	1.13804	1.16324	R_M	spectra_raw/queue2/NaI.tsv
+11	1	1	2	0.88647	0.00000	2D	3P*	LS	4	4	1	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	single-n	yes	0.88647	0.88647	R_M	spectra_raw/queue2/NaI.tsv
+11	1	1	2	1.12180	0.03400	2P	1P*	LS	4	4	2	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	single-n	yes	1.12180	1.13880	R_M	spectra_raw/queue2/NaI.tsv
+11	1	1	2	0.85615	0.02842	2P*		LS	3	20	36	41449.451	Na_II_(2p6_1S<0>)	positional — NIST table convention	usable	series	yes	0.85865	0.85576	R_M	spectra_raw/queue2/NaI.tsv
+11	1	1	2	1.06629	0.00000	2P*	3S	LS	4	4	1	572350.0	Na_II_(2s.2p6.3s_3S<1>)	parent-matched	usable	single-n	yes	1.06629	1.06629	R_M	spectra_raw/queue2/NaI.tsv
+11	1	1	2	1.15887	0.00000	2S	1P*	LS	4	4	1	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	single-n	yes	1.15887	1.15887	R_M	spectra_raw/queue2/NaI.tsv
+11	1	1	2			2[1]*	1S<0>	jK	4	19	0	41449.451	Na_II_(2p6_1S<0>)	parent-matched	unusable — no members below limit		yes			R_M	spectra_raw/queue2/NaI.tsv
+11	1	1	2	9.32216	11.98973	2[1]*	3S<1>	jK	4	16	13	572350.0	Na_II_(2s.2p6.3s_3S<1>)	parent-matched	usable	series	yes	9.32342	15.32117	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	2	0.01488	0.00466	2D		LS	3	20	36	41449.451	Na_II_(2p6_1S<0>)	positional — NIST table convention	usable	series	yes	0.01422	0.01490	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	2	0.24597	0.00086	2D*	1P*	LS	3	3	2	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	single-n	yes	0.24597	0.24640	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	2	0.18712	0.08230	2D*	3P*	LS	3	4	2	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes	0.18712	0.14597	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	2	0.34747	0.68170	2P*	1P*	LS	3	20	18	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	series	yes	0.43480	0.82368	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	2	0.40245	0.06654	2P*	3P*	LS	3	4	4	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes	0.40369	0.43820	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	2	0.39144	0.08305	2P*?	1P*	LS	4	4	2	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	single-n	yes	0.39144	0.43297	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	2	0.25177	0.36713	2P*?	3P*	LS	6	7	2	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes	0.25177	0.06820	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	4	0.12116	2.00129	4D*	3P*	LS	3	8	5	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no	-0.52286	-1.80353	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	4	-0.33991	0.09232	4D*?	3P*	LS	5	6	2	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no	-0.33991	-0.38607	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	4	-0.04256	39.13219	4F*	3P*	LS	3	9	8	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no	-6.25213	-38.92856	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	4	-1.00904	1.48292	4F*?	3P*	LS	5	6	2	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no	-1.00904	-1.75051	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	4	0.21561	0.15832	4P*	3P*	LS	3	10	5	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no	0.21143	0.27284	R_M	spectra_raw/queue2/NaI.tsv
+11	1	2	4	0.12220	0.28423	4P*?	3P*	LS	6	12	3	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no	0.19487	0.37333	R_M	spectra_raw/queue2/NaI.tsv
+11	1	3	2	0.00159	0.00050	2F*		LS	4	20	25	41449.451	Na_II_(2p6_1S<0>)	positional — NIST table convention	usable	series	yes	0.00154	0.00161	R_M	spectra_raw/queue2/NaI.tsv
+11	1	4	2	0.00042	0.00015	2G		LS	5	20	18	41449.451	Na_II_(2p6_1S<0>)	positional — NIST table convention	usable	series	yes	0.00040	0.00045	R_M	spectra_raw/queue2/NaI.tsv
+11	1	5	2	0.00013	0.00003	2H*		LS	6	10	6	41449.451	Na_II_(2p6_1S<0>)	positional — NIST table convention	usable	series	yes	0.00013	0.00014	R_M	spectra_raw/queue2/NaI.tsv
+13	1	0	2	1.76093	0.05360	2S		LS	4	16	13	48278.48	Al_II_(3s2_1S<0>)	positional — NIST table convention	usable	series	yes	1.76709	1.75882	R_M	spectra_raw/queue2/AlI.tsv
+13	1	0	4	1.85615	0.06439	4P*	3P*	LS	4	5	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	no	1.84238	1.79642	R_M	spectra_raw/queue2/AlI.tsv
+13	1	1	2	1.12650	0.17750	2D	3P*	LS	4	7	8	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes	1.11995	1.02465	R_M	spectra_raw/queue2/AlI.tsv
+13	1	1	2	1.88963	0.00000	2D?	1P*	LS	4	4	2	108130.39	Al_II_(3s.3p_1P*<1>)	parent-matched	usable	single-n	yes	1.88963	1.88963	R_M	spectra_raw/queue2/AlI.tsv
+13	1	1	2	0.77072	0.69486	2D?	3P*	LS	8	11	5	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes	0.71459	0.29403	R_M	spectra_raw/queue2/AlI.tsv
+13	1	1	2	1.28691	0.00505	2P	3P*	LS	4	5	3	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes	1.28850	1.28677	R_M	spectra_raw/queue2/AlI.tsv
+13	1	1	2	1.29719	0.20958	2P*		LS	3	7	10	48278.48	Al_II_(3s2_1S<0>)	positional — NIST table convention	usable	series	yes	1.33674	1.28416	R_M	spectra_raw/queue2/AlI.tsv
+13	1	1	2	1.87464	0.00352	2P?	1P*	LS	4	4	2	108130.39	Al_II_(3s.3p_1P*<1>)	parent-matched	usable	single-n	yes	1.87464	1.87640	R_M	spectra_raw/queue2/AlI.tsv
+13	1	1	2	1.00069	0.13014	2S	3P*	LS	4	7	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes	0.99344	0.92112	R_M	spectra_raw/queue2/AlI.tsv
+13	1	1	2	0.60311	0.57613	2S?	3P*	LS	8	11	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes	0.57264	0.25411	R_M	spectra_raw/queue2/AlI.tsv
+13	1	2	2	-0.02021	0.63035	2D		LS	3	34	64	48278.48	Al_II_(3s2_1S<0>)	positional — NIST table convention	usable	series	yes	0.02489	0.27483	R_M	spectra_raw/queue2/AlI.tsv
+13	1	2	2	0.53244	0.01378	2D*	3P*	LS	3	5	6	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes	0.53270	0.53868	R_M	spectra_raw/queue2/AlI.tsv
+13	1	2	2	0.05270	0.03003	2F*	3P*	LS	3	4	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes	0.04867	0.05728	R_M	spectra_raw/queue2/AlI.tsv
+13	1	2	4	0.24130	0.00490	4D*	3P*	LS	3	3	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	single-n	no	0.24089	0.24293	R_M	spectra_raw/queue2/AlI.tsv
+13	1	2	4	0.14055	0.00785	4P*	3P*	LS	3	3	3	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	single-n	no	0.14123	0.14549	R_M	spectra_raw/queue2/AlI.tsv
+13	1	3	2	0.03600	0.00884	2F*		LS	4	10	14	48278.48	Al_II_(3s2_1S<0>)	positional — NIST table convention	usable	series	yes	0.03495	0.03787	R_M	spectra_raw/queue2/AlI.tsv
+13	1	4	2	0.00841	0.00134	2G		LS	5	7	6	48278.48	Al_II_(3s2_1S<0>)	positional — NIST table convention	usable	series	yes	0.00830	0.00892	R_M	spectra_raw/queue2/AlI.tsv
+13	1	5	2	0.00296	0.00000	2H*		LS	7	7	2	48278.48	Al_II_(3s2_1S<0>)	positional — NIST table convention	usable	single-n	yes	0.00296	0.00296	R_M	spectra_raw/queue2/AlI.tsv
+22	1	0	1			1D	2D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	1			1D	2D1	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	1			1F	2F	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	1			1G	2G	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	3			3D	2D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	3			3D	2D1	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	3			3F	2F	LS	4	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			a 1H	2H	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			a 1P	2P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			a 3D	2D2	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			a 3G	2G	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			a 3H	2H	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0	2.49443	0.00445	a 5F	4F	unresolved	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	2.49413	2.49605	R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			a 5P	4P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			b 1D	2D2	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			b 1G	2G	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0	2.41048	0.00449	b 3F	4F	unresolved	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	2.41030	2.41245	R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			b 3P	2P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			c 3P	4P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0			e 1F	2F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0	2.48959	0.02065	e 3F	4F	unresolved	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	2.48850	2.49828	R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0	2.59523	0.02497	e 5F	4F	unresolved	5	5	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	2.59332	2.60390	R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0	2.33332	0.02241	f 3F	4F	unresolved	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	2.33239	2.34313	R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0	2.36944	0.02547	f 5F	4F	unresolved	5	5	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	2.36749	2.37829	R_M	spectra_raw/queue2/TiI.tsv
+22	1	0	0	2.54244	0.07490	h 5F	4F	unresolved	6	6	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	2.53571	2.56641	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	1			1D*	2P	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	1			1P*	2P	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	3			3D*	2F	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	3			3F*	2F	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	3	1.71185	0.03350	3F*	4F	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes	1.71016	1.72606	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	3			3G*	2F	LS	4	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	3			3G*	2H	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	3	1.74806	0.16545	3G*	4F	LS	5	5	6	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes	1.74793	1.82952	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	3			3P*	2P	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	5	1.92652	0.31925	5D*	4F	LS	5	5	10	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.92994	2.08564	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	5	1.95144	0.33700	5F*	4F	LS	5	5	10	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.95415	2.11875	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	5	1.98471	0.30470	5G*	4F	LS	5	5	10	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.98714	2.13652	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.68877	0.03983	n 3D*	4F	unresolved	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.68616	1.70477	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.84048	0.03719	o 3D*	4F	unresolved	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.83798	1.85532	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			p 3F*	2F	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.07950	0.01877	q 3D*		unresolved	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	forced — sole published limit	usable	single-n	no	1.07780	1.08633	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			r 3D*	4P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.90949	0.03740	r 3F*	4F	unresolved	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.90732	1.92495	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			s 3D*	2D2	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.16098	0.02995	s 3F*		unresolved	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	forced — sole published limit	usable	single-n	no	1.15928	1.17340	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			t 3D*	2P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			t 3F*	2G	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			u 1D*	2D2	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			u 1F*	2F	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			u 1G*	2F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			u 3F*	2D2	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			u 3P*	2P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			v 1F*	2G	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			v 3G*	2G	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.26666	0.00910	v 3P*		unresolved	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	forced — sole published limit	usable	single-n	no	1.26456	1.26805	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.36516	0.00000	w 1D*		unresolved	4	4	1	55072.5	Ti_II_(3d2.4s_4F<3/2>)	forced — sole published limit	usable	single-n	no	1.36516	1.36516	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			w 1F*	2D2	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.73511	0.00238	w 3F*	4F	unresolved	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.73518	1.73640	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.84288	0.01167	w 3G*	4F	unresolved	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.84250	1.84815	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			w 3P*	2D2	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			w 3S*	4P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			w 5D*	4P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.49229	0.00000	x 1F*		unresolved	4	4	1	55072.5	Ti_II_(3d2.4s_4F<3/2>)	forced — sole published limit	usable	single-n	no	1.49229	1.49229	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			x 1G*	2G	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			x 1P*	2D2	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			x 3H*	2H	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			x 3P*	4P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			x 3S*	2P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.91179	0.00962	x 5D*	4F	unresolved	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.91094	1.91502	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			y 1H*	2H	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	2.07566	0.01060	y 3D*	4F	unresolved	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	2.07474	2.07958	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			y 3H*	2G	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	1.96004	0.01162	y 5F*	4F	unresolved	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.95919	1.96414	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0	2.03483	0.01443	y 5G*	4F	unresolved	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	2.03403	2.04044	R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			y 5P*	4P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			y 5S*	4P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			z 1H*	2G	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			z 1I*	2H	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	1	0			z 3I*	2H	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	1	1.69061	0.00000	1D		LS	4	4	1	55072.5	Ti_II_(3d2.4s_4F<3/2>)	forced — sole published limit	usable	single-n	yes	1.69061	1.69061	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	3	1.01337	0.03062	3D	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes	1.01247	1.02733	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	3			3F	2F	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	3			3G	2F	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	3	1.10541	0.03353	3G	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes	1.10211	1.11723	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	3	1.06101	0.03652	3H	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes	1.06056	1.07859	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	3	1.07124	0.02014	3P		LS	4	4	2	55072.5	Ti_II_(3d2.4s_4F<3/2>)	forced — sole published limit	usable	single-n	yes	1.07124	1.08131	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	5	0.86160	0.10013	5F	4F	LS	4	5	10	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	series	no	0.86798	0.92689	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	5	0.89381	0.04064	5G	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	0.89091	0.90831	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	5	0.84535	0.01863	5P		LS	4	4	2	55072.5	Ti_II_(3d2.4s_4F<3/2>)	forced — sole published limit	usable	single-n	no	0.84535	0.85466	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0			e 1G	2F	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0	1.10728	0.03483	e 5D	4F	unresolved	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.10330	1.11684	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0	1.12256	0.03326	e 5G	4F	unresolved	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.11989	1.13383	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0	1.10069	0.04243	e 5H	4F	unresolved	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.10063	1.12208	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0	1.01896	0.02989	e 5P	4F	unresolved	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.01799	1.03245	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0			f 1F	2F	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0			f 3H	2F	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0	0.85591	0.04130	f 5H	4F	unresolved	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	0.85453	0.87386	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0	1.10396	0.02603	g 3F	4F	unresolved	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.10383	1.11678	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0	0.96640	0.03783	g 5F	4F	unresolved	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	0.96417	0.98083	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0	1.06254	0.11898	g 5H	4F	unresolved	5	5	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.05375	1.10470	R_M	spectra_raw/queue2/TiI.tsv
+22	1	2	0	1.05593	0.10223	h 5G	4F	unresolved	5	5	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	1.05053	1.09656	R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[1/2]*	4F<5/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[1/2]*	4F<7/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[11/2]*	4F<5/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[11/2]*	4F<7/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[11/2]*	4F<9/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[13/2]*	4F<7/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[13/2]*	4F<9/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[15/2]*	4F<9/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2	0.05705	0.00059	2[3/2]*	4F<3/2>	jK	4	4	2	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	0.05705	0.05734	R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[3/2]*	4F<5/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[3/2]*	4F<7/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[3/2]*	4F<9/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2	0.05803	0.32818	2[5/2]*	4F<3/2>	jK	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	-0.05133	0.05808	R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[5/2]*	4F<5/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[5/2]*	4F<7/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[5/2]*	4F<9/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2	-0.10613	0.33522	2[7/2]*	4F<3/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	-0.10610	0.06154	R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[7/2]*	4F<5/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[7/2]*	4F<7/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[7/2]*	4F<9/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2	-0.10477	0.32589	2[9/2]*	4F<3/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	-0.10450	0.05872	R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[9/2]*	4F<5/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[9/2]*	4F<7/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	3	2			2[9/2]*	4F<9/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2	0.01563	0.00000	2[11/2]	4F<3/2>	jK	5	5	2	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	0.01563	0.01563	R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[11/2]	4F<5/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[11/2]	4F<7/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[11/2]	4F<9/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[13/2]	4F<5/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[13/2]	4F<7/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[13/2]	4F<9/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[15/2]	4F<7/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[15/2]	4F<9/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[17/2]	4F<9/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2	0.01604	0.00001	2[7/2]	4F<3/2>	jK	5	5	2	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	0.01604	0.01604	R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[7/2]	4F<5/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[7/2]	4F<9/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2	0.01648	0.00000	2[9/2]	4F<3/2>	jK	5	5	2	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no	0.01648	0.01648	R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[9/2]	4F<5/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[9/2]	4F<7/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+22	1	4	2			2[9/2]	4F<9/2>	jK	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TiI.tsv
+31	1	0	2	2.79528	0.05340	2S		LS	5	28	24	48387.634	Ga_II_(4s2_1S<0>)	positional — NIST table convention	usable	series	yes	2.80132	2.81687	R_M	spectra_raw/queue2/GaI.tsv
+31	1	1	2	2.21675	0.49296	2P*		LS	4	70	80	48387.634	Ga_II_(4s2_1S<0>)	positional — NIST table convention	usable	series	yes	2.20670	2.03159	R_M	spectra_raw/queue2/GaI.tsv
+31	1	1	2	2.21720	0.14907	2[0]	3P*<1>	jK	5	8	4	96201.68	Ga_II_(4s.4p_3P*<1>)	parent-matched	usable	series	yes	2.20153	2.11133	R_M	spectra_raw/queue2/GaI.tsv
+31	1	1	2	3.23371	0.00000	2[1]	1P*<1>	jK	5	5	2	119088.9	Ga_II_(4s.4p_1P*<1>)	parent-matched	usable	single-n	yes	3.23371	3.23371	R_M	spectra_raw/queue2/GaI.tsv
+31	1	1	2	2.28567	0.44994	2[1]	3P*<0>	jK	5	17	22	95755.14	Ga_II_(4s.4p_3P*<0>)	parent-matched	usable	series	yes	2.28780	2.30452	R_M	spectra_raw/queue2/GaI.tsv
+31	1	1	2	2.23890	0.50299	2[1]	3P*<1>	jK	5	16	24	96201.68	Ga_II_(4s.4p_3P*<1>)	parent-matched	usable	series	yes	2.21411	2.15734	R_M	spectra_raw/queue2/GaI.tsv
+31	1	1	2	2.29963	0.21568	2[1]	3P*<2>	jK	5	8	8	97137.37	Ga_II_(4s.4p_3P*<2>)	parent-matched	usable	series	yes	2.26185	2.12864	R_M	spectra_raw/queue2/GaI.tsv
+31	1	1	2	2.21009	0.22201	2[2]	3P*<1>	jK	5	10	6	96201.68	Ga_II_(4s.4p_3P*<1>)	parent-matched	usable	series	yes	2.20372	2.06874	R_M	spectra_raw/queue2/GaI.tsv
+31	1	1	2	2.22557	0.40521	2[2]	3P*<2>	jK	5	11	8	97137.37	Ga_II_(4s.4p_3P*<2>)	parent-matched	usable	series	yes	2.24527	2.22572	R_M	spectra_raw/queue2/GaI.tsv
+31	1	2	2	1.31625	0.19230	2D		LS	4	34	50	48387.634	Ga_II_(4s2_1S<0>)	positional — NIST table convention	usable	series	yes	1.29671	1.33539	R_M	spectra_raw/queue2/GaI.tsv
+31	1	3	2	0.02587	0.00570	2F*		LS	4	8	10	48387.634	Ga_II_(4s2_1S<0>)	positional — NIST table convention	usable	series	yes	0.02521	0.02737	R_M	spectra_raw/queue2/GaI.tsv
+32	1	0	0	2.88466	0.12564	(1/2,1/2)*		jj	6	43	68	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	no	2.88006	2.87834	R_M	spectra_raw/queue2/GeI.tsv
+32	1	0	0	2.86568	0.07256	(3/2,1/2)*		jj	6	33	49	65480.6	Ge_II_(4p_2P*<3/2>)	positional — NIST table convention	usable	series	no	2.87419	2.84760	R_M	spectra_raw/queue2/GeI.tsv
+32	1	0	1	2.84787	0.00000	1P*		LS	5	5	1	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	single-n	yes	2.84787	2.84787	R_M	spectra_raw/queue2/GeI.tsv
+32	1	0	3	2.94601	0.06811	3P*		LS	5	5	3	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	single-n	yes	2.92986	2.95584	R_M	spectra_raw/queue2/GeI.tsv
+32	1	1	1	1.87920	1.01137	1D		LS	5	7	3	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	1.76037	1.19527	R_M	spectra_raw/queue2/GeI.tsv
+32	1	1	1	2.39358	0.10385	1P		LS	5	8	4	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	2.39854	2.35157	R_M	spectra_raw/queue2/GeI.tsv
+32	1	1	1	1.73860	1.06865	1S		LS	5	7	3	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	1.59712	0.99205	R_M	spectra_raw/queue2/GeI.tsv
+32	1	1	3	2.39570	1.11552	3D		LS	5	7	9	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	2.26747	2.44912	R_M	spectra_raw/queue2/GeI.tsv
+32	1	1	3	2.29407	1.08551	3P		LS	5	7	9	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	2.04957	2.30568	R_M	spectra_raw/queue2/GeI.tsv
+32	1	1	3	1.93166	0.97797	3S		LS	5	7	3	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	1.82585	1.28396	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	0	1.31584	1.07465	(1/2,3/2)*		jj	6	67	82	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	no	1.35426	1.83277	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	0	1.21358	0.90882	(1/2,5/2)*		jj	6	70	91	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	no	1.20754	1.37260	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	0	1.25782	25.01763	(3/2,3/2)*		jj	6	41	85	65480.6	Ge_II_(4p_2P*<3/2>)	positional — NIST table convention	usable	series	no	1.52851	1.29265	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	0	0.96126	0.52972	(3/2,5/2)*		jj	6	64	130	65480.6	Ge_II_(4p_2P*<3/2>)	positional — NIST table convention	usable	series	no	0.95590	0.92193	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	0	0.38923	0.77693	*		unresolved	5	5	3	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	single-n	no	0.52438	0.98043	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	1	1.31602	0.00000	1D*		LS	4	4	1	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	single-n	yes	1.31602	1.31602	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	1	0.71993	0.27762	1F*		LS	4	5	2	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	0.71993	0.58113	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	1	0.70852	0.22717	1P*		LS	4	5	2	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	0.70852	0.59494	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	3	1.28748	0.11726	3D*		LS	4	5	6	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	1.30434	1.37276	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	3	1.11179	0.52420	3F*		LS	4	5	6	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	1.07933	1.30247	R_M	spectra_raw/queue2/GeI.tsv
+32	1	2	3	0.88662	0.32856	3P*		LS	4	5	6	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	0.87708	0.83121	R_M	spectra_raw/queue2/GeI.tsv
+32	1	3	2	-0.00416	0.00490	2[3/2]	2P*<3/2>	jK	4	5	4	65480.6	Ge_II_(4p_2P*<3/2>)	parent-matched	usable	series	no	-0.00422	-0.00182	R_M	spectra_raw/queue2/GeI.tsv
+32	1	3	2	0.02495	0.00717	2[5/2]	2P*<1/2>	jK	4	7	8	63713.24	Ge_II_(4p_2P*<1/2>)	parent-matched	usable	series	no	0.02551	0.02568	R_M	spectra_raw/queue2/GeI.tsv
+32	1	3	2	0.03014	0.00198	2[5/2]	2P*<3/2>	jK	4	5	4	65480.6	Ge_II_(4p_2P*<3/2>)	parent-matched	usable	series	no	0.03018	0.03121	R_M	spectra_raw/queue2/GeI.tsv
+32	1	3	2	0.02640	0.00704	2[7/2]	2P*<1/2>	jK	4	7	8	63713.24	Ge_II_(4p_2P*<1/2>)	parent-matched	usable	series	no	0.02737	0.03012	R_M	spectra_raw/queue2/GeI.tsv
+32	1	3	2	0.04890	0.00452	2[7/2]	2P*<3/2>	jK	4	6	6	65480.6	Ge_II_(4p_2P*<3/2>)	parent-matched	usable	series	no	0.04863	0.05093	R_M	spectra_raw/queue2/GeI.tsv
+32	1	3	2	0.01731	0.00823	2[9/2]	2P*<3/2>	jK	4	7	7	65480.6	Ge_II_(4p_2P*<3/2>)	parent-matched	usable	series	no	0.01668	0.02077	R_M	spectra_raw/queue2/GeI.tsv
+32	1	4	0	0.00683	0.00779	(1/2,7/2)*		jj	6	15	8	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	series	no	0.00769	0.01355	R_M	spectra_raw/queue2/GeI.tsv
+32	1	4	0	-3.27506	0.00000	(3/2,7/2)*		jj	6	6	1	63713.24	Ge_II_(4p_2P*<1/2>)	positional — NIST table convention	usable	single-n	no	-3.27506	-3.27506	R_M	spectra_raw/queue2/GeI.tsv
+36	1	0	2			2[1/2]*	2P*<1/2>	jK	5	20	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	0	2	3.10103	0.10812	2[3/2]*	2P*<3/2>	jK	5	20	32	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	3.09726	3.10252	R_M	spectra_raw/queue2/KrI.tsv
+36	1	1	0			(1/2,1/2)*		jj	5	6	0	112914.433	Kr_II_(4p5_2P*<3/2>)	forced — sole published limit	unusable — no members below limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	1	0			(1/2,3/2)*		jj	5	19	0	112914.433	Kr_II_(4p5_2P*<3/2>)	forced — sole published limit	unusable — no members below limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	1	0			(3/2,1/2)*		jj	5	8	0	112914.433	Kr_II_(4p5_2P*<3/2>)	forced — sole published limit	unusable — no members below limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	1	0			(5/2,3/2)*		jj	5	8	0	112914.433	Kr_II_(4p5_2P*<3/2>)	forced — sole published limit	unusable — no members below limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	1	2			2[1/2]	2P*<1/2>	jK	5	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	1	2	2.54309	0.64668	2[1/2]	2P*<3/2>	jK	5	20	32	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	2.58202	2.52460	R_M	spectra_raw/queue2/KrI.tsv
+36	1	1	2			2[3/2]	2P*<1/2>	jK	5	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	1	2	2.59629	0.13251	2[3/2]	2P*<3/2>	jK	5	20	32	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	2.59542	2.59229	R_M	spectra_raw/queue2/KrI.tsv
+36	1	1	2	2.62770	0.07442	2[5/2]	2P*<3/2>	jK	5	20	32	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	2.63319	2.61867	R_M	spectra_raw/queue2/KrI.tsv
+36	1	2	2	1.45565	0.19036	2[1/2]*	2P*<3/2>	jK	4	20	34	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	1.45551	1.47398	R_M	spectra_raw/queue2/KrI.tsv
+36	1	2	2			2[3/2]*	2P*<1/2>	jK	4	20	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	2	2	1.23945	0.32757	2[3/2]*	2P*<3/2>	jK	4	20	34	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	1.25894	1.40933	R_M	spectra_raw/queue2/KrI.tsv
+36	1	2	2			2[5/2]*	2P*<1/2>	jK	4	19	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	2	2	1.27794	0.12890	2[5/2]*	2P*<3/2>	jK	4	20	34	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	1.27609	1.31256	R_M	spectra_raw/queue2/KrI.tsv
+36	1	2	2	1.35829	0.13739	2[7/2]*	2P*<3/2>	jK	4	20	34	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	1.36268	1.40406	R_M	spectra_raw/queue2/KrI.tsv
+36	1	3	2	0.03068	0.02381	2[3/2]	2P*<3/2>	jK	4	20	32	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	0.03105	0.03089	R_M	spectra_raw/queue2/KrI.tsv
+36	1	3	2			2[5/2]	2P*<1/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	3	2	0.01477	0.00671	2[5/2]	2P*<3/2>	jK	4	20	29	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	0.01439	0.01586	R_M	spectra_raw/queue2/KrI.tsv
+36	1	3	2			2[7/2]	2P*<1/2>	jK	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/KrI.tsv
+36	1	3	2	0.00745	0.00575	2[7/2]	2P*<3/2>	jK	4	20	24	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	0.00680	0.00807	R_M	spectra_raw/queue2/KrI.tsv
+36	1	3	2	0.02447	0.00585	2[9/2]	2P*<3/2>	jK	4	20	27	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no	0.02387	0.02494	R_M	spectra_raw/queue2/KrI.tsv
+36	1	4	2	0.00620	0.00000	2[11/2]*	2P*<3/2>	jK	5	5	2	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	single-n	no	0.00620	0.00620	R_M	spectra_raw/queue2/KrI.tsv
+36	1	4	2	0.00891	0.00000	2[5/2]*	2P*<3/2>	jK	5	5	2	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	single-n	no	0.00891	0.00891	R_M	spectra_raw/queue2/KrI.tsv
+36	1	4	2	0.00110	0.00000	2[7/2]*	2P*<3/2>	jK	5	5	2	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	single-n	no	0.00110	0.00110	R_M	spectra_raw/queue2/KrI.tsv
+36	1	4	2	-0.00156	0.00000	2[9/2]*	2P*<3/2>	jK	5	5	2	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	single-n	no	-0.00156	-0.00156	R_M	spectra_raw/queue2/KrI.tsv
+38	1	0	0	3.25459	0.95079	(3/2,1/2)		jj	8	11	4	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	3.03077	2.33155	R_M	spectra_raw/queue2/SrI.tsv
+38	1	0	0	3.14923	0.55257	(5/2,1/2)		jj	8	11	3	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	2.97278	2.60827	R_M	spectra_raw/queue2/SrI.tsv
+38	1	0	1	3.26804	0.15354	1S		LS	6	20	15	45932.2036	Sr_II_(5s_2S<1/2>)	positional — NIST table convention	usable	series	yes	3.26444	3.26861	R_M	spectra_raw/queue2/SrI.tsv
+38	1	0	3	3.37505	0.07947	3S		LS	6	20	15	45932.2036	Sr_II_(5s_2S<1/2>)	positional — NIST table convention	usable	series	yes	3.38406	3.37184	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	0	2.67714	0.00000	(3/2,1/2)*		jj	9	9	1	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	single-n	no	2.67714	2.67714	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	0	2.78544	0.00000	(3/2,3/2)*		jj	9	9	1	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	single-n	no	2.78544	2.78544	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	0	2.55543	0.00000	(5/2,1/2)*		jj	9	9	1	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	single-n	no	2.55543	2.55543	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	0	2.35693	0.22001	(5/2,3/2)*		jj	9	9	2	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	single-n	no	2.35693	2.46693	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	1	1.98916	0.00000	1D*		LS	5	5	1	45932.2036	Sr_II_(5s_2S<1/2>)	positional — NIST table convention	usable	single-n	yes	1.98916	1.98916	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	1	1.27873	0.00000	1F*		LS	5	5	1	45932.2036	Sr_II_(5s_2S<1/2>)	positional — NIST table convention	usable	single-n	yes	1.27873	1.27873	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	1	8.87832	14.70699	1P*		LS	5	20	18	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	yes	9.16101	17.28827	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	2	2.71884	0.07672	2[1/2]*	2D<3/2>	jK	8	10	2	60488.09	Sr_II_(4d_2D<3/2>)	parent-matched	usable	series	no	2.71884	2.75720	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	2	2.64452	0.17881	2[3/2]*	2D<3/2>	jK	7	10	3	60488.09	Sr_II_(4d_2D<3/2>)	parent-matched	usable	series	no	2.69775	2.64452	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	2	2.64581	0.13039	2[3/2]*	2D<5/2>	jK	7	10	3	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	series	no	2.63374	2.69289	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	2	2.79302	0.00000	2[5/2]*	2D<5/2>	jK	8	8	1	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	single-n	no	2.79302	2.79302	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	2	2.80797	0.00000	2[7/2]*	2D<5/2>	jK	10	10	1	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	single-n	no	2.80797	2.80797	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	3	2.85559	0.05591	3D*		LS	5	6	6	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	yes	2.84938	2.85268	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	3	2.01823	0.07888	3F*		LS	5	5	3	45932.2036	Sr_II_(5s_2S<1/2>)	positional — NIST table convention	usable	single-n	yes	2.01744	2.05648	R_M	spectra_raw/queue2/SrI.tsv
+38	1	1	3	8.39906	14.48304	3P*		LS	5	20	48	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	yes	8.69592	17.28894	R_M	spectra_raw/queue2/SrI.tsv
+38	1	2	0	1.58691	0.31413	(3/2,3/2)		jj	6	10	15	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	1.66805	1.79969	R_M	spectra_raw/queue2/SrI.tsv
+38	1	2	0	1.77250	0.21215	(3/2,5/2)		jj	6	10	9	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	1.77260	1.88624	R_M	spectra_raw/queue2/SrI.tsv
+38	1	2	0	1.36044	0.62220	(5/2,3/2)		jj	6	10	10	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	1.31131	1.14843	R_M	spectra_raw/queue2/SrI.tsv
+38	1	2	0	1.28129	1.17818	(5/2,5/2)		jj	6	10	16	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	1.23803	0.98641	R_M	spectra_raw/queue2/SrI.tsv
+38	1	2	1	8.86319	15.75302	1D		LS	4	20	18	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	yes	9.03397	17.28653	R_M	spectra_raw/queue2/SrI.tsv
+38	1	2	3	1.98478	0.77124	3D		LS	4	20	44	45932.2036	Sr_II_(5s_2S<1/2>)	positional — NIST table convention	usable	series	yes	2.05384	2.57063	R_M	spectra_raw/queue2/SrI.tsv
+38	1	2	3	1.57190	0.03991	3F		LS	5	5	3	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	single-n	yes	1.57240	1.59260	R_M	spectra_raw/queue2/SrI.tsv
+38	1	2	3	1.50630	0.02242	3P		LS	5	5	2	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	single-n	yes	1.50630	1.51752	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	0	0.17610	0.20654	(3/2,5/2)*		jj	5	7	6	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	0.19243	0.32998	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	0	0.07319	0.00603	(3/2,7/2)*		jj	5	7	3	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	0.07329	0.07635	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	0	-0.04892	0.20957	(5/2,5/2)*		jj	5	7	6	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	-0.07347	-0.06085	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	0	-0.14365	0.28697	(5/2,7/2)*		jj	5	7	6	60488.09	Sr_II_(4d_2D<3/2>)	positional — NIST table convention	usable	series	no	-0.16839	-0.28841	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	1	0.07684	0.22893	1F*		LS	4	20	17	45932.2036	Sr_II_(5s_2S<1/2>)	positional — NIST table convention	usable	series	yes	0.05801	0.08591	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	2	0.40612	0.24946	2[1/2]*	2D<5/2>	jK	8	9	2	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	series	no	0.40612	0.53085	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	2	0.22550	0.23363	2[3/2]*	2D<3/2>	jK	4	10	4	60488.09	Sr_II_(4d_2D<3/2>)	parent-matched	usable	series	no	0.22390	0.13493	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	2	0.13677	0.14243	2[3/2]*	2D<5/2>	jK	4	10	4	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	series	no	0.12632	0.04464	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	2	0.07180	0.00889	2[5/2]*	2D<3/2>	jK	4	8	2	60488.09	Sr_II_(4d_2D<3/2>)	parent-matched	usable	series	no	0.07180	0.07624	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	2	0.07843	0.00000	2[5/2]*	2D<5/2>	jK	4	4	1	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	single-n	no	0.07843	0.07843	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	2	0.09248	0.00362	2[7/2]*	2D<3/2>	jK	4	9	2	60488.09	Sr_II_(4d_2D<3/2>)	parent-matched	usable	series	no	0.09248	0.09067	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	2	0.09495	0.00000	2[7/2]*	2D<5/2>	jK	4	4	1	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	single-n	no	0.09495	0.09495	R_M	spectra_raw/queue2/SrI.tsv
+38	1	3	3	0.10967	0.02953	3F*		LS	4	20	50	45932.2036	Sr_II_(5s_2S<1/2>)	positional — NIST table convention	usable	series	yes	0.10822	0.11929	R_M	spectra_raw/queue2/SrI.tsv
+38	1	4	2	0.02844	0.02733	2[3/2]	2D<5/2>	jK	5	10	7	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	series	no	0.02950	0.04239	R_M	spectra_raw/queue2/SrI.tsv
+38	1	4	2	0.03587	0.02571	2[5/2]	2D<3/2>	jK	5	9	4	60488.09	Sr_II_(4d_2D<3/2>)	parent-matched	usable	series	no	0.03445	0.04587	R_M	spectra_raw/queue2/SrI.tsv
+38	1	4	2	0.03533	0.02321	2[5/2]	2D<5/2>	jK	5	10	6	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	series	no	0.03450	0.04419	R_M	spectra_raw/queue2/SrI.tsv
+39	1	0	2			2D	1D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	2	2.97195	0.00000	2S	1S	LS	5	5	1	50145.6	Y_II_(5s2_1S<0>)	parent-matched	usable	single-n	yes	2.97195	2.97195	R_M	spectra_raw/queue2/YI.tsv
+39	1	0	4			4F	3F	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			a 2F	3F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			a 2G	1G	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			a 2P	3P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			a 4F	3F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			a 4P	3P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			b 2D	1D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0	3.56278	0.00000	e 2S		unresolved	6	6	1	50145.6	Y_II_(5s2_1S<0>)	forced — sole published limit	usable	single-n	no	3.56278	3.56278	R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			e 4D	3D	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			e 4P	3P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			f 2D	1D	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			f 2D	3D	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0	2.89179	0.00000	g 2S		unresolved	7	7	1	50145.6	Y_II_(5s2_1S<0>)	forced — sole published limit	usable	single-n	no	2.89179	2.89179	R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			g 4D	3D	unresolved	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	0	0			g 4P	3P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	2			2D*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	2			2F*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	2	3.08905	0.02002	2P*	1S	LS	6	6	2	50145.6	Y_II_(5s2_1S<0>)	parent-matched	usable	single-n	yes	3.08905	3.09906	R_M	spectra_raw/queue2/YI.tsv
+39	1	1	4			4D*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	4			4F*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	4			4P*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			v 2D*	3P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			v 2F*	1G	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			w 2D*	1D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			w 2F*	1D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			w 2P*	1D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			x 2D*	3F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			x 2F*	3F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			x 2P*	1D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			x 4D*	3P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			y 2D*	1D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			y 2F*	1D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			y 2G*	1G	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			y 2P*	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			y 4D*	3F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			y 4F*	3F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			y 4P*	3P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 2D*	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 2F*	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 2G*	3F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 2H*	1G	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0	3.32681	0.01773	z 2P*		unresolved	5	5	2	50145.6	Y_II_(5s2_1S<0>)	forced — sole published limit	usable	single-n	no	3.32681	3.33567	R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 2S*	3P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 4D*	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 4F*	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 4G*	3F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 4P*	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	1	0			z 4S*	3P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	2			2D	1D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	2			2D	3D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	2			2F	1D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	2			2F	3D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	2			2P	1D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	2			2P	3D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	4			4F	3P	LS	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	4			4S	3D	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	0			e 2D	2D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	0			e 4F	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	0			e 4G	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	0			f 2P	3P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	0			f 4D	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	0			f 4P	3D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+39	1	2	0			h 4D	3P	unresolved	4	4	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YI.tsv
+40	1	0	0			a 1H	2H	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0			a 3D	b_2D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0			a 3G	2G	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0			a 3H	2H	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0	3.49205	0.01598	a 5F	4F	unresolved	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	3.49099	3.49793	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0			a 5P	4P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0			b 1D	b_2D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0			b 1G	2G	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0	3.37489	0.01374	b 3F	4F	unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	3.37440	3.38103	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0			b 3P	4P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0			c 3P	2P	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0	3.36516	0.05388	e 3F	4F	unresolved	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	3.36046	3.38506	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0	3.53307	0.09164	e 5F	4F	unresolved	6	6	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	3.52453	3.56191	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	0	0	3.05564	0.04829	f 5F	4F	unresolved	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	3.05459	3.07821	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	1	2.68835	0.00000	1D*		LS	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	yes	2.68835	2.68835	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	1	2.67589	0.00000	1F*		LS	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	yes	2.67589	2.67589	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	1	2.64696	0.00000	1G*		LS	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	yes	2.64696	2.64696	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	1	2.42400	0.00000	1P*		LS	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	yes	2.42400	2.42400	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	1	3.14550	0.00000	1S*		LS	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	yes	3.14550	3.14550	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	3	2.35681	0.05802	3P*		LS	5	5	2	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	yes	2.35681	2.38582	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	3	2.04607	0.00000	3S*		LS	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	yes	2.04607	2.04607	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.48124	0.41266	o 3D*		unresolved	7	7	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.44184	2.62846	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.27773	0.07128	p 3D*		unresolved	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.28205	2.31985	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	1.85211	0.07255	q 3D*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	1.84077	1.87138	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.72633	0.08758	q 3F*		unresolved	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.75470	2.81267	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.14328	0.06158	r 3D*		unresolved	5	5	2	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.14328	2.17407	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.26087	0.05692	r 3F*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.26130	2.28997	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.31141	0.01466	s 3D*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.30982	2.31635	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.38430	0.06538	s 3F*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.38099	2.41202	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.41906	0.02821	s 3P*		unresolved	6	6	2	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.41906	2.43317	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.48052	0.01236	t 3D*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.48101	2.48743	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.51021	0.03410	t 3F*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.51233	2.53044	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.87478	0.26634	t 3G*		unresolved	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.80157	2.89813	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.04108	0.15132	t 3P*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.02420	2.09142	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	1.09048	0.00000	u 1F*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	1.09048	1.09048	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.64245	0.04531	u 3D*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.63827	2.65883	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.66270	0.02290	u 3F*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.66492	2.67748	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.15667	0.08134	u 3G*		unresolved	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.16649	3.21208	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0			v 1D*	2F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.17023	0.00000	v 1F*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.17023	2.17023	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.88146	0.02052	v 3D*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.88199	2.89252	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.40360	0.03817	v 3G*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.40598	2.42626	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.57475	0.00000	w 1D*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.57475	2.57475	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.44026	0.00000	w 1F*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.44026	2.44026	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0			w 1G*	2H	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.96066	0.02250	w 3D*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.95878	2.96909	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.91943	0.02684	w 3F*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.91811	2.93087	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0			w 3F*	a_2F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.75707	0.04257	w 3G*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.75533	2.77574	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.55137	0.03091	w 3P*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.55038	2.56533	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.65027	0.05625	w 5D*		unresolved	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.64450	2.66681	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.99439	0.00000	x 1F*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.99439	2.99439	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.47202	0.00000	x 1G*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.47202	2.47202	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.18046	0.00000	x 1P*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.18046	2.18046	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.98214	0.03599	x 3D*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.98009	2.99706	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0			x 3F*	a_2D	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0			x 3G*	a_2F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.45176	0.01851	x 3H*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.44614	2.45259	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.89638	0.01179	x 3P*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.89462	2.89964	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.68034	0.00000	x 3S*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.68034	2.68034	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.84640	0.03657	x 5D*		unresolved	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.84311	2.85811	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.82847	0.01386	x 5D*	4F	unresolved	5	5	2	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	2.82847	2.83540	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.11113	0.00000	y 1D*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.11113	3.11113	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.05877	0.00000	y 1F*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.05877	3.05877	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.16490	0.00000	y 1H*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.16490	2.16490	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.70226	0.00000	y 1P*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.70226	2.70226	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.09340	0.02030	y 3D*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.09293	3.10284	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.08458	0.01420	y 3F*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.08049	3.08555	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.00226	0.02567	y 3G*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.00047	3.01241	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.58412	0.04429	y 3H*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.58019	2.60036	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.94192	0.00401	y 3P*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.94132	2.94302	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.08803	0.04047	y 5D*		unresolved	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.08353	3.09961	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.89177	0.04698	y 5F*		unresolved	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.88791	2.90744	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.86955	0.01819	y 5F*	4F	unresolved	5	5	2	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	2.86955	2.87864	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.99013	0.05890	y 5G*		unresolved	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.98823	3.01596	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.96567	0.01723	y 5G*	4F	unresolved	5	5	2	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	2.96567	2.97429	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.58054	0.03081	y 5P*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.57645	2.58982	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.49713	0.00000	y 5S*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.49713	2.49713	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.25398	0.00000	z 1D*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.25398	3.25398	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.63795	0.00000	z 1H*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.63795	2.63795	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.29811	0.00000	z 1I*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.29811	2.29811	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.88399	0.00000	z 1P*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.88399	2.88399	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.24662	0.02001	z 3D*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.24618	3.25597	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.26996	0.02983	z 3F*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.26853	3.28273	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.25290	0.00000	z 3F*	a_4F	unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.25290	3.25290	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.12948	0.02137	z 3G*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.12818	3.13821	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.91719	0.02892	z 3H*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.91581	2.92957	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	2.48543	0.02793	z 3I*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	2.49376	2.51190	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.17758	0.00783	z 3P*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.17922	3.18396	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.13453	0.00000	z 3S*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.13453	3.13453	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.20830	0.02255	z 5D*		unresolved	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.20700	3.21734	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.19757	0.00555	z 5D*	a_4F	unresolved	5	5	2	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.19757	3.20034	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.25615	0.03618	z 5F*		unresolved	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.25471	3.27130	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.23513	0.00000	z 5F*	a_4F	unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.23513	3.23513	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.28907	0.34863	z 5G*		unresolved	5	5	6	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.23949	3.31661	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0			z 5G*	a_2F	unresolved	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.01541	0.01458	z 5P*		unresolved	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.01424	3.02095	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	1	0	3.10077	0.00000	z 5S*		unresolved	5	5	1	53507.832	Zr_II_(4d2.5s_4F<3/2>)	forced — sole published limit	usable	single-n	no	3.10077	3.10077	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	2	0	2.01654	0.15749	e 5G	4F	unresolved	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	2.00743	2.07738	R_M	spectra_raw/queue2/ZrI.tsv
+40	1	2	0	2.03205	0.25613	e 5H	4F	unresolved	5	5	4	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no	2.03020	2.15640	R_M	spectra_raw/queue2/ZrI.tsv
+49	1	0	2	3.72626	0.07521	2S		LS	6	24	19	46670.107	In_II_(5s2_1S<0>)	forced — sole published limit	usable	series	yes	3.73048	3.74611	R_M	spectra_raw/queue2/InI.tsv
+49	1	0	4			4P*	3P*	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/InI.tsv
+49	1	1	2	3.23261	0.26525	2P*		LS	5	11	14	46670.107	In_II_(5s2_1S<0>)	forced — sole published limit	usable	series	yes	3.26187	3.22835	R_M	spectra_raw/queue2/InI.tsv
+49	1	1	2			2S	3P*	LS	6	8	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/InI.tsv
+49	1	2	2	2.35880	0.24241	2D		LS	5	30	52	46670.107	In_II_(5s2_1S<0>)	forced — sole published limit	usable	series	yes	2.33990	2.41427	R_M	spectra_raw/queue2/InI.tsv
+49	1	3	2	0.03899	0.01038	2F*		LS	4	12	16	46670.107	In_II_(5s2_1S<0>)	forced — sole published limit	usable	series	yes	0.03762	0.04016	R_M	spectra_raw/queue2/InI.tsv
+50	1	0	1	3.80188	0.09023	1P*		LS	6	17	12	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	yes	3.80545	3.81859	R_M	spectra_raw/queue2/SnI.tsv
+50	1	0	3	4.76150	10.35357	3P*		LS	6	19	21	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	yes	5.98059	14.18120	R_M	spectra_raw/queue2/SnI.tsv
+50	1	1	1	2.21244	1.27043	1D		LS	6	7	2	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	2.21244	1.57722	R_M	spectra_raw/queue2/SnI.tsv
+50	1	1	1	2.48312	1.13828	1P		LS	6	7	2	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	2.48312	1.91399	R_M	spectra_raw/queue2/SnI.tsv
+50	1	1	1	1.86774	1.58098	1S		LS	6	7	2	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	1.86774	1.07725	R_M	spectra_raw/queue2/SnI.tsv
+50	1	1	3	3.33962	1.62950	3D		LS	6	9	10	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	3.17146	3.38512	R_M	spectra_raw/queue2/SnI.tsv
+50	1	1	3	3.29865	1.57812	3P		LS	6	9	9	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	3.10707	3.29865	R_M	spectra_raw/queue2/SnI.tsv
+50	1	1	3	2.28418	1.23376	3S		LS	6	7	2	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	2.28418	1.66730	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	1	2.39562	0.10440	1D*		LS	5	12	4	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	yes	2.40313	2.38286	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	1	-0.11499	11.78168	1F*		LS	5	7	3	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	-2.91749	-10.20958	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	1	2.05799	0.16970	1P*		LS	5	19	15	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	yes	2.05020	2.06162	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	3	2.38083	5.63990	3D*		LS	5	12	19	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	yes	3.20013	7.46716	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	3	3.24536	5.34322	3F*		LS	5	12	16	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	yes	3.93437	7.50296	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	3	2.51090	2.01968	3P*		LS	5	27	34	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	yes	2.51629	2.61058	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	0	2.58897	0.00000	a 3D*		unresolved	7	7	1	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	single-n	no	2.58897	2.58897	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	0	2.19145	0.39326	a 3F*		unresolved	8	12	4	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	no	2.19431	2.15329	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	0	2.11182	0.64467	a 3P*		unresolved	9	12	4	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	no	2.19917	2.15416	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	0	1.86364	0.00000	b 3D*		unresolved	7	7	1	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	single-n	no	1.86364	1.86364	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	0	2.16362	0.02757	b 3F*		unresolved	8	12	3	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	no	2.15617	2.16362	R_M	spectra_raw/queue2/SnI.tsv
+50	1	2	0	2.56415	2.35424	b 3P*		unresolved	9	19	11	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	no	2.77926	2.67140	R_M	spectra_raw/queue2/SnI.tsv
+50	1	3	1	-11.40895	22.88058	1D		LS	4	5	2	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	-11.40895	-22.84924	R_M	spectra_raw/queue2/SnI.tsv
+50	1	3	1	0.04405	2.26973	1F		LS	4	7	4	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	-0.52034	0.04565	R_M	spectra_raw/queue2/SnI.tsv
+50	1	3	1	0.03450	0.00000	1G		LS	4	4	1	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	single-n	yes	0.03450	0.03450	R_M	spectra_raw/queue2/SnI.tsv
+50	1	3	3	-2.49422	0.17557	3D		LS	4	4	3	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	single-n	yes	-2.43740	-2.32121	R_M	spectra_raw/queue2/SnI.tsv
+50	1	3	3	0.04108	2.37169	3F		LS	4	8	15	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	positional — NIST table convention	usable	series	yes	-0.26701	0.04461	R_M	spectra_raw/queue2/SnI.tsv
+50	1	3	3	0.03098	0.85279	3G		LS	4	6	5	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	positional — NIST table convention	usable	series	yes	0.19746	0.03512	R_M	spectra_raw/queue2/SnI.tsv
+50	1	4	0	0.00740	0.00000	(1/2,7/2)*	2P*<1/2>	jj	5	5	1	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	parent-matched	usable	single-n	no	0.00740	0.00740	R_M	spectra_raw/queue2/SnI.tsv
+54	1	0	2	4.01526	0.14172	2[1/2]*	2P*<1/2>	jK	6	20	17	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no	4.03346	4.01194	R_M	spectra_raw/queue2/XeI.tsv
+54	1	0	2	4.02132	0.11987	2[3/2]*	2P*<3/2>	jK	6	20	30	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	4.01861	4.02128	R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	0			*	2D<3/2>	unresolved	11	13	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	0			*	2S*<1/2>	unresolved	6	23	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	0			*	4P<1/2>	unresolved	10	18	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	0			*	4P<3/2>	unresolved	7	10	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	0			*	4P<5/2>	unresolved	7	12	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	2	3.56826	0.03735	2[1/2]	2P*<1/2>	jK	6	7	3	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no	3.57867	3.56826	R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	2	3.50651	0.26181	2[1/2]	2P*<3/2>	jK	6	20	27	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	3.51799	3.42817	R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	2	3.60697	0.09173	2[3/2]	2P*<1/2>	jK	6	7	4	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no	3.60911	3.60411	R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	2	3.51029	0.09485	2[3/2]	2P*<3/2>	jK	6	20	22	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	3.51848	3.49413	R_M	spectra_raw/queue2/XeI.tsv
+54	1	1	2	3.55895	0.10399	2[5/2]	2P*<3/2>	jK	6	20	25	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	3.56500	3.55323	R_M	spectra_raw/queue2/XeI.tsv
+54	1	2	0			*	2F*<7/2>	unresolved	8	14	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/XeI.tsv
+54	1	2	0			*	4D*<3/2>	unresolved	10	13	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/XeI.tsv
+54	1	2	0			*	4S*<3/2>	unresolved	9	12	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/XeI.tsv
+54	1	2	2	2.53195	0.17268	2[1/2]*	2P*<3/2>	jK	5	20	32	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	2.52826	2.54531	R_M	spectra_raw/queue2/XeI.tsv
+54	1	2	2	2.28287	0.18092	2[3/2]*	2P*<1/2>	jK	5	20	17	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no	2.29233	2.28045	R_M	spectra_raw/queue2/XeI.tsv
+54	1	2	2	2.36861	0.43609	2[3/2]*	2P*<3/2>	jK	5	20	32	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	2.33182	2.47211	R_M	spectra_raw/queue2/XeI.tsv
+54	1	2	2	2.45310	0.04470	2[5/2]*	2P*<1/2>	jK	5	5	2	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	single-n	no	2.45310	2.47545	R_M	spectra_raw/queue2/XeI.tsv
+54	1	2	2	2.38184	0.09501	2[5/2]*	2P*<3/2>	jK	5	20	32	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	2.38845	2.41109	R_M	spectra_raw/queue2/XeI.tsv
+54	1	2	2	2.47536	0.10491	2[7/2]*	2P*<3/2>	jK	5	20	32	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	2.46426	2.48027	R_M	spectra_raw/queue2/XeI.tsv
+54	1	3	2	0.05046	0.02474	2[3/2]	2P*<3/2>	jK	4	20	33	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	0.05024	0.05607	R_M	spectra_raw/queue2/XeI.tsv
+54	1	3	2	0.03353	0.01554	2[5/2]	2P*<1/2>	jK	4	8	10	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no	0.03263	0.03951	R_M	spectra_raw/queue2/XeI.tsv
+54	1	3	2	0.02709	0.01349	2[5/2]	2P*<3/2>	jK	4	19	24	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	0.02612	0.01893	R_M	spectra_raw/queue2/XeI.tsv
+54	1	3	2	0.03353	0.01425	2[7/2]	2P*<1/2>	jK	4	8	10	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no	0.03294	0.03951	R_M	spectra_raw/queue2/XeI.tsv
+54	1	3	2	0.01790	0.01150	2[7/2]	2P*<3/2>	jK	4	13	16	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	0.01668	0.02054	R_M	spectra_raw/queue2/XeI.tsv
+54	1	3	2	0.04229	0.01341	2[9/2]	2P*<3/2>	jK	4	11	16	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no	0.04122	0.04617	R_M	spectra_raw/queue2/XeI.tsv
+54	1	4	2	0.00962	0.00000	2[11/2]*	2P*<3/2>	jK	5	5	2	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	single-n	no	0.00962	0.00962	R_M	spectra_raw/queue2/XeI.tsv
+54	1	4	2	0.01301	0.00018	2[5/2]*	2P*<3/2>	jK	5	5	2	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	single-n	no	0.01301	0.01310	R_M	spectra_raw/queue2/XeI.tsv
+54	1	4	2	0.00259	0.00000	2[7/2]*	2P*<3/2>	jK	5	5	2	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	single-n	no	0.00259	0.00259	R_M	spectra_raw/queue2/XeI.tsv
+54	1	4	2	-0.00104	0.00000	2[9/2]*	2P*<3/2>	jK	5	5	2	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	single-n	no	-0.00104	-0.00104	R_M	spectra_raw/queue2/XeI.tsv
+55	1	0	2	4.05120	0.08085	2S		LS	6	25	20	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	forced — sole published limit	usable	series	yes	4.05793	4.04991	R_M	spectra_raw/queue2/CsI.tsv
+55	1	1	2	3.59251	0.11203	2P*		LS	6	25	40	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	forced — sole published limit	usable	series	yes	3.58494	3.59238	R_M	spectra_raw/queue2/CsI.tsv
+55	1	2	2	2.46643	0.03053	2D		LS	5	25	42	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	forced — sole published limit	usable	series	yes	2.46968	2.47546	R_M	spectra_raw/queue2/CsI.tsv
+55	1	2	4			4D*	3P*	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/CsI.tsv
+55	1	2	4			4P*	3P*	LS	5	5	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/CsI.tsv
+55	1	3	2	0.03254	0.01136	2F*		LS	4	25	44	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	forced — sole published limit	usable	series	yes	0.03134	0.03325	R_M	spectra_raw/queue2/CsI.tsv
+55	1	4	2	0.00667	0.00194	2G		LS	5	25	28	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	forced — sole published limit	usable	series	yes	0.00649	0.00702	R_M	spectra_raw/queue2/CsI.tsv
+56	1	0	1	1.78326	3.13434	1D		LS	7	8	2	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	1.78326	0.21609	R_M	spectra_raw/queue2/BaI.tsv
+56	1	0	1	4.20084	0.20505	1S		LS	7	25	19	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	4.20002	4.20349	R_M	spectra_raw/queue2/BaI.tsv
+56	1	0	3	2.48808	3.17521	3D		LS	7	8	6	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	2.31598	1.56748	R_M	spectra_raw/queue2/BaI.tsv
+56	1	0	3	4.28261	0.12908	3S		LS	7	25	16	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	4.29721	4.27728	R_M	spectra_raw/queue2/BaI.tsv
+56	1	1	1	3.59425	0.00000	1D*		LS	6	6	1	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	single-n	yes	3.59425	3.59425	R_M	spectra_raw/queue2/BaI.tsv
+56	1	1	1	2.75482	1.11982	1F*		LS	6	7	2	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	2.75482	2.19490	R_M	spectra_raw/queue2/BaI.tsv
+56	1	1	1	3.74874	2.49595	1P*		LS	6	25	22	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	3.62232	3.83276	R_M	spectra_raw/queue2/BaI.tsv
+56	1	1	3	2.54904	5.32634	3D*		LS	6	8	7	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	2.22614	-1.80629	R_M	spectra_raw/queue2/BaI.tsv
+56	1	1	3	3.54973	1.38683	3F*		LS	6	7	5	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	3.12394	2.54281	R_M	spectra_raw/queue2/BaI.tsv
+56	1	1	3	3.80231	16.05682	3P*		LS	6	25	46	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	3.07307	3.77636	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	1	2.69020	19.93596	1D		LS	5	25	23	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	1.81176	2.73530	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	1	-0.50923	4.37072	1F		LS	6	7	2	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	-0.50923	-2.69459	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	1	0.66665	0.00000	1G		LS	6	6	1	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	single-n	yes	0.66665	0.66665	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	1	-3.40051	9.93834	1P		LS	6	7	2	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	-3.40051	-8.36968	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	1	0.06074	0.00000	1S		LS	6	6	1	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	single-n	yes	0.06074	0.06074	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	3	2.78367	9.98484	3D		LS	5	25	64	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	2.43921	2.82079	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	3	-1.77367	18.36794	3F		LS	6	7	6	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	-5.02068	-4.49722	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	3	-0.32851	9.82049	3G		LS	6	7	6	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	-1.41622	-2.06197	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	3	0.60289	26.46588	3P		LS	6	7	5	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	-5.94467	-6.59554	R_M	spectra_raw/queue2/BaI.tsv
+56	1	2	3	-1.05477	4.68266	3S		LS	6	7	2	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	-1.05477	-3.39610	R_M	spectra_raw/queue2/BaI.tsv
+56	1	3	0	-3.15854	0.00000	(3/2,5/2)*		jj	4	4	1	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	single-n	no	-3.15854	-3.15854	R_M	spectra_raw/queue2/BaI.tsv
+56	1	3	0	-5.19438	0.00000	(5/2,5/2)*		jj	4	4	1	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	single-n	no	-5.19438	-5.19438	R_M	spectra_raw/queue2/BaI.tsv
+56	1	3	0	-4.94317	0.00000	(5/2,7/2)*		jj	4	4	1	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	single-n	no	-4.94317	-4.94317	R_M	spectra_raw/queue2/BaI.tsv
+56	1	3	1	0.11054	0.19155	1F*		LS	4	7	4	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	0.07586	0.13696	R_M	spectra_raw/queue2/BaI.tsv
+56	1	3	3	0.16810	0.14466	3F*		LS	4	25	25	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	0.16222	0.17478	R_M	spectra_raw/queue2/BaI.tsv
+56	1	4	1	0.05072	0.03354	1G		LS	8	25	18	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	0.04993	0.04339	R_M	spectra_raw/queue2/BaI.tsv
+56	1	4	3	0.05102	0.10473	3G		LS	8	25	54	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	forced — sole published limit	usable	series	yes	0.05283	0.04339	R_M	spectra_raw/queue2/BaI.tsv
+70	1	0	0	4.20176	0.02670	*	2F*	unresolved	6	6	2	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	parent-matched	usable	single-n	no	4.20176	4.21510	R_M	spectra_raw/queue2/YbI.tsv
+70	1	0	1	3.80448	0.00000	1D		LS	6	6	1	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	single-n	yes	3.80448	3.80448	R_M	spectra_raw/queue2/YbI.tsv
+70	1	0	1	4.39814	0.01896	1S		LS	7	8	2	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	4.39814	4.40762	R_M	spectra_raw/queue2/YbI.tsv
+70	1	0	3	3.93327	0.03169	3D		LS	6	6	3	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	single-n	yes	3.92970	3.94376	R_M	spectra_raw/queue2/YbI.tsv
+70	1	0	3	4.45272	0.06733	3S		LS	7	13	7	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	4.46313	4.44613	R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	0	3.99911	0.14700	(1/2,1/2)*	2S<1/2>	jj	10	25	15	50443.2	Yb_II_(6s_2S<1/2>)	parent-matched	usable	series	no	3.99976	4.03634	R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	0	3.98579	0.84355	(1/2,3/2)*	2S<1/2>	jj	10	48	40	50443.2	Yb_II_(6s_2S<1/2>)	parent-matched	usable	series	no	4.08898	4.62962	R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	0			(5/2,1/2)	2F*<5/2>	jj	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	0			(5/2,3/2)	2F*<5/2>	jj	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	0	4.33722	0.00436	(7/2,1/2)	2F*<7/2>	jj	6	6	2	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	parent-matched	usable	single-n	no	4.33722	4.33940	R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	0	4.26263	0.02118	(7/2,3/2)	2F*<7/2>	jj	6	6	4	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	parent-matched	usable	single-n	no	4.26120	4.27036	R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	1	3.83838	0.25327	1P*		LS	6	9	4	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	3.81608	3.80932	R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	1	3.27827	0.27936	1P*?		LS	6	7	2	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	positional — NIST table convention	usable	series	yes	3.27827	3.13859	R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	3	3.56595	0.19062	3D*?		LS	6	7	2	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	positional — NIST table convention	usable	series	yes	3.56595	3.47064	R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	3	3.98846	0.25669	3P*		LS	6	9	12	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	4.01998	3.98559	R_M	spectra_raw/queue2/YbI.tsv
+70	1	1	3	3.45696	0.22603	3P*?		LS	6	7	2	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	positional — NIST table convention	usable	series	yes	3.45696	3.34394	R_M	spectra_raw/queue2/YbI.tsv
+70	1	2	1	2.75119	0.00475	1D		LS	6	7	2	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	2.75119	2.75356	R_M	spectra_raw/queue2/YbI.tsv
+70	1	2	1	2.97424	0.00000	1D?		LS	9	9	1	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	single-n	yes	2.97424	2.97424	R_M	spectra_raw/queue2/YbI.tsv
+70	1	2	3	2.76365	0.05015	3D		LS	6	8	9	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	2.76260	2.76108	R_M	spectra_raw/queue2/YbI.tsv
+70	1	3	3	1.05460	0.02285	3F*		LS	5	7	3	50443.2	Yb_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	1.05466	1.06611	R_M	spectra_raw/queue2/YbI.tsv
+71	1	0	2			2D	1D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	0	2			2D	3D	LS	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	0	2			2F	3F	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	0	2			2G	1G	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	0	2			2P	3P	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	0	2	4.45153	1.53971	2S		LS	6	14	9	43762.6	Lu_II_(6s2_1S<0>)	forced — sole published limit	usable	series	yes	4.26857	4.07292	R_M	spectra_raw/queue2/LuI.tsv
+71	1	0	2	3.09632	0.00000	2S	1S	LS	6	6	1	43762.6	Lu_II_(6s2_1S<0>)	parent-matched	usable	single-n	yes	3.09632	3.09632	R_M	spectra_raw/queue2/LuI.tsv
+71	1	0	4			4D	3D	LS	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/LuI.tsv
+71	1	0	4			4F	3F	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/LuI.tsv
+71	1	0	4			4P	3P	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	0			*	3D	unresolved	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	2			2D*	1D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	2			2D*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	2			2F*	1D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	2			2F*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	2			2F*	3F?	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	2	4.00005	1.76614	2P*		LS	6	27	42	43762.6	Lu_II_(6s2_1S<0>)	forced — sole published limit	usable	series	yes	3.92284	3.99322	R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	2			2P*	1D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	2			2P*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		yes			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	4			4D*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	4			4F*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	4			4G*	3F	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/LuI.tsv
+71	1	1	4			4P*	3D	LS	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/LuI.tsv
+71	1	2	2	2.88031	0.72844	2D		LS	6	34	31	43762.6	Lu_II_(6s2_1S<0>)	forced — sole published limit	usable	series	yes	2.88863	2.90586	R_M	spectra_raw/queue2/LuI.tsv
+71	1	3	2	1.11985	0.15290	2F*		LS	5	35	61	43762.6	Lu_II_(6s2_1S<0>)	forced — sole published limit	usable	series	yes	1.12238	1.16918	R_M	spectra_raw/queue2/LuI.tsv
+71	1	4	2	0.02092	0.00000	2G		LS	5	5	1	43762.6	Lu_II_(6s2_1S<0>)	forced — sole published limit	usable	single-n	yes	0.02092	0.02092	R_M	spectra_raw/queue2/LuI.tsv
+72	1	0	0			a 1F	b_2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			a 1G	b_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			a 1P	b_2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	4.08628	0.09879	a 3D	c_2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	4.08300	4.13075	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			a 3G	b_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			a 3H	2H	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			a 5F	b_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			a 5P	b_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	3.85851	0.00000	b 1D	c_2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.85851	3.85851	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			b 1F	2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			b 1G	2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			b 1P	2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	3.53151	0.05519	b 3D	2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	no	3.53615	3.56607	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			b 3F	b_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			b 3G	2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			b 3P	b_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			b 5D	4D	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			b 5F	a_4F	unresolved	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			b 5P	4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	3.44107	0.00000	c 1D	2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	no	3.44107	3.44107	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			c 1F	2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			c 1P	2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	3.37456	0.00000	c 3D	2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	no	3.37456	3.37456	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			c 3F	b_2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			c 3P	b_2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			c 5F	4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			c 5P	a_4P	unresolved	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	3.28777	0.00000	d 1D	2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	no	3.28777	3.28777	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			d 1F	a_2F	unresolved	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	4.25224	0.24627	d 3D	a_2D	unresolved	7	7	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	4.22822	4.33934	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			d 3F	a_4F	unresolved	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			d 3P	2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	3.48162	0.00000	e 1D	a_2D	unresolved	7	7	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.48162	3.48162	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			e 3D	4D	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			e 3F	4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			e 3P	a_4P	unresolved	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	2.13485	0.00000	f 1D	2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	no	2.13485	2.13485	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	2.23534	0.19254	f 3D	2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	no	2.20181	2.28131	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			f 3F	2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			f 3P	4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	1.93490	0.00000	g 1D	2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	no	1.93490	1.93490	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0	2.06657	0.11827	g 3D	2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	no	2.03786	2.08264	R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			g 3F	2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			g 3P	2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	0	0			i 3F	a_2F	unresolved	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	5	2.41957	0.00000	5G*		LS	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	forced — sole published limit	usable	single-n	no	2.41957	2.41957	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			s 3D*	b_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			t 3D*	b_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			t 3F*	b_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			u 3D*	a_2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			u 3F*	b_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			v 1F*	b_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	3.43831	0.16855	v 3D*	b_2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.44834	3.53763	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	2.96879	0.64084	v 3F*	b_2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	2.96392	3.28192	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			v 3G*	b_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			v 3P*	b_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			w 1D*	a_2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			w 1F*	a_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			w 3D*	a_2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			w 3F*	a_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			w 3G*	b_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			w 3P*	a_2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			w 5D*	b_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	3.12531	0.00000	x 1D*	b_2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.12531	3.12531	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	3.58467	0.00000	x 1F*	b_2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.58467	3.58467	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			x 1G*	b_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			x 1P*	a_2P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			x 3D*	a_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			x 3F*	a_2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			x 3G*	a_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	3.45151	0.12560	x 3P*	b_2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.42492	3.47443	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			x 5D*	b_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 1D*	a_2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 1F*	a_2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 1G*	a_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	3.64363	0.00000	y 1P*	b_2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	3.64363	3.64363	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 3D*	a_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 3F*	a_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 3G*	a_2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 3H*	b_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 3P*	a_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 5D*	a_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 5F*	b_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 5G*	b_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			y 5P*	b_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	4.43034	0.00000	z 1D*	a_2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	4.43034	4.43034	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	4.13065	0.00000	z 1F*	a_2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	4.13065	4.13065	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 1G*	a_2F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 1H*	a_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	4.04063	0.00000	z 1P*	a_2D	unresolved	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	4.04063	4.04063	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	4.32008	0.09458	z 3D*	a_2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	4.31823	4.36459	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	4.35405	0.08252	z 3F*	a_2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	4.32799	4.35621	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 3G*	a_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 3H*	a_2G	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0	4.27264	0.03984	z 3P*	a_2D	unresolved	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched (NIST ordinal)	usable	single-n	no	4.26134	4.27560	R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 3S*	a_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 5D*	a_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 5F*	a_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 5G*	a_4F	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 5P*	a_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	1	0			z 5S*	a_4P	unresolved	6	6	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/HfI.tsv
+72	1	2	3	2.61899	0.00000	3G		LS	6	6	1	55047.9	Hf_II_(5d.6s2_2D<3/2>)	forced — sole published limit	usable	single-n	yes	2.61899	2.61899	R_M	spectra_raw/queue2/HfI.tsv
+80	1	0	1	4.63849	0.03742	1S		LS	7	20	14	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	4.64302	4.64864	R_M	spectra_raw/queue2/HgI.tsv
+80	1	0	2	4.79130	0.01029	2[5/2]	2D<5/2>	jK	7	7	2	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	parent-matched	usable	single-n	no	4.79130	4.79644	R_M	spectra_raw/queue2/HgI.tsv
+80	1	0	3	4.70092	0.06196	3S		LS	7	20	14	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	4.70707	4.69622	R_M	spectra_raw/queue2/HgI.tsv
+80	1	1	1	4.02736	0.22763	1P*		LS	6	20	15	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	4.02757	4.03144	R_M	spectra_raw/queue2/HgI.tsv
+80	1	1	2	4.22544	0.51900	2[1/2]*	2D<3/2>	jK	6	20	15	134746.0	Hg_II_(5d9.6s2_2D<3/2>)	parent-matched	usable	series	no	4.21445	4.22544	R_M	spectra_raw/queue2/HgI.tsv
+80	1	1	2	4.17028	0.21594	2[3/2]*	2D<3/2>	jK	6	13	8	134746.0	Hg_II_(5d9.6s2_2D<3/2>)	parent-matched	usable	series	no	4.19563	4.16546	R_M	spectra_raw/queue2/HgI.tsv
+80	1	1	2	4.13166	0.53717	2[3/2]*	2D<5/2>	jK	6	20	16	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	parent-matched	usable	series	no	4.15867	3.99327	R_M	spectra_raw/queue2/HgI.tsv
+80	1	1	2	4.34960	0.02970	2[5/2]*	2D<5/2>	jK	6	6	2	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	parent-matched	usable	single-n	no	4.34960	4.36445	R_M	spectra_raw/queue2/HgI.tsv
+80	1	1	2	4.44893	0.10202	2[7/2]*	2D<5/2>	jK	6	6	2	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	parent-matched	usable	single-n	no	4.44893	4.49994	R_M	spectra_raw/queue2/HgI.tsv
+80	1	1	3	4.20589	0.37242	3P*		LS	6	20	45	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	4.19419	4.20609	R_M	spectra_raw/queue2/HgI.tsv
+80	1	2	1	3.08048	0.06593	1D		LS	6	20	15	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	3.08545	3.14011	R_M	spectra_raw/queue2/HgI.tsv
+80	1	2	3	3.05671	0.04541	3D		LS	6	20	45	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	3.05562	3.04542	R_M	spectra_raw/queue2/HgI.tsv
+80	1	3	1	1.03520	0.10234	1F*		LS	5	21	17	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	1.04743	1.12664	R_M	spectra_raw/queue2/HgI.tsv
+80	1	3	2	1.03651	0.03121	2[1/2]*	2D<5/2>	jK	5	13	9	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	parent-matched	usable	series	no	1.04058	1.05270	R_M	spectra_raw/queue2/HgI.tsv
+80	1	3	2	1.03824	0.22176	2[3/2]*	2D<3/2>	jK	5	13	9	134746.0	Hg_II_(5d9.6s2_2D<3/2>)	parent-matched	usable	series	no	1.07522	1.25121	R_M	spectra_raw/queue2/HgI.tsv
+80	1	3	2	1.04341	0.03146	2[3/2]*	2D<5/2>	jK	5	13	9	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	parent-matched	usable	series	no	1.04735	1.05968	R_M	spectra_raw/queue2/HgI.tsv
+80	1	3	3	1.03317	0.08672	3F*		LS	5	21	37	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	1.03576	1.09796	R_M	spectra_raw/queue2/HgI.tsv
+80	1	4	1	0.00352	0.04858	1G		LS	5	11	7	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	-0.00174	-0.03514	R_M	spectra_raw/queue2/HgI.tsv
+80	1	4	3	0.00379	0.05853	3G		LS	5	11	9	84184.15	Hg_II_(6s_2S<1/2>)	positional — NIST table convention	usable	series	yes	0.00178	-0.03514	R_M	spectra_raw/queue2/HgI.tsv
+81	1	0	0			2*	3P*	unresolved	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/TlI.tsv
+81	1	0	2	4.75066	0.07830	2S		LS	7	20	14	49266.66	Tl_II_(6s2_1S<0>)	forced — sole published limit	usable	series	yes	4.75615	4.72732	R_M	spectra_raw/queue2/TlI.tsv
+81	1	1	2	4.22722	0.34257	2P*		LS	6	16	18	49266.66	Tl_II_(6s2_1S<0>)	forced — sole published limit	usable	series	yes	4.24605	4.34005	R_M	spectra_raw/queue2/TlI.tsv
+81	1	2	2	3.11838	0.09181	2D		LS	6	23	24	49266.66	Tl_II_(6s2_1S<0>)	forced — sole published limit	usable	series	yes	3.12573	3.12699	R_M	spectra_raw/queue2/TlI.tsv
+81	1	3	2	1.03131	0.00904	2F*		LS	5	8	4	49266.66	Tl_II_(6s2_1S<0>)	forced — sole published limit	usable	series	yes	1.03087	1.03495	R_M	spectra_raw/queue2/TlI.tsv
+82	1	0	0	4.82896	0.08349	(1/2,1/2)*		jj	7	17	18	59819.558	Pb_II_(6p_2P*<1/2>)	positional — NIST table convention	usable	series	no	4.83719	4.81549	R_M	spectra_raw/queue2/PbI.tsv
+82	1	0	0	4.88142	0.06878	(3/2,1/2)*		jj	7	9	4	73900.632	Pb_II_(6p_2P*<3/2>)	positional — NIST table convention	usable	series	no	4.89057	4.86532	R_M	spectra_raw/queue2/PbI.tsv
+82	1	1	0	4.35458	0.15996	(1/2,1/2)		jj	7	12	12	59819.558	Pb_II_(6p_2P*<1/2>)	positional — NIST table convention	usable	series	no	4.35227	4.40718	R_M	spectra_raw/queue2/PbI.tsv
+82	1	1	0	4.26949	0.26777	(1/2,3/2)		jj	7	13	14	59819.558	Pb_II_(6p_2P*<1/2>)	positional — NIST table convention	usable	series	no	4.27336	4.30247	R_M	spectra_raw/queue2/PbI.tsv
+82	1	1	0	4.24303	0.11888	(1/2,3/2)	2P*<1/2>	jj	13	13	2	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	single-n	no	4.24303	4.30247	R_M	spectra_raw/queue2/PbI.tsv
+82	1	1	0	0.36061	0.77955	(3/2,1/2)		jj	7	7	2	59819.558	Pb_II_(6p_2P*<1/2>)	positional — NIST table convention	usable	single-n	no	0.36061	0.75039	R_M	spectra_raw/queue2/PbI.tsv
+82	1	1	0	4.33794	0.07345	(3/2,3/2)		jj	7	8	4	73900.632	Pb_II_(6p_2P*<3/2>)	positional — NIST table convention	usable	series	no	4.33159	4.33038	R_M	spectra_raw/queue2/PbI.tsv
+82	1	2	2	3.17641	0.08354	2[3/2]*	2P*<1/2>	jK	6	20	22	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no	3.17592	3.16208	R_M	spectra_raw/queue2/PbI.tsv
+82	1	2	2	3.30311	0.05702	2[3/2]*	2P*<3/2>	jK	6	8	3	73900.632	Pb_II_(6p_2P*<3/2>)	parent-matched	usable	series	no	3.28436	3.30350	R_M	spectra_raw/queue2/PbI.tsv
+82	1	2	2	3.19730	0.12559	2[5/2]*	2P*<1/2>	jK	6	14	17	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no	3.20175	3.19730	R_M	spectra_raw/queue2/PbI.tsv
+82	1	2	2	3.26694	0.47084	2[5/2]*	2P*<3/2>	jK	6	8	4	73900.632	Pb_II_(6p_2P*<3/2>)	parent-matched	usable	series	no	3.18032	2.85827	R_M	spectra_raw/queue2/PbI.tsv
+82	1	3	2	1.04692	0.09304	2[5/2]	2P*<1/2>	jK	5	8	8	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no	1.05868	1.12508	R_M	spectra_raw/queue2/PbI.tsv
+82	1	3	2	1.04014	0.01546	2[7/2]	2P*<1/2>	jK	5	11	14	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no	1.03916	1.04559	R_M	spectra_raw/queue2/PbI.tsv
+82	1	4	2	0.01073	0.00448	2[7/2]*	2P*<1/2>	jK	5	10	6	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no	0.01034	0.01222	R_M	spectra_raw/queue2/PbI.tsv
+82	1	4	2	0.00726	0.00000	2[9/2]*	2P*<1/2>	jK	5	5	1	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	single-n	no	0.00726	0.00726	R_M	spectra_raw/queue2/PbI.tsv
+86	1	0	2			2[1/2]*	2P*<1/2>	jK	7	7	0			unwitnessed — parent limit not yet published	unusable — no limit		no			R_M	spectra_raw/queue2/RnI.tsv
+86	1	0	2	5.04772	0.13676	2[3/2]*	2P*<3/2>	jK	7	12	9	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	5.05703	5.04576	R_M	spectra_raw/queue2/RnI.tsv
+86	1	1	2	4.45545	0.29622	2[1/2]	2P*<3/2>	jK	7	11	9	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	4.50763	4.38716	R_M	spectra_raw/queue2/RnI.tsv
+86	1	1	2	4.48326	0.10510	2[3/2]	2P*<3/2>	jK	7	12	11	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	4.48833	4.45014	R_M	spectra_raw/queue2/RnI.tsv
+86	1	1	2	4.54979	0.16583	2[5/2]	2P*<3/2>	jK	7	12	10	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	4.55293	4.49089	R_M	spectra_raw/queue2/RnI.tsv
+86	1	2	2	3.51651	0.10706	2[1/2]*	2P*<3/2>	jK	6	10	10	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	3.51008	3.52500	R_M	spectra_raw/queue2/RnI.tsv
+86	1	2	2	3.40491	0.23732	2[3/2]*	2P*<3/2>	jK	6	11	8	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	3.35172	3.40276	R_M	spectra_raw/queue2/RnI.tsv
+86	1	2	2	3.33075	0.04067	2[5/2]*	2P*<3/2>	jK	7	11	10	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	3.33200	3.35178	R_M	spectra_raw/queue2/RnI.tsv
+86	1	2	2	3.40150	0.05761	2[7/2]*	2P*<3/2>	jK	6	12	13	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	3.40862	3.41242	R_M	spectra_raw/queue2/RnI.tsv
+86	1	3	2	1.06324	0.01569	2[3/2]	2P*<3/2>	jK	5	8	8	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	1.06228	1.06969	R_M	spectra_raw/queue2/RnI.tsv
+86	1	3	2	1.03175	0.01546	2[5/2]	2P*<3/2>	jK	5	9	7	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	1.03125	1.03971	R_M	spectra_raw/queue2/RnI.tsv
+86	1	3	2	1.01832	0.00725	2[7/2]	2P*<3/2>	jK	5	7	3	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	1.01795	1.02139	R_M	spectra_raw/queue2/RnI.tsv
+86	1	3	2	1.05089	0.01229	2[9/2]	2P*<3/2>	jK	5	10	6	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no	1.04936	1.05151	R_M	spectra_raw/queue2/RnI.tsv
+87	1	0	2	5.07221	0.10117	2S		LS	7	30	24	32848.872	Fr_II_(6p6_1S<0>)	forced — sole published limit	usable	series	yes	5.07940	5.07108	R_M	spectra_raw/queue2/FrI.tsv
+87	1	1	2	4.59521	0.19183	2P*		LS	7	30	48	32848.872	Fr_II_(6p6_1S<0>)	forced — sole published limit	usable	series	yes	4.55927	4.59845	R_M	spectra_raw/queue2/FrI.tsv
+87	1	2	2	3.42371	2.38116	2D		LS	6	30	50	32848.872	Fr_II_(6p6_1S<0>)	forced — sole published limit	usable	series	yes	3.46229	3.42396	R_M	spectra_raw/queue2/FrI.tsv
+88	1	0	3	5.34246	0.04747	3S		LS	8	9	2	42573.36	Ra_II_(6p6.7s_2S<1/2>)	forced — sole published limit	usable	series	yes	5.34246	5.31873	R_M	spectra_raw/queue2/RaI.tsv
+88	1	1	1	3.93159	0.00000	1D*		LS	7	7	1	42573.36	Ra_II_(6p6.7s_2S<1/2>)	forced — sole published limit	usable	single-n	yes	3.93159	3.93159	R_M	spectra_raw/queue2/RaI.tsv
+88	1	1	1	4.61288	0.20364	1P*		LS	7	52	42	42573.36	Ra_II_(6p6.7s_2S<1/2>)	forced — sole published limit	usable	series	yes	4.61198	4.62165	R_M	spectra_raw/queue2/RaI.tsv
+88	1	1	3	3.69836	0.16393	3D*		LS	7	7	3	42573.36	Ra_II_(6p6.7s_2S<1/2>)	forced — sole published limit	usable	single-n	yes	3.67335	3.74281	R_M	spectra_raw/queue2/RaI.tsv
+88	1	1	3	4.03180	0.53145	3F*		LS	7	7	3	42573.36	Ra_II_(6p6.7s_2S<1/2>)	forced — sole published limit	usable	single-n	yes	4.00167	4.25234	R_M	spectra_raw/queue2/RaI.tsv
+88	1	1	3	4.84293	1.73146	3P*		LS	7	8	9	42573.36	Ra_II_(6p6.7s_2S<1/2>)	forced — sole published limit	usable	series	yes	4.42968	4.90926	R_M	spectra_raw/queue2/RaI.tsv
+88	1	2	1	3.92521	0.00000	1D		LS	6	6	1	42573.36	Ra_II_(6p6.7s_2S<1/2>)	forced — sole published limit	usable	single-n	yes	3.92521	3.92521	R_M	spectra_raw/queue2/RaI.tsv
+88	1	2	3	3.89749	0.30201	3D		LS	6	7	6	42573.36	Ra_II_(6p6.7s_2S<1/2>)	forced — sole published limit	usable	series	yes	3.90194	3.77942	R_M	spectra_raw/queue2/RaI.tsv
+88	1	3	3	1.14629	0.05501	3F*		LS	5	8	10	42573.36	Ra_II_(6p6.7s_2S<1/2>)	forced — sole published limit	usable	series	yes	1.14550	1.17226	R_M	spectra_raw/queue2/RaI.tsv
