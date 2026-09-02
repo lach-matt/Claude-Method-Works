@@ -62,8 +62,8 @@
   "drive/The Method Materials/covers8.json": {
     "mtime": 1788357449.3500075,
     "seen": 1788359407.8216643,
-    "ast_hash": "5bb92ebb6cd122115b8b3a96372868e9",
-    "semantic_hash": "5bb92ebb6cd122115b8b3a96372868e9"
+    "ast_hash": "",
+    "semantic_hash": ""
   },
   "drive/The Method Materials/factor.py": {
     "mtime": 1788357449.3540075,
@@ -934,5 +934,35 @@
     "seen": 1788359407.8218422,
     "ast_hash": "a0ee3bf0ce0fc0335c534cb6f7f0c7c5",
     "semantic_hash": "a0ee3bf0ce0fc0335c534cb6f7f0c7c5"
+  },
+  "graphify-out/memory/query_20260902_143518_what_is_the_exact_relationship_between_the_ground.md": {
+    "mtime": 1788359718.5659978,
+    "seen": 1788359758.2677658,
+    "ast_hash": "2eaac73128fdd1d2fe92bff96688de75",
+    "semantic_hash": ""
+  },
+  "graphify-out/memory/query_20260902_143542_should_the_build_snapshot_files_be_used_as_sources.md": {
+    "mtime": 1788359742.3088703,
+    "seen": 1788359758.2677693,
+    "ast_hash": "fa6614c6c1cb39fed914a6e9b2673441",
+    "semantic_hash": ""
+  },
+  "graphify-out/memory/query_20260902_143542_which_files_in_this_corpus_restate_the_same_conten.md": {
+    "mtime": 1788359742.1663504,
+    "seen": 1788359758.267772,
+    "ast_hash": "57571b37b34f1bcf67849bad3cddbc0c",
+    "semantic_hash": ""
+  },
+  "drive/The Method Materials/Conceptual idea, what if each side corresponds to ....pdf": {
+    "mtime": 1788357443.9700077,
+    "seen": 1788359758.2677748,
+    "ast_hash": "d27d4eb7aa97e8b012252ba7c435806e",
+    "semantic_hash": ""
+  },
+  "drive/The Method Materials/Everything we can see, touch, or detect using elec....pdf": {
+    "mtime": 1788357443.9780076,
+    "seen": 1788359758.2677772,
+    "ast_hash": "6179bf1fc1f0dc30e0f5a084cb69df4a",
+    "semantic_hash": ""
   }
 }
