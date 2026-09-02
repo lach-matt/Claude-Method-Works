@@ -1,0 +1,15 @@
+limit_status_gen: {'positional — NIST table convention': 108, 'parent-matched': 159, 'forced — sole published limit': 117, 'unwitnessed — parent limit not yet published': 170}
+limit_agrees (gen vs stored): {'yes': 382, 'no': 172}
+ladder_exceeds_limit: {'no': 549, 'yes': 5}
+refusal reasons: {'outer_occupancy_gt_1': 35, 'unwitnessed — parent limit not yet published': 170, 'no_outer_electron': 2}
+delta_status x limit_status: {('usable', 'positional —'): 102, ('', 'positional —'): 6, ('usable', 'parent-match'): 155, ('usable', 'forced — sol'): 90, ('', 'forced — sol'): 27, ('', 'unwitnessed '): 170, ('', 'parent-match'): 4}
+stored parent-matched 184 -> gen agrees: Counter({'yes': 159, 'no': 25})
+stored fallback 222 -> gen status: {'positional': 108, 'forced — s': 114} agrees: {'yes': 220, 'no': 2}
+stored voided 145 -> gen status: {'unwitnessed ': 145}
+
+=== after B and A ===
+limit_status_gen: {'positional — NIST table convention': 108, 'parent-matched': 159, 'forced — sole published limit': 117, 'parent-matched (NIST ordinal)': 8, 'unwitnessed — parent limit not yet published': 162}
+agrees: {'yes': 391, 'no': 163} exceeds: {'no': 549, 'yes': 5}
+222 fallback agree: {'yes': 221, 'no': 1}
+145 voided -> gen: {'unwitnessed — parent lim': 145}
+184 parent-matched -> gen: {'parent-matched': 159, 'parent-matched (NIST ord': 8, 'unwitnessed — parent lim': 17}

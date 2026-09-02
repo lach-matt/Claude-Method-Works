@@ -42,7 +42,7 @@ STALE FILE: REWRITE-chapter4-failures.md is the OLD Ch4 (failures of the assista
 Source Chapter 13 "What the title names" (find via: grep -nE '^## 13\. What the title names' The_Method_1_6-2.md → body ~line 3498). Read in full, judge split, apply standing rules, tokenize proofs, leave numbering at source, keep void-watch live.
 
 ## RENUMBER MAP (apply in final pass, verify then)
-Uniform −2 for source Ch 6–19: 6→4,7→5,8→6,9→7,10→8,11→9,12→10,13→11,14→12,15→13,16→14,17→15,18→16,19→17. (§12.11.x → §10.11.x.)
+Uniform −2 for source Ch 6–19: 6→4,7→5,8→6,9→7,10→8,11→9,12→10,13→11,14→12,15→13,16→14,17→15,18→16,19→17. (§12.11.x ��� §10.11.x.)
 Source Ch12 split into THREE reader chapters (shape/tower/time) — numbering TBD in final pass.
 CAUTION: source has a numbering gap — source Ch19 "Retrieval" is followed by "22. The bracket" (20/21 skipped). Re-check the map past source Ch19.
 Part boundaries: Part 0 = Preface+Ch1–3. Part I opens at src Ch6 (=reader Ch4).
