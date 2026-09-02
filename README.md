@@ -22,10 +22,15 @@ See [`drive/README.md`](drive/README.md) for the detail.
 
 ## Getting the rest — and keeping it in sync
 
-* [`docs/DRIVE-SYNC.md`](docs/DRIVE-SYNC.md) — how to get Drive content into this repo: the three
+* [`docs/DRIVE-SYNC.md`](docs/DRIVE-SYNC.md) — how to get Drive content into this repo: the four
   routes, the full setup walkthrough, and the limits and gotchas.
 * [`tools/drive_sync.py`](tools/drive_sync.py) — the recommended route. Streams downloads (no size
   limit), skips unchanged files, regenerates `drive/MANIFEST.tsv`. Run `--help` for the flags.
+* [`tools/drive_sync_colab.ipynb`](tools/drive_sync_colab.ipynb) — the same sync from a browser,
+  with nothing installed locally: Colab mounts Drive, copies, commits and pushes.
+* [`tools/shard_conversations.py`](tools/shard_conversations.py) — turns a 370 MiB
+  `conversations.json` export into one small JSON file per conversation (or one `.gz`), so git
+  can hold it.
 * [`docs/REPO-SIZE.md`](docs/REPO-SIZE.md) — size audit against GitHub's limits, and when Git LFS
   would actually be worth it.
 
