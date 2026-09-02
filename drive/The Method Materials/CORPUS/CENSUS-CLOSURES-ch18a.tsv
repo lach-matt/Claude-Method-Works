@@ -1,0 +1,2 @@
+id	verdict	reason
+1201	not a defect	L9950 "adjunction never repairs closure": the flagged token is the theorem's own name (Theorem 17.1 L4806, "adjunction never repairs"), a live claim the A.11 proof uses and r2-ch18a §7 witnesses (262,656 pairs break the join-homomorphism); C9 regex artefact (precedents 678, 1067). The ROW's pointer §24.2 is a separate defect, 18a-01 (docket 9a), not this row's class

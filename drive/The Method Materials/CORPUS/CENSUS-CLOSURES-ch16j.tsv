@@ -1,0 +1,4 @@
+id	verdict	reason
+# No DEFECT-CENSUS.tsv row falls in main L8700-L8789 under classes 'main' or 'all'.
+# Header only, per the chat-70 R1 rule. Sweep covered every class value in the member column
+# (all, ioi, main, mc, pc, reg, sc), not only the class a handoff named.

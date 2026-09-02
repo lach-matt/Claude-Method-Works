@@ -1,0 +1,7 @@
+id	verdict	reason
+1050	not a defect	L2127 "always lives in the twenty implications": Birkhoff — a closed (E = 0, distributive) index is the down-sets of its join-irreducibles, and the down-set condition is exactly the cover implications; measured for Λ8 (976 of 131,072 words) and general by the theorem — INFERRED from the theorem
+1051	not a defect	L2138 quotes P20 ("close always in one pass"); the claim's home is Chapter 2 — record-carried to READ-ch2
+1052	not a defect	L2138 "never closes by Gödel" is P20's statement about full arithmetic (incompleteness) — record-carried to READ-ch2
+1053	not a defect	L2252 "proved separately and never combined" is self-description of the book's own record; not a subject-matter claim
+1054	defect	L2271 "never rejoin": MEASURED (r2-ch11.py) forwards and backwards rank sequences differ at ranks 4–19 and coincide at both end points (1 and 1) — wording, minor (11-06)
+1055	not a defect	L2297 "never appear free": MEASURED — F_box(−1) = 0 because the ℓ and f factors vanish; in F they are bounded by n and e, never a free product; residue F(−1) = 2

@@ -1,0 +1,21 @@
+id	verdict	reason
+2	not a defect	L10619 states Theorem 7.1 is absent and withdrawn; the pointer is the claim's own subject (precedent 678 class); one site in the main volume (r2-ch23b §3)
+714	not a defect	same line: the withdrawal is the sentence's statement, not a surviving line number; other-volume sites are the withdrawal record
+1208	not a defect	L10519 *never named its elements* is D.5.1's own finding about the earlier appendix — MEASURED: the D.5 table prints fibre totals only (r2-ch23a §2)
+1209	not a defect	L10558 *adjunction never repairs* is A.6's title (Theorem 17.1 L4806)
+1210	not a defect	L10577 the same title in the D.5.2 table row
+1211	not a defect	L10608 *this appendix never said* — self-description preceding the definition at L10610
+1212	not a defect	L10620 definitional clause of the status coordinate (withdrawn value scope)
+1213	not a defect	L10744 *a value the coordinate has always admitted* — D.2 L10346 lists conjectured among the five values; no element occupied it before D.5.7 (r2-ch23a §3: status values through D.5.6 = measured, proved, verified)
+1214	not a defect	L10755 *never been tested against an occupant* — MEASURED: no element of the 77 has verification cited (r2-ch23a §3)
+1215	not a defect	L10836 *had never been entered here* — MEASURED: no Chapter-34 object among the 65 of D.5.9 (r2-ch23a §3 tables)
+1536	defect	L10806 3B.shape — object handle in a reader-facing volume; the tag is the Mathematical Compendium's own label (3B.* tokens at MC); label-form decision for R3, docket 28
+1537	defect	L10807 3B.metric — as 1536
+1538	defect	L10809 3B.pot — as 1536
+1539	defect	L10810 3B.norm — as 1536
+1540	defect	L10811 3B.five — as 1536
+1541	defect	L10812 3B.tri — as 1536
+1542	defect	L10813 3B.def — as 1536
+1543	defect	L10814 3B.index — as 1536
+1544	defect	L10822 3B.five in prose — as 1536
+1545	defect	L10822 3B.pot in prose — as 1536
