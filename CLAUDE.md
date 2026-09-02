@@ -51,3 +51,10 @@ about 6 MB. Do not read or grep the tree wholesale: start from `MANIFEST.tsv`, t
 
 State exactly which files you would touch and what the change is, then wait for confirmation
 before any pass that spans more than one file.
+
+## Skills
+
+- **graphify** (`.claude/skills/graphify/SKILL.md`) — any input to knowledge graph. Trigger: `/graphify`
+
+When the user types `/graphify`, use the installed graphify skill or instructions before doing
+anything else. The generated graph lives in `graphify-out/`; regenerate it rather than hand-editing it.

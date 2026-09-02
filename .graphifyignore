@@ -1,0 +1,103 @@
+# graphify scope: skip superseded BUILD snapshots, keep only the latest (BUILD174)
+The_Method_1_6_BUILD*
+!The_Method_1_6_BUILD174_*
+.claude/
+graphify-out/
+# byte-identical duplicates of an unsuffixed sibling
+drive/The Method Materials/BiIII_asd__1WST7mh1GbHbOpWlSj7Z8ltJ4DRU-4S1-.tsv
+drive/The Method Materials/BiIII_asd__1mCh-F_Yz63ytb4XlVCDhDp9qkaREte8n.tsv
+drive/The Method Materials/BiIII_asd__1xb8WTkChLbxiR3mXuVgodzQ2YBaaXEXE.tsv
+drive/The Method Materials/CI_full__182o5RdSZA3mNtdMvYH8P6qqRJBwAKi0A.tsv
+drive/The Method Materials/CI_full__19nk_g2TRacvGV18jkKdkIoiMytw6IvNa.tsv
+drive/The Method Materials/CI_full__1U-iq5HsfqWrKgCWYQq0xfOB9aF9u_hIa.tsv
+drive/The Method Materials/CdII_full__1LqJlU-xMVrbxg2cDWa269UlexHgVhVNT.tsv
+drive/The Method Materials/CdII_full__1OeLfn7fc0SNbRL0USLc28jirvNsiObTb.tsv
+drive/The Method Materials/CdII_full__1b1N5P_ey8iuK12Ed8vz5DPTHRWaKlsTv.tsv
+drive/The Method Materials/HgII_full__17pBzh9-yVLkhYe-Zw9sBPzK8lYe7TSjD.tsv
+drive/The Method Materials/HgII_full__1Qsx4zOLy8lwI8paLGw3zsW6gWHOTh_ju.tsv
+drive/The Method Materials/HgII_full__1oQOgAXbE70pu6b_AtUVf6IdmCzjur_hu.tsv
+drive/The Method Materials/LIMITS-B__13ZVxUE5ecNbbXTi579SsvrQzsb7OBu6l.tsv
+drive/The Method Materials/LIMITS-B__1LAHnYZY0m1YpAyWqOaBNKgOTKKl-MzGJ.tsv
+drive/The Method Materials/LIMITS-B__1s57mu5wreGi_CsTMmsxThWXBQDj8loPg.tsv
+drive/The Method Materials/MANIFEST__12bp6aJeOUPhfUnPIKl-AG1RjM8dU4_GG.txt
+drive/The Method Materials/MANIFEST__1HXd3Ch75ltGLtZZPK82yXfR2Neq29Lb8.txt
+drive/The Method Materials/MANIFEST__1Z3bmoMhPl1ybi-vGvsdCANHjuJXMUs_7.txt
+drive/The Method Materials/MEASUREMENTS-DERIVED__14H9vbNeE5ZhU3F1ULKJ1UNhxu2gK7xlH.tsv
+drive/The Method Materials/MEASUREMENTS-DERIVED__1T_WwbQ2qcaY2vqkpxz2O3wXNIYYiPlfC.tsv
+drive/The Method Materials/MEASUREMENTS-DERIVED__1y4XOLDRlutbNXz8ZAzF_MiQJox6qr6ra.tsv
+drive/The Method Materials/NI_full__1fFo3XIkLn5R-oTh11ZI2Oe4ObU6h8-3L.tsv
+drive/The Method Materials/NI_full__1jDtLS_UWqVztGhQjtKs2LMMpgeRSqjES.tsv
+drive/The Method Materials/NI_full__1qX_RLb94taGH3K6OSOX-mtGUQh6taQMM.tsv
+drive/The Method Materials/READING-LIST-STAGING__13tnKHjRXTnsDo6sMSJEz2BjeH3gn7niP.tsv
+drive/The Method Materials/READING-LIST-STAGING__1O2uZ9sINI9prG-OGTMR5IGvjyqgoBnPv.tsv
+drive/The Method Materials/READING-LIST-STAGING__1biSfhJnfLk3XhMNUuZedaroNkCd8d-qx.tsv
+drive/The Method Materials/STORE-RECONSTRUCT__1KN8-T-hbGcT_skltglVs7MaUrUHtGb4V.tsv
+drive/The Method Materials/STORE-RECONSTRUCT__1Ofobo8HO6TU4Vphzj7eur_5neUXGFbaS.tsv
+drive/The Method Materials/STORE-RECONSTRUCT__1p6Rmg7qmZMaNAkGP2NZnm_l2IPEkQ_yi.tsv
+drive/The Method Materials/ScIII_asd__123BFjZUa-uJ3heyTUEXchLJruwuUjTXD.tsv
+drive/The Method Materials/ScIII_asd__13VSF3u0PjI0I5h1GQdUI_CNJJGTauA9I.tsv
+drive/The Method Materials/ScIII_asd__1WiL1gc662EvB8ppRuXKSPzCyFehXaB3z.tsv
+drive/The Method Materials/T8-CENSUS__1DUG07bZ67JC6rCWlGIp1COUYZXK0mP9u.txt
+drive/The Method Materials/T8-CENSUS__1GTUGunau1jocRQpi_4Xz_P46HzV0A0DW.txt
+drive/The Method Materials/T8-CENSUS__1lt7565y8BEpeEASQtV3oEIS6yvIeT-Xk.txt
+drive/The Method Materials/The_Method_1_6_BUILD174_compendia_papers_audits__1rS8QUCdwo2CBWupXoZvOtNXsXJQrhdtp.md
+drive/The Method Materials/The_Method_1_6_BUILD79_compendia_papers_audits__16qZCi3etMYNJGTPQ8A_wu64_q8jzbmB1.md
+drive/The Method Materials/The_Method_1_6_figures_BUILD9__1AtBAHB7Dwr8QlUmiV1_EaPNMR1X2g-kN.zip
+drive/The Method Materials/channels__19gb0AXcbWQMrTwTopLNdt1DB4YPU-gxb.py
+drive/The Method Materials/channels__1KLY8K0sR3q47BtVm4Lsv3ToaS9Ompwrf.py
+drive/The Method Materials/channels__1NTWkFND4g1zKcWeTFPkRxJnltA-OWIQz.py
+drive/The Method Materials/repair-pass-instruments.tar__1ngDELaqmipG3LQ2iGK3gdWqUOzjvMPPl.gz
+drive/The Method Materials/series_gen__1CcnS7a75k3eO4zUdf-haG0Pd3dm8dn-q.py
+drive/The Method Materials/series_gen__1_4dNx0ExlvTXLasiL0w2XR7h4HlcD1GE.py
+drive/The Method Materials/series_gen__1oWR6NmnBFhaYSVpgAkpjHBwtIlQXc0A4.py
+drive/The Method Materials/spectra__1AwR5qwL7mAGsnTZX2O_exoMXOJhs7HIg.py
+drive/The Method Materials/spectra__1DsCd6Mf6_VKnNdAAe_yRqQ0J6tYoweF1.py
+drive/The Method Materials/spectra__1pXlZJwOqAXe19L8APrDBZCiY9V4JFMjT.py
+drive/The Method Materials/spectra_levels_store__17B2KCn6pH49q_dIi-_77rDuoiVGYy_Pw.zip
+drive/The Method Materials/spectra_selection_and_levels__1uo4n2GGrdCqP9VddW5nOGzaTJBoqkb-N.zip
+drive/The Method Materials/theory_of_everything_expanded_formalism__1rMUDhfMyT5sxPxKT3X8it-7ymEdpNvK6.pdf
+drive/The Method Materials/main.pdf
+drive/The Method Materials/ioi.pdf
+# byte-identical duplicates (global hash dedup)
+drive/The Method Materials/The_Method_1_6_math.pdf
+drive/The Method Prints & Proofs/The Method 1.6.md
+drive/The Method Materials/The_Method_1_6_physics.pdf
+drive/The Method Materials/The_Method_1_6_spectra.pdf
+drive/The Method Materials/The_Method_1_6_register.pdf
+drive/The Method Materials/THREEBODY-DELIVERY-1/README.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/ground.py
+drive/The Method Materials/THREEBODY-DELIVERY-1/HANDOFF-74.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/HANDOFF-75.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/HANDOFF-76.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/HANDOFF-77.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/HANDOFF-78.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/HANDOFF-79.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/HANDOFF-80.md
+drive/The Method Prints & Proofs/The Method 1.6 — The Register.md
+drive/The Method Materials/Everything_we_can_see,_touch,_or_detect_using_elec....pdf
+drive/The Method Materials/tower-1-1.py
+drive/The Method Materials/NUCLEON-E9-RESOLVED-1.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/HANDOFF-80-1.md
+drive/The Method Materials/The Method 1.6 — Spectra Compendium-1.md
+drive/The Method Materials/The Method 1.6 — The Index of Indices-1.md
+drive/The Method Materials/The Method 1.6 — The Physics Compendium-1.md
+drive/The Method Materials/The Method 1.6 — Mathematical Compendium-1.md
+drive/The Method Materials/LOWDIN-DELIVERY-1/README__1LXqadM8pYp-zRufZbhvxxrnI2OM2oelb.md
+drive/The Method Materials/LOWDIN-DELIVERY-1/README__1aiYruh0eDXlibA3l9fAOhHlH2nY7hvCi.md
+drive/The Method Materials/LOWDIN-DELIVERY-1/README__1lJjzP5LEQ4bmu8wjYdniSkrIfgjq8fLy.md
+drive/The Method Materials/LOWDIN-DELIVERY-1/ground__13XNwR_QVNd3E6UPsgxf4xU8RwWsfUM8K.py
+drive/The Method Materials/LOWDIN-DELIVERY-1/ground__1Olw9A6U77fVSuemnQAZcOg55wcI1Oj9B.py
+drive/The Method Materials/LOWDIN-DELIVERY-1/ground__1PIbmUpYAlUs-NraSrRN4BTNwovlPoyyx.py
+drive/The Method Materials/THREEBODY-DELIVERY-1/figs__1SJ9u6W-zeDwDsM8ESvaGupkGw3FPo98Y.py
+drive/The Method Materials/THREEBODY-DELIVERY-1/audit__1UF_0o9mfk53HzBS3Dxp5kaQseVAFfStV.py
+drive/The Method Materials/THREEBODY-DELIVERY-1/figs2__17gV4nv-Zhoso3HgGM8q_8DwNMfbKaqbX.py
+drive/The Method Materials/THREEBODY-DELIVERY-1/README__1Dk28G7IsJMoV7hnPdQ7w85eLP_k50rca.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/README__1qPfgKxaKykY_nDYl-NaYvx8P-BtimXNp.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/README__1xnyhE_qyOgL-GU8pRyz9auQWiFywUmaH.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/ground__1KM5FnOkzWXEflsA-38iVfSVE2L8Q61vx.py
+drive/The Method Materials/THREEBODY-DELIVERY-1/README-1__1VNYJ4cf0O3mxsPQtGH_UvdQDgpS5Fmqp.md
+drive/The Method Materials/THREEBODY-DELIVERY-1/n8_check__1dUTIAGoVk2a7whu8nKiqWEM8FiWds-eL.py
+drive/The Method Materials/THREEBODY-DELIVERY-1/caps_table__1EBiH5rPlw6WiIV7SZznqWI9inx1oqKAa.py
+drive/The Method Materials/THREEBODY-DELIVERY-1/routh_check__1paQDhyTU_KaZTNlOC1Z7r2Miqdg68iyO.py
+drive/The Method Materials/THREEBODY-DELIVERY-1/audit_state1_failing__1aHjZg2vIHlQjtV1OBR4kFbwx6EdArniN.py
+drive/The Method Materials/Everything we can see, touch, or detect using elec...__1NloPG2l-coCpoAyBjAwvBBCZmtTRNTDwvkkGwYaKx0U.md
