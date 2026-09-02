@@ -9,6 +9,6 @@ pulled through the Google Drive connector on 2026-09-02.
 * Drive allows several files with the same title in one folder. The most recently modified copy keeps
   the plain name; older copies carry a `__<driveFileId>` suffix before the extension.
 * Google Docs (5 files) were exported as Markdown, so their sizes differ from the Drive listing.
-* 405 of 444 files transferred. 39 files could not be fetched because the Drive
-  connector dropped the session on every attempt (all but one are over 6.3 MB; it also refuses files over 10 MB); they are listed in
+* 413 of 444 files transferred. 31 files could not be fetched because the Drive
+  connector dropped the session on every attempt (all are 6.3 MB or larger); they are listed in
   `MANIFEST.tsv` with status `not-transferred` and are still only in Drive.
