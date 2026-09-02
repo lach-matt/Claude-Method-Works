@@ -71,13 +71,19 @@ jobs:
       pull-requests: read
     outputs:
       has_non_drive: ${{ steps.check.outputs.has_non_drive }}
+      has_key: ${{ steps.check.outputs.has_key }}
     steps:
       - id: check
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          # The `secrets` context is not available in a job-level `if:`, so the
+          # presence of the key is resolved here and passed on as an output.
+          # Compared against the empty string only — the value is never printed.
+          HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
         run: |
+          echo "has_key=${HAS_KEY}" >> "$GITHUB_OUTPUT"
           # No `|| true`: if the API call fails we want this job to fail
           # loudly rather than silently decide the PR needs no review.
           files=$(gh api --paginate "repos/${REPO}/pulls/${PR_NUMBER}/files" --jq '.[].filename')
@@ -96,9 +102,16 @@ jobs:
     #      the checkout, only to fail red on every external contribution.
     #      Skip them cleanly instead.
     #   2. Skip PRs that only touch the drive/ mirror (see the job above).
+    #   3. Skip when ANTHROPIC_API_KEY is not configured. Without it the action
+    #      cannot authenticate and the job fails red on every PR — a missing
+    #      one-time setup step (.github/CLAUDE_GITHUB_SETUP.md) reported as if
+    #      the PR were broken. Same reasoning as gate 1: skip cleanly rather
+    #      than fail on a condition the PR author cannot fix. Once the secret
+    #      is added the job runs on the next PR with no further change here.
     if: >-
       github.event.pull_request.head.repo.full_name == github.repository &&
-      needs.changed-files.outputs.has_non_drive == 'true'
+      needs.changed-files.outputs.has_non_drive == 'true' &&
+      needs.changed-files.outputs.has_key == 'true'
     runs-on: ubuntu-latest
     # Cost control: a review that has not finished in 30 minutes is stuck.
     timeout-minutes: 30
