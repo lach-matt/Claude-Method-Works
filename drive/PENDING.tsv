@@ -2,15 +2,7 @@ repo_path	drive_id	drive_title	drive_size_bytes	source	reason
 The Method Materials/BUILD175-PARTS/W-184.md	1yeARKFKgaGoWU4dHqdy4Pp2kpx5nGv5v	W-184.md	5437	subfolder never walked by the original mirror	not yet transferred
 The Method Materials/CORPUS/DEFECT-CENSUS.tsv	1S3qB5QievN_fWN_nJnFZ0xQUz2CjSVGq	DEFECT-CENSUS.tsv	236171	subfolder never walked by the original mirror	not yet transferred
 The Method Materials/CORPUS/DEFERRED.md	1pRCN7rqRWmgks3fldFhulzeCFAzCdfUB	DEFERRED.md	384883	subfolder never walked by the original mirror	not yet transferred
-The Method Materials/CORPUS/LW1-MANIFEST.tsv	16GesqlScgSbMhpkMMifqqsfGnndDnGXm	LW1-MANIFEST.tsv	366	subfolder never walked by the original mirror	not yet transferred
-The Method Materials/CORPUS/LW1-README.md	1wvPUN4U35HyKatGpnD_5quRzywPwzsFs	LW1-README.md	2764	subfolder never walked by the original mirror	not yet transferred
-The Method Materials/CORPUS/LW1-ground-run.log	19187Rx0s6hvX6stIDtuRpCBALwJiUZD4	LW1-ground-run.log	294	subfolder never walked by the original mirror	not yet transferred
-The Method Materials/CORPUS/LW1-ground.py	1hfbTAWy2WDxDdSNcMk8ddStPdfu3XOTK	LW1-ground.py	6472	subfolder never walked by the original mirror	not yet transferred
-The Method Materials/CORPUS/MAIN_AUDIT.md	1ivK180gl_0CH4_wxZ4WivSegK2afRAWC	MAIN_AUDIT.md	39577	subfolder never walked by the original mirror	not yet transferred
-The Method Materials/CORPUS/MANIFEST.md	1BMQGBSMzqXBKUBNwj1Ky3A_QNVxbIlDm	MANIFEST.md	2728	subfolder never walked by the original mirror	not yet transferred
 The Method Materials/CORPUS/MANIFEST.tsv	1Fwi74o3C-Skynpw2bKzCtWoCuLZVfB4S	MANIFEST.tsv	22726	subfolder never walked by the original mirror	not yet transferred
-The Method Materials/CORPUS/MATH_AUDIT.md	1F3Dt7UCFrlf1kfxXBy0_gKGjZuYBHJmE	MATH_AUDIT.md	3451	subfolder never walked by the original mirror	not yet transferred
-The Method Materials/CORPUS/MEMBERS-126-concatenated.tsv	1zvtoYVTV-iJQrlBleLhItiSLCyu6gWzb	MEMBERS-126-concatenated.tsv	29050	subfolder never walked by the original mirror	not yet transferred
 The Method Materials/CORPUS/ORIGINAL-3B-TEXT.txt	1iQdvpMwHUaSa50Nny6F-AiOI71jR-5j3	ORIGINAL-3B-TEXT.txt	20633	subfolder never walked by the original mirror	not yet transferred
 The Method Materials/CORPUS/PHYS_AUDIT.md	1TG-eUycYqHNKAZE4W5O1XmfNGABRJydH	PHYS_AUDIT.md	2279	subfolder never walked by the original mirror	not yet transferred
 The Method Materials/CORPUS/POINTERS-BUILD14.json	1RBTdPB1dn_gN8OOdDSVDqRnKA44s-IR2	POINTERS-BUILD14.json	4103	subfolder never walked by the original mirror	not yet transferred
@@ -281,8 +273,6 @@ The Method Materials/CORPUS/verify.py	1-IRvIsb_rD_7jqA78b28MH80C5zu_jpR	verify.p
 The Method Materials/Claude Chats/conversations.json	1HDX_rVzgr_JYFylw5MhwFPGumLLj-lsc	conversations.json	388264753	subfolder never walked by the original mirror	exceeds GitHub's 100 MB per-file limit; needs Git LFS or external storage
 The Method Materials/Claude Chats/conversations__1S4_14PIRBPs39v0tetd98RHiU3JcEkaQ.json	1S4_14PIRBPs39v0tetd98RHiU3JcEkaQ	conversations.json	388264753	subfolder never walked by the original mirror	exceeds GitHub's 100 MB per-file limit; needs Git LFS or external storage
 The Method Materials/Claude Memories/b44b80ef-cbad-492a-8346-4f16631749fd.json	1cppac7EJr09oPAqteeL6k3ADCCCHByQ8	b44b80ef-cbad-492a-8346-4f16631749fd.json	77708	subfolder never walked by the original mirror	not yet transferred
-The Method Materials/Claude Metadata/login_history.json	1nBaVgDloymZBol_SDGu3NA50Mw4-J-77	login_history.json	1218	subfolder never walked by the original mirror	held back: Claude account records (login IPs / user identity) - mirror only on an explicit decision
-The Method Materials/Claude Metadata/users.json	1QehWgLn3--1uVCnWPxFr-ZYjpmAxnMek	users.json	142	subfolder never walked by the original mirror	held back: Claude account records (login IPs / user identity) - mirror only on an explicit decision
 The Method Materials/Claude Projects/019fa103-63c3-76c1-866c-db3ac181ccbd.json	15BwmlKoYpp-IGDV-Spi3sNF9RoarbL-F	019fa103-63c3-76c1-866c-db3ac181ccbd.json	342	subfolder never walked by the original mirror	not yet transferred
 The Method Materials/Claude Projects/019fb976-90a6-71ba-b0f5-e2951677c527.json	1iAuTX74NSgDIW2IfOj_K0YXMVluB7xyb	019fb976-90a6-71ba-b0f5-e2951677c527.json	15147010	subfolder never walked by the original mirror	above the ~6 MiB Drive-connector payload ceiling; use tools/drive_sync.py
 The Method Materials/Claude Projects/019fb977-df47-73ed-a16e-943c1591c491.json	19JqWBsSxWlr9R0cx-dXg9vfy0vbCVuBg	019fb977-df47-73ed-a16e-943c1591c491.json	63392	subfolder never walked by the original mirror	not yet transferred
