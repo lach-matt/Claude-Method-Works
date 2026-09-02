@@ -1,0 +1,3 @@
+id	verdict	reason
+718	not a defect	L11600 "[119, 918] m_e" is a live figure of the muon window with its §22.1.1 site (L5963/L5965); C7 regex artefact, precedents 678, 680-687 (r2-ch28a §3, §7)
+719	not a defect	same window, upper bound 918; live figure, sited at §22.1.1 (r2-ch28a §3, §7)

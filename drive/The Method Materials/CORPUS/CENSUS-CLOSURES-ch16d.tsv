@@ -1,0 +1,3 @@
+id	verdict	reason
+1180	not a defect	C9 'never' at L8553 is 'never the reverse', a stated direction of three reductions the body does not enumerate; the defect there is the unenumerated count word (16d-07), not the overgeneralisation token. Regex artefact of the C9 class.
+1181	not a defect	C9 'never' at L8569 is 'This book never has one', a universal over the book's own constructions. No printed inventory of constructions exists to sweep, so it is recorded UNMEASURABLE under docket 19's discipline rather than refuted. Regex artefact of the C9 class.

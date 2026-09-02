@@ -1,0 +1,16 @@
+
+# Mathematical Compendium — Phase 2 audit (reader perspective)
+
+| # | finding | status |
+|---|---|---|
+| M1 | 265 objects, 18 families, no duplicate ids; every family header count matches its contents. | Verified. |
+| M2 | Every object carries bold statement, italic gloss, grade line; every `depends on` and chain id resolves. | Verified. |
+| M3 | Eight source references pointed at main-volume sections that no longer exist (`M §20.5`, `§21.8.1`, `§21.8.2`, `§21.10.1`, `§21.10.4`, `§21.15`, `§22.9`, `§26.9`). All resolve at chapter + 2 — written before Part IV (Chapters 20–21) was inserted. | **Closed** — repointed (§22.5, §23.8.1, §23.8.2, §23.10.1, §23.10.4, §23.15, §24.9, §28.9). Same test to be run on every volume in Phase 3. |
+| M4 | 27 objects carried two PRIOR ART callouts jammed into one line; in 10 the second was a verbatim repeat. | **Closed** — repeats removed; the 17 distinct pairs split into two callouts. |
+| M5 | ASCII/Unicode drift in the same names: `Lambda-9`/`Λ₉`, `Lambda_spectra`/`Λ_spectra`, `<=`/`≤`, `phi(`/`φ(`, `--`/`—` (about 150 instances outside code spans). | **Closed** — normalised to the Unicode forms the volume otherwise uses; code spans untouched. |
+| M6 | "1 objects depend on it" (74). | **Closed.** |
+| M7 | `M.semi` was the one object absent from the bibliography (Murray & von Neumann 1936). | **Closed** — row added; 172 works. |
+| M8 | LS-family depths (15–17) are the build's assignment, not the author's. | **Closed — chat 39.** Every depth recomputed from the dependency graph (roots 0, depth = longest path in links): 265 objects, 265 printed depths, 0 unresolved dependencies, 18 roots, **0 mismatches**. LS reproduces as printed — `LS.ent` 15; `LS.coll`, `LS.pin`, `LS.asym`, `LS.quart`, `LS.twin` 16; `LS.law`, `LS.chord` 17. Confirmed, not reassigned. W-056. |
+| M9 | `T §5.1`, `T §6.5` reference the tower companion, not this set; unverifiable here. | Noted; no action. |
+| M8 (closed, chat 4) | Every `depends on` resolves (265 objects; 17 roots). Depths recomputed from the graph (roots 0, depth = links): 255 of 265 agree. `LS.law` 16→**17** (rests on `LS.coll`, `LS.twin` at 16); LS 15/16/17 otherwise confirmed. 3B depths were 1-based inside the family and counted non-objects ("tree", "§7.1"): shape 1→0, metric 2→1, pot 2→1, tri 4→1, JM 3→2, norm 3→2, five 3→2, def 5→3, index 6→4. Part V chain lines for LS (depth 17) and 3B (depth 9) were written deepest-first and mis-routed; rewritten root-first on the actual longest paths (LS.chord via `Q.final`, 17 links; 3B.index via `G.graph`, 4). Root dependents stale after the 3B merge: `L.c1` 3→4, `L.c2–c6, c8` 1→2, `L.c7` 2→3. Sixteen source fields carried a name twice ("Janet 1929; Janet 1929") — deduplicated. Register ↔ object: every cited entry exists (script); 13 LS/3B objects and a sample of 10 others match their entries by content. **Open for the author:** `3B.shape` has no dependency (Montgomery 2014/Hopf 1931) — it is a root, and the family preamble says "No new root"; Part I lists fourteen roots. Either `3B.shape` is a fifteenth root or it rests on something not named. | **Closed** except the 3B.shape question. |
+| M8 — 3B.shape (closed, chat 5) | Ruled stale: `3B.shape` entered as the eighteenth root; heading, front line (265 · 18 · 263 · 2) and preamble corrected; grade line in root form. Register 1739. | **Closed.** |

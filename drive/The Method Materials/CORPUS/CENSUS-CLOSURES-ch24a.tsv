@@ -1,0 +1,9 @@
+id	verdict	reason
+1216	not a defect	L10933 *never entered*: N, O and P are now rows L10956–L10958 of the E.1.2 table (r2-ch24b §6); the lineage row records the past state
+1217	not a defect	L10979 *has never changed*: depends = no is the section's own claim; the column is defined at E.1 L10914 and not printed in E.1.2 (precedent 678 class; INFERRED not measurable from the table)
+1218	not a defect	L10995 *never a value*: §32.1.4 L8989–L8990 states the same bound (r2-ch24b §4 print)
+1219	not a defect	L11009 *never coordinates*: register 332's statement restated; §32.1.4 L8989 the same
+1220	not a defect	L11013 heading *never printed*: the domain column is absent from every PP Q row (r2-ch24b §2, 34 only-PP lines read)
+1221	not a defect	L11014 *never printed*: same witness as 1220
+1222	not a defect	L11021 *never stated*: the constraint has no PP site in the appendix (r2-ch24b §2); R refutes it (r2-ch24a §4)
+1223	not a defect	L11026 *never resting on it*: E(Q) = 0 fibred reproduces under ℛ with no constraint applied (r2-ch24a §4, box A / B / F all 0)

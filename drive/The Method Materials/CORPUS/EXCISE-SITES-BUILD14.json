@@ -1,0 +1,664 @@
+{
+ "199": [
+  {
+   "file": "MAIN",
+   "line": 10605,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "202": [
+  {
+   "file": "MAIN",
+   "line": 964,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "210": [
+  {
+   "file": "MAIN",
+   "line": 10644,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 11217,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "269": [
+  {
+   "file": "MAIN",
+   "line": 10486,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 10488,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "287": [
+  {
+   "file": "MAIN",
+   "line": 970,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 7671,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 695,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 923,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "324": [
+  {
+   "file": "REGISTER",
+   "line": 599,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "341": [
+  {
+   "file": "REGISTER",
+   "line": 747,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 759,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 823,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "344": [
+  {
+   "file": "MAIN",
+   "line": 8947,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 11697,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 11700,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "358": [
+  {
+   "file": "MAIN",
+   "line": 3466,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "363": [
+  {
+   "file": "MAIN",
+   "line": 11377,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "366": [
+  {
+   "file": "MAIN",
+   "line": 11283,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "560": [
+  {
+   "file": "REGISTER",
+   "line": 1111,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5075,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "571": [
+  {
+   "file": "MAIN",
+   "line": 7708,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 9260,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 1567,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1000": [
+  {
+   "file": "REGISTER",
+   "line": 3447,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1013": [
+  {
+   "file": "REGISTER",
+   "line": 3243,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1149": [
+  {
+   "file": "MATH",
+   "line": 2748,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1223": [
+  {
+   "file": "REGISTER",
+   "line": 3935,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1257": [
+  {
+   "file": "MAIN",
+   "line": 10821,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 10826,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4203,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5801,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "MATH",
+   "line": 2820,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MATH",
+   "line": 3236,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "IOI",
+   "line": 1524,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1358": [
+  {
+   "file": "IOI",
+   "line": 1524,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1373": [
+  {
+   "file": "REGISTER",
+   "line": 4543,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4767,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "IOI",
+   "line": 1524,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1386": [
+  {
+   "file": "IOI",
+   "line": 1524,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1388": [
+  {
+   "file": "IOI",
+   "line": 1524,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1389": [
+  {
+   "file": "IOI",
+   "line": 1524,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1443": [
+  {
+   "file": "REGISTER",
+   "line": 4551,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4559,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4563,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4583,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4603,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4611,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4627,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4635,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4651,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4659,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4667,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 4875,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1537": [
+  {
+   "file": "REGISTER",
+   "line": 5120,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5156,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1565": [
+  {
+   "file": "REGISTER",
+   "line": 5413,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1571": [
+  {
+   "file": "REGISTER",
+   "line": 5288,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "MATH",
+   "line": 3432,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "PHYS",
+   "line": 838,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "PHYS",
+   "line": 849,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1572": [
+  {
+   "file": "REGISTER",
+   "line": 5264,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1594": [
+  {
+   "file": "REGISTER",
+   "line": 5336,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5465,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5477,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1640": [
+  {
+   "file": "REGISTER",
+   "line": 5533,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1650": [
+  {
+   "file": "REGISTER",
+   "line": 5625,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5629,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5637,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5665,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5669,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5677,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5689,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 5857,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1667": [
+  {
+   "file": "REGISTER",
+   "line": 5597,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1668": [
+  {
+   "file": "REGISTER",
+   "line": 5597,
+   "zone": "ENTRY-BODY",
+   "excised": true
+  }
+ ],
+ "1710": [
+  {
+   "file": "MAIN",
+   "line": 11898,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MATH",
+   "line": 2820,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MATH",
+   "line": 2870,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MATH",
+   "line": 2872,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "PHYS",
+   "line": 197,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "PHYS",
+   "line": 301,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "IOI",
+   "line": 1862,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1725": [
+  {
+   "file": "MAIN",
+   "line": 7363,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 11377,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1731": [
+  {
+   "file": "MAIN",
+   "line": 2238,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1732": [
+  {
+   "file": "REGISTER",
+   "line": 29,
+   "zone": "FRONT-MATTER",
+   "excised": true
+  }
+ ],
+ "1735": [
+  {
+   "file": "MAIN",
+   "line": 11510,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1756": [
+  {
+   "file": "MAIN",
+   "line": 7648,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 8802,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 9093,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "MAIN",
+   "line": 11224,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 29,
+   "zone": "FRONT-MATTER",
+   "excised": true
+  },
+  {
+   "file": "REGISTER",
+   "line": 70,
+   "zone": "FRONT-MATTER",
+   "excised": true
+  },
+  {
+   "file": "SPECTRA",
+   "line": 953,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ],
+ "1766": [
+  {
+   "file": "SPECTRA",
+   "line": 952,
+   "zone": "BOOK-PROSE",
+   "excised": true
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+# .gitattributes -- Claude-Method-Works
+#
+# This repository is a MIRROR of two Google Drive folders ("The Method Materials"
+# and "The Method Prints & Proofs"). Everything under drive/ is a byte-for-byte
+# copy of a Drive file, except Google-native docs, which are exported to Markdown.
+# drive/MANIFEST.tsv records the Drive md5 of each transferred file.
+#
+# That manifest is the reason this file is conservative about end-of-line
+# handling: any EOL rewriting by git would silently change bytes on checkout and
+# invalidate the recorded md5s. Six mirrored files really do contain CRLF because
+# that is what is in Drive (COORDINATES-2_13.csv, the MEASUREMENTS-DERIVED*.tsv
+# copies, and one exported .md). `text=auto` or `text eol=lf` would rewrite those
+# on the next checkout. So text types below are marked `-text diff`: no EOL
+# translation in either direction, but git still renders a readable textual diff
+# instead of "Binary files differ".
+
+
+# ---------------------------------------------------------------------------
+# Repo-wide default: never translate line endings, on any platform.
+# ---------------------------------------------------------------------------
+*                   -text
+
+
+# ---------------------------------------------------------------------------
+# drive/ -- binary payloads.
+# `binary` is git's built-in macro for `-text -diff`: no EOL translation and no
+# attempt to diff the contents.
+# ---------------------------------------------------------------------------
+drive/**/*.zip      binary
+drive/**/*.gz       binary
+drive/**/*.tar.gz   binary
+drive/**/*.pdf      binary
+drive/**/*.png      binary
+drive/**/*.jpg      binary
+drive/**/*.jpeg     binary
+
+
+# ---------------------------------------------------------------------------
+# drive/ -- text payloads.
+# Keep the bytes exactly as Drive served them (-text), but let git and GitHub
+# show a real line-by-line diff (diff).
+# ---------------------------------------------------------------------------
+drive/**/*.md       -text diff
+drive/**/*.tsv      -text diff
+drive/**/*.csv      -text diff
+drive/**/*.txt      -text diff
+drive/**/*.py       -text diff
+drive/**/*.log      -text diff
+drive/**/*.json     -text diff
+
+
+# ---------------------------------------------------------------------------
+# GitHub UI hygiene.
+# drive/ is mirrored content, not hand-authored source: keep it out of the
+# repository language statistics and collapse it by default in pull-request
+# diffs (still expandable, still searchable). Delete this line if you would
+# rather have drive/ counted as ordinary source.
+# ---------------------------------------------------------------------------
+drive/**            linguist-generated=true
+
+
+# ===========================================================================
+# Git LFS: NOT configured here, deliberately. Do NOT add `filter=lfs` lines.
+# ===========================================================================
+#
+# git-lfs is not installed in this environment, and every file under drive/ is
+# already committed as an ordinary git blob. Adding a line such as
+#
+#     drive/**/*.zip filter=lfs diff=lfs merge=lfs -text
+#
+# would NOT move those existing blobs into LFS. It would only instruct every
+# future clone to run a smudge/clean filter that (a) may not be installed and
+# (b) has no LFS objects on the server to fetch -- which breaks checkout for
+# everyone, including the owner. Attributes describe how git handles content;
+# they do not migrate content that is already in history.
+#
+# If drive/ keeps growing and LFS genuinely becomes necessary, see
+# docs/REPO-SIZE.md for the measured trigger points. The migration rewrites
+# history and must be done deliberately, on a quiet branch, after which every
+# collaborator has to re-clone:
+#
+#   1. Install git-lfs and enable it for the repo:
+#        git lfs install
+#   2. Rewrite history so the chosen paths become LFS pointers:
+#        git lfs migrate import --everything \
+#          --include="drive/**/*.zip,drive/**/*.gz,drive/**/*.pdf"
+#      `git lfs migrate import` writes the filter=lfs lines into this file
+#      itself -- that is the only correct way for them to appear here.
+#   3. Force-push the rewritten history; everyone else re-clones.
+#
+# Cheaper measures worth trying before an LFS migration, in order:
+#   - stop committing every intermediate BUILD snapshot; keep only the latest
+#   - publish the large archives as GitHub release assets (2 GB per asset) and
+#     keep only their MANIFEST.tsv row in git
+#   - drop the byte-identical duplicate copies (saves checkout size, but note
+#     that identical content already shares a single blob, so it saves almost
+#     nothing in the pack -- see docs/REPO-SIZE.md)

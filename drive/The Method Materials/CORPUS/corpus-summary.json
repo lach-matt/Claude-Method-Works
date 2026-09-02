@@ -1,0 +1,54 @@
+{
+  "n_members": 339,
+  "total_bytes": 7645907,
+  "by_ext": {
+    ".py": {
+      "n": 116,
+      "bytes": 1356365
+    },
+    ".md": {
+      "n": 79,
+      "bytes": 4776212
+    },
+    ".out": {
+      "n": 67,
+      "bytes": 1045694
+    },
+    ".tsv": {
+      "n": 57,
+      "bytes": 360024
+    },
+    ".json": {
+      "n": 11,
+      "bytes": 79441
+    },
+    ".log": {
+      "n": 7,
+      "bytes": 5351
+    },
+    ".txt": {
+      "n": 2,
+      "bytes": 22820
+    }
+  },
+  "bundles": {
+    "BUILD90_main": {
+      "title": "The_Method_1_6_BUILD90_main_and_register.md",
+      "fileId": "1lJ9R3vqAz3TNriJOyxJIKJGh5HqwY7GH",
+      "md5": "49065309b0c4fe8e055f693aed295cca",
+      "bytes": 1983081,
+      "lines": 18470,
+      "n": 2,
+      "roundtrip": "49065309b0c4fe8e055f693aed295cca"
+    },
+    "BUILD179_compendia": {
+      "title": "The_Method_1_6_BUILD179_compendia_papers_audits.md",
+      "fileId": "1X317KPEdk7Jvv6jTDMFEUsgXA2adhNk9",
+      "md5": "6251dc1351f165aef874b9cf4d8a45c1",
+      "bytes": 5683169,
+      "lines": 64753,
+      "n": 337,
+      "roundtrip": "6251dc1351f165aef874b9cf4d8a45c1"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+id	verdict	reason
+1	not a defect	L7584 *The earlier version's Figure 15.3, since withdrawn, drew a line labelled "floor V = 2"* — the pointer is unplaced because the figure IS withdrawn and the sentence says so; the register block's subject is the withdrawal. C3 regex artefact (r2-25b §2; range L7481-7677)
+704	not a defect	same site L7584: the withdrawn figure's number survives because the entry is the record OF the withdrawal — the book's own §28.7.3 block. C7 artefact, precedents 678, 680-687
+705	not a defect	L7604 *112-118* is a register entry-number range, not a withdrawn line number; the C7 regex reads the block's own item numbering. Precedent 1067, 1069
+706	not a defect	L7604, same lead-in: 118 is an entry number of §28.7.3's block (and is printed twice — recorded as 25b-08, a numbering defect, not a withdrawal survival)
+707	not a defect	L7604 71.8 is a live figure — the measured V against a predicted 8N, printed by the entry that corrects the prediction. C7 artefact
+1161	not a defect	L7552 *two table rows never computed* — the flagged word is inside the correction's own statement of what was not done, not an overgeneralisation by the book. C9 artefact
+1162	not a defect	L7556 *"Self-consistency never defends against invention." It does.* — the word is inside a QUOTED claim the register is refuting in the next two words. C9 artefact
+1163	not a defect	L7567 same quoted claim re-cited inside the 84-86 entry, again with its refutation. C9 artefact
+1164	not a defect	L7569 *The index was never deceived* is the entry's verdict, carried by 200 of 200 refusals printed in the same line. A measured universal, witnessed. C9 artefact
+1165	not a defect	L7637 *never carried across* states of one correlation that it was not carried — a fact about a single object, not a universal. C9 artefact
