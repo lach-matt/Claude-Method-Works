@@ -14,19 +14,21 @@ The full walkthrough is [Route 2](#route-2--toolsdrive_syncpy-run-locally-recomm
 
 ## 1. What is already mirrored
 
-Drive holds **823 files** across the two mirrored folders. They arrived in the repo in three waves,
-and it matters which is which, because each has a different reason for being incomplete:
+**819 of the 823 Drive files across the two mirrored folders are in `drive/`, each verified by md5
+against the copy Drive served.** Four remain outstanding.
 
-| Group | Files | Where it is recorded |
+Getting there took two passes, and the difference between them is the whole lesson of this document:
+
+| Pass | Route | Result |
 | --- | --- | --- |
-| Inventoried by the first mirroring pass | 444 | `drive/MANIFEST.tsv` |
-| Added to Drive *after* that pass ran | 18 | `drive/PENDING.tsv` |
-| In six subfolders the first pass never walked | 361 | `drive/PENDING.tsv` |
+| First | Claude Drive connector, from a chat session | 413 files, and a wrong idea of the total |
+| Second | [Colab](#route-4--google-colab-if-you-would-rather-install-nothing), mounting Drive as a filesystem | 283 more files in one run, all byte-exact |
 
-The six subfolders missed entirely were `CORPUS` (346 files), `BUILD175-PARTS`, `Claude Memories`,
-`Claude Metadata`, `Claude Projects` and `Claude Chats`. The five folders that *were* mirrored are
-intact: every one of the 444 manifest rows was re-checked against Drive and each is still present,
-in the folder its `repo_path` implies, with no size drift and no md5 mismatch.
+The first pass missed more than it knew. It never walked six subfolders of "The Method Materials"
+(CORPUS with 346 files, BUILD175-PARTS, Claude Memories, Claude Metadata, Claude Projects and
+Claude Chats, 361 files between them), 18 files were added to Drive after it ran, and 31 files were
+above a payload ceiling it could not cross. What it did mirror was sound: all 444 of its rows
+re-checked against Drive with no drift and no md5 mismatch.
 
 ### The two inventories
 
