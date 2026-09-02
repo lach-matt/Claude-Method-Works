@@ -1,0 +1,166 @@
+name: Claude Code Review
+
+# Automatic, read-only Claude review on every pull request, driven by the
+# `code-review` plugin skill from the official claude-code plugin marketplace.
+#
+# Prerequisites that CANNOT be done from this file (repo admin must do them):
+#   1. Install the Claude GitHub App: https://github.com/apps/claude
+#   2. Add a repo secret: ANTHROPIC_API_KEY (or CLAUDE_CODE_OAUTH_TOKEN — see below)
+#   3. Merge this file to the default branch (`main`).
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+
+# One review per PR, queued rather than superseded.
+#
+# Do NOT set cancel-in-progress: true here. This job is read-only with respect
+# to git — it makes no commits and pushes no branches — but it is NOT free of
+# side effects: it posts inline comments to the PR as it works. Cancelling it
+# mid-run leaves a PARTIAL review on the PR, and the code-review skill skips
+# any PR that already carries a Claude comment. The replacement run (and every
+# run after it) would therefore see that comment and skip, stranding a
+# truncated review of an older commit on the PR forever.
+#
+# Queuing costs one extra run that cheaply self-skips; cancelling costs
+# correctness.
+concurrency:
+  group: claude-code-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  # ---------------------------------------------------------------------
+  # Repo-specific guard: does this PR touch anything outside `drive/`?
+  #
+  # This repository is a ~508 MB mirror of Google Drive folders under `drive/`
+  # — PDFs, ZIPs, tar.gz archives and exported documents. Most PRs here are
+  # pure content drops. Running an LLM review over a half-gigabyte checkout of
+  # binaries produces nothing useful and burns Actions minutes and API tokens,
+  # so we skip those runs.
+  #
+  # This is deliberately a JOB-LEVEL gate rather than an `on.pull_request.
+  # paths-ignore:` filter. Event-level path filters are evaluated against a
+  # truncated file list on large PRs, and the characteristic PR here is exactly
+  # the case that breaks: a bulk drop of hundreds of `drive/` files that also
+  # touches one file elsewhere. Because the PR file list is path-ordered,
+  # everything sorting after `drive/` (scripts/, README.md, …) can fall past
+  # the cap, the filter sees only `drive/**`, and the workflow is never created
+  # at all — the one file that needed review silently gets none, with no check
+  # to signal it. `gh api --paginate` below sees every changed file (the REST
+  # endpoint returns up to 3000; this repo has ~415 files in total).
+  #
+  # A second benefit: a job skipped by `if:` reports "skipped" and satisfies a
+  # required status check, whereas a workflow never created by a path filter
+  # leaves that check pending forever.
+  #
+  # Tradeoffs, stated plainly:
+  #   - A PR that ONLY touches drive/ gets no review. That is the intent, but
+  #     it does mean a genuinely bad content drop (wrong folder, leaked
+  #     credentials inside a document, a 2 GB file) passes unreviewed.
+  #   - The gate filters on path, not on size, so a huge binary added outside
+  #     drive/ still triggers a full review.
+  #   - A mixed PR (drive/ content plus a workflow or README change) IS
+  #     reviewed, and Claude then sees the whole diff, drive/ files included —
+  #     the diff comes from the PR API, not from the local checkout.
+  # ---------------------------------------------------------------------
+  changed-files:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      has_non_drive: ${{ steps.check.outputs.has_non_drive }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          # No `|| true`: if the API call fails we want this job to fail
+          # loudly rather than silently decide the PR needs no review.
+          files=$(gh api --paginate "repos/${REPO}/pulls/${PR_NUMBER}/files" --jq '.[].filename')
+          if printf '%s\n' "$files" | grep -qv '^drive/'; then
+            echo "has_non_drive=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_non_drive=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  claude-review:
+    needs: changed-files
+    # Two gates:
+    #   1. Fork PRs get no secrets and no `id-token: write` (it is downgraded
+    #      to read for fork events), so the action cannot authenticate by
+    #      either path. Without this the run is still created and still pays
+    #      the checkout, only to fail red on every external contribution.
+    #      Skip them cleanly instead.
+    #   2. Skip PRs that only touch the drive/ mirror (see the job above).
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      needs.changed-files.outputs.has_non_drive == 'true'
+    runs-on: ubuntu-latest
+    # Cost control: a review that has not finished in 30 minutes is stuck.
+    timeout-minutes: 30
+
+    # Read-only review. Claude posts its findings through the action's
+    # github_inline_comment MCP server, not through these token scopes, so
+    # `pull-requests: read` is sufficient — it does not need write.
+    # `id-token: write` IS required: the action uses OIDC to authenticate as
+    # the Claude GitHub App.
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: read
+      id-token: write
+
+    # NOTE: no extra `if:` condition is needed to filter out draft, closed, or
+    # trivial PRs. The action already skips draft PRs, closed PRs, PRs it
+    # judges trivial, and PRs that already carry a Claude review comment.
+    # Adding our own guard for those would be redundant and would drift from
+    # upstream behaviour. (The `if:` above is a different matter: it is about
+    # runs that cannot authenticate or have nothing to review at all, which the
+    # action can only discover after the run has already cost us a runner.)
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+          # `drive/` is ~508 MB of Drive binaries. This job only runs for PRs
+          # that changed something outside it, and with fetch-depth: 1 there is
+          # no base commit on disk anyway — the diff comes from the PR API (see
+          # the `prompt` below), not from local git. So never materialize those
+          # blobs: it is minutes of billed runner time for bytes nothing reads.
+          sparse-checkout: |
+            /*
+            !/drive/
+          sparse-checkout-cone-mode: false
+
+      - name: Run Claude Code Review
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+
+          # Using a Claude Pro/Max/Team/Enterprise subscription instead of an
+          # API key? Delete the line above and uncomment the one below, then
+          # store the output of `claude setup-token` as CLAUDE_CODE_OAUTH_TOKEN.
+          # claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+          # Deliberately NOT passing `github_token`: omitting it lets the
+          # action authenticate as the Claude GitHub App.
+
+          plugin_marketplaces: "https://github.com/anthropics/claude-code.git"
+          plugins: "code-review@claude-code-plugins"
+
+          # `prompt` puts the action in automation mode — it runs on the
+          # pull_request event with no @claude mention. `--comment` tells the
+          # skill to post its findings on the PR: inline comments per finding,
+          # or a single summary comment when there are none.
+          prompt: "/code-review:code-review --comment ${{ github.repository }}/pull/${{ github.event.pull_request.number }}"
+
+          # REQUIRED, even though the code-review skill's own frontmatter names
+          # this same tool: the action only starts the github_inline_comment
+          # MCP server when --allowedTools names it. Drop this line and the
+          # review runs but has no way to post inline comments.
+          claude_args: '--allowedTools "mcp__github_inline_comment__create_inline_comment"'
