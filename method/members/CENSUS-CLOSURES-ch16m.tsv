@@ -1,0 +1,6 @@
+id	verdict	reason
+1184	not a defect	C9 regex artefact: the flagged token *never* is the section's own claim, not an overgeneralisation (CLAUDE.md precedent 678, 680-687, 1067, 1069)
+1185	not a defect	C9 regex artefact: the flagged token *never* is the section's own claim, not an overgeneralisation (CLAUDE.md precedent 678, 680-687, 1067, 1069)
+1186	not a defect	C9 regex artefact: the flagged token *never* is the section's own claim, not an overgeneralisation (CLAUDE.md precedent 678, 680-687, 1067, 1069)
+1187	not a defect	C9 regex artefact: the flagged token *never* is the section's own claim, not an overgeneralisation (CLAUDE.md precedent 678, 680-687, 1067, 1069)
+1188	not a defect	C9 regex artefact: the flagged token *never* is the section's own claim, not an overgeneralisation (CLAUDE.md precedent 678, 680-687, 1067, 1069)

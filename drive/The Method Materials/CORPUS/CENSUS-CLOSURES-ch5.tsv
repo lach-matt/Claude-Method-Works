@@ -1,0 +1,4 @@
+id	verdict	reason
+678	not a defect	"2.21" on L1500 is the section pointer §2.21 in the table row for that protocol (regex artefact on a line containing "withdrawn")
+679	not a defect	"374" on L1500 is the Register pointer reg. 374 for §2.21 (regex artefact); the pointer resolves (Register L1385)
+1043	not a defect	L1504 "never learned from a failure" is Register 421's finding (L1569) and P16 names no Register entry (grep: L1569 only)

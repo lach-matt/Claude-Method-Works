@@ -1,0 +1,9 @@
+id	verdict	reason
+1033	not a defect	L1151 "an expression always exists" is backed in the same sentence by §15.2 (L4286–4290: envelopes recoverable, ℛ(Λ) = Λ, "Always succeeds") — READ-ch3 §B
+1034	not a defect	L1177 "almost never" is quantified in the same sentence — four of 132 (Register 415 L1545) — READ-ch3 §B
+1035	not a defect	L1241 "never let a sampled figure stand" is the protocol's imperative, not a claim of fact
+1036	not a defect	L1344 "coordinates that were never printed" is history closed by L1114/L1116–1138 (the table is now printed) and Register 376
+1037	not a defect	L1345 "precedences that were never printed" is history closed by L1305–1313 and Register 377
+1038	not a defect	L1358 "A result whose input was never printed passes every one of them" is §3.7.1's reasoning about SCOPE/ARITHMETIC/ENUMERATION, consistent with the table's presupposes column
+1039	not a defect	L1405 "three of the twenty-one have never fired": Register grep — no entry records a catch by ANTECEDENT, ARITHMETIC or REPRODUCTION (capitalised names after Register 422 are ordinary words) — READ-ch3 §B; the count word "twenty-one" is READ-ch3 3-21
+1040	not a defect	L1420 "An audit that has never returned a failure is indistinguishable from one that cannot" is a stated principle (§4.6), not a count

@@ -1,0 +1,4 @@
+name	bytes	md5	purpose
+ground.py	6472	236975ac23aa29960d4f7c2a4d200cd6	object 3 (1306): NIST ASD 5.12 GSIE ground configurations Z=1-108, as produced
+ground-run.log	294	6bc5a6196d6de9348b6618fb92d27fe4	expected output of python3 ground.py, the golden to bank
+README.md	2764	fe8c1f52c8c6a7920f7b79ee3e359fde	delivery notes, status of all twelve objects, run commands

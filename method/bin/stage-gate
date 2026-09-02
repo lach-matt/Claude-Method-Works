@@ -1,0 +1,26 @@
+#!/bin/sh
+# Stage the repo's method/ tree at /home/claude so the gate can run.
+#
+# Why this is needed: census.py is a seated bundle member and hard-codes
+# '/home/claude/members/' and '/home/claude/DEFECT-CENSUS.tsv'. Seated members are
+# append-only and are never edited in place, so the tree moves to the tool rather
+# than the tool to the tree. gate.py itself is location-independent (it derives
+# HOME as the parent of members/), so only `gate.py census` depends on this.
+#
+# Symlinks, not copies: instruments and goldens written during a chat land in the
+# repository, where the close will commit them.
+set -e
+REPO=$(cd "$(dirname "$0")/../.." && pwd)
+mkdir -p /home/claude
+rm -rf /home/claude/members
+ln -s "$REPO/method/members" /home/claude/members
+for b in The_Method_1_6_BUILD90_main_and_register.md The_Method_1_6_BUILD180_compendia_papers_audits.md; do
+    rm -f "/home/claude/$b"
+    ln -s "$REPO/method/$b" "/home/claude/$b"
+done
+rm -f /home/claude/DEFECT-CENSUS.tsv "$REPO/method/DEFECT-CENSUS.tsv"
+# census.py writes /home/claude/DEFECT-CENSUS.tsv (hard-coded), but gate.py looks for it
+# beside members/ — which Python resolves back into the repo. Link the two together.
+ln -s /home/claude/DEFECT-CENSUS.tsv "$REPO/method/DEFECT-CENSUS.tsv"
+rm -rf "$REPO/method/members/__pycache__"
+echo "staged: /home/claude/members -> $REPO/method/members"

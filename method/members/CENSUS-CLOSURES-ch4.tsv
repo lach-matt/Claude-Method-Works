@@ -1,0 +1,3 @@
+id	verdict	reason
+1041	not a defect	L1449 "a reading the source never made" is the mechanism's name (4.8), not a claim of fact
+1042	not a defect	L1463 "a book that never defined them" is stated as history of an earlier form and is Register 655's finding (L2425)

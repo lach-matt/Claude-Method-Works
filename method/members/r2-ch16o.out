@@ -1,0 +1,146 @@
+
+================================================================================================
+0.  CONVENTIONS, fixed before any figure is scored
+================================================================================================
+  cells        len(L8_at(caps)) -- the tower member at those caps
+  alphabet A_i unique realised values of coordinate i over the cells
+  ambient box  prod |A_i| over the 8 coordinates (11.1.1 / 12.11's 'ambient box')
+  fill         cells / ambient box, percent, quantize 2dp HALF_UP
+  generators   |J(L)|, the join-irreducibles: cells with exactly one lower cover in L
+  surplus      |J| - log2(cells)   [DERIVED from L2149: 976 of 131,072 = 2^17 seventeen-bit
+               words gives 17 - log2(976) = 7.069 -> 7.07, the figure 11.1.1 states]
+  rank         sum of the 8 coordinates            [tested against 'eighteen antichains, the
+  rank levels  number of distinct rank values       largest 122 at rank 11' (L2474) before use]
+  widest level max cells sharing one rank value
+  reflection   x -> (max_i - x_i) coordinate-wise, max_i over the cells (L1887, L10154)
+  E(X)         |Rset(X)| - |X|, Rset = r2lib's 6.1 reconstruction
+  factorises   factor_q(X) == 0, i.e. sum_q |src fibre|*|tgt fibre| == |X|
+
+================================================================================================
+1.  32.4.2 L9126-L9133 -- the cap-variation table, seven rows x four settings
+================================================================================================
+  caps (3, 3, 1, 3, 1): cells 976  box 6,912  ranks 3..20  widest at rank 11
+  caps (4, 4, 1, 6, 1): cells 8,853  box 131,712  ranks 3..34  widest at rank 19
+  caps (4, 4, 2, 6, 2): cells 19,109  box 296,352  ranks 3..36  widest at rank 20
+  caps (5, 5, 2, 6, 2): cells 35,789  box 463,050  ranks 3..38  widest at rank 21
+
+  cells       printed [976, 8853, 19109, 35789]                    measured [976, 8853, 19109, 35789]                    EXACT
+  generators  printed [17, 31, 33, 35]                             measured [17, 31, 33, 35]                             EXACT
+  fill        printed ['14.12%', '6.72%', '6.45%', '7.73%']        measured ['14.12%', '6.72%', '6.45%', '7.73%']        EXACT
+  ranklev     printed [18, 32, 34, 36]                             measured [18, 32, 34, 36]                             EXACT
+  widest      printed [122, 704, 1497, 2742]                       measured [122, 704, 1497, 2742]                       EXACT
+  surplus     printed ['7.07', '17.89', '18.78', '19.87']          measured ['7.07', '17.89', '18.78', '19.87']          EXACT
+  reflect     printed [8, 16, 17, 68]                              measured [8, 16, 17, 68]                              EXACT
+
+================================================================================================
+2.  32.4.2 count words against their own tables
+================================================================================================
+  values table L9127-L9133: 7 data rows -> ['cells', 'generators', 'fill', 'rank', 'widest', 'surplus,', 'reflection']
+  identity table L9141-L9145: 5 data rows
+      L9141  E(Λ) = 0                                        at every setting
+      L9142  \|J(Λ)\| = Σ(\|Aᵢ\| − 1)                            at every setting
+      L9143  closed under join and meet                      at every setting teste
+      L9144  rank(a∨b) + rank(a∧b) = rank(a) + rank(b)       at every setting teste
+      L9145  the cylinder factorises over the transfer       at every setting
+
+  L9135 prints "Nine of nine move."          rows measured = 7  DEVIATION -- the table names 7
+  L9147 prints "Six of six identities hold" rows measured = 5  DEVIATION -- the table names 5
+  second reading, "closed under join and meet" counted as two identities: 6 -- reaches six
+  second reading for the values, every distinct figure in the table body counted (7 rows x 4 settings = 28); no reading of the table reaches nine.
+
+================================================================================================
+3.  32.4.2 L9141-L9145 -- the five printed identities, tested at all four settings
+================================================================================================
+  caps (3, 3, 1, 3, 1)  n=976
+      E(L) = 0                       HOLDS
+      |J| = 17   sum(|A_i|-1) = 17   HOLDS
+      join/meet closed: 0 leaks, exhaustive 475,800 pairs  HOLDS
+      rank(a v b)+rank(a ^ b)=rank(a)+rank(b): 0 failures  HOLDS
+      cylinder factorises over the transfer: factor_q = 0  HOLDS
+  caps (4, 4, 1, 6, 1)  n=8,853
+      E(L) = 0                       HOLDS
+      |J| = 31   sum(|A_i|-1) = 31   HOLDS
+      join/meet closed: 0 leaks, BUDGET 200,000 random pairs (seed 122) of 39,183,378  HOLDS
+      rank(a v b)+rank(a ^ b)=rank(a)+rank(b): 0 failures  HOLDS
+      cylinder factorises over the transfer: factor_q = 0  HOLDS
+  caps (4, 4, 2, 6, 2)  n=19,109
+      E(L) = 0                       HOLDS
+      |J| = 33   sum(|A_i|-1) = 33   HOLDS
+      join/meet closed: 0 leaks, BUDGET 200,000 random pairs (seed 122) of 182,567,386  HOLDS
+      rank(a v b)+rank(a ^ b)=rank(a)+rank(b): 0 failures  HOLDS
+      cylinder factorises over the transfer: factor_q = 0  HOLDS
+  caps (5, 5, 2, 6, 2)  n=35,789
+      E(L) = 0                       HOLDS
+      |J| = 35   sum(|A_i|-1) = 35   HOLDS
+      join/meet closed: 0 leaks, BUDGET 200,000 random pairs (seed 122) of 640,408,366  HOLDS
+      rank(a v b)+rank(a ^ b)=rank(a)+rank(b): 0 failures  HOLDS
+      cylinder factorises over the transfer: factor_q = 0  HOLDS
+
+  NOTE on the fourth identity: rank is the coordinate sum (fixed in section 0 and confirmed
+  against L2474 by 18 levels with 122 widest at rank 11).  Componentwise max + min = a + b
+  in every coordinate, so rank(a v b) + rank(a ^ b) = rank(a) + rank(b) is ENTAILED by the
+  third identity: wherever join and meet stay inside the lattice the fourth cannot fail.
+  It is an exact identity, not an independent test, and the table prints the two in the
+  same voice and with the same "tested by pairs" qualifier.
+
+================================================================================================
+4.  32.4 L9069-L9077 -- the recursion table, occupancy against cells and alphabets
+================================================================================================
+  0 - the index            cells 10  alphabets [4, 4]  box 16  printed 0.625  measured 0.625  EXACT
+  1 - claims about it      cells 10  alphabets [10, 7]  box 70  printed 0.143  measured 0.143  EXACT
+  2 - claims about those   cells 10  alphabets [10, 10]  box 100  printed 0.100  measured 0.100  EXACT
+  3                        cells 10  alphabets [10, 10]  box 100  printed 0.100  measured 0.100  EXACT
+
+  L9079 prints "Closure, dimension and E are invariant from level 1."
+  measured from the table itself: closed = yes and E = 0 at levels 0,1,2,3; the number of
+  alphabets (the dimension) is 2 at levels 0,1,2,3.  All three are invariant from level 0,
+  not from level 1 -- the sentence understates its own table.  What changes at level 1 is
+  occupancy (0.625 -> 0.143) and the alphabets ([4,4] -> [10,7]), which are exactly the two
+  the same paragraph says stabilise "by level 2, not level 1".  CONSISTENT but understated.
+
+================================================================================================
+5.  32.4.1 L9100-L9108 -- the closure-operator proof, corroborated as the book corroborates it
+================================================================================================
+  CONVENTION: ambient box = the 8 coordinate value sets of L8_at((3,3,1,3,1)); a random
+  subset is 3..40 cells drawn uniformly without replacement; 3,000 draws, seed 122;
+  extensive/monotone/idempotent tested per draw exactly as the proof states them.
+  extensive  failures 0 / 3,000        ZERO
+  monotone   failures 0 / 3,000        ZERO
+  idempotent failures 0 / 3,000        ZERO
+
+  fixed points closed under intersection: 3,000 random pairs of fixed points, seed 122.
+  non-empty meets 2,955 / 3,000 (98.5%)   book prints 2,873 / 3,000 (95.8%)
+  closure failures on the meets: 0   ZERO, as printed
+  NOTE the 2,873 is a draw-dependent count, not an invariant: it is reproducible only with
+  the original seed and sampler.  Recorded as corroborated in kind, not matched exactly.
+
+================================================================================================
+6.  32.4.1 L9093-L9098 -- chi is a product of seven Heaviside steps, and has no negation
+================================================================================================
+  ambient box 6,912 cells; L8_at((3,3,1,3,1)) has 976
+  the seven inter-coordinate factors + the five caps cut the box to 976  EXACT against the lattice
+  factors printed: seven.  Factors measured in the construction: 7  EXACT
+      l <= n - 1     binding: relaxing it admits   308 further cells   BINDING
+      k <= 4l + 2    binding: relaxing it admits   564 further cells   BINDING
+      q <= k         binding: relaxing it admits   575 further cells   BINDING
+      f <= e - 1     binding: relaxing it admits   200 further cells   BINDING
+      g <= 4f + 2    binding: relaxing it admits    24 further cells   BINDING
+      g <= q         binding: relaxing it admits   673 further cells   BINDING
+      2S <= k        binding: relaxing it admits   300 further cells   BINDING
+  every factor is an upper bound of one coordinate by a monotone function of another:
+    available max, min, <=  -- no factor uses complement, negation or implication.  The
+    sentence at L9093-L9098 is EXACT on the construction as tower-2.py builds it.
+
+================================================================================================
+7.  32.3 L9045-L9047 and L9055 -- the audit figures, sited across the volume
+================================================================================================
+  102 (digit-bounded)                          5 sites  [3981, 5259, 8733, 8783, 9045]
+  "102 quantitative"                           1 sites  [9045]
+  thirty (word)                                7 sites  [1530, 1679, 8816, 9046, 9282, 11364, 11405]
+  one thousand six hundred and thirty-five    15 sites  [20, 89, 104, 202, 523, 646, 3514, 7367, 7900, 8918, 9055, 9364, 9376, 9381, 10296]
+  1,635 / 1635 digits                          1 sites  [7373]
+
+  Chapter 28 own statement of the failing-level count (lines matching "failed" in 28):
+  chapter 28 span (body): (7366, 7856)
+      L7538  63–64. Two audit-harness errors. A sign convention that failed a true identity, and a matched-order
+      L7554  **72–73. Language-independence, denied then restored.** Deletion-repair was recorded as failing in geometry. **The con

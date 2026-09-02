@@ -1,0 +1,136 @@
+
+================================================================================================
+0  UNIT main L9806–L9891 (body_range-bounded; see r2-ch17c §0); a pointer is resolved to the CLAIM, not the heading
+================================================================================================
+  §35.4 L9806; §35.5 L9858; §35.6 L9872; §36 body L9892; unit 86 lines
+  post-PP: stated once in r2-ch17c §0; not diffed here
+
+================================================================================================
+1  POINTERS — every "Chapter N" / "§N" / "§X.N" token in the unit, its line, and where the claim lives
+================================================================================================
+  tokens: L9810:§2.14 L9815:§2.14 L9827:§E.5 L9884:Chapter 34
+  §2.14 (L657–L661) for L9810–L9811 "§2.14 … State the number before the interpretation"; L9815 "That is §2.14 with teeth":
+     computed before                              1 hits L658 The result is computed before the sentence describing it is written.
+     number before                                0 hits 
+     \bprotocol\b                                 1 hits L660 **This is the protocol most often violated in the production of this book.** The
+  §34 (L9494–L9715) for L9884 "Chapter 34 read the order out of the table's own coordinates":
+     \bcoordinates?\b                             3 hits L9530 **Raw occupancy makes every one worse.** *The law needs no new coordinate.* | L9553 **That is the screening statement appearing as a fact about the coordinates**, a
+     \border\b.*\btable\b|\btable\b.*\border\b    0 hits 
+  §2.14 body_range L(657, 662) (5 lines): the maxim is the book's paraphrase of §2.14, repeated at L29 and L7668 (r2-ch17c §1); the pointer resolves to the claim
+  §E.5 (L9827): heading [11143] '### E.5 Precedence, pushed as far as it goes'; its DATA and totals line are r2-ch17c §2's (eleven rows under "Nine components")
+
+================================================================================================
+2  ATTRIBUTIONS — names in the unit against the References body and R.7 (word-bounded)
+================================================================================================
+  References body heading L11503 (occurrences [173, 11503]); R.7 heading [11806]
+  Pulay    unit sites [9832, 9842, 9868, 9874]; References body 1; R.7 1
+  Löwdin   unit sites [9833, 9868]; References body 4; R.7 4
+  Griffin  unit sites [9834]; References body 2; R.7 2
+  Andrew   unit sites [9834]; References body 3; R.7 2
+  Cowan    unit sites [9834]; References body 4; R.7 2
+  R.7 section (L11806–): first lines: ### R.7 What is not cited, and why | **The Löwdin solution.** Entered at registers 1701–1712. The companion | · Löwdin, P.-O. (1969). Some comments on the periodic system of the el
+  unnamed sources in the unit: "the man who posed the question" (L9876) = Löwdin (L9722 "The challenge posed in 1969"; References L11809 Löwdin 1969): True
+
+================================================================================================
+3  RULING 45 (process remarks) with the section's declared subject; RULING 46; FIRST PERSON (mine, myself carried)
+================================================================================================
+  §35.4's heading: '### 35.4 How the method did it'; its opener L9808: '*This is the section the book exists for.*' — the declared subject is how the method ran on the Löwdin problem
+  R45 candidate session      L[9823]: re-verified before a session touched it. **The audit reads the object, the
+  R45 candidate instrument   L[9810]: **§2.14 became a cryptographic instrument.** *State the number before the
+  R45 candidate instruments  L[9820]: solution's instruments therefore carried mandatory failure modes: a deliberate
+  R45 candidate ruling       L[9830, 9853]: remained, the ruling was to *pose them as questions and search before any solve.* | refusals — a ruling that halted computation when computation had become the
+  R45 candidate review       L[9854]: comfortable wrong direction, and a review that saw a figure repeating where the
+  R45 candidate archive      L[9822]: computation path. And every archive was reopened from its own sealed copy and
+  R45 candidate nightly      L[9825]: principle, running nightly on a physics derivation.
+  R45 candidate hash         L[9813]: file — the inequality, its direction, its tolerance — bound by a hash before any
+  R45 candidate file         L[9813]: file — the inequality, its direction, its tolerance — bound by a hash before any
+  R45 candidate ledger       L[9829, 9846]: closed by obeying that ledger in advance: when three numerical discrepancies | all.** Two entries that began in the fault ledger ended reclassified as
+  R45 candidate protocol     L[9812]: hardened into protocol: every quantitative claim was preceded by a prediction
+  R45 candidate collaborator L[9851]: collaborator's note names it: reasoning sound, destination wrong, fixable only by
+  "this book" self-reference sites in the unit: L[9811, 9819, 9843, 9847, 9855, 9879]
+  R46: backticked tokens 0; ".py" 0; "BUILD" 0; script/file names 0
+  first person (case-sensitive I): zero
+  the four refusals at L50–L55 carry "I concluded / I wrote / I called" — front matter, out of unit (a note from the collaborator, contents L108); recorded, not scored here
+
+================================================================================================
+4  COUNT WORDS — each against the rows it counts (r2-ch17c carries the arithmetic)
+================================================================================================
+  nine things (L9827) → §E.5 ledger rows                     11 (totals line says nine) — DEVIATION, r2-ch17c §2
+  twenty-two audits (L9824) → §3 ten-list + twelve names     10 + 12 = 22 — EQUAL; seven described (docket 33)
+  three discrepancies / all three (L9829, L9831)             3 items — EQUAL
+  twice / Two entries (L9838, L9846)                         2 items — EQUAL
+  five evaluations (L9845)                                   5 coefficients of a quartic — EQUAL
+  Four … refused; the fifth (L9855–L9856)                    4 enumerated at L50–L55 — EQUAL
+  Three of the load-bearing works are dated 1969 (L9874)     3 References lines dated 1969 — EQUAL
+  nineteen years (L9876)                                     1969 − 1950 = 19 — EQUAL
+  the three exceptions (L9863)                               1703: La, Ac, Th — EQUAL
+  the five close rows (L9865)                                1705: Z = 38, 56, 72, 89, 105 — EQUAL (1705 says "contested"; the unit says "close")
+  eleven elements apart (L9866)                              1706: 11 — EQUAL
+  twelve unwitnessed rows (L9867)                            1712: 12 (109–120); under 1446's edge at 102: 18 — 17a-02's class, second site
+  twelve (L9867) vs "the last measurement"                   convention unnamed at the site
+
+================================================================================================
+5  STRUCTURE — bold lead-ins read (not headings); the italic opener; the table; the rules; the italic coda; unmarked sub-heading test
+================================================================================================
+  bold lead-in paragraphs: 7 -> L9810 §2.14 became a cryptographic instrument. | L9818 The audits learned to read the artefact. | L9827 Search before deriving closed the endgame. | L9838 A nothing was defined rather than discarded, twice. | L9850 And the class no structure catches was caught the only way it can be. | L9870 No parameter is fitted. No observation enters upstream of the score. | L9874 Three of the load-bearing works are dated 1969
+  L9808 italic one-liner: '*This is the section the book exists for.*' (an opener, not a heading)
+  L9870 bold one-liner: '**No parameter is fitted. No observation enters upstream of the score.**' (a claim, not a heading; DEF-128 item 8: the derivation's own, not a 16z-01 site — 16z-01 sites L9596, L9659 recorded, not scored twice)
+  horizontal rules "---" in unit: L[9882, 9890]; italic coda L9884–L9888: starts "*" True, ends ".*" True
+  table L9860–L9868: 9 lines (header, rule, 7 DATA rows); header cells: ['delivered', 'rests on']
+  unmarked sub-heading candidates (short line, blank above and below): zero
+  headings in unit: [(9806, '### 35.4 How the method did it'), (9858, '### 35.5 The provenance'), (9872, '### 35.6 The coda the record earned')]
+  quotation marks in unit: [(9816, 'solution\'s answer to "could this have been fitted."')]
+
+================================================================================================
+6  THE COMPANION PAPER — member THE-LOWDIN-SOLUTION-2.md against §35.4–§35.6
+================================================================================================
+  first heading: '# THE LÖWDIN SOLUTION'; lines 261
+  \bPulay\b                        paper lines [197, 223, 250]
+  \bquartic\b                      paper lines [199]
+  five evaluations                 paper lines [199]
+  \bhash\b                         paper lines [78]
+  sealed                           paper lines []
+  \bnightly\b                      paper lines []
+  \bLöwdin\b.{0,40}1950|1950       paper lines [13, 201, 223, 249]
+  \bGriffin\b                      paper lines [124, 126, 223, 243, 244]
+  \bfitted\b                       paper lines [21]
+  upstream                         paper lines []
+  \bg block\b                      paper lines [13, 47, 112, 114, 214, 221]
+  109–120|109-120                  paper lines [13, 154]
+
+================================================================================================
+7  SINGLE-WITNESS CHECK (docket 17) — the unit's phrases with one site in six volumes; the Register's phrasing
+================================================================================================
+  cryptographic instrument       main:1[9810] reg:0 mc:0 pc:0 ioi:0 sc:0
+  prediction file                main:0 reg:2[5882,5890] mc:0 pc:0 ioi:0 sc:0
+  mandatory failure modes        main:1[9820] reg:0 mc:0 pc:0 ioi:0 sc:0
+  sealed copy                    main:1[9822] reg:1[6351] mc:0 pc:0 ioi:0 sc:0
+  twenty-two audits              main:5[79,1004,1140,1399,9824] reg:1[4593] mc:0 pc:0 ioi:1[271] sc:0
+  nine things                    main:3[68,4051,9827] reg:0 mc:0 pc:0 ioi:0 sc:0
+  search before                  main:4[70,9827,9830,11210] reg:0 mc:0 pc:0 ioi:0 sc:0
+  force-versus-gradient          main:1[9832] reg:0 mc:0 pc:0 ioi:0 sc:0
+  operator asymmetry             main:1[9832] reg:1[6375] mc:0 pc:0 ioi:0 sc:0
+  two-branch                     main:2[9799,9834] reg:0 mc:0 pc:0 ioi:0 sc:0
+  non-orthogonality              main:2[9833,11810] reg:1[6375] mc:1[3194] pc:0 ioi:0 sc:0
+  defending something else       main:2[59,9839] reg:0 mc:0 pc:0 ioi:0 sc:0
+  no g block                     main:4[9763,9840,9864,10801] reg:2[5345,6359] mc:1[3178] pc:1[219] ioi:0 sc:0
+  exactly quartic                main:1[9844] reg:1[6379] mc:1[3198] pc:0 ioi:0 sc:0
+  five evaluations               main:1[9845] reg:1[6379] mc:1[3198] pc:0 ioi:0 sc:0
+  fault ledger                   main:1[9846] reg:0 mc:0 pc:1[303] ioi:0 sc:0
+  converted into structure       main:2[23,9847] reg:2[1225,6383] mc:0 pc:0 ioi:0 sc:0
+  destination wrong              main:2[54,9851] reg:0 mc:0 pc:0 ioi:0 sc:0
+  the pinned channels            main:1[9864] reg:0 mc:0 pc:0 ioi:0 sc:0
+  twin walk                      main:1[9866] reg:0 mc:0 pc:0 ioi:0 sc:0
+  unexplained residue            main:1[9868] reg:1[6283] mc:1[3206] pc:0 ioi:0 sc:0
+  No parameter is fitted         main:3[9596,9659,9870] reg:1[5073] mc:0 pc:0 ioi:0 sc:0
+  upstream of the score          main:1[9870] reg:0 mc:0 pc:0 ioi:0 sc:0
+  nineteen years                 main:1[9876] reg:1[6375] mc:0 pc:0 ioi:0 sc:0
+  reached from both ends         main:1[9888] reg:0 mc:0 pc:0 ioi:0 sc:0
+  Register bodies 1707–1711 (the audit and the residues), first 120 chars each:
+    1707  PRIOR ART — THE WALK'S ONE SYSTEMATIC DEFECT IS A PULAY TERM, PUBLISHED THE YEAR THE CHALLENGE WAS POSED. The Hellmann–F
+    1708  PRIOR ART — THE OPERATOR ASYMMETRY IS LÖWDIN'S OWN 1950 IDENTITY, AND IT CLOSES THE LAST GAP. For eigenstates of differe
+    1709  A HYPOTHESIS FALSIFIED BY THE CLAUSE THAT SCORED HIT — KEPT, AS HONESTY REQUIRES. The residual above the linear rotation
+    1710  ABSENT
+    1711  ZERO RESIDUE — THE AUDIT OF THE INSTRUMENT CLOSES AT NOTHING LEFT UNEXPLAINED. chord = rot + perp exactly; rot = linear 
+
+END r2-ch17d

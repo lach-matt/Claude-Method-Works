@@ -1,0 +1,97 @@
+r2-ch24a — Appendix E part 1 (lead, E.1–E.1.5, E.2), computable claims; conventions named inline
+§1 unit `## Appendix E` L10898 to `### E.3` L11054 − 1 = 156 lines (whole appendix to `## Appendix F` L11222: 324 lines); headings 8 ['Appendix', 'E.1', 'E.1.1', 'E.1.2', 'E.1.3', 'E.1.4', 'E.1.5', 'E.2']
+   blank 34, code-indented 4, `|`-rows 0, non-blank 122
+§2 E.1 table L10910–L10914: header [10909], DATA rows 5 ['domain', 'blocks', 'obstacle', 'cost', 'depends']; 2-space-only rows []
+   value counts: {'domain': 4, 'blocks': 4, 'obstacle': 3, 'cost': 3, 'depends': 3} ; kinds: {'domain': 'fibre', 'blocks': 'ordered', 'obstacle': 'ordered', 'cost': 'ordered', 'depends': 'ordered'} ; ordered × ordered box (4 coordinates) 108 ; with depends constant (all *no*) 36
+   [2-space row] L10931: ≥3-space gives 2 columns, ≥2-space gives 3: ['§12.11.7 and the repairs of register 211', '15', 'four by the tower, L and M by Appendices E and F']
+§3 E.1.1 table: DATA rows 6 at L10929–L10934; 2-space-only rows []
+   L10929 §32.2, asserted | 7 | an assertion, not an enumeration
+   L10930 E.4.1, enumerated and closed | 8 | the assertion indexed and checked
+   L10931 §12.11.7 and the repairs of register 211 | 15 | four by the tower, L and M by Appendices E and F
+   L10932 after E, J and L closed | 12 | the self-duality count and the four-cap check with them
+   L10933 E.1.2, as first listed | 13 | N, O and P entered, having been named and never entered
+   L10934 **E.1.2, current** | 14 | R entered — |Cl(ℛ)| for Λ, register 461
+   item column [7, 8, 15, 12, 13, 14] ; recomputations = rows − 1 = 5 (E.1.1 L10922 prints *five times*; the lead L10905 prints *six times*)
+   *three live item counts — eight at E.4, fifteen here, thirteen at E.1.2*: 8, 15, 13 all in the item column: True ; `### E.4.1` heading token *eight*: 1 ; the lead L10905 prints *nine items; eight closed … thirteen*: 9 in column: False
+   [2-space row] L10945: ≥3-space gives 5 columns, ≥2-space gives 6: ['item', 'question', 'blocks', 'obstacle', 'cost', 'domain']
+   [2-space row] L10956: ≥3-space gives 3 columns, ≥2-space gives 4: ['N', 'whether anyone has lattice-ordered the seniority scheme', '**CLOSED — no; the scheme is ordered by group–subgroup chains, and Racah recorded in 1954 that the chain needs three running indices to separate states. Registers 562–564.**', 'mathematical']
+§4 E.1.2 table: rows with ≥3-space gap 15, DATA rows 14 at L10946–L10959; 2-space-only rows []
+   L10946 A | one claim · nonexistent · unbounded | physical
+   L10947 B | nothing · retrievable · days | bibliographic
+   L10948 C | nothing · retrievable · unbounded | bibliographic
+   L10949 D | one claim · retrievable · days | computational
+   L10950 F | nothing · buildable · days | mathematical
+   L10951 G | nothing · retrievable · hours | bibliographic
+   L10952 H | one claim · retrievable · days | physical
+   L10953 I | one claim · retrievable · days | physical
+   L10954 K | CLOSED | mathematical
+   L10955 M | CLOSED | computational
+   L10956 N | CLOSED | mathematical
+   L10957 O | CLOSED | mathematical
+   L10958 P | one claim · retrievable · hours | physical
+   L10959 R | one claim · buildable · unbounded | mathematical
+   items 14 (heading *ten open of 14*: 14 = True); open 10 ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'P', 'R']; closed 4 ['K', 'M', 'N', 'O']; letters absent from A–R: ['E', 'J', 'L', 'Q']
+   per-domain counts (14 rows): {'physical': 4, 'bibliographic': 3, 'computational': 2, 'mathematical': 5} ; without R (Register 1729: physical 4, bibliographic 3, mathematical 4, computational 2): {'physical': 4, 'bibliographic': 3, 'computational': 2, 'mathematical': 4}
+   obstacle values over the 10 open rows: {'nonexistent': 1, 'retrievable': 7, 'buildable': 2} (E.1.4 L10989 prints *Eleven items: one nonexistent, two buildable, eight retrievable*)
+   blocks values over the open rows: {'one claim': 6, 'nothing': 4} ; *novelty* rows: 0; *six of the thirteen* fell to nothing — nothing-rows now printed: 4 (the four closed rows print no blocks value: the six cannot be re-taken from the page)
+   fourteen-state (the ten open rows): distinct cells 8 of 10; occupied value sets blocks [0, 2] obstacle [0, 1, 2] cost [0, 1, 2] → box A = 18 cells (E.1.4 prints 18)
+   ℛ·A    unfibred E = 3 ; fibred by domain E = 0 {'physical': 0, 'bibliographic': 0, 'computational': 0, 'mathematical': 0}
+   ℛ·B    unfibred E = 3 ; fibred by domain E = 0 {'physical': 0, 'bibliographic': 0, 'computational': 0, 'mathematical': 0}
+   ℛ·F    unfibred E = 3 ; fibred by domain E = 0 {'physical': 0, 'bibliographic': 0, 'computational': 0, 'mathematical': 0}
+   box·A  unfibred E = 10 ; fibred by domain E = 5 {'physical': 3, 'bibliographic': 0, 'computational': 0, 'mathematical': 2}
+   box·B  unfibred E = 19 ; fibred by domain E = 10 {'physical': 6, 'bibliographic': 0, 'computational': 0, 'mathematical': 4}
+   printed: E.1.5 L11028 *At fourteen, fibred and unconstrained, E(Q) = 0*; E.1.2 L10962 *E(Q) = 0 in all four domain fibres and 1 unfibred* (register 256, the thirteen); E.1.3 L10969 *the unfibred figure is 4*; register 465: R as *nothing* took unfibred E 4 → 3
+   with R as register 465 entered it (nothing · buildable · unbounded): unfibred ℛ·A E = 1, box·A E = 10; mathematical fibre box·A E = 0, ℛ·A E = 0 (E.1.5: *the mathematical fibre admits one cell … which is the cell R now occupies*)
+   constraint *buildable ⟹ cost ≤ days*: refuting open rows ['R'] (E.1.5: *Item R refutes it*)
+   E.1.4 *grows the ambient box from 18 cells to 24 and takes E from 4 to 10*: |box A| = 18 → 24; box-defect E = 10 → 16; ℛ-defect E = 3 → 3 (a value no item occupies is covered by no φ) — on the CURRENT ten rows; E.1.4 narrates eleven items
+   the thirteen-state (register 256; E.1.5 *the record's thirteen reproduce the record: E(Q) = 0 fibred, 1 unfibred*) needs K, M, N, O's coordinates: printed in E.1.2? False — not re-takeable from this unit (E.3 is part 2)
+   *depends = no* for every item: the E.1.2 table prints no depends column (E.1 row L10914 says the coordinate exists); column headers: ['item', 'question', 'blocks', 'obstacle', 'cost', 'domain']
+§5 E.2: 25.96 / 0.0164 = 1583 (ROUND_HALF_UP to units; printed *1,585-fold*); exact 1582.93
+   §23.10 body L6434–L6437 span L6434–L6518: {'1,585': (0, 1), '25\\.96': (0, 1), '0\\.0164': (0, 2), '(?<![\\d,])518(?![\\d,])': (0, 0), '(?<![\\d,])34(?![\\d,])': (0, 2), '(?<![\\d,])157(?![\\d,])': (0, 2), '3\\.2 ?× ?10': (0, 3), '(?<![\\d,])560(?![\\d,])': (0, 1), 'zero failures': (0, 1), '100 ?%': (0, 1)}
+   §23.11 body L6519–L6532 span L6519–L6548: {'interior optimum': (0, 0), 'monoton': (0, 0), 'admissibility cap': (0, 0), 'k\\*|\\*k\\*': (0, 0)}
+   §26.6 body L7172–L7193 span L7172–L7193: {'\\(p ?− ?1\\)|\\(\\*p\\*−1\\)': (0, 0), 'Richardson': (0, 0), 'm ?= ?1': (0, 0), '1/\\|': (0, 0)}
+   §29.8 body L8083–L8097 span L8083–L8097: {'Gr(ö|o)bner': (0, 0), '(?<![\\d,])eight(?![\\d,])': (0, 0), 'E\\(claim set\\) ?= ?0|reduces? to zero': (0, 0)}
+   §11.8.1 body L2282–L2303 span L2282–L2303: {'F\\(−1\\) ?= ?2|F\\(-1\\) ?= ?2': (1, 1), 'two values': (0, 0), 'F_box\\(−1\\)|F_box\\(-1\\)': (1, 1)}
+   §16.7 body L4574–L4577 span L4574–L4658: {'0\\.972': (0, 0), '0\\.154': (0, 0), '7 ?%': (0, 0), 'N\\[φ': (0, 0), 'descendants': (0, 0)}
+   §23.10 *1,585* sites in the volume: [6514, 11037] ; *25.96*: [6509, 11037] ; *0.0164*: [6511, 6517, 11038]
+   §26.6 body L7172–L7193 (22 lines) — printed for r2-ch24b to read the operator; the identity is scored only against the section's own definition
+§6 Register entries cited by the unit (heading line, WARNING lines, grouped heading if none):
+   211: heading 867; WARNING []; grouped -; numeral sites -
+   239: heading None; WARNING []; grouped []; numeral sites [5189, 5866, 6503]
+   256: heading None; WARNING []; grouped []; numeral sites [1335, 6447, 6507, 6511, 6515, 6519]
+   307: heading 1147; WARNING []; grouped -; numeral sites -
+   332: heading 1231; WARNING []; grouped -; numeral sites -
+   371: heading 1371; WARNING []; grouped -; numeral sites -
+   372: heading 1375; WARNING []; grouped -; numeral sites -
+   382: heading 1415; WARNING []; grouped -; numeral sites -
+   461: heading 1707; WARNING []; grouped -; numeral sites -
+   465: heading 1723; WARNING []; grouped -; numeral sites -
+   562: heading 2103; WARNING []; grouped -; numeral sites -
+   563: heading 2107; WARNING []; grouped -; numeral sites -
+   564: heading 2111; WARNING []; grouped -; numeral sites -
+   1729: heading 6445; WARNING []; grouped -; numeral sites -
+   register-citation sites in the unit (lowercase and capitalised, by hand): [(10931, ['register 211']), (10934, ['register 461']), (10937, ['Register 307']), (10943, ['register 239']), (10956, ['Registers 562–564']), (10962, ['Register 256']), (10969, ['register 371']), (10984, ['Register 372']), (11009, ['register 332']), (11011, ['Register 382']), (11014, ['register 256']), (11018, ['register 256']), (11029, ['Register 465']), (11031, ['Register 465']), (11034, ['Register 1729'])]
+§7 lead L10904–L10906: *nine items; eight closed at E(Q) = 0 with four entered by §12.11.7; thirteen* vs lineage column [7, 8, 15, 12, 13, 14]: 9 present False, 8 True, 13 True; *four by the tower* row: ['four by the tower, L and M by Appendices']
+   E.1.3 *has held at seven, eight, twelve, thirteen and eleven items*: 7/8/12/13 in column True; eleven is the post-K/O state (13 − 2) not a lineage row: 11 in column False
+   E.1.4 *Eleven items*, E.1.3 *eleven items*, E.1.5 *the thirteen* — states narrated: 11 (K, O closed; M restated; N open; R absent) and 13; current table 14 rows / 10 open
+§5b E.2 figures — every site in the volume (line, section): 
+   1,585              1 sites outside the unit: [(6514, '23.10.4')]
+   25.96              1 sites outside the unit: [(6509, '23.10.4')]
+   0.0164             2 sites outside the unit: [(6511, '23.10.4'), (6517, '23.10.4')]
+   518                0 sites outside the unit: []
+   157                5 sites outside the unit: [(3993, '14.5.11'), (4048, '14.5.13'), (6461, '23.10.2'), (6481, '23.10.2'), (7587, '28.7.3')]
+   3.2 × 10⁶          4 sites outside the unit: [(6463, '23.10.2'), (6465, '23.10.2'), (6481, '23.10.2'), (7587, '28.7.3')]
+   560 tests          5 sites outside the unit: [(6266, '23.4.2'), (6448, '23.10.1'), (7419, '28.3'), (7562, '28.7.3'), (9324, '32.7')]
+   interior optimum   1 sites outside the unit: [(6550, '23.12')]
+   admissibility cap  1 sites outside the unit: [(6566, '23.12')]
+   Richardson         2 sites outside the unit: [(8051, '29.7'), (11638, '36.6')]
+   (p−1)              4 sites outside the unit: [(7546, '28.7.2'), (8589, '30.4.1'), (11638, '36.6'), (11640, '36.6')]
+   Gröbner            6 sites outside the unit: [(403, '-'), (408, '-'), (458, '-'), (5565, '20.1'), (7523, '28.7.1'), (8585, '30.4.1')]
+   basis of eight     0 sites outside the unit: []
+   0.972              1 sites outside the unit: [(4721, '16.8.4')]
+   0.154              1 sites outside the unit: [(4721, '16.8.4')]
+   descendants        4 sites outside the unit: [(4721, '16.8.4'), (4724, '16.8.4'), (4731, '16.8.4'), (4784, '16.8.6')]
+   F(−1) = 2          4 sites outside the unit: [(13, '-'), (771, '2.16.2'), (2282, '11.8.1'), (8591, '30.4.1')]
+§8 Λ: register 461 *73, 146 and 731 closed subsets of ambients at 8, 9 and 16 cells*; *2⁹⁷⁶ by brute force*; tower-2 attributes present: ['FMAX', 'L10', 'L11', 'L12', 'L13', 'L8', 'L9', 'PHI', 'STAGES']
+   register 461 *73, 146 and 731 closed subsets of ambients at 8, 9 and 16 cells* *2⁹⁷⁶ by brute force* (976 = |Λ₈|, tower-2.out): ['|Λ8| = 976']
+done

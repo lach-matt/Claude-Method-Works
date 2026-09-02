@@ -1,0 +1,6 @@
+id	verdict	reason
+1226	not a defect	C9 never at L11237: F.1's own definition (a quantity arrives as a kind at a point of a ground) — the section's own claim, precedent 678 / 1217; r2-ch26b §5
+1227	not a defect	C9 never at L11260: clause (i) of F.2's definition of a fibring — the section's own claim; r2-ch26b §5
+1228	not a defect	C9 without exception at L11298: the scope statement of F.3's rule — the section's own claim; the quantifier *several* in the same sentence is scored as 26b-04 (Register matches 0), not against this row; r2-ch26a §5, r2-ch26b §4
+1229	not a defect	C9 never at L11318: F.3.1's own rule (the extent is never printed as a property of the object); r2-ch26b §5
+1230	not a defect	C9 never at L11330: a heading word (F.4.1's title); the ratios it names are Register 296's; r2-ch26b §5

@@ -1,0 +1,12 @@
+id	verdict	reason
+1215	not a defect	L10836 *had never been entered here* — chat 136's verdict re-confirmed from the file (r2-23a §3: no Chapter-34 object among the 65 of D.5.9)
+1536	defect	L10806 3B.shape — object handle in a reader-facing volume (label form, docket 28); chat 136's verdict, unchanged
+1537	defect	L10807 3B.metric — as 1536
+1538	defect	L10809 3B.pot — as 1536
+1539	defect	L10810 3B.norm — as 1536
+1540	defect	L10811 3B.five — as 1536
+1541	defect	L10812 3B.tri — as 1536
+1542	defect	L10813 3B.def — as 1536
+1543	defect	L10814 3B.index — as 1536
+1544	defect	L10822 3B.five in prose — as 1536
+1545	defect	L10822 3B.pot in prose — as 1536

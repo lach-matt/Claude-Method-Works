@@ -1,0 +1,4 @@
+id	verdict	reason
+# no DEFECT-CENSUS.tsv row falls in main L8347-L8450.  Witnessed: id 1179 at L8303 and id 1180 at
+# L8553 sit either side and their ids are contiguous, so no row in range was missed.  Keyed on the
+# column named `member`, whose values are all, ioi, main, mc, pc, reg, sc.

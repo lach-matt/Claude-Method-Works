@@ -1,0 +1,170 @@
+  unit L11503–L11855 (353 lines); the volumes tested: main (outside the unit), reg, mc, pc, ioi, sc
+
+== §0 PP `# References` (LAST hit) to the end of PP, diffed with section numbers stripped BOTH sides; PP's R.n headings and entry counts
+  PP References P11067–P11372 (306 lines); body lines main 260, PP 227, shared 218, only-main 42, only-PP 9
+  only-main lines (42): [(11606, 'the three defects repaired. Its computed claims were recomputed '), (11617, 'Rydberg, J. R. (1890). The term formula T = Z²R/ν². — the object'), (11664, 'Rota, G.-C. (1964). Z. Wahrscheinlichkeitstheorie 2, 340. — the '), (11665, 'the crosscut theorem, which §A.9 uses to show μ vanishes off Boo'), (11807, '**The Löwdin solution.** Entered at registers 1701–1712. The com'), (11809, '· Löwdin, P.-O. (1969). Some comments on the periodic system of '), (11810, '· Löwdin, P.-O. (1950). On the non-orthogonality problem. *J. Ch'), (11811, '· Koelling, D. D. & Harmon, B. N. (1977). *J. Phys. C* **10**, 3'), (11812, '· Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). *Phys. Re'), (11813, '· Pulay, P. (1969). *Mol. Phys.* **17**, 197. — the occupation-p'), (11814, '· Gerratt, J. & Mills, I. M. (1968). *J. Chem. Phys.* **49**, 17'), (11815, '· Madelung, E. (1936). *Die Mathematischen Hilfsmittel des Physi'), (11816, '· Lach, M. (2026). *The Löwdin Solution.* — the companion paper;'), (11818, '**The three-body problem.** Entered at registers 1713–1724. Hill'), (11820, '· Montgomery, R. (2014). The three-body problem and the shape sp'), (11821, '· Montgomery, R. (1998). *Nonlinearity* **11**, 363; (2002). *Ar'), (11822, '· Chenciner, A. & Montgomery, R. (2000). *Ann. Math.* **152**, 8'), (11823, '· Hsiang, W.-Y. & Straume, E. (2006). arXiv:math-ph/0608060. — k'), (11824, '· Euler, L. (1767). *Novi Comm. Acad. Sci. Petrop.* **11**, 144;'), (11825, '· Lagrange, J.-L. (1770–71). *Mém. Acad. Berlin.* — the resolven'), (11826, '· Maupertuis (1744); Jacobi, C. G. J. (1837). *C. R. Acad. Sci.*'), (11827, '· Chazy, J. (1922). *Ann. Sci. École Norm. Sup.* **39**, 29. — t'), (11828, '· Saari, D. G. (1971). *Trans. AMS* **162**, 267; (1973) **181**'), (11829, '· Fleischer, S. & Knauf, A. (2019). *Arch. Ration. Mech. Anal.* '), (11830, '· Painlevé, P. (1897). *Leçons sur la théorie analytique des équ'), (11831, '· McGehee, R. (1974). *Invent. Math.* **27**, 191. — triple coll'), (11832, '· Kolmogorov (1954); Arnold (1963); Moser (1962, 1973). — the KA'), (11833, '· Alekseev, V. M. (1968–69). *Math. USSR Sbornik* **5–7**. — qua'), (11834, '· Brudno, A. A. (1983). *Trans. Moscow Math. Soc.* **2**, 127. —'), (11835, '· Marchal, C. & Saari, D. G. (1975). *Celest. Mech.* **12**, 115'), (11836, '· Monaghan, J. J. (1976a, b). *MNRAS* **176**, 63; **177**, 583;'), (11837, '· Stone, N. C. & Leigh, N. W. C. (2019). *Nature* **576**, 406; '), (11838, '· Moore, C. (1993). *Phys. Rev. Lett.* **70**, 3675. — braids in'), (11839, '· Montanari, U. (1974). *Inf. Sci.* **7**, 95; Baker & Pixley (1'), (11840, '· Lach, M. (2026). *The Three-Body Problem for Unknown Masses.* '), (11848, "**The companions' own bibliographies.** The Mathematical Compend"), (11849, 'objects — 162 works, 1669 to 2026, ordered by year with the obje'), (11850, 'are the works listed above; the remainder are the attributions o'), (11851, 'Leibniz 1682, Euler 1748, Gauss 1809, Moore 1910, Birkhoff 1940 '), (11852, 'rest on and this volume uses without citing, as it uses a metre.'), (11853, 'not repeated here (register 1736). The two companion papers carr'), (11854, 'two blocks are the works the chapters rest on, not those lists.')]
+  only-PP lines (9): [(11121, 'R.1 Spectroscopic data'), (11147, 'R.2 Exotic systems and collective quantities'), (11155, 'R.3 Series structure and quantum defects'), (11170, 'the three defects repaired at register 344. Its computed claims '), (11181, 'Rydberg, J. R. (1890). The term formula T = Z²R/ν². — the object'), (11194, 'R.4 Bounds, acceleration and the cost of rigour'), (11220, 'R.5 Order, lattices and closure'), (11343, 'R.6 Cited in the transfer tests'), (11367, 'R.7 What is not cited, and why')]
+  PP headings in its References: [(11067, '# References')]
+  PP's lead-in line position: [(11118, 'Every work cited in this book, with what it is cited for. En')] (main L11554 sits AFTER two bold blocks and BEFORE R.1)
+  PP lines carrying `Atomic coupling schemes` / `Constraint satisfaction, consistency`: [(11069, '**Atomic coupling schemes and the provenance of le'), (11090, '**Constraint satisfaction, consistency and closure')]
+
+== §1 docket 36, direction 1: every name owed by the docket (chats 113–140) against the References body; sites outside the unit per volume (word-bounded, case-sensitive)
+  Habib         References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Nourine       References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Thierry       References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Kurucz        References body 0; outside {'main': 6} ← OWED (cited, unbibliographed)
+  VALD          References body 0; outside {'main': 4, 'reg': 1} ← OWED (cited, unbibliographed)
+  BRASS         References body 0; outside {'main': 3, 'reg': 1} ← OWED (cited, unbibliographed)
+  Hasse         References body 0; outside {'main': 2} ← OWED (cited, unbibliographed)
+  QSAR          References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  NextClosure   References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Roche         References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Titius        References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Bode          References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Regge         References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Hagedorn      References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Gröbner       References body 0; outside {'main': 7, 'ioi': 1} ← OWED (cited, unbibliographed)
+  Klemm         References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Knaster       References body 0; outside {'main': 1, 'reg': 1} ← OWED (cited, unbibliographed)
+  Tarski        References body 0; outside {'main': 1, 'reg': 2, 'mc': 11} ← OWED (cited, unbibliographed)
+  Schrödinger   References body 0; outside {'main': 5, 'reg': 7, 'pc': 2, 'ioi': 1} ← OWED (cited, unbibliographed)
+  Demkov        References body 0; outside {'main': 1, 'reg': 7} ← OWED (cited, unbibliographed)
+  Ostrovsky     References body 0; outside {'main': 1, 'reg': 7} ← OWED (cited, unbibliographed)
+  Klechkovskii  References body 0; outside {'main': 1, 'reg': 1} ← OWED (cited, unbibliographed)
+  Pauli         References body 0; outside {'main': 22, 'reg': 33, 'mc': 58, 'pc': 5, 'ioi': 10, 'sc': 5} ← OWED (cited, unbibliographed)
+  Seaton        References body 0; outside {'main': 1, 'reg': 38, 'mc': 28, 'pc': 17, 'ioi': 5, 'sc': 2} ← OWED (cited, unbibliographed)
+  Pulay         References body 1; outside {'main': 4, 'reg': 1, 'mc': 4} present
+  Griffin       References body 2; outside {'main': 1, 'reg': 3, 'mc': 9, 'pc': 2, 'ioi': 1} present
+  Andrew        References body 3; outside {'main': 2, 'reg': 4, 'mc': 15, 'pc': 2, 'ioi': 1} present
+  Cowan         References body 4; outside {'main': 2, 'reg': 4, 'mc': 17, 'pc': 2, 'ioi': 1} present
+  Xia           References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
+  Routh         References body 0; outside {} not cited anywhere
+  Fourier       References body 0; outside {'main': 1, 'reg': 1, 'mc': 1} ← OWED (cited, unbibliographed)
+  Motzkin       References body 0; outside {'main': 1, 'reg': 2, 'mc': 1} ← OWED (cited, unbibliographed)
+  Borchers      References body 0; outside {'main': 3, 'reg': 18, 'mc': 13, 'ioi': 1} ← OWED (cited, unbibliographed)
+  Wiesbrock     References body 0; outside {'main': 4, 'reg': 14, 'mc': 12, 'ioi': 1} ← OWED (cited, unbibliographed)
+  Hadamard      References body 0; outside {'main': 1, 'reg': 19, 'mc': 7, 'pc': 2, 'ioi': 1} ← OWED (cited, unbibliographed)
+  Rota          References body 1; outside {'main': 1, 'mc': 20} present
+  Birkhoff      References body 2; outside {'main': 12, 'reg': 11, 'mc': 94} present
+  Freuder       References body 3; outside {'main': 10, 'reg': 8, 'mc': 56, 'ioi': 2} present
+  Montanari     References body 2; outside {'main': 2, 'reg': 1, 'mc': 4, 'ioi': 1} present
+
+== §2 docket 36, direction 2: every surname in the References body against the six volumes (a surname followed by an initial, `&`, `and`, a comma, an en dash or a year bracket; markup stripped); names cited nowhere else
+  surnames extracted 156 (convention above; a STOP list of journal/title words is applied and printed in the source)
+  cited in the References and NOWHERE in the six volumes (8): ['Duquenne', 'Huang', 'Nash', 'Physikers', 'Ralchenko', 'Reader', 'Std', 'Team']
+  extraction artefacts among them (title/organisation words, not surnames): ['Physikers', 'Std', 'Team']
+    Huang       outside the unit: NONE
+    Taylor      outside the unit: {'reg': 1, 'mc': 6}
+    Duquenne    outside the unit: NONE
+    Guigues     outside the unit: NONE
+    Nash        outside the unit: NONE
+    Ralchenko   outside the unit: NONE
+    Reader      outside the unit: NONE
+    Sharp       outside the unit: {'main': 1}
+    Stephen     outside the unit: {'main': 1}
+    Kimura      outside the unit: {'main': 1, 'reg': 2, 'mc': 1}
+    Makino      outside the unit: {'main': 1, 'reg': 1}
+    Dunz        outside the unit: {'main': 10, 'reg': 1}
+    Runge       outside the unit: {'main': 1}
+    Paschen     outside the unit: {'main': 11, 'reg': 4}
+    Götze       outside the unit: {'main': 11, 'reg': 3}
+    Manski      outside the unit: {'main': 5}
+    Nörlund     outside the unit: {'main': 1}
+    Steffensen  outside the unit: {'main': 1}
+    Seki        outside the unit: {'main': 2, 'mc': 1}
+    Larson      outside the unit: {'main': 6, 'reg': 1}
+    Tucker      outside the unit: {'main': 5}
+    Lubiw       outside the unit: {'main': 2, 'reg': 4}
+    Hoffman     outside the unit: {'main': 2, 'reg': 3}
+    Kandula     outside the unit: {'main': 1, 'reg': 1}
+    Drake       outside the unit: {'main': 1, 'reg': 1, 'mc': 2, 'pc': 1, 'sc': 1}
+  the rest, cited somewhere: {'Aarseth': {'main': 1}, 'Adams': {'main': 3, 'reg': 1}, 'Aitken': {'main': 10, 'mc': 5}, 'Alekseev': {'reg': 1, 'mc': 1}, 'Andrew': {'main': 2, 'reg': 4, 'mc': 15, 'pc': 2, 'ioi': 1}, 'Anstee': {'main': 2, 'reg': 3}, 'Archives': {'main': 2, 'reg': 1}, 'Arnold': {'mc': 1}, 'Atomic': {'main': 1, 'reg': 10, 'mc': 13, 'sc': 1}, 'August': {'ioi': 1}, 'Baker': {'main': 5, 'reg': 2, 'mc': 15, 'pc': 1}, 'Batyrev': {'main': 1, 'ioi': 1}, 'Beek': {'reg': 2, 'mc': 7}, 'Bergman': {'main': 3, 'reg': 2, 'mc': 7}, 'Birkhoff': {'main': 12, 'reg': 11, 'mc': 94}, 'Boole': {'main': 1, 'mc': 3}, 'Booth': {'main': 3}, 'Bozis': {'reg': 1, 'mc': 1, 'pc': 1}, 'Brudno': {'main': 2, 'reg': 3, 'mc': 3, 'ioi': 1}, 'Brylawski': {'main': 2, 'reg': 1}, 'Candelas': {'main': 2}, 'Caspard': {'main': 2, 'reg': 3}, 'Chandrasekaran': {'main': 2, 'reg': 11, 'mc': 5}, 'Chazy': {'mc': 3, 'ioi': 1}, 'Chen': {'main': 2}, 'Chenciner': {'main': 1, 'reg': 1, 'mc': 1}, 'Colomb': {'main': 2, 'reg': 3}, 'Corliss': {'main': 1, 'reg': 2, 'sc': 1}, 'Cowan': {'main': 2, 'reg': 4, 'mc': 17, 'pc': 2, 'ioi': 1}, 'Dechter': {'main': 3, 'reg': 4, 'mc': 21}, 'Deville': {'main': 1, 'reg': 3, 'mc': 23, 'pc': 1}, 'Dilworth': {'main': 6, 'reg': 2, 'mc': 21, 'pc': 2}, 'Drake': {'main': 1, 'reg': 1, 'mc': 2, 'pc': 1, 'sc': 1}, 'Dunz': {'main': 10, 'reg': 1}, 'Dwinger': {'main': 3, 'reg': 1}, 'Edlén': {'main': 25, 'reg': 13, 'ioi': 1}, 'Euler': {'main': 4, 'reg': 3, 'mc': 26, 'pc': 1, 'ioi': 1}, 'Farber': {'main': 1, 'reg': 1}, 'Flanagan': {'main': 2, 'reg': 11, 'mc': 5}, 'Fleischer': {'mc': 1}, 'Freuder': {'main': 10, 'reg': 8, 'mc': 56, 'ioi': 2}, 'Fulkerson': {'main': 1}, 'Gauss': {'reg': 1, 'mc': 9}, 'Gerratt': {'reg': 1, 'mc': 3}, 'Griffin': {'main': 1, 'reg': 3, 'mc': 9, 'pc': 2, 'ioi': 1}, 'Gross': {'main': 1}, 'Gödel': {'main': 4}, 'Götze': {'main': 11, 'reg': 3}, 'Harmon': {'reg': 1, 'mc': 1, 'pc': 2}, 'Hentenryck': {'main': 1, 'reg': 2, 'mc': 14, 'pc': 1}, 'Hill': {'main': 8, 'reg': 1, 'mc': 1, 'pc': 3}, 'Hoffman': {'main': 2, 'reg': 3}, 'Hori': {'main': 2, 'reg': 1, 'sc': 1}, 'Hsiang': {'mc': 1}, 'Irlande': {'main': 1, 'reg': 1}, 'Isacker': {'main': 2, 'reg': 2}, 'Jacobi': {'main': 5, 'reg': 2, 'mc': 4, 'pc': 5, 'ioi': 1}, 'Janet': {'main': 15, 'reg': 83, 'mc': 21, 'pc': 8, 'ioi': 15, 'sc': 9}, 'Kandula': {'main': 1, 'reg': 1}, 'Kaufman': {'main': 4, 'sc': 1}, 'Kimura': {'main': 1, 'reg': 2, 'mc': 1}, 'Knauf': {'mc': 1}, 'Koelling': {'reg': 1, 'mc': 1, 'pc': 2}, 'Koh': {'main': 2}, 'Kol': {'reg': 2, 'mc': 2}, 'Kolen': {'main': 1, 'reg': 1}, 'Kolmogorov': {'mc': 4}, 'Korobov': {'main': 2, 'reg': 1, 'sc': 1}, 'Kramida': {'main': 3, 'sc': 1}, 'Kreuzer': {'main': 12, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Kuznetsov': {'main': 3, 'reg': 4}, 'Körner': {'main': 1}, 'Lach': {'main': 8, 'reg': 5, 'mc': 2}, 'Lagrange': {'main': 5, 'reg': 1, 'mc': 9, 'pc': 1}, 'Larson': {'main': 6, 'reg': 1}, 'Leibniz': {'reg': 1, 'mc': 3}, 'Leigh': {'reg': 3}, 'Lubiw': {'main': 2, 'reg': 4}, 'Lueker': {'main': 3}, 'Löwdin': {'main': 19, 'reg': 55, 'mc': 9, 'pc': 5, 'ioi': 2, 'sc': 2}, 'Madelung': {'main': 3, 'reg': 47, 'mc': 7, 'pc': 2, 'ioi': 4}, 'Makino': {'main': 1, 'reg': 1}, 'Manski': {'main': 5}, 'Marchal': {'reg': 1, 'mc': 2, 'pc': 1}, 'Mardling': {'main': 1}, 'Martin': {'main': 7, 'sc': 2}, 'Maupertuis': {'main': 2, 'reg': 1, 'mc': 3, 'pc': 4, 'ioi': 1}, 'Mills': {'reg': 1, 'mc': 3}, 'Molecular': {'main': 1, 'ioi': 1}, 'Monaghan': {'reg': 1, 'mc': 1}, 'Monjardet': {'main': 1, 'reg': 1, 'mc': 7}, 'Montanari': {'main': 2, 'reg': 1, 'mc': 4, 'ioi': 1}, 'Montgomery': {'main': 3, 'reg': 4, 'mc': 10, 'pc': 1}, 'Moore': {'main': 12, 'reg': 6, 'mc': 38, 'pc': 1, 'ioi': 2}, 'Moser': {'reg': 2}, 'Musgrove': {'main': 2, 'reg': 1, 'sc': 1}, 'Nemirovskii': {'main': 3, 'mc': 6}, 'Nesterov': {'main': 4, 'mc': 6}, 'Newton': {'main': 10, 'reg': 3, 'mc': 12, 'pc': 1}, 'Nuclear': {'reg': 5}, 'Nörlund': {'main': 1}, 'Obiedkov': {'main': 1, 'reg': 1}, 'Orlitsky': {'main': 1}, 'Ossa': {'main': 1}, 'P-completeness': {'main': 1, 'reg': 1}, 'Painlevé': {'main': 1, 'reg': 1, 'mc': 1, 'pc': 1, 'ioi': 1}, 'Paschen': {'main': 11, 'reg': 4}, 'Pixley': {'main': 5, 'reg': 2, 'mc': 15, 'pc': 1}, 'Poincaré': {'main': 4, 'reg': 2, 'mc': 2, 'ioi': 3}, 'Pulay': {'main': 4, 'reg': 1, 'mc': 4}, 'Racah': {'main': 5, 'reg': 17, 'mc': 46, 'ioi': 3}, 'Raynaud': {'main': 2, 'reg': 1}, 'Richardson': {'main': 2}, 'Ritz': {'main': 29, 'reg': 23, 'mc': 14, 'pc': 2, 'ioi': 1}, 'Rival': {'main': 9}, 'Rota': {'main': 1, 'mc': 20}, 'Runge': {'main': 1}, 'Rydberg': {'main': 50, 'reg': 82, 'mc': 48, 'pc': 22, 'ioi': 13, 'sc': 6}, 'Ryter': {'main': 2}, 'Saari': {'main': 1, 'reg': 1, 'mc': 5, 'ioi': 1}, 'Sakarovitch': {'main': 1, 'reg': 1}, 'Sansonetti': {'main': 4, 'reg': 2, 'sc': 2}, 'Schaefer': {'main': 4}, 'Schmid': {'main': 5, 'reg': 1}, 'Shanks': {'main': 1}, 'Shannon': {'main': 5, 'reg': 1, 'mc': 38, 'pc': 1}, 'Sharp': {'main': 1}, 'Siggers': {'main': 7, 'reg': 1}, 'Singer': {'main': 3, 'reg': 1, 'sc': 1}, 'Skarke': {'main': 11, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Sommerfeld': {'reg': 2, 'mc': 3, 'pc': 1}, 'Sperner': {'main': 8, 'reg': 3, 'mc': 10}, 'Stahl': {'main': 3}, 'Stanojevic': {'main': 1, 'sc': 1}, 'Steffensen': {'main': 1}, 'Stephen': {'main': 1}, 'Stone': {'reg': 2, 'mc': 1}, 'Straume': {'mc': 1}, 'Structure': {'main': 2}, 'Sugar': {'main': 3, 'reg': 3, 'sc': 2}, 'Tan': {'main': 2}, 'Taylor': {'reg': 1, 'mc': 6}, 'Tucker': {'main': 5}, 'Weidemüller': {'main': 1, 'sc': 1}, 'Wille': {'main': 3}, 'Yamada': {'main': 1, 'reg': 1}, 'Yannakakis': {'main': 2, 'reg': 1, 'mc': 8}, 'Yoshizumi': {'main': 1, 'reg': 1}}
+
+== §3 L11818 "Hill 1878, Poincaré 1890, Freuder 1982 and Mardling & Aarseth 2001 are cited above and reused"; R.7 Löwdin block vs the chapter; R.7 three-body names vs Chapter 36 and Register 1713–1724
+  Hill      1878: above L11818 at [11790]
+  Poincaré  1890: above L11818 at [11783]
+  Freuder   1982: above L11818 at [11528]
+  Mardling  2001: above L11818 at [11792]
+  Chapter 36 bounded L9892–L9936 by `# APPENDICES` L9937 (section_span would give (9892, 11856) — wrong, it runs to the member's end)
+  Löwdin block Löwdin    Chapter 35 (9716, 9892) 4; Register 1701–1712 2
+  Löwdin block Koelling  Chapter 35 (9716, 9892) 0; Register 1701–1712 1
+  Löwdin block Harmon    Chapter 35 (9716, 9892) 0; Register 1701–1712 1
+  Löwdin block Griffin   Chapter 35 (9716, 9892) 1; Register 1701–1712 1
+  Löwdin block Andrew    Chapter 35 (9716, 9892) 1; Register 1701–1712 1
+  Löwdin block Cowan     Chapter 35 (9716, 9892) 1; Register 1701–1712 1
+  Löwdin block Pulay     Chapter 35 (9716, 9892) 4; Register 1701–1712 1
+  Löwdin block Gerratt   Chapter 35 (9716, 9892) 0; Register 1701–1712 1
+  Löwdin block Mills     Chapter 35 (9716, 9892) 0; Register 1701–1712 1
+  Löwdin block Madelung  Chapter 35 (9716, 9892) 0; Register 1701–1712 0
+  three-body block Montgomery  Chapter 36 (9892, 9937) 2; Register 1713–1724 entries [1718, 1721]
+  three-body block Chenciner   Chapter 36 (9892, 9937) 1; Register 1713–1724 entries [1721]
+  three-body block Hsiang      Chapter 36 (9892, 9937) 0; Register 1713–1724 entries []
+  three-body block Straume     Chapter 36 (9892, 9937) 0; Register 1713–1724 entries []
+  three-body block Chazy       Chapter 36 (9892, 9937) 0; Register 1713–1724 entries []
+  three-body block Saari       Chapter 36 (9892, 9937) 1; Register 1713–1724 entries [1721]
+  three-body block Fleischer   Chapter 36 (9892, 9937) 0; Register 1713–1724 entries []
+  three-body block Knauf       Chapter 36 (9892, 9937) 0; Register 1713–1724 entries []
+  three-body block Painlevé    Chapter 36 (9892, 9937) 1; Register 1713–1724 entries [1721]
+  three-body block McGehee     Chapter 36 (9892, 9937) 0; Register 1713–1724 entries []
+  three-body block Kolmogorov  Chapter 36 (9892, 9937) 0; Register 1713–1724 entries []
+  three-body block Arnold      Chapter 36 (9892, 9937) 0; Register 1713–1724 entries []
+  three-body block Moser       Chapter 36 (9892, 9937) 0; Register 1713–1724 entries [1721]
+  three-body block Alekseev    Chapter 36 (9892, 9937) 0; Register 1713–1724 entries [1721]
+  three-body block Brudno      Chapter 36 (9892, 9937) 1; Register 1713–1724 entries [1714, 1721]
+  three-body block Marchal     Chapter 36 (9892, 9937) 0; Register 1713–1724 entries [1721]
+  three-body block Bozis       Chapter 36 (9892, 9937) 0; Register 1713–1724 entries [1721]
+  three-body block Monaghan    Chapter 36 (9892, 9937) 0; Register 1713–1724 entries [1721]
+  three-body block Nash        Chapter 36 (9892, 9937) 0; Register 1713–1724 entries []
+  three-body block Stone       Chapter 36 (9892, 9937) 0; Register 1713–1724 entries [1721]
+  three-body block Leigh       Chapter 36 (9892, 9937) 0; Register 1713–1724 entries [1721]
+  three-body block Kol         Chapter 36 (9892, 9937) 0; Register 1713–1724 entries [1721]
+  three-body block Moore       Chapter 36 (9892, 9937) 1; Register 1713–1724 entries [1721]
+  three-body block Maupertuis  Chapter 36 (9892, 9937) 1; Register 1713–1724 entries [1721]
+  three-body block Jacobi      Chapter 36 (9892, 9937) 2; Register 1713–1724 entries [1715, 1721]
+  three-body block Euler       Chapter 36 (9892, 9937) 1; Register 1713–1724 entries []
+  three-body block Lagrange    Chapter 36 (9892, 9937) 2; Register 1713–1724 entries [1720]
+  L11820 "every structural object of Chapter 36 is his or older": `Montgomery` sites in main outside the unit [9908, 9930, 10829]; in MC [34, 72, 3224, 3232, 3240, 3256, 3530, 3534]
+
+== §4 Ruling 45 / 46 / narrated-past-state / first-person probes on the unit
+  \w+\.py\b                                    script name (R46) → []
+  \d{1,2} [A-Z][a-z]+ 20\d\d                   a date (R45 candidate; a database query date is bibliographic) → ['L11516']
+  previously attributed                        narrated past state (docket 15) → ['L11530']
+  had been crediting                           narrated past state (docket 15) → ['L11537']
+  went unused for four cycles                  editorial-process remark (R45) → ['L11549']
+  An earlier draft                             narrated past state (docket 15) → ['L11566']
+  withdrawn and reinstated                     editorial-process remark (R45) → ['L11772', 'L11775']
+  walked into                                  narrated process (R45 candidate) → ['L11683']
+  recomputed here                              process statement (verification claim) → ['L11600', 'L11606']
+  closing search                               process remark (R45) → ['L11628']
+  until §2\.23                                 narrated past state (docket 15) → ['L11726']
+  \[F\]|\[S\]                                  reading-status marks (undefined in the unit) → ['L11518', 'L11524', 'L11735', 'L11741', 'L11748', 'L11752', 'L11756', 'L11760', 'L11764', 'L11769']
+  not read directly|not read in full|was not read reading-status statement → ['L11524', 'L11752', 'L11799']
+  \(Anthropic\)                                the AI collaborator named as author (noted, not scored) → ['L11592', 'L11604']
+  this book previously|this volume             — → ['L11530', 'L11852']
+  first person (I / my / mine / myself / we / our; a species Roman numeral and an initial `I.` excluded): none
+
+== §5 taxonomy: each R.n heading's subject against its entries (subject keys named); entries whose text carries none of the section's keys
+  R.1 L11557–L11582 entries 6; carrying none of ['level', 'spectra', 'spectrum', 'ionis', '…']: []
+  R.2 L11583–L11590 entries 3; carrying none of ['antiproton', 'Rydberg', 'exotic', 'collective', '…']: []
+  R.3 L11591–L11629 entries 11; carrying none of ['series', 'quantum defect', 'Rydberg', 'Ritz', '…']: [(11598, ' Lach, M. (2026). Muon-Catalysed Fusion: definition, procedure, and tw'), (11621, ' Edlén, B. (1960). Handbuch der Physik 27, 80. — δ falls with ℓ; S and'), (11624, ' Edlén, B. (1964). Encyclopedia of Physics. — examined at one remove (')]
+  R.4 L11630–L11655 entries 10; carrying none of ['bound', 'acceleration', 'rigour', 'interval', '…']: [(11640, ' Shanks, D. (1955). J. Math. Phys. 34, 1. — iterated Δ²; pays (p−1)^{−'), (11650, ' Körner, J. & Orlitsky, A. (1998). IEEE Trans. Inf. Theory 44,')]
+  R.5 L11656–L11781 entries 23; carrying none of ['lattice', 'sublattice', 'closure', 'order', '…']: [(11712, ' Dunz, — Seriengesetze der Linienspektra (Leipzig, 1911). — earliest c')]
+  R.6 L11782–L11805 entries 9; carrying none of ['three-body', 'Hill', 'incompleteness', 'equilibrium', '…']: [(11801, ' Huang, W. & Taylor, W. (2019). JHEP (arXiv:1809.05160). — the counts ')]
+  R.7 L11806–L11855 entries 7; carrying none of ['…']: []
+  R.5 physics/spectroscopy entries by name (Van Isacker, Racah 1954, Chandrasekaran, Dunz, Janet) at [(11712, 'Dunz, — *Seriengesetze der Linienspektra'), (11735, 'ordering* one under permutation. **[S]**'), (11741, '**[S] — abstract and body read; the body'), (11777, 'Janet, C. (1928). — the left-step period')]
+  R.1 non-spectroscopic entry (Kimura … polyhedra) at [(11561, 'Kimura, K., Makino, K., Yamada, H. & Yoshizumi, Y. (2024). —')]
+
+== §6 formatting (docket 28): entries split by a blank line mid-citation; inline ` · ` separators joining several works on one paragraph; bold vs plain author names per section; missing initials; `[unread]` placement
+  entries split by a blank line before the page number: [(11558, 'Kaufman, V. & Martin, W. C. (1991). J. Phys. Chem.', '775. — Al I, Al II levels.'), (11569, 'Kramida, A. E. & Martin, W. C. (1997). J. Phys. Ch', '1185. — Be I levels.'), (11650, 'Körner, J. & Orlitsky, A. (1998). IEEE Trans. Inf.', '2207. — zero-error information')]
+  lines carrying inline ` · **` separators (works run together on one paragraph): [(11727, 1), (11735, 1), (11741, 1), (11748, 1), (11752, 1), (11757, 1), (11760, 1), (11765, 1)]
+  R.1 author names bold 4 / plain 2 of 6 entries
+  R.2 author names bold 2 / plain 1 of 3 entries
+  R.3 author names bold 4 / plain 7 of 11 entries
+  R.4 author names bold 8 / plain 2 of 10 entries
+  R.5 author names bold 1 / plain 22 of 23 entries
+  R.6 author names bold 4 / plain 5 of 9 entries
+  R.7 author names bold 4 / plain 3 of 7 entries
+  missing initial / dash placeholder: [(11712, 'Dunz, — *Seriengesetze der Linienspektra')]
+  `[unread]` inside the citation (after the title) vs at the end: [(11554, 'Every work cited in this book, with what it is cited for. En'), (11626, '**Paschen, F. & Götze, R.** (1922). *Seriengesetze der Linie'), (11628, '**Runge, C.** (1926). *Die Seriengesetze in den Spektren der'), (11686, 'Algebra Universalis 36, 488–504. — [unread], §E.6.'), (11688, 'Ryter, Ch. & Schmid, J. (1994). Deciding Frattini is NP-comp'), (11780, 'topologies; cited via the catalogue of large sublattices of ')]
+  bullet forms: ` · ` leading 41 lines; none-leading entries 37; `**Sansonetti**`-style bold-author entries in R.1 beside plain ones (mixed within one section): see the per-section counts above
+  L11592 / L11604 / L11816 / L11840 companion papers: cited with `Lach, M. & Claude (Anthropic)` 2 times, `Lach, M.` alone 3 times (an inconsistent author form for the same series)

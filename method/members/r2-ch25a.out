@@ -1,0 +1,90 @@
+r2-ch25a — Appendix E part 2 (E.3–E.8), computable claims; conventions named inline
+§1 unit `### E.3` L11054 to `## Appendix F` L11222 = 168 lines; headings 7 ['E.3', 'E.4.1', 'E.4.2', 'E.5', 'E.6', 'E.7', 'E.8']; unmarked heading-form lines [(11105, 'E.4 The grid, read on the current set')]
+   blank 41, code-indented 18, `|`-rows 0, non-blank 127
+§2 E.3 body L11055–L11104 (unmarked *E.4* line at L11105 ends it); item entries (`^ X — ` at column 2): 9 ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'P']
+   [2-space row] L10945: ≥3-space gives 5 columns, ≥2-space gives 6: ['item', 'question', 'blocks', 'obstacle', 'cost', 'domain']
+   [2-space row] L10956: ≥3-space gives 3 columns, ≥2-space gives 4: ['N', 'whether anyone has lattice-ordered the seniority scheme', '**CLOSED — no; the scheme is ordered by group–subgroup chains, and Racah recorded in 1954 that the chain needs three running indices to separate states. Registers 562–564.**', 'mathematical']
+   E.1.2 DATA rows 14 (L10946–L10959): open 10 ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'P', 'R']; closed 4 ['K', 'M', 'N', 'O']
+   E.3 − E.1.2-open: [] ; E.1.2-open − E.3: ['R'] ; E.3 ∩ closed: []  (E.3 L11055 *the two must list the same items* — the second set is the drift)
+   PP heading-form hits: E.3 [10567] E.4 [10618] E.1.2 [10477] E.1.3 [10500]
+   [2-space row] L10482: ≥3-space gives 4 columns, ≥2-space gives 5: ['item', 'question', 'blocks', 'obstacle', 'cost']
+   [2-space row] L10493: ≥3-space gives 2 columns, ≥2-space gives 3: ['N', 'whether anyone has lattice-ordered the seniority scheme', '**CLOSED — no; the scheme is ordered by group–subgroup chains, and Racah recorded in 1954 that the chain needs three running indices to separate states. Registers 562–564.**']
+   PP: E.3 P10567–P10618 items 9 ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'P']; E.1.2 P10477 DATA rows 14 open 10 ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'P', 'R'] → PP E.3 − open [], open − E.3 ['R']
+   K: unit lines naming K with a coordinate word: []
+   M: unit lines naming M with a coordinate word: []
+   N: unit lines naming N with a coordinate word: []
+   O: unit lines naming O with a coordinate word: []
+   → the eleven-state and thirteen-state coordinates of K, M, N, O are NOT printed in E.3–E.8 (MEASURED: no item entry for K/M/N/O in E.3; no coordinate line); 24a-05 and the thirteen-state re-take stay open (docket 37/38)
+§3 E.4 grid rows (≥2-space split, 3 columns): 12 incl. header; DATA rows 11 L11111–L11121: ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'M', 'N', 'P']
+   first-unmet-requirement counts: {'does the datum exist': 1, 'is it reachable from here': 8, 'is the work bounded': 2}
+   *Eight of eleven stop at … is it reachable from here*: 8 of 11 ; *One stops earlier* (does the datum exist): 1 ; *Two stop later* (is the work bounded): 2
+   grid set vs E.1.2: grid − E.1.2-open ['M', 'N'] (closed rows in the grid: the eleven-state, K and O closed, R absent — L11108 *read when the set stood at eleven*); E.1.2-open − grid ['R']
+   L11130 *Two of the eleven are genuinely unbounded and one is genuinely absent; the other eight are fetching*: 2 / 1 / 8 = True
+§4 Sc VI: 10⁷/737,380 = 13.5615 nm, 10⁷/735,860 = 13.5895 nm (printed 13.5615–13.5895); eV of lower 91.235, upper 91.423, midpoint 91.329 = 736620 cm⁻¹ (printed 91.338)
+   91.338 / hc = 736691 cm⁻¹ ; the width 1,520 cm⁻¹ = 0.188 eV
+   sites of 735,860  main [(7018, '25.6.1'), (7030, '25.6.2'), (7033, '25.6.2'), (7045, '25.6.3'), (7077, '25.6.5'), (9175, '32.5.1'), (11058, 'E.3')] ; register []
+   sites of 737,380  main [(7033, '25.6.2'), (7045, '25.6.3'), (7077, '25.6.5'), (7081, '25.6.5'), (7091, '25.6.5'), (9178, '32.5.1'), (11058, 'E.3')] ; register []
+   sites of 91\.338  main [(7046, '25.6.3'), (11059, 'E.3')] ; register []
+   sites of 13\.5615 main [(7046, '25.6.3'), (11059, 'E.3')] ; register []
+   sites of 735,091  main [(7064, '25.6.4'), (7066, '25.6.4'), (10300, 'C.3')] ; register []
+   sites of 735,092  main [(10301, 'C.3')] ; register []
+   sites of 736,620  main [] ; register []
+§5 D: C(208, 2) = 21528 (printed 21,528); 498 + 498 failures; 13 + 13 = 26 (printed 26); 131 + 131 = 262 (printed 262); 128 + 128 = 256
+   *208 cells from 13 ≤ h ≤ 128 less twelve exclusions*: 128 − 13 + 1 = 116 values; *112 on the diagonal from (13,13) to (131,131)*: 131 − 13 + 1 = 119 diagonal positions — 131 > 128: the diagonal end exceeds the stated range (a slice defined elsewhere: sites below)
+   sites of 13 ≤ h   main [(8733, '31.3.4'), (11070, 'E.3')] ; register []
+   sites of \b208\b  main [(8734, '31.3.4'), (8781, '31.3.4'), (10155, 'A.19.1'), (11070, 'E.3')] ; register [845, 863, 1437, 3725, 3937, 4417]
+   sites of \b131\b  main [(855, '2.18'), (2124, '11.1.1'), (2131, '11.1.1'), (2149, '11.1.1'), (6656, '24.2'), (6746, '24.8'), (8749, '31.3.4'), (11072, 'E.3')] ; register [595, 1033, 1229, 4545, 6123]
+   sites of \b128\b  main [(7050, '25.6.3'), (7053, '25.6.3'), (8733, '31.3.4'), (8780, '31.3.4'), (11070, 'E.3')] ; register [583, 2865, 3005, 3097, 3105, 3321, 3609, 3897, 4453, 4457, 4561, 5185]
+   sites of 30,108   main [(8704, '31.3.1'), (8729, '31.3.4'), (11076, 'E.3'), (11798, 'Appendix G')] ; register []
+   sites of \b502\b  main [(3606, '12.11.8'), (3946, '14.5.9'), (8762, '31.3.4'), (11074, 'E.3'), (11508, 'Appendix G')] ; register [1871, 1881]
+   sites of \b540\b  main [(2886, '12.11.0.8'), (3491, '12.11.6'), (4415, '16.4'), (4901, '17.4'), (6017, '22.1.2'), (7401, '28.2'), (8728, '31.3.4'), (8736, '31.3.4'), (8738, '31.3.4'), (8740, '31.3.4'), (8747, '31.3.4'), (8761, '31.3.4')] ; register [845, 849, 1437, 2019, 3873, 5954]
+   sites of 21,528   main [(8736, '31.3.4'), (11071, 'E.3')] ; register [1437]
+   sites of \b498\b  main [(8736, '31.3.4'), (11071, 'E.3')] ; register [1437, 1855, 1881]
+§6 Λ₈: 976 cells (tower-2; printed 976)
+   value sets |Aᵢ| = [3, 2, 3, 4, 3, 2, 4, 4] ; Σ(|Aᵢ| − 1) = 17 (printed 17 = height)
+   join-irreducibles (exactly one lower cover) |J(Λ₈)| = 17 (printed 17); minimal elements 1
+   width(J(Λ₈)) = max antichain = 7 (printed *width 7 ≤ 8*; 8 = the coordinate count); Dilworth: min chain cover = 7; axes with |Aᵢ| > 1: 8
+   height of Λ₈ (longest chain, cells − 1) = 17 (printed 17)
+§7 sites of \b150\b main [(858, '2.18'), (3218, '12.11.1.2'), (3463, '12.11.5'), (3476, '12.11.5'), (3599, '12.11.8'), (3712, '14.2'), (4396, '16.3.1'), (5609, '21.1'), (5653, '21.5'), (7648, '28.7.4'), (8035, '29.6'), (8173, '29.11.1'), (11097, 'E.3')]
+§7 sites of \b216\b main [(858, '2.18'), (1786, '7.3'), (3975, '14.5.10'), (4312, '15.4'), (4396, '16.3.1'), (5686, '21.5'), (5754, '21.5.2'), (8173, '29.11.1'), (11097, 'E.3'), (11719, 'Appendix G')]
+§7 sites of 1,442  main [(28, '?'), (200, 'Appendix G'), (564, '1'), (5654, '21.5'), (6632, '24'), (6742, '24.8'), (6744, '24.8'), (6746, '24.8'), (6750, '24.8'), (6767, '24.9'), (6786, '24.9'), (6799, '24.9'), (6802, '24.9'), (6804, '24.9')]
+   §32.2 body L9030–L9038 / span L9030–L9038: |Q| = 7 sites [] ; *seven* [] ; Chapter 32 span L8790–L9399 *seven* sites [(8809, '32.1.1'), (8830, '32.1.1'), (8872, '32.1.1'), (8889, '32.1.2'), (8930, '32.1.2'), (9093, '32.4.1'), (9199, '32.5.3')] ; volume-wide `|Q| = 7` sites [(11133, 'E.4.1')] (single witness if only the unit)
+   E.4.1 L11135 *the current thirteen is at E.1.2* and E.4.2 L11140 *holds at thirteen* — E.1.2 carries 14 DATA rows (heading *of 14*); the thirteen-state is the pre-R state (E.1.5 / Register 1729) — stale count words, 23a-02 / 24a-04 class
+   E.4.1 L11133–L11134 *the seven were indexed — blocks, obstacle, cost, depends, fibred by domain*: 4 ordered + 1 fibre = E.1 (5 coordinate rows, READ-ch24a §B)
+§8 E.5 ledger DATA rows (left-column starts after a blank line, header excluded): 11
+   L11149 the recovered bound φ_ij
+   L11152 "subdirect" — every value used
+   L11155 tightness ⟺ acyclic constraint digraph
+   L11158 sublattices ↔ preorder
+   L11161 the axis system as a chain decomposition of J(Λ)
+   L11165 the step law, 3·2^(d−2)
+   L11170 the subcube-removal construction
+   L11173 the large sublattices of 2^[r]
+   L11176 the unbounded obstruction families
+   L11179 C1P and the linear algorithm
+   L11182 the constraint-language dichotomy
+   totals line L11185 *Nine components, nine precedents* (E.7 L11210 *Nine components and a day, against nine citations*): rows 11 ≠ 9 — 17c-01's site (docket 34)
+   broken fraction L11165–L11168 (docket 28 site):
+   L11165 '  the step law, 3·2^(d−2)    Rival 1973 — \\                                                                     K ≤    L for a'
+   L11166 '                                                                                                                \\ (3   \\ maximal'
+   L11167 '                                                                                                                  /2     sublattice'
+   L11168 '                                                                                                                  )\\'
+   §30.3 span L8399–L8575: 3·2^(d−2) sites [8488] ; *3/2* [8497, 8500] ; *3/4* [] ; *d = 2* [8440, 8452, 8489] ; Rival 4 Siggers 2 Larson 2
+§9 Chapter 28 span L7366–L7856: lines citing §30.3 = 3 (item lines among them 0) — *Sixty-odd* is a count of corrections, not lines: witness the lines
+   *six independent tests* (Λ₉): sites [(11214, 'E.8')] ; *target-spin* sites [(761, '2.16.2'), (769, '2.16.2'), (11213, 'E.8')]
+   E.2 question paragraphs 8 ['Do the perturbation bounds tighten at hi', '**Is there an order maximising the bound', '**Does the cell count change at matched ', '**What is *V* for the convex bracket on ', '**Do all accelerators pay 1/\\|*p*−1\\|?**', '**Does the claim set close, and under wh', '**Why is *F*(−1) = 2?** **Because ℓ and ', '**Does the amplification have a general '] ; E.1.1 lineage rows naming closures: [(10930, 'E.4.1, enumerated and closed              8   the assertion indexed an'), (10932, 'after E, J and L closed                  12   the self-duality count a'), (10937, 'when it stood at eight, and E.2 and E.8 record what closed. Register 3')]
+   E.8 *Two items closed during this work* = E (target-spin axis, §12.11.1) and §30.3's characterisation (item F is OPEN in E.1.2: True) — the two are E and the F-adjacent law, not two Q items; E.2 lists 8
+§10 Register entries cited in the unit: [384, 385, 386, 387]
+   384 heading L1423 ; body: **E.3 DETAILED SIX ITEMS WHERE ELEVEN WERE OPEN, AND ONE OF THE SIX WAS ANSWERED.** *It is ; WARNING: []
+   385 heading L1427 ; body: **EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six res ; WARNING: []
+   386 heading L1431 ; body: **E.4 DESCRIBED A GRID AND NEVER PRINTED IT** *— §2.16's own protocol, read once at eight  ; WARNING: []
+   387 heading L1435 ; body: **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: ev ; WARNING: []
+   Register lines naming E.3–E.8 / Appendix E: 10, entries: [195, 211, 384, 385, 386, 387, 418, 565, 1707, 1721]
+   WARNING lines among them: []
+§11 DEFECT-CENSUS.tsv header: ['id', 'class', 'member', 'line', 'item', 'detail']
+   rows in main L11054–L11221: 4
+   715 | C7-WITHDRAWAL-LINE-NUMBER-SURVIVES | main | 11069 | 540 | other sites: main=27 reg=7 mc=2 ioi=4 sc=7 | D — verifying 540 Kreuzer–Skarke predictions. **Everything the slice specifies is recompute
+   716 | C7-WITHDRAWAL-LINE-NUMBER-SURVIVES | main | 11202 | 30.3 | other sites: main=50 reg=8 | Nothing in §30.3 is withdrawn. The derivations agree with the literature wherever both exist, and the
+   1224 | C9-OVERGENERALISATION-WORD | main | 11107 | never | downstream. It was read once at eight items and the reading was never printed, only described.
+   1225 | C9-OVERGENERALISATION-WORD | main | 11140 | never | at thirteen — the only column whose value has never changed.
+END r2-ch25a

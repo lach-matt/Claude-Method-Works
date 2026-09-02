@@ -1,0 +1,3 @@
+id	verdict	reason
+717	not a defect	C7 withdrawal-line-number 6.5 at L11394: the § column of Appendix G's table — a live Transitions section label (a heading of Transitions.md), not a line number; regex artefact, precedents 678 / 680–687; r2-ch27a §1
+1231	not a defect	C9 never at L11370: the Register's own append-only rule stated on the page (entry bodies are never edited) — measured true of the record (1770 restates it); the sentence is a Ruling 45 site scored as 27b-01, not against this row; r2-ch27b §1

@@ -1,0 +1,145 @@
+====================================================================================================
+r2-ch16e  COMPUTABLE  chat 118  main L8575-L8699  (§30.4 - §31.2.5)
+====================================================================================================
+
+## 1  §30.4 L8576-L8578  the closure of the four printed relations
+   printed set: V = 4v/3h,  lam^2 = (2/3)T,  w*V = 8 lam^2,  T = Z^2 R / v^2
+   Z=1 R=1 v=5 h=1 :  w/T = 4/5          4h/v = 4/5            e:=w/V, e/T = 3/25           3(h/v)^2 = 3/25
+   Z=3 R=2 v=7 h=2 :  w/T = 8/7          4h/v = 8/7            e:=w/V, e/T = 12/49          3(h/v)^2 = 12/49
+   Z=2 R=5 v=11 h=3 :  w/T = 12/11        4h/v = 12/11          e:=w/V, e/T = 27/121         3(h/v)^2 = 27/121
+   Z=7 R=1 v=13 h=5 :  w/T = 20/13        4h/v = 20/13          e:=w/V, e/T = 75/169         3(h/v)^2 = 75/169
+   w/T = 4(h/v)  holds on all 4 instances: True
+   e/T = 3(h/v)^2 holds on all 4 instances: True   [ONLY once e is READ AS w/V]
+   MEASURED: the symbol e does NOT occur in the four printed relations.
+   sites of "e" as a defined symbol near the unit: [8586]
+   L4349 prints (a) V = 4v/3 (b) w = V . e  ->  e = w/V is the book's own definition:
+        L4349: (a) V = 4ν/3 (b) w = V · e
+
+   §30.4.1 L8586 --- the three named further relations, tested under e = w/V:
+      Z=1 v=5 h=1 :  V*e == w : True    w^2 == (16/3)Te : True    T*h^2 == e*v^2/3 : True
+      Z=3 v=7 h=2 :  V*e == w : True    w^2 == (16/3)Te : True    T*h^2 == e*v^2/3 : True
+      Z=2 v=11 h=3 :  V*e == w : True    w^2 == (16/3)Te : True    T*h^2 == e*v^2/3 : True
+
+## 2  §30.4.1 L8584-L8586  "a Groebner basis of 18 where the original four gave 6"
+   original four, lex, 8 vars      : basis size 6
+   original four, grevlex, 8 vars  : basis size 5
+   four + (V*e = w), lex, 9 vars   : basis size 11
+   IDEAL MEMBERSHIP, the decisive test for §30.4 L8577:
+      is  V*e - w  in the ideal of the four?          False
+      is  e*v**2 - 3*T*h**2  in that ideal?           False
+      is  w*v - 4*T*h  (i.e. w/T = 4h/v) in it?       True
+      -> e/T = 3(h/v)^2 is NOT a consequence of the four printed relations;
+         it needs V*e = w, which §30.4.1 L8586 itself lists as one of the relations
+         that reduce to zero only NOW and "did not before".
+   PRINTED: 6 for the original four.  MEASURED above; convention (order, variable list)
+   is NOT printed anywhere in the unit --- basis size is order-dependent.
+   sites of "eight polynomial relations" / the eight themselves, six volumes:
+      main [8584]
+      -> the eight are nowhere enumerated: UNPRINTED INPUT (docket 10).
+
+## 3  §31.1.1 L8642-L8643  L4/L5 linearly stable for mu < 0.0385209
+   Routh critical mass ratio (9 - sqrt 69)/18 = 0.0385208965   printed 0.0385209   match to 7 dp: True
+   Earth-Moon  mu = 0.0121443  < mu_c : True
+   Sun-Jupiter mu = 0.0009537  < mu_c : True
+   (both mass values are UNPRINTED inputs; the qualification claim is robust to any
+    standard values --- EM ~ 0.0121, SJ ~ 0.00095, both far below 0.03852.)
+
+## 4  §31.1.1 L8635-L8637  V at the collinear points, mu = 0.030, h = 0.010
+   L1  x(0.02)=+0.803465629  x(0.03)=+0.769643485  x(0.04)=+0.740909843   w=-6.256e-02  e=2.544e-03   V = 24.6
+   L2  x(0.02)=+1.180077905  x(0.03)=+1.201191247  x(0.04)=+1.216430568   w=3.635e-02  e=2.937e-03   V = 12.4
+   L3  x(0.02)=-1.008332893  x(0.03)=-1.012498506  x(0.04)=-1.016663105   w=-8.330e-03  e=5.072e-07   V = 16422.8
+   PRINTED: 24.6 (L1), 12.4 (L2), 16,423 (L3).
+
+   monotone / convex / 3-monotone in mu, on the grid mu = 0.01 .. 0.08 step 0.01:
+      L1  d1 -------  d2 ++++++   d3 -----    d4 ++++      ->  order pattern -, +, -, +
+      L2  d1 +++++++  d2 ------   d3 +++++    d4 ----      ->  order pattern +, -, +, -
+      L3  d1 -------  d2 ++++++   d3 +++++    d4 ++++      ->  order pattern -, +, +, +
+   PRINTED L8646: "L1 and L3 alternate -, +, -, +;  L2 alternates +, -, +, -"
+
+   order-3 bracket widths (three-point Lagrange interpolation residual span, mu grid above):
+      L1  |third differences| max 5.702e-03  min 3.546e-04
+      L3  |third differences| max 3.818e-07  min 3.460e-07
+   PRINTED: widths 6.9e-4 (L1), 3.6e-9 (L3).  The mu-grid and the width convention are
+   NOT printed in the unit --- reported as UNPRINTED INPUT, with the measured span above.
+
+## 5  §31.1.1 table  Hill radius (mu/3)^(1/3) V = 47.9;  Roche limit rho^(-1/3) V = 17.9
+   Hill  (mu/3)^(1/3)   at the section's own grid x=0.030 h=0.010 :  V = 17.62
+                        power-law law V ~ 4x/(h|p-1|) = 6.000 * (x/h);  V=47.9 needs x/h = 7.98;  V=17.9 needs x/h = 2.98
+   Roche  rho^(-1/3)    at the section's own grid x=0.030 h=0.010 :  V = 8.87
+                        power-law law V ~ 4x/(h|p-1|) = 3.000 * (x/h);  V=47.9 needs x/h = 15.97;  V=17.9 needs x/h = 5.97
+   MEASURED: at the grid the section itself prints, the HILL row scores 17.7 --- which is
+   the value printed on the ROCHE row.  Neither printed V is reproducible from any grid
+   stated in the unit.
+
+## 6  §31.1.1 table  planetary semi-major axes: monotone, not convex, third difference
+      changing sign between Jupiter and Saturn
+   monotone increasing: True     convex (all d2 > 0): False
+   d2 ['-0.059', '+0.247', '+3.155', '+0.655', '+5.320', '+1.224']
+   d3 ['+0.306', '+2.908', '-2.500', '+4.665', '-4.096']
+   d3 windows: [('Mer..Mar', '+'), ('Ven..Jup', '+'), ('Ear..Sat', '-'), ('Mar..Ura', '+'), ('Jup..Nep', '-')]
+   sign changes: 3, at the windows entering ['Saturn', 'Uranus', 'Neptune']
+   (semi-major axes are an UNPRINTED input; standard IAU values used.)
+
+   the row's own clause: "where Titius-Bode fails worst"
+      Mercury  predicted    0.40  actual   0.387  error   3.36 %
+      Venus    predicted    0.70  actual   0.723  error   3.18 %
+      Earth    predicted    1.00  actual   1.000  error   0.00 %
+      Mars     predicted    1.60  actual   1.524  error   4.99 %
+      Ceres    predicted    2.80  actual   2.766  error   1.23 %
+      Jupiter  predicted    5.20  actual   5.203  error   0.06 %
+      Saturn   predicted   10.00  actual   9.537  error   4.85 %
+      Uranus   predicted   19.60  actual  19.191  error   2.13 %
+      Neptune  predicted   38.80  actual  30.069  error  29.04 %
+      MEASURED worst Titius-Bode error: Neptune at 29.04 % --- not Jupiter/Saturn (0.06 %, 4.85 %)
+
+## 7  §31.1.2 L8652-L8654  (N, L, 2j, occ) with occ <= 2j+1: join/meet closure, E(X)=0,
+      shell-order filling 2, 8, 20, 28, 50, 82
+   cells 384   ordered pairs tested 73536   join leaks 0   meet leaks 0
+   E(X) = |R(X)| - |X| = 384 - 384 = 0   [Rset, not the defining filter re-applied]
+   cumulative occupancies: [2, 6, 8, 14, 16, 20, 28, 32, 38, 40, 50, 58, 64, 68, 70, 82]
+        2 present in shell-order cumulative set: True
+        8 present in shell-order cumulative set: True
+       20 present in shell-order cumulative set: True
+       28 present in shell-order cumulative set: True
+       50 present in shell-order cumulative set: True
+       82 present in shell-order cumulative set: True
+
+## 8  §31.2.1 L8663-L8671  three objects with second difference zero, V infinite
+   string m^2 = (N-1)/a'    second differences {Fraction(0, 1)}   V = inf
+   Regge J = a'm^2 + a0     second differences {Fraction(0, 1)}   V = inf
+   central charge c = D     second differences {Fraction(0, 1)}   V = inf
+   L8670 "two levels determine every other, exactly": true for an affine sequence;
+   the third object is a CONSTANT, for which the claim is vacuous rather than false.
+
+## 9  §31.2.2 L8674-L8678  log d(N) for prod (1-q^n)^(-24)
+   d(1..8) = [24, 324, 3200, 25650, 176256, 1073720, 5930496, 30178575]
+   first differences all positive (N=1..40): True
+   second differences all negative: True   third differences all positive: True
+   second difference at N = 2 : -0.3125   (printed -0.31)
+   second difference at N = 15: -0.0324   (printed -0.03)
+   V at N = 13 : 137.5   (printed ~147 at N ~ 14)
+   V at N = 14 : 146.6   (printed ~147 at N ~ 14)
+   V at N = 15 : 155.7   (printed ~147 at N ~ 14)
+   d(N) ~ exp(4 pi sqrt N):  log d(N) / (4 pi sqrt N) at N = 10, 20, 40 = ['0.510', '0.587', '0.658']
+
+## 10  §31.2.4 L8686-L8691  Lambda closes at every dimension 2-8 with E = 0;
+       each Lambda_d the exact projection of Lambda_{d+1}, fibres of 1 to 4
+   |Lambda_8| = 976   coordinates = 8
+   d=2  |L_d| = 5      |R(L_d)| = 5      E = 0    join leaks 0    meet leaks 0     fibres L_3 -> L_d: [2, 3]  onto: True
+   d=3  |L_d| = 12     |R(L_d)| = 12     E = 0    join leaks 0    meet leaks 0     fibres L_4 -> L_d: [2, 3, 4]  onto: True
+   d=4  |L_d| = 33     |R(L_d)| = 33     E = 0    join leaks 0    meet leaks 0     fibres L_5 -> L_d: [3]  onto: True
+   d=5  |L_d| = 99     |R(L_d)| = 99     E = 0    join leaks 0    meet leaks 0     fibres L_6 -> L_d: [1, 2]  onto: True
+   d=6  |L_d| = 165    |R(L_d)| = 165    E = 0    join leaks 0    meet leaks 0     fibres L_7 -> L_d: [1, 2, 3, 4]  onto: True
+   d=7  |L_d| = 319    |R(L_d)| = 319    E = 0    join leaks 0    meet leaks 0     fibres L_8 -> L_d: [2, 3, 4]  onto: True
+   d=8  |L_d| = 976    |R(L_d)| = 976    E = 0    join leaks 0    meet leaks 0     fibres L_9 -> L_d: --  onto: --
+
+## 11  §31.2.5 L8694-L8698  rank sequence finite and log-concave, peak 122 at rank 11;
+       "capped coordinates give a finite index and a Sperner bound"
+   ranks 3..20   sizes [1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1]   total 976
+   peak 122 at rank 11   (printed: peak 122 at rank 11)
+   log-concave (a_i^2 >= a_{i-1}a_{i+1}) at every interior rank: True   failures at []
+   comparability pairs 115162   maximum matching 854   min chain cover = 976 - 854 = 122
+   Dilworth: maximum antichain = min chain cover = 122;  largest rank = 122;  Sperner holds: True
+
+====================================================================================================
+end r2-ch16e

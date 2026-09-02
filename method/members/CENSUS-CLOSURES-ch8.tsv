@@ -1,0 +1,3 @@
+id	verdict	reason
+1048	not a defect	L1808 "had never been written down" is Register 395's recorded finding (R L1467: "in force from the first page and never stated"; 84 / 69 / 82%) — record-carried
+1049	not a defect	L1916 "the eighth is never spent" is dim(Λ8) = 7 < 8, measured: width(J(Λ8)) = 7 by Dilworth (r2-ch8.py), antichain of seven exhibited, one generator per coordinate except g

@@ -1,0 +1,6 @@
+id	verdict	reason
+680	not a defect	"6.2" on L1681 is the heading number of §6.2.1, whose title contains "recomputed" (regex artefact)
+1044	not a defect	L1659 "a date must never enter Λ" is §F.4.3's rule (L11343), stated as a rule
+1045	not a defect	L1663 "Occupancy never rises along composition" is quantified in the same sentence — zero of 739 steps — with second sites at L2581–2582 (§12.11.0.1)
+1046	not a defect	L1699 "can always be blamed on the boundary" is the reasoning §6.2.1 answers by moving the cutoff four times (verified: the nine cells persist at Z ≤ 7 and 9 — r2-ch6.py)
+1047	not a defect	L1716 "Non-closure is not always a fault" is a hedged general statement, not a count

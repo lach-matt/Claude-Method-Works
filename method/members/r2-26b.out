@@ -1,0 +1,190 @@
+r2-26b.py — 26b-04: F.3 "several of the corrections the Register carries are exactly this rule firing"
+members: The_Method_1_6-2.md md5 4aef772b | The_Method_1_6___The_Register-2.md md5 79aaf239
+
+§1 SITES (located this chat; member line numbers are never carried between chats)
+   lettered("F.3") hits: [11278] -> '### F.3 The index, built'
+   *refuted by its own extent* sites in the main volume           [11024, 11295]           OK
+   *this rule firing* sites in the main volume                    1                        OK
+   L11298 'test that could reach it — not weakened, not pending, dead. The work applies this without exception,'
+   L11299 'and several of the corrections the Register carries are exactly this rule firing.'
+   L11024 "#P-complete (§29). A constraint refuted by its own extent is dead, which is F.3's rule, and it dies"  (E.1.5, the one instance the book names)
+   the rule and its claim across all six volumes                  [('The_Method_1_6-2.md', 11024), ('The_Method_1_6-2.md', 11295), ('The_Method_1_6-2.md', 11299)] OK
+   the claim sits inside the F.3 unit                             True                     OK
+
+§2 THE RULE AS F.3 STATES IT — two forms, printed one after the other, and they do not have one extent
+   RULE-H (headline, L11295): "**A constraint refuted by its own extent is dead.** This is F.3's rule and it is the fourth column"
+   RULE-E (elaboration, L11296-L11298): 'turned on the constraint itself. If a constraint is asserted over a ground, and computing its extent on that ground returns the empty set or the whole of it, the constraint has been refuted by the only test that could reach it — not weakened, not pending, dead. The work applies this without exceptio'
+   RULE-H is the bare refutation sentence                         True                     OK
+   RULE-E names the mechanism: empty set or the whole of it       True                     OK
+   RULE-E names the consequence: not weakened, not pending, dead  True                     OK
+   CONVENTION RULE-E: a firing is a constraint asserted over a ground whose extent COMPUTED ON THAT GROUND
+   is the empty set or the whole of it, the constraint being consequently dead. CONVENTION RULE-H: a firing
+   is a constraint killed by the computation of its own extent, by whatever shape that computation takes.
+   RULE-H contains RULE-E. Both are scored, because F.3 prints both and the book cites the headline.
+   CONVENTION OBJ-C / OBJ-T: F.3 says *constraint*. §4 names a separate mechanism, *a test that could not
+   fail* (§28.7.9 L7691), and the Register works it as register 784's pattern. OBJ-C counts only constraints,
+   bounds, laws, criteria and clauses asserted over a ground; OBJ-T adds the checks and tests of that class.
+
+§3 THE POPULATION — *the corrections the Register carries*, fixed from the Register's own definition
+   entry headings in the Register                                 1628                     OK
+   extent of the Register                                         (1, 1792)                OK
+   register 1784 defines the entry as a withdrawn claim           True                     OK
+   So every entry IS a correction on the Register's own definition (1762, restated 1784), and the
+   population of the sentence is the whole Register. Nothing has to be assumed about which entries count.
+
+§4 THE TOKEN PROBE REPRODUCED, THEN THE POOL — a token probe is not a reading (DOCKET standing method)
+   chat 139's probe: the rule's words in any entry                []                       OK
+   the widened token probe (*extent* with *empty* or *whole of it* in one entry): [1767]
+   Both are probes of the rule's WORDS. The rule fires as a MECHANISM, and the reading below is of that.
+   NET-A the elaboration's outcomes in the entry's own words            49
+   NET-B the headline, or a citation of F.3                              10 [367, 371, 372, 388, 390, 392, 1729, 1762, 1780, 1786]
+   NET-C the named class: §4.6 and registers 777 / 784 / 900 / 1383      23
+   the pool is the union of the three nets                        69                       OK
+   POOL: [181, 189, 333, 361, 365, 367, 371, 372, 388, 390, 392, 412, 422, 439, 443, 462, 503, 522, 598, 613, 655, 775, 784, 797, 798, 801, 803, 810, 840, 843, 845, 849, 851, 900, 1061, 1174, 1310, 1383, 1403, 1424, 1434, 1448, 1461, 1463, 1469, 1504, 1513, 1515, 1516, 1522, 1525, 1582, 1603, 1605, 1617, 1618, 1661, 1671, 1683, 1686, 1691, 1719, 1729, 1762, 1763, 1767, 1768, 1780, 1786]
+
+§5 THE READING — every member of the pool scored, each verdict carrying a deciding phrase from its own text
+   FIRE-C  a constraint, bound, law, criterion or clause whose computed extent is empty or the whole ground
+   FIRE-T  the same shape in a check or test (OBJ-T only)
+   FIRE-H  killed by the computation of its own extent, but the extent is neither empty nor whole (RULE-H only)
+   COUNTER the extent was computed and the object SURVIVED — the rule applied and not fired
+   NEAR    the reading cannot decide; carried as an upper bound, never assigned
+   NOT     another mechanism
+
+   the reading scores every member of the pool exactly once       [181, 189, 333, 361, 365, 367, 371, 372, 388, 390, 392, 412, 422, 439, 443, 462, 503, 522, 598, 613, 655, 775, 784, 797, 798, 801, 803, 810, 840, 843, 845, 849, 851, 900, 1061, 1174, 1310, 1383, 1403, 1424, 1434, 1448, 1461, 1463, 1469, 1504, 1513, 1515, 1516, 1522, 1525, 1582, 1603, 1605, 1617, 1618, 1661, 1671, 1683, 1686, 1691, 1719, 1729, 1762, 1763, 1767, 1768, 1780, 1786] OK
+    365 FIRE-C   "fails at every occupancy rather than some"                the bound 2J_c <= k holds nowhere on the physical region: the wrong bound, not a loose one
+    412 FIRE-C   "had no falsifier"                                         the law's exception clause had an empty refuting extent; repaired by stating the falsifier
+    443 FIRE-C   "the complete rectangle at every cap tested"               the supposed electromagnetic constraint admits the whole rectangle: 333's vacuous zero
+    522 FIRE-C   "the operator admits everything"                           every envelope constant at 1, R(Cl(U)) = 2^U: the family says nothing at all
+    843 FIRE-C   "carries no information"                                   21 of 128 brackets restate their own claim; formally true and empty of content
+   1174 FIRE-C   "admits all 6,912 cells"                                   order-1 marginals admit the whole ambient; corrected to order 2, which returns 976
+   1310 FIRE-C   "the intersection is empty"                                a single constant serves no table; 106 constants reduce to eighteen by (period, block)
+   1424 FIRE-C   "it cannot refuse anything"                                Janet's E = 0 is forced, not earned: no envelope can bind on one cell per row
+   1463 FIRE-C   "the running intersection empties fourteen times"          1461's atomic claim dies: 106 separate feasibilities are not one system
+   1513 FIRE-C   "the check cannot fail"                                    a constraint network whose target column is constant; three vacuous implications found
+   1605 FIRE-C   "the intersection is empty before any data is read"        three tests vacuous by construction, and 1602's finding falls with them
+   1617 FIRE-C   "it would hold in any theory with the same degeneracies"   an exact identity constrains nothing; a star removed from the board
+   1661 FIRE-C   "the generating rules are total"                           F(-1) = 0 holds at any cutoff: the old statement was wrong in its kind, not stale
+   1683 FIRE-C   "not a constraint the data strains against"                M's ruling satisfied at zero; the mult column vacuous on jK
+   1686 FIRE-C   "discriminates nothing"                                    closure passes for any free axis: the closure test was the wrong instrument
+    181 FIRE-T   "0 tested"                                                 a downset test that tested nothing and printed True
+    189 FIRE-T   "would have passed on anything"                            the magic-number check compared a list to itself
+    422 FIRE-T   "have never fired"                                         three audits name no entry between them; a failing input now printed for each
+    598 FIRE-T   "a test that passes everything discriminates nothing"      the grounding check returned 100% on every set
+    613 FIRE-T   "zero disagreements was guaranteed before it ran"          the probe copied the criterion it was testing
+    775 FIRE-T   "it has no way to disagree, so it tests nothing"           thirty pairs counted as passes; the honest figure is 52 of 65
+    784 FIRE-T   "will satisfy every cross-check and test nothing"          the class's principle, stated: bracket == interior
+    797 FIRE-T   "that test cannot fail"                                    the trivial bracket passes 789 of 789 by construction
+    798 FIRE-T   "exceeding their own discriminating power"                 four devices in one compendium, the pattern at its fourth sighting
+    801 FIRE-T   "so it cannot fail"                                        of the two brackets in the book only one is a deduction
+    803 FIRE-T   "a bracket that cannot fail tells you nothing about the data" the trade-off the compendium carried unstated
+    840 FIRE-T   "cannot be wrong is not a prediction"                      eleven against 3,513 is the honest ratio
+    845 FIRE-T   "a comparison between a thing and itself cannot fail"      register 815 withdrawn: the same channel from two capture files
+    849 FIRE-T   "the check field is not a check for 110 of 213 objects"    the pattern swept across the mathematics register and found at scale
+    851 FIRE-T   "carries no information about whether anything was checked" the compendium overclaims its auditing, not its mathematics
+   1383 FIRE-T   "a check that cannot fail is not evidence"                 the contingency protocol, naming the class over three faults at once
+   1448 FIRE-T   "cannot correct it"                                        the placement confirms whatever it was given: the per-atom fixed point is vacuous
+   1469 FIRE-T   "a check on a check that could not fail"                   the contingency sweep catching two faults in itself
+   1582 FIRE-T   "my confirmation of it could not fail"                     the observer rule inferred from one case
+   1618 FIRE-T   "my first test of that could not fail"                     the sigma drift: the grid was the whole obstacle
+   1671 FIRE-T   "could not fail for the reason it names"                   C6's stated failure mode could not arise from its own matcher
+   1729 FIRE-H   "rule applies and it is dropped"                           item R kills the code's unprinted constraint: THE instance E.1.5 names — see 26b-11
+    390 COUNTER  "tested against four boundaries"                           a closure defect that could have been blamed on the boundary and was not
+    439 COUNTER  "not vacuous"                                              vacuity tested and refused: five of twenty closed indices state a verdict and no expression
+    462 COUNTER  "a sufficient condition tested for necessity"              §17.3's criterion covers 0.8 to 10.3%: an extent strictly between the two poles
+    900 COUNTER  "had the tests not been fixed in advance"                  eight pre-stated tests and a corrected null; the exercise kept as a negative
+   1061 COUNTER  "the mechanism that has never failed failed usefully"      a claim at 191/191 met a bad datum and reported it
+    333 NEAR     "the empty index satisfies every criterion here"           E(X) = 0 is WEAKENED to necessary-not-sufficient rather than declared dead — see the candidate below
+    810 NEAR     "cannot be strengthened by more of the same"               the principle restated about sample diversity, not an object's extent
+   1504 NEAR     "failing by invariance rather than difficulty"             the equant diagnostic: an undetermined parameter, an adjacent mechanism
+    361 NOT      "exhaustively verified"                                    an inflated classification, not a vacuity
+    367 NOT      "the two cannot hold together"                             two assignment rules in contradiction under F.3's own scheme
+    371 NOT      "is withdrawn rather than closed"                          a question presupposing a stable quantity; withdrawn for instability
+    372 NOT      "the least stable thing about it"                          a count over an index of open questions, same instability
+    388 NOT      "closed by stating one number"                             item M closed by occupying a cell
+    392 NOT      "all six fibres now carry a number"                        a recomputation contradicting a single figure
+    503 NOT      "never checked against a second"                           one heuristic for twelve cycles: §2.24, a different forbidden shape
+    655 NOT      "a test that could not fail"                               the class named among §4's ten mechanisms; the home of OBJ-T, not a firing
+   1403 NOT      "never in the interior"                                    a measured placement result
+   1434 NOT      "two halves of one equation"                               the empty running intersection used constructively, as forced moves
+   1461 NOT      "additive representability of a ranked order"              the claim 1463 corrects, not the correction
+   1515 NOT      "two share a mechanism exactly"                            three open topics on one measure
+   1516 NOT      "the common quantity is the helly number"                  a shared quantity across three objects
+   1522 NOT      "an ordinal self-claim made without counting"              a self-claim fault; it does record that the audits census this class
+   1525 NOT      "one transition per cache window"                          a fetch layer caching on the wrong key
+   1603 NOT      "a greedy regex"                                           a parser fault
+   1691 NOT      "disambiguate at source"                                   duplicate numbering repaired at source
+   1719 NOT      "polynomial withdrawn"                                     a wrong coefficient caught by a second route
+   1762 NOT      "a surviving claim is defined"                             ruling 25; the population's definition, used in §3
+   1763 NOT      "the 489 untested spectra rows"                            ruling 26, a sealed-test run
+   1767 NOT      "the answer on the 126 is empty"                           a coverage result about a delivered record
+   1768 NOT      "the six captures run under ruling 26"                     a capture reconciliation
+   1780 NOT      "rebuilt on a different domain"                            Appendix F withdrawn for taking the wrong domain
+   1786 NOT      "numbering was defective and is corrected"                 the F.3.3 renumber; 26b-06's site
+   every deciding phrase present in its own entry                 []                       OK
+
+   FIRE-C 15 | FIRE-T 21 | FIRE-H 1 | COUNTER 5 | NEAR 3 | NOT 24
+   the six verdicts total to the pool                             69                       OK
+
+§6 THE ARITHMETIC — *several* under a stated BAND, in every cell of the two conventions
+   CONVENTION BAND (INFERRED — an English count word, not a figure), both readings scored:
+     STRICT *several* = at least three (chat 139 stated this reading when it recorded 26b-04);
+     LOOSE  *several* = more than one, at least two.
+   RULE-E x OBJ-C  constraints only, the mechanism as elaborated  15 (upper bound  18)   STRICT in  LOOSE in 
+   RULE-E x OBJ-T  constraints and the checks of the same class  36 (upper bound  39)   STRICT in  LOOSE in 
+   RULE-H x OBJ-C  constraints, the headline form                16 (upper bound  19)   STRICT in  LOOSE in 
+   RULE-H x OBJ-T  everything the two conventions admit          37 (upper bound  40)   STRICT in  LOOSE in 
+   *several* reproduces in every cell, STRICT                     True                     OK
+   *several* reproduces in every cell, LOOSE                      True                     OK
+   the lower bound of the sentence is the constraints-only cell   15                       OK
+   37 firings against 1628 entries of the Register = 2.27 % (Decimal.quantize, ROUND_HALF_UP; never round()).
+   the sentence *several ... are exactly this rule firing*        True                     as printed
+
+§7 REGISTER SWEEP — WARNING lines read before any verdict, and the volumes grepped for a later statement
+   WARNING markers (the colon form, chat 142) on any entry scored as a firing []                       OK
+   the loose token, read and disposed of                          [1463]                   OK
+   1463 carries *FISHBURN'S WARNING* — an imported hazard named in the entry's own headline, not a
+   Register WARNING marker. It is the reason the entry fires: the warning is what kills 1461's claim.
+   WARNING markers in the Register at all: 38 (docket 35's instrument, run over this family)
+   later or other statements of the claim in any volume           [('The_Method_1_6-2.md', 11299, 'and several of the corrections the Register carries are exactly this rule firing')] OK
+   No later statement qualifies the sentence; it is scored against the Register, which it names as its record.
+
+§8 NEW FINDINGS IN THE ENGAGED RANGE (recorded, never repaired — the chat-67 hold)
+   *§784* — a Register number printed as a section pointer        [('The_Method_1_6___The_Register-2.md', 3113)] OK
+   no §784 exists: the main volume ends at chapter 36             True                     OK
+   *Thm 11.1* cited once and printed nowhere in the six volumes   [('The_Method_1_6___The_Register-2.md', 6299)] OK
+   a build handle in a reader-facing volume (Ruling 46)           [('The_Method_1_6___The_Register-2.md', 6507)] OK
+   26b-08  reg L3113 (entry 845): *§784's pattern, fifth sighting* — a Register number given a § sigil.
+           §784 resolves to no section in any of the six volumes. Docket 9(c) / 28.
+   26b-09  reg L6299 (entry 1686): *Thm 11.1 makes T ... a new measurement*. Theorem 11.1 is printed in
+           none of the six volumes; the citation has no target. Docket 9(c) / docket 2.
+   26b-10  reg L6507 (entry 1763): *run489.py, ruled_bracket.py, RULING-TOLERANCE-489.md and the run's JSON
+           go to BUILD-10* — a build handle and four internal file names in a reader-facing volume. Ruling 46,
+           docket 6 / 28; the same class as the 3B.* label form (census 1536-1545).
+   26b-11  E.1.5 L11024 and Register 1729 cite F.3's rule for item R. The constraint *obstacle = buildable
+           implies cost <= days* is refuted by a COUNTEREXAMPLE: R is buildable and unbounded. Its extent on
+           the fourteen is neither the empty set nor the whole of them, so the instance the book names for
+           the rule satisfies RULE-H and NOT RULE-E — the two forms F.3 prints do not have one extent, and
+           which is meant is nowhere stated. Docket 34 (an unstated convention) / 9(b).
+   CANDIDATE, recorded and not scored (outside the count word this family is about): *The work applies this
+           without exception* (L11298; census row 1228, closed *not a defect* in the ch26a unit). The nearest
+           exception the reading found is register 333: a criterion the EMPTY INDEX satisfies is weakened to
+           *necessary for completeness and not sufficient for content* rather than declared dead, where
+           RULE-E says *not weakened, not pending, dead*. One site; docket 19 for R3.
+
+VERDICT
+   26b-04 is REVERSED by the reading. The sentence measures TRUE. Chat 139 probed the rule's WORDS and
+   found nothing, and said in terms that a token probe is not a reading; read as a MECHANISM the rule fires
+   15 times over constraints proper and 21 times more over the checks of the same class, in a Register whose
+   own definition makes every one of its 1628 entries a correction. *several* is reached under both readings
+   of the count word in every cell of both conventions, the smallest cell being 15. The work also applies the
+   rule and finds it does NOT fire 5 times (390, 439, 462, 900, 1061), which is the discipline the sentence
+   describes rather than a counter-example to it. 3 members of the pool the reading cannot decide are carried
+   as an upper bound and never assigned.
+   What survives as a finding is not the count but the citation: 26b-11. The one instance E.1.5 names is a
+   refutation by counterexample, and F.3 prints the rule in two forms that do not have one extent.
+   New this unit: 26b-08 (§784 as a section pointer), 26b-09 (Thm 11.1 cited, printed nowhere), 26b-10
+   (a build handle in the Register), 26b-11 (the two forms of the rule, and the instance that fits only one).
+
+DEVIATIONS RECORDED (findings, not instrument faults):
+
+ALL INSTRUMENT CHECKS OK — 0 deviations recorded

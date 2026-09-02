@@ -1,0 +1,2 @@
+id	verdict	reason
+1195	defect	C9-OVERGENERALISATION-WORD at main L9576, member main, flagged token "never". MEASURED: the token heads a live universal, "The fourth is orthogonal to all three, is the only route to the nucleus, and has never been traced." It is not a regex artefact and not a live figure, label or cited claim, so the C7/C9 artefact precedents (678, 680-687, 1067, 1069) do not apply. Unmeasurable by sweep; what the sweep covered is stated in READ-ch16x C.5 (isotopic: 1 main site, 6 reg, 3 ioi, 1 pc, 0 mc, 0 sc). Recorded to docket 19 for R3.

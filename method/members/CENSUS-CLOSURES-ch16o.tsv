@@ -1,0 +1,3 @@
+id	verdict	reason
+1189	not a defect	C9-OVERGENERALISATION-WORD on 'never' at main L8930; the flagged token is the section's own claim (the tripwire has never seen a spectroscopist's data). Regex artefact, precedents 678, 680-687, 1067, 1069.
+1190	not a defect	C9-OVERGENERALISATION-WORD on 'never' at main L8989; the flagged token is the section's own claim (E names cells; it never names a coordinate) and is the load-bearing statement of the hard boundary. Regex artefact, same precedents.

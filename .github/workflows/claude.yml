@@ -1,0 +1,122 @@
+name: Claude Code
+
+# Interactive mode: this workflow passes NO `prompt` input to the action, so Claude waits to be
+# mentioned. Saying @claude in a new issue's title or body, an issue comment, a PR comment or a
+# PR review wakes it, and its progress and results are posted back as a comment on that issue/PR.
+# (Adding a `prompt` input would flip the action into automation mode, which runs unprompted.)
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  issues:
+    # `opened` only. `assigned` is deliberately NOT subscribed: the job condition below tests the
+    # issue BODY and TITLE, not the event action, so assigning an issue whose text still says
+    # @claude would re-run a request Claude has already answered — a duplicate reply and another
+    # ~508 MB checkout. Re-add `assigned` here if you ever enable `assignee_trigger` below.
+    types: [opened]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  claude:
+    # The `github.event.sender.type != 'Bot'` guard is a cost control, not a safety one. The action
+    # already refuses bot actors, so no loop is possible either way — but it refuses them only after
+    # this workflow has started a runner and paid for a ~508 MB checkout. The review workflow's own
+    # output is exactly this case: Claude's review comments land as `issue_comment` and
+    # `pull_request_review_comment` events, and they quote '@claude'. `sender` is present on all
+    # four events below.
+    if: |
+      github.event.sender.type != 'Bot' && (
+        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
+        (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+      )
+    # Cost control: runs for the same issue/PR are serialized instead of overlapping. This repo is
+    # a ~508 MB Drive mirror, so every extra run pays a large checkout.
+    #
+    # Declared at JOB level, not workflow level, on purpose: workflow-level concurrency is
+    # arbitrated at run-creation time, before the `if:` above is ever evaluated, so ordinary
+    # comments with no @claude in them would join the group and evict an already-queued real
+    # request. A job skipped by `if:` never queues, so only genuine mentions occupy the group.
+    #
+    # Caveat, stated plainly: GitHub keeps only ONE pending run per concurrency group. While a run
+    # is in progress, each new @claude comment CANCELS the previously pending one and takes its
+    # place — so during a burst, the intermediate mentions are dropped, not queued, and get no
+    # reply on the issue/PR. A single review submission can do this by itself: a review body plus
+    # two inline comments that all say @claude emit three events into one group. If answering every
+    # mention matters more than runner minutes, delete this whole `concurrency:` block and rely on
+    # `timeout-minutes` alone.
+    #
+    # The group falls back between the two shapes of payload: issue_comment and issues carry
+    # `issue.number`, while the two PR-review events carry `pull_request.number`.
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.event.issue.number || github.event.pull_request.number }}
+      # Deliberately NOT true: Claude can be part-way through editing files, committing or pushing a
+      # branch when the next comment arrives, and cancelling mid-edit would leave that work half done.
+      # We cap spend with timeout-minutes below instead.
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    # Cost control: hard ceiling on a single run. The 508 MB checkout plus a long agent loop can
+    # otherwise burn a lot of runner minutes on one comment.
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write # Required for the action's default GitHub App authentication
+      actions: read # Required for Claude to read CI results on PRs
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          # Shallow checkout: this repo is ~508 MB of Drive documents, so skipping history matters.
+          fetch-depth: 1
+
+      - name: Run Claude Code
+        id: claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+
+          # Using a Claude subscription (Pro/Max/Team/Enterprise) instead of an API key? Delete the
+          # line above, store the output of `claude setup-token` as the CLAUDE_CODE_OAUTH_TOKEN
+          # repository secret, and uncomment this one:
+          # claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+          # NOTE: `github_token` is intentionally NOT passed. Omitting it lets the action
+          # authenticate as the Claude GitHub App (https://github.com/apps/claude, which must be
+          # installed on this repo). Passing ${{ secrets.GITHUB_TOKEN }} instead would mean CI
+          # does NOT run on commits Claude pushes.
+
+          # Optional: Customize the trigger phrase (default: @claude). NOTE: setting this alone is
+          # NOT enough. The job `if:` above hardcodes the literal '@claude' in four places and runs
+          # BEFORE the action does, so a workflow with only this line changed never starts at all.
+          # Change both, or neither.
+          # trigger_phrase: "/claude"
+
+          # Optional: Trigger when a specific user is assigned to an issue. NOTE: this needs two
+          # other changes to work — add `assigned` back to `on.issues.types`, and widen the job
+          # `if:` so an `issues` event is admitted on assignment rather than only when '@claude'
+          # appears in the issue body or title.
+          # assignee_trigger: "claude-bot"
+
+          # Optional: Configure Claude's behavior with CLI arguments.
+          # There is no npm, build or test setup in this repo — it is a document mirror — so a
+          # build/test allowlist would be meaningless here. Search and inventory tools are the
+          # useful ones; drive/MANIFEST.tsv is the file inventory.
+          # claude_args: |
+          #   --model claude-sonnet-5
+          #   --max-turns 10
+          #   --allowedTools "Bash(rg:*),Bash(grep:*),Bash(wc:*)"
+          #   --append-system-prompt "drive/ is a read-only mirror of Google Drive; never edit files under it."
+
+          # Optional: Advanced settings configuration (JSON string or a path to a settings file)
+          # settings: |
+          #   {
+          #     "env": {
+          #       "CLAUDE_METHOD_WORKS_MIRROR": "drive"
+          #     }
+          #   }

@@ -1,0 +1,335 @@
+# ---------------------------------------------------------------------------
+# Drive sync — OPTIONAL, and OFF unless you turn it on.
+#
+# What it does
+#   Runs tools/drive_sync.py on a GitHub runner, which mirrors the two Google
+#   Drive folders ("The Method Materials" and "The Method Prints & Proofs")
+#   into drive/, rewrites drive/MANIFEST.tsv, and then commits and pushes
+#   whatever changed back to the branch this workflow ran on.
+#
+#   Unlike the Claude Google Drive connector (which drops any payload over
+#   ~6 MiB — see docs/DRIVE-SYNC.md, Route 1), the script streams downloads, so
+#   the big BUILD143–BUILD158 files come through here too.
+#
+# ---------------------------------------------------------------------------
+# READ THIS BEFORE YOU ENABLE THE SCHEDULE
+#
+#   * IT COMMITS LARGE BINARIES AND LARGE FILES AUTOMATICALLY, WITH NO REVIEW.
+#     A new 7 MB build, a 14 MB tarball or a multi-megabyte zip lands in git
+#     history the moment the job runs. Git history is expensive to undo — you
+#     cannot shrink it by deleting the file in a later commit. The "Refuse to
+#     commit anything GitHub would reject" step below stops only the one case
+#     GitHub hard-rejects (a single file over 100 MiB); nothing stops steady
+#     growth. Re-read docs/REPO-SIZE.md now and then.
+#
+#   * IT PUTS A LONG-LIVED GOOGLE CREDENTIAL IN GITHUB SECRETS. A refresh token
+#     plus your OAuth client secret is enough to read your Drive. Anyone who can
+#     push a workflow to this repository can exfiltrate them. Only do this in a
+#     repository you fully control. Revoke any time at
+#     https://myaccount.google.com/permissions
+#
+#   * KEEP THE SCOPE AT drive.readonly. That is all drive_sync.py ever requests,
+#     and it means a leaked token cannot modify or delete anything in Drive.
+#     Do not mint the refresh token with a broader scope.
+#
+#   * AN OAUTH APP IN "TESTING" STATUS ISSUES REFRESH TOKENS THAT EXPIRE AFTER
+#     7 DAYS. A scheduled job will start failing about a week after you create
+#     the secret. Publish the app (Google Auth Platform → Audience → Publish
+#     app) or plan to re-mint GOOGLE_OAUTH_REFRESH_TOKEN weekly.
+#
+#   * IT NEVER PASSES --prune, so files deleted in Drive stay in the repo and
+#     are only reported in the job log. That is the safe default; adding --prune
+#     means a scheduled job can delete committed files with no review.
+#
+# ---------------------------------------------------------------------------
+# ONE-TIME SETUP
+#
+#   1. Follow docs/DRIVE-SYNC.md Route 2, Steps 1–5, on your own machine. That
+#      leaves a working ~/.config/drive-sync/token.json.
+#
+#   2. Print the three values out of it (client_id, client_secret, refresh_token,
+#      one per line, in that order):
+#
+#        python3 -c 'import json,os;d=json.load(open(os.path.expanduser("~/.config/drive-sync/token.json")));[print(d[k]) for k in ("client_id","client_secret","refresh_token")]'
+#
+#   3. Settings → Secrets and variables → Actions → New repository secret, three
+#      times (names are exact, values are the three lines above, in order):
+#
+#        GOOGLE_OAUTH_CLIENT_ID
+#        GOOGLE_OAUTH_CLIENT_SECRET
+#        GOOGLE_OAUTH_REFRESH_TOKEN
+#
+#      Until all three exist this workflow exits green having done nothing, so
+#      it is safe to merge before you have set them up.
+#
+#   4. Run it once by hand: Actions → "Drive sync" → Run workflow, leaving
+#      dry_run ticked. A dry run writes nothing at all — not even the manifest —
+#      and prints the same summary table a real run does. That is your proof
+#      that CI auth works.
+#
+#   5. Only then, if you want it unattended, uncomment the `schedule:` block
+#      below and commit that change. It ships dispatch-only on purpose.
+# ---------------------------------------------------------------------------
+
+name: Drive sync
+
+on:
+  # Manual runs only, by default. Actions tab → Drive sync → Run workflow.
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: report what would change, download nothing, commit nothing."
+        type: boolean
+        default: true
+
+  # Uncomment to let it run unattended. Mondays at 06:17 UTC — an off-the-hour
+  # minute so it is not queued behind everyone else's :00 jobs. Cron on GitHub
+  # is UTC-only and best-effort; a busy runner queue can delay it.
+  # A scheduled run is NEVER a dry run: it syncs for real and pushes a commit.
+  # Note that GitHub disables schedules on repositories with no activity for 60
+  # days, and that a scheduled run always uses the DEFAULT branch's copy of this
+  # file — so it will only work once this file is merged there.
+  #
+  # schedule:
+  #   - cron: "17 6 * * 1"
+
+# Needed by the final step to push the sync commit back to the branch.
+# Nothing else here needs a token, so this is the whole permission surface.
+permissions:
+  contents: write
+
+# One sync at a time per branch. Two overlapping runs would fight over the same
+# working tree on push, and the loser would just fail. cancel-in-progress is
+# false deliberately: a half-finished mirror is fine (every download is atomic),
+# but killing a run that has already pulled 200 MB wastes the transfer.
+concurrency:
+  group: drive-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Mirror Drive into drive/
+    runs-on: ubuntu-latest
+    # A full first-time sync moves a few hundred MB; the usual incremental run
+    # is a listing pass plus local hashing and takes a couple of minutes.
+    timeout-minutes: 60
+
+    env:
+      # `inputs` is only populated for workflow_dispatch, so a scheduled run
+      # evaluates this to false — i.e. schedule means a real sync.
+      DRY_RUN: ${{ inputs.dry_run == true }}
+
+    steps:
+      # -------------------------------------------------------------------
+      # The guard. `secrets` is not available in an `if:` condition at job or
+      # step level, so presence has to be tested inside a step that then
+      # publishes a plain true/false output the later steps can key off.
+      # Missing secrets exit 0 with an explanation — a repo that has not been
+      # set up yet should not show a red X.
+      # -------------------------------------------------------------------
+      - name: Check for the Google OAuth secrets
+        id: creds
+        env:
+          CLIENT_ID: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.GOOGLE_OAUTH_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.GOOGLE_OAUTH_REFRESH_TOKEN }}
+        run: |
+          # Only ever tests emptiness. No secret value is printed, compared in a
+          # message, or written anywhere.
+          missing=()
+          [ -n "${CLIENT_ID}" ]     || missing+=("GOOGLE_OAUTH_CLIENT_ID")
+          [ -n "${CLIENT_SECRET}" ] || missing+=("GOOGLE_OAUTH_CLIENT_SECRET")
+          [ -n "${REFRESH_TOKEN}" ] || missing+=("GOOGLE_OAUTH_REFRESH_TOKEN")
+
+          if [ ${#missing[@]} -eq 0 ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+            echo "All three Google OAuth secrets are set; running the sync."
+            exit 0
+          fi
+
+          echo "present=false" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Drive sync skipped"
+            echo
+            echo "This workflow needs three repository secrets that are not set:"
+            echo
+            for name in "${missing[@]}"; do echo "* \`${name}\`"; done
+            echo
+            echo "See the setup notes at the top of"
+            echo '`.github/workflows/drive-sync.yml`, and docs/DRIVE-SYNC.md Route 2'
+            echo "for how to mint them. Nothing was synced and nothing was committed."
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+      - uses: actions/checkout@v4
+        if: steps.creds.outputs.present == 'true'
+        with:
+          # Depth 1 is all the sync commit needs. If someone pushes to this
+          # branch while the job runs the push below is rejected; just re-run.
+          # persist-credentials defaults to true, which is what lets the final
+          # step push using GITHUB_TOKEN and the contents: write grant above.
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        if: steps.creds.outputs.present == 'true'
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: tools/requirements.txt
+
+      - name: Install the Drive client libraries
+        if: steps.creds.outputs.present == 'true'
+        run: python -m pip install --upgrade pip && python -m pip install -r tools/requirements.txt
+
+      # -------------------------------------------------------------------
+      # Assemble the cached-token file drive_sync.py expects.
+      #
+      # google-auth's Credentials.from_authorized_user_file() requires exactly
+      # three keys — refresh_token, client_id, client_secret — and treats token,
+      # token_uri and scopes as optional. With "token": null and no "expiry" the
+      # credential loads as valid=False / expired=True, which is precisely the
+      # branch in drive_sync.load_credentials() that calls .refresh() instead of
+      # opening a browser. So CI never needs credentials.json or interactive
+      # consent; the runner mints a fresh access token from the refresh token.
+      #
+      # The secrets reach python only through env: and os.environ, and json.dump
+      # does the quoting. They are never interpolated into the shell, so no
+      # value can land in the log through `set -x`, an error trace, or a value
+      # that happens to contain shell metacharacters.
+      # -------------------------------------------------------------------
+      - name: Write ~/.config/drive-sync/token.json from the secrets
+        if: steps.creds.outputs.present == 'true'
+        env:
+          GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
+          GOOGLE_OAUTH_CLIENT_SECRET: ${{ secrets.GOOGLE_OAUTH_CLIENT_SECRET }}
+          GOOGLE_OAUTH_REFRESH_TOKEN: ${{ secrets.GOOGLE_OAUTH_REFRESH_TOKEN }}
+        run: |
+          # Repository secrets are masked automatically; re-register the two
+          # that matter so they stay redacted even if some later tool echoes a
+          # value back (the ::add-mask:: line itself is consumed by the runner).
+          echo "::add-mask::${GOOGLE_OAUTH_CLIENT_SECRET}"
+          echo "::add-mask::${GOOGLE_OAUTH_REFRESH_TOKEN}"
+
+          umask 077
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path.home() / ".config" / "drive-sync" / "token.json"
+          path.parent.mkdir(parents=True, exist_ok=True)
+
+          payload = {
+              # No access token yet: google-auth then treats the credential as
+              # already expired and refreshes it on first use.
+              "token": None,
+              "refresh_token": os.environ["GOOGLE_OAUTH_REFRESH_TOKEN"],
+              "token_uri": "https://oauth2.googleapis.com/token",
+              "client_id": os.environ["GOOGLE_OAUTH_CLIENT_ID"],
+              "client_secret": os.environ["GOOGLE_OAUTH_CLIENT_SECRET"],
+              # Must match drive_sync.SCOPES, or the script discards the token
+              # and falls back to the browser flow, which cannot work in CI.
+              "scopes": ["https://www.googleapis.com/auth/drive.readonly"],
+          }
+
+          path.write_text(json.dumps(payload), encoding="utf-8")
+          path.chmod(0o600)
+          print("wrote {} ({} bytes, mode 600)".format(path, path.stat().st_size))
+          PY
+
+      # -------------------------------------------------------------------
+      # The sync itself. No --prune (Drive deletions are reported, not applied)
+      # and no --folder/--folder-id (those would replace the default folder list
+      # and drop the other folder's rows from MANIFEST.tsv).
+      # Exit code is 0 when nothing failed, 1 if any file failed.
+      # -------------------------------------------------------------------
+      - name: Run the mirror
+        id: sync
+        if: steps.creds.outputs.present == 'true'
+        run: |
+          args=(--jobs 4)
+          if [ "${DRY_RUN}" = "true" ]; then
+            args+=(--dry-run)
+            echo "DRY RUN — nothing will be downloaded, written or committed."
+          fi
+
+          set +e
+          python tools/drive_sync.py "${args[@]}" | tee "${RUNNER_TEMP}/drive-sync.out"
+          status=${PIPESTATUS[0]}
+          set -e
+
+          {
+            echo "### Drive sync"
+            echo
+            echo '```'
+            cat "${RUNNER_TEMP}/drive-sync.out"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          # A non-zero status means at least one file failed; the summary block
+          # above names each one. Fail loudly, but let the commit step below
+          # still land whatever did transfer.
+          exit "${status}"
+
+      # -------------------------------------------------------------------
+      # GitHub rejects any push containing a file over 100 MiB, and the limit
+      # applies to the blob anywhere in history — committing one and deleting it
+      # later does not help. Catch it before the commit, not at push time.
+      # -------------------------------------------------------------------
+      - name: Refuse to commit anything GitHub would reject
+        id: size_guard
+        if: ${{ !cancelled() && steps.creds.outputs.present == 'true' && env.DRY_RUN != 'true' }}
+        run: |
+          big=$(find drive -type f -size +99M -print)
+          if [ -n "${big}" ]; then
+            echo "::error::These mirrored files exceed GitHub's 100 MiB per-file limit and will not be committed:"
+            echo "${big}"
+            echo "Move them to Git LFS or exclude them — see docs/REPO-SIZE.md."
+            exit 1
+          fi
+          echo "No file under drive/ is anywhere near the 100 MiB limit."
+
+      # -------------------------------------------------------------------
+      # Commit and push. Runs even when the sync step failed (!cancelled), so a
+      # single unreachable file does not throw away 400 good ones — the job is
+      # still red, but the transfers that worked are preserved. Skipped entirely
+      # on a dry run, and a clean no-op when Drive has not changed.
+      # -------------------------------------------------------------------
+      - name: Commit and push any changes under drive/
+        if: ${{ !cancelled() && steps.creds.outputs.present == 'true' && env.DRY_RUN != 'true' && steps.size_guard.outcome == 'success' }}
+        run: |
+          git config user.name  "drive-sync[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # -A so deletions are staged too, but scoped to drive/ so the job can
+          # never touch tools/, docs/ or anything else in the tree.
+          git add -A drive
+
+          if git diff --cached --quiet; then
+            echo "Drive is unchanged — nothing to commit."
+            echo "_No changes under \`drive/\`; nothing committed._" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          changed=$(git diff --cached --name-only | wc -l | tr -d ' ')
+          stamp=$(date -u +%Y-%m-%dT%H:%MZ)
+          # MANIFEST.tsv is rewritten on every real run, so it is almost always
+          # one of the changed paths; the count is "paths git will commit".
+          git commit -m "Drive sync: ${changed} file(s) changed (${stamp})" \
+                     -m "Automated mirror of the two Method Drive folders by .github/workflows/drive-sync.yml."
+
+          if ! git push origin "HEAD:${GITHUB_REF_NAME}"; then
+            echo "::error::Push rejected — ${GITHUB_REF_NAME} moved while the sync was running. Re-run this workflow; the sync is incremental, so the retry is cheap."
+            exit 1
+          fi
+
+          {
+            echo
+            echo "Committed **${changed}** changed path(s) to \`${GITHUB_REF_NAME}\`:"
+            echo
+            echo '```'
+            # `|| true`: head closes the pipe early on a large sync, and the
+            # resulting SIGPIPE would otherwise fail this step under pipefail.
+            git show --stat --oneline HEAD | head -40 || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

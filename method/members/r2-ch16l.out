@@ -1,0 +1,106 @@
+=== A. every pointer in the unit, both resolvers, resolved to the CLAIM ===
+  numeric pointers: ['12.11.2', '12.11.5', '12.11.6', '16.4', '18.4.1', '2.18', '2.21', '25.6.3', '29.11', '29.12', '31.3.4', '32.1', '32.2', '32.6', '7.4']
+  lettered pointers: ['D.5.5']
+  §12.11.2  body_range (3363, 3394)     section_span (3363, 3394)     coincide
+  §12.11.5  body_range (3462, 3482)     section_span (3462, 3482)     coincide
+  §12.11.6  body_range (3482, 3494)     section_span (3482, 3494)     coincide
+  §16.4     body_range (4407, 4432)     section_span (4407, 4449)     DIFFER
+  §18.4.1   body_range (4999, 5248)     section_span (4999, 5248)     coincide
+  §2.18     body_range (840, 884)       section_span (840, 943)       DIFFER
+  §2.21     body_range (1081, 1145)     section_span (1081, 1145)     coincide
+  §25.6.3   body_range (7039, 7059)     section_span (7039, 7059)     coincide
+  §29.11    body_range (8123, 8152)     section_span (8123, 8222)     DIFFER
+  §29.12    body_range (8238, 8316)     section_span (8238, 8316)     coincide
+  §31.3.4   body_range (8728, 8790)     section_span (8728, 8790)     coincide
+  §32.1     body_range (8801, 8808)     section_span (8801, 9030)     DIFFER
+  §32.2     body_range (9030, 9038)     section_span (9030, 9038)     coincide
+  §32.6     body_range (9205, 9267)     section_span (9205, 9307)     DIFFER
+  §7.4      body_range (1789, 1796)     section_span (1789, 1796)     coincide
+  §D.5.5    lettered heading L10661
+=== B. the claims those pointers are cited FOR ===
+  §16.4     body (4407, 4432)  own-body hits []  chapter-span hits 1
+  §18.4.1   body (4999, 5248)  own-body hits [5003, 5004, 5014, 5017]  chapter-span hits 9
+  §7.4      body (1789, 1796)  own-body hits [1790, 1791]  chapter-span hits 2
+  §12.11.5  body (3462, 3482)  own-body hits []  chapter-span hits 0
+  §12.11.6  body (3482, 3494)  own-body hits [3486, 3490, 3491]  chapter-span hits 3
+  §2.18     body (840, 884)  own-body hits [847, 861, 877, 879]  chapter-span hits 19
+  §2.21     body (1081, 1145)  own-body hits [1104]  chapter-span hits 1
+  §29.11    body (8123, 8152)  own-body hits [8127]  chapter-span hits 1
+  §29.12    body (8238, 8316)  own-body hits [8248, 8249, 8253, 8255]  chapter-span hits 6
+  §25.6.3   body (7039, 7059)  own-body hits [7040, 7041]  chapter-span hits 2
+  §32.2     body (9030, 9038)  own-body hits [9036]  chapter-span hits 1
+  §31.3.4   body (8728, 8790)  own-body hits [8736, 8738, 8740, 8747]  chapter-span hits 12
+  §32.6     body (9205, 9267)  own-body hits [9207, 9210]  chapter-span hits 2
+=== C. Chapter-level pointers of the head ===
+  Chapter 14  occurrences [130, 3679]  (BODY = last)
+  Chapter 15  occurrences [131, 4270]  (BODY = last)
+  Chapter 17  occurrences [133, 4789]  (BODY = last)
+  Chapter 6   occurrences [120, 1511]  (BODY = last)
+  Chapter 25  occurrences [145, 6884]  (BODY = last)
+  Chapter 30  occurrences [152, 8316]  (BODY = last)
+  Chapter 32  occurrences [154, 8790]  (BODY = last)
+  L8838 calls Chapter 30 "the missing Chapter 30" --- it is present at the BODY line above
+=== D. the head's three count words against their targets ===
+  -- "23 core types" --
+    main [6639, 8791]
+    reg  []
+    ioi  []
+  -- "the four decline modes each have a worked case" --
+    decline-mode sites: [62, 6809, 8792, 11485]
+  -- the three parked questions, resolved in Chapters 15 and 17 --
+    C\u2086 density|C6 den 1 sites, chapters ['32']
+    antiprotonic           10 sites, chapters ['16', '19', '2', '22', '32', '36']
+    isoelectronic law      2 sites, chapters ['32', '36']
+  -- "eight items" in Appendix E (L8794) against Appendix E itself --
+    L10899 Serving PART VI — THE RECORD AND THE REACH. The book's own ignorance as a closed index — fourteen it
+    L10900 ten of them open, four ordered coordinates, one categorical fibre, E(Q) = 0 fibred by domain at the
+    L10906 nine items; eight closed at E(Q) = 0 with four entered by §12.11.7; thirteen — are kept there as his
+    L10923 replacing it, so this appendix carried **three live item counts** — eight at E.4, fifteen here, and
+    L10940 ### E.1.2 The open set as this session leaves it — ten open of 14, listed
+    L11132 ### E.4.1 Q, enumerated and closed at eight
+=== E. attributions against ## References BODY occurrence and R.7 ===
+  ## References BODY L11503 ; R.7 L11806
+  Bergman  unit [8865]   bibliography [11565, 11704]
+  Baker    unit [8866]   bibliography [11699, 11705, 11839]
+  Pixley   unit [8866]   bibliography [11699, 11705, 11839]
+  Kreuzer  unit [8885]   bibliography [11797]
+  Skarke   unit [8885]   bibliography [11797]
+  reverse: bibliography entries naming §32.1.1 or chapter 32
+    [11555, 11799]
+=== F. Rulings 45 and 46 in one pass, case-sensitive ===
+  Ruling 45 candidate sites: 8
+    L8792 four decline modes each have a worked case; and the parked questions of earlier dr
+    L8816 over thirty chapters. Recomputed at this build (2026-08-24, `bookindex.py`), over 
+    L8819 resolution                          cells   box   density   E(book)      (first re
+    L8826 admitted operation. At the first reading, parts reached a fixed point of ℛ exactly
+    L8827 filling a box of twenty-five. At this build parts fall two cells short: ℛ asks Par
+    L8841 **Third, §32.1's own constraint is violated 162 times at this build.** It states a
+    L8842 supported by evidence at or before s. **Fifty-eight of 138 cells — 42% — cited for
+    L8872 thirty-seven of them from a single late session. A referee reads that two ways: un
+  Ruling 46 sites: 1
+    L8816 over thirty chapters. Recomputed at this build (2026-08-24, `bookindex.py`), over 
+=== G. out-of-unit sites the numeral sweep placed ===
+  main L11692 153–162. — the unbounded forbidden submatrices; §30.3's obstruction route closes on them.
+  main L11828 · Saari, D. G. (1971). *Trans. AMS* **162**, 267; (1973) **181**, 351; (1984) *J. Diff. Eq.* **55**, 300
+  main L11849 objects — 162 works, 1669 to 2026, ordered by year with the objects each carries. Fifty-nine of them
+  reg  L1363 ### 368
+  reg  L1365 **ITEM M ANSWERED, AND THE ANSWER IS ABOUT E(X) RATHER THAN ABOUT THE NUMBERS.** *After register 367's c
+  reg  L2413 **THEN EACH COMPENDIUM WAS CHECKED AGAINST ITS OWN CLAIMS, AND TWO FAULTS APPEARED THAT NOTHING ELSE COU
+=== H. duplicated-section sweep, first-person prose, census rows ===
+  long lines 70, recurring elsewhere 0
+  first-person candidates: [8829]
+  census rows in range (classes main AND all): 5
+    1184	C9-OVERGENERALISATION-WORD	main	8813	never	**First, the index of §32.1 is computed here, which it never w
+    1185	C9-OVERGENERALISATION-WORD	main	8838	never	missing Chapter 30 — and it has never computed E over the inde
+    1186	C9-OVERGENERALISATION-WORD	main	8856	never	statement, which the book has never made in one sentence: Λ is
+    1187	C9-OVERGENERALISATION-WORD	main	8879	never	own misidentified species; it has never run on anyone else's d
+    1188	C9-OVERGENERALISATION-WORD	main	8881	never	**6. S3 has never been tested.** §32.2 claims a reader given t
+=== I. Prints & Proofs, anchored witness by witness ===
+  What a referee would flag                      main [8808]  PP [8720]  offset [-88]
+  The book is an index                           main [8801]  PP [8713]  offset [-88]
+  The law applied to this book                   main [154, 8790]  PP [153, 8702]  offset [-1, -88]
+  The object does not contain the demonstration  main [8848]  PP [8754]  offset [-94]
+  The 540 remain unverified                      main [8885]  PP [8791]  offset [-94]
+  bookindex.py                                   main [8816]  PP ABSENT  offset []
+  thirty-five chapters and six appendices        main [8817]  PP ABSENT  offset []
+  Three hundred and sixty-eight                  main [8871]  PP [8777]  offset [-94]
