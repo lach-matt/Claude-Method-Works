@@ -1,3 +1,4 @@
 # graphify intermediate sidecars (final outputs graph.json/graph.html/GRAPH_REPORT.md are tracked)
 graphify-out/.graphify_*
 graphify-out/.needs_update
+graphify-out/cache/
