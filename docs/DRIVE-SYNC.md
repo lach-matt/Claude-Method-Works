@@ -222,6 +222,20 @@ That is the confirmation that auth works and that the script sees the same 444 f
 
 #### Step 6 — fetch just the 31 missing files
 
+### Leaving things out
+
+`--exclude` is the mirror image of `--only` and is applied after it, so `--only CORPUS --exclude .zip`
+means "the CORPUS files, but not the archives".
+
+`--max-file-bytes` guards the case nobody wants to hit by accident. Two `conversations.json` exports
+in `Claude Chats` are 388 MB each; GitHub rejects any single file over 100 MiB on push, so a run that
+fetches them spends 776 MB of transfer on bytes that can never be committed. The default cap skips
+them and writes a manifest row saying why, rather than silently pulling them. Raise or disable it
+(`--max-file-bytes 0`) when syncing somewhere git limits do not apply.
+
+Both leave an excluded file's existing manifest row alone when it has one: an exclusion says "do not
+fetch this now", not "forget what is known about it".
+
 `--only` is a plain substring test against the repo path, and it is repeatable:
 
 ```sh
@@ -262,6 +276,8 @@ Every flag, as the script actually defines them:
 | `--folder NAME` | `The Method Materials`, `The Method Prints & Proofs` | Drive folder name to sync. Repeatable. **Overrides the defaults.** |
 | `--folder-id ID` | — | Drive folder id to sync. Repeatable. **Overrides the defaults.** |
 | `--only SUBSTRING` | — | Only sync files whose repo path contains SUBSTRING. Repeatable. Unmatched files keep their manifest rows. |
+| `--exclude SUBSTRING` | — | Never sync files whose repo path contains SUBSTRING. Repeatable, applied after `--only`. Excluded files keep any manifest row they already earned. |
+| `--max-file-bytes N` | `104857600` | Skip files larger than N bytes. The default is GitHub's 100 MiB per-file hard limit: git cannot accept such a file, so fetching one only costs transfer and disk. `0` disables the cap. |
 | `--credentials PATH` | `$GOOGLE_DRIVE_CREDENTIALS`, else `~/.config/drive-sync/credentials.json` | OAuth client secrets |
 | `--token PATH` | `~/.config/drive-sync/token.json` | Cached OAuth token |
 | `--jobs N` | `4` | Parallel download workers |
