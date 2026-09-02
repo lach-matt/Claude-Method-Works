@@ -1,0 +1,129 @@
+== A. the enlargement table, L8895-L8900 (|Lambda| measured; ambient box budgeted) ==
+  caps (3, 3, 1, 3, 1): printed |L|=976  MEASURED 976  EXACT   l in [0, 1]  n in [1, 2, 3]  shells printed "s, p"  ambient box 6,912
+      |R(L)| printed 976  MEASURED 976  EXACT   E printed 0  MEASURED 0  EXACT
+  caps (4, 4, 1, 6, 1): printed |L|=8,853  MEASURED 8,853  EXACT   l in [0, 1]  n in [1, 2, 3, 4]  shells printed "s, p"  ambient box 131,712
+      |R(L)| printed 8,853  MEASURED 8,853  EXACT   E printed 0  MEASURED 0  EXACT
+  caps (5, 5, 2, 10, 2): printed |L|=89,438  MEASURED 89,438  EXACT   l in [0, 1, 2]  n in [1, 2, 3, 4, 5]  shells printed "+ d"  ambient box 2,994,750
+      |R(L)| printed 89,438  MEASURED 89,438  EXACT   E printed 0  MEASURED 0  EXACT
+  caps (5, 5, 3, 14, 3): printed |L|=267,858  MEASURED 267,858  EXACT   l in [0, 1, 2, 3]  n in [1, 2, 3, 4, 5]  shells printed "+ f"  ambient box 18,900,000
+      |R(L)| and E NOT COMPUTED at this row --- ambient box 18,900,000 exceeds the stated 4,000,000-cell budget.  This is a budget bound, NOT a negative finding.
+  caps (6, 6, 3, 14, 3): printed |L|=499,246  MEASURED 499,246  EXACT   l in [0, 1, 2, 3]  n in [1, 2, 3, 4, 5, 6]  shells printed "+ f, n <= 6"  ambient box 27,216,000
+      |R(L)| and E NOT COMPUTED at this row --- ambient box 27,216,000 exceeds the stated 4,000,000-cell budget.  This is a budget bound, NOT a negative finding.
+  L8902 "half a million cells": 499,246 rounds to 0.5 million --- consistent.
+  L8903 "the closure that Chapter 7 proves at 976 cells": 7.4 caps checked below.
+  section_span(7.4)=(1789, 1796)  body_range(7.4)=(1789, 1796)  COINCIDE
+      7.4 body printed IN FULL (7 lines) so the negative carries its witness:
+      L1789: ### 7.4 A note on caps
+      L1790: Λ is infinite; every count in this book is stated at explicit caps on n, e, ℓ and k. The counts change with
+      L1791: the caps. The shape does not — a claim made precise in Chapter 8, where the generator patterns are
+      L1792: shown identical across a twenty-eight-fold range in cell count.
+      L1793: 
+      L1794: Where a number is cap-dependent it is marked. Where a structural claim is made, it has been checked at no fewer than four settings.
+      L1795: 
+
+== B. the flag list, 32.1.1 body against 32.1.2 (the count word chat 120 opened) ==
+  32.1.1 body_range (8808, 8889)  section_span (8808, 8889)  COINCIDE
+  bolded lead-ins in 32.1.1 body: 12
+   ordinal: 3
+      L8813: First, the index of §32.1 is computed here, which it never was. 
+      L8835: Second, §32.6's Condition 1 is named for a quantity it does not 
+      L8841: Third, §32.1's own constraint is violated 162 times at this buil
+   numbered: 7
+      L8848: 1. The object does not contain the demonstration. At the caps of
+      L8860: 2. E = 0 is fibration-dependent, and two of the three are fibred
+      L8865: 3. The central theorem is not first. §29.11: A.2 is Bergman's Do
+      L8871: 4. The register is longer than the results. Three hundred and si
+      L8876: 5. There is no prediction. §25.6.3 withdrew the one, correctly, 
+      L8881: 6. S3 has never been tested. §32.2 claims a reader given the cla
+      L8885: 7. The 540 remain unverified. §31.3.4's Kreuzer–Skarke count res
+   other: 2
+      L8823: procedure · object and law · application  7  9  77.8%  0   —
+      L8825: And by §18.4.1 in its certificate form that number measures the 
+  count word "seven" in 32.1.1 body at [8809, 8830, 8872]
+  count word "ten" in 32.1.1 body at []
+  count word "four" in 32.1.1 body at [8854, 8862]
+  count word "three" in 32.1.1 body at [8849, 8860, 8871]
+  32.1.2 body_range (8889, 8933); "Flag N" lead-ins: 5
+      L8892: Flag 1 — coverage — is substantially answered, and the answer was a computatio
+      L8908: Flag 2 — fibration — is answered by disclosure, not by repair. The honest numb
+      L8914: Flag 4 — the register rate — is now measurable, and the measurement is the ans
+      L8921: Flag 6 — S3 — is tested, and it fails in its strong form. §32.2 claims a reade
+      L8929: Flags 3, 5 and 7 are not answerable here. Three needs a sentence the author mu
+  flags answered in 32.1.2: [1, 2, 4, 6] (4)
+  L8929 names 3, 5, 7 unanswerable: [1, 2, 3, 4, 5, 6, 7] = 1..7 COVERS 1-7 EXACTLY
+
+== C. arithmetic, all conventions named ==
+  34 + 8 = 42 against L8915 "forty-two"  EXACT
+  L8916-17 register list: [207, 213, 215, 218, 220, 221, 227, 203] --- 8 items against "eight"  EXACT;  ascending? False
+  18/68 = 26.4706 %  half-up 26  half-even 26  truncated 26  --- printed 26  EXACT (all conventions)
+  baseline 1/25 = 4 % printed 4  --- but the volume's OWN chapter count:
+      "## N." heading lines 70 at 36 distinct numbers, max 36; contents+body duplication resolved by distinct number
+      1/36 = 3 % (half-up) --- the printed 4 % baseline is computed over TWENTY-FIVE chapters
+  26/4 = 6.5 against L8924 "six and a half times chance"  EXACT
+  exact ratio (18/68)/(1/25) = 6.6176
+  32.1.3 table rows, L8939-L8941:
+      L8939: (88, 5, 6) sums to 99 NOT 100
+      L8940: (73, 23, 2) sums to 98 NOT 100
+      L8941: (55, 25, 18) sums to 98 NOT 100
+  L8943 "rise fivefold": 5 -> 25 is 5x  EXACT;  "fall from 88% to 55%" printed and matches the table
+  32.1.4 table, L8968-L8976:
+      rows 7;  sum of E = 55 against L8978 "Fifty-five"  EXACT
+      rows with E = 0 (closed): 3 ['Lambda, the object', 'App D fibred', 'App E(Q) fibred']
+      DISTINCT indices named in the table: Lambda, Appendix D, Appendix E(Q), Appendix F, the audit set = 5, against L8965 "not one index but six"
+      closed under the L8908 rule ("the honest number for a fibred index is its unfibred one"): Lambda only = 1, against L8965 "only two of them are closed"
+  32.1.4.1 table, L9004-L9011, and the recomputation:
+      "now" column recomputation 4 + 4 + 23 + 17 = 48 against L8998 "Recomputed now the total is 48"  EXACT
+      55 - 33 + 23 = 45; the moved rows are E(numbers) 33->23 and E(Q) 1->4, net -7 --- consistent with 55 -> 48
+      L9013 "Every figure about Lambda holds": True over 4 rows
+      L9013 "Every figure about the book moves": True over 3 rows  --- App D row: ['forty', 'forty-eight', 'forty-eight'] moves once then holds
+
+== D. every register cited in the unit, existence first, headline second ==
+  register  236: reg L935 "### 236" -> **CLOSURE HOLDS THROUGH THE F SHELL** *— E(Λ) = 0 at 8,853 cells, 89,438 with d, and 267,858 and
+  register  237: reg L939 "### 237" -> **S3 TESTED FOR THE FIRST TIME AND FAILING IN ITS STRONG FORM: 26% CHAPTER RECOVERY FROM CROSS-R
+  register  203: reg L1319 "### 203, 215, 218, 259, 280, 283, 284, 286, 291" -> **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows;
+  register  207: reg L1323 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
+  register  213: reg L1323 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
+  register  215: reg L1319 "### 203, 215, 218, 259, 280, 283, 284, 286, 291" -> **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows;
+  register  218: reg L1319 "### 203, 215, 218, 259, 280, 283, 284, 286, 291" -> **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows;
+  register  220: reg L1323 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
+  register  221: reg L1323 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
+  register  227: reg L1327 "### 227, 253, 254, 305" -> **§4.6 — A TEST THAT COULD NOT FAIL.** *A summary line hardcoded one line below the computation 
+  register  305: reg L1327 "### 227, 253, 254, 305" -> **§4.6 — A TEST THAT COULD NOT FAIL.** *A summary line hardcoded one line below the computation 
+  register  310: reg L1339 "### 310, 337, 340, 351, 354" -> **An INSTRUMENT NARROWED BY A LITERAL IT CARRIED, CONTINUED.** *A spelled reference stopping at*
+  register  318: reg L1343 "### 293, 318, 342" -> **A CHECK THAT PASSED ON A DEFECT IT WAS BUILT TO CATCH.** *Five sections absent from a derived 
+  register  320: reg L1187 "### 320" -> **THE BOOK IS PROCEDURAL RATHER THAN EXPLORATORY, AND THE CHANGE IS MEASURABLE** *: defects foun
+  register  321: reg L1191 "### 321" -> **THE BOOK REARRANGED TO AGREE WITH WHAT IT IS.** *The procedure was Appendix B, behind the math
+  register  285: reg L1083 "### 285" -> **A NINETEENTH PRIME AUDIT, SEQUENCE.** *A numbering is a claim about position and nothing was t
+  register  294: reg L1099 "### 294" -> **A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen be
+  register  278: reg L1067 "### 278" -> **THE LATTICE APPLIED TO THE UNCOMPUTABLE.** *E(decisions) = 1, naming a decision deferred rathe
+  register  332: reg L1231 "### 332" -> **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED
+  register  373: reg L1379 "### 373" -> **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls
+
+== E. figures the unit states about the BOOK, re-measured against the book as it stands ==
+  Register: 1628 bare-number entry headings, 7 grouped headings (comma- AND dash-grouped; a dash-only pattern sees none of them) spanning 32 numbers; distinct entry numbers 1660
+  L8918 "one thousand six hundred and thirty-five" --- word-form sites in the main volume:
+      15 sites: [20, 89, 104, 202, 523, 646, 3514, 7367, 7900, 8918, 9055, 9364, 9376, 9381, 10296]   (L8918 in the set: True)
+      digit-form 1,635 in main at [7373]
+  L8957 "the register is a quarter of it":
+      main member 11,855 lines / 764,464 B;  Register member 6,612 lines / 1,185,386 B
+      Register as a share of main+Register: lines 35.8 %, bytes 60.8 % (half-up);  as a share of main alone: lines 55.8 %, bytes 155.1 %
+  audit counts across the main volume (docket 33):
+      "twenty-two audits": 4 sites [79, 1004, 1399, 9824]
+      "twenty audits": 1 sites [8949]
+      "nineteen audits": 0 sites []
+      "eleven missing audits": 1 sites [8992]
+      "all twenty audits": 1 sites [8949]
+  companion papers (L8945 "the two companion papers" against L9001 "the third companion paper"):
+      "companion paper": 19 sites [1161, 1338, 4175, 4516, 5187, 6024, 8945, 9001, 9722, 9894, 10497, 10727, 10757, 11594]
+      "companion papers": 3 sites [4175, 8945, 11853]
+  |J(Lambda)| = 17 generators and 7.07 bits per cell --- corroborating sites, six volumes:
+      main: 7.07 at [315, 854, 2115, 9008, 9132] (5);  "17 ... generator" at [1863, 9007, 9128] (3)
+      reg: 7.07 at [1009, 1381, 1469, 1553] (4);  "17 ... generator" at [1037, 1945, 5565, 6339, 6467] (5)
+      mc: 7.07 at [1074] (1);  "17 ... generator" at [1064, 1074, 1426, 1514, 2394] (5)
+      pc: 7.07 at [] (0);  "17 ... generator" at [] (0)
+      ioi: 7.07 at [] (0);  "17 ... generator" at [] (0)
+      sc: 7.07 at [] (0);  "17 ... generator" at [] (0)
+  Appendix D element count (L9009 "forty-eight"):
+      lettered_heading("D") = 10885
+      "forty-eight" in main at [7483, 8209, 9009, 10383, 10771, 10793, 10816] (7)
+      "forty eight" in main at [] (0)

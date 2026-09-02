@@ -1,0 +1,117 @@
+
+================================================================================================
+0  UNIT main L9716–L9805 (body_range-bounded; see r2-ch17a §0); a pointer is resolved to the CLAIM, not the heading
+================================================================================================
+  §35 body L9716; §35.1 L9727; §35.2 L9744; §35.3 L9784; §35.4 L9806
+
+================================================================================================
+1  POINTERS — every "Chapter N" / "§N" token in the unit, its line, and where the claim lives
+================================================================================================
+  tokens: L9718:Chapter 34 L9729:Chapter 6 L9729:Chapter 33 L9731:Chapter 34 L9742:Chapter 34 L9747:Chapter 34 L9786:Chapter 34 L9802:Chapter 33 L9803:Chapter 34
+  L9729 "Chapter 6 proved the periodic table is not a closed index"
+    Chapter/§6 span L1511–L1723:
+      'not a closed index'       1 hits  L1511 ## 6. The periodic table is not a closed index
+      'closed index'             1 hits  L1511 ## 6. The periodic table is not a closed index
+      'periodic table'           8 hits  L1511 ## 6. The periodic table is not a closed index | L1512 Take the periodic table at its word. Its coordinates are period and group; its cells are the elements. Ask | L1525 This is not a defect in the periodic table. It is a fact about what the periodic table's coordinates can and c | L1530 content of Thirty days hath September; the periodic table's thirty-six are the gaps in the short periods.
+  L9729–L9731 "Chapter 33 said what that costs: what a closure cannot supply is exactly what requires an operator"
+    Chapter/§33 span L9399–L9493:
+      'cannot supply'            1 hits  L9450 when its cells are enumerable, and what it cannot supply is exactly what requires
+      'requires an operator'     0 hits  
+      '\\boperator\\b'           2 hits  L9451 an operator.* **Across the indexes of §36, nine of eleven quantities a closure | L9460 present, because both land in the same cell. **The closure operator sees no
+  L9802–L9803 "Where a language falls silent, the silence names the object. Chapter 33 said it of the six languages"
+    Chapter/§33 span L9399–L9493:
+      'six languages'            2 hits  L9412 **Six languages, and the question each asks:** | L9431 An object all six languages describe is well-posed and ordinary. **An object some
+      'falls? silent'            2 hits  L9429 **A language that falls silent is the finding.** | L9435 *The most useful case is when analysis and statistics fall silent together.* A
+      '\\bsilence\\b'            1 hits  L9445 **Then act on the silence.** Where analysis is silent, do not fit. Where
+  L9786 "Chapter 34 ended on a silence and called it a domain statement"; L9803 "enacted it at the f corridor"
+    Chapter/§34.9 span L9661–L9672:
+      '\\bdomain\\b'             2 hits  L9661 ### 34.9 Domain, stated by the law itself | L9666 **f is outside the domain and the law says so.** At any f opening p = n−ℓ−1 = 0,
+      'outside the domain'       1 hits  L9666 **f is outside the domain and the law says so.** At any f opening p = n−ℓ−1 = 0,
+      '−∞|-∞'                    1 hits  L9668 rival lies below and L = −∞.** The quantity t = (a−L)/(U−L) does not exist there.
+  L9747 "the 106 transitions Chapter 34 counted"
+    Chapter/§34 span L9494–L9715:
+      '\\b106\\b'                4 hits  L9616 **All 106 non-empty. Nineteen distinct surds across the whole table. No | L9629 **And the state is necessary.** With no carried value, 104 of 106 steps admit two | L9663 **Exceptionless on 106 elements**, Z = 3 to 108, including every aufbau anomaly, | L9699 106/106, and random interior points on 200 of 200 seeds.** *The corridor is forced;
+      'transitions?'             0 hits  
+
+================================================================================================
+2  REGISTER — "register entries 1701–1712 carry the record" (L9723): existence first, then subject
+================================================================================================
+  present: [1701, 1702, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1711, 1712] (11 of 12); ABSENT: [1710]
+    1701  THE LÖWDIN CHALLENGE IS CLOSED — THE ORDERING LAW DERIVED FROM THE EQUATION AT 107 OF 107, THE E
+    1702  THE CHAIN, MEASURED. 119 rows, Z = 2–120; 107 SCORED, 12 UNWITNESSED. Every row records entrant,
+    1703  THE SILENCE OF CHAPTER 34 HAS AN OCCUPANT — THE COLLAPSE CONDITION DECIDES EXACTLY WHERE THE COR
+    1704  NO G BLOCK BELOW Z = 121, AND THE FIELD SAYS SO WITHOUT BEING ASKED. Measured across the walk: 5
+    1705  THE CORRELATION CLAUSE, COMPLETE AT ALL FIVE CONTESTED ROWS — EVERY COMPETITION WIDENS. Z = 38, 
+    1706  ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL. The identical walk 
+    1707  PRIOR ART — THE WALK'S ONE SYSTEMATIC DEFECT IS A PULAY TERM, PUBLISHED THE YEAR THE CHALLENGE W
+    1708  PRIOR ART — THE OPERATOR ASYMMETRY IS LÖWDIN'S OWN 1950 IDENTITY, AND IT CLOSES THE LAST GAP. Fo
+    1709  A HYPOTHESIS FALSIFIED BY THE CLAUSE THAT SCORED HIT — KEPT, AS HONESTY REQUIRES. The residual a
+    1711  ZERO RESIDUE — THE AUDIT OF THE INSTRUMENT CLOSES AT NOTHING LEFT UNEXPLAINED. chord = rot + per
+    1712  OPEN — TWELVE ROWS UNWITNESSED, AND WHAT WOULD WITNESS THEM. Z = 109–120: entrants 6d (109–112),
+  sites of a bare "1710" in the six volumes: main:0 reg:0 mc:0 pc:0 ioi:0 sc:0 ; sites of "1701–1712": main:2[9723,11807] reg:0 mc:1[3150] pc:1[194] ioi:1[1900] sc:0
+  entries whose headline is on the Löwdin subject: 10 of 11 present
+  1703 body (the collapse condition; L9797 "two coexisting solutions"): THE SILENCE OF CHAPTER 34 HAS AN OCCUPANT — THE COLLAPSE CONDITION DECIDES EXACTLY WHERE THE CORRIDOR CANNOT SPEAK. At f openings the corridor's L = −∞ (node floor); the derived field states the double-well collapse criterion at those very rows and it selects d over uncollapsed f at La, Ac, Th — the complete tie-break exception set, no more rows and no fewer. Beside the transition the mean-field equations hold two st
+
+================================================================================================
+3  ATTRIBUTIONS — names in the unit against the References body and R.7 (word-bounded)
+================================================================================================
+  References body heading L11503 (occurrences [173, 11503]); R.7 heading [11806]
+  Löwdin       unit sites [9716, 9723]; References body 4; R.7 4
+  Schrödinger  unit sites [9721, 9775]; References body 0; R.7 0
+  Pulay        OUT OF UNIT (§35.5, chat 129): unit sites []; References body 1; R.7 1
+  Griffin      OUT OF UNIT (§35.5, chat 129): unit sites []; References body 2; R.7 2
+  Andrew       OUT OF UNIT (§35.5, chat 129): unit sites []; References body 3; R.7 2
+  Cowan        OUT OF UNIT (§35.5, chat 129): unit sites []; References body 4; R.7 2
+  "The challenge posed in 1969" (L9722): Löwdin 1969 in References body: True
+
+================================================================================================
+4  RULING 45 (process remarks), RULING 46 (script names, build numbers, backticks), FIRST PERSON (mine, myself carried)
+================================================================================================
+  R46: backticked tokens 0; ".py" 0; "BUILD" 0
+  first person (case-sensitive I): zero
+
+================================================================================================
+5  COUNT WORDS — each against the rows it counts
+================================================================================================
+  eleven elements (L9773)                      DATA rows 11
+  twelve rows (L9777)                          DATA rows 12
+  five elements (L9766)                        DATA rows 5
+  three exception rows (L9750, L9757, L9794)   DATA rows 3
+  "the six languages" (L9803) -> §33.1 L9404–L9426 lines naming the languages: L9409 languages in turn whether it can speak of it, and read the answer off the pattern | L9412 **Six languages, and the question each asks:**
+  "Chapter 33 said it of the six languages" — the roster printed at §33.1 is chat 125's 16t finding (six there, six at §20.2, two in common); not re-derived here
+
+================================================================================================
+6  STRUCTURE — bold lead-ins read (not headings), the epigraph, the blockquote; unmarked sub-heading test with a blank line above
+================================================================================================
+  bold lead-in paragraphs: 10 -> L9729 Chapter 6 proved the periodic table is not a closed index, and Chapter 33 said w | L9736 One number goes in. | L9752 The exceptions are derived, not excused. | L9759 The absences are derived too. | L9766 Correlation widens every contested step. | L9772 And the table is relativistic, visibly. | L9777 Beyond the last measured element, the walk keeps writing | L9786 Chapter 34 ended on a silence and called it a domain statement. | L9791 The solution walked into exactly that silence and found the physics standing in  | L9802 Where a language falls silent, the silence names the object.
+  italic epigraph L9718–L9725: starts "*" True, ends ".*" True; blockquote L9746–L9750: 5 "> " lines
+  unmarked sub-heading candidates (short line, blank above and below): zero
+  headings in unit: [(9716, '## 35. The Löwdin solution'), (9727, '### 35.1 The problem, finished'), (9744, '### 35.2 What the walk returned'), (9784, '### 35.3 The silence, answered')]
+
+================================================================================================
+7  THE COMPANION PAPER — member THE-LOWDIN-SOLUTION-2.md against the chapter
+================================================================================================
+  first heading: '# THE LÖWDIN SOLUTION'; lines 261
+  107 of 107                       paper lines [156]
+  La, Ac(,| and) Th                paper lines [94]
+  \beleven\b                       paper lines [13, 45, 156]
+  0\.083                           paper lines [43, 148]
+  137\.035999                      paper lines [13, 27, 35, 72, 211]
+  Koelling                         paper lines [35, 72, 223, 239]
+  \b1701\b|\b1712\b                paper lines []
+  \bmeasured ground configuration  paper lines []
+
+================================================================================================
+8  SINGLE-WITNESS CHECK (docket 17) — the unit's figures with one site in six volumes, and the Register's phrasing
+================================================================================================
+  two coexisting solutions       main:1[9797] reg:0 mc:0 pc:0 ioi:0 sc:0
+  coexist                        main:4[6952,9797,10358,10754] reg:2[3069,3081] mc:1[816] pc:1[24] ioi:0 sc:0
+  two (?:solutions|branches|stationary points) main:2[6404,6416] reg:1[5754] mc:0 pc:0 ioi:0 sc:0
+  106 transitions                main:1[9747] reg:0 mc:0 pc:0 ioi:0 sc:0
+  106 steps                      main:3[9629,9732,10856] reg:9[4985,5001,5261,5289,5293,5441…] mc:2[3649,3751] pc:0 ioi:0 sc:0
+  three elements wide            main:1[9757] reg:0 mc:0 pc:0 ioi:0 sc:0
+  collapse condition             main:6[9753,9793,9863,9886,10800,11812] reg:1[6355] mc:2[3162,3168] pc:2[274,356] ioi:0 sc:1[228]
+  double-well                    main:1[9753] reg:1[6355] mc:1[3170] pc:0 ioi:0 sc:0
+  "unwitnessed" as the book's own vocabulary: first Index-of-Indices site: ['**This is not the coordinate index, and the two were once both called Λ_spectra.** Λ_spectra proper is the four-coordina']
+
+END r2-ch17b

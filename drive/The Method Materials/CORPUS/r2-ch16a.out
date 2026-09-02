@@ -1,0 +1,244 @@
+====================================================================================================
+r2-ch16a  PROSE  chat 116  main L8347-L8450  (§30.2 - §30.3.2)
+====================================================================================================
+
+## 1  EVERY §-POINTER IN THE UNIT, resolved to the CLAIM under BOTH resolvers
+  pointer sites in unit: 4  [(8382, '30.3'), (8392, '30.3'), (8396, '30.3.3'), (8411, '30.3')]
+  L8382 -> §30.3  body_range (8399, 8405)  section_span (8399, 8575)  DIFFER
+        source line: ### 30.2.2 Which gives §30.3 a parameter
+        claim wanted: a complexity question / a parameter the section consumes
+        body_range   {'complexity': 0, 'arity': 0, 'law': 2, 'parameter': 0, 'exponent': 0}
+        section_span {'complexity': 1, 'arity': 17, 'law': 8, 'parameter': 1, 'exponent': 1}
+  L8392 -> §30.3  body_range (8399, 8405)  section_span (8399, 8575)  DIFFER
+        source line: §30.3's complexity question — on five points, with R² between 0.37 and 0.42. Evidence, not a bou
+        claim wanted: a complexity question / a parameter the section consumes
+        body_range   {'complexity': 0, 'arity': 0, 'law': 2, 'parameter': 0, 'exponent': 0}
+        section_span {'complexity': 1, 'arity': 17, 'law': 8, 'parameter': 1, 'exponent': 1}
+  L8396 -> §30.3.3  body_range (8451, 8476)  section_span (8451, 8476)  COINCIDE
+        source line: is the size of the basin: a rare solution means a longer descent with more places to stall. §30.
+        claim wanted: completes the landscape reading — potential, basin, descent
+        body_range   {'interval': 9, 'landscape': 0, 'basin': 0, 'potential': 0, 'descent': 0, 'stall': 0}
+        section_span {'interval': 9, 'landscape': 0, 'basin': 0, 'potential': 0, 'descent': 0, 'stall': 0}
+  L8411 -> §30.3  body_range (8399, 8405)  section_span (8399, 8575)  DIFFER
+        source line: §30.3's original citations — Stahl & Wille, Yannakakis — were correct; a draft withdrew them on 
+        claim wanted: a complexity question / a parameter the section consumes
+        body_range   {'complexity': 0, 'arity': 0, 'law': 2, 'parameter': 0, 'exponent': 0}
+        section_span {'complexity': 1, 'arity': 17, 'law': 8, 'parameter': 1, 'exponent': 1}
+
+  L8414 "the recovered bound of Chapter 15" — resolved to chapter 15 and swept
+  chapter 15 span (4270, 4332)  |  recovered 8  bound 4  irreducible 0  interval 0  Rival 0
+
+## 2  EVERY ATTRIBUTION IN THE UNIT against ## References (BODY) and R.7
+  ## References occurrences: [173, 11503]   BODY = L11503
+  R.7 heading L11806
+  Van Isacker  unit L[8401] | References 1 | R.7 0 | six-volume sites {'main': 3, 'reg': 2}
+  Rival        unit L[8410, 8414] | References 1 | R.7 0 | six-volume sites {'main': 17, 'reg': 33, 'mc': 7, 'pc': 1}
+  Larson       unit L[8410] | References 1 | R.7 0 | six-volume sites {'main': 7, 'reg': 1}
+  Siggers      unit L[8410, 8414] | References 1 | R.7 0 | six-volume sites {'main': 8, 'reg': 1}
+  Stahl        unit L[8411] | References 1 | R.7 0 | six-volume sites {'main': 4}
+  Wille        unit L[8411] | References 1 | R.7 0 | six-volume sites {'main': 4}
+  Yannakakis   unit L[8411] | References 1 | R.7 0 | six-volume sites {'main': 3, 'reg': 1, 'mc': 8}
+  VERDICT: unbibliographed = zero hits in References AND zero in R.7
+
+## 3  RULING 45 — process and past-state remarks, split from plain self-reference
+  an earlier version         unit []             main total 8
+  an earlier draft           unit [8365]         main total 7
+  a previous draft           unit []             main total 0
+  from recollection          unit []             main total 1
+  now states                 unit []             main total 4
+  the guess that preceded it unit []             main total 1
+  the earlier figure of      unit []             main total 1
+  the earlier reading        unit [8379]         main total 1
+  a draft withdrew           unit [8411]         main total 1
+  is withdrawn               unit [8412]         main total 6
+  enumerated once            unit [8363]         main total 3
+  predates                   unit [8366]         main total 2
+  was run once               unit []             main total 1
+
+  PROCESS remarks (Ruling 45 sites) vs PLAIN SELF-REFERENCE (subject matter, not sites)
+    L8363  ### 30.2.1 And that list was enumerated once
+    L8365  An earlier draft concluded from the 0.31 that the difficulty is not structural. That was a
+    L8366  conclusion about ten invariants, and the list predates the containment forest, overlap components,
+    L8379  Structure determines density; density determines difficulty. The earlier reading had the
+    L8380  second link and called it the whole chain.
+    L8411  §30.3's original citations — Stahl & Wille, Yannakakis — were correct; a draft withdrew them on th
+    L8412  grounds that this was an interval problem, and it is not. The withdrawal is withdrawn.
+
+## 4  RULING 46 — script names, build numbers, internal files (case-sensitive, word-bounded)
+  BUILD        zero sites in unit
+  gate.py      zero sites in unit
+  close.py     zero sites in unit
+  r2lib        zero sites in unit
+  tower-2.py   zero sites in unit
+  MANIFEST     zero sites in unit
+  md5          zero sites in unit
+  commit       zero sites in unit
+  repo         zero sites in unit
+
+## 5  FIRST-PERSON PRONOUNS in the unit
+  {}
+  zero first-person pronouns: True
+
+## 6  REGISTER CITATIONS in the unit (lowercase form grepped by hand)
+  sites: none in unit
+
+## 7  L8411-L8412 "a draft withdrew them ... The withdrawal is withdrawn" — cross-volume
+  Stahl            main  4 site(s)
+        L7888   solution density; reorderability                     CSP phase transition; Stahl & Wille 198
+        L8096   **And the reorderability material claims nothing.** The problem is known: Stahl & Wille prov
+        L8411   §30.3's original citations — Stahl & Wille, Yannakakis — were correct; a draft withdrew them  <-- IN UNIT
+        L11771  Stahl, J. & Wille, R. (1984). — reorderability and scale-measurability of a context; §30.3's
+  Yannakakis       main  3 site(s)
+        L8096   **And the reorderability material claims nothing.** The problem is known: Stahl & Wille prov
+        L8411   §30.3's original citations — Stahl & Wille, Yannakakis — were correct; a draft withdrew them  <-- IN UNIT
+        L11774  Yannakakis, M. (1982). SIAM J. Alg. Disc. Meth. 3, 351. — the complexity of order-dimension 
+  Yannakakis       reg   1 site(s)
+        L6459   **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE M
+  Yannakakis       mc    8 site(s)
+        L402    Measured — R 1196-1199; Beeri, Fagin, Maier & Yannakakis 1983; Dijkstra 1959.
+        L510    Proved — M §14.5.4; Beeri, Fagin, Maier & Yannakakis 1983.
+        L2262   Measured — R 1176; Beeri, Fagin, Maier & Yannakakis 1983.
+        L2328   Proved — R 1175; Beeri, Fagin, Maier & Yannakakis 1983.
+        L2360   Computed — T 4.1 (App. G); Beeri, Fagin, Maier & Yannakakis 1983.
+        L2710   Measured — R 1169-1172; Tarski 1936; Beeri, Fagin, Maier & Yannakakis 1983.
+  interval problem main  1 site(s)
+        L8412   grounds that this was an interval problem, and it is not. The withdrawal is withdrawn.  <-- IN UNIT
+  withdraw         main  57 site(s)
+        L150    ## 28. Withdrawals
+        L203    withdrawn. They are listed in Chapter 28, with what replaced them. Several were caught not b
+        L224    If you want to check the work, Chapter 28 and Appendix B are where the withdrawals and the
+        L513    register records what was added and withdrawn. Enumeration is finite work and this book does
+        L643    ### 2.12 Withdrawal
+        L720    A register of withdrawals is a list of bounds. Read it that way and it stops being a
+  withdraw         reg   54 site(s)
+        L27     | **a withdrawal** | 33 | 61 | a claim removed, with the reason |
+        L31     *The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cit
+        L67     Every correction, withdrawal and finding in the order it happened. **The book cites entries 
+        L97     **THE FOUNDING CONCLUSION: THE RESERVED CELLS TRANSFORM ELEMENTAL DISCOVERY INTO A BOUNDED S
+        L121    **THE RESERVED-CELL RECOUNT CORRECTS 78 → 92.** *The founding draft quoted 78 reserved cells
+        L205    **THE RESERVED-CELL ANALYSIS CONSTRAINS VALENCE CONFIGURATION ONLY — THE BOUNDED-SEARCH CLAI
+  withdraw         mc    5 site(s)
+        L3090   Asserted — R 987, withdrawn R 1168.
+        L3092   WITHDRAWN (R 1168). The claim was that the fitted s recovers register 987's sign and size. I
+        L3094   > **Prior art: the exchange splitting between singlet and triplet is Heisenberg, Mehrkoerper
+        L3262   *proved symbolically (sympy) and measured at 13 mass cases; an inherited form with U⁴ coeffi
+        L3368   **What is missing, precisely.** *The fitted sign is opposite to the measured one.* The facto
+  withdraw         pc    4 site(s)
+        L331    2. An inherited degree-8 polynomial with two wrong coefficients: caught by the second route 
+        L583    ### exchange coefficient — `s = -0.0782`, WITHDRAWN
+        L589    **Where it comes from.** fitted at register 987, WITHDRAWN at 1168; the physics is Heisenber
+        L653    **The exchange coefficient.** The fitted sign is opposite to the measured one, and no unifor
+  withdraw         ioi   4 site(s)
+        L2001   arguments, its withdrawals, its axis index and its open join — several of them corrections t
+        L2061   | 8.5 | Retained as history, not current analysis. Built on the seven-vocabulary partition t
+        L2081   | 12.2 | Twelve claims withdrawn with their causes, among them defect 60, an unbounded Helly
+        L2082   | 12.3 | The withdrawals post-dating the previous draft, several of which correct claims tha
+
+## 8  DEFECT-CENSUS.tsv rows in range, keyed on the column named `member`
+  member values present: ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+  rows in unit: 0
+  WITNESS either side:
+     id 1178   L8231   C9-OVERGENERALISATION-WORD   never
+     id 1179   L8303   C9-OVERGENERALISATION-WORD   at every cap
+     id 1180   L8553   C9-OVERGENERALISATION-WORD   never
+     id 1181   L8569   C9-OVERGENERALISATION-WORD   never
+  ids either side [1179, 1180] contiguous: True
+
+## 9  DUPLICATED-SECTION SWEEP (DEF-105 item 1) — long unit lines recurring elsewhere
+  53 long lines tested, 0 recurrences
+
+## 10  SPLICE AND FORMATTING TESTS
+  L8400-L8402 sentence continuity:
+     L8400   The question this section asked was: given an index whose constraint graph has cycles, can
+     L8401   **Van Isacker**'s survey gives the seniority reduction chains.
+     L8402   its coordinate order be recovered? The answer has a law, a procedure, and a residue, and none of the
+     L8400 + L8402 joined reads: The question this section asked was: given an index whose constraint graph has cycles, can its coordinate order be recovered? The answer has
+     L8401 is a complete sentence of unrelated subject inserted mid-sentence: True
+  L8419-L8422 run-together sentences and inter-word spacing:
+     L8419  ' is a constraint system on those decisions, and every constraint is closed under reversing all of'
+     L8420  ''
+     L8421  ' its own orientations — 3,781 constraints checked, 100%.                           A   function     invariant '
+     L8422  ' complementation depends only on XOR-differences, so:'
+     L8420 is blank inside a sentence: True
+     L8421 runs >=3 consecutive spaces mid-prose: 3 occurrence(s)
+
+## 11  UNIVERSALS AND SUPERLATIVES in the unit, each recorded measurable or not
+  L8419   every constraint       is a constraint system on those decisions, and every constraint is closed under 
+  L8440   every constraint       Measured: at d = 2 every constraint has arity 2 at every alphabet size, and 2-co
+  L8407   zero disagreements     zero disagreements, and confirmed on all 475,800 pairs of Λ. So reorderability i
+  L8433   entirely bijunctive    which two cells differ. At arity ≤ 3 the language is entirely bijunctive, so the
+  L8427   all 14                 3                                    two XORs            2-SAT, and all 14 const
+  L8361   exactly when           The search is hard exactly when the solution is nearly unique.
+  L8391   does not climb         The ratio does not climb; the log–log slope is 2.29. That is a measured candidat
+  L8429   no Schaefer class      ≥4                                   three or more       contains exactly-one-of
+  L8434   no Schaefer class      linear. At arity ≥ 4 it contains 1-in-3-SAT and admits no Schaefer class.
+  L8408   each axis              relabelling of each axis make X a SUBLATTICE of a product of chains?
+  L8418   each axis              A relabelling decides, for each axis and each pair of values, which comes first.
+
+## 12  PRINTS & PROOFS: is the unit textually the same there?
+  PP §30.2 heading at [8269]
+     DIFF main L8444 | PP P8366
+        main: ![Figure 30.1](figures/figure-30.1.png)
+        PP  :  Figure 23.1. Left: the fraction of each arity's constraint language that is 2-SAT expressible —
+     DIFF main L8445 | PP P8367
+        main: 
+        PP  :  114 of 141 at arity 4. The boundary is exact. Right: the share of constraints by arity as the d
+     DIFF main L8446 | PP P8368
+        main:  Figure 30.1. Left: the fraction of each arity's constraint language that is 2-SAT expressible —
+        PP  :  falls from 0.62 to 0.26 while arity ≥ 4 grows from nothing to 0.38. The tractable part shrinks 
+     DIFF main L8447 | PP P8369
+        main:  114 of 141 at arity 4. The boundary is exact. Right: the share of constraints by arity as the d
+        PP  :  says why.
+     DIFF main L8448 | PP P8370
+        main:  falls from 0.62 to 0.26 while arity ≥ 4 grows from nothing to 0.38. The tractable part shrinks 
+        PP  : 
+     DIFF main L8449 | PP P8371
+        main:  says why.
+        PP  : ### 30.3.3 What the interval machinery was
+     DIFF main L8450 | PP P8372
+        main: 
+        PP  :  Chapter-length work went into C1P, monotone endpoints and PQ-trees, and the d = 2
+  7 differing lines over the 104-line unit at offset -78
+
+## 13  L8396 "§30.3.3 completes this reading" — the TARGET READ, not token-probed
+   L8451  ### 30.3.3 What the interval machinery was
+   L8452   Chapter-length work went into C1P, monotone endpoints and PQ-trees, and the d = 2
+   L8453   characterisation is proved there: X is reorderable iff every row is an interval with both endpoints
+   L8454   monotone, iff no interval nests strictly inside another. Four lemmas, three verified independently —
+   L8455   2,047, 3,751 and 20,000 instances — with Booth & Lueker's linear PQ-tree construction cited
+   L8456   for the fourth.
+   L8457  
+   L8458   **The fourth lemma, verified.** The three lemmas above were checked at 2,047, 3,751 and 20,000
+   L8459   instances; the fourth stood on Booth and Lueker's construction and on nothing of this book's own.
+   L8460   It is now discharged, and it did not need a linear-time algorithm:
+   L8461  
+   L8462      A set of intervals admits an ordering in which both endpoints are non-decreasing **iff** no
+   L8463      interval nests strictly inside another. Sort by left endpoint; if a right endpoint then
+   L8464      decreases, the later interval has the weakly greater left end and the strictly smaller right
+   L8465      end, so it nests strictly. Conversely a strictly nesting pair admits no such order. ∎
+   L8466  
+   L8467   Verified exhaustively over all 2,354 interval sets of two to four intervals on ground sets of two to
+   L8468   five points: zero counterexamples. **Strictly** is load-bearing — an interval sharing an endpoint
+   L8469   with its container does not nest strictly, and reading it as ordinary containment refutes the lemma
+   L8470   on 1,098 of those 2,354 sets. That reading was tried first here and was wrong, which is the whole
+   L8471   reason the qualifier is in the statement. Register 247.
+   L8472  
+   L8473        That apparatus is a REPRESENTATION of a 2-colouring. It is correct and it is not the reason d =
+   L8474        2 is easy. The reason is that two cells in two dimensions differ on at most two axes.
+   L8475  
+
+  WHERE THE LANDSCAPE READING DOES LIVE — six-volume sweep
+  basin          {'main': [8333, 8396]}
+  landscape      {'main': [693, 805, 8394], 'reg': [3749], 'ioi': [76]}
+  potential      {'main': [8395, 9753, 9910, 9922, 10809, 10826, 10830, 11400], 'reg': [2565, 2609, 4673, 4713, 5037, 5225, 5449, 5453], 'mc': [73, 1024, 2376, 2378, 2384, 2394, 3250], 'pc': [72, 95, 106, 323, 330, 356, 467, 639], 'ioi': [2074], 'sc': [1130]}
+  descent        {'main': [392, 686, 693, 8396, 8541, 9678], 'reg': [4525, 4941, 4945, 4949, 4953, 5061, 5077, 5101], 'ioi': [1660, 1667, 1873]}
+  transposition  {'main': [693, 3704, 8395], 'reg': [5269, 5810]}
+  stall          {'main': [686, 8396], 'reg': [5613]}
+
+## 14  FIGURE REFERENCES vs FIGURE MEMBERS (production, not authoring)
+  main-volume inline figure references: 33
+  first three: [(1527, '![Figure 6.1](figures/figure-6.1.png)'), (1547, '![Figure 6.2](figures/figure-6.2.png)'), (1771, '![Figure 7.1](figures/figure-7.1.png)')]
+  members/figures exists: False   any .png member: none
+  PP inline figure references: 0
+
+END r2-ch16a

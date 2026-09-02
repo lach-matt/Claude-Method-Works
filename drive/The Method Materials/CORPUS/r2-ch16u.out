@@ -1,0 +1,194 @@
+
+================================================================================================
+1. UNIT EXTENT, resolved under BOTH resolvers
+================================================================================================
+main member lines: 11855
+  §33.1   body_range=(9404, 9427)  section_span=(9404, 9427)  COINCIDE
+  §33.2   body_range=(9427, 9440)  section_span=(9427, 9440)  COINCIDE
+  §33.3   body_range=(9440, 9455)  section_span=(9440, 9455)  COINCIDE
+  §33.4   body_range=(9455, 9477)  section_span=(9455, 9477)  COINCIDE
+  §33.5   body_range=(9477, 9494)  section_span=(9477, 9494)  COINCIDE
+  unit L9393-L9493 = 101 lines; "## 34." body opens at [157, 9494]
+  "# PART VII" at [155, 9393] (contents + body)
+
+================================================================================================
+2. "Six languages" (L9412) against its own DATA rows
+================================================================================================
+  table lines L9414-L9421: 8  header+separator: 2  DATA rows: 6
+  count word "Six" vs DATA rows 6: EXACT
+  the unit roster: ['order', 'analysis', 'algebra', 'geometry', 'information', 'statistics']
+
+================================================================================================
+3. THE SAME ROSTER ELSEWHERE -- ch.20 (cited at L9406) and ch.1
+================================================================================================
+  §20.2 L5573-L5574 verbatim (whitespace-normalised join):
+    **Six agree on Λ at 976 cells, and ten of their combinations hold** — order, geometry, arithmetic, calculus, logic and the constraint language of §16. That agreement is P21, and it is an instrument
+  §20.2 roster as printed: ['order', 'geometry', 'arithmetic', 'calculus', 'logic', 'the constraint language of §16']  (6 names)
+  §20.2 says "Six": yes;  names in common with the unit roster: ['geometry', 'order']
+  ch.1 mechanism table: 5 DATA rows -> ['monotone two-variable bounds', 'polynomial relations', 'linear arithmetic with quantifiers', 'full arithmetic', 'documentary']
+  ch.1 closure-operator table: 5 DATA rows -> ['order ℛ restored absorbed', 'geometry monotone polyhedron restored absorbed', 'algebra / logic ideal, Gröbner basis still derivable T·h enters the ideal', 'analysis coefficients of F restored absorbed', 'information description length E_bits stays 0 grows']
+  L439 (ch.1): **When a property holds in five languages and fails in the sixth, the sixth EXPRESSION is wrong — not the prop
+  L453 (ch.1): The self-feeding loop and its asymmetry hold in all five languages.
+  L5564 (§20.1 on ch.1): Chapter 1's table gives five languages with their closure mechanisms and their measured costs — tree
+
+================================================================================================
+4. WHICH ROSTER THE INDEX OF INDICES ACTUALLY USES
+================================================================================================
+  order        ioi  31 sites   mc  66 sites   <- unit roster
+  analysis     ioi   7 sites   mc  15 sites   <- unit roster
+  algebra      ioi   5 sites   mc  21 sites   <- unit roster
+  geometry     ioi   5 sites   mc  14 sites   <- unit roster
+  information  ioi   7 sites   mc  17 sites   <- unit roster
+  statistics   ioi  11 sites   mc  16 sites   <- unit roster
+  arithmetic   ioi   3 sites   mc  12 sites   
+  calculus     ioi   0 sites   mc   5 sites   
+  logic        ioi   1 sites   mc   8 sites   
+
+================================================================================================
+5. "Λ at 976 cells" (L9423) RECOMPUTED on the rebuilt lattice
+================================================================================================
+  L8_at((3,3,1,3,1)) -> 976 cells; the book prints 976: EXACT
+  976 sites in the unit: [9423]
+  976 sites in six volumes: main 93, reg 41, mc 37, pc 2, ioi 14, sc 0
+
+================================================================================================
+6. "Chapter 12 spends fifty sections on it" (L9424)
+================================================================================================
+  "## 12." occurrences [126, 2304] (contents, body); body span 2304-3507
+  headings numbered 12.x: 51 total, 50 inside the body span, 1 outside
+    OUTSIDE: L3543  ### 12.11.8 The electromagnetic index, and it was inside Λ all along
+  count word "fifty" vs sections inside the span: EXACT at 50
+  vs sections numbered 12.x anywhere: 51 (off by one)
+  L5553 (§20 head) prints the same count word about a different object: Fifty sections of this book make a claim about language and no chapter owns one. This chapter
+
+================================================================================================
+7. "Across the indexes of §36, nine of eleven ... are expectation values" (L9451-L9453)
+================================================================================================
+  main L9452: could not fix are expectation values; the one exception is the one index with no
+  reg L4981: **AND EVERY UNFIXABLE CELL IS AN EXPECTATION VALUE — EXCEPT ONE.** *Across eleven closed indexes, nine of the quantities the closure cannot fix are ⟨Ψ
+  reg L5169: **THE ISOTOPIC NULL, COMPUTED RATHER THAN COLLECTED.** *L.total says membership is decided for every ambient point, so a null is computable by the sam
+  mc L1956: > **Prior art: the scaling of hydrogenic expectation values, <r^a> ~ nu^{2a} and Delta E ~ nu^{-3}, is Bohr's correspondence scaling (1913) in its qua
+  mc L3660: was identified. **Nine of eleven are expectation values ⟨Ψ|Ô|Ψ⟩.** The exception is
+  ioi L1657: expectation values ⟨Ψ|Ô|Ψ⟩; Λ_cross is the exception, and it is the only index
+
+  §36 body span L9892-L9938 (47 lines): ## 36. Three bodies, and what a complete index is allowed to say
+    "Λ_" inside §36: 0 sites
+    "expectation" inside §36: 0 sites
+    "eleven" inside §36: 0 sites
+    "index" inside §36: 6 sites
+    "closure" inside §36: 1 sites
+  registers stating the population: 1327 (reg L4981) "eleven closed indexes"; 1347 (reg L5061) "TWELVE CLOSED INDEXES"
+  reg L5061: **TWELVE CLOSED INDEXES.** *Λ · Λ_law · Λ_const · Λ_var · Λ_ryd · Λ_charge · Λ_cross · Λ_descent · Λ_phys · Λ_amp · Λ_PCA · Λ_chem.* **Λ_spectra alone
+  ioi "## Λ" headings: 24 (22 distinct)
+
+================================================================================================
+8. "stated in Chapter 27's terms" (L9449) -- the cited criterion read at its target
+================================================================================================
+  §27 body span L7203-L7365 (163 lines): ## 27. Slack
+    "enumerable" inside Chapter 27: 0 sites
+    "operator" inside Chapter 27: 0 sites
+    "index closes" inside Chapter 27: 0 sites
+    "cannot supply" inside Chapter 27: 0 sites
+  where the sentence DOES live:
+    main L9450: when its cells are enumerable, and what it cannot supply is exactly what requires
+    main L9730: what that costs:** *what a closure cannot supply is exactly what requires an
+    reg L4981: **AND EVERY UNFIXABLE CELL IS AN EXPECTATION VALUE — EXCEPT ONE.** *Across eleven closed indexes, nine of the quantities
+    reg L6491: **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: wha
+    mc L3664: > **An index closes when its cells are enumerable. What it cannot supply is exactly
+  §35.1 (the sibling site, repaired):
+    main L9729: **Chapter 6 proved the periodic table is not a closed index, and Chapter 33 said
+  register 1755 (reg L6491) diagnosis, first 300 chars:
+    **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: what a closure cannot supply is exactly what requires an operator" (§35.1). The sentence has a verbatim home: it is register 1327's line, and in the current numbering it is printed in
+
+================================================================================================
+9. "the fourth question of the domain protocol" (L9486) read at its target
+================================================================================================
+  register 1336 (reg L5017), the protocol entire:
+    **THE DOMAIN PROTOCOL, WRITTEN BECAUSE I KEPT VIOLATING IT.** *Four questions before any fit: which single cell of Λ_phys · which carrier does Λ_law assign · points ≥ 3× parameters IN THIS CELL · am I pooling.* **Replayed against today: law 2 on six species BLOCKED (wrong carrier, pooling); the Gaussian across the table BLOCKED (spans three domain cells); six slopes pooled for one scaling BLOCKED. Law 2 in the right 
+    question 1: which single cell of Λ_phys
+    question 2: which carrier does Λ_law assign
+    question 3: points ≥ 3× parameters IN THIS CELL
+    question 4: am I pooling
+  the unit calls "Never fit across a language boundary" the FOURTH question; register 1336's fourth is: am I pooling
+  reg L6275: **T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge name
+  pc L852: | the amplitude a | across a language boundary | six placement rules dead; a seventh **prohibited** |
+
+================================================================================================
+10. THE SINGLETON CRITERION (L9463-L9465) against the record
+================================================================================================
+  main L9463: > **An index is closed when its output class is a singleton.** Two outputs mean
+  main L10858: the singleton-output rule definition · order proved · exhaustive · none found
+  reg L4873: **THE SINGLETON-OUTPUT CRITERION, AND IT IS NOT ENFORCED BY ℛ.** *Λ_var gives E = 0 with δ alone AND with n∗ added, because both land in the same cell.* **An index is clo
+  reg L6455: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPTHS AND DEPENDENCE CO
+  mc L3753: | **the singleton-output rule** | an index is closed when its reading is unique |
+  ioi L1611: when its output class is a singleton; two outputs mean the observer is still
+  register 1300 (reg L4873) entire, first 400 chars:
+    **THE SINGLETON-OUTPUT CRITERION, AND IT IS NOT ENFORCED BY ℛ.** *Λ_var gives E = 0 with δ alone AND with n∗ added, because both land in the same cell.* **An index is closed when its output class is a singleton: two outputs mean the observer is still choosing which to read, and the choice is not in the object.** **n∗ = n₀ − δ carries nothing δ does not. Λ_ryd closes at 5 cells, E = 0, once δ₂ is r
+
+================================================================================================
+11. THE §33.4 CLAIMS AGAINST THE RECORD
+================================================================================================
+  --- Λ_var ---
+    main: 2 sites [9459, 9537]
+    reg: 7 sites [4873, 4925, 5061, 5077, 5105, 5926, 5958]
+    mc: 1 sites [3801]
+    pc: 0 sites []
+    ioi: 4 sites [1589, 1596, 1609, 1869]
+    sc: 0 sites []
+  --- Λ_ryd ---
+    main: 1 sites [9473]
+    reg: 3 sites [4873, 5061, 5077]
+    mc: 0 sites []
+    pc: 0 sites []
+    ioi: 3 sites [1614, 1621, 1870]
+    sc: 0 sites []
+  --- δ₂ ---
+    main: 10 sites [6048, 6142, 6148, 6151, 7010, 7022, 7088, 7500]
+    reg: 20 sites [3165, 3169, 3513, 3673, 4289, 4293, 4297, 4301]
+    mc: 3 sites [36, 528, 3733]
+    pc: 6 sites [174, 176, 491, 649, 808, 828]
+    ioi: 3 sites [1616, 1622, 1624]
+    sc: 3 sites [957, 959, 961]
+  --- non-penetrating ---
+    main: 1 sites [9470]
+    reg: 10 sites [2693, 3917, 4109, 4541, 4685, 4701, 6038, 6042]
+    mc: 3 sites [36, 528, 3124]
+    pc: 4 sites [471, 487, 812, 822]
+    ioi: 0 sites []
+    sc: 1 sites [947]
+  ioi §Λ_var body (L1596-L1613):
+    ioi L1596: ## Λ_var — the variables
+    ioi L1598: **What it is.** Twelve variables on (body, role), body order
+    ioi L1599: **nucleus < core < core+rydberg < nucleus+core < rydberg**. **E = 0.**
+    ioi L1601: **What only it contributes.** *That there is no nucleus + rydberg cell.* Not one
+    ioi L1602: variable relates them directly: every quantity connecting the Rydberg electron to
+    ioi L1603: the nucleus — c, u — is a nucleus–core quantity that the Rydberg electron then
+    ioi L1604: reads. **That is the screening statement appearing as a structural fact of the
+    ioi L1605: index rather than a modelling choice, and it is the three-body factorisation:
+    ioi L1606: nucleus–core gives c and u, core–Rydberg gives p, n₀ and T, and the Rydberg
+    ioi L1607: electron's own ℓ closes it.**
+    ioi L1609: **And the singleton rule.** Λ_var passes ℛ with both δ and n\* present, because
+    ioi L1610: both land in the same cell — **only a second criterion sees it. An index is closed
+    ioi L1611: when its output class is a singleton; two outputs mean the observer is still
+    ioi L1612: choosing which to read.**
+
+================================================================================================
+12. "In 1969 Per-Olov Löwdin set a challenge" (L9489) -- date and bibliography
+================================================================================================
+  main L9489: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the
+  main L9496: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the
+  main L9600: (1929) before him, and to Klechkovskii — and the demand for its derivation is Löwdin's (1969). The
+  main L9722: The challenge posed in 1969 is closed. The formal statement is a companion paper,
+  main L9832: force-versus-gradient discrepancy Pulay published in 1969; the operator asymmetry
+  main L9834: two-branch f physics is Griffin, Andrew and Cowan, 1969 and 1971. *Three
+  main L9868: | **zero unexplained residue** | Pulay 1969 · Löwdin 1950 · exact quartics |
+  main L9874: **Three of the load-bearing works are dated 1969** — the challenge, the Pulay
+  main L11809: · Löwdin, P.-O. (1969). Some comments on the periodic system of the elements. *Int. J. Quantum Chem.* **3**(S3A), 331–334. — the challe
+  main L11812: · Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). *Phys. Rev.* **177**, 62–71; Griffin, Cowan & Andrew (1971). — orbital collapse;
+  main L11813: · Pulay, P. (1969). *Mol. Phys.* **17**, 197. — the occupation-parameter term that is the walk's one defect.
+  References body occurrence:
+    "## References" occurrences [173, 11503]; body = 11503
+    main L11807: **The Löwdin solution.** Entered at registers 1701–1712. The companion paper carries the full list; these are the works Chapter 35 rests on.
+    main L11809: · Löwdin, P.-O. (1969). Some comments on the periodic system of the elements. *Int. J. Quantum Chem.* **3**(S3A), 331–334. — the challenge.
+    main L11810: · Löwdin, P.-O. (1950). On the non-orthogonality problem. *J. Chem. Phys.* **18**, 365. — the multiplier identity is an instance.
+    main L11816: · Lach, M. (2026). *The Löwdin Solution.* — the companion paper; the formal statement.

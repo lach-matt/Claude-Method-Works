@@ -1,0 +1,219 @@
+
+================================================================================================
+1  EVERY POINTER THE UNIT MAKES, RESOLVED UNDER body_range AND section_span, TO THE CLAIM
+================================================================================================
+  §24.2   body_range (6653, 6668)  section_span (6653, 6668)  COINCIDE True  heading '### 24.2 The largest contributors'
+  §29.6   body_range (8029, 8041)  section_span (8029, 8041)  COINCIDE True  heading '### 29.6 The three documents we could not reach'
+  §32.3   body_range (9038, 9059)  section_span (9038, 9059)  COINCIDE True  heading '### 32.3 Self-defence'
+  §32.6   body_range (9205, 9267)  section_span (9205, 9307)  COINCIDE False  heading '### 32.6 The falsification tests, run'
+
+  L9356 cites §24.2 for "the four unreachable documents". Testing §24.2's OWN body:
+   body_range    (6653, 6668): document=0  reach=0  unreachable=0  edlén=0  ritz=0  paschen=0  dunz=0
+   section_span  (6653, 6668): document=0  reach=0  unreachable=0  edlén=0  ritz=0  paschen=0  dunz=0
+   -> and where the claim DOES live (§29.6 body):
+   §29.6 document=2  reach=1  edlén=2  ritz=3  paschen=1  dunz=1
+
+  "Part V" = [141, 5937]; chapters inside it: ['## 22. The bracket', '## 23. The cost surface', '## 24. The collection', '## 25. Domain, failure, ', '## 26. Collective sectio', '## 27. Slack']
+  Chapter 29 head: '## 29. Precedent, and what a search can bound'; "solution density" in Ch29: [7888]
+
+================================================================================================
+2  PRINCIPLE 8 -- READ THE CITED CRITERION IN FULL AT ITS TARGET, ALL SIX VOLUMES
+================================================================================================
+  sites of "Principle N" (any N), all volumes: {'main': [7947, 9316]}
+  sites of an enumerated principles list ("Principle 1"/"Principles"): {'main': [114, 233, 239, 241, 374, 558, 716, 3515, 5094], 'reg': [1929, 1933], 'ioi': [1924]}
+   main L7947 **And the second is the weaker word doing the honest work.** It carries its own qualification: a precedent found tomorrow does not make the sentence false, only superseded — **which is exact
+   main L9316 **This is Principle 8 in its ordinary form: any true answer, good or bad, is a bound.** A verification that misses its target does not merely fail; it locates the target by missing it.
+
+================================================================================================
+3  ATTRIBUTIONS AGAINST ## References BODY OCCURRENCE AND R.7 -- AND THE REVERSE
+================================================================================================
+  "## References" occurrences [173, 11503]; BODY occurrence L11503; span (11503, 11856)
+  R.7 heading at L11806: '### R.7 What is not cited, and why'
+   Sansonetti   in References body:   2   cited in unit: [9344]
+   Kramida      in References body:   2   cited in unit: [9344]
+   Martin       in References body:   2   cited in unit: [9344]
+   Kaufman      in References body:   1   cited in unit: [9344]
+   Sugar        in References body:   2   cited in unit: [9344]
+   Musgrove     in References body:   1   cited in unit: [9344]
+   Korobov      in References body:   1   cited in unit: [9344]
+   Hori         in References body:   1   cited in unit: [9344]
+   Birkhoff     in References body:   2   cited in unit: [9342]
+   Dilworth     in References body:   2   cited in unit: [9342]
+   Sperner      in References body:   1   cited in unit: [9342]
+   Kuznetsov    in References body:   2   cited in unit: []
+   Stahl        in References body:   1   cited in unit: []
+   Wille        in References body:   1   cited in unit: []
+
+================================================================================================
+4  RULING 45 (build/editorial narration) AND RULING 46 (script/file names) -- ONE PASS, CASE-SENSITIVE
+================================================================================================
+  Ruling 45 candidate sites in unit (9): [9311, 9318, 9335, 9342, 9344, 9352, 9358, 9364, 9370]
+   L9311 **An earlier draft called this the class of error no automated test will find, and left it there. That w
+   L9318 **Five worked cases, all from this book's own record:**
+   L9335 That is ⅅ_def once more, and it is the reason this book states a count beside every number rather than
+   L9342 **Not new.** The lattice is a bijective recoding of quantum numbers that have been in place since the 19
+   L9344 **Also not new: the data.** Every level in this book was measured or computed by someone else and publis
+   L9352 **The same is true of the other four things this book contributes:**
+   L9358 **The law with its three mechanisms**, each demonstrated on a real error made in the writing.
+   L9364 and recording the one thousand six hundred and thirty-five times it caught the author — is the part
+   L9370 Ask instead what *kind of thing* this book is, and the answer has no obvious precedent:
+  Ruling 46 sites in unit (case-sensitive): []
+
+================================================================================================
+5  FIRST-PERSON PROSE -- with chat 123 fault 8 guarded (the Roman numeral in "He I")
+================================================================================================
+  first-person sites in unit: []
+
+================================================================================================
+6  PRINTS & PROOFS -- each witness anchored on ITS OWN text (chat 120 saw -88 and -94 in one unit)
+================================================================================================
+   L 9307 PP    P9213  offset   -94   ### 32.7 On a verification that does not test its claim
+   L 9311 PP    P9217  offset   -94   **An earlier draft called this the class of error no automated tes
+   L 9316 PP    P9222  offset   -94   **This is Principle 8 in its ordinary form: any true answer, good 
+   L 9322 PP    P9228  offset   -94   | self-duality checked with *x* ↦ max + min − *x* | gave 112, not 
+   L 9328 PP    P9234  offset   -94   **In every case the wrong verification was the thing that produced
+   L 9338 PP    P9244  offset   -94   On the word "unprecedented"
+   L 9342 PP    P9248  offset   -94   **Not new.** The lattice is a bijective recoding of quantum number
+   L 9348 PP    P9254  offset   -94   No one had asked what the periodic table costs.
+   L 9354 PP    P9260  offset   -94   **The failure condition, inverted.** |Δ*T*| < 2*Z*²*R*/ν³ turns 1,
+   L 9356 PP    P9262  offset   -94   **The cost of a guarantee.** *V* = 4ν/3 is two lines from the Rydb
+   L 9364 PP   ABSENT  offset    --   and recording the one thousand six hundred and thirty-five times i
+   L 9367 PP    P9273  offset   -94   And the form, which is the stronger claim
+   L 9372 PP    P9278  offset   -94   **It states three conditions under which it would be false, runs t
+   L 9376 PP   ABSENT  offset    --   Its register of one thousand six hundred and thirty-five withdrawn
+   L 9384 PP    P9290  offset   -94   **And it is an index of a law about indices, which is itself an in
+   L 9391 PP    P9297  offset   -94   **That is where the word belongs.** Not on *V* = 4ν/3, which may s
+  witnesses present 14 of 16; distinct offsets [-94]
+
+================================================================================================
+7  DEFECT-CENSUS ROWS IN RANGE -- classes main AND all, keyed on the column named member
+================================================================================================
+  census rows 1556; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+  rows in L9307-L9392: 0
+
+================================================================================================
+8  DUPLICATED-SECTION SWEEP (DEF-105 item 1) -- long lines of the unit recurring elsewhere
+================================================================================================
+  long lines swept 36; recurring elsewhere 0 -> []
+
+================================================================================================
+9  UNMARKED SUB-HEADINGS IN THE BODY (docket 28), AND THE SAME LINES IN PP
+================================================================================================
+   L9338 ' On the word "unprecedented"'
+        markdown heading? False   bold? False   in PP at [9244]
+   L9367 ' And the form, which is the stronger claim'
+        markdown heading? False   bold? False   in PP at [9273]
+
+================================================================================================
+10  THE FIFTH TABLE CASE, AND THE TWO THAT DO TRACE -- "all from this book's own record"
+================================================================================================
+  22 of 60             {'main': [9326]}
+  22 / 60 loose        {'main': [9326]}
+  d-dimensional        {'main': [3843, 4994, 8536, 9965], 'mc': [646]}
+  one-dimensional      {'main': [4226, 5979], 'reg': [177, 285, 5493, 5501, 5601, 5701, 5713], 'ioi': [2032]}
+  closure criterion    {'main': [9326]}
+
+  the two that DO trace, read at their sources:
+   L7404 produced "3 of 85," which produced "almost never reorderable," which produced a false dismissal of a
+   L7419 • Ran a circular test — a prefix loop whose last step was the thing being tested — and reported 560/560
+
+================================================================================================
+11  THE 1,635 REFERENT ACROSS ITS FIFTEEN WORD-FORM SITES
+================================================================================================
+   L   20 The register holds one thousand six hundred and thirty-five entries. They are one sequence over three
+   L   89 a process that recorded one thousand six hundred and thirty-five corrections, and it survived because the object
+   L  104 The one thousand six hundred and thirty-five are in Chapter 28. **They are not a confession. They are the
+   L  202 The register. one thousand six hundred and thirty-five claims made in the course of this work were wrong and wer
+   L  523 one thousand six hundred and thirty-five of them. Not one was anticipated; each arrived and each removed a
+   L  646 Chapter 28. one thousand six hundred and thirty-five entries. The register is the evidence for Chapter 16, not
+   L 3514 Then the register outgrew the object. By the end there were one thousand six hundred and thirty-five
+   L 7367 one thousand six hundred and thirty-five claims made in the course of this work were wrong. They are
+   L 7900 does it print its withdrawal register as evidence? yes, one thousand six hundred and thirty-five entries
+   L 8918 second is a rate that should fall. Conflating them is what makes one thousand six hundred and thirty-five look
+   L 9055 measured levels from named compilations, and Chapter 28 lists one thousand six hundred and thirty-five that fail
+   L 9364 and recording the one thousand six hundred and thirty-five times it caught the author — is the part <-- UNIT
+   L 9376 Its register of one thousand six hundred and thirty-five withdrawn claims is offered as the primary <-- UNIT
+   L 9381 all one thousand six hundred and thirty-five failures and naming the four results that exist because a conclusio <-- UNIT
+   L10296 Chapter 28 records one thousand six hundred and thirty-five errors found in work of exactly that kind — which is
+
+================================================================================================
+12  FALSE UNIVERSALS AND SUPERLATIVES IN THE UNIT (docket 19)
+================================================================================================
+   L9318 ['all ']  **Five worked cases, all from this book's own record:**
+   L9328 ['none of these', 'every']  **In every case the wrong verification was the thing that produced the right one.** The self-dua
+   L9335 ['every']  That is ⅅ_def once more, and it is the reason this book states a count beside every number rathe
+   L9344 ['every']  **Also not new: the data.** Every level in this book was measured or computed by someone else an
+   L9348 ['no one']  No one had asked what the periodic table costs.
+   L9350 ['nobody', 'every']  E = 36 is elementary arithmetic on a table every chemist knows. It required no new mathematics a
+   L9354 ['appears not to have been done', 'are rare']  **The failure condition, inverted.** |Δ*T*| < 2*Z*²*R*/ν³ turns 1,061 non-failures into 1,061 me
+   L9365 ['with no precedent']  with no precedent that the searching could find.
+   L9370 ['no obvious precedent']  Ask instead what *kind of thing* this book is, and the answer has no obvious precedent:
+   L9381 ['all ']  all one thousand six hundred and thirty-five failures and naming the four results that exist bec
+   L9387 ['do not usually']  Monographs do not usually publish their own falsification runs. Scientific works do not
+   L9391 ['nobody']  **That is where the word belongs.** Not on *V* = 4ν/3, which may sit in a 1922 German volume nob
+
+================================================================================================
+13  4ν/3 SITE COUNT RE-MEASURED, EMPHASIS-NORMALISED, ALL SIX VOLUMES (docket 11 carries 24)
+================================================================================================
+   main   22 [1974, 4349, 4366, 6183, 6232, 6237, 6381, 6497, 7308, 7511, 7949, 7953, 8085, 8577]
+   reg     0 []
+   mc      1 [1898]
+   pc      0 []
+   ioi     0 []
+   sc      1 [997]
+   TOTAL 24   (docket 11 carries 24 -- state which population before scoring)
+
+================================================================================================
+14  THE PRINCIPLES LIST READ AT ITS TARGET, AND THE TWO PP-ABSENT WITNESSES
+================================================================================================
+   main L114 ## 1. The principles
+   main L233 Serving PART III — THE LAW. The twenty principles — numbered P1–P23 with P10, P12 and P18
+   main L239 **Two kinds appear.** *Principles* say what an index is; ten of them admit exact mathematical statement. *Protocols* s
+   main L241 ## 1. The principles
+   main L374 Three principles govern questions, and they are one principle in three moods. P19 was the
+   main L558 Part I indexes the principles and the protocols. §28.8 indexes the process. Each turns a
+   main L716 ### 2.15.3 Why it belongs here rather than among the principles
+   main L3515 withdrawals, twenty-two prime audits, twenty principles and twenty-four protocols — and the demonstration
+   main L5094 §1 requires before anything joins the formalised principles.
+   reg  L1929 **THREE PRINCIPLE NUMBERS HAVE NEVER EXISTED AND THE COUNT SAID TWENTY-THREE.** *P10, P12 and P18 appear nowhere — not
+   ioi  L1924 **Role for Λ.** It supplies, from first principles, the one thing Chapter 6
+   any numbered principle other than 8, all six volumes: NONE
+
+   the two PP-absent witnesses, read at the unit-wide offset of -94:
+    main L9364  and recording the one thousand six hundred and thirty-five times it caught the author — is the part
+    PP   P9269  spectroscopy into an object that can be checked against itself — and then checking it,
+    PP   P9270  and recording the one thousand one hundred and seventy-one times it caught the author — is the part
+    PP   P9271  with no precedent that the searching could find.
+    main L9376  Its register of one thousand six hundred and thirty-five withdrawn claims is offered as the primary
+    PP   P9281  
+    PP   P9282  Its register of one thousand one hundred and seventy-one withdrawn claims is offered as the primary
+    PP   P9283  evidence, not as an apology. Three of the book's mechanisms are demonstrated on errors made in its
+
+================================================================================================
+15  RESOLVING "Principle 8" TO THE BOOK'S OWN P-NUMBERING (P1-P23, less P10/P12/P18)
+================================================================================================
+   sites of the token P8: {'main': [662, 663, 666, 832, 1484], 'reg': [1929, 6275]}
+    main L662 ### 2.15 Apply P8 to every failure
+    main L663 Every failed attempt is a true answer, and by P8 a true answer is a bound. Record what
+    main L666 P8 says any true answer, good or bad, is a bound. A failed attempt is a true answer about
+    main L832 It is P8 with a count attached. Every failure is a bound; three bounds on one object are a
+    main L1484 §2.15 apply P8 to every failure a failure discarded rather than banked ten bounds on §30.3
+    reg L1929 **THREE PRINCIPLE NUMBERS HAVE NEVER EXISTED AND THE COUNT SAID TWENTY-THREE.** *P10, P12 and P18 appear nowhere — not in this book, not in the compan
+    reg L6275 **T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge named three candidates —
+
+   the principles block read at its target (main L233-L245):
+    233 Serving PART III — THE LAW. The twenty principles — numbered P1–P23 with P10, P12 and P18
+    234 unassigned — and twenty-four protocols the law is made of,
+    235 indexed and closed at E = 0.
+    236 
+    237 **Everything in this book was produced under a stated set of rules.** They are collected here so that a reader can apply them, che
+    238 
+    239 **Two kinds appear.** *Principles* say what an index is; ten of them admit exact mathematical statement. *Protocols* say how to wo
+    240 
+    241 ## 1. The principles
+    242 Formalised — ten
+    243 principle expression wher
+    244 e
+    245 
+
+END r2-ch16t
