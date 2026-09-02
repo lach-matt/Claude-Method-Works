@@ -104,11 +104,29 @@ GZIP_LEVEL = 9
 MAX_COMPONENT_CHARS = 120
 UNSAFE_CHARS = re.compile(r"[^A-Za-z0-9._-]+")
 
+#: Every C0 and C1 control character.  A NUL in a conversation title would make
+#: git treat INDEX.tsv as binary, killing diffs on the one file the shards exist
+#: to make readable, so no control character reaches a TSV field.
+CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f-\x9f]")
+
+#: Lone UTF-16 surrogates occur in real chat exports and cannot be encoded as
+#: UTF-8 at all; ``serialise`` escapes them rather than dying mid-write.
+SURROGATES = re.compile(r"[\ud800-\udfff]")
+
 LOGGER = logging.getLogger("shard_conversations")
 
 
 class ExportError(Exception):
     """The input is not a Claude export shape this tool can handle."""
+
+
+class StreamingUnsupported(ExportError):
+    """ijson cannot represent something in this document, but ``json.load`` can.
+
+    Raised only for inputs the in-memory parser reads losslessly (a JSON integer
+    wider than 64 bits, say).  ``main`` catches it and re-runs with ``json.load``
+    instead of failing; it never reaches the user as an error.
+    """
 
 
 # --------------------------------------------------------------------------- #
@@ -117,11 +135,14 @@ class ExportError(Exception):
 
 
 def clean_field(value: Any) -> str:
-    """Make a value safe for a tab-separated field: no tabs, no newlines."""
+    """Make a value safe for a tab-separated field: no control characters at all.
+
+    Tabs and newlines would break the row; a NUL would make git call INDEX.tsv a
+    binary file; the rest of the C0/C1 range confuses TSV readers.  All of them
+    become a space.
+    """
     text = "" if value is None else str(value)
-    for char in ("\t", "\r\n", "\r", "\n"):
-        text = text.replace(char, " ")
-    return text.strip()
+    return CONTROL_CHARS.sub(" ", text).strip()
 
 
 def human_bytes(count: float) -> str:
@@ -385,11 +406,15 @@ class StreamingSource(ConversationSource):
         self.streaming = True
         self._prefix = "item" if container_key is None else "{}.item".format(container_key)
         self._kwargs: Dict[str, Any] = {"use_float": True} if supports_use_float(ijson_module) else {}
+        self._errors = ijson_error_types(ijson_module)
 
     def __iter__(self) -> Iterator[Any]:
-        with self._path.open("rb") as handle:
-            for record in self._ijson.items(handle, self._prefix, **self._kwargs):
-                yield record
+        try:
+            with self._path.open("rb") as handle:
+                for record in self._ijson.items(handle, self._prefix, **self._kwargs):
+                    yield record
+        except self._errors as exc:
+            raise translate_ijson_error(self._path, exc) from exc
 
 
 def supports_use_float(ijson_module: Any) -> bool:
@@ -413,6 +438,87 @@ def import_ijson() -> Optional[Any]:
     except ImportError:
         return None
     return ijson
+
+
+def ijson_error_types(ijson_module: Any) -> Tuple[type, ...]:
+    """The parse-failure exceptions this ijson exposes, as a tuple for ``except``.
+
+    ijson's errors do not inherit from ``ValueError``, so nothing else in this
+    file would catch them; without this they escape ``main`` as a traceback.
+    """
+    found: List[type] = []
+    holders = [ijson_module, getattr(ijson_module, "common", None)]
+    for holder in holders:
+        for name in ("JSONError", "IncompleteJSONError"):
+            candidate = getattr(holder, name, None)
+            if isinstance(candidate, type) and issubclass(candidate, BaseException):
+                if not any(issubclass(candidate, existing) for existing in found):
+                    found.append(candidate)
+    return tuple(found)
+
+
+def translate_ijson_error(path: Path, exc: BaseException) -> ExportError:
+    """Turn an ijson parse failure into a readable ``ExportError``.
+
+    A number too wide for ijson's C backend is not a broken file -- ``json.load``
+    reads it losslessly -- so that one becomes ``StreamingUnsupported`` and
+    ``main`` retries in memory instead of reporting a corrupt export.
+    """
+    text = " ".join(str(exc).split())
+    if "overflow" in text.lower():
+        return StreamingUnsupported(
+            "{}: ijson cannot represent a number in this export ({})".format(path, text)
+        )
+    return ExportError(
+        "{} is not valid JSON (streaming parser): {}.\n"
+        "If the export was copied over a network, re-download it and compare byte "
+        "counts against the source.".format(path, text)
+    )
+
+
+def choose_container_key(
+    array_keys: Sequence[str], counts: Optional[Dict[str, int]] = None
+) -> Optional[str]:
+    """Pick the one top-level array to shard, out of every array that exists.
+
+    Both parsers call this, so ijson and ``json.load`` can never disagree about
+    which array a given file means.  Preference order is ``CONTAINER_KEYS``; any
+    other top-level array is named in a warning rather than dropped in silence.
+    """
+    if not array_keys:
+        return None
+
+    chosen: Optional[str] = None
+    for name in CONTAINER_KEYS:
+        if name in array_keys:
+            chosen = name
+            break
+    if chosen is None:
+        chosen = array_keys[0]
+        LOGGER.warning(
+            "no %s key; using the first top-level array, %r",
+            "/".join(CONTAINER_KEYS[:2]),
+            chosen,
+        )
+
+    ignored = [key for key in array_keys if key != chosen]
+    if ignored:
+        def describe(key: str) -> str:
+            if counts is not None and key in counts:
+                count = counts[key]
+                return "{!r} ({} {})".format(key, count, "entry" if count == 1 else "entries")
+            return repr(key)
+
+        LOGGER.warning(
+            "the top-level object holds %d arrays; sharding %r only and IGNORING %s. "
+            "If the conversations are in one of those, pass a file whose wrapper key "
+            "is one of %s, or unwrap it.",
+            len(array_keys),
+            chosen,
+            ", ".join(describe(key) for key in ignored),
+            "/".join(CONTAINER_KEYS),
+        )
+    return chosen
 
 
 def first_json_token(path: Path) -> str:
@@ -445,30 +551,43 @@ def detect_container_key_streaming(path: Path, ijson_module: Any) -> Optional[st
 
     keys_seen: List[str] = []
     array_keys: List[str] = []
+    counts: Dict[str, int] = {}
+    item_prefixes: Dict[str, str] = {}
     current_key: Optional[str] = None
-    with path.open("rb") as handle:
-        for prefix, event, value in ijson_module.parse(handle):
-            if prefix == "" and event == "map_key":
-                current_key = str(value)
-                keys_seen.append(current_key)
-                continue
-            if current_key is not None and prefix == current_key and event == "start_array":
-                array_keys.append(current_key)
-                if current_key in CONTAINER_KEYS:
-                    return current_key
-            if prefix == "" and event == "end_map":
-                break
+    # Every top-level array is collected before choosing, so that this and
+    # container_key_from_object below cannot pick different arrays from one file.
+    try:
+        with path.open("rb") as handle:
+            for prefix, event, value in ijson_module.parse(handle):
+                if prefix == "" and event == "map_key":
+                    current_key = str(value)
+                    keys_seen.append(current_key)
+                    continue
+                if current_key is not None and prefix == current_key and event == "start_array":
+                    array_keys.append(current_key)
+                    counts[current_key] = 0
+                    item_prefixes["{}.item".format(current_key)] = current_key
+                    continue
+                owner = item_prefixes.get(prefix)
+                if owner is not None and event in (
+                    "start_map",
+                    "start_array",
+                    "string",
+                    "number",
+                    "integer",
+                    "double",
+                    "boolean",
+                    "null",
+                ):
+                    counts[owner] += 1
+                if prefix == "" and event == "end_map":
+                    break
+    except ijson_error_types(ijson_module) as exc:
+        raise translate_ijson_error(path, exc) from exc
 
-    for name in CONTAINER_KEYS:
-        if name in array_keys:
-            return name
-    if array_keys:
-        LOGGER.warning(
-            "no %s key; using the first top-level array, %r",
-            "/".join(CONTAINER_KEYS[:2]),
-            array_keys[0],
-        )
-        return array_keys[0]
+    chosen = choose_container_key(array_keys, counts)
+    if chosen is not None:
+        return chosen
 
     shown = ", ".join(repr(key) for key in keys_seen[:25]) or "(none)"
     raise ExportError(
@@ -478,17 +597,11 @@ def detect_container_key_streaming(path: Path, ijson_module: Any) -> Optional[st
 
 
 def container_key_from_object(document: Dict[str, Any]) -> str:
-    for name in CONTAINER_KEYS:
-        if isinstance(document.get(name), list):
-            return name
-    for key, value in document.items():
-        if isinstance(value, list):
-            LOGGER.warning(
-                "no %s key; using the first top-level array, %r",
-                "/".join(CONTAINER_KEYS[:2]),
-                key,
-            )
-            return str(key)
+    array_keys = [str(key) for key, value in document.items() if isinstance(value, list)]
+    counts = {str(key): len(value) for key, value in document.items() if isinstance(value, list)}
+    chosen = choose_container_key(array_keys, counts)
+    if chosen is not None:
+        return chosen
     shown = ", ".join(repr(key) for key in list(document)[:25]) or "(none)"
     raise ExportError(
         "the top-level object holds no array of conversations.\n"
@@ -513,6 +626,12 @@ def open_source(path: Path, size_bytes: int) -> ConversationSource:
             )
         return StreamingSource(path, container_key, ijson_module)
 
+    return load_in_memory(path, size_bytes)
+
+
+def load_in_memory(path: Path, size_bytes: int) -> ConversationSource:
+    """Parse the whole document with ``json.load``; used when ijson is absent or
+    cannot represent the file (see ``StreamingUnsupported``)."""
     LOGGER.warning(
         "ijson is NOT installed: falling back to json.load, which holds the whole "
         "document in memory and typically needs 4-8x the file size in RAM "
@@ -607,11 +726,22 @@ def json_default(value: Any) -> Any:
 
 
 def serialise(record: Any) -> str:
-    """One conversation as pretty JSON: readable in a diff and to an indexer."""
-    return (
-        json.dumps(record, ensure_ascii=False, indent=2, sort_keys=False, default=json_default)
-        + "\n"
+    """One conversation as pretty JSON: readable in a diff and to an indexer.
+
+    ``ensure_ascii=False`` keeps accents, CJK and emoji legible.  Real exports do
+    contain lone UTF-16 surrogates (an unpaired ``\\ud800``), which no UTF-8
+    encoder will accept; when one is present this re-dumps the record with
+    ``ensure_ascii=True`` so it round-trips as the escape it arrived as, instead
+    of raising UnicodeEncodeError halfway through writing the output tree.
+    """
+    text = json.dumps(
+        record, ensure_ascii=False, indent=2, sort_keys=False, default=json_default
     )
+    if SURROGATES.search(text):
+        text = json.dumps(
+            record, ensure_ascii=True, indent=2, sort_keys=False, default=json_default
+        )
+    return text + "\n"
 
 
 def shard_relative_path(
@@ -689,9 +819,19 @@ def survey(source: ConversationSource, schema: Schema, measure: bool) -> Tuple[i
 
 
 def write_shards(
-    source: ConversationSource, schema: Schema, out_dir: Path
+    source: ConversationSource,
+    schema: Schema,
+    out_dir: Path,
+    result: Optional[ShardResult] = None,
 ) -> ShardResult:
-    result = ShardResult()
+    """Write one file per conversation.
+
+    ``result`` may be supplied by the caller so that a failure part-way through
+    still leaves it holding everything written up to that point, which is what
+    ``run_shard`` reports instead of a traceback.
+    """
+    if result is None:
+        result = ShardResult()
     taken: Set[str] = set()
     made_dirs: Set[Path] = set()
 
@@ -705,10 +845,8 @@ def write_shards(
             target.parent.mkdir(parents=True, exist_ok=True)
             made_dirs.add(target.parent)
 
-        payload = serialise(record)
-        with target.open("w", encoding="utf-8", newline="\n") as handle:
-            handle.write(payload)
-        size = target.stat().st_size
+        # Atomic: a shard is either absent or complete, never torn.
+        size = write_text_atomically(target, serialise(record))
 
         count = message_count_of(record, schema)
         result.conversations += 1
@@ -755,7 +893,10 @@ def verify_shards(out_dir: Path, rows: Sequence[IndexRow], expected: int) -> Lis
                 json.load(handle)
         except FileNotFoundError:
             problems.append("{}: missing after writing".format(row.shard_path))
-        except json.JSONDecodeError as exc:
+        except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+            # A shard truncated mid multi-byte character raises UnicodeDecodeError,
+            # not JSONDecodeError; both are corruption this pass exists to report,
+            # so neither may abort the run before the other shards are checked.
             problems.append("{}: does not parse ({})".format(row.shard_path, exc))
         except OSError as exc:
             problems.append("{}: unreadable ({})".format(row.shard_path, exc))
@@ -899,6 +1040,33 @@ def run_gzip(
         raise SystemExit(
             "refusing to overwrite {}\nRe-run with --force to replace it.".format(target)
         )
+
+    # The same rule shard mode applies: a directory holding an earlier run's
+    # output is not a safe place to drop a .gz and a fresh SUMMARY.json into,
+    # because that SUMMARY.json is the only record of what those shards are.
+    if out_dir.is_dir():
+        leftovers = sorted(entry.name for entry in out_dir.iterdir() if entry != target)
+        if leftovers and not force:
+            raise SystemExit(
+                "refusing to write into non-empty directory {}\n"
+                "It already holds {} entr{} ({}{}), and gzip mode would overwrite "
+                "{} there -- destroying the record of whatever produced them.\n"
+                "Move it aside, choose another --out, or re-run with --force.".format(
+                    out_dir,
+                    len(leftovers),
+                    "y" if len(leftovers) == 1 else "ies",
+                    ", ".join(leftovers[:5]),
+                    ", ..." if len(leftovers) > 5 else "",
+                    SUMMARY_NAME,
+                )
+            )
+        if leftovers:
+            LOGGER.warning(
+                "--force: writing into non-empty %s; %s is replaced with this gzip run's "
+                "summary and any earlier shard inventory there is lost",
+                out_dir,
+                SUMMARY_NAME,
+            )
     out_dir.mkdir(parents=True, exist_ok=True)
 
     handle = tempfile.NamedTemporaryFile(
@@ -1003,6 +1171,18 @@ def run_shard(
     conversations, messages, projected = survey(source, schema, measure=dry_run)
     over_limit = conversations > max_files
 
+    if conversations == 0:
+        # An empty result must not read like a clean run: the usual cause is that
+        # the wrong top-level array was picked (see choose_container_key's warning).
+        LOGGER.warning(
+            "%s holds NO conversations. Nothing but an empty index would be written. "
+            "If the export is not genuinely empty, the wrong top-level array was "
+            "chosen -- check any 'IGNORING' warning above.",
+            "the {!r} array".format(schema.container_key)
+            if schema.container_key
+            else "the top-level array",
+        )
+
     if dry_run:
         print("Dry run - shard mode, nothing written")
         print("  input               {} ({} bytes)".format(human_bytes(size_bytes), size_bytes))
@@ -1060,7 +1240,26 @@ def run_shard(
     out_dir.mkdir(parents=True, exist_ok=True)
 
     LOGGER.info("writing %d shard(s) to %s", conversations, out_dir)
-    result = write_shards(source, schema, out_dir)
+    result = ShardResult()
+    try:
+        write_shards(source, schema, out_dir, result)
+    except (ExportError, KeyboardInterrupt, SystemExit):
+        raise
+    except Exception as exc:  # noqa: BLE001 - say what was written, never a traceback
+        raise SystemExit(
+            "failed while writing shards: {}: {}\n"
+            "{:,} shard(s) were written before the failure{}; no {} and no {} were "
+            "written, so the output directory is incomplete.\n"
+            "Delete {} and re-run once the cause is fixed.".format(
+                type(exc).__name__,
+                exc,
+                len(result.rows),
+                " (last: {})".format(result.rows[-1].shard_path) if result.rows else "",
+                INDEX_NAME,
+                SUMMARY_NAME,
+                out_dir,
+            )
+        ) from exc
     index_bytes = write_index(out_dir, result.rows)
 
     LOGGER.info("verifying %d shard(s)", len(result.rows))
@@ -1214,14 +1413,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         raise SystemExit("{} is empty".format(input_path))
 
     out_dir = out_dir.resolve()
-    try:
-        if args.gzip:
-            code, _summary = run_gzip(
-                input_path.resolve(), size_bytes, out_dir, args.dry_run, args.force
-            )
-            return code
+    # Checked here rather than at mkdir time so an --out typo (--out drive/chats.json)
+    # fails in one line now, not with a FileExistsError after the whole counting pass.
+    if out_dir.exists() and not out_dir.is_dir():
+        raise SystemExit("--out {} exists and is not a directory".format(out_dir))
 
-        source = open_source(input_path, size_bytes)
+    def shard_with(source: ConversationSource) -> int:
         schema = detect_schema(sample_records(source), source.container_key)
         LOGGER.info("detected schema: %s", schema.describe())
         code, _summary = run_shard(
@@ -1235,6 +1432,22 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             args.max_files,
         )
         return code
+
+    try:
+        if args.gzip:
+            code, _summary = run_gzip(
+                input_path.resolve(), size_bytes, out_dir, args.dry_run, args.force
+            )
+            return code
+
+        try:
+            return shard_with(open_source(input_path, size_bytes))
+        except StreamingUnsupported as exc:
+            # Not a broken export: json.load reads this one losslessly. Nothing has
+            # been written yet -- run_shard counts the whole input before writing,
+            # so any streaming parse failure surfaces during that pass.
+            LOGGER.warning("%s; retrying with the in-memory parser", exc)
+            return shard_with(load_in_memory(input_path, size_bytes))
     except ExportError as exc:
         print("error: {}".format(exc), file=sys.stderr)
         return 2

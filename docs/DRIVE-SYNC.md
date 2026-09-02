@@ -400,8 +400,6 @@ just files: **no local Python, no Google Cloud project, no OAuth client, no `cre
 no size ceiling, because nothing is being passed through an API payload.** The notebook copies what
 `drive/PENDING.tsv` still lists, size-verifies it, commits and pushes.
 
-(The notebook's own title calls it "Route 3b". It is Route 4 here; same file.)
-
 What you pay for that:
 
 | | Route 2 — local script | Route 4 — Colab |
@@ -466,17 +464,24 @@ message rather than guessing, so one run out of order tells you what to run firs
   guessed from the extension and `drive_modified` is written as `unknown`. The md5 it computes is
   real. Rows are printed and saved to `/content/manifest-additions.tsv`, which is outside the clone
   so it cannot be committed by accident.
-* **Cell 6 — commit and push.** Stages `drive/` only. Refuses to commit if cell 4 did not verify, or
+* **Cell 6 — commit and push.** Stages **only the individual files cell 3 recorded**, by path from
+  the state file — not the whole `drive/` tree, so nothing cell 4 did not size-verify (a shard tree
+  from the appendix, say) can be swept into the commit. Refuses to commit if cell 4 did not verify, or
   if the clone is not on `claude/google-drive-github-sync-3833rb`. "Nothing to commit" is treated as
-  an ordinary outcome. After a successful push it deletes `/content/.git-credentials` and unsets the
-  global credential helper.
+  an ordinary outcome. It deletes `/content/.git-credentials` and unsets the global credential helper
+  after a successful push **and on the "nothing to commit" path**; the one case it keeps them is a
+  failed push, so a retry does not re-prompt for the token.
 * **Section 7 (markdown only) — what to do when the push is rejected.** `non-fast-forward` (someone
   pushed after cell 2 cloned: `git pull --rebase`, then push), `403` (the token lacks scope or has
   expired), how to revoke the token, and how to disconnect the runtime.
 * **Appendix cell — the two 370 MiB exports.** Commits nothing. `APPENDIX_MODE = "checksum"` (the
   default) md5s every copy the mount exposes and says whether they are genuinely the same bytes;
   `APPENDIX_MODE = "shard"` hands one to `tools/shard_conversations.py`, dry-running until you set
-  `SHARD_CONFIRM = True`. See [§5](#5-the-two-370-mib-chat-exports).
+  `SHARD_CONFIRM = True`, and writing to `/content/chats-shards` — outside the clone, so moving the
+  shards into `drive/chats` stays a deliberate step. Note that a Drive **mount** normally exposes only
+  one file per name per folder, so the checksum mode usually cannot settle whether the two Drive
+  copies are identical; that needs the Drive API (Route 2) or the Drive web UI.
+  See [§5](#5-the-two-370-mib-chat-exports).
 
 #### Afterwards, two things
 
@@ -486,7 +491,9 @@ python3 tools/drive_sync.py        # from a machine that has the OAuth client
 
 The notebook leaves both inventories stale: `MANIFEST.tsv` is missing the true mime types, Drive
 modification times and verified md5s for whatever it copied, and `PENDING.tsv` still names files that
-are now in the repo. One ordinary Route 2 run rewrites both from Drive itself.
+are now in the repo. One ordinary Route 2 run rewrites `MANIFEST.tsv` from Drive itself — but **not**
+`PENDING.tsv`, which no tool in this repo generates. That one is hand-maintained, so its stale rows
+have to be edited out by hand (or rebuilt from `MANIFEST.tsv` plus a Drive listing).
 
 Then **revoke the token** at <https://github.com/settings/tokens>. Cell 6 removes the credential file
 and the VM is destroyed when the runtime is recycled, but a token that still exists on GitHub is
@@ -778,6 +785,11 @@ python3 tools/shard_conversations.py \
     ~/drive-scratch/"The Method Materials/Claude Chats/conversations.json" \
     --gzip --out drive/chats
 ```
+
+`--gzip` applies the same non-empty-directory rule as sharding: if `drive/chats` already holds a
+shard run, it refuses rather than dropping a `.gz` beside those shards and overwriting the
+`SUMMARY.json` that is the only record of what they are. Use a separate `--out`, or `--force` if you
+have decided the shards are disposable.
 
 Writes a single `drive/chats/conversations.json.gz`. JSON compresses roughly ten to one, so expect
 around 35 MiB — comfortably under the 100 MiB limit. The script measures the real ratio rather than
