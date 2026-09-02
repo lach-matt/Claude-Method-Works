@@ -1,0 +1,1 @@
+Routh mu_1 = (9-sqrt(69))/18 = 0.0385208965; record prints 0.0385209; agree to 1e-7: True

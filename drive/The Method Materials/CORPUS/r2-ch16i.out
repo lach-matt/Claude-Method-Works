@@ -1,0 +1,228 @@
+====================================================================================================
+r2-ch16i  PROSE  chat 119  main L8700-L8789  (§31.3 - §31.3.4)
+====================================================================================================
+
+## 1  EVERY POINTER IN THE UNIT, under body_range AND section_span, resolved to the CLAIM
+   §10        cited at L8785   body_range (2021, 2026)   section_span (2021, 2075)
+        L2022   Between two cells sits a box. Not all of it is Λ.
+        L2024   void(x,y) = ∏ᵢ(|Δᵢ| + 1) − |[x∧y, x∨y] ∩ Λ|
+   §12.8.1    cited at L8725   body_range (2423, 2434)   section_span None
+        L2424   \|A_q\| falls 33, 33, 23, 8 while \|B_q\| rises 5, 10, 15, 17.
+        L2426   **Raising the transfer costs the parent and pays the target, monotonically, and no *q* improves both.** 
+        L2428   ![Figure 12.3](figures/figure-12.3.png)
+        L2430   Figure 12.3. The Pareto frontier on a log axis, Λ₁₃ solid against Λ₈ dotted: A falls and B rises at both
+        L2431   q improves both. The section |A × B| peaks at q = 2 with 89,700 cells, and the tower shifts ⟨q⟩ from 1.4
+        L2432   1.887 — coupling multiplicity re-weights the profile toward higher transfer, per §12.11.5.
+   §16.7.1    cited at L8716   body_range (4578, 4618)   section_span None
+        L4579   E(X) > 0 says the structure admits cells the collection does not hold. It does not say why, and
+        L4580   there are two reasons:
+        L4582   the gap is an artefact of the layout — a property of how the index was drawn the gap is a fact
+        L4583   about the world — nothing occupies that cell because nothing can
+        L4585   **And the index distinguishes them, by asking whether E is removable.**
+        L4587   | the periodic table | E |
+        ... 22 further body lines
+
+   Word-pointers in the unit (no § sign), resolved by hand-named target:
+      Chapter 6                      sites in unit [8739]
+      §10 / "what §10 says"          sites in unit [8785]
+      item D                         sites in unit [8788]
+      the fourth falsification test  sites in unit [8755]
+
+## 2  THE SUB-NUMBERING INSIDE §31.3.4  --- 24.3.4.x IN CHAPTER 31
+   L8738   ' 24.3.4.1 Which is 540 predictions, not a defect'
+          markdown heading? False
+   L8755   ' 24.3.4.2 The fourth falsification test, run'
+          markdown heading? False
+   L8777   ' 24.3.4.3 And the void reads the same way'
+          markdown heading? False
+   enclosing section of these lines: §31.3.4
+   heading_line(main, 24.3.4   ) = None
+   heading_line(main, 24.3     ) = 6668
+   heading_line(main, 24.3.4.1 ) = None
+   heading_line(main, 31.3.4.1 ) = None
+   every 24.3.4.x site in six volumes:
+      main  [8738, 8755, 8777]
+   the same shape elsewhere in the main volume (an N.N.N.N line whose enclosing chapter
+   differs from its own first number):
+      3 such lines: [(8738, '24', '31.3.4', '24.3.4.1 Which is 540 predictions, not a defect'), (8755, '24', '31.3.4', '24.3.4.2 The fourth falsification test, run'), (8777, '24', '31.3.4', '24.3.4.3 And the void reads the same way')]
+
+## 3  ATTRIBUTIONS AGAINST ## References (BODY occurrence) AND R.7
+   ## References BODY occurrence L11503   (all occurrences: [173, 11503])
+   R.7 at L11806
+   Batyrev       unit [8703]   References/R.7 [11794]   main-volume sites 2   BIBLIOGRAPHED
+   Kreuzer       unit [8703, 8715, 8753]   References/R.7 [11797]   main-volume sites 13   BIBLIOGRAPHED
+   Skarke        unit [8703, 8753]   References/R.7 [11797]   main-volume sites 12   BIBLIOGRAPHED
+   Klemm         unit [8715]   References/R.7 []   main-volume sites 1   UNBIBLIOGRAPHED
+        other volumes: none
+   Candelas      unit [8732, 8764]   References/R.7 [11804]   main-volume sites 3   BIBLIOGRAPHED
+   Ossa          unit [8732]   References/R.7 [11804]   main-volume sites 2   BIBLIOGRAPHED
+   Szendroi      unit [8732]   References/R.7 []   main-volume sites 1   UNBIBLIOGRAPHED
+        other volumes: none
+   Triadophilia  unit [8732]   References/R.7 [11804]   main-volume sites 2   BIBLIOGRAPHED
+   ATMP          unit [8732]   References/R.7 []   main-volume sites 1   UNBIBLIOGRAPHED
+        other volumes: none
+   "He" is not swept: a two-letter surname cannot be word-bounded against ordinary prose.
+   It is recorded as an author of the Triadophilia citation and carried with that citation.
+
+## 4  COUNT WORDS AGAINST THEIR OWN BODIES
+   L8705 "three published counts": the colon list at L8707-L8708 enumerates
+        248,305 with h¹¹ ≥ 140 · 248,305 with h²¹ ≥ 140 · 495,515 with at least one · and 248,305 + 248,305 − 495,515 = 1,095, as reported.
+        counts enumerated before the derived 1,095: 3  -> "three published counts" HOLDS
+        (the test is of counts published, not of DISTINCT VALUES: two of the three share
+         the value 248,305, and a distinct-value test would have scored this true claim
+         false.  Self-caught, chat 119.)
+   L8783 "The 24 excluded values": the same sentence lists 12 values (see r2-ch16h §3)
+   L8770 "two named confirmations": L8768 names 2
+        L8768 raw: individually named in print                                              X₁₉,₁₉ (split bicubic), X₂₀,₂₀ (the 24-cell)
+   L8748 "5 -- only 0, +/-2, +/-4": measured EXACT in r2-ch16h §5
+   L8755 "The fourth falsification test": every "falsification test" site in the main volume
+        [5198, 8755, 9205, 9226, 9360, 10280, 11072]
+        L5198   for object–law, *computable* for object–procedure, *falsification test* for law–procedure,
+        L8755   24.3.4.2 The fourth falsification test, run
+        L9205   ### 32.6 The falsification tests, run
+        L9226   **It has been corrected**, and it is recorded here rather than silently repaired, because a falsific
+        L9360   **And a work that runs its own falsification tests and reports the two that failed.**
+        L10280  Proposition 23.1 re-derived · the three falsification tests of §32.6 — the book's own, distinct from
+        L11072  diagonal from (13,13) to (131,131); h¹¹ + h²¹ from 26 to 262. All three falsification tests hold at
+
+## 5  §30.4.2"S TABLE ROW AGAINST THE SECTION IT CHARGES  (16g-04 measured at its target)
+   L8604: §31.3's statistic                           stated against the wrong denominator
+   §31.3.3 heading L8720: ### 31.3.3 The Pareto strength, against the right denominator
+        L8720   ### 31.3.3 The Pareto strength, against the right denominator
+        L8721   1,095 of the 495,515 polytopes with one large Hodge number have both: 0.221%. Stated
+        L8722   against the full 473.8 million it reads 0.0002%, a factor of 956 — true and uninformative, because the
+        L8723   denominator includes polytopes with no large Hodge number at all.
+        L8725   §12.8.1 finds the same trade inside Λ: \|A_q\| falls as \|B_q\| rises. A catalogue with a bounded
+        L8726   coordinate difference and a large total must be Pareto-shaped, and 0.221% is how strongly.
+   The charge is "stated against the wrong denominator"; the section it names states the
+   statistic against the RIGHT denominator and names the wrong one to reject it.
+
+## 6  RULING 45 (build / editorial-process remarks) AND RULING 46 (script, build, file refs)
+   R45  L8729   "this session"         The 30,108 pairs are a gzipped file this session could not read. But one slice of the catalogue 
+   R45  L8788   "an afternoon"         What remains of item D is the lookup. 540 named cells, a file, and an afternoon.
+   R45  L8729   "could not read"       The 30,108 pairs are a gzipped file this session could not read. But one slice of the catalogue 
+   R45  L8757   "the file is missing"  The file is missing, so the predictions cannot be looked up. They can still be refuted, because
+   R45  L8788   "what remains of item" What remains of item D is the lookup. 540 named cells, a file, and an afternoon.
+   R46 sites in unit (case-sensitive): ZERO
+   first-person pronoun sites: ZERO
+
+## 7  DIGIT-BOUNDED NUMERAL SITES, SIX VOLUMES  (sites, never counts)
+   473,800,776  {'main': [8704, 11798]}
+   30,108       {'main': [8704, 8729, 11076, 11798]}
+   248,305      {'main': [8707, 8708, 11801]}
+   495,515      {'main': [7639, 8707, 8708, 8721, 11801]}
+   1,095        {'main': [8708, 8721]}
+   21,528       {'main': [8736, 11071], 'reg': [1437], 'ioi': [234]}
+   540          {'main': [2886, 3491, 8728, 8736, 8738, 8740, 8747, 8761, 8762, 8763, 8764, 8765, 8781, 8788, 8885, 10553, 10591, 11069, 11070, 11073], 'reg': [845, 849, 1437, 2019], 'mc': [1274, 1314], 'ioi': [234, 920]}
+   498          {'main': [8736, 11071], 'reg': [1437, 1855, 1881], 'ioi': [234, 878]}
+   589          {'main': [8780], 'reg': [2195, 2205], 'ioi': [969]}
+   208          {'main': [8734, 8781, 10155, 11070], 'reg': [845, 863, 1437, 3725, 3937], 'ioi': [234, 588]}
+   232          {'main': [938, 5219, 8780, 10700], 'reg': [917, 919, 3033, 6062], 'ioi': [612]}
+   112          {'main': [1888, 1890, 7604, 8749, 9322, 11071], 'reg': [519, 1437, 1481, 4405, 4409, 5113, 5762, 5766, 6347, 6387], 'mc': [3162], 'ioi': [234, 492], 'sc': [216, 1112]}
+   502          {'main': [3606, 3946, 8762, 11074, 11508], 'reg': [1871, 1881], 'mc': [1399, 2669], 'ioi': [234, 882]}
+   36           {'main': [159, 431, 730, 1521, 1545, 1571, 1583, 1589, 1613, 1930, 3258, 3717, 4475, 4484, 4589, 4593, 4605, 4606, 4844, 4846, 5024, 5060, 5317, 5604, 5674, 5881, 6820, 7000, 7253, 7280, 7740, 8094, 8388, 8648, 8717, 8739, 9130, 9350, 9451, 9712, 9892, 10240, 10790, 11191, 11419, 11434, 11686, 11820], 'reg': [215, 445, 793, 1637, 1665, 1669, 1681, 1773, 1833, 2245, 2325, 2401, 2849, 3729, 3765, 3933, 4353, 4389, 4397, 4505, 5117, 5205, 5217, 5237, 5441, 5469, 5477, 5762, 5766, 5790, 5806, 5830, 5842, 5982, 5986, 6030, 6159, 6191, 6195, 6231, 6267, 6271, 6439, 6471, 6547], 'mc': [124, 1453, 1455, 1494, 1876, 2330, 3128, 3224, 3286, 3306, 3338], 'pc': [309, 321, 356, 633], 'ioi': [65, 202, 264, 416, 1372, 1442, 1454, 1506, 2034, 2035], 'sc': [105, 910, 920, 1070, 1101, 1112]}
+   976          {'main': [4, 13, 331, 425, 448, 853, 855, 924, 1607, 1786, 1851, 1853, 1863, 1869, 1883, 1887, 1898, 1934, 1952, 2017, 2046, 2085, 2086, 2087, 2088, 2089, 2090, 2099, 2114, 2125, 2131, 2149, 2170, 2184, 2196, 2235, 2240, 2249, 2272, 2280, 2360, 2375, 2442, 2497, 2503, 2508, 2686, 2847, 2936, 2963, 3109, 3240, 3261, 3275, 3526, 3768, 3827, 3872, 3929, 3935, 4004, 4108, 4313, 4624, 4740, 5573, 5611, 5685, 7235, 7571, 7577, 8312, 8711, 8862, 8896, 8903, 9006, 9127, 9423, 10093, 10108, 10142, 10381, 10396, 10404, 10409, 10414, 10416, 10516, 10588, 10617, 10692, 10710], 'reg': [1001, 1009, 1033, 1045, 1129, 1229, 1249, 1309, 1469, 1681, 1693, 1697, 1705, 1729, 1741, 1801, 1817, 1833, 1885, 1905, 2177, 2233, 2237, 2325, 2401, 2409, 3065, 3577, 3631, 3693, 3881, 4069, 4377, 4385, 5233, 5249, 5549, 5553, 5717, 6595, 6607], 'mc': [81, 88, 90, 97, 572, 600, 724, 816, 960, 1012, 1064, 1074, 1084, 1194, 1200, 1214, 1216, 1224, 1244, 1314, 1326, 1344, 1424, 1444, 1450, 1453, 1455, 1554, 1594, 1604, 1614, 1664, 1820, 2346, 2352, 2728, 3674], 'pc': [14, 22], 'ioi': [33, 44, 183, 262, 263, 320, 377, 1356, 1358, 1426, 1434, 2056, 2070, 2087]}
+
+## 8  "THE PERIODIC TABLE"S 36" AND "THE BELT"S SIX", against the book"s own statements
+   36  L431    E(periodic table)                    36           36           36              36         36                  
+   36  L730    It is Chapter 6 applied to the book's own ignorance. A periodic table with 36 unfilled cells does not
+   36  L1589   One caution. E(periodic table) = 36 has ⅅ = 0. The order and geometry routes are one computation
+   36  L1613   the periodic table                                      90      36     no
+   36  L3258   alike.** The periodic table's E = 36 and Λ's E = 0 are not one quantity measured
+   36  L3717   **This book claims no novelty for the machinery.** What is offered is the application: computing the closure d
+   36  L4484   ℛ(Λ) = Λ         rules not recoverable from cells                     periodic table, E = 36
+   36  L4606   36 admitted for the periodic table.
+   36  L5024   the periodic table            36     period = n + ℓ, block order f, d, p, s           **0**
+   36  L5060   the periodic table               36    the count of shells is not a coordinate of the table
+   36  L5317   | the periodic table | 36 | 36 | **all impossible** |
+   36  L5674   the periodic table           90    36       19            55          1.6×
+   36  L5881   the periodic table              **36**         9 × 10          **0**
+   36  L7253   | periodic table, 18-column | 36 | **105.1** | 1.168 |
+   36  L7280   E(X) = 36                      the periodic table                    slack = 1.4 in the index
+   36  L8094   **E(X) is deliberately not claimed as novel.** Closure operators, Galois connections and formal concept analys
+   "belt" sites in the main volume: [4597, 4599, 4609, 5325, 5336, 6600, 6602, 8718]
+        L4597   the resonances that show structure in the asteroid belt:
+        L4599   | the belt | E |
+        L4609   ≤ 7 in the belt is occupied; every one of order ≥ 8 is empty. Thirteen of thirteen above the cut, zero
+        L5325   **The bibliography, indexed on era, retrieval redundancy ρ, access and depth of entry, holds twenty-two source
+        L5336   | the asteroid belt | **no**, 2 → 1 | impossible — nothing can occupy them |
+        L6600   **The Kirkwood order cut is the other kind.** Resonance strength enters at *e*^\|*p*−*q*\|; with a belt eccent
+        L6602   Λ and the nucleus have capacity bounds and therefore magic numbers. The belt has
+        L8718   and unlike the belt's six.
+
+## 9  §31.3 ITSELF  --- body lines between its heading and the next
+   §31.3 body_range (8700, 8702)   non-blank body lines: []
+   comparison, the other parent sections of chapters 30-31:
+      §30.4  (8575, 8583)   non-blank body lines 5
+      §31.1  (8614, 8618)   non-blank body lines 2
+      §31.2  (8659, 8662)   non-blank body lines 1
+      §31.3  (8700, 8702)   non-blank body lines 0
+
+## 10  DUPLICATED-SECTION SWEEP (DEF-105 item 1) over this unit"s long lines
+   47 long lines swept, 0 recurrences: NONE
+
+## 11  DEFECT-CENSUS.tsv ROWS IN RANGE  (keyed on the column named `member`, every class)
+   header: ['id', 'class', 'member', 'line', 'item', 'detail']
+   distinct member values: ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+   rows in L8700-L8789, classes main AND all: 0
+   (HANDOFF-70 named two rows for chat 118 and there were three: every class is swept,
+    not the class a handoff names.)
+
+## 12  PRINTS & PROOFS, ANCHORED ON ITS OWN TEXT  (no global offset)
+   "The Calabi"             main [8700]   PP [8612]   offset [-88]
+   "Batyrev"                main [8703]   PP [8615, 11355]   offset [-88, 2652]
+   "Triadophilia"           main [8732]   PP [8644, 11365]   offset [-88, 2633]
+   "split bicubic"          main [8768]   PP [8680]   offset [-88]
+   "The 24 excluded values" main [8783]   PP [8695]   offset [-88]
+   "24.3.4.1"               main [8738]   PP [8650]   offset [-88]
+   "thinly populated"       main [8765]   PP [8677, 11365]   offset [-88, 2600]
+   "an afternoon"           main [8788]   PP [8700]   offset [-88]
+   A probe scoring zero on the MAIN volume is a broken probe, not a finding (chat 118).
+
+## 13  THE SAME MATERIAL RESTATED ELSEWHERE IN THE MAIN VOLUME  (found by the numeral sweep)
+   Appendix item D, L11069-L11078, restates the whole slice.  Line by line against §31.3.4:
+      L11069  D — verifying 540 Kreuzer–Skarke predictions. **Everything the slice specifies is recomputed and
+      L11070  reproduces**, at register 387: 208 cells from 13 ≤ h ≤ 128 less twelve exclusions; **E(X) = 540**;
+      L11071  498 join and 498 meet failures of 21,528 pairs; five χ values, only 0 and ±2 and ±4; 112 on the
+      L11072  diagonal from (13,13) to (131,131); h¹¹ + h²¹ from 26 to 262. All three falsification tests hold at
+      L11073  540 of 540 — every prediction has h ≥ 1 on both indices, every sum is under the published maximum of
+      L11074  502, and every mirror partner is itself predicted or present. §12.11.6 supplies the calibration: an
+      L11076  kind. **What remains is one file read.** The 30,108 pairs are in a gzipped catalogue this session
+   "twelve exclusions" sites [11070]   vs   "24 excluded values" sites [8783]
+   -> CONTRADICTION INSIDE ONE VOLUME: L11070 prints twelve, L8783 prints 24, of one set of
+      exclusions.  Twelve is correct (r2-ch16h §3); 24 is the cell count.
+   register 387 (reg L1437) is cited by L11070 for this slice; its headline reproduces
+   208 / 540 / 498 / 498 / 21,528 / five / 112 / 26-262 and "all three falsification
+   tests hold at 540 of 540" -- EXACT and on point.  Recorded as a negative witness.
+
+## 14  THE TRIADOPHILIA CITATION, TEXT AGAINST BIBLIOGRAPHY
+   text  L8732: Candelas, de la Ossa, He & Szendroi (Triadophilia, ATMP 12 (2008) 429) state that the KS list's χ = ±6
+   bibl  L11804: **Candelas, P., de la Ossa, X. & Rodriguez-Villegas, F.** (2007). *Triadophilia* (arXiv:0706.3134). — the thinly populated tip of the Hodge plot.
+   authors named in the text but not in the bibliography entry: He, Szendroi
+   author named in the bibliography entry but not in the text: Rodriguez-Villegas
+   years: text 2008 (journal), bibliography 2007 (preprint) -- both defensible for one work;
+   the AUTHOR LISTS cannot both be right.  Flagged for repair, docket 16 and docket 36.
+   Huang & Taylor L11801 says its counts are "used in §31.3.1"; §31.3.1 L8703-L8708 names
+   no source for them -- the reverse-direction sweep, bibliography to text.
+
+## 15  TWO CITED CRITERIA, READ IN FULL AT THEIR TARGETS
+   §16.7.1"s criterion as printed:
+      L4585   **And the index distinguishes them, by asking whether E is removable.**
+      L4593   **The same 118 elements. Order the blocks f, d, p, s and define the period by *n* + ℓ, and the defect vanishes.** So the 36 be
+      L4614   A defect of the index vanishes under some re-coordinatisation. A feature of the world
+      L4615   survives every one. The test is computable from the cells alone, and §6.2's Janet table is that test
+   §31.3.2 invokes it at L8716-L8718:
+      L8716   CICYs and conifold transitions. By §16.7.1's test the absence is removable — not by
+      L8717   re-coordinatising but by re-constructing — so it is a defect of the index, like the periodic table's 36
+      L8718   and unlike the belt's six.
+   -> the printed discriminator is RE-COORDINATISATION; §31.3.2 states the absence is not
+      removable by re-coordinatising and still draws the "defect of the index" conclusion.
+   §10 (span L2021-L2074, all four subsections read) against L8785"s claim about it:
+      "structural" in §10: ZERO SITES
+      "accidental" in §10: ZERO SITES
+      "normal form" in §10: ZERO SITES
+      L8785: toward its own normal form, which is what §10 says a void should do when it is structural rather than
+   -> §10 defines the void and counts it; it makes no structural/accidental distinction and
+      states no normal-form behaviour.  Sweep covered the whole span, not a token probe.
+
+====================================================================================================

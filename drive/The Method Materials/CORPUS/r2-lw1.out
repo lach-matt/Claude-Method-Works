@@ -1,0 +1,65 @@
+
+================================================================================================
+§1 THE DELIVERY AS BYTES — LW1-MANIFEST.tsv rows against the LW1-* members (convention: bytes AND md5 must match)
+================================================================================================
+  MANIFEST DATA rows: 3
+  ground.py         6,472 B  236975ac23aa29960d4f7c2a4d200cd6  OK   object 3 (1306): NIST ASD 5.12 GSIE ground configurations Z=
+  ground-run.log      294 B  6bc5a6196d6de9348b6618fb92d27fe4  OK   expected output of python3 ground.py, the golden to bank
+  README.md         2,764 B  fe8c1f52c8c6a7920f7b79ee3e359fde  OK   delivery notes, status of all twelve objects, run commands
+  MANIFEST.tsv lists 3 of the zip's 4 files (README.md, ground.py, ground-run.log); it does not list itself — convention: the manifest is the witness, not a witnessed object
+  verdict: 3/3 manifested files reproduce their bytes and md5
+
+================================================================================================
+§2 THE DELIVERED INSTRUMENT RUN AS DELIVERED — python3 LW1-ground.py, stdout against LW1-ground-run.log (convention: byte identity)
+================================================================================================
+  returncode 0; stdout 294 B md5 6bc5a6196d6de9348b6618fb92d27fe4; log 294 B md5 6bc5a6196d6de9348b6618fb92d27fe4
+  verdict: stdout == delivered log byte-for-byte: True (README states md5 6bc5a6196d6de9348b6618fb92d27fe4: True )
+  stderr empty: True
+
+================================================================================================
+§3 OWN RE-DERIVATION FROM THE DELIVERED TABLE (import by path; GROUND dict read, nothing computed by aufbau)
+================================================================================================
+  Z range: 1 to 108 ; elements: 108
+  electron-count check (sum of occupancies == Z): 108/108; mismatches: []
+  opening sequence (own convention, first Z with occupancy > 0):
+    1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 5d 4f 6p 7s 6d 5f 7p
+  count of subshells opened Z = 1..108: 19 (register 1307: nineteen; delivered log: 19)
+  delivered convention (first rise vs Z-1, scanning from Z = 2) gives the same list: True ; same length: 19
+  Madelung order of the same nineteen (convention: sort by n+l, then n):
+    1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f 6d 7p
+  positions where observed != Madelung (pairwise, observed vs Madelung): [('5d', '4f'), ('4f', '5d'), ('6d', '5f'), ('5f', '6d')] ; count 4 = two swaps of adjacent pairs: True
+  register 1307 says DIFFERS AT TWO OF NINETEEN — convention: two adjacent transpositions, four displaced positions; the entry counts transpositions.
+  La (57) opens 5d: opening[(5,2)] = 57; 4f first at Ce (58): 58; Ac (89) opens 6d: 89; 5f first at Pa (91): 91
+  Pd (46): [Kr]4d10 -> 4d / 5s occupancies (5s absent): {'4d': 10}
+  Lr (103): [Rn]5f14 7s2 7p -> 6d absent: True ; 7p present: True
+  ground level strings non-empty: 108 / 108 ; the three bare J values (Sg 0, Bh 5/2, Hs 4) as delivered: ['0', '5/2', '4']
+
+================================================================================================
+§4 THE DELIVERED TABLE AGAINST THIS PROJECT'S OWN RECONSTRUCTION (r2-ch16y §3 CONF, banked chat 126) — cell by cell
+================================================================================================
+  Z = 1..108 configurations equal (subshell -> occupancy, zeros dropped): 108/108; mismatches: []
+  the reconstruction was made in chat 126 without the delivered file; agreement is corroboration of the record, not of itself.
+
+================================================================================================
+§5 THE REGISTER ANCHORS — 1306 and 1307 bodies read (rbody), figures scored against §3
+================================================================================================
+  1306 present: True ; 1307 present: True
+  1306 tokens: "108 of 108" 1 · "Pd" 1 · "Lr" 1 · "ground.py" 1 · "NIST ASD 5.12" 1
+  1306 "108 of 108 electron counts validate" vs §3 108/108: True
+  1306 Pd [Kr]4d¹⁰ no 5s vs table [Kr]4d10: True ; Lr [Rn]5f¹⁴7s²7p vs table: True
+  1307 prints the sequence "1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 5d 4f 6p 7s 6d 5f 7p": True
+  1307 "TWO OF NINETEEN": True ; "La opens 5d at Z = 57": True (measured 57: True ); "Ac opens 6d at Z = 89": True (measured: True )
+  1307 "4f does not appear until Ce" (Ce = 58): True ; "5f not until Pa" (Pa = 91): True
+  WARNING lines on 1306 / 1307 (convention: the literal token WARNING in the body): False False
+
+================================================================================================
+§6 STATUS OF THE TWELVE REQUESTED OBJECTS AS THE DELIVERY STATES THEM (LW1-README.md, its status table read as DATA rows)
+================================================================================================
+   3  ground.py (1306) | DELIVERED
+   1, 2, 4, 5, 6, 7, 8, 10 | PENDING BANK
+   9 (1707–1711) | PENDING BANK (packs 93–103) + NOT HELD (S104 restatement w104.py)
+   11 six figures | NOT HELD as files unless M supplies S104 outputs
+   12 THE-LOWDIN-SOLUTION.md | PENDING M's copy
+  status DATA rows: 5 ; DELIVERED rows: 1 ; the rest are PENDING BANK / NOT HELD / PENDING M — record-carried in the book (docket 38).
+  the twelve objects (REQUEST-LOWDIN.md numbered items): 12
+  delivered object 3 reproduced (§2, §3, §5); objects 1, 2, 4-8, 10 pending a bank not delivered; 9 pending + not held; 11 not held; 12 pending M — reported not done, not silent.

@@ -1,0 +1,70 @@
+unit L9939–L10053, 115 lines (own scan: `## Appendix A` body = last hit, `### A.15` = last hit)
+
+================================================================================================
+§1 RULING 45 (build/editorial-process remarks) AND RULING 46 (script names, build numbers, internal files) — case-sensitive on the raw line
+================================================================================================
+  verified    [9981, 9996, 10013] ['**Verified** on 120 constructed sets; 274 of 274 recovered total orders yield cl', '**Verified** against the recursive definition on 47 comparable pairs, with value', 'Verified against direct enumeration on eight random intervals.']
+  tested      [10020] ['**Measured.** ν is non-monotone in the cell order at **86 violations** at the ca']
+  measured    [10020] ['**Measured.** ν is non-monotone in the cell order at **86 violations** at the ca']
+  Verified/Measured/Tested lead-ins are the appendix's declared form for its own checks (A.8, A.9, A.10, A.11): recorded for chat 115's split, not scored
+  R46 — backticked names: [] ; .py / BUILD / md5 / file references: [] — zero: negative witnessed by the two probes over all 115 lines
+
+================================================================================================
+§2 FIRST PERSON (probe carries mine and myself; `\b(I|my|we|our)\b` also matches the numeral in He I — hits are READ)
+================================================================================================
+  hits: [10023, 10029, 10033, 10035] ['Statement. Containment is invariant under the affine map T = I − E for constant I.', 'Substituting *T* = *I* − *E* and multiplying through by −1 reverses both inequalities and exchanges min with m', 'The two statements are equivalent for any *I*. ∎', '**Consequence.** ν, δ and *V* all require *I*; containment does not. The method applies wherever levels are kn']
+  read: every hit is the symbol I (the ionisation limit, T = I − E; "for constant I", "for any I", "all require I") — first person zero; witness: the probe fires on those lines and on nothing else
+
+================================================================================================
+§3 STRUCTURE — bold lead-ins, whole-line italics, tables, rules, unmarked sub-headings, long lines, "Statement." / "Remark." conventions
+================================================================================================
+  bold lead-ins (16): [(9943, 'Nine proofs are given in full '), (9959, 'Proof.'), (9972, 'Proof of necessity.'), (9974, 'Proof of sufficiency.'), (9981, 'Verified'), (9989, 'Proof.'), (9996, 'Verified'), (10002, 'Proof.'), (10008, 'For Λ'), (10018, 'Proof.'), (10020, 'Measured.'), (10025, 'Proof.'), (10035, 'Consequence.'), (10043, 'Proof.'), (10045, 'Inversion.'), (10051, 'Critical depth.')]
+  whole-line italics: [] ; markdown table rows (a | at line start, code lines excluded — the three 4-space code lines L10004/L10041/L10047 begin with the absolute-value bar of |box ∩ Λ| and |ΔT|, read and excluded): [] ; the whitespace-aligned table: header L9945, DATA rows 9 ; rules (---): []
+  unmarked sub-heading candidates (short line after a blank, not a heading, not code, not sentence-terminated): [] []
+  lines over 400 chars: [10018, 10051] ; "Statement." lines: [9957, 9969, 9984, 9999, 10016, 10023, 10038] (7 = the seven sections); "Remark." lines: [9965] ; proof-end ∎ lines: [9963, 9979, 9994, 10006, 10018, 10033, 10043] (7 proofs, 7 ∎)
+  section-numbering gaps in the headings are by design: A.1, A.2, A.4–A.7, A.14, A.16, A.17 are the table's cross-referenced rows (r2-ch18a §1)
+
+================================================================================================
+§4 NEGATIVES AND UNIVERSALS, EACH WITH A WITNESS (docket 19)
+================================================================================================
+  candidate lines: [9950, 9953, 9966, 9994, 9996, 10000, 10002, 10006, 10016, 10018, 10020, 10025, 10033, 10035, 10043, 10045, 10051]
+  "The converse fails" (A.3 Remark): witness r2-ch18a §3 — the 2-cell set {(0,1),(1,0)} has closed projections and no join; §18.4 (L4980–L5293) carries "projection" at L4983–L4994
+  "no inclusion–exclusion" / "no cycles … no configuration counted twice" (A.10): witness r2-ch18a §6 — 7 edges on 8 nodes, connected; direct = factorised on 40 of 40 boxes and the full box
+  "grades Λ itself nowhere" (A.11) against "ν grades every chain": under δ = f − ℓ, 384 covering steps DECREASE ν (r2-ch18a §7) — ν does not grade every chain either; the two clauses are §12.2 L2328's (12a-01: no population for 24 of 70); 13t-04/13t-05 hold the definition open — recorded, not re-scored
+  "The two statements are equivalent for any I" (A.12): an identity — witness r2-ch18a §8, 5000 of 5000 and the cancellation argument
+  "obtained without fitting, without a quantum-defect expansion, and without assuming the series is smooth" (A.13 Inversion): the bound uses three neighbouring levels only — the proof's own construction is the witness; "to leading order" (L10043) is the caveat the Statement omits (r2-ch18a §9)
+  "no channel in this work enters the failure regime" (A.13): witness — the §25.6 ν_fail table L6940–L6945 (8 of 8 reproduce, DEF chat-107 block) and L6947 "ν = 5.3 … below 6.6"; sites of "failure regime" in main: [6949, 10051] — the appendix restates §25.6's conclusion for one channel; "no channel" is the sweep §25.6 declares, not a second measurement (docket 17 kind: single witness)
+  "which is why no channel …" and "The two conditions are anticorrelated in nature" — an empirical universal asserted without a population in the unit; §25.6 sites of "anticorrelated|core excitation": [6839, 6950, 10051]
+
+================================================================================================
+§5 DOCKET 27 — RECURRENCE: every sentence of the unit ≥ 60 chars searched across the six volumes on the whitespace-normalised join (headings and the table excluded)
+================================================================================================
+  sentences tested: 40 ; recurrences outside the unit: 0
+  → the appendix's Verified lines restate chapter sentences by design (A.8 ↔ §15.3 L4302 in different words; A.9 ↔ L2017 identical clause "Verified against the recursive definition on 47 comparable pairs, values only in {−1, 0, +1}"; A.10 ↔ L2071 "Verified against direct enumeration on eight random intervals"; A.11 ↔ L4971 "86 violations at the caps tested"): cross-reference restatements, not the duplicated-section class; docket 27 clean count continues
+
+================================================================================================
+§6 DOCKET 36 — NAMES IN THE UNIT AGAINST THE REFERENCES BODY (L11503–L11805) AND R.7 (L11806 on)
+================================================================================================
+  Birkhoff  unit lines [9989] · References body 1 · R.7 1 · Register lines 8
+  Rota      unit lines [9993] · References body 1 · R.7 0 · Register lines 0
+  Boolean   unit lines [9990, 9996] · References body 3 · R.7 0 · Register lines 2
+  Möbius    unit lines [] · References body 1 · R.7 0 · Register lines 0
+  verdict: every name in the unit has a References-body line (Birkhoff 1, Rota 1, Boolean is a term); docket 36 gains nothing from this unit; Rota is absent from R.7 and from the Register (the appendix is the only citing site)
+
+================================================================================================
+§7 WRAPPED PHRASES READ ON THE JOIN, AND THE OPENER'S COUNT WORDS
+================================================================================================
+  Nine proofs are given in full                        on the markup-stripped join: 1 ; raw lines (markup stripped): [9943]
+  nineteen in all                                      on the markup-stripped join: 1 ; raw lines (markup stripped): [9943]
+  necessary and not sufficient                         on the markup-stripped join: 1 ; raw lines (markup stripped): [9966]
+  exactly as the Boolean-interval structure requires   on the markup-stripped join: 1 ; raw lines (markup stripped): [9996]
+  a cylinder over ν and not one graded by it           on the markup-stripped join: 1 ; raw lines (markup stripped): [10020]
+  anticorrelated in nature                             on the markup-stripped join: 1 ; raw lines (markup stripped): [10051]
+  "Meets are identical with ∧ throughout" (A.3 L9963): reads as "the meet case is identical, with ∧ throughout" — wording only
+
+================================================================================================
+§8 CENSUS ROWS IN RANGE (DEFECT-CENSUS.tsv, member main, line in [L9939, L10053])
+================================================================================================
+  header: ['id', 'class', 'member', 'line', 'item', 'detail']
+  rows in range: 1
+    ['1201', 'C9-OVERGENERALISATION-WORD', 'main', '9950', 'never', 'A.6       adjunction never repairs closure                                        §24.2, in full']

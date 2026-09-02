@@ -1,0 +1,322 @@
+r2-ch24b — Appendix E part 1 (lead, E.1–E.1.5, E.2), prose and pointers
+§0 unit L10898–L11053 (156 lines)
+   PP heading-form E.n lines without a blank line above (read as headings on their text): [(10459, 'E.1.1 The lineage of this index, and why only one section st'), (10500, 'E.1.3 What this index asserts, and what it recomputes'), (10618, 'E.4 The grid, read on the current set')]
+§1 PP `# Appendix E` P10437 to `# Appendix F` P10761 (324 lines; main unit 324); PP unmarked E.n sub-headings in the appendix: 14
+   P10447 E.1 The coordinates
+   P10459 E.1.1 The lineage of this index, and why only one section states it
+   P10477 E.1.2 The open set as this session leaves it — ten open of 13, listed
+   P10500 E.1.3 What this index asserts, and what it recomputes
+   P10522 E.1.4 This is an index of tractable ignorance, and it cannot say otherwise
+   P10549 E.2 Closed
+   P10567 E.3 Each open item, in full
+   P10618 E.4 The grid, read on the current set
+   P10645 E.4.1 Q, enumerated and closed at eight
+   P10650 E.4.2 And the column that matters
+   P10656 E.5 Precedence, pushed as far as it goes
+   P10702 E.6 And the complexity question itself may be settled
+   P10714 E.7 What precedence costs the book
+   P10725 E.8 What closed, and what it cost
+   main L10898 Appendix in PP (number stripped): True
+   main L10908 E.1      in PP (number stripped): True
+   main L10921 E.1.1    in PP (number stripped): True
+   main L10940 E.1.2    in PP (number stripped): False
+   main L10964 E.1.3    in PP (number stripped): True
+   main L10986 E.1.4    in PP (number stripped): True
+   main L11013 E.1.5    in PP (number stripped): False
+   main L11036 E.2      in PP (number stripped): True
+   E.3 onwards (part 2) PP sub-headings present: ['E.3', 'E.4', 'E.4.1', 'E.4.2', 'E.5', 'E.6', 'E.7', 'E.8']
+§2 body: PP non-blank 101, main 122, shared 67, only-main 55, only-PP 34
+   only-main: ## Appendix E — Q, indexed and closed
+   only-main: Serving PART VI — THE RECORD AND THE REACH. The book's own ignorance as a closed index — fourteen items,
+   only-main: ten of them open, four ordered coordinates, one categorical fibre, E(Q) = 0 fibred by domain at the
+   only-main: fourteen (§E.1.5), the domain column printed at last — and see §32.1.1 flag 2 for what a fibred
+   only-main: zero is worth.
+   only-main: Appendix D indexes the book's mathematics. This one indexes what the book does not know. The set has
+   only-main: been recomputed six times; §E.1.1 is its lineage and §E.1.2 its current contents. The earlier states —
+   only-main: nine items; eight closed at E(Q) = 0 with four entered by §12.11.7; thirteen — are kept there as history.
+   only-main: ### E.1 The coordinates
+   only-main: ### E.1.1 The lineage of this index, and why only one section states it
+   only-main: §12.11.7 and the repairs of register 211 15 four by the tower, L and M by Appendices E and F
+   only-main: E.1.2, as first listed 13 N, O and P entered, having been named and never entered
+   only-main: E.1.2, current 14 R entered — |Cl(ℛ)| for Λ, register 461
+   only-main: ### E.1.2 The open set as this session leaves it — ten open of 14, listed
+   only-main: item question blocks obstacle cost domain
+   only-main: A the Sc VI level, measured one claim nonexistent unbounded physical
+   only-main: B Paschen & Götze §III, read nothing retrievable days bibliographic
+   only-main: C the nine named literatures, entered nothing retrievable unbounded bibliographic
+   only-main: D the Kreuzer–Skarke Hodge pairs, read one claim retrievable days computational
+   only-main: F the reorderability decision problem, searched nothing buildable days mathematical
+   only-main: G the complexity literature, entered nothing retrievable hours bibliographic
+   only-main: H whether Sc VI has already been measured one claim retrievable days physical
+   only-main: I the spectroscopic v-check per channel one claim retrievable days physical
+   only-main: K the earlier bound 2J_c ≤ k, tested for containment CLOSED — — mathematical
+   only-main: M Appendix F — nine stable cells, named at F.3.1 CLOSED — — computational
+   only-main: N whether anyone has lattice-ordered the seniority scheme CLOSED — no; the scheme is ordered by group–subgroup chains, and Racah recorded in 1954 that
+   only-main: O tree propagation retested on Λ₉′'s f–g–2S′ cycle CLOSED — — mathematical
+   only-main: P the 1,442 split into independent and Ritz-derived tests one claim retrievable hours physical
+   only-main: R |Cl(ℛ)| for Λ — how many closed subsets a closed index has one claim buildable unbounded mathematical
+   only-main: ### E.1.3 What this index asserts, and what it recomputes
+   only-main: F.3.1 establishes that a count computed from the book cannot be printed as prose, because writing the
+   only-main: §12.11.3.1's rule applied here as F.3.1 applies it there — assert the law, compute the extent.
+   only-main: ### E.1.4 This is an index of tractable ignorance, and it cannot say otherwise
+   only-main: ### E.1.5 The fourteenth item, the column that was never printed, and the constraint it killed
+   only-main: The domain column above was assigned in the code that computed E(Q) at register 256 and never
+   only-main: printed; the fibration by domain that E.1.3 asserts was therefore a claim the page could not check.
+   only-main: It is printed now, with the value orders the code used — blocks nothing < novelty < one claim < a
+   only-main: result, obstacle retrievable < buildable < nonexistent, cost hours < days < unbounded — and the
+   only-main: record's thirteen reproduce the record: E(Q) = 0 fibred, 1 unfibred, exactly as register 256
+   only-main: states.
+   only-main: The code also carried a constraint the page never stated: obstacle = buildable ⟹ cost ≤ days.
+   only-main: Item R refutes it. R — how many closed subsets a closed index has — is buildable, because the
+   only-main: enumeration can be written, and unbounded, because counting the closed sets of a closure system is
+   only-main: #P-complete (§29). A constraint refuted by its own extent is dead, which is F.3's rule, and it dies
+   only-main: here: R occupies a cell the constraint refused. Dropped, the thirteen still close — E(Q) = 0 fibred
+   only-main: was never resting on it; only the unfibred count was.
+   only-main: At fourteen, fibred and unconstrained, E(Q) = 0 with R as printed above, one claim — the
+   only-main: claim being |Cl(ℛ)| for Λ, which §14.5 states as a size. Register 465 entered R as nothing; on
+   only-main: that reading the mathematical fibre admits one cell, one claim · buildable · unbounded, which is
+   only-main: the cell R now occupies. The later state is on the page, per the register's own rule. Register 465's
+   only-main: "the index predicted R" was computed unfibred and unconstrained (E fell 4 to 3) and does not hold
+   only-main: under the fibration the appendix asserts; it is withdrawn as a fibred claim and kept as what it
+   only-main: was. Register 1729.
+   only-main: ### E.2 Closed
+   only-main: What is V for the convex bracket on measured levels? It grows with order — 157 to 3.2 × 10⁶ on a matched node set. What holds at every order is contai
+   only-PP  : # Appendix E — Q, indexed and closed
+   only-PP  : Serving PART V — THE RECORD. The book's own ignorance as a closed index — nine items, E(Q) = 0
+   only-PP  : fibred by domain, and see §32.1.1 flag 2 for what a fibred zero is worth.
+   only-PP  : Amended by the tower: eight items closed at E(Q) = 0 fibred, four entered by §12.11.7 with re-closure
+   only-PP  : owed. Thirteen stand.
+   only-PP  : Appendix D indexes the book's mathematics. This one indexes what the book does not know.
+   only-PP  : Eight items, four ordered coordinates, one categorical fibre, and E(Q) = 0 — reached by adding one item
+   only-PP  : the list was missing and one constraint the coordinates had not stated.
+   only-PP  : E.1 The coordinates
+   only-PP  : E.1.1 The lineage of this index, and why only one section states it
+   only-PP  : §12.11.7 and the repairs of register 211 15 four by the tower, L and M by Appendices E and G
+   only-PP  : E.1.2, current 13 N, O and P entered, having been named and never entered
+   only-PP  : E.1.2 The open set as this session leaves it — ten open of 13, listed
+   only-PP  : item question blocks obstacle cost
+   only-PP  : A the Sc VI level, measured one claim nonexistent unbounded
+   only-PP  : B Paschen & Götze §III, read nothing retrievable days
+   only-PP  : C the nine named literatures, entered nothing retrievable unbounded
+   only-PP  : D the Kreuzer–Skarke Hodge pairs, read one claim retrievable days
+   only-PP  : F the reorderability decision problem, searched nothing buildable days
+   only-PP  : G the complexity literature, entered nothing retrievable hours
+   only-PP  : H whether Sc VI has already been measured one claim retrievable days
+   only-PP  : I the spectroscopic v-check per channel one claim retrievable days
+   only-PP  : K the earlier bound 2J_c ≤ k, tested for containment CLOSED — —
+   only-PP  : M Appendix F — nine stable cells, named at F.3.3 CLOSED — —
+   only-PP  : N whether anyone has lattice-ordered the seniority scheme CLOSED — no; the scheme is ordered by group–subgroup chains, and Racah recorded in 1954 that
+   only-PP  : O tree propagation retested on Λ₉′'s f–g–2S′ cycle CLOSED — —
+   only-PP  : P the 1,442 split into independent and Ritz-derived tests one claim retrievable hours
+   only-PP  : R |Cl(ℛ)| for Λ — how many closed subsets a closed index has one claim buildable unbounded
+   only-PP  : E.1.3 What this index asserts, and what it recomputes
+   only-PP  : F.3.3 establishes that a count computed from the book cannot be printed as prose, because writing the
+   only-PP  : §12.11.3.1's rule applied here as F.3.3 applies it there — assert the law, compute the extent.
+   only-PP  : E.1.4 This is an index of tractable ignorance, and it cannot say otherwise
+   only-PP  : E.2 Closed
+   only-PP  : What is V for the convex bracket on measured levels? It grows with order — 157 to 3.2 × 10⁶ on a matched node set. What holds at every order is contai
+§3 pointers (hits under body_range, section_span):
+   §32.1.1    ### 32.1.1 What a referee would flag                    {'flag 2': (0, 0), 'fibred zero|fibred': (2, 2)} — L10901 *see §32.1.1 flag 2 for what a fibred zero is worth*
+   §12.11.7   ### 12.11.7 What the tower leaves open                  {'\\bQ\\b': (1, 1), 'four': (3, 3), 'tower': (2, 2)} — L10906 *four entered by §12.11.7*
+   §29.2.1    ### 29.2.1 The question closed by the author            {'novelty': (2, 2), 'nothing': (2, 2)} — L10961 *fell to nothing under §29.2.1*
+   §12.11.3.1 ### 12.11.3.1 Where each bound comes from, and why 9, 10 and 11 differ {'assert': (0, 0), 'compute': (1, 1), 'extent': (6, 6)} — L10983 *§12.11.3.1's rule … assert the law, compute the extent*
+   §32.1.4    ### 32.1.4 What this book names before anyone tells it  {'value sets|value set': (0, 0), 'ℛ\\(X\\)|\\\\prod|∏': (0, 0), 'repair': (0, 0)} — L10994 *§32.1.4 says why it cannot be repaired from inside*
+   §29.2.2    ### 29.2.2 A reading the language cannot close          {'branches': (2, 2), 'leave': (1, 1)} — L11003 *§29.2.2's reading that the branches leave the object*
+   §14.5      ### 14.5 The family of all closed sets                  {'Cl\\(ℛ\\)|closed subsets|closed sets': (5, 6), 'size': (1, 4)} — L11029 *|Cl(ℛ)| for Λ, which §14.5 states as a size*
+   §29        ## 29. Precedent, and what a search can bound           {'#P': (0, 0), 'closed sets|closure system': (0, 0)} — L11023 *#P-complete (§29)*
+   §23.10     ### 23.10 The order of the bracket                      {'1,585': (0, 1), '25\\.96': (0, 1), '0\\.0164': (0, 2), '518': (0, 0), '(?<![\\d,.])34(?![\\d,])': (0, 2), 'containment': (0, 2), '157': (0, 2), '560': (0, 1), 'zero failures': (0, 1), 'Proposition 23\\.1': (0, 1), 'classical bracket': (0, 1)} — E.2 §23.10 items
+   §23.11     ### 23.11 The refusal pattern carries four verdicts, not one {'interior optimum': (0, 0), 'monoton': (0, 0), 'admissibility cap': (0, 0)} — E.2 §23.11
+   §26.6      ### 26.6 Aitken's Δ² has an exact bias on a Rydberg series {'Richardson': (0, 0), 'p\\s?[−-]\\s?1': (0, 0), 'accelerat': (0, 0)} — E.2 §26.6
+   §29.8      ### 29.8 The other claims                               {'Gr[öo]bner': (0, 0), 'eight': (0, 0), 'claim set': (0, 0)} — E.2 §29.8
+   §11.8.1    ### 11.8.1 And F(−1) = 2 has a cause, not a coincidence {'F\\(−1\\)': (1, 1), 'two values': (0, 0), 'coupling': (0, 0)} — E.2 §11.8.1
+   §16.7      ### 16.7 Two kinds of absence, and one kind of lie      {'amplification': (0, 0), '0\\.972': (0, 0), 'descendants': (0, 0), 'N\\[φ': (0, 0)} — E.2 §16.7
+   D.1    (10329, '### D.1 Why the first attempt failed, and what it established') {'ordered': 3, 'fibred|fibre': 1, 'categorical': 2} — L10916 *the precondition §D.1 states*
+   E.4.1  (11132, '### E.4.1 Q, enumerated and closed at eight') {'eight': 2, 'enumerat': 2} — E.1.1
+   E.4    None {} — E.1.1 *eight at E.4*
+   E.3    (11054, '### E.3 Each open item, in full') {'in full': 1} — E.1.1
+   E.8    (11212, '### E.8 What closed, and what it cost') {'closed': 3} — E.1.1
+   E.2    (11036, '### E.2 Closed') {'§23\\.10': 3} — E.1.1
+   F.3.1  (11301, '### F.3.1 The closure, represented as it must be') {'count': 5, 'prose': 0, 'nine stable|stable cells|nine': 0} — L10965 / L10955
+   F.3    (11278, '### F.3 The index, built') {'refuted|dead|extent': 4} — L11025 *F.3's rule*
+   F.3.3  None {} — register 371 names F.3.3 (E.1.2 row M says F.3.1)
+   `### E.4` heading (parent of E.4.1 / E.4.2): [] ; `#### ` lines in the whole appendix: 0
+   P19 sites in the volume: [373, 374, 381, 383, 392, 418, 2994, 5221] ; *Q(X) = ∅* sites: [365, 385, 394, 10919]
+§4 printed sites:
+   --- §26.6 (E.2 cites it for the accelerator identity and Richardson) L7172–L7193
+   L7172 ### 26.6 Aitken's Δ² has an exact bias on a Rydberg series
+   L7173  Aitken's process extrapolates a sequence to its limit. A Rydberg series converges to its
+   L7174  ionisation limit. So apply it.
+   L7175 
+   L7176 | *n* | *T*(*n*) | Aitken(*T*) | *T*/3 |
+   L7177 |---|---|---|---|
+   L7178 | 10 | 1097.3730 | **365.1793** | 365.7910 |
+   L7179 | 20 | 274.3433 | **91.4096** | 91.4477 |
+   L7180 | 40 | 68.5858 | **22.8596** | 22.8619 |
+   L7181 | 80 | 17.1465 | **5.7153** | 5.7155 |
+   L7182 
+   L7183       Aitken does not reach the limit. It reaches T/3.
+   L7184 
+   L7185  **Because the correction it subtracts is (Δ*T*)²/Δ²*T* → *T*′²/*T*″ = (2/3)*T* — exactly λ² of §23.11 — leaving (1/3)*T*.** Aitken's kernel is *geometric* conv
+   L7186 
+   L7187  **With a practical consequence.** Aitken's Δ² is a standard tool for estimating a limit from measured terms. **On a Rydberg series it lands at *I* − *T*/3, det
+   L7188 
+   L7189       Not a better estimate. A stated, exact bias in a standard one — which is what this book's
+   L7190       method is for.
+   L7191 
+   L7192  **And λ² now carries three readings across three fields:** the decrease obtained by a full Newton step · the correction Aitken subtracts · **two-thirds of the 
+   L7193 
+   --- §29.8 (E.2 cites it for the Gröbner basis of eight) L8083–L8097
+   L8083 ### 29.8 The other claims
+   L8084   claim                            assessed                basis
+   L8085   V = 4ν/3                         not claimable           nine literatures entered; four owners of the framing found; see
+   L8086                                                            §23.8.4
+   L8087   ν_V ceiling                      ~75%                    very specific form, not found
+   L8088   cost surface, pole at p = 1      ~50%                    the framing is new; the content elementary
+   L8089   bracketing rather than           the searched bound of   literature uniformly predictive
+   L8090   predicting                       §29.8
+   L8091   E(X) as closure defect           not claimed             see below
+   L8092   reorderability complexity        not claimed             see below
+   L8093 
+   L8094  **E(X) is deliberately not claimed as novel.** Closure operators, Galois connections and formal concept analysis are established mathematics. **What is offered
+   L8095 
+   L8096  **And the reorderability material claims nothing.** The problem is known: Stahl & Wille proved 2-dimension NP-complete in 1984; Yannakakis proved dimension ≤ 3
+   L8097 
+   --- §23.11 (E.2 cites it for *no interior optimum*) L6519–L6532
+   L6519 ### 23.11 The refusal pattern carries four verdicts, not one
+   L6520  §23.10.4 counts refusals and reads them as "a perturbation". The count is one number; the
+   L6521  PATTERN is four.
+   L6522 
+   L6523   refusals                       V          what the family is doing
+   L6524   none                           infinite   exact — linear in the parameter, two points suffice
+   L6525   none                           finite     a smooth channel
+   L6526   one                            finite     a bifurcation — the family changes character and does not return
+   L6527   regularly spaced               finite     an oscillation — the family returns
+   L6528   dense and irregular            undefine   chaotic
+   L6529                                  d
+   L6530 
+   L6531  **An index does not see *a* refusal. It sees a family**, and the spacing of the refusals across it is what separates these. §16.7.1 makes the same move for a d
+   L6532 
+   --- §23.10.4 (1,585-fold, 25.96, 0.0164) L6509–L6517
+   L6509 | 1 | 499 | **499** | 19 | 25.96 cm⁻¹ |
+   L6510 | 3 | 187 | **187** | 101 | 0.715 |
+   L6511 | 6 | 34 | **34** | 145 | **0.0164** |
+   L6512 
+   L6513       Containment is 100% at every order once the premise is checked, the bound tightens
+   L6514       1,585-fold, and the refusals rise from 3.7% to 81% — the higher the order, the finer the
+   L6515       perturbation it sees.
+   L6516 
+   L6517  **Which supersedes §25.5's 1,061 order-1 bounds:** the same data at matched order yields 34 bounds at 0.0164 cm⁻¹, **and 619 refusals that are themselves pertu
+   --- §23.12 (interior optimum) L6548–L6552
+   L6548 
+   L6549 ### 23.12 The optimal order is a boundary, not a peak
+   L6550  Information per cell rises monotonically in k, so no interior optimum exists. What stops the
+   L6551  climb is σ.
+   L6552 
+   --- §23.12 (admissibility cap) L6564–L6567
+   L6564   40        10⁻⁴      2                     2.75 × 10⁻²                 4.0 × 10⁻³
+   L6565 
+   L6566       Better data raises k\. It never creates an interior peak. The optimum is the admissibility cap,
+   L6567       computable per cell from the data alone.
+   --- §30.4.1 (Gröbner, (p−1), F(−1) = 2) L8583–L8592
+   L8583 ### 30.4.1 And the audit itself was run once
+   L8584  The relation set has grown since. Closing the eight polynomial relations the book now states gives a
+   L8585  Gröbner basis of 18 where the original four gave 6, and seven further relations reduce to zero that
+   L8586  did not before — including V·e = w, w² = (16/3)·T·e and T·h² = eν²/3.
+   L8587 
+   L8588  Worse, the closure is over polynomial relations only. The book now states at least nine that are not:
+   L8589  A^m(x^p) = (−1)^m x^p/(p−1)^m, V = 2/tanh(kh/2), self-concordance, the modular rank law,
+   L8590 
+   L8591  Σ_q\|A_q\|·\|B_q\| = |Λ|, F(−1) = 2, E(X) as non-pairwise content, and the reorderability theorem. None
+   L8592  was ever audited against any list.
+   --- §29.7 (Richardson) L8049–L8052
+   L8049   sequence acceleration          (Δx)²/Δ²x — Aitken 1926, Seki Kōwa           λ², and a new result
+   L8050                                  c.1680
+   L8051   Richardson extrapolation       step-ratio elimination                       attribution only
+   L8052   optimisation                   λ² = f′²/f″, Nesterov 1994                   w·V = 8λ²;
+   --- §16.8.4 (0.972 − 0.154 · descendants) L4719–L4722
+   L4719  **And the general form is the tree, not the constraint.** Four statistical measures of a constraint — leaf position, load, marginal contribution, activity — al
+   L4720 
+   L4721     A ≈ fibre × (0.972 − 0.154 · descendants of the bounded variable) corr(descendants,
+   L4722     A/fibre) = −0.942, median error 7%, worst 24%.
+   Register L1793: **THE SEED IS CONSTRUCTIBLE AND NEED NEVER BE SEARCHED FOR.** *ℛ(X) is determined by φ̂ alone, so the cells witnessing each envelope step — plus one per alphabet value — have the same envelopes and therefore the same clo
+   Register L1931: ### 518
+   --- §20.1 (Gröbner) L5563–L5566
+   L5563 
+   L5564  Chapter 1's table gives five languages with their closure mechanisms and their measured costs — tree
+   L5565  factorisation at 0.00018 s against Gröbner at 0.010 s, a factor of fifty-five. **And one row has no
+   L5566  timing, because it has no algorithm.** The documentary language — *has anyone said this before?* —
+   --- §28.7.1 (Gröbner) L7521–L7524
+   L7521  used.
+   L7522 
+   L7523  **61. "Six relations reduce to eight generators, so −2 were redundant."** A Gröbner basis is routinely *larger* than its input. The redundancy measure is the r
+   L7524 
+   --- §32.1.4 (cited for ℛ(X) ⊆ ∏ Aᵢ(X) / cannot be repaired from inside) L8963–L8996
+   L8963 ### 32.1.4 What this book names before anyone tells it
+   L8964  A closed index admits nothing it lacks, so a *closed* index names nothing unidentified. **This book is
+   L8965  not one index but six, and only two of them are closed.** Asked what it can determine before an input
+   L8966  is given, the answer is a count:
+   L8967 
+   L8968   index                            coordinates   E     cells named and unoccupied
+   L8969   Λ, the object                              8   0     —
+   L8970   Appendix D, fibred by kind × language     16   0     —
+   L8971   Appendix D, unfibred                       3   4     four
+   L8972   Appendix E (Q), fibred by domain           4   0     —
+   L8973   Appendix E (Q), unfibred                   4   1     one
+   L8974   Appendix F, the numbers                    3  33     thirty-three
+   L8975   the audit set, at four coordinates         4  17     seventeen
+   L8976                                                        **a build readout**
+   L8977 
+   L8978  **Fifty-five cells are named and nobody has put anything in them.** Each is a combination the
+   L8979  structure admits, stated in coordinates already defined, arrived at by computation and not by
+   L8980  suggestion. That is what E(X) *is* — §18.6 calls it the prediction budget, and this is the budget
+   L8981  unspent.
+   L8982 
+   L8983  **It has been confirmed three times, which is the only evidence that matters here.** Register 285:
+   L8984  audit 19 SEQUENCE occupied a cell E(audits) had listed as admitted and absent, found by a defect
+   L8985  rather than proposed. Register 294: PROJECTION did the same. Register 278: E over the book's own
+   L8986  decisions located a decision that had been deferred rather than made — the section-level locators for
+   L8987  Appendices B and F (then C and G). **In each case the cell was named first and the occupant arrived after.**
+   L8988 
+   L8989  **And there is a hard boundary, which is the honest half of the answer.** E names cells; it never
+   L8990  names a coordinate. Every one of the fifty-five is a combination of values the index already carries,
+   L8991  and §17's extension test requires a candidate axis to be *offered* before it can be judged. The book
+   L8992  predicted the eleven missing audits and could not have predicted DEPTH, the coordinate that made them
+   L8993  nineteen. **An index can tell you what it has not said in the language it has. It cannot tell you what
+   L8994  it has no language for**, and that is §22.4's closing result read forward rather than back. Register
+   L8995  332.
+   L8996 
+   §32.1.1 span L8808–L8888 numbered-flag lines: [(8808, '### 32.1.1 What a referee would flag'), (8848, '**1. The object does not contain the demonstration.** At the caps of §7.4, Λ has'), (8853, "periods Λ does cover; the tower's coupling results do not obviously transfer. **"), (8860, '**2. E = 0 is fibration-dependent, and two of the three are fibred.** §D.5.5 sho'), (8865, "**3. The central theorem is not first.** §29.11: A.2 is Bergman's Double-project"), (8871, '**4. The register is longer than the results.** Three hundred and sixty-eight wi'), (8876, '**5. There is no prediction.** §25.6.3 withdrew the one, correctly, and the pref'), (8881, '**6. S3 has never been tested.** §32.2 claims a reader given the claims and thei')]
+   #P               sites (line, section) outside the unit: [(4080, '14.6'), (8227, '28.10'), (11762, 'F.4.3'), (11763, 'F.4.3')]
+   assert the law   sites (line, section) outside the unit: []
+   A^m identity     sites (line, section) outside the unit: [(8589, '30.4.1')]
+   N[φ              sites (line, section) outside the unit: [(4695, '16.8.4')]
+   amplification    sites (line, section) outside the unit: [(2924, '12.11.0.9'), (4710, '16.8.4'), (7535, '28.7.2'), (7565, '28.7.3'), (7567, '28.7.3')]
+   E(claim set)     sites (line, section) outside the unit: []
+   closed at eight|at eight sites (line, section) outside the unit: [(11132, 'E.4.1'), (11134, 'E.4.1')]
+   `### F.3.n` headings: [(11278, '### F.3 The index, built'), (11301, '### F.3.1 The closure, represented as it must be')]
+   *E.4* cited in the unit (bare, not E.4.1/E.4.2): [(10923, 'replacing it, so this appendix carried **three live item counts** — eight at E.4, fifteen '), (10936, '**E.1.2 is the open set.** E.3 gives each item in full, E.4 and E.4.1 record how the grid ')]
+   PP P10618 *E.4 The grid, read on the current set* in main (any form): [(11105, 'E.4 The grid, read on the current set')] ; PP lines P10617–P10619: ['cited, and it would tell a referee how much of the verification is circular.', 'E.4 The grid, read on the current set', "§2.16's grid asks, for each item, what its **first** unmet requirement is — ever"]
+   *518* anywhere in six volumes: {'The_Method_1_6-2.md': [11042], 'The_Method_1_6___The_Register-2.md': [1793, 1931], 'The_Method_1_6___Mathematical_Compendium-2.md': [], 'The_Method_1_6___The_Physics_Compendium-2.md': [489], 'The_Method_1_6___The_Index_of_Indices-2.md': [898], 'The_Method_1_6___Spectra_Compendium-2.md': []}
+   *cells at order 1|order 1* in §23.10 span: [(6450, ' **And the widths fall fast** — at ν = 40 from 0.362 cm⁻¹ at order 1 to **8.9 × 10⁻⁶ at order 5.**'), (6489, '| | order 1 | order 5 |'), (6496, '      collection assembled from real, perturbed, coarsely quoted spectra is exactly where order 1 belongs')]
+§5 first-person sites: [(10953, 'I     the spectroscopic v-check per channel                       one claim    retrievable   days   physical')]
+   R45 candidates: [(10940, ['this session'], '### E.1.2 The open set as this session leaves it — ten open of 14, listed')]
+   R46 candidates: [(11014, ['code'], 'The domain column above was assigned in the code that computed E(Q) at register 256 and ne'), (11016, ['code'], 'It is printed now, with the value orders the code used — blocks *nothing < novelty < one c'), (11021, ['code'], 'The code also carried a constraint the page never stated: *obstacle = buildable ⟹ cost ≤ d')]
+§6 census C9 *never* sites:
+   L10933 E.1.2, as first listed                   13   N, O and P entered, having been named and never entered
+   L10979 has depends = no**, which has held at every size and is the only column whose value has never changed.
+   L10995 the operator is bounded by the index's own value sets, so it can name a cell the index lacks and never
+   L11009 That is register 332 arriving where it is least comfortable — an index names cells and never
+   L11013 ### E.1.5 The fourteenth item, the column that was never printed, and the constraint it killed
+   L11014 The domain column above was assigned in the code that computed E(Q) at register 256 and never
+   L11021 The code also carried a constraint the page never stated: *obstacle = buildable ⟹ cost ≤ days.*
+   L11026 was never resting on it; only the unfibred count was.
+   *never entered* (L10933) — N, O, P rows in the E.1.2 table: ['N', 'O', 'P'] ; *has held at every size* (L10979): the depends column is printed in E.1.2? False
+   recomputed (five|six) times      [(10905, ['six']), (10922, ['five'])]
+   (eight|fifteen|thirteen) (at|here) [(10923, [('eight', 'at'), ('fifteen', 'here')]), (10924, [('thirteen', 'at')])]
+   nine stable                      [(10955, ['nine stable'])]
+   Eleven items|eleven items        [(10978, ['eleven items']), (10989, ['Eleven items'])]
+   the thirteen                     [(10961, ['the thirteen']), (11025, ['the thirteen'])]
+   ten open                         [(10940, ['ten open'])]
+   fourth obstacle|fourth (value|coordinate) [(10996, [''])]
+§8 References body from L11503: {'Racah': True, 'Paschen': True, 'G[öo]tze': True, 'Kreuzer': True, 'Skarke': True, 'Richardson': True, 'Gr[öo]bner': False, 'Ritz': True}
+done

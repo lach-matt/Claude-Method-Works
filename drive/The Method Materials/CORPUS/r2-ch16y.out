@@ -1,0 +1,174 @@
+
+================================================================================================
+0  UNIT BOUNDARY -- body_range and section_span, both, for every heading of the unit
+================================================================================================
+  §34.5   heading_line 9609   body_range (9609, 9622)   section_span (9609, 9622)
+  §34.6   heading_line 9622   body_range (9622, 9634)   section_span (9622, 9634)
+  §34.7   heading_line 9634   body_range (9634, 9649)   section_span (9634, 9649)
+  §34.8   heading_line 9649   body_range (9649, 9661)   section_span (9649, 9661)
+  §34.9   heading_line 9661   body_range (9661, 9673)   section_span (9661, 9673)
+  §34.10  heading_line 9673   body_range (9673, 9716)   section_span (9673, 9716)
+  §34     heading_line 9494   body_range (9494, 9500)   section_span (9494, 9716)
+  §35     heading_line 9716   body_range (9716, 9727)   section_span (9716, 9892)
+  unit bound by body_range: L9609-L9715 (107 lines); "## 35." body at L9716
+
+================================================================================================
+1  ARITHMETIC PRINTED IN THE UNIT, recomputed (Decimal, HALF_UP, convention named)
+================================================================================================
+  §34.5 L9614: L,U = Δn(√p_g+√p_r)/(p_g−p_r) is the rationalised form of Δn/(√p_g−√p_r):
+    identity holds on all 56 ordered pairs p ≤ 7, max |difference| = 8E-39
+    sign: register 1309 prints (Δn)/(√pᵣ − √p_g) with Δn = nᵣ − n_g; the unit prints the
+    same quotient with both differences reversed -- the same number (two sign flips).
+
+  §34.5 L9619-L9620: (√(n−1) + √(n−4))/3 at n = 4..7, HALF_UP to the printed 7 dp:
+    n=4  computed 0.5773503  printed 0.5773503  EXACT   (4 dp: 0.5774)
+    n=5  computed 1.0000000  printed 1.0000000  EXACT   (4 dp: 1.0000)
+    n=6  computed 1.2167605  printed 1.2168450  MISMATCH at 7 dp   (4 dp: 1.2168)
+    n=7  computed 1.3938469  printed 1.3938270  MISMATCH at 7 dp   (4 dp: 1.3938)
+    1/(√5−√2) = 1.2167605  (register 1322 calls it "1.2168"; register 1317 prints "1.2167")
+    also (√(n−1)+√(n−4))/3 IS Δn/(√p_g−√p_r) for ns vs (n−1)d: p_g = n−1, p_r = n−4, Δn = 1, p_g−p_r = 3.
+
+  §34.7 L9641-L9642: "1.028 at p across four subshells and 1.785 at d across two: the ratio is √3 to 0.19%"
+    register 1337 opening values       median p 1.028 d 1.785 ratio 1.7354  vs √3: 0.19%
+    register 1337 opening values       mean   p 1.040 d 1.785 ratio 1.7153  vs √3: -0.97%
+    Λ_t table rows (ioi L1759-L1760)   median p 1.036 d 1.626 ratio 1.5703  vs √3: -9.34%
+    Λ_t table rows (ioi L1759-L1760)   mean   p 1.048 d 1.626 ratio 1.5512  vs √3: -10.44%
+    register 1337 states the ratio as 1.7354 and 0.19%: 1.7354/√3 − 1 = 0.19%
+    ratio of the PRINTED 3-dp figures 1.785/1.028 = 1.7364, vs √3: 0.25%
+    -> 1.028 and 1.785 are the MEDIANS of register 1337's opening values (mean gives 1.040 / 1.785,
+       ratio 1.7153, 0.97% BELOW √3); neither the unit nor register 1337/1350 names the convention.
+    -> the Λ_t rows the unit's next paragraph prints give 1.036 (median) / 1.626 and ratio 1.570 (−9.4%).
+
+  §34.7 L9646: "6p sits 0.2% above the centrifugal value": √(1·2/2) = 1; (1.002 − 1)/1 = 0.20%
+  t(ℓ) = √(ℓ(ℓ+1)/2): ℓ=0 0.0000, ℓ=1 1.0000, ℓ=2 1.7321, ℓ=3 2.4495 (register 1337: √6 = 2.4495 at f)
+  §34.6 L9624-L9626: 8 + 6 + 4 = 18 (printed "eighteen")
+  §34.9 L9663: Z = 3 to 108 is 106 elements (printed 106)
+  §34.10 L9702-L9705: four + two = 6 (printed "six appearances")
+  §34.10 L9704: is 1/(2ℓ+1) an appearance of ℓ(ℓ+1)?  ℓ(ℓ+1) vs 2ℓ+1 at ℓ = 1,2,3: [(2, 3), (6, 5), (12, 7)]
+    ℓ(ℓ+1) = 2ℓ+1 iff ℓ² − ℓ − 1 = 0 iff ℓ = (1+√5)/2: never at an integer ℓ. Two functions, not one object.
+  §34.9 L9666: "At any f opening p = n−ℓ−1 = 0": 4f p = 0, 5f p = 1
+  §34.10 L9698: "Seven of eight rules give 106/106" -- register 1331: seven of eight, one at 74/106. 7 + 1 = 8.
+  register 1463 lists fourteen emptying points: 14 listed
+
+================================================================================================
+2  THE REGISTER AT EACH FIGURE OF THE UNIT -- earlier statement, and the LATER entry that moved it
+================================================================================================
+  106 of 106 / 106 non-empty           13 sites: R1309 L4909, R1328 L4985, R1331 L4997, R1350 L5073, R1356 L5097, R1366 L5133, R1367 L5137, R1402 L5261, R1412 L5301, R1445 L5429, R1461 L5493, R1463 L5501, R1515 L5701
+  99 of 106                            5 sites: R1350 L5073, R1437 L5401, R1438 L5405, R1440 L5413, R1445 L5429
+  90 of 106                            2 sites: R1309 L4909, R1445 L5429
+  eighteen resets/recalibrations       4 sites: R1328 L4985, R1331 L4997, R1407 L5281, R1435 L5393
+  "ten resets" / "ten moves"           4 sites: R1402 L5261, R1403 L5265, R1411 L5297, R1413 L5305
+  fifteen moves                        2 sites: R1409 L5289, R1438 L5405
+  104 of 106                           1 sites: R1332 L5001
+  nineteen surds / distinct values     11 sites: R514 L1921, R1309 L4909, R1318 L4945, R1328 L4985, R1350 L5073, R1403 L5265, R1425 L5353, R1460 L5489, R1466 L5513, R1468 L5521, R1734 L6455
+  DEACTIVATED                          2 sites: R1309 L4909, R1460 L5489
+  No parameter is fitted               1 sites: R1350 L5073
+  Exceptionless on 106                 1 sites: R1350 L5073
+  blocked four fits                    0 sites: 
+  BLOCKED (protocol replay)            13 sites: R243 L961, R244 L965, R1336 L5017, R1355 L5093, R1474 L5545, R1489 L5597, R1524 L5738, R1530 L5762, R1549 L5834, R1556 L5862, R1562 L5886, R1598 L6002, R1644 L6167
+  1.028                                2 sites: R1214 L4545, R1350 L5073
+  1.785                                1 sites: R1350 L5073
+  1.029                                2 sites: R1272 L4761, R1337 L5021
+  every f opening / any f opening      1 sites: R1350 L5073
+  Lr 7p configuration                  1 sites: R1306 L4897
+
+================================================================================================
+3  RECONSTRUCTION INPUT -- NIST neutral ground configurations Z = 1..108 (instrument data), VALIDATED
+================================================================================================
+  108 of 108 electron counts validate: YES (register 1306 states the same of ground.py)
+  Pd = {'4d': 10} ; Lr = {'5f': 14, '7s': 2, '7p': 1}  (register 1306: [Kr]4d¹⁰ no 5s; [Rn]5f¹⁴7s²7p not 6d)
+  opening sequence read from the table: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 5d 4f 6p 7s 6d 5f 7p
+  printed at L9507 :                     1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 5d 4f 6p 7s 6d 5f 7p
+  Z of each opening: 1s@1, 2s@3, 2p@5, 3s@11, 3p@13, 4s@19, 3d@21, 4p@31, 5s@37, 4d@39, 5p@49, 6s@55, 5d@57, 4f@58, 6p@81, 7s@87, 6d@89, 5f@91, 7p@103
+  openings inside Z ≤ 108: 19 of 19 ; 7p opens at Z = 103 (Lr)
+  chat 126 (16x-01) derived 7p at Z = 113 by COMPLETE SEQUENTIAL FILLING of the printed sequence:
+    complete-filling opening of 1s at Z = 1    table says 1   
+    complete-filling opening of 2s at Z = 3    table says 3   
+    complete-filling opening of 2p at Z = 5    table says 5   
+    complete-filling opening of 3s at Z = 11   table says 11  
+    complete-filling opening of 3p at Z = 13   table says 13  
+    complete-filling opening of 4s at Z = 19   table says 19  
+    complete-filling opening of 3d at Z = 21   table says 21  
+    complete-filling opening of 4p at Z = 31   table says 31  
+    complete-filling opening of 5s at Z = 37   table says 37  
+    complete-filling opening of 4d at Z = 39   table says 39  
+    complete-filling opening of 5p at Z = 49   table says 49  
+    complete-filling opening of 6s at Z = 55   table says 55  
+    complete-filling opening of 5d at Z = 57   table says 57  
+    complete-filling opening of 4f at Z = 67   table says 58  <-- differs
+    complete-filling opening of 6p at Z = 81   table says 81  
+    complete-filling opening of 7s at Z = 87   table says 87  
+    complete-filling opening of 6d at Z = 89   table says 89  
+    complete-filling opening of 5f at Z = 99   table says 91  <-- differs
+    complete-filling opening of 7p at Z = 113  table says 103 <-- differs
+  -> that derivation is exact at 5d (57) and 6d (89) and WRONG at 4f, 5f and 7p, where blocks interleave;
+     the population of 108 neutrals CONTAINS the 7p opening (Lr, 103): register 1306 L4897 is the witness.
+  conditional-Madelung misses: Mo42 Rh45 Pd46 La57 Gd64 Au79 Ac89 Th90 Cm96 Lr103 -> score 96 of 106 (register 1437: 96; Mo Rh Pd La Gd Au Ac Th Cm Lr)
+  register 1447 interruption at Z=25: entrant 4s (expected 4s)
+  register 1447 interruption at Z=43: entrant 5s (expected 5s)
+  register 1447 interruption at Z=64: entrant 5d (expected 5d)
+  register 1447 interruption at Z=96: entrant 6d (expected 6d)
+  §34.6 return pair Mo->Tc: {'4s': 2, '4d': 5, '5s': 1} -> {'4s': 2, '5s': 2}
+  §34.6 return pair Gd->Tb: {'4s': 2, '5s': 2, '5d': 1, '6s': 2} -> {'4s': 2, '5s': 2, '4f': 9, '6s': 2}
+  §34.6 return pair Cm->Bk: {'4s': 2, '5s': 2, '5d': 10, '6s': 2, '6d': 1, '7s': 2} -> {'4s': 2, '5s': 2, '5d': 10, '6s': 2, '5f': 9, '7s': 2}
+  §34.6 return pair Au->Hg: {'4s': 2, '5s': 2, '5d': 10, '6s': 1} -> {'4s': 2, '5s': 2, '5d': 10, '6s': 2}
+
+================================================================================================
+4  THE CORRIDOR L(Z) < a < U(Z), entrant against every Pauli-admissible rival, BOTH forms, Z = 3..108
+================================================================================================
+
+  FORM: node-only  ν = n − a√p        (registers 1309, 1328, 1330)
+    entrant corridor non-empty: 106 of 106   (printed "All 106 non-empty")
+    distinct finite endpoint values over the 106 corridors: 17 ; excluding 0: 16   (printed "Nineteen distinct surds")
+    generator sweep -> n≤7,ℓ≤3: 17 (excl. 0: 16, non-empty 106) | n≤8,ℓ≤3: 19 (excl. 0: 18, non-empty 106) | n≤7,ℓ≤4: 17 (excl. 0: 16, non-empty 106) | n≤8,ℓ≤4: 19 (excl. 0: 18, non-empty 106) | n≤9,ℓ≤4: 19 (excl. 0: 18, non-empty 106)
+    one-sided corridors (L = −∞ or U = +∞): 40 steps: B5 C6 N7 O8 F9 Ne10 Sc21 Ti22 V23 Cr24 Fe26 Co27 Ni28 Cu29 Ce58 Pr59 Nd60 Pm61 Sm62 Eu63 Tb65 Dy66 Ho67 Er68 Tm69 Yb70 Fr87 Ra88 Pa91 U92 Np93 Pu94 Am95 Bk97 Cf98 Es99 Fm100 Md101 No102 Lr103
+    Z=19  K   entrant 4s  (L, U) = (0.5773503, 3.7320508)
+    Z=37  Rb  entrant 5s  (L, U) = (1.0000000, 4.2360680)
+    Z=55  Cs  entrant 6s  (L, U) = (1.2167605, 4.6855577)
+    Z=57  La  entrant 5d  (L, U) = (0.7071068, 1.7071068)
+    Z=58  Ce  entrant 4f  (L, U) = (−∞, 0.7071068)
+    Z=87  Fr  entrant 7s  (L, U) = (1.3938469, +∞)
+    Z=91  Pa  entrant 5f  (L, U) = (−∞, 1.3660254)
+    Z=103 Lr  entrant 7p  (L, U) = (1.9840594, +∞)
+    memoryless test (§34.6 "104 of 106 steps admit two to four self-consistent subshells"):
+      candidates with a NON-EMPTY corridor per step, any real a : {3: 29, 4: 33, 5: 28, 6: 14, 7: 2} ; steps with 2..4: 62 ; with 1: 0
+      requiring a > 0                                        : {2: 6, 3: 32, 4: 41, 5: 19, 6: 8} ; steps with 2..4: 79 ; with 1: 0
+    running intersection empties at: 37 42 43 45 55 58 64 65 80 91 96 97 103 104 -> 14 times  (register 1463: 14 at 37 42 43 45 55 58 64 65 80 91 96 97 103 104)
+    handshake walk (a kept if inside, else nearest endpoint): resets 10 at Li3=0.0000 K19=0.5774 Rb37=1.0000 Cs55=1.2168 Ce58=0.7071 Hg80=0.8090 Tl81=1.0000 Fr87=1.3938 Pa91=1.3660 Lr103=1.9841
+      reset kinds: {'opening': 9, 'return': 1}   (printed 8 openings + 6 exceptions + 4 returns = 18; register 1402: ten..thirty-three)
+      in-sample score of the held a at each step (higher-n tie-break), Z = 4..108: 72 of 105
+      register 1328 trajectory: K .5774 Rb 1.0000 Cs 1.2168 La .7071 Hg .8090 Fr 1.3938 Pa 1.3660 Lr 1.9841
+
+  FORM: finished   ν = n − a√(p + q/cap) (§34.4 L9583, register 1350)
+    entrant corridor non-empty: 106 of 106   (printed "All 106 non-empty")
+    distinct finite endpoint values over the 106 corridors: 121 ; excluding 0: 109   (printed "Nineteen distinct surds")
+    generator sweep -> n≤7,ℓ≤3: 121 (excl. 0: 109, non-empty 106) | n≤8,ℓ≤3: 125 (excl. 0: 113, non-empty 106) | n≤7,ℓ≤4: 134 (excl. 0: 112, non-empty 106) | n≤8,ℓ≤4: 138 (excl. 0: 116, non-empty 106) | n≤9,ℓ≤4: 138 (excl. 0: 116, non-empty 106)
+    one-sided corridors (L = −∞ or U = +∞): 28 steps: B5 Sc21 Ce58 Pr59 Nd60 Pm61 Sm62 Eu63 Tb65 Dy66 Ho67 Er68 Tm69 Yb70 Fr87 Ra88 Pa91 U92 Np93 Pu94 Am95 Bk97 Cf98 Es99 Fm100 Md101 No102 Lr103
+    Z=19  K   entrant 4s  (L, U) = (0.5773503, 3.7320508)
+    Z=37  Rb  entrant 5s  (L, U) = (1.0000000, 4.2360680)
+    Z=55  Cs  entrant 6s  (L, U) = (1.2167605, 4.6855577)
+    Z=57  La  entrant 5d  (L, U) = (0.7071068, 1.7071068)
+    Z=58  Ce  entrant 4f  (L, U) = (−∞, 0.6900656)
+    Z=87  Fr  entrant 7s  (L, U) = (1.3938469, +∞)
+    Z=91  Pa  entrant 5f  (L, U) = (−∞, 1.2676611)
+    Z=103 Lr  entrant 7p  (L, U) = (1.9840594, +∞)
+    memoryless test (§34.6 "104 of 106 steps admit two to four self-consistent subshells"):
+      candidates with a NON-EMPTY corridor per step, any real a : {2: 6, 3: 33, 4: 32, 5: 16, 6: 13, 7: 6} ; steps with 2..4: 71 ; with 1: 0
+      requiring a > 0                                        : {2: 16, 3: 36, 4: 33, 5: 14, 6: 7} ; steps with 2..4: 85 ; with 1: 0
+    running intersection empties at: 25 43 58 64 65 87 91 96 97 103 104 -> 11 times  (register 1463: 14 at 37 42 43 45 55 58 64 65 80 91 96 97 103 104)
+    handshake walk (a kept if inside, else nearest endpoint): resets 15 at Li3=0.0000 K19=0.5774 Mn25=0.8593 Rb37=1.0000 Tc43=1.1154 Cs55=1.2168 Ce58=0.6901 Gd64=1.4142 Tb65=1.3477 Fr87=1.3938 Pa91=1.2677 Cm96=1.9712 Bk97=1.8659 Lr103=1.9841 Rf104=1.8485
+      reset kinds: {'opening': 8, 'other': 2, 'return': 3, 'exception': 2}   (printed 8 openings + 6 exceptions + 4 returns = 18; register 1402: ten..thirty-three)
+      in-sample score of the held a at each step (higher-n tie-break), Z = 4..108: 91 of 105
+      register 1328 trajectory: K .5774 Rb 1.0000 Cs 1.2168 La .7071 Hg .8090 Fr 1.3938 Pa 1.3660 Lr 1.9841
+
+================================================================================================
+5  §34.9 "At any f opening p = n−ℓ−1 = 0 ... L = −∞" tested at BOTH f openings, both forms
+================================================================================================
+  form p  Z=58 Ce entrant 4f  p = 0  admissible rivals with smaller n: NONE  corridor (−∞, 0.7071068)
+  form p  Z=91 Pa entrant 5f  p = 1  admissible rivals with smaller n: NONE  corridor (−∞, 1.3660254)
+  form q  Z=58 Ce entrant 4f  p = 0  admissible rivals with smaller n: NONE  corridor (−∞, 0.6900656)
+  form q  Z=91 Pa entrant 5f  p = 1  admissible rivals with smaller n: NONE  corridor (−∞, 1.2676611)
+  -> 4f: p = 0, every inequality an upper bound, L = −∞ by the node floor as stated.
+  -> 5f: p = 1 ≠ 0; L is unbounded because every smaller-n rival is FULL (admissibility), not because of the node floor.
+
+END r2-ch16y
