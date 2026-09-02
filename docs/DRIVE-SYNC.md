@@ -58,12 +58,13 @@ There are only four reasons, and only one of them needs a decision from you:
 3. **Above GitHub's 100 MB per-file hard limit.** Two copies of `conversations.json` in
    `Claude Chats` are 370 MB each. No transfer method puts these in the repo as ordinary git
    objects; they need Git LFS or storage outside the repo. See [`REPO-SIZE.md`](REPO-SIZE.md).
-4. **Held back pending your decision.** `Claude Metadata/users.json` and
-   `Claude Metadata/login_history.json` are Claude account records; the second contains login IP
-   addresses, timestamps and user agents. They were left out because git history is permanent and
-   awkward to purge, so including them should be a deliberate choice rather than a side effect of a
-   bulk sync. To include them, sync that folder explicitly:
-   `python3 tools/drive_sync.py --only "Claude Metadata"`
+4. **Deliberately excluded.** Nothing is currently held back, but the category stays because the
+   decision recurs. `Claude Metadata/users.json` and `Claude Metadata/login_history.json` are Claude
+   account records — the second holds login IP addresses, timestamps and user agents — and they were
+   held back on the first pass for that reason. **They are now committed, at the owner's request, in
+   a private repository.** Git history is permanent and awkward to purge, so treat any file of that
+   kind as a deliberate choice rather than a side effect of a bulk sync: `--exclude` keeps one out of
+   a run, and anything already mirrored keeps the manifest row it earned.
 
 Useful one-liners, from the repo root:
 
