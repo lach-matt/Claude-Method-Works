@@ -1,0 +1,12 @@
+#!/bin/sh
+# The instruments and gate.py need Python >= 3.12: several contain f-strings whose
+# expression part includes a backslash, which does not parse under 3.11. gate.py runs
+# every instrument as `python3 NAME.py`, so `python3` itself has to be the right one.
+# Put this directory first on PATH before running the gate:
+#   PATH="$(git rev-parse --show-toplevel)/method/bin:$PATH"
+# numpy is required (r2lib imports it). Install with:
+#   python3.12 -m pip install --break-system-packages numpy
+for p in python3.12 python3.13 python3.14; do
+    if command -v "$p" >/dev/null 2>&1; then exec "$p" "$@"; fi
+done
+exec /usr/bin/python3 "$@"

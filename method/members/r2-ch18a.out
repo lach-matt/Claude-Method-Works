@@ -1,0 +1,166 @@
+
+================================================================================================
+§0 BOUNDARY — own heading scan; the unit is Appendix A from its body heading to the `### A.15` heading (split at an A.n boundary)
+================================================================================================
+  `# APPENDICES` [161, 9937] ; `## Appendix A` (contents, body) [162, 9939] ; `## Appendix B` [163, 10165] ; body = last hit
+  `### A.n` headings inside Appendix A (12): [(9956, 'A.3'), (9968, 'A.8'), (9983, 'A.9'), (9998, 'A.10'), (10015, 'A.11'), (10022, 'A.12'), (10037, 'A.13'), (10054, 'A.15'), (10073, 'A.18'), (10091, 'A.19'), (10113, 'A.19.0'), (10153, 'A.19.1')]
+  unit: 9939 to 10053 = 115 lines; whole Appendix A = 226 lines (part 2 opens at L10054)
+  lettered(M, "A.13") = [10037] ; lettered(M, "A.1") = [] (exact token: A.1 does not match A.10–A.19; a heading for A.1 does not exist — its row is in the table)
+
+================================================================================================
+§1 THE OPENER — "Nine proofs … cross-referenced here. The remaining ten … nineteen in all" (convention: a count word counts DATA rows; a section count counts `### A.n` headings with a one-dot number)
+================================================================================================
+  table DATA rows (lines starting with an A.n label): 9 ['A.1', 'A.2', 'A.4', 'A.5', 'A.6', 'A.7', 'A.14', 'A.16', 'A.17']
+  `### A.n` one-dot sections in Appendix A: 10 ['A.3', 'A.8', 'A.9', 'A.10', 'A.11', 'A.12', 'A.13', 'A.15', 'A.18', 'A.19'] ; two-dot sub-sections: ['A.19.0', 'A.19.1']
+  9 + 10 = 19: True ; "nine … cross-referenced" = True ; "remaining ten" = True ; the union of table labels and section labels is exactly A.1–A.19 with no overlap: True True
+  the nine table rows are exactly the statements with no `### A.n` section (C1 of READ-ch13n re-measured): True
+
+================================================================================================
+§2 THE NINE "IN FULL" POINTERS — each resolved to the CLAIM under section_span (exact-token heading resolver), not to the heading; witness printed
+================================================================================================
+  A.1 → §7.3 span L1776–L1788 (13 lines): /closed/ hits 1 
+  A.2 → §14.1 span L3682–L3710 (29 lines): /ℛ\(X\)\s*=\s*X|X\s*=\s*ℛ\(X\)/ hits 1 
+  A.4 → §16.1 span L4335–L4350 (16 lines): /dim\s*q\s*[−-]\s*dim\s*p|ⅅ/ hits 5 
+  A.5 → §16.5 span L4449–L4481 (33 lines): /χ_Λ|χ/ hits 5 
+  A.6 → §24.2 span L6653–L6667 (15 lines): /adjunction|adjoin|repair|closure/ hits 0  — ZERO: the target says nothing of the claim
+  A.7 → §16.3 span L4359–L4406 (48 lines): /may precede/ hits 0  — ZERO: the target says nothing of the claim
+  A.14 → §12.11.2 span L3363–L3393 (31 lines): /monotone[- ]envelope|envelope/ hits 2 
+  A.16 → §12.11.2 span L3363–L3393 (31 lines): /triangle|exact coupling/ hits 7 
+  A.17 → §12.11.3 span L3394–L3456 (63 lines): /dichotomy/ hits 2 
+  A.6 "adjunction never repairs closure" — where the claim lives: main lines with adjunction/adjoin and their sections: [(185, '36'), (1929, '8.6'), (3586, '12.11.8'), (4535, '16.6.1'), (4799, '17.2'), (4806, '17.2'), (4809, '17.2'), (4917, '17.5')] ; L4806: Theorem 17.1 (adjunction never repairs). For any h : S → H, with S′ = {(x, h(x))}: S′ clos ; Appendix D L10558 names Theorem 17.1 as A.6: True — the index row sends A.6 to §24.2, a table of contributors (docket 9a, wrong target)
+  13l-03 re-measured: "may precede" in §15.3 span L4293–L4307: 3; in §16.3: 0; §15.3 heading: ### 15.3 S2 — the order, which is the hard one
+  A.17 "forced by A.16": §12.11.3 lines naming the triangle or A.16: []
+  A.3 Remark "§18.4 exhibits a counterexample" — §18.4 span L4980–L5293: /counterexample|projection|converse/ lines: [4983, 4985, 4987, 4990, 4992, 4994]
+  A.12 Consequence "antiprotonic-helium cells of §25.6" — §25.6 span (6991, 7117) lines with antiprotonic: [] — ZERO; the cells' homes (every main site with its enclosing section): [(612, '2.8'), (5401, '19.2'), (5416, '19.2'), (6135, '22.3'), (8793, '32'), (10035, 'App A.12'), (10279, 'App C.2'), (11584, 'App F.4.3'), (11587, 'App F.4.3')] ; the twin sentence L6135 (§22.3) makes the same §25.6 pointer — 14h-05 carries it; the A.12 site is its second member (docket 9a)
+  A.11 "the bracket of Part V operates along chains" — Part V heading: [(141, '# PART V — THE METHOD'), (5937, '# PART V — THE METHOD')] ; A.9 Rota 1964 in the References body: [(11664, ' Rota, G.-C. (1964). Z. Wahrscheinlichkeitstheorie 2, 340. — the Möbiu')] ; "crosscut" in References: [11665]
+
+================================================================================================
+§3 A.1 / A.3 — Λ₈ IS CLOSED, AND EVERY PROJECTION π_F(Λ₈) IS CLOSED (all 255 non-empty F ⊆ {1..8}; convention: closed = componentwise ∨ and ∧ of every pair land in the set)
+================================================================================================
+  |Λ₈| = 976 (tower-2 by r2lib.load_tower, caps (3,3,1,3,1))
+  A.1: Λ₈ closed under ∨: True ; under ∧: True (all 952,576 ordered pairs)
+  A.3: subsets F tested: 255 ; projections NOT closed: 0 [] — every projection of Λ₈ is closed: True
+  projection sizes (|π_F|) for the singletons, coordinate order n l k q e f g 2S: [3, 2, 3, 4, 3, 2, 4, 4] ; for the 28 pairs min/max: 4 16
+  Remark witness (converse fails): X = {(0,1),(1,0)} — π_1, π_2 closed: (True, True) (True, True) ; X closed: (False, False) (join (1,1) absent)
+
+================================================================================================
+§4 A.8 — THE d = 2 CRITERION ON THE 28 COORDINATE-PAIR PROJECTIONS OF Λ₈ (convention: "u may precede v" iff ∀b₁∈F(u), b₂∈F(v): min∈F(u) and max∈F(v); F(u) = fibre over u; 13l-01 re-measured at the appendix site)
+================================================================================================
+  necessity (closed ⇒ natural order ⊆ may-precede) holds on 28 of 28 pairs; may-precede total (u≼v or v≼u for every u≠v) on 28 of 28 []
+  antisymmetry fails (u≼v and v≼u, both fibres equal-or-nested both ways) on 19 of 28 pairs; tie counts per pair: [(('n', 'l'), 1), (('n', 'k'), 1), (('n', 'q'), 1), (('n', 'e'), 3), (('n', 'f'), 3), (('n', 'g'), 1), (('n', '2S'), 1), (('l', 'e'), 1), (('l', 'f'), 1), (('k', 'e'), 3), (('k', 'f'), 3), (('q', 'e'), 6), (('q', 'f'), 6), (('q', '2S'), 6), (('e', 'f'), 1), (('e', 'g'), 1), (('e', '2S'), 3), (('f', '2S'), 1), (('g', '2S'), 6)]
+  → on Λ₈ itself may-precede is a total PREORDER on every pair projection; a total ORDER on 9 of 28 — 13l-01 stands at the A.8 site (the statement says "total order … that order is the relabelling")
+  sufficiency on seeded random sets (seed 1808, 2000 draws): relation total on 914 ; relabelled by the preorder, closed on 914 of 914 (convention: ties broken by rank — any tie order works, as 13l-01 found)
+  "Verified on 120 constructed sets; 274 of 274" — sites: [4302, 9981] ; Register: [] ; §15.3 L4302 reads "Verified on 120 sets; 274 of 274 constructed total orders" (same figures, no population in any volume — 13l-01/13l-04 carry)
+
+================================================================================================
+§5 A.9 — μ_Λ₈ AGAINST THE ANTICHAIN FORMULA (convention: μ by the recursive definition μ(x,x)=1, μ(x,y) = −Σ_{x≤z<y} μ(x,z); P = join-irreducibles = elements covering exactly one element; Q = J(y)∖J(x))
+================================================================================================
+  comparable pairs (x<y): 115162 ; covering pairs: 3749 ; bottom elements: [(1, 0, 1, 0, 1, 0, 0, 0)] ; join-irreducibles |P| = 17 (main L2017 "a 17-element poset"; A.19 "seventeen generators")
+  distributive identity x∧(y∨z) = (x∧y)∨(x∧z) on 20000 seeded triples (seed 1809): 20000 of 20000 (componentwise min/max on ℤ⁸ is distributive identically; Λ₈ closed (§3) is a sublattice)
+  Birkhoff check: distinct down-sets J(x) over the 976 cells: 976 = 976: True ; x ≤ y ⟺ J(x) ⊆ J(y) on all pairs: True
+  200 seeded comparable pairs (60 covering + 140 non-covering, seed 1810): recursive μ = antichain formula on 200 of 200; values taken: [-1, 0, 1] ; interval sizes min/max: 2 319 — "47 comparable pairs, values only in {−1, 0, +1}" reproduces in kind (the 47 has no population: main L2017, L9996 only; Register sites: [] )
+  μ = −1 on every covering pair (|Q| = 1, trivially an antichain): True over 3749 covering pairs; μ ∈ {−1,0,+1} on ALL comparable pairs by the formula: True ; non-zero on 18103 of 115162
+  crosscut clause witnessed: for the 140 non-covering pairs, formula 0 ⟺ Q not an antichain ⟺ join of the atoms of J(Q) ≠ Q: True
+
+================================================================================================
+§6 A.10 — THE CONSTRAINT GRAPH OF Λ₈ IS A TREE; THE BOX COUNT FACTORISES (convention: one edge per binary Heaviside constraint as tower-2 codes them; boxes are coordinate intervals [lo_i, hi_i]; seeded random boxes plus the full box)
+================================================================================================
+  constraints as coded (tower-2 L8): l≤n−1, k≤4l+2, q≤k, f≤e−1, g≤4f+2, g≤q, 2S≤k → 7 edges on 8 nodes, connected: True ; |E| = |V| − 1: True ⇒ a tree (cap constraints l≤1, k≤3, e≤3, f≤1 are unary and add no edge)
+  degrees: {'n': 1, 'l': 2, 'k': 3, 'q': 2, 'e': 1, 'f': 2, 'g': 2, '2S': 1} — the graph's leaves are n, e, 2S (degree 1); g has degree 2 (neighbours q and f): the printed "leaves 2S and g" names g as a leaf; g is innermost in the nested sum with BOTH its neighbours fixed — the factor #{g | q, f} is still independent (incidental wording, measured below)
+  seeded random boxes (seed 1811), 40 drawn: direct = factorised on 40 of 40 ; first three: [([2, 0, 1, 1, 3, 0, 0, 2], [2, 0, 2, 3, 3, 1, 0, 2], 4, 4), ([0, 1, 2, 2, 2, 1, 1, 0], [1, 1, 3, 2, 2, 1, 2, 0], 0, 0), ([0, 1, 1, 1, 2, 0, 0, 3], [1, 1, 1, 1, 3, 0, 2, 3], 0, 0)]
+  full box: direct 976 = factorised 976 = 976: True ; "eight random intervals" sites: [2071, 10013] Register: []
+  the two leaf formulas as printed: #{2S} = max(0, min(hi7, k) - lo7 + 1) - coordinate 7 = 2S with 2S <= k: True ; #{g} = max(0, min(hi6, q, 2(2f+1)) - lo6 + 1) - coordinate 6 = g with g <= q and g <= 4f+2: True ; both bounds attained somewhere (2S = k, g = min(q, 4f+2)): True
+
+================================================================================================
+§7 A.11 — ν = e − δ IS NOT A LATTICE HOMOMORPHISM (convention: δ = f − ℓ as §17.3 L4819/L4825 and 13t-05 record; the Statement needs one witness; the 86 is 13t-04's, re-measured under two readings)
+================================================================================================
+  ordered pairs with ν(x∨y) ≠ max(ν(x), ν(y)): 262,656 of 952,576 — ν is not a join-homomorphism (the Statement's witness); zero would refute A.11
+  ν decreasing on comparable pairs x<y: 9,894 of 115,162 ; on covering pairs: 384 of 3749 — neither is 86 (13t-04: none of fifteen readings at three caps gives 86; stands); main sites of "86 violations": [4971, 10020] Register: []
+  "ν grades every chain of Λ" — reading: ν strictly monotone along every covering step? covering steps with ν equal: 2541 ; with ν increasing: 824 ; decreasing: 384 — ν is NOT monotone along covers under δ = f − ℓ (§12.2 L2328 says the same in different figures: "24 of 70", 12a-01 no population)
+
+================================================================================================
+§8 A.12 — THE min/max REVERSAL UNDER T = I − E (an algebraic identity; measured on seeded triples with Decimal, and stated exactly)
+================================================================================================
+  min(T(n−1),T(n+1)) ≤ T(n) ≤ max(…) ⟺ the same for E, on 5000 seeded triples (seed 1812), agreement 5000 of 5000 ; exact reason: T = I − E is order-reversing and I cancels: min(I−a, I−b) = I − max(a,b)
+  "ν, δ and V all require I" (A.12 Consequence, L10035) — 14h-02 carries (main L6133 twin site): V = w/e needs I only as 4ν/3; the site count: [6133]
+
+================================================================================================
+§9 A.13 — THE HALF-SPACING 2Z²R/ν³, ν_fail AT Z = 2, AND THE STRICTNESS OF "iff" (convention: R = the constant the book's ν_fail table uses; Decimal HALF_UP)
+================================================================================================
+  R sites in main: []
+  ν_fail = (2Z²R/|ΔT|)^{1/3} at Z = 2, ΔT = 3,000 cm⁻¹, R = 109737.316: 6.639 → "ν ≈ 6.6": True ; at Z = 1: 4.2 (the §25.6 table L6942 prints 4.2 | 6.6)
+  d/dν (Z²R/ν²) = −2Z²R/ν³ (exact; a power rule); half of |T(n−1) − T(n+1)| ≈ |dT/dn| = 2Z²R/ν³ to first order — the proof says "to leading order" and the Statement says "iff": measured gap asymmetry at ν = 5.3, Z = 2:
+    ν = 5.3 : gap to n−1 8113 ; gap to n+1 4567 ; 2Z²R/ν³ 5897 ; half of |T(n−1)−T(n+1)| 6340 ; the smaller one-sided gap / 2Z²R/ν³ = 0.775
+    ν = 3 : gap to n−1 60965 ; gap to n+1 21338 ; 2Z²R/ν³ 32515 ; half of |T(n−1)−T(n+1)| 41151 ; the smaller one-sided gap / 2Z²R/ν³ = 0.656
+    ν = 6.6 : gap to n−1 3920 ; gap to n+1 2477 ; 2Z²R/ν³ 3054 ; half of |T(n−1)−T(n+1)| 3199 ; the smaller one-sided gap / 2Z²R/ν³ = 0.811
+  → a displacement between the smaller one-sided gap and 2Z²R/ν³ reorders the level while the Statement's "iff" says it does not: the Statement is exact only to leading order in 1/ν (the proof says so; the Statement does not) — recorded, docket 12/34 kind
+  "a maximum ν = 5.3 reached by that channel" — main sites of "ν = 5.3": [6936, 6947, 10051] ; the channel is §25.6's Hg II 5d¹⁰np (L6936); "no channel in this work enters the failure regime" — the ν_fail table L6940–L6945 and its conclusion L6947 (DEF chat-107 block: 8 of 8 reproduce)
+
+================================================================================================
+§10 PRE-PP DIFF — headings and Statement lines of the unit against the Prints & Proofs original (section number stripped from BOTH sides of a heading comparison; whitespace-normalised)
+================================================================================================
+  PP `# APPENDICES`: [158, 9590] ; PP `# Appendix A`: [159, 9592] ; PP A.n lines (unmarked headings, plain `A.n Title` at line start):
+    [(9609, 'A.3'), (9621, 'A.8'), (9635, 'A.9'), (9650, 'A.10'), (9666, 'A.11'), (9673, 'A.12'), (9688, 'A.13'), (9705, 'A.15'), (9724, 'A.18'), (9742, 'A.19'), (9764, 'A.19.0'), (9765, 'A.19'), (9804, 'A.19.1')]
+  A.3: volume L9956 "Projections of closed sets are closed" | PP P9609 "Projections of closed sets are closed" | equal: True
+  A.8: volume L9968 "The total-order criterion at d = 2" | PP P9621 "The total-order criterion at d = 2" | equal: True
+  A.9: volume L9983 "μ_Λ in closed form" | PP P9635 "μ_Λ in closed form" | equal: True
+  A.10: volume L9998 "The tree factorisation of the void count" | PP P9650 "The tree factorisation of the void count" | equal: True
+  A.11: volume L10015 "ν is inadmissible as an axis" | PP P9666 "ν is inadmissible as an axis" | equal: True
+  A.12: volume L10022 "The bracket is limit-free" | PP P9673 "The bracket is limit-free" | equal: True
+  A.13: volume L10037 "The failure condition, and its inversion" | PP P9688 "The failure condition, and its inversion" | equal: True
+  PP sections after the unit (part 2 will diff them): ['A.15', 'A.18', 'A.19', 'A.19.0', 'A.19.1']
+  Statement lines: volume 7 ; PP 9
+   L9957 vs P9610: first-line equal: True 
+   L9969 vs P9622: first-line equal: True 
+   L9984 vs P9636: first-line equal: True 
+   L9999 vs P9651: first-line equal: True 
+   L10016 vs P9667: first-line equal: True 
+   L10023 vs P9674: first-line equal: True 
+   L10038 vs P9689: first-line equal: True 
+  opener: volume L9943: **Nine proofs are given in full in the chapters and are cross-referenced here. The remaining ten are written out below — nineteen 
+          PP P9596: **Ten proofs are given in full in the chapters and are cross-referenced here. The remaining seven are written out below — seventee
+  PP table DATA rows: 9 ; PP one-dot A.n sections: 10 → PP's "Ten … in full; remaining seven" against its own 9 rows and its own section count: the post-PP rewrite corrected the opener (record-carried as PP's state; volume now 9 + 10 = 19, MEASURED in §1)
+  non-blank lines: volume 72 ; PP (to A.15) 70 ; in volume not PP: 20 ; in PP not volume: 18
+    V+  ## Appendix A — Proofs
+    V+  Nine proofs are given in full in the chapters and are cross-referenced here. The remaining ten are written out below — nineteen in all.
+    V+  ### A.3 Projections of closed sets are closed
+    V+  ### A.8 The total-order criterion at d = 2
+    V+  x ∨ y = (uⱼ, max(b₁,b₂)), and max(b₁,b₂) ∈ F(uⱼ)
+    V+  x ∧ y = (uᵢ, min(b₁,b₂)), and min(b₁,b₂) ∈ F(uᵢ)
+    V+  ### A.9 μΛ in closed form
+    V+  Proof. Under the Birkhoff isomorphism, the interval [x,y] in Λ is isomorphic to J(Q), the lattice of
+    V+  down-sets of the induced subposet on Q = y∖x. If Q is an antichain, J(Q) is the Boolean lattice 2^{|Q|} and
+    V+  μ(∅,Q) = (−1)^{|Q|}. If Q is not an antichain, the atoms of J(Q) are the singletons {m} for m minimal in Q,
+    V+  and their join is the down-set of the minimal elements, which is a proper subset of Q because some element
+    V+  of Q lies strictly above a minimal one. By the crosscut theorem (Rota 1964, Cor. to Thm 3), μ(∅,Q) vanishes
+    V+  whenever the join of the atoms is not the top. ∎
+    V+  ### A.10 The tree factorisation of the void count
+    P+  # APPENDICES
+    P+  # Appendix A — Proofs
+    P+  Ten proofs are given in full in the chapters and are cross-referenced here. The remaining seven are written out below — seventeen in all.
+    P+  A.3 Projections of closed sets are closed
+    P+  A.8 The total-order criterion at d = 2
+    P+  x ∨ y = (uⱼ, max(b₁,b₂)), and max(b₁,b₂) ∈ F(uⱼ) x ∧ y = (uᵢ, min(b₁,b₂)), and min(b₁,b₂) ∈ F(uᵢ)
+    P+  A.9 μΛ in closed form
+    P+  Proof. Under the Birkhoff isomorphism, the interval [x,y] in Λ is isomorphic to the lattice of down-sets of
+    P+  the induced subposet on Q = y∖x. The Möbius function of J(Q) is (−1)^{|Q|} when Q is an antichain — in
+    P+  which case J(Q) is the Boolean lattice 2^{|Q|} — and vanishes otherwise, since a non-antichain interval
+    P+  decomposes as a direct product with a chain factor of length ≥ 2, whose Möbius function is zero above its
+    P+  atom. ∎
+    P+  A.10 The tree factorisation of the void count
+    P+  #{2S} = max(0, min(hi₇, k) − lo₇ + 1) #{g} = max(0, min(hi₆, q, 2(2f+1)) − lo₆ + 1)
+
+================================================================================================
+§11 REGISTER — entries naming A.3/A.8–A.13 and the unit's named objects; WARNING lines read (a Register entry body is the first non-blank line after its heading)
+================================================================================================
+  Register lines naming A.3/A.8–A.13: [1321] ['**§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows; the contents ']
+  Möbius|Mobius: 0 Register lines, entries []
+  crosscut: 0 Register lines, entries []
+  projection of a closed|projections of closed: 0 Register lines, entries []
+  total order: 0 Register lines, entries []
+  may precede: 0 Register lines, entries []
+  tree factor: 6 Register lines, entries [228, 347, 353, 394, 1359, 1488]
+  limit-free: 0 Register lines, entries []
+  ν_fail|half-spacing: 0 Register lines, entries []
+  join-irreducible: 3 Register lines, entries [70, 75, 467]
+  unit lines containing "register" (lowercase, G0i) or "Register": [] — the appendix cites no Register entry by number

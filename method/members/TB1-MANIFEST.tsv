@@ -1,0 +1,20 @@
+name	bytes	md5	purpose
+README.md	6956	809c86f4a75d6493e5327ddb93b1f7fa	this file
+audit.log	1620	3cc67acaa9d90d25c8c194c57a8772ff	obj 1: re-run log, 78/78, cap 8 closure
+audit.py	4792	f12c16616d4e37dfbcb98e0b2c56ee16	obj 1,2,4,5,7: the audit instrument (record: tb_audit.py), corrected state — RECONSTRUCTED from transcript
+audit_state1_failing.log	1633	4cfc454dbf2403957caf9e5d5667f390	obj 4: re-run log, check A False 13/13
+audit_state1_failing.py	4849	1f5c97feb5162410dc0ea96ef75de186	obj 4: first-run state, hyper-radius division carried in (line 58) — RECONSTRUCTED
+caps_table.log	271	bd87625108e27455c0948d988a369cfd	obj 2: re-run table
+caps_table.py	618	f72a997b8deec05c3a68b77c3f69e8c9	obj 2: per-cap closure table caps 3-12 (new thin driver over audit.py::closure_test)
+fig1_shape_sphere.png	183331	65950967081a64f0574e376880332b12	obj 9: re-render
+fig2_closure_defect.png	48636	d1e860f916267b355f462b6e728ffc2f	obj 9: re-render
+fig3_tower.png	59091	28e8b6f3c0de4cd304a51b3a78b6e9d0	obj 9: re-render
+fig4_equator_potential.png	100653	4b9b16ec1017cec3db3f1ccc704fdba5	obj 9: re-render
+fig5_constraint_graphs.png	39089	bd1ce4f3d0a54b0ccff6596310a291d7	obj 9: re-render
+figs.log	222	18c3d762264b498ce42d3e314aed6a0b	obj 9: stdout of figure runs (caps list)
+figs.py	3778	ec889beba73204de8972599f1828937f	obj 9: figs 1-3 — RECONSTRUCTED incl. in-session view_init patch
+figs2.py	2007	c3fcb0be0263bf799f5512ff02479245	obj 9: figs 4-5 — RECONSTRUCTED
+n8_check.log	1221	5d140ad0c7cf1b0d26b7482d82bc35e1	obj 3: re-run log
+n8_check.py	1719	ab823f22180baa476b623e0f55ae8c06	obj 3: withdrawn polynomial as first written + N8 second-route check — RECONSTRUCTED
+routh_check.log	90	3fa04ee0f0b05e8246bd9eb119d8dd1d	obj 7: re-run log
+routh_check.py	366	23842800b311327175ecdd0ef311473b	obj 7: Routh threshold computed (record cited only)

@@ -1,0 +1,2 @@
+id	verdict	reason
+1194	not a defect	C9-OVERGENERALISATION-WORD, main L9474, token "never". Fires on "it is fitted from a series and never measured", which is a live claim about δ₂ and is corroborated verbatim by register 1300 (reg L4873): "Λ_ryd closes at 5 cells, E = 0, once δ₂ is reclassified". Regex artefact on a live claim — precedents 678, 680–687, 1067, 1069.

@@ -1,0 +1,5 @@
+id	verdict	reason
+715	not a defect	C7 withdrawal-line: *540* at L11069 is a live figure (E(X) = 540 at §31.3.4 L8781, Register 387/1437; 27 main sites); regex artefact, precedent 678 (r2-ch25a §11, §5)
+716	not a defect	C7 withdrawal-line: *§30.3* at L11202 is the section E.7 discusses (50 main sites); *Nothing in §30.3 is withdrawn* is the section's own claim and E.7 states what IS withdrawn (novelty); precedent 678 (r2-ch25a §11; r2-ch25b §1 §30.3 probes)
+1224	not a defect	C9 *never printed* at L11107: Register 386 states the grid was described and never printed until this section printed it; measured true against the record (r2-ch25a §10 body of 386)
+1225	not a defect	C9 *has never changed* at L11140: the depends column is not printed in E.1.2 (E.1 L10914 defines it); the section's own claim, precedent 1217 / 678 (r2-ch25a §7; READ-ch24a 1217)

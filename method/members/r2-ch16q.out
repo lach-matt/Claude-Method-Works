@@ -1,0 +1,185 @@
+
+================================================================================================
+1.  32.5.1 -- the six-row table recomputed from 25.6's OWN inputs, nothing supplied by hand
+================================================================================================
+25.6  body_range (6991, 7003)  section_span (6991, 7117)  -> DIFFER (25.6 has subsections)
+25.6's OWN body carries no arithmetic; the six figures live in 25.6.1-25.6.4.
+parsed  delta(4s) = 1.0057   delta(5s) = 0.9812   (L7004, 25.6.1)
+  two-point Ritz   d2 = 1.0889  (book 1.0889)   dinf = d0 = 0.9376  (book 0.9376)
+  d(6s) estimate      = 0.9679  (book 0.9679)
+  convex tangent      = 0.9567  (book 0.9567)
+  limit backed out of the printed lower edge: 892700 cm-1  (R*Z^2 = 3950543)
+quantity                  recomputed      stated   verdict
+E(6s) estimate               736,689     736,688   within 2 cm-1
+bracket lower                735,860     735,860   exact
+bracket upper                738,547     738,547   exact
+width                          2,687       2,687   exact
+convex upper                 737,380     737,380   exact
+convex width                   1,520       1,520   exact
+  -> 6 of 6 reproduce.
+  table: header [9172]  separator [9173]  DATA rows 6 [9174, 9175, 9176, 9177, 9178, 9179]
+  "Six of six, exact" over 6 data rows -> REACHES
+  NOTE: 25.6.1 L7019 adds "the limit's own +/-400 to be added at both edges"; 32.5.1 carries no such caution.
+
+================================================================================================
+2.  32.5.3 -- "the seven-line arithmetic between them is printed in 25.6"
+================================================================================================
+25.6.1+25.6.2 display lines carrying a digit: [7010, 7014, 7018, 7019, 7025, 7030, 7033, 7035, 7036]
+  minus the closing commentary block [7035, 7036]: 7 lines -> [7010, 7014, 7018, 7019, 7025, 7030, 7033]
+  -> "the seven-line arithmetic ... printed in 25.6" REACHES at 7 under the display-block convention (indented display lines of 25.6.1+25.6.2 carrying a digit, commentary excluded).
+
+================================================================================================
+3.  32.5 L9165 -- "Appendix B carries all three for all 153 channels"
+================================================================================================
+Appendix B occurrences (contents + body): [163, 10165] -> BODY 10165
+Appendix B span: (10165, 10230) '## Appendix B — Data and provenance'
+  pipe-table rows inside Appendix B (header rows included): 0
+  numeral   153 sites in Appendix B span: [10169, 10205]
+  numeral   596 sites in Appendix B span: [10195]
+  numeral 1,061 sites in Appendix B span: []
+  numeral 2,269 sites in Appendix B span: [10197]
+  the channel table ARBITER (spectra member, section II L293-L934), totals line L900:
+    **596 channel rows across 28 elements · 2,269 interior cells parsed.**
+  numeral   153 sites, all six volumes: {'main': [641, 1480, 2521, 3406, 8189, 9165, 10169, 10205, 10277, 11692], 'reg': [683, 2357, 4689], 'ioi': [533], 'sc': [995]}
+  numeral   596 sites, all six volumes: {'main': [4008, 10195], 'reg': [2223, 2241, 3977, 3981, 4205, 4289, 6215, 6578], 'pc': [30], 'ioi': [278, 316, 976], 'sc': [900, 994, 995]}
+
+================================================================================================
+4.  32.5.2 -- "Every bracket in this book is recomputable from this book. All 1,061."
+================================================================================================
+  1,061 in main: [60, 6517, 6683, 6958, 9188, 9354, 10266, 10277]
+  1,061 in reg: [3939, 6487]
+  25.5 body_range (6962, 6991)  section_span (6962, 6991) -> COINCIDE (no subsections)
+  "bracket" word-form sites in main: 182
+
+================================================================================================
+5.  32.6 Condition 1 -- the three checks re-run against the book as it NOW stands
+================================================================================================
+  embedded ![Figure ...] references in the volume: 33
+  line-anchored caption count (NOT the measure -- see section 12): 32
+  32.6 prints "figures embedded / captions | 18 / 18"  -> the volume now carries 33.
+  body chapter headings measured: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+  chapter headings with TWO occurrences (contents + body): {1: [114, 241], 2: [115, 568], 3: [116, 1003], 4: [117, 1436], 5: [118, 1465], 6: [120, 1511], 7: [121, 1724], 8: [122, 1796], 9: [123, 1936], 10: [124, 2021], 11: [125, 2075], 12: [126, 2304], 13: [127, 3508], 14: [130, 3679], 15: [131, 4270], 16: [132, 4332], 17: [133, 4789], 18: [134, 4922], 19: [135, 5381], 22: [142, 5939], 23: [143, 6178], 24: [144, 6623], 25: [145, 6884], 26: [146, 7117], 27: [147, 7203], 28: [150, 7366], 29: [151, 7856], 30: [152, 8316], 31: [153, 8609], 32: [154, 8790], 33: [156, 9399], 34: [157, 9494], 35: [158, 9716], 36: [159, 9892]}
+  chapters cross-referenced: [1, 2, 6, 7, 8, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+  chapters cross-referenced but ABSENT: none
+  § chapter numbers referenced (bare + dotted): [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+  § references whose CHAPTER is absent: none
+  Chapter 30 exists at: [152, 8316]  Chapter 31 at: [153, 8609]
+  L9222 "This chapter was written as Chapter 31" -- the enclosing chapter of L9222 is: 32
+
+================================================================================================
+6.  32.6 Condition 2 -- the three-pass table, its arithmetic and its prose count word
+================================================================================================
+   85 claims,  46 carrying (54%),  39 bare   | tot-carry = 39 OK
+   63 claims,  56 carrying (89%),   7 bare   | tot-carry = 7 OK
+   63 claims,  60 carrying (95%),   3 bare   | tot-carry = 3 OK
+  printed percentages: 54 / 89 / 95 -> ['54', '89', '95']
+  L9239 prose: "Thirty-nine claims genuinely lacked a verification, and each has been given one"
+  measured against the table: the corrected checker found 7 bare, not 39;
+  after repair 3 bare, so 4 were given a verification, not 39.
+  L9262 restates the same 39 in the result table.
+  2,513 ("100% over 2,513 tests") sites: {'main': [4862, 9246, 10246, 10275]}
+
+================================================================================================
+7.  32.6 Condition 3 -- the hedged-assertion sweep re-run on the volume
+================================================================================================
+  probably     sites in main:   3  [5951, 9253, 9255]
+  presumably   sites in main:   1  [9253]
+  arguably     sites in main:   1  [9253]
+  seems        sites in main:   1  [9253]
+  seemingly    sites in main:   0  []
+  apparently   sites in main:   0  []
+  likely       sites in main:   4  [3350, 5686, 8027, 8304]
+  perhaps      sites in main:   0  []
+  the four words 32.6 NAMES (probably, presumably, arguably, seems): 3 sites -> [5951, 9253, 9255]
+  32.6 prints "One hit, and it is a false positive".
+   L5951: **It is a deduction, not a prediction.** The distinction is the whole method: a fit says where a level probably is; the bracket says where i
+   L9253: **Test.** Search for hedged assertions — *probably*, *presumably*, *arguably*, *it seems* — unaccompanied by a status.
+   L9255: One hit, and it is a false positive: "a fit says where a level probably is" describes what a fit does.
+
+================================================================================================
+8.  32.6.1 -- the five E-terms, their sum, and the count word "four indices"
+================================================================================================
+  printed terms: {'E(Lambda)': 0, 'E(audits)': 16, 'E(G)': 40, 'E(Q)': 5, 'E(D)': 4}  sum = 65  printed total "sixty-five" -> REACHES
+  L9268 "The book carries four indices of its own shortfall" ; L9302 "all four indices"
+  terms actually printed at L9270: 5
+  L9280 "run on two indexes rather than one"; L9286 "the same test has not been run on the other three indices" -> 2 + 3 = 5
+  L9273 "its own five terms summed to forty-four" -> the section itself says FIVE.
+  domination arithmetic:
+    numbers index: ten of eleven dominated  -> 11-10 = 1 on the frontier
+    audits:  sixteen admitted, fourteen dominated, two on frontier -> 14+2 = 16 OK
+    G:       forty admitted, ten dominated, thirty on frontier    -> 10+30 = 40 OK
+  L9298 "So the honest count is not forty-three" against the live total at L9270: 65
+  forty-three / 43 sites in main: [1235, 11605, 11826]
+
+================================================================================================
+9.  32.6.1 -- Appendix E open items, and the 8 + 1 + 1 split
+================================================================================================
+  Appendix E occurrences: [166, 10898] -> BODY 10898  span (10898, 11222)
+  E.1.2 heading: ['### E.1.2 The open set as this session leaves it — ten open of 14, listed']
+  E.1.2: [10940] ### E.1.2 The open set as this session leaves it — ten open of 14, listed
+  E.3: [11054] ### E.3 Each open item, in full
+  E.4.1: [11132] ### E.4.1 Q, enumerated and closed at eight
+  E.3 span (11054, 11132); item-like lines: 0 []
+  numeral 10 sites inside Appendix E: [10999, 11044]
+  numeral 14 sites inside Appendix E: [10934, 10940]
+  numeral 8 sites inside Appendix E: [10930, 11082]
+  numeral 5 sites inside Appendix E: []
+  numeral 4 sites inside Appendix E: [10969, 10999, 11032, 11046, 11071, 11204]
+
+================================================================================================
+10. Register citations made by the unit -- existence first, then on point
+================================================================================================
+  register numbers cited in the unit: [275, 387, 396, 571, 573]  (range endpoints seen: [571, 573] )
+  register 275: PRESENT  **E(audits) = 0 WAS TRUE AND WEAK.** *Adding the fourth coordinate DEPTH takes it to 19: a zero is worth the size of the
+  register 387: PRESENT  **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: every figure the printed slice s
+  register 396: PRESENT  **ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR.** *Forty-three cells stand admitted a
+  register 571: *** NO ENTRY ***  
+  register 572: PRESENT  **AND THE LEVEL IS A COORDINATE §4 DOES NOT HAVE.** *The ten mechanisms distribute three at the value, three at the deri
+  register 573: PRESENT  **THE DOMINATION TEST NOW DISAGREES WITH ITSELF ACROSS TWO INDEXES.** *The audits index went as §32.6.1 predicted — sixt
+
+================================================================================================
+11. Duplicated-section sweep (DEF-105 item 1) on the unit's long lines
+================================================================================================
+  long lines in unit: 57   recurring elsewhere in main: 0 []
+
+================================================================================================
+12. Condition 1's third check in detail -- does every embedded figure pair with a caption?
+================================================================================================
+  embedded: 33
+  embedded figures with NO caption in the following 6 lines: 0 []
+  distinct figure tags: 33   tags embedded twice: {}
+  32.6 prints 18 / 18; measured embedded / distinct tags / unpaired = 33 / 33 / 0
+
+================================================================================================
+13. Every numeral the unit prints, swept comma-aware across the volume
+================================================================================================
+         16  main sites  75  in-unit 1  first outside: [36, 47, 60, 132, 189, 292]
+         18  main sites  41  in-unit 1  first outside: [134, 220, 233, 1017, 1134, 1375]
+         21  main sites  30  in-unit 1  first outside: [139, 420, 437, 468, 1019, 1137]
+         30  main sites  21  in-unit 2  first outside: [152, 448, 4248, 4327, 4997, 5664]
+         31  main sites  12  in-unit 1  first outside: [153, 1230, 1235, 1863, 4164, 4192]
+         39  main sites   6  in-unit 2  first outside: [824, 8389, 10219, 11827]
+         40  main sites  32  in-unit 1  first outside: [547, 1208, 1692, 3171, 3929, 5259]
+         46  main sites   3  in-unit 1  first outside: [1234, 11634]
+         54  main sites  11  in-unit 2  first outside: [3564, 6237, 6619, 6735, 6974, 6976]
+         56  main sites  11  in-unit 1  first outside: [1599, 2019, 3894, 4137, 4290, 4363]
+         60  main sites  13  in-unit 2  first outside: [2019, 2465, 2705, 3853, 6254, 6895]
+         63  main sites   6  in-unit 3  first outside: [7538, 11614, 11836]
+         85  main sites   6  in-unit 1  first outside: [3981, 4463, 7404, 9325, 11662]
+         89  main sites  10  in-unit 2  first outside: [1171, 1694, 3821, 7571, 9510, 9514]
+         95  main sites   4  in-unit 1  first outside: [602, 11532, 11839]
+        100  main sites  37  in-unit 1  first outside: [3739, 3740, 3741, 3749, 4005, 4022]
+        153  main sites  10  in-unit 1  first outside: [641, 1480, 2521, 3406, 8189, 10169]
+        275  main sites   6  in-unit 1  first outside: [864, 1386, 5016, 5073, 10747]
+        387  main sites   3  in-unit 1  first outside: [3203, 11070]
+        396  main sites   2  in-unit 1  first outside: [8442]
+        571  main sites   2  in-unit 1  first outside: [7719]
+        573  main sites   2  in-unit 2  first outside: []
+      1,061  main sites   8  in-unit 1  first outside: [60, 6517, 6683, 6958, 9354, 10266]
+      1,520  main sites   3  in-unit 1  first outside: [7033, 7089]
+      2,513  main sites   4  in-unit 1  first outside: [4862, 10246, 10275]
+      2,687  main sites   4  in-unit 1  first outside: [7018, 7030, 7088]
+    735,860  main sites   7  in-unit 1  first outside: [7018, 7030, 7033, 7045, 7077, 11058]
+    736,688  main sites   3  in-unit 1  first outside: [7045, 7063]
+    737,380  main sites   7  in-unit 1  first outside: [7033, 7045, 7077, 7081, 7091, 11058]
+    738,547  main sites   5  in-unit 1  first outside: [7018, 7030, 7081, 7091]

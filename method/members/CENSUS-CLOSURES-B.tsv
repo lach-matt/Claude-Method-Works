@@ -1,0 +1,22 @@
+id	verdict	reason
+674	dismissed	"16.6" at main L333 is the section pointer §16.6 (which names ⅅ_gro, L4498), not a surviving figure; the line is Chapter 1's own corrected-form statement, not a withdrawal line — regex artefact
+1016	dismissed	L275 "always" is P17's principle wording, not a claim; the expression on the row is superseded by the prose (READ-ch1 D1.3)
+1017	dismissed	L279 "always" describes what P7 forbids asserting; the sentence's unsourced count series is READ-ch1 D1.9
+1018	confirmed-supported	L294 "never failed": Register 421 (R L1569) and §5 L1503 record P16 as having no failure entry; grep P16 in Register = 1 site (R421); record-carried, no contrary entry found
+1019	dismissed	L320 "never supplied": Register 418 (R L1557) records exactly this; record-carried
+1020	dismissed	L349 "always audit results" is P4's principle wording, not a claim
+1021	dismissed	L350 "always compute…" is P5's principle wording, not a claim
+1022	dismissed	L388 "never had Q = ∅": consistent with L515–516 (nothing confirms it) and Appendix E's open items; record-carried
+1023	dismissed	L402 "always" (tree factorisation, monotone one-coordinate bounds): §10.3's seven-comparison containment is the one-pass closure; mathematical, standard
+1024	dismissed	L403 "always, by Hilbert": Hilbert basis theorem gives Buchberger termination; standard
+1025	dismissed	L405 "never — Gödel": no complete decision procedure for full arithmetic; standard
+1026	dismissed	L467 "never against invention" restates §16.8.2 (L4669) and the P22 experiment reproduces on the rebuilt Λ₈ (75 cells absorbed, l-ch1.py)
+675	dismissed	main L858 is not a withdrawal line ("recomputed at build" refers to E(G)); "11" is a historical E(audits) value printed as history — regex artefact; the staleness of the value list is READ-ch2 D2.5
+676	dismissed	L858 "150" is the current §16.3.1 figure (L4396: 150 of 216 rejected, 69.4%); not a survival
+677	dismissed	L858 "216" is the current §16.3.1 figure (L4396); not a survival
+1027	dismissed	L603 "never certifies ρ = 0" is statistically exact (zero observed failures never certify a zero rate; rule of three)
+1028	dismissed	L618 "never silently defaulted" is protocol wording, not a claim
+1029	dismissed	L895 "never at section level" is Register 270's recorded finding (R270 present); record-carried
+1030	dismissed	L938 "never with both" is what Registers 219–222 record (grouped heading R L1323); record-carried
+1031	dismissed	L950 "never a rewrite" is protocol wording (§2.19 condition iii)
+1032	dismissed	L985 "never recomputed" is protocol wording (§2.20)

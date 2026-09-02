@@ -1,0 +1,4 @@
+id	verdict	reason
+710	not a defect	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES at main L9150 on register 388: the flagged token is the section’s own live citation of a finding it is explaining. Regex artefact (precedents 678, 680–687).
+711	not a defect	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES at main L9150 on register 391: same line, same shape — a live register citation, not a surviving withdrawal line number.
+712	not a defect	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES at main L9150 on register 392: same line, same shape. Register 392 exists and its headline is on point (measured, r2-ch16p §6).

@@ -1,0 +1,95 @@
+  span L11361–L11502; Appendix G L11361–L11406; `# END MATTER` L11407; Index L11409–L11502
+
+== §0 pre-PP diff: Appendix G is post-PP (witness: `Appendix G` in PP); the Index against PP's `## Index` (LAST hit) to its next `# `/`## ` heading, body lines shared / only-main / only-PP
+  `Appendix G` lines in PP: NONE — NONE: no pre-PP diff exists for Appendix G; Register 1770 (post-PP) seated it: "**T IS ABSORBED: ITS THIRTY CITED SECTIONS ENTER AS APPENDIX G AND THIRTY-FOUR CITATIONS R"
+  PP `Index` heading hits [168, 10994]
+  PP Index P10994–P11066 (73 lines; next heading P11067 # References)
+  body lines: main 70, PP 39, shared 13, only-main 57, only-PP 26
+  only-main lines (first 60 chars): ['**Verified:** 57 terms, 311 entries, 44 specialisation relat', '**bracket** …… §12.11 · §22 · §22.1 · §22.2 · §22.3 · §22.4 ', 'bracket failure …… §25.1 · §25.3 · App A', 'bracket width …… §22.1 · §23.1 · §23.2 · §23.6 · §23.10 · §2', 'interiority …… §22.2', 'limit-free …… §22.3 · §22.4 · App A · App D', 'the four rules …… §22.2 · §25.6 · §28.7', '*interiority* …… §22.2', '**three bodies** …… §12.11 · §18.4 · §21.5 · §25.6 · §34.2 ·', 'Λ₃ …… §25.6 · App D', 'shape sphere …… §36.3 · App D', '**closure** …… §1 · §2.23 · §6 · §6.2 · §12.10 · §12.11 · §1', 'closed index …… §2.23 · §6 · §12.11 · §14.6 · §15.2 · App D ', 'closure defect …… §6.2 · §12.10 · §14.2 · §29.2 · §29.8 · §3', 'closure operator …… §14.2 · §14.5 · §16.8 · App D', 'ℛ(X) = X …… §12.11 · §15.5 · §27.4 · §29.11 · §29.12 · App A', '**cost of a guarantee** …… §2.3 · §16.8 · §18.5 · §23.2 · §2', 'V = 4ν/3 …… §23.3 · §28.7 · §29.4 · §32.7 · App D', 'the floor …… §16.8 · §23.2', 'the pole …… §18.5 · §23.7 · §23.9 · §31.1 · §31.2']
+  only-PP lines (first 60 chars): ['**Verified:** 51 terms, 129 entries, 40 specialisation relat', 'bracket …… §24.2 · §24.2 · §24.2 · §24.2 · §24.2 · §24.2 · §', 'bracket failure …… §32.3 · §23.4 bracket width …… §32.1 inte', '· App A the four rules …… §24.2 · §24.2 · §24.2 · §24.2 · §2', '**closure** …… §6.1 · §7.3 · §16.1 · §16.2 · §16.1 · §16.2 ·', 'closed index …… §6.1 · §7.3 · §16.1 closure defect …… §6.1 ·', '…… §16.1 · §16.1 · §16.2 · §16.3', 'cost of a guarantee …… §32.5 · §32.1 · §24.2 · §32.3 · §25.6', 'V = 4ν/3 …… §32.1 · §32.3 the floor …… §24.2 · §32.3 the pol', 'extension …… §32.1 · §24.2 · §32.3 · §23.4', 'addable cells …… §32.1 adjoinable axes …… §24.2 imposable co', '**prediction** …… §25.6 · §25.6 · §24.6 · App E', '*E(X) as budget* …… §25.6   *Sc VI* …… §25.6 · App E   *seco', 'quantum defect …… §24.2 · §32.3 · §25.6 · §24.13', 'isoelectronic law …… §24.2 · §24.13 penetration …… §32.3 · §', 'retrieval …… §32.1 · §24.2 · §32.5', 'retrieval redundancy …… §32.1 · §32.5 route set …… §32.1 · §', 'self-defence …… §16.3 · §16.4 · §16.5 · §24.5 · §24.6 · §28.', 'totality …… §16.5 · §24.5 · §28.8 · App D · process index ……', '§24.6 ⅅ_def …… §16.4 · §32.3 ⅅ_phys …… §16.3']
+  PP's "Verified" line: ['**Verified:** 51 terms, 129 entries, 40 specialisation relations, **0 violations — E(index) = 0.**']
+  main L11419 "The previous index (57 terms, 139 entries, 44 relations)": PP Index term lines 7, sub-term lines 5, locators 108 (PP is the previous index's witness if its counts agree)
+  PP Index locators "§32.1 / §32.3 / §24.2" (L11419 names them as the old numbering): {'§32.1': 9, '§32.3': 14, '§24.2': 24}
+
+== §1 Ruling 45 / 46 probes on the span (build narration, script names, dates, editorial-process remarks) and first person; backticks
+  \w+\.py\b                                script name (R46) → ['L11419']
+  \d{4}-\d{2}-\d{2}                        a date (R45) → ['L11419']
+  [Rr]egenerated                           regenerated (R45) → ['L11419']
+  regenerated rather than repaired         process remark (R45) → ['L11419']
+  The previous index                       narrated past state (docket 15) → ['L11419']
+  were absent from their generalisations   process remark (R45) → ['L11419']
+  until now                                narrated past state (docket 15) → ['L11363']
+  This appendix removes that               process remark (R45) → ['L11364']
+  left exactly as they were written        editorial-process remark (R45) → ['L11369']
+  never edited                             editorial-process remark (R45) → ['L11370']
+  part of the record                       editorial-process remark (R45) → ['L11370']
+  \bre-sourced\b                           process remark (R45) → ['L11405']
+  rather than choice                       — → ['L11390']
+  first person (I / my / mine / myself / we / our; a species Roman numeral excluded): none
+  backticked tokens in the span: 30 occurrences, 30 distinct; non-handle ones: ['index_gen.py'] (docket 28: the handle column is backticked throughout — a formatting convention, printed)
+
+== §2 pointers OUT of the span, resolved to the CLAIM under both resolvers
+  §16.4: body_range (4407, 4432), section_span (4407, 4449); keys {'down-set': 0, 'down set': 0, 'sublattice': 0} | {'down-set': 0, 'down set': 0, 'sublattice': 0}
+  §2.21: body_range (1081, 1145), section_span (1081, 1145); keys {'the law': 2} | {'the law': 2}
+  §12.11: body_range (2524, 2535), section_span (2524, 3508); keys {'closure': 0, 'index': 0} | {'closure': 15, 'index': 41}
+  L11417 "a down-set condition in §16.4 form": `down-set` sites in main [853, 1162, 1209, 1848, 1853, 1869, 1870, 2099, 2611, 3721, 3783, 3817, 3818, 3831, 3833, 3834, 3890, 3930, 3937, 3938, 3939, 3943, 9984, 9990, 9992, 10093, 10108, 11417, 11419] (['L840 ### 2.18 What is computable, and what is decided', 'L1148 ### 2.23 A closed index must be stated by its expression, not only by ', 'L1184 ### 2.24 Never one heuristic — §2.8, and the one thing it does not say', 'L1847 ### 8.3 Seventeen generators', 'L1847 ### 8.3 Seventeen generators', 'L1847 ### 8.3 Seventeen generators'])
+  §16.4 heading: L4407 "### 16.4 D2 — D_def catches a wrong derivation, but only under two"; `down` 0, `⊑` 0, `⊆` 0 in section_span; the earliest `down-set condition` / `down-set` definition sites: [(1162, 'L1148 ### 2.23 A closed index mu'), (11417, 'L11409 ## Index'), (11419, 'L11409 ## Index')]
+  §16.4 form named elsewhere: `§16\.4 form` sites [653, 4475, 4525, 4899, 7740, 8803, 11417]; `in §16\.4` sites [11417]
+  L11421 (S1): sites outside the span 6 [1393, 2119, 3056, 4272, 9032, 10110] — ['L1366 ### 3.8 How the set grew, and the two things that held', 'L2094 ### 11.1.1 A seventh, in binary, and it earns its place', 'L3032 ### 12.11.1 The axes, and what each one sees']
+  L11421 (S2): sites outside the span 5 [1393, 4293, 4327, 4918, 9034] — ['L1366 ### 3.8 How the set grew, and the two things that held', 'L4293 ### 15.3 S2 — the order, which is the hard one', 'L4325 ### 15.5 So: Λ contains its own order']
+  L11421 (S3): sites outside the span 7 [4277, 4286, 4916, 8881, 8921, 8925] — ['L4277 ### 15.2 S3 — the bounds', 'L4277 ### 15.2 S3 — the bounds', 'L4914 ### 17.5 E is derived']
+  L11421 (D3): sites outside the span 6 [4449, 4479, 4917, 7437, 9057, 9192] — ['L4449 ### 16.5 D3 — totality catches a missing value', 'L4471 ### 16.5.1 And totality extends beyond the data', 'L4914 ### 17.5 E is derived']
+  L11410 "the law of this book": `the law` in §2.21 body_range 2; `law of this book` sites [11410]
+  rows 8.2 / 8.4 "Chapter 12": span (2304, 3508); jurisdict* 0, vocabular* 1, functor 0, covariant 0
+  MC W.jur: lines [3502]; Register numbers cited on those lines [] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
+  MC W.rel: lines [3536]; Register numbers cited on those lines [] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
+  MC M.C1: lines [2414, 3533]; Register numbers cited on those lines [1019, 1022, 1035, 1483, 1484] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
+  MC M.C2: lines [2414, 3523, 3524, 3526]; Register numbers cited on those lines [1019, 1022, 1035, 1483, 1484] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
+  main sites of `jurisdict*` with their headings: [(4245, 'L4240 ### 14.6.6 Two of t'), (4247, 'L4240 ### 14.6.6 Two of t'), (5199, 'L4999 ### 18.4.1 The law '), (11396, 'L11361 ## Appendix G — Tr')]
+  Register entries carrying `jurisdict*`: [543]
+  Register entries carrying `presymplectic` / `null surface`: [1511] / [547, 548, 550, 1472, 1479, 1506, 1510]
+
+== §3 docket 36 — names in the span against `## References` body (L11503+) and R.7
+  Freuder    span 2; References body 3 (lines [26, 35, 316]); R.7 L11806
+  Montanari  span 1; References body 2 (lines [30, 337]); R.7 L11806
+  Borchers   span 1; References body 0 (lines []); R.7 L11806
+  Wiesbrock  span 1; References body 0 (lines []); R.7 L11806
+  Hadamard   span 1; References body 0 (lines []); R.7 L11806
+  Killing    span 1; References body 1 (lines [235]); R.7 L11806
+  Helly      span 1; References body 1 (lines [265]); R.7 L11806
+  Pauli      span 1; References body 0 (lines []); R.7 L11806
+  ANEC       span 1; References body 0 (lines []); R.7 L11806
+  Moore      span 1; References body 5 (lines [140, 249, 251, 336]); R.7 L11806
+
+== §4 count words on raw lines AND the join (the figures were measured in r2-ch27a)
+  thirty-seven               raw 1  join 1
+  thirty sections            raw 2  join 2
+  forty-seven                raw 1  join 1
+  eight citations            raw 1  join 1
+  thirty resolved locators   raw 1  join 1
+  thirty-four                raw 1  join 1
+  57 terms                   raw 2  join 2
+  311 entries                raw 1  join 1
+  44 specialisation          raw 1  join 1
+  0 violations               raw 1  join 1
+  Six terms                  raw 1  join 1
+  four relations             raw 1  join 1
+  90 locations               raw 1  join 1
+  139 entries                raw 1  join 1
+
+== §5 citers INTO the span (main `Appendix G` / `T §` sites; the index cited)
+  L4246 (L4240 ### 14.6.6 Two of the violation si): "≥ 3 makes a defect possible.* **Verified against T §8.2 (Appendix G)'s own table**: arity 2 gives"
+  L4250 (L4240 ### 14.6.6 Two of the violation si): "**Verified against T §8.4 (Appendix G)**, which replaces seven vocabularies with Brunetti–Fredenhagen–"
+  L4246 "T §8.2 (Appendix G)'s own table": G row 8.2 carries `table` 0, `arity 2` 0; Transitions §8.2 carries `table` 0, `arity 2` 0 — the table is the paper's, not the appendix row's
+  L4250 "T §8.4 (Appendix G) … replaces seven vocabularies": G row 8.4 `seven-vocabulary` 1
+  `E\(index\)` sites in main: [11419]; `closed index` sites outside the span: [6, 120, 183, 1148, 1150, 1511, 2127, 2458, 2652, 2912, 3483, 3523]
+
+== §6 docket 27 — paragraphs of the span duplicated elsewhere in the volume (exact stripped line, length ≥ 40)
+  span lines ≥ 40 chars 76; duplicated outside 0 []
+
+== §7 the Index's formatting (docket 28): leading-space lines, unmarked heading-form lines, italic vs plain sub-terms, the duplicated sub-entry
+  lines beginning with ONE space 25 (L11410–L11501), THREE spaces 44, four (code) 1, no indent non-blank 0
+  unmarked heading-form lines: [(11412, 'Construction'), (11425, 'Entries')]
+  sub-terms 44: italic 15, plain 29 (mixed markup within one head group: [])
+  *interiority* L11429 (plain) and L11432 (italic) under *bracket*, both `§22.2`: a duplicated sub-entry — 311 printed entries include it twice; distinct pairs 310 (r2-ch27a §7)
+  `*this page*` L11498 vs `Index` L11490–L11491: one location under two names

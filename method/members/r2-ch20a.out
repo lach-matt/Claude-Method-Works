@@ -1,0 +1,180 @@
+
+================================================================================================
+§0 BOUNDARY — own heading scan; the unit is `## Appendix B` (body = last hit) to `## Appendix C` (body = last hit)
+================================================================================================
+  `## Appendix B` [163, 10165] ; `## Appendix C` [164, 10230] ; unit L10165–L10229 = 65 lines; B.n headings: [(10173, 'B.1'), (10190, 'B.2'), (10211, 'B.3'), (10222, 'B.4')]
+  lettered(M, "B.1") = [10173] ; lettered(M, "B.2") = [10190] ; unmarked-heading test (blank line above + `B.n ` start): []
+  numerals in the unit (digit-bounded both sides, comma groups kept): [('243401', 1), ('104,832', 1), ('042506', 1), ('3,342', 1), ('2,269', 1), ('2011', 1), ('2010', 1), ('2008', 3), ('2006', 1), ('2005', 1), ('1997', 1), ('1995', 1), ('1991', 1), ('1990', 1), ('1985', 1), ('1803', 1), ('1768', 1), ('1763', 1), ('1,738', 1), ('1700', 2), ('1699', 2), ('1659', 1), ('1578', 2), ('1,577', 1), ('1304', 1), ('1203', 1), ('1185', 1), ('1105', 3), ('869', 3), ('844', 2), ('813', 1), ('775', 1), ('763', 1), ('658', 1), ('631', 2), ('630', 2), ('596', 1), ('527', 1), ('484', 1), ('477', 1)]
+
+================================================================================================
+§1 THE SPECTRA COMPENDIUM PART II TABLE — DATA rows parsed; every count of the B.2 paragraph (L10195–L10202) re-taken from the table
+================================================================================================
+  Part II `# II` S293 to `# III` S935; header S299 columns ['species', 'series', 'n', 'levels', 'interior', 'bracket', 'n* range', 'δ', 'σ(δ)', 'fits', 'limit cm⁻¹']
+  DATA rows parsed: 596 (S301–S898); non-DATA `|` lines skipped inside the span: 30 (the element table 28 rows at S904–S931; separator/header lines)
+  prose lines inside the table span (read, not rows): [(595, "*He II's seven rows print δ in exponent form because the ser"), (933, '---')]
+  rows 596 (printed 596: True); starred 119 (printed 119 two-member: True); non-starred 477 (printed 477: True); levels==2 rows 119; starred == levels==2: True
+  elements 28 (printed 28: True); species 70 (printed 70: True); levels sum 3,342 (printed 3,342: True); interior sum 2,269 (printed 2,269: True)
+  elements: ['Al', 'Ar', 'B', 'Ba', 'Be', 'Bi', 'C', 'Ca', 'Cd', 'F', 'Fe', 'Ga', 'Ge', 'He', 'Hg', 'K', 'Li', 'Mg', 'N', 'Na', 'Ne', 'O', 'P', 'S', 'Sc', 'Si', 'Ti', 'Zn']
+  bracket column: {'a/b': 392, 'no-triple': 78, 'untested': 126}; bracket rows 392 (printed 392: True); passes 1,577 of 1,738 (printed 1,577 of 1,738: True); failing cells 161 in 98 rows (SC L994 prints 161 in 98: True)
+  no-triple 78 (printed 78: True); untested 126 (printed 126: True); 392 + 78 + 126 = 596 = rows: True
+  the collection split (844 of 844 on 107 rows; 658 of 813 on 250; 75 of 81 on 35): no table column marks the collection — BUDGET: record-carried at registers 1763, 1768; arithmetic only: 844+658+75 = 1577, 844+813+81 = 1738, 107+250+35 = 392; 1738−1577 = 161 (= failing cells: True); 813−658 = 155, 81−75 = 6, 155+6 = 161
+  1,577/1,738 = 90.7 % (HALF_UP 1 place); interior − bracket cells = 2,269 − 1,738 = 531 (cells in no-triple/untested rows: 521 — equal: False)
+  bracket rows: interior sum 1,748 vs bracket denominators 1,738 — rows whose denominator differs from interior: 5 [(402, 'Ba II', 'nd 2D J=3/2', '12', '10/10'), (406, 'Ba II', 'ns 2S J=1/2', '16', '14/14'), (535, 'Cd I', 'nd 1D J=2', '8', '5/6'), (545, 'Cd II', 'np 2P* J=1/2', '5', '2/3'), (794, 'S VI', 'nd 2D J=3/2', '4', '2/2')]
+  element table S904–S931: 28 elements, sum 596; equals the per-element row counts of the DATA rows: True; mismatches: {}
+  the table's own totals line(s): [(900, '**596 channel rows across 28 elements · 2,269 interior cells parsed.**')]
+  no-triple rows that are starred (two-member) 75 of 78; starred rows by bracket: {'no-triple': 75, 'untested': 44}
+
+================================================================================================
+§2 THE MAIN PARAGRAPH L10195–L10202 AGAINST SC L994 — numerals compared as sets (the main is the summary; the compendium the source)
+================================================================================================
+  main-paragraph numerals: ['1', '26', '28', '35', '70', '75', '78', '81', '119', '126', '250', '392', '477', '596', '658', '813', '844', '1,577', '1,738', '1763', '1768', '2,269', '3,342']
+  in main not in SC L994: []
+  in SC L994 not in main (the compendium's extra detail): ['0', '2', '5', '22', '98', '107', '161', '784', '796', '1578', '1767']
+  main L10195 opens with the volume title and `Part II`: True; SC Part II heading `# II · THE CHANNELS` at S293: # II · THE CHANNELS
+
+================================================================================================
+§3 THE OPENER L10169 / L10171 — 153 channels, 1105 of 1105, the 763 cells, the union stated in Chapter 24
+================================================================================================
+  Chapter 24: section_span (6623, 6884) ; body_range (6623, 6634) ; heading ## 24. The collection
+  Chapter 24 hits for 763: [] []
+  Chapter 24 hits for 1,105: [6632] ['*An earlier version of this chapter read "1,442 interior cells across 35 atomic systems, the bracket holds in every one." That figure matches neither ']
+  Chapter 24 hits for 1,442: [6632, 6742, 6744, 6746, 6750, 6767, 6786, 6799, 6802, 6804, 6805, 6810, 6811] ['*An earlier version of this chapter read "1,442 interior cells across 35 atomic systems, the bracket holds in every one." That figure matches neither ', '1,442 cells are not 1,442 independent tests.', 'Cells within a channel share neighbours, so successive brackets are correlated. The honest figure is **1,442 cells across approximately 190 channels.*']
+  Chapter 24 hits for 337: [] []
+  Chapter 24 hits for 153: [] []
+  Chapter 24 hits for union: [] []
+  Chapter 24 hits for earlier verification: [] []
+  1,442 − 1,105 = 337 (Chapter 24 L6970: "Of the 1,442, the 1,105 added in this work"); the appendix's 763 + 1,105 = 1868; 763 + 1105 − 1442 = 426
+  763 across the six volumes (digit-bounded): {'main': [5676, 10171], 'reg': [1829, 2783], 'mc': [], 'pc': [], 'ioi': [1143], 'sc': []}
+  "earlier verification" across the six volumes: {'main': [10171, 10288], 'reg': [], 'mc': [], 'pc': [], 'ioi': [], 'sc': []} ; the other main site read: [(10288, "earlier verification's per-species medians.")]
+  153 channels / 1105 in main outside the unit: {'main': [641, 1480, 2521, 3406, 6632, 6970, 8189, 8299, 9165, 10276, 10277]}
+  Register line R2865 (entry 783) body: **CHAPTER 24 CLAIMED "1,442 INTERIOR CELLS ACROSS 35 ATOMIC SYSTEMS, THE BRACKET HOLDS IN EVERY ONE", AND THAT SENTENCE WAS CARRYING THE FABRICATION.** *The honest split: **930 cells across 128 channels** hold Appendix B's bracket claim; **854 across 285** were built here and are untested.* **Four numbers now exist for one collection — 1,442 in chapter 24, 1,105 in Appendix B's totals line, 869 in its table, 930 tested here.** *Register 673 recorded the first discrepancy; this records that it was never closed and has since been compounded.* **Disclosed, not reconciled.**
+  Register 630 (R2355) body: **APPENDIX B'S TOTALS LINE COUNTS TWENTY CHANNELS ITS OWN TABLE DOES NOT LIST.** *The line reads* *153 channels, 1105 cells, bracket 1105/1105*; **the table holds 133 rows summing to 869 interior cells, bracket 869/869.** *The bracket is internally consistent either way, so this is not a broken calculation — it is a total counting rows that are absent.* *Appendix B names additional sources for exotic systems and coll
+     WARNING lines: []
+  Register 631 (R2359) body: **AND IT WAS FOUND BY EXTRACTION, NOT BY READING.** *The table sat inside 22,690 characters of appendix and its own total disagreed with it.* **Lifting it into a generated file made the sum computable in one line.** *No audit caught it because audit 22 compares prose counts to lists it can FIND, and a total counting absent rows has no list to compare against.* **Audit 22 now sums the channel table and compares it to 
+     WARNING lines: []
+
+================================================================================================
+§4 B.3 FLAGGED CHANNELS — the printed five against the POPULATION of σ(δ) > 0.25 in the Part II table (strict as printed; V departure from 4ν/3 has no table column — BUDGET)
+================================================================================================
+  rows with σ(δ) > 0.25: 4 — [('Al I', '3s²nd ²D', '0.6297'), ('Al II', '3snd ¹D', '0.3897'), ('Al II', '3snf ³F°', '0.4088'), ('Li I', 'np 2P°', '0.6779')]
+  printed Al I 3s²nd ²D 0.630 → table row(s) [302]; σ(δ) ['0.6297'] → HALF_UP 3 places ['0.630']: [True]; interior ['30']; n ['3–34']
+  printed Al II 3snd ¹D 0.390 → table row(s) [307]; σ(δ) ['0.3897'] → HALF_UP 3 places ['0.390']: [True]; interior ['7']; n ['3–11']
+  printed Al II 3snf ³F° 0.409 → table row(s) [310]; σ(δ) ['0.4088'] → HALF_UP 3 places ['0.409']: [True]; interior ['6']; n ['4–11']
+  printed Li I np 2P° 0.678 → table row(s) [609]; σ(δ) ['0.6779'] → HALF_UP 3 places ['0.678']: [True]; interior ['39']; n ['2–42']
+  printed Si II 3s²np ²P° 0.272 → table row(s) []; σ(δ) [] → HALF_UP 3 places []: []; interior []; n []
+  fault 3 (self-caught) — every Si II row in the table, read before the printed Si II 3s²np ²P° 0.272 is scored: [(844, '3s2.nd 2D J=3/2', '0.0556', '4', '3–8'), (845, '3s2.nd 2D J=5/2', '0.0558', '4', '3–8'), (846, '3s2.nf 2F* J=5/2', '0.0120', '6', '4–11'), (847, '3s2.nf 2F* J=7/2', '0.0120', '6', '4–11'), (848, '3s2.ng 2G J=7/2', '0.0015', '4', '5–10'), (849, '3s2.ng 2G J=9/2', '0.0015', '4', '5–10'), (850, '3s2.np 2P* J=1/2', '0.0878', '6', '3–10'), (851, '3s2.np 2P* J=3/2', '0.0868', '6', '3–10'), (852, '3s2.ns 2S J=1/2', '0.0161', '4', '4–9')]
+  every table row with σ(δ) on [0.25, 0.30): [] ; rows with σ(δ) == 0.2720 exactly or 0.272 rounded: []
+  Si II across the six volumes with 3s²np or ²P°:  {'main': [10220], 'reg': [2533, 6543], 'mc': [], 'pc': [], 'ioi': [], 'sc': [1005]}
+  Register lines naming Si II 3s²np / ²P° (entry, text): [('700', 2533, "**Si I'S AUTOIONISING ND RUN GIVES A 37-member CHANNEL, THE LONGEST IN THE COMPENDIUM.** *3s².3p.(²P°₃/₂).nd⟨5/2⟩ over* **n = 20 to 56* **, converging on the upper limit Si II (3p ²P°₃/₂) = 66,035.00 —* **δ = +0.0570 with a spread of 0.0366** *— and its ⟨3/2⟩ partner over 31 members at +0.0126.* *Both spreads stay under 0.05 across thirty-plus members, which is what distinguishes a converging series from an accident."), ('1774', 6543, "**THE FLAGGED-CHANNELS BLOCK WAS A TRUNCATED COPY, AND THE ROW IT STOPPED ON FALSIFIED THE SENTENCE ABOVE IT.** *The Spectra Compendium's §B.3 and the main volume's are the same block, and the compendium's copy had lost the end of it. Its table printed two rows in full and then stopped mid-row at Al II 3snf ³F°, which carried a channel and nothing else — no spread, no cause — while the sentence two lines above read t")]
+  0.272 across the six volumes (digit-bounded): {'main': [10220], 'reg': [6543], 'mc': [], 'pc': [], 'ioi': [], 'sc': [1005]}
+  Register 1774 (a later entry on the block, the witness grep found): J-resolved clause present: True; "recorded rather than resolved": True; "a question about the flag, not about the copy": True; WARNING lines: []
+  flagged-by-threshold rows NOT among the printed five: 0 [] — "Every flag in this collection has an identified cause; none is unexplained": the printed table names causes for 5; the population is 4
+  the `fits` column values: {'1': 146, '2': 213, '3': 146, '4': 42, '5': 27, '9': 4, '15': 4, '16': 4, '6': 6, '11': 4} — rows with fits==1: 146, species 18; B.1's sources species among them: ['Al I', 'Ar I', 'Be I', 'Bi I', 'C I', 'Ca I', 'Cd I', 'F I', 'Ga I', 'He I', 'K I', 'Li I', 'Mg I', 'N I', 'Na I', 'Ne I', 'Si I', 'Zn I']
+  Li I np row(s): [609, 612, 613] — "39 cells to n = 42": interior ['39', '1', '1'], n-range ['2–42', '2–4', '2–4']
+  σ(δ) column = "δ spread" of B.3 (the column heads at S299); 4ν/3 across the six volumes (docket 11): {'main': 22, 'reg': 0, 'mc': 1, 'pc': 0, 'ioi': 0, 'sc': 1}
+
+================================================================================================
+§5 B.1 SOURCES — the species the appendix lists, and whether each has rows in the Part II table; B.1 against SC Part IV B.1 line by line
+================================================================================================
+  heading_line(M, "B.1") (numeric-only resolver): None — lettered resolver used: B.1 L10173, B.2 L10190
+  species listed in B.1: 26 ['Al I', 'Al II', 'Be I', 'Ar II', 'Be II', 'Bi I', 'C II', 'Ca II', 'Cd II', 'Ga I', 'He I', 'He II', 'Hg II', 'K II', 'Li I', 'Li II', 'Mg II', 'N II', 'Na II', 'Ne I', 'Ne I', 'Si I', 'Si II', 'Zn II', 'Na I', 'K I']; distinct 25; elements 18 ['Al', 'Ar', 'Be', 'Bi', 'C', 'Ca', 'Cd', 'Ga', 'He', 'Hg', 'K', 'Li', 'Mg', 'N', 'Na', 'Ne', 'Si', 'Zn']
+  B.1 species with NO row in the Part II table: []; Ne I rows in the table: [(712, '2s22p5(2P*3/2)nd 2[3/2]* J=1'), (713, '2s22p5(2P*3/2)ns 2[3/2]* J=1'), (714, 'nd 2[3/2]* J=1'), (715, 'ns 2[1/2]* J=1'), (716, 'np 1P* J=1'), (717, '2p5(2P°3/2)nd 2[7/2]° J=4')]
+  main B.1 body non-blank lines 13 vs SC B.1 body 13; differing: []
+  main B.3 body vs SC B.3 body: 8 vs 8 lines; differing: []
+  References body (`## References` L11503 to end): author hits — {'Kaufman': 1, 'Martin': 2, 'Kramida': 2, 'Sansonetti': 2, 'Hori': 1, 'Korobov': 1, 'Singer': 1, 'Stanojevic': 1, 'Weidemüller': 1, 'Côté': 1, 'Sugar': 2, 'Corliss': 1, 'Musgrove': 1}
+  CODATA / arXiv / JPCRD / NIST in References body: {'CODATA': 1, 'arXiv': 11, 'JPCRD': 0, 'NIST': 4}
+
+================================================================================================
+§6 B.4 — the chapter pointers, COORDINATES-2.13 (104,832 cells) measured on the delivered file, the citation form
+================================================================================================
+  Chapter 22: ## 22. The bracket span (5939, 6178); `Rule` headings/lines inside: 2; first heading: ### 22.1 The rule
+  Chapter 23: ## 23. The cost surface span (6178, 6623); `Rule` headings/lines inside: 0; first heading: ### 23.1 The ratio
+  word-bounded `rule` (any case) in Chapter 22 body: 26; in Chapter 23 body: 7; Chapter 23 first lines with it: [(6211, '**Every empirical *V* in this book is an instance of this bound**, not an independent fact'), (6219, '**In every sequence examined here where that occurs, the small step is produced by two cha'), (6500, '### 23.10.4 And the admissibility rule generalises')]
+  763 lines in the Register and the Index of Indices (read): [('reg', 1829, '**THE SECOND FORM IS EXACT AND ITS COST IS SEED + E.** *Print the seed of ℛ(X) and the E cells ℛ(X) holds that X does not; verified exact on'), ('reg', 2783, '### 763'), ('ioi', 1143, '| 763 | 3 | 1 | 2 | 2 | 2 | 1 | 0 | 1 |')]
+  "rules of Chapters" / "Rule N" sites in Chapters 22–23 (first five): [(6040, 'Rule 1 — Interiority. Bracket only cells belonging to the same Rydberg'), (6082, 'Rule 1 is a rule about direction, and it holds on whichever axis carri')]
+  project file: header ['Z', 'charge', 'l', 'mult', 'delta', 'grade', 'source', 'B', 'witness', 'bound']; DATA rows 104,832 (printed 104,832: True); (Z, charge) pairs 7,260; grade counts {'exact': 929, 'measured': 358, 'computed': 103545}
+  SC "The file" heading S117; 104,832 in SC: [38, 97, 109, 119, 138, 257]; COORD( citation form in SC: [119, 151, 1156]; in main: [10228]; Register entry naming 104,832: [(6195, '1652'), (6199, '1653'), (6203, '1654'), (6211, '1656'), (6215, '1657'), (6223, '1660'), (6227, '1661'), (6231, '1662'), (6335, '1696'), (6443, '1727'), (6535, '1772'), (6547, '1775'), (6563, '1779')]
+  "ionisation limits carried per channel": the table's `limit cm⁻¹` column is filled on 596 of 596 rows
+
+================================================================================================
+§7 CITED REGISTER ENTRIES — rbody and WARNING lines (1578, 1699, 1700, 1763, 1768; 630–631 in §3)
+================================================================================================
+  Register 1578 (R5924, 3 lines): **IMPROBABLE IS REMOVED FROM THE INDEX ALTOGETHER — IT WAS A JUDGEMENT ABOUT THE FUTURE STANDING IN A COLUMN OF FACTS.** *M's diagnosis, sharper than register 1577's: the problem is not which cutoff is wrong but the CLAIM OF IMPROBABILITY itself. What is unwitnessed in the record must be represented as unwitnessed, so that count
+     WARNING lines: []
+  Register 1699 (R6337, 3 lines): **T8-J RULED YES (M) — NARROW SCOPE APPLIED, THE WIDTH RETURNED TO M.** *A J-resolved parent may borrow its limit from the parent ION's own level table: limit(J) = printed limit(J₀) + [E_ion(term,J) − E_ion(term,J₀)]. Ti II a ⁴F on disk, provenance verified: 0.0 / 94.1142 / 225.7039 / 393.4459 for J = 3/2 … 9/2 → limits 55,166.6
+     WARNING lines: []
+  Register 1700 (R6341, 3 lines): **ROW 1 RUN — AND THE FIRST FINDING IS THAT NO SERIES CONSTRUCTOR EXISTED.** *`store_gen.py` closes the VALUE derivation and inherits the series list from the authored store; nothing on disk constructs (l, term, parent) series from a raw table — the 554 were staged by hand in 1.7. `series_gen.py` built from store_gen's own reade
+     WARNING lines: []
+  Register 1763 (R6505, 3 lines): **RULING 26: THE 489 UNTESTED SPECTRA ROWS ARE RUN UNDER M'S SEALED-TEST RULING — STRICT MEMBERSHIP, THE QUOTATION FLOOR AS THE ONLY ε, §22.5 ADMISSIBILITY — AND 318 ROWS CLOSE: 658 OF 813 CELLS PASS, 155 FAIL, ZERO REFUSED.** *The author's ruling on the third of 1760's three open items, delivered as RULING-TOLERANCE-489.md from
+     WARNING lines: []
+  Register 1768 (R6517, 3 lines): **THE SIX CAPTURES RUN UNDER RULING 26 AND THE FORTY-FIVE-ROW ITEM CLOSES: ALL 45 ROWS RECONCILE MEMBER-FOR-MEMBER, 35 CLOSE WITH CELLS — 75 OF 81 PASS, 6 FAIL, 0 REFUSED — AND 10 CLOSE NO-TRIPLE.** *The six species files fetched by their recorded Drive ids and sha256-first-16 matched to the MANIFEST on this side's disk before a
+     WARNING lines: []
+  Register lines naming Appendix B (entry, text): [('321', '**THE BOOK REARRANGED TO AGREE WITH WHAT IT IS.** *The procedure was Appendix B, behind th'), ('339', '**PART I BUILT INTO SUBSECTIONS THAT MEAN SOMETHING.** *Its numbering was inherited from* '), ('381', '**A FULL VERIFICATION PASS, AND IT FOUND TWO REFERENCES NOTHING HAD CAUGHT.** **two refere'), ('630', "**APPENDIX B'S TOTALS LINE COUNTS TWENTY CHANNELS ITS OWN TABLE DOES NOT LIST.** *The line"), ('633', '**THE BOOK IS RECONSTRUCTED AGAINST ITS TWO COMPENDIA, AND 102,488 CHARACTERS LEAVE IT.** '), ('652', '**THE VERSION CHANGE TO 1.6 EXPOSED A GENERATOR READING A SOURCE THAT NO LONGER EXISTS.** '), ('759', "**WHICH IS WHY REGISTER 754's RATIO TEST FAILED, AND THE FAILURE WAS THE CLUE.** *Si I: de"), ('783', '**CHAPTER 24 CLAIMED "1,442 INTERIOR CELLS ACROSS 35 ATOMIC SYSTEMS, THE BRACKET HOLDS IN '), ('797', '**AND RUNNING IT EXPOSES WHAT THE ORIGINAL CLAIM PROBABLY WAS.** *On the SAME 789 cells, t'), ('871', '**AND THE He I CHANNELS CANNOT BE CORRECTED, BECAUSE THEIR LEVELS WERE NEVER PRESERVED.** '), ('905', '**THE COMPENDIUM CLOSES BY STATING WHAT THE INTERFACE STILL DOES NOT COVER.** *Uncertainti'), ('1074', '**THE SINGLE GENUINE INVERSION IS A DATUM THE COMPENDIUM ALREADY KNOWS IS WRONG.** *He I, '), ('1727', '**THE COORDINATE INDEX GIVEN A NAME, A SCHEMA AND A CITATION FORM — COORDINATES-2.13, 104,'), ('1751', '**TWO RULINGS: CAPTION 25.1 READS 1,061, AND THE Λ_phys COUNT STAYS AT FIFTEEN ON THE RULE')]
+  1763 names 658 of 813 / 155 / 318 rows: [True, True, True]; 1768 names 75 of 81 / 35 / 10 no-triple: [True, True, True]
+  1763's 318 rows = 250 with cells + 68 no-triple? no-triple rows 78 − the 10 that 1768 added = 68; 250 + 68 = 318: True
+  1763 says 318 rows close (658 of 813) while the appendix and SC L994 say 250 rows — 318 − 250 = 68; 1768's 45 = 35 + 10: True
+
+================================================================================================
+§8 PRE-PP DIFF — headings (number stripped BOTH sides), Statement lines, non-blank body lines of the unit against PP from its `Appendix B` line (found by scan)
+================================================================================================
+  PP `Appendix B` P9815, `Appendix C` P9877; PP sub-heading lines (unmarked, leading space): [(9823, 'B.1'), (9840, 'B.2'), (9859, 'B.3'), (9871, 'B.4')]
+  volume L10165 "Data and provenance" | PP P9815 "Data and provenance" | equal after stripping the number: True
+  volume L10173 "Sources" | PP P9823 "Sources" | equal after stripping the number: True
+  volume L10190 "Channels" | PP P9840 "Channels" | equal after stripping the number: True
+  volume L10211 "Flagged channels" | PP P9859 "Flagged channels" | equal after stripping the number: True
+  volume L10222 "Reproducibility" | PP P9871 "Reproducibility" | equal after stripping the number: True
+  Statement/Definition/Theorem/Proof lines: volume []; PP []
+  non-blank lines: volume 54; PP 48; in volume not PP: 29; in PP not volume: 23
+    V: ## Appendix B — Data and provenance
+    V: Serving PART V — THE METHOD. Every number the method was run on, with its source, its
+    V: ### B.1 Sources
+    V: Sansonetti 2008, K I
+    V: ### B.2 Channels
+    V: **The channel rows are lifted to the Spectra Compendium.** Each carries its species,
+    V: **THE METHOD 1.6 — SPECTRA COMPENDIUM, Part II, counted from its own table:** 596 channel
+    V: rows — 477 series of three or more members and 119 two-member channels — across 28 elements
+    V: and 70 species; 3,342 levels, 2,269 interior cells; the bracket at **1,577 of 1,738 cells
+    V: across 392 rows** — 844 of 844 from the first collection, 658 of 813 on 250 rows run under
+    V: ruling 26 at strict membership with the quotation floor as the only ε, and 75 of 81 on 35
+    V: rows run by the same instrument on six hash-verified captures, zero cells refused throughout
+    V: — 78 rows `no-triple` and 126 `untested` for want of data, not of definition (registers
+    V: 1763, 1768).
+    V: *This paragraph once read "133 rows, 23 elements, 869 interior cells, bracket 869/869,
+    V: generated by* `spectra.py` *so it cannot drift," with a twenty-channel gap disclosed against a
+    V: total of 153. That was true at registers 630–631 and was overtaken by the parent-term wall
+    V: (register 1578) and the J-resolved rows of T8-J (registers 1699–1700); the table drifted from
+    V: the script, and the script is owed a rebuild against the table. The exotic and collective
+    V: sources carry sources and no rows, and that remains disclosed rather than reconciled.*
+    V: Registers 630–631; 1578; 1699–1700.
+    V: ### B.3 Flagged channels
+    V: species channel δ spread cause
+    V: ### B.4 Reproducibility
+    V: Every computation in this book is reproducible from the level tables above and the rules of Chapters 22
+    V: and 23. No fitted parameter enters at any point; the only inputs are measured or calculated energy levels,
+    V: their stated uncertainties, and the ionisation limits carried per channel in the Spectra Compendium, Part II.
+    V: The coordinate index those channels sit in is the file `COORDINATES-2.13` (104,832 cells), delivered with the
+    V: Spectra Compendium and described there under *The file*; a cell is cited from this book as COORD(Z, charge, ℓ, 2S+1).
+    P: # Appendix B — Data and provenance
+    P: Serving PART IV — THE METHOD. Every number the method was run on, with its source, its
+    P: B.1 Sources
+    P: Sansonetti 2008, KI
+    P: B.2 Channels
+    P: **The 133 channel rows are lifted to the Spectra Compendium.** Each carries its species,
+    P: **THE METHOD 1.6 — SPECTRA COMPENDIUM**, generated by `spectra.py` from this source, so it
+    P: cannot drift. 133 rows, 23 elements, 869 interior cells, bracket 869 of 869.
+    P: **Totals: 153 channels, 1105 cells, bracket 1105/1105.**
+    P: **And the table above holds 133 rows summing to 869 interior cells, bracket 869/869.** Twenty
+    P: channels and 236 cells are **stated and not tabulated**. The bracket is internally consistent
+    P: either way, so this is not a broken calculation — it is a total counting channels the table
+    P: **does not list**. The additional sources named above for exotic systems and collective
+    P: quantities carry sources and no rows, and twenty such channels would close the gap exactly.
+    P: *Disclosed rather than reconciled: reconciling it needs the twenty rows, which are owed.*
+    P: Registers 630–631.
+    P: B.3 Flagged channels
+    P: specie channel δ cause
+    P: s spread
+    P: B.4 Reproducibility
+    P: Every computation in this book is reproducible from the level tables above and the rules of Chapters 13
+    P: and 14. No fitted parameter enters at any point; the only inputs are measured or calculated energy levels,
+    P: their stated uncertainties, and the ionisation limits listed in B.2.
+  PP B.3 header split across two lines ("specie"/"s"; "δ"/"spread") at P[9863] — the volume's single header L10215: "species channel δ spread cause"

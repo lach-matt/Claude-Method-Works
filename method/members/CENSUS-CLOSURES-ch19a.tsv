@@ -1,0 +1,3 @@
+id	verdict	reason
+1202	not a defect	L10094 "It never prints the seventeen": the flagged token is the section's own claim, measured TRUE (r2-ch19a §3: 0 eight-tuples in §8.3 L1847-L1872; no main line before the appendices carries three or more 8-tuples); C9 regex artefact (precedents 678, 1067, 1201)
+1203	not a defect	L10153 "counted but never listed": the eight cells under max - x and the two extreme cells have no tuple site in main before A.19.1 (r2-ch19a §5, r2-ch19b §4: empty site lists for (3,1,3,3,3,1,3,3) and (1,0,1,0,1,0,0,0); L1887 states the count 8 only); the heading's claim is measured TRUE; C9 regex artefact (precedents 678, 1067, 1201)

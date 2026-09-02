@@ -6,3 +6,7 @@ graphify-out/.graphify_*
 graphify-out/.needs_update
 graphify-out/cache/
 graphify-out/2026-*/
+
+# staged by method/bin/stage-gate; census output, never committed
+method/DEFECT-CENSUS.tsv
+method/gate-log.tsv

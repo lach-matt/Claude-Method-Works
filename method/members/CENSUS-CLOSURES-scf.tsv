@@ -1,0 +1,14 @@
+id	verdict	reason
+359	not a defect	"1701," is the Computed line's own register pointer (trailing comma); Register 1701 is the source (regex artefact, precedent 678)
+360	defect	R-FORM prior-art blockquote absent on "The entrant operator"; the kernel is Koelling & Harmon 1977 (References L11811) — an attribution that can be made (R-ATTR)
+361	defect	R-FORM prior-art blockquote absent on "The ordering law, five clauses"; clause 1 is the n+ℓ (Madelung–Klechkovskii) rule — an attribution that can be made (R-ATTR); the clause's scope (never-yet-opened rivals, PC L219–L221) is not stated here either (READ-scf A-01)
+362	not a defect	"177 1969," are Phys. Rev. 177, 62 (1969) — printed in Register 1703's body (r2-scf §2: 1703's numerals include 1969 177, 62 1971); the census read the wrong source (instrument artefact)
+363	defect	R-FORM prior-art blockquote absent on "The pinned-channel theorem"; −1/(2n²) is the hydrogenic level — an attribution that can be made (R-ATTR)
+364	not a defect	"1708," is the Proved line's own register pointer; 1708 is the source (regex artefact)
+365	not a defect	"0," is the path parameter t ∈ {0, ±½, ±1} of the headline formula, not a sourced figure; the empty source list is row 367's defect, not a number defect
+366	defect	R-FORM prior-art blockquote absent on "The exact-quartic decomposition" (form rule; no attribution asserted here — R3 decides whether one can be made)
+367	defect	"Proved — M §35;." cites no Register entry; the exact-quartic extraction is carried by Register 1709 (five evaluations, zero truncation) and 1711 (exact-quartic Hessian) — MEASURED by reading; docket 9(c) / 28
+368	defect	0.999992 and 1.000103 are Register 1708's figures and 1708 is not in the entry's chain (1707, 1709, 1711); 1.7 / 6.1 are 1709's and 197 is 1707's (regex artefacts) — one uncited source, docket 9(c)
+369	defect	R-FORM prior-art blockquote absent on "The twin operator, c → ∞"; the relativistic ordering of the heavy elements is attributable prior art (R-ATTR); the attribution itself is R3's
+1460	not a defect	"never data" (Register 1706) is the quarantine rule's directive wording, not an overgeneralised claim (precedent 678, 1067)
+1516	not a defect	"must never be consulted as data" (PC L242) restates 1706's quarantine rule — a directive, not a claim (precedent 678, 1067)

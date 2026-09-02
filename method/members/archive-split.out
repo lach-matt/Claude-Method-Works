@@ -1,0 +1,4 @@
+RULE: HANDOFF-\d+(-[A-Z])?\.md | r2-ch1[2-5][a-z]*\.(py|out) | (READ|CENSUS-CLOSURES)-ch1[2-5][a-z]*\.(md|tsv)
+embedded archive manifest: 393 members  3,694,933 B  49,495 lines  md5(manifest text) dc9a96dc374662ec0cfecda9e15fd7a9
+live bundle carries 0 of the 393 archived names (expect 0 after the split)
+rule over (live names ∪ archived names) returns exactly the archived names: True

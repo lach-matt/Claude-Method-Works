@@ -1,0 +1,10 @@
+|Λ8| 976 E(Λ8)=0: True
+projections [True, True, True, True, True, True, True, True]
+constants [True, True, True]
+min(x,c) 16 of 16; max(x,c) 16 of 16
+min closed 10 of 28 [('n', 'l'), ('n', 'f'), ('l', 'k'), ('l', 'e'), ('k', 'q'), ('k', 'f'), ('k', 'g'), ('k', 'S'), ('q', 'g'), ('e', 'f')]
+max closed 10 of 28 [('n', 'l'), ('n', 'f'), ('l', 'k'), ('l', 'e'), ('k', 'q'), ('k', 'f'), ('k', 'g'), ('k', 'S'), ('q', 'g'), ('e', 'f')]
+sum closed 0 of 28 []
+product closed 0 of 28 []
+difference closed 0 of 28 []
+φ̂ {1: 3, 2: 4, 3: 5} realised {1: 3, 2: 4, 3: 5}

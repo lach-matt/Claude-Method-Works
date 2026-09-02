@@ -1,0 +1,343 @@
+====================================================================================================
+r2-ch16f  PROSE  chat 118  main L8575-L8699  (§30.4 - §31.2.5)
+====================================================================================================
+
+## 1  EVERY §-POINTER IN THE UNIT, under body_range AND section_span, resolved to the CLAIM
+   pointer sites: 11  [(8600, '30.4'), (8601, '30.2'), (8602, '31.1'), (8603, '31.2'), (8604, '31.3'), (8606, '2.10'), (8632, '16.7.1'), (8633, '23.14.1'), (8639, '18.5'), (8678, '23.10.1'), (8683, '11.7')]
+
+   §30.2     body_range (8347, 8363)     section_span (8347, 8399)      DIFFER
+      claim sought: the structural invariants the row says omitted six
+      body L8347-L8362  token hits {'invariant': 1, 'structur': 1}
+      span L8347-L8398  token hits {'invariant': 5, 'structur': 5}
+      first body lines: Ten structural invariants were tested against backtracking — dimension, al | occupancy, join-irreducibles, poset height, poset width, covers, antichain | reorderable instances. The best corr
+
+   §31.1     body_range (8614, 8618)     section_span (8614, 8659)      DIFFER
+      claim sought: the celestial objects list
+      body L8614-L8617  token hits {'celestial': 0, 'Lagrange': 0, 'Hill': 0}
+      span L8614-L8658  token hits {'celestial': 1, 'Lagrange': 1, 'Hill': 3}
+      first body lines: Objects tested against the index, none of them in the collection. A method | different claim from one that fits.
+
+   §31.2     body_range (8659, 8662)     section_span (8659, 8700)      DIFFER
+      claim sought: the string objects list
+      body L8659-L8661  token hits {'string': 0, 'Regge': 0, 'degenerac': 0}
+      span L8659-L8699  token hits {'string': 3, 'Regge': 1, 'degenerac': 2}
+      first body lines: disanalogy | ### 31.2.1 Three objects on the pole
+
+   §31.3     body_range (8700, 8702)     section_span (8700, 8790)      DIFFER
+      claim sought: the Calabi-Yau statistic and its denominator
+      body L8700-L8701  token hits {'Pareto': 0, 'denominator': 0, 'Calabi': 0}
+      span L8700-L8789  token hits {'Pareto': 2, 'denominator': 2, 'Calabi': 0}
+      first body lines: ### 31.3.1 Self-duality, measured | Batyrev's polar duality swaps the Hodge numbers and the Kreuzer–Skarke lis
+
+   §2.10     body_range (622, 637)       section_span (622, 637)        COINCIDE
+      claim sought: the rule the section quotes: "enumerate targets before searching"
+      body L622-L636  token hits {'enumerate': 2, 'target': 3, 'search': 1}
+      span L622-L636  token hits {'enumerate': 2, 'target': 3, 'search': 1}
+      first body lines: Enumerate targets from the index before searching. List routes per cell. P | cells. Read every retrieved source for its successors. When a route is blo | along the route set. Record ρ for ce
+
+   §16.7.1   body_range (4578, 4618)     section_span (4578, 4618)      COINCIDE
+      claim sought: E(X) recovering an order cut at 7/8 from occupancy alone
+      body L4578-L4617  token hits {'occupancy': 0, 'E(X)': 1, '7/8': 0, 'resonance': 4}
+      span L4578-L4617  token hits {'occupancy': 0, 'E(X)': 1, '7/8': 0, 'resonance': 4}
+      first body lines: E(X) > 0 says the structure admits cells the collection does not hold. It  | there are two reasons:
+
+   §23.14.1  body_range (6595, 6606)     section_span (6595, 6606)      COINCIDE
+      claim sought: a capacity bound the +0.86 log-log slope is said to instance
+      body L6595-L6605  token hits {'capacity': 3, 'bound': 3, 'log': 2}
+      span L6595-L6605  token hits {'capacity': 3, 'bound': 3, 'log': 2}
+      first body lines: Gravity has resolution floors everywhere and a capacity bound in only one  | satellites within its Hill sphere, r_H = a(m/3M)^{1/3} — a monotone cap of | log r_H against log satellite count 
+
+   §18.5     body_range (5294, 5303)     section_span (5294, 5303)      COINCIDE
+      claim sought: what the pole is --- the claim §31.1.1 says it CORRECTS
+      body L5294-L5302  token hits {'pole': 1, 'worthless': 0, 'unnecessary': 0, 'bracket': 0}
+      span L5294-L5302  token hits {'pole': 1, 'worthless': 0, 'unnecessary': 0, 'bracket': 0}
+      first body lines: The cost of a guarantee, derived in Chapter 23, has a pole at p = 1 — the  | observable is linear.
+
+   §23.10.1  body_range (6438, 6452)     section_span (6438, 6452)      COINCIDE
+      claim sought: a bracket at any order needs a KNOWN sign, not a positive one
+      body L6438-L6451  token hits {'sign': 5, 'known': 1, 'positive': 0, 'bracket': 1}
+      span L6438-L6451  token hits {'sign': 5, 'known': 1, 'positive': 0, 'bracket': 1}
+      first body lines: For T = Z²R/ν² every derivative has known sign, sign(f^(j)) = (−1)^j — che | of the j-th finite difference, with no fit and no smoothness assumption be | nodes and the classical interpolatio
+
+   §11.7     body_range (2251, 2275)     section_span (2251, 2275)      COINCIDE
+      claim sought: three conditions with independence as their degenerate case
+      body L2251-L2274  token hits {'condition': 0, 'independen': 0, 'degenerate': 0}
+      span L2251-L2274  token hits {'condition': 0, 'independen': 0, 'degenerate': 0}
+      first body lines: Three structural facts, proved separately in this book and never combined: | | fact | consequence |
+
+   §30.4     body_range (8575, 8583)     section_span (8575, 8609)      DIFFER
+      claim sought: the search targets the row says omitted 7 + 9
+      body L8575-L8582  token hits {'target': 1, 'search': 2, 'relation': 1}
+      span L8575-L8608  token hits {'target': 4, 'search': 5, 'relation': 7}
+      first body lines: The target list for the novelty search was audited by closing the relation | incomplete. From {V = 4ν/3h, λ² = (2/3)T, w·V = 8λ², T = Z²R/ν²} the closu | 3(h/ν)², and bits(estimate) ≈ 2·bits
+
+## 1b  THE PROBE-NEGATIVE TARGETS, READ IN FULL (a token probe is not a reading)
+
+   ----- §18.5  L5294-L5302  ----- L8639 says §31.1.1 CORRECTS it: "the pole is where a bracket becomes unnecessary, not worthless"
+      L5294 ### 18.5 The pole
+      L5295  The cost of a guarantee, derived in Chapter 23, has a pole at p = 1 — the exponent at which an
+      L5296  observable is linear.
+      L5298     A straight line has no curvature. There is no interpolation error to price, so a guarantee
+      L5299     costs infinitely more than the thing it guarantees.
+      L5301  **The method has no domain at *p* = 1.** It is the only hard singularity in the structure; every other limit is
+
+   ----- §16.7.1  L4578-L4617  ----- L8632 cites it for "E(X) recovers the order cut at 7/8 from occupancy alone"
+      L4578 ### 16.7.1 A missing cell — and the index can tell whether the gap is real
+      L4579  E(X) > 0 says the structure admits cells the collection does not hold. It does not say why, and
+      L4580  there are two reasons:
+      L4582     the gap is an artefact of the layout — a property of how the index was drawn the gap is a fact
+      L4583     about the world — nothing occupies that cell because nothing can
+      L4585  **And the index distinguishes them, by asking whether E is removable.**
+      L4587 | the periodic table | E |
+      L4588 |---|---|
+      L4589 | 18-column | **36** |
+      L4590 | 32-column | 106 |
+      L4591 | **Janet left-step** | **0** |
+      L4593  **The same 118 elements. Order the blocks f, d, p, s and define the period by *n* + ℓ, and the defect vanishes.
+      L4595  Now the same test on a catalogue where the absences are physical. Index the mean-motion
+      L4596  resonances by (p, q), reduced, with the order p − q derived rather than made an axis, and give ℛ only
+      L4597  the resonances that show structure in the asteroid belt:
+      L4599 | the belt | E |
+      L4600 |---|---|
+      L4601 | (*p*, *q*) | 2 |
+      L4602 | (order, *p*) | 1 |
+      L4603 | (*p*, order) | 1 |
+      L4605     E is irreducible, and ℛ refuses all six absences outright — 0 of 6 admitted, against 36 of
+      L4606     36 admitted for the periodic table.
+      L4608  And the physics confirms what the index inferred without being told it. Every resonance of order
+      L4609  ≤ 7 in the belt is occupied; every one of order ≥ 8 is empty. Thirteen of thirteen above the cut, zero
+      L4611  of six below. Resonance strength enters at e^\|p−q\|, so the absences are exponentially weak and
+      L4612  genuinely unoccupied.
+      L4614     A defect of the index vanishes under some re-coordinatisation. A feature of the world
+      L4615     survives every one. The test is computable from the cells alone, and §6.2's Janet table is that test
+      L4616     — run once, on one example, and never named as one.
+
+   ----- §11.7  L2251-L2274  ----- L8683 cites "§11.7's three conditions"
+      L2251 ### 11.7 Why a closed expression exists at all
+      L2252  Three structural facts, proved separately in this book and never combined:
+      L2254 | fact | consequence |
+      L2255 |---|---|
+      L2256 | every constraint is a **monotone bound** | the region is a polytope |
+      L2257 | every bound couples exactly **two variables** | the graph is a tree |
+      L2258 | the tree has **no cycles** | the sum factorises |
+      L2260  Remove any one and no such expression exists. A sum bound breaks the first — §11.7 measures
+      L2261  89,864 join failures when one is tried. A three-variable constraint breaks the second. A cycle breaks the
+      L2262  third, and 2^d inclusion–exclusion terms return.
+      L2264     "All the information in one expression" is not a curiosity. It is exactly what closure buys,
+      L2265     and it is the strongest available statement of what E(X) = 0 means: the expression is the index,
+      L2266     and the cells are its coefficients.
+      L2268 ![Figure 11.2](figures/figure-11.2.png)
+      L2270  Figure 11.2. The rank polynomial F(z), read forwards as bars and backwards as the dashed line. They part compan
+      L2271  rank 1 — 5 against 4 — and never rejoin. A rank polynomial is palindromic if and only if the poset is self-dual
+      L2272  single picture carries both of §8.3's separately-reported facts: the asymmetric rank sequence, and the 8 of 976
+      L2273  survive reflection.
+
+## 2  L8648 promises Chapter 36 COMPLETES the celestial reading --- read the target
+   ## 36. body occurrence: L9892
+   chapter 36 spans L9892-L9938 (47 lines); heading: ## 36. Three bodies, and what a complete index is allowed to say
+      famil      2 hits
+      index      9 hits
+      closure    1 hits
+      closes     2 hits
+      Poincar    2 hits
+      Lagrange   2 hits
+      chaos      0 hits
+      chaotic    1 hits
+   subsections: ['### 36.1 The challenge', '### 36.2 The number before the interpretation', '### 36.3 What the book contributed, section by section', '### 36.4 The law this chapter adds', '### 36.5 What the chapter does not claim', '### 36.6 The one-line summary']
+   the promise is "the families are indexed, the index closes, and the closure is the
+   reason nothing here touches Poincare" --- the target lines that carry it:
+      L9898 §31.1.1 tested celestial mechanics on families and found "nothing here touches Poincaré." §12.11.2 went furthe
+      L9906 **§25.6 supplied the definition of solution.** A complete index has E = 0 and makes no predictions. Applied to
+      L9908 **§18.4.1 supplied the certificate.** The reduction to the shape sphere is a sequence of dropped coordinates —
+      L9916 **§14.5's seed supplied the five points.** Euler's three collinear roots and Lagrange's two equilateral points
+      L9930 No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause (Xia 1992 shows non-collision s
+
+   L8639 announces "Which corrects §18.5" --- is that correction RECORDED anywhere?
+      Register lines naming §18.5 at all: []
+      §18.5 body L5294-L5302 carries no forward notice: "corrects" sites in it = 0
+
+## 3  EVERY COUNT WORD, against its own body, its row labels and its numeral span
+
+   (a) L8588 "at least nine that are NOT [polynomial]" --- count the enumeration itself
+      L8588 Worse, the closure is over polynomial relations only. The book now states at least nine that are not:
+      L8589 A^m(x^p) = (−1)^m x^p/(p−1)^m, V = 2/tanh(kh/2), self-concordance, the modular rank law,
+      L8590 Σ_q\|A_q\|·\|B_q\| = |Λ|, F(−1) = 2, E(X) as non-pairwise content, and the reorderability theorem. None
+      L8591 was ever audited against any list.
+      MEASURED items in the list: 8 --- ['A^m(x^p)', 'V = 2/tanh(kh/2)', 'self-concordance', 'the modular rank law', 'Sigma_q||A_q||.||B_q|| = |Lambda|', 'F(-1) = 2', 'E(X) as non-pairwise content', 'the reorderability theorem']
+      printed count word: "at least nine"
+
+   (b) L8597 "This chapter contains five enumerations" --- against the rows' own sections
+      L8599 the list                                    what it omitted
+      L8600 §30.4's search targets                      7 polynomial relations, 9 non-polynomial
+      L8601 §30.2's structural invariants               six, one of which beats its stated best twofold
+      L8602 §31.1's celestial objects                   six the method plainly admits
+      L8603 §31.2's string objects                      five, two of them measured in this work
+      L8604 §31.3's statistic                           stated against the wrong denominator
+      row sections: ['30.4', '30.2', '31.1', '31.2', '31.3']
+      chapter of the sentence: enclosing(L8597) = 30.4.2
+      chapter 30 span = (8316, 8609) ; chapter 31 span = (8609, 8790)
+      rows whose section lies OUTSIDE chapter 30: [('31.1', 8614), ('31.2', 8659), ('31.3', 8700)]
+      column header is "what it omitted"; row 5 reads: ["§31.3's statistic                           stated against the wrong denominator"]
+
+   (c) L8611 "four subjects it was not built for" --- against chapter 31's own sections
+      chapter 31 top-level sections: ['31.1 Celestial mechanics and the nucleus', '31.2 String theory — the pole, the gener', '31.3 The Calabi–Yau catalogue']
+
+   (d) other count words in the unit
+      L8584  eight        : The relation set has grown since. Closing the eight polynomial relations the book now states giv
+      L8585  18           : Gröbner basis of 18 where the original four gave 6, and seven further relations reduce to zero t
+      L8585  seven        : Gröbner basis of 18 where the original four gave 6, and seven further relations reduce to zero t
+      L8623  18 of 18     : Lagrange L1, L2, L3 in μ (Euler's        monotone, convex, 3-monotone; 18 of 18 containments at 
+      L8633  six planets  : satellite counts vs Hill radius          log–log +0.86 across six planets — §23.14.1's capacity 
+      L8662  Three objects : ### 31.2.1 Three objects on the pole
+      L8683  three conditions : only along a tree. §11.7's three conditions have independence as their degenerate case.
+      §11.7 body L2251-L2274, 17 non-blank lines; enumerated items:
+
+## 4  REGISTER CITATIONS in the unit, grouped-aware, existence first
+   sites: [(8678, '1787')]
+   register 1787 cited at L8678 -> 6591 (exact)
+        R L6592  **§31.2.2 CALLED log d(N) CONVEX; ITS SECOND DIFFERENCES ARE NEGATIVE AT EVERY LEVEL COMPUTED, AND THE L
+        R L6594  ### 1788
+        R L6595  **THE MATHEMATICAL COMPENDIUM'S TOWER ENTRY PRINTED 22,275 AND 64,290 — THE EXACT-TRIANGLE COUNTS — UNDE
+        R L6597  ### 1789
+
+## 5  EVERY ATTRIBUTION IN THE UNIT against ## References BODY and R.7
+   ## References BODY occurrence L11503 (all occurrences [173, 11503]);  R.7 at L11806
+   Poincar    unit [8620, 8648]   References 2   R.7 1   six-volume sites {'main': 6, 'reg': 2, 'mc': 2, 'ioi': 3}
+   Lagrange   unit [8623]   References 3   R.7 2   six-volume sites {'main': 8, 'reg': 1, 'mc': 9, 'pc': 1}
+   Euler      unit [8623]   References 3   R.7 2   six-volume sites {'main': 7, 'reg': 3, 'mc': 26, 'pc': 1, 'ioi': 1}
+   Mardling   unit [8627]   References 2   R.7 1   six-volume sites {'main': 3}
+   Aarseth    unit [8627]   References 2   R.7 1   six-volume sites {'main': 3}
+   Hill       unit [8626, 8628, 8633]   References 5   R.7 3   six-volume sites {'main': 12, 'reg': 3, 'mc': 1, 'pc': 2}
+   Roche      unit [8629]   References 0   R.7 0   six-volume sites {'main': 1}
+   Titius     unit [8631]   References 0   R.7 0   six-volume sites {'main': 1}
+   Bode       unit [8631]   References 0   R.7 0   six-volume sites {'main': 1}
+   Rydberg    unit [8647, 8676]   References 4   R.7 0   six-volume sites {'main': 57, 'reg': 79, 'mc': 45, 'pc': 18, 'ioi': 15, 'sc': 6}
+   Regge      unit [8667]   References 0   R.7 0   six-volume sites {'main': 1}
+   Hagedorn   unit [8693]   References 0   R.7 0   six-volume sites {'main': 1}
+   Sperner    unit [8697]   References 1   R.7 0   six-volume sites {'main': 9, 'reg': 3, 'mc': 8}
+   Gröbner    unit [8585]   References 0   R.7 0   six-volume sites {'main': 7, 'ioi': 1}
+
+## 6  RULING 45 (build/editorial-process prose) and RULING 46 (script names, build numbers)
+   R45  an earlier version       [8676]
+   R45  this book                [8656]
+   R45  recorded at register     [8678]
+   R45  now states               [8584, 8588]
+   R45  the audit itself         [8583]
+   R45  was run once             [8583]
+   R45  has grown since          [8584]
+   R45  the book now states      [8584, 8588]
+   first-person sites (raw, before symbol filtering): []
+
+## 7  DIGIT-BOUNDED NUMERAL SITE SWEEP, six volumes  (?<![\d.,])N(?!\d)(?!,\d)(?!\.\d)
+   distinct numerals printed in the unit: 56
+   30.4       six-volume sites 5      main outside unit [630, 7633, 7635]   other volumes {}
+   18         six-volume sites 137    main outside unit [134, 220, 233, 1017, 1134, 1375, 1376, 1378]   other volumes {'reg': [117, 143, 245, 273, 281], 'mc': [4, 6, 1566, 1740, 1876], 'pc': [24, 87, 356, 366, 367], 'ioi': [213, 223, 398, 1364, 1365], 'sc': [20, 147, 406, 586, 604]}
+   6,         six-volume sites 70     main outside unit [291, 317, 3190, 3191, 3192, 3218, 3219, 3220]   other volumes {'reg': [125, 261, 369, 1449, 1953], 'mc': [750, 870, 900, 950, 1024], 'pc': [738], 'ioi': [209, 324, 1367, 1368, 1369], 'sc': [20, 1136, 1144]}
+   16         six-volume sites 189    main outside unit [36, 47, 60, 132, 189, 292, 315, 355]   other volumes {'reg': [20, 28, 31, 135, 369], 'mc': [750, 840, 858, 1254, 1564], 'pc': [176, 356, 368, 469, 485], 'ioi': [223, 271, 324, 396, 1365], 'sc': [53, 269, 303, 305, 406]}
+   2,         six-volume sites 236    main outside unit [212, 477, 494, 585, 816, 1304, 1332, 1391]   other volumes {'reg': [157, 245, 261, 273, 281], 'mc': [374, 594, 614, 772, 900], 'pc': [135, 356, 738, 776, 871], 'ioi': [209, 234, 324, 345, 1358], 'sc': [20, 1114, 1136]}
+   30.2       six-volume sites 7      main outside unit [631, 8329, 8347, 8493, 8495]   other volumes {'reg': [3033]}
+   31.1       six-volume sites 9      main outside unit [631, 3047, 7582, 7636, 11444, 11447, 11783]   other volumes {}
+   31.2       six-volume sites 8      main outside unit [631, 7637, 11444, 11447]   other volumes {'reg': [6451, 6592]}
+   31.3       six-volume sites 6      main outside unit [631, 7638, 8700, 11459]   other volumes {'ioi': [227]}
+   2.10       six-volume sites 9      main outside unit [622, 1479, 11209, 11468, 11470]   other volumes {'reg': [1925, 4157, 6589]}
+   31         six-volume sites 52     main outside unit [153, 1230, 1235, 1863, 4164, 4192, 4234, 4267]   other volumes {'reg': [177, 195, 1241, 1937, 1969], 'mc': [986, 1110, 1732, 2546, 3042], 'pc': [83, 379], 'ioi': [411, 1394, 1395, 1396, 1397], 'sc': [811, 839]}
+   6.9        six-volume sites 15     main outside unit []   other volumes {'sc': [372, 464, 490, 514, 515]}
+   10         six-volume sites 368    main outside unit [124, 233, 262, 325, 1014, 1126, 1559, 1560]   other volumes {'reg': [39, 40, 111, 165, 197], 'mc': [404, 416, 488, 620, 806], 'pc': [112, 356, 409, 521, 820], 'ioi': [46, 128, 223, 390, 1367], 'sc': [93, 201, 205, 259, 283]}
+   3.6        six-volume sites 12     main outside unit [1282, 1418]   other volumes {'reg': [6026], 'sc': [493, 494, 533, 759, 880]}
+   100        six-volume sites 91     main outside unit [3739, 3740, 3741, 3749, 4005, 4022, 4023, 4024]   other volumes {'reg': [177, 471, 769, 1709, 1901], 'mc': [838, 1084, 1405, 1604, 2330], 'pc': [64, 170, 419], 'ioi': [345, 480], 'sc': [1017]}
+   47.9       six-volume sites 1      main outside unit []   other volumes {}
+   17.9       six-volume sites 2      main outside unit []   other volumes {'reg': [4905]}
+   16.7       six-volume sites 7      main outside unit [4574, 6593, 11052, 11459, 11462, 11464]   other volumes {'reg': [2037]}
+   0.86       six-volume sites 7      main outside unit [4368, 6598]   other volumes {'reg': [2561, 2569, 4685, 4761]}
+   23.14      six-volume sites 3      main outside unit [6582, 11444, 11448]   other volumes {}
+   0.030      six-volume sites 2      main outside unit []   other volumes {'reg': [2677]}
+   0.010      six-volume sites 5      main outside unit [408, 5565]   other volumes {'reg': [189, 2621]}
+   24.6       six-volume sites 6      main outside unit [6710, 7115, 11484, 11486]   other volumes {'mc': [1932]}
+   12.4       six-volume sites 5      main outside unit [2338, 2529, 2531]   other volumes {'ioi': [2083]}
+   16,423     six-volume sites 1      main outside unit []   other volumes {}
+   18.5       six-volume sites 5      main outside unit [5294, 11444, 11447]   other volumes {'mc': [2072]}
+   0.0385209  six-volume sites 3      main outside unit [9918]   other volumes {'pc': [332]}
+   36         six-volume sites 124    main outside unit [159, 431, 730, 1521, 1545, 1571, 1583, 1589]   other volumes {'reg': [215, 445, 793, 1637, 1665], 'mc': [124, 1453, 1455, 1494, 1876], 'pc': [309, 321, 356, 633], 'ioi': [65, 202, 264, 416, 1372], 'sc': [105, 910, 920, 1070, 1101]}
+   1,         six-volume sites 250    main outside unit [444, 475, 504, 693, 816, 1393, 1496, 1523]   other volumes {'reg': [105, 133, 153, 261, 301], 'mc': [604, 808, 1012, 1020, 1024], 'pc': [58, 61, 714, 745, 775], 'ioi': [165, 234, 242, 320, 324], 'sc': [151, 942]}
+   0,         six-volume sites 163    main outside unit [337, 475, 489, 769, 1041, 1385, 1616, 1786]   other volumes {'reg': [137, 153, 301, 921, 1237], 'mc': [930, 960, 1024, 1084, 1214], 'pc': [789, 828], 'ioi': [83, 127, 165, 183, 234], 'sc': [151, 1114]}
+   8,         six-volume sites 73     main outside unit [1625, 1691, 1791, 1918, 1954, 2285, 3386, 3787]   other volumes {'reg': [245, 261, 273, 281, 369], 'mc': [840, 950, 1024, 1254, 1256], 'pc': [356], 'ioi': [223, 1367, 1368, 1369, 1370]}
+   20,        six-volume sites 28     main outside unit [2285, 2388, 4312, 5559, 6252, 6388, 10162, 10176]   other volumes {'reg': [189, 1945, 4949, 4977, 5113], 'mc': [1870], 'sc': [147, 978]}
+   28,        six-volume sites 11     main outside unit [203]   other volumes {'reg': [2917, 5113, 5117, 5121, 5129], 'sc': [995]}
+   50,        six-volume sites 14     main outside unit [2388]   other volumes {'reg': [245, 273, 5113, 5117, 5121], 'mc': [1870]}
+   82         six-volume sites 31     main outside unit [1809, 8358]   other volumes {'reg': [399, 1469, 2833, 3005, 3021], 'mc': [1870, 2128, 2296, 2882], 'ioi': [462]}
+   0.31       six-volume sites 7      main outside unit [7635, 8350, 8365, 8370, 8376]   other volumes {'reg': [4737]}
+   0.03       six-volume sites 8      main outside unit [7959]   other volumes {'reg': [2709, 2713, 3945, 4761, 5794]}
+   15,        six-volume sites 31     main outside unit [2278, 2388, 2398, 2424, 11670, 11716]   other volumes {'reg': [261, 369, 1789, 1945, 3457], 'mc': [1044, 1204, 1214, 1554, 1604], 'pc': [356], 'ioi': [324, 1365, 1366, 1367, 1368]}
+   147        six-volume sites 12     main outside unit [4094, 4128]   other volumes {'reg': [659, 1901, 2941, 6339, 6592], 'mc': [838, 2512], 'ioi': [527]}
+   14         six-volume sites 108    main outside unit [130, 219, 291, 353, 1016, 1130, 3117, 3679]   other volumes {'reg': [89, 121, 127, 261, 369], 'mc': [322, 620, 778, 900, 1024], 'pc': [702], 'ioi': [245, 345, 394, 1365, 1366], 'sc': [136, 147, 402, 406, 419]}
+   23.10      six-volume sites 7      main outside unit [6434, 7582, 11038, 11042, 11044, 11426, 11428]   other volumes {}
+   1787       six-volume sites 2      main outside unit []   other volumes {'reg': [6591]}
+   24         six-volume sites 105    main outside unit [144, 564, 2235, 2328, 3372, 4257, 4722, 5779]   other volumes {'reg': [59, 167, 1361, 1365, 1417], 'mc': [384, 718, 750, 752, 754], 'pc': [519], 'ioi': [33, 242, 245, 404], 'sc': [247, 267, 560, 581, 813]}
+   11         six-volume sites 230    main outside unit [125, 291, 352, 858, 1127, 1371, 1385, 1561]   other volumes {'reg': [35, 89, 115, 249, 261], 'mc': [966, 1016, 1224, 1344, 1444], 'pc': [330, 356, 565, 611, 705], 'ioi': [47, 324, 391, 1367, 1368], 'sc': [146, 151, 303, 305, 307]}
+   11.7       six-volume sites 8      main outside unit [414, 2251, 2260, 10440, 10459]   other volumes {'mc': [1498], 'sc': [306]}
+   26         six-volume sites 52     main outside unit [146, 4126, 5470, 5883, 6194, 6910, 7117, 7964]   other volumes {'reg': [35, 65, 175, 941, 1437], 'mc': [1100, 1876, 2128], 'pc': [389, 706], 'ioi': [234, 406], 'sc': [297, 890, 980, 994]}
+   122        six-volume sites 15     main outside unit [1876, 2168, 2170, 2474, 2505, 7614, 9131, 11820]   other volumes {'reg': [559], 'mc': [1224, 1444, 1574, 1604], 'ioi': [502]}
+
+## 8  DUPLICATED-SECTION SWEEP (DEF-105 item 1): long lines of the unit, six volumes
+   67 long lines swept, 0 recur
+
+## 9  PRINTS & PROOFS, anchored on its own text (never a single global offset)
+   The target list for the novelty search         main [8576]   PP [8494]   offset [-82]
+   This chapter contains five enumerations        main [8597]   PP [8515]   offset [-82]
+   The method was built on one index              main [8610]   PP [8528]   offset [-82]
+   Sensitive dependence destroys monotonicity     main [8619]   PP [8537]   offset [-82]
+   mass sits in its nucleus                       main [8652]   PP [8568]   offset [-84]
+   has second difference zero                     main [8663]   PP [8578]   offset [-85]
+   An earlier version of this line said convex    main [8676]   PP []   offset --
+   diverges above a limiting temperature          main [8694]   PP [8606]   offset [-88]
+   the audit itself was run once                  main [8583]   PP [8501]   offset [-82]
+   five lists in one chapter                      main [7641]   PP [7564]   offset [-77]
+
+   docket 21 / 15h-12: the same "five lists" material is also printed at main L7634-L7635
+      main L7630 published claim — and it was exhaustive search wearing the heuristic's name. It could not have
+      main L7631 failed, and it did not, and for one message that was recorded as evidence.
+      main L7633 145–149. Five from re-auditing Chapter 30 against its own §30.4. "The difficulty is not structural"
+      main L7634 — distinct row supports correlates 0.606 with backtracking steps against the ten-invariant
+      main L7635 list's best of 0.31. §30.4's own audit, run once against a four-relation set that has since grown to eight
+      main L7636 polynomial and nine non-polynomial. §31.1's object list, missing six — including the Hill-radius
+      main L7637 correlation measured in §23.14.1 and never carried across. §31.2's, missing five, two of them computed
+      main L7638 in the same session and not written down. And §31.3's Pareto statistic stated against 473.8 million
+      main L7639 rather than the 495,515 it belongs to — true, and wrong by a factor of 956.
+      main L7641 Five lists in one chapter, each enumerated once, and the section that diagnoses the
+      main L7642 defect is one of the five.
+      main L7644 ### 28.7.4 Forty more, from the session that closed §30.3 and §32.2 — retained in the compendium
+      main L7645 The largest single block in the register, and its shape is one thing repeated: an interpretation
+      PP   P7550 but the discipline of checking the next one.
+      PP   P7552 And the worst of them is 125. A test was written, run on 593 instances, reported as a stress test of a
+      PP   P7553 published claim — and it was exhaustive search wearing the heuristic's name. It could not have
+      PP   P7554 failed, and it did not, and for one message that was recorded as evidence.
+      PP   P7556 145–149. Five from re-auditing Chapter 30 against its own §30.4. "The difficulty is not structural"
+      PP   P7557 — distinct row supports correlates 0.606 with backtracking steps against the ten-invariant
+      PP   P7558 list's best of 0.31. §30.4's own audit, run once against a four-relation set that has since grown to eight
+      PP   P7559 polynomial and nine non-polynomial. §31.1's object list, missing six — including the Hill-radius
+      PP   P7560 correlation measured in §23.14.1 and never carried across. §31.2's, missing five, two of them computed
+      PP   P7561 in the same session and not written down. And §31.3's Pareto statistic stated against 473.8 million
+      PP   P7562 rather than the 495,515 it belongs to — true, and wrong by a factor of 956.
+      PP   P7564 Five lists in one chapter, each enumerated once, and the section that diagnoses the
+      PP   P7565 defect is one of the five.
+      PP   P7567 ### 28.7.4 From more, from the session that closed §30.3 and §32.2 — retained in the compendium
+      PP   P7568 The largest single block in the register, and its shape is one thing repeated: an interpretation
+      PP   P7569 written before the number above it was read.
+      PP   P7571 150–151. Two cross-references to §24.4 for a theorem in §18.4. Recorded as two. They were
+      PP   P7572 twenty-eight — see 186 below.
+      PP   P7574 152–164. Thirteen implementation errors across nine attempts at a d ≥ 3 PQ-tree analogue: a
+
+## 10  CENSUS ROWS IN RANGE, measured from DEFECT-CENSUS.tsv on the `member` column
+   3 rows in L8575-L8699
+   709  C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  L8678  item '23.10'
+        detail: other sites: main=15 reg=2 mc=2 | sign, not a positive one (§23.10.1), so the channel stands and
+        line  : sign, not a positive one (§23.10.1), so the channel stands and the word is corrected; recorded a
+   1182  C9-OVERGENERALISATION-WORD  L8581  item 'never'
+        detail: structure admitting cells its keeper never enumerated.
+        line  : structure admitting cells its keeper never enumerated.
+   1183  C9-OVERGENERALISATION-WORD  L8657  item 'never'
+        detail: on a channel, never a coordinate.
+        line  : on a channel, never a coordinate.
+
+====================================================================================================
+end r2-ch16f

@@ -1,0 +1,27 @@
+id	verdict	reason
+7	defect	reg L3113 (entry 845) *§784's pattern, fifth sighting* — a Register number printed with a § sigil; §784 resolves to no section in any of the six volumes (r2-26b §8). 26b-08; docket 9(c) / 28
+13	defect	reg L6299 (entry 1686) *Thm 11.1 makes T ... a new measurement* — Theorem 11.1 is printed in none of the six volumes, in either form (r2-26b §8). 26b-09; docket 9(c) / docket 2
+1243	not a defect	C9 never at reg L1337 (entry 361 block, §4.3): *three promises written as kept in the pass that failed to keep them* — the entry's own measured past-tense finding, not a claim about a ground (precedent 678 / 1217)
+1244	not a defect	C9 never at reg L1373 (entry 371): inside *the item's question presupposed a stable quantity that does not exist* — the entry's own finding about one item
+1245	not a defect	C9 never at reg L1377 (entry 372): inside *a count over an index of open questions is the least stable thing about it* — the entry's own finding; scored NOT a firing at r2-26b §5
+1250	not a defect	C9 always at reg L1449 (entry 390): *a closure defect measured once can always be blamed on the boundary* is the fault the entry then defeats by testing four boundaries — counter-case B-04
+1258	not a defect	C9 at every cap at reg L1649 (entry 443): *the complete rectangle at every cap tested* states the measurement's own scope with its cap set named; it is the deciding phrase of a FIRE-C verdict (r2-26b §5)
+1281	not a defect	C9 never at reg L2425 (entry 655): *the book has cited §4.1 and §4.2 throughout its life and never defined them* — measured, and the entry prints the ten mechanisms it names instead
+1282	not a defect	C9 never at reg L2425 (entry 655), second flag on the same line: same witness as 1281
+1295	not a defect	C9 always at reg L2869 (entry 784): *a column that is always equal to another column will satisfy every cross-check and test nothing* is analytic — the class's principle, and the deciding phrase of a FIRE-T verdict
+1297	not a defect	C9 never at reg L2945 (entry 803): inside the trade-off the entry states about brackets that cannot fail — its own finding
+1298	not a defect	C9 always at reg L2973 (entry 810): *another ℓ-pair that was always going to order correctly* narrates why more of the same adds nothing; the entry is scored NEAR, not a firing
+1378	not a defect	C9 always at reg L5501 (entry 1463): *the atomic system is infeasible in the plainest possible way and was always known to be* — the entry's own disclosure alongside its measured fourteen empties
+1406	not a defect	C9 never at reg L5942 (entry 1582): inside the entry's own account of a confirmation that could not fail — its deciding phrase
+1414	not a defect	C9 never at reg L6022 (entry 1603): *would not have been caught* narrates a parser fault the entry then prints in full
+1420	not a defect	C9 never at reg L6067 (entry 1617): inside *K is a closed form for a sum, not a fit to data* and its identity verified from x = 1 to 25
+1421	not a defect	C9 never at reg L6067 (entry 1617), second flag on the same line: same witness as 1420
+1442	not a defect	C9 never at reg L6255 (entry 1671): inside *the clause's stated failure mode ... could not arise* — the entry's own measured finding
+1451	not a defect	C9 never at reg L6295 (entry 1683): *not add-a-coordinate, which was never admitted* cites the four failures of R 1581 to 1608 as its witness
+1452	not a defect	C9 never at reg L6299 (entry 1686): inside the closure test's disposal; the entry's own computation (5 → 20 cells, 11 cells, E = 0) is printed beside it
+1462	not a defect	C9 never at reg L6447 (entry 1729): *assigned in the code at 256 and never reached the page* — measured, and the entry then prints the column. The entry's citation of F.3's rule is scored separately as 26b-11
+1465	not a defect	C9 never at reg L6503 (entry 1762): inside ruling 25's definition of a surviving claim
+1466	not a defect	C9 never at reg L6503 (entry 1762), second flag on the same line: same witness as 1465
+1467	not a defect	C9 never at reg L6507 (entry 1763): inside ruling 26's sealed-test run and its printed counts
+1473	defect	C9 never at reg L6589 (entry 1786): *There was never an F.3.1 or an F.3.2* — Prints & Proofs carries both headings (26b-06, chat 139). Co-located stale text counts against its census row (chat-70 ruling)
+1556	defect	C13 handle leak at reg L6507 (entry 1763): *run489.py, ruled_bracket.py, RULING-TOLERANCE-489.md and the run's JSON go to BUILD-10* — a build handle and four internal file names in a reader-facing volume. Ruling 46; 26b-10; the class of census 1536-1545

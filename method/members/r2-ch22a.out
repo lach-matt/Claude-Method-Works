@@ -1,0 +1,43 @@
+r2-ch22a — Appendix D part 1 (D.1–D.4.4.3), computable claims; conventions named inline
+§1 `## Appendix D` hits [165, 10320] `## Appendix E` hits [166, 10898] `### D.5` hits [10462] ; part 1 = 10320 to 10461 = 142 lines
+   headings in part 1: 12 ['Appendix', 'D.1', 'D.2', 'D.3', 'D.4', 'D.4.1', 'D.4.2', 'D.4.3', 'D.4.4', 'D.4.4.1', 'D.4.4.2', 'D.4.4.3']
+§2 symbolic λ² = (T′)²/T″ = 2*R*Z**2/(3*nu**2) ; equals (2/3)T: True
+   sweep: evaluations 12000 (30 × 400); violations of λ² ≤ (2/3)T beyond 1e-12: 0 ; worst relative error 7.12e-16 ; printed 7.1 × 10⁻¹⁶
+   alt grid 30 × 300 = 9000 worst 7.47e-16
+   alt grid 30 × 401 = 12030 worst 8.15e-16
+   alt grid 30 × 200 = 6000 worst 6.88e-16
+§3 |Λ₈| = 976 (tower-2); coordinates ['n', 'ℓ', 'k', 'q', 'e', 'f', 'g', '2S']
+   coordinate maxima {'n': 3, 'ℓ': 1, 'k': 3, 'q': 3, 'e': 3, 'f': 1, 'g': 3, '2S': 3}
+   box 16384 cells; F (seven bounds + caps + the two floors n,k,e ≥ 1) generates 976 ; equals Λ₈: True
+   F bound graph: 7 edges on 8 nodes, degrees {'ℓ': 2, 'n': 1, 'k': 3, 'q': 2, 'f': 2, 'e': 1, 'g': 2, '2S': 1} ; pendant at k (2S): True ; path n–ℓ–k–q–g–f–e of 7 nodes: True
+   ℛ(Λ₈): ordered pairs i≠j = 56 ; pointwise-minimum reconstruction generates 976 ; = Λ₈: True (printed 976 = 976)
+   non-constant recovered bounds (φ_ij varies with v): 16 ; constant: 40
+   bounds whose sole removal changes the generated set: 7 [('2S', 'k'), ('f', 'e'), ('g', 'f'), ('g', 'q'), ('k', 'ℓ'), ('q', 'k'), ('ℓ', 'n')] (printed: sixteen that constrain, of fifty-six)
+   tightest for g: q 92.6%, k 39.9%, f 35.1%, ℓ 20.4%, e 16.1%, n 11.2%, 2S 6.6% ; every partner tightest somewhere: True
+   tightest for q: k 100.0%, ℓ 66.2%, n 47.7%, e 38.5%, f 38.5%, g 38.5%, 2S 38.5% ; every partner tightest somewhere: True
+   printed D.4.2 for g: q 92.6, k 39.9, f 35.1, n 11.2; D.4.3 for g: q 93, k 40, f 35, ℓ 20; for q: k 100, ℓ 66, n 48
+   cells with two bounds tied at the minimum — some coordinate: 976 of 976 (100.0%) ; every coordinate: 112 of 976 (printed 976 of 976 — 100%)
+   coordinates with >1 bound under ℛ: 8 of 8; bounds per coordinate: [7]
+   idempotent: ℛ∘gen∘ℛ = ℛ: True ; and again: True ; generated 976
+§4 minimal elements [(1, 0, 1, 0, 1, 0, 0, 0)] ; maximal elements 1 ; covers 3749 ; maximal chains 1,113,045,672 (printed 1,113,045,672 at L10442; other sites [2478, 3671, 10442, 10589] )
+§5 §16.7.1 'separating' body_range (4578, 4618): 0 ; section_span (4578, 4618): 0
+§5 §16.7.1 'missing constraint' body_range (4578, 4618): 0 ; section_span (4578, 4618): 0
+§5 §16.7.1 'diagnostic' body_range (4578, 4618): 0 ; section_span (4578, 4618): 0
+§5 §11.5 'min' body_range (2231, 2243): 1 ; section_span (2231, 2243): 1
+§5 §11.5 'coupling' body_range (2231, 2243): 1 ; section_span (2231, 2243): 1
+§5 §11.7 'tree' body_range (2251, 2275): 2 ; section_span (2251, 2275): 2
+§5 §11.7 'closed expression' body_range (2251, 2275): 0 ; section_span (2251, 2275): 0
+§5 §11.7 'closed form' body_range (2251, 2275): 0 ; section_span (2251, 2275): 0
+§5 §12.9 '1,113,045,672' body_range (2460, 2484): 1 ; section_span (2460, 2484): 1
+§5 §12.9 'maximal chain' body_range (2460, 2484): 1 ; section_span (2460, 2484): 1
+§5 §11.1 'six' body_range (2079, 2094): 2 ; section_span (2079, 2174): 3
+§5 §11.1 'language' body_range (2079, 2094): 2 ; section_span (2079, 2174): 9
+   Nesterov sites (Chapter 23 citation claim, L10377): [6341, 7881, 8052, 10377, 11653] ; enclosing headings: ['### 23.8.1 The quantity is t', '### 29.2 What can be claimed', '### 29.7 What the entered li']
+   Figure 11.1 caption line: [2220, 2222, 10439] ; P21 sites: [420, 437, 2080, 2175, 5574, 10447, 10448, 10459]
+§6 Register L1381 entry ### 373 WARNING-in-body: False :: **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls exactly at th
+§6 Register L1389 entry ### 375 WARNING-in-body: False :: **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's element coun
+§6 Register L1429 entry ### 385 WARNING-in-body: False :: **EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six resolve cleanly — 96 se
+§6 Register L6463 entry ### 1738 WARNING-in-body: False :: **THE TWELVE ASSIGNMENTS OF §D.5.10 STAND: THE AUTHOR RULED THAT THE COMPUTATION DECIDES, AND THE COMPUTATION 
+§6 Register L6503 entry ### 1762 WARNING-in-body: False :: **RULING 25: A SURVIVING CLAIM IS DEFINED, THE MOVE §D.5.3 MADE FOR *ELEMENT* — AND F.4.2'S WITHDRAWAL RATIO, 
+§7 forty-eight / fifty-six sites in the unit: [10383, 10416, 10421] ; the twin restatement at D.5.1: [10513, 10514]
+done

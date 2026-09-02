@@ -1,0 +1,319 @@
+
+====================================================================================================
+§0 IDENTITY AND BOUNDARIES
+====================================================================================================
+  The_Method_1_6-2.md                                  md5 4aef772b  11855 lines
+  The_Method_1_6___The_Register-2.md                   md5 79aaf239  6612 lines
+  The_Method_1_6___Mathematical_Compendium-2.md        md5 99a616ec  3803 lines
+  The_Method_1_6___The_Physics_Compendium-2.md         md5 5a964610  879 lines
+  The_Method_1_6___The_Index_of_Indices-2.md           md5 27d387ef  2094 lines
+  The_Method_1_6___Spectra_Compendium-2.md             md5 5ba7f61c  1160 lines
+  LW1-ground.py                                        md5 236975ac  130 lines
+  r2lib.py                                             md5 580d2ea2  454 lines
+  tower-2.py                                           md5 c0bce27a  31 lines
+  tower-2 loaded via r2lib.load_tower(): True
+  heading_line(35) = 9716 '## 35. The Löwdin solution' | all exact-token hits [158, 9716] (the contents hit discarded; body occurrence governs)
+  section_span(35) = (9716, 9892) -> next heading '## 36. Three bodies, and what a complete index is allowed to say' | body_range(35) = (9716, 9727) -> next heading '### 35.1 The problem, finished'
+  the two resolvers differ by 165 lines — section_span governs the census
+   L9716-L9726  11 lines  ## 35. The Löwdin solution
+   L9727-L9743  17 lines  ### 35.1 The problem, finished
+   L9744-L9783  40 lines  ### 35.2 What the walk returned
+   L9784-L9805  22 lines  ### 35.3 The silence, answered
+   L9806-L9857  52 lines  ### 35.4 How the method did it
+   L9858-L9871  14 lines  ### 35.5 The provenance
+   L9872-L9891  20 lines  ### 35.6 The coda the record earned
+
+====================================================================================================
+§1 NUMERAL CENSUS OF THE CHAPTER (digit-bounded both sides; trailing non-thousands comma admitted; count words listed separately)
+====================================================================================================
+  numerals: 74 on 41 lines
+   L9716: 35
+   L9718: 34
+   L9722: 1969
+   L9723: 1701 1712
+   L9727: 35.1
+   L9729: 6 33
+   L9731: 34 104
+   L9732: 106
+   L9737: 137.035999
+   L9739: 1
+   L9742: 34
+   L9744: 35.2
+   L9746: 107 107 2 108
+   L9747: 106 34
+   L9759: 5 65
+   L9760: 6 70, 7 57, 8 28 1 2
+   L9763: 121,
+   L9767: 38, 56, 72, 89, 105
+   L9768: 1.33 1.24 2.6 2.2
+   L9769: 2.16
+   L9778: 109 120, 6 7 8 0.058 0.264
+   L9779: 0.083
+   L9784: 35.3
+   L9786: 34
+   L9787: 1
+   L9795: 91
+   L9802: 33
+   L9803: 34
+   L9806: 35.4
+   L9810: 2.14
+   L9815: 2.14
+   L9832: 1969
+   L9833: 1950
+   L9834: 1969 1971
+   L9858: 35.5
+   L9862: 107 107
+   L9864: 121 1 2
+   L9868: 1969 1950
+   L9872: 35.6
+   L9874: 1969
+   L9884: 34
+  count words: 42 -> L9719:one L9720:one L9732:two L9732:four L9734:three L9736:One L9752:three L9754:three L9757:three L9761:hundred L9766:five L9769:one L9773:eleven L9777:twelve L9779:one L9794:three L9797:two L9797:one L9799:two L9803:six L9811:one L9824:twenty L9824:two L9827:nine L9829:three L9831:three L9834:two L9834:Three L9835:three L9841:one L9845:five L9846:Two L9855:Four L9862:one L9863:three L9865:five L9866:eleven L9867:twelve L9874:Three L9876:nineteen L9885:two L9887:One
+
+====================================================================================================
+§2 THE FAMILY LOCATED — chain tokens in six volumes (word-bounded, case-insensitive), the Register entries 1701–1712, their WARNING lines
+====================================================================================================
+  The_Method_1_6-2.md                                  10 lines
+     L9738  35.1         [self-consistent field] chained walk:** at each Z, converge the self-consistent field of the ion carrying
+     L9778  35.2         [hartree] Z = 109–120, entrants 6d then 7p then 8s, margins 0.058 to 0.264 hartree, the
+     L9779  35.2         [hartree] worst-case spin-orbit narrowing 0.083 hartree clearing every one. *They are
+     L9796  35.3         [self-consistent-field] self-consistent-field tolerance, and the literature says why — beside a collapse,
+     L9832  35.4         [pulay] force-versus-gradient discrepancy Pulay published in 1969; the operator asymmetry
+     L9842  35.4         [pulay] named as a Pulay term, stopped being an error and became a derived object — split
+     L9868  35.5         [pulay] | **zero unexplained residue** | Pulay 1969 · Löwdin 1950 · exact quartics |
+     L9874  35.6         [pulay] **Three of the load-bearing works are dated 1969** — the challenge, the Pulay
+     L11811 App F.4.3    [koelling]  · Koelling, D. D. & Harmon, B. N. (1977). *J. Phys. C* **10**, 3107. — the scalar-relativistic kernel; c the one entered number.
+     L11813 App F.4.3    [pulay]  · Pulay, P. (1969). *Mol. Phys.* **17**, 197. — the occupation-parameter term that is the walk's one defect.
+  The_Method_1_6___The_Register-2.md                   13 lines
+     L445   entry 93     [scf] **PRIOR ART: THE PHYSICAL AND CRYSTALLOGRAPHIC APPARATUS OF PART IV.** *The Gamow factor for barrier penetration (Gamow, Z. Phys. 51 (1928) 204–212); 
+     L4557  entry 1217   [hartree] **THEODOSIOU, INOKUTI & MANSON 1986 IS THE SURVEY, PUBLISHED.** *At. Data Nucl. Data Tables 35, 473: **the asymptotic quantum defects at the ionizatio
+     L5782  entry 1535   [hartree] **THE SUPPLIED NILSSON TABLE FAILS A PARITY CHECK AT EXACTLY THE ROW REGISTER 1462 DEPENDS ON.** *An outside model supplied transcriptions for the fiv
+     L5810  entry 1543   [hartree] **THEODOSIOU IDENTIFIED CORRECTLY AT LAST — MY PII WAS A TWO-DIGIT TRANSPOSITION — AND THREE OF ITS CLAIMS VERIFY AGAINST HELD DATA.** *The correct id
+     L5826  entry 1547   [hartree] **THE SECOND RITZ ORDER RECOVERS THE TEXTBOOK DEFECT TO THREE DECIMALS, AND SEATON'S THEOREM SAYS WHY THE TWO ROUTES MEET.** *A theory note supplied o
+     L5842  entry 1551   [hartree] **THE THEODOSIOU COMPANION ARRIVES AND ITS K I EXPERIMENTAL COLUMN MATCHES MY EXTRAPOLATION IN ALL THREE CHANNELS.** *The supplied PDF is Theodosiou, 
+     L5950  entry 1584   [hartree] **THE CAPTURE PRIORITY IS NOW COMPUTED, AND D3 WOULD TAKE THE INDEX FROM 1.9 PER CENT TO 7.9.** *Applying register 1583's rule — extend an edge, do no
+     L5954  entry 1585   [hartree] **THE CITATION TRAIL WORKS: TOPBASE DEFECTS FOR FIVE FULL IONISATION LADDERS, AND THEY ARE THEORY.** *M could not reach the ADNDT tables and asked whe
+     L6347  entry 1701   [koelling self-consistent field] **THE LÖWDIN CHALLENGE IS CLOSED — THE ORDERING LAW DERIVED FROM THE EQUATION AT 107 OF 107, THE EXCEPTIONS DERIVED WITH IT.** *The entrant operator: 
+     L6355  entry 1703   [scf] **THE SILENCE OF CHAPTER 34 HAS AN OCCUPANT — THE COLLAPSE CONDITION DECIDES EXACTLY WHERE THE CORRIDOR CANNOT SPEAK.** *At f openings the corridor's 
+     L6371  entry 1707   [pulay] **PRIOR ART — THE WALK'S ONE SYSTEMATIC DEFECT IS A PULAY TERM, PUBLISHED THE YEAR THE CHALLENGE WAS POSED.** *The Hellmann–Feynman-in-q discrepancy b
+     L6375  entry 1708   [scf] **PRIOR ART — THE OPERATOR ASYMMETRY IS LÖWDIN'S OWN 1950 IDENTITY, AND IT CLOSES THE LAST GAP.** *For eigenstates of different self-consistent operat
+     L6475  entry 1748   [hartree] **ITEM D CLOSED: THE LÖWDIN PAPER'S FOUR PLACEHOLDER REFERENCES ARE FILLED FROM THE LITERATURE AND BOTH PAPERS ARE PRESSED.** *Reference 6 is Bach, Li
+  The_Method_1_6___Mathematical_Compendium-2.md        17 lines
+     L71    ?            [self-consistent field] | **ent** | the entrant operator: argmax over frontier (n,ℓ) of \|D(n,ℓ)\| in the ion's self-consistent field | subshells | §35; register 1701 |
+     L776   App E        [hartree] Measured — R 1150-1156; Ritz 1903; Hartree 1928.
+     L780   App E        [hartree] > **Prior art: the extended Ritz formula delta = delta_0 + a/(n-delta_0)^2 + b/(n-delta_0)^4 is Ritz, Zur Theorie der Serienspektren, Ann. Phys. 12 (1
+     L2904  App C        [hartree] Measured — R 693, 702, 713, 724; Hartree 1928; Seaton 1958.
+     L2908  App C        [hartree] > **Prior art: the defect falls with l because the centrifugal barrier keeps the electron out of the core — the standard penetration argument, Hartree
+     L3030  App C        [hartree] > **Prior art: asymptotic quantum defects for all ionisation stages of all ions with Z ≤ 50 are tabulated in Theodosiou, Inokuti & Manson, At. Data Nu
+     L3114  App C        [hartree] Computed — R 1147; Hartree 1928; Fermi 1928.
+     L3118  App C        [self-consistent field] > **Prior art: the penetration deficit and its Ne^(1/3) scaling are the Thomas-Fermi picture — Fermi, Eine statistische Methode zur Bestimmung einiger
+     L3144  App C        [hartree] > **Prior art: the distinction between where a defect is measurable and where it is calculated is exactly the distinction their 1986 table makes — the
+     L3154  App C        [koelling self-consistent field] **ent(Z) = argmax over frontier (n,ℓ) of |D(n,ℓ)|, D the converged one-channel depth in the self-consistent field of the ion (Z, cfg(Z−1)); scalar-rel
+     L3172  App C        [scf] *adjacent to the transition the mean-field equations admit two stationary solutions of one configuration with distinct converged operators; a sign at 
+     L3188  App C        [scf] **For u, v eigenstates of different self-consistent operators, the two eigen-relation evaluations of ⟨u|T|v⟩ differ by exactly asym(u,v) = (ε_v − ε_u)
+     L3206  App C        [pulay] **The walk's one systematic internal discrepancy — the Hellmann–Feynman-in-q defect — is a Pulay term of the occupation parameter. In the one-shell-fr
+     L3210  App C        [pulay] Proved — M §35; register 1707, 1709, 1711; Pulay 1969; Gerratt–Mills 1968.
+     L3212  App C        [pulay] > **Prior art: the occupation-parameter term is Pulay, Mol. Phys. 17 (1969) 197; the orthogonal-complement response is Gerratt & Mills, J. Chem. Phys.
+     L3429  App C        [hartree] | 1928 | Hartree | `P.lcollapse` `Q.pen` `S.ritz` |
+     L3483  App C        [pulay] | 1969 | Pulay | `LS.chord` |
+  The_Method_1_6___The_Physics_Compendium-2.md          6 lines
+     L202   ?            [hartree] **The quantity.** Per row: D_ent and the margin, in hartree; per candidate
+     L209   ?            [koelling] **Constants required.** One: c = 137.035999 (Koelling–Harmon scalar-relativistic
+     L280   ?            [scf] {La, Ac, Th} in Λ_chain; and the Z = 91 sign held at SCF tolerance, entered as
+     L519   ?            [hartree] **Where it comes from.** fitted here by least squares on 277 in-region channels plus 7 far anchors; the FORM it scales is the penetration picture of H
+     L599   ?            [koelling] **What it is.** the one entered number of the Löwdin solution: the constant in the Koelling–Harmon scalar-relativistic kernel of the entrant operator.
+     L601   ?            [hartree] **Where it comes from.** CODATA; the inverse fine-structure constant in Hartree atomic units.
+  The_Method_1_6___The_Index_of_Indices-2.md            2 lines
+     L1492  App A        [hartree] **Where it comes from.** Quantum defect theory is Seaton, MNRAS **118** (1958) 504–518, and Rep. Prog. Phys. **46** (1983) 167–257. *A published surve
+     L1508  App A        [hartree] **Where it comes from.** The parameters are Rydberg 1890, Bohr 1913, Stoner 1924, Pauli 1925, Hund 1925, Fermi 1928, Hartree 1928, Janet 1928, Mayer &
+  The_Method_1_6___Spectra_Compendium-2.md              2 lines
+     L175   ?            [hartree]  (Z, n, ℓ) → D, in hartree, with margin, provenance and score
+     L1012  App B.3      [hartree] | **Theodosiou, Inokuti & Manson, At. Data Nucl. Data Tables 35, 473 (1986)** | asymptotic quantum defects of s, p, d and f orbitals for **all ionisat
+  Register 1701–1712 headed (### n): 1701:Y 1702:Y 1703:Y 1704:Y 1705:Y 1706:Y 1707:Y 1708:Y 1709:Y 1710:ABSENT 1711:Y 1712:Y
+  span L6345-L6388; raw WARNING: markers in the span: 0
+   1701:  10 numerals: 107 107, 1 137.035999 107 107, 112 0.083 120 35
+   1702:   8 numerals: 119 2 120 107 12 107 1 2.14
+   1703:   8 numerals: 34 91 1969 177, 62 1971 3, 1233
+   1704:  18 numerals: 121, 5 0.020000 65 6 0.013889 70 7 0.010204 57 8 0.0078125 28 1 2 1 5 16
+   1705:  16 numerals: 38, 56, 72, 89, 105 2 1.33 1.24 2.6 2.57 2.73 2.2 1.92 3.32 2.16 26
+   1706:  11 numerals: 107 4 3 5 4 5 4 6 5 107 107,
+   1707:   5 numerals: 1969 17, 197, 21 1969
+   1708:  12 numerals: 1950 18, 365 1950 4 4 2.6 15 5 2 0.999992 1.000103
+   1709:   7 numerals: 1.7 7 6.1 9 1708 0.98 1.00
+   1711:   6 numerals: 1708 1968, 49, 1719 1708 4
+   1712:  15 numerals: 109 120 6 109 112 7 113 118 8 119 120 0.058 0.264 0.083 108,
+
+====================================================================================================
+§3 THE OBSERVED TABLE (LW1-ground.py, Register 1306) — the five-clause ordering law tested under NAMED conventions
+====================================================================================================
+  elements in GROUND: 108 Z = 1 to 108 | electron count == Z: 108 of 108
+  steps Z = 2..108: 107 (1702: 107 SCORED; the chapter: 107 of 107)
+  opening sequence (19 subshells, first occupancy): 1s@1 2s@3 2p@5 3s@11 3p@13 4s@19 3d@21 4p@31 5s@37 4d@39 5p@49 6s@55 5d@57 4f@58 6p@81 7s@87 6d@89 5f@91 7p@103
+  A (opening level): clause 1 n+l non-decreasing along the sequence — exceptions: NONE
+     clause 2 smaller n first at equal n+l — exceptions (element Z opened rival): La 57 5d over 4f Ac 89 6d over 5f
+  B (per step, every unfilled rival): clause 1 exceptions (4): Mo42 Rh45 Pd46 Au79
+     clause 2 exceptions (6): La57 Gd64 Ac89 Th90 Cm96 Lr103
+  C (per step, rival empty at Z-1): clause 1 exceptions (0): NONE
+     clause 2 exceptions (4): La57 Ac89 Th90 Lr103 | 6d occupancy at Z = 94..102: 0 0 1 0 0 0 0 0 0 (6d opened at 89, empty again from Pu 94)
+  C' (per step, never-yet-opened rival): clause 1 exceptions (0): NONE
+     clause 2 exceptions (3): La57 Ac89 Th90
+  clause 2 exception set under A == the record's {La, Ac, Th}: False
+  clause 2 exception set under B == the record's {La, Ac, Th}: False
+  clause 2 exception set under C == the record's {La, Ac, Th}: False
+  clause 2 exception set under C' == the record's {La, Ac, Th}: True
+  1703 / L9752 *all three are f-openings*: 4f first occupied at Z = 58 (La 57 precedes it by 1 ); 5f first at Z = 91 (Ac 89, Th 90 precede it by 2 and 1 )
+  the entrant at La 57 / Ac 89 / Th 90: 5d 6d 6d | the 4f / 5f occupancy at Z-1 there: 0 0 0
+  Madelung continuation Z = 109-120 from the observed Z = 108 state (6s2 6p6 6d6 7s2): 6d (109-112) · 7p (113-118) · 8s (119-120)
+  1712 / L9778 *6d (109-112), 7p (113-118), 8s (119-120)*: True
+
+====================================================================================================
+§4 ARITHMETIC OF THE PRINTED FIGURES (Decimal, ROUND_HALF_EVEN at the printed precision)
+====================================================================================================
+  1702 rows: Z = 2-120 -> 119 (printed 119: True ) = SCORED Z = 2-108 107 + UNWITNESSED Z = 109-120 12 -> True
+  L9746-L9747 *Z = 2-108 … hence the 106 transitions Chapter 34 counted*: elements 2-108 = 107 ; transitions between consecutive elements 3-108 = 106 (106: True )
+  1704 5g hydrogenic -1/(2n^2) = -0.020000  printed -0.020000  MEASURED equal
+  1704 6g hydrogenic -1/(2n^2) = -0.013889  printed -0.013889  MEASURED equal
+  1704 7g hydrogenic -1/(2n^2) = -0.010204  printed -0.010204  MEASURED equal
+  1704 8g hydrogenic -1/(2n^2) = -0.0078125  printed -0.0078125  MEASURED equal
+  1704 / L9759-L9760 g channels *5g at 65 elements, 6g at 70, 7g at 57, 8g at 28* and *across a hundred protons*: element counts are walk data (UNREPRODUCIBLE, budget below); 65 + 70 + 57 + 28 = 220 ; the phrase *a hundred protons* names no figure the walk's counts state (INFERRED: the Z range of the 5g/6g rows)
+  1706 / L9773 eleven elements listed: 11 | 1706's groups 2 (Mn, Zn) + 2 (Ag, Cd) + 4 lanthanides (Nd, Pm, Sm, Lu) + 1 (Hg) + 2 heavy actinides (Lr, Rf) = 11
+  the eleven in the observed table (Z, configuration at Z, entrant): Mn 25 [Ar]3d5 4s2 ent 4s | Zn 30 [Ar]3d10 4s2 ent 4s | Ag 47 [Kr]4d10 5s ent 5s | Cd 48 [Kr]4d10 5s2 ent 5s | Nd 60 [Xe]4f4 6s2 ent 4f | Pm 61 [Xe]4f5 6s2 ent 4f | Sm 62 [Xe]4f6 6s2 ent 4f | Lu 71 [Xe]4f14 5d 6s2 ent 5d | Hg 80 [Xe]4f14 5d10 6s2 ent 6s | Lr 103 [Rn]5f14 7s2 7p ent 7p | Rf 104 [Rn]5f14 6d2 7s2 ent 6d
+  1705 / L9767 five contested Z: 38=Sr([Kr]5s2, ent 5s) 56=Ba([Xe]6s2, ent 6s) 72=Hf([Xe]4f14 5d2 6s2, ent 5d) 89=Ac([Rn]6d 7s2, ent 6d) 105=Db([Rn]5f14 6d3 7s2, ent 6d) | values +1.33 +1.24 +2.6 +2.2 +2.16: five, all positive (walk data, UNREPRODUCIBLE)
+  1712 / 1701 / L9778-L9779 margins 0.058-0.264 Ha against the spin-orbit worst case 0.083 Ha: 0.058 - 0.083 = -0.025 Ha -> *cleared by all* / *clearing every one* / *under every margin* is FALSE under the plain reading (17a-03 re-confirmed by measurement; per-row undecidable, REQUEST-LOWDIN item 10)
+  1701 c = 137.035999 (CODATA 2018 inverse fine-structure constant 137.035999084 to 6 dp: 137.035999 ) | chapter prints the same constant at L9737: True
+  1708 residual ratios 0.999992 and 1.000103: deviations from 1 = 0.000008 and 0.000103 (walk data, UNREPRODUCIBLE)
+  1709 Hessian terms +1.7e-7 and +6.1e-9: their ratio = 27.9 ; *twenty to five hundred times too small* names the residual as the denominator, unprinted (UNREPRODUCIBLE)
+  1701 / 1712 *Z <= 112* domain vs *Z = 109-120* rows: 113-120 lie outside the stated domain (INFERRED reading; the domain clause and the row count are both record-carried)
+  L9722 / L9834 / L9874 years: challenge 1969, Pulay 1969, Griffin-Andrew-Cowan 1969 and 1971, Löwdin 1950; *nineteen years before* 1969 - 1950 = 19 ; *three of the load-bearing works are dated 1969*: 3 named
+
+====================================================================================================
+§5 THE CHAPTER AGAINST THE RECORD — every figure the chapter prints, grepped in 1701-1712 and in the Register beyond
+====================================================================================================
+  '137.035999'                               chapter L9737           | in 1701-1712: 1701                 | other Register lines: 0
+  '107 of 107'                               chapter L9746           | in 1701-1712: -                    | other Register lines: 0
+  '107/107'                                  chapter L9862           | in 1701-1712: 1701 1706            | other Register lines: 0
+  '2–108'                                    chapter L9746           | in 1701-1712: -                    | other Register lines: 0
+  '106'                                      chapter L9732,9747      | in 1701-1712: -                    | other Register lines: 37
+  '2-108'                                    chapter L-              | in 1701-1712: -                    | other Register lines: 0
+  '109–120'                                  chapter L9778           | in 1701-1712: 1712                 | other Register lines: 0
+  '109-120'                                  chapter L-              | in 1701-1712: -                    | other Register lines: 0
+  '121'                                      chapter L9763,9864      | in 1701-1712: 1704                 | other Register lines: 9
+  '−1/(2n²)'                                 chapter L9760,9864      | in 1701-1712: 1704                 | other Register lines: 0
+  '-1/(2n²)'                                 chapter L-              | in 1701-1712: -                    | other Register lines: 0
+  '65'                                       chapter L9759           | in 1701-1712: 1704                 | other Register lines: 23
+  '70'                                       chapter L9760           | in 1701-1712: 1704                 | other Register lines: 23
+  '57'                                       chapter L9760           | in 1701-1712: 1704                 | other Register lines: 27
+  '28'                                       chapter L9760           | in 1701-1712: 1704                 | other Register lines: 50
+  '38, 56, 72, 89, 105'                      chapter L9767           | in 1701-1712: 1705                 | other Register lines: 0
+  '+1.33'                                    chapter L9768           | in 1701-1712: 1705                 | other Register lines: 0
+  '+1.24'                                    chapter L9768           | in 1701-1712: 1705                 | other Register lines: 0
+  '+2.6'                                     chapter L9768           | in 1701-1712: 1705                 | other Register lines: 0
+  '+2.2'                                     chapter L9768           | in 1701-1712: 1705                 | other Register lines: 0
+  '+2.16'                                    chapter L9769           | in 1701-1712: 1705                 | other Register lines: 0
+  'Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf' chapter L9773           | in 1701-1712: 1706                 | other Register lines: 0
+  '0.058'                                    chapter L9778           | in 1701-1712: 1712                 | other Register lines: 0
+  '0.264'                                    chapter L9778           | in 1701-1712: 1712                 | other Register lines: 0
+  '0.083'                                    chapter L9779           | in 1701-1712: 1701 1712            | other Register lines: 0
+  'Z = 91'                                   chapter L9795           | in 1701-1712: 1703                 | other Register lines: 0
+  '1969'                                     chapter L9722,9832,9834,9868,9874 | in 1701-1712: 1703 1707            | other Register lines: 5
+  '1950'                                     chapter L9833,9868      | in 1701-1712: 1708                 | other Register lines: 1
+  '1971'                                     chapter L9834           | in 1701-1712: 1703                 | other Register lines: 1
+  'La, Ac and Th'                            chapter L9750           | in 1701-1712: -                    | other Register lines: 0
+  'La/Ac/Th'                                 chapter L-              | in 1701-1712: 1701                 | other Register lines: 0
+  'nine things'                              chapter L9827           | in 1701-1712: -                    | other Register lines: 0
+  'twenty-two audits'                        chapter L9824           | in 1701-1712: -                    | other Register lines: 1
+  'Four of this book'                        chapter L9855           | in 1701-1712: 1711                 | other Register lines: 0
+  'fifth'                                    chapter L9856           | in 1701-1712: 1711                 | other Register lines: 21
+  'nineteen years'                           chapter L9876           | in 1701-1712: 1708                 | other Register lines: 0
+  Register entries after 1712 whose body names 1701-1712 or the range (the later statements):
+  the range *1701–1712* / *1701-1712* by volume: The_Method_1_6-2.md:2 The_Method_1_6___The_R:0 The_Method_1_6___Mathe:1 The_Method_1_6___The_P:1 The_Method_1_6___The_I:1 The_Method_1_6___Spect:0
+
+====================================================================================================
+§6 INSTRUMENTS HELD FOR THE FAMILY — REQUEST-LOWDIN.md items against the LW1-* members (READ-intake1.md); the budget for every UNREPRODUCIBLE figure
+====================================================================================================
+  LW1-* members: LW1-MANIFEST.tsv LW1-README.md LW1-ground-run.log LW1-ground.py
+  REQUEST-LOWDIN.md items: 12
+     L33  1. **The entrant operator — the SCF chain code (register 1701, §35.1).** The scalar-relativistic
+     L37  2. **Λ_chain, the chain as measured (1702).** The 119-row table Z = 2–120 — entrant, D_ent, margin,
+     L40  3. **`ground.py` (1306).** NIST ASD 5.12 GSIE, Z = 1–108, ground shells and ground level, with the
+     L43  4. **The prediction-first artefacts (1702).** The hashed predictions — inequality, direction,
+     L45  5. **Λ_cinf, the c → ∞ counterfactual (1706).** The 107-row table, the run parameters, and the code
+     L47  6. **The collapse criterion at the f openings (1703, §35.3).** The double-well collapse computation
+     L49  7. **The g channels (1704).** The walk's 5g/6g/7g/8g values across Z with the −1/(2n²) comparison
+     L51  8. **The correlation clause (1705).** The second-order code — entrant pairs, core–core closure, the
+     L54  9. **The audit of the instrument (1707–1711).** The Hellmann–Feynman-in-q discrepancy (the Pulay
+     L58  10. **Z = 109–120 (1712).** The margins 0.058–0.264 Ha and the spin-orbit worst case 0.083 Ha — code
+     L60  11. **The six figures** (FIG1 filling index 2–120, FIG2 spectra index 2–120, FIG3 j-120 window, FIG4
+     L63  12. **The paper and the project's own record.** The final `THE-LOWDIN-SOLUTION.md` as concluded, with
+  held: object 3 (ground.py = LW1-ground.py, Register 1306) only — the observed table. Not held: the walk (Λ_chain, 1702's 119 rows), the scorer, Λ_cinf (1706),
+  the collapse diagnostic (1703, Z = 91), the g-channel depths per Z (1704), the second-order correlation (1705), the Pulay / Löwdin-identity / quartic audit (1707-1711),
+  the margins and spin-orbit narrowing (1712). Every figure of theirs is UNREPRODUCIBLE here; budget: LOWDIN-HANDOFF-103.tgz (REQUEST-LOWDIN items 1, 2, 4-10), pack104 (item 11).
+  UNREPRODUCIBLE with that budget (record-carried, never withdrawn): 107/107 · 65/70/57/28 · +1.33 +1.24 +2.6 [2.57-2.73] +2.2 [1.92-3.32] +2.16 · >= 26x · the eleven · 0.058-0.264 · 0.083 · 2.6e-15 · 0.999992 · 1.000103 · +1.7e-7 · +6.1e-9 · 0.98 · 1.00 · Z = 91 sign · Dirac-Fock to 120
+
+====================================================================================================
+§7 THE COMPENDIA SECTIONS THAT CARRY THE CHAIN — MC "## LS." and PC "# THE LÖWDIN-SOLUTION INDEXES": bounds resolved by heading text, numerals per line, the chapter figures grepped
+====================================================================================================
+  MC span L3148-L3221 (74 lines; 9 headings): LS. The Löwdin solution — the order derived from the equatio | The entrant operator | The ordering law, five clauses | The collapse condition | The pinned-channel theorem (no g block) | The state-dependent multiplier identity | The exact-quartic decomposition | The defect closed: chord = rot + perp | The twin operator, c → ∞
+   numerals: 91 on 26 lines
+    L3148: 8
+    L3150: 35 1701 1712 34, 1249 1357
+    L3154: 1 137.035999 1 107 107 2 108
+    L3156: 27
+    L3158: 35 1701, 1702
+    L3162: 1 107 107 2 35 3 112 0.083
+    L3166: 35 1701 1706
+    L3170: 2 34
+    L3174: 35 1703 1969, 1971
+    L3176: 177 1969 62
+    L3180: 1 2 5 65 6 70, 7 57, 8 28 0
+    L3182: 121
+    L3184: 35 1704
+    L3188: 2.6 10
+    L3192: 35 1708, 1709 1950
+    L3194: 18 1950 365
+    L3198: 0, 1
+    L3200: 10 10
+    L3202: 35
+    L3206: 2
+    L3208: 0.999992 1.000103 1.7 10 6.1 10
+    L3210: 35 1707, 1709, 1711 1969 1968
+    L3212: 17 1969 197 49 1968 1719
+    L3216: 137.035999 107 107
+    L3218: 35
+    L3220: 35 1706
+   chapter figures present: 137.035999@L3154,3216 107 of 107@L3154 107/107@L3162,3216 2–108@L3154 121@L3182 −1/(2n²)@L3180 65@L3180 70@L3180 57@L3180 28@L3180 Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf@L3216 0.083@L3162 1969@L3174,3176,3210,3212 1950@L3192,3194 1971@L3174
+   chapter figures absent: '106' '2-108' '109–120' '109-120' '-1/(2n²)' '38, 56, 72, 89, 105' '+1.33' '+1.24' '+2.6' '+2.2' '+2.16' '0.058' '0.264' 'Z = 91' 'La, Ac and Th' 'La/Ac/Th' 'nine things' 'twenty-two audits' 'Four of this book' 'fifth' 'nineteen years'
+   phrase 'La, Ac, Th'       x1
+   phrase '{La, Ac, Th}'     x1
+   phrase 'smaller n'        x2
+   phrase 'n+ℓ'              x2
+  PC span L192-L306 (115 lines; 6 headings): THE LÖWDIN-SOLUTION INDEXES — Λ_chain, Λ_cinf, Λ_V5 | Λ_chain — the derived filling index | Λ_cinf — the twin index at c → ∞ | Λ_V5 — the correlation closure at the contested rows | The collapse condition — interface only | The defect — interface only
+   numerals: 47 on 24 lines
+    L192: 5
+    L194: 35, 1701 1712
+    L198: 2 120
+    L199: 1 119
+    L200: 107 12
+    L203: 1
+    L206: 1
+    L209: 137.035999
+    L213: 107 107 1701 1702
+    L214: 109 120
+    L221: 1701
+    L227: 107
+    L237: 107 107
+    L238: 1706
+    L247: 5
+    L250: 38, 56, 72, 89, 105
+    L254: 2 1.33 1.24 2.6 2.57 2.73 2.2
+    L255: 1.92 3.32 2.16
+    L267: 1705
+    L280: 91
+    L281: 1703
+    L282: 34
+    L287: 1
+    L298: 1707 1711
+   chapter figures present: 137.035999@L209 107 of 107@L213 107/107@L237 109–120@L214 38, 56, 72, 89, 105@L250 +1.33@L254 +1.24@L254 +2.6@L254 +2.2@L254 +2.16@L255 Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf@L236 Z = 91@L280
+   chapter figures absent: '2–108' '106' '2-108' '109-120' '121' '−1/(2n²)' '-1/(2n²)' '65' '70' '57' '28' '0.058' '0.264' '0.083' '1969' '1950' '1971' 'La, Ac and Th' 'La/Ac/Th' 'nine things' 'twenty-two audits' 'Four of this book' 'fifth' 'nineteen years'
+   phrase 'La, Ac, Th'       x1
+   phrase '{La, Ac, Th}'     x1
