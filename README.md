@@ -58,6 +58,9 @@ it, each with a real contract and a self-check.
   statement of the same thing.
 * [`tools/audit_sc.py`](tools/audit_sc.py) — the Spectra Compendium and the Löwdin solution it
   carries: 16 checks, 15 pass. The two supplies state the same quantities, so each checks the other.
+* [`tools/audit_ioi.py`](tools/audit_ioi.py) — the Index of Indices against the volumes it
+  indexes: 18 checks, 17 pass. Λ₉'s composable count and Λ₁₀'s g = 0 cells are recomputed from the
+  objects rather than compared.
 * [`tools/audit_math.py`](tools/audit_math.py) — the book's own mathematical objects read as an
   index in five languages. All 24 fibres close at E = 0; the grading alone gives a counterexample
   to the agreement theorem's "only if" half.
