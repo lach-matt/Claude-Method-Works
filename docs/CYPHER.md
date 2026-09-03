@@ -225,11 +225,13 @@ than a fault in the parse.
 ## The seed
 
 `min_seed(ix, cap)` computes the least `G` with `ℛ(G) = X` — NP-hard in general (§14.5.7), so it
-is exhaustive to a cap. It is the one place the geometry attribution is checked against a recorded
-figure rather than only corroborated: the seed is **bounded below by the Carathéodory number**,
-which for a product of `d` chains is the breadth `d` (MC §S, citing Carathéodory 1911 — the same
-prior art the geometry operator rests on). Both the bound and the **box seed law**, `d + c − 2`,
-are asserted in the self-test.
+is exhaustive to a cap. The **box seed law**, `d + c − 2`, and its Carathéodory lower bound
+(`seed ≥ breadth = d` for a product of `d` chains; MC §S) are asserted in the self-test.
+
+It is not the geometry evidence. That is the Peck/Sperner check below, against Stanley 1980. Λ's
+own seed is recorded at 7 and is **not** computed here: the search is exponential, and a greedy
+search for a 7-cell generator did not find one within budget. That is a limit of the search, not
+evidence against the 7, and it is not pursued.
 
 ## The tower
 
