@@ -1,3 +1,4 @@
+
 ## Chat 152 (3 September 2026) — the compendia scope: the Register in full, the other four by class sweep
 
 **M, in answer to the scope question put to him** in the repository session of 3 September 2026 — not a
