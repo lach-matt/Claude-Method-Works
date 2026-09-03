@@ -4,7 +4,7 @@
 
 Two things, and they are not the same kind of thing.
 
-**`method/` is the store of record for The Method 1.6.** Both live bundles, all 343 members
+**`method/` is the store of record for The Method 1.6.** Both live bundles, all 358 members
 extracted from them byte-exact, `MEMBER-INDEX.tsv`, and the §0 gate in `method/CLAUDE.md`. Every
 chat opens by reading this tree — `python3 method/verify.py` asserts every member md5 and recovers
 both bundles. Start here. See `method/README.md`.
@@ -56,6 +56,13 @@ findings are written up in `docs/AUDIT-LAMBDA.md`. It adjudicates none of them �
 a claim and a measurement side by side. Five checks failed during its construction and every one
 was the audit's fault, so read a FAIL twice before believing it.
 
+`tools/reseat.py` is the route a seated member's revision takes, and the reason it exists is
+recorded in W-194: BUILD92 appended entries 1798 and 1799 twice over, once carrying a
+`### 1798 — STAGED, not seated` scaffolding heading and once seated, so the Register printed 1798
+twice and 1799 three times. **`register_counts.py` never saw them** — its heading pattern is
+end-anchored, so a suffixed heading counts as prose. A count can be right about the entries and
+blind to the duplicates; do not read COUNTS CURRENT as saying the volume reads correctly.
+
 `python3 tools/register_counts.py` counts the Register and checks both matters against it,
 exiting 1 on drift. An entry is a **heading**, not a number: seven headings carry several numbers
 each (docket 30's seven), so 1,628 single + 7 grouped = the 1,635 the volume prints, while counting
@@ -63,7 +70,7 @@ numbers gives 1,660 and agrees with nothing. `--write` emits a corrected copy an
 place. `tools/close_main.py` is the main-bundle route: `close.py` writes only the compendia bundle
 and reads `--main` for the manifest alone, so Register entries and the Register's own counts had no
 route into the store of record until this. It appends entries, recounts, asserts that no other
-member changed, and reverses everything to recover the old bundle's md5 before writing. The live bundles are now **BUILD94 main** (Register 1 to 1801) and **BUILD186 compendia**, 356
+member changed, and reverses everything to recover the old bundle's md5 before writing. The live bundles are now **BUILD95 main** (Register 1 to 1801) and **BUILD187 compendia**, 358
 members, `VERIFY OK`. The front matter carries TWO count tables — the extent and "What the entries
 are" by kind — and `register_counts.py` keeps both, invoking the seated `kinds.py` for the second. `tools/reseat.py` replaces a seated member's body under the same guard. Two things learned seating them: `close.py` needs Python ≥ 3.12 and must be
 run through `method/bin/python3`, and **a seated member cannot be updated** — `--members` refuses a
