@@ -623,7 +623,7 @@ UNITS = [
 # The contents/body rule, asserted on the two occurrences the store carries.
 BODY = [
     # (member, attribute, token, the line a pointer must resolve to)
-    ("main", "APPENDIX", "A", 9947),   # not 162, the contents; 9939 + 8, the R3 class-WL shift
+    ("main", "APPENDIX", "A", 9939),   # not 162, the contents
     ("main", "CHAPTER", "4", 1436),    # not 117, the contents
 ]
 

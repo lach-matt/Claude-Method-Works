@@ -1,0 +1,8 @@
+id	verdict	reason
+1244	not a defect	"the count was never the thing to assert — it moves whenever the book is written into" is the entry's own finding about E(G), stated and then argued. A proposition, not a rhetorical universal. C9 regex artefact (precedent 678, 680-687, 1067, 1069).
+1245	not a defect	"the depends column, which never has" is a bounded statement about one named column of one table, and the entry computes the rest. C9 regex artefact.
+1246	not a defect	"four values per audit that the book never printed" is a measured absence at a named site — the very defect register 379's INPUT audit was defined to catch. C9 regex artefact.
+1247	not a defect	"random extensions almost never realise a specific order" is hedged ("almost") and is the entry's account of its own buggy instrument, not a claim about the work. C9 regex artefact.
+1248	not a defect	"a result whose input was never printed gives them nothing to disagree with" states the rationale for the twenty-first prime audit, INPUT, defined at §3.7.1. It is the rule as stated. C9 regex artefact.
+1249	not a defect	"Item K was closed at register 365 and never given a row" is a bounded fact about one item, and it is the one missing row the entry's headline reports. C9 regex artefact.
+1250	not a defect	The flagged *always* is in "A closure defect measured once can always be blamed on the boundary" — the entry states the objection in order to answer it, and then does: "this one was tested against ...". Stating an objection is not asserting it. C9 regex artefact.

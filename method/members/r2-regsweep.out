@@ -1,0 +1,85 @@
+
+== 0  THE POPULATION
+   entries (heading lines)                                    1635                       OK
+   bare / grouped                                             (1628, 7)                  OK
+   distinct numbers                                           1660                       OK
+   no entry number printed twice                              []                         OK
+
+== 1  THE ENTRY FORM, OVER EVERY ENTRY
+   entries with a body            : 1635
+   entries whose body is empty    : 0
+   every non-empty body opens on a bold headline              []                         OK
+   entries whose first line carries an ODD number of asterisks: 22
+     entry 26        7 asterisks   notation present
+     entry 27        7 asterisks   notation present
+     entry 313      11 asterisks   CANDIDATE
+     entry 604      25 asterisks   notation present
+     entry 747      35 asterisks   notation present
+     entry 1003     17 asterisks   CANDIDATE
+     entry 1642     33 asterisks   notation present
+     entry 1643     21 asterisks   notation present
+     entry 1646     15 asterisks   notation present
+     entry 1648     11 asterisks   CANDIDATE
+     entry 1649     11 asterisks   CANDIDATE
+     entry 1652     23 asterisks   CANDIDATE
+     entry 1653     17 asterisks   CANDIDATE
+     entry 1657     21 asterisks   CANDIDATE
+     entry 1673     13 asterisks   CANDIDATE
+     entry 1674     17 asterisks   CANDIDATE
+     entry 1677     25 asterisks   CANDIDATE
+     entry 1681     13 asterisks   notation present
+     entry 1682     13 asterisks   CANDIDATE
+     entry 1694     11 asterisks   CANDIDATE
+     entry 1699     13 asterisks   CANDIDATE
+     entry 1774     17 asterisks   CANDIDATE
+   8 carry a recognisable notation token and are very likely correct as printed;
+   14 carry none and are candidates for the reg3-01 class: ['313', '1003', '1648', '1649', '1652', '1653', '1657', '1673', '1674', '1677', '1682', '1694', '1699', '1774']
+   Entry 313 is the one CONFIRMED by reading (reg3-01). The rest are handed to their units.
+
+== 2  REGISTER POINTERS, OVER EVERY VOLUME
+   distinct register numbers cited anywhere : 611
+   cited numbers with no entry, BARE-NUMBER net               [344, 571]                 OK
+   in which volumes: {344: ['main'], 571: ['main']}
+   register_cites.py reports 31 on a RANGE-AWARE net that also expands "registers 344-346"
+   and the "R NNN" form. The two nets are both right about their own convention and the
+   difference is the finding of reg1-05: what a sweep sees is decided by the net it uses.
+
+== 3  ABSENT NUMBERS, AND WHETHER ANYTHING CITES THEM
+   numbers absent in 1..1792                                  132                        OK
+   absent AND cited   : 2 [344, 571]
+   absent and uncited : 130
+   L6574 enumerates eleven "in no group at all", scoped between 203 and 354: [204, 206, 210, 260, 264, 269, 272, 287, 324, 341, 344]
+   absent numbers OUTSIDE that scope: 121 -> [176, 177, 190, 196, 199, 202, 358, 363, 366, 369, 411, 430, 431, 445, 456, 460, 517, 560, 570, 571, 574, 575, 606, 632]
+
+== 4  SECTION POINTERS FROM THE REGISTER INTO THE MAIN VOLUME
+   distinct section pointers in the register : 180
+   resolving in NO volume: ['0', '4.1', '4.2', '4.3', '4.4', '4.5', '4.6', '4.7', '5.7', '8.7', '784']
+     §0      the Spectra Compendium's own §0, where δ is defined (entry at reg L6311)
+     §4.1    Chapter 4's list items, not headings (MAIN_AUDIT V1)
+     §4.2    ditto
+     §4.3    ditto
+     §4.4    ditto
+     §4.5    ditto
+     §4.6    ditto
+     §4.7    ditto
+     §5.7    the companion paper, not this volume (IOI_SPEC_AUDIT I1)
+     §8.7    a section of Transitions v3.0, among the forty-seven this work does not use (reg L6559)
+     §784    a REGISTER NUMBER printed with a § sigil - 26b-08, recorded at W-190
+   section pointers unaccounted for                           []                         OK
+
+== 5  FIGURE NUMERALS: RESOLVES, OR COLLIDES
+   figure numerals named in the register : 5
+   figures actually embedded in the main volume : 32
+   named by the register, NOT embedded : []
+   every other numeral the register names is live; whether it names the RIGHT figure is a
+   claim question and belongs to the unit read (reg4-01 is the worked case at 23.1 / 23.2).
+
+== 6  CHAPTER AND LETTERED POINTERS
+   chapters cited by the register: 1..35 ; the volume runs to 36
+   no chapter cited above the volume's last                   []                         OK
+   lettered pointers: 38 ; not found anywhere in the main volume: ['F.3.2', 'F.3.3']
+
+== SUMMARY
+   instrument checks failed : 0 
+
+   ALL INSTRUMENT CHECKS OK

@@ -1,0 +1,10 @@
+id	verdict	reason
+1190	closed earlier	C9 never at main L8989 (§32.1.4, "E names cells; it never names a coordinate") — closed in the ch16o unit. The earlier line governs (G0b); this reading engages the row and does not re-close it
+1226	closed earlier	C9 never at main L11237 (F.1, "A quantity in this work is never loose") — closed in the ch26a unit, which read the rebuilt appendix entire
+1227	closed earlier	C9 never at main L11260 (F.2, "a fact about the ground and never about the reading") — closed in the ch26a unit
+1228	closed earlier	C9 without exception at main L11298 (F.3, "The work applies this without exception") — closed not a defect in the ch26a unit; carried as a candidate by r2-26b and again not scored here, this family's count word being neither
+1229	closed earlier	C9 never at main L11318 (F.3.1, "never printed as a property of the object") — closed in the ch26a unit
+1230	closed earlier	C9 never at main L11330 (F.4.1's heading, "Two ratios the book had never measured about itself") — closed in the ch26a unit. The heading is the label F.4.1 keeps; 26b-02 is about the content behind it, not the word never
+1465	closed earlier	C9 never at reg R6503 (entry 1762, ruling 25) — closed in the 26b unit
+1466	closed earlier	C9 never at reg R6503 (entry 1762), second flag on the same line — closed in the 26b unit
+1473	closed earlier	C9 never at reg R6589 (entry 1786, "There was never an F.3.1 or an F.3.2") — closed as a DEFECT in the 26b unit against Prints & Proofs, which carries both headings (26b-06)

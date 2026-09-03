@@ -169,7 +169,8 @@ witnessed periodic elements." On the audit order proposed: "I do approve".
 
 **What does not change.** The chat-81 cadence; the gate and the close; findings recorded and flagged, never
 put to M; the chat-67 hold for every class; Register entries append-only; no silent change; the chat-95 bar.
-## Chat 152 (3 September 2026) — the compendia scope: the Register in full, the other four by class sweep
+
+## Chat 151-R (3 September 2026) — the compendia scope: the Register in full, the other four by class sweep
 
 **M, in answer to the scope question put to him** in the repository session of 3 September 2026 — not a
 Method chat. The question was put with three routes and their measured costs and M chose the third.
@@ -211,3 +212,75 @@ for route (ii).
 **What does not change.** The chat-67 hold; the chat-81 cadence; the gate and the close; the chat-95
 escalation bar; findings recorded and flagged, never put to M; Register entries append-only; no silent
 change; the order of correction under RUL-128 item 1.
+
+**Where this was seated.** The answer was given in the repository session of 3 September and staged there unseated while chat 151-B closed BUILD181 through BUILD184 in Drive. It is seated at **BUILD185** by the same repository session (W-194, keyed 151-R), together with the Register read it authorised. **Item 1 is discharged: the Register is read in full, entries 1–1792, in thirteen source-order units plus a whole-volume sweep.** Item 2 is what R2 still owes.
+
+## Chat 151-R (3 September 2026) — two rulings: the chat-67 hold against BUILD91, and the two stores
+
+**M, in answer to two questions put to him** in the repository session of 3 September 2026. Both were
+put with their options and their measured costs; **the answers were given by selection, not in
+words**, so the options are reproduced here as they were put and each choice is checkable against
+them.
+
+### Ruling A — the hold: the entries stand, the repair waits
+
+**The question.** Chat 152's `BUILD91` did two things at once: it appended Register entries
+**1793–1796**, and it **repaired the front-matter and back-matter counts** (`1635 entries, 1 to 1792`
+becoming `1639 entries, 1 to 1796`). The chat-67 full hold says every volume is read in full and that
+there is *no editing, no corrections, no Register entries* until the review closes. **BUILD91 does all
+three.** The three routes put were: (i) split it; (ii) permitted, adopt BUILD91 whole; (iii) crossed,
+set BUILD91 aside entirely.
+
+1. **The entries stand.** Recording a finding as a Register entry is what the review is for, and
+   1793–1796 are findings of the Λ audit. They are seated at **BUILD92 main** — `close_main.py` run
+   **without `--recount`**, so the Register member gains the four entries and **nothing else in it
+   moves**. Proved before the build: BUILD90's Register plus the entries file differs from chat 152's
+   BUILD91 Register **at exactly two lines, both count sites, and nowhere else in 6,627 lines.**
+2. **The repair waits for R3.** A printed number is not corrected under the hold, whoever noticed it
+   and however plainly it is wrong. **reg1-04 stands as a finding** and is repaired in R3 with its
+   class, under the order of RUL-128 item 1.
+3. **`register_counts.py` stays seated as the standing check.** The front matter had no maintaining
+   tool, which is why it drifted; it has one now. It **reports and exits 1; it does not repair.**
+   `--write` is not run under the hold.
+4. **Chat 152's BUILD91 is retired, not adopted.** It remains on
+   `claude/cypher-analysis-method-books-826x0x` and in git history. **The Drive chain's main line goes
+   BUILD90 → BUILD92**, skipping 91 so that no two bundles ever share a name: BUILD91 means chat 152's
+   retired bundle and nothing else. This is the lesson of the BUILD181 collision applied forward
+   rather than resolved after the fact.
+5. **reg1-04 WIDENS, and is measured widening.** Under BUILD90 the front matter was stale by one
+   entry; under BUILD92 it is stale by five — `r2-reg1a` now reports **1,639 headings against a
+   printed 1,635** and **extent high 1796 against a printed 1792** as live deviations rather than as
+   agreement. That is the honest consequence of item 2 and it is recorded, not softened.
+
+### Ruling B — the two stores: hybrid, and the discipline it now requires
+
+**The question.** `W-190` suspended the chat-150 *"the repository is the store of record"* ruling for
+as long as GitHub is unreachable from Cowork. Work has since moved partly to Claude Code sessions that
+reach GitHub directly. The three routes put were: (i) un-suspend, the repository is the store; (ii)
+keep the suspension and carry every build back to Drive; (iii) hybrid.
+
+1. **HYBRID. Drive is the store for Cowork chats; the repository is the store for Claude Code
+   sessions.** `W-190`'s suspension stands for Cowork. Neither surface is authoritative over the
+   other for work in flight.
+2. **One designated session reconciles**, and it must be one that reaches both. That is the only
+   reason the BUILD181 through BUILD184 carry-back was possible at all.
+3. **The discipline this now requires, because 3 September produced two collisions in one day.**
+   Three lines ran in parallel and two of them spent the same W number and the same build number.
+   **A number is not reserved by intending to use it.** So:
+   - **Every build and every W entry names its line in its own heading** — Cowork chat, Claude Code
+     session, or the reconciling session — as `W-194` and `W-195` now do.
+   - **A reconciling session never renumbers another line's seated work on its own judgement.** Both
+     collisions of 3 September went to M and both were ruled by him.
+   - **A carried entry is carried VERBATIM.** Chat 152's entry mislabelled its own chat number;
+     the body was seated unedited and the correction made in the framing above it. **Rewriting
+     another session's entry would falsify a record**, which is the one thing this store exists to
+     prevent.
+   - **Where a name is already spent, the next build skips it** rather than creating a second bundle
+     under it. BUILD91 is skipped for exactly this reason.
+4. **Drive stands at BUILD184 and the repository at BUILD186/BUILD92.** Under the hybrid that is a
+   legitimate state and not a fault, but it is the state in which the collisions happened, so **the
+   next reconciliation is owed before either surface advances two more builds.**
+
+**What does not change.** The chat-67 hold; the chat-81 cadence; the gate and the close; the chat-95
+escalation bar; findings recorded and flagged, never put to M; Register entries append-only; no silent
+change; instruments travel as bundle members (chat 68); the order of correction under RUL-128 item 1.

@@ -1,0 +1,27 @@
+id	verdict	reason
+4	a defect	Thm 11.2 is cited by the register at two sites and printed as a theorem in no volume. Same condition as 26b-09's Thm 11.1; that item records one site, this is a second theorem. MEASURED over all six volumes on (Theorem|Thm).
+5	a defect	The second Thm 11.2 site. Same measurement.
+6	a defect	Thm 12.1 is cited by the register at two sites and printed in no volume. Same class as 26b-09, third theorem.
+7	a defect	§784 is a register number printed with a § sigil and resolves to no section in any volume. This is 26b-08, recorded at W-190; closed here as the defect it already is, not re-scored as new.
+8	a defect	"entry 1000" cites a withdrawn entry: 1000 is in the BUILD10 archive and absent from the live register (reg8-01). The form is invisible to the "register N" net, which is why reg8-02 wrongly concluded the body cites none — corrected at reg12-01.
+9	a defect	The second Thm 12.1 site. Same measurement as row 6.
+10	not a defect	§5.7 is a pointer to the companion paper, not to this volume — IOI_SPEC_AUDIT I1 records the same reading. It resolves where it points.
+11	not a defect	The second §5.7 site. Same reading.
+12	not a defect	Thm 10.1 IS printed outside the register: the Mathematical Compendium carries it at two sites. Not in 26b-09's class. Whether the MC states or merely cites it was not taken here and is recorded as a budget.
+13	a defect	Thm 11.1, cited by the register and printed in no volume. This is 26b-09 exactly (W-190, register L6299, entry 1686); closed here as the defect it already is.
+14	not a defect	§0 is the Spectra Compendium's own §0, where δ is defined, and the entry says so. It resolves in the volume it points at.
+15	a defect	"R 1002" cites a withdrawn entry: 1002 is in the BUILD10 archive and absent live. Invisible to the "register N" net. See reg12-01.
+16	a defect	The second "R 1002" site. Same measurement.
+17	a defect	The third "R 1002" site. Same measurement.
+18	not a defect	§8.7 is a section of Transitions v3.0, named among the forty-seven sections this work does not use — the entry at reg L6559 says exactly that. Correctly absent from this book.
+1546	a defect	Object handle 3B.tri in a reader-facing volume. Ruling 46 forbids object handles and internal references to readers; docket 6 / 28. Same class as 26b-10, which records the BUILD-10 handle and four file names at L6507.
+1547	a defect	Object handle 3B.five. Same class.
+1548	a defect	Object handle 3B.pot. Same class.
+1549	a defect	Object handle 3B.shape. Same class.
+1550	a defect	Object handle 3B.shape. Same class.
+1551	a defect	Object handle 3B.shape. Same class.
+1552	a defect	Object handle 3B.shape. Same class.
+1553	a defect	Object handle 3B.shape. Same class.
+1554	a defect	Object handle 3B.metric. Same class.
+1555	a defect	Object handle 3B.pot. Same class.
+1556	a defect	The BUILD-10 build handle at L6507. This is 26b-10, recorded at W-190; closed here as the defect it already is.

@@ -1,0 +1,64 @@
+
+== 0  THE WITNESS
+   archive: BUILD10 main_and_register, 2022827 B
+   the archive holds a register                             True                       OK
+   BUILD10 register: 1547 numbers, 165..1764
+   live    register: 1664 numbers, 1..1796
+
+== 1  THE FOUR PROVENANCE POINTERS WERE WRITTEN, SEATED, AND REMOVED
+   1725  archive True  live False  **THE RECORD NORMALISED TO ITS OWN SETTLED FORM — 1,517 ENTRIES, ONE HEADLINE AND ONE BODY EACH,
+   1732  archive True  live False  **THE REGISTER'S CITATION COUNTS RECOMPUTED FROM THE FILES, THE LOAD-BEARING TABLE REGENERATED, 
+   1744  archive True  live False  **THE ASTERISK RESIDUES WERE NOT THE FLANKING RULE: THE MAIN VOLUME'S SET-OFF PASSAGES HAD NEVER
+   1756  archive True  live False  **THE CARRIED RESIDUE IS COMPUTED OUT: SEVEN ITEMS THAT STOOD AS "NOT RECOMPUTABLE" OR "OWED" NO
+   1710  archive True  live False  **THREE HYGIENE FAULTS OF ONE SESSION, AND THE PROTOCOL THEY EARN.** *(i) Reference constants tr
+   1743  archive True  live False  **PHASE 4 OPENED: SIX VOLUMES PRESSED TO DOCX AND PDF FROM THE -2 FILES, THE THIRTY-THREE FIGURE
+   all four front-matter pointers exist in the archive      True                       OK
+   and none survives in the live register                   False                      OK
+
+== 2  IT IS A REMOVAL, NOT A RENUMBERING
+   entry 1725's headline: "NORMALISED TO ITS OWN SETTLED FORM"
+   that content appears in any live volume, under any number []                         OK
+   So it was not moved. It was withdrawn with its content, which is what entry 1782 says
+   happened to an unnamed subset of the 132 absent numbers.
+
+== 3  THE SCALE
+   entries in the archive and not in the live register      110                        FINDING (reg8-A)
+   [190, 196, 199, 202, 204, 272, 324, 341, 363, 366, 369, 411, 430, 431, 445, 456, 460, 517, 560, 570, 571, 574, 575, 606, 632, 637, 642, 647, 649, 650, 651, 654, 657, 660, 664, 665, 666, 667, 668, 669, 902, 995, 996, 998, 999, 1000, 1002, 1013, 1051, 1149, 1223, 1245, 1248, 1257, 1358, 1373, 1386, 1388, 1389, 1443, 1477, 1478, 1537, 1564, 1565, 1569, 1570, 1571, 1572, 1594, 1614, 1615, 1616, 1631, 1640, 1650, 1659, 1667, 1668, 1670, 1676, 1680, 1684, 1685, 1688, 1697, 1698, 1710, 1725, 1728, 1730, 1731, 1732, 1735, 1737, 1741, 1742, 1743, 1744, 1745, 1746, 1747, 1752, 1753, 1754, 1756, 1757, 1759, 1760, 1764]
+
+== 4  WHAT THE FRONT MATTER STILL POINTS AT
+   numbers from the withdrawn set appearing in the front matter: [571, 1725, 1732, 1744, 1756]
+   571 is the load-bearing COUNT ("571 entries are cited by other entries"), not a pointer,
+   and is excluded. The remaining four are citations, and all four are provenance:
+   front-matter provenance pointers that were withdrawn     [1725, 1732, 1744, 1756]   FINDING (reg8-B)
+     1725  the settled form, the ruling-C normalisation
+     1732  the citation counts recomputed and the load-bearing table regenerated
+     1744  the asterisk residues -- "THE REGISTER'S TANGLES WERE SPLIT DELIMITERS"
+     1756  the carried residue computed out
+   any OTHER part of the live register cites a withdrawn entry []                         OK
+   The front matter is the only place in the volume that points at a withdrawn entry.
+
+== 5  THE DIAGNOSIS THAT WAS REMOVED WHILE THE DEFECT STAYED
+   archive 1744: **THE ASTERISK RESIDUES WERE NOT THE FLANKING RULE: THE MAIN VOLUME'S SET-OFF PASSAGES HAD NEVER BEEN PARSED AS MARKDOWN AT ALL, THE REGISTER'S TANGLES WERE SPLIT DELIMITERS, AND ONE CLASS WAS A SMART QUOTE.** *Register 1743 counted 738 stray asterisks in the main volume's render and 106 i
+   archive 1743: **PHASE 4 OPENED: SIX VOLUMES PRESSED TO DOCX AND PDF FROM THE -2 FILES, THE THIRTY-THREE FIGURE LINKS WRITTEN INTO THE MAIN VOLUME, AND THE FIRST REN
+   1743, the count 1744 rests on, is also withdrawn         False                      OK
+   entries still carrying the split delimiters 1744 named   275                        FINDING (reg8-C)
+   The register diagnosed this class itself, counted it, and the entries carrying the
+   diagnosis were withdrawn. reg7-01 rediscovered it independently at 275 entries / 429 sites.
+
+== 6  WHY THE WITHDRAWAL ITSELF IS NOT SCORED
+   Ruling 45 forbids build and editorial-process remarks in any reader-facing volume, and
+   every entry examined here is exactly that -- 1743 names build.py and the press pipeline,
+   1732 the citation parser, 1725 the generator's retirement. Removing them from a
+   reader-facing volume is consistent with a ruling in force, so the removal is NOT a
+   finding. What is a finding is that the citations to them were left standing, and that
+   the front matter which cites them still carries the script names and build handles
+   Ruling 46 forbids (reg1-06). The cleanup took the entries and left both loose ends.
+
+== SUMMARY
+   instrument checks failed : 0 
+   findings recorded        : 3
+     reg8-A    entries in the archive and not in the live register  110
+     reg8-B    front-matter provenance pointers that were withdrawn [1725, 1732, 1744, 1756]
+     reg8-C    entries still carrying the split delimiters 1744 named 275
+
+   ALL INSTRUMENT CHECKS OK
