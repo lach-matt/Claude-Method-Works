@@ -1,0 +1,125 @@
+r2-27a.py — 27a-02: do the seven Register entries Appendix G names actually rest on the sections?
+members: The_Method_1_6-2.md 4aef772b | The_Method_1_6___The_Register-2.md 79aaf239 | Transitions.md dabed88e | The_Method_1_6___Mathematical_Compendium-2.md 99a616ec
+
+== §1 THE THREE ROWS, located by scan this chat — the seven numbers are read OUT of the rows, never carried in
+   Appendix G first line                                            11361                      OK
+   Appendix G line count (to `# END MATTER`)                        46                         OK
+   DATA rows in Appendix G                                          30                         OK
+   the three rows are present                                       [True, True, True]         OK
+   row 8.2   L11396  rests on: `W.jur`; Chapter 12; Register 1375, 1519, 1523, 1535, 1551
+        states: A jurisdicted forcing and an unjurisdicted disjunction are the same object. A theorem holding only under a scope condition is inherently ternary, and 
+   row 8.4   L11397  rests on: `W.rel`; Chapter 12; Register 1375
+        states: The vocabularies. A locally covariant QFT is a functor with exactly four parts, which replaces the seven-vocabulary partition.
+   row 10.4c L11400  rests on: `M.C1`; Register 1399, 1403
+        states: C1, computed. The presymplectic potential on a null surface contains no transverse derivative, so Ω is block diagonal and the algebra factorises over 
+   row 8.2 cites                                                    [1375, 1519, 1523, 1535, 1551] OK
+   row 8.4 cites                                                    [1375]                     OK
+   row 10.4c cites                                                  [1399, 1403]               OK
+   the seven distinct entries the column names                      [1375, 1399, 1403, 1519, 1523, 1535, 1551] OK
+
+== §2 THE SECTIONS — each row claims to restate its section; the mechanism is taken from Transitions itself
+   T §8.2   L792  -L811    ### 8.2 A jurisdicted forcing and an unjurisdicted disjunction are the same object
+   T §8.4   L827  -L868    ### 8.4 The vocabularies
+   T §10.4c L1237 -L1269   ### 10.4c C1, computed
+   §8.2 states the ternary mechanism                                True                       OK
+   §8.2 states arity is what makes a defect possible                True                       OK
+   §8.4 states the four-part functor                                True                       OK
+   §10.4c states the null-surface factorisation                     True                       OK
+   row 8.2 restates its section (the row is not itself in doubt)    True                       OK
+   row 8.4 restates its section (the row is not itself in doubt)    True                       OK
+   row 10.4c restates its section (the row is not itself in doubt)  True                       OK
+
+== §3 THE TOKEN PROBE REPRODUCED — READ-ch27a's word sets, and where those words actually live
+   row 8.2   register 1375  row-words present: none
+   row 8.2   register 1519  row-words present: none
+   row 8.2   register 1523  row-words present: none
+   row 8.2   register 1535  row-words present: none
+   row 8.2   register 1551  row-words present: none
+   row 8.4   register 1375  row-words present: none
+   row 10.4c register 1399  row-words present: none
+   row 10.4c register 1403  row-words present: none
+   chat 139's probe: any row word in any cited entry                []                         OK
+   "jurisdict*" actually lives at register(s): [543]
+   "presymplectic" actually lives at register(s): [1511]
+   "null surface" actually lives at register(s): [547, 548, 550, 1472, 1479, 1506, 1510]
+   *jurisdict\** has exactly one Register home                      [543]                      OK
+   *presymplectic* has exactly one Register home                    [1511]                     OK
+   A word probe cannot settle "rests on" in either direction. The reading follows.
+
+== §4 THE READING — every cited entry scored for DEPENDENCE under CONVENTION DEP, with a deciding phrase
+   DEP-N  names the source: "Transitions", "T <n>", "App. G", or the section number
+   DEP-M  its deciding sentence is an instance or consequence of the section's mechanism
+   NEAR   the reading cannot decide; carried as an upper bound, never assigned
+   NOT    another mechanism entirely
+
+   the reading scores every (row, entry) pair the column names exactly once [('10.4c', 1399), ('10.4c', 1403), ('8.2', 1375), ('8.2', 1519), ('8.2', 1523), ('8.2', 1535), ('8.2', 1551), ('8.4', 1375)] OK
+   §8.2   1375  NOT   "THE DUAL OF A.DEFINE"
+               a rung-1 coordinate and its injective dual, both contributing no envelope — A.define's degeneracy, not a scope condition
+   §8.2   1519  NEAR  "which is Freuder's classical result"
+               treewidth one and the Helly number: the SAME arity mechanism read from the low side, but credited to Freuder and derived from register 507, not from §8.2
+   §8.2   1523  NEAR  "Λ at max clique 1"
+               the conflict graph as a shared measure over three topics — arity again, and it names M.C2, whose section is §10.4d and not §8.2
+   §8.2   1535  NOT   "A NILSSON SHELL N ADMITS ONLY"
+               a parity check on a supplied nuclear table; no constraint arity, no jurisdiction, no scope
+   §8.2   1551  NOT   "K I's QUANTUM DEFECTS"
+               an outside companion paper matching a quantum-defect extrapolation; a spectra capture
+   §8.4   1375  NOT   "THE DUAL OF A.DEFINE"
+               the same entry again, and it carries no vocabulary, no functor and no partition of any size
+   §10.4c 1399  NOT   "the sequence as printed was not one measurement"
+               two tower conventions printed as one sequence; an arithmetic collision, not a null-surface algebra
+   §10.4c 1403  NOT   "the corridor's lower endpoint"
+               where a sits in the Λ_T corridor, on eight recorded values; no presymplectic potential and no generator algebra
+   every deciding phrase present in its own entry                   []                         OK
+   entries that NAME the source (DEP-N)                             []                         OK
+   entries whose deciding sentence is an instance of the mechanism (DEP-M) []                         OK
+
+   DEP-N 0 | DEP-M 0 | NEAR 2 [('8.2', 1519), ('8.2', 1523)] | NOT 6
+   the column "what rests on it" is true of the entries it names    0                          DEVIATION (27a-02) — printed 8
+
+== §5 EVERY WARNING ON EVERY CITED ENTRY (docket 9(b) / 35 asks for exactly this)
+   register 1375  WARNING lines: 0
+   register 1399  WARNING lines: 0
+   register 1403  WARNING lines: 1
+   register 1519  WARNING lines: 0
+   register 1523  WARNING lines: 0
+   register 1535  WARNING lines: 0
+   register 1551  WARNING lines: 0
+   cited entries carrying a WARNING                                 [1403]                     OK
+   R5265: **A IS PLACED AT AN ENDPOINT, NEVER IN THE INTERIOR, SO Λ_T'S T IS 0 OR 1 AT EVERY RECALIBRATION.** *The person asked what if t is only ever normalised by one — time is only ever a value at the point of observa
+   1403's WARNING is that the a values are reconstructions          True                       OK
+   row 10.4c restates the qualification on the entry it cites       False                      DEVIATION (27a-02) — printed True
+
+== §6 THE CANDIDATES — what the Mathematical Compendium's own C1 / C2 block rests on
+   MC "The modular ledger" L2406-L2417 cites: [1019, 1020, 1022, 1035, 1483, 1484]
+   the block names T 10.4e and Appendix G as its source             True                       OK
+   none of the seven is among the registers that block cites        []                         OK
+   MC L3502   | 1978 | Freuder | `A.blind` `A.gc` `A.modeA` `A.modeB` `A.three` `G.allcons` `G.prot` `K.corner` `W.jur` |
+   MC L3523   | 1991 | Kay-Wald | `M.C2` |
+   MC L3524   | 1992 | Borchers | `M.C2` `M.hsmi` `M.ledger` |
+   MC L3526   | 1993 | Wiesbrock | `M.C2` `M.hsmi` `M.ledger` |
+   MC L3533   | 2000 | Wald & Zoupas | `M.C1` |
+   MC L3536   | 2003 | Fredenhagen & Verch | `W.rel` |
+   The row's own labels resolve to prior art — W.jur to Freuder 1978, W.rel to Fredenhagen & Verch
+   2003, M.C1 to Wald & Zoupas 2000 — and the C1 / C2 work rests on [1019, 1020, 1022, 1035, 1483, 1484], none of which the row names.
+
+== VERDICT
+   27a-02 STANDS, and the reading is stronger than the probe that recorded it. Of the eight (row, entry)
+   pairs the column asserts, **0 are DEP-N and 0 are DEP-M**: not one of the seven entries names
+   Transitions, its section, or Appendix G, and not one has a deciding sentence that is an instance or a
+   consequence of the mechanism its row states. 6 are another mechanism entirely and 2 are carried as
+   an upper bound and never assigned — 1519, whose treewidth-one result is the same arity mechanism read
+   from the low side but credited to Freuder and to register 507, and 1523, whose conflict-graph measure
+   is arity again and which names M.C2, an object of §10.4d rather than of §8.2.
+   27a-07 NEW. The Mathematical Compendium's own "modular ledger" block names T 10.4e (App. G) as its
+   source and rests on registers [1019, 1020, 1022, 1035, 1483, 1484]. Row 10.4c names 1399 and 1403 instead,
+   and the two sets are disjoint: the compendium and the appendix disagree about what rests on the
+   section, and the appendix is the volume that calls itself the address.
+   27a-08 NEW. Register 1403 is the only one of the seven carrying a WARNING — its eight a values are
+   RECONSTRUCTIONS and not measurements — and row 10.4c prints it as an object resting on a computed
+   result without restating the qualification. Docket 35: a citer either restates it or drops the citation.
+
+DEVIATIONS RECORDED (findings, not instrument faults):
+   27a-02   the column "what rests on it" is true of the entries it names measured 0 against printed 8
+   27a-02   row 10.4c restates the qualification on the entry it cites measured False against printed True
+
+ALL INSTRUMENT CHECKS OK — 2 deviations recorded

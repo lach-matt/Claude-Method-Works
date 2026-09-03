@@ -9,8 +9,8 @@ tree, and nothing is fetched from Drive to open a chat.
 | Path | What it is |
 | --- | --- |
 | `The_Method_1_6_BUILD90_main_and_register.md` | Live main bundle — 1,983,081 B · `49065309b0c4fe8e055f693aed295cca` · 18,470 lines · 2 members |
-| `The_Method_1_6_BUILD180_compendia_papers_audits.md` | Live compendia bundle — 5,757,241 B · `ea5becc40e13debe4faaf6c7e0cde960` · 65,420 lines · 341 members |
-| `members/` | All 343 members extracted from those two bundles, byte-exact. Instruments read these by name. |
+| `The_Method_1_6_BUILD182_compendia_papers_audits.md` | Live compendia bundle — 5,864,276 B · `27e66a61061cec78283c4a88d53ba964` · 66,440 lines · 349 members |
+| `members/` | All 351 members extracted from those two bundles, byte-exact. Instruments read these by name. |
 | `MEMBER-INDEX.tsv` | Per member: bundle, extension, size, md5, and byte offset in its bundle |
 | `verify.py` | The witness check — see below |
 | `CLAUDE.md` | The project instruction and the §0 gate |
@@ -34,19 +34,28 @@ Two independent checks, and a mismatch is a hard failure that is reported, never
    is asserted. This is what makes the extracted tree a witness rather than a plausible copy: a tree
    that passes provably reproduces what the old Drive gate used to extract.
 
-Current state: `members checked: 343  mismatched: 0`, both bundles recovered, `VERIFY OK`.
+Current state: `members checked: 351  mismatched: 0`, both bundles recovered, `VERIFY OK`.
+
+**Two superseded compendia bundles are still in this directory** — `BUILD180` and `BUILD181`. They
+are inputs to nothing and `verify.py` ignores them, but `gate.py manifest` refuses to guess which
+bundle is live and stops unless exactly one is present or `--comp` names it. Delete both; the pair
+above is the live store.
 
 ## Running the gate
 
 ```sh
 ./method/bin/stage-gate                                   # once per container
 export PATH="$(pwd)/method/bin:$PATH"                     # python3 -> 3.12
-python3 method/verify.py                                  # 343 members, both bundles
+python3 method/verify.py                                  # 351 members, both bundles
 cd /home/claude/members
 rm -rf __pycache__ && python3 gate.py census              # byte-identical to the member
 rm -rf __pycache__ && python3 gate.py run --core          # tower-2, kinds, minmax, r2-tools-constants, extent
-rm -rf __pycache__ && python3 gate.py manifest            # 342 listed / 343 extracted
+rm -rf __pycache__ && python3 gate.py manifest            # 350 listed / 351 extracted
 ```
+
+While the two superseded bundles are still present, `gate.py manifest` needs `--comp` naming
+`The_Method_1_6_BUILD182_compendia_papers_audits.md`. Once they are deleted it finds the live one
+on its own.
 
 All of the above was run in this container and passed.
 
@@ -68,23 +77,37 @@ shim must be on `PATH`, not merely used to launch `gate.py`.
 python3.12 -m pip install --break-system-packages numpy sympy
 ```
 
-A few instruments (`r2-ch16n/s/t/u`, `r2-ch17c`) are known not to run in a container of this shape
-and are not part of the gate.
+**Every banked instrument runs here.** An earlier note in this file repeated `HANDOFF-97` §0a's
+claim that `r2-ch16n/s/t/u` and `r2-ch17c` cannot run in a container of this shape. That was never
+measured, and it is wrong: §0a was struck at `W-190`, and all five reproduce their goldens
+byte-exact. Three of them were only ever missing an input — the Prints & Proofs witness — and
+`r2-ch20a`/`r2-ch26a` likewise need the coordinate file. `bin/stage-gate` now links both out of
+`drive/`, so a fresh container runs the whole set with nothing done by hand.
 
-## How BUILD180 got here
+## How BUILD182 got here
 
-BUILD180 is not in Drive as a single file: a 5.7 MB bundle cannot be created through the Drive
-connector, which takes content inline only. It was **rebuilt, not transcribed**, from BUILD179 plus
-the ten `BUILD180-PARTS` files, following `REBUILD-BUILD180.md`, and every assertion in that
-document was checked:
+Chat 151-B closed BUILD181 and BUILD182 in Drive, not here, and it had no choice: from Cowork the
+GitHub App token 404s this private repository and no `add_repo` is provisioned, so at that chat's
+open **M suspended the chat-150 "repository is the store of record" ruling for as long as GitHub is
+unreachable from Cowork** (`W-190`). `BUILDNNN-PARTS` came back with it — the Drive connector takes
+content inline only, so a 5.9 MB bundle cannot be uploaded whole.
 
-* the four `r2-26b.py` parts concatenate to 27,320 B · `bbcf1ed1811aea2ead6bc1559b9c2a21`
-* `gate.py bank r2-26b` regenerated the golden byte-exact — 21,029 B · `d55bf6f57d6f8fb3846c9f55698e00aa` · 190 lines
-* `close.py` produced 5,757,241 B · `ea5becc40e13debe4faaf6c7e0cde960` · 65,420 lines · 341 members
-* the reverse guard recovered BUILD179's `6251dc1351f165aef874b9cf4d8a45c1`
+Neither bundle is in Drive as a file. Both were **rebuilt here, not transcribed**, from BUILD180
+plus the parts, following `REBUILD-BUILD181.md` and `REBUILD-BUILD182.md`. Every part was fetched
+through the Drive connector and checked against the md5 those documents publish — 15 of 15
+byte-exact — and every assertion in them was then re-checked:
 
-`BUILDNNN-PARTS` is now retired: git holds a 5.7 MB bundle directly, so the close writes the whole
-bundle and pushes it.
+* `r2-26c.py` concatenates to 16,897 B · `6f1062f07b0108ee6d2dd395bd232ef0`; `r2-27a.py` to 15,219 B · `103078f4bf922ce6b9e9d5cad1b30224`
+* `gate.py bank` regenerated both goldens byte-exact — `r2-26c.out` 13,613 B · `c1e19648b3d258166e9d6d977baee88f` · 156 lines, `r2-27a.out` 10,142 B · `38e112883a8ce6b581e471b3f866f2c1` · 125 lines
+* `close.py` produced BUILD181 at 5,814,601 B · `2fbcd461cf0af81e3dcbbb0510e705c7` · 345 members, then BUILD182 at 5,864,276 B · `27e66a61061cec78283c4a88d53ba964` · 66,440 lines · 349 members
+* each reverse guard recovered its predecessor — `ea5becc4…` then `2fbcd461…`
+
+The goldens are the point: they were **regenerated by running the instruments here**, not copied.
+A bundle that reproduces them is a derivation, not a plausible copy.
+
+This is a bridge, not a fix. It works only because this container reaches both Drive and GitHub,
+which the Cowork container does not. Until that access is settled, the chain advances in Drive and
+someone has to carry it back — and `BUILD183` is already waiting there.
 
 ## Relationship to `drive/`
 
