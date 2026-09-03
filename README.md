@@ -47,6 +47,9 @@ it, each with a real contract and a self-check.
   language of a declared roster whether it can speak of an index, and read the answer off the
   pattern of who answers and who does not. `--selftest` asserts the corpus's own recorded numbers.
   See [`docs/CYPHER.md`](docs/CYPHER.md).
+* [`tools/audit_lambda.py`](tools/audit_lambda.py) — every reconstructible numeric claim about Λ,
+  checked against the volumes: 61 checks, 59 pass, three findings written up in
+  [`docs/AUDIT-LAMBDA.md`](docs/AUDIT-LAMBDA.md). It adjudicates nothing.
 
 ## Working with Claude here
 
