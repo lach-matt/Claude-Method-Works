@@ -25,8 +25,9 @@ artifacts, not a codebase to maintain or execute.
 
 The exceptions, and they are the only ones: `method/verify.py` and the instruments in
 `method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror,
-`tools/cypher.py` runs the cypher analysis of §33 over an index, and `tools/audit_lambda.py`
-checks every reconstructible numeric claim about Λ against the volumes. Those are real programs with a
+`tools/cypher.py` runs the cypher analysis of §33 over an index, `tools/audit_lambda.py`
+checks every reconstructible numeric claim about Λ against the volumes, and
+`tools/register_counts.py` keeps the Register's own entry counts current. Those are real programs with a
 real contract — see `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CYPHER.md` and
 `docs/AUDIT-LAMBDA.md`.
 
@@ -40,6 +41,13 @@ the operator-bearing set against what a roster claims rather than asserting one.
 findings are written up in `docs/AUDIT-LAMBDA.md`. It adjudicates none of them — a failing row is
 a claim and a measurement side by side. Five checks failed during its construction and every one
 was the audit's fault, so read a FAIL twice before believing it.
+
+`python3 tools/register_counts.py` counts the Register and checks both matters against it,
+exiting 1 on drift. An entry is a **heading**, not a number: seven headings carry several numbers
+each (docket 30's seven), so 1,628 single + 7 grouped = the 1,635 the volume prints, while counting
+numbers gives 1,660 and agrees with nothing. `--write` emits a corrected copy and never writes in
+place. Note that the Register is a member of the frozen **BUILD90_main** bundle, which `close.py`
+does not write — seating a Register entry, or moving its counts, has no route in this tree.
 
 Measured on Λ, the five operator-bearing languages are order, algebra, geometry, information and
 statistics — C(5,2) = 10, all ten agreeing. That is register 1173's count with a different

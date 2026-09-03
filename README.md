@@ -50,6 +50,9 @@ it, each with a real contract and a self-check.
 * [`tools/audit_lambda.py`](tools/audit_lambda.py) — every reconstructible numeric claim about Λ,
   checked against the volumes: 61 checks, 59 pass, three findings written up in
   [`docs/AUDIT-LAMBDA.md`](docs/AUDIT-LAMBDA.md). It adjudicates nothing.
+* [`tools/register_counts.py`](tools/register_counts.py) — keeps the Register's own entry counts
+  current: counts it, checks the front and back matter against it, exits 1 on drift, and `--write`
+  emits a corrected copy without ever writing in place.
 
 ## Working with Claude here
 

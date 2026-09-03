@@ -6,9 +6,19 @@ forms `close.py` and the Register require. The instruments are `tools/cypher.py`
 `tools/audit_lambda.py`; the run is `python3 tools/audit_lambda.py` — 61 recorded claims about Λ,
 **59 PASS, 2 FAIL**, written up in `docs/AUDIT-LAMBDA.md`.
 
-**Family code.** The findings are numbered `cyA-01 …` below. `cyA` is proposed, not assigned — the
-existing families are chapter- and appendix-keyed (`21a`, `23a`, `24a`, `25b`, `26b`, `ch16v`) and a
-new instrument family needs M's code before these numbers are cited anywhere else.
+**Family code — RULED.** `cyA-01 … cyA-04` stand as the designations. M: *"keep the current
+designations"*.
+
+**Seating — RULED.** The instruments seat as members. M: *"yes"*. See the close block at the foot,
+and the blocker below it.
+
+**The counts — RULED, and the tool now exists.** M: *"move the counts. there is supposed to be a
+tool to keep the count and front matter numbers current."* There was not one. `numcheck.py` checks
+an entry's numerals against a source section, `register_cites.py` checks citations, `bookindex.py`
+recomputes §32.1.1 — none maintains the extent. The front matter was hand-kept and went stale,
+which is entry 1796. `tools/register_counts.py` is that tool: it counts the Register, checks both
+matters against it, reports drift and exits 1, and `--write` emits a corrected copy. Run now it
+isolates the three drifted figures; `--appending 4` gives the post-seating targets below.
 
 ---
 
@@ -47,6 +57,28 @@ is reintroduced by the repair:
 
 ---
 
+## The blocker M's "yes" runs into
+
+**`close.py` cannot seat entries 1793–1796, and nothing else in the tree can either.**
+
+`The_Method_1_6___The_Register-2.md` is a member of **BUILD90_main**, which holds two members —
+the main volume and the Register. `close.py` takes `--old`/`--new` on the **compendia** bundle and
+reads `--main` only to build the manifest; it never writes it. Both were verified this session:
+main is `49065309…` and unchanged across W-186 through W-189.
+
+So the four entries divide:
+
+| what | route | status |
+| --- | --- | --- |
+| the instruments as members | `close.py`, compendia BUILD180 → BUILD181 | ready to run |
+| entries 1793–1796 | a main-bundle build | **no route exists** |
+| the count move | in-place edit of a member, which `close.py` asserts against | **no route exists** |
+
+The count move is not an append — it changes two numerals inside a member — and `close.py`'s step
+(6) asserts that every changed old member equals *old body + appended text*. It would refuse, and
+it is right to. `tools/register_counts.py --write` produces the corrected member; carrying it into
+the store of record needs the main-bundle route that does not yet exist.
+
 ## The W entry, in `close.py`'s form
 
 `close.py` requires the text to begin `### W-` and end with a blank line. This is that text.
@@ -82,5 +114,6 @@ Three things are M's to rule before it runs:
 2. **Whether the instruments are seated as members at all.** They were built in `tools/` on M's
    ruling in this session ("tools/ now, seat it later via close.py"); seating them changes both
    bundle md5s and makes them store-of-record.
-3. **The four entries themselves**, and the front-/back-matter counts they move. Entry 1796 is about
-   a count that seating 1793–1796 will itself change, so its repair and its cause land together.
+3. **The main-bundle route.** All three rulings are taken; what is missing is the mechanism for the
+   half of them that touches BUILD90. Entry 1796 is about a count that seating 1793–1796 will
+   itself change, so its repair and its cause land together, and both need that route.
