@@ -8,6 +8,7 @@ This is that procedure as a program.
 python3 tools/cypher.py --selftest                       # against the corpus's own numbers
 python3 tools/cypher.py --list-rosters
 python3 tools/cypher.py --cells cells.tsv --name L_x --roster 1173
+python3 tools/cypher.py --index spec.json --roster 1173 --pairs   # the C(n,2) arithmetic
 python3 tools/cypher.py --index spec.json --roster 33.1 --json
 ```
 
@@ -57,24 +58,57 @@ marks every language it cannot map as `NOT-RUN`. Under `--roster 20.2`, four of 
 ## The operators
 
 Every verdict carries a **status**. `PINNED` means the corpus defines the operator at the
-precision a program needs. `RECONSTRUCTED` means the definition here was derived from the corpus's
-own language-pairings plus the cited literature — corroborated by reproducing recorded numbers,
-but not ruled.
+precision a program needs. `ADOPTED` means the definition was reconstructed from the corpus's own
+language-pairings plus the cited literature, corroborated by reproducing recorded numbers, and
+adopted by ruling. The provenance is kept rather than flattened to `PINNED`, so a later ruling can
+still move it. `DECLARED` means the language answers in a currency other than an admitted set.
 
 | language | status | operator |
 | --- | --- | --- |
 | **order** | `PINNED` | ℛ, §32.4.1. `ℛ(X) = {x ∈ box : xᵢ ≤ φᵢⱼ(xⱼ) ∀ i≠j}`, `φᵢⱼ(a) = max{yᵢ : y ∈ X, yⱼ ≤ a}`. Matches the seated instrument `rclose.py`. Moore 1910; Deville, Barette & Van Hentenryck 1999. |
 | **statistics** | `PINNED` | Max-entropy on the order-*k* marginals. IPF sends a cell to zero exactly when one of its *k*-projections is unobserved, so the support *is* the *k*-wise marginal support. Register 1174; Deming & Stephan 1940; Ireland & Kullback 1968. |
-| **geometry** | `RECONSTRUCTED` | The integer points of the polytope `A x ≤ b`, relaxed to the two-variable rows the method's `A` actually has: admit `x` when every 2-D shadow `(xᵢ, xⱼ)` lies in the convex hull of that shadow of `X`. Carathéodory 1911; Schrijver 1986. |
-| **algebra** | `RECONSTRUCTED` | The sublattice closure — iterate coordinatewise meet and join to a fixed point. §7.3; Birkhoff, *Lattice Theory* (1940). |
-| **information** | `RECONSTRUCTED` | Not an admission operator. Per coordinate: does removing it lose cells? A coordinate that individuates every cell is reported as a **key, not an axis** — register 1356, the fault that voided Λ_ladder's closure. §33.3: *where information says a coordinate adds nothing, remove it.* |
+| **geometry** | `ADOPTED` | The integer points of the polytope `A x ≤ b`, relaxed to the two-variable rows the method's `A` actually has: admit `x` when every 2-D shadow `(xᵢ, xⱼ)` lies in the convex hull of that shadow of `X`. Carathéodory 1911; Schrijver 1986. |
+| **algebra** | `ADOPTED` | The sublattice closure — iterate coordinatewise meet and join to a fixed point. §7.3; Birkhoff, *Lattice Theory* (1940). |
+| **information** | `ADOPTED` | The seed and its regrowth: take the join-irreducible elements of X and close them under join. Birkhoff 1937 — every element of a finite distributive lattice is a join of join-irreducibles, so a distributive index regenerates from its seed exactly. This is the compendium's own object: *"the matrix A and nothing more, from which all 976 cells regenerate."* It also reports per coordinate whether removing it loses cells, and flags a coordinate that individuates every cell as a **key, not an axis** — register 1356, the fault that voided Λ_ladder's closure. |
 | **analysis** | `DECLARED` | Not an admission operator: it asks whether a continuous law exists, answered by a fit or by the absence of a derivative. Must be declared with a witness, else `NOT-RUN`. |
 | **documentary** | `PINNED` | Silent by construction. No closure mechanism exists — it returns a citation, not a binary, which is why it earns no operator row. P20's table; register 1173. |
 
-Three operator *types* fall out, and the split is itself a finding the code makes visible: five
-languages admit cells, `information` scores coordinates, and `analysis` and `documentary` answer
-in a different currency entirely. §33.1's table asks all six the same question; they do not all
-answer the same kind.
+## The five, measured
+
+Which languages are operator-bearing is not declared to the tool — it is **measured**. Register
+1173's own test is *"a language earns its row when logic can operate on it and get a binary
+back"*, so the tool counts a language as operator-bearing on an index when it actually returned an
+admitted set, and computes C(n,2) from that. `--pairs` prints the claim beside the measurement.
+
+Run against Λ under `--roster 1173`:
+
+```
+operator-bearing, CLAIMED by roster 1173 (5): order, algebra, analysis, geometry, information
+    -> C(5,2) = 10, roster asserts 10
+operator-bearing, MEASURED on this index (5): algebra, geometry, information, order, statistics
+    -> C(5,2) = 10
+    claimed but returns no binary: analysis
+    measured but not claimed:      statistics
+
+10 of 10 pairs agree.
+```
+
+**The count survives and the membership does not.** C(5,2) = 10 still closes, and all ten pairs
+agree on Λ — but the five are not the five register 1173 names. `statistics` returns a binary per
+cell and is operator-bearing by 1173's own criterion; `analysis` does not, and leaves the five.
+
+The two special rows are therefore `analysis` and `documentary`, and they are special for
+**different reasons** — which is the part register 1173's three levels do not yet cover:
+
+* **documentary** has no mechanism at all. It returns a citation. It is `SILENT` by construction.
+* **analysis** has a mechanism — a fit — but it returns a *magnitude*, an R² or a slope, not a
+  binary. Logic cannot operate on it to get a cell decision, so it cannot join the pairwise
+  arithmetic, but its silence is a real finding when it comes (a finite set of surds has no
+  derivative) and must be declared with a witness rather than assumed.
+
+The discriminating run is the periodic table at three coordinates, where the same five give
+**1 of 10** pairs agreeing — order and algebra alone, both at E = 100, against geometry 83,
+information 24 and statistics 0.
 
 ## Coordinates must be ordinal, and the order matters
 
@@ -119,18 +153,19 @@ The fixtures are the corpus's own recorded numbers. Failures are reported, never
 
 | fixture | asserted | source |
 | --- | --- | --- |
-| Λ, 8 coordinates at the caps of §7.4 | 976 cells, box 6,912, `E = 0` in order, geometry, algebra and statistics | §7.4, §10, MC "closed under coordinatewise ∨ and ∧"; "the integer points of the polytope `A x ≤ b` are the lattice exactly" |
+| Λ, 8 coordinates at the caps of §7.4 | 976 cells, box 6,912, `E = 0` in order, geometry, algebra, information and statistics | §7.4, §10, MC "closed under coordinatewise ∨ and ∧"; "the integer points of the polytope `A x ≤ b` are the lattice exactly" |
 | Λ, statistics by marginal order | order-1 admits 6,912; order-2 admits 976 | register 1174 |
 | periodic table, period × group | 90 cells, `E = 36` | §21.1; DEFERRED records 90 cells at E = 36 |
-| periodic table, + block | `E(order) = 100` against `E(statistics) = 0` | register 1175 |
+| periodic table, + block | `E(order) = 100` against `E(statistics) = 0`; information 24 | register 1175 |
 | Janet, n+ℓ × ℓ | `E = 0` | register 1175 |
 | degeneracy guard | fires at `d = 2`, not at `d = 3` | register 1175 |
 
 Current state: `SELFTEST OK`.
 
-That the three `RECONSTRUCTED` operators each reproduce a number recorded independently of them
-is the evidence for their definitions. It is corroboration, not a ruling — if a ruling lands that
-contradicts one, the operator changes and the self-test is what will catch it.
+That the three `ADOPTED` operators each reproduce a number recorded independently of them is the
+evidence for their definitions, and is why they were adopted. Λ's 976 cells regenerate from
+**18 join-irreducibles** — the strongest of the three, because nothing was fitted to it. If a
+later ruling contradicts one, the operator changes and the self-test is what will catch it.
 
 ## Known gaps
 
@@ -143,3 +178,8 @@ contradicts one, the operator changes and the self-test is what will catch it.
   ones.
 - **`arithmetic`, `calculus`, `constraint-language`, `logic`** have no ruled operator mapping and
   read `NOT-RUN` under `--roster 20.2`.
+- **The two pairs the volumes never exhibit.** Under the *measured* five, C(5,2) = 10 closes on Λ.
+  Under the five register 1173 *names*, MC's ten-pair enumeration exhibits only eight of the
+  required ten — `algebra–analysis` and `geometry–information` appear nowhere in the four volumes,
+  and two of the ten it does exhibit (`logic–algebra`, `logic–analysis`) rest on logic, which 1173
+  demotes from a language. The measurement above is the cleaner route to the same count.

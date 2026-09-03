@@ -35,7 +35,12 @@ from dataclasses import dataclass, asdict
 # --------------------------------------------------------------------- state
 
 SPEAKS, SILENT, NOT_RUN = "SPEAKS", "SILENT", "NOT-RUN"
-PINNED, RECONSTRUCTED, DECLARED = "PINNED", "RECONSTRUCTED", "DECLARED"
+# PINNED   — the corpus defines the operator at the precision a program needs.
+# ADOPTED  — reconstructed from the corpus's own language-pairings plus the cited literature,
+#            corroborated against recorded numbers, and adopted by ruling. The provenance is
+#            kept rather than flattened to PINNED: a later ruling can still move it.
+# DECLARED — answers in a currency other than an admitted set; needs a witness.
+PINNED, ADOPTED, DECLARED = "PINNED", "ADOPTED", "DECLARED"
 
 
 @dataclass
@@ -195,6 +200,41 @@ def op_algebra(ix, opts):
         S |= new
 
 
+def op_information(ix, opts):
+    """Does a coordinate add join-irreducibles? Its admission form is the seed and its regrowth:
+    take the join-irreducible elements of X and close them under join. Birkhoff's representation
+    theorem (1937) — every element of a finite distributive lattice is a join of join-irreducibles,
+    so a distributive index regenerates from its seed exactly. The Math. Compendium states the same
+    object: 'the matrix A and nothing more, from which all 976 cells regenerate'."""
+    X = ix.cells
+    Xs = set(X)
+    seed = []
+    for x in X:
+        below = [y for y in Xs if y != x and all(a <= b for a, b in zip(y, x))]
+        if not below:
+            seed.append(x)
+            continue
+        sup = below[0] if len(below) == 1 else tuple(map(max, *below))
+        if sup != x:
+            seed.append(x)
+    budget = opts.get("algebra_budget", 20000)
+    S = set(seed)
+    while True:
+        if len(S) > budget:
+            return None, f"join-closure exceeded {budget} cells; raise --algebra-budget"
+        L = sorted(S)
+        new = set()
+        for a in range(len(L)):
+            x = L[a]
+            for b in range(a + 1, len(L)):
+                z = tuple(map(max, x, L[b]))
+                if z not in S:
+                    new.add(z)
+        if not new:
+            return S, f"join-closure of {len(seed)} join-irreducibles"
+        S |= new
+
+
 def op_documentary(ix, opts):
     """No closure mechanism exists (P20's table; register 1173). Silent by construction — it
     returns a citation, not a binary, which is why it earns no operator row."""
@@ -207,12 +247,15 @@ ADMISSION = {
               "(monotone staircases); seated instrument rclose.py"),
     "statistics": (op_statistics, PINNED,
                    "register 1174; Deming & Stephan 1940, Ireland & Kullback 1968 (IPF)"),
-    "geometry": (op_geometry, RECONSTRUCTED,
+    "geometry": (op_geometry, ADOPTED,
                  "Math. Compendium 'the integer points of the polytope A x <= b are the lattice "
                  "exactly'; Caratheodory 1911; Schrijver 1986 (integer hull)"),
-    "algebra": (op_algebra, RECONSTRUCTED,
+    "algebra": (op_algebra, ADOPTED,
                 "Math. Compendium 'closed under coordinatewise join and meet', §7.3; "
                 "Birkhoff, Lattice Theory (1940)"),
+    "information": (op_information, ADOPTED,
+                    "Math. Compendium 'the matrix A and nothing more, from which all 976 cells "
+                    "regenerate'; Birkhoff 1937 (representation theorem); §33.3"),
     "documentary": (op_documentary, PINNED,
                     "P20's table; register 1173 — returns a citation, not a binary"),
 }
@@ -264,7 +307,7 @@ def _in_hull2(p, H):
     return True
 
 
-def information(ix):
+def coordinate_report(ix):
     """Does a coordinate add anything? Per coordinate: the cells surviving its removal, and
     whether it individuates every cell — a coordinate that does is a key and not an axis
     (register 1356, the fault that voided Lambda_ladder's closure)."""
@@ -292,6 +335,8 @@ ROSTERS = {
                       "statistics", "documentary"],
         "note": "five operator-bearing languages give C(5,2) = 10 combinations, "
                 "plus statistics as a sixth and documentary as a seventh",
+        "operator_bearing": ["order", "algebra", "analysis", "geometry", "information"],
+        "pairs_claimed": 10,
     },
     "33.1": {
         "cite": "§33.1 — the six the cypher chapter asks",
@@ -304,6 +349,7 @@ ROSTERS = {
                       "constraint-language"],
         "note": "shares only two names with §33.1's six; 'arithmetic', 'calculus', 'logic' and "
                 "'constraint-language' have no ruled operator mapping (docket 20x-04)",
+        "pairs_claimed": 10,
     },
 }
 
@@ -325,19 +371,15 @@ def run(ix, roster_name, opts):
                                         f"NOT EXTENSIVE — drops {lost} of its own cells", basis))
                 continue
             admitted_sets[lang] = out
+            if lang == "information":
+                rows, keys = coordinate_report(ix)
+                dead = [r["coordinate"] for r in rows if r["adds_nothing"]]
+                if dead:
+                    note += " | adds nothing: " + ", ".join(dead)
+                if keys:
+                    note += f" | KEY not axis: {', '.join(keys)} (reg 1356)"
             verdicts.append(Verdict(lang, SPEAKS, status, len(out),
                                     len(out) - len(ix.cells), note, basis))
-
-        elif lang == "information":
-            rows, keys = information(ix)
-            dead = [r["coordinate"] for r in rows if r["adds_nothing"]]
-            note = "no coordinate is idle" if not dead else \
-                   "adds nothing: " + ", ".join(dead)
-            if keys:
-                note += f" | KEY not axis: {', '.join(keys)} (reg 1356)"
-            verdicts.append(Verdict(lang, SPEAKS, RECONSTRUCTED, note=note,
-                                    basis="§33.3 'where information says a coordinate adds "
-                                          "nothing, remove it'; Birkhoff 1937"))
 
         elif lang in DECLARED_ONLY:
             d = ix.declared.get(lang)
@@ -362,8 +404,21 @@ def run(ix, roster_name, opts):
         agree = len({frozenset(v) for v in measured.values()}) == 1
     all_zero = all(len(v) == len(ix.cells) for v in measured.values()) if measured else None
 
+    # Which languages are operator-bearing is not declared here: it is measured. A language is
+    # operator-bearing on this index when it returned an admitted set — register 1173's own test,
+    # "logic can operate on it and get a binary back" — and C(n,2) follows from what was measured.
+    bearing = sorted(admitted_sets)
+    pairs = [{"a": a, "b": b,
+              "agree": frozenset(admitted_sets[a]) == frozenset(admitted_sets[b])}
+             for a, b in itertools.combinations(bearing, 2)]
+
     degenerate = ix.d <= opts.get("statistics_order", 2)
     return {
+        "operator_bearing_measured": bearing,
+        "operator_bearing_claimed": roster.get("operator_bearing"),
+        "pairs_claimed": roster.get("pairs_claimed"),
+        "pairs": pairs,
+        "pairs_agreeing": sum(p["agree"] for p in pairs),
         "index": ix.name,
         "coordinates": ix.coords,
         "d": ix.d,
@@ -381,6 +436,39 @@ def run(ix, roster_name, opts):
         "warnings": ix.warnings,
         "_verdicts": verdicts,
     }
+
+
+def pairs_report(res):
+    """The C(n,2) arithmetic, measured rather than declared."""
+    o = [""]
+    n = len(res["operator_bearing_measured"])
+    cn2 = n * (n - 1) // 2
+    claimed = res["operator_bearing_claimed"]
+    if claimed:
+        c = len(claimed)
+        o.append(f"  operator-bearing, CLAIMED by roster {res['roster']} ({c}): "
+                 f"{', '.join(claimed)}")
+        o.append(f"      -> C({c},2) = {c*(c-1)//2}"
+                 + (f", roster asserts {res['pairs_claimed']}"
+                    if res.get("pairs_claimed") else ""))
+    o.append(f"  operator-bearing, MEASURED on this index ({n}): "
+             f"{', '.join(res['operator_bearing_measured'])}")
+    o.append(f"      -> C({n},2) = {cn2}")
+    if claimed:
+        lost = [l for l in claimed if l not in res["operator_bearing_measured"]]
+        gained = [l for l in res["operator_bearing_measured"] if l not in claimed]
+        for l in lost:
+            o.append(f"      claimed but returns no binary: {l}")
+        for l in gained:
+            o.append(f"      measured but not claimed:      {l}")
+    o.append("")
+    o.append(f"  {'pair':<28} verdict")
+    o.append(f"  {'-'*28} {'-'*7}")
+    for p in res["pairs"]:
+        o.append(f"  {p['a'] + ' + ' + p['b']:<28} "
+                 f"{'agree' if p['agree'] else 'DIFFER'}")
+    o.append(f"\n  {res['pairs_agreeing']} of {cn2} pairs agree.")
+    return "\n".join(o)
 
 
 def report(res):
@@ -469,12 +557,13 @@ def _janet():
 
 FIXTURES = [
     # (label, builder, expected E by language, expected scalars)
-    ("Lambda", _lambda, {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0},
+    ("Lambda", _lambda,
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
      {"cells": 976, "box": 6912}),
     ("periodic table 2-D", _periodic, {"order": 36}, {"cells": 90}),
-    ("periodic table 3-D", lambda: _periodic(True), {"order": 100, "statistics": 0},
-     {"cells": 90}),
-    ("Janet 2-D", _janet, {"order": 0}, {}),
+    ("periodic table 3-D", lambda: _periodic(True),
+     {"order": 100, "statistics": 0, "information": 24}, {"cells": 90}),
+    ("Janet 2-D", _janet, {"order": 0, "information": 0}, {}),
 ]
 
 
@@ -544,6 +633,8 @@ def main(argv=None):
     p.add_argument("--statistics-order", type=int, default=2, dest="statistics_order")
     p.add_argument("--algebra-budget", type=int, default=20000, dest="algebra_budget")
     p.add_argument("--json", action="store_true", help="machine-readable output for audits")
+    p.add_argument("--pairs", action="store_true",
+                   help="measure the operator-bearing set and its C(n,2) pairwise agreement")
     p.add_argument("--list-rosters", action="store_true")
     p.add_argument("--selftest", action="store_true")
     a = p.parse_args(argv)
@@ -567,6 +658,8 @@ def main(argv=None):
         print(json.dumps(res, indent=2))
     else:
         print(report(res))
+        if a.pairs:
+            print(pairs_report(res))
     return 0
 
 
