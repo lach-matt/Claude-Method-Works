@@ -50,6 +50,9 @@ it, each with a real contract and a self-check.
 * [`tools/audit_lambda.py`](tools/audit_lambda.py) — every reconstructible numeric claim about Λ,
   checked against the volumes: 61 checks, 59 pass, three findings written up in
   [`docs/AUDIT-LAMBDA.md`](docs/AUDIT-LAMBDA.md). It adjudicates nothing.
+* [`tools/audit_mc.py`](tools/audit_mc.py) — the Mathematical Compendium's non-Λ claims: 24
+  checks, 23 pass. All 18 section object counts and the eighteen roots reproduce, as do all three
+  of Λ_law's ordering figures.
 * [`tools/audit_math.py`](tools/audit_math.py) — the book's own mathematical objects read as an
   index in five languages. All 24 fibres close at E = 0; the grading alone gives a counterexample
   to the agreement theorem's "only if" half.
