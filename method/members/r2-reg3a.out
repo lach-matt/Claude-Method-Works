@@ -1,0 +1,61 @@
+
+== 0  THE UNIT, BOUNDED BY ITS OWN SCAN
+   block opens at entry 95                                    451                          OK
+   entry 165 opens the mature record                          731                          OK
+   entries in the block                                       70                           OK
+   numbered 95..164 with no gap                               True                         OK
+   unit = L451-L730, 280 lines
+
+== 1  UNIFORMITY, MEASURED RATHER THAN SAMPLED
+   distinct body lines in seventy entries                     1                            OK
+   that body appears once per entry                           70                           OK
+   the single body: **SUPERSEDED (Λ₈ successor development); see register 313.**
+   any other non-empty content                                []                           OK
+
+== 2  THE PRINTS & PROOFS WITNESS (Ruling 56), WHICH SETTLES THE UNIT
+   PP Register 1145832 B  md5 96b5fc2aca602a2d6bc899c93686458e
+   PP Register lowest entry                                   165                          OK
+   PP Register highest entry                                  1700                         OK
+   PP entries below 165                                       []                           OK
+   PP holds 1268 headings / 1293 numbers; the seated Register holds 1,635 / 1,660.
+   READING: entries 1-164 are POST-WITNESS. The superseded block was created as markers,
+   not emptied of content. The append-only rule is not engaged and nothing was deleted.
+
+== 3  THE TARGET ENTRY 313
+   register 313 exists                                        True                         OK
+   L1165: **TIME MUST NOT ENTER Λ* WAS A MISSTATEMENT** *, refuted by computation. Λ already carries time — source, transfer, target — and what Λ₈ cannot do is*
+   entry 313 parses as headline + italic body                 False                        DEVIATION (reg3-A) - printed True
+   asterisks on the line: 11 ; a clean "**head** *body*" carries 4
+   the headline reads "TIME MUST NOT ENTER Λ*" -- the emphasis marker stands where the
+   quotation closes; the body then opens "*, refuted by computation" with a leading comma,
+   and carries "is* *iterate**" mid-sentence. The emphasis is scrambled, not merely odd.
+
+== 4  THE CITATION DIRECTION, AND WHAT THE LOAD-BEARING TABLE CANNOT SEE
+   313 cited by entries, counting all entries                 71                           OK
+   313 cited, with 95-164 dropped (the convention)            1                            OK
+   entries 313 itself cites: none
+   READING: the link is ONE-WAY. The standing rule words it the other way -- "a superseded
+   entry is corrected by a new entry that cites it" -- and 313 cites none of the seventy.
+   At 71 citations 313 is the most-cited entry in the volume, and it appears nowhere in the
+   load-bearing table, because register_cites.py drops 95-164. The exclusion is the chat-52
+   ruling and is correct; the table's own sentence does not state it.
+
+== 5  THE FRONT MATTER'S CLAIM ABOUT THIS BLOCK
+   "entries 95 to 164 are the superseded Λ₈ successor-development stretch, each marking the
+   later entry that supersedes it"
+   every entry marks a later entry                            True                         OK
+   313 is later than every entry in the block                 True                         OK
+   all seventy mark the SAME entry                            1                            OK
+   Exact as printed. "Each marking the later entry" is true of every one; measured, they all
+   mark one entry, which the sentence permits and does not state.
+
+== 6  CENSUS
+   census rows in range                                       0                            OK
+   No row engages the block. CENSUS-CLOSURES-reg3.tsv is header-only.
+
+== SUMMARY
+   instrument checks failed : 0 
+   deviations recorded      : 1
+     reg3-A    entry 313 parses as headline + italic body         measured False          printed True
+
+   ALL INSTRUMENT CHECKS OK
