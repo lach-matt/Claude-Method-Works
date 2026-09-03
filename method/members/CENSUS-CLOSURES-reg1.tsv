@@ -1,0 +1,4 @@
+id	verdict	reason
+3	a defect	MEASURED: `### 1725` has 0 heading lines in the Register; 1723, 1724 and 1726 all have 1. The front-matter sentence that names 1725 as the entry recording the settled form therefore resolves to nothing. Re-confirms the state W-168 recorded and extends it: 1732, 1744 and 1756 are absent on the same measurement (reg1-05).
+1232	not a defect	The flagged token *never* in "A correction never replaces what it corrects" is the section's own stated discipline, not a claim about the world — the C9 regex-artefact precedent (678, 680-687, 1067, 1069) governs. The register's practice is measured to keep both states.
+1233	not a defect	The flagged token *never* in "patterns that were never printed" is a factual statement about the first-reading column's provenance, bounded to this file. Not an overgeneralisation; C9 regex artefact.
