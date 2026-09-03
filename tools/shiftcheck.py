@@ -123,6 +123,18 @@ def hunks(banked, now):
 def classify(banked, now, shifts, substs, protect=()):
     if banked == now:
         return 'UNCHANGED', None
+
+    # When the outputs have the same number of lines, compare POSITIONALLY and never through difflib.
+    # These reports print absolute line numbers on most lines, so a shift changes every line in a block;
+    # difflib then re-pairs them by content into unbalanced hunks that cannot be zipped, and a shift that
+    # is fully explained looks structural. Position is the truth here: line i answers for line i.
+    bl, nl = banked.split('\n'), now.split('\n')
+    if len(bl) == len(nl):
+        for a_, b_ in zip(bl, nl):
+            if a_ != b_ and normalise(a_, shifts, substs, protect) != b_:
+                return 'UNEXPLAINED', (a_, b_)
+        return 'EXPLAINED', None
+
     for h in hunks(banked, now):
         if len(h['m']) != len(h['p']):
             return 'UNEXPLAINED', (h['m'][0] if h['m'] else '(added line)',
@@ -145,6 +157,8 @@ def selftest():
         ('undeclared count',      'Register: 1632 headings',   'Register: 1635 headings',   S, U, 'UNEXPLAINED'),
         ('mis-targeted read',     'L9722: The challenge posed','L9722: ---',                S, U, 'UNEXPLAINED'),
         ('added line',            'one\ntwo',                  'one\ntwo\nthree',           S, U, 'UNEXPLAINED'),
+        ('positional block',      '  9700 a\n  9701 b',        '  9708 a\n  9709 b',        S, U, 'EXPLAINED'),
+        ('positional, one bad',   '  9700 a\n  9701 b',        '  9708 a\n  9709 c',        S, U, 'UNEXPLAINED'),
     ]
     # a protected span keeps its numbers while the rest of the line shifts
     got, _ = classify('PP P[9873] -> volume L[10224]', 'PP P[9873] -> volume L[10232]', S, U, (r'P\[\d+\]',))
