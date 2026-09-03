@@ -1,0 +1,64 @@
+
+== 0  THE UNIT
+   unit opens at entry 246                                  971                          OK
+   entry 290 opens the next unit                            1091                         OK
+   unit = L971-L1090, 120 lines, entries 246..289, 30 headings
+
+== 1  THE GAPS, CLASSIFIED AGAINST THE WHOLE REGISTER
+   gaps 14 ; under a grouped heading 9 [253, 254, 256, 259, 280, 283, 284, 286, 288]
+   absent from the register entirely 5 [260, 264, 269, 272, 287]
+   of those, named in L6574's eleven: [260, 264, 269, 272, 287]
+   NOT named there: []
+
+== 2  EVERY SECTION POINTER RESOLVED TO ITS HEADING AND ITS CLAIM
+   §2.14      L657    Compute, then write                              
+   §3.8       L1366   How the set grew, and the two things that held   
+   §4         L117    The failures of the assistant, and the protocol  
+   §11.1.1    L2094   A seventh, in binary, and it earns its place     
+   §24.9      L6752   A caveat the collection forced                   
+   §28.7.3    L7559   Seventy-five more from the audit work of the fin 
+   §29.5      L7961   Edlén 1964, examined at one remove               
+   §30.3.3    L8451   What the interval machinery was                  
+
+== 3  ENTRY 289 AGAINST §28.7.3, AND WHAT THE RECORD ALREADY HOLDS
+   §28.7.3 L7559: Seventy-five more from the audit work of the final session, all printed — retained in the compendium here
+   no section 28.7.x is titled "Fifteen more"               False                        OK
+   entry 290 records the repair 289 points at               True                         OK
+   WITHDRAWN, not scored. Entry 289 states the title as it stood; entry 290 records the
+   repair ("four headings stated a count of withdrawals made while printing a selection.
+   Each now states both figures"). A superseded title inside an entry is the record of what
+   was written -- the register's own Appendix F protocol -- and 290 is the correcting entry.
+   Book right, instrument wrong. This instrument's fault 3.
+   Entry 289 records that the title's count word cannot be settled from the section and
+   predates every session here, and that 290 repairs it by stating the range. This is the
+   SAME SECTION W-188 scored at 25b-08, from the other side: there the count word "Seventy-
+   five ... all printed" was measured at 63 of 75 printed. Two findings, one section, and
+   the register already carries the first. Recorded, not re-scored.
+
+== 4  ARITHMETIC THE ENTRIES STATE ABOUT THEMSELVES
+   258: pairs over the 976 cells (C(976,2))                 475800                       OK
+   267: words in {0,1}^17                                   131072                       OK
+   268: the alphabet closed size                            17                           OK
+   281: sixteen pass and two flag over eighteen audits      18                           OK
+   277: nineteen computable and ten decisions               29                           OK
+   248 / 255 / genesis 8 all state the ambient box at 6,912, and genesis 8 prints the ratio:
+   976 / 6,912 = 0.1412, printed as 14.1%
+   976 of 6,912 rounds to the printed 14.1%                 14.1                         OK
+   the three statements of the ambient box agree            1                            OK
+
+== 5  BUDGETS, EACH WITH ITS WITNESS
+   tower-2 prints {8: 976, 9: 1654, 10: 2535, 11: 13585, 12: 70905, 13: 199130}
+   249's 47,775,744 is the AMBIENT box at Λ₁₃, not the lattice; tower-2 prints the lattice
+   at 199,130 and no ambient. 199,130 / 47,775,744 = 0.00417. NOT reproducible from the page:
+   the ambient box's factorisation is not printed. A budget with its witness. Docket 10.
+   273 / 274 / 275 / 276 (E(audits) = 11, then 0 at three coordinates, then 19 with DEPTH,
+   dim = 2) rest on the audit lattice, which is not a member. Budget, recorded for R3.
+
+== 6  CENSUS
+   census rows in range: 0
+
+== SUMMARY
+   instrument checks failed : 0 
+   deviations recorded      : 0
+
+   ALL INSTRUMENT CHECKS OK
