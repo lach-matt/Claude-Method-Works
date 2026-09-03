@@ -277,6 +277,27 @@ Sperner survives and symmetry does not, exactly as the book says. Two things cam
 
 Both are recorded here rather than repaired — the volumes are the store of record.
 
+## The math read as an index
+
+`tools/audit_math.py` reads the book's own mathematical objects — the 77 elements the seated
+`dclose.py` carries — in all five operator-bearing languages, three ways:
+
+| reading | result |
+| --- | --- |
+| **as one object**, kind and discipline on axes | wide open: E = 492 in order, 1 of 10 pairs agreeing. Nominal coordinates individuate rather than order, and register 1356 names putting such a coordinate on an axis as the fault that voided Λ_ladder. `dclose.py` fibres over them for that reason, so this is the expected refutation, not a finding. |
+| **per fibre** | **all 24 fibres close at E = 0 in every language.** `dclose.py` shows this in order alone; it holds in five. |
+| **the grading alone**, (status, verification, precedent) over all 77 | 11 cells in a 16-cell box; every language admits the same 13; **E = 2**. |
+
+The third is a **counterexample to the corpus's own agreement theorem**. Register 1176 states
+`E(X) = 0` **if and only if** the languages agree, on six indexes and three operators, *"without
+exception"*. Here five languages return an identical admitted set — they agree exactly — and E = 2.
+Agreement without closure, so the "only if" half does not hold in general. The two cells admitted
+and not held are `measured · exhaustive · found` and `verified · sampled · found`, both gradings a
+mathematical object could carry, neither occurring among the 77.
+
+The defect census already flags that entry's *"without exception"* as `C9-OVERGENERALISATION-WORD`
+(row 1321). This is the exception it was flagged for. The program exits 1 while it stands.
+
 ## Known gaps
 
 - **The calendar at three coordinates is not built.** The 2-D calendar is a fixture and reproduces
