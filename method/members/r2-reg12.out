@@ -50,9 +50,9 @@
    Counted here so the remainder is not read as though the class stopped at entry 394.
 
 == 3  THE CENSUS OVER THE REMAINDER
-   census rows engaged: 249
+   census rows engaged: 250
      C9-OVERGENERALISATION-WORD         223
-     C13-HANDLE-LEAK                    11
+     C13-HANDLE-LEAK                    12
      C2-THEOREM-POINTER-UNPRINTED       6
      C1-SECTION-POINTER-UNRESOLVED      5
      C5-REGISTER-POINTER-UNRESOLVED     4

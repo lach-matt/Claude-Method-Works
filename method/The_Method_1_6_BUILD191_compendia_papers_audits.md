@@ -23016,6 +23016,36 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **The manifest's stale rows are repaired here.** `close_main.py` reported at BUILD92 that the compendia bundle's MANIFEST rows for the main bundle's two members would be stale until the next `close.py` run — BUILD187 regenerated them under `--main BUILD92`, and this build regenerates them again. Reported by that tool rather than silently repaired, and now closed.
 - **Not done, by design:** `r2-regsweep2`, `r2-26b2` and `r3-wl2` are owed and are readings, not re-banks — each successor must **score** the Register's extent rather than assert it. No reader-facing volume is touched by this build at all; it changes 26 golden outputs and nothing else. The chat-67 hold stands: **findings are recorded and never repaired.**
 
+### W-198 — chat 151-R (Claude Code, repository) — the two red gate steps: one was a misreading, one needed a route; close_census.py seated; BUILD188 -> BUILD189
+
+- **`gate.py manifest` was never broken, and W-196's account of it is WITHDRAWN.** W-196 recorded that `gate.py` *"hard-codes `The_Method_1_6_BUILD90_main_and_register.md` as a module constant with no override"*. **The second half is wrong.** `gate.py` line 42 reads `main = argv[argv.index('--main') + 1] if '--main' in argv else MAIN` — the constant is a **default**, and the step takes `--main`. Run as `gate.py manifest --main …BUILD92…` it returns **MANIFEST OK: 422 members listed, 423 files extracted**. Nothing was patched to make that true; the tool's own parameter was used. **The §0 gate's documented invocation is what is stale**, not the tool, and it is corrected in `method/CLAUDE.md` to name the main bundle.
+- **Worth recording, because the author already did it right once.** `gate.py` line 37 resolves the **compendia** bundle by glob and asserts exactly one match. The main bundle got a constant instead — because it had not moved since chat 62 and there was nothing to resolve. **The same file contains both the right pattern and the wrong one**, which is what a constant that has never been tested looks like.
+- **`gate.py census` DID need a route, and `close_census.py` is it.** `DEFECT-CENSUS.tsv` is a seated member **derived from the volumes** by `census.py`. It is not `NAME.out`, so `close_rebank.py` cannot take it; `close.py`'s change-set assertion refuses it; and it went stale the moment BUILD92 seated four Register entries. It is the third missing route this chain has found — `close_main.py` for a Register entry, `close_rebank.py` for a golden, `close_census.py` for a derived member — and all three exist because **the store was built on the assumption that the volumes do not move.**
+- **The guard that matters in it is ID STABILITY, and it is the reason the tool is worth having rather than a one-off edit.** Census ids are cited by every `CENSUS-CLOSURES-*.tsv` and by the READ records. A regeneration that renumbered them would leave every closure in the store silently pointing at a different row. So the tool **refuses** unless every seated id survives, every surviving id keeps its **class, volume and line** — *an id is an address, not a position* — and the new ids form a contiguous run **above** the seated maximum. Free text may move and is reported.
+- **MEASURED on this build, and the census is append-stable.** **1,556 → 1,557 data rows** (the file carries a header line, so `wc -l` reads 1,557 → 1,558; the rows are what is counted here). **No id disappeared, none changed its address**, and **1,553** rows are byte-identical. Three moved only in a site count — ids **677** (reg 5 → 8), **686** (reg 103 → 106) and **701** (reg 2 → 3), each a `C7-WITHDRAWAL-LINE-NUMBER-SURVIVES` row whose "other sites" tally grew because the four new entries cite those numbers. One row appended.
+- **The appended row is a finding about the entries M ruled stand.** Census **1557 — `C13-HANDLE-LEAK`, reg L6626**: Register entry **1796 prints `BUILD180`** in a reader-facing volume. That is the class ruled at **26b-10 / ruling 46 / docket 28**, with census 1536 and 1556 closed as defects on exactly this form. **No new ruling is made and none is needed**; it is closed as a defect on the standing ruling, and R3 repairs it with its class. It is recorded here rather than left for a later reading to rediscover, because this build is what created it.
+- **`close_rebank.py` handled goldens only because goldens were all that had been measured.** The census failure surfaced after it was written and seated. `close_census.py` is a narrow sibling rather than a replacement, in the shape `close.py` / `close_main.py` already set: **one tool, one job, refusing more than it permits.** A second derived member would need its own route; that is stated so the pattern is not mistaken for a general facility it is not.
+- **Not done, by design:** the census member itself is regenerated in the next build, through this tool — this build seats the tool, and one build does one thing. The three successor instruments (`r2-regsweep2`, `r2-26b2`, `r3-wl2`) remain owed and remain readings. The chat-67 hold stands: **findings are recorded and never repaired.**
+
+### W-199 — chat 151-R (Claude Code, repository) — DEFECT-CENSUS.tsv regenerated, the §0 gate's census step green again, and the defect BUILD92 created; first use of close_census.py; BUILD189 -> BUILD190
+
+- **`gate.py census` is green again.** The member was stale from the moment BUILD92 seated Register entries 1793–1796, and the step had failed since. Regenerated here by **running `census.py`**, never copied: **1,556 → 1,557 data rows** (the file carries a header line, so `wc -l` reads 1,557 → 1,558; the rows are what the tool counts and what is counted here).
+- **The census is APPEND-STABLE, and that is the property the whole audit record rests on.** MEASURED by `close_census.py`'s own guard before anything was written: **no id disappeared; no surviving id changed its class, volume or line; the new ids are a contiguous run above the seated maximum.** **1,553 of 1,556** rows are byte-identical. **Every `CENSUS-CLOSURES-*.tsv` in the store still points at the row it was written against** — the 269 Register closures of BUILD185 included. Had ids been positional rather than addresses, seating four entries would have silently invalidated every closure in the corpus, and the tool would have refused rather than write it.
+- **The three rows that moved, and why.** Ids **677** (reg 5 → 8), **686** (reg 103 → 106) and **701** (reg 2 → 3), each `C7-WITHDRAWAL-LINE-NUMBER-SURVIVES`, whose "other sites" tally grew because the four new entries cite those numbers. Their class, volume and line are unchanged; only the free text moved. Reported, not silent.
+- **CENSUS 1557 IS A DEFECT THIS BUILD CHAIN CREATED, and it is closed on the standing ruling.** `C13-HANDLE-LEAK` at **reg L6626**: Register entry **1796 prints `BUILD180`** in a reader-facing volume. The class is ruled at **26b-10 / ruling 46 / docket 28**, and census **1536** (main L10806, `3B.shape`) and **1556** (reg L6507, entry 1763) were closed as defects on exactly this form. **No new ruling is made and none is needed.** Closed as a defect on the standing ruling; precedents 1536, 1556; R3 repairs it with its class. **Recorded by the build that created it rather than left for a later reading to find** — the entries came from chat 152 under M's Ruling A, and the chat that seats a defect is the chat that names it.
+- **What this closes, and what it does not.** The §0 gate is now green on every step that this chain broke: `census` byte-identical, `run --core` 5/5, `manifest --main …BUILD92…` **OK 423 listed / 424 extracted**. It does **not** close the three successor instruments — `r2-regsweep2`, `r2-26b2` and `r3-wl2` are still owed, still readings, and until they exist `gate.py run --all` carries three known-red instruments. **A known-red gate step is how a real failure gets missed**, so they are named at every close until they are written.
+- **Three routes now exist that did not this morning**, and all three were built because the store assumed the volumes do not move: `close_main.py` (chat 152) for a Register entry, `close_rebank.py` for a golden, `close_census.py` for a derived member. Each runs the producer rather than trusting a copy, each asserts its change set, and each reverse-guards to its predecessor's md5. **That assumption is now retired in practice, and RUL-128 item 1's order will test it again the moment R3 begins.**
+- **Not done, by design:** the three successor instruments; whether entry 1797 is seated; whether `audit_math.py` is seated; the four remaining compendia, which go by class sweep under M's scope ruling. The chat-67 hold stands: **findings are recorded and never repaired.**
+
+### W-200 — chat 151-R (Claude Code, repository) — the second order: regenerating a derived member moves the goldens that READ it; r2-ch16t and r2-reg12 re-banked; BUILD190 -> BUILD191
+
+- **What this build is, and it was not foreseen.** BUILD188 re-banked the 25 goldens that moved when **the volume** changed. BUILD190 regenerated `DEFECT-CENSUS.tsv`, which is **itself an input to instruments**, and two goldens moved again on that: `r2-ch16t` and `r2-reg12`. **The first order is that a build moves the goldens that read the volumes; the second order is that a build moves the goldens that read what the first order regenerated.** Named here so the next chain does not rediscover it after the fact, as this one did.
+- **Both are truthful and both exit 0.** `r2-ch16t` reports **census rows 1,556 → 1,557** and its member-value set is unchanged. `r2-reg12` reports **census rows engaged 249 → 250** and **`C13-HANDLE-LEAK` 11 → 12** — that twelfth is census **1557**, the row BUILD190 appended, which is Register entry 1796 printing `BUILD180` in a reader-facing volume. **The instrument that read the Register remainder now counts the defect the Register remainder gained.** Re-banked by `close_rebank.py`, each regenerated by running its instrument.
+- **The ordering rule this establishes.** A chain that touches a volume must re-bank in **two passes**, not one: first the goldens that read the volume, then — after any derived member is regenerated — the goldens that read the derived member. Doing it in one pass leaves the second set silently stale, and a stale golden is worse than a red one because the gate reports it green. **`r2-reg12` was re-banked at BUILD188 and moved again at BUILD190**, which is the case in point.
+- **The sweep at this build.** **82 of 86 goldens reproduce.** The four that do not are named and none is new: `r2-26b` and `r3-wl` **exit 1**, `r2-regsweep` **exits 0 while printing `INSTRUMENT FAULT - STOP`**, all three because they assert the Register's extent as an **invariant** rather than scoring it as a claim; and `r2-ch23b` **TIMEOUTs at 300 s against `gate.py`'s own 270 s ceiling** and reproduces byte-exact when run alone, which is an environment note about this container and not a fault.
+- **Owed, unchanged, and named at every close until it is written:** `r2-regsweep2`, `r2-26b2`, `r3-wl2`. **Extent is data, not an invariant.** Each is a reading and not a re-bank, and until they exist the gate carries three known-red instruments — which is how a real failure gets missed.
+- **Not done, by design:** nothing in this build touches a reader-facing volume; it changes two golden outputs and nothing else. The chat-67 hold stands: **findings are recorded and never repaired.**
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -28153,7 +28183,7 @@ id	class	member	line	item	detail
 674	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	333	16.6	other sites: main=7 reg=3 mc=1 | ungrounded in the sense §16.6's ⅅ_gro names. The corrected form carries no N: *following the bounds
 675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=29 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 676	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	150	other sites: main=13 reg=6 mc=8 pc=1 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
-677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=5 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
+677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=8 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 678	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1500	2.21	other sites: main=3 reg=7 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 679	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1500	374	other sites: main=3 reg=1 ioi=2 sc=5 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1681	6.2	other sites: main=13 reg=11 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
@@ -28162,7 +28192,7 @@ id	class	member	line	item	detail
 683	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.199	other sites: reg=2 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 684	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.227	other sites: main=1 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	1,	other sites: main=86 reg=103 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	1,	other sites: main=86 reg=106 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	2,	other sites: main=95 reg=140 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3205	12.11	other sites: main=154 reg=33 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
 689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3477	2,475	other sites: main=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
@@ -28177,7 +28207,7 @@ id	class	member	line	item	detail
 698	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3946	497	other sites: main=3 reg=3 ioi=1 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
 699	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3946	500	other sites: main=2 reg=6 ioi=2 sc=4 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
 700	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3946	502	other sites: main=4 reg=2 mc=2 ioi=2 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
-701	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5239	308	other sites: main=4 reg=2 mc=4 ioi=1 | corrected criterion rather than an observation about chemistry. Register 308. A multi-argument cap is a hypere
+701	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5239	308	other sites: main=4 reg=3 mc=4 ioi=1 | corrected criterion rather than an observation about chemistry. Register 308. A multi-argument cap is a hypere
 702	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5982	22.1	other sites: main=20 reg=5 mc=1 pc=2 sc=1 | ### 22.1.1.1 Containment on level energies, recomputed under variation
 703	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	6279	23.5	other sites: main=6 reg=1 mc=3 pc=1 | ### 23.5.1 A withdrawn proposition
 704	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7584	15.3	other sites: main=4 | impossible and was the signal. The earlier version's Figure 15.3, since withdrawn, drew a line labelled
@@ -29033,6 +29063,7 @@ id	class	member	line	item	detail
 1554	C13-HANDLE-LEAK	reg	6467	3B.metric	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
 1555	C13-HANDLE-LEAK	reg	6467	3B.pot	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
 1556	C13-HANDLE-LEAK	reg	6507	BUILD-10	**RULING 26: THE 489 UNTESTED SPECTRA ROWS ARE RUN UNDER M'S SEALED-TEST RULING — STRICT MEMBERSHIP, THE QUOTATION FLOOR AS THE ONLY ε, §22.5 ADMISSIBILITY — AND 318 ROWS CLOSE: 658 OF 813 CELLS PASS,
+1557	C13-HANDLE-LEAK	reg	6626	BUILD180	**THE REGISTER'S FRONT MATTER GIVES ITS MATURE RECORD AS "165 TO 1791, 1,470 ENTRIES" WHERE THE BACK MATTER GIVES 165–1792; THE BACK MATTER IS CURRENT, THE FIGURE IS 1,471, AND UNDER THE PRINTED 1,470
 <<<END FILE: DEFECT-CENSUS.tsv>>>
 
 <<<FILE: minmax.py>>>
@@ -35432,7 +35463,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
-compendia	DEFECT-CENSUS.tsv	236171	0967efead3f95016bd6ffaa95788d5ac	1557
+compendia	DEFECT-CENSUS.tsv	236413	ba8306f2ffafb1f5373990bc1790a289	1558
 compendia	DEFERRED.md	433010	837c4314e5a3efbcadb72f9f57276a21	3498
 compendia	DOCKET.md	73451	7a9e069c99a0347dd459606d7ac33508	455
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
@@ -35556,7 +35587,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	962028	92f4d304fb32b1d36c84320bd2815d7a	8068
+compendia	WORKING-REGISTER.md	972795	389d830f45d493b82d2c0223c41f7e9b	8098
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -35570,6 +35601,7 @@ compendia	census.py	9299	f5a73e2b595dd6215ad8d3c8910b6337	136
 compendia	channels_LIMB.py	326	185a39862e8e5b38e4b13e67f3dab0b7	10
 compendia	classify.json	1371	5ed19968f4e6ebb2db8a3ffdc629529b	1
 compendia	close.py	6456	98acae678629305fad0f3830488b3ee9	90
+compendia	close_census.py	7590	6fcae92b5827e15cd8851db148e2fef1	124
 compendia	close_main.py	10111	e75d871c0ad0f4af7791b148ac662b81	215
 compendia	close_rebank.py	8261	722f8dc7c876c47e69c5aefe3bb33e76	139
 compendia	coords.py	8006	211687a4879c2023cfc448725c54979c	159
@@ -35651,7 +35683,7 @@ compendia	r2-ch16r.out	39054	3168601e8caa8d5d797cb61c54e3b31d	547
 compendia	r2-ch16r.py	13585	6d2d618560d4b2603f986b9ce82126ce	240
 compendia	r2-ch16s.out	13116	4955d7fef772f507929616497f517208	175
 compendia	r2-ch16s.py	10902	ae6c788602776d0169b69381beb7954c	190
-compendia	r2-ch16t.out	17666	92882642231330eb5ab9b4eca38259fc	219
+compendia	r2-ch16t.out	17666	36fc9791492c48cbe2761a882610747b	219
 compendia	r2-ch16t.py	12215	bf7f0e331a1623c2d4ba2f7d3c193bde	213
 compendia	r2-ch16u.out	15292	6a8473620928aad45f23ef66890488ea	194
 compendia	r2-ch16u.py	12078	f50c7e286f55e01aebf4d7c32fea8dc2	211
@@ -35735,7 +35767,7 @@ compendia	r2-reg10a.out	3723	0dcba6dcb81e3e6216ad8a2aad5d2fcb	59
 compendia	r2-reg10a.py	5400	f86ba71b04e9c662db41f0ef244cedbb	103
 compendia	r2-reg11a.out	5218	f5c220e5cd3e22c51d44c84d6bf5e741	84
 compendia	r2-reg11a.py	6031	ef829b5eb50f709ea8c4f71f0ea408cf	110
-compendia	r2-reg12.out	4606	5be7c71cfac5b2730a1fdb5fbcf81421	74
+compendia	r2-reg12.out	4606	99fb4f7ee3cfddc8a46749031bfc79c3	74
 compendia	r2-reg12.py	8219	49356b3a01422e07dcc65af1e63359b0	143
 compendia	r2-reg1a.out	9189	ce5cd6073c2ae167c606e26740fc98a4	114
 compendia	r2-reg1a.py	10846	4c20849d88e96fb83a33bf0495bfa415	180
@@ -45986,7 +46018,7 @@ print('\nEND r2-ch16t')
 ================================================================================================
 7  DEFECT-CENSUS ROWS IN RANGE -- classes main AND all, keyed on the column named member
 ================================================================================================
-  census rows 1556; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+  census rows 1557; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows in L9307-L9392: 0
 
 ================================================================================================
@@ -70309,9 +70341,9 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    Counted here so the remainder is not read as though the class stopped at entry 394.
 
 == 3  THE CENSUS OVER THE REMAINDER
-   census rows engaged: 249
+   census rows engaged: 250
      C9-OVERGENERALISATION-WORD         223
-     C13-HANDLE-LEAK                    11
+     C13-HANDLE-LEAK                    12
      C2-THEOREM-POINTER-UNPRINTED       6
      C1-SECTION-POINTER-UNRESOLVED      5
      C5-REGISTER-POINTER-UNRESOLVED     4
@@ -75058,3 +75090,130 @@ assert md5(rev) == md5(old), 'REVERSE GUARD FAILED — nothing written'
 
 open(new_p, 'wb').write(new); print('written', new_p)
 <<<END FILE: close_rebank.py>>>
+
+<<<FILE: close_census.py>>>
+#!/usr/bin/env python3
+"""close_census.py — the guarded regeneration of DEFECT-CENSUS.tsv, the one derived member that is not a golden.
+
+    python3 members/close_census.py --old OLD --new NEW --w W-NNN.md [--append NAME PATH ...] [--main MAIN]
+
+`close.py` seats new members and appends to append-only ones. `close_rebank.py` re-banks a golden by
+running its instrument. Neither can touch `DEFECT-CENSUS.tsv`: it is a seated member DERIVED from the
+volumes by `census.py`, it is not `NAME.out`, and `close.py`'s change-set assertion refuses it. It
+went stale the moment BUILD92 seated four Register entries, and `gate.py census` — a §0 gate step —
+has failed since. This is the route it lacked, to the same discipline.
+
+THE GUARD THAT MATTERS IS ID STABILITY. Census ids are cited by every `CENSUS-CLOSURES-*.tsv` and by
+the READ records. If a regeneration renumbered them, every closure in the store would silently point
+at a different row and the audit record would be quietly destroyed. So this tool refuses unless:
+
+  * every id in the seated census is still present in the regenerated one — none may disappear;
+  * every surviving id keeps its CLASS, VOLUME and LINE — an id is an address, not a position;
+  * the new ids form a contiguous run above the seated maximum — new rows are appended, never spliced.
+
+A row whose free text changed (a site count, say) is permitted and is reported. Everything else is
+close.py's discipline unchanged: the W text appended to WORKING-REGISTER.md, MANIFEST.tsv recomputed,
+the change set asserted, and a reverse guard that restores the old census and must reproduce the OLD
+bundle's own md5 before anything is written.
+"""
+import sys, os, re, hashlib, subprocess
+
+MEMBER = re.compile(rb'^<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S | re.M)
+md5 = lambda b: hashlib.md5(b).hexdigest()
+H = os.path.dirname(os.path.abspath(__file__))
+HOME = os.path.dirname(H)
+CENSUS = 'DEFECT-CENSUS.tsv'
+
+def arg(k, d=None): return sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
+def parse(t):
+    ms = [(m.group(1).decode(), m.group(2)) for m in MEMBER.finditer(t)]
+    assert len(set(n for n, _ in ms)) == len(ms), 'duplicate member name'; return ms
+def blk(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+def manifest_text(main_ms, comp_ms):
+    rows = ['bundle\tname\tbytes\tmd5\tlines']
+    for tag, ms in (('main', main_ms), ('compendia', comp_ms)):
+        for n, b in sorted(ms):
+            if n == 'MANIFEST.tsv': continue
+            rows.append(f'{tag}\t{n}\t{len(b)}\t{md5(b)}\t{b.count(b"\n")}')
+    return ('\n'.join(rows) + '\n').encode('utf-8')
+def index(text):
+    out = {}
+    for line in text.decode('utf-8').splitlines():
+        if not line.strip(): continue
+        f = line.split('\t')
+        if not f[0].isdigit(): continue
+        out[int(f[0])] = (f[1], f[2], f[3], line)     # class, volume, line, whole row
+    return out
+
+old_p, new_p, w_p = arg('--old'), arg('--new'), arg('--w')
+main_p = arg('--main')
+appends = [(sys.argv[i + 1], open(sys.argv[i + 2], 'rb').read()) for i, a in enumerate(sys.argv) if a == '--append']
+assert old_p and new_p and w_p and main_p, 'need --old --new --w --main'
+assert not os.path.exists(new_p), f'{new_p} exists — never overwrite'
+
+old = open(old_p, 'rb').read(); old_ms = parse(old); od = dict(old_ms); old_names = [n for n, _ in old_ms]
+assert CENSUS in od, f'{CENSUS} is not a seated member'
+main_ms = parse(open(main_p, 'rb').read())
+W = open(w_p, 'rb').read()
+assert W.startswith(b'### W-') and W.endswith(b'\n\n'), 'W text must begin "### W-" and end with a blank line'
+
+# regenerate by RUNNING census.py — never copied, never hand-edited
+target = os.path.join(HOME, CENSUS)
+before = open(target, 'rb').read() if os.path.exists(target) else None
+p = subprocess.run(['python3', 'census.py'], cwd=H, capture_output=True)
+assert p.returncode == 0, f'census.py exit {p.returncode} — REFUSED\n' + p.stderr.decode()[-800:]
+assert os.path.exists(target), f'census.py did not write {target}'
+fresh = open(target, 'rb').read()
+assert fresh != od[CENSUS], f'{CENSUS} is unchanged — REFUSED, there is nothing to regenerate'
+
+# --- id stability, the guard that matters ---
+A, B = index(od[CENSUS]), index(fresh)
+gone = sorted(set(A) - set(B))
+assert not gone, f'REFUSED: {len(gone)} census ids disappeared: {gone[:20]}'
+moved = sorted(i for i in set(A) & set(B) if A[i][:3] != B[i][:3])
+assert not moved, f'REFUSED: {len(moved)} ids changed their class/volume/line — an id is an address: {moved[:20]}'
+added = sorted(set(B) - set(A))
+if added:
+    lo, hi, top = added[0], added[-1], max(A)
+    assert lo == top + 1 and added == list(range(lo, hi + 1)), \
+        f'REFUSED: new ids {lo}..{hi} are not a contiguous run above the seated maximum {top}'
+changed = sorted(i for i in set(A) & set(B) if A[i][3] != B[i][3])
+print(f'  census {len(A):,} -> {len(B):,} rows   ids unchanged: {len(A) - len(changed):,}   text changed: {len(changed)}   appended: {len(added)}')
+for i in changed[:12]: print(f'    id {i:<5} text moved  ({A[i][0]} {A[i][1]} L{A[i][2]})')
+for i in added[:12]:  print(f'    id {i:<5} NEW         ({B[i][0]} {B[i][1]} L{B[i][2]})')
+
+# W text and appends
+end = b'<<<END FILE: WORKING-REGISTER.md>>>\n'; assert old.count(end) == 1
+i = old.index(end); assert old[i - 2:i] == b'\n\n', 'WR body must end with a blank line'
+new = old[:i] + W + old[i:]
+for n, txt in appends:
+    e = b'<<<END FILE: ' + n.encode() + b'>>>\n'
+    assert n in old_names and new.count(e) == 1, f'--append target {n} not a unique old member'
+    assert txt.endswith(b'\n'), f'--append text for {n} must end with a newline'
+    j = new.index(e); new = new[:j] + txt + new[j:]
+
+ob = blk(CENSUS, od[CENSUS]); assert new.count(ob) == 1; new = new.replace(ob, blk(CENSUS, fresh))
+man_old = od['MANIFEST.tsv']; man = manifest_text(main_ms, parse(new))
+ob = blk('MANIFEST.tsv', man_old); assert new.count(ob) == 1; new = new.replace(ob, blk('MANIFEST.tsv', man))
+
+new_ms = parse(new); nd = dict(new_ms)
+print(f'old {os.path.basename(old_p)}  {len(old):,} B  md5 {md5(old)}  {old.count(b"\n"):,} lines  {len(old_ms)} members')
+print(f'new {os.path.basename(new_p)}  {len(new):,} B  md5 {md5(new)}  {new.count(b"\n"):,} lines  {len(new_ms)} members')
+print(f'MANIFEST.tsv  {len(man):,} B  md5 {md5(man)};  {CENSUS}  {len(fresh):,} B  md5 {md5(fresh)}')
+allowed = {'WORKING-REGISTER.md', 'MANIFEST.tsv', CENSUS} | {n for n, _ in appends}
+ch = [n for n in old_names if nd[n] != od[n]]
+assert set(ch) <= allowed, f'unexpected change in old members: {sorted(set(ch) - allowed)}'
+assert nd['WORKING-REGISTER.md'] == od['WORKING-REGISTER.md'] + W, 'WR is not old + W'
+for n, txt in appends: assert nd[n] == od[n] + txt, f'{n} is not old + appended text'
+assert [n for n, _ in new_ms] == old_names, 'member set changed — this tool adds and removes nothing'
+print(f'changed old members: {sorted(ch)}; added: none; lines {new.count(b"\n") - old.count(b"\n"):+d}')
+
+rev = new.replace(blk('MANIFEST.tsv', man), blk('MANIFEST.tsv', man_old))
+nb = blk(CENSUS, fresh); assert rev.count(nb) == 1; rev = rev.replace(nb, blk(CENSUS, od[CENSUS]))
+for n, txt in reversed(appends):
+    e = b'<<<END FILE: ' + n.encode() + b'>>>\n'; assert rev.count(txt + e) == 1; rev = rev.replace(txt + e, e)
+assert rev.count(W + end) == 1; rev = rev.replace(W + end, end)
+print(f'reverse recovers md5 {md5(rev)}  == old: {md5(rev) == md5(old)}')
+assert md5(rev) == md5(old), 'REVERSE GUARD FAILED — nothing written'
+open(new_p, 'wb').write(new); print('written', new_p)
+<<<END FILE: close_census.py>>>

@@ -675,7 +675,7 @@ id	class	member	line	item	detail
 674	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	333	16.6	other sites: main=7 reg=3 mc=1 | ungrounded in the sense §16.6's ⅅ_gro names. The corrected form carries no N: *following the bounds
 675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=29 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 676	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	150	other sites: main=13 reg=6 mc=8 pc=1 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
-677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=5 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
+677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=8 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 678	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1500	2.21	other sites: main=3 reg=7 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 679	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1500	374	other sites: main=3 reg=1 ioi=2 sc=5 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1681	6.2	other sites: main=13 reg=11 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
@@ -684,7 +684,7 @@ id	class	member	line	item	detail
 683	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.199	other sites: reg=2 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 684	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.227	other sites: main=1 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	1,	other sites: main=86 reg=103 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	1,	other sites: main=86 reg=106 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	2,	other sites: main=95 reg=140 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3205	12.11	other sites: main=154 reg=33 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
 689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3477	2,475	other sites: main=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
@@ -699,7 +699,7 @@ id	class	member	line	item	detail
 698	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3946	497	other sites: main=3 reg=3 ioi=1 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
 699	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3946	500	other sites: main=2 reg=6 ioi=2 sc=4 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
 700	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3946	502	other sites: main=4 reg=2 mc=2 ioi=2 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
-701	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5239	308	other sites: main=4 reg=2 mc=4 ioi=1 | corrected criterion rather than an observation about chemistry. Register 308. A multi-argument cap is a hypere
+701	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5239	308	other sites: main=4 reg=3 mc=4 ioi=1 | corrected criterion rather than an observation about chemistry. Register 308. A multi-argument cap is a hypere
 702	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5982	22.1	other sites: main=20 reg=5 mc=1 pc=2 sc=1 | ### 22.1.1.1 Containment on level energies, recomputed under variation
 703	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	6279	23.5	other sites: main=6 reg=1 mc=3 pc=1 | ### 23.5.1 A withdrawn proposition
 704	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7584	15.3	other sites: main=4 | impossible and was the signal. The earlier version's Figure 15.3, since withdrawn, drew a line labelled
@@ -1555,3 +1555,4 @@ id	class	member	line	item	detail
 1554	C13-HANDLE-LEAK	reg	6467	3B.metric	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
 1555	C13-HANDLE-LEAK	reg	6467	3B.pot	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
 1556	C13-HANDLE-LEAK	reg	6507	BUILD-10	**RULING 26: THE 489 UNTESTED SPECTRA ROWS ARE RUN UNDER M'S SEALED-TEST RULING — STRICT MEMBERSHIP, THE QUOTATION FLOOR AS THE ONLY ε, §22.5 ADMISSIBILITY — AND 318 ROWS CLOSE: 658 OF 813 CELLS PASS,
+1557	C13-HANDLE-LEAK	reg	6626	BUILD180	**THE REGISTER'S FRONT MATTER GIVES ITS MATURE RECORD AS "165 TO 1791, 1,470 ENTRIES" WHERE THE BACK MATTER GIVES 165–1792; THE BACK MATTER IS CURRENT, THE FIGURE IS 1,471, AND UNDER THE PRINTED 1,470

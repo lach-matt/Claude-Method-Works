@@ -15,11 +15,11 @@ import csv, hashlib, pathlib, sys
 H = pathlib.Path(__file__).resolve().parent
 BUNDLES = {
     'BUILD92_main': 'The_Method_1_6_BUILD92_main_and_register.md',
-    'BUILD188_compendia': 'The_Method_1_6_BUILD188_compendia_papers_audits.md',
+    'BUILD191_compendia': 'The_Method_1_6_BUILD191_compendia_papers_audits.md',
 }
 EXPECT_MD5 = {
     'BUILD92_main': 'ac49200f5a8a02511865260202e75cbb',
-    'BUILD188_compendia': '5474f081db6983ee99a8fedbe7e26c84',
+    'BUILD191_compendia': '072cc2b825eb52102a23ab657e680ccd',
 }
 
 def md5(b): return hashlib.md5(b).hexdigest()
