@@ -8,9 +8,9 @@ tree, and nothing is fetched from Drive to open a chat.
 
 | Path | What it is |
 | --- | --- |
-| `The_Method_1_6_BUILD92_main_and_register.md` | Live main bundle — 1,996,772 B · `b96df937c7d44383ed83fe196083733c` · 18,508 lines · 2 members. Register 1 to 1799. |
-| `The_Method_1_6_BUILD90_main_and_register.md`, `…BUILD91…` | Previous main bundles, retained as snapshots. Not live; `verify.py` targets BUILD92. |
-| `The_Method_1_6_BUILD183_compendia_papers_audits.md` | Live compendia bundle — 5,917,207 B · `bbaf464c01d72675bb15e7f9e58e4dd8` · 68,351 lines · 353 members |
+| `The_Method_1_6_BUILD93_main_and_register.md` | Live main bundle — 1,998,492 B · `58e1f1310cef77fb33b952c87f361d77` · 18,511 lines · 2 members. Register 1 to 1800. |
+| `The_Method_1_6_BUILD90_main_and_register.md`, `…BUILD91…`, `…BUILD92…` | Previous main bundles, retained as snapshots. Not live; `verify.py` targets BUILD93. |
+| `The_Method_1_6_BUILD185_compendia_papers_audits.md` | Live compendia bundle — 5,926,183 B · `ec7de132c824f6565670c4d234bf7dcb` · 68,451 lines · 353 members |
 | `members/` | All 355 members extracted from those two bundles, byte-exact. Instruments read these by name. |
 | `MEMBER-INDEX.tsv` | Per member: bundle, extension, size, md5, and byte offset in its bundle |
 | `verify.py` | The witness check — see below |

@@ -54,8 +54,16 @@ def parse(raw: bytes):
 
 
 def recount(body_text: str):
-    """Rewrite the two count sites from the body's own headings. Returns (new_text, edits)
-    where edits are the exact (old, new) line pairs, so the reverse guard can undo them."""
+    """Rewrite every count the front matter carries, from the body's own text.
+
+    Two sets, and both move when entries are seated. The EXTENT — total, range, mature — comes
+    from the headings. The KIND table, "What the entries are", comes from the seated classifier
+    kinds.py, run over the appended Register rather than the old one. Seating seven corrections
+    in one session moved `a correction` from 149 to 156 with nothing maintaining it, which is
+    what this second half exists to prevent.
+
+    Returns (new_text, edits), the edits being the exact (old, new) pairs so the reverse guard
+    can undo them."""
     c = rc.count(body_text)
     hi, edits = c["highest"], []
 
@@ -77,6 +85,25 @@ def recount(body_text: str):
             lambda m: f"{m.group(1)}{hi}{m.group(3)}"
                       f"{rc.like(m.group(4), c['mature'])}{m.group(5)}", t)
     t = sub(rc.BACK, lambda m: f"{m.group(1)}{hi}{m.group(3)}", t)
+    # the kind table, measured on the appended Register by the seated classifier
+    import tempfile
+    with tempfile.NamedTemporaryFile("w", suffix=".md", encoding="utf-8", delete=False) as fh:
+        fh.write(t)
+        tmp = pathlib.Path(fh.name)
+    try:
+        km = rc.kinds_measured(tmp)
+    finally:
+        tmp.unlink(missing_ok=True)
+    if km:
+        for m in list(rc.KIND_ROW.finditer(t)):
+            want = km.get(m.group(1))
+            if want is None:
+                continue
+            old = m.group(0)
+            new = f"| **{m.group(1)}** | {rc.like(m.group(2), want)} |"
+            if old != new:
+                edits.append((old, new))
+                t = t.replace(old, new, 1)
     # the back matter repeats the total in its own sentence
     for m in list(re.finditer(r"(\*\*)(\d[\d,]*)( entries, 1 to )(\d+)(\*\*)", t)):
         old = m.group(0)

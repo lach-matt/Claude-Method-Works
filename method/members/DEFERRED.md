@@ -3430,3 +3430,11 @@ All of HANDOFF-24's list stands (none closed this chat): L8794/L11107 "eight ite
 5. **A seated member cannot be updated by close.py, and now has a route.** `reseat.py` replaces a member's body under the same reverse guard, built because CYPHER.md was revised after seating and nothing in the tree could close the gap. It leaves MANIFEST.tsv stale by construction and says so; the next close.py run regenerates it.
 6. **`restage.py` is deliberately not a member.** It maintains the repository's copy of the store of record --- members/, MEMBER-INDEX.tsv and verify.py --- and not the store itself, which is why it sits beside verify.py rather than inside a bundle.
 7. **Next:** the Register, then the main volume. The audit family is `audit_lambda.py`, `audit_math.py`, `audit_mc.py`, `audit_pc.py`, `audit_sc.py`, `audit_ioi.py` and `register_counts.py`; each prints PASS or FAIL against a recorded figure and adjudicates nothing.
+
+## Chat 153 --- deferred out of the Register's structural pass (Claude Code repository session; not a section read; not a Method chat)
+
+1. **The Register is not read entry by entry.** This pass was structural: numbering, the superseded block's markers, the citation graph, and the two front-matter count tables. The per-entry read is the chat-81 cadence's work and is untouched.
+2. **The 31 cited-but-absent register numbers stand as docketed**, class C5-REGISTER-POINTER-UNRESOLVED / DOCKET §77(c). Re-confirmed by `register_cites.py` this chat, not re-raised.
+3. **Any future front-matter figure needs an instrument before it needs a correction.** Entry 1800 exists because the extent was kept and the kinds were not. Both are kept now; a third table added later with nothing maintaining it would go stale the same way, at the first entry seated after it.
+4. **`kinds.py` is the authority on kinds and is invoked, never reimplemented.** `register_counts.py` shells out to it. A second classifier disagreeing with the seated one would be worse than no check at all.
+5. **The main volume is not audited.** It is the last unaudited volume; the five compendia and the Register's structure are done.

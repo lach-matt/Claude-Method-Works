@@ -21,8 +21,10 @@ volume prints, so the heading is the unit and this program uses it.
 from __future__ import annotations
 
 import argparse
+import ast
 import pathlib
 import re
+import subprocess
 import sys
 
 HEAD = re.compile(r"^### (\d{1,4})((?:\s*,\s*\d{1,4})*)\s*$")
@@ -77,6 +79,28 @@ def printed(text):
     return out
 
 
+def kinds_measured(register: pathlib.Path):
+    """Run the seated kinds.py over this Register and return its counts, or None."""
+    here = pathlib.Path(__file__).resolve().parent
+    for c in (here / "kinds.py", here.parent / "method" / "members" / "kinds.py",
+              here.parent.parent / "method" / "members" / "kinds.py"):
+        if c.exists():
+            break
+    else:
+        return None
+    for exe in (sys.executable, "python3.12", "python3.13"):
+        try:
+            out = subprocess.run([exe, str(c), str(register)], capture_output=True,
+                                 text=True, timeout=180, cwd=str(c.parent))
+        except (OSError, subprocess.SubprocessError):
+            continue
+        if out.returncode == 0 and out.stdout.strip():
+            m = re.search(r"\{.*\}", out.stdout.splitlines()[0])
+            if m:
+                return ast.literal_eval(m.group(0))
+    return None
+
+
 def group(n):
     return f"{n:,}"
 
@@ -92,6 +116,14 @@ def like(sample: str, n: int) -> str:
 
 
 REGISTER_NAME = "The_Method_1_6___The_Register-2.md"
+
+# The front matter carries a SECOND set of counts the extent figures do not cover: the
+# "What the entries are" table. Seating entries moves it too, and nothing maintained it —
+# seven corrections seated in one session took `a correction` from 149 to 156 silently.
+# The classifier is `kinds.py`, a seated instrument; it is invoked rather than reimplemented,
+# because a second classifier that disagreed with it would be worse than none.
+KIND_ROW = re.compile(r"^\| \*\*(a [a-z ]+|an open question|prior art)\*\* \| ([\d,]+) \|",
+                      re.M)
 
 
 def find_register():
@@ -161,6 +193,23 @@ def main(argv=None):
                      f"{group(p.get('front_mature', 0))} = {group(own[1])} against its own "
                      f"{group(own[0])}")
 
+    km = kinds_measured(pathlib.Path(a.register))
+    printed_kinds = {m.group(1): int(m.group(2).replace(",", "")) for m in KIND_ROW.finditer(text)}
+    if km is None:
+        print("\nkind table: kinds.py could not be run; not checked")
+    elif not printed_kinds:
+        print("\nkind table: the 'What the entries are' table was not found; not checked")
+    else:
+        print("\n\"What the entries are\" — the printed table against kinds.py")
+        for k in sorted(printed_kinds):
+            p_, m_ = printed_kinds[k], km.get(k)
+            ok = p_ == m_
+            print(f"  {k:<18} printed {group(p_):>7}   measured "
+                  f"{group(m_) if m_ is not None else '-':>7}   {'ok' if ok else 'DRIFT'}")
+            if not ok:
+                drift.append(f"kind '{k}': printed {group(p_)}, measured "
+                             f"{group(m_) if m_ is not None else 'not measured'}")
+
     print()
     if drift:
         print(f"DRIFT — {len(drift)} figure(s) do not agree with the Register:")
@@ -192,6 +241,12 @@ def main(argv=None):
         new = re.sub(r"(\*\*)(\d[\d,]*)( entries, 1 to )(\d+)(\*\*)",
                      lambda m: f"{m.group(1)}{like(m.group(2), c['headings'])}"
                                f"{m.group(3)}{hi}{m.group(5)}", new)
+        if km:
+            def kfix(m):
+                want = km.get(m.group(1))
+                return m.group(0) if want is None else \
+                    f"| **{m.group(1)}** | {like(m.group(2), want)} |"
+            new = KIND_ROW.sub(kfix, new)
         out = pathlib.Path(a.write)
         if out.resolve() == pathlib.Path(a.register).resolve():
             sys.exit("refusing to write over the Register member; name a different file")

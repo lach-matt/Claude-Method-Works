@@ -1,6 +1,6 @@
 bundle	name	bytes	md5	lines
 main	The_Method_1_6-2.md	779423	4aef772bad512b84d8c0888386472a74	11854
-main	The_Method_1_6___The_Register-2.md	1217182	f9e7f90781d55427b0bcddb25d775a0b	6649
+main	The_Method_1_6___The_Register-2.md	1218902	b3622d09013d706f66150d095f1c6f9b	6652
 compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -53,7 +53,7 @@ compendia	CYPHER.md	24563	2b828047c19e3ea3c5b01f1e10a07569	362
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236171	0967efead3f95016bd6ffaa95788d5ac	1557
-compendia	DEFERRED.md	394576	2cac880b1c82c5981d010077838ac706	3432
+compendia	DEFERRED.md	395775	72abc16d65ce6f275712d05e4e470b8a	3440
 compendia	DOCKET.md	52004	db539aad03629b82cc52e9001d27852a	377
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
@@ -156,7 +156,7 @@ compendia	The_Method_1_6___The_Index_of_Indices-2.md	118373	27d387ef8a6175c1b9c8
 compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2c601a549d54db	878
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
-compendia	WORKING-REGISTER.md	921729	8b0332c68185a89bbf88a52c44bbc9e3	7984
+compendia	WORKING-REGISTER.md	925682	f8a46b8da791f0d0dfb41e67ebb17af0	7994
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -175,7 +175,7 @@ compendia	census.py	9299	f5a73e2b595dd6215ad8d3c8910b6337	136
 compendia	channels_LIMB.py	326	185a39862e8e5b38e4b13e67f3dab0b7	10
 compendia	classify.json	1371	5ed19968f4e6ebb2db8a3ffdc629529b	1
 compendia	close.py	6456	98acae678629305fad0f3830488b3ee9	90
-compendia	close_main.py	10111	e75d871c0ad0f4af7791b148ac662b81	215
+compendia	close_main.py	11265	b7f2adf36a77de5cfcd7a1224351b484	242
 compendia	coords.py	8006	211687a4879c2023cfc448725c54979c	159
 compendia	crop_titles.py	807	4358151cb4c00e1a22f71943e8791f62	12
 compendia	cypher.py	45232	6a7ffede5f691424295adaaa2c53fd47	975
@@ -340,7 +340,7 @@ compendia	r3-wl.out	3638	1bb27e471f8429e4d6e759f528c838f1	31
 compendia	r3-wl.py	15100	791f540520bc9f48eaed81830996fa1e	184
 compendia	rclose.py	1728	707a1061b4fede0b94e288d569dc9f0e	41
 compendia	register_cites.py	2403	c38ad7ee009b9df571c143261b43e9d9	46
-compendia	register_counts.py	9691	6152fd7146e4159128eaae0fb71af598	209
+compendia	register_counts.py	12360	92014c0777b11a92817eb191f9136a4e	264
 compendia	reseat.py	4536	852cbaf8d6c3f98c31673d7fefca4b85	106
 compendia	ruled_bracket.py	2721	af39145dee35a8da3c96d52d665d9159	58
 compendia	run489.py	4611	55356e24f309250ab69272ea61c9fa14	87
