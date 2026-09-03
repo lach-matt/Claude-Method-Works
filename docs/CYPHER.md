@@ -14,13 +14,19 @@ python3 tools/cypher.py --index spec.json --roster 33.1 --json
 
 Stdlib only, Python 3.11+. No dependencies, so an audit can run it from any tree.
 
-**Limits.** `order`, `geometry` and `statistics` enumerate the ambient product cell by cell, and
-`algebra` and `information` iterate a closure that is quadratic in the working set. Both are walls
-rather than slowdowns, so both are capped and both refuse legibly: `--max-box` (default 2,000,000)
-and `--max-pairwise-cells` (default 4,000), with `--algebra-budget` (default 20,000) bounding
-closure growth. Λ at 976 cells over a 6,912 box runs in well under a second; the whole self-test
-takes about six. An index the size of the tower's Λ₁₃ — a 47.7 million cell ambient — is beyond
-this implementation and will say so rather than hang.
+**Limits.** `order`, `geometry` and `statistics` search the ambient product by depth-first
+backtracking with early pruning, not by walking it. Every operator here is a conjunction of
+constraints on few coordinates at a time — order and geometry on pairs, statistics on k-subsets —
+so a constraint is tested the moment its last coordinate is bound and a failure prunes the whole
+subtree. The indexes this runs on are sparse in their box (the tower falls from 14% fill at Λ₈ to
+0.42% at Λ₁₃), so the search visits a small fraction of the product. A 4.8-million-cell box that
+never completed under product enumeration now returns in about 17 seconds.
+
+Older text, still true of the closures: `algebra` and
+`information` iterate a closure quadratic in the working set. All are capped and all
+refuse legibly: `--max-box` (default 8,000,000) and `--max-pairwise-cells` (default 8,000), with
+`--algebra-budget` (default 20,000) bounding closure growth. The whole self-test takes about
+thirty-five seconds.
 
 ## Why it exists
 
@@ -224,6 +230,50 @@ figure rather than only corroborated: the seed is **bounded below by the Carath�
 which for a product of `d` chains is the breadth `d` (MC §S, citing Carathéodory 1911 — the same
 prior art the geometry operator rests on). Both the bound and the **box seed law**, `d + c − 2`,
 are asserted in the self-test.
+
+## The tower
+
+Λ₈, Λ₉, Λ₉′ and Λ₁₀ are fixtures and reproduce exactly — 976, 1,654, 1,561 and 2,535 cells in
+boxes of 6,912, 27,648, 27,648 and 110,592. The volumes record `E = 0` at every stage **in order**;
+the self-test asserts `E = 0` in **all five** operator-bearing languages at each, which is stronger
+than what is recorded.
+
+**Λ₁₁ to Λ₁₃ are not blocked on compute.** Λ₁₂'s box is 5.3 million and Λ₁₃'s 47.7 million, and
+the pruned search reaches that scale. They are blocked on *definition*: Λ₁₁ adjoins `2J_c ≤ φ̂(k)`
+and Λ₁₂ `2K ≤ 2J_c + 2f_max`, both envelopes, and the volumes say the exact sets "are not the
+obvious ones" — the core's J at the eleventh is restricted to terms carrying the cell's own
+multiplicity, not all terms of ℓᵏ. That is not stated to the precision a program needs.
+
+## What outside literature predicts, and where it parts from the book
+
+The corpus attributes Λ's shape to Sperner (1928), Dilworth (1950), Birkhoff (1937) and
+**Stanley (1980)** — whose theorem is that the order-ideal lattice of a product of chains is
+*Peck*: rank-symmetric, rank-unimodal and strongly Sperner. The book's own claim is that this
+transfers **only in part**. Measured:
+
+| prediction | measured | |
+| --- | --- | --- |
+| rank sequence over ranks 3–20 | `1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1` | exact |
+| rank-unimodal, log-concave at every interior rank | holds | ✓ |
+| **strongly Sperner** — largest antichain = largest rank level | 122, certified by a Dilworth chain partition computed as a bipartite matching | ✓ |
+| `976 = 8 × 122` | holds | ✓ |
+| Birkhoff seed — Λ is the down-sets of its join-irreducibles | **17** | ✓ |
+| **rank-symmetric** | **fails** — 8 of 976 survive `x ↦ max − x`, none fixed | Peck does not transfer whole |
+
+Sperner survives and symmetry does not, exactly as the book says. Two things came out of running it:
+
+- **The rank skew is mislabelled, and the sign is the wrong way round.** MC §8.4 prints *"centre of
+  mass 11.0666 vs midpoint 11.5, skew −0.43"* and attributes it to *"the third standardised moment
+  of a rank distribution, Gauss (1809)"*. The rank sequence reproduces exactly, and the third
+  standardised moment of it is **+0.14**, not −0.43. The printed −0.43 is `11.0666 − 11.5`, the
+  displacement of the centre of mass from the midpoint — a real quantity, correctly computed, but
+  not the moment cited. Read as a skew it reports the asymmetry backwards: Λ's right tail is the
+  longer one, nine steps down from the peak against eight on the left.
+- **Two sections disagree about the same eight cells.** §8.4's rank-skew entry says *"only 8 of 976
+  cells **fixed** by x ↦ max − x"*; the Sperner entry says *"8 of 976 cells **survive** … none
+  fixed"*. Measurement supports the second: 8 survive, 0 are fixed.
+
+Both are recorded here rather than repaired — the volumes are the store of record.
 
 ## Known gaps
 

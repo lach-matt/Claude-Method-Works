@@ -123,10 +123,46 @@ class Index:
 # Each returns (admitted set | None, note). None means the operator is SILENT — its
 # precondition fails on this object, which is itself the finding (§33.2).
 
+def _solve(alphabets, checks):
+    """Enumerate the cells of the ambient product satisfying every check, by depth-first search
+    with early pruning rather than by walking the product.
+
+    Every operator here is a conjunction of constraints on FEW coordinates at a time — order and
+    geometry on pairs, statistics on k-subsets — so a constraint can be tested the moment its last
+    coordinate is bound, and a failure prunes the whole subtree. The indexes this is run on are
+    sparse in their box (the tower falls from 14% fill at Lambda_8 to 0.42% at Lambda_13), so the
+    pruned search visits a small fraction of the product. Coordinates are ordered smallest-alphabet
+    first, which binds the tightest constraints soonest."""
+    d = len(alphabets)
+    order = sorted(range(d), key=lambda i: len(alphabets[i]))
+    pos = {c: p for p, c in enumerate(order)}
+    at = [[] for _ in range(d)]
+    for coords, pred in checks:
+        at[max(pos[c] for c in coords)].append(pred)
+    out = []
+    x = [None] * d
+    def rec(depth):
+        if depth == d:
+            out.append(tuple(x))
+            return
+        c = order[depth]
+        tests = at[depth]
+        for v in alphabets[c]:
+            x[c] = v
+            for t in tests:
+                if not t(x):
+                    break
+            else:
+                rec(depth + 1)
+        x[c] = None
+    rec(0)
+    return out
+
+
 def _box_guard(ix, opts):
     """The ambient product is enumerated cell by cell, so a large box is a wall rather than a
     slowdown. Refuse legibly instead of hanging — an audit needs a reason, not a stalled process."""
-    cap = opts.get("max_box", 2_000_000)
+    cap = opts.get("max_box", 8_000_000)
     if ix.box > cap:
         raise Budget(f"ambient box {ix.box:,} exceeds --max-box {cap:,}; "
                      f"raise it to run this operator")
@@ -134,7 +170,7 @@ def _box_guard(ix, opts):
 
 def _cells_guard(ix, opts, name):
     """Meet/join closures are quadratic in the working set and iterate to a fixed point."""
-    cap = opts.get("max_pairwise_cells", 4_000)
+    cap = opts.get("max_pairwise_cells", 8_000)
     if len(ix.cells) > cap:
         raise Budget(f"{name} is quadratic in the cell count and {len(ix.cells):,} exceeds "
                      f"--max-pairwise-cells {cap:,}")
@@ -155,22 +191,17 @@ def op_order(ix, opts):
             for a in ix.alphabets[j]:
                 cand = [y[i] for y in X if y[j] <= a]
                 phi[(i, j, a)] = max(cand) if cand else None
-    out = set()
-    for x in ix.ambient():
-        good = True
-        for i in range(D):
-            for j in range(D):
-                if i == j:
-                    continue
-                p = phi[(i, j, x[j])]
-                if p is None or x[i] > p:
-                    good = False
-                    break
-            if not good:
-                break
-        if good:
-            out.add(x)
-    return out, "staircase closure over the ambient product"
+    checks = []
+    for i in range(D):
+        for j in range(D):
+            if i != j:
+                def mk(i=i, j=j):
+                    def t(x):
+                        p = phi[(i, j, x[j])]
+                        return p is not None and x[i] <= p
+                    return t
+                checks.append(((i, j), mk()))
+    return set(_solve(ix.alphabets, checks)), "staircase closure over the ambient product"
 
 
 def op_statistics(ix, opts):
@@ -182,9 +213,10 @@ def op_statistics(ix, opts):
     _box_guard(ix, opts)
     subsets = list(itertools.combinations(range(ix.d), k))
     seen = {S: {tuple(x[i] for i in S) for x in ix.cells} for S in subsets}
-    out = {x for x in ix.ambient()
-           if all(tuple(x[i] for i in S) in seen[S] for S in subsets)}
-    return out, f"max-entropy support on the order-{k} marginals"
+    checks = [(S, (lambda S=S, m=seen[S]: lambda x: tuple(x[i] for i in S) in m)())
+              for S in subsets]
+    return (set(_solve(ix.alphabets, checks)),
+            f"max-entropy support on the order-{k} marginals")
 
 
 def op_geometry(ix, opts):
@@ -194,12 +226,12 @@ def op_geometry(ix, opts):
     if ix.d < 2:
         return None, "needs at least two coordinates"
     _box_guard(ix, opts)
-    hulls = {}
+    checks = []
     for i, j in itertools.combinations(range(ix.d), 2):
-        hulls[(i, j)] = _hull2({(x[i], x[j]) for x in ix.cells})
-    out = {x for x in ix.ambient()
-           if all(_in_hull2((x[i], x[j]), H) for (i, j), H in hulls.items())}
-    return out, "integer points of the two-variable polytope"
+        H = _hull2({(x[i], x[j]) for x in ix.cells})
+        checks.append(((i, j), (lambda i=i, j=j, H=H:
+                                lambda x: _in_hull2((x[i], x[j]), H))()))
+    return set(_solve(ix.alphabets, checks)), "integer points of the two-variable polytope"
 
 
 def op_algebra(ix, opts):
@@ -247,6 +279,11 @@ def op_information(ix, opts):
         sup = below[0] if len(below) == 1 else tuple(map(max, *below))
         if sup != x:
             seed.append(x)
+    # Birkhoff's convention excludes the bottom: it is the empty join, not a join-irreducible.
+    # The closure still needs it as a generator, so it stays in `seed` and is only discounted
+    # in the report — the book's seventeen against a raw eighteen (§8.3).
+    bottoms = sum(1 for x in seed
+                  if not any(y != x and all(a <= b for a, b in zip(y, x)) for y in Xs))
     budget = opts.get("algebra_budget", 20000)
     S = set(seed)
     while True:
@@ -261,7 +298,9 @@ def op_information(ix, opts):
                 if z not in S:
                     new.add(z)
         if not new:
-            return S, f"join-closure of {len(seed)} join-irreducibles"
+            n_ji = len(seed) - bottoms
+            return S, (f"join-closure of {n_ji} join-irreducibles"
+                       + (f" (+{bottoms} bottom)" if bottoms else ""))
         S |= new
 
 
@@ -641,6 +680,30 @@ def min_seed(ix, cap=7):
     return None, None
 
 
+def _tower(stage=8):
+    """The tower Lambda_8..Lambda_10, each stage adjoining one coordinate (MC, the tower).
+    Lambda_9 adjoins the target's multiplicity 2S' <= g; Lambda_9' the tighter 2S' <= 2f+1,
+    which is provably containing and cuts exactly the 93 cells (f=0, g=2, 2S'=2); Lambda_10
+    adjoins the seniority v under 2S' <= v <= g. Stages 11 to 13 adjoin envelopes — 2J_c <= phi(k)
+    and 2K <= 2J_c + 2f_max — that the volumes do not state to the precision a program needs."""
+    base = _lambda()
+    cells = [tuple(base.decode[i][v] for i, v in enumerate(c)) for c in base.cells]
+    O = base.coords
+    gi, fi = O.index("g"), O.index("f")
+    if stage == 8:
+        return Index("Lambda_8", O, cells)
+    L9 = [t + (s,) for t in cells for s in range(4) if s <= t[gi]]
+    if stage == 9:
+        return Index("Lambda_9", O + ["2S'"], L9)
+    if stage == 90:                                    # Lambda_9', the tighter bound
+        return Index("Lambda_9'", O + ["2S'"],
+                     [t for t in L9 if t[-1] <= 2 * t[fi] + 1])
+    if stage == 10:
+        return Index("Lambda_10", O + ["2S'", "v"],
+                     [t + (v,) for t in L9 for v in range(4) if t[-1] <= v <= t[gi]])
+    raise ValueError(f"tower stage {stage} is not reconstructible from the volumes")
+
+
 def _calendar():
     """365 cells in a box of 372, E = 7 — February's missing 29th to 31st and the four
     thirty-day months' 31sts."""
@@ -681,11 +744,26 @@ FIXTURES = [
      {"cells": 35, "box": 125}),
     ("Kreuzer-Skarke slice", _kreuzer_skarke, {"order": 540}, {"cells": 208}),
     ("nuclide chart Z<=7", _nuclide, {"order": 9}, {"cells": 52}),
+    # The tower. The volumes record E = 0 at every stage in ORDER; all five languages are
+    # asserted here, which is stronger than what is recorded.
+    ("tower Lambda_9", lambda: _tower(9),
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 1654, "box": 27648}),
+    ("tower Lambda_9'", lambda: _tower(90),
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 1561, "box": 27648}),
+    ("tower Lambda_10", lambda: _tower(10),
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 2535, "box": 110592}),
 ]
 
 
 def selftest(opts):
     """Reproduce the corpus's own recorded numbers. Failures are reported, never tuned away."""
+    opts = dict(opts)
+    opts.setdefault("algebra_budget", 300_000)
+    opts["algebra_budget"] = max(opts["algebra_budget"], 300_000)
+    opts["max_pairwise_cells"] = max(opts.get("max_pairwise_cells", 0), 8_000)
     print("cypher --selftest — against the numbers the corpus records\n")
     bad = 0
     for label, build, expect_E, extra in FIXTURES:
@@ -784,7 +862,7 @@ def selftest(opts):
         if sum(x) <= 31:
             big.add(x)
     bx = Index("over-cap", [f"c{i}" for i in range(7)], sorted(big))
-    rb = run(bx, "1173", dict(opts, max_box=2_000_000, max_pairwise_cells=4_000))
+    rb = run(bx, "1173", dict(opts, max_box=1_000_000, max_pairwise_cells=400))
     states = {v.language: v.state for v in rb["_verdicts"]}
     capped = {"order", "geometry", "statistics", "algebra", "information"}
     ok = all(states[l] == REFUSED for l in capped) and states["documentary"] == SILENT
@@ -795,6 +873,34 @@ def selftest(opts):
     bad += not ok2
     print(f"  no resource refusal is reported as a silence            "
           f"{'ok' if ok2 else 'MISMATCH'}")
+
+    # Stanley 1980 (Peck), Sperner 1928, Dilworth 1950, Birkhoff 1937, Gauss 1809 — the shape
+    # of Lambda's rank sequence, checked against MC §8.4.
+    import collections as _c
+    lam = _lambda()
+    cs = [tuple(lam.decode[i][v] for i, v in enumerate(c)) for c in lam.cells]
+    rk = _c.Counter(sum(c) for c in cs)
+    seq = [rk[r] for r in range(min(rk), max(rk) + 1)]
+    rec = [1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1]
+    bad += seq != rec
+    print(f"  Lambda rank sequence over ranks 3-20                    "
+          f"{'ok' if seq == rec else 'MISMATCH %s' % seq}   (MC §8.4)")
+    lc = all(seq[i] ** 2 >= seq[i - 1] * seq[i + 1] for i in range(1, len(seq) - 1))
+    bad += not lc
+    print(f"  log-concave at every interior rank = {lc!s:<6} expected True   "
+          f"{'ok' if lc else 'MISMATCH'}   (hence unimodal)")
+    mx = (3, 1, 3, 3, 3, 1, 3, 3)
+    Sc = set(cs)
+    surv = [c for c in cs if tuple(m - v for m, v in zip(mx, c)) in Sc]
+    fx = [c for c in surv if tuple(m - v for m, v in zip(mx, c)) == c]
+    ok = len(surv) == 8 and not fx
+    bad += not ok
+    print(f"  self-duality x -> max-x: {len(surv)} survive, {len(fx)} fixed, expected 8 and 0   "
+          f"{'ok' if ok else 'MISMATCH'}   (Lambda is NOT self-dual)")
+    _, note = op_information(lam, opts)
+    bad += "17 join-irreducibles" not in note
+    print(f"  Birkhoff seed: {note:<44} expected 17   "
+          f"{'ok' if '17 join-irreducibles' in note else 'MISMATCH'}   (§8.3)")
 
     # register 1176: "Lambda and a box ordering: E = 0 and every pair agrees"
     for label, build, want in (("Lambda", _lambda, True), ("box ordering", _box_ordering, True)):
@@ -829,9 +935,9 @@ def main(argv=None):
     p.add_argument("--roster", choices=sorted(ROSTERS), help="which language roster to ask")
     p.add_argument("--statistics-order", type=int, default=2, dest="statistics_order")
     p.add_argument("--algebra-budget", type=int, default=20000, dest="algebra_budget")
-    p.add_argument("--max-box", type=int, default=2_000_000, dest="max_box",
+    p.add_argument("--max-box", type=int, default=8_000_000, dest="max_box",
                    help="refuse ambient-enumerating operators above this box size")
-    p.add_argument("--max-pairwise-cells", type=int, default=4_000, dest="max_pairwise_cells",
+    p.add_argument("--max-pairwise-cells", type=int, default=8_000, dest="max_pairwise_cells",
                    help="refuse quadratic closures above this cell count")
     p.add_argument("--json", action="store_true", help="machine-readable output for audits")
     p.add_argument("--pairs", action="store_true",
