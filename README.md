@@ -56,6 +56,8 @@ it, each with a real contract and a self-check.
 * [`tools/audit_pc.py`](tools/audit_pc.py) — the Physics Compendium: 19 checks, all pass. Λ_phys's
   27 parameters are cross-checked against their own summary table, which is an independent
   statement of the same thing.
+* [`tools/audit_sc.py`](tools/audit_sc.py) — the Spectra Compendium and the Löwdin solution it
+  carries: 16 checks, 15 pass. The two supplies state the same quantities, so each checks the other.
 * [`tools/audit_math.py`](tools/audit_math.py) — the book's own mathematical objects read as an
   index in five languages. All 24 fibres close at E = 0; the grading alone gives a counterexample
   to the agreement theorem's "only if" half.
