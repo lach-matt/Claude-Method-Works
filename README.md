@@ -69,6 +69,11 @@ it, each with a real contract and a self-check.
   equation** (register 1206) — ℛ places the cells, the channel equation values them. See
   [`docs/POPULATE.md`](docs/POPULATE.md).
 
+* [`tools/phihat.py`](tools/phihat.py) — φ̂ at arbitrary caps, and which form of it is right. Supplies
+  the `phi_at` and `TERMS` that `r2lib.py` L391–392 records as owed, and settles §12.11.1's
+  unstated envelope by **measurement rather than assertion**: the five candidate forms are data, and
+  the four-cap sweep of main L3124–3125 refutes three of them. See [`docs/PHIHAT.md`](docs/PHIHAT.md).
+
 Every one of them runs `--selftest`, whose fixtures are the corpus's own recorded numbers, and every
 one is stdlib-only so an audit can run it from any tree.
 

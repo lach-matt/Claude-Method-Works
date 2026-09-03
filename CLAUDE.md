@@ -30,9 +30,17 @@ index), `tools/arith.py` (the arithmetic of every ratio, percentage and equation
 about themselves), `tools/pointers.py` (every pointer resolved across the volumes and the
 companion), `tools/buildtrace.py` (when a figure entered the books, from the BUILD series) and
 `tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
-of the method equation, per register 1206). Those are real programs with a real contract — see
+of the method equation, per register 1206) and `tools/phihat.py` (φ̂ at arbitrary caps: the `phi_at`
+and `TERMS` r2lib L391–392 records as owed). Those are real programs with a real contract — see
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CYPHER.md`, `docs/ARITH.md`, `docs/POINTERS.md`,
-`docs/BUILDTRACE.md` and `docs/POPULATE.md`.
+`docs/BUILDTRACE.md`, `docs/POPULATE.md` and `docs/PHIHAT.md`.
+
+**Where a form is unstated, the candidates are data and the record decides.** §12.11.1 gives φ̂'s
+genus and one value set and never says over what the envelope is taken; `phihat.py` carries five
+candidate forms and measures each against the numbers the corpus states about itself, exactly as
+`cypher.py` carries language rosters. Do not resolve such a question in code. A count proven by
+construction and never witnessed by measurement carries `THEORETICAL` and is publishable as
+theoretically proven but not yet witnessed — the label travels with the number.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
