@@ -60,6 +60,13 @@ it, each with a real contract and a self-check.
   `drive/MANIFEST.tsv`, bisects for the first archived build carrying a string in about eight reads
   instead of 107, and states its byte budget before touching the tree. See
   [`docs/BUILDTRACE.md`](docs/BUILDTRACE.md).
+* [`tools/populate.py`](tools/populate.py) — an element on every axis of every index. Give it a
+  ground-state atomic number and it returns that element and every ion of it: the observed ground
+  configuration, the per-subshell quantum axes, the three layout indexes, the Rydberg channels of
+  the spectra index, the Pauli bound, the quantum defect under the method equation, and the Λ₈
+  transition cells of its ionisation ladder with the caps each one needs. Runs **both halves of the
+  method equation** (register 1206) — ℛ places the cells, the channel equation values them. See
+  [`docs/POPULATE.md`](docs/POPULATE.md).
 
 Every one of them runs `--selftest`, whose fixtures are the corpus's own recorded numbers, and every
 one is stdlib-only so an audit can run it from any tree.

@@ -24,13 +24,22 @@ them, and do not try to "set the project up". The `.py` files under `drive/` are
 artifacts, not a codebase to maintain or execute.
 
 The exceptions, and they are the only ones: `method/verify.py` and the instruments in
-`method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror, and four
-audit instruments run over the store — `tools/cypher.py` (the cypher analysis of §33 over an
+`method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror, and five
+instruments run over the store — `tools/cypher.py` (the cypher analysis of §33 over an
 index), `tools/arith.py` (the arithmetic of every ratio, percentage and equation the volumes state
 about themselves), `tools/pointers.py` (every pointer resolved across the volumes and the
-companion) and `tools/buildtrace.py` (when a figure entered the books, from the BUILD series).
-Those are real programs with a real contract — see `method/README.md`, `docs/DRIVE-SYNC.md`,
-`docs/CYPHER.md`, `docs/ARITH.md`, `docs/POINTERS.md` and `docs/BUILDTRACE.md`.
+companion), `tools/buildtrace.py` (when a figure entered the books, from the BUILD series) and
+`tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
+of the method equation, per register 1206). Those are real programs with a real contract — see
+`method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CYPHER.md`, `docs/ARITH.md`, `docs/POINTERS.md`,
+`docs/BUILDTRACE.md` and `docs/POPULATE.md`.
+
+**An instrument imports a seated member; it never copies one.** `populate.py` loads
+`LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
+imports ℛ from `cypher.py` rather than reimplementing it. Where a form a program needs is not
+stated in any member, the value carries a status — `RECOVERED` when it was measured out of the
+corpus's own data, `RECONSTRUCTED` when it was not — and that status is never flattened to
+`PINNED`.
 
 **Each audit instrument takes a `--selftest` whose fixtures are the corpus's own recorded numbers,
 and each is stdlib-only.** Run the selftest before trusting a report, and read the tool's doc before
