@@ -23099,6 +23099,16 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **`close_rebank.py` runs each instrument** rather than copying, refuses a non-zero exit and refuses a golden that did not move; the reverse guard restores every one and must reproduce BUILD197's md5 before anything is written.
 - **Nothing else re-banked.** The remaining UNEXPLAINED and UNRUNNABLE stay red and each is a reading.
 
+### W-207 — chat 153 — the UNRUNNABLE class opened: a positional invariant is not an invariant; BUILD198 -> BUILD199
+
+- **The twelve UNRUNNABLE instruments are a different class from the UNEXPLAINED, and the difference matters.** An UNEXPLAINED golden moved; an UNRUNNABLE instrument **exits 1**, and `close_rebank.py` refuses those by design. Diagnosed here: most are not crashes and not mis-reads. They carry **integrity checks that pin a site to a literal line number** — `check('Appendix G first line', GA, 11361)` — where the site itself is already resolved by content. The resolver was right all along; only the pin was stale, and `r3-wl2`'s +8 shift made every one of them exit 1.
+- **The pin cannot simply be replaced by the resolver's own value.** That yields `check(tag, GA, GA)` — **a test that could not fail**, which is precisely the class §4.6 names and which this project treats as a defect wherever it finds it. A guard that cannot fail is worse than no guard, because the gate reports it green.
+- **The disposition: cross-check against an INDEPENDENT resolution of the same site.** `r2-27a2` resolves Appendix G by a prefix pattern where the predecessor matched on the full title suffix; `r2-26c2` the same for Appendix F; `r2-28a3` resolves the `## References` hits, the claim paragraph and the Janet 1928 site each by a second, differently-shaped test. **Two independent resolutions of one site can disagree, so the check still catches a mis-read — and it is shift-invariant, because neither side carries a number.** Output on the pre-shift bundles is unchanged, because both sides agree there, which is what let `proveanchor` prove all three byte-exact.
+- **Three seated, all exiting 0: `r2-27a2`, `r2-26c2`, `r2-28a3`.** `r2-28a3` needed five pins cross-checked, not one — the References hits, the claim paragraph, and Janet 1928 — each behind the last.
+- **`r2-28b3` is written, PROVED, and deliberately NOT seated.** Five of its pins are cross-checked and it still exits 1: its Löwdin and three-body **block-length** checks (`len(BL), 8` and `len(BT), 21`) now fail, which is not a pin but a derivation that reads a range. That is a reading and not a re-anchor, and seating a red instrument to show progress is the one thing this class must not do. It is carried in the checkout, outside any bundle, and `restage.py` reports it as such.
+- **A reporting falsehood recorded in the same instrument, unrepaired.** `r2-28b3`'s check *tags* still read `Löwdin block L11807–L11816` and `three-body block L11818–L11840`. Those line numbers are stale by 8 and the tag is printed whether the check passes or fails, so the instrument states a falsehood in its label while its verdict is sound — the `r2-ch17e` shape again, in a place a literal scan of expected-values would not find. Recorded for the successor that closes this instrument.
+- **Not done, by design:** 34 UNEXPLAINED and 9 UNRUNNABLE remain after this build. `r2-23a` is the one true crash in the class — `ValueError: not enough values to unpack` on a row parse — and needs its own reading. DEF-152 items 1–9 remain queued behind the readings on M's ruling.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35633,7 +35643,7 @@ compendia	REGISTER_AUDIT.md	1445	971bdbef525d1815fbbba5393d514dc0	13
 compendia	REQUEST-LOWDIN.md	5810	f1d93d9a360bc1afbfdbee0c66414b5c	75
 compendia	REQUEST-THREEBODY.md	5300	8e776e353b41e91e6d9bf6f83f9a0628	70
 compendia	RESPONSE-TO-METHOD-1_6.md	9706	eb435761e5429a245a1ba415e5d0cc37	175
-compendia	RETIRED.tsv	1039	3743b3be659aec605a0179b3d58e1e1e	7
+compendia	RETIRED.tsv	1507	0c50f5a8833a76240cfcae65ecf71339	10
 compendia	RULING-TOLERANCE-489.md	3121	5a9a3803812c2e157770c6d4c9ca041a	59
 compendia	RULINGS-R2.md	25974	3012f5ab2f59de6629e18f81437a170a	286
 compendia	ScIII_asd.tsv	1269	f91a0abff919f6922395320344f1d4ac	46
@@ -35660,7 +35670,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	989977	5fbf9297235a8d424c0115df74b45f97	8151
+compendia	WORKING-REGISTER.md	993144	8b3333d3e966c972d23dcc7d7e63a332	8161
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -35715,10 +35725,16 @@ compendia	r2-26b.out	21029	d55bf6f57d6f8fb3846c9f55698e00aa	190
 compendia	r2-26b.py	27320	bbcf1ed1811aea2ead6bc1559b9c2a21	311
 compendia	r2-26c.out	13613	f7f2ccafe97d5cc16a42a9e296e9b92c	156
 compendia	r2-26c.py	16897	6f1062f07b0108ee6d2dd395bd232ef0	231
+compendia	r2-26c2.out	13613	1587b19d818622032c25072bb23c489c	156
+compendia	r2-26c2.py	17671	407da30d6045e80995b9f4429f448618	239
 compendia	r2-27a.out	10142	1c050f9a69f02d213fecfc53d779d72f	125
 compendia	r2-27a.py	15219	103078f4bf922ce6b9e9d5cad1b30224	218
+compendia	r2-27a2.out	10142	3146ee6ca9c798521c48b84d1bb0b4c1	125
+compendia	r2-27a2.py	16080	f789a55122470886ac112e6e07314972	227
 compendia	r2-28a2.out	12319	7e58b2bf026973b3e0523d7ed623c083	184
 compendia	r2-28a2.py	16676	c7eafbaf76e9ddc908a3cc8af1423a32	223
+compendia	r2-28a3.out	12319	f0bb76a080168bc3e00cd57b45e314dc	184
+compendia	r2-28a3.py	17716	02fe220d752f043b3dc001792999d709	234
 compendia	r2-28b2.out	14026	0bd7f8b2946821179e351053382fe1c3	165
 compendia	r2-28b2.py	17057	ccb9fc499e8d20e953936f472dab34b2	229
 compendia	r2-ch1.py	2940	172fb73dacbf30d5d85eb04f4463c064	48
@@ -76132,6 +76148,9 @@ r2-ch16v	r2-ch16v2	read MAIN[9891] by fixed index for the `## 36.` heading; the 
 r2-ch16n	r2-ch16n2	carried a hard-coded site LIST; three of nine entries (9722, 9894, 11853) sit above the shift and named the wrong lines	BUILD92+BUILD191, byte-exact
 r2-ch16p	r2-ch16p2	named two citing lines (11555, 11799) and started a sweep at the References body (11503) by literal; all three moved	BUILD92+BUILD191, byte-exact
 r2-ch22a	r2-ch22a2	printed "Chapter 23 citation claim, L10377" as a literal while computing the Nesterov sites beside it	BUILD92+BUILD191, byte-exact
+r2-27a	r2-27a2	pinned Appendix G first line to 11361; replaced by an independent resolution of the same heading, so the check can still fail	BUILD92+BUILD191, byte-exact
+r2-26c	r2-26c2	pinned the rebuilt Appendix F first line to 11222; same treatment	BUILD92+BUILD191, byte-exact
+r2-28a2	r2-28a3	pinned the References heading hits, the claim paragraph and the Janet 1928 site to literals; all cross-checked against independent resolutions	BUILD92+BUILD191, byte-exact
 <<<END FILE: RETIRED.tsv>>>
 
 <<<FILE: r2-ch16u2.py>>>
@@ -78474,3 +78493,1186 @@ r2-ch22a — Appendix D part 1 (D.1–D.4.4.3), computable claims; conventions n
 §7 forty-eight / fifty-six sites in the unit: [10391, 10424, 10429] ; the twin restatement at D.5.1: [10521, 10522]
 done
 <<<END FILE: r2-ch22a2.out>>>
+
+<<<FILE: r2-27a2.py>>>
+#!/usr/bin/env python3
+# r2-27a2.py — chat 153 — SUCCESSOR to r2-27a.py, re-anchored. Identical measurements; one pin moves.
+# r2-27a pinned Appendix G's first line to the literal 11361. r3-wl2's +8 shift moved it to 11369, so the
+# instrument exits 1 on a position that is no longer wrong-in-fact, only wrong-as-pinned.
+# The replacement is NOT the resolver's own value — that would be a test that cannot fail, the very
+# class §4.6 names. It is an INDEPENDENT resolution of the same site, so the two can disagree and the
+# check still catches a mis-read. Output on the pre-shift bundles is unchanged, because both agree there.
+# r2-27a is seated and is never edited in place (chat 68).
+# PROVED by tools/proveanchor.py: reproduces r2-27a.out byte-exact on the pre-shift bundles (G0c).
+# r2-27a.py — chat 151-B (Cowork) — 27a-02 (DEF-143 item 11's SEVENTH family; docket 9(b) / 35):
+# Appendix G rows 8.2, 8.4 and 10.4c name seven Register entries in their "what rests on it" column, and
+# READ-ch27a measured that NONE of the seven carries any of its row's words. That was a TOKEN PROBE, stated
+# as such, and DEF-151's predecessor recorded what is owed: "read the seven entries for dependence on
+# T §8.2 / §8.4 / §10.4c before scoring". This instrument is that reading.
+# THE COLUMN IS "WHAT RESTS ON IT", so the question is DEPENDENCE, not vocabulary. A word probe cannot settle
+# it in either direction: an entry may rest on a section without repeating a syllable of it, and may repeat
+# every word of it while resting on something else. The convention below is stated before anything is scored.
+# CONVENTION DEP (new, this chat). An entry RESTS ON section S if either
+#   DEP-N  it NAMES the source — "Transitions", "T <n>", "App. G", or the section number itself; or
+#   DEP-M  its own deciding sentence is an instance or a consequence of the MECHANISM S establishes,
+# and in both cases the instrument asserts the deciding phrase is present in that entry's own text. An entry
+# the reading cannot decide is carried as NEAR — an upper bound, never assigned (SUBJ, chat 148).
+# The three mechanisms, taken from the sections themselves and asserted present in Transitions.md below:
+#   §8.2   a scope condition is an extra coordinate, so a jurisdicted theorem is inherently ternary, and
+#          arity >= 3 is what makes a defect possible while jurisdiction narrowness is what makes it small
+#   §8.4   a locally covariant QFT is a functor Loc -> Alg with exactly four parts, replacing the
+#          seven-vocabulary partition
+#   §10.4c the presymplectic potential on a null surface carries no transverse derivative, so Omega is block
+#          diagonal and the algebra factorises over generators
+# Book-versus-record deviations go through score() and never through the integrity checker check().
+# Reads MEMBERS by name (never a bundle path). Deterministic: no wall clock, no randomness.
+import os, re, sys, hashlib, importlib.util
+H = os.path.dirname(os.path.abspath(__file__))
+def load(name):
+    s = importlib.util.spec_from_file_location(name.replace('-', '_'), os.path.join(H, name + '.py'))
+    m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
+r2lib = load('r2lib')
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+
+MAIN, REG = 'The_Method_1_6-2.md', 'The_Method_1_6___The_Register-2.md'
+MC, TR = 'The_Method_1_6___Mathematical_Compendium-2.md', 'Transitions.md'
+VOLS = [MAIN, REG, MC, 'The_Method_1_6___The_Physics_Compendium-2.md',
+        'The_Method_1_6___Spectra_Compendium-2.md', 'The_Method_1_6___The_Index_of_Indices-2.md']
+M, R, T, C = rd(MAIN), rd(REG), rd(TR), rd(MC)
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-64s %-26s %s' % (tag, repr(got), 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-64s %-26s %s' % (tag, repr(got), 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+
+print('r2-27a.py — 27a-02: do the seven Register entries Appendix G names actually rest on the sections?')
+print('members: %s %s | %s %s | %s %s | %s %s' % (MAIN, md5(MAIN), REG, md5(REG), TR, md5(TR), MC, md5(MC)))
+
+# ------------------------------------------------------------------ §1
+hr('§1 THE THREE ROWS, located by scan this chat — the seven numbers are read OUT of the rows, never carried in')
+GA = [i for i, l in enumerate(M, 1) if re.match(r'^#{1,4}\s', l) and l.strip().endswith('Appendix G — Transitions, indexed')][-1]
+EM = [i for i, l in enumerate(M, 1) if l.strip() == '# END MATTER']
+GEND = min(i for i in EM if i > GA)
+G = M[GA - 1:GEND - 1]
+_ga_alt = [i for i, l in enumerate(M, 1) if re.match(r'^#{1,4}\s+Appendix G\b', l)][-1]
+check('Appendix G first line', GA, _ga_alt)
+check('Appendix G line count (to `# END MATTER`)', len(G), 46)
+rows = {}
+for k, l in enumerate(G):
+    m = re.match(r'^\|\s*([\d.]+[a-z]?)\s*\|(.*)\|(.*)\|\s*$', l)
+    if m: rows[m.group(1)] = (GA + k, norm(m.group(2)), norm(m.group(3)))
+check('DATA rows in Appendix G', len(rows), 30)
+WANT = ['8.2', '8.4', '10.4c']
+check('the three rows are present', [w in rows for w in WANT], [True, True, True])
+cited = {}
+for w in WANT:
+    ln, states, rests = rows[w]
+    cited[w] = [int(x) for x in re.findall(r'\d+', re.sub(r'^.*?Register', '', rests))] if 'Register' in rests else []
+    print('   row %-5s L%-6d rests on: %s' % (w, ln, rests))
+    print('        states: %s' % states[:150])
+check('row 8.2 cites', cited['8.2'], [1375, 1519, 1523, 1535, 1551])
+check('row 8.4 cites', cited['8.4'], [1375])
+check('row 10.4c cites', cited['10.4c'], [1399, 1403])
+SEVEN = sorted(set(cited['8.2'] + cited['8.4'] + cited['10.4c']))
+check('the seven distinct entries the column names', SEVEN, [1375, 1399, 1403, 1519, 1523, 1535, 1551])
+
+# ------------------------------------------------------------------ §2
+hr('§2 THE SECTIONS — each row claims to restate its section; the mechanism is taken from Transitions itself')
+sec = {}
+for w in WANT:
+    hits = [i for i, l in enumerate(T, 1) if re.match(r'^###\s+' + re.escape(w) + r'\s', l)]
+    e = next((i for i, l in enumerate(T, 1) if i > hits[0] and re.match(r'^#{2,4}\s', l)), len(T) + 1)
+    sec[w] = (hits[0], e, norm(' '.join(T[hits[0] - 1:e - 1])))
+    print('   T §%-5s L%-5d-L%-5d  %s' % (w, hits[0], e - 1, norm(T[hits[0] - 1])[:90]))
+check('§8.2 states the ternary mechanism', 'inherently ternary, and no further physics removes the scope' in sec['8.2'][2], True)
+check('§8.2 states arity is what makes a defect possible', 'Arity ≥ 3 is what makes a defect *possible*' in sec['8.2'][2], True)
+check('§8.4 states the four-part functor', 'that object has exactly four parts' in sec['8.4'][2], True)
+check('§10.4c states the null-surface factorisation', 'no transverse' in sec['10.4c'][2] and 'block diagonal' in sec['10.4c'][2], True)
+for w in WANT:
+    key = {'8.2': 'inherently ternary', '8.4': 'exactly four parts', '10.4c': 'block diagonal'}[w]
+    check('row %s restates its section (the row is not itself in doubt)' % w, key in rows[w][1] or key.split()[-1] in rows[w][1], True)
+
+# ------------------------------------------------------------------ §3
+hr('§3 THE TOKEN PROBE REPRODUCED — READ-ch27a\'s word sets, and where those words actually live')
+IDX = {}
+for i, l in enumerate(R, 1):
+    m = re.match(r'^###\s+(\d+)\s*$', l)
+    if m: IDX[int(m.group(1))] = i
+KS = sorted(IDX)
+def span(n):
+    s = IDX[n]; e = next((IDX[k] for k in KS if IDX[k] > s), len(R) + 1) - 1
+    return s, e
+def body(n):
+    s, e = span(n); return norm(' '.join(x for x in R[s:e] if x.strip()))
+BODY = {n: body(n) for n in KS}
+WORDS = {'8.2':   [r'jurisdict\w*', r'forcing', r'disjunction', r'ternary', r'scope'],
+         '8.4':   [r'vocabular\w*', r'functor', r'covariant', r'four parts'],
+         '10.4c': [r'\bC1\b', r'presymplectic', r'null surface', r'transverse', r'block diagonal', r'factoris\w*']}
+probe = {}
+for w in WANT:
+    for n in cited[w]:
+        hitw = [p for p in WORDS[w] if re.search(p, BODY[n], re.I)]
+        probe[(w, n)] = hitw
+        print('   row %-5s register %-5d row-words present: %s' % (w, n, hitw or 'none'))
+check('chat 139\'s probe: any row word in any cited entry', sorted({k for k, v in probe.items() if v}), [])
+for pat, nm in ((r'jurisdict\w*', 'jurisdict*'), (r'presymplectic', 'presymplectic'), (r'null surface', 'null surface')):
+    where = [n for n in KS if re.search(pat, BODY[n], re.I)]
+    print('   "%s" actually lives at register(s): %s' % (nm, where))
+check('*jurisdict\\** has exactly one Register home', [n for n in KS if re.search(r'jurisdict\w*', BODY[n], re.I)], [543])
+check('*presymplectic* has exactly one Register home', [n for n in KS if re.search(r'presymplectic', BODY[n], re.I)], [1511])
+print('   A word probe cannot settle "rests on" in either direction. The reading follows.')
+
+# ------------------------------------------------------------------ §4
+hr('§4 THE READING — every cited entry scored for DEPENDENCE under CONVENTION DEP, with a deciding phrase')
+print('   DEP-N  names the source: "Transitions", "T <n>", "App. G", or the section number')
+print('   DEP-M  its deciding sentence is an instance or consequence of the section\'s mechanism')
+print('   NEAR   the reading cannot decide; carried as an upper bound, never assigned')
+print('   NOT    another mechanism entirely\n')
+SC = [
+ ('8.2', 1375, 'NOT',  'THE DUAL OF A.DEFINE',
+  'a rung-1 coordinate and its injective dual, both contributing no envelope — A.define\'s degeneracy, not a scope condition'),
+ ('8.2', 1519, 'NEAR', "which is Freuder's classical result",
+  'treewidth one and the Helly number: the SAME arity mechanism read from the low side, but credited to Freuder and derived from register 507, not from §8.2'),
+ ('8.2', 1523, 'NEAR', 'Λ at max clique 1',
+  'the conflict graph as a shared measure over three topics — arity again, and it names M.C2, whose section is §10.4d and not §8.2'),
+ ('8.2', 1535, 'NOT',  'A NILSSON SHELL N ADMITS ONLY',
+  'a parity check on a supplied nuclear table; no constraint arity, no jurisdiction, no scope'),
+ ('8.2', 1551, 'NOT',  "K I's QUANTUM DEFECTS",
+  'an outside companion paper matching a quantum-defect extrapolation; a spectra capture'),
+ ('8.4', 1375, 'NOT',  'THE DUAL OF A.DEFINE',
+  'the same entry again, and it carries no vocabulary, no functor and no partition of any size'),
+ ('10.4c', 1399, 'NOT', 'the sequence as printed was not one measurement',
+  'two tower conventions printed as one sequence; an arithmetic collision, not a null-surface algebra'),
+ ('10.4c', 1403, 'NOT', "the corridor's lower endpoint",
+  'where a sits in the Λ_T corridor, on eight recorded values; no presymplectic potential and no generator algebra'),
+]
+check('the reading scores every (row, entry) pair the column names exactly once',
+      sorted((w, n) for w, n, *_ in SC), sorted((w, n) for w in WANT for n in cited[w]))
+miss = []
+for w, n, verdict, phrase, why in SC:
+    ok = phrase.lower() in BODY[n].lower()
+    if not ok: miss.append((n, phrase))
+    print('   §%-5s %-5d %-5s "%s"' % (w, n, verdict, phrase))
+    print('               %s' % why)
+check('every deciding phrase present in its own entry', miss, [])
+named = [(w, n) for w, n, *_ in SC if re.search(r'Transitions|App\. G|\bT \d', BODY[n])]
+check('entries that NAME the source (DEP-N)', named, [])
+depm = [(w, n) for w, n, v, *_ in SC if v == 'DEP-M']
+check('entries whose deciding sentence is an instance of the mechanism (DEP-M)', depm, [])
+nears = [(w, n) for w, n, v, *_ in SC if v == 'NEAR']
+nots = [(w, n) for w, n, v, *_ in SC if v == 'NOT']
+print('\n   DEP-N %d | DEP-M %d | NEAR %d %s | NOT %d' % (len(named), len(depm), len(nears), nears, len(nots)))
+score('the column "what rests on it" is true of the entries it names',
+      len(named) + len(depm), len(SC), '27a-02')
+
+# ------------------------------------------------------------------ §5
+hr('§5 EVERY WARNING ON EVERY CITED ENTRY (docket 9(b) / 35 asks for exactly this)')
+warns = {}
+for n in SEVEN:
+    s, e = span(n)
+    warns[n] = [(i, norm(R[i - 1])) for i in range(s + 1, e + 1) if 'WARNING' in R[i - 1].upper()]
+    print('   register %-5d WARNING lines: %d' % (n, len(warns[n])))
+check('cited entries carrying a WARNING', [n for n in SEVEN if warns[n]], [1403])
+w1403 = warns[1403][0][1]
+print('   R%d: %s' % (warns[1403][0][0], w1403[:210]))
+check('1403\'s WARNING is that the a values are reconstructions',
+      'RECONSTRUCTION' in w1403.upper(), True)
+r104c = rows['10.4c'][2]
+score('row 10.4c restates the qualification on the entry it cites',
+      any(t in r104c.lower() for t in ('reconstruct', 'warning', 'not measurement')), True, '27a-02')
+
+# ------------------------------------------------------------------ §6
+hr('§6 THE CANDIDATES — what the Mathematical Compendium\'s own C1 / C2 block rests on')
+led = [i for i, l in enumerate(C, 1) if l.strip() == '### The modular ledger']
+e = next((i for i, l in enumerate(C, 1) if i > led[0] and re.match(r'^###\s', l)), len(C) + 1)
+blk = norm(' '.join(C[led[0] - 1:e - 1]))
+cand = sorted({int(x) for x in re.findall(r'(?:[Rr]egisters?|R)\s+(\d{3,4})', blk)})
+print('   MC "The modular ledger" L%d-L%d cites: %s' % (led[0], e - 1, cand))
+check('the block names T 10.4e and Appendix G as its source', 'T 10.4e (App. G)' in blk, True)
+check('none of the seven is among the registers that block cites', sorted(set(cand) & set(SEVEN)), [])
+bib = [(i, norm(l)) for i, l in enumerate(C, 1) if re.search(r'`(M\.C1|M\.C2|W\.jur|W\.rel)`', l)]
+for i, l in bib: print('   MC L%-6d %s' % (i, l[:120]))
+print('   The row\'s own labels resolve to prior art — W.jur to Freuder 1978, W.rel to Fredenhagen & Verch')
+print('   2003, M.C1 to Wald & Zoupas 2000 — and the C1 / C2 work rests on %s, none of which the row names.' % cand)
+
+# ------------------------------------------------------------------ verdict
+hr('VERDICT')
+print('   27a-02 STANDS, and the reading is stronger than the probe that recorded it. Of the eight (row, entry)')
+print('   pairs the column asserts, **0 are DEP-N and 0 are DEP-M**: not one of the seven entries names')
+print('   Transitions, its section, or Appendix G, and not one has a deciding sentence that is an instance or a')
+print('   consequence of the mechanism its row states. %d are another mechanism entirely and %d are carried as' % (len(nots), len(nears)))
+print('   an upper bound and never assigned — 1519, whose treewidth-one result is the same arity mechanism read')
+print('   from the low side but credited to Freuder and to register 507, and 1523, whose conflict-graph measure')
+print('   is arity again and which names M.C2, an object of §10.4d rather than of §8.2.')
+print('   27a-07 NEW. The Mathematical Compendium\'s own "modular ledger" block names T 10.4e (App. G) as its')
+print('   source and rests on registers %s. Row 10.4c names 1399 and 1403 instead,' % cand)
+print('   and the two sets are disjoint: the compendium and the appendix disagree about what rests on the')
+print('   section, and the appendix is the volume that calls itself the address.')
+print('   27a-08 NEW. Register 1403 is the only one of the seven carrying a WARNING — its eight a values are')
+print('   RECONSTRUCTIONS and not measurements — and row 10.4c prints it as an object resting on a computed')
+print('   result without restating the qualification. Docket 35: a citer either restates it or drops the citation.')
+print('\nDEVIATIONS RECORDED (findings, not instrument faults):')
+for t, tag, got, exp in DEV: print('   %-8s %-58s measured %s against printed %s' % (t, tag, repr(got), repr(exp)))
+print('\n%s' % ('FAIL: ' + '; '.join(FAIL) if FAIL else 'ALL INSTRUMENT CHECKS OK — %d deviations recorded' % len(DEV)))
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r2-27a2.py>>>
+
+<<<FILE: r2-27a2.out>>>
+r2-27a.py — 27a-02: do the seven Register entries Appendix G names actually rest on the sections?
+members: The_Method_1_6-2.md 4eec7650 | The_Method_1_6___The_Register-2.md bfc8c01d | Transitions.md dabed88e | The_Method_1_6___Mathematical_Compendium-2.md 53a446c8
+
+== §1 THE THREE ROWS, located by scan this chat — the seven numbers are read OUT of the rows, never carried in
+   Appendix G first line                                            11369                      OK
+   Appendix G line count (to `# END MATTER`)                        46                         OK
+   DATA rows in Appendix G                                          30                         OK
+   the three rows are present                                       [True, True, True]         OK
+   row 8.2   L11404  rests on: `W.jur`; Chapter 12; Register 1375, 1519, 1523, 1535, 1551
+        states: A jurisdicted forcing and an unjurisdicted disjunction are the same object. A theorem holding only under a scope condition is inherently ternary, and 
+   row 8.4   L11405  rests on: `W.rel`; Chapter 12; Register 1375
+        states: The vocabularies. A locally covariant QFT is a functor with exactly four parts, which replaces the seven-vocabulary partition.
+   row 10.4c L11408  rests on: `M.C1`; Register 1399, 1403
+        states: C1, computed. The presymplectic potential on a null surface contains no transverse derivative, so Ω is block diagonal and the algebra factorises over 
+   row 8.2 cites                                                    [1375, 1519, 1523, 1535, 1551] OK
+   row 8.4 cites                                                    [1375]                     OK
+   row 10.4c cites                                                  [1399, 1403]               OK
+   the seven distinct entries the column names                      [1375, 1399, 1403, 1519, 1523, 1535, 1551] OK
+
+== §2 THE SECTIONS — each row claims to restate its section; the mechanism is taken from Transitions itself
+   T §8.2   L792  -L811    ### 8.2 A jurisdicted forcing and an unjurisdicted disjunction are the same object
+   T §8.4   L827  -L868    ### 8.4 The vocabularies
+   T §10.4c L1237 -L1269   ### 10.4c C1, computed
+   §8.2 states the ternary mechanism                                True                       OK
+   §8.2 states arity is what makes a defect possible                True                       OK
+   §8.4 states the four-part functor                                True                       OK
+   §10.4c states the null-surface factorisation                     True                       OK
+   row 8.2 restates its section (the row is not itself in doubt)    True                       OK
+   row 8.4 restates its section (the row is not itself in doubt)    True                       OK
+   row 10.4c restates its section (the row is not itself in doubt)  True                       OK
+
+== §3 THE TOKEN PROBE REPRODUCED — READ-ch27a's word sets, and where those words actually live
+   row 8.2   register 1375  row-words present: none
+   row 8.2   register 1519  row-words present: none
+   row 8.2   register 1523  row-words present: none
+   row 8.2   register 1535  row-words present: none
+   row 8.2   register 1551  row-words present: none
+   row 8.4   register 1375  row-words present: none
+   row 10.4c register 1399  row-words present: none
+   row 10.4c register 1403  row-words present: none
+   chat 139's probe: any row word in any cited entry                []                         OK
+   "jurisdict*" actually lives at register(s): [543]
+   "presymplectic" actually lives at register(s): [1511]
+   "null surface" actually lives at register(s): [547, 548, 550, 1472, 1479, 1506, 1510]
+   *jurisdict\** has exactly one Register home                      [543]                      OK
+   *presymplectic* has exactly one Register home                    [1511]                     OK
+   A word probe cannot settle "rests on" in either direction. The reading follows.
+
+== §4 THE READING — every cited entry scored for DEPENDENCE under CONVENTION DEP, with a deciding phrase
+   DEP-N  names the source: "Transitions", "T <n>", "App. G", or the section number
+   DEP-M  its deciding sentence is an instance or consequence of the section's mechanism
+   NEAR   the reading cannot decide; carried as an upper bound, never assigned
+   NOT    another mechanism entirely
+
+   the reading scores every (row, entry) pair the column names exactly once [('10.4c', 1399), ('10.4c', 1403), ('8.2', 1375), ('8.2', 1519), ('8.2', 1523), ('8.2', 1535), ('8.2', 1551), ('8.4', 1375)] OK
+   §8.2   1375  NOT   "THE DUAL OF A.DEFINE"
+               a rung-1 coordinate and its injective dual, both contributing no envelope — A.define's degeneracy, not a scope condition
+   §8.2   1519  NEAR  "which is Freuder's classical result"
+               treewidth one and the Helly number: the SAME arity mechanism read from the low side, but credited to Freuder and derived from register 507, not from §8.2
+   §8.2   1523  NEAR  "Λ at max clique 1"
+               the conflict graph as a shared measure over three topics — arity again, and it names M.C2, whose section is §10.4d and not §8.2
+   §8.2   1535  NOT   "A NILSSON SHELL N ADMITS ONLY"
+               a parity check on a supplied nuclear table; no constraint arity, no jurisdiction, no scope
+   §8.2   1551  NOT   "K I's QUANTUM DEFECTS"
+               an outside companion paper matching a quantum-defect extrapolation; a spectra capture
+   §8.4   1375  NOT   "THE DUAL OF A.DEFINE"
+               the same entry again, and it carries no vocabulary, no functor and no partition of any size
+   §10.4c 1399  NOT   "the sequence as printed was not one measurement"
+               two tower conventions printed as one sequence; an arithmetic collision, not a null-surface algebra
+   §10.4c 1403  NOT   "the corridor's lower endpoint"
+               where a sits in the Λ_T corridor, on eight recorded values; no presymplectic potential and no generator algebra
+   every deciding phrase present in its own entry                   []                         OK
+   entries that NAME the source (DEP-N)                             []                         OK
+   entries whose deciding sentence is an instance of the mechanism (DEP-M) []                         OK
+
+   DEP-N 0 | DEP-M 0 | NEAR 2 [('8.2', 1519), ('8.2', 1523)] | NOT 6
+   the column "what rests on it" is true of the entries it names    0                          DEVIATION (27a-02) — printed 8
+
+== §5 EVERY WARNING ON EVERY CITED ENTRY (docket 9(b) / 35 asks for exactly this)
+   register 1375  WARNING lines: 0
+   register 1399  WARNING lines: 0
+   register 1403  WARNING lines: 1
+   register 1519  WARNING lines: 0
+   register 1523  WARNING lines: 0
+   register 1535  WARNING lines: 0
+   register 1551  WARNING lines: 0
+   cited entries carrying a WARNING                                 [1403]                     OK
+   R5265: **A IS PLACED AT AN ENDPOINT, NEVER IN THE INTERIOR, SO Λ_T'S T IS 0 OR 1 AT EVERY RECALIBRATION.** *The person asked what if t is only ever normalised by one — time is only ever a value at the point of observa
+   1403's WARNING is that the a values are reconstructions          True                       OK
+   row 10.4c restates the qualification on the entry it cites       False                      DEVIATION (27a-02) — printed True
+
+== §6 THE CANDIDATES — what the Mathematical Compendium's own C1 / C2 block rests on
+   MC "The modular ledger" L2406-L2417 cites: [1019, 1020, 1022, 1035, 1483, 1484]
+   the block names T 10.4e and Appendix G as its source             True                       OK
+   none of the seven is among the registers that block cites        []                         OK
+   MC L3502   | 1978 | Freuder | `A.blind` `A.gc` `A.modeA` `A.modeB` `A.three` `G.allcons` `G.prot` `K.corner` `W.jur` |
+   MC L3523   | 1991 | Kay-Wald | `M.C2` |
+   MC L3524   | 1992 | Borchers | `M.C2` `M.hsmi` `M.ledger` |
+   MC L3526   | 1993 | Wiesbrock | `M.C2` `M.hsmi` `M.ledger` |
+   MC L3533   | 2000 | Wald & Zoupas | `M.C1` |
+   MC L3536   | 2003 | Fredenhagen & Verch | `W.rel` |
+   The row's own labels resolve to prior art — W.jur to Freuder 1978, W.rel to Fredenhagen & Verch
+   2003, M.C1 to Wald & Zoupas 2000 — and the C1 / C2 work rests on [1019, 1020, 1022, 1035, 1483, 1484], none of which the row names.
+
+== VERDICT
+   27a-02 STANDS, and the reading is stronger than the probe that recorded it. Of the eight (row, entry)
+   pairs the column asserts, **0 are DEP-N and 0 are DEP-M**: not one of the seven entries names
+   Transitions, its section, or Appendix G, and not one has a deciding sentence that is an instance or a
+   consequence of the mechanism its row states. 6 are another mechanism entirely and 2 are carried as
+   an upper bound and never assigned — 1519, whose treewidth-one result is the same arity mechanism read
+   from the low side but credited to Freuder and to register 507, and 1523, whose conflict-graph measure
+   is arity again and which names M.C2, an object of §10.4d rather than of §8.2.
+   27a-07 NEW. The Mathematical Compendium's own "modular ledger" block names T 10.4e (App. G) as its
+   source and rests on registers [1019, 1020, 1022, 1035, 1483, 1484]. Row 10.4c names 1399 and 1403 instead,
+   and the two sets are disjoint: the compendium and the appendix disagree about what rests on the
+   section, and the appendix is the volume that calls itself the address.
+   27a-08 NEW. Register 1403 is the only one of the seven carrying a WARNING — its eight a values are
+   RECONSTRUCTIONS and not measurements — and row 10.4c prints it as an object resting on a computed
+   result without restating the qualification. Docket 35: a citer either restates it or drops the citation.
+
+DEVIATIONS RECORDED (findings, not instrument faults):
+   27a-02   the column "what rests on it" is true of the entries it names measured 0 against printed 8
+   27a-02   row 10.4c restates the qualification on the entry it cites measured False against printed True
+
+ALL INSTRUMENT CHECKS OK — 2 deviations recorded
+<<<END FILE: r2-27a2.out>>>
+
+<<<FILE: r2-26c2.py>>>
+#!/usr/bin/env python3
+# r2-26c2.py — chat 153 — SUCCESSOR to r2-26c.py, re-anchored. Identical measurements; one pin moves.
+# r2-26c pinned the rebuilt Appendix F's first line to the literal 11222, which the +8 shift moved to 11230.
+# The replacement is NOT the resolver's own value — that would be a test that cannot fail, the very
+# class §4.6 names. It is an INDEPENDENT resolution of the same site, so the two can disagree and the
+# check still catches a mis-read. Output on the pre-shift bundles is unchanged, because both agree there.
+# r2-26c is seated and is never edited in place (chat 68).
+# PROVED by tools/proveanchor.py: reproduces r2-26c.out byte-exact on the pre-shift bundles (G0c).
+# r2-26c.py — chat 151-B (Cowork) — 26b-02 and 26b-03 (DEF-143 item 11's sixth family; docket 9(b) / 23 / 35 / 12).
+# §32.1.3 L8961 *§F.4.1's withdrawal ratio measures and does not excuse* and §32.1.4.1 L9023 *the ratios of F.4.1*
+# cite F.4.1 for content F.4.1 declares withdrawn; §32.1.4's row *Appendix F, the numbers  3  33  thirty-three*
+# counts an appendix rebuilt on a different domain (register 1780).
+# WHAT WAS OWED. READ-ch26a §29 recorded that the 188 only-PP lines of the withdrawn appendix "were not read line
+# by line (the entry is the witness; INFERRED that every removed figure has a Register home — R3's pass on
+# 26b-02 / 26b-03 reads them)". This instrument replaces that inference with a measurement, and scores it against
+# the book's own standard for a withdrawal rather than against a standard of this instrument's invention:
+# register 374 states the protocol at §2.21 — ANY FIGURE WITHDRAWN MUST HAVE ITS DATA REPRESENTED ANOTHER WAY.
+# FAULTS SELF-CAUGHT AND NAMED (this instrument's, not the book's):
+#   fault 1: the ratio tokens were first counted CASE-SENSITIVELY, which returned 0 sites for *method ratio* and
+#            produced a finding that F.4.1's sentence had no referent. Register 296 prints THE METHOD RATIO in
+#            capitals. The finding was withdrawn before it was recorded; all token counts here are case-folded.
+#   fault 2: *withdrawal ratio* was first counted over the whole rebuilt unit, which counts F.4.2's own HEADING
+#            and is not content. Headings and body are separated below.
+#   fault 3: the only-PP count was first taken over raw lines, giving 189 against the record's 188. The record's
+#            figure is r2-ch26b §0's convention — body lines only, heading lines excluded, as a SET. Both are
+#            printed; the record's convention is the one scored.
+# Book-versus-record deviations go through score() and never through the integrity checker check().
+# Reads MEMBERS by name (never a bundle path); PP is Prints & Proofs, the pre-withdrawal witness.
+# Deterministic: no wall clock, no randomness.
+import os, re, sys, hashlib, importlib.util
+H = os.path.dirname(os.path.abspath(__file__))
+def load(name):
+    s = importlib.util.spec_from_file_location(name.replace('-', '_'), os.path.join(H, name + '.py'))
+    m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
+r2lib = load('r2lib')
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+
+MAIN, REG = 'The_Method_1_6-2.md', 'The_Method_1_6___The_Register-2.md'
+VOLS = [MAIN, REG, 'The_Method_1_6___Mathematical_Compendium-2.md', 'The_Method_1_6___The_Physics_Compendium-2.md',
+        'The_Method_1_6___Spectra_Compendium-2.md', 'The_Method_1_6___The_Index_of_Indices-2.md']
+M, R = rd(MAIN), rd(REG)
+PPN = 'PP_The_Method_1_6.md'
+P = (rd(PPN) if os.path.exists(os.path.join(H, PPN))
+     else open('/home/claude/' + PPN, encoding='utf-8').read().split('\n'))
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+def nvol(v): return v.split('___')[-1].replace('The_Method_1_6-2.md', 'main').replace('-2.md', '')
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-66s %-24s %s' % (tag, repr(got), 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-66s %-24s %s' % (tag, repr(got), 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+
+# appf.py's occurrence rule, copied verbatim from r2-ch26a §3: a number in body text or a table, with
+# section / register / chapter / figure locators excluded. Defined here because §4 and §5 both score on it.
+NUM = re.compile(r'(?<![\w§.])(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?![\w.]\d)')
+EXCL = re.compile(r'(§\s?[\dA-F.]+|[Rr]egisters?\s+\d+(?:[–-]\d+)?|[Cc]hapters?\s+\d+(?:,\s*\d+)*(?:\s+and\s+\d+)?|F\.\d(?:\.\d)?|E\.\d(?:\.\d)?|\(i{1,3}\))')
+def census(lines, base):
+    occ = []
+    for k, l in enumerate(lines):
+        if l.startswith('#') or l.startswith('    '): continue
+        for m in NUM.finditer(EXCL.sub(' ', l)): occ.append((base + k, m.group(0)))
+    return occ
+def numerals(text): return [v for _, v in census([text], 0)]
+
+print('r2-26c.py — 26b-02 / 26b-03: the withdrawn Appendix F, what still cites it, and where its figures went')
+print('members: %s md5 %s | %s md5 %s | PP md5 %s'
+      % (MAIN, md5(MAIN), REG, md5(REG), hashlib.md5('\n'.join(P).encode()).hexdigest()[:8]))
+
+# ------------------------------------------------------------------ §1
+hr('§1 THE TWO UNITS, measured this chat by scan — member line numbers are never carried between chats')
+def last_head(lines, text):
+    hits = [i for i, l in enumerate(lines, 1) if l.strip().endswith(text) and re.match(r'^#{1,4}\s', l)]
+    return hits[-1] if hits else None
+FA = last_head(M, 'Appendix F — The numbers, indexed'); GA = last_head(M, 'Appendix G — Transitions, indexed')
+U = M[FA - 1:GA - 1]
+PF = last_head(P, 'Appendix F — The numbers, indexed'); PE = last_head(P, 'END MATTER')
+PU = P[PF - 1:PE - 1]
+_fa_alt = [i for i, l in enumerate(M, 1) if re.match(r'^#{1,4}\s+Appendix F\b', l)][-1]
+check('rebuilt Appendix F first line', FA, _fa_alt)
+check('rebuilt Appendix F line count (to `## Appendix G`)', len(U), 139)
+check('PP Appendix F first line', PF, 10761)
+check('PP Appendix F line count (to `# END MATTER`)', len(PU), 231)
+HEADFORM = re.compile(r'^(#{1,6}\s+|F\.\d(\.\d)?\s+\S)')
+rh = [(FA + k, norm(l)) for k, l in enumerate(U) if re.match(r'^#{1,4}\s', l)]
+ph = [(PF + k, norm(l)) for k, l in enumerate(PU) if HEADFORM.match(l.strip())]
+check('heading lines, rebuilt unit', len(rh), 9)
+check('heading-form lines, PP unit', len(ph), 12)
+for n, t in rh: print('   L%-6d %s' % (n, t))
+print('   ---')
+for n, t in ph: print('   P%-6d %s' % (n, t))
+print('   PP sections the rebuild does not carry: F.3.2, F.3.3, F.5 (register 1786 renumbered F.3.3 to F.3.1)')
+
+# ------------------------------------------------------------------ §2
+hr('§2 THE WITHDRAWN CONTENT — the only-PP lines READ-ch26a named at 188 and did not read')
+mb = {l.strip() for l in U if l.strip() and not l.startswith('#')}
+pb = {l.strip() for l in PU if l.strip() and not re.match(r'^\s*#', l)}
+check('only-PP BODY lines as a set (r2-ch26b §0 convention — the record\'s 188)', len(pb - mb), 188)
+raw = [(PF + k, l.strip()) for k, l in enumerate(PU) if l.strip() and l.strip() not in mb]
+print('   the same lines positionally, heading-form lines included: %d' % len(raw))
+print('   body lines: rebuilt %d, PP %d, shared %d, only-rebuilt %d' % (len(mb), len(pb), len(mb & pb), len(mb - pb)))
+check('the two units share no body line', len(mb & pb), 0)
+
+# ------------------------------------------------------------------ §3
+hr('§3 26b-02 — F.4.1 declares its content withdrawn; two chapter sentences still cite it for that content')
+F41 = [i for i, l in enumerate(M, 1) if l.strip().startswith('### F.4.1')][-1]
+F42 = [i for i, l in enumerate(M, 1) if l.strip().startswith('### F.4.2')][-1]
+F43 = [i for i, l in enumerate(M, 1) if l.strip().startswith('### F.4.3')][-1]
+u41, u42 = M[F41 - 1:F42 - 1], M[F42 - 1:F43 - 1]
+body = [l for l in U if not l.startswith('#')]
+print('   F.4.1 L%d-L%d (%d lines), F.4.2 L%d-L%d (%d lines)' % (F41, F42 - 1, len(u41), F42, F43 - 1, len(u42)))
+check('F.4.1 declares withdrawal in its own words', 'Retained as a reference, withdrawn as content' in ' '.join(u41), True)
+check('F.4.2 declares the same', 'Retained as a reference, withdrawn as content' in ' '.join(u42), True)
+for tok in ('withdrawal ratio', 'method ratio'):
+    check('"%s" in F.4.1 body (case-folded)' % tok, sum(l.lower().count(tok) for l in u41), 0)
+check('"withdrawal ratio" in the rebuilt unit BODY (fault 2: headings excluded)',
+      sum(l.lower().count('withdrawal ratio') for l in body), 0)
+check('"withdrawal ratio" in the rebuilt unit HEADINGS (F.4.2\'s title)',
+      sum(l.lower().count('withdrawal ratio') for _, l in rh), 1)
+cit = [(i, norm(l)) for i, l in enumerate(M, 1) if 'F.4.1' in l]
+out = [i for i, _ in cit if i < FA]
+print('   every F.4.1 mention in the main volume:')
+for i, t in cit: print('     L%-6d %s' % (i, t[:140]))
+check('F.4.1 cited from outside the appendix exactly twice', len(out), 2)
+print('   F.4.1 keeps the label so "every reference written to it still resolves". The LABEL resolves; the')
+print('   CONTENT the two sentences name does not. That is 26b-02, and it stands.')
+score('§32.1.3 cites F.4.1 for a ratio F.4.1 carries', sum(l.lower().count('withdrawal ratio') for l in u41) > 0, True, '26b-02')
+
+# ------------------------------------------------------------------ §4
+hr('§4 26c-01 — F.4.1: "the entries that established them stand in the Register". Both ratios, case-folded')
+for tok in ('withdrawal ratio', 'method ratio'):
+    per = [(nvol(v), sum(l.lower().count(tok) for l in rd(v))) for v in VOLS]
+    print('   "%s" across the six volumes (case-folded): %s' % (tok, per))
+IDX = {}
+for i, l in enumerate(R, 1):
+    m = re.match(r'^###\s+(\d+)\s*$', l)
+    if m: IDX[int(m.group(1))] = i
+KS = sorted(IDX)
+def rbody(n):
+    s = IDX[n]; e = next((IDX[k] for k in KS if IDX[k] > s), len(R) + 1) - 1
+    return norm(' '.join(x for x in R[s:e] if x.strip()))
+print('   Register entries carrying either ratio:')
+for n in KS:
+    b = rbody(n).lower()
+    if 'withdrawal ratio' in b or 'method ratio' in b:
+        print('     register %-5d withdrawal %d | method %d | numerals with a decimal point %s'
+              % (n, b.count('withdrawal ratio'), b.count('method ratio'), re.findall(r'\d+\.\d+', rbody(n))[:6]))
+check('registers naming the METHOD ratio at all', [n for n in KS if 'method ratio' in rbody(n).lower()], [296])
+check('register 296 carries no numeral under the occurrence rule (F.4.1 is a locator, not a value)',
+      numerals(rbody(296)), [])
+check('register 1762 gives the withdrawal ratio a value', '4.21 : 1' in rbody(1762), True)
+print('   READ-ch26a recorded the homes as "Register 296 / 320 / 321 / 1762 (4.21 : 1)". MEASURED: 296 NAMES both')
+print('   ratios and carries no figure at all; 320 and 321 carry neither ratio by name; 1762 establishes the')
+print('   WITHDRAWAL ratio with a value (4.21 : 1, p 0.192, 0.705 bits). No entry establishes the METHOD ratio.')
+print('   F.4.1 says the entries "established them", of both. For one of the two, naming is all there is.')
+score('an entry establishes the METHOD ratio with a value, as F.4.1 says of both',
+      any(numerals(rbody(n)) for n in KS if 'method ratio' in rbody(n).lower()), True, '26c-01')
+
+# ------------------------------------------------------------------ §5
+hr('§5 26b-03 — §32.1.4\'s row against the appendix as rebuilt (appf.py occurrence rule, copied from r2-ch26a §3)')
+occ_reb, occ_pp = census(U, FA), census(PU, PF)
+check('numeral occurrences in the REBUILT unit', [v for _, v in occ_reb], ['6', '12', '24'])
+print('   rebuilt: %d occurrences %s' % (len(occ_reb), occ_reb))
+print('   PP     : %d occurrences, %d distinct' % (len(occ_pp), len(set(v for _, v in occ_pp))))
+rowl = [i for i, l in enumerate(M, 1) if re.search(r'Appendix F, the numbers\s+\d', l)]
+check('the §32.1.4 row has one site', len(rowl), 1)
+ROW = norm(M[rowl[0] - 1]); print('   §32.1.4 row L%d: %s' % (rowl[0], ROW))
+coord, E = re.findall(r'\d+', ROW)[-2:]
+check('the row still reads coordinates 3, E 33', (coord, E), ('3', '33'))
+check('"thirty-three" stands beside it', 'thirty-three' in ROW, True)
+print('   E is *cells named and unoccupied*, so the row is a claim about the appendix\'s number-space and not a')
+print('   count of numerals. Both columns were computed on the appendix PP carries — %d numeral occurrences —' % len(occ_pp))
+print('   against the %d the rebuilt appendix prints. 26b-03 stands.' % len(occ_reb))
+score('§32.1.4\'s row describes the appendix the volume now carries', len(occ_reb) > 3, True, '26b-03')
+
+# ------------------------------------------------------------------ §6
+hr('§6 26c-02 — register 375 records a change to §32.1.4 that §32.1.4 did not receive')
+print('   register 374: %s' % rbody(374)[:150])
+print('   register 375: %s' % rbody(375)[:260])
+check('register 374 states the §2.21 protocol', 'ANY FIGURE WITHDRAWN MUST HAVE ITS DATA REPRESENTED ANOTHER WAY' in rbody(374), True)
+f55 = [i for i, l in enumerate(M, 1) if 'Fifty-five cells are named' in l]
+check('§32.1.4 still writes the total as a number', len(f55), 1)
+print('   L%d: %s' % (f55[0], norm(M[f55[0] - 1])))
+shape = [i for i, l in enumerate(M, 1) if 'audit set seventeen' in l or 'the numbers index the largest share' in l]
+check('register 375\'s replacement shape sentence, in the main volume', shape, [])
+r3241 = [i for i, l in enumerate(M, 1) if 'Recomputed now the total is' in l]
+print('   §32.1.4.1 L%d: %s' % (r3241[0], norm(M[r3241[0] - 1])))
+print('   THREE totals stand at once: §32.1.4 prints fifty-five, §32.1.4.1 and register 373 recompute 48, and')
+print('   register 375 states 47 and states the number is no longer written. It is still written.')
+score('register 375: §32.1.4\'s fifty-five "is no longer written as a number"', len(f55), 0, '26c-02')
+
+# ------------------------------------------------------------------ §7
+hr('§7 26c-03 — THE OWED READING: every figure the withdrawal removed, against register 374\'s §2.21 protocol')
+REGL = '\n'.join(R).lower(); ALL = {v: '\n'.join(rd(v)).lower() for v in VOLS}
+removed = census([l for _, l in raw], 0)
+figs = sorted(set(v for _, v in removed), key=lambda s: (-len(s), s))
+print('   figures printed in the only-PP lines: %d occurrences, %d distinct' % (len(removed), len(figs)))
+print('   CONVENTION: a figure is REPRESENTED if its string as printed occurs in the Register. A figure of fewer')
+print('   than three characters is reported and NOT scored — a bare one- or two-digit match is not evidence of')
+print('   representation, and counting it as one would manufacture the result this reading is here to test.')
+subst = [f for f in figs if len(f) >= 3]
+triv = [f for f in figs if len(f) < 3]
+homeless = [f for f in subst if f.lower() not in REGL]
+homed = [f for f in subst if f.lower() in REGL]
+print('   substantive figures (3+ characters): %d' % len(subst))
+print('   REPRESENTED in the Register    : %d %s' % (len(homed), homed))
+print('   NOT represented in the Register: %d %s' % (len(homeless), homeless))
+print('   short figures, reported not scored: %d %s' % (len(triv), triv))
+for f in homeless:
+    where = [nvol(v) for v in VOLS if f.lower() in ALL[v]]
+    print('     %-12s no Register site; volumes carrying the string: %s' % (f, where or 'none'))
+print('   READ-ch26a §29 inferred that every removed figure has a Register home. It is now MEASURED.')
+score('READ-ch26a §29\'s inference: every removed figure has a Register home', homeless, [], '26c-03')
+
+# ------------------------------------------------------------------ verdict
+hr('VERDICT')
+print('   26b-02 STANDS. F.4.1 carries neither ratio in its body and declares its content withdrawn, while')
+print('     §32.1.3 and §32.1.4.1 cite it for that content. The label resolves; the claim does not.')
+print('   26b-03 STANDS. The rebuilt unit prints 3 numeral occurrences (6, 12, 24) against PP\'s %d, and' % len(occ_pp))
+print('     §32.1.4\'s row and its fifty-five total were computed on the appendix that was withdrawn.')
+print('   26c-01 NEW. F.4.1 says the entries that established its TWO ratios stand in the Register. Register')
+print('     1762 establishes the withdrawal ratio with a value; register 296 only NAMES the method ratio and')
+print('     carries no figure, and no other entry names it. For one of the two there is no establishing entry.')
+print('   26c-02 NEW, and the largest of the four. Register 375 records that §32.1.4\'s fifty-five "is no longer')
+print('     written as a number" and is replaced by a shape sentence. The number is still written at L%d and' % f55[0])
+print('     the shape sentence is in no volume; 375\'s own 47 disagrees with 373\'s and §32.1.4.1\'s 48. A change')
+print('     the Register records and the volume did not receive is the mirror of a silent change, and is why')
+print('     26b-03\'s row is still standing.')
+print('   26c-03 is the reading owed by READ-ch26a §29, measured rather than inferred, against the book\'s own')
+print('     standard at register 374 rather than a standard of this instrument\'s invention.')
+print('\nDEVIATIONS RECORDED (findings, not instrument faults):')
+for t, tag, got, exp in DEV: print('   %-8s %-58s measured %s against printed %s' % (t, tag, repr(got), repr(exp)))
+print('\n%s' % ('FAIL: ' + '; '.join(FAIL) if FAIL else 'ALL INSTRUMENT CHECKS OK — %d deviations recorded' % len(DEV)))
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r2-26c2.py>>>
+
+<<<FILE: r2-26c2.out>>>
+r2-26c.py — 26b-02 / 26b-03: the withdrawn Appendix F, what still cites it, and where its figures went
+members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md md5 bfc8c01d | PP md5 49900cf4
+
+== §1 THE TWO UNITS, measured this chat by scan — member line numbers are never carried between chats
+   rebuilt Appendix F first line                                      11230                    OK
+   rebuilt Appendix F line count (to `## Appendix G`)                 139                      OK
+   PP Appendix F first line                                           10761                    OK
+   PP Appendix F line count (to `# END MATTER`)                       231                      OK
+   heading lines, rebuilt unit                                        9                        OK
+   heading-form lines, PP unit                                        12                       OK
+   L11230  ## Appendix F — The numbers, indexed
+   L11243  ### F.1 The population
+   L11261  ### F.2 The fibring of a quantity-kind over an ordered ground
+   L11286  ### F.3 The index, built
+   L11309  ### F.3.1 The closure, represented as it must be
+   L11336  ### F.4 The readings
+   L11338  ### F.4.1 Two ratios the book had never measured about itself
+   L11346  ### F.4.2 The ideal withdrawal ratio
+   L11351  ### F.4.3 Time, which this work has and does not read
+   ---
+   P10761  # Appendix F — The numbers, indexed
+   P10774  F.1 The population
+   P10780  F.2 The coordinates
+   P10790  F.3 The index, built
+   P10836  F.3.1 And the distribution is the finding
+   P10845  F.3.2 The tripwire
+   P10852  F.3.3 The closure, represented as it must be
+   P10888  F.4 What closing it would establish, and what it costs
+   P10895  F.4.1 Two ratios the book had never measured about itself
+   P10921  F.4.2 The ideal withdrawal ratio is 1 : 1
+   P10954  F.4.3 Time, which this book already has and does not read
+   P10985  F.5 And it needs its own falsification
+   PP sections the rebuild does not carry: F.3.2, F.3.3, F.5 (register 1786 renumbered F.3.3 to F.3.1)
+
+== §2 THE WITHDRAWN CONTENT — the only-PP lines READ-ch26a named at 188 and did not read
+   only-PP BODY lines as a set (r2-ch26b §0 convention — the record's 188) 188                      OK
+   the same lines positionally, heading-form lines included: 189
+   body lines: rebuilt 96, PP 188, shared 0, only-rebuilt 96
+   the two units share no body line                                   0                        OK
+
+== §3 26b-02 — F.4.1 declares its content withdrawn; two chapter sentences still cite it for that content
+   F.4.1 L11338-L11345 (8 lines), F.4.2 L11346-L11350 (5 lines)
+   F.4.1 declares withdrawal in its own words                         True                     OK
+   F.4.2 declares the same                                            True                     OK
+   "withdrawal ratio" in F.4.1 body (case-folded)                     0                        OK
+   "method ratio" in F.4.1 body (case-folded)                         0                        OK
+   "withdrawal ratio" in the rebuilt unit BODY (fault 2: headings excluded) 0                        OK
+   "withdrawal ratio" in the rebuilt unit HEADINGS (F.4.2's title)    1                        OK
+   every F.4.1 mention in the main volume:
+     L8961   §F.4.1's withdrawal ratio measures and does not excuse. Registers 320 and 321.
+     L9023   the ratios of F.4.1, the counts of Appendices D, E and F, the fifty-five of §32.1.4 — is true of a
+     L11338  ### F.4.1 Two ratios the book had never measured about itself
+     L11348  **Retained as a reference, withdrawn as content**, on the same ground as F.4.1 and by the same
+   F.4.1 cited from outside the appendix exactly twice                2                        OK
+   F.4.1 keeps the label so "every reference written to it still resolves". The LABEL resolves; the
+   CONTENT the two sentences name does not. That is 26b-02, and it stands.
+   §32.1.3 cites F.4.1 for a ratio F.4.1 carries                      False                    DEVIATION (26b-02) — printed True
+
+== §4 26c-01 — F.4.1: "the entries that established them stand in the Register". Both ratios, case-folded
+   "withdrawal ratio" across the six volumes (case-folded): [('main', 3), ('The_Register', 5), ('Mathematical_Compendium', 0), ('The_Physics_Compendium', 0), ('Spectra_Compendium', 0), ('The_Index_of_Indices', 0)]
+   "method ratio" across the six volumes (case-folded): [('main', 0), ('The_Register', 1), ('Mathematical_Compendium', 0), ('The_Physics_Compendium', 0), ('Spectra_Compendium', 0), ('The_Index_of_Indices', 0)]
+   Register entries carrying either ratio:
+     register 296   withdrawal 1 | method 1 | numerals with a decimal point ['4.1']
+     register 297   withdrawal 1 | method 0 | numerals with a decimal point []
+     register 374   withdrawal 1 | method 0 | numerals with a decimal point ['2.21', '1.3']
+     register 375   withdrawal 1 | method 0 | numerals with a decimal point ['32.1', '4.1', '2.21', '32.1', '32.1']
+     register 1762  withdrawal 1 | method 0 | numerals with a decimal point ['5.3', '4.2', '4.21', '0.192', '0.705', '5.3']
+   registers naming the METHOD ratio at all                           [296]                    OK
+   register 296 carries no numeral under the occurrence rule (F.4.1 is a locator, not a value) []                       OK
+   register 1762 gives the withdrawal ratio a value                   True                     OK
+   READ-ch26a recorded the homes as "Register 296 / 320 / 321 / 1762 (4.21 : 1)". MEASURED: 296 NAMES both
+   ratios and carries no figure at all; 320 and 321 carry neither ratio by name; 1762 establishes the
+   WITHDRAWAL ratio with a value (4.21 : 1, p 0.192, 0.705 bits). No entry establishes the METHOD ratio.
+   F.4.1 says the entries "established them", of both. For one of the two, naming is all there is.
+   an entry establishes the METHOD ratio with a value, as F.4.1 says of both False                    DEVIATION (26c-01) — printed True
+
+== §5 26b-03 — §32.1.4's row against the appendix as rebuilt (appf.py occurrence rule, copied from r2-ch26a §3)
+   numeral occurrences in the REBUILT unit                            ['6', '12', '24']        OK
+   rebuilt: 3 occurrences [(11301, '6'), (11301, '12'), (11301, '24')]
+   PP     : 87 occurrences, 57 distinct
+   the §32.1.4 row has one site                                       1                        OK
+   §32.1.4 row L8974: Appendix F, the numbers 3 33 thirty-three
+   the row still reads coordinates 3, E 33                            ('3', '33')              OK
+   "thirty-three" stands beside it                                    True                     OK
+   E is *cells named and unoccupied*, so the row is a claim about the appendix's number-space and not a
+   count of numerals. Both columns were computed on the appendix PP carries — 87 numeral occurrences —
+   against the 3 the rebuilt appendix prints. 26b-03 stands.
+   §32.1.4's row describes the appendix the volume now carries        False                    DEVIATION (26b-03) — printed True
+
+== §6 26c-02 — register 375 records a change to §32.1.4 that §32.1.4 did not receive
+   register 374: **A PROTOCOL AT §2.21: ANY FIGURE WITHDRAWN MUST HAVE ITS DATA REPRESENTED ANOTHER WAY** *— by the law that generates it, by the stable structure bene
+   register 375: **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's element count, §32.1.4's total and the withdrawal ratio are now computed by the press at every build, joining E(G), E(Q) and the open item count — six readouts pr
+   register 374 states the §2.21 protocol                             True                     OK
+   §32.1.4 still writes the total as a number                         1                        OK
+   L8978: **Fifty-five cells are named and nobody has put anything in them.** Each is a combination the
+   register 375's replacement shape sentence, in the main volume      []                       OK
+   §32.1.4.1 L8998: §32.1.4 counts fifty-five cells named and unoccupied. **Recomputed now the total is 48**, and the
+   THREE totals stand at once: §32.1.4 prints fifty-five, §32.1.4.1 and register 373 recompute 48, and
+   register 375 states 47 and states the number is no longer written. It is still written.
+   register 375: §32.1.4's fifty-five "is no longer written as a number" 1                        DEVIATION (26c-02) — printed 0
+
+== §7 26c-03 — THE OWED READING: every figure the withdrawal removed, against register 374's §2.21 protocol
+   figures printed in the only-PP lines: 103 occurrences, 64 distinct
+   CONVENTION: a figure is REPRESENTED if its string as printed occurs in the Register. A figure of fewer
+   than three characters is reported and NOT scored — a bare one- or two-digit match is not evidence of
+   representation, and counting it as one would manufacture the result this reading is here to test.
+   substantive figures (3+ characters): 38
+   REPRESENTED in the Register    : 19 ['0.157', '0.633', '0.877', '0.898', '2,433', '0.07', '2.18', '115', '145', '149', '183', '190', '204', '219', '291', '310', '367', '368', '995']
+   NOT represented in the Register: 19 ['11,811', '24,162', '54,241', '75,459', '0.159', '0.314', '0.339', '0.445', '0.502', '0.937', '1,166', '1,267', '1,680', '1,715', '1,998', '2,316', '2,453', '2,831', '5.28']
+   short figures, reported not scored: 26 ['12', '13', '14', '15', '20', '21', '22', '23', '24', '29', '33', '36', '38', '39', '56', '70', '87', '88', '94', '0', '1', '2', '4', '5', '8', '9']
+     11,811       no Register site; volumes carrying the string: none
+     24,162       no Register site; volumes carrying the string: none
+     54,241       no Register site; volumes carrying the string: none
+     75,459       no Register site; volumes carrying the string: none
+     0.159        no Register site; volumes carrying the string: ['main', 'Spectra_Compendium']
+     0.314        no Register site; volumes carrying the string: none
+     0.339        no Register site; volumes carrying the string: none
+     0.445        no Register site; volumes carrying the string: none
+     0.502        no Register site; volumes carrying the string: none
+     0.937        no Register site; volumes carrying the string: ['main']
+     1,166        no Register site; volumes carrying the string: none
+     1,267        no Register site; volumes carrying the string: ['Spectra_Compendium']
+     1,680        no Register site; volumes carrying the string: none
+     1,715        no Register site; volumes carrying the string: none
+     1,998        no Register site; volumes carrying the string: none
+     2,316        no Register site; volumes carrying the string: none
+     2,453        no Register site; volumes carrying the string: none
+     2,831        no Register site; volumes carrying the string: none
+     5.28         no Register site; volumes carrying the string: none
+   READ-ch26a §29 inferred that every removed figure has a Register home. It is now MEASURED.
+   READ-ch26a §29's inference: every removed figure has a Register home ['11,811', '24,162', '54,241', '75,459', '0.159', '0.314', '0.339', '0.445', '0.502', '0.937', '1,166', '1,267', '1,680', '1,715', '1,998', '2,316', '2,453', '2,831', '5.28'] DEVIATION (26c-03) — printed []
+
+== VERDICT
+   26b-02 STANDS. F.4.1 carries neither ratio in its body and declares its content withdrawn, while
+     §32.1.3 and §32.1.4.1 cite it for that content. The label resolves; the claim does not.
+   26b-03 STANDS. The rebuilt unit prints 3 numeral occurrences (6, 12, 24) against PP's 87, and
+     §32.1.4's row and its fifty-five total were computed on the appendix that was withdrawn.
+   26c-01 NEW. F.4.1 says the entries that established its TWO ratios stand in the Register. Register
+     1762 establishes the withdrawal ratio with a value; register 296 only NAMES the method ratio and
+     carries no figure, and no other entry names it. For one of the two there is no establishing entry.
+   26c-02 NEW, and the largest of the four. Register 375 records that §32.1.4's fifty-five "is no longer
+     written as a number" and is replaced by a shape sentence. The number is still written at L8978 and
+     the shape sentence is in no volume; 375's own 47 disagrees with 373's and §32.1.4.1's 48. A change
+     the Register records and the volume did not receive is the mirror of a silent change, and is why
+     26b-03's row is still standing.
+   26c-03 is the reading owed by READ-ch26a §29, measured rather than inferred, against the book's own
+     standard at register 374 rather than a standard of this instrument's invention.
+
+DEVIATIONS RECORDED (findings, not instrument faults):
+   26b-02   §32.1.3 cites F.4.1 for a ratio F.4.1 carries              measured False against printed True
+   26c-01   an entry establishes the METHOD ratio with a value, as F.4.1 says of both measured False against printed True
+   26b-03   §32.1.4's row describes the appendix the volume now carries measured False against printed True
+   26c-02   register 375: §32.1.4's fifty-five "is no longer written as a number" measured 1 against printed 0
+   26c-03   READ-ch26a §29's inference: every removed figure has a Register home measured ['11,811', '24,162', '54,241', '75,459', '0.159', '0.314', '0.339', '0.445', '0.502', '0.937', '1,166', '1,267', '1,680', '1,715', '1,998', '2,316', '2,453', '2,831', '5.28'] against printed []
+
+ALL INSTRUMENT CHECKS OK — 5 deviations recorded
+<<<END FILE: r2-26c2.out>>>
+
+<<<FILE: r2-28a3.py>>>
+#!/usr/bin/env python3
+# r2-28a3.py — chat 153 — SUCCESSOR to r2-28a2.py, re-anchored. Identical measurements; one pin moves.
+# r2-28a2 pinned the two `## References` heading hits to [173, 11503]; the body occurrence moved +8 to 11511
+# while the contents entry at 173 sits below the insertion point and did not move.
+# The replacement is NOT the resolver's own value — that would be a test that cannot fail, the very
+# class §4.6 names. It is an INDEPENDENT resolution of the same site, so the two can disagree and the
+# check still catches a mis-read. Output on the pre-shift bundles is unchanged, because both agree there.
+# r2-28a2 is seated and is never edited in place (chat 68).
+# PROVED by tools/proveanchor.py: reproduces r2-28a2.out byte-exact on the pre-shift bundles (G0c).
+# r2-28a2.py — chat 151-B (Cowork) — 28a-06 (DEF-143 item 11's EIGHTH family; docket 17 / 37):
+# main L11849 "Fifty-nine of them are the works listed above" sits in the same sentence as "162 works, 1669 to 2026".
+# READ-ch28a recorded 28a-06 on a SURNAME-OVERLAP BOUND of 16 of 162 and said so; DEFERRED owed R3 the
+# AUTHOR-AND-YEAR match on the 162 rows before the figure is kept. This instrument is that match.
+# Register 1736 is the source of the figure and says so in terms: it matched the compendium at "172 works",
+# by author and year, found fifty-nine shared, and removed ten rows afterwards. **1736's fifty-nine is a
+# 172-ROW DATUM.** It is a recorded finding and is NOT withdrawn here. What is measured here is the present
+# text: the match on the 162 rows the volumes now carry.
+# CONVENTION AY (new, this chat). "The works listed above" is the References unit from its heading down to the
+# line before the paragraph that makes the claim — a sentence about a list is not an entry in it. An MC row
+# MATCHES if any surname in its `work` cell appears in that region paired with the row's own year, where the
+# pairing is read POSITIONALLY: each parenthesised year takes the author surnames of the window before it, and
+# a window with no surname CARRIES the previous window's authors, which is the citation form this list uses
+# ("Saari, D. G. (1971). Trans. AMS 162, 267; (1973) 181, 351; (1984) J. Diff. Eq. 55, 300"). A surname is a
+# capitalised token followed by a comma-and-capital, an ampersand, "and", or a parenthesised year — journal
+# abbreviations ("Arch. Ration. Mech. Anal.") are followed by a period and are excluded by construction.
+# The extractor is ASSERTED on fourteen named citations BEFORE any verdict is printed, and asserted to admit
+# no journal token as an author. Rows the reading cannot decide are carried as NEAR (SUBJ, chat 148).
+# Book-versus-record deviations go through score() and never through the integrity checker check().
+# Reads MEMBERS by name (never a bundle path). Deterministic: no wall clock, no randomness.
+import os, re, sys, hashlib, importlib.util
+H = os.path.dirname(os.path.abspath(__file__))
+def load(name):
+    s = importlib.util.spec_from_file_location(name.replace('-', '_'), os.path.join(H, name + '.py'))
+    m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
+r2lib = load('r2lib')
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+
+MAIN, REG = 'The_Method_1_6-2.md', 'The_Method_1_6___The_Register-2.md'
+MCF = 'The_Method_1_6___Mathematical_Compendium-2.md'
+M, R, C = rd(MAIN), rd(REG), rd(MCF)
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-66s %-24s %s' % (tag, repr(got), 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-66s %-24s %s' % (tag, repr(got), 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+
+print('r2-28a2.py — 28a-06: does the author-and-year match on the 162 rows give fifty-nine?')
+print('members: %s %s | %s %s | %s %s' % (MAIN, md5(MAIN), REG, md5(REG), MCF, md5(MCF)))
+
+# ------------------------------------------------------------------------------ §1
+hr('§1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about')
+rf = [i + 1 for i, l in enumerate(M) if re.match(r'^#{1,3} References\b', l)]
+S = rf[-1]
+CLAIM = [i + 1 for i, l in enumerate(M) if "The companions' own bibliographies" in l][0]
+_rf_alt = [i for i, l in enumerate(M, 1) if l.strip().rstrip(':').endswith('References') and l.startswith('#')]
+check('main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it)', rf, _rf_alt)
+_claim_alt = [i for i, l in enumerate(M, 1) if "companions' own bibliographies" in l][0]
+check('the claim paragraph "The companions\' own bibliographies" begins at', CLAIM, _claim_alt)
+print('   entry region L%d–L%d (%d lines); the claim paragraph L%d–L%d is read, never matched' % (S, CLAIM - 1, CLAIM - S, CLAIM, len(M)))
+for i in range(CLAIM, min(CLAIM + 7, len(M) + 1)): print('   %6d %s' % (i, M[i - 1].strip()))
+check('the sentence prints "162 works"', '162 works' in ' '.join(M[CLAIM - 1:CLAIM + 6]), True)
+check('the sentence prints "Fifty-nine of them"', 'Fifty-nine of them' in ' '.join(M[CLAIM - 1:CLAIM + 6]), True)
+check('the sentence names register 1736 as its source', 'register 1736' in ' '.join(M[CLAIM - 1:CLAIM + 6]), True)
+
+bh = [i + 1 for i, l in enumerate(C) if re.match(r'^#{1,3}\s.*Bibliograph', l, re.I)]
+B0 = bh[-1]; B1 = next((j + 1 for j in range(B0, len(C)) if re.match(r'^#{1,2}\s', C[j])), len(C) + 1)
+check('MC bibliography heading hits', bh, [3376])
+YEARONLY = re.compile(r'^(1[6-9]\d\d|20[0-2]\d)$')
+cells = [[c.strip() for c in re.split(r'(?<!\\)\|', l)[1:-1]] for l in C[B0 - 1:B1 - 1] if l.lstrip().startswith('|')]
+ROWS = [c for c in cells if c and YEARONLY.match(c[0])]
+check('MC bibliography L%d–L%d: DATA rows (year | work | objects)' % (B0, B1 - 1), len(ROWS), 162)
+check('every DATA row has exactly three cells', sorted({len(c) for c in ROWS}), [3])
+check('MC year range as the block prints it (1669–2026)', (min(int(c[0]) for c in ROWS), max(int(c[0]) for c in ROWS)), (1669, 2026))
+check('the block states its own count and the prior one', ('162 works' in C[B0 + 3]) and ('172' in C[B0 + 3]), True)
+
+# ------------------------------------------------------------------------------ §2
+hr('§2 REGISTER 1736 — the source of the figure, read in full; its fifty-nine is a 172-ROW datum')
+IDX = {}
+for i, l in enumerate(R, 1):
+    m = re.match(r'^###\s+(\d+)\s*$', l)
+    if m: IDX[int(m.group(1))] = i
+KS = sorted(IDX)
+def span(n):
+    s = IDX[n]; return s, next((IDX[k] for k in KS if IDX[k] > s), len(R) + 1) - 1
+s1736, e1736 = span(1736)
+body = norm(' '.join(x for x in R[s1736:e1736] if x.strip()))
+print('   register 1736 L%d–L%d: %s' % (s1736, e1736, body[:260]))
+check('1736 says the match was made against "172 works"', '172 works' in body, True)
+check('1736 says the match was by author and year', 'by author and year' in body, True)
+check('1736 states the shared count as fifty-nine', 'fifty-nine shared' in body, True)
+check('1736 records the ten removals and the restated count 162', ('All ten removed' in body) and ('restated at 162' in body), True)
+print('   1736 is a RECORDED FINDING about a 172-row list and is not withdrawn here (chat-67 hold).')
+
+# ------------------------------------------------------------------------------ §3
+hr('§3 CONVENTION AY — the extractor, ASSERTED on fourteen named citations before any verdict is printed')
+Y = r'(?:1[6-9]\d\d|20[0-2]\d)'
+PAR = re.compile(r'\((%s)([a-z]?)((?:\s*[,–—-]\s*(?:%s[a-z]?|\d{2}|[a-z]))*)\)' % (Y, Y))
+AUT = re.compile(r"(?<![A-Za-zÀ-ÿ'’\-])([A-ZÀ-Þ][A-Za-zà-ÿ'’\-]{2,})(?=\s*(?:,\s*[A-ZÀ-Þ]|\s*&|\s+and\b|\s*\(%s))" % Y)
+NM = re.compile(r"(?<![A-Za-zÀ-ÿ'’\-])([A-ZÀ-Þ][A-Za-zà-ÿ'’\-]{2,})")
+STOP = {'The', 'Problem', 'Solution', 'Unknown', 'Masses'}
+def yrs(m): return [int(m.group(1))] + [int(t) for t in re.findall(Y, m.group(3) or '')]
+def pairs(lo, hi):
+    P = set()
+    for j in range(lo, hi):
+        l = M[j - 1]
+        if not l.strip() or l.startswith('#'): continue
+        l = re.split(r'\s—\s|\s--\s', re.sub(r'^\s*[·•]\s*', '', re.sub(r'[*_`]', '', l)))[0]
+        prev = 0; last = set()
+        for m in PAR.finditer(l):
+            nms = {a.group(1) for a in AUT.finditer(l[prev:m.start()] + ' (%d)' % yrs(m)[0])}
+            use = nms or last
+            if nms: last = nms
+            for n in use:
+                for y in yrs(m): P.add((n, y))
+            prev = m.end()
+    return P
+AY = pairs(S, CLAIM)
+print('   (surname, year) pairs in the entry region: %d over %d distinct surnames' % (len(AY), len({n for n, _ in AY})))
+ASSERT = [('Saari', [1971, 1973, 1984]), ('Montgomery', [1998, 2000, 2002, 2014, 2015]), ('Kol', [2021, 2023]),
+          ('Monaghan', [1976, 1978]), ('Moser', [1962, 1973]), ('Jacobi', [1837, 1842]), ('Lagrange', [1770, 1772]),
+          ('Griffin', [1969, 1971]), ('Cowan', [1969, 1971]), ('Alekseev', [1968]), ('Löwdin', [1950, 1969]),
+          ('Candelas', [2007]), ('Huang', [2019]), ('Euler', [1767])]
+miss = []
+for n, exp in ASSERT:
+    got = sorted({y for a, y in AY if a == n})
+    if not set(exp) <= set(got): miss.append((n, exp, got))
+    print('   %-12s %s' % (n, got))
+check('every asserted citation is read with all of its years', miss, [])
+JUNK = ('Arch', 'Anal', 'Mech', 'Ration', 'Trans', 'Phys', 'Chem', 'Math', 'Sci', 'Acad', 'Rev', 'Invent',
+        'Celest', 'Novi', 'Comm', 'Prix', 'Roy', 'Paris', 'Petrop', 'Ann', 'Norm', 'Sup', 'Nonlinearity', 'JHEP')
+check('no journal abbreviation is admitted as an author', sorted({n for n, _ in AY if n in JUNK}), [])
+def cn(w): return {n for n in NM.findall(re.sub(r'\*[^*]*\*', ' ', w)) if n not in STOP}
+check('every MC row yields at least one surname', [c[1] for c in ROWS if not cn(c[1])], [])
+
+# ------------------------------------------------------------------------------ §4
+hr('§4 THE MATCH — author AND year on the 162 rows, against the printed "Fifty-nine"')
+UNS = {n for n, _ in AY}
+MATCH = [c for c in ROWS if any((n, int(c[0])) in AY for n in cn(c[1]))]
+SNM = [c for c in ROWS if cn(c[1]) & UNS]
+for c in MATCH: print('   MATCH  %s  %s' % (c[0], c[1][:56]))
+def tol(k):
+    T = {(n, y + d) for n, y in AY for d in range(-k, k + 1)}
+    return sum(1 for c in ROWS if any((n, int(c[0])) in T for n in cn(c[1])))
+print('\n   author AND year (exact) %d | ±1 %d | ±2 %d | ±3 %d | ±5 %d | surname only %d | of %d rows'
+      % (len(MATCH), tol(1), tol(2), tol(3), tol(5), len(SNM), len(ROWS)))
+check('no year tolerance up to ±5 reaches the printed fifty-nine', [k for k in (0, 1, 2, 3, 5) if tol(k) == 59], [])
+check('dropping the year entirely OVERSHOOTS fifty-nine', len(SNM) > 59, True)
+score('"Fifty-nine of them are the works listed above" on the 162 rows', len(MATCH), 59, '28a-06')
+print('   The printed figure is bracketed by this reading: %d (author and year) < 59 < %d (surname alone).' % (len(MATCH), len(SNM)))
+print('   It is reachable only by dropping the year, which is not the match 1736 says it made.')
+
+# ------------------------------------------------------------------------------ §5
+hr('§5 THE PRIOR PROBE REPRODUCED — what "16 of 162" was a bound on')
+def old_surnames(lines):
+    s = set()
+    for l in lines:
+        for m in re.finditer(r"(?<![A-Za-z'’\-])([A-Z][a-zäöüéèçøÅ'’\-]{2,})(?=\s*(?:,\s*[A-Z]\.|\(|&|and\b|,|–|—|\s+\d{4}))",
+                             re.sub(r'[*_`]', '', l)): s.add(m.group(1))
+    return s
+U = M[S - 1:]
+OLDU = old_surnames([l for l in U if not l.startswith('#')])
+RAW = ['| %s | %s | %s |' % tuple(c) for c in ROWS]
+old_hit = [c for c, l in zip(ROWS, RAW) if old_surnames([l]) & OLDU]
+old_none = [c for c, l in zip(ROWS, RAW) if not old_surnames([l])]
+check('r2-ch28a §4\'s surname bound reproduces exactly', len(old_hit), 16)
+check('every row it caught carries an ampersand or a comma in its `work` cell',
+      sorted({bool(re.search(r'[&,]', c[1])) for c in old_hit}), [True])
+check('rows from which that extractor gets NO surname at all', len(old_none), 123)
+print('   The MC table prints a BARE surname ("| 1669 | Newton |"); that extractor requires a following')
+print('   initial, bracket, ampersand, comma or dash, so it reads nothing from %d of %d rows. Its "16" counts' % (len(old_none), len(ROWS)))
+print('   MULTI-AUTHOR ROWS, not overlap. Properly extracted the surname-only overlap is %d of %d.' % (len(SNM), len(ROWS)))
+score('"16 of 162" is a bound on the surname overlap', len(SNM), 16, '28a-08')
+
+# ------------------------------------------------------------------------------ §6
+hr('§6 "THE REST … THIS VOLUME NEVER LISTED" — census 1463\'s C9 word, taken directly')
+CONF = [c for c in SNM if c not in MATCH]
+check('rows whose author is on BOTH lists under a different year', len(CONF), 18)
+for c in CONF:
+    for n in sorted(cn(c[1]) & UNS):
+        print('   MC %s %-34s References years for %s: %s' % (c[0], c[1][:34], n, sorted({y for a, y in AY if a == n})[:8]))
+jan = [c for c in CONF if 'Janet' in cn(c[1])]
+jl = [i + 1 for i, l in enumerate(M) if i + 1 >= S and re.search(r'^\s*Janet, C\. \(1928\)', l)]
+check('the compendium carries exactly one Janet row, at 1929', [c[0] for c in jan], ['1929'])
+_jl_alt = [i for i, l in enumerate(M, 1) if 'Janet, C. (1928)' in l]
+check('the References carry Janet at 1928, one site', jl, _jl_alt)
+check('both name the same work (the left-step periodic table)',
+      ('left-step' in M[jl[0] - 1]) and ('E.layout' in [c for c in jan][0][2] or 'E.table' in [c for c in jan][0][2]), True)
+score('1736\'s "the rest … this volume never listed" holds of every unmatched row', len(jan), 0, '28a-09')
+print('   ONE row is decidable and it falsifies the word: the left-step periodic table is listed at L11777 as')
+print('   Janet 1928 and carried in the compendium as 1929 — the year disagreement 28a-07 / 16x-06 already')
+print('   records. The other %d are consistent with DIFFERENT WORKS by the same author and the reading does' % (len(CONF) - len(jan)))
+print('   not decide them; they are carried as NEAR (SUBJ, chat 148), an upper bound, never assigned.')
+
+# ------------------------------------------------------------------------------ §7
+hr('§7 CENSUS — rows in the ranges this reading engaged')
+print('   engaged: main L%d–L%d (References entire), mc L%d–L%d (the bibliography block), reg L%d–L%d (entry 1736)'
+      % (S, len(M), B0, B1 - 1, s1736, e1736))
+print('   main 718 / 719  C7 at L11600 — closed in the ch28a unit, not a defect; the earlier line governs (G0b)')
+print('   reg 1463        C9 "never" at L6459 — CLOSED HERE as a defect on the Janet row (28a-09)')
+print('   mc 387–672      C13-HANDLE-LEAK, 286 rows, the bibliography table\'s `objects` column — ENGAGED and')
+print('                   NOT CLOSED: this reading took the year and work columns only. The class is ruled')
+print('                   elsewhere (26b-10, ruling 46, docket 28); a row is not closed on a reading that did')
+print('                   not take it.')
+
+# ------------------------------------------------------------------------------ verdict
+hr('VERDICT')
+print('   28a-06 STANDS AND IS SHARPENED. The author-and-year match on the 162 rows the volumes now carry is')
+print('   **%d**, not the printed fifty-nine, and no year tolerance up to ±5 reaches 59 (%d / %d / %d / %d / %d).' % (len(MATCH), tol(0), tol(1), tol(2), tol(3), tol(5)))
+print('   Fifty-nine is reachable only by dropping the year, where the count OVERSHOOTS to %d. Register 1736 is' % len(SNM))
+print('   the source and says in terms that it matched "172 works"; its figure is a 172-row datum and is not')
+print('   withdrawn here. What the main volume does at L11848–L11853 is print that datum inside a sentence whose')
+print('   other number, 162, is the post-removal count. R3: the figure is re-taken on the list it is printed')
+print('   beside, or the sentence names the list it belongs to. Docket 17 / 37.')
+print('   28a-08 NEW. r2-ch28a §4\'s "16 of 162" is not a bound on the overlap. Its surname extractor returns NO')
+print('   surname at all from %d of the %d rows, because the MC table prints a bare surname and the extractor' % (len(old_none), len(ROWS)))
+print('   requires a following initial, bracket, ampersand, comma or dash; every one of the 16 it caught is a')
+print('   multi-author row. The surname-only overlap, properly extracted, is %d of %d. The instrument is banked' % (len(SNM), len(ROWS)))
+print('   and its golden reproduces: this is recorded, not repaired (chat-67 hold).')
+print('   28a-09 NEW. Register 1736\'s "the rest classical attributions this volume never listed" is falsified at')
+print('   one measured site. The compendium\'s 1929 Janet row and the References\' Janet 1928 at L11777 are the')
+print('   same work — the left-step periodic table — under two years, which 28a-07 / 16x-06 already records.')
+print('   Census 1463\'s C9 word closes on it. Seventeen further authors sit on both lists at other years and')
+print('   are carried as NEAR, undecided: different works by one author is consistent with every one.')
+print('\nDEVIATIONS RECORDED (findings, not instrument faults):')
+for t, tag, got, exp in DEV: print('   %-8s %-58s measured %s against printed %s' % (t, tag, repr(got), repr(exp)))
+print('\n%s' % ('FAIL: ' + '; '.join(FAIL) if FAIL else 'ALL INSTRUMENT CHECKS OK — %d deviations recorded' % len(DEV)))
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r2-28a3.py>>>
+
+<<<FILE: r2-28a3.out>>>
+r2-28a2.py — 28a-06: does the author-and-year match on the 162 rows give fifty-nine?
+members: The_Method_1_6-2.md 4eec7650 | The_Method_1_6___The_Register-2.md bfc8c01d | The_Method_1_6___Mathematical_Compendium-2.md 53a446c8
+
+== §1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about
+   main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it) [173, 11511]             OK
+   the claim paragraph "The companions' own bibliographies" begins at 11856                    OK
+   entry region L11511–L11855 (345 lines); the claim paragraph L11856–L11863 is read, never matched
+    11856 **The companions' own bibliographies.** The Mathematical Compendium names a work for every one of its
+    11857 objects — 162 works, 1669 to 2026, ordered by year with the objects each carries. Fifty-nine of them
+    11858 are the works listed above; the remainder are the attributions of standard results — Newton 1669,
+    11859 Leibniz 1682, Euler 1748, Gauss 1809, Moore 1910, Birkhoff 1940 and their kind — that the objects
+    11860 rest on and this volume uses without citing, as it uses a metre. Those live in the compendium and are
+    11861 not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7's
+    11862 two blocks are the works the chapters rest on, not those lists.
+   the sentence prints "162 works"                                    True                     OK
+   the sentence prints "Fifty-nine of them"                           True                     OK
+   the sentence names register 1736 as its source                     True                     OK
+   MC bibliography heading hits                                       [3376]                   OK
+   MC bibliography L3376–L3546: DATA rows (year | work | objects)     162                      OK
+   every DATA row has exactly three cells                             [3]                      OK
+   MC year range as the block prints it (1669–2026)                   (1669, 2026)             OK
+   the block states its own count and the prior one                   True                     OK
+
+== §2 REGISTER 1736 — the source of the figure, read in full; its fifty-nine is a 172-ROW datum
+   register 1736 L6457–L6460: **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN VOLUME NOW SAYS WHICH BIBLIOGRAPHY IS WHOSE.** *Matching the compendium's "172 works, 1669–2026" against the main volume's References by author and year found fifty
+   1736 says the match was made against "172 works"                   True                     OK
+   1736 says the match was by author and year                         True                     OK
+   1736 states the shared count as fifty-nine                         True                     OK
+   1736 records the ten removals and the restated count 162           True                     OK
+   1736 is a RECORDED FINDING about a 172-row list and is not withdrawn here (chat-67 hold).
+
+== §3 CONVENTION AY — the extractor, ASSERTED on fourteen named citations before any verdict is printed
+   (surname, year) pairs in the entry region: 171 over 137 distinct surnames
+   Saari        [1971, 1973, 1975, 1984]
+   Montgomery   [1998, 2000, 2002, 2014, 2015]
+   Kol          [2021, 2023]
+   Monaghan     [1976, 1978]
+   Moser        [1962, 1973]
+   Jacobi       [1837, 1842]
+   Lagrange     [1770, 1772]
+   Griffin      [1969, 1971]
+   Cowan        [1965, 1969, 1971, 1981]
+   Alekseev     [1968]
+   Löwdin       [1950, 1969]
+   Candelas     [2007]
+   Huang        [2019]
+   Euler        [1767]
+   every asserted citation is read with all of its years              []                       OK
+   no journal abbreviation is admitted as an author                   []                       OK
+   every MC row yields at least one surname                           []                       OK
+
+== §4 THE MATCH — author AND year on the 162 rows, against the printed "Fifty-nine"
+   MATCH  1744  Maupertuis
+   MATCH  1767  Euler
+   MATCH  1770  Lagrange
+   MATCH  1772  Lagrange
+   MATCH  1837  Jacobi
+   MATCH  1842  Jacobi
+   MATCH  1878  Hill
+   MATCH  1890  Rydberg
+   MATCH  1890  Poincaré
+   MATCH  1903  Ritz
+   MATCH  1922  Chazy
+   MATCH  1926  Aitken
+   MATCH  1928  Sperner
+   MATCH  1936  Madelung
+   MATCH  1937  Birkhoff
+   MATCH  1942  Racah
+   MATCH  1943  Racah
+   MATCH  1950  Dilworth
+   MATCH  1950  Löwdin
+   MATCH  1954  Kolmogorov
+   MATCH  1963  Arnold
+   MATCH  1964  Rota
+   MATCH  1968  Alekseev
+   MATCH  1968  Gerratt & Mills
+   MATCH  1969  Andrew & Cowan
+   MATCH  1969  Griffin, Andrew & Cowan
+   MATCH  1969  Pulay
+   MATCH  1971  Griffin, Andrew & Cowan
+   MATCH  1971  Saari
+   MATCH  1973  Saari
+   MATCH  1974  Montanari
+   MATCH  1974  McGehee
+   MATCH  1975  Baker & Pixley
+   MATCH  1975  Marchal & Saari
+   MATCH  1976  Monaghan
+   MATCH  1982  Freuder
+   MATCH  1982  Marchal & Bozis
+   MATCH  1992  Dechter
+   MATCH  1994  Nesterov & Nemirovskii
+   MATCH  1995  Beek & Dechter
+   MATCH  1998  Montgomery
+   MATCH  1999  Deville
+   MATCH  1999  Hentenryck
+   MATCH  2000  Chenciner & Montgomery
+   MATCH  2002  Montgomery
+   MATCH  2006  Hsiang & Straume
+   MATCH  2014  Montgomery
+   MATCH  2019  Fleischer & Knauf
+   MATCH  2021  Kol
+   MATCH  2023  Kol
+   MATCH  2026  Lach, *The Löwdin Solution*
+   MATCH  2026  Lach, *The Three-Body Problem for Unknown Masses*
+
+   author AND year (exact) 52 | ±1 55 | ±2 55 | ±3 57 | ±5 58 | surname only 70 | of 162 rows
+   no year tolerance up to ±5 reaches the printed fifty-nine          []                       OK
+   dropping the year entirely OVERSHOOTS fifty-nine                   True                     OK
+   "Fifty-nine of them are the works listed above" on the 162 rows    52                       DEVIATION (28a-06) — printed 59
+   The printed figure is bracketed by this reading: 52 (author and year) < 59 < 70 (surname alone).
+   It is reachable only by dropping the year, which is not the match 1736 says it made.
+
+== §5 THE PRIOR PROBE REPRODUCED — what "16 of 162" was a bound on
+   r2-ch28a §4's surname bound reproduces exactly                     16                       OK
+   every row it caught carries an ampersand or a comma in its `work` cell [True]                   OK
+   rows from which that extractor gets NO surname at all              123                      OK
+   The MC table prints a BARE surname ("| 1669 | Newton |"); that extractor requires a following
+   initial, bracket, ampersand, comma or dash, so it reads nothing from 123 of 162 rows. Its "16" counts
+   MULTI-AUTHOR ROWS, not overlap. Properly extracted the surname-only overlap is 70 of 162.
+   "16 of 162" is a bound on the surname overlap                      70                       DEVIATION (28a-08) — printed 16
+
+== §6 "THE REST … THIS VOLUME NEVER LISTED" — census 1463's C9 word, taken directly
+   rows whose author is on BOTH lists under a different year          18                       OK
+   MC 1715 Taylor                             References years for Taylor: [2019]
+   MC 1736 Euler                              References years for Euler: [1767]
+   MC 1748 Euler                              References years for Euler: [1767]
+   MC 1797 Lagrange                           References years for Lagrange: [1770, 1772]
+   MC 1910 Moore                              References years for Moore: [1966, 1993]
+   MC 1929 Janet                              References years for Janet: [1928]
+   MC 1937 Shannon                            References years for Shannon: [1956]
+   MC 1938 Shannon                            References years for Shannon: [1956]
+   MC 1940 Birkhoff                           References years for Birkhoff: [1937]
+   MC 1948 Shannon                            References years for Shannon: [1956]
+   MC 1965 Kolmogorov                         References years for Kolmogorov: [1954]
+   MC 1978 Freuder                            References years for Freuder: [1982]
+   MC 1981 Monjardet                          References years for Monjardet: [2003]
+   MC 1982 Racah                              References years for Racah: [1942, 1943, 1954]
+   MC 1983 Beeri, Fagin, Maier & Yannakakis   References years for Yannakakis: [1982]
+   MC 1983 Maier & Yannakakis                 References years for Yannakakis: [1982]
+   MC 1989 Dechter & Pearl                    References years for Dechter: [1992, 1995]
+   MC 1991 Drake & Swainson                   References years for Drake: [2023]
+   the compendium carries exactly one Janet row, at 1929              ['1929']                 OK
+   the References carry Janet at 1928, one site                       [11785]                  OK
+   both name the same work (the left-step periodic table)             True                     OK
+   1736's "the rest … this volume never listed" holds of every unmatched row 1                        DEVIATION (28a-09) — printed 0
+   ONE row is decidable and it falsifies the word: the left-step periodic table is listed at L11777 as
+   Janet 1928 and carried in the compendium as 1929 — the year disagreement 28a-07 / 16x-06 already
+   records. The other 17 are consistent with DIFFERENT WORKS by the same author and the reading does
+   not decide them; they are carried as NEAR (SUBJ, chat 148), an upper bound, never assigned.
+
+== §7 CENSUS — rows in the ranges this reading engaged
+   engaged: main L11511–L11863 (References entire), mc L3376–L3546 (the bibliography block), reg L6457–L6460 (entry 1736)
+   main 718 / 719  C7 at L11600 — closed in the ch28a unit, not a defect; the earlier line governs (G0b)
+   reg 1463        C9 "never" at L6459 — CLOSED HERE as a defect on the Janet row (28a-09)
+   mc 387–672      C13-HANDLE-LEAK, 286 rows, the bibliography table's `objects` column — ENGAGED and
+                   NOT CLOSED: this reading took the year and work columns only. The class is ruled
+                   elsewhere (26b-10, ruling 46, docket 28); a row is not closed on a reading that did
+                   not take it.
+
+== VERDICT
+   28a-06 STANDS AND IS SHARPENED. The author-and-year match on the 162 rows the volumes now carry is
+   **52**, not the printed fifty-nine, and no year tolerance up to ±5 reaches 59 (52 / 55 / 55 / 57 / 58).
+   Fifty-nine is reachable only by dropping the year, where the count OVERSHOOTS to 70. Register 1736 is
+   the source and says in terms that it matched "172 works"; its figure is a 172-row datum and is not
+   withdrawn here. What the main volume does at L11848–L11853 is print that datum inside a sentence whose
+   other number, 162, is the post-removal count. R3: the figure is re-taken on the list it is printed
+   beside, or the sentence names the list it belongs to. Docket 17 / 37.
+   28a-08 NEW. r2-ch28a §4's "16 of 162" is not a bound on the overlap. Its surname extractor returns NO
+   surname at all from 123 of the 162 rows, because the MC table prints a bare surname and the extractor
+   requires a following initial, bracket, ampersand, comma or dash; every one of the 16 it caught is a
+   multi-author row. The surname-only overlap, properly extracted, is 70 of 162. The instrument is banked
+   and its golden reproduces: this is recorded, not repaired (chat-67 hold).
+   28a-09 NEW. Register 1736's "the rest classical attributions this volume never listed" is falsified at
+   one measured site. The compendium's 1929 Janet row and the References' Janet 1928 at L11777 are the
+   same work — the left-step periodic table — under two years, which 28a-07 / 16x-06 already records.
+   Census 1463's C9 word closes on it. Seventeen further authors sit on both lists at other years and
+   are carried as NEAR, undecided: different works by one author is consistent with every one.
+
+DEVIATIONS RECORDED (findings, not instrument faults):
+   28a-06   "Fifty-nine of them are the works listed above" on the 162 rows measured 52 against printed 59
+   28a-08   "16 of 162" is a bound on the surname overlap              measured 70 against printed 16
+   28a-09   1736's "the rest … this volume never listed" holds of every unmatched row measured 1 against printed 0
+
+ALL INSTRUMENT CHECKS OK — 3 deviations recorded
+<<<END FILE: r2-28a3.out>>>

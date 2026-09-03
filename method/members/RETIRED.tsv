@@ -5,3 +5,6 @@ r2-ch16v	r2-ch16v2	read MAIN[9891] by fixed index for the `## 36.` heading; the 
 r2-ch16n	r2-ch16n2	carried a hard-coded site LIST; three of nine entries (9722, 9894, 11853) sit above the shift and named the wrong lines	BUILD92+BUILD191, byte-exact
 r2-ch16p	r2-ch16p2	named two citing lines (11555, 11799) and started a sweep at the References body (11503) by literal; all three moved	BUILD92+BUILD191, byte-exact
 r2-ch22a	r2-ch22a2	printed "Chapter 23 citation claim, L10377" as a literal while computing the Nesterov sites beside it	BUILD92+BUILD191, byte-exact
+r2-27a	r2-27a2	pinned Appendix G first line to 11361; replaced by an independent resolution of the same heading, so the check can still fail	BUILD92+BUILD191, byte-exact
+r2-26c	r2-26c2	pinned the rebuilt Appendix F first line to 11222; same treatment	BUILD92+BUILD191, byte-exact
+r2-28a2	r2-28a3	pinned the References heading hits, the claim paragraph and the Janet 1928 site to literals; all cross-checked against independent resolutions	BUILD92+BUILD191, byte-exact
