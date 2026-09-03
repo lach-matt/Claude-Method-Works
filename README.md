@@ -66,6 +66,11 @@ it, each with a real contract and a self-check.
 * [`tools/audit_math.py`](tools/audit_math.py) — the book's own mathematical objects read as an
   index in five languages. All 24 fibres close at E = 0; the grading alone gives a counterexample
   to the agreement theorem's "only if" half.
+* [`tools/sweep.py`](tools/sweep.py) — the class sweep of RUL-152 item 2: the thirteen classes
+  of `DEFECT-CENSUS.tsv` run over the four compendia that close by sweep rather than by reading.
+  Every detector is calibrated against the census's own rows — `--selftest` asserts eleven exact
+  reproductions — and a class whose predicate cannot be recovered is reported NOT-RUN rather than
+  guessed. See [`docs/SWEEP.md`](docs/SWEEP.md).
 * [`tools/register_counts.py`](tools/register_counts.py) — keeps the Register's own entry counts
   current: counts it, checks the front and back matter against it, exits 1 on drift, and `--write`
   emits a corrected copy without ever writing in place.

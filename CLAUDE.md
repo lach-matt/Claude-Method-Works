@@ -25,19 +25,31 @@ artifacts, not a codebase to maintain or execute.
 
 The exceptions, and they are the only ones: `method/verify.py` and the instruments in
 `method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror,
-`tools/cypher.py` runs the cypher analysis of §33 over an index, `tools/audit_lambda.py`
+`tools/cypher.py` runs the cypher analysis of §33 over an index, `tools/sweep.py` runs the
+class sweep of RUL-152 item 2, `tools/audit_lambda.py`
 checks every reconstructible numeric claim about Λ against the volumes, and
 `tools/register_counts.py` keeps the Register's own entry counts current, and `tools/close_main.py`
 is the guarded build of the main bundle, with `tools/restage.py` rebuilding the extracted tree
 after either close. Those are real programs with a
 real contract — see `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CYPHER.md` and
-`docs/AUDIT-LAMBDA.md`.
+`docs/AUDIT-LAMBDA.md`, and `docs/SWEEP.md`.
 
 `python3 tools/cypher.py --selftest` asserts the corpus's own recorded numbers — Λ at 976 with
 E = 0 in five languages, the periodic table at E = 36, register 1175's E = 100 against 0. It is
 stdlib-only and takes a `--roster`, because which languages there are is docket 20x-04/20x-09 and
 still open. Do not resolve that docket in code: the rosters stay data, and `--pairs` *measures*
 the operator-bearing set against what a roster claims rather than asserting one.
+
+`python3 tools/sweep.py` closes the other four compendia the way RUL-152 item 2 says they close —
+by class sweep, not line by line. Its thirteen classes are the census's, and every detector is
+calibrated against the census's own rows before it is run anywhere else: eleven exact reproductions,
+asserted by `--selftest`. The sweep finds **nothing new** on the four. What looks like an
+under-sweep — 10 census rows on the Physics Compendium, 1 on the Spectra — is that five of the
+thirteen are Mathematical-Compendium-form classes, and the Index of Indices and Spectra Compendium
+open no `###` block at all while the Physics Compendium's 27 are a different form. Do not read those
+with the R-form detector: all 27 come back missing a grade they were never asked for. A class whose
+predicate cannot be recovered from the census is **NOT-RUN**, never guessed — the rule `cypher.py`
+keeps as REFUSED. See `docs/SWEEP.md`.
 
 `python3 tools/audit_lambda.py` reads 61 recorded claims about Λ: 59 pass, 2 fail, and three
 findings are written up in `docs/AUDIT-LAMBDA.md`. It adjudicates none of them — a failing row is
