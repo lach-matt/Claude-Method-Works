@@ -6624,3 +6624,11 @@ are the record of how the work went, which is the material §4's mechanisms were
 ### 1796
 
 **THE REGISTER'S FRONT MATTER GIVES ITS MATURE RECORD AS "165 TO 1791, 1,470 ENTRIES" WHERE THE BACK MATTER GIVES 165–1792; THE BACK MATTER IS CURRENT, THE FIGURE IS 1,471, AND UNDER THE PRINTED 1,470 THE FRONT MATTER'S OWN THREE PARTS DO NOT SUM TO ITS OWN TOTAL.** *Counted on the BUILD180 member: 1,628 single-number headings and 7 grouped headings — docket 30's seven, at register lines 1319, 1323, 1327, 1331, 1335, 1339 and 1343 — giving **1,635 headings, which is exactly the total both matters print**, so the total is right and the entry count is a count of headings. By that count genesis 1–94 is 94, superseded 95–164 is 70, and the mature record is 1,464 single plus the 7 grouped = **1,471**. 94 + 70 + 1,471 = 1,635; 94 + 70 + 1,470 = 1,634. The front matter is stale by exactly one entry — 1792, which the back matter already carries — and the deficit in its own arithmetic is that same one.* Registers 1792. (a correction.)
+
+### 1798
+
+**CHAPTER 34'S STATUS CORRECTED TO THE RECORD'S.** *The chapter printed ν as the law and its walk as exceptionless on 106 elements; registers 1437, 1438, 1445 and 1460 had measured 99 in sample and 90 held out against Madelung's 96 and deactivated ν as a law. Corrected at §34.4, §34.8, §34.9 and §35's opening; the corridor's non-emptiness at 106 of 106 stands as a result about the form (1445, 1463).* Registers 1350; 1437; 1438; 1445; 1460; 1463. (a correction.)
+
+### 1799
+
+**THE APPENDIX ROWS FOLLOW THE STATUS.** *Appendix rows for the nineteen surds and the necessity of state carried 'measured' and 'verified'; the first demotes with ν (1460) and the second is stated at 1332 and not independently reproducible (1448). Status columns corrected.* Registers 1332; 1448; 1460. (a correction.)

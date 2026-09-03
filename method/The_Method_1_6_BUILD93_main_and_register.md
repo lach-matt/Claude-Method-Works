@@ -9607,6 +9607,14 @@ something false at two elements (§34.1); ν names the observed order at all of 
 agrees with n+ℓ the rule reproduces n+ℓ; where it does not — §34.1's two inversions — the rule
 reproduces the order.
 
+**Status.** The ν rule is a form, the first the corridor was applied to, and not a law: register
+1460 deactivates it as a law and retains it as a form. Placed at each step's own corridor it
+reproduces 99 of 106 steps (registers 1437, 1438); held out — *a* placed only from corridors
+already revealed — it reproduces 90, against 96 for Madelung's rule with no parameter at all
+(register 1445), and that is how its standing is quoted. What survives untouched is the corridor:
+non-empty at every one of the 106 steps, which is a statement about the form (registers 1445,
+1463). The derivation that answers Löwdin is Chapter 35's.
+
 ### 34.5 The corridor
 
 Requiring the observed subshell to have least ν gives one linear inequality per
@@ -9657,12 +9665,12 @@ centrifugal value.**
 | **the energy of a single state** | the observation that fixes what the ordering bounds |
 | **the endpoints** | arithmetic on the above |
 
-**No parameter is fitted.**
+**No parameter is fitted in the form;** the placement of *a* along the walk is a fit (register 1445).
 
-### 34.9 Domain, stated by the law itself
+### 34.9 Domain, stated by the form itself
 
-**Exceptionless on 106 elements**, Z = 3 to 108, including every aufbau anomaly,
-**and right where n+ℓ is wrong.**
+**A non-empty corridor at all 106 elements**, Z = 3 to 108, including every aufbau anomaly — and 99 of 106 steps reproduced when *a* is placed on each step's own corridor,
+90 held out (registers 1437, 1445), **right at eight of the ten elements where n+ℓ is wrong.**
 
 **f is outside the domain and the law says so.** At any f opening p = n−ℓ−1 = 0,
 the floor of the node count — no subshell has fewer nodes than none — **so no
@@ -9716,7 +9724,7 @@ three-body problem but a statement about which pairs exist — Chapter 36 takes 
 
 ## 35. The Löwdin solution
 
-*Chapter 34 stated the law that names the order — the corridor, the walk, and the
+*Chapter 34 stated the form that names the order, and the corridor that tests a form — the corridor, the walk, and the
 entry point, read from the table's own coordinates with one observation per
 subshell. This chapter states the other half and the harder one: the same order
 derived from the many-electron Schrödinger equation with no observation at all.
@@ -9729,9 +9737,9 @@ itself did the work.*
 
 **Chapter 6 proved the periodic table is not a closed index, and Chapter 33 said
 what that costs:** *what a closure cannot supply is exactly what requires an
-operator.* Chapter 34 then measured the consequence — with no carried state, 104
-of 106 steps admit two to four self-consistent subshells, so **the table is not
-computable from a single atom's configuration.** The solution is the operator
+operator.* Chapter 34 then stated the consequence — without carried state **the table is not
+computable from a single atom's configuration** (register 1332; the count itself is not independently
+reproducible, register 1448). The solution is the operator
 those three chapters were pointing at.
 
 **One number goes in.** The many-electron Hamiltonian in its scalar-relativistic
@@ -9740,7 +9748,7 @@ chained walk:** at each Z, converge the self-consistent field of the ion carryin
 the configuration of Z−1 — the field the arriving electron actually meets — solve
 every frontier channel in that frozen field, and let the deepest channel be the
 entrant. The configuration so built seeds the next step. *The carried state that
-Chapter 34 proved necessary is here carried by the equation itself.*
+Chapter 34 argued necessary is here carried by the equation itself.*
 
 ### 35.2 What the walk returned
 
@@ -10848,13 +10856,13 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
  and how it says the thing was checked.
 
   new element                                            fibre                        coordinates
-  the corridor, 106 consistent inequalities              theorem · analysis           verified · exhaustive · none found
-  the nineteen surds, the complete endpoint set          measurement · analysis       measured · exhaustive · none found
+  the corridor, 106 consistent inequalities              theorem · analysis           verified as a result about the form (1445, 1463)
+  the nineteen surds, the complete endpoint set          measurement · analysis       withdrawn with ν at 1460
   a_cross = (√(n−1) + √(n−4))/3                          formula · analysis           proved · exhaustive · none found
   the staircase algebra, ⌊s/2⌋ ≤ d ≤ s + ⌊s/3⌋           formula · order              verified · exhaustive · found
   the sequence-index fix, rank parity not free           mechanism · physics          verified · exhaustive · found
   the selection-rule falsification, 200 of 200 seeds     measurement · analysis       measured · sampled · none found
-  the necessity of state, 104 of 106 steps               theorem · physics            verified · exhaustive · none found
+  the necessity of state, 104 of 106 steps               theorem · physics            stated at 1332; not independently reproducible (1448)
   the observability boundary, tested once                law · physics                conjectured · sampled · none found
   the singleton-output rule                              definition · order           proved · exhaustive · none found
   the domain prohibition                                 law · physics                verified · exhaustive · none found
@@ -18482,4 +18490,12 @@ are the record of how the work went, which is the material §4's mechanisms were
 ### 1796
 
 **THE REGISTER'S FRONT MATTER GIVES ITS MATURE RECORD AS "165 TO 1791, 1,470 ENTRIES" WHERE THE BACK MATTER GIVES 165–1792; THE BACK MATTER IS CURRENT, THE FIGURE IS 1,471, AND UNDER THE PRINTED 1,470 THE FRONT MATTER'S OWN THREE PARTS DO NOT SUM TO ITS OWN TOTAL.** *Counted on the BUILD180 member: 1,628 single-number headings and 7 grouped headings — docket 30's seven, at register lines 1319, 1323, 1327, 1331, 1335, 1339 and 1343 — giving **1,635 headings, which is exactly the total both matters print**, so the total is right and the entry count is a count of headings. By that count genesis 1–94 is 94, superseded 95–164 is 70, and the mature record is 1,464 single plus the 7 grouped = **1,471**. 94 + 70 + 1,471 = 1,635; 94 + 70 + 1,470 = 1,634. The front matter is stale by exactly one entry — 1792, which the back matter already carries — and the deficit in its own arithmetic is that same one.* Registers 1792. (a correction.)
+
+### 1798
+
+**CHAPTER 34'S STATUS CORRECTED TO THE RECORD'S.** *The chapter printed ν as the law and its walk as exceptionless on 106 elements; registers 1437, 1438, 1445 and 1460 had measured 99 in sample and 90 held out against Madelung's 96 and deactivated ν as a law. Corrected at §34.4, §34.8, §34.9 and §35's opening; the corridor's non-emptiness at 106 of 106 stands as a result about the form (1445, 1463).* Registers 1350; 1437; 1438; 1445; 1460; 1463. (a correction.)
+
+### 1799
+
+**THE APPENDIX ROWS FOLLOW THE STATUS.** *Appendix rows for the nineteen surds and the necessity of state carried 'measured' and 'verified'; the first demotes with ν (1460) and the second is stated at 1332 and not independently reproducible (1448). Status columns corrected.* Registers 1332; 1448; 1460. (a correction.)
 <<<END FILE: The_Method_1_6___The_Register-2.md>>>
