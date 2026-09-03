@@ -18498,4 +18498,8 @@ are the record of how the work went, which is the material §4's mechanisms were
 ### 1799
 
 **THE APPENDIX ROWS FOLLOW THE STATUS.** *Appendix rows for the nineteen surds and the necessity of state carried 'measured' and 'verified'; the first demotes with ν (1460) and the second is stated at 1332 and not independently reproducible (1448). Status columns corrected.* Registers 1332; 1448; 1460. (a correction.)
+
+### 1800
+
+**THE COMPENDIUM'S PENETRATION PERCENTAGE DID NOT FOLLOW ITS OWN COUNT.** *The Mathematical Compendium printed the penetration claim as 146 of 163 = 92%. 146 of 163 is 90% at nought decimal places, rounding half to even; register 1048 states that claim as 146 of 163, 90%, and in the same line gives 92% its own object — the combined two-claim figure, 198 of 215. Which of the two the compendium's 92% came from, the claim's own superseded value or the combined figure printed beside it, is not decided; on either reading it is not the percentage of 146 of 163. Corrected to 90%; the counts are untouched.* Registers 1048. (a correction.)
 <<<END FILE: The_Method_1_6___The_Register-2.md>>>

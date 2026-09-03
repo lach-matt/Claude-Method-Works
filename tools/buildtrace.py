@@ -57,10 +57,10 @@ STORE = os.path.join(REPO, "method")
 # The live bundles, which are the newest members of the two streams. Named here as
 # method/verify.py names them on this branch; a build that advances either must move both.
 LIVE = {
-    "main": ("The_Method_1_6_BUILD92_main_and_register.md",
-             "ac49200f5a8a02511865260202e75cbb"),
-    "compendia": ("The_Method_1_6_BUILD191_compendia_papers_audits.md",
-                  "072cc2b825eb52102a23ab657e680ccd"),
+    "main": ("The_Method_1_6_BUILD94_main_and_register.md",
+             "6079e066b5e480db6c47f754660a9b6e"),
+    "compendia": ("The_Method_1_6_BUILD192_compendia_papers_audits.md",
+                  "3ad4c61d720fc0b9af669984039d6cfa"),
 }
 
 STREAMS = {"compendia": "compendia_papers_audits", "main": "main_and_register"}

@@ -7423,7 +7423,7 @@ WEAK at scale: only 44 of 79 channels show a wider high half (56%), and the n^3 
 
 Measured — R 806, 821-824; NIST Atomic Spectroscopy compendium; Ritz 1903.
 
-penetration (|d|≥0.1) falls 146 of 163 = 92%; polarisation (|d|<0.01) RISES 52 of 52 = 100%; combined 94% against 66% as a single claim (R 985-987)
+penetration (|d|≥0.1) falls 146 of 163 = 90%; polarisation (|d|<0.01) RISES 52 of 52 = 100%; combined 94% against 66% as a single claim (R 985-987)
 
 > **Prior art: the extended Ritz formula has a positive second coefficient for penetration and a negative one for polarisation, so the approach to delta_0 is monotone from above or below. Stated in NIST compendium.**
 
