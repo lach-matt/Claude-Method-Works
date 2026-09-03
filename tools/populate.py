@@ -78,6 +78,13 @@ READ, PINNED, DERIVED, RECON = "READ", "PINNED", "DERIVED", "RECONSTRUCTED"
 # index's own computed column and consistent with what the registers say about
 # it qualitatively. Stronger than RECONSTRUCTED, weaker than PINNED.
 RECOVERED = "RECOVERED"
+# PREDICTED — beyond the evidentiary boundary. Section VIII of the Loewdin
+# solution: "Because ground configurations are experimentally established only
+# through Z = 108, this work enforces a strict evidentiary boundary there. The
+# 107 elements up to it constitute the derivation, scored against nature. The
+# twelve elements beyond it are published as predictions — explicitly labeled,
+# unfitted, and falsifiable the day their spectra can be measured."
+PREDICTED = "PREDICTED"
 
 
 def _load(name, filename):
@@ -105,7 +112,7 @@ SYMBOL_TO_Z = {sym: z for z, (sym, _c, _l) in LW1.GROUND.items()}
 # ---------------------------------------------------------------------------
 
 # Section 6: "main-table cells (lanthanides and actinides set aside) = 90".
-PERIOD_END = [2, 10, 18, 36, 54, 86, 118]
+PERIOD_END = [2, 10, 18, 36, 54, 86, 118, 168]
 LANTHANIDES = range(58, 72)      # Ce to Lu
 ACTINIDES = range(90, 104)       # Th to Lr
 
@@ -138,6 +145,9 @@ def group_of(Z):
     if p in (6, 7):
         # 3 before the f-block, then 15 after it
         return i + 1 if i <= 2 else i + 1 - 14
+    if p == 8:
+        # Only 119 and 120 are predicted; the g-block below them is not.
+        return i + 1 if i <= 1 else None
     return i + 1
 
 
@@ -148,10 +158,11 @@ def block_of(Z):
     drawn layout."""
     if Z == 1:
         return 0
-    if Z not in LW1.GROUND or Z - 1 not in LW1.GROUND:
+    a, b = config_of(Z), config_of(Z - 1)
+    if a is None or b is None:
         return None
-    now = {(n, l): o for n, l, o in LW1.expand(Z)}
-    before = {(n, l): o for n, l, o in LW1.expand(Z - 1)}
+    now = {(n, l): o for n, l, o in a}
+    before = {(n, l): o for n, l, o in b}
     gained = [(n, l) for (n, l), o in now.items() if o > before.get((n, l), 0)]
     if not gained:
         return None
@@ -163,8 +174,11 @@ def janet_cell(Z):
     collapse boundaries. The cell is (n+l, l) of the differentiating electron."""
     if Z == 1:
         return (1, 0)
-    now = {(n, l): o for n, l, o in LW1.expand(Z)}
-    before = {(n, l): o for n, l, o in LW1.expand(Z - 1)}
+    a, b = config_of(Z), config_of(Z - 1)
+    if a is None or b is None:
+        return None
+    now = {(n, l): o for n, l, o in a}
+    before = {(n, l): o for n, l, o in b}
     gained = [(n, l) for (n, l), o in now.items() if o > before.get((n, l), 0)]
     if not gained:
         return None
@@ -175,6 +189,75 @@ def janet_cell(Z):
 # ---------------------------------------------------------------------------
 # The Pauli bound -- register 1141, PINNED
 # ---------------------------------------------------------------------------
+
+# The corpus's own prediction, stated as a rule rather than a table: "the
+# entrant is 6d from Z = 109 through 112, 7p from 113 through 118, and 8s at
+# 119 and 120, with stated margins between 0.058 and 0.264 hartree, every one
+# clearing the spin-orbit worst case" (Loewdin solution, section VIII).
+# The configurations below are DERIVED from that rule and from Hs at Z = 108,
+# which is READ. They are never merged with the observed table.
+PREDICTED_ENTRANT = (((109, 112), (6, 2)),      # 6d
+                     ((113, 118), (7, 1)),      # 7p
+                     ((119, 120), (8, 0)))      # 8s
+PREDICTED_MAX = 120
+EVIDENTIARY_BOUNDARY = 108
+
+# Conventional IUPAC symbols, a convenience for reading the report only. The
+# store names none of these; 119 and 120 have only systematic names.
+BEYOND_SYMBOL = {109: "Mt", 110: "Ds", 111: "Rg", 112: "Cn", 113: "Nh",
+                 114: "Fl", 115: "Mc", 116: "Lv", 117: "Ts", 118: "Og",
+                 119: "Uue", 120: "Ubn"}
+
+
+def entrant_of(Z):
+    for (lo, hi), nl in PREDICTED_ENTRANT:
+        if lo <= Z <= hi:
+            return nl
+    return None
+
+
+def predicted_config(Z):
+    """The ground configuration at Z = 109 to 120, built from Hs plus the
+    corpus's stated entrant sequence. One electron per element, into the
+    subshell section VIII names."""
+    if not (EVIDENTIARY_BOUNDARY < Z <= PREDICTED_MAX):
+        return None
+    occ = {(n, l): o for n, l, o in LW1.expand(EVIDENTIARY_BOUNDARY)}
+    for z in range(EVIDENTIARY_BOUNDARY + 1, Z + 1):
+        nl = entrant_of(z)
+        if nl is None:
+            return None
+        occ[nl] = occ.get(nl, 0) + 1
+        if occ[nl] > 2 * (2 * nl[1] + 1):
+            return None
+    return [(n, l, o) for (n, l), o in
+            sorted(occ.items(), key=lambda kv: (kv[0][0] + kv[0][1], kv[0][0]))
+            if o > 0]
+
+
+def ground_of(Z, table="observed"):
+    """The ground configuration and where it comes from.
+
+    Below the evidentiary boundary this is measurement; above it, the corpus's
+    published prediction. The status is carried so the two are never merged --
+    which is the boundary section VIII enforces, kept in the program."""
+    if Z in LW1.GROUND:
+        sym, shells, level = LW1.GROUND[Z]
+        cfg = config_of(Z, table)
+        return {"config": cfg, "symbol": sym, "shells": shells,
+                "level": level, "status": READ if table == "observed" else DERIVED,
+                "basis": ("NIST ASD 5.12 via LW1-ground.py (register 1306)"
+                          if table == "observed"
+                          else "aufbau, the table register 1306 withdrew")}
+    cfg = predicted_config(Z)
+    if cfg is None:
+        return None
+    return {"config": cfg, "symbol": BEYOND_SYMBOL.get(Z, "Z%d" % Z),
+            "shells": " ".join("%d%s%d" % (n, LSYM[l], o) for n, l, o in cfg),
+            "level": None, "status": PREDICTED,
+            "basis": "Loewdin solution section VIII: the entrant is 6d from "
+                     "Z = 109 to 112, 7p from 113 to 118, 8s at 119 and 120"}
+
 
 MADELUNG = sorted(((n, l) for n in range(1, 9) for l in range(0, min(n, 5))),
                   key=lambda t: (t[0] + t[1], t[0]))
@@ -202,8 +285,15 @@ CONFIG_TABLES = {
 
 
 def config_of(Ne, table="observed"):
+    """The configuration of a neutral species with Ne electrons.
+
+    Above the evidentiary boundary the observed table has nothing, so the
+    corpus's published prediction is used and the caller is expected to carry
+    the PREDICTED status with it."""
     if Ne < 1:
         return None
+    if table == "observed" and Ne not in LW1.GROUND:
+        return predicted_config(Ne)
     return CONFIG_TABLES[table](Ne)
 
 
@@ -637,6 +727,12 @@ def within_caps(cell, caps=CAPS):
     return {ax: need[ax] <= caps[ax] for ax in caps}
 
 
+def _sym(Ne):
+    if Ne in LW1.GROUND:
+        return LW1.GROUND[Ne][0]
+    return BEYOND_SYMBOL.get(Ne, "Z%d" % Ne)
+
+
 def ionisation_cells(Z):
     """The ionisation ladder as Lambda_8 transition cells.
 
@@ -653,12 +749,13 @@ def ionisation_cells(Z):
     2S is the ion's own ground multiplicity where the term is known, else the
     envelope 2S <= k leaves it undetermined and it is reported as None."""
     out = []
-    for charge in range(2, min(Z, 108) + 2):
+    for charge in range(2, Z + 2):
         Ne = Z - charge + 1
-        if Ne < 1 or Ne not in LW1.GROUND or (Ne + 1) not in LW1.GROUND:
+        pcfg, ccfg = config_of(Ne + 1), config_of(Ne)
+        if Ne < 1 or pcfg is None or ccfg is None:
             continue
-        parent = {(n, l): o for n, l, o in LW1.expand(Ne + 1)}
-        child = {(n, l): o for n, l, o in LW1.expand(Ne)}
+        parent = {(n, l): o for n, l, o in pcfg}
+        child = {(n, l): o for n, l, o in ccfg}
         lost = [(nl, parent[nl] - child.get(nl, 0)) for nl in parent
                 if parent[nl] > child.get(nl, 0)]
         gained = [(nl, child[nl] - parent.get(nl, 0)) for nl in child
@@ -673,7 +770,7 @@ def ionisation_cells(Z):
             tn, tl, g = sn, sl, 0
         out.append({
             "charge": charge, "Ne": Ne,
-            "from": LW1.GROUND[Ne + 1][0], "to": LW1.GROUND[Ne][0],
+            "from": _sym(Ne + 1), "to": _sym(Ne),
             "cell": (sn, sl, k, q, tn, tl, g, None),
         })
     return out
@@ -744,14 +841,19 @@ def layout_closure():
 
 
 def populate(Z, spectra, charge=None, table="observed"):
-    if Z not in LW1.GROUND:
-        raise KeyError("Z = %d is outside LW1-ground.py's table (1 to 108)" % Z)
-    sym, shells, level = LW1.GROUND[Z]
-    cfg = LW1.expand(Z)
+    g = ground_of(Z, table)
+    if g is None:
+        raise KeyError("Z = %d has no configuration: measurement stops at %d "
+                       "and the corpus's predictions stop at %d"
+                       % (Z, EVIDENTIARY_BOUNDARY, PREDICTED_MAX))
+    sym, shells, level = g["symbol"], g["shells"], g["level"]
+    cfg = g["config"]
+    n_e = sum(o for _n, _l, o in cfg)
     out = {
         "Z": Z, "symbol": sym, "shells_as_printed": shells, "level": level,
-        "electron_count": LW1.occ_count(Z),
-        "electron_count_ok": LW1.occ_count(Z) == Z,
+        "config_status": g["status"], "config_basis": g["basis"],
+        "electron_count": n_e,
+        "electron_count_ok": n_e == Z,
         "configuration": [{"n": n, "l": l, "subshell": "%d%s" % (n, LSYM[l]),
                            "occupancy": o, "capacity": 2 * (2 * l + 1),
                            "full": o == 2 * (2 * l + 1), "n+l": n + l}
@@ -760,7 +862,9 @@ def populate(Z, spectra, charge=None, table="observed"):
         "block_letter": (LSYM[block_of(Z)] if block_of(Z) is not None else None),
         "set_aside": set_aside(Z), "janet_cell": janet_cell(Z),
         "outer": LW1.outer(Z),
-        "level_decoded": parse_level(level),
+        "level_decoded": parse_level(level) if level else
+        {"form": "not predicted", "mult": None, "S2": None, "L": None,
+         "parity": None, "J2": None, "J": None},
     }
     held, admitted = layout_closure()
     out["closure"] = {
@@ -848,8 +952,17 @@ def report(rep, show_channels=True, max_charge=None):
     print("  Z = %-4d %-3s   %s" % (rep["Z"], rep["symbol"],
                                     rep["shells_as_printed"]))
     print("  ground level %s   electrons %d %s"
-          % (rep["level"], rep["electron_count"],
+          % (rep["level"] or "not predicted", rep["electron_count"],
              "OK" if rep["electron_count_ok"] else "MISMATCH"))
+    print("  configuration  [%s]  %s" % (rep["config_status"],
+                                         rep["config_basis"]))
+    if rep["config_status"] == PREDICTED:
+        print("  *** BEYOND THE EVIDENTIARY BOUNDARY at Z = %d. Section VIII "
+              "publishes Z = 109" % EVIDENTIARY_BOUNDARY)
+        print("      to 120 as PREDICTIONS -- unfitted and falsifiable, never "
+              "scored against nature.")
+        print("      Nothing below is a measurement, and none of it may be "
+              "quoted as one.")
     print("=" * 78)
     print()
     print("  THE LAYOUT INDEXES                                        [DERIVED]")
@@ -878,7 +991,10 @@ def report(rep, show_channels=True, max_charge=None):
     print()
     d = rep["level_decoded"]
     print("  THE GROUND LEVEL, DECODED                                     [READ]")
-    if d["form"] == "LS":
+    if d["form"] == "not predicted":
+        print("    the entrant is predicted; the LEVEL is not. 2S, L and J "
+              "are undetermined here.")
+    elif d["form"] == "LS":
         print("    %-12s form LS   multiplicity %d (2S = %d)   L = %s (%d)   "
               "parity %s   J = %s (2J = %d)"
               % (rep["level"], d["mult"], d["S2"], TERM_L[d["L"]], d["L"],
@@ -1270,6 +1386,35 @@ def selftest(spectra):
         check(denied == want,
               "the cells R admits and the table denies are not section 6's "
               "thirty-six; %d differ" % len(denied ^ want))
+
+    # --- the evidentiary boundary at Z = 108 --------------------------------
+    check(ground_of(108)["status"] == READ,
+          "Hs at Z = 108 is not READ; it is the last measured element")
+    check(ground_of(109)["status"] == PREDICTED,
+          "Z = 109 is not PREDICTED; section VIII puts the boundary at 108")
+    for Z, nl in ((110, (6, 2)), (112, (6, 2)), (113, (7, 1)),
+                  (118, (7, 1)), (119, (8, 0)), (120, (8, 0))):
+        check(entrant_of(Z) == nl,
+              "the entrant at Z = %d is %s; section VIII says %s"
+              % (Z, entrant_of(Z), nl))
+    for Z in range(109, 121):
+        g = ground_of(Z)
+        check(g is not None, "no predicted configuration at Z = %d" % Z)
+        if g:
+            check(sum(o for _n, _l, o in g["config"]) == Z,
+                  "the predicted configuration at Z = %d holds %d electrons"
+                  % (Z, sum(o for _n, _l, o in g["config"])))
+            check(g["level"] is None,
+                  "a ground LEVEL is claimed at Z = %d; section VIII predicts "
+                  "the entrant only" % Z)
+    check(ground_of(121) is None,
+          "a configuration is offered at Z = 121; the predictions stop at 120")
+    # Og closes the 7p shell; 119 and 120 open 8s.
+    og = {(n, l): o for n, l, o in ground_of(118)["config"]}
+    check(og.get((7, 1)) == 6, "Og does not close 7p")
+    check(og.get((8, 0)) is None, "Og has an 8s electron")
+    check({(n, l): o for n, l, o in ground_of(120)["config"]}.get((8, 0)) == 2,
+          "Z = 120 does not close 8s")
 
     # --- terms, phi-hat and the coupling chain ------------------------------
     for l, k, want in ((1, 2, {(0, 0), (0, 2), (2, 1)}),        # 1S 1D 3P
