@@ -36,10 +36,10 @@ Two independent checks, and a mismatch is a hard failure that is reported, never
 
 Current state: `members checked: 351  mismatched: 0`, both bundles recovered, `VERIFY OK`.
 
-**Two superseded compendia bundles are still in this directory** — `BUILD180` and `BUILD181`. They
-are inputs to nothing and `verify.py` ignores them, but `gate.py manifest` refuses to guess which
-bundle is live and stops unless exactly one is present or `--comp` names it. Delete both; the pair
-above is the live store.
+Exactly one compendia bundle lives here at a time. `BUILD180` and `BUILD181` were removed once
+`BUILD182` was asserted — both remain in git history, and both are re-derivable from Drive through
+their `REBUILD-BUILDNNN.md`. Keeping a superseded bundle beside the live one is not merely untidy:
+`gate.py manifest` refuses to guess which is live and stops until one remains.
 
 ## Running the gate
 
@@ -52,10 +52,6 @@ rm -rf __pycache__ && python3 gate.py census              # byte-identical to th
 rm -rf __pycache__ && python3 gate.py run --core          # tower-2, kinds, minmax, r2-tools-constants, extent
 rm -rf __pycache__ && python3 gate.py manifest            # 350 listed / 351 extracted
 ```
-
-While the two superseded bundles are still present, `gate.py manifest` needs `--comp` naming
-`The_Method_1_6_BUILD182_compendia_papers_audits.md`. Once they are deleted it finds the live one
-on its own.
 
 All of the above was run in this container and passed.
 
