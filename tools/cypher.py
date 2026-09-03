@@ -34,7 +34,14 @@ from dataclasses import dataclass, asdict
 
 # --------------------------------------------------------------------- state
 
-SPEAKS, SILENT, NOT_RUN = "SPEAKS", "SILENT", "NOT-RUN"
+SPEAKS, SILENT, NOT_RUN, REFUSED = "SPEAKS", "SILENT", "NOT-RUN", "REFUSED"
+
+
+class Budget(Exception):
+    """A resource cap was hit. This is NOT a silence: the operator never ran, and reporting it as
+    SILENT would manufacture a finding out of a compute limit — the precise confusion this program
+    exists to prevent (reg 1172). It reports as REFUSED and never enters the agreement arithmetic."""
+
 # PINNED   — the corpus defines the operator at the precision a program needs.
 # ADOPTED  — reconstructed from the corpus's own language-pairings plus the cited literature,
 #            corroborated against recorded numbers, and adopted by ruling. The provenance is
@@ -116,11 +123,29 @@ class Index:
 # Each returns (admitted set | None, note). None means the operator is SILENT — its
 # precondition fails on this object, which is itself the finding (§33.2).
 
+def _box_guard(ix, opts):
+    """The ambient product is enumerated cell by cell, so a large box is a wall rather than a
+    slowdown. Refuse legibly instead of hanging — an audit needs a reason, not a stalled process."""
+    cap = opts.get("max_box", 2_000_000)
+    if ix.box > cap:
+        raise Budget(f"ambient box {ix.box:,} exceeds --max-box {cap:,}; "
+                     f"raise it to run this operator")
+
+
+def _cells_guard(ix, opts, name):
+    """Meet/join closures are quadratic in the working set and iterate to a fixed point."""
+    cap = opts.get("max_pairwise_cells", 4_000)
+    if len(ix.cells) > cap:
+        raise Budget(f"{name} is quadratic in the cell count and {len(ix.cells):,} exceeds "
+                     f"--max-pairwise-cells {cap:,}")
+
+
 def op_order(ix, opts):
     """R, §32.4.1. R(X) = {x in box : x_i <= phi_ij(x_j) for all i != j},
     phi_ij(a) = max{y_i : y in X, y_j <= a}. Matches the seated instrument rclose.py."""
     if ix.d < 2:
         return None, "R needs at least two coordinates"
+    _box_guard(ix, opts)
     X, D = ix.cells, ix.d
     phi = {}
     for i in range(D):
@@ -154,6 +179,7 @@ def op_statistics(ix, opts):
     k = opts.get("statistics_order", 2)
     if ix.d <= k:
         return None, f"needs more than {k} coordinates at order {k} (reg 1175)"
+    _box_guard(ix, opts)
     subsets = list(itertools.combinations(range(ix.d), k))
     seen = {S: {tuple(x[i] for i in S) for x in ix.cells} for S in subsets}
     out = {x for x in ix.ambient()
@@ -167,6 +193,7 @@ def op_geometry(ix, opts):
     in the convex hull of that shadow of X. Caratheodory's bound at d = 2."""
     if ix.d < 2:
         return None, "needs at least two coordinates"
+    _box_guard(ix, opts)
     hulls = {}
     for i, j in itertools.combinations(range(ix.d), 2):
         hulls[(i, j)] = _hull2({(x[i], x[j]) for x in ix.cells})
@@ -178,11 +205,13 @@ def op_geometry(ix, opts):
 def op_algebra(ix, opts):
     """Is it closed under an operation? The sublattice closure: iterate coordinatewise meet and
     join to a fixed point (§7.3; Birkhoff, Lattice Theory)."""
+    _cells_guard(ix, opts, "the sublattice closure")
     budget = opts.get("algebra_budget", 20000)
     S = set(ix.cells)
     while True:
         if len(S) > budget:
-            return None, f"sublattice closure exceeded {budget} cells; raise --algebra-budget"
+            raise Budget(f"sublattice closure exceeded {budget:,} cells; "
+                         f"raise --algebra-budget")
         L = sorted(S)
         new = set()
         for a in range(len(L)):
@@ -206,6 +235,7 @@ def op_information(ix, opts):
     theorem (1937) — every element of a finite distributive lattice is a join of join-irreducibles,
     so a distributive index regenerates from its seed exactly. The Math. Compendium states the same
     object: 'the matrix A and nothing more, from which all 976 cells regenerate'."""
+    _cells_guard(ix, opts, "the join-irreducible closure")
     X = ix.cells
     Xs = set(X)
     seed = []
@@ -221,7 +251,7 @@ def op_information(ix, opts):
     S = set(seed)
     while True:
         if len(S) > budget:
-            return None, f"join-closure exceeded {budget} cells; raise --algebra-budget"
+            raise Budget(f"join-closure exceeded {budget:,} cells; raise --algebra-budget")
         L = sorted(S)
         new = set()
         for a in range(len(L)):
@@ -361,7 +391,11 @@ def run(ix, roster_name, opts):
     for lang in roster["languages"]:
         if lang in ADMISSION:
             fn, status, basis = ADMISSION[lang]
-            out, note = fn(ix, opts)
+            try:
+                out, note = fn(ix, opts)
+            except Budget as b:
+                verdicts.append(Verdict(lang, REFUSED, status, note=str(b), basis=basis))
+                continue
             if out is None:
                 verdicts.append(Verdict(lang, SILENT, status, note=note, basis=basis))
                 continue
@@ -419,6 +453,7 @@ def run(ix, roster_name, opts):
         "pairs_claimed": roster.get("pairs_claimed"),
         "pairs": pairs,
         "pairs_agreeing": sum(p["agree"] for p in pairs),
+        "refused": [v.language for v in verdicts if v.state == REFUSED],
         "index": ix.name,
         "coordinates": ix.coords,
         "d": ix.d,
@@ -508,6 +543,10 @@ def report(res):
     not_run = [v.language for v in res["_verdicts"] if v.state == NOT_RUN]
     if not_run:
         o.append(f"  NOT RUN (asserted, not measured): {', '.join(not_run)}")
+    refused = [v.language for v in res["_verdicts"] if v.state == REFUSED]
+    if refused:
+        o.append(f"  REFUSED on a resource cap, NOT silent — raise the cap and rerun: "
+                 f"{', '.join(refused)}")
     if not res["singleton_ok"]:
         o.append(f"  SINGLETON FAILS — {len(res['outputs'])} outputs declared "
                  f"({', '.join(map(str, res['outputs']))}); §33.4 requires one.")
@@ -735,6 +774,28 @@ def selftest(opts):
               f"{'ok' if k == want_k else 'MISMATCH'}   (box seed law); "
               f"Caratheodory seed >= d: {'ok' if k and k >= d else 'VIOLATED'}")
 
+    # THE invariant: a resource cap must never be reported as a silence. A silence is a finding;
+    # a refusal is a compute limit. Confusing them manufactures findings out of budgets.
+    import random as _r
+    _r.seed(1)
+    big = set()
+    while len(big) < 800:
+        x = tuple(_r.randrange(9) for _ in range(7))
+        if sum(x) <= 31:
+            big.add(x)
+    bx = Index("over-cap", [f"c{i}" for i in range(7)], sorted(big))
+    rb = run(bx, "1173", dict(opts, max_box=2_000_000, max_pairwise_cells=4_000))
+    states = {v.language: v.state for v in rb["_verdicts"]}
+    capped = {"order", "geometry", "statistics", "algebra", "information"}
+    ok = all(states[l] == REFUSED for l in capped) and states["documentary"] == SILENT
+    bad += not ok
+    print(f"  over-cap index: capped operators REFUSED not SILENT      "
+          f"{'ok' if ok else 'MISMATCH — %s' % states}")
+    ok2 = not any(v.state == SILENT and "exceeds" in v.note for v in rb["_verdicts"])
+    bad += not ok2
+    print(f"  no resource refusal is reported as a silence            "
+          f"{'ok' if ok2 else 'MISMATCH'}")
+
     # register 1176: "Lambda and a box ordering: E = 0 and every pair agrees"
     for label, build, want in (("Lambda", _lambda, True), ("box ordering", _box_ordering, True)):
         r = run(build(), "1173", opts)
@@ -768,13 +829,18 @@ def main(argv=None):
     p.add_argument("--roster", choices=sorted(ROSTERS), help="which language roster to ask")
     p.add_argument("--statistics-order", type=int, default=2, dest="statistics_order")
     p.add_argument("--algebra-budget", type=int, default=20000, dest="algebra_budget")
+    p.add_argument("--max-box", type=int, default=2_000_000, dest="max_box",
+                   help="refuse ambient-enumerating operators above this box size")
+    p.add_argument("--max-pairwise-cells", type=int, default=4_000, dest="max_pairwise_cells",
+                   help="refuse quadratic closures above this cell count")
     p.add_argument("--json", action="store_true", help="machine-readable output for audits")
     p.add_argument("--pairs", action="store_true",
                    help="measure the operator-bearing set and its C(n,2) pairwise agreement")
     p.add_argument("--list-rosters", action="store_true")
     p.add_argument("--selftest", action="store_true")
     a = p.parse_args(argv)
-    opts = {"statistics_order": a.statistics_order, "algebra_budget": a.algebra_budget}
+    opts = {"statistics_order": a.statistics_order, "algebra_budget": a.algebra_budget,
+            "max_box": a.max_box, "max_pairwise_cells": a.max_pairwise_cells}
 
     if a.selftest:
         return selftest(opts)

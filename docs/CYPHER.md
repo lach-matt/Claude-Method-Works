@@ -14,6 +14,14 @@ python3 tools/cypher.py --index spec.json --roster 33.1 --json
 
 Stdlib only, Python 3.11+. No dependencies, so an audit can run it from any tree.
 
+**Limits.** `order`, `geometry` and `statistics` enumerate the ambient product cell by cell, and
+`algebra` and `information` iterate a closure that is quadratic in the working set. Both are walls
+rather than slowdowns, so both are capped and both refuse legibly: `--max-box` (default 2,000,000)
+and `--max-pairwise-cells` (default 4,000), with `--algebra-budget` (default 20,000) bounding
+closure growth. Λ at 976 cells over a 6,912 box runs in well under a second; the whole self-test
+takes about six. An index the size of the tower's Λ₁₃ — a 47.7 million cell ambient — is beyond
+this implementation and will say so rather than hang.
+
 ## Why it exists
 
 §33.2: **a language that falls silent is the finding.** An object every language describes is
@@ -25,13 +33,19 @@ carries them still.
 
 ## Three things it refuses to do
 
-**1. It never prints SILENT for a language that was never run.** There are three states, not two:
+**1. It never prints SILENT for a language that was never run.** There are four states, not two:
 
 | state | meaning |
 | --- | --- |
 | `SPEAKS` | the operator ran and returned an admitted set (or a declared witness) |
 | `SILENT` | the operator ran and its precondition failed — *this is the finding* |
 | `NOT-RUN` | nothing was measured. An assertion, not a result. |
+| `REFUSED` | a resource cap was hit. The operator never ran; raise the cap and rerun. |
+
+`REFUSED` exists because the alternative is worse than a crash. Without it a compute limit reads as
+a silence, and a silence is a *finding* — the tool would manufacture "geometry is silent on this
+index" out of a box that was merely too big to enumerate. The self-test asserts that no resource
+refusal is ever reported as a silence.
 
 **2. It never counts agreement at two coordinates as evidence.** Register 1175: at `d = 2` there
 is one pair, so pairwise consistency and the cell coincide and every language agrees for no
