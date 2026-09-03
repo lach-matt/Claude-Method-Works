@@ -22910,6 +22910,25 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **Not done, by design:** the four re-derivations after this family in DEF-143 item 11's order (**26b-02/-03 next**); the *without exception* half of L11298, recorded as a candidate with register 333 as its nearest exception and not scored, the count word this family is about being *several*; Register 256's code and the press readout's state (docket 38). r2-ch16n/s/t/u and r2-ch17c cannot run in this environment and were not re-run (§0a).
 - **Segment B — the close.** BUILD179 -> BUILD180 with W-189, DEF-150, the DOCKET chat-150 delta and four new members (r2-26b.py / r2-26b.out, READ-26b.md, CENSUS-CLOSURES-26b.tsv), the reverse guard recovering 6251dc13. **DEF and DOCKET blocks are keyed to the chat that wrote them, so they are DEF-150 and the chat-150 delta; the W numbers stay sequential and this is W-189.** Close begun with the context estimated at about 3 % of the 15 M budget used (INFERRED from the counter), well inside the chat-72 rule.
 
+### W-190 — repository session, 3 September 2026 (Cowork) — five audit instruments built and seated; φ̂'s form settled against the record by measurement; BUILD180 -> BUILD181
+
+- **This is a repository session, not a Method chat.** No section was read, no census row was closed, no volume was touched, and DEF-143 item 11's order is exactly where W-189 left it. What it produced is instruments and findings. Chat 152 is paused and `RUL-152-PENDING.md` is NOT seated here; it belongs to that chat's close.
+- **Gate:** run at open and again at close, from the checkout, in order. PASS. MEASURED: `git rev-parse HEAD` clean tree; `python3 method/verify.py` — 343 members checked, 0 mismatched, BUILD90_main spliced to 49065309b0c4fe8e055f693aed295cca OK, BUILD180_compendia spliced to ea5becc40e13debe4faaf6c7e0cde960 OK, VERIFY OK.
+- **Segment A — four audit instruments, each with a self-test whose fixtures are the corpus's own recorded numbers.** `tools/arith.py` runs DOCKET §2's arithmetic check as a class over whole members (42 fixtures); `tools/pointers.py` resolves every §, chapter, appendix, register, theorem and figure pointer across the six volumes and the companion, answering census classes C1, C2, C3 and C5 (53 fixtures); `tools/buildtrace.py` dates a figure against the BUILD series from `drive/MANIFEST.tsv`, stating its byte budget before touching the tree (29 fixtures); `tools/populate.py` populates an element and every ion of it on every axis of every index, running both halves of the method equation per register 1206 (150 fixtures). All stdlib-only. Docs at `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`.
+- **Segment B — findings, recorded and not repaired.** The chat-67 hold governs each.
+    - **ARITHMETIC lands for the first time.** Main L1407 records that the class *"has caught nothing in this book — no register entry names any of them"*. Swept mechanically it catches one: **MC L2930 states `146 of 163 = 92%`, bound by its own `=`, and it is 89.57%.** `52 of 52 = 100%` on the same line is right. The string occurs once in the store and no nearby entry states 89.6%. `tools/buildtrace.py --first "146 of 163 = 92%"` finds it verbatim in BUILD9, the oldest archived build, so it is not a regression and the archive cannot date its introduction.
+    - **Theorem 7.1's withdrawal is dated.** DEFECT-CENSUS row 2 records it withdrawn without saying when. The main stream carries the token twice through BUILD10 and once from BUILD54 on: **the withdrawal is BUILD54**, and the survivor is the citation the census flags.
+    - **COORDINATES-2.13's `B` column was built on the aufbau configurations register 1306 withdrew.** It matches aufbau 98.72% against 97.66% for the observed table, and every disagreement falls on La, Pd, Ce, Ac, Th, Gd, Lr, Pa, U, Np and Cm — register 1306 names Pd and Lr explicitly when it withdraws that table. The index has not been rebuilt on the observed configurations and nothing dockets it.
+    - **The same column is overloaded.** 104,807 rows carry the integer Pauli bound; 25 measured rows from the 2026-08-14 NIST fetch carry a float, a dispersion of the median defect rather than a bound.
+    - **COORDINATES-2.13's Z = 119 and 120 rows are placeholders.** 3,504 rows, 3.34% of the index, every δ exactly 0.0 and every B exactly 0, one distinct δ value between them, against 444 distinct δ at Z = 118. Each carries `grade: computed` and `source: "the channel equation"`, and the equation does not return 0 for them — it returns 6.0369 at (119, 1, s). The `bound` column states why they exist: *"no nuclide synthesised; theoretically admitted — Janet left-step, 8s(1) opens element 119"*.
+    - **The channel equation is not Pauli-bounded by construction.** Register 1205 records "Pauli bound 328/328" on its fit sample; over the whole index the equation emits a defect exceeding its own bound in 171 channels, all at ℓ = 2 (11) and ℓ = 3 (160). On measurement it never does: **0 of 358**.
+    - **The Pauli bound survives the enlarged sample: floor(δ) ≤ B for 358 of 358 measured channels**, computed from the observed configurations, extending register 1141's 311/311 and register 1205's 328/328.
+- **Segment C — φ̂'s form, put to M and settled by measurement.** A reconstruction implementing φ̂ pointwise found Λ₁₁ not closed above k = 3 and it was nearly escalated as a defect. It is not one: **the finding was about the reconstruction** (G0c). Main L3121-3125 records a four-cap sweep — *"φ̂ stays monotone … defect zero at every cap. The shape is not an artefact of the book's caps"* — and §12.11.2 at main L3382-3383 fixes the form: *"the core's J needs a non-monotone φ. Each admissible extension is the monotone envelope of its physics."* max2J is the physics and is already recorded unimodal at main L3368-3369 and banked at W-4817 against `r2-ch12y.out` (42a33746). **M's ruling: test all candidates and let the comparison decide.** `tools/phihat.py` carries five candidate forms as data and measures each against five recorded fixtures. MEASURED: `pointwise`, `fold` and `global-max` are REFUTED; the fixtures at §7.4's caps separate nothing, and main L3124-3125's four-cap counts do all the work. `running-max` and `clamp-half` both survive and differ at 648 of 1,512 cap settings but at **none of the 864 that are Pauli-consistent** — they part only where k_max exceeds the largest admitted shell's capacity, which §7.1's `k ≤ 2(2ℓ+1)` forbids. **On the admissible domain the record is decisive.** The whole disagreement is one cell: at caps (4,4,2,6,2) the envelope gives φ̂(6) = 13 and the printed formula 12, worth 2,355,850 cells in Λ₁₃ — 40,310,170 against 37,954,320, where main L3125 records the former.
+- **Segment D — `phi_at` and `TERMS` built, per M's ruling.** `r2lib.py` L391-392 records them owed: *"Its companion phi_at is NOT lifted: it depends on TERMS, which is still owed."* `tools/phihat.py` supplies both — TERMS as §12.11.1's microstate enumeration, φ̂ at arbitrary caps rather than hardcoded at `tower-2.py`'s three values. 36 fixtures, including max2J at 25 for f⁷ and its fold symmetry on p, d and f. **NOT DONE: the lift into `r2lib.py` itself.** `close.py` refuses any change to an old member except `WORKING-REGISTER.md`, `MANIFEST.tsv` and its `--append` targets, so seating `phi_at` inside `r2lib.py` needs a guarded `build.py` substitution and is owed to a later close.
+- **M's ruling on witness status, carried into the instruments.** A count proven by construction on the lattice and never verified by spectroscopic measurement carries `THEORETICAL` and is publishable as theoretically proven but not yet witnessed; the label travels with the number. `phihat.py` prints it on every count and `populate.py` carries the same discipline at the Z = 108 evidentiary boundary of the Löwdin solution's §VIII.
+- **Members seated: six instruments.** `cypher.py`, `arith.py`, `pointers.py`, `buildtrace.py`, `populate.py`, `phihat.py` — chat 68's standing half, instruments travel as bundle members. Each resolves the repository root by walking up for `method/verify.py`, so the same file runs from `tools/` and from `method/members/`; all six were run from `method/members/` before seating and all six report SELFTEST OK there.
+- **Close estimate.** Segment work complete, no segment left half-done; the close was begun with ample context remaining, so the chat-72 rule did not bind.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35001,6 +35020,21 @@ All of HANDOFF-24's list stands (none closed this chat): L8794/L11107 "eight ite
 8. **Conventions, two new.** **TWO-FORM:** where a rule is printed as a headline and an elaboration, both are named and both are scored, and an instance is reported against each --- the two forms are never assumed to have one extent. **POOL:** a mechanism is read by enumerating a candidate pool from named nets and scoring every member of the pool with a deciding phrase the instrument asserts present in that member, so a reading is checkable in the way a count is.
 9. **Environment (chat 150, MEASURED).** The container opened with **no attachments at all** (`/root/.claude/uploads/` absent), so CLAUDE.md had to be fetched; HANDOFF-102's parentId-qualified search returned the one Materials copy and avoided the CORPUS duplicate, as designed. The three bundle downloads all spilled to `/root/.claude/projects/-home-claude/<session-id>/tool-results/`; CLAUDE.md at 13,157 B arrived INLINE. A `cd` in one Bash call moved the session working directory again --- absolute paths everywhere.
 10. **Next:** DEF-143 item 11's order continues --- 26b-02/-03, 27a-02's seven entries, 28a-06's author-and-year match, 28b-06's reading of Register 1721 --- one instrument per family, each banked.
+
+## Repository session, 3 September 2026 --- deferred out of the instrument build (phi-hat's form; the spectra index's provenance; the ARITHMETIC class's first landing; Cowork; not a section read)
+
+1. **PHI-01 NEW, and it carries a ruling.** MC L1686 prints *2J_c <= phi-hat(k), phi-hat = max 2J over terms of l^k = {1:3, 2:4, 3:5}* and Transitions A15 L1819 prints the same formula, both with no envelope operation; A15 L1823 then gives that formula the Status *monotone in k*, which is false of what it printed, by §12.11.2's own *a symmetric non-constant function is not monotone, so §14.4 cannot carry it* (main L3367). The governing form is §12.11.2's, main L3383: *Each admissible extension is the monotone envelope of its physics*. **M's ruling, this session: the form is the monotone envelope, and it is to be established by testing all candidates and letting the comparison decide, not by assertion.** Done — `tools/phihat.py --compare`, five candidate forms as data against five recorded fixtures; `pointwise`, `fold` and `global-max` REFUTED. **R3 corrects MC L1686 and Transitions A15 L1819 to carry the envelope, and A15 L1823's Status line with them.** MEASURED: the fixtures at §7.4's caps separate nothing, because every form agrees at k <= 3 --- which is why the ambiguity was invisible --- and main L3124-3125's four-cap counts do all the work. The whole disagreement is one cell: at caps (4,4,2,6,2), phi-hat(6) = 13 under the envelope against 12 under the printed formula, worth 2,355,850 cells in Lambda-13, 40,310,170 against 37,954,320, where main L3125 records the former.
+2. **PHI-02 NEW --- the class, ruled.** M's ruling: **C6-NUMBERS-NOT-IN-SOURCE**, because the figures have never been witnessed and so are not verified by spectroscopic measurement; they are predictions that were to have been theoretically proven by the mathematics, **publishable as theoretically proven but not yet witnessed**. The label travels with the number. Carried in code as the `THEORETICAL` status on every count `tools/phihat.py` prints, and as `PREDICTED` in `tools/populate.py` at the Z = 108 evidentiary boundary of the Loewdin solution's §VIII.
+3. **PHI-03 NEW --- `phi_at` is lifted, but not into `r2lib.py`.** `r2lib.py` L391-392 records it owed: *Its companion phi_at is NOT lifted: it depends on TERMS, which is still owed*. Both are built in `tools/phihat.py` and seated as a member this close. **NOT DONE: the lift into `r2lib.py` itself.** `close.py` refuses any change to an old member except `WORKING-REGISTER.md`, `MANIFEST.tsv` and its `--append` targets, so seating `phi_at` and `TERMS` inside `r2lib.py` needs a guarded `build.py` substitution and is owed to a later close. Until then `r2lib.py` L391-392 stands as written and is accurate.
+4. **SPEC-03 NEW.** COORDINATES-2.13's `B` column was computed from the **aufbau** configurations that register 1306 withdrew. MEASURED over the 102,871 rows with an integer `B` and a core inside the table: aufbau reproduces 98.72%, the observed configurations 97.66%, and every disagreement falls on the elements where the two tables part --- La (244 rows), Pd (144), Ce (120), Ac (116), Th (112), Gd (108), Lr (60), Pa, U, Np, Cm. Register 1306 names **Pd and Lr** explicitly when it withdraws the aufbau table. The spectra index has not been rebuilt on the observed configurations, and nothing dockets it. R3 or a data close decides whether it is rebuilt.
+5. **SPEC-04 NEW.** The same `B` column is **overloaded**: 104,807 rows carry the integer Pauli bound, and 25 measured rows from the 2026-08-14 NIST fetch carry a float --- a dispersion of the median defect, not a bound. A reader taking the column as a bound is wrong in those 25 rows.
+6. **SPEC-05 NEW.** COORDINATES-2.13's **Z = 119 and 120 rows are placeholders**: 3,504 rows, 3.34% of the index, every delta exactly 0.0 and every `B` exactly 0, one distinct delta value between them, against 444 distinct delta and 864 non-zero at Z = 118. Every one carries `grade: computed` and `source: "the channel equation"`, and the equation does not return 0 for them --- it returns 6.0369 at (119, charge 1, s). The `bound` column states why they exist: *no nuclide synthesised; theoretically admitted --- Janet left-step, 8s(1) opens element 119*. `coords.py` gates *the index admits 104,832* as a Part 0 figure of the Spectra Compendium and counts these among the `computed` grade.
+7. **SPEC-06 NEW.** The channel equation is **not Pauli-bounded by construction**. Register 1205 records *Pauli bound 328/328* on its fit sample; over the whole index the equation emits a defect exceeding its own bound in **171 channels**, all at l = 2 (11) and l = 3 (160). On measurement it never does: **0 of 358**. MC section Q's *validated domain* object is where the boundary belongs.
+8. **ARITH-01 NEW --- the ARITHMETIC class's first landing.** Main L1407 records *ARITHMETIC and REPRODUCTION have caught nothing in this book --- no register entry names any of them*. **MC L2930 states `146 of 163 = 92%`, bound by its own `=`, and it is 89.57%.** `52 of 52 = 100%` on the same line is right. The string occurs once in the store and no nearby entry states 89.6%. Not a regression: `tools/buildtrace.py --first "146 of 163 = 92%"` finds it verbatim in BUILD9, the oldest archived build. The disposition of the `combined 94% against 66%` clause beside it is a reader's question for R3.
+9. **CENSUS-01 NEW --- a withdrawal, dated.** DEFECT-CENSUS row 2 records Theorem 7.1 withdrawn and does not say when. The main stream carries the token twice through BUILD10 and once from BUILD54 on: **the withdrawal is BUILD54**, and the survivor is the citation the census flags.
+10. **Standing, and it held.** The Pauli bound of register 1141 survives the enlarged sample: **floor(delta) <= B for 358 of 358 measured channels**, computed from the observed configurations, extending 311/311 (R 1141) and 328/328 (R 1205).
+11. **Convention, one new.** **CANDIDATES-AS-DATA:** where the corpus gives a quantity's genus and one value set but not the form a program needs, the candidate forms are carried as data and measured against the numbers the corpus records; the tool reports which are refuted and which survive, and where survivors part. It does not choose. `cypher.py`'s language rosters were the precedent; `phihat.py` is the second instance.
+12. **Next:** DEF-143 item 11's order is untouched and continues --- 26b-02/-03, 27a-02's seven entries, 28a-06's author-and-year match, 28b-06's reading of Register 1721 --- one instrument per family, each banked. Chat 152 remains paused and `RUL-152-PENDING.md` is NOT seated by this close.
 <<<END FILE: DEFERRED.md>>>
 
 <<<FILE: tower-2.out>>>
@@ -35107,7 +35141,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236171	0967efead3f95016bd6ffaa95788d5ac	1557
-compendia	DEFERRED.md	389296	483848ca985ca7b472698360f654e7e5	3412
+compendia	DEFERRED.md	395944	b636a88ccf58088668777a5670c81559	3427
 compendia	DOCKET.md	52004	db539aad03629b82cc52e9001d27852a	377
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
@@ -35210,14 +35244,16 @@ compendia	The_Method_1_6___The_Index_of_Indices-2.md	118373	27d387ef8a6175c1b9c8
 compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2c601a549d54db	878
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
-compendia	WORKING-REGISTER.md	907899	f28ef5b66580ec9b5fa5c055966af54c	7962
+compendia	WORKING-REGISTER.md	915403	ae416100b14a56cf63fd5c8d18d0e7b3	7981
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
 compendia	archive-split.py	30795	efa95d2cd75390221c1304db12f3f229	508
+compendia	arith.py	34334	422b06e974ec41c22dd71d9e342931ab	881
 compendia	bookindex.py	2801	8410b2152c956b71091eb28d99677b13	45
 compendia	build.py	63738	d2fa72523b1f27634d20b84922c8a984	919
 compendia	build126.py	5764	7962ef041e1e64bfff09ffb8af2944d4	159
+compendia	buildtrace.py	25983	8c643b377aa6c1220f560400bc404f19	654
 compendia	bundle.py	6787	0b7da480d03c6e77c9e70ec9b9e4903a	162
 compendia	census.py	9299	f5a73e2b595dd6215ad8d3c8910b6337	136
 compendia	channels_LIMB.py	326	185a39862e8e5b38e4b13e67f3dab0b7	10
@@ -35225,6 +35261,7 @@ compendia	classify.json	1371	5ed19968f4e6ebb2db8a3ffdc629529b	1
 compendia	close.py	6456	98acae678629305fad0f3830488b3ee9	90
 compendia	coords.py	8006	211687a4879c2023cfc448725c54979c	159
 compendia	crop_titles.py	807	4358151cb4c00e1a22f71943e8791f62	12
+compendia	cypher.py	28736	e8e00c2170f97883e3876b05adf7742d	667
 compendia	dclose.py	5925	02cb091e7aa80068a42a79e95d8135e1	103
 compendia	depoint.py	5965	e72e22298bb2222ed9f19d3f2dfe977a	160
 compendia	excise.py	2840	77216203a26321d36bb9b099ef4c3b5d	30
@@ -35247,6 +35284,9 @@ compendia	minmax.out	563	2e8fdd40d731821f77b4d344b8cfa0e8	10
 compendia	minmax.py	1824	26da1d78643f244e3e8b0fa268057300	17
 compendia	mkref.py	7199	10fc0c63b389e0b30c9f14417cb91c3d	121
 compendia	numcheck.py	795	d36764328bd1cb669d5c4fa929763be4	13
+compendia	phihat.py	22730	16a07f90e9b147a0f76d0d3c8a7d23d1	542
+compendia	pointers.py	33745	05b8793d33736ab412f342409a158bd6	797
+compendia	populate.py	71667	f625b5b72c8ef427f62943278054948d	1634
 compendia	qgraph.py	828	5aac43b570de45fe5215e2ca17ef5244	17
 compendia	r2-21a.out	25222	d4d140a98fe8d0e85aecd177b8424912	281
 compendia	r2-21a.py	21177	b98f2c83d3005ff6bff41d3b361ff2de	181
@@ -65418,3 +65458,5196 @@ id	verdict	reason
 1473	defect	C9 never at reg L6589 (entry 1786): *There was never an F.3.1 or an F.3.2* — Prints & Proofs carries both headings (26b-06, chat 139). Co-located stale text counts against its census row (chat-70 ruling)
 1556	defect	C13 handle leak at reg L6507 (entry 1763): *run489.py, ruled_bracket.py, RULING-TOLERANCE-489.md and the run's JSON go to BUILD-10* — a build handle and four internal file names in a reader-facing volume. Ruling 46; 26b-10; the class of census 1536-1545
 <<<END FILE: CENSUS-CLOSURES-26b.tsv>>>
+
+<<<FILE: cypher.py>>>
+#!/usr/bin/env python3
+"""cypher.py — the cypher analysis (§33) run as a program.
+
+Given an index, ask each language of a declared roster whether it can speak of it,
+and read the answer off the pattern of who answers and who does not.
+
+    python3 tools/cypher.py --selftest
+    python3 tools/cypher.py --index spec.json --roster 1173
+    python3 tools/cypher.py --cells cells.tsv --name L_x --roster 33.1 --json
+
+Three things this program refuses to do, each because the corpus paid to learn it:
+
+  1. It never prints SILENT for a language that was never run. Register 1172 found five
+     language/index pairs asserted rather than measured; NOT-RUN is a distinct state here.
+  2. It never counts agreement at two coordinates as evidence. Register 1175: at d = 2 there
+     is one pair, so pairwise consistency and the cell coincide and every language agrees for
+     no reason. Such a run is marked DEGENERATE and its agreement is withheld.
+  3. It never picks the roster for you. Which six (or seven) languages there are is docket
+     20x-04/20x-09, open and unruled; --roster is required and the rosters are data.
+
+Each operator carries a status. PINNED means the corpus defines it at the precision a program
+needs. RECONSTRUCTED means the definition here was derived from the corpus's own pairings and
+the cited literature, and is corroborated by reproducing recorded numbers (see --selftest) but
+has not been ruled. Reports print the status beside every verdict.
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import itertools
+import json
+import sys
+from dataclasses import dataclass, asdict
+
+# --------------------------------------------------------------------- state
+
+SPEAKS, SILENT, NOT_RUN = "SPEAKS", "SILENT", "NOT-RUN"
+# PINNED   — the corpus defines the operator at the precision a program needs.
+# ADOPTED  — reconstructed from the corpus's own language-pairings plus the cited literature,
+#            corroborated against recorded numbers, and adopted by ruling. The provenance is
+#            kept rather than flattened to PINNED: a later ruling can still move it.
+# DECLARED — answers in a currency other than an admitted set; needs a witness.
+PINNED, ADOPTED, DECLARED = "PINNED", "ADOPTED", "DECLARED"
+
+
+@dataclass
+class Verdict:
+    language: str
+    state: str
+    status: str
+    admitted: int | None = None
+    E: int | None = None
+    note: str = ""
+    basis: str = ""
+
+    def row(self) -> str:
+        e = "-" if self.E is None else str(self.E)
+        a = "-" if self.admitted is None else str(self.admitted)
+        return f"  {self.language:<19} {self.state:<8} {self.status:<14} {a:>7} {e:>7}  {self.note}"
+
+
+class Index:
+    """A set of cells over ordinal coordinates."""
+
+    def __init__(self, name, coords, cells, value_order=None, declared=None, outputs=None):
+        self.name = name
+        self.coords = list(coords)
+        self.declared = declared or {}
+        self.outputs = outputs or []
+        self.warnings: list[str] = []
+
+        raw = [tuple(c) for c in cells]
+        if not raw:
+            raise ValueError("index has no cells")
+        for c in raw:
+            if len(c) != len(self.coords):
+                raise ValueError(f"cell {c} has {len(c)} values, expected {len(self.coords)}")
+
+        # R is order-dependent (§20.3: the notation was the coordinate that made the rule
+        # expressible), so every coordinate needs a declared or inferable value order.
+        vo = dict(value_order or {})
+        self.code: list[dict] = []
+        for i, name_i in enumerate(self.coords):
+            vals = {c[i] for c in raw}
+            if name_i in vo:
+                order = list(vo[name_i])
+                missing = vals - set(order)
+                if missing:
+                    raise ValueError(f"coordinate {name_i}: declared order omits {sorted(missing)}")
+            else:
+                try:
+                    order = sorted(vals, key=lambda v: (float(v), str(v)))
+                except (TypeError, ValueError):
+                    order = sorted(vals, key=str)
+                    self.warnings.append(
+                        f"coordinate {name_i!r}: no declared value order, fell back to "
+                        f"lexicographic. R depends on this order — declare it (§20.3)."
+                    )
+            self.code.append({v: r for r, v in enumerate(order)})
+
+        self.decode = [{r: v for v, r in m.items()} for m in self.code]
+        self.cells = sorted({tuple(self.code[i][v] for i, v in enumerate(c)) for c in raw})
+        if len(self.cells) != len(raw):
+            self.warnings.append(f"{len(raw) - len(self.cells)} duplicate cells collapsed")
+        self.d = len(self.coords)
+        self.alphabets = [sorted({c[i] for c in self.cells}) for i in range(self.d)]
+        self.box = 1
+        for a in self.alphabets:
+            self.box *= len(a)
+
+    def ambient(self):
+        return itertools.product(*self.alphabets)
+
+
+# ----------------------------------------------------------------- operators
+# Each returns (admitted set | None, note). None means the operator is SILENT — its
+# precondition fails on this object, which is itself the finding (§33.2).
+
+def op_order(ix, opts):
+    """R, §32.4.1. R(X) = {x in box : x_i <= phi_ij(x_j) for all i != j},
+    phi_ij(a) = max{y_i : y in X, y_j <= a}. Matches the seated instrument rclose.py."""
+    if ix.d < 2:
+        return None, "R needs at least two coordinates"
+    X, D = ix.cells, ix.d
+    phi = {}
+    for i in range(D):
+        for j in range(D):
+            if i == j:
+                continue
+            for a in ix.alphabets[j]:
+                cand = [y[i] for y in X if y[j] <= a]
+                phi[(i, j, a)] = max(cand) if cand else None
+    out = set()
+    for x in ix.ambient():
+        good = True
+        for i in range(D):
+            for j in range(D):
+                if i == j:
+                    continue
+                p = phi[(i, j, x[j])]
+                if p is None or x[i] > p:
+                    good = False
+                    break
+            if not good:
+                break
+        if good:
+            out.add(x)
+    return out, "staircase closure over the ambient product"
+
+
+def op_statistics(ix, opts):
+    """Max-entropy on the order-k marginals. IPF sends a cell to zero exactly when one of its
+    k-projections is unobserved, so the support is the k-wise marginal support (register 1174)."""
+    k = opts.get("statistics_order", 2)
+    if ix.d <= k:
+        return None, f"needs more than {k} coordinates at order {k} (reg 1175)"
+    subsets = list(itertools.combinations(range(ix.d), k))
+    seen = {S: {tuple(x[i] for i in S) for x in ix.cells} for S in subsets}
+    out = {x for x in ix.ambient()
+           if all(tuple(x[i] for i in S) in seen[S] for S in subsets)}
+    return out, f"max-entropy support on the order-{k} marginals"
+
+
+def op_geometry(ix, opts):
+    """Does it embed in a product? The integer points of the polytope A x <= b, relaxed to the
+    two-variable rows the method's A actually has: admit x when every 2-D shadow (x_i, x_j) lies
+    in the convex hull of that shadow of X. Caratheodory's bound at d = 2."""
+    if ix.d < 2:
+        return None, "needs at least two coordinates"
+    hulls = {}
+    for i, j in itertools.combinations(range(ix.d), 2):
+        hulls[(i, j)] = _hull2({(x[i], x[j]) for x in ix.cells})
+    out = {x for x in ix.ambient()
+           if all(_in_hull2((x[i], x[j]), H) for (i, j), H in hulls.items())}
+    return out, "integer points of the two-variable polytope"
+
+
+def op_algebra(ix, opts):
+    """Is it closed under an operation? The sublattice closure: iterate coordinatewise meet and
+    join to a fixed point (§7.3; Birkhoff, Lattice Theory)."""
+    budget = opts.get("algebra_budget", 20000)
+    S = set(ix.cells)
+    while True:
+        if len(S) > budget:
+            return None, f"sublattice closure exceeded {budget} cells; raise --algebra-budget"
+        L = sorted(S)
+        new = set()
+        for a in range(len(L)):
+            x = L[a]
+            for b in range(a + 1, len(L)):
+                y = L[b]
+                mn = tuple(map(min, x, y))
+                mx = tuple(map(max, x, y))
+                if mn not in S:
+                    new.add(mn)
+                if mx not in S:
+                    new.add(mx)
+        if not new:
+            return S, "closure under coordinatewise meet and join"
+        S |= new
+
+
+def op_information(ix, opts):
+    """Does a coordinate add join-irreducibles? Its admission form is the seed and its regrowth:
+    take the join-irreducible elements of X and close them under join. Birkhoff's representation
+    theorem (1937) — every element of a finite distributive lattice is a join of join-irreducibles,
+    so a distributive index regenerates from its seed exactly. The Math. Compendium states the same
+    object: 'the matrix A and nothing more, from which all 976 cells regenerate'."""
+    X = ix.cells
+    Xs = set(X)
+    seed = []
+    for x in X:
+        below = [y for y in Xs if y != x and all(a <= b for a, b in zip(y, x))]
+        if not below:
+            seed.append(x)
+            continue
+        sup = below[0] if len(below) == 1 else tuple(map(max, *below))
+        if sup != x:
+            seed.append(x)
+    budget = opts.get("algebra_budget", 20000)
+    S = set(seed)
+    while True:
+        if len(S) > budget:
+            return None, f"join-closure exceeded {budget} cells; raise --algebra-budget"
+        L = sorted(S)
+        new = set()
+        for a in range(len(L)):
+            x = L[a]
+            for b in range(a + 1, len(L)):
+                z = tuple(map(max, x, L[b]))
+                if z not in S:
+                    new.add(z)
+        if not new:
+            return S, f"join-closure of {len(seed)} join-irreducibles"
+        S |= new
+
+
+def op_documentary(ix, opts):
+    """No closure mechanism exists (P20's table; register 1173). Silent by construction — it
+    returns a citation, not a binary, which is why it earns no operator row."""
+    return None, "no closure mechanism exists"
+
+
+ADMISSION = {
+    "order": (op_order, PINNED,
+              "R, §32.4.1; Moore 1910 (closure operator); Deville, Barette & Van Hentenryck 1999 "
+              "(monotone staircases); seated instrument rclose.py"),
+    "statistics": (op_statistics, PINNED,
+                   "register 1174; Deming & Stephan 1940, Ireland & Kullback 1968 (IPF)"),
+    "geometry": (op_geometry, ADOPTED,
+                 "Math. Compendium 'the integer points of the polytope A x <= b are the lattice "
+                 "exactly'; Caratheodory 1911; Schrijver 1986 (integer hull)"),
+    "algebra": (op_algebra, ADOPTED,
+                "Math. Compendium 'closed under coordinatewise join and meet', §7.3; "
+                "Birkhoff, Lattice Theory (1940)"),
+    "information": (op_information, ADOPTED,
+                    "Math. Compendium 'the matrix A and nothing more, from which all 976 cells "
+                    "regenerate'; Birkhoff 1937 (representation theorem); §33.3"),
+    "documentary": (op_documentary, PINNED,
+                    "P20's table; register 1173 — returns a citation, not a binary"),
+}
+
+# analysis is not an admission operator: it asks whether a continuous law exists, which is
+# answered by a fit or by the absence of a derivative, and must be declared with a witness.
+DECLARED_ONLY = {
+    "analysis": "is there a continuous law here? declare with a witness (an R^2, or a reason "
+                "none exists — e.g. a finite set of surds has no derivative)",
+}
+
+
+def _hull2(pts):
+    """Monotone-chain hull of a 2-D integer point set; returns 1, 2 or >=3 points."""
+    P = sorted(pts)
+    if len(P) < 3:
+        return P
+    def cross(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    lower = []
+    for p in P:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], p) <= 0:
+            lower.pop()
+        lower.append(p)
+    upper = []
+    for p in reversed(P):
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], p) <= 0:
+            upper.pop()
+        upper.append(p)
+    H = lower[:-1] + upper[:-1]
+    # A collinear projection collapses to the segment [min, max], which is the correct hull;
+    # only a genuinely empty chain falls back to the raw points.
+    return H if len(H) >= 2 else P
+
+
+def _in_hull2(p, H):
+    if len(H) == 1:
+        return p == H[0]
+    if len(H) == 2:
+        (x1, y1), (x2, y2) = H
+        if (x2 - x1) * (p[1] - y1) - (y2 - y1) * (p[0] - x1) != 0:
+            return False
+        return min(x1, x2) <= p[0] <= max(x1, x2) and min(y1, y2) <= p[1] <= max(y1, y2)
+    n = len(H)
+    for i in range(n):
+        a, b = H[i], H[(i + 1) % n]
+        if (b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0]) < 0:
+            return False
+    return True
+
+
+def coordinate_report(ix):
+    """Does a coordinate add anything? Per coordinate: the cells surviving its removal, and
+    whether it individuates every cell — a coordinate that does is a key and not an axis
+    (register 1356, the fault that voided Lambda_ladder's closure)."""
+    rows = []
+    for i, name in enumerate(ix.coords):
+        kept = {tuple(v for j, v in enumerate(c) if j != i) for c in ix.cells}
+        rows.append({
+            "coordinate": name,
+            "cells_without": len(kept),
+            "adds_nothing": len(kept) == len(ix.cells),
+            "values": len(ix.alphabets[i]),
+        })
+    keys = [r["coordinate"] for r in rows
+            if r["values"] == len(ix.cells) and len(ix.cells) > 1]
+    return rows, keys
+
+
+# ------------------------------------------------------------------- rosters
+# Data, not doctrine. Which languages there are is docket 20x-04/20x-09, open and unruled.
+
+ROSTERS = {
+    "1173": {
+        "cite": "register 1173 — logic is the mechanism, not a language",
+        "languages": ["order", "algebra", "analysis", "geometry", "information",
+                      "statistics", "documentary"],
+        "note": "five operator-bearing languages give C(5,2) = 10 combinations, "
+                "plus statistics as a sixth and documentary as a seventh",
+        "operator_bearing": ["order", "algebra", "analysis", "geometry", "information"],
+        "pairs_claimed": 10,
+    },
+    "33.1": {
+        "cite": "§33.1 — the six the cypher chapter asks",
+        "languages": ["order", "analysis", "algebra", "geometry", "information", "statistics"],
+        "note": "the roster the instrument's own chapter prints",
+    },
+    "20.2": {
+        "cite": "§20.2 — the six the chapter §33.1 cites for its principle",
+        "languages": ["order", "geometry", "arithmetic", "calculus", "logic",
+                      "constraint-language"],
+        "note": "shares only two names with §33.1's six; 'arithmetic', 'calculus', 'logic' and "
+                "'constraint-language' have no ruled operator mapping (docket 20x-04)",
+        "pairs_claimed": 10,
+    },
+}
+
+
+def run(ix, roster_name, opts):
+    roster = ROSTERS[roster_name]
+    verdicts, admitted_sets = [], {}
+
+    for lang in roster["languages"]:
+        if lang in ADMISSION:
+            fn, status, basis = ADMISSION[lang]
+            out, note = fn(ix, opts)
+            if out is None:
+                verdicts.append(Verdict(lang, SILENT, status, note=note, basis=basis))
+                continue
+            if not set(ix.cells) <= out:
+                lost = len(set(ix.cells) - out)
+                verdicts.append(Verdict(lang, SPEAKS, status, len(out), None,
+                                        f"NOT EXTENSIVE — drops {lost} of its own cells", basis))
+                continue
+            admitted_sets[lang] = out
+            if lang == "information":
+                rows, keys = coordinate_report(ix)
+                dead = [r["coordinate"] for r in rows if r["adds_nothing"]]
+                if dead:
+                    note += " | adds nothing: " + ", ".join(dead)
+                if keys:
+                    note += f" | KEY not axis: {', '.join(keys)} (reg 1356)"
+            verdicts.append(Verdict(lang, SPEAKS, status, len(out),
+                                    len(out) - len(ix.cells), note, basis))
+
+        elif lang in DECLARED_ONLY:
+            d = ix.declared.get(lang)
+            if d is None:
+                verdicts.append(Verdict(lang, NOT_RUN, DECLARED,
+                                        note="no witness declared — NOT measured (reg 1172)",
+                                        basis=DECLARED_ONLY[lang]))
+            else:
+                st = SPEAKS if d.get("speaks") else SILENT
+                verdicts.append(Verdict(lang, st, DECLARED,
+                                        note=str(d.get("witness", "")),
+                                        basis=DECLARED_ONLY[lang]))
+        else:
+            verdicts.append(Verdict(lang, NOT_RUN, DECLARED,
+                                    note="roster names an operator this build does not "
+                                         "implement (docket 20x-04)"))
+
+    # K.langclose: E = 0 iff the languages agree (BFMY 1983 read as an equivalence).
+    measured = {k: v for k, v in admitted_sets.items()}
+    agree = None
+    if len(measured) >= 2:
+        agree = len({frozenset(v) for v in measured.values()}) == 1
+    all_zero = all(len(v) == len(ix.cells) for v in measured.values()) if measured else None
+
+    # Which languages are operator-bearing is not declared here: it is measured. A language is
+    # operator-bearing on this index when it returned an admitted set — register 1173's own test,
+    # "logic can operate on it and get a binary back" — and C(n,2) follows from what was measured.
+    bearing = sorted(admitted_sets)
+    pairs = [{"a": a, "b": b,
+              "agree": frozenset(admitted_sets[a]) == frozenset(admitted_sets[b])}
+             for a, b in itertools.combinations(bearing, 2)]
+
+    degenerate = ix.d <= opts.get("statistics_order", 2)
+    return {
+        "operator_bearing_measured": bearing,
+        "operator_bearing_claimed": roster.get("operator_bearing"),
+        "pairs_claimed": roster.get("pairs_claimed"),
+        "pairs": pairs,
+        "pairs_agreeing": sum(p["agree"] for p in pairs),
+        "index": ix.name,
+        "coordinates": ix.coords,
+        "d": ix.d,
+        "cells": len(ix.cells),
+        "box": ix.box,
+        "roster": roster_name,
+        "roster_cite": roster["cite"],
+        "verdicts": [asdict(v) for v in verdicts],
+        "languages_agree": agree,
+        "all_E_zero": all_zero,
+        "langclose_holds": None if agree is None or all_zero is None else (agree == all_zero),
+        "degenerate": degenerate,
+        "singleton_ok": len(ix.outputs) <= 1,
+        "outputs": ix.outputs,
+        "warnings": ix.warnings,
+        "_verdicts": verdicts,
+    }
+
+
+def pairs_report(res):
+    """The C(n,2) arithmetic, measured rather than declared."""
+    o = [""]
+    n = len(res["operator_bearing_measured"])
+    cn2 = n * (n - 1) // 2
+    claimed = res["operator_bearing_claimed"]
+    if claimed:
+        c = len(claimed)
+        o.append(f"  operator-bearing, CLAIMED by roster {res['roster']} ({c}): "
+                 f"{', '.join(claimed)}")
+        o.append(f"      -> C({c},2) = {c*(c-1)//2}"
+                 + (f", roster asserts {res['pairs_claimed']}"
+                    if res.get("pairs_claimed") else ""))
+    o.append(f"  operator-bearing, MEASURED on this index ({n}): "
+             f"{', '.join(res['operator_bearing_measured'])}")
+    o.append(f"      -> C({n},2) = {cn2}")
+    if claimed:
+        lost = [l for l in claimed if l not in res["operator_bearing_measured"]]
+        gained = [l for l in res["operator_bearing_measured"] if l not in claimed]
+        for l in lost:
+            o.append(f"      claimed but returns no binary: {l}")
+        for l in gained:
+            o.append(f"      measured but not claimed:      {l}")
+    o.append("")
+    o.append(f"  {'pair':<28} verdict")
+    o.append(f"  {'-'*28} {'-'*7}")
+    for p in res["pairs"]:
+        o.append(f"  {p['a'] + ' + ' + p['b']:<28} "
+                 f"{'agree' if p['agree'] else 'DIFFER'}")
+    o.append(f"\n  {res['pairs_agreeing']} of {cn2} pairs agree.")
+    return "\n".join(o)
+
+
+def report(res):
+    o = []
+    o.append(f"cypher — {res['index']}   d = {res['d']}   cells = {res['cells']}   "
+             f"box = {res['box']}")
+    o.append(f"roster {res['roster']}: {res['roster_cite']}")
+    o.append("")
+    o.append(f"  {'language':<19} {'state':<8} {'status':<14} {'admits':>7} {'E':>7}  note")
+    o.append(f"  {'-'*19} {'-'*8} {'-'*14} {'-'*7} {'-'*7}  {'-'*4}")
+    for v in res["_verdicts"]:
+        o.append(v.row())
+    o.append("")
+
+    if res["degenerate"]:
+        o.append("  DEGENERATE — at this many coordinates pairwise consistency and the cell "
+                 "coincide;")
+        o.append("  every language agrees for no reason and the agreement is NOT evidence "
+                 "(reg 1175).")
+    elif res["langclose_holds"] is None:
+        o.append("  K.langclose not testable — fewer than two languages were measured.")
+    else:
+        a = "agree" if res["languages_agree"] else "disagree"
+        z = "E = 0" if res["all_E_zero"] else "E > 0"
+        held = "holds" if res["langclose_holds"] else "FAILS"
+        o.append(f"  K.langclose {held}: languages {a} and {z}.")
+        if not res["langclose_holds"]:
+            o.append("  A disagreement between languages at E = 0 is the one thing the cypher "
+                     "forbids.")
+
+    not_run = [v.language for v in res["_verdicts"] if v.state == NOT_RUN]
+    if not_run:
+        o.append(f"  NOT RUN (asserted, not measured): {', '.join(not_run)}")
+    if not res["singleton_ok"]:
+        o.append(f"  SINGLETON FAILS — {len(res['outputs'])} outputs declared "
+                 f"({', '.join(map(str, res['outputs']))}); §33.4 requires one.")
+    for w in res["warnings"]:
+        o.append(f"  warning: {w}")
+    return "\n".join(o)
+
+
+# ------------------------------------------------------------------- fixtures
+
+def _lambda():
+    rng = dict(n=range(1, 4), l=range(0, 2), k=range(1, 4), q=range(0, 4),
+               e=range(1, 4), f=range(0, 2), g=range(0, 4), S=range(0, 4))
+    order = ["n", "l", "k", "q", "e", "f", "g", "S"]
+    cells = []
+    for t in itertools.product(*[rng[c] for c in order]):
+        d = dict(zip(order, t))
+        if (d["l"] <= d["n"] - 1 and d["k"] <= 4 * d["l"] + 2 and d["q"] <= d["k"]
+                and d["f"] <= d["e"] - 1 and d["g"] <= 4 * d["f"] + 2
+                and d["g"] <= d["q"] and d["S"] <= d["k"] and d["k"] >= 1):
+            cells.append(t)
+    return Index("Lambda (8 coords, caps §7.4)", order, cells)
+
+
+def _periodic(three=False):
+    occ = []
+    for g in (1, 18):
+        occ.append((1, g))
+    for p in (2, 3):
+        for g in (1, 2, 13, 14, 15, 16, 17, 18):
+            occ.append((p, g))
+    for p in (4, 5, 6, 7):
+        for g in range(1, 19):
+            occ.append((p, g))
+    if not three:
+        return Index("periodic table (period x group)", ["period", "group"], occ)
+    # register 1175 rebuilds at three by adjoining the block, non-monotone in the second
+    # coordinate. Block is a function of group, which is the point: information says so.
+    def block(g):
+        return 0 if g <= 2 else (1 if g >= 13 else 2)          # s, p, d
+    return Index("periodic table (period x group x block)",
+                 ["period", "group", "block"], [(p, g, block(g)) for p, g in occ])
+
+
+def _janet():
+    """Janet: n+l against position within the n+l group — the left-step table."""
+    cells = []
+    for n in range(1, 8):
+        for l in range(0, min(n, 4)):
+            cells.append((n + l, l))
+    return Index("Janet (n+l x l)", ["n+l", "l"], sorted(set(cells)))
+
+
+FIXTURES = [
+    # (label, builder, expected E by language, expected scalars)
+    ("Lambda", _lambda,
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 976, "box": 6912}),
+    ("periodic table 2-D", _periodic, {"order": 36}, {"cells": 90}),
+    ("periodic table 3-D", lambda: _periodic(True),
+     {"order": 100, "statistics": 0, "information": 24}, {"cells": 90}),
+    ("Janet 2-D", _janet, {"order": 0, "information": 0}, {}),
+]
+
+
+def selftest(opts):
+    """Reproduce the corpus's own recorded numbers. Failures are reported, never tuned away."""
+    print("cypher --selftest — against the numbers the corpus records\n")
+    bad = 0
+    for label, build, expect_E, extra in FIXTURES:
+        ix = build()
+        res = run(ix, "33.1", opts)
+        got = {v.language: v.E for v in res["_verdicts"] if v.E is not None}
+        line = [f"{label:<20} d={ix.d} cells={len(ix.cells)} box={ix.box}"]
+        for k, want in extra.items():
+            have = len(ix.cells) if k == "cells" else ix.box
+            ok = have == want
+            bad += not ok
+            line.append(f"{k}={have}{'' if ok else f' != {want} MISMATCH'}")
+        print("  " + "  ".join(line))
+        for lang, want in expect_E.items():
+            have = got.get(lang)
+            ok = have == want
+            bad += not ok
+            print(f"      E({lang:<11}) = {have!s:<6} expected {want:<6} "
+                  f"{'ok' if ok else 'MISMATCH'}")
+
+    # register 1174's marginal orders, on Lambda
+    ix = _lambda()
+    for k, want in ((1, 6912), (2, 976)):
+        out, _ = op_statistics(ix, {"statistics_order": k})
+        ok = out is not None and len(out) == want
+        bad += not ok
+        print(f"  statistics order-{k} on Lambda admits "
+              f"{'-' if out is None else len(out)} expected {want} "
+              f"{'ok' if ok else 'MISMATCH'}   (reg 1174)")
+
+    # register 1175's degeneracy guard must fire at d = 2 and not at d = 3
+    for label, build, want in (("periodic 2-D", _periodic, True),
+                               ("periodic 3-D", lambda: _periodic(True), False)):
+        res = run(build(), "33.1", opts)
+        ok = res["degenerate"] == want
+        bad += not ok
+        print(f"  degeneracy guard on {label:<14} = {res['degenerate']!s:<6} expected {want!s:<6} "
+              f"{'ok' if ok else 'MISMATCH'}   (reg 1175)")
+
+    print(f"\n{'SELFTEST OK' if not bad else f'SELFTEST FAILED — {bad} mismatch(es)'}")
+    return 1 if bad else 0
+
+
+# ----------------------------------------------------------------------- cli
+
+def load_index(args):
+    if args.index:
+        spec = json.load(open(args.index, encoding="utf-8"))
+        return Index(spec.get("name", args.index), spec["coordinates"], spec["cells"],
+                     spec.get("value_order"), spec.get("declared"), spec.get("outputs"))
+    rows = list(csv.reader(open(args.cells, encoding="utf-8"), delimiter="\t"))
+    rows = [r for r in rows if r and not r[0].startswith("#")]
+    return Index(args.name or args.cells, rows[0], rows[1:])
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(description="the cypher analysis (§33) run as a program")
+    p.add_argument("--index", help="JSON index spec")
+    p.add_argument("--cells", help="TSV of cells; first row is the coordinate names")
+    p.add_argument("--name", help="index name when using --cells")
+    p.add_argument("--roster", choices=sorted(ROSTERS), help="which language roster to ask")
+    p.add_argument("--statistics-order", type=int, default=2, dest="statistics_order")
+    p.add_argument("--algebra-budget", type=int, default=20000, dest="algebra_budget")
+    p.add_argument("--json", action="store_true", help="machine-readable output for audits")
+    p.add_argument("--pairs", action="store_true",
+                   help="measure the operator-bearing set and its C(n,2) pairwise agreement")
+    p.add_argument("--list-rosters", action="store_true")
+    p.add_argument("--selftest", action="store_true")
+    a = p.parse_args(argv)
+    opts = {"statistics_order": a.statistics_order, "algebra_budget": a.algebra_budget}
+
+    if a.selftest:
+        return selftest(opts)
+    if a.list_rosters:
+        for k, v in sorted(ROSTERS.items()):
+            print(f"{k:<8} {v['cite']}\n         {', '.join(v['languages'])}\n         {v['note']}\n")
+        return 0
+    if not (a.index or a.cells):
+        p.error("need --index, --cells, --selftest or --list-rosters")
+    if not a.roster:
+        p.error("--roster is required: which languages there are is unruled "
+                "(docket 20x-04/20x-09). Try --list-rosters.")
+
+    res = run(load_index(a), a.roster, opts)
+    if a.json:
+        res.pop("_verdicts")
+        print(json.dumps(res, indent=2))
+    else:
+        print(report(res))
+        if a.pairs:
+            print(pairs_report(res))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: cypher.py>>>
+
+<<<FILE: arith.py>>>
+#!/usr/bin/env python3
+"""tools/arith.py -- the arithmetic audit of The Method 1.6, run as a program.
+
+The standing method (DOCKET.md section 2) requires, at every section read:
+
+    "Check the arithmetic of every ratio and percentage; never round with
+     round() -- Decimal.quantize, convention named."
+
+This is that sweep run as a class over whole members instead of one section at
+a time. It extracts the arithmetic the volumes state *about themselves* -- a
+fraction bound to a percentage, a signed additive expression, a binomial pair
+count, a stated complement, a percentage of a base -- recomputes each in
+Decimal, and reports a verdict per claim.
+
+Stdlib only, Python 3.9+. No dependencies, so an audit can run it from any tree.
+
+Three things it refuses to do:
+
+  1. It never rounds with round(). Every comparison is Decimal.quantize at the
+     precision the text itself states, under a named convention, and the
+     convention is printed with the verdict.
+
+  2. It never reports DISAGREE for a co-located pair. A fraction and a
+     percentage on one line are not a claim unless the text binds them. An
+     unbound pair is NOT-BOUND -- an assertion, not a result. This is the
+     regex-artefact discipline of the C7/C9 precedents.
+
+  3. It never picks the rounding convention for you. A claim that agrees under
+     one convention and fails under another is ROUNDING-SENSITIVE, reported as
+     such rather than resolved: an exact tie is a finding about the text, which
+     owes its convention a name.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import os
+import re
+import sys
+from decimal import (
+    Decimal,
+    InvalidOperation,
+    localcontext,
+    ROUND_DOWN,
+    ROUND_HALF_DOWN,
+    ROUND_HALF_EVEN,
+    ROUND_HALF_UP,
+    ROUND_UP,
+)
+
+def _repo_root(start=None):
+    """The repository root, found by walking up for method/verify.py.
+
+    An instrument travels as a bundle member (chat 68's standing half), so the
+    same file runs from tools/ and from method/members/ and must locate the
+    store from either. Walking up for a landmark does that; a fixed number of
+    dirname() calls does not."""
+    d = os.path.dirname(os.path.abspath(start or __file__))
+    for _ in range(6):
+        if os.path.exists(os.path.join(d, "method", "verify.py")):
+            return d
+        parent = os.path.dirname(d)
+        if parent == d:
+            break
+        d = parent
+    return os.path.dirname(os.path.dirname(os.path.abspath(start or __file__)))
+
+
+REPO = _repo_root()
+DEFAULT_MEMBERS = os.path.join(REPO, "method", "members")
+
+# ---------------------------------------------------------------------------
+# Rosters are data. Which members are reader-facing is a matter of record, not
+# of this program's opinion; name one and it audits that.
+# ---------------------------------------------------------------------------
+
+VOLUMES = [
+    "The_Method_1_6-2.md",
+    "The_Method_1_6___The_Register-2.md",
+    "The_Method_1_6___Mathematical_Compendium-2.md",
+    "The_Method_1_6___The_Physics_Compendium-2.md",
+    "The_Method_1_6___The_Index_of_Indices-2.md",
+    "The_Method_1_6___Spectra_Compendium-2.md",
+]
+
+PAPERS = [
+    "THE-LOWDIN-SOLUTION-2.md",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md",
+]
+
+AUDITS = [
+    "MAIN_AUDIT.md",
+    "MATH_AUDIT.md",
+    "PHYS_AUDIT.md",
+    "REGISTER_AUDIT.md",
+    "IOI_SPEC_AUDIT.md",
+]
+
+ROSTERS = {
+    "volumes": VOLUMES,
+    "papers": PAPERS,
+    "audits": AUDITS,
+    "reader-facing": VOLUMES + PAPERS,
+    "all": VOLUMES + PAPERS + AUDITS,
+}
+
+SHORT = {
+    "The_Method_1_6-2.md": "main",
+    "The_Method_1_6___The_Register-2.md": "reg",
+    "The_Method_1_6___Mathematical_Compendium-2.md": "mc",
+    "The_Method_1_6___The_Physics_Compendium-2.md": "pc",
+    "The_Method_1_6___The_Index_of_Indices-2.md": "ioi",
+    "The_Method_1_6___Spectra_Compendium-2.md": "sc",
+    "THE-LOWDIN-SOLUTION-2.md": "lw",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md": "tb",
+}
+
+# ---------------------------------------------------------------------------
+# Rounding conventions, named
+# ---------------------------------------------------------------------------
+
+CONVENTIONS = {
+    "HALF_UP": ROUND_HALF_UP,
+    "HALF_EVEN": ROUND_HALF_EVEN,
+    "HALF_DOWN": ROUND_HALF_DOWN,
+    "DOWN": ROUND_DOWN,
+    "UP": ROUND_UP,
+}
+
+# The two standard half-conventions. A claim that separates them is sitting on
+# an exact tie, and the text owes its convention a name.
+DEFAULT_CONVENTIONS = ("HALF_UP", "HALF_EVEN")
+
+AGREE = "AGREE"
+DISAGREE = "DISAGREE"
+SENSITIVE = "ROUNDING-SENSITIVE"
+WITHIN = "WITHIN-INPUT-PRECISION"
+NOT_BOUND = "NOT-BOUND"
+UNCHECKABLE = "UNCHECKABLE"
+
+VERDICTS = (AGREE, WITHIN, DISAGREE, SENSITIVE, NOT_BOUND, UNCHECKABLE)
+
+# Verdicts that are results about the text rather than notes about the sweep.
+FINDINGS = (DISAGREE, SENSITIVE)
+
+MINUS = "−"  # U+2212, the corpus's minus sign. The em dash is punctuation.
+
+
+class Claim:
+    """One arithmetic claim the text makes about itself."""
+
+    __slots__ = ("cls", "member", "line", "text", "stated", "computed",
+                 "verdict", "binder", "note")
+
+    def __init__(self, cls, member, line, text, stated, computed, verdict,
+                 binder="", note=""):
+        self.cls = cls
+        self.member = member
+        self.line = line
+        self.text = text
+        self.stated = stated
+        self.computed = computed
+        self.verdict = verdict
+        self.binder = binder
+        self.note = note
+
+    def asdict(self):
+        return {
+            "class": self.cls,
+            "member": self.member,
+            "short": SHORT.get(self.member, self.member),
+            "line": self.line,
+            "text": self.text,
+            "stated": self.stated,
+            "computed": self.computed,
+            "verdict": self.verdict,
+            "binder": self.binder,
+            "note": self.note,
+        }
+
+
+# ---------------------------------------------------------------------------
+# Numbers
+# ---------------------------------------------------------------------------
+
+def _n(s):
+    """A corpus number to a Decimal. Thousands separators and U+2212 minus."""
+    return Decimal(s.replace(",", "").replace(MINUS, "-").strip())
+
+
+def _dp(stated_str):
+    """The decimal places the text itself states. This fixes the precision of
+    the comparison: a value printed to 1 dp is not a claim about the 2nd."""
+    return len(stated_str.split(".")[1]) if "." in stated_str else 0
+
+
+def _exact(fn):
+    with localcontext() as ctx:
+        ctx.prec = 50
+        return fn()
+
+
+def _verdict(exact, stated_str, conventions):
+    """Compare an exact Decimal against a stated value at the stated precision,
+    under every named convention. Returns (verdict, computed_str, note)."""
+    try:
+        stated = Decimal(stated_str.replace(",", ""))
+    except InvalidOperation:
+        return UNCHECKABLE, "", "stated value does not parse"
+
+    dp = _dp(stated_str)
+    q = Decimal(1).scaleb(-dp)
+
+    agreeing, failing = [], []
+    for name in conventions:
+        with localcontext() as ctx:
+            ctx.prec = 50
+            got = exact.quantize(q, rounding=CONVENTIONS[name])
+        (agreeing if got == stated else failing).append(name)
+
+    # Show the computed value with two more places than the text states, so a
+    # near miss reads as a near miss and a tie reads as a tie.
+    with localcontext() as ctx:
+        ctx.prec = 50
+        shown = exact.quantize(Decimal(1).scaleb(-(dp + 2)),
+                               rounding=ROUND_HALF_EVEN)
+    computed = format(shown.normalize() if shown == shown.to_integral_value()
+                      else shown, "f")
+
+    if not failing:
+        return AGREE, computed, "convention-independent at %d dp" % dp
+    if not agreeing:
+        return DISAGREE, computed, "under every convention: %s" % ", ".join(conventions)
+    return (SENSITIVE, computed,
+            "agrees under %s, fails under %s -- an exact tie; the text owes "
+            "its convention a name" % (", ".join(agreeing), ", ".join(failing)))
+
+
+# ---------------------------------------------------------------------------
+# Patterns
+# ---------------------------------------------------------------------------
+
+# A number may carry thousands separators but may not END in one: without the
+# closing \d, "5 of 28," matches with the sentence's comma glued on.
+INT = r"\d(?:[\d,]*\d)?"
+NUM = INT + r"(?:\.\d+)?"
+
+# "146 of 163" or "84/99". Counts, so integers on both sides.
+FRAC = r"(?P<a>" + INT + r")(?:\s+of\s+|\s*/\s*)(?P<b>" + INT + r")"
+
+# At most three lowercase-ish words may stand between the fraction and the
+# percentage -- "556 of 1,664 cells valued, 33%". A digit or any punctuation in
+# between breaks the binding.
+TAIL = r"(?P<tail>(?:\s+[A-Za-z][A-Za-z-]*){0,3})"
+PCT = r"(?P<p>\d+(?:\.\d+)?)\s?%"
+
+RE_FRAC = re.compile(FRAC)
+RE_PCT = re.compile(PCT)
+
+# Strong binders assert the identity; the comma merely apposes it.
+RE_BOUND_EQ = re.compile(FRAC + TAIL + r"\s*(?P<sep>=)\s*" + PCT)
+RE_BOUND_PAREN = re.compile(FRAC + TAIL + r"\s*\(\s*" + PCT + r"\s*\)")
+RE_BOUND_REV = re.compile(PCT + r"\s*\(\s*" + FRAC + r"\s*\)")
+RE_BOUND_COMMA = re.compile(FRAC + TAIL + r"\s*(?P<sep>,)\s*" + PCT)
+
+STRONG_BINDERS = (("=", RE_BOUND_EQ), ("(...)", RE_BOUND_PAREN),
+                  ("%(...)", RE_BOUND_REV))
+WEAK_BINDERS = ((",", RE_BOUND_COMMA),)
+
+# A term may be a product: "12*10 + 20*6". An expression is a signed sum of
+# terms, and a *chain* of expressions joined by "=" asserts that all of them
+# are equal -- which is how the volumes actually write arithmetic:
+#
+#   |L| = S_q |A(q)| x |B(q)| = 33*5 + 33*10 + 23*15 + 8*17
+#                             = 165 + 330 + 345 + 136 = 976
+#
+# Pairing only the first "=" with what follows it reads the second expression
+# as a scalar total and invents two defects where the text has none.
+TERM = NUM + r"(?:\s*[·×*]\s*" + NUM + r")*"
+EXPR = TERM + r"(?:\s*[+\-" + MINUS + r"]\s*" + TERM + r")*"
+# The trailing (?![A-Za-z]) is why "the degree sum 12*10 + 20*6 + 30*4 = 360
+# = 2E" closes on 360 and not on the 2 of "2E". A digit glued to a letter is a
+# variable; reading it as a value manufactures a defect where the text says
+# "the arithmetic is sound throughout" -- and is right.
+RE_EQ = re.compile(
+    r"(?<![\d.,\w])(?P<chain>" + EXPR
+    + r"(?:\s*=\s*" + EXPR + r")+)(?![\d,]*\d)(?![A-Za-z])"
+)
+RE_HAS_OP = re.compile(r"[+\-" + MINUS + r"·×*]")
+
+RE_CHOOSE = re.compile(
+    r"C\(\s*(?P<n>\d+)\s*,\s*(?P<k>\d+)\s*\)"
+    r"(?:\s*[·×*]\s*(?P<f>" + INT + r"))?"
+    r"\s*=\s*(?P<m>" + INT + r")\b(?![A-Za-z])"
+)
+
+RE_FAIL = re.compile(
+    # "fail at 23%" states a rate, not a count of failures, so "at" is not a
+    # preposition this reads and no candidate may be a percentage.
+    r"fail(?:s|ed)?\s+(?:on|for|in)\s+(?P<f1>" + INT + r")\b(?!\s*%)"
+    r"|\b(?P<f2>" + INT + r")\b(?!\s*%)\s+(?:\w+\s+)?fail(?:s|ed)?\b",
+    re.I,
+)
+
+RE_PCT_OF = re.compile(
+    PCT + r"\s+of\s+(?P<b>" + INT + r")\s*(?:is|=|,)\s*(?P<r>" + INT + r")\b"
+)
+
+
+def _squash(s):
+    return re.sub(r"\s+", " ", s).strip()
+
+
+RE_DANGLING = re.compile(r"[+\-" + MINUS + r"=×·*]\s*$")
+
+
+def logical_lines(text, max_join=4):
+    """Physical lines, with a wrapped expression joined to its continuation.
+
+    DOCKET.md section 2: a construction that wraps is read on the
+    whitespace-normalised join. A line ending in a dangling arithmetic
+    operator is continued by the next non-blank line, which is why
+
+        ... and 248,305 +
+        248,305 - 495,515 = 1,095, as reported.
+
+    is one claim -- correct inclusion-exclusion -- and not a false one.
+    Nothing else is joined. Joining two adjacent table rows would fabricate
+    arithmetic the text never states, so only a dangling operator licenses it.
+
+    Yields (starting physical line number, joined text).
+    """
+    raw = text.split("\n")
+    out = []
+    i = 0
+    while i < len(raw):
+        start = i
+        buf = raw[i].rstrip()
+        while (RE_DANGLING.search(buf) and i + 1 < len(raw)
+               and raw[i + 1].strip() and (i - start) < max_join):
+            i += 1
+            buf = buf + " " + raw[i].strip()
+        out.append((start + 1, buf))
+        i += 1
+    return out
+
+
+def _fmt(v):
+    v = v.normalize()
+    return format(v, "f")
+
+
+# ---------------------------------------------------------------------------
+# Finders. Each yields Claims for one line.
+# ---------------------------------------------------------------------------
+
+def find_fraction_pct(member, lineno, line, conventions, strict):
+    binders = list(STRONG_BINDERS)
+    if not strict:
+        binders += list(WEAK_BINDERS)
+
+    bound_spans = []
+    for name, rx in binders:
+        for m in rx.finditer(line):
+            a, b, p = _n(m.group("a")), _n(m.group("b")), m.group("p")
+            bound_spans.append(m.span())
+            if b == 0:
+                yield Claim("FRACTION-PCT", member, lineno, _squash(m.group(0)),
+                            p + "%", "", UNCHECKABLE, name,
+                            "denominator is zero")
+                continue
+            exact = _exact(lambda: a / b * 100)
+            verdict, computed, note = _verdict(exact, p, conventions)
+            if a > b:
+                note = (note + "; " if note else "") + \
+                    "numerator exceeds denominator -- read the site"
+            yield Claim("FRACTION-PCT", member, lineno, _squash(m.group(0)),
+                        p + "%", computed + "%", verdict, name, note)
+
+    # Refusal 2: a fraction co-located with a percentage but not bound to it is
+    # not a claim. Report it as NOT-BOUND so the site can be read by eye, and
+    # never as a disagreement.
+    if not RE_PCT.search(line):
+        return
+    for m in RE_FRAC.finditer(line):
+        if any(s <= m.start() and m.end() <= e for s, e in bound_spans):
+            continue
+        pcts = [x.group(0) for x in RE_PCT.finditer(line)]
+        yield Claim("FRACTION-PCT", member, lineno, _squash(m.group(0)),
+                    "; ".join(pcts[:3]), "", NOT_BOUND, "",
+                    "percentage on the line is not bound to this fraction")
+
+
+def _lit_interval(tok):
+    """A literal's value as an interval. A count is exact; a decimal printed to
+    d places stands for anything within half an ulp of itself."""
+    v = _n(tok)
+    if "." in tok:
+        half = Decimal(1).scaleb(-_dp(tok)) / 2
+        return v - half, v + half
+    return v, v
+
+
+def _prod_interval(term):
+    ivs = [_lit_interval(x) for x in re.split(r"\s*[·×*]\s*", term.strip())]
+    lo, hi = ivs[0]
+    for a, b in ivs[1:]:
+        c = [lo * a, lo * b, hi * a, hi * b]
+        lo, hi = min(c), max(c)
+    return lo, hi
+
+
+def _eval_interval(expr):
+    parts = re.split(r"\s*([+\-" + MINUS + r"])\s*", expr)
+    lo, hi = _prod_interval(parts[0])
+    i = 1
+    while i + 1 < len(parts):
+        op, term = parts[i], parts[i + 1]
+        a, b = _prod_interval(term)
+        lo, hi = (lo + a, hi + b) if op == "+" else (lo - b, hi - a)
+        i += 2
+    return lo, hi
+
+
+def _soften(verdict, note, expr, stated_str):
+    """A disagreement smaller than the operands' own printed precision is not a
+    defect -- it is the operands' rounding, and saying otherwise would fault the
+    text for arithmetic it never claimed. MC's
+
+        1.0838 x 1.0854 x 1.1212 x 1.0522 x 1.0125 x 1.0022 = 1.4081
+
+    is stated "to four decimals" from factors printed to four; the product of
+    the printed factors is 1.408218, but the product of what they stand for
+    lies in an interval that covers 1.4081. Integer operands are exact, so a
+    count-only expression is never softened."""
+    if verdict != DISAGREE or "." not in expr:
+        return verdict, note
+    try:
+        lo, hi = _exact(lambda: _eval_interval(expr))
+    except (InvalidOperation, IndexError):
+        return verdict, note
+    try:
+        stated = Decimal(stated_str.replace(",", ""))
+    except InvalidOperation:
+        return verdict, note
+    half = Decimal(1).scaleb(-_dp(stated_str)) / 2
+    if lo - half <= stated <= hi + half:
+        q = Decimal(1).scaleb(-(_dp(stated_str) + 2))
+        with localcontext() as ctx:
+            ctx.prec = 50
+            shown = (lo.quantize(q, rounding=ROUND_DOWN),
+                     hi.quantize(q, rounding=ROUND_UP))
+        return WITHIN, ("the operands are printed to their own precision, so "
+                        "the value lies in [%s, %s]; that interval covers the "
+                        "stated %s" % (_fmt(shown[0]), _fmt(shown[1]),
+                                       stated_str))
+    return verdict, note
+
+
+def _prod(term):
+    vals = [_n(x) for x in re.split(r"\s*[·×*]\s*", term.strip())]
+    out = vals[0]
+    for v in vals[1:]:
+        out *= v
+    return out
+
+
+def _eval_additive(expr):
+    parts = re.split(r"\s*([+\-" + MINUS + r"])\s*", expr)
+    total = _prod(parts[0])
+    i = 1
+    while i + 1 < len(parts):
+        op, term = parts[i], parts[i + 1]
+        v = _prod(term)
+        total = total + v if op == "+" else total - v
+        i += 2
+    return total
+
+
+def find_equation(member, lineno, line, conventions, strict):
+    for m in RE_EQ.finditer(line):
+        chain = m.group("chain")
+        parts = [p.strip() for p in chain.split("=") if p.strip()]
+        if len(parts) < 2:
+            continue
+        # Two bare numbers joined by "=" are a label or an assignment, not
+        # arithmetic. At least one side must actually compute something.
+        if not any(RE_HAS_OP.search(p) for p in parts):
+            continue
+        try:
+            vals = [_exact(lambda q=q: _eval_additive(q)) for q in parts]
+        except (InvalidOperation, IndexError):
+            continue
+
+        closing = parts[-1]
+        if not RE_HAS_OP.search(closing):
+            # The chain closes on a bare stated total: compare the computed
+            # value against it at the precision the text states.
+            verdict, computed, note = _verdict(vals[0], closing, conventions)
+            verdict, note = _soften(verdict, note, parts[0], closing)
+            if len(parts) > 2 and len(set(vals[:-1])) > 1:
+                verdict = DISAGREE
+                note = "the chain's own members disagree"
+        else:
+            # Every member is an expression; the claim is that they are equal.
+            verdict = AGREE if len(set(vals)) == 1 else DISAGREE
+            computed = _fmt(vals[0])
+            note = "exact equality; no rounding is involved"
+
+        if len(parts) > 2:
+            note = (note + "; " if note else "") + "chain of %d: %s" % (
+                len(parts), " = ".join(_fmt(v) for v in vals))
+
+        yield Claim("EQUATION", member, lineno, _squash(m.group(0)),
+                    closing, computed, verdict, "=", note)
+
+
+def find_choose(member, lineno, line, conventions, strict):
+    for m in RE_CHOOSE.finditer(line):
+        n, k = int(m.group("n")), int(m.group("k"))
+        if k > n:
+            yield Claim("CHOOSE", member, lineno, _squash(m.group(0)),
+                        m.group("m"), "0", UNCHECKABLE, "=",
+                        "k exceeds n")
+            continue
+        exact = Decimal(math.comb(n, k))
+        factor = m.group("f")
+        if factor:
+            exact *= _n(factor)
+        verdict, computed, note = _verdict(exact, m.group("m"), conventions)
+        yield Claim("CHOOSE", member, lineno, _squash(m.group(0)),
+                    m.group("m"), computed, verdict, "=", note)
+
+
+def find_complement(member, lineno, line, conventions, strict):
+    fracs = list(RE_FRAC.finditer(line))
+    if len(fracs) != 1:
+        return  # ambiguous: which fraction does the failure count complement?
+    # The failure count must FOLLOW the fraction it complements. A table row
+    # reading "D=0   failed, found, repaired -- 39 claims, now 60 of 63" puts a
+    # zero and the word "failed" before the fraction; they are not a claim.
+    end = fracs[0].end()
+    fails = [m for m in RE_FAIL.finditer(line) if m.start() >= end]
+    if not fails:
+        return
+    a, b = _n(fracs[0].group("a")), _n(fracs[0].group("b"))
+    if a > b:
+        return
+    stated = fails[0].group("f1") or fails[0].group("f2")
+    exact = b - a
+    verdict, computed, note = _verdict(exact, stated, conventions)
+    yield Claim("COMPLEMENT", member, lineno,
+                _squash(fracs[0].group(0) + " ... " + fails[0].group(0)),
+                stated, computed, verdict, "fail",
+                (note + "; " if note else "") + "complement of %s of %s"
+                % (fracs[0].group("a"), fracs[0].group("b")))
+
+
+def find_pct_of(member, lineno, line, conventions, strict):
+    for m in RE_PCT_OF.finditer(line):
+        p, b = Decimal(m.group("p")), _n(m.group("b"))
+        exact = _exact(lambda: p / 100 * b)
+        verdict, computed, note = _verdict(exact, m.group("r"), conventions)
+        yield Claim("PCT-OF", member, lineno, _squash(m.group(0)),
+                    m.group("r"), computed, verdict, "is/=", note)
+
+
+FINDERS = {
+    "FRACTION-PCT": find_fraction_pct,
+    "EQUATION": find_equation,
+    "CHOOSE": find_choose,
+    "COMPLEMENT": find_complement,
+    "PCT-OF": find_pct_of,
+}
+
+
+# ---------------------------------------------------------------------------
+# The sweep
+# ---------------------------------------------------------------------------
+
+def audit_text(member, text, conventions=DEFAULT_CONVENTIONS, strict=False,
+               classes=None):
+    classes = classes or list(FINDERS)
+    out = []
+    for lineno, line in logical_lines(text):
+        low = line.lower()
+        if "%" not in line and "=" not in line and "fail" not in low:
+            continue  # nothing in this file's claim classes can fire
+        for cls in classes:
+            out.extend(FINDERS[cls](member, lineno, line, conventions, strict))
+    return out
+
+
+def audit_member(members_dir, member, **kw):
+    path = os.path.join(members_dir, member)
+    with open(path, encoding="utf-8") as fh:
+        return audit_text(member, fh.read(), **kw)
+
+
+# ---------------------------------------------------------------------------
+# Reporting
+# ---------------------------------------------------------------------------
+
+def report(claims, conventions, only=None, quiet_not_bound=True, width=96):
+    order = {v: i for i, v in enumerate(VERDICTS)}
+    shown = [c for c in claims if not only or c.verdict in only]
+    if quiet_not_bound and not only:
+        shown = [c for c in shown if c.verdict != NOT_BOUND]
+    shown.sort(key=lambda c: (order.get(c.verdict, 9), c.member, c.line))
+
+    print("conventions: %s   (Decimal.quantize; round() is never used)"
+          % ", ".join(conventions))
+    print()
+    for c in shown:
+        site = "%s:%d" % (SHORT.get(c.member, c.member), c.line)
+        head = "%-14s %-13s %-24s" % (site, c.cls, c.verdict)
+        print(head + _squash(c.text)[:width])
+        detail = "  stated %s" % c.stated
+        if c.computed:
+            detail += "   computed %s" % c.computed
+        if c.binder:
+            detail += "   bound by '%s'" % c.binder
+        print(" " * 14 + detail)
+        if c.note:
+            print(" " * 16 + c.note)
+        print()
+
+    tally = {}
+    for c in claims:
+        tally[c.verdict] = tally.get(c.verdict, 0) + 1
+    print("-" * 72)
+    print("  ".join("%s %d" % (v, tally.get(v, 0)) for v in VERDICTS
+                    if tally.get(v)))
+    findings = sum(tally.get(v, 0) for v in FINDINGS)
+    print("%d claim%s checked, %d finding%s"
+          % (len(claims), "" if len(claims) == 1 else "s",
+             findings, "" if findings == 1 else "s"))
+    return findings
+
+
+# ---------------------------------------------------------------------------
+# Self-test. The fixtures are the corpus's own recorded arithmetic, addressed by
+# the text of the site rather than by line number so a rebuild cannot move them.
+# Failures are reported, never tuned away.
+# ---------------------------------------------------------------------------
+
+SYNTHETIC = [
+    # (line, class, expected verdict, expected computed prefix)
+    ("146 of 163 = 92%", "FRACTION-PCT", DISAGREE, "89.5"),
+    ("52 of 52 = 100%", "FRACTION-PCT", AGREE, "100"),
+    ("71/80 = 89%", "FRACTION-PCT", AGREE, "88.75"),
+    ("84/99 = 85%", "FRACTION-PCT", AGREE, "84.8"),
+    # An exact tie at the stated precision: 12.5 is 13 under HALF_UP and 12
+    # under HALF_EVEN. The convention decides, so the text owes it a name.
+    ("1 of 8 = 13%", "FRACTION-PCT", SENSITIVE, "12.5"),
+    ("311 of 311 measured channels. As an equality it is right 57%",
+     "FRACTION-PCT", NOT_BOUND, ""),
+    ("0 of 0 = 50%", "FRACTION-PCT", UNCHECKABLE, ""),
+    ("V-E+F = 62" + MINUS + "180+120 = 2", "EQUATION", AGREE, "2"),
+    ("165 + 330 + 345 + 136 = 976", "EQUATION", AGREE, "976"),
+    ("12·10 + 20·6 = 240", "EQUATION", AGREE, "240"),
+    # A chain: every member must equal every other.
+    ("|L| = 33·5 + 33·10 + 23·15 + 8·17 = 165 + 330 + 345 + 136 = 976",
+     "EQUATION", AGREE, "976"),
+    ("|A| × |B| × |q| = 33 × 17 × 4 = 2,244 against 976", "EQUATION",
+     AGREE, "2244"),
+    ("2 + 2 = 5", "EQUATION", DISAGREE, "4"),
+    ("C(5,2) = 10 combinations", "CHOOSE", AGREE, "10"),
+    ("C(6,2) = 15 exist", "CHOOSE", AGREE, "15"),
+    ("C(120,2) = 7,140", "CHOOSE", AGREE, "7140"),
+    ("C(9,2)·4 = 144", "CHOOSE", AGREE, "144"),
+    ("C(5,2) = 11", "CHOOSE", DISAGREE, "10"),
+    ("546 of 789 interior cells pass. It fails on 243 cells", "COMPLEMENT",
+     AGREE, "243"),
+    ("held for 318 of 407 channels and failed for 89", "COMPLEMENT",
+     AGREE, "89"),
+    ("20% of 264 is 53", "PCT-OF", AGREE, "52.8"),
+    # Operands printed to four decimals: the product of what they stand for
+    # covers the stated value, so this is not a defect.
+    ("1.0838 × 1.0854 × 1.1212 × 1.0522 × 1.0125 × 1.0022 = 1.4081",
+     "EQUATION", WITHIN, "1.408218"),
+    # Integer operands are exact, so the same shape is NOT softened.
+    ("33 × 5 = 166", "EQUATION", DISAGREE, "165"),
+    # The chain must close on 360, not on the 2 of "2E".
+    ("the degree sum 12·10 + 20·6 + 30·4 = 360 = 2E", "EQUATION", AGREE, "360"),
+    # A failure rate is not a failure count.
+    ("114 of 129 consistent, interval 82-93%; heavy elements fail at 23% "
+     "against light at 8%", "FRACTION-PCT", NOT_BOUND, ""),
+]
+
+# Sites that must yield NO claim. Each one is a construction that a looser
+# reading turns into a defect the text does not contain.
+NEGATIVE = [
+    # A table row: the zero and the word "failed" both precede the fraction.
+    ("\u2145=0        failed, found, repaired \u2014 39 claims, now 60 of 63",
+     "COMPLEMENT"),
+    # An assignment is not arithmetic.
+    ("n = 3", "EQUATION"),
+    ("the cap is k = 3 and f = 1", "EQUATION"),
+    # "fail at 23%" is a rate; there is no complement claim here.
+    ("114 of 129 consistent on raw levels, interval 82-93%; heavy elements "
+     "fail at 23% against light at 8%", "COMPLEMENT"),
+]
+
+# Fixtures that must be read across a line wrap, through audit_text.
+WRAPPED = [
+    ("    248,305 with h11 >= 140 \u00b7 495,515 with at least one \u00b7 and 248,305 +\n"
+     "    248,305 \u2212 495,515 = 1,095, as reported.",
+     "EQUATION", AGREE, "1095"),
+]
+
+# Sites in the live members. Addressed by the matched text, not by line
+# number, so a rebuild cannot move a fixture out from under the self-test.
+CORPUS = [
+    ("mc", "FRACTION-PCT", "146 of 163 = 92%", DISAGREE),
+    ("mc", "FRACTION-PCT", "52 of 52 = 100%", AGREE),
+    ("reg", "FRACTION-PCT", "1,169 of 1,654 = 70.7%", AGREE),
+    ("reg", "FRACTION-PCT", "84/99 = 85%", AGREE),
+    ("reg", "FRACTION-PCT", "71/80 = 89%", AGREE),
+    ("reg", "CHOOSE", "C(120,2) = 7,140", AGREE),
+    ("mc", "EQUATION",
+     "33\u00b75 + 33\u00b710 + 23\u00b715 + 8\u00b717 = 165 + 330 + 345 + 136 = 976",
+     AGREE),
+    ("mc", "EQUATION", "33 × 17 × 4 = 2,244", AGREE),
+    ("mc", "EQUATION",
+     "1.0838 × 1.0854 × 1.1212 × 1.0522 × 1.0125 × 1.0022 = 1.4081", WITHIN),
+    ("reg", "EQUATION", "12·10 + 20·6 + 30·4 = 360", AGREE),
+    ("main", "EQUATION", "248,305 + 248,305 − 495,515 = 1,095", AGREE),
+    ("reg", "COMPLEMENT", "318 of 407 ... failed for 89", AGREE),
+]
+
+
+def selftest(members_dir):
+    fails = []
+    checked = 0
+
+    for line, cls, want_verdict, want_computed in SYNTHETIC:
+        got = [c for c in FINDERS[cls]("synthetic", 1, line,
+                                       DEFAULT_CONVENTIONS, False)]
+        got = [c for c in got if c.verdict == want_verdict] or got
+        checked += 1
+        if not got:
+            fails.append("no %s claim found in %r" % (cls, line))
+            continue
+        c = got[0]
+        if c.verdict != want_verdict:
+            fails.append("%r: verdict %s, expected %s"
+                         % (line, c.verdict, want_verdict))
+        elif want_computed and not c.computed.lstrip("-").startswith(want_computed):
+            fails.append("%r: computed %s, expected ~%s"
+                         % (line, c.computed, want_computed))
+
+    for line, cls in NEGATIVE:
+        got = list(FINDERS[cls]("synthetic", 1, line, DEFAULT_CONVENTIONS, False))
+        got = [c for c in got if c.verdict != NOT_BOUND]
+        checked += 1
+        if got:
+            fails.append("%r should yield no %s claim, got %s %s"
+                         % (line, cls, got[0].verdict, got[0].text))
+
+    for text, cls, want_verdict, want_computed in WRAPPED:
+        got = [c for c in audit_text("synthetic", text) if c.cls == cls]
+        checked += 1
+        if not got:
+            fails.append("no %s claim across the wrap in %r" % (cls, text))
+        elif got[0].verdict != want_verdict:
+            fails.append("wrapped %r: verdict %s, expected %s"
+                         % (got[0].text, got[0].verdict, want_verdict))
+        elif not got[0].computed.startswith(want_computed):
+            fails.append("wrapped %r: computed %s, expected ~%s"
+                         % (got[0].text, got[0].computed, want_computed))
+
+    long_to_short = {v: k for k, v in SHORT.items()}
+    by_member = {}
+    for short, cls, text, want in CORPUS:
+        member = long_to_short[short]
+        if member not in by_member:
+            by_member[member] = audit_member(members_dir, member)
+        hits = [c for c in by_member[member]
+                if c.cls == cls and c.text == text]
+        checked += 1
+        if not hits:
+            fails.append("%s: %r not found in %s" % (cls, text, short))
+        elif hits[0].verdict != want:
+            fails.append("%s %r in %s: verdict %s, expected %s"
+                         % (cls, text, short, hits[0].verdict, want))
+
+    print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
+    for f in fails:
+        print("  FAIL " + f)
+    print()
+    print("SELFTEST OK" if not fails else "SELFTEST FAILED")
+    return 0 if not fails else 1
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="The arithmetic audit of The Method 1.6, run as a program.")
+    ap.add_argument("--members", default=DEFAULT_MEMBERS,
+                    help="the members directory (default: method/members)")
+    ap.add_argument("--member", action="append", default=[],
+                    help="audit this member; repeatable")
+    ap.add_argument("--roster", help="audit a named roster of members")
+    ap.add_argument("--list-rosters", action="store_true")
+    ap.add_argument("--class", dest="classes", action="append", default=[],
+                    choices=sorted(FINDERS), help="restrict to this claim class")
+    ap.add_argument("--conventions", default=",".join(DEFAULT_CONVENTIONS),
+                    help="comma-separated rounding conventions: "
+                         + ", ".join(sorted(CONVENTIONS)))
+    ap.add_argument("--strict-binding", action="store_true",
+                    help="require '=' or parentheses; do not accept a comma")
+    ap.add_argument("--only", help="report only these verdicts, comma-separated")
+    ap.add_argument("--all-verdicts", action="store_true",
+                    help="include NOT-BOUND sites in the report")
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args(argv)
+
+    if args.list_rosters:
+        for name, members in sorted(ROSTERS.items()):
+            print("%-14s %d members" % (name, len(members)))
+            for m in members:
+                print("    %-6s %s" % (SHORT.get(m, ""), m))
+        return 0
+
+    if args.selftest:
+        return selftest(args.members)
+
+    conventions = [c.strip().upper() for c in args.conventions.split(",") if c.strip()]
+    for c in conventions:
+        if c not in CONVENTIONS:
+            ap.error("unknown convention %r; choose from %s"
+                     % (c, ", ".join(sorted(CONVENTIONS))))
+
+    members = list(args.member)
+    if args.roster:
+        if args.roster not in ROSTERS:
+            ap.error("unknown roster %r; --list-rosters shows them" % args.roster)
+        members += ROSTERS[args.roster]
+    if not members:
+        ap.error("name a member with --member or a roster with --roster")
+
+    claims = []
+    for m in members:
+        path = os.path.join(args.members, m)
+        if not os.path.exists(path):
+            print("missing member: %s" % path, file=sys.stderr)
+            return 2
+        claims.extend(audit_member(args.members, m, conventions=conventions,
+                                   strict=args.strict_binding,
+                                   classes=args.classes or None))
+
+    only = None
+    if args.only:
+        only = [v.strip().upper() for v in args.only.split(",")]
+        for v in only:
+            if v not in VERDICTS:
+                ap.error("unknown verdict %r" % v)
+
+    if args.json:
+        json.dump({"conventions": conventions,
+                   "members": members,
+                   "claims": [c.asdict() for c in claims
+                              if not only or c.verdict in only]},
+                  sys.stdout, indent=2, ensure_ascii=False)
+        print()
+        return 0
+
+    report(claims, conventions, only=only,
+           quiet_not_bound=not args.all_verdicts)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: arith.py>>>
+
+<<<FILE: pointers.py>>>
+#!/usr/bin/env python3
+"""tools/pointers.py -- the pointer audit of The Method 1.6, run as a program.
+
+DOCKET.md section 2 requires, of every section read:
+
+    "resolve every pointer to the claim and not the heading, under both
+     resolvers, and locate where the claim does live"
+
+and CLAUDE.md section 6 adds that the pointer regex is case-sensitive and that
+lowercase "register NNN" and "A.N" are grepped BY HAND. This is that resolution
+run as a class over the whole store, in both cases, with the hand-grep folded in.
+
+It answers the four census classes mechanically:
+
+    C1-SECTION-POINTER-UNRESOLVED     a section pointer with no such heading
+    C2-THEOREM-POINTER-UNPRINTED      a theorem cited but never stated
+    C3-FIGURE-POINTER-UNPLACED        a figure cited but never placed
+    C5-REGISTER-POINTER-UNRESOLVED    a register pointer with no such entry
+
+Stdlib only, Python 3.9+. No dependencies, so an audit can run it from any tree.
+
+The one thing it refuses to do:
+
+    It never reports UNRESOLVED for a pointer that resolves somewhere else in
+    the roster. DOCKET.md asks where the claim DOES live, so a pointer that
+    misses the citing volume and lands in another is RESOLVED, with the member
+    named. Four of the census's own C1 rows are this case: reg L5605, reg
+    L5609, mc L2474 and ioi L141 all cite a section that exists in the
+    companion (Transitions.md) and nowhere else, and the text says so --
+    "of the companion", "of T". Calling those unresolved loses the finding.
+"""
+
+from __future__ import annotations
+
+import argparse
+import collections
+import json
+import os
+import re
+import sys
+
+def _repo_root(start=None):
+    """The repository root, found by walking up for method/verify.py.
+
+    An instrument travels as a bundle member (chat 68's standing half), so the
+    same file runs from tools/ and from method/members/ and must locate the
+    store from either. Walking up for a landmark does that; a fixed number of
+    dirname() calls does not."""
+    d = os.path.dirname(os.path.abspath(start or __file__))
+    for _ in range(6):
+        if os.path.exists(os.path.join(d, "method", "verify.py")):
+            return d
+        parent = os.path.dirname(d)
+        if parent == d:
+            break
+        d = parent
+    return os.path.dirname(os.path.dirname(os.path.abspath(start or __file__)))
+
+
+REPO = _repo_root()
+DEFAULT_MEMBERS = os.path.join(REPO, "method", "members")
+
+VOLUMES = [
+    ("main", "The_Method_1_6-2.md"),
+    ("reg", "The_Method_1_6___The_Register-2.md"),
+    ("mc", "The_Method_1_6___Mathematical_Compendium-2.md"),
+    ("pc", "The_Method_1_6___The_Physics_Compendium-2.md"),
+    ("ioi", "The_Method_1_6___The_Index_of_Indices-2.md"),
+    ("sc", "The_Method_1_6___Spectra_Compendium-2.md"),
+]
+
+COMPANION = [("T", "Transitions.md")]
+
+PAPERS = [
+    ("lw", "THE-LOWDIN-SOLUTION-2.md"),
+    ("tb", "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md"),
+]
+
+ROSTERS = {
+    "volumes": VOLUMES,
+    "with-companion": VOLUMES + COMPANION,
+    "all": VOLUMES + COMPANION + PAPERS,
+}
+
+# The Register is where a register pointer resolves, and nowhere else.
+REGISTER_MEMBER = "reg"
+
+RESOLVED_HERE = "RESOLVED-HERE"
+RESOLVED = "RESOLVED"
+AMBIGUOUS = "AMBIGUOUS"
+PREFIX_ONLY = "PREFIX-ONLY"
+UNRESOLVED = "UNRESOLVED"
+KIND_MISMATCH = "KIND-MISMATCH"
+OUT_OF_EXTENT = "OUT-OF-EXTENT"
+PARTIAL = "PARTIAL"
+
+VERDICTS = (RESOLVED_HERE, RESOLVED, AMBIGUOUS, PARTIAL, PREFIX_ONLY,
+            UNRESOLVED, KIND_MISMATCH, OUT_OF_EXTENT)
+
+# A pointer that lands is not a finding, wherever it lands.
+FINDINGS = (PARTIAL, PREFIX_ONLY, UNRESOLVED, KIND_MISMATCH, OUT_OF_EXTENT)
+
+CENSUS_CLASS = {
+    "SECTION": "C1-SECTION-POINTER-UNRESOLVED",
+    "THEOREM": "C2-THEOREM-POINTER-UNPRINTED",
+    "FIGURE": "C3-FIGURE-POINTER-UNPLACED",
+    "REGISTER": "C5-REGISTER-POINTER-UNRESOLVED",
+    "REGISTER-RANGE": "C5-REGISTER-POINTER-UNRESOLVED",
+}
+
+
+# ---------------------------------------------------------------------------
+# Site patterns. The section, chapter, appendix and appendix-section forms are
+# copied verbatim from the seated member r2-tools.py (chat 70), which is the
+# recorded convention; the register forms are copied from register_cites.py,
+# whose (?i) is the reason the hand-grep for lowercase "register NNN" is no
+# longer owed. PROVENANCE: both are bundle members, not lifted to r2lib.
+# ---------------------------------------------------------------------------
+
+RE_SECTION = re.compile(r"§\s?(\d+\.\d+(?:\.\d+)*|\d+)(?!\d)")
+RE_SECTION_LETTERED = re.compile(r"§\s?([A-G]\.\d+(?:\.\d+)*)")
+RE_CHAPTER = re.compile(r"\b(?:Chapter|Ch\.)\s?(\d+)\b")
+RE_APPENDIX = re.compile(r"\bAppendix ([A-G])\b(?!\.)")
+RE_APPSEC = re.compile(r"(?<![A-Za-z§])([A-G]\.\d+)(?![\d.])")
+RE_THEOREM = re.compile(r"\b(?:Theorem|Thm\.?)\s?(\d+\.\d+)\b")
+RE_FIGURE = re.compile(r"\bFigure (\d+\.\d+)\b")
+
+# register_cites.py's own two patterns, plus the "entry/entries" wording that
+# r2-tools.py reads and register_cites.py does not.
+RE_REG_WORD = re.compile(
+    r"(?i)\b(?:registers?|reg\.|entries|entry)\s+"
+    r"((?:\d{3,4}(?:\s*[–\-]\s*\d{3,4})?)"
+    r"(?:\s*(?:,|and|/|;)\s*\d{3,4}(?:\s*[–\-]\s*\d{3,4})?)*)"
+)
+RE_REG_R = re.compile(
+    r"(?:\*R|\bR) ((?:\d{3,4}(?:\s*[–\-]\s*\d{3,4})?)"
+    r"(?:\s*(?:,|and|/|;)\s*\d{3,4}(?:\s*[–\-]\s*\d{3,4})?)*)"
+)
+
+# register_cites.py's floor. Below 165 a three-digit token is not a register
+# citation, and reading it as one was the fault that entry 1000 records.
+REG_FLOOR = 165
+REG_RANGE_CAP = 200
+
+# Declaration and placement forms, calibrated against the store.
+#   "Theorem 14.1 (A.2). X is closed iff X = R(X)"   <- declared
+#   "Theorem 18.2 permits it, because an interval"   <- merely cited
+RE_THM_DECL = re.compile(
+    r"\b(?:Theorem|Thm\.?)\s?(\d+\.\d+)\s*(?:\([^)]*\))?\.\s")
+RE_FIG_PLACED = re.compile(r"^!\[Figure (\d+\.\d+)")
+RE_HEADING = re.compile(r"^(#{2,6}) (.+)$")
+# DOCKET.md: heading_line is numeric-only.
+RE_HEAD_NUM = re.compile(r"^([A-G]\.\d+(?:\.\d+)*|\d+\.\d+(?:\.\d+)*)[\s.]")
+RE_HEAD_CH = re.compile(r"^(\d+)\.\s")
+RE_HEAD_APP = re.compile(r"^Appendix ([A-G])")
+RE_REG_HEAD = re.compile(r"^### ([\d, ]+)")
+# Appendix A states most of its proofs as a labelled TABLE, not as headings:
+#   "  A.2       X closed <=> R(X) = X        SS14.1, in full"
+# while A.3, A.8 and A.9 take "### A.n" headings. This is what CLAUDE.md
+# section 6 means by the pointer regex "ignoring Appendix A item numbers" and
+# owing a hand grep: A.1, A.2, A.4-A.7, A.14, A.16 and A.17 are table rows.
+RE_APP_ITEM = re.compile(r"^\s{2,}([A-G]\.\d+)\s{2,}\S")
+
+
+class Site:
+    __slots__ = ("cls", "token", "member", "lines", "verdict", "where", "note")
+
+    def __init__(self, cls, token, member, lines, verdict, where, note=""):
+        self.cls = cls
+        self.token = token
+        self.member = member
+        self.lines = lines
+        self.verdict = verdict
+        self.where = where
+        self.note = note
+
+    def asdict(self):
+        return {"class": self.cls, "token": self.token, "member": self.member,
+                "lines": self.lines, "verdict": self.verdict,
+                "where": self.where, "note": self.note,
+                "census_class": (CENSUS_CLASS.get(self.cls, "")
+                                 if self.verdict in FINDINGS else "")}
+
+
+# ---------------------------------------------------------------------------
+# The index of what a pointer can land on
+# ---------------------------------------------------------------------------
+
+class Index:
+    def __init__(self):
+        self.sections = collections.defaultdict(list)
+        self.chapters = collections.defaultdict(list)
+        self.appendices = collections.defaultdict(list)
+        self.appsecs = collections.defaultdict(list)
+        self.theorems = collections.defaultdict(list)
+        self.figures = collections.defaultdict(list)
+        self.register = {}
+        self.body = set()
+        self.reg_grouped = set()
+        self.reg_extent = (0, 0)
+
+
+def _is_body(lines, i):
+    """Is the heading on 1-based line i a BODY heading, or a contents entry?
+
+    DOCKET.md section 2: the heading resolver resolves to the BODY occurrence,
+    and the same section records that the volume heads its appendices
+    "## Appendix X -- ..." twice. Line 162 of the main volume is the contents
+    -- seven appendix headings in a row with no prose between them -- and line
+    9939 is Appendix A itself. A contents entry is a heading followed by
+    another heading; a body heading is followed by prose."""
+    for j in range(i, min(i + 3, len(lines))):
+        nxt = lines[j]
+        if not nxt.strip():
+            continue
+        return not bool(RE_HEADING.match(nxt))
+    return False
+
+
+def build_index(lines):
+    ix = Index()
+    for i, line in enumerate(lines, 1):
+        m = RE_APP_ITEM.match(line)
+        if m:
+            # A labelled proof row is a placement, and a body one.
+            ix.appsecs[m.group(1)].append(i)
+            ix.body.add((("appsecs"), m.group(1), i))
+        h = RE_HEADING.match(line)
+        if h:
+            title = h.group(2)
+            body = _is_body(lines, i)
+            m = RE_HEAD_NUM.match(title)
+            if m:
+                tok = m.group(1)
+                which = "appsecs" if tok[0].isalpha() else "sections"
+                getattr(ix, which)[tok].append(i)
+                if body:
+                    ix.body.add((which, tok, i))
+            mc = RE_HEAD_CH.match(title)
+            if mc and h.group(1) == "##":
+                ix.chapters[mc.group(1)].append(i)
+                if body:
+                    ix.body.add(("chapters", mc.group(1), i))
+            ma = RE_HEAD_APP.match(title)
+            if ma and h.group(1) == "##":
+                ix.appendices[ma.group(1)].append(i)
+                if body:
+                    ix.body.add(("appendices", ma.group(1), i))
+        for m in RE_THM_DECL.finditer(line):
+            ix.theorems[m.group(1)].append(i)
+        m = RE_FIG_PLACED.match(line)
+        if m:
+            ix.figures[m.group(1)].append(i)
+        m = RE_REG_HEAD.match(line)
+        if m:
+            nums = re.findall(r"\d+", m.group(1))
+            for n in nums:
+                ix.register.setdefault(int(n), (i, line[:60]))
+                if len(nums) > 1:
+                    ix.reg_grouped.add(int(n))
+    if ix.register:
+        ix.reg_extent = (min(ix.register), max(ix.register))
+    return ix
+
+
+RE_REG_SPAN = re.compile(r"(\d{3,4})\s*[–\-]\s*(\d{3,4})")
+
+
+def _reg_ranges(blob):
+    """The spans inside a register citation, as (a, b) pairs.
+
+    A span is ONE claim about a stretch of the Register, not one claim per
+    number in it. The Spectra Compendium's "Registers 1524-1677 record the
+    capture of these bodies one at a time" is a single sentence; expanding it
+    into 154 pointers and reporting 30 of them turns one finding about the
+    range into thirty rows, and DOCKET.md section 2 wants a sweep to state
+    what it covered."""
+    out = []
+    for m in RE_REG_SPAN.finditer(blob):
+        a, b = int(m.group(1)), int(m.group(2))
+        if REG_FLOOR <= a <= b and (b - a) < REG_RANGE_CAP:
+            out.append((a, b))
+    return out
+
+
+def _reg_nums(blob, top):
+    """register_cites.py's nums(), copied verbatim in substance: a range is
+    expanded only when it is inside the extent and shorter than 200, and a
+    token below 165 is not a register citation at all."""
+    out = set()
+    for part in re.split(r"\s*(?:,|and|/|;)\s*", blob):
+        part = part.strip()
+        m = re.match(r"(\d{3,4})\s*[–\-]\s*(\d{3,4})$", part)
+        if m:
+            a, b = int(m.group(1)), int(m.group(2))
+            if REG_FLOOR <= a <= b and (b - a) < REG_RANGE_CAP:
+                out.update(range(a, b + 1))
+        elif part.isdigit():
+            n = int(part)
+            if n >= REG_FLOOR:
+                out.add(n)
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Collecting sites
+# ---------------------------------------------------------------------------
+
+def collect(short, lines, classes):
+    """token sites in one member: {(class, token): [line numbers]}"""
+    seen = collections.OrderedDict()
+
+    def add(cls, tok, i):
+        if cls in classes:
+            seen.setdefault((cls, tok), []).append(i)
+
+    for i, line in enumerate(lines, 1):
+        if RE_HEADING.match(line):
+            continue  # a heading is not a pointer to itself
+        for m in RE_SECTION.finditer(line):
+            add("SECTION", m.group(1), i)
+        for m in RE_SECTION_LETTERED.finditer(line):
+            add("APPSEC", m.group(1), i)
+        for m in RE_CHAPTER.finditer(line):
+            add("CHAPTER", m.group(1), i)
+        for m in RE_APPENDIX.finditer(line):
+            add("APPENDIX", m.group(1), i)
+        for m in RE_APPSEC.finditer(line):
+            add("APPSEC", m.group(1), i)
+        for m in RE_THEOREM.finditer(line):
+            add("THEOREM", m.group(1), i)
+        for m in RE_FIGURE.finditer(line):
+            add("FIGURE", m.group(1), i)
+        for rx in (RE_REG_WORD, RE_REG_R):
+            for m in rx.finditer(line):
+                blob = m.group(1)
+                spans = _reg_ranges(blob)
+                spanned = set()
+                for a, b in spans:
+                    add("REGISTER-RANGE", "%d-%d" % (a, b), i)
+                    spanned.update(range(a, b + 1))
+                for n in _reg_nums(blob, None):
+                    if n not in spanned:
+                        add("REGISTER", str(n), i)
+    return seen
+
+
+ATTR = {"SECTION": "sections", "CHAPTER": "chapters",
+        "APPENDIX": "appendices", "APPSEC": "appsecs",
+        "THEOREM": "theorems", "FIGURE": "figures"}
+
+
+def _lookup(ix, cls, tok):
+    """Every occurrence, body ones first. A pointer resolves to the body
+    occurrence when there is one; a contents entry alone is not a claim.
+
+    A section pointer with no dot is a CHAPTER pointer written with a section
+    sign -- the volumes write "SS12" for chapter 12, whose heading is
+    "## 12. ...". r2-tools.py has this fallback ("if key.count('.')==0:
+    heads.get('ch'+key)") and it is the recorded convention; without it 59
+    whole-chapter pointers read PREFIX-ONLY against their own sub-sections."""
+    which = ATTR[cls]
+    all_hits = ix.__getattribute__(which).get(tok, [])
+    if not all_hits and cls == "SECTION" and "." not in tok:
+        which = "chapters"
+        all_hits = ix.chapters.get(tok, [])
+    body = [i for i in all_hits if (which, tok, i) in ix.body]
+    return body or all_hits
+
+
+def _prefix_hit(ix, cls, tok):
+    """The second resolver, named. DOCKET.md section 2: the heading resolver is
+    exact-token and NEVER prefix. Running both and reporting the difference is
+    how a pointer to a section that exists only as sub-sections is told apart
+    from one that does not exist at all: PREFIX-ONLY, not UNRESOLVED."""
+    if cls not in ("SECTION", "APPSEC"):
+        return []
+    table = ix.sections if cls == "SECTION" else ix.appsecs
+    return sorted(l for k, v in table.items()
+                  if k.startswith(tok + ".") for l in v)
+
+
+def resolve(short, cls, tok, indexes):
+    if cls == "REGISTER-RANGE":
+        ix = indexes.get(REGISTER_MEMBER)
+        if ix is None:
+            return UNRESOLVED, "", "the Register is not in the roster"
+        a, b = (int(x) for x in tok.split("-"))
+        want = list(range(a, b + 1))
+        absent = [n for n in want if n not in ix.register]
+        lo, hi = ix.reg_extent
+        if not absent:
+            return (RESOLVED, "%s:%d" % (REGISTER_MEMBER, ix.register[a][0]),
+                    "all %d entries present" % len(want))
+        if len(absent) == len(want):
+            return (UNRESOLVED, "",
+                    "none of the %d numbers in the range carries an entry"
+                    % len(want))
+        shown = ", ".join(str(n) for n in absent[:12])
+        if len(absent) > 12:
+            shown += ", +%d more" % (len(absent) - 12)
+        return (PARTIAL, "%s:%d" % (REGISTER_MEMBER, ix.register[want[0]][0])
+                if want[0] in ix.register else "",
+                "%d of the %d numbers in the range carry an entry; absent: %s"
+                % (len(want) - len(absent), len(want), shown))
+
+    if cls == "REGISTER":
+        ix = indexes.get(REGISTER_MEMBER)
+        if ix is None:
+            return UNRESOLVED, "", "the Register is not in the roster"
+        n = int(tok)
+        lo, hi = ix.reg_extent
+        if n > hi:
+            return (OUT_OF_EXTENT, "",
+                    "beyond the Register's extent, %d to %d" % (lo, hi))
+        if n in ix.register:
+            line, head = ix.register[n]
+            note = "grouped heading" if n in ix.reg_grouped else ""
+            return RESOLVED, "%s:%d" % (REGISTER_MEMBER, line), note
+        return UNRESOLVED, "", "no ### entry in the Register"
+
+    # A three- or four-digit section pointer with no dot has the shape of a
+    # register number, not of a section. reg L3113's "§784" is the census's
+    # own C1 row and this is what it is.
+    if cls == "SECTION" and "." not in tok and len(tok) >= 3:
+        reg = indexes.get(REGISTER_MEMBER)
+        n = int(tok)
+        if reg and n >= REG_FLOOR and n <= reg.reg_extent[1]:
+            seat = reg.register.get(n)
+            return (KIND_MISMATCH,
+                    "%s:%d" % (REGISTER_MEMBER, seat[0]) if seat else "",
+                    "a register number written as a section pointer"
+                    + ("" if seat else "; and no such entry either"))
+
+    hits = {}
+    for k, ix in indexes.items():
+        got = _lookup(ix, cls, tok)
+        if got:
+            hits[k] = got
+
+    if short in hits:
+        extra = [k for k in hits if k != short]
+        note = ("also in " + ", ".join(sorted(extra))) if extra else ""
+        ix = indexes[short]
+        which = ATTR[cls]
+        every = ix.__getattribute__(which).get(tok, [])
+        if not every and cls == "SECTION" and "." not in tok:
+            every = ix.chapters.get(tok, [])
+        if len(every) > len(hits[short]):
+            note = ((note + "; ") if note else "") + (
+                "%d contents entr%s above the body occurrence"
+                % (len(every) - len(hits[short]),
+                   "y" if len(every) - len(hits[short]) == 1 else "ies"))
+        return RESOLVED_HERE, "%s:%d" % (short, hits[short][0]), note
+    if len(hits) == 1:
+        k = next(iter(hits))
+        return RESOLVED, "%s:%d" % (k, hits[k][0]), ""
+    if len(hits) > 1:
+        return (AMBIGUOUS,
+                ", ".join("%s:%d" % (k, v[0]) for k, v in sorted(hits.items())),
+                "the pointer does not say which volume")
+
+    for k, ix in indexes.items():
+        pre = _prefix_hit(ix, cls, tok)
+        if pre:
+            return (PREFIX_ONLY, "%s:%d" % (k, pre[0]),
+                    "no exact heading; %d sub-section heading(s) begin '%s.' "
+                    "-- the exact-token resolver is the one in force"
+                    % (len(pre), tok))
+
+    if cls == "THEOREM":
+        return UNRESOLVED, "", "cited but never stated in the roster"
+    if cls == "FIGURE":
+        return UNRESOLVED, "", "cited but never placed in the roster"
+    return UNRESOLVED, "", "no such heading in the roster"
+
+
+def audit(members_dir, roster, classes):
+    lines = {}
+    for short, fname in roster:
+        path = os.path.join(members_dir, fname)
+        with open(path, encoding="utf-8") as fh:
+            lines[short] = fh.read().split("\n")
+    indexes = {k: build_index(v) for k, v in lines.items()}
+
+    out = []
+    for short, _ in roster:
+        for (cls, tok), sites in collect(short, lines[short], classes).items():
+            verdict, where, note = resolve(short, cls, tok, indexes)
+            out.append(Site(cls, tok, short, sorted(set(sites)), verdict,
+                            where, note))
+    return out, indexes
+
+
+# ---------------------------------------------------------------------------
+# Reporting
+# ---------------------------------------------------------------------------
+
+def report(sites, only=None, limit_lines=6):
+    order = {v: i for i, v in enumerate(VERDICTS)}
+    shown = [s for s in sites if not only or s.verdict in only]
+    shown.sort(key=lambda s: (-order.get(s.verdict, 0), s.cls, s.member,
+                              s.lines[0] if s.lines else 0))
+    for s in shown:
+        ls = ",".join(str(x) for x in s.lines[:limit_lines])
+        if len(s.lines) > limit_lines:
+            ls += "+%d" % (len(s.lines) - limit_lines)
+        token = ("§" + s.token if s.cls == "SECTION" else
+                 "reg " + s.token if s.cls.startswith("REGISTER") else s.token)
+        print("%-4s %-15s %-11s at L%-18s %s"
+              % (s.member, s.cls, token, ls, s.verdict))
+        tail = []
+        if s.where:
+            tail.append("-> " + s.where)
+        if s.note:
+            tail.append(s.note)
+        if tail:
+            print("      " + "  ".join(tail))
+        if s.verdict in FINDINGS and s.cls in CENSUS_CLASS:
+            print("      census class %s" % CENSUS_CLASS[s.cls])
+
+    tally = collections.Counter(s.verdict for s in sites)
+    cls_find = collections.Counter(s.cls for s in sites
+                                  if s.verdict in FINDINGS)
+    print()
+    print("-" * 72)
+    print("  ".join("%s %d" % (v, tally[v]) for v in VERDICTS if tally[v]))
+    findings = sum(tally[v] for v in FINDINGS)
+    print("%d pointer token%s, %d finding%s%s"
+          % (len(sites), "" if len(sites) == 1 else "s",
+             findings, "" if findings == 1 else "s",
+             ("  (" + ", ".join("%s %d" % (c, n)
+                                for c, n in sorted(cls_find.items())) + ")")
+             if cls_find else ""))
+    return findings
+
+
+def report_extent(sites, indexes):
+    """A gap in the Register's numbering is only a defect if something cites
+    it. The extent is stated as a range; 1660 of the 1792 numbers in it carry a
+    ### entry, and an uncited absence is not a pointer failure. This lists the
+    absences that ARE cited, with the citing sites."""
+    reg = indexes.get(REGISTER_MEMBER)
+    if reg is None:
+        print("the Register is not in the roster")
+        return 0
+    lo, hi = reg.reg_extent
+    missing = [n for n in range(lo, hi + 1) if n not in reg.register]
+    cited = collections.defaultdict(list)
+    for s in sites:
+        if s.cls == "REGISTER" and s.verdict in (UNRESOLVED, OUT_OF_EXTENT):
+            cited[int(s.token)].extend("%s:%d" % (s.member, l) for l in s.lines)
+    print("Register extent %d to %d; %d numbers carry a ### entry, %d do not."
+          % (lo, hi, len(reg.register), len(missing)))
+    print("An uncited absence is not a pointer failure. Cited absences:")
+    print()
+    for n in sorted(cited):
+        print("  reg %-5d cited at %s" % (n, ", ".join(sorted(set(cited[n])))[:100]))
+    print()
+    print("%d cited absence%s of %d absences in the extent."
+          % (len(cited), "" if len(cited) == 1 else "s", len(missing)))
+    return len(cited)
+
+
+# ---------------------------------------------------------------------------
+# Self-test. Every fixture is a row the DEFECT-CENSUS.tsv already records, or a
+# convention the store already fixes. Addressed by token and member, never by
+# line number.
+# ---------------------------------------------------------------------------
+
+# (roster, member, class, token, expected verdict, census id if any)
+CORPUS = [
+    # C3: the one recorded figure row. 32 figures placed, 33 cited.
+    ("volumes", "main", "FIGURE", "15.3", UNRESOLVED, "census 1"),
+    ("volumes", "main", "FIGURE", "15.1", RESOLVED_HERE, ""),
+    # C2: theorems cited and never stated.
+    ("volumes", "main", "THEOREM", "7.1", UNRESOLVED, "census 2"),
+    ("volumes", "reg", "THEOREM", "11.2", UNRESOLVED, "census 4, 5"),
+    ("volumes", "reg", "THEOREM", "12.1", UNRESOLVED, "census 6, 9"),
+    ("volumes", "mc", "THEOREM", "10.1", UNRESOLVED, "census 19, 20"),
+    ("volumes", "mc", "THEOREM", "4.4", UNRESOLVED, "census 23"),
+    # ... against ones that ARE stated, so the class is not vacuous.
+    ("volumes", "main", "THEOREM", "14.1", RESOLVED_HERE, ""),
+    ("volumes", "main", "THEOREM", "18.2", RESOLVED_HERE, ""),
+    # C5: register pointers with no entry.
+    ("volumes", "reg", "REGISTER", "1002", UNRESOLVED, "census 15-17"),
+    ("volumes", "reg", "REGISTER", "1000", UNRESOLVED, "census 8"),
+    ("volumes", "reg", "REGISTER", "1725", UNRESOLVED, "census 3"),
+    ("volumes", "mc", "REGISTER", "1173", RESOLVED, ""),
+    # A range is one claim about a stretch of the Register, not one per number.
+    ("volumes", "sc", "REGISTER-RANGE", "1524-1677", PARTIAL, ""),
+    # C1: a register number written as a section pointer.
+    ("volumes", "reg", "SECTION", "784", KIND_MISMATCH, "census 7"),
+    # C1: the companion's sections. Unresolved among the volumes ...
+    ("volumes", "reg", "SECTION", "5.7", UNRESOLVED, "census 10, 11"),
+    ("volumes", "mc", "SECTION", "6.5", UNRESOLVED, "census 24"),
+    ("volumes", "ioi", "SECTION", "5.7", UNRESOLVED, "census 26"),
+    # ... and RESOLVED, in Transitions.md, once the companion is in the roster.
+    # This is the refusal: the claim does live somewhere, and the text says so.
+    ("with-companion", "reg", "SECTION", "5.7", RESOLVED, "census 10, 11"),
+    ("with-companion", "mc", "SECTION", "6.5", RESOLVED, "census 24"),
+    ("with-companion", "mc", "SECTION", "5.1", RESOLVED, "census 25"),
+    ("with-companion", "ioi", "SECTION", "5.7", RESOLVED, "census 26"),
+    # A section of the main volume, cited from the main volume.
+    ("volumes", "main", "SECTION", "17.1", RESOLVED_HERE, ""),
+    # Appendix A states A.2 as a proof-TABLE row and A.3 as a "### A.3"
+    # heading. Both are placements; a heading-only resolver misses the table.
+    ("volumes", "main", "APPSEC", "A.2", RESOLVED_HERE, ""),
+    ("volumes", "main", "APPSEC", "A.3", RESOLVED_HERE, ""),
+    ("volumes", "main", "APPSEC", "A.17", RESOLVED_HERE, ""),
+    # Recorded, not new: WORKING-REGISTER L4687 has "SS4.4/SS4.6/SS4.7 resolve
+    # to unheaded lines", and DEFERRED L156 dockets it for R3.
+    ("volumes", "main", "SECTION", "4.6", UNRESOLVED, "WR L4687, DEF L156"),
+    # Recorded, not new: the same WR line has "259 and 287-class pointers
+    # resolve only to groups".
+    ("volumes", "main", "REGISTER", "287", UNRESOLVED, "WR L4687"),
+    # "SS12" is chapter 12, whose heading is "## 12. ...", per r2-tools.py.
+    ("volumes", "main", "SECTION", "12", RESOLVED_HERE, ""),
+    ("volumes", "main", "SECTION", "27", RESOLVED_HERE, ""),
+    # census 14 records SS0 at reg L6311 as C1-UNRESOLVED, and among the
+    # volumes it is. Adding the companion makes it PREFIX-ONLY, because
+    # SS0.1 to SS0.4 exist -- in Transitions.md. The citation is to the
+    # SPECTRA COMPENDIUM's SS0, so that prefix hit is a coincidence in the
+    # wrong member, and both rosters are asserted to keep it visible.
+    ("volumes", "reg", "SECTION", "0", UNRESOLVED, "census 14"),
+    ("with-companion", "reg", "SECTION", "0", PREFIX_ONLY, "census 14"),
+    ("volumes", "main", "APPSEC", "E.4", PREFIX_ONLY, ""),
+]
+
+# Conventions the store fixes, asserted directly.
+UNITS = [
+    # (index attribute, member, key, present?)
+    ("theorems", "main", "18.1", True),
+    ("theorems", "main", "7.1", False),
+    ("figures", "main", "15.1", True),
+    ("figures", "main", "15.3", False),
+    ("appsecs", "main", "A.2", True),
+    ("appsecs", "main", "A.3", True),
+]
+
+# The contents/body rule, asserted on the two occurrences the store carries.
+BODY = [
+    # (member, attribute, token, the line a pointer must resolve to)
+    ("main", "APPENDIX", "A", 9939),   # not 162, the contents
+    ("main", "CHAPTER", "4", 1436),    # not 117, the contents
+]
+
+# A theorem STATEMENT and a theorem CITATION differ by the period.
+DECL = [
+    ("Theorem 14.1 (A.2). X is closed iff X = R(X), where R recon", True),
+    ("Theorem 17.1 (adjunction never repairs). For any h : S -> H", True),
+    ("Theorem 18.1. On a product order, join, meet and comparability", True),
+    (" Theorem 18.2 permits it, because an interval", False),
+    ("Theorem 7.1 is absent -- withdrawn, and the status coordinate", False),
+    ("Theorem 14.1 is A.2 by its own", False),
+]
+
+# register_cites.py's floor, and its range cap.
+REGNUMS = [
+    ("register 1173", {1173}),
+    ("registers 1201-1203", {1201, 1202, 1203}),
+    ("R 1002", set()),          # RE_REG_R is a separate pattern; see below
+    ("entry 164", set()),       # below the 165 floor: not a citation
+    ("entry 165", {165}),
+    ("registers 200-900", set()),  # a 700-wide range is not a citation
+]
+
+
+def selftest(members_dir):
+    fails = []
+    checked = 0
+
+    for line, want in DECL:
+        checked += 1
+        got = bool(RE_THM_DECL.search(line))
+        if got != want:
+            fails.append("declaration test on %r: got %s, expected %s"
+                         % (line[:44], got, want))
+
+    for blob, want in REGNUMS:
+        checked += 1
+        got = set()
+        for rx in (RE_REG_WORD, RE_REG_R):
+            for m in rx.finditer(blob):
+                got |= _reg_nums(m.group(1), None)
+        if blob == "R 1002":
+            want = {1002}  # the "R NNN" form does resolve as a citation
+        if got != want:
+            fails.append("register numbers in %r: got %s, expected %s"
+                         % (blob, sorted(got), sorted(want)))
+
+    cache = {}
+
+    def run(roster_name):
+        if roster_name not in cache:
+            cache[roster_name] = audit(members_dir, ROSTERS[roster_name],
+                                       set(CENSUS_CLASS) | {"CHAPTER",
+                                                            "APPENDIX",
+                                                            "APPSEC"})
+        return cache[roster_name]
+
+    for member, cls, tok, want_line in BODY:
+        checked += 1
+        _, indexes = run("volumes")
+        got = _lookup(indexes[member], cls, tok)
+        if not got or got[0] != want_line:
+            fails.append("%s %s in %s resolves to %s, expected the body "
+                         "occurrence at L%d" % (cls, tok, member, got,
+                                                want_line))
+
+    for attr, member, key, want in UNITS:
+        checked += 1
+        _, indexes = run("volumes")
+        got = bool(getattr(indexes[member], attr).get(key))
+        if got != want:
+            fails.append("index %s[%s] in %s: got %s, expected %s"
+                         % (attr, key, member, got, want))
+
+    for roster, member, cls, tok, want, cid in CORPUS:
+        checked += 1
+        sites, _ = run(roster)
+        hits = [s for s in sites if s.member == member and s.cls == cls
+                and s.token == tok]
+        if not hits:
+            fails.append("%s %s %s not cited in %s under roster %s"
+                         % (cls, tok, cid, member, roster))
+        elif hits[0].verdict != want:
+            fails.append("%s %s in %s (%s, roster %s): verdict %s, expected %s"
+                         % (cls, tok, member, cid or "-", roster,
+                            hits[0].verdict, want))
+
+    print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
+    for f in fails:
+        print("  FAIL " + f)
+    print()
+    print("SELFTEST OK" if not fails else "SELFTEST FAILED")
+    return 0 if not fails else 1
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="The pointer audit of The Method 1.6, run as a program.")
+    ap.add_argument("--members", default=DEFAULT_MEMBERS)
+    ap.add_argument("--roster", default="with-companion",
+                    help="which members are in scope (default: with-companion)")
+    ap.add_argument("--list-rosters", action="store_true")
+    ap.add_argument("--class", dest="classes", action="append", default=[],
+                    choices=sorted(set(CENSUS_CLASS) | {"CHAPTER", "APPENDIX",
+                                                        "APPSEC"}),
+                    help="restrict to this pointer class; repeatable")
+    ap.add_argument("--only", help="report only these verdicts, comma-separated")
+    ap.add_argument("--findings", action="store_true",
+                    help="shorthand for --only " + ",".join(FINDINGS))
+    ap.add_argument("--extent", action="store_true",
+                    help="the Register's numbering gaps, and which are cited")
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args(argv)
+
+    if args.list_rosters:
+        for name, roster in sorted(ROSTERS.items()):
+            print("%-16s %s" % (name, " ".join(s for s, _ in roster)))
+        return 0
+    if args.selftest:
+        return selftest(args.members)
+    if args.roster not in ROSTERS:
+        ap.error("unknown roster %r; --list-rosters shows them" % args.roster)
+
+    classes = set(args.classes) or (set(CENSUS_CLASS) | {"CHAPTER", "APPENDIX",
+                                                         "APPSEC"})
+    sites, indexes = audit(args.members, ROSTERS[args.roster], classes)
+
+    if args.extent:
+        report_extent(sites, indexes)
+        return 0
+
+    only = list(FINDINGS) if args.findings else None
+    if args.only:
+        only = [v.strip().upper() for v in args.only.split(",")]
+        for v in only:
+            if v not in VERDICTS:
+                ap.error("unknown verdict %r" % v)
+
+    if args.json:
+        json.dump({"roster": args.roster,
+                   "sites": [s.asdict() for s in sites
+                             if not only or s.verdict in only]},
+                  sys.stdout, indent=2, ensure_ascii=False)
+        print()
+        return 0
+
+    report(sites, only=only)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: pointers.py>>>
+
+<<<FILE: buildtrace.py>>>
+#!/usr/bin/env python3
+"""tools/buildtrace.py -- provenance across the BUILD series.
+
+The archive holds the build series as snapshots: The_Method_1_6_BUILD<N>_*.md,
+BUILD9 to BUILD179, in two streams, 596 MiB in 140 files. They are the only
+record of when a figure entered the books and when it changed. Answering
+"which build introduced this number" by hand means grepping a third of a
+gigabyte, which CLAUDE.md forbids outright:
+
+    "Do not read or grep the tree wholesale: start from MANIFEST.tsv, then run
+     targeted ls/grep against specific paths."
+
+So this starts from MANIFEST.tsv, and every mode that touches the tree states
+its byte budget first and refuses to exceed it. DOCKET.md section 2: "State a
+budget rather than a negative when a computation is too large."
+
+    python3 tools/buildtrace.py --builds              # from the manifest; reads no build
+    python3 tools/buildtrace.py --first "976 cells"   # bisect: ~9 reads, not 119
+    python3 tools/buildtrace.py --trace "976 cells" --stream main
+    python3 tools/buildtrace.py --verify 90
+    python3 tools/buildtrace.py --selftest
+
+Stdlib only, Python 3.9+.
+
+Three things it refuses to do:
+
+  1. It never scans the tree wholesale without saying what that costs. Every
+     tree-touching mode prints "budget: N files, X MiB" and --trace refuses
+     over --budget (default 256 MiB) rather than quietly reading 596.
+
+  2. It never reports a first-appearance from a bisect without checking that
+     the token is monotone. A bisect is only valid if a token, once
+     introduced, stays; if the newest build lacks it, the token was withdrawn,
+     the bisect is meaningless, and it says NON-MONOTONE instead of a number.
+
+  3. It never merges a build's variant copies. A ".REPAIRED", a "-1" and a
+     "__<driveFileId>" copy are all deliberate (CLAUDE.md: "Both are
+     intentional -- do not merge or delete either"), so the canonical plain
+     name is traced and the variants are listed, never silently averaged in.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+import sys
+
+def _repo_root(start=None):
+    """The repository root, found by walking up for method/verify.py.
+
+    An instrument travels as a bundle member (chat 68's standing half), so the
+    same file runs from tools/ and from method/members/ and must locate the
+    store from either. Walking up for a landmark does that; a fixed number of
+    dirname() calls does not."""
+    d = os.path.dirname(os.path.abspath(start or __file__))
+    for _ in range(6):
+        if os.path.exists(os.path.join(d, "method", "verify.py")):
+            return d
+        parent = os.path.dirname(d)
+        if parent == d:
+            break
+        d = parent
+    return os.path.dirname(os.path.dirname(os.path.abspath(start or __file__)))
+
+
+REPO = _repo_root()
+DEFAULT_MANIFEST = os.path.join(REPO, "drive", "MANIFEST.tsv")
+DEFAULT_TREE = os.path.join(REPO, "drive")
+STORE = os.path.join(REPO, "method")
+
+# The live bundles, which are the newest members of the two streams.
+def live_bundles():
+    """The store's live bundles, READ from method/verify.py rather than
+    duplicated here.
+
+    verify.py is the authority on which bundles are live and what their md5s
+    are, and it changes at every close. An instrument that hardcodes them
+    breaks the moment the store moves -- which this one did, at the close that
+    seated it as a member: its fixture still asserted BUILD180 while the store
+    had become BUILD181. The fixture was right to fail. Reading the authority
+    instead is the fix, and it is why this instrument now survives a close."""
+    path = os.path.join(REPO, "method", "verify.py")
+    if not os.path.exists(path):
+        return {}
+    src = open(path, encoding="utf-8").read()
+
+    def block(name):
+        m = re.search(name + r"\s*=\s*\{(.*?)\}", src, re.S)
+        if not m:
+            return {}
+        return dict(re.findall(r"'([^']+)'\s*:\s*'([^']+)'", m.group(1)))
+
+    files, md5s = block("BUNDLES"), block("EXPECT_MD5")
+    return {tag: (fn, md5s.get(tag)) for tag, fn in files.items()}
+
+STREAMS = {"compendia": "compendia_papers_audits", "main": "main_and_register"}
+
+RE_BUILD = re.compile(
+    r"The_Method_1_6_BUILD(?P<n>\d+)_"
+    r"(?P<stream>compendia_papers_audits|main_and_register)"
+    r"(?P<variant>|\.REPAIRED|-1|__[A-Za-z0-9_-]+)\.md$"
+)
+
+CHUNK = 1 << 20
+
+
+class Build:
+    __slots__ = ("n", "stream", "variant", "repo_path", "size", "md5", "folder")
+
+    def __init__(self, n, stream, variant, repo_path, size, md5):
+        self.n = n
+        self.stream = stream
+        self.variant = variant
+        self.repo_path = repo_path
+        self.size = size
+        self.md5 = md5
+        self.folder = os.path.dirname(repo_path)
+
+    @property
+    def canonical(self):
+        return self.variant == ""
+
+    @property
+    def label(self):
+        return "BUILD%d%s" % (self.n, self.variant)
+
+    def path(self, tree=DEFAULT_TREE):
+        return os.path.join(tree, self.repo_path)
+
+    def asdict(self):
+        return {"build": self.n, "stream": self.stream,
+                "variant": self.variant, "canonical": self.canonical,
+                "repo_path": self.repo_path, "size": self.size,
+                "md5": self.md5}
+
+
+def read_series(manifest=DEFAULT_MANIFEST):
+    """The build series, from MANIFEST.tsv alone. Reads no build file.
+
+    CLAUDE.md: the manifest is the entry point and is never hand-edited; the
+    manifest and the tree are an exact bijection. Everything here -- which
+    builds exist, their size, their md5 -- comes from it."""
+    out = []
+    with open(manifest, encoding="utf-8") as fh:
+        header = fh.readline().rstrip("\n").split("\t")
+        col = {name: i for i, name in enumerate(header)}
+        for line in fh:
+            row = line.rstrip("\n").split("\t")
+            if len(row) < len(header):
+                continue
+            repo_path = row[col["repo_path"]]
+            m = RE_BUILD.search(repo_path)
+            if not m:
+                continue
+            out.append(Build(int(m.group("n")), m.group("stream"),
+                             m.group("variant"), repo_path,
+                             int(row[col["drive_size_bytes"]] or 0),
+                             row[col["md5"]]))
+    out.sort(key=lambda b: (b.stream, b.n, b.variant))
+    return out
+
+
+def select(series, stream=None, canonical_only=True, folder=None):
+    out = series
+    if stream:
+        out = [b for b in out if b.stream == STREAMS[stream]]
+    if canonical_only:
+        out = [b for b in out if b.canonical]
+    if folder is not None:
+        out = [b for b in out if b.folder == folder]
+    return sorted(out, key=lambda b: (b.n, b.variant))
+
+
+def primary_folder(series):
+    """The folder the series proper lives in. The delivery subfolders hold
+    their own copies of a handful of builds; tracing across both would
+    interleave two histories."""
+    counts = {}
+    for b in select(series, canonical_only=True):
+        counts[b.folder] = counts.get(b.folder, 0) + 1
+    return max(counts, key=counts.get) if counts else ""
+
+
+# ---------------------------------------------------------------------------
+# Counting
+# ---------------------------------------------------------------------------
+
+def count_in(path, token, chunk=CHUNK):
+    """Occurrences of a fixed string, streamed.
+
+    The overlap is why a token straddling a chunk boundary is still counted:
+    without carrying the last len(token)-1 bytes forward, a 596 MiB scan
+    silently loses roughly one occurrence per megabyte boundary."""
+    needle = token.encode("utf-8")
+    keep = len(needle) - 1
+    total = 0
+    tail = b""
+    with open(path, "rb") as fh:
+        while True:
+            block = fh.read(chunk)
+            if not block:
+                break
+            buf = tail + block
+            total += buf.count(needle)
+            tail = buf[-keep:] if keep else b""
+    return total
+
+
+def md5_of(path, chunk=CHUNK):
+    h = hashlib.md5()
+    with open(path, "rb") as fh:
+        for block in iter(lambda: fh.read(chunk), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+class Cache:
+    """Counts, keyed by the file's manifest md5 and the token. A build is a
+    snapshot and never changes, so a count once measured is permanent."""
+
+    def __init__(self, path):
+        self.path = path
+        self.data = {}
+        if path and os.path.exists(path):
+            try:
+                with open(path, encoding="utf-8") as fh:
+                    self.data = json.load(fh)
+            except (ValueError, OSError):
+                self.data = {}
+
+    def get(self, md5, token):
+        return self.data.get(md5 + "\t" + token)
+
+    def put(self, md5, token, n):
+        self.data[md5 + "\t" + token] = n
+
+    def flush(self):
+        if not self.path:
+            return
+        try:
+            os.makedirs(os.path.dirname(self.path), exist_ok=True)
+            with open(self.path, "w", encoding="utf-8") as fh:
+                json.dump(self.data, fh)
+        except OSError:
+            pass
+
+
+def counted(build, token, tree, cache, reads):
+    hit = cache.get(build.md5, token) if cache else None
+    if hit is not None:
+        return hit, False
+    n = count_in(build.path(tree), token)
+    if cache:
+        cache.put(build.md5, token, n)
+    reads.append(build)
+    return n, True
+
+
+def transitions(counts):
+    """The builds where a count changes, labelled.
+
+    Pure, so the labelling is unit-tested rather than inferred from a 448 MiB
+    scan. counts is [(build number, count)] in series order; a token absent
+    throughout yields nothing at all -- printing "BUILD9 0 WITHDRAWN" for
+    something that was never there states a withdrawal that never happened."""
+    out = []
+    prev = 0
+    for n, c in counts:
+        if c == prev:
+            continue
+        out.append((n, c, "first appears" if prev == 0
+                    else "WITHDRAWN" if c == 0 else "changes"))
+        prev = c
+    return out
+
+
+def budget(builds, label="budget"):
+    total = sum(b.size for b in builds)
+    print("%s: %d file%s, %.1f MiB"
+          % (label, len(builds), "" if len(builds) == 1 else "s",
+             total / 1048576.0))
+    return total
+
+
+# ---------------------------------------------------------------------------
+# Modes
+# ---------------------------------------------------------------------------
+
+def mode_builds(series, stream, variants):
+    for name, key in sorted(STREAMS.items()):
+        if stream and stream != name:
+            continue
+        rows = select(series, name, canonical_only=not variants)
+        if not rows:
+            continue
+        total = sum(b.size for b in rows)
+        print("%s stream (%s): %d files, %.1f MiB, BUILD%d to BUILD%d"
+              % (name, key, len(rows), total / 1048576.0,
+                 rows[0].n, rows[-1].n))
+        folders = {}
+        for b in rows:
+            folders.setdefault(b.folder, []).append(b.n)
+        for folder, ns in sorted(folders.items()):
+            print("    %-46s %3d: %s"
+                  % (folder or ".", len(ns),
+                     ", ".join(str(n) for n in sorted(set(ns)))))
+        var = [b for b in select(series, name, canonical_only=False)
+               if not b.canonical]
+        if var and not variants:
+            print("    %d variant cop%s not traced (--variants lists them): %s"
+                  % (len(var), "y" if len(var) == 1 else "ies",
+                     ", ".join(sorted(b.label for b in var))))
+        print()
+    return 0
+
+
+def mode_first(series, token, stream, tree, cache, cap):
+    """Bisect for the first build containing a fixed string.
+
+    Refusal 2: valid only if the token is monotone -- once in, it stays. The
+    endpoints are measured first, so a token that was WITHDRAWN is reported as
+    non-monotone rather than as a first appearance that does not mean
+    anything."""
+    rows = select(series, stream, folder=primary_folder(series))
+    if len(rows) < 2:
+        print("not enough builds in the %s stream to bisect" % (stream or "?"))
+        return 2
+    reads = []
+    lo_n, hi_n = rows[0], rows[-1]
+    print("series: %s BUILD%d to BUILD%d, %d builds"
+          % (stream or "both", lo_n.n, hi_n.n, len(rows)))
+    print("bisect reads about %d of them" % (len(rows).bit_length() + 1))
+
+    first_c, _ = counted(rows[0], token, tree, cache, reads)
+    last_c, _ = counted(rows[-1], token, tree, cache, reads)
+    if last_c == 0 and first_c == 0:
+        print()
+        print("ABSENT from both endpoints (BUILD%d and BUILD%d)."
+              % (lo_n.n, hi_n.n))
+        print("  That is not absence from the series: a token added and later "
+              "withdrawn is absent at both ends.")
+        print("  Only --trace can settle it, and only for the builds the "
+              "archive holds.")
+        budget(reads, "read")
+        return 1
+    if last_c == 0:
+        print()
+        print("WITHDRAWN, so NON-MONOTONE: present in the oldest build "
+              "(BUILD%d, %d occurrence%s) and absent from the newest "
+              "(BUILD%d)." % (lo_n.n, first_c, "" if first_c == 1 else "s",
+                              hi_n.n))
+        print("  A bisect locates a first appearance only for a token that "
+              "persists; this one does not.")
+        print("  Use --trace for the whole series; it will show where it went.")
+        budget(reads, "read")
+        return 1
+    if first_c:
+        print()
+        print("present in the OLDEST build in the series (BUILD%d), %d "
+              "occurrence%s" % (lo_n.n, first_c, "" if first_c == 1 else "s"))
+        print("  Its introduction predates the series; the archive cannot "
+              "date it.")
+        budget(reads, "read")
+        return 0
+
+    lo, hi = 0, len(rows) - 1          # rows[lo] absent, rows[hi] present
+    while hi - lo > 1:
+        mid = (lo + hi) // 2
+        c, _ = counted(rows[mid], token, tree, cache, reads)
+        if c:
+            hi = mid
+        else:
+            lo = mid
+    print()
+    print("FIRST APPEARANCE  BUILD%d  (%s)" % (rows[hi].n, rows[hi].repo_path))
+    c, _ = counted(rows[hi], token, tree, cache, reads)
+    print("  BUILD%-4d %d occurrence%s" % (rows[hi].n, c,
+                                           "" if c == 1 else "s"))
+    print("  BUILD%-4d absent  (the build immediately before it in the series)"
+          % rows[lo].n)
+    print("  Monotone at the endpoints; the series has gaps, so BUILD%d is the "
+          "first build PRESENT IN THE ARCHIVE that carries it." % rows[hi].n)
+    budget(reads, "read")
+    return 0
+
+
+def mode_trace(series, token, stream, tree, cache, cap):
+    rows = select(series, stream, folder=primary_folder(series))
+    unread = [b for b in rows if cache.get(b.md5, token) is None]
+    total = budget(unread or rows, "budget")
+    if unread and total > cap:
+        print()
+        print("REFUSED: %.1f MiB exceeds the %.1f MiB budget."
+              % (total / 1048576.0, cap / 1048576.0))
+        print("  --first bisects the same question in about %d reads."
+              % (len(rows).bit_length() + 1))
+        print("  --stream main is %.1f MiB; raise the ceiling with --budget."
+              % (sum(b.size for b in select(series, "main",
+                                            folder=primary_folder(series)))
+                 / 1048576.0))
+        return 2
+    print()
+    reads = []
+    counts = []
+    for b in rows:
+        c, _ = counted(b, token, tree, cache, reads)
+        counts.append((b, c))
+    rows_t = transitions([(b.n, c) for b, c in counts])
+    print("transitions in %r (only the builds where the count changes):"
+          % token)
+    print()
+    if not rows_t:
+        print("  none -- absent from all %d builds read" % len(counts))
+    for n, c, label in rows_t:
+        print("  BUILD%-5d %-6d %s" % (n, c, label))
+    print()
+    nz = [c for _, c in counts if c]
+    print("%d builds read, present in %d of them, count %s"
+          % (len(counts), len(nz),
+             "steady at %d" % nz[0] if nz and len(set(nz)) == 1
+             else "%d to %d" % (min(nz), max(nz)) if nz else "0 throughout"))
+    if reads:
+        budget(reads, "read")
+    return 0
+
+
+def mode_verify(series, which, tree):
+    """The mirror's own guarantee, re-asserted: the on-disk file against the
+    md5 the manifest records for it."""
+    rows = [b for b in series if which is None or b.n == which]
+    if not rows:
+        print("no build %s in the manifest" % which)
+        return 2
+    budget(rows, "budget")
+    print()
+    bad = 0
+    for b in sorted(rows, key=lambda x: (x.stream, x.n, x.variant)):
+        path = b.path(tree)
+        if not os.path.exists(path):
+            print("  MISSING  %s" % b.repo_path)
+            bad += 1
+            continue
+        got = md5_of(path)
+        ok = got == b.md5
+        size_ok = os.path.getsize(path) == b.size
+        print("  %-8s %-12s %s%s"
+              % ("OK" if ok and size_ok else "MISMATCH", b.label, b.repo_path,
+                 "" if ok and size_ok else "  (md5 %s, manifest %s)"
+                 % (got[:12], b.md5[:12])))
+        if not (ok and size_ok):
+            bad += 1
+    print()
+    print("%d checked, %d bad" % (len(rows), bad))
+    return 0 if not bad else 1
+
+
+# ---------------------------------------------------------------------------
+# Self-test
+# ---------------------------------------------------------------------------
+
+def selftest(manifest, tree):
+    fails = []
+    checked = 0
+
+    def check(cond, msg):
+        nonlocal checked
+        checked += 1
+        if not cond:
+            fails.append(msg)
+
+    series = read_series(manifest)
+    check(bool(series), "no build files found in the manifest")
+
+    canon = select(series, canonical_only=True)
+    main = select(series, "main", folder=primary_folder(series))
+    comp = select(series, "compendia", folder=primary_folder(series))
+    check(len(main) >= 12, "main_and_register stream has %d canonical builds "
+                           "in the primary folder, expected >= 12" % len(main))
+    check(len(comp) >= 100, "compendia stream has %d canonical builds in the "
+                            "primary folder, expected >= 100" % len(comp))
+    check(comp[0].n == 9, "the compendia series starts at BUILD%d, expected 9"
+          % comp[0].n)
+
+    # Ordering must be by build number, since higher N is newer.
+    check(all(a.n < b.n for a, b in zip(comp, comp[1:])),
+          "the compendia series is not strictly increasing in build number")
+
+    # The manifest and the tree are an exact bijection (CLAUDE.md), so every
+    # build row must have a file.
+    absent = [b.repo_path for b in canon if not os.path.exists(b.path(tree))]
+    check(not absent, "%d canonical build rows have no file on disk: %s"
+          % (len(absent), absent[:3]))
+
+    # Variants are recognised and kept apart, never merged.
+    variants = [b for b in series if not b.canonical]
+    check(bool(variants), "no variant copies recognised; the .REPAIRED, -1 "
+                          "and __<driveFileId> forms should parse")
+    check(all(b.canonical for b in canon), "select() leaked a variant")
+
+    # The chunk-boundary overlap. Without the carry a token straddling the
+    # boundary is lost, which is the one bug a streamed count can hide.
+    tmp = os.path.join(os.path.dirname(os.path.abspath(manifest)),
+                       ".buildtrace-selftest.tmp")
+    try:
+        with open(tmp, "wb") as fh:
+            fh.write(b"x" * 30 + b"NEEDLE" + b"y" * 30)
+        for chunk in (1, 2, 3, 7, 31, 32, 33, 64, 4096):
+            got = count_in(tmp, "NEEDLE", chunk=chunk)
+            check(got == 1, "count_in with chunk=%d found %d NEEDLE, "
+                            "expected 1" % (chunk, got))
+        check(count_in(tmp, "x" * 30, chunk=4) == 1,
+              "count_in lost a 30-byte token at chunk=4")
+        check(count_in(tmp, "ABSENT", chunk=8) == 0,
+              "count_in invented an absent token")
+    finally:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+
+    # The transition labeller, which is what a 448 MiB scan reports through.
+    for counts, want in [
+            ([(9, 0), (10, 0)], []),
+            ([(9, 3), (10, 3)], [(9, 3, "first appears")]),
+            ([(9, 0), (10, 2), (11, 2), (12, 5)],
+             [(10, 2, "first appears"), (12, 5, "changes")]),
+            ([(9, 4), (10, 0)],
+             [(9, 4, "first appears"), (10, 0, "WITHDRAWN")]),
+            ([(9, 0), (10, 1), (11, 0), (12, 1)],
+             [(10, 1, "first appears"), (11, 0, "WITHDRAWN"),
+              (12, 1, "first appears")]),
+    ]:
+        check(transitions(counts) == want,
+              "transitions(%s) = %s, expected %s"
+              % (counts, transitions(counts), want))
+
+    # A dated withdrawal, on two targeted reads rather than a series scan.
+    # DEFECT-CENSUS row 2 records "Theorem 7.1 is absent -- withdrawn". The
+    # main stream carries the token twice through BUILD10 -- the statement and
+    # a citation -- and once from BUILD54 on. That dates the withdrawal.
+    main_by_n = {b.n: b for b in main}
+    for n, want in ((10, 2), (54, 1)):
+        if n not in main_by_n:
+            check(False, "the main stream has no BUILD%d to date the "
+                         "Theorem 7.1 withdrawal against" % n)
+            continue
+        checked += 1
+        got = count_in(main_by_n[n].path(tree), "Theorem 7.1")
+        if got != want:
+            fails.append("BUILD%d main carries 'Theorem 7.1' %d time(s), "
+                         "expected %d (census row 2 dates the withdrawal to "
+                         "BUILD54)" % (n, got, want))
+
+    # The store and the archive must agree on the live bundles. This is what
+    # drive/ is for: Ruling 56 makes Prints & Proofs the original-input
+    # witness, and a witness that disagrees with the store is the finding.
+    live = live_bundles()
+    check(len(live) == 2, "verify.py names %d live bundles, expected 2" % len(live))
+    for stream, (fname, want_md5) in sorted(live.items()):
+        rows = [b for b in series if os.path.basename(b.repo_path) == fname]
+        store = os.path.join(STORE, fname)
+        if not os.path.exists(store):
+            check(False, "the store has no %s" % fname)
+            continue
+        checked += 1
+        got = md5_of(store)
+        if got != want_md5:
+            fails.append("the store's %s is md5 %s; verify.py records %s"
+                         % (fname, got, want_md5))
+        if rows:
+            checked += 1
+            if rows[0].md5 != want_md5:
+                fails.append("the archive's %s is md5 %s; the store's live "
+                             "bundle is %s -- store and witness disagree"
+                             % (fname, rows[0].md5, want_md5))
+        else:
+            print("  note: the archive does not mirror %s (the live %s "
+                  "bundle); nothing to cross-check" % (fname, stream))
+
+    print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
+    for f in fails:
+        print("  FAIL " + f)
+    print()
+    print("SELFTEST OK" if not fails else "SELFTEST FAILED")
+    return 0 if not fails else 1
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="Provenance across the BUILD series.")
+    ap.add_argument("--manifest", default=DEFAULT_MANIFEST)
+    ap.add_argument("--tree", default=DEFAULT_TREE)
+    ap.add_argument("--cache",
+                    default=os.path.join(REPO, ".buildtrace-cache.json"),
+                    help="counts, keyed by manifest md5; a snapshot never "
+                         "changes so a count is permanent")
+    ap.add_argument("--no-cache", action="store_true")
+    ap.add_argument("--stream", choices=sorted(STREAMS))
+    ap.add_argument("--variants", action="store_true",
+                    help="--builds: list the .REPAIRED / -1 / __id copies")
+    ap.add_argument("--budget", type=float, default=256.0,
+                    help="ceiling in MiB for --trace (default 256)")
+    ap.add_argument("--builds", action="store_true",
+                    help="the series, from the manifest; reads no build file")
+    ap.add_argument("--first", metavar="TOKEN",
+                    help="bisect for the first build carrying a fixed string")
+    ap.add_argument("--trace", metavar="TOKEN",
+                    help="the whole series; prints only the transitions")
+    ap.add_argument("--verify", nargs="?", type=int, const=-1,
+                    metavar="N", help="on-disk md5 against the manifest's; "
+                                      "a build number, or all of them")
+    ap.add_argument("--json", action="store_true",
+                    help="--builds: the series as JSON")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args(argv)
+
+    if args.selftest:
+        return selftest(args.manifest, args.tree)
+
+    series = read_series(args.manifest)
+    if not series:
+        print("no build files in %s" % args.manifest, file=sys.stderr)
+        return 2
+
+    if args.json and args.builds:
+        json.dump([b.asdict() for b in
+                   select(series, args.stream, not args.variants)],
+                  sys.stdout, indent=2)
+        print()
+        return 0
+    if args.builds:
+        return mode_builds(series, args.stream, args.variants)
+    if args.verify is not None:
+        return mode_verify(series, None if args.verify == -1 else args.verify,
+                           args.tree)
+
+    cache = Cache(None if args.no_cache else args.cache)
+    cap = args.budget * 1048576.0
+    try:
+        if args.first:
+            return mode_first(series, args.first, args.stream, args.tree,
+                              cache, cap)
+        if args.trace:
+            return mode_trace(series, args.trace, args.stream, args.tree,
+                              cache, cap)
+    finally:
+        cache.flush()
+
+    ap.error("name a mode: --builds, --first, --trace, --verify or --selftest")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: buildtrace.py>>>
+
+<<<FILE: populate.py>>>
+#!/usr/bin/env python3
+"""tools/populate.py -- populate an element on every axis of every index.
+
+Give it a ground-state atomic number and it returns that element, and every
+ion of it, on every coordinate the books define: the observed ground
+configuration, the per-subshell quantum axes, the three periodic-table indexes,
+the Rydberg channels of the spectra index, the Pauli bound, the quantum defect
+under the method equation, and the Lambda_8 transition cells of its ionisation
+ladder with the caps each one needs.
+
+    python3 tools/populate.py --element K
+    python3 tools/populate.py --z 19 --charge 1
+    python3 tools/populate.py --element Fe --json
+    python3 tools/populate.py --axes
+    python3 tools/populate.py --equation
+    python3 tools/populate.py --check-B
+    python3 tools/populate.py --selftest
+
+THE TWO HALVES. Register 1206 names the architecture: "the two halves of the
+method equation meet for the first time on this index" -- R PLACES cells and
+the channel equation VALUES them. This runs both. R is imported from
+tools/cypher.py, where it is the PINNED order operator of section 32.4.1; the
+channel equation is register 1205's final form.
+
+PROVENANCE, AND WHY NOTHING HERE IS COPIED. The observed ground configurations
+are LW1-ground.py, a seated bundle member (register 1306, NIST ASD 5.12, read
+not computed), and the tower is tower-2.py. Both are imported BY PATH and
+never transcribed, per CLAUDE.md section 5. The spectra index is
+COORDINATES-2.13 in the Drive mirror, read with the csv module because its
+source column contains commas.
+
+STATUS, CARRIED NOT FLATTENED. Every axis this tool populates says where it
+comes from, in cypher.py's vocabulary:
+
+    READ           a measurement, taken from a member or the mirror
+    PINNED         the corpus defines it at the precision a program needs
+    DERIVED        arithmetic on a READ or PINNED quantity, nothing added
+    RECONSTRUCTED  the corpus states the object and its behaviour but not the
+                   form a program needs. Reconstructed here, measured against
+                   the corpus's own numbers, and kept as RECONSTRUCTED so a
+                   later ruling can move it.
+
+Three things it refuses to do:
+
+  1. It never prints a value without its status. A RECONSTRUCTED defect and a
+     READ one are different objects and the report never merges them.
+
+  2. It never silently places an element outside the caps. Lambda at section
+     7.4's caps (n,e <= 3, l,f <= 1, k <= 3) admits almost no real element;
+     rather than truncate, the report says OUTSIDE CAPS and names the caps at
+     which the cell would be admitted.
+
+  3. It never repairs a disagreement. Where the recomputed value differs from
+     the recorded one the report carries both, per G0c: when a reconstruction
+     disagrees with the record, the finding is about the reconstruction.
+"""
+
+from __future__ import annotations
+
+import argparse
+import bisect
+import collections
+import itertools
+import csv
+import importlib.util
+import json
+import math
+import os
+import sys
+
+def _repo_root(start=None):
+    """The repository root, found by walking up for method/verify.py.
+
+    An instrument travels as a bundle member (chat 68's standing half), so the
+    same file runs from tools/ and from method/members/ and must locate the
+    store from either. Walking up for a landmark does that; a fixed number of
+    dirname() calls does not."""
+    d = os.path.dirname(os.path.abspath(start or __file__))
+    for _ in range(6):
+        if os.path.exists(os.path.join(d, "method", "verify.py")):
+            return d
+        parent = os.path.dirname(d)
+        if parent == d:
+            break
+        d = parent
+    return os.path.dirname(os.path.dirname(os.path.abspath(start or __file__)))
+
+
+REPO = _repo_root()
+MEMBERS = os.path.join(REPO, "method", "members")
+DEFAULT_SPECTRA = os.path.join(REPO, "drive", "The Method Materials",
+                               "COORDINATES-2_13.csv")
+
+READ, PINNED, DERIVED, RECON = "READ", "PINNED", "DERIVED", "RECONSTRUCTED"
+# RECOVERED — not stated in any member, but recovered by measurement from the
+# index's own computed column and consistent with what the registers say about
+# it qualitatively. Stronger than RECONSTRUCTED, weaker than PINNED.
+RECOVERED = "RECOVERED"
+# PREDICTED — beyond the evidentiary boundary. Section VIII of the Loewdin
+# solution: "Because ground configurations are experimentally established only
+# through Z = 108, this work enforces a strict evidentiary boundary there. The
+# 107 elements up to it constitute the derivation, scored against nature. The
+# twelve elements beyond it are published as predictions — explicitly labeled,
+# unfitted, and falsifiable the day their spectra can be measured."
+PREDICTED = "PREDICTED"
+
+
+def _load(name, filename):
+    """Import a seated member by path. CLAUDE.md section 5: never by copying."""
+    path = os.path.join(MEMBERS, filename)
+    spec = importlib.util.spec_from_file_location(name, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+LW1 = _load("lw1_ground", "LW1-ground.py")
+TOWER = _load("tower_2", "tower-2.py")
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import cypher  # noqa: E402  -- R, the PINNED order operator of section 32.4.1
+
+LSYM = "spdfgh"
+# Spectroscopic term letters. J is skipped, which is why "4K11/2" is L = 7.
+TERM_L = "SPDFGHIKLMNOQRTUV"
+SYMBOL_TO_Z = {sym: z for z, (sym, _c, _l) in LW1.GROUND.items()}
+
+# ---------------------------------------------------------------------------
+# The periodic table, laid out as chapter 6 lays it out
+# ---------------------------------------------------------------------------
+
+# Section 6: "main-table cells (lanthanides and actinides set aside) = 90".
+PERIOD_END = [2, 10, 18, 36, 54, 86, 118, 168]
+LANTHANIDES = range(58, 72)      # Ce to Lu
+ACTINIDES = range(90, 104)       # Th to Lr
+
+
+def period_of(Z):
+    return bisect.bisect_left(PERIOD_END, Z) + 1
+
+
+def set_aside(Z):
+    """The f-block rows chapter 6 sets aside from the main table."""
+    return Z in LANTHANIDES or Z in ACTINIDES
+
+
+def group_of(Z):
+    """Group in the drawn eighteen-column layout, or None if set aside.
+
+    Reproduces chapter 6's ninety main-table cells exactly: period 1 holds
+    groups 1 and 18, periods 2 and 3 hold 1, 2 and 13 to 18, and periods 4 to 7
+    hold all eighteen. That is 2 + 8 + 8 + 18*4 = 90, and the self-test asserts
+    it against section 6's own figure."""
+    if set_aside(Z):
+        return None
+    p = period_of(Z)
+    start = 1 if p == 1 else PERIOD_END[p - 2] + 1
+    i = Z - start                       # 0-based position within the period
+    if p == 1:
+        return 1 if Z == 1 else 18
+    if p in (2, 3):
+        return (1, 2, 13, 14, 15, 16, 17, 18)[i]
+    if p in (6, 7):
+        # 3 before the f-block, then 15 after it
+        return i + 1 if i <= 2 else i + 1 - 14
+    if p == 8:
+        # Only 119 and 120 are predicted; the g-block below them is not.
+        return i + 1 if i <= 1 else None
+    return i + 1
+
+
+def block_of(Z):
+    """The block, from the DIFFERENTIATING electron -- the subshell that
+    distinguishes Z from Z-1. This is the Loewdin construction's own object,
+    and it is why the block is a fact about filling rather than about the
+    drawn layout."""
+    if Z == 1:
+        return 0
+    a, b = config_of(Z), config_of(Z - 1)
+    if a is None or b is None:
+        return None
+    now = {(n, l): o for n, l, o in a}
+    before = {(n, l): o for n, l, o in b}
+    gained = [(n, l) for (n, l), o in now.items() if o > before.get((n, l), 0)]
+    if not gained:
+        return None
+    return sorted(gained)[-1][1]
+
+
+def janet_cell(Z):
+    """Janet's coordinate IS n+l (register 1188), so its blocks ARE the
+    collapse boundaries. The cell is (n+l, l) of the differentiating electron."""
+    if Z == 1:
+        return (1, 0)
+    a, b = config_of(Z), config_of(Z - 1)
+    if a is None or b is None:
+        return None
+    now = {(n, l): o for n, l, o in a}
+    before = {(n, l): o for n, l, o in b}
+    gained = [(n, l) for (n, l), o in now.items() if o > before.get((n, l), 0)]
+    if not gained:
+        return None
+    n, l = sorted(gained)[-1]
+    return (n + l, l)
+
+
+# ---------------------------------------------------------------------------
+# The Pauli bound -- register 1141, PINNED
+# ---------------------------------------------------------------------------
+
+# The corpus's own prediction, stated as a rule rather than a table: "the
+# entrant is 6d from Z = 109 through 112, 7p from 113 through 118, and 8s at
+# 119 and 120, with stated margins between 0.058 and 0.264 hartree, every one
+# clearing the spin-orbit worst case" (Loewdin solution, section VIII).
+# The configurations below are DERIVED from that rule and from Hs at Z = 108,
+# which is READ. They are never merged with the observed table.
+PREDICTED_ENTRANT = (((109, 112), (6, 2)),      # 6d
+                     ((113, 118), (7, 1)),      # 7p
+                     ((119, 120), (8, 0)))      # 8s
+PREDICTED_MAX = 120
+EVIDENTIARY_BOUNDARY = 108
+
+# Conventional IUPAC symbols, a convenience for reading the report only. The
+# store names none of these; 119 and 120 have only systematic names.
+BEYOND_SYMBOL = {109: "Mt", 110: "Ds", 111: "Rg", 112: "Cn", 113: "Nh",
+                 114: "Fl", 115: "Mc", 116: "Lv", 117: "Ts", 118: "Og",
+                 119: "Uue", 120: "Ubn"}
+
+
+def entrant_of(Z):
+    for (lo, hi), nl in PREDICTED_ENTRANT:
+        if lo <= Z <= hi:
+            return nl
+    return None
+
+
+def predicted_config(Z):
+    """The ground configuration at Z = 109 to 120, built from Hs plus the
+    corpus's stated entrant sequence. One electron per element, into the
+    subshell section VIII names."""
+    if not (EVIDENTIARY_BOUNDARY < Z <= PREDICTED_MAX):
+        return None
+    occ = {(n, l): o for n, l, o in LW1.expand(EVIDENTIARY_BOUNDARY)}
+    for z in range(EVIDENTIARY_BOUNDARY + 1, Z + 1):
+        nl = entrant_of(z)
+        if nl is None:
+            return None
+        occ[nl] = occ.get(nl, 0) + 1
+        if occ[nl] > 2 * (2 * nl[1] + 1):
+            return None
+    return [(n, l, o) for (n, l), o in
+            sorted(occ.items(), key=lambda kv: (kv[0][0] + kv[0][1], kv[0][0]))
+            if o > 0]
+
+
+def ground_of(Z, table="observed"):
+    """The ground configuration and where it comes from.
+
+    Below the evidentiary boundary this is measurement; above it, the corpus's
+    published prediction. The status is carried so the two are never merged --
+    which is the boundary section VIII enforces, kept in the program."""
+    if Z in LW1.GROUND:
+        sym, shells, level = LW1.GROUND[Z]
+        cfg = config_of(Z, table)
+        return {"config": cfg, "symbol": sym, "shells": shells,
+                "level": level, "status": READ if table == "observed" else DERIVED,
+                "basis": ("NIST ASD 5.12 via LW1-ground.py (register 1306)"
+                          if table == "observed"
+                          else "aufbau, the table register 1306 withdrew")}
+    cfg = predicted_config(Z)
+    if cfg is None:
+        return None
+    return {"config": cfg, "symbol": BEYOND_SYMBOL.get(Z, "Z%d" % Z),
+            "shells": " ".join("%d%s%d" % (n, LSYM[l], o) for n, l, o in cfg),
+            "level": None, "status": PREDICTED,
+            "basis": "Loewdin solution section VIII: the entrant is 6d from "
+                     "Z = 109 to 112, 7p from 113 to 118, 8s at 119 and 120"}
+
+
+MADELUNG = sorted(((n, l) for n in range(1, 9) for l in range(0, min(n, 5))),
+                  key=lambda t: (t[0] + t[1], t[0]))
+
+
+def aufbau_config(Ne):
+    """The configuration Madelung order predicts. Register 1306 WITHDREW this
+    table as the store's ground configurations -- "that table was wrong at Pd
+    ... and at Lr" -- but COORDINATES-2.13 was built on it, so reproducing the
+    index as it stands requires it. It is never the default."""
+    out, left = [], Ne
+    for n, l in MADELUNG:
+        if left <= 0:
+            break
+        take = min(2 * (2 * l + 1), left)
+        out.append((n, l, take))
+        left -= take
+    return out
+
+
+CONFIG_TABLES = {
+    "observed": lambda Ne: (LW1.expand(Ne) if Ne in LW1.GROUND else None),
+    "aufbau": aufbau_config,
+}
+
+
+def config_of(Ne, table="observed"):
+    """The configuration of a neutral species with Ne electrons.
+
+    Above the evidentiary boundary the observed table has nothing, so the
+    corpus's published prediction is used and the caller is expected to carry
+    the PREDICTED status with it."""
+    if Ne < 1:
+        return None
+    if table == "observed" and Ne not in LW1.GROUND:
+        return predicted_config(Ne)
+    return CONFIG_TABLES[table](Ne)
+
+
+def core_p(core_Ne, l, table="observed"):
+    """p, the core's orbital count at this l, from the OBSERVED ground
+    configuration of the core (register 1306)."""
+    cfg = config_of(core_Ne, table)
+    if cfg is None:
+        return None
+    return sum(1 for _n, ll, o in cfg if ll == l and o > 0)
+
+
+def n0_of(core_Ne, l, table="observed"):
+    """n0, the first Pauli-allowed n.
+
+    RECONSTRUCTED. Register 1141 states the bound and names its two terms; it
+    does not say whether a PARTIALLY filled subshell counts as allowed. Both
+    readings were measured against COORDINATES-2.13's own B column: "first n
+    with room" matches 87.0% of 102,871 rows, "first ENTIRELY UNOCCUPIED n"
+    matches 97.7%. He I ns settles it -- the core is 1s(1), the CSV gives B = 1,
+    and only the second reading returns 1."""
+    cfg = config_of(core_Ne, table)
+    if cfg is None:
+        return None
+    occ = {(n, ll): o for n, ll, o in cfg}
+    n = l + 1
+    while occ.get((n, l), 0) > 0:
+        n += 1
+    return n
+
+
+def pauli_bound(Z, charge, l, config=None):
+    """B = min(p, n0 - l - 1). Register 1141, Pauli 1925, Janet 1929."""
+    core = Z - charge
+    if core < 1:
+        return 0
+    if config is not None:
+        occ = {(n, ll): o for n, ll, o in config}
+        p = sum(1 for n, ll, o in config if ll == l and o > 0)
+        n = l + 1
+        while occ.get((n, l), 0) > 0:
+            n += 1
+    else:
+        p = core_p(core, l)
+        n = n0_of(core, l)
+        if p is None or n is None:
+            return None
+    return max(0, min(p, n - l - 1))
+
+
+# ---------------------------------------------------------------------------
+# The channel equation, final form -- register 1205
+# ---------------------------------------------------------------------------
+
+A_COEFF = 0.3772
+E0, E1 = 0.8297, 0.0900
+K_COEFF = 0.4942
+H_COEFF = 0.5415
+
+# The Janet block opening for each l: the Z at which the n+l block containing
+# that subshell opens. Register 1188 gives two of them exactly -- "the n+l = 5
+# block opens at Z = 21 (Sc) and 3d collapses at 21. The n+l = 7 block opens at
+# 57 (La) and 4f collapses at 57" -- and l = 1 falls out of the same rule at
+# boron, where the 2p block opens.
+COLLAPSE_Z = {1: 5, 2: 21, 3: 57}
+COLLAPSE_WIDTH = 8.0
+
+
+def collapse_C(Z, l):
+    """C(Z), the collapse coordinate across the Janet boundary.
+
+        C(Z, l) = clamp( 0.5 + (Z - Z0(l)) / 8, 0, 1 )
+
+    RECOVERED, not reconstructed. No member states the form: register 1190 says
+    only that it is "read off the periodic table, not fitted -- one lookup".
+    But COORDINATES-2.13's own computed column is generated by this equation,
+    so C can be INVERTED out of it, and it comes back exact:
+
+        l = 2:  C = 0.125, 0.250, 0.375, 0.500, 0.625, 0.750, 0.875, 1.000
+                at Z =  18,   19,    20,    21,    22,    23,    24,    25
+        l = 3:  the same eight values at Z = 54 to 61
+        l = 1:  the same eight values at Z =  2 to  9
+
+    A linear ramp eight wide, reaching exactly 0.5 at the Janet boundary and
+    saturating four beyond it. That is register 1189 in closed form -- "the
+    collapse is a rapid transition, NOT A STEP" -- and it is why Ca I nd is
+    0.908 at Z = 20, below the threshold: C(20, 2) = 0.375, already a third of
+    the way up the ramp. An indicator would have made it zero.
+
+    Above l = 3 there is no collapse and C is zero, which the index agrees
+    with: every l >= 4 channel inverts to C = 0 exactly."""
+    z0 = COLLAPSE_Z.get(l)
+    if z0 is None:
+        return 0.0
+    return min(1.0, max(0.0, 0.5 + (Z - z0) / COLLAPSE_WIDTH))
+
+
+def channel_delta(Z, charge, l, table="observed"):
+    """delta for a Rydberg channel, register 1205's standing form.
+
+        delta = a p^e(Ne) Ne^k ln(c+1)/c                  where p > 0
+        delta = h C(Z) ((Ne-1)/Ne) Ne^k ln(c+1)/c         where p = 0
+
+    Ne is the electron count of the ION and c its spectroscopic charge, so a
+    neutral atom is c = 1 and the core it presents is singly charged.
+
+    Register 5193 records that at Ne = 1 the (Ne-1)/Ne factor vanishes
+    identically for every charge and every C(Z), which is what makes a
+    one-electron ion return exactly zero -- the hydrogenic case, and not a
+    fitted one."""
+    Ne = Z - charge + 1
+    c = charge
+    if Ne < 1 or c < 1:
+        return None
+    core = Ne - 1
+    p = core_p(core, l, table) if core >= 1 else 0
+    if p is None:
+        return None
+    charge_factor = math.log(c + 1) / c
+    if p > 0:
+        e = E0 - E1 * math.log(Ne)
+        return A_COEFF * (p ** e) * (Ne ** K_COEFF) * charge_factor
+    return (H_COEFF * collapse_C(Z, l) * ((Ne - 1) / Ne)
+            * (Ne ** K_COEFF) * charge_factor)
+
+
+# ---------------------------------------------------------------------------
+# Terms, seniority, and the coupling chain -- Lambda_9 to Lambda_13
+# ---------------------------------------------------------------------------
+
+_TERMS = {}
+
+
+def terms(l, k):
+    """The multiset of LS terms (2S, L) of the configuration l^k.
+
+    PINNED. Section 12.11.1 defines it and this is that definition, executed:
+    "list every way of placing k electrons in the 2(2l+1) spin-orbitals,
+    accumulate (2M_L, 2M_S), and strip complete (2S, 2L) blocks from the
+    largest M_L down until the list is empty."
+
+    The section calls it "the standard construction and the origin Chapter 7
+    already cites for 2S <= k", so nothing here is new; what matters is that
+    the tower's bounds are computed from it rather than asserted."""
+    key = (l, k)
+    if key in _TERMS:
+        return _TERMS[key]
+    if k < 0 or k > 2 * (2 * l + 1):
+        _TERMS[key] = []
+        return []
+    orb = [(ml, ms2) for ml in range(l, -l - 1, -1) for ms2 in (1, -1)]
+    cnt = collections.Counter()
+    for c in itertools.combinations(orb, k):
+        cnt[(sum(o[0] for o in c), sum(o[1] for o in c))] += 1
+    out = []
+    while cnt:
+        ML = max(m for (m, _s) in cnt)
+        MS2 = max(s for (m, s) in cnt if m == ML)
+        out.append((MS2, ML))
+        for ml in range(-ML, ML + 1):
+            for ms2 in range(-MS2, MS2 + 1, 2):
+                cnt[(ml, ms2)] -= 1
+                if cnt[(ml, ms2)] <= 0:
+                    del cnt[(ml, ms2)]
+    out.sort()
+    _TERMS[key] = out
+    return out
+
+
+def j2_values(S2, L):
+    """2J for a term, |L-S| <= J <= L+S in integer steps."""
+    lo, hi = abs(2 * L - S2), 2 * L + S2
+    return list(range(lo, hi + 1, 2))
+
+
+def hund_ground_term(l, k):
+    """Hund: maximum S, then maximum L, then J = |L-S| below half filling and
+    L+S at or above it. Returns (2S, L, 2J) or None for an empty shell."""
+    ts = terms(l, k)
+    if not ts:
+        return None
+    S2 = max(t[0] for t in ts)
+    L = max(t[1] for t in ts if t[0] == S2)
+    js = j2_values(S2, L)
+    half = 2 * l + 1
+    return (S2, L, js[0] if k <= half else js[-1])
+
+
+def seniority(l, k, S2, L):
+    """v, the seniority of a term: the smallest k' of the same parity in which
+    the term first appears. Lambda_10's coordinate, bounded 2S' <= v <= g."""
+    for kp in range(k % 2, k + 1, 2):
+        if (S2, L) in terms(l, kp):
+            return kp
+    return None
+
+
+def phi_hat(k, lmax=None):
+    """phi-hat(k), section 12.11.1: "the monotone envelope of k -> max 2J over
+    the parent shells admitted by the caps".
+
+    COMPUTED, not copied. At section 7.4's caps (l <= 1) this returns
+    {1: 3, 2: 4, 3: 5}, which is exactly tower-2.py's hardcoded PHI -- and
+    that agreement is a self-test fixture, because it is the one place the
+    microstate enumeration above can be checked against a seated instrument.
+
+    Note the section's warning: this is NOT section 6.1's phi-hat_ij, R's
+    pairwise envelope. Both are monotone envelopes and that is the whole of
+    the resemblance."""
+    if lmax is None:
+        lmax = CAPS["l"]
+    best = 0
+    for l in range(0, lmax + 1):
+        for S2, L in terms(l, k):
+            best = max(best, 2 * L + S2)
+    return best
+
+
+LEVEL_LS = None
+
+
+def parse_level(text):
+    """A NIST ground level into its quantum numbers.
+
+    The store carries three forms: LS terms like "4I*15/2", the jj-coupled
+    "(1/2,1/2)0" that Pb takes, and a bare J for Sg, Bh and Hs where only that
+    is known. The star is odd parity."""
+    import re
+    t = (text or "").strip()
+    m = re.fullmatch(r"(\d+)([A-Z])(\*?)(\d+(?:/2)?)", t)
+    if m:
+        mult, letter, star, j = m.groups()
+        if letter in TERM_L:
+            return {"form": "LS", "mult": int(mult), "S2": int(mult) - 1,
+                    "L": TERM_L.index(letter), "parity": "odd" if star else "even",
+                    "J2": int(j[:-2]) if j.endswith("/2") else 2 * int(j),
+                    "J": j}
+    m = re.fullmatch(r"\((.*?)\)(\*?)(\d+(?:/2)?)", t)
+    if m:
+        inner, star, j = m.groups()
+        return {"form": "jj", "mult": None, "S2": None, "L": None,
+                "parity": "odd" if star else "even",
+                "J2": int(j[:-2]) if j.endswith("/2") else 2 * int(j),
+                "J": j, "pair": inner}
+    m = re.fullmatch(r"(\d+(?:/2)?)", t)
+    if m:
+        j = m.group(1)
+        return {"form": "J only", "mult": None, "S2": None, "L": None,
+                "parity": None,
+                "J2": int(j[:-2]) if j.endswith("/2") else 2 * int(j), "J": j}
+    return {"form": "unparsed", "mult": None, "S2": None, "L": None,
+            "parity": None, "J2": None, "J": None}
+
+
+def open_shells(cfg):
+    return [(n, l, o) for n, l, o in cfg if 0 < o < 2 * (2 * l + 1)]
+
+
+def core_term(cfg):
+    """The core's ground term (2S, L, 2J), and how it was got.
+
+    A closed shell is 1S0 exactly. One open subshell is Hund on that subshell,
+    which is DERIVED and exact for a single shell. More than one open subshell
+    needs a coupling between them that Hund does not fix, so it is reported
+    UNDETERMINED rather than guessed."""
+    if cfg is None:
+        return None
+    op = open_shells(cfg)
+    if not op:
+        return {"S2": 0, "L": 0, "J2": 0, "shell": None,
+                "basis": "closed shell: 1S0 exactly", "status": DERIVED}
+    if len(op) == 1:
+        n, l, k = op[0]
+        g = hund_ground_term(l, k)
+        return {"S2": g[0], "L": g[1], "J2": g[2],
+                "shell": "%d%s%d" % (n, LSYM[l], k),
+                "basis": "Hund on the one open subshell", "status": DERIVED}
+    return {"S2": None, "L": None, "J2": None,
+            "shell": ", ".join("%d%s%d" % (n, LSYM[l], k) for n, l, k in op),
+            "basis": "more than one open subshell; Hund does not fix the "
+                     "coupling between them", "status": "UNDETERMINED"}
+
+
+def tower_for_channel(Z, charge, l_out, table="observed"):
+    """The Lambda_9 to Lambda_13 coordinates of one Rydberg channel.
+
+    A tower cell extends a Lambda_8 transition by the target's multiplicity,
+    its seniority, and the J_c-K coupling chain. A Rydberg channel IS that
+    object: a core with fine structure 2J_c, and one electron placed in a
+    subshell of l. Section 12.11.1 says as much of the three coupling axes --
+    "the core's fine structure", "core-orbit orientation", "the outer
+    electron's spin bit" -- and |2J - 2K| <= 1 is J = K +/- 1/2 written out.
+
+    So g = 1 and q = 1: one electron moved. Every bound below is tower-2.py's,
+    and every physical value is the coupling the core and that electron
+    actually admit."""
+    Ne = Z - charge + 1
+    core = Ne - 1
+    cfg = config_of(core, table) if core >= 1 else []
+    if cfg is None:
+        return None
+    ct = core_term(cfg)
+    op = open_shells(cfg)
+    if op:
+        _n, l_src, k = op[-1]
+    elif cfg:
+        _n, l_src, k = cfg[-1]
+    else:
+        l_src, k = 0, 0
+
+    g = 1                      # one electron placed in the outer subshell
+    S2 = ct["S2"]              # Lambda_8's 2S, the source multiplicity
+    J2c = ct["J2"]             # Lambda_11's 2J_c, the core's fine structure
+
+    out = {
+        "core_Ne": core, "l_out": l_out, "k": k, "l_source": l_src,
+        "core_term": ct,
+        "L8_2S": {"value": S2, "bound": "2S <= k = %d" % k,
+                  "admitted": list(range(0, k + 1)), "status": ct["status"]},
+        "L9_2Sprime": {"value": 1, "bound": "2S' <= g = 1",
+                       "admitted": [0, 1],
+                       "status": DERIVED,
+                       "note": "one electron carries spin 1/2, so 2S' = 1"},
+        "L10_v": {"value": seniority(l_out, 1, 1, l_out),
+                  "bound": "2S' <= v <= g = 1", "admitted": [1],
+                  "status": PINNED,
+                  "note": "seniority of a one-electron shell"},
+        "L11_2Jc": {"value": J2c,
+                    "bound": "2J_c <= phi-hat(k) = %d" % phi_hat(k, lmax=max(l_src, CAPS["l"])),
+                    "admitted": list(range(0, phi_hat(k, lmax=max(l_src, CAPS["l"])) + 1)),
+                    "status": ct["status"]},
+    }
+    if J2c is None:
+        out["L12_2K"] = {"value": None, "admitted": None, "status": "UNDETERMINED",
+                         "bound": "2K <= 2J_c + 2f_max"}
+        out["L13_2J"] = {"value": None, "admitted": None, "status": "UNDETERMINED",
+                         "bound": "|2J - 2K| <= 1"}
+        return out
+
+    # K is the vector coupling of J_c with the outer electron's orbital l.
+    K2 = list(range(abs(J2c - 2 * l_out), J2c + 2 * l_out + 1, 2))
+    out["L12_2K"] = {
+        "value": K2, "admitted": K2, "status": DERIVED,
+        "bound": "index: 2K <= 2J_c + 2f_max = %d; physical: |2J_c - 2l| <= 2K"
+                 " <= 2J_c + 2l" % (J2c + 2 * CAPS["f"]),
+        "within_index_bound": all(x <= J2c + 2 * CAPS["f"] for x in K2),
+    }
+    # J is K coupled with the outer electron's spin: J = K +/- 1/2.
+    J2 = sorted({j for x in K2 for j in (x - 1, x + 1) if j >= 0})
+    out["L13_2J"] = {"value": J2, "admitted": J2, "status": DERIVED,
+                     "bound": "|2J - 2K| <= 1, which is J = K +/- 1/2"}
+    return out
+
+
+# ---------------------------------------------------------------------------
+# The spectra index
+# ---------------------------------------------------------------------------
+
+class Spectra:
+    """COORDINATES-2.13, the spectra index: (Z, charge, l, mult) -> a channel."""
+
+    def __init__(self, path):
+        self.path = path
+        self.rows = []
+        self.by_z = {}
+        if not path or not os.path.exists(path):
+            return
+        with open(path, encoding="utf-8-sig", newline="") as fh:
+            for r in csv.DictReader(fh):
+                self.rows.append(r)
+                self.by_z.setdefault(int(r["Z"]), []).append(r)
+
+    @property
+    def present(self):
+        return bool(self.rows)
+
+    def channels(self, Z, charge=None):
+        out = [r for r in self.by_z.get(Z, [])
+               if charge is None or int(r["charge"]) == charge]
+        return sorted(out, key=lambda r: (int(r["charge"]), int(r["l"]),
+                                          int(r["mult"])))
+
+
+def csv_bound(r):
+    """The CSV's B column, as the Pauli bound -- or None.
+
+    The column is OVERLOADED. In 104,807 rows it carries the integer Pauli
+    bound; in 25 measured rows from the 2026-08-14 NIST fetch it carries a
+    float, a dispersion of the median defect rather than a bound. Reading it as
+    a bound in those 25 rows is wrong, so this returns None and the report says
+    so rather than comparing an integer against a spread."""
+    v = r.get("B", "")
+    return int(v) if v.lstrip("-").isdigit() else None
+
+
+# ---------------------------------------------------------------------------
+# Lambda_8 and the tower
+# ---------------------------------------------------------------------------
+
+CAPS = dict(n=3, e=3, l=1, f=1, k=3)     # section 7.4's standing caps
+
+LAMBDA_COORDS = ["n", "l", "k", "q", "e", "f", "g", "2S"]
+LAMBDA_MEANING = {
+    "n": "source shell", "l": "source subshell", "k": "source occupancy",
+    "q": "electrons removed", "e": "target shell", "f": "target subshell",
+    "g": "target occupancy", "2S": "multiplicity",
+}
+
+
+def lambda_constraints(cell):
+    """Section 7.1's seven constraints, four origins. PINNED."""
+    n, l, k, q, e, f, g, S2 = cell
+    return [
+        ("l <= n-1", l <= n - 1, "hydrogenic radial solution"),
+        ("k <= 2(2l+1)", k <= 2 * (2 * l + 1), "Pauli exclusion"),
+        ("q <= k", q <= k, "counting"),
+        ("f <= e-1", f <= e - 1, "hydrogenic radial solution"),
+        ("g <= 2(2f+1)", g <= 2 * (2 * f + 1), "Pauli exclusion"),
+        ("g <= q", g <= q, "counting"),
+        ("2S <= k", S2 <= k, "vector coupling (an envelope)"),
+    ]
+
+
+def caps_needed(cell):
+    n, l, k, q, e, f, g, _S2 = cell
+    return dict(n=n, e=e, l=l, f=f, k=k)
+
+
+def within_caps(cell, caps=CAPS):
+    need = caps_needed(cell)
+    return {ax: need[ax] <= caps[ax] for ax in caps}
+
+
+def _sym(Ne):
+    if Ne in LW1.GROUND:
+        return LW1.GROUND[Ne][0]
+    return BEYOND_SYMBOL.get(Ne, "Z%d" % Ne)
+
+
+def ionisation_cells(Z):
+    """The ionisation ladder as Lambda_8 transition cells.
+
+    RECONSTRUCTED, and the reconstruction is stated rather than assumed.
+    Chapter 7 makes a Lambda_8 cell a TRANSITION -- a source configuration, a
+    target configuration and the electron count moved between them -- so an
+    element is not a cell and a mapping has to be chosen. The one chosen here
+    is the element's own ionisation ladder, read off the observed
+    configurations: at each step, the electrons the ion loses relative to the
+    neutral atom leave a source subshell, and the subshell that differs
+    identifies the target. Nothing else in the store fixes this mapping, so it
+    is marked RECONSTRUCTED and a later ruling can move it.
+
+    2S is the ion's own ground multiplicity where the term is known, else the
+    envelope 2S <= k leaves it undetermined and it is reported as None."""
+    out = []
+    for charge in range(2, Z + 2):
+        Ne = Z - charge + 1
+        pcfg, ccfg = config_of(Ne + 1), config_of(Ne)
+        if Ne < 1 or pcfg is None or ccfg is None:
+            continue
+        parent = {(n, l): o for n, l, o in pcfg}
+        child = {(n, l): o for n, l, o in ccfg}
+        lost = [(nl, parent[nl] - child.get(nl, 0)) for nl in parent
+                if parent[nl] > child.get(nl, 0)]
+        gained = [(nl, child[nl] - parent.get(nl, 0)) for nl in child
+                  if child[nl] > parent.get(nl, 0)]
+        if not lost:
+            continue
+        (sn, sl), q = sorted(lost)[-1]
+        k = parent[(sn, sl)]
+        if gained:
+            (tn, tl), g = sorted(gained)[-1]
+        else:
+            tn, tl, g = sn, sl, 0
+        out.append({
+            "charge": charge, "Ne": Ne,
+            "from": _sym(Ne + 1), "to": _sym(Ne),
+            "cell": (sn, sl, k, q, tn, tl, g, None),
+        })
+    return out
+
+
+# ---------------------------------------------------------------------------
+# The report
+# ---------------------------------------------------------------------------
+
+AXES = [
+    ("Z", READ, "the ground-state atomic number, the input"),
+    ("symbol", READ, "NIST ASD 5.12 via LW1-ground.py (register 1306)"),
+    ("configuration", READ, "observed ground shells, cores expanded"),
+    ("level", READ, "observed ground level"),
+    ("n", DERIVED, "principal quantum number, per occupied subshell"),
+    ("l", DERIVED, "azimuthal quantum number, per occupied subshell"),
+    ("occupancy", DERIVED, "electrons in the subshell"),
+    ("capacity", PINNED, "2(2l+1), Pauli exclusion (section 7.1)"),
+    ("n+l", DERIVED, "the Madelung/Janet coordinate (register 1188)"),
+    ("period", DERIVED, "the drawn eighteen-column layout (section 6)"),
+    ("group", DERIVED, "the same layout; None where set aside"),
+    ("block", DERIVED, "l of the differentiating electron"),
+    ("janet cell", DERIVED, "(n+l, l) of the differentiating electron; E = 0"),
+    ("charge", READ, "spectroscopic stage; 1 is neutral"),
+    ("Ne", DERIVED, "electron count of the ion, Z - charge + 1"),
+    ("p", PINNED, "the core's orbital count at this l (register 1141)"),
+    ("n0", RECON, "first entirely unoccupied n at this l; see n0_of"),
+    ("B", PINNED, "min(p, n0-l-1), the Pauli bound (register 1141)"),
+    ("delta measured", READ, "COORDINATES-2.13, grade measured/exact"),
+    ("delta equation", PINNED, "the channel equation, final form (register 1205)"),
+    ("C(Z)", RECON, "the collapse coordinate (registers 1188-1190)"),
+    ("witness", READ, "COORDINATES-2.13"),
+    ("bound", READ, "COORDINATES-2.13"),
+    ("2S", DERIVED, "Lambda_8: source multiplicity, from terms(l^k) and Hund"),
+    ("2S'", DERIVED, "Lambda_9: the target's multiplicity, 2S' <= g"),
+    ("v", PINNED, "Lambda_10: seniority, 2S' <= v <= g (section 12.11.1)"),
+    ("2J_c", DERIVED, "Lambda_11: the core's fine structure, 2J_c <= phi-hat(k)"),
+    ("2K", DERIVED, "Lambda_12: core-orbit orientation, 2K <= 2J_c + 2f_max"),
+    ("2J", DERIVED, "Lambda_13: the outer electron's spin bit, |2J - 2K| <= 1"),
+    ("terms(l^k)", PINNED, "microstate enumeration, defined at section 12.11.1"),
+    ("phi-hat(k)", PINNED, "computed from terms; equals tower-2.py's PHI at the caps"),
+    ("Lambda_8 cell", RECON, "the ionisation ladder as transitions; see ionisation_cells"),
+    ("caps", PINNED, "section 7.4's (n,e,l,k,f) = (3,3,1,3,1)"),
+]
+
+
+_R_CACHE = {}
+
+
+def layout_closure():
+    """The structural half: R over the drawn layout. Section 6 -- 90 cells
+    held, 126 admitted, E = 36, and the thirty-six are the gaps in the short
+    periods. Computed once and cached; R is cypher.py's PINNED order operator,
+    imported rather than reimplemented."""
+    if "periodic" not in _R_CACHE:
+        main = [Z for Z in range(1, 119) if not set_aside(Z)]
+        held = {(period_of(Z), group_of(Z)) for Z in main}
+        ix = cypher.Index("periodic table (period x group)",
+                          ["period", "group"], sorted(held))
+        admitted, _note = cypher.op_order(ix, {})
+        # cypher.Index recodes every coordinate value to an ordinal, because R
+        # is order-dependent (section 20.3). Decode before comparing to the
+        # layout, or the cells come back as ranks and read as the wrong groups.
+        admitted = {tuple(ix.decode[i][v] for i, v in enumerate(cell))
+                    for cell in admitted}
+        _R_CACHE["periodic"] = (held, admitted)
+    return _R_CACHE["periodic"]
+
+
+def populate(Z, spectra, charge=None, table="observed"):
+    g = ground_of(Z, table)
+    if g is None:
+        raise KeyError("Z = %d has no configuration: measurement stops at %d "
+                       "and the corpus's predictions stop at %d"
+                       % (Z, EVIDENTIARY_BOUNDARY, PREDICTED_MAX))
+    sym, shells, level = g["symbol"], g["shells"], g["level"]
+    cfg = g["config"]
+    n_e = sum(o for _n, _l, o in cfg)
+    out = {
+        "Z": Z, "symbol": sym, "shells_as_printed": shells, "level": level,
+        "config_status": g["status"], "config_basis": g["basis"],
+        "electron_count": n_e,
+        "electron_count_ok": n_e == Z,
+        "configuration": [{"n": n, "l": l, "subshell": "%d%s" % (n, LSYM[l]),
+                           "occupancy": o, "capacity": 2 * (2 * l + 1),
+                           "full": o == 2 * (2 * l + 1), "n+l": n + l}
+                          for n, l, o in cfg],
+        "period": period_of(Z), "group": group_of(Z), "block": block_of(Z),
+        "block_letter": (LSYM[block_of(Z)] if block_of(Z) is not None else None),
+        "set_aside": set_aside(Z), "janet_cell": janet_cell(Z),
+        # LW1.outer() is the seated member's and it knows Z <= 108 only, which
+        # is correct of it; above the boundary the same quantity is read off
+        # the predicted configuration instead of asking the member for a Z it
+        # does not cover.
+        "outer": (LW1.outer(Z) if Z in LW1.GROUND else cfg[-1]),
+        "level_decoded": parse_level(level) if level else
+        {"form": "not predicted", "mult": None, "S2": None, "L": None,
+         "parity": None, "J2": None, "J": None},
+    }
+    held, admitted = layout_closure()
+    out["closure"] = {
+        "held": len(held), "admitted": len(admitted),
+        "E": len(admitted) - len(held),
+        "cell_held": (out["period"], out["group"]) in held,
+        "denied_in_this_period": sorted(
+            g for (p, g) in (admitted - held) if p == out["period"]),
+    }
+
+    chans = []
+    stages = range(1, Z + 1) if charge is None else [charge]
+    seen_csv = {}
+    if spectra.present:
+        for r in spectra.channels(Z, charge):
+            seen_csv[(int(r["charge"]), int(r["l"]), int(r["mult"]))] = r
+    ls = sorted({l for (_c, l, _m) in seen_csv} | {0, 1, 2, 3})
+    for c in stages:
+        Ne = Z - c + 1
+        if Ne < 1:
+            continue
+        core = Ne - 1
+        for l in ls:
+            rows = [r for (cc, ll, _m), r in seen_csv.items()
+                    if cc == c and ll == l]
+            eq = channel_delta(Z, c, l, table)
+            B = pauli_bound(Z, c, l, config=config_of(core, table))
+            ch = {
+                "charge": c, "Ne": Ne, "l": l, "subshell_letter": LSYM[l]
+                if l < len(LSYM) else str(l),
+                "core_Ne": core,
+                "core_symbol": _sym(core) if core >= 1 else None,
+                "p": core_p(core, l, table) if core >= 1 else 0,
+                "n0": n0_of(core, l, table) if core >= 1 else None,
+                "B_computed": B,
+                "C_of_Z": collapse_C(Z, l),
+                "delta_equation": eq,
+                "tower": tower_for_channel(Z, c, l, table),
+                "measured": [],
+            }
+            for r in sorted(rows, key=lambda r: int(r["mult"])):
+                cb = csv_bound(r)
+                ch["measured"].append({
+                    "mult": int(r["mult"]), "delta": float(r["delta"]),
+                    "grade": r["grade"], "witness": r["witness"],
+                    "source": r["source"], "bound_note": r["bound"],
+                    "B_csv": cb,
+                    "B_agrees": (None if cb is None or B is None else cb == B),
+                    "B_csv_is_not_a_bound": cb is None and r.get("B", "") != "",
+                    "floor_le_B": (None if B is None
+                                   else math.floor(float(r["delta"])) <= B),
+                    "residual": (None if eq is None
+                                 else float(r["delta"]) - eq),
+                })
+            chans.append(ch)
+    out["config_table"] = table
+    out["channels"] = chans
+    out["lambda8"] = []
+    for step in ionisation_cells(Z):
+        cell = step["cell"]
+        probe = tuple(0 if v is None else v for v in cell)
+        out["lambda8"].append({
+            **step,
+            "coords": dict(zip(LAMBDA_COORDS, cell)),
+            "constraints": [{"rule": r, "holds": h, "origin": o}
+                            for r, h, o in lambda_constraints(probe)],
+            "within_caps": within_caps(probe),
+            "caps_needed": caps_needed(probe),
+        })
+    return out
+
+
+def _halves(two_j):
+    """2J as a J: 3 -> 3/2, 4 -> 2."""
+    return str(two_j // 2) if two_j % 2 == 0 else "%d/2" % two_j
+
+
+def _fmt(v, nd=4):
+    return "-" if v is None else ("%.*f" % (nd, v) if isinstance(v, float)
+                                  else str(v))
+
+
+def report(rep, show_channels=True, max_charge=None):
+    print("=" * 78)
+    print("  Z = %-4d %-3s   %s" % (rep["Z"], rep["symbol"],
+                                    rep["shells_as_printed"]))
+    print("  ground level %s   electrons %d %s"
+          % (rep["level"] or "not predicted", rep["electron_count"],
+             "OK" if rep["electron_count_ok"] else "MISMATCH"))
+    print("  configuration  [%s]  %s" % (rep["config_status"],
+                                         rep["config_basis"]))
+    if rep["config_status"] == PREDICTED:
+        print("  *** BEYOND THE EVIDENTIARY BOUNDARY at Z = %d. Section VIII "
+              "publishes Z = 109" % EVIDENTIARY_BOUNDARY)
+        print("      to 120 as PREDICTIONS -- unfitted and falsifiable, never "
+              "scored against nature.")
+        print("      Nothing below is a measurement, and none of it may be "
+              "quoted as one.")
+    print("=" * 78)
+    print()
+    print("  THE LAYOUT INDEXES                                        [DERIVED]")
+    print("    periodic table 2-D   (period, group)  = (%s, %s)%s"
+          % (rep["period"], rep["group"],
+             "   SET ASIDE from the main table (f-block)"
+             if rep["set_aside"] else ""))
+    print("    periodic table 3-D   (period, group, block) = (%s, %s, %s)"
+          % (rep["period"], rep["group"], rep["block_letter"]))
+    print("    Janet                (n+l, l) = %s     [E = 0, register 1188]"
+          % (rep["janet_cell"],))
+    cl = rep["closure"]
+    print()
+    print("  THE STRUCTURAL HALF -- R over the drawn layout          [PINNED]")
+    print("    the table holds %d cells; R admits %d; E = %d   [section 6]"
+          % (cl["held"], cl["admitted"], cl["E"]))
+    print("    this element's cell is %s"
+          % ("held" if cl["cell_held"]
+             else "NOT a main-table cell (set aside)"))
+    if cl["denied_in_this_period"]:
+        print("    in period %s, R admits and the table denies groups %s"
+              % (rep["period"],
+                 ", ".join(str(g) for g in cl["denied_in_this_period"])))
+    print("    differentiating electron: %s-block"
+          % (rep["block_letter"] or "?"))
+    print()
+    d = rep["level_decoded"]
+    print("  THE GROUND LEVEL, DECODED%s"
+          % ("[%s]" % rep["config_status"]).rjust(54 - 25 + 25))
+    if d["form"] == "not predicted":
+        print("    the entrant is predicted; the LEVEL is not. 2S, L and J "
+              "are undetermined here.")
+    elif d["form"] == "LS":
+        print("    %-12s form LS   multiplicity %d (2S = %d)   L = %s (%d)   "
+              "parity %s   J = %s (2J = %d)"
+              % (rep["level"], d["mult"], d["S2"], TERM_L[d["L"]], d["L"],
+                 d["parity"], d["J"], d["J2"]))
+    elif d["form"] == "jj":
+        print("    %-12s form jj (%s)   J = %s (2J = %d)   -- no LS term, so "
+              "2S and L are not defined here"
+              % (rep["level"], d.get("pair"), d["J"], d["J2"]))
+    elif d["form"] == "J only":
+        print("    %-12s only J is known: J = %s (2J = %d)"
+              % (rep["level"], d["J"], d["J2"]))
+    else:
+        print("    %-12s not parsed" % rep["level"])
+    print()
+    print("  THE GROUND CONFIGURATION, PER SUBSHELL%s"
+          % ("[%s]" % rep["config_status"]).rjust(31))
+    print("    %-8s %-3s %-3s %-6s %-9s %-5s" %
+          ("subshell", "n", "l", "occ", "capacity", "n+l"))
+    for s in rep["configuration"]:
+        print("    %-8s %-3d %-3d %-6d %-9d %-5d %s"
+              % (s["subshell"], s["n"], s["l"], s["occupancy"],
+                 s["capacity"], s["n+l"], "full" if s["full"] else ""))
+    print()
+
+    if show_channels and rep["channels"]:
+        print("  THE RYDBERG CHANNELS -- the spectra index and the equation")
+        print("    delta_eq is register 1205's channel equation [PINNED];")
+        print("    delta is COORDINATES-2.13 [READ]; B is the Pauli bound [PINNED].")
+        print()
+        print("    %-4s %-4s %-3s %-5s %-4s %-4s %-4s %-9s %-9s %-9s %s"
+              % ("chg", "Ne", "l", "mult", "p", "n0", "B", "delta_eq", "delta",
+                 "resid", "grade"))
+        shown = 0
+        for ch in rep["channels"]:
+            if max_charge is not None and ch["charge"] > max_charge:
+                continue
+            if ch["measured"]:
+                for m in ch["measured"]:
+                    flag = ""
+                    if m["B_agrees"] is False:
+                        flag += "  B_csv=%s DIFFERS" % m["B_csv"]
+                    if m["B_csv_is_not_a_bound"]:
+                        flag += "  B column is not a bound here"
+                    if m["floor_le_B"] is False:
+                        flag += "  PAULI BOUND VIOLATED"
+                    print("    %-4d %-4d %-3d %-5d %-4s %-4s %-4s %-9s %-9s "
+                          "%-9s %s%s"
+                          % (ch["charge"], ch["Ne"], ch["l"], m["mult"],
+                             _fmt(ch["p"]), _fmt(ch["n0"]),
+                             _fmt(ch["B_computed"]),
+                             _fmt(ch["delta_equation"]), _fmt(m["delta"]),
+                             _fmt(m["residual"]), m["grade"], flag))
+                    shown += 1
+            else:
+                print("    %-4d %-4d %-3d %-5s %-4s %-4s %-4s %-9s %-9s %-9s %s"
+                      % (ch["charge"], ch["Ne"], ch["l"], "-", _fmt(ch["p"]),
+                         _fmt(ch["n0"]), _fmt(ch["B_computed"]),
+                         _fmt(ch["delta_equation"]), "-", "-",
+                         "not in the index"))
+                shown += 1
+            if shown > 400:
+                print("    ... truncated; use --charge or --json")
+                break
+        print()
+
+    if show_channels and rep["channels"]:
+        print("  THE TOWER -- Lambda_9 to Lambda_13, per Rydberg channel")
+        print("    A tower cell extends a Lambda_8 transition by the target's")
+        print("    multiplicity, its seniority and the J_c-K coupling chain")
+        print("    (section 12.11.1). A Rydberg channel is that object: a core with")
+        print("    fine structure 2J_c and one electron placed in l, so g = q = 1.")
+        print("    Bounds are tower-2.py's; values are the coupling the core admits.")
+        print()
+        print("    %-4s %-3s %-7s %-4s %-5s %-5s %-4s %-6s %-9s %s"
+              % ("chg", "l", "core", "k", "2S", "2S'", "v", "2J_c", "2K",
+                 "2J   (levels)"))
+        n = 0
+        for ch in rep["channels"]:
+            if max_charge is not None and ch["charge"] > max_charge:
+                continue
+            t = ch["tower"]
+            if not t:
+                continue
+            ct = t["core_term"]
+            k2 = t["L12_2K"]["value"]
+            j2 = t["L13_2J"]["value"]
+            levels = ("" if not j2 else
+                      "  J = " + ", ".join(_halves(x) for x in j2))
+            cap = ("" if t["L12_2K"].get("within_index_bound", True)
+                   else "   2K OUTSIDE 7.4: f_max = %d bounds 2K <= %d"
+                        % (CAPS["f"], (t["L11_2Jc"]["value"] or 0)
+                           + 2 * CAPS["f"]))
+            print("    %-4d %-3d %-7s %-4d %-5s %-5s %-4s %-6s %-9s %s%s%s"
+                  % (ch["charge"], ch["l"],
+                     _sym(t["core_Ne"]) if t["core_Ne"] >= 1 else "-",
+                     t["k"], _fmt(t["L8_2S"]["value"]),
+                     _fmt(t["L9_2Sprime"]["value"]),
+                     _fmt(t["L10_v"]["value"]), _fmt(t["L11_2Jc"]["value"]),
+                     ",".join(str(x) for x in k2) if k2 else "-",
+                     ",".join(str(x) for x in j2) if j2 else "-", levels, cap))
+            if ct["status"] == "UNDETERMINED":
+                print("         core term UNDETERMINED: %s" % ct["basis"])
+            n += 1
+            if n >= 40:
+                print("    ... truncated; use --charge or --json")
+                break
+        print()
+
+    if rep["lambda8"]:
+        print("  THE IONISATION LADDER AS LAMBDA_8 CELLS         [RECONSTRUCTED]")
+        print("    A Lambda_8 cell is a transition (section 7). The mapping from an")
+        print("    element to cells is not fixed by the store; this one is the")
+        print("    ionisation ladder, and its status is carried, not flattened.")
+        print()
+        print("    %-10s %-26s %-8s %s"
+              % ("step", "(n,l,k,q,e,f,g,2S)", "7 rules", "caps"))
+        for row in rep["lambda8"][:24]:
+            cell = row["cell"]
+            held = sum(1 for c in row["constraints"] if c["holds"])
+            over = [ax for ax, ok in row["within_caps"].items() if not ok]
+            caps = ("within 7.4" if not over
+                    else "OUTSIDE: needs " + ", ".join(
+                        "%s>=%d" % (ax, row["caps_needed"][ax]) for ax in over))
+            print("    %-10s %-26s %-8s %s"
+                  % ("%s->%s" % (row["from"], row["to"]),
+                     str(tuple("-" if v is None else v for v in cell)),
+                     "%d/7" % held, caps))
+        if len(rep["lambda8"]) > 24:
+            print("    ... %d more; --json for all" % (len(rep["lambda8"]) - 24))
+        print()
+
+
+def report_axes():
+    print("Every axis this tool populates, with where it comes from.")
+    print()
+    for name, status, note in AXES:
+        print("  %-16s %-14s %s" % (name, status, note))
+    print()
+    print("  READ           a measurement, from a member or the mirror")
+    print("  PINNED         the corpus defines it at the precision a program needs")
+    print("  DERIVED        arithmetic on a READ or PINNED quantity")
+    print("  RECONSTRUCTED  stated by the corpus but not in the form a program")
+    print("                 needs; reconstructed, measured, and kept as such")
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# The equation, measured against the index
+# ---------------------------------------------------------------------------
+
+def equation_report(spectra, grades=("measured",), table="observed"):
+    if not spectra.present:
+        print("the spectra index is not in the tree: %s" % spectra.path)
+        return 2
+    rows = [r for r in spectra.rows if r["grade"] in grades]
+    res, skipped = [], 0
+    for r in rows:
+        Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+        if (Z - c) >= 1 and (Z - c) not in LW1.GROUND:
+            skipped += 1
+            continue
+        eq = channel_delta(Z, c, l, table)
+        if eq is None:
+            skipped += 1
+            continue
+        res.append((float(r["delta"]) - eq, float(r["delta"]), eq, l, r))
+    if not res:
+        print("no comparable channels")
+        return 2
+    n = len(res)
+    rms = math.sqrt(sum(d * d for d, *_ in res) / n)
+    mean = sum(v for _d, v, *_ in res) / n
+    ss_tot = sum((v - mean) ** 2 for _d, v, *_ in res)
+    ss_res = sum(d * d for d, *_ in res)
+    r2 = 1 - ss_res / ss_tot if ss_tot else float("nan")
+    med = sorted(abs(d) for d, *_ in res)[n // 2]
+    print("the channel equation, final form (register 1205), against "
+          "COORDINATES-2.13")
+    print("  grades: %s   configurations: %s" % (", ".join(grades), table))
+    print("  channels compared: %d   skipped (core outside the table): %d"
+          % (n, skipped))
+    print("  rms %.4f   R2 %.4f   median |error| %.4f" % (rms, r2, med))
+    print()
+    print("  by l:")
+    for l in sorted({x[3] for x in res}):
+        sub = [d for d, _v, _e, ll, _r in res if ll == l]
+        print("    l = %d   n = %-5d rms %.4f"
+              % (l, len(sub), math.sqrt(sum(d * d for d in sub) / len(sub))))
+    print()
+    print("  RECORDED at register 1205, on a different sample: 284 channels,")
+    print("  Z = 2 to 90, charge 1 to 10, rms 0.1610, R2 0.9741, l >= 4 rms 0.0150.")
+    print("  COORDINATES-2.13 now holds %d measured channels, so the samples are"
+          % len([r for r in spectra.rows if r["grade"] == "measured"]))
+    print("  not the same and the numbers are not expected to match exactly.")
+    print("  G0c: where they disagree the finding is about the reconstruction.")
+    return 0
+
+
+def check_B(spectra):
+    """The B column against both configuration tables. This is the finding."""
+    if not spectra.present:
+        print("the spectra index is not in the tree: %s" % spectra.path)
+        return 2
+
+    order = sorted(((n, l) for n in range(1, 9) for l in range(0, min(n, 5))),
+                   key=lambda t: (t[0] + t[1], t[0]))
+
+    def aufbau(Ne):
+        out, left = [], Ne
+        for n, l in order:
+            if left <= 0:
+                break
+            take = min(2 * (2 * l + 1), left)
+            out.append((n, l, take))
+            left -= take
+        return out
+
+    obs = auf = n = 0
+    both_wrong = []
+    cores = {}
+    for r in spectra.rows:
+        b = csv_bound(r)
+        if b is None:
+            continue
+        Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+        core = Z - c
+        if not (1 <= core <= 108):
+            continue
+        n += 1
+        o = pauli_bound(Z, c, l)
+        a = pauli_bound(Z, c, l, config=aufbau(core))
+        obs += (o == b)
+        auf += (a == b)
+        if o != b and a == b:
+            cores[core] = cores.get(core, 0) + 1
+        elif o != b and a != b:
+            both_wrong.append((Z, c, l, o, a, b))
+
+    print("COORDINATES-2.13's B column, against the two configuration tables")
+    print()
+    print("  rows with an integer B and a core inside the table: %d" % n)
+    print("  B from the OBSERVED configurations (register 1306):  %6d  %.2f%%"
+          % (obs, 100.0 * obs / n))
+    print("  B from AUFBAU configurations:                        %6d  %.2f%%"
+          % (auf, 100.0 * auf / n))
+    print()
+    print("  The B column was built on AUFBAU, and register 1306 withdrew that")
+    print("  table: 'Every previous version built configurations by aufbau and")
+    print("  patched exceptions by hand; that table was wrong at Pd ... and at Lr.'")
+    print("  The spectra index has not been rebuilt on the observed table.")
+    print()
+    print("  cores where aufbau matches the column and observation does not:")
+    for core, cnt in sorted(cores.items(), key=lambda kv: -kv[1])[:14]:
+        sym, sh, _lv = LW1.GROUND[core]
+        print("    Ne=%-4d %-3s %5d rows   observed %s" % (core, sym, cnt, sh))
+    print()
+    print("  rows neither table reproduces: %d" % len(both_wrong))
+    for x in both_wrong[:5]:
+        print("    Z=%d charge=%d l=%d  observed %s  aufbau %s  column %s" % x)
+    floats = sum(1 for r in spectra.rows if csv_bound(r) is None)
+    print()
+    print("  and %d rows carry a NON-INTEGER B -- a dispersion, not a bound."
+          % floats)
+    print("  The column is overloaded; those rows are not compared.")
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# Self-test
+# ---------------------------------------------------------------------------
+
+def selftest(spectra):
+    fails, checked = [], 0
+
+    def check(cond, msg):
+        nonlocal checked
+        checked += 1
+        if not cond:
+            fails.append(msg)
+
+    # --- the seated members, as imported -----------------------------------
+    check(len(LW1.GROUND) == 108,
+          "LW1-ground.py holds %d elements, register 1306 says 108"
+          % len(LW1.GROUND))
+    bad = [Z for Z in LW1.GROUND if LW1.occ_count(Z) != Z]
+    check(not bad, "electron counts fail at %s; register 1306 says 108 of 108"
+          % bad[:5])
+    check(len(TOWER.L8()) == 976,
+          "tower-2.py gives |L8| = %d at section 7.4's caps, expected 976"
+          % len(TOWER.L8()))
+    for d, want in ((9, 1654), (10, 2535), (11, 13585), (12, 70905),
+                    (13, 199130)):
+        got = len(TOWER.STAGES[d]())
+        check(got == want, "|L%d| = %d, section 12.11.0.10 says %d"
+              % (d, got, want))
+
+    # --- the layout: chapter 6's ninety ------------------------------------
+    main = [Z for Z in range(1, 119) if not set_aside(Z)]
+    check(len(main) == 90,
+          "the main table holds %d cells, section 6 says 90" % len(main))
+    check(len({(period_of(Z), group_of(Z)) for Z in main}) == 90,
+          "the ninety cells are not distinct in (period, group)")
+    check(len([Z for Z in range(1, 119) if set_aside(Z)]) == 28,
+          "the f-block rows set aside are not 28")
+    for Z, want in ((1, (1, 1)), (2, (1, 18)), (3, (2, 1)), (10, (2, 18)),
+                    (19, (4, 1)), (20, (4, 2)), (21, (4, 3)), (26, (4, 8)),
+                    (36, (4, 18)), (57, (6, 3)), (72, (6, 4)), (86, (6, 18)),
+                    (89, (7, 3)), (104, (7, 4)), (118, (7, 18))):
+        got = (period_of(Z), group_of(Z))
+        check(got == want, "Z=%d lands at %s, the layout puts it at %s"
+              % (Z, got, want))
+    check(group_of(58) is None and group_of(92) is None,
+          "a lanthanide or actinide was given a main-table group")
+
+    # --- blocks and the Janet coordinate -----------------------------------
+    for Z, want in ((19, 0), (21, 2), (31, 1), (58, 3)):
+        check(block_of(Z) == want,
+              "Z=%d differentiates into block %s, expected %s"
+              % (Z, block_of(Z), want))
+    # Register 1188: the n+l = 5 block opens at Sc, 7 at La, 8 at Ac.
+    for Z, want in ((21, 5), (57, 7), (89, 8)):
+        cell = janet_cell(Z)
+        check(cell is not None and cell[0] == want,
+              "Z=%d sits in Janet block %s, register 1188 says n+l = %d"
+              % (Z, cell, want))
+
+    # --- the collapse thresholds, register 1188 ----------------------------
+    # The ramp reaches exactly 0.5 at the Janet boundary, 0 four below it and
+    # 1 four above -- inverted out of COORDINATES-2.13's computed column.
+    for l, z0 in COLLAPSE_Z.items():
+        check(collapse_C(z0, l) == 0.5,
+              "C at the l=%d Janet boundary Z=%d is %s, not 0.5"
+              % (l, z0, collapse_C(z0, l)))
+        check(collapse_C(z0 - 4, l) == 0.0 and collapse_C(z0 + 4, l) == 1.0,
+              "the l=%d ramp is not eight wide about Z=%d" % (l, z0))
+    for Z, want in ((18, 0.125), (19, 0.25), (20, 0.375), (21, 0.5),
+                    (25, 1.0), (17, 0.0)):
+        check(abs(collapse_C(Z, 2) - want) < 1e-12,
+              "C(%d, 2) = %s, the index inverts to %s"
+              % (Z, collapse_C(Z, 2), want))
+    check(collapse_C(50, 4) == 0.0 and collapse_C(50, 7) == 0.0,
+          "C is non-zero above l = 3, where the index inverts to exactly 0")
+
+    # --- the channel equation ----------------------------------------------
+    # Register 5193: at Ne = 1 the (Ne-1)/Ne factor vanishes identically, for
+    # every charge and every C(Z). The hydrogenic output is exactly zero and
+    # no parameter can move it.
+    for Z in (1, 20, 50, 92):
+        for l in (0, 2, 3):
+            d = channel_delta(Z, Z, l)          # charge = Z is one electron
+            check(d == 0.0,
+                  "hydrogenic channel Z=%d l=%d returns %r, register 1205 "
+                  "says exactly zero" % (Z, l, d))
+    check(channel_delta(19, 1, 0) > channel_delta(19, 1, 3),
+          "the equation does not fall with l for K I")
+
+    # --- the Pauli bound, and its reconstruction ---------------------------
+    # He I ns: the core is 1s(1), so p = 1 and the first ENTIRELY unoccupied
+    # ns is n = 2, giving B = 1. The other reading of n0 gives 0.
+    check(pauli_bound(2, 1, 0) == 1,
+          "He I ns has B = %s, COORDINATES-2.13 gives 1" % pauli_bound(2, 1, 0))
+    check(pauli_bound(4, 1, 0) == 2, "Be I ns has B = %s, expected 2"
+          % pauli_bound(4, 1, 0))
+
+    # --- Lambda_8's seven constraints, on a known cell ---------------------
+    inside = TOWER.L8()[0]
+    check(all(h for _r, h, _o in lambda_constraints(inside)),
+          "a cell of L8 fails one of section 7.1's seven constraints")
+    check(len(lambda_constraints(inside)) == 7,
+          "section 7.1 states seven constraints")
+    bad_cell = (1, 1, 1, 1, 1, 0, 1, 1)          # l <= n-1 fails
+    check(not lambda_constraints(bad_cell)[0][1],
+          "the l <= n-1 constraint does not fire on a cell that breaks it")
+
+    # --- R, imported rather than reimplemented -----------------------------
+    _held_st, admitted = layout_closure()
+    check(admitted is not None, "cypher.op_order returned no admitted set")
+    if admitted is not None:
+        E = len(admitted) - 90
+        check(E == 36, "R admits %d cells over the ninety, so E = %d; "
+                       "section 6 says 36" % (len(admitted), E))
+        # Section 6 names the thirty-six exactly: (p1,g2)..(p1,g17),
+        # (p2,g3)..(p2,g12) and (p3,g3)..(p3,g12).
+        held = {(period_of(Z), group_of(Z)) for Z in main}
+        denied = admitted - held
+        want = ({(1, g) for g in range(2, 18)}
+                | {(2, g) for g in range(3, 13)}
+                | {(3, g) for g in range(3, 13)})
+        check(denied == want,
+              "the cells R admits and the table denies are not section 6's "
+              "thirty-six; %d differ" % len(denied ^ want))
+
+    # --- the evidentiary boundary at Z = 108 --------------------------------
+    check(ground_of(108)["status"] == READ,
+          "Hs at Z = 108 is not READ; it is the last measured element")
+    check(ground_of(109)["status"] == PREDICTED,
+          "Z = 109 is not PREDICTED; section VIII puts the boundary at 108")
+    for Z, nl in ((110, (6, 2)), (112, (6, 2)), (113, (7, 1)),
+                  (118, (7, 1)), (119, (8, 0)), (120, (8, 0))):
+        check(entrant_of(Z) == nl,
+              "the entrant at Z = %d is %s; section VIII says %s"
+              % (Z, entrant_of(Z), nl))
+    for Z in range(109, 121):
+        g = ground_of(Z)
+        check(g is not None, "no predicted configuration at Z = %d" % Z)
+        if g:
+            check(sum(o for _n, _l, o in g["config"]) == Z,
+                  "the predicted configuration at Z = %d holds %d electrons"
+                  % (Z, sum(o for _n, _l, o in g["config"])))
+            check(g["level"] is None,
+                  "a ground LEVEL is claimed at Z = %d; section VIII predicts "
+                  "the entrant only" % Z)
+    check(ground_of(121) is None,
+          "a configuration is offered at Z = 121; the predictions stop at 120")
+    # Og closes the 7p shell; 119 and 120 open 8s.
+    og = {(n, l): o for n, l, o in ground_of(118)["config"]}
+    check(og.get((7, 1)) == 6, "Og does not close 7p")
+    check(og.get((8, 0)) is None, "Og has an 8s electron")
+    check({(n, l): o for n, l, o in ground_of(120)["config"]}.get((8, 0)) == 2,
+          "Z = 120 does not close 8s")
+
+    # --- terms, phi-hat and the coupling chain ------------------------------
+    for l, k, want in ((1, 2, {(0, 0), (0, 2), (2, 1)}),        # 1S 1D 3P
+                       (1, 3, {(1, 1), (1, 2), (3, 0)}),        # 2P 2D 4S
+                       (1, 1, {(1, 1)}),                        # 2P
+                       (0, 2, {(0, 0)}),                        # 1S
+                       (2, 2, {(0, 0), (0, 2), (0, 4),
+                               (2, 1), (2, 3)})):               # 1S 1D 1G 3P 3F
+        got = set(terms(l, k))
+        check(got == want, "terms(l=%d, k=%d) = %s, the standard construction "
+                           "gives %s" % (l, k, sorted(got), sorted(want)))
+    check(terms(1, 6) == [(0, 0)], "a closed p shell is not 1S alone")
+
+    # THE decisive fixture for the whole coupling chain: phi-hat computed from
+    # the microstate enumeration must equal tower-2.py's hardcoded PHI.
+    computed_phi = {k: phi_hat(k, lmax=CAPS["l"]) for k in TOWER.PHI}
+    check(computed_phi == TOWER.PHI,
+          "phi-hat computed from terms is %s; tower-2.py hardcodes %s"
+          % (computed_phi, TOWER.PHI))
+
+    # Seniority: a term first appearing at k' has v = k'.
+    check(seniority(1, 1, 1, 1) == 1, "v of a one-electron shell is not 1")
+    check(seniority(1, 2, 0, 0) == 0, "v of 1S in p^2 is not 0")
+    check(seniority(1, 2, 2, 1) == 2, "v of 3P in p^2 is not 2")
+
+    # Ground levels, in all three forms the store carries.
+    for text, form, J2 in (("2S1/2", "LS", 1), ("1S0", "LS", 0),
+                           ("4I*15/2", "LS", 15), ("(1/2,1/2)0", "jj", 0),
+                           ("4", "J only", 8), ("5/2", "J only", 5)):
+        d = parse_level(text)
+        check(d["form"] == form and d["J2"] == J2,
+              "level %r parsed as %s with 2J = %s, expected %s and %d"
+              % (text, d["form"], d["J2"], form, J2))
+    d = parse_level("4I*15/2")
+    check(d["S2"] == 3 and d["L"] == 6 and d["parity"] == "odd",
+          "4I*15/2 decodes to 2S=%s L=%s %s, expected 3, 6, odd"
+          % (d["S2"], d["L"], d["parity"]))
+
+    # K I: the alkali doublet, derived rather than looked up. An Ar core is
+    # closed, so 2J_c = 0; the np channel couples to K = 1 and J = 1/2, 3/2 --
+    # potassium's D lines -- and the ns channel to J = 1/2, which is exactly
+    # the ground level LW1-ground.py reads, 2S1/2.
+    t = tower_for_channel(19, 1, 1)
+    check(t["L11_2Jc"]["value"] == 0, "K I's Ar core is not J = 0")
+    check(t["L13_2J"]["value"] == [1, 3],
+          "K I np gives 2J = %s, the D-doublet is 1 and 3"
+          % t["L13_2J"]["value"])
+    t0 = tower_for_channel(19, 1, 0)
+    check(t0["L13_2J"]["value"] == [1],
+          "K I ns gives 2J = %s, expected 1" % t0["L13_2J"]["value"])
+    check(parse_level(LW1.GROUND[19][2])["J2"] == 1,
+          "K's ground level is not J = 1/2")
+    # At section 7.4's caps f_max = 1, so 2K <= 2J_c + 2 and only s and p
+    # channels fit. The d channel must be reported outside, not truncated.
+    check(tower_for_channel(19, 1, 1)["L12_2K"]["within_index_bound"],
+          "K I np should sit inside the capped 2K bound")
+    check(not tower_for_channel(19, 1, 2)["L12_2K"]["within_index_bound"],
+          "K I nd should be reported OUTSIDE the capped 2K bound")
+
+    # The whole coupling chain, against measurement. Where a configuration has
+    # a closed or single open subshell, Hund on terms(l^k) must reproduce the
+    # ground level NIST recorded -- 2S, L and J, all three. It does, 92 times
+    # out of 92, which is the evidence that terms(), hund_ground_term() and
+    # parse_level() agree with the physics and not merely with each other.
+    hok = hbad = 0
+    for Zi, (_sym, _sh, lvl) in LW1.GROUND.items():
+        ct = core_term(LW1.expand(Zi))
+        d = parse_level(lvl)
+        if ct["status"] != DERIVED or d["form"] != "LS":
+            continue
+        if (ct["S2"], ct["L"], ct["J2"]) == (d["S2"], d["L"], d["J2"]):
+            hok += 1
+        else:
+            hbad += 1
+    check(hok + hbad >= 90, "only %d elements were available to test Hund "
+                            "against the observed levels" % (hok + hbad))
+    check(hbad == 0, "Hund on terms(l^k) misses the observed ground level for "
+                     "%d of %d elements" % (hbad, hok + hbad))
+
+    # --- the equation against the index it generated ------------------------
+    # The p > 0 branch is register 1205's, coefficient for coefficient; the
+    # p = 0 branch carries the RECOVERED ramp. Together they reproduce the
+    # computed column of COORDINATES-2.13 -- which is the evidence that the
+    # recovery is right, since nothing was fitted to it.
+    if spectra.present:
+        comp = [r for r in spectra.rows if r["grade"] == "computed"]
+        for table, floor in (("aufbau", 0.980), ("observed", 0.970)):
+            ok = tot = 0
+            for r in comp:
+                Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+                if not (1 <= Z - c <= 108):
+                    continue
+                got = channel_delta(Z, c, l, table)
+                if got is None:
+                    continue
+                tot += 1
+                ok += abs(got - float(r["delta"])) < 5e-4
+            check(tot > 100000, "only %d computed rows compared" % tot)
+            check(ok / tot >= floor,
+                  "the equation reproduces %.3f%% of the computed column under "
+                  "%s configurations, expected at least %.1f%%"
+                  % (100.0 * ok / tot, table, 100 * floor))
+
+    # --- the spectra index --------------------------------------------------
+    if spectra.present:
+        check(len(spectra.rows) == 104832,
+              "COORDINATES-2.13 holds %d rows, coords.py's gate reads 104,832"
+              % len(spectra.rows))
+        wit = sum(1 for r in spectra.rows if r["witness"] == "witnessed")
+        check(wit == 358, "witnessed rows: %d, expected 358" % wit)
+        k1 = [r for r in spectra.channels(19, 1)]
+        check(bool(k1), "no K I channels in the spectra index")
+        # The B column is overloaded; exactly the 2026-08-14 NIST fetch rows
+        # carry a float where a bound belongs.
+        floats = [r for r in spectra.rows if csv_bound(r) is None]
+        check(len(floats) == 25,
+              "%d rows carry a non-integer B, expected 25" % len(floats))
+        check(all(r["grade"] == "measured" for r in floats),
+              "a non-measured row carries a non-integer B")
+    else:
+        print("  note: the spectra index is not in the tree; its fixtures are "
+              "skipped")
+
+    print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
+    for f in fails:
+        print("  FAIL " + f)
+    print()
+    print("SELFTEST OK" if not fails else "SELFTEST FAILED")
+    return 0 if not fails else 1
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="Populate an element on every axis of every index.")
+    ap.add_argument("--z", type=int)
+    ap.add_argument("--element")
+    ap.add_argument("--charge", type=int,
+                    help="restrict to one spectroscopic stage; 1 is neutral")
+    ap.add_argument("--spectra", default=DEFAULT_SPECTRA)
+    ap.add_argument("--config", choices=sorted(CONFIG_TABLES),
+                    default="observed",
+                    help="which configuration table the derived quantities use: "
+                         "'observed' is register 1306's, the store's; 'aufbau' "
+                         "is the withdrawn one COORDINATES-2.13 was built on, "
+                         "and reproduces the index as it stands")
+    ap.add_argument("--max-charge", type=int, default=6,
+                    help="stages to print in the channel table (default 6)")
+    ap.add_argument("--no-channels", action="store_true")
+    ap.add_argument("--axes", action="store_true")
+    ap.add_argument("--equation", action="store_true")
+    ap.add_argument("--check-B", dest="check_b", action="store_true")
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args(argv)
+
+    if args.axes:
+        return report_axes()
+
+    spectra = Spectra(args.spectra)
+
+    if args.selftest:
+        return selftest(spectra)
+    if args.equation:
+        return equation_report(spectra, table=args.config)
+    if args.check_b:
+        return check_B(spectra)
+
+    Z = args.z
+    if Z is None and args.element:
+        Z = SYMBOL_TO_Z.get(args.element)
+        if Z is None:
+            ap.error("unknown element %r" % args.element)
+    if Z is None:
+        ap.error("name an element with --element or --z")
+
+    try:
+        rep = populate(Z, spectra, args.charge, args.config)
+    except KeyError as exc:
+        msg = exc.args[0] if exc.args and isinstance(exc.args[0], str) else (
+            "Z = %s has no configuration in the store" % exc.args[0])
+        print(msg, file=sys.stderr)
+        return 2
+
+    if args.json:
+        json.dump(rep, sys.stdout, indent=2, default=str)
+        print()
+        return 0
+    report(rep, show_channels=not args.no_channels,
+           max_charge=args.charge or args.max_charge)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: populate.py>>>
+
+<<<FILE: phihat.py>>>
+#!/usr/bin/env python3
+"""tools/phihat.py -- phi-hat at arbitrary caps, and which form of it is right.
+
+r2lib.py L391-392 records what is missing:
+
+    "Its companion phi_at is NOT lifted: it depends on TERMS, which is still
+     owed."
+
+This supplies both. TERMS is section 12.11.1's microstate enumeration, run
+rather than described; phi_at is phi-hat at any caps, computed rather than
+hardcoded at the three values tower-2.py carries.
+
+THE TOOL TAKES NO POSITION ON WHICH FORM IS RIGHT. Section 12.11.1 gives
+phi-hat's genus and one value set -- "the monotone envelope of k -> max 2J over
+the parent shells admitted by the caps, so phi-hat = {1: 3, 2: 4, 3: 5} at
+7.4's" -- and never says over what the envelope is taken. Members print it two
+ways. So the candidate forms are DATA, exactly as cypher.py's language rosters
+are data, and the tool MEASURES each against the numbers the corpus records
+rather than asserting one. The comparison decides.
+
+    python3 tools/phihat.py --candidates          # the forms, as data
+    python3 tools/phihat.py --compare             # every form against the record
+    python3 tools/phihat.py --phi --caps 3,3,1,3,1
+    python3 tools/phihat.py --tower --caps 4,4,2,6,2 --form running-max
+    python3 tools/phihat.py --max2j --l 3
+    python3 tools/phihat.py --selftest
+
+Stdlib only, Python 3.9+.
+
+WITNESS STATUS, AND IT IS CARRIED. Every count this tool prints is
+THEORETICAL: proven by construction on the lattice, never verified by
+spectroscopic measurement. M's ruling: such a figure is publishable as
+theoretically proven but not yet witnessed, and the label travels with it. A
+tower count is not a measurement and this tool never prints one as though it
+were.
+
+Three things it refuses to do:
+
+  1. It never asserts a form. --compare reports what each candidate reproduces
+     and what it fails; if several are indistinguishable on the record it says
+     so, because that is the finding.
+
+  2. It never prints a count without its witness status. THEORETICAL is not a
+     hedge, it is the class the figure belongs to.
+
+  3. It never edits a seated member. phi_at is owed to r2lib; lifting it there
+     is a close action under close.py --append, not this tool's to take.
+"""
+
+from __future__ import annotations
+
+import argparse
+import collections
+import itertools
+import json
+import os
+import sys
+
+def _repo_root(start=None):
+    """The repository root, found by walking up for method/verify.py.
+
+    An instrument travels as a bundle member (chat 68's standing half), so the
+    same file runs from tools/ and from method/members/ and must locate the
+    store from either. Walking up for a landmark does that; a fixed number of
+    dirname() calls does not."""
+    d = os.path.dirname(os.path.abspath(start or __file__))
+    for _ in range(6):
+        if os.path.exists(os.path.join(d, "method", "verify.py")):
+            return d
+        parent = os.path.dirname(d)
+        if parent == d:
+            break
+        d = parent
+    return os.path.dirname(os.path.dirname(os.path.abspath(start or __file__)))
+
+
+REPO = _repo_root()
+
+THEORETICAL = "THEORETICAL"      # proven by construction, never witnessed
+CAPS_74 = (3, 3, 1, 3, 1)        # section 7.4's standing caps (n, e, l, k, f)
+
+_TERMS = {}
+
+
+def terms(l, k):
+    """The multiset of LS terms (2S, L) of l^k, by microstate enumeration.
+
+    Section 12.11.1, executed: "list every way of placing k electrons in the
+    2(2l+1) spin-orbitals, accumulate (2M_L, 2M_S), and strip complete (2S, 2L)
+    blocks from the largest M_L down until the list is empty."
+
+    This is TERMS, which r2lib records as owed."""
+    key = (l, k)
+    if key in _TERMS:
+        return _TERMS[key]
+    if k < 0 or k > 2 * (2 * l + 1):
+        _TERMS[key] = []
+        return []
+    orb = [(ml, ms2) for ml in range(l, -l - 1, -1) for ms2 in (1, -1)]
+    cnt = collections.Counter()
+    for c in itertools.combinations(orb, k):
+        cnt[(sum(o[0] for o in c), sum(o[1] for o in c))] += 1
+    out = []
+    while cnt:
+        ML = max(m for (m, _s) in cnt)
+        MS2 = max(s for (m, s) in cnt if m == ML)
+        out.append((MS2, ML))
+        for ml in range(-ML, ML + 1):
+            for ms2 in range(-MS2, MS2 + 1, 2):
+                cnt[(ml, ms2)] -= 1
+                if cnt[(ml, ms2)] <= 0:
+                    del cnt[(ml, ms2)]
+    out.sort()
+    _TERMS[key] = out
+    return out
+
+
+def max2J(l, k):
+    """max 2J over the terms of l^k. Main L3368: "max2J(l,k), unimodal with its
+    peak at half filling, 25 at f7, zero at closure, for the core's J." The
+    corpus names this separately from phi-hat, and that separation is the whole
+    question this tool exists to settle."""
+    return max((2 * L + s2 for s2, L in terms(l, k)), default=0)
+
+
+def shells(caps):
+    """The parent shells admitted by the caps: l from 0 to l_max."""
+    return range(0, caps[2] + 1)
+
+
+def half_filling(l):
+    return 2 * l + 1
+
+
+# ---------------------------------------------------------------------------
+# The candidate forms. DATA, not a decision.
+# ---------------------------------------------------------------------------
+
+def _pointwise(k, caps):
+    return max((max2J(l, k) for l in shells(caps) if k <= 2 * (2 * l + 1)),
+               default=0)
+
+
+def _running_max(k, caps):
+    return max((_pointwise(j, caps) for j in range(1, k + 1)), default=0)
+
+
+def _fold(k, caps):
+    best = 0
+    for l in shells(caps):
+        cap = 2 * (2 * l + 1)
+        if k > cap:
+            continue
+        best = max(best, max2J(l, k), max2J(l, cap - k))
+    return best
+
+
+def _clamp_half(k, caps):
+    best = 0
+    for l in shells(caps):
+        if k > 2 * (2 * l + 1):
+            continue
+        best = max(best, max2J(l, min(k, half_filling(l))))
+    return best
+
+
+def _global_max(k, caps):
+    return max((_pointwise(j, caps) for j in range(1, caps[3] + 1)), default=0)
+
+
+CANDIDATES = {
+    "pointwise": (_pointwise,
+                  "max 2J over terms of l^k at occupancy exactly k. The form "
+                  "printed at MC L1686 and Transitions A15 L1819, both without "
+                  "an envelope operation."),
+    "running-max": (_running_max,
+                    "max over k' <= k of the pointwise value: the monotone "
+                    "majorant. Section 12.11.2, main L3383: 'Each admissible "
+                    "extension is the monotone envelope of its physics.'"),
+    "fold": (_fold,
+             "max over the particle-hole conjugate pair, k and 4l+2-k. Uses "
+             "section 8.4's conjugation directly."),
+    "clamp-half": (_clamp_half,
+                   "the pointwise value at min(k, half filling) per shell. "
+                   "Saturates at the unimodal peak rather than majorising."),
+    "global-max": (_global_max,
+                   "constant at the largest pointwise value under the caps. "
+                   "The crudest monotone envelope there is."),
+}
+
+
+def phi_at(caps, form="running-max"):
+    """phi-hat at arbitrary caps -- the function r2lib records as owed.
+
+    Returns {k: phi-hat(k)} for k = 1 .. k_max. tower-2.py hardcodes
+    {1:3, 2:4, 3:5}; this computes it, at any caps, under any candidate form."""
+    fn = CANDIDATES[form][0]
+    return {k: fn(k, caps) for k in range(1, caps[3] + 1)}
+
+
+# ---------------------------------------------------------------------------
+# The tower, counted rather than enumerated
+# ---------------------------------------------------------------------------
+
+def tower_counts(caps, form="running-max"):
+    """|Lambda_8| .. |Lambda_13| at the given caps under the given form.
+
+    Counted combinatorially: Lambda_13 at (5,5,2,6,2) holds 77 million cells
+    and enumerating them to count them is a waste of a machine."""
+    nmax, emax, lmax, kmax, fmax = caps
+    phi = phi_at(caps, form)
+    c8 = c9 = c10 = c11 = c12 = c13 = 0
+    for n in range(1, nmax + 1):
+        for l in range(0, min(lmax, n - 1) + 1):
+            for k in range(1, min(kmax, 4 * l + 2) + 1):
+                ph = phi[k]
+                # 2J_c in [0, ph]; 2K in [0, 2J_c + 2 f_max]; 2J in [|2K-1|, 2K+1]
+                n_jc = ph + 1
+                n_jc_k = sum(jc + 2 * fmax + 1 for jc in range(0, ph + 1))
+                n_jc_k_j = sum(len(range(max(0, K2 - 1), K2 + 2))
+                               for jc in range(0, ph + 1)
+                               for K2 in range(0, jc + 2 * fmax + 1))
+                for q in range(0, k + 1):
+                    for e in range(1, emax + 1):
+                        for f in range(0, min(fmax, e - 1) + 1):
+                            for g in range(0, min(4 * f + 2, q) + 1):
+                                n_s = k + 1                    # 2S in [0, k]
+                                n_sp = g + 1                   # 2S' in [0, g]
+                                # v in [2S', g] summed over 2S'
+                                n_v = sum(g - sp + 1 for sp in range(0, g + 1))
+                                c8 += n_s
+                                c9 += n_s * n_sp
+                                c10 += n_s * n_v
+                                c11 += n_s * n_v * n_jc
+                                c12 += n_s * n_v * n_jc_k
+                                c13 += n_s * n_v * n_jc_k_j
+    return {8: c8, 9: c9, 10: c10, 11: c11, 12: c12, 13: c13}
+
+
+def pauli_consistent(caps):
+    """Can the largest admitted shell actually hold k_max electrons?
+
+    Section 7.1's k <= 2(2l+1) is Pauli exclusion. A cap setting with
+    k_max > 2(2 l_max + 1) asks for an occupancy no admitted shell can carry,
+    and the seven constraints already forbid it. It matters here because two
+    candidate forms of phi-hat differ ONLY on such settings."""
+    return caps[3] <= 2 * (2 * caps[2] + 1)
+
+
+def divergence(form_a, form_b, sweep=None):
+    """Where two candidate forms part, and whether they part anywhere the
+    caps are Pauli-consistent."""
+    sweep = sweep or [(n, e, l, k, f)
+                      for n in (3, 4, 5) for e in (3, 4, 5)
+                      for l in (0, 1, 2, 3) for k in range(1, 15)
+                      for f in (0, 1, 2)]
+    all_diff, phys_diff, phys = [], [], 0
+    for caps in sweep:
+        same = phi_at(caps, form_a) == phi_at(caps, form_b)
+        if not same:
+            all_diff.append(caps)
+        if pauli_consistent(caps):
+            phys += 1
+            if not same:
+                phys_diff.append(caps)
+    return {"swept": len(sweep), "differ": len(all_diff),
+            "pauli_consistent": phys, "differ_when_pauli_consistent":
+            len(phys_diff), "examples": all_diff[:5]}
+
+
+def monotone(phi):
+    ks = sorted(phi)
+    return all(phi[a] <= phi[b] for a, b in zip(ks, ks[1:]))
+
+
+# ---------------------------------------------------------------------------
+# The record. Every fixture is a number the corpus states about itself.
+# ---------------------------------------------------------------------------
+
+FOUR_CAPS = [(3, 3, 1, 3, 1), (4, 4, 2, 4, 1),
+             (4, 4, 2, 6, 2), (5, 5, 2, 6, 2)]
+
+RECORD = {
+    # main L3072, MC L1686, tower-2.py's PHI
+    "phi at 7.4's caps = {1:3, 2:4, 3:5}":
+        lambda f: phi_at(CAPS_74, f) == {1: 3, 2: 4, 3: 5},
+    # section 12.11.0.10's table, every stage
+    "|L8..L13| at 7.4's caps = 976/1654/2535/13585/70905/199130":
+        lambda f: tower_counts(CAPS_74, f) == {8: 976, 9: 1654, 10: 2535,
+                                               11: 13585, 12: 70905,
+                                               13: 199130},
+    # main L3124-3125, the four-cap sweep
+    "|L13| at the four caps = 199130/4731790/40310170/77083771":
+        lambda f: [tower_counts(c, f)[13] for c in FOUR_CAPS] ==
+                  [199130, 4731790, 40310170, 77083771],
+    # main L3122: "phi-hat stays monotone" across those same four
+    "phi-hat monotone at all four caps":
+        lambda f: all(monotone(phi_at(c, f)) for c in FOUR_CAPS),
+    # r2lib L390-391: L8_at's own documented returns
+    "|L8| = 976 / 1636 / 2394 at (3,3,1,3,1) / (3,3,1,4,1) / (4,3,1,4,1)":
+        lambda f: [tower_counts(c, f)[8] for c in
+                   ((3, 3, 1, 3, 1), (3, 3, 1, 4, 1), (4, 3, 1, 4, 1))] ==
+                  [976, 1636, 2394],
+}
+
+
+def compare(forms=None):
+    forms = forms or list(CANDIDATES)
+    rows = {}
+    for f in forms:
+        rows[f] = {}
+        for name, test in RECORD.items():
+            try:
+                rows[f][name] = bool(test(f))
+            except Exception as exc:                       # noqa: BLE001
+                rows[f][name] = "ERROR: %s" % exc
+    return rows
+
+
+def report_compare(rows):
+    names = list(RECORD)
+    print("Every candidate form of phi-hat, against the numbers the corpus")
+    print("records about itself. The tool asserts nothing; the record decides.")
+    print()
+    width = max(len(f) for f in rows)
+    for i, name in enumerate(names, 1):
+        print("  [%d] %s" % (i, name))
+    print()
+    print("  %-*s  %s" % (width, "form", "  ".join("[%d]" % i
+                                                   for i in range(1, len(names) + 1))))
+    for f, res in rows.items():
+        marks = []
+        for name in names:
+            v = res[name]
+            marks.append(" ok" if v is True else ("  x" if v is False else "err"))
+        print("  %-*s  %s" % (width, f, "  ".join(marks)))
+    print()
+    survivors = [f for f, res in rows.items()
+                 if all(res[n] is True for n in names)]
+    refuted = [f for f in rows if f not in survivors]
+    if refuted:
+        print("  REFUTED by the record: %s" % ", ".join(refuted))
+    if not survivors:
+        print("  NO candidate reproduces the whole record.")
+    elif len(survivors) == 1:
+        print("  ONE candidate reproduces the whole record: %s" % survivors[0])
+        print("  %s" % CANDIDATES[survivors[0]][1])
+    else:
+        print("  %d candidates reproduce the whole record: %s"
+              % (len(survivors), ", ".join(survivors)))
+        print()
+        # Survivors may be one function under two spellings. Measure it rather
+        # than leaving "indistinguishable on the record" as the last word.
+        for a, b in itertools.combinations(survivors, 2):
+            d = divergence(a, b)
+            if d["differ"] == 0:
+                print("  %s and %s agree at every one of the %d cap settings"
+                      % (a, b, d["swept"]))
+                print("  swept: they are one function under two spellings.")
+            elif d["differ_when_pauli_consistent"] == 0:
+                print("  %s and %s differ at %d of %d cap settings swept, and"
+                      % (a, b, d["differ"], d["swept"]))
+                print("  at NONE of the %d that are Pauli-consistent. They part"
+                      % d["pauli_consistent"])
+                print("  only where k_max exceeds the largest admitted shell's")
+                print("  capacity -- which section 7.1's k <= 2(2l+1) forbids.")
+                print("  On the admissible domain the record IS decisive.")
+            else:
+                print("  %s and %s differ at %d Pauli-consistent cap settings,"
+                      % (a, b, d["differ_when_pauli_consistent"]))
+                print("  e.g. %s. The record does not decide between them, and"
+                      % (d["examples"][0],))
+                print("  that is a question for a ruling, not for this tool.")
+    print()
+    print("  Every count above is %s: proven by construction on the lattice,"
+          % THEORETICAL)
+    print("  never verified by spectroscopic measurement.")
+    return survivors
+
+
+# ---------------------------------------------------------------------------
+# Self-test
+# ---------------------------------------------------------------------------
+
+def selftest():
+    fails, checked = [], 0
+
+    def check(cond, msg):
+        nonlocal checked
+        checked += 1
+        if not cond:
+            fails.append(msg)
+
+    # TERMS against textbook values, which is what makes the rest trustworthy.
+    for l, k, want in ((1, 2, {(0, 0), (0, 2), (2, 1)}),
+                       (1, 3, {(1, 1), (1, 2), (3, 0)}),
+                       (2, 2, {(0, 0), (0, 2), (0, 4), (2, 1), (2, 3)}),
+                       (0, 2, {(0, 0)}), (1, 6, {(0, 0)})):
+        check(set(terms(l, k)) == want,
+              "terms(%d,%d) = %s, expected %s"
+              % (l, k, sorted(set(terms(l, k))), sorted(want)))
+
+    # max2J's four recorded properties -- main L3366-3369, banked at
+    # WORKING-REGISTER L4817 against r2-ch12y.out (42a33746).
+    check(max2J(3, 7) == 25, "max2J(f^7) = %d, the record says 25" % max2J(3, 7))
+    for l in (1, 2, 3):
+        cap = 2 * (2 * l + 1)
+        row = [max2J(l, k) for k in range(0, cap + 1)]
+        check(row.index(max(row)) == half_filling(l),
+              "max2J peaks at k=%d on l=%d, half filling is %d"
+              % (row.index(max(row)), l, half_filling(l)))
+        check(row[-1] == 0, "max2J is not zero at closure on l=%d" % l)
+        check(all(max2J(l, k) == max2J(l, cap - k) for k in range(cap + 1)),
+              "max2J is not fold-symmetric on l=%d" % l)
+        check(not all(a <= b for a, b in zip(row[1:], row[2:])),
+              "max2J is monotone on l=%d; the record says unimodal" % l)
+    # section 8.4's conjugation, stated as terms not as max2J
+    for l in (1, 2):
+        cap = 2 * (2 * l + 1)
+        check(all(terms(l, k) == terms(l, cap - k) for k in range(cap + 1)),
+              "terms(l,k) != terms(l,4l+2-k) on l=%d (section 8.4)" % l)
+
+    # phi_at must reproduce tower-2.py's hardcoded PHI under at least one form.
+    got = [f for f in CANDIDATES if phi_at(CAPS_74, f) == {1: 3, 2: 4, 3: 5}]
+    check(bool(got), "no candidate reproduces tower-2.py's PHI at 7.4's caps")
+
+    # The comparison must be decisive, and it must be decisive the same way
+    # every time. If this fixture ever fails, the record has changed or a
+    # candidate has -- either is a finding, not a thing to tune.
+    rows = compare()
+    survivors = [f for f, r in rows.items() if all(v is True for v in r.values())]
+    check(sorted(survivors) == ["clamp-half", "running-max"],
+          "the record leaves %s standing; expected clamp-half and running-max"
+          % (sorted(survivors) or "nothing"))
+    for f in ("pointwise", "fold", "global-max"):
+        check(f not in survivors, "%s survives the record; it should not" % f)
+    # The printed form must be refuted, and refuted BY the four-cap counts --
+    # the only fixture that separates it, since it agrees at 7.4's caps.
+    four = "|L13| at the four caps = 199130/4731790/40310170/77083771"
+    check(rows["pointwise"][four] is False,
+          "the pointwise form is not refuted by the four-cap counts")
+    check(rows["pointwise"]["phi at 7.4's caps = {1:3, 2:4, 3:5}"] is True,
+          "the pointwise form fails already at 7.4's caps; then the ambiguity "
+          "would never have been invisible, and it was")
+
+    # The two survivors are one function on the admissible domain. If this
+    # ever fails, the record genuinely does not decide and a ruling is owed.
+    d = divergence("running-max", "clamp-half")
+    check(d["differ"] > 0,
+          "running-max and clamp-half never differ; they are the same "
+          "expression and one of them should be dropped")
+    check(d["differ_when_pauli_consistent"] == 0,
+          "running-max and clamp-half differ at %d Pauli-consistent cap "
+          "settings; the record does not decide and a ruling is owed"
+          % d["differ_when_pauli_consistent"])
+    check(d["pauli_consistent"] > 500,
+          "only %d Pauli-consistent settings were swept" % d["pauli_consistent"])
+
+    # the tower at 7.4's caps, against section 12.11.0.10's whole table
+    tc = tower_counts(CAPS_74, "running-max")
+    for d, want in ((8, 976), (9, 1654), (10, 2535), (11, 13585),
+                    (12, 70905), (13, 199130)):
+        check(tc[d] == want, "|L%d| = %d at 7.4's caps, the table says %d"
+              % (d, tc[d], want))
+
+    print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
+    for f in fails:
+        print("  FAIL " + f)
+    print()
+    print("SELFTEST OK" if not fails else "SELFTEST FAILED")
+    return 0 if not fails else 1
+
+
+def parse_caps(s):
+    parts = [int(x) for x in s.split(",")]
+    if len(parts) != 5:
+        raise ValueError("caps are (n_max, e_max, l_max, k_max, f_max)")
+    return tuple(parts)
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="phi-hat at arbitrary caps, and which form of it is right.")
+    ap.add_argument("--caps", default="3,3,1,3,1",
+                    help="n_max,e_max,l_max,k_max,f_max (default 7.4's)")
+    ap.add_argument("--form", default="running-max", choices=sorted(CANDIDATES))
+    ap.add_argument("--candidates", action="store_true")
+    ap.add_argument("--compare", action="store_true")
+    ap.add_argument("--phi", action="store_true")
+    ap.add_argument("--tower", action="store_true")
+    ap.add_argument("--max2j", action="store_true")
+    ap.add_argument("--l", type=int, default=None)
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args(argv)
+
+    if args.selftest:
+        return selftest()
+    if args.candidates:
+        print("The candidate forms of phi-hat. Data, not a decision.")
+        print()
+        for name, (_fn, note) in CANDIDATES.items():
+            print("  %-13s %s" % (name, note))
+        return 0
+    if args.compare:
+        rows = compare()
+        if args.json:
+            json.dump(rows, sys.stdout, indent=2)
+            print()
+            return 0
+        report_compare(rows)
+        return 0
+
+    caps = parse_caps(args.caps)
+    if args.max2j:
+        ls = [args.l] if args.l is not None else list(shells(caps))
+        for l in ls:
+            cap = 2 * (2 * l + 1)
+            print("  l=%d  max2J(k=0..%d) = %s   peak k=%d, half filling %d"
+                  % (l, cap, [max2J(l, k) for k in range(cap + 1)],
+                     [max2J(l, k) for k in range(cap + 1)].index(
+                         max(max2J(l, k) for k in range(cap + 1))),
+                     half_filling(l)))
+        return 0
+    if args.phi:
+        phi = phi_at(caps, args.form)
+        print("  caps %s   form %s" % (caps, args.form))
+        print("  phi-hat = %s   monotone: %s" % (phi, monotone(phi)))
+        print("  [%s]" % THEORETICAL)
+        return 0
+    if args.tower:
+        tc = tower_counts(caps, args.form)
+        print("  caps %s   form %s" % (caps, args.form))
+        for d in sorted(tc):
+            print("    |Lambda_%-2d| = %-12d [%s]" % (d, tc[d], THEORETICAL))
+        return 0
+    ap.error("name a mode: --candidates, --compare, --phi, --tower, --max2j "
+             "or --selftest")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: phihat.py>>>

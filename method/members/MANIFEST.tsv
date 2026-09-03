@@ -51,7 +51,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236171	0967efead3f95016bd6ffaa95788d5ac	1557
-compendia	DEFERRED.md	389296	483848ca985ca7b472698360f654e7e5	3412
+compendia	DEFERRED.md	395944	b636a88ccf58088668777a5670c81559	3427
 compendia	DOCKET.md	52004	db539aad03629b82cc52e9001d27852a	377
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
@@ -154,14 +154,16 @@ compendia	The_Method_1_6___The_Index_of_Indices-2.md	118373	27d387ef8a6175c1b9c8
 compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2c601a549d54db	878
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
-compendia	WORKING-REGISTER.md	907899	f28ef5b66580ec9b5fa5c055966af54c	7962
+compendia	WORKING-REGISTER.md	915403	ae416100b14a56cf63fd5c8d18d0e7b3	7981
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
 compendia	archive-split.py	30795	efa95d2cd75390221c1304db12f3f229	508
+compendia	arith.py	34334	422b06e974ec41c22dd71d9e342931ab	881
 compendia	bookindex.py	2801	8410b2152c956b71091eb28d99677b13	45
 compendia	build.py	63738	d2fa72523b1f27634d20b84922c8a984	919
 compendia	build126.py	5764	7962ef041e1e64bfff09ffb8af2944d4	159
+compendia	buildtrace.py	25983	8c643b377aa6c1220f560400bc404f19	654
 compendia	bundle.py	6787	0b7da480d03c6e77c9e70ec9b9e4903a	162
 compendia	census.py	9299	f5a73e2b595dd6215ad8d3c8910b6337	136
 compendia	channels_LIMB.py	326	185a39862e8e5b38e4b13e67f3dab0b7	10
@@ -169,6 +171,7 @@ compendia	classify.json	1371	5ed19968f4e6ebb2db8a3ffdc629529b	1
 compendia	close.py	6456	98acae678629305fad0f3830488b3ee9	90
 compendia	coords.py	8006	211687a4879c2023cfc448725c54979c	159
 compendia	crop_titles.py	807	4358151cb4c00e1a22f71943e8791f62	12
+compendia	cypher.py	28736	e8e00c2170f97883e3876b05adf7742d	667
 compendia	dclose.py	5925	02cb091e7aa80068a42a79e95d8135e1	103
 compendia	depoint.py	5965	e72e22298bb2222ed9f19d3f2dfe977a	160
 compendia	excise.py	2840	77216203a26321d36bb9b099ef4c3b5d	30
@@ -191,6 +194,9 @@ compendia	minmax.out	563	2e8fdd40d731821f77b4d344b8cfa0e8	10
 compendia	minmax.py	1824	26da1d78643f244e3e8b0fa268057300	17
 compendia	mkref.py	7199	10fc0c63b389e0b30c9f14417cb91c3d	121
 compendia	numcheck.py	795	d36764328bd1cb669d5c4fa929763be4	13
+compendia	phihat.py	22730	16a07f90e9b147a0f76d0d3c8a7d23d1	542
+compendia	pointers.py	33745	05b8793d33736ab412f342409a158bd6	797
+compendia	populate.py	71667	f625b5b72c8ef427f62943278054948d	1634
 compendia	qgraph.py	828	5aac43b570de45fe5215e2ca17ef5244	17
 compendia	r2-21a.out	25222	d4d140a98fe8d0e85aecd177b8424912	281
 compendia	r2-21a.py	21177	b98f2c83d3005ff6bff41d3b361ff2de	181
