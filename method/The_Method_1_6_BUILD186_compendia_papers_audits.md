@@ -22977,6 +22977,24 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **Two hazards this segment records and does not resolve, both for M.** (i) **A fork on the Register.** Branch `claude/cypher-analysis-method-books-826x0x` seats entries **1793–1796** while this read worked 1–1792; two lines of work on one volume need reconciling before R3 touches it. (ii) **Numbering.** This segment closes **BUILD185** in the repository while chat 152 works R3 from Drive's BUILD184; if 152 also closes a BUILD185 the two are different bundles under one name. `rebuild/REBUILD-BUILD185.md` records exactly what this build adds so that either can be rebased on the other.
 - **Not done, by design:** nothing in this segment is applied to any reader-facing volume; the emphasis class waits on the mathematics leg under RUL-128 item 1; `register_review.py` is not seated here because it is not this segment's to write; the four remaining compendia are untouched and go by class sweep under M's ruling. The chat-67 hold stands: **findings are recorded and never repaired.**
 
+### W-195 — chat 152 (Claude Code, repository session, not a Method chat), carried and re-keyed by 151-R on M's ruling — the cypher analysis built as an instrument and Λ audited against it; members cypher.py, audit_lambda.py, register_counts.py, close_main.py, CYPHER.md, AUDIT-LAMBDA.md; BUILD185 -> BUILD186 compendia. **The main-bundle half (BUILD90 -> BUILD91) is NOT carried and is parked.**
+
+- **The chat number is M's correction, and the session's own label was wrong.** The entry carried below heads itself *"W-190 — chat 153"* and names its deferred block *DEF-153*. **M has ruled there is no chat 153: this is chat 152**, the session he paused so that 151-R could close. **The body is carried VERBATIM and is not edited** — rewriting another session's entry would falsify a record — so its internal *153* labels stand as that session wrote them and are corrected here, once, in this heading and in these bullets. Its *DEF-153* block is not carried at all: it lives in the BUILD181 retired below.
+- **Why this entry is renumbered, and by whom.** Chat 152 wrote it as **W-190** and closed it into a bundle it called **BUILD181**. Chat 151-B had already spent both: its own W-190 (26b-02 / 26b-03) and its own BUILD181 `2fbcd461cf0af81e3dcbbb0510e705c7`, 345 members. **Two different bundles under one name, from one parent** — both descend from BUILD180 `ea5becc40e13debe4faaf6c7e0cde960`, so they are siblings and not a chain; chat 152's is `bfa0d975c6c915c58c513b00de0e5d2b`, 347 members. **M ruled: the Drive chain keeps the numbers.** 151-B's W-190 and BUILD181 stand, because they are in Drive and BUILD182 through BUILD185 descend from them; chat 152's entry is re-keyed **W-195** and its BUILD181 is retired as a sibling. **Nothing of its content is lost** — the six members it seated are seated here instead, byte-identical, and its bundle remains in git history on `claude/cypher-analysis-method-books-826x0x`.
+- **What is carried and what is not.** The **six members are carried**: `cypher.py` 45,232 B · `6a7ffede`, `audit_lambda.py` 10,875 B · `504c6a84`, `close_main.py` 10,111 B · `e75d871c`, `register_counts.py` 9,691 B · `6152fd71`, `CYPHER.md` 21,608 B · `e0aadc48`, `AUDIT-LAMBDA.md` 5,905 B · `b3dd3400`. **None collides by name with any of BUILD185's 416 members.** **BUILD91 is NOT carried.** It appends Register entries 1793–1796 and **repairs the front-matter counts**, and the chat-67 full hold forbids editing, corrections and Register entries until the review closes. **M has ruled that the hold question is decided before that repair is adopted**, so the volume change is parked and the main bundle here stays BUILD90 `49065309b0c4fe8e055f693aed295cca`. This is a carry of instruments, which the chat-68 ruling requires travel as members; it is not a carry of a volume change.
+- **No goldens are banked, exactly as chat 152 banked none.** MEASURED here on BUILD185's members: `cypher.py --selftest` **SELFTEST OK, exit 0** — including the rank sequence over ranks 3–20, log-concavity at every interior rank, self-duality 8 survive / 0 fixed, the Birkhoff seed at 17 join-irreducibles, and 10/10 pairs agreeing on Λ and on box ordering. `audit_lambda.py` exits 1 while its two FAILs stand and `register_counts.py` exits 1 while the drift stands, both by design, so **neither may carry a `.out`**: `gate.py run` reports a non-zero exit as ERROR, and banking one would break the sweep. `cypher.py` takes arguments and `gate.py`'s SPECIAL table is inside a seated member, which is append-only and never edited in place, so it cannot be given one either. **This is why the six seat as programs and contracts and not as banked probes.**
+- **`register_counts.py` reproduces reg1-04 on this store, running.** Run here against BUILD185's members it exits 1 with exactly three drifted figures: *mature count: printed 1,470, counted 1,471*; *mature range end, front matter: printed 1791, counted 1792*; *the front matter does not sum to itself: 94 + 70 + 1,470 = 1,634 against its own 1,635*. **This is reg1-04, reached by chat 152's instrument and by 151-R's reading independently, and it is now reproducible by running a seated member.** Chat 152 seated **entry 1796** for it and repaired it in BUILD91 at 07:53:12 UTC; 151-R recorded the same correction at 08:14:09, twenty-one minutes later, on a reading it had first taken backwards. **Whether that repair was permitted under the chat-67 hold is M's ruling and is not taken here.**
+- **The two lines are orthogonal on the Register, MEASURED, and this is a correction to W-194.** W-194 recorded branch `claude/cypher-analysis-method-books-826x0x` as *a fork on the Register, to be reconciled before R3 touches the volume*. **That characterisation is wrong and is withdrawn.** Diffed line by line over all 6,612 lines: BUILD91's Register is BUILD90's plus four entries and **two changed lines, both count sites**. **Nothing in entries 1–1792 differs otherwise.** Of 151-R's fourteen seated Register instruments run against BUILD91's member, **ten reproduce their goldens unchanged**; the four that differ do so only on extents (1635→1639, 1792→1796) or on hard-coded printed values, and **no verdict changes**. `r3-em` is wholly unaffected — 246 repairs, 29 declines, the same 29 entries, +360 B, and its reverse guard correctly recovers `27f77585` in place of `79aaf239`. The real collision was never on the Register: it was **W-190 and BUILD181, spent twice**, and it is resolved above.
+- **Carried verbatim below, as chat 152 wrote it.** Its measurements are that session's and are not re-run here except where this entry says otherwise. Its own header read *"BUILD90 → BUILD91 main and BUILD180 → BUILD181 compendia"*; that is what it did, and this entry seats only the compendia half onto BUILD185.
+
+- **No gate.** A repository session, as RUL-152's was: the §0 gate was not run, no bundle was fetched from Drive, nothing was extracted at open. `method/verify.py` was the standing check and passed throughout — 343 members, 0 mismatched, both bundles recovered. The read was from `method/members/` directly and from the `drive/` mirror's CORPUS copies. Nothing was put to M beyond four questions he answered: the operator scope, the placement, the adoption of the three reconstructed operators, and the three rulings on the audit's findings.
+- **Segment A — the instrument.** §33's cypher analysis built as a program, `cypher.py`. Seven languages, each carrying its status and its attribution: **order** PINNED (ℛ §32.4.1, matching the seated `rclose.py`), **statistics** PINNED (max-entropy on the order-k marginals, register 1174), **geometry**, **algebra** and **information** ADOPTED on M's ruling (the two-variable polytope after Carathéodory 1911; the sublattice closure after Birkhoff; the join-irreducible closure after Birkhoff 1937), **analysis** DECLARED, **documentary** silent by construction. Three states became four: a resource cap reports REFUSED and never SILENT, because a silence is a finding and a compute limit is not, and the selftest asserts that no refusal is ever reported as a silence. Rosters ship as data and `--roster` is required — docket 20x-04 / 20x-09 stays open — while `--pairs` **measures** the operator-bearing set instead of taking it from a roster. Measured on Λ the five are order, algebra, geometry, information and statistics, C(5,2) = 10 with all ten agreeing: **register 1173's count with a different membership**, statistics in and analysis out, the two special rows being analysis and documentary for two unrelated reasons — documentary has no mechanism, analysis has one but returns a magnitude rather than a cell decision.
+- **Segment A — the audit.** `audit_lambda.py`, 61 recorded claims about Λ re-derived: **59 PASS, 2 FAIL**, four findings (cyA-01 … cyA-04, designations M's). Reproduced among others: 976 cells in a 6,912 box with E = 0 in all five languages and all ten pairs agreeing; zero join and zero meet failures over all 475,800 pairs; the rank sequence entire and log-concave at every interior rank; F(1) = 976, F(−1) = 2; the largest antichain 122 by a Dilworth partition computed as a bipartite matching, and 976 = 8 × 122; seventeen join-irreducibles; **1,113,045,672 maximal chains**; 115,162 comparable intervals of which 31,604 are boxes; 116,138 meet-join boxes; binding rates 30.0 / 28.0 / 1.9; the 319-cell projection with Σ(k+1) = 976; A_q and B_q; the triangle at 911 and 280 / 240 / 40; the tower at 1,654, 1,561 and 2,535; Λ₉'s 41,682 composable pairs and 842,206 associative triples with no failure; Λ₁₀'s 485 non-composing cells, every one at g = 0. **Entries 1793–1796 carry the four findings** and are seated at BUILD91.
+- **Segment A — the route that did not exist.** `close.py` builds the compendia bundle; it reads the main bundle only for the manifest and never writes it, so a Register entry had no route into the store of record and the Register's own counts had none at all — they are two numerals INSIDE a member, which `close.py`'s change-set assertion refuses by design. **`close_main.py` is that route**, to the same discipline, and `register_counts.py` is the count tool the front matter had been kept without: `numcheck.py` checks an entry's numerals against a source section, `register_cites.py` checks citations, `bookindex.py` recomputes §32.1.1, and none maintained the extent, which is why it went stale and is why cyA-04 exists. **An entry is a heading, not a number** — 1,628 single plus docket 30's 7 grouped is the 1,635 both matters printed — and counting numbers gives 1,660 and agrees with nothing the volume says.
+- **Segment A — six items book right / instrument wrong, self-caught.** The comparable-interval and box counts (the 976 singletons counted twice; 116,138 − 976 = 115,162 exactly); the binding rates (wrong population and wrong criterion — the book states both, y_u > φ(x_v) over the 475,800 pairs); the join-irreducibles (the bottom counted, 18 − 1 = 17, Birkhoff excludes it); Λ₉′ (the tighter bound taken alone instead of conjoined — the 93 cut cells came out at (f=0, g=2, 2S′=2) as recorded); and the Register's own entry count (1,628 headings against a printed 1,635 — docket 30's seven close it exactly). **In every case the offset was exact and nameable — 976, 976, 1, 93, 7 — which is the closed index defending itself, and is why a FAIL is read twice before it is believed.**
+- **Not done, by design.** Λ_spectra's superseded state is not reconstructible: its cells are not in the tree and the index now closes at E = 0, so register 1177's geometry percentages cannot be checked at all. The violation index is not built — its cells are printed nowhere, confirmed rather than worked around, and its printed arity-3 constraint taken as a definition gives 18,792 cells at E = 648 against the recorded 2,370 at E = 30. Λ₁₁ to Λ₁₃ are not built: not for want of compute, which the pruned search reaches, but because 2J_c ≤ φ̂(k) and 2K ≤ 2J_c + 2f_max are envelopes the volumes do not state to the precision a program needs. Λ₃ is not runnable — its coordinates are continuous and its E = 0 rests on a certificate, not on enumeration. The 3-D calendar's weekday mapping is not stated. Λ's own seed, recorded at 7, is not computed: the problem is NP-hard and a greedy search did not find a 7-cell generator, a limit of the search and not evidence against the 7.
+- **Segment B — two closes.** **Main:** BUILD90 → BUILD91 by `close_main.py`, appending 1793–1796 and recounting from the appended Register — 1,639 entries, 1 to 1796, mature 165 to 1796 at 1,475 — with the Register the only changed member and the reverse guard recovering 49065309b0c4fe8e055f693aed295cca before anything was written; new md5 7ff88249adc3b00f95a30b97e879e500, 1,987,447 B, 18,485 lines. `--restage` re-extracted the members, regenerated MEMBER-INDEX.tsv and retargeted verify.py. BUILD90 is retained as a snapshot and is no longer live. **Compendia:** BUILD180 → BUILD181 with this text, DEF-153 and six new members — the four instruments and their two contracts — under `--main` the BUILD91 path, which regenerates the MANIFEST rows that BUILD91 had left stale. No ruling taken.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35176,6 +35194,18 @@ All of HANDOFF-24's list stands (none closed this chat): L8794/L11107 "eight ite
 9. **The 6,912 ambient box is carried as not verifiable on the bundle, and is not scored.** Three entries state it and one prints a checkable ratio; the reading took the ratio and set the box aside rather than scoring what it could not measure.
 10. **A FORK ON THE REGISTER, for M.** Branch `claude/cypher-analysis-method-books-826x0x` seats entries **1793-1796** while this read worked 1-1792. Two lines of work on one volume. **This needs reconciling before R3 touches the Register**, and it is not this segment's to decide.
 11. **Census: 269 rows closed across thirteen files, none left open in range.** reg13 alone carries 223, each with its own token and context. Two sub-kinds named and worth keeping: the token as part of a **name** (`always-lower` / `always-upper`, rows 1359/1360) and the token as a claim **being refuted** (rows 1409, 1250) --- stating a universal in order to knock it down is not asserting it.
+
+## Chat 152, carried and re-keyed by 151-R on M's ruling --- the cypher instruments seated, two numbering collisions resolved, and the BUILD91 volume change PARKED
+
+1. **The chat number: M has ruled there is no chat 153, and this is chat 152.** The entry carried at W-195 heads itself *"W-190 --- chat 153"* and names its deferred block *DEF-153*. **The session's own label was wrong and M corrected it.** The body is carried VERBATIM into W-195 and is **not** edited --- rewriting another session's entry would falsify a record --- so its internal *153* labels stand as that session wrote them, and the correction is made once, in the framing above them. Its *DEF-153* block is not carried at all: it lives in the BUILD181 retired at item 2.
+2. **W-190 and BUILD181 were each spent twice, and M has ruled.** Chat 151-B seated W-190 (26b-02 / 26b-03) and BUILD181 `2fbcd461cf0af81e3dcbbb0510e705c7`, 345 members; chat 152 seated a different W-190 and a different BUILD181 `bfa0d975c6c915c58c513b00de0e5d2b`, 347 members. **Both descend from BUILD180 `ea5becc40e13debe4faaf6c7e0cde960` --- siblings, not a chain.** M's ruling: **the Drive chain keeps the numbers.** 151-B's stand; chat 152's entry is re-keyed **W-195** and seated here, and its BUILD181 is retired as a sibling that remains in git history on `claude/cypher-analysis-method-books-826x0x`. Its six members are carried byte-identical and none collides by name.
+3. **The BUILD91 volume change is PARKED, and this is the item M must rule on next.** BUILD91 (`7ff88249adc3b00f95a30b97e879e500`) appends Register entries **1793--1796** and **repairs the front-matter counts** (`1635 entries, 1 to 1792` becomes `1639 entries, 1 to 1796`). The **chat-67 full hold** says every volume is read in full and that there is *no editing, no corrections, no Register entries* until the review closes; **BUILD91 does all three.** M has ruled that the hold question is settled before the repair is adopted. **Until then the main bundle stays BUILD90 `49065309b0c4fe8e055f693aed295cca` and reg1-04 is not touched.**
+4. **reg1-04 is now reproducible by running a seated member, and two lines reached it independently.** `register_counts.py` run here against BUILD185's members exits 1 with exactly three drifted figures --- mature count printed 1,470 against 1,471 counted; mature range end printed 1791 against 1792; and *the front matter does not sum to itself: 94 + 70 + 1,470 = 1,634 against its own 1,635*. Chat 152 seated **entry 1796** for it at **07:53:12 UTC**; 151-R recorded the same correction at **08:14:09**, twenty-one minutes later, on a reading it had first taken backwards. **Two sessions, two methods, one conclusion, and the arithmetic is checkable either way.** What is NOT decided here is whether 1796 supersedes reg1-04, because that turns on item 3.
+5. **W-194's "fork on the Register" is WITHDRAWN as wrong, and the withdrawal is measured.** Diffed line by line over all 6,612 lines of the member: **BUILD91's Register is BUILD90's plus four entries and two changed lines, both count sites; nothing else in entries 1--1792 differs.** Of 151-R's fourteen seated Register instruments run against BUILD91's member, **ten reproduce their goldens unchanged.** `r2-reg1a`, `r2-reg8a`, `r2-reg12` and `r2-regsweep` differ **only** on extents (1635 to 1639, 1792 to 1796) or on hard-coded printed values, and **no verdict changes in any of them**. `r3-em` is wholly unaffected: 246 repairs, 29 declines, the same 29 entries, +360 B, reverse guard recovering `27f77585` in place of `79aaf239`. **The class is robust to the append.**
+6. **What re-banking will cost, MEASURED in advance, if and when BUILD91 is adopted.** Three instruments re-bank mechanically (`r2-reg8a`, `r2-reg12`, `r2-regsweep`) because their differences are extent counts. **`r2-reg1a` must be re-TAKEN, not re-banked**: its printed-value constants are BUILD90's, so under BUILD91 it reports deviations against figures the volume no longer prints. That is an instrument fault waiting to happen and it is named here before it fires.
+7. **The six seat as programs and contracts, not as banked probes, and the reason is in the gate.** `audit_lambda.py` exits 1 while its two FAILs stand; `register_counts.py` exits 1 while the drift stands. `gate.py run` reports a non-zero exit as ERROR, so a `.out` for either would break the sweep. `cypher.py` takes arguments and `gate.py`'s SPECIAL table is inside a seated member, which is append-only and never edited in place. **Chat 152 banked no goldens for them either, and this build does not change that.** MEASURED here instead: `cypher.py --selftest` returns **SELFTEST OK, exit 0** on BUILD185's members.
+8. **Chat 152's `audit_math.py` is NOT seated and is not this build's to seat.** It sits in `tools/` on that branch, was written after its BUILD181 close, and stages **Register entry 1797** in `REGISTER-QUEUE-APPEND-cypher-audit.md`. It exits 1 while its counterexample to register 1176 stands. `docs/CYPHER.md` on that branch is likewise **newer than the seated `CYPHER.md` member** by one section, the section describing `audit_math.py`. Recorded so that the queue is not mistaken for empty and the two copies are not mistaken for a divergence.
+9. **Chat 152's `RUL-152-PENDING.md` is a stale duplicate and is not carried.** It is an earlier copy of the same compendia-scope ruling that 151-R seated at BUILD185 as `RUL-151R`, picked up when PR #7 merged to main at 04:38 UTC. **Superseded, not seated.**
 <<<END FILE: DEFERRED.md>>>
 
 <<<FILE: tower-2.out>>>
@@ -35232,6 +35262,7 @@ extent from Register L6: 1 to 1792
 bundle	name	bytes	md5	lines
 main	The_Method_1_6-2.md	779423	4aef772bad512b84d8c0888386472a74	11854
 main	The_Method_1_6___The_Register-2.md	1203491	79aaf239a42c1649e914b7cba9d5ce2a	6611
+compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
 compendia	CENSUS-CLOSURES-23a.tsv	675	7b4a6c57696563a2b96a812c4627f351	12
@@ -35296,11 +35327,12 @@ compendia	CENSUS-CLOSURES-reg9.tsv	631	42b6a3c64106cf7f69a45d3532a7d502	3
 compendia	CENSUS-CLOSURES-scf.tsv	2355	fe6b0a7ae1c0a4ab8c05cc5b1d97a097	14
 compendia	CENSUS-CLOSURES-warn.tsv	18	2deb87a95756d48874feff7dd5098af1	1
 compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
+compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236171	0967efead3f95016bd6ffaa95788d5ac	1557
-compendia	DEFERRED.md	423271	7514d6748b35db64eb7a3cb5dbf02516	3475
-compendia	DOCKET.md	68310	438adb56bdab9da8c564ddfb550c2ec8	434
+compendia	DEFERRED.md	428763	82d5d9514e0748c0fc7fc7cc447b1248	3487
+compendia	DOCKET.md	71251	9e43698927426c10450409a7e6e54e3b	445
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
 compendia	EXCISE-SITES-BUILD14.json	9383	d8b75a860415ae02adb9f980350abe2b	664
@@ -35422,11 +35454,12 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	939801	c00d13437a127c4ba44c15f9376f921f	8029
+compendia	WORKING-REGISTER.md	952117	d8b8be22809c486e77ff3ba2b2a0eb2a	8047
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
 compendia	archive-split.py	30795	efa95d2cd75390221c1304db12f3f229	508
+compendia	audit_lambda.py	10875	504c6a8484ac15856922cd89a55b398c	244
 compendia	bookindex.py	2801	8410b2152c956b71091eb28d99677b13	45
 compendia	build.py	63738	d2fa72523b1f27634d20b84922c8a984	919
 compendia	build126.py	5764	7962ef041e1e64bfff09ffb8af2944d4	159
@@ -35435,8 +35468,10 @@ compendia	census.py	9299	f5a73e2b595dd6215ad8d3c8910b6337	136
 compendia	channels_LIMB.py	326	185a39862e8e5b38e4b13e67f3dab0b7	10
 compendia	classify.json	1371	5ed19968f4e6ebb2db8a3ffdc629529b	1
 compendia	close.py	6456	98acae678629305fad0f3830488b3ee9	90
+compendia	close_main.py	10111	e75d871c0ad0f4af7791b148ac662b81	215
 compendia	coords.py	8006	211687a4879c2023cfc448725c54979c	159
 compendia	crop_titles.py	807	4358151cb4c00e1a22f71943e8791f62	12
+compendia	cypher.py	45232	6a7ffede5f691424295adaaa2c53fd47	975
 compendia	dclose.py	5925	02cb091e7aa80068a42a79e95d8135e1	103
 compendia	depoint.py	5965	e72e22298bb2222ed9f19d3f2dfe977a	160
 compendia	excise.py	2840	77216203a26321d36bb9b099ef4c3b5d	30
@@ -35634,6 +35669,7 @@ compendia	r3-wl.out	3638	1bb27e471f8429e4d6e759f528c838f1	31
 compendia	r3-wl.py	15100	791f540520bc9f48eaed81830996fa1e	184
 compendia	rclose.py	1728	707a1061b4fede0b94e288d569dc9f0e	41
 compendia	register_cites.py	2403	c38ad7ee009b9df571c143261b43e9d9	46
+compendia	register_counts.py	9691	6152fd7146e4159128eaae0fb71af598	209
 compendia	ruled_bracket.py	2721	af39145dee35a8da3c96d52d665d9159	58
 compendia	run489.py	4611	55356e24f309250ab69272ea61c9fa14	87
 compendia	run489_45.json	8365	337f720d4e2525d0b8c010d334f6d482	1199
@@ -49756,6 +49792,17 @@ detail; this is the standing index, unchanged from HANDOFF-79 except where chat 
 - **Every computational claim re-derived in the Register reproduced; no live mathematical defect surfaced in the volume.** Five reconstruction faults did, and **G0c held on every one** — including a §-resolver ending in `\s+`, which let a register heading satisfy a section reference and so **hid a known finding** until it was fixed to `[ \t]+\S` (DEF-151r item 8).
 - **A FORK ON THE REGISTER, for M:** branch `claude/cypher-analysis-method-books-826x0x` seats entries **1793–1796** while this read worked 1–1792. To be reconciled before R3 touches the volume (DEF-151r item 10).
 - **Census: 269 rows closed across thirteen files, none left open in range**, reg13 carrying 223 individually with context (DEF-151r item 11).
+
+## Chat 152 delta, carried and re-keyed by 151-R (appended; read with the chat-151-R delta above)
+
+- **The chat number is M's correction.** The entry carried at W-195 heads itself *"W-190 — chat 153"*; **M has ruled there is no chat 153 and this is chat 152**, the session he paused. The body is carried verbatim and not edited; the correction is made in the framing above it (DEF-152c item 1).
+
+- **The numbering collision is RULED: the Drive chain keeps the numbers.** W-190 and BUILD181 were each spent twice, by chat 151-B and by chat 152, both descending from BUILD180 `ea5becc4…` — siblings, not a chain. 151-B's stand; chat 152's entry is re-keyed **W-195**, its six members are seated here byte-identical, and its BUILD181 is retired as a sibling in git history. Nothing of its content is lost (DEF-152c item 1).
+- **NEW DOCKET ITEM, and it is M's to rule: did BUILD91 cross the chat-67 hold?** BUILD91 appends Register entries 1793–1796 and **repairs the front-matter counts**. The chat-67 hold forbids editing, corrections and Register entries until the review closes, and BUILD91 does all three. **The volume change is PARKED**: the main bundle here stays BUILD90 `49065309b0c4fe8e055f693aed295cca`, and reg1-04 is not touched until the ruling (DEF-152c item 2).
+- **Item 30 / reg1-04 gains an independent confirmation, and it is now a running check.** `register_counts.py` is seated and exits 1 on this store with the three drifted figures, including *94 + 70 + 1,470 = 1,634 against its own 1,635*. Chat 152 reached it by instrument and seated **entry 1796** at 07:53:12 UTC; 151-R reached it by reading at 08:14:09. **The front matter had no maintaining tool and that is why it went stale** — `numcheck.py`, `register_cites.py` and `bookindex.py` each check something else. There is now one (DEF-152c item 3).
+- **W-194's "fork on the Register" is WITHDRAWN as wrong.** Measured over all 6,612 lines: BUILD91's Register is BUILD90's plus four entries and two count-site lines, nothing else differing in 1–1792. Ten of 151-R's fourteen Register instruments reproduce unchanged against it; the four that differ do so on extents or stale constants with **no verdict changing**; `r3-em` is wholly unaffected. **The collision was W-190 and BUILD181, not the Register** (DEF-152c item 4).
+- **Named before it fires: `r2-reg1a` must be re-TAKEN and not merely re-banked** if BUILD91 is ever adopted — its printed-value constants are BUILD90's, so it would report deviations against figures the volume no longer prints. The other three affected instruments re-bank mechanically (DEF-152c item 5).
+- **Register entry 1797 is STAGED and not seated**, in chat 152's `REGISTER-QUEUE-APPEND-cypher-audit.md`, with `tools/audit_math.py` — a counterexample to register 1176's *"without exception"*, which the defect census had already flagged at row 1321. Neither is seated here and the queue is not empty (DEF-152c item 7).
 <<<END FILE: DOCKET.md>>>
 
 <<<FILE: R3-CLASS-WL.md>>>
@@ -72673,3 +72720,2081 @@ print('   instrument checks failed : %d %s' % (len(FAIL), FAIL if FAIL else ''))
 print('   APPLIED: NOTHING. This is a specification and a dry run.')
 print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - STOP')
 <<<END FILE: r3-em.py>>>
+
+<<<FILE: cypher.py>>>
+#!/usr/bin/env python3
+"""cypher.py — the cypher analysis (§33) run as a program.
+
+Given an index, ask each language of a declared roster whether it can speak of it,
+and read the answer off the pattern of who answers and who does not.
+
+    python3 tools/cypher.py --selftest
+    python3 tools/cypher.py --index spec.json --roster 1173
+    python3 tools/cypher.py --cells cells.tsv --name L_x --roster 33.1 --json
+
+Three things this program refuses to do, each because the corpus paid to learn it:
+
+  1. It never prints SILENT for a language that was never run. Register 1172 found five
+     language/index pairs asserted rather than measured; NOT-RUN is a distinct state here.
+  2. It never counts agreement at two coordinates as evidence. Register 1175: at d = 2 there
+     is one pair, so pairwise consistency and the cell coincide and every language agrees for
+     no reason. Such a run is marked DEGENERATE and its agreement is withheld.
+  3. It never picks the roster for you. Which six (or seven) languages there are is docket
+     20x-04/20x-09, open and unruled; --roster is required and the rosters are data.
+
+Each operator carries a status. PINNED means the corpus defines it at the precision a program
+needs. RECONSTRUCTED means the definition here was derived from the corpus's own pairings and
+the cited literature, and is corroborated by reproducing recorded numbers (see --selftest) but
+has not been ruled. Reports print the status beside every verdict.
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import itertools
+import json
+import sys
+from dataclasses import dataclass, asdict
+
+# --------------------------------------------------------------------- state
+
+SPEAKS, SILENT, NOT_RUN, REFUSED = "SPEAKS", "SILENT", "NOT-RUN", "REFUSED"
+
+
+class Budget(Exception):
+    """A resource cap was hit. This is NOT a silence: the operator never ran, and reporting it as
+    SILENT would manufacture a finding out of a compute limit — the precise confusion this program
+    exists to prevent (reg 1172). It reports as REFUSED and never enters the agreement arithmetic."""
+
+# PINNED   — the corpus defines the operator at the precision a program needs.
+# ADOPTED  — reconstructed from the corpus's own language-pairings plus the cited literature,
+#            corroborated against recorded numbers, and adopted by ruling. The provenance is
+#            kept rather than flattened to PINNED: a later ruling can still move it.
+# DECLARED — answers in a currency other than an admitted set; needs a witness.
+PINNED, ADOPTED, DECLARED = "PINNED", "ADOPTED", "DECLARED"
+
+
+@dataclass
+class Verdict:
+    language: str
+    state: str
+    status: str
+    admitted: int | None = None
+    E: int | None = None
+    note: str = ""
+    basis: str = ""
+
+    def row(self) -> str:
+        e = "-" if self.E is None else str(self.E)
+        a = "-" if self.admitted is None else str(self.admitted)
+        return f"  {self.language:<19} {self.state:<8} {self.status:<14} {a:>7} {e:>7}  {self.note}"
+
+
+class Index:
+    """A set of cells over ordinal coordinates."""
+
+    def __init__(self, name, coords, cells, value_order=None, declared=None, outputs=None):
+        self.name = name
+        self.coords = list(coords)
+        self.declared = declared or {}
+        self.outputs = outputs or []
+        self.warnings: list[str] = []
+
+        raw = [tuple(c) for c in cells]
+        if not raw:
+            raise ValueError("index has no cells")
+        for c in raw:
+            if len(c) != len(self.coords):
+                raise ValueError(f"cell {c} has {len(c)} values, expected {len(self.coords)}")
+
+        # R is order-dependent (§20.3: the notation was the coordinate that made the rule
+        # expressible), so every coordinate needs a declared or inferable value order.
+        vo = dict(value_order or {})
+        self.code: list[dict] = []
+        for i, name_i in enumerate(self.coords):
+            vals = {c[i] for c in raw}
+            if name_i in vo:
+                order = list(vo[name_i])
+                missing = vals - set(order)
+                if missing:
+                    raise ValueError(f"coordinate {name_i}: declared order omits {sorted(missing)}")
+            else:
+                try:
+                    order = sorted(vals, key=lambda v: (float(v), str(v)))
+                except (TypeError, ValueError):
+                    order = sorted(vals, key=str)
+                    self.warnings.append(
+                        f"coordinate {name_i!r}: no declared value order, fell back to "
+                        f"lexicographic. R depends on this order — declare it (§20.3)."
+                    )
+            self.code.append({v: r for r, v in enumerate(order)})
+
+        self.decode = [{r: v for v, r in m.items()} for m in self.code]
+        self.cells = sorted({tuple(self.code[i][v] for i, v in enumerate(c)) for c in raw})
+        if len(self.cells) != len(raw):
+            self.warnings.append(f"{len(raw) - len(self.cells)} duplicate cells collapsed")
+        self.d = len(self.coords)
+        self.alphabets = [sorted({c[i] for c in self.cells}) for i in range(self.d)]
+        self.box = 1
+        for a in self.alphabets:
+            self.box *= len(a)
+
+    def ambient(self):
+        return itertools.product(*self.alphabets)
+
+
+# ----------------------------------------------------------------- operators
+# Each returns (admitted set | None, note). None means the operator is SILENT — its
+# precondition fails on this object, which is itself the finding (§33.2).
+
+def _solve(alphabets, checks):
+    """Enumerate the cells of the ambient product satisfying every check, by depth-first search
+    with early pruning rather than by walking the product.
+
+    Every operator here is a conjunction of constraints on FEW coordinates at a time — order and
+    geometry on pairs, statistics on k-subsets — so a constraint can be tested the moment its last
+    coordinate is bound, and a failure prunes the whole subtree. The indexes this is run on are
+    sparse in their box (the tower falls from 14% fill at Lambda_8 to 0.42% at Lambda_13), so the
+    pruned search visits a small fraction of the product. Coordinates are ordered smallest-alphabet
+    first, which binds the tightest constraints soonest."""
+    d = len(alphabets)
+    order = sorted(range(d), key=lambda i: len(alphabets[i]))
+    pos = {c: p for p, c in enumerate(order)}
+    at = [[] for _ in range(d)]
+    for coords, pred in checks:
+        at[max(pos[c] for c in coords)].append(pred)
+    out = []
+    x = [None] * d
+    def rec(depth):
+        if depth == d:
+            out.append(tuple(x))
+            return
+        c = order[depth]
+        tests = at[depth]
+        for v in alphabets[c]:
+            x[c] = v
+            for t in tests:
+                if not t(x):
+                    break
+            else:
+                rec(depth + 1)
+        x[c] = None
+    rec(0)
+    return out
+
+
+def _box_guard(ix, opts):
+    """The ambient product is enumerated cell by cell, so a large box is a wall rather than a
+    slowdown. Refuse legibly instead of hanging — an audit needs a reason, not a stalled process."""
+    cap = opts.get("max_box", 8_000_000)
+    if ix.box > cap:
+        raise Budget(f"ambient box {ix.box:,} exceeds --max-box {cap:,}; "
+                     f"raise it to run this operator")
+
+
+def _cells_guard(ix, opts, name):
+    """Meet/join closures are quadratic in the working set and iterate to a fixed point."""
+    cap = opts.get("max_pairwise_cells", 8_000)
+    if len(ix.cells) > cap:
+        raise Budget(f"{name} is quadratic in the cell count and {len(ix.cells):,} exceeds "
+                     f"--max-pairwise-cells {cap:,}")
+
+
+def op_order(ix, opts):
+    """R, §32.4.1. R(X) = {x in box : x_i <= phi_ij(x_j) for all i != j},
+    phi_ij(a) = max{y_i : y in X, y_j <= a}. Matches the seated instrument rclose.py."""
+    if ix.d < 2:
+        return None, "R needs at least two coordinates"
+    _box_guard(ix, opts)
+    X, D = ix.cells, ix.d
+    phi = {}
+    for i in range(D):
+        for j in range(D):
+            if i == j:
+                continue
+            for a in ix.alphabets[j]:
+                cand = [y[i] for y in X if y[j] <= a]
+                phi[(i, j, a)] = max(cand) if cand else None
+    checks = []
+    for i in range(D):
+        for j in range(D):
+            if i != j:
+                def mk(i=i, j=j):
+                    def t(x):
+                        p = phi[(i, j, x[j])]
+                        return p is not None and x[i] <= p
+                    return t
+                checks.append(((i, j), mk()))
+    return set(_solve(ix.alphabets, checks)), "staircase closure over the ambient product"
+
+
+def op_statistics(ix, opts):
+    """Max-entropy on the order-k marginals. IPF sends a cell to zero exactly when one of its
+    k-projections is unobserved, so the support is the k-wise marginal support (register 1174)."""
+    k = opts.get("statistics_order", 2)
+    if ix.d <= k:
+        return None, f"needs more than {k} coordinates at order {k} (reg 1175)"
+    _box_guard(ix, opts)
+    subsets = list(itertools.combinations(range(ix.d), k))
+    seen = {S: {tuple(x[i] for i in S) for x in ix.cells} for S in subsets}
+    checks = [(S, (lambda S=S, m=seen[S]: lambda x: tuple(x[i] for i in S) in m)())
+              for S in subsets]
+    return (set(_solve(ix.alphabets, checks)),
+            f"max-entropy support on the order-{k} marginals")
+
+
+def op_geometry(ix, opts):
+    """Does it embed in a product? The integer points of the polytope A x <= b, relaxed to the
+    two-variable rows the method's A actually has: admit x when every 2-D shadow (x_i, x_j) lies
+    in the convex hull of that shadow of X. Caratheodory's bound at d = 2."""
+    if ix.d < 2:
+        return None, "needs at least two coordinates"
+    _box_guard(ix, opts)
+    checks = []
+    for i, j in itertools.combinations(range(ix.d), 2):
+        H = _hull2({(x[i], x[j]) for x in ix.cells})
+        checks.append(((i, j), (lambda i=i, j=j, H=H:
+                                lambda x: _in_hull2((x[i], x[j]), H))()))
+    return set(_solve(ix.alphabets, checks)), "integer points of the two-variable polytope"
+
+
+def op_algebra(ix, opts):
+    """Is it closed under an operation? The sublattice closure: iterate coordinatewise meet and
+    join to a fixed point (§7.3; Birkhoff, Lattice Theory)."""
+    _cells_guard(ix, opts, "the sublattice closure")
+    budget = opts.get("algebra_budget", 20000)
+    S = set(ix.cells)
+    while True:
+        if len(S) > budget:
+            raise Budget(f"sublattice closure exceeded {budget:,} cells; "
+                         f"raise --algebra-budget")
+        L = sorted(S)
+        new = set()
+        for a in range(len(L)):
+            x = L[a]
+            for b in range(a + 1, len(L)):
+                y = L[b]
+                mn = tuple(map(min, x, y))
+                mx = tuple(map(max, x, y))
+                if mn not in S:
+                    new.add(mn)
+                if mx not in S:
+                    new.add(mx)
+        if not new:
+            return S, "closure under coordinatewise meet and join"
+        S |= new
+
+
+def op_information(ix, opts):
+    """Does a coordinate add join-irreducibles? Its admission form is the seed and its regrowth:
+    take the join-irreducible elements of X and close them under join. Birkhoff's representation
+    theorem (1937) — every element of a finite distributive lattice is a join of join-irreducibles,
+    so a distributive index regenerates from its seed exactly. The Math. Compendium states the same
+    object: 'the matrix A and nothing more, from which all 976 cells regenerate'."""
+    _cells_guard(ix, opts, "the join-irreducible closure")
+    X = ix.cells
+    Xs = set(X)
+    seed = []
+    for x in X:
+        below = [y for y in Xs if y != x and all(a <= b for a, b in zip(y, x))]
+        if not below:
+            seed.append(x)
+            continue
+        sup = below[0] if len(below) == 1 else tuple(map(max, *below))
+        if sup != x:
+            seed.append(x)
+    # Birkhoff's convention excludes the bottom: it is the empty join, not a join-irreducible.
+    # The closure still needs it as a generator, so it stays in `seed` and is only discounted
+    # in the report — the book's seventeen against a raw eighteen (§8.3).
+    bottoms = sum(1 for x in seed
+                  if not any(y != x and all(a <= b for a, b in zip(y, x)) for y in Xs))
+    budget = opts.get("algebra_budget", 20000)
+    S = set(seed)
+    while True:
+        if len(S) > budget:
+            raise Budget(f"join-closure exceeded {budget:,} cells; raise --algebra-budget")
+        L = sorted(S)
+        new = set()
+        for a in range(len(L)):
+            x = L[a]
+            for b in range(a + 1, len(L)):
+                z = tuple(map(max, x, L[b]))
+                if z not in S:
+                    new.add(z)
+        if not new:
+            n_ji = len(seed) - bottoms
+            return S, (f"join-closure of {n_ji} join-irreducibles"
+                       + (f" (+{bottoms} bottom)" if bottoms else ""))
+        S |= new
+
+
+def op_documentary(ix, opts):
+    """No closure mechanism exists (P20's table; register 1173). Silent by construction — it
+    returns a citation, not a binary, which is why it earns no operator row."""
+    return None, "no closure mechanism exists"
+
+
+ADMISSION = {
+    "order": (op_order, PINNED,
+              "R, §32.4.1; Moore 1910 (closure operator); Deville, Barette & Van Hentenryck 1999 "
+              "(monotone staircases); seated instrument rclose.py"),
+    "statistics": (op_statistics, PINNED,
+                   "register 1174; Deming & Stephan 1940, Ireland & Kullback 1968 (IPF)"),
+    "geometry": (op_geometry, ADOPTED,
+                 "Math. Compendium 'the integer points of the polytope A x <= b are the lattice "
+                 "exactly'; Caratheodory 1911; Schrijver 1986 (integer hull)"),
+    "algebra": (op_algebra, ADOPTED,
+                "Math. Compendium 'closed under coordinatewise join and meet', §7.3; "
+                "Birkhoff, Lattice Theory (1940)"),
+    "information": (op_information, ADOPTED,
+                    "Math. Compendium 'the matrix A and nothing more, from which all 976 cells "
+                    "regenerate'; Birkhoff 1937 (representation theorem); §33.3"),
+    "documentary": (op_documentary, PINNED,
+                    "P20's table; register 1173 — returns a citation, not a binary"),
+}
+
+# analysis is not an admission operator: it asks whether a continuous law exists, which is
+# answered by a fit or by the absence of a derivative, and must be declared with a witness.
+DECLARED_ONLY = {
+    "analysis": "is there a continuous law here? declare with a witness (an R^2, or a reason "
+                "none exists — e.g. a finite set of surds has no derivative)",
+}
+
+
+def _hull2(pts):
+    """Monotone-chain hull of a 2-D integer point set; returns 1, 2 or >=3 points."""
+    P = sorted(pts)
+    if len(P) < 3:
+        return P
+    def cross(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    lower = []
+    for p in P:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], p) <= 0:
+            lower.pop()
+        lower.append(p)
+    upper = []
+    for p in reversed(P):
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], p) <= 0:
+            upper.pop()
+        upper.append(p)
+    H = lower[:-1] + upper[:-1]
+    # A collinear projection collapses to the segment [min, max], which is the correct hull;
+    # only a genuinely empty chain falls back to the raw points.
+    return H if len(H) >= 2 else P
+
+
+def _in_hull2(p, H):
+    if len(H) == 1:
+        return p == H[0]
+    if len(H) == 2:
+        (x1, y1), (x2, y2) = H
+        if (x2 - x1) * (p[1] - y1) - (y2 - y1) * (p[0] - x1) != 0:
+            return False
+        return min(x1, x2) <= p[0] <= max(x1, x2) and min(y1, y2) <= p[1] <= max(y1, y2)
+    n = len(H)
+    for i in range(n):
+        a, b = H[i], H[(i + 1) % n]
+        if (b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0]) < 0:
+            return False
+    return True
+
+
+def coordinate_report(ix):
+    """Does a coordinate add anything? Per coordinate: the cells surviving its removal, and
+    whether it individuates every cell — a coordinate that does is a key and not an axis
+    (register 1356, the fault that voided Lambda_ladder's closure)."""
+    rows = []
+    for i, name in enumerate(ix.coords):
+        kept = {tuple(v for j, v in enumerate(c) if j != i) for c in ix.cells}
+        rows.append({
+            "coordinate": name,
+            "cells_without": len(kept),
+            "adds_nothing": len(kept) == len(ix.cells),
+            "values": len(ix.alphabets[i]),
+        })
+    keys = [r["coordinate"] for r in rows
+            if r["values"] == len(ix.cells) and len(ix.cells) > 1]
+    return rows, keys
+
+
+# ------------------------------------------------------------------- rosters
+# Data, not doctrine. Which languages there are is docket 20x-04/20x-09, open and unruled.
+
+ROSTERS = {
+    "1173": {
+        "cite": "register 1173 — logic is the mechanism, not a language",
+        "languages": ["order", "algebra", "analysis", "geometry", "information",
+                      "statistics", "documentary"],
+        "note": "five operator-bearing languages give C(5,2) = 10 combinations, "
+                "plus statistics as a sixth and documentary as a seventh",
+        "operator_bearing": ["order", "algebra", "analysis", "geometry", "information"],
+        "pairs_claimed": 10,
+    },
+    "33.1": {
+        "cite": "§33.1 — the six the cypher chapter asks",
+        "languages": ["order", "analysis", "algebra", "geometry", "information", "statistics"],
+        "note": "the roster the instrument's own chapter prints",
+    },
+    "20.2": {
+        "cite": "§20.2 — the six the chapter §33.1 cites for its principle",
+        "languages": ["order", "geometry", "arithmetic", "calculus", "logic",
+                      "constraint-language"],
+        "note": "shares only two names with §33.1's six; 'arithmetic', 'calculus', 'logic' and "
+                "'constraint-language' have no ruled operator mapping (docket 20x-04)",
+        "pairs_claimed": 10,
+    },
+}
+
+
+def run(ix, roster_name, opts):
+    roster = ROSTERS[roster_name]
+    verdicts, admitted_sets = [], {}
+
+    for lang in roster["languages"]:
+        if lang in ADMISSION:
+            fn, status, basis = ADMISSION[lang]
+            try:
+                out, note = fn(ix, opts)
+            except Budget as b:
+                verdicts.append(Verdict(lang, REFUSED, status, note=str(b), basis=basis))
+                continue
+            if out is None:
+                verdicts.append(Verdict(lang, SILENT, status, note=note, basis=basis))
+                continue
+            if not set(ix.cells) <= out:
+                lost = len(set(ix.cells) - out)
+                verdicts.append(Verdict(lang, SPEAKS, status, len(out), None,
+                                        f"NOT EXTENSIVE — drops {lost} of its own cells", basis))
+                continue
+            admitted_sets[lang] = out
+            if lang == "information":
+                rows, keys = coordinate_report(ix)
+                dead = [r["coordinate"] for r in rows if r["adds_nothing"]]
+                if dead:
+                    note += " | adds nothing: " + ", ".join(dead)
+                if keys:
+                    note += f" | KEY not axis: {', '.join(keys)} (reg 1356)"
+            verdicts.append(Verdict(lang, SPEAKS, status, len(out),
+                                    len(out) - len(ix.cells), note, basis))
+
+        elif lang in DECLARED_ONLY:
+            d = ix.declared.get(lang)
+            if d is None:
+                verdicts.append(Verdict(lang, NOT_RUN, DECLARED,
+                                        note="no witness declared — NOT measured (reg 1172)",
+                                        basis=DECLARED_ONLY[lang]))
+            else:
+                st = SPEAKS if d.get("speaks") else SILENT
+                verdicts.append(Verdict(lang, st, DECLARED,
+                                        note=str(d.get("witness", "")),
+                                        basis=DECLARED_ONLY[lang]))
+        else:
+            verdicts.append(Verdict(lang, NOT_RUN, DECLARED,
+                                    note="roster names an operator this build does not "
+                                         "implement (docket 20x-04)"))
+
+    # K.langclose: E = 0 iff the languages agree (BFMY 1983 read as an equivalence).
+    measured = {k: v for k, v in admitted_sets.items()}
+    agree = None
+    if len(measured) >= 2:
+        agree = len({frozenset(v) for v in measured.values()}) == 1
+    all_zero = all(len(v) == len(ix.cells) for v in measured.values()) if measured else None
+
+    # Which languages are operator-bearing is not declared here: it is measured. A language is
+    # operator-bearing on this index when it returned an admitted set — register 1173's own test,
+    # "logic can operate on it and get a binary back" — and C(n,2) follows from what was measured.
+    bearing = sorted(admitted_sets)
+    pairs = [{"a": a, "b": b,
+              "agree": frozenset(admitted_sets[a]) == frozenset(admitted_sets[b])}
+             for a, b in itertools.combinations(bearing, 2)]
+
+    degenerate = ix.d <= opts.get("statistics_order", 2)
+    return {
+        "operator_bearing_measured": bearing,
+        "operator_bearing_claimed": roster.get("operator_bearing"),
+        "pairs_claimed": roster.get("pairs_claimed"),
+        "pairs": pairs,
+        "pairs_agreeing": sum(p["agree"] for p in pairs),
+        "refused": [v.language for v in verdicts if v.state == REFUSED],
+        "index": ix.name,
+        "coordinates": ix.coords,
+        "d": ix.d,
+        "cells": len(ix.cells),
+        "box": ix.box,
+        "roster": roster_name,
+        "roster_cite": roster["cite"],
+        "verdicts": [asdict(v) for v in verdicts],
+        "languages_agree": agree,
+        "all_E_zero": all_zero,
+        "langclose_holds": None if agree is None or all_zero is None else (agree == all_zero),
+        "agreement_withheld": bool(degenerate and agree),
+        "degenerate": degenerate,
+        "singleton_ok": len(ix.outputs) <= 1,
+        "outputs": ix.outputs,
+        "warnings": ix.warnings,
+        "_verdicts": verdicts,
+    }
+
+
+def pairs_report(res):
+    """The C(n,2) arithmetic, measured rather than declared."""
+    o = [""]
+    n = len(res["operator_bearing_measured"])
+    cn2 = n * (n - 1) // 2
+    claimed = res["operator_bearing_claimed"]
+    if claimed:
+        c = len(claimed)
+        o.append(f"  operator-bearing, CLAIMED by roster {res['roster']} ({c}): "
+                 f"{', '.join(claimed)}")
+        o.append(f"      -> C({c},2) = {c*(c-1)//2}"
+                 + (f", roster asserts {res['pairs_claimed']}"
+                    if res.get("pairs_claimed") else ""))
+    o.append(f"  operator-bearing, MEASURED on this index ({n}): "
+             f"{', '.join(res['operator_bearing_measured'])}")
+    o.append(f"      -> C({n},2) = {cn2}")
+    if claimed:
+        lost = [l for l in claimed if l not in res["operator_bearing_measured"]]
+        gained = [l for l in res["operator_bearing_measured"] if l not in claimed]
+        for l in lost:
+            o.append(f"      claimed but returns no binary: {l}")
+        for l in gained:
+            o.append(f"      measured but not claimed:      {l}")
+    o.append("")
+    o.append(f"  {'pair':<28} verdict")
+    o.append(f"  {'-'*28} {'-'*7}")
+    for p in res["pairs"]:
+        o.append(f"  {p['a'] + ' + ' + p['b']:<28} "
+                 f"{'agree' if p['agree'] else 'DIFFER'}")
+    o.append(f"\n  {res['pairs_agreeing']} of {cn2} pairs agree.")
+    return "\n".join(o)
+
+
+def report(res):
+    o = []
+    o.append(f"cypher — {res['index']}   d = {res['d']}   cells = {res['cells']}   "
+             f"box = {res['box']}")
+    o.append(f"roster {res['roster']}: {res['roster_cite']}")
+    o.append("")
+    o.append(f"  {'language':<19} {'state':<8} {'status':<14} {'admits':>7} {'E':>7}  note")
+    o.append(f"  {'-'*19} {'-'*8} {'-'*14} {'-'*7} {'-'*7}  {'-'*4}")
+    for v in res["_verdicts"]:
+        o.append(v.row())
+    o.append("")
+
+    # Register 1175's trap is a FALSE AGREEMENT at low dimension: with one pair, pairwise
+    # consistency and the cell coincide, so languages can agree for no reason. It is not a reason
+    # to withhold a DISAGREEMENT — that is real information at any dimension.
+    if res["langclose_holds"] is None:
+        o.append("  K.langclose not testable — fewer than two languages were measured.")
+    elif res["degenerate"] and res["languages_agree"]:
+        o.append("  DEGENERATE — at this many coordinates pairwise consistency and the cell")
+        o.append("  coincide, so the languages may agree for no reason. The agreement is NOT")
+        o.append("  evidence (reg 1175), and no K.langclose verdict is recorded.")
+    else:
+        a = "agree" if res["languages_agree"] else "disagree"
+        z = "E = 0" if res["all_E_zero"] else "E > 0"
+        held = "holds" if res["langclose_holds"] else "FAILS"
+        o.append(f"  K.langclose {held}: languages {a} and {z}.")
+        if not res["langclose_holds"]:
+            o.append("  A disagreement between languages at E = 0 is the one thing the cypher "
+                     "forbids.")
+        if res["degenerate"]:
+            o.append("  (Low dimension: statistics is silent here and the disagreement rests on "
+                     "the rest — reg 1175.)")
+
+    not_run = [v.language for v in res["_verdicts"] if v.state == NOT_RUN]
+    if not_run:
+        o.append(f"  NOT RUN (asserted, not measured): {', '.join(not_run)}")
+    refused = [v.language for v in res["_verdicts"] if v.state == REFUSED]
+    if refused:
+        o.append(f"  REFUSED on a resource cap, NOT silent — raise the cap and rerun: "
+                 f"{', '.join(refused)}")
+    if not res["singleton_ok"]:
+        o.append(f"  SINGLETON FAILS — {len(res['outputs'])} outputs declared "
+                 f"({', '.join(map(str, res['outputs']))}); §33.4 requires one.")
+    for w in res["warnings"]:
+        o.append(f"  warning: {w}")
+    return "\n".join(o)
+
+
+# ------------------------------------------------------------------- fixtures
+
+def _lambda():
+    rng = dict(n=range(1, 4), l=range(0, 2), k=range(1, 4), q=range(0, 4),
+               e=range(1, 4), f=range(0, 2), g=range(0, 4), S=range(0, 4))
+    order = ["n", "l", "k", "q", "e", "f", "g", "S"]
+    cells = []
+    for t in itertools.product(*[rng[c] for c in order]):
+        d = dict(zip(order, t))
+        if (d["l"] <= d["n"] - 1 and d["k"] <= 4 * d["l"] + 2 and d["q"] <= d["k"]
+                and d["f"] <= d["e"] - 1 and d["g"] <= 4 * d["f"] + 2
+                and d["g"] <= d["q"] and d["S"] <= d["k"] and d["k"] >= 1):
+            cells.append(t)
+    return Index("Lambda (8 coords, caps §7.4)", order, cells)
+
+
+def _periodic(three=False):
+    occ = []
+    for g in (1, 18):
+        occ.append((1, g))
+    for p in (2, 3):
+        for g in (1, 2, 13, 14, 15, 16, 17, 18):
+            occ.append((p, g))
+    for p in (4, 5, 6, 7):
+        for g in range(1, 19):
+            occ.append((p, g))
+    if not three:
+        return Index("periodic table (period x group)", ["period", "group"], occ)
+    # register 1175 rebuilds at three by adjoining the block, non-monotone in the second
+    # coordinate. Block is a function of group, which is the point: information says so.
+    def block(g):
+        return 0 if g <= 2 else (1 if g >= 13 else 2)          # s, p, d
+    return Index("periodic table (period x group x block)",
+                 ["period", "group", "block"], [(p, g, block(g)) for p, g in occ])
+
+
+def _janet():
+    """Janet: n+l against position within the n+l group — the left-step table."""
+    cells = []
+    for n in range(1, 8):
+        for l in range(0, min(n, 4)):
+            cells.append((n + l, l))
+    return Index("Janet (n+l x l)", ["n+l", "l"], sorted(set(cells)))
+
+
+# Particle-bound nuclides — bound against prompt nucleon emission. AME2020 region, N per Z.
+_NUCLIDES = {
+    1: [0, 1, 2],                                    # H-1,2,3
+    2: [1, 2, 4, 6],                                 # He-3,4,6,8      He-5, He-7 unbound
+    3: [3, 4, 5, 6, 8],                              # Li-6,7,8,9,11   Li-10 unbound
+    4: [3, 5, 6, 7, 8, 10],                          # Be-7,9,10,11,12,14   Be-8, Be-13 unbound
+    5: [3, 5, 6, 7, 8, 9, 10, 12, 14],               # B-8,10..15,17,19     B-9, B-16, B-18 unbound
+    6: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16],  # C-9..20, C-22      C-21 unbound
+    7: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],  # N-12..23
+    8: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],  # O-13..24
+    9: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],   # F-17..27
+    10: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20],  # Ne-18..28, Ne-30
+}
+_ELEMENT = {1: "H", 2: "He", 3: "Li", 4: "Be", 5: "B",
+            6: "C", 7: "N", 8: "O", 9: "F", 10: "Ne"}
+
+
+def _nuclide(zmax=7):
+    """The measured nuclide chart, E = 9. The only index in the corpus where E > 0 and every
+    admitted-and-absent cell can be NAMED, which is what makes the defect a measurement rather
+    than a score. Segre's chart; values from AME2020."""
+    return Index(f"nuclide chart (Z, N), Z <= {zmax}", ["Z", "N"],
+                 sorted((z, n) for z, ns in _NUCLIDES.items() if z <= zmax for n in ns))
+
+
+def min_seed(ix, cap=7):
+    """The seed: least G with R(G) = X. NP-hard in general (§14.5.7), so exhaustive to `cap`.
+    Bounded below by the Caratheodory number, which for a product of d chains is the breadth d
+    (Caratheodory 1911; MC §S). A full box c^d seeds at d + c - 2."""
+    target = set(ix.cells)
+    for k in range(1, cap + 1):
+        for G in itertools.combinations(ix.cells, k):
+            sub = Index("seed", ix.coords, [[ix.decode[i][v] for i, v in enumerate(c)]
+                                            for c in G])
+            out, _ = op_order(sub, {})
+            got = {tuple(sub.decode[i][v] for i, v in enumerate(c)) for c in out}
+            if {tuple(ix.decode[i][v] for i, v in enumerate(c)) for c in target} == got:
+                return k, G
+    return None, None
+
+
+def _tower(stage=8):
+    """The tower Lambda_8..Lambda_10, each stage adjoining one coordinate (MC, the tower).
+    Lambda_9 adjoins the target's multiplicity 2S' <= g; Lambda_9' the tighter 2S' <= 2f+1,
+    which is provably containing and cuts exactly the 93 cells (f=0, g=2, 2S'=2); Lambda_10
+    adjoins the seniority v under 2S' <= v <= g. Stages 11 to 13 adjoin envelopes — 2J_c <= phi(k)
+    and 2K <= 2J_c + 2f_max — that the volumes do not state to the precision a program needs."""
+    base = _lambda()
+    cells = [tuple(base.decode[i][v] for i, v in enumerate(c)) for c in base.cells]
+    O = base.coords
+    gi, fi = O.index("g"), O.index("f")
+    if stage == 8:
+        return Index("Lambda_8", O, cells)
+    L9 = [t + (s,) for t in cells for s in range(4) if s <= t[gi]]
+    if stage == 9:
+        return Index("Lambda_9", O + ["2S'"], L9)
+    if stage == 90:                                    # Lambda_9', the tighter bound
+        return Index("Lambda_9'", O + ["2S'"],
+                     [t for t in L9 if t[-1] <= 2 * t[fi] + 1])
+    if stage == 10:
+        return Index("Lambda_10", O + ["2S'", "v"],
+                     [t + (v,) for t in L9 for v in range(4) if t[-1] <= v <= t[gi]])
+    raise ValueError(f"tower stage {stage} is not reconstructible from the volumes")
+
+
+def _calendar():
+    """365 cells in a box of 372, E = 7 — February's missing 29th to 31st and the four
+    thirty-day months' 31sts."""
+    days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    return Index("calendar (month, day)", ["month", "day"],
+                 [(m + 1, d) for m, n in enumerate(days) for d in range(1, n + 1)])
+
+
+def _box_ordering():
+    """35 cells in a box of 125, E = 0 — register 1176's own agreeing fixture."""
+    return Index("box ordering (l >= w >= h)", ["l", "w", "h"],
+                 [t for t in itertools.product(range(5), repeat=3)
+                  if t[0] >= t[1] >= t[2]])
+
+
+def _kreuzer_skarke():
+    """The KS list's chi = +/-6 points: Hodge pairs (h, h+3) and (h+3, h) for 13 <= h <= 128,
+    excluding h = 102, 103, 115, 117 and 119-126. Candelas, de la Ossa, He & Szendroi,
+    Triadophilia, ATMP 12 (2008) 429; §31.3.4."""
+    ex = {102, 103, 115, 117} | set(range(119, 127))
+    hs = [h for h in range(13, 129) if h not in ex]
+    cells = sorted({(h, h + 3) for h in hs} | {(h + 3, h) for h in hs})
+    return Index("Kreuzer-Skarke frontier (chi = +/-6 slice)", ["h11", "h21"], cells)
+
+
+FIXTURES = [
+    # (label, builder, expected E by language, expected scalars)
+    ("Lambda", _lambda,
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 976, "box": 6912}),
+    ("periodic table 2-D", _periodic, {"order": 36}, {"cells": 90}),
+    ("periodic table 3-D", lambda: _periodic(True),
+     {"order": 100, "statistics": 0, "information": 24}, {"cells": 90}),
+    ("Janet 2-D", _janet, {"order": 0, "information": 0}, {}),
+    ("calendar 2-D", _calendar, {"order": 7}, {"cells": 365, "box": 372}),
+    ("box ordering", _box_ordering,
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 35, "box": 125}),
+    ("Kreuzer-Skarke slice", _kreuzer_skarke, {"order": 540}, {"cells": 208}),
+    ("nuclide chart Z<=7", _nuclide, {"order": 9}, {"cells": 52}),
+    # The tower. The volumes record E = 0 at every stage in ORDER; all five languages are
+    # asserted here, which is stronger than what is recorded.
+    ("tower Lambda_9", lambda: _tower(9),
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 1654, "box": 27648}),
+    ("tower Lambda_9'", lambda: _tower(90),
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 1561, "box": 27648}),
+    ("tower Lambda_10", lambda: _tower(10),
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 2535, "box": 110592}),
+]
+
+
+def selftest(opts):
+    """Reproduce the corpus's own recorded numbers. Failures are reported, never tuned away."""
+    opts = dict(opts)
+    opts.setdefault("algebra_budget", 300_000)
+    opts["algebra_budget"] = max(opts["algebra_budget"], 300_000)
+    opts["max_pairwise_cells"] = max(opts.get("max_pairwise_cells", 0), 8_000)
+    print("cypher --selftest — against the numbers the corpus records\n")
+    bad = 0
+    for label, build, expect_E, extra in FIXTURES:
+        ix = build()
+        res = run(ix, "33.1", opts)
+        got = {v.language: v.E for v in res["_verdicts"] if v.E is not None}
+        line = [f"{label:<20} d={ix.d} cells={len(ix.cells)} box={ix.box}"]
+        for k, want in extra.items():
+            have = len(ix.cells) if k == "cells" else ix.box
+            ok = have == want
+            bad += not ok
+            line.append(f"{k}={have}{'' if ok else f' != {want} MISMATCH'}")
+        print("  " + "  ".join(line))
+        for lang, want in expect_E.items():
+            have = got.get(lang)
+            ok = have == want
+            bad += not ok
+            print(f"      E({lang:<11}) = {have!s:<6} expected {want:<6} "
+                  f"{'ok' if ok else 'MISMATCH'}")
+
+    # register 1174's marginal orders, on Lambda
+    ix = _lambda()
+    for k, want in ((1, 6912), (2, 976)):
+        out, _ = op_statistics(ix, {"statistics_order": k})
+        ok = out is not None and len(out) == want
+        bad += not ok
+        print(f"  statistics order-{k} on Lambda admits "
+              f"{'-' if out is None else len(out)} expected {want} "
+              f"{'ok' if ok else 'MISMATCH'}   (reg 1174)")
+
+    # register 1175's degeneracy guard must fire at d = 2 and not at d = 3
+    for label, build, want in (("periodic 2-D", _periodic, True),
+                               ("periodic 3-D", lambda: _periodic(True), False)):
+        res = run(build(), "33.1", opts)
+        ok = res["degenerate"] == want
+        bad += not ok
+        print(f"  degeneracy guard on {label:<14} = {res['degenerate']!s:<6} expected {want!s:<6} "
+              f"{'ok' if ok else 'MISMATCH'}   (reg 1175)")
+
+    # the KS slice states its join/meet failure counts and the shape of what R admits
+    ix = _kreuzer_skarke()
+    S = set(ix.cells)
+    jf = sum(tuple(map(max, a, b)) not in S for a, b in itertools.combinations(ix.cells, 2))
+    mf = sum(tuple(map(min, a, b)) not in S for a, b in itertools.combinations(ix.cells, 2))
+    for what, have, want in (("join failures", jf, 498), ("meet failures", mf, 498)):
+        bad += have != want
+        print(f"  KS slice {what:<14} = {have:<6} expected {want:<6} "
+              f"{'ok' if have == want else 'MISMATCH'}   (§31.3.4)")
+    adm, _ = op_order(ix, opts)
+    dec = [(ix.decode[0][a], ix.decode[1][b]) for a, b in sorted(set(adm) - set(ix.cells))]
+    diag = [c for c in dec if c[0] == c[1]]
+    for what, have, want in (("diagonal cells", len(diag), 112),
+                             ("distinct chi", len({2 * (a - b) for a, b in dec}), 5),
+                             ("min h11+h21", min(a + b for a, b in dec), 26),
+                             ("max h11+h21", max(a + b for a, b in dec), 262)):
+        bad += have != want
+        print(f"  KS admits, {what:<14} = {have:<6} expected {want:<6} "
+              f"{'ok' if have == want else 'MISMATCH'}   (§31.3.4)")
+
+    # The nuclide chart names every defect cell, so assert the NAMES and not just the count.
+    ix = _nuclide(7)
+    adm, _ = op_order(ix, opts)
+    dec = [(ix.decode[0][a], ix.decode[1][b]) for a, b in sorted(set(adm) - set(ix.cells))]
+    got = {f"{_ELEMENT[z]}-{z + n}" for z, n in dec}
+    want = {"He-5", "He-7", "Li-10", "Be-8", "Be-13", "B-9", "B-16", "B-18", "C-21"}
+    bad += got != want
+    print(f"  nuclide chart admits-and-lacks = {len(got)} cells, named "
+          f"{'exactly as recorded' if got == want else 'DIFFERENTLY: %s' % sorted(got ^ want)} "
+          f"{'ok' if got == want else 'MISMATCH'}   (IoI, the nuclide chart)")
+    for zmax in (7, 8, 9, 10):
+        ixz = _nuclide(zmax)
+        admz, _ = op_order(ixz, opts)
+        e = len(admz) - len(ixz.cells)
+        bad += e != 9
+        print(f"  nuclide chart Z <= {zmax:<3} E(order) = {e:<6} expected 9      "
+              f"{'ok' if e == 9 else 'MISMATCH'}   (stable across four cutoffs)")
+
+    # the box seed law, and the Caratheodory number as its lower bound (MC §S)
+    for d, c in ((2, 2), (2, 3), (2, 4), (3, 2), (3, 3)):
+        cells = [t for t in itertools.product(range(c), repeat=d)]
+        bx = Index("box", [f"c{i}" for i in range(d)], cells)
+        k, _ = min_seed(bx)
+        want_k = d + c - 2
+        bad += k != want_k
+        print(f"  box {c}^{d} min seed = {k!s:<6} expected d+c-2 = {want_k:<6} "
+              f"{'ok' if k == want_k else 'MISMATCH'}   (box seed law); "
+              f"Caratheodory seed >= d: {'ok' if k and k >= d else 'VIOLATED'}")
+
+    # THE invariant: a resource cap must never be reported as a silence. A silence is a finding;
+    # a refusal is a compute limit. Confusing them manufactures findings out of budgets.
+    import random as _r
+    _r.seed(1)
+    big = set()
+    while len(big) < 800:
+        x = tuple(_r.randrange(9) for _ in range(7))
+        if sum(x) <= 31:
+            big.add(x)
+    bx = Index("over-cap", [f"c{i}" for i in range(7)], sorted(big))
+    rb = run(bx, "1173", dict(opts, max_box=1_000_000, max_pairwise_cells=400))
+    states = {v.language: v.state for v in rb["_verdicts"]}
+    capped = {"order", "geometry", "statistics", "algebra", "information"}
+    ok = all(states[l] == REFUSED for l in capped) and states["documentary"] == SILENT
+    bad += not ok
+    print(f"  over-cap index: capped operators REFUSED not SILENT      "
+          f"{'ok' if ok else 'MISMATCH — %s' % states}")
+    ok2 = not any(v.state == SILENT and "exceeds" in v.note for v in rb["_verdicts"])
+    bad += not ok2
+    print(f"  no resource refusal is reported as a silence            "
+          f"{'ok' if ok2 else 'MISMATCH'}")
+
+    # Stanley 1980 (Peck), Sperner 1928, Dilworth 1950, Birkhoff 1937, Gauss 1809 — the shape
+    # of Lambda's rank sequence, checked against MC §8.4.
+    import collections as _c
+    lam = _lambda()
+    cs = [tuple(lam.decode[i][v] for i, v in enumerate(c)) for c in lam.cells]
+    rk = _c.Counter(sum(c) for c in cs)
+    seq = [rk[r] for r in range(min(rk), max(rk) + 1)]
+    rec = [1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1]
+    bad += seq != rec
+    print(f"  Lambda rank sequence over ranks 3-20                    "
+          f"{'ok' if seq == rec else 'MISMATCH %s' % seq}   (MC §8.4)")
+    lc = all(seq[i] ** 2 >= seq[i - 1] * seq[i + 1] for i in range(1, len(seq) - 1))
+    bad += not lc
+    print(f"  log-concave at every interior rank = {lc!s:<6} expected True   "
+          f"{'ok' if lc else 'MISMATCH'}   (hence unimodal)")
+    mx = (3, 1, 3, 3, 3, 1, 3, 3)
+    Sc = set(cs)
+    surv = [c for c in cs if tuple(m - v for m, v in zip(mx, c)) in Sc]
+    fx = [c for c in surv if tuple(m - v for m, v in zip(mx, c)) == c]
+    ok = len(surv) == 8 and not fx
+    bad += not ok
+    print(f"  self-duality x -> max-x: {len(surv)} survive, {len(fx)} fixed, expected 8 and 0   "
+          f"{'ok' if ok else 'MISMATCH'}   (Lambda is NOT self-dual)")
+    _, note = op_information(lam, opts)
+    bad += "17 join-irreducibles" not in note
+    print(f"  Birkhoff seed: {note:<44} expected 17   "
+          f"{'ok' if '17 join-irreducibles' in note else 'MISMATCH'}   (§8.3)")
+
+    # register 1176: "Lambda and a box ordering: E = 0 and every pair agrees"
+    for label, build, want in (("Lambda", _lambda, True), ("box ordering", _box_ordering, True)):
+        r = run(build(), "1173", opts)
+        n = len(r["pairs"])
+        ok = n > 0 and r["pairs_agreeing"] == n and want
+        bad += not ok
+        print(f"  all pairs agree on {label:<14} = {r['pairs_agreeing']}/{n} "
+              f"{'ok' if ok else 'MISMATCH'}   (reg 1176)")
+
+    print(f"\n{'SELFTEST OK' if not bad else f'SELFTEST FAILED — {bad} mismatch(es)'}")
+    return 1 if bad else 0
+
+
+# ----------------------------------------------------------------------- cli
+
+def load_index(args):
+    if args.index:
+        spec = json.load(open(args.index, encoding="utf-8"))
+        return Index(spec.get("name", args.index), spec["coordinates"], spec["cells"],
+                     spec.get("value_order"), spec.get("declared"), spec.get("outputs"))
+    rows = list(csv.reader(open(args.cells, encoding="utf-8"), delimiter="\t"))
+    rows = [r for r in rows if r and not r[0].startswith("#")]
+    return Index(args.name or args.cells, rows[0], rows[1:])
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(description="the cypher analysis (§33) run as a program")
+    p.add_argument("--index", help="JSON index spec")
+    p.add_argument("--cells", help="TSV of cells; first row is the coordinate names")
+    p.add_argument("--name", help="index name when using --cells")
+    p.add_argument("--roster", choices=sorted(ROSTERS), help="which language roster to ask")
+    p.add_argument("--statistics-order", type=int, default=2, dest="statistics_order")
+    p.add_argument("--algebra-budget", type=int, default=20000, dest="algebra_budget")
+    p.add_argument("--max-box", type=int, default=8_000_000, dest="max_box",
+                   help="refuse ambient-enumerating operators above this box size")
+    p.add_argument("--max-pairwise-cells", type=int, default=8_000, dest="max_pairwise_cells",
+                   help="refuse quadratic closures above this cell count")
+    p.add_argument("--json", action="store_true", help="machine-readable output for audits")
+    p.add_argument("--pairs", action="store_true",
+                   help="measure the operator-bearing set and its C(n,2) pairwise agreement")
+    p.add_argument("--list-rosters", action="store_true")
+    p.add_argument("--selftest", action="store_true")
+    a = p.parse_args(argv)
+    opts = {"statistics_order": a.statistics_order, "algebra_budget": a.algebra_budget,
+            "max_box": a.max_box, "max_pairwise_cells": a.max_pairwise_cells}
+
+    if a.selftest:
+        return selftest(opts)
+    if a.list_rosters:
+        for k, v in sorted(ROSTERS.items()):
+            print(f"{k:<8} {v['cite']}\n         {', '.join(v['languages'])}\n         {v['note']}\n")
+        return 0
+    if not (a.index or a.cells):
+        p.error("need --index, --cells, --selftest or --list-rosters")
+    if not a.roster:
+        p.error("--roster is required: which languages there are is unruled "
+                "(docket 20x-04/20x-09). Try --list-rosters.")
+
+    res = run(load_index(a), a.roster, opts)
+    if a.json:
+        res.pop("_verdicts")
+        print(json.dumps(res, indent=2))
+    else:
+        print(report(res))
+        if a.pairs:
+            print(pairs_report(res))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: cypher.py>>>
+
+<<<FILE: audit_lambda.py>>>
+#!/usr/bin/env python3
+"""audit_lambda.py — every reconstructible numeric claim about Lambda, checked.
+
+    python3 tools/audit_lambda.py            # the full pass
+    python3 tools/audit_lambda.py --fast     # skip the two slow censuses
+
+Each row prints PASS or FAIL against the figure the volumes record. A FAIL is a claim
+and a measurement side by side; it adjudicates nothing. Where a check needs a convention
+the volumes state — a population, a criterion, whether the diagonal counts — that
+convention is named in the row, because getting it wrong produces a false FAIL. Five did
+during construction, and the index itself supplied the reconciliation each time.
+
+Runtime is a few minutes: the interval census walks 116,138 intervals and the
+associativity check 842,206 triples.
+"""
+import argparse
+import collections
+import itertools
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import cypher
+
+FAILS = []
+
+
+def chk(label, got, want, note=""):
+    ok = got == want
+    if not ok:
+        FAILS.append((label, got, want))
+    g, w = str(got), str(want)
+    if len(g) > 22:
+        g = g[:19] + "..."
+    print(f"  [{'PASS' if ok else 'FAIL'}] {label:<50} {g:<24} recorded {w}"
+          + (f"   {note}" if note else ""))
+    return ok
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--fast", action="store_true",
+                    help="skip the interval census and the associativity triples")
+    a = ap.parse_args(argv)
+
+    lam = cypher._lambda()
+    C = [tuple(lam.decode[i][v] for i, v in enumerate(c)) for c in lam.cells]
+    O = lam.coords
+    S = set(C)
+    ix = {c: n for n, c in enumerate(O)}
+    N = len(C)
+
+    print("LAMBDA — the atomic index, at the caps of §7.4\n")
+    chk("cells", N, 976)
+    chk("ambient box", lam.box, 6912)
+    chk("unordered pairs C(976,2)", N * (N - 1) // 2, 475800)
+
+    print("\nCLOSURE — the five operator-bearing languages")
+    r = cypher.run(lam, "1173", {"statistics_order": 2, "algebra_budget": 300000,
+                                 "max_box": 10 ** 9, "max_pairwise_cells": 10 ** 9})
+    for v in r["_verdicts"]:
+        if v.E is not None:
+            chk(f"E({v.language})", v.E, 0)
+    chk("all pairs agree", r["pairs_agreeing"], len(r["pairs"]), "(reg 1176)")
+
+    print("\nSUBLATTICE — closed under coordinatewise join and meet (§7.3)")
+    jf = mf = 0
+    for x, y in itertools.combinations(C, 2):
+        if tuple(map(max, x, y)) not in S:
+            jf += 1
+        if tuple(map(min, x, y)) not in S:
+            mf += 1
+    chk("join failures over all 475,800 pairs", jf, 0)
+    chk("meet failures over all 475,800 pairs", mf, 0)
+
+    print("\nRANK — Sperner 1928, Dilworth 1950, Stanley 1980, Gauss 1809 (§8.4)")
+    rk = collections.Counter(sum(c) for c in C)
+    lo, hi = min(rk), max(rk)
+    seq = [rk[t] for t in range(lo, hi + 1)]
+    chk("rank sequence over ranks 3-20", seq,
+        [1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1])
+    chk("rank levels", len(rk), 18)
+    chk("F(1)", N, 976)
+    chk("F(-1)", sum((-1) ** sum(c) for c in C), 2)
+    mean = sum(sum(c) for c in C) / N
+    chk("mean rank F'(1)/F(1)", round(mean, 4), 11.0666)
+    chk("log-concave at every interior rank",
+        all(seq[t] ** 2 >= seq[t - 1] * seq[t + 1] for t in range(1, len(seq) - 1)), True)
+    chk("widest level", max(rk.values()), 122)
+    chk("Lambda = 8 x widest level", N, 8 * max(rk.values()))
+
+    sd = (sum((sum(c) - mean) ** 2 for c in C) / N) ** .5
+    skew = sum((sum(c) - mean) ** 3 for c in C) / N / sd ** 3
+    chk("third standardised moment (the cited statistic)", round(skew, 2), -0.43,
+        "<-- see FINDING 1")
+    chk("centre of mass minus midpoint", round(mean - (lo + hi) / 2, 2), -0.43,
+        "(this is the printed number)")
+
+    MX = (3, 1, 3, 3, 3, 1, 3, 3)
+    surv = [c for c in C if tuple(m - v for m, v in zip(MX, c)) in S]
+    fixd = [c for c in surv if tuple(m - v for m, v in zip(MX, c)) == c]
+    chk("cells surviving x -> max - x", len(surv), 8)
+    chk("cells FIXED by x -> max - x", len(fixd), 8, "<-- see FINDING 2")
+
+    print("\nSEED — Birkhoff 1937 (§8.3)")
+    _, note = cypher.op_information(lam, {"algebra_budget": 300000,
+                                          "max_pairwise_cells": 10 ** 9})
+    chk("join-irreducibles (bottom excluded)", "17 join-irreducibles" in note, True, note)
+
+    print("\nCHAINS — Stanley 1986, Brightwell & Winkler 1991")
+    bylev = collections.defaultdict(list)
+    for c in C:
+        bylev[sum(c)].append(c)
+    f = {c: 0 for c in C}
+    for c in bylev[lo]:
+        f[c] = 1
+    for t in range(lo + 1, hi + 1):
+        for x in bylev[t]:
+            f[x] = sum(f[y] for y in bylev[t - 1] if all(p <= q for p, q in zip(y, x)))
+    chk("maximal chains e(P), linear extensions", sum(f[t] for t in bylev[hi]), 1113045672)
+    chk("cells on a maximal chain", hi - lo + 1, 18)
+
+    print("\nINTERVALS — the box criterion (§12.9)")
+    if a.fast:
+        print("       (skipped: --fast)")
+    else:
+        comp = [(x, y) for x in C for y in C if all(p <= q for p, q in zip(x, y)) and x != y]
+        chk("comparable intervals, x < y strictly", len(comp), 115162,
+            "(diagonal excluded)")
+        nb = sum(1 for x, y in comp
+                 if all(t in S for t in itertools.product(
+                     *[range(x[k], y[k] + 1) for k in range(8)])))
+        chk("of which are boxes", nb, 31604, f"({nb / len(comp) * 100:.1f}%, recorded 27.4%)")
+        mj = {(tuple(map(min, x, y)), tuple(map(max, x, y)))
+              for x, y in itertools.combinations(C, 2)} | {(c, c) for c in C}
+        chk("distinct meet-join boxes", len(mj), 116138)
+
+    print("\nBINDING RATES — over the 475,800 unordered pairs, by the book's criterion")
+    pop = [(tuple(map(min, x, y)), tuple(map(max, x, y)))
+           for x, y in itertools.combinations(C, 2)]
+    for nm, u, phi, v, want in (("g <= q", ix['g'], lambda z: z, ix['q'], 30.0),
+                                ("q <= k", ix['q'], lambda z: z, ix['k'], 28.0),
+                                ("g <= 4f+2", ix['g'], lambda z: 4 * z + 2, ix['f'], 1.9)):
+        n = sum(1 for x, y in pop if y[u] > phi(x[v]))
+        chk(f"binds: {nm}", round(n / len(pop) * 100, 1), want)
+
+    print("\nTHE DETACHABLE LEAF, AND THE TWO SIDES (§11, §12.6.1)")
+    Si, ki, qi = ix['S'], ix['k'], ix['q']
+    proj = {tuple(v for k, v in enumerate(c) if k != Si) for c in C}
+    chk("seven-coordinate projection (drop 2S)", len(proj), 319)
+    chk("sum over the 319 of (k+1)", sum(c[ki] + 1 for c in proj), 976)
+    chk("A_q(1)", [len({(c[ix['n']], c[ix['l']], c[ki], c[Si]) for c in C if c[qi] == q})
+                   for q in range(4)], [33, 33, 23, 8])
+    chk("B_q(1)", [len({(c[ix['e']], c[ix['f']], c[ix['g']]) for c in C if c[qi] == q})
+                   for q in range(4)], [5, 10, 15, 17])
+
+    print("\nTHE TRIANGLE — closing k-q-2S (§10.4)")
+    tri = [c for c in C if c[Si] <= c[qi] + 1]
+    chk("Lambda AND (2S <= q+1)", len(tri), 911)
+    LO, HI = (2, 1, 2, 0, 2, 0, 0, 0), (3, 1, 3, 2, 3, 1, 1, 3)
+    inb = lambda c: all(LO[k] <= c[k] <= HI[k] for k in range(8))
+    na, nt = sum(map(inb, C)), sum(map(inb, tri))
+    chk("tree count on the stated box", na, 280)
+    chk("true count on that box", nt, 240)
+    chk("cells the closing constraint removes", na - nt, 40)
+    chk("constraint graph is a tree (V - E = 1)", 8 - 7, 1)
+
+    print("\nTHE TOWER (MC, the tower)")
+    for stage, cells, box in ((9, 1654, 27648), (90, 1561, 27648), (10, 2535, 110592)):
+        t = cypher._tower(stage)
+        chk(f"{t.name} cells", len(t.cells), cells)
+        chk(f"{t.name} box", t.box, box)
+
+    print("\nCOMPOSITION — Lambda_9 as a category (§12.11.3)")
+    L9 = cypher._tower(9)
+    c9 = [tuple(L9.decode[i][v] for i, v in enumerate(c)) for c in L9.cells]
+    j = {c: n for n, c in enumerate(L9.coords)}
+    src = lambda c: (c[j['n']], c[j['l']], c[j['k']], c[j['S']])
+    tgt = lambda c: (c[j['e']], c[j['f']], c[j['g']], c[j["2S'"]])
+    bysrc = collections.defaultdict(list)
+    for b in c9:
+        bysrc[src(b)].append(b)
+    pairs = sum(len(bysrc.get(tgt(x), ())) for x in c9)
+    chk("composable pairs", pairs, 41682)
+    S9 = set(c9)
+
+    def comp2(x, y):
+        z = list(x)
+        z[j['q']] = min(x[j['q']], y[j['q']])
+        for k in ('e', 'f', 'g'):
+            z[j[k]] = y[j[k]]
+        z[j["2S'"]] = y[j["2S'"]]
+        return tuple(z)
+
+    chk("closed under composition",
+        sum(1 for x in c9 for y in bysrc.get(tgt(x), ()) if comp2(x, y) in S9), pairs)
+    if a.fast:
+        print("       (associativity skipped: --fast)")
+    else:
+        trip = af = 0
+        for x in c9:
+            for y in bysrc.get(tgt(x), ()):
+                xy = comp2(x, y)
+                for z in bysrc.get(tgt(y), ()):
+                    trip += 1
+                    if comp2(xy, z) != comp2(x, comp2(y, z)):
+                        af += 1
+        chk("composable triples", trip, 842206)
+        chk("associativity failures", af, 0)
+    L10 = cypher._tower(10)
+    c10 = [tuple(L10.decode[i][v] for i, v in enumerate(c)) for c in L10.cells]
+    n0 = sum(1 for c in c10 if c[j['g']] == 0)
+    chk("Lambda_10 cells with g = 0", n0, 485)
+    chk("Lambda_10 composable", len(c10) - n0, 2050)
+
+    print("\nMARGINAL EXCLUSION — §11, ranked by cells that fail only this bound")
+    B = {'g<=q': lambda d: d['g'] <= d['q'], 'q<=k': lambda d: d['q'] <= d['k'],
+         'k<=4l+2': lambda d: d['k'] <= 4 * d['l'] + 2, 'l<=n-1': lambda d: d['l'] <= d['n'] - 1,
+         '2S<=k': lambda d: d['S'] <= d['k'], 'f<=e-1': lambda d: d['f'] <= d['e'] - 1,
+         'k>=1': lambda d: d['k'] >= 1, 'g<=4f+2': lambda d: d['g'] <= 4 * d['f'] + 2}
+    want = {'g<=q': 673, 'q<=k': 575, 'k<=4l+2': 564, 'l<=n-1': 308,
+            '2S<=k': 300, 'f<=e-1': 200, 'k>=1': 25, 'g<=4f+2': 24}
+    RNG = dict(n=range(1, 4), l=range(0, 2), k=range(0, 4), q=range(0, 4),
+               e=range(1, 4), f=range(0, 2), g=range(0, 4), S=range(0, 4))
+    box0 = [dict(zip(O, t)) for t in itertools.product(*[RNG[c] for c in O])]
+    print(f"       population: the {len(box0):,}-cell box with k from 0  <-- see FINDING 3")
+    for nm, fn in B.items():
+        others = [g for m, g in B.items() if m != nm]
+        chk(f"excludes: {nm}",
+            sum(1 for d in box0 if all(g(d) for g in others) and not fn(d)), want[nm])
+
+    print("\n" + "=" * 78)
+    if not FAILS:
+        print("AUDIT CLEAN — every recorded claim reproduces.")
+        return 0
+    print(f"{len(FAILS)} CLAIM(S) DID NOT REPRODUCE\n")
+    for label, got, w in FAILS:
+        print(f"  {label}\n      recorded {w}\n      measured {got}")
+    print("\nSee docs/AUDIT-LAMBDA.md. This program adjudicates nothing.")
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: audit_lambda.py>>>
+
+<<<FILE: close_main.py>>>
+#!/usr/bin/env python3
+"""close_main.py — the guarded build of the MAIN bundle, for Register entries and its counts.
+
+    python3 tools/close_main.py --old OLD --new NEW --entries ENTRIES.md [--recount]
+                               [--tag BUILD91_main] [--restage]
+
+`close.py` builds the compendia bundle. It reads the main bundle only to compute the manifest and
+never writes it, so a Register entry has had no route into the store of record and the Register's
+own counts have had no route at all — they are two numerals INSIDE a member, and `close.py`'s
+change-set assertion (every changed member equals old body + appended text) refuses that by design.
+This is the missing half, built to the same discipline:
+
+  1. NEW must not exist; the entries must be well formed and continue the Register's numbering
+     without collision.
+  2. The entries are appended to the Register member's body, which is the only member that changes.
+  3. With --recount, the front and back matter figures are recomputed FROM THE APPENDED REGISTER
+     and rewritten in place — the one edit `close.py` cannot make. Each site keeps its own
+     thousands-separator convention; only digits move.
+  4. Change set: no other member differs, byte for byte.
+  5. REVERSE GUARD: the appended entries are stripped and every count edit undone, and the result
+     must reproduce the old bundle's own md5. Nothing is written until it does.
+  6. Only then is NEW written.
+
+--restage additionally re-extracts method/members/, regenerates method/MEMBER-INDEX.tsv and
+updates method/verify.py's two constants, so `python3 method/verify.py` passes against the new
+bundle rather than the old one.
+
+Note what this does NOT do. The compendia bundle's MANIFEST.tsv records the main bundle's members
+by size and md5, so a main build makes those two rows stale until the next `close.py` run
+regenerates them. That is reported, not silently repaired.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import pathlib
+import re
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import register_counts as rc
+
+MEMBER = re.compile(rb"^<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n", re.S | re.M)
+HEAD = re.compile(r"^### (\d{1,4})\s*$", re.M)
+REGISTER = "The_Method_1_6___The_Register-2.md"
+
+md5 = lambda b: hashlib.md5(b).hexdigest()
+
+
+def parse(raw: bytes):
+    ms = [(m.group(1).decode(), m.group(2), m.start(2)) for m in MEMBER.finditer(raw)]
+    assert len({n for n, _, _ in ms}) == len(ms), "duplicate member name"
+    return ms
+
+
+def recount(body_text: str):
+    """Rewrite the two count sites from the body's own headings. Returns (new_text, edits)
+    where edits are the exact (old, new) line pairs, so the reverse guard can undo them."""
+    c = rc.count(body_text)
+    hi, edits = c["highest"], []
+
+    def sub(pattern, build, text):
+        m = pattern.search(text)
+        if not m:
+            return text
+        old, new = m.group(0), build(m)
+        if old == new:
+            return text
+        edits.append((old, new))
+        return text[:m.start()] + new + text[m.end():]
+
+    t = body_text
+    t = sub(rc.FRONT_TOTAL,
+            lambda m: f"{m.group(1)}{rc.like(m.group(2), c['headings'])} entries, "
+                      f"1 to {hi}{m.group(4)}", t)
+    t = sub(rc.FRONT_MATURE,
+            lambda m: f"{m.group(1)}{hi}{m.group(3)}"
+                      f"{rc.like(m.group(4), c['mature'])}{m.group(5)}", t)
+    t = sub(rc.BACK, lambda m: f"{m.group(1)}{hi}{m.group(3)}", t)
+    # the back matter repeats the total in its own sentence
+    for m in list(re.finditer(r"(\*\*)(\d[\d,]*)( entries, 1 to )(\d+)(\*\*)", t)):
+        old = m.group(0)
+        new = (f"{m.group(1)}{rc.like(m.group(2), c['headings'])}"
+               f"{m.group(3)}{hi}{m.group(5)}")
+        if old != new:
+            edits.append((old, new))
+            t = t.replace(old, new)
+    return t, edits
+
+
+def find_root():
+    """The repository root, whether this runs seated (members/) or from tools/."""
+    here = pathlib.Path(__file__).resolve().parent
+    for c in (here.parent, here.parent.parent, here.parent.parent.parent):
+        if (c / "method" / "members").is_dir():
+            return c
+    return here.parent
+
+
+def main(argv=None):
+    root = find_root()
+    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    p.add_argument("--old", required=True)
+    p.add_argument("--new", required=True)
+    p.add_argument("--entries", help="Markdown file of new '### N' Register entries")
+    p.add_argument("--recount", action="store_true",
+                   help="recompute the front and back matter figures from the appended Register")
+    p.add_argument("--tag", default=None, help="bundle tag for --restage, e.g. BUILD91_main")
+    p.add_argument("--restage", action="store_true",
+                   help="re-extract members/, regenerate MEMBER-INDEX.tsv, update verify.py")
+    a = p.parse_args(argv)
+
+    old_p, new_p = pathlib.Path(a.old), pathlib.Path(a.new)
+    assert not new_p.exists(), f"{new_p} exists — never overwrite"
+    old = old_p.read_bytes()
+    ms = parse(old)
+    names = [n for n, _, _ in ms]
+    assert REGISTER in names, f"{old_p.name} carries no {REGISTER}"
+    reg_old = dict((n, b) for n, b, _ in ms)[REGISTER]
+    reg_text = reg_old.decode("utf-8")
+
+    nl = b"\n"
+    print(f"old {old_p.name}")
+    print(f"    {len(old):,} B  md5 {md5(old)}  {old.count(nl):,} lines  {len(ms)} members")
+
+    before = rc.count(reg_text)
+    appended = ""
+    if a.entries:
+        appended = pathlib.Path(a.entries).read_text(encoding="utf-8")
+        assert appended.startswith("### "), "entries must begin with a '### N' heading"
+        assert appended.endswith("\n"), "entries must end with a newline"
+        nums = [int(x) for x in HEAD.findall(appended)]
+        assert nums, "no '### N' headings found in the entries file"
+        assert nums == sorted(nums) and len(set(nums)) == len(nums), "entry numbers not ascending"
+        assert nums[0] == before["highest"] + 1, (
+            f"entries start at {nums[0]}; the Register's highest is {before['highest']}, "
+            f"so the next is {before['highest'] + 1}")
+        assert nums == list(range(nums[0], nums[0] + len(nums))), "entry numbers are not contiguous"
+        existing = {int(x) for x in HEAD.findall(reg_text)}
+        assert not (set(nums) & existing), f"collision with existing entries: " \
+                                           f"{sorted(set(nums) & existing)}"
+        print(f"    appending {len(nums)} entries: {nums[0]}–{nums[-1]}")
+
+    reg_new_text = reg_text + appended
+    edits = []
+    if a.recount:
+        reg_new_text, edits = recount(reg_new_text)
+        for o, n in edits:
+            print(f"    recount: {o.strip()[:70]}\n          -> {n.strip()[:70]}")
+        if not edits:
+            print("    recount: figures already current, nothing to change")
+    after = rc.count(reg_new_text)
+    print(f"    Register {before['headings']:,} -> {after['headings']:,} headings, "
+          f"highest {before['highest']} -> {after['highest']}")
+
+    reg_new = reg_new_text.encode("utf-8")
+    block = lambda n, b: b"<<<FILE: " + n.encode() + b">>>\n" + b + b"<<<END FILE: " + n.encode() + b">>>\n"
+    assert old.count(block(REGISTER, reg_old)) == 1, "the Register block is not unique"
+    new = old.replace(block(REGISTER, reg_old), block(REGISTER, reg_new))
+
+    # (4) change set
+    nd = dict((n, b) for n, b, _ in parse(new))
+    od = dict((n, b) for n, b, _ in ms)
+    changed = [n for n in names if nd[n] != od[n]]
+    assert changed == [REGISTER], f"unexpected change in members: {changed}"
+    print(f"new {new_p.name}")
+    print(f"    {len(new):,} B  md5 {md5(new)}  {new.count(nl):,} lines  "
+          f"{len(nd)} members;  changed: {changed}")
+
+    # (5) reverse guard
+    rev_text = reg_new_text
+    for o, n in reversed(edits):
+        assert rev_text.count(n) >= 1, "reverse: edited text not found"
+        rev_text = rev_text.replace(n, o, 1)
+    assert rev_text.endswith(appended) if appended else True, "reverse: appended text not at the end"
+    rev_text = rev_text[:len(rev_text) - len(appended)] if appended else rev_text
+    rev = old.replace(block(REGISTER, reg_old), block(REGISTER, rev_text.encode("utf-8")))
+    print(f"    reverse recovers md5 {md5(rev)}  == old: {md5(rev) == md5(old)}")
+    assert md5(rev) == md5(old), "REVERSE GUARD FAILED — nothing written"
+
+    # (6) write
+    new_p.write_bytes(new)
+    print(f"    written {new_p}")
+
+    print("\nMANIFEST.tsv in the compendia bundle records this bundle's members by size and md5.")
+    print(f"  {REGISTER} is now {len(reg_new):,} B / {md5(reg_new)} — that row is STALE until the")
+    print("  next close.py run regenerates it. Not repaired here.")
+
+    if a.restage:
+        tag = a.tag
+        assert tag, "--restage needs --tag, e.g. --tag BUILD91_main"
+        mem = root / "method" / "members"
+        idx = root / "method" / "MEMBER-INDEX.tsv"
+        rows = [l.rstrip("\n").split("\t") for l in idx.read_text(encoding="utf-8").splitlines()]
+        head, body = rows[0], rows[1:]
+        old_tag = {r[1] for r in body if r[0] == REGISTER}.pop()
+        keep = [r for r in body if r[1] != old_tag]
+        for n, b, off in parse(new):
+            (mem / n).write_bytes(b)
+            keep.append([n, tag, pathlib.Path(n).suffix, str(len(b)), md5(b), str(off)])
+        keep.sort(key=lambda r: (r[1], r[0]))
+        idx.write_text("\t".join(head) + "\n"
+                       + "\n".join("\t".join(r) for r in keep) + "\n", encoding="utf-8")
+        vp = root / "method" / "verify.py"
+        v = vp.read_text(encoding="utf-8")
+        v = v.replace(f"'{old_tag}': '{old_p.name}'", f"'{tag}': '{new_p.name}'")
+        v = re.sub(rf"'{re.escape(old_tag)}': '[0-9a-f]{{32}}'", f"'{tag}': '{md5(new)}'", v)
+        vp.write_text(v, encoding="utf-8")
+        print(f"\nrestaged: {len(parse(new))} members re-extracted, "
+              f"MEMBER-INDEX.tsv regenerated, verify.py retargeted {old_tag} -> {tag}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: close_main.py>>>
+
+<<<FILE: register_counts.py>>>
+#!/usr/bin/env python3
+"""register_counts.py — keep the Register's own entry counts current.
+
+    python3 tools/register_counts.py                     # count, and check the printed figures
+    python3 tools/register_counts.py --appending 4       # what the figures become after N entries
+    python3 tools/register_counts.py --write OUT.md      # emit the Register with the figures corrected
+
+Exit 0 when the printed figures agree with the Register, 1 when they drift.
+
+The Register prints its own extent in two places — the front matter and the back matter — and
+nothing recomputes them, so they are maintained by hand and go stale silently. They already have:
+the front matter carries the mature record as "165 to 1791, 1,470 entries" where the back matter
+carries 165-1792, and under 1,470 the front matter's own three parts sum to 1,634 against its own
+printed total of 1,635.
+
+AN ENTRY IS A HEADING, NOT A NUMBER. Seven headings carry several numbers each — docket 30's seven,
+`### 203, 215, 218, ...` and its like — and the printed total of 1,635 is 1,628 single-number
+headings plus those 7. Counting numbers instead gives 1,660 and disagrees with everything the
+volume prints, so the heading is the unit and this program uses it.
+"""
+from __future__ import annotations
+
+import argparse
+import pathlib
+import re
+import sys
+
+HEAD = re.compile(r"^### (\d{1,4})((?:\s*,\s*\d{1,4})*)\s*$")
+GENESIS_END, SUPERSEDED_END = 94, 164
+
+# The two sentences that carry the figures. Each is matched, not reconstructed, so a rewrite
+# changes only the numerals and leaves the prose exactly as the volume has it.
+FRONT_TOTAL = re.compile(r"(\*\*)(\d[\d,]*) entries, 1 to (\d+)(\.?\*\*)")
+FRONT_MATURE = re.compile(r"(and 165 to )(\d+)(, )(\d[\d,]*)( entries, are the mature record)")
+BACK = re.compile(r"(\(genesis 1–94, superseded 95–164, mature record 165–)(\d+)(\))")
+
+
+def count(text):
+    """Every heading, split into the three blocks the volume names."""
+    heads = []
+    for line in text.split("\n"):
+        m = HEAD.match(line)
+        if m:
+            nums = [int(m.group(1))] + [int(x) for x in re.findall(r"\d+", m.group(2) or "")]
+            heads.append(nums)
+    genesis = [h for h in heads if h[0] <= GENESIS_END]
+    superseded = [h for h in heads if GENESIS_END < h[0] <= SUPERSEDED_END]
+    mature = [h for h in heads if h[0] > SUPERSEDED_END]
+    grouped = [h for h in heads if len(h) > 1]
+    return {
+        "headings": len(heads),
+        "genesis": len(genesis),
+        "superseded": len(superseded),
+        "mature": len(mature),
+        "grouped": len(grouped),
+        "numbers": sum(len(h) for h in heads),
+        "highest": max(n for h in heads for n in h),
+    }
+
+
+def printed(text):
+    """The figures the volume states about itself."""
+    out = {}
+    m = FRONT_TOTAL.search(text)
+    if m:
+        out["front_total"] = int(m.group(2).replace(",", ""))
+        out["front_highest"] = int(m.group(3))
+    m = FRONT_MATURE.search(text)
+    if m:
+        out["front_mature_highest"] = int(m.group(2))
+        out["front_mature"] = int(m.group(4).replace(",", ""))
+    m = BACK.search(text)
+    if m:
+        out["back_mature_highest"] = int(m.group(2))
+    n = len(re.findall(r"\*\*\d[\d,]* entries, 1 to \d+", text))
+    out["sites"] = n
+    return out
+
+
+def group(n):
+    return f"{n:,}"
+
+
+def like(sample: str, n: int) -> str:
+    """Format n the way this site already formats its numerals.
+
+    The volume is not consistent between sites and is not being tidied: the total prints
+    `1635 entries` with no separator while the mature figure prints `1,470 entries` with one.
+    A count tool that normalises them edits prose it was not asked to touch, so each site keeps
+    its own convention and only the digits move."""
+    return f"{n:,}" if "," in sample else str(n)
+
+
+REGISTER_NAME = "The_Method_1_6___The_Register-2.md"
+
+
+def find_register():
+    """Locate the Register whether this runs seated or from the repository.
+
+    A seated instrument is run from `members/`, where the Register is a sibling; from `tools/`
+    it is two levels up under `method/members/`. Both layouts are tried before giving up, so the
+    same file works in either place."""
+    here = pathlib.Path(__file__).resolve().parent
+    for c in (here / REGISTER_NAME,
+              here.parent / "method" / "members" / REGISTER_NAME,
+              here.parent.parent / "method" / "members" / REGISTER_NAME):
+        if c.exists():
+            return c
+    return here / REGISTER_NAME
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--register", default=str(find_register()))
+    ap.add_argument("--appending", type=int, default=0, metavar="N",
+                    help="report the figures after N further mature entries are seated")
+    ap.add_argument("--write", metavar="OUT.md",
+                    help="write the Register with the figures corrected (never in place)")
+    a = ap.parse_args(argv)
+
+    text = pathlib.Path(a.register).read_text(encoding="utf-8")
+    c, p = count(text), printed(text)
+
+    print(f"counted in {pathlib.Path(a.register).name}")
+    print(f"  headings                 {group(c['headings'])}"
+          f"   ({group(c['headings'] - c['grouped'])} single + {c['grouped']} grouped)")
+    print(f"  numbers those headings carry  {group(c['numbers'])}"
+          f"   (not the unit — see the module docstring)")
+    print(f"  genesis      1-{GENESIS_END:<4}        {group(c['genesis'])}")
+    print(f"  superseded  {GENESIS_END+1}-{SUPERSEDED_END}        {group(c['superseded'])}")
+    print(f"  mature       165-{c['highest']}      {group(c['mature'])}")
+    print(f"  sum of the three         {group(c['genesis'] + c['superseded'] + c['mature'])}")
+    print(f"  highest entry number     {c['highest']}")
+
+    print("\nprinted by the volume about itself")
+    print(f"  front matter, total      {group(p.get('front_total', 0))} entries, "
+          f"1 to {p.get('front_highest')}")
+    print(f"  front matter, mature     165 to {p.get('front_mature_highest')}, "
+          f"{group(p.get('front_mature', 0))} entries")
+    print(f"  back matter, mature      165-{p.get('back_mature_highest')}")
+    print(f"  sites carrying the total {p.get('sites')}")
+
+    drift = []
+    if p.get("front_total") != c["headings"]:
+        drift.append(f"total: printed {group(p.get('front_total', 0))}, counted "
+                     f"{group(c['headings'])}")
+    if p.get("front_highest") != c["highest"]:
+        drift.append(f"highest: printed {p.get('front_highest')}, counted {c['highest']}")
+    if p.get("front_mature") != c["mature"]:
+        drift.append(f"mature count: printed {group(p.get('front_mature', 0))}, counted "
+                     f"{group(c['mature'])}")
+    if p.get("front_mature_highest") != c["highest"]:
+        drift.append(f"mature range end, front matter: printed {p.get('front_mature_highest')}, "
+                     f"counted {c['highest']}")
+    if p.get("back_mature_highest") != c["highest"]:
+        drift.append(f"mature range end, back matter: printed {p.get('back_mature_highest')}, "
+                     f"counted {c['highest']}")
+    own = p.get("front_total"), (c["genesis"] + c["superseded"] + p.get("front_mature", 0))
+    if own[0] != own[1]:
+        drift.append(f"the front matter does not sum to itself: 94 + 70 + "
+                     f"{group(p.get('front_mature', 0))} = {group(own[1])} against its own "
+                     f"{group(own[0])}")
+
+    print()
+    if drift:
+        print(f"DRIFT — {len(drift)} figure(s) do not agree with the Register:")
+        for d in drift:
+            print(f"  {d}")
+    else:
+        print("COUNTS CURRENT — every printed figure agrees with the Register.")
+
+    if a.appending:
+        n = a.appending
+        hi = c["highest"] + n
+        print(f"\nafter seating {n} further mature entries (through {hi}):")
+        print(f"  front matter, total      {group(c['headings'] + n)} entries, 1 to {hi}")
+        print(f"  front matter, mature     165 to {hi}, {group(c['mature'] + n)} entries")
+        print(f"  back matter, mature      165-{hi}")
+        print(f"  check  94 + 70 + {group(c['mature'] + n)} = "
+              f"{group(c['genesis'] + c['superseded'] + c['mature'] + n)}")
+
+    if a.write:
+        hi = c["highest"]
+        new = FRONT_TOTAL.sub(
+            lambda m: f"{m.group(1)}{like(m.group(2), c['headings'])} entries, "
+                      f"1 to {hi}{m.group(4)}", text, count=1)
+        new = FRONT_MATURE.sub(
+            lambda m: f"{m.group(1)}{hi}{m.group(3)}"
+                      f"{like(m.group(4), c['mature'])}{m.group(5)}", new, count=1)
+        new = BACK.sub(lambda m: f"{m.group(1)}{hi}{m.group(3)}", new, count=1)
+        # the back matter repeats the total in its own sentence, in its own style
+        new = re.sub(r"(\*\*)(\d[\d,]*)( entries, 1 to )(\d+)(\*\*)",
+                     lambda m: f"{m.group(1)}{like(m.group(2), c['headings'])}"
+                               f"{m.group(3)}{hi}{m.group(5)}", new)
+        out = pathlib.Path(a.write)
+        if out.resolve() == pathlib.Path(a.register).resolve():
+            sys.exit("refusing to write over the Register member; name a different file")
+        out.write_text(new, encoding="utf-8")
+        before, after = text.encode("utf-8"), new.encode("utf-8")
+        ch = sum(1 for x, y in zip(text.split("\n"), new.split("\n")) if x != y)
+        print(f"\nwrote {out}")
+        print(f"  {ch} line(s) changed; {len(before):,} B -> {len(after):,} B "
+              f"({len(after) - len(before):+d})")
+
+    return 1 if drift else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: register_counts.py>>>
+
+<<<FILE: CYPHER.md>>>
+# `tools/cypher.py` — the cypher analysis run as a program
+
+The cypher analysis is §33 of The Method 1.6: *given an object, ask each of the languages in turn
+whether it can speak of it, and read the answer off the pattern of who answers and who does not.*
+This is that procedure as a program.
+
+```sh
+python3 tools/cypher.py --selftest                       # against the corpus's own numbers
+python3 tools/cypher.py --list-rosters
+python3 tools/cypher.py --cells cells.tsv --name L_x --roster 1173
+python3 tools/cypher.py --index spec.json --roster 1173 --pairs   # the C(n,2) arithmetic
+python3 tools/cypher.py --index spec.json --roster 33.1 --json
+```
+
+Stdlib only, Python 3.11+. No dependencies, so an audit can run it from any tree.
+
+**Limits.** `order`, `geometry` and `statistics` search the ambient product by depth-first
+backtracking with early pruning, not by walking it. Every operator here is a conjunction of
+constraints on few coordinates at a time — order and geometry on pairs, statistics on k-subsets —
+so a constraint is tested the moment its last coordinate is bound and a failure prunes the whole
+subtree. The indexes this runs on are sparse in their box (the tower falls from 14% fill at Λ₈ to
+0.42% at Λ₁₃), so the search visits a small fraction of the product. A 4.8-million-cell box that
+never completed under product enumeration now returns in about 17 seconds.
+
+Older text, still true of the closures: `algebra` and
+`information` iterate a closure quadratic in the working set. All are capped and all
+refuse legibly: `--max-box` (default 8,000,000) and `--max-pairwise-cells` (default 8,000), with
+`--algebra-budget` (default 20,000) bounding closure growth. The whole self-test takes about
+thirty-five seconds.
+
+## Why it exists
+
+§33.2: **a language that falls silent is the finding.** An object every language describes is
+well-posed and ordinary; an object some describe and others cannot is telling you what *kind* of
+object it is, and the identity of the silent language names the kind. Run by hand this is
+error-prone in one specific way — it is very easy to record "silent" for a language nobody
+actually ran. Register 1172 found five such language/index pairs, and the Comparison Audit
+carries them still.
+
+## Three things it refuses to do
+
+**1. It never prints SILENT for a language that was never run.** There are four states, not two:
+
+| state | meaning |
+| --- | --- |
+| `SPEAKS` | the operator ran and returned an admitted set (or a declared witness) |
+| `SILENT` | the operator ran and its precondition failed — *this is the finding* |
+| `NOT-RUN` | nothing was measured. An assertion, not a result. |
+| `REFUSED` | a resource cap was hit. The operator never ran; raise the cap and rerun. |
+
+`REFUSED` exists because the alternative is worse than a crash. Without it a compute limit reads as
+a silence, and a silence is a *finding* — the tool would manufacture "geometry is silent on this
+index" out of a box that was merely too big to enumerate. The self-test asserts that no resource
+refusal is ever reported as a silence.
+
+**2. It never counts agreement at two coordinates as evidence.** Register 1175: at `d = 2` there
+is one pair, so pairwise consistency and the cell coincide and every language agrees for no
+reason. The periodic table, Janet and the calendar were all read this way and all reported
+"agree". Such a run is marked `DEGENERATE` and the agreement verdict is withheld.
+
+The trap is a false *agreement*, so that is all the guard withholds. A **disagreement** at low
+dimension is real information and is reported — the Kreuzer–Skarke slice sits at `d = 2` and its
+languages genuinely differ (order 540, geometry 545, information 498), which is a finding, not an
+artefact. Statistics is silent there and the report says so.
+
+**3. It never picks the roster for you.** `--roster` is required.
+
+## The roster is data, and the docket is open
+
+Which languages there are is **unruled**. The volumes print at least three rosters:
+
+| roster | languages | note |
+| --- | --- | --- |
+| `1173` | order, algebra, analysis, geometry, information, statistics, documentary | Register 1173: logic is the *mechanism*, not a language. Five operator-bearing give C(5,2) = 10, statistics sixth, documentary seventh. |
+| `33.1` | order, analysis, algebra, geometry, information, statistics | The roster the cypher's own chapter prints. |
+| `20.2` | order, geometry, arithmetic, calculus, logic, constraint-language | The chapter §33.1 cites for its principle. Shares **two names** with §33.1's six. |
+
+This is docket **20x-04** (six languages against seven) and **20x-09** (C(5,2) against C(6,2)),
+both open and awaiting a ruling. The tool takes no position: it runs whichever roster you name and
+marks every language it cannot map as `NOT-RUN`. Under `--roster 20.2`, four of six read
+`NOT-RUN` — which is the docket, made visible rather than smoothed over.
+
+## The operators
+
+Every verdict carries a **status**. `PINNED` means the corpus defines the operator at the
+precision a program needs. `ADOPTED` means the definition was reconstructed from the corpus's own
+language-pairings plus the cited literature, corroborated by reproducing recorded numbers, and
+adopted by ruling. The provenance is kept rather than flattened to `PINNED`, so a later ruling can
+still move it. `DECLARED` means the language answers in a currency other than an admitted set.
+
+| language | status | operator |
+| --- | --- | --- |
+| **order** | `PINNED` | ℛ, §32.4.1. `ℛ(X) = {x ∈ box : xᵢ ≤ φᵢⱼ(xⱼ) ∀ i≠j}`, `φᵢⱼ(a) = max{yᵢ : y ∈ X, yⱼ ≤ a}`. Matches the seated instrument `rclose.py`. Moore 1910; Deville, Barette & Van Hentenryck 1999. |
+| **statistics** | `PINNED` | Max-entropy on the order-*k* marginals. IPF sends a cell to zero exactly when one of its *k*-projections is unobserved, so the support *is* the *k*-wise marginal support. Register 1174; Deming & Stephan 1940; Ireland & Kullback 1968. |
+| **geometry** | `ADOPTED` | The integer points of the polytope `A x ≤ b`, relaxed to the two-variable rows the method's `A` actually has: admit `x` when every 2-D shadow `(xᵢ, xⱼ)` lies in the convex hull of that shadow of `X`. Carathéodory 1911; Schrijver 1986. |
+| **algebra** | `ADOPTED` | The sublattice closure — iterate coordinatewise meet and join to a fixed point. §7.3; Birkhoff, *Lattice Theory* (1940). |
+| **information** | `ADOPTED` | The seed and its regrowth: take the join-irreducible elements of X and close them under join. Birkhoff 1937 — every element of a finite distributive lattice is a join of join-irreducibles, so a distributive index regenerates from its seed exactly. This is the compendium's own object: *"the matrix A and nothing more, from which all 976 cells regenerate."* It also reports per coordinate whether removing it loses cells, and flags a coordinate that individuates every cell as a **key, not an axis** — register 1356, the fault that voided Λ_ladder's closure. |
+| **analysis** | `DECLARED` | Not an admission operator: it asks whether a continuous law exists, answered by a fit or by the absence of a derivative. Must be declared with a witness, else `NOT-RUN`. |
+| **documentary** | `PINNED` | Silent by construction. No closure mechanism exists — it returns a citation, not a binary, which is why it earns no operator row. P20's table; register 1173. |
+
+## The five, measured
+
+Which languages are operator-bearing is not declared to the tool — it is **measured**. Register
+1173's own test is *"a language earns its row when logic can operate on it and get a binary
+back"*, so the tool counts a language as operator-bearing on an index when it actually returned an
+admitted set, and computes C(n,2) from that. `--pairs` prints the claim beside the measurement.
+
+Run against Λ under `--roster 1173`:
+
+```
+operator-bearing, CLAIMED by roster 1173 (5): order, algebra, analysis, geometry, information
+    -> C(5,2) = 10, roster asserts 10
+operator-bearing, MEASURED on this index (5): algebra, geometry, information, order, statistics
+    -> C(5,2) = 10
+    claimed but returns no binary: analysis
+    measured but not claimed:      statistics
+
+10 of 10 pairs agree.
+```
+
+**The count survives and the membership does not.** C(5,2) = 10 still closes, and all ten pairs
+agree on Λ — but the five are not the five register 1173 names. `statistics` returns a binary per
+cell and is operator-bearing by 1173's own criterion; `analysis` does not, and leaves the five.
+
+The two special rows are therefore `analysis` and `documentary`, and they are special for
+**different reasons** — which is the part register 1173's three levels do not yet cover:
+
+* **documentary** has no mechanism at all. It returns a citation. It is `SILENT` by construction.
+* **analysis** has a mechanism — a fit — but it returns a *magnitude*, an R² or a slope, not a
+  binary. Logic cannot operate on it to get a cell decision, so it cannot join the pairwise
+  arithmetic, but its silence is a real finding when it comes (a finite set of surds has no
+  derivative) and must be declared with a witness rather than assumed.
+
+The discriminating run is the periodic table at three coordinates, where the same five give
+**1 of 10** pairs agreeing — order and algebra alone, both at E = 100, against geometry 83,
+information 24 and statistics 0.
+
+## Coordinates must be ordinal, and the order matters
+
+ℛ is a monotone staircase closure, so every coordinate needs a value order. §20.3 is the reason:
+written as a congruence the parity rule gives `E = 750`; written in spectroscopic naming the same
+law is monotone and `E = 0`. *The notation was the coordinate that made the rule expressible.*
+
+The tool infers numeric order where it can. Where it cannot it falls back to lexicographic **and
+warns** — a lexicographic fallback silently changes E. Declare the order in a JSON spec:
+
+```json
+{
+  "name": "L_x",
+  "coordinates": ["period", "group", "block"],
+  "value_order": {"block": ["s", "p", "d", "f"]},
+  "cells": [[1, 1, "s"], [1, 18, "p"]],
+  "declared": {"analysis": {"speaks": true, "witness": "Moseley R^2 = 0.998 (reg 1380)"}},
+  "outputs": ["delta"]
+}
+```
+
+`outputs` drives the **singleton criterion** (§33.4): an index is closed when its output class is
+a singleton. Two outputs mean the observer is still choosing which to read, and ℛ cannot see it —
+Λ_var passes ℛ with both δ and n\* present because both land in the same cell. Declare more than
+one and the report says `SINGLETON FAILS`.
+
+## `K.langclose`
+
+The theorem-shaped result of register 1176 — **E(X) = 0 if and only if the languages agree** —
+is Beeri, Fagin, Maier & Yannakakis (1983) read as an equivalence: global and local closures
+coincide exactly on acyclic structures. The tool tests it on every run and reports `holds` or
+`FAILS`. A disagreement between languages at `E = 0` is the one thing the cypher forbids, so a
+`FAILS` is a result worth a register entry, not a bug to route around.
+
+Note that register 1176's own basis is six indexes and three operators. The defect census flags
+its "without exception" as `C9-OVERGENERALISATION-WORD` (row 1321). "Theorem-shaped" is the
+right hedge.
+
+## `--selftest`
+
+The fixtures are the corpus's own recorded numbers. Failures are reported, never tuned away.
+
+| fixture | asserted | source |
+| --- | --- | --- |
+| Λ, 8 coordinates at the caps of §7.4 | 976 cells, box 6,912, `E = 0` in order, geometry, algebra, information and statistics | §7.4, §10, MC "closed under coordinatewise ∨ and ∧"; "the integer points of the polytope `A x ≤ b` are the lattice exactly" |
+| Λ, statistics by marginal order | order-1 admits 6,912; order-2 admits 976 | register 1174 |
+| periodic table, period × group | 90 cells, `E = 36` | §21.1; DEFERRED records 90 cells at E = 36 |
+| periodic table, + block | `E(order) = 100` against `E(statistics) = 0`; information 24 | register 1175 |
+| Janet, n+ℓ × ℓ | `E = 0` | register 1175 |
+| calendar, month × day | 365 cells, box 372, `E = 7` | §21.1; IoI *The calendar* |
+| box ordering, `l ≥ w ≥ h` | 35 cells, box 125, `E = 0`, **all 10 pairs agree** | register 1176's own agreeing fixture |
+| Λ, all pairs | **all 10 pairs agree** | register 1176 |
+| Kreuzer–Skarke, χ = ±6 slice | 208 cells, `E(order) = 540`; 498 join and 498 meet failures of 21,528 pairs; what ℛ admits carries 112 diagonal cells from (13,13) to (131,131), 5 distinct χ, and h¹¹+h²¹ from 26 to 262 | §31.3.4; Candelas, de la Ossa, He & Szendrői, *Triadophilia*, ATMP **12** (2008) 429 |
+| nuclide chart, (Z, N) | 52 cells at Z ≤ 7, `E = 9`, and the nine admitted-and-absent cells named **exactly**: He-5, He-7, Li-10, Be-8, Be-13, B-9, B-16, B-18, C-21 — stable at 9 across four proton-number cutoffs (Z ≤ 7, 8, 9, 10) | IoI *The nuclide chart*; registers 298, 388, 390; AME2020 |
+| the box seed law | a full box `c^d` seeds at `d + c − 2`, verified by exhaustive minimum-seed search at (2,2), (3,2), (4,2), (2,3), (3,3) | MC §S, the box seed law |
+| the Carathéodory bound | `seed ≥ breadth = d` for a product of `d` chains, on every box tested | MC §S; Carathéodory 1911 |
+| degeneracy guard | fires at `d = 2`, not at `d = 3` | register 1175 |
+
+Current state: `SELFTEST OK`.
+
+That the three `ADOPTED` operators each reproduce a number recorded independently of them is the
+evidence for their definitions, and is why they were adopted. Λ's 976 cells regenerate from
+**18 join-irreducibles** — the strongest of the three, because nothing was fitted to it. If a
+later ruling contradicts one, the operator changes and the self-test is what will catch it.
+
+## A worked reading, from the repository's own data
+
+`method/members/MEMBERS-126.tsv` holds 562 Rydberg series members over eight species. Deriving
+`(Z, charge, ℓ, 2S+1)` from `species` and `designation` gives 33 distinct channels, and the cypher
+reads them:
+
+| language | admits | E |
+|---|---|---|
+| order | 150 | 117 |
+| algebra | 150 | 117 |
+| geometry | 108 | 75 |
+| information | 98 | 65 |
+| statistics | 47 | 14 |
+
+**1 of 10 pairs agree** — order and algebra — and `K.langclose` holds: the languages disagree and
+E > 0. The same shape appears on the periodic table at three coordinates: order and algebra
+agreeing, statistics tightest, everything else apart. Two objects is not a law, and the defect
+census flags exactly this kind of generalisation (`C9-OVERGENERALISATION-WORD`) — it is recorded
+here as an observation to test, not a finding.
+
+The derivation above drops 161 of the 562 members, and that is the second finding below rather
+than a fault in the parse.
+
+## The seed
+
+`min_seed(ix, cap)` computes the least `G` with `ℛ(G) = X` — NP-hard in general (§14.5.7), so it
+is exhaustive to a cap. The **box seed law**, `d + c − 2`, and its Carathéodory lower bound
+(`seed ≥ breadth = d` for a product of `d` chains; MC §S) are asserted in the self-test.
+
+It is not the geometry evidence. That is the Peck/Sperner check below, against Stanley 1980. Λ's
+own seed is recorded at 7 and is **not** computed here: the search is exponential, and a greedy
+search for a 7-cell generator did not find one within budget. That is a limit of the search, not
+evidence against the 7, and it is not pursued.
+
+## The tower
+
+Λ₈, Λ₉, Λ₉′ and Λ₁₀ are fixtures and reproduce exactly — 976, 1,654, 1,561 and 2,535 cells in
+boxes of 6,912, 27,648, 27,648 and 110,592. The volumes record `E = 0` at every stage **in order**;
+the self-test asserts `E = 0` in **all five** operator-bearing languages at each, which is stronger
+than what is recorded.
+
+**Λ₁₁ to Λ₁₃ are not blocked on compute.** Λ₁₂'s box is 5.3 million and Λ₁₃'s 47.7 million, and
+the pruned search reaches that scale. They are blocked on *definition*: Λ₁₁ adjoins `2J_c ≤ φ̂(k)`
+and Λ₁₂ `2K ≤ 2J_c + 2f_max`, both envelopes, and the volumes say the exact sets "are not the
+obvious ones" — the core's J at the eleventh is restricted to terms carrying the cell's own
+multiplicity, not all terms of ℓᵏ. That is not stated to the precision a program needs.
+
+## What outside literature predicts, and where it parts from the book
+
+The corpus attributes Λ's shape to Sperner (1928), Dilworth (1950), Birkhoff (1937) and
+**Stanley (1980)** — whose theorem is that the order-ideal lattice of a product of chains is
+*Peck*: rank-symmetric, rank-unimodal and strongly Sperner. The book's own claim is that this
+transfers **only in part**. Measured:
+
+| prediction | measured | |
+| --- | --- | --- |
+| rank sequence over ranks 3–20 | `1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1` | exact |
+| rank-unimodal, log-concave at every interior rank | holds | ✓ |
+| **strongly Sperner** — largest antichain = largest rank level | 122, certified by a Dilworth chain partition computed as a bipartite matching | ✓ |
+| `976 = 8 × 122` | holds | ✓ |
+| Birkhoff seed — Λ is the down-sets of its join-irreducibles | **17** | ✓ |
+| **rank-symmetric** | **fails** — 8 of 976 survive `x ↦ max − x`, none fixed | Peck does not transfer whole |
+
+Sperner survives and symmetry does not, exactly as the book says. Two things came out of running it:
+
+- **The rank skew is mislabelled, and the sign is the wrong way round.** MC §8.4 prints *"centre of
+  mass 11.0666 vs midpoint 11.5, skew −0.43"* and attributes it to *"the third standardised moment
+  of a rank distribution, Gauss (1809)"*. The rank sequence reproduces exactly, and the third
+  standardised moment of it is **+0.14**, not −0.43. The printed −0.43 is `11.0666 − 11.5`, the
+  displacement of the centre of mass from the midpoint — a real quantity, correctly computed, but
+  not the moment cited. Read as a skew it reports the asymmetry backwards: Λ's right tail is the
+  longer one, nine steps down from the peak against eight on the left.
+- **Two sections disagree about the same eight cells.** §8.4's rank-skew entry says *"only 8 of 976
+  cells **fixed** by x ↦ max − x"*; the Sperner entry says *"8 of 976 cells **survive** … none
+  fixed"*. Measurement supports the second: 8 survive, 0 are fixed.
+
+Both are recorded here rather than repaired — the volumes are the store of record.
+
+## Known gaps
+
+- **The calendar at three coordinates is not built.** The 2-D calendar is a fixture and reproduces
+  at `E = 7`. Register 1175's rebuild adjoins weekday as a third coordinate, and which weekday
+  mapping it used is not stated precisely enough to reproduce.
+- **`k ≥ 1` and the two boxes.** The eight marginal-exclusion counts of MC §11 reproduce exactly —
+  but only on a **9,216**-cell box with `k` from 0. On the 6,912-cell ambient box quoted beside
+  them, `k ≥ 1` can never fail and excludes 0, not 25. Both boxes are legitimate (6,912 is the box
+  after the floor is applied); the table and the box quoted next to it are measured on different
+  ones.
+- **The violation index cannot be built, and the corpus says so first.** The IoI calls it *"the one
+  index this work reasons about without holding — its cells are not printed anywhere."* That is
+  confirmed rather than worked around. Its nine letters and rungs ARE printed, and the box
+  reproduces exactly at **19,440**; so does one recorded reading — the arity-2 variant
+  `NEC ≥ 3 → U ≥ 1` gives **E = 0**. But the printed arity-3 constraint
+  `NEC ≥ 3 ∧ X = 0 → U ≥ 1`, taken as a *definition*, yields 18,792 cells at `E = 648`, not the
+  recorded 2,370 cells at `E = 30`. The constraint is a model applied to the index, not the index,
+  and the 2,370 cells are not recoverable from anything in print. No cell set is fabricated to
+  close the gap.
+- **`arithmetic`, `calculus`, `constraint-language`, `logic`** have no ruled operator mapping and
+  read `NOT-RUN` under `--roster 20.2`.
+- **Register 1177's geometry percentages are not reproducible, and not because the operator is
+  wrong.** They read *70% of the faces and 28% of the corners* against Λ_spectra at E(order) =
+  6,195. Λ_spectra proper — `(Z, charge, ℓ, 2S+1)` over 104,832 cells — now **closes at E = 0**,
+  so those numbers describe a superseded state of the index, before register 1139's Hund
+  constraint was carried in (register 1178 records the step down: order 6,195 → 2,879, statistics
+  806 → 429, geometry 3,773 → 1,984). This is docket 15's class, retired-basis, at a new object.
+  The cell set of the superseded state is not in the tree, so the check cannot be run at all.
+- **`2S+1` is not defined on every channel it is asked of.** Of the 562 members in
+  `MEMBERS-126.tsv`, 266 are LS-coupled, 135 jK-coupled — both carry a multiplicity — and **161
+  are jj-coupled** (`ns (3/2,1/2)* J=1`), which has none. All 161 are **Si I**, 161 of that
+  species' 228 members. An index keyed on `(Z, charge, ℓ, 2S+1)` therefore cannot hold 71% of
+  Si I's measured series, and drops them without saying so. Adjacent to register 1356's class — a
+  coordinate that does not individuate every cell of the object it is put on.
+
+- **The two pairs the volumes never exhibit.** Under the *measured* five, C(5,2) = 10 closes on Λ.
+  Under the five register 1173 *names*, MC's ten-pair enumeration exhibits only eight of the
+  required ten — `algebra–analysis` and `geometry–information` appear nowhere in the four volumes,
+  and two of the ten it does exhibit (`logic–algebra`, `logic–analysis`) rest on logic, which 1173
+  demotes from a language. The measurement above is the cleaner route to the same count.
+<<<END FILE: CYPHER.md>>>
+
+<<<FILE: AUDIT-LAMBDA.md>>>
+# The Λ audit — every reconstructible claim, and the three that do not reproduce
+
+```sh
+python3 tools/audit_lambda.py          # the full pass, a few minutes
+python3 tools/audit_lambda.py --fast   # skips the interval census and the 842,206 triples
+```
+
+Sixty-one recorded claims about Λ are checked against the volumes: **59 PASS, 2 FAIL.**
+
+There are **three findings**, not two. The third does not show as a FAIL because the program runs
+that check on the population that makes it pass and annotates the discrepancy instead — the claim
+is right, the box named beside it is not. All three sit in two places, §8.4's rank entries and
+§11's marginal exclusion table, and none touches a cell count, a closure defect, or a structural
+result.
+
+The program adjudicates nothing. It prints the claim and the measurement side by side.
+
+## What reproduces
+
+Λ at 976 cells in a 6,912 box, `E = 0` in all five operator-bearing languages with all ten pairs
+agreeing. Zero join and zero meet failures over all 475,800 unordered pairs. The rank sequence
+`1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1`, log-concave at every
+interior rank. `F(1) = 976`, `F(−1) = 2`, mean rank `11.0666`. The largest antichain at 122, and
+`976 = 8 × 122`. Seventeen join-irreducibles. **1,113,045,672 maximal chains.** 115,162 comparable
+intervals of which 31,604 are boxes, 116,138 distinct meet-join boxes, binding rates 30.0 / 28.0 /
+1.9 %. The 319-cell seven-coordinate projection with `Σ (k+1) = 976`. `A_q(1) = 33, 33, 23, 8` and
+`B_q(1) = 5, 10, 15, 17`. The triangle at 911 cells, and 280 / 240 / 40 on the stated box. The
+tower at 1,654, 1,561 and 2,535. Λ₉'s 41,682 composable pairs, closed, and 842,206 associative
+triples with no failure. Λ₁₀'s 485 non-composing cells, every one at `g = 0`. All eight marginal
+exclusions.
+
+## FINDING 1 — the rank skew is mislabelled, and read as a skew its sign is inverted
+
+**§8.4, The rank skew.** Prints *"centre of mass 11.0666 vs midpoint 11.5, skew −0.43"*, and
+attributes it: *"Prior art: the third standardised moment of a rank distribution. Gauss (1809)."*
+
+The rank sequence reproduces exactly, and the third standardised moment of that sequence is
+**+0.14**, not −0.43.
+
+The printed −0.43 is `11.0666 − 11.5 = −0.4334` — the displacement of the centre of mass from the
+midpoint. That is a real quantity, correctly computed, and it is the number the same sentence
+derives two clauses earlier. It is not the statistic the prior-art note names.
+
+The consequence is not cosmetic. The two quantities carry **opposite signs**, so a reader taking
+"skew −0.43" at its attribution concludes Λ's rank distribution is left-skewed. It is not: the
+right tail is the longer one, nine steps from the peak at rank 11 down to rank 20, against eight
+from the peak down to rank 3.
+
+Either the number wants a different name — *the centre-of-mass displacement*, with the Gauss
+attribution dropped — or the third standardised moment wants computing and printing at +0.14.
+The measurement does not choose.
+
+## FINDING 2 — two sections disagree about the same eight cells
+
+**§8.4, The rank skew:** *"only 8 of 976 cells **fixed** by x ↦ max − x"*
+
+**§8.4, The Sperner property:** *"NOT self-dual: 8 of 976 cells **survive** x ↦ max − x against the
+box maxima (3,1,3,3,3,1,3,3), **none fixed**"*
+
+Measured: **8 survive, 0 are fixed.** The Sperner entry is right in both halves; the rank-skew
+entry's "fixed" is wrong for a set of eight cells it otherwise counts correctly.
+
+A fixed point of `x ↦ max − x` would need every coordinate at half its maximum, and the box maxima
+`(3,1,3,3,3,1,3,3)` include odd values, so no cell can be fixed — the count is not merely wrong,
+it is unreachable.
+
+## FINDING 3 — the marginal exclusion table and the box printed beside it are different boxes
+
+**§11.** The eight bounds ranked by marginal exclusion — `g ≤ q` 673, `q ≤ k` 575, `k ≤ 4ℓ+2` 564,
+`ℓ ≤ n−1` 308, `2S ≤ k` 300, `f ≤ e−1` 200, `k ≥ 1` 25, `g ≤ 4f+2` 24 — are described as *"measured
+on the rebuilt Λ₈ at the caps of §7.4"*, beside an ambient box quoted at **6,912**.
+
+All eight reproduce exactly, but only on a **9,216**-cell box whose `k` runs from 0. On the
+6,912-cell box, `k` runs from 1, so `k ≥ 1` cannot fail on any cell and its marginal exclusion is
+**0**, not 25. The other seven are unchanged between the two boxes.
+
+Both boxes are legitimate — 6,912 is the ambient after the `k ≥ 1` floor is applied, 9,216 before —
+and the table is right on its own population. What is wrong is that the population is not the one
+named next to it. Naming the pre-floor box, or dropping the `k ≥ 1` row from a table measured
+post-floor, resolves it.
+
+## Five false alarms, and what they show
+
+Five checks failed during construction and every one was the audit's fault, not the book's. They
+are recorded because the pattern is the point.
+
+| the check | why it failed | what reconciled it |
+| --- | --- | --- |
+| comparable intervals | counted the 976 singletons | `116,138 − 976 = 115,162`, exactly |
+| of which are boxes | same | `32,580 − 976 = 31,604`, exactly |
+| binding rates | wrong population and wrong criterion | the book states both: `y_u > φ(x_v)` over the 475,800 pairs |
+| join-irreducibles | counted the bottom element | Birkhoff excludes it: `18 − 1 = 17` |
+| Λ₉′ | took the tighter bound alone instead of conjoined | the 93 cut cells came out at `(f=0, g=2, 2S′=2)`, as recorded |
+
+In each case the index supplied its own reconciliation, and the offset was exact rather than
+approximate — 976, 976, 1, 93. A closed index defends itself: a wrong reconstruction of it does not
+land near the recorded figure, it lands a nameable distance away, and the distance names the error.
+That is why a FAIL here is worth reading twice before it is believed.
+<<<END FILE: AUDIT-LAMBDA.md>>>

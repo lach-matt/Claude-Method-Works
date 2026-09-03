@@ -9,14 +9,14 @@ tree, and nothing is fetched from Drive to open a chat.
 | Path | What it is |
 | --- | --- |
 | `The_Method_1_6_BUILD90_main_and_register.md` | Live main bundle — 1,983,081 B · `49065309b0c4fe8e055f693aed295cca` · 18,470 lines · 2 members |
-| `The_Method_1_6_BUILD185_compendia_papers_audits.md` | Live compendia bundle — 6,465,999 B · `e0f94372e918a59525031cdf9a9a2e98` · 72,675 lines · 414 members |
-| `members/` | All 416 members extracted from those two bundles, byte-exact. Instruments read these by name. |
+| `The_Method_1_6_BUILD186_compendia_papers_audits.md` | Live compendia bundle — 6,590,914 B · `7144d18deb508e5f43852b74648885af` · 74,800 lines · 420 members |
+| `members/` | All 422 members extracted from those two bundles, byte-exact. Instruments read these by name. |
 | `MEMBER-INDEX.tsv` | Per member: bundle, extension, size, md5, and byte offset in its bundle |
 | `verify.py` | The witness check — see below |
 | `CLAUDE.md` | The project instruction and the §0 gate |
 | `bin/python3` | Interpreter shim — the instruments need Python ≥ 3.12 |
 | `bin/stage-gate` | Stages the tree at `/home/claude` so `gate.py census` can run |
-| `rebuild/` | `REBUILD-BUILD181…185.md` — how each build is derived from its predecessor, with every md5 to assert |
+| `rebuild/` | `REBUILD-BUILD181…186.md` — how each build is derived from its predecessor, with every md5 to assert |
 
 The bundles sit beside `members/` rather than in a subdirectory because `gate.py` derives its
 `HOME` as the parent of the members directory. `gate.py` is a seated bundle member and is never
@@ -35,9 +35,9 @@ Two independent checks, and a mismatch is a hard failure that is reported, never
    is asserted. This is what makes the extracted tree a witness rather than a plausible copy: a tree
    that passes provably reproduces what the old Drive gate used to extract.
 
-Current state: `members checked: 416  mismatched: 0`, both bundles recovered, `VERIFY OK`.
+Current state: `members checked: 422  mismatched: 0`, both bundles recovered, `VERIFY OK`.
 
-Exactly one compendia bundle lives here at a time. `BUILD180` through `BUILD184` were each
+Exactly one compendia bundle lives here at a time. `BUILD180` through `BUILD185` were each
 removed once its successor was asserted — all remain in git history, and all are re-derivable from
 Drive through their `REBUILD-BUILDNNN.md`. Keeping a superseded bundle beside the live one is not
 merely untidy: `gate.py manifest` refuses to guess which is live and stops until one remains.
@@ -47,11 +47,11 @@ merely untidy: `gate.py manifest` refuses to guess which is live and stops until
 ```sh
 ./method/bin/stage-gate                                   # once per container
 export PATH="$(pwd)/method/bin:$PATH"                     # python3 -> 3.12
-python3 method/verify.py                                  # 416 members, both bundles
+python3 method/verify.py                                  # 422 members, both bundles
 cd /home/claude/members
 rm -rf __pycache__ && python3 gate.py census              # byte-identical to the member
 rm -rf __pycache__ && python3 gate.py run --core          # tower-2, kinds, minmax, r2-tools-constants, extent
-rm -rf __pycache__ && python3 gate.py manifest            # 415 listed / 416 extracted
+rm -rf __pycache__ && python3 gate.py manifest            # 421 listed / 422 extracted
 rm -rf __pycache__ && python3 gate.py run --all           # all 86 goldens, one line each (~13 min)
 ```
 
@@ -118,22 +118,47 @@ This is a bridge, not a fix. It works only because this container reaches both D
 which the Cowork container does not. Until that access is settled, the chain advances in Drive and
 someone has to carry it back.
 
-## BUILD185, and why the direction now matters
+## BUILD185 and BUILD186, and the collisions they resolved
 
-BUILD185 is the first build in this series **made here rather than carried**. It seats the Register
+BUILD185 is the first build in this series **made here rather than carried**: it seats the Register
 read end to end — entries 1–1792, thirteen source-order units plus `r2-regsweep`, 57 new members —
-and M's compendia-scope ruling, which had been staged unseated since chat 151-B.
-`rebuild/REBUILD-BUILD185.md` records exactly what it adds to BUILD184 and every md5 to assert.
+and M's compendia-scope ruling, staged unseated since chat 151-B. BUILD186 then seats the six members
+of a **third** line, chat 152's cypher work on `claude/cypher-analysis-method-books-826x0x`. Both are
+recorded in `rebuild/`.
 
-**So this tree is now AHEAD of Drive, which stands at BUILD184, and that is a hazard rather than an
-achievement.** Chat 152 is working R3 from BUILD184. If it closes a BUILD185 of its own, the two are
-different bundles under one name. The reverse guards make the rebase checkable — strip one build's
-additions, assert BUILD184, then re-close in whichever order M rules — but it has to be done before
-either side advances again.
+Three lines ran in parallel on 3 September — chat 151-B in Drive, chat 151-R here, chat 152 on that
+branch — and **two numbering collisions came out of it, both ruled by M**:
 
-A second fork stands open on the Register itself: branch
-`claude/cypher-analysis-method-books-826x0x` seats entries **1793–1796** while the read above worked
-1–1792.
+1. **There is no chat 153.** Chat 152's own W entry heads itself *"W-190 — chat 153"*. M corrected
+   it. The entry is carried into W-195 **verbatim and unedited** — rewriting another session's entry
+   would falsify a record — and the correction is made in the framing above it.
+2. **W-190 and BUILD181 were each spent twice:**
+
+| | chat 151-B (Drive) | chat 152 |
+| --- | --- | --- |
+| W entry | W-190, 26b-02 / 26b-03 | W-190, the cypher analysis |
+| compendia bundle | BUILD181 `2fbcd461…` · 345 members | BUILD181 `bfa0d975…` · 347 members |
+| parent | BUILD180 `ea5becc4…` | BUILD180 `ea5becc4…` |
+
+**Siblings from one parent, not a chain. M ruled the Drive chain keeps the numbers**, so 151-B's
+stand, chat 152's entry is re-keyed **W-195** and seated at BUILD186, and its BUILD181 is retired as
+a sibling that remains in git history. Nothing of its content is lost — its six members are seated
+here byte-identical and none collided by name.
+
+**What is deliberately NOT here: BUILD91.** Chat 152 also advanced the *main* bundle, appending
+Register entries 1793–1796 and **repairing the front-matter counts**. The chat-67 hold forbids
+editing, corrections and Register entries until the review closes, and BUILD91 does all three, so
+**M has parked it pending a ruling on the hold**. The main bundle here stays BUILD90.
+
+An earlier version of this file, and W-194, called that branch *a fork on the Register*. **That was
+wrong and is withdrawn.** Measured over all 6,612 lines of the member, BUILD91's Register is BUILD90's
+plus four entries and two count-site lines, with nothing else in 1–1792 differing; ten of the
+fourteen seated Register instruments reproduce against it unchanged, the other four differ only on
+extents or stale constants, and no verdict changes.
+
+**This tree is ahead of Drive, which stands at BUILD184.** Chat 152 is paused, so nothing is racing
+it, but Drive still has to be brought level.
+
 
 ## Relationship to `drive/`
 
