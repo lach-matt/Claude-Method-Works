@@ -77,3 +77,34 @@ B**) and left the originals untouched, and the reverse guard did not recover the
 was written, because this instrument writes nothing, and the fault surfaced in the dry run instead
 of in a build. **That is what the reverse guard is for**, and it is why this class is specified and
 dry-run before it is ever applied.
+
+## The prior repair: entry 1617, and why it did not hold
+
+Added after the word-by-word C9 pass (reg13-01). **This class has been diagnosed and repaired once
+before, by the record itself, and the repair did not hold.** Entry 1617 is live and says so:
+
+> *"PR4 is closed: all eight entries carried an italic body-span opened after a bold close and never
+> shut, and the register's own alternating convention makes the fix unambiguous. **Thirteen
+> unbalanced entries become five.** AND THE FIVE THAT REMAIN ARE NOTATION CASES EXACTLY — Λ-star, a
+> wildcard tuple, Python's bracket-w-star-n, a jK parity marker, and the glob vi-star. An asterisk
+> that IS the symbol cannot be balanced as markup without changing what it says, so PR5's skip list
+> is those five and it is now written into `register_review.py`."*
+
+Three consequences for this class, all MEASURED:
+
+1. **The notation exception is not new here — it is 1617's skip list.** The exception reg7 derived by
+   hand (`2P*`, `φ*`, the wildcard `(3, 0, 1, 1, *, 0, 1, 1)`, `[w*n]`) names the same kinds 1617
+   names. Two readings, arrived at independently, one conclusion. **1617 is the prior ruling and this
+   class cites it rather than re-deciding it.**
+2. **The seated Register carries 22 unbalanced entries where 1617 left five, and 16 of the 22 were
+   written after it** — 1642, 1643, 1646, 1648, 1649, 1652, 1653, 1657, 1673, 1674, 1677, 1681, 1682,
+   1694, 1699, 1774. Three more — **313, 604, 747** — stand *before* 1617 and still carry the split
+   shape, so the repair did not reach them either.
+3. **`register_review.py` is not a seated member.** MEASURED: it is not in `members/`. Under the
+   chat-68 ruling instruments travel as bundle members; this one never did, so the checker that
+   carries the five-case skip list is outside the bundle and no gate runs it.
+
+**This is why item 2 of "What R3 must do" is not the whole of it.** Applying the rule without seating
+a checker reproduces exactly what happened after 1617: a correct repair, recorded in a live entry,
+re-accumulating within twenty-five entries. **R3 seats `register_review.py` or an equivalent into the
+gate first, or it does not apply this class at all.**
