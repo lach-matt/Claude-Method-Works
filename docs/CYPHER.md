@@ -167,6 +167,29 @@ evidence for their definitions, and is why they were adopted. Λ's 976 cells reg
 **18 join-irreducibles** — the strongest of the three, because nothing was fitted to it. If a
 later ruling contradicts one, the operator changes and the self-test is what will catch it.
 
+## A worked reading, from the repository's own data
+
+`method/members/MEMBERS-126.tsv` holds 562 Rydberg series members over eight species. Deriving
+`(Z, charge, ℓ, 2S+1)` from `species` and `designation` gives 33 distinct channels, and the cypher
+reads them:
+
+| language | admits | E |
+|---|---|---|
+| order | 150 | 117 |
+| algebra | 150 | 117 |
+| geometry | 108 | 75 |
+| information | 98 | 65 |
+| statistics | 47 | 14 |
+
+**1 of 10 pairs agree** — order and algebra — and `K.langclose` holds: the languages disagree and
+E > 0. The same shape appears on the periodic table at three coordinates: order and algebra
+agreeing, statistics tightest, everything else apart. Two objects is not a law, and the defect
+census flags exactly this kind of generalisation (`C9-OVERGENERALISATION-WORD`) — it is recorded
+here as an observation to test, not a finding.
+
+The derivation above drops 161 of the 562 members, and that is the second finding below rather
+than a fault in the parse.
+
 ## Known gaps
 
 - **The calendar fixture is not built.** Register 1175 records it at `E = 7` in 2-D and rebuilt at
@@ -178,6 +201,20 @@ later ruling contradicts one, the operator changes and the self-test is what wil
   ones.
 - **`arithmetic`, `calculus`, `constraint-language`, `logic`** have no ruled operator mapping and
   read `NOT-RUN` under `--roster 20.2`.
+- **Register 1177's geometry percentages are not reproducible, and not because the operator is
+  wrong.** They read *70% of the faces and 28% of the corners* against Λ_spectra at E(order) =
+  6,195. Λ_spectra proper — `(Z, charge, ℓ, 2S+1)` over 104,832 cells — now **closes at E = 0**,
+  so those numbers describe a superseded state of the index, before register 1139's Hund
+  constraint was carried in (register 1178 records the step down: order 6,195 → 2,879, statistics
+  806 → 429, geometry 3,773 → 1,984). This is docket 15's class, retired-basis, at a new object.
+  The cell set of the superseded state is not in the tree, so the check cannot be run at all.
+- **`2S+1` is not defined on every channel it is asked of.** Of the 562 members in
+  `MEMBERS-126.tsv`, 266 are LS-coupled, 135 jK-coupled — both carry a multiplicity — and **161
+  are jj-coupled** (`ns (3/2,1/2)* J=1`), which has none. All 161 are **Si I**, 161 of that
+  species' 228 members. An index keyed on `(Z, charge, ℓ, 2S+1)` therefore cannot hold 71% of
+  Si I's measured series, and drops them without saying so. Adjacent to register 1356's class — a
+  coordinate that does not individuate every cell of the object it is put on.
+
 - **The two pairs the volumes never exhibit.** Under the *measured* five, C(5,2) = 10 closes on Λ.
   Under the five register 1173 *names*, MC's ten-pair enumeration exhibits only eight of the
   required ten — `algebra–analysis` and `geometry–information` appear nowhere in the four volumes,
