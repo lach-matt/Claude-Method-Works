@@ -7423,7 +7423,7 @@ WEAK at scale: only 44 of 79 channels show a wider high half (56%), and the n^3 
 
 Measured — R 806, 821-824; NIST Atomic Spectroscopy compendium; Ritz 1903.
 
-penetration (|d|≥0.1) falls 146 of 163 = 92%; polarisation (|d|<0.01) RISES 52 of 52 = 100%; combined 94% against 66% as a single claim (R 985-987)
+penetration (|d|≥0.1) falls 146 of 163 = 90%; polarisation (|d|<0.01) RISES 52 of 52 = 100%; combined 94% against 66% as a single claim (R 985-987)
 
 > **Prior art: the extended Ritz formula has a positive second coefficient for penetration and a negative one for polarisation, so the approach to delta_0 is monotone from above or below. Stated in NIST compendium.**
 
@@ -22910,6 +22910,18 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **Not done, by design:** the four re-derivations after this family in DEF-143 item 11's order (**26b-02/-03 next**); the *without exception* half of L11298, recorded as a candidate with register 333 as its nearest exception and not scored, the count word this family is about being *several*; Register 256's code and the press readout's state (docket 38). r2-ch16n/s/t/u and r2-ch17c cannot run in this environment and were not re-run (§0a).
 - **Segment B — the close.** BUILD179 -> BUILD180 with W-189, DEF-150, the DOCKET chat-150 delta and four new members (r2-26b.py / r2-26b.out, READ-26b.md, CENSUS-CLOSURES-26b.tsv), the reverse guard recovering 6251dc13. **DEF and DOCKET blocks are keyed to the chat that wrote them, so they are DEF-150 and the chat-150 delta; the W numbers stay sequential and this is W-189.** Close begun with the context estimated at about 3 % of the 15 M budget used (INFERRED from the counter), well inside the chat-72 rule.
 
+### W-190 — chat 153 (repository session) — R3 OPENS: class WL (16z-01) and arithmetic item 153-01 executed; BUILD90/BUILD180 -> BUILD92/BUILD181
+
+- **Gate:** ran in full and in order from the checkout; PASS. `git rev-parse HEAD` b695e488, `git status --porcelain` clean; `python3 method/verify.py` 343 members / 0 mismatched, BUILD90 main 49065309 and BUILD180 compendia ea5becc4 both recovered. Five instrument selftests OK: cypher (Λ at 976 with E = 0; the degeneracy guards), arith 42 fixtures, pointers 53, buildtrace 29, populate 77. Read at open: RULINGS-R2.md's chat-127 and chat-128 blocks, the staged chat-152 block, DOCKET.md's conventions, standing method and the 37-item repair docket, W-181 through W-189, R3-CLASS-WL.md in full.
+- **M's word, this session.** R3's repair phase was put to M with the audit order and the two blockers named. M directed: run the withdrawn-law class and 153-01, finish the work R3 needs to do its own job, and hold the rest until R3 is shifted here from chat 152 and 152 is closed. **The chat-67 hold is therefore lifted for these two classes only; every other class stands held** until that shift.
+- **Segment A — class WL (16z-01), done.** BUILD90 -> BUILD91 main by the seated `r3-wl.py --write`, which reproduced its banked golden `r3-wl.out` byte-exact before it was run for effect. The wording is M's chat-128 approval unaltered (R3-CLASS-WL.md items 1-6 as put, item 7 added, entry 1794 carrying *'measured' and 'verified'*). Its release condition — the Chapter 34 re-take under docket 37 — was met at chat 143, whose **34re-05 re-confirms the class**; the figures the wording quotes (99 of 106 in sample, 90 held out, Madelung's 96) are cited from registers 1437, 1438, 1445, 1460, 1463 and were not recomputed. Eleven count-asserted substitutions on the main volume (§34.4's status paragraph, §34.8, §34.9's heading and its *Exceptionless on 106 elements*, §35's opening, §35.1, three appendix status rows), two on the Register, entries **1793 and 1794** seated. kinds.py recount *a correction* 149 -> 151; extent driven to its fixed point at 1 to 1794. Reverse guards recovered main 4aef772b, Register 79aaf239 and bundle 49065309; build.py's 232 press anchors unmoved. **Status sentences only; no mathematics rewritten.**
+- **Segment B — arithmetic item 153-01, done.** BUILD91 -> BUILD92 main and BUILD180 -> BUILD181 compendia by the new `r3-arith-01.py --write`, written in r3-wl.py's form. The Mathematical Compendium printed the penetration claim as *146 of 163 = 92%*; 146 of 163 is **90%** at 0 dp rounding half to even (Decimal.quantize; round() is forbidden), and **register 1048** states that claim as 146 of 163, 90%, giving 92% its own object — the combined two-claim figure, 198 of 215 (92.09%). **Which of the two the compendium's 92% came from — the claim's own superseded value or the combined figure beside it — is NOT decided**, and entry 1795 says so; on either reading it is not the percentage of 146 of 163. One numeral changed, no count touched. Entry **1795** seated; kinds recount *a correction* 151 -> 152; extent 1 to 1795, 1,638 entries, mature record 165 to 1795 at 1,473. Every reverse guard recovered its old md5; 246 press anchors across three members unmoved.
+- **An instrument fault self-caught.** r3-arith-01.py's first fixed-point assertion demanded the defective string be absent from every volume and FAILED — entry 1795 quotes it, as a correction entry must, both states being preserved. The assertion was **tightened, not dropped**: the string must be gone from every volume and its only surviving occurrence must lie inside entry 1795. G0c respected — the instrument was not changed to make a discrepancy disappear.
+- **The store machinery R3 needed and did not have.** Every R3 build reseats the store, and by hand that is the silent change the discipline forbids. `method/reseat.py` re-extracts the live bundles over members/ and regenerates MEMBER-INDEX.tsv, guarded by splicing each body back and asserting the bundle md5 *before* anything is written; **it was proved on the pre-existing store first — 0 members written, MEMBER-INDEX.tsv byte-identical to the seated one.** `method/BUNDLES.tsv` (tag, filename, md5) is now the live-bundle set, written only by reseat.py and read by verify.py and `method/bin/stage-gate`, neither of which hard-codes a bundle name or md5 any longer. Retired bundles are removed from the checkout and preserved in git history.
+- **The class sweep that found 153-01.** `tools/arith.py --roster volumes`: 235 claims, AGREE 57, WITHIN-INPUT-PRECISION 1, **DISAGREE 2**, NOT-BOUND 175 (refusals, not findings). `tools/pointers.py --findings`: 1,932 tokens, **42 findings**, AMBIGUOUS 65 (refusals, not findings). **Of 44 raw findings, 2 read as genuine and 9 as artefacts; a raw instrument count is not a defect count.** The artefacts are recorded in READ-153.md so no later pass repairs them — main L1413's *33 × 5 = 166* is the volume's own ARITHMETIC audit fixture and is correct as printed; the eight §4.5/§4.6/§4.7 SECTION verdicts are a resolver gap, Chapter 4 numbering its subsections as list items rather than headings; the THEOREM class is at least partly the cross-addressing convention WORKING-REGISTER L1874 records.
+- **Not done, by design:** every other class of the 37-item docket, held pending the shift of R3 from chat 152. DEF-143 item 11's remaining re-derivations (26b-02/-03, 27a-02, 28a-06, 28b-06) untouched. The Register's full read and the four compendia class sweeps that the chat-152 block scopes are not begun. `r3-arith-01.py`'s own golden is not banked — it is a build instrument, not a reporting one, and its dry run is its check.
+- **Segment C — the close.** BUILD181 -> BUILD182 with W-190, DEF-153, two new members (`r3-arith-01.py`, `READ-153.md`), the staged chat-152 block seated into RULINGS-R2.md and its loose file deleted. Close begun on a closed segment, far below the chat-72 threshold.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -31586,6 +31598,48 @@ witnessed periodic elements." On the audit order proposed: "I do approve".
 
 **What does not change.** The chat-81 cadence; the gate and the close; findings recorded and flagged, never
 put to M; the chat-67 hold for every class; Register entries append-only; no silent change; the chat-95 bar.
+## Chat 152 (3 September 2026) — the compendia scope: the Register in full, the other four by class sweep
+
+**M, in answer to the scope question put to him** in the repository session of 3 September 2026 — not a
+Method chat. The question was put with three routes and their measured costs and M chose the third.
+**There is no verbatim quotation: the answer was given by selection, not in words**, so the three routes
+are reproduced here as they were put and the choice is checkable against them.
+
+**The question.** DEF-141 item 15, parked at the main volume's close and never put. Chat 67 rules that
+every volume is read in full; chat 127 item 2 rules that the compendia close by class sweeps, and W-167
+recorded chat 113's scope question as closed by it. The two had not been reconciled.
+
+**The extents, MEASURED on the BUILD180 members:**
+
+| volume | lines | bytes |
+|---|---:|---:|
+| The Register | 6,611 | 1,203,491 |
+| Mathematical Compendium | 3,802 | 309,403 |
+| The Physics Compendium | 878 | 61,366 |
+| The Index of Indices | 2,093 | 118,373 |
+| Spectra Compendium | 1,159 | 100,790 |
+| **total** | **14,543** | **1,793,423** |
+
+**The routes as put.** (i) Class sweeps throughout — 25–35 sessions. (ii) Source-order reads for all
+five — ~230 sessions on the chat-127 projection, ~125 on the main volume's measured rate of 116 lines
+per session (INFERRED). (iii) The Register in full, the other four by class sweep.
+
+1. **The Register is read in full, in source order, under the chat-81 cadence,** as the main volume was.
+   It is 6,611 of the 14,543 lines and the volume the other five cite.
+2. **The Mathematical Compendium, the Physics Compendium, the Index of Indices and the Spectra
+   Compendium close by class sweep** against the docket's classes, under chat 127 item 2. They are not
+   read line by line.
+3. **DEF-141 item 15 is CLOSED as a question.** Chat 67 and chat 127 item 2 are reconciled by items 1
+   and 2 above; neither is reopened.
+4. **RUL-128 item 3 (ii) is unaffected.** Every computable claim in the Register and the Mathematical
+   Compendium is re-derived by instrument and banked, whichever route its volume takes.
+
+**Projection (INFERRED).** 60–90 sessions for the compendia leg, against 25–35 for route (i) and ~230
+for route (ii).
+
+**What does not change.** The chat-67 hold; the chat-81 cadence; the gate and the close; the chat-95
+escalation bar; findings recorded and flagged, never put to M; Register entries append-only; no silent
+change; the order of correction under RUL-128 item 1.
 <<<END FILE: RULINGS-R2.md>>>
 
 <<<FILE: DEFERRED.md>>>
@@ -35001,6 +35055,18 @@ All of HANDOFF-24's list stands (none closed this chat): L8794/L11107 "eight ite
 8. **Conventions, two new.** **TWO-FORM:** where a rule is printed as a headline and an elaboration, both are named and both are scored, and an instance is reported against each --- the two forms are never assumed to have one extent. **POOL:** a mechanism is read by enumerating a candidate pool from named nets and scoring every member of the pool with a deciding phrase the instrument asserts present in that member, so a reading is checkable in the way a count is.
 9. **Environment (chat 150, MEASURED).** The container opened with **no attachments at all** (`/root/.claude/uploads/` absent), so CLAUDE.md had to be fetched; HANDOFF-102's parentId-qualified search returned the one Materials copy and avoided the CORPUS duplicate, as designed. The three bundle downloads all spilled to `/root/.claude/projects/-home-claude/<session-id>/tool-results/`; CLAUDE.md at 13,157 B arrived INLINE. A `cd` in one Bash call moved the session working directory again --- absolute paths everywhere.
 10. **Next:** DEF-143 item 11's order continues --- 26b-02/-03, 27a-02's seven entries, 28a-06's author-and-year match, 28b-06's reading of Register 1721 --- one instrument per family, each banked.
+
+## Chat 153 --- deferred out of R3's opening (class WL and arithmetic item 153-01 executed; a repository session, not a section read)
+
+1. **R3 is OPEN for two classes only.** M's word this session lifted the chat-67 hold for the withdrawn-law class (16z-01) and arithmetic item 153-01, and for nothing else. **The remaining 35 docket items stay held** until R3 is shifted here from chat 152 and 152 is closed. Do not read this entry as a general opening.
+2. **The order of correction is unchanged (RUL-128 item 1):** mathematics first, then the prose that reflects it, then the appendices and indices that reflect both. Both items executed here satisfy it — WL's mathematics was re-taken at chat 143 before its prose was touched, and 153-01 is itself an arithmetic item.
+3. **pointers.py has a resolver gap, recorded and NOT repaired (153-03).** Chapter 4 numbers its ten subsections as list items rather than headings, so every §4.x citation scores UNRESOLVED — eight of the instrument's 42 findings. Any future pointer sweep must classify the §4.x class as artefact before counting. G0c governs: the instrument is not changed to make the discrepancy disappear, and if it is ever taught Chapter 4's numbering the change is its own segment with its own selftest fixture.
+4. **The THEOREM class needs its cross-addressing convention taught or named.** `T n / M §x Thm y` addresses another volume's numbering (WORKING-REGISTER L1874). Two of nine classified; **seven remain unclassified and must be read individually before any of them is called a defect.**
+5. **Main L1413 is a permanent counter-case (153-02).** The volume prints a deliberately wrong product as its own ARITHMETIC audit's failing input. Any arithmetic sweep will flag it forever. **It must never be repaired**, and this entry is the standing witness.
+6. **153-01's cause is not decided and must not be quietly decided later.** Whether the compendium's 92 % was the claim's own superseded value or the combined 198-of-215 figure transposed leftward is open; entry 1795 records both readings. If the Register's *90% against 92%* is ever read definitively, the reading goes in a new entry citing 1795, never by amending it.
+7. **The store machinery is new and is now part of the gate.** `method/reseat.py` and `method/BUNDLES.tsv`; verify.py and stage-gate read the bundle set rather than hard-coding it. A build that does not end in reseat.py + verify.py has not been seated. Retired bundles leave the checkout and live in git history.
+8. **`r3-arith-01.py` is seated by this close; it has no banked golden.** It is a build instrument, not a reporting one — its dry run is its check, and it is not re-run by `gate.py run` (it would refuse, its old-bundle md5 having moved).
+9. **Next:** the shift of R3 from chat 152, then the docket in RUL-128 item 1's order. DEF-143 item 11's re-derivations (26b-02/-03, 27a-02, 28a-06, 28b-06) remain owed, as do the Register's full read and the four compendia class sweeps the chat-152 block scopes.
 <<<END FILE: DEFERRED.md>>>
 
 <<<FILE: tower-2.out>>>
@@ -35055,8 +35121,8 @@ extent from Register L6: 1 to 1792
 
 <<<FILE: MANIFEST.tsv>>>
 bundle	name	bytes	md5	lines
-main	The_Method_1_6-2.md	779423	4aef772bad512b84d8c0888386472a74	11854
-main	The_Method_1_6___The_Register-2.md	1203491	79aaf239a42c1649e914b7cba9d5ce2a	6611
+main	The_Method_1_6-2.md	780356	299ea18846c41f9a4e871330d0af9a26	11862
+main	The_Method_1_6___The_Register-2.md	1204958	128dfdbdc16dd6deda690a32ed66ad58	6623
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
 compendia	CENSUS-CLOSURES-23a.tsv	675	7b4a6c57696563a2b96a812c4627f351	12
@@ -35107,7 +35173,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236171	0967efead3f95016bd6ffaa95788d5ac	1557
-compendia	DEFERRED.md	389296	483848ca985ca7b472698360f654e7e5	3412
+compendia	DEFERRED.md	392309	39bb098d2c7befd220186288239b85e5	3424
 compendia	DOCKET.md	52004	db539aad03629b82cc52e9001d27852a	377
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
@@ -35133,6 +35199,7 @@ compendia	ORIGINAL-3B-TEXT.txt	20633	f75c5e262a03daca06a9477d5cd15732	208
 compendia	PHYS_AUDIT.md	2279	eb62df8262283a64f8f01097b2519700	13
 compendia	POINTERS-BUILD14.json	4103	9bffb644ca893e5f3cba1be433db836f	451
 compendia	R3-CLASS-WL.md	7146	100c84cab4c56d61b432183697e7498f	87
+compendia	READ-153.md	5234	76e2350747c527373bdefaac6f353c39	76
 compendia	READ-21a.md	9825	ff5660f12e4acbc3a0606fd0a8db75de	32
 compendia	READ-23a.md	9828	3113eafb64a0577f462b4fd7a9ea2f03	27
 compendia	READ-24a.md	10455	5f0c0ed165a827964e28d2e2d2c1b760	26
@@ -35186,7 +35253,7 @@ compendia	REQUEST-LOWDIN.md	5810	f1d93d9a360bc1afbfdbee0c66414b5c	75
 compendia	REQUEST-THREEBODY.md	5300	8e776e353b41e91e6d9bf6f83f9a0628	70
 compendia	RESPONSE-TO-METHOD-1_6.md	9706	eb435761e5429a245a1ba415e5d0cc37	175
 compendia	RULING-TOLERANCE-489.md	3121	5a9a3803812c2e157770c6d4c9ca041a	59
-compendia	RULINGS-R2.md	17684	d42790bbadf9707bb831d21d710aeedb	171
+compendia	RULINGS-R2.md	20225	85a1b6d4249f2f4c8aec3152ffd882c2	213
 compendia	ScIII_asd.tsv	1269	f91a0abff919f6922395320344f1d4ac	46
 compendia	TB1-MANIFEST.tsv	1840	2b72f68c7ebf7b595a640976616a5f8c	20
 compendia	TB1-README.md	6956	809c86f4a75d6493e5327ddb93b1f7fa	54
@@ -35204,13 +35271,13 @@ compendia	TB1-n8_check.py	1719	ab823f22180baa476b623e0f55ae8c06	24
 compendia	TB1-routh_check.log	90	3fa04ee0f0b05e8246bd9eb119d8dd1d	1
 compendia	TB1-routh_check.py	366	23842800b311327175ecdd0ef311473b	5
 compendia	THE-LOWDIN-SOLUTION-2.md	38040	4a06e8930b9f7a7a8226dca2db39e35c	260
-compendia	The_Method_1_6___Mathematical_Compendium-2.md	309403	99a616ec551ecd3bdb67f81119f9c483	3802
+compendia	The_Method_1_6___Mathematical_Compendium-2.md	309403	53a446c80c72f348d9609d65e0a7f40f	3802
 compendia	The_Method_1_6___Spectra_Compendium-2.md	100790	5ba7f61cf031c02b5a0226d2aed8dc4d	1159
 compendia	The_Method_1_6___The_Index_of_Indices-2.md	118373	27d387ef8a6175c1b9c85437fe3a7588	2093
 compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2c601a549d54db	878
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
-compendia	WORKING-REGISTER.md	907899	f28ef5b66580ec9b5fa5c055966af54c	7962
+compendia	WORKING-REGISTER.md	913897	736a3ac0ec0c7cf83ff01c133daccd0a	7974
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -35382,6 +35449,7 @@ compendia	r2-tools.py	6529	4702f5f937087b1e806e4bc78b17f3c3	98
 compendia	r2-warn.out	38680	3616f0595af9637e8763d098e3b3f718	266
 compendia	r2-warn.py	13763	228d883a25bfce317cd8a8bd9abd5c2d	185
 compendia	r2lib.py	21022	580d2ea2e43c2ddf78018afcba2f7de7	453
+compendia	r3-arith-01.py	11961	123c5e85f021228f01945d09bf7fdaeb	176
 compendia	r3-wl.out	3638	1bb27e471f8429e4d6e759f528c838f1	31
 compendia	r3-wl.py	15100	791f540520bc9f48eaed81830996fa1e	184
 compendia	rclose.py	1728	707a1061b4fede0b94e288d569dc9f0e	41
@@ -65418,3 +65486,261 @@ id	verdict	reason
 1473	defect	C9 never at reg L6589 (entry 1786): *There was never an F.3.1 or an F.3.2* — Prints & Proofs carries both headings (26b-06, chat 139). Co-located stale text counts against its census row (chat-70 ruling)
 1556	defect	C13 handle leak at reg L6507 (entry 1763): *run489.py, ruled_bracket.py, RULING-TOLERANCE-489.md and the run's JSON go to BUILD-10* — a build handle and four internal file names in a reader-facing volume. Ruling 46; 26b-10; the class of census 1536-1545
 <<<END FILE: CENSUS-CLOSURES-26b.tsv>>>
+
+<<<FILE: r3-arith-01.py>>>
+#!/usr/bin/env python3
+"""r3-arith-01.py — R3 arithmetic class, item 153-01: the Mathematical Compendium's penetration
+percentage against its own count. BUILD91 -> BUILD92 main, BUILD180 -> BUILD181 compendia.
+
+The finding (FINDINGS-153-PENDING.md, 153-01, MEASURED by tools/arith.py --roster volumes and read
+at the site): the Mathematical Compendium prints *penetration (|d|>=0.1) falls 146 of 163 = 92%*.
+146/163 = 89.57%, which quantizes to 90% (Decimal.quantize, ROUND_HALF_EVEN, convention named; the
+standing method forbids round()). Register 1048 states the same claim as 146 of 163, 90%, and in the
+same line gives 92% its own object -- the combined two-claim figure at 198 of 215 (92.09% -> 92%).
+
+Which of the two the compendium's 92% came from -- the claim's own superseded value or the combined
+figure printed beside it -- is NOT decided here. Either reading leaves 92% as not the percentage of
+146 of 163, and the Register's 90% governs the site.
+
+One numeral is changed. No mathematics is rewritten and no count is touched.
+
+Usage:  python3 r3-arith-01.py            dry run: everything in memory, nothing written
+        python3 r3-arith-01.py --write    writes /home/claude/build92/<members> and both new bundles
+"""
+import os, re, sys, hashlib, subprocess, tempfile
+from decimal import Decimal, ROUND_HALF_EVEN
+
+MEM = '/home/claude/members/'; HOME = '/home/claude/'
+OLD_MAIN_B = HOME + 'The_Method_1_6_BUILD91_main_and_register.md'; OLD_MAIN_MD5 = '2e5e442bde421bb952e665985b0b30d2'
+OLD_COMP_B = HOME + 'The_Method_1_6_BUILD180_compendia_papers_audits.md'; OLD_COMP_MD5 = 'ea5becc40e13debe4faaf6c7e0cde960'
+NEW_MAIN_B = HOME + 'The_Method_1_6_BUILD92_main_and_register.md'
+NEW_COMP_B = HOME + 'The_Method_1_6_BUILD181_compendia_papers_audits.md'
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+MC = 'The_Method_1_6___Mathematical_Compendium-2.md'
+VOLS = [MAIN, REG, MC, 'The_Method_1_6___The_Physics_Compendium-2.md',
+        'The_Method_1_6___The_Index_of_Indices-2.md', 'The_Method_1_6___Spectra_Compendium-2.md']
+WRITE = '--write' in sys.argv
+OUT = HOME + 'build92/' if WRITE else tempfile.mkdtemp(prefix='r3a1-dry-') + '/'
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'^<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S | re.M)
+
+def pct(n, d):  # the convention, named and applied once
+    return (Decimal(n) / Decimal(d) * 100).quantize(Decimal('1'), rounding=ROUND_HALF_EVEN)
+
+assert pct(146, 163) == 90 and pct(198, 215) == 92, 'the arithmetic this repair rests on'
+print(f'146/163 -> {pct(146,163)}%   198/215 -> {pct(198,215)}%   (ROUND_HALF_EVEN, 0 dp)')
+
+old_main = open(MEM + MAIN, 'rb').read(); old_reg = open(MEM + REG, 'rb').read(); old_mc = open(MEM + MC, 'rb').read()
+m = old_main.decode('utf-8'); r = old_reg.decode('utf-8'); c = old_mc.decode('utf-8')
+ML = m.split('\n'); RL = r.split('\n'); CL = c.split('\n')
+for nm, b in ((MAIN, old_main), (REG, old_reg), (MC, old_mc)):
+    print(f'old {nm}  {len(b):,} B  md5 {md5(b)}  {b.count(b"\n"):,} lines')
+
+def S(L, n, must):
+    l = L[n - 1]; assert must in l, f'L{n} does not carry {must!r}: {l[:90]!r}'; return l
+def col(l, old, new):
+    assert l.count(old) == 1, (old, l[:80]); return l.replace(old, new)
+
+# ---------------------------------------------------------------- the site, asserted by content
+c2930 = S(CL, 2930, 'penetration (|d|≥0.1) falls 146 of 163 = 92%')
+SUBS_MC = [('153-01  mc L2930', c2930 + '\n',
+            col(c2930, 'falls 146 of 163 = 92%', 'falls 146 of 163 = 90%') + '\n')]
+
+# ---------------------------------------------------------------- extent, driven to its fixed point
+l7373 = S(ML, 7373, '1,637 entries, 1 to 1794, at this build (2026-09-01)')
+SUBS_MAIN = [('extent  main L7373', l7373 + '\n',
+              col(l7373, '1,637 entries, 1 to 1794, at this build (2026-09-01)',
+                  '1,638 entries, 1 to 1795, at this build (2026-09-03)') + '\n')]
+l6 = S(RL, 6, '**1637 entries, 1 to 1794.**'); l65 = S(RL, 65, '**1637 entries, 1 to 1794**')
+SUBS_REG = [
+ ('extent  Register L6', l6 + '\n', col(col(l6, '**1637 entries, 1 to 1794.**', '**1638 entries, 1 to 1795.**'),
+                                        'and 165 to 1794, 1,472 entries, are the mature record',
+                                        'and 165 to 1795, 1,473 entries, are the mature record') + '\n'),
+ ('extent  Register L65', l65 + '\n',
+  col(l65, '**1637 entries, 1 to 1794** (genesis 1–94, superseded 95–164, mature record 165–1794)',
+      '**1638 entries, 1 to 1795** (genesis 1–94, superseded 95–164, mature record 165–1795)') + '\n'),
+]
+E1795 = ("### 1795\n\n**THE COMPENDIUM'S PENETRATION PERCENTAGE DID NOT FOLLOW ITS OWN COUNT.** *The Mathematical "
+         "Compendium printed the penetration claim as 146 of 163 = 92%. 146 of 163 is 90% at nought decimal places, "
+         "rounding half to even; register 1048 states that claim as 146 of 163, 90%, and in the same line gives 92% its "
+         "own object — the combined two-claim figure, 198 of 215. Which of the two the compendium's 92% came from, the "
+         "claim's own superseded value or the combined figure printed beside it, is not decided; on either reading it is "
+         "not the percentage of 146 of 163. Corrected to 90%; the counts are untouched.* Registers 1048. (a correction.)\n")
+TAIL = '\n' + E1795
+assert r.endswith('(a correction.)\n') and not r.endswith('\n\n'), 'Register tail form changed'
+assert not re.search(r'^### 1795\b', r, re.M), 'entry 1795 already exists'
+
+def apply(text, subs):
+    t = text
+    for name, a, b in subs:
+        assert t.count(a) == 1, f'{name}: anchor occurs {t.count(a)} times'; assert a != b; t = t.replace(a, b)
+    return t
+def reverse(text, subs):
+    t = text
+    for name, a, b in reversed(subs):
+        assert t.count(b) == 1, f'{name}: reverse anchor occurs {t.count(b)} times'; t = t.replace(b, a)
+    return t
+
+new_c = apply(c, SUBS_MC); assert md5(reverse(new_c, SUBS_MC).encode('utf-8')) == md5(old_mc), 'mc reverse FAILED'
+new_m = apply(m, SUBS_MAIN); assert md5(reverse(new_m, SUBS_MAIN).encode('utf-8')) == md5(old_main), 'main reverse FAILED'
+new_r = apply(r, SUBS_REG) + TAIL
+assert new_r.endswith(TAIL) and md5(reverse(new_r[:-len(TAIL)], SUBS_REG).encode('utf-8')) == md5(old_reg), 'Register reverse FAILED'
+print(f'mc: {len(SUBS_MC)} substitution, reverse recovers md5 {md5(old_mc)} == old: True')
+print(f'main: {len(SUBS_MAIN)} substitution, reverse recovers md5 {md5(old_main)} == old: True')
+print(f'Register: {len(SUBS_REG)} substitutions + 1 entry, reverse recovers md5 {md5(old_reg)} == old: True')
+for nm, oldL, newT in ((MC, CL, new_c), (MAIN, ML, new_m)):
+    NL = newT.split('\n'); assert len(NL) == len(oldL), f'{nm}: line count moved'
+    print(f'{nm} changed lines:', [i + 1 for i in range(len(NL)) if NL[i] != oldL[i]])
+
+# ---------------------------------------------------------------- kinds.py recount on the new Register
+if WRITE: assert not os.path.exists(OUT), f'{OUT} exists'; os.makedirs(OUT)
+elif not os.path.isdir(OUT): os.makedirs(OUT)
+open(OUT + MC, 'wb').write(new_c.encode('utf-8')); open(OUT + MAIN, 'wb').write(new_m.encode('utf-8'))
+open(OUT + REG, 'wb').write(new_r.encode('utf-8'))
+p = subprocess.run(['python3', MEM + 'kinds.py', OUT + REG, '--write'], capture_output=True, text=True, timeout=200)
+print('kinds.py --write:', p.stdout.strip().split('\n')[0]); assert p.returncode == 0
+final_r = open(OUT + REG, 'rb').read().decode('utf-8'); FL = final_r.split('\n'); NR = new_r.split('\n')
+assert len(FL) == len(NR)
+kdiff = [i + 1 for i in range(len(NR)) if FL[i] != NR[i]]
+print('kinds.py changed Register lines:', kdiff)
+for i in kdiff: print(f'   L{i}: {NR[i-1][:64]!r} -> {FL[i-1][:64]!r}')
+assert all(re.match(r'\| \*\*', NR[i - 1]) or 'entry headings' in NR[i - 1] for i in kdiff), 'kinds.py touched a line outside its table'
+rev = FL[:]
+for i in kdiff: rev[i - 1] = NR[i - 1]
+assert '\n'.join(rev) == new_r
+assert md5(reverse(new_r[:-len(TAIL)], SUBS_REG).encode('utf-8')) == md5(old_reg)
+print(f'Register (final): reverse from the written bytes recovers md5 {md5(old_reg)} == old: True')
+final_reg_b = final_r.encode('utf-8'); new_main_b = new_m.encode('utf-8'); new_mc_b = new_c.encode('utf-8')
+
+# ---------------------------------------------------------------- fixed point over the six volumes
+texts = {v: (new_m if v == MAIN else final_r if v == REG else new_c if v == MC
+             else open(MEM + v, encoding='utf-8').read()) for v in VOLS}
+def sites(pat):
+    return {v.split('___')[-1].replace(MAIN, 'main'): [i + 1 for i, l in enumerate(t.split('\n')) if re.search(pat, l)]
+            for v, t in texts.items()}
+for pat in (r'1 to 1795', r'1 to 1794', r'\b1,?637 entries\b', r'\b1,?638 entries\b',
+            r'146 of 163 = 92%', r'146 of 163 = 90%', r'165 to 179\d|165–179\d', r'1,47[23] entries'):
+    s = sites(pat)
+    print(f'{pat!r}: ' + (' '.join(f'{v}:{n}' for v, ns in s.items() for n in ns) if any(s.values()) else '0 sites'))
+assert not any(sites(r'1 to 1794').values()), 'extent fixed point not reached'
+# The defective string must be gone from every volume EXCEPT the Register's new entry, which quotes it:
+# a correction entry cites the state it supersedes and both states are preserved (standing discipline).
+_bad = sites(r'146 of 163 = 92%')
+assert not _bad['Mathematical_Compendium-2.md'], 'the mc site is not repaired'
+assert sum(len(v) for k, v in _bad.items() if k != 'The_Register-2.md') == 0, 'the defective figure survives outside the Register'
+_q = [n for n in _bad['The_Register-2.md'] if final_r.split('\n')[n - 1].startswith('**THE COMPENDIUM')]
+assert _bad['The_Register-2.md'] == _q, 'a 92% site in the Register outside entry 1795'
+print(f'defective figure: 0 sites outside the Register; {len(_q)} inside entry 1795, where it is quoted as superseded')
+
+# ---------------------------------------------------------------- press anchors must survive
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v, oldt in ((MAIN, m), (REG, r), (MC, c)):
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:44], oldt.count(a), texts[v].count(a)) for a in anchors if oldt.count(a) != texts[v].count(a)]
+    print(f'build.py SUBS anchors on {v}: {len(anchors)} checked; count changed by this edit: {moved}')
+    assert not moved, 'this edit changed a press anchor'
+
+# ---------------------------------------------------------------- both bundles: replace, reverse-guard, write
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+def rebuild(path, want_md5, repl, label, newpath):
+    raw = open(path, 'rb').read(); assert md5(raw) == want_md5, f'{label} bundle md5 mismatch'
+    ms = dict((mm.group(1).decode(), mm.group(2)) for mm in MEMBER.finditer(raw))
+    nb = raw
+    for n, body in repl.items():
+        assert ms[n] == {MAIN: old_main, REG: old_reg, MC: old_mc}[n], f'{n}: seated body is not the one edited'
+        ob = block(n, ms[n]); assert nb.count(ob) == 1; nb = nb.replace(ob, block(n, body))
+    rv = nb
+    for n, body in repl.items():
+        assert rv.count(block(n, body)) == 1; rv = rv.replace(block(n, body), block(n, ms[n]))
+    assert md5(rv) == want_md5, f'{label} reverse FAILED'
+    print(f'{label}: reverse recovers md5 {md5(rv)} == old: True')
+    print(f'new {label}  {len(nb):,} B  md5 {md5(nb)}  {nb.count(b"\n"):,} lines  {len(ms)} members')
+    if WRITE:
+        assert not os.path.exists(newpath), f'{newpath} exists — never overwrite'
+        open(newpath, 'wb').write(nb); print('written', newpath)
+    return md5(nb)
+
+rebuild(OLD_MAIN_B, OLD_MAIN_MD5, {MAIN: new_main_b, REG: final_reg_b}, 'BUILD92 main', NEW_MAIN_B)
+rebuild(OLD_COMP_B, OLD_COMP_MD5, {MC: new_mc_b}, 'BUILD181 compendia', NEW_COMP_B)
+print('written ' + OUT if WRITE else 'DRY RUN — nothing written under /home/claude')
+<<<END FILE: r3-arith-01.py>>>
+
+<<<FILE: READ-153.md>>>
+# READ-153.md — the audit-instrument class sweep, and R3's first two executions
+
+Chat 153, a repository session. `tools/arith.py --roster volumes` and `tools/pointers.py --findings`
+over the six reader-facing volumes and the companion. Both selftests pass before either is trusted
+(42 and 53 fixtures). The refusals are not findings and none is quoted as one: 175 NOT-BOUND in
+arith, 65 AMBIGUOUS in pointers.
+
+## A — deviations
+
+**153-01. Mathematical Compendium L2930: the penetration percentage did not follow its own count.
+REPAIRED, entry 1795.** The volume printed *penetration (|d|≥0.1) falls 146 of 163 = 92%*. MEASURED:
+146/163 = 89.57 %, quantizing to **90 %** (Decimal.quantize, ROUND_HALF_EVEN, convention named;
+`round()` is forbidden by the standing method). **Register 1048** states the same claim as *146 of
+163, 90% against 92%, interval 84–93%* and in the same line gives 92 % its own object — *Combined as
+two claims: 198 of 215 — 92%* (198/215 = 92.09 % -> 92 %, MEASURED).
+
+Two readings of *90% against 92%* are available and **neither is chosen**: (i) 92 % is the claim's
+own superseded pre-gain value and the volume was partially updated, the count moving and the
+percentage not; (ii) 92 % is the combined two-claim figure and has been transposed one claim
+leftward. On either reading 92 % is not the percentage of 146 of 163, and 1048's 90 % governs.
+Corrected to 90 % under R3's arithmetic class; one numeral changed, no count touched.
+
+Not previously recorded: `146 of 163`, `89.57` and the site return nothing from WORKING-REGISTER.md,
+the READ files or DEFERRED.md. **Provenance:** `buildtrace.py --first` reads 8 of the 119 archived
+builds and finds the string in the oldest, BUILD9 — its introduction predates the series and the
+archive cannot date it. That is an ABSENT-class refusal, not a finding.
+
+## B — flagged by an instrument and NOT a defect
+
+Recorded so that no later pass repairs them. Each was read at the site.
+
+**153-02. Main volume L1413, `33 × 5 = 166` — the volume's own audit fixture, correct as printed.**
+arith.py scores it DISAGREE under every convention. The site is a table of *the input that must make
+it fail*: *ARITHMETIC — a product stated beside its own printed factors and wrong: 33 × 5 = 166
+against §12.6.1's table, which prints 33, 5 and 165.* The volume is quoting a wrong product as the
+constructible failing input for its own ARITHMETIC audit. **Repairing it destroys the example.**
+The standing method's *a citation is not a declaration*, and the C7/C9 regex-artefact precedent.
+
+**153-03. The §4.5 / §4.6 / §4.7 class — all eight SECTION findings are resolver artefacts.**
+UNRESOLVED at §4.6 (main L1205, 1405, 3559, 4006, 4834, 5011 +1; reg L1329, 1533, 1573, 1713, 1877,
+2233 +3; mc L2647), §4.7 (main L1430; reg L1333, 1397) and §4.5 (reg L1349, 1577). MEASURED:
+Chapter 4's only heading occurrences are main L117 and L1436, and **the chapter numbers its ten
+subsections as list items, not headings** — `4.1 attributed outward before checking inward` through
+`4.9 a coordinate collapsed into a count`. The targets exist and say what cites them; §4.6 is *a test
+that could not fail*, the class W-189's OBJ-T convention reads §4 for. **The finding is about the
+instrument.** pointers.py's resolver gap is recorded, and the instrument is NOT changed here (G0c).
+
+**153-04. The THEOREM class is at least partly cross-addressing, not a pointer.** mc L310 *Proved —
+T 1.7 (App. G) / M §17.2 Thm 10.1; Birkhoff 1940* scores UNRESOLVED, but `M Thm 10.1` addresses the
+**main volume's** numbering; WORKING-REGISTER L1874 records the convention — *CROSS-ADDRESSED
+objects: `T 1.2 / M A.2`, `T 1.7 / M §17.2 Thm 10.1`, …* — and the compendium's own heading at L304
+is `### Adjunction never repairs (M Thm 10.1)`. Two of the nine THEOREM findings are classified
+(this one artefact; reg L6299 genuine, see C); **the other seven are unclassified and counted
+neither way.**
+
+## C — recorded findings the instruments reproduced independently
+
+- reg L3113 `§784` KIND-MISMATCH — a Register number given a § sigil. **26b-08** (W-189).
+- reg L6299 `Thm 11.1` UNRESOLVED — cited and printed in none of the six volumes. **26b-09** (W-189).
+- `reg 571` absent from its range — **docket item 9 (c)**, 15i-09.
+
+## Counts
+
+- arith, six volumes: 235 claims — AGREE 57, WITHIN-INPUT-PRECISION 1, **DISAGREE 2**, NOT-BOUND 175.
+- pointers: 1,932 tokens — RESOLVED-HERE 438, RESOLVED 1387, AMBIGUOUS 65, PARTIAL 17, PREFIX-ONLY 3,
+  UNRESOLVED 21, KIND-MISMATCH 1; **42 findings** (APPSEC 2, FIGURE 2, REGISTER 4, REGISTER-RANGE 17,
+  SECTION 8, THEOREM 9).
+- **Of the 44 raw findings, 2 read as genuine (153-01 new; 26b-09 already recorded) and 9 as
+  artefacts; the rest are unclassified pending their own reading. A raw instrument count is not a
+  defect count**, and applying these reports unread would have damaged the volumes at 153-02.
+
+## D — the withdrawn-law class
+
+Executed this chat as R3's first item; see W-190 segment A and R3-CLASS-WL.md. `r3-wl.py` reproduced
+its banked golden byte-exact before it was run for effect, and the Chapter 34 re-take of chat 143
+confirms the class at 34re-05 rather than disturbing it.
+<<<END FILE: READ-153.md>>>

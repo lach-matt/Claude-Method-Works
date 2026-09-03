@@ -1,6 +1,6 @@
 bundle	name	bytes	md5	lines
-main	The_Method_1_6-2.md	779423	4aef772bad512b84d8c0888386472a74	11854
-main	The_Method_1_6___The_Register-2.md	1203491	79aaf239a42c1649e914b7cba9d5ce2a	6611
+main	The_Method_1_6-2.md	780356	299ea18846c41f9a4e871330d0af9a26	11862
+main	The_Method_1_6___The_Register-2.md	1204958	128dfdbdc16dd6deda690a32ed66ad58	6623
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
 compendia	CENSUS-CLOSURES-23a.tsv	675	7b4a6c57696563a2b96a812c4627f351	12
@@ -51,7 +51,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236171	0967efead3f95016bd6ffaa95788d5ac	1557
-compendia	DEFERRED.md	389296	483848ca985ca7b472698360f654e7e5	3412
+compendia	DEFERRED.md	392309	39bb098d2c7befd220186288239b85e5	3424
 compendia	DOCKET.md	52004	db539aad03629b82cc52e9001d27852a	377
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
@@ -77,6 +77,7 @@ compendia	ORIGINAL-3B-TEXT.txt	20633	f75c5e262a03daca06a9477d5cd15732	208
 compendia	PHYS_AUDIT.md	2279	eb62df8262283a64f8f01097b2519700	13
 compendia	POINTERS-BUILD14.json	4103	9bffb644ca893e5f3cba1be433db836f	451
 compendia	R3-CLASS-WL.md	7146	100c84cab4c56d61b432183697e7498f	87
+compendia	READ-153.md	5234	76e2350747c527373bdefaac6f353c39	76
 compendia	READ-21a.md	9825	ff5660f12e4acbc3a0606fd0a8db75de	32
 compendia	READ-23a.md	9828	3113eafb64a0577f462b4fd7a9ea2f03	27
 compendia	READ-24a.md	10455	5f0c0ed165a827964e28d2e2d2c1b760	26
@@ -130,7 +131,7 @@ compendia	REQUEST-LOWDIN.md	5810	f1d93d9a360bc1afbfdbee0c66414b5c	75
 compendia	REQUEST-THREEBODY.md	5300	8e776e353b41e91e6d9bf6f83f9a0628	70
 compendia	RESPONSE-TO-METHOD-1_6.md	9706	eb435761e5429a245a1ba415e5d0cc37	175
 compendia	RULING-TOLERANCE-489.md	3121	5a9a3803812c2e157770c6d4c9ca041a	59
-compendia	RULINGS-R2.md	17684	d42790bbadf9707bb831d21d710aeedb	171
+compendia	RULINGS-R2.md	20225	85a1b6d4249f2f4c8aec3152ffd882c2	213
 compendia	ScIII_asd.tsv	1269	f91a0abff919f6922395320344f1d4ac	46
 compendia	TB1-MANIFEST.tsv	1840	2b72f68c7ebf7b595a640976616a5f8c	20
 compendia	TB1-README.md	6956	809c86f4a75d6493e5327ddb93b1f7fa	54
@@ -148,13 +149,13 @@ compendia	TB1-n8_check.py	1719	ab823f22180baa476b623e0f55ae8c06	24
 compendia	TB1-routh_check.log	90	3fa04ee0f0b05e8246bd9eb119d8dd1d	1
 compendia	TB1-routh_check.py	366	23842800b311327175ecdd0ef311473b	5
 compendia	THE-LOWDIN-SOLUTION-2.md	38040	4a06e8930b9f7a7a8226dca2db39e35c	260
-compendia	The_Method_1_6___Mathematical_Compendium-2.md	309403	99a616ec551ecd3bdb67f81119f9c483	3802
+compendia	The_Method_1_6___Mathematical_Compendium-2.md	309403	53a446c80c72f348d9609d65e0a7f40f	3802
 compendia	The_Method_1_6___Spectra_Compendium-2.md	100790	5ba7f61cf031c02b5a0226d2aed8dc4d	1159
 compendia	The_Method_1_6___The_Index_of_Indices-2.md	118373	27d387ef8a6175c1b9c85437fe3a7588	2093
 compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2c601a549d54db	878
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
-compendia	WORKING-REGISTER.md	907899	f28ef5b66580ec9b5fa5c055966af54c	7962
+compendia	WORKING-REGISTER.md	913897	736a3ac0ec0c7cf83ff01c133daccd0a	7974
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -326,6 +327,7 @@ compendia	r2-tools.py	6529	4702f5f937087b1e806e4bc78b17f3c3	98
 compendia	r2-warn.out	38680	3616f0595af9637e8763d098e3b3f718	266
 compendia	r2-warn.py	13763	228d883a25bfce317cd8a8bd9abd5c2d	185
 compendia	r2lib.py	21022	580d2ea2e43c2ddf78018afcba2f7de7	453
+compendia	r3-arith-01.py	11961	123c5e85f021228f01945d09bf7fdaeb	176
 compendia	r3-wl.out	3638	1bb27e471f8429e4d6e759f528c838f1	31
 compendia	r3-wl.py	15100	791f540520bc9f48eaed81830996fa1e	184
 compendia	rclose.py	1728	707a1061b4fede0b94e288d569dc9f0e	41
