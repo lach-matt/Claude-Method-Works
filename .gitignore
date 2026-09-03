@@ -10,3 +10,6 @@ graphify-out/2026-*/
 # staged by method/bin/stage-gate; census output, never committed
 method/DEFECT-CENSUS.tsv
 method/gate-log.tsv
+
+# buildtrace count cache; keyed by manifest md5, rebuilt on demand
+.buildtrace-cache.json
