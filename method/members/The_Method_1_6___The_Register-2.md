@@ -3,7 +3,7 @@
 
 ## Why this register is printed
 
-**1635 entries, 1 to 1792.** *Entries 1 to 94 are the genesis block — the founding chat and the first paper* The Lach Elemental Lattice*, prepended as the record of where the work began; entries 95 to 164 are the superseded Λ₈ successor-development stretch, each marking the later entry that supersedes it; and 165 to 1791, 1,470 entries, are the mature record from which the five compendia are distilled.* Each is written at a fixed density and stands alone. *The register is printed because a result is worth what its derivation is worth: the measurements as they were taken, the arguments as they were made, and the reversals kept beside the claims they overturned. The compendia answer; this is where the answers were got — including the ones that were got wrong first.*
+**1637 entries, 1 to 1794.** *Entries 1 to 94 are the genesis block — the founding chat and the first paper* The Lach Elemental Lattice*, prepended as the record of where the work began; entries 95 to 164 are the superseded Λ₈ successor-development stretch, each marking the later entry that supersedes it; and 165 to 1794, 1,472 entries, are the mature record from which the five compendia are distilled.* Each is written at a fixed density and stands alone. *The register is printed because a result is worth what its derivation is worth: the measurements as they were taken, the arguments as they were made, and the reversals kept beside the claims they overturned. The compendia answer; this is where the answers were got — including the ones that were got wrong first.*
 
 **A correction never replaces what it corrects.** Both states are kept, and the entry that corrects names the entry corrected, so the record of a mistake survives its repair. It is the discipline the volume rests on: a register that tidied itself would be evidence of nothing.
 
@@ -20,7 +20,7 @@ Entries run in the order the work happened, which is why they are numbered rathe
 | kind | entries (Build 16) | first reading | what it means |
 |---|---|---|---|
 | **a finding** | 1,356 | 796 | something established that was not known before the entry |
-| **a correction** | 149 | 370 | something written wrong and put right, with both states kept |
+| **a correction** | 151 | 370 | something written wrong and put right, with both states kept |
 | **a measurement** | 499 | 299 | a number, with what it was measured on |
 | **prior art** | 61 | 69 | a result found to be published, with the source |
 | **a new protocol** | 23 | 67 | a rule earned by a failure, so the failure cannot recur |
@@ -28,7 +28,7 @@ Entries run in the order the work happened, which is why they are numbered rathe
 | **a fault of mine** | 16 | 59 | an error by the assistant, recorded as such |
 | **an open question** | 23 | 30 | something the work cannot currently settle, and why |
 
-*The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cites prior art. The counts are of entries matching each pattern, not a partition.* *The Build 16 column is recomputed from this file by `kinds.py` over the 1,565 entry headings, seven of which hold the thirty-two grouped fault entries: an entry is counted under a kind when its headline matches that kind's pattern — a correction on CORRECT, WRONG, STALE, PUT RIGHT, AMEND, FIX, MISLOCATED, REPAIR, ERROR, OVERTAKEN, MISTAKEN, MISREAD, MISCOUNTED; a measurement when the headline carries a number; prior art on PRIOR ART, PUBLISHED, ALREADY KNOWN or a year; a new protocol on PROTOCOL, RULE, RULED, RULING, MUST, PROCEDURE; a withdrawal on WITHDRAWN, RETRACTED, REMOVED, DROPPED, ABANDONED, DISCARDED; a fault of mine on FAULT OF MINE, MY FAULT, MY ERROR, THE ASSISTANT; an open question on OPEN QUESTION, OPEN, UNSETTLED, UNRESOLVED, UNKNOWN, NOT YET KNOWN; a finding otherwise, unless it is a correction, withdrawal, fault or open question; a body tag such as "(a measurement.)" overrides the pattern; the ten grouped headings count as corrections and faults. The first-reading column ( and earlier) was produced by patterns that were never printed and is kept as the reading it was.*
+*The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cites prior art. The counts are of entries matching each pattern, not a partition.* *The Build 16 column is recomputed from this file by `kinds.py` over the 1,567 entry headings, seven of which hold the thirty-two grouped fault entries: an entry is counted under a kind when its headline matches that kind's pattern — a correction on CORRECT, WRONG, STALE, PUT RIGHT, AMEND, FIX, MISLOCATED, REPAIR, ERROR, OVERTAKEN, MISTAKEN, MISREAD, MISCOUNTED; a measurement when the headline carries a number; prior art on PRIOR ART, PUBLISHED, ALREADY KNOWN or a year; a new protocol on PROTOCOL, RULE, RULED, RULING, MUST, PROCEDURE; a withdrawal on WITHDRAWN, RETRACTED, REMOVED, DROPPED, ABANDONED, DISCARDED; a fault of mine on FAULT OF MINE, MY FAULT, MY ERROR, THE ASSISTANT; an open question on OPEN QUESTION, OPEN, UNSETTLED, UNRESOLVED, UNKNOWN, NOT YET KNOWN; a finding otherwise, unless it is a correction, withdrawal, fault or open question; a body tag such as "(a measurement.)" overrides the pattern; the ten grouped headings count as corrections and faults. The first-reading column ( and earlier) was produced by patterns that were never printed and is kept as the reading it was.*
 
 ### The load-bearing entries
 
@@ -62,7 +62,7 @@ Entries run in the order the work happened, which is why they are numbered rathe
 ---
 
 
-Build 9, 2026-08-26. **1635 entries, 1 to 1792** (genesis 1–94, superseded 95–164, mature record 165–1792).
+Build 9, 2026-08-26. **1637 entries, 1 to 1794** (genesis 1–94, superseded 95–164, mature record 165–1794).
 
 Every correction, withdrawal and finding in the order it happened. **The book cites entries where
 they carry an argument; the complete record lives here.** **This file is the source.** The generator that once wrote it, `register_gen.py`, was retired at Build 9: entries from 1701 on and the settled form of every entry (1725) were entered by hand, and a generator that no longer reads the record cannot claim not to drift. What is recomputed from this file at every press is stated where it is printed — the citation counts and the load-bearing table (`register_cites.py`, 1732), the kinds table below (`kinds.py`, 1756), and the entry form (`build.py`, 1744).
@@ -6609,3 +6609,11 @@ are the record of how the work went, which is the material §4's mechanisms were
 ### 1792
 
 **THE MATHEMATICAL COMPENDIUM'S "WHICH SELECTION RULES A CLOSED INDEX WILL ACCEPT" PRINTS THE PARITY RULE AT E = 750 WITHOUT NAMING THE CLOSURE; THE FIGURE IS THE SUBLATTICE CLOSURE OF ℛ, UNDER WHICH THE PARITY SET δ⁻¹({−1, +1}) ON Λ₉ ADDS 750 CELLS AND THE SPIN SET σ⁻¹({0}) ADDS NONE, WHILE THE SINGLE-PROJECTION ℛ RETURNS E = 0 FOR BOTH.** *The 840 parity cells project onto (ℓ, f) as {(0, 1), (1, 0)}, so the pairwise sweep sees the hole and restores nothing; iterated join and meet fill it — (0, 1) ∨ (1, 0) = (1, 1) — and the 750 is that fill, measured this chat on the rebuilt Λ₉ at the caps of §7.4. Register 443's figure stands; the entry's scope line is restated to name the convention, as "Two indices, and the one that does not exist" already does for its own E.* Registers 443; 1791. (a correction.)
+
+### 1793
+
+**CHAPTER 34'S STATUS CORRECTED TO THE RECORD'S.** *The chapter printed ν as the law and its walk as exceptionless on 106 elements; registers 1437, 1438, 1445 and 1460 had measured 99 in sample and 90 held out against Madelung's 96 and deactivated ν as a law. Corrected at §34.4, §34.8, §34.9 and §35's opening; the corridor's non-emptiness at 106 of 106 stands as a result about the form (1445, 1463).* Registers 1350; 1437; 1438; 1445; 1460; 1463. (a correction.)
+
+### 1794
+
+**THE APPENDIX ROWS FOLLOW THE STATUS.** *Appendix rows for the nineteen surds and the necessity of state carried 'measured' and 'verified'; the first demotes with ν (1460) and the second is stated at 1332 and not independently reproducible (1448). Status columns corrected.* Registers 1332; 1448; 1460. (a correction.)

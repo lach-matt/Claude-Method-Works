@@ -13,14 +13,14 @@ Two independent checks:
 import csv, hashlib, pathlib, sys
 
 H = pathlib.Path(__file__).resolve().parent
-BUNDLES = {
-    'BUILD90_main': 'The_Method_1_6_BUILD90_main_and_register.md',
-    'BUILD180_compendia': 'The_Method_1_6_BUILD180_compendia_papers_audits.md',
-}
-EXPECT_MD5 = {
-    'BUILD90_main': '49065309b0c4fe8e055f693aed295cca',
-    'BUILD180_compendia': 'ea5becc40e13debe4faaf6c7e0cde960',
-}
+
+# The live-bundle set. Recorded in BUNDLES.tsv (tag, filename, md5) and written only by
+# reseat.py at a build; verify.py reads it and never derives a bundle md5 from the bytes
+# it is checking. Hand-editing these two mappings at every R3 build was the silent-change
+# risk this replaces.
+_B = list(csv.DictReader(open(H / 'BUNDLES.tsv', encoding='utf-8'), delimiter='\t'))
+BUNDLES = {r['tag']: r['filename'] for r in _B}
+EXPECT_MD5 = {r['tag']: r['md5'] for r in _B}
 
 def md5(b): return hashlib.md5(b).hexdigest()
 

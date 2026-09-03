@@ -14,8 +14,10 @@ REPO=$(cd "$(dirname "$0")/../.." && pwd)
 mkdir -p /home/claude
 rm -rf /home/claude/members
 ln -s "$REPO/method/members" /home/claude/members
-for b in The_Method_1_6_BUILD90_main_and_register.md The_Method_1_6_BUILD180_compendia_papers_audits.md; do
-    rm -f "/home/claude/$b"
+# The live bundles, read from BUNDLES.tsv so a build that renames one needs no edit here.
+# Stale BUILD*.md links under /home/claude are dropped first: a retired bundle must not stay reachable.
+for old in /home/claude/The_Method_1_6_BUILD*.md; do [ -e "$old" ] || [ -L "$old" ] && rm -f "$old"; done
+for b in $(awk -F'\t' 'NR>1 && $2 != "" {print $2}' "$REPO/method/BUNDLES.tsv"); do
     ln -s "$REPO/method/$b" "/home/claude/$b"
 done
 rm -f /home/claude/DEFECT-CENSUS.tsv "$REPO/method/DEFECT-CENSUS.tsv"
