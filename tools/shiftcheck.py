@@ -64,18 +64,44 @@ def parse_shift(s):
     return lo, d, hi
 
 
-def normalise(line, shifts, substs):
-    """Map a banked line forward under the declared reasons."""
+def normalise(line, shifts, substs, protect=()):
+    """Map a banked line forward under the declared reasons.
+
+    `protect` names spans the shift must NOT touch. A numeric window cannot tell a main-volume line
+    number from a same-range number belonging to another file -- Prints & Proofs runs to a similar
+    length, so `P[9873]` and `PP lines: 11372` sit inside the window and did not move. Without this
+    the checker reports those as UNEXPLAINED, which is safe but noisy; with it the exclusion is
+    declared, printed in the report, and auditable.
+    """
     def bump(m):
         n = int(m.group())
         for lo, d, hi in shifts:
             if lo <= n <= hi:
                 return str(n + d)
         return m.group()
-    out = re.sub(r'\d+', bump, line)
-    for a, b in substs:
-        out = out.replace(a, b)
-    return out
+
+    spans = []
+    for rx in protect:
+        for m in re.finditer(rx, line):
+            spans.append((m.start(), m.end()))
+    spans.sort()
+    merged = []
+    for st, en in spans:
+        if merged and st <= merged[-1][1]:
+            merged[-1] = (merged[-1][0], max(merged[-1][1], en))
+        else:
+            merged.append((st, en))
+
+    out, prev = [], 0
+    for st, en in merged:
+        out.append(re.sub(r'\d+', bump, line[prev:st]))
+        out.append(line[st:en])
+        prev = en
+    out.append(re.sub(r'\d+', bump, line[prev:]))
+    res = ''.join(out)
+    for x, y in substs:
+        res = res.replace(x, y)
+    return res
 
 
 def hunks(banked, now):
@@ -94,7 +120,7 @@ def hunks(banked, now):
     return out
 
 
-def classify(banked, now, shifts, substs):
+def classify(banked, now, shifts, substs, protect=()):
     if banked == now:
         return 'UNCHANGED', None
     for h in hunks(banked, now):
@@ -102,7 +128,7 @@ def classify(banked, now, shifts, substs):
             return 'UNEXPLAINED', (h['m'][0] if h['m'] else '(added line)',
                                    h['p'][0] if h['p'] else '(removed line)')
         for a, b in zip(h['m'], h['p']):
-            if normalise(a, shifts, substs) != b:
+            if normalise(a, shifts, substs, protect) != b:
                 return 'UNEXPLAINED', (a, b)
     return 'EXPLAINED', None
 
@@ -120,6 +146,13 @@ def selftest():
         ('mis-targeted read',     'L9722: The challenge posed','L9722: ---',                S, U, 'UNEXPLAINED'),
         ('added line',            'one\ntwo',                  'one\ntwo\nthree',           S, U, 'UNEXPLAINED'),
     ]
+    # a protected span keeps its numbers while the rest of the line shifts
+    got, _ = classify('PP P[9873] -> volume L[10224]', 'PP P[9873] -> volume L[10232]', S, U, (r'P\[\d+\]',))
+    if got != 'EXPLAINED':
+        print(f'  FAIL protected span: {got} expected EXPLAINED'); bad += 1
+    got, _ = classify('PP P[9873] -> volume L[10224]', 'PP P[9873] -> volume L[10232]', S, U)
+    if got != 'UNEXPLAINED':
+        print(f'  FAIL unprotected PP should be flagged: {got}'); bad += 1
     bad = 0
     for name, a, b, sh, su, want in cases:
         got, _ = classify(a, b, sh, su)
@@ -129,7 +162,7 @@ def selftest():
     got, _ = classify('bytes 11000 here', 'bytes 11008 here', S, U)
     if got != 'EXPLAINED':
         print('  FAIL in-window integer should be shiftable'); bad += 1
-    print(f'fixtures checked: {len(cases) + 1}  failed: {bad}')
+    print(f'fixtures checked: {len(cases) + 3}  failed: {bad}')
     print('\nSELFTEST OK' if not bad else '\nSELFTEST FAILED')
     return 1 if bad else 0
 
@@ -139,6 +172,8 @@ def main():
     ap.add_argument('names', nargs='*')
     ap.add_argument('--shift', action='append', type=parse_shift, default=[])
     ap.add_argument('--subst', action='append', default=[])
+    ap.add_argument('--protect', action='append', default=[],
+                    metavar='REGEX', help='spans the shift must not touch, e.g. PP line numbers')
     ap.add_argument('--all', action='store_true')
     ap.add_argument('--selftest', action='store_true')
     ap.add_argument('--timeout', type=int, default=270)
@@ -163,6 +198,7 @@ def main():
 
     print(f'shift windows: {a.shift or "(none)"}')
     print(f'declared substitutions: {substs or "(none)"}')
+    print(f'protected spans: {a.protect or "(none)"}')
     print()
     buckets = {'UNCHANGED': [], 'EXPLAINED': [], 'UNEXPLAINED': [], 'UNRUNNABLE': []}
     for n in names:
@@ -182,7 +218,7 @@ def main():
         if a.save:
             d = pathlib.Path(a.save); d.mkdir(parents=True, exist_ok=True)
             (d / f'{n}.now').write_text(out, encoding='utf-8')
-        verdict, ex = classify(gold.read_text(encoding='utf-8'), out, a.shift, substs)
+        verdict, ex = classify(gold.read_text(encoding='utf-8'), out, a.shift, substs, a.protect)
         buckets[verdict].append(n)
         print(f'{verdict:<11} {n}')
         if ex:
