@@ -1,0 +1,40 @@
+
+== 0  THE SEATED MEMBER
+   The_Method_1_6___The_Register-2.md  1203491 B  md5 79aaf239a42c1649e914b7cba9d5ce2a  6611 lines
+
+== 1  THE CLASS
+   entries carrying the split                               275                        OK
+   split sites                                              429                        OK
+   of those, leaving a literal asterisk in print            11                         OK
+   ['313', '604', '747', '1642', '1643', '1648', '1649', '1652', '1653', '1657', '1681']
+
+== 2  THE SUBSTITUTIONS, COUNT-ASSERTED SITE BY SITE
+   entries the rule repairs                                 246                        OK
+   entries the rule declines                                29                         OK
+   no repaired line still carries a split site              []                         OK
+   every repaired line closes its own emphasis              []                         OK
+   declined, and why: ['body is not one clean italic run', 'repair leaves an odd total']
+   declined entries: ['238', '290', '313', '327', '338', '397', '463', '543', '595', '604', '608', '640', '641', '646', '648', '702', '707', '724', '747', '1394', '1642', '1643', '1648', '1649', '1652', '1653', '1657', '1681', '1722']
+
+== 3  THE REPAIRED MEMBER, MEASURED (NOT WRITTEN)
+   would become 1203851 B  md5 7ec16ae9e71f03f11db280ee8d1d21a2  6611 lines
+   delta +360 B, +0 lines
+   line count unchanged                                     6611                       OK
+   only the 246 repaired lines differ                       246                        OK
+
+== 4  THE REVERSE GUARD
+   reversing every substitution recovers the seated bytes   '79aaf239a42c1649e914b7cba OK
+
+== 5  WHAT R3 MUST DO BEYOND THIS INSTRUMENT
+   1. The 29 declined entries are repaired by hand, with both texts, not by this rule.
+   2. The change is a volume change, so under "no silent change" it needs a Register entry
+      in the same build recording it -- and the entry that records the FORM (1725) does not
+      exist (reg1-05), so the form has no seated statement to cite.
+   3. RUL-128 item 1 puts the mathematics first and the prose after it. This class is prose.
+   4. It runs through close.py with the member and bundle reverse guards, never in place.
+
+== SUMMARY
+   instrument checks failed : 0 
+   APPLIED: NOTHING. This is a specification and a dry run.
+
+   ALL INSTRUMENT CHECKS OK
