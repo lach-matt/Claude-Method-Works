@@ -14,7 +14,7 @@ REPO=$(cd "$(dirname "$0")/../.." && pwd)
 mkdir -p /home/claude
 rm -rf /home/claude/members
 ln -s "$REPO/method/members" /home/claude/members
-for b in The_Method_1_6_BUILD90_main_and_register.md The_Method_1_6_BUILD183_compendia_papers_audits.md; do
+for b in The_Method_1_6_BUILD90_main_and_register.md The_Method_1_6_BUILD184_compendia_papers_audits.md; do
     rm -f "/home/claude/$b"
     ln -s "$REPO/method/$b" "/home/claude/$b"
 done
