@@ -36,6 +36,18 @@ See [`drive/README.md`](drive/README.md) for the detail.
 The mirror is one-way: Drive → repo. Edits made under `drive/` are not pushed back to Drive and will
 be overwritten by the next sync.
 
+## Instruments
+
+The repository is a document corpus, not a software project — but a few real programs run against
+it, each with a real contract and a self-check.
+
+* [`method/verify.py`](method/verify.py) — the witness check for the store of record. Asserts every
+  member's md5 and splices each one back into its bundle to recover the bundle's own md5.
+* [`tools/cypher.py`](tools/cypher.py) — the cypher analysis of §33 run as a program: ask each
+  language of a declared roster whether it can speak of an index, and read the answer off the
+  pattern of who answers and who does not. `--selftest` asserts the corpus's own recorded numbers.
+  See [`docs/CYPHER.md`](docs/CYPHER.md).
+
 ## Working with Claude here
 
 Once the one-time setup in [`.github/CLAUDE_GITHUB_SETUP.md`](.github/CLAUDE_GITHUB_SETUP.md) is
