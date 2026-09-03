@@ -24,8 +24,21 @@ them, and do not try to "set the project up". The `.py` files under `drive/` are
 artifacts, not a codebase to maintain or execute.
 
 The exceptions, and they are the only ones: `method/verify.py` and the instruments in
-`method/members/` are run by the §0 gate, and `tools/drive_sync.py` syncs the mirror. Those are
-real programs with a real contract — see `method/README.md` and `docs/DRIVE-SYNC.md`.
+`method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror, and
+`tools/cypher.py` runs the cypher analysis of §33 over an index. Those are real programs with a
+real contract — see `method/README.md`, `docs/DRIVE-SYNC.md` and `docs/CYPHER.md`.
+
+`python3 tools/cypher.py --selftest` asserts the corpus's own recorded numbers — Λ at 976 with
+E = 0 in five languages, the periodic table at E = 36, register 1175's E = 100 against 0. It is
+stdlib-only and takes a `--roster`, because which languages there are is docket 20x-04/20x-09 and
+still open. Do not resolve that docket in code: the rosters stay data, and `--pairs` *measures*
+the operator-bearing set against what a roster claims rather than asserting one.
+
+Measured on Λ, the five operator-bearing languages are order, algebra, geometry, information and
+statistics — C(5,2) = 10, all ten agreeing. That is register 1173's count with a different
+membership: `statistics` returns a binary and is in; `analysis` does not and is out, joining
+`documentary` as a special row. The two are special differently — documentary has no mechanism at
+all, analysis has one but returns a magnitude rather than a cell decision.
 
 ## Files under `drive/` are mirrored content
 
