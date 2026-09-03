@@ -136,8 +136,8 @@
 ================================================================================================
   102 (digit-bounded)                          5 sites  [3981, 5259, 8733, 8783, 9045]
   "102 quantitative"                           1 sites  [9045]
-  thirty (word)                                7 sites  [1530, 1679, 8816, 9046, 9282, 11364, 11405]
-  one thousand six hundred and thirty-five    15 sites  [20, 89, 104, 202, 523, 646, 3514, 7367, 7900, 8918, 9055, 9364, 9376, 9381, 10296]
+  thirty (word)                                7 sites  [1530, 1679, 8816, 9046, 9282, 11372, 11413]
+  one thousand six hundred and thirty-five    15 sites  [20, 89, 104, 202, 523, 646, 3514, 7367, 7900, 8918, 9055, 9364, 9376, 9381, 10304]
   1,635 / 1635 digits                          1 sites  [7373]
 
   Chapter 28 own statement of the failing-level count (lines matching "failed" in 28):

@@ -4,7 +4,7 @@ r2-ch16c  PROSE  chat 117  main L8451-L8574  (§30.3.3 - §30.3.9)
 
 ## 1  EVERY §-POINTER IN THE UNIT, under BOTH resolvers, resolved to the CLAIM
   pointer sites in unit: 4  [(8502, 'E.5'), (8536, '18.4'), (8565, '2.15.2'), (8572, 'E.6')]
-  L8502 -> §E.5  lettered heading 11143  span (11143, 11189)
+  L8502 -> §E.5  lettered heading 11151  span (11151, 11197)
         claim wanted: the precedence of Rival / Chen-Koh-Tan on maximal sublattices
         tokens: {'Rival': 3, 'sublattice': 6, 'Chen': 1, 'precedence': 1}
   L8536 -> §18.4  body_range (4980, 4999)  section_span (4980, 5294)  DIFFER
@@ -17,7 +17,7 @@ r2-ch16c  PROSE  chat 117  main L8451-L8574  (§30.3.3 - §30.3.9)
         claim wanted: a derivation settling which predicate this book means
         body_range   {'reorderable': 4, 'closure': 3, 'characteris': 2, 'chain': 7}
         section_span {'reorderable': 4, 'closure': 3, 'characteris': 2, 'chain': 7}
-  L8572 -> §E.6  lettered heading 11189  span (11189, 11201)
+  L8572 -> §E.6  lettered heading 11197  span (11197, 11209)
         claim wanted: the complexity question possibly settled in unread prior art
         tokens: {'Ryter': 1, 'Schmid': 2, 'Adams': 1, 'Dwinger': 1, 'complexity': 2, 'unread': 0}
 
@@ -25,8 +25,8 @@ r2-ch16c  PROSE  chat 117  main L8451-L8574  (§30.3.3 - §30.3.9)
   chapter 7 span (1724, 1796) | structure 1  constructed 1  axis 0  embedding 0  tight 0
 
 ## 2  EVERY ATTRIBUTION IN THE UNIT against ## References (BODY) and R.7
-  ## References occurrences: [173, 11503]   BODY = L11503
-  R.7 heading L11806
+  ## References occurrences: [173, 11511]   BODY = L11511
+  R.7 heading L11814
   Booth        unit [8455, 8459]     | References 1 | R.7 0 | six-volume {'main': 4}
   Lueker       unit [8455, 8459]     | References 1 | R.7 0 | six-volume {'main': 4}
   Rival        unit [8497, 8500]     | References 1 | R.7 0 | six-volume {'main': 17, 'reg': 33, 'mc': 7, 'pc': 1}
@@ -220,7 +220,7 @@ r2-ch16c  PROSE  chat 117  main L8451-L8574  (§30.3.3 - §30.3.9)
   recovered edge     zero sites in six volumes
   nine recovered     {'main': [8563]}
   constraint graph   {'main': [770, 1901, 1912, 2061, 2073, 2087, 2164, 2222], 'reg': [1893, 1953, 1961, 2001, 2181, 2201, 2393, 5717], 'mc': [380, 896, 898, 900, 936, 950, 956, 998], 'ioi': [15, 2027]}
-  implied            {'main': [2831, 3770, 4747, 4983, 6477, 8563, 9223, 11562], 'reg': [1729, 1741, 1757, 3105, 5533, 6091], 'mc': [6, 17, 131, 1304, 2736, 3200]}
+  implied            {'main': [2831, 3770, 4747, 4983, 6477, 8563, 9223, 11570], 'reg': [1729, 1741, 1757, 3105, 5533, 6091], 'mc': [6, 17, 131, 1304, 2736, 3200]}
 
 ## 14  FIGURE REFERENCES vs FIGURE MEMBERS (production layer, NOT a text defect)
   main-volume inline figure references: 33 ; in unit: [8493]

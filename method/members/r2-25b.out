@@ -1,10 +1,10 @@
 r2-25b.py — 25b-03: E.8 "Sixty-odd corrections come from §30.3 alone" against Chapter 28
-members: The_Method_1_6-2.md md5 4aef772b | The_Method_1_6___The_Register-2.md md5 e055d08e
+members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md md5 bfc8c01d
 
 §1 SITES (located this chat; member line numbers are never carried between chats)
-   lettered("E.8") hits: [11212] -> '### E.8 What closed, and what it cost'
+   lettered("E.8") hits: [11220] -> '### E.8 What closed, and what it cost'
    E.8 sentence, one site                                     1                          OK
-   L11217 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
+   L11225 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
    sentence inside E.8                                        True                       OK
    numeric resolver on "E.8": None — a lettered heading is invisible to it (DOCKET conventions)
    §28.7    heading_line 7481   body_range (7481, 7506)   section_span (7481, 7721)   DIFFER — both reported
@@ -142,7 +142,7 @@ members: The_Method_1_6-2.md md5 4aef772b | The_Method_1_6___The_Register-2.md m
 §6 REGISTER SWEEP — before any figure is called unreproducible
    WARNING lines on any entry of the family                   []                         OK
    WARNING lines in the Register at all: 39 — none of them on this family (docket 35's instrument, run)
-   *sixty-odd* site: The_Method_1_6-2.md L11217 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
+   *sixty-odd* site: The_Method_1_6-2.md L11225 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
    *sixty-odd* sites in main + Register                       1                          OK
    the forty cited as "register N" in the main volume         []                         OK
    E.8's sentence is a single witness (docket 17, already recorded) and no later statement in either volume

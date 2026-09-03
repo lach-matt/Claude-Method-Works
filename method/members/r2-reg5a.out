@@ -27,10 +27,10 @@
 == 3  THE LETTERED POINTERS
    Appendix subsections are plain-text labels, not headings (MAIN_AUDIT V11), so each is
    located in Appendix A / E by its label line, never by the first textual hit.
-   A.2   in Appendix A (from L9939): [9947]
-   A.5   in Appendix A (from L9939): [9949]
+   A.2   in Appendix A (from L9947): [9955]
+   A.5   in Appendix A (from L9947): [9957]
    E.4.1 has a heading of its own                           True                         OK
-   E.4.1 L11132: ### E.4.1 Q, enumerated and closed at eight
+   E.4.1 L11140: ### E.4.1 Q, enumerated and closed at eight
 
 == 4  ARITHMETIC THAT MUST HOLD ON ITS OWN TERMS
    234: one well + three partly + three not at all = seven flags 7                            OK

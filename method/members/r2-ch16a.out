@@ -29,8 +29,8 @@ r2-ch16a  PROSE  chat 116  main L8347-L8450  (§30.2 - §30.3.2)
   chapter 15 span (4270, 4332)  |  recovered 8  bound 4  irreducible 0  interval 0  Rival 0
 
 ## 2  EVERY ATTRIBUTION IN THE UNIT against ## References (BODY) and R.7
-  ## References occurrences: [173, 11503]   BODY = L11503
-  R.7 heading L11806
+  ## References occurrences: [173, 11511]   BODY = L11511
+  R.7 heading L11814
   Van Isacker  unit L[8401] | References 1 | R.7 0 | six-volume sites {'main': 3, 'reg': 2}
   Rival        unit L[8410, 8414] | References 1 | R.7 0 | six-volume sites {'main': 17, 'reg': 33, 'mc': 7, 'pc': 1}
   Larson       unit L[8410] | References 1 | R.7 0 | six-volume sites {'main': 7, 'reg': 1}
@@ -87,11 +87,11 @@ r2-ch16a  PROSE  chat 116  main L8347-L8450  (§30.2 - §30.3.2)
         L7888   solution density; reorderability                     CSP phase transition; Stahl & Wille 198
         L8096   **And the reorderability material claims nothing.** The problem is known: Stahl & Wille prov
         L8411   §30.3's original citations — Stahl & Wille, Yannakakis — were correct; a draft withdrew them  <-- IN UNIT
-        L11771  Stahl, J. & Wille, R. (1984). — reorderability and scale-measurability of a context; §30.3's
+        L11779  Stahl, J. & Wille, R. (1984). — reorderability and scale-measurability of a context; §30.3's
   Yannakakis       main  3 site(s)
         L8096   **And the reorderability material claims nothing.** The problem is known: Stahl & Wille prov
         L8411   §30.3's original citations — Stahl & Wille, Yannakakis — were correct; a draft withdrew them  <-- IN UNIT
-        L11774  Yannakakis, M. (1982). SIAM J. Alg. Disc. Meth. 3, 351. — the complexity of order-dimension 
+        L11782  Yannakakis, M. (1982). SIAM J. Alg. Disc. Meth. 3, 351. — the complexity of order-dimension 
   Yannakakis       reg   1 site(s)
         L6459   **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE M
   Yannakakis       mc    8 site(s)
@@ -103,7 +103,7 @@ r2-ch16a  PROSE  chat 116  main L8347-L8450  (§30.2 - §30.3.2)
         L2710   Measured — R 1169-1172; Tarski 1936; Beeri, Fagin, Maier & Yannakakis 1983.
   interval problem main  1 site(s)
         L8412   grounds that this was an interval problem, and it is not. The withdrawal is withdrawn.  <-- IN UNIT
-  withdraw         main  57 site(s)
+  withdraw         main  58 site(s)
         L150    ## 28. Withdrawals
         L203    withdrawn. They are listed in Chapter 28, with what replaced them. Several were caught not b
         L224    If you want to check the work, Chapter 28 and Appendix B are where the withdrawals and the
@@ -230,8 +230,8 @@ r2-ch16a  PROSE  chat 116  main L8347-L8450  (§30.2 - §30.3.2)
   WHERE THE LANDSCAPE READING DOES LIVE — six-volume sweep
   basin          {'main': [8333, 8396]}
   landscape      {'main': [693, 805, 8394], 'reg': [3749], 'ioi': [76]}
-  potential      {'main': [8395, 9753, 9910, 9922, 10809, 10826, 10830, 11400], 'reg': [2565, 2609, 4673, 4713, 5037, 5225, 5449, 5453], 'mc': [73, 1024, 2376, 2378, 2384, 2394, 3250], 'pc': [72, 95, 106, 323, 330, 356, 467, 639], 'ioi': [2074], 'sc': [1130]}
-  descent        {'main': [392, 686, 693, 8396, 8541, 9678], 'reg': [4525, 4941, 4945, 4949, 4953, 5061, 5077, 5101], 'ioi': [1660, 1667, 1873]}
+  potential      {'main': [8395, 9761, 9918, 9930, 10817, 10834, 10838, 11408], 'reg': [2565, 2609, 4673, 4713, 5037, 5225, 5449, 5453], 'mc': [73, 1024, 2376, 2378, 2384, 2394, 3250], 'pc': [72, 95, 106, 323, 330, 356, 467, 639], 'ioi': [2074], 'sc': [1130]}
+  descent        {'main': [392, 686, 693, 8396, 8541, 9686], 'reg': [4525, 4941, 4945, 4949, 4953, 5061, 5077, 5101], 'ioi': [1660, 1667, 1873]}
   transposition  {'main': [693, 3704, 8395], 'reg': [5269, 5810]}
   stall          {'main': [686, 8396], 'reg': [5613]}
 

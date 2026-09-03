@@ -2,24 +2,24 @@
 ====================================================================================================
 §0 members and the units (lettered E.x headings, body = LAST hit; a `### E.x` unit ends at the next heading of any rank; E.4 has no heading line)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 4aef772b  11855 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 e055d08e  6627 lines
-   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 99a616ec  3803 lines
+   main The_Method_1_6-2.md                                  md5 4eec7650  11863 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 bfc8c01d  6639 lines
+   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 53a446c8  3803 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 5a964610  879 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 27d387ef  2094 lines
    sc   The_Method_1_6___Spectra_Compendium-2.md             md5 5ba7f61c  1160 lines
-   E.1    hits [10908]  body L10908–L10920 (13 lines)  ### E.1 The coordinates
-   E.1.1  hits [10921]  body L10921–L10939 (19 lines)  ### E.1.1 The lineage of this index, and why only one section states it
-   E.1.2  hits [10940]  body L10940–L10963 (24 lines)  ### E.1.2 The open set as this session leaves it — ten open of 14, liste
-   E.1.3  hits [10964]  body L10964–L10985 (22 lines)  ### E.1.3 What this index asserts, and what it recomputes
-   E.1.4  hits [10986]  body L10986–L11012 (27 lines)  ### E.1.4 This is an index of tractable ignorance, and it cannot say oth
-   E.1.5  hits [11013]  body L11013–L11035 (23 lines)  ### E.1.5 The fourteenth item, the column that was never printed, and th
-   E.2    hits [11036]  body L11036–L11053 (18 lines)  ### E.2 Closed
-   E.3    hits [11054]  body L11054–L11131 (78 lines)  ### E.3 Each open item, in full
-   E.4.1  hits [11132]  body L11132–L11136 (5 lines)  ### E.4.1 Q, enumerated and closed at eight
-   E.4.2  hits [11137]  body L11137–L11142 (6 lines)  ### E.4.2 And the column that matters
-   `## Appendix E` hits [166, 10898] (contents line and body; body = LAST); `### E.4` hits [] ; unmarked heading text *E.4 The grid* at [11105] (24b-02; it bounds E.3)
-   E.3 re-bounded L11054–L11104; E.4 (unmarked) L11105–L11131
+   E.1    hits [10916]  body L10916–L10928 (13 lines)  ### E.1 The coordinates
+   E.1.1  hits [10929]  body L10929–L10947 (19 lines)  ### E.1.1 The lineage of this index, and why only one section states it
+   E.1.2  hits [10948]  body L10948–L10971 (24 lines)  ### E.1.2 The open set as this session leaves it — ten open of 14, liste
+   E.1.3  hits [10972]  body L10972–L10993 (22 lines)  ### E.1.3 What this index asserts, and what it recomputes
+   E.1.4  hits [10994]  body L10994–L11020 (27 lines)  ### E.1.4 This is an index of tractable ignorance, and it cannot say oth
+   E.1.5  hits [11021]  body L11021–L11043 (23 lines)  ### E.1.5 The fourteenth item, the column that was never printed, and th
+   E.2    hits [11044]  body L11044–L11061 (18 lines)  ### E.2 Closed
+   E.3    hits [11062]  body L11062–L11139 (78 lines)  ### E.3 Each open item, in full
+   E.4.1  hits [11140]  body L11140–L11144 (5 lines)  ### E.4.1 Q, enumerated and closed at eight
+   E.4.2  hits [11145]  body L11145–L11150 (6 lines)  ### E.4.2 And the column that matters
+   `## Appendix E` hits [166, 10906] (contents line and body; body = LAST); `### E.4` hits [] ; unmarked heading text *E.4 The grid* at [11113] (24b-02; it bounds E.3)
+   E.3 re-bounded L11062–L11112; E.4 (unmarked) L11113–L11139
    heading_line (numeric resolver) on "E.1.4": None — the numeric resolver does not see a lettered heading; `lettered` governs (chat-129 convention)
    §12.11.0.5 body_range L2758–L2782  section_span (2758, 2783)  ### 12.11.0.5 What the cycle costs propagation — Q item O, closed
    §12.11.0.6 body_range L2783–L2803  section_span (2783, 2804)  ### 12.11.0.6 The earlier bound on the core, tested — Q item K, closed
@@ -56,14 +56,14 @@
     1729 heading L6445 WARNING lines [] :: **Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED.**
    *Q ITEM O CLOSED* at Register L[1353] under heading ['### 364']
    family figures in six volumes (digit-bounded / token probes):
-   'E(Q)'             {'main': (19, [858, 1099, 1103, 1107, 7910, 8861, 8909, 9011, 9270, 10900, 10906, 10961]), 'reg': (12, [873, 933, 945, 1377, 1381, 1385, 1389, 1473, 1477, 1725, 2221, 6447])}
-   'unfibred'         {'main': (20, [890, 1103, 1108, 5061, 5526, 8862, 8909, 8971, 8973, 9011, 9270, 10593]), 'reg': (5, [873, 1377, 1385, 1725, 6447])}
-   'from 4 to'        {'main': (2, [5989, 10999]), 'reg': (1, [1417])}
-   '4 to 3'           {'main': (1, [11032]), 'reg': (1, [1725])}
-   '18 cells'         {'main': (1, [10999]), 'reg': (4, [337, 345, 1417, 6187]), 'ioi': (2, [1388, 1450])}
-   'one nonexistent'  {'main': (1, [10989])}
-   'eight retrievable' {'main': (1, [10989])}
-   'no route'         {'main': (3, [7350, 10991, 10998]), 'reg': (3, [1417, 1661, 5481])}
+   'E(Q)'             {'main': (19, [858, 1099, 1103, 1107, 7910, 8861, 8909, 9011, 9270, 10908, 10914, 10969]), 'reg': (12, [873, 933, 945, 1377, 1381, 1385, 1389, 1473, 1477, 1725, 2221, 6447])}
+   'unfibred'         {'main': (20, [890, 1103, 1108, 5061, 5526, 8862, 8909, 8971, 8973, 9011, 9270, 10601]), 'reg': (5, [873, 1377, 1385, 1725, 6447])}
+   'from 4 to'        {'main': (2, [5989, 11007]), 'reg': (1, [1417])}
+   '4 to 3'           {'main': (1, [11040]), 'reg': (1, [1725])}
+   '18 cells'         {'main': (1, [11007]), 'reg': (4, [337, 345, 1417, 6187]), 'ioi': (2, [1388, 1450])}
+   'one nonexistent'  {'main': (1, [10997])}
+   'eight retrievable' {'main': (1, [10997])}
+   'no route'         {'main': (3, [7350, 10999, 11006]), 'reg': (3, [1417, 1661, 5481])}
    'E(Q) = 5'         {'main': (1, [9270]), 'reg': (2, [1473, 2221])}
    'E(Q) = 2 fibred'  {'reg': (1, [873])}
    Register lines stating an E(Q) value:
@@ -80,76 +80,76 @@
 §2 census: every numeral printed in E.1–E.1.5, E.4 (the grid), E.4.1, E.4.2 (member line numbers)
 ====================================================================================================
    E.1: 0 numerals on 0 lines
-   L10929 32.2 7
-   L10930 8
-   L10931 12.11 211 15
-   L10932 12
-   L10933 13
-   L10934 14 461
-   L10937 307
+   L10937 32.2 7
+   L10938 8
+   L10939 12.11 211 15
+   L10940 12
+   L10941 13
+   L10942 14 461
+   L10945 307
    E.1.1: 11 numerals on 7 lines
-   L10940 14,
-   L10943 239
-   L10956 1954 562 564
-   L10958 1,442
-   L10961 29.2 0
-   L10962 1 32.1 2 256
+   L10948 14,
+   L10951 239
+   L10964 1954 562 564
+   L10966 1,442
+   L10969 29.2 0
+   L10970 1 32.1 2 256
    E.1.2: 12 numerals on 6 lines
-   L10969 371 4
-   L10976 0
-   L10983 12.11
-   L10984 372
+   L10977 371 4
+   L10984 0
+   L10991 12.11
+   L10992 372
    E.1.3: 5 numerals on 4 lines
-   L10994 32.1
-   L10999 18 24 4 10
-   L11004 29.2
-   L11009 332
-   L11011 382
+   L11002 32.1
+   L11007 18 24 4 10
+   L11012 29.2
+   L11017 332
+   L11019 382
    E.1.4: 8 numerals on 5 lines
-   L11014 256
-   L11018 0 1 256
-   L11024 29
-   L11025 0
-   L11028 0
-   L11029 14.5 465
-   L11031 465
-   L11032 4 3
-   L11034 1729
+   L11022 256
+   L11026 0 1 256
+   L11032 29
+   L11033 0
+   L11036 0
+   L11037 14.5 465
+   L11039 465
+   L11040 4 3
+   L11042 1729
    E.1.5: 13 numerals on 9 lines
-   L11106 2.16
-   L11121 1,442
-   L11126 2.16
-   L11130 385, 386
+   L11114 2.16
+   L11129 1,442
+   L11134 2.16
+   L11138 385, 386
    E.4: 5 numerals on 4 lines
-   L11133 32.2 7
-   L11135 0 1
+   L11141 32.2 7
+   L11143 0 1
    E.4.1: 4 numerals on 2 lines
    E.4.2: 0 numerals on 0 lines
 
 ====================================================================================================
 §3 the set rebuilt: E.1.2's table (2-space grammar, DATA rows printed), the grid, and the closed items' coordinates as the VOLUME prints them
 ====================================================================================================
-   value orders as E.1.5 L11016–L11017 prints them: blocks ['nothing', 'novelty', 'one claim', 'a result']; obstacle ['retrievable', 'buildable', 'nonexistent']; cost ['hours', 'days', 'unbounded'] (indices 0, 1, 2, …)
-   L10946 A | one claim · nonexistent · unbounded | physical
-   L10947 B | nothing · retrievable · days | bibliographic
-   L10948 C | nothing · retrievable · unbounded | bibliographic
-   L10949 D | one claim · retrievable · days | computational
-   L10950 F | nothing · buildable · days | mathematical
-   L10951 G | nothing · retrievable · hours | bibliographic
-   L10952 H | one claim · retrievable · days | physical
-   L10953 I | one claim · retrievable · days | physical
-   L10954 K | CLOSED | mathematical
-   L10955 M | CLOSED | computational
-   L10956 N | CLOSED | mathematical
-   L10957 O | CLOSED | mathematical
-   L10958 P | one claim · retrievable · hours | physical
-   L10959 R | one claim · buildable · unbounded | mathematical
-   items 14; open 10 ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'P', 'R']; closed 4 ['K', 'M', 'N', 'O']; header L10940 *ten open of 14*: True
+   value orders as E.1.5 L11024–L11025 prints them: blocks ['nothing', 'novelty', 'one claim', 'a result']; obstacle ['retrievable', 'buildable', 'nonexistent']; cost ['hours', 'days', 'unbounded'] (indices 0, 1, 2, …)
+   L10954 A | one claim · nonexistent · unbounded | physical
+   L10955 B | nothing · retrievable · days | bibliographic
+   L10956 C | nothing · retrievable · unbounded | bibliographic
+   L10957 D | one claim · retrievable · days | computational
+   L10958 F | nothing · buildable · days | mathematical
+   L10959 G | nothing · retrievable · hours | bibliographic
+   L10960 H | one claim · retrievable · days | physical
+   L10961 I | one claim · retrievable · days | physical
+   L10962 K | CLOSED | mathematical
+   L10963 M | CLOSED | computational
+   L10964 N | CLOSED | mathematical
+   L10965 O | CLOSED | mathematical
+   L10966 P | one claim · retrievable · hours | physical
+   L10967 R | one claim · buildable · unbounded | mathematical
+   items 14; open 10 ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'P', 'R']; closed 4 ['K', 'M', 'N', 'O']; header L10948 *ten open of 14*: True
    per-domain (14): {'physical': 4, 'bibliographic': 3, 'computational': 2, 'mathematical': 5} ; without R: {'physical': 4, 'bibliographic': 3, 'computational': 2, 'mathematical': 4} (Register 1729: 4 / 3 / 4 / 2)
-   E.4 grid rows 11 ABCDFGHIMNP (E.4 L11108: *read when the set stood at eleven*)
-     M L11119 first unmet requirement: is the work bounded — it is not
-     N L11120 first unmet requirement: is it reachable from here
-   the eleven of E.1.3 / E.1.4 / E.4 = the thirteen (A B C D F G H I K M N O P) less K and O (E.1.3 L10969 *item O closed, item K closed, item M restated*)
+   E.4 grid rows 11 ABCDFGHIMNP (E.4 L11116: *read when the set stood at eleven*)
+     M L11127 first unmet requirement: is the work bounded — it is not
+     N L11128 first unmet requirement: is it reachable from here
+   the eleven of E.1.3 / E.1.4 / E.4 = the thirteen (A B C D F G H I K M N O P) less K and O (E.1.3 L10977 *item O closed, item K closed, item M restated*)
    Appendix E lines carrying a coordinate value for K, M, N or O (E.1.2 rows print `—`): []
    K  *retrievable, hours* at main L[2785] (§12.11.0.6; heading L2783); blocks: novelty → nothing at §29.2.1 L[7912] (Register 238)
    O  *buildable, days* at main L[2761] (§12.11.0.5; heading L2758) and Register L[1353]; blocks NOT printed
@@ -165,7 +165,7 @@
    BOOK   = r2lib.Rset (§6.1 L1540): φ̂ᵢⱼ(v) = max{xᵢ : x ∈ X, xⱼ ≤ v}, a running maximum, ambient ∏ Âᵢ(X) (the occupied value sets) — the volume's own operator, imported by path.
    EQ     = chat 137's reconstruction (r2-ch24a.py §4 E_R): φ(v) = max{xᵢ : xⱼ = v}, no running maximum, same ambient — the operator 24a-05 was measured under.
    NAIVE  = |box| − |X| (the box defect); COMPL = |box| − |ℛ_BOOK(X)| (the cells the box has that the closure lacks) — the two readings of E.1.4's *18 cells … E from 4 to 10*.
-   +C     = the code's constraint *obstacle = buildable ⟹ cost ≤ days* (E.1.5 L11021): cells violating it removed from ℛ(X) (never from X) — as +D3 in r2-23a.py.
+   +C     = the code's constraint *obstacle = buildable ⟹ cost ≤ days* (E.1.5 L11029): cells violating it removed from ℛ(X) (never from X) — as +D3 in r2-23a.py.
    The fourth obstacle value *no route* is offered as index 3 (above nonexistent) and as index −1 (below retrievable); under BOOK an unoccupied value is not in the ambient — E cannot move; scored under COMPL and NAIVE.
 
 ====================================================================================================
@@ -177,13 +177,13 @@
    EQ  +C  unfibred 2 ; fibred {'physical': 0, 'bibliographic': 0, 'mathematical': 0, 'computational': 0} = 0
    distinct cells 8 of 10; box 18; NAIVE 10; COMPL 7
    admitted and absent under BOOK, unfibred: ['nothing · buildable · unbounded', 'one claim · buildable · days', 'one claim · retrievable · unbounded']
-   printed comparators: E.1.5 L11028 *At fourteen, fibred and unconstrained, E(Q) = 0* (fibred, with K M N O carried — §7); §32.6.1 L[9270] *E(Q) = 5 unfibred* / Register 396 *E(Q) = 5* (a press readout at ten open items, state unprinted); §32.1.4 L[8973] table *Appendix E (Q), unfibred 4 1 one*; §32.1.4.1 L[9011] *E(Q), unfibred 1 1 4* (sections by r2lib.enclosing)
+   printed comparators: E.1.5 L11036 *At fourteen, fibred and unconstrained, E(Q) = 0* (fibred, with K M N O carried — §7); §32.6.1 L[9270] *E(Q) = 5 unfibred* / Register 396 *E(Q) = 5* (a press readout at ten open items, state unprinted); §32.1.4 L[8973] table *Appendix E (Q), unfibred 4 1 one*; §32.1.4.1 L[9011] *E(Q), unfibred 1 1 4* (sections by r2lib.enclosing)
 
 ====================================================================================================
 §6 the eleven-state (A B C D F G H I M N P) — M and N enumerated under the budget; every printed figure scored per assignment
 ====================================================================================================
    fixed: A–I, P as E.1.2 prints them; M cost = unbounded (Register 371); N blocks = nothing (§29.2.1). Free: M blocks (4) × M obstacle (3) × N obstacle (3) × N cost (3) = 108 assignments.
-   printed figures to reproduce: fibred 0 (E.1.3 L10978 *held at … eleven*); unfibred 4 (E.1.3 L10969; Register 372); obstacle 1 / 2 / 8 (E.1.4 L10989; Register 382); box 18 (E.1.4 L10999) → 24 with *no route*, E 4 → 10; +R (nothing · buildable · unbounded) unfibred 4 → 3 unconstrained (Register 465; E.1.5 L11032)
+   printed figures to reproduce: fibred 0 (E.1.3 L10986 *held at … eleven*); unfibred 4 (E.1.3 L10977; Register 372); obstacle 1 / 2 / 8 (E.1.4 L10997; Register 382); box 18 (E.1.4 L11007) → 24 with *no route*, E 4 → 10; +R (nothing · buildable · unbounded) unfibred 4 → 3 unconstrained (Register 465; E.1.5 L11040)
    tally over 108 assignments of (obstacle 1/2/8, fibred 0, unfibred 4, box 18→24, +R → 3): {'11111': 1, '11010': 4, '11000': 5, '10111': 1, '10011': 4, '10010': 2, '10000': 7, '01111': 5, '01101': 4, '01100': 1, '01011': 1, '01010': 10, '01001': 1, '01000': 10, '00111': 10, '00110': 1, '00101': 1, '00011': 4, '00010': 11, '00000': 25}
    assignments reproducing ALL of them: 1
    assignments on which E.1.4's 4 → 10 reproduces under COMPL (|box| − |ℛ(X)| = 4 at 18, 10 at 24): 7 [(False, False, False, False, 'nothing · retrievable · unbounded', 'nothing · nonexistent · days'), (False, False, False, False, 'nothing · buildable · unbounded', 'nothing · nonexistent · days'), (False, False, False, False, 'nothing · nonexistent · unbounded', 'nothing · buildable · hours'), (False, False, False, False, 'nothing · nonexistent · unbounded', 'nothing · nonexistent · days'), (False, True, False, False, 'one claim · retrievable · unbounded', 'nothing · nonexistent · days'), (False, True, False, False, 'one claim · buildable · unbounded', 'nothing · nonexistent · days')]
@@ -197,17 +197,17 @@
    under EQ (chat 137's operator) the assignments reproducing obstacle 1/2/8, fibred 0, unfibred 4 and +R → 3: 2 of 108
 
 ====================================================================================================
-§7 the thirteen-state (A B C D F G H I K M N O P; Register 256 / 1729 / 235; E.1.2 L10961–L10962; E.4.1) and the fourteen-state (E.1.5; Register 1729) — K, O as printed; M, N under the budget
+§7 the thirteen-state (A B C D F G H I K M N O P; Register 256 / 1729 / 235; E.1.2 L10969–L10970; E.4.1) and the fourteen-state (E.1.5; Register 1729) — K, O as printed; M, N under the budget
 ====================================================================================================
    fixed: K = nothing · retrievable · hours (§12.11.0.6 + §29.2.1); O = ? · buildable · days (§12.11.0.5; blocks free, 4); M cost days (before 371) or unbounded (after; both scored); N blocks nothing.
    free: O blocks (4) × M blocks (4) × M obstacle (3) × M cost (2) × N obstacle (3) × N cost (3) = 864 assignments; each scored on: thirteen fibred 0 and unfibred 1 (BOOK, and BOOK+C — the code carried the constraint);
-   fourteen (+R one claim · buildable · unbounded) fibred 0 unconstrained (E.1.5 L11028); fourteen with R as nothing: mathematical fibre admits exactly {one claim · buildable · unbounded} (E.1.5 L11029–L11031); and, when M cost = unbounded, the eleven-state figures of §6 on the same M, N.
+   fourteen (+R one claim · buildable · unbounded) fibred 0 unconstrained (E.1.5 L11036); fourteen with R as nothing: mathematical fibre admits exactly {one claim · buildable · unbounded} (E.1.5 L11037–L11039); and, when M cost = unbounded, the eleven-state figures of §6 on the same M, N.
    tally over 864 assignments of (thirteen 0 / 1, fourteen fibred 0, R-as-nothing → exactly the one cell, eleven-state 1/2/8 · 0 · 4 · +R 3): {'1111': 1, '1110': 21, '1100': 8, '1000': 2, '0111': 1, '0110': 47, '0101': 4, '0100': 114, '0010': 50, '0001': 2, '0000': 614}
    assignments reproducing ALL of them: 1
      O = one claim · buildable · days         M = one claim · retrievable · unbounded  N = nothing · buildable · hours          thirteen unfibred BOOK 3 (+C 1): admitted and absent ['nothing · buildable · unbounded', 'one claim · buildable · hours', 'one claim · buildable · unbounded'] (+C ['one claim · buildable · hours'])
    distinct (M obstacle, N obstacle, N cost) among the hits: [(0, 1, 0)] — {('retrievable', 'buildable', 'hours')}
    M cost values among the hits: ['unbounded'] (days = the 256 state, unbounded = the 371 state; one only)
-   the constraint: thirteen unfibred without +C over the hits: [3]; with +C: [1] (E.1.5 L11025–L11026: *the thirteen still close — E(Q) = 0 fibred was never resting on it; only the unfibred count was*)
+   the constraint: thirteen unfibred without +C over the hits: [3]; with +C: [1] (E.1.5 L11033–L11034: *the thirteen still close — E(Q) = 0 fibred was never resting on it; only the unfibred count was*)
    first hit under EQ: thirteen fibred {'physical': 0, 'bibliographic': 0, 'mathematical': 0, 'computational': 0} unfibred 1; under BOOK per-fibre {'physical': 0, 'bibliographic': 0, 'mathematical': 0, 'computational': 0}
    fourteen (R one claim) under BOOK: fibred {'physical': 0, 'bibliographic': 0, 'mathematical': 0, 'computational': 0} unfibred 2 ; +C unfibred 1
    the ten open rows alone (§5) are a different set from the fourteen: the closed items carry coordinates in the code and E.1.5's *at fourteen* counts them.
@@ -215,13 +215,13 @@
 ====================================================================================================
 §8 what the page does not print — the budget (record-carried states; no figure scored)
 ====================================================================================================
-   Register 212 *E(Q) = 2 fibred, 1 unfibred* (the fifteen-state; items E, J, L and the pre-371 M print no coordinates); §32.2's seven and E.4.1's eight (no rows printed anywhere: E.4 L11107 *read once at eight items and the reading was never printed*); the twelve-state (E, J, L closed). Register 396 / §32.6.1's *E(Q) = 5 unfibred* at ten open items: a press readout whose state is not printed (§5 gives the ten printed rows' figure). Register 256's code is not a member (docket 38): every reproduction here is under the book's stated operator, not the original instrument.
+   Register 212 *E(Q) = 2 fibred, 1 unfibred* (the fifteen-state; items E, J, L and the pre-371 M print no coordinates); §32.2's seven and E.4.1's eight (no rows printed anywhere: E.4 L11115 *read once at eight items and the reading was never printed*); the twelve-state (E, J, L closed). Register 396 / §32.6.1's *E(Q) = 5 unfibred* at ten open items: a press readout whose state is not printed (§5 gives the ten printed rows' figure). Register 256's code is not a member (docket 38): every reproduction here is under the book's stated operator, not the original instrument.
 
 ====================================================================================================
 §9 census rows in range (DEFECT-CENSUS.tsv rows whose line lies in E.1–E.4.2) — chat 137 / 138 verdicts re-tested from the file
 ====================================================================================================
    header: ['id', 'class', 'member', 'line', 'item', 'detail']
-   rows in main L10908–L11142: []
+   rows in main L10916–L11150: []
    prior verdicts: {}
 
 END r2-24a
