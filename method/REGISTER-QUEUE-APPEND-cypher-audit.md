@@ -4,8 +4,9 @@
 BUILD90 → BUILD91: only the Register member changed, the four count sites were recomputed from
 the appended Register, and the reverse guard recovered BUILD90's `49065309b0c4fe8e055f693aed295cca`
 before anything was written. `python3 method/verify.py` passes — 343 members, 0 mismatched, both
-bundles recovered. The instruments are **not** yet seated as members; that is the compendia close,
-still to run. What follows is the record of what was staged and why.
+bundles recovered. **The instruments are seated too**, at BUILD181, with W-190 and DEF-153; that
+close also regenerated the MANIFEST rows BUILD91 had left stale. What follows is the record of what
+was staged and why.
 
 **Superseded — the state before the seat.** The bundles are untouched, `method/verify.py` still passes, and no
 member has changed. This file stages four Register entries and one W entry for M's ruling, in the
@@ -122,7 +123,5 @@ Three things are M's to rule before it runs:
 2. **Whether the instruments are seated as members at all.** They were built in `tools/` on M's
    ruling in this session ("tools/ now, seat it later via close.py"); seating them changes both
    bundle md5s and makes them store-of-record.
-3. **The compendia close, still to run.** The instruments seat as members through `close.py`
-   (BUILD180 → BUILD181) with W-190, and that same run regenerates the `MANIFEST.tsv` rows for the
-   main bundle, which are stale at the Register's old size and md5 since BUILD91. Pass `--main` the
-   BUILD91 path.
+3. **Done.** The compendia close ran: BUILD180 → BUILD181, six members seated with W-190 and
+   DEF-153, `--main` the BUILD91 path, and the MANIFEST rows current again.

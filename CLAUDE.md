@@ -28,7 +28,8 @@ The exceptions, and they are the only ones: `method/verify.py` and the instrumen
 `tools/cypher.py` runs the cypher analysis of §33 over an index, `tools/audit_lambda.py`
 checks every reconstructible numeric claim about Λ against the volumes, and
 `tools/register_counts.py` keeps the Register's own entry counts current, and `tools/close_main.py`
-is the guarded build of the main bundle. Those are real programs with a
+is the guarded build of the main bundle, with `tools/restage.py` rebuilding the extracted tree
+after either close. Those are real programs with a
 real contract — see `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CYPHER.md` and
 `docs/AUDIT-LAMBDA.md`.
 
@@ -50,8 +51,10 @@ numbers gives 1,660 and agrees with nothing. `--write` emits a corrected copy an
 place. `tools/close_main.py` is the main-bundle route: `close.py` writes only the compendia bundle
 and reads `--main` for the manifest alone, so Register entries and the Register's own counts had no
 route into the store of record until this. It appends entries, recounts, asserts that no other
-member changed, and reverses everything to recover the old bundle's md5 before writing. The live
-main bundle is now **BUILD91**, Register 1 to 1796.
+member changed, and reverses everything to recover the old bundle's md5 before writing. The live bundles are now **BUILD91 main** (Register 1 to 1796) and **BUILD181 compendia**, 349
+members, `VERIFY OK`. Two things learned seating them: `close.py` needs Python ≥ 3.12 and must be
+run through `method/bin/python3`, and **a seated member cannot be updated** — `--members` refuses a
+name collision — so a member has to be right before it is seated.
 
 Measured on Λ, the five operator-bearing languages are order, algebra, geometry, information and
 statistics — C(5,2) = 10, all ten agreeing. That is register 1173's count with a different

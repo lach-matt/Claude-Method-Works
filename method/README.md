@@ -10,8 +10,8 @@ tree, and nothing is fetched from Drive to open a chat.
 | --- | --- |
 | `The_Method_1_6_BUILD91_main_and_register.md` | Live main bundle — 1,987,447 B · `7ff88249adc3b00f95a30b97e879e500` · 18,485 lines · 2 members. Register 1 to 1796. |
 | `The_Method_1_6_BUILD90_main_and_register.md` | The previous main bundle, retained as a snapshot — 1,983,081 B · `49065309b0c4fe8e055f693aed295cca` · 18,470 lines. Not live; `verify.py` targets BUILD91. |
-| `The_Method_1_6_BUILD180_compendia_papers_audits.md` | Live compendia bundle — 5,757,241 B · `ea5becc40e13debe4faaf6c7e0cde960` · 65,420 lines · 341 members |
-| `members/` | All 343 members extracted from those two bundles, byte-exact. Instruments read these by name. |
+| `The_Method_1_6_BUILD181_compendia_papers_audits.md` | Live compendia bundle — 5,871,222 B · `bfa0d975c6c915c58c513b00de0e5d2b` · 67,524 lines · 347 members |
+| `members/` | All 349 members extracted from those two bundles, byte-exact. Instruments read these by name. |
 | `MEMBER-INDEX.tsv` | Per member: bundle, extension, size, md5, and byte offset in its bundle |
 | `verify.py` | The witness check — see below |
 | `CLAUDE.md` | The project instruction and the §0 gate |
@@ -35,7 +35,7 @@ Two independent checks, and a mismatch is a hard failure that is reported, never
    is asserted. This is what makes the extracted tree a witness rather than a plausible copy: a tree
    that passes provably reproduces what the old Drive gate used to extract.
 
-Current state: `members checked: 343  mismatched: 0`, both bundles recovered, `VERIFY OK`.
+Current state: `members checked: 349  mismatched: 0`, both bundles recovered, `VERIFY OK`.
 
 ## Running the gate
 
