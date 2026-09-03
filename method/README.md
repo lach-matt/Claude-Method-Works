@@ -8,7 +8,8 @@ tree, and nothing is fetched from Drive to open a chat.
 
 | Path | What it is |
 | --- | --- |
-| `The_Method_1_6_BUILD90_main_and_register.md` | Live main bundle — 1,983,081 B · `49065309b0c4fe8e055f693aed295cca` · 18,470 lines · 2 members |
+| `The_Method_1_6_BUILD91_main_and_register.md` | Live main bundle — 1,987,447 B · `7ff88249adc3b00f95a30b97e879e500` · 18,485 lines · 2 members. Register 1 to 1796. |
+| `The_Method_1_6_BUILD90_main_and_register.md` | The previous main bundle, retained as a snapshot — 1,983,081 B · `49065309b0c4fe8e055f693aed295cca` · 18,470 lines. Not live; `verify.py` targets BUILD91. |
 | `The_Method_1_6_BUILD180_compendia_papers_audits.md` | Live compendia bundle — 5,757,241 B · `ea5becc40e13debe4faaf6c7e0cde960` · 65,420 lines · 341 members |
 | `members/` | All 343 members extracted from those two bundles, byte-exact. Instruments read these by name. |
 | `MEMBER-INDEX.tsv` | Per member: bundle, extension, size, md5, and byte offset in its bundle |

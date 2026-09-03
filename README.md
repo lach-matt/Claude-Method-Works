@@ -53,6 +53,10 @@ it, each with a real contract and a self-check.
 * [`tools/register_counts.py`](tools/register_counts.py) — keeps the Register's own entry counts
   current: counts it, checks the front and back matter against it, exits 1 on drift, and `--write`
   emits a corrected copy without ever writing in place.
+* [`tools/close_main.py`](tools/close_main.py) — the guarded build of the **main** bundle, for
+  Register entries and its counts. `close.py` writes only the compendia bundle; this is the missing
+  half, to the same discipline: append, recount, assert no other member changed, and reverse
+  everything to recover the old bundle's md5 before writing.
 
 ## Working with Claude here
 

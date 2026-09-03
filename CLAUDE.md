@@ -27,7 +27,8 @@ The exceptions, and they are the only ones: `method/verify.py` and the instrumen
 `method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror,
 `tools/cypher.py` runs the cypher analysis of §33 over an index, `tools/audit_lambda.py`
 checks every reconstructible numeric claim about Λ against the volumes, and
-`tools/register_counts.py` keeps the Register's own entry counts current. Those are real programs with a
+`tools/register_counts.py` keeps the Register's own entry counts current, and `tools/close_main.py`
+is the guarded build of the main bundle. Those are real programs with a
 real contract — see `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CYPHER.md` and
 `docs/AUDIT-LAMBDA.md`.
 
@@ -46,8 +47,11 @@ was the audit's fault, so read a FAIL twice before believing it.
 exiting 1 on drift. An entry is a **heading**, not a number: seven headings carry several numbers
 each (docket 30's seven), so 1,628 single + 7 grouped = the 1,635 the volume prints, while counting
 numbers gives 1,660 and agrees with nothing. `--write` emits a corrected copy and never writes in
-place. Note that the Register is a member of the frozen **BUILD90_main** bundle, which `close.py`
-does not write — seating a Register entry, or moving its counts, has no route in this tree.
+place. `tools/close_main.py` is the main-bundle route: `close.py` writes only the compendia bundle
+and reads `--main` for the manifest alone, so Register entries and the Register's own counts had no
+route into the store of record until this. It appends entries, recounts, asserts that no other
+member changed, and reverses everything to recover the old bundle's md5 before writing. The live
+main bundle is now **BUILD91**, Register 1 to 1796.
 
 Measured on Λ, the five operator-bearing languages are order, algebra, geometry, information and
 statistics — C(5,2) = 10, all ten agreeing. That is register 1173's count with a different

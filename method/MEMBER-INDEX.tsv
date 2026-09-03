@@ -147,12 +147,10 @@ TB1-n8_check.py	BUILD180_compendia	.py	1719	ab823f22180baa476b623e0f55ae8c06	427
 TB1-routh_check.log	BUILD180_compendia	.log	90	3fa04ee0f0b05e8246bd9eb119d8dd1d	4276176
 TB1-routh_check.py	BUILD180_compendia	.py	366	23842800b311327175ecdd0ef311473b	4276334
 THE-LOWDIN-SOLUTION-2.md	BUILD180_compendia	.md	38040	4a06e8930b9f7a7a8226dca2db39e35c	217489
-The_Method_1_6-2.md	BUILD90_main	.md	779423	4aef772bad512b84d8c0888386472a74	32
 The_Method_1_6___Mathematical_Compendium-2.md	BUILD180_compendia	.md	309403	99a616ec551ecd3bdb67f81119f9c483	255629
 The_Method_1_6___Spectra_Compendium-2.md	BUILD180_compendia	.md	100790	5ba7f61cf031c02b5a0226d2aed8dc4d	565148
 The_Method_1_6___The_Index_of_Indices-2.md	BUILD180_compendia	.md	118373	27d387ef8a6175c1b9c85437fe3a7588	666051
 The_Method_1_6___The_Physics_Compendium-2.md	BUILD180_compendia	.md	61366	5a9646100eae8fba6a2c601a549d54db	784541
-The_Method_1_6___The_Register-2.md	BUILD90_main	.md	1203491	79aaf239a42c1649e914b7cba9d5ce2a	779539
 The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	BUILD180_compendia	.md	23022	f2adca041b5d95d941b40a6e7dfae64c	846033
 Transitions.md	BUILD180_compendia	.md	121692	dabed88eed79835098b0700fc63c82ef	869151
 WORKING-REGISTER.md	BUILD180_compendia	.md	907899	f28ef5b66580ec9b5fa5c055966af54c	990907
@@ -342,3 +340,5 @@ tb_audit.py	BUILD180_compendia	.py	3443	4021ebf8daa9ea6b8e25a82c715a9260	2129806
 tower-2.out	BUILD180_compendia	.out	85	433e8fb54120d1aac5e98af2f257080f	3021659
 tower-2.py	BUILD180_compendia	.py	1213	c0bce27abe23ad939d297ac1022a01d7	2383165
 trueres.py	BUILD180_compendia	.py	1508	c3cf804ad06ef4e0ca64bcf45c67a83c	2133301
+The_Method_1_6-2.md	BUILD91_main	.md	779423	4aef772bad512b84d8c0888386472a74	32
+The_Method_1_6___The_Register-2.md	BUILD91_main	.md	1207857	27f77585ef8377d72cf71d316281983e	779539

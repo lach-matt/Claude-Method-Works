@@ -1,6 +1,13 @@
-# REGISTER QUEUE — the cypher audit of Λ (four entries, staged, not seated)
+# REGISTER QUEUE — the cypher audit of Λ (four entries, SEATED at BUILD91)
 
-**Nothing here has been seated.** The bundles are untouched, `method/verify.py` still passes, and no
+**SEATED.** Entries 1793–1796 are in the store of record. `tools/close_main.py` built
+BUILD90 → BUILD91: only the Register member changed, the four count sites were recomputed from
+the appended Register, and the reverse guard recovered BUILD90's `49065309b0c4fe8e055f693aed295cca`
+before anything was written. `python3 method/verify.py` passes — 343 members, 0 mismatched, both
+bundles recovered. The instruments are **not** yet seated as members; that is the compendia close,
+still to run. What follows is the record of what was staged and why.
+
+**Superseded — the state before the seat.** The bundles are untouched, `method/verify.py` still passes, and no
 member has changed. This file stages four Register entries and one W entry for M's ruling, in the
 forms `close.py` and the Register require. The instruments are `tools/cypher.py` and
 `tools/audit_lambda.py`; the run is `python3 tools/audit_lambda.py` — 61 recorded claims about Λ,
@@ -57,9 +64,10 @@ is reintroduced by the repair:
 
 ---
 
-## The blocker M's "yes" runs into
+## The blocker M's "yes" ran into — RESOLVED by building the route
 
-**`close.py` cannot seat entries 1793–1796, and nothing else in the tree can either.**
+**`close.py` could not seat entries 1793–1796, and nothing else in the tree could either.**
+`tools/close_main.py` is that route, built this session and used to seat them.
 
 `The_Method_1_6___The_Register-2.md` is a member of **BUILD90_main**, which holds two members —
 the main volume and the Register. `close.py` takes `--old`/`--new` on the **compendia** bundle and
@@ -71,8 +79,8 @@ So the four entries divide:
 | what | route | status |
 | --- | --- | --- |
 | the instruments as members | `close.py`, compendia BUILD180 → BUILD181 | ready to run |
-| entries 1793–1796 | a main-bundle build | **no route exists** |
-| the count move | in-place edit of a member, which `close.py` asserts against | **no route exists** |
+| entries 1793–1796 | `close_main.py`, main BUILD90 → BUILD91 | **DONE** |
+| the count move | `close_main.py --recount` | **DONE** — 1,639 entries, 1 to 1796, mature 1,475 |
 
 The count move is not an append — it changes two numerals inside a member — and `close.py`'s step
 (6) asserts that every changed old member equals *old body + appended text*. It would refuse, and
@@ -114,6 +122,7 @@ Three things are M's to rule before it runs:
 2. **Whether the instruments are seated as members at all.** They were built in `tools/` on M's
    ruling in this session ("tools/ now, seat it later via close.py"); seating them changes both
    bundle md5s and makes them store-of-record.
-3. **The main-bundle route.** All three rulings are taken; what is missing is the mechanism for the
-   half of them that touches BUILD90. Entry 1796 is about a count that seating 1793–1796 will
-   itself change, so its repair and its cause land together, and both need that route.
+3. **The compendia close, still to run.** The instruments seat as members through `close.py`
+   (BUILD180 → BUILD181) with W-190, and that same run regenerates the `MANIFEST.tsv` rows for the
+   main bundle, which are stale at the Register's old size and md5 since BUILD91. Pass `--main` the
+   BUILD91 path.
