@@ -277,6 +277,49 @@ Sperner survives and symmetry does not, exactly as the book says. Two things cam
 
 Both are recorded here rather than repaired — the volumes are the store of record.
 
+## The math read as an index
+
+`tools/audit_math.py` reads the book's own mathematical objects — the 77 elements the seated
+`dclose.py` carries — in all five operator-bearing languages, three ways:
+
+| reading | result |
+| --- | --- |
+| **as one object**, kind and discipline on axes | wide open: E = 492 in order, 1 of 10 pairs agreeing. Nominal coordinates individuate rather than order, and register 1356 names putting such a coordinate on an axis as the fault that voided Λ_ladder. `dclose.py` fibres over them for that reason, so this is the expected refutation, not a finding. |
+| **per fibre** | **all 24 fibres close at E = 0 in every language.** `dclose.py` shows this in order alone; it holds in five. |
+| **the grading alone**, (status, verification, precedent) over all 77 | 11 cells in a 16-cell box; every language admits the same 13; **E = 2**. |
+
+The third is a **counterexample to the corpus's own agreement theorem**. Register 1176 states
+`E(X) = 0` **if and only if** the languages agree, on six indexes and three operators, *"without
+exception"*. Here five languages return an identical admitted set — they agree exactly — and E = 2.
+Agreement without closure, so the "only if" half does not hold in general. The two cells admitted
+and not held are `measured · exhaustive · found` and `verified · sampled · found`, both gradings a
+mathematical object could carry, neither occurring among the 77.
+
+The defect census already flags that entry's *"without exception"* as `C9-OVERGENERALISATION-WORD`
+(row 1321). This is the exception it was flagged for. The program exits 1 while it stands.
+
+## The audit programs
+
+The cypher is the instrument; these are the passes run with it. Each prints PASS or FAIL against
+the figure the volumes record and **adjudicates nothing** — a failing row is a claim and a
+measurement side by side.
+
+| program | scope | result |
+| --- | --- | --- |
+| `audit_lambda.py` | Λ and every object reconstructible beside it | 61 checks, 59 pass — entries 1793–1795 |
+| `register_counts.py` | the Register's own extent | entry 1796 |
+| `audit_math.py` | the book's mathematical objects as an index | entry 1797 |
+| `audit_mc.py` | the Mathematical Compendium's non-Λ claims | 24 checks, 23 pass — entry 1798 |
+| `audit_pc.py` | the Physics Compendium | 19 checks, all pass |
+| `audit_sc.py` | the Spectra Compendium and the Löwdin solution | 16 checks, 15 pass — entry 1799 |
+| `audit_ioi.py` | the Index of Indices against the volumes it indexes | 18 checks, 17 pass |
+
+**Read a FAIL twice.** Across these passes twelve checks failed and were the audit's fault, against
+seven that were the book's. Every one of the twelve reconciled exactly — 976, 976, 1, 93, 7, and
+each of the rest from a convention the volumes state in their own words. A wrong reconstruction of
+a closed index does not land near the recorded figure; it lands a nameable distance away, and the
+distance names the error.
+
 ## Known gaps
 
 - **The calendar at three coordinates is not built.** The 2-D calendar is a fixture and reproduces

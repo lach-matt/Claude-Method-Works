@@ -71,6 +71,9 @@ it, each with a real contract and a self-check.
   Register entries and its counts. `close.py` writes only the compendia bundle; this is the missing
   half, to the same discipline: append, recount, assert no other member changed, and reverse
   everything to recover the old bundle's md5 before writing.
+* [`tools/reseat.py`](tools/reseat.py) — replaces a seated member's body under the same reverse
+  guard. `close.py` adds members and grows append-only ones but by design refuses to rewrite one;
+  this is what a revised document needs.
 * [`tools/restage.py`](tools/restage.py) — rebuilds `method/members/`, `MEMBER-INDEX.tsv` and
   `verify.py` from the live bundles after either close, asserting the extraction by splicing every
   member back and recovering each bundle's own md5.

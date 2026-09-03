@@ -298,6 +298,28 @@ mathematical object could carry, neither occurring among the 77.
 The defect census already flags that entry's *"without exception"* as `C9-OVERGENERALISATION-WORD`
 (row 1321). This is the exception it was flagged for. The program exits 1 while it stands.
 
+## The audit programs
+
+The cypher is the instrument; these are the passes run with it. Each prints PASS or FAIL against
+the figure the volumes record and **adjudicates nothing** — a failing row is a claim and a
+measurement side by side.
+
+| program | scope | result |
+| --- | --- | --- |
+| `audit_lambda.py` | Λ and every object reconstructible beside it | 61 checks, 59 pass — entries 1793–1795 |
+| `register_counts.py` | the Register's own extent | entry 1796 |
+| `audit_math.py` | the book's mathematical objects as an index | entry 1797 |
+| `audit_mc.py` | the Mathematical Compendium's non-Λ claims | 24 checks, 23 pass — entry 1798 |
+| `audit_pc.py` | the Physics Compendium | 19 checks, all pass |
+| `audit_sc.py` | the Spectra Compendium and the Löwdin solution | 16 checks, 15 pass — entry 1799 |
+| `audit_ioi.py` | the Index of Indices against the volumes it indexes | 18 checks, 17 pass |
+
+**Read a FAIL twice.** Across these passes twelve checks failed and were the audit's fault, against
+seven that were the book's. Every one of the twelve reconciled exactly — 976, 976, 1, 93, 7, and
+each of the rest from a convention the volumes state in their own words. A wrong reconstruction of
+a closed index does not land near the recorded figure; it lands a nameable distance away, and the
+distance names the error.
+
 ## Known gaps
 
 - **The calendar at three coordinates is not built.** The 2-D calendar is a fixture and reproduces
