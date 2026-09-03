@@ -1,0 +1,59 @@
+
+== 0  THE UNIT
+   unit opens at entry 327                                  1211                       OK
+   entry 362 opens the next unit                            1347                       OK
+   unit = L1211-L1346, 136 lines; 27 bare entries 327..361; 7 grouped headings
+   the grouped block is whole in this unit                  7                          OK
+
+== 1  THE GROUPED BLOCK, AND THE MECHANISM EACH HEADING NAMES
+   all seven stand after entry 361                          True                       OK
+   numbers the seven headings hold                          32                         OK
+   their range                                              (203, 354)                 OK
+   L1319  4.2        **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the
+   L1323  4.1        **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a
+   L1327  4.6        **§4.6 — A TEST THAT COULD NOT FAIL.** *A summary line hardcoded one line belo
+   L1331  4.7        **§4.7 — A DETECTOR ARTIFACT TAKEN FOR A DEFECT.** *A count of lines read as a
+   L1335  4.3        **§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written a
+   L1339  (unnumbered) **An INSTRUMENT NARROWED BY A LITERAL IT CARRIED, CONTINUED.** *A spelled refe
+   L1343  (unnumbered) **A CHECK THAT PASSED ON A DEFECT IT WAS BUILT TO CATCH.** *Five sections abse
+   five headings name a §4.x mechanism: ['4.2', '4.1', '4.6', '4.7', '4.3']
+   two name a mechanism without a §4.x number.
+   4.2    located in the volume at [1443]
+   4.1    located in the volume at [1441]
+   4.6    located in the volume at [1447]
+   4.7    located in the volume at [1448]
+   4.3    located in the volume at [1444]
+   §4.x are Chapter 4's list items and not headings (MAIN_AUDIT V1, re-measured at the
+   sweep), so they are located as items, never by the heading resolver.
+
+== 2  ENTRY 334 — Λ₁₃ AS A CHAIN OF 44 RANK VALUES, RE-DERIVED
+   tower-2 prints Λ₁₃                                       199130                     OK
+   log2(199130) = 17.6034 ; log2(44) = 5.4594
+   bits lost per cell, to two decimals                      12.14                      as printed
+   percentage surviving, to the unit                        31                         as printed
+
+== 3  ENTRY 336 — WHAT Λ REFUSES
+   refused fraction of the ambient box, to one decimal      85.9                       as printed
+   1 - 976/6,912 = 0.8588. The ambient box is the figure three entries corroborate
+   (248, 255, genesis 8) and which unit 6 verified through its own printed ratio.
+
+== 4  SECTION POINTERS
+   §4.1      Chapter 4 list item (not a heading) — MAIN_AUDIT V1
+   §4.2      Chapter 4 list item (not a heading) — MAIN_AUDIT V1
+   §4.3      Chapter 4 list item (not a heading) — MAIN_AUDIT V1
+   §4.6      Chapter 4 list item (not a heading) — MAIN_AUDIT V1
+   §4.7      Chapter 4 list item (not a heading) — MAIN_AUDIT V1
+   §7.1      L1750   The constraints, and where each comes from
+   §28.8     L7721   A dependent choice is indexable, and naming the
+
+== 5  CENSUS
+   census rows in range: 3
+     1241	C9-OVERGENERALISATION-WORD	reg	1233	never	**ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, 
+     1242	C9-OVERGENERALISATION-WORD	reg	1305	never	**PAST, PRESENT AND FUTURE.** *Treated as free the three parts overcount by 130%;* **the balance h
+     1243	C9-OVERGENERALISATION-WORD	reg	1337	never	**§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written as kept in the pass t
+
+== SUMMARY
+   instrument checks failed : 0 
+   deviations recorded      : 0
+
+   ALL INSTRUMENT CHECKS OK
