@@ -1,5 +1,5 @@
 
-## Chat 152 (3 September 2026) — the compendia scope: the Register in full, the other four by class sweep
+## Chat 151-B (3 September 2026) — the compendia scope: the Register in full, the other four by class sweep
 
 **M, in answer to the scope question put to him** in the repository session of 3 September 2026 — not a
 Method chat. The question was put with three routes and their measured costs and M chose the third.
