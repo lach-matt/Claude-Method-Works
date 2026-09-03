@@ -2,8 +2,8 @@
 ================================================================================================
 §0 BOUNDARY — own heading scan; the unit is Appendix A from `### A.15` (body = last hit) to `## Appendix B` (body = last hit)
 ================================================================================================
-  `## Appendix A` [162, 9939] ; `## Appendix B` [163, 10165] ; A.n headings in the unit: [(10054, 'A.15'), (10073, 'A.18'), (10091, 'A.19'), (10113, 'A.19.0'), (10153, 'A.19.1')]
-  unit: L10054 to L10164 = 111 lines; lettered(M, "A.15") = [10054]; lettered(M, "A.19") = [10091] (exact token: A.19 does not match A.19.0/A.19.1)
+  `## Appendix A` [162, 9947] ; `## Appendix B` [163, 10173] ; A.n headings in the unit: [(10062, 'A.15'), (10081, 'A.18'), (10099, 'A.19'), (10121, 'A.19.0'), (10161, 'A.19.1')]
+  unit: L10062 to L10172 = 111 lines; lettered(M, "A.15") = [10062]; lettered(M, "A.19") = [10099] (exact token: A.19 does not match A.19.0/A.19.1)
 
 ================================================================================================
 §1 A.15 — B_k IS A SUBLATTICE OF A PRODUCT OF TWO CHAINS; C = {|a − b| ≤ c} IS JOIN-CLOSED AND MEET-BROKEN (conventions: chains [0, m]; closed = componentwise max/min of every pair lands in the set; a failing meet is an UNORDERED pair {x, y} with x ≠ y whose meet is absent — the convention that reproduces §29.12 U4's 12,489 for T)
@@ -16,7 +16,7 @@
   DEF chat-70 carry — T (two-sided) at cap 8: |T| = 369 ; failing meets 12,489 ; joins 0 — against C's figure above: distinct regions (C has no upper bound), distinct counts; neither corrects the other
   "join-closure holds by A.18's lower-bound argument, which does not use the upper bound": |max a − max b| ≤ max c on every pair of C at cap 8: True (the same inequality A.18 proves as Lower, applied with no upper bound present)
   "a bound by a constant is monotone in both directions, a bound by a free coordinate is not": in C the meet fails because min c can drop below |min a − min b|; first failing meet at cap 8: ((0, 1, 1), (1, 1, 0), (0, 1, 0))
-  "axis 13" sites in main (the tower relies on B₁ there): [3153, 3168, 10070] ['f, so axis 13 is reachable from axis 11 without axis 12, and taking J first costs 25 points of density', "J-fibre is a doublet everywhere except the K = 0 singlet: axis 13 sees precisely the outer electron's"]
+  "axis 13" sites in main (the tower relies on B₁ there): [3153, 3168, 10078] ['f, so axis 13 is reachable from axis 11 without axis 12, and taking J first costs 25 points of density', "J-fibre is a doublet everywhere except the K = 0 singlet: axis 13 sees precisely the outer electron's"]
   B₁/B_k/band sites in main outside the unit: [1601, 1615, 1617, 1627, 2306, 2319, 2325, 2482, 4710, 4840, 4842, 5056]
 
 ================================================================================================
@@ -33,28 +33,28 @@
   cap 8: failing meets breaking the UPPER bound only 4,163; the LOWER only 8,326; both 0 — "Meets fail on both inequalities" witnessed; "the asymmetry is counted at §29.12 U4 and is not explained by this proof": U4 counts totals only (read: L8288–L8291 print no split by bound; the split above is new)
   §29.12 body_range (8238, 8315) section_span (8238, 8315) ; U4 lines: [8288] **U4 — the join/meet asymmetry of the triangle.**
   "§8 states as skew" — §8.4 lines with skew: [(1882, 'centre of mass 11.07 against midpoint 11.5 — skew −0.43, computed from the full rank sequence'), (1885, 'Low ranks are cut by floors (*n* ≥ 1, *k* ≥ 1, *e* ≥ 1); high ranks by caps (ℓ ≤ *n*−1, *k* ≤ 2(2ℓ+1')]
-  "§12.11.2 as the half-result" — §12.11.2 lines with half/survives: [(3369, "half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances."), (3385, 'One half of the triangle survives, and the four-cap check of §7.4 has now been run: the region'), (3387, 'every one, by 2,862, 12,489, 40,887 and 110,229 failing meets. Certainty survives upward and dies'), (3390, 'surviving half belongs to the parity-free triangle and to nothing larger.')] ; the term "half-result" in main: [10088]
+  "§12.11.2 as the half-result" — §12.11.2 lines with half/survives: [(3369, "half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances."), (3385, 'One half of the triangle survives, and the four-cap check of §7.4 has now been run: the region'), (3387, 'every one, by 2,862, 12,489, 40,887 and 110,229 failing meets. Certainty survives upward and dies'), (3390, 'surviving half belongs to the parity-free triangle and to nothing larger.')] ; the term "half-result" in main: [10096]
   r2-tb1 (upstream operator) is a member: True — this instrument re-derives T independently and does not import it
 
 ================================================================================================
 §3 A.19 — THE SEVENTEEN GENERATORS AGAINST Λ₈'S JOIN-IRREDUCIBLES (convention: join-irreducible = a cell covering exactly one element; rank = coordinate sum; the printed tuples are parsed from the unit's code lines; the 17-element poset is the induced order)
 ================================================================================================
   |Λ₈| = 976 ; join-irreducibles (cover exactly one element): 17 ; bottom (covers none): [(1, 0, 1, 0, 1, 0, 0, 0)]
-  printed tuples in A.19 (L10091–L10112 code lines): 17 ; distinct: 17
+  printed tuples in A.19 (L10099–L10120 code lines): 17 ; distinct: 17
   every printed tuple is a cell of Λ₈: True ; every printed tuple is join-irreducible: True ; the printed set EQUALS the join-irreducible set: True
   printed rank = coordinate sum on 17 of 17 ; rank distribution printed: [4, 5, 6, 7, 8, 10, 15] ; counts per rank: [(4, 5), (5, 5), (6, 2), (7, 1), (8, 1), (10, 2), (15, 1)]
   covering relations of the 17-element poset (induced order, covers within the subposet): 20 — §8.3 L1849 "17 join-irreducibles, 20 covering relations"; A.19.0 "the twenty implications"
   down-sets of the 17-element poset by direct enumeration of all 131072 subsets: 976 = 976: True
   "Λ is recoverable from this table and nothing else": joins of the 976 down-sets (bottom = the least cell) = 976 distinct cells; equals Λ₈: True (the bottom is the one datum the table does not print; it is the empty down-set's join, A.19.1 prints it)
   §8.3's three claims, sites: [(1851, '976 cells ← 17 join-irreducibles, 20 covering relations'), (1853, 'and the correspondence is exact: **all 976 down-sets of the 17-element poset are precisely the 976 c'), (1870, 'of this poset, and every down-set is a cell — a fifty-seven-fold compression, exact. The covers are ')] ; "It never prints the seventeen": 8-tuples in §8.3 span: 0 ; in the whole main before Appendix A: []
-  S1 sites in main: [1393, 2119, 3056, 4272, 9032, 10110, 11421] ["*is*. Order dimension answers §15's S2 and says nothing about S1, and Λ has the same divis", 'you?* — and a cell is the set of its answers and nothing else. The bits are the alphabet S']
+  S1 sites in main: [1393, 2119, 3056, 4272, 9032, 10118, 11429] ["*is*. Order dimension answers §15's S2 and says nothing about S1, and Λ has the same divis", 'you?* — and a cell is the set of its answers and nothing else. The bits are the alphabet S']
 
 ================================================================================================
 §4 A.19.0 — EVERY GENERATOR IS min{x : x_c ≥ v}; THE CLOSED SIZE Σ(|Aᵢ| − 1); THE TABLE'S RANK, WEIGHT AND FORCES COLUMNS; THE TWENTY IMPLICATIONS SPLIT 9 + 11 (conventions: |Aᵢ| = size of the coordinate support; weight = cells with x_c ≥ v; forces = the elements the generator covers in the 17-poset; percentages Decimal HALF_UP 1 place)
 ================================================================================================
   coordinate supports: {'n': [1, 2, 3], 'ℓ': [0, 1], 'k': [1, 2, 3], 'q': [0, 1, 2, 3], 'e': [1, 2, 3], 'f': [0, 1], 'g': [0, 1, 2, 3], '2S': [0, 1, 2, 3]} ; |Aᵢ| − 1: [2, 1, 2, 3, 2, 1, 3, 3] ; Σ = 17 (printed 2 + 1 + 2 + 3 + 2 + 1 + 3 + 3 = 17)
   (c, v) pairs: 17 ; each has a UNIQUE least cell: True ; every such least cell is join-irreducible: True ; the set of least cells EQUALS the join-irreducible set: True
-  table DATA rows parsed (header L10123): 17
+  table DATA rows parsed (header L10131): 17
   generator column = least cell on 17 of 17 ; rank column = coordinate sum on 17 ; weight column = cells with x_c ≥ v on 17 ; forces column = the generator's lower covers in the 17-poset on 17 of 17
   weights min/max: 16 856 ; 856/976 = 87.7% ; 16/976 = 1.6% (printed 87.7% and 1.6%)
   forces entries (DATA cells, comma-split): 20 ; within a coordinate: 9 ; between coordinates: 11 (printed twenty = nine + eleven); equals the 17-poset's covering relations: True
@@ -81,20 +81,20 @@
   printed cells: 8 ; printed set = survivor set: True
   "Every one has q = k, g = q and 2S = q": True ; "(n, ℓ) and (e, f) each at (1,0) or (2,1)": True ; "fixed setwise because source and target halves mirror": max − x for each survivor is itself a survivor: True ; 2 × 2 × 2 (q ∈ {1,2}) = 8 accounts for the count: [1, 2]
   top (unique greatest): [(3, 1, 3, 3, 3, 1, 3, 3)] rank [20] ; bottom (unique least): [(1, 0, 1, 0, 1, 0, 0, 0)] rank [3] (printed (3,1,3,3,3,1,3,3) rank 20; (1,0,1,0,1,0,0,0) rank 3)
-  §8.3/§8.4 site of the eight (L1887): Nor is Λ self-dual. Only 8 of 976 cells survive the reflection x ↦ max − x, coordinate by coordinate — ; other main sites of "max − x": [1887, 10154]
+  §8.3/§8.4 site of the eight (L1887): Nor is Λ self-dual. Only 8 of 976 cells survive the reflection x ↦ max − x, coordinate by coordinate — ; other main sites of "max − x": [1887, 10162]
 
 ================================================================================================
 §6 PRE-PP DIFF — headings and Statement lines of the unit against the Prints & Proofs original (section number stripped from BOTH sides; whitespace-normalised); body-level line diff of the unit
 ================================================================================================
   PP `# APPENDICES` [158, 9590] ; PP `Appendix B` [160, 9815] ; PP A.n heading lines from A.15: [(9705, 'A.15'), (9724, 'A.18'), (9742, 'A.19'), (9764, 'A.19.0'), (9804, 'A.19.1')]
-  A.15: volume L10054 "Two bands, and only one of them is a sublattice" | PP P9705 "Two bands, and only one of them is a sublattice" | equal: True
-  A.18: volume L10073 "The triangle region is join-closed and meet-broken" | PP P9724 "The triangle region is join-closed and meet-broken" | equal: True
-  A.19: volume L10091 "The seventeen generators, written out" | PP P9742 "The seventeen generators, written out" | equal: True
-  A.19.0: volume L10113 "The alphabet, defined rather than listed" | PP P9764 "The alphabet, defined rather than listed" | equal: True
-  A.19.1: volume L10153 "And two other sets counted but never listed" | PP P9804 "And two other sets counted but never listed" | equal: True
+  A.15: volume L10062 "Two bands, and only one of them is a sublattice" | PP P9705 "Two bands, and only one of them is a sublattice" | equal: True
+  A.18: volume L10081 "The triangle region is join-closed and meet-broken" | PP P9724 "The triangle region is join-closed and meet-broken" | equal: True
+  A.19: volume L10099 "The seventeen generators, written out" | PP P9742 "The seventeen generators, written out" | equal: True
+  A.19.0: volume L10121 "The alphabet, defined rather than listed" | PP P9764 "The alphabet, defined rather than listed" | equal: True
+  A.19.1: volume L10161 "And two other sets counted but never listed" | PP P9804 "And two other sets counted but never listed" | equal: True
   Statement lines: volume 2 ; PP (from A.15) 2
-   L10055 vs P9706: first-line equal: True 
-   L10074 vs P9725: first-line equal: True 
+   L10063 vs P9706: first-line equal: True 
+   L10082 vs P9725: first-line equal: True 
   non-blank lines: volume 91 ; PP 91 ; in volume not PP: 10 ; in PP not volume: 10
     V+  ### A.15 Two bands, and only one of them is a sublattice
     V+  ### A.18 The triangle region is join-closed and meet-broken
@@ -150,7 +150,7 @@
      449: **THE CONVEXITY CRITERION AND THE TWO-SIDED CLOSURE RULE BOTH ASSUME A CLOSED AMBIENT** *, and neither said so. On the eighteen-column table — not a sublattice,
      471: **THE IDENTIFICATION E(X) = 0 = 2-decomposability IS ONE-DIRECTIONAL, AND THE WITNESS IS 840 CELLS.** *The parity rule |Δℓ| = 1 is* **exactly determined by its 
   Register lines with "join-closed": [(6403, 1716)]
-  "the ledger" — where C is called a join-closed sublattice: main sites [10069] ; every volume: {'main': [10069]} ; "the ledger" in the unit: [10069]
-  Register 268 names A.19.0's content (closed size 17) — its entry number in the unit L[10151]; Register 255 names A.19 ("seventeen generators are now listed at A.19"); Register 208 names the 8 and max − x
+  "the ledger" — where C is called a join-closed sublattice: main sites [10077] ; every volume: {'main': [10077]} ; "the ledger" in the unit: [10077]
+  Register 268 names A.19.0's content (closed size 17) — its entry number in the unit L[10159]; Register 255 names A.19 ("seventeen generators are now listed at A.19"); Register 208 names the 8 and max − x
   Register lines naming A.15/A.18/A.19: [(1001, 255, '**EVERY CELL OF Λ IS FULLY DEFINED AND THE GENERATING SET WAS NEVER PRINTED.** *All 976 carry all ei'), (1009, 258, "**A SEVENTH LANGUAGE ADMITTED: BINARY.** *Λ is the 976 words in {0,1}¹⁷ that are down-sets of A.19's")]
-  unit lines with register/Register: [10071, 10151, 10155, 10163] (G0i: lowercase "register 208" names; "Register 230/268/255" cite)
+  unit lines with register/Register: [10079, 10159, 10163, 10171] (G0i: lowercase "register 208" names; "Register 230/268/255" cite)

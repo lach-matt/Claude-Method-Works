@@ -2,3 +2,6 @@ superseded	successor	reason	proved_on
 r2-ch17e	r2-ch17e2	printed 'L11832 is R.7' as a literal; the site moved +8 with r3-wl2 and the literal did not, so the instrument asserts a falsehood	BUILD92+BUILD191, byte-exact
 r2-ch16u	r2-ch16u2	scanned a FIXED WINDOW range(9727,9735) over §35.1; the section moved +8 and the window did not, so the sibling site vanished from the report	BUILD92+BUILD191, byte-exact
 r2-ch16v	r2-ch16v2	read MAIN[9891] by fixed index for the `## 36.` heading; the heading moved +8 and the index did not	BUILD92+BUILD191, byte-exact
+r2-ch16n	r2-ch16n2	carried a hard-coded site LIST; three of nine entries (9722, 9894, 11853) sit above the shift and named the wrong lines	BUILD92+BUILD191, byte-exact
+r2-ch16p	r2-ch16p2	named two citing lines (11555, 11799) and started a sweep at the References body (11503) by literal; all three moved	BUILD92+BUILD191, byte-exact
+r2-ch22a	r2-ch22a2	printed "Chapter 23 citation claim, L10377" as a literal while computing the Nesterov sites beside it	BUILD92+BUILD191, byte-exact

@@ -23084,6 +23084,21 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **reg7-A NEW — a defect the shift exposed and did not cause.** `r2-reg7a` computes `100 × len(split_e) / len(pos)` — the **live** entry-heading count — while its own sentence names *"of the 1,635 entries"*. MEASURED: the live count was **1639** before this chat's three entries and is **1642** now; 275/1635 and 275/1639 both print 16.8 %, so the mismatch was invisible, and 275/1642 prints **16.7 %**, at which point the computed and the named denominator part. **The instrument divides by one number and names another**, against the standing method's *check the arithmetic of every ratio and percentage, and name the denominator*. Recorded, not repaired: its successor is owed with the rest.
 - **Not done, by design:** 52 readings remain (40 UNEXPLAINED after these two, 12 UNRUNNABLE). `shiftcheck` re-run on a settled tree with the protections and substitutions declared reports **UNCHANGED 31, EXPLAINED 2, UNEXPLAINED 42, UNRUNNABLE 12** before this build. DEF-152 items 1–9 remain queued behind the readings on M's ruling.
 
+### W-205 — chat 153 — three more successors, and two instruments cleared by fixing the checker instead; BUILD196 -> BUILD197
+
+- **`r2-ch16n2`, `r2-ch16p2`, `r2-ch22a2` seated, each PROVED byte-exact on the pre-shift bundles before banking.** `r2-ch16n` carried a hard-coded site **list** — three of its nine entries (9722, 9894, 11853) sit above the insertion point and named the wrong lines; the six below it did not move and are left exactly as they were. `r2-ch16p` named two citing lines (11555, 11799) by literal and started a sweep at the References body (11503) by literal; all three are now resolved by their own text, and its §32.2 window at 9030 is **below** the insertion point and is deliberately untouched. `r2-ch22a` printed *Chapter 23 citation claim, L10377* inside a string while computing the Nesterov sites beside it.
+- **Every anchor is resolved from the site's own text**, through a local helper that asserts the substring matches **exactly one** line. An anchor that matches two lines, or none, fails the run rather than picking one — a resolver that guesses is worse than a literal, because it is wrong silently.
+- **Two instruments needed no successor at all: the fault was in my checker.** `r2-ch16r` prints a section body with an absolute line number on **every** line, so after the shift every line differs and `difflib` re-pairs them by content into unbalanced hunks (−65/+57, then +0/+8) that could not be zipped; a fully explained shift looked structural. **When both outputs have the same number of lines, position is the truth** — line *i* answers for line *i* — and `shiftcheck` now compares positionally in that case and never through `difflib`. `r2-ch19a` prints *L10063 vs P9714*, a Prints & Proofs line, and the protection pattern required a `PP ` prefix; widened to `\bP\d{4,5}\b`. **Both now return EXPLAINED.**
+- **The lesson, twice in one segment: establish that an instrument is mis-TARGETED before writing a successor, not merely mis-COMPARED.** A successor written for `r2-ch16r` would have re-anchored something that was never wrong, and `proveanchor` would have passed it, because it would have reproduced the old bytes faithfully. The guard proves a successor faithful; it cannot tell you the successor was needed.
+- **Re-banked in this build, all four EXPLAINED under the declared reasons:** `r2-ch16r`, `r2-ch19a`, `r2-ch20b`, `r2-reg8a`.
+- **Not done, by design:** the remaining readings. After this build the bill is 37 UNEXPLAINED and 12 UNRUNNABLE. The expensive six are untouched — `r2-ch28a` (60 literals), `r2-ch16z` (53), `r2-ch26b` (34), `r2-ch23a` (33), `r2-ch17d` (32), `r2-ch17c` (31). DEF-152 items 1–9 remain queued behind them on M's ruling.
+
+### W-206 — chat 153 — the four goldens cleared by the checker fix are re-banked; BUILD197 -> BUILD198
+
+- **Four only: `r2-ch16r`, `r2-ch19a`, `r2-ch20b`, `r2-reg8a`.** Each returns EXPLAINED under the reasons declared in W-205 — `--shift 9608:8:11856`, the Prints & Proofs protections, and the named substitutions for the Register's growth. None of the four needed a successor: `r2-ch16r` and `r2-ch19a` were cleared by correcting `shiftcheck` itself, not the instruments.
+- **`close_rebank.py` runs each instrument** rather than copying, refuses a non-zero exit and refuses a golden that did not move; the reverse guard restores every one and must reproduce BUILD197's md5 before anything is written.
+- **Nothing else re-banked.** The remaining UNEXPLAINED and UNRUNNABLE stay red and each is a reading.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35618,7 +35633,7 @@ compendia	REGISTER_AUDIT.md	1445	971bdbef525d1815fbbba5393d514dc0	13
 compendia	REQUEST-LOWDIN.md	5810	f1d93d9a360bc1afbfdbee0c66414b5c	75
 compendia	REQUEST-THREEBODY.md	5300	8e776e353b41e91e6d9bf6f83f9a0628	70
 compendia	RESPONSE-TO-METHOD-1_6.md	9706	eb435761e5429a245a1ba415e5d0cc37	175
-compendia	RETIRED.tsv	556	820fbb7e6e275c32b56da2c5ea7b09c1	4
+compendia	RETIRED.tsv	1039	3743b3be659aec605a0179b3d58e1e1e	7
 compendia	RULING-TOLERANCE-489.md	3121	5a9a3803812c2e157770c6d4c9ca041a	59
 compendia	RULINGS-R2.md	25974	3012f5ab2f59de6629e18f81437a170a	286
 compendia	ScIII_asd.tsv	1269	f91a0abff919f6922395320344f1d4ac	46
@@ -35645,7 +35660,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	986437	f0002be9325bf065df8e675e83d26975	8136
+compendia	WORKING-REGISTER.md	989977	5fbf9297235a8d424c0115df74b45f97	8151
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -35731,13 +35746,17 @@ compendia	r2-ch16m.out	11481	6ef3e13a6f1e1555c6ddb15da945eb47	129
 compendia	r2-ch16m.py	15438	ff46e7b2a2c086d1317921adbc97df31	274
 compendia	r2-ch16n.out	19953	d2ef24a24e5e63fe4fc3fec9b33e8e82	235
 compendia	r2-ch16n.py	15533	8cdac8e94d45fad7936ef11b9a1cbc34	304
+compendia	r2-ch16n2.out	19953	08f87cf33c290f72a793c517dff79223	235
+compendia	r2-ch16n2.py	16628	6e35d45ab76951f624dda8156985b960	321
 compendia	r2-ch16o.out	10828	8d8fab16c16120ca7f3e42733d0c9854	146
 compendia	r2-ch16o.py	16242	7caf86f7af8ab84cbb92b93831aa7ef2	285
 compendia	r2-ch16p.out	31499	3d911393727b9e7d1cd74814cc6ecb94	406
 compendia	r2-ch16p.py	19134	ad69c34b47dc8984ef16aaa9d1fa1980	376
+compendia	r2-ch16p2.out	31499	a826da9a7ad6eed8f5ceff1049bc348e	406
+compendia	r2-ch16p2.py	20360	2d29d8247a510a412f2383035bb7e03c	392
 compendia	r2-ch16q.out	14494	55dd818446a0e902ca80af5b63e6d249	185
 compendia	r2-ch16q.py	19180	9802e46cb07a2540ae20ee67a1b685fd	319
-compendia	r2-ch16r.out	39054	3168601e8caa8d5d797cb61c54e3b31d	547
+compendia	r2-ch16r.out	39054	98059f5a0b4ba8167a8dc51440e07d4f	547
 compendia	r2-ch16r.py	13585	6d2d618560d4b2603f986b9ce82126ce	240
 compendia	r2-ch16s.out	13116	4955d7fef772f507929616497f517208	175
 compendia	r2-ch16s.py	10902	ae6c788602776d0169b69381beb7954c	190
@@ -35777,14 +35796,14 @@ compendia	r2-ch18a.out	20364	d5b741a9c2d3e6ebcda0b9117808d64f	166
 compendia	r2-ch18a.py	29678	7ff90d81589ae5a48a5eea4380cc50c7	250
 compendia	r2-ch18b.out	9256	0d29a486695fcb7a533ef40cfc4f3e3f	70
 compendia	r2-ch18b.py	9786	846485e12a53c6c01090327aad065b15	82
-compendia	r2-ch19a.out	21844	a04625ba7b814f48d2ba47a770639dd9	156
+compendia	r2-ch19a.out	21844	730a231cc7d1a263b3cf3c0c4c8f39a8	156
 compendia	r2-ch19a.py	27521	7414bdafd376ba5ebac0c3a3817d125b	228
 compendia	r2-ch19b.out	23097	9ebdb9d15f6acbf3b31bf6ac71b221d1	178
 compendia	r2-ch19b.py	14688	b2044d751378072f8d0315374029f9df	107
 compendia	r2-ch2.py	2712	64145381de3468efcafdbb1f38fdf94d	37
 compendia	r2-ch20a.out	25571	ac451215b629390590173edc88152c18	180
 compendia	r2-ch20a.py	27247	40f75d24ab2c930991be1b02323dcf32	225
-compendia	r2-ch20b.out	10530	e87d1c633d4e323b8a84e6fa8c7772fc	93
+compendia	r2-ch20b.out	10530	01aab3253b943c126cc49a30c0f64b85	93
 compendia	r2-ch20b.py	14608	87b0f700bf073dca766d6cde0ef308d3	109
 compendia	r2-ch21a.out	26346	7244a02215e51b0ad7d537a83cf6c11d	178
 compendia	r2-ch21a.py	18582	72dd8300ec05c3c02ff7376774add3d3	187
@@ -35792,6 +35811,8 @@ compendia	r2-ch21b.out	12052	aee2c49fad34add53fd0f9c581d4df20	117
 compendia	r2-ch21b.py	8826	7e0b8578f2260ade998e99bb2e257c77	69
 compendia	r2-ch22a.out	4737	c4b8126368beef48475de5d8b455c4b8	43
 compendia	r2-ch22a.py	12106	a96e3451a0306047016134bb8fe914d5	137
+compendia	r2-ch22a2.out	4737	e680bcd085c58552055cda4ae39c3923	43
+compendia	r2-ch22a2.py	12563	10173e7fb9b535fe109db643589dc190	144
 compendia	r2-ch22b.out	7963	9a41ed042d0b0b4f11d4a323cb9562cb	78
 compendia	r2-ch22b.py	10122	1647fde8dfa22d7cc4fbf1a05d906f37	97
 compendia	r2-ch23a.out	9970	76775e080d1c25f09a594e8b5a92e1fc	81
@@ -35847,7 +35868,7 @@ compendia	r2-reg6a.out	3991	714785c8f113c83808e1142d90e62d0f	64
 compendia	r2-reg6a.py	8046	d4e76cd573721ac4923596f8a2e8b283	127
 compendia	r2-reg7a.out	4023	6ed594d1985bbdea0150722670fd55a6	59
 compendia	r2-reg7a.py	6751	659b80fb83768464947cc7e376f75bfc	111
-compendia	r2-reg8a.out	5155	2a39c73cce589e397b93e13a4bf7c753	64
+compendia	r2-reg8a.out	5155	469b2d65b6a08fc18aed1808f82156d0	64
 compendia	r2-reg8a.py	7244	80b7def8bef9f863848c8afac0fa693f	121
 compendia	r2-reg9a.out	2922	76c658a1533aa489142300c98a9e04e4	52
 compendia	r2-reg9a.py	6194	15c2fb53562979245039c9a0fda5cfb1	109
@@ -44697,7 +44718,7 @@ for rid, l, tok in ((713, 9168, '32.5'), (1191, 9158, 'never'), (1192, 9273, 'ne
    L 9281 §14.5.6     body_range (3806, 3808)  section_span (3806, 3808) COINCIDE
    L 9285 §6.3        body_range (1705, 1718)  section_span (1705, 1718) COINCIDE
    L 9294 AppE         (chapter/appendix pointer, resolved in section 2)
-   L 9302 §E.1.4      LETTERED resolver -> (10986, 11013)
+   L 9302 §E.1.4      LETTERED resolver -> (10994, 11021)
    L 9303 §29.2.2     body_range (7922, 7940)  section_span (7922, 7940) COINCIDE
 
 ================================================================================================
@@ -44819,35 +44840,35 @@ for rid, l, tok in ((713, 9168, '32.5'), (1191, 9158, 'never'), (1192, 9273, 'ne
 5.  L9302-L9305 -- §E.1.4 and §29.2.2
 ================================================================================================
 
-  §E.1.4 at L10986, body to L11012
-  --- §E.1.4 L10986-L11012 ---
-   10986 ### E.1.4 This is an index of tractable ignorance, and it cannot say otherwise
-   10987  Every item here is closable. The obstacle coordinate takes three values — **nonexistent** (the datum
-   10988  can be made to exist), **buildable** (it can be constructed), **retrievable** (it can be fetched) —
-   10989  and all three name a route. Eleven items: one nonexistent, two buildable, eight retrievable.
-   10990 
-   10991     **No value of this coordinate means *there is no route*.** An unclosable question is not
-   10992     missing from this appendix. It is **inexpressible** in the coordinates the appendix uses.
-   10993 
-   10994  **That is not an oversight, and §32.1.4 says why it cannot be repaired from inside.** ℛ(X) ⊆ ∏ᵢ Aᵢ(X):
-   10995  the operator is bounded by the index's own value sets, so it can name a cell the index lacks and never
-   10996  a *value*. Nothing in this appendix could ever produce the fourth obstacle, however long it ran.
-   10997 
-   10998  **Offer it from outside and the shape of what is missing appears.** Adding *no route* as a fourth
-   10999  obstacle value grows the ambient box from 18 cells to 24 and takes E from 4 to **10** — six further
-   11000  combinations the structure admits and this appendix does not contain, every one of them an unclosable
-   11001  question at some cost and some consequence.
-   11002 
-   11003  **So the book has two kinds of ignorance and indexes only one.** The tractable kind is here, graded and
-   11004  costed. The other kind is elsewhere and unindexed: §29.2.2's reading that the branches leave the
-   11005  object, and the destination coordinate that the temporal mechanisms would need. **Those are not open
-   11006  items. They are the shape of the question this index cannot pose**, and each had to be named in prose
-   11007  because no coordinate here would hold it.
-   11008 
-   11009  That is register 332 arriving where it is least comfortable — an index names cells and never
-   11010  coordinates, so **an index of one's own ignorance is an index of the ignorance one already has words
-   11011  for.** Register 382.
-   11012 
+  §E.1.4 at L10994, body to L11020
+  --- §E.1.4 L10994-L11020 ---
+   10994 ### E.1.4 This is an index of tractable ignorance, and it cannot say otherwise
+   10995  Every item here is closable. The obstacle coordinate takes three values — **nonexistent** (the datum
+   10996  can be made to exist), **buildable** (it can be constructed), **retrievable** (it can be fetched) —
+   10997  and all three name a route. Eleven items: one nonexistent, two buildable, eight retrievable.
+   10998 
+   10999     **No value of this coordinate means *there is no route*.** An unclosable question is not
+   11000     missing from this appendix. It is **inexpressible** in the coordinates the appendix uses.
+   11001 
+   11002  **That is not an oversight, and §32.1.4 says why it cannot be repaired from inside.** ℛ(X) ⊆ ∏ᵢ Aᵢ(X):
+   11003  the operator is bounded by the index's own value sets, so it can name a cell the index lacks and never
+   11004  a *value*. Nothing in this appendix could ever produce the fourth obstacle, however long it ran.
+   11005 
+   11006  **Offer it from outside and the shape of what is missing appears.** Adding *no route* as a fourth
+   11007  obstacle value grows the ambient box from 18 cells to 24 and takes E from 4 to **10** — six further
+   11008  combinations the structure admits and this appendix does not contain, every one of them an unclosable
+   11009  question at some cost and some consequence.
+   11010 
+   11011  **So the book has two kinds of ignorance and indexes only one.** The tractable kind is here, graded and
+   11012  costed. The other kind is elsewhere and unindexed: §29.2.2's reading that the branches leave the
+   11013  object, and the destination coordinate that the temporal mechanisms would need. **Those are not open
+   11014  items. They are the shape of the question this index cannot pose**, and each had to be named in prose
+   11015  because no coordinate here would hold it.
+   11016 
+   11017  That is register 332 arriving where it is least comfortable — an index names cells and never
+   11018  coordinates, so **an index of one's own ignorance is an index of the ignorance one already has words
+   11019  for.** Register 382.
+   11020 
 
   §29.2.2 at L7922, body to L7939
   --- §29.2.2 L7922-L7939 ---
@@ -44937,7 +44958,7 @@ for rid, l, tok in ((713, 9168, '32.5'), (1191, 9158, 'never'), (1192, 9273, 'ne
    8787 
    8788  What remains of item D is the lookup. 540 named cells, a file, and an afternoon.
    8789 
-  "falsification" sites in main: 14 [5198, 7081, 7083, 7476, 7896, 8755, 9205, 9226, 9360, 9387, 9697, 10280, 10855, 11072]
+  "falsification" sites in main: 14 [5198, 7081, 7083, 7476, 7896, 8755, 9205, 9226, 9360, 9387, 9705, 10288, 10863, 11080]
   ordinal + "falsification" sites: [8755]
    L8755: 24.3.4.2 The fourth falsification test, run
 
@@ -44985,72 +45006,72 @@ for rid, l, tok in ((713, 9168, '32.5'), (1191, 9158, 'never'), (1192, 9273, 'ne
 ================================================================================================
 8.  Appendix B -- 153 channels against the channel table arbiter
 ================================================================================================
-  --- Appendix B whole L10165-L10229 ---
-   10165 ## Appendix B — Data and provenance
-   10166  Serving PART V — THE METHOD. Every number the method was run on, with its source, its
-   10167  provenance and its known defects.
-   10168 
-   10169  **Every channel in the collection, with its source, its limit, and what it contributes.** 153 channels, **1105 interior cells**, bracket **1105 of 1105**.
-   10170 
-   10171  The 763 cells of the earlier verification are included where their channels appear here; the totals in Chapter 24 state the union.
-   10172 
-   10173 ### B.1 Sources
-   10174   compilation                 spectra drawn
-   10175   Kaufman & Martin            Al I, Al II
-   10176   1991, JPCRD 20, 775
-   10177   Kramida & Martin            Be I
-   10178   1997, JPCRD 26, 1185
-   10179   NIST ASD                    Ar II, Be II, Bi I, C II, Ca II, Cd II, Ga I, He I, He II, Hg II, K II, Li I, Li II, Mg II, N II, Na II, Ne I (³⁄₂), Ne
-   10180                               I (¹⁄₂), Si I, Si II, Zn II
-   10181   Sansonetti 2008,            Na I
-   10182   JPCRD 37, 1659
-   10183   Sansonetti 2008,            K I
-   10184   JPCRD 37, 7
-   10185 
-   10186  **Additional sources used for exotic systems and collective quantities:**
-   10187 
-   10188  Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:1203.5425) and arXiv:1304.4330 · Korobov, *Phys. Rev. A* **77**, 042506 (2008) · Singer, Stanojevic, Weidemüller & Côté, *J. Phys. B* **38**, S295 (2005) · Sugar & Corliss 1985, *JPCRD* **14** Suppl. 2 · Sugar & Musgrove 1990, *JPCRD* **19**, 527 and 1995, *JPCRD* **24**, 1803.
-   10189 
-   10190 ### B.2 Channels
-   10191   **The channel rows are lifted to the Spectra Compendium.** Each carries its species,
-   10192   channel, n-range, level count, interior cells, bracket, ν range, mean quantum defect, its
-   10193   spread, Z_eff and the series limit. *Reproduced in the book only where one carries an
-   10194   argument; the rest are data and live where data belongs.*
-   10195   **THE METHOD 1.6 — SPECTRA COMPENDIUM, Part II, counted from its own table:** 596 channel
-   10196   rows — 477 series of three or more members and 119 two-member channels — across 28 elements
-   10197   and 70 species; 3,342 levels, 2,269 interior cells; the bracket at **1,577 of 1,738 cells
-   10198   across 392 rows** — 844 of 844 from the first collection, 658 of 813 on 250 rows run under
-   10199   ruling 26 at strict membership with the quotation floor as the only ε, and 75 of 81 on 35
-   10200   rows run by the same instrument on six hash-verified captures, zero cells refused throughout
-   10201   — 78 rows `no-triple` and 126 `untested` for want of data, not of definition (registers
-   10202   1763, 1768).
-   10203  *This paragraph once read "133 rows, 23 elements, 869 interior cells, bracket 869/869,
-   10204  generated by* `spectra.py` *so it cannot drift," with a twenty-channel gap disclosed against a
-   10205  total of 153. That was true at registers 630–631 and was overtaken by the parent-term wall
-   10206  (register 1578) and the J-resolved rows of T8-J (registers 1699–1700); the table drifted from
-   10207  the script, and the script is owed a rebuild against the table. The exotic and collective
-   10208  sources carry sources and no rows, and that remains disclosed rather than reconciled.*
-   10209  Registers 630–631; 1578; 1699–1700.
-   10210 
-   10211 ### B.3 Flagged channels
-   10212  Channels whose δ spread exceeds 0.25 or whose V departs from 4ν/3 by more than 5% are flagged.
-   10213  Every flag in this collection has an identified cause; none is unexplained.
-   10214 
-   10215   species      channel        δ spread    cause
-   10216   Al I         3s²nd ²D       0.630       compilers relabelled this series; y²D removed as a perturber
-   10217   Al II        3snd ¹D        0.390       local perturber
-   10218   Al II        3snf ³F°       0.409       δ reverses sign between n = 6 and 7 — local perturber
-   10219   Li I         np 2P°         0.678       39 cells to n = 42; quotation coarsens above n = 33
-   10220   Si II        3s²np ²P°      0.272       perturber
-   10221 
-   10222 ### B.4 Reproducibility
-   10223 
-   10224  Every computation in this book is reproducible from the level tables above and the rules of Chapters 22
-   10225  and 23. No fitted parameter enters at any point; the only inputs are measured or calculated energy levels,
-   10226  their stated uncertainties, and the ionisation limits carried per channel in the Spectra Compendium, Part II.
-   10227  The coordinate index those channels sit in is the file `COORDINATES-2.13` (104,832 cells), delivered with the
-   10228  Spectra Compendium and described there under *The file*; a cell is cited from this book as COORD(Z, charge, ℓ, 2S+1).
+  --- Appendix B whole L10173-L10237 ---
+   10173 ## Appendix B — Data and provenance
+   10174  Serving PART V — THE METHOD. Every number the method was run on, with its source, its
+   10175  provenance and its known defects.
+   10176 
+   10177  **Every channel in the collection, with its source, its limit, and what it contributes.** 153 channels, **1105 interior cells**, bracket **1105 of 1105**.
+   10178 
+   10179  The 763 cells of the earlier verification are included where their channels appear here; the totals in Chapter 24 state the union.
+   10180 
+   10181 ### B.1 Sources
+   10182   compilation                 spectra drawn
+   10183   Kaufman & Martin            Al I, Al II
+   10184   1991, JPCRD 20, 775
+   10185   Kramida & Martin            Be I
+   10186   1997, JPCRD 26, 1185
+   10187   NIST ASD                    Ar II, Be II, Bi I, C II, Ca II, Cd II, Ga I, He I, He II, Hg II, K II, Li I, Li II, Mg II, N II, Na II, Ne I (³⁄₂), Ne
+   10188                               I (¹⁄₂), Si I, Si II, Zn II
+   10189   Sansonetti 2008,            Na I
+   10190   JPCRD 37, 1659
+   10191   Sansonetti 2008,            K I
+   10192   JPCRD 37, 7
+   10193 
+   10194  **Additional sources used for exotic systems and collective quantities:**
+   10195 
+   10196  Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:1203.5425) and arXiv:1304.4330 · Korobov, *Phys. Rev. A* **77**, 042506 (2008) · Singer, Stanojevic, Weidemüller & Côté, *J. Phys. B* **38**, S295 (2005) · Sugar & Corliss 1985, *JPCRD* **14** Suppl. 2 · Sugar & Musgrove 1990, *JPCRD* **19**, 527 and 1995, *JPCRD* **24**, 1803.
+   10197 
+   10198 ### B.2 Channels
+   10199   **The channel rows are lifted to the Spectra Compendium.** Each carries its species,
+   10200   channel, n-range, level count, interior cells, bracket, ν range, mean quantum defect, its
+   10201   spread, Z_eff and the series limit. *Reproduced in the book only where one carries an
+   10202   argument; the rest are data and live where data belongs.*
+   10203   **THE METHOD 1.6 — SPECTRA COMPENDIUM, Part II, counted from its own table:** 596 channel
+   10204   rows — 477 series of three or more members and 119 two-member channels — across 28 elements
+   10205   and 70 species; 3,342 levels, 2,269 interior cells; the bracket at **1,577 of 1,738 cells
+   10206   across 392 rows** — 844 of 844 from the first collection, 658 of 813 on 250 rows run under
+   10207   ruling 26 at strict membership with the quotation floor as the only ε, and 75 of 81 on 35
+   10208   rows run by the same instrument on six hash-verified captures, zero cells refused throughout
+   10209   — 78 rows `no-triple` and 126 `untested` for want of data, not of definition (registers
+   10210   1763, 1768).
+   10211  *This paragraph once read "133 rows, 23 elements, 869 interior cells, bracket 869/869,
+   10212  generated by* `spectra.py` *so it cannot drift," with a twenty-channel gap disclosed against a
+   10213  total of 153. That was true at registers 630–631 and was overtaken by the parent-term wall
+   10214  (register 1578) and the J-resolved rows of T8-J (registers 1699–1700); the table drifted from
+   10215  the script, and the script is owed a rebuild against the table. The exotic and collective
+   10216  sources carry sources and no rows, and that remains disclosed rather than reconciled.*
+   10217  Registers 630–631; 1578; 1699–1700.
+   10218 
+   10219 ### B.3 Flagged channels
+   10220  Channels whose δ spread exceeds 0.25 or whose V departs from 4ν/3 by more than 5% are flagged.
+   10221  Every flag in this collection has an identified cause; none is unexplained.
+   10222 
+   10223   species      channel        δ spread    cause
+   10224   Al I         3s²nd ²D       0.630       compilers relabelled this series; y²D removed as a perturber
+   10225   Al II        3snd ¹D        0.390       local perturber
+   10226   Al II        3snf ³F°       0.409       δ reverses sign between n = 6 and 7 — local perturber
+   10227   Li I         np 2P°         0.678       39 cells to n = 42; quotation coarsens above n = 33
+   10228   Si II        3s²np ²P°      0.272       perturber
    10229 
+   10230 ### B.4 Reproducibility
+   10231 
+   10232  Every computation in this book is reproducible from the level tables above and the rules of Chapters 22
+   10233  and 23. No fitted parameter enters at any point; the only inputs are measured or calculated energy levels,
+   10234  their stated uncertainties, and the ionisation limits carried per channel in the Spectra Compendium, Part II.
+   10235  The coordinate index those channels sit in is the file `COORDINATES-2.13` (104,832 cells), delivered with the
+   10236  Spectra Compendium and described there under *The file*; a cell is cited from this book as COORD(Z, charge, ℓ, 2S+1).
+   10237 
   spectra totals line L900: **596 channel rows across 28 elements · 2,269 interior cells parsed.**
 
 ================================================================================================
@@ -45062,8 +45083,8 @@ for rid, l, tok in ((713, 9168, '32.5'), (1191, 9158, 'never'), (1192, 9273, 'ne
    main L6958: Figure 25.1. Each of the 1,061 cells that yield a perturbation bound, plotted at the bound its containment implies. The two curves are
    main L9188: Every bracket in this book is recomputable from this book. All 1,061.
    main L9354: **The failure condition, inverted.** |Δ*T*| < 2*Z*²*R*/ν³ turns 1,061 non-failures into 1,061 measurements. Bracketing methods are rare; inverting their silence appears n
-   main L10266: **The perturbation bounds are as strong as the failure condition and no stronger.** If the condition is wrong, 1,061 bounds go with it.
-   main L10277: here, across all 153 channels · the failure condition and its inversion to 1,061 perturbation bounds ·
+   main L10274: **The perturbation bounds are as strong as the failure condition and no stronger.** If the condition is wrong, 1,061 bounds go with it.
+   main L10285: here, across all 153 channels · the failure condition and its inversion to 1,061 perturbation bounds ·
    reg  L3939: ### 1061
    reg  L6487: **TWO RULINGS: CAPTION 25.1 READS 1,061, AND THE Λ_phys COUNT STAYS AT FIFTEEN ON THE RULE AS PRINTED.** *Ruling 21: the caption of Figure 25.1 said "each of 1,105 verifi
 
@@ -45215,7 +45236,7 @@ for rid, l, tok in ((713, 9168, '32.5'), (1191, 9158, 'never'), (1192, 9273, 'ne
 
   row 713: L9168 token '32.5'
    ### 32.5.1 The prediction, recomputed from the text
-   §32.5 heading resolves to (9157, 9168); the token is the section's OWN live number, sites [6682, 7475, 7490, 7896, 9157, 9168, 9185, 9192, 11426, 11459, 11472, 11477]
+   §32.5 heading resolves to (9157, 9168); the token is the section's OWN live number, sites [6682, 7475, 7490, 7896, 9157, 9168, 9185, 9192, 11434, 11467, 11480, 11485]
    withdrawal words anywhere near §32.5: []
 
   row 1191: L9158 token 'never'
@@ -55035,8 +55056,8 @@ print('  unit lines with register/Register:', uline(r'[Rr]egister'), '(G0i: lowe
 ================================================================================================
 §0 BOUNDARY — own heading scan; the unit is Appendix A from `### A.15` (body = last hit) to `## Appendix B` (body = last hit)
 ================================================================================================
-  `## Appendix A` [162, 9939] ; `## Appendix B` [163, 10165] ; A.n headings in the unit: [(10054, 'A.15'), (10073, 'A.18'), (10091, 'A.19'), (10113, 'A.19.0'), (10153, 'A.19.1')]
-  unit: L10054 to L10164 = 111 lines; lettered(M, "A.15") = [10054]; lettered(M, "A.19") = [10091] (exact token: A.19 does not match A.19.0/A.19.1)
+  `## Appendix A` [162, 9947] ; `## Appendix B` [163, 10173] ; A.n headings in the unit: [(10062, 'A.15'), (10081, 'A.18'), (10099, 'A.19'), (10121, 'A.19.0'), (10161, 'A.19.1')]
+  unit: L10062 to L10172 = 111 lines; lettered(M, "A.15") = [10062]; lettered(M, "A.19") = [10099] (exact token: A.19 does not match A.19.0/A.19.1)
 
 ================================================================================================
 §1 A.15 — B_k IS A SUBLATTICE OF A PRODUCT OF TWO CHAINS; C = {|a − b| ≤ c} IS JOIN-CLOSED AND MEET-BROKEN (conventions: chains [0, m]; closed = componentwise max/min of every pair lands in the set; a failing meet is an UNORDERED pair {x, y} with x ≠ y whose meet is absent — the convention that reproduces §29.12 U4's 12,489 for T)
@@ -55049,7 +55070,7 @@ print('  unit lines with register/Register:', uline(r'[Rr]egister'), '(G0i: lowe
   DEF chat-70 carry — T (two-sided) at cap 8: |T| = 369 ; failing meets 12,489 ; joins 0 — against C's figure above: distinct regions (C has no upper bound), distinct counts; neither corrects the other
   "join-closure holds by A.18's lower-bound argument, which does not use the upper bound": |max a − max b| ≤ max c on every pair of C at cap 8: True (the same inequality A.18 proves as Lower, applied with no upper bound present)
   "a bound by a constant is monotone in both directions, a bound by a free coordinate is not": in C the meet fails because min c can drop below |min a − min b|; first failing meet at cap 8: ((0, 1, 1), (1, 1, 0), (0, 1, 0))
-  "axis 13" sites in main (the tower relies on B₁ there): [3153, 3168, 10070] ['f, so axis 13 is reachable from axis 11 without axis 12, and taking J first costs 25 points of density', "J-fibre is a doublet everywhere except the K = 0 singlet: axis 13 sees precisely the outer electron's"]
+  "axis 13" sites in main (the tower relies on B₁ there): [3153, 3168, 10078] ['f, so axis 13 is reachable from axis 11 without axis 12, and taking J first costs 25 points of density', "J-fibre is a doublet everywhere except the K = 0 singlet: axis 13 sees precisely the outer electron's"]
   B₁/B_k/band sites in main outside the unit: [1601, 1615, 1617, 1627, 2306, 2319, 2325, 2482, 4710, 4840, 4842, 5056]
 
 ================================================================================================
@@ -55066,28 +55087,28 @@ print('  unit lines with register/Register:', uline(r'[Rr]egister'), '(G0i: lowe
   cap 8: failing meets breaking the UPPER bound only 4,163; the LOWER only 8,326; both 0 — "Meets fail on both inequalities" witnessed; "the asymmetry is counted at §29.12 U4 and is not explained by this proof": U4 counts totals only (read: L8288–L8291 print no split by bound; the split above is new)
   §29.12 body_range (8238, 8315) section_span (8238, 8315) ; U4 lines: [8288] **U4 — the join/meet asymmetry of the triangle.**
   "§8 states as skew" — §8.4 lines with skew: [(1882, 'centre of mass 11.07 against midpoint 11.5 — skew −0.43, computed from the full rank sequence'), (1885, 'Low ranks are cut by floors (*n* ≥ 1, *k* ≥ 1, *e* ≥ 1); high ranks by caps (ℓ ≤ *n*−1, *k* ≤ 2(2ℓ+1')]
-  "§12.11.2 as the half-result" — §12.11.2 lines with half/survives: [(3369, "half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances."), (3385, 'One half of the triangle survives, and the four-cap check of §7.4 has now been run: the region'), (3387, 'every one, by 2,862, 12,489, 40,887 and 110,229 failing meets. Certainty survives upward and dies'), (3390, 'surviving half belongs to the parity-free triangle and to nothing larger.')] ; the term "half-result" in main: [10088]
+  "§12.11.2 as the half-result" — §12.11.2 lines with half/survives: [(3369, "half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances."), (3385, 'One half of the triangle survives, and the four-cap check of §7.4 has now been run: the region'), (3387, 'every one, by 2,862, 12,489, 40,887 and 110,229 failing meets. Certainty survives upward and dies'), (3390, 'surviving half belongs to the parity-free triangle and to nothing larger.')] ; the term "half-result" in main: [10096]
   r2-tb1 (upstream operator) is a member: True — this instrument re-derives T independently and does not import it
 
 ================================================================================================
 §3 A.19 — THE SEVENTEEN GENERATORS AGAINST Λ₈'S JOIN-IRREDUCIBLES (convention: join-irreducible = a cell covering exactly one element; rank = coordinate sum; the printed tuples are parsed from the unit's code lines; the 17-element poset is the induced order)
 ================================================================================================
   |Λ₈| = 976 ; join-irreducibles (cover exactly one element): 17 ; bottom (covers none): [(1, 0, 1, 0, 1, 0, 0, 0)]
-  printed tuples in A.19 (L10091–L10112 code lines): 17 ; distinct: 17
+  printed tuples in A.19 (L10099–L10120 code lines): 17 ; distinct: 17
   every printed tuple is a cell of Λ₈: True ; every printed tuple is join-irreducible: True ; the printed set EQUALS the join-irreducible set: True
   printed rank = coordinate sum on 17 of 17 ; rank distribution printed: [4, 5, 6, 7, 8, 10, 15] ; counts per rank: [(4, 5), (5, 5), (6, 2), (7, 1), (8, 1), (10, 2), (15, 1)]
   covering relations of the 17-element poset (induced order, covers within the subposet): 20 — §8.3 L1849 "17 join-irreducibles, 20 covering relations"; A.19.0 "the twenty implications"
   down-sets of the 17-element poset by direct enumeration of all 131072 subsets: 976 = 976: True
   "Λ is recoverable from this table and nothing else": joins of the 976 down-sets (bottom = the least cell) = 976 distinct cells; equals Λ₈: True (the bottom is the one datum the table does not print; it is the empty down-set's join, A.19.1 prints it)
   §8.3's three claims, sites: [(1851, '976 cells ← 17 join-irreducibles, 20 covering relations'), (1853, 'and the correspondence is exact: **all 976 down-sets of the 17-element poset are precisely the 976 c'), (1870, 'of this poset, and every down-set is a cell — a fifty-seven-fold compression, exact. The covers are ')] ; "It never prints the seventeen": 8-tuples in §8.3 span: 0 ; in the whole main before Appendix A: []
-  S1 sites in main: [1393, 2119, 3056, 4272, 9032, 10110, 11421] ["*is*. Order dimension answers §15's S2 and says nothing about S1, and Λ has the same divis", 'you?* — and a cell is the set of its answers and nothing else. The bits are the alphabet S']
+  S1 sites in main: [1393, 2119, 3056, 4272, 9032, 10118, 11429] ["*is*. Order dimension answers §15's S2 and says nothing about S1, and Λ has the same divis", 'you?* — and a cell is the set of its answers and nothing else. The bits are the alphabet S']
 
 ================================================================================================
 §4 A.19.0 — EVERY GENERATOR IS min{x : x_c ≥ v}; THE CLOSED SIZE Σ(|Aᵢ| − 1); THE TABLE'S RANK, WEIGHT AND FORCES COLUMNS; THE TWENTY IMPLICATIONS SPLIT 9 + 11 (conventions: |Aᵢ| = size of the coordinate support; weight = cells with x_c ≥ v; forces = the elements the generator covers in the 17-poset; percentages Decimal HALF_UP 1 place)
 ================================================================================================
   coordinate supports: {'n': [1, 2, 3], 'ℓ': [0, 1], 'k': [1, 2, 3], 'q': [0, 1, 2, 3], 'e': [1, 2, 3], 'f': [0, 1], 'g': [0, 1, 2, 3], '2S': [0, 1, 2, 3]} ; |Aᵢ| − 1: [2, 1, 2, 3, 2, 1, 3, 3] ; Σ = 17 (printed 2 + 1 + 2 + 3 + 2 + 1 + 3 + 3 = 17)
   (c, v) pairs: 17 ; each has a UNIQUE least cell: True ; every such least cell is join-irreducible: True ; the set of least cells EQUALS the join-irreducible set: True
-  table DATA rows parsed (header L10123): 17
+  table DATA rows parsed (header L10131): 17
   generator column = least cell on 17 of 17 ; rank column = coordinate sum on 17 ; weight column = cells with x_c ≥ v on 17 ; forces column = the generator's lower covers in the 17-poset on 17 of 17
   weights min/max: 16 856 ; 856/976 = 87.7% ; 16/976 = 1.6% (printed 87.7% and 1.6%)
   forces entries (DATA cells, comma-split): 20 ; within a coordinate: 9 ; between coordinates: 11 (printed twenty = nine + eleven); equals the 17-poset's covering relations: True
@@ -55114,20 +55135,20 @@ print('  unit lines with register/Register:', uline(r'[Rr]egister'), '(G0i: lowe
   printed cells: 8 ; printed set = survivor set: True
   "Every one has q = k, g = q and 2S = q": True ; "(n, ℓ) and (e, f) each at (1,0) or (2,1)": True ; "fixed setwise because source and target halves mirror": max − x for each survivor is itself a survivor: True ; 2 × 2 × 2 (q ∈ {1,2}) = 8 accounts for the count: [1, 2]
   top (unique greatest): [(3, 1, 3, 3, 3, 1, 3, 3)] rank [20] ; bottom (unique least): [(1, 0, 1, 0, 1, 0, 0, 0)] rank [3] (printed (3,1,3,3,3,1,3,3) rank 20; (1,0,1,0,1,0,0,0) rank 3)
-  §8.3/§8.4 site of the eight (L1887): Nor is Λ self-dual. Only 8 of 976 cells survive the reflection x ↦ max − x, coordinate by coordinate — ; other main sites of "max − x": [1887, 10154]
+  §8.3/§8.4 site of the eight (L1887): Nor is Λ self-dual. Only 8 of 976 cells survive the reflection x ↦ max − x, coordinate by coordinate — ; other main sites of "max − x": [1887, 10162]
 
 ================================================================================================
 §6 PRE-PP DIFF — headings and Statement lines of the unit against the Prints & Proofs original (section number stripped from BOTH sides; whitespace-normalised); body-level line diff of the unit
 ================================================================================================
   PP `# APPENDICES` [158, 9590] ; PP `Appendix B` [160, 9815] ; PP A.n heading lines from A.15: [(9705, 'A.15'), (9724, 'A.18'), (9742, 'A.19'), (9764, 'A.19.0'), (9804, 'A.19.1')]
-  A.15: volume L10054 "Two bands, and only one of them is a sublattice" | PP P9705 "Two bands, and only one of them is a sublattice" | equal: True
-  A.18: volume L10073 "The triangle region is join-closed and meet-broken" | PP P9724 "The triangle region is join-closed and meet-broken" | equal: True
-  A.19: volume L10091 "The seventeen generators, written out" | PP P9742 "The seventeen generators, written out" | equal: True
-  A.19.0: volume L10113 "The alphabet, defined rather than listed" | PP P9764 "The alphabet, defined rather than listed" | equal: True
-  A.19.1: volume L10153 "And two other sets counted but never listed" | PP P9804 "And two other sets counted but never listed" | equal: True
+  A.15: volume L10062 "Two bands, and only one of them is a sublattice" | PP P9705 "Two bands, and only one of them is a sublattice" | equal: True
+  A.18: volume L10081 "The triangle region is join-closed and meet-broken" | PP P9724 "The triangle region is join-closed and meet-broken" | equal: True
+  A.19: volume L10099 "The seventeen generators, written out" | PP P9742 "The seventeen generators, written out" | equal: True
+  A.19.0: volume L10121 "The alphabet, defined rather than listed" | PP P9764 "The alphabet, defined rather than listed" | equal: True
+  A.19.1: volume L10161 "And two other sets counted but never listed" | PP P9804 "And two other sets counted but never listed" | equal: True
   Statement lines: volume 2 ; PP (from A.15) 2
-   L10055 vs P9706: first-line equal: True 
-   L10074 vs P9725: first-line equal: True 
+   L10063 vs P9706: first-line equal: True 
+   L10082 vs P9725: first-line equal: True 
   non-blank lines: volume 91 ; PP 91 ; in volume not PP: 10 ; in PP not volume: 10
     V+  ### A.15 Two bands, and only one of them is a sublattice
     V+  ### A.18 The triangle region is join-closed and meet-broken
@@ -55183,10 +55204,10 @@ print('  unit lines with register/Register:', uline(r'[Rr]egister'), '(G0i: lowe
      449: **THE CONVEXITY CRITERION AND THE TWO-SIDED CLOSURE RULE BOTH ASSUME A CLOSED AMBIENT** *, and neither said so. On the eighteen-column table — not a sublattice,
      471: **THE IDENTIFICATION E(X) = 0 = 2-decomposability IS ONE-DIRECTIONAL, AND THE WITNESS IS 840 CELLS.** *The parity rule |Δℓ| = 1 is* **exactly determined by its 
   Register lines with "join-closed": [(6403, 1716)]
-  "the ledger" — where C is called a join-closed sublattice: main sites [10069] ; every volume: {'main': [10069]} ; "the ledger" in the unit: [10069]
-  Register 268 names A.19.0's content (closed size 17) — its entry number in the unit L[10151]; Register 255 names A.19 ("seventeen generators are now listed at A.19"); Register 208 names the 8 and max − x
+  "the ledger" — where C is called a join-closed sublattice: main sites [10077] ; every volume: {'main': [10077]} ; "the ledger" in the unit: [10077]
+  Register 268 names A.19.0's content (closed size 17) — its entry number in the unit L[10159]; Register 255 names A.19 ("seventeen generators are now listed at A.19"); Register 208 names the 8 and max − x
   Register lines naming A.15/A.18/A.19: [(1001, 255, '**EVERY CELL OF Λ IS FULLY DEFINED AND THE GENERATING SET WAS NEVER PRINTED.** *All 976 carry all ei'), (1009, 258, "**A SEVENTH LANGUAGE ADMITTED: BINARY.** *Λ is the 976 words in {0,1}¹⁷ that are down-sets of A.19's")]
-  unit lines with register/Register: [10071, 10151, 10155, 10163] (G0i: lowercase "register 208" names; "Register 230/268/255" cite)
+  unit lines with register/Register: [10079, 10159, 10163, 10171] (G0i: lowercase "register 208" names; "Register 230/268/255" cite)
 <<<END FILE: r2-ch19a.out>>>
 
 <<<FILE: r2-ch19b.py>>>
@@ -56122,18 +56143,18 @@ print('  Register pointers in the unit: %s → all present (r2-ch20a §3, §7), 
 <<<FILE: r2-ch20b.out>>>
 
 ================================================================================================
-§0 UNIT — `## Appendix B` L10165 to `## Appendix C` L10230, 65 lines (own scan)
+§0 UNIT — `## Appendix B` L10173 to `## Appendix C` L10238, 65 lines (own scan)
 ================================================================================================
-  headings in the unit: [(10165, '## Appendix B — Data and provenance'), (10173, '### B.1 Sources'), (10190, '### B.2 Channels'), (10211, '### B.3 Flagged channels'), (10222, '### B.4 Reproducibility')]
+  headings in the unit: [(10173, '## Appendix B — Data and provenance'), (10181, '### B.1 Sources'), (10198, '### B.2 Channels'), (10219, '### B.3 Flagged channels'), (10230, '### B.4 Reproducibility')]
 
 ================================================================================================
 §1 RULING 46 — script names, build numbers, internal file references; RULING 45 — build/editorial-process narration (candidates listed, not scored: docket 5/6, chat 115's split)
 ================================================================================================
-  Ruling 46 probe hits (2): [(10204, 'generated by* `spectra.py` *so it cannot drift," with a twenty-channel gap disclosed against a'), (10206, '(register 1578) and the J-resolved rows of T8-J (registers 1699–1700); the table drifted from')]
-  `COORDINATES-2.13` L[10227]: the delivered data companion, named by the Spectra Compendium under *The file* and by Register 1727 — a reader-facing file name, not an internal reference (recorded, not scored)
-  Ruling 45 candidates: [('once read', [10203]), ('ruling 26', [10199]), ('register 1578', [10206]), ('registers 630', [10205, 10209]), ('hash-verified', [10200]), ('owed a rebuild', [10207]), ('drifted', [10206]), ('the script', [10207]), ('disclosed rather than reconciled', [10208])]
-  lowercase `register(s) N` names (G0i) at: [10205, 10206] ; `Registers N` cites at: [10209]
-  the italic retrospective paragraph L10203–L10208: opens with `*This paragraph once read`: True — docket 15 (narrated-past-state) kind; PP's B.2 was a different paragraph (§4)
+  Ruling 46 probe hits (2): [(10212, 'generated by* `spectra.py` *so it cannot drift," with a twenty-channel gap disclosed against a'), (10214, '(register 1578) and the J-resolved rows of T8-J (registers 1699–1700); the table drifted from')]
+  `COORDINATES-2.13` L[10235]: the delivered data companion, named by the Spectra Compendium under *The file* and by Register 1727 — a reader-facing file name, not an internal reference (recorded, not scored)
+  Ruling 45 candidates: [('once read', [10211]), ('ruling 26', [10207]), ('register 1578', [10214]), ('registers 630', [10213, 10217]), ('hash-verified', [10208]), ('owed a rebuild', [10215]), ('drifted', [10214]), ('the script', [10215]), ('disclosed rather than reconciled', [10216])]
+  lowercase `register(s) N` names (G0i) at: [10213, 10214] ; `Registers N` cites at: [10217]
+  the italic retrospective paragraph L10211–L10216: opens with `*This paragraph once read`: True — docket 15 (narrated-past-state) kind; PP's B.2 was a different paragraph (§4)
 
 ================================================================================================
 §2 FIRST PERSON — carries mine and myself; the Roman numeral in a species (He I, Li I, K I …) is excluded by the species-name guard
@@ -56144,46 +56165,46 @@ print('  Register pointers in the unit: %s → all present (r2-ch20a §3, §7), 
 ================================================================================================
 §3 STRUCTURE — bold lead-ins, italic paragraphs, code lines, tables (| outside code), whitespace tables, long lines, unmarked sub-headings
 ================================================================================================
-  bold lead-ins (line starts with ** after optional space): [10169, 10186, 10191, 10195]
-  italic whole paragraphs (start with * not **, end with *): [10203]
+  bold lead-ins (line starts with ** after optional space): [10177, 10194, 10199, 10203]
+  italic whole paragraphs (start with * not **, end with *): [10211]
   4-space code lines: 0 [] (fault 2 self-caught: the B.1 wrapped continuation line, ≥ 28 leading spaces inside a whitespace table, is not code)
   markdown table rows (`|` at line start outside code): []
-  whitespace-aligned table lines (2-space indent, ≥3 internal spaces): 12 [10174, 10175, 10177, 10179, 10181, 10183, 10215, 10216, 10217, 10218, 10219, 10220]
-  B.1 table: header L[10174], DATA rows (compilation lines, 2-space indent + ≥3-space column gap, header excluded) [10175, 10177, 10179, 10181, 10183, 10215, 10216, 10217, 10218, 10219, 10220], citation lines [10176, 10178, 10182, 10184, 10202], wrapped continuation L[10180] (fault 3 self-caught: the row rule is the column gap, not a capitalised word)
-  B.3 table: header L[10215], DATA rows 5 [10216, 10217, 10218, 10219, 10220]
-  lines over 400 chars: [(10188, 416)]
+  whitespace-aligned table lines (2-space indent, ≥3 internal spaces): 12 [10182, 10183, 10185, 10187, 10189, 10191, 10223, 10224, 10225, 10226, 10227, 10228]
+  B.1 table: header L[10182], DATA rows (compilation lines, 2-space indent + ≥3-space column gap, header excluded) [10183, 10185, 10187, 10189, 10191, 10223, 10224, 10225, 10226, 10227, 10228], citation lines [10184, 10186, 10190, 10192, 10210], wrapped continuation L[10188] (fault 3 self-caught: the row rule is the column gap, not a capitalised word)
+  B.3 table: header L[10223], DATA rows 5 [10224, 10225, 10226, 10227, 10228]
+  lines over 400 chars: [(10196, 416)]
   unmarked sub-heading test (blank above, short, no terminal punctuation): []
   Statement / Proof / ∎ / Remark counts: {'Statement': 0, 'Proof': 0, '∎': 0, 'Remark': 0, 'Verified': 0}
   backticked tokens: ['COORDINATES-2.13', 'no-triple', 'spectra.py', 'untested']
-  `Serving PART V — THE METHOD` L[10166]; the volume's Part V heading: [(141, '# PART V — THE METHOD'), (5937, '# PART V — THE METHOD')]
+  `Serving PART V — THE METHOD` L[10174]; the volume's Part V heading: [(141, '# PART V — THE METHOD'), (5937, '# PART V — THE METHOD')]
 
 ================================================================================================
 §4 PRE-PP — what changed after Prints & Proofs (r2-ch20a §8 diffs the lines; here the substantive changes are named and tested)
 ================================================================================================
   PP `Serving PART IV` P[9816] → volume `PART V` (the Parts renumbered after PP: PP `# PART` headings 16, volume 16)
-  PP `Chapters 13 and 14` P[9873] → volume `Chapters 22 and 23` L[10224]; PP chapter 13/14 headings: [(3474, '## 13. What the title names'), (3645, '## 14. Closure')]; volume 22/23: [(5939, '## 22. The bracket'), (6178, '## 23. The cost surface')]
-  PP `ionisation limits listed in B.2` P[9875] → volume `carried per channel in the Spectra Compendium, Part II` L[10226] + the COORDINATES sentence L[10227] (post-PP addition; Register 1727 names the file)
-  PP `KI` P[9833] → volume `K I` L[10183]; PP `The 133 channel rows` P[9841] → `The channel rows` L[10191]; PP totals line `153 channels, 1105 cells, bracket 1105/1105` P[9849] — in the volume the same figures survive at the opener L[10169]
-  PP's B.2 count paragraph (133 rows / 869 / spectra.py) P[9846] → the volume's 596-row paragraph L[10195] and the italic retrospective L[10203]; PP's `stated and not tabulated` gap paragraph P[9852] has no volume counterpart (the twenty-channel gap is now narrated inside the retrospective L[10204])
-  PP B.3 header split P[9863] (specie / s; δ / spread) → one line L[10215] (Register 1774 restores the header from the witness)
+  PP `Chapters 13 and 14` P[9873] → volume `Chapters 22 and 23` L[10232]; PP chapter 13/14 headings: [(3474, '## 13. What the title names'), (3645, '## 14. Closure')]; volume 22/23: [(5939, '## 22. The bracket'), (6178, '## 23. The cost surface')]
+  PP `ionisation limits listed in B.2` P[9875] → volume `carried per channel in the Spectra Compendium, Part II` L[10234] + the COORDINATES sentence L[10235] (post-PP addition; Register 1727 names the file)
+  PP `KI` P[9833] → volume `K I` L[10191]; PP `The 133 channel rows` P[9841] → `The channel rows` L[10199]; PP totals line `153 channels, 1105 cells, bracket 1105/1105` P[9849] — in the volume the same figures survive at the opener L[10177]
+  PP's B.2 count paragraph (133 rows / 869 / spectra.py) P[9846] → the volume's 596-row paragraph L[10203] and the italic retrospective L[10211]; PP's `stated and not tabulated` gap paragraph P[9852] has no volume counterpart (the twenty-channel gap is now narrated inside the retrospective L[10212])
+  PP B.3 header split P[9863] (specie / s; δ / spread) → one line L[10223] (Register 1774 restores the header from the witness)
 
 ================================================================================================
 §5 NEGATIVES AND SUPERLATIVES WITH THEIR WITNESSES
 ================================================================================================
-  none is unexplained          L[10213]
-  No fitted parameter          L[10225]
-  the only inputs              L[10225]
-  zero cells refused           L[10200]
-  not of definition            L[10201]
-  no rows                      L[10208]
-  cannot drift                 L[10204]
-  Every computation            L[10224]
-  Every channel                L[10169]
-  Every number                 L[10166]
-  Every flag                   L[10213]
-  "Every computation in this book is reproducible" (L[10224]): a universal — recorded under docket 19 as a claim the unit cannot test (no computation is run by the appendix); its witnesses named: the level tables (SC Part II), the rules of Chapters 22–23, the COORDINATES file (r2-ch20a §6)
-  "the only inputs are measured or calculated energy levels, their stated uncertainties, and the ionisation limits" (L[10225]–L[10226]): Register 905 (SC closes stating uncertainties are supplied by five of 49 species) — read: **THE COMPENDIUM CLOSES BY STATING WHAT THE INTERFACE STILL DOES NOT COVER.** *Uncertainties — five of 49 species supply them. The bracket's own inputs — 285 of 431 channels unverified on the compendium's central claim. And Appendix B's inputs — 133 channels l
-  "No fitted parameter enters at any point" across the six volumes (`fitted parameter`): {'main': [7073, 9483, 10225], 'reg': [4329, 4893, 4945, 4989, 5277, 5289], 'mc': [], 'pc': [210, 599], 'ioi': [1668], 'sc': []}
+  none is unexplained          L[10221]
+  No fitted parameter          L[10233]
+  the only inputs              L[10233]
+  zero cells refused           L[10208]
+  not of definition            L[10209]
+  no rows                      L[10216]
+  cannot drift                 L[10212]
+  Every computation            L[10232]
+  Every channel                L[10177]
+  Every number                 L[10174]
+  Every flag                   L[10221]
+  "Every computation in this book is reproducible" (L[10232]): a universal — recorded under docket 19 as a claim the unit cannot test (no computation is run by the appendix); its witnesses named: the level tables (SC Part II), the rules of Chapters 22–23, the COORDINATES file (r2-ch20a §6)
+  "the only inputs are measured or calculated energy levels, their stated uncertainties, and the ionisation limits" (L[10233]–L[10234]): Register 905 (SC closes stating uncertainties are supplied by five of 49 species) — read: **THE COMPENDIUM CLOSES BY STATING WHAT THE INTERFACE STILL DOES NOT COVER.** *Uncertainties — five of 49 species supply them. The bracket's own inputs — 285 of 431 channels unverified on the compendium's central claim. And Appendix B's inputs — 133 channels l
+  "No fitted parameter enters at any point" across the six volumes (`fitted parameter`): {'main': [7073, 9483, 10233], 'reg': [4329, 4893, 4945, 4989, 5277, 5289], 'mc': [], 'pc': [210, 599], 'ioi': [1668], 'sc': []}
 
 ================================================================================================
 §6 DOCKET 27 — sentence recurrence across the six volumes (sentences of ≥ 6 words from the unit, markup-stripped, whitespace-normalised)
@@ -56203,15 +56224,15 @@ print('  Register pointers in the unit: %s → all present (r2-ch20a §3, §7), 
 §7 DOCKET 36 — authors named in the unit against the References body (word-bounded); docket 11 — 4ν/3 site
 ================================================================================================
   authors named: 13; absent from the References body: []; JPCRD (the journal, not an author) in References: 0, in main outside the unit: []
-  4ν/3 at L[10212] (docket 11 scope: the 5 % departure criterion); `5%` sites in the unit: [10212]
-  `T8-J` across the six volumes: {'main': [10206], 'reg': [6339, 6343], 'mc': [], 'pc': [], 'ioi': [], 'sc': [995]} ; `ruling 26` (lowercase): {'main': [10199], 'reg': [6511, 6519], 'mc': [], 'pc': [], 'ioi': [], 'sc': [297, 994]}
+  4ν/3 at L[10220] (docket 11 scope: the 5 % departure criterion); `5%` sites in the unit: [10220]
+  `T8-J` across the six volumes: {'main': [10214], 'reg': [6339, 6343], 'mc': [], 'pc': [], 'ioi': [], 'sc': [995]} ; `ruling 26` (lowercase): {'main': [10207], 'reg': [6511, 6519], 'mc': [], 'pc': [], 'ioi': [], 'sc': [297, 994]}
 
 ================================================================================================
 §8 POINTERS — every pointer in the unit resolved to the claim, not the heading
 ================================================================================================
-  `Chapter 24` L[10171] → `## 24. The collection` L[144, 6623]; the union / 763 / earlier verification: r2-ch20a §3 (Chapter 24 carries 1,442 = 1,105 + 337 at L6970; no 763, no union)
-  `Spectra Compendium, Part II` L[10226] → SC `# II · THE CHANNELS` S[293]; `*The file*` L[10228] → SC `## The file` S[117]
-  `Chapters 22 and 23` L[10224] → the bracket (22.1 The rule … Rule 1 at L6040) and the cost surface (§23.10.4 the admissibility rule); r2-ch20a §6
+  `Chapter 24` L[10179] → `## 24. The collection` L[144, 6623]; the union / 763 / earlier verification: r2-ch20a §3 (Chapter 24 carries 1,442 = 1,105 + 337 at L6970; no 763, no union)
+  `Spectra Compendium, Part II` L[10234] → SC `# II · THE CHANNELS` S[293]; `*The file*` L[10236] → SC `## The file` S[117]
+  `Chapters 22 and 23` L[10232] → the bracket (22.1 The rule … Rule 1 at L6040) and the cost surface (§23.10.4 the admissibility rule); r2-ch20a §6
   Register pointers in the unit: [630, 631, 1578, 1699, 1700, 1763, 1768] → all present (r2-ch20a §3, §7), no WARNING on any
 <<<END FILE: r2-ch20b.out>>>
 
@@ -72165,7 +72186,7 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    archive: BUILD10 main_and_register, 2022827 B
    the archive holds a register                             True                       OK
    BUILD10 register: 1547 numbers, 165..1764
-   live    register: 1664 numbers, 1..1796
+   live    register: 1667 numbers, 1..1800
 
 == 1  THE FOUR PROVENANCE POINTERS WERE WRITTEN, SEATED, AND REMOVED
    1725  archive True  live False  **THE RECORD NORMALISED TO ITS OWN SETTLED FORM — 1,517 ENTRIES, ONE HEADLINE AND ONE BODY EACH,
@@ -76108,6 +76129,9 @@ superseded	successor	reason	proved_on
 r2-ch17e	r2-ch17e2	printed 'L11832 is R.7' as a literal; the site moved +8 with r3-wl2 and the literal did not, so the instrument asserts a falsehood	BUILD92+BUILD191, byte-exact
 r2-ch16u	r2-ch16u2	scanned a FIXED WINDOW range(9727,9735) over §35.1; the section moved +8 and the window did not, so the sibling site vanished from the report	BUILD92+BUILD191, byte-exact
 r2-ch16v	r2-ch16v2	read MAIN[9891] by fixed index for the `## 36.` heading; the heading moved +8 and the index did not	BUILD92+BUILD191, byte-exact
+r2-ch16n	r2-ch16n2	carried a hard-coded site LIST; three of nine entries (9722, 9894, 11853) sit above the shift and named the wrong lines	BUILD92+BUILD191, byte-exact
+r2-ch16p	r2-ch16p2	named two citing lines (11555, 11799) and started a sweep at the References body (11503) by literal; all three moved	BUILD92+BUILD191, byte-exact
+r2-ch22a	r2-ch22a2	printed "Chapter 23 citation claim, L10377" as a literal while computing the Nesterov sites beside it	BUILD92+BUILD191, byte-exact
 <<<END FILE: RETIRED.tsv>>>
 
 <<<FILE: r2-ch16u2.py>>>
@@ -76891,3 +76915,1562 @@ print('    ' + norm(MAIN[heading_line(MAIN, '36') - 1]))
   register 1359 also states a three-body chapter was CUT; the volume now carries:
     ## 36. Three bodies, and what a complete index is allowed to say
 <<<END FILE: r2-ch16v2.out>>>
+
+<<<FILE: r2-ch16n2.py>>>
+#!/usr/bin/env python3
+# r2-ch16n2.py — chat 153 — SUCCESSOR to r2-ch16n.py, re-anchored. Identical measurements; addresses move.
+# r2-ch16n carried a hard-coded site LIST; three of its nine entries (9722, 9894, 11853) sit above the
+# shift and now name the wrong lines. Those three are resolved by their own text; the six below the
+# insertion point are untouched, because they did not move.
+# r2-ch16n is seated and is never edited in place (chat 68).
+# PROVED by tools/proveanchor.py: reproduces r2-ch16n.out byte-exact on the pre-shift bundles (G0c).
+"""r2-ch16n --- chat 121 --- PROSE batch for main L8889-L9029.
+
+Same discipline as r2-ch16m: r2lib by path, resolvers take the LINE LIST, members never a bundle,
+no wall-clock time.  Every negative states what the sweep covered.  Symbols are tested RAW.
+A probe scoring zero on its own volume is a broken probe, not a finding.
+"""
+import re, sys, importlib.util
+
+spec = importlib.util.spec_from_file_location('r2lib', '/home/claude/members/r2lib.py')
+r2lib = importlib.util.module_from_spec(spec); spec.loader.exec_module(r2lib)
+from r2lib import heading_line, section_span, has_token, enclosing  # noqa: E402
+
+VOL = {'main': 'The_Method_1_6-2.md', 'reg': 'The_Method_1_6___The_Register-2.md',
+       'mc': 'The_Method_1_6___Mathematical_Compendium-2.md',
+       'pc': 'The_Method_1_6___The_Physics_Compendium-2.md',
+       'ioi': 'The_Method_1_6___The_Index_of_Indices-2.md',
+       'sc': 'The_Method_1_6___Spectra_Compendium-2.md'}
+V = {k: open('/home/claude/members/' + v, encoding='utf-8').read().split('\n') for k, v in VOL.items()}
+M = V['main']
+PP = open('/home/claude/PP_The_Method_1_6.md', encoding='utf-8').read().split('\n')
+U0, U1 = 8889, 9029
+out = []
+def p(*a): out.append(' '.join(str(x) for x in a))
+# Sites resolved by their own text rather than carried as line numbers. r3-wl2's +8 shift at main
+# L9608 moved every one of them; a literal cannot follow its line, a search can.
+def _at(_sub, _L=None):
+    _L = M if _L is None else _L
+    _h = [_i for _i, _l in enumerate(_L, 1) if _sub in _l]
+    assert len(_h) == 1, 'anchor %r matches %d lines, not 1' % (_sub, len(_h))
+    return _h[0]
+
+
+
+def body_range(Mx, sec):                      # owed to r2lib; provenance chat 108
+    s = heading_line(Mx, sec)
+    if s is None:
+        return None
+    for i in range(s + 1, len(Mx) + 1):
+        if re.match(r'^#{1,4} ', Mx[i - 1].strip()):
+            return (s, i)
+    return (s, len(Mx) + 1)
+
+
+def lettered_heading(Mx, label):              # owed to r2lib; provenance chat 118
+    hits = [i for i, t in enumerate(Mx, 1)
+            if re.match(r'^#{1,4}\s+' + re.escape(label) + r'[ .]', t.strip())]
+    return hits[-1] if hits else None
+
+
+def last_md_heading(Mx, title):               # owed to r2lib; the BODY occurrence
+    hits = [i for i, t in enumerate(Mx, 1)
+            if re.match(r'^#{1,4}\s+' + re.escape(title) + r'\s*$', t.strip())]
+    return hits[-1] if hits else None
+
+
+def numsites(Mx, n, lo=1, hi=None):
+    """Digit-bounded numeral SITE lister --- sites, never a count.  A figure spelled in words is
+    invisible to it, so the word form is swept separately.  Owed to r2lib."""
+    hi = hi or len(Mx)
+    pat = re.compile(r'(?<![\d.,])' + str(n) + r'(?!\d)(?!,\d)(?!\.\d)')
+    return [i for i in range(lo, hi + 1) if pat.search(Mx[i - 1])]
+
+
+# ============================================================ A. pointers, both resolvers
+p('== A. every pointer the unit makes, resolved under body_range AND section_span ==')
+for sec in ('32.2', '18.6', '17', '22.4', '12.11.3.1', '32.1.4', '18.4.1'):
+    br, ss = body_range(M, sec), section_span(M, sec)
+    same = 'COINCIDE' if br == ss else 'DIFFER'
+    p(f'  §{sec}: body_range {br}  section_span {ss}  {same}')
+for lab in ('F.4.1', 'F.4.3'):
+    h = lettered_heading(M, lab)
+    p(f'  §{lab}: lettered_heading L{h}' + (f'  "{M[h-1].strip()[:80]}"' if h else '  ABSENT'))
+
+p('  --- §32.2 read IN FULL (the S3 claim L8921-22 attributes to it):')
+b322 = body_range(M, '32.2')
+for i in range(b322[0], b322[1]):
+    p(f'      L{i}: {M[i-1].strip()[:150]}')
+
+p('  --- §18.6, the sentence L8980 attributes to it ("calls it the prediction budget"):')
+b186 = body_range(M, '18.6')
+hits = [i for i in range(b186[0], b186[1]) if re.search(r'budget', M[i - 1], re.I)]
+p(f'      body {b186}; "budget" at {hits}')
+for i in hits[:4]:
+    p(f'      L{i}: {M[i-1].strip()[:150]}')
+p(f'      "prediction budget" anywhere in main: {[i for i,t in enumerate(M,1) if "prediction budget" in t.lower()]}')
+
+p('  --- §17\'s extension test, the requirement L8991 attributes to it ("a candidate axis offered"):')
+s17 = section_span(M, '17')
+p(f'      section_span(17) {s17}; body_range(17) {body_range(M, "17")}')
+for probe in ('offer', 'candidate', 'extension test', 'axis'):
+    h = [i for i in range(s17[0], s17[1]) if re.search(r'(?<![A-Za-z])' + probe, M[i - 1], re.I)]
+    p(f'      "{probe}" in §17 span: {len(h)} sites {h[:10]}')
+
+p('  --- §22.4\'s closing result, cited at L8994:')
+b224 = section_span(M, '22.4')
+p(f'      section_span(22.4) {b224}; last two non-blank body lines:')
+nb = [i for i in range(b224[0], b224[1]) if M[i - 1].strip()]
+for i in nb[-2:]:
+    p(f'      L{i}: {M[i-1].strip()[:150]}')
+
+p('  --- §12.11.3.1\'s division of bounds, cited at L9017:')
+b12 = section_span(M, '12.11.3.1')
+p(f'      section_span {b12}')
+h = [i for i in range(b12[0], b12[1]) if re.search(r'(?<![A-Za-z])(law|extent)(?![A-Za-z])', M[i - 1], re.I)]
+p(f'      "law"/"extent" at {h[:10]} ({len(h)})')
+for i in h[:3]:
+    p(f'      L{i}: {M[i-1].strip()[:150]}')
+
+p('  --- part labels (parts carry NO markdown heading; the printed label is swept instead):')
+plab = [(i, M[i - 1].strip()[:60]) for i, t in enumerate(M, 1) if re.match(r'^#*\s*PART\b', t.strip())]
+p(f'      {len(plab)} PART labels: {[i for i,_ in plab]}')
+for i, t in plab:
+    p(f'      L{i}: {t}')
+p(f'      L8958 "register 321 promoted the procedure to PART I" --- PART I above is the test')
+p(f'      L8957 "Part VI carries the record" and L9021 "Parts II and III" resolve against that list')
+
+# ============================================================ B. Ruling 45 / 46
+p('')
+p('== B. Ruling 45 (build and editorial-process narration) and Ruling 46 (script, build, file names) ==')
+R45 = ['this build', 'the press', 'at every build', 'the session', 'these sessions', 'was written',
+       'recomputed now', 'compressed', 'from here', 'this section was written', 'intake',
+       'the book now prints', 'stopped being hidden', 'the book will track']
+seen45 = {}
+for i in range(U0, U1 + 1):
+    for t in R45:
+        if t in M[i - 1].lower():
+            seen45.setdefault(i, []).append(t)
+p(f'  Ruling 45 candidate sites in the unit: {len(seen45)}')
+for i in sorted(seen45):
+    p(f'      L{i} [{", ".join(seen45[i])}]: {M[i-1].strip()[:120]}')
+R46 = re.compile(r'\b[a-z0-9_]+\.py\b|\bBUILD\d+\b|\bgate\.py\b|\bclose\.py\b|MANIFEST|\.tsv\b|\.md\b')
+h46 = [(i, R46.findall(M[i - 1])) for i in range(U0, U1 + 1) if R46.search(M[i - 1])]
+p(f'  Ruling 46 sites in the unit (case-sensitive): {len(h46)} {h46}')
+p(f'      sweep covered every line L{U0}-L{U1} for .py, BUILD<n>, MANIFEST, .tsv and .md tokens')
+
+# ============================================================ C. spliced text
+p('')
+p('== C. the spliced-text class (DEFERRED item 26) at L8908-L8912 ==')
+for i in range(8908, 8913):
+    p(f'      L{i}: {M[i-1].rstrip()}')
+joined = ' '.join(M[i - 1].strip() for i in range(8909, 8912))
+p(f'  two-line join L8909-L8911: "{joined[:220]}"')
+p(f'  "= 0 at one fibre" occurrences in the join: {joined.count("= 0 at one fibre")}')
+p(f'  line-length profile of the unit (chars): '
+  f'{[len(M[i-1]) for i in range(8908, 8913)]} --- L8910 is short where its neighbours run long')
+
+# ============================================================ D. count words, N-of-M, universals
+p('')
+p('== D. count words, N-of-M forms and list-opening universals, each against its own body ==')
+CW = ['four', 'seven', 'three', 'six', 'two', 'eight', 'fifty-five', 'forty-two', 'thirty-four',
+      'nineteen', 'twenty', 'eleven', 'forty-eight', 'nineteenth', 'twentieth']
+for w in CW:
+    h = [i for i in range(U0, U1 + 1) if has_token(M[i - 1], w)]
+    if h:
+        p(f'  "{w}": {h}')
+p('  N-of-M forms in the unit:')
+for i in range(U0, U1 + 1):
+    for m in re.finditer(r'\b(\w+)\s+of\s+(?:the\s+)?(\w+[\w-]*)\b', M[i - 1]):
+        if re.match(r'^(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\d+)$',
+                    m.group(1), re.I):
+            p(f'      L{i}: "{m.group(0)}"  in: {M[i-1].strip()[:110]}')
+p('  universals in the unit ("every", "each", "all", "nothing", "never", "only"):')
+for i in range(U0, U1 + 1):
+    for w in ('every', 'each', 'all', 'nothing', 'never', 'only'):
+        if has_token(M[i - 1], w):
+            p(f'      L{i} [{w}]: {M[i-1].strip()[:120]}')
+            break
+
+# ============================================================ E. numeral sites
+p('')
+p('== E. digit-bounded numeral SITES for every figure the unit prints (sites, not counts) ==')
+FIG = ['976', '8,853', '89,438', '267,858', '499,246', '18', '68', '26', '4', '42', '34', '8',
+       '55', '33', '17', '48', '23', '21', '7.07', '16', '3', '540', '162']
+for f in FIG:
+    s_in = numsites(M, re.escape(f), U0, U1)
+    s_out = [i for i in numsites(M, re.escape(f)) if not (U0 <= i <= U1)]
+    p(f'  {f:>8}: in-unit {s_in}   out-of-unit {len(s_out)} sites, first eight {s_out[:8]}')
+p('  word-form figures (invisible to the digit sweep):')
+for w in ('fifty-five', 'forty-two', 'thirty-four', 'forty-eight', 'thirty-three', 'seventeen',
+          'one thousand six hundred and thirty-five', 'twenty-five'):
+    h = [i for i in range(U0, U1 + 1) if w in M[i - 1].lower()]
+    if h:
+        p(f'      "{w}" in unit at {h}')
+
+# ============================================================ F. Prints & Proofs, per-witness anchor
+p('')
+p('== F. Prints & Proofs, every witness anchored on its OWN text (one global offset cannot span a unit) ==')
+WIT = ['Four of the seven, answered by computation',
+       'The frame has changed, and the change is measurable',
+       'What this book names before anyone tells it',
+       'Which of this book\'s numbers hold still',
+       'The honest number for a fibred index is its unfibred one',
+       'Fifty-five cells are named and nobody has put anything in them',
+       'Every figure about', 'the two companion papers',
+       'six and a half times chance', 'the register is a quarter of it']
+def joins(X):
+    """line i paired with the join of lines i and i+1, so a phrase broken by the wrap is visible."""
+    return [(i, re.sub(r'\s+', ' ', X[i - 1] + ' ' + (X[i] if i < len(X) else '')))
+            for i in range(1, len(X) + 1)]
+MJ, PJ = joins(M), joins(PP)
+for w in WIT:
+    wl = w.lower()
+    m_hits = [i for i, t in MJ if wl in t.lower() and U0 <= i <= U1]
+    p_hits = [i for i, t in PJ if wl in t.lower()]
+    off = (p_hits[0] - m_hits[0]) if (m_hits and p_hits) else None
+    flag = '' if m_hits else '  <-- BROKEN PROBE: scores zero on its own volume, not a finding'
+    p(f'  "{w[:52]}": main {m_hits}  PP {p_hits[:3]}  offset {off}{flag}')
+p(f'  sweep covered all {len(WIT)} witnesses against the full PP file ({len(PP):,} lines)')
+
+# ============================================================ G. census rows, duplication, attributions
+p('')
+p('== G. census rows in range, duplicated-section sweep, attribution sweep ==')
+rows = open('/home/claude/members/DEFECT-CENSUS.tsv', encoding='utf-8').read().split('\n')
+hdr = rows[0].split('\t')
+ci = {c: k for k, c in enumerate(hdr)}
+p(f'  DEFECT-CENSUS.tsv columns {hdr}; member values '
+  f'{sorted({r.split(chr(9))[ci["member"]] for r in rows[1:] if r.strip()})}')
+inrange = []
+for r in rows[1:]:
+    if not r.strip():
+        continue
+    f = r.split('\t')
+    if f[ci['member']] in ('main', 'all'):
+        try:
+            ln = int(f[ci['line']])
+        except ValueError:
+            continue
+        if U0 <= ln <= U1:
+            inrange.append((f[ci['id']], f[ci['class']], f[ci['member']], ln, f[ci['item']][:40]))
+p(f'  rows with member in (main, all) and line in [{U0},{U1}]: {len(inrange)}')
+for r in inrange:
+    p(f'      {r}')
+p('  duplicated-section sweep (DEF-105 item 1): every unit line over 60 chars sought elsewhere:')
+longs = [i for i in range(U0, U1 + 1) if len(M[i - 1].strip()) > 60]
+dups = []
+for i in longs:
+    s = M[i - 1].strip()
+    for j, t in enumerate(M, 1):
+        if j != i and t.strip() == s:
+            dups.append((i, j))
+p(f'      {len(longs)} long lines swept, {len(dups)} recur elsewhere in the main volume {dups[:6]}')
+p('  attribution sweep: proper-noun attributions in the unit against ## References (BODY) and R.7:')
+refs = last_md_heading(M, 'References')
+p(f'      "## References" BODY occurrence at L{refs}; all "## References" occurrences '
+  f'{[i for i,t in enumerate(M,1) if re.match(r"^#{1,4}\s+References\s*$", t.strip())]}')
+att = []
+initial = []
+for i in range(U0, U1 + 1):
+    for m in re.finditer(r'\b([A-Z][a-z]{3,})\b', M[i - 1]):
+        w = m.group(1)
+        pre = M[i - 1][:m.start()].rstrip()
+        if pre.endswith('.') or pre in ('', '**') or pre.endswith('**'):
+            initial.append((i, w))
+            continue
+        if w not in ('This', 'That', 'What', 'Where', 'Which', 'Every', 'Each', 'Asked', 'Three',
+                     'Four', 'Five', 'Flag', 'Flags', 'Register', 'Registers', 'Appendix',
+                     'Appendices', 'Defects', 'Conflating', 'Nothing', 'Those', 'They', 'Measured',
+                     'Recomputed', 'Fifty', 'Part', 'Parts', 'Their', 'Chapter', 'Chapters',
+                     'Operationalised', 'Self', 'Book', 'From', 'Only', 'Both', 'Here', 'When',
+                     'With', 'Then', 'Also', 'There', 'These', 'Some', 'Such', 'Have', 'Been'):
+            att.append((i, w))
+p(f'      mid-sentence capitalised tokens in the unit: {sorted(set(w for _, w in att))}')
+p(f'      sentence-INITIAL capitalised tokens (reported, not hidden --- an attribution can open a '
+  f'sentence): {sorted(set(w for _, w in initial))}')
+p(f'      sweep covered every line L{U0}-L{U1} in both positions')
+
+p('')
+p('== I. the two cited criteria read AT THEIR TARGETS, and where the claim does live ==')
+p('  §17, cited at L8991 for "requires a candidate axis to be OFFERED before it can be judged":')
+for i in (4849, 4857):
+    p(f'      L{i}: {M[i-1].strip()[:150]}')
+p(f'      §17 heading L4789: {M[4788].strip()[:110]}')
+sub17 = [(i, M[i - 1].strip()[:90]) for i in range(4789, 4922) if re.match(r'^#{1,4} 17', M[i - 1])]
+p(f'      §17 subsection headings: {sub17}')
+for probe in ('extension test', 'offered', 'new coordinate', 'candidate axis'):
+    h = [i for i, t in enumerate(M, 1) if probe in t.lower()]
+    p(f'      "{probe}" across the WHOLE main volume: {len(h)} sites {h[:10]}')
+b172 = body_range(M, '17.2')
+p(f'      §17.2 "E2 — which axes may be adjoined" READ IN FULL at its target, body_range {b172}:')
+for i in range(b172[0], b172[1]):
+    if M[i - 1].strip():
+        p(f'      L{i}: {M[i-1].strip()[:150]}')
+p('  §22.4, cited at L8994 for a "closing result" about language:')
+b224b = body_range(M, '22.4')
+p(f'      body_range {b224b}; heading and body:')
+for i in range(b224b[0], b224b[1]):
+    if M[i - 1].strip():
+        p(f'      L{i}: {M[i-1].strip()[:150]}')
+sub224 = [(i, M[i - 1].strip()[:90]) for i in range(6137, 6167) if re.match(r'^#{1,4} 22\.4', M[i - 1])]
+p(f'      §22.4 subsection headings: {sub224}')
+for probe in ('language', 'no language for'):
+    h = [i for i in range(6137, 6167) if probe in M[i - 1].lower()]
+    p(f'      "{probe}" in the §22.4 span: {h}')
+    hv = [i for i, t in enumerate(M, 1) if 'no language for' in t.lower()]
+    if probe == 'no language for':
+        p(f'      "no language for" across the WHOLE main volume: {hv}')
+
+# ============================================================ H. the companion papers
+p('')
+p('== H. "the two companion papers" (L8945) against "the third companion paper" (L9001) ==')
+for i in [1161, 1338, 4175, 5187, 8945, 9001,
+          _at('The challenge posed in 1969 is closed'),
+          _at('*A challenge posed outside this work'),
+          _at('The two companion papers carry their own reference lists')]:
+    if i <= len(M):
+        p(f'  L{i}: {M[i-1].strip()[:160]}')
+p(f'  chapter headings 35 and 36: '
+  f'{[(n, heading_line(M, n)) for n in ("35", "36")]}')
+for n in ('35', '36'):
+    h = heading_line(M, n)
+    if h:
+        p(f'      L{h}: {M[h-1].strip()[:110]}')
+
+sys.stdout.write('\n'.join(out) + '\n')
+<<<END FILE: r2-ch16n2.py>>>
+
+<<<FILE: r2-ch16n2.out>>>
+== A. every pointer the unit makes, resolved under body_range AND section_span ==
+  §32.2: body_range (9030, 9038)  section_span (9030, 9038)  COINCIDE
+  §18.6: body_range (5303, 5313)  section_span (5303, 5375)  DIFFER
+  §17: body_range (4789, 4794)  section_span (4789, 4922)  DIFFER
+  §22.4: body_range (6137, 6147)  section_span (6137, 6167)  DIFFER
+  §12.11.3.1: body_range (3409, 3457)  section_span (3409, 3457)  COINCIDE
+  §32.1.4: body_range (8963, 8997)  section_span (8963, 9030)  DIFFER
+  §18.4.1: body_range (4999, 5248)  section_span (4999, 5248)  COINCIDE
+  §F.4.1: lettered_heading L11338  "### F.4.1 Two ratios the book had never measured about itself"
+  §F.4.3: lettered_heading L11351  "### F.4.3 Time, which this work has and does not read"
+  --- §32.2 read IN FULL (the S3 claim L8921-22 attributes to it):
+      L9030: ### 32.2 Self-reference
+      L9031: 
+      L9032: **S1 — alphabet.** The list of claims is recoverable by projection: it is the set of first coordinates, and the table of contents is its quotient by c
+      L9033: 
+      L9034: **S2 — order.** The specificity order among terms is a tree, and Chapter 15's propagation recovers it. **The book's sectioning is not arbitrary**; it 
+      L9035: 
+      L9036: **S3 — bounds.** Every claim's support locations are recoverable as the union over its specialisations. **A reader given only the claims and their evi
+      L9037: 
+  --- §18.6, the sentence L8980 attributes to it ("calls it the prediction budget"):
+      body (5303, 5313); "budget" at [5303]
+      L5303: ### 18.6 E(X) is the prediction budget
+      "prediction budget" anywhere in main: [5303, 6033, 8980]
+  --- §17's extension test, the requirement L8991 attributes to it ("a candidate axis offered"):
+      section_span(17) (4789, 4922); body_range(17) (4789, 4794)
+      "offer" in §17 span: 0 sites []
+      "candidate" in §17 span: 0 sites []
+      "extension test" in §17 span: 0 sites []
+      "axis" in §17 span: 2 sites [4849, 4857]
+  --- §22.4's closing result, cited at L8994:
+      section_span(22.4) (6137, 6167); last two non-blank body lines:
+      L6163: quantity, needs the limit, and the energy bound is never better than the limit is known.
+      L6165: **The choice is conditional, and the condition is computable per channel.** This book's tightest bracket is 1.398 cm⁻¹; limit uncertainties in the col
+  --- §12.11.3.1's division of bounds, cited at L9017:
+      section_span (3409, 3457)
+      "law"/"extent" at [3414, 3415, 3416, 3417, 3418, 3419, 3420, 3421, 3422, 3423] (23)
+      L3414: 1  n            1 ≤ n ≤ cap              the hydrogenic radial solution          law
+      L3415: 2  ℓ            ℓ ≤ n − 1                the hydrogenic radial solution          law
+      L3416: 3  k            1 ≤ k ≤ 4ℓ + 2           Pauli exclusion                         law
+  --- part labels (parts carry NO markdown heading; the printed label is swept instead):
+      16 PART labels: [110, 113, 119, 129, 137, 141, 149, 155, 175, 232, 1488, 3677, 5549, 5937, 7364, 9393]
+      L110: # PART 0 — THE SHAPE OF THE ARGUMENT
+      L113: # PART I — THE PROCEDURE
+      L119: # PART II — THE LATTICE
+      L129: # PART III — THE LAW
+      L137: # PART IV — THE LANGUAGES
+      L141: # PART V — THE METHOD
+      L149: # PART VI — THE RECORD AND THE REACH
+      L155: # PART VII — THE CHALLENGES
+      L175: # PART 0 — THE SHAPE OF THE ARGUMENT
+      L232: # PART I — THE PROCEDURE
+      L1488: # PART II — THE LATTICE
+      L3677: # PART III — THE LAW
+      L5549: # PART IV — THE LANGUAGES
+      L5937: # PART V — THE METHOD
+      L7364: # PART VI — THE RECORD AND THE REACH
+      L9393: # PART VII — THE CHALLENGES
+      L8958 "register 321 promoted the procedure to PART I" --- PART I above is the test
+      L8957 "Part VI carries the record" and L9021 "Parts II and III" resolve against that list
+
+== B. Ruling 45 (build and editorial-process narration) and Ruling 46 (script, build, file names) ==
+  Ruling 45 candidate sites in the unit: 12
+      L8909 [the press]: index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build,
+      L8911 [the book now prints]: fibre. Those are the comparable figures and the book now prints them beside the fibred ones wherever
+      L8912 [stopped being hidden]: the fibred ones appear. Nothing was fixed; something was stopped being hidden.
+      L8915 [the session]: forty-two entries made in the session that produced this section, thirty-four record defects already
+      L8919 [from here, the book will track]: like an indictment rather than a measurement. **The book will track them separately from here.**
+      L8949 [these sessions]: **The transition is real and it is not complete.** Three times in these sessions all twenty audits
+      L8958 [was written, this section was written]: ordering was resolved after this section was written**: register 321 promoted the procedure to PART I,
+      L8998 [recomputed now]: §32.1.4 counts fifty-five cells named and unoccupied. **Recomputed now the total is 48**, and the
+      L9001 [intake]: Measured across three states of the book — before the third companion paper's intake, before the
+      L9002 [compressed]: register was compressed, and now:
+      L9004 [intake]: figure                                  before intake   before compression   now
+      L9024 [the press, at every build]: state, and the state is named. The press recomputes the two that move fastest at every build. **Three
+  Ruling 46 sites in the unit (case-sensitive): 0 []
+      sweep covered every line L8889-L9029 for .py, BUILD<n>, MANIFEST, .tsv and .md tokens
+
+== C. the spliced-text class (DEFERRED item 26) at L8908-L8912 ==
+      L8908:  **Flag 2 — fibration — is answered by disclosure, not by repair.** The honest number for a fibred
+      L8909:  index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build,
+      L8910:  E(Λ) = 0 at one fibre = 0 at one
+      L8911:  fibre. Those are the comparable figures and the book now prints them beside the fibred ones wherever
+      L8912:  the fibred ones appear. Nothing was fixed; something was stopped being hidden.
+  two-line join L8909-L8911: "index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build, E(Λ) = 0 at one fibre = 0 at one fibre. Those are the comparable figures and the book now prints them beside"
+  "= 0 at one fibre" occurrences in the join: 2
+  line-length profile of the unit (chars): [98, 112, 33, 101, 79] --- L8910 is short where its neighbours run long
+
+== D. count words, N-of-M forms and list-opening universals, each against its own body ==
+  "four": [8889, 8890, 8915, 8971, 8975]
+  "seven": [8889, 8930]
+  "three": [8929, 8949, 8974, 8983, 9001, 9024]
+  "six": [8918, 8924, 8965]
+  "two": [8915, 8917, 8945, 8965, 9024]
+  "eight": [8916, 9009]
+  "fifty-five": [8978, 8990, 8998, 9023]
+  "forty-two": [8915]
+  "thirty-four": [8915]
+  "nineteen": [8993]
+  "twenty": [8924, 8949]
+  "eleven": [8992]
+  "forty-eight": [9009]
+  N-of-M forms in the unit:
+      L8889: "Four of the seven"  in: ### 32.1.2 Four of the seven, answered by computation
+      L8923: "18 of 68"  in: chapter be recovered from the sections it cites*, the answer is 18 of 68 — 26% against a 4% baseline
+      L8965: "two of them"  in: not one index but six, and only two of them are closed.** Asked what it can determine before an input
+      L8990: "one of the fifty-five"  in: names a coordinate. Every one of the fifty-five is a combination of values the index already carries,
+  universals in the unit ("every", "each", "all", "nothing", "never", "only"):
+      L8890 [all]: The four that could be answered here were, and the answers are not all favourable.
+      L8904 [every]: every shell the periodic table uses. What the enlargement does not do is make the tower's density
+      L8909 [each]: index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build,
+      L8912 [nothing]: the fibred ones appear. Nothing was fixed; something was stopped being hidden.
+      L8917 [only]: 215, 218, 220, 221, 227 and 203. The register is therefore not one quantity but two, and only the
+      L8930 [never]: needs a spectroscopist's data the tripwire has never seen. Seven needs a file this work cannot read.
+      L8946 [each]: to electromagnetism and to muon-catalysed fusion, each returning corrections to this book — which is a
+      L8949 [all]: **The transition is real and it is not complete.** Three times in these sessions all twenty audits
+      L8950 [each]: passed on a book that had a defect — registers 305, 310 and 318 — and each time the audit that owned
+      L8964 [nothing]: A closed index admits nothing it lacks, so a *closed* index names nothing unidentified. **This book is
+      L8965 [only]: not one index but six, and only two of them are closed.** Asked what it can determine before an input
+      L8978 [each]: **Fifty-five cells are named and nobody has put anything in them.** Each is a combination the
+      L8983 [only]: **It has been confirmed three times, which is the only evidence that matters here.** Register 285:
+      L8987 [each]: Appendices B and F (then C and G). **In each case the cell was named first and the occupant arrived after.**
+      L8989 [never]: **And there is a hard boundary, which is the honest half of the answer.** E names cells; it never
+      L8990 [every]: names a coordinate. Every one of the fifty-five is a combination of values the index already carries,
+      L9013 [every]: **Every figure about Λ holds. Every figure about the book moves.**
+      L9021 [every]: **The consequence for a reader.** Every figure in Parts II and III can be checked against the
+      L9022 [every]: construction and will agree forever. Every figure the book states about itself — the register's size,
+      L9024 [every]: state, and the state is named. The press recomputes the two that move fastest at every build. **Three
+
+== E. digit-bounded numeral SITES for every figure the unit prints (sites, not counts) ==
+       976: in-unit [8896, 8903, 9006]   out-of-unit 90 sites, first eight [4, 13, 331, 425, 448, 853, 855, 924]
+     8,853: in-unit [8897]   out-of-unit 1 sites, first eight [9127]
+    89,438: in-unit [8898]   out-of-unit 0 sites, first eight []
+   267,858: in-unit [8899]   out-of-unit 0 sites, first eight []
+   499,246: in-unit [8900, 8903]   out-of-unit 2 sites, first eight [856, 993]
+        18: in-unit [8923, 8941]   out-of-unit 39 sites, first eight [134, 220, 233, 1017, 1134, 1375, 1376, 1378]
+        68: in-unit [8923]   out-of-unit 4 sites, first eight [696, 3749, 7548, 9133]
+        26: in-unit [8923]   out-of-unit 15 sites, first eight [146, 4126, 5470, 5883, 6194, 6910, 7117, 7964]
+         4: in-unit [8897, 8909, 8914, 8923, 8971, 8972, 8973, 8975, 9011]   out-of-unit 276 sites, first eight [12, 117, 279, 291, 317, 349, 580, 808]
+        42: in-unit []   out-of-unit 5 sites, first eight [4317, 6978, 8842, 10227, 11552]
+        34: in-unit []   out-of-unit 22 sites, first eight [157, 2278, 2601, 3224, 6511, 6517, 6835, 9130]
+         8: in-unit [8969]   out-of-unit 116 sites, first eight [12, 13, 122, 247, 363, 662, 663, 666]
+        55: in-unit [8941, 8943, 8952]   out-of-unit 12 sites, first eight [93, 408, 3606, 5674, 6149, 6361, 6661, 7507]
+        33: in-unit [8974, 9010]   out-of-unit 30 sites, first eight [156, 1413, 1414, 1691, 2367, 2369, 2388, 2398]
+        17: in-unit [8975, 8991, 9007]   out-of-unit 57 sites, first eight [133, 219, 307, 329, 852, 853, 1133, 1344]
+        48: in-unit [8998]   out-of-unit 8 sites, first eight [1481, 1692, 2706, 2715, 5918, 6619, 7824, 10407]
+        23: in-unit [8940, 9010]   out-of-unit 41 sites, first eight [143, 233, 508, 521, 545, 554, 1863, 1973]
+        21: in-unit [9010]   out-of-unit 29 sites, first eight [139, 420, 437, 468, 1019, 1137, 1347, 1625]
+      7.07: in-unit [9008]   out-of-unit 4 sites, first eight [315, 854, 2115, 9132]
+        16: in-unit [8970]   out-of-unit 74 sites, first eight [36, 47, 60, 132, 189, 292, 315, 355]
+         3: in-unit [8896, 8899, 8900, 8921, 8925, 8929, 8971, 8974]   out-of-unit 381 sites, first eight [12, 116, 212, 252, 279, 291, 418, 486]
+       540: in-unit []   out-of-unit 20 sites, first eight [2886, 3491, 8728, 8736, 8738, 8740, 8747, 8761]
+       162: in-unit []   out-of-unit 7 sites, first eight [4167, 8841, 8842, 8845, 11700, 11836, 11857]
+  word-form figures (invisible to the digit sweep):
+      "fifty-five" in unit at [8978, 8990, 8998, 9023]
+      "forty-two" in unit at [8915]
+      "thirty-four" in unit at [8915]
+      "forty-eight" in unit at [9009]
+      "thirty-three" in unit at [8974]
+      "seventeen" in unit at [8975]
+      "one thousand six hundred and thirty-five" in unit at [8918]
+      "twenty-five" in unit at [8924]
+
+== F. Prints & Proofs, every witness anchored on its OWN text (one global offset cannot span a unit) ==
+  "Four of the seven, answered by computation": main [8889]  PP [8794, 8795]  offset -95
+  "The frame has changed, and the change is measurable": main [8932, 8933]  PP [8838, 8839]  offset -94
+  "What this book names before anyone tells it": main [8962, 8963]  PP [8868, 8869]  offset -94
+  "Which of this book's numbers hold still": main [8996, 8997]  PP [8902, 8903]  offset -94
+  "The honest number for a fibred index is its unfibred": main [8908]  PP [8814]  offset -94
+  "Fifty-five cells are named and nobody has put anythi": main [8977, 8978]  PP [8883, 8884]  offset -94
+  "Every figure about": main [9012, 9013]  PP [8918, 8919]  offset -94
+  "the two companion papers": main [8944, 8945]  PP [8850, 8851]  offset -94
+  "six and a half times chance": main [8923, 8924]  PP [8829, 8830]  offset -94
+  "the register is a quarter of it": main [8956, 8957]  PP [8862, 8863]  offset -94
+  sweep covered all 10 witnesses against the full PP file (11,372 lines)
+
+== G. census rows in range, duplicated-section sweep, attribution sweep ==
+  DEFECT-CENSUS.tsv columns ['id', 'class', 'member', 'line', 'item', 'detail']; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+  rows with member in (main, all) and line in [8889,9029]: 2
+      ('1189', 'C9-OVERGENERALISATION-WORD', 'main', 8930, 'never')
+      ('1190', 'C9-OVERGENERALISATION-WORD', 'main', 8989, 'never')
+  duplicated-section sweep (DEF-105 item 1): every unit line over 60 chars sought elsewhere:
+      95 long lines swept, 0 recur elsewhere in the main volume []
+  attribution sweep: proper-noun attributions in the unit against ## References (BODY) and R.7:
+      "## References" BODY occurrence at L11511; all "## References" occurrences [173, 11511]
+      mid-sentence capitalised tokens in the unit: []
+      sentence-INITIAL capitalised tokens (reported, not hidden --- an attribution can open a sentence): ['Appendices', 'Appendix', 'Asked', 'Conflating', 'Defects', 'Each', 'Every', 'Fifty', 'Five', 'Flag', 'Flags', 'Measured', 'Nothing', 'Operationalised', 'Recomputed', 'Register', 'Registers', 'Seven', 'That', 'They', 'This', 'Those', 'Three', 'What']
+      sweep covered every line L8889-L9029 in both positions
+
+== I. the two cited criteria read AT THEIR TARGETS, and where the claim does live ==
+  §17, cited at L8991 for "requires a candidate axis to be OFFERED before it can be judged":
+      L4849: **A difference is not a lattice homomorphism** — §18.2 refuses ν = e − δ as an axis for exactly that
+      L4857: closure. Seniority parity at axis 10, the conjugation ceiling at axis 12, and the electromagnetic
+      §17 heading L4789: ## 17. Extension — cells, axes, constraints
+      §17 subsection headings: [(4789, '## 17. Extension — cells, axes, constraints'), (4794, '### 17.1 E1 — which cells may be added'), (4799, '### 17.2 E2 — which axes may be adjoined'), (4814, '### 17.3 E3 — which constraints may be imposed'), (4873, '### 17.4 A worked extension, and what it costs'), (4914, '### 17.5 E is derived')]
+      "extension test" across the WHOLE main volume: 1 sites [8991]
+      "offered" across the WHOLE main volume: 13 sites [228, 940, 3717, 4385, 4396, 7599, 7614, 8094, 8174, 8991]
+      "new coordinate" across the WHOLE main volume: 5 sites [2935, 3078, 4906, 4957, 9530]
+      "candidate axis" across the WHOLE main volume: 1 sites [8991]
+      §17.2 "E2 — which axes may be adjoined" READ IN FULL at its target, body_range (4799, 4814):
+      L4799: ### 17.2 E2 — which axes may be adjoined
+      L4800: Λ × h is closed iff h is a lattice homomorphism
+      L4802: **100% over 424 tests.** Projections, maxima, minima and constants qualify; sums, products and differences do not.
+      L4804: **And a theorem in the other direction:**
+      L4806: Theorem 17.1 (adjunction never repairs). For any h : S → H, with S′ = {(x, h(x))}: S′ closed ⇒ S
+      L4807: closed. Proof. For x, y ∈ S, the join of (x,h(x)) and (y,h(y)) is (x∨y, h(x)∨h(y)). If S′ is closed this lies
+      L4808: in S′, so x∨y ∈ S. Meets likewise. ∎ Contrapositive: a non-closed set cannot be repaired by
+      L4809: adjoining any function of its coordinates. Tested on seven functions including the identity and a
+      L4810: constant; none repairs.
+      L4812: **Three repair routes remain**, and only three: **enlarge** (add cells), **restrict** (remove cells), **reorder** (change neither). The calendar of Ch
+  §22.4, cited at L8994 for a "closing result" about language:
+      body_range (6137, 6147); heading and body:
+      L6137: ### 22.4 The price of limit-freedom, computed
+      L6138: §32.3 presents limit-freedom as pure gain. It is a trade, and the terms are computable.
+      L6140: The alternative is to bracket **δ** rather than *T* — which is what the field does. And *V* is identical either way:
+      L6142: δ = δ₀ + δ₂/n² has L = \|δ′/δ″\| = n/3, the same as T's, and δ₀ is an additive constant that
+      L6143: cancels from both w and e. V(δ) = V(T) = 4n/(3h)
+      L6145: **The single most standard move in Rydberg spectroscopy — interpolate δ, not *T* — improved estimates enormously and left the price of a guarantee exa
+      §22.4 subsection headings: [(6137, '### 22.4 The price of limit-freedom, computed'), (6147, '### 22.4.1 What δ buys, and what it costs')]
+      "language" in the §22.4 span: []
+      "no language for" in the §22.4 span: []
+      "no language for" across the WHOLE main volume: [8994]
+
+== H. "the two companion papers" (L8945) against "the third companion paper" (L9001) ==
+  L1161: indices of the companion paper. Λ states F(z₁…z₈); the tower states its five bounds; the register
+  L1338: That is the third companion paper's third finding arriving in the book's own instruments: **an arrow
+  L4175: computed objects await constructions the companion papers do not print; six are definitional roots
+  L5187: rather than a relation is the one the companion paper uses to withdraw a false node of its own:
+  L8945: by something other than attention. The third column is the two companion papers — the method applied
+  L9001: Measured across three states of the book — before the third companion paper's intake, before the
+  L9730: The challenge posed in 1969 is closed. The formal statement is a companion paper,
+  L9902: *A challenge posed outside this work, answered with the law of Part III and the reach of Part VI. The chapter runs the method on the one object §12.11 named as 
+  L11861: not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7's
+  chapter headings 35 and 36: [('35', 9724), ('36', 9900)]
+      L9724: ## 35. The Löwdin solution
+      L9900: ## 36. Three bodies, and what a complete index is allowed to say
+<<<END FILE: r2-ch16n2.out>>>
+
+<<<FILE: r2-ch16p2.py>>>
+#!/usr/bin/env python3
+# r2-ch16p2.py — chat 153 — SUCCESSOR to r2-ch16p.py, re-anchored. Identical measurements; addresses move.
+# r2-ch16p named two citing lines (11555, 11799) and started a sweep at the References body (11503) by
+# literal. All three moved +8. The citing lines are resolved by their own text and the References body
+# by its heading, which is what the standing method requires; the 32.2 window at 9030 is below the
+# insertion point and did not move, so it is left exactly as it was.
+# r2-ch16p is seated and is never edited in place (chat 68).
+# PROVED by tools/proveanchor.py: reproduces r2-ch16p.out byte-exact on the pre-shift bundles (G0c).
+# r2-ch16p.py -- chat 122, prose batch for main L9030-L9156
+# Pointers, attributions, register citations, restated figures, self-description, PP anchoring,
+# census rows, and the two standing sweeps (Ruling 45, Ruling 46).
+import importlib.util, os, re
+import unicodedata
+
+H = os.path.dirname(os.path.abspath(__file__))
+spec = importlib.util.spec_from_file_location('r2lib', os.path.join(H, 'r2lib.py'))
+r2lib = importlib.util.module_from_spec(spec); spec.loader.exec_module(r2lib)
+heading_line, section_span, has_token, enclosing = (r2lib.heading_line, r2lib.section_span,
+                                                    r2lib.has_token, r2lib.enclosing)
+
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+MAIN = rd('The_Method_1_6-2.md')
+REG  = rd('The_Method_1_6___The_Register-2.md')
+MC   = rd('The_Method_1_6___Mathematical_Compendium-2.md')
+PC   = rd('The_Method_1_6___The_Physics_Compendium-2.md')
+IOI  = rd('The_Method_1_6___The_Index_of_Indices-2.md')
+SC   = rd('The_Method_1_6___Spectra_Compendium-2.md')
+VOLS = [('main', MAIN), ('reg', REG), ('mc', MC), ('pc', PC), ('ioi', IOI), ('sc', SC)]
+PP = open('/home/claude/PP_The_Method_1_6.md', encoding='utf-8').read().split('\n')
+A, B = 9030, 9156
+
+def hr(t): print('\n' + '=' * 96 + '\n' + t + '\n' + '=' * 96)
+
+# owed to r2lib (DEFERRED): body_range, carried with provenance from r2-ch16m (chat 121).
+def body_range(M, sec):
+    """[start, end) of a section's OWN body: heading to the next heading of any number."""
+    s = heading_line(M, sec)
+    if s is None: return None
+    for i in range(s + 1, len(M) + 1):
+        if re.match(r'^#{1,4} ', M[i - 1].strip()):
+            return (s, i)
+    return (s, len(M) + 1)
+
+def lettered_heading(M, sec):
+    for i, t in enumerate(M, 1):
+        m = re.match(r'^#{1,4} ([A-G](?:\.\d+)*)\.? ', t.strip())
+        if m and m.group(1) == sec: return i
+    return None
+
+def numsites(M, n):
+    """SITES of a digit-bounded numeral, never a count.  FAULT 3, self-caught: the first form
+    matched only the unseparated digits, so 8,853 / 19,109 / 35,789 -- every four- and five-digit
+    figure the book prints -- scored ZERO sites including their own table line.  Both the plain and
+    the comma-grouped forms are swept."""
+    forms = {str(n), f'{n:,}'}
+    pat = '(?:' + '|'.join(re.escape(f) for f in forms) + ')'
+    pat = r'(?<![\d.,])' + pat + r'(?!\d)(?!,\d)(?!\.\d)'
+    return [i + 1 for i in range(len(M)) if re.search(pat, M[i])]
+
+def joins(M):
+    """whitespace-normalising two-line join: body lines carry a leading space (chat 121 fault 4)."""
+    return [(i + 1, re.sub(r'\s+', ' ', (M[i] + ' ' + (M[i + 1] if i + 1 < len(M) else '')).strip()))
+            for i in range(len(M))]
+
+def regentry(n):
+    """grouped-aware Register lookup: bare '### 96' headings AND comma/dash grouped headings."""
+    out = []
+    for i, t in enumerate(REG, 1):
+        s = t.strip()
+        m = re.match(r'^#{1,4}\s*([\d,\s\u2013\u2014-]+?)\s*$', s)
+        if not m: continue
+        body = m.group(1)
+        nums = set()
+        for part in re.split(r'[,\s]+', body):
+            if re.fullmatch(r'\d+', part): nums.add(int(part))
+            else:
+                mm = re.fullmatch(r'(\d+)[\u2013\u2014-](\d+)', part)
+                if mm: nums.update(range(int(mm.group(1)), int(mm.group(2)) + 1))
+        if n in nums:
+            head = ''
+            for j in range(i, min(i + 6, len(REG))):
+                if REG[j].strip():
+                    head = REG[j].strip(); break
+            out.append((i, s, head[:150]))
+    return out
+
+# Sites resolved by their own text rather than carried as line numbers. r3-wl2's +8 shift at main
+# L9608 moved every one of them; a literal cannot follow its line, a search can.
+def _at(_sub, _L=None):
+    _L = MAIN if _L is None else _L
+    _h = [_i for _i, _l in enumerate(_L, 1) if _sub in _l]
+    assert len(_h) == 1, 'anchor %r matches %d lines, not 1' % (_sub, len(_h))
+    return _h[0]
+hr('1.  32.2 printed whole (8 lines) and tested from the CITED side (16m-08 reverse member)')
+for ln in range(9030, 9038): print(f'  L{ln}  {MAIN[ln-1].rstrip()[:150]}')
+sp, br = section_span(MAIN, '32.2'), body_range(MAIN, '32.2')
+print(f'\n  section_span {sp}   body_range {br}   '
+      f'{"COINCIDE" if sp == br else "DIFFER"}')
+for ln in (_at('not obtained; §32.2 lists them as open', MAIN),
+           _at('was not read in this work (§32.2)', MAIN)):
+    print(f'  citing line L{ln}: {MAIN[ln-1].strip()[:170]}')
+body = ' '.join(MAIN[sp[0]-1:sp[1]-1])
+print('\n  test: does 32.2 carry a listing of works, obtained or unobtained?')
+for tok in ['unobtained', 'work', 'works', 'list', 'listing', 'cited', 'reference', 'Kurucz',
+            'VALD', 'compilation']:
+    print(f'      {tok:<13} occurrences inside 32.2: {has_token(body, tok)}')
+print('  VERDICT: 32.2 prints S1 alphabet, S2 order, S3 bounds and nothing bibliographic.')
+
+hr('2.  32.3 L9055 -- "Chapter 28 lists one thousand six hundred and thirty-five that failed"')
+WORD = 'one thousand six hundred and thirty-five'
+for name, M in VOLS:
+    s = [i + 1 for i in range(len(M)) if WORD in M[i]]
+    if s: print(f'  {name}: {len(s)} word-form sites {s}')
+print('\n  referent of each main-volume site (the clause the phrase sits in):')
+for ln in [i + 1 for i in range(len(MAIN)) if WORD in MAIN[i]]:
+    t = re.sub(r'\s+', ' ', MAIN[ln - 1].strip())
+    k = t.find(WORD)
+    print(f'      L{ln:<6} …{t[max(0,k-72):k+len(WORD)+34]}…')
+print('\n  chapter 28 heading and its own head line:')
+c28 = section_span(MAIN, '28')
+print(f'      span {c28}; L{c28[0]}: {MAIN[c28[0]-1].strip()[:120]}')
+for ln in range(c28[0], min(c28[0] + 14, c28[1])):
+    if MAIN[ln - 1].strip(): print(f'      L{ln}  {MAIN[ln-1].strip()[:150]}')
+
+hr('3.  32.3 D3 L9057 -- the two chapter claims it makes')
+print('  claim (a): "Chapter 29 names the single open item"')
+c29 = section_span(MAIN, '29')
+print(f'      chapter 29 span {c29}')
+for ln in range(c29[0], c29[1]):
+    if re.search(r'\bopen\b', MAIN[ln - 1], re.I):
+        print(f'      L{ln}  {MAIN[ln-1].strip()[:140]}')
+print('\n  claim (b): "Chapter 28 names three documents and one section that could not be reached"')
+for ln in range(c28[0], c28[1]):
+    if re.search(r'could not be (reached|obtained)|unobtained|not obtained|unreachable',
+                 MAIN[ln - 1], re.I):
+        print(f'      L{ln}  {MAIN[ln-1].strip()[:150]}')
+
+hr('4.  32.3 L9045-L9051 -- the audit figures and the two traced failures')
+for ln in range(9045, 9052): print(f'  L{ln}  {MAIN[ln-1].rstrip()[:150]}')
+print('\n  other sites of 102 in the volume, read at the site (chat 121: read the numeral where')
+print('  the sweep places it):')
+for ln in numsites(MAIN, 102):
+    print(f'      L{ln:<6} {MAIN[ln-1].strip()[:130]}')
+print('\n  "twenty-member channel" and "four levels" against the channel table:')
+for tok in ['twenty-member', 'four levels', 'self-duality', 'involution']:
+    for name, M in VOLS:
+        s = [i + 1 for i in range(len(M)) if tok in M[i]]
+        if s: print(f'      {tok:<16} {name}: {s[:8]}')
+
+hr('5.  pointers in the unit, resolved under BOTH resolvers, to the CLAIM not the heading')
+PTR = [('32.4', 'L9086 "32.4 shows the recursion is stationary"'),
+       ('32.1.4.1', 'L9121 "32.1.4.1 sorts the book\'s numbers"'),
+       ('18', 'L9116 "18 already prices it: no differences, no sums, no symmetric bounds"'),
+       ('12.11', 'L9117 "12.11\'s envelope densities are the bill"'),
+       ('12.11.3.1', 'L9154 "12.11.3.1\'s law-extent rule sorts them exactly"'),
+       ('15', 'L9034 "Chapter 15\'s propagation recovers it"'),
+       ('32.4.1', 'in-unit'), ('32.4.2', 'in-unit')]
+for sec, why in PTR:
+    sp, br = section_span(MAIN, sec), body_range(MAIN, sec)
+    print(f'  §{sec:<10} span {str(sp):<16} body {str(br):<16} '
+          f'{"COINCIDE" if sp == br else "DIFFER"}   {why}')
+print(f'\n  lettered pointer §D.5.2 (L9089): heading at L{lettered_heading(MAIN, "D.5.2")}, '
+      f'text: {MAIN[(lettered_heading(MAIN,"D.5.2") or 1)-1].strip()[:80]}')
+print('\n  §18 read for the three prices it is cited for:')
+s18 = section_span(MAIN, '18'); t18 = ' '.join(MAIN[s18[0]-1:s18[1]-1])
+for tok in ['differences', 'sums', 'symmetric bounds', 'price', 'prices']:
+    print(f'      {tok:<18} in §18: {has_token(t18, tok)}')
+print('\n  the central theorem, "X is closed iff X = R(X)":')
+for name, M in VOLS:
+    s = [i + 1 for i in range(len(M)) if re.search(r'closed\s+iff', M[i], re.I)]
+    if s: print(f'      {name}: {s[:10]}')
+
+hr('6.  register citations in the unit: 279, 388, 391, 392, 394 -- existence first, then headline')
+for n in (279, 388, 391, 392, 394):
+    hits = regentry(n)
+    if not hits:
+        print(f'  register {n}: NO ENTRY FOUND')
+        continue
+    for ln, head, first in hits:
+        print(f'  register {n}: heading L{ln} {head!r}')
+        print(f'      headline: {first}')
+
+hr('7.  attributions in the unit against ## References BODY occurrence and R.7')
+refhits = [i + 1 for i in range(len(MAIN)) if re.match(r'^#{1,3} References', MAIN[i].strip())]
+print(f'  "## References" occurrences: {refhits}; BODY occurrence taken as L{refhits[-1]}')
+bib = ' '.join(MAIN[refhits[-1]-1:])
+unit = ' '.join(MAIN[A-1:B])
+NAMES = ['Knaster', 'Tarski', 'Gödel', 'Godel', 'Russell', 'Heaviside', 'Edlén']
+for nm in NAMES:
+    print(f'  {nm:<11} in unit {has_token(unit, nm):>2}   in bibliography {has_token(bib, nm):>2}   '
+          f'{"UNBIBLIOGRAPHED" if has_token(unit, nm) and not has_token(bib, nm) else ""}')
+print('\n  capitalised tokens in the unit in BOTH sentence positions (chat 121 fault 5):')
+cap = {}
+for ln in range(A, B + 1):
+    for m in re.finditer(r'(?<![A-Za-zÀ-ÿ])([A-ZÀ-Þ][a-zà-ÿ]{3,})', MAIN[ln - 1]):
+        cap.setdefault(m.group(1), []).append(ln)
+COMMON = set('''The This That They There These Those Which What When Where While With Without
+Every Each Both Nine Six Measured Available Absent Closure Construct Corroborated Proved Tested
+Self Register Chapter Level Only From Read Value Values Identity Identities Book Extensive
+Monotone Idempotent Paradox Alphabet Order Bounds Thirty''' .split())
+print('   ', sorted(k for k in cap if k not in COMMON))
+
+hr('8.  Ruling 46 sweep (case-sensitive) and Ruling 45 sweep over the unit')
+R46 = [r'\b[a-z0-9_]+\.py\b', r'\bBUILD\d+\b', r'\bMANIFEST\b', r'\b[a-z0-9_]+\.tsv\b',
+       r'\b[a-z0-9_]+\.md\b']
+hit46 = []
+for ln in range(A, B + 1):
+    for p in R46:
+        for m in re.finditer(p, MAIN[ln - 1]):
+            hit46.append((ln, m.group(0)))
+print(f'  Ruling 46 sites in the unit: {len(hit46)}  {hit46}')
+for ln, tok in hit46:
+    inpp = [i + 1 for i in range(len(PP)) if tok in PP[i]]
+    print(f'      {tok} at L{ln}: PP sites {inpp[:6]}  '
+          f'{"PRESENT IN PP" if inpp else "ABSENT FROM PP"}')
+R45 = ['draft', 'earlier version', 'the auditor', 'this book', 'the book states', 'audit',
+       'reader', 'section got it wrong', 'in the same voice']
+print('\n  Ruling 45 candidate sites (build/editorial narration), each checked against PP:')
+seen = set()
+for ln in range(A, B + 1):
+    t = MAIN[ln - 1]
+    for tok in R45:
+        if re.search(r'(?<![A-Za-z])' + re.escape(tok) + r'(?![A-Za-z])', t, re.I):
+            if ln in seen: continue
+            seen.add(ln)
+            probe = re.sub(r'\s+', ' ', t.strip())[:46]
+            inpp = [i + 1 for i in range(len(PP)) if probe and probe in re.sub(r'\s+', ' ', PP[i])]
+            print(f'      L{ln:<6} {"PP " + str(inpp[0]) + f" (offset {inpp[0]-ln})" if inpp else "not found in PP by this probe":<26}'
+                  f' {probe[:70]}')
+            break
+
+hr('9.  PP anchoring, per witness, on the unit\'s own text')
+def norm(s): return re.sub(r'\s+', ' ', s.strip())
+PPN = [norm(x) for x in PP]
+found = 0
+for ln in range(A, B + 1):
+    t = norm(MAIN[ln - 1])
+    if len(t) < 55: continue
+    probe = t[:60]
+    hits = [i + 1 for i in range(len(PPN)) if probe in PPN[i]]
+    if hits:
+        found += 1
+        if found <= 12:
+            print(f'  L{ln:<6} PP L{hits[0]:<6} offset {hits[0]-ln:>5}   {probe[:62]}')
+print(f'  witnesses anchored: {found}')
+
+hr('10. "the book states most of them once" -- sites of the seven base-setting figures')
+BASE = [('cells 976', 976), ('generators 17', 17), ('rank levels 18', 18),
+        ('widest level 122', 122), ('reflection survivors 8', 8)]
+for lab, n in BASE:
+    s = numsites(MAIN, n)
+    print(f'  {lab:<26} {len(s):>4} main-volume numeral sites')
+for lab, tok in [('fill 14.12%', '14.12'), ('surplus 7.07', '7.07')]:
+    s = [i + 1 for i in range(len(MAIN)) if tok in MAIN[i]]
+    print(f'  {lab:<26} {len(s):>4} main-volume sites {s[:10]}')
+print('\n  the three NEW settings\' figures, sited (a figure stated once is stated in the table only):')
+for n in (8853, 19109, 35789, 704, 1497, 2742, 2873):
+    tot = {name: numsites(M, n) for name, M in VOLS}
+    print(f'      {n:<8} ' + '  '.join(f'{k}:{len(v)}' for k, v in tot.items() if v))
+
+hr('11. census rows in range, and the duplicated-section sweep (docket 27)')
+rows = open(os.path.join(H, 'DEFECT-CENSUS.tsv'), encoding='utf-8').read().split('\n')
+hdr = rows[0].split('\t')
+mi, li, ci, ii, di = (hdr.index('member'), hdr.index('line'), hdr.index('class'),
+                      hdr.index('item'), hdr.index('detail'))
+n = 0
+for r in rows[1:]:
+    f = r.split('\t')
+    if len(f) <= max(mi, li, di): continue
+    if f[mi] in ('main', 'all'):
+        try: ln = int(f[li])
+        except ValueError: continue
+        if A <= ln <= B:
+            n += 1
+            print(f'  id {f[0]}  class {f[ci]}  member {f[mi]}  L{ln}  item {f[ii][:40]}  '
+                  f'detail {f[di][:60]}')
+print(f'  census rows in range (member main OR all): {n}')
+longs = [(ln, norm(MAIN[ln - 1])) for ln in range(A, B + 1) if len(norm(MAIN[ln - 1])) > 90]
+rec = 0
+for ln, t in longs:
+    hits = [i + 1 for i in range(len(MAIN)) if i + 1 != ln and t[:80] in norm(MAIN[i])]
+    if hits:
+        rec += 1; print(f'  RECURS L{ln} also at {hits[:4]}')
+print(f'  duplicated-section sweep: {len(longs)} long lines swept, {rec} recur elsewhere')
+
+hr('13. register 394 read in full -- the Register carries the same two count words')
+r394 = regentry(394)[0][0]
+for ln in range(r394, r394 + 22):
+    if re.match(r'^#{1,4}\s*\d', REG[ln - 1].strip()) and ln != r394: break
+    if REG[ln - 1].strip(): print(f'  reg L{ln}  {REG[ln-1].strip()[:160]}')
+
+hr('14. §18 read at its target for the three prices L9116 attributes to it')
+s18, b18 = section_span(MAIN, '18'), body_range(MAIN, '18')
+print(f'  §18 span {s18}  body {b18}  DIFFER')
+for tok in ['symmetric bound', 'no differences', 'no sums', 'difference', 'sum ']:
+    for name, M in VOLS:
+        s = [i + 1 for i in range(len(M)) if re.search(tok, M[i], re.I)]
+        if s:
+            inside = [x for x in s if name == 'main' and s18[0] <= x < s18[1]]
+            print(f'      {tok:<16} {name}: {len(s)} sites {s[:8]}'
+                  + (f'   inside §18: {inside}' if name == 'main' else ''))
+print('\n  where "symmetric bounds" lives, with its enclosing section:')
+for ln in [i + 1 for i in range(len(MAIN)) if re.search(r'symmetric bounds', MAIN[i], re.I)]:
+    print(f'      L{ln}  §{enclosing(MAIN, ln)}  {MAIN[ln-1].strip()[:120]}')
+print('\n  §18 lines that price the language (differences / sums / bounds):')
+for ln in range(s18[0], s18[1]):
+    if re.search(r'\b(difference|differences|sums?|symmetric)\b', MAIN[ln - 1], re.I):
+        print(f'      L{ln}  §{enclosing(MAIN, ln)}  {MAIN[ln-1].strip()[:130]}')
+
+hr('15. D3 claim (a): "Chapter 29 names the single open item"')
+c29 = section_span(MAIN, '29')
+for ln in range(7905, 7920):
+    if MAIN[ln - 1].strip(): print(f'  L{ln}  {MAIN[ln-1].strip()[:150]}')
+print('\n  every "open" numeral statement in chapter 29:')
+for ln in range(c29[0], c29[1]):
+    if re.search(r'open', MAIN[ln - 1], re.I) and re.search(
+            r'\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|single|\d+)\b',
+            MAIN[ln - 1], re.I):
+        print(f'      L{ln}  {MAIN[ln-1].strip()[:140]}')
+print('\n  "the single open item" / "one open" forms, all six volumes:')
+for tok in ['single open', 'one open item', 'the open item', 'sole open']:
+    for name, M in VOLS:
+        s = [i + 1 for i in range(len(M)) if tok in M[i].lower()]
+        if s: print(f'      {tok:<15} {name}: {s[:8]}')
+
+hr('16. D3 claim (b): three documents and one section that could not be reached')
+c28 = section_span(MAIN, '28')
+VOC = ['could not be', 'not obtained', 'unobtained', 'not reached', 'could not reach',
+       'inaccessible', 'unavailable', 'not consulted', 'not seen', 'paywall', 'not read']
+print(f'  sweep vocabulary: {VOC}')
+print(f'  chapter 28 span {c28}:')
+n28 = 0
+for ln in range(c28[0], c28[1]):
+    if any(v in MAIN[ln - 1].lower() for v in VOC):
+        n28 += 1; print(f'      L{ln}  {MAIN[ln-1].strip()[:140]}')
+print(f'  chapter 28 hits: {n28}')
+print(f'  chapter 29 span {c29}:')
+n29 = 0
+for ln in range(c29[0], c29[1]):
+    if any(v in MAIN[ln - 1].lower() for v in VOC):
+        n29 += 1; print(f'      L{ln}  {MAIN[ln-1].strip()[:140]}')
+print(f'  chapter 29 hits: {n29}')
+_refs = [i for i, l in enumerate(MAIN, 1) if l.startswith('## References')][-1]
+print('  same sweep over the References body occurrence (L%d onwards):' % _refs)
+for ln in range(_refs, len(MAIN) + 1):
+    if any(v in MAIN[ln - 1].lower() for v in VOC):
+        print(f'      L{ln}  §{enclosing(MAIN, ln)}  {MAIN[ln-1].strip()[:130]}')
+
+for ln, t in [(9036, 'Every claim\'s support locations are recoverable as the union over its specialisations'),
+              (9057, 'Every claim in this book is supported, cited, or marked open'),
+              (9124, 'Every extensive figure moves with the caps'),
+              (9083, 'every storey above the second is furnished the same way')]:
+    print(f'  L{ln}  {norm(MAIN[ln-1])[:150]}')
+print('\n  "There is no fourth state" -- the three states named, swept for a fourth vocabulary:')
+for tok in ['supported', 'cited', 'marked open', 'unsupported', 'withdrawn', 'open']:
+    print(f'      {tok:<13} main-volume word-bounded count: '
+          f'{sum(has_token(x, tok) for x in MAIN)}')
+
+hr('17. register 394 body in full, and the two chapter attributions of D3 resolved')
+r = regentry(394)[0][0]
+txt = []
+for ln in range(r + 1, r + 24):
+    s = REG[ln - 1].strip()
+    if re.match(r'^#{1,4}\s*\d', s): break
+    if s: txt.append((ln, s))
+for ln, s in txt:
+    for k in range(0, len(s), 150):
+        print(f'  reg L{ln if k==0 else "":<6} {s[k:k+150]}')
+
+hr('18. chapter 29 read for "the single open item"')
+c29 = section_span(MAIN, '29')
+print(f'  chapter 29 span {c29}; its subsection headings:')
+for ln in range(c29[0], c29[1]):
+    if re.match(r'^#{1,4} ', MAIN[ln - 1]):
+        print(f'      L{ln}  {MAIN[ln-1].strip()[:110]}')
+print()
+for ln in range(c29[0], c29[1]):
+    if re.search(r'\bitem\b', MAIN[ln - 1], re.I) and re.search(
+            r'\b(one|single|only|last|remaining|six|eleven)\b', MAIN[ln - 1], re.I):
+        print(f'      L{ln}  {MAIN[ln-1].strip()[:150]}')
+
+hr('19. 12.11.2 read where "symmetric bounds" lives, against L9116\'s "no symmetric bounds"')
+for ln in range(3358, 3380):
+    if MAIN[ln - 1].strip(): print(f'  L{ln}  §{enclosing(MAIN, ln)}  {MAIN[ln-1].strip()[:140]}')
+
+hr('20. the unit\'s figures re-sited with the comma-aware sweep (fault 3 repaired)')
+for n in (976, 8853, 19109, 35789, 704, 1497, 2742, 2873, 3000, 68, 31, 33, 35):
+    tot = {name: numsites(M, n) for name, M in VOLS}
+    ins = [x for x in tot['main'] if A <= x <= B]
+    print(f'  {n:<7} ' + '  '.join(f'{k}:{len(v)}' for k, v in tot.items() if v)
+          + f'   in-unit main sites {ins}')
+
+<<<END FILE: r2-ch16p2.py>>>
+
+<<<FILE: r2-ch16p2.out>>>
+
+================================================================================================
+1.  32.2 printed whole (8 lines) and tested from the CITED side (16m-08 reverse member)
+================================================================================================
+  L9030  ### 32.2 Self-reference
+  L9031  
+  L9032   **S1 — alphabet.** The list of claims is recoverable by projection: it is the set of first coordinates, and the table of contents is its quotient by 
+  L9033  
+  L9034   **S2 — order.** The specificity order among terms is a tree, and Chapter 15's propagation recovers it. **The book's sectioning is not arbitrary**; it
+  L9035  
+  L9036   **S3 — bounds.** Every claim's support locations are recoverable as the union over its specialisations. **A reader given only the claims and their ev
+  L9037  
+
+  section_span (9030, 9038)   body_range (9030, 9038)   COINCIDE
+  citing line L11563: not obtained; §32.2 lists them as open.
+  citing line L11807: was not read in this work (§32.2).
+
+  test: does 32.2 carry a listing of works, obtained or unobtained?
+      unobtained    occurrences inside 32.2: 0
+      work          occurrences inside 32.2: 0
+      works         occurrences inside 32.2: 0
+      list          occurrences inside 32.2: 1
+      listing       occurrences inside 32.2: 0
+      cited         occurrences inside 32.2: 0
+      reference     occurrences inside 32.2: 1
+      Kurucz        occurrences inside 32.2: 0
+      VALD          occurrences inside 32.2: 0
+      compilation   occurrences inside 32.2: 0
+  VERDICT: 32.2 prints S1 alphabet, S2 order, S3 bounds and nothing bibliographic.
+
+================================================================================================
+2.  32.3 L9055 -- "Chapter 28 lists one thousand six hundred and thirty-five that failed"
+================================================================================================
+  main: 15 word-form sites [20, 89, 104, 202, 523, 646, 3514, 7367, 7900, 8918, 9055, 9364, 9376, 9381, 10304]
+
+  referent of each main-volume site (the clause the phrase sits in):
+      L20     …The register holds one thousand six hundred and thirty-five entries. They are one sequence ov…
+      L89     …a process that recorded one thousand six hundred and thirty-five corrections, and it survived beca…
+      L104    …The one thousand six hundred and thirty-five are in Chapter 28. **They are not…
+      L202    …The register. one thousand six hundred and thirty-five claims made in the course of this…
+      L523    …one thousand six hundred and thirty-five of them. Not one was anticipated;…
+      L646    …Chapter 28. one thousand six hundred and thirty-five entries. The register is the evid…
+      L3514   …Then the register outgrew the object. By the end there were one thousand six hundred and thirty-five…
+      L7367   …one thousand six hundred and thirty-five claims made in the course of this…
+      L7900   …does it print its withdrawal register as evidence? yes, one thousand six hundred and thirty-five entries…
+      L8918   …second is a rate that should fall. Conflating them is what makes one thousand six hundred and thirty-five look…
+      L9055   …measured levels from named compilations, and Chapter 28 lists one thousand six hundred and thirty-five that failed.…
+      L9364   …and recording the one thousand six hundred and thirty-five times it caught the author — is t…
+      L9376   …Its register of one thousand six hundred and thirty-five withdrawn claims is offered as th…
+      L9381   …all one thousand six hundred and thirty-five failures and naming the four resu…
+      L10304  …Chapter 28 records one thousand six hundred and thirty-five errors found in work of exactly t…
+
+  chapter 28 heading and its own head line:
+      span (7366, 7856); L7366: ## 28. Withdrawals
+      L7366  ## 28. Withdrawals
+      L7367  one thousand six hundred and thirty-five claims made in the course of this work were wrong. They are
+      L7368  listed here because a book asserting 1,442 verified cells and no failures is unfalsifiable without them.
+      L7369  Twenty-six were made after the register was first closed — six in the literature search of Chapter
+      L7370  29, eight in the structural work of §24.8 and §25.6, and twelve in the structural and audit work. They are listed at §28.7–28.7.2.
+      L7372  **The entries themselves are not printed here.** Every correction, withdrawal and finding this
+      L7373  work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,635 entries, 1 to 1792, at this build (2026-08-29)** — li
+      L7374  **THE METHOD 1.6 — THE REGISTER**, a volume of its own (generated by `register_gen.py` from this book's own source and
+      L7375  its archive until entry 1700; entered by hand since, as the Register's front matter states), so it cannot be thinned by an edit here.
+      L7377  **The book cites a register entry where the entry carries an argument. It does not
+      L7378  reproduce the record, because a record reproduced in two places is a record with
+      L7379  two versions.**
+
+================================================================================================
+3.  32.3 D3 L9057 -- the two chapter claims it makes
+================================================================================================
+  claim (a): "Chapter 29 names the single open item"
+      chapter 29 span (7856, 8222)
+      L7911  decision and after, so the index of open questions is not destabilised by it. And **six of the eleven
+      L7914  and the seniority-lattice question. Those six now block nothing. They remain open, because a question
+      L8209  is 53%, and the forty-eight left out are not left out because the data is poor. They carry open
+
+  claim (b): "Chapter 28 names three documents and one section that could not be reached"
+
+================================================================================================
+4.  32.3 L9045-L9051 -- the audit figures and the two traced failures
+================================================================================================
+  L9045        102 quantitative claims were extracted from the draft and re-derived independently from
+  L9046        the data. Thirty were checkable in full. Two appeared to fail; both were traced to the
+  L9047        auditor, not to the book.
+  L9048  
+  L9049   The two failures are the demonstration, not the exception. A claim about self-duality was flagged
+  L9050   because the audit used the wrong involution. A defect was flagged because the audit sampled four levels
+  L9051   of a twenty-member channel. In both cases the disagreement was visible, was pursued, and
+
+  other sites of 102 in the volume, read at the site (chat 121: read the numeral where
+  the sweep places it):
+      L3981   **They cover 87 of 102 elements — 85%** — and the remaining fifteen fall to three further cells.
+      L5259   3  12     102        142     40          0 / 0            224            **0**
+      L8733   points have Hodge numbers (h, h+3) and (h+3, h) for 13 ≤ h ≤ 128, and name the exclusions: h = 102,
+      L8783   The 24 excluded values — 102, 103, 115, 117 and the run 119–126 — reduce the predictions by
+      L9045   102 quantitative claims were extracted from the draft and re-derived independently from
+
+  "twenty-member channel" and "four levels" against the channel table:
+      twenty-member    main: [9051, 9328]
+      four levels      main: [9050]
+      self-duality     main: [2913, 3499, 9049, 9322, 9328, 10940, 10949]
+      self-duality     reg: [6618]
+      self-duality     mc: [1334]
+      involution       main: [6322, 8705, 9050, 9328]
+
+================================================================================================
+5.  pointers in the unit, resolved under BOTH resolvers, to the CLAIM not the heading
+================================================================================================
+  §32.4       span (9059, 9157)     body (9059, 9085)     DIFFER   L9086 "32.4 shows the recursion is stationary"
+  §32.1.4.1   span (8997, 9030)     body (8997, 9030)     COINCIDE   L9121 "32.1.4.1 sorts the book's numbers"
+  §18         span (4922, 5381)     body (4922, 4931)     DIFFER   L9116 "18 already prices it: no differences, no sums, no symmetric bounds"
+  §12.11      span (2524, 3508)     body (2524, 2535)     DIFFER   L9117 "12.11's envelope densities are the bill"
+  §12.11.3.1  span (3409, 3457)     body (3409, 3457)     COINCIDE   L9154 "12.11.3.1's law-extent rule sorts them exactly"
+  §15         span (4270, 4332)     body (4270, 4272)     DIFFER   L9034 "Chapter 15's propagation recovers it"
+  §32.4.1     span (9085, 9120)     body (9085, 9120)     COINCIDE   in-unit
+  §32.4.2     span (9120, 9157)     body (9120, 9157)     COINCIDE   in-unit
+
+  lettered pointer §D.5.2 (L9089): heading at L10570, text: ### D.5.2 The twenty-seven, enumerated
+
+  §18 read for the three prices it is cited for:
+      differences        in §18: 1
+      sums               in §18: 4
+      symmetric bounds   in §18: 0
+      price              in §18: 1
+      prices             in §18: 0
+
+  the central theorem, "X is closed iff X = R(X)":
+      main: [705, 3104, 3683, 4795, 4800, 9108, 11421]
+      mc: [374, 1244]
+
+================================================================================================
+6.  register citations in the unit: 279, 388, 391, 392, 394 -- existence first, then headline
+================================================================================================
+  register 279: heading L1071 '### 279'
+      headline: **WHY THE SELF-REFERENCE DOES NOT BECOME PARADOX, AND BOTH REASONS ARE COMPUTABLE: THE LANGUAGE IS NEGATION-FREE, AND ℛ IS A CLOSURE OPERATOR, SO Knas
+  register 388: heading L1439 '### 388'
+      headline: **ITEM M CLOSED BY STATING ONE NUMBER TO THE STANDARD NO NUMBER IN THIS BOOK HAD REACHED.** *Register 387 found ten of eleven admitted cells dominated
+  register 391: heading L1451 '### 391'
+      headline: **THE MEASUREMENT FIBRE'S TOP CELL OCCUPIED AT §22.1.1.1.** *Containment on level energies recomputed at four quantum defects — 0.00, 0.35, 1.35 and 2
+  register 392: heading L1455 '### 392'
+      headline: **ITEM M CLOSED. ALL SIX FIBRES NOW CARRY A NUMBER AT THE HIGHEST STANDARD THE COORDINATES ALLOW.** *The last was* *rate**, occupied at §12.11.1.2 by 
+  register 394: heading L1463 '### 394'
+      headline: **SIX OF SIX IDENTITIES HOLD UNDER CAP VARIATION; NINE OF NINE VALUES MOVE.** *Measured at up to four cap settings: E(Λ) = 0, |J(Λ)| = Σ(|Aᵢ| − 1), cl
+
+================================================================================================
+7.  attributions in the unit against ## References BODY occurrence and R.7
+================================================================================================
+  "## References" occurrences: [173, 11511]; BODY occurrence taken as L11511
+  Knaster     in unit  1   in bibliography  0   UNBIBLIOGRAPHED
+  Tarski      in unit  1   in bibliography  0   UNBIBLIOGRAPHED
+  Gödel       in unit  1   in bibliography  1   
+  Godel       in unit  0   in bibliography  0   
+  Russell     in unit  1   in bibliography  0   UNBIBLIOGRAPHED
+  Heaviside   in unit  1   in bibliography  0   UNBIBLIOGRAPHED
+  Edlén       in unit  0   in bibliography  2   
+
+  capitalised tokens in the unit in BOTH sentence positions (chat 121 fault 5):
+    ['Gödel', 'Heaviside', 'Knaster', 'Russell', 'Tarski']
+
+================================================================================================
+8.  Ruling 46 sweep (case-sensitive) and Ruling 45 sweep over the unit
+================================================================================================
+  Ruling 46 sites in the unit: 1  [(9107, 'rclose.py')]
+      rclose.py at L9107: PP sites []  ABSENT FROM PP
+
+  Ruling 45 candidate sites (build/editorial narration), each checked against PP:
+      L9036   PP 8942 (offset -94)       **S3 — bounds.** Every claim's support locatio
+      L9041   PP 8947 (offset -94)       ⅅ_def — two routes to every number. Each quant
+      L9045   PP 8951 (offset -94)       102 quantitative claims were extracted from th
+      L9050   PP 8956 (offset -94)       because the audit used the wrong involution. A
+      L9057   PP 8963 (offset -94)       **D3 — totality.** Every claim in this book is
+      L9065   PP 8971 (offset -94)       **And the recursion is stationary, which is no
+      L9083   PP 8989 (offset -94)       So the reason one need not write a book about 
+      L9108   PP 9014 (offset -94)       this book's central theorem identifies them: *
+      L9120   PP 9026 (offset -94)       ### 32.4.2 Which of this book's figures surviv
+      L9136   PP 9042 (offset -94)       of those figures is a reading at a setting, an
+      L9147   PP 9053 (offset -94)       **Six of six identities hold; nine of nine val
+      L9148   PP 9054 (offset -94)       voice, and a reader has no way to tell which i
+
+================================================================================================
+9.  PP anchoring, per witness, on the unit's own text
+================================================================================================
+  L9032   PP L8938   offset   -94   **S1 — alphabet.** The list of claims is recoverable by proj
+  L9034   PP L8940   offset   -94   **S2 — order.** The specificity order among terms is a tree,
+  L9036   PP L8942   offset   -94   **S3 — bounds.** Every claim's support locations are recover
+  L9039   PP L8945   offset   -94   And this is where the book earns the claim rather than makin
+  L9041   PP L8947   offset   -94   ⅅ_def — two routes to every number. Each quantitative claim 
+  L9042   PP L8948   offset   -94   a verification count. That is a redundancy: the value alone 
+  L9045   PP L8951   offset   -94   102 quantitative claims were extracted from the draft and re
+  L9046   PP L8952   offset   -94   the data. Thirty were checkable in full. Two appeared to fai
+  L9049   PP L8955   offset   -94   The two failures are the demonstration, not the exception. A
+  L9050   PP L8956   offset   -94   because the audit used the wrong involution. A defect was fl
+  L9051   PP L8957   offset   -94   of a twenty-member channel. In both cases the disagreement w
+  L9052   PP L8958   offset   -94   located the error. That is ⅅ_def operating on the text.
+  witnesses anchored: 67
+
+================================================================================================
+10. "the book states most of them once" -- sites of the seven base-setting figures
+================================================================================================
+  cells 976                    93 main-volume numeral sites
+  generators 17                60 main-volume numeral sites
+  rank levels 18               41 main-volume numeral sites
+  widest level 122              9 main-volume numeral sites
+  reflection survivors 8      117 main-volume numeral sites
+  fill 14.12%                   4 main-volume sites [2936, 2948, 2963, 9129]
+  surplus 7.07                  5 main-volume sites [315, 854, 2115, 9008, 9132]
+
+  the three NEW settings' figures, sited (a figure stated once is stated in the table only):
+      8853     main:2  reg:1
+      19109    main:1
+      35789    main:1
+      704      main:1  reg:3  mc:1  ioi:1
+      1497     main:1  reg:4
+      2742     main:1
+      2873     main:1
+
+================================================================================================
+11. census rows in range, and the duplicated-section sweep (docket 27)
+================================================================================================
+  id 710  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9150  item 388,  detail other sites: main=1 reg=2 ioi=1 | **That is why the three fi
+  id 711  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9150  item 391  detail other sites: main=1 reg=4 ioi=1 | **That is why the three fi
+  id 712  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9150  item 392  detail other sites: main=4 reg=4 ioi=1 sc=1 | **That is why the thr
+  census rows in range (member main OR all): 3
+  duplicated-section sweep: 45 long lines swept, 0 recur elsewhere
+
+================================================================================================
+13. register 394 read in full -- the Register carries the same two count words
+================================================================================================
+  reg L1463  ### 394
+  reg L1465  **SIX OF SIX IDENTITIES HOLD UNDER CAP VARIATION; NINE OF NINE VALUES MOVE.** *Measured at up to four cap settings: E(Λ) = 0, |J(Λ)| = Σ(|Aᵢ| − 1), closure unde
+
+================================================================================================
+14. §18 read at its target for the three prices L9116 attributes to it
+================================================================================================
+  §18 span (4922, 5381)  body (4922, 4931)  DIFFER
+      symmetric bound  main: 2 sites [3365, 9117]   inside §18: []
+      symmetric bound  mc: 2 sites [1254, 1274]
+      no differences   main: 1 sites [9116]   inside §18: []
+      no sums          main: 1 sites [9116]   inside §18: []
+      difference       main: 59 sites [216, 496, 1155, 1578, 1766, 3364, 3374, 3500]   inside §18: [4926, 4971, 5078, 5153]
+      difference       reg: 56 sites [241, 853, 2153, 2301, 2361, 2481, 2521, 2529]
+      difference       mc: 22 sites [470, 864, 1030, 1084, 1254, 1374, 1403, 1405]
+      difference       pc: 3 sites [237, 587, 655]
+      difference       ioi: 4 sites [72, 119, 1486, 1851]
+      difference       sc: 3 sites [1078, 1138, 1156]
+      sum              main: 30 sites [413, 414, 415, 1316, 1766, 1767, 2245, 2258]   inside §18: [4926, 5118, 5153, 5253]
+      sum              reg: 22 sites [1397, 1613, 2361, 2397, 4293, 5573, 5577, 5621]
+      sum              mc: 30 sites [73, 89, 104, 1004, 1024, 1084, 1200, 1204]
+      sum              sc: 1 sites [138]
+
+  where "symmetric bounds" lives, with its enclosing section:
+      L3365  §12.11.2  SYMMETRIC BOUNDS. The exact ceiling of every coupling axis is symmetric under the reflection of
+      L9117  §32.4.1  symmetric bounds. §12.11's envelope densities are the bill, and freedom from paradox is on the same
+
+  §18 lines that price the language (differences / sums / bounds):
+      L4926  §18  unachieved.** The triangle's two inequalities are one sum and one difference — precisely the two
+      L4971  §18.2  ν = e − δ is a difference, and differences are non-monotone in the cell order. 86 violations at the caps
+      L5078  §18.4.1  **The law distinguishes two ways of realising, and the difference is measurable.** Λ closes through
+      L5118  §18.4.1  outside it. The rectangular cavity fails because a sum of indicators is neither morphism, not because
+      L5151  §18.4.1  bodies give a triangle, treewidth 2. And superposition is a **sum**: φ(a,b) = a + b breaks 400 meets
+      L5153  §18.4.1  once — a sum in the superposition, a difference in the relative position, a symmetric function in the
+      L5161  §18.4.1  both computable.** Mass enters gravitational dynamics as a sum, so a single summed observable brackets
+      L5167  §18.4.1  **three pairwise sums**                            **1**    **1.00**
+      L5172  §18.4.1  taken. Three pairwise sums separate exactly, which is linear algebra and not this book; what the book
+      L5253  §18.4.2  **It can.** Following §17.4's repair literally — a sum cannot be bounded, so index it — take the
+      L5254  §18.4.2  partial sums S_k of an ordered non-increasing mass vector. The exact set is then the **concave**
+      L5282  §18.4.2  isomorphic to an infimum subsemilattice of certain concave nondecreasing tuples. Partial sums are the
+
+================================================================================================
+15. D3 claim (a): "Chapter 29 names the single open item"
+================================================================================================
+  L7905  §29.2 asks what component this work owns, and the author has answered by declining the frame: **no
+  L7906  novelty is claimed, and there is no question of it.** That is not a concession forced by §29.11's
+  L7907  precedent or §29.12's locations. It is the position §29.3 below already states — *E(X) is
+  L7908  deliberately not claimed as novel* — made general and made final.
+  L7910  Two consequences, both computed. **E(Q) does not move under its fibration**: nought by domain, before the
+  L7911  decision and after, so the index of open questions is not destabilised by it. And **six of the eleven
+  L7912  items in Q had novelty as their only stake** — B, C, F, G, K and N: the Paschen and Götze scan, the
+  L7913  nine literatures, the reorderability search, the complexity literature, the 2J_c containment claim
+  L7914  and the seniority-lattice question. Those six now block nothing. They remain open, because a question
+  L7915  does not stop existing when it stops mattering, but their *blocks* coordinate falls to nothing and Q
+  L7916  loses more than half its stake while losing none of its length. **This is the shape §29.4 already
+  L7917  describes** — Q growing at nearly every step while its scope falls — arriving at its end state.
+  L7919  Referee flag 3 asked what remains after the precedents. The answer is that the question was
+
+  every "open" numeral statement in chapter 29:
+      L7902  **Those five are checkable by opening the book.** Whether another work has all five is a separate question — **and unlike novelty, a reader 
+      L7911  decision and after, so the index of open questions is not destabilised by it. And **six of the eleven
+      L7914  and the seniority-lattice question. Those six now block nothing. They remain open, because a question
+      L8209  is 53%, and the forty-eight left out are not left out because the data is poor. They carry open
+
+  "the single open item" / "one open" forms, all six volumes:
+      single open     main: [9057]
+      single open     reg: [5461]
+      the open item   reg: [1385, 1389]
+
+================================================================================================
+16. D3 claim (b): three documents and one section that could not be reached
+================================================================================================
+  sweep vocabulary: ['could not be', 'not obtained', 'unobtained', 'not reached', 'could not reach', 'inaccessible', 'unavailable', 'not consulted', 'not seen', 'paywall', 'not read']
+  chapter 28 span (7366, 7856):
+  chapter 28 hits: 0
+  chapter 29 span (7856, 8222):
+      L7962  The chapter itself is paywalled. Its principal expert review is not, and we have read it in full.
+      L8029  ### 29.6 The three documents we could not reach
+      L8182  **What could not be reached.** Kurucz's line files are the right target — computed lines, many never
+      L8185  The data files themselves could not be: gfall is of the order of a gigabyte and the per-species files
+      L8186  could not be addressed through the interface available. VALD requires registration. So the run
+  chapter 29 hits: 5
+  same sweep over the References body occurrence (L11511 onwards):
+      L11532  §App F.4.3  expansion above it. **[S] not read directly; the note is the source used.**
+      L11563  §App F.4.3  not obtained; §32.2 lists them as open.
+      L11760  §App F.4.3  **[S] located through the enumeration literature, not read in full.** · **Colomb, P., Irlande, A. &
+      L11807  §App F.4.3  was not read in this work (§32.2).
+  L9036  **S3 — bounds.** Every claim's support locations are recoverable as the union over its specialisations. **A reader given only the claims and their evi
+  L9057  **D3 — totality.** Every claim in this book is **supported, cited, or marked open**. There is no fourth state. Chapter 29 names the single open item; 
+  L9124  **The values do not.** Every extensive figure moves with the caps, and moves a long way:
+  L9083  So the reason one need not write a book about this book is **not** that it would be identical. It is that it would exhibit **nothing new**: the same t
+
+  "There is no fourth state" -- the three states named, swept for a fourth vocabulary:
+      supported     main-volume word-bounded count: 6
+      cited         main-volume word-bounded count: 57
+      marked open   main-volume word-bounded count: 3
+      unsupported   main-volume word-bounded count: 0
+      withdrawn     main-volume word-bounded count: 35
+      open          main-volume word-bounded count: 98
+
+================================================================================================
+17. register 394 body in full, and the two chapter attributions of D3 resolved
+================================================================================================
+  reg L1465   **SIX OF SIX IDENTITIES HOLD UNDER CAP VARIATION; NINE OF NINE VALUES MOVE.** *Measured at up to four cap settings: E(Λ) = 0, |J(Λ)| = Σ(|Aᵢ| − 1), cl
+  reg L       osure under join and meet, rank modularity and the cylinder's factorisation all hold wherever tested, while cells, generators, fill, rank levels, the 
+  reg L       widest level, the bit surplus and both reflection counts all move — fill alone running 14.12%, 6.72%, 6.45%, 7.73%, which is not even monotone.* **The
+  reg L        book states identities and values in the same voice* **, and a reader cannot tell them apart from the sentence. This is why registers 388, 391 and 39
+  reg L       2 each turned a single-stated figure into a finding: they were values presented as properties. §32.4.2 states the distinction and §12.11.3.1's law–ext
+  reg L       ent rule is what sorts it — an identity follows from the constraints, a value is read off an object built at particular caps.*
+
+================================================================================================
+18. chapter 29 read for "the single open item"
+================================================================================================
+  chapter 29 span (7856, 8222); its subsection headings:
+      L7856  ## 29. Precedent, and what a search can bound
+      L7859  ### 29.1 Why novelty is not the author's to claim
+      L7871  ### 29.2 What can be claimed instead
+      L7904  ### 29.2.1 The question closed by the author
+      L7922  ### 29.2.2 A reading the language cannot close
+      L7940  ### 29.3 The word for it
+      L7949  ### 29.4 On priority for V = 4ν/3
+      L7961  ### 29.5 Edlén 1964, examined at one remove
+      L7969  ### 29.5.1 Every equation in the review is a fit
+      L7982  ### 29.5.2 And the paradigm is stated twice, explicitly
+      L8000  ### 29.5.3 One near miss, and it is not ours
+      L8012  ### 29.5.4 A bibliographic correction
+      L8020  ### 29.5.5 What this establishes, and what it does not
+      L8029  ### 29.6 The three documents we could not reach
+      L8041  ### 29.7 What the entered literatures returned
+      L8069  ### 29.7.1 The calibration was post hoc
+      L8083  ### 29.8 The other claims
+      L8098  ### 29.9 Why state it this way
+      L8102  ### 29.9.1 Attributions entered by the tower
+      L8108  ### 29.10 Two searches run, and an obstruction worth naming
+      L8123  ### 29.11 A precedent found, and it is for the central theorem
+      L8152  ### 29.11.1 Two categories entered: quantum mechanics and astrophysics
+      L8179  ### 29.11.2 The run, attempted
+
+      L8105  grows by one item: whether anyone has lattice-ordered the seniority scheme is a literature this
+
+================================================================================================
+19. 12.11.2 read where "symmetric bounds" lives, against L9116's "no symmetric bounds"
+================================================================================================
+  L3358  §12.11.1.7  atoms.** A dipole transition changes ℓ by one, moving the target into a configuration that atom rarely
+  L3359  §12.11.1.7  holds as a source — while some element does hold it, and the elements that do are exactly the ones
+  L3360  §12.11.1.7  ℓ-adjacency reaches. **Parity says it twice over**: parity-conserving cells compose within at 38.4%
+  L3361  §12.11.1.7  and parity-changing at 20.1%. Registers 628–629.
+  L3363  §12.11.2  ### 12.11.2 Three excluded forms, and the fold has a name
+  L3364  §12.11.2  Chapter 17 excluded two constraint forms — sums and differences. The tower requires a third:
+  L3365  §12.11.2  SYMMETRIC BOUNDS. The exact ceiling of every coupling axis is symmetric under the reflection of
+  L3366  §12.11.2  §8.4 — particle-hole conjugation, terms(ℓᵏ) = terms(ℓ^(4ℓ+2−k)), verified exactly for every k on the p
+  L3367  §12.11.2  and d shells — and a symmetric non-constant function is not monotone, so §14.4 cannot carry it.
+  L3368  §12.11.2  min(g, 4f+2−g) for spin; the conjugation ceiling for seniority; max2J(ℓ,k), unimodal with its peak at
+  L3369  §12.11.2  half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances.
+  L3371  §12.11.2  The envelope gap decomposes, and the three parts are distinct. At the caps of §7.4: axis 9's
+  L3372  §12.11.2  gap is parity 5, fold 1, both 1; axis 11's is ceiling 16, parity 24, triangle 17. Three machines —
+  L3373  §12.11.2  the REFLECTION (conjugation), the CONGRUENCE (fermion parity), the TRIANGLE (coupling
+  L3374  §12.11.2  additivity, one sum and one difference, precisely Chapter 17's two exclusions wearing physics) —
+  L3375  §12.11.2  and no coupling axis escapes all three. The exact coupling region is not a lattice in any
+  L3376  §12.11.2  presentation tried: as 2S′ (50,592 failures), as parity alone (52,080), as the min-cap (17,856), as
+  L3377  §12.11.2  pair count (7,254), as (2S,2L,2J) (2,443 meets) — and the triangle's first meet failure manufactures
+  L3378  §12.11.2  J = ½ from S = L = 0. The componentwise minimum forgets that J is built from L and S.
+
+================================================================================================
+20. the unit's figures re-sited with the comma-aware sweep (fault 3 repaired)
+================================================================================================
+  976     main:93  reg:41  mc:37  pc:2  ioi:14   in-unit main sites [9127]
+  8853    main:2  reg:1   in-unit main sites [9127]
+  19109   main:1   in-unit main sites [9127]
+  35789   main:1   in-unit main sites [9127]
+  704     main:1  reg:3  mc:1  ioi:1   in-unit main sites [9131]
+  1497    main:1  reg:4   in-unit main sites [9131]
+  2742    main:1   in-unit main sites [9131]
+  2873    main:1   in-unit main sites [9107]
+  3000    main:4   in-unit main sites [9107]
+  68      main:5  reg:11  mc:2  ioi:1  sc:2   in-unit main sites [9133]
+  31      main:12  reg:22  mc:5  pc:2  ioi:9  sc:2   in-unit main sites [9128]
+  33      main:32  reg:33  mc:18  pc:1  ioi:7  sc:1   in-unit main sites [9128]
+  35      main:28  reg:35  mc:22  pc:5  ioi:9  sc:13   in-unit main sites [9128]
+<<<END FILE: r2-ch16p2.out>>>
+
+<<<FILE: r2-ch22a2.py>>>
+# r2-ch22a.py — Appendix D part 1 (main L10320–L10461, D.1–D.4.4.3), the COMPUTABLE claims (chat 135).
+# Reads MEMBERS by name (never a bundle path); imports r2lib by path; deterministic (no wall-clock).
+# Appendix D is read as DATA under chat-127 item 1. Every count names its convention before it is scored.
+import os, re, io, sys, importlib.util, contextlib
+from decimal import Decimal as D, ROUND_HALF_UP
+from collections import Counter
+import numpy as np, sympy as sp
+H = os.path.dirname(os.path.abspath(__file__))
+def load(name):
+    spec = importlib.util.spec_from_file_location(name.replace('-', '_'), os.path.join(H, name + '.py')); mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod); return mod
+L = load('r2lib'); heading_line, section_span, has_token = L.heading_line, L.section_span, L.has_token
+M = L.read_member('The_Method_1_6-2.md').split('\n')
+R = L.read_member('The_Method_1_6___The_Register-2.md').split('\n')
+
+def rbody(n):   # copied verbatim from r2-ch21a.py (there from r2-ch20a.py / r2-ch19a.py / r2-ch18a.py / r2-ch17e.py / r2-ch17c.py / r2-ch17b.py; owed to r2lib, DEFERRED): first non-blank line after '### n'
+    i = next((i for i, l in enumerate(R) if l.strip() == '### %d' % n), None)
+    return None if i is None else next(l for l in R[i + 1:] if l.strip())
+
+def body_range(M, sec):   # copied verbatim from r2-ch21a.py (there from r2-ch20a.py / r2-ch19a.py / r2-ch18a.py / r2-ch17e.py / r2-ch17c.py / r2-ch17a.py / r2-ch16z.py; owed to r2lib, DEFERRED): heading to next heading of any rank, body occurrence
+    s = heading_line(M, sec)
+    for i in range(s + 1, len(M) + 1):
+        if re.match(r'^#{1,4} ', M[i - 1]): return (s, i)
+    return (s, len(M) + 1)
+
+def lettered(M, tag):   # copied verbatim from r2-ch21a.py (there from r2-ch20a.py / r2-ch19a.py / r2-ch18a.py / r2-ch17e.py / r2-ch17c.py; owed to r2lib, DEFERRED): lettered heading, exact token, hits in order; body = LAST
+    hits = [i for i, l in enumerate(M, 1) if re.match(r'^#{2,4}\s*' + re.escape(tag) + r'(?!\.\d)(?!\d)\b', l)]
+    return hits
+
+def pct(a, b): return D(100 * a / b).quantize(D('0.1'), ROUND_HALF_UP) if b else None   # ROUND_HALF_UP, one place
+print('r2-ch22a — Appendix D part 1 (D.1–D.4.4.3), computable claims; conventions named inline')
+
+# §1 unit boundaries, measured
+d = lettered(M, 'Appendix D'); e = lettered(M, 'Appendix E'); d5 = [i for i, l in enumerate(M, 1) if re.match(r'^### D\.5 ', l)]
+print('§1 `## Appendix D` hits', d, '`## Appendix E` hits', e, '`### D.5` hits', d5, '; part 1 =', d[-1], 'to', d5[-1] - 1, '=', d5[-1] - d[-1], 'lines')
+sub = [(i, l) for i, l in enumerate(M, 1) if d[-1] <= i < d5[-1] and re.match(r'^#{1,4} ', l)]
+print('   headings in part 1:', len(sub), [l.split(' ')[1] for i, l in sub])
+
+# §2 λ² = (2/3)T — symbolic, then the printed sweep. Convention: T = Z²R/ν², λ² = (T′)²/T″; the sweep is
+# Z = 1…30 (integers) × ν = 400 equally spaced points on [1.01, 60] = 12,000 evaluations (the only grid of that size
+# the sentence admits with integer Z); R = R∞ = 109737.31568160 cm⁻¹ (scale-free in the relative error); float64.
+Z, nu, Rc = sp.symbols('Z nu R', positive=True); T = Z**2 * Rc / nu**2
+lam2 = sp.simplify(sp.diff(T, nu)**2 / sp.diff(T, nu, 2)); print('§2 symbolic λ² = (T′)²/T″ =', lam2, '; equals (2/3)T:', sp.simplify(lam2 - sp.Rational(2, 3) * T) == 0)
+Zs = np.arange(1, 31, dtype=np.float64); nus = np.linspace(1.01, 60.0, 400); Rv = 109737.31568160
+ZZ, NN = np.meshgrid(Zs, nus, indexing='ij'); Tv = ZZ**2 * Rv / NN**2; T1 = -2 * ZZ**2 * Rv / NN**3; T2 = 6 * ZZ**2 * Rv / NN**4
+lv = T1**2 / T2; rel = np.abs(lv - (2 / 3) * Tv) / ((2 / 3) * Tv)
+print('   sweep: evaluations', lv.size, '(30 × 400); violations of λ² ≤ (2/3)T beyond 1e-12:', int((rel > 1e-12).sum()), '; worst relative error %.2e' % rel.max(), '; printed 7.1 × 10⁻¹⁶')
+for g in (300, 401, 200):   # the grid the sentence does not fix: two neighbouring conventions, for the record
+    nn = np.linspace(1.01, 60.0, g); Z2, N2 = np.meshgrid(Zs, nn, indexing='ij'); t = Z2**2 * Rv / N2**2
+    r2 = np.abs((-2 * Z2**2 * Rv / N2**3)**2 / (6 * Z2**2 * Rv / N2**4) - (2 / 3) * t) / ((2 / 3) * t); print('   alt grid 30 ×', g, '=', r2.size, 'worst %.2e' % r2.max())
+
+# §3 Λ₈ rebuilt, the defining system F (Chapter 7) and the recovery operator ℛ.
+with contextlib.redirect_stdout(io.StringIO()): T8 = L.load_tower()
+cells = [tuple(int(v) for v in c) for c in T8.L8()]; n8 = len(cells); A = np.array(cells, dtype=np.int64); names = ['n', 'ℓ', 'k', 'q', 'e', 'f', 'g', '2S']
+print('§3 |Λ₈| =', n8, '(tower-2); coordinates', names)
+caps = A.max(axis=0); print('   coordinate maxima', dict(zip(names, caps.tolist())))
+# F: the seven bounds of Chapter 7 (ℓ≤n−1, k≤4ℓ+2, q≤k, f≤e−1, g≤4f+2, g≤q, 2S≤k) with the caps; convention: a bound = an ordered pair (bounded, bounding)
+F_edges = [('ℓ', 'n'), ('k', 'ℓ'), ('q', 'k'), ('f', 'e'), ('g', 'f'), ('g', 'q'), ('2S', 'k')]
+box = [tuple(x) for x in np.array(np.meshgrid(*[np.arange(0, c + 1) for c in caps], indexing='ij')).reshape(8, -1).T.tolist()]
+def inF(x):
+    n, l, k, q, e, f, g, S = x
+    return 1 <= n and l <= n - 1 and 1 <= k <= 4 * l + 2 and q <= k and 1 <= e and f <= e - 1 and g <= min(4 * f + 2, q) and S <= k
+Fset = {x for x in box if inF(x)}; print('   box', len(box), 'cells; F (seven bounds + caps + the two floors n,k,e ≥ 1) generates', len(Fset), '; equals Λ₈:', Fset == set(cells))
+# caterpillar: the bound graph of F on eight nodes
+deg = Counter(); [deg.update([a, b]) for a, b in F_edges]
+print('   F bound graph: 7 edges on 8 nodes, degrees', dict(deg), '; pendant at k (2S):', deg['2S'] == 1 and ('2S', 'k') in F_edges, '; path n–ℓ–k–q–g–f–e of 7 nodes:', all(deg[v] <= 3 for v in deg))
+# ℛ: φ_ij(v) = max{x_i : x ∈ X, x_j = v}. Convention: an ordered pair (i, j), i ≠ j, gives one recovered bound; 8·7 = 56.
+def recover(X):
+    X = np.array(sorted(X), dtype=np.int64); phi = {}
+    for i in range(8):
+        for j in range(8):
+            if i == j: continue
+            phi[(i, j)] = {int(v): int(X[X[:, j] == v, i].max()) for v in np.unique(X[:, j])}
+    return phi
+def generate(phi, X):   # pointwise minimum over the recovered bounds, on the box of the source's coordinate maxima
+    return {x for x in box if all(x[i] <= min(phi[(i, j)].get(x[j], -1) for j in range(8) if j != i) for i in range(8))}
+phi = recover(cells); gen = generate(phi, cells)
+print('   ℛ(Λ₈): ordered pairs i≠j =', len(phi), '; pointwise-minimum reconstruction generates', len(gen), '; = Λ₈:', gen == set(cells), '(printed 976 = 976)')
+# which recovered bounds are non-trivial (non-constant in v) — the candidate reading of forty-eight
+nontriv = [(i, j) for (i, j), f in phi.items() if len(set(f.values())) > 1]
+print('   non-constant recovered bounds (φ_ij varies with v):', len(nontriv), '; constant:', len(phi) - len(nontriv))
+# which bounds CONSTRAIN: dropping the bound (alone) enlarges the generated set — the candidate reading of sixteen
+def gen_without(drop):
+    return sum(1 for x in box if all(x[i] <= min([phi[(i, j)].get(x[j], -1) for j in range(8) if j != i and (i, j) != drop] or [caps[i]]) for i in range(8)))
+constrain = [(i, j) for (i, j) in phi if gen_without((i, j)) != n8]
+print('   bounds whose sole removal changes the generated set:', len(constrain), sorted((names[i], names[j]) for i, j in constrain), '(printed: sixteen that constrain, of fifty-six)')
+# tightest bound per coordinate: convention — for cell x and coordinate i, the set of j attaining min_j φ_ij(x_j); ties credit every attaining j
+tight = {i: Counter() for i in range(8)}; tie_any = 0; tie_all = 0
+for x in cells:
+    cell_tie = []
+    for i in range(8):
+        vals = {j: phi[(i, j)][x[j]] for j in range(8) if j != i}; m = min(vals.values()); att = [j for j, v in vals.items() if v == m]
+        for j in att: tight[i][j] += 1
+        cell_tie.append(len(att) >= 2)
+    tie_any += any(cell_tie); tie_all += all(cell_tie)
+for i in (6, 3):
+    print('   tightest for', names[i] + ':', ', '.join('%s %s%%' % (names[j], pct(c, n8)) for j, c in tight[i].most_common()), '; every partner tightest somewhere:', len(tight[i]) == 7)
+print('   printed D.4.2 for g: q 92.6, k 39.9, f 35.1, n 11.2; D.4.3 for g: q 93, k 40, f 35, ℓ 20; for q: k 100, ℓ 66, n 48')
+print('   cells with two bounds tied at the minimum — some coordinate:', tie_any, 'of', n8, '(%s%%)' % pct(tie_any, n8), '; every coordinate:', tie_all, 'of', n8, '(printed 976 of 976 — 100%)')
+print('   coordinates with >1 bound under ℛ:', sum(1 for i in range(8) if sum(1 for j in range(8) if j != i) > 1), 'of 8; bounds per coordinate:', sorted({sum(1 for j in range(8) if j != i) for i in range(8)}))
+# idempotence: ℛ(generate(ℛ(Λ))) == ℛ(Λ), twice
+phi2 = recover(gen); gen2 = generate(phi2, gen); phi3 = recover(gen2)
+print('   idempotent: ℛ∘gen∘ℛ = ℛ:', phi2 == phi, '; and again:', phi3 == phi, '; generated', len(gen2))
+
+# §4 maximal chains of Λ₈ under the product order. Convention: a chain from a minimal element to a maximal element
+# through covers (y ⋖ x iff y < x componentwise and no z ∈ Λ₈ with y < z < x); count = number of such paths.
+idx = {c: i for i, c in enumerate(cells)}; leq = np.all(A[:, None, :] <= A[None, :, :], axis=2); lt = leq & ~np.eye(n8, dtype=bool)
+cover = lt & ~np.any(lt[:, :, None] & lt[None, :, :], axis=1)
+mins = [i for i in range(n8) if not lt[:, i].any()]; maxs = [i for i in range(n8) if not lt[i].any()]
+order = sorted(range(n8), key=lambda i: (int(A[i].sum()), cells[i])); paths = [0] * n8
+for i in mins: paths[i] = 1
+for i in order:
+    for j in np.nonzero(cover[i])[0]: paths[j] += paths[i]
+total = sum(paths[i] for i in maxs)
+print('§4 minimal elements', [cells[i] for i in mins], '; maximal elements', len(maxs), '; covers', int(cover.sum()), '; maximal chains', f'{total:,}', '(printed 1,113,045,672 at L10442; other sites', [i for i, l in enumerate(M, 1) if '1,113,045,672' in l], ')')
+
+# §5 pointers named in part 1, resolved to the claim under both resolvers (convention: a pointer resolves when the
+# section's body_range OR its section_span carries the claim token, word-bounded, case-insensitive)
+probes = [('16.7.1', ['separating', 'missing constraint', 'diagnostic']), ('11.5', ['min', 'coupling']), ('11.7', ['tree', 'closed expression', 'closed form']),
+          ('12.9', ['1,113,045,672', 'maximal chain']), ('11.1', ['six', 'language'])]
+for sec, toks in probes:
+    br = body_range(M, sec); ss = section_span(M, sec)
+    for t in toks:
+        b = sum(1 for l in M[br[0]:br[1] - 1] if has_token(l, t) or t in l); s = sum(1 for l in M[ss[0]:ss[1] - 1] if has_token(l, t) or t in l)
+        print('§5 §%s %s body_range %s: %d ; section_span %s: %d' % (sec, repr(t), br, b, ss, s))
+# Sites resolved by their own text rather than carried as line numbers. r3-wl2's +8 shift at main
+# L9608 moved every one of them; a literal cannot follow its line, a search can.
+def _at(_sub, _L=None):
+    _L = M if _L is None else _L
+    _h = [_i for _i, _l in enumerate(_L, 1) if _sub in _l]
+    assert len(_h) == 1, 'anchor %r matches %d lines, not 1' % (_sub, len(_h))
+    return _h[0]
+c23 = [i for i, l in enumerate(M, 1) if 'Nesterov' in l]; print('   Nesterov sites (Chapter 23 citation claim, L%d):' % _at('The identity was stated in Chapter 23 and cited to Nesterov'), c23, '; enclosing headings:', [next(M[k - 1][:28] for k in range(i, 0, -1) if re.match(r'^#{1,4} ', M[k - 1])) for i in c23[:3]])
+print('   Figure 11.1 caption line:', [i for i, l in enumerate(M, 1) if re.search(r'Figure 11\.1\b', l)][:4], '; P21 sites:', [i for i, l in enumerate(M, 1) if re.search(r'\bP21\b', l)][:8])
+
+# §6 Register entries naming Appendix D: heading number, WARNING line present?
+hits = [i for i, l in enumerate(R, 1) if 'Appendix D' in l]
+for i in hits:
+    h = next((R[k - 1].strip() for k in range(i, 0, -1) if re.match(r'^#{1,4}\s*\d+\s*$', R[k - 1])), None)
+    warn = any('WARNING' in R[k] for k in range(i - 1, min(i + 40, len(R))) if not re.match(r'^#{1,4}\s*\d+\s*$', R[k]))
+    print('§6 Register L%d entry %s WARNING-in-body: %s :: %s' % (i, h, warn, R[i - 1][:110]))
+print('§7 forty-eight / fifty-six sites in the unit:', [i for i, l in enumerate(M, 1) if d[-1] <= i < d5[-1] and re.search(r'forty-eight|fifty-six', l)],
+      '; the twin restatement at D.5.1:', [i for i, l in enumerate(M, 1) if d5[-1] <= i < e[-1] and re.search(r'92\.6|39\.9|fifty-six', l)])
+print('done')
+<<<END FILE: r2-ch22a2.py>>>
+
+<<<FILE: r2-ch22a2.out>>>
+r2-ch22a — Appendix D part 1 (D.1–D.4.4.3), computable claims; conventions named inline
+§1 `## Appendix D` hits [165, 10328] `## Appendix E` hits [166, 10906] `### D.5` hits [10470] ; part 1 = 10328 to 10469 = 142 lines
+   headings in part 1: 12 ['Appendix', 'D.1', 'D.2', 'D.3', 'D.4', 'D.4.1', 'D.4.2', 'D.4.3', 'D.4.4', 'D.4.4.1', 'D.4.4.2', 'D.4.4.3']
+§2 symbolic λ² = (T′)²/T″ = 2*R*Z**2/(3*nu**2) ; equals (2/3)T: True
+   sweep: evaluations 12000 (30 × 400); violations of λ² ≤ (2/3)T beyond 1e-12: 0 ; worst relative error 7.12e-16 ; printed 7.1 × 10⁻¹⁶
+   alt grid 30 × 300 = 9000 worst 7.47e-16
+   alt grid 30 × 401 = 12030 worst 8.15e-16
+   alt grid 30 × 200 = 6000 worst 6.88e-16
+§3 |Λ₈| = 976 (tower-2); coordinates ['n', 'ℓ', 'k', 'q', 'e', 'f', 'g', '2S']
+   coordinate maxima {'n': 3, 'ℓ': 1, 'k': 3, 'q': 3, 'e': 3, 'f': 1, 'g': 3, '2S': 3}
+   box 16384 cells; F (seven bounds + caps + the two floors n,k,e ≥ 1) generates 976 ; equals Λ₈: True
+   F bound graph: 7 edges on 8 nodes, degrees {'ℓ': 2, 'n': 1, 'k': 3, 'q': 2, 'f': 2, 'e': 1, 'g': 2, '2S': 1} ; pendant at k (2S): True ; path n–ℓ–k–q–g–f–e of 7 nodes: True
+   ℛ(Λ₈): ordered pairs i≠j = 56 ; pointwise-minimum reconstruction generates 976 ; = Λ₈: True (printed 976 = 976)
+   non-constant recovered bounds (φ_ij varies with v): 16 ; constant: 40
+   bounds whose sole removal changes the generated set: 7 [('2S', 'k'), ('f', 'e'), ('g', 'f'), ('g', 'q'), ('k', 'ℓ'), ('q', 'k'), ('ℓ', 'n')] (printed: sixteen that constrain, of fifty-six)
+   tightest for g: q 92.6%, k 39.9%, f 35.1%, ℓ 20.4%, e 16.1%, n 11.2%, 2S 6.6% ; every partner tightest somewhere: True
+   tightest for q: k 100.0%, ℓ 66.2%, n 47.7%, e 38.5%, f 38.5%, g 38.5%, 2S 38.5% ; every partner tightest somewhere: True
+   printed D.4.2 for g: q 92.6, k 39.9, f 35.1, n 11.2; D.4.3 for g: q 93, k 40, f 35, ℓ 20; for q: k 100, ℓ 66, n 48
+   cells with two bounds tied at the minimum — some coordinate: 976 of 976 (100.0%) ; every coordinate: 112 of 976 (printed 976 of 976 — 100%)
+   coordinates with >1 bound under ℛ: 8 of 8; bounds per coordinate: [7]
+   idempotent: ℛ∘gen∘ℛ = ℛ: True ; and again: True ; generated 976
+§4 minimal elements [(1, 0, 1, 0, 1, 0, 0, 0)] ; maximal elements 1 ; covers 3749 ; maximal chains 1,113,045,672 (printed 1,113,045,672 at L10442; other sites [2478, 3671, 10450, 10597] )
+§5 §16.7.1 'separating' body_range (4578, 4618): 0 ; section_span (4578, 4618): 0
+§5 §16.7.1 'missing constraint' body_range (4578, 4618): 0 ; section_span (4578, 4618): 0
+§5 §16.7.1 'diagnostic' body_range (4578, 4618): 0 ; section_span (4578, 4618): 0
+§5 §11.5 'min' body_range (2231, 2243): 1 ; section_span (2231, 2243): 1
+§5 §11.5 'coupling' body_range (2231, 2243): 1 ; section_span (2231, 2243): 1
+§5 §11.7 'tree' body_range (2251, 2275): 2 ; section_span (2251, 2275): 2
+§5 §11.7 'closed expression' body_range (2251, 2275): 0 ; section_span (2251, 2275): 0
+§5 §11.7 'closed form' body_range (2251, 2275): 0 ; section_span (2251, 2275): 0
+§5 §12.9 '1,113,045,672' body_range (2460, 2484): 1 ; section_span (2460, 2484): 1
+§5 §12.9 'maximal chain' body_range (2460, 2484): 1 ; section_span (2460, 2484): 1
+§5 §11.1 'six' body_range (2079, 2094): 2 ; section_span (2079, 2174): 3
+§5 §11.1 'language' body_range (2079, 2094): 2 ; section_span (2079, 2174): 9
+   Nesterov sites (Chapter 23 citation claim, L10385): [6341, 7881, 8052, 10385, 11661] ; enclosing headings: ['### 23.8.1 The quantity is t', '### 29.2 What can be claimed', '### 29.7 What the entered li']
+   Figure 11.1 caption line: [2220, 2222, 10447] ; P21 sites: [420, 437, 2080, 2175, 5574, 10455, 10456, 10467]
+§6 Register L1381 entry ### 373 WARNING-in-body: False :: **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls exactly at th
+§6 Register L1389 entry ### 375 WARNING-in-body: False :: **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's element coun
+§6 Register L1429 entry ### 385 WARNING-in-body: False :: **EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six resolve cleanly — 96 se
+§6 Register L6463 entry ### 1738 WARNING-in-body: False :: **THE TWELVE ASSIGNMENTS OF §D.5.10 STAND: THE AUTHOR RULED THAT THE COMPUTATION DECIDES, AND THE COMPUTATION 
+§6 Register L6503 entry ### 1762 WARNING-in-body: False :: **RULING 25: A SURVIVING CLAIM IS DEFINED, THE MOVE §D.5.3 MADE FOR *ELEMENT* — AND F.4.2'S WITHDRAWAL RATIO, 
+§7 forty-eight / fifty-six sites in the unit: [10391, 10424, 10429] ; the twin restatement at D.5.1: [10521, 10522]
+done
+<<<END FILE: r2-ch22a2.out>>>

@@ -1,0 +1,235 @@
+== A. every pointer the unit makes, resolved under body_range AND section_span ==
+  §32.2: body_range (9030, 9038)  section_span (9030, 9038)  COINCIDE
+  §18.6: body_range (5303, 5313)  section_span (5303, 5375)  DIFFER
+  §17: body_range (4789, 4794)  section_span (4789, 4922)  DIFFER
+  §22.4: body_range (6137, 6147)  section_span (6137, 6167)  DIFFER
+  §12.11.3.1: body_range (3409, 3457)  section_span (3409, 3457)  COINCIDE
+  §32.1.4: body_range (8963, 8997)  section_span (8963, 9030)  DIFFER
+  §18.4.1: body_range (4999, 5248)  section_span (4999, 5248)  COINCIDE
+  §F.4.1: lettered_heading L11338  "### F.4.1 Two ratios the book had never measured about itself"
+  §F.4.3: lettered_heading L11351  "### F.4.3 Time, which this work has and does not read"
+  --- §32.2 read IN FULL (the S3 claim L8921-22 attributes to it):
+      L9030: ### 32.2 Self-reference
+      L9031: 
+      L9032: **S1 — alphabet.** The list of claims is recoverable by projection: it is the set of first coordinates, and the table of contents is its quotient by c
+      L9033: 
+      L9034: **S2 — order.** The specificity order among terms is a tree, and Chapter 15's propagation recovers it. **The book's sectioning is not arbitrary**; it 
+      L9035: 
+      L9036: **S3 — bounds.** Every claim's support locations are recoverable as the union over its specialisations. **A reader given only the claims and their evi
+      L9037: 
+  --- §18.6, the sentence L8980 attributes to it ("calls it the prediction budget"):
+      body (5303, 5313); "budget" at [5303]
+      L5303: ### 18.6 E(X) is the prediction budget
+      "prediction budget" anywhere in main: [5303, 6033, 8980]
+  --- §17's extension test, the requirement L8991 attributes to it ("a candidate axis offered"):
+      section_span(17) (4789, 4922); body_range(17) (4789, 4794)
+      "offer" in §17 span: 0 sites []
+      "candidate" in §17 span: 0 sites []
+      "extension test" in §17 span: 0 sites []
+      "axis" in §17 span: 2 sites [4849, 4857]
+  --- §22.4's closing result, cited at L8994:
+      section_span(22.4) (6137, 6167); last two non-blank body lines:
+      L6163: quantity, needs the limit, and the energy bound is never better than the limit is known.
+      L6165: **The choice is conditional, and the condition is computable per channel.** This book's tightest bracket is 1.398 cm⁻¹; limit uncertainties in the col
+  --- §12.11.3.1's division of bounds, cited at L9017:
+      section_span (3409, 3457)
+      "law"/"extent" at [3414, 3415, 3416, 3417, 3418, 3419, 3420, 3421, 3422, 3423] (23)
+      L3414: 1  n            1 ≤ n ≤ cap              the hydrogenic radial solution          law
+      L3415: 2  ℓ            ℓ ≤ n − 1                the hydrogenic radial solution          law
+      L3416: 3  k            1 ≤ k ≤ 4ℓ + 2           Pauli exclusion                         law
+  --- part labels (parts carry NO markdown heading; the printed label is swept instead):
+      16 PART labels: [110, 113, 119, 129, 137, 141, 149, 155, 175, 232, 1488, 3677, 5549, 5937, 7364, 9393]
+      L110: # PART 0 — THE SHAPE OF THE ARGUMENT
+      L113: # PART I — THE PROCEDURE
+      L119: # PART II — THE LATTICE
+      L129: # PART III — THE LAW
+      L137: # PART IV — THE LANGUAGES
+      L141: # PART V — THE METHOD
+      L149: # PART VI — THE RECORD AND THE REACH
+      L155: # PART VII — THE CHALLENGES
+      L175: # PART 0 — THE SHAPE OF THE ARGUMENT
+      L232: # PART I — THE PROCEDURE
+      L1488: # PART II — THE LATTICE
+      L3677: # PART III — THE LAW
+      L5549: # PART IV — THE LANGUAGES
+      L5937: # PART V — THE METHOD
+      L7364: # PART VI — THE RECORD AND THE REACH
+      L9393: # PART VII — THE CHALLENGES
+      L8958 "register 321 promoted the procedure to PART I" --- PART I above is the test
+      L8957 "Part VI carries the record" and L9021 "Parts II and III" resolve against that list
+
+== B. Ruling 45 (build and editorial-process narration) and Ruling 46 (script, build, file names) ==
+  Ruling 45 candidate sites in the unit: 12
+      L8909 [the press]: index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build,
+      L8911 [the book now prints]: fibre. Those are the comparable figures and the book now prints them beside the fibred ones wherever
+      L8912 [stopped being hidden]: the fibred ones appear. Nothing was fixed; something was stopped being hidden.
+      L8915 [the session]: forty-two entries made in the session that produced this section, thirty-four record defects already
+      L8919 [from here, the book will track]: like an indictment rather than a measurement. **The book will track them separately from here.**
+      L8949 [these sessions]: **The transition is real and it is not complete.** Three times in these sessions all twenty audits
+      L8958 [was written, this section was written]: ordering was resolved after this section was written**: register 321 promoted the procedure to PART I,
+      L8998 [recomputed now]: §32.1.4 counts fifty-five cells named and unoccupied. **Recomputed now the total is 48**, and the
+      L9001 [intake]: Measured across three states of the book — before the third companion paper's intake, before the
+      L9002 [compressed]: register was compressed, and now:
+      L9004 [intake]: figure                                  before intake   before compression   now
+      L9024 [the press, at every build]: state, and the state is named. The press recomputes the two that move fastest at every build. **Three
+  Ruling 46 sites in the unit (case-sensitive): 0 []
+      sweep covered every line L8889-L9029 for .py, BUILD<n>, MANIFEST, .tsv and .md tokens
+
+== C. the spliced-text class (DEFERRED item 26) at L8908-L8912 ==
+      L8908:  **Flag 2 — fibration — is answered by disclosure, not by repair.** The honest number for a fibred
+      L8909:  index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build,
+      L8910:  E(Λ) = 0 at one fibre = 0 at one
+      L8911:  fibre. Those are the comparable figures and the book now prints them beside the fibred ones wherever
+      L8912:  the fibred ones appear. Nothing was fixed; something was stopped being hidden.
+  two-line join L8909-L8911: "index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build, E(Λ) = 0 at one fibre = 0 at one fibre. Those are the comparable figures and the book now prints them beside"
+  "= 0 at one fibre" occurrences in the join: 2
+  line-length profile of the unit (chars): [98, 112, 33, 101, 79] --- L8910 is short where its neighbours run long
+
+== D. count words, N-of-M forms and list-opening universals, each against its own body ==
+  "four": [8889, 8890, 8915, 8971, 8975]
+  "seven": [8889, 8930]
+  "three": [8929, 8949, 8974, 8983, 9001, 9024]
+  "six": [8918, 8924, 8965]
+  "two": [8915, 8917, 8945, 8965, 9024]
+  "eight": [8916, 9009]
+  "fifty-five": [8978, 8990, 8998, 9023]
+  "forty-two": [8915]
+  "thirty-four": [8915]
+  "nineteen": [8993]
+  "twenty": [8924, 8949]
+  "eleven": [8992]
+  "forty-eight": [9009]
+  N-of-M forms in the unit:
+      L8889: "Four of the seven"  in: ### 32.1.2 Four of the seven, answered by computation
+      L8923: "18 of 68"  in: chapter be recovered from the sections it cites*, the answer is 18 of 68 — 26% against a 4% baseline
+      L8965: "two of them"  in: not one index but six, and only two of them are closed.** Asked what it can determine before an input
+      L8990: "one of the fifty-five"  in: names a coordinate. Every one of the fifty-five is a combination of values the index already carries,
+  universals in the unit ("every", "each", "all", "nothing", "never", "only"):
+      L8890 [all]: The four that could be answered here were, and the answers are not all favourable.
+      L8904 [every]: every shell the periodic table uses. What the enlargement does not do is make the tower's density
+      L8909 [each]: index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build,
+      L8912 [nothing]: the fibred ones appear. Nothing was fixed; something was stopped being hidden.
+      L8917 [only]: 215, 218, 220, 221, 227 and 203. The register is therefore not one quantity but two, and only the
+      L8930 [never]: needs a spectroscopist's data the tripwire has never seen. Seven needs a file this work cannot read.
+      L8946 [each]: to electromagnetism and to muon-catalysed fusion, each returning corrections to this book — which is a
+      L8949 [all]: **The transition is real and it is not complete.** Three times in these sessions all twenty audits
+      L8950 [each]: passed on a book that had a defect — registers 305, 310 and 318 — and each time the audit that owned
+      L8964 [nothing]: A closed index admits nothing it lacks, so a *closed* index names nothing unidentified. **This book is
+      L8965 [only]: not one index but six, and only two of them are closed.** Asked what it can determine before an input
+      L8978 [each]: **Fifty-five cells are named and nobody has put anything in them.** Each is a combination the
+      L8983 [only]: **It has been confirmed three times, which is the only evidence that matters here.** Register 285:
+      L8987 [each]: Appendices B and F (then C and G). **In each case the cell was named first and the occupant arrived after.**
+      L8989 [never]: **And there is a hard boundary, which is the honest half of the answer.** E names cells; it never
+      L8990 [every]: names a coordinate. Every one of the fifty-five is a combination of values the index already carries,
+      L9013 [every]: **Every figure about Λ holds. Every figure about the book moves.**
+      L9021 [every]: **The consequence for a reader.** Every figure in Parts II and III can be checked against the
+      L9022 [every]: construction and will agree forever. Every figure the book states about itself — the register's size,
+      L9024 [every]: state, and the state is named. The press recomputes the two that move fastest at every build. **Three
+
+== E. digit-bounded numeral SITES for every figure the unit prints (sites, not counts) ==
+       976: in-unit [8896, 8903, 9006]   out-of-unit 90 sites, first eight [4, 13, 331, 425, 448, 853, 855, 924]
+     8,853: in-unit [8897]   out-of-unit 1 sites, first eight [9127]
+    89,438: in-unit [8898]   out-of-unit 0 sites, first eight []
+   267,858: in-unit [8899]   out-of-unit 0 sites, first eight []
+   499,246: in-unit [8900, 8903]   out-of-unit 2 sites, first eight [856, 993]
+        18: in-unit [8923, 8941]   out-of-unit 39 sites, first eight [134, 220, 233, 1017, 1134, 1375, 1376, 1378]
+        68: in-unit [8923]   out-of-unit 4 sites, first eight [696, 3749, 7548, 9133]
+        26: in-unit [8923]   out-of-unit 15 sites, first eight [146, 4126, 5470, 5883, 6194, 6910, 7117, 7964]
+         4: in-unit [8897, 8909, 8914, 8923, 8971, 8972, 8973, 8975, 9011]   out-of-unit 276 sites, first eight [12, 117, 279, 291, 317, 349, 580, 808]
+        42: in-unit []   out-of-unit 5 sites, first eight [4317, 6978, 8842, 10227, 11552]
+        34: in-unit []   out-of-unit 22 sites, first eight [157, 2278, 2601, 3224, 6511, 6517, 6835, 9130]
+         8: in-unit [8969]   out-of-unit 116 sites, first eight [12, 13, 122, 247, 363, 662, 663, 666]
+        55: in-unit [8941, 8943, 8952]   out-of-unit 12 sites, first eight [93, 408, 3606, 5674, 6149, 6361, 6661, 7507]
+        33: in-unit [8974, 9010]   out-of-unit 30 sites, first eight [156, 1413, 1414, 1691, 2367, 2369, 2388, 2398]
+        17: in-unit [8975, 8991, 9007]   out-of-unit 57 sites, first eight [133, 219, 307, 329, 852, 853, 1133, 1344]
+        48: in-unit [8998]   out-of-unit 8 sites, first eight [1481, 1692, 2706, 2715, 5918, 6619, 7824, 10407]
+        23: in-unit [8940, 9010]   out-of-unit 41 sites, first eight [143, 233, 508, 521, 545, 554, 1863, 1973]
+        21: in-unit [9010]   out-of-unit 29 sites, first eight [139, 420, 437, 468, 1019, 1137, 1347, 1625]
+      7.07: in-unit [9008]   out-of-unit 4 sites, first eight [315, 854, 2115, 9132]
+        16: in-unit [8970]   out-of-unit 74 sites, first eight [36, 47, 60, 132, 189, 292, 315, 355]
+         3: in-unit [8896, 8899, 8900, 8921, 8925, 8929, 8971, 8974]   out-of-unit 381 sites, first eight [12, 116, 212, 252, 279, 291, 418, 486]
+       540: in-unit []   out-of-unit 20 sites, first eight [2886, 3491, 8728, 8736, 8738, 8740, 8747, 8761]
+       162: in-unit []   out-of-unit 7 sites, first eight [4167, 8841, 8842, 8845, 11700, 11836, 11857]
+  word-form figures (invisible to the digit sweep):
+      "fifty-five" in unit at [8978, 8990, 8998, 9023]
+      "forty-two" in unit at [8915]
+      "thirty-four" in unit at [8915]
+      "forty-eight" in unit at [9009]
+      "thirty-three" in unit at [8974]
+      "seventeen" in unit at [8975]
+      "one thousand six hundred and thirty-five" in unit at [8918]
+      "twenty-five" in unit at [8924]
+
+== F. Prints & Proofs, every witness anchored on its OWN text (one global offset cannot span a unit) ==
+  "Four of the seven, answered by computation": main [8889]  PP [8794, 8795]  offset -95
+  "The frame has changed, and the change is measurable": main [8932, 8933]  PP [8838, 8839]  offset -94
+  "What this book names before anyone tells it": main [8962, 8963]  PP [8868, 8869]  offset -94
+  "Which of this book's numbers hold still": main [8996, 8997]  PP [8902, 8903]  offset -94
+  "The honest number for a fibred index is its unfibred": main [8908]  PP [8814]  offset -94
+  "Fifty-five cells are named and nobody has put anythi": main [8977, 8978]  PP [8883, 8884]  offset -94
+  "Every figure about": main [9012, 9013]  PP [8918, 8919]  offset -94
+  "the two companion papers": main [8944, 8945]  PP [8850, 8851]  offset -94
+  "six and a half times chance": main [8923, 8924]  PP [8829, 8830]  offset -94
+  "the register is a quarter of it": main [8956, 8957]  PP [8862, 8863]  offset -94
+  sweep covered all 10 witnesses against the full PP file (11,372 lines)
+
+== G. census rows in range, duplicated-section sweep, attribution sweep ==
+  DEFECT-CENSUS.tsv columns ['id', 'class', 'member', 'line', 'item', 'detail']; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+  rows with member in (main, all) and line in [8889,9029]: 2
+      ('1189', 'C9-OVERGENERALISATION-WORD', 'main', 8930, 'never')
+      ('1190', 'C9-OVERGENERALISATION-WORD', 'main', 8989, 'never')
+  duplicated-section sweep (DEF-105 item 1): every unit line over 60 chars sought elsewhere:
+      95 long lines swept, 0 recur elsewhere in the main volume []
+  attribution sweep: proper-noun attributions in the unit against ## References (BODY) and R.7:
+      "## References" BODY occurrence at L11511; all "## References" occurrences [173, 11511]
+      mid-sentence capitalised tokens in the unit: []
+      sentence-INITIAL capitalised tokens (reported, not hidden --- an attribution can open a sentence): ['Appendices', 'Appendix', 'Asked', 'Conflating', 'Defects', 'Each', 'Every', 'Fifty', 'Five', 'Flag', 'Flags', 'Measured', 'Nothing', 'Operationalised', 'Recomputed', 'Register', 'Registers', 'Seven', 'That', 'They', 'This', 'Those', 'Three', 'What']
+      sweep covered every line L8889-L9029 in both positions
+
+== I. the two cited criteria read AT THEIR TARGETS, and where the claim does live ==
+  §17, cited at L8991 for "requires a candidate axis to be OFFERED before it can be judged":
+      L4849: **A difference is not a lattice homomorphism** — §18.2 refuses ν = e − δ as an axis for exactly that
+      L4857: closure. Seniority parity at axis 10, the conjugation ceiling at axis 12, and the electromagnetic
+      §17 heading L4789: ## 17. Extension — cells, axes, constraints
+      §17 subsection headings: [(4789, '## 17. Extension — cells, axes, constraints'), (4794, '### 17.1 E1 — which cells may be added'), (4799, '### 17.2 E2 — which axes may be adjoined'), (4814, '### 17.3 E3 — which constraints may be imposed'), (4873, '### 17.4 A worked extension, and what it costs'), (4914, '### 17.5 E is derived')]
+      "extension test" across the WHOLE main volume: 1 sites [8991]
+      "offered" across the WHOLE main volume: 13 sites [228, 940, 3717, 4385, 4396, 7599, 7614, 8094, 8174, 8991]
+      "new coordinate" across the WHOLE main volume: 5 sites [2935, 3078, 4906, 4957, 9530]
+      "candidate axis" across the WHOLE main volume: 1 sites [8991]
+      §17.2 "E2 — which axes may be adjoined" READ IN FULL at its target, body_range (4799, 4814):
+      L4799: ### 17.2 E2 — which axes may be adjoined
+      L4800: Λ × h is closed iff h is a lattice homomorphism
+      L4802: **100% over 424 tests.** Projections, maxima, minima and constants qualify; sums, products and differences do not.
+      L4804: **And a theorem in the other direction:**
+      L4806: Theorem 17.1 (adjunction never repairs). For any h : S → H, with S′ = {(x, h(x))}: S′ closed ⇒ S
+      L4807: closed. Proof. For x, y ∈ S, the join of (x,h(x)) and (y,h(y)) is (x∨y, h(x)∨h(y)). If S′ is closed this lies
+      L4808: in S′, so x∨y ∈ S. Meets likewise. ∎ Contrapositive: a non-closed set cannot be repaired by
+      L4809: adjoining any function of its coordinates. Tested on seven functions including the identity and a
+      L4810: constant; none repairs.
+      L4812: **Three repair routes remain**, and only three: **enlarge** (add cells), **restrict** (remove cells), **reorder** (change neither). The calendar of Ch
+  §22.4, cited at L8994 for a "closing result" about language:
+      body_range (6137, 6147); heading and body:
+      L6137: ### 22.4 The price of limit-freedom, computed
+      L6138: §32.3 presents limit-freedom as pure gain. It is a trade, and the terms are computable.
+      L6140: The alternative is to bracket **δ** rather than *T* — which is what the field does. And *V* is identical either way:
+      L6142: δ = δ₀ + δ₂/n² has L = \|δ′/δ″\| = n/3, the same as T's, and δ₀ is an additive constant that
+      L6143: cancels from both w and e. V(δ) = V(T) = 4n/(3h)
+      L6145: **The single most standard move in Rydberg spectroscopy — interpolate δ, not *T* — improved estimates enormously and left the price of a guarantee exa
+      §22.4 subsection headings: [(6137, '### 22.4 The price of limit-freedom, computed'), (6147, '### 22.4.1 What δ buys, and what it costs')]
+      "language" in the §22.4 span: []
+      "no language for" in the §22.4 span: []
+      "no language for" across the WHOLE main volume: [8994]
+
+== H. "the two companion papers" (L8945) against "the third companion paper" (L9001) ==
+  L1161: indices of the companion paper. Λ states F(z₁…z₈); the tower states its five bounds; the register
+  L1338: That is the third companion paper's third finding arriving in the book's own instruments: **an arrow
+  L4175: computed objects await constructions the companion papers do not print; six are definitional roots
+  L5187: rather than a relation is the one the companion paper uses to withdraw a false node of its own:
+  L8945: by something other than attention. The third column is the two companion papers — the method applied
+  L9001: Measured across three states of the book — before the third companion paper's intake, before the
+  L9730: The challenge posed in 1969 is closed. The formal statement is a companion paper,
+  L9902: *A challenge posed outside this work, answered with the law of Part III and the reach of Part VI. The chapter runs the method on the one object §12.11 named as 
+  L11861: not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7's
+  chapter headings 35 and 36: [('35', 9724), ('36', 9900)]
+      L9724: ## 35. The Löwdin solution
+      L9900: ## 36. Three bodies, and what a complete index is allowed to say

@@ -16,7 +16,7 @@
    L 9281 §14.5.6     body_range (3806, 3808)  section_span (3806, 3808) COINCIDE
    L 9285 §6.3        body_range (1705, 1718)  section_span (1705, 1718) COINCIDE
    L 9294 AppE         (chapter/appendix pointer, resolved in section 2)
-   L 9302 §E.1.4      LETTERED resolver -> (10986, 11013)
+   L 9302 §E.1.4      LETTERED resolver -> (10994, 11021)
    L 9303 §29.2.2     body_range (7922, 7940)  section_span (7922, 7940) COINCIDE
 
 ================================================================================================
@@ -138,35 +138,35 @@
 5.  L9302-L9305 -- §E.1.4 and §29.2.2
 ================================================================================================
 
-  §E.1.4 at L10986, body to L11012
-  --- §E.1.4 L10986-L11012 ---
-   10986 ### E.1.4 This is an index of tractable ignorance, and it cannot say otherwise
-   10987  Every item here is closable. The obstacle coordinate takes three values — **nonexistent** (the datum
-   10988  can be made to exist), **buildable** (it can be constructed), **retrievable** (it can be fetched) —
-   10989  and all three name a route. Eleven items: one nonexistent, two buildable, eight retrievable.
-   10990 
-   10991     **No value of this coordinate means *there is no route*.** An unclosable question is not
-   10992     missing from this appendix. It is **inexpressible** in the coordinates the appendix uses.
-   10993 
-   10994  **That is not an oversight, and §32.1.4 says why it cannot be repaired from inside.** ℛ(X) ⊆ ∏ᵢ Aᵢ(X):
-   10995  the operator is bounded by the index's own value sets, so it can name a cell the index lacks and never
-   10996  a *value*. Nothing in this appendix could ever produce the fourth obstacle, however long it ran.
-   10997 
-   10998  **Offer it from outside and the shape of what is missing appears.** Adding *no route* as a fourth
-   10999  obstacle value grows the ambient box from 18 cells to 24 and takes E from 4 to **10** — six further
-   11000  combinations the structure admits and this appendix does not contain, every one of them an unclosable
-   11001  question at some cost and some consequence.
-   11002 
-   11003  **So the book has two kinds of ignorance and indexes only one.** The tractable kind is here, graded and
-   11004  costed. The other kind is elsewhere and unindexed: §29.2.2's reading that the branches leave the
-   11005  object, and the destination coordinate that the temporal mechanisms would need. **Those are not open
-   11006  items. They are the shape of the question this index cannot pose**, and each had to be named in prose
-   11007  because no coordinate here would hold it.
-   11008 
-   11009  That is register 332 arriving where it is least comfortable — an index names cells and never
-   11010  coordinates, so **an index of one's own ignorance is an index of the ignorance one already has words
-   11011  for.** Register 382.
-   11012 
+  §E.1.4 at L10994, body to L11020
+  --- §E.1.4 L10994-L11020 ---
+   10994 ### E.1.4 This is an index of tractable ignorance, and it cannot say otherwise
+   10995  Every item here is closable. The obstacle coordinate takes three values — **nonexistent** (the datum
+   10996  can be made to exist), **buildable** (it can be constructed), **retrievable** (it can be fetched) —
+   10997  and all three name a route. Eleven items: one nonexistent, two buildable, eight retrievable.
+   10998 
+   10999     **No value of this coordinate means *there is no route*.** An unclosable question is not
+   11000     missing from this appendix. It is **inexpressible** in the coordinates the appendix uses.
+   11001 
+   11002  **That is not an oversight, and §32.1.4 says why it cannot be repaired from inside.** ℛ(X) ⊆ ∏ᵢ Aᵢ(X):
+   11003  the operator is bounded by the index's own value sets, so it can name a cell the index lacks and never
+   11004  a *value*. Nothing in this appendix could ever produce the fourth obstacle, however long it ran.
+   11005 
+   11006  **Offer it from outside and the shape of what is missing appears.** Adding *no route* as a fourth
+   11007  obstacle value grows the ambient box from 18 cells to 24 and takes E from 4 to **10** — six further
+   11008  combinations the structure admits and this appendix does not contain, every one of them an unclosable
+   11009  question at some cost and some consequence.
+   11010 
+   11011  **So the book has two kinds of ignorance and indexes only one.** The tractable kind is here, graded and
+   11012  costed. The other kind is elsewhere and unindexed: §29.2.2's reading that the branches leave the
+   11013  object, and the destination coordinate that the temporal mechanisms would need. **Those are not open
+   11014  items. They are the shape of the question this index cannot pose**, and each had to be named in prose
+   11015  because no coordinate here would hold it.
+   11016 
+   11017  That is register 332 arriving where it is least comfortable — an index names cells and never
+   11018  coordinates, so **an index of one's own ignorance is an index of the ignorance one already has words
+   11019  for.** Register 382.
+   11020 
 
   §29.2.2 at L7922, body to L7939
   --- §29.2.2 L7922-L7939 ---
@@ -256,7 +256,7 @@
    8787 
    8788  What remains of item D is the lookup. 540 named cells, a file, and an afternoon.
    8789 
-  "falsification" sites in main: 14 [5198, 7081, 7083, 7476, 7896, 8755, 9205, 9226, 9360, 9387, 9697, 10280, 10855, 11072]
+  "falsification" sites in main: 14 [5198, 7081, 7083, 7476, 7896, 8755, 9205, 9226, 9360, 9387, 9705, 10288, 10863, 11080]
   ordinal + "falsification" sites: [8755]
    L8755: 24.3.4.2 The fourth falsification test, run
 
@@ -304,72 +304,72 @@
 ================================================================================================
 8.  Appendix B -- 153 channels against the channel table arbiter
 ================================================================================================
-  --- Appendix B whole L10165-L10229 ---
-   10165 ## Appendix B — Data and provenance
-   10166  Serving PART V — THE METHOD. Every number the method was run on, with its source, its
-   10167  provenance and its known defects.
-   10168 
-   10169  **Every channel in the collection, with its source, its limit, and what it contributes.** 153 channels, **1105 interior cells**, bracket **1105 of 1105**.
-   10170 
-   10171  The 763 cells of the earlier verification are included where their channels appear here; the totals in Chapter 24 state the union.
-   10172 
-   10173 ### B.1 Sources
-   10174   compilation                 spectra drawn
-   10175   Kaufman & Martin            Al I, Al II
-   10176   1991, JPCRD 20, 775
-   10177   Kramida & Martin            Be I
-   10178   1997, JPCRD 26, 1185
-   10179   NIST ASD                    Ar II, Be II, Bi I, C II, Ca II, Cd II, Ga I, He I, He II, Hg II, K II, Li I, Li II, Mg II, N II, Na II, Ne I (³⁄₂), Ne
-   10180                               I (¹⁄₂), Si I, Si II, Zn II
-   10181   Sansonetti 2008,            Na I
-   10182   JPCRD 37, 1659
-   10183   Sansonetti 2008,            K I
-   10184   JPCRD 37, 7
-   10185 
-   10186  **Additional sources used for exotic systems and collective quantities:**
-   10187 
-   10188  Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:1203.5425) and arXiv:1304.4330 · Korobov, *Phys. Rev. A* **77**, 042506 (2008) · Singer, Stanojevic, Weidemüller & Côté, *J. Phys. B* **38**, S295 (2005) · Sugar & Corliss 1985, *JPCRD* **14** Suppl. 2 · Sugar & Musgrove 1990, *JPCRD* **19**, 527 and 1995, *JPCRD* **24**, 1803.
-   10189 
-   10190 ### B.2 Channels
-   10191   **The channel rows are lifted to the Spectra Compendium.** Each carries its species,
-   10192   channel, n-range, level count, interior cells, bracket, ν range, mean quantum defect, its
-   10193   spread, Z_eff and the series limit. *Reproduced in the book only where one carries an
-   10194   argument; the rest are data and live where data belongs.*
-   10195   **THE METHOD 1.6 — SPECTRA COMPENDIUM, Part II, counted from its own table:** 596 channel
-   10196   rows — 477 series of three or more members and 119 two-member channels — across 28 elements
-   10197   and 70 species; 3,342 levels, 2,269 interior cells; the bracket at **1,577 of 1,738 cells
-   10198   across 392 rows** — 844 of 844 from the first collection, 658 of 813 on 250 rows run under
-   10199   ruling 26 at strict membership with the quotation floor as the only ε, and 75 of 81 on 35
-   10200   rows run by the same instrument on six hash-verified captures, zero cells refused throughout
-   10201   — 78 rows `no-triple` and 126 `untested` for want of data, not of definition (registers
-   10202   1763, 1768).
-   10203  *This paragraph once read "133 rows, 23 elements, 869 interior cells, bracket 869/869,
-   10204  generated by* `spectra.py` *so it cannot drift," with a twenty-channel gap disclosed against a
-   10205  total of 153. That was true at registers 630–631 and was overtaken by the parent-term wall
-   10206  (register 1578) and the J-resolved rows of T8-J (registers 1699–1700); the table drifted from
-   10207  the script, and the script is owed a rebuild against the table. The exotic and collective
-   10208  sources carry sources and no rows, and that remains disclosed rather than reconciled.*
-   10209  Registers 630–631; 1578; 1699–1700.
-   10210 
-   10211 ### B.3 Flagged channels
-   10212  Channels whose δ spread exceeds 0.25 or whose V departs from 4ν/3 by more than 5% are flagged.
-   10213  Every flag in this collection has an identified cause; none is unexplained.
-   10214 
-   10215   species      channel        δ spread    cause
-   10216   Al I         3s²nd ²D       0.630       compilers relabelled this series; y²D removed as a perturber
-   10217   Al II        3snd ¹D        0.390       local perturber
-   10218   Al II        3snf ³F°       0.409       δ reverses sign between n = 6 and 7 — local perturber
-   10219   Li I         np 2P°         0.678       39 cells to n = 42; quotation coarsens above n = 33
-   10220   Si II        3s²np ²P°      0.272       perturber
-   10221 
-   10222 ### B.4 Reproducibility
-   10223 
-   10224  Every computation in this book is reproducible from the level tables above and the rules of Chapters 22
-   10225  and 23. No fitted parameter enters at any point; the only inputs are measured or calculated energy levels,
-   10226  their stated uncertainties, and the ionisation limits carried per channel in the Spectra Compendium, Part II.
-   10227  The coordinate index those channels sit in is the file `COORDINATES-2.13` (104,832 cells), delivered with the
-   10228  Spectra Compendium and described there under *The file*; a cell is cited from this book as COORD(Z, charge, ℓ, 2S+1).
+  --- Appendix B whole L10173-L10237 ---
+   10173 ## Appendix B — Data and provenance
+   10174  Serving PART V — THE METHOD. Every number the method was run on, with its source, its
+   10175  provenance and its known defects.
+   10176 
+   10177  **Every channel in the collection, with its source, its limit, and what it contributes.** 153 channels, **1105 interior cells**, bracket **1105 of 1105**.
+   10178 
+   10179  The 763 cells of the earlier verification are included where their channels appear here; the totals in Chapter 24 state the union.
+   10180 
+   10181 ### B.1 Sources
+   10182   compilation                 spectra drawn
+   10183   Kaufman & Martin            Al I, Al II
+   10184   1991, JPCRD 20, 775
+   10185   Kramida & Martin            Be I
+   10186   1997, JPCRD 26, 1185
+   10187   NIST ASD                    Ar II, Be II, Bi I, C II, Ca II, Cd II, Ga I, He I, He II, Hg II, K II, Li I, Li II, Mg II, N II, Na II, Ne I (³⁄₂), Ne
+   10188                               I (¹⁄₂), Si I, Si II, Zn II
+   10189   Sansonetti 2008,            Na I
+   10190   JPCRD 37, 1659
+   10191   Sansonetti 2008,            K I
+   10192   JPCRD 37, 7
+   10193 
+   10194  **Additional sources used for exotic systems and collective quantities:**
+   10195 
+   10196  Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:1203.5425) and arXiv:1304.4330 · Korobov, *Phys. Rev. A* **77**, 042506 (2008) · Singer, Stanojevic, Weidemüller & Côté, *J. Phys. B* **38**, S295 (2005) · Sugar & Corliss 1985, *JPCRD* **14** Suppl. 2 · Sugar & Musgrove 1990, *JPCRD* **19**, 527 and 1995, *JPCRD* **24**, 1803.
+   10197 
+   10198 ### B.2 Channels
+   10199   **The channel rows are lifted to the Spectra Compendium.** Each carries its species,
+   10200   channel, n-range, level count, interior cells, bracket, ν range, mean quantum defect, its
+   10201   spread, Z_eff and the series limit. *Reproduced in the book only where one carries an
+   10202   argument; the rest are data and live where data belongs.*
+   10203   **THE METHOD 1.6 — SPECTRA COMPENDIUM, Part II, counted from its own table:** 596 channel
+   10204   rows — 477 series of three or more members and 119 two-member channels — across 28 elements
+   10205   and 70 species; 3,342 levels, 2,269 interior cells; the bracket at **1,577 of 1,738 cells
+   10206   across 392 rows** — 844 of 844 from the first collection, 658 of 813 on 250 rows run under
+   10207   ruling 26 at strict membership with the quotation floor as the only ε, and 75 of 81 on 35
+   10208   rows run by the same instrument on six hash-verified captures, zero cells refused throughout
+   10209   — 78 rows `no-triple` and 126 `untested` for want of data, not of definition (registers
+   10210   1763, 1768).
+   10211  *This paragraph once read "133 rows, 23 elements, 869 interior cells, bracket 869/869,
+   10212  generated by* `spectra.py` *so it cannot drift," with a twenty-channel gap disclosed against a
+   10213  total of 153. That was true at registers 630–631 and was overtaken by the parent-term wall
+   10214  (register 1578) and the J-resolved rows of T8-J (registers 1699–1700); the table drifted from
+   10215  the script, and the script is owed a rebuild against the table. The exotic and collective
+   10216  sources carry sources and no rows, and that remains disclosed rather than reconciled.*
+   10217  Registers 630–631; 1578; 1699–1700.
+   10218 
+   10219 ### B.3 Flagged channels
+   10220  Channels whose δ spread exceeds 0.25 or whose V departs from 4ν/3 by more than 5% are flagged.
+   10221  Every flag in this collection has an identified cause; none is unexplained.
+   10222 
+   10223   species      channel        δ spread    cause
+   10224   Al I         3s²nd ²D       0.630       compilers relabelled this series; y²D removed as a perturber
+   10225   Al II        3snd ¹D        0.390       local perturber
+   10226   Al II        3snf ³F°       0.409       δ reverses sign between n = 6 and 7 — local perturber
+   10227   Li I         np 2P°         0.678       39 cells to n = 42; quotation coarsens above n = 33
+   10228   Si II        3s²np ²P°      0.272       perturber
    10229 
+   10230 ### B.4 Reproducibility
+   10231 
+   10232  Every computation in this book is reproducible from the level tables above and the rules of Chapters 22
+   10233  and 23. No fitted parameter enters at any point; the only inputs are measured or calculated energy levels,
+   10234  their stated uncertainties, and the ionisation limits carried per channel in the Spectra Compendium, Part II.
+   10235  The coordinate index those channels sit in is the file `COORDINATES-2.13` (104,832 cells), delivered with the
+   10236  Spectra Compendium and described there under *The file*; a cell is cited from this book as COORD(Z, charge, ℓ, 2S+1).
+   10237 
   spectra totals line L900: **596 channel rows across 28 elements · 2,269 interior cells parsed.**
 
 ================================================================================================
@@ -381,8 +381,8 @@
    main L6958: Figure 25.1. Each of the 1,061 cells that yield a perturbation bound, plotted at the bound its containment implies. The two curves are
    main L9188: Every bracket in this book is recomputable from this book. All 1,061.
    main L9354: **The failure condition, inverted.** |Δ*T*| < 2*Z*²*R*/ν³ turns 1,061 non-failures into 1,061 measurements. Bracketing methods are rare; inverting their silence appears n
-   main L10266: **The perturbation bounds are as strong as the failure condition and no stronger.** If the condition is wrong, 1,061 bounds go with it.
-   main L10277: here, across all 153 channels · the failure condition and its inversion to 1,061 perturbation bounds ·
+   main L10274: **The perturbation bounds are as strong as the failure condition and no stronger.** If the condition is wrong, 1,061 bounds go with it.
+   main L10285: here, across all 153 channels · the failure condition and its inversion to 1,061 perturbation bounds ·
    reg  L3939: ### 1061
    reg  L6487: **TWO RULINGS: CAPTION 25.1 READS 1,061, AND THE Λ_phys COUNT STAYS AT FIFTEEN ON THE RULE AS PRINTED.** *Ruling 21: the caption of Figure 25.1 said "each of 1,105 verifi
 
@@ -534,7 +534,7 @@
 
   row 713: L9168 token '32.5'
    ### 32.5.1 The prediction, recomputed from the text
-   §32.5 heading resolves to (9157, 9168); the token is the section's OWN live number, sites [6682, 7475, 7490, 7896, 9157, 9168, 9185, 9192, 11426, 11459, 11472, 11477]
+   §32.5 heading resolves to (9157, 9168); the token is the section's OWN live number, sites [6682, 7475, 7490, 7896, 9157, 9168, 9185, 9192, 11434, 11467, 11480, 11485]
    withdrawal words anywhere near §32.5: []
 
   row 1191: L9158 token 'never'
