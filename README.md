@@ -58,6 +58,8 @@ it, each with a real contract and a self-check.
   statement of the same thing.
 * [`tools/audit_sc.py`](tools/audit_sc.py) — the Spectra Compendium and the Löwdin solution it
   carries: 16 checks, 15 pass. The two supplies state the same quantities, so each checks the other.
+* [`tools/audit_main.py`](tools/audit_main.py) — the main volume's structure: 15 checks, 13 pass.
+  The contents and the body are independent statements of one structure, so each checks the other.
 * [`tools/audit_ioi.py`](tools/audit_ioi.py) — the Index of Indices against the volumes it
   indexes: 18 checks, 17 pass. Λ₉'s composable count and Λ₁₀'s g = 0 cells are recomputed from the
   objects rather than compared.

@@ -1,6 +1,6 @@
 bundle	name	bytes	md5	lines
 main	The_Method_1_6-2.md	779423	4aef772bad512b84d8c0888386472a74	11854
-main	The_Method_1_6___The_Register-2.md	1218902	b3622d09013d706f66150d095f1c6f9b	6652
+main	The_Method_1_6___The_Register-2.md	1220309	7c20b22beec96c3240a1527348f8954b	6655
 compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -53,7 +53,7 @@ compendia	CYPHER.md	24563	2b828047c19e3ea3c5b01f1e10a07569	362
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236171	0967efead3f95016bd6ffaa95788d5ac	1557
-compendia	DEFERRED.md	395775	72abc16d65ce6f275712d05e4e470b8a	3440
+compendia	DEFERRED.md	397432	2a44d42a797bfbc2f135feddf92f4747	3448
 compendia	DOCKET.md	52004	db539aad03629b82cc52e9001d27852a	377
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
@@ -156,13 +156,14 @@ compendia	The_Method_1_6___The_Index_of_Indices-2.md	118373	27d387ef8a6175c1b9c8
 compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2c601a549d54db	878
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
-compendia	WORKING-REGISTER.md	925682	f8a46b8da791f0d0dfb41e67ebb17af0	7994
+compendia	WORKING-REGISTER.md	929069	d5e76788ca9421b63e570256e36da838	8004
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
 compendia	archive-split.py	30795	efa95d2cd75390221c1304db12f3f229	508
 compendia	audit_ioi.py	6142	4e5e4781628eb29a9b9b8557d9bbb02b	135
 compendia	audit_lambda.py	10875	504c6a8484ac15856922cd89a55b398c	244
+compendia	audit_main.py	5188	bb12769885384c4c608f179497e3c47a	119
 compendia	audit_math.py	7167	8329b70c980d608ba20f766bb4198cd1	147
 compendia	audit_mc.py	5302	26fb46529b295046e853fff67c6b0715	124
 compendia	audit_pc.py	5401	00aa3af7aa03df52a90ebaf514199219	121

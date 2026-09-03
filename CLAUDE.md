@@ -51,7 +51,7 @@ numbers gives 1,660 and agrees with nothing. `--write` emits a corrected copy an
 place. `tools/close_main.py` is the main-bundle route: `close.py` writes only the compendia bundle
 and reads `--main` for the manifest alone, so Register entries and the Register's own counts had no
 route into the store of record until this. It appends entries, recounts, asserts that no other
-member changed, and reverses everything to recover the old bundle's md5 before writing. The live bundles are now **BUILD93 main** (Register 1 to 1800) and **BUILD185 compendia**, 355
+member changed, and reverses everything to recover the old bundle's md5 before writing. The live bundles are now **BUILD94 main** (Register 1 to 1801) and **BUILD186 compendia**, 356
 members, `VERIFY OK`. The front matter carries TWO count tables — the extent and "What the entries
 are" by kind — and `register_counts.py` keeps both, invoking the seated `kinds.py` for the second. `tools/reseat.py` replaces a seated member's body under the same guard. Two things learned seating them: `close.py` needs Python ≥ 3.12 and must be
 run through `method/bin/python3`, and **a seated member cannot be updated** — `--members` refuses a

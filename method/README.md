@@ -8,10 +8,10 @@ tree, and nothing is fetched from Drive to open a chat.
 
 | Path | What it is |
 | --- | --- |
-| `The_Method_1_6_BUILD93_main_and_register.md` | Live main bundle — 1,998,492 B · `58e1f1310cef77fb33b952c87f361d77` · 18,511 lines · 2 members. Register 1 to 1800. |
-| `The_Method_1_6_BUILD90_main_and_register.md`, `…BUILD91…`, `…BUILD92…` | Previous main bundles, retained as snapshots. Not live; `verify.py` targets BUILD93. |
-| `The_Method_1_6_BUILD185_compendia_papers_audits.md` | Live compendia bundle — 5,926,183 B · `ec7de132c824f6565670c4d234bf7dcb` · 68,451 lines · 353 members |
-| `members/` | All 355 members extracted from those two bundles, byte-exact. Instruments read these by name. |
+| `The_Method_1_6_BUILD94_main_and_register.md` | Live main bundle — 1,999,899 B · `15f8bc07d0592968f849b884e75f25f6` · 18,514 lines · 2 members. Register 1 to 1801. |
+| `The_Method_1_6_BUILD90_main_and_register.md`, `…BUILD91…`, `…BUILD92…`, `…BUILD93…` | Previous main bundles, retained as snapshots. Not live; `verify.py` targets BUILD94. |
+| `The_Method_1_6_BUILD186_compendia_papers_audits.md` | Live compendia bundle — 5,936,538 B · `40bea1b0d307331177444d5c70d4a91e` · 68,592 lines · 354 members |
+| `members/` | All 356 members extracted from those two bundles, byte-exact. Instruments read these by name. |
 | `MEMBER-INDEX.tsv` | Per member: bundle, extension, size, md5, and byte offset in its bundle |
 | `verify.py` | The witness check — see below |
 | `CLAUDE.md` | The project instruction and the §0 gate |
@@ -35,7 +35,7 @@ Two independent checks, and a mismatch is a hard failure that is reported, never
    is asserted. This is what makes the extracted tree a witness rather than a plausible copy: a tree
    that passes provably reproduces what the old Drive gate used to extract.
 
-Current state: `members checked: 355  mismatched: 0`, both bundles recovered, `VERIFY OK`.
+Current state: `members checked: 356  mismatched: 0`, both bundles recovered, `VERIFY OK`.
 
 ## Running the gate
 
