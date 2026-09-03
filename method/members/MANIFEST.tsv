@@ -167,7 +167,7 @@ compendia	REGISTER_AUDIT.md	1445	971bdbef525d1815fbbba5393d514dc0	13
 compendia	REQUEST-LOWDIN.md	5810	f1d93d9a360bc1afbfdbee0c66414b5c	75
 compendia	REQUEST-THREEBODY.md	5300	8e776e353b41e91e6d9bf6f83f9a0628	70
 compendia	RESPONSE-TO-METHOD-1_6.md	9706	eb435761e5429a245a1ba415e5d0cc37	175
-compendia	RETIRED.tsv	217	2dda3b962ece6bd8d9c52e4bb5b1132c	2
+compendia	RETIRED.tsv	556	820fbb7e6e275c32b56da2c5ea7b09c1	4
 compendia	RULING-TOLERANCE-489.md	3121	5a9a3803812c2e157770c6d4c9ca041a	59
 compendia	RULINGS-R2.md	25974	3012f5ab2f59de6629e18f81437a170a	286
 compendia	ScIII_asd.tsv	1269	f91a0abff919f6922395320344f1d4ac	46
@@ -194,7 +194,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	983506	82a17a9b21a0655af22674f8060ee6a9	8127
+compendia	WORKING-REGISTER.md	986437	f0002be9325bf065df8e675e83d26975	8136
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -294,8 +294,12 @@ compendia	r2-ch16t.out	17666	4aacbcca26f52562741d7d73a6d6b451	219
 compendia	r2-ch16t.py	12215	bf7f0e331a1623c2d4ba2f7d3c193bde	213
 compendia	r2-ch16u.out	15292	6a8473620928aad45f23ef66890488ea	194
 compendia	r2-ch16u.py	12078	f50c7e286f55e01aebf4d7c32fea8dc2	211
+compendia	r2-ch16u2.out	15292	b40ee741a0c2780bf139ecffc21d8b0d	194
+compendia	r2-ch16u2.py	12928	d664f8274d2b04ab5e861a38a9f13510	220
 compendia	r2-ch16v.out	9486	3bc466f8e73aa2e5f72a2a7cbe021609	110
 compendia	r2-ch16v.py	12471	5221ef3c38fbbe921e393dcb126b34d1	239
+compendia	r2-ch16v2.out	9486	9087f79109554c7e10f5daadfa064fc9	110
+compendia	r2-ch16v2.py	13219	962819e42716a8ea5ec1a1f8c6315f08	246
 compendia	r2-ch16w.out	22951	e4d1ebb373062c372feff8aded063db0	336
 compendia	r2-ch16w.py	19151	511bcb6fddebaeb5632c2ca008be9bf8	316
 compendia	r2-ch16x.out	11228	1f9f25cf702395aa03ace3ef6b7f4129	160

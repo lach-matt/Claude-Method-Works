@@ -23075,6 +23075,15 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **The disposition, an instrument decision (§1) and taken here:** a new member **`RETIRED.tsv`** records `superseded → successor`, the reason, and the bundles the successor was proved on. The gate keeps running the predecessor and keeps reporting it red; the red is now **accounted for** rather than merely known. A filter over gate output is not built yet — one retiree does not earn a tool, and it will be built when the retired set is large enough to warrant it. **What must never happen is re-banking a superseded instrument to silence it**, because its output is false by construction.
 - **Not done, by design:** the other 55 readings. The expensive ones are named in DEF-153C — `r2-ch28a` (60 literals), `r2-ch16z` (53), `r2-ch26b` (34), `r2-ch23a` (33), `r2-ch17d` (32), `r2-ch17c` (31). DEF-152 items 1–9 remain queued behind the readings on M's ruling.
 
+### W-204 — chat 153 — two more re-anchored successors, and a defect the shift exposed rather than caused; BUILD195 -> BUILD196
+
+- **`r2-ch16v2`** — `r2-ch16v` printed `MAIN[9891]` by fixed index, the `## 36.` heading, where register 1359's cut three-body chapter is reported. The heading moved +8 and the index did not, so the seated instrument prints the wrong line. Re-anchored to `heading_line(MAIN, '36')`, which the instrument already imports and which the standing method requires — exact token, body occurrence, never prefix. Golden `r2-ch16v2.out` 9,486 B, md5 9087f791.
+- **`r2-ch16u2`** — `r2-ch16u` scanned `range(9727, 9735)`, a **fixed window** over §35.1, for its Chapter 33 / Chapter 27 sites. The section moved and the window did not, so the sibling site vanished from the report entirely. Re-anchored to `body_range(MAIN, '35.1')`, which the instrument already defines: **a window that follows its section cannot be moved by an insertion above it.** Golden `r2-ch16u2.out` 15,292 B, md5 b40ee741.
+- **Both PROVED on the pre-shift bundles** by `tools/proveanchor.py`, byte-exact against their predecessors' goldens, before either was banked. On the current corpus `r2-ch16u2` reports the site at L9737 where the golden had L9729 — the same text, moved +8 — and `r2-ch16v2` prints the Chapter 36 heading rather than the paragraph that now occupies the old index.
+- **A reading error of mine, recorded because it nearly cost a correct successor.** I read the checker's *normalised* banked line (`main L9737`) as though it were the raw golden (`main L9729`) and briefly concluded `r2-ch16u2` was reporting a shifted site as unshifted. It was not: the golden says 9729, the normalisation adds the declared +8, and the successor produces 9729 on the old bytes and 9737 on the new. **A tool's normalised output is not the record; the record is the banked file.**
+- **reg7-A NEW — a defect the shift exposed and did not cause.** `r2-reg7a` computes `100 × len(split_e) / len(pos)` — the **live** entry-heading count — while its own sentence names *"of the 1,635 entries"*. MEASURED: the live count was **1639** before this chat's three entries and is **1642** now; 275/1635 and 275/1639 both print 16.8 %, so the mismatch was invisible, and 275/1642 prints **16.7 %**, at which point the computed and the named denominator part. **The instrument divides by one number and names another**, against the standing method's *check the arithmetic of every ratio and percentage, and name the denominator*. Recorded, not repaired: its successor is owed with the rest.
+- **Not done, by design:** 52 readings remain (40 UNEXPLAINED after these two, 12 UNRUNNABLE). `shiftcheck` re-run on a settled tree with the protections and substitutions declared reports **UNCHANGED 31, EXPLAINED 2, UNEXPLAINED 42, UNRUNNABLE 12** before this build. DEF-152 items 1–9 remain queued behind the readings on M's ruling.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35609,7 +35618,7 @@ compendia	REGISTER_AUDIT.md	1445	971bdbef525d1815fbbba5393d514dc0	13
 compendia	REQUEST-LOWDIN.md	5810	f1d93d9a360bc1afbfdbee0c66414b5c	75
 compendia	REQUEST-THREEBODY.md	5300	8e776e353b41e91e6d9bf6f83f9a0628	70
 compendia	RESPONSE-TO-METHOD-1_6.md	9706	eb435761e5429a245a1ba415e5d0cc37	175
-compendia	RETIRED.tsv	217	2dda3b962ece6bd8d9c52e4bb5b1132c	2
+compendia	RETIRED.tsv	556	820fbb7e6e275c32b56da2c5ea7b09c1	4
 compendia	RULING-TOLERANCE-489.md	3121	5a9a3803812c2e157770c6d4c9ca041a	59
 compendia	RULINGS-R2.md	25974	3012f5ab2f59de6629e18f81437a170a	286
 compendia	ScIII_asd.tsv	1269	f91a0abff919f6922395320344f1d4ac	46
@@ -35636,7 +35645,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	983506	82a17a9b21a0655af22674f8060ee6a9	8127
+compendia	WORKING-REGISTER.md	986437	f0002be9325bf065df8e675e83d26975	8136
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -35736,8 +35745,12 @@ compendia	r2-ch16t.out	17666	4aacbcca26f52562741d7d73a6d6b451	219
 compendia	r2-ch16t.py	12215	bf7f0e331a1623c2d4ba2f7d3c193bde	213
 compendia	r2-ch16u.out	15292	6a8473620928aad45f23ef66890488ea	194
 compendia	r2-ch16u.py	12078	f50c7e286f55e01aebf4d7c32fea8dc2	211
+compendia	r2-ch16u2.out	15292	b40ee741a0c2780bf139ecffc21d8b0d	194
+compendia	r2-ch16u2.py	12928	d664f8274d2b04ab5e861a38a9f13510	220
 compendia	r2-ch16v.out	9486	3bc466f8e73aa2e5f72a2a7cbe021609	110
 compendia	r2-ch16v.py	12471	5221ef3c38fbbe921e393dcb126b34d1	239
+compendia	r2-ch16v2.out	9486	9087f79109554c7e10f5daadfa064fc9	110
+compendia	r2-ch16v2.py	13219	962819e42716a8ea5ec1a1f8c6315f08	246
 compendia	r2-ch16w.out	22951	e4d1ebb373062c372feff8aded063db0	336
 compendia	r2-ch16w.py	19151	511bcb6fddebaeb5632c2ca008be9bf8	316
 compendia	r2-ch16x.out	11228	1f9f25cf702395aa03ace3ef6b7f4129	160
@@ -76093,4 +76106,788 @@ print('  absent from the References body (convention: word-bounded, case-insensi
 <<<FILE: RETIRED.tsv>>>
 superseded	successor	reason	proved_on
 r2-ch17e	r2-ch17e2	printed 'L11832 is R.7' as a literal; the site moved +8 with r3-wl2 and the literal did not, so the instrument asserts a falsehood	BUILD92+BUILD191, byte-exact
+r2-ch16u	r2-ch16u2	scanned a FIXED WINDOW range(9727,9735) over §35.1; the section moved +8 and the window did not, so the sibling site vanished from the report	BUILD92+BUILD191, byte-exact
+r2-ch16v	r2-ch16v2	read MAIN[9891] by fixed index for the `## 36.` heading; the heading moved +8 and the index did not	BUILD92+BUILD191, byte-exact
 <<<END FILE: RETIRED.tsv>>>
+
+<<<FILE: r2-ch16u2.py>>>
+#!/usr/bin/env python3
+# r2-ch16u2.py — chat 153 — SUCCESSOR to r2-ch16u.py, re-anchored. Identical measurements; one address moves.
+# r2-ch16u scanned `range(9727, 9735)` — a FIXED WINDOW over §35.1 — for its Chapter 33 / Chapter 27 sites.
+# r3-wl2's +8 shift at main L9608 moved §35.1, so the window now covers the wrong lines and the seated
+# instrument reports the sibling site from text that is no longer there. The window is now body_range(MAIN,
+# '35.1'), which this instrument already defines and uses elsewhere — heading to the next heading of any
+# rank, body occurrence. A window that follows its section cannot be moved by an insertion above it.
+# r2-ch16u is seated and is never edited in place (chat 68).
+# PROVED by tools/proveanchor.py: reproduces r2-ch16u.out byte-exact on the pre-shift bundles (G0c).
+# r2-ch16u -- COMPUTABLE batch for the chat-125 section read: main L9393-L9493
+# (# PART VII divider, ch.33 head, 33.1-33.5).  Reads MEMBERS only, never a BUILDnnn bundle path.
+# Deterministic; prints no wall-clock time.
+import os, re, sys, importlib.util
+from decimal import Decimal, ROUND_HALF_UP
+
+H = '/home/claude/members'
+spec = importlib.util.spec_from_file_location('r2lib', os.path.join(H, 'r2lib.py'))
+r2lib = importlib.util.module_from_spec(spec); spec.loader.exec_module(r2lib)
+from r2lib import heading_line, section_span, has_token, enclosing, L8_at
+
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def hr(t): print('\n' + '=' * 96 + '\n' + t + '\n' + '=' * 96)
+def norm(s): return re.sub(r'\s+', ' ', s.strip())
+
+# owed to r2lib (DEFERRED): body_range, carried with provenance from r2-ch16m (chat 121).
+def body_range(M, sec):
+    s = heading_line(M, sec)
+    if s is None: return None
+    for i in range(s + 1, len(M) + 1):
+        if re.match(r'^#{1,4} ', M[i - 1].strip()): return (s, i)
+    return (s, len(M) + 1)
+
+# owed to r2lib (DEFERRED): numsites, comma-aware, from r2-ch16p (chat 122).
+def numsites(M, n):
+    forms = {str(n), f'{n:,}'}
+    pat = r'(?<![\d.,])' + '(?:' + '|'.join(re.escape(f) for f in forms) + r')(?!\d)(?!,\d)(?!\.\d)'
+    return [i + 1 for i in range(len(M)) if re.search(pat, M[i])]
+
+def q(x, places='0.01'):
+    """Decimal.quantize HALF_UP -- never Python's round(), which is binary and wrong on .5."""
+    return Decimal(str(x)).quantize(Decimal(places), rounding=ROUND_HALF_UP)
+
+MAIN = rd('The_Method_1_6-2.md')
+REG  = rd('The_Method_1_6___The_Register-2.md')
+MC   = rd('The_Method_1_6___Mathematical_Compendium-2.md')
+PC   = rd('The_Method_1_6___The_Physics_Compendium-2.md')
+IOI  = rd('The_Method_1_6___The_Index_of_Indices-2.md')
+SC   = rd('The_Method_1_6___Spectra_Compendium-2.md')
+VOL  = [('main', MAIN), ('reg', REG), ('mc', MC), ('pc', PC), ('ioi', IOI), ('sc', SC)]
+U0, U1 = 9393, 9493                                    # unit, bounded by body_range
+
+# ---------------------------------------------------------------- 1. unit extent
+hr('1. UNIT EXTENT, resolved under BOTH resolvers')
+print(f'main member lines: {len(MAIN)}')
+for sec in ('33.1', '33.2', '33.3', '33.4', '33.5'):
+    br, ss = body_range(MAIN, sec), section_span(MAIN, sec)
+    print(f'  §{sec:6s} body_range={br}  section_span={ss}  {"COINCIDE" if br == ss else "DIFFER"}')
+print(f'  unit L{U0}-L{U1} = {U1 - U0 + 1} lines; "## 34." body opens at '
+      f'{[i + 1 for i, s in enumerate(MAIN) if s.startswith("## 34.")]}')
+print(f'  "# PART VII" at {[i + 1 for i, s in enumerate(MAIN) if s.startswith("# PART VII")]} '
+      f'(contents + body)')
+
+# ---------------------------------------------------------------- 2. six languages, DATA rows
+hr('2. "Six languages" (L9412) against its own DATA rows')
+rows = [i for i in range(9414, 9422) if MAIN[i - 1].strip().startswith('|')]
+data = [i for i in rows if not re.match(r'^\|[\s\-|:]+\|$', MAIN[i - 1].strip())][1:]
+print(f'  table lines L9414-L9421: {len(rows)}  header+separator: 2  DATA rows: {len(data)}')
+unit_langs = []
+for i in data:
+    cell = MAIN[i - 1].split('|')[1]
+    unit_langs.append(re.sub(r'\*', '', cell).strip())
+print(f'  count word "Six" vs DATA rows {len(data)}: {"EXACT" if len(data) == 6 else "MISMATCH"}')
+print(f'  the unit roster: {unit_langs}')
+
+# ---------------------------------------------------------------- 3. the roster elsewhere
+hr('3. THE SAME ROSTER ELSEWHERE -- ch.20 (cited at L9406) and ch.1')
+# FAULT 1, self-caught: the roster wraps onto L5574, so a one-line read returned three
+# names of six.  Join the sentence across its lines before splitting it.
+print('  §20.2 L5573-L5574 verbatim (whitespace-normalised join):')
+j20 = norm(MAIN[5572] + ' ' + MAIN[5573])
+print('   ', j20[:200])
+c20 = [t.strip(' .*') for t in re.split(r',| and ', j20.split('hold** — ')[-1].split('. That agreement')[0])
+       if t.strip(' .*')]
+print(f'  §20.2 roster as printed: {c20}  ({len(c20)} names)')
+print(f'  §20.2 says "Six": {"yes" if "Six" in MAIN[5572] else "no"};  '
+      f'names in common with the unit roster: '
+      f'{sorted(set(x.lower() for x in unit_langs) & set(x.lower().rstrip(".") for x in c20))}')
+for lab, a, b in (('ch.1 mechanism table', 400, 406), ('ch.1 closure-operator table', 455, 460)):
+    rws = [i for i in range(a, b + 1) if MAIN[i - 1].strip().startswith('|')]
+    dta = [i for i in rws if not re.match(r'^\|[\s\-|:]+\|$', MAIN[i - 1].strip())]
+    if not rws:            # space-aligned table, not pipe-delimited
+        dta = [i for i in range(a + 1, b + 1) if MAIN[i - 1].strip()]
+        names = [norm(MAIN[i - 1]).split('  ')[0] for i in dta]
+    else:
+        names = [re.sub(r'\*', '', MAIN[i - 1].split('|')[1]).strip() for i in dta[1:]]
+        dta = dta[1:]
+    print(f'  {lab}: {len(dta)} DATA rows -> {names}')
+print('  L439 (ch.1): ' + norm(MAIN[438])[:110])
+print('  L453 (ch.1): ' + norm(MAIN[452]))
+print('  L5564 (§20.1 on ch.1): ' + norm(MAIN[5563])[:110])
+
+# ---------------------------------------------------------------- 4. the ioi's operative roster
+hr('4. WHICH ROSTER THE INDEX OF INDICES ACTUALLY USES')
+LANG = ['order', 'analysis', 'algebra', 'geometry', 'information', 'statistics',
+        'arithmetic', 'calculus', 'logic']
+for w in LANG:
+    n = sum(1 for s in IOI if re.search(r'\b' + w + r'\b', s, re.I))
+    m = sum(1 for s in MC if re.search(r'\b' + w + r'\b', s, re.I))
+    print(f'  {w:12s} ioi {n:3d} sites   mc {m:3d} sites'
+          f'   {"<- unit roster" if w in [x.lower() for x in unit_langs] else ""}')
+
+# ---------------------------------------------------------------- 5. Lambda at 976
+hr('5. "Λ at 976 cells" (L9423) RECOMPUTED on the rebuilt lattice')
+cells = L8_at((3, 3, 1, 3, 1))
+print(f'  L8_at((3,3,1,3,1)) -> {len(cells)} cells; the book prints 976: '
+      f'{"EXACT" if len(cells) == 976 else "MISMATCH"}')
+print(f'  976 sites in the unit: {[i for i in numsites(MAIN, 976) if U0 <= i <= U1]}')
+print(f'  976 sites in six volumes: ' + ', '.join(f'{k} {len(numsites(M, 976))}' for k, M in VOL))
+
+# ---------------------------------------------------------------- 6. fifty sections of ch.12
+hr('6. "Chapter 12 spends fifty sections on it" (L9424)')
+c12 = [i + 1 for i, s in enumerate(MAIN) if s.startswith('## 12.')]
+nxt = [i + 1 for i, s in enumerate(MAIN) if s.startswith('## ') and i + 1 > c12[-1]][0]
+h12 = [(i + 1, s) for i, s in enumerate(MAIN) if re.match(r'^#{2,6} 12\.\d', s)]
+inside = [x for x in h12 if c12[-1] < x[0] < nxt]
+outside = [x for x in h12 if not (c12[-1] < x[0] < nxt)]
+print(f'  "## 12." occurrences {c12} (contents, body); body span {c12[-1]}-{nxt - 1}')
+print(f'  headings numbered 12.x: {len(h12)} total, {len(inside)} inside the body span, '
+      f'{len(outside)} outside')
+for a, b in outside: print(f'    OUTSIDE: L{a}  {b[:70]}')
+print(f'  count word "fifty" vs sections inside the span: '
+      f'{"EXACT at 50" if len(inside) == 50 else "MISMATCH"}')
+print(f'  vs sections numbered 12.x anywhere: {len(h12)} '
+      f'({"off by one" if len(h12) == 51 else ""})')
+print('  L5553 (§20 head) prints the same count word about a different object: '
+      + norm(MAIN[5552])[:95])
+
+# ---------------------------------------------------------------- 7. nine of eleven
+hr('7. "Across the indexes of §36, nine of eleven ... are expectation values" (L9451-L9453)')
+for k, M in VOL:
+    for i, s in enumerate(M):
+        if re.search(r'expectation value', s, re.I): print(f'  {k} L{i + 1}: ' + norm(s)[:150])
+c36 = [i + 1 for i, s in enumerate(MAIN) if s.startswith('## 36.')]
+e36 = [i + 1 for i, s in enumerate(MAIN) if s.startswith('## ') and i + 1 > c36[-1]][0]
+span = MAIN[c36[-1] - 1:e36 - 1]
+print(f'\n  §36 body span L{c36[-1]}-L{e36 - 1} ({e36 - c36[-1]} lines): {norm(MAIN[c36[-1] - 1])}')
+for tok in ('Λ_', 'expectation', 'eleven', 'index', 'closure'):
+    print(f'    "{tok}" inside §36: {sum(1 for s in span if tok in s)} sites')
+print(f'  registers stating the population: '
+      f'1327 (reg L4981) "eleven closed indexes"; 1347 (reg L5061) "TWELVE CLOSED INDEXES"')
+print('  reg L5061: ' + norm(REG[5060])[:150])
+print(f'  ioi "## Λ" headings: {sum(1 for s in IOI if re.match(r"^##\s+Λ", s))} '
+      f'({len(set(re.match(r"^##\s+(Λ\S*)", s).group(1) for s in IOI if re.match(r"^##\s+Λ", s)))} distinct)')
+
+# ---------------------------------------------------------------- 8. Chapter 27's terms
+hr('8. "stated in Chapter 27\'s terms" (L9449) -- the cited criterion read at its target')
+c27 = [i + 1 for i, s in enumerate(MAIN) if s.startswith('## 27.')]
+e27 = [i + 1 for i, s in enumerate(MAIN) if s.startswith('## ') and i + 1 > c27[-1]][0]
+sp27 = MAIN[c27[-1] - 1:e27 - 1]
+print(f'  §27 body span L{c27[-1]}-L{e27 - 1} ({e27 - c27[-1]} lines): {norm(MAIN[c27[-1] - 1])}')
+for tok in ('enumerable', 'operator', 'index closes', 'cannot supply'):
+    n = sum(1 for s in sp27 if re.search(tok, s, re.I))
+    print(f'    "{tok}" inside Chapter 27: {n} sites')
+print('  where the sentence DOES live:')
+for k, M in VOL:
+    for i, s in enumerate(M):
+        if re.search(r'cannot supply is exactly what requires', s, re.I) or \
+           re.search(r'what it cannot supply is exactly', s, re.I):
+            print(f'    {k} L{i + 1}: ' + norm(s)[:120])
+print('  §35.1 (the sibling site, repaired):')
+_b351 = body_range(MAIN, '35.1')
+for i in range(_b351[0], _b351[1]):
+    if 'Chapter 33' in MAIN[i - 1] or 'Chapter 27' in MAIN[i - 1]:
+        print(f'    main L{i}: ' + norm(MAIN[i - 1])[:130])
+print('  register 1755 (reg L6491) diagnosis, first 300 chars:')
+print('    ' + norm(REG[6490])[:300])
+
+# ---------------------------------------------------------------- 9. the domain protocol
+hr('9. "the fourth question of the domain protocol" (L9486) read at its target')
+print('  register 1336 (reg L5017), the protocol entire:')
+print('    ' + norm(REG[5016])[:420])
+qs = norm(REG[5016]).split('Four questions before any fit:')[1].split('.*')[0].split('*')[0]
+parts = [p.strip() for p in qs.split('·')]
+for n, p in enumerate(parts, 1): print(f'    question {n}: {p}')
+print(f'  the unit calls "Never fit across a language boundary" the FOURTH question; '
+      f'register 1336\'s fourth is: {parts[3] if len(parts) > 3 else "N/A"}')
+for k, M in VOL:
+    for i, s in enumerate(M):
+        if re.search(r'language boundary', s, re.I): print(f'  {k} L{i + 1}: ' + norm(s)[:130])
+
+# ---------------------------------------------------------------- 10. the singleton criterion
+hr('10. THE SINGLETON CRITERION (L9463-L9465) against the record')
+for k, M in VOL:
+    for i, s in enumerate(M):
+        if re.search(r'output class is a singleton|singleton-output', s, re.I):
+            print(f'  {k} L{i + 1}: ' + norm(s)[:170])
+print('  register 1300 (reg L4873) entire, first 400 chars:')
+print('    ' + norm(REG[4872])[:400])
+
+# ---------------------------------------------------------------- 11. n*, delta, Lambda_ryd
+hr('11. THE §33.4 CLAIMS AGAINST THE RECORD')
+for pat, lab in ((r'Λ_var', 'Λ_var'), (r'Λ_ryd', 'Λ_ryd'), (r'δ₂|delta_2', 'δ₂'),
+                 (r'non-penetrating', 'non-penetrating')):
+    print(f'  --- {lab} ---')
+    for k, M in VOL:
+        hits = [i + 1 for i, s in enumerate(M) if re.search(pat, s)]
+        print(f'    {k}: {len(hits)} sites {hits[:8]}')
+print('  ioi §Λ_var body (L1596-L1613):')
+for i in range(1596, 1614):
+    if IOI[i - 1].strip(): print(f'    ioi L{i}: ' + norm(IOI[i - 1])[:120])
+
+# ---------------------------------------------------------------- 12. Loewdin 1969
+hr('12. "In 1969 Per-Olov Löwdin set a challenge" (L9489) -- date and bibliography')
+for i, s in enumerate(MAIN):
+    if '1969' in s: print(f'  main L{i + 1}: ' + norm(s)[:135])
+print('  References body occurrence:')
+refs = [i + 1 for i, s in enumerate(MAIN) if s.startswith('## References')]
+print(f'    "## References" occurrences {refs}; body = {refs[-1]}')
+for i in range(refs[-1], len(MAIN) + 1):
+    if re.search(r'Löwdin', MAIN[i - 1]): print(f'    main L{i}: ' + norm(MAIN[i - 1])[:150])
+<<<END FILE: r2-ch16u2.py>>>
+
+<<<FILE: r2-ch16u2.out>>>
+
+================================================================================================
+1. UNIT EXTENT, resolved under BOTH resolvers
+================================================================================================
+main member lines: 11863
+  §33.1   body_range=(9404, 9427)  section_span=(9404, 9427)  COINCIDE
+  §33.2   body_range=(9427, 9440)  section_span=(9427, 9440)  COINCIDE
+  §33.3   body_range=(9440, 9455)  section_span=(9440, 9455)  COINCIDE
+  §33.4   body_range=(9455, 9477)  section_span=(9455, 9477)  COINCIDE
+  §33.5   body_range=(9477, 9494)  section_span=(9477, 9494)  COINCIDE
+  unit L9393-L9493 = 101 lines; "## 34." body opens at [157, 9494]
+  "# PART VII" at [155, 9393] (contents + body)
+
+================================================================================================
+2. "Six languages" (L9412) against its own DATA rows
+================================================================================================
+  table lines L9414-L9421: 8  header+separator: 2  DATA rows: 6
+  count word "Six" vs DATA rows 6: EXACT
+  the unit roster: ['order', 'analysis', 'algebra', 'geometry', 'information', 'statistics']
+
+================================================================================================
+3. THE SAME ROSTER ELSEWHERE -- ch.20 (cited at L9406) and ch.1
+================================================================================================
+  §20.2 L5573-L5574 verbatim (whitespace-normalised join):
+    **Six agree on Λ at 976 cells, and ten of their combinations hold** — order, geometry, arithmetic, calculus, logic and the constraint language of §16. That agreement is P21, and it is an instrument
+  §20.2 roster as printed: ['order', 'geometry', 'arithmetic', 'calculus', 'logic', 'the constraint language of §16']  (6 names)
+  §20.2 says "Six": yes;  names in common with the unit roster: ['geometry', 'order']
+  ch.1 mechanism table: 5 DATA rows -> ['monotone two-variable bounds', 'polynomial relations', 'linear arithmetic with quantifiers', 'full arithmetic', 'documentary']
+  ch.1 closure-operator table: 5 DATA rows -> ['order ℛ restored absorbed', 'geometry monotone polyhedron restored absorbed', 'algebra / logic ideal, Gröbner basis still derivable T·h enters the ideal', 'analysis coefficients of F restored absorbed', 'information description length E_bits stays 0 grows']
+  L439 (ch.1): **When a property holds in five languages and fails in the sixth, the sixth EXPRESSION is wrong — not the prop
+  L453 (ch.1): The self-feeding loop and its asymmetry hold in all five languages.
+  L5564 (§20.1 on ch.1): Chapter 1's table gives five languages with their closure mechanisms and their measured costs — tree
+
+================================================================================================
+4. WHICH ROSTER THE INDEX OF INDICES ACTUALLY USES
+================================================================================================
+  order        ioi  31 sites   mc  66 sites   <- unit roster
+  analysis     ioi   7 sites   mc  15 sites   <- unit roster
+  algebra      ioi   5 sites   mc  21 sites   <- unit roster
+  geometry     ioi   5 sites   mc  14 sites   <- unit roster
+  information  ioi   7 sites   mc  17 sites   <- unit roster
+  statistics   ioi  11 sites   mc  16 sites   <- unit roster
+  arithmetic   ioi   3 sites   mc  12 sites   
+  calculus     ioi   0 sites   mc   5 sites   
+  logic        ioi   1 sites   mc   8 sites   
+
+================================================================================================
+5. "Λ at 976 cells" (L9423) RECOMPUTED on the rebuilt lattice
+================================================================================================
+  L8_at((3,3,1,3,1)) -> 976 cells; the book prints 976: EXACT
+  976 sites in the unit: [9423]
+  976 sites in six volumes: main 93, reg 41, mc 37, pc 2, ioi 14, sc 0
+
+================================================================================================
+6. "Chapter 12 spends fifty sections on it" (L9424)
+================================================================================================
+  "## 12." occurrences [126, 2304] (contents, body); body span 2304-3507
+  headings numbered 12.x: 51 total, 50 inside the body span, 1 outside
+    OUTSIDE: L3543  ### 12.11.8 The electromagnetic index, and it was inside Λ all along
+  count word "fifty" vs sections inside the span: EXACT at 50
+  vs sections numbered 12.x anywhere: 51 (off by one)
+  L5553 (§20 head) prints the same count word about a different object: Fifty sections of this book make a claim about language and no chapter owns one. This chapter
+
+================================================================================================
+7. "Across the indexes of §36, nine of eleven ... are expectation values" (L9451-L9453)
+================================================================================================
+  main L9452: could not fix are expectation values; the one exception is the one index with no
+  reg L4981: **AND EVERY UNFIXABLE CELL IS AN EXPECTATION VALUE — EXCEPT ONE.** *Across eleven closed indexes, nine of the quantities the closure cannot fix are ⟨Ψ
+  reg L5169: **THE ISOTOPIC NULL, COMPUTED RATHER THAN COLLECTED.** *L.total says membership is decided for every ambient point, so a null is computable by the sam
+  mc L1956: > **Prior art: the scaling of hydrogenic expectation values, <r^a> ~ nu^{2a} and Delta E ~ nu^{-3}, is Bohr's correspondence scaling (1913) in its qua
+  mc L3660: was identified. **Nine of eleven are expectation values ⟨Ψ|Ô|Ψ⟩.** The exception is
+  ioi L1657: expectation values ⟨Ψ|Ô|Ψ⟩; Λ_cross is the exception, and it is the only index
+
+  §36 body span L9900-L9946 (47 lines): ## 36. Three bodies, and what a complete index is allowed to say
+    "Λ_" inside §36: 0 sites
+    "expectation" inside §36: 0 sites
+    "eleven" inside §36: 0 sites
+    "index" inside §36: 6 sites
+    "closure" inside §36: 1 sites
+  registers stating the population: 1327 (reg L4981) "eleven closed indexes"; 1347 (reg L5061) "TWELVE CLOSED INDEXES"
+  reg L5061: **TWELVE CLOSED INDEXES.** *Λ · Λ_law · Λ_const · Λ_var · Λ_ryd · Λ_charge · Λ_cross · Λ_descent · Λ_phys · Λ_amp · Λ_PCA · Λ_chem.* **Λ_spectra alone
+  ioi "## Λ" headings: 24 (22 distinct)
+
+================================================================================================
+8. "stated in Chapter 27's terms" (L9449) -- the cited criterion read at its target
+================================================================================================
+  §27 body span L7203-L7365 (163 lines): ## 27. Slack
+    "enumerable" inside Chapter 27: 0 sites
+    "operator" inside Chapter 27: 0 sites
+    "index closes" inside Chapter 27: 0 sites
+    "cannot supply" inside Chapter 27: 0 sites
+  where the sentence DOES live:
+    main L9450: when its cells are enumerable, and what it cannot supply is exactly what requires
+    main L9738: what that costs:** *what a closure cannot supply is exactly what requires an
+    reg L4981: **AND EVERY UNFIXABLE CELL IS AN EXPECTATION VALUE — EXCEPT ONE.** *Across eleven closed indexes, nine of the quantities
+    reg L6491: **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: wha
+    mc L3664: > **An index closes when its cells are enumerable. What it cannot supply is exactly
+  §35.1 (the sibling site, repaired):
+    main L9737: **Chapter 6 proved the periodic table is not a closed index, and Chapter 33 said
+  register 1755 (reg L6491) diagnosis, first 300 chars:
+    **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: what a closure cannot supply is exactly what requires an operator" (§35.1). The sentence has a verbatim home: it is register 1327's line, and in the current numbering it is printed in
+
+================================================================================================
+9. "the fourth question of the domain protocol" (L9486) read at its target
+================================================================================================
+  register 1336 (reg L5017), the protocol entire:
+    **THE DOMAIN PROTOCOL, WRITTEN BECAUSE I KEPT VIOLATING IT.** *Four questions before any fit: which single cell of Λ_phys · which carrier does Λ_law assign · points ≥ 3× parameters IN THIS CELL · am I pooling.* **Replayed against today: law 2 on six species BLOCKED (wrong carrier, pooling); the Gaussian across the table BLOCKED (spans three domain cells); six slopes pooled for one scaling BLOCKED. Law 2 in the right 
+    question 1: which single cell of Λ_phys
+    question 2: which carrier does Λ_law assign
+    question 3: points ≥ 3× parameters IN THIS CELL
+    question 4: am I pooling
+  the unit calls "Never fit across a language boundary" the FOURTH question; register 1336's fourth is: am I pooling
+  reg L6275: **T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge name
+  pc L852: | the amplitude a | across a language boundary | six placement rules dead; a seventh **prohibited** |
+
+================================================================================================
+10. THE SINGLETON CRITERION (L9463-L9465) against the record
+================================================================================================
+  main L9463: > **An index is closed when its output class is a singleton.** Two outputs mean
+  main L10866: the singleton-output rule definition · order proved · exhaustive · none found
+  reg L4873: **THE SINGLETON-OUTPUT CRITERION, AND IT IS NOT ENFORCED BY ℛ.** *Λ_var gives E = 0 with δ alone AND with n∗ added, because both land in the same cell.* **An index is clo
+  reg L6455: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPTHS AND DEPENDENCE CO
+  mc L3753: | **the singleton-output rule** | an index is closed when its reading is unique |
+  ioi L1611: when its output class is a singleton; two outputs mean the observer is still
+  register 1300 (reg L4873) entire, first 400 chars:
+    **THE SINGLETON-OUTPUT CRITERION, AND IT IS NOT ENFORCED BY ℛ.** *Λ_var gives E = 0 with δ alone AND with n∗ added, because both land in the same cell.* **An index is closed when its output class is a singleton: two outputs mean the observer is still choosing which to read, and the choice is not in the object.** **n∗ = n₀ − δ carries nothing δ does not. Λ_ryd closes at 5 cells, E = 0, once δ₂ is r
+
+================================================================================================
+11. THE §33.4 CLAIMS AGAINST THE RECORD
+================================================================================================
+  --- Λ_var ---
+    main: 2 sites [9459, 9537]
+    reg: 7 sites [4873, 4925, 5061, 5077, 5105, 5926, 5958]
+    mc: 1 sites [3801]
+    pc: 0 sites []
+    ioi: 4 sites [1589, 1596, 1609, 1869]
+    sc: 0 sites []
+  --- Λ_ryd ---
+    main: 1 sites [9473]
+    reg: 3 sites [4873, 5061, 5077]
+    mc: 0 sites []
+    pc: 0 sites []
+    ioi: 3 sites [1614, 1621, 1870]
+    sc: 0 sites []
+  --- δ₂ ---
+    main: 10 sites [6048, 6142, 6148, 6151, 7010, 7022, 7088, 7500]
+    reg: 20 sites [3165, 3169, 3513, 3673, 4289, 4293, 4297, 4301]
+    mc: 3 sites [36, 528, 3733]
+    pc: 6 sites [174, 176, 491, 649, 808, 828]
+    ioi: 3 sites [1616, 1622, 1624]
+    sc: 3 sites [957, 959, 961]
+  --- non-penetrating ---
+    main: 1 sites [9470]
+    reg: 10 sites [2693, 3917, 4109, 4541, 4685, 4701, 6038, 6042]
+    mc: 3 sites [36, 528, 3124]
+    pc: 4 sites [471, 487, 812, 822]
+    ioi: 0 sites []
+    sc: 1 sites [947]
+  ioi §Λ_var body (L1596-L1613):
+    ioi L1596: ## Λ_var — the variables
+    ioi L1598: **What it is.** Twelve variables on (body, role), body order
+    ioi L1599: **nucleus < core < core+rydberg < nucleus+core < rydberg**. **E = 0.**
+    ioi L1601: **What only it contributes.** *That there is no nucleus + rydberg cell.* Not one
+    ioi L1602: variable relates them directly: every quantity connecting the Rydberg electron to
+    ioi L1603: the nucleus — c, u — is a nucleus–core quantity that the Rydberg electron then
+    ioi L1604: reads. **That is the screening statement appearing as a structural fact of the
+    ioi L1605: index rather than a modelling choice, and it is the three-body factorisation:
+    ioi L1606: nucleus–core gives c and u, core–Rydberg gives p, n₀ and T, and the Rydberg
+    ioi L1607: electron's own ℓ closes it.**
+    ioi L1609: **And the singleton rule.** Λ_var passes ℛ with both δ and n\* present, because
+    ioi L1610: both land in the same cell — **only a second criterion sees it. An index is closed
+    ioi L1611: when its output class is a singleton; two outputs mean the observer is still
+    ioi L1612: choosing which to read.**
+
+================================================================================================
+12. "In 1969 Per-Olov Löwdin set a challenge" (L9489) -- date and bibliography
+================================================================================================
+  main L9489: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the
+  main L9496: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the
+  main L9600: (1929) before him, and to Klechkovskii — and the demand for its derivation is Löwdin's (1969). The
+  main L9730: The challenge posed in 1969 is closed. The formal statement is a companion paper,
+  main L9840: force-versus-gradient discrepancy Pulay published in 1969; the operator asymmetry
+  main L9842: two-branch f physics is Griffin, Andrew and Cowan, 1969 and 1971. *Three
+  main L9876: | **zero unexplained residue** | Pulay 1969 · Löwdin 1950 · exact quartics |
+  main L9882: **Three of the load-bearing works are dated 1969** — the challenge, the Pulay
+  main L11817: · Löwdin, P.-O. (1969). Some comments on the periodic system of the elements. *Int. J. Quantum Chem.* **3**(S3A), 331–334. — the challe
+  main L11820: · Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). *Phys. Rev.* **177**, 62–71; Griffin, Cowan & Andrew (1971). — orbital collapse;
+  main L11821: · Pulay, P. (1969). *Mol. Phys.* **17**, 197. — the occupation-parameter term that is the walk's one defect.
+  References body occurrence:
+    "## References" occurrences [173, 11511]; body = 11511
+    main L11815: **The Löwdin solution.** Entered at registers 1701–1712. The companion paper carries the full list; these are the works Chapter 35 rests on.
+    main L11817: · Löwdin, P.-O. (1969). Some comments on the periodic system of the elements. *Int. J. Quantum Chem.* **3**(S3A), 331–334. — the challenge.
+    main L11818: · Löwdin, P.-O. (1950). On the non-orthogonality problem. *J. Chem. Phys.* **18**, 365. — the multiplier identity is an instance.
+    main L11824: · Lach, M. (2026). *The Löwdin Solution.* — the companion paper; the formal statement.
+<<<END FILE: r2-ch16u2.out>>>
+
+<<<FILE: r2-ch16v2.py>>>
+#!/usr/bin/env python3
+# r2-ch16v2.py — chat 153 — SUCCESSOR to r2-ch16v.py, re-anchored. Identical measurements; one address moves.
+# r2-ch16v read MAIN[9891] — the `## 36.` heading — by fixed index. r3-wl2's +8 shift at main L9608 moved that
+# heading to 9900, so the seated instrument prints the wrong line where register 1359's cut chapter is
+# reported, and re-banking it would bank that wrong line. The heading is now resolved with heading_line,
+# which this instrument already imports and which the standing method requires (exact token, body
+# occurrence, never prefix). r2-ch16v is seated and is never edited in place (chat 68).
+# PROVED by tools/proveanchor.py: reproduces r2-ch16v.out byte-exact on the pre-shift bundles (G0c).
+# r2-ch16v -- PROSE batch for the chat-125 section read: main L9393-L9493
+# (# PART VII divider, ch.33 head, 33.1-33.5).  Reads MEMBERS and the Prints & Proofs original.
+# Deterministic; prints no wall-clock time.
+import os, re, sys, importlib.util
+
+H = '/home/claude/members'
+spec = importlib.util.spec_from_file_location('r2lib', os.path.join(H, 'r2lib.py'))
+r2lib = importlib.util.module_from_spec(spec); spec.loader.exec_module(r2lib)
+from r2lib import heading_line, section_span, has_token, enclosing
+
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def hr(t): print('\n' + '=' * 96 + '\n' + t + '\n' + '=' * 96)
+def norm(s): return re.sub(r'\s+', ' ', s.strip())
+
+# owed to r2lib (DEFERRED): body_range, carried with provenance from r2-ch16m (chat 121).
+def body_range(M, sec):
+    s = heading_line(M, sec)
+    if s is None: return None
+    for i in range(s + 1, len(M) + 1):
+        if re.match(r'^#{1,4} ', M[i - 1].strip()): return (s, i)
+    return (s, len(M) + 1)
+
+MAIN = rd('The_Method_1_6-2.md')
+REG  = rd('The_Method_1_6___The_Register-2.md')
+MC   = rd('The_Method_1_6___Mathematical_Compendium-2.md')
+PC   = rd('The_Method_1_6___The_Physics_Compendium-2.md')
+IOI  = rd('The_Method_1_6___The_Index_of_Indices-2.md')
+SC   = rd('The_Method_1_6___Spectra_Compendium-2.md')
+VOL  = [('main', MAIN), ('reg', REG), ('mc', MC), ('pc', PC), ('ioi', IOI), ('sc', SC)]
+PP   = open('/home/claude/PP_The_Method_1_6.md', encoding='utf-8').read().split('\n')
+U0, U1 = 9393, 9493
+UNIT = list(range(U0, U1 + 1))
+
+# ---------------------------------------------------------------- 1. pointers, both resolvers
+hr('1. EVERY POINTER IN THE UNIT, resolved to the CLAIM and under BOTH resolvers')
+ptr = {}
+for i in UNIT:
+    for m in re.finditer(r'§(\d+(?:\.\d+)*)(?!\d)', MAIN[i - 1]):
+        ptr.setdefault(m.group(1), []).append(i)
+    for m in re.finditer(r'Chapters? (\d+)', MAIN[i - 1]):
+        ptr.setdefault('ch' + m.group(1), []).append(i)
+for k in sorted(ptr, key=lambda z: (z.startswith('ch'), z)):
+    sites = sorted(set(ptr[k]))
+    if k.startswith('ch'):
+        n = k[2:]
+        occ = [j + 1 for j, s in enumerate(MAIN) if s.startswith(f'## {n}.')]
+        body = occ[-1] if occ else None
+        end = ([j + 1 for j, s in enumerate(MAIN) if s.startswith('## ') and body and j + 1 > body]
+               or [len(MAIN) + 1])[0]
+        print(f'  Chapter {n:3s} cited at {sites}: occurrences {occ} -> BODY {body}, '
+              f'span {body}-{end - 1}: {norm(MAIN[body - 1]) if body else "NO TARGET"}')
+    else:
+        br, ss = body_range(MAIN, k), section_span(MAIN, k)
+        hl = heading_line(MAIN, k)
+        print(f'  §{k:8s} cited at {sites}: heading_line={hl}  body_range={br}  '
+              f'section_span={ss}  {"COINCIDE" if br == ss else "DIFFER"}')
+        if hl is None:
+            occ = [j + 1 for j, s in enumerate(MAIN) if s.startswith(f'## {k}.')]
+            print(f'      numeric resolver returns None; "## {k}." occurrences {occ}')
+
+# ---------------------------------------------------------------- 2. the duplicated epigraph
+hr('2. THE LÖWDIN EPIGRAPH, PRINTED TWICE SEVEN LINES APART')
+a = norm(' '.join(MAIN[9488:9492]))
+b = norm(' '.join(MAIN[9495:9498]))
+print(f'  §33.5 tail  L9489-L9492: {a}')
+print(f'  ch.34 head  L9496-L9498: {b}')
+pre = os.path.commonprefix([a, b])
+print(f'  common prefix, {len(pre)} chars: {pre}')
+print(f'  divergence -> §33.5: "...{a[len(pre):][:80]}"')
+print(f'  divergence -> ch.34: "...{b[len(pre):][:80]}"')
+print(f'  identical: {a == b}')
+print('  the Part VII epigraph the §33.5 tail also echoes, L9395-L9397:')
+print('    ' + norm(' '.join(MAIN[9394:9397])))
+print('  register 1359 (reg L5105) fixes Part VII\'s structure:')
+print('    ' + norm(REG[5104])[:260])
+
+# ---------------------------------------------------------------- 3. attributions
+hr('3. EVERY ATTRIBUTION IN THE UNIT against the References BODY occurrence and R.7')
+refs = [i + 1 for i, s in enumerate(MAIN) if s.startswith('## References')]
+RB = refs[-1]
+r7 = [i + 1 for i, s in enumerate(MAIN) if re.match(r'^#{1,4}\s*R\.7', s.strip())]
+print(f'  "## References" occurrences {refs}; BODY = L{RB}; R.7 heading {r7}')
+names = set()
+for i in UNIT:
+    for m in re.finditer(r'\b([A-ZÄÖÜ][a-zäöüé]+(?:[-–][A-ZÄÖÜ][a-zäöüé]+)?)\b', MAIN[i - 1]):
+        names.add(m.group(1))
+STOP = {'The','This','That','An','And','Where','Across','Two','Six','Its','How','What','Only',
+        'Ask','Then','Chapter','Chapters','Part','Every','Never','Each','In','It','Half','Λ',
+        'Parts','But','For','A','Rydberg','Nine','Five','Four','Three','One','No','Whether'}
+cand = sorted(n for n in names - STOP if n not in ('Schrödinger',) or True)
+bib = '\n'.join(MAIN[RB - 1:])
+for n in cand:
+    sites = [i for i in UNIT if re.search(r'\b' + re.escape(n) + r'\b', MAIN[i - 1])]
+    inbib = bool(re.search(r'\b' + re.escape(n) + r'\b', bib))
+    if n in ('Löwdin', 'Demkov', 'Ostrovsky', 'Schrödinger', 'Olov', 'Per'):
+        print(f'    {n:14s} unit sites {sites}  in References body: {inbib}')
+print('  the two that fail, given their own witnesses across all six volumes:')
+for n in ('Schrödinger', 'Demkov'):
+    tot = {k: [i + 1 for i, s in enumerate(M) if re.search(r'\b' + n + r'\b', s)] for k, M in VOL}
+    print(f'    {n}: ' + ', '.join(f'{k} {len(v)}' for k, v in tot.items()))
+    inref = [i for i in tot['main'] if i >= RB]
+    print(f'      inside the References body (L{RB}+): {inref if inref else "NONE -- unbibliographed"}')
+print('  and where the Demkov-Ostrovsky claim of L9468 does live:')
+for k, M in VOL:
+    for i, s in enumerate(M):
+        if re.search(r'Demkov', s) and re.search(r'slope|½|1/2|identity', s, re.I):
+            print(f'    {k} L{i + 1}: ' + norm(s)[:150])
+
+# ---------------------------------------------------------------- 4. Ruling 45 and Ruling 46
+hr('4. RULING 45 (build / editorial-process prose) and RULING 46 (script and file names)')
+R45 = [r'\bthis book\b', r'\bthe author\b', r'\ban earlier (draft|version)\b', r'\ba previous draft\b',
+       r'\bwas arrived at\b', r'\bhad to be restated\b', r'\bit is enforced in code\b',
+       r'\bthis work\b', r'\bwas not designed\b', r'\bafter audit\b', r'\bcut after\b']
+hits45 = []
+for i in UNIT:
+    for p in R45:
+        if re.search(p, MAIN[i - 1], re.I): hits45.append((i, p, norm(MAIN[i - 1])[:96]))
+print(f'  Ruling 45 candidate sites in {len(UNIT)} lines: {len(hits45)}')
+for i, p, t in hits45: print(f'    L{i}  [{p}]  {t}')
+R46 = [r'\b\w+\.py\b', r'\bBUILD\d+\b', r'\bregister_cites\b', r'\bgate\.py\b', r'\.md\b',
+       r'\bmembers/\b', r'\bgolden\b']
+hits46 = [(i, p) for i in UNIT for p in R46 if re.search(p, MAIN[i - 1])]
+print(f'  Ruling 46 sites in the unit (case-sensitive, word-bounded): {len(hits46)} {hits46}')
+print('  for contrast, the SAME protocol names a script in the Register (permitted there):')
+print('    reg L5017 tail: ' + norm(REG[5016])[-60:])
+
+# ---------------------------------------------------------------- 5. first person
+hr('5. FIRST-PERSON PROSE (guarded against the Roman numeral in species names)')
+fp = []
+for i in UNIT:
+    s = MAIN[i - 1]
+    for m in re.finditer(r'\b(I|my|we|our)\b', s):
+        if m.group(1) == 'I':
+            ctx = s[max(0, m.start() - 6):m.end() + 3]
+            if re.search(r'[A-Z][a-z]{0,2}\s+I\b', ctx) or re.search(r'\bI+[IVX]*\b', ctx):
+                continue                      # He I, Sc I, C IV ... a species, not a pronoun
+        fp.append((i, m.group(1), norm(s)[:90]))
+print(f'  first-person sites in the unit: {len(fp)}')
+for x in fp: print(f'    L{x[0]}  "{x[1]}"  {x[2]}')
+
+# ---------------------------------------------------------------- 6. Prints & Proofs anchors
+hr('6. PRINTS & PROOFS -- every unit line anchored on its own text')
+off = None
+probe = [i for i in UNIT if len(MAIN[i - 1]) > 40]
+for i in probe[:6]:
+    t = norm(MAIN[i - 1])
+    for j, s in enumerate(PP):
+        if norm(s) == t: off = j + 1 - i; break
+    if off is not None: break
+print(f'  offset measured from the first matching unit line: {off}')
+ok = miss = 0; missing = []
+for i in UNIT:
+    t = norm(MAIN[i - 1])
+    if not t: continue
+    j = i + (off or 0)
+    got = norm(PP[j - 1]) if 0 < j <= len(PP) else ''
+    if got == t: ok += 1
+    else:
+        found = [k + 1 for k, s in enumerate(PP) if norm(s) == t]
+        if found: ok += 1
+        else: miss += 1; missing.append((i, t[:80]))
+print(f'  unit lines matching PP verbatim: {ok};  not matching: {miss}')
+# FAULT 2, self-caught: a heading that fails a verbatim match is not absent from PP.  The volume
+# NUMBERS the section headings and PP does not, so compare the heading's TITLE, not its whole line.
+unnum = []
+for i, t in list(missing):
+    m = re.match(r'^(#{2,4}) (\d+(?:\.\d+)*) (.+)$', norm(MAIN[i - 1]))
+    if m:
+        want = f'{m.group(1)} {m.group(3)}'
+        hit = [k + 1 for k, s in enumerate(PP) if norm(s) == want]
+        if hit:
+            unnum.append((i, hit[0], m.group(2), m.group(3)))
+            missing.remove((i, t))
+print(f'  of those, headings PRESENT in PP but UNNUMBERED: {len(unnum)}')
+for i, p, num, title in unnum:
+    print(f'    L{i} "### {num} {title}"  ->  PP P{p} "### {title}"  (number added at production)')
+print(f'  genuinely absent from PP: {len(missing)}')
+for i, t in missing: print(f'    ABSENT L{i}: {t}')
+
+# ---------------------------------------------------------------- 7. census rows
+hr('7. DEFECT-CENSUS.tsv ROWS IN RANGE (classes main AND all)')
+C = open(os.path.join(H, 'DEFECT-CENSUS.tsv'), encoding='utf-8').read().split('\n')
+hdr = C[0].split('\t'); mi = hdr.index('member'); li = hdr.index('line')
+rows = []
+for r in C[1:]:
+    if not r.strip(): continue
+    f = r.split('\t')
+    if len(f) <= max(mi, li): continue
+    if f[mi] in ('main', 'all'):
+        try: ln = int(f[li])
+        except ValueError: continue
+        if U0 <= ln <= U1: rows.append(r)
+print(f'  header: {hdr}')
+print(f'  rows with member in (main, all) and line in [{U0},{U1}]: {len(rows)}')
+for r in rows: print('    ' + r[:150])
+
+# ---------------------------------------------------------------- 8. duplicated-section sweep
+hr('8. DUPLICATED-SECTION SWEEP (DEF-105 item 1) -- long unit lines recurring elsewhere')
+long = [i for i in UNIT if len(norm(MAIN[i - 1])) >= 60]
+rec = []
+for i in long:
+    t = norm(MAIN[i - 1])
+    other = [j + 1 for j, s in enumerate(MAIN) if norm(s) == t and not (U0 <= j + 1 <= U1)]
+    if other: rec.append((i, other, t[:70]))
+print(f'  long lines examined: {len(long)};  recurring outside the unit: {len(rec)}')
+for i, o, t in rec: print(f'    L{i} also at {o}: {t}')
+
+# ---------------------------------------------------------------- 9. unmarked sub-headings
+hr('9. PLACEHOLDER / UNMARKED-HEADING SWEEP inside the unit')
+for i in UNIT:
+    s = MAIN[i - 1]
+    if s.startswith('#'):
+        nxt = MAIN[i] if i < len(MAIN) else ''
+        body = [k for k in range(i + 1, min(i + 6, len(MAIN))) if MAIN[k - 1].strip()
+                and not MAIN[k - 1].startswith('#')]
+        print(f'  L{i} {"HEADING":8s} {s[:60]:62s} body within 5 lines: {"yes" if body else "NO"}')
+# FAULT 3, self-caught: without a blank line above, this caught the WRAP TAILS of italic
+# sentences ("made explicit.*") and reported three sub-headings where the unit has none.
+print('  plain body lines reading as sub-headings (short, bold-free, no terminal stop,')
+print('  and starting a paragraph -- a blank line above, which is what makes it a heading):')
+found_sub = 0
+for i in UNIT:
+    t = norm(MAIN[i - 1])
+    above = norm(MAIN[i - 2]) if i > 1 else ''
+    if t and above == '' and not t.startswith(('#', '|', '>', '*', '-')) and len(t) < 55 \
+       and not t.endswith(('.', ':', ',')) and '**' not in t:
+        print(f'    L{i}: {t}'); found_sub += 1
+print(f'    unmarked sub-headings in the unit: {found_sub}  '
+      f'(chat 124 found two in §32.7 by the same test)')
+
+# ---------------------------------------------------------------- 10. the §33 structure
+hr('10. THE PRINTED §33 STRUCTURE against register 1359')
+for i in UNIT:
+    if MAIN[i - 1].startswith('### '): print(f'  L{i}  {MAIN[i - 1]}')
+print('  register 1359 names, in order: where it came from · its purpose · how it is used · '
+      'the singleton criterion · what it cost to learn')
+print('  register 1359 also states a three-body chapter was CUT; the volume now carries:')
+print('    ' + norm(MAIN[heading_line(MAIN, '36') - 1]))
+<<<END FILE: r2-ch16v2.py>>>
+
+<<<FILE: r2-ch16v2.out>>>
+
+================================================================================================
+1. EVERY POINTER IN THE UNIT, resolved to the CLAIM and under BOTH resolvers
+================================================================================================
+  §35       cited at [9479]: heading_line=9724  body_range=(9724, 9735)  section_span=(9724, 9900)  DIFFER
+  §36       cited at [9451]: heading_line=9900  body_range=(9900, 9904)  section_span=(9900, 11864)  DIFFER
+  Chapter 12  cited at [9424]: occurrences [126, 2304] -> BODY 2304, span 2304-3507: ## 12. The shape — a cylinder over the transfer
+  Chapter 20  cited at [9406]: occurrences [5551] -> BODY 5551, span 5551-5596: ## 20. The languages, and what each one can close
+  Chapter 27  cited at [9449]: occurrences [147, 7203] -> BODY 7203, span 7203-7365: ## 27. Slack
+
+================================================================================================
+2. THE LÖWDIN EPIGRAPH, PRINTED TWICE SEVEN LINES APART
+================================================================================================
+  §33.5 tail  L9489-L9492: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the Schrödinger equation. It has stood since. This part states what the method delivered, what it cost, and — because the method is the subject of this book — how the method itself did the work.*
+  ch.34 head  L9496-L9498: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the Schrödinger equation. It has stood since. This chapter states the challenge, what the method delivered, and how the method itself did the work.*
+  common prefix, 126 chars: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the Schrödinger equation. It has stood since. This 
+  divergence -> §33.5: "...part states what the method delivered, what it cost, and — because the method is"
+  divergence -> ch.34: "...chapter states the challenge, what the method delivered, and how the method itse"
+  identical: False
+  the Part VII epigraph the §33.5 tail also echoes, L9395-L9397:
+    *Parts I to VI state the method. This part applies it. Each chapter takes a problem posed outside this work, states what the method delivered, and — because the method is the subject — how the method itself did the work.*
+  register 1359 (reg L5105) fixes Part VII's structure:
+    **PART VII — THE CHALLENGES, AND A CHAPTER CUT AFTER AUDIT.** *The part opens with **§33 The cypher analysis** — where it came from, its purpose, how it is used, the singleton criterion, and what it cost to learn — and continues with **§34 The Löwdin challenge
+
+================================================================================================
+3. EVERY ATTRIBUTION IN THE UNIT against the References BODY occurrence and R.7
+================================================================================================
+  "## References" occurrences [173, 11511]; BODY = L11511; R.7 heading [11814]
+    Löwdin         unit sites [9489]  in References body: True
+    Schrödinger    unit sites [9490]  in References body: False
+  the two that fail, given their own witnesses across all six volumes:
+    Schrödinger: main 5, reg 6, mc 0, pc 2, ioi 1, sc 0
+      inside the References body (L11511+): NONE -- unbibliographed
+    Demkov: main 1, reg 5, mc 0, pc 0, ioi 0, sc 0
+      inside the References body (L11511+): NONE -- unbibliographed
+  and where the Demkov-Ostrovsky claim of L9468 does live:
+    main L9468: restated: the Demkov–Ostrovsky slope-½ comparison was an identity, and the closure
+    reg L5449: **THE OUTSIDE LITERATURE, SEARCHED AT LAST, AND OUR COORDINATES ARE FIFTY YEARS OLD.** *A precedent search on the Löwdin challenge itself, owed since 
+    reg L5453: **AND BELOKOLOS ANSWERS THE OBJECTION THAT SANK DEMKOV–OSTROVSKY: THE 2 IS DERIVED, NOT CHOSEN.** *His chain: any central potential carries a dynamica
+    reg L6083: **P2 CLOSED: DEMKOV-OSTROVSKY DERIVE MADELUNG AT E = 0, WHICH IS SEATON'S OWN LIMIT — AND THE CORRIDOR TEST REFUTES THE CONNECTION.** *Board row 11, c
+
+================================================================================================
+4. RULING 45 (build / editorial-process prose) and RULING 46 (script and file names)
+================================================================================================
+  Ruling 45 candidate sites in 101 lines: 5
+    L9396  [\bthis work\b]  problem posed outside this work, states what the method delivered, and — because
+    L9401  [\bwas not designed\b]  *The instrument this part runs on. It was not designed; it was noticed, and then
+    L9479  [\bwas arrived at\b]  **The cypher's diagnosis of §35 was arrived at after the failure it explains.**
+    L9485  [\bit is enforced in code\b]  **A rule follows, and it is enforced in code.** *Never fit across a language
+    L9491  [\bthis book\b]  delivered, what it cost, and — because the method is the subject of this book —
+  Ruling 46 sites in the unit (case-sensitive, word-bounded): 0 []
+  for contrast, the SAME protocol names a script in the Register (permitted there):
+    reg L5017 tail: is a pooled fit in disguise**. Saved as domain_protocol.py.*
+
+================================================================================================
+5. FIRST-PERSON PROSE (guarded against the Roman numeral in species names)
+================================================================================================
+  first-person sites in the unit: 0
+
+================================================================================================
+6. PRINTS & PROOFS -- every unit line anchored on its own text
+================================================================================================
+  offset measured from the first matching unit line: -94
+  unit lines matching PP verbatim: 69;  not matching: 5
+  of those, headings PRESENT in PP but UNNUMBERED: 5
+    L9404 "### 33.1 Where it came from"  ->  PP P9310 "### Where it came from"  (number added at production)
+    L9427 "### 33.2 Its purpose"  ->  PP P9333 "### Its purpose"  (number added at production)
+    L9440 "### 33.3 How it is used"  ->  PP P9346 "### How it is used"  (number added at production)
+    L9455 "### 33.4 The singleton criterion"  ->  PP P9361 "### The singleton criterion"  (number added at production)
+    L9477 "### 33.5 What it cost to learn"  ->  PP P9383 "### What it cost to learn"  (number added at production)
+  genuinely absent from PP: 0
+
+================================================================================================
+7. DEFECT-CENSUS.tsv ROWS IN RANGE (classes main AND all)
+================================================================================================
+  header: ['id', 'class', 'member', 'line', 'item', 'detail']
+  rows with member in (main, all) and line in [9393,9493]: 1
+    1194	C9-OVERGENERALISATION-WORD	main	9474	never	intermediate — it is fitted from a series and never measured. **A quantity the
+
+================================================================================================
+8. DUPLICATED-SECTION SWEEP (DEF-105 item 1) -- long unit lines recurring elsewhere
+================================================================================================
+  long lines examined: 46;  recurring outside the unit: 1
+    L9489 also at [9496]: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule 
+
+================================================================================================
+9. PLACEHOLDER / UNMARKED-HEADING SWEEP inside the unit
+================================================================================================
+  L9393 HEADING  # PART VII — THE CHALLENGES                                    body within 5 lines: yes
+  L9399 HEADING  ## 33. The cypher analysis                                     body within 5 lines: yes
+  L9404 HEADING  ### 33.1 Where it came from                                    body within 5 lines: yes
+  L9427 HEADING  ### 33.2 Its purpose                                           body within 5 lines: yes
+  L9440 HEADING  ### 33.3 How it is used                                        body within 5 lines: yes
+  L9455 HEADING  ### 33.4 The singleton criterion                               body within 5 lines: yes
+  L9477 HEADING  ### 33.5 What it cost to learn                                 body within 5 lines: yes
+  plain body lines reading as sub-headings (short, bold-free, no terminal stop,
+  and starting a paragraph -- a blank line above, which is what makes it a heading):
+    unmarked sub-headings in the unit: 0  (chat 124 found two in §32.7 by the same test)
+
+================================================================================================
+10. THE PRINTED §33 STRUCTURE against register 1359
+================================================================================================
+  L9404  ### 33.1 Where it came from
+  L9427  ### 33.2 Its purpose
+  L9440  ### 33.3 How it is used
+  L9455  ### 33.4 The singleton criterion
+  L9477  ### 33.5 What it cost to learn
+  register 1359 names, in order: where it came from · its purpose · how it is used · the singleton criterion · what it cost to learn
+  register 1359 also states a three-body chapter was CUT; the volume now carries:
+    ## 36. Three bodies, and what a complete index is allowed to say
+<<<END FILE: r2-ch16v2.out>>>
