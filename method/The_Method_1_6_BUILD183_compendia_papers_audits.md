@@ -22935,6 +22935,18 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **No instrument fault in this unit**, worth recording after three in the last: every deciding phrase was asserted present before any verdict was printed. `r2-27a.py` 15,219 B, golden `r2-27a.out` 10,142 B / 38e11288 / 125 lines, ALL INSTRUMENT CHECKS OK with 2 deviations recorded. One naming correction caught before banking: 27a-05 and 27a-06 were already taken by the ch27a unit, so the new findings are **27a-07 and 27a-08**.
 - **Not done, by design:** the two re-derivations after this family in DEF-143 item 11's order (**28a-06's author-and-year match next, then 28b-06's reading of Register 1721**); whether registers 1019 / 1020 / 1022 / 1035 / 1483 / 1484 would satisfy row 10.4c's column, which is R3's ruling and not this reading's; census row 293's eleven numerals; the *Chapter 12* pointer standing in both 8.2 and 8.4, already measured as 27a-03 and not reopened. The chat-67 hold stands: **findings are recorded and never repaired.**
 
+### W-192 — chat 151-B (Cowork), third segment — 28a-06, the author-and-year match owed on the compendium's 162 rows (DEF-143 item 11's eighth re-derivation), instrument r2-28a2.py; BUILD182 -> BUILD183
+
+- **Third segment of chat 151-B, opened on a closed one.** W-190 seated 26b-02/-03 and closed BUILD181; W-191 seated 27a-02 and closed BUILD182; this entry seats 28a-06 and closes BUILD183. **The DEFERRED and DOCKET blocks are keyed to the chat that wrote them and this chat has now written three, so they are DEF-151c and the chat-151-B third delta**; the W numbers stay sequential and this is W-192. M's loop ruling of W-190 governed throughout: opened from Drive, Graphify as the substrate for state, closing by writing only the small parts back.
+- **Gate:** not re-run at the open of this segment. GATE-ch151Bclose2 (03:55 UTC) had already run the full gate against a fresh re-extract of BUILD182 — census OK, run --core 5/5, MANIFEST OK 350 listed / 351 extracted, **70 of 70 instruments OK on last value** — and the tree was not touched between that certificate and this segment. **INFERRED, and named as such: no gate step was re-executed to open the segment.**
+- **Segment A — done.** Located by reading before anything was designed: DEFERRED's own record of what is owed (*R3 re-matches by author AND year on the 162 rows before the figure is kept; 1736's own figure is a 172-row datum*), DOCKET item 17 / 37, READ-ch28a's 28a-06 entry, then the main volume's References entire (L11503–L11855, two heading hits, the unit being the last), the claim paragraph L11848–L11854 in full, the Mathematical Compendium's *VII · THE BIBLIOGRAPHY* block L3376–L3546 (162 DATA rows, 1669–2026), Register 1736 entire, and r2-ch28a §4's source. **What was owed was the author-and-year match, the probe having refused to score on itself, and it is taken.**
+- **28a-06 STANDS AND IS SHARPENED.** CONVENTION AY is stated before anything is scored: *the works listed above* is the References unit down to the line before the claim paragraph — **a sentence about a list is not an entry in it** — and an MC row matches if a surname in its `work` cell is paired with the row's own year, the pairing read positionally so that a citation's continuation segments carry their author (`Saari (1971); (1973); (1984)`). The extractor is **asserted on fourteen named citations and asserted to admit no journal abbreviation before any verdict prints**. Measured: **52 of 162 by author and year**, against the printed *Fifty-nine*. The figure is bracketed — 52 exact, 55 at ±1 and ±2, 57 at ±3, 58 at ±5, **no tolerance up to ±5 reaching 59** — and **70** with the year dropped, which overshoots. **Register 1736 is the source and is NOT withdrawn**: it states its own basis, *matching the compendium's "172 works" … by author and year found fifty-nine shared*, and the ten removals came after. The main volume prints that 172-row datum inside a sentence whose other number, 162, is the post-removal count. R3: re-take the figure on the list it is printed beside, or name the list it belongs to.
+- **28a-08 NEW: the earlier bound was not a bound on the overlap.** r2-ch28a §4's surname extractor requires a following initial, bracket, ampersand, comma or dash, and the compendium's table prints a **bare surname** (`| 1669 | Newton |`), so it returns **no surname at all from 123 of the 162 rows** and **every one of the 16 it caught carries an ampersand or a comma**. The 16 counts multi-author rows. Properly extracted the surname-only overlap is **70 of 162**. This matters in the direction of the book: 16 < 59 reads as a refutation, 70 > 59 does not. `r2-ch28a` is banked and its golden reproduces — **recorded, not repaired** (chat-67 hold).
+- **28a-09 NEW: 1736's *"the rest classical attributions this volume never listed"* is falsified at one measured site.** The compendium carries `| 1929 | Janet |` (mc L3431); the References carry *Janet, C. (1928). — the left-step periodic table* (main L11777). One work, two years, and the 1929 row is among those the match does not share — so it is one of *the rest*, and the volume did list it. **28a-07 / 16x-06 already record the year disagreement itself**, so the site was known and this adds only that 1736's word reaches over it. Seventeen further authors sit on both lists at other years and are **carried as NEAR, never assigned** — different works by one author is consistent with every one.
+- **Census:** three engagements. **718 and 719 closed in the ch28a unit**, the earlier line governing (G0b). **1463 closed here as a defect** on the Janet row. **mc 387–672, the 286 C13-HANDLE-LEAK rows of the bibliography table's `objects` column, engaged and NOT closed** — this reading took the year and work columns only, the class is ruled elsewhere (26b-10, ruling 46, docket 28), and a row is not closed on a reading that did not take it. Second unit running to leave an engaged block open on that principle.
+- **One expectation fault, caught before banking, and it was mine not the book's:** the first draft asserted a single `References` heading; the scan found two and was right. The assertion was corrected to the measurement, not the other way round, and no verdict had printed on it. `r2-28a2.py` 16,676 B, golden `r2-28a2.out` 12,319 B / ef7253ed / 184 lines, ALL INSTRUMENT CHECKS OK with 3 deviations recorded.
+- **Not done, by design:** whether the ten rows 1736 removed would have matched — **not measurable**, the 172-row table is not in the bundle; whether the residual gap of seven belongs to this reading's convention or to the original match — **not decidable without the original instrument**, and the standing rule gives the record the benefit; the *Shannon* and *Racah* multi-row cases, consistent with different works and not taken; census mc 387–672. **One family remains in DEF-143 item 11's order: 28b-06's reading of Register 1721.** The chat-67 hold stands: **findings are recorded and never repaired.**
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35050,6 +35062,18 @@ All of HANDOFF-24's list stands (none closed this chat): L8794/L11107 "eight ite
 7. **Recorded, INFERRED and named as such:** no gate step was re-executed to open this segment. GATE-ch151Bclose had run the full gate against a fresh re-extract of BUILD181 --- 69 of 69 goldens --- and the tree was not touched between that certificate and this segment.
 8. **Not scored, recorded:** whether registers 1019 / 1020 / 1022 / 1035 / 1483 / 1484 would satisfy row 10.4c's column (R3's ruling, not this reading's); the *Chapter 12* pointer standing in the column of both 8.2 and 8.4, already measured as 27a-03 at §14.6.6 L4245-L4250 and not reopened; census row 293's eleven numerals.
 9. **Next:** DEF-143 item 11's order continues --- 28a-06's author-and-year match, then 28b-06's reading of Register 1721 --- one instrument per family, each banked. **Two families remain in the order.**
+## Chat 151-B, third segment --- deferred out of 28a-06 (DEF-143 item 11's eighth re-derivation: the author-and-year match owed on the Mathematical Compendium's 162 bibliography rows against the main volume's References; docket 17 / 37; Cowork)
+
+1. **28a-06 STANDS AND IS SHARPENED.** READ-ch28a recorded it on a **surname-overlap bound of 16 of 162** and said in terms that the printed *fifty-nine* counts WORKS while the probe counted surnames; DEFERRED owed R3 the **author-and-year** match on the 162 rows before the figure is kept, and named the answer's shape in advance --- *1736's own figure is a 172-row datum*. **CONVENTION AY** is stated before anything is scored: *the works listed above* is the References unit from its heading (the LAST of two, L11503) down to the line before the claim paragraph, because **a sentence about a list is not an entry in it**; an MC row matches if a surname in its `work` cell is paired with the row's own year; the pairing is read POSITIONALLY, each parenthesised year taking the surnames of the window before it and a window with no surname carrying the previous window's authors, which is the citation form the list uses (`Saari, D. G. (1971). Trans. AMS 162, 267; (1973) 181, 351; (1984) J. Diff. Eq. 55, 300`); a surname is a capitalised token followed by a comma-and-capital, an ampersand, *and*, or a parenthesised year, so journal abbreviations are excluded by construction. The extractor is **asserted on fourteen named citations, and asserted to admit no journal token, before any verdict prints**. **Measured: 52 of 162 by author and year, against the printed Fifty-nine.** The figure is **bracketed** --- 52 exact, 55 at ±1 and ±2, 57 at ±3, 58 at ±5, **no tolerance up to ±5 reaching 59** --- and **70** with the year dropped, which overshoots it. So *fifty-nine* is reachable by no author-and-year reading and only by a match looser than the one the record says was made. **Register 1736 is the source and is NOT withdrawn:** it states its own basis in terms --- *matching the compendium's "172 works, 1669--2026" against the main volume's References by author and year found fifty-nine shared* --- and the ten removals that took 172 to 162 came afterwards. What the main volume does at L11848--L11853 is print that 172-row datum inside a sentence whose other number, 162, is the post-removal count. R3: the figure is re-taken on the list it is printed beside, or the sentence names the list the figure belongs to. Docket 17 / 37.
+2. **28a-08 NEW --- "16 of 162" is not a bound on the overlap.** r2-ch28a §4's surname extractor requires a capitalised token followed by an initial, a bracket, an ampersand, a comma or a dash. The compendium's bibliography prints a **bare surname** in its `work` cell (`| 1669 | Newton | ...`), so the extractor returns **no surname at all from 123 of the 162 rows**, and **every one of the 16 rows it caught carries an ampersand or a comma** --- the 16 counts MULTI-AUTHOR ROWS, not overlap. Properly extracted, the surname-only overlap is **70 of 162**. This matters in the direction of the book and not against it: 16 < 59 reads as a refutation of the printed figure, 70 > 59 does not, and the honest bracket is 52 < 59 < 70. `r2-ch28a` is banked and its golden reproduces: **recorded, not repaired** (chat-67 hold). Docket 17 / 37.
+3. **28a-09 NEW --- register 1736's *"the rest classical attributions this volume never listed"* is falsified at one measured site.** The compendium carries `| 1929 | Janet | E.layout E.table Q.bound Q.final S.ground |` at mc L3431; the main volume's References carry *Janet, C. (1928). --- the left-step periodic table; E(Janet) = 0* at main L11777. **One work, two years**, and the 1929 row is among the rows the author-and-year match does not share --- so it belongs to *the rest*, and the volume did list it. **28a-07 / 16x-06 already record the year disagreement itself** (main 1928 against the Register's 1929 ×3 / 1928 ×1), so the site was known and this finding adds only that 1736's word reaches over it. Census 1463's C9 overgeneralisation-word closes on this row. **Seventeen further authors sit on both lists at other years --- Taylor, Euler ×2, Lagrange, Moore, Shannon ×3, Birkhoff, Kolmogorov, Freuder, Monjardet, Racah, Yannakakis ×2, Dechter, Drake --- and are carried as NEAR, an upper bound, never assigned:** different works by one author is consistent with every one of them and the reading does not decide them.
+4. **Convention, one new. AY.** Where a claim asserts that two lists SHARE members, the reading matches on the identity the claim names --- here *by author and year*, from the record's own words --- and the matcher is asserted against named instances of the list's own citation forms before any count is printed. A match that silently loses an author (a semicolon continuation) or silently gains one (a journal abbreviation) produces a number that looks like a measurement and is not. The corollary is stated here because it decided this unit: **a bound that comes out BELOW the printed figure and a bound that comes out ABOVE it are not the same evidence**, and an extractor that reads nothing from three quarters of its rows produces the first by accident.
+5. **Census.** Three engagements. **718 and 719** (C7 at main L11600, the muon window `[119, 918]` mₑ) **were closed in the ch28a unit** as not defects and the earlier line governs (G0b). **1463 closed here as a defect** (item 3 above). **mc 387--672, the 286 C13-HANDLE-LEAK rows of the bibliography table's `objects` column, are ENGAGED and NOT CLOSED:** this reading took the year and work columns only, the class is ruled elsewhere (26b-10, ruling 46, docket 28), and a row is not closed on a reading that did not take it. Second unit running to leave an engaged block open on that principle.
+6. **One expectation fault, caught before banking, and it was mine and not the book's.** The first draft asserted a single `References` heading in the main volume; the scan found two, L173 in the front matter and L11503 at the chapter, and the scan was right --- the unit convention is the LAST hit, which is what r2-ch28a §0 takes. The assertion was corrected to the measurement and not the other way round, and no verdict had been printed on it.
+7. **Recorded, INFERRED and named as such:** no gate step was re-executed to open this segment. GATE-ch151Bclose2 had run the full gate against a fresh re-extract of BUILD182 --- 70 of 70 instruments --- and the tree was not touched between that certificate and this segment.
+8. **Not measurable, recorded as such.** Whether the ten rows register 1736 removed would themselves have matched by author and year **cannot be measured**: the 172-row table is not in the bundle, and on 1736's own account those rows were status words, a possessive and callout terms that no reader could cite --- none of which an author-and-year match would have shared. Whether the residual gap of seven belongs to this reading's convention or to the original match is **not decidable without the original instrument**, and the standing rule gives the record the benefit. What is recorded is that the figure does not reproduce on the 162 rows, not that 1736 counted wrongly.
+9. **Not scored, recorded.** *Shannon* carries three compendium rows (1937, 1938, 1948) against one References entry (1956, *zero-error capacity*, main L11648); *Racah* carries 1982 against 1942 / 1943 / 1954. Both are consistent with different works and neither is taken here.
+10. **Next:** DEF-143 item 11's order --- **28b-06's reading of Register 1721** --- one instrument, banked. **One family remains in the order.**
 <<<END FILE: DEFERRED.md>>>
 
 <<<FILE: tower-2.out>>>
@@ -35114,6 +35138,7 @@ compendia	CENSUS-CLOSURES-25b.tsv	1830	22989acb08138d07e011f2f4f887adf4	11
 compendia	CENSUS-CLOSURES-26b.tsv	4621	34689057a6210d81baead0fe39069bd7	27
 compendia	CENSUS-CLOSURES-26c.tsv	1546	5a0fe37622c98cc8369567cf4665f827	10
 compendia	CENSUS-CLOSURES-27a.tsv	1683	342fc89447fa37da6d1fc75188a353c4	5
+compendia	CENSUS-CLOSURES-28a2.tsv	1580	df436792af39ac4dbbdb5177386659bc	4
 compendia	CENSUS-CLOSURES-A.tsv	2328	1a54d81d329d8b6b392e1096ba41b671	22
 compendia	CENSUS-CLOSURES-B.tsv	2605	dad836e2c5f74b1bf48a623bde593df8	22
 compendia	CENSUS-CLOSURES-ch10.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -35158,8 +35183,8 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236171	0967efead3f95016bd6ffaa95788d5ac	1557
-compendia	DEFERRED.md	402761	d6fd2fadcec04582168646824a201a26	3436
-compendia	DOCKET.md	58199	2498b7152d322fa2f8cf8f329f4d3aff	401
+compendia	DEFERRED.md	410415	25b74fd0d01af60f275f2a9ed28f75d9	3448
+compendia	DOCKET.md	61659	a1c5b10c67d3084d5005de8993625e07	410
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
 compendia	EXCISE-SITES-BUILD14.json	9383	d8b75a860415ae02adb9f980350abe2b	664
@@ -35191,6 +35216,7 @@ compendia	READ-25b.md	7374	b1b6ef51dff6f7a9ac74e01785db20a5	76
 compendia	READ-26b.md	8240	fedb545964f6f5d691d7cf1ca69a2616	91
 compendia	READ-26c.md	7580	b8452727307936ec1d76e6ef97563290	82
 compendia	READ-27a.md	7558	2be267b65f9bf8f93855c3d29820a40d	88
+compendia	READ-28a2.md	7704	c5f9f345c869d0915e57072876836503	90
 compendia	READ-ch1-A.md	17750	43e915fa2a54f1d7ae18f3d6561dad95	76
 compendia	READ-ch1-B.md	9681	ce572d36d9f30f810aa08fb0bb1bab48	62
 compendia	READ-ch10.md	7558	f80183b6bf3cb06ed576f36d68ac363d	34
@@ -35263,7 +35289,7 @@ compendia	The_Method_1_6___The_Index_of_Indices-2.md	118373	27d387ef8a6175c1b9c8
 compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2c601a549d54db	878
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
-compendia	WORKING-REGISTER.md	920047	10eed171396998b7982419cb2a37b44e	7987
+compendia	WORKING-REGISTER.md	926070	8ff5659a24408f56be6eec2b91bb2f9e	7999
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -35315,6 +35341,8 @@ compendia	r2-26c.out	13613	c1e19648b3d258166e9d6d977baee88f	156
 compendia	r2-26c.py	16897	6f1062f07b0108ee6d2dd395bd232ef0	231
 compendia	r2-27a.out	10142	38e112883a8ce6b581e471b3f866f2c1	125
 compendia	r2-27a.py	15219	103078f4bf922ce6b9e9d5cad1b30224	218
+compendia	r2-28a2.out	12319	ef7253ed5b38cf51fdda4e9be42408fd	184
+compendia	r2-28a2.py	16676	c7eafbaf76e9ddc908a3cc8af1423a32	223
 compendia	r2-ch1.py	2940	172fb73dacbf30d5d85eb04f4463c064	48
 compendia	r2-ch10.py	5035	f1603d3f2310ed33583d01f67eb7020c	61
 compendia	r2-ch11.py	8759	ee1555717f4401e80aa3730fe4d6b9f5	102
@@ -49532,6 +49560,15 @@ detail; this is the standing index, unchanged from HANDOFF-79 except where chat 
 - **Item 24 / 28 and item 15 / 34 / 17 unchanged:** 27a-05 and 27a-06 already stand against those items from the ch27a unit, which is why this unit's new findings are numbered 27a-07 and 27a-08.
 - **Census:** four rows engaged (mc 293, main 717, main 1231, reg 1349); 717 and 1231 closed in the ch27a unit and the earlier line governs; **1349 closed here, not a defect**; **293 engaged and not closed**, this reading having taken the *modular ledger* block's citation list and not its eleven numerals.
 - **DEF-143 item 11's seventh family CLOSED.** Next: 28a-06's author-and-year match, then 28b-06's reading of Register 1721 — **two families remain in the order**, one instrument per family.
+
+## Chat 151-B third delta (appended; read with the index above and the chat-128 to chat-151-B deltas; Cowork. This chat wrote three blocks: the chat-151-B delta closed DEF-143 item 11's sixth family, the second delta the seventh, this one the eighth)
+
+- **Item 17 / 37 keeps 28a-06, which STANDS and is sharpened from a bound to a match.** CONVENTION AY, stated before scoring: *the works listed above* is the References unit down to the line before the claim paragraph, a sentence about a list not being an entry in it; a compendium row matches if a surname in its `work` cell is paired with the row's own year, read positionally so a citation's continuation segments carry their author; the extractor is asserted on fourteen named citations and asserted to admit no journal abbreviation before any verdict prints. **The author-and-year match on the 162 rows is 52, against the printed *Fifty-nine*, and no year tolerance up to ±5 reaches 59 (52 / 55 / 55 / 57 / 58); dropping the year overshoots to 70.** Register 1736 is the source, says it matched *172 works* by author and year, and is not withdrawn — its fifty-nine is a 172-row datum printed beside the 162-row count (DEF-151c item 1).
+- **Item 17 / 37 gains 28a-08.** r2-ch28a §4's *16 of 162* is **not a bound on the overlap**: its surname extractor returns **no surname at all from 123 of the 162 rows** because the compendium's table prints a bare surname, and every one of the 16 it caught is a multi-author row. Properly extracted the surname-only overlap is **70 of 162**, so the honest bracket is **52 < 59 < 70** and not 16 < 59. The instrument is banked and its golden reproduces: recorded, not repaired (DEF-151c item 2).
+- **Item 9(c) / 30 gains 28a-09.** Register 1736's *"the rest classical attributions this volume never listed"* is falsified at one measured site: the compendium's `| 1929 | Janet |` (mc L3431) and the References' *Janet, C. (1928). — the left-step periodic table* (main L11777) are one work under two years, and the 1929 row is one of *the rest*. 28a-07 / 16x-06 already record the year disagreement; this adds only that the word reaches over it. Seventeen further authors sit on both lists at other years and are carried as NEAR, never assigned (DEF-151c item 3).
+- **Conventions, one new. AY:** where a claim asserts two lists SHARE members, the reading matches on the identity the claim names — here *by author and year*, from the record's own words — and the matcher is asserted against named instances of the list's own citation forms before any count prints. Corollary, which decided this unit: **a bound below the printed figure and a bound above it are not the same evidence**, and an extractor that reads nothing from three quarters of its rows produces the first by accident. Third family running where a convention named before scoring carried the result; FLOOR and DEP were the first two.
+- **Census:** three engaged (main 718, main 719, reg 1463, plus the mc block). 718 and 719 closed in the ch28a unit and the earlier line governs; **1463 closed here as a defect**; **mc 387–672, the 286 C13-HANDLE-LEAK rows of the bibliography table's `objects` column, engaged and NOT closed** — the year and work columns only were taken, and a row is not closed on a reading that did not take it.
+- **DEF-143 item 11's eighth family CLOSED.** Next: **28b-06's reading of Register 1721** — **one family remains in the order**, one instrument, banked.
 <<<END FILE: DOCKET.md>>>
 
 <<<FILE: R3-CLASS-WL.md>>>
@@ -66438,3 +66475,516 @@ id	verdict	reason
 1231	closed earlier	C9 never at main L11370 ("entry bodies are never edited, and what a past entry recorded is part of the record") — closed in the ch27a unit. It is the appendix's own statement of why the eight Register citations are left as written, and this reading depends on it rather than disputing it
 1349	not a defect	C9 always at reg R5165, register 1375: "every cell is alone in its row and the monotonising ordering always exists". The word sits inside the entry's own measured finding and states a fact about the construction, not a generalisation from the measurement — where a coordinate takes as many values as there are cells, no two cells share a row and an ordering monotone in that coordinate exists by construction. The entry then reports the measurement that does NOT generalise, 0 of 60 at four cells against 20, 51 and 59 at five, six and seven, and says so in terms: "injectivity forces closure only while the cell count is small, and the two conditions must be reported together". Precedents 678, 680-687, 1067, 1069, 1217
 <<<END FILE: CENSUS-CLOSURES-27a.tsv>>>
+
+<<<FILE: r2-28a2.py>>>
+#!/usr/bin/env python3
+# r2-28a2.py — chat 151-B (Cowork) — 28a-06 (DEF-143 item 11's EIGHTH family; docket 17 / 37):
+# main L11849 "Fifty-nine of them are the works listed above" sits in the same sentence as "162 works, 1669 to 2026".
+# READ-ch28a recorded 28a-06 on a SURNAME-OVERLAP BOUND of 16 of 162 and said so; DEFERRED owed R3 the
+# AUTHOR-AND-YEAR match on the 162 rows before the figure is kept. This instrument is that match.
+# Register 1736 is the source of the figure and says so in terms: it matched the compendium at "172 works",
+# by author and year, found fifty-nine shared, and removed ten rows afterwards. **1736's fifty-nine is a
+# 172-ROW DATUM.** It is a recorded finding and is NOT withdrawn here. What is measured here is the present
+# text: the match on the 162 rows the volumes now carry.
+# CONVENTION AY (new, this chat). "The works listed above" is the References unit from its heading down to the
+# line before the paragraph that makes the claim — a sentence about a list is not an entry in it. An MC row
+# MATCHES if any surname in its `work` cell appears in that region paired with the row's own year, where the
+# pairing is read POSITIONALLY: each parenthesised year takes the author surnames of the window before it, and
+# a window with no surname CARRIES the previous window's authors, which is the citation form this list uses
+# ("Saari, D. G. (1971). Trans. AMS 162, 267; (1973) 181, 351; (1984) J. Diff. Eq. 55, 300"). A surname is a
+# capitalised token followed by a comma-and-capital, an ampersand, "and", or a parenthesised year — journal
+# abbreviations ("Arch. Ration. Mech. Anal.") are followed by a period and are excluded by construction.
+# The extractor is ASSERTED on fourteen named citations BEFORE any verdict is printed, and asserted to admit
+# no journal token as an author. Rows the reading cannot decide are carried as NEAR (SUBJ, chat 148).
+# Book-versus-record deviations go through score() and never through the integrity checker check().
+# Reads MEMBERS by name (never a bundle path). Deterministic: no wall clock, no randomness.
+import os, re, sys, hashlib, importlib.util
+H = os.path.dirname(os.path.abspath(__file__))
+def load(name):
+    s = importlib.util.spec_from_file_location(name.replace('-', '_'), os.path.join(H, name + '.py'))
+    m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
+r2lib = load('r2lib')
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+
+MAIN, REG = 'The_Method_1_6-2.md', 'The_Method_1_6___The_Register-2.md'
+MCF = 'The_Method_1_6___Mathematical_Compendium-2.md'
+M, R, C = rd(MAIN), rd(REG), rd(MCF)
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-66s %-24s %s' % (tag, repr(got), 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-66s %-24s %s' % (tag, repr(got), 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+
+print('r2-28a2.py — 28a-06: does the author-and-year match on the 162 rows give fifty-nine?')
+print('members: %s %s | %s %s | %s %s' % (MAIN, md5(MAIN), REG, md5(REG), MCF, md5(MCF)))
+
+# ------------------------------------------------------------------------------ §1
+hr('§1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about')
+rf = [i + 1 for i, l in enumerate(M) if re.match(r'^#{1,3} References\b', l)]
+S = rf[-1]
+CLAIM = [i + 1 for i, l in enumerate(M) if "The companions' own bibliographies" in l][0]
+check('main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it)', rf, [173, 11503])
+check('the claim paragraph "The companions\' own bibliographies" begins at', CLAIM, 11848)
+print('   entry region L%d–L%d (%d lines); the claim paragraph L%d–L%d is read, never matched' % (S, CLAIM - 1, CLAIM - S, CLAIM, len(M)))
+for i in range(CLAIM, min(CLAIM + 7, len(M) + 1)): print('   %6d %s' % (i, M[i - 1].strip()))
+check('the sentence prints "162 works"', '162 works' in ' '.join(M[CLAIM - 1:CLAIM + 6]), True)
+check('the sentence prints "Fifty-nine of them"', 'Fifty-nine of them' in ' '.join(M[CLAIM - 1:CLAIM + 6]), True)
+check('the sentence names register 1736 as its source', 'register 1736' in ' '.join(M[CLAIM - 1:CLAIM + 6]), True)
+
+bh = [i + 1 for i, l in enumerate(C) if re.match(r'^#{1,3}\s.*Bibliograph', l, re.I)]
+B0 = bh[-1]; B1 = next((j + 1 for j in range(B0, len(C)) if re.match(r'^#{1,2}\s', C[j])), len(C) + 1)
+check('MC bibliography heading hits', bh, [3376])
+YEARONLY = re.compile(r'^(1[6-9]\d\d|20[0-2]\d)$')
+cells = [[c.strip() for c in re.split(r'(?<!\\)\|', l)[1:-1]] for l in C[B0 - 1:B1 - 1] if l.lstrip().startswith('|')]
+ROWS = [c for c in cells if c and YEARONLY.match(c[0])]
+check('MC bibliography L%d–L%d: DATA rows (year | work | objects)' % (B0, B1 - 1), len(ROWS), 162)
+check('every DATA row has exactly three cells', sorted({len(c) for c in ROWS}), [3])
+check('MC year range as the block prints it (1669–2026)', (min(int(c[0]) for c in ROWS), max(int(c[0]) for c in ROWS)), (1669, 2026))
+check('the block states its own count and the prior one', ('162 works' in C[B0 + 3]) and ('172' in C[B0 + 3]), True)
+
+# ------------------------------------------------------------------------------ §2
+hr('§2 REGISTER 1736 — the source of the figure, read in full; its fifty-nine is a 172-ROW datum')
+IDX = {}
+for i, l in enumerate(R, 1):
+    m = re.match(r'^###\s+(\d+)\s*$', l)
+    if m: IDX[int(m.group(1))] = i
+KS = sorted(IDX)
+def span(n):
+    s = IDX[n]; return s, next((IDX[k] for k in KS if IDX[k] > s), len(R) + 1) - 1
+s1736, e1736 = span(1736)
+body = norm(' '.join(x for x in R[s1736:e1736] if x.strip()))
+print('   register 1736 L%d–L%d: %s' % (s1736, e1736, body[:260]))
+check('1736 says the match was made against "172 works"', '172 works' in body, True)
+check('1736 says the match was by author and year', 'by author and year' in body, True)
+check('1736 states the shared count as fifty-nine', 'fifty-nine shared' in body, True)
+check('1736 records the ten removals and the restated count 162', ('All ten removed' in body) and ('restated at 162' in body), True)
+print('   1736 is a RECORDED FINDING about a 172-row list and is not withdrawn here (chat-67 hold).')
+
+# ------------------------------------------------------------------------------ §3
+hr('§3 CONVENTION AY — the extractor, ASSERTED on fourteen named citations before any verdict is printed')
+Y = r'(?:1[6-9]\d\d|20[0-2]\d)'
+PAR = re.compile(r'\((%s)([a-z]?)((?:\s*[,–—-]\s*(?:%s[a-z]?|\d{2}|[a-z]))*)\)' % (Y, Y))
+AUT = re.compile(r"(?<![A-Za-zÀ-ÿ'’\-])([A-ZÀ-Þ][A-Za-zà-ÿ'’\-]{2,})(?=\s*(?:,\s*[A-ZÀ-Þ]|\s*&|\s+and\b|\s*\(%s))" % Y)
+NM = re.compile(r"(?<![A-Za-zÀ-ÿ'’\-])([A-ZÀ-Þ][A-Za-zà-ÿ'’\-]{2,})")
+STOP = {'The', 'Problem', 'Solution', 'Unknown', 'Masses'}
+def yrs(m): return [int(m.group(1))] + [int(t) for t in re.findall(Y, m.group(3) or '')]
+def pairs(lo, hi):
+    P = set()
+    for j in range(lo, hi):
+        l = M[j - 1]
+        if not l.strip() or l.startswith('#'): continue
+        l = re.split(r'\s—\s|\s--\s', re.sub(r'^\s*[·•]\s*', '', re.sub(r'[*_`]', '', l)))[0]
+        prev = 0; last = set()
+        for m in PAR.finditer(l):
+            nms = {a.group(1) for a in AUT.finditer(l[prev:m.start()] + ' (%d)' % yrs(m)[0])}
+            use = nms or last
+            if nms: last = nms
+            for n in use:
+                for y in yrs(m): P.add((n, y))
+            prev = m.end()
+    return P
+AY = pairs(S, CLAIM)
+print('   (surname, year) pairs in the entry region: %d over %d distinct surnames' % (len(AY), len({n for n, _ in AY})))
+ASSERT = [('Saari', [1971, 1973, 1984]), ('Montgomery', [1998, 2000, 2002, 2014, 2015]), ('Kol', [2021, 2023]),
+          ('Monaghan', [1976, 1978]), ('Moser', [1962, 1973]), ('Jacobi', [1837, 1842]), ('Lagrange', [1770, 1772]),
+          ('Griffin', [1969, 1971]), ('Cowan', [1969, 1971]), ('Alekseev', [1968]), ('Löwdin', [1950, 1969]),
+          ('Candelas', [2007]), ('Huang', [2019]), ('Euler', [1767])]
+miss = []
+for n, exp in ASSERT:
+    got = sorted({y for a, y in AY if a == n})
+    if not set(exp) <= set(got): miss.append((n, exp, got))
+    print('   %-12s %s' % (n, got))
+check('every asserted citation is read with all of its years', miss, [])
+JUNK = ('Arch', 'Anal', 'Mech', 'Ration', 'Trans', 'Phys', 'Chem', 'Math', 'Sci', 'Acad', 'Rev', 'Invent',
+        'Celest', 'Novi', 'Comm', 'Prix', 'Roy', 'Paris', 'Petrop', 'Ann', 'Norm', 'Sup', 'Nonlinearity', 'JHEP')
+check('no journal abbreviation is admitted as an author', sorted({n for n, _ in AY if n in JUNK}), [])
+def cn(w): return {n for n in NM.findall(re.sub(r'\*[^*]*\*', ' ', w)) if n not in STOP}
+check('every MC row yields at least one surname', [c[1] for c in ROWS if not cn(c[1])], [])
+
+# ------------------------------------------------------------------------------ §4
+hr('§4 THE MATCH — author AND year on the 162 rows, against the printed "Fifty-nine"')
+UNS = {n for n, _ in AY}
+MATCH = [c for c in ROWS if any((n, int(c[0])) in AY for n in cn(c[1]))]
+SNM = [c for c in ROWS if cn(c[1]) & UNS]
+for c in MATCH: print('   MATCH  %s  %s' % (c[0], c[1][:56]))
+def tol(k):
+    T = {(n, y + d) for n, y in AY for d in range(-k, k + 1)}
+    return sum(1 for c in ROWS if any((n, int(c[0])) in T for n in cn(c[1])))
+print('\n   author AND year (exact) %d | ±1 %d | ±2 %d | ±3 %d | ±5 %d | surname only %d | of %d rows'
+      % (len(MATCH), tol(1), tol(2), tol(3), tol(5), len(SNM), len(ROWS)))
+check('no year tolerance up to ±5 reaches the printed fifty-nine', [k for k in (0, 1, 2, 3, 5) if tol(k) == 59], [])
+check('dropping the year entirely OVERSHOOTS fifty-nine', len(SNM) > 59, True)
+score('"Fifty-nine of them are the works listed above" on the 162 rows', len(MATCH), 59, '28a-06')
+print('   The printed figure is bracketed by this reading: %d (author and year) < 59 < %d (surname alone).' % (len(MATCH), len(SNM)))
+print('   It is reachable only by dropping the year, which is not the match 1736 says it made.')
+
+# ------------------------------------------------------------------------------ §5
+hr('§5 THE PRIOR PROBE REPRODUCED — what "16 of 162" was a bound on')
+def old_surnames(lines):
+    s = set()
+    for l in lines:
+        for m in re.finditer(r"(?<![A-Za-z'’\-])([A-Z][a-zäöüéèçøÅ'’\-]{2,})(?=\s*(?:,\s*[A-Z]\.|\(|&|and\b|,|–|—|\s+\d{4}))",
+                             re.sub(r'[*_`]', '', l)): s.add(m.group(1))
+    return s
+U = M[S - 1:]
+OLDU = old_surnames([l for l in U if not l.startswith('#')])
+RAW = ['| %s | %s | %s |' % tuple(c) for c in ROWS]
+old_hit = [c for c, l in zip(ROWS, RAW) if old_surnames([l]) & OLDU]
+old_none = [c for c, l in zip(ROWS, RAW) if not old_surnames([l])]
+check('r2-ch28a §4\'s surname bound reproduces exactly', len(old_hit), 16)
+check('every row it caught carries an ampersand or a comma in its `work` cell',
+      sorted({bool(re.search(r'[&,]', c[1])) for c in old_hit}), [True])
+check('rows from which that extractor gets NO surname at all', len(old_none), 123)
+print('   The MC table prints a BARE surname ("| 1669 | Newton |"); that extractor requires a following')
+print('   initial, bracket, ampersand, comma or dash, so it reads nothing from %d of %d rows. Its "16" counts' % (len(old_none), len(ROWS)))
+print('   MULTI-AUTHOR ROWS, not overlap. Properly extracted the surname-only overlap is %d of %d.' % (len(SNM), len(ROWS)))
+score('"16 of 162" is a bound on the surname overlap', len(SNM), 16, '28a-08')
+
+# ------------------------------------------------------------------------------ §6
+hr('§6 "THE REST … THIS VOLUME NEVER LISTED" — census 1463\'s C9 word, taken directly')
+CONF = [c for c in SNM if c not in MATCH]
+check('rows whose author is on BOTH lists under a different year', len(CONF), 18)
+for c in CONF:
+    for n in sorted(cn(c[1]) & UNS):
+        print('   MC %s %-34s References years for %s: %s' % (c[0], c[1][:34], n, sorted({y for a, y in AY if a == n})[:8]))
+jan = [c for c in CONF if 'Janet' in cn(c[1])]
+jl = [i + 1 for i, l in enumerate(M) if i + 1 >= S and re.search(r'^\s*Janet, C\. \(1928\)', l)]
+check('the compendium carries exactly one Janet row, at 1929', [c[0] for c in jan], ['1929'])
+check('the References carry Janet at 1928, one site', jl, [11777])
+check('both name the same work (the left-step periodic table)',
+      ('left-step' in M[jl[0] - 1]) and ('E.layout' in [c for c in jan][0][2] or 'E.table' in [c for c in jan][0][2]), True)
+score('1736\'s "the rest … this volume never listed" holds of every unmatched row', len(jan), 0, '28a-09')
+print('   ONE row is decidable and it falsifies the word: the left-step periodic table is listed at L11777 as')
+print('   Janet 1928 and carried in the compendium as 1929 — the year disagreement 28a-07 / 16x-06 already')
+print('   records. The other %d are consistent with DIFFERENT WORKS by the same author and the reading does' % (len(CONF) - len(jan)))
+print('   not decide them; they are carried as NEAR (SUBJ, chat 148), an upper bound, never assigned.')
+
+# ------------------------------------------------------------------------------ §7
+hr('§7 CENSUS — rows in the ranges this reading engaged')
+print('   engaged: main L%d–L%d (References entire), mc L%d–L%d (the bibliography block), reg L%d–L%d (entry 1736)'
+      % (S, len(M), B0, B1 - 1, s1736, e1736))
+print('   main 718 / 719  C7 at L11600 — closed in the ch28a unit, not a defect; the earlier line governs (G0b)')
+print('   reg 1463        C9 "never" at L6459 — CLOSED HERE as a defect on the Janet row (28a-09)')
+print('   mc 387–672      C13-HANDLE-LEAK, 286 rows, the bibliography table\'s `objects` column — ENGAGED and')
+print('                   NOT CLOSED: this reading took the year and work columns only. The class is ruled')
+print('                   elsewhere (26b-10, ruling 46, docket 28); a row is not closed on a reading that did')
+print('                   not take it.')
+
+# ------------------------------------------------------------------------------ verdict
+hr('VERDICT')
+print('   28a-06 STANDS AND IS SHARPENED. The author-and-year match on the 162 rows the volumes now carry is')
+print('   **%d**, not the printed fifty-nine, and no year tolerance up to ±5 reaches 59 (%d / %d / %d / %d / %d).' % (len(MATCH), tol(0), tol(1), tol(2), tol(3), tol(5)))
+print('   Fifty-nine is reachable only by dropping the year, where the count OVERSHOOTS to %d. Register 1736 is' % len(SNM))
+print('   the source and says in terms that it matched "172 works"; its figure is a 172-row datum and is not')
+print('   withdrawn here. What the main volume does at L11848–L11853 is print that datum inside a sentence whose')
+print('   other number, 162, is the post-removal count. R3: the figure is re-taken on the list it is printed')
+print('   beside, or the sentence names the list it belongs to. Docket 17 / 37.')
+print('   28a-08 NEW. r2-ch28a §4\'s "16 of 162" is not a bound on the overlap. Its surname extractor returns NO')
+print('   surname at all from %d of the %d rows, because the MC table prints a bare surname and the extractor' % (len(old_none), len(ROWS)))
+print('   requires a following initial, bracket, ampersand, comma or dash; every one of the 16 it caught is a')
+print('   multi-author row. The surname-only overlap, properly extracted, is %d of %d. The instrument is banked' % (len(SNM), len(ROWS)))
+print('   and its golden reproduces: this is recorded, not repaired (chat-67 hold).')
+print('   28a-09 NEW. Register 1736\'s "the rest classical attributions this volume never listed" is falsified at')
+print('   one measured site. The compendium\'s 1929 Janet row and the References\' Janet 1928 at L11777 are the')
+print('   same work — the left-step periodic table — under two years, which 28a-07 / 16x-06 already records.')
+print('   Census 1463\'s C9 word closes on it. Seventeen further authors sit on both lists at other years and')
+print('   are carried as NEAR, undecided: different works by one author is consistent with every one.')
+print('\nDEVIATIONS RECORDED (findings, not instrument faults):')
+for t, tag, got, exp in DEV: print('   %-8s %-58s measured %s against printed %s' % (t, tag, repr(got), repr(exp)))
+print('\n%s' % ('FAIL: ' + '; '.join(FAIL) if FAIL else 'ALL INSTRUMENT CHECKS OK — %d deviations recorded' % len(DEV)))
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r2-28a2.py>>>
+
+<<<FILE: r2-28a2.out>>>
+r2-28a2.py — 28a-06: does the author-and-year match on the 162 rows give fifty-nine?
+members: The_Method_1_6-2.md 4aef772b | The_Method_1_6___The_Register-2.md 79aaf239 | The_Method_1_6___Mathematical_Compendium-2.md 99a616ec
+
+== §1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about
+   main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it) [173, 11503]             OK
+   the claim paragraph "The companions' own bibliographies" begins at 11848                    OK
+   entry region L11503–L11847 (345 lines); the claim paragraph L11848–L11855 is read, never matched
+    11848 **The companions' own bibliographies.** The Mathematical Compendium names a work for every one of its
+    11849 objects — 162 works, 1669 to 2026, ordered by year with the objects each carries. Fifty-nine of them
+    11850 are the works listed above; the remainder are the attributions of standard results — Newton 1669,
+    11851 Leibniz 1682, Euler 1748, Gauss 1809, Moore 1910, Birkhoff 1940 and their kind — that the objects
+    11852 rest on and this volume uses without citing, as it uses a metre. Those live in the compendium and are
+    11853 not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7's
+    11854 two blocks are the works the chapters rest on, not those lists.
+   the sentence prints "162 works"                                    True                     OK
+   the sentence prints "Fifty-nine of them"                           True                     OK
+   the sentence names register 1736 as its source                     True                     OK
+   MC bibliography heading hits                                       [3376]                   OK
+   MC bibliography L3376–L3546: DATA rows (year | work | objects)     162                      OK
+   every DATA row has exactly three cells                             [3]                      OK
+   MC year range as the block prints it (1669–2026)                   (1669, 2026)             OK
+   the block states its own count and the prior one                   True                     OK
+
+== §2 REGISTER 1736 — the source of the figure, read in full; its fifty-nine is a 172-ROW datum
+   register 1736 L6457–L6460: **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN VOLUME NOW SAYS WHICH BIBLIOGRAPHY IS WHOSE.** *Matching the compendium's "172 works, 1669–2026" against the main volume's References by author and year found fifty
+   1736 says the match was made against "172 works"                   True                     OK
+   1736 says the match was by author and year                         True                     OK
+   1736 states the shared count as fifty-nine                         True                     OK
+   1736 records the ten removals and the restated count 162           True                     OK
+   1736 is a RECORDED FINDING about a 172-row list and is not withdrawn here (chat-67 hold).
+
+== §3 CONVENTION AY — the extractor, ASSERTED on fourteen named citations before any verdict is printed
+   (surname, year) pairs in the entry region: 171 over 137 distinct surnames
+   Saari        [1971, 1973, 1975, 1984]
+   Montgomery   [1998, 2000, 2002, 2014, 2015]
+   Kol          [2021, 2023]
+   Monaghan     [1976, 1978]
+   Moser        [1962, 1973]
+   Jacobi       [1837, 1842]
+   Lagrange     [1770, 1772]
+   Griffin      [1969, 1971]
+   Cowan        [1965, 1969, 1971, 1981]
+   Alekseev     [1968]
+   Löwdin       [1950, 1969]
+   Candelas     [2007]
+   Huang        [2019]
+   Euler        [1767]
+   every asserted citation is read with all of its years              []                       OK
+   no journal abbreviation is admitted as an author                   []                       OK
+   every MC row yields at least one surname                           []                       OK
+
+== §4 THE MATCH — author AND year on the 162 rows, against the printed "Fifty-nine"
+   MATCH  1744  Maupertuis
+   MATCH  1767  Euler
+   MATCH  1770  Lagrange
+   MATCH  1772  Lagrange
+   MATCH  1837  Jacobi
+   MATCH  1842  Jacobi
+   MATCH  1878  Hill
+   MATCH  1890  Rydberg
+   MATCH  1890  Poincaré
+   MATCH  1903  Ritz
+   MATCH  1922  Chazy
+   MATCH  1926  Aitken
+   MATCH  1928  Sperner
+   MATCH  1936  Madelung
+   MATCH  1937  Birkhoff
+   MATCH  1942  Racah
+   MATCH  1943  Racah
+   MATCH  1950  Dilworth
+   MATCH  1950  Löwdin
+   MATCH  1954  Kolmogorov
+   MATCH  1963  Arnold
+   MATCH  1964  Rota
+   MATCH  1968  Alekseev
+   MATCH  1968  Gerratt & Mills
+   MATCH  1969  Andrew & Cowan
+   MATCH  1969  Griffin, Andrew & Cowan
+   MATCH  1969  Pulay
+   MATCH  1971  Griffin, Andrew & Cowan
+   MATCH  1971  Saari
+   MATCH  1973  Saari
+   MATCH  1974  Montanari
+   MATCH  1974  McGehee
+   MATCH  1975  Baker & Pixley
+   MATCH  1975  Marchal & Saari
+   MATCH  1976  Monaghan
+   MATCH  1982  Freuder
+   MATCH  1982  Marchal & Bozis
+   MATCH  1992  Dechter
+   MATCH  1994  Nesterov & Nemirovskii
+   MATCH  1995  Beek & Dechter
+   MATCH  1998  Montgomery
+   MATCH  1999  Deville
+   MATCH  1999  Hentenryck
+   MATCH  2000  Chenciner & Montgomery
+   MATCH  2002  Montgomery
+   MATCH  2006  Hsiang & Straume
+   MATCH  2014  Montgomery
+   MATCH  2019  Fleischer & Knauf
+   MATCH  2021  Kol
+   MATCH  2023  Kol
+   MATCH  2026  Lach, *The Löwdin Solution*
+   MATCH  2026  Lach, *The Three-Body Problem for Unknown Masses*
+
+   author AND year (exact) 52 | ±1 55 | ±2 55 | ±3 57 | ±5 58 | surname only 70 | of 162 rows
+   no year tolerance up to ±5 reaches the printed fifty-nine          []                       OK
+   dropping the year entirely OVERSHOOTS fifty-nine                   True                     OK
+   "Fifty-nine of them are the works listed above" on the 162 rows    52                       DEVIATION (28a-06) — printed 59
+   The printed figure is bracketed by this reading: 52 (author and year) < 59 < 70 (surname alone).
+   It is reachable only by dropping the year, which is not the match 1736 says it made.
+
+== §5 THE PRIOR PROBE REPRODUCED — what "16 of 162" was a bound on
+   r2-ch28a §4's surname bound reproduces exactly                     16                       OK
+   every row it caught carries an ampersand or a comma in its `work` cell [True]                   OK
+   rows from which that extractor gets NO surname at all              123                      OK
+   The MC table prints a BARE surname ("| 1669 | Newton |"); that extractor requires a following
+   initial, bracket, ampersand, comma or dash, so it reads nothing from 123 of 162 rows. Its "16" counts
+   MULTI-AUTHOR ROWS, not overlap. Properly extracted the surname-only overlap is 70 of 162.
+   "16 of 162" is a bound on the surname overlap                      70                       DEVIATION (28a-08) — printed 16
+
+== §6 "THE REST … THIS VOLUME NEVER LISTED" — census 1463's C9 word, taken directly
+   rows whose author is on BOTH lists under a different year          18                       OK
+   MC 1715 Taylor                             References years for Taylor: [2019]
+   MC 1736 Euler                              References years for Euler: [1767]
+   MC 1748 Euler                              References years for Euler: [1767]
+   MC 1797 Lagrange                           References years for Lagrange: [1770, 1772]
+   MC 1910 Moore                              References years for Moore: [1966, 1993]
+   MC 1929 Janet                              References years for Janet: [1928]
+   MC 1937 Shannon                            References years for Shannon: [1956]
+   MC 1938 Shannon                            References years for Shannon: [1956]
+   MC 1940 Birkhoff                           References years for Birkhoff: [1937]
+   MC 1948 Shannon                            References years for Shannon: [1956]
+   MC 1965 Kolmogorov                         References years for Kolmogorov: [1954]
+   MC 1978 Freuder                            References years for Freuder: [1982]
+   MC 1981 Monjardet                          References years for Monjardet: [2003]
+   MC 1982 Racah                              References years for Racah: [1942, 1943, 1954]
+   MC 1983 Beeri, Fagin, Maier & Yannakakis   References years for Yannakakis: [1982]
+   MC 1983 Maier & Yannakakis                 References years for Yannakakis: [1982]
+   MC 1989 Dechter & Pearl                    References years for Dechter: [1992, 1995]
+   MC 1991 Drake & Swainson                   References years for Drake: [2023]
+   the compendium carries exactly one Janet row, at 1929              ['1929']                 OK
+   the References carry Janet at 1928, one site                       [11777]                  OK
+   both name the same work (the left-step periodic table)             True                     OK
+   1736's "the rest … this volume never listed" holds of every unmatched row 1                        DEVIATION (28a-09) — printed 0
+   ONE row is decidable and it falsifies the word: the left-step periodic table is listed at L11777 as
+   Janet 1928 and carried in the compendium as 1929 — the year disagreement 28a-07 / 16x-06 already
+   records. The other 17 are consistent with DIFFERENT WORKS by the same author and the reading does
+   not decide them; they are carried as NEAR (SUBJ, chat 148), an upper bound, never assigned.
+
+== §7 CENSUS — rows in the ranges this reading engaged
+   engaged: main L11503–L11855 (References entire), mc L3376–L3546 (the bibliography block), reg L6457–L6460 (entry 1736)
+   main 718 / 719  C7 at L11600 — closed in the ch28a unit, not a defect; the earlier line governs (G0b)
+   reg 1463        C9 "never" at L6459 — CLOSED HERE as a defect on the Janet row (28a-09)
+   mc 387–672      C13-HANDLE-LEAK, 286 rows, the bibliography table's `objects` column — ENGAGED and
+                   NOT CLOSED: this reading took the year and work columns only. The class is ruled
+                   elsewhere (26b-10, ruling 46, docket 28); a row is not closed on a reading that did
+                   not take it.
+
+== VERDICT
+   28a-06 STANDS AND IS SHARPENED. The author-and-year match on the 162 rows the volumes now carry is
+   **52**, not the printed fifty-nine, and no year tolerance up to ±5 reaches 59 (52 / 55 / 55 / 57 / 58).
+   Fifty-nine is reachable only by dropping the year, where the count OVERSHOOTS to 70. Register 1736 is
+   the source and says in terms that it matched "172 works"; its figure is a 172-row datum and is not
+   withdrawn here. What the main volume does at L11848–L11853 is print that datum inside a sentence whose
+   other number, 162, is the post-removal count. R3: the figure is re-taken on the list it is printed
+   beside, or the sentence names the list it belongs to. Docket 17 / 37.
+   28a-08 NEW. r2-ch28a §4's "16 of 162" is not a bound on the overlap. Its surname extractor returns NO
+   surname at all from 123 of the 162 rows, because the MC table prints a bare surname and the extractor
+   requires a following initial, bracket, ampersand, comma or dash; every one of the 16 it caught is a
+   multi-author row. The surname-only overlap, properly extracted, is 70 of 162. The instrument is banked
+   and its golden reproduces: this is recorded, not repaired (chat-67 hold).
+   28a-09 NEW. Register 1736's "the rest classical attributions this volume never listed" is falsified at
+   one measured site. The compendium's 1929 Janet row and the References' Janet 1928 at L11777 are the
+   same work — the left-step periodic table — under two years, which 28a-07 / 16x-06 already records.
+   Census 1463's C9 word closes on it. Seventeen further authors sit on both lists at other years and
+   are carried as NEAR, undecided: different works by one author is consistent with every one.
+
+DEVIATIONS RECORDED (findings, not instrument faults):
+   28a-06   "Fifty-nine of them are the works listed above" on the 162 rows measured 52 against printed 59
+   28a-08   "16 of 162" is a bound on the surname overlap              measured 70 against printed 16
+   28a-09   1736's "the rest … this volume never listed" holds of every unmatched row measured 1 against printed 0
+
+ALL INSTRUMENT CHECKS OK — 3 deviations recorded
+<<<END FILE: r2-28a2.out>>>
+
+<<<FILE: READ-28a2.md>>>
+# READ-28a2.md — chat 151-B (Cowork) — 28a-06, the author-and-year match owed on the compendium's 162 rows
+
+DEF-143 item 11's **eighth** family. Instrument `r2-28a2.py`, golden `r2-28a2.out`. Members read: the main
+volume's References entire, the Mathematical Compendium's *VII · THE BIBLIOGRAPHY* block, and Register 1736.
+Line numbers are MEMBER line numbers, measured this chat, never carried.
+
+**What was owed.** READ-ch28a recorded 28a-06 on a **surname-overlap bound of 16 of 162** and said in terms
+that the printed *fifty-nine* counts WORKS while the probe counted surnames. DEFERRED owed R3 the
+**author-and-year** match on the 162 rows before the figure is kept, and named the shape of the answer in
+advance: *1736's own figure is a 172-row datum*. This is that match. It is the third family in a row where
+the owed work was a reading and the earlier probe was right to refuse to score on itself.
+
+**CONVENTION AY, new this chat.** *The works listed above* is the References unit from its heading down to the
+line before the paragraph that makes the claim — **a sentence about a list is not an entry in it**, so
+L11848–L11854 is read and never matched. An MC row MATCHES if any surname in its `work` cell appears in that
+region paired with the row's own year. The pairing is read POSITIONALLY: each parenthesised year takes the
+author surnames of the window before it, and a window with no surname CARRIES the previous window's authors —
+the citation form this list actually uses (`Saari, D. G. (1971). Trans. AMS 162, 267; (1973) 181, 351; (1984)
+J. Diff. Eq. 55, 300`). A surname is a capitalised token followed by a comma-and-capital, an ampersand, *and*,
+or a parenthesised year, so journal abbreviations (`Arch. Ration. Mech. Anal.`) are excluded by construction.
+The extractor is **asserted on fourteen named citations, and asserted to admit no journal token, before any
+verdict is printed**. Rows the reading cannot decide are carried as NEAR (SUBJ, chat 148).
+
+## A — deviations
+
+- **28a-06 STANDS AND IS SHARPENED.** The author-and-year match on the 162 rows the volumes now carry is
+  **52**, against the printed *Fifty-nine*. The figure is **bracketed**: 52 by author and year, 55 at a year
+  tolerance of ±1 and ±2, 57 at ±3, 58 at ±5 — **no tolerance up to ±5 reaches 59** — and **70** if the year
+  is dropped entirely, which overshoots it. Fifty-nine is therefore reachable by no author-and-year reading
+  and only by a match looser than the one Register 1736 says it made. **1736 is the source and is not
+  withdrawn**: it states its own basis in terms — *matching the compendium's "172 works, 1669–2026" … by
+  author and year found fifty-nine shared* — and the ten removals that took 172 to 162 came after. What the
+  main volume does at L11848–L11853 is print that 172-row datum inside a sentence whose other number, 162, is
+  the post-removal count. R3: the figure is re-taken on the list it is printed beside, or the sentence names
+  the list the figure belongs to. Docket 17 / 37.
+- **28a-08 — NEW. "16 of 162" is not a bound on the overlap.** r2-ch28a §4's surname extractor requires a
+  capitalised token followed by an initial, a bracket, an ampersand, a comma or a dash; the compendium's table
+  prints a **bare surname** (`| 1669 | Newton | ...`), so it returns **no surname at all from 123 of the 162
+  rows**, and **every one of the 16 rows it caught carries an ampersand or a comma in its `work` cell**. The
+  16 counts MULTI-AUTHOR ROWS. Properly extracted, the surname-only overlap is **70 of 162**. `r2-ch28a` is
+  banked and its golden reproduces; this is recorded and not repaired (the chat-67 hold), and it matters
+  because 16 < 59 reads as a refutation of the printed figure while 70 > 59 does not.
+- **28a-09 — NEW. Register 1736's *"the rest classical attributions this volume never listed"* is falsified at
+  one measured site.** The compendium carries `| 1929 | Janet |` at mc L3431; the References carry *Janet, C.
+  (1928). — the left-step periodic table* at main L11777. One work, two years, and the 1929 row is among the
+  rows the author-and-year match does not share — so it is one of *the rest*, and the volume did list it.
+  28a-07 / 16x-06 already record the year disagreement itself. Census 1463's C9 word closes on this row.
+
+## B — verified (measured true)
+
+- **B-01** The main volume has **two** `References` headings, L173 and L11503; the unit is the LAST, the
+  convention r2-ch28a §0 takes. The claim paragraph begins at L11848 and prints all three of *162 works*,
+  *Fifty-nine of them* and *(register 1736)*.
+- **B-02** The compendium's bibliography is L3376–L3546: **162 DATA rows**, every row three cells, years
+  **1669–2026** exactly as the block prints them, and the block states both its own count and the prior 172.
+- **B-03** Register 1736 says all four of: the match was against *172 works*, it was *by author and year*, it
+  found *fifty-nine shared*, and *all ten removed* with the count *restated at 162*.
+- **B-04** The extractor reads every asserted citation with all of its years — Saari 1971 / 1973 / 1984,
+  Montgomery 1998 / 2000 / 2002 / 2014 / 2015, Kol 2021 / 2023, Monaghan 1976 / 1978, Moser 1962 / 1973,
+  Jacobi 1837 / 1842, Lagrange 1770 / 1772, Griffin and Cowan 1969 / 1971, Alekseev 1968, Löwdin 1950 / 1969,
+  Candelas 2007, Huang 2019, Euler 1767 — and admits **no** journal abbreviation as an author. Every one of
+  the 162 rows yields at least one surname.
+- **B-05** Newton, Leibniz and Gauss appear in the References at **no** year, which is what the sentence's own
+  exemplars claim of them; Euler, Moore and Birkhoff appear there at other years, so the division the sentence
+  draws is by work and not by author, and it is right to draw it that way.
+
+## Census
+
+Engaged: main L11503–L11855 (References entire), mc L3376–L3546 (the bibliography block), reg L6457–L6460
+(entry 1736). **main 718 / 719** were closed in the ch28a unit and the earlier line governs (G0b). **reg 1463
+closed here as a defect** (28a-09). **mc 387–672, the 286 C13-HANDLE-LEAK rows of the table's `objects`
+column, are ENGAGED and NOT CLOSED**: this reading took the year and work columns only. The class is ruled
+elsewhere (26b-10, ruling 46, docket 28), and a row is not closed on a reading that did not take it.
+
+## C — incidental
+
+- **One expectation fault, caught before banking, and it was mine not the book's:** the first draft asserted a
+  single `References` heading and the scan found two (L173 front matter, L11503 chapter). The scan was right —
+  it takes the last hit, as r2-ch28a does — and the assertion was corrected to the measurement, not the other
+  way round. No verdict had been printed on it.
+- **Not scored, recorded.** Whether the ten rows 1736 removed would have matched by author and year is **not
+  measurable**: the 172-row table is not in the bundle, and on 1736's own account those rows were status
+  words, a possessive and callout terms that no reader could cite — none of which an author-and-year match
+  would have shared. Whether the residual gap of seven belongs to this reading's convention or to the original
+  match is **not decidable without the original instrument**, and the standing rule gives the record the
+  benefit: the finding recorded here is that the figure does not reproduce on the 162 rows, not that 1736
+  counted wrongly.
+- **Not scored, recorded.** *Shannon* carries three compendium rows (1937, 1938, 1948) against one References
+  entry (1956, *zero-error capacity*, L11648); *Racah* carries 1982 against 1942 / 1943 / 1954. Both are
+  consistent with different works and neither is taken here.
+<<<END FILE: READ-28a2.md>>>
+
+<<<FILE: CENSUS-CLOSURES-28a2.tsv>>>
+id	verdict	reason
+718	closed earlier	C7 withdrawal-line-number survival at main L11600 ("119," in the muon window [119, 918] m_e) — closed in the ch28a unit as not a defect, a live figure with its §22.1.1 site at L5963/L5965. The earlier line governs (G0b)
+719	closed earlier	same window, upper bound 918 — closed in the ch28a unit as not a defect, sited at §22.1.1. The earlier line governs (G0b)
+1463	defect	C9 overgeneralisation-word "never" at reg L6459, inside register 1736: "found fifty-nine shared and the rest classical attributions this volume NEVER listed". Measured on the volumes as they now stand, the word is falsified at one site. The compendium's bibliography carries "| 1929 | Janet | E.layout E.table Q.bound Q.final S.ground |" at mc L3431; the main volume's References carry "Janet, C. (1928). — the left-step periodic table; E(Janet) = 0" at main L11777. One work, two years, and the compendium row is among the rows this reading's author-and-year match does NOT share — so it belongs to "the rest", and the volume did list it. 28a-07 / 16x-06 already record the year disagreement itself (main 1928 against the Register's 1929 x3 / 1928 x1), so the site was known and this closure adds only that 1736's word reaches over it. Seventeen further authors sit on both lists at other years (Taylor, Euler x2, Lagrange, Moore, Shannon x3, Birkhoff, Kolmogorov, Freuder, Monjardet, Racah, Yannakakis x2, Dechter, Drake) and are NOT scored: different works by one author is consistent with every one of them, and they are carried as NEAR under SUBJ. 28a-09
+<<<END FILE: CENSUS-CLOSURES-28a2.tsv>>>

@@ -9,8 +9,8 @@ tree, and nothing is fetched from Drive to open a chat.
 | Path | What it is |
 | --- | --- |
 | `The_Method_1_6_BUILD90_main_and_register.md` | Live main bundle — 1,983,081 B · `49065309b0c4fe8e055f693aed295cca` · 18,470 lines · 2 members |
-| `The_Method_1_6_BUILD182_compendia_papers_audits.md` | Live compendia bundle — 5,864,276 B · `27e66a61061cec78283c4a88d53ba964` · 66,440 lines · 349 members |
-| `members/` | All 351 members extracted from those two bundles, byte-exact. Instruments read these by name. |
+| `The_Method_1_6_BUILD183_compendia_papers_audits.md` | Live compendia bundle — 5,920,198 B · `d215c184aee08b884d8748fb6d79c0cb` · 66,990 lines · 353 members |
+| `members/` | All 355 members extracted from those two bundles, byte-exact. Instruments read these by name. |
 | `MEMBER-INDEX.tsv` | Per member: bundle, extension, size, md5, and byte offset in its bundle |
 | `verify.py` | The witness check — see below |
 | `CLAUDE.md` | The project instruction and the §0 gate |
@@ -34,23 +34,24 @@ Two independent checks, and a mismatch is a hard failure that is reported, never
    is asserted. This is what makes the extracted tree a witness rather than a plausible copy: a tree
    that passes provably reproduces what the old Drive gate used to extract.
 
-Current state: `members checked: 351  mismatched: 0`, both bundles recovered, `VERIFY OK`.
+Current state: `members checked: 355  mismatched: 0`, both bundles recovered, `VERIFY OK`.
 
-Exactly one compendia bundle lives here at a time. `BUILD180` and `BUILD181` were removed once
-`BUILD182` was asserted — both remain in git history, and both are re-derivable from Drive through
-their `REBUILD-BUILDNNN.md`. Keeping a superseded bundle beside the live one is not merely untidy:
-`gate.py manifest` refuses to guess which is live and stops until one remains.
+Exactly one compendia bundle lives here at a time. `BUILD180`, `BUILD181` and `BUILD182` were each
+removed once its successor was asserted — all remain in git history, and all are re-derivable from
+Drive through their `REBUILD-BUILDNNN.md`. Keeping a superseded bundle beside the live one is not
+merely untidy: `gate.py manifest` refuses to guess which is live and stops until one remains.
 
 ## Running the gate
 
 ```sh
 ./method/bin/stage-gate                                   # once per container
 export PATH="$(pwd)/method/bin:$PATH"                     # python3 -> 3.12
-python3 method/verify.py                                  # 351 members, both bundles
+python3 method/verify.py                                  # 355 members, both bundles
 cd /home/claude/members
 rm -rf __pycache__ && python3 gate.py census              # byte-identical to the member
 rm -rf __pycache__ && python3 gate.py run --core          # tower-2, kinds, minmax, r2-tools-constants, extent
-rm -rf __pycache__ && python3 gate.py manifest            # 350 listed / 351 extracted
+rm -rf __pycache__ && python3 gate.py manifest            # 354 listed / 355 extracted
+rm -rf __pycache__ && python3 gate.py run --all           # all 71 goldens, one line each (~5 min; r2-ch23b alone is 215 s)
 ```
 
 All of the above was run in this container and passed.
@@ -80,7 +81,7 @@ byte-exact. Three of them were only ever missing an input — the Prints & Proof
 `r2-ch20a`/`r2-ch26a` likewise need the coordinate file. `bin/stage-gate` now links both out of
 `drive/`, so a fresh container runs the whole set with nothing done by hand.
 
-## How BUILD182 got here
+## How BUILD183 got here
 
 Chat 151-B closed BUILD181 and BUILD182 in Drive, not here, and it had no choice: from Cowork the
 GitHub App token 404s this private repository and no `add_repo` is provisioned, so at that chat's
@@ -88,22 +89,29 @@ open **M suspended the chat-150 "repository is the store of record" ruling for a
 unreachable from Cowork** (`W-190`). `BUILDNNN-PARTS` came back with it — the Drive connector takes
 content inline only, so a 5.9 MB bundle cannot be uploaded whole.
 
-Neither bundle is in Drive as a file. Both were **rebuilt here, not transcribed**, from BUILD180
-plus the parts, following `REBUILD-BUILD181.md` and `REBUILD-BUILD182.md`. Every part was fetched
-through the Drive connector and checked against the md5 those documents publish — 15 of 15
-byte-exact — and every assertion in them was then re-checked:
+None of the three bundles is in Drive as a file. All were **rebuilt here, not transcribed**, from
+BUILD180 plus the parts, following `REBUILD-BUILD181.md`, `REBUILD-BUILD182.md` and
+`REBUILD-BUILD183.md` in turn. Every part was fetched through the Drive connector and checked
+against the md5 those documents publish — **25 of 25 byte-exact** — and every assertion in them was
+then re-checked:
 
-* `r2-26c.py` concatenates to 16,897 B · `6f1062f07b0108ee6d2dd395bd232ef0`; `r2-27a.py` to 15,219 B · `103078f4bf922ce6b9e9d5cad1b30224`
-* `gate.py bank` regenerated both goldens byte-exact — `r2-26c.out` 13,613 B · `c1e19648b3d258166e9d6d977baee88f` · 156 lines, `r2-27a.out` 10,142 B · `38e112883a8ce6b581e471b3f866f2c1` · 125 lines
-* `close.py` produced BUILD181 at 5,814,601 B · `2fbcd461cf0af81e3dcbbb0510e705c7` · 345 members, then BUILD182 at 5,864,276 B · `27e66a61061cec78283c4a88d53ba964` · 66,440 lines · 349 members
-* each reverse guard recovered its predecessor — `ea5becc4…` then `2fbcd461…`
+* `r2-26c.py` 16,897 B · `6f1062f07b0108ee6d2dd395bd232ef0`; `r2-27a.py` 15,219 B · `103078f4bf922ce6b9e9d5cad1b30224`; `r2-28a2.py` 16,676 B · `c7eafbaf76e9ddc908a3cc8af1423a32`
+* `gate.py bank` regenerated all three goldens byte-exact — `r2-26c.out` 13,613 B · `c1e19648…` · 156 lines, `r2-27a.out` 10,142 B · `38e11288…` · 125 lines, `r2-28a2.out` 12,319 B · `ef7253ed…` · 184 lines
+* `close.py` produced BUILD181 `2fbcd461…` · 345 members, BUILD182 `27e66a61…` · 349 members, BUILD183 5,920,198 B · `d215c184aee08b884d8748fb6d79c0cb` · 66,990 lines · 353 members
+* each reverse guard recovered its predecessor — `ea5becc4…`, `2fbcd461…`, `27e66a61…`
 
 The goldens are the point: they were **regenerated by running the instruments here**, not copied.
 A bundle that reproduces them is a derivation, not a plausible copy.
 
+**A size check is not enough.** Fetching these parts produced two transcription faults, and one was
+a single character inside a regex (`[A-YA-Th]` for `[A-ZA-Th]`) in a part whose byte count was
+correct both times. Only the md5 caught it. Chat 151-B hit the same class from the other side —
+two bad uploads in four attempts at ~8–10 KB of base64 — which is why it now keeps every part near
+5 KB and splits even its own `REBUILD` document. Check md5s, never sizes.
+
 This is a bridge, not a fix. It works only because this container reaches both Drive and GitHub,
 which the Cowork container does not. Until that access is settled, the chain advances in Drive and
-someone has to carry it back — and `BUILD183` is already waiting there.
+someone has to carry it back.
 
 ## Relationship to `drive/`
 
