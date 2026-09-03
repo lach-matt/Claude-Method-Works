@@ -37,6 +37,8 @@ computed), and the tower is `tower-2.py`; both are imported **by path** and neve
 | channels, per ion | charge, Nₑ, ℓ, mult, p, n₀, B, δ measured, δ by equation, residual, grade, witness, bound | `READ` + `PINNED` |
 | collapse | C(Z, ℓ) | `RECOVERED` |
 | Λ₈ | the ionisation ladder as transition cells, the seven constraints, the caps each needs | `RECONSTRUCTED` |
+| Λ₉–Λ₁₃ | 2S, 2S′, v, 2J_c, 2K, 2J per channel, with each bound and each admitted set | `PINNED` / `DERIVED` |
+| terms | `terms(ℓᵏ)` by microstate enumeration, seniority, φ̂(k) | `PINNED` |
 
 `--axes` prints the full inventory with a source for every row.
 
@@ -123,6 +125,52 @@ charge 1 to 10. COORDINATES-2.13 now holds 358 measured channels, so the samples
 and the numbers are not expected to match exactly. The report says so rather than claiming the
 recorded figures.
 
+## The tower — Λ₉ to Λ₁₃
+
+§12.11.1 defines `terms(ℓᵏ)` outright — *"list every way of placing k electrons in the 2(2ℓ+1)
+spin-orbitals, accumulate (2M_L, 2M_S), and strip complete (2S, 2L) blocks from the largest M_L
+down"* — so the tower does not have to be guessed either. That enumeration gives the LS terms, and
+from them seniority (the smallest k′ of the same parity in which a term first appears) and φ̂(k)
+(*"the monotone envelope of k ↦ max 2J over the parent shells admitted by the caps"*).
+
+**φ̂ is computed here, not copied.** At §7.4's caps it returns `{1: 3, 2: 4, 3: 5}` — exactly
+`tower-2.py`'s hardcoded `PHI`. That agreement is the decisive self-test fixture, because it is the
+one place the enumeration can be checked against a seated instrument.
+
+A tower cell extends a Λ₈ transition by the target's multiplicity, its seniority and the J_c–K
+coupling chain. **A Rydberg channel is precisely that object**: a core with fine structure 2J_c and
+one electron placed in a subshell of ℓ, so g = q = 1. §12.11.1 says as much of the three coupling
+axes — *"the core's fine structure"*, *"core–orbit orientation"*, *"the outer electron's spin bit"* —
+and Λ₁₃'s bound `|2J − 2K| ≤ 1` is `J = K ± ½` written out. So the tool populates the tower per
+channel:
+
+```
+    chg  l   core    k    2S    2S'   v    2J_c   2K        2J   (levels)
+    1    0   Ar      6    0     1     1    0      0         1        J = 1/2
+    1    1   Ar      6    0     1     1    0      2         1,3      J = 1/2, 3/2
+    1    2   Ar      6    0     1     1    0      4         3,5      J = 3/2, 5/2   2K OUTSIDE 7.4
+```
+
+Potassium's argon core is closed, so 2J_c = 0; the np channel couples to K = 1 and **J = ½, 3/2 —
+the potassium D-doublet** — and the ns channel to J = ½, which is exactly the ground level
+`LW1-ground.py` reads, `2S1/2`. Neither was looked up; both fall out of the chain.
+
+**And the caps bite here too.** §7.4 sets f_max = 1, so Λ₁₂'s bound is 2K ≤ 2J_c + 2 and only the s
+and p channels fit. The d, f and g channels are reported `2K OUTSIDE 7.4` with the bound named,
+rather than truncated — the same refusal as for Λ₈.
+
+Where a core has **more than one open subshell**, Hund does not fix the coupling between them and
+the core term is reported `UNDETERMINED` rather than guessed; 2K and 2J then have no value. Where
+the ground level is jj-coupled (`(1/2,1/2)0`, which is lead) or only J is known (Sg, Bh, Hs), the
+decoder says so and does not invent an LS term.
+
+### The chain, checked against measurement
+
+Where a configuration has a closed or a single open subshell, Hund on `terms(ℓᵏ)` must reproduce the
+ground level NIST recorded — 2S, L **and** J. It does, **92 times out of 92**. That is the evidence
+that `terms()`, `hund_ground_term()` and `parse_level()` agree with the physics and not merely with
+each other, and it is a fixture.
+
 ## Two findings in the spectra index
 
 **1. The `B` column was built on a withdrawn configuration table.** `--check-B` computes the Pauli
@@ -162,11 +210,14 @@ no k electrons can hold (§7.1), so it may not be inferred.
 
 ## `--selftest`
 
-77 fixtures. The seated members as imported (108 elements, 108 of 108 electron counts, |Λ₈| = 976
+102 fixtures. The seated members as imported (108 elements, 108 of 108 electron counts, |Λ₈| = 976
 and the whole tower 1,654 / 2,535 / 13,585 / 70,905 / 199,130); chapter 6's ninety main-table cells
 and the twenty-eight set aside; **ℛ reproducing the thirty-six by identity**, not merely by count —
 (p1,g2)…(p1,g17), (p2,g3)…(p2,g12), (p3,g3)…(p3,g12); the Janet blocks opening at Sc, La and Ac;
-the recovered ramp at all three ℓ; the hydrogenic channel returning **exactly** zero at Nₑ = 1
+the recovered ramp at all three ℓ; **φ̂ computed from microstate enumeration equalling `tower-2.py`'s
+`PHI`**; the standard terms of p², p³ and d²; seniority; all three ground-level forms; K I's
+D-doublet; Hund reproducing 92 of 92 observed levels; the hydrogenic channel returning **exactly**
+zero at Nₑ = 1
 (register 5193: the (Nₑ−1)/Nₑ factor vanishes identically, so no parameter can move it); the Pauli
 bound at He I and Be I; §7.1's seven constraints firing and failing where they should; and the
 equation reproducing the computed column under both configuration tables.
@@ -175,9 +226,13 @@ Current state: `SELFTEST OK`.
 
 ## Known gaps
 
-- **The tower above Λ₈ is not populated per element.** 2S′, v, 2J_c, 2K and 2J need the ion's term
-  and coupling scheme; the ground *level* is carried in `LW1-ground.py` but parsing `4I*15/2` into a
-  coupling assignment is a separate instrument.
+- **The tower is populated per channel, not per Λ₈ ionisation cell.** A Rydberg channel has g = 1
+  and gives a non-degenerate coupling chain; the ionisation ladder has g = 0, so 2S′ ≤ g forces
+  2S′ = v = 0 and Λ₉ and Λ₁₀ collapse on it. That is a fact about the mapping, not a defect, but it
+  is why the tower table is keyed by channel.
+- **A core with two open subshells has no derived term.** Hund fixes a single shell and no more, so
+  those channels report `UNDETERMINED` for 2J_c, 2K and 2J. Reading the ion's own measured level
+  instead of deriving it would close this, and needs a source of ion levels the store does not carry.
 - **n₀'s reading is `RECONSTRUCTED`.** Register 1141 states `B = min(p, n₀ − ℓ − 1)` and names the
   terms but does not say whether a partially filled subshell counts as allowed. Both readings were
   measured against the column: "first n with room" matches 87.0%, "first entirely unoccupied n"

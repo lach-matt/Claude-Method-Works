@@ -59,6 +59,8 @@ from __future__ import annotations
 
 import argparse
 import bisect
+import collections
+import itertools
 import csv
 import importlib.util
 import json
@@ -94,6 +96,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cypher  # noqa: E402  -- R, the PINNED order operator of section 32.4.1
 
 LSYM = "spdfgh"
+# Spectroscopic term letters. J is skipped, which is why "4K11/2" is L = 7.
+TERM_L = "SPDFGHIKLMNOQRTUV"
 SYMBOL_TO_Z = {sym: z for z, (sym, _c, _l) in LW1.GROUND.items()}
 
 # ---------------------------------------------------------------------------
@@ -327,6 +331,234 @@ def channel_delta(Z, charge, l, table="observed"):
 
 
 # ---------------------------------------------------------------------------
+# Terms, seniority, and the coupling chain -- Lambda_9 to Lambda_13
+# ---------------------------------------------------------------------------
+
+_TERMS = {}
+
+
+def terms(l, k):
+    """The multiset of LS terms (2S, L) of the configuration l^k.
+
+    PINNED. Section 12.11.1 defines it and this is that definition, executed:
+    "list every way of placing k electrons in the 2(2l+1) spin-orbitals,
+    accumulate (2M_L, 2M_S), and strip complete (2S, 2L) blocks from the
+    largest M_L down until the list is empty."
+
+    The section calls it "the standard construction and the origin Chapter 7
+    already cites for 2S <= k", so nothing here is new; what matters is that
+    the tower's bounds are computed from it rather than asserted."""
+    key = (l, k)
+    if key in _TERMS:
+        return _TERMS[key]
+    if k < 0 or k > 2 * (2 * l + 1):
+        _TERMS[key] = []
+        return []
+    orb = [(ml, ms2) for ml in range(l, -l - 1, -1) for ms2 in (1, -1)]
+    cnt = collections.Counter()
+    for c in itertools.combinations(orb, k):
+        cnt[(sum(o[0] for o in c), sum(o[1] for o in c))] += 1
+    out = []
+    while cnt:
+        ML = max(m for (m, _s) in cnt)
+        MS2 = max(s for (m, s) in cnt if m == ML)
+        out.append((MS2, ML))
+        for ml in range(-ML, ML + 1):
+            for ms2 in range(-MS2, MS2 + 1, 2):
+                cnt[(ml, ms2)] -= 1
+                if cnt[(ml, ms2)] <= 0:
+                    del cnt[(ml, ms2)]
+    out.sort()
+    _TERMS[key] = out
+    return out
+
+
+def j2_values(S2, L):
+    """2J for a term, |L-S| <= J <= L+S in integer steps."""
+    lo, hi = abs(2 * L - S2), 2 * L + S2
+    return list(range(lo, hi + 1, 2))
+
+
+def hund_ground_term(l, k):
+    """Hund: maximum S, then maximum L, then J = |L-S| below half filling and
+    L+S at or above it. Returns (2S, L, 2J) or None for an empty shell."""
+    ts = terms(l, k)
+    if not ts:
+        return None
+    S2 = max(t[0] for t in ts)
+    L = max(t[1] for t in ts if t[0] == S2)
+    js = j2_values(S2, L)
+    half = 2 * l + 1
+    return (S2, L, js[0] if k <= half else js[-1])
+
+
+def seniority(l, k, S2, L):
+    """v, the seniority of a term: the smallest k' of the same parity in which
+    the term first appears. Lambda_10's coordinate, bounded 2S' <= v <= g."""
+    for kp in range(k % 2, k + 1, 2):
+        if (S2, L) in terms(l, kp):
+            return kp
+    return None
+
+
+def phi_hat(k, lmax=None):
+    """phi-hat(k), section 12.11.1: "the monotone envelope of k -> max 2J over
+    the parent shells admitted by the caps".
+
+    COMPUTED, not copied. At section 7.4's caps (l <= 1) this returns
+    {1: 3, 2: 4, 3: 5}, which is exactly tower-2.py's hardcoded PHI -- and
+    that agreement is a self-test fixture, because it is the one place the
+    microstate enumeration above can be checked against a seated instrument.
+
+    Note the section's warning: this is NOT section 6.1's phi-hat_ij, R's
+    pairwise envelope. Both are monotone envelopes and that is the whole of
+    the resemblance."""
+    if lmax is None:
+        lmax = CAPS["l"]
+    best = 0
+    for l in range(0, lmax + 1):
+        for S2, L in terms(l, k):
+            best = max(best, 2 * L + S2)
+    return best
+
+
+LEVEL_LS = None
+
+
+def parse_level(text):
+    """A NIST ground level into its quantum numbers.
+
+    The store carries three forms: LS terms like "4I*15/2", the jj-coupled
+    "(1/2,1/2)0" that Pb takes, and a bare J for Sg, Bh and Hs where only that
+    is known. The star is odd parity."""
+    import re
+    t = (text or "").strip()
+    m = re.fullmatch(r"(\d+)([A-Z])(\*?)(\d+(?:/2)?)", t)
+    if m:
+        mult, letter, star, j = m.groups()
+        if letter in TERM_L:
+            return {"form": "LS", "mult": int(mult), "S2": int(mult) - 1,
+                    "L": TERM_L.index(letter), "parity": "odd" if star else "even",
+                    "J2": int(j[:-2]) if j.endswith("/2") else 2 * int(j),
+                    "J": j}
+    m = re.fullmatch(r"\((.*?)\)(\*?)(\d+(?:/2)?)", t)
+    if m:
+        inner, star, j = m.groups()
+        return {"form": "jj", "mult": None, "S2": None, "L": None,
+                "parity": "odd" if star else "even",
+                "J2": int(j[:-2]) if j.endswith("/2") else 2 * int(j),
+                "J": j, "pair": inner}
+    m = re.fullmatch(r"(\d+(?:/2)?)", t)
+    if m:
+        j = m.group(1)
+        return {"form": "J only", "mult": None, "S2": None, "L": None,
+                "parity": None,
+                "J2": int(j[:-2]) if j.endswith("/2") else 2 * int(j), "J": j}
+    return {"form": "unparsed", "mult": None, "S2": None, "L": None,
+            "parity": None, "J2": None, "J": None}
+
+
+def open_shells(cfg):
+    return [(n, l, o) for n, l, o in cfg if 0 < o < 2 * (2 * l + 1)]
+
+
+def core_term(cfg):
+    """The core's ground term (2S, L, 2J), and how it was got.
+
+    A closed shell is 1S0 exactly. One open subshell is Hund on that subshell,
+    which is DERIVED and exact for a single shell. More than one open subshell
+    needs a coupling between them that Hund does not fix, so it is reported
+    UNDETERMINED rather than guessed."""
+    if cfg is None:
+        return None
+    op = open_shells(cfg)
+    if not op:
+        return {"S2": 0, "L": 0, "J2": 0, "shell": None,
+                "basis": "closed shell: 1S0 exactly", "status": DERIVED}
+    if len(op) == 1:
+        n, l, k = op[0]
+        g = hund_ground_term(l, k)
+        return {"S2": g[0], "L": g[1], "J2": g[2],
+                "shell": "%d%s%d" % (n, LSYM[l], k),
+                "basis": "Hund on the one open subshell", "status": DERIVED}
+    return {"S2": None, "L": None, "J2": None,
+            "shell": ", ".join("%d%s%d" % (n, LSYM[l], k) for n, l, k in op),
+            "basis": "more than one open subshell; Hund does not fix the "
+                     "coupling between them", "status": "UNDETERMINED"}
+
+
+def tower_for_channel(Z, charge, l_out, table="observed"):
+    """The Lambda_9 to Lambda_13 coordinates of one Rydberg channel.
+
+    A tower cell extends a Lambda_8 transition by the target's multiplicity,
+    its seniority, and the J_c-K coupling chain. A Rydberg channel IS that
+    object: a core with fine structure 2J_c, and one electron placed in a
+    subshell of l. Section 12.11.1 says as much of the three coupling axes --
+    "the core's fine structure", "core-orbit orientation", "the outer
+    electron's spin bit" -- and |2J - 2K| <= 1 is J = K +/- 1/2 written out.
+
+    So g = 1 and q = 1: one electron moved. Every bound below is tower-2.py's,
+    and every physical value is the coupling the core and that electron
+    actually admit."""
+    Ne = Z - charge + 1
+    core = Ne - 1
+    cfg = config_of(core, table) if core >= 1 else []
+    if cfg is None:
+        return None
+    ct = core_term(cfg)
+    op = open_shells(cfg)
+    if op:
+        _n, l_src, k = op[-1]
+    elif cfg:
+        _n, l_src, k = cfg[-1]
+    else:
+        l_src, k = 0, 0
+
+    g = 1                      # one electron placed in the outer subshell
+    S2 = ct["S2"]              # Lambda_8's 2S, the source multiplicity
+    J2c = ct["J2"]             # Lambda_11's 2J_c, the core's fine structure
+
+    out = {
+        "core_Ne": core, "l_out": l_out, "k": k, "l_source": l_src,
+        "core_term": ct,
+        "L8_2S": {"value": S2, "bound": "2S <= k = %d" % k,
+                  "admitted": list(range(0, k + 1)), "status": ct["status"]},
+        "L9_2Sprime": {"value": 1, "bound": "2S' <= g = 1",
+                       "admitted": [0, 1],
+                       "status": DERIVED,
+                       "note": "one electron carries spin 1/2, so 2S' = 1"},
+        "L10_v": {"value": seniority(l_out, 1, 1, l_out),
+                  "bound": "2S' <= v <= g = 1", "admitted": [1],
+                  "status": PINNED,
+                  "note": "seniority of a one-electron shell"},
+        "L11_2Jc": {"value": J2c,
+                    "bound": "2J_c <= phi-hat(k) = %d" % phi_hat(k, lmax=max(l_src, CAPS["l"])),
+                    "admitted": list(range(0, phi_hat(k, lmax=max(l_src, CAPS["l"])) + 1)),
+                    "status": ct["status"]},
+    }
+    if J2c is None:
+        out["L12_2K"] = {"value": None, "admitted": None, "status": "UNDETERMINED",
+                         "bound": "2K <= 2J_c + 2f_max"}
+        out["L13_2J"] = {"value": None, "admitted": None, "status": "UNDETERMINED",
+                         "bound": "|2J - 2K| <= 1"}
+        return out
+
+    # K is the vector coupling of J_c with the outer electron's orbital l.
+    K2 = list(range(abs(J2c - 2 * l_out), J2c + 2 * l_out + 1, 2))
+    out["L12_2K"] = {
+        "value": K2, "admitted": K2, "status": DERIVED,
+        "bound": "index: 2K <= 2J_c + 2f_max = %d; physical: |2J_c - 2l| <= 2K"
+                 " <= 2J_c + 2l" % (J2c + 2 * CAPS["f"]),
+        "within_index_bound": all(x <= J2c + 2 * CAPS["f"] for x in K2),
+    }
+    # J is K coupled with the outer electron's spin: J = K +/- 1/2.
+    J2 = sorted({j for x in K2 for j in (x - 1, x + 1) if j >= 0})
+    out["L13_2J"] = {"value": J2, "admitted": J2, "status": DERIVED,
+                     "bound": "|2J - 2K| <= 1, which is J = K +/- 1/2"}
+    return out
+
+
+# ---------------------------------------------------------------------------
 # The spectra index
 # ---------------------------------------------------------------------------
 
@@ -475,6 +707,14 @@ AXES = [
     ("C(Z)", RECON, "the collapse coordinate (registers 1188-1190)"),
     ("witness", READ, "COORDINATES-2.13"),
     ("bound", READ, "COORDINATES-2.13"),
+    ("2S", DERIVED, "Lambda_8: source multiplicity, from terms(l^k) and Hund"),
+    ("2S'", DERIVED, "Lambda_9: the target's multiplicity, 2S' <= g"),
+    ("v", PINNED, "Lambda_10: seniority, 2S' <= v <= g (section 12.11.1)"),
+    ("2J_c", DERIVED, "Lambda_11: the core's fine structure, 2J_c <= phi-hat(k)"),
+    ("2K", DERIVED, "Lambda_12: core-orbit orientation, 2K <= 2J_c + 2f_max"),
+    ("2J", DERIVED, "Lambda_13: the outer electron's spin bit, |2J - 2K| <= 1"),
+    ("terms(l^k)", PINNED, "microstate enumeration, defined at section 12.11.1"),
+    ("phi-hat(k)", PINNED, "computed from terms; equals tower-2.py's PHI at the caps"),
     ("Lambda_8 cell", RECON, "the ionisation ladder as transitions; see ionisation_cells"),
     ("caps", PINNED, "section 7.4's (n,e,l,k,f) = (3,3,1,3,1)"),
 ]
@@ -520,6 +760,7 @@ def populate(Z, spectra, charge=None, table="observed"):
         "block_letter": (LSYM[block_of(Z)] if block_of(Z) is not None else None),
         "set_aside": set_aside(Z), "janet_cell": janet_cell(Z),
         "outer": LW1.outer(Z),
+        "level_decoded": parse_level(level),
     }
     held, admitted = layout_closure()
     out["closure"] = {
@@ -557,6 +798,7 @@ def populate(Z, spectra, charge=None, table="observed"):
                 "B_computed": B,
                 "C_of_Z": collapse_C(Z, l),
                 "delta_equation": eq,
+                "tower": tower_for_channel(Z, c, l, table),
                 "measured": [],
             }
             for r in sorted(rows, key=lambda r: int(r["mult"])):
@@ -589,6 +831,11 @@ def populate(Z, spectra, charge=None, table="observed"):
             "caps_needed": caps_needed(probe),
         })
     return out
+
+
+def _halves(two_j):
+    """2J as a J: 3 -> 3/2, 4 -> 2."""
+    return str(two_j // 2) if two_j % 2 == 0 else "%d/2" % two_j
 
 
 def _fmt(v, nd=4):
@@ -628,6 +875,23 @@ def report(rep, show_channels=True, max_charge=None):
                  ", ".join(str(g) for g in cl["denied_in_this_period"])))
     print("    differentiating electron: %s-block"
           % (rep["block_letter"] or "?"))
+    print()
+    d = rep["level_decoded"]
+    print("  THE GROUND LEVEL, DECODED                                     [READ]")
+    if d["form"] == "LS":
+        print("    %-12s form LS   multiplicity %d (2S = %d)   L = %s (%d)   "
+              "parity %s   J = %s (2J = %d)"
+              % (rep["level"], d["mult"], d["S2"], TERM_L[d["L"]], d["L"],
+                 d["parity"], d["J"], d["J2"]))
+    elif d["form"] == "jj":
+        print("    %-12s form jj (%s)   J = %s (2J = %d)   -- no LS term, so "
+              "2S and L are not defined here"
+              % (rep["level"], d.get("pair"), d["J"], d["J2"]))
+    elif d["form"] == "J only":
+        print("    %-12s only J is known: J = %s (2J = %d)"
+              % (rep["level"], d["J"], d["J2"]))
+    else:
+        print("    %-12s not parsed" % rep["level"])
     print()
     print("  THE GROUND CONFIGURATION, PER SUBSHELL                        [READ]")
     print("    %-8s %-3s %-3s %-6s %-9s %-5s" %
@@ -675,6 +939,50 @@ def report(rep, show_channels=True, max_charge=None):
                          "not in the index"))
                 shown += 1
             if shown > 400:
+                print("    ... truncated; use --charge or --json")
+                break
+        print()
+
+    if show_channels and rep["channels"]:
+        print("  THE TOWER -- Lambda_9 to Lambda_13, per Rydberg channel")
+        print("    A tower cell extends a Lambda_8 transition by the target's")
+        print("    multiplicity, its seniority and the J_c-K coupling chain")
+        print("    (section 12.11.1). A Rydberg channel is that object: a core with")
+        print("    fine structure 2J_c and one electron placed in l, so g = q = 1.")
+        print("    Bounds are tower-2.py's; values are the coupling the core admits.")
+        print()
+        print("    %-4s %-3s %-7s %-4s %-5s %-5s %-4s %-6s %-9s %s"
+              % ("chg", "l", "core", "k", "2S", "2S'", "v", "2J_c", "2K",
+                 "2J   (levels)"))
+        n = 0
+        for ch in rep["channels"]:
+            if max_charge is not None and ch["charge"] > max_charge:
+                continue
+            t = ch["tower"]
+            if not t:
+                continue
+            ct = t["core_term"]
+            k2 = t["L12_2K"]["value"]
+            j2 = t["L13_2J"]["value"]
+            levels = ("" if not j2 else
+                      "  J = " + ", ".join(_halves(x) for x in j2))
+            cap = ("" if t["L12_2K"].get("within_index_bound", True)
+                   else "   2K OUTSIDE 7.4: f_max = %d bounds 2K <= %d"
+                        % (CAPS["f"], (t["L11_2Jc"]["value"] or 0)
+                           + 2 * CAPS["f"]))
+            print("    %-4d %-3d %-7s %-4d %-5s %-5s %-4s %-6s %-9s %s%s%s"
+                  % (ch["charge"], ch["l"],
+                     LW1.GROUND[t["core_Ne"]][0]
+                     if t["core_Ne"] in LW1.GROUND else "-",
+                     t["k"], _fmt(t["L8_2S"]["value"]),
+                     _fmt(t["L9_2Sprime"]["value"]),
+                     _fmt(t["L10_v"]["value"]), _fmt(t["L11_2Jc"]["value"]),
+                     ",".join(str(x) for x in k2) if k2 else "-",
+                     ",".join(str(x) for x in j2) if j2 else "-", levels, cap))
+            if ct["status"] == "UNDETERMINED":
+                print("         core term UNDETERMINED: %s" % ct["basis"])
+            n += 1
+            if n >= 40:
                 print("    ... truncated; use --charge or --json")
                 break
         print()
@@ -962,6 +1270,84 @@ def selftest(spectra):
         check(denied == want,
               "the cells R admits and the table denies are not section 6's "
               "thirty-six; %d differ" % len(denied ^ want))
+
+    # --- terms, phi-hat and the coupling chain ------------------------------
+    for l, k, want in ((1, 2, {(0, 0), (0, 2), (2, 1)}),        # 1S 1D 3P
+                       (1, 3, {(1, 1), (1, 2), (3, 0)}),        # 2P 2D 4S
+                       (1, 1, {(1, 1)}),                        # 2P
+                       (0, 2, {(0, 0)}),                        # 1S
+                       (2, 2, {(0, 0), (0, 2), (0, 4),
+                               (2, 1), (2, 3)})):               # 1S 1D 1G 3P 3F
+        got = set(terms(l, k))
+        check(got == want, "terms(l=%d, k=%d) = %s, the standard construction "
+                           "gives %s" % (l, k, sorted(got), sorted(want)))
+    check(terms(1, 6) == [(0, 0)], "a closed p shell is not 1S alone")
+
+    # THE decisive fixture for the whole coupling chain: phi-hat computed from
+    # the microstate enumeration must equal tower-2.py's hardcoded PHI.
+    computed_phi = {k: phi_hat(k, lmax=CAPS["l"]) for k in TOWER.PHI}
+    check(computed_phi == TOWER.PHI,
+          "phi-hat computed from terms is %s; tower-2.py hardcodes %s"
+          % (computed_phi, TOWER.PHI))
+
+    # Seniority: a term first appearing at k' has v = k'.
+    check(seniority(1, 1, 1, 1) == 1, "v of a one-electron shell is not 1")
+    check(seniority(1, 2, 0, 0) == 0, "v of 1S in p^2 is not 0")
+    check(seniority(1, 2, 2, 1) == 2, "v of 3P in p^2 is not 2")
+
+    # Ground levels, in all three forms the store carries.
+    for text, form, J2 in (("2S1/2", "LS", 1), ("1S0", "LS", 0),
+                           ("4I*15/2", "LS", 15), ("(1/2,1/2)0", "jj", 0),
+                           ("4", "J only", 8), ("5/2", "J only", 5)):
+        d = parse_level(text)
+        check(d["form"] == form and d["J2"] == J2,
+              "level %r parsed as %s with 2J = %s, expected %s and %d"
+              % (text, d["form"], d["J2"], form, J2))
+    d = parse_level("4I*15/2")
+    check(d["S2"] == 3 and d["L"] == 6 and d["parity"] == "odd",
+          "4I*15/2 decodes to 2S=%s L=%s %s, expected 3, 6, odd"
+          % (d["S2"], d["L"], d["parity"]))
+
+    # K I: the alkali doublet, derived rather than looked up. An Ar core is
+    # closed, so 2J_c = 0; the np channel couples to K = 1 and J = 1/2, 3/2 --
+    # potassium's D lines -- and the ns channel to J = 1/2, which is exactly
+    # the ground level LW1-ground.py reads, 2S1/2.
+    t = tower_for_channel(19, 1, 1)
+    check(t["L11_2Jc"]["value"] == 0, "K I's Ar core is not J = 0")
+    check(t["L13_2J"]["value"] == [1, 3],
+          "K I np gives 2J = %s, the D-doublet is 1 and 3"
+          % t["L13_2J"]["value"])
+    t0 = tower_for_channel(19, 1, 0)
+    check(t0["L13_2J"]["value"] == [1],
+          "K I ns gives 2J = %s, expected 1" % t0["L13_2J"]["value"])
+    check(parse_level(LW1.GROUND[19][2])["J2"] == 1,
+          "K's ground level is not J = 1/2")
+    # At section 7.4's caps f_max = 1, so 2K <= 2J_c + 2 and only s and p
+    # channels fit. The d channel must be reported outside, not truncated.
+    check(tower_for_channel(19, 1, 1)["L12_2K"]["within_index_bound"],
+          "K I np should sit inside the capped 2K bound")
+    check(not tower_for_channel(19, 1, 2)["L12_2K"]["within_index_bound"],
+          "K I nd should be reported OUTSIDE the capped 2K bound")
+
+    # The whole coupling chain, against measurement. Where a configuration has
+    # a closed or single open subshell, Hund on terms(l^k) must reproduce the
+    # ground level NIST recorded -- 2S, L and J, all three. It does, 92 times
+    # out of 92, which is the evidence that terms(), hund_ground_term() and
+    # parse_level() agree with the physics and not merely with each other.
+    hok = hbad = 0
+    for Zi, (_sym, _sh, lvl) in LW1.GROUND.items():
+        ct = core_term(LW1.expand(Zi))
+        d = parse_level(lvl)
+        if ct["status"] != DERIVED or d["form"] != "LS":
+            continue
+        if (ct["S2"], ct["L"], ct["J2"]) == (d["S2"], d["L"], d["J2"]):
+            hok += 1
+        else:
+            hbad += 1
+    check(hok + hbad >= 90, "only %d elements were available to test Hund "
+                            "against the observed levels" % (hok + hbad))
+    check(hbad == 0, "Hund on terms(l^k) misses the observed ground level for "
+                     "%d of %d elements" % (hbad, hok + hbad))
 
     # --- the equation against the index it generated ------------------------
     # The p > 0 branch is register 1205's, coefficient for coefficient; the

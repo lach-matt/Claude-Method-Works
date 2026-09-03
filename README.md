@@ -63,9 +63,10 @@ it, each with a real contract and a self-check.
 * [`tools/populate.py`](tools/populate.py) — an element on every axis of every index. Give it a
   ground-state atomic number and it returns that element and every ion of it: the observed ground
   configuration, the per-subshell quantum axes, the three layout indexes, the Rydberg channels of
-  the spectra index, the Pauli bound, the quantum defect under the method equation, and the Λ₈
-  transition cells of its ionisation ladder with the caps each one needs. Runs **both halves of the
-  method equation** (register 1206) — ℛ places the cells, the channel equation values them. See
+  the spectra index, the Pauli bound, the quantum defect under the method equation, the Λ₈
+  transition cells of its ionisation ladder, and the **full tower to Λ₁₃** — 2S, 2S′, v, 2J_c, 2K
+  and 2J per channel, from `terms(ℓᵏ)` by microstate enumeration. Runs **both halves of the method
+  equation** (register 1206) — ℛ places the cells, the channel equation values them. See
   [`docs/POPULATE.md`](docs/POPULATE.md).
 
 Every one of them runs `--selftest`, whose fixtures are the corpus's own recorded numbers, and every
