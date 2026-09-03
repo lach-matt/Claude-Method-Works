@@ -561,6 +561,47 @@ def _janet():
     return Index("Janet (n+l x l)", ["n+l", "l"], sorted(set(cells)))
 
 
+# Particle-bound nuclides — bound against prompt nucleon emission. AME2020 region, N per Z.
+_NUCLIDES = {
+    1: [0, 1, 2],                                    # H-1,2,3
+    2: [1, 2, 4, 6],                                 # He-3,4,6,8      He-5, He-7 unbound
+    3: [3, 4, 5, 6, 8],                              # Li-6,7,8,9,11   Li-10 unbound
+    4: [3, 5, 6, 7, 8, 10],                          # Be-7,9,10,11,12,14   Be-8, Be-13 unbound
+    5: [3, 5, 6, 7, 8, 9, 10, 12, 14],               # B-8,10..15,17,19     B-9, B-16, B-18 unbound
+    6: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16],  # C-9..20, C-22      C-21 unbound
+    7: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],  # N-12..23
+    8: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],  # O-13..24
+    9: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],   # F-17..27
+    10: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20],  # Ne-18..28, Ne-30
+}
+_ELEMENT = {1: "H", 2: "He", 3: "Li", 4: "Be", 5: "B",
+            6: "C", 7: "N", 8: "O", 9: "F", 10: "Ne"}
+
+
+def _nuclide(zmax=7):
+    """The measured nuclide chart, E = 9. The only index in the corpus where E > 0 and every
+    admitted-and-absent cell can be NAMED, which is what makes the defect a measurement rather
+    than a score. Segre's chart; values from AME2020."""
+    return Index(f"nuclide chart (Z, N), Z <= {zmax}", ["Z", "N"],
+                 sorted((z, n) for z, ns in _NUCLIDES.items() if z <= zmax for n in ns))
+
+
+def min_seed(ix, cap=7):
+    """The seed: least G with R(G) = X. NP-hard in general (§14.5.7), so exhaustive to `cap`.
+    Bounded below by the Caratheodory number, which for a product of d chains is the breadth d
+    (Caratheodory 1911; MC §S). A full box c^d seeds at d + c - 2."""
+    target = set(ix.cells)
+    for k in range(1, cap + 1):
+        for G in itertools.combinations(ix.cells, k):
+            sub = Index("seed", ix.coords, [[ix.decode[i][v] for i, v in enumerate(c)]
+                                            for c in G])
+            out, _ = op_order(sub, {})
+            got = {tuple(sub.decode[i][v] for i, v in enumerate(c)) for c in out}
+            if {tuple(ix.decode[i][v] for i, v in enumerate(c)) for c in target} == got:
+                return k, G
+    return None, None
+
+
 def _calendar():
     """365 cells in a box of 372, E = 7 — February's missing 29th to 31st and the four
     thirty-day months' 31sts."""
@@ -600,6 +641,7 @@ FIXTURES = [
      {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
      {"cells": 35, "box": 125}),
     ("Kreuzer-Skarke slice", _kreuzer_skarke, {"order": 540}, {"cells": 208}),
+    ("nuclide chart Z<=7", _nuclide, {"order": 9}, {"cells": 52}),
 ]
 
 
@@ -663,6 +705,35 @@ def selftest(opts):
         bad += have != want
         print(f"  KS admits, {what:<14} = {have:<6} expected {want:<6} "
               f"{'ok' if have == want else 'MISMATCH'}   (§31.3.4)")
+
+    # The nuclide chart names every defect cell, so assert the NAMES and not just the count.
+    ix = _nuclide(7)
+    adm, _ = op_order(ix, opts)
+    dec = [(ix.decode[0][a], ix.decode[1][b]) for a, b in sorted(set(adm) - set(ix.cells))]
+    got = {f"{_ELEMENT[z]}-{z + n}" for z, n in dec}
+    want = {"He-5", "He-7", "Li-10", "Be-8", "Be-13", "B-9", "B-16", "B-18", "C-21"}
+    bad += got != want
+    print(f"  nuclide chart admits-and-lacks = {len(got)} cells, named "
+          f"{'exactly as recorded' if got == want else 'DIFFERENTLY: %s' % sorted(got ^ want)} "
+          f"{'ok' if got == want else 'MISMATCH'}   (IoI, the nuclide chart)")
+    for zmax in (7, 8, 9, 10):
+        ixz = _nuclide(zmax)
+        admz, _ = op_order(ixz, opts)
+        e = len(admz) - len(ixz.cells)
+        bad += e != 9
+        print(f"  nuclide chart Z <= {zmax:<3} E(order) = {e:<6} expected 9      "
+              f"{'ok' if e == 9 else 'MISMATCH'}   (stable across four cutoffs)")
+
+    # the box seed law, and the Caratheodory number as its lower bound (MC §S)
+    for d, c in ((2, 2), (2, 3), (2, 4), (3, 2), (3, 3)):
+        cells = [t for t in itertools.product(range(c), repeat=d)]
+        bx = Index("box", [f"c{i}" for i in range(d)], cells)
+        k, _ = min_seed(bx)
+        want_k = d + c - 2
+        bad += k != want_k
+        print(f"  box {c}^{d} min seed = {k!s:<6} expected d+c-2 = {want_k:<6} "
+              f"{'ok' if k == want_k else 'MISMATCH'}   (box seed law); "
+              f"Caratheodory seed >= d: {'ok' if k and k >= d else 'VIOLATED'}")
 
     # register 1176: "Lambda and a box ordering: E = 0 and every pair agrees"
     for label, build, want in (("Lambda", _lambda, True), ("box ordering", _box_ordering, True)):

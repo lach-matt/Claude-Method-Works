@@ -167,6 +167,9 @@ The fixtures are the corpus's own recorded numbers. Failures are reported, never
 | box ordering, `l ≥ w ≥ h` | 35 cells, box 125, `E = 0`, **all 10 pairs agree** | register 1176's own agreeing fixture |
 | Λ, all pairs | **all 10 pairs agree** | register 1176 |
 | Kreuzer–Skarke, χ = ±6 slice | 208 cells, `E(order) = 540`; 498 join and 498 meet failures of 21,528 pairs; what ℛ admits carries 112 diagonal cells from (13,13) to (131,131), 5 distinct χ, and h¹¹+h²¹ from 26 to 262 | §31.3.4; Candelas, de la Ossa, He & Szendrői, *Triadophilia*, ATMP **12** (2008) 429 |
+| nuclide chart, (Z, N) | 52 cells at Z ≤ 7, `E = 9`, and the nine admitted-and-absent cells named **exactly**: He-5, He-7, Li-10, Be-8, Be-13, B-9, B-16, B-18, C-21 — stable at 9 across four proton-number cutoffs (Z ≤ 7, 8, 9, 10) | IoI *The nuclide chart*; registers 298, 388, 390; AME2020 |
+| the box seed law | a full box `c^d` seeds at `d + c − 2`, verified by exhaustive minimum-seed search at (2,2), (3,2), (4,2), (2,3), (3,3) | MC §S, the box seed law |
+| the Carathéodory bound | `seed ≥ breadth = d` for a product of `d` chains, on every box tested | MC §S; Carathéodory 1911 |
 | degeneracy guard | fires at `d = 2`, not at `d = 3` | register 1175 |
 
 Current state: `SELFTEST OK`.
@@ -199,6 +202,15 @@ here as an observation to test, not a finding.
 The derivation above drops 161 of the 562 members, and that is the second finding below rather
 than a fault in the parse.
 
+## The seed
+
+`min_seed(ix, cap)` computes the least `G` with `ℛ(G) = X` — NP-hard in general (§14.5.7), so it
+is exhaustive to a cap. It is the one place the geometry attribution is checked against a recorded
+figure rather than only corroborated: the seed is **bounded below by the Carathéodory number**,
+which for a product of `d` chains is the breadth `d` (MC §S, citing Carathéodory 1911 — the same
+prior art the geometry operator rests on). Both the bound and the **box seed law**, `d + c − 2`,
+are asserted in the self-test.
+
 ## Known gaps
 
 - **The calendar at three coordinates is not built.** The 2-D calendar is a fixture and reproduces
@@ -209,6 +221,15 @@ than a fault in the parse.
   them, `k ≥ 1` can never fail and excludes 0, not 25. Both boxes are legitimate (6,912 is the box
   after the floor is applied); the table and the box quoted next to it are measured on different
   ones.
+- **The violation index cannot be built, and the corpus says so first.** The IoI calls it *"the one
+  index this work reasons about without holding — its cells are not printed anywhere."* That is
+  confirmed rather than worked around. Its nine letters and rungs ARE printed, and the box
+  reproduces exactly at **19,440**; so does one recorded reading — the arity-2 variant
+  `NEC ≥ 3 → U ≥ 1` gives **E = 0**. But the printed arity-3 constraint
+  `NEC ≥ 3 ∧ X = 0 → U ≥ 1`, taken as a *definition*, yields 18,792 cells at `E = 648`, not the
+  recorded 2,370 cells at `E = 30`. The constraint is a model applied to the index, not the index,
+  and the 2,370 cells are not recoverable from anything in print. No cell set is fabricated to
+  close the gap.
 - **`arithmetic`, `calculus`, `constraint-language`, `logic`** have no ruled operator mapping and
   read `NOT-RUN` under `--roster 20.2`.
 - **Register 1177's geometry percentages are not reproducible, and not because the operator is
