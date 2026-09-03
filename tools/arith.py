@@ -696,7 +696,10 @@ WRAPPED = [
 # Sites in the live members. Addressed by the matched text, not by line
 # number, so a rebuild cannot move a fixture out from under the self-test.
 CORPUS = [
-    ("mc", "FRACTION-PCT", "146 of 163 = 92%", DISAGREE),
+    # Repaired under R3 at chat 153 (item 153-01, Register 1795): the site read 92%
+    # against its own count and now reads 90%. The SYNTHETIC fixture above keeps the
+    # defective form, so the DISAGREE path is still exercised on a literal.
+    ("mc", "FRACTION-PCT", "146 of 163 = 90%", AGREE),
     ("mc", "FRACTION-PCT", "52 of 52 = 100%", AGREE),
     ("reg", "FRACTION-PCT", "1,169 of 1,654 = 70.7%", AGREE),
     ("reg", "FRACTION-PCT", "84/99 = 85%", AGREE),

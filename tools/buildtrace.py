@@ -54,12 +54,24 @@ DEFAULT_TREE = os.path.join(REPO, "drive")
 STORE = os.path.join(REPO, "method")
 
 # The live bundles, which are the newest members of the two streams.
-LIVE = {
-    "main": ("The_Method_1_6_BUILD90_main_and_register.md",
-             "49065309b0c4fe8e055f693aed295cca"),
-    "compendia": ("The_Method_1_6_BUILD180_compendia_papers_audits.md",
-                  "ea5becc40e13debe4faaf6c7e0cde960"),
-}
+def _live():
+    """The live bundles, read from method/BUNDLES.tsv rather than named here.
+
+    Every R3 build writes a new bundle and retires the old one, so a hard-coded
+    pair goes stale at each close and the self-test fails for a reason that is
+    not a finding. BUNDLES.tsv is written by method/reseat.py and is the same
+    set method/verify.py asserts.
+    """
+    import csv, pathlib
+    tsv = pathlib.Path(__file__).resolve().parent.parent / "method" / "BUNDLES.tsv"
+    out = {}
+    for r in csv.DictReader(open(tsv, encoding="utf-8"), delimiter="\t"):
+        stream = "main" if "main_and_register" in r["filename"] else "compendia"
+        out[stream] = (r["filename"], r["md5"])
+    return out
+
+
+LIVE = _live()
 
 STREAMS = {"compendia": "compendia_papers_audits", "main": "main_and_register"}
 
