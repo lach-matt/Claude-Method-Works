@@ -430,6 +430,7 @@ def run(ix, roster_name, opts):
         "languages_agree": agree,
         "all_E_zero": all_zero,
         "langclose_holds": None if agree is None or all_zero is None else (agree == all_zero),
+        "agreement_withheld": bool(degenerate and agree),
         "degenerate": degenerate,
         "singleton_ok": len(ix.outputs) <= 1,
         "outputs": ix.outputs,
@@ -483,13 +484,15 @@ def report(res):
         o.append(v.row())
     o.append("")
 
-    if res["degenerate"]:
-        o.append("  DEGENERATE — at this many coordinates pairwise consistency and the cell "
-                 "coincide;")
-        o.append("  every language agrees for no reason and the agreement is NOT evidence "
-                 "(reg 1175).")
-    elif res["langclose_holds"] is None:
+    # Register 1175's trap is a FALSE AGREEMENT at low dimension: with one pair, pairwise
+    # consistency and the cell coincide, so languages can agree for no reason. It is not a reason
+    # to withhold a DISAGREEMENT — that is real information at any dimension.
+    if res["langclose_holds"] is None:
         o.append("  K.langclose not testable — fewer than two languages were measured.")
+    elif res["degenerate"] and res["languages_agree"]:
+        o.append("  DEGENERATE — at this many coordinates pairwise consistency and the cell")
+        o.append("  coincide, so the languages may agree for no reason. The agreement is NOT")
+        o.append("  evidence (reg 1175), and no K.langclose verdict is recorded.")
     else:
         a = "agree" if res["languages_agree"] else "disagree"
         z = "E = 0" if res["all_E_zero"] else "E > 0"
@@ -498,6 +501,9 @@ def report(res):
         if not res["langclose_holds"]:
             o.append("  A disagreement between languages at E = 0 is the one thing the cypher "
                      "forbids.")
+        if res["degenerate"]:
+            o.append("  (Low dimension: statistics is silent here and the disagreement rests on "
+                     "the rest — reg 1175.)")
 
     not_run = [v.language for v in res["_verdicts"] if v.state == NOT_RUN]
     if not_run:
@@ -555,6 +561,31 @@ def _janet():
     return Index("Janet (n+l x l)", ["n+l", "l"], sorted(set(cells)))
 
 
+def _calendar():
+    """365 cells in a box of 372, E = 7 — February's missing 29th to 31st and the four
+    thirty-day months' 31sts."""
+    days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    return Index("calendar (month, day)", ["month", "day"],
+                 [(m + 1, d) for m, n in enumerate(days) for d in range(1, n + 1)])
+
+
+def _box_ordering():
+    """35 cells in a box of 125, E = 0 — register 1176's own agreeing fixture."""
+    return Index("box ordering (l >= w >= h)", ["l", "w", "h"],
+                 [t for t in itertools.product(range(5), repeat=3)
+                  if t[0] >= t[1] >= t[2]])
+
+
+def _kreuzer_skarke():
+    """The KS list's chi = +/-6 points: Hodge pairs (h, h+3) and (h+3, h) for 13 <= h <= 128,
+    excluding h = 102, 103, 115, 117 and 119-126. Candelas, de la Ossa, He & Szendroi,
+    Triadophilia, ATMP 12 (2008) 429; §31.3.4."""
+    ex = {102, 103, 115, 117} | set(range(119, 127))
+    hs = [h for h in range(13, 129) if h not in ex]
+    cells = sorted({(h, h + 3) for h in hs} | {(h + 3, h) for h in hs})
+    return Index("Kreuzer-Skarke frontier (chi = +/-6 slice)", ["h11", "h21"], cells)
+
+
 FIXTURES = [
     # (label, builder, expected E by language, expected scalars)
     ("Lambda", _lambda,
@@ -564,6 +595,11 @@ FIXTURES = [
     ("periodic table 3-D", lambda: _periodic(True),
      {"order": 100, "statistics": 0, "information": 24}, {"cells": 90}),
     ("Janet 2-D", _janet, {"order": 0, "information": 0}, {}),
+    ("calendar 2-D", _calendar, {"order": 7}, {"cells": 365, "box": 372}),
+    ("box ordering", _box_ordering,
+     {"order": 0, "geometry": 0, "algebra": 0, "statistics": 0, "information": 0},
+     {"cells": 35, "box": 125}),
+    ("Kreuzer-Skarke slice", _kreuzer_skarke, {"order": 540}, {"cells": 208}),
 ]
 
 
@@ -607,6 +643,35 @@ def selftest(opts):
         bad += not ok
         print(f"  degeneracy guard on {label:<14} = {res['degenerate']!s:<6} expected {want!s:<6} "
               f"{'ok' if ok else 'MISMATCH'}   (reg 1175)")
+
+    # the KS slice states its join/meet failure counts and the shape of what R admits
+    ix = _kreuzer_skarke()
+    S = set(ix.cells)
+    jf = sum(tuple(map(max, a, b)) not in S for a, b in itertools.combinations(ix.cells, 2))
+    mf = sum(tuple(map(min, a, b)) not in S for a, b in itertools.combinations(ix.cells, 2))
+    for what, have, want in (("join failures", jf, 498), ("meet failures", mf, 498)):
+        bad += have != want
+        print(f"  KS slice {what:<14} = {have:<6} expected {want:<6} "
+              f"{'ok' if have == want else 'MISMATCH'}   (§31.3.4)")
+    adm, _ = op_order(ix, opts)
+    dec = [(ix.decode[0][a], ix.decode[1][b]) for a, b in sorted(set(adm) - set(ix.cells))]
+    diag = [c for c in dec if c[0] == c[1]]
+    for what, have, want in (("diagonal cells", len(diag), 112),
+                             ("distinct chi", len({2 * (a - b) for a, b in dec}), 5),
+                             ("min h11+h21", min(a + b for a, b in dec), 26),
+                             ("max h11+h21", max(a + b for a, b in dec), 262)):
+        bad += have != want
+        print(f"  KS admits, {what:<14} = {have:<6} expected {want:<6} "
+              f"{'ok' if have == want else 'MISMATCH'}   (§31.3.4)")
+
+    # register 1176: "Lambda and a box ordering: E = 0 and every pair agrees"
+    for label, build, want in (("Lambda", _lambda, True), ("box ordering", _box_ordering, True)):
+        r = run(build(), "1173", opts)
+        n = len(r["pairs"])
+        ok = n > 0 and r["pairs_agreeing"] == n and want
+        bad += not ok
+        print(f"  all pairs agree on {label:<14} = {r['pairs_agreeing']}/{n} "
+              f"{'ok' if ok else 'MISMATCH'}   (reg 1176)")
 
     print(f"\n{'SELFTEST OK' if not bad else f'SELFTEST FAILED — {bad} mismatch(es)'}")
     return 1 if bad else 0

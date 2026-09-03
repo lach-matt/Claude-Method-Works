@@ -38,6 +38,11 @@ is one pair, so pairwise consistency and the cell coincide and every language ag
 reason. The periodic table, Janet and the calendar were all read this way and all reported
 "agree". Such a run is marked `DEGENERATE` and the agreement verdict is withheld.
 
+The trap is a false *agreement*, so that is all the guard withholds. A **disagreement** at low
+dimension is real information and is reported — the Kreuzer–Skarke slice sits at `d = 2` and its
+languages genuinely differ (order 540, geometry 545, information 498), which is a finding, not an
+artefact. Statistics is silent there and the report says so.
+
 **3. It never picks the roster for you.** `--roster` is required.
 
 ## The roster is data, and the docket is open
@@ -158,6 +163,10 @@ The fixtures are the corpus's own recorded numbers. Failures are reported, never
 | periodic table, period × group | 90 cells, `E = 36` | §21.1; DEFERRED records 90 cells at E = 36 |
 | periodic table, + block | `E(order) = 100` against `E(statistics) = 0`; information 24 | register 1175 |
 | Janet, n+ℓ × ℓ | `E = 0` | register 1175 |
+| calendar, month × day | 365 cells, box 372, `E = 7` | §21.1; IoI *The calendar* |
+| box ordering, `l ≥ w ≥ h` | 35 cells, box 125, `E = 0`, **all 10 pairs agree** | register 1176's own agreeing fixture |
+| Λ, all pairs | **all 10 pairs agree** | register 1176 |
+| Kreuzer–Skarke, χ = ±6 slice | 208 cells, `E(order) = 540`; 498 join and 498 meet failures of 21,528 pairs; what ℛ admits carries 112 diagonal cells from (13,13) to (131,131), 5 distinct χ, and h¹¹+h²¹ from 26 to 262 | §31.3.4; Candelas, de la Ossa, He & Szendrői, *Triadophilia*, ATMP **12** (2008) 429 |
 | degeneracy guard | fires at `d = 2`, not at `d = 3` | register 1175 |
 
 Current state: `SELFTEST OK`.
@@ -192,8 +201,9 @@ than a fault in the parse.
 
 ## Known gaps
 
-- **The calendar fixture is not built.** Register 1175 records it at `E = 7` in 2-D and rebuilt at
-  three on weekday; the construction is not stated precisely enough in the volumes to reproduce.
+- **The calendar at three coordinates is not built.** The 2-D calendar is a fixture and reproduces
+  at `E = 7`. Register 1175's rebuild adjoins weekday as a third coordinate, and which weekday
+  mapping it used is not stated precisely enough to reproduce.
 - **`k ≥ 1` and the two boxes.** The eight marginal-exclusion counts of MC §11 reproduce exactly —
   but only on a **9,216**-cell box with `k` from 0. On the 6,912-cell ambient box quoted beside
   them, `k ≥ 1` can never fail and excludes 0, not 25. Both boxes are legitimate (6,912 is the box
