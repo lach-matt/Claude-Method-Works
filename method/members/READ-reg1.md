@@ -50,12 +50,30 @@ entries"* and, twelve lines later in the same paragraph, *"the ten grouped headi
 corrections and faults"*. MEASURED: **7** grouped headings, holding **32** numbers, 203 to 354. The
 *seven* is right and the *ten* is wrong. Docket 33 / 28.
 
-**reg1-04 — the closing line's range disagrees with the count printed beside it, and the range is
-the defective half.** L6 prints *"165 to 1791, 1,470 entries"*; L65 prints *"mature record
+**reg1-04 — CORRECTED BELOW. The front matter's mature-record figures do not sum to its own total,
+and it is the FRONT matter that is wrong, not the closing line.** L6 prints *"165 to 1791, 1,470 entries"*; L65 prints *"mature record
 165–1792"*. MEASURED on the heading convention: 165–1791 holds **1,470** headings exactly, 165–1792
 holds 1,471, and 1792 is itself an entry. So **1,470 is exact and it is the L65 range that is
 wrong** — not, as the two-site reading in W-168 left it, an undecided disagreement between two
 lines. Narrowed here. Docket 34 / 12.
+
+> **CORRECTION, and the reading above is the half that was wrong.** `register_counts.py` — built by
+> the cypher session and found on branch `claude/cypher-analysis-method-books-826x0x` — applies a
+> constraint this reading did not: **the three blocks must sum to the total the front matter itself
+> prints.** They do not. 94 + 70 + 1,470 = **1,634** against its own **1,635**, and only
+> mature = **1,471** over **165–1792** sums correctly. So the defective half is the front matter's
+> *"165 to 1791, 1,470 entries"* — **not** the closing line's range, which is right. Measured by
+> running the tool against the seated member: it reports three drifted figures and exits 1.
+>
+> The tool reaches the same convention independently — *"AN ENTRY IS A HEADING, NOT A NUMBER …
+> counting numbers instead gives 1,660 and disagrees with everything the volume prints"* — which is
+> docket 30 and this unit's own fixed convention, arrived at twice.
+>
+> **It is also the repair, for this class only.** `--write` emits the Register with the extent
+> figures corrected, matching each site's own numeral formatting rather than normalising it. It does
+> **not** cover reg1-01 or reg1-02: `printed()` reads the total, the mature range and the back
+> matter, and nothing else, so the load-bearing table and the three citation figures remain
+> unrepaired and still need `register_cites.py` re-run into the page.
 
 **reg1-05 — NEW, and the largest of the unit: the front matter's own provenance citations resolve to
 nothing.** Four entries are cited by number for where this volume's own machinery is recorded —
