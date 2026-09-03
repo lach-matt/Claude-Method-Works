@@ -24,9 +24,29 @@ them, and do not try to "set the project up". The `.py` files under `drive/` are
 artifacts, not a codebase to maintain or execute.
 
 The exceptions, and they are the only ones: `method/verify.py` and the instruments in
-`method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror, and
-`tools/cypher.py` runs the cypher analysis of §33 over an index. Those are real programs with a
-real contract — see `method/README.md`, `docs/DRIVE-SYNC.md` and `docs/CYPHER.md`.
+`method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror, and five
+instruments run over the store — `tools/cypher.py` (the cypher analysis of §33 over an
+index), `tools/arith.py` (the arithmetic of every ratio, percentage and equation the volumes state
+about themselves), `tools/pointers.py` (every pointer resolved across the volumes and the
+companion), `tools/buildtrace.py` (when a figure entered the books, from the BUILD series) and
+`tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
+of the method equation, per register 1206). Those are real programs with a real contract — see
+`method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CYPHER.md`, `docs/ARITH.md`, `docs/POINTERS.md`,
+`docs/BUILDTRACE.md` and `docs/POPULATE.md`.
+
+**An instrument imports a seated member; it never copies one.** `populate.py` loads
+`LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
+imports ℛ from `cypher.py` rather than reimplementing it. Where a form a program needs is not
+stated in any member, the value carries a status — `RECOVERED` when it was measured out of the
+corpus's own data, `RECONSTRUCTED` when it was not — and that status is never flattened to
+`PINNED`.
+
+**Each audit instrument takes a `--selftest` whose fixtures are the corpus's own recorded numbers,
+and each is stdlib-only.** Run the selftest before trusting a report, and read the tool's doc before
+reading its output: each one refuses to report certain things, and the refusals are the point. A
+`NOT-BOUND` in `arith.py`, an `AMBIGUOUS` in `pointers.py` and an `ABSENT` in `buildtrace.py` are
+not findings, and none of them may be quoted as one. **A finding is recorded, never repaired** — the
+chat-67 full hold governs these reports exactly as it governs a section read.
 
 `python3 tools/cypher.py --selftest` asserts the corpus's own recorded numbers — Λ at 976 with
 E = 0 in five languages, the periodic table at E = 36, register 1175's E = 100 against 0. It is
@@ -58,10 +78,15 @@ about 6 MB. Do not read or grep the tree wholesale: start from `MANIFEST.tsv`, t
 
 ## Naming conventions actually present
 
-- `The_Method_1_6_BUILD<N>_*.md` — the build series, BUILD9 to BUILD174, in two streams:
-  `_compendia_papers_audits.md` (91 files) and `_main_and_register.md` (13). A couple carry a
-  `.REPAIRED` or `-1` suffix. Higher `<N>` is newer. These are snapshots: do not dedupe, prune
-  or renumber them.
+- `The_Method_1_6_BUILD<N>_*.md` — the build series, **BUILD9 to BUILD179**, in two streams:
+  `_compendia_papers_audits.md` (**123** files, BUILD9 to BUILD179) and `_main_and_register.md`
+  (**12**, BUILD9 to BUILD90, the live main bundle). **140 files in all**, the remaining five being
+  variant copies: two `.REPAIRED`, one `-1` and two `__<driveFileId>`. Higher `<N>` is newer, and
+  **the series has gaps** — 107 of the 171 numbers between 9 and 179 in the compendia stream, and
+  twelve builds between 9 and 90 in main — so the first archived build carrying a figure is not the
+  build that introduced it. `python3 tools/buildtrace.py --builds` prints the series from
+  `drive/MANIFEST.tsv` without reading a build file; ask it rather than globbing. These are
+  snapshots: do not dedupe, prune or renumber them.
 - `The_Method_1_6_figures_BUILD<N>.zip` — the matching figure bundles, BUILD8 to BUILD13. The
   figure numbering is its own sequence; it does not line up with the Markdown build numbers.
 - Uppercase topic prefixes on notes: `REWRITE-`, `HANDOFF-`, `REGISTER-`, `RULING-`, `FILL-`,

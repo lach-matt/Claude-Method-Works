@@ -47,6 +47,29 @@ it, each with a real contract and a self-check.
   language of a declared roster whether it can speak of an index, and read the answer off the
   pattern of who answers and who does not. `--selftest` asserts the corpus's own recorded numbers.
   See [`docs/CYPHER.md`](docs/CYPHER.md).
+* [`tools/arith.py`](tools/arith.py) — the arithmetic audit of `DOCKET.md` §2 run as a class over
+  whole members: every ratio, percentage, equation chain and pair count the volumes state about
+  themselves, recomputed in `Decimal` under a named convention. Only `DISAGREE` and
+  `ROUNDING-SENSITIVE` are findings; a fraction and a percentage sharing a line are `NOT-BOUND`
+  until the text binds them. See [`docs/ARITH.md`](docs/ARITH.md).
+* [`tools/pointers.py`](tools/pointers.py) — the pointer audit: every `§`, chapter, appendix,
+  register, theorem and figure pointer resolved across all six volumes plus the companion, as
+  sources and targets at once, under both resolvers and to the body occurrence. Answers census
+  classes C1, C2, C3 and C5. See [`docs/POINTERS.md`](docs/POINTERS.md).
+* [`tools/buildtrace.py`](tools/buildtrace.py) — provenance across the BUILD series. Starts from
+  `drive/MANIFEST.tsv`, bisects for the first archived build carrying a string in about eight reads
+  instead of 107, and states its byte budget before touching the tree. See
+  [`docs/BUILDTRACE.md`](docs/BUILDTRACE.md).
+* [`tools/populate.py`](tools/populate.py) — an element on every axis of every index. Give it a
+  ground-state atomic number and it returns that element and every ion of it: the observed ground
+  configuration, the per-subshell quantum axes, the three layout indexes, the Rydberg channels of
+  the spectra index, the Pauli bound, the quantum defect under the method equation, and the Λ₈
+  transition cells of its ionisation ladder with the caps each one needs. Runs **both halves of the
+  method equation** (register 1206) — ℛ places the cells, the channel equation values them. See
+  [`docs/POPULATE.md`](docs/POPULATE.md).
+
+Every one of them runs `--selftest`, whose fixtures are the corpus's own recorded numbers, and every
+one is stdlib-only so an audit can run it from any tree.
 
 ## Working with Claude here
 
