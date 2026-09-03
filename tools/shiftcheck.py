@@ -134,6 +134,9 @@ def main():
     ap.add_argument('--all', action='store_true')
     ap.add_argument('--selftest', action='store_true')
     ap.add_argument('--timeout', type=int, default=270)
+    ap.add_argument('--save', metavar='DIR', help='write each instrument run to DIR/NAME.now')
+    ap.add_argument('--load', metavar='DIR', help='read NAME.now from DIR instead of running')
+    ap.add_argument('--width', type=int, default=150, help='chars of an example pair to print')
     a = ap.parse_args()
     if a.selftest:
         sys.exit(selftest())
@@ -157,16 +160,25 @@ def main():
         gold = MEMBERS / f'{n}.out'
         if not gold.exists():
             buckets['UNRUNNABLE'].append(n); print(f'UNRUNNABLE  {n}  (no golden)'); continue
-        status, out, _ = gate.run_one(n, timeout=a.timeout)
+        if a.load:
+            cached = pathlib.Path(a.load) / f'{n}.now'
+            if not cached.exists():
+                buckets['UNRUNNABLE'].append(n); print(f'UNRUNNABLE  {n}  (not in cache)'); continue
+            status, out = 'OK', cached.read_text(encoding='utf-8')
+        else:
+            status, out, _ = gate.run_one(n, timeout=a.timeout)
         if status != 'OK':
             buckets['UNRUNNABLE'].append(n); print(f'UNRUNNABLE  {n}  ({status}) — needs a successor, not a re-bank')
             continue
+        if a.save:
+            d = pathlib.Path(a.save); d.mkdir(parents=True, exist_ok=True)
+            (d / f'{n}.now').write_text(out, encoding='utf-8')
         verdict, ex = classify(gold.read_text(encoding='utf-8'), out, a.shift, substs)
         buckets[verdict].append(n)
         print(f'{verdict:<11} {n}')
         if ex:
-            print(f'   banked  {ex[0][:150]}')
-            print(f'   now     {ex[1][:150]}')
+            print(f'   banked  {ex[0][:a.width]}')
+            print(f'   now     {ex[1][:a.width]}')
 
     print()
     for k in ('UNCHANGED', 'EXPLAINED', 'UNEXPLAINED', 'UNRUNNABLE'):
