@@ -861,7 +861,11 @@ def populate(Z, spectra, charge=None, table="observed"):
         "period": period_of(Z), "group": group_of(Z), "block": block_of(Z),
         "block_letter": (LSYM[block_of(Z)] if block_of(Z) is not None else None),
         "set_aside": set_aside(Z), "janet_cell": janet_cell(Z),
-        "outer": LW1.outer(Z),
+        # LW1.outer() is the seated member's and it knows Z <= 108 only, which
+        # is correct of it; above the boundary the same quantity is read off
+        # the predicted configuration instead of asking the member for a Z it
+        # does not cover.
+        "outer": (LW1.outer(Z) if Z in LW1.GROUND else cfg[-1]),
         "level_decoded": parse_level(level) if level else
         {"form": "not predicted", "mult": None, "S2": None, "L": None,
          "parity": None, "J2": None, "J": None},
@@ -896,7 +900,7 @@ def populate(Z, spectra, charge=None, table="observed"):
                 "charge": c, "Ne": Ne, "l": l, "subshell_letter": LSYM[l]
                 if l < len(LSYM) else str(l),
                 "core_Ne": core,
-                "core_symbol": LW1.GROUND[core][0] if core in LW1.GROUND else None,
+                "core_symbol": _sym(core) if core >= 1 else None,
                 "p": core_p(core, l, table) if core >= 1 else 0,
                 "n0": n0_of(core, l, table) if core >= 1 else None,
                 "B_computed": B,
@@ -990,7 +994,8 @@ def report(rep, show_channels=True, max_charge=None):
           % (rep["block_letter"] or "?"))
     print()
     d = rep["level_decoded"]
-    print("  THE GROUND LEVEL, DECODED                                     [READ]")
+    print("  THE GROUND LEVEL, DECODED%s"
+          % ("[%s]" % rep["config_status"]).rjust(54 - 25 + 25))
     if d["form"] == "not predicted":
         print("    the entrant is predicted; the LEVEL is not. 2S, L and J "
               "are undetermined here.")
@@ -1009,7 +1014,8 @@ def report(rep, show_channels=True, max_charge=None):
     else:
         print("    %-12s not parsed" % rep["level"])
     print()
-    print("  THE GROUND CONFIGURATION, PER SUBSHELL                        [READ]")
+    print("  THE GROUND CONFIGURATION, PER SUBSHELL%s"
+          % ("[%s]" % rep["config_status"]).rjust(31))
     print("    %-8s %-3s %-3s %-6s %-9s %-5s" %
           ("subshell", "n", "l", "occ", "capacity", "n+l"))
     for s in rep["configuration"]:
@@ -1088,8 +1094,7 @@ def report(rep, show_channels=True, max_charge=None):
                            + 2 * CAPS["f"]))
             print("    %-4d %-3d %-7s %-4d %-5s %-5s %-4s %-6s %-9s %s%s%s"
                   % (ch["charge"], ch["l"],
-                     LW1.GROUND[t["core_Ne"]][0]
-                     if t["core_Ne"] in LW1.GROUND else "-",
+                     _sym(t["core_Ne"]) if t["core_Ne"] >= 1 else "-",
                      t["k"], _fmt(t["L8_2S"]["value"]),
                      _fmt(t["L9_2Sprime"]["value"]),
                      _fmt(t["L10_v"]["value"]), _fmt(t["L11_2Jc"]["value"]),
@@ -1593,7 +1598,9 @@ def main(argv=None):
     try:
         rep = populate(Z, spectra, args.charge, args.config)
     except KeyError as exc:
-        print(exc.args[0], file=sys.stderr)
+        msg = exc.args[0] if exc.args and isinstance(exc.args[0], str) else (
+            "Z = %s has no configuration in the store" % exc.args[0])
+        print(msg, file=sys.stderr)
         return 2
 
     if args.json:
