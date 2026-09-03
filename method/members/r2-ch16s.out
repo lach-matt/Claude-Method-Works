@@ -76,9 +76,9 @@
       L9376 Its register of one thousand six hundred and thirty-five withdrawn claims is offered as the primary
       L9381 all one thousand six hundred and thirty-five failures and naming the four results that exist because a conclus
   digit-form 1,635 sites main: [7373]
-  Register: 1635 bare-numeral headings, 1660 distinct entry numbers, max 1792
+  Register: 1639 bare-numeral headings, 1664 distinct entry numbers, max 1796
   Register lines carrying a withdraw* token: 52
-  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1660: False
+  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1664: False
 
 ================================================================================================
 6  E = 36, AND THE NUMERALS THE UNIT PRINTS (SITES, comma-aware, both forms)
@@ -124,7 +124,7 @@
 ================================================================================================
   Birkhoff       {'main': [853, 1817, 1848, 2103, 3721, 3782, 7337, 8121, '...'], 'reg': [297, 305, 353, 373, 385, 1733, 4601, 6459], 'mc': [61, 290, 310, 340, 344, 456, 458, 478, '...']}
   Dilworth       {'main': [1875, 1921, 8517, 9342, 11082, 11161, 11551, 11661], 'reg': [249, 385], 'mc': [644, 648, 696, 698, 822, 1224, 1228, 1230, '...'], 'pc': [876, 877]}
-  Sperner        {'main': [122, 1796, 1873, 1874, 1878, 1898, 8697, 9342, '...'], 'reg': [249, 385], 'mc': [1224, 1228, 1230, 1602, 1608, 1610, 3430]}
+  Sperner        {'main': [122, 1796, 1873, 1874, 1878, 1898, 8697, 9342, '...'], 'reg': [249, 385, 6618], 'mc': [1224, 1228, 1230, 1602, 1608, 1610, 3430]}
   1937           {'main': [9342, 11161, 11657], 'reg': [4601], 'mc': [290, 340, 344, 644, 648, 788, 1038, 1058, '...']}
   1950           {'main': [9342, 9833, 9868, 11161, 11551, 11661, 11810], 'reg': [4577, 6375], 'mc': [644, 648, 696, 698, 1228, 1230, 1368, 1370, '...'], 'pc': [877], 'ioi': [1500]}
   1928           {'main': [9342, 11723, 11777], 'reg': [445, 3393, 4569, 4633], 'mc': [776, 780, 1228, 1230, 1608, 1610, 2896, 2904, '...'], 'pc': [439, 449, 519, 539, 549], 'ioi': [83, 1452, 1508]}

@@ -1,8 +1,8 @@
 
 == 0  THE REMAINDER
    the remainder opens at entry 395                           1467                     OK
-   L1467-L6612, 5145 lines, 1287 headings, entries 395..1792
-   every entry from 395 on is in this remainder               1635                     OK
+   L1467-L6627, 5160 lines, 1291 headings, entries 395..1796
+   every entry from 395 on is in this remainder               1639                     OK
    read in 13 blocks of 400 lines
 
 == 1  POINTER RESOLUTION, BLOCK BY BLOCK
@@ -18,7 +18,7 @@
    L5067 -5466  100 entries    3 §   35 reg  unresolved §:-              reg absent:-
    L5467 -5866  100 entries    4 §   93 reg  unresolved §:-              reg absent:-
    L5867 -6266  100 entries    6 §   85 reg  unresolved §:-              reg absent:-
-   L6267 -6612   87 entries   54 §   39 reg  unresolved §:-              reg absent:-
+   L6267 -6627   91 entries   54 §   42 reg  unresolved §:-              reg absent:-
    section pointers unaccounted for in the remainder          []                       OK
    register pointers with no entry, on the "register N" net   []                       OK
    The sweep's absent-and-cited pair, 344 and 571, is cited from the MAIN volume and not
@@ -44,7 +44,7 @@
    states it or merely cites it was not taken here, and is a budget.
 
 == 2  THE EMPHASIS CLASS ACROSS THE REMAINDER
-   entries carrying the split shape: 247 of 1287 in the remainder
+   entries carrying the split shape: 247 of 1291 in the remainder
    sites: 372
    Already scored volume-wide at reg7-01 and specified for repair in R3-CLASS-EM.md.
    Counted here so the remainder is not read as though the class stopped at entry 394.
@@ -59,7 +59,7 @@
 
 == 4  ENTRIES CARRYING A FIGURE THIS READ HAS ALREADY RE-DERIVED
    976      Λ₈               stated by 31 entries in the remainder
-   6912     the ambient box  stated by 6 entries in the remainder
+   6912     the ambient box  stated by 7 entries in the remainder
    1654     Λ₉               stated by 5 entries in the remainder
    70905    Λ₁₂              stated by 2 entries in the remainder
    2535     Λ₁₀              stated by 2 entries in the remainder

@@ -99,6 +99,7 @@
       twenty-member    main: [9051, 9328]
       four levels      main: [9050]
       self-duality     main: [2913, 3499, 9049, 9322, 9328, 10932, 10941]
+      self-duality     reg: [6618]
       self-duality     mc: [1334]
       involution       main: [6322, 8705, 9050, 9328]
 
@@ -243,7 +244,7 @@
       difference       ioi: 4 sites [72, 119, 1486, 1851]
       difference       sc: 3 sites [1078, 1138, 1156]
       sum              main: 30 sites [413, 414, 415, 1316, 1766, 1767, 2245, 2258]   inside §18: [4926, 5118, 5153, 5253]
-      sum              reg: 21 sites [1397, 1613, 2361, 2397, 4293, 5573, 5577, 5621]
+      sum              reg: 22 sites [1397, 1613, 2361, 2397, 4293, 5573, 5577, 5621]
       sum              mc: 30 sites [73, 89, 104, 1004, 1024, 1084, 1200, 1204]
       sum              sc: 1 sites [138]
 
