@@ -1,0 +1,37 @@
+# Ce I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Ce+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT, from the table itself:
+#   Ce II (4f.5s2.5p6.5d2 4H*<7/2>)   44672 cm-1
+#
+# NOTE FOR THE READING PASS, not acted on now: Ce I is a FOUR-open-shell
+# system (4f.5d.6s2 ground) and a large share of its rows carry an EMPTY
+# configuration and a bare parity marker for a term. Register 1576's
+# multiplicity rule will refuse most of it. Recorded so the reading pass
+# does not treat the low yield as a fault.
+#
+# config	term	J	level_cm1
+4f.5d.6s2	1G*	4	0.000
+4f.5d.6s2	3F*	2	228.849
+4f.5d.6s2	3F*	3	1663.120
+4f.5d.6s2	3F*	4	3100.151
+4f.5d.6s2	3H*	4	1279.424
+4f.5d.6s2	3H*	5	2208.657
+4f.5d.6s2	3H*	6	3976.104
+4f.5d.6s2	3G*	3	1388.941
+4f.5d.6s2	3G*	5	4199.367
+4f.5d.6s2	1D*	2	2378.827
+4f.5d.6s2	3D*	1	3710.513
+4f.5d.6s2	3D*	2	4766.323
+4f.5d.6s2	3D*	3	5006.719
+4f2.6s2	3H	4	4762.718
+4f2.6s2	3H	5	6238.934
+4f2.6s2	3H	6	7780.202
+4f2.6s2	3F	2	8235.605
+4f2.6s2	3F	3	9206.305
+4f2.6s2	3F	4	9379.148
+4f2.6s2	1G	4	11361.895
+4f2.6s2	1I	6	20509.064

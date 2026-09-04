@@ -1,0 +1,15 @@
+# LOWDIN SESSION 2 — HANDOFF MANIFEST  (2026-08-15)
+# Bank in force: restore-point-2_13.tar.gz  (694 files, R 1700, cert 1.8.3) — UNCHANGED, nothing written.
+# Read BRIDGE-LOWDIN-SESSION-2.md first. Reproduce §3 before anything new.
+# sha256 (first 16) per file:
+511faa59983a96c9   BRIDGE-LOWDIN-SESSION-2.md
+b2a1aac98710297a   DIAGONAL-FINDING.md
+00b22f6f0e175520   FEASIBILITY-FINDING.md
+26998827486bda35   diag.py
+151b61b214c6e42b   diagonal.py
+36504161987b92b0   diagonal2.py
+6219f381108aa999   ground.py
+4cd5e509994860e9   p1d.py
+946fc692459e1d61   p1e.py
+dff2e67332ef191a   p1f.py
+95016b384e970478   p1g.py

@@ -1,0 +1,84 @@
+# spectra_levels_store — cut from restore-point-2_13.tar.gz (sha256 80577094..., 708 files) on 2026-08-24
+# Bank bracket.py is authoritative; CODE-LOWDIN-2_13 bundle copy differs by one blank line only.
+# Naming map: per-level energies live in queue2/*.tsv (67 tables); captures/LEVELS-*.tsv are the 3 capture-stage files the register names.
+# Chain: queue2 -> captures/NEUTRALS-STAGING.tsv -> MEASUREMENTS.tsv; store_gen.py included so the chain is code, not data.
+# Flag: '844 of 844 on 107 rows' matches no figure in this bank's register (789/789 T-bracket, 546/789 delta-bracket, 930/128 tested). Confirm against the receiving project's own register.
+# Tolerance ruling: OWED BY M — recommendation on record is 2*sigma(delta) per channel, defect units, option B, k=2. Run waits on M's word.
+#
+49481  72dc3478e458f35b  ./CHANNELS-NEW.tsv
+66691  2f88625a61f23f84  ./MEASUREMENTS.tsv
+4794  20581e22abe015d3  ./bracket.py
+1851  d011b588dbefbf1d  ./captures/LEVELS-Fe-I.tsv
+1713  e740d9301b0b7fbb  ./captures/LEVELS-K-I.tsv
+2610  8250116ed5e73612  ./captures/LEVELS-Kr-I.tsv
+77844  87ba5c7dd817e811  ./captures/NEUTRALS-STAGING.tsv
+2331  ba19ccb4f1fad126  ./captures/QUEUE2-INVENTORY.tsv
+16774  2fd9d50fab08a9d9  ./channels.py
+5506  4e8cfaace9432308  ./phase4.py
+2128  d64d15f6697095b6  ./queue2/AcI.tsv
+6172  9bffec70e9e70289  ./queue2/AlI.tsv
+6764  f0b8cc5f6d99a890  ./queue2/AsII.tsv
+947  baadb8f67459c0e7  ./queue2/AsIII.tsv
+1259  638628bcdd2e77d5  ./queue2/AsIV.tsv
+4434  85fd6038b7b4aeda  ./queue2/BI.tsv
+8693  0d0c5d1008277cee  ./queue2/BaI.tsv
+1411  b53ff8958a5530dd  ./queue2/BrIV.tsv
+631  0112ee67441e8d83  ./queue2/BrV.tsv
+658  cd93753869f09521  ./queue2/BrVI.tsv
+2017  c8c49b7366353cb3  ./queue2/CaIII.tsv
+1822  2dc92b8342649268  ./queue2/CaVIII.tsv
+1221  f71dd5afc28b9aae  ./queue2/CeI.tsv
+1582  a967b8e0c8a06bb8  ./queue2/CoIX.tsv
+6060  de7dcc8eb425d47c  ./queue2/CrIII.tsv
+2108  cd6fef7d502b852f  ./queue2/CrVI.tsv
+5548  b8e7e4bc207425ba  ./queue2/CsI.tsv
+2969  4e8b99cb8a6d1234  ./queue2/FeVI.tsv
+6198  229efaf2d73118c5  ./queue2/FeVII.tsv
+2222  b4890a8b867d3ef5  ./queue2/FeVIII.tsv
+3332  397cd69b4d859e6f  ./queue2/FrI.tsv
+8520  0a53ac6fd05bd553  ./queue2/GaI.tsv
+21322  7af59a26eb6b67c5  ./queue2/GeI.tsv
+4127  31a1508000b78333  ./queue2/GeII.tsv
+12152  0750d776b88dc92c  ./queue2/HfI.tsv
+9674  7d1332f0a4b2a383  ./queue2/HgI.tsv
+3425  f187670f6475ddf6  ./queue2/InI.tsv
+1708  b13c94bee6328a22  ./queue2/KII.tsv
+2442  b360f0e04950c3c5  ./queue2/KVII.tsv
+22502  f5be94fa26491f58  ./queue2/KrI.tsv
+736  8f36e3f3b83f1e1d  ./queue2/LaI-ATTEMPT-1.err
+537  65fe6d6d4bf086e2  ./queue2/LaI-ATTEMPT-2.err
+681  691d9b2a6c42e0f1  ./queue2/LaI-ATTEMPT-3.log
+1019  4c5a5dd4b0187806  ./queue2/LaI-ATTEMPT-4.log
+1327  4f0bed37377fce3c  ./queue2/LaI.tsv
+6758  9d19441c447f5be1  ./queue2/LuI.tsv
+3162  5abfed50f3710605  ./queue2/MnVI.tsv
+1786  7f1a83d950d05d79  ./queue2/MnVII.tsv
+15420  aa0b17946b1dd625  ./queue2/NaI.tsv
+1499  e15c7b33a8915880  ./queue2/NiX.tsv
+6319  e85af1140e6d9dd2  ./queue2/PbI.tsv
+5102  5c249f5a981d3097  ./queue2/README.md
+2646  2b159992ce0a4b69  ./queue2/RaI.tsv
+5381  ca8f4764da5eb999  ./queue2/RnI.tsv
+4029  8387615670442fe0  ./queue2/ScI.tsv
+2039  210023dd601dacf0  ./queue2/ScIV.tsv
+1213  2e24ca669c90f563  ./queue2/ScIX.tsv
+2050  dc73266dc133ee8d  ./queue2/SeIII.tsv
+1053  ef130e66e6f6eb8c  ./queue2/SeIV.tsv
+6729  207ae54af8970f13  ./queue2/SnI.tsv
+9791  6b0f7f67dac2d802  ./queue2/SrI.tsv
+4830  74b12b0c13b0ead1  ./queue2/ThI.tsv
+18784  34a495cb899827e7  ./queue2/TiI.tsv
+5092  1bc67048bc1d9ca4  ./queue2/TiII.tsv
+2564  fc503e519d096a1c  ./queue2/TiV.tsv
+2762  8730f68745dd38d3  ./queue2/TiX.tsv
+2561  23e031bab5569236  ./queue2/TlI.tsv
+3726  22f4d80728116e6b  ./queue2/VII.tsv
+5320  79981d9206cb1360  ./queue2/VIII.tsv
+3310  21ff4c47b6c83274  ./queue2/VIV.tsv
+3149  45948ff910bff6e3  ./queue2/VV.tsv
+2222  deca168a650e3614  ./queue2/VVI.tsv
+17446  ce9255aac57f744b  ./queue2/XeI.tsv
+6686  aa81ef389b3e3e28  ./queue2/YI.tsv
+10549  9af036f2434fcdf8  ./queue2/YbI.tsv
+7860  b0447ede7527502c  ./queue2/ZrI.tsv
+13523  38e6a3aa5d15dbdf  ./store_gen.py

@@ -1,0 +1,6 @@
+In his 1969 paper ("Some Comments on the Periodic System of the Elements"), quantum chemist Per-Olov Löwdin posed what became known as the Löwdin Challenge.  
+Rather than listing individual chemical elements (like Hydrogen or Gold), the challenge asks to derive the fundamental structural elements and rules governing the periodic table directly from first principles of quantum mechanics.
+The exact elements that need to be derived from first principles are:
+The Madelung (n + \ell) Rule (or Klechkovsky Rule): The primary objective of the challenge is to derive the rule that determines the order in which electronic shells are filled in neutral, multi-electron atoms (orbitals fill in order of increasing n + \ell, and for equal values of n + \ell, in order of increasing n).  
+The Length/Sequence of Periodic Periods: Deriving the exact shell-capacity sequence that defines the length of successive periods in the periodic table: 2, 8, 8, 18, 18, 32, 32...  
+The Building-Up (Aufbau) Principle: Explaining the electronic ground state configurations across the periodic system strictly via the Schrödinger equation and electrostatic/quantum mechanical interactions, without relying on empirical parameters or semi-empirical models.

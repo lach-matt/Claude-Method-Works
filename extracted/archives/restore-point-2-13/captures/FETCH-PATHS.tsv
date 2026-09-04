@@ -1,0 +1,76 @@
+# FETCH PATHS for the 61 reading-list species without level tables.
+#
+# Register 1628. The URL FORM IS M's OWN, recovered from the transcripts —
+# `energy1.pl` with format=2, order=0, level_out and j_out. Only the
+# `spectra` value differs per line. Nothing here is a self-invented address.
+#
+# WHY THIS FILE EXISTS EVEN IF THE FETCHES FAIL. Register 1595 established
+# that the cache serves ONE RESPONSE per host and path per session for a
+# self-constructed URL, and that only a URL M pastes fresh breaks it. So the
+# paths are the durable artefact and the fetching is the perishable part.
+#
+# Each line: the species, its measured ionisation energy in eV, the channels
+# the index still wants, and the URL.
+#
+# spectrum	IE_eV	channels	url
+K II	31.625	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=K+II&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+K VII	117.560	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=K+VII&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ca III	50.913	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ca+III&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ca VIII	147.240	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ca+VIII&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Sc I	6.561	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Sc+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Sc IV	73.489	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Sc+IV&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Sc IX	180.030	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Sc+IX&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ti I	6.828	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ti+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ti II	13.575	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ti+II&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ti V	99.299	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ti+V&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ti X	215.920	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ti+X&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+V II	14.634	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=V+II&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+V III	29.311	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=V+III&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+V IV	46.709	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=V+IV&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+V V	65.282	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=V+V&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+V VI	128.125	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=V+VI&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Cr III	30.959	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Cr+III&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Cr VI	90.635	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Cr+VI&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Mn VI	95.604	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Mn+VI&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Mn VII	119.203	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Mn+VII&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Fe VI	98.985	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Fe+VI&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Fe VII	124.967	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Fe+VII&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Fe VIII	151.060	s,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Fe+VIII&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Co IX	186.140	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Co+IX&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ga I	5.999	g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ga+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ge I	7.899	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ge+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ge II	15.935	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ge+II&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+As II	18.589	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=As+II&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+As III	28.349	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=As+III&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+As IV	50.150	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=As+IV&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Se III	31.697	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Se+III&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Se IV	42.947	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Se+IV&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Br IV	47.782	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Br+IV&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Br V	59.595	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Br+V&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Br VI	87.390	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Br+VI&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Kr I	14.000	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Kr+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+He I	24.587	p,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=He+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+B I	8.298	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=B+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Na I	5.139	g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Na+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Al I	5.986	g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Al+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Sr I	5.695	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Sr+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Y I	6.217	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Y+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Zr I	6.634	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Zr+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+In I	5.786	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=In+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Sn I	7.344	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Sn+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Xe I	12.130	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Xe+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Cs I	3.894	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Cs+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ba I	5.212	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ba+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+La I	5.577	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=La+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ce I	5.539	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ce+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Yb I	6.254	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Yb+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Lu I	5.426	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Lu+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Hf I	6.825	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Hf+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Hg I	10.438	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Hg+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Tl I	6.108	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Tl+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Pb I	7.417	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Pb+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Rn I	10.748	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Rn+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Fr I	4.073	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Fr+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ra I	5.278	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ra+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Ac I	5.380	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ac+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+Th I	6.307	s,p,d,f,g	https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Th+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data

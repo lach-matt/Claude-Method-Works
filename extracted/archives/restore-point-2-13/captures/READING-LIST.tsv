@@ -1,0 +1,101 @@
+# THE READING LIST — spectra already fitted whose defects were not read.
+#
+# Register 1590. For each species below the IONISATION ENERGY IS MEASURED,
+# which means a Rydberg series WAS fitted. The quantum defect is the OTHER
+# output of that same fit — the series limit and the offset come together.
+# So these are not experiments to perform. They are readings not taken.
+#
+# Every one is UNBOUNDED in the index: the nucleus survives, nature made the
+# element, the series resolves below ng, an analysis exists at that charge,
+# and the core has a single parent. Nothing stands in the way.
+#
+# Source for the ionisation energies: LADDER-K-Kr.tsv, quality flag M.
+# The defects must come from the ORIGINAL series fit, not from the IE alone —
+# an IE gives only the GROUND-state defect, and register 1546 established
+# that is a different quantity from the asymptotic one the index holds.
+#
+# Z	el	charge	spectrum	IE_eV	channels_unread
+19	K	1	K I	4.341	g
+19	K	2	K II	31.625	s,p,d,f,g
+19	K	7	K VII	117.560	s,p,d,f,g
+20	Ca	1	Ca I	6.113	p,g
+20	Ca	3	Ca III	50.913	s,p,d,f,g
+20	Ca	8	Ca VIII	147.240	s,p,d,f,g
+21	Sc	1	Sc I	6.561	s,p,d,f,g
+21	Sc	2	Sc II	12.800	s,p,d,f,g
+21	Sc	4	Sc IV	73.489	s,p,d,f,g
+21	Sc	9	Sc IX	180.030	s,p,d,f,g
+22	Ti	1	Ti I	6.828	s,p,d,f,g
+22	Ti	2	Ti II	13.575	s,p,d,f,g
+22	Ti	3	Ti III	27.492	f,g
+22	Ti	4	Ti IV	43.267	g
+22	Ti	5	Ti V	99.299	s,p,d,f,g
+22	Ti	10	Ti X	215.920	s,p,d,f,g
+23	V	2	V II	14.634	s,p,d,f,g
+23	V	3	V III	29.311	s,p,d,f,g
+23	V	4	V IV	46.709	s,p,d,f,g
+23	V	5	V V	65.282	s,p,d,f,g
+23	V	6	V VI	128.125	s,p,d,f,g
+24	Cr	3	Cr III	30.959	s,p,d,f,g
+24	Cr	6	Cr VI	90.635	s,p,d,f,g
+25	Mn	6	Mn VI	95.604	s,p,d,f,g
+25	Mn	7	Mn VII	119.203	s,p,d,f,g
+26	Fe	6	Fe VI	98.985	s,p,d,f,g
+26	Fe	7	Fe VII	124.967	s,p,d,f,g
+26	Fe	8	Fe VIII	151.060	s,g
+27	Co	9	Co IX	186.140	s,p,d,f,g
+30	Zn	1	Zn I	9.394	s,p,f,g
+31	Ga	1	Ga I	5.999	g
+31	Ga	2	Ga II	20.515	p,g
+32	Ge	1	Ge I	7.899	s,p,d,f,g
+32	Ge	2	Ge II	15.935	s,p,d,f,g
+32	Ge	3	Ge III	34.058	p,f,g
+33	As	2	As II	18.589	s,p,d,f,g
+33	As	3	As III	28.349	s,p,d,f,g
+33	As	4	As IV	50.150	s,p,d,f,g
+34	Se	3	Se III	31.697	s,p,d,f,g
+34	Se	4	Se IV	42.947	s,p,d,f,g
+35	Br	4	Br IV	47.782	s,p,d,f,g
+35	Br	5	Br V	59.595	s,p,d,f,g
+35	Br	6	Br VI	87.390	s,p,d,f,g
+36	Kr	1	Kr I	14.000	s,p,d,f,g
+#
+# EXTENDED at register 1593 with 34 NEUTRALS from IE-neutral-all.tsv,
+# all outside the K-Kr ladder's window and all with a MEASURED first
+# ionisation energy. Same claim as the rest: the series was fitted, the
+# defect is the other output of that fit, the reading was not taken.
+#
+2	He	1	He I	24.587	p,f,g
+3	Li	1	Li I	5.392	f,g
+4	Be	1	Be I	9.323	f,g
+5	B	1	B I	8.298	s,p,d,f,g
+6	C	1	C I	11.260	p,f,g
+10	Ne	1	Ne I	21.565	s,p,d,f,g
+11	Na	1	Na I	5.139	g
+12	Mg	1	Mg I	7.646	g
+13	Al	1	Al I	5.986	g
+14	Si	1	Si I	8.152	s,p,f,g
+18	Ar	1	Ar I	15.760	s,p,d,f,g
+37	Rb	1	Rb I	4.177	s,p,d,f,g
+38	Sr	1	Sr I	5.695	s,p,d,f,g
+39	Y	1	Y I	6.217	s,p,d,f,g
+40	Zr	1	Zr I	6.634	s,p,d,f,g
+48	Cd	1	Cd I	8.994	f,g
+49	In	1	In I	5.786	s,p,d,f,g
+50	Sn	1	Sn I	7.344	s,p,d,f,g
+54	Xe	1	Xe I	12.130	s,p,d,f,g
+55	Cs	1	Cs I	3.894	s,p,d,f,g
+56	Ba	1	Ba I	5.212	s,p,d,f,g
+57	La	1	La I	5.577	s,p,d,f,g
+58	Ce	1	Ce I	5.539	s,p,d,f,g
+70	Yb	1	Yb I	6.254	s,p,d,f,g
+71	Lu	1	Lu I	5.426	s,p,d,f,g
+72	Hf	1	Hf I	6.825	s,p,d,f,g
+80	Hg	1	Hg I	10.438	s,p,d,f,g
+81	Tl	1	Tl I	6.108	s,p,d,f,g
+82	Pb	1	Pb I	7.417	s,p,d,f,g
+86	Rn	1	Rn I	10.748	s,p,d,f,g
+87	Fr	1	Fr I	4.073	s,p,d,f,g
+88	Ra	1	Ra I	5.278	s,p,d,f,g
+89	Ac	1	Ac I	5.380	s,p,d,f,g
+90	Th	1	Th I	6.307	s,p,d,f,g

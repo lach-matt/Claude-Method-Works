@@ -1,0 +1,38 @@
+# BATCHED FETCH URLS — 61 species in 10 requests, one per ionisation stage.
+#
+# Register 1630. NIST's `spectra` parameter accepts a SEMICOLON-SEPARATED
+# LIST, so the sixty-one need not be sixty-one requests. The URL form is
+# unchanged from M's own: energy1.pl, format=2, order=0, level_out, j_out.
+#
+# Paste any line's URL into the conversation and that whole stage arrives.
+#
+# I — 30 species: Ac Al B Ba Ce Cs Fr Ga Ge He Hf Hg In Kr La Lu Na Pb Ra Rn Sc Sn Sr Th Ti Tl Xe Y Yb Zr
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ac+I%3BAl+I%3BB+I%3BBa+I%3BCe+I%3BCs+I%3BFr+I%3BGa+I%3BGe+I%3BHe+I%3BHf+I%3BHg+I%3BIn+I%3BKr+I%3BLa+I%3BLu+I%3BNa+I%3BPb+I%3BRa+I%3BRn+I%3BSc+I%3BSn+I%3BSr+I%3BTh+I%3BTi+I%3BTl+I%3BXe+I%3BY+I%3BYb+I%3BZr+I&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# II — 5 species: As Ge K Ti V
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=As+II%3BGe+II%3BK+II%3BTi+II%3BV+II&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# III — 5 species: As Ca Cr Se V
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=As+III%3BCa+III%3BCr+III%3BSe+III%3BV+III&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# IV — 5 species: As Br Sc Se V
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=As+IV%3BBr+IV%3BSc+IV%3BSe+IV%3BV+IV&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# V — 3 species: Br Ti V
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Br+V%3BTi+V%3BV+V&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# VI — 5 species: Br Cr Fe Mn V
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Br+VI%3BCr+VI%3BFe+VI%3BMn+VI%3BV+VI&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# VII — 3 species: Fe K Mn
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Fe+VII%3BK+VII%3BMn+VII&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# VIII — 2 species: Ca Fe
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ca+VIII%3BFe+VIII&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# IX — 2 species: Co Sc
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Co+IX%3BSc+IX&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# X — 1 species: Ti
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ti+X&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+

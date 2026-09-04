@@ -1,0 +1,21 @@
+# O IV — NIST ASD 5.12, ref L7288 · Z=8, 5 electrons, B-like
+# limit NOT printed; DERIVED by the lowest-rms rule (register 1064)
+config	term	J	level_cm1
+3s	2S	1/2	357614.3
+4s	2S	1/2	485821.7
+5s	2S	1/2	539368
+3p	2P*	1/2	390161.2
+4p	2P*	1/2	499994.9
+5p	2P*	1/2	546803.4
+3d	2D	3/2	419533.9
+4d	2D	3/2	510569.7
+5d	2D	3/2	552029.6
+6d	2D	3/2	574368.7
+4f	2F*	5/2	513187.2
+5f	2F*	5/2	552495.1
+6f	2F*	5/2	574807.7
+7f	2F*	5/2	587850.0
+5g	2G	7/2	554001.6
+6g	2G	7/2	575507.4
+6h	2H*	9/2	575585.0
+7h	2H*	9/2	588529.1

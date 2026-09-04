@@ -1,0 +1,25 @@
+=== THE TWENTY-ONE PRIME AUDITS ===
+  1 LATTICE          PASS
+  2 EQUATIONS        PASS
+  3 CONSISTENCY      PASS
+  4 REDUNDANCY       PASS
+  5 ARTEFACT         PASS
+  6 COHERENCE        PASS
+  7 ATTRIBUTION      PASS
+  8 CELL             PASS
+  9 DISTINCTNESS     PASS
+  10 SCOPE           PASS
+  11 ANTECEDENT      PASS
+  12 MARKUP          PASS
+  13 AGREEMENT       PASS
+  14 ARITHMETIC      PASS
+  15 ENUMERATION     PASS
+  16 FIDELITY        PASS
+  17 MEASURE         PASS
+  18 REPRODUCTION    PASS
+  19 SEQUENCE        PASS
+  20 PROJECTION      PASS
+  21 INPUT           PASS
+
+ALL TWENTY-ONE PASS
+  state written to .zeno/audits.json — a rerun resumes from here

@@ -1,0 +1,22 @@
+
+=== Journal Entry 2026-08-15T00:42:00.673745+00:00 ===
+2026-08-15-00-42-00-method-1-8-fetch-recovery.txt
+[Emergency recovery session (Session 1.8) for The Method project after the 1.7 container death: restore-point verification, failed recovery-route testing, and systematic live re-fetch of NIST ASD level tables via user-pasted URL batches with per-species TSV captures, register entries, and frequent checkpoints. Contains fetch protocol, queue state, refusal-form taxonomy findings, and file paths for all captures and restore points.]
+
+
+
+
+=== Journal Entry 2026-08-15T05:11:47.078350+00:00 ===
+2026-08-15-05-11-46-method-1-8-queue-batches-2-4.txt
+[Continuation of The Method session 1.8 NIST fetch-queue recovery: batches 2 and 3 completed (Ge-row ions, heavy neutrals Kr/B/Sr/Y/Zr/In/Sn/Xe/Cs/Ba), batch 4 begun (Yb I done, Lu I fabrication incident R 1644). Contains per-species TSV capture notes, refusal-taxonomy findings, register entries 1642-1644, restore-point sequence 2_5f through 2_5s, and the active Lu I blocked-fetch situation.]
+
+
+
+
+=== Journal Entry 2026-08-15T05:41:32.229193+00:00 ===
+2026-08-15-05-41-32-method-1-8-queue-close-gemini.txt
+[The Method session 1.8 continuation: fetch queue closed at 60/60 (batches 3-4 species captures with per-species refusal findings), Lu I fabrication incident R 1644 and remedy, incorporation phases 1-3 (inventory, index join, quantum-defect staging), receipt and full reading of three Gemini-sourced documents (36-cell Null Corridor/LCDM/FQHE material, d120/Janet Left-Step table, Quantum Polyhedral Action). Contains register entries 1642-1649, restore points 2_5m through 2_6c, and the open phase-4 collision decision.]
+
+
+
+2026-08-15T19:06:37Z session 1.8.3 — R 1697–1700; T8-J narrow; series_gen.py; reading list staged; bank 2_13

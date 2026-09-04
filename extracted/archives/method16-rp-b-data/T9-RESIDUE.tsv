@@ -1,0 +1,555 @@
+Z	charge	l	term	sym	stored	cfg	at_l	at_term	parsed	below	cause
+13	1	1	2P*	Al	10	161	41	10	10	10	Z_match
+13	1	0	2S	Al	13	161	17	13	13	13	Z_match
+13	1	1	4P	Al	3	161	41	0	0	0	D_term_string_mismatch
+13	1	2	2D	Al	39	161	81	64	64	64	G_over_recover
+13	1	3	2F*	Al	9	161	14	14	14	14	G_over_recover
+13	1	4	2G	Al	3	161	6	6	6	6	G_over_recover
+13	1	0	4P*	Al	4	161	17	4	4	4	Z_match
+13	1	2	2D*	Al	6	161	81	6	6	6	Z_match
+13	1	1		Al	21	161	41	16	16	16	H_under_recover
+13	1	1	2P	Al	3	161	41	3	3	3	Z_match
+13	1	2	4D*	Al	4	161	81	4	4	4	Z_match
+13	1	1	2D	Al	4	161	41	8	8	8	G_over_recover
+13	1	2	4P*	Al	3	161	81	3	3	3	Z_match
+13	1	2	2F*	Al	4	161	81	4	4	4	Z_match
+13	1	1	2S	Al	4	161	41	4	4	4	Z_match
+13	1	1	2D?	Al	5	161	41	0	0	0	D_term_string_mismatch
+13	1	1	2S?	Al	4	161	41	0	0	0	D_term_string_mismatch
+5	1	1	2P*	B	11	106	26	11	11	11	Z_match
+5	1	1	4P	B	3	106	26	0	0	0	D_term_string_mismatch
+5	1	0	2S	B	8	106	12	8	8	8	Z_match
+5	1	2	2D	B	38	106	55	43	43	43	G_over_recover
+5	1	3	2F*	B	9	106	13	13	13	13	G_over_recover
+5	1	0	4P*	B	4	106	12	4	4	4	Z_match
+5	1	1	2P	B	6	106	26	8	8	6	Z_match
+5	1	2	4D*	B	7	106	55	7	7	7	Z_match
+5	1	2	4P*	B	3	106	55	3	3	3	Z_match
+56	1	0	1S	Ba	20	342	43	19	19	19	H_under_recover
+56	1	2	3D	Ba	63	342	112	64	64	64	G_over_recover
+56	1	2	1D	Ba	24	342	112	23	23	23	H_under_recover
+56	1	1	3P*	Ba	46	342	83	46	46	46	Z_match
+56	1	1	1P*	Ba	22	342	83	22	22	22	Z_match
+56	1	2	3F	Ba	9	342	112	6	6	6	H_under_recover
+56	1	1	3F*	Ba	5	342	83	5	5	5	Z_match
+56	1	2	3P	Ba	8	342	112	5	5	5	H_under_recover
+56	1	1	3D*	Ba	7	342	83	7	7	7	Z_match
+56	1	0	3S	Ba	16	342	43	16	16	16	Z_match
+56	1	0	3D	Ba	6	342	43	6	6	6	Z_match
+56	1	1	3P	Ba	3	342	83	0	0	0	D_term_string_mismatch
+56	1	3	3F*	Ba	25	342	32	25	25	25	Z_match
+56	1	3	1F*	Ba	4	342	32	4	4	4	Z_match
+56	1	2	3G	Ba	6	342	112	6	6	6	Z_match
+56	1	4	1G	Ba	18	342	72	18	18	18	Z_match
+56	1	4	3G	Ba	29	342	72	54	54	54	G_over_recover
+55	1	0	2S	Cs	20	176	20	20	20	20	Z_match
+55	1	1	2P*	Cs	40	176	40	40	40	40	Z_match
+55	1	2	2D	Cs	42	176	44	42	42	42	Z_match
+55	1	3	2F*	Cs	44	176	44	44	44	44	Z_match
+55	1	4	2G	Cs	28	176	28	28	28	28	Z_match
+87	1	0	2S	Fr	24	122	24	24	24	24	Z_match
+87	1	1	2P*	Fr	48	122	48	48	48	48	Z_match
+87	1	2	2D	Fr	50	122	50	50	50	50	Z_match
+31	1	1	2P*	Ga	50	238	154	80	80	80	G_over_recover
+31	1	0	2S	Ga	24	238	24	24	24	24	Z_match
+31	1	2	2D	Ga	45	238	50	50	50	50	G_over_recover
+31	1	1	4P	Ga	3	238	154	0	0	0	D_term_string_mismatch
+31	1	3	2F*	Ga	5	238	10	10	10	10	G_over_recover
+31	1	1	2[1]	Ga	15	238	154	56	56	56	G_over_recover
+31	1	1	2[1]	Ga	17	238	154	56	56	56	G_over_recover
+31	1	1	2[2]	Ga	6	238	154	14	14	14	G_over_recover
+31	1	1	2[2]	Ga	8	238	154	14	14	14	G_over_recover
+31	1	1	2[0]	Ga	4	238	154	4	4	4	Z_match
+31	1	1	2[1]	Ga	7	238	154	56	56	56	G_over_recover
+32	1	1	3P	Ge	12	612	31	9	9	9	H_under_recover
+32	1	1	1D	Ge	4	612	31	3	3	3	H_under_recover
+32	1	1	1S	Ge	4	612	31	3	3	3	H_under_recover
+32	1	0	3P*	Ge	3	612	121	3	3	3	Z_match
+32	1	1	3D	Ge	9	612	31	9	9	9	Z_match
+32	1	1	1P	Ge	4	612	31	4	4	4	Z_match
+32	1	2	3D*	Ge	6	612	414	6	6	6	Z_match
+32	1	1	3S	Ge	3	612	31	3	3	3	Z_match
+32	1	2	3F*	Ge	6	612	414	6	6	6	Z_match
+32	1	2	3P*	Ge	6	612	414	6	6	6	Z_match
+32	1	0	(1/2,1/2)*	Ge	68	612	121	68	68	68	Z_match
+32	1	0	(3/2,1/2)*	Ge	49	612	121	49	49	49	Z_match
+32	1	3	2[7/2]	Ge	8	612	37	14	14	14	G_over_recover
+32	1	3	2[5/2]	Ge	8	612	37	12	12	12	G_over_recover
+32	1	2	*	Ge	3	612	414	3	3	3	Z_match
+32	1	2	(3/2,3/2)*	Ge	85	612	414	85	85	85	Z_match
+32	1	3	2[7/2]	Ge	6	612	37	14	14	14	G_over_recover
+32	1	3	2[5/2]	Ge	4	612	37	12	12	12	G_over_recover
+32	1	3	2[9/2]	Ge	7	612	37	7	7	7	Z_match
+32	1	3	2[3/2]	Ge	4	612	37	4	4	4	Z_match
+32	1	2	(1/2,3/2)*	Ge	82	612	414	82	82	82	Z_match
+32	1	2	(1/2,5/2)*	Ge	90	612	414	91	91	91	G_over_recover
+32	1	2	(3/2,5/2)*	Ge	127	612	414	130	130	130	G_over_recover
+32	1	4	(1/2,7/2)*	Ge	8	612	9	8	8	8	Z_match
+72	1	0	a 3F	Hf	3	245	107	0	0	0	D_term_string_mismatch
+72	1	0	a 3P	Hf	3	245	107	0	0	0	D_term_string_mismatch
+72	1	1	z 3D*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	a 5F	Hf	5	245	107	5	5	5	Z_match
+72	1	1	z 3F*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	z 5G*	Hf	5	245	137	5	5	5	Z_match
+72	1	1	z 3P*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	a 5P	Hf	3	245	107	3	3	3	Z_match
+72	1	1	z 5F*	Hf	5	245	137	5	5	5	Z_match
+72	1	0	a 3G	Hf	3	245	107	3	3	3	Z_match
+72	1	0	b 3F	Hf	3	245	107	3	3	3	Z_match
+72	1	0	a 3D	Hf	3	245	107	3	3	3	Z_match
+72	1	1	z 5D*	Hf	5	245	137	5	5	5	Z_match
+72	1	0	c 3P	Hf	3	245	107	3	3	3	Z_match
+72	1	0	a 3H	Hf	3	245	107	3	3	3	Z_match
+72	1	1	y 3F*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	y 5D*	Hf	5	245	137	5	5	5	Z_match
+72	1	1	y 3D*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	b 3P	Hf	3	245	107	3	3	3	Z_match
+72	1	1	z 3G*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	c 3F	Hf	3	245	107	3	3	3	Z_match
+72	1	1	z 5P*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	y 3G*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	x 3D*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	x 3F*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	w 3F*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	w 3D*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	z 3H*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	b 3D	Hf	3	245	107	3	3	3	Z_match
+72	1	1	v 3D*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	x 3P*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	b 5F	Hf	5	245	107	5	5	5	Z_match
+72	1	0	d 3D	Hf	3	245	107	3	3	3	Z_match
+72	1	1	u 3D*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	c 5F	Hf	4	245	107	4	4	4	Z_match
+72	1	2	a 5D	Hf	5	245	1	0	0	0	D_term_string_mismatch
+72	1	1	v 3F*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	y 5G*	Hf	4	245	137	4	4	4	Z_match
+72	1	1	w 3P*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	u 3F*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	d 3F	Hf	3	245	107	3	3	3	Z_match
+72	1	0	e 3D	Hf	3	245	107	3	3	3	Z_match
+72	1	0	b 5D	Hf	4	245	107	4	4	4	Z_match
+72	1	1	y 5F*	Hf	5	245	137	5	5	5	Z_match
+72	1	0	e 3P	Hf	3	245	107	3	3	3	Z_match
+72	1	0	b 5P	Hf	3	245	107	3	3	3	Z_match
+72	1	0	e 3F	Hf	3	245	107	3	3	3	Z_match
+72	1	1	x 5D*	Hf	5	245	137	5	5	5	Z_match
+72	1	0	f 3F	Hf	3	245	107	3	3	3	Z_match
+72	1	0	g 3F	Hf	3	245	107	3	3	3	Z_match
+72	1	1	w 3G*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	c 5P	Hf	3	245	107	3	3	3	Z_match
+72	1	0	b 3G	Hf	3	245	107	3	3	3	Z_match
+72	1	0	f 3D	Hf	3	245	107	3	3	3	Z_match
+72	1	0	g 3P	Hf	3	245	107	3	3	3	Z_match
+72	1	1	y 5P*	Hf	3	245	137	3	3	3	Z_match
+72	1	0	g 3D	Hf	3	245	107	3	3	3	Z_match
+72	1	2	b 3H	Hf	3	245	1	0	0	0	D_term_string_mismatch
+72	1	2	h 3F	Hf	3	245	1	0	0	0	D_term_string_mismatch
+72	1	1	w 5D*	Hf	5	245	137	5	5	5	Z_match
+72	1	2	c 3G	Hf	3	245	1	0	0	0	D_term_string_mismatch
+72	1	0	i 3F	Hf	3	245	107	3	3	3	Z_match
+72	1	2	h 3D	Hf	3	245	1	0	0	0	D_term_string_mismatch
+72	1	1	s 3D*	Hf	3	245	137	3	3	3	Z_match
+72	1	1	t 3F*	Hf	3	245	137	3	3	3	Z_match
+80	1	0	1S	Hg	15	292	30	14	14	14	H_under_recover
+80	1	1	3P*	Hg	43	292	103	45	45	45	G_over_recover
+80	1	1	1P*	Hg	15	292	103	15	15	15	Z_match
+80	1	0	3S	Hg	14	292	30	14	14	14	Z_match
+80	1	1	2[3/2]*	Hg	16	292	103	24	24	17	G_over_recover
+80	1	2	1D	Hg	15	292	60	15	15	15	Z_match
+80	1	2	3D	Hg	45	292	60	45	45	45	Z_match
+80	1	3	3F*	Hg	35	292	83	39	37	37	G_over_recover
+80	1	3	1F*	Hg	17	292	83	17	17	17	Z_match
+80	1	4	3G	Hg	9	292	16	9	9	9	Z_match
+80	1	4	1G	Hg	7	292	16	7	7	7	Z_match
+80	1	1	2[1/2]*	Hg	15	292	103	15	15	15	Z_match
+80	1	1	3P	Hg	3	292	103	0	0	0	D_term_string_mismatch
+80	1	1	2[3/2]*	Hg	8	292	103	24	24	24	G_over_recover
+80	1	3	2[3/2]*	Hg	9	292	83	18	18	9	Z_match
+80	1	3	2[1/2]*	Hg	9	292	83	9	9	9	Z_match
+80	1	3	2[3/2]*	Hg	9	292	83	18	18	18	G_over_recover
+49	1	1	2P*	In	14	107	17	14	14	14	Z_match
+49	1	0	2S	In	19	107	22	19	19	19	Z_match
+49	1	2	2D	In	52	107	52	52	52	52	Z_match
+49	1	1	4P	In	3	107	17	0	0	0	D_term_string_mismatch
+49	1	3	2F*	In	12	107	16	16	16	16	G_over_recover
+36	1	0	2[3/2]*	Kr	32	526	60	32	32	32	Z_match
+36	1	1	2[1/2]	Kr	32	526	146	38	38	38	G_over_recover
+36	1	1	2[5/2]	Kr	28	526	146	32	32	32	G_over_recover
+36	1	1	2[3/2]	Kr	32	526	146	38	38	38	G_over_recover
+36	1	2	2[1/2]*	Kr	34	526	182	34	34	34	Z_match
+36	1	1	2[3/2]	Kr	6	526	146	38	38	38	G_over_recover
+36	1	2	2[3/2]*	Kr	34	526	182	64	64	38	G_over_recover
+36	1	2	2[7/2]*	Kr	34	526	182	34	34	34	Z_match
+36	1	1	2[1/2]	Kr	6	526	146	38	38	38	G_over_recover
+36	1	2	2[5/2]*	Kr	34	526	182	50	50	38	G_over_recover
+36	1	3	2[3/2]	Kr	32	526	130	32	32	32	Z_match
+36	1	3	2[9/2]	Kr	16	526	130	27	27	27	G_over_recover
+36	1	3	2[5/2]	Kr	29	526	130	31	31	31	G_over_recover
+36	1	3	2[7/2]	Kr	13	526	130	26	26	26	G_over_recover
+71	1	1	2P*	Lu	38	223	73	48	42	42	G_over_recover
+71	1	1	4F*	Lu	4	223	73	4	4	4	Z_match
+71	1	0	4F	Lu	4	223	29	4	4	4	Z_match
+71	1	1	4D*	Lu	4	223	73	4	4	4	Z_match
+71	1	0	4P	Lu	3	223	29	3	3	3	Z_match
+71	1	1	4P*	Lu	3	223	73	3	3	3	Z_match
+71	1	0	2S	Lu	8	223	29	9	9	9	G_over_recover
+71	1	2	2D	Lu	31	223	58	58	31	31	Z_match
+71	1	1	4P	Lu	3	223	73	0	0	0	D_term_string_mismatch
+71	1	3	2F*	Lu	60	223	62	62	61	61	G_over_recover
+71	1	0	4D	Lu	4	223	29	4	4	4	Z_match
+11	1	0	2S	Na	18	374	107	18	18	18	Z_match
+11	1	1	2P*	Na	36	374	90	37	37	36	Z_match
+11	1	2	2D	Na	29	374	128	36	36	36	G_over_recover
+11	1	3	2F*	Na	17	374	25	25	25	25	G_over_recover
+11	1	4	2G	Na	18	374	18	18	18	18	Z_match
+11	1	5	2H*	Na	6	374	6	6	6	6	Z_match
+11	1	1	4D	Na	4	374	90	0	0	0	D_term_string_mismatch
+11	1	1	4P	Na	3	374	90	0	0	0	D_term_string_mismatch
+11	1	1	2D	Na	3	374	90	3	3	3	Z_match
+11	1	1	2D	Na	4	374	90	3	3	3	H_under_recover
+11	1	1	2P	Na	4	374	90	2	2	2	H_under_recover
+11	1	0	4P*	Na	7	374	107	16	16	7	Z_match
+11	1	0	2P*	Na	13	374	107	29	29	16	G_over_recover
+11	1	2	2P*	Na	4	374	128	23	23	7	G_over_recover
+11	1	0	2P*	Na	12	374	107	29	29	25	G_over_recover
+11	1	2	4P*	Na	5	374	128	5	5	5	Z_match
+11	1	2	4F*	Na	8	374	128	8	8	8	Z_match
+11	1	2	4D*	Na	5	374	128	5	5	5	Z_match
+11	1	2	2P*	Na	18	374	128	23	23	22	G_over_recover
+11	1	0	4P*?	Na	3	374	107	3	3	3	Z_match
+11	1	2	4P*?	Na	3	374	128	3	3	3	Z_match
+11	1	0	2P*,4P*	Na	4	374	107	4	4	4	Z_match
+11	1	1	2[1]*	Na	13	374	90	29	29	29	G_over_recover
+11	1	1		Na	7	374	90	18	18	18	G_over_recover
+11	1	1		Na	11	374	90	18	18	18	G_over_recover
+11	1	0	2[1]*	Na	13	374	107	26	26	26	G_over_recover
+11	1	2		Na	8	374	128	36	36	36	G_over_recover
+82	1	1	(1/2,1/2)	Pb	13	129	32	12	12	12	H_under_recover
+82	1	1	(3/2,1/2)	Pb	4	129	32	2	2	2	H_under_recover
+82	1	1	(3/2,3/2)	Pb	6	129	32	4	4	4	H_under_recover
+82	1	0	(1/2,1/2)*	Pb	18	129	22	18	18	18	Z_match
+82	1	1	(1/2,3/2)	Pb	12	129	32	14	14	14	G_over_recover
+82	1	2	2[5/2]*	Pb	17	129	46	21	21	19	G_over_recover
+82	1	2	2[3/2]*	Pb	22	129	46	25	25	23	G_over_recover
+82	1	0	(3/2,1/2)*	Pb	4	129	22	4	4	4	Z_match
+82	1	3	2[5/2]	Pb	8	129	22	8	8	8	Z_match
+82	1	3	2[7/2]	Pb	14	129	22	14	14	14	Z_match
+82	1	4	2[7/2]*	Pb	6	129	7	6	6	6	Z_match
+82	1	2	2[5/2]*	Pb	4	129	46	21	21	21	G_over_recover
+82	1	2	2[3/2]*	Pb	3	129	46	25	25	25	G_over_recover
+88	1	1	3P*	Ra	9	77	58	9	9	9	Z_match
+88	1	2	3D	Ra	6	77	7	6	6	6	Z_match
+88	1	1	1P*	Ra	42	77	58	42	42	42	Z_match
+88	1	1	3F*	Ra	3	77	58	3	3	3	Z_match
+88	1	1	3D*	Ra	3	77	58	3	3	3	Z_match
+88	1	3	3F*	Ra	10	77	10	10	10	10	Z_match
+86	1	0	2[3/2]*	Rn	9	125	12	10	9	9	Z_match
+86	1	1	2[1/2]	Rn	9	125	33	9	9	9	Z_match
+86	1	1	2[5/2]	Rn	10	125	33	12	10	10	Z_match
+86	1	2	2[1/2]*	Rn	10	125	46	10	10	10	Z_match
+86	1	1	2[3/2]	Rn	11	125	33	12	11	11	Z_match
+86	1	2	2[7/2]*	Rn	13	125	46	14	13	13	Z_match
+86	1	2	2[3/2]*	Rn	8	125	46	12	8	8	Z_match
+86	1	2	2[5/2]*	Rn	10	125	46	10	10	10	Z_match
+86	1	3	2[3/2]	Rn	8	125	34	8	8	8	Z_match
+86	1	3	2[9/2]	Rn	6	125	34	12	6	6	Z_match
+86	1	3	2[5/2]	Rn	7	125	34	8	7	7	Z_match
+86	1	3	2[7/2]	Rn	3	125	34	6	3	3	Z_match
+50	1	1	3P	Sn	12	206	27	9	9	9	H_under_recover
+50	1	1	1D	Sn	3	206	27	2	2	2	H_under_recover
+50	1	1	1S	Sn	3	206	27	2	2	2	H_under_recover
+50	1	0	3P*	Sn	21	206	33	21	21	21	Z_match
+50	1	0	1P*	Sn	12	206	33	12	12	12	Z_match
+50	1	1	3D	Sn	10	206	27	10	10	10	Z_match
+50	1	2	3F*	Sn	16	206	115	16	16	16	Z_match
+50	1	2	3D*	Sn	19	206	115	19	19	19	Z_match
+50	1	2	1D*	Sn	4	206	115	4	4	4	Z_match
+50	1	2	3P*	Sn	34	206	115	34	34	34	Z_match
+50	1	2	1F*	Sn	3	206	115	3	3	3	Z_match
+50	1	2	1P*	Sn	15	206	115	15	15	15	Z_match
+50	1	3	3G	Sn	5	206	30	5	5	5	Z_match
+50	1	3	3F	Sn	15	206	30	15	15	15	Z_match
+50	1	3	1F	Sn	4	206	30	4	4	4	Z_match
+50	1	2	a 3F*	Sn	4	206	115	4	4	4	Z_match
+50	1	3	3D	Sn	3	206	30	3	3	3	Z_match
+50	1	2	a 3P*	Sn	4	206	115	4	4	4	Z_match
+50	1	2	b 3P*	Sn	11	206	115	11	11	11	Z_match
+50	1	2	b 3F*	Sn	3	206	115	3	3	3	Z_match
+38	1	0	1S	Sr	16	367	37	15	15	15	H_under_recover
+38	1	1	3P*	Sr	48	367	92	48	48	48	Z_match
+38	1	2	3D	Sr	44	367	117	44	44	44	Z_match
+38	1	2	1D	Sr	19	367	117	18	18	18	H_under_recover
+38	1	1	1P*	Sr	18	367	92	18	18	18	Z_match
+38	1	0	3S	Sr	15	367	37	15	15	15	Z_match
+38	1	1	3F*	Sr	3	367	92	3	3	3	Z_match
+38	1	1	3P	Sr	3	367	92	0	0	0	D_term_string_mismatch
+38	1	1	3D*	Sr	6	367	92	6	6	6	Z_match
+38	1	3	3F*	Sr	50	367	104	50	50	50	Z_match
+38	1	3	1F*	Sr	17	367	104	17	17	17	Z_match
+38	1	2	3P	Sr	5	367	117	2	2	2	H_under_recover
+38	1	2	3F	Sr	3	367	117	3	3	3	Z_match
+38	1	3	2[3/2]*	Sr	4	367	104	8	8	8	G_over_recover
+38	1	3	2[3/2]*	Sr	4	367	104	8	8	8	G_over_recover
+38	1	2	(3/2,3/2)	Sr	15	367	117	15	15	15	Z_match
+38	1	2	(3/2,5/2)	Sr	9	367	117	9	9	9	Z_match
+38	1	2	(5/2,5/2)	Sr	16	367	117	16	16	16	Z_match
+38	1	1	2[3/2]*	Sr	3	367	92	6	6	6	G_over_recover
+38	1	2	(5/2,3/2)	Sr	10	367	117	10	10	10	Z_match
+38	1	1	2[3/2]*	Sr	3	367	92	6	6	6	G_over_recover
+38	1	0	(3/2,1/2)	Sr	4	367	37	4	4	4	Z_match
+38	1	0	(5/2,1/2)	Sr	3	367	37	3	3	3	Z_match
+38	1	3	(3/2,5/2)*	Sr	6	367	104	6	6	6	Z_match
+38	1	3	(3/2,7/2)*	Sr	3	367	104	3	3	3	Z_match
+38	1	4	2[5/2]	Sr	4	367	17	10	10	10	G_over_recover
+38	1	3	(5/2,5/2)*	Sr	6	367	104	6	6	6	Z_match
+38	1	3	(5/2,7/2)*	Sr	6	367	104	6	6	6	Z_match
+38	1	4	2[5/2]	Sr	6	367	17	10	10	10	G_over_recover
+38	1	4	2[3/2]	Sr	7	367	17	7	7	7	Z_match
+22	1	0	a 3F	Ti	3	425	68	0	0	0	D_term_string_mismatch
+22	1	0	a 5F	Ti	5	425	68	5	5	5	Z_match
+22	1	0	a 3P	Ti	3	425	68	0	0	0	D_term_string_mismatch
+22	1	0	b 3F	Ti	3	425	68	3	3	3	Z_match
+22	1	0	a 5P	Ti	3	425	68	3	3	3	Z_match
+22	1	0	a 3G	Ti	3	425	68	3	3	3	Z_match
+22	1	1	z 5G*	Ti	5	425	163	0	0	0	D_term_string_mismatch
+22	1	1	z 5F*	Ti	5	425	163	0	0	0	D_term_string_mismatch
+22	1	0	a 3D	Ti	3	425	68	3	3	3	Z_match
+22	1	0	b 3P	Ti	3	425	68	3	3	3	Z_match
+22	1	0	a 3H	Ti	3	425	68	3	3	3	Z_match
+22	1	1	z 5D*	Ti	5	425	163	0	0	0	D_term_string_mismatch
+22	1	0	c 3P	Ti	3	425	68	3	3	3	Z_match
+22	1	1	z 3F*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	z 3D*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	z 3G*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	0	3F	Ti	6	425	68	6	6	6	Z_match
+22	1	1	y 3F*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	y 3D*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	3P*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	5D*	Ti	5	425	163	10	10	10	G_over_recover
+22	1	1	y 5G*	Ti	5	425	163	5	5	5	Z_match
+22	1	1	x 3F*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	x 3D*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	y 3G*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	z 5P*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	y 5F*	Ti	5	425	163	5	5	5	Z_match
+22	1	2	a 5D	Ti	5	425	81	0	0	0	D_term_string_mismatch
+22	1	1	w 3D*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	x 5D*	Ti	5	425	163	5	5	5	Z_match
+22	1	1	x 3G*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	v 3D*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	w 3G*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	y 3P*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	z 3H*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	0	3D	Ti	3	425	68	6	6	6	G_over_recover
+22	1	1	x 3P*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	w 3F*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	v 3F*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	2	3P2	Ti	3	425	81	0	0	0	D_term_string_mismatch
+22	1	2	3F2	Ti	3	425	81	0	0	0	D_term_string_mismatch
+22	1	2	3H	Ti	3	425	81	3	3	3	Z_match
+22	1	1	y 3H*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	w 5D*	Ti	5	425	163	5	5	5	Z_match
+22	1	0	e 5F	Ti	5	425	68	5	5	5	Z_match
+22	1	2	b 3G	Ti	3	425	81	0	0	0	D_term_string_mismatch
+22	1	1	y 5P*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	w 3P*	Ti	3	425	163	3	3	3	Z_match
+22	1	0	e 3F	Ti	3	425	68	3	3	3	Z_match
+22	1	1	v 3G*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	u 3F*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	u 3D*	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	t 3F*	Ti	3	425	163	3	3	3	Z_match
+22	1	2	3D	Ti	3	425	81	3	3	3	Z_match
+22	1	1	z 3I*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	t 3D*	Ti	3	425	163	3	3	3	Z_match
+22	1	0	f 5F	Ti	5	425	68	5	5	5	Z_match
+22	1	1	x 3H*	Ti	3	425	163	3	3	3	Z_match
+22	1	0	f 3F	Ti	3	425	68	3	3	3	Z_match
+22	1	1	s 3D*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	v 3P*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	r 3D*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	3G*	Ti	3	425	163	15	15	15	G_over_recover
+22	1	1	s 3F*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	5G*	Ti	10	425	163	10	10	10	Z_match
+22	1	2	e 5G	Ti	5	425	81	5	5	5	Z_match
+22	1	2	e 5H	Ti	5	425	81	5	5	5	Z_match
+22	1	1	5F*	Ti	10	425	163	10	10	10	Z_match
+22	1	2	3G	Ti	3	425	81	6	6	6	G_over_recover
+22	1	2	e 5D	Ti	5	425	81	5	5	5	Z_match
+22	1	2	g 3F	Ti	3	425	81	3	3	3	Z_match
+22	1	1	u 3P*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	q 3D*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	5D*	Ti	10	425	163	10	10	10	Z_match
+22	1	2	3H	Ti	3	425	81	3	3	3	Z_match
+22	1	2	e 5P	Ti	3	425	81	3	3	3	Z_match
+22	1	2	3D	Ti	3	425	81	3	3	3	Z_match
+22	1	2	3F1	Ti	3	425	81	0	0	0	D_term_string_mismatch
+22	1	2	g 5F	Ti	5	425	81	5	5	5	Z_match
+22	1	1	r 3F*	Ti	3	425	163	3	3	3	Z_match
+22	1	2	5G	Ti	5	425	81	5	5	5	Z_match
+22	1	2	f 5H	Ti	5	425	81	5	5	5	Z_match
+22	1	2	5F	Ti	10	425	81	10	10	10	Z_match
+22	1	1	o 3D*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	3G*	Ti	6	425	163	15	15	15	G_over_recover
+22	1	1	3F*	Ti	3	425	163	6	6	6	G_over_recover
+22	1	1	n 3D*	Ti	3	425	163	3	3	3	Z_match
+22	1	1	3P*	Ti	3	425	163	3	3	3	Z_match
+22	1	0	3D	Ti	3	425	68	6	6	6	G_over_recover
+22	1	2	3G	Ti	3	425	81	6	6	6	G_over_recover
+22	1	2	f 3H	Ti	3	425	81	3	3	3	Z_match
+22	1	0	h 5F	Ti	5	425	68	5	5	5	Z_match
+22	1	2	3F	Ti	3	425	81	3	3	3	Z_match
+22	1	1	3G*	Ti	6	425	163	15	15	15	G_over_recover
+22	1	1	g 5G	Ti	5	425	163	0	0	0	D_term_string_mismatch
+22	1	1	p 3F*	Ti	3	425	163	3	3	3	Z_match
+22	1	2	g 5H	Ti	5	425	81	5	5	5	Z_match
+22	1	2	h 5G	Ti	5	425	81	5	5	5	Z_match
+22	1	3	2[7/2]*	Ti	4	425	79	16	16	16	G_over_recover
+22	1	3	2[9/2]*	Ti	4	425	79	16	16	16	G_over_recover
+22	1	3	2[5/2]*	Ti	3	425	79	12	12	12	G_over_recover
+22	1	1	5F	Ti	5	425	163	0	0	0	D_term_string_mismatch
+22	1	3	2[5/2]*	Ti	4	425	79	12	12	12	G_over_recover
+22	1	3	2[9/2]*	Ti	4	425	79	16	16	16	G_over_recover
+22	1	3	2[7/2]*	Ti	4	425	79	16	16	16	G_over_recover
+22	1	3	2[11/2]*	Ti	3	425	79	11	11	11	G_over_recover
+22	1	3	2[3/2]*	Ti	3	425	79	9	9	9	G_over_recover
+22	1	3	2[9/2]*	Ti	4	425	79	16	16	16	G_over_recover
+22	1	3	2[11/2]*	Ti	4	425	79	11	11	11	G_over_recover
+22	1	3	2[7/2]*	Ti	4	425	79	16	16	16	G_over_recover
+22	1	3	2[13/2]*	Ti	3	425	79	7	7	7	G_over_recover
+22	1	3	2[5/2]*	Ti	3	425	79	12	12	12	G_over_recover
+22	1	3	2[13/2]*	Ti	4	425	79	7	7	7	G_over_recover
+22	1	3	2[11/2]*	Ti	4	425	79	11	11	11	G_over_recover
+22	1	3	2[9/2]*	Ti	4	425	79	16	16	16	G_over_recover
+22	1	3	2[15/2]*	Ti	4	425	79	4	4	4	Z_match
+22	1	3	2[7/2]*	Ti	4	425	79	16	16	16	G_over_recover
+22	1	1	3F*	Ti	3	425	163	6	6	6	G_over_recover
+22	1	1	e 3D	Ti	3	425	163	0	0	0	D_term_string_mismatch
+22	1	1	h 5D	Ti	5	425	163	0	0	0	D_term_string_mismatch
+22	1	1	3D*	Ti	3	425	163	3	3	3	Z_match
+81	1	1	2P*	Tl	18	61	18	18	18	18	Z_match
+81	1	0	2S	Tl	14	61	15	14	14	14	Z_match
+81	1	2	2D	Tl	24	61	24	24	24	24	Z_match
+81	1	3	2F*	Tl	4	61	4	4	4	4	Z_match
+54	1	0	2[3/2]*	Xe	30	442	47	30	30	30	Z_match
+54	1	0	2[1/2]*	Xe	17	442	47	17	17	17	Z_match
+54	1	1	2[1/2]	Xe	27	442	116	30	30	29	G_over_recover
+54	1	1	2[5/2]	Xe	25	442	116	25	25	25	Z_match
+54	1	1	2[3/2]	Xe	22	442	116	26	26	24	G_over_recover
+54	1	2	2[1/2]*	Xe	32	442	162	32	32	32	Z_match
+54	1	2	2[7/2]*	Xe	32	442	162	32	32	32	Z_match
+54	1	2	2[3/2]*	Xe	32	442	162	49	49	34	G_over_recover
+54	1	2	2[5/2]*	Xe	32	442	162	34	34	34	G_over_recover
+54	1	1	2[3/2]	Xe	4	442	116	26	26	26	G_over_recover
+54	1	1	2[1/2]	Xe	3	442	116	30	30	30	G_over_recover
+54	1	3	2[3/2]	Xe	33	442	109	33	33	33	Z_match
+54	1	3	2[9/2]	Xe	15	442	109	16	16	16	G_over_recover
+54	1	3	2[5/2]	Xe	24	442	109	34	34	24	Z_match
+54	1	3	2[7/2]	Xe	15	442	109	26	26	16	G_over_recover
+54	1	2	2[3/2]*	Xe	17	442	162	49	49	49	G_over_recover
+54	1	3	2[5/2]	Xe	7	442	109	34	34	34	G_over_recover
+54	1	3	2[7/2]	Xe	5	442	109	26	26	26	G_over_recover
+39	1	0	a 4F	Y	4	157	38	4	4	4	Z_match
+39	1	1	z 4F*	Y	4	157	81	4	4	4	Z_match
+39	1	0	a 4P	Y	3	157	38	3	3	3	Z_match
+39	1	1	z 4D*	Y	4	157	81	4	4	4	Z_match
+39	1	1	z 4P*	Y	3	157	81	3	3	3	Z_match
+39	1	1	z 4G*	Y	4	157	81	4	4	4	Z_match
+39	1	2	b 4F	Y	4	157	38	0	0	0	D_term_string_mismatch
+39	1	1	y 4F*	Y	4	157	81	4	4	4	Z_match
+39	1	2	b 4P	Y	3	157	38	0	0	0	D_term_string_mismatch
+39	1	2	2D	Y	4	157	38	4	4	4	Z_match
+39	1	0	e 4D	Y	4	157	38	4	4	4	Z_match
+39	1	1	y 4D*	Y	4	157	81	4	4	4	Z_match
+39	1	0	e 4P	Y	3	157	38	3	3	3	Z_match
+39	1	1	x 4D*	Y	4	157	81	4	4	4	Z_match
+39	1	1	y 4P*	Y	3	157	81	3	3	3	Z_match
+39	1	2	f 4D	Y	4	157	38	4	4	4	Z_match
+39	1	1	4D*	Y	4	157	81	4	4	4	Z_match
+39	1	2	e 4G	Y	4	157	38	4	4	4	Z_match
+39	1	1	4F*	Y	3	157	81	3	3	3	Z_match
+39	1	1	4P*	Y	3	157	81	3	3	3	Z_match
+39	1	2	e 4F	Y	4	157	38	4	4	4	Z_match
+39	1	2	f 4P	Y	3	157	38	3	3	3	Z_match
+39	1	0	4F	Y	4	157	38	4	4	4	Z_match
+39	1	2	4F	Y	4	157	38	4	4	4	Z_match
+39	1	2	h 4D	Y	4	157	38	4	4	4	Z_match
+70	1	0	1S	Yb	3	45	13	2	2	2	H_under_recover
+70	1	1	3P*	Yb	12	45	16	12	12	12	Z_match
+70	1	0	(7/2,3/2)*	Yb	4	45	13	0	0	0	D_term_string_mismatch
+70	1	0	3D	Yb	3	45	13	3	3	3	Z_match
+70	1	1	1P*	Yb	4	45	16	4	4	4	Z_match
+70	1	0	(7/2,5/2)*	Yb	6	45	13	0	0	0	D_term_string_mismatch
+70	1	0	3S	Yb	7	45	13	7	7	7	Z_match
+70	1	1	(7/2,3/2)	Yb	4	45	16	0	0	0	D_term_string_mismatch
+70	1	2	3D	Yb	9	45	11	9	9	9	Z_match
+70	1	1	(7/2,3/2)	Yb	5	45	16	0	0	0	D_term_string_mismatch
+70	1	1		Yb	7	45	16	0	0	0	D_term_string_mismatch
+70	1	1	3P	Yb	3	45	16	0	0	0	D_term_string_mismatch
+70	1	3	3F*	Yb	3	45	5	5	3	3	Z_match
+70	1	1	(5/2,3/2)	Yb	3	45	16	0	0	0	D_term_string_mismatch
+70	1	1		Yb	3	45	16	0	0	0	D_term_string_mismatch
+70	1	1	(7/2,7/2)	Yb	5	45	16	0	0	0	D_term_string_mismatch
+70	1	1	(1/2,1/2)*	Yb	15	45	16	0	0	0	D_term_string_mismatch
+70	1	1	(1/2,3/2)*	Yb	40	45	16	0	0	0	D_term_string_mismatch
+70	1	1		Yb	3	45	16	0	0	0	D_term_string_mismatch
+40	1	0	a 3F	Zr	3	233	42	0	0	0	D_term_string_mismatch
+40	1	0	a 3P	Zr	3	233	42	0	0	0	D_term_string_mismatch
+40	1	0	a 5F	Zr	5	233	42	5	5	5	Z_match
+40	1	0	a 5P	Zr	3	233	42	3	3	3	Z_match
+40	1	0	b 3F	Zr	3	233	42	3	3	3	Z_match
+40	1	0	a 3G	Zr	3	233	42	3	3	3	Z_match
+40	1	0	a 3D	Zr	3	233	42	3	3	3	Z_match
+40	1	1	z 5G*	Zr	5	233	181	6	6	6	G_over_recover
+40	1	0	a 3H	Zr	3	233	42	3	3	3	Z_match
+40	1	0	b 3P	Zr	3	233	42	3	3	3	Z_match
+40	1	1	z 5F*	Zr	4	233	181	5	5	5	G_over_recover
+40	1	0	c 3P	Zr	3	233	42	3	3	3	Z_match
+40	1	1	z 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	z 5D*	Zr	3	233	181	5	5	5	G_over_recover
+40	1	1	z 3P*	Zr	3	233	181	3	3	3	Z_match
+40	1	2	a 5D	Zr	5	233	10	0	0	0	D_term_string_mismatch
+40	1	1	z 3G*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	y 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	y 5D*	Zr	5	233	181	5	5	5	Z_match
+40	1	1	y 3F*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	z 5P*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	y 5G*	Zr	3	233	181	5	5	5	G_over_recover
+40	1	1	y 3G*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	x 3F*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	x 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	w 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	y 3P*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	z 3H*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	x 3G*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	y 5F*	Zr	3	233	181	5	5	5	G_over_recover
+40	1	1	x 3P*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	v 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	x 5D*	Zr	3	233	181	5	5	5	G_over_recover
+40	1	1	w 3G*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	u 3F*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	w 5D*	Zr	5	233	181	5	5	5	Z_match
+40	1	1	u 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	y 3H*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	y 5P*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	w 3P*	Zr	3	233	181	3	3	3	Z_match
+40	1	0	e 5F	Zr	5	233	42	5	5	5	Z_match
+40	1	1	t 3F*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	z 3I*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	t 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	x 3H*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	v 3G*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	s 3F*	Zr	3	233	181	3	3	3	Z_match
+40	1	0	e 3F	Zr	3	233	42	3	3	3	Z_match
+40	1	1	s 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	r 3F*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	u 3G*	Zr	3	233	181	3	3	3	Z_match
+40	1	2	e 5H	Zr	4	233	10	5	4	4	Z_match
+40	1	1	t 3P*	Zr	3	233	181	3	3	3	Z_match
+40	1	0	f 5F	Zr	3	233	42	5	3	3	Z_match
+40	1	2	e 5G	Zr	5	233	10	5	5	5	Z_match
+40	1	1	t 3G*	Zr	3	233	181	0	0	0	D_term_string_mismatch
+40	1	1	q 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	q 3F*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	p 3D*	Zr	3	233	181	3	3	3	Z_match
+40	1	1	f 5G	Zr	5	233	181	0	0	0	D_term_string_mismatch
+40	1	1	o 3D*	Zr	3	233	181	0	0	0	D_term_string_mismatch

@@ -1,0 +1,16 @@
+# Br V — NIST ASD levels, fetched live 2026-08-14 (session 1.8, batch 2 fetch 9).
+# destination_url VERIFIED: energy1.pl?...spectrum=Br+V...format=2&units=0 (cm-1)
+# Ga-like keyable species at its sparsest yet: NINE LEVELS. No 4s.4p2 4P
+# (quartet absent entirely), no 5p, no 4f, no g. The keyable ladder here is
+# s(5), d(4) and stops. Limit: Br VI (4s2 1S<0>) 480670.
+Configuration	Term	J	Level_cm-1
+4s2.4p	2P*	1/2	0
+4s2.4p	2P*	3/2	6090.
+4s.4p2	2D	3/2	122941.
+4s.4p2	2D	5/2	123628.
+4s.4p2	2P	1/2	158158.
+4s.4p2	2P	3/2	161011.
+4s2.4d	2D	3/2	187970.
+4s2.4d	2D	5/2	188592.
+4s2.5s	2S	1/2	213510.
+Br_VI_(4s2_1S<0>)	Limit	---	480670
