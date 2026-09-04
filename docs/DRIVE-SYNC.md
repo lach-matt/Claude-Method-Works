@@ -778,6 +778,23 @@ them parse (`1` on a refusal or a failed verification, `2` on bad arguments). Th
 part of the Drive mirror, so `MANIFEST.tsv` will never describe them — `INDEX.tsv` and
 `SUMMARY.json` are their inventory.
 
+**Verified end to end (2026-09-04).** The sharder had never been run against a real export, so it
+was exercised on a synthetic one built to the actual Claude schema — a top-level array of
+conversations keyed `uuid` / `name` / `created_at` / `updated_at` / `chat_messages`, matching the
+`Claude Projects` exports already mirrored here. It detected that schema unaided, wrote 120 shards
+into `YYYY-MM` directories with `INDEX.tsv` and `SUMMARY.json`, and re-read and re-parsed all 120.
+A `grep` for `HANDOFF-47` across the shard tree then found it. That is the whole point of the
+exercise: **once the export is sharded, the handoffs and reading slips that `COVERAGE.tsv` lists as
+ABSENT become ordinary greppable files.** The test used a synthetic input, so it proves the schema
+detection and the write/verify path, not the runtime on a 370 MiB file.
+
+**Install `ijson` first.** Without it the script falls back to `json.load`, which holds the whole
+document in memory — 4–8× the file size, so roughly 1.5–3 GB for the real export. It says so loudly
+on stderr rather than failing silently, and the Colab appendix runs `pip install ijson` before
+handing over, but that install is `check=False`: if it fails the run continues on the memory-hungry
+path. Check the parser line in the summary (`parser  ijson (streaming)` vs
+`json (whole file in memory)`) to see which one you got.
+
 Three things worth knowing before you run it:
 
 * **`--out drive/chats`, not inside a mirrored folder.** `--prune` walks the mirrored root
