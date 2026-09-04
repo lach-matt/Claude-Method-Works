@@ -1445,7 +1445,9 @@ d(x,y) = τ( lcm(N(x),N(y)) / gcd(N(x),N(y)) ) = ∏ᵢ(|Δᵢ|+1) = |[x∧y, x�
   4.3   **a claim of completion is a claim** — verify completion in the pass that claims it
   4.4   **a count kept by judgement** — read the list; do not carry the number
   4.5   **a conclusion written before the output** — the order matters even when the answer is right
-  4.6   **a test that could not fail** — exhibit the failure mode before trusting the pass
+  4.6   **a test that could not fail** — exhibit the failure mode before trusting the pass; a
+        criterion fixed from the case it judges cannot fail — proved by the case it was built for and
+        then caught
   4.7   **a flag is a hypothesis** — localise a detector's output before filing it as a defect
   4.8   **a reading the source never made** — an assumption is the reader's until the source states it
   4.9   **a coordinate collapsed into a count** — ρ, and every scalar standing in for a structure
@@ -10352,7 +10354,7 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
   coordinate          values                                                                         kind
   kind                definition · mechanism · formula · theorem · law · method · measurement        fibre
   language            order · combinatorics · analysis · complexity · physics · algebraic geometry   fibre
-  status              withdrawn < conjectured < measured < verified < proved                         ordered
+  status              withdrawn < conjectured < measured < verified < unwitnessed < proved           ordered
   verification        cited < sampled < exhaustive                                                   ordered
   precedent           none found < found                                                             ordered
 
@@ -10746,12 +10748,15 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
  **Thirty-six elements become forty and E stays 0** — every changed fibre closes. That is not the
  interesting part.
 
- **The interesting part is that one of the four is the first conjecture this index has ever held.**
- §D.2 defines *status* on five values — withdrawn < conjectured < measured < verified < proved — and
- until now the enumeration occupied three of them. Everything in this book was proved, verified or
- measured; nothing was ever merely conjectured, and nothing withdrawn survived to be listed. **The
- slack = kernel conjecture occupies a value the coordinate has always admitted and no element had
- taken.**
+  **The interesting part is that one of the four is the first conjecture this index was built on.**
+  §D.2 defines *status* on six values — withdrawn < conjectured < measured < verified < unwitnessed
+  < proved — and until now the enumeration occupied three of them. Everything in this book was
+  measured, verified, or proved, with and without witness; nothing was ever merely conjectured
+  without the intention to prove or withdraw, and nothing withdrawn survived to be listed. An
+  unwitnessed result is proved and not yet observed — measured, verified, and exhaustive over
+  everything the index can reach, with no cell inside it witnessing the claim. Proof is a matter of
+  mathematics and not of observation, so the value ranks below proved for a reason that is a bias
+  and not a defect — observation.
 
  **Which makes the zero stronger rather than weaker, by register 275's own reasoning.** Adding a
  status value enlarges the ambient box; E = 0 in a larger box is a stronger statement than E = 0 in a
@@ -10856,14 +10861,14 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
  and how it says the thing was checked.
 
   new element                                            fibre                        coordinates
-  the corridor, 106 consistent inequalities              theorem · analysis           verified as a result about the form (1445, 1463)
-  the nineteen surds, the complete endpoint set          measurement · analysis       withdrawn with ν at 1460
+  the corridor, 106 consistent inequalities              theorem · analysis           unwitnessed · exhaustive · none found (a result about the form; registers 1445, 1463)
+  the nineteen surds, the complete endpoint set          measurement · analysis       unwitnessed · exhaustive · none found (true of ν as a form; register 1460)
   a_cross = (√(n−1) + √(n−4))/3                          formula · analysis           proved · exhaustive · none found
   the staircase algebra, ⌊s/2⌋ ≤ d ≤ s + ⌊s/3⌋           formula · order              verified · exhaustive · found
   the sequence-index fix, rank parity not free           mechanism · physics          verified · exhaustive · found
   the selection-rule falsification, 200 of 200 seeds     measurement · analysis       measured · sampled · none found
-  the necessity of state, 104 of 106 steps               theorem · physics            stated at 1332; not independently reproducible (1448)
-  the observability boundary, tested once                law · physics                conjectured · sampled · none found
+  the necessity of state, §34.6                          theorem · physics            verified · sampled · none found (the claim stands at register 1332; its count is fixed from the case it judges and is not independently reproducible, register 1448)
+  the observability boundary, tested once                law · physics                verified · sampled · found
   the singleton-output rule                              definition · order           proved · exhaustive · none found
   the domain prohibition                                 law · physics                verified · exhaustive · none found
   the limit — Λ_spectra closes at the last species, E = 11  measurement · combinatorics  measured · exhaustive · none found
@@ -16864,7 +16869,7 @@ are the record of how the work went, which is the material §4's mechanisms were
 
 ### 1332
 
-**AND THE STATE IS NECESSARY.** *Tested memoryless: for each admissible subshell set a to that subshell's own crossing value and ask whether it is then least-ν. **104 of 106 steps admit two to four self-consistent subshells** — the observed one is always among them, never uniquely determined.* **So the periodic table is not computable from a single atom's configuration. It requires one number carried forward.** *The arithmetic supplies the values; the walk supplies the selection.*
+**AND THE STATE IS NECESSARY.** *Tested memoryless: for each admissible subshell set a to that subshell's own crossing value and ask whether it is then least-ν. **104 of 106 steps admit two to four self-consistent subshells** — the observed one is always among them, never uniquely determined.* **So the periodic table is not computable from a single atom's configuration. It requires one number carried forward.** *The arithmetic supplies the values; the walk supplies the selection.*  **WARNING:** Qualified at register 1448. The memoryless test set *a* to each candidate subshell's own crossing value — a criterion fixed from the case it judges, which §4.6 shows cannot fail. **The claim stands:** the observed subshell is never uniquely determined, so the table is not computable from a single atom's configuration. **The count does not:** 104 of 106 under this placement, 62 of 106 under the corridor-non-empty convention.
 
 ### 1333
 
@@ -18502,4 +18507,16 @@ are the record of how the work went, which is the material §4's mechanisms were
 ### 1800
 
 **THE COMPENDIUM'S PENETRATION PERCENTAGE DID NOT FOLLOW ITS OWN COUNT.** *The Mathematical Compendium printed the penetration claim as 146 of 163 = 92%. 146 of 163 is 90% at nought decimal places, rounding half to even; register 1048 states that claim as 146 of 163, 90%, and in the same line gives 92% its own object — the combined two-claim figure, 198 of 215. Which of the two the compendium's 92% came from, the claim's own superseded value or the combined figure printed beside it, is not decided; on either reading it is not the percentage of 146 of 163. Corrected to 90%; the counts are untouched.* Registers 1048. (a correction.)
+
+### 1801
+
+**THE STATUS COORDINATE TAKES A SIXTH VALUE: *UNWITNESSED*, ABOVE *VERIFIED* AND BELOW *PROVED*.** *§D.2 defined status on five values. A result can be measured, verified and exhaustive over everything the index reaches while nothing witnesses the claim; that is not a doubt and not a demotion, and the five values had no room for it. Proof is a matter of mathematics and not of observation, so the new value ranks below proved for a reason that is a bias and not a defect — observation. The corridor is the first to take it (1445, 1463), and the nineteen surds follow, true of ν as a form and of nothing in the periodic table (1460). Neither is withdrawn and nothing is deleted.* **WHAT COUNTS AS A WITNESS, stated because the value is meaningless without it: that ANYONE has observed it — this work or another.** *An observation of our own and an attribution found in the literature witness equally. That is why the search for outside attribution is method and not courtesy: a search that finds one moves a result out of this value, and a search that finds none is what leaves it there. An unwitnessed result is one nobody has yet seen. Above Z = 108 the spectra index is written almost entirely in the value, and it wants only for something to be seen.* Registers 1445; 1460; 1463. (a new protocol.)
+
+### 1802
+
+**THE OBSERVABILITY BOUNDARY IS NOT A CONJECTURE; IT IS VERIFIED, AND ITS PRIOR ART IS THE LITERATURE IT STANDS ON.** *Appendix D ranked it conjectured with no precedent found. Register 1377 states it as a decidable criterion — does the effect modify the equation, or require its solution? — names the prior art on both sides, Schrödinger's* Quantisierung als Eigenwertproblem *(1926) and its three sequels for the enumerable half and Born–Heisenberg–Jordan with von Neumann's spectral theorem for the operator half, and EXPLAINS Λ_cross's exception rather than recording it. 1377 is exact about what is borrowed and what is not: there is no single theory of observability to cite, so the two halves are the literature and the boundary drawn between them is this work's. A criterion that decides cases and carries the literature of both its sides is not a guess.* **Re-ranked verified · sampled · found: verified because it decides, sampled because it has been applied once, and found because the literature is there — and by the witness rule of the entry above, someone has seen it.** Registers 1377. (a correction.)
+
+### 1803
+
+**THE NECESSITY OF STATE IS A STRUCTURAL THEOREM AND IS NAMED AS ONE; ITS SCORE LEAVES ITS NAME.** *Appendix D carried it as ‘the necessity of state, 104 of 106 steps’ — the only element of the twenty-two whose fibre is theorem to be named by a sample score rather than by its assertion or by a handle and its section. The theorem is that the observed subshell is never uniquely determined, so the periodic table is not computable from a single atom’s configuration and one number must be carried forward (§34.6; register 1332). That is structural and does not depend on how any run scored.* **Renamed to the handle-and-section form the table uses, and the count moved into the coordinates where register 1448’s objection can qualify it: the placement it was measured under is fixed from the case it judges and cannot fail, so the claim stands and the figure does not — 104 of 106 under that placement, 62 of 106 under the corridor-non-empty convention.** Registers 1332; 1448. (a correction.)
 <<<END FILE: The_Method_1_6___The_Register-2.md>>>

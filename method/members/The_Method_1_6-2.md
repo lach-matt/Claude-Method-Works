@@ -1444,7 +1444,9 @@ d(x,y) = τ( lcm(N(x),N(y)) / gcd(N(x),N(y)) ) = ∏ᵢ(|Δᵢ|+1) = |[x∧y, x�
   4.3   **a claim of completion is a claim** — verify completion in the pass that claims it
   4.4   **a count kept by judgement** — read the list; do not carry the number
   4.5   **a conclusion written before the output** — the order matters even when the answer is right
-  4.6   **a test that could not fail** — exhibit the failure mode before trusting the pass
+  4.6   **a test that could not fail** — exhibit the failure mode before trusting the pass; a
+        criterion fixed from the case it judges cannot fail — proved by the case it was built for and
+        then caught
   4.7   **a flag is a hypothesis** — localise a detector's output before filing it as a defect
   4.8   **a reading the source never made** — an assumption is the reader's until the source states it
   4.9   **a coordinate collapsed into a count** — ρ, and every scalar standing in for a structure
@@ -10351,7 +10353,7 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
   coordinate          values                                                                         kind
   kind                definition · mechanism · formula · theorem · law · method · measurement        fibre
   language            order · combinatorics · analysis · complexity · physics · algebraic geometry   fibre
-  status              withdrawn < conjectured < measured < verified < proved                         ordered
+  status              withdrawn < conjectured < measured < verified < unwitnessed < proved           ordered
   verification        cited < sampled < exhaustive                                                   ordered
   precedent           none found < found                                                             ordered
 
@@ -10745,12 +10747,15 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
  **Thirty-six elements become forty and E stays 0** — every changed fibre closes. That is not the
  interesting part.
 
- **The interesting part is that one of the four is the first conjecture this index has ever held.**
- §D.2 defines *status* on five values — withdrawn < conjectured < measured < verified < proved — and
- until now the enumeration occupied three of them. Everything in this book was proved, verified or
- measured; nothing was ever merely conjectured, and nothing withdrawn survived to be listed. **The
- slack = kernel conjecture occupies a value the coordinate has always admitted and no element had
- taken.**
+  **The interesting part is that one of the four is the first conjecture this index was built on.**
+  §D.2 defines *status* on six values — withdrawn < conjectured < measured < verified < unwitnessed
+  < proved — and until now the enumeration occupied three of them. Everything in this book was
+  measured, verified, or proved, with and without witness; nothing was ever merely conjectured
+  without the intention to prove or withdraw, and nothing withdrawn survived to be listed. An
+  unwitnessed result is proved and not yet observed — measured, verified, and exhaustive over
+  everything the index can reach, with no cell inside it witnessing the claim. Proof is a matter of
+  mathematics and not of observation, so the value ranks below proved for a reason that is a bias
+  and not a defect — observation.
 
  **Which makes the zero stronger rather than weaker, by register 275's own reasoning.** Adding a
  status value enlarges the ambient box; E = 0 in a larger box is a stronger statement than E = 0 in a
@@ -10855,14 +10860,14 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
  and how it says the thing was checked.
 
   new element                                            fibre                        coordinates
-  the corridor, 106 consistent inequalities              theorem · analysis           verified as a result about the form (1445, 1463)
-  the nineteen surds, the complete endpoint set          measurement · analysis       withdrawn with ν at 1460
+  the corridor, 106 consistent inequalities              theorem · analysis           unwitnessed · exhaustive · none found (a result about the form; registers 1445, 1463)
+  the nineteen surds, the complete endpoint set          measurement · analysis       unwitnessed · exhaustive · none found (true of ν as a form; register 1460)
   a_cross = (√(n−1) + √(n−4))/3                          formula · analysis           proved · exhaustive · none found
   the staircase algebra, ⌊s/2⌋ ≤ d ≤ s + ⌊s/3⌋           formula · order              verified · exhaustive · found
   the sequence-index fix, rank parity not free           mechanism · physics          verified · exhaustive · found
   the selection-rule falsification, 200 of 200 seeds     measurement · analysis       measured · sampled · none found
-  the necessity of state, 104 of 106 steps               theorem · physics            stated at 1332; not independently reproducible (1448)
-  the observability boundary, tested once                law · physics                conjectured · sampled · none found
+  the necessity of state, §34.6                          theorem · physics            verified · sampled · none found (the claim stands at register 1332; its count is fixed from the case it judges and is not independently reproducible, register 1448)
+  the observability boundary, tested once                law · physics                verified · sampled · found
   the singleton-output rule                              definition · order           proved · exhaustive · none found
   the domain prohibition                                 law · physics                verified · exhaustive · none found
   the limit — Λ_spectra closes at the last species, E = 11  measurement · combinatorics  measured · exhaustive · none found

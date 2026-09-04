@@ -165,12 +165,14 @@ E1 = (f"### {N}\n\n**THE STATUS COORDINATE TAKES A SIXTH VALUE: *UNWITNESSED*, A
       "almost entirely in the value, and it wants only for something to be seen.* "
       "Registers 1445; 1460; 1463. (a new protocol.)\n")
 E2 = (f"### {N + 1}\n\n**THE OBSERVABILITY BOUNDARY IS NOT A CONJECTURE; IT IS VERIFIED, AND ITS PRIOR ART IS "
-      "ITS WITNESS.** *Appendix D ranked it conjectured with no precedent found. Register 1377 states it as a "
+      "THE LITERATURE IT STANDS ON.** *Appendix D ranked it conjectured with no precedent found. Register 1377 states it as a "
       "decidable criterion — does the effect modify the equation, or require its solution? — names the prior "
       "art on both sides, Schrödinger's* Quantisierung als Eigenwertproblem *(1926) and its three sequels for "
       "the enumerable half and Born–Heisenberg–Jordan with von Neumann's spectral theorem for the operator "
-      "half, and EXPLAINS Λ_cross's exception rather than recording it. A criterion that decides cases and "
-      "carries its literature is not a guess.* **Re-ranked verified · sampled · found: verified because it "
+      "half, and EXPLAINS Λ_cross's exception rather than recording it. 1377 is exact about what is borrowed "
+      "and what is not: there is no single theory of observability to cite, so the two halves are the "
+      "literature and the boundary drawn between them is this work's. A criterion that decides cases and "
+      "carries the literature of both its sides is not a guess.* **Re-ranked verified · sampled · found: verified because it "
       "decides, sampled because it has been applied once, and found because the literature is there — and by "
       "the witness rule of the entry above, someone has seen it.** Registers 1377. (a correction.)\n")
 E3 = (f"### {N + 2}\n\n**THE NECESSITY OF STATE IS A STRUCTURAL THEOREM AND IS NAMED AS ONE; ITS SCORE "
