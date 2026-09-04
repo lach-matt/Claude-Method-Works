@@ -10,7 +10,7 @@ python3 tools/docfigures.py               # the drift report; exit 1 if anything
 python3 tools/docfigures.py -v            # same, every row printed
 ```
 
-**57 pinned figures, 1.2 s, stdlib only.** Fast enough to run at the top of a session.
+**59 pinned figures, ~3 s, stdlib only.** Fast enough to run at the top of a session.
 
 ## Why it exists
 
@@ -86,6 +86,25 @@ Verified against the real failure: removing one pointer takes the row from 0 to 
 number still right?"* and cannot answer *"is this document still whole?"* Those are different
 questions and they need different instruments. Ask, of any check: what would a deletion look like
 here?
+
+## The two parse rows
+
+Two rows census `.py` files by *parsing* them — never importing, never executing, which matters in a
+tree of mirrored and recovered artefacts.
+
+**`seated members needing Python >= 3.12` = 10.** All ten are PEP 701: a backslash inside an f-string
+expression, such as `gate.py`'s `t.count(b"\n")`. A `SyntaxError` before 3.12, valid from it. They
+are **not corrupt** — they are newer than this container's default `python3` (3.11), and `gate.py`
+and `close.py` are among them. Under 3.12 all 117 seated members parse.
+
+**`.py files that parse under NO available interpreter` = 6.** The row runs against the newest
+`python3.X` on `PATH` so it is not hostage to whichever interpreter happens to be running
+`docfigures`. These six are genuine fragments, all recovered or extracted, none a member.
+
+The distinction is the whole point of having two rows. A first pass at this census reported *34 files
+that do not parse* and read it as a recovery-quality problem. It was mostly an interpreter-version
+artefact: 28 of the 34 are valid Python that 3.11 refuses. Counting against one interpreter and
+calling the result corruption would have been wrong about the corpus and wrong about the tool.
 
 ## What it refuses
 

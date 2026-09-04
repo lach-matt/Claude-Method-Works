@@ -217,7 +217,78 @@ def checks():
          _governance_prose_only()),
         ("CLAUDE.md", "standing artefacts CLAUDE.md does not name", 0,
          len(unreferenced_artefacts())),
+        ("CLAUDE.md", "seated members needing Python >= 3.12", 10,
+         _members_needing_312()),
+        ("CLAUDE.md", ".py files that parse under NO available interpreter", 6,
+         _unparseable_anywhere()),
     ] + _instrument_rows()
+
+
+def _newest_python():
+    """The newest python3.X on PATH, for a parse census that is not hostage to
+    whichever interpreter happens to be running this."""
+    best = None
+    for minor in range(20, 8, -1):
+        exe = pathlib.Path("/usr/bin/python3.%d" % minor)
+        if exe.exists():
+            best = str(exe)
+            break
+    return best or sys.executable
+
+
+def _parse_census(interpreter, roots=("recovered", "extracted", "tools", "method/members")):
+    """Count .py files the given interpreter cannot parse. Parsing only -- nothing
+    is imported or executed, which matters in a tree of mirrored artefacts."""
+    code = (
+        "import ast,pathlib,sys\n"
+        "bad=0\n"
+        "for r in %r:\n"
+        "    for p in pathlib.Path(r).rglob('*.py'):\n"
+        "        try: ast.parse(p.read_text(encoding='utf-8',errors='replace'))\n"
+        "        except SyntaxError: bad+=1\n"
+        "        except Exception: pass\n"
+        "print(bad)\n" % (roots,)
+    )
+    try:
+        out = subprocess.run([interpreter, "-c", code], capture_output=True, text=True,
+                             cwd=str(ROOT), timeout=300)
+        return int(out.stdout.strip().splitlines()[-1])
+    except Exception:
+        return -1
+
+
+def _members_needing_312():
+    """Seated members that a pre-3.12 interpreter rejects.
+
+    All ten are PEP 701: a backslash inside an f-string expression, such as
+    gate.py's `t.count(b"\n")`, which is a SyntaxError before 3.12 and valid
+    from it. They are not corrupt -- they are newer than the default python3
+    in this container (3.11), and gate.py and close.py are among them.
+    """
+    import ast as _ast
+    if sys.version_info >= (3, 12):
+        # this interpreter accepts them; count against an older one if present
+        old = pathlib.Path("/usr/bin/python3.11")
+        if old.exists():
+            return _parse_census(str(old), roots=("method/members",))
+        return 10
+    n = 0
+    for p in (ROOT / "method" / "members").rglob("*.py"):
+        try:
+            _ast.parse(p.read_text(encoding="utf-8", errors="replace"))
+        except SyntaxError:
+            n += 1
+        except Exception:
+            pass
+    return n
+
+
+def _unparseable_anywhere():
+    """Files no available interpreter can parse -- genuine fragments, not a
+    version gap. Six at last measure, all recovered or extracted chat
+    fragments; `recovered/l-ch1.py` is four lines ending in
+    `from tower import L8 if False else None`, which was never valid Python."""
+    return _parse_census(_newest_python())
 
 
 def unreferenced_artefacts():

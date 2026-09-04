@@ -84,6 +84,21 @@ No build, no linter, no package manager. Do not offer to add CI, and do not try 
 up". The `.py` files under `drive/` are mirrored Drive artifacts, not a codebase to maintain or
 execute.
 
+**Ten seated members need Python 3.12 or newer, and the default `python3` here is 3.11.** They use
+a backslash inside an f-string expression — `gate.py`'s `t.count(b"\n")` — which is a `SyntaxError`
+before 3.12 and legal from it (PEP 701). **They are not corrupt.** The ten are `gate.py`, `close.py`,
+`archive-split.py`, `r2-tools.py`, `r3-wl.py`, `r2-ch16n/s/t/u.py` and `r2-ch17c.py` — which includes
+the §0 gate and the close routine, so **run them with `python3.12`**, not the bare `python3`, or a
+`SyntaxError` will look like a damaged member. `method/verify.py` and every `tools/` instrument run
+fine on 3.11. Under 3.12 **all 117 seated members parse.**
+
+**Six `.py` files in the whole tree parse under no available interpreter**, and all six are
+recovered or extracted chat fragments rather than members: `recovered/l-ch1.py` (four lines, ending
+`from tower import L8 if False else None`), `recovered/readB.py`, `recovered/caps__163a1d7c.py`,
+`recovered/whatisit.py`, and two under `extracted/archives/chat66-instruments/`. A fragment is what
+`RECOVERED` means when a chat showed only part of a file; nothing distinguishes one from a complete
+instrument except reading it, so **parse before trusting a recovered `.py`.**
+
 **There is one test suite, and it is not general.** `tools/test_drive_sync.py` (215 lines, stdlib
 only, `python3 tools/test_drive_sync.py`) is a regression guard on `drive_sync.py` alone, because the
 mirror's guarantee is byte-exactness and each test defends one way that can fail silently. **Run it
