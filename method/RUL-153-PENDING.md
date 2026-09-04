@@ -101,3 +101,13 @@ hold recorded as ABSENT, not loss.*
   executed M's archive split into `The_Method_1_6_ARCHIVE1_legacy_handoffs_ch12-15.md`, held in the mirror byte-exact with
   the goldens (DEF-153Q, corrected). Seating the branch's `recovered/` copies would reverse that split and seat drafts
   (116 of 244 differ from the archived member). Open for M instead: whether `method/` carries ARCHIVE1 under `verify.py`.
+- **ARCHIVE1 under `verify.py` — CLOSED by the record, no ruling needed.** Chat-127's ruling 5 (HANDOFF-80-1 L116–121):
+  the gate verifies the live bundle alone and the archive by md5 on demand; W-169 records the md5. `verify.py` unchanged.
+
+**Q5 — Should R3 append the drafted Register slips the mirror holds — `REGISTER-QUEUE-APPEND-batch1/2/2b/2c` and
+`-repair-pass` (chats 53–58), `OWED-REGISTER-EXPANSIONS.md` (R-01 … R-06, the R 602–605 corrections) — as Register
+entries now, under the current numbering, each citing the entry it corrects and its source document, M reviewing
+each draft before it is seated?** They were parked for a "Register 1.1" no seated ruling names; the volumes carry
+their corrections and the Register does not, which is what the retraction audit measured (DEF-153R). Precedent:
+`REGISTER-QUEUE-APPEND-cypher-audit.md` → entries 1793–1796 at BUILD91. *Recommended: yes, one seating pass per queue
+document, drafts shown to M first; the twelve rows with no draft stay leads.*

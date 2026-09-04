@@ -64,3 +64,6 @@ One seating pass, from the branch's `recovered/` tree, each file carried with it
 3. the census-closure accounting re-taken after (1).
 It spans many files and rests on bodies whose names were inferred from headings for 55 of 56 readings. **It waits for M**
 (RUL-153-PENDING, Q4). Nothing under `recovered/` is a member until then.
+
+**Closed 2026-09-04 (DEF-153R):** chat-127's ruling 5 answers the one question this file left — the archive is verified by
+md5 on demand, not by the gate. `verify.py` is not changed.
