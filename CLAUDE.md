@@ -267,6 +267,18 @@ marker in a Register that marks elsewhere — corroboration, not proof. One row 
 absent from the nine volumes, **not** from the repo — the governance tree is outside them. Nothing
 was repaired. See `docs/RETRACTION-AUDIT.md`.
 
+**`docs/R3-REPAIR-PLAN.md` turns those 25 into items you can approve or refuse one at a time.** It
+is a **proposal and nothing in it has been done** — the chat-67 hold stands, and a plan is not a
+repair. It splits on the corpus's own mechanic, which `DEFERRED.md` states outright: **Batch A**, 9
+rows over 7 findings, is volume sites *repaired in place* by R3; **Batch B**, 17 rows over 13
+findings, is Register entries, and **a Register entry is never edited — the repair is a new appended
+entry citing the superseded one**. Each item names its site, what stands there, what the correction
+replaces it with, and a grade; a `MEDIUM` also names what would settle it. Three cautions carry:
+**A5 needs a ruling before any edit**, because register 1790 re-asserts the scope a repair would
+narrow; **A8 is the item most easily over-repaired**, since the claim survives and only its evidence
+falls; and **B4 is not a repair at all** — it is the file's one `CORRECTION-SUPERSEDED` row, where
+Ruling 66 makes the *correction* the stale record.
+
 **`REGISTER-GAPS.tsv` accounts for every hole in the Register's numbering.** The Register seats
 **1,660 entries** over 1–1792 (grouped headings `### 219, 220, 221` honoured — a bare `### N` read
 gives 1,628 and invents 32 gaps). **132 numbers have no entry**, and `RULING 27 — TWO REGISTERS`
