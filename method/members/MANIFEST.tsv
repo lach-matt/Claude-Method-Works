@@ -1,6 +1,6 @@
 bundle	name	bytes	md5	lines
-main	The_Method_1_6-2.md	784432	14e54c8097a8879b55fab255f6542720	11903
-main	The_Method_1_6___The_Register-2.md	1248411	550539819b5959627e987e874b1b9a5a	6742
+main	The_Method_1_6-2.md	784432	ffe43fd4081d4cfa3107acb94983ec67	11903
+main	The_Method_1_6___The_Register-2.md	1252955	caacd11e9eaafbf775149e6abfabe247	6754
 compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -206,7 +206,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1034488	8a32036a5c9666549b51018ca1c36c9b	8272
+compendia	WORKING-REGISTER.md	1037880	a3bdf47446817d5afc1f941700346a0b	8278
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
@@ -576,6 +576,9 @@ compendia	r3-lead.py	19790	2ff3557f19682b0c57f8e91608291dbc	199
 compendia	r3-mc-nos.py	7981	3831a333861587545667c78f63eadca5	139
 compendia	r3-pclaw.py	9872	d59c0a187922041b0c5704c2589dc375	124
 compendia	r3-q5a.py	19721	c76f3476ea79801a3e89410b23bc98c2	186
+compendia	r3-q5b-measure.out	2937	84242be73260f393eeb157c921503c1b	29
+compendia	r3-q5b-measure.py	6461	a1a19fa6c1d54e25887278d4427e973f	98
+compendia	r3-q5b.py	14540	827bfcf78d588281ee3b9264f55d28e8	140
 compendia	r3-reg104.py	11930	61c868af79f913fefe010ad14bec60d5	129
 compendia	r3-reg1g.py	14599	bd53c58b300de8bc4052c150f9d0309f	168
 compendia	r3-unwit.py	12112	22766966e7b90eb67eee1a74d0aa5dce	147

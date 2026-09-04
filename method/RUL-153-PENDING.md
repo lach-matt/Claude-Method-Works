@@ -119,3 +119,6 @@ document, drafts shown to M first; the twelve rows with no draft stay leads.*
   go to the Working Register as editorial; every figure an entry states is re-measured by running the slip's own
   instrument at this build before the entry is seated, and the entry says what was re-run and what it gave. This
   governs every later Q5 pass unless M says otherwise.
+- **Q5 pass 2 — RULED (M, 4 September 2026): *seat with the new instrument, proceed.*** Where a queue document's chat left
+  no instrument pack, the re-run is by an instrument of R3's, named in the entry as a re-derivation, the slip's own
+  account cited as the original.

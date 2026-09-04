@@ -1,0 +1,29 @@
+== B1-C1  the order dimension of Λ₈, by Dilworth on J(Λ₈)
+   |Λ₈|                                                             976                          OK
+   |J(Λ₈)|, the join-irreducibles                                   17                           OK
+   width of J(Λ₈) = dim(Λ₈), Dilworth 1950                          7                            OK
+   the slip's seven-generator antichain: seven join-irreducibles, pairwise incomparable True                         OK
+   J(Λ₈) = (1, 0, 1, 0, 1, 0, 0, 1) (1, 0, 1, 0, 2, 0, 0, 0) (1, 0, 1, 0, 2, 1, 0, 0) (1, 0, 1, 0, 3, 0, 0, 0) (1, 0, 1, 1, 1, 0, 0, 0) (1, 0, 1, 1, 1, 0, 1, 0) (1, 0, 2, 0, 1, 0, 0, 0) (1, 0, 2, 0, 1, 0, 0, 2) (1, 0, 2, 2, 1, 0, 0, 0) (1, 0, 2, 2, 1, 0, 2, 0) (2, 0, 1, 0, 1, 0, 0, 0) (2, 1, 1, 0, 1, 0, 0, 0) (2, 1, 3, 0, 1, 0, 0, 0) (2, 1, 3, 0, 1, 0, 0, 3) (2, 1, 3, 3, 1, 0, 0, 0) (2, 1, 3, 3, 2, 1, 3, 0) (3, 0, 1, 0, 1, 0, 0, 0)
+   |Λ₉|                                                             1654                         OK
+   width of J(Λ₉): per-axis rise fails at the first step            7                            OK
+   |J(Λ₉)| = 20
+== B1-C2  ω(N(x)) is bounded by the coordinate count
+   max ω over Λ₈ = the coordinate count                             8                            OK
+   cells attaining ω = 8                                            100                          OK
+   ω at (2,1,3,3,2,1,3,3), the tight cell                           8                            OK
+   min ω over Λ₈ (the floors n, k, e ≥ 1)                           3                            OK
+   ω = 8 exceeds dim = 7 at the tight cell                          True                         OK
+== B1-C3  Sperner by direct certificate; rank-symmetry fails
+   rank span                                                        (3, 20)                      OK
+   rank sequence, ranks 3–20                                        [1, 5, 15, 34, 59, 87, 108,  OK
+   largest level                                                    122                          OK
+   log-concave                                                      True                         OK
+   largest antichain of Λ₈ = size of a minimum chain partition (Dilworth) 122                          OK
+   Sperner: largest antichain = largest level                       True                         OK
+   mean rank, four decimals (tower.py prints 11.0666)               11.0666                      OK
+   rank skew = mean rank − centre of the span, two decimals         -0.43                        OK
+   mirrored levels: second from the bottom against second from the top (5, 4)                       OK
+   reflection x ↦ max − x: survivors                                8                            OK
+   reflection: fixed points                                         0                            OK
+
+   integrity checks: ALL OK

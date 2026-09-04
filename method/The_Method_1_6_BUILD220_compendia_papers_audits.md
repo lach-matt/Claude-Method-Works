@@ -23265,6 +23265,12 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **Held, and newly named: `r2-reg11a2` and `r2-reg12b`.** Both select census rows by Register line, and the seated census stands at BUILD188's lines (DEF-153O). The Register's front matter has now grown three lines under them (W-218's two, this pass's one), and a census row keyed to L1469 — unit 12's first line at BUILD188 — now falls inside unit 11's range (7 → 8 rows) and outside unit 12's (250 → 249). W-218 said no row lay within two lines of a bound; three lines later one does. Re-banking would bank a line-keyed selection as a fact, the reason `r2-ch18b` and `r2-ch23b` are held; these two join them, and the content-keyed census successor and `close_census.py` move up the queue. `r2-reg12b`'s other movement (70,905 stated by six entries, the five new ones among them) is real and is recorded here, not banked.
 - **Held, unchanged in kind:** `r2-ch18b`, `r2-ch23b`, `r2-26b`, `r3-wl`, the superseded predecessors.
 
+### W-225 — R3 — Book repairs and corrections — Q5 pass 2 seated: the chat-54 B-list batch 1 slips as registers 1826–1828, every figure re-derived by an instrument of R3's, seated with its golden; the W-B1 record carried here. BUILD219 -> BUILD220
+
+- **M's ruling on the draft** (DRAFT-Q5-02-batch1.md; RUL-153): *seat with the new instrument, proceed.* Chat 54 left no instrument pack. `r3-q5b-measure.py` takes Λ₈ from the seated `tower-2.py` (imported by path) and derives, with the standard library, every figure the three slips state: |J(Λ₈)| = 17 and its width 7 by Dilworth with the slip's seven-generator antichain checked join-irreducible and pairwise incomparable, |J(Λ₉)| = 20 at width 7 on 1,654 cells (B1-C1); ω(N(x)) as the number of positive coordinates — maximum 8 at 100 cells, 8 at (2,1,3,3,2,1,3,3), minimum 3 (B1-C2); the rank sequence 1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1, log-concave, the largest antichain 122 by Dilworth equal to the largest level, 5 against 4 at the second level from either end, eight reflection survivors and none fixed (B1-C3). **One convention recovered, not assumed:** the slip's "skew −0.43" is the mean rank 11.0666 against the centre of the rank span, 11.5 — a rank-symmetric poset would put the mean at the centre; the third standardised moment gives +0.14 and is not the slip's figure. The instrument states this and the entry says "recovered". Golden `r3-q5b-measure.out`, banked by running (60 s). `r3-q5b.py` runs it, asserts its golden and the figures, and only then appends the three entries; no volume site is edited (§8.6 already prints the seven; the compendium objects L.dim, L.omega and L.sperner are no longer printed by the live Mathematical Compendium, which names the handles only in its bibliography — each entry says so). Kinds: three corrections (180); no entry reached seven citations.
+- **The W-B1 record, carried here as chat 54 wrote it (editorial; never enters the books).** B-list batch 1 authored and verified (MC-01 … MC-06), chat 54, BUILD55 → BUILD56, every claim computationally verified on the build before writing: MC-01 `L.closed` — 475,800 pairs, 0 join/meet failures; MC-02 `L.dist` — exact by pointwise identity, 4,000 triples, 0 failures; MC-03 `L.modular` — 475,800 pairs, 0 failures, grade COMPUTED → PROVED; MC-04 `L.birk` — 17 J, 20 covers, all 2¹⁷ subsets enumerated, exactly 976 down-sets, fifteen support patterns identical at four cap settings with generators 17 / 24 / 33 / 35, → PROVED; MC-05 `L.sperner` — the sequence above, log-concave, Dilworth certificate 122, skew −0.43, 8 reflection survivors, 0 fixed, → PROVED, Peck note corrected (B1-C3); MC-06 `L.dim` — refuted as stated and authored as the theorem dim = 7 (B1-C1), `L.omega` fixed (B1-C2), main §8.6 rewritten, the ω-bound sentence and the audit-hierarchy parallel fixed. Volume identity BUILD56: main 18,446 lines, md5 5292fce89637c6b495363f76f99a4885; compendia 32,451 lines, md5 4fb5b6b361e8568db968ba7610326a72; diff(BUILD55, BUILD56) exactly the nine approved edits. This chat re-derived MC-04's 17 join-irreducibles and MC-05's certificate with the batch; MC-01 to MC-03 were not re-run (no entry states them).
+- **Seated this close:** `r3-q5b.py`, `r3-q5b-measure.py`, `r3-q5b-measure.out`; BUILD106 main; BUILD105 leaves the tree.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35641,8 +35647,8 @@ extent from Register L6: 1 to 1825
 
 <<<FILE: MANIFEST.tsv>>>
 bundle	name	bytes	md5	lines
-main	The_Method_1_6-2.md	784432	14e54c8097a8879b55fab255f6542720	11903
-main	The_Method_1_6___The_Register-2.md	1248411	550539819b5959627e987e874b1b9a5a	6742
+main	The_Method_1_6-2.md	784432	ffe43fd4081d4cfa3107acb94983ec67	11903
+main	The_Method_1_6___The_Register-2.md	1252955	caacd11e9eaafbf775149e6abfabe247	6754
 compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -35848,7 +35854,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1034488	8a32036a5c9666549b51018ca1c36c9b	8272
+compendia	WORKING-REGISTER.md	1037880	a3bdf47446817d5afc1f941700346a0b	8278
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
@@ -36218,6 +36224,9 @@ compendia	r3-lead.py	19790	2ff3557f19682b0c57f8e91608291dbc	199
 compendia	r3-mc-nos.py	7981	3831a333861587545667c78f63eadca5	139
 compendia	r3-pclaw.py	9872	d59c0a187922041b0c5704c2589dc375	124
 compendia	r3-q5a.py	19721	c76f3476ea79801a3e89410b23bc98c2	186
+compendia	r3-q5b-measure.out	2937	84242be73260f393eeb157c921503c1b	29
+compendia	r3-q5b-measure.py	6461	a1a19fa6c1d54e25887278d4427e973f	98
+compendia	r3-q5b.py	14540	827bfcf78d588281ee3b9264f55d28e8	140
 compendia	r3-reg104.py	11930	61c868af79f913fefe010ad14bec60d5	129
 compendia	r3-reg1g.py	14599	bd53c58b300de8bc4052c150f9d0309f	168
 compendia	r3-unwit.py	12112	22766966e7b90eb67eee1a74d0aa5dce	147
@@ -107749,3 +107758,279 @@ members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main 14e54c80 
    of its own prior-art line; the class asks for a figure the block states about its object that its sources
    do not carry, and there is none. The two "in source" are 1020 and 1022 because 1483 and 1484 name them.
 <<<END FILE: r2-bib2.out>>>
+
+<<<FILE: r3-q5b.py>>>
+#!/usr/bin/env python3
+"""r3-q5b.py — R3: Q5 pass 2. The chat-54 B-list batch 1 slips B1-C1, B1-C2, B1-C3 seated as registers 1826–1828, every
+figure re-derived first by r3-q5b-measure.py (chat 54 left no instrument pack; M ruled the re-run is by an instrument of
+R3's, named as a re-derivation), seated beside them with its golden. BUILD105 -> BUILD106 main.
+
+No volume site is edited: the slips' corrections are already in the volumes (§8.6 prints the order dimension as seven)
+and the compendium objects they corrected by handle (L.dim, L.omega, L.sperner) are no longer printed by the live
+Mathematical Compendium, which names the handles only in its bibliography (r2-bib2, register 1813's class). The count
+classes of entries 1815 and 1816 are re-taken in the same build.
+
+Usage:  python3 r3-q5b.py            dry run (runs the measurement, builds nothing)
+        python3 r3-q5b.py --write    writes staging members + BUILD106 main
+"""
+import os, sys, re, hashlib, runpy, tempfile, subprocess, io, contextlib, importlib.util, time
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+TOOLS = os.path.join(REPO, 'tools') + os.sep
+OLD_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD105_main_and_register.md'); OLD_M_MD5 = 'dae0163204d1604764c45cfd0fb4f094'
+NEW_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD106_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build106') + os.sep
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+g = lambda n: '{:,}'.format(n)
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+
+# ---- the measurement, from the seated instrument ------------------------------------------------------------------------
+p = subprocess.run([sys.executable, MEM + 'r3-q5b-measure.py'], capture_output=True, text=True, cwd=MEM)
+print(p.stdout.rstrip()); assert p.returncode == 0 and 'integrity checks: ALL OK' in p.stdout, 'r3-q5b-measure.py did not pass'
+gold = open(MEM + 'r3-q5b-measure.out', encoding='utf-8').read(); assert p.stdout == gold, 'r3-q5b-measure.out is not this run'
+for s_ in ('width of J(Λ₈) = dim(Λ₈), Dilworth 1950                          7', 'seven join-irreducibles, pairwise incomparable True', 'width of J(Λ₉): per-axis rise fails at the first step            7',
+           'max ω over Λ₈ = the coordinate count                             8', 'cells attaining ω = 8                                            100', 'min ω over Λ₈ (the floors n, k, e ≥ 1)                           3',
+           'largest antichain of Λ₈ = size of a minimum chain partition (Dilworth) 122', 'rank skew = mean rank − centre of the span, two decimals         -0.43', 'reflection x ↦ max − x: survivors                                8'):
+    assert s_ in p.stdout, s_
+print('MEASURED at this build: every figure the three entries state reproduces from r3-q5b-measure.py.')
+
+# ---- the volumes as they stand --------------------------------------------------------------------------------------
+old = {n: open(MEM + n, 'rb').read() for n in (MAIN, REG)}
+txt = {n: old[n].decode('utf-8') for n in old}
+r = txt[REG]; assert r.count('### 1826\n') == 0 and r.rstrip().endswith('Registers 627; 1823. (a correction.)')
+
+RD = 'Re-derived at this build by r3-q5b-measure.py, seated with this entry with its golden — chat 54 left no instrument, and M ruled (RUL-153, pass 2) that the re-run is an instrument of R3\'s, named as such; Λ₈ is taken from the seated tower-2.py — '
+ENTRIES = """
+
+### 1826
+
+**THE ORDER DIMENSION OF Λ₈ IS SEVEN, NOT EIGHT; THE ASSERTED FIGURE IS CORRECTED BY THE DERIVATION IT NEVER HAD.** *Register 35 proved dim = 3 at three coordinates both ways; register 36 exhibited the standard example. The extension "dimension = coordinate count, rising by one per adjoined axis" was carried without re-running the lower-bound half at any later stage, and register 409 recorded it as the one underived quantity in Part II. The derivation now run: width of J(Λ₈) = 7, certified by a seven-chain Dilworth partition (upper) and a seven-generator antichain (lower — (1,0,1,0,1,0,0,1), (1,0,1,0,2,1,0,0), (1,0,1,0,3,0,0,0), (1,0,1,1,1,0,0,0), (1,0,2,0,1,0,0,0), (2,1,1,0,1,0,0,0), (3,0,1,0,1,0,0,0)), so dim(Λ₈) = 7 by Dilworth 1950. Mechanism: every g-raising generator lies above the q-atom because g ≤ q — the coupling welds g's order-information to q's; kin to register 1143's production rule (monotone production adds no join-irreducibles). Λ₉ also measures width 7 (|Λ₉| = 1,654 confirmed), so per-axis rise fails at the first step. Corrects the claim register 409 records; §8.6 now prints the seven; the compendium object L.dim, as it stood at BUILD56, carried the theorem, and the live compendium names the handle only in its bibliography. Drafted at chat 54 (B-list batch 1, MC-06) as slip B1-C1 and queued for a "Register 1.1"; seated under RUL-153 Q5. """ + RD + """|J(Λ₈)| = 17 and its width 7, the seven listed generators join-irreducible and pairwise incomparable, |J(Λ₉)| = 20 with width 7 on 1,654 cells. Both states preserved.* Registers 35; 36; 409; 1143. (a correction.)
+
+### 1827
+
+**ω(N(x)) IS BOUNDED BY THE COORDINATE COUNT, NOT THE ORDER DIMENSION.** *The printed proof — one prime per coordinate — always proved ω ≤ 8; the bound was quoted against dim(Λ) when 8 was believed to be the dimension. With dim = 7 (register 1826) the quoted form is false — the cell (2,1,3,3,2,1,3,3) attains ω = 8 > 7 — and the corrected form ω ≤ 8 is tight at that cell. The object L.omega's dependency on L.dim is released (now L.arith, L.def), as it stood at BUILD56. Drafted at chat 54 as slip B1-C2; seated under RUL-153 Q5. """ + RD + """ω read as the number of coordinates at which a cell is positive: maximum 8 over Λ₈, attained at 100 cells, 8 at (2,1,3,3,2,1,3,3), minimum 3 by the floors n, k, e ≥ 1. Both states preserved.* Registers 1826. (a correction.)
+
+### 1828
+
+**THE PECK INHERITANCE ON L.sperner WAS OVER-BROAD; SPERNER SURVIVES BY DIRECT CERTIFICATE, SYMMETRY DOES NOT TRANSFER.** *Stanley 1980's Peck property includes rank-symmetry, which Λ measurably lacks (skew −0.43; 5 against 4 at rank 4). The register entry recording the compendium generator fix quoted the old wording ("Λ is of that form, and the property is INHERITED") — that entry stands as history; the compendium object, as it stood at BUILD56, carried the direct proof: a Dilworth partition of all 976 cells into 122 chains, max antichain = 122 = the largest level. Register 44 had stated the property (Sperner though not rank-symmetric); register 1794 later read the rank-skew and Sperner entries against each other. Drafted at chat 54 as slip B1-C3; seated under RUL-153 Q5. """ + RD + """the rank sequence 1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1 over ranks 3–20, log-concave; the largest antichain 122 by Dilworth, equal to the largest level; the mean rank 11.0666 sitting 0.43 below the centre of the span, which is the convention that reproduces the slip's skew (the third standardised moment gives +0.14 and is not it — recovered, stated); 5 against 4 at the second level from either end; eight cells surviving the reflection x ↦ max − x, none fixed. Both states preserved.* Registers 44; 1228; 1794. (a correction.)
+"""
+def with_entries(t): return t.rstrip() + ENTRIES + '\n'
+SUBS = {}
+new = dict(txt)
+new[REG] = with_entries(new[REG])
+
+# ---- the counts, from the seated tools on the members as they will stand (entries 1815 and 1816's classes) --------------
+stage = tempfile.mkdtemp(prefix='r3-q5a-')
+for f in os.listdir(MEM):
+    if f.endswith('.md') and f not in new: os.symlink(MEM + f, os.path.join(stage, f))
+for n in new: open(os.path.join(stage, n), 'w', encoding='utf-8').write(new[n])
+cwd = os.getcwd(); os.chdir(stage); buf = io.StringIO()
+with contextlib.redirect_stdout(buf): G = runpy.run_path(MEM + 'register_cites.py', run_name='__main__')
+os.chdir(cwd)
+byent, bymain, comp = G['byent'], G['bymain'], G['comp']
+CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY = len(byent), len(bymain), len(set(bymain) | set(comp)), len(byent + bymain + comp)
+TOP = sorted(((n, k) for n, k in byent.items() if k >= 7), key=lambda t: (-t[1], t[0]))
+kout = subprocess.run([sys.executable, MEM + 'kinds.py', os.path.join(stage, REG)], capture_output=True, text=True, cwd=MEM).stdout.split('\n')[0]
+K_N = int(kout.split()[0]); K = eval(kout[kout.index('{'):])
+for f in os.listdir(stage): os.unlink(os.path.join(stage, f))
+os.rmdir(stage)
+sys.path.insert(0, TOOLS); import close_main as cm; import register_counts as rc
+print('register_cites with 1826–1828: by entries %d | main %d | main+companions %d | anywhere %d | >=7 %s' % (CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY, TOP))
+print('kinds.py: %d %s' % (K_N, K))
+rr, edits = cm.recount(new[REG]); assert edits
+for o, n in edits: print('recount: %s -> %s' % (o[:50], n[:50]))
+c = rc.count(rr)
+def sub1(t, pat, repl, label):
+    m = re.search(pat, t, re.M); assert m, label + ': anchor absent'
+    n = repl(m); assert t.count(m.group(0)) == 1, label + ': anchor not unique'
+    print('%-40s %s -> %s' % (label, m.group(0)[:60].replace('\n', ' '), n[:60].replace('\n', ' ')) if n != m.group(0) else '%-40s unchanged' % label)
+    return t.replace(m.group(0), n)
+for kind in ('a finding', 'a correction', 'a measurement', 'a new protocol', 'a withdrawal', 'prior art', 'an open question', 'a fault of mine'):
+    rr = sub1(rr, r'^\| \*\*%s\*\* \| (\d[\d,]*) \| (\d+) \|' % re.escape(kind), lambda m, kind=kind: '| **%s** | %s | %s |' % (kind, g(K[kind]), m.group(2)), 'kinds row ' + kind)
+rr = sub1(rr, r'by `kinds\.py` over the (\d[\d,]*) entry headings,', lambda m: 'by `kinds.py` over the %s entry headings,' % g(K_N), 'kinds headings')
+rr = sub1(rr, r'\*\*(\d[\d,]*) entries are cited by other entries\.\*\*', lambda m: '**%d entries are cited by other entries.**' % CITED_BY, 'cited by entries')
+rr = sub1(rr, r'the (\d+) cited seven times or more:', lambda m: 'the %d cited seven times or more:' % len(TOP), 'the N cited')
+rr = sub1(rr, r'\*\*(\d[\d,]*) entries are cited in the main volume\'s chapters and appendices; (\d[\d,]*) counting the four compendia and the two papers; (\d[\d,]*) counting citations by other entries\.\*\*',
+          lambda m: '**%d entries are cited in the main volume\'s chapters and appendices; %d counting the four compendia and the two papers; %s counting citations by other entries.**' % (CITED_MAIN, CITED_MC, g(CITED_ANY)), 'cited 3 figures')
+rows = re.findall(r'^\| \*\*(\d+)\*\* \| (\d+)× \| (.*) \|$', rr, re.M)
+what = {int(e): w for e, _, w in rows}
+# No entry is expected to reach seven citations with this pass; if one does the instrument refuses (a new row is a hand act).
+NEW_ROWS = {}
+norm = lambda t: re.sub(r'\W', '', t).casefold()
+def headline(e):
+    body = new[REG].split('\n### %d\n' % e, 1)[1]; return re.match(r'\s*\*\*(.+?)\*\*', body, re.S).group(1).strip()
+for e, w in NEW_ROWS.items(): assert norm(headline(e)) == norm(w), (e, headline(e))
+assert sorted(set(what) | set(NEW_ROWS)) == sorted(n for n, _ in TOP) and not (set(what) & set(NEW_ROWS)), ('the >=7 set changed beyond the hand-written rows; REFUSED', sorted(what), TOP)
+what.update(NEW_ROWS); print('table: +%d row(s) %s' % (len(NEW_ROWS), sorted(NEW_ROWS)))
+i0 = rr.index('| entry | cited | what it established |\n|---|---|---|\n'); i1 = rr.index('\n\n', i0)
+rr = rr[:i0] + '| entry | cited | what it established |\n|---|---|---|\n' + ''.join('| **%d** | %d× | %s |\n' % (n, k, what[n]) for n, k in TOP) + rr[i1 + 1:]
+new[REG] = rr
+mm = new[MAIN]
+mm = sub1(mm, r'(\d[\d,]*) entries, 1 to (\d+), at this build \(2026-09-04\)', lambda m: '%s entries, 1 to %d, at this build (2026-09-04)' % (g(c['headings']), c['highest']), 'main: at this build')
+mm = sub1(mm, r'436 entries when this paragraph was written, (\d[\d,]*) at this build', lambda m: '436 entries when this paragraph was written, %s at this build' % g(c['headings']), 'main: N at this build')
+mm = sub1(mm, r'at this build the main volume cites (\d+) entries', lambda m: 'at this build the main volume cites %d entries' % CITED_MAIN, 'main: cites N')
+new[MAIN] = mm
+c2 = rc.count(new[REG]); p2 = rc.printed(new[REG])
+assert (p2['front_total'], p2['front_highest'], p2['front_mature'], p2['front_mature_highest'], p2['back_mature_highest']) == (c2['headings'], c2['highest'], c2['mature'], c2['highest'], c2['highest']), (p2, c2)
+assert c2['genesis'] + c2['superseded'] + c2['mature'] == c2['headings'] == p2['front_total']
+print('the front matter sums to itself: %d + %d + %d = %d, highest %d' % (c2['genesis'], c2['superseded'], c2['mature'], c2['headings'], c2['highest']))
+
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v in new:
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:40], txt[v].count(a), new[v].count(a)) for a in anchors if txt[v].count(a) != new[v].count(a)]
+    print('build.py SUBS anchors on %-36s %3d checked; moved: %s' % (v, len(anchors), moved)); assert not moved
+for v in new: print('%-36s %d -> %d B, lines %+d' % (v, len(old[v]), len(new[v].encode('utf-8')), new[v].count('\n') - txt[v].count('\n')))
+if WRITE: assert not os.path.exists(OUT); os.makedirs(OUT)
+elif not os.path.isdir(OUT): os.makedirs(OUT)
+for v in new: open(OUT + v, 'wb').write(new[v].encode('utf-8'))
+ob = open(OLD_M, 'rb').read(); assert md5(ob) == OLD_M_MD5, 'BUILD105 md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(ob)); nb = ob
+for n in (MAIN, REG):
+    assert ms[n] == old[n]; b0 = block(n, ms[n]); assert nb.count(b0) == 1; nb = nb.replace(b0, block(n, new[n].encode('utf-8')))
+rv = nb
+for n in (MAIN, REG):
+    b1 = block(n, new[n].encode('utf-8')); assert rv.count(b1) == 1; rv = rv.replace(b1, block(n, ms[n]))
+assert md5(rv) == OLD_M_MD5, 'reverse FAILED'
+print('BUILD105 -> BUILD106: reverse recovers md5 %s == old: True; new %s B md5 %s %s lines' % (OLD_M_MD5, format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ',')))
+if WRITE: assert not os.path.exists(NEW_M); open(NEW_M, 'wb').write(nb); print('written', NEW_M)
+else: print('DRY RUN — nothing installed')
+<<<END FILE: r3-q5b.py>>>
+
+<<<FILE: r3-q5b-measure.py>>>
+#!/usr/bin/env python3
+# r3-q5b-measure.py — R3 (Q5 pass 2): the chat-54 B-list batch 1 slips re-derived. Chat 54 left no instrument pack, and
+# M ruled (RUL-153, pass 2) that the re-run is by an instrument of R3's, named as a re-derivation. Λ₈ is taken from the
+# seated tower-2.py (imported by path, never copied); everything below is standard library, deterministic, no wall clock.
+#
+# What it measures, each against the slip that states it:
+#   B1-C1  J(Λ₈), the join-irreducibles of the lattice under componentwise order; the width of J(Λ₈) by Dilworth — the
+#          largest antichain, and a chain partition of the same size — and the seven-generator antichain the slip lists;
+#          J(Λ₉) and its width. dim(Λ₈) = width J(Λ₈) is Dilworth 1950 for a finite distributive lattice.
+#   B1-C2  ω(N(x)) = the number of coordinates at which x is positive (one prime per coordinate in the divisor
+#          embedding; B2-C1's reading): its maximum, the cells attaining it, its minimum, and the tight cell.
+#   B1-C3  the rank sequence (rank = coordinate sum), the largest level, a Dilworth chain partition of all 976 cells
+#          and the largest antichain (Sperner: largest antichain = largest level), the rank skew, the mirrored level
+#          counts, and the reflection x ↦ max − x (survivors, fixed points).
+# Checks are the slips' figures; a mismatch prints EXPECTED and the instrument exits 1.
+import os, sys, importlib.util, collections, math
+H = os.path.dirname(os.path.abspath(__file__))
+spec = importlib.util.spec_from_file_location('tower2', os.path.join(H, 'tower-2.py')); T2 = importlib.util.module_from_spec(spec)
+import io, contextlib
+with contextlib.redirect_stdout(io.StringIO()): spec.loader.exec_module(T2)
+FAIL = []
+def check(tag, got, exp):
+    ok = got == exp; print('   %-64s %-28s %s' % (tag, repr(got)[:28], 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def leq(x, y): return all(a <= b for a, b in zip(x, y))
+def max_matching(left, right_of):
+    # Hopcroft–Karp is unnecessary at this size: augmenting paths over the comparability bipartite graph
+    match_r = {}; match_l = {}
+    def try_aug(u, seen):
+        for v in right_of[u]:
+            if v in seen: continue
+            seen.add(v)
+            if v not in match_r or try_aug(match_r[v], seen):
+                match_r[v] = u; match_l[u] = v; return True
+        return False
+    for u in left: try_aug(u, set())
+    return len(match_l)
+def width(P):
+    # Dilworth: minimum chain partition = |P| - maximum matching in the bipartite graph (x -> y for x < y);
+    # its size equals the largest antichain. Both the number and an antichain witness are returned.
+    P = sorted(P); idx = {p: i for i, p in enumerate(P)}
+    right_of = {i: [idx[q] for q in P if q != p and leq(p, q)] for i, p in enumerate(P)}
+    m = max_matching(list(range(len(P))), right_of)
+    return len(P) - m
+def antichain_ok(cells, P):
+    S = set(P); return all(c in S for c in cells) and all(not leq(a, b) for a in cells for b in cells if a != b)
+
+print('== B1-C1  the order dimension of Λ₈, by Dilworth on J(Λ₈)')
+L8 = sorted(T2.L8()); S8 = set(L8)
+check('|Λ₈|', len(L8), 976)
+bottom = min(L8)
+def lower_covers(x, L, S):
+    below = [y for y in L if y != x and leq(y, x)]
+    return [y for y in below if not any(z != y and z != x and leq(y, z) and leq(z, x) for z in below)]
+J8 = [x for x in L8 if x != bottom and len(lower_covers(x, L8, S8)) == 1]
+check('|J(Λ₈)|, the join-irreducibles', len(J8), 17)
+w8 = width(J8)
+check('width of J(Λ₈) = dim(Λ₈), Dilworth 1950', w8, 7)
+A7 = [(1,0,1,0,1,0,0,1), (1,0,1,0,2,1,0,0), (1,0,1,0,3,0,0,0), (1,0,1,1,1,0,0,0), (1,0,2,0,1,0,0,0), (2,1,1,0,1,0,0,0), (3,0,1,0,1,0,0,0)]
+check("the slip's seven-generator antichain: seven join-irreducibles, pairwise incomparable", antichain_ok(A7, J8) and len(A7) == 7, True)
+print('   J(Λ₈) =', ' '.join(str(j) for j in J8))
+L9 = sorted(T2.L9()); S9 = set(L9); b9 = min(L9)
+check('|Λ₉|', len(L9), 1654)
+J9 = [x for x in L9 if x != b9 and len(lower_covers(x, L9, S9)) == 1]
+check('width of J(Λ₉): per-axis rise fails at the first step', width(J9), 7)
+print('   |J(Λ₉)| =', len(J9))
+
+print('== B1-C2  ω(N(x)) is bounded by the coordinate count')
+om = {x: sum(1 for v in x if v > 0) for x in L8}
+check('max ω over Λ₈ = the coordinate count', max(om.values()), 8)
+check('cells attaining ω = 8', sum(1 for v in om.values() if v == 8), 100)
+check('ω at (2,1,3,3,2,1,3,3), the tight cell', om[(2,1,3,3,2,1,3,3)], 8)
+check('min ω over Λ₈ (the floors n, k, e ≥ 1)', min(om.values()), 3)
+check('ω = 8 exceeds dim = 7 at the tight cell', om[(2,1,3,3,2,1,3,3)] > w8, True)
+
+print('== B1-C3  Sperner by direct certificate; rank-symmetry fails')
+rk = collections.Counter(sum(x) for x in L8); lo, hi = min(rk), max(rk)
+seq = [rk[r] for r in range(lo, hi + 1)]
+check('rank span', (lo, hi), (3, 20))
+check('rank sequence, ranks 3–20', seq, [1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1])
+check('largest level', max(seq), 122)
+check('log-concave', all(seq[i] ** 2 >= seq[i - 1] * seq[i + 1] for i in range(1, len(seq) - 1)), True)
+wL = width(L8)
+check('largest antichain of Λ₈ = size of a minimum chain partition (Dilworth)', wL, 122)
+check('Sperner: largest antichain = largest level', wL == max(seq), True)
+n = len(L8); mu = sum(sum(x) for x in L8) / n
+# "skew −0.43" — RECOVERED: the mean rank against the centre of the rank span, 11.0666 − 11.5 (tower.py prints the mean
+# rank 11.0666); a rank-symmetric poset would put the mean at the centre. The third standardised moment gives +0.14
+# and is not the slip's figure; the convention that reproduces it is stated here rather than assumed.
+check('mean rank, four decimals (tower.py prints 11.0666)', round(mu, 4), 11.0666)
+check('rank skew = mean rank − centre of the span, two decimals', round(mu - (lo + hi) / 2, 2), -0.43)
+check('mirrored levels: second from the bottom against second from the top', (seq[1], seq[-2]), (5, 4))
+mx = tuple(max(x[i] for x in L8) for i in range(8))
+refl = [x for x in L8 if tuple(m - v for m, v in zip(mx, x)) in S8]
+check('reflection x ↦ max − x: survivors', len(refl), 8)
+check('reflection: fixed points', sum(1 for x in refl if tuple(m - v for m, v in zip(mx, x)) == x), 0)
+print('\n   integrity checks: %s' % ('ALL OK' if not FAIL else 'FAILED: ' + '; '.join(FAIL)))
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r3-q5b-measure.py>>>
+
+<<<FILE: r3-q5b-measure.out>>>
+== B1-C1  the order dimension of Λ₈, by Dilworth on J(Λ₈)
+   |Λ₈|                                                             976                          OK
+   |J(Λ₈)|, the join-irreducibles                                   17                           OK
+   width of J(Λ₈) = dim(Λ₈), Dilworth 1950                          7                            OK
+   the slip's seven-generator antichain: seven join-irreducibles, pairwise incomparable True                         OK
+   J(Λ₈) = (1, 0, 1, 0, 1, 0, 0, 1) (1, 0, 1, 0, 2, 0, 0, 0) (1, 0, 1, 0, 2, 1, 0, 0) (1, 0, 1, 0, 3, 0, 0, 0) (1, 0, 1, 1, 1, 0, 0, 0) (1, 0, 1, 1, 1, 0, 1, 0) (1, 0, 2, 0, 1, 0, 0, 0) (1, 0, 2, 0, 1, 0, 0, 2) (1, 0, 2, 2, 1, 0, 0, 0) (1, 0, 2, 2, 1, 0, 2, 0) (2, 0, 1, 0, 1, 0, 0, 0) (2, 1, 1, 0, 1, 0, 0, 0) (2, 1, 3, 0, 1, 0, 0, 0) (2, 1, 3, 0, 1, 0, 0, 3) (2, 1, 3, 3, 1, 0, 0, 0) (2, 1, 3, 3, 2, 1, 3, 0) (3, 0, 1, 0, 1, 0, 0, 0)
+   |Λ₉|                                                             1654                         OK
+   width of J(Λ₉): per-axis rise fails at the first step            7                            OK
+   |J(Λ₉)| = 20
+== B1-C2  ω(N(x)) is bounded by the coordinate count
+   max ω over Λ₈ = the coordinate count                             8                            OK
+   cells attaining ω = 8                                            100                          OK
+   ω at (2,1,3,3,2,1,3,3), the tight cell                           8                            OK
+   min ω over Λ₈ (the floors n, k, e ≥ 1)                           3                            OK
+   ω = 8 exceeds dim = 7 at the tight cell                          True                         OK
+== B1-C3  Sperner by direct certificate; rank-symmetry fails
+   rank span                                                        (3, 20)                      OK
+   rank sequence, ranks 3–20                                        [1, 5, 15, 34, 59, 87, 108,  OK
+   largest level                                                    122                          OK
+   log-concave                                                      True                         OK
+   largest antichain of Λ₈ = size of a minimum chain partition (Dilworth) 122                          OK
+   Sperner: largest antichain = largest level                       True                         OK
+   mean rank, four decimals (tower.py prints 11.0666)               11.0666                      OK
+   rank skew = mean rank − centre of the span, two decimals         -0.43                        OK
+   mirrored levels: second from the bottom against second from the top (5, 4)                       OK
+   reflection x ↦ max − x: survivors                                8                            OK
+   reflection: fixed points                                         0                            OK
+
+   integrity checks: ALL OK
+<<<END FILE: r3-q5b-measure.out>>>

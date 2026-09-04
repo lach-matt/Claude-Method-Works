@@ -1,4 +1,12 @@
-# DRAFT for M's review — Q5 pass 2: the chat-54 B-list batch 1 slips as Register entries 1826–1828. NOTHING SEATED.
+# DRAFT for M's review — Q5 pass 2: the chat-54 B-list batch 1 slips as Register entries 1826–1828. RULED AND SEATED (W-225).
+
+**M's ruling (4 September 2026): seat with the new instrument, proceed.** Seated as 1826, 1827, 1828 with the re-run sentences
+filled from `r3-q5b-measure.py`; the draft below is kept as reviewed.
+
+---
+
+*The draft as reviewed:*
+
 
 Source: `drive/The Method Materials/REGISTER-QUEUE-APPEND-batch1.md` (chat 54, BUILD55 → BUILD56), slips B1-C1, B1-C2,
 B1-C3, "numbers await Register 1.1 (append-only; Ruling 27)". Pass 1's rulings govern (RUL-153): approved form; production
