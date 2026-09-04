@@ -86,10 +86,31 @@ def check_repo():
     return script, branch
 
 
+def inspect_existing(out):
+    """Classify whatever is already at ``out``.
+
+    ``None``      nothing there, shard normally
+    ``"partial"`` non-empty but not a finished tree, re-shard over it
+    ``(n, rows)`` a finished tree: n shard files against INDEX.tsv's row count
+    """
+    if not os.path.isdir(out) or not os.listdir(out):
+        return None
+    index = os.path.join(out, "INDEX.tsv")
+    if not os.path.isfile(index):
+        return "partial"
+    with open(index) as handle:
+        rows = max(0, sum(1 for _ in handle) - 1)
+    shards = sum(1 for dirpath, _, names in os.walk(out) for name in names
+                 if name.endswith(".json") and os.path.abspath(dirpath) != os.path.abspath(out))
+    return (shards, rows)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--dry-run", action="store_true",
                         help="stop after the sharder's dry run; write nothing")
+    parser.add_argument("--force", action="store_true",
+                        help="re-shard even if a finished tree is already at the output path")
     parser.add_argument("--max-shard-mib", type=float, default=40.0,
                         help="refuse to commit if any shard is at least this large "
                              "(default 40, the trigger in docs/REPO-SIZE.md)")
@@ -115,9 +136,32 @@ def main():
         print("\n--dry-run given: stopping here. Nothing was written.")
         return 0
 
-    print("\n--- writing shards ---")
-    if run((sys.executable, script, source, "--out", SHARD_OUT)).returncode != 0:
-        die("sharding failed. Read the output above.")
+    existing = inspect_existing(SHARD_OUT)
+    reuse = False
+    if isinstance(existing, tuple) and not args.force:
+        shards, rows = existing
+        if shards and shards == rows:
+            print("\n--- reusing the shard tree already at %s ---" % SHARD_OUT)
+            print("  %s shard file(s), and INDEX.tsv agrees at %s row(s)."
+                  % (format(shards, ","), format(rows, ",")))
+            print("  A previous run wrote this. Re-reading 370 MiB over the Drive mount would\n"
+                  "  only reproduce it; pass --force to do that anyway.")
+            reuse = True
+        else:
+            print("\nA tree at %s disagrees with its own INDEX.tsv (%s shard file(s), %s row(s)),\n"
+                  "so it is not trustworthy. Re-sharding over it."
+                  % (SHARD_OUT, format(shards, ","), format(rows, ",")))
+    elif existing == "partial" and not args.force:
+        print("\n%s is non-empty but has no INDEX.tsv, so a previous run did not finish.\n"
+              "Re-sharding over it." % SHARD_OUT)
+
+    if not reuse:
+        print("\n--- writing shards ---")
+        command = [sys.executable, script, source, "--out", SHARD_OUT]
+        if existing is not None:
+            command.append("--force")
+        if run(command).returncode != 0:
+            die("sharding failed. Read the output above.")
 
     largest, largest_path, total = 0, "", 0
     for dirpath, _, names in os.walk(SHARD_OUT):
