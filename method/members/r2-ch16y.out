@@ -2,15 +2,15 @@
 ================================================================================================
 0  UNIT BOUNDARY -- body_range and section_span, both, for every heading of the unit
 ================================================================================================
-  §34.5   heading_line 9619   body_range (9619, 9632)   section_span (9619, 9632)
-  §34.6   heading_line 9632   body_range (9632, 9664)   section_span (9632, 9664)
-  §34.7   heading_line 9664   body_range (9664, 9679)   section_span (9664, 9679)
-  §34.8   heading_line 9679   body_range (9679, 9691)   section_span (9679, 9691)
-  §34.9   heading_line 9691   body_range (9691, 9703)   section_span (9691, 9703)
-  §34.10  heading_line 9703   body_range (9703, 9746)   section_span (9703, 9746)
-  §34     heading_line 9496   body_range (9496, 9502)   section_span (9496, 9746)
-  §35     heading_line 9746   body_range (9746, 9757)   section_span (9746, 9922)
-  unit bound by body_range: L9609-L9715 (107 lines); "## 35." body at L9746
+  §34.5   heading_line 9623   body_range (9623, 9636)   section_span (9623, 9636)
+  §34.6   heading_line 9636   body_range (9636, 9668)   section_span (9636, 9668)
+  §34.7   heading_line 9668   body_range (9668, 9683)   section_span (9668, 9683)
+  §34.8   heading_line 9683   body_range (9683, 9695)   section_span (9683, 9695)
+  §34.9   heading_line 9695   body_range (9695, 9707)   section_span (9695, 9707)
+  §34.10  heading_line 9707   body_range (9707, 9750)   section_span (9707, 9750)
+  §34     heading_line 9500   body_range (9500, 9506)   section_span (9500, 9750)
+  §35     heading_line 9750   body_range (9750, 9761)   section_span (9750, 9926)
+  unit bound by body_range: L9609-L9715 (107 lines); "## 35." body at L9750
 
 ================================================================================================
 1  ARITHMETIC PRINTED IN THE UNIT, recomputed (Decimal, HALF_UP, convention named)

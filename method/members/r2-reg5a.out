@@ -15,22 +15,22 @@
 
 == 2  EVERY SECTION POINTER RESOLVED TO ITS HEADING AND ITS CLAIM
    section pointers in the unit                             8                            OK
-   §12.11.1   L3034   The axes, and what each one sees                   carries the claim
-   §12.11.2   L3365   Three excluded forms, and the fold has a name      carries the claim
-   §16.3.1    L4381   The D1 tripwire, specified in full and needing no  carries the claim
-   §25.6.3    L7041   What was already solved — not a prediction         carries the claim
-   §29.1      L7861   Why novelty is not the author's to claim           carries the claim
-   §29.10     L8110   Two searches run, and an obstruction worth naming  carries the claim
-   §29.12     L8240   Five unlocated results, defined, with the test tha carries the claim
-   §32.1.1    L8810   What a referee would flag                          carries the claim
+   §12.11.1   L3037   The axes, and what each one sees                   carries the claim
+   §12.11.2   L3368   Three excluded forms, and the fold has a name      carries the claim
+   §16.3.1    L4384   The D1 tripwire, specified in full and needing no  carries the claim
+   §25.6.3    L7044   What was already solved — not a prediction         carries the claim
+   §29.1      L7864   Why novelty is not the author's to claim           carries the claim
+   §29.10     L8113   Two searches run, and an obstruction worth naming  carries the claim
+   §29.12     L8243   Five unlocated results, defined, with the test tha carries the claim
+   §32.1.1    L8813   What a referee would flag                          carries the claim
 
 == 3  THE LETTERED POINTERS
    Appendix subsections are plain-text labels, not headings (MAIN_AUDIT V11), so each is
    located in Appendix A / E by its label line, never by the first textual hit.
-   A.2   in Appendix A (from L9969): [9977]
-   A.5   in Appendix A (from L9969): [9979]
+   A.2   in Appendix A (from L9973): [9981]
+   A.5   in Appendix A (from L9973): [9983]
    E.4.1 has a heading of its own                           True                         OK
-   E.4.1 L11174: ### E.4.1 Q, enumerated and closed at eight
+   E.4.1 L11179: ### E.4.1 Q, enumerated and closed at eight
 
 == 4  ARITHMETIC THAT MUST HOLD ON ITS OWN TERMS
    234: one well + three partly + three not at all = seven flags 7                            OK

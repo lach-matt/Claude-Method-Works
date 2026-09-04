@@ -1,9 +1,9 @@
 
 == 0  THE REMAINDER
    the remainder opens at entry 395                           1467                     OK
-   L1467-L6663, 5196 lines, 1300 headings, entries 395..1806
-   every entry from 395 on is in this remainder               1648                     OK
-   read in 13 blocks of 400 lines
+   L1467-L6695, 5228 lines, 1308 headings, entries 395..1814
+   every entry from 395 on is in this remainder               1656                     OK
+   read in 14 blocks of 400 lines
 
 == 1  POINTER RESOLUTION, BLOCK BY BLOCK
    L1467 -1866  100 entries   56 §   11 reg  unresolved §:-              reg absent:-
@@ -18,7 +18,8 @@
    L5067 -5466  100 entries    3 §   35 reg  unresolved §:-              reg absent:-
    L5467 -5866  100 entries    4 §   93 reg  unresolved §:-              reg absent:-
    L5867 -6266  100 entries    6 §   85 reg  unresolved §:-              reg absent:-
-   L6267 -6663  100 entries   56 §   53 reg  unresolved §:-              reg absent:-
+   L6267 -6666  101 entries   59 §   57 reg  unresolved §:-              reg absent:-
+   L6667 -6695    7 entries   10 §   18 reg  unresolved §:-              reg absent:-
    section pointers unaccounted for in the remainder          []                       OK
    register pointers with no entry, on the "register N" net   []                       OK
    The sweep's absent-and-cited pair, 344 and 571, is cited from the MAIN volume and not
@@ -44,7 +45,7 @@
    states it or merely cites it was not taken here, and is a budget.
 
 == 2  THE EMPHASIS CLASS ACROSS THE REMAINDER
-   entries carrying the split shape: 247 of 1300 in the remainder
+   entries carrying the split shape: 247 of 1308 in the remainder
    sites: 372
    Already scored volume-wide at reg7-01 and specified for repair in R3-CLASS-EM.md.
    Counted here so the remainder is not read as though the class stopped at entry 394.

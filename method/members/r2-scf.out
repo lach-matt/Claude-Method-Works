@@ -2,88 +2,89 @@
 ====================================================================================================
 §0 IDENTITY AND BOUNDARIES
 ====================================================================================================
-  The_Method_1_6-2.md                                  md5 4aef772b  11855 lines
-  The_Method_1_6___The_Register-2.md                   md5 e055d08e  6627 lines
-  The_Method_1_6___Mathematical_Compendium-2.md        md5 99a616ec  3803 lines
-  The_Method_1_6___The_Physics_Compendium-2.md         md5 5a964610  879 lines
+  The_Method_1_6-2.md                                  md5 32d22f8b  11904 lines
+  The_Method_1_6___The_Register-2.md                   md5 2f553ed0  6695 lines
+  The_Method_1_6___Mathematical_Compendium-2.md        md5 facd6191  3813 lines
+  The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 27d387ef  2094 lines
   The_Method_1_6___Spectra_Compendium-2.md             md5 5ba7f61c  1160 lines
   LW1-ground.py                                        md5 236975ac  130 lines
   r2lib.py                                             md5 580d2ea2  454 lines
   tower-2.py                                           md5 c0bce27a  31 lines
   tower-2 loaded via r2lib.load_tower(): True
-  heading_line(35) = 9716 '## 35. The Löwdin solution' | all exact-token hits [158, 9716] (the contents hit discarded; body occurrence governs)
-  section_span(35) = (9716, 9892) -> next heading '## 36. Three bodies, and what a complete index is allowed to say' | body_range(35) = (9716, 9727) -> next heading '### 35.1 The problem, finished'
+  heading_line(35) = 9750 '## 35. The Löwdin solution' | all exact-token hits [158, 9750] (the contents hit discarded; body occurrence governs)
+  section_span(35) = (9750, 9926) -> next heading '## 36. Three bodies, and what a complete index is allowed to say' | body_range(35) = (9750, 9761) -> next heading '### 35.1 The problem, finished'
   the two resolvers differ by 165 lines — section_span governs the census
-   L9716-L9726  11 lines  ## 35. The Löwdin solution
-   L9727-L9743  17 lines  ### 35.1 The problem, finished
-   L9744-L9783  40 lines  ### 35.2 What the walk returned
-   L9784-L9805  22 lines  ### 35.3 The silence, answered
-   L9806-L9857  52 lines  ### 35.4 How the method did it
-   L9858-L9871  14 lines  ### 35.5 The provenance
-   L9872-L9891  20 lines  ### 35.6 The coda the record earned
+   L9750-L9760  11 lines  ## 35. The Löwdin solution
+   L9761-L9777  17 lines  ### 35.1 The problem, finished
+   L9778-L9817  40 lines  ### 35.2 What the walk returned
+   L9818-L9839  22 lines  ### 35.3 The silence, answered
+   L9840-L9891  52 lines  ### 35.4 How the method did it
+   L9892-L9905  14 lines  ### 35.5 The provenance
+   L9906-L9925  20 lines  ### 35.6 The coda the record earned
 
 ====================================================================================================
 §1 NUMERAL CENSUS OF THE CHAPTER (digit-bounded both sides; trailing non-thousands comma admitted; count words listed separately)
 ====================================================================================================
-  numerals: 74 on 41 lines
-   L9716: 35
-   L9718: 34
-   L9722: 1969
-   L9723: 1701 1712
-   L9727: 35.1
-   L9729: 6 33
-   L9731: 34 104
-   L9732: 106
-   L9737: 137.035999
-   L9739: 1
-   L9742: 34
-   L9744: 35.2
-   L9746: 107 107 2 108
-   L9747: 106 34
-   L9759: 5 65
-   L9760: 6 70, 7 57, 8 28 1 2
-   L9763: 121,
-   L9767: 38, 56, 72, 89, 105
-   L9768: 1.33 1.24 2.6 2.2
-   L9769: 2.16
-   L9778: 109 120, 6 7 8 0.058 0.264
-   L9779: 0.083
-   L9784: 35.3
-   L9786: 34
-   L9787: 1
-   L9795: 91
-   L9802: 33
-   L9803: 34
-   L9806: 35.4
-   L9810: 2.14
-   L9815: 2.14
-   L9832: 1969
-   L9833: 1950
-   L9834: 1969 1971
-   L9858: 35.5
-   L9862: 107 107
-   L9864: 121 1 2
-   L9868: 1969 1950
-   L9872: 35.6
-   L9874: 1969
-   L9884: 34
-  count words: 42 -> L9719:one L9720:one L9732:two L9732:four L9734:three L9736:One L9752:three L9754:three L9757:three L9761:hundred L9766:five L9769:one L9773:eleven L9777:twelve L9779:one L9794:three L9797:two L9797:one L9799:two L9803:six L9811:one L9824:twenty L9824:two L9827:nine L9829:three L9831:three L9834:two L9834:Three L9835:three L9841:one L9845:five L9846:Two L9855:Four L9862:one L9863:three L9865:five L9866:eleven L9867:twelve L9874:Three L9876:nineteen L9885:two L9887:One
+  numerals: 74 on 42 lines
+   L9750: 35
+   L9752: 34
+   L9756: 1969
+   L9757: 1701 1712
+   L9761: 35.1
+   L9763: 6 33
+   L9765: 34
+   L9766: 1332
+   L9767: 1448
+   L9771: 137.035999
+   L9773: 1
+   L9776: 34
+   L9778: 35.2
+   L9780: 107 107 2 108
+   L9781: 106 34
+   L9793: 5 65
+   L9794: 6 70, 7 57, 8 28 1 2
+   L9797: 121,
+   L9801: 38, 56, 72, 89, 105
+   L9802: 1.33 1.24 2.6 2.2
+   L9803: 2.16
+   L9812: 109 120, 6 7 8 0.058 0.264
+   L9813: 0.083
+   L9818: 35.3
+   L9820: 34
+   L9821: 1
+   L9829: 91
+   L9836: 33
+   L9837: 34
+   L9840: 35.4
+   L9844: 2.14
+   L9849: 2.14
+   L9866: 1969
+   L9867: 1950
+   L9868: 1969 1971
+   L9892: 35.5
+   L9896: 107 107
+   L9898: 121 1 2
+   L9902: 1969 1950
+   L9906: 35.6
+   L9908: 1969
+   L9918: 34
+  count words: 40 -> L9753:one L9754:one L9768:three L9770:One L9786:three L9788:three L9791:three L9795:hundred L9800:five L9803:one L9807:eleven L9811:twelve L9813:one L9828:three L9831:two L9831:one L9833:two L9837:six L9845:one L9858:twenty L9858:two L9861:nine L9863:three L9865:three L9868:two L9868:Three L9869:three L9875:one L9879:five L9880:Two L9889:Four L9896:one L9897:three L9899:five L9900:eleven L9901:twelve L9908:Three L9910:nineteen L9919:two L9921:One
 
 ====================================================================================================
 §2 THE FAMILY LOCATED — chain tokens in six volumes (word-bounded, case-insensitive), the Register entries 1701–1712, their WARNING lines
 ====================================================================================================
   The_Method_1_6-2.md                                  10 lines
-     L9738  35.1         [self-consistent field] chained walk:** at each Z, converge the self-consistent field of the ion carrying
-     L9778  35.2         [hartree] Z = 109–120, entrants 6d then 7p then 8s, margins 0.058 to 0.264 hartree, the
-     L9779  35.2         [hartree] worst-case spin-orbit narrowing 0.083 hartree clearing every one. *They are
-     L9796  35.3         [self-consistent-field] self-consistent-field tolerance, and the literature says why — beside a collapse,
-     L9832  35.4         [pulay] force-versus-gradient discrepancy Pulay published in 1969; the operator asymmetry
-     L9842  35.4         [pulay] named as a Pulay term, stopped being an error and became a derived object — split
-     L9868  35.5         [pulay] | **zero unexplained residue** | Pulay 1969 · Löwdin 1950 · exact quartics |
-     L9874  35.6         [pulay] **Three of the load-bearing works are dated 1969** — the challenge, the Pulay
-     L11811 App F.4.3    [koelling]  · Koelling, D. D. & Harmon, B. N. (1977). *J. Phys. C* **10**, 3107. — the scalar-relativistic kernel; c the one entered number.
-     L11813 App F.4.3    [pulay]  · Pulay, P. (1969). *Mol. Phys.* **17**, 197. — the occupation-parameter term that is the walk's one defect.
+     L9772  35.1         [self-consistent field] chained walk:** at each Z, converge the self-consistent field of the ion carrying
+     L9812  35.2         [hartree] Z = 109–120, entrants 6d then 7p then 8s, margins 0.058 to 0.264 hartree, the
+     L9813  35.2         [hartree] worst-case spin-orbit narrowing 0.083 hartree clearing every one. *They are
+     L9830  35.3         [self-consistent-field] self-consistent-field tolerance, and the literature says why — beside a collapse,
+     L9866  35.4         [pulay] force-versus-gradient discrepancy Pulay published in 1969; the operator asymmetry
+     L9876  35.4         [pulay] named as a Pulay term, stopped being an error and became a derived object — split
+     L9902  35.5         [pulay] | **zero unexplained residue** | Pulay 1969 · Löwdin 1950 · exact quartics |
+     L9908  35.6         [pulay] **Three of the load-bearing works are dated 1969** — the challenge, the Pulay
+     L11858 App F.4.3    [koelling]  · Koelling, D. D. & Harmon, B. N. (1977). *J. Phys. C* **10**, 3107. — the scalar-relativistic kernel; c the one entered number.
+     L11860 App F.4.3    [pulay]  · Pulay, P. (1969). *Mol. Phys.* **17**, 197. — the occupation-parameter term that is the walk's one defect.
   The_Method_1_6___The_Register-2.md                   13 lines
      L445   entry 93     [scf] **PRIOR ART: THE PHYSICAL AND CRYSTALLOGRAPHIC APPARATUS OF PART IV.** *The Gamow factor for barrier penetration (Gamow, Z. Phys. 51 (1928) 204–212); 
      L4557  entry 1217   [hartree] **THEODOSIOU, INOKUTI & MANSON 1986 IS THE SURVEY, PUBLISHED.** *At. Data Nucl. Data Tables 35, 473: **the asymptotic quantum defects at the ionizatio
@@ -119,10 +120,10 @@
   The_Method_1_6___The_Physics_Compendium-2.md          6 lines
      L202   ?            [hartree] **The quantity.** Per row: D_ent and the margin, in hartree; per candidate
      L209   ?            [koelling] **Constants required.** One: c = 137.035999 (Koelling–Harmon scalar-relativistic
-     L280   ?            [scf] {La, Ac, Th} in Λ_chain; and the Z = 91 sign held at SCF tolerance, entered as
-     L519   ?            [hartree] **Where it comes from.** fitted here by least squares on 277 in-region channels plus 7 far anchors; the FORM it scales is the penetration picture of H
-     L599   ?            [koelling] **What it is.** the one entered number of the Löwdin solution: the constant in the Koelling–Harmon scalar-relativistic kernel of the entrant operator.
-     L601   ?            [hartree] **Where it comes from.** CODATA; the inverse fine-structure constant in Hartree atomic units.
+     L315   ?            [scf] {La, Ac, Th} in Λ_chain; and the Z = 91 sign held at SCF tolerance, entered as
+     L554   ?            [hartree] **Where it comes from.** fitted here by least squares on 277 in-region channels plus 7 far anchors; the FORM it scales is the penetration picture of H
+     L634   ?            [koelling] **What it is.** the one entered number of the Löwdin solution: the constant in the Koelling–Harmon scalar-relativistic kernel of the entrant operator.
+     L636   ?            [hartree] **Where it comes from.** CODATA; the inverse fine-structure constant in Hartree atomic units.
   The_Method_1_6___The_Index_of_Indices-2.md            2 lines
      L1492  App A        [hartree] **Where it comes from.** Quantum defect theory is Seaton, MNRAS **118** (1958) 504–518, and Rep. Prog. Phys. **46** (1983) 167–257. *A published surve
      L1508  App A        [hartree] **Where it comes from.** The parameters are Rydberg 1890, Bohr 1913, Stoner 1924, Pauli 1925, Hund 1925, Fermi 1928, Hartree 1928, Janet 1928, Mayer &
@@ -189,44 +190,45 @@
 ====================================================================================================
 §5 THE CHAPTER AGAINST THE RECORD — every figure the chapter prints, grepped in 1701-1712 and in the Register beyond
 ====================================================================================================
-  '137.035999'                               chapter L9737           | in 1701-1712: 1701                 | other Register lines: 0
-  '107 of 107'                               chapter L9746           | in 1701-1712: -                    | other Register lines: 0
-  '107/107'                                  chapter L9862           | in 1701-1712: 1701 1706            | other Register lines: 0
-  '2–108'                                    chapter L9746           | in 1701-1712: -                    | other Register lines: 0
-  '106'                                      chapter L9732,9747      | in 1701-1712: -                    | other Register lines: 37
+  '137.035999'                               chapter L9771           | in 1701-1712: 1701                 | other Register lines: 0
+  '107 of 107'                               chapter L9780           | in 1701-1712: -                    | other Register lines: 0
+  '107/107'                                  chapter L9896           | in 1701-1712: 1701 1706            | other Register lines: 0
+  '2–108'                                    chapter L9780           | in 1701-1712: -                    | other Register lines: 0
+  '106'                                      chapter L9781           | in 1701-1712: -                    | other Register lines: 42
   '2-108'                                    chapter L-              | in 1701-1712: -                    | other Register lines: 0
-  '109–120'                                  chapter L9778           | in 1701-1712: 1712                 | other Register lines: 0
+  '109–120'                                  chapter L9812           | in 1701-1712: 1712                 | other Register lines: 0
   '109-120'                                  chapter L-              | in 1701-1712: -                    | other Register lines: 0
-  '121'                                      chapter L9763,9864      | in 1701-1712: 1704                 | other Register lines: 10
-  '−1/(2n²)'                                 chapter L9760,9864      | in 1701-1712: 1704                 | other Register lines: 0
+  '121'                                      chapter L9797,9898      | in 1701-1712: 1704                 | other Register lines: 10
+  '−1/(2n²)'                                 chapter L9794,9898      | in 1701-1712: 1704                 | other Register lines: 0
   '-1/(2n²)'                                 chapter L-              | in 1701-1712: -                    | other Register lines: 0
-  '65'                                       chapter L9759           | in 1701-1712: 1704                 | other Register lines: 23
-  '70'                                       chapter L9760           | in 1701-1712: 1704                 | other Register lines: 24
-  '57'                                       chapter L9760           | in 1701-1712: 1704                 | other Register lines: 28
-  '28'                                       chapter L9760           | in 1701-1712: 1704                 | other Register lines: 50
-  '38, 56, 72, 89, 105'                      chapter L9767           | in 1701-1712: 1705                 | other Register lines: 0
-  '+1.33'                                    chapter L9768           | in 1701-1712: 1705                 | other Register lines: 0
-  '+1.24'                                    chapter L9768           | in 1701-1712: 1705                 | other Register lines: 0
-  '+2.6'                                     chapter L9768           | in 1701-1712: 1705                 | other Register lines: 0
-  '+2.2'                                     chapter L9768           | in 1701-1712: 1705                 | other Register lines: 0
-  '+2.16'                                    chapter L9769           | in 1701-1712: 1705                 | other Register lines: 0
-  'Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf' chapter L9773           | in 1701-1712: 1706                 | other Register lines: 0
-  '0.058'                                    chapter L9778           | in 1701-1712: 1712                 | other Register lines: 0
-  '0.264'                                    chapter L9778           | in 1701-1712: 1712                 | other Register lines: 0
-  '0.083'                                    chapter L9779           | in 1701-1712: 1701 1712            | other Register lines: 0
-  'Z = 91'                                   chapter L9795           | in 1701-1712: 1703                 | other Register lines: 0
-  '1969'                                     chapter L9722,9832,9834,9868,9874 | in 1701-1712: 1703 1707            | other Register lines: 5
-  '1950'                                     chapter L9833,9868      | in 1701-1712: 1708                 | other Register lines: 1
-  '1971'                                     chapter L9834           | in 1701-1712: 1703                 | other Register lines: 1
-  'La, Ac and Th'                            chapter L9750           | in 1701-1712: -                    | other Register lines: 0
+  '65'                                       chapter L9793           | in 1701-1712: 1704                 | other Register lines: 23
+  '70'                                       chapter L9794           | in 1701-1712: 1704                 | other Register lines: 25
+  '57'                                       chapter L9794           | in 1701-1712: 1704                 | other Register lines: 29
+  '28'                                       chapter L9794           | in 1701-1712: 1704                 | other Register lines: 52
+  '38, 56, 72, 89, 105'                      chapter L9801           | in 1701-1712: 1705                 | other Register lines: 0
+  '+1.33'                                    chapter L9802           | in 1701-1712: 1705                 | other Register lines: 0
+  '+1.24'                                    chapter L9802           | in 1701-1712: 1705                 | other Register lines: 0
+  '+2.6'                                     chapter L9802           | in 1701-1712: 1705                 | other Register lines: 0
+  '+2.2'                                     chapter L9802           | in 1701-1712: 1705                 | other Register lines: 0
+  '+2.16'                                    chapter L9803           | in 1701-1712: 1705                 | other Register lines: 0
+  'Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf' chapter L9807           | in 1701-1712: 1706                 | other Register lines: 0
+  '0.058'                                    chapter L9812           | in 1701-1712: 1712                 | other Register lines: 0
+  '0.264'                                    chapter L9812           | in 1701-1712: 1712                 | other Register lines: 0
+  '0.083'                                    chapter L9813           | in 1701-1712: 1701 1712            | other Register lines: 0
+  'Z = 91'                                   chapter L9829           | in 1701-1712: 1703                 | other Register lines: 0
+  '1969'                                     chapter L9756,9866,9868,9902,9908 | in 1701-1712: 1703 1707            | other Register lines: 5
+  '1950'                                     chapter L9867,9902      | in 1701-1712: 1708                 | other Register lines: 1
+  '1971'                                     chapter L9868           | in 1701-1712: 1703                 | other Register lines: 1
+  'La, Ac and Th'                            chapter L9784           | in 1701-1712: -                    | other Register lines: 0
   'La/Ac/Th'                                 chapter L-              | in 1701-1712: 1701                 | other Register lines: 0
-  'nine things'                              chapter L9827           | in 1701-1712: -                    | other Register lines: 0
-  'twenty-two audits'                        chapter L9824           | in 1701-1712: -                    | other Register lines: 1
-  'Four of this book'                        chapter L9855           | in 1701-1712: 1711                 | other Register lines: 0
-  'fifth'                                    chapter L9856           | in 1701-1712: 1711                 | other Register lines: 21
-  'nineteen years'                           chapter L9876           | in 1701-1712: 1708                 | other Register lines: 0
+  'nine things'                              chapter L9861           | in 1701-1712: -                    | other Register lines: 0
+  'twenty-two audits'                        chapter L9858           | in 1701-1712: -                    | other Register lines: 1
+  'Four of this book'                        chapter L9889           | in 1701-1712: 1711                 | other Register lines: 0
+  'fifth'                                    chapter L9890           | in 1701-1712: 1711                 | other Register lines: 21
+  'nineteen years'                           chapter L9910           | in 1701-1712: 1708                 | other Register lines: 0
   Register entries after 1712 whose body names 1701-1712 or the range (the later statements):
-  the range *1701–1712* / *1701-1712* by volume: The_Method_1_6-2.md:2 The_Method_1_6___The_R:0 The_Method_1_6___Mathe:1 The_Method_1_6___The_P:1 The_Method_1_6___The_I:1 The_Method_1_6___Spect:0
+     L6678 entry 1810: **§R.7's TWO LEAD-INS SAID THE CHAPTERS REST ON THE BLOCKS; THEY NOW SAY WHAT IS TRUE AS PRINTED.** *M's ruling on 28b-07 was (b). Under CONVENTION PROV the sentence on M
+  the range *1701–1712* / *1701-1712* by volume: The_Method_1_6-2.md:3 The_Method_1_6___The_R:1 The_Method_1_6___Mathe:1 The_Method_1_6___The_P:1 The_Method_1_6___The_I:1 The_Method_1_6___Spect:0
 
 ====================================================================================================
 §6 INSTRUMENTS HELD FOR THE FAMILY — REQUEST-LOWDIN.md items against the LW1-* members (READ-intake1.md); the budget for every UNREPRODUCIBLE figure
@@ -287,8 +289,8 @@
    phrase '{La, Ac, Th}'     x1
    phrase 'smaller n'        x2
    phrase 'n+ℓ'              x2
-  PC span L192-L306 (115 lines; 6 headings): THE LÖWDIN-SOLUTION INDEXES — Λ_chain, Λ_cinf, Λ_V5 | Λ_chain — the derived filling index | Λ_cinf — the twin index at c → ∞ | Λ_V5 — the correlation closure at the contested rows | The collapse condition — interface only | The defect — interface only
-   numerals: 47 on 24 lines
+  PC span L192-L341 (150 lines; 7 headings): THE LÖWDIN-SOLUTION INDEXES — Λ_chain, Λ_cinf, Λ_V5 | Λ_chain — the derived filling index | Λ_cinf — the twin index at c → ∞ | Λ_V5 — the correlation closure at the contested rows | The corridor law — interface only | The collapse condition — interface only | The defect — interface only
+   numerals: 68 on 37 lines
     L192: 5
     L194: 35, 1701 1712
     L198: 2 120
@@ -308,12 +310,25 @@
     L254: 2 1.33 1.24 2.6 2.57 2.73 2.2
     L255: 1.92 3.32 2.16
     L267: 1705
-    L280: 91
-    L281: 1703
-    L282: 34
-    L287: 1
-    L298: 1707 1711
-   chapter figures present: 137.035999@L209 107 of 107@L213 107/107@L237 109–120@L214 38, 56, 72, 89, 105@L250 +1.33@L254 +1.24@L254 +2.6@L254 +2.2@L254 +2.16@L255 Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf@L236 Z = 91@L280
-   chapter figures absent: '2–108' '106' '2-108' '109-120' '121' '−1/(2n²)' '-1/(2n²)' '65' '70' '57' '28' '0.058' '0.264' '0.083' '1969' '1950' '1971' 'La, Ac and Th' 'La/Ac/Th' 'nine things' 'twenty-two audits' 'Four of this book' 'fifth' 'nineteen years'
+    L276: 34
+    L281: 3 108 1814
+    L285: 2 2 1
+    L286: 106 3
+    L287: 108,
+    L288: 34.5 1445, 1460, 1463
+    L290: 5.12
+    L291: 1306
+    L292: 0
+    L293: 106
+    L302: 34.6
+    L304: 1460
+    L305: 108,
+    L315: 91
+    L316: 1703
+    L317: 34
+    L322: 1
+    L333: 1707 1711
+   chapter figures present: 137.035999@L209 107 of 107@L213 107/107@L237 106@L286,293 109–120@L214 38, 56, 72, 89, 105@L250 +1.33@L254 +1.24@L254 +2.6@L254 +2.2@L254 +2.16@L255 Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf@L236 Z = 91@L315
+   chapter figures absent: '2–108' '2-108' '109-120' '121' '−1/(2n²)' '-1/(2n²)' '65' '70' '57' '28' '0.058' '0.264' '0.083' '1969' '1950' '1971' 'La, Ac and Th' 'La/Ac/Th' 'nine things' 'twenty-two audits' 'Four of this book' 'fifth' 'nineteen years'
    phrase 'La, Ac, Th'       x1
    phrase '{La, Ac, Th}'     x1
