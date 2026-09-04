@@ -34,6 +34,15 @@ from any source here" and is **not** a finding of loss — a name in prose is no
 — and every count is a floor, since extraction is literal (58 handoffs named in filename shape
 against 88 referenced by bare number). See `docs/COVERAGE.md`.
 
+**`drive/chats/` is the sharded chat export, and `recovered/` is what was extracted from it.**
+352 conversations, 11,879 messages, sharded by `tools/shard_conversations.py` with `INDEX.tsv` and
+`SUMMARY.json` as their inventory. `tools/recover.py` then extracts the artefacts those chats wrote:
+**2,337 files**, `RECOVERED` where a heredoc named its own target, `RECOVERED-BY-HEADING` where a
+code block carried the body and the name was inferred from its heading. Both are generated trees —
+regenerate, never hand-edit. **RECOVERED is not mirrored**: the bytes were measured out of the
+export, and no recovered file is claimed byte-identical to a copy held elsewhere, nor is any of it a
+member of a bundle. See `docs/RECOVER.md`.
+
 ## It is a document corpus, not a software project
 
 No build, no test suite, no linter, no package manager. Do not offer to run tests or add CI for

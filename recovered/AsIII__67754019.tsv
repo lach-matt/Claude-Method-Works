@@ -1,0 +1,50 @@
+# As III — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=As+III&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  As IV (4s2 1S<0>)  228650 cm-1
+#
+# ** THE FIRST n=4 CORE IN THE QUEUE. Every species so far has had a
+#    3s/3p/3d core; As III's is 4s2, with the outer electron in 4p, 5s,
+#    4d, 5p, 4f, 5d, 5g. THAT IS EXACTLY WHAT BOARD ROW 17 NEEDS —
+#    the SAME subshell letters at a DIFFERENT shell. **
+#
+#    Al-like by electron count (4s2.4p ground, one electron outside a
+#    closed s2), so it is directly comparable to K VII, Ca VIII, Sc IX
+#    and Ti X — SAME structure, SHELL SHIFTED BY ONE.
+#
+#    ** THAT PAIRING IS THE CONTROLLED TEST ROW 17 ASKS FOR, and it
+#       arrived from the reading list without being designed. **
+#
+#      s  n = 5,6      p  n = 4,5      d  n = 4,5
+#      f  n = 4        g  n = 5
+#
+# The 4s.4p2 and 4p3 blocks are TWO-ELECTRON-OUTSIDE states, not the
+# one-electron series; kept but marked, since R 1597's keyability bound
+# admits only one electron outside a closed shell.
+#
+# config	term	J	level_cm1	note
+4s2.4p	2P*	1/2	0.	
+4s2.4p	2P*	3/2	2940.	
+4s2.5s	2S	1/2	106694.	
+4s2.4d	2D	3/2	117651.	
+4s2.4d	2D	5/2	117744.	
+4s2.5p	2P*	1/2	131458.	
+4s2.5p	2P*	3/2	132182.	
+4s2.6s	2S	1/2	162889.5	
+4s2.4f	2F*	7/2	164107.	
+4s2.4f	2F*	5/2	164115.	
+4s2.5d	2D	3/2	165623.	
+4s2.5d	2D	5/2	165708.	
+4s2.5g	2G	7/2	188907.	
+4s2.5g	2G	9/2	188907.	
+# --- TWO electrons outside the closed 4s2. R 1597 keyability: refused.
+4s.4p2	2D	3/2	85310.	two-outside
+4s.4p2	2D	5/2	85633.	two-outside
+4s.4p2	2S	1/2	107808.	two-outside
+4s.4p2	2P	1/2	113936.	two-outside
+4s.4p2	2P	3/2	115424.	two-outside
+4p3	2P*	3/2	161885.	two-outside
+4p3	2P*	1/2	162048.	two-outside

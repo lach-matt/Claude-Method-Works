@@ -1,0 +1,136 @@
+# Fe VII — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Fe+VII&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Fe VIII (3p6.3d 2D<3/2>)  1007928 cm-1
+#
+# Ti-like — the THIRD of that sequence: V IV (4), Mn VI (6), Fe VII (7).
+#
+# ** THE DEEPEST f SERIES IN THE WHOLE QUEUE: 3p6.3d.nf runs
+#    n = 4,5,6,7,8,9,10 — SEVEN consecutive n — and carries BOTH
+#    multiplicities throughout. Mn VI reached n=8; this reaches 10. **
+#
+#      s  n = 4      p  n = 4      d  n = 4      f  n = 4..10
+#
+# The 3p5.3d3 and 3p5.3d2.(...).4s blocks carry a 3p HOLE, converge on a
+# different unprinted limit, and are the LARGER half of this table. Kept
+# separate and NOT for 1007928. One row query-flagged, marked q.
+#
+# config	term	J	level_cm1	flag
+3p6.3d2	3F	2	0.00	
+3p6.3d2	3F	3	1049.75	
+3p6.3d2	3F	4	2329.48	
+3p6.3d2	1D	2	17474.00	
+3p6.3d2	3P	0	20040.0	
+3p6.3d2	3P	1	20428.8	
+3p6.3d2	3P	2	21275.97	
+3p6.3d2	1G	4	28923.5	
+3p6.3d2	1S	0	67076.9	
+3p6.3d.4s	3D	1	344461.59	
+3p6.3d.4s	3D	2	345026.68	
+3p6.3d.4s	3D	3	346259.88	
+3p6.3d.4s	1D	2	350330.26	
+3p6.3d.4p	3D*	1	425127.1	
+3p6.3d.4p	3D*	2	427782.66	
+3p6.3d.4p	3D*	3	431608.5	
+3p6.3d.4p	1D*	2	425383.76	
+3p6.3d.4p	3F*	2	430211.2	
+3p6.3d.4p	3F*	3	432359.9	
+3p6.3d.4p	3F*	4	433869.0	
+3p6.3d.4p	3P*	1	436950.2	
+3p6.3d.4p	3P*	0	436999.5	
+3p6.3d.4p	3P*	2	437555.9	
+3p6.3d.4p	1F*	3	439809.2	
+3p6.3d.4p	1P*	1	443444.5	
+3p6.3d.4d	1F	3	552840.8	
+3p6.3d.4d	3D	1	554703.9	
+3p6.3d.4d	3D	2	555236.3	
+3p6.3d.4d	3D	3	556345.7	
+3p6.3d.4d	3G	3	556084.2	
+3p6.3d.4d	3G	4	557044.8	
+3p6.3d.4d	3G	5	558228.7	
+3p6.3d.4d	1P	1	556642.6	
+3p6.3d.4d	3S	1	561711.8	
+3p6.3d.4d	3F	2	564370.2	
+3p6.3d.4d	3F	3	565131.0	
+3p6.3d.4d	3F	4	565941.7	
+3p6.3d.4d	1D	2	571216.2	
+3p6.3d.4d	3P	0	571879.9	
+3p6.3d.4d	3P	1	572224.4	
+3p6.3d.4d	3P	2	572902.1	
+3p6.3d.4d	1G	4	574940.3	
+3p6.3d.4f	3H*	4	656120	
+3p6.3d.4f	3H*	5	657080	
+3p6.3d.4f	3H*	6	658060	
+3p6.3d.4f	3F*	4	659913	
+3p6.3d.4f	3F*	2	660013	
+3p6.3d.4f	3F*	3	660356	
+3p6.3d.4f	1G*	4	661166	
+3p6.3d.4f	3G*	3	663100	
+3p6.3d.4f	3G*	4	663948	
+3p6.3d.4f	3G*	5	664480	
+3p6.3d.4f	1D*	2	663869	
+3p6.3d.4f	1F*	3	665412	
+3p6.3d.4f	3D*	1	665831	
+3p6.3d.4f	3D*	2	665922	
+3p6.3d.4f	3D*	3	666648	
+3p6.3d.4f	3P*	2	667897	
+3p6.3d.4f	3P*	1	668251	
+3p6.3d.4f	3P*	0	668488	
+3p6.3d.4f	1H*	5	669975	
+3p6.3d.4f	1P*	1	672817	
+3p6.3d.5f	1G*	4	784171	
+3p6.3d.5f	3H*	4	784474	
+3p6.3d.5f	3F*	2	784730	
+3p6.3d.5f	3F*	3	785011	
+3p6.3d.5f	3F*	4	785808	
+3p6.3d.5f	3G*	3	786730	
+3p6.3d.5f	3G*	4	787734	
+3p6.3d.5f	3G*	5	788143	
+3p6.3d.5f	1D*	2	786828	
+3p6.3d.5f	3D*	1	787946	
+3p6.3d.5f	3D*	3	788301	
+3p6.3d.5f	3D*	2	788994	
+3p6.3d.5f	3P*	2	788029	
+3p6.3d.5f	3P*	1	789170	
+3p6.3d.5f	3P*	0	789364	
+3p6.3d.5f	1F*	3	789216	
+3p6.3d.5f	1P*	1	790706	
+3p6.3d.5f	1H*	5	791165	
+3p6.3d.6f	3H*	4	852598	
+3p6.3d.6f	1G*	4	853305	
+3p6.3d.6f	3F*	2	853433	
+3p6.3d.6f	3F*	3	853695	
+3p6.3d.6f	3F*	4	854764	
+3p6.3d.6f	3G*	3	854755	
+3p6.3d.6f	3G*	4	855966	
+3p6.3d.6f	3G*	5	856257	
+3p6.3d.6f	3P*	2	854837	
+3p6.3d.6f	3P*	1	856974	
+3p6.3d.6f	3P*	0	857081	
+3p6.3d.6f	3D*	1	855345	
+3p6.3d.6f	3D*	3	856108	
+3p6.3d.6f	3D*	2	856818	
+3p6.3d.6f	1D*	2	855901	
+3p6.3d.6f	1F*	3	856795	
+3p6.3d.6f	1H*	5	857877	
+3p6.3d.7f	3F*	2	894716	
+3p6.3d.7f	3F*	3	894946	
+3p6.3d.7f	3F*	4	896379	
+3p6.3d.7f	3G*	3	895745	
+3p6.3d.7f	3G*	4	897075	
+3p6.3d.7f	3G*	5	897249	
+3p6.3d.7f	1H*	5	898239	
+3p6.3d.8f	3F*	3	921694	
+3p6.3d.8f	3F*	4	923279	
+3p6.3d.8f	3G*	4	923714	
+3p6.3d.8f	3G*	5	923830	
+3p6.3d.8f	1H*	5	924475	
+3p6.3d.9f	3G*	4	941920	
+3p6.3d.9f	3G*	5	942020	
+3p6.3d.9f	1H*	5	942470	
+3p6.3d.10f	3G*	4	954900	
+3p6.3d.10f	3G*	5	954960	
+3p6.3d.10f	1H*	5	955300	

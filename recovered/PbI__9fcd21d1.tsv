@@ -1,0 +1,43 @@
+# Pb I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Pb+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Pb+I confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# TWO LIMITS:
+#   Pb II (6p 2P*<1/2>)  59819.558
+#   Pb II (6p 2P*<3/2>)  73900.632
+#
+# ** NOT ONE LS TERM IN THE ENTIRE TABLE. Pb I is written wholly in
+#    jj — (1/2,1/2), (3/2,1/2), (3/2,3/2) — and Racah 2[K] on
+#    J-resolved parents 6s2.6p.(2P*<1/2>) and (2P*<3/2>). **
+#
+#    ** THAT MAKES IT THE COMPLETE OPPOSITE OF Cs I, WHICH WAS ALL LS
+#       AND ALL DOUBLET, AND THE TWO ARE ONE PERIOD APART. R 1576
+#       refuses EVERY row here: no single 2S+1 anywhere. **
+#
+# The structure is nonetheless rich and is recorded for the jK
+# instrument of R 1602:
+#      6s2.6p.ns   n =  7..17    (1/2,1/2)* and (3/2,1/2)*
+#      6s2.6p.np   n =  7..13    (1/2,1/2), (1/2,3/2), (3/2,1/2), (3/2,3/2)
+#      6s2.6p.nd   n =  6..20    2[5/2]*, 2[3/2]* on parent 1/2
+#                  n =  6..8     on parent 3/2
+#      6s2.6p.nf   n =  5..11    2[5/2], 2[7/2]
+#      6s2.6p.ng   n =  5..10    2[7/2]*, 2[9/2]*
+#
+# ONE ROW HAS AN UNRESOLVED J IN THE RACAH SCHEME: 5g 2[9/2]* "4,5"
+# at 55417.30 — the first time unresolved-J appears on a Racah term
+# rather than an LS one.
+# Three rows carry a query on the level. Two 10p rows share J=2 with
+# different energies (56467.714 and 56475.141) under the same term.
+#
+# NOTHING TRANSCRIBED BEYOND THE GROUND MULTIPLET. The whole table is
+# refused by the present key, and writing ~140 unkeyable rows would put
+# unusable data in the tree. The structure above is the record.
+#
+# config	term	J	level_cm1	note
+6s2.6p2	(1/2,1/2)	0	0.000	jj-ground
+6s2.6p2	(3/2,1/2)	1	7819.2626	jj-ground
+6s2.6p2	(3/2,1/2)	2	10650.3271	jj-ground
+6s2.6p2	(3/2,3/2)	2	21457.7982	jj-ground
+6s2.6p2	(3/2,3/2)	0	29466.8303	jj-ground

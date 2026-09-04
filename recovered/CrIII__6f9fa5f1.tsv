@@ -1,0 +1,147 @@
+# Cr III — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Cr+III&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Cr IV (3d3 4F<3/2>)  249700 cm-1
+#
+# 3d4 ground — the SAME configuration as V II, one Z higher.
+#
+# ** A NOTATION NOT SEEN IN THE PREVIOUS TWENTY-THREE: NUMERIC SUFFIXES
+#    ON THE TERM ITSELF. 3P2, 3P1, 3F2, 3F1, 1G2, 1G1, 1S2, 1D2, 1D1.
+#    Where Ti II and V II used LETTER PREFIXES (a 4F, b 4F), Cr III uses
+#    TRAILING DIGITS for the same job — distinguishing terms that share
+#    an LS symbol. THE SAME PROBLEM, A DIFFERENT NOTATION, IN THE SAME
+#    ISOELECTRONIC NEIGHBOURHOOD. **
+#
+#    Recorded against M's note (R 1639): if multiplicity is definable
+#    per problem, NIST has TWO orthographies for saying so and the
+#    index's key can read neither.
+#
+# ** AND TWO ROWS HAVE A TERM THAT IS A BARE ASTERISK — parity only, no
+#    L, no S: 3d3.(2P).4p * J=1 at 116774.00 and 3d3.(2D2).4p * J=3 at
+#    116969.09. Kept with the term recorded as `*` rather than dropped
+#    or guessed. Register 1576 refuses them; they are here so the
+#    refusal has something to point at. **
+#
+# The parent-resolved series: 3d3.(4F).4s, .4p, .4d, .5s all present,
+# and 3d3 carries EIGHT distinct parents (4F, 4P, 2G, 2P, 2D1, 2D2, 2H,
+# 2F) each with its own 4s and 4p block.
+#
+# config	term	J	level_cm1
+3d4	5D	0	0.00
+3d4	5D	1	62.22
+3d4	5D	2	183.16
+3d4	5D	3	356.55
+3d4	5D	4	576.08
+3d4	3P2	0	16771.36
+3d4	3P2	1	17168.56
+3d4	3P2	2	17851.18
+3d4	3H	4	17273.70
+3d4	3H	5	17396.92
+3d4	3H	6	17530.65
+3d4	3F2	2	18451.84
+3d4	3F2	3	18511.18
+3d4	3F2	4	18583.39
+3d4	3G	3	20703.64
+3d4	3G	4	20852.95
+3d4	3G	5	20996.04
+3d4	1G2	4	25138.87
+3d4	3D	3	25726.44
+3d4	3D	2	25780.94
+3d4	3D	1	25848.31
+3d4	1I	6	26014.89
+3d4	1S2	0	27372.32
+3d4	1D2	2	32151.99
+3d4	1F	3	37005.16
+3d4	3F1	4	43286.71
+3d4	3F1	2	43304.53
+3d4	3F1	3	43322.17
+3d4	3P1	2	43441.99
+3d4	3P1	1	43916.59
+3d4	3P1	0	44141.36
+3d4	1G1	4	49768.65
+3d4	1D1	2	65763.21
+3d3.(4F).4s	5F	1	49492.46
+3d3.(4F).4s	5F	2	49628.25
+3d3.(4F).4s	5F	3	49828.91
+3d3.(4F).4s	5F	4	50091.17
+3d3.(4F).4s	5F	5	50410.06
+3d3.(4F).4s	3F	2	56651.37
+3d3.(4F).4s	3F	3	56993.08
+3d3.(4F).4s	3F	4	57423.40
+3d3.(4P).4s	5P	1	63045.74
+3d3.(4P).4s	5P	2	63174.30
+3d3.(4P).4s	5P	3	63421.92
+3d3.(4P).4s	3P	0	69601.50
+3d3.(4P).4s	3P	1	69781.89
+3d3.(4P).4s	3P	2	70292.86
+3d3.(2G).4s	3G	3	65892.38
+3d3.(2G).4s	3G	4	66030.01
+3d3.(2G).4s	3G	5	66225.09
+3d3.(2G).4s	1G	4	69659.74
+3d3.(2P).4s	3P	2	70191.01
+3d3.(2P).4s	3P	1	70345.56
+3d3.(2P).4s	3P	0	70487.01
+3d3.(2P).4s	1P	1	73881.54
+3d3.(2D2).4s	3D	1	70981.26
+3d3.(2D2).4s	3D	3	71323.06
+3d3.(2D2).4s	3D	2	71323.27
+3d3.(2D2).4s	1D	2	74788.88
+3d3.(2H).4s	3H	4	71677.19
+3d3.(2H).4s	3H	5	71737.56
+3d3.(2H).4s	3H	6	71870.17
+3d3.(2H).4s	1H	5	75351.63
+3d3.(2F).4s	3F	4	84374.12
+3d3.(2F).4s	3F	3	84484.76
+3d3.(2F).4s	3F	2	84572.53
+3d3.(2F).4s	1F	3	87770.68
+3d3.(2D1).4s	3D	3	102236.46
+3d3.(2D1).4s	3D	2	102333.49
+3d3.(2D1).4s	3D	1	102401.80
+3d3.(2D1).4s	1D	2	105626.89
+3d3.(4F).5s	5F	1	157303.2
+3d3.(4F).5s	5F	2	157435.1
+3d3.(4F).5s	5F	3	157637.3
+3d3.(4F).5s	5F	4	157908.0
+3d3.(4F).5s	5F	5	158241.8
+3d3.(4F).5s	3F	2	159031.8
+3d3.(4F).5s	3F	3	159375.6
+3d3.(4F).5s	3F	4	159803.3
+3d3.(4F).4p	5G*	2	93766.21
+3d3.(4F).4p	5G*	3	94029.99
+3d3.(4F).4p	5G*	4	94376.29
+3d3.(4F).4p	5G*	5	94801.70
+3d3.(4F).4p	5G*	6	95306.09
+3d3.(4F).4p	5F*	1	96149.25
+3d3.(4F).4p	5F*	2	96386.31
+3d3.(4F).4p	5F*	3	97121.42
+3d3.(4F).4p	5F*	4	97359.81
+3d3.(4F).4p	5F*	5	97619.48
+3d3.(4F).4p	5D*	0	96693.97
+3d3.(4F).4p	5D*	3	96714.04
+3d3.(4F).4p	5D*	1	96774.38
+3d3.(4F).4p	5D*	2	96922.02
+3d3.(4F).4p	5D*	4	97098.28
+3d3.(4F).4p	3D*	1	97077.96
+3d3.(4F).4p	3D*	2	97306.59
+3d3.(4F).4p	3D*	3	97683.99
+3d3.(4F).4p	3G*	3	99841.67
+3d3.(4F).4p	3G*	4	100100.66
+3d3.(4F).4p	3G*	5	100423.01
+3d3.(4F).4p	3F*	2	101444.57
+3d3.(4F).4p	3F*	3	101746.21
+3d3.(4F).4p	3F*	4	102100.76
+3d3.(4F).4d	5H	3	152927.3
+3d3.(4F).4d	5H	4	153099.1
+3d3.(4F).4d	5H	5	153314.6
+3d3.(4F).4d	5H	6	153571.7
+3d3.(4F).4d	5H	7	153871.7
+3d3.(4F).4d	3G	3	158066.7
+3d3.(4F).4d	3G	4	158442.9
+3d3.(4F).4d	3F	3	158463.6
+3d3.(4F).4d	3F	4	158623.7
+# --- TERM IS A BARE ASTERISK: parity only, no L, no S. R 1576 refuses.
+3d3.(2P).4p	*	1	116774.00
+3d3.(2D2).4p	*	3	116969.09

@@ -1,0 +1,1 @@
+SIC_NOCLAMP=1 python3 t7c_regen.py 21 | 22 24 26 28 29 39 55 | 57 64 71 | 66 68 69 70   (4 calls, timeout 200 each; 14-44 s/row)

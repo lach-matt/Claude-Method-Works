@@ -1,0 +1,73 @@
+# Fe VIII — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Fe+VIII&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Fe IX (3p6 1S<0>)  1218380 cm-1
+#
+# ** K-LIKE — THE FOURTH: V V (5), Cr VI (6), Mn VII (7), Fe VIII (8).
+#    FOUR CONSECUTIVE CHARGES, one structure. **
+#
+# AND THE BREADTH COLLAPSE CONTINUES, now unmistakable across four:
+#      V V     charge 5   l = s p d f g h i k   EIGHT values
+#      Cr VI   charge 6   l = s p d f g h       SIX
+#      Mn VII  charge 7   l = p f               TWO
+#      Fe VIII charge 8   l = p f               TWO
+#
+#   while the f run holds: n = 4,5,6,7 here.
+#
+#   ** THIS IS BOARD ROW 17's QUESTION IN ONE SEQUENCE. Whether the high-l
+#      states cease to EXIST as charge rises, or merely cease to have been
+#      MEASURED, is not decidable from the table — and R 1578's witness
+#      axis exists precisely to keep those two apart. NOT decided here. **
+#
+# NOTE: Fe VIII already has 3 measured cells in the index (p, d, f per
+# the pre-fetch audit); the reading list wants s and g. NEITHER IS IN
+# THIS TABLE. The wanted channels are absent from the source.
+#
+# Three rows query-flagged in the source, marked q.
+#
+# config	term	J	level_cm1	flag
+3p6.3d	2D	3/2	0	
+3p6.3d	2D	5/2	1836	
+3p6.4p	2P*	1/2	510277	
+3p6.4p	2P*	3/2	515550	
+3p6.4f	2F*	5/2	763703	
+3p6.4f	2F*	7/2	763799	
+3p6.5f	2F*	5/2	927059	
+3p6.5f	2F*	7/2	927102	
+3p6.6f	2F*	5/2	1016560	
+3p6.6f	2F*	7/2	1016570	
+3p6.7f	2F*	5/2	1069873	
+3p6.7f	2F*	7/2	1070029	
+# --- CORE-EXCITED, 3p hole, DIFFERENT unprinted limit. Not for 1218380
+3p5.(2P*).3d2.(1G)	2F*	5/2	431250	
+3p5.(2P*).3d2.(1G)	2F*	7/2	434555	
+3p5.(2P*).3d2.(1D)	2F*	7/2	447658	
+3p5.(2P*).3d2.(1D)	2F*	5/2	459367	
+3p5.(2P*).3d2.(1S)	2P*	3/2	508518	
+3p5.(2P*).3d2.(1S)	2P*	1/2	520822	q
+3p5.(2P*).3d2.(3F)	2F*	5/2	535909	
+3p5.(2P*).3d2.(3F)	2F*	7/2	541755	
+3p5.(2P*).3d2.(3P)	2P*	1/2	591964	
+3p5.(2P*).3d2.(3P)	2P*	3/2	595152	
+3p5.(2P*).3d2.(3F)	2D*	5/2	596463	
+3p5.(2P*).3d2.(3F)	2D*	3/2	597065	
+3p5.3d.(3P*).4s	2P*	1/2	837661	
+3p5.3d.(3P*).4s	2P*	3/2	842829	
+3p5.3d.(3F*).4s	4F*	7/2	847145	
+3p5.3d.(3F*).4s	4F*	5/2	849899	
+3p5.3d.(3F*).4s	4F*	3/2	852849	q
+3p5.3d.(3F*).4s	2F*	7/2	855100	
+3p5.3d.(3F*).4s	2F*	5/2	860615	
+3p5.3d.(3D*).4s	4D*	7/2	874711	
+3p5.3d.(3D*).4s	4D*	5/2	876765	
+3p5.3d.(3D*).4s	4D*	3/2	877476	
+3p5.3d.(3D*).4s	4D*	1/2	878264	q
+3p5.3d.(1D*).4s	2D*	5/2	879021	
+3p5.3d.(1D*).4s	2D*	3/2	881345	
+3p5.3d.(1F*).4s	2F*	5/2	884331	
+3p5.3d.(1F*).4s	2F*	7/2	887325	
+3p5.3d.(3D*).4s	2D*	3/2	889113	
+3p5.3d.(3D*).4s	2D*	5/2	890845	

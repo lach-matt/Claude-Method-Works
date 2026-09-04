@@ -1,0 +1,83 @@
+# Yb I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Yb+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Yb+I confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# TWO LIMITS:
+#   Yb II (6s        2S<1/2>)   50443.2    <- the 4f14.6s.nl series
+#   Tm II (4f13.6s2  2F*<7/2>)  71859.7    <- a DIFFERENT ION. The 4f-hole
+#                                             states converge on a THULIUM
+#                                             ion, not an ytterbium one.
+#
+# ** THE SECOND LIMIT IS UNIQUE IN THE WHOLE FETCH: every other species
+#    converges on its own next ion. Yb I's 4f-hole series converges on
+#    Tm II because removing a 4f electron from Yb leaves a Tm-like core.
+#    Recorded, not acted on. **
+#
+# ** AND THIS IS THE MESSIEST TABLE CAPTURED. Of ~230 rows:
+#      - the 4f14.6s.nl block is clean LS (3S, 1S, 3P*, 1P*, 3D, 1D, 3F*)
+#      - a jj block 4f14.6s.(2S<1/2>).np<1/2 or 3/2> runs n = 10..48
+#        — FORTY-EIGHT, the deepest p-series in the fetch
+#      - the 4f13 blocks carry (7/2,3/2)-style jj on parents that are
+#        themselves four-deep: 4f13.(2F*<7/2>).5d.(2D).6s.6p.(3P*)(4F*<3/2>)
+#      - DOZENS of rows have an EMPTY configuration AND a bare "*" term
+#      - several carry "?" INSIDE the term (1D?, 3F?, 3D*?) or the
+#        configuration (4f14.5d2?, 4f14.6p2?)
+#      - suffix "a" marks levels from a DIFFERENT source; "+a?" combines
+#        an additive constant with a query
+#      - five rows have a BLANK level value
+#      - two J values are written "4?" and "3?" — the J ITSELF uncertain **
+#
+# ONLY the clean 4f14.6s.nl LS block is transcribed. Everything else is
+# refused by R 1576 and its structure is described above so the reading
+# pass knows what is there.
+#
+# config	term	J	level_cm1
+4f14.6s2	1S	0	0.000
+4f14.6s.6p	3P*	0	17288.439
+4f14.6s.6p	3P*	1	17992.007
+4f14.6s.6p	3P*	2	19710.388
+4f14.6s.6p	1P*	1	25068.222
+4f14.5d.6s	3D	1	24489.102
+4f14.5d.6s	3D	2	24751.948
+4f14.5d.6s	3D	3	25270.902
+4f14.5d.6s	1D	2	27677.665
+4f14.6s.7s	3S	1	32694.692
+4f14.6s.7s	1S	0	34350.65
+4f14.6s.7p	3P*	0	38090.71
+4f14.6s.7p	3P*	1	38174.17
+4f14.6s.7p	3P*	2	38551.93
+4f14.6s.7p	1P*	1	40563.97
+4f14.6s.6d	3D	1	39808.72
+4f14.6s.6d	3D	2	39838.04
+4f14.6s.6d	3D	3	39966.09
+4f14.6s.6d	1D	2	40061.51
+4f14.6s.8s	3S	1	41615.04
+4f14.6s.8s	1S	0	41939.90
+4f14.6s.8p	3P*	0	43614.27
+4f14.6s.8p	3P*	1	43659.38
+4f14.6s.8p	3P*	2	43805.69
+4f14.6s.8p	1P*	1	44017.60
+4f14.6s.7d	3D	1	44311.38
+4f14.6s.7d	3D	2	44313.05
+4f14.6s.7d	3D	3	44380.82
+4f14.6s.7d	1D	2	44357.60
+4f14.6s.9s	3S	1	45121.37
+4f14.6s.9p	3P*	1	46078.91
+4f14.6s.9p	3P*	0	46082.17
+4f14.6s.9p	3P*	2	46184.15
+4f14.6s.9p	1P*	1	46370.30
+4f14.6s.8d	3D	1	46444.96
+4f14.6s.8d	3D	2	46467.70
+4f14.6s.8d	3D	3	46480.65
+4f14.6s.10s	3S	1	46877.10
+4f14.6s.11s	3S	1	47885.81
+4f14.6s.12s	3S	1	48519.71
+4f14.6s.13s	3S	1	48943.42
+4f14.6s.5f	3F*	2	43433.85
+4f14.6s.6f	3F*	2	45956.27
+4f14.6s.7f	3F*	2	47326.65
+4f14.6p2	3P	0	42436.91
+4f14.6p2	3P	1	43805.42
+4f14.6p2	3P	2	44760.37

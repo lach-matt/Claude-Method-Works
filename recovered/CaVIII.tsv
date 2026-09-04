@@ -1,0 +1,56 @@
+# Ca VIII — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Ca+VIII&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT, from the table:  Ca IX (3s2 1S<0>)  1187600 cm-1
+#
+# 37 levels, all LS-termed. Al-like, same isoelectronic sequence as
+# K VII captured this round — the two are directly comparable.
+#
+# ** A SUFFIX NOT SEEN BEFORE: +x ON ELEVEN ROWS. ** In NIST's notation
+# that marks a level whose value is known only RELATIVE to an unknown
+# additive constant x — the system's absolute position is undetermined.
+# THOSE ELEVEN CANNOT BE USED FOR A DEFECT, which needs an absolute
+# energy below a limit. Flagged, not dropped, so the reading pass sees
+# the reason rather than a gap. Every 3s2.nl series member is clean.
+#
+# config	term	J	level_cm1	flag
+3s2.3p	2P*	1/2	0.0	
+3s2.3p	2P*	3/2	4308.3	
+3s.3p2	4P	1/2	129100	+x
+3s.3p2	4P	3/2	130678	+x
+3s.3p2	4P	5/2	133042	+x
+3s.3p2	2D	3/2	171572.2	
+3s.3p2	2D	5/2	171830.7	
+3s.3p2	2S	1/2	216584.9	
+3s.3p2	2P	1/2	231016.3	
+3s.3p2	2P	3/2	233592.8	
+3s2.3d	2D	3/2	282356	
+3s2.3d	2D	5/2	282577	
+3p3	4S*	3/2	345274	+x
+3s.3p.3d	4P*	5/2	408227	+x
+3s.3p.3d	4P*	3/2	409291	+x
+3s.3p.3d	4D*	1/2	411816	+x
+3s.3p.3d	4D*	3/2	412388	+x
+3s.3p.3d	4D*	5/2	412772	+x
+3s.3p.3d	4D*	7/2	412881	+x
+3s2.4s	2S	1/2	547322	
+3s.3p.4s	4P*	1/2	688747	+x
+3s.3p.4s	4P*	3/2	690128	+x
+3s.3p.4s	4P*	5/2	692833	+x
+3s2.4d	2D	3/2	698232	
+3s2.4d	2D	5/2	698420	
+3s2.4f	2F*	5/2	743288	
+3s2.4f	2F*	7/2	743330	
+3s2.5d	2D	3/2	885693	
+3s2.5d	2D	5/2	885750	
+3s2.5f	2F*	5/2	905052	
+3s2.5f	2F*	7/2	905087	
+3s2.6d	2D	3/2	979749	
+3s2.6d	2D	5/2	980089	
+3s2.6f	2F*	5/2	991023	
+3s2.6f	2F*	7/2	991028	
+3s2.7f	2F*	7/2	1043207	
+3s2.7f	2F*	5/2	1043275	

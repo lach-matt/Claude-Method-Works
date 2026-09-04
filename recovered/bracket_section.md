@@ -1,0 +1,11 @@
+
+### The tower's two ends are one bracket
+The collapse of the previous section and the fourteenth-axis bound of the one before it are the same fact seen from the two ends of the tower, and the construction can now say so exactly rather than by analogy.
+
+Rebuild the whole tower — Λ₈ through Λ₁₃, every count landing on the printed figure — and read each stage's rank against the stage below it. The correspondence is never a function: the rank above does not determine the rank below, and the branching *grows* with height, from four possible ranks below at the ninth stage to nine at the thirteenth. The map the eye wants — one rank above, one rank below, a transition as a function — does not exist, and its absence is now a measured profile rather than a suspicion.
+
+What exists instead is a bracket. At every consecutive stage the ranks below a given rank above form a **gap-free interval with both endpoints rising monotonically** — no exception across all 199,130 cells of Λ₁₃. So the tower's chains are one directed system of monotone intervals, χ(Λ₁₃) → χ(Λ₁₂) → ⋯ → χ(Λ₈), each arrow a bracket; and composing the five contains the direct thirteenth-to-eighth bracket with a slack of at most two rank units. The outward rule of §22 — that composition holds but pays a bounded price — appears here inside the tower's own descent.
+
+> The projection from the top stage covers the whole of the first: every rank of χ(Λ₈) is reached from Λ₁₃, without gap. The one-dimensional chain is the terminal object of this system, entirely inside the image from the top; the fourteenth-axis direction is the same system's limit.
+
+So the two ends are joined, and joined the only way this book joins anything seen from above — by a bracket. Every rank of the first axis is reached from the thirteenth through intervals that never cross, and the map the eye wants does not exist, refuted by a branching of four to nine. The join needs no special language: it is written in the bracket, the same currency the whole construction is written in, and not in any finer or coarser reading. [MC-55]

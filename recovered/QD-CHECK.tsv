@@ -1,0 +1,26 @@
+# Experimentally measured quantum defects, 37 elements — Zel'dovich-effect paper,
+# arXiv:physics/0504154, Table I. NEUTRAL atoms, lowest series.
+# A CROSS-CHECK source, not a channel source: one delta per element, no n-range,
+# no limit, no series identification. Register 687.
+Z	element	delta_exp	systematic
+2	He	0.139	0.110
+3	Li	0.400	0.336
+4	Be	0.670	0.478
+5	B	1.000	0.600
+6	C	1.050	0.744
+7	N	1.091	0.904
+8	O	1.132	1.040
+9	F	1.203	1.144
+10	Ne	1.300	1.229
+11	Na	1.348	1.307
+12	Mg	1.517	1.388
+13	Al	1.758	1.476
+14	Si	1.816	1.574
+16	S	1.947	1.774
+17	Cl	2.128	1.861
+18	Ar	2.140	1.935
+19	K	2.180	1.999
+20	Ca	2.340	2.056
+22	Ti	2.400	2.161
+23	V	2.300	2.134
+26	Fe	2.600	2.390

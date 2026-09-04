@@ -65,6 +65,9 @@ figure set. Nearly all of it would be in the two 388 MB chat exports still liste
 * [`tools/coverage.py`](tools/coverage.py) — the other half of the question: for every artefact the
   books name, is it here? Writes [`COVERAGE.tsv`](COVERAGE.tsv). See
   [`docs/COVERAGE.md`](docs/COVERAGE.md).
+* [`tools/recover.py`](tools/recover.py) — extracts the artefacts the chats wrote into
+  [`recovered/`](recovered/): 2,337 files, 71 handoffs, 68 reading slips. See
+  [`docs/RECOVER.md`](docs/RECOVER.md).
 
 The mirror is one-way: Drive → repo. Edits made under `drive/` are not pushed back to Drive and will
 be overwritten by the next sync.

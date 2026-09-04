@@ -1,0 +1,57 @@
+# Quantum defects at the series limit, Hartree-Slater calculation against
+# experiment. Theodosiou, Manson & Inokuti, "Spectral and electron-collision
+# properties of atomic ions: Threshold phase shifts", Phys. Rev. A 34, 943
+# (1986), Tables I-V. PDF supplied by M 2026-08-11.
+#
+# THIS IS THE PRA COMPANION, NOT THE ADNDT TABLES. Its own reference 32 is
+# "C.E. Theodosiou, M. Inokuti, S.T. Manson, At. Data Nucl. Data Tables (to be
+# published)" — that is ADNDT 35, 473, which D3 still wants. This paper covers
+# Z <= 37; R 1217 records the ADNDT paper as covering Z <= 50.
+#
+# Seaton's theorem, the paper's eq (1):  pi * mu_l(n -> inf) = delta_l(E = 0)
+# so the asymptotic quantum defect IS the zero-energy scattering phase shift
+# in units of pi. Confirms R 1547's reading.
+#
+# sequence	spectrum	Z	z	N	l	HS_calc	experiment	remark
+Na-iso	NaI	11	1	11	0	1.359	1.35	
+Na-iso	NaI	11	1	11	1	0.867	0.85	
+Na-iso	NaI	11	1	11	2	0.0069	0.012	
+Na-iso	NaI	11	1	11	3	0.00005	0.001	
+Na-iso	MgII	12	2	11	0	1.082	1.07	
+Na-iso	MgII	12	2	11	1	0.717	0.70	
+Na-iso	MgII	12	2	11	2	0.038	0.045	
+Na-iso	AlIII	13	3	11	0	0.910	0.90	
+Na-iso	AlIII	13	3	11	1	0.613	0.60	
+Na-iso	AlIII	13	3	11	2	0.075	0.073	
+Na-iso	FeXVI	26	16	11	0	0.318	0.32	
+Na-iso	FeXVI	26	16	11	1	0.220	0.21	
+Na-iso	FeXVI	26	16	11	2	0.090	0.076	
+Na-iso	FeXVI	26	16	11	3	0.014	0.012	
+Mg-iso	MgI	12	1	12	0	1.54	1.60	
+Mg-iso	MgI	12	1	12	1	1.03	1.13	
+Mg-iso	MgI	12	1	12	2	0.029	0.28	
+Mg-iso	AlII	13	2	12	0	1.215	1.26	
+Mg-iso	AlII	13	2	12	2	0.109	0.20	series perturbation
+Al-iso	AlI	13	1	13	0	1.697	1.77	
+Al-iso	AlI	13	1	13	1	1.230	1.34	
+Al-iso	AlI	13	1	13	2	0.0736	0.059	
+K-iso	KI	19	1	19	0	2.177	2.18	
+K-iso	KI	19	1	19	1	1.712	1.71	
+K-iso	KI	19	1	19	2	0.595	0.27	largest theory-experiment discrepancy in the paper
+K-iso	KI	19	1	19	3	0.0006	0.011	
+K-iso	CaII	20	2	19	0	1.811	1.81	
+K-iso	CaII	20	2	19	1	1.451	1.45	
+K-iso	CaII	20	2	19	2	0.719	0.63	
+K-iso	CaII	20	2	19	3	0.010	0.027	
+K-iso	ScIII	21	3	19	0	1.532	1.57	scanty data
+K-iso	ScIII	21	3	19	2	0.611	0.61	
+K-iso	FeVIII	26	8	19	1	0.779	0.8	scanty data
+K-iso	FeVIII	26	8	19	2	0.437	0.4	
+K-iso	FeVIII	26	8	19	3	0.111	0.12	
+Ca-isonuc	CaI	20	1	20	0	2.346	2.42	
+Ca-isonuc	CaI	20	1	20	1	1.871	1.93	
+Ca-isonuc	CaI	20	1	20	2	0.909	0.95	
+Ca-isonuc	CaIII	20	3	18	0	1.472	1.39	open-shell core begins
+Ca-isonuc	CaIII	20	3	18	2	0.560	0.30	
+Ca-isonuc	CaX	20	10	11	0	0.451	0.44	
+Ca-isonuc	CaX	20	10	11	2	0.112	0.093	

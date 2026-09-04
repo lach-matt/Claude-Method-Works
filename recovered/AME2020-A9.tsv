@@ -1,0 +1,18 @@
+# AME2020 mass excesses, the A = 9 isobar chain. Supplied by M 2026-08-11,
+# NOT fetched — the IAEA host is proxy-blocked and the mirrors are untried.
+# VERIFIED three ways before writing:
+#   1. B = Z*7288.97106 + N*8071.31806 - Delta reproduces the known B/A to
+#      0.1 keV for 9Li, 9Be, 9B and 9C. The 9He check failed on MY reference
+#      constant (I used 8He's 3924.5 keV); the supplied value gives 3348.7,
+#      which is the correct drop across the neutron dripline.
+#   2. S_p(9B) = Delta(8Be) + Delta(1H) - Delta(9B) = -185.06 keV, so 9B is
+#      PROTON-UNBOUND as the source states — derived, not asserted.
+#   3. 9Be carries the lowest mass excess and the chain has a single minimum,
+#      the parabola in Z the mass formula requires.
+# THIS IS FIVE NUCLIDES OF ~3,500. It does not close D4.
+# Z	N	A	symbol	mass_excess_keV	unc_keV	note
+2	7	9	He	40939.00	88.00	extrapolated
+3	6	9	Li	24954.91	0.20	beta-unstable
+4	5	9	Be	11348.45	0.04	stable
+5	4	9	B	12415.70	0.80	proton-unbound
+6	3	9	C	28910.80	1.40	beta+/proton emitter

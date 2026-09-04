@@ -1,0 +1,12 @@
+# SESSION 98 -- COMBINED. Open s99 with \`bash pack58/open58.sh\` on LOWDIN-HANDOFF-98.tgz. NO SEALED FILE EDITED. c the only number. 107 rows.
+## §0 OPEN: open58.sh PASS; s97 seal 1738/1738 root MATCH; state card CLEAN; canary CLEAN; tgz sha256 09052c10 matched the s97 note.
+## §R RULINGS (M): "Continue" x2 -- Items 1 and 5 accepted; rows 38 and 105 by the s97 recipe.
+## §1 ROW 38 CLOSED: dcc(38) = +0.00560 (WIDENS); dm2 total +0.07500 = 1.33x margin 0.05639. PR1-PR4 HELD. No block (entrant 5s open in core, but no degenerate denominator).
+## §2 ROW 105 CLOSED: 6d OPEN in core(104) by stencil; Delta_cfg(7s^2->6d^2) +0.267/+0.260/+0.224 (core/ent/run); NOT degenerate (eps 7s below 6d by 32-77 mHa); block = exclusion + two-state on every side; dcc(105) = +0.01148 (WIDENS); dm2 total +0.11747 = 2.16x margin 0.0544. PR1 PR2 PR4 HELD; PR3 first clause FALSIFIED (F98.3).
+## §3 PARTITION FILED: pack98/cc98.py (one rule, all rows): 38 +0.0056 | 56 +0.0033 (exact) | 72 +0.0329 (s97 +0.0381, 5 mHa residual declared) | 105 +0.0115. Can-fails: V^2->0 moves dcc (lever alive); row-56 exact reproduction.
+## §4 FAULTS: F98.1 reproducibility (s97 dcc(72) inline; Claude's first re-read reported a false sign reversal to M, retracted in-session) · F98.2 instrument (v5e nan on same-shell q>=2 pair; remedied v5e98.py, can-fail PASS) · F98.3 prediction · F98.4 instrument (cc98 V^2 sign, caught against the s97 declared V^2). Carried: F93.6, F95.1-F95.6 (F95.4 open), F96.2, F96.4, F97.2, F97.3.
+## §5 STATUS criterion 3: FIVE rows complete at second order (38 56 72 89 105), every row widens: dm2/m = 1.33, 1.24, 2.57-2.69, 3.4-4.9, 2.16. ITEM 1 CLOSED.
+## §6 ADDED pack98/{PREDICTION-S98-CC38.md (3abc6d61), PREDICTION-S98-CC105.md (24bb7280), PAIRS-105.txt, v5e98.py, gap98.py, cc98.py, RESULT-S98-ROWS-38-105.md, ORDER-FOR-S99.md, RETIRE.txt}; pack96 e2w/e2 checkpoints for 38/105. npz retired per pack96/RETIRE.txt (regenerable). Full gate replay NOT run (declared, as s95-s97).
+## §7 ORDER: pack98/ORDER-FOR-S99.md. AWAITING M: accept rows 38/105 and cc98.py; then Item 4 (T4 sentence) LAST.
+$(cat L/pack98/ORDER-FOR-S99.md)
+# LOWDIN-HANDOFF-98.tgz sha256: $H  (seal root 01b4667c, 1764 files; fresh-extract open58.sh CLEAN)

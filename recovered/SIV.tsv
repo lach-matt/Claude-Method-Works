@@ -1,0 +1,16 @@
+# S IV — NIST ASD 5.12, ref L7237 · Z=16, 13 electrons, Al-like
+# limit NOT printed; DERIVED by the lowest-rms rule (register 1059)
+config	term	J	level_cm1
+4s	2S	1/2	181448.2
+5s	2S	1/2	271020.9
+6s	2S	1/2	311500.6
+7s	2S	1/2	332965.6
+4p	2P*	1/2	213514.7
+5p	2P*	1/2	285122.2
+6p	2P*	1/2	318609.3
+7p	2P*	1/2	336735.7
+3d	2D	3/2	152133.2
+4d	2D	3/2	255395.8
+5d	2D	3/2	303337.8
+5f	2F*	7/2	311354.5
+6f	2F*	7/2	332638.6

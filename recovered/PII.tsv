@@ -1,0 +1,20 @@
+# P II — NIST ASD 5.12, ref L7147 · Z=15, 14 electrons, Si-like
+# limit NOT printed; DERIVED by the lowest-rms rule (register 1066)
+config	term	J	level_cm1
+4s	3P*	0	86597.55
+5s	3P*	0	123344.19
+6s	3P*	0	137757.09
+4s	1P*	1	88893.22
+5s	1P*	1	124432.26
+4p	1P	1	101635.69
+5p	1P	1	129109.68
+4p	3D	1	103165.61
+5p	3D	1	129569.36
+4p	3P	0	105224.06
+5p	3P	0	130058.11
+4p	3S	1	106001.25
+5p	3S	1	130800.74
+3d	3F*	2	87804.10
+4d	3F*	2	124946.73
+3d	1F*	3	107360.25
+4d	1F*	3	130142.72

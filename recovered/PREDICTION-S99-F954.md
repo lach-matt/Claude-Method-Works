@@ -1,0 +1,5 @@
+# PREDICTION S99 -- ITEM 3 (F95.4): locus test by comparison, row-89 core, outermost shell per l (7s 6p 5d 4f). Hashed BEFORE the build.
+# RULE B: inequality residual_unsym < residual_sym / 5 on ALL FOUR shells -- VALUE-EXACT diagnostic (same grid, same sealed eps reference); can-fail is non-vacuous both ways (a flat result falsifies PR2 and attributes the locus to the quadrature factor h-vs-dr instead).
+PR1 Baseline (filed symmetrised build) reproduces the s96 residuals: relative |dE|/|eps| in [5e-4, 1.2e-3] for all four shells (7s 8.2e-4, 6p 7.7e-4, 5d 7.3e-4, 4f 8.5e-4 filed).
+PR2 Restoring sqrt(M_i/M_j) (unsymmetrised exchange, general eig) reduces the relative residual by >= 5x on every shell. IF FALSIFIED: locus attributes to the quadrature/weight factor; F95.4 remains open with the M-hypothesis RETIRED.
+# Instrument: pack99/f954probe.py -- v5a build() copied verbatim into a probe, one flag flips the symmetrisation; sealed v5a untouched.

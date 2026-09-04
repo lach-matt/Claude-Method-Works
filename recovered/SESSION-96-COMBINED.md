@@ -1,0 +1,8 @@
+# SESSION 96 -- COMBINED. Open s97 with `bash pack58/open58.sh` on LOWDIN-HANDOFF-96.tgz. NO SEALED FILE EDITED. c the only number. 107 rows.
+## §0 OPEN: open58.sh PASS; s95 seal 1652/1652 root MATCH; state card CLEAN; canary CLEAN; tar sha256 48fc27f5 matched the s95 note.
+## §R RULINGS (M): item 5 the math decides (comparison decides; Dirac kernel scoped, nothing built until ruled); item 4 T4 scope sentence is part of the derived-law statement; order 1 -> 2 -> 3.
+## §1 ITEM 1 CLOSED (RESULT-S96-V5-ROWS.md): dm2 = +0.069 (38) +0.045 (56) +0.083 (72) +0.041 (89, reproduced) +0.106 (105); all widen, none flip. P1 HELD 72/89/105, FALSIFIED 56 (F96.2). P4, P5 HELD. P2/P3-as-written falsified; no-flip holds.
+## §2 ITEM 2 PARTIAL: E_cut 50 at 89 -> +0.0421 (2.2%). Core-core column NOT FILED: rule-dependent by 0.175 Ha; cause the 7s^2->6d^2 near-degenerate double at Ac (collapse physics) -- non-perturbative; comparison decided (F96.3). Singles not computed. ITEM 3 not reached.
+## §3 FAULTS: F96.1 reproducibility (filed dm2(89) had no constructing instrument; remedied v5c/v5d; reproduction PASS to all digits) · F96.2 prediction (P1 at 56) · F96.3 spec (open-shell slot rule; v5e built; comparison decided).
+## §4 ADDED pack96/{v5c.py,v5d.py,v5e.py,*.e2*.json,*.log,RETIRE.txt,RESULT-S96-V5-ROWS.md,T4-SCOPE-SENTENCE-S96.md,ORDER-FOR-S97.md,SESSION-96-COMBINED.md}. npz spectra retired (regenerable, RETIRE.txt). Seal: condense --seal, 1703 files, root 960b708d. Full gate replay NOT run (declared, as s95).
+## §5 ORDER: pack96/ORDER-FOR-S97.md. AWAITING M: accept the s96 filing (entrant-pair estimate; core-core term = declared limitation of the estimate, not a residue).

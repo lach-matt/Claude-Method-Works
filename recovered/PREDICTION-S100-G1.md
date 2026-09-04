@@ -1,0 +1,11 @@
+# PREDICTION S100 -- G1 (F95.4 FULL CLOSURE): h-refinement of the dense-vs-shooting mismatch. Hashed BEFORE the instrument file exists.
+## Object. Row-89 core (Z=88, cfg from sealed chain), shell 7s (l=0), SYM dense build copied VERBATIM from pack99/f954probe.py. At npts in {4000, 5657, 8000} on the FIXED sealed domain [1e-6/Z, 300] (log grid; h proportional to 1/(npts-1)): full SCF solve (HFC, sealed ladder) -> shooting eps(h) and dense linearised eigenvalue lin(h) ON THE SAME GRID. dE(h) := lin(h) - eps(h). Like-for-like: no interpolation, no fixed-target confound.
+## Rule B: inequality and direction -- dE > 0 and DECREASING in refinement; order p from the endpoints.
+PR1 SIGN-exact: dE(h) > 0 at all three npts (4000 measured +1.835e-4 in s99). FAILS if any dE <= 0.
+PR2 VALUE (order-exact): p := ln[dE(4000)/dE(8000)] / ln[h(4000)/h(8000)] in [1.6, 4.4]; AND the mid-point check |dE(5657) - dE_fit(5657)| / dE_fit(5657) <= 0.25 where dE_fit = A h^p from the endpoints. IF BOTH HOLD: F95.4 is FULLY ATTRIBUTED as instrument discretisation of order p, vanishing under refinement -- zero mathematical residue; the sealed physics numbers stand (they were never read from the dense operator's absolute eigenvalue).
+PR3 FALSIFICATION ARM: if dE(8000)/dE(4000) > 0.8 (no decay under halving h), the discretisation hypothesis is FALSIFIED; next locus BY MEASUREMENT = domain/boundary truncation (r_max extension test, declared now).
+H1 HYGIENE GATE (rc=3 HALT): dE at npts=4000 must reproduce the s99 filed value +1.835e-4 to 1e-6 (build fidelity / environment).
+## Can-fails (outside the scored object, non-vacuous):
+CF-A plumbing lever: scoring dE against eps+1e-4 must shift dE by exactly -1e-4 (+/-1e-9); fires rc=4 if not.
+CF-B instrument identity: eigenvalue by shift-invert inverse iteration vs full eigvalsh at npts=4000 agree to 1e-9; fires rc=4 if not. (Inverse iteration is the large-npts path; identity must hold where both run.)
+## Mechanism if PR2 fails with PR3 not fired (decay but wrong order): file measured p, F95.4 stays OPEN with order named; no closure claimed.

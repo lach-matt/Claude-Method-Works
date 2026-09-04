@@ -1,0 +1,8 @@
+# SESSION 97 -- COMBINED. Open s98 with `bash pack58/open58.sh` on LOWDIN-HANDOFF-97.tgz. NO SEALED FILE EDITED. c the only number. 107 rows.
+## §0 OPEN: open58.sh PASS; s96 seal 1711/1711 root MATCH; state card CLEAN; canary CLEAN; tar sha256 90346e5e matched the s96 note.
+## §R RULINGS (M): Item 4 (T4 sentence) LAST -- "no sense writing until we know what we are writing"; Items 1 and 5 taken.
+## §1 ITEM 1 CLOSED at row 89 (pack97/RESULT-S97-ITEMS-1-5.md): slot rule decided by external can-fail (core's own 6p-7s pair; (1-f) +9% PASS, exclusion -50% FAIL) -> F96.3 CLOSED; s^2->d^2 block resummed exactly (ratio 0.92); core-core +0.070, sign-exact widening for any gap; dm2(89) total +0.111 Ha = 3.4x margin. PR1-PR4 HELD.
+## §2 ITEM 5 DECIDED: first-order SO on the KH field (so97.py), rows 109/112/113/118/119: worst-case narrowing <= 0.083 Ha vs margins 0.058-0.264, all HELD; 113 widens (sign-exact); 7p j-split 0.20 Ha at Og re-orders j within 7p only. Dirac kernel NON-GATING, not built.
+## §3 FAULTS: F97.1 instrument (occupancy parser; caught, fixed, rerun) · F97.2 prediction (PS1 range). Closed: F96.3.
+## §4 ADDED pack97/{cc97.py,so97.py,PREDICTION-S97-CORECORE.md (c7e6c34a),PREDICTION-S97-SO.md (b67c7904),RESULT-S97-ITEMS-1-5.md,ORDER-FOR-S98.md,SESSION-97-COMBINED.md}. Full gate replay NOT run (declared, as s95/s96).
+## §5 ORDER: pack97/ORDER-FOR-S98.md. AWAITING M: accept Item 1 row-89 closure; accept Item 5 decision; then Item 4 last.

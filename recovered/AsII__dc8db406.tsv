@@ -1,0 +1,60 @@
+# As II — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=As+II&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  As III (4p 2P*<1/2>)  149932 cm-1
+#
+# ** THE MOST HEAVILY jK-CODED TABLE IN THE QUEUE, and it carries a
+#    NOTATION NO OTHER SPECIES HAS USED: BARE TWO-DIGIT TERMS —
+#    11*, 12*, 13*, 21*, 22*, 23*. **
+#
+#    These sit on 4s2.4p.(2P*<J>).nl configurations. Read against the
+#    parent J written in the configuration, the first digit indexes the
+#    parent (1 for 2P*<1/2>, 2 for 2P*<3/2>) and the second indexes the
+#    coupled state. THIS IS jK COUPLING IN A THIRD ORTHOGRAPHY —
+#    Racah 2[K] elsewhere, letter prefixes in Ti II / V II, trailing
+#    digits in Cr III, and now bare digit pairs here.
+#
+#    ** REGISTER 1576 REFUSES ALL OF IT for having no single 2S+1, and
+#       register 1602's jK rebuild is exactly the instrument that could
+#       read it. NOT applied — capture only. **
+#
+# The series are deep: ns to n=9, np to n=9, nd to n=8, nf to n=8,
+# ng to n=7, on BOTH parent J values.
+#
+# ONLY the LS-termed block is transcribed below. The jK block is ~140
+# rows and is NOT written, because writing it under a key the index
+# cannot read would put unusable rows in the tree; its structure is
+# described above so the reading pass knows what is there and can
+# re-fetch when the jK instrument is applied.
+#
+# config	term	J	level_cm1	note
+4s2.4p2	3P	0	0.00	
+4s2.4p2	3P	1	1063.49	
+4s2.4p2	3P	2	2541.35	
+4s2.4p2	1D	2	10095.82	
+4s2.4p2	1S	0	22598.6	
+4s.4p3	5S*	2	54817.08	two-outside
+4s.4p3	3D*	1	73749.89	two-outside
+4s.4p3	3D*	2	73862.33	two-outside
+4s.4p3	3D*	3	74244.42	two-outside
+4s.4p3	3P*	1	84636.186	two-outside
+4s.4p3	3P*	0	84648.426	two-outside
+4s.4p3	3P*	2	85105.86	two-outside
+4s.4p3	3S*	1	109036.01	two-outside
+4s.4p3	1D*	2	111531.735	two-outside
+4s.4p3	1P*	1	119014.770	two-outside
+4s2.4p.(2P*).4d	1D*	2	83100.804	
+4s2.4p.(2P*).4d	3F*	2	88829.143	
+4s2.4p.(2P*).4d	3F*	3	89549.654	
+4s2.4p.(2P*).4d	3F*	4	90927.421	
+4s2.4p.(2P*).4d	3D*	1	99066.007	
+4s2.4p.(2P*).4d	3D*	2	99548.817	
+4s2.4p.(2P*).4d	3D*	3	100391.099	
+4s2.4p.(2P*).4d	1P*	1	101488.243	
+4s2.4p.(2P*).4d	1F*	3	102487.088	
+4s2.4p.(2P*).4d	3P*	2	102315.401	
+4s2.4p.(2P*).4d	3P*	0	102550.086	
+4s2.4p.(2P*).4d	3P*	1	102594.946	

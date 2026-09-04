@@ -1,0 +1,8 @@
+# RESULT S99 -- ITEM 2: row 89 through the filed partition rule (prediction 6fb79485, hashed before solves). One rule now covers ALL FIVE rows. No sealed file touched.
+## SEVERITY LINE: SIGN-EXACT for direction at every corner; VALUE = ESTIMATE (single-channel V^2 extraction declared; two-state exact in Delta_cfg).
+Instrument-source ruling (v5e/v5e98, F79.1 discipline): the (1-f) own-slot denominator is the shell's SEALED eps -> den(ent,89) = 2(eps_7s - eps_6d) = -0.02693 (gap99a89 solve; near-degenerate, 13 mHa/electron). This is the den that pairs with the piece.
+piece(ent,70-70) = -0.04538 (checkpoints; s97 exact). V^2 = piece x den = +1.222e-3, SIGN-CONSISTENT. Two-state with filed Delta_cfg(ent) +0.12668: -0.00901 (resummation shrinks the near-degenerate PT term 5x -- the s96 non-perturbative finding, now with the correct den).
+dcc(89) = +0.02979 (computed corner) | bracket: can-fail-0 +0.02078, raw PT +0.06616. dm2(89) = +0.07100 = 2.20x margin 0.03233; bracket [1.92x, 3.32x]. NO FLIP at every corner.
+## SUPERSEDES the s97 band [+0.066, +0.117]: lower end was raw PT over a 27 mHa denominator (overestimate); upper end was wrong-provenance V^2 (F99.5). Re-filed: dcc(89) = +0.0298 [+0.0208, +0.0662].
+## FIVE-ROW TABLE (one rule, cc98+cc99b): dm2/m = 1.33 (38) | 1.24 (56) | 2.57-2.73 (72) | 1.92-3.32, point 2.20 (89) | 2.16 (105). EVERY ROW WIDENS. NO FLIP ANYWHERE.
+## SCORING: PR1 HELD (exact); PR2 FALSIFIED (F99.3); PR3 sign HELD, range FALSIFIED (F99.4); PR4 inequality HELD / band FALSIFIED (F99.4).

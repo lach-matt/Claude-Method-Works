@@ -1,0 +1,13 @@
+id	verdict	reason
+674	not a defect	"16.6" on L333 is the section pointer §16.6 in the corrected-form sentence, not a withdrawn figure (regex artefact); the survival class is real elsewhere in the chapter — 1,442 at L564 (READ-ch1 1-28)
+1016	defect	L275 prints P17's pre-correction expression ("1/N") beside the text that corrects it at L333–334; "always" is the principle's wording (READ-ch1 1-11)
+1017	not a defect	"gaps always close" at L279 is inside a reported negation — the sentence denies it
+1018	not a defect	"never failed" at L294 is Register 421's finding (P16 corroborated by no failure)
+1019	not a defect	"never supplied" at L320 is Register 418's finding
+1020	not a defect	"always audit results" is P4's own wording
+1021	not a defect	"always compute the result" is P5's own wording
+1022	not a defect	"never had Q = ∅" at L388 holds: Appendix E E.1.2 lists ten open of 14; E(Λ8) = 0 measured (minmax.py)
+1023	defect	"always" for tree factorisation at L402 is supported on the finite object (closure(Λ8) = Λ8, r2-ch1.py) but the row carries no reference (READ-ch1 1-16)
+1024	defect	"always, by Hilbert" at L403: prior-art row with no reference in References (READ-ch1 1-16)
+1025	defect	"never — Gödel" at L405: prior-art row with no reference in References (READ-ch1 1-16)
+1026	not a defect	"never against invention" at L467 is §16.8.2 / Register 420

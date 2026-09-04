@@ -1,0 +1,21 @@
+# NIST ASD energy levels, K I (neutral potassium). Supplied by M 2026-08-11,
+# not fetched — the endpoint requires `spectrum` singular (R 1538).
+# VERIFIED: 10 of 11 rows pass the cm^-1 <-> eV conversion at better than
+# 6e-4 eV; the ionisation limit agrees with LADDER-K-Kr.tsv to 4e-9 eV.
+# CORRECTED at 4p J=3/2: the supplied cm^-1 value 13023.588 is inconsistent
+# with its own eV value, with the quoted D2 air wavelength of 766.5 nm, and
+# with the known 57.7 cm^-1 fine-structure splitting. All three give 13042.791.
+# The eV column was right; the cm^-1 was mistyped. Corrected value flagged 'c'.
+# config	term	J	E_cm-1	E_eV	source
+4s	2S	1/2	0.000	0.0000	nist
+4p	2P*	1/2	12985.186	1.6100	nist
+4p	2P*	3/2	13042.791	1.6171	corrected
+5s	2S	1/2	21027.080	2.6070	nist
+3d	2D	3/2	21534.680	2.6699	nist
+3d	2D	5/2	21536.990	2.6702	nist
+5p	2P*	1/2	24701.380	3.0625	nist
+5p	2P*	3/2	24720.140	3.0649	nist
+4d	2D	3/2	27397.080	3.3968	nist
+4d	2D	5/2	27398.370	3.3970	nist
+6s	2S	1/2	27450.710	3.4035	nist
+# ionisation limit	35009.814 cm-1	4.340664 eV

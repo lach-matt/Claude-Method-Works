@@ -1,0 +1,7 @@
+# PREDICTION S96 -- valence singles at row 89 in V^{N-1} (spec s95 §1d). Hashed before the instrument exists.
+E2s(c) = f_c * sum_{v in core spectrum, l_v = l_c, v not core-occupied} |<P_c|h_core|F_v>|^2 / (eps_c - e_v) = f_c * sum_v e_v^2 |<P_c|F_v>|^2 / (eps_c - e_v), f_c = 1/(2(2l+1)).
+The sealed AOC entrant orbital is NOT an eigenfunction of h_core (the sealed kernel sees its own AOC potential), so this is non-zero (spec: Brillouin fails).
+PS1 SIGN: E2s(6d) < 0 and E2s(7p) < 0 (the core roots nearest the AOC orbital lie above eps_c: the V^{N-1} operator lacks the valence electron's own attraction, lifting the roots).
+PS2 SIGN of the differential: |E2s(6d)| > |E2s(7p)| -> dm2_singles = E2s(7p) - E2s(6d) > 0 (the collapsed 6d is the more potential-sensitive orbital; its AOC form deviates more from the core eigenfunction).
+PS3 VALUE, bound-direction UP: |dm2_singles| <= 0.02 Ha (smaller than the doubles differential +0.041). Bar for "fires" 1e-4 Ha.
+Can-fail (outside the instrument): apply the formula to a CORE-occupied orbital of the same l on the core side (e.g. 5d of cfg 88, an eigenfunction of h_core up to the F95.4 residual): result must vanish to the 1e-3 level of F95.4 (lever-dead); and to the 6d with P_c replaced by the core's own 6d root: exactly 0 by orthogonality.

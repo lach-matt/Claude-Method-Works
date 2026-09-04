@@ -1,0 +1,13 @@
+# La I — ATTEMPT 3. NO ERROR PAGE. Register 1639.
+# sent:        ...energy1.pl?spectrum=La+I&units=1&format=2&submit=Retrieve+Data
+# destination: ...energy1.pl?format=2&spectrum=La+I&submit=Retrieve+Data&units=1
+# MATCH (parameter order differs; names and values identical).
+#
+# mime_type: text/plain  — the endpoint ACCEPTED the request.
+# body: whitespace only.
+#
+# READING: `spectrum` is the right parameter name, confirming R 1538.
+# The blank body is not a rejection — it is a table with ROWS and NO
+# COLUMNS, because no output column was requested. R 1538's recorded URL
+# carries only units, format and submit; the level and J columns must be
+# asked for explicitly.
