@@ -10512,7 +10512,7 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
   theorem · complexity                                                                    1           0
   theorem · algebraic geometry                                                            1           0
   law · complexity                                                                        1           0
-  law · physics                                                                           4           0
+  law · physics                                                                           4           3
   method · order · combinatorics · analysis                                               1 each      0
   measurement · combinatorics                                                             7           0
   measurement · analysis                                                                  2           0
@@ -10894,8 +10894,9 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
   the limit — Λ_spectra closes at the last species, E = 11  measurement · combinatorics  measured · exhaustive · none found
   rival = donor iff the donor is not full, 12 of 12      law · physics                verified · exhaustive · none found
 
- **Sixty-five elements become seventy-seven over twenty-four fibres, and E = 0 — after the index named
- one cell and the cell was filled by reading one entry honestly.** Two fibres open for the first time,
+ **Sixty-five elements become seventy-seven over twenty-four fibres, and E = 0 in twenty-three of
+ them — after the index named one cell and the cell was filled by reading one entry honestly.** Two
+ fibres open for the first time,
  measurement · analysis and formula · order, and each closes trivially. The first run gave **E = 1** in
  theorem · analysis, at *verified · exhaustive · none found*: the corridor had been entered with
  precedent *found*, because the compendium names Fourier 1826 and Motzkin 1936 for the solution of a
@@ -10908,11 +10909,19 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
  coordinate of its own — §D.5.6 by proving a thing that was sampled, §D.5.8 by admitting a thing was
  sampled, here by attributing a thing to the work that did it.
 
- The observability boundary is the second element to enter as *conjectured* (§D.5.7's slack = kernel
- was the first): one confirming instance, falsifiable, tested once — the compendium says so in those
- words, and *conjectured · sampled* is what those words are. Law · physics now holds four elements over
- three cells and closes; the box it spans admits *conjectured · exhaustive* and *proved · sampled*, and
- §6.1's bounds exclude both, which is the closure doing its work rather than the count.
+ The observability boundary entered as *conjectured* and does not stay there. Its two halves are the
+ literature's and the boundary between them is this work's, and outside attribution is what witness
+ means in this index, so it stands *verified · sampled · found* (register 1802). Law · physics now
+ holds four elements over three cells **and does not close: E = 3.** The whole of that is the one
+ element — without the boundary the fibre closes, without any other it does not move. What the
+ closure admits and nothing holds is *proved · exhaustive · found*, against the ordering law's
+ *proved · exhaustive · none found*: the same status, the same verification, wanting a witness and
+ nothing else. That is §D.2's sixth value read of a fibre rather than a row — **law · physics is
+ unwitnessed.** And the witness it wants is one this book's thesis says cannot exist, since a
+ precedent found for the ordering law would mean the Löwdin challenge had been answered before
+ Chapter 35. The mechanical routes were measured and refused: no ordering of §D.2's three axes
+ closes the appendix, 0 of 8,640, and re-fibring the boundary closes it only into fibres it does
+ not belong to (register 1806).
 
  Register 1734.
 
@@ -18547,4 +18556,8 @@ are the record of how the work went, which is the material §4's mechanisms were
 ### 1805
 
 **THE NECESSITY OF STATE'S VERIFICATION IS EXHAUSTIVE NOW, AND THEOREM · PHYSICS CLOSES; LAW · PHYSICS DOES NOT AND IS LEFT OPEN.** *Appendix D asserts E = 0 in every fibre. Recomputed from the volume's own element tables under §D.2's declared value orders — seventy-seven elements over twenty-four fibres, reconciling against §D.5.10's sum, §D.5's census at twenty-one for theorem · order and its caption's four for law · physics — **twenty-two fibres close and two do not**: law · physics at E = 3 and theorem · physics at E = 2.* **§D.5.6 is the precedent and the same shape: there theorem · order admitted a cell it did not hold, and the repair was not a new element but the evidence for an old one — 'the repair was to prove a thing that had been sampled', ℛ moving from sampled to exhaustive with its status untouched.** *Register 1460 demoted this row's verification because §34.6's 104 of 106 was fixed from the case it judged (register 1448). That was right, and BUILD96 removed the count from §34.6 altogether: the section rests on the geometry — ν affine in a, each subshell the point (√r, n), only lower-hull vertices ever selected — and slopeaxis.py asserts the corridor set IS the hull-vertex set at 0 mismatches over all 106 steps in both forms. The sampling is no longer necessary. Verification alone moves, sampled → exhaustive; the box falls from four to two and E from two to zero.* **AND THE OTHER FIBRE IS NOT REPAIRED. law · physics closes only with the observability boundary at proved · exhaustive · found, and nobody has proved it; §D.5.10's caption 'Law · physics now holds four elements over three cells and closes' was false when written, and recomputing at the boundary's pre-BUILD95 coordinates it fails identically. Reordering is ruled out by measurement: all 8,640 orderings of §D.2's three axes were swept and NONE closes the appendix — 1,440 close both failing fibres and every one of them breaks a fibre that closes today.** *So the appendix closes in twenty-three of twenty-four, and this entry says so rather than claiming the closure whole. Registers 1332; 1448; 1460; and §D.5.5's own warning that E = 0 is a claim relative to a stated fibration.* (a correction.)
+
+### 1806
+
+**LAW · PHYSICS IS UNWITNESSED, AND THE APPENDIX SAYS SO INSTEAD OF SAYING IT CLOSES.** *At BUILD97 Appendix D closed in twenty-three of twenty-four fibres, and the one open fibre was law · physics at E = 3. M's ruling, A of five: record the fibre's closure as what it measures as, in the vocabulary built at register 1801 for this shape, and promote, re-fibre or reorder nothing. Measured first. The whole defect is one element — without the observability boundary the fibre closes at E = 0, without any other of its four it does not move. With the boundary's verification exhaustive one want remains, and it differs from the cell the fibre already holds, the ordering law at proved · exhaustive · none found, on PRECEDENT alone: the same status, the same verification, a witness and nothing else. Precedent is the witness in this index (register 1802; §D.5.2), so the fibre is proved and exhaustive over what it holds and wanting only observation, which is §D.2's sixth value word for word.* **AND THE WITNESS IT WANTS IS ONE THIS BOOK'S THESIS SAYS CANNOT EXIST. The only proved element in the fibre is the ordering law, and a precedent found for it would mean the Löwdin challenge had been answered before Chapter 35 — which is the claim Chapter 35 exists to deny. Closing the fibre through that cell would falsify the achievement it indexes.** *The mechanical routes were run and refused. All 6! × 3! × 2! = 8,640 orderings of §D.2's three axes were swept with ℛ imported from cypher.py: 1,440 close both fibres that were open at BUILD96 and NONE closes the appendix, every one breaking a fibre that closes today. The boundary was moved to each of the other twenty-three fibres: eight close all twenty-four and not one is a home for it, while the one defensible home — measurement · physics, since §D.5.10 describes the boundary as a survey of eleven indexes returning nine of eleven — gives E = 2. That is §D.5.5's warning instantiated, and the section's own governing claim, that E falls as the fibration is refined, is false at seventy-seven elements: one fibre 4, language 6, kind 9, kind × language 5.* **Four sites: the census row (E printed 0, measured 3); §D.5.10's sum; §D.5.10's caption, which also repairs the regression the sixth-value build left there — it still called the boundary the second element to enter as conjectured after register 1802 had moved its row, and argued a closure from coordinates the row no longer carried; and this entry.** *Left as printed and recorded: the census column headed `cells` counts elements. §D.2 defines status for an element; this entry uses the word of a fibre's closure in prose and adds no column and no value.* Registers 1460; 1734; 1801; 1802; 1805. (a correction.)
 <<<END FILE: The_Method_1_6___The_Register-2.md>>>
