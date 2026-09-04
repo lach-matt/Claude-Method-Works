@@ -90,6 +90,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--dry-run", action="store_true",
                         help="stop after the sharder's dry run; write nothing")
+    parser.add_argument("--max-shard-mib", type=float, default=40.0,
+                        help="refuse to commit if any shard is at least this large "
+                             "(default 40, the trigger in docs/REPO-SIZE.md)")
     args = parser.parse_args()
 
     source = find_export()
@@ -115,6 +118,27 @@ def main():
     print("\n--- writing shards ---")
     if run((sys.executable, script, source, "--out", SHARD_OUT)).returncode != 0:
         die("sharding failed. Read the output above.")
+
+    largest, largest_path, total = 0, "", 0
+    for dirpath, _, names in os.walk(SHARD_OUT):
+        for name in names:
+            size = os.path.getsize(os.path.join(dirpath, name))
+            total += size
+            if size > largest:
+                largest, largest_path = size, os.path.join(dirpath, name)
+    mib = 1024.0 * 1024.0
+    print("\nshard tree: %s file(s), %.1f MiB total; largest %.1f MiB (%s)"
+          % (format(sum(len(f) for _, _, f in os.walk(SHARD_OUT)), ","),
+             total / mib, largest / mib, os.path.relpath(largest_path, SHARD_OUT)))
+    if largest >= 100 * 1000 * 1000:
+        die("that shard is at or above GitHub's 100 MB hard block. Committing it would make the\n"
+            "push fail with the blob already in history, which then needs history surgery to\n"
+            "remove. Nothing was committed. Split or exclude that conversation first.")
+    if largest / mib >= args.max_shard_mib:
+        die("that shard is at or above the %.0f MiB trigger in docs/REPO-SIZE.md, which says do\n"
+            "not commit it. Nothing was committed; the shards are at %s. Re-run with\n"
+            "--max-shard-mib set higher if you have read that section and accept the cost."
+            % (args.max_shard_mib, SHARD_OUT))
 
     dest = os.path.join(REPO, DEST_REL)
     if os.path.isdir(dest) and os.listdir(dest):
