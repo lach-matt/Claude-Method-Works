@@ -104,6 +104,30 @@ R2 = row('the nineteen surds, the complete endpoint set', 'withdrawn with ν at 
 R3 = row('the observability boundary, tested once', 'conjectured · sampled · none found',
          'verified · sampled · found')
 
+# M's ruling on L10864: name a theorem by what it IS, not by how a run scored. Of the 22 theorem rows in
+# Appendix D, every name is either the assertion itself or a handle plus its section; '104 of 106 steps'
+# is the only sample score among them. The theorem is STRUCTURAL — non-uniqueness forces carried state —
+# so it takes the handle-and-section form, which is also shift-proof where a line number is not. The
+# score leaves the name and the coordinates carry the qualification.
+# The ENCLOSING table's header, not the first in the document — Appendix D has six element tables and
+# their columns do not line up with each other. Taking the wrong one misaligns the row against its own
+# neighbours, which is what happened on the first attempt.
+_old864 = next(l for l in ML if 'the necessity of state, 104 of 106 steps' in l)
+assert ML.count(_old864) == 1
+_i864 = ML.index(_old864)
+_hdr = next(ML[j] for j in range(_i864, -1, -1)
+            if ML[j].strip().startswith('new element') and 'coordinates' in ML[j])
+_c_fib = _hdr.index('fibre'); _c_crd = _hdr.index('coordinates')
+# and prove it against a neighbour in the SAME table, so a wrong header cannot pass silently
+_nbr = ML[_i864 - 1]
+assert _nbr.index('measurement · analysis') == _c_fib, 'header does not match this table'
+_name = 'the necessity of state, §34.6'; _fib = 'theorem · physics'
+_crd = ('verified · sampled · none found (the claim stands at register 1332; its count is fixed from the '
+        'case it judges and is not independently reproducible, register 1448)')
+_new864 = ('  ' + _name).ljust(_c_fib) + _fib.ljust(_c_crd - _c_fib) + _crd
+assert _new864.index(_fib) == _c_fib and _new864.index(_crd) == _c_crd, 'row realignment failed'
+R4 = (_old864 + chr(10), _new864 + chr(10))
+
 # §4.6 marked proved (M: A3). Proof is mathematics, not observation — the protocol is proved because
 # the case it was built for arrived and it caught it. This is the one protocol of the ten that is not
 # merely earned by a failure but established by one.
@@ -118,13 +142,14 @@ SUBS_MAIN = [
     ('the corridor row', R1[0], R1[1]),
     ('the nineteen surds row', R2[0], R2[1]),
     ('the observability boundary row', R3[0], R3[1]),
+    ('the necessity of state row', R4[0], R4[1]),
 ]
 
 # ---------------------------------------------------------------- the Register entry (subject matter)
 seated = sorted(int(x) for x in re.findall(r'^### (\d+)$', r, re.M))
 N = max(seated) + 1
 assert N == 1801, f'expected to take 1801-1802, next free is {N}'
-assert not re.search(rf'^### {N + 1}\b', r, re.M)
+assert not re.search(rf'^### {N + 1}\b', r, re.M) and not re.search(rf'^### {N + 2}\b', r, re.M)
 E1 = (f"### {N}\n\n**THE STATUS COORDINATE TAKES A SIXTH VALUE: *UNWITNESSED*, ABOVE *VERIFIED* AND BELOW "
       "*PROVED*.** *§D.2 defined status on five values. A result can be measured, verified and exhaustive over "
       "everything the index reaches while nothing witnesses the claim; that is not a doubt and not a demotion, "
@@ -148,7 +173,17 @@ E2 = (f"### {N + 1}\n\n**THE OBSERVABILITY BOUNDARY IS NOT A CONJECTURE; IT IS V
       "carries its literature is not a guess.* **Re-ranked verified · sampled · found: verified because it "
       "decides, sampled because it has been applied once, and found because the literature is there — and by "
       "the witness rule of the entry above, someone has seen it.** Registers 1377. (a correction.)\n")
-TAIL = '\n' + E1 + '\n' + E2
+E3 = (f"### {N + 2}\n\n**THE NECESSITY OF STATE IS A STRUCTURAL THEOREM AND IS NAMED AS ONE; ITS SCORE "
+      "LEAVES ITS NAME.** *Appendix D carried it as \u2018the necessity of state, 104 of 106 steps\u2019 \u2014 the only "
+      "element of the twenty-two whose fibre is theorem to be named by a sample score rather than by its "
+      "assertion or by a handle and its section. The theorem is that the observed subshell is never uniquely "
+      "determined, so the periodic table is not computable from a single atom\u2019s configuration and one number "
+      "must be carried forward (\u00a734.6; register 1332). That is structural and does not depend on how any run "
+      "scored.* **Renamed to the handle-and-section form the table uses, and the count moved into the "
+      "coordinates where register 1448\u2019s objection can qualify it: the placement it was measured under is "
+      "fixed from the case it judges and cannot fail, so the claim stands and the figure does not \u2014 104 of 106 "
+      "under that placement, 62 of 106 under the corridor-non-empty convention.** Registers 1332; 1448. (a correction.)\n")
+TAIL = '\n' + E1 + '\n' + E2 + '\n' + E3
 assert not re.search(rf'^### {N}\b', r, re.M)
 
 def apply(t, subs):
@@ -172,7 +207,7 @@ WARN = "  **WARNING:** Qualified at register 1448. The memoryless test set *a* t
 SUBS_REG = [('the WARNING on 1332', _body + chr(10), _body + WARN + chr(10))]
 new_r = apply(r, SUBS_REG) + TAIL; assert md5(reverse(new_r[:-len(TAIL)], SUBS_REG).encode('utf-8')) == md5(old_reg), 'Register reverse FAILED'
 print(f'main: {len(SUBS_MAIN)} substitutions, reverse recovers md5 {md5(old_main)} == old: True')
-print(f'Register: {len(SUBS_REG)} substitution (the 1332 WARNING, +0 lines) + entries {N} and {N+1} appended, reverse recovers {md5(old_reg)}')
+print(f'Register: {len(SUBS_REG)} substitution (the 1332 WARNING, +0 lines) + entries {N}–{N+2} appended, reverse recovers {md5(old_reg)}')
 
 # ---------------------------------------------------------------- what must NOT have moved
 NL = new_m.split('\n')
@@ -196,7 +231,7 @@ print('slack = kernel keeps conjectured (M: unchanged); the observability bounda
 # ---------------------------------------------------------------- Ruling A: the parked counts, scored
 for pat in (r'\*\*1635 entries, 1 to 1792\.\*\*', r'\| \*\*a correction\*\* \| ([\d,]+) \|'):
     assert re.search(pat, new_r), f'count site {pat} moved — Ruling A parks it'
-print(f'PARKED (Ruling A): entries now 1 to {N+1}; the front matter still prints its BUILD180 extent — reg1-04 carries it')
+print(f'PARKED (Ruling A): entries now 1 to {N+2}; the front matter still prints its BUILD180 extent — reg1-04 carries it')
 
 # ---------------------------------------------------------------- press anchors
 src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
