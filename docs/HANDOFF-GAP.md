@@ -4,12 +4,39 @@
 bundles also cite **88 distinct `HANDOFF-<n>` by bare number**, and **26 of those are held nowhere in
 the repository** — not in `method/`, `drive/`, `extracted/` or `recovered/`.
 
-**Twenty-three have a complete body in the chat export — 596 KB, extracted exactly.**
-`HANDOFF-GAP.tsv` is the standing list: byte length, line count, md5, and the conversation and
-message that hold each one.
+**Twenty-three had a complete body in the chat export — 596 KB, extracted exactly — and all
+twenty-three are now seated.** They are in `recovered/` under the status **`RECOVERED-BY-NUMBER`**,
+with `recovered/LEDGER.tsv` carrying the md5, the source shard and the conversation for each.
+`HANDOFF-GAP.tsv` is the provenance record: byte length, line count, md5, the message that holds
+each one, and `seated_as`.
 
-**Nothing was recovered and nothing was written into `recovered/`.** Regenerating a tree is the
-author's call; the chat-67 full hold governs. Every row is a verifiable pointer, not a file.
+**Three remain held nowhere** — `HANDOFF-2`, `HANDOFF-103`, `HANDOFF-104` — and each is
+`MENTION-ONLY`: the name is spoken and no body exists in the export. That is not a finding of loss.
+
+| | |
+|---|---:|
+| `HANDOFF-<n>` cited by bare number in the two live bundles | 88 |
+| held before this recovery | 62 |
+| **seated by it** | **23** |
+| still held nowhere | 3 |
+
+## The status is its own, and that is deliberate
+
+They are ledgered **`RECOVERED-BY-NUMBER`**, not `RECOVERED`. How a file was found is part of what it
+is here: these were reachable only through a bare-number citation, never through the wanted-set every
+other recovered row came from. Flattening them to `RECOVERED` would lose exactly the fact that made
+them findable — the same discipline that keeps `RECOVERED` distinct from `RECOVERED-BY-HEADING` and
+`RECONSTRUCTED` from `RECOVERED`.
+
+**`COVERAGE.tsv` does not move, and that is the confirmation.** Re-running `coverage.py --chats`
+after seating gives a byte-identical file. It should: the 23 were never in the census's artefact
+column, which is the whole reason they were missed. A census that counted them now would mean the
+mechanism described below was wrong.
+
+**The generator excludes its own recoveries from the held-test.** Otherwise this file erases its own
+history the first time it is regenerated — the 23 are seated, a naive held-test drops them, and the
+record of where they came from goes with them. It reads `recovered/LEDGER.tsv` for the
+`RECOVERED-BY-NUMBER` rows and holds them out.
 
 ## Why they were missed, and it is a clean mechanism
 
@@ -63,7 +90,10 @@ numbered in their own titles. It is `HANDOFF-33.md` by its write path, not by it
   file, and it is not a claim of identity with anything.
 - **Where a handoff was written more than once, the longest write is the row.** `writes_seen` says
   how many were found; earlier drafts of the same document are not reconciled here.
-- **Nothing was seated.** The 23 are pointers into the export until an author says otherwise.
+- **Seating is not verification against a lost original.** No held copy exists to compare against —
+  that is the premise. The md5 is of what the export carries, and the seating asserts only that the
+  bytes in `recovered/` are the bytes the tool call wrote.
+- **`HANDOFF-33` keeps its earlier-convention title.** It was seated as written, not retitled.
 
 ## Two traps, both of which produced a wrong answer here first
 
@@ -101,4 +131,4 @@ grep -c 'HANDOFF-71' COVERAGE.tsv             # 0
 ## Columns
 
 `handoff`, `number`, `class`, `prose_mentions`, `bytes`, `lines`, `md5` (of the extracted body),
-`writes_seen`, `conversation`, `conversation_title`, `date`, `msg`, `title_line`.
+`writes_seen`, `conversation`, `conversation_title`, `date`, `msg`, `seated_as`, `title_line`.

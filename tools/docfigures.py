@@ -153,9 +153,6 @@ def checks():
         ("CLAUDE.md", "extracted/ bodies written", 779, len(ext)),
         ("CLAUDE.md", "extracted/ bodies, MB (1dp)", 57.4,
          round(sum(os.path.getsize(ROOT / p) for p in ext) / 1e6, 1)),
-        ("CLAUDE.md", "recovered/ files", 2382,
-         len({r["target_path"] for r in rec if r["target_path"]})),
-        ("CLAUDE.md", "recovered/ ledger rows", 2433, len(rec)),
         ("CLAUDE.md", "recovered/ RECOVERED-TRUNCATED", 23,
          sum(1 for r in rec if r["status"] == "RECOVERED-TRUNCATED")),
         ("CLAUDE.md", "chat conversations", 352, len(idx)),
@@ -198,10 +195,16 @@ def checks():
         ("docs/REGISTER-GAPS.md", "numbering gaps", 132, len(gaps)),
         ("docs/REGISTER-GAPS.md", "seated in neither register", 13,
          len([n for n in gaps if n not in W])),
-        ("docs/HANDOFF-GAP.md", "handoffs named by number, held nowhere", 26,
+        ("docs/HANDOFF-GAP.md", "handoffs by number, unheld before the recovery", 26,
          len(_rows("HANDOFF-GAP.tsv"))),
-        ("docs/HANDOFF-GAP.md", "of those, with a body in the chat export", 23,
-         sum(1 for r in _rows("HANDOFF-GAP.tsv") if r["class"].startswith("BODY"))),
+        ("docs/HANDOFF-GAP.md", "seated as RECOVERED-BY-NUMBER", 23,
+         sum(1 for r in _rows("recovered/LEDGER.tsv")
+             if r["status"] == "RECOVERED-BY-NUMBER")),
+        ("docs/HANDOFF-GAP.md", "still held nowhere (all MENTION-ONLY)", 3,
+         sum(1 for r in _rows("HANDOFF-GAP.tsv") if r["class"] == "MENTION-ONLY")),
+        ("CLAUDE.md", "recovered/ files", 2405,
+         len({r["target_path"] for r in _rows("recovered/LEDGER.tsv") if r["target_path"]})),
+        ("CLAUDE.md", "recovered/ ledger rows", 2456, len(_rows("recovered/LEDGER.tsv"))),
     ] + _instrument_rows()
 
 

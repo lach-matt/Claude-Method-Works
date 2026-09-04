@@ -18,7 +18,15 @@ python3 tools/recover.py --selftest # assert the corpus's own recorded numbers
 | `RECOVERED-TRUNCATED` | 23 | The body carries a `< truncated lines N-M >` marker — the chat was showing an **elided view**, so the text is incomplete by the stated count. Kept, because a partial document is still evidence, but never to be read as whole. |
 | `PRESENT-IN-REPO` | 51 | Byte-identical to something already tracked; not written again. |
 
-**2,382 files, 9.4 MB** (2,433 rows; the `PRESENT-IN-REPO` rows write nothing).
+**2,405 files, 10.0 MB** (2,456 rows; the `PRESENT-IN-REPO` rows write nothing).
+
+**23 of those files are `RECOVERED-BY-NUMBER`, added after this document was first written.** They
+are handoffs the bundles cite only as `HANDOFF-71`, never `HANDOFF-71.md`, so they never entered the
+wanted-set this tool builds from `COVERAGE.tsv`'s artefact column — a limitation of the wanted-set's
+*shape*, distinct from the non-idempotence recorded below, which was a limitation of the tool. They
+were extracted structurally, from the `file_text` of the tool call that wrote each file, and
+`COVERAGE.tsv` is byte-identical after seating them because they were never in its artefact column
+to begin with. See `docs/HANDOFF-GAP.md`.
 
 ## Two defects found by the graph pass, and fixed
 

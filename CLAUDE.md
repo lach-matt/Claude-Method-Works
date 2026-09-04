@@ -46,11 +46,14 @@ rose 559 → 702 and the plain-run ABSENT fell 431 → 288 with no new fetch. Se
 **`drive/chats/` is the sharded chat export, and `recovered/` is what was extracted from it.**
 352 conversations, 11,879 messages, sharded by `tools/shard_conversations.py` with `INDEX.tsv` and
 `SUMMARY.json` as their inventory. `tools/recover.py` then extracts the artefacts those chats wrote:
-**2,382 files, 9.4 MB** over 2,433 ledger rows, in four statuses: `RECOVERED` (2,196) where a
+**2,405 files, 10.0 MB** over 2,456 ledger rows, in five statuses: `RECOVERED` (2,196) where a
 heredoc named its own target, `RECOVERED-BY-HEADING` (163) where a code block carried the body and
-the name was inferred from its heading, `PRESENT-IN-REPO` (51) which write nothing, and
+the name was inferred from its heading, `PRESENT-IN-REPO` (51) which write nothing,
 **`RECOVERED-TRUNCATED` (23) — a body a paging viewer elided in the middle**, which hashes cleanly
-and so once passed as whole; read the ledger's note for the missing line count before trusting one.
+and so once passed as whole; read the ledger's note for the missing line count before trusting one;
+and **`RECOVERED-BY-NUMBER` (23)**, handoffs reachable only through a bare-number citation and so
+never in the wanted-set — see `docs/HANDOFF-GAP.md`. **A status is never flattened**: how a file was
+found is part of what it is.
 **2,337 is the superseded figure** from a first run that was not idempotent, and `docs/RECOVER.md`
 records why. Both are generated trees — regenerate, never hand-edit. **RECOVERED is not mirrored**: the bytes were measured out of the
 export, and no recovered file is claimed byte-identical to a copy held elsewhere, nor is any of it a
@@ -209,16 +212,17 @@ a collection log quotes as live instructions, and 1138. Complements rather than 
 corpus's own cited-but-absent census (`register_cites.py`, `DEFERRED.md` docket 9(c)/30), which asks
 the other question. See `docs/REGISTER-GAPS.md`.
 
-**`HANDOFF-GAP.tsv` lists handoffs the corpus names and the repository does not hold.** The bundles
-cite **88** distinct `HANDOFF-<n>` by bare number; **62 are held and 26 are not**, and **23 of the 26
-have a complete body in the chat export — 596 KB**, extracted exactly from the tool call that wrote
-each file, with byte length, line count and md5 recorded. They were missed because `recover.py` takes
-its wanted-set from `COVERAGE.tsv`'s artefact column, which holds names of *filename* shape, and 25
-of these 26 are only ever cited as `HANDOFF-71`, never `HANDOFF-71.md`. Each title chains
-(`HANDOFF-71 — chat 118 → chat 119`, written in the conversation titled 118). Read the export
-**structurally**, not as text: a handoff's body is a tool call's `file_text`, so a prose-only
-extractor reports all 26 as mentions and a regex pass reports 15 where the true figure is 23.
-**Nothing was recovered**; the rows are verifiable pointers. See `docs/HANDOFF-GAP.md`.
+**`HANDOFF-GAP.tsv` records the handoffs the corpus named and the repository did not hold.** The
+bundles cite **88** distinct `HANDOFF-<n>` by bare number; 62 were held, 26 were not, and **23 of
+those 26 are now seated in `recovered/` under the status `RECOVERED-BY-NUMBER` — 596 KB**, extracted
+exactly from the tool call that wrote each file, md5 recorded in `recovered/LEDGER.tsv`. **Three
+remain held nowhere** — `HANDOFF-2`, `103`, `104` — each `MENTION-ONLY`, which is not a finding of
+loss. They were missed because `recover.py` takes its wanted-set from `COVERAGE.tsv`'s artefact
+column, which holds names of *filename* shape, and 25 of the 26 are only ever cited as `HANDOFF-71`,
+never `HANDOFF-71.md`; `COVERAGE.tsv` is byte-identical after the seating, which is the confirmation
+rather than a surprise. Read the export **structurally**, not as text: a handoff's body is a tool
+call's `file_text`, so a prose-only extractor reports all 26 as mentions and a regex pass reports 15
+where the true figure is 23. See `docs/HANDOFF-GAP.md`.
 
 **What the graph pass measured is written up in `docs/GRAPH-FINDINGS.md`** — the seven `AMBIGUOUS`
 edges traced to their files, the `HANDOFF-13` byte-fingerprint for an absent document, the 23-file
