@@ -9,10 +9,18 @@ such name, and reports whether the repo holds it. It answers one question:
 Three statuses, and the third is the point:
 
   HELD             a file of that name exists somewhere in the repo
+  IN-CHAT-BODY     absent as a file, but a chat shard carries its own title line,
+                   so the document body is recoverable from that conversation
+  IN-CHAT          absent as a file; the name is spoken in a chat shard, which
+                   may be a passing mention rather than the content
   HELD-VIA-ALIAS   the image exists under its pre-rename source name, per the
                    mapping in CORPUS/FIGURE_ASSETS.md; only the renamed copy
                    has not been written
   ABSENT           no file of that name, and no alias, anywhere in the repo
+
+``--chats`` resolves what is left against the sharded chat export in
+``drive/chats``. That turns this census into a recovery index: for an artefact
+the repo does not hold, ``held_as`` names the conversation to open.
 
 **ABSENT is a census result, not a finding of loss.** A name in prose is not
 proof a file ever existed, and the corpus refers to artefacts that were never
@@ -45,6 +53,7 @@ BUNDLES = (
     "method/The_Method_1_6_BUILD90_main_and_register.md",
 )
 FIGURE_ASSETS = "drive/The Method Materials/CORPUS/FIGURE_ASSETS.md"
+CHATS = "drive/chats"
 OUT = os.path.join(ROOT, "COVERAGE.tsv")
 
 NAME_RE = re.compile(r"\b([A-Za-z0-9][A-Za-z0-9._-]{2,60}\.(?:md|png|py|tsv|csv|json|txt))\b")
@@ -107,6 +116,52 @@ def referenced():
     return names
 
 
+def resolve_against_chats(rows):
+    """Re-status ABSENT rows against the sharded chat export.
+
+    One pass over the shards: collect the filename-shaped tokens each one
+    speaks, and the heading stems it carries. A heading is the document's own
+    title line, so it is evidence of the body rather than a mention; headings
+    only mean that for Markdown, so the stronger status is claimed only there.
+    """
+    base = os.path.join(ROOT, CHATS)
+    if not os.path.isdir(base):
+        return rows, False
+    absent = {r[0] for r in rows if r[2] == "ABSENT"}
+    if not absent:
+        return rows, True
+    stems = {a[:-3]: a for a in absent if a.endswith(".md")}
+    # NOT anchored with ^/re.M: inside a shard the newlines are JSON-escaped
+    # "\\n" literals, so a line-anchored pattern matches nothing at all.
+    heading = re.compile(r"#+[ \t]*([A-Za-z0-9][A-Za-z0-9._-]{2,60})")
+    named, bodied = {}, {}
+    for dirpath, _, names in os.walk(base):
+        for name in sorted(names):
+            if not name.endswith(".json") or name == "SUMMARY.json":
+                continue
+            path = os.path.join(dirpath, name)
+            rel = os.path.relpath(path, base)
+            try:
+                text = open(path, encoding="utf-8", errors="replace").read()
+            except OSError:
+                continue
+            for tok in set(NAME_RE.findall(text)):
+                if tok in absent:
+                    named.setdefault(tok, rel)
+            for stem in set(heading.findall(text)):
+                if stem in stems:
+                    bodied.setdefault(stems[stem], rel)
+    out = []
+    for name, fam, status, via in rows:
+        if status == "ABSENT" and name in bodied:
+            out.append((name, fam, "IN-CHAT-BODY", bodied[name]))
+        elif status == "ABSENT" and name in named:
+            out.append((name, fam, "IN-CHAT", named[name]))
+        else:
+            out.append((name, fam, status, via))
+    return out, True
+
+
 def survey():
     held = held_names()
     alias = figure_aliases()
@@ -132,14 +187,16 @@ def report(rows):
         grid[fam][status] += 1
     total = Counter(r[2] for r in rows)
     print("Artefact coverage -- what the two live bundles name, against what the repo holds\n")
-    print("%-12s %6s %6s %7s %8s" % ("family", "named", "held", "alias", "ABSENT"))
+    print("%-12s %6s %6s %7s %8s %9s %8s"
+          % ("family", "named", "held", "alias", "in-body", "in-chat", "ABSENT"))
     for fam in sorted(grid, key=lambda f: -sum(grid[f].values())):
         counts = grid[fam]
-        print("%-12s %6d %6d %7d %8d" % (
-            fam, sum(counts.values()), counts["HELD"],
-            counts["HELD-VIA-ALIAS"], counts["ABSENT"]))
-    print("%-12s %6d %6d %7d %8d" % (
-        "TOTAL", len(rows), total["HELD"], total["HELD-VIA-ALIAS"], total["ABSENT"]))
+        print("%-12s %6d %6d %7d %8d %9d %8d" % (
+            fam, sum(counts.values()), counts["HELD"], counts["HELD-VIA-ALIAS"],
+            counts["IN-CHAT-BODY"], counts["IN-CHAT"], counts["ABSENT"]))
+    print("%-12s %6d %6d %7d %8d %9d %8d" % (
+        "TOTAL", len(rows), total["HELD"], total["HELD-VIA-ALIAS"],
+        total["IN-CHAT-BODY"], total["IN-CHAT"], total["ABSENT"]))
     print("\nwritten: %s" % os.path.relpath(OUT, ROOT))
     print("ABSENT = not reachable from any source in this repo. Not a claim of loss:")
     print("a name in prose is not proof a file ever existed.")
@@ -179,7 +236,17 @@ def selftest():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--chats", action="store_true",
+                        help="resolve ABSENT artefacts against the sharded chat "
+                             "export in drive/chats")
     parser.add_argument("--selftest", action="store_true",
                         help="assert the corpus's own recorded numbers and exit")
     args = parser.parse_args()
-    sys.exit(selftest() if args.selftest else report(survey()))
+    if args.selftest:
+        sys.exit(selftest())
+    rows = survey()
+    if args.chats:
+        rows, ok = resolve_against_chats(rows)
+        if not ok:
+            print("no %s tree; nothing to resolve against.\n" % CHATS)
+    sys.exit(report(rows))

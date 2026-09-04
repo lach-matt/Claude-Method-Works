@@ -21,6 +21,38 @@ own recorded numbers.
 | `REGISTER-*`, `RULING-*` | 2 | 2 | 0 | 0 |
 | **Total** | **1,005** | **559** | **15** | **431** |
 
+## Resolved against the chats (`--chats`)
+
+With the sharded export in `drive/chats`, `--chats` re-resolves everything the repo does not hold
+against 352 conversations, and the census becomes a **recovery index**: `held_as` names the
+conversation to open.
+
+| family | named | held | alias | in-body | in-chat | ABSENT |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| instrument | 338 | 213 | 0 | 0 | 125 | 0 |
+| data | 218 | 136 | 0 | 0 | 82 | 0 |
+| other | 150 | 73 | 0 | 10 | 63 | 4 |
+| `READ-*` | 119 | 48 | 0 | 44 | 27 | 0 |
+| figure | 117 | 75 | 15 | 0 | 27 | 0 |
+| `HANDOFF-*` | 58 | 12 | 0 | 41 | 5 | 0 |
+| `DEF-*` | 3 | 0 | 0 | 0 | 3 | 0 |
+| **Total** | **1,005** | **559** | **15** | **95** | **332** | **4** |
+
+`IN-CHAT-BODY` means a shard carries the document's own title line, so the body is recoverable from
+that conversation. `IN-CHAT` means only that the name is spoken there — possibly a passing mention.
+The distinction is deliberate and the weaker status is never reported as the stronger: **41 of the
+46 handoffs have a body; the other 5 are mentions.**
+
+The heading test is not line-anchored, because inside a shard the newlines are JSON-escaped `\n`
+literals and a `^`-anchored pattern matches nothing at all. Headings only evidence a body for
+Markdown, so `IN-CHAT-BODY` is claimed for `.md` artefacts only.
+
+**Four names remain ABSENT, and none is a missing document:** `HANDOFF96.md`, `HANDOFF98.md`,
+`5e655873-HANDOFF100.md` and `a4dd0e54-HANDOFF99.md` — unhyphenated and uuid-prefixed spellings of
+handoffs the repo already holds as `HANDOFF-96.md`, `HANDOFF-98.md`, `HANDOFF-99.md` and
+`HANDOFF-100.md`. The census is literal and does not guess at such mappings, which is why it reports
+them rather than silently resolving them.
+
 ## What ABSENT does and does not mean
 
 **ABSENT means "not reachable from any source in this repo". It is not a claim that anything was
