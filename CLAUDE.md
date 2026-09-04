@@ -153,6 +153,18 @@ covers `extracted/`, `recovered/` and the repo's own tools; `drive/chats/` stays
 Still a snapshot: do not treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`,
 `extracted/LEDGER.tsv` or `recovered/LEDGER.tsv` instead.
 
+**`PROSE-ONLY.tsv` is the standing list of what the chat history holds that this repository does
+not** — **1,101 statements** (275 measurements, 217 faults, 199 corrections, 179 definitions, 142
+standing rules, 65 decisions, 24 named artefacts) that appear only in message prose and whose
+verbatim fingerprint occurs in no file outside `drive/chats/`. Measured over all 352 conversations;
+every candidate was checked against a 657 MB index of the repo, and 184 already-banked ones were
+dropped. The governance spine is intact — **zero** prose-only rulings, dockets or `W-` entries — but
+**40 numbered faults and 178 registers are named in prose and held nowhere.** A row is a candidate
+for a home, not an instruction to make one, and the list is a **floor**: the reading pass was capped
+at 30 findings per chunk. See `docs/PROSE-ONLY.md`, which also records the one finding that needs a
+ruling — register 66's order-ideal claim against an unbanked re-measurement — and the open
+retraction audit (199 corrections whose superseded values may still stand in the volumes).
+
 **What the graph pass measured is written up in `docs/GRAPH-FINDINGS.md`** — the seven `AMBIGUOUS`
 edges traced to their files, the `HANDOFF-13` byte-fingerprint for an absent document, the 23-file
 truncation census (only `HANDOFF-34.md` lines 34–42 is a hard boundary, and it is one the chat export
