@@ -152,5 +152,5 @@
   Register lines with "join-closed": [(6405, 1716)]
   "the ledger" — where C is called a join-closed sublattice: main sites [10103] ; every volume: {'main': [10103]} ; "the ledger" in the unit: [10103]
   Register 268 names A.19.0's content (closed size 17) — its entry number in the unit L[10185]; Register 255 names A.19 ("seventeen generators are now listed at A.19"); Register 208 names the 8 and max − x
-  Register lines naming A.15/A.18/A.19: [(1003, 255, '**EVERY CELL OF Λ IS FULLY DEFINED AND THE GENERATING SET WAS NEVER PRINTED.** *All 976 carry all ei'), (1011, 258, "**A SEVENTH LANGUAGE ADMITTED: BINARY.** *Λ is the 976 words in {0,1}¹⁷ that are down-sets of A.19's")]
+  Register lines naming A.15/A.18/A.19: [(1003, 255, '**EVERY CELL OF Λ IS FULLY DEFINED AND THE GENERATING SET WAS NEVER PRINTED.** *All 976 carry all ei'), (1011, 258, "**A SEVENTH LANGUAGE ADMITTED: BINARY.** *Λ is the 976 words in {0,1}¹⁷ that are down-sets of A.19's"), (6716, 1819, '**THE WITHDRAWN 2,475 STANDS AT FOUR SITES THE WITHDRAWAL DID NOT REACH, TWICE AS A FIGURE AND TWICE')]
   unit lines with register/Register: [10105, 10185, 10189, 10197] (G0i: lowercase "register 208" names; "Register 230/268/255" cite)

@@ -80,3 +80,24 @@ chapters 12–15 though W-112 … W-121, DEFERRED and DOCKET cite them (DEF-153Q
 closures, which are documents with an md5 and a source shard; the instruments only with a golden proved on the bundle
 they were banked against, otherwise seated unproved as `r3-wl2` is; the 22 closures and 3 readings the export does not
 hold recorded as ABSENT, not loss.*
+
+## M's answers (chat 153-R, 4 September 2026), verbatim, and what each binds
+
+> *1-lead only* · *2- the aufbau table* · *3-this can only be answered by the chat transcripts/information stated only
+> in prose, which the other chat has made readable and identifiable for you* · *4-yes, following you specific
+> recommendation*
+
+- **Q1 — RULED: a chat transcript is a lead only.** A retraction-audit row is executed when the volumes themselves witness
+  the withdrawal; otherwise it is docketed as chat-witnessed and waits for a Register entry of M's.
+- **Q2 — RULED: register 66 quantifies over the aufbau table.** The entry is not wrong about its object; its object is not
+  the observed table `LW1-ground.py` holds. R3 records this beside 66 as an entry naming the object and carrying the
+  re-measurement on the observed table; 66 is not edited.
+- **Q3 — RULED: the thirteen are to be answered from the chat transcripts**, which `drive/chats/` and the branch's
+  `REGISTER-GAPS.tsv` make readable; R3 reads them and records each number's answer with its witness.
+- **Q4 — RULED: seat the recovered chapter 12–15 readings, per the recommendation as stated** — readings and closures as
+  members carrying their recovery status and ledger provenance; instruments only with a golden proved on the bundle they
+  were banked against, otherwise seated unproved; the 22 closures and 3 readings the export lacks recorded ABSENT.
+- **Q4 — WITHDRAWN by the chat, not executed: its premise was wrong.** The readings are archived, not lost — W-169 (chat 129)
+  executed M's archive split into `The_Method_1_6_ARCHIVE1_legacy_handoffs_ch12-15.md`, held in the mirror byte-exact with
+  the goldens (DEF-153Q, corrected). Seating the branch's `recovered/` copies would reverse that split and seat drafts
+  (116 of 244 differ from the archived member). Open for M instead: whether `method/` carries ARCHIVE1 under `verify.py`.

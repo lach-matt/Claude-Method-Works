@@ -1,12 +1,12 @@
 
 == 0  THE POPULATION
-   entries (heading lines) = the front matter's printed total 1658                       OK
-   bare / grouped                                             (1651, 7)                  OK
-   distinct numbers = headings + the 25 extra numbers the seven grouped headings carry 1683                       OK
+   entries (heading lines) = the front matter's printed total 1662                       OK
+   bare / grouped                                             (1655, 7)                  OK
+   distinct numbers = headings + the 25 extra numbers the seven grouped headings carry 1687                       OK
    no entry number printed twice                              []                         OK
 
 == 1  THE ENTRY FORM, OVER EVERY ENTRY
-   entries with a body            : 1658
+   entries with a body            : 1662
    entries whose body is empty    : 0
    every non-empty body opens on a bold headline              []                         OK
    entries whose first line carries an ODD number of asterisks: 22
@@ -37,7 +37,7 @@
    Entry 313 is the one CONFIRMED by reading (reg3-01). The rest are handed to their units.
 
 == 2  REGISTER POINTERS, OVER EVERY VOLUME
-   distinct register numbers cited anywhere : 633
+   distinct register numbers cited anywhere : 636
    cited numbers with no entry, BARE-NUMBER net               [344, 571]                 OK
    in which volumes: {344: ['main'], 571: ['main']}
    register_cites.py reports 31 on a RANGE-AWARE net that also expands "registers 344-346"
@@ -46,16 +46,17 @@
 
 == 3  ABSENT NUMBERS, AND WHETHER ANYTHING CITES THEM
    numbers absent in 1..1792 (the predecessor's measurement, unchanged) 132                        OK
-   numbers absent above 1792, in 1..1816: [1797] (staged, not seated — register 1797 is queued in REGISTER-QUEUE-APPEND-cypher-audit.md)
+   numbers absent above 1792, in 1..1820: [1797] (staged, not seated — register 1797 is queued in REGISTER-QUEUE-APPEND-cypher-audit.md)
    absent AND cited   : 2 [344, 571]
    absent and uncited : 131
    L6574 enumerates eleven "in no group at all", scoped between 203 and 354: [204, 206, 210, 260, 264, 269, 272, 287, 324, 341, 344]
    absent numbers OUTSIDE that scope: 122 -> [176, 177, 190, 196, 199, 202, 358, 363, 366, 369, 411, 430, 431, 445, 456, 460, 517, 560, 570, 571, 574, 575, 606, 632]
 
 == 4  SECTION POINTERS FROM THE REGISTER INTO THE MAIN VOLUME
-   distinct section pointers in the register : 185
-   resolving in NO volume: ['0', '4.1', '4.2', '4.3', '4.4', '4.5', '4.6', '4.7', '5.7', '8.7', '784']
+   distinct section pointers in the register : 189
+   resolving in NO volume: ['0', '1.8', '4.1', '4.2', '4.3', '4.4', '4.5', '4.6', '4.7', '5.7', '8.7', '784']
      §0      the Spectra Compendium's own §0, where δ is defined (entry at reg L6311)
+     §1.8    UNACCOUNTED
      §4.1    Chapter 4's list items, not headings (MAIN_AUDIT V1)
      §4.2    ditto
      §4.3    ditto
@@ -66,10 +67,10 @@
      §5.7    the companion paper, not this volume (IOI_SPEC_AUDIT I1)
      §8.7    a section of Transitions v3.0, among the forty-seven this work does not use (reg L6559)
      §784    a REGISTER NUMBER printed with a § sigil - 26b-08, recorded at W-190
-   section pointers unaccounted for                           []                         OK
+   section pointers unaccounted for                           ['1.8']                    EXPECTED []
 
 == 5  FIGURE NUMERALS: RESOLVES, OR COLLIDES
-   figure numerals named in the register : 5
+   figure numerals named in the register : 6
    figures actually embedded in the main volume : 32
    named by the register, NOT embedded : []
    every other numeral the register names is live; whether it names the RIGHT figure is a
@@ -78,9 +79,9 @@
 == 6  CHAPTER AND LETTERED POINTERS
    chapters cited by the register: 1..36 ; the volume runs to 36
    no chapter cited above the volume's last                   []                         OK
-   lettered pointers: 41 ; not found anywhere in the main volume: ['F.3.2', 'F.3.3']
+   lettered pointers: 42 ; not found anywhere in the main volume: ['F.3.2', 'F.3.3']
 
 == SUMMARY
-   instrument checks failed : 0 
+   instrument checks failed : 1 ['section pointers unaccounted for']
 
-   ALL INSTRUMENT CHECKS OK
+   INSTRUMENT FAULT - STOP

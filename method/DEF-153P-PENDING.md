@@ -79,3 +79,12 @@ current members, not taken from the branch's documents, which were measured at B
 - Whether chat prose is a source R3 may repair from, or only a lead. (Item 2.)
 - Which object register 66 quantifies over. (Item 4.)
 - 176, 177, 661–688, 1138: withdrawn or never issued; with the census retirement question. (Item 3.)
+
+## Executed after M's rulings (W-220, BUILD104 / BUILD215)
+
+- Q1 ruled *lead only*: of item 2's rows, the closure rule (402), the 2,475 residues (13a-01) and register 602 / §14.5.12
+  (13j-01) were executed by pointer at registers 1818–1820 (READ-lead.md); "the whole tower" left with 1790's own owed
+  caption; the twelve unmarked entries and every claim row whose witness is conversation remain here as leads.
+- Q2 ruled *the aufbau table*: register 1817 names 66's object and carries the observed-table re-measurement.
+- Q3 ruled *from the transcripts*: READ-gaps13.md answers the thirteen.
+- Q4 withdrawn on its premise (DEF-153Q, corrected): the readings are archived at W-169, not lost.

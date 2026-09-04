@@ -513,7 +513,7 @@ Proved — M §14.5.4; Beeri, Fagin, Maier & Yannakakis 1983.
 
 ### The tightening rule
 
-**a tightening preserves E = 0 iff it binds one coordinate by a monotone function of one other**
+**a tightening preserves E = 0 iff it binds one coordinate by a monotone function of one other** — *one-sided as stated; the operator is two-sided (main §2.15.2; register 402).*
 
 *the index is a sublattice of a product of chains*
 

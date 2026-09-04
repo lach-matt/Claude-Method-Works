@@ -2019,7 +2019,7 @@ origin and is named as such throughout; this table and Appendix G are the addres
 | 1.5 | X ⊆ BPC(X) ⊆ R(X), so E > 0 is in principle ambiguous between genuine inconsistency and envelope coarseness. Computed for every object in the paper, R = BPC exactly and the ambiguity does not arise. | not used |
 | 1.6 | The two failure modes — order and arity — and the third case: a vocabulary may not be indexable at all. | **rests on it** — Appendix G |
 | 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \ | **rests on it** — Appendix G |
-| 1.8 | The closure rule. A tightening preserves E = 0 if and only if it binds one coordinate by a monotone function of one other. | **rests on it** — Appendix G |
+| 1.8 | The closure rule. A tightening preserves E = 0 if and only if it binds one coordinate by a monotone function of one other. One-sided as stated; the operator is two-sided (§2.15.2; register 402). | **rests on it** — Appendix G |
 | 1.9 | E requires density, asymmetrically. E = 0 is informative at any density; E > 0 at low density measures sparsity and nothing else. | **rests on it** — Appendix G |
 | 1.10 | The two named theorems covering Λ — Freuder 1982 and Montanari 1974. Neither reaches either violation index. | **rests on it** — Appendix G |
 | 2.1 | The tower closes at every level for every statistics order. Parastatistics of order m gives capacity m(4ℓ+2); m = 1 reproduces the canonical tower exactly. | **rests on it** — Appendix G |

@@ -1,4 +1,25 @@
-# DEF-153Q — the store seats no reading of chapters 12–15; the consolidation branch has recovered most of them. RECORDED, nothing seated.
+# DEF-153Q — the chapter 12–15 readings are not lost: M archived them at W-169. CORRECTED the same day; nothing seated.
+
+**Correction, written after M answered Q4.** The first version of this file (commit bf46405) read the live bundles only and
+said the readings were "held nowhere". They are held: **W-169 (chat 129) executed M's archive split** (chat-127 item 5) —
+`archive-split.py`, seated, reverse-guarded — moving exactly 393 members out of BUILD158 into
+`The_Method_1_6_ARCHIVE1_legacy_handoffs_ch12-15.md`: 48 handoffs, 207 instruments and goldens, 69 readings, 69 census
+closures. The mirror holds it at `drive/The Method Materials/`, **3,743,970 B · md5 5a5c0829fa234dde4f12ac240fc7dec4 ·
+394 members**, exactly as W-169 records. Re-measured here: of the 59 / 48 / 43 names below, 57 / 48 / 42 are in ARCHIVE1
+byte-exact, 103 of the 104 archived instruments with their golden; the three not there are the pattern names `READ-ch2`,
+`READ-chNN`, `CENSUS-CLOSURES-chNN`, not files. **The consolidation branch's `recovered/` copies are drafts for 116 of
+244**: identical to the archived member for 128, different for 116. Its coverage census does not look inside a bundle, so
+its "held nowhere" is wrong for these and for the handoffs it seated by number (see the note at the end).
+
+**Q4 is therefore not executed.** Seating `recovered/` copies into the live bundle would reverse M's own archive split and,
+for 116 files, seat a draft over the seated version. The census accounting corrected: the live closures close 699 of the
+census's 1,557 ids, ARCHIVE1's 144 more (10 overlap), 833 by either, 724 by neither. What remains open is only whether
+`method/` should carry ARCHIVE1 beside the two live bundles under `verify.py` (it is in the mirror, not the store) — M's.
+
+---
+
+*The first version, kept as written:*
+
 
 Measured 2026-09-04 at BUILD103 main / BUILD213 compendia against `claude/consolidate-project-artifacts-ov8es9` at
 9196725, after M's note that more had been pushed.

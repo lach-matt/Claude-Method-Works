@@ -103,14 +103,14 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
         L2710   Measured — R 1169-1172; Tarski 1936; Beeri, Fagin, Maier & Yannakakis 1983.
   interval problem main  1 site(s)
         L8417   grounds that this was an interval problem, and it is not. The withdrawal is withdrawn.  <-- IN UNIT
-  withdraw         main  57 site(s)
+  withdraw         main  61 site(s)
         L150    ## 28. Withdrawals
         L203    withdrawn. They are listed in Chapter 28, with what replaced them. Several were caught not b
         L224    If you want to check the work, Chapter 28 and Appendix B are where the withdrawals and the
         L513    register records what was added and withdrawn. Enumeration is finite work and this book does
         L643    ### 2.12 Withdrawal
         L720    A register of withdrawals is a list of bounds. Read it that way and it stops being a
-  withdraw         reg   58 site(s)
+  withdraw         reg   59 site(s)
         L27     | **a withdrawal** | 33 | 61 | a claim removed, with the reason |
         L31     *The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cit
         L69     Every correction, withdrawal and finding in the order it happened. **The book cites entries 

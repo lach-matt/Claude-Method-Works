@@ -21,7 +21,7 @@
   row 2.2 "tree of nine nodes and eight edges": Λ₉ cells carry 9 coordinates == 9: True; a tree on 9 nodes has 8 edges (arithmetic); the constraint graph itself is Transitions §2.2's (located, not rebuilt)
 
 == §3 every numeral of every G row located in its Transitions section (raw and comma-stripped) and in the reader volumes; misses printed
-  numerals tested 14 over 30 rows (convention: digit-bounded both sides, a trailing non-thousands comma admitted — fault 3 self-caught: `(?![\d,])` dropped `816,` at L11395 — bare single digits excluded); found in the Transitions section: 14; NOT found: 0
+  numerals tested 16 over 30 rows (convention: digit-bounded both sides, a trailing non-thousands comma admitted — fault 3 self-caught: `(?![\d,])` dropped `816,` at L11395 — bare single digits excluded); found in the Transitions section: 16; NOT found: 0
   22,275: Transitions 1 lines; main 1, reg 3, mc 2, pc 0, ioi 1, sc 0 — main sites [11432]
   35,570: Transitions 3 lines; main 1, reg 2, mc 2, pc 0, ioi 1, sc 0 — main sites [11432]
   1,169: Transitions 1 lines; main 7, reg 6, mc 3, pc 0, ioi 3, sc 0 — main sites [2891, 3213, 3222, 3246, 3281, 3596, 11433]
@@ -41,8 +41,8 @@
   pc: `Appendix G` 0 occurrences on 0 lines; `Transitions` (word-bounded, case-sensitive) 0 on 0 lines; `Transitions` case-insensitive 1
   ioi: `Appendix G` 33 occurrences on 33 lines; `Transitions` (word-bounded, case-sensitive) 1 on 1 lines; `Transitions` case-insensitive 4
   sc: `Appendix G` 0 occurrences on 0 lines; `Transitions` (word-bounded, case-sensitive) 0 on 0 lines; `Transitions` case-insensitive 2
-  reg: `Appendix G` 6 occurrences on 2 lines; `Transitions` (word-bounded, case-sensitive) 3 on 3 lines; `Transitions` case-insensitive 12
-  Register lines naming *Transitions*: [6525, 6529, 6561] in entries [1769, 1770, 1778] — "eight citations … left exactly as written" L11369: entries 3, lines 3, occurrences 3
+  reg: `Appendix G` 6 occurrences on 2 lines; `Transitions` (word-bounded, case-sensitive) 4 on 4 lines; `Transitions` case-insensitive 13
+  Register lines naming *Transitions*: [6525, 6529, 6561, 6712] in entries [1769, 1770, 1778, 1818] — "eight citations … left exactly as written" L11369: entries 4, lines 4, occurrences 4
   Register 1218–1230 (the attribution pass 1769 names): entries carrying *Transitions* []; entries carrying "T §" []; their heads:
     1218 **THE MATHEMATICAL COMPENDIUM IS NOW AN ATTRIBUTION MAP: 248 OF 248 OBJECTS CARRY A DATED SOURCE.** *It began this pass 
     1219 **AND THE STRANDS MEET IN THE OBJECTS THEMSELVES, NOT IN A PREFACE.** *`A.R` reads: R is a closure operator (Moore 1910)
@@ -75,7 +75,7 @@
     A.modeA      {'main': 1, 'mc': 1}
     A.modeB      {'main': 1, 'mc': 1}
     A.montanari  {'main': 1, 'mc': 1}
-    A.rule       {'main': 1, 'reg': 2, 'mc': 2}
+    A.rule       {'main': 1, 'reg': 3, 'mc': 2}
     K.girth      {'main': 1, 'mc': 1}
     K.helly      {'main': 1, 'mc': 1}
     K.quiver     {'main': 1, 'mc': 1}

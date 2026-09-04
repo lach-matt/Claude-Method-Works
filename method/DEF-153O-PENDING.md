@@ -78,3 +78,6 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
   date) recorded as moved. Left: reg1-E (the ten grouped headings against seven), r2-reg1a's finding.
 - **The positional class on the Register (W-218, BUILD212):** nine unit-reader successors (`r2-reg2a2`…`r2-reg12b`) proved
   byte-exact on the BUILD102 tree; fifty-three goldens re-banked (W-219, BUILD213). The held set is unchanged in kind.
+- **M's four rulings executed (W-220, W-221; BUILD104 main, BUILD216 compendia):** registers 1817–1820; READ-lead.md,
+  READ-gaps13.md; Q4 withdrawn on its premise (DEF-153Q). Pointer rule learned: a Register pointer goes inside the
+  entry's closing italic. The held set is unchanged in kind.

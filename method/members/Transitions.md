@@ -199,7 +199,7 @@ This excludes the entire class of derived-coordinate repairs, for any index.
 
 ### 1.8 The closure rule
 
-> **A tightening preserves E = 0 if and only if it binds one coordinate by a monotone function of one other.**
+> **A tightening preserves E = 0 if and only if it binds one coordinate by a monotone function of one other.** *One-sided as stated; the operator is two-sided (The Method 1.6 §2.15.2; register 402).*
 
 ![Closure rule](figures/f1_3.png)
 

@@ -48,7 +48,7 @@
   §12.11.1.3  heading L3238 span L3238–L3273 (36 lines): "time column" 2 · "moves" 2   ### 12.11.1.3 An index has a time column exactly whe
   §12.11.0.2  heading L2634 span L2634–L2680 (47 lines): "clock" 5 · "assumption" 5   ### 12.11.0.2 The clock is an assumption, and the as
   §12.11.4    heading L3462 span L3462–L3466 (5 lines): "path-dependent" 1 · "physics is not" 1   ### 12.11.4 Precision is path-dependent; physics is 
-  §14.5       heading L3737 span L3737–L4080 (344 lines): "seed" 31 · "closed" 18   ### 14.5 The family of all closed sets
+  §14.5       heading L3737 span L3737–L4080 (344 lines): "seed" 32 · "closed" 18   ### 14.5 The family of all closed sets
   §2.14       heading L657 span L657–L661 (5 lines): "computed" 1 · "written" 1   ### 2.14 Compute, then write
   §21.5.1 states K₃ treewidth 2 / strong 3-consistency / ℛ reaches level 2: True True True (L5692–L5693)
   §25.6 "E(Λ) = 0" / "proposes none" / "complete index" (the unit's "E = 0 and makes no predictions"): True True 0 ; L7000 is a post-PP forward pointer to Chapter 36 itself (E(Λ₃) = 0): True
