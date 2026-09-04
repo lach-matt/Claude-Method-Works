@@ -1,0 +1,60 @@
+   |Λ₈| from tower-2.py                                               976                        OK
+   tower-2.py's Λ₈ is build(3,3,1,3,1)                                True                       OK
+== the base-cap pairs: rates, product, joint, factor (mc10.py)
+   unordered pairs                                                    475800                     OK
+   l<=n-1          84.46%
+   k<=2(2l+1)      71.55%
+   q<=k            71.97%
+   g<=q            69.95%
+   g<=2(2f+1)      98.06%
+   f<=e-1          83.86%
+   2S<=k           80.45%
+   individual range, two decimals                                     (69.95, 98.06)             OK
+   product, four decimals (%)                                         20.1311                    OK
+   joint, four decimals (%)                                           28.3462                    OK
+   factor joint/product                                               1.4081                     OK
+== the chain rule in tree order (mc10b.py)
+   P(l<=n-1     | previous) = 0.8446   marginal 0.8446   lift 1.0000
+   P(k<=2(2l+1) | previous) = 0.7755   marginal 0.7155   lift 1.0838
+   P(q<=k       | previous) = 0.7812   marginal 0.7197   lift 1.0854
+   P(2S<=k      | previous) = 0.9020   marginal 0.8045   lift 1.1212
+   P(g<=q       | previous) = 0.7360   marginal 0.6995   lift 1.0522
+   P(g<=2(2f+1) | previous) = 0.9929   marginal 0.9806   lift 1.0125
+   P(f<=e-1     | previous) = 0.8404   marginal 0.8386   lift 1.0022
+   the six edge lifts in tree order                                   [1.0838, 1.0854, 1.1212, 1 OK
+   product of the lifts = the factor                                  1.4081                     OK
+== conditional independence given the shared coordinate's interval (mc10d.py test 1)
+   q<=k        & g<=q        share q: raw lift 1.0523 -> mean lift given (qlo,qhi) 1.0000  (strata 10)
+   k<=2(2l+1)  & q<=k        share k: raw lift 1.0891 -> mean lift given (klo,khi) 1.0000  (strata 6)
+   q<=k        & 2S<=k       share k: raw lift 1.0714 -> mean lift given (klo,khi) 1.0000  (strata 6)
+   l<=n-1      & k<=2(2l+1)  share l: raw lift 1.0838 -> mean lift given (llo,lhi) 1.0000  (strata 3)
+   g<=q        & g<=2(2f+1)  share g: raw lift 1.0162 -> mean lift given (glo,ghi) 1.0000  (strata 9)
+   conditional lift 1.0000 in every shared pair                       [1.0, 1.0, 1.0, 1.0, 1.0]  OK
+== non-adjacent pairs (test 2)
+   l<=n-1      & g<=q       : lift 1.0022
+   l<=n-1      & f<=e-1     : lift 0.9999
+   f<=e-1      & 2S<=k      : lift 1.0000
+   l<=n-1      & 2S<=k      : lift 1.0101
+   k<=2(2l+1)  & f<=e-1     : lift 1.0001
+   non-adjacent lifts                                                 [1.0022, 0.9999, 1.0, 1.01 OK
+== the narrowness mechanism (test 3)
+   P(q<=k       ) by width of coord 2: w=0:1.000 w=1:0.599 w=2:0.319
+   P(g<=q       ) by width of coord 3: w=0:1.000 w=1:0.672 w=2:0.446 w=3:0.294
+   P(2S<=k      ) by width of coord 2: w=0:1.000 w=1:0.726 w=2:0.500
+   q<=k by width                                                      [1.0, 0.599, 0.319]        OK
+   g<=q by width                                                      [1.0, 0.672, 0.446, 0.294] OK
+   2S<=k by width                                                     [1.0, 0.726, 0.5]          OK
+== the factor across cap settings (mc10c.py: exhaustive to 600,000 pairs, else 400,000 sampled, random.seed(11))
+   caps                    cells       pairs   min%   max%   prod%  joint%  factor
+   (3, 3, 1, 3, 1)           976      475800   70.0   98.1   20.13   28.35   1.408
+   (4, 4, 1, 3, 1)          1968     1935528   69.9   97.9   22.44   30.78   1.372
+   (4, 4, 2, 5, 1)          8847    39130281   68.3   90.3   20.90   28.54   1.366
+   (5, 5, 2, 6, 1)         25748   331466878   68.7   92.4   23.47   31.12   1.326
+   (5, 5, 2, 8, 2)         55682  1550214721   65.0   87.4   14.19   21.64   1.526
+   (6, 6, 3, 10, 2)       234340 27457500630   65.4   85.1   15.93   23.20   1.456
+   (7, 7, 3, 14, 3)       800958320766458403   61.7   88.9   11.32   18.78   1.660
+   cells at the seven settings                                        [976, 1968, 8847, 25748, 5 OK
+   the factor at the seven settings, three decimals                   [1.408, 1.372, 1.366, 1.32 OK
+   the factor is cap-dependent: its range beyond the base             (1.326, 1.66)              OK
+
+   integrity checks: ALL OK

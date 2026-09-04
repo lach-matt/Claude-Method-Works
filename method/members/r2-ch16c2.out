@@ -33,7 +33,7 @@ r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
   Chen         unit [8506]           | References 2 | R.7 1 | six-volume {'main': 5, 'reg': 1, 'mc': 1}
   Koh          unit [8506]           | References 1 | R.7 0 | six-volume {'main': 3}
   Tan          unit [8506]           | References 1 | R.7 0 | six-volume {'main': 8, 'reg': 2}
-  Dilworth     unit [8522]           | References 2 | R.7 0 | six-volume {'main': 8, 'reg': 3, 'mc': 21, 'pc': 2}
+  Dilworth     unit [8522]           | References 2 | R.7 0 | six-volume {'main': 8, 'reg': 7, 'mc': 21, 'pc': 2}
   Larson       unit [8523]           | References 1 | R.7 0 | six-volume {'main': 7, 'reg': 1}
   Tucker       unit [8549]           | References 1 | R.7 0 | six-volume {'main': 6}
   NextClosure  unit [8515]           | References 0 | R.7 0 | six-volume {'main': 1}

@@ -1,0 +1,12 @@
+   |Λ₈|                                                               976                        OK
+   the floors: coordinates whose minimum over Λ₈ is 1 (n, k, e)       [0, 2, 4]                  OK
+   positive-exponent reading: max ω                                   8                          OK
+   positive-exponent reading: cells attaining 8                       100                        OK
+   positive-exponent reading: min ω (three primes divide every N(x))  3                          OK
+   non-minimal reading: cells attaining 8                             96                         OK
+   the discrepancy is exactly four cells                              4                          OK
+   each has a floored coordinate at its minimum 1 and every coordinate positive True                       OK
+   the four cells: (2, 1, 1, 1, 2, 1, 1, 1) (2, 1, 1, 1, 3, 1, 1, 1) (3, 1, 1, 1, 2, 1, 1, 1) (3, 1, 1, 1, 3, 1, 1, 1)
+   the tight cell (2,1,3,3,2,1,3,3): ω = 8 by direct factorisation    8                          OK
+
+   integrity checks: ALL OK

@@ -73,7 +73,7 @@ r2-ch22b — Appendix D part 1 (D.1–D.4.4.3), prose and pointers
    pendant                  unit [10473] ; main-elsewhere 9; mc 5; reg 1
    normal form              unit [10454, 10467] ; main-elsewhere 2; mc 0; reg 0
    canonical form           unit [10451] ; main-elsewhere 2; mc 0; reg 0
-   MONOTONE                 unit [10367, 10370, 10394] ; main-elsewhere 112; mc 81; reg 82
+   MONOTONE                 unit [10367, 10370, 10394] ; main-elsewhere 112; mc 81; reg 83
    INTERCHANGEABLE          unit [10489] ; main-elsewhere 2; mc 0; reg 0
    Register 230 body: **APPENDIX D'S *KIND* COORDINATE DISAGREES WITH PART III'S TITLE — THE PART IS CALLED THE LAW AND ITS CONTENTS ARE THEOREMS.** *Recorded rather than r
    Register 385 WARNING line: none

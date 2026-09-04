@@ -122,3 +122,6 @@ document, drafts shown to M first; the twelve rows with no draft stay leads.*
 - **Q5 pass 2 — RULED (M, 4 September 2026): *seat with the new instrument, proceed.*** Where a queue document's chat left
   no instrument pack, the re-run is by an instrument of R3's, named in the entry as a re-derivation, the slip's own
   account cited as the original.
+- **Q5 passes 3–5 — RULED (M, 4 September 2026): *approved; stdlib re-derivations for passes 4 and 5, no shortcuts.*** The
+  chat-57 and chat-58 packs need numpy; their figures are re-derived by standard-library instruments of R3's (the
+  chats' own stdlib instruments, mc11.py and mc12.py, are seated as they are), each entry naming what re-derived it.
