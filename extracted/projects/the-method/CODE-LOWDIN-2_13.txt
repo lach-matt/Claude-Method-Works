@@ -1,0 +1,1284 @@
+# LOWDIN CODE — the corridor line, verbatim
+# BANK: restore-point-2_13.tar.gz  sha256 8057709403ed2c795cc753f74e68b2cbfc3aeb9c67f45e7c0e38b3129fd857a5
+# 694 files, register max R 1700, certificate 1.8.3
+# Extracted verbatim. Not a summary. Stale if the bank advances past 2_13.
+# SOURCE FILES:
+#   ground.py  (6472 bytes)  sha256 3aa24998a0f1a6d6
+#   brack.py  (2831 bytes)  sha256 659fd11bdf735017
+#   bracket.py  (4794 bytes)  sha256 20581e22abe015d3
+#   madelung.py  (9272 bytes)  sha256 da5ac1e8993f218a
+#   madelung2.py  (5262 bytes)  sha256 3080192e6167df72
+#   aufbau.py  (5373 bytes)  sha256 62e1319e5c603024
+#   null_madelung.py  (4342 bytes)  sha256 6eabc8aebc49ddc5
+#   lowdin_gate.py  (3121 bytes)  sha256 dcf6e533f2021592
+#   lowdin_outer.py  (2772 bytes)  sha256 e10d5a65e3338152
+#   lowdin_dich.py  (2700 bytes)  sha256 1936a98a03c36242
+#   lowdin_tight.py  (2506 bytes)  sha256 781ee98456c0c713
+#   lowdin_rule.py  (2372 bytes)  sha256 a9acdddfb63911c7
+#   nuclear_corridor.py  (2552 bytes)  sha256 26e65c98fe006646
+
+
+==============================================================================
+=== FILE: ground.py
+==============================================================================
+#!/usr/bin/env python3
+"""ground.py -- the OBSERVED ground configurations, Z = 1 to 108.
+
+NIST ASD ver. 5.12, GSIE interface, retrieved 2026-08-09:
+    Kramida, A., Ralchenko, Yu., Reader, J., and NIST ASD Team (2024).
+    NIST Atomic Spectra Database, DOI 10.18434/T4W30F.
+
+Register 1306. Every previous version of this work built configurations by aufbau
+and patched the exceptions by hand. That table was wrong at Pd -- aufbau plus my
+patch gave [Kr]4d9 5s, and the observed configuration is [Kr]4d10 with no 5s at
+all -- and at Lr, which is [Rn]5f14 7s2 7p and not 6d.
+
+This file is READ, not computed. It is the ordering the Loewdin challenge asks
+about, stated by measurement.
+"""
+CORE = {"Ne":10, "Ar":18, "Kr":36, "Cd":48, "Xe":54, "Hg":80, "Rn":86}
+CORECFG = {
+ "Ne":"1s2 2s2 2p6",
+ "Ar":"1s2 2s2 2p6 3s2 3p6",
+ "Kr":"1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6",
+ "Cd":"1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d10 5s2",
+ "Xe":"1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d10 5s2 5p6",
+ "Hg":"1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d10 5s2 5p6 4f14 5d10 6s2",
+ "Rn":"1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d10 5s2 5p6 4f14 5d10 6s2 6p6"}
+
+# Z : (element, ground shells as printed, ground level)
+GROUND = {
+1:("H","1s","2S1/2"), 2:("He","1s2","1S0"), 3:("Li","1s2 2s","2S1/2"),
+4:("Be","1s2 2s2","1S0"), 5:("B","1s2 2s2 2p","2P*1/2"), 6:("C","1s2 2s2 2p2","3P0"),
+7:("N","1s2 2s2 2p3","4S*3/2"), 8:("O","1s2 2s2 2p4","3P2"),
+9:("F","1s2 2s2 2p5","2P*3/2"), 10:("Ne","1s2 2s2 2p6","1S0"),
+11:("Na","[Ne]3s","2S1/2"), 12:("Mg","[Ne]3s2","1S0"), 13:("Al","[Ne]3s2 3p","2P*1/2"),
+14:("Si","[Ne]3s2 3p2","3P0"), 15:("P","[Ne]3s2 3p3","4S*3/2"),
+16:("S","[Ne]3s2 3p4","3P2"), 17:("Cl","[Ne]3s2 3p5","2P*3/2"),
+18:("Ar","[Ne]3s2 3p6","1S0"),
+19:("K","[Ar]4s","2S1/2"), 20:("Ca","[Ar]4s2","1S0"),
+21:("Sc","[Ar]3d 4s2","2D3/2"), 22:("Ti","[Ar]3d2 4s2","3F2"),
+23:("V","[Ar]3d3 4s2","4F3/2"), 24:("Cr","[Ar]3d5 4s","7S3"),
+25:("Mn","[Ar]3d5 4s2","6S5/2"), 26:("Fe","[Ar]3d6 4s2","5D4"),
+27:("Co","[Ar]3d7 4s2","4F9/2"), 28:("Ni","[Ar]3d8 4s2","3F4"),
+29:("Cu","[Ar]3d10 4s","2S1/2"), 30:("Zn","[Ar]3d10 4s2","1S0"),
+31:("Ga","[Ar]3d10 4s2 4p","2P*1/2"), 32:("Ge","[Ar]3d10 4s2 4p2","3P0"),
+33:("As","[Ar]3d10 4s2 4p3","4S*3/2"), 34:("Se","[Ar]3d10 4s2 4p4","3P2"),
+35:("Br","[Ar]3d10 4s2 4p5","2P*3/2"), 36:("Kr","[Ar]3d10 4s2 4p6","1S0"),
+37:("Rb","[Kr]5s","2S1/2"), 38:("Sr","[Kr]5s2","1S0"),
+39:("Y","[Kr]4d 5s2","2D3/2"), 40:("Zr","[Kr]4d2 5s2","3F2"),
+41:("Nb","[Kr]4d4 5s","6D1/2"), 42:("Mo","[Kr]4d5 5s","7S3"),
+43:("Tc","[Kr]4d5 5s2","6S5/2"), 44:("Ru","[Kr]4d7 5s","5F5"),
+45:("Rh","[Kr]4d8 5s","4F9/2"), 46:("Pd","[Kr]4d10","1S0"),
+47:("Ag","[Kr]4d10 5s","2S1/2"), 48:("Cd","[Kr]4d10 5s2","1S0"),
+49:("In","[Cd]5p","2P*1/2"), 50:("Sn","[Cd]5p2","3P0"),
+51:("Sb","[Cd]5p3","4S*3/2"), 52:("Te","[Cd]5p4","3P2"),
+53:("I","[Cd]5p5","2P*3/2"), 54:("Xe","[Cd]5p6","1S0"),
+55:("Cs","[Xe]6s","2S1/2"), 56:("Ba","[Xe]6s2","1S0"),
+57:("La","[Xe]5d 6s2","2D3/2"), 58:("Ce","[Xe]4f 5d 6s2","1G*4"),
+59:("Pr","[Xe]4f3 6s2","4I*9/2"), 60:("Nd","[Xe]4f4 6s2","5I4"),
+61:("Pm","[Xe]4f5 6s2","6H*5/2"), 62:("Sm","[Xe]4f6 6s2","7F0"),
+63:("Eu","[Xe]4f7 6s2","8S*7/2"), 64:("Gd","[Xe]4f7 5d 6s2","9D*2"),
+65:("Tb","[Xe]4f9 6s2","6H*15/2"), 66:("Dy","[Xe]4f10 6s2","5I8"),
+67:("Ho","[Xe]4f11 6s2","4I*15/2"), 68:("Er","[Xe]4f12 6s2","3H6"),
+69:("Tm","[Xe]4f13 6s2","2F*7/2"), 70:("Yb","[Xe]4f14 6s2","1S0"),
+71:("Lu","[Xe]4f14 5d 6s2","2D3/2"), 72:("Hf","[Xe]4f14 5d2 6s2","3F2"),
+73:("Ta","[Xe]4f14 5d3 6s2","4F3/2"), 74:("W","[Xe]4f14 5d4 6s2","5D0"),
+75:("Re","[Xe]4f14 5d5 6s2","6S5/2"), 76:("Os","[Xe]4f14 5d6 6s2","5D4"),
+77:("Ir","[Xe]4f14 5d7 6s2","4F9/2"), 78:("Pt","[Xe]4f14 5d9 6s","3D3"),
+79:("Au","[Xe]4f14 5d10 6s","2S1/2"), 80:("Hg","[Xe]4f14 5d10 6s2","1S0"),
+81:("Tl","[Hg]6p","2P*1/2"), 82:("Pb","[Hg]6p2","(1/2,1/2)0"),
+83:("Bi","[Hg]6p3","4S*3/2"), 84:("Po","[Hg]6p4","3P2"),
+85:("At","[Hg]6p5","2P*3/2"), 86:("Rn","[Hg]6p6","1S0"),
+87:("Fr","[Rn]7s","2S1/2"), 88:("Ra","[Rn]7s2","1S0"),
+89:("Ac","[Rn]6d 7s2","2D3/2"), 90:("Th","[Rn]6d2 7s2","3F2"),
+91:("Pa","[Rn]5f2 6d 7s2","4K11/2"), 92:("U","[Rn]5f3 6d 7s2","5L*6"),
+93:("Np","[Rn]5f4 6d 7s2","6L11/2"), 94:("Pu","[Rn]5f6 7s2","7F0"),
+95:("Am","[Rn]5f7 7s2","8S*7/2"), 96:("Cm","[Rn]5f7 6d 7s2","9D*2"),
+97:("Bk","[Rn]5f9 7s2","6H*15/2"), 98:("Cf","[Rn]5f10 7s2","5I8"),
+99:("Es","[Rn]5f11 7s2","4I*15/2"), 100:("Fm","[Rn]5f12 7s2","3H6"),
+101:("Md","[Rn]5f13 7s2","2F*7/2"), 102:("No","[Rn]5f14 7s2","1S0"),
+103:("Lr","[Rn]5f14 7s2 7p","2P*1/2"), 104:("Rf","[Rn]5f14 6d2 7s2","3F2"),
+105:("Db","[Rn]5f14 6d3 7s2","4F3/2"), 106:("Sg","[Rn]5f14 6d4 7s2","0"),
+107:("Bh","[Rn]5f14 6d5 7s2","5/2"), 108:("Hs","[Rn]5f14 6d6 7s2","4"),
+}
+
+import re
+_L = {"s":0, "p":1, "d":2, "f":3, "g":4}
+
+def expand(Z):
+    """the ground configuration as a list of (n, l, occ), cores expanded"""
+    _, sh, _lv = GROUND[Z]
+    m = re.match(r"\[(\w\w)\](.*)", sh)
+    txt = (CORECFG[m.group(1)] + " " + m.group(2)) if m else sh
+    out = []
+    for tok in txt.split():
+        t = re.match(r"(\d+)([spdfg])(\d*)", tok)
+        if t: out.append((int(t.group(1)), _L[t.group(2)], int(t.group(3) or 1)))
+    return out
+
+def occ_count(Z):
+    return sum(o for _, _, o in expand(Z))
+
+def core_p(Z, l):
+    """orbitals of this l in the ground configuration of the atom with Z electrons"""
+    return sum(1 for n, ll, o in expand(Z) if ll == l and o > 0)
+
+def outer(Z):
+    """the outermost subshell by (n, l) in filling order -- the LAST one listed"""
+    return expand(Z)[-1]
+
+if __name__ == "__main__":
+    print("  THE OBSERVED GROUND CONFIGURATIONS  —  NIST ASD 5.12\n")
+    bad = [Z for Z in GROUND if occ_count(Z) != Z]
+    print(f"      {len(GROUND)} elements · electron count checks: "
+          f"{len(GROUND)-len(bad)}/{len(GROUND)}")
+    if bad: print(f"      mismatched: {bad}")
+    print()
+    print("  THE FILLING SEQUENCE, READ FROM THE CONFIGURATIONS\n")
+    prev = None; seq = []
+    for Z in range(1, 109):
+        cur = {(n, l): o for n, l, o in expand(Z)}
+        if prev is not None:
+            new = [k for k in cur if k not in prev or cur[k] > prev.get(k, 0)]
+            gone = [k for k in prev if k not in cur or cur[k] < prev.get(k, 0)]
+            if new:
+                for k in new:
+                    if k not in [s[0] for s in seq]: seq.append((k, Z))
+        prev = cur
+    L = "spdfg"
+    print("      " + "  ".join(f"{n}{L[l]}" for (n, l), Z in seq))
+    print()
+    print(f"      {len(seq)} subshells opened across Z = 1 to 108")
+
+==============================================================================
+=== FILE: brack.py
+==============================================================================
+import sys, math; sys.path.insert(0,"/home/claude/work")
+import numpy as np, statistics as st
+from fractions import Fraction
+import ground as G
+L="spdfg"
+def cap(l): return 2*(2*l+1)
+IV=[]
+for Z in range(3,109):
+    pr={(n,l):o for n,l,o in G.expand(Z-1)}
+    cu={(n,l):o for n,l,o in G.expand(Z)}
+    got=[k for k in cu if cu[k]>pr.get(k,0)]
+    if len(got)!=1: continue
+    gn,gl=got[0]; cand=[]
+    for l in range(5):
+        for n in range(l+1,9):
+            if pr.get((n,l),0)>=cap(l): continue
+            cand.append((n,l))
+            if pr.get((n,l),0)==0: break
+    if (gn,gl) not in cand or len(cand)<2: continue
+    gp=gn-gl-1; lo,hi=-1e9,1e9; blo=bhi=None
+    for n,l in cand:
+        if (n,l)==(gn,gl): continue
+        rp=n-l-1; d=math.sqrt(rp)-math.sqrt(gp); r=n-gn
+        if abs(d)<1e-12: continue
+        if d>0:
+            if r/d<hi: hi,bhi=r/d,(n,l,rp,r)
+        else:
+            if r/d>lo: lo,blo=r/d,(n,l,rp,r)
+    IV.append((Z,gn,gl,gp,lo,hi,blo,bhi))
+print("  THE BRACKETS, EXACT — (Δn)/(√p_r − √p_g)\n")
+print(f"      {'Z':>4}{'el':>4}{'fills':>7}{'p_g':>5}{'lower bound':>26}{'upper bound':>26}")
+def show(b,gp):
+    if b is None: return "—"
+    n,l,rp,r = b
+    return f"{r}/(√{rp}−√{gp}) = {r/(math.sqrt(rp)-math.sqrt(gp)):+.4f}"
+for Z,gn,gl,gp,lo,hi,blo,bhi in IV:
+    if Z not in (19,20,21,24,29,37,38,39,46,55,56,57,58,64,71,79,87,88,89,91,103): continue
+    print(f"      {Z:>4}{G.GROUND[Z][0]:>4}{f'{gn}{L[gl]}':>7}{gp:>5}"
+          f"{show(blo,gp):>26}{show(bhi,gp):>26}")
+print()
+print("  THE BOUNDS ARE A SMALL SET OF SURDS\n")
+vals=set()
+for Z,gn,gl,gp,lo,hi,blo,bhi in IV:
+    if lo>-1e8: vals.add(round(lo,6))
+    if hi<1e8:  vals.add(round(hi,6))
+V=sorted(vals)
+print(f"      {len(V)} distinct bound values across {len(IV)} atoms\n")
+NAMES={0.7071068:"1/√2",1.0:"1",1.3660254:"1/(√3−√1)·? = 1/(√3−1)",
+       1.7071068:"1+1/√2",1.9841:"?",0.5773503:"1/√3",2.2247449:"?",
+       4.2360680:"2+√5?",4.6862915:"?",5.0954452:"?",1.2168502:"?",
+       1.3938468:"?",1.9841:"?"}
+for v in V[:20]:
+    exact=""
+    for nm,x in (("1/√2",1/math.sqrt(2)),("1",1.0),("1/(√3−1)",1/(math.sqrt(3)-1)),
+                 ("1+1/√2",1+1/math.sqrt(2)),("1/√3",1/math.sqrt(3)),
+                 ("2/(√3−1)",2/(math.sqrt(3)-1)),("√2",math.sqrt(2)),
+                 ("2/(√5−√2)",2/(math.sqrt(5)-math.sqrt(2))),
+                 ("1/(√2−1)",1/(math.sqrt(2)-1))):
+        if abs(v-x)<1e-4: exact=nm; break
+    print(f"      {v:>12.6f}   {exact}")
+print()
+print("  AND THE TIGHTEST BRACKETS\n")
+w=sorted(((hi-lo,Z,lo,hi) for Z,gn,gl,gp,lo,hi,blo,bhi in IV if lo>-1e8 and hi<1e8))
+print(f"      {'Z':>4}{'el':>4}{'width':>9}{'a ∈':>22}")
+for wd,Z,lo,hi in w[:10]:
+    print(f"      {Z:>4}{G.GROUND[Z][0]:>4}{wd:>9.4f}{f'({lo:.3f}, {hi:.3f})':>22}")
+
+==============================================================================
+=== FILE: bracket.py
+==============================================================================
+#!/usr/bin/env python3
+"""bracket.py -- run the bracketing test on every channel, for real.
+
+Register 796. `channels.py` wrote the bracket column as {interior}/{interior} —
+passing by construction, never computed (register 782). This computes it.
+
+THE TEST. For three consecutive members of a Rydberg series at n-1, n, n+1, the
+outer two are used to predict the middle one, and the prediction is a BRACKET, not
+a point. The true value either falls inside or it does not.
+
+    from the limit and each neighbour, the quantum defect it implies:
+        d(m) = m - Z sqrt(R / (limit - E(m)))
+    the two neighbours give d(n-1) and d(n+1); the bracket for the middle is the
+    energy range spanned by those two defects:
+        E_lo = limit - Z^2 R / (n - min(d(n-1), d(n+1)))^2
+        E_hi = limit - Z^2 R / (n - max(d(n-1), d(n+1)))^2
+    and the test is whether the MEASURED E(n) lies in [E_lo, E_hi].
+
+WHY THIS CAN FAIL. If the defect were exactly constant the bracket would collapse
+to a point and nothing would pass. If the defect varied wildly the bracket would be
+wide and everything would pass. It fails when the defect is NOT monotone across the
+three — when a perturber sits between them, or when P.lens's amplification makes the
+neighbours disagree in the wrong direction. On an unperturbed converging series the
+middle defect lies between its neighbours' and the test passes; on a perturbed one it
+does not.
+
+The bracket is only defined for INTERIOR members — those with a measured neighbour
+on each side. That is what "interior cells" has always counted.
+"""
+import re, math, glob, os, sys
+from collections import defaultdict
+from zeno import State, step
+
+R = 109737.31568
+LM = {"s":0,"p":1,"d":2,"f":3,"g":4,"h":5,"i":6,"k":7}
+
+def load_limits():
+    """Read LIM straight out of channels.py by executing only its assignment.
+
+    Parsing it with a regex assumed the block ends with a newline and a brace; it
+    closes inline, so the match failed silently and returned None. Evaluating the
+    real object cannot drift from the source (register 796).
+    """
+    src = open("channels.py", encoding="utf-8").read()
+    i = src.index("LIM = {")
+    depth, j = 0, i + len("LIM = ")
+    while True:
+        if src[j] == "{": depth += 1
+        elif src[j] == "}":
+            depth -= 1
+            if depth == 0: break
+        j += 1
+    return eval(src[i+len("LIM = "):j+1])
+
+def run():
+    LIM = load_limits()
+    res = defaultdict(lambda: [0, 0, []])      # key -> [passed, tested, failures]
+    for f in sorted(glob.glob("spectra_raw/*.tsv")):
+        nm = os.path.basename(f)[:-4]
+        if nm not in LIM: continue
+        lim, Z = LIM[nm]
+        ser = defaultdict(list)
+        for line in open(f, encoding="utf-8"):
+            if line.startswith("#") or line.startswith("config") or not line.strip(): continue
+            p = line.rstrip("\n").split("\t")
+            if len(p) < 4: continue
+            mm = re.match(r"^(.*?)(\d+)([spdfghik])$", p[0].strip())
+            if not mm: continue
+            try: E = float(p[3])
+            except ValueError: continue
+            if E >= lim: continue
+            ser[(mm.group(1), mm.group(3), p[1], p[2])].append((int(mm.group(2)), E))
+        for key, v in ser.items():
+            v = sorted(set(v))
+            if len(v) < 3: continue
+            d = {n: n - Z*math.sqrt(R/(lim-E)) for n, E in v}
+            byn = dict(v)
+            for i in range(1, len(v)-1):
+                n = v[i][0]
+                a, b = v[i-1][0], v[i+1][0]
+                if a != n-1 or b != n+1: continue     # only true neighbours
+                dl, dh = sorted((d[a], d[b]))
+                lo = lim - Z*Z*R/(n-dl)**2
+                hi = lim - Z*Z*R/(n-dh)**2
+                lo, hi = min(lo, hi), max(lo, hi)
+                E = byn[n]
+                k = (nm, f"{key[0]}n{key[1]} {key[2]} J={key[3]}")
+                res[k][1] += 1
+                if lo <= E <= hi: res[k][0] += 1
+                else: res[k][2].append((n, E, lo, hi))
+    return dict(res)
+
+with State("bracket") as s:
+    res = step(s, "run the bracketing test on every channel", run, budget=900)
+
+tot = sum(v[1] for v in res.values())
+ok  = sum(v[0] for v in res.values())
+print(f"  {len(res)} channels have three or more consecutive members")
+print(f"  {tot} interior cells tested")
+print(f"  {ok} pass, {tot-ok} FAIL   ({100*ok//tot if tot else 0}%)")
+print()
+bad = [(k, v) for k, v in res.items() if v[2]]
+if bad:
+    print(f"  {len(bad)} channels contain a failure:\n")
+    print(f"  {'species':<14}{'series':<30}{'pass/test':>11}")
+    for k, v in sorted(bad, key=lambda x: x[1][0]/max(x[1][1],1))[:14]:
+        print(f"  {k[0]:<14}{k[1][:28]:<30}{f'{v[0]}/{v[1]}':>11}")
+else:
+    print("  no failures — which would itself be suspect (register 784)")
+
+==============================================================================
+=== FILE: madelung.py
+==============================================================================
+#!/usr/bin/env python3
+"""madelung.py -- do measured quantum defects organise on n+l?
+
+Register 1249. Loewdin 1969 named the derivation of the n+l rule a major unsolved
+problem. The closest thing to a derivation is Demkov & Ostrovsky, n+l filling rule
+in the periodic system and focusing potentials, Sov. Phys. JETP 35 (1972) 66-69:
+a potential class whose levels depend only on n+l.
+
+The quantum defect is exactly the quantity measuring how a real atomic potential
+departs from Coulomb. So the question has a MEASURABLE form:
+
+    does the effective quantum number n* = n - delta(l) order by n+l ?
+
+Concretely, the Madelung rule says a subshell with a smaller n+l fills first, and
+"fills first" means "lies lower in energy". For a Rydberg channel,
+
+    E = - Zc^2 R / (n - delta)^2
+
+so lower energy means smaller n*. The rule therefore predicts
+
+    (n+l) < (n'+l')  =>  n* < n*'          [MADELUNG ORDER]
+
+and, for ties in n+l, smaller n first.
+
+THREE TESTS, on the compendium's own measured channels:
+
+    1  ORDER    over all pairs of channels in one spectrum, how often does the
+                pair with the smaller n+l have the smaller n*?
+    2  COLLAPSE the same test restricted to pairs that straddle a Janet block
+                boundary, where the rule is doing its real work
+    3  DEFECT   is delta itself a function of n+l, or of n and l separately?
+                If it were a function of n+l alone, the focusing-potential
+                picture would hold exactly and the rule would follow.
+"""
+import csv, math, re, json
+from collections import defaultdict
+import statistics as st
+
+def load_measured():
+    """every measured (Z, charge, l, delta) with its lowest n from the raw fits"""
+    ns = {}
+    exec(open("aufbau.py", encoding="utf-8").read().split("with State(")[0]
+         .replace("from zeno import State, step", ""), ns)
+    config, mults, H = ns["config"], ns["mults"], dict(ns["measured"]())
+    H.update({(38,2,0,2):2.7113,(38,2,1,2):2.3501,(38,2,2,2):1.4577,(38,2,3,2):0.0618,
+              (38,2,4,2):0.0098,(22,4,0,2):1.4153,(22,4,1,2):1.1506,(22,4,2,2):0.6202,
+              (22,4,3,2):0.0774,(20,4,0,2):1.3280,(20,4,1,2):1.0703,(20,4,2,2):0.5526,
+              (19,3,0,2):1.6589,(19,3,1,2):1.2110})
+    return config, H
+
+def n0(config, ne, l):
+    """the first Pauli-allowed principal number for this l in this species"""
+    v = [n for n, ll, o in config(ne) if ll == l and o > 0]
+    return (max(v) + 1) if v else l + 1
+
+ORDER = [(1,0),(2,0),(2,1),(3,0),(3,1),(4,0),(3,2),(4,1),(5,0),(4,2),(5,1),(6,0),
+         (4,3),(5,2),(6,1),(7,0),(5,3),(6,2),(7,1),(8,0)]
+OPEN = {}; _z = 0
+for _n, _l in ORDER: OPEN[(_n,_l)] = _z + 1; _z += 2*(2*_l+1)
+
+config, H = load_measured()
+
+# ---------------------------------------------------------------- build channels
+CH = []
+for (Z, c, l, S), d in H.items():
+    ne = Z - c + 1
+    n = n0(config, ne - 1, l)          # the first available n for this l
+    CH.append(dict(Z=Z, c=c, l=l, S=S, d=d, n=n, nl=n + l, nstar=n - d, ne=ne))
+
+print(f"  {len(CH)} measured channels\n")
+
+# ---------------------------------------------------------------- 1 ORDER
+print("  1 · DOES n* ORDER BY n+ℓ, WITHIN ONE SPECIES?\n")
+bysp = defaultdict(list)
+for x in CH: bysp[(x["Z"], x["c"])].append(x)
+agree = tie = disagree = 0
+for k, v in bysp.items():
+    for i in range(len(v)):
+        for j in range(i+1, len(v)):
+            a, b = v[i], v[j]
+            if a["nl"] == b["nl"]: tie += 1; continue
+            lo, hi = (a, b) if a["nl"] < b["nl"] else (b, a)
+            if lo["nstar"] < hi["nstar"]: agree += 1
+            else: disagree += 1
+tot = agree + disagree
+print(f"      pairs with different n+ℓ : {tot}")
+print(f"      Madelung order holds     : {agree}  ({100*agree/max(tot,1):.1f}%)")
+print(f"      Madelung order fails     : {disagree}")
+print(f"      ties in n+ℓ              : {tie}")
+print()
+
+# ---------------------------------------------------------------- control
+print("  the control — does the RAW n order by n+ℓ, without the defect?\n")
+a2 = d2 = 0
+for k, v in bysp.items():
+    for i in range(len(v)):
+        for j in range(i+1, len(v)):
+            a, b = v[i], v[j]
+            if a["nl"] == b["nl"]: continue
+            lo, hi = (a, b) if a["nl"] < b["nl"] else (b, a)
+            if lo["n"] < hi["n"]: a2 += 1
+            elif lo["n"] > hi["n"]: d2 += 1
+print(f"      raw n agrees {a2}, fails {d2}  ({100*a2/max(a2+d2,1):.1f}%)")
+print(f"      → the DEFECT contributes {100*agree/max(tot,1) - 100*a2/max(a2+d2,1):+.1f} points")
+print()
+
+# ---------------------------------------------------------------- 3 DEFECT
+print("  3 · IS δ A FUNCTION OF n+ℓ ALONE?\n")
+print("      If it were, the focusing-potential picture (Demkov & Ostrovsky 1972)")
+print("      would hold exactly and the rule would follow. Test: within one")
+print("      species, do channels sharing n+ℓ share δ?\n")
+groups = []
+for k, v in bysp.items():
+    g = defaultdict(list)
+    for x in v: g[x["nl"]].append(x["d"])
+    for nl, ds in g.items():
+        if len(ds) >= 2: groups.append((k, nl, ds))
+if groups:
+    spread = [max(ds) - min(ds) for _, _, ds in groups]
+    allsp = [max(x["d"] for x in v) - min(x["d"] for x in v)
+             for v in bysp.values() if len(v) >= 2]
+    print(f"      {len(groups)} (species, n+ℓ) groups with 2+ channels")
+    print(f"      median spread of δ WITHIN an n+ℓ group : {st.median(spread):.4f}")
+    print(f"      median spread of δ across a whole species: {st.median(allsp):.4f}")
+    r = st.median(spread) / max(st.median(allsp), 1e-9)
+    print(f"      ratio {r:.3f}   "
+          f"{'δ is NOT a function of n+ℓ alone' if r > 0.5 else 'δ largely tracks n+ℓ'}")
+else:
+    print("      no species has two channels sharing n+ℓ — the test cannot run")
+print()
+
+# ---------------------------------------------------------------- 2 COLLAPSE
+print("  2 · THE PAIRS THAT STRADDLE A JANET BOUNDARY\n")
+print("      the rule's real content is that (n−1)d fills before np, and 4f before 5d.")
+print("      Those are exactly the pairs where n+ℓ ties or inverts the raw n.\n")
+hard = []
+for k, v in bysp.items():
+    for i in range(len(v)):
+        for j in range(i+1, len(v)):
+            a, b = v[i], v[j]
+            if a["nl"] == b["nl"]: continue
+            lo, hi = (a, b) if a["nl"] < b["nl"] else (b, a)
+            if lo["n"] > hi["n"]:                 # n+ℓ and raw n disagree
+                hard.append((k, lo, hi, lo["nstar"] < hi["nstar"]))
+if hard:
+    ok = sum(1 for *_, g in hard if g)
+    print(f"      {len(hard)} pairs where n+ℓ and raw n give OPPOSITE orders")
+    print(f"      n* follows n+ℓ : {ok}  ({100*ok/len(hard):.1f}%)")
+    print(f"      n* follows raw n: {len(hard)-ok}")
+    print()
+    print(f"      {'species':<10}{'lower n+ℓ':>16}{'higher n+ℓ':>16}{'n* order':>12}")
+    EL = {3:"Li",11:"Na",19:"K",20:"Ca",21:"Sc",22:"Ti",30:"Zn",37:"Rb",38:"Sr",
+          48:"Cd",55:"Cs",56:"Ba",80:"Hg",83:"Bi",13:"Al",14:"Si",12:"Mg",4:"Be"}
+    RO = {1:"I",2:"II",3:"III",4:"IV",5:"V",6:"VI"}
+    for k, lo, hi, g in hard[:14]:
+        sp = f"{EL.get(k[0],'Z'+str(k[0]))} {RO.get(k[1],k[1])}"
+        a = f"{lo['n']}{'spdfghi'[lo['l']]} (n+ℓ={lo['nl']})"
+        b = f"{hi['n']}{'spdfghi'[hi['l']]} (n+ℓ={hi['nl']})"
+        print(f"      {sp:<10}{a:>16}{b:>16}{'MADELUNG' if g else 'raw n':>12}")
+else:
+    print("      no such pairs in the measured set")
+
+# ---------------------------------------------------------------- the failures
+print()
+print("  4 · THE EIGHTEEN FAILURES\n")
+EL = {1:"H",2:"He",3:"Li",4:"Be",5:"B",6:"C",7:"N",8:"O",9:"F",10:"Ne",11:"Na",
+      12:"Mg",13:"Al",14:"Si",15:"P",16:"S",17:"Cl",18:"Ar",19:"K",20:"Ca",
+      21:"Sc",22:"Ti",26:"Fe",30:"Zn",31:"Ga",32:"Ge",37:"Rb",38:"Sr",48:"Cd",
+      55:"Cs",56:"Ba",80:"Hg",83:"Bi"}
+RO = {1:"I",2:"II",3:"III",4:"IV",5:"V",6:"VI",9:"IX",11:"XI",15:"XV",16:"XVI"}
+fails = []
+for k, v in bysp.items():
+    for i in range(len(v)):
+        for j in range(i+1, len(v)):
+            a, b = v[i], v[j]
+            if a["nl"] == b["nl"]: continue
+            lo, hi = (a, b) if a["nl"] < b["nl"] else (b, a)
+            if lo["nstar"] >= hi["nstar"]: fails.append((k, lo, hi))
+print(f"      {'species':<10}{'lower n+ℓ':>13}{'n*':>8}{'higher n+ℓ':>13}{'n*':>8}{'gap':>8}")
+for k, lo, hi in sorted(fails, key=lambda x: -(x[1]["nstar"]-x[2]["nstar"])):
+    sp = f"{EL.get(k[0],'Z'+str(k[0]))} {RO.get(k[1],k[1])}"
+    a = f"{lo['n']}{'spdfghi'[lo['l']]}({lo['nl']})"
+    b = f"{hi['n']}{'spdfghi'[hi['l']]}({hi['nl']})"
+    print(f"      {sp:<10}{a:>13}{lo['nstar']:>8.3f}{b:>13}{hi['nstar']:>8.3f}"
+          f"{lo['nstar']-hi['nstar']:>8.3f}")
+print()
+from collections import Counter
+print("      by species : " + "  ".join(
+    f"{EL.get(k[0],k[0])} {RO.get(k[1],k[1])}:{v}"
+    for k, v in Counter(k for k,_,_ in fails).most_common()))
+print("      by ℓ-pair  : " + "  ".join(
+    f"{'spdfghi'[a]}–{'spdfghi'[b]}:{v}" for (a,b), v in
+    Counter((lo['l'],hi['l']) for _,lo,hi in fails).most_common()))
+print()
+gaps = [lo["nstar"]-hi["nstar"] for _,lo,hi in fails]
+print(f"      median inversion gap: {st.median(gaps):.4f}")
+print(f"      how many by less than 0.05: {sum(1 for g in gaps if g < 0.05)} of {len(gaps)}")
+
+==============================================================================
+=== FILE: madelung2.py
+==============================================================================
+#!/usr/bin/env python3
+"""madelung2.py -- does the channel equation PRODUCE the n+l rule?
+
+Register 1250. The equation was fitted to quantum defects. It knows nothing about
+n+l: its inputs are p (the core's orbital count at that l, from Pauli), Ne (the
+electron count, through Thomas-Fermi screening) and c (the charge, through the
+isoelectronic form). No term in it references n+l, and it was never fitted against
+a filling order.
+
+    p > 0 :  delta = a p^e(Ne) Ne^k ln(c+1)/c
+    p = 0 :  delta = h C(Z) (Ne-1)/Ne Ne^k ln(c+1)/c
+
+The energy of a subshell is E = -Zc^2 R / (n - delta)^2, so the subshell that fills
+first is the one with the smallest n* = n - delta. And the first available n for a
+given l is fixed by orthogonality to the core:
+
+    n0(l) = p(l) + l + 1
+
+because a radial function with l must have at least p nodes to be orthogonal to the
+p core orbitals of the same l, and an nl function has n - l - 1 nodes.
+
+So for each element the equation gives, with no free choice:
+
+    n*(l) = p(l) + l + 1 - delta(p(l), Ne, c)
+
+THE TEST. For every element, rank the available subshells by n* and compare to the
+Madelung order (smallest n+l first, then smallest n). If the equation reproduces the
+order, the n+l rule is a CONSEQUENCE of three mechanisms that are individually
+attributed -- Pauli 1925 for p, Fermi 1928 for Ne^k, Edlen 1964 for the charge form
+-- and none of which mentions n+l.
+"""
+import math
+import numpy as np
+
+A, E0, E1, K, HH = 0.3772, 0.8297, -0.0900, 0.4942, 0.5415
+
+ORDER = [(1,0),(2,0),(2,1),(3,0),(3,1),(4,0),(3,2),(4,1),(5,0),(4,2),(5,1),(6,0),
+         (4,3),(5,2),(6,1),(7,0),(5,3),(6,2),(7,1),(8,0)]
+OPEN = {}; _z = 0
+for _n, _l in ORDER: OPEN[(_n,_l)] = _z + 1; _z += 2*(2*_l+1)
+
+def config(ne):
+    """the aufbau ground configuration for ne electrons, as (n, l, occ)"""
+    out = []; left = ne
+    for n, l in ORDER:
+        if left <= 0: break
+        cap = 2*(2*l+1); k = min(cap, left)
+        out.append((n, l, k)); left -= k
+    return out
+
+def core_p(ne, l):
+    """how many orbitals of this l the core already holds"""
+    return sum(1 for n, ll, o in config(ne) if ll == l and o > 0)
+
+def delta(Z, c, l):
+    ne = Z - c + 1
+    p = core_p(ne - 1, l)
+    t = math.log(c + 1) / c
+    if p > 0:
+        e = max(E0 + E1*math.log(max(ne, 2)), 0.05)
+        return A * (p**e) * ne**K * t
+    # p = 0: the collapse branch
+    v = [n for n, ll, o in config(ne - 1) if ll == l and o > 0]
+    n0 = (max(v) + 1) if v else l + 1
+    thr = OPEN.get((n0, l), 999)
+    C = min(max((Z - thr + 4.0)/8.0, 0.0), 1.0)
+    return HH * C * ((ne - 1)/ne) * ne**K * t
+
+def n0_of(ne, l):
+    """the first Pauli-allowed n for this l -- p nodes forced by orthogonality"""
+    return core_p(ne, l) + l + 1
+
+def madelung_key(n, l):
+    return (n + l, n)
+
+# ---------------------------------------------------------------- the test
+print("  DOES THE EQUATION PRODUCE THE FILLING ORDER?\n")
+print("      inputs: p (Pauli 1925) · Nₑ^k (Fermi 1928) · ln(c+1)/c (Edlén 1964)")
+print("      NO term references n+ℓ, and the equation was never fitted to an order.\n")
+
+agree = disagree = 0
+rows = []
+BAD = []
+for Z in range(3, 104):
+    ne = Z                      # neutral
+    cfg = config(ne - 1)        # the core, one electron short
+    # every l that could receive the next electron
+    cand = []
+    for l in range(0, 5):
+        n = n0_of(ne - 1, l)
+        if n > 8: continue
+        d = delta(Z, 1, l)
+        cand.append((l, n, d, n - d))
+    if len(cand) < 2: continue
+    # the equation's order, and Madelung's
+    eq_order  = [x[0] for x in sorted(cand, key=lambda x: x[3])]
+    mad_order = [x[0] for x in sorted(cand, key=lambda x: madelung_key(x[1], x[0]))]
+    # compare pairwise
+    for i in range(len(cand)):
+        for j in range(i+1, len(cand)):
+            a, b = cand[i], cand[j]
+            ma, mb = madelung_key(a[1], a[0]), madelung_key(b[1], b[0])
+            if ma == mb: continue
+            lo, hi = (a, b) if ma < mb else (b, a)
+            if lo[3] < hi[3]: agree += 1
+            else:
+                disagree += 1
+                BAD.append((Z, lo, hi))
+    rows.append((Z, eq_order, mad_order, cand))
+
+tot = agree + disagree
+print(f"  PAIRWISE, over elements Z = 3 to 103\n")
+print(f"      comparisons          : {tot}")
+print(f"      equation agrees      : {agree}   ({100*agree/tot:.1f}%)")
+print(f"      equation disagrees   : {disagree}")
+print()
+
+exact = sum(1 for _, e, m, _ in rows if e == m)
+print(f"  FULL ORDER, per element\n")
+print(f"      elements tested      : {len(rows)}")
+print(f"      order reproduced EXACTLY: {exact}   ({100*exact/len(rows):.1f}%)")
+print()
+
+if BAD:
+    from collections import Counter
+    L = "spdfg"
+    print(f"  WHERE IT DISAGREES\n")
+    print("      by ℓ-pair : " + "  ".join(
+        f"{L[a]}–{L[b]}:{v}"
+        for (a, b), v in Counter((lo[0], hi[0]) for _, lo, hi in BAD).most_common()))
+    zz = sorted({z for z, _, _ in BAD})
+    print(f"      by Z      : {zz[:26]}{' …' if len(zz) > 26 else ''}")
+    print()
+    print(f"      {'Z':>4}{'Madelung first':>18}{'n*':>9}{'then':>10}{'n*':>9}")
+    for z, lo, hi in BAD[:18]:
+        print(f"      {z:>4}{f'{lo[1]}{L[lo[0]]}':>18}{lo[3]:>9.3f}"
+              f"{f'{hi[1]}{L[hi[0]]}':>10}{hi[3]:>9.3f}")
+
+==============================================================================
+=== FILE: aufbau.py
+==============================================================================
+#!/usr/bin/env python3
+"""aufbau.py -- the index built from the ground state, not from what was captured.
+
+Register 1139. Every index in the book until now has taken its alphabets from the data:
+the Z values are the elements collected, the charge values are the stages captured. The
+envelope phi(charge | Z) is then a cumulative maximum over that sample, and register 1138
+found the consequence — N VI, O VI, F VI and four more are refused because sulphur is the
+only element held at charge 6, though every one satisfies charge < Z.
+
+But the cell set does not need the sample. From one atom's ground state:
+
+    Z                          the atomic number
+    aufbau(Ne)                 the ground configuration of every charge state
+    S_core = unpaired/2        Hund's first rule on the outermost open subshell
+    2S+1 in {2S_core+-1+1}     the channel's allowed multiplicities
+    l free                     the Rydberg electron's orbital
+
+and the cell set follows with no spectrum at all. Register 1139 verified the multiplicity
+step of that chain on every electron count the compendium holds: 24 of 24, exact
+containment, and 17 of 24 matching precisely.
+
+THIS SCRIPT builds the index that way and asks two things. First, what E becomes when the
+alphabet is physical rather than sampled. Second — the harder question — whether the
+construction supplies VALUES as well as cells, or whether it places and stops.
+"""
+import re, math, statistics as st
+from itertools import product
+from collections import defaultdict
+from zeno import State, step
+
+ORDER = [(1,0),(2,0),(2,1),(3,0),(3,1),(4,0),(3,2),(4,1),(5,0),(4,2),(5,1),(6,0),
+         (4,3),(5,2),(6,1),(7,0),(5,3),(6,2),(7,1)]
+ZN = {"H":1,"He":2,"Li":3,"Be":4,"B":5,"C":6,"N":7,"O":8,"F":9,"Ne":10,"Na":11,"Mg":12,
+      "Al":13,"Si":14,"P":15,"S":16,"Cl":17,"Ar":18,"K":19,"Ca":20,"Sc":21,"Ti":22,
+      "Fe":26,"Zn":30,"Ga":31,"Ge":32,"Cd":48,"Ba":56,"Hg":80,"Bi":83}
+LM = {"s":0,"p":1,"d":2,"f":3,"g":4,"h":5,"i":6,"k":7}
+SUP = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹","0123456789")
+
+def config(ne):
+    left, out = ne, []
+    for n, l in ORDER:
+        if left <= 0: break
+        cap = 2*(2*l+1); occ = min(left, cap); out.append((n,l,occ)); left -= occ
+    return out
+
+def core_spin(ne_core):
+    """Hund's first rule on the outermost open subshell of the CORE"""
+    cfg = config(ne_core)
+    if not cfg: return 0.0
+    n, l, occ = cfg[-1]
+    cap, half = 2*(2*l+1), 2*l+1
+    return (occ if occ <= half else cap-occ) / 2.0
+
+def mults(ne):
+    """the multiplicities a channel of Ne electrons may carry"""
+    sc = core_spin(ne-1)
+    return {int(2*(sc+d)+1) for d in (0.5,-0.5) if sc+d >= 0}
+
+def aufbau_index(Zmax=83, lmax=7):
+    """every cell the physics admits, from the ground state alone"""
+    cells = set()
+    for Z in range(1, Zmax+1):
+        for c in range(1, Z+1):              # charge < Z, plus the bare-core stage
+            ne = Z - c + 1
+            if ne < 1: continue
+            for S in mults(ne):
+                for l in range(lmax+1):
+                    cells.add((Z, c, l, S))
+    return cells
+
+def measured():
+    H = defaultdict(list)
+    for line in open("SPECTRA-DATA.tsv", encoding="utf-8").read().split("\n")[1:]:
+        r = line.rstrip().split("\t")
+        if len(r) < 11: continue
+        m = re.search(r"n([spdfghik])\b", r[1]); el = re.match(r"([A-Z][a-z]?)", r[0].strip())
+        if not (m and el) or el.group(1) not in ZN: continue
+        mu = re.search(r"(\d)[SPDFG]", r[1][m.end():].translate(SUP))
+        if not mu: continue
+        try: H[(ZN[el.group(1)], int(r[9]), LM[m.group(1)], int(mu.group(1)))].append(float(r[7]))
+        except Exception: pass
+    return {k: st.mean(v) for k, v in H.items()}
+
+def RR(X, d=4):
+    X = set(X)
+    vals = [sorted({c[i] for c in X}) for i in range(d)]
+    def env(i, j):
+        m = {}
+        for c in X: m[c[j]] = max(m.get(c[j], -99), c[i])
+        b, o = -99, {}
+        for t in sorted(m): b = max(b, m[t]); o[t] = b
+        return o
+    phi = {(i,j): env(i,j) for i in range(d) for j in range(d) if i != j}
+    return {x for x in product(*vals)
+            if all(x[i] <= phi[(i,j)][x[j]] for i in range(d) for j in range(d) if i != j)}
+
+def run():
+    H = measured()
+    # the SAMPLED index, as the compendium has built it
+    A = [sorted({x[i] for x in H}) for i in range(4)]
+    SAMP = {x for x in product(*A) if x[1] < x[0]}
+    # the AUFBAU index, restricted to the same Z range so the comparison is fair
+    Zs = sorted({k[0] for k in H})
+    AUF = {x for x in aufbau_index(max(Zs)) if x[0] in Zs}
+    return H, SAMP, AUF
+
+with State("aufbau") as s:
+    H, SAMP, AUF = step(s, "build both indexes", run, budget=600)
+
+print("  THE INDEX FROM THE GROUND STATE AGAINST THE INDEX FROM THE SAMPLE\n")
+print(f"  {'':<34}{'cells':>10}{'holds':>9}{'admits & does not hold':>26}")
+for lab, G in (("sampled  (alphabets from data)", SAMP), ("aufbau   (alphabets from physics)", AUF)):
+    held = len(set(H) & G)
+    print(f"  {lab:<34}{len(G):>10,}{held:>9}{len(G)-held:>26,}")
+print()
+mis = set(H) - AUF
+print(f"  measured cells the aufbau index does NOT admit: {len(mis)}")
+if mis:
+    INV = {v:k for k,v in ZN.items()}
+    for k in sorted(mis)[:8]:
+        Z,c,l,S = k
+        print(f"      {INV.get(Z,Z)} {c}  n{'spdfghik'[l]}  2S+1={S}   "
+              f"Nₑ={Z-c+1}, allowed {sorted(mults(Z-c+1))}")
+
+==============================================================================
+=== FILE: null_madelung.py
+==============================================================================
+#!/usr/bin/env python3
+"""null_madelung.py — the null the 99 is scored against, recomputed.
+
+The handoff quotes the Loewdin result as 99 of 106 "against a null of 28". The
+null was plain Madelung order: at each step take the next unfilled subshell in
+n+l sequence and score it against the observed entry. It returned 28 of 108,
+against an expectation of about 82 — and that gap was correctly read at the time
+as the STEP EXTRACTOR being broken, taking an arbitrary gain where several
+shells changed, rather than as a fact about Madelung.
+
+So the 28 is a bad null and must not be carried. This recomputes it on the SAME
+106 clean steps the corridor result uses — brack.py's own extraction, which
+keeps only steps where exactly one subshell gains.
+
+Two nulls, because the corridor result is a PER-STEP claim and only one of them
+is matched to it:
+
+  CONDITIONAL   given the OBSERVED configuration at Z-1, does Madelung name the
+                observed entrant? This is the matched null: it asks the same
+                question of Madelung that the corridor asks of nu, one step at a
+                time, with no accumulated error.
+
+  FREE-RUNNING  let Madelung generate its own configurations from hydrogen and
+                score against the observed entrant. This is a trajectory null,
+                and it compounds: one early miss shifts every later state.
+
+Quoting a per-step result against a free-running null overstates it. Quoting it
+against the conditional null is the honest comparison.
+"""
+import sys, io, contextlib
+sys.path.insert(0, "/home/claude/work")
+with contextlib.redirect_stdout(io.StringIO()):
+    import brack
+import ground as G
+
+L = "spdfg"
+SYM = ("H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn "
+       "Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce "
+       "Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn "
+       "Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs").split()
+cap = lambda l: 2 * (2 * l + 1)
+
+# Madelung order: by n+l, then by n
+ORDER = sorted(((n, l) for n in range(1, 9) for l in range(0, min(n, 5))),
+               key=lambda nl: (nl[0] + nl[1], nl[0]))
+
+
+def madelung_next(occ):
+    for n, l in ORDER:
+        if occ.get((n, l), 0) < cap(l):
+            return (n, l)
+    return None
+
+
+def cfg(Z):
+    d = {}
+    for n, l, k in G.expand(Z):
+        d[(n, l)] = d.get((n, l), 0) + k
+    return d
+
+
+STEPS = [(r[0], (r[1], r[2])) for r in brack.IV]        # (Z, observed entrant)
+print(f"  scored on the SAME {len(STEPS)} clean steps the corridor result uses\n")
+
+# ---- conditional -----------------------------------------------------------
+hit_c, miss_c = 0, []
+for Z, obs in STEPS:
+    pred = madelung_next(cfg(Z - 1))
+    if pred == obs:
+        hit_c += 1
+    else:
+        miss_c.append((Z, obs, pred))
+
+# ---- free-running ----------------------------------------------------------
+occ, hit_f, miss_f = {}, 0, []
+for Z in range(1, 3):                                    # H, He before the walk
+    nl = madelung_next(occ)
+    occ[nl] = occ.get(nl, 0) + 1
+for Z, obs in STEPS:
+    pred = madelung_next(occ)
+    if pred == obs:
+        hit_f += 1
+    else:
+        miss_f.append((Z, obs, pred))
+    occ[pred] = occ.get(pred, 0) + 1                     # Madelung's own state
+
+n = len(STEPS)
+print(f"  CONDITIONAL  (given the observed state at Z-1)   {hit_c} of {n}"
+      f"   = {100*hit_c/n:.0f}%")
+print(f"  FREE-RUNNING (Madelung generates its own state)  {hit_f} of {n}"
+      f"   = {100*hit_f/n:.0f}%")
+print(f"\n  the handoff carries a null of 28 of 108 — neither of these, and the")
+print(f"  28 was already diagnosed as a broken step extractor rather than a")
+print(f"  fact about Madelung. It should be RETIRED, not carried.\n")
+
+print(f"  CONDITIONAL misses ({len(miss_c)}):")
+for Z, obs, pred in miss_c:
+    print(f"    {SYM[Z-1]:<3}{Z:>4}  observed {obs[0]}{L[obs[1]]}"
+          f"   Madelung says {pred[0]}{L[pred[1]]}")
+
+print(f"\n  and the corridor result is 99 of {n}. Against the CONDITIONAL null")
+print(f"  that is {hit_c} -> 99; against the free-running one it is {hit_f} -> 99.")
+print(f"  The conditional is the matched comparison, because both it and the")
+print(f"  corridor are asked one step at a time from the observed state.")
+
+==============================================================================
+=== FILE: lowdin_gate.py
+==============================================================================
+import math, statistics as st
+import numpy as np
+from collections import defaultdict
+from scipy import stats as SS
+src=open("channels_principle.py",encoding="utf-8").read()
+src=src[:src.index('print("  THE PRINCIPAL STRUCTURE')]
+g={}; exec(src,g)
+CH=g["CH"]; config=g["config"]; L="spdfghi"
+def outer(ne):
+    cfg=config(ne); return cfg[-1] if cfg else (0,0,0)
+for x in CH:
+    n_,l_,o_=outer(x["ne"]-1)
+    x["on"],x["ol"]=n_,l_
+    x["dl"]=x["l"]-l_
+print("  THE GATE:  frac(δ) = 0 when ℓ − ℓ_core ≥ 2\n")
+print(f"      {'ℓ − ℓ_core':>12}{'n':>6}{'median frac':>14}{'sd':>9}{'|frac|<0.05':>14}")
+by=defaultdict(list)
+for x in CH: by[x["dl"]].append(x["frac"])
+for k in sorted(by):
+    v=by[k]
+    if len(v)<4: continue
+    print(f"      {k:>12}{len(v):>6}{st.median(v):>14.3f}{st.pstdev(v):>9.3f}"
+          f"{sum(1 for z in v if abs(z)<0.05):>9}/{len(v)}")
+print()
+lo=[x["frac"] for x in CH if x["dl"]>=2]
+hi=[x["frac"] for x in CH if x["dl"]<2]
+print(f"      ℓ − ℓ_core ≥ 2 : {len(lo):>4} channels   median {st.median(lo):.4f}   "
+      f"sd {st.pstdev(lo):.4f}")
+print(f"      ℓ − ℓ_core < 2 : {len(hi):>4} channels   median {st.median(hi):.4f}   "
+      f"sd {st.pstdev(hi):.4f}")
+u=SS.mannwhitneyu(hi,lo,alternative="greater")
+print(f"      Mann-Whitney: p = {u.pvalue:.2e}")
+print()
+print("  AND THE WHOLE DEFECT UNDER THE GATE\n")
+print("      If frac(δ) = 0 above the gate, then δ is an INTEGER there — the")
+print("      channel is hydrogenic up to a whole number of nodes.\n")
+above=[x for x in CH if x["dl"]>=2]
+print(f"      {len(above)} channels with ℓ − ℓ_core ≥ 2")
+print(f"      how many have |δ − round(δ)| < 0.05 : "
+      f"{sum(1 for x in above if abs(x['d']-round(x['d']))<0.05)}")
+print(f"      how many have δ < 0.05 outright     : "
+      f"{sum(1 for x in above if x['d']<0.05)}")
+print()
+print("  THE ORDERING CONSEQUENCE — s AGAINST p AT A NEUTRAL ATOM\n")
+print("      Madelung puts ns below np. Under the gate, both are BELOW the gate")
+print("      (ℓ − ℓ_core is 0 or negative for s, and ≤ 1 for p), so both carry a")
+print("      fractional part and the ordering turns on which is larger.\n")
+print(f"      {'core outer':>12}{'ns frac':>10}{'np frac':>10}{'np − ns':>10}{'n':>5}")
+pairs=defaultdict(lambda: {0:[],1:[]})
+for x in CH:
+    if x["l"] in (0,1) and x["c"]==1:
+        pairs[(x["on"],x["ol"])][x["l"]].append(x["frac"])
+tot=[]
+for k in sorted(pairs):
+    a=pairs[k][0]; b=pairs[k][1]
+    if not a or not b: continue
+    d=st.median(b)-st.median(a); tot.append(d)
+    print(f"      {f'{k[0]}{L[k[1]]}':>12}{st.median(a):>10.3f}{st.median(b):>10.3f}"
+          f"{d:>10.3f}{len(a)+len(b):>5}")
+if tot:
+    print(f"\n      np frac exceeds ns frac in {sum(1 for d in tot if d>0)} of {len(tot)} cores")
+    print(f"      median difference {st.median(tot):+.3f}")
+    print(f"      → n*(np) = 2 − frac(np) < n*(ns) = 3 − frac(ns) requires")
+    print(f"        frac(np) − frac(ns) > −1, which always holds. The s–p ordering")
+    print(f"        is NOT set by the fraction at all — it is set by the INTEGER.")
+
+==============================================================================
+=== FILE: lowdin_outer.py
+==============================================================================
+import math, statistics as st
+import numpy as np
+from collections import defaultdict
+src=open("channels_principle.py",encoding="utf-8").read()
+src=src[:src.index('print("  THE PRINCIPAL STRUCTURE')]
+g={}; exec(src,g)
+CH=g["CH"]; config=g["config"]; L="spdfghi"
+def outer(ne):
+    cfg=config(ne)
+    return cfg[-1] if cfg else (0,0,0)
+def nmax(ne):
+    cfg=config(ne)
+    return max((n for n,l,o in cfg if o>0), default=0)
+def lmax(ne):
+    cfg=config(ne)
+    return max((l for n,l,o in cfg if o>0), default=0)
+for x in CH:
+    n_,l_,o_=outer(x["ne"]-1)
+    x["on"]=n_; x["ol"]=l_; x["oo"]=o_
+    x["nmax"]=nmax(x["ne"]-1); x["lmax"]=lmax(x["ne"]-1)
+    x["dl"]=x["l"]-l_          # how far the outer ℓ is from the core's outermost ℓ
+    x["nl_core"]=n_+l_
+allf=np.array([x["frac"] for x in CH]); tot=allf.var()
+def ve(key):
+    gr=defaultdict(list)
+    for x in CH: gr[key(x)].append(x["frac"])
+    gr={k:v for k,v in gr.items() if len(v)>=2}
+    if not gr: return None,0
+    w=sum(np.var(v)*len(v) for v in gr.values())/sum(len(v) for v in gr.values())
+    return 100*(1-w/tot), len(gr)
+print("  WHAT PART OF THE CORE CONFIGURATION CARRIES frac(δ)?\n")
+print(f"      {'grouping':<34}{'groups':>8}{'explained':>12}")
+TESTS=[
+ ("ℓ alone", lambda x:x["l"]),
+ ("(ℓ, whole core config)", lambda x:(x["l"],x["ne"]-1)),
+ ("(ℓ, outer core subshell n,ℓ)", lambda x:(x["l"],x["on"],x["ol"])),
+ ("(ℓ, outer core n)", lambda x:(x["l"],x["on"])),
+ ("(ℓ, outer core ℓ)", lambda x:(x["l"],x["ol"])),
+ ("(ℓ, outer core n+ℓ)", lambda x:(x["l"],x["nl_core"])),
+ ("(ℓ, outer occupancy)", lambda x:(x["l"],x["oo"])),
+ ("(ℓ, ℓ − outer core ℓ)", lambda x:(x["l"],x["dl"])),
+ ("(ℓ, p)", lambda x:(x["l"],x["p"])),
+ ("(ℓ, p, outer core n)", lambda x:(x["l"],x["p"],x["on"])),
+ ("(ℓ, n_max of core)", lambda x:(x["l"],x["nmax"])),
+ ("(ℓ, ℓ_max of core)", lambda x:(x["l"],x["lmax"])),
+]
+for lab,k in TESTS:
+    v,n=ve(k)
+    if v is None: continue
+    print(f"      {lab:<34}{n:>8}{v:>11.1f}%")
+print()
+print("  THE OUTER CORE SUBSHELL, ALONE, AGAINST THE WHOLE CONFIGURATION\n")
+a,_=ve(lambda x:(x["l"],x["on"],x["ol"])); b,_=ve(lambda x:(x["l"],x["ne"]-1))
+print(f"      outer subshell only : {a:.1f}%")
+print(f"      whole configuration : {b:.1f}%")
+print(f"      the outer subshell recovers {100*a/b:.0f}% of what the whole config gives")
+print()
+print("  AND WHAT frac(δ) LOOKS LIKE ON (ℓ, outer core subshell)\n")
+gr=defaultdict(list)
+for x in CH: gr[(x["l"],x["on"],x["ol"])].append(x["frac"])
+print(f"      {'ℓ':>3}{'core outer':>12}{'n':>5}{'median frac':>14}{'sd':>8}")
+for k in sorted(gr):
+    v=gr[k]
+    if len(v)<4: continue
+    print(f"      {L[k[0]]:>3}{f'{k[1]}{L[k[2]]}':>12}{len(v):>5}{st.median(v):>14.3f}{st.pstdev(v):>8.3f}")
+
+==============================================================================
+=== FILE: lowdin_dich.py
+==============================================================================
+import statistics as st
+from collections import defaultdict
+from scipy import stats as SS
+src=open("madelung.py",encoding="utf-8").read()
+src=src[:src.index('print(f"  {len(CH)} measured channels')]
+g={}; exec(src,g)
+CH=g["CH"]; bysp=defaultdict(list)
+for x in CH: bysp[(x["Z"],x["c"])].append(x)
+print("  THE DICHOTOMY: NEUTRAL AGAINST ION\n")
+print("  The three lines are not smooth in charge. They are a STEP at charge 2.\n")
+def rate(sel):
+    a=d=0
+    for k,v in bysp.items():
+        if not sel(k[1]): continue
+        for i in range(len(v)):
+            for j in range(i+1,len(v)):
+                x,y=v[i],v[j]
+                if x["nl"]==y["nl"]: continue
+                lo,hi=(x,y) if x["nl"]<y["nl"] else (y,x)
+                if lo["nstar"]<hi["nstar"]: a+=1
+                else: d+=1
+    return a,d
+a1,d1=rate(lambda c:c==1); a2,d2=rate(lambda c:c>=2)
+print(f"      {'set':<16}{'pairs':>8}{'agree':>8}{'fail':>7}{'rate':>9}")
+print(f"      {'NEUTRAL (c=1)':<16}{a1+d1:>8}{a1:>8}{d1:>7}{100*a1/(a1+d1):>8.1f}%")
+print(f"      {'IONS (c≥2)':<16}{a2+d2:>8}{a2:>8}{d2:>7}{100*a2/(a2+d2):>8.1f}%")
+tab=[[a1,d1],[a2,d2]]
+try:
+    odds,p=SS.fisher_exact(tab)
+    print(f"\n      Fisher exact: p = {p:.4f}   {'SIGNIFICANT' if p<0.05 else 'not significant'}")
+except Exception as e: print(f"      {e}")
+print()
+print("  and the s–d gap, neutral against ion:\n")
+def gaps(sel):
+    out=[]
+    for k,v in bysp.items():
+        if not sel(k[1]): continue
+        s=[x for x in v if x["l"]==0]; d=[x for x in v if x["l"]==2]
+        if not s or not d: continue
+        out.append(min(x["nstar"] for x in d)-min(x["nstar"] for x in s))
+    return out
+g1=gaps(lambda c:c==1); g2=gaps(lambda c:c>=2)
+print(f"      neutral: n = {len(g1):>3}   median {st.median(g1):+.3f}   "
+      f"negative in {sum(1 for x in g1 if x<0)}")
+print(f"      ions   : n = {len(g2):>3}   median {st.median(g2):+.3f}   "
+      f"negative in {sum(1 for x in g2 if x<0)}")
+u=SS.mannwhitneyu(g1,g2,alternative="greater")
+print(f"\n      Mann-Whitney (neutral > ion): U = {u.statistic:.0f}, p = {u.pvalue:.4f}")
+print()
+print("  and the grouping ratio, neutral against ion:\n")
+def ratio(sel):
+    W=[];A=[]
+    for k,v in bysp.items():
+        if not sel(k[1]) or len(v)<2: continue
+        grp=defaultdict(list)
+        for x in v: grp[x["nl"]].append(x["d"])
+        for nl,ds in grp.items():
+            if len(ds)>=2: W.append(max(ds)-min(ds))
+        A.append(max(x["d"] for x in v)-min(x["d"] for x in v))
+    return st.median(W)/max(st.median(A),1e-9), len(A)
+r1,n1=ratio(lambda c:c==1); r2,n2=ratio(lambda c:c>=2)
+print(f"      neutral: {r1:.3f}  ({n1} species)")
+print(f"      ions   : {r2:.3f}  ({n2} species)")
+
+==============================================================================
+=== FILE: lowdin_tight.py
+==============================================================================
+import math, statistics as st
+from collections import Counter, defaultdict
+src=open("madelung.py",encoding="utf-8").read()
+src=src[:src.index('print(f"  {len(CH)} measured channels')]
+g={}; exec(src,g)
+CH=g["CH"]; config=g["config"]
+L="spdfghi"
+def core_p(ne,l): return sum(1 for n,ll,o in config(ne) if ll==l and o>0)
+print("  IS THE PAULI BOUND TIGHT?\n")
+print("      ORDER language     : floor(δ) ≤ p            (Q.bound, exceptionless)")
+print("      ANALYSIS language  : dδ/dp = 1               (measured 0.81–0.99)")
+print()
+print("      If floor(δ) = p EXACTLY, the second is an identity: δ = p + frac,")
+print("      so dδ/dp = 1 by construction and κ(ℓ) = −median frac(δ).\n")
+rows=[]
+for x in CH:
+    p=core_p(x["ne"]-1,x["l"])
+    rows.append((x["l"], x["c"], p, x["d"], math.floor(x["d"])))
+print(f"      {'ℓ':>3}{'n':>6}{'floor(δ) = p':>15}{'= p−1':>8}{'= p−2':>8}{'< p−2':>8}{'> p':>6}")
+for l in sorted({r[0] for r in rows}):
+    v=[r for r in rows if r[0]==l]
+    c=Counter(r[4]-r[2] for r in v)
+    print(f"      {L[l]:>3}{len(v):>6}{c.get(0,0):>15}{c.get(-1,0):>8}{c.get(-2,0):>8}"
+          f"{sum(n for k,n in c.items() if k<-2):>8}{sum(n for k,n in c.items() if k>0):>6}")
+allc=Counter(r[4]-r[2] for r in rows)
+print(f"\n      overall: floor(δ) = p in {allc.get(0,0)} of {len(rows)} "
+      f"({100*allc.get(0,0)/len(rows):.1f}%)")
+print(f"               floor(δ) = p−1 in {allc.get(-1,0)} ({100*allc.get(-1,0)/len(rows):.1f}%)")
+print(f"               floor(δ) > p  in {sum(n for k,n in allc.items() if k>0)}   "
+      f"← would violate Q.bound")
+print()
+print("  RESTRICTED TO NEUTRALS, WHERE THE RULE LIVES\n")
+neu=[r for r in rows if r[1]==1]
+c=Counter(r[4]-r[2] for r in neu)
+print(f"      {len(neu)} channels: " + "  ".join(
+    f"floor−p = {k}: {v}" for k,v in sorted(c.items())))
+print()
+print("  AND THE PENETRATING ONES ONLY (p ≥ 1)\n")
+pen=[r for r in rows if r[2]>=1]
+c=Counter(r[4]-r[2] for r in pen)
+print(f"      {len(pen)} channels: " + "  ".join(
+    f"{k}: {v}" for k,v in sorted(c.items())))
+print()
+print("  THE FRACTIONAL PART — is it κ(ℓ)?\n")
+print(f"      {'ℓ':>3}{'n':>6}{'median frac(δ)':>17}{'sd':>8}{'median p−δ':>13}")
+for l in sorted({r[0] for r in rows}):
+    v=[r for r in rows if r[0]==l and r[2]>=1]
+    if len(v)<5: continue
+    fr=[r[3]-math.floor(r[3]) for r in v]
+    pd=[r[2]-r[3] for r in v]
+    print(f"      {L[l]:>3}{len(v):>6}{st.median(fr):>17.3f}{st.pstdev(fr):>8.3f}{st.median(pd):>13.3f}")
+
+==============================================================================
+=== FILE: lowdin_rule.py
+==============================================================================
+import math
+from collections import Counter, defaultdict
+import statistics as st
+src=open("madelung.py",encoding="utf-8").read()
+src=src[:src.index('print(f"  {len(CH)} measured channels')]
+g={}; exec(src,g)
+CH=g["CH"]; config=g["config"]
+L="spdfghi"
+EL={3:"Li",4:"Be",5:"B",6:"C",7:"N",8:"O",9:"F",10:"Ne",11:"Na",12:"Mg",13:"Al",
+    14:"Si",15:"P",16:"S",17:"Cl",18:"Ar",19:"K",20:"Ca",21:"Sc",22:"Ti",26:"Fe",
+    30:"Zn",31:"Ga",32:"Ge",37:"Rb",38:"Sr",48:"Cd",55:"Cs",56:"Ba",80:"Hg",83:"Bi",
+    1:"H",2:"He"}
+RO={1:"I",2:"II",3:"III",4:"IV",5:"V",6:"VI",9:"IX",11:"XI",15:"XV",16:"XVI"}
+def core_p(ne,l): return sum(1 for n,ll,o in config(ne) if ll==l and o>0)
+def pred(p,l): return p - min(p, max(2-l,0))
+print("  THE RULE AS A PREDICTOR   floor(δ) = p − min(p, max(2−ℓ, 0))\n")
+ok=0; off=Counter(); rows=[]
+for x in CH:
+    p=core_p(x["ne"]-1,x["l"])
+    f=math.floor(x["d"]); q=pred(p,x["l"])
+    off[f-q]+=1
+    if f==q: ok+=1
+    rows.append((x,p,f,q))
+print(f"      {len(CH)} channels · exact {ok} ({100*ok/len(CH):.1f}%)")
+print("      residual floor(δ) − prediction: " + "  ".join(
+    f"{k:+d}: {v}" for k,v in sorted(off.items())))
+print()
+print("  BY ℓ\n")
+print(f"      {'ℓ':>3}{'n':>6}{'exact':>8}{'rate':>8}{'median residual':>18}")
+for l in sorted({x["l"] for x in CH}):
+    v=[(x,p,f,q) for x,p,f,q in rows if x["l"]==l]
+    e=sum(1 for _,_,f,q in v if f==q)
+    print(f"      {L[l]:>3}{len(v):>6}{e:>8}{100*e/len(v):>7.1f}%"
+          f"{st.median([f-q for _,_,f,q in v]):>18.1f}")
+print()
+print("  THE CASES THAT MISS, AT s\n")
+miss=[(x,p,f,q) for x,p,f,q in rows if x["l"]==0 and f!=q]
+print(f"      {len(miss)} of {sum(1 for x in CH if x['l']==0)}\n")
+print(f"      {'species':<10}{'Nₑ':>5}{'p':>4}{'δ':>9}{'floor':>7}{'pred':>6}{'diff':>6}")
+for x,p,f,q in sorted(miss,key=lambda z:-abs(z[2]-z[3]))[:14]:
+    sp=f"{EL.get(x['Z'],'Z'+str(x['Z']))} {RO.get(x['c'],x['c'])}"
+    print(f"      {sp:<10}{x['ne']:>5}{p:>4}{x['d']:>9.3f}{f:>7}{q:>6}{f-q:>6}")
+print()
+print("  AND WHAT THE ALTERNATIVE 'free = shells with n ≤ 2' GIVES\n")
+def pred2(ne,l):
+    # count core shells of this l with n <= 2
+    return core_p(ne,l) - sum(1 for n,ll,o in config(ne) if ll==l and o>0 and n<=2)
+ok2=0
+for x in CH:
+    if math.floor(x["d"])==pred2(x["ne"]-1,x["l"]): ok2+=1
+print(f"      exact {ok2} of {len(CH)} ({100*ok2/len(CH):.1f}%)")
+
+==============================================================================
+=== FILE: nuclear_corridor.py
+==============================================================================
+from fractions import Fraction as F
+LN="spdfghik"
+# CORRECTED standard order, capacities verified to close at 2,8,20,28,50,82,126
+ORD=[(1,0,F(1,2)),(1,1,F(3,2)),(1,1,F(1,2)),
+     (1,2,F(5,2)),(2,0,F(1,2)),(1,2,F(3,2)),
+     (1,3,F(7,2)),
+     (2,1,F(3,2)),(1,3,F(5,2)),(2,1,F(1,2)),(1,4,F(9,2)),
+     (1,4,F(7,2)),(2,2,F(5,2)),(2,2,F(3,2)),(3,0,F(1,2)),(1,5,F(11,2)),
+     (1,5,F(9,2)),(2,3,F(7,2)),(1,6,F(13,2)),(3,1,F(3,2)),(2,3,F(5,2)),(3,1,F(1,2))]
+def N(nr,l): return 2*(nr-1)+l
+def LS(l,j): return F(1,2)*(j*(j+1)-l*(l+1)-F(3,4))
+def nm(nr,l,j): return f"{nr}{LN[l]}{2*j.numerator//j.denominator if False else int(2*j)}/2"
+print("  THE CORRECTED ORDER — capacities check\n")
+c=0; MAG=[]
+for nr,l,j in ORD:
+    d=int(2*j+1); c+=d
+    if c in (2,8,20,28,50,82,126): MAG.append(c)
+    print(f"      {nm(nr,l,j):>9}  N={N(nr,l):<2} d={d:<3} cum={c:<4}"
+          f"{'  ← MAGIC' if c in (2,8,20,28,50,82,126) else ''}")
+print(f"\n      closures reached: {MAG}   {'ALL SEVEN' if len(MAG)==7 else 'INCOMPLETE'}\n")
+CON=[]
+for i in range(len(ORD)-1):
+    n1,l1,j1=ORD[i]; n2,l2,j2=ORD[i+1]
+    a=float(l1*(l1+1)-l2*(l2+1)); b=float(LS(l2,j2)-LS(l1,j1)); cc=float(N(n2,l2)-N(n1,l1))
+    CON.append((a,b,cc,f"{nm(n1,l1,j1)}→{nm(n2,l2,j2)}"))
+print("  THE CORRIDOR  —  β(ℓ₁(ℓ₁+1) − ℓ₂(ℓ₂+1)) + α(S₂ − S₁) < N₂ − N₁\n")
+def scan(bmin,bmax):
+    P=[]
+    for bi in range(bmin,bmax+1):
+        for ai in range(1,601):
+            be=bi/2000.0; al=ai/200.0
+            if all(a*be+b*al < cc-1e-9 for a,b,cc,_ in CON): P.append((be,al))
+    return P
+p0=[p for p in scan(0,0)]
+p1=scan(-600,600)
+print(f"      ONE term  (β = 0, L·S only)  : {len(p0)} feasible α")
+print(f"      TWO terms (β free, L·S)      : {len(p1)} feasible (β, α)\n")
+if p0:
+    al=[x[1] for x in p0]
+    print(f"      → L·S ALONE reproduces the observed order, α ∈ "
+          f"[{min(al):.3f}, {max(al):.3f}]")
+    print(f"        Laubscher's s = 1/12 = 0.0833 inside: "
+          f"{'YES' if min(al)<=1/12<=max(al) else 'NO'}")
+elif p1:
+    bs=[x[0] for x in p1]; als=[x[1] for x in p1]
+    print(f"      → needs BOTH terms. β ∈ [{min(bs):+.4f}, {max(bs):+.4f}], "
+          f"α ∈ [{min(als):.3f}, {max(als):.3f}]")
+    print(f"        β = 0 is {'inside' if 0.0 in bs else 'EXCLUDED'} "
+          f"→ the ℓ² term is {'optional' if 0.0 in bs else 'REQUIRED'}")
+else:
+    print("      → EMPTY for both. the binding pairs:")
+    for a,b,cc,n_ in CON:
+        print(f"        {n_:<20}{a:>6.0f}β +{b:>7.2f}α < {cc:>4.0f}")

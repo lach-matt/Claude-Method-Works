@@ -1,0 +1,69 @@
+Z	sym	l	stored_term	stored_members	n_terms_at_l	parity_variant	sample_terms
+13	Al	1	4P	3	5		2P*;;2P;2D;2S
+13	Al	1	2D?	5	5		2P*;;2P;2D;2S
+13	Al	1	2S?	4	5		2P*;;2P;2D;2S
+5	B	1	4P	3	5		2P*;2P;2D;2S;
+56	Ba	1	3P	3	6	3P*	3P*;1P*;3F*;1D*;3D*;1F*
+31	Ga	1	4P	3	4		2P*;2[1];2[2];2[0]
+72	Hf	0	a 3F	3	45		a 5F;a 5P;a 3G;b 3F;a 3D;c 3P
+72	Hf	0	a 3P	3	45		a 5F;a 5P;a 3G;b 3F;a 3D;c 3P
+72	Hf	2	a 5D	5	1		3G
+72	Hf	2	b 3H	3	1		3G
+72	Hf	2	h 3F	3	1		3G
+72	Hf	2	c 3G	3	1		3G
+72	Hf	2	h 3D	3	1		3G
+80	Hg	1	3P	3	6	3P*	3P*;1P*;2[3/2]*;2[7/2]*;2[5/2]*;2[1/2]*
+49	In	1	4P	3	2		2P*;2S
+71	Lu	1	4P	3	8	4P*	2P*;4F*;4D*;2D*;4P*;2F*
+11	Na	1	4D	4	6		2P*;2D;2S;2P;2[1]*;
+11	Na	1	4P	3	6		2P*;2D;2S;2P;2[1]*;
+38	Sr	1	3P	3	14	3P*	3P*;1P*;3F*;1D*;3D*;1F*
+22	Ti	0	a 3F	3	23		a 5F;b 3F;a 5P;a 3G;a 3D;b 3P
+22	Ti	0	a 3P	3	23		a 5F;b 3F;a 5P;a 3G;a 3D;b 3P
+22	Ti	1	z 5G*	5	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	z 5F*	5	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	z 5D*	5	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	z 3F*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	z 3D*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	z 3G*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	y 3F*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	x 3F*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	x 3D*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	y 3G*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	z 5P*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	2	a 5D	5	21		1D;e 5G;e 5H;3G;e 5D;g 3F
+22	Ti	1	w 3D*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	x 3G*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	v 3D*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	y 3P*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	z 3H*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	v 3F*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	2	3P2	3	21		1D;e 5G;e 5H;3G;e 5D;g 3F
+22	Ti	2	3F2	3	21		1D;e 5G;e 5H;3G;e 5D;g 3F
+22	Ti	2	b 3G	3	21		1D;e 5G;e 5H;3G;e 5D;g 3F
+22	Ti	1	u 3D*	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	2	3F1	3	21		1D;e 5G;e 5H;3G;e 5D;g 3F
+22	Ti	1	g 5G	5	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	5F	5	51	5F*	y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	e 3D	3	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+22	Ti	1	h 5D	5	51		y 3D*;y 5G*;y 5F*;x 5D*;w 3G*;x 3P*
+39	Y	2	b 4F	4	11		e 2D;f 4D;e 4G;4S;2P;2F
+39	Y	2	b 4P	3	11		e 2D;f 4D;e 4G;4S;2P;2F
+70	Yb	0	(7/2,3/2)*	4	4		3D;1D;3S;1S
+70	Yb	0	(7/2,5/2)*	6	4		3D;1D;3S;1S
+70	Yb	1	(7/2,3/2)	4	2		3P*;1P*
+70	Yb	1	(7/2,3/2)	5	2		3P*;1P*
+70	Yb	1		7	2		3P*;1P*
+70	Yb	1	3P	3	2	3P*	3P*;1P*
+70	Yb	1	(5/2,3/2)	3	2		3P*;1P*
+70	Yb	1		3	2		3P*;1P*
+70	Yb	1	(7/2,7/2)	5	2		3P*;1P*
+70	Yb	1	(1/2,1/2)*	15	2		3P*;1P*
+70	Yb	1	(1/2,3/2)*	40	2		3P*;1P*
+70	Yb	1		3	2		3P*;1P*
+40	Zr	0	a 3F	3	14		a 5F;a 5P;b 3F;a 3G;a 3D;a 3H
+40	Zr	0	a 3P	3	14		a 5F;a 5P;b 3F;a 3G;a 3D;a 3H
+40	Zr	2	a 5D	5	2		e 5H;e 5G
+40	Zr	1	t 3G*	3	73		z 5G*;z 3F*;z 5F*;z 3D*;z 1D*;z 5D*
+40	Zr	1	f 5G	5	73		z 5G*;z 3F*;z 5F*;z 3D*;z 1D*;z 5D*
+40	Zr	1	o 3D*	3	73		z 5G*;z 3F*;z 5F*;z 3D*;z 1D*;z 5D*

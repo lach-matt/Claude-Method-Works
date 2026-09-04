@@ -1,0 +1,468 @@
+References	244
+PART 0 — THE SHAPE OF THE ARGUMENT	13
+Preface — the shape of the argument	13
+PART I — THE PROCEDURE	15
+1. The principles	15
+2. The protocols	21
+2.1 Channel construction	21
+2.2 Admissibility	21
+2.3 Cost resolvability	22
+2.4 Dilution	22
+2.5 Census before search	22
+2.6 Declines are recorded	22
+2.7 Exhaustive verification where possible	22
+2.8 Two independent routes	22
+2.9 Refuse rather than coerce	22
+2.10 Retrieval	23
+2.11 Provenance	23
+2.12 Withdrawal	23
+2.13 Commit before you look	23
+2.14 Compute, then write	23
+2.15 Apply P8 to every failure	23
+2.15.1 The procedure	23
+2.15.2 Worked, on §30.3	24
+2.15.3 Why it belongs here rather than among the principles	25
+2.16 The grid — the book's method, stated	25
+2.16.1 Why this is the method and not a technique	25
+2.16.2 And it classifies the whole of Q	25
+2.16.3 A reduced question is still open	26
+2.17 Triangulation — three results locate a fourth	26
+2.17.1 Worked, from §30.3	27
+2.17.2 And it is a check as well as a method	27
+2.17.3 Why it belongs with the protocols	27
+2.18 What is computable, and what is decided	27
+2.18.1 The lattice applied to what it cannot compute	28
+2.19 What a safe repair requires	29
+2.19.1 The register, examined before repairing it	30
+2.20 The prime directive — nothing runs unbounded	30
+3. The twenty-two prime audits, ordered by what a failure costs	30
+3.0 Ten of the twenty-two test the index; twelve test the book	30
+2.21 A figure removed must have its data represented another way	32
+2.22 A corroborable entry must carry its object, and the object must carry it	34
+2.23 A closed index must be stated by its expression, not only by its verdict	34
+2.24 Never one heuristic — §2.8, and the one thing it does not say	34
+3.1 Why three of the audits were needed	35
+3.2 The whitespace clause, and two measurements that were wrong	35
+3.3 Exhaustive, and what to do when it is impossible	35
+3.4 And two of the audit's own measurements were wrong first	35
+3.5 What the figure audit found	36
+3.6 Why the REDUNDANCY audit was needed	36
+3.7 The precedences, and the certificate for the dimension	37
+3.7.1 The twenty-first audit — INPUT	37
+3.8 How the set grew, and the two things that held	38
+3.9 The audits are run on every output, and the requirement is executable	38
+4. The failures of the assistant, and the protocol each one earns	39
+5. What the protocols are for	40
+PART II — THE LATTICE	42
+6. The periodic table is not a closed index	42
+6.1 What "the structure admits" means	43
+6.1.1 And a known layout costs nothing	44
+6.2 It is not a peculiarity of chemistry	44
+6.2.1 The nuclide chart's defect, recomputed under variation	46
+6.3 The calendar can be repaired, and the repair is instructive	46
+6.4 What follows	47
+7. The construction of Λ	47
+7.1 The constraints, and where each comes from	47
+7.2 Every constraint is of one form	48
+7.3 Λ is closed	48
+7.4 A note on caps	48
+8. What Λ is — distributive, modular, Sperner	48
+8.1 Distributive	49
+8.2 Rank is conserved	49
+8.2.1 What it means	49
+8.2.2 And it is a cheaper test than §8.1's	49
+8.3 Seventeen generators	49
+8.4 Sperner, and not symmetric	50
+8.5 The constraint graph is a tree	51
+8.6 Order dimension	51
+9. The arithmetic encoding	52
+9.1 Two classical functions appear as lattice quantities	52
+9.2 The occupancy measure	52
+9.3 The Möbius function in closed form	53
+10. The void	54
+10.1 What the void is made of	54
+10.2 Its size, and its stability	54
+10.3 Containment in seven comparisons	55
+10.4 The count, with no sieve	55
+11. The single expression	55
+11.1 In all six languages, and a seventh	55
+11.1.1 A seventh, in binary, and it earns its place	56
+11.2 And in their combinations	57
+11.3 The expression	58
+11.4 The shape of the tree	58
+11.5 The one coupling, and it is the Pauli principle	58
+11.6 The detachable factor	58
+11.7 Why a closed expression exists at all	59
+11.8 And the rank polynomial says what §8.3 says	59
+11.8.1 And F(−1) = 2 has a cause, not a coincidence	59
+12. The shape — a cylinder over the transfer	60
+12.1 A cylinder, not a Möbius band	60
+12.2 "Over ν", not "graded by ν"	61
+12.3 One scale, and one exception	61
+12.4 The loop closes	61
+12.5 What Λ is a property of	61
+12.6 The cylinder is a fibration, and its fibres are two-body	62
+12.6.1 It does not factorise, and then it does	62
+12.6.2 Which names the cylinder	62
+12.7 The fibres, in closed form	63
+12.7.1 And they are not the same tree	63
+12.7.2 A tower of fibrations, terminating in boxes	63
+12.8 Five things the fibre table says	63
+12.8.1 A Pareto frontier inside the lattice	63
+12.8.2 A most-probable transfer	64
+12.8.3 An 8-to-3 compression that loses no count	64
+12.8.4 Every cross-section is itself a closed, modular lattice	64
+12.8.5 Which gives E(X) a local form	64
+12.9 Every other shape the lattice contains	64
+12.10 An axis the index did not carry, and now does	65
+12.10.1 Λ₉, built by the same construction	65
+12.10.2 What is still not established	65
+12.11 The tower — Λ₉ to Λ₁₃	65
+12.11.0 Transitions compose, and the ninth axis is what lets them	66
+12.11.0.1 The clock in the constraint — Λ₉'s composition has a direction	67
+12.11.0.2 The clock is an assumption, and the assumption can be removed	68
+12.11.0.3 Every second bridge, priced	69
+12.11.0.4 The separation hypothesis, named	70
+12.11.0.5 What the cycle costs propagation — Q item O, closed	70
+12.11.0.6 The earlier bound on the core, tested — Q item K, closed	71
+12.11.0.7 Why the arrows agree — a decay theorem	71
+12.11.0.8 Past, present and future — a path, not a triangle	72
+12.11.0.9 Two indices, and the one that does not exist	73
+12.11.0.10 Every Λ in one table	73
+12.11.0.11 The fourteenth axis, and what can be said about it from inside	74
+12.11.0.12 How an index enters a larger index, and what it looks like from there	75
+12.11.1 The axes, and what each one sees	75
+12.11.1.1 The eleventh axis's density, computed under variation	78
+12.11.1.2 The conservative share, recomputed under variation	78
+12.11.1.3 An index has a time column exactly when its cells are moves	79
+12.11.1.4 Composability up the tower, and what stops it	79
+12.11.1.5 The non-composable cells, defined	80
+12.11.1.6 The periodic table's own numbers, and where a transition may be continued	81
+12.11.1.7 And the selection rules decide which side of the atom a transition can continue on	81
+12.11.2 Three excluded forms, and the fold has a name	82
+12.11.3 The dichotomy	82
+12.11.3.1 Where each bound comes from, and why 9, 10 and 11 differ	82
+12.11.4 Precision is path-dependent; physics is not	83
+12.11.5 The shape survives, and it has a boundary	84
+12.11.6 An index whose one prediction is false, and why that is a result	84
+12.11.7 What the tower leaves open	85
+13. What the title names	85
+12.11.8 The electromagnetic index, and it was inside Λ all along	85
+13.1 Why that ordering and not the other	87
+13.2 The cells are transitions, not states	87
+13.3 Which is why "index of transitions"	87
+13.4 And what the cylinder does not carry	88
+PART III — THE LAW	89
+14. Closure	89
+14.1 The characterisation	89
+14.2 R is a closure operator	89
+14.3 The scope, stated exactly	89
+14.4 The three consequences	90
+14.5 The family of all closed sets	90
+14.5.1 Λ is the closure of seven cells	90
+14.5.2 The seed, and the expression of the cycle	91
+14.5.3 Two pairwise operators, and this book has used one name for both	91
+14.5.4 What E measures, exactly	91
+14.5.5 ℛ₄ — the four orientations, adopted	91
+14.5.6 What the second operator localises, and what it leaves undetermined	91
+14.5.7 The seed is constructible, and it is a size rather than a set	91
+14.5.8 The seed is linear in dimension, and the coefficient was in the bibliography	91
+14.5.9 Never one heuristic — and the seed of Λ, exactly	93
+14.5.10 A stable core of four, and it is NOT necessary	94
+14.5.11 The completions are a heavy-tailed redundancy, not a tie	94
+14.5.12 What every minimum seed contains, and what fills each position	95
+14.5.13 The fifth position, defined exactly	95
+14.5.14 And the five read as binary	95
+14.6 The family of closed indexes is open	96
+14.6.1 Why it cannot be stated	96
+14.6.2 The defect is exact, and the closure is everything	96
+14.6.3 What the register now holds, and what it does not	97
+14.6.4 The seventeen, and what each is waiting on	98
+14.6.5 Five of the modular six, verified against the sources	98
+14.6.6 Two of the violation six were never blocked, and §10.1 speaks a retired language	99
+15. Self-reference — alphabet, order, bounds	100
+15.1 S1 — the alphabet	100
+15.2 S3 — the bounds	100
+15.3 S2 — the order, which is the hard one	101
+15.4 What does work above d = 2: propagation along the tree	101
+15.5 So: Λ contains its own order	102
+16. Self-defence — data, derivation, totality	102
+16.1 The counting argument	102
+16.2 The split, and it is canonical	102
+16.3 D1 — D_phys catches a wrong value in the data	102
+16.3.1 The D1 tripwire, specified in full and needing no data	103
+16.4 D2 — D_def catches a wrong derivation, but only under two	103
+16.4.1 And the counting argument has a 1960 precedent	104
+16.5 D3 — totality catches a missing value	104
+16.5.1 And totality extends beyond the data	105
+16.6 The defences are disjoint, and there are six	105
+16.6.1 The vocabulary of reference, as an index	106
+16.6.2 And one coordinate sits below this book's own floor	106
+16.7 Two kinds of absence, and one kind of lie	107
+16.7.1 A missing cell — and the index can tell whether the gap is real	107
+16.7.2 A complete index of something that is not there	107
+16.7.3 The plain version	108
+16.7.4 Which is what D_phys is for, and only that	108
+16.8 What self-reference does and does not defend	108
+16.8.1 A complete index answers every question about its contents	108
+16.8.2 What it cannot defend against is being replaced	109
+16.8.3 Which is what §2.13 already says	109
+16.8.4 And the cost of a fabrication is computable	109
+16.8.5 Nothing can be removed, and the floor is derived rather than measured	110
+16.8.6 Two closure operators, and the book names one	111
+17. Extension — cells, axes, constraints	111
+17.1 E1 — which cells may be added	111
+17.2 E2 — which axes may be adjoined	111
+17.3 E3 — which constraints may be imposed	112
+17.4 A worked extension, and what it costs	113
+17.5 E is derived	114
+18. What the law forbids	114
+18.1 An index carries what its coordinates carry, and no more	114
+18.1.1 And the product structure is not what does the work	114
+18.1.2 Two consequences that run through the whole book	114
+18.1.3 What the theorem does not establish	115
+18.2 ν is inadmissible as an axis	115
+18.3 Depth is not a coordinate function	115
+18.4 Closure is not locally determined	115
+18.4.1 The law of realised closure	115
+18.4.2 The n-body configuration space, indexed — and found already in print	120
+18.5 The pole	121
+18.6 E(X) is the prediction budget	121
+18.6.1 What that means for the five indices this book keeps	121
+18.6.2 And it is forced, not observed	122
+18.6.3 Where prediction actually lives	122
+18.6.4 The trade, stated plainly	123
+18.7 Why the negatives are the contribution	123
+19. Retrieval as a lattice problem	123
+19.1 The formalisation	123
+19.2 A paywall blocks a source, not a cell	123
+19.3 The secondary can be better than the primary	124
+19.4 The retrieval graph is self-referencing	124
+19.5 Where it fails, and the number that describes it	124
+19.5.1 ρ is a property of (document, route), and this chapter collapsed the second index	124
+19.5.2 And the book states two incompatible things about Dunz	125
+19.5.3 The route is a fibre, and §19.1 wrote it without using it	126
+19.6 The procedure	126
+PART IV — THE LANGUAGES	127
+20. The languages, and what each one can close	127
+20.1 A language is a coordinate system	127
+20.2 The languages this book uses	127
+20.3 And a language can make a law monotone	127
+21. Translation, and what it costs	127
+21.1 One object, two namings, and E is the price	127
+21.2 The certificate is a translation, exhibited and checked	128
+21.3 The three ways a translation fails	128
+21.4 What this does not claim	128
+21.5 The missing ingredient is a translation, not a fact	129
+21.5.1 And the three-body count is exactly one	129
+21.5.2 The constraints, indexed — and a 3-body is what a tree forbids	130
+21.5.3 The shape, and the index rebuilt	131
+21.5.4 Shape decides the seed, and neither extreme is cheapest	132
+21.5.5 Every constraint in the book, indexed	133
+21.6 E = 0 is relative to coordinates, and the coordinates must be given	133
+21.6.1 The letter that defines rather than constrains	134
+21.6.2 Two of the companion's five, read from three numbers each	134
+PART V — THE METHOD	135
+22. The bracket	135
+22.1 The rule	135
+22.1.1 A bracket whose admissible set is a singleton	135
+22.1.1.1 Containment on level energies, recomputed under variation	136
+22.1.2 The bracket's own boundary — interpolation and extrapolation	136
+22.2 The four rules	137
+22.2.1 Each rule justified by ablation	137
+22.2.2 Rule 1 is not about n	137
+22.2.3 And one step beyond the fitted range costs more again	138
+22.2.4 Rule 1's second clause is not redundant	138
+22.2.5 Rule 4 at the edge of a channel	138
+22.3 The bracket is limit-free	139
+22.4 The price of limit-freedom, computed	139
+22.4.1 What δ buys, and what it costs	139
+22.5 Admissibility	139
+22.6 What the bracket costs	140
+23. The cost surface	140
+23.1 The ratio	140
+23.2 The floor is algebraic before it is physical	140
+23.2.1 When the floor is approached, and what it means	141
+23.3 V is a bound, not a tool	141
+23.4 V is a function of ν/h alone	141
+23.4.1 Which makes depth and step interchangeable	142
+23.4.2 Tested on the collection	142
+23.5 The trade-off, and a conservation law that is not one	142
+23.5.1 A withdrawn proposition	142
+23.5.2 What is exactly true	142
+23.5.3 And the frontier has an optimum	143
+23.6 The fractional forms	143
+23.7 The exponent axis	143
+23.8 The cost has a name in another field	144
+23.8.1 The quantity is the Newton decrement	144
+23.8.2 The term function is self-concordant	144
+23.8.3 Which explains the cancellation	144
+23.8.4 And the attribution the book owes	144
+23.9 Which variable to bracket	145
+23.9.1 The cost ranks by exponent	145
+23.9.2 Two branches, and where they cross	145
+23.9.3 And the pole sits on the field's favourite variable	145
+23.10 The order of the bracket	146
+23.10.1 A deductive bracket exists at every order	146
+23.10.2 And the cost still grows	146
+23.10.3 What the order axis does buy	147
+23.10.4 And the admissibility rule generalises	147
+23.11 The refusal pattern carries four verdicts, not one	148
+23.11.1 On the collection	148
+23.11.2 And a caution about the test itself	148
+23.12 The optimal order is a boundary, not a peak	148
+23.13 Inversion	149
+23.14 Two kinds of bound, and the book has been calling them	149
+23.14.1 And celestial mechanics is what made it visible	149
+23.15 The second admission bound	150
+24. The collection	150
+24.1 What it spans	150
+24.2 The largest contributors	151
+24.3 He I — the angular span	152
+24.4 He II — the δ = 0 edge itself	152
+24.5 Bi I — the charge span	152
+24.6 The isoelectronic pairs	152
+24.7 Hydrogen, and a floor on interpretation	153
+24.8 On independence, and the most conservative reading	153
+24.9 A caveat the collection forced	153
+24.10 Two cross-checks	154
+24.11 Four ways a species declines	155
+24.12 The census, computed rather than searched	155
+24.13 What the structure determines, and what it does not	156
+25. Domain, failure, and the bound in the silence	156
+25.1 A method that has never failed has not been tested	156
+25.2 Five exclusions, which are three mechanisms	156
+25.3 The failure condition	157
+25.4 Why the collection never enters the failure regime	157
+25.5 The bound in the silence	158
+25.6 The one deduction, and why it is not a prediction	159
+25.6.1 The bracket, from monotonicity alone	159
+25.6.2 And convexity tightens it, without leaving it	159
+25.6.3 What was already solved — not a prediction	159
+25.6.4 The point estimates, and the one that was wrong	160
+25.6.5 Nothing was fetched	160
+25.6.6 A second route to the same prediction	161
+26. Collective sections	161
+26.1 The assembly rule	161
+26.2 One dimension, fifteen perspectives	162
+26.3 Collective coefficients are not a separate class	162
+26.4 Error amplifies as the exponent — which is the point	162
+26.5 Tested against a published parameterisation	162
+26.6 Aitken's Δ² has an exact bias on a Rydberg series	163
+26.7 And the bracket is the wrong tool here	163
+27. Slack	163
+27.1 The three names	163
+27.2 The one quantity	164
+27.3 Slack is a description length	164
+27.4 And every structural result is a statement about slack	165
+27.5 Why the three languages agree	165
+27.5.1 The three measures are one quantity because the three objects are one shape	166
+27.6 What this buys, and what it does not	166
+PART VI — THE RECORD AND THE REACH	168
+28. Withdrawals	168
+28.1 The dominant pattern	168
+28.2 The five that earned their place	168
+28.3 Others worth listing	169
+28.4 From from the earlier work, and how each was caught — retained in the compendium	169
+28.5 What the register is for	169
+28.6 What the register shows about where errors are caught	170
+28.7 From made after the register was closed, two printed here — retained in the compendium	170
+28.7.1 From more from the structural work — retained in the compendium	171
+28.7.2 From more from the structural and audit work — retained in the compendium	171
+28.7.3 From more from the audit work of the final session, all printed — retained in the compendium here	172
+28.7.4 From more, from the session that closed §30.3 and §32.2 — retained in the compendium	174
+28.7.5 What the block shows	174
+28.7.6 Two from the tower session and its repair, in the collaborator's hand	174
+28.7.7 The results of the sessions after the tower — 119, printed individually	174
+28.7.8 The recurring mechanisms, grouped	175
+28.7.9 The level a fault landed at, which is a coordinate §4 does not have	175
+28.8 A dependent choice is indexable, and naming the	175
+28.9 The register, indexed and closed	176
+28.9.1 From registers, and only one of them is a backlog — retained in the compendium	176
+29. Precedent, and what a search can bound	178
+29.1 Why novelty is not the author's to claim	178
+29.2 What can be claimed instead	178
+29.2.1 The question closed by the author	179
+29.2.2 A reading the language cannot close	179
+29.3 The word for it	180
+29.4 On priority for V = 4ν/3	180
+29.5 Edlén 1964, examined at one remove	180
+29.5.1 Every equation in the review is a fit	180
+29.5.2 And the paradigm is stated twice, explicitly	181
+29.5.3 One near miss, and it is not ours	181
+29.5.4 A bibliographic correction	181
+29.5.5 What this establishes, and what it does not	181
+29.6 The three documents we could not reach	181
+29.7 What the entered literatures returned	182
+29.7.1 The calibration was post hoc	182
+29.8 The other claims	183
+29.9 Why state it this way	183
+29.9.1 Attributions entered by the tower	183
+29.10 Two searches run, and an obstruction worth naming	184
+29.11 A precedent found, and it is for the central theorem	184
+29.11.1 Two categories entered: quantum mechanics and astrophysics	184
+29.11.2 The run, attempted	185
+28.10 What removing the register cost, and what it caught	186
+29.12 Five unlocated results, defined, with the test that would settle each	186
+30. Order recovery, and the reorderability law	187
+30.1 Order recovery above the tree	187
+30.2 What governs the difficulty	188
+30.2.1 And that list was enumerated once	188
+30.2.2 Which gives §30.3 a parameter	188
+30.2.3 And it is a landscape statement	188
+30.3 Reorderability — the law, the procedure, and what is left	189
+30.3.1 The object, correctly identified	189
+30.3.2 The law	189
+30.3.3 What the interval machinery was	190
+30.3.4 The step law	190
+30.3.5 The procedure, and its cost	191
+30.3.6 The signature, exhaustively verified	191
+30.3.7 Three method classes ruled out	191
+30.3.8 The residue	192
+30.3.9 And it is not this book's problem	192
+30.4 The lists this work enumerated once	192
+30.4.1 And the audit itself was run once	192
+30.4.2 Which is a defect of five lists, not one	193
+31. The method outside spectroscopy	193
+31.1 Celestial mechanics and the nucleus	193
+31.1.1 Celestial mechanics — families, not trajectories	193
+31.1.2 The nucleus — a second index of the same construction	194
+31.2 String theory — the pole, the generating function, and a	194
+31.2.1 Three objects on the pole	194
+31.2.2 The degeneracy is where the content is	194
+31.2.3 The partition function is Λ's expression with counts	194
+31.2.4 No critical dimension, and a ladder	194
+31.2.5 And no Hagedorn point, for a stated reason	195
+31.3 The Calabi–Yau catalogue	195
+31.3.1 Self-duality, measured	195
+31.3.2 The thin tip is a defect of the construction	195
+31.3.3 The Pareto strength, against the right denominator	195
+31.3.4 E(X) on a specifiable slice, and 540 predictions	195
+32. The law applied to this book	196
+32.1 The book is an index	197
+32.1.1 What a referee would flag	197
+32.1.2 Four of the seven, answered by computation	198
+32.1.3 The frame has changed, and the change is measurable	199
+32.1.4 What this book names before anyone tells it	199
+32.1.4.1 Which of this book's numbers hold still	200
+32.2 Self-reference	201
+32.3 Self-defence	201
+32.4 The recursion, and where it stops	201
+32.4.1 Why the recursion is safe — logic without negation	202
+32.4.2 Which of this book's figures survive their own inputs moving	202
+32.5 The book satisfies its own method	203
+32.5.1 The prediction, recomputed from the text	203
+32.5.2 And it generalises to every bracket in the book	204
+32.5.3 Which is what D3 asks for, made operational	204
+32.6 The falsification tests, run	204
+32.6.1 What is left, asked of the indices rather than of the author	205
+32.7 On a verification that does not test its claim	206
+APPENDICES	208
+Appendix A — Proofs	209
+Appendix B — Data and provenance	214
+Appendix C — Margins, and what was recomputed	216
+Appendix D — The mathematics, indexed	218
+Appendix E — Q, indexed and closed	229
+Appendix F — The numbers, indexed	236
+END MATTER	241
+Index	242

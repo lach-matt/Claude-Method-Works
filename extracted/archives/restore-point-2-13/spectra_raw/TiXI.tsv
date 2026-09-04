@@ -1,0 +1,15 @@
+# Ti XI — NIST ASD 5.12, ref L7185 · Mg-like titanium, Z=22, 12 electrons
+# limit Ti XII (3s 2S1/2) = [2,137,900] +/- 500 cm-1  (bracketed: extrapolated)
+config	term	J	level_cm1	unc
+4s	1S	0	1065780	500
+5s	1S	0	1491740	500
+4s	3S	1	1050850	500
+5s	3S	1	1484620	500
+4p	1P*	1	1139920	500
+5p	1P*	1	1528980	500
+6p	1P*	1	1727380	500
+7p	1P*	1	1840880	500
+4d	1D	2	1253100	500
+5d	1D	2	1584970	500
+4f	1F*	3	1304360	500
+5f	1F*	3	1603140	500

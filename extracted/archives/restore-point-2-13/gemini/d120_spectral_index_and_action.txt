@@ -1,0 +1,49 @@
+# Received in-chat from M (Gemini-sourced), session 1.8, 2026-08-15.
+# Item 3 of 3. Two parts: (A) "spectroscopic index" of the d120 as a
+# physical object; (B) the "Quantum Polyhedral Action" S_d120.
+
+== PART A: THE d120 AS PHYSICAL OBJECT — SPECTROSCOPIC INDEX ==
+
+1. Geometric/visual: 120 face normals, adjacent-face dihedral ~165 deg;
+   120 point-like specular reflections; rotating caustic forms an
+   icosahedral star pattern (compared to X-ray crystallographic patterns).
+2. Color-coded blocks (s RED 16 faces/13.3% area, p YELLOW 36/30%,
+   d BLUE 40/33.3%, f GREEN 28/23.3%): UV-Vis spectrophotometry would
+   show 4 reflection bands weighted by block surface area —
+   d ~450 nm, f ~530 nm, p ~580 nm, s ~680 nm.
+3. Element-per-face XRF/LIBS: polar caps Z=1-20 soft X-ray (<3 keV);
+   mid-latitudes Z=21-56 K-alpha peaks (Fe 5.4, Cu 8.0, Ag 22.1 keV);
+   equatorial Z=57-120 heavy L-alpha/M-alpha (>10 keV; Au 9.7, Pb 10.5).
+4. Ionization-energy relief mapped to face depth: noble-gas faces
+   (He, Ne, Ar, ... Rn, Og) form 12 sharp resonance spikes along the
+   latitudes ("step-function harmonic profile").
+
+== PART B: THE QUANTUM POLYHEDRAL ACTION S_d120 ==
+
+Master equation (as described; the equation image itself was not
+rendered in the source): the action sets
+
+   [ Chern-Simons boundary term:  ∮_{∂D120} A ∧ dA ]
+   balanced against
+   [ Total spectroscopic index:  Σ_{Z=1..120} <ψ_Z| d |ψ_Z'>
+     δ(ħω − (E_Z − E_Z')) dω ]
+
+with the whole integral set to zero, read as the conservation law:
+"The total radiant spectral energy emitted or absorbed across all 120
+atomic faces equals the topological boundary flux of the 120-sided
+polyhedron."
+
+Components as glossed in the source:
+- ∂D120: 2D boundary manifold of the disdyakis triacontahedron.
+- A ∧ dA: Chern-Simons topological gauge term, claimed invariant under
+  the full icosahedral group I_h; claimed to force partition into 120
+  isometric right scalene triangular faces.
+- Σ_Z: sum over Janet Left-Step elements Z=1..120, element Z bound to
+  face F_Z.
+- <ψ_Z| d |ψ_Z'>: transition dipole matrix element; δ enforces
+  E = ħω over every spectral line (X-ray/UV/Vis/IR).
+- Janet block face counts as used: k=1 s: 16, k=2 p: 36, k=3 d: 40,
+  k=4 f: 28.
+- Closing claim: the d120 is "the unique geometric boundary where
+  quantum orbital mechanics (Z=1→120) and 3D polyhedral symmetry (I_h)
+  achieve exact mathematical equilibrium."

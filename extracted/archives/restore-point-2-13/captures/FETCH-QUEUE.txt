@@ -1,0 +1,38 @@
+# THE FETCH QUEUE — MINIMAL FORM (R 1636).
+# Five rejections came from permuting optional parameters. The help page's
+# stated minimum is TWO: a spectrum, and Retrieve Data. Nothing else.
+#
+# If the first returns levels, add back ONE per round in this order:
+#   units=1 · format=2 · level_out=on · j_out=on
+# The first rejection then names the culprit.
+
+# 1. K-Co
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=K-Co&submit=Retrieve+Data
+
+# 2. Ga-Kr
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ga-Kr&submit=Retrieve+Data
+
+# 3. Xe-Ce
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Xe-Ce&submit=Retrieve+Data
+
+# 4. Rn-Th
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Rn-Th&submit=Retrieve+Data
+
+# 5. Yb-Hf
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Yb-Hf&submit=Retrieve+Data
+
+# 6. Sr-Zr
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Sr-Zr&submit=Retrieve+Data
+
+# 7. Hg-Pb
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Hg-Pb&submit=Retrieve+Data
+
+# 8. In-Sn
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=In-Sn&submit=Retrieve+Data
+
+# 9. B-Al
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=B-Al&submit=Retrieve+Data
+
+# 10. He
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=He&submit=Retrieve+Data
+

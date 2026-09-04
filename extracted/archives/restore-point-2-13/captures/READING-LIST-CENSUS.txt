@@ -1,0 +1,14 @@
+rows 1564
+no-table rows 2
+span {'': 892, 'single-n': 343, 'series': 327}
+TRUE SERIES (n_lo!=n_hi, limit assigned): 327
+ by language {'LS': 213, 'jK': 83, 'jj': 24, 'unresolved': 7}
+ by limit_status {'parent-matched': 127, 'forced': 92, 'positional': 108}
+ cell_exists yes/no {'no': 121, 'yes': 206}
+ species with >=1 true series 35 of 75
+ R_M vs RINF {'R_M': 265, 'RINF': 62}
+ spread<=0.05: 94  <=0.2: 210
+ members>=3: 285
+ NOT already in store: 93  new cells touched: 62
+ new by charge: {'3': 12, '6': 19, '7': 11, '8': 1, '9': 1, '1': 24, '2': 14, '4': 11}
+no-limit rows 883 {'no limit published': 467, 'unwitnessed — parent': 416}

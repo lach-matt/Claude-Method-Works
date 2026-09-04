@@ -1,0 +1,17 @@
+# Fe XV — NIST ASD 5.12, ref L7185 · Mg-like iron, Z=26, 12 electrons
+# limit Fe XVI (3s 2S1/2) = 3,679,500 +/- 4,000 cm-1  — PUBLISHED
+# ten rungs beyond S V on the 12-electron ladder (register 932)
+config	term	J	level_cm1	unc
+4s	3S	1	1763700	140
+5s	3S	1	2544800	0
+4s	1S	0	1787000	200
+4p	1P*	1	1889970	100
+5p	1P*	1	2567000	0
+4d	3D	1	2031310	200
+5d	3D	1	2640100	0
+4d	1D	2	2035280	200
+4f	3F*	2	2108520	200
+5f	3F*	2	2676400	0
+4f	1F*	3	2123150	200
+5f	1F*	3	2782700	0
+6f	1F*	3	3091500	0

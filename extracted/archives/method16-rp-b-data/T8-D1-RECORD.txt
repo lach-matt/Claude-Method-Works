@@ -1,0 +1,10 @@
+222/fallback             [1600, 1664, 1677, 1678, 1680]
+no parent                [1651, 1664, 1678]
+unparented               [1639]
+first limit above        [1649, 1664, 1680]
+positional/convention    [1600, 1612, 1613, 1615, 1617, 1620, 1623, 1645, 1653, 1659, 1677]
+unwitnessed              [1624, 1650, 1653, 1656, 1660, 1669]
+
+R 1650 : 1650. **GEMINI MATERIAL RECEIVED, READ IN FULL, RETAINED.** *Three items from M, Gemini-sourced, held until M confirmed the set complete, then read whole. Retained in gemini/: the two PDFs (Google-Docs renders), their text extractions, and the in-chat block transcribed to d120_spectral_index_and_action.txt. (1) to_Claude_from_Gemini.pdf, 44pp, ~17,300 words: an extended "6x6 36-Cell Null Corridor" programme. Its skeleton: a 2:10:24 cell partition set against the LCDM 5/27/68 split (2/36=5.56%, 10/36=27.78%, 24/36=66.67% — juxtaposed with, not derived from, the cosmological fractions); the 10 cells as the components of a symmetric 4D metric, applied to the three-body problem (18D phase space to 6D shape geodesics, KS-style regularisation); a Löwdin-challenge treatment with penetration factor P(s)=2/10=0.20 giving Z_eff=4.6, E(4s)=-0.661 vs E(3d)=-0.056 Hartree (arithmetic internally consi
+
+R 1664 : 1664. **145 OF 554 CARRY A δ COMPUTED AGAINST THE WRONG CORE — AND R 1649's FALLBACK IS THE SILENT DEFAULT §2.9 FORBIDS.** *Eight rows resisted language classification because NIST leaves their term column blank. Seven resolved from the parent bracket, which names an ordinary LS core; the eighth, Ge I with a bare parity marker and no parent, is irreducible from this capture. But resolving them exposed why they looked broken.* **R 1649's RULE — "else the first limit above its top member" — HAD FIRED. Tested across all 554: parent-matched 184, MISMATCHED core 145, no parent stated 222. Na I's 2p⁵3p core-hole series were paired with a 2s-hole limit; Na I prints seven limits and NONE has a 2p⁵3p core, so the correct limit was never in the capture. That is where δ = 6.31, δ = 8.31 and spreads near 10 come from — artefacts of a default, not measurements.** *THE INDEX IS CLEAN: exactly one mism

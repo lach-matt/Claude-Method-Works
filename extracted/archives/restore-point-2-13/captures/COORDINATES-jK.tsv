@@ -1,0 +1,64 @@
+# COORDINATES-jK.tsv — the spectra index REBUILT on jK coupling.
+#
+# Register 1603. Argon's three defects in one slot named three axes
+# (M's reading, R 1602): the PARENT ion's J, the intermediate K coupling
+# the core's momentum to the orbit, and the total J. Verified: within-cell
+# rms 0.00734 against lumped 0.01676 — 2x tighter, 9x at Si I's f channel.
+#
+# EVERY LIMIT IS STATED, NEVER PARSED. A greedy regex read 289,119 as
+# 9,119 and produced 26 channels of plausible nonsense (R 1603).
+#
+# These cells CANNOT be entered in COORDINATES.tsv: its key is
+# (Z, charge, l, 2S+1) and these species have no single 2S+1. That is the
+# keyability bound of register 1597, and this file is what it was blocking.
+#
+Z	charge	l	core	K	J	delta	members	n_range	grade	witness	source
+18	1	0	2	1.5	1.0	2.17783	4	4-7	measured	witnessed	ArI.tsv · limit 127198.6 · DERIVED in-file - FLAGGED
+18	1	0	2	1.5	2.0	2.19780	4	4-7	measured	witnessed	ArI.tsv · limit 127198.6 · DERIVED in-file - FLAGGED
+18	1	1	2	0.5	1.0	1.77960	4	4-7	measured	witnessed	ArI.tsv · limit 127198.6 · DERIVED in-file - FLAGGED
+18	1	1	2	1.5	1.0	1.72496	4	4-7	measured	witnessed	ArI.tsv · limit 127198.6 · DERIVED in-file - FLAGGED
+18	1	1	2	2.5	3.0	1.75751	4	4-7	measured	witnessed	ArI.tsv · limit 127198.6 · DERIVED in-file - FLAGGED
+18	1	2	2	3.5	4.0	0.43656	4	3-6	measured	witnessed	ArI.tsv · limit 127198.6 · DERIVED in-file - FLAGGED
+18	1	3	2	1.5	1.0	0.06864	2	4-5	measured	witnessed	ArI.tsv · limit 127198.6 · DERIVED in-file - FLAGGED
+18	1	3	2	4.5	5.0	0.06340	2	4-5	measured	witnessed	ArI.tsv · limit 127198.6 · DERIVED in-file - FLAGGED
+56	3	0	2	0.5	1.0	3.20522	10	8-17	measured	witnessed	BaIII_ryd12.tsv · limit 306650.0 · published
+56	3	2	2	1.5	2.0	2.20522	10	7-16	measured	witnessed	BaIII_ryd12.tsv · limit 306650.0 · published
+56	3	0	2	1.5	1.0	3.12403	15	9-23	measured	witnessed	BaIII_ryd32.tsv · limit 289100.0 · published
+56	3	2	2	1.5	2.0	2.12403	14	8-22	measured	witnessed	BaIII_ryd32.tsv · limit 289100.0 · published
+12	3	0	2	1.5	1.0	0.84323	3	4-6	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	0	2	1.5	2.0	0.86036	2	4-5	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	2	2	0.5	1.0	0.09473	2	4-5	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	2	2	1.5	1.0	0.03594	6	4-9	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	3	2	1.5	1.0	0.01157	2	4-5	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	3	2	1.5	2.0	0.01117	2	4-5	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	3	2	2.5	3.0	0.00416	2	4-5	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	3	2	3.5	3.0	0.00035	2	4-5	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	3	2	3.5	4.0	0.00030	2	4-5	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	3	2	4.5	4.0	0.00765	2	4-5	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+12	3	3	2	4.5	5.0	0.00771	2	4-5	measured	witnessed	MgIII.tsv · limit 646402.0 · published; H-Ar ladder confirms to the digit
+10	1	0	2	0.5	0.0	1.25369	2	3-4	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	0	2	0.5	1.0	1.23898	2	3-4	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	0	2	1.5	1.0	1.28380	11	3-20	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	0	2	1.5	2.0	1.32437	2	3-4	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	1	2	0.5	0.0	0.62673	3	3-4	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	1	2	0.5	1.0	0.93249	2	3-3	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	1	2	1.5	1.0	0.85309	2	3-3	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	1	2	1.5	2.0	0.84427	2	3-3	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	2	2	1.5	1.0	0.01444	10	3-20	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	2	2	1.5	2.0	0.01580	2	3-3	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	2	2	2.5	2.0	0.00455	2	3-3	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	2	2	2.5	3.0	0.00433	2	3-3	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	2	2	3.5	4.0	0.02058	2	3-4	measured	witnessed	NeI.tsv · limit 173929.75 · published, KM72
+10	1	0	2	0.5	1.0	-58.45933	3	11-13	measured	witnessed	NeI_p12.tsv · limit 173929.75 · published, KM72
+14	1	3	2	2.5	2.0	0.03047	2	4-5	measured	witnessed	SiI_c12.tsv · limit 65747.76 · published
+14	1	3	2	2.5	3.0	0.03097	2	4-5	measured	witnessed	SiI_c12.tsv · limit 65747.76 · published
+14	1	3	2	3.5	3.0	0.03004	2	4-5	measured	witnessed	SiI_c12.tsv · limit 65747.76 · published
+14	1	3	2	3.5	4.0	0.02911	2	4-5	measured	witnessed	SiI_c12.tsv · limit 65747.76 · published
+14	1	3	2	1.5	1.0	0.00303	4	4-7	measured	witnessed	SiI_nf.tsv · limit 66035.0 · published
+14	1	3	2	1.5	2.0	0.00180	4	4-7	measured	witnessed	SiI_nf.tsv · limit 66035.0 · published
+14	1	3	2	2.5	2.0	0.03395	4	4-7	measured	witnessed	SiI_nf.tsv · limit 66035.0 · published
+14	1	3	2	2.5	3.0	0.03440	4	4-7	measured	witnessed	SiI_nf.tsv · limit 66035.0 · published
+14	1	3	2	3.5	3.0	0.05141	4	4-7	measured	witnessed	SiI_nf.tsv · limit 66035.0 · published
+14	1	3	2	3.5	4.0	0.05030	4	4-7	measured	witnessed	SiI_nf.tsv · limit 66035.0 · published
+14	1	3	2	4.5	4.0	0.01892	4	4-7	measured	witnessed	SiI_nf.tsv · limit 66035.0 · published
+14	1	3	2	4.5	5.0	0.02099	4	4-7	measured	witnessed	SiI_nf.tsv · limit 66035.0 · published

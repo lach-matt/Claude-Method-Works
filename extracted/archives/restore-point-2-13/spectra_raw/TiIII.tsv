@@ -1,0 +1,18 @@
+# Ti III — NIST ASD 5.12, Sugar & Corliss 1985, ref L7185 · Ca-like, Z=22, 20 electrons
+# limit NOT printed in the capture. DERIVED at 223,827.1 +/- 274.0 by a JOINT fit across
+# seven series that must share it — 14 points, 8 parameters, rms 0.0054 (register 972).
+config	term	J	level_cm1
+4s	3D	1	38064.35
+5s	3D	1	133898.50
+4s	1D	2	41704.27
+5s	1D	2	134557.84
+4p	3D*	1	77000.23
+5p	3D*	1	147562.14
+4p	3F*	2	77421.86
+5p	3F*	2	148111.10
+4p	1D*	2	75198.21
+5p	1D*	2	147212.77
+4d	3D	1	128433.40
+5d	3D	1	167905.19
+4d	1F	3	127790.57
+5d	1F	3	167724.09

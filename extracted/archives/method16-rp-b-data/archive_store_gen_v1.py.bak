@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+"""store_gen.py — the store's missing generator, in the sense R 1674 established.
+
+WHAT IT IS AND IS NOT (stated first, because the name overclaims otherwise).
+It recovers, for each series in MEASUREMENTS.tsv, that series' MEMBERS from the
+raw NIST level tables in spectra_raw/queue2/, computes delta(n) per member, and
+derives the three perspectives M ruled for at session 1.7.2:
+
+    median      — the order centre.  R 1673: this is what the store already holds.
+    mean        — the centre of mass.
+    asymptotic  — the deepest member, largest n, closest to the limit.
+
+It is NOT a from-scratch generator: the LIMIT ASSIGNMENT is inherited from the
+store, so the split of levels into series is keyed on the store's own record.
+That residue is the honest bound — this closes the value derivation, not the
+series construction, and C3 coverage of the latter remains open.
+
+EVIDENCE GRADE, not a filter (M's ruling: values are not deleted for aesthetics).
+NIST prints interpolated levels in [square brackets]. R 1674 measured that these
+are all at high n, so the asymptotic reading leans on them hardest. Every series
+therefore carries `bracketed` and `asym_bracketed` alongside its values, so the
+reading and its support are visible together rather than the weak ones removed.
+"""
+import re, csv, statistics as st, os
+
+RINF = 109737.31568
+AMU = 1822.888486
+MASS = {5:('B',10.811), 11:('Na',22.98977), 13:('Al',26.98154), 22:('Ti',47.867),
+        31:('Ga',69.723), 32:('Ge',72.630), 36:('Kr',83.798), 38:('Sr',87.62),
+        39:('Y',88.90584), 40:('Zr',91.224), 49:('In',114.818), 50:('Sn',118.710),
+        54:('Xe',131.293), 55:('Cs',132.905), 56:('Ba',137.327), 70:('Yb',173.045),
+        71:('Lu',174.967), 72:('Hf',178.49), 80:('Hg',200.592), 81:('Tl',204.383),
+        82:('Pb',207.2), 86:('Rn',222.018), 87:('Fr',223.020), 88:('Ra',226.025)}
+LM = {'s':0,'p':1,'d':2,'f':3,'g':4,'h':5,'i':6,'k':7}
+
+_cache = {}
+def levels(sym):
+    """Raw level rows for a neutral species. Header may be absent (19 of 61 files)."""
+    if sym in _cache: return _cache[sym]
+    path = f'spectra_raw/queue2/{sym}I.tsv'
+    if not os.path.exists(path): _cache[sym] = []; return []
+    rows = [l.rstrip('\n\r').split('\t') for l in open(path, encoding='utf-8')
+            if l.strip() and not l.startswith('#')]
+    if rows and 'onfig' in rows[0][0]: rows = rows[1:]
+    _cache[sym] = rows
+    return rows
+
+def members(sym, R, lim, L, term):
+    """delta(n) for every level of this series below the limit. Bracketed values are
+    ADMITTED and flagged — dropping them on a float() failure was the R 1674 fault."""
+    out = []
+    for r in levels(sym):
+        if len(r) < 4: continue
+        m = re.search(r'(\d+)([spdfghik])$', r[0].strip())
+        if not m or LM.get(m.group(2)) != L or r[1].strip() != term: continue
+        v = r[3].strip(); br = v.startswith('[')
+        try: E = float(v.strip('[]').replace('+',''))
+        except ValueError: continue
+        if E >= lim: continue
+        n = int(m.group(1))
+        out.append((n, n - R**0.5 / ((lim - E)**0.5), br))
+    return sorted(out)
+
+def main():
+    src = list(csv.DictReader(open('MEASUREMENTS.tsv'), delimiter='\t'))
+    cols = ['Z','charge','l','mult','term','n_lo','n_hi','members_stored','members_found',
+            'count_match','delta_stored','delta_median','delta_mean','delta_asym',
+            'spread','bracketed','asym_bracketed','delta_status']
+    out, agree, matched = [], 0, 0
+    for r in src:
+        Z = int(r['Z'])
+        if Z not in MASS: continue
+        sym, mass = MASS[Z]
+        R = RINF / (1 + 1/(mass*AMU))
+        try: lim = float(r['limit'])
+        except ValueError: continue
+        pts = members(sym, R, lim, int(r['l']), r['term'].strip())
+        if not pts: continue
+        d = [p[1] for p in pts]
+        ok = (len(pts) == int(r['members']))
+        matched += ok
+        med, mean, asym = st.median(d), st.mean(d), d[-1]
+        if ok and abs(med - float(r['delta'])) < 1e-4: agree += 1
+        out.append([r['Z'], r['charge'], r['l'], r['mult'], r['term'], r['n_lo'], r['n_hi'],
+                    r['members'], len(pts), 'yes' if ok else 'no',
+                    r['delta'], f'{med:.5f}', f'{mean:.5f}', f'{asym:.5f}',
+                    f'{max(d)-min(d):.5f}', sum(p[2] for p in pts),
+                    'yes' if pts[-1][2] else 'no', r['delta_status']])
+    with open('MEASUREMENTS-DERIVED.tsv','w',newline='') as f:
+        w = csv.writer(f, delimiter='\t'); w.writerow(cols); w.writerows(out)
+    print(f'series recovered        {len(out)} of {len(src)}')
+    print(f'member count reproduces {matched}  ({100*matched/max(len(out),1):.0f}% of recovered)')
+    print(f'median = stored delta   {agree} of {matched} exact-count series')
+    print(f'asymptote on bracketed  {sum(1 for r in out if r[16]=="yes")} of {len(out)}')
+    print('written                 MEASUREMENTS-DERIVED.tsv')
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,62 @@
+# LADDER-H-Ar-I-III.tsv
+# NIST Atomic Spectra Database, Ionization Energies, ver. 5.12
+# Kramida, A., Ralchenko, Yu., Reader, J., and NIST ASD Team (2024).
+# https://physics.nist.gov/asd  DOI 10.18434/T4W30F  [retrieved 2026-08-10]
+# Query: spectra=H-Ar I-III, units=0 (1/cm), format=1
+# NIST reports 51 Data Rows Found. 51 rows below.
+# flag column: T = value shown in parentheses by NIST; I = value shown in
+#   square brackets by NIST; blank = unflagged. Legend NOT yet confirmed
+#   against NIST's own help page — flags are transcribed, not interpreted.
+# ground_shells: [Ne] = 1s2.2s2.2p6 (NIST note (a), preserved verbatim)
+at_num	sp_name	ion_charge	isoel_seq	ground_shells	ground_level	ie_cm1	flag	unc_cm1
+1	H I	0	H	1s	2S<1/2>	109678.77174307	T	0.00000010
+2	He I	0	He	1s2	1S0	198310.66637		0.00020
+2	He II	+1	H	1s	2S<1/2>	438908.878840	T	0.000008
+3	Li I	0	Li	1s2.2s	2S<1/2>	43487.11420		0.00018
+3	Li II	+1	He	1s2	1S0	610078.5260	T	0.0097
+3	Li III	+2	H	1s	2S<1/2>	987661.0139	T	0.0009
+4	Be I	0	Be	1s2.2s2	1S0	75192.64		0.06
+4	Be II	+1	Li	1s2.2s	2S<1/2>	146882.86		0.35
+4	Be III	+2	He	1s2	1S0	1241256.601	T	0.031
+5	B I	0	B	1s2.2s2.2p	2P*<1/2>	66928.040		0.022
+5	B II	+1	Be	1s2.2s2	1S0	202887.4		0.4
+5	B III	+2	Li	1s2.2s	2S<1/2>	305930.8		0.6
+6	C I	0	C	1s2.2s2.2p2	3P0	90820.348		0.009
+6	C II	+1	B	1s2.2s2.2p	2P*<1/2>	196663.31		0.10
+6	C III	+2	Be	1s2.2s2	1S0	386241.0		2.0
+7	N I	0	N	1s2.2s2.2p3	4S*<3/2>	117225.7		0.3
+7	N II	+1	C	1s2.2s2.2p2	3P0	238750.2	I	0.7
+7	N III	+2	B	1s2.2s2.2p	2P*<1/2>	382672	I	20
+8	O I	0	O	1s2.2s2.2p4	3P<2>	109837.02		0.06
+8	O II	+1	N	1s2.2s2.2p3	4S*<3/2>	283270.9		0.5
+8	O III	+2	C	1s2.2s2.2p2	3P0	443085.0	I	1.0
+9	F I	0	F	1s2.2s2.2p5	2P*<3/2>	140524.5		0.4
+9	F II	+1	O	1s2.2s2.2p4	3P<2>	282058.6		1.0
+9	F III	+2	N	1s2.2s2.2p3	4S*<3/2>	505774	I	2
+10	Ne I	0	Ne	1s2.2s2.2p6	1S0	173929.75		0.06
+10	Ne II	+1	F	1s2.2s2.2p5	2P*<3/2>	330388.6		0.3
+10	Ne III	+2	O	1s2.2s2.2p4	3P<2>	511543.5		2.7
+11	Na I	0	Na	[Ne].3s	2S<1/2>	41449.451		0.002
+11	Na II	+1	Ne	1s2.2s2.2p6	1S0	381390.2		2.0
+11	Na III	+2	F	1s2.2s2.2p5	2P*<3/2>	577654	I	10
+12	Mg I	0	Mg	[Ne].3s2	1S0	61671.05		0.03
+12	Mg II	+1	Na	[Ne].3s	2S<1/2>	121267.64		0.05
+12	Mg III	+2	Ne	1s2.2s2.2p6	1S0	646402		5
+13	Al I	0	Al	[Ne].3s2.3p	2P*<1/2>	48278.480		0.025
+13	Al II	+1	Mg	[Ne].3s2	1S0	151862.5		0.4
+13	Al III	+2	Na	[Ne].3s	2S<1/2>	229445.71		0.2
+14	Si I	0	Si	[Ne].3s2.3p2	3P0	65747.76		0.25
+14	Si II	+1	Al	[Ne].3s2.3p	2P*<1/2>	131838.14		0.30
+14	Si III	+2	Mg	[Ne].3s2	1S0	270139.3		0.7
+15	P I	0	P	[Ne].3s2.3p3	4S*<3/2>	84580.83		0.12
+15	P II	+1	Si	[Ne].3s2.3p2	3P0	159451.7	I	0.3
+15	P III	+2	Al	[Ne].3s2.3p	2P*<1/2>	243600.7		0.7
+16	S I	0	S	[Ne].3s2.3p4	3P<2>	83559.170		0.011
+16	S II	+1	P	[Ne].3s2.3p3	4S*<3/2>	188232.7		2.0
+16	S III	+2	Si	[Ne].3s2.3p2	3P0	281130	I	310
+17	Cl I	0	Cl	[Ne].3s2.3p5	2P*<3/2>	104591.01		0.13
+17	Cl II	+1	S	[Ne].3s2.3p4	3P<2>	192070.0		1.0
+17	Cl III	+2	P	[Ne].3s2.3p3	4S*<3/2>	320970	I	850
+18	Ar I	0	Ar	[Ne].3s2.3p6	1S0	127109.842		0.004
+18	Ar II	+1	Cl	[Ne].3s2.3p5	2P*<3/2>	222848.3		1.0
+18	Ar III	+2	S	[Ne].3s2.3p4	3P<2>	328550	I	100

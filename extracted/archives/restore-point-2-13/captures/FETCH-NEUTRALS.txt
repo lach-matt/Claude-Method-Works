@@ -1,0 +1,35 @@
+# NEUTRALS — corrected at R 1633. NO STAGE SUFFIX.
+# `+I` is `ie.pl` syntax. The only energy1.pl URL that has ever worked is
+# `spectra=K-Kr` with no stage. These return ALL stages of each range,
+# which over-fetches and costs nothing.
+
+# Cs-Ce — Cs Ba La Ce — *** THE PAIR THAT MATTERS ***
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Cs-Ce&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# Fr-Th — Fr Ra Ac Th
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Fr-Th&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# Yb-Hf — Yb Lu Hf
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Yb-Hf&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# Sc-Ti — Sc Ti
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Sc-Ti&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# Sr-Zr — Sr Y Zr
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Sr-Zr&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# Hg-Rn — Hg Tl Pb Rn
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Hg-Rn&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# In-Xe — In Sn Xe
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=In-Xe&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# Ga-Kr — Ga Ge Kr
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=Ga-Kr&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# B-Al — B Na Al
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=B-Al&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+
+# He — He
+https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=He&units=1&format=2&order=0&level_out=on&j_out=on&submit=Retrieve+Data
+

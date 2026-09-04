@@ -1,0 +1,23 @@
+# Received in-chat from M (Gemini-sourced), session 1.8, 2026-08-15.
+# Item 4: Gemini's reply to the Z=118 vs Z=120 bound question, written
+# after our figures 7,260 / 104,832 / E=0 / A.cert were relayed to it.
+# Retained verbatim in substance; claims tested in R 1653.
+#
+# Core assertions:
+#  - Z acts as a "continuous electrostatic deformation parameter"; the
+#    polyhedron is rigid, the material response moves.
+#  - Z=118 = experimental frontier (synthesis limit); Z=120 = structural
+#    frontier ("complete 8s2 shell closure", "natural topological stop").
+#  - Truncating at 118 "leaves 2 faces blank", breaking the 1-to-1 map
+#    with I_h.
+#  - IDENTIFIES our 7,260 as C(120,2), "unique 2-body element-to-element
+#    interactions across the polyhedron".
+#  - IDENTIFIES our 104,832 as a "cell tensor space" of pair interactions
+#    and face-edge-vertex topological boundaries.
+#  - Claims S_d120 = 0 holds at either bound: at 118 the two absent faces
+#    "carry zero population density" and the gauge field "absorbs the
+#    boundary vacuum energy".
+#  - Claims the d120 does not add a coordinate — Z is "an internal scalar
+#    field over a fixed 2-manifold" — so moving 118 -> 120 is "populating
+#    the final two pre-existing topological sites", proving 120 "was the
+#    fundamental geometric boundary all along".

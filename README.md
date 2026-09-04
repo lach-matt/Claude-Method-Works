@@ -19,6 +19,25 @@ same-folder duplicates of files already mirrored, reachable only by Drive id.
 
 See [`drive/README.md`](drive/README.md) for the detail.
 
+## Everything the mirror had sealed — [`extracted/`](extracted/)
+
+Thirty-one of the mirrored files are archives and nine are Claude project exports. Between them they
+held **2,504 file occurrences** that no search over the tree could reach, because they sat inside
+`.zip`, `.tar.gz` and JSON `content` fields — instruments, transcripts, figures and data tables
+alike.
+
+[`tools/consolidate.py`](tools/consolidate.py) unpacks all of them and writes each distinct body
+**once**: **779 files, 57.4 MB** — 384 `.py` instruments, 4 session transcripts, 80 figures,
+189 data tables and the 2_13 restore-point data set.
+[`extracted/LEDGER.tsv`](extracted/LEDGER.tsv) holds one row per source occurrence saying where it
+resolved to, so 188 MB of duplicate content became a pointer instead of a second copy.
+[`extracted/PROJECT-INDEX.tsv`](extracted/PROJECT-INDEX.tsv) lists all nine projects.
+
+It is a generated tree: regenerate with `python3 tools/consolidate.py`, check with
+`python3 tools/consolidate.py --verify`, and never hand-edit it. `drive/` remains the mirror of
+record and is not written to. See [`extracted/README.md`](extracted/README.md) and
+[`docs/CONSOLIDATE.md`](docs/CONSOLIDATE.md).
+
 ## Getting the rest — and keeping it in sync
 
 * [`docs/DRIVE-SYNC.md`](docs/DRIVE-SYNC.md) — how to get Drive content into this repo: the four
@@ -32,6 +51,9 @@ See [`drive/README.md`](drive/README.md) for the detail.
   can hold it.
 * [`docs/REPO-SIZE.md`](docs/REPO-SIZE.md) — size audit against GitHub's limits, and when Git LFS
   would actually be worth it.
+* [`tools/consolidate.py`](tools/consolidate.py) — unpacks the archives and project exports in
+  `drive/` into `extracted/`, deduplicated against the repo and against itself, with a full
+  provenance ledger. See [`docs/CONSOLIDATE.md`](docs/CONSOLIDATE.md).
 
 The mirror is one-way: Drive → repo. Edits made under `drive/` are not pushed back to Drive and will
 be overwritten by the next sync.

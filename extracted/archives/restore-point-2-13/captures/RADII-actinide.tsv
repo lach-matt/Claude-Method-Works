@@ -1,0 +1,47 @@
+# Nuclear radii changes and rms charge radii, actinides.
+# I. Angeli & K.P. Marinova, "Table of experimental nuclear ground state charge
+# radii: An update", Atomic Data and Nuclear Data Tables 99 (2013) 69-95,
+# Table 1. PDF supplied by M 2026-08-11.
+#
+# delta<r^2> is relative to the element's reference isotope (the row with 0).
+# For Z >= 36 the higher-moment (HM) correction has been applied by the authors.
+# unc on delta<r^2> is STATISTICAL ONLY (the authors' own note).
+#
+# *** THE TABLE ENDS AT Z = 96. Bk (97) and Cf (98) are absent, confirming
+# *** R 1556 from the source itself.
+#
+# *** UNCERTAINTY WARNING (R 1558). Ohayon, ADNDT 165, 101732 (2025),
+# *** arXiv:2409.08193, states that this compilation gives NO UNCERTAINTY in
+# *** the V2(Z) charge-distribution factor, that the missing sigma_CD is "up to
+# *** 4 times larger" than the quoted totals, that from phosphorus onward it
+# *** DOMINATES, and that "even larger missing uncertainties are expected for
+# *** the heavier nuclei" — which is where these actinides sit. He also finds
+# *** r(12C) 6 sigma and r(18Ne) 5 sigma from this table's values.
+# *** His re-evaluation covers Z = 3-32 ONLY, so it does not correct these
+# *** rows; it warns that their unc_R columns are LOWER BOUNDS.
+#
+# Z	el	A	N	d<r2>_fm2	unc	R_fm	unc_R	ref_isotope
+92	U	233	141	-0.435	0.001	5.8203	0.0049	238
+92	U	234	142	-0.334	0.001	5.8291	0.0052	238
+92	U	235	143	-0.2803	0.0002	5.8337	0.0041	238
+92	U	236	144	-0.1676	0.0002	5.8431	0.0038	238
+92	U	238	146	0	0	5.8571	0.0033	238
+94	Pu	238	144	-0.082	0.004	5.8535	0.0378	239
+94	Pu	239	145	0	0	5.8601	0.0378	239
+94	Pu	240	146	0.122	0.003	5.8701	0.0379	239
+94	Pu	241	147	0.179	0.004	5.8748	0.0379	239
+94	Pu	242	148	0.273	0.004	5.8823	0.0380	239
+94	Pu	244	150	0.426	0.008	5.8948	0.0382	239
+95	Am	241	146	-0.142	0.008	5.8928	0.0042	243
+95	Am	243	148	0	0	5.9048	0.0035	243
+96	Cm	242	146	-0.168	0.056	5.8285	0.0192	244
+96	Cm	244	148	0	0	5.8429	0.0181	244
+96	Cm	245	149	0.054	0.011	5.8475	0.0182	244
+96	Cm	246	150	0.156	0.022	5.8562	0.0184	244
+96	Cm	248	152	0.303	0.054	5.8687	0.0193	244
+# 90	Th included for completeness — not an A1 anchor
+90	Th	227	137	-0.508	0.003	5.7404	0.0165	232
+90	Th	228	138	-0.413	0.001	5.7488	0.0152	232
+90	Th	229	139	-0.334	0.001	5.7557	0.0143	232
+90	Th	230	140	-0.2050	0.0004	5.7670	0.0131	232
+90	Th	232	142	0	0	5.7848	0.0124	232

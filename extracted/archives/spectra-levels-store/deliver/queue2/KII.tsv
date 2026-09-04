@@ -1,0 +1,56 @@
+# K II — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=K+II&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT, from the table:  K III (3p5 2P*<3/2>)  255072.8 cm-1
+#
+# 100 levels. NOTE FOR THE READING PASS: this is a 3p5.nl HOLE-PLUS-
+# ELECTRON system and its notation is MIXED — LS terms (3P*, 1D*) below
+# ~212000 cm-1, then Racah 2[K] above it, then jj (3/2,1/2)* at the top.
+# Register 1576 refuses the Racah and jj blocks for having no single
+# 2S+1; the LS block is keyable. Recorded, not acted on.
+#
+# Values in parentheses in the source are INTERPOLATED — flagged here
+# with i in a fourth column rather than dropped or silently kept.
+#
+# config	term	J	level_cm1	flag
+3p6	1S	0	0.0	
+3p5.4s	3P*	2	162502.7	
+3p5.4s	3P*	1	163232.2	
+3p5.4s	3P*	0	165145.4	
+3p5.3d	3P*	0	163432.1	
+3p5.3d	3P*	1	164492.0	
+3p5.3d	3P*	2	164927.9	
+3p5.4s	1P*	1	166457.3	
+3p5.3d	3F*	4	170049.2	
+3p5.3d	3F*	3	170831.1	
+3p5.3d	3F*	2	171522.6	
+3p5.3d	1D*	2	179349.2	
+3p5.3d	3D*	3	179395.8	
+3p5.3d	3D*	2	180392.7	
+3p5.3d	3D*	1	180448.9	
+3p5.3d	1F*	3	180618.7	
+3p5.4p	3S	1	183204.1	
+3p5.4p	3D	3	186383.8	
+3p5.4p	3D	2	186681.4	
+3p5.4p	3D	1	187527.0	
+3p5.4p	1D	2	188150.3	
+3p5.4p	1P	1	189239.5	
+3p5.4p	3P	2	189657.4	
+3p5.4p	3P	0	189768.0	
+3p5.4p	3P	1	190130.7	
+3p5.4p	1S	0	194772.2	
+3p5.3d	1P*	1	201957.6	
+3p5.4d	3P*	0	215121	i
+3p5.4d	3P*	1	215400.9	
+3p5.4d	3P*	2	215851.5	
+3p5.4d	3F*	4	215976	i
+3p5.4d	3F*	3	216455	i
+3p5.4d	3F*	2	217061.9	
+3p5.4d	3D*	3	217722.3	
+3p5.4d	3D*	1	218992	i
+3p5.4d	3D*	2	219192.1	
+3p5.4d	1D*	2	218900	i
+3p5.4d	1F*	3	219354	i

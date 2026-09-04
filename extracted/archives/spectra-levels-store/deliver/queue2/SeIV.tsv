@@ -1,0 +1,35 @@
+# Se IV — NIST ASD levels, fetched live 2026-08-14 (session 1.8, batch 2 fetch 7).
+# destination_url VERIFIED: energy1.pl?...spectrum=Se+IV...format=2&units=0 (cm-1)
+# Ga-like keyable species. 28 levels, all LS. Same sparse profile as As III:
+# ladder s(5-7), p(5), d(4-5), f(4), g(5) and stops. 4p3 intruder terms
+# present (4S*, 2D*, 2P*). Limit: Se V (4s2 1S<0>) 346390.
+Configuration	Term	J	Level_cm-1
+4s2.4p	2P*	1/2	0.
+4s2.4p	2P*	3/2	4376.
+4s.4p2	4P	1/2	79395.4
+4s.4p2	4P	3/2	80980.3
+4s.4p2	4P	5/2	83589.2
+4s.4p2	2D	3/2	104211.
+4s.4p2	2D	5/2	104706.
+4s.4p2	2S	1/2	128787.
+4s.4p2	2P	1/2	136134.
+4s.4p2	2P	3/2	138354.
+4s2.4d	2D	3/2	153217.
+4s2.4d	2D	5/2	153606.
+4s2.5s	2S	1/2	157241.
+4p3	4S*	3/2	159449.1
+4p3	2D*	3/2	189713.4
+4p3	2D*	5/2	196956.5
+4s2.5p	2P*	1/2	189913.
+4s2.5p	2P*	3/2	191111.
+4p3	2P*	3/2	219332.5
+4p3	2P*	1/2	226537.6
+4s2.4f	2F*	7/2	229684.
+4s2.4f	2F*	5/2	229714.
+4s2.5d	2D	3/2	237747.
+4s2.5d	2D	5/2	237899.
+4s2.6s	2S	1/2	240745.
+4s2.5g	2G	7/2	275854.
+4s2.5g	2G	9/2	275854.
+4s2.7s	2S	1/2	281833.5
+Se_V_(4s2_1S<0>)	Limit	---	346390
