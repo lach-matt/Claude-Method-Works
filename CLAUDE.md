@@ -146,5 +146,15 @@ about a file is answered from `drive/MANIFEST.tsv` and a targeted `grep`, never 
 over 508 MB.
 
 The generated graph lives in `graphify-out/`; regenerate it rather than hand-editing it. It is a
-snapshot, not an index of the current tree — it was built before the CORPUS files landed and does
-not cover them, so do not treat a miss in the graph as evidence a file is absent.
+snapshot, not an index of the current tree — **built 2026-09-02, before `extracted/`, `recovered/`,
+`drive/chats/` and `incoming/` existed, so it covers none of them and misses roughly 3,200 of the
+files now present.** Do not treat a miss in the graph as evidence a file is absent; ask
+`COVERAGE.tsv`, `extracted/LEDGER.tsv` or `recovered/LEDGER.tsv` instead.
+
+`.graphifyignore` scopes a re-index to **3,976 files, 108 MB** — down from 4,700 files and 1.3 GB
+unfiltered. Every exclusion answers "would a node here tell a reader something", not "is this file
+big": `drive/chats/` is a transcript store whose artefacts are already extracted into `recovered/`;
+the mirror's `.zip`/`.gz`/`.pdf` are containers whose contents `extracted/LEDGER.tsv` already
+accounts for; the `.partNN` pieces are superseded by the assembled file beside them. `extracted/`
+and `recovered/` are deliberately **included** — 1,913 `.py` and 1,096 `.md` between them, the
+largest body of real code in the repository.
