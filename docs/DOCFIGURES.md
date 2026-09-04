@@ -10,7 +10,7 @@ python3 tools/docfigures.py               # the drift report; exit 1 if anything
 python3 tools/docfigures.py -v            # same, every row printed
 ```
 
-**36 pinned figures, 0.15 s, stdlib only.** Fast enough to run at the top of a session.
+**50 pinned figures, 1.2 s, stdlib only.** Fast enough to run at the top of a session.
 
 ## Why it exists
 
@@ -43,6 +43,26 @@ Coverage: the member count and both bundles' recovery; `drive/`'s manifest, its 
 the chat export's conversations and messages; all six `COVERAGE.tsv` statuses; the BUILD series'
 counts and ranges; the `__<driveFileId>` count; and the row counts and headline verdicts of
 `PROSE-ONLY.tsv`, `RETRACTION-AUDIT.tsv` and `REGISTER-GAPS.tsv`.
+
+## The instrument totals, and why they needed a separate check
+
+The last fourteen rows come from `pointers.py --json` and `arith.py --json`: 1,932 pointer tokens
+across seven verdicts with 42 findings, and 235 arithmetic claims across four verdicts with 2.
+
+**Their own selftests do not cover these.** `pointers.py --selftest` checks 53 fixtures and
+`arith.py --selftest` checks 42, and every one of them is an individual **site** — this token
+resolves there, this fraction computes to that. A change in a corpus-wide **total** passes both
+without a word. `docs/POINTERS.md` and `docs/ARITH.md` state those totals in prose, which is exactly
+the position `CLAUDE.md`'s coverage paragraph was in when it went stale. Both documents are currently
+correct to the digit; these rows are what will say so next time.
+
+**The finding predicate is neither half alone**, and both halves have been got wrong here. A site is
+a finding when it carries a census class **or** its verdict is one of the four the doc names.
+`census_class` alone gives **40** and misses `APPSEC`'s two `PREFIX-ONLY`; finding verdicts alone
+give **25** and miss the seventeen `REGISTER-RANGE` census rows. Their union is 42 and matches the
+text report class by class. The selftest asserts all three numbers, so the mistake cannot return
+quietly — I made it once in the course of writing this, read 40 against the report's 42, and was
+about to file a bug against `pointers.py --json` that does not exist.
 
 ## What it refuses
 

@@ -24,13 +24,19 @@ cannot be made exactly is not made.
 It also refuses to measure anything requiring the 393 MB chat export, so it stays
 fast enough to run at the top of a session. `coverage.py --chats` owns that.
 
+The last fourteen rows come from `pointers.py --json` and `arith.py --json`. Their
+own selftests pin individual SITES -- 53 and 42 fixtures -- so a change in a
+corpus-wide TOTAL passes them without a word. These rows are that missing check.
+
 stdlib only.  python3 tools/docfigures.py [--selftest] [-v]
 """
 import argparse
 import csv
+import json
 import os
 import pathlib
 import re
+import subprocess
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -63,6 +69,44 @@ def _entries(rel):
             if part.strip().isdigit():
                 s.add(int(part.strip()))
     return s
+
+
+# The two audit instruments that report corpus-wide totals no per-site fixture
+# covers. Their own --selftest checks individual sites (42 and 53 fixtures), so a
+# change in the TOTAL passes them silently; that is what these rows catch.
+_JSON_CACHE = {}
+
+
+def _tool_json(name, args):
+    """Run an instrument's --json and parse it. Empty dict if it cannot run."""
+    key = (name, tuple(args))
+    if key not in _JSON_CACHE:
+        try:
+            out = subprocess.run([sys.executable, str(ROOT / "tools" / name)] + list(args),
+                                 capture_output=True, text=True, timeout=600)
+            _JSON_CACHE[key] = json.loads(out.stdout) if out.stdout.strip() else {}
+        except Exception:
+            _JSON_CACHE[key] = {}
+    return _JSON_CACHE[key]
+
+
+def _pointer_sites():
+    return _tool_json("pointers.py", ["--roster", "with-companion", "--json"]).get("sites", [])
+
+
+def _arith_claims():
+    return _tool_json("arith.py", ["--roster", "reader-facing", "--json"]).get("claims", [])
+
+
+# pointers.py calls a site a FINDING when it carries a census class OR its verdict
+# is one of the four the doc names as findings. Neither predicate alone reproduces
+# the report: census_class alone gives 40 and misses APPSEC's two PREFIX-ONLY,
+# finding-verdicts alone gives 25 and misses the REGISTER-RANGE census rows.
+_FINDING_VERDICTS = {"UNRESOLVED", "PREFIX-ONLY", "KIND-MISMATCH"}
+
+
+def _is_finding(site):
+    return bool(site.get("census_class")) or site.get("verdict") in _FINDING_VERDICTS
 
 
 def _manifest():
@@ -154,6 +198,32 @@ def checks():
         ("docs/REGISTER-GAPS.md", "numbering gaps", 132, len(gaps)),
         ("docs/REGISTER-GAPS.md", "seated in neither register", 13,
          len([n for n in gaps if n not in W])),
+    ] + _instrument_rows()
+
+
+def _instrument_rows():
+    """Totals the instruments report, which their per-site selftests do not pin."""
+    sites = _pointer_sites()
+    claims = _arith_claims()
+    if not sites or not claims:
+        return [("tools/", "instrument --json could not be read (rows skipped)", 0, 1)]
+    pv = lambda v: sum(1 for s in sites if s["verdict"] == v)
+    av = lambda v: sum(1 for c in claims if c["verdict"] == v)
+    return [
+        ("docs/POINTERS.md", "pointer tokens, --roster with-companion", 1932, len(sites)),
+        ("docs/POINTERS.md", "findings", 42, sum(1 for s in sites if _is_finding(s))),
+        ("docs/POINTERS.md", "RESOLVED", 1387, pv("RESOLVED")),
+        ("docs/POINTERS.md", "RESOLVED-HERE", 438, pv("RESOLVED-HERE")),
+        ("docs/POINTERS.md", "AMBIGUOUS", 65, pv("AMBIGUOUS")),
+        ("docs/POINTERS.md", "PARTIAL", 17, pv("PARTIAL")),
+        ("docs/POINTERS.md", "PREFIX-ONLY", 3, pv("PREFIX-ONLY")),
+        ("docs/POINTERS.md", "UNRESOLVED", 21, pv("UNRESOLVED")),
+        ("docs/POINTERS.md", "KIND-MISMATCH", 1, pv("KIND-MISMATCH")),
+        ("docs/ARITH.md", "claims checked, --roster reader-facing", 235, len(claims)),
+        ("docs/ARITH.md", "AGREE", 57, av("AGREE")),
+        ("docs/ARITH.md", "WITHIN-INPUT-PRECISION", 1, av("WITHIN-INPUT-PRECISION")),
+        ("docs/ARITH.md", "DISAGREE (the findings)", 2, av("DISAGREE")),
+        ("docs/ARITH.md", "NOT-BOUND", 175, av("NOT-BOUND")),
     ]
 
 
@@ -206,6 +276,16 @@ def selftest():
     check("Ruling 27: the two registers do not overlap", len(R & W), 0)
     check("COVERAGE.tsv is the --chats run (IN-CHAT rows present)",
           sum(1 for r in _rows("COVERAGE.tsv") if r["status"] == "IN-CHAT") > 0, True)
+    # the finding predicate is neither half alone -- both halves have been got
+    # wrong here, and the report's own by-class breakdown is the arbiter
+    sites = _pointer_sites()
+    if sites:
+        check("pointers: census_class alone under-counts findings",
+              sum(1 for s in sites if s.get("census_class")), 40)
+        check("pointers: finding verdicts alone under-count findings",
+              sum(1 for s in sites if s.get("verdict") in _FINDING_VERDICTS), 25)
+        check("pointers: their union is the reported total",
+              sum(1 for s in sites if _is_finding(s)), 42)
     print("\n%s" % ("SELFTEST OK" if ok else "SELFTEST FAILED"))
     return 0 if ok else 1
 

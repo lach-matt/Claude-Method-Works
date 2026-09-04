@@ -75,7 +75,9 @@ of the method equation, per register 1206), `tools/orderideal.py` (register 66's
 test, run against the seated observed configurations; it imports `LW1-ground.py`, offers no verdict,
 and files its measurement for R3 — see `docs/ORDER-IDEAL.md`) and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
-**Run it after any pass that changes a count** — it takes 0.15 s and exits 1 on drift. It exists
+**Run it after any pass that changes a count** — 50 pinned figures, 1.2 s, exits 1 on drift. The
+last fourteen are the totals `pointers.py` and `arith.py` report, which their own selftests do not
+cover: those pin individual sites, so a change in a corpus-wide total passes them silently. It exists
 because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true figures were 702 and
 4; four other figures had gone stale the same way. A `STALE` row means the tree is right and the
 sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real contract — see
