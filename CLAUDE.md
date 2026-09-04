@@ -27,6 +27,13 @@ to; 188 MB of duplicate content became a pointer rather than a file. Regenerate 
 hand-edit it or `LEDGER.tsv`. `drive/` stays the mirror of record and is never written to by this
 pass. See `extracted/README.md` and `docs/CONSOLIDATE.md`.
 
+**`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
+1,005 artefact names in the two live bundles: 559 held, 15 held only under a figure's pre-rename
+source name, **431 absent**. `COVERAGE.tsv` is the standing list. An `ABSENT` means "not reachable
+from any source here" and is **not** a finding of loss — a name in prose is not proof a file existed
+— and every count is a floor, since extraction is literal (58 handoffs named in filename shape
+against 88 referenced by bare number). See `docs/COVERAGE.md`.
+
 ## It is a document corpus, not a software project
 
 No build, no test suite, no linter, no package manager. Do not offer to run tests or add CI for
@@ -35,7 +42,8 @@ artifacts, not a codebase to maintain or execute.
 
 The exceptions, and they are the only ones: `method/verify.py` and the instruments in
 `method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror,
-`tools/consolidate.py` regenerates `extracted/`, and five
+`tools/consolidate.py` regenerates `extracted/`, `tools/coverage.py` censuses what the
+corpus names, and five
 instruments run over the store — `tools/cypher.py` (the cypher analysis of §33 over an
 index), `tools/arith.py` (the arithmetic of every ratio, percentage and equation the volumes state
 about themselves), `tools/pointers.py` (every pointer resolved across the volumes and the
@@ -43,7 +51,8 @@ companion), `tools/buildtrace.py` (when a figure entered the books, from the BUI
 `tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
 of the method equation, per register 1206). Those are real programs with a real contract — see
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
-`docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md` and `docs/POPULATE.md`.
+`docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md` and
+`docs/COVERAGE.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
