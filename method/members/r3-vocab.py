@@ -69,13 +69,13 @@ assert 'first conjecture this index has ever held' in PARA_OLD and 'slack = kern
 assert m.count(PARA_OLD) == 1, 'the scale paragraph is not unique'
 _text = ("**The interesting part is that one of the four is the first conjecture this index was built on.** "
          "§D.2 defines *status* on six values — withdrawn < conjectured < measured < verified < unwitnessed "
-         "< proved — and until now the enumeration occupied three of them. Everything in this book was measured, "
-         "verified, or proved, with and without witness; nothing was ever merely conjectured without the "
-         "intention to prove or withdraw, and nothing withdrawn survived to be listed. An unwitnessed result "
-         "is measured, verified, "
-         "and exhaustive over everything the index can reach — and no cell inside it witnesses the claim. What "
-         "it lacks is an observation. Where the observation does not yet exist the value is the ceiling — "
-         "above verified, and short of proved until something is seen.")
+         "< proved — and until now the enumeration occupied three of them. Everything in this book was "
+         "measured, verified, or proved, with and without witness; nothing was ever merely conjectured "
+         "without the intention to prove or withdraw, and nothing withdrawn survived to be listed. An "
+         "unwitnessed result is proved and not yet observed — measured, verified, and exhaustive over "
+         "everything the index can reach, with no cell inside it witnessing the claim. Proof is a matter of "
+         "mathematics and not of observation, so the value ranks below proved for a reason that is a bias "
+         "and not a defect — observation.")
 _w = max(len(l) for l in ML[10747:10753])
 PARA_NEW = '\n'.join('  ' + l for l in textwrap.wrap(' '.join(_text.split()), width=_w - 2,
                                                      break_long_words=False, break_on_hyphens=False)) + '\n'
@@ -95,7 +95,15 @@ R1 = row('the corridor, 106 consistent inequalities', 'verified as a result abou
 R2 = row('the nineteen surds, the complete endpoint set', 'withdrawn with ν at 1460',
          'unwitnessed · exhaustive · none found (true of ν as a form; register 1460)')
 
+# §4.6 marked proved (M: A3). Proof is mathematics, not observation — the protocol is proved because
+# the case it was built for arrived and it caught it. This is the one protocol of the ten that is not
+# merely earned by a failure but established by one.
+A46_OLD = '  4.6   **a test that could not fail** — exhibit the failure mode before trusting the pass'
+A46_NEW = '  4.6   **a test that could not fail** — exhibit the failure mode before trusting the pass; a\n        criterion fixed from the case it judges cannot fail — proved by the case it was built for and\n        then caught'
+assert m.count(A46_OLD + chr(10)) == 1, "the §4.6 line is not unique"
+
 SUBS_MAIN = [
+    ('§4.6 marked proved', A46_OLD + chr(10), A46_NEW + chr(10)),
     ('§D.2 L10354 the ordered scale', DEF_OLD + '\n', DEF_NEW + '\n'),
     ('L10748–L10753 the scale paragraph', PARA_OLD, PARA_NEW),
     ('the corridor row', R1[0], R1[1]),
@@ -128,15 +136,30 @@ def reverse(t, subs):
     return t
 
 new_m = apply(m, SUBS_MAIN); assert md5(reverse(new_m, SUBS_MAIN).encode('utf-8')) == md5(old_main), 'main reverse FAILED'
-new_r = r + TAIL; assert new_r[:-len(TAIL)] == r, 'Register is not old + tail'
+# The tie M ruled: a WARNING on 1332 citing 1448, in the Register's own idiom (39 already exist) and
+# appended to the entry's single body line, so it adds no line and shifts nothing.
+_i = next(i for i, l in enumerate(r.split(chr(10))) if l.strip() == '### 1332')
+_b = next(j for j in range(_i, _i + 6) if r.split(chr(10))[j].strip() and not r.split(chr(10))[j].strip().startswith('###'))
+_body = r.split(chr(10))[_b]
+assert 'WARNING' not in _body, '1332 already carries a WARNING'
+assert r.count(_body) == 1, "1332's body line is not unique"
+WARN = "  **WARNING:** Qualified at register 1448. The memoryless test set *a* to each candidate subshell's own crossing value — a criterion fixed from the case it judges, which §4.6 shows cannot fail. **The claim stands:** the observed subshell is never uniquely determined, so the table is not computable from a single atom's configuration. **The count does not:** 104 of 106 under this placement, 62 of 106 under the corridor-non-empty convention."
+SUBS_REG = [('the WARNING on 1332', _body + chr(10), _body + WARN + chr(10))]
+new_r = apply(r, SUBS_REG) + TAIL; assert md5(reverse(new_r[:-len(TAIL)], SUBS_REG).encode('utf-8')) == md5(old_reg), 'Register reverse FAILED'
 print(f'main: {len(SUBS_MAIN)} substitutions, reverse recovers md5 {md5(old_main)} == old: True')
-print(f'Register: 0 substitutions + entry {N} appended, old bytes untouched: True')
+print(f'Register: {len(SUBS_REG)} substitution (the 1332 WARNING, +0 lines) + entry {N} appended, reverse recovers {md5(old_reg)}')
 
 # ---------------------------------------------------------------- what must NOT have moved
 NL = new_m.split('\n')
-# every line above the paragraph (L10748) must be identical except the §D.2 definition at L10354
-_above = [i + 1 for i in range(10747) if NL[i] != ML[i]]
-assert _above == [10354], f'lines above the paragraph moved: {_above}'
+# TWO shift bands now, because §4.6 is edited as well as the appendix paragraph. The reverse-md5 guard
+# above is what proves the edit; this reports the bands and asserts that nothing ABOVE the first one moved.
+_first = min(i + 1 for i in range(min(len(NL), len(ML))) if NL[i] != ML[i])
+assert _first == 1447, f'the first changed line is L{_first}, expected §4.6 at L1447'
+assert NL[:1446] == ML[:1446], 'a line above §4.6 moved'
+_b1 = A46_NEW.count(chr(10)) + 1 - 1          # §4.6: one line becomes three
+_b2 = PARA_NEW.count(chr(10)) - PARA_OLD.count(chr(10))
+print(f'shift bands: +{_b1} for main L >= 1448 (§4.6), then a further +{_b2} below the scale paragraph')
+print(f'  net: lines after the appendix paragraph move +{_b1 + _b2}; total {len(ML)} -> {len(NL)}')
 for probe in ('nothing withdrawn survived to be listed', 'the observability boundary, tested once',
               'slack = kernel, §18.4.1'):
     assert new_m.count(probe) == m.count(probe), f'{probe!r} count moved'
