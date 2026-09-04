@@ -7,6 +7,11 @@ graphify-out/.chunklist_*
 graphify-out/.needs_update
 graphify-out/cache/
 graphify-out/2026-*/
+# a detect run scoped to a subdirectory writes its own graphify-out/ there;
+# these are unanchored so that scratch never lands in a generated tree
+**/graphify-out/cache/
+**/graphify-out/.graphify_*
+**/graphify-out/.chunklist_*
 
 # staged by method/bin/stage-gate; census output, never committed
 method/DEFECT-CENSUS.tsv
