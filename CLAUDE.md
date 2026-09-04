@@ -209,6 +209,15 @@ a collection log quotes as live instructions, and 1138. Complements rather than 
 corpus's own cited-but-absent census (`register_cites.py`, `DEFERRED.md` docket 9(c)/30), which asks
 the other question. See `docs/REGISTER-GAPS.md`.
 
+**`HANDOFF-GAP.tsv` lists handoffs the corpus names and the repository does not hold.** The bundles
+cite **88** distinct `HANDOFF-<n>` by bare number; **62 are held and 26 are not**, and **23 of the 26
+have a body in the chat export** — 15 written by a tool call with their content, 8 read back from an
+upload. They were missed because `recover.py` takes its wanted-set from `COVERAGE.tsv`'s artefact
+column, which holds names of *filename* shape, and 25 of these 26 are only ever cited as
+`HANDOFF-71`, never `HANDOFF-71.md`. Each title chains exactly (`HANDOFF-71 — chat 118 → chat 119`,
+found in the conversation titled 119). **Nothing was recovered**; the rows name a conversation and a
+message to open. See `docs/HANDOFF-GAP.md`.
+
 **What the graph pass measured is written up in `docs/GRAPH-FINDINGS.md`** — the seven `AMBIGUOUS`
 edges traced to their files, the `HANDOFF-13` byte-fingerprint for an absent document, the 23-file
 truncation census (only `HANDOFF-34.md` lines 34–42 is a hard boundary, and it is one the chat export

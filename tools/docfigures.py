@@ -198,6 +198,10 @@ def checks():
         ("docs/REGISTER-GAPS.md", "numbering gaps", 132, len(gaps)),
         ("docs/REGISTER-GAPS.md", "seated in neither register", 13,
          len([n for n in gaps if n not in W])),
+        ("docs/HANDOFF-GAP.md", "handoffs named by number, held nowhere", 26,
+         len(_rows("HANDOFF-GAP.tsv"))),
+        ("docs/HANDOFF-GAP.md", "of those, with a body in the chat export", 23,
+         sum(1 for r in _rows("HANDOFF-GAP.tsv") if r["class"].startswith("BODY"))),
     ] + _instrument_rows()
 
 
