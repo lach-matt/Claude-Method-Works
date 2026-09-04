@@ -1,0 +1,61 @@
+
+== 0  THE UNIT
+   unit opens at entry 200                                  853                          OK
+   entry 246 opens the next unit                            973                          OK
+   unit = L853-L972, 120 lines, entries 200..245, 30 headings
+
+== 1  THE GAPS, CLASSIFIED AGAINST THE WHOLE REGISTER
+   gaps in the unit span                                    16                           OK
+   gaps printed under a grouped heading                     [203, 207, 209, 213, 215, 21 OK
+   gaps absent from the register entirely                   [202, 204, 206, 210]         OK
+   Register L6574 enumerates eleven numbers "in no group at all" BETWEEN 203 AND 354:
+   204, 206, 210, 260, 264, 269, 272, 287, 324, 341, 344. Three of this unit's four are
+   among them. 202 is below 203 and falls outside that enumeration's stated span.
+   With 196 and 199 from unit 4, three absent numbers are so far outside any enumeration.
+
+== 2  EVERY SECTION POINTER RESOLVED TO ITS HEADING AND ITS CLAIM
+   section pointers in the unit                             8                            OK
+   §12.11.1   L3037   The axes, and what each one sees                   carries the claim
+   §12.11.2   L3368   Three excluded forms, and the fold has a name      carries the claim
+   §16.3.1    L4384   The D1 tripwire, specified in full and needing no  carries the claim
+   §25.6.3    L7044   What was already solved — not a prediction         carries the claim
+   §29.1      L7864   Why novelty is not the author's to claim           carries the claim
+   §29.10     L8113   Two searches run, and an obstruction worth naming  carries the claim
+   §29.12     L8243   Five unlocated results, defined, with the test tha carries the claim
+   §32.1.1    L8813   What a referee would flag                          carries the claim
+
+== 3  THE LETTERED POINTERS
+   Appendix subsections are plain-text labels, not headings (MAIN_AUDIT V11), so each is
+   located in Appendix A / E by its label line, never by the first textual hit.
+   A.2   in Appendix A (from L9973): [9981]
+   A.5   in Appendix A (from L9973): [9983]
+   E.4.1 has a heading of its own                           True                         OK
+   E.4.1 L11179: ### E.4.1 Q, enumerated and closed at eight
+
+== 4  ARITHMETIC THAT MUST HOLD ON ITS OWN TERMS
+   234: one well + three partly + three not at all = seven flags 7                            OK
+   229: four passed + consistency + redundancy = the six-audit pass 6                            OK
+   233: E falls monotonically as the fibration refines      True                         OK
+   241: the density rises with the caps                     True                         OK
+   241: every value stays below the nominal two-thirds      True                         OK
+   241 approaches 66.667 from below and does not reach it: [64.4, 64.5, 65.7, 66.1]
+   242: 150 rejected of 216 offered leaves 66 admitted      66                           OK
+
+== 5  ENTRY 236 — THE CELL COUNTS, WITH A WITNESS FOR THE NEGATIVE
+   tower-2 prints: {'Λ8': 976, 'Λ9': 1654, 'Λ10': 2535, 'Λ11': 13585, 'Λ12': 70905, 'Λ13': 199130}
+     entry 236's 8853    appears in the tower: False
+     entry 236's 89438   appears in the tower: False
+     entry 236's 267858  appears in the tower: False
+     entry 236's 499246  appears in the tower: False
+   NOT REPRODUCIBLE from the page: 236 states E(Λ) = 0 "through the F shell" at four cell
+   counts, and names no caps. tower-2 rebuilds at the seated caps only and none of the four
+   is among Λ₈..Λ₁₃. A budget with its witness, not a negative. Docket 10.
+
+== 6  CENSUS
+   census rows in range                                     0                            OK
+
+== SUMMARY
+   instrument checks failed : 0 
+   deviations recorded      : 0
+
+   ALL INSTRUMENT CHECKS OK

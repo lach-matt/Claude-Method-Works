@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 IDENTITY AND BOUNDARIES
 ====================================================================================================
-  The_Method_1_6-2.md                                  md5 cf4d90ce  11904 lines
-  The_Method_1_6___The_Register-2.md                   md5 e0187dde  6699 lines
+  The_Method_1_6-2.md                                  md5 133db54d  11904 lines
+  The_Method_1_6___The_Register-2.md                   md5 9b44db27  6706 lines
   The_Method_1_6___Mathematical_Compendium-2.md        md5 facd6191  3813 lines
   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 27d387ef  2094 lines
@@ -86,19 +86,19 @@
      L11858 App F.4.3    [koelling]  · Koelling, D. D. & Harmon, B. N. (1977). *J. Phys. C* **10**, 3107. — the scalar-relativistic kernel; c the one entered number.
      L11860 App F.4.3    [pulay]  · Pulay, P. (1969). *Mol. Phys.* **17**, 197. — the occupation-parameter term that is the walk's one defect.
   The_Method_1_6___The_Register-2.md                   13 lines
-     L445   entry 93     [scf] **PRIOR ART: THE PHYSICAL AND CRYSTALLOGRAPHIC APPARATUS OF PART IV.** *The Gamow factor for barrier penetration (Gamow, Z. Phys. 51 (1928) 204–212); 
-     L4557  entry 1217   [hartree] **THEODOSIOU, INOKUTI & MANSON 1986 IS THE SURVEY, PUBLISHED.** *At. Data Nucl. Data Tables 35, 473: **the asymptotic quantum defects at the ionizatio
-     L5782  entry 1535   [hartree] **THE SUPPLIED NILSSON TABLE FAILS A PARITY CHECK AT EXACTLY THE ROW REGISTER 1462 DEPENDS ON.** *An outside model supplied transcriptions for the fiv
-     L5810  entry 1543   [hartree] **THEODOSIOU IDENTIFIED CORRECTLY AT LAST — MY PII WAS A TWO-DIGIT TRANSPOSITION — AND THREE OF ITS CLAIMS VERIFY AGAINST HELD DATA.** *The correct id
-     L5826  entry 1547   [hartree] **THE SECOND RITZ ORDER RECOVERS THE TEXTBOOK DEFECT TO THREE DECIMALS, AND SEATON'S THEOREM SAYS WHY THE TWO ROUTES MEET.** *A theory note supplied o
-     L5842  entry 1551   [hartree] **THE THEODOSIOU COMPANION ARRIVES AND ITS K I EXPERIMENTAL COLUMN MATCHES MY EXTRAPOLATION IN ALL THREE CHANNELS.** *The supplied PDF is Theodosiou, 
-     L5950  entry 1584   [hartree] **THE CAPTURE PRIORITY IS NOW COMPUTED, AND D3 WOULD TAKE THE INDEX FROM 1.9 PER CENT TO 7.9.** *Applying register 1583's rule — extend an edge, do no
-     L5954  entry 1585   [hartree] **THE CITATION TRAIL WORKS: TOPBASE DEFECTS FOR FIVE FULL IONISATION LADDERS, AND THEY ARE THEORY.** *M could not reach the ADNDT tables and asked whe
-     L6347  entry 1701   [koelling self-consistent field] **THE LÖWDIN CHALLENGE IS CLOSED — THE ORDERING LAW DERIVED FROM THE EQUATION AT 107 OF 107, THE EXCEPTIONS DERIVED WITH IT.** *The entrant operator: 
-     L6355  entry 1703   [scf] **THE SILENCE OF CHAPTER 34 HAS AN OCCUPANT — THE COLLAPSE CONDITION DECIDES EXACTLY WHERE THE CORRIDOR CANNOT SPEAK.** *At f openings the corridor's 
-     L6371  entry 1707   [pulay] **PRIOR ART — THE WALK'S ONE SYSTEMATIC DEFECT IS A PULAY TERM, PUBLISHED THE YEAR THE CHALLENGE WAS POSED.** *The Hellmann–Feynman-in-q discrepancy b
-     L6375  entry 1708   [scf] **PRIOR ART — THE OPERATOR ASYMMETRY IS LÖWDIN'S OWN 1950 IDENTITY, AND IT CLOSES THE LAST GAP.** *For eigenstates of different self-consistent operat
-     L6475  entry 1748   [hartree] **ITEM D CLOSED: THE LÖWDIN PAPER'S FOUR PLACEHOLDER REFERENCES ARE FILLED FROM THE LITERATURE AND BOTH PAPERS ARE PRESSED.** *Reference 6 is Bach, Li
+     L447   entry 93     [scf] **PRIOR ART: THE PHYSICAL AND CRYSTALLOGRAPHIC APPARATUS OF PART IV.** *The Gamow factor for barrier penetration (Gamow, Z. Phys. 51 (1928) 204–212); 
+     L4559  entry 1217   [hartree] **THEODOSIOU, INOKUTI & MANSON 1986 IS THE SURVEY, PUBLISHED.** *At. Data Nucl. Data Tables 35, 473: **the asymptotic quantum defects at the ionizatio
+     L5784  entry 1535   [hartree] **THE SUPPLIED NILSSON TABLE FAILS A PARITY CHECK AT EXACTLY THE ROW REGISTER 1462 DEPENDS ON.** *An outside model supplied transcriptions for the fiv
+     L5812  entry 1543   [hartree] **THEODOSIOU IDENTIFIED CORRECTLY AT LAST — MY PII WAS A TWO-DIGIT TRANSPOSITION — AND THREE OF ITS CLAIMS VERIFY AGAINST HELD DATA.** *The correct id
+     L5828  entry 1547   [hartree] **THE SECOND RITZ ORDER RECOVERS THE TEXTBOOK DEFECT TO THREE DECIMALS, AND SEATON'S THEOREM SAYS WHY THE TWO ROUTES MEET.** *A theory note supplied o
+     L5844  entry 1551   [hartree] **THE THEODOSIOU COMPANION ARRIVES AND ITS K I EXPERIMENTAL COLUMN MATCHES MY EXTRAPOLATION IN ALL THREE CHANNELS.** *The supplied PDF is Theodosiou, 
+     L5952  entry 1584   [hartree] **THE CAPTURE PRIORITY IS NOW COMPUTED, AND D3 WOULD TAKE THE INDEX FROM 1.9 PER CENT TO 7.9.** *Applying register 1583's rule — extend an edge, do no
+     L5956  entry 1585   [hartree] **THE CITATION TRAIL WORKS: TOPBASE DEFECTS FOR FIVE FULL IONISATION LADDERS, AND THEY ARE THEORY.** *M could not reach the ADNDT tables and asked whe
+     L6349  entry 1701   [koelling self-consistent field] **THE LÖWDIN CHALLENGE IS CLOSED — THE ORDERING LAW DERIVED FROM THE EQUATION AT 107 OF 107, THE EXCEPTIONS DERIVED WITH IT.** *The entrant operator: 
+     L6357  entry 1703   [scf] **THE SILENCE OF CHAPTER 34 HAS AN OCCUPANT — THE COLLAPSE CONDITION DECIDES EXACTLY WHERE THE CORRIDOR CANNOT SPEAK.** *At f openings the corridor's 
+     L6373  entry 1707   [pulay] **PRIOR ART — THE WALK'S ONE SYSTEMATIC DEFECT IS A PULAY TERM, PUBLISHED THE YEAR THE CHALLENGE WAS POSED.** *The Hellmann–Feynman-in-q discrepancy b
+     L6377  entry 1708   [scf] **PRIOR ART — THE OPERATOR ASYMMETRY IS LÖWDIN'S OWN 1950 IDENTITY, AND IT CLOSES THE LAST GAP.** *For eigenstates of different self-consistent operat
+     L6477  entry 1748   [hartree] **ITEM D CLOSED: THE LÖWDIN PAPER'S FOUR PLACEHOLDER REFERENCES ARE FILLED FROM THE LITERATURE AND BOTH PAPERS ARE PRESSED.** *Reference 6 is Bach, Li
   The_Method_1_6___Mathematical_Compendium-2.md        17 lines
      L71    ?            [self-consistent field] | **ent** | the entrant operator: argmax over frontier (n,ℓ) of \|D(n,ℓ)\| in the ion's self-consistent field | subshells | §35; register 1701 |
      L776   App E        [hartree] Measured — R 1150-1156; Ritz 1903; Hartree 1928.
@@ -131,7 +131,7 @@
      L175   ?            [hartree]  (Z, n, ℓ) → D, in hartree, with margin, provenance and score
      L1012  App B.3      [hartree] | **Theodosiou, Inokuti & Manson, At. Data Nucl. Data Tables 35, 473 (1986)** | asymptotic quantum defects of s, p, d and f orbitals for **all ionisat
   Register 1701–1712 headed (### n): 1701:Y 1702:Y 1703:Y 1704:Y 1705:Y 1706:Y 1707:Y 1708:Y 1709:Y 1710:ABSENT 1711:Y 1712:Y
-  span L6345-L6388; raw WARNING: markers in the span: 0
+  span L6347-L6390; raw WARNING: markers in the span: 0
    1701:  10 numerals: 107 107, 1 137.035999 107 107, 112 0.083 120 35
    1702:   8 numerals: 119 2 120 107 12 107 1 2.14
    1703:   8 numerals: 34 91 1969 177, 62 1971 3, 1233
@@ -227,7 +227,7 @@
   'fifth'                                    chapter L9890           | in 1701-1712: 1711                 | other Register lines: 21
   'nineteen years'                           chapter L9910           | in 1701-1712: 1708                 | other Register lines: 0
   Register entries after 1712 whose body names 1701-1712 or the range (the later statements):
-     L6678 entry 1810: **§R.7's TWO LEAD-INS SAID THE CHAPTERS REST ON THE BLOCKS; THEY NOW SAY WHAT IS TRUE AS PRINTED.** *M's ruling on 28b-07 was (b). Under CONVENTION PROV the sentence on M
+     L6680 entry 1810: **§R.7's TWO LEAD-INS SAID THE CHAPTERS REST ON THE BLOCKS; THEY NOW SAY WHAT IS TRUE AS PRINTED.** *M's ruling on 28b-07 was (b). Under CONVENTION PROV the sentence on M
   the range *1701–1712* / *1701-1712* by volume: The_Method_1_6-2.md:3 The_Method_1_6___The_R:1 The_Method_1_6___Mathe:1 The_Method_1_6___The_P:1 The_Method_1_6___The_I:1 The_Method_1_6___Spect:0
 
 ====================================================================================================

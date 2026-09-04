@@ -73,3 +73,8 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
 - **The held set is now** `r2-ch18b`, `r2-ch23b` (added: its §7 selects census rows by line, as ch18b's does), `r2-26b`,
   `r3-wl`, the superseded predecessors including `r2-reg1a` / `r2-reg7a` / `r2-regsweep`. The census successor and a
   content-keyed `close_census.py` remain owed. DEF-153P records the consolidation branch read against this queue.
+- **reg1-G/H/I closed at BUILD103 (W-217; register 1816):** the citation figures and the load-bearing table re-taken
+  from `register_cites.py`; `r2-reg1a3` seated, `r2-reg1a2` superseded; one press anchor (`build.py` L214, the recount
+  date) recorded as moved. Left: reg1-E (the ten grouped headings against seven), r2-reg1a's finding.
+- **The positional class on the Register (W-218, BUILD212):** nine unit-reader successors (`r2-reg2a2`…`r2-reg12b`) proved
+  byte-exact on the BUILD102 tree; fifty-three goldens re-banked (W-219, BUILD213). The held set is unchanged in kind.

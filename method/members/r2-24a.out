@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 members and the units (lettered E.x headings, body = LAST hit; a `### E.x` unit ends at the next heading of any rank; E.4 has no heading line)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 cf4d90ce  11904 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 e0187dde  6699 lines
+   main The_Method_1_6-2.md                                  md5 133db54d  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 9b44db27  6706 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 facd6191  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 27d387ef  2094 lines
@@ -31,50 +31,50 @@
 ====================================================================================================
 §1 the Register: every entry the family cites — heading, WARNING lines, body; the family figures grepped in six volumes (later statements)
 ====================================================================================================
-     211 heading L867 WARNING lines [] :: **APPENDIX D'S CLOSURE WAS ASSERTED RATHER THAN ENUMERATED, A DISTINCTION THE BOOK HAD ALREADY RULED AGAINST ITSELF AT E.4.1 AND NOT APPLIED
-     212 heading L871 WARNING lines [] :: **TWO CELLS THE MATHEMATICAL FIBRE OF Q ADMITS AND Q LACKS, EXPOSED BY ITEMS L AND M.** *E(Q) = 2 fibred, 1 unfibred.*
-     235 heading L931 WARNING lines [] :: **E(Q) = 0 IS FIBRATION-DEPENDENT IN THE SAME WAY: FOUR FIBRES BY DOMAIN GIVE ZERO, ONE FIBRE GIVES ONE.**
-     238 heading L943 WARNING lines [] :: **NOVELTY CLOSED BY THE AUTHOR: NOT CLAIMED.** *E(Q) unmoved, and six Q items move from* *blocks: novelty* *to* *blocks: nothing*.
-     239 NO `### 239` heading; grouped heading line(s) [1335] :: ### 239, 256
-     256 NO `### 256` heading; grouped heading line(s) [1335] :: ### 239, 256
-     307 heading L1147 WARNING lines [] :: **APPENDIX E CARRIED THREE ITEM COUNTS IN THE PRESENT TENSE AND APPENDIX D FOUR.** **None was wrong when written; none was retired.** *The r
-     332 heading L1231 WARNING lines [] :: **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A READOUT THE PRESS PRINT
-     364 heading L1351 WARNING lines [] :: **Q ITEM O CLOSED** *— tree propagation retested at Λ₉′, where the book had listed it as* *buildable, days**. It is one computation. In a tr
-     371 heading L1371 WARNING lines [] :: **ITEM M IS WITHDRAWN RATHER THAN CLOSED.** *It asked for E(G) = 33 to be* *resolved**, meaning driven to zero, and register 370 shows the c
-     372 heading L1375 WARNING lines [] :: **E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER.** *Stated as nought fibred and one unfibred, it is 4 unfibred on the table as it now
-     382 heading L1415 WARNING lines [] :: **APPENDIX E IS AN INDEX OF TRACTABLE IGNORANCE AND CANNOT SAY OTHERWISE** *, observed by the author and confirmed by computation. Its obsta
-     384 heading L1423 WARNING lines [] :: **E.3 DETAILED SIX ITEMS WHERE ELEVEN WERE OPEN, AND ONE OF THE SIX WAS ANSWERED.** *It is subordinate to E.1.2 and the two must list the sa
-     385 heading L1427 WARNING lines [] :: **EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six resolve cleanly — 96 section references, 103 appendix
-     386 heading L1431 WARNING lines [] :: **E.4 DESCRIBED A GRID AND NEVER PRINTED IT** *— §2.16's own protocol, read once at eight items and reported as prose. Printed now, read on 
-     387 heading L1435 WARNING lines [] :: **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: every figure the printed slice specifies reproduces 
-     396 heading L1471 WARNING lines [] :: **ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR.** *Forty-three cells stand admitted and absent across the
-     461 heading L1707 WARNING lines [] :: **THE FAMILY OF ALL CLOSED SETS HAS ITS FIRST NUMBERS, AND IT IS A MOORE FAMILY.** *73, 146 and 731 closed subsets of ambients at 8, 9 and 1
-     465 heading L1723 WARNING lines [] :: **Q ITEM R LANDED IN A CELL Q HAD ALREADY PREDICTED.** *Entering* *how many closed subsets a closed index has* *— nothing blocked, buildable
-     562 heading L2103 WARNING lines [] :: **Q ITEM N IS ANSWERED: NOBODY HAS LATTICE-ORDERED THE SENIORITY SCHEME, AND ITS OWN ORDERING IS A CHAIN.** *The literature orders seniority
-     563 heading L2107 WARNING lines [] :: **WHICH LANDS ON §30.3's SANDWICH.** *That section places* **chain ⊊ reorderable ⊊ totally balanced* **. The seniority classification sits a
-     564 heading L2111 WARNING lines [] :: **AND THE SAME SEARCH CONFIRMS Λ's V-AXIS AGAINST THE LITERATURE.** *The allowed seniority values are* **υ = n, n−2, …, 1 or 0* **, which is
-    1729 heading L6445 WARNING lines [] :: **Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED.**
-   *Q ITEM O CLOSED* at Register L[1353] under heading ['### 364']
+     211 heading L869 WARNING lines [] :: **APPENDIX D'S CLOSURE WAS ASSERTED RATHER THAN ENUMERATED, A DISTINCTION THE BOOK HAD ALREADY RULED AGAINST ITSELF AT E.4.1 AND NOT APPLIED
+     212 heading L873 WARNING lines [] :: **TWO CELLS THE MATHEMATICAL FIBRE OF Q ADMITS AND Q LACKS, EXPOSED BY ITEMS L AND M.** *E(Q) = 2 fibred, 1 unfibred.*
+     235 heading L933 WARNING lines [] :: **E(Q) = 0 IS FIBRATION-DEPENDENT IN THE SAME WAY: FOUR FIBRES BY DOMAIN GIVE ZERO, ONE FIBRE GIVES ONE.**
+     238 heading L945 WARNING lines [] :: **NOVELTY CLOSED BY THE AUTHOR: NOT CLAIMED.** *E(Q) unmoved, and six Q items move from* *blocks: novelty* *to* *blocks: nothing*.
+     239 NO `### 239` heading; grouped heading line(s) [1337] :: ### 239, 256
+     256 NO `### 256` heading; grouped heading line(s) [1337] :: ### 239, 256
+     307 heading L1149 WARNING lines [] :: **APPENDIX E CARRIED THREE ITEM COUNTS IN THE PRESENT TENSE AND APPENDIX D FOUR.** **None was wrong when written; none was retired.** *The r
+     332 heading L1233 WARNING lines [] :: **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A READOUT THE PRESS PRINT
+     364 heading L1353 WARNING lines [] :: **Q ITEM O CLOSED** *— tree propagation retested at Λ₉′, where the book had listed it as* *buildable, days**. It is one computation. In a tr
+     371 heading L1373 WARNING lines [] :: **ITEM M IS WITHDRAWN RATHER THAN CLOSED.** *It asked for E(G) = 33 to be* *resolved**, meaning driven to zero, and register 370 shows the c
+     372 heading L1377 WARNING lines [] :: **E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER.** *Stated as nought fibred and one unfibred, it is 4 unfibred on the table as it now
+     382 heading L1417 WARNING lines [] :: **APPENDIX E IS AN INDEX OF TRACTABLE IGNORANCE AND CANNOT SAY OTHERWISE** *, observed by the author and confirmed by computation. Its obsta
+     384 heading L1425 WARNING lines [] :: **E.3 DETAILED SIX ITEMS WHERE ELEVEN WERE OPEN, AND ONE OF THE SIX WAS ANSWERED.** *It is subordinate to E.1.2 and the two must list the sa
+     385 heading L1429 WARNING lines [] :: **EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six resolve cleanly — 96 section references, 103 appendix
+     386 heading L1433 WARNING lines [] :: **E.4 DESCRIBED A GRID AND NEVER PRINTED IT** *— §2.16's own protocol, read once at eight items and reported as prose. Printed now, read on 
+     387 heading L1437 WARNING lines [] :: **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: every figure the printed slice specifies reproduces 
+     396 heading L1473 WARNING lines [] :: **ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR.** *Forty-three cells stand admitted and absent across the
+     461 heading L1709 WARNING lines [] :: **THE FAMILY OF ALL CLOSED SETS HAS ITS FIRST NUMBERS, AND IT IS A MOORE FAMILY.** *73, 146 and 731 closed subsets of ambients at 8, 9 and 1
+     465 heading L1725 WARNING lines [] :: **Q ITEM R LANDED IN A CELL Q HAD ALREADY PREDICTED.** *Entering* *how many closed subsets a closed index has* *— nothing blocked, buildable
+     562 heading L2105 WARNING lines [] :: **Q ITEM N IS ANSWERED: NOBODY HAS LATTICE-ORDERED THE SENIORITY SCHEME, AND ITS OWN ORDERING IS A CHAIN.** *The literature orders seniority
+     563 heading L2109 WARNING lines [] :: **WHICH LANDS ON §30.3's SANDWICH.** *That section places* **chain ⊊ reorderable ⊊ totally balanced* **. The seniority classification sits a
+     564 heading L2113 WARNING lines [] :: **AND THE SAME SEARCH CONFIRMS Λ's V-AXIS AGAINST THE LITERATURE.** *The allowed seniority values are* **υ = n, n−2, …, 1 or 0* **, which is
+    1729 heading L6447 WARNING lines [] :: **Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED.**
+   *Q ITEM O CLOSED* at Register L[1355] under heading ['### 364']
    family figures in six volumes (digit-bounded / token probes):
-   'E(Q)'             {'main': (19, [858, 1099, 1103, 1110, 7915, 8866, 8914, 9016, 9276, 10947, 10953, 11008]), 'reg': (14, [873, 933, 945, 1377, 1381, 1385, 1389, 1473, 1477, 1725, 2221, 6447])}
-   'unfibred'         {'main': (20, [890, 1103, 1111, 5066, 5531, 8867, 8914, 8976, 8978, 9016, 9276, 10628]), 'reg': (6, [873, 1377, 1385, 1725, 6447, 6690])}
-   'from 4 to'        {'main': (2, [5994, 11046]), 'reg': (1, [1417])}
-   '4 to 3'           {'main': (1, [11079]), 'reg': (1, [1725])}
-   '18 cells'         {'main': (1, [11046]), 'reg': (4, [337, 345, 1417, 6187]), 'ioi': (2, [1388, 1450])}
+   'E(Q)'             {'main': (19, [858, 1099, 1103, 1110, 7915, 8866, 8914, 9016, 9276, 10947, 10953, 11008]), 'reg': (14, [875, 935, 947, 1379, 1383, 1387, 1391, 1475, 1479, 1727, 2223, 6449])}
+   'unfibred'         {'main': (20, [890, 1103, 1111, 5066, 5531, 8867, 8914, 8976, 8978, 9016, 9276, 10628]), 'reg': (6, [875, 1379, 1387, 1727, 6449, 6692])}
+   'from 4 to'        {'main': (2, [5994, 11046]), 'reg': (1, [1419])}
+   '4 to 3'           {'main': (1, [11079]), 'reg': (1, [1727])}
+   '18 cells'         {'main': (1, [11046]), 'reg': (4, [339, 347, 1419, 6189]), 'ioi': (2, [1388, 1450])}
    'one nonexistent'  {'main': (1, [11036])}
    'eight retrievable' {'main': (1, [11036])}
-   'no route'         {'main': (3, [7355, 11038, 11045]), 'reg': (3, [1417, 1661, 5481])}
-   'E(Q) = 5'         {'main': (1, [9276]), 'reg': (2, [1473, 2221])}
-   'E(Q) = 2 fibred'  {'reg': (1, [873])}
+   'no route'         {'main': (3, [7355, 11038, 11045]), 'reg': (3, [1419, 1663, 5483])}
+   'E(Q) = 5'         {'main': (1, [9276]), 'reg': (2, [1475, 2223])}
+   'E(Q) = 2 fibred'  {'reg': (1, [875])}
    Register lines stating an E(Q) value:
-     L873 TWO CELLS THE MATHEMATICAL FIBRE OF Q ADMITS AND Q LACKS, EXPOSED BY ITEMS L AND M. E(Q) = 2 fibred, 1 unfibred.
-     L933 E(Q) = 0 IS FIBRATION-DEPENDENT IN THE SAME WAY: FOUR FIBRES BY DOMAIN GIVE ZERO, ONE FIBRE GIVES ONE.
-     L945 NOVELTY CLOSED BY THE AUTHOR: NOT CLAIMED. E(Q) unmoved, and six Q items move from blocks: novelty to blocks: nothing.
-     L1377 E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER. Stated as nought fibred and one unfibred, it is 4 unfibred on the table as it now stands — moved
-     L1473 ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR. Forty-three cells stand admitted and absent across the four — E(Λ) = 
-     L1725 Q ITEM R LANDED IN A CELL Q HAD ALREADY PREDICTED. Entering how many closed subsets a closed index has — nothing blocked, buildable, unbounded — took 
-     L2221 `appendix_audit.py` FOUND ONE REAL FAULT AND THREE OF ITS OWN. A second passage still carried the stale figures — forty-three cells stand admitted and
-     L6447 Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED. The four doma
+     L875 TWO CELLS THE MATHEMATICAL FIBRE OF Q ADMITS AND Q LACKS, EXPOSED BY ITEMS L AND M. E(Q) = 2 fibred, 1 unfibred.
+     L935 E(Q) = 0 IS FIBRATION-DEPENDENT IN THE SAME WAY: FOUR FIBRES BY DOMAIN GIVE ZERO, ONE FIBRE GIVES ONE.
+     L947 NOVELTY CLOSED BY THE AUTHOR: NOT CLAIMED. E(Q) unmoved, and six Q items move from blocks: novelty to blocks: nothing.
+     L1379 E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER. Stated as nought fibred and one unfibred, it is 4 unfibred on the table as it now stands — moved
+     L1475 ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR. Forty-three cells stand admitted and absent across the four — E(Λ) = 
+     L1727 Q ITEM R LANDED IN A CELL Q HAD ALREADY PREDICTED. Entering how many closed subsets a closed index has — nothing blocked, buildable, unbounded — took 
+     L2223 `appendix_audit.py` FOUND ONE REAL FAULT AND THREE OF ITS OWN. A second passage still carried the stale figures — forty-three cells stand admitted and
+     L6449 Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED. The four doma
 
 ====================================================================================================
 §2 census: every numeral printed in E.1–E.1.5, E.4 (the grid), E.4.1, E.4.2 (member line numbers)
@@ -152,8 +152,8 @@
    the eleven of E.1.3 / E.1.4 / E.4 = the thirteen (A B C D F G H I K M N O P) less K and O (E.1.3 L11016 *item O closed, item K closed, item M restated*)
    Appendix E lines carrying a coordinate value for K, M, N or O (E.1.2 rows print `—`): []
    K  *retrievable, hours* at main L[2790] (§12.11.0.6; heading L2788); blocks: novelty → nothing at §29.2.1 L[7917] (Register 238)
-   O  *buildable, days* at main L[2766] (§12.11.0.5; heading L2763) and Register L[1353]; blocks NOT printed
-   M  cost *unbounded* rather than *days* at Register L[1373] (371; the eleven-state has M restated); blocks and obstacle NOT printed; the grid: is the work bounded — it is not
+   O  *buildable, days* at main L[2766] (§12.11.0.5; heading L2763) and Register L[1355]; blocks NOT printed
+   M  cost *unbounded* rather than *days* at Register L[1375] (371; the eleven-state has M restated); blocks and obstacle NOT printed; the grid: is the work bounded — it is not
    N  blocks: novelty → nothing at §29.2.1 L[7917]; obstacle and cost NOT printed; the grid: is it reachable from here
    §29.2.1 L7916–L7921: *six of the eleven items in Q had novelty as their only stake — B, C, F, G, K and N … their blocks coordinate falls to nothing* — an eleven-item count at Register 238 (before N, O, P were entered at 256: a different eleven; recorded, not scored)
    per-item obstacle over the open rows now: {'nonexistent': 1, 'retrievable': 7, 'buildable': 2}; blocks: {'one claim': 6, 'nothing': 4}

@@ -1,5 +1,5 @@
 r2-28b4.py — 28b-06/07/08 after rulings: R.7's two blocks and lead-ins, located by content, read as printed
-members: The_Method_1_6-2.md cf4d90ce | The_Method_1_6___The_Register-2.md e0187dde
+members: The_Method_1_6-2.md 133db54d | The_Method_1_6___The_Register-2.md 9b44db27
 
 == §1 THE TWO SENTENCES, THE TWO BLOCKS AND THE TWO CHAPTERS — bounds by scan, chapters under the chat-130 convention
    `### R.7 What is not cited, and why` heading hits                    [11853]                OK
@@ -17,7 +17,7 @@ members: The_Method_1_6-2.md cf4d90ce | The_Method_1_6___The_Register-2.md e0187
    three-body block: bullet works                                       21                     OK
 
 == §2 REGISTER 1721, READ FIRST AND IN FULL — what DEFERRED asked for before any decision
-   register 1721 L6421–L6424:
+   register 1721 L6423–L6426:
      **EIGHT ATTRIBUTION QUESTIONS — SEVEN CLOSED TO NAMED OWNERS.** *Eight attribution questions formed from residue before deriving (§E.5); seven closed to named owners: Montgomery, Saari, Painlevé, Moore/Chenciner–Montgomery, Maupertuis/Jacobi, Alekseev/Moser, Monaghan/Stone–Leigh/Kol, Brudno, Hill/Marchal–Bozis, Baker–Pixley/Montanari/Dechter/Freuder. "Microcanonical ergodic flux" is Kol's term; K(s) ≈ |s| is Brudno's theorem.* *(prior art.)*
    1721 states eight questions and seven closed to named owners         True                   OK
    1721 says the questions were formed from residue BEFORE deriving, citing §E.5 True                   OK
@@ -132,7 +132,7 @@ members: The_Method_1_6-2.md cf4d90ce | The_Method_1_6___The_Register-2.md e0187
 
 == §8 CENSUS — rows in the ranges this reading engaged
    engaged: main L9750–L9925 (Chapter 35), main L9926–L9970 (Chapter 36), main L11853–L11904 (R.7),
-            reg L6345–L6388 (registers 1701–1712) and L6389–L6436 (registers 1713–1724)
+            reg L6347–L6390 (registers 1701–1712) and L6391–L6438 (registers 1713–1724)
    main 1199 / 1200  C9 at L9902 / L9910 — closed in the ch17e / tb1 line as not defects; earlier governs (G0b)
    reg  1460         C9 "never" at L6367 (register 1706) — closed earlier, not a defect; earlier governs (G0b)
    reg  1546         C13-HANDLE-LEAK `3B.tri` at L6403 (register 1716) — CLOSED HERE as a defect: this

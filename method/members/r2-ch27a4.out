@@ -42,7 +42,7 @@
   ioi: `Appendix G` 33 occurrences on 33 lines; `Transitions` (word-bounded, case-sensitive) 1 on 1 lines; `Transitions` case-insensitive 4
   sc: `Appendix G` 0 occurrences on 0 lines; `Transitions` (word-bounded, case-sensitive) 0 on 0 lines; `Transitions` case-insensitive 2
   reg: `Appendix G` 6 occurrences on 2 lines; `Transitions` (word-bounded, case-sensitive) 3 on 3 lines; `Transitions` case-insensitive 12
-  Register lines naming *Transitions*: [6523, 6527, 6559] in entries [1769, 1770, 1778] — "eight citations … left exactly as written" L11369: entries 3, lines 3, occurrences 3
+  Register lines naming *Transitions*: [6525, 6529, 6561] in entries [1769, 1770, 1778] — "eight citations … left exactly as written" L11369: entries 3, lines 3, occurrences 3
   Register 1218–1230 (the attribution pass 1769 names): entries carrying *Transitions* []; entries carrying "T §" []; their heads:
     1218 **THE MATHEMATICAL COMPENDIUM IS NOW AN ATTRIBUTION MAP: 248 OF 248 OBJECTS CARRY A DATED SOURCE.** *It began this pass 
     1219 **AND THE STRANDS MEET IN THE OBJECTS THEMSELVES, NOT IN A PREFACE.** *`A.R` reads: R is a closure operator (Moore 1910)
@@ -62,7 +62,7 @@
   MC `App. G` lines 32 == 32 (1770 "thirty-two in the Mathematical Compendium"): True; occurrences 32; distinct T §s cited beside them: ['1.10', '1.2', '1.3', '1.4', '1.6', '1.7', '1.8', '1.9', '2.1', '2.1b', '2.2', '2.4', '4.1', '4.2', '4.3', '4.4', '5.1', '5.3', '5.4', '5.7', '6.5', '7.1', '8.2', '8.4', '10.1', '10.4', '10.4c', '10.4d', '10.4e', '10.5']
   those T §s all among the 30 G rows: True (not in G: []); G rows never cited from the MC: []
   distinct MC entries (enclosing heading) carrying an `App. G` cite: 30; MC `T §` outside `App. G` lines: 0 []
-  Register `T §` (the paper cited as T): lines [2033, 2057, 2061, 2177, 2181, 2193, 2209, 6686], occurrences 9, entries [543, 549, 550, 584, 585, 588, 592, 1812] — "the eight citations to *Transitions* in the Register" L11369 / 1770: occurrences == 8: False, lines == 8: True
+  Register `T §` (the paper cited as T): lines [2035, 2059, 2063, 2179, 2183, 2195, 2211, 6688], occurrences 9, entries [543, 549, 550, 584, 585, 588, 592, 1812] — "the eight citations to *Transitions* in the Register" L11369 / 1770: occurrences == 8: False, lines == 8: True
   main `T §` lines [4251, 4255] (the two at L4246 / L4250 carry `(Appendix G)`; 1770 "two in the main volume")
   MC lines with "Appendix G" that also name a G § (`§\s*\d+\.\d+` or "G, §"): 1; G §s cited from MC: []
   handles resolving elsewhere (each handle grepped raw, backticked or bare, in main / mc / pc / ioi / sc / reg / Transitions):
@@ -101,16 +101,16 @@
   MC "the index vocabularies": heading-line hits 0 []; body lines 0
 
 == §5 Register entries the G rows cite (1375, 1519, 1523, 1535, 1551, 1399, 1403) and the seating entries (1769, 1770, 1778): headed, body, WARNING line
-  1375 L5163–L5166: "**A COORDINATE THAT INDIVIDUATES THE CELLS IS A KEY, NOT AN AXIS: THE DUAL OF A.DEFINE.** *A.define records th"; WARNING lines 0 []
-  1519 L5715–L5718: "**THE HELLY MEASURE PASSES ITS OWN TEST: IT DERIVES E(Λ) = 0 FROM THE TREE PROPERTY, AND PLACES Λ AT THE LAST "; WARNING lines 0 []
-  1523 L5732–L5735: "**THE THREE TOPICS ARE REGISTERED AS ONE QUEUE OBJECT, WITH THE CONFLICT GRAPH AS THE SHARED MEASURE.** *The p"; WARNING lines 0 []
-  1535 L5780–L5783: "**THE SUPPLIED NILSSON TABLE FAILS A PARITY CHECK AT EXACTLY THE ROW REGISTER 1462 DEPENDS ON.** *An outside m"; WARNING lines 0 []
-  1551 L5840–L5843: "**THE THEODOSIOU COMPANION ARRIVES AND ITS K I EXPERIMENTAL COLUMN MATCHES MY EXTRAPOLATION IN ALL THREE CHANN"; WARNING lines 0 []
-  1399 L5247–L5250: "**THE TOWER'S PRINTED SEQUENCE MIXED TWO CONVENTIONS, AND ONE NUMBER WAS DOING TWO JOBS.** *`indices.py`* **co"; WARNING lines 0 []
-  1403 L5263–L5266: "**A IS PLACED AT AN ENDPOINT, NEVER IN THE INTERIOR, SO Λ_T'S T IS 0 OR 1 AT EVERY RECALIBRATION.** *The perso"; WARNING lines 1 ["…n surds the corridor already generates. WARNING:* *Qualified: the eight a values are RECONSTRUCTIONS held in HANDOFF.md from earlier sessions' walk work, not measurements. This entry therefore claims agreement with a previously computed trajectory, which is weaker than it reads.*…"]
-  1769 L6521–L6524: "**R 1002'S ARCHIVE NOTE IS SUPERSEDED: T IS REFERENCED BY A COMPENDIUM, IN TWENTY-NINE PLACES.** *R 1002 recor"; WARNING lines 0 []
-  1770 L6525–L6528: "**T IS ABSORBED: ITS THIRTY CITED SECTIONS ENTER AS APPENDIX G AND THIRTY-FOUR CITATIONS RE-SOURCE INWARD.** *"; WARNING lines 0 []
-  1778 L6557–L6560: "**THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT U"; WARNING lines 0 []
+  1375 L5165–L5168: "**A COORDINATE THAT INDIVIDUATES THE CELLS IS A KEY, NOT AN AXIS: THE DUAL OF A.DEFINE.** *A.define records th"; WARNING lines 0 []
+  1519 L5717–L5720: "**THE HELLY MEASURE PASSES ITS OWN TEST: IT DERIVES E(Λ) = 0 FROM THE TREE PROPERTY, AND PLACES Λ AT THE LAST "; WARNING lines 0 []
+  1523 L5734–L5737: "**THE THREE TOPICS ARE REGISTERED AS ONE QUEUE OBJECT, WITH THE CONFLICT GRAPH AS THE SHARED MEASURE.** *The p"; WARNING lines 0 []
+  1535 L5782–L5785: "**THE SUPPLIED NILSSON TABLE FAILS A PARITY CHECK AT EXACTLY THE ROW REGISTER 1462 DEPENDS ON.** *An outside m"; WARNING lines 0 []
+  1551 L5842–L5845: "**THE THEODOSIOU COMPANION ARRIVES AND ITS K I EXPERIMENTAL COLUMN MATCHES MY EXTRAPOLATION IN ALL THREE CHANN"; WARNING lines 0 []
+  1399 L5249–L5252: "**THE TOWER'S PRINTED SEQUENCE MIXED TWO CONVENTIONS, AND ONE NUMBER WAS DOING TWO JOBS.** *`indices.py`* **co"; WARNING lines 0 []
+  1403 L5265–L5268: "**A IS PLACED AT AN ENDPOINT, NEVER IN THE INTERIOR, SO Λ_T'S T IS 0 OR 1 AT EVERY RECALIBRATION.** *The perso"; WARNING lines 1 ["…n surds the corridor already generates. WARNING:* *Qualified: the eight a values are RECONSTRUCTIONS held in HANDOFF.md from earlier sessions' walk work, not measurements. This entry therefore claims agreement with a previously computed trajectory, which is weaker than it reads.*…"]
+  1769 L6523–L6526: "**R 1002'S ARCHIVE NOTE IS SUPERSEDED: T IS REFERENCED BY A COMPENDIUM, IN TWENTY-NINE PLACES.** *R 1002 recor"; WARNING lines 0 []
+  1770 L6527–L6530: "**T IS ABSORBED: ITS THIRTY CITED SECTIONS ENTER AS APPENDIX G AND THIRTY-FOUR CITATIONS RE-SOURCE INWARD.** *"; WARNING lines 0 []
+  1778 L6559–L6562: "**THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT U"; WARNING lines 0 []
   §5b the G rows' Register pointers resolved to the CLAIM (docket 9(b)): the row's key words token-counted in each cited entry (convention: has_token, case-insensitive; a stem left-bounded where marked *)
     row 8.2 → Register 1375: {'jurisdict*': 0, 'forcing': 0, 'disjunction': 0, 'ternary': 0, 'scope': 0} — any key False
     row 8.2 → Register 1519: {'jurisdict*': 0, 'forcing': 0, 'disjunction': 0, 'ternary': 0, 'scope': 0} — any key False

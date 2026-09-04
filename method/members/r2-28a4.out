@@ -1,5 +1,5 @@
 r2-28a4.py — 28a-06 after ruling (a): does the author-and-year match on the 162 rows give the figure the sentence prints?
-members: The_Method_1_6-2.md cf4d90ce | The_Method_1_6___The_Register-2.md e0187dde | The_Method_1_6___Mathematical_Compendium-2.md facd6191
+members: The_Method_1_6-2.md 133db54d | The_Method_1_6___The_Register-2.md 9b44db27 | The_Method_1_6___Mathematical_Compendium-2.md facd6191
 
 == §1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about
    main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it) [173, 11550]             OK
@@ -24,7 +24,7 @@ members: The_Method_1_6-2.md cf4d90ce | The_Method_1_6___The_Register-2.md e0187
    the block states its own count and the prior one                   True                     OK
 
 == §2 REGISTER 1736 — the source of the figure, read in full; its fifty-nine is a 172-ROW datum
-   register 1736 L6457–L6460: **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN VOLUME NOW SAYS WHICH BIBLIOGRAPHY IS WHOSE.** *Matching the compendium's "172 works, 1669–2026" against the main volume's References by author and year found fifty
+   register 1736 L6459–L6462: **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN VOLUME NOW SAYS WHICH BIBLIOGRAPHY IS WHOSE.** *Matching the compendium's "172 works, 1669–2026" against the main volume's References by author and year found fifty
    1736 says the match was made against "172 works"                   True                     OK
    1736 says the match was by author and year                         True                     OK
    1736 states the shared count as fifty-nine                         True                     OK
@@ -151,7 +151,7 @@ members: The_Method_1_6-2.md cf4d90ce | The_Method_1_6___The_Register-2.md e0187
    not decide them; they are carried as NEAR (SUBJ, chat 148), an upper bound, never assigned.
 
 == §7 CENSUS — rows in the ranges this reading engaged
-   engaged: main L11550–L11904 (References entire), mc L3376–L3546 (the bibliography block), reg L6457–L6460 (entry 1736)
+   engaged: main L11550–L11904 (References entire), mc L3376–L3546 (the bibliography block), reg L6459–L6462 (entry 1736)
    main 718 / 719  C7 at L11600 — closed in the ch28a unit, not a defect; the earlier line governs (G0b)
    reg 1463        C9 "never" at L6459 — CLOSED HERE as a defect on the Janet row (28a-09)
    mc 387–672      C13-HANDLE-LEAK, 286 rows, the bibliography table's `objects` column — CLOSED by r2-bib

@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 members and the unit (lettered headings; body = LAST hit; a `### D.x` unit ends at the next heading of any rank)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 cf4d90ce  11904 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 e0187dde  6699 lines
+   main The_Method_1_6-2.md                                  md5 133db54d  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 9b44db27  6706 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 facd6191  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 27d387ef  2094 lines
@@ -25,27 +25,27 @@
 ====================================================================================================
 §1 the Register: the entries the unit cites, their headings, WARNING lines; the family figures grepped in six volumes
 ====================================================================================================
-     222 heading L887 body L887–L890 WARNING lines [] :: **ITEM L CLOSED.** *Five results the table had no room for are all theorem · order, placed by reading each proof rather than its subject; A.5's verifi
-     230 heading L915 body L915–L918 WARNING lines [] :: **APPENDIX D'S *KIND* COORDINATE DISAGREES WITH PART III'S TITLE — THE PART IS CALLED THE LAW AND ITS CONTENTS ARE THEOREMS.** *Recorded rather than r
-     232 heading L919 body L919–L922 WARNING lines [] :: **THE LAW-PROMOTION OF 230, TESTED AND DECLINED.** *Both readings close at E = 0, so the book's own measure cannot decide its own classification, and 
-     233 heading L923 body L923–L926 WARNING lines [] :: **E = 0 IS MONOTONE IN THE FIBRATION AND REACHABLE BY REFINEMENT ALONE.** *The same thirty-two elements give 4 in one fibre, 3 by language, 2 by kind,
-     248 heading L979 body L979–L982 WARNING lines [] :: **A.5 RETESTED ON EVERY AMBIENT POINT RATHER THAN 30,000 SAMPLED — THE BOX HOLDS 6,912, SO THE SAMPLING DREW MORE TIMES THAN THERE ARE CELLS AND STILL
-     282 heading L1079 body L1079–L1082 WARNING lines [] :: **APPENDIX D'S RE-CLOSURE PERFORMED FOR THE FIRST TIME, AND IT FAILED** *— E = 1 at* *proved · sampled · none found**. Closed by proving what had been
+     222 heading L889 body L889–L892 WARNING lines [] :: **ITEM L CLOSED.** *Five results the table had no room for are all theorem · order, placed by reading each proof rather than its subject; A.5's verifi
+     230 heading L917 body L917–L920 WARNING lines [] :: **APPENDIX D'S *KIND* COORDINATE DISAGREES WITH PART III'S TITLE — THE PART IS CALLED THE LAW AND ITS CONTENTS ARE THEOREMS.** *Recorded rather than r
+     232 heading L921 body L921–L924 WARNING lines [] :: **THE LAW-PROMOTION OF 230, TESTED AND DECLINED.** *Both readings close at E = 0, so the book's own measure cannot decide its own classification, and 
+     233 heading L925 body L925–L928 WARNING lines [] :: **E = 0 IS MONOTONE IN THE FIBRATION AND REACHABLE BY REFINEMENT ALONE.** *The same thirty-two elements give 4 in one fibre, 3 by language, 2 by kind,
+     248 heading L981 body L981–L984 WARNING lines [] :: **A.5 RETESTED ON EVERY AMBIENT POINT RATHER THAN 30,000 SAMPLED — THE BOX HOLDS 6,912, SO THE SAMPLING DREW MORE TIMES THAN THERE ARE CELLS AND STILL
+     282 heading L1081 body L1081–L1084 WARNING lines [] :: **APPENDIX D'S RE-CLOSURE PERFORMED FOR THE FIRST TIME, AND IT FAILED** *— E = 1 at* *proved · sampled · none found**. Closed by proving what had been
      305 heading LNone body LNone–LNone WARNING lines None :: 
-     361 heading L1315 body L1315–L1318 WARNING lines [] :: **APPENDIX D RE-CLOSED AFTER THE INTAKE — FORTY ELEMENTS BECOME FORTY-EIGHT AND E RETURNS TO 0, BUT THE FIRST RUN GAVE E = 1 AND WHAT CLOSED IT WAS CO
-    1718 heading L6409 body L6409–L6412 WARNING lines [] :: **FIRST AUDIT FAILED 13/13 — THE SHAPE POTENTIAL WAS DIVIDED BY R ONCE TOO OFTEN.** *First audit run: check A failed 13/13. Cause: the shape potential
-    1726 heading L6437 body L6437–L6440 WARNING lines [] :: **APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, D
-    1734 heading L6453 body L6453–L6456 WARNING lines [] :: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPT
+     361 heading L1317 body L1317–L1320 WARNING lines [] :: **APPENDIX D RE-CLOSED AFTER THE INTAKE — FORTY ELEMENTS BECOME FORTY-EIGHT AND E RETURNS TO 0, BUT THE FIRST RUN GAVE E = 1 AND WHAT CLOSED IT WAS CO
+    1718 heading L6411 body L6411–L6414 WARNING lines [] :: **FIRST AUDIT FAILED 13/13 — THE SHAPE POTENTIAL WAS DIVIDED BY R ONCE TOO OFTEN.** *First audit run: check A failed 13/13. Cause: the shape potential
+    1726 heading L6439 body L6439–L6442 WARNING lines [] :: **APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, D
+    1734 heading L6455 body L6455–L6458 WARNING lines [] :: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPT
    register pointers inside D.5.9: [1718, 1249, 1726]
-   'E = 4'              {'main': (2, [10861, 10863]), 'reg': (4, [3145, 3565, 6006, 6439]), 'pc': (1, [61])}
-   'E = 2'              {'main': (2, [5758, 10865]), 'reg': (7, [1285, 1897, 1985, 5177, 5838, 6658]), 'mc': (2, [870, 1870])}
-   'sixty-five'         {'main': (4, [6688, 9276, 10854, 10882]), 'reg': (6, [2221, 5337, 5341, 6439, 6455, 6463])}
-   'twenty-two fibres'  {'main': (2, [10854, 10883]), 'reg': (3, [6455, 6463, 6658])}
-   '3B.five'            {'main': (2, [10849, 10860]), 'reg': (1, [6439]), 'mc': (3, [3391, 3393, 3534])}
-   '3B.pot'             {'main': (2, [10847, 10860]), 'reg': (2, [6439, 6467]), 'mc': (1, [3538])}
-   '650'                {'main': (2, [6022, 10864]), 'reg': (4, [2525, 6439, 6592, 6698]), 'mc': (1, [3254]), 'ioi': (1, [1030]), 'sc': (6, [417, 418, 459, 460, 461, 462])}
-   'formula · analysis' {'main': (11, [10509, 10594, 10605, 10606, 10607, 10845]), 'reg': (1, [6439])}
-   Register lines naming *D.5.9*: [6439, 6455] ; lines with "E = 4": [3565, 6006, 6439]
+   'E = 4'              {'main': (2, [10861, 10863]), 'reg': (4, [3147, 3567, 6008, 6441]), 'pc': (1, [61])}
+   'E = 2'              {'main': (2, [5758, 10865]), 'reg': (7, [1287, 1899, 1987, 5179, 5840, 6660]), 'mc': (2, [870, 1870])}
+   'sixty-five'         {'main': (4, [6688, 9276, 10854, 10882]), 'reg': (6, [2223, 5339, 5343, 6441, 6457, 6465])}
+   'twenty-two fibres'  {'main': (2, [10854, 10883]), 'reg': (3, [6457, 6465, 6660])}
+   '3B.five'            {'main': (2, [10849, 10860]), 'reg': (1, [6441]), 'mc': (3, [3391, 3393, 3534])}
+   '3B.pot'             {'main': (2, [10847, 10860]), 'reg': (2, [6441, 6469]), 'mc': (1, [3538])}
+   '650'                {'main': (2, [6022, 10864]), 'reg': (4, [2527, 6441, 6594, 6700]), 'mc': (1, [3254]), 'ioi': (1, [1030]), 'sc': (6, [417, 418, 459, 460, 461, 462])}
+   'formula · analysis' {'main': (11, [10509, 10594, 10605, 10606, 10607, 10845]), 'reg': (1, [6441])}
+   Register lines naming *D.5.9*: [6441, 6457] ; lines with "E = 4": [3567, 6008, 6441]
 
 ====================================================================================================
 §2 census: every numeral printed in D.5.5 (fibration table) and D.5.9 (member line numbers)

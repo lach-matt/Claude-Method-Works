@@ -1,0 +1,52 @@
+
+== 0  THE UNIT
+   unit opens at entry 290                                  1093                       OK
+   unit = L1093-L1212, 120 lines, entries 290..326, 30 headings
+
+== 1  THE GAPS, CLASSIFIED AGAINST THE WHOLE REGISTER
+   gaps [291, 293, 305, 308, 310, 318, 324]
+   under a grouped heading : [291, 293, 305, 308, 310, 318]
+   absent entirely         : [324]
+
+== 2  ENTRY 301 — THE CAPS, RE-DERIVED FROM tower-2.py's OWN LOOPS
+   tower-2 prints Λ8                                        976                        OK
+   (3,3,1,3) with k >= 1                                    976                        as printed
+   (3,3,2,3) under the SYMMETRIC l/f lift                   1548                       as printed
+   for the record, the asymmetric lift this instrument first took: (3,3,2,3) f held at 1 -> 1284
+   and k >= 0 instead of k >= 1: (3,3,1,3) -> 1001, which is entry 301's other half:
+   only k >= 1 gives 976                                    True                       as printed
+   Both halves of entry 301 reproduce. The eighth condition it says the construction is
+   short of is k >= 1, and the caps that give 976 are the seated ones.
+
+== 3  EVERY SECTION POINTER RESOLVED TO ITS HEADING AND ITS CLAIM
+   §2.19.1   L959    The register, examined before repairing it     
+   §3.8      L1369   How the set grew, and the two things that held 
+   §4        L117    The failures of the assistant, and the protoco carries the claim
+   §6.2      L1599   It is not a peculiarity of chemistry           
+   §8.3      L1852   Seventeen generators                           carries the claim
+   §12.5     L2349   What Λ is a property of                        
+   §12.6     L2358   The cylinder is a fibration, and its fibres ar 
+   §18.4.1   L5004   The law of realised closure                    
+   §23.1     L6185   The ratio                                      
+   §28.7.4   L7649   Forty more, from the session that closed §30.3 carries the claim
+
+== 4  ENTRY 315 — THE FILL, AND WHAT IS NOT ON THE PAGE
+   315: "E = 0 at every stage, and fill falling monotonically 14.12%% to ..."
+   976 / 6,912 rounds to the 14.12% three entries state     14.12                      OK
+   the rest of the fall needs the AMBIENT box at each stage; tower-2 prints the lattice
+   sizes only and no ambient. Budget with its witness, as at reg6 and unit 5. Docket 10.
+
+== 5  REGISTER POINTERS IN THE UNIT
+   register 275   exists True
+   register 293   exists True
+
+== 6  CENSUS
+   census rows in range: 2
+     1239	C9-OVERGENERALISATION-WORD	reg	1101	never	**A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen
+     1240	C9-OVERGENERALISATION-WORD	reg	1205	never	**THREE TIERS RESTORED AFTER TWO PROVED TOO FEW.** *And the author's bracket rule — presume t
+
+== SUMMARY
+   instrument checks failed : 0 
+   deviations recorded      : 0
+
+   ALL INSTRUMENT CHECKS OK

@@ -1,0 +1,84 @@
+
+== 0  THE UNIT
+   unit opens at entry 362                                  1349                       OK
+   unit = L1349-L1468, 120 lines, entries 362..394, 30 headings
+
+== 1  EVERY SECTION POINTER, RESOLVED IN ANY VOLUME
+   distinct section pointers: 30
+   §2.16        main The grid — the book's method, stated
+   §2.16.1      main Why this is the method and not a technique
+   §2.19        main What a safe repair requires
+   §2.21        main A figure removed must have its data represented anot
+   §3           main The twenty-two prime audits, ordered by what a failu
+   §3.7         main The precedences, and the certificate for the dimensi
+   §3.7.1       main The twenty-first audit — INPUT
+   §3.8         main How the set grew, and the two things that held
+   §4           main The failures of the assistant, and the protocol each
+   §6.2         main It is not a peculiarity of chemistry
+   §6.2.1       main The nuclide chart's defect, recomputed under variati
+   §6.3         main The calendar can be repaired, and the repair is inst
+   §12          main The shape — a cylinder over the transfer
+   §12.11.0.1   main The clock in the constraint — Λ₉'s composition has a
+   §12.11.1     main The axes, and what each one sees
+   §12.11.1.1   main The eleventh axis's density, computed under variatio
+   §12.11.1.2   main The conservative share, recomputed under variation
+   §12.11.3.1   main Where each bound comes from, and why 9, 10 and 11 di
+   §22.1.1.1    main Containment on level energies, recomputed under vari
+   §28.7.7      main The results of the sessions after the tower — 119, p
+   §28.7.8      main The recurring mechanisms, grouped
+   §29.2.2      main A reading the language cannot close
+   §30.3        main Reorderability — the law, the procedure, and what is
+   §32.1.2      main Four of the seven, answered by computation
+   §32.1.4      main What this book names before anyone tells it
+   §32.1.4.1    main Which of this book's numbers hold still
+   §32.4.2      main Which of this book's figures survive their own input
+   §4.4              Chapter 4 list item at main L1448 (MAIN_AUDIT V1)
+   §4.5              Chapter 4 list item at main L1449 (MAIN_AUDIT V1)
+   §4.7              Chapter 4 list item at main L1453 (MAIN_AUDIT V1)
+   section pointers unaccounted for                         []                         OK
+
+== 2  LETTERED POINTERS, AND THE APPENDIX F PROTOCOL
+   E.1.1   main L10968
+   E.1.2   main L10987
+   E.1.3   main L11011
+   E.2     main L11083
+   E.3     main L11101
+   E.4     main L10977
+   F.3     main L11012
+   F.3.3   PRESENT IN NO VOLUME
+   entries in this unit that the F.3.3 protocol names: [371, 372]
+   F.3.3 is carried by an entry the protocol protects       True                       OK
+   The register rules these left as they stand BECAUSE ENTRIES ARE APPEND-ONLY. Not scored;
+   r2-regsweep's F.3.2 / F.3.3 item is discharged here, for the entries in this unit.
+
+== 3  REGISTER POINTERS
+   11 pointers: [295, 364, 365, 367, 370, 375, 376, 379, 387, 388, 423]
+   register pointers that do not resolve                    []                         OK
+
+== 4  FIGURES THE ENTRIES STATE, RE-DERIVED
+   393: 904 of 1,654, to one decimal                        54.7                       as printed
+   1,654 is the seated Λ₉                                   1654                       OK
+   394: |J(Λ)| = Σ(|Aᵢ| − 1), the seventeen generators      17                         as printed
+   the 17 is entry 268's alphabet closed size, verified at unit 6 and unchanged here.
+
+== 5  ENTRY 375, WHICH THE RECORD ALREADY SCORES
+   375 is the site of 26c-02 (W-190 / DEF-151 item 4): "Register 375 records a change to
+   §32.1.4 that §32.1.4 did not receive". It is in this unit and is NOT re-scored -- the
+   earlier line governs (G0b). Recorded so the unit read is not read as having missed it.
+   entry 375 is in this unit                                True                       OK
+
+== 6  CENSUS
+   census rows in range: 7
+     1244	C9-OVERGENERALISATION-WORD	reg	1373	never	**ITEM M IS WITHDRAWN RATHER THAN CLOSED.** *It asked for E(G) = 33 to be* *resolved**, meaning dr
+     1245	C9-OVERGENERALISATION-WORD	reg	1377	never	**E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER.** *Stated as nought fibred and one unfibre
+     1246	C9-OVERGENERALISATION-WORD	reg	1393	never	**THE AUDIT COORDINATES PRINTED, AND THE LAST FIGURE §2.21 COULD NOT REACH IS NOW COMPUTED.** *E(a
+     1247	C9-OVERGENERALISATION-WORD	reg	1397	never	**I NEARLY WITHDREW A CORRECT CLAIM ON TWO FAILING INSTRUMENTS.** *§3.8 asserts dim(hierarchy) = 2
+     1248	C9-OVERGENERALISATION-WORD	reg	1405	never	**A TWENTY-FIRST PRIME AUDIT, INPUT, DEFINED AT §3.7.1 AND RETAINED** *: every stated result must 
+     1249	C9-OVERGENERALISATION-WORD	reg	1429	never	**EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six resolve cle
+     1250	C9-OVERGENERALISATION-WORD	reg	1449	always	**THE MEASUREMENT FIBRE'S TOP CELL OCCUPIED AT §6.2.1, AND THE RECOMPUTATION IS A RESULT.** *§6.2
+
+== SUMMARY
+   instrument checks failed : 0 
+   deviations recorded      : 0
+
+   ALL INSTRUMENT CHECKS OK

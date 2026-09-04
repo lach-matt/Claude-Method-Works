@@ -3,7 +3,7 @@
 
 ## Why this register is printed
 
-**1657 entries, 1 to 1815.** *Entries 1 to 94 are the genesis block — the founding chat and the first paper* The Lach Elemental Lattice*, prepended as the record of where the work began; entries 95 to 164 are the superseded Λ₈ successor-development stretch, each marking the later entry that supersedes it; and 165 to 1815, 1,493 entries, are the mature record from which the five compendia are distilled.* Each is written at a fixed density and stands alone. *The register is printed because a result is worth what its derivation is worth: the measurements as they were taken, the arguments as they were made, and the reversals kept beside the claims they overturned. The compendia answer; this is where the answers were got — including the ones that were got wrong first.*
+**1658 entries, 1 to 1816.** *Entries 1 to 94 are the genesis block — the founding chat and the first paper* The Lach Elemental Lattice*, prepended as the record of where the work began; entries 95 to 164 are the superseded Λ₈ successor-development stretch, each marking the later entry that supersedes it; and 165 to 1816, 1,494 entries, are the mature record from which the five compendia are distilled.* Each is written at a fixed density and stands alone. *The register is printed because a result is worth what its derivation is worth: the measurements as they were taken, the arguments as they were made, and the reversals kept beside the claims they overturned. The compendia answer; this is where the answers were got — including the ones that were got wrong first.*
 
 **A correction never replaces what it corrects.** Both states are kept, and the entry that corrects names the entry corrected, so the record of a mistake survives its repair. It is the discipline the volume rests on: a register that tidied itself would be evidence of nothing.
 
@@ -20,7 +20,7 @@ Entries run in the order the work happened, which is why they are numbered rathe
 | kind | entries (Build 16) | first reading | what it means |
 |---|---|---|---|
 | **a finding** | 1,359 | 796 | something established that was not known before the entry |
-| **a correction** | 168 | 370 | something written wrong and put right, with both states kept |
+| **a correction** | 169 | 370 | something written wrong and put right, with both states kept |
 | **a measurement** | 501 | 299 | a number, with what it was measured on |
 | **prior art** | 61 | 69 | a result found to be published, with the source |
 | **a new protocol** | 24 | 67 | a rule earned by a failure, so the failure cannot recur |
@@ -28,23 +28,25 @@ Entries run in the order the work happened, which is why they are numbered rathe
 | **a fault of mine** | 16 | 59 | an error by the assistant, recorded as such |
 | **an open question** | 23 | 30 | something the work cannot currently settle, and why |
 
-*The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cites prior art. The counts are of entries matching each pattern, not a partition.* *The Build 16 column is recomputed from this file by `kinds.py` over the 1,587 entry headings, seven of which hold the thirty-two grouped fault entries: an entry is counted under a kind when its headline matches that kind's pattern — a correction on CORRECT, WRONG, STALE, PUT RIGHT, AMEND, FIX, MISLOCATED, REPAIR, ERROR, OVERTAKEN, MISTAKEN, MISREAD, MISCOUNTED; a measurement when the headline carries a number; prior art on PRIOR ART, PUBLISHED, ALREADY KNOWN or a year; a new protocol on PROTOCOL, RULE, RULED, RULING, MUST, PROCEDURE; a withdrawal on WITHDRAWN, RETRACTED, REMOVED, DROPPED, ABANDONED, DISCARDED; a fault of mine on FAULT OF MINE, MY FAULT, MY ERROR, THE ASSISTANT; an open question on OPEN QUESTION, OPEN, UNSETTLED, UNRESOLVED, UNKNOWN, NOT YET KNOWN; a finding otherwise, unless it is a correction, withdrawal, fault or open question; a body tag such as "(a measurement.)" overrides the pattern; the ten grouped headings count as corrections and faults. The first-reading column ( and earlier) was produced by patterns that were never printed and is kept as the reading it was.*
+*The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cites prior art. The counts are of entries matching each pattern, not a partition.* *The Build 16 column is recomputed from this file by `kinds.py` over the 1,588 entry headings, seven of which hold the thirty-two grouped fault entries: an entry is counted under a kind when its headline matches that kind's pattern — a correction on CORRECT, WRONG, STALE, PUT RIGHT, AMEND, FIX, MISLOCATED, REPAIR, ERROR, OVERTAKEN, MISTAKEN, MISREAD, MISCOUNTED; a measurement when the headline carries a number; prior art on PRIOR ART, PUBLISHED, ALREADY KNOWN or a year; a new protocol on PROTOCOL, RULE, RULED, RULING, MUST, PROCEDURE; a withdrawal on WITHDRAWN, RETRACTED, REMOVED, DROPPED, ABANDONED, DISCARDED; a fault of mine on FAULT OF MINE, MY FAULT, MY ERROR, THE ASSISTANT; an open question on OPEN QUESTION, OPEN, UNSETTLED, UNRESOLVED, UNKNOWN, NOT YET KNOWN; a finding otherwise, unless it is a correction, withdrawal, fault or open question; a body tag such as "(a measurement.)" overrides the pattern; the ten grouped headings count as corrections and faults. The first-reading column ( and earlier) was produced by patterns that were never printed and is kept as the reading it was.*
 
 ### The load-bearing entries
 
-**571 entries are cited by other entries.** *A citation is counted each time an entry names another — "register 1460", "R 1460", or a range — so an entry cited three times by one entry counts three; an entry does not count as citing itself. Recomputed from this file by `register_cites.py` (2026-08-26).* Those cited most are the ones the rest of the record leans on — the 11 cited seven times or more:
+**651 entries are cited by other entries.** *A citation is counted each time an entry names another — "register 1460", "R 1460", or a range — so an entry cited three times by one entry counts three; an entry does not count as citing itself. Recomputed from this file by `register_cites.py` (2026-09-04).* Those cited most are the ones the rest of the record leans on — the 13 cited seven times or more:
 
 | entry | cited | what it established |
 |---|---|---|
-| **1460** | 10× | ν is deactivated as a law and retained as a form; the corridor is the instrument and it survives intact |
+| **1460** | 21× | ν is deactivated as a law and retained as a form; the corridor is the instrument and it survives intact |
+| **1445** | 14× | The 99 was fitted, not generated: held out the walk scores 90 and plain Madelung beats it |
 | **1475** | 10× | Maximality is bracketed by observability, and the register already defined the bracket |
+| **1649** | 10× | Incorporation phase 3 — the charge-0 face computed: 554 series cells staged |
 | **784** | 9× | The fault was invisible to every audit because the audits check consistency, not provenance |
-| **1581** | 9× | Six candidate axes tested: five are determined, Z is refused at 2.1%, and H1's re-coordinatisation does not close |
-| **1649** | 9× | Incorporation phase 3 — the charge-0 face computed: 554 series cells staged |
-| **1664** | 9× | 145 of 554 carry a δ computed against the wrong core — and R 1649's fallback is the silent default §2.9 forbids |
 | **1578** | 9× | IMPROBABLE is removed from the index altogether — it was a judgement about the future standing in a column of facts |
+| **1581** | 9× | Six candidate axes tested: five are determined, Z is refused at 2.1%, and H1's re-coordinatisation does not close |
+| **1664** | 9× | 145 of 554 carry a δ computed against the wrong core — and R 1649's fallback is the silent default §2.9 forbids |
 | **1020** | 8× | A proposal was made that Θ = 0 might supply the missing relative boost; it fails, and the reason is clean |
-| **1445** | 8× | The 99 was fitted, not generated: held out the walk scores 90 and plain Madelung beats it |
+| **1448** | 8× | But the run does not generate, and the per-atom fixed point is vacuous — a check I built without asking whether it could fail |
+| **1526** | 8× | A user-supplied URL breaks the cache, and the second capture caught four fabricated values in the first |
 | **1462** | 7× | And the ratio-4 identity is not a step toward the proof — it is the proof, because it makes the constraint matrix rank one |
 | **1595** | 7× | I was wrong that the ladder needs a URL from M — he supplied it, and the block is the cache |
 
@@ -62,12 +64,12 @@ Entries run in the order the work happened, which is why they are numbered rathe
 ---
 
 
-Build 9, 2026-08-26. **1657 entries, 1 to 1815** (genesis 1–94, superseded 95–164, mature record 165–1815).
+Build 9, 2026-08-26. **1658 entries, 1 to 1816** (genesis 1–94, superseded 95–164, mature record 165–1816).
 
 Every correction, withdrawal and finding in the order it happened. **The book cites entries where
 they carry an argument; the complete record lives here.** **This file is the source.** The generator that once wrote it, `register_gen.py`, was retired at Build 9: entries from 1701 on and the settled form of every entry (1725) were entered by hand, and a generator that no longer reads the record cannot claim not to drift. What is recomputed from this file at every press is stated where it is printed — the citation counts and the load-bearing table (`register_cites.py`, 1732), the kinds table below (`kinds.py`, 1756), and the entry form (`build.py`, 1744).
 
-**387 entries are cited in the main volume's chapters and appendices; 701 counting the four compendia and the two papers; 970 counting citations by other entries.** The rest
+**407 entries are cited in the main volume's chapters and appendices; 879 counting the four compendia and the two papers; 1,077 counting citations by other entries.** The rest
 are the record of how the work went, which is the material §4's mechanisms were built from.
 
 ---
@@ -6696,3 +6698,8 @@ are the record of how the work went, which is the material §4's mechanisms were
 ### 1815
 
 **THE REGISTER'S OWN COUNTS ARE CURRENT FOR THE FIRST TIME SINCE BUILD90, AND THE THREE UNITS THE VOLUME COUNTS IN ARE NAMED SO THEY ARE NOT MISTAKEN FOR ONE.** *reg1-04, docket 30: the front matter printed 1635 entries, 1 to 1792, with a mature record 165 to 1791 at 1,470, and 94 + 70 + 1,470 = 1,634 against its own total; the back matter printed 165–1792; and every build since BUILD92 appended entries no sentence counted. M's sequencing was readings first, then this repair with its class, and Ruling A held the counts until the readings closed at BUILD208. Repaired here from the seated tools' own output on this store, applied as one guarded build: register_counts.py counts 1,657 headings — 1,650 single and 7 grouped, this entry among them, since the entry that records a count is itself an entry — with the highest entry 1815 and the mature record 165–1815 at 1,493, and the front matter now sums to itself; kinds.py's column reads finding 1,359, correction 168, measurement 501, new protocol 24, over 1,587 entry headings; register_cites.py counts 407 entries cited in the main volume. Chapter 28's dated readout reads 1,657 entries, 1 to 1815, at this build, and its two neighbouring sentences follow.* **Three units, deliberately: the front matter's total counts every heading, grouped headings included; kinds.py counts the headings it classifies; the entry index a reading instrument builds from bare headings counts 1,650. The volume was never consistent between them and is not made so — only the digits move, in each sentence's own convention (register_counts.py's rule).** *Not touched: fifteen main-volume sentences that write the size in words as narrative — one thousand six hundred and thirty-five — at no named state, which no tool maintains; re-typing them is a prose pass this class does not include and is left to M (docket 35 / 38). The three instruments that asserted the extent as an invariant — r2-regsweep, r2-26b, r3-wl — and the two that carried the printed counts as constants — r2-reg1a, r2-reg7a — take successors that read the printed figures as data, seated with this build's close.* Registers 1736; 1762; 1793–1796; 1813. (a correction.)
+
+### 1816
+
+**THE FRONT MATTER'S CITATION FIGURES AND ITS LOAD-BEARING TABLE ARE RE-TAKEN FROM THE SEATED TOOL; THE TABLE KEEPS ITS ELEVEN ROWS AND GAINS TWO.** *reg1-G / H / I, READ-reg104 (ii): the front matter printed 571 entries cited by other entries, recomputed by register_cites.py on 2026-08-26, and 387 / 701 / 970 for the main volume, the compendia and papers, and the whole record; its table printed the eleven cited seven times or more — 1460 and 1475 at 10×, 784, 1581, 1649, 1664 and 1578 at 9×, 1020 and 1445 at 8×, 1462 and 1595 at 7×. Every entry appended since that recount cited without any sentence counting it. Re-taken here by running the seated tool, unmodified, on the Register as it stands with this entry counted: 651 entries are cited by other entries, this one citing 1815; 407 in the main volume, 879 counting the four compendia and the two papers, 1,077 counting citations by other entries; thirteen entries reach seven citations — the eleven, each cited at least as often as before, and two the recount reaches for the first time, 1448 and 1526 at 8×. Two conventions of the tool the printed sentence did not state are stated now: the superseded stretch 95–164 is not counted as a citer, and a range counts each entry it spans. The prior figures stand in this entry; the table's third column is each entry's own headline in sentence case and is not rewritten for the eleven. The count sentences of entry 1815's class move with this entry, as they will with every entry, and are re-taken in the same build. One press anchor moves with the date: build.py's substitution that strips the tool's name from this sentence for the print edition anchors on the old date, and the press's anchor list is the press's to move (docket 38's class); recorded here so the print edition is not silently different.* Registers 1815. (a correction.)
+

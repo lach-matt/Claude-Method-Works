@@ -48,3 +48,27 @@ removal — and that tying register 1448 to 1332 could therefore only be done by
    edit therefore goes through a class instrument in the form of `r3-wl2` / `r3-arith-01` — count-asserted
    substitutions with a reverse guard — and not through `close.py --append`. No instrument is loosened to
    permit it.
+
+## Put to M by chat 153-R after reading the consolidation branch (DEF-153P) — three questions, unanswered
+
+Each is stated so that a one-word answer rules it; the recommendation is the chat's and binds nothing.
+
+**Q1 — Is a chat transcript a source R3 may repair *from*, or only a lead R3 may read the volumes *by*?**
+The retraction audit lists 25 figures or claims withdrawn in conversation and still printed as current. Chat-67 records
+findings from readings of the volumes; nothing in the rulings names a transcript as a witness. One of the audit's own
+rows shows a chat correction that was itself stale (the Register does begin at entry 1). *Recommended: a lead only —
+a row is executed when the volumes themselves witness the withdrawal (register 402 against the closure rule's four
+sites; 2,475; 1790 against its own table; 24,585 against 602), and otherwise it is docketed as a chat-witnessed
+claim awaiting a Register entry of M's.*
+
+**Q2 — Which object does register 66 quantify over: the observed ground configurations (`LW1-ground.py`, register
+1306), or the aufbau-built table it was measured on?** On the observed table the occupied set is not downward
+closed (Cr, Cu, Pd, Pt leave holes at 3d⁴, 3d⁹, 4d⁹, 5d⁸) and 0 of 120 ℓ-orderings are admissible against the
+entry's 1 of 120. *Recommended: the entry's own words — "ground-state configuration" — name the observed table; if M
+agrees, R3 appends an entry recording the re-measurement beside 66, in 1807's shape, and 66 is not edited.*
+
+**Q3 — Are the thirteen numbers seated in neither register (176, 177, 661–663, 670–672, 682, 683, 687, 688, 1138)
+withdrawn, or never issued?** A collection log quotes *Register 661* as a live instruction, so at least that one was
+issued once. Every other gap in 1..1792 is a relocation to the Working Register under an EXCISED marker. This joins
+the census retirement question of DEF-153O. *Recommended: 176 and 177 never issued (no trace anywhere); 661–688 and
+1138 withdrawn, each to be recorded with a one-line reason in the Working Register, no renumbering.*

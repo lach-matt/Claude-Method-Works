@@ -1,0 +1,75 @@
+
+== 0  THE REMAINDER
+   the remainder opens at entry 395                           1469                     OK
+   L1469-L6706, 5237 lines, 1310 headings, entries 395..1816
+   every entry from 395 on is in this remainder               1658                     OK
+   read in 14 blocks of 400 lines
+
+== 1  POINTER RESOLUTION, BLOCK BY BLOCK
+   L1469 -1868  100 entries   56 §   11 reg  unresolved §:-              reg absent:-
+   L1869 -2268  100 entries   43 §   19 reg  unresolved §:-              reg absent:-
+   L2269 -2668  100 entries   21 §   18 reg  unresolved §:-              reg absent:-
+   L2669 -3068  100 entries    5 §   34 reg  unresolved §:-              reg absent:-
+   L3069 -3468  100 entries    4 §   33 reg  unresolved §:-              reg absent:-
+   L3469 -3868  100 entries    5 §   31 reg  unresolved §:-              reg absent:-
+   L3869 -4268  100 entries    0 §   27 reg  unresolved §:-              reg absent:-
+   L4269 -4668  100 entries    0 §   13 reg  unresolved §:-              reg absent:-
+   L4669 -5068  100 entries    1 §   12 reg  unresolved §:-              reg absent:-
+   L5069 -5468  100 entries    3 §   35 reg  unresolved §:-              reg absent:-
+   L5469 -5868  100 entries    4 §   93 reg  unresolved §:-              reg absent:-
+   L5869 -6268  100 entries    6 §   85 reg  unresolved §:-              reg absent:-
+   L6269 -6668  101 entries   59 §   57 reg  unresolved §:-              reg absent:-
+   L6669 -6706    9 entries   10 §   19 reg  unresolved §:-              reg absent:-
+   section pointers unaccounted for in the remainder          []                       OK
+   register pointers with no entry, on the "register N" net   []                       OK
+   The sweep's absent-and-cited pair, 344 and 571, is cited from the MAIN volume and not
+   from the register, so the remainder correctly shows none on this net.
+
+== 1a  BUT THE NET IS THE WRONG SHAPE, AND THE CENSUS HAD IT ALL ALONG
+   entry 1000: 1 site(s) as \bentry 1000\b ; 0 on the "register N" net ; live? False
+   entry 1002: 3 site(s) as \bR 1002\b     ; 0 on the "register N" net ; live? False
+   sites citing a withdrawn entry in the register BODY        4                        OK
+   reg8-02 concluded "no other part of the live register cites a withdrawn entry". That is
+   FALSE, and it is false because the measurement used the "register N" net, which returns
+   0 for both of these forms. Census rows 8, 15, 16 and 17 carried them the whole time.
+   Third time this read has met the lesson, and the first time it has caught the read.
+
+== 1b  THE UNPRINTED-THEOREM CLASS IS LARGER THAN 26b-09 RECORDS
+   Thm 10.1  cited {'reg': 1, 'mc': 2}      printed outside the register: {'mc': 2}
+   Thm 11.1  cited {'reg': 1}               printed outside the register: NOWHERE
+   Thm 11.2  cited {'reg': 2}               printed outside the register: NOWHERE
+   Thm 12.1  cited {'reg': 2}               printed outside the register: NOWHERE
+   26b-09 (W-190) records Thm 11.1 at one site. Measured, Thm 11.2 (2 sites) and Thm 12.1
+   (2 sites) are in the same condition -- cited by the register, printed in no volume.
+   Thm 10.1 IS in the Mathematical Compendium and is not in the class; whether the MC
+   states it or merely cites it was not taken here, and is a budget.
+
+== 2  THE EMPHASIS CLASS ACROSS THE REMAINDER
+   entries carrying the split shape: 247 of 1310 in the remainder
+   sites: 372
+   Already scored volume-wide at reg7-01 and specified for repair in R3-CLASS-EM.md.
+   Counted here so the remainder is not read as though the class stopped at entry 394.
+
+== 3  THE CENSUS OVER THE REMAINDER
+   census rows engaged: 250
+     C9-OVERGENERALISATION-WORD         223
+     C13-HANDLE-LEAK                    12
+     C2-THEOREM-POINTER-UNPRINTED       6
+     C1-SECTION-POINTER-UNRESOLVED      5
+     C5-REGISTER-POINTER-UNRESOLVED     4
+
+== 4  ENTRIES CARRYING A FIGURE THIS READ HAS ALREADY RE-DERIVED
+   976      Λ₈               stated by 31 entries in the remainder
+   6912     the ambient box  stated by 7 entries in the remainder
+   1654     Λ₉               stated by 5 entries in the remainder
+   70905    Λ₁₂              stated by 2 entries in the remainder
+   2535     Λ₁₀              stated by 2 entries in the remainder
+   13585    Λ₁₁              stated by 1 entries in the remainder
+   199130   Λ₁₃              stated by 1 entries in the remainder
+   Each of these is a seated tower figure this read has already reproduced; an entry
+   restating one is corroboration, not a new claim, and is not re-scored.
+
+== SUMMARY
+   instrument checks failed : 0 
+
+   ALL INSTRUMENT CHECKS OK

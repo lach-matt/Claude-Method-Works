@@ -264,42 +264,42 @@
 7.  The register citations the unit makes, read against their entries
 ================================================================================================
 
-  register 275 at reg L1055, entry to L1058
-  --- register 275 L1055-L1058 ---
-   1055 ### 275
-   1056 
-   1057 **E(audits) = 0 WAS TRUE AND WEAK.** *Adding the fourth coordinate DEPTH takes it to 19: a zero is worth the size of the box it was computed in, and every E owes both its fibration and its coordinate list.*
+  register 275 at reg L1057, entry to L1060
+  --- register 275 L1057-L1060 ---
+   1057 ### 275
    1058 
+   1059 **E(audits) = 0 WAS TRUE AND WEAK.** *Adding the fourth coordinate DEPTH takes it to 19: a zero is worth the size of the box it was computed in, and every E owes both its fibration and its coordinate list.*
+   1060 
 
-  register 387 at reg L1435, entry to L1438
-  --- register 387 L1435-L1438 ---
-   1435 ### 387
-   1436 
-   1437 **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: every figure the printed slice specifies reproduces — 208 cells, E(X) = 540, 498 join and 498 meet failures of 21,528 pairs, five χ values, 112 on the diagonal, h¹¹ + h²¹ from 26 to 262 — and all three falsification tests hold at 540 of 540. Only the lookup remains, which E.4's grid already placed at* *reachable from here**. M:* **ten of the eleven admitted cells are dominated** *— for each, an occupied cell of the same fibre is at least as good on all three axes — so filling them would add nothing a reader wants.* **E(X) counts what a structure admits, not what it should contain* **, which §6.3's calendar states and this appendix had not applied to itself.* **One cell is not dominated* **, the highest standard the coordinates allow, and closing M is stating one number that way. The item's cost falls from unbounded to a day.*
+  register 387 at reg L1437, entry to L1440
+  --- register 387 L1437-L1440 ---
+   1437 ### 387
    1438 
+   1439 **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: every figure the printed slice specifies reproduces — 208 cells, E(X) = 540, 498 join and 498 meet failures of 21,528 pairs, five χ values, 112 on the diagonal, h¹¹ + h²¹ from 26 to 262 — and all three falsification tests hold at 540 of 540. Only the lookup remains, which E.4's grid already placed at* *reachable from here**. M:* **ten of the eleven admitted cells are dominated** *— for each, an occupied cell of the same fibre is at least as good on all three axes — so filling them would add nothing a reader wants.* **E(X) counts what a structure admits, not what it should contain* **, which §6.3's calendar states and this appendix had not applied to itself.* **One cell is not dominated* **, the highest standard the coordinates allow, and closing M is stating one number that way. The item's cost falls from unbounded to a day.*
+   1440 
 
-  register 396 at reg L1471, entry to L1474
-  --- register 396 L1471-L1474 ---
-   1471 ### 396
-   1472 
-   1473 **ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR.** *Forty-three cells stand admitted and absent across the four — E(Λ) = 0, E(audits) = 16, E(G) = 19, E(Q) = 5, E(D) = 4 — and* **the count overstates the work by most of its size.** *Register 387's domination test, run on one index, found ten of eleven cells dominated; the same test has not been run on the other three and should be before any cell there is treated as work. The sixteen audits* **wait for a defect rather than for an author** *— the three occupied so far each arrived because something got past the set. What is genuinely actionable is eight of the ten open items, all stopping at* *is it reachable from here**. And two things sit outside every index and always will, since §E.1.4 shows the open set cannot express an unclosable question. §32.6.1.*
+  register 396 at reg L1473, entry to L1476
+  --- register 396 L1473-L1476 ---
+   1473 ### 396
    1474 
+   1475 **ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR.** *Forty-three cells stand admitted and absent across the four — E(Λ) = 0, E(audits) = 16, E(G) = 19, E(Q) = 5, E(D) = 4 — and* **the count overstates the work by most of its size.** *Register 387's domination test, run on one index, found ten of eleven cells dominated; the same test has not been run on the other three and should be before any cell there is treated as work. The sixteen audits* **wait for a defect rather than for an author** *— the three occupied so far each arrived because something got past the set. What is genuinely actionable is eight of the ten open items, all stopping at* *is it reachable from here**. And two things sit outside every index and always will, since §E.1.4 shows the open set cannot express an unclosable question. §32.6.1.*
+   1476 
 
   register 571: *** NO ENTRY IN THE REGISTER ***   cited at main [9280]
 
-  register 572 at reg L2135, entry to L2138
-  --- register 572 L2135-L2138 ---
-   2135 ### 572
-   2136 
-   2137 **AND THE LEVEL IS A COORDINATE §4 DOES NOT HAVE.** *The ten mechanisms distribute three at the value, three at the derivation, four at the inference, and nothing in the book says so.* **The axis merges two mechanisms §4 keeps apart**: *stale figures left behind their own correction* *is a value going stale and* *a conclusion written before the output* *is an inference drawn early —* **the same act at two depths.** *This book's characteristic defect is dimensional: it records an index as a scalar, and every time the coordinate is restored the population re-sorts.*
+  register 572 at reg L2137, entry to L2140
+  --- register 572 L2137-L2140 ---
+   2137 ### 572
    2138 
-
-  register 573 at reg L2139, entry to L2142
-  --- register 573 L2139-L2142 ---
-   2139 ### 573
+   2139 **AND THE LEVEL IS A COORDINATE §4 DOES NOT HAVE.** *The ten mechanisms distribute three at the value, three at the derivation, four at the inference, and nothing in the book says so.* **The axis merges two mechanisms §4 keeps apart**: *stale figures left behind their own correction* *is a value going stale and* *a conclusion written before the output* *is an inference drawn early —* **the same act at two depths.** *This book's characteristic defect is dimensional: it records an index as a scalar, and every time the coordinate is restored the population re-sorts.*
    2140 
-   2141 **THE DOMINATION TEST NOW DISAGREES WITH ITSELF ACROSS TWO INDEXES.** *The audits index went as §32.6.1 predicted — sixteen admitted,* **fourteen dominated, two on the frontier* **, both of them* *outside · dishonest*. **G went the opposite way: forty admitted, thirty on the frontier* **, by fibre measurement 10, defect 8, count 5, density 4, rate 2, bound 1.* **Domination is not a general property of this book's shortfall* **; it held for the numbers index at eleven cells and fails at forty.*
+
+  register 573 at reg L2141, entry to L2144
+  --- register 573 L2141-L2144 ---
+   2141 ### 573
    2142 
+   2143 **THE DOMINATION TEST NOW DISAGREES WITH ITSELF ACROSS TWO INDEXES.** *The audits index went as §32.6.1 predicted — sixteen admitted,* **fourteen dominated, two on the frontier* **, both of them* *outside · dishonest*. **G went the opposite way: forty admitted, thirty on the frontier* **, by fibre measurement 10, defect 8, count 5, density 4, rate 2, bound 1.* **Domination is not a general property of this book's shortfall* **; it held for the numbers index at eleven cells and fails at forty.*
+   2144 
 
 ================================================================================================
 8.  Appendix B -- 153 channels against the channel table arbiter
@@ -383,8 +383,8 @@
    main L9360: **The failure condition, inverted.** |Δ*T*| < 2*Z*²*R*/ν³ turns 1,061 non-failures into 1,061 measurements. Bracketing methods are rare; inverting their silence appears n
    main L10300: **The perturbation bounds are as strong as the failure condition and no stronger.** If the condition is wrong, 1,061 bounds go with it.
    main L10311: here, across all 153 channels · the failure condition and its inversion to 1,061 perturbation bounds ·
-   reg  L3939: ### 1061
-   reg  L6487: **TWO RULINGS: CAPTION 25.1 READS 1,061, AND THE Λ_phys COUNT STAYS AT FIFTEEN ON THE RULE AS PRINTED.** *Ruling 21: the caption of Figure 25.1 said "each of 1,105 verifi
+   reg  L3941: ### 1061
+   reg  L6489: **TWO RULINGS: CAPTION 25.1 READS 1,061, AND THE Λ_phys COUNT STAYS AT FIFTEEN ON THE RULE AS PRINTED.** *Ruling 21: the caption of Figure 25.1 said "each of 1,105 verifi
 
 ================================================================================================
 10. Ruling 45 -- build, press and editorial-process prose inside the unit
@@ -434,7 +434,7 @@
 ================================================================================================
   main: 43 sites; in the unit: 1
     L9174 [''] :: Parsing δ(4s), δ(5s), the limit and Z out of this book's own markdown and running the
-  reg: 159 sites; in the unit: 0
+  reg: 160 sites; in the unit: 0
   mc: 15 sites; in the unit: 0
   pc: 6 sites; in the unit: 0
   ioi: 10 sites; in the unit: 0
@@ -503,7 +503,7 @@
 13. "Sc VI" and the sulphur-like sequence -- the absent-member class (docket 20)
 ================================================================================================
   main: literal "Sc VI" 30 [757, 5360, 6103, 6119, 6919, 6921, 6924, 6997, 7023, 7050, 7080, 7092]   any Sc row 31 [757, 5360, 6103, 6106, 6119, 6919, 6921, 6924, 6997, 7023, 7050, 7080]
-  reg: literal "Sc VI" 0 []   any Sc row 41 [2441, 2445, 2449, 2457, 2645, 2657, 2765, 2837, 2957, 3293, 3593, 3597]
+  reg: literal "Sc VI" 0 []   any Sc row 41 [2443, 2447, 2451, 2459, 2647, 2659, 2767, 2839, 2959, 3295, 3595, 3599]
   mc: literal "Sc VI" 0 []   any Sc row 1 [3016]
   pc: literal "Sc VI" 0 []   any Sc row 1 [482]
   ioi: literal "Sc VI" 0 []   any Sc row 1 [345]

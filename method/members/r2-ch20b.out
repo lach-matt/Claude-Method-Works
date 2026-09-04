@@ -61,7 +61,7 @@
   Every flag                   L[10247]
   "Every computation in this book is reproducible" (L[10258]): a universal — recorded under docket 19 as a claim the unit cannot test (no computation is run by the appendix); its witnesses named: the level tables (SC Part II), the rules of Chapters 22–23, the COORDINATES file (r2-ch20a §6)
   "the only inputs are measured or calculated energy levels, their stated uncertainties, and the ionisation limits" (L[10259]–L[10260]): Register 905 (SC closes stating uncertainties are supplied by five of 49 species) — read: **THE COMPENDIUM CLOSES BY STATING WHAT THE INTERFACE STILL DOES NOT COVER.** *Uncertainties — five of 49 species supply them. The bracket's own inputs — 285 of 431 channels unverified on the compendium's central claim. And Appendix B's inputs — 133 channels l
-  "No fitted parameter enters at any point" across the six volumes (`fitted parameter`): {'main': [7078, 9489, 10259], 'reg': [4329, 4893, 4945, 4989, 5277, 5289], 'mc': [], 'pc': [210, 634], 'ioi': [1668], 'sc': []}
+  "No fitted parameter enters at any point" across the six volumes (`fitted parameter`): {'main': [7078, 9489, 10259], 'reg': [4331, 4895, 4947, 4991, 5279, 5291], 'mc': [], 'pc': [210, 634], 'ioi': [1668], 'sc': []}
 
 ================================================================================================
 §6 DOCKET 27 — sentence recurrence across the six volumes (sentences of ≥ 6 words from the unit, markup-stripped, whitespace-normalised)
@@ -82,7 +82,7 @@
 ================================================================================================
   authors named: 13; absent from the References body: []; JPCRD (the journal, not an author) in References: 0, in main outside the unit: []
   4ν/3 at L[10246] (docket 11 scope: the 5 % departure criterion); `5%` sites in the unit: [10246]
-  `T8-J` across the six volumes: {'main': [10240], 'reg': [6339, 6343], 'mc': [], 'pc': [], 'ioi': [], 'sc': [995]} ; `ruling 26` (lowercase): {'main': [10233], 'reg': [6511, 6519], 'mc': [], 'pc': [], 'ioi': [], 'sc': [297, 994]}
+  `T8-J` across the six volumes: {'main': [10240], 'reg': [6341, 6345], 'mc': [], 'pc': [], 'ioi': [], 'sc': [995]} ; `ruling 26` (lowercase): {'main': [10233], 'reg': [6513, 6521], 'mc': [], 'pc': [], 'ioi': [], 'sc': [297, 994]}
 
 ================================================================================================
 §8 POINTERS — every pointer in the unit resolved to the claim, not the heading
