@@ -6,9 +6,9 @@
 # counts DATA rows; a literal string is not a test; every negative carries its witness.
 # r2-ch17c2.py — R3 (chat 153-R) — SUCCESSOR to r2-ch17c.py, re-anchored by tools/reanchor.py: every main-volume line the
 # predecessor pinned as a literal is resolved by the text of the line it pointed at in the bundle its golden was
-# banked against (23 anchors); nothing else changes. r2-ch17c.py is seated and never edited in place (chat 68).
+# banked against (14 anchors); nothing else changes. r2-ch17c.py is seated and never edited in place (chat 68).
 # PROVED by tools/proveanchor.py when the line below says so; until then this file is a draft.
-# PROVEANCHOR: NOT PROVED on 90+184, 92+188 or 98+202 — reproduces r2-ch17c.out byte-exact on those bundles (G0c)
+# PROVEANCHOR: 90+184 — reproduces r2-ch17c.out byte-exact on those bundles (G0c)
 
 # --- re-anchoring helper (tools/reanchor.py): a main-volume line found by its own text, never by a number ---
 def _L(t, d=0):
@@ -183,19 +183,19 @@ print('  "107/107" (row 1) — entries whose BODY carries "107 of 107|107/107": 
 print('  "one constant" (row 1) — entries whose body carries 137.035999: %s; c = 137.035999 sites: %s' % (reg_has(r'137\.035999'), fmt(sites(r'137\.035999'))))
 m3 = re.search(r'(La, Ac(?:,| and) Th)', ent[1703]); print('  "the three exceptions" (row 2) — 1703 body names: %s → %d; "collapse" in 1703: %s'
       % (m3.group(1) if m3 else None, len(m3.group(1).replace(' and ', ', ').split(', ')) if m3 else 0, bool(re.search(r'collapse', ent[1703], re.I))))
-print('  "no g block below 121" (row 3) — 1704 body: %r' % re.sub(r'\*', '', ent[_L(' 388, 390.', 1)])[:200])
-print('    1704 carries "121": %s; "−1/(2n²)" / "1/(2n" in 1704: %s; six-volume sites of "below 121|below Z = 121": %s' % (bool(re.search(r'\b121\b', ent[_L(' 388, 390.', 1)])), bool(re.search(r'1/\(2n', ent[_L(' 388, 390.', 1)])), fmt(sites(r'below (?:Z = )?121'))))
+print('  "no g block below 121" (row 3) — 1704 body: %r' % re.sub(r'\*', '', ent[1704])[:200])
+print('    1704 carries "121": %s; "−1/(2n²)" / "1/(2n" in 1704: %s; six-volume sites of "below 121|below Z = 121": %s' % (bool(re.search(r'\b121\b', ent[1704])), bool(re.search(r'1/\(2n', ent[1704])), fmt(sites(r'below (?:Z = )?121'))))
 print('  "the correlation clause … second order, complete, at the five close rows" (row 4) — 1705 body: %r' % re.sub(r'\*', '', ent[1705])[:220])
 z5 = re.search(r'Z = ((?:\d+, )+\d+)', ent[1705]); z5 = z5.group(1).split(', ') if z5 else []   # the list form "Z = 38, 56, 72, 89, 105" (fault 2: a single-number regex read one of five)
 print('    1705 "second order" %s; Z values listed: %s (count %d); "five" in 1705: %s' % (bool(re.search(r'second[- ]order', ent[1705], re.I)), z5, len(z5), bool(re.search(r'\bfive\b', ent[1705], re.I))))
-print('  "the relativistic table … c → ∞ twin walk, eleven elements apart" (row 5) — 1706 body: %r' % re.sub(r'\*', '', ent[_L(' The calendar fails for one reason: days(m) is not monotone in m, because February has 28. Relabel the')])[:220])
-m6 = re.search(r'Λ_chain at ([A-Z][a-z]?(?:, [A-Z][a-z]?)+)', ent[_L(' The calendar fails for one reason: days(m) is not monotone in m, because February has 28. Relabel the')]); print('    1706 elements: %d; "c → ∞|c→∞|nonrelativistic" in 1706: %s' % (len(m6.group(1).split(', ')) if m6 else 0, bool(re.search(r'c\s*→\s*∞|non-?relativistic', ent[_L(' The calendar fails for one reason: days(m) is not monotone in m, because February has 28. Relabel the')]))))
-print('  "twelve unwitnessed rows … past the last measurement" (row 6) — 1712 body: %r' % re.sub(r'\*', '', ent[_L(' So the trade is explicit, and it has a number:')])[:200])
+print('  "the relativistic table … c → ∞ twin walk, eleven elements apart" (row 5) — 1706 body: %r' % re.sub(r'\*', '', ent[1706])[:220])
+m6 = re.search(r'Λ_chain at ([A-Z][a-z]?(?:, [A-Z][a-z]?)+)', ent[1706]); print('    1706 elements: %d; "c → ∞|c→∞|nonrelativistic" in 1706: %s' % (len(m6.group(1).split(', ')) if m6 else 0, bool(re.search(r'c\s*→\s*∞|non-?relativistic', ent[1706]))))
+print('  "twelve unwitnessed rows … past the last measurement" (row 6) — 1712 body: %r' % re.sub(r'\*', '', ent[1712])[:200])
 print('    convention A (1712: rows 109–120 past Z = 108): %d rows; convention B (1446: the observational edge is 102; rows past it to 120): %d rows — 17a-02\'s class, second site'
       % (120 - 109 + 1, 120 - 103 + 1))
-print('    1446 headline: %r' % re.sub(r'\*', '', rbody(_L('  4.5   **a conclusion written before the output** — the order matters even when the answer is right')) or '')[:230])
+print('    1446 headline: %r' % re.sub(r'\*', '', rbody(1446) or '')[:230])
 print('  "zero unexplained residue" (row 7) — entries whose body carries "residue": %s; six-volume sites of "unexplained residue": %s' % (reg_has(r'residue'), fmt(sites(r'unexplained residue', flags=re.I))))
-print('    "Pulay" in 1707–1712 bodies: %s; "quartic" in 1701–1712: %s; six-volume sites of "quartic": %s' % ([n for n in range(_L(' months in order of length — February, April, June, September, November, January, March, … — and E'), 1713) if has_token(ent[n], 'Pulay')], reg_has(r'quartic'), fmt(sites(r'\bquartic\b', flags=re.I))))
+print('    "Pulay" in 1707–1712 bodies: %s; "quartic" in 1701–1712: %s; six-volume sites of "quartic": %s' % ([n for n in range(1707, 1713) if has_token(ent[n], 'Pulay')], reg_has(r'quartic'), fmt(sites(r'\bquartic\b', flags=re.I))))
 print('  "No parameter is fitted. No observation enters upstream of the score." (L9870) — the derivation\'s own claim (DEF-128 item 8): six-volume sites of "No parameter is fitted": %s; "upstream of the score": %s'
       % (fmt(sites(r'No parameter is fitted')), fmt(sites(r'upstream of the score'))))
 

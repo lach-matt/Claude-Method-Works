@@ -57,6 +57,12 @@ def main():
         row, c0 = tok.start; _, c1 = tok.end
         ctx = lines[row - 1].strip()
         if v in keep: print('KEEP   %5d  %s' % (v, ctx[:100])); continue
+        # entry-number contexts are never lines: a line that reads the Register by entry — rbody(N), ent[N],
+        # entry(N), span(N), IDX[N], regtext — or seeds a generator, Random(N). Every literal below 1900 on
+        # such a line is auto-kept and printed for review; a main-volume line below 1900 on the same line
+        # would be missed, so the operator reads the table.
+        if v < 1900 and re.search(r'rbody|ent\[|entry\(|span\(|Random\(|blk\(|regtext|IDX\[|\bR\[|REG\[|1701|1713', lines[row - 1]):
+            print('AUTO-KEEP %5d  %s' % (v, ctx[:100])); continue
         if uniq(old[v - 1]):
             rep = '_L(%r)' % old[v - 1]; note = 'exact'
         else:

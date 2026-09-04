@@ -118,9 +118,58 @@
   "107/107" (row 1) — entries whose BODY carries "107 of 107|107/107": [1701, 1706]; six-volume sites of "107/107": main:1[9896] reg:2[6347,6367] mc:2[3162,3216] pc:1[237] ioi:0 sc:0; of "107 of 107": main:1[9780] reg:0 mc:1[3154] pc:1[213] ioi:1[1915] sc:1[190]
   "one constant" (row 1) — entries whose body carries 137.035999: [1701]; c = 137.035999 sites: main:1[9771] reg:1[6347] mc:2[3154,3216] pc:2[209,630] ioi:0 sc:0
   "the three exceptions" (row 2) — 1703 body names: La, Ac, Th → 3; "collapse" in 1703: True
-  "no g block below 121" (row 3) — 1704 body: 'A HYPOTHESIS FALSIFIED BY THE CLAUSE THAT SCORED HIT — KEPT, AS HONESTY REQUIRES. The residual above the linear rotation law was hypothesised to be the endpoint-Hessian term. The exact-quartic extract'
-    1704 carries "121": False; "−1/(2n²)" / "1/(2n" in 1704: False; six-volume sites of "below 121|below Z = 121": main:2[9797,9898] reg:0 mc:1[3182] pc:0 ioi:0 sc:0
+  "no g block below 121" (row 3) — 1704 body: 'NO G BLOCK BELOW Z = 121, AND THE FIELD SAYS SO WITHOUT BEING ASKED. Measured across the walk: 5g at −0.020000 over 65 elements · 6g at −0.013889 over 70 · 7g at −0.010204 over 57 · 8g at −0.0078125 o'
+    1704 carries "121": True; "−1/(2n²)" / "1/(2n" in 1704: True; six-volume sites of "below 121|below Z = 121": main:2[9797,9898] reg:0 mc:1[3182] pc:0 ioi:0 sc:0
   "the correlation clause … second order, complete, at the five close rows" (row 4) — 1705 body: 'THE CORRELATION CLAUSE, COMPLETE AT ALL FIVE CONTESTED ROWS — EVERY COMPETITION WIDENS. Z = 38, 56, 72, 89, 105; full second order (entrant pairs, core–core closed at all five, near-degenerate block resummed with the con'
     1705 "second order" True; Z values listed: ['38', '56', '72', '89', '105'] (count 5); "five" in 1705: True
-  "the relativistic table … c → ∞ twin walk, eleven elements apart" (row 5) — 1706 body: 'ZERO RESIDUE — THE AUDIT OF THE INSTRUMENT CLOSES AT NOTHING LEFT UNEXPLAINED. chord = rot + perp exactly; rot = linear law + the 1708 identity + exact-quartic Hessian; perp = first-order perturbed-HF response (Gerratt–M'
-    1706 elements: 0; "c → ∞|c→∞|nonrelativistic" in 1706: False
+  "the relativistic table … c → ∞ twin walk, eleven elements apart" (row 5) — 1706 body: 'ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL. The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese an'
+    1706 elements: 11; "c → ∞|c→∞|nonrelativistic" in 1706: True
+  "twelve unwitnessed rows … past the last measurement" (row 6) — 1712 body: 'OPEN — TWELVE ROWS UNWITNESSED, AND WHAT WOULD WITNESS THEM. Z = 109–120: entrants 6d (109–112), 7p (113–118), 8s (119–120); margins 0.058–0.264 Ha; spin-orbit worst case 0.083 Ha cleared by all. No g'
+    convention A (1712: rows 109–120 past Z = 108): 12 rows; convention B (1446: the observational edge is 102; rows past it to 120): 18 rows — 17a-02's class, second site
+    1446 headline: 'AND THE OBSERVATIONAL EDGE IS 102, NOT 108 — THERE ARE FOUR EDGES, NOT TWO. NIST ASD returns five rows for Rf–Og: it holds no neutral ground configurations past Z = 108, and `ground.py` matches all five exactly, so our table is fa'
+  "zero unexplained residue" (row 7) — entries whose body carries "residue": [1707, 1711]; six-volume sites of "unexplained residue": main:1[9902] reg:1[6283] mc:1[3206] pc:0 ioi:0 sc:0
+    "Pulay" in 1707–1712 bodies: [1707]; "quartic" in 1701–1712: [1709, 1711]; six-volume sites of "quartic": main:2[9878,10841] reg:2[6379,6383] mc:3[2034,3196,3198] pc:0 ioi:0 sc:0
+  "No parameter is fitted. No observation enters upstream of the score." (L9870) — the derivation's own claim (DEF-128 item 8): six-volume sites of "No parameter is fitted": main:3[9602,9693,9904] reg:1[5073] mc:0 pc:0 ioi:0 sc:0; "upstream of the score": main:1[9904] reg:0 mc:0 pc:0 ioi:0 sc:0
+
+================================================================================================
+7  CODA L9884–L9888 — "Chapter 34 read the order out of the table's own coordinates"; the corridor's silence at f; the collapse condition's address
+================================================================================================
+  \bcoordinates?\b     in Chapter 34 (L9500–L9749): 3 sites L[9536, 9559, 9562]
+  \bcorridor\b         in Chapter 34 (L9500–L9749): 11 sites L[9601, 9615, 9616, 9619, 9623, 9657]
+  \bsilen(?:ce|t)\b    in Chapter 34 (L9500–L9749): 0 sites L[]
+  \bdomain\b           in Chapter 34 (L9500–L9749): 3 sites L[9695, 9700, 9719]
+  −∞|-∞                in Chapter 34 (L9500–L9749): 1 sites L[9702]
+  \bcollapse\b         in Chapter 34 (L9500–L9749): 2 sites L[9556, 9737]
+  carried state        in Chapter 34 (L9500–L9749): 0 sites L[]
+  computab             in Chapter 34 (L9500–L9749): 0 sites L[]
+  "corridor" in the unit: L[9920, 9921]; in Chapter 35 (L9716–L9891): 6; Register entries 1701–1712 carrying "corridor": [1703]
+  six-volume sites of "reached from both ends": main:1[9922] reg:0 mc:0 pc:0 ioi:0 sc:0 ; "closed in the middle": main:1[9922] reg:0 mc:0 pc:0 ioi:0 sc:0
+
+================================================================================================
+8  DOCKET 27 — unit lines ≥ 60 chars recurring anywhere in the six volumes (whitespace-normalised)
+================================================================================================
+  56 long lines tested; recurring: none
+
+================================================================================================
+9  NUMERALS AND PHRASES — sites across the six volumes
+================================================================================================
+  \b107/107\b                  main:1[9896] reg:2[6347,6367] mc:2[3162,3216] pc:1[237] ioi:0 sc:0
+  \b1969\b                     main:11[9495,9502,9606,9756,9866,9868…] reg:7[4569,4573,4673,6355,6371,6499…] mc:12[2858,2862,3066,3070,3106,3174…] pc:2[484,594] ioi:1[1508] sc:0
+  \b1950\b                     main:7[9348,9867,9902,11208,11598,11708…] reg:2[4577,6375] mc:21[644,648,696,698,1228,1230…] pc:1[912] ioi:1[1500] sc:0
+  \b1971\b                     main:4[9868,9940,11859,11875] reg:2[5493,6355] mc:17[1228,1230,1238,1240,2148,2150…] pc:0 ioi:1[1534] sc:0
+  \btwenty-two\b               main:19[79,116,526,732,751,1003…] reg:23[1257,1409,1969,2081,2217,2373…] mc:0 pc:0 ioi:1[271] sc:0
+  \bnine things\b              main:3[68,4056,9861] reg:0 mc:0 pc:0 ioi:0 sc:0
+  \bfive evaluations\b         main:1[9879] reg:1[6379] mc:1[3198] pc:0 ioi:0 sc:0
+  \bexactly quartic\b          main:1[9878] reg:1[6379] mc:1[3198] pc:0 ioi:0 sc:0
+  \bfourth\b|\bthe fifth\b     main:38[794,802,815,820,827,828…] reg:59[89,413,761,977,1057,1349…] mc:2[1214,1334] pc:1[719] ioi:2[1824,1828] sc:0
+  \bnineteen years\b           main:1[9910] reg:1[6375] mc:0 pc:0 ioi:0 sc:0
+  \bcryptographic\b            main:1[9844] reg:0 mc:0 pc:0 ioi:0 sc:0
+  \bprediction file\b          main:0 reg:2[5882,5890] mc:0 pc:0 ioi:0 sc:0
+  \bhash\b                     main:2[9847,10234] reg:2[6351,6515] mc:0 pc:0 ioi:0 sc:2[994,1096]
+  \bsealed copy\b              main:1[9856] reg:1[6351] mc:0 pc:0 ioi:0 sc:0
+  \bnightly\b                  main:1[9859] reg:0 mc:0 pc:0 ioi:0 sc:0
+  \bfault ledger\b             main:1[9880] reg:0 mc:0 pc:1[338] ioi:0 sc:0
+  \bg block\b                  main:4[9797,9874,9898,10839] reg:2[5345,6359] mc:1[3178] pc:1[219] ioi:0 sc:0
+  \bunwitnessed\b              main:8[9814,9901,10380,10776,10780,10888…] reg:18[5926,5930,5942,5946,5994,6095…] mc:1[800] pc:2[200,214] ioi:6[318,322,1906,1910,1966,1971] sc:10[40,44,93,131,132,191…]
+
+END r2-ch17c

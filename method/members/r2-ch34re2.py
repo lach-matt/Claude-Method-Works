@@ -8,7 +8,8 @@
 # predecessor pinned as a literal is resolved by the text of the line it pointed at in the bundle its golden was
 # banked against (2 anchors); nothing else changes. r2-ch34re.py is seated and never edited in place (chat 68).
 # PROVED by tools/proveanchor.py when the line below says so; until then this file is a draft.
-# PROVEANCHOR: 90+184 — reproduces r2-ch34re.out byte-exact on those bundles (G0c)
+# PROVEANCHOR: 90+184 — reproduces r2-ch34re.out byte-exact on those bundles (G0c). One further change beyond re-anchoring: the verdict
+# line reads a §34.6 sentence by first site and raised IndexError once BUILD96 removed it; `first()` prints 'absent' instead, identical on the old bytes.
 
 # --- re-anchoring helper (tools/reanchor.py): a main-volume line found by its own text, never by a number ---
 def _L(t, d=0):
@@ -65,6 +66,8 @@ for k, (i, h) in enumerate(heads):
 CH = M[ss[0] - 1:ss[1] - 1]; L0 = ss[0]
 def find(s):
     return [L0 + k for k, l in enumerate(CH) if s in l]
+def first(s):
+    h = find(s); return h[0] if h else 'absent — the sentence is no longer printed (§34.6 rewritten at BUILD96, register 1804)'
 
 hr('§1 NUMERAL CENSUS OF THE CHAPTER (digit-bounded both sides; trailing non-thousands comma admitted; count words listed separately)')
 NUM = re.compile(r'(?<![\d.])(\d[\d,]*(?:\.\d+)?)(?![\d])')
@@ -304,7 +307,7 @@ rest = [('No parameter is fitted', "1350 WARNING: qualified by R 1445 (the 99 wa
         ('corridor is forced', "1460: the corridor is the instrument and survives intact — consistent")]
 for tok, note in rest:
     sites = find(tok); print('  %-32s sites L%s — %s' % (repr(tok), sites, note))
-print('  VERDICT: §34.4 L%s / §34.8 L%s "No parameter is fitted", §34.9 L%s "Exceptionless", §34.5 L%s "Nineteen … surds", §34.6 L%s "resets eighteen times" restate as live what 1350\'s WARNING qualifies and 1460 demotes — 16z-01 / 16z-02 (docket 23 / 35), re-confirmed by measurement; no new class' % (find('No parameter is fitted')[0], find('No parameter is fitted')[-1], find('Exceptionless on 106')[0], find('Nineteen distinct surds')[0], find('resets eighteen times')[0]))
+print('  VERDICT: §34.4 L%s / §34.8 L%s "No parameter is fitted", §34.9 L%s "Exceptionless", §34.5 L%s "Nineteen … surds", §34.6 L%s "resets eighteen times" restate as live what 1350\'s WARNING qualifies and 1460 demotes — 16z-01 / 16z-02 (docket 23 / 35), re-confirmed by measurement; no new class' % (first('No parameter is fitted'), find('No parameter is fitted')[-1], first('Exceptionless on 106'), first('Nineteen distinct surds'), first('resets eighteen times')))
 print('  §34.10 L%s "Seven of eight rules give 106/106, and random interior points on 200 of 200 seeds" = Register 1331 token-for-token (rules over the same intervals: any a inside every interval reproduces the entrant by construction — the score is the corridor\'s non-emptiness restated); the 74/106 farther-endpoint failure and the seed count are trajectory figures, UNREPRODUCIBLE without brack.py/scorer.py (not in the bundle; budget: REQUEST-LOWDIN)' % find('Seven of eight'))
 print('  §34.10 L%s "1.029 factor": one main site; Register grep for "1.029 " gives no entry (r2-ch34re §7) — single-witness, docket 17 (INFERRED not a corridor figure)' % find('1.029'))
 

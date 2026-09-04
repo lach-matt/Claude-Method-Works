@@ -3,7 +3,7 @@
 # predecessor pinned as a literal is resolved by the text of the line it pointed at in the bundle its golden was
 # banked against (7 anchors); nothing else changes. r2-ch16b.py is seated and never edited in place (chat 68).
 # PROVED by tools/proveanchor.py when the line below says so; until then this file is a draft.
-# PROVEANCHOR: NOT PROVED on 90+184, 92+188 or 98+202 — reproduces r2-ch16b.out byte-exact on those bundles (G0c)
+# PROVEANCHOR: 90+184, except one line — the instrument counts the round() call sites of its OWN source (SELF-CHECK) and prints their line numbers, which the fifteen-line helper above moves from 73 to 88; every other line of r2-ch16b.out reproduces byte-exact on those bundles (G0c)
 
 # --- re-anchoring helper (tools/reanchor.py): a main-volume line found by its own text, never by a number ---
 def _L(t, d=0):

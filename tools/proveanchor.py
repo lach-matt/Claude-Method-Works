@@ -66,6 +66,13 @@ def main():
     print(f'old tree: {old}')
     total = extract(a.old_bundle, old)
     print(f'  {total} members\n')
+    # Prints & Proofs is not a member: three instruments open it at members/../ and two at /home/claude/, as
+    # stage-gate links it. The scratch tree gets the same links, or those instruments fail for a missing file
+    # and the failure would be misread as a re-anchor that changed the measurement.
+    pp = pathlib.Path('/home/claude/PP_The_Method_1_6.md')
+    if pp.exists():
+        for where in (scratch / 'PP_The_Method_1_6.md', old / 'PP_The_Method_1_6.md'):
+            if not where.exists(): where.symlink_to(pp.resolve())
 
     # The successors are not in the old bundles; copy them in from the live tree.
     for s in a.succ:

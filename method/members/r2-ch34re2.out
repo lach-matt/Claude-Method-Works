@@ -238,3 +238,27 @@
   '104 of 106'                     sites L[] — 1448: the per-atom fixed point is vacuous; docket 37
   't(ℓ) → √( ℓ(ℓ+1) / 2 )'         sites L[9673] — 1460: the entry point is among what demotes? — listed items: surds, bounds, crossing, eight a values, half-capacity, 99/90/72, horizon, six rules; the entry point is NOT in either list (INFERRED)
   'corridor is forced'             sites L[9733] — 1460: the corridor is the instrument and survives intact — consistent
+  VERDICT: §34.4 L9602 / §34.8 L9693 "No parameter is fitted", §34.9 Labsent — the sentence is no longer printed (§34.6 rewritten at BUILD96, register 1804) "Exceptionless", §34.5 L9630 "Nineteen … surds", §34.6 L9638 "resets eighteen times" restate as live what 1350's WARNING qualifies and 1460 demotes — 16z-01 / 16z-02 (docket 23 / 35), re-confirmed by measurement; no new class
+  §34.10 L[9732] "Seven of eight rules give 106/106, and random interior points on 200 of 200 seeds" = Register 1331 token-for-token (rules over the same intervals: any a inside every interval reproduces the entrant by construction — the score is the corridor's non-emptiness restated); the 74/106 farther-endpoint failure and the seed count are trajectory figures, UNREPRODUCIBLE without brack.py/scorer.py (not in the bundle; budget: REQUEST-LOWDIN)
+  §34.10 L[9726, 9729] "1.029 factor": one main site; Register grep for "1.029 " gives no entry (r2-ch34re §7) — single-witness, docket 17 (INFERRED not a corridor figure)
+
+====================================================================================================
+§7b REGISTER GREP FOR LATER OR EXACT STATEMENTS OF THE FIGURES SCORED ABOVE (entry numbers; the Register's WARNING lines are where a figure is withdrawn)
+====================================================================================================
+  'return from one'        -> entries []
+  'subshell opening'       -> entries ['529', '530', '1333']
+  'mid-subshell'           -> entries ['1350']
+  '0.19%'                  -> entries ['1337', '1350']
+  '1.2168450'              -> entries ['1330']
+  '1.3938270'              -> entries ['1330']
+  'Seventeen of nineteen'  -> entries []
+  '17 of 19'               -> entries []
+  'ten resets'             -> entries ['1402', '1403']
+  'In 49'                  -> entries ['1445', '1470']
+  'two hundred random'     -> entries ['1402']
+
+====================================================================================================
+§8 TOWER IDENTITIES 1460 KEEPS (M = 2n - p - 1; p = n - l - 1 >= 0) on the candidate set, and the tower gate
+====================================================================================================
+  22 candidate subshells n<=7, l<=3: p = n-l-1 >= 0 at all: True; M = 2n-p-1 = n+l: True; p ≡ M+1 (mod 2) i.e. (n-l-1) ≡ (n+l+1) (mod 2): True
+  tower-2 module attributes carrying a cell count (introspected, names only): ['L8']

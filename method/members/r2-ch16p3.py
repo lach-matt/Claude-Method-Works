@@ -13,7 +13,7 @@
 # predecessor pinned as a literal is resolved by the text of the line it pointed at in the bundle its golden was
 # banked against (15 anchors); nothing else changes. r2-ch16p2.py is seated and never edited in place (chat 68).
 # PROVED by tools/proveanchor.py when the line below says so; until then this file is a draft.
-# PROVEANCHOR: NOT PROVED on 90+184, 92+188 or 98+202 — reproduces r2-ch16p2.out byte-exact on those bundles (G0c)
+# PROVEANCHOR: 94+198 — reproduces r2-ch16p2.out byte-exact on those bundles (G0c)
 
 # --- re-anchoring helper (tools/reanchor.py): a main-volume line found by its own text, never by a number ---
 def _L(t, d=0):

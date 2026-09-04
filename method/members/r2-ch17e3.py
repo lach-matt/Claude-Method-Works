@@ -16,9 +16,9 @@
 # a count word counts DATA rows; a literal string is not a test; every negative carries its witness; passes recorded.
 # r2-ch17e3.py — R3 (chat 153-R) — SUCCESSOR to r2-ch17e2.py, re-anchored by tools/reanchor.py: every main-volume line the
 # predecessor pinned as a literal is resolved by the text of the line it pointed at in the bundle its golden was
-# banked against (14 anchors); nothing else changes. r2-ch17e2.py is seated and never edited in place (chat 68).
+# banked against (4 anchors); nothing else changes. r2-ch17e2.py is seated and never edited in place (chat 68).
 # PROVED by tools/proveanchor.py when the line below says so; until then this file is a draft.
-# PROVEANCHOR: NOT PROVED on 90+184, 92+188 or 98+202 — reproduces r2-ch17e2.out byte-exact on those bundles (G0c)
+# PROVEANCHOR: 94+198 — reproduces r2-ch17e2.out byte-exact on those bundles (G0c)
 
 # --- re-anchoring helper (tools/reanchor.py): a main-volume line found by its own text, never by a number ---
 def _L(t, d=0):
@@ -79,17 +79,17 @@ print('  "344 cells, 0 join failures, 8,385 meet failures" vs r2-tb1 own cap 8:'
 printed = [int(x.replace(',', '')) for x in re.search(r'meet failures ((?:[\d,]+ · )+[\d,]+)', l02).group(1).split(' · ')]
 print('  caps 3–12 meet failures printed:', printed, '; count', len(printed), '= 10 caps:', len(printed) == 10, '; equal to own:', printed == [r[1] for r in T.own])
 print('  "join failures at 0 throughout" vs own:', all(r[2] == 0 for r in T.own), '; "Two-body chain: 0 of either kind at every cap" vs own chain:', all(r[3] == 0 for r in T.own), '(the delivered operator counts meet-or-join failures in one number — "either kind" is that convention)')
-print('  1716 body carries the same cap-8 triple and "caps 3–12 as in `3B.tri`" (the per-cap list is NOT in the Register — only main L%d and the delivery print it):' % (subs['36.2'][0] + 2), '344 cells' in rbody(_L(' Non-closure is not always a fault. It is sometimes a purchase — usability bought with definitional self-sufficiency. What this book supplies is the price tag, not the verdict.')), '3B.tri' in rbody(_L(' Non-closure is not always a fault. It is sometimes a purchase — usability bought with definitional self-sufficiency. What this book supplies is the price tag, not the verdict.')), 'reg sites of "90,705":', sites(r'90,705')['reg'], 'main sites:', sites(r'90,705')['main'])
-print('  "Eight attribution questions, eight closed" — 1721 says "seven closed to named owners"; L%d (§E.5 paragraph) says "Seven belonged to others; the eighth … turned out to be classical" (1720 Lagrange 1770):' % (subs['36.3'][0] + 18), 'seven closed' in rbody(_L(' the thirty-six.', 1)), 'Seven belonged to others' in M[subs['36.3'][0] + 17], '— convention: eight closed = seven to others + one to prior art; both counts reproduce under their own convention (wording pair, docket 34)')
-print('  "One inherited polynomial wrong, replaced" vs 1719 "withdrawn" / "Replaced by N₈":', 'withdrawn' in rbody(_L(' Λ is the same 118 elements on different coordinates, with E = 0. It adds no physics. What it removes is')), 'Replaced by N₈' in rbody(_L(' Λ is the same 118 elements on different coordinates, with E = 0. It adds no physics. What it removes is')))
-print('  `tb_audit.py` (1756): register 1756 present:', rbody(_L('  q≤k                             counting — cannot remove more than are present')) is not None, '; Register lines containing tb_audit:', [i + 1 for i, l in enumerate(R) if 'tb_audit' in l], '; the 78/78 lives at 1717:', '78/78' in rbody(_L(' Non-closure is not always a fault. It is sometimes a purchase — usability bought with definitional self-sufficiency. What this book supplies is the price tag, not the verdict.', 1)), '— DEVIATION: a citation with no entry (docket 9c); also a script name in a reader-facing line (Ruling 46, docket 6)')
+print('  1716 body carries the same cap-8 triple and "caps 3–12 as in `3B.tri`" (the per-cap list is NOT in the Register — only main L%d and the delivery print it):' % (subs['36.2'][0] + 2), '344 cells' in rbody(1716), '3B.tri' in rbody(1716), 'reg sites of "90,705":', sites(r'90,705')['reg'], 'main sites:', sites(r'90,705')['main'])
+print('  "Eight attribution questions, eight closed" — 1721 says "seven closed to named owners"; L%d (§E.5 paragraph) says "Seven belonged to others; the eighth … turned out to be classical" (1720 Lagrange 1770):' % (subs['36.3'][0] + 18), 'seven closed' in rbody(1721), 'Seven belonged to others' in M[subs['36.3'][0] + 17], '— convention: eight closed = seven to others + one to prior art; both counts reproduce under their own convention (wording pair, docket 34)')
+print('  "One inherited polynomial wrong, replaced" vs 1719 "withdrawn" / "Replaced by N₈":', 'withdrawn' in rbody(1719), 'Replaced by N₈' in rbody(1719))
+print('  `tb_audit.py` (1756): register 1756 present:', rbody(1756) is not None, '; Register lines containing tb_audit:', [i + 1 for i, l in enumerate(R) if 'tb_audit' in l], '; the 78/78 lives at 1717:', '78/78' in rbody(1717), '— DEVIATION: a citation with no entry (docket 9c); also a script name in a reader-facing line (Ruling 46, docket 6)')
 
 hr('§2 REGISTER EXISTENCE 1713–1724 (L%d "register entries 1713–1724 carry the record") and every entry the unit cites' % (unit[0] + 2))
 ex = {n: rbody(n) is not None for n in range(1713, 1725)}; print('  1713–1724 present:', sum(ex.values()), '/ 12; absent:', [n for n, v in ex.items() if not v])
 cited = sorted(set(int(x) for x in re.findall(r'(?<![\d.])(1[67]\d\d|784)(?![\d])', U)))
 print('  entry numbers named in the unit:', cited, '; present:', {n: rbody(n) is not None for n in cited})
 print('  "Registers" cites (counted, G0i) in the unit:', len(re.findall(r'\bRegisters? \d', U)), '; "register N" lowercase names:', len(re.findall(r'\bregister \d', U)))
-print('  1722–1723 (L%d): 1722 "Uniform failure" / 1723 "A fault of mine":' % (subs['36.3'][0] + 16), 'Uniform failure' in rbody(_L(' The rest of Part II builds it and establishes what it is. Part III proves why E = 0 is not an isolated virtue but the source of two others.')), 'convention' in rbody(_L(' The rest of Part II builds it and establishes what it is. Part III proves why E = 0 is not an isolated virtue but the source of two others.', 1)))
+print('  1722–1723 (L%d): 1722 "Uniform failure" / 1723 "A fault of mine":' % (subs['36.3'][0] + 16), 'Uniform failure' in rbody(1722), 'convention' in rbody(1723))
 print('  784 "second route" mechanism (L%d): 1719 says "Caught by second route (register 784\'s mechanism)"; 784 body opens:' % (subs['36.3'][0] + 18), norm(rbody(784))[:110])
 
 hr('§3 §36.1 / §36.3 POINTERS RESOLVED TO THE CLAIM, NOT THE HEADING')
@@ -131,7 +131,7 @@ classes = re.search(r'decomposed into (.+?), the decomposition', l06).group(1)
 items = [x.strip() for x in re.split(r', | and ', classes)]
 print('  L%d strata list: %s -> %d items; 1713 "FIVE ASYMPTOTIC CLASSES":' % (subs['36.3'][0] + 2, items, len(items)), 'FIVE' in rbody(1713), '; equal:', len(items) == 5)
 print('  L%d "Euler\'s three collinear roots and Lagrange\'s two equilateral points" = 3 + 2 = 5 = "five points":' % (subs['36.3'][0] + 12), 3 + 2 == 5, '; r2-tb1 §3e: one positive Euler root per ordering, 3 orderings -> 3 roots (theorem restated)')
-print('  L%d "13 of 13 on one check" vs 1718 "failed 13/13" and the delivered failing log (13 False rows in column A):' % (subs['36.3'][0] + 16), 'failed 13/13' in rbody(_L('### 6.4 What follows')))
+print('  L%d "13 of 13 on one check" vs 1718 "failed 13/13" and the delivered failing log (13 False rows in column A):' % (subs['36.3'][0] + 16), 'failed 13/13' in rbody(1718))
 print('  L%d "wrong in two coefficients"; 1719 names U⁴ (2p²+16q vs 6p²−8q) and U² ("likewise wrong") and prints the withdrawn form only to its U⁴ term:' % (subs['36.3'][0] + 18))
 V, u1, u2, u3 = T.V, T.u1, T.u2, T.u3
 import sympy as sp
@@ -146,7 +146,7 @@ print('  L%d c_ij = (m_i m_j)^{3/2}/√(m_i+m_j): the delivered audit.py codes (
 print('  "order 6, 2 or 1 according to how many masses coincide": r2-tb1 |S| values', sorted(set(T.S_orders), reverse=True), '; three coincide -> 6, two -> 2, none -> 1: convention = order of the mass-preserving permutation group; realised counts', {k: T.S_orders.count(k) for k in (6, 2, 1)})
 print('  "six numbers": three c_ij + three rays b_ij — a ray is a unit vector on S² (two coordinates); the count "six" is of objects (3 scalars + 3 rays), stated as the convention; INCIDENTAL')
 print('  "cannot create a sixth point": five fixed points for every mass triple (Euler 3 + Lagrange 2) — r2-tb1 §3e; "close a meet, or open a join": join 0 at every cap, meet > 0 at every cap for all caps 3–12 (mass-free operator):', all(r[2] == 0 and r[1] > 0 for r in T.own))
-print('  L%d "Xia 1992 … n = 5": References lines with Xia:' % (subs['36.5'][0] + 2), [i + 1 for i, l in enumerate(M) if has_token(l, 'Xia') and i + 1 > _L('| 10.4 | Six independent curved-space routes to the ANEC. Five require a Killing field or a horizon generated by one; the sixth yields a weighted bound instead. | `M.sorce` |', 1)], '; "1992" on those lines:', [ '1992' in M[i] for i, l in enumerate(M) if has_token(l, 'Xia') and i + 1 > _L('| 10.4 | Six independent curved-space routes to the ANEC. Five require a Killing field or a horizon generated by one; the sixth yields a weighted bound instead. | `M.sorce` |', 1)])
+print('  L%d "Xia 1992 … n = 5": References lines with Xia:' % (subs['36.5'][0] + 2), [i + 1 for i, l in enumerate(M) if has_token(l, 'Xia') and i + 1 > _L('| 5.4 | The failing triple is the unique minimal support. Arity exactly 3, one generator; no single literature pays for it. | `W.supp` |')], '; "1992" on those lines:', [ '1992' in M[i] for i, l in enumerate(M) if has_token(l, 'Xia') and i + 1 > _L('| 5.4 | The failing triple is the unique minimal support. Arity exactly 3, one generator; no single literature pays for it. | `W.supp` |')])
 
 hr('§5 THE COMPANION PAPER MEMBER — the unit\'s figures carried there (existence and token counts; not a diff)')
 cp = '\n'.join(CP); print('  member lines:', len(CP), '; first non-blank line:', next(l for l in CP if l.strip())[:90])
