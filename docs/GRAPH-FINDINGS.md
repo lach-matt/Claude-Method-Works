@@ -201,27 +201,30 @@ one. **Unreconciled — this file records it, it does not settle it.**
 
 ---
 
-## 8. The Löwdin bridge series — 31 of 63 numbered sessions ABSENT
+## 8. The Löwdin bridge series — was 31 of 63 absent, now 3 of 66
 
-`recovered/` holds 32 numbered `BRIDGE-LOWDIN-SESSION-N.md` files, the highest being 63. Present:
+**Superseded by the `RECOVERED-BY-WRITE` pass, and kept because the reasoning still stands.**
 
-```
-4 8 9 11 12 13 14 15 16 17 18 22 23 25 26 28 29 30 31 32 33 34 35 36 37 52 55 56 58 59 60 63
-```
-
-Absent from `recovered/`, and — checked against `drive/MANIFEST.tsv` and `extracted/LEDGER.tsv` —
-**absent from the whole repository**:
+As first measured, `recovered/` held **32** numbered `BRIDGE-LOWDIN-SESSION-N.md` files, the highest
+63, and 31 of the series were absent from the whole repository. Walking the export's tool calls
+recovered **28 of those 31**, and found the series runs to **66**, higher than anything then known:
 
 ```
-1 2 3 5 6 7 10 19 20 21 24 27 38 39 40 41 42 43 44 45 46 47 48 49 50 51 53 54 57 61 62
+now held   63 of 66      still absent   1, 2, 62
 ```
 
-Each surviving bridge names its predecessor in its header, so the successor spine reconstructs
-itself and the gaps are visible from inside the chain. Sessions 19, 20, 21, 24 and 27 are explicitly
-named as predecessors by bridges that survive.
+The original reading was right about the shape and wrong only about reachability. Each surviving
+bridge names its predecessor in its header, so the successor spine reconstructs itself and the gaps
+are visible from inside the chain — that is how sessions 19, 20, 21, 24 and 27 were known to be
+missing, and all five are now held.
 
-Status: **ABSENT — not a finding of loss.** A bridge naming its predecessor is not proof that
-predecessor was ever written to a file. There is also an unnumbered `BRIDGE-LOWDIN-SESSION.md`.
+Status of the remaining three: **ABSENT — still not a finding of loss.** A bridge naming its
+predecessor is not proof that predecessor was ever written to a file. There is also an unnumbered
+`BRIDGE-LOWDIN-SESSION.md`.
+
+**The lesson is the general one of this session:** absence measured against the repository is a
+statement about reach, not about the world. Nothing was lost between the two measurements; the second
+one simply read the export structurally. See `docs/HANDOFF-GAP.md`.
 
 ---
 

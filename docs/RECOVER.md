@@ -18,7 +18,28 @@ python3 tools/recover.py --selftest # assert the corpus's own recorded numbers
 | `RECOVERED-TRUNCATED` | 23 | The body carries a `< truncated lines N-M >` marker — the chat was showing an **elided view**, so the text is incomplete by the stated count. Kept, because a partial document is still evidence, but never to be read as whole. |
 | `PRESENT-IN-REPO` | 51 | Byte-identical to something already tracked; not written again. |
 
-**2,405 files, 10.0 MB** (2,456 rows; the `PRESENT-IN-REPO` rows write nothing).
+**3,164 files, 15.3 MB** (3,215 rows; the `PRESENT-IN-REPO` rows write nothing).
+
+**759 of those files are `RECOVERED-BY-WRITE`, and they are the largest single addition this tree has
+had.** `recover.py` works from a **wanted-set** — the artefact column of `COVERAGE.tsv`, which is the
+names the two live bundles use in filename shape. Anything the bundles never name that way is
+invisible to it, however many times it is re-run. Walking the export's **tool calls** instead, and
+taking the `file_text` of every write whose basename the repository holds under no name and whose
+body it holds under no md5, found 759 such files: 159 `.py` instruments, 73 `r2-*` reading
+instruments, 49 `W-*` working-register entries, 32 `DEF-*`, 31 `BRIDGE-LOWDIN-SESSION-*`, 29
+`CENSUS-CLOSURES-*`, 16 `FAULT-F##.#`, and the rest.
+
+What that closed, measured rather than asserted:
+
+| recorded gap | was | now |
+|---|---:|---:|
+| `COVERAGE.tsv` artefacts HELD | 702 | **813** |
+| Löwdin bridge sessions held (`docs/GRAPH-FINDINGS.md` §8) | 32 of 63 | **63 of 66** |
+| fault ids named in chat prose and held nowhere (`docs/PROSE-ONLY.md`) | 40 | **16** |
+| `DEF-*` artefacts held | 0 of 3 | **3 of 3** |
+
+**Only one of the 760 candidates was content the repository already held**, by md5 or by
+whitespace-normalised md5, and it was excluded. The other 759 were new bodies.
 
 **23 of those files are `RECOVERED-BY-NUMBER`, added after this document was first written.** They
 are handoffs the bundles cite only as `HANDOFF-71`, never `HANDOFF-71.md`, so they never entered the

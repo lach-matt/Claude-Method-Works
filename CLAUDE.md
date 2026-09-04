@@ -33,27 +33,35 @@ hand-edit it or `LEDGER.tsv`. `drive/` stays the mirror of record and is never w
 pass. See `extracted/README.md` and `docs/CONSOLIDATE.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
-1,005 artefact names in the two live bundles: **702 held**, 15 held only under a figure's pre-rename
-source name, 273 reachable in the chat export, 11 with a body there, and **4 absent** — and those
+1,005 artefact names in the two live bundles: **813 held**, 15 held only under a figure's pre-rename
+source name, 162 reachable in the chat export, 11 with a body there, and **4 absent** — and those
 four are unhyphenated spellings of handoffs the repo holds, not missing documents. **Run it as
 `python3 tools/coverage.py --chats`**; the plain run drops every chat resolution and rewrites
-`COVERAGE.tsv` with 288 ABSENT. An `ABSENT` means "not reachable from any source here" and is
+`COVERAGE.tsv` with 177 ABSENT. An `ABSENT` means "not reachable from any source here" and is
 **not** a finding of loss — a name in prose is not proof a file existed — and every count is a
 floor, since extraction is literal (58 handoffs named in filename shape against 88 referenced by
-bare number, 62 of those held). `extracted/` and `recovered/` moved these figures a long way: held
-rose 559 → 702 and the plain-run ABSENT fell 431 → 288 with no new fetch. See `docs/COVERAGE.md`.
+bare number, 85 of those held). The figures have moved twice with no new fetch: held rose 559 → 702
+when `extracted/` and `recovered/` landed, and 702 → **813** when the `RECOVERED-BY-WRITE` pass
+seated 759 more; the plain-run ABSENT fell 431 → 288 → **177**. See `docs/COVERAGE.md`.
 
 **`drive/chats/` is the sharded chat export, and `recovered/` is what was extracted from it.**
 352 conversations, 11,879 messages, sharded by `tools/shard_conversations.py` with `INDEX.tsv` and
 `SUMMARY.json` as their inventory. `tools/recover.py` then extracts the artefacts those chats wrote:
-**2,405 files, 10.0 MB** over 2,456 ledger rows, in five statuses: `RECOVERED` (2,196) where a
-heredoc named its own target, `RECOVERED-BY-HEADING` (163) where a code block carried the body and
-the name was inferred from its heading, `PRESENT-IN-REPO` (51) which write nothing,
-**`RECOVERED-TRUNCATED` (23) — a body a paging viewer elided in the middle**, which hashes cleanly
-and so once passed as whole; read the ledger's note for the missing line count before trusting one;
-and **`RECOVERED-BY-NUMBER` (23)**, handoffs reachable only through a bare-number citation and so
-never in the wanted-set — see `docs/HANDOFF-GAP.md`. **A status is never flattened**: how a file was
-found is part of what it is.
+**3,164 files, 15.3 MB** over 3,215 ledger rows, in six statuses: `RECOVERED` (2,196) where a
+heredoc named its own target, **`RECOVERED-BY-WRITE` (759)** — found by walking the export's tool
+calls rather than from a wanted-set, the largest single addition this tree has had —
+`RECOVERED-BY-HEADING` (163) where a code block carried the body and the name was inferred from its
+heading, `PRESENT-IN-REPO` (51) which write nothing, **`RECOVERED-TRUNCATED` (23) — a body a paging
+viewer elided in the middle**, which hashes cleanly and so once passed as whole; read the ledger's
+note for the missing line count before trusting one; and **`RECOVERED-BY-NUMBER` (23)**, handoffs
+reachable only through a bare-number citation. **A status is never flattened**: how a file was found
+is part of what it is.
+
+**`recover.py` works from a wanted-set and that is its reach, not a bug.** The set is
+`COVERAGE.tsv`'s artefact column — names the bundles use in *filename* shape — so anything named
+another way, or not named at all, is invisible to it however often it is re-run. The 759 came from
+the other direction: every tool call that wrote a file, kept when the repository holds neither the
+name nor the body. See `docs/RECOVER.md` and `docs/HANDOFF-GAP.md`.
 **2,337 is the superseded figure** from a first run that was not idempotent, and `docs/RECOVER.md`
 records why. Both are generated trees — regenerate, never hand-edit. **RECOVERED is not mirrored**: the bytes were measured out of the
 export, and no recovered file is claimed byte-identical to a copy held elsewhere, nor is any of it a

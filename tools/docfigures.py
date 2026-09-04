@@ -159,10 +159,10 @@ def checks():
         ("CLAUDE.md", "chat messages", 11879,
          sum(int(r["message_count"]) for r in idx)),
         ("CLAUDE.md", "artefact names in the two live bundles", 1005, len(cov)),
-        ("CLAUDE.md", "artefacts HELD", 702, cs("HELD")),
+        ("CLAUDE.md", "artefacts HELD", 813, cs("HELD")),
         ("CLAUDE.md", "artefacts HELD-VIA-ALIAS", 15, cs("HELD-VIA-ALIAS")),
         ("CLAUDE.md", "artefacts IN-CHAT-BODY", 11, cs("IN-CHAT-BODY")),
-        ("CLAUDE.md", "artefacts IN-CHAT", 273, cs("IN-CHAT")),
+        ("CLAUDE.md", "artefacts IN-CHAT", 162, cs("IN-CHAT")),
         ("CLAUDE.md", "artefacts ABSENT", 4, cs("ABSENT")),
         ("CLAUDE.md", "BUILD .md files in the manifest", 140,
          sum(1 for p in man if "The_Method_1_6_BUILD" in p and p.endswith(".md"))),
@@ -202,9 +202,16 @@ def checks():
              if r["status"] == "RECOVERED-BY-NUMBER")),
         ("docs/HANDOFF-GAP.md", "still held nowhere (all MENTION-ONLY)", 3,
          sum(1 for r in _rows("HANDOFF-GAP.tsv") if r["class"] == "MENTION-ONLY")),
-        ("CLAUDE.md", "recovered/ files", 2405,
+        ("CLAUDE.md", "recovered/ files", 3164,
          len({r["target_path"] for r in _rows("recovered/LEDGER.tsv") if r["target_path"]})),
-        ("CLAUDE.md", "recovered/ ledger rows", 2456, len(_rows("recovered/LEDGER.tsv"))),
+        ("CLAUDE.md", "recovered/ ledger rows", 3215, len(_rows("recovered/LEDGER.tsv"))),
+        ("CLAUDE.md", "recovered/ RECOVERED-BY-WRITE", 759,
+         sum(1 for r in _rows("recovered/LEDGER.tsv")
+             if r["status"] == "RECOVERED-BY-WRITE")),
+        ("docs/GRAPH-FINDINGS.md", "Lowdin bridge sessions held", 63,
+         len({r["filename"] for r in _rows("recovered/LEDGER.tsv")
+              if r["filename"].startswith("BRIDGE-LOWDIN-SESSION-")
+              and r["filename"][22:-3].isdigit()})),
     ] + _instrument_rows()
 
 

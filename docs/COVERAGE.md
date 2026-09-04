@@ -11,20 +11,22 @@ own recorded numbers.
 
 | family | named | held | via alias | ABSENT |
 | --- | ---: | ---: | ---: | ---: |
-| instrument (`.py`) | 338 | 245 | 0 | 93 |
-| data (`.tsv`/`.csv`/`.json`) | 218 | 137 | 0 | 81 |
-| other | 150 | 75 | 0 | 75 |
+| instrument (`.py`) | 338 | 323 | 0 | 15 |
+| data (`.tsv`/`.csv`/`.json`) | 218 | 166 | 0 | 52 |
+| other | 150 | 76 | 0 | 74 |
 | `READ-*` | 119 | 114 | 0 | 5 |
 | figure (`.png`) | 117 | 75 | 15 | 27 |
 | `HANDOFF-*` | 58 | 54 | 0 | 4 |
-| `DEF-*` | 3 | 0 | 0 | 3 |
+| `DEF-*` | 3 | 3 | 0 | 0 |
 | `REGISTER-*`, `RULING-*` | 2 | 2 | 0 | 0 |
-| **Total** | **1,005** | **702** | **15** | **288** |
+| **Total** | **1,005** | **813** | **15** | **177** |
 
-**These figures moved when `extracted/` and `recovered/` landed, and by a lot.** The census above
-previously read 559 held against 431 ABSENT; consolidation and recovery raised `held` by 143 and cut
-`ABSENT` by 143 without a single new fetch — `READ-*` from 48 held to **114**, `HANDOFF-*` from 12 to
-**54**. Anything quoting the old figures is quoting a repository that no longer exists.
+**These figures have moved twice, and by a lot each time.** The census read **559 held / 431 ABSENT**
+before `extracted/` and `recovered/` landed, then **702 / 288** after them, and now **813 / 177**
+after the `RECOVERED-BY-WRITE` pass seated 759 artefacts found by walking the export's tool calls.
+`instrument` went 213 → 245 → **323** held and `DEF-*` from 0 held to **all three**. No fetch was
+made at any stage: every gain is material that was already in the repository, unreached. Anything
+quoting an older figure is quoting a repository that no longer exists.
 
 ## Resolved against the chats (`--chats`)
 
@@ -34,17 +36,17 @@ conversation to open.
 
 | family | named | held | alias | in-body | in-chat | ABSENT |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| instrument | 338 | 245 | 0 | 0 | 93 | 0 |
-| data | 218 | 137 | 0 | 0 | 81 | 0 |
-| other | 150 | 75 | 0 | 8 | 63 | 4 |
+| instrument | 338 | 323 | 0 | 0 | 15 | 0 |
+| data | 218 | 166 | 0 | 0 | 52 | 0 |
+| other | 150 | 76 | 0 | 8 | 62 | 4 |
 | `READ-*` | 119 | 114 | 0 | 3 | 2 | 0 |
 | figure | 117 | 75 | 15 | 0 | 27 | 0 |
 | `HANDOFF-*` | 58 | 54 | 0 | 0 | 4 | 0 |
-| `DEF-*` | 3 | 0 | 0 | 0 | 3 | 0 |
-| **Total** | **1,005** | **702** | **15** | **11** | **273** | **4** |
+| `DEF-*` | 3 | 3 | 0 | 0 | 0 | 0 |
+| **Total** | **1,005** | **813** | **15** | **11** | **162** | **4** |
 
 **`--chats` is not optional if you want these numbers.** A plain `python3 tools/coverage.py`
-overwrites `COVERAGE.tsv` with the 288-ABSENT census and drops every `IN-CHAT` resolution — the file
+overwrites `COVERAGE.tsv` with the 177-ABSENT census and drops every `IN-CHAT` resolution — the file
 in the repository is the `--chats` run, and it reproduces byte-for-byte only with the flag.
 
 `IN-CHAT-BODY` means a shard carries the document's own title line, so the body is recoverable from

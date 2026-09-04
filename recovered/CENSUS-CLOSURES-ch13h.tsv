@@ -1,0 +1,2 @@
+id	verdict	reason
+1077	defect	C9-OVERGENERALISATION-WORD, main L3795 "never". The flagged word is not a regex artefact: "This book already cites Helly and has never cited Carathéodory" is contradicted on the live text by the volume's own References entry at L11765-11769, by MC L650-658 (Caratheodory 1911, with prior art) and by MC L3411's bibliography table, and Register 468's body records the entry being made ("Entered."). Recorded as 13h-05, READ-ch13h.md.

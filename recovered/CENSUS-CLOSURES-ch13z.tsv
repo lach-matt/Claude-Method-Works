@@ -1,0 +1,3 @@
+id	verdict	reason
+1126	defect	L5601 C9-OVERGENERALISATION-WORD on "never". The flagged word is not the fault; the co-located claim is (chat 70's rule). MEASURED: five of the eight rows carry the header's one-object/two-naming/E shape, three do not, so "Eight results ... have the same shape" is wrong as printed. Recorded as 21z-07.
+1127	not a defect	L5634 C9-OVERGENERALISATION-WORD on "never", in "carried through thirteen coordinates and never grounded". MEASURED: arity 8-13 across the tower with q present at index 3 at every index, and factor_q(L9) = 0; "thirteen coordinates" is exact. "Never grounded" is the section's own D_gro doctrine, consistent with 16.6. Regex artefact by precedents 678, 680-687.

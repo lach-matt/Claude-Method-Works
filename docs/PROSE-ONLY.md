@@ -49,12 +49,19 @@ prose, cross-checked against the repository:
 | `W-` register entries | 164 | 195 | **0** |
 | Rulings | 47 | 53 | **0** |
 | Dockets | 19 | 35 | **0** |
-| **Faults `F##.#`** | 225 | 196 | **40** |
+| **Faults `F##.#`** | 225 | 196 | **40** → **16** |
 | Registers | 734 | 933 | **178** |
 | `MC` entries | 6 | 39 | **1** |
 
 **The governance spine is intact.** Zero prose-only rulings, dockets or W-entries. The loss is in
 the working layer.
+
+**And the working layer has since been largely recovered.** Re-measured after the
+`RECOVERED-BY-WRITE` pass seated 759 artefacts found by walking the export's tool calls
+(`docs/RECOVER.md`), the fault census reads **233 named in chat prose, 217 present in the repo, 16
+prose-only** — down from 40. The 16 that remain are `F1.3 F1.4 F5.1 F5.2 F6.2 F6.3 F7.3 F10.3 F10.4
+F11.3 F11.4 F12.3 F18.4 F46.2 F55.4 F56.5`. **The registers count has not been re-measured** and
+should be treated as the older figure until it is.
 
 **Stage B — the reading pass (45 subagents, capped).** The 15.1 MB was split into 45 chunks of
 ≤340 KB and read in full. Each agent reported at most 30 findings, ranked by load-bearing weight,

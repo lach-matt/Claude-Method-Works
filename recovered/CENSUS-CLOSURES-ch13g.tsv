@@ -1,0 +1,2 @@
+id	verdict	reason
+693	not a defect	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES, main L3700, flagged token "400". The token is a live Register citation — "The mis-citation is corrected here and recorded at register 400" — and Register 400 exists (Register L1487), carrying exactly that correction: "FREUDER WAS CITED FOR DECHTER'S THEOREM … Corrected at §14.1." The References entry for Freuder (L11528) states the same restriction. Regex artefact by the standing precedent for flagged tokens that are live figures, labels or the cited section's own claim (678, 680–687, 1067, 1069).

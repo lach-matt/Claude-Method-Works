@@ -1,0 +1,3 @@
+id	verdict	reason
+1169	not a defect	L7828 "a bound this book has never stated" — C9 regex artefact. MEASURED: repair <= phi(corroboration) is printed at five sites in three volumes (main L7806, main L7831, reg L1549, mc L940, mc L946), every one of them a restatement of this same recovery. The claim is about the book BEFORE the operator ran, and no earlier statement of the envelope exists. Precedent class 678, 680-687, 1067, 1069.
+1170	not a defect	L7847 "a protocol built on an object the entry never names" — C9 regex artefact. The sentence is a conditional about one of the six admitted-and-absent cells, i.e. about an entry that by construction does not exist, so "never" quantifies over the empty set and is not an overgeneralisation. Not a defect.
