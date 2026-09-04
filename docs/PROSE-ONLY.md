@@ -1,6 +1,6 @@
 # PROSE-ONLY — what the chat history holds that the repository does not
 
-**`PROSE-ONLY.tsv` is the standing list: 1,101 statements that exist only in the conversation
+**`PROSE-ONLY.tsv` is the standing list: 1,168 statements that exist only in the conversation
 transcripts and have no artefact, register row, docket entry or file anywhere else in this
 repository.** This document explains how that list was measured, what it means, and — importantly —
 what it does *not* mean.
@@ -69,21 +69,21 @@ material at the cap and named what they dropped.
 
 ## The result
 
-1,256 candidate findings were checked. **184 turned out to be already banked** and were dropped.
-**1,072 survived**, plus the 29 merged faults = **1,101 rows**.
+1,341 candidate findings were checked. **197 turned out to be already banked** and were dropped.
+**1,144 survived**, plus 24 merged faults = **1,168 rows**, drawn from **194 conversations**.
 
 | category | rows | what it is |
 |---|---:|---|
 | MEASUREMENT | 275 | a number, count, md5 or result asserted as established |
-| FAULT | 217 | a defect found in an instrument, a document or a claim |
-| CORRECTION | 199 | a claim withdrawn, amended or superseded |
-| DEFINITION | 179 | a named concept given its meaning |
-| STANDING-RULE | 142 | a rule declared to govern future work |
-| DECISION | 65 | a choice made, with its reason |
+| FAULT | 224 | a defect found in an instrument, a document or a claim |
+| CORRECTION | 212 | a claim withdrawn, amended or superseded |
+| DEFINITION | 201 | a named concept given its meaning |
+| STANDING-RULE | 158 | a rule declared to govern future work |
+| DECISION | 74 | a choice made, with its reason |
 | NAMED-ARTEFACT | 24 | a file or instrument named as produced |
 
-1,084 HIGH confidence, 17 MEDIUM. Concentrated in: *The Method 1.6* (168), *indexing without
-prediction* (152), *transitions* (84), *The Method 1.7* (65), *Cold fusion exploration* (59).
+1,164 HIGH confidence, 4 MEDIUM. Concentrated in: *The Method 1.6* (185), *indexing without
+prediction* (152), *transitions* (93), *Cold fusion exploration* (68), *The Method 1.7* (65).
 
 ## The mechanism, named by the corpus itself
 
@@ -145,9 +145,31 @@ author's ruling to make.
 - **An entire paper** — *The Lach Elemental Lattice* — whose full intellectual record exists only in
   one conversation's prose.
 
+### A decision whose *reason* was never recorded
+
+The live main volume's tower runs Λ₈ (49 mentions) … Λ₁₃ (26), and **Λ₁₄ appears zero times**;
+`tower-2.py` likewise stops at `|Λ13| = 199130`. Read from the volume alone this looks like
+unfinished work, and `On_the_Matter_of_Time_Travel.pdf` — held at `drive/The Method Materials/` and
+described in conversation `52` as how the lattice was built from 7D to 14D — makes it look like a
+gap against a foundational source.
+
+It is not a gap. The author's reason is stated in that conversation:
+
+> *"1D and 14D share coordinates because 14D is an axis which is an order of transition. But no
+> matter how you try to build it, its appearance was always 1D"*
+
+Λ₁₄ was found to collapse onto 1D, and that collapse is recorded as the seed of *"nothing is
+something definable."* Before this list, that sentence existed in no file. A deliberate,
+load-bearing decision left no trace, and a later reader would reasonably have re-opened it.
+
+**Status note that must travel with these rows.** Conversation `52` also carries provenance the
+author supplied from outside the record, and marks its status carefully — the multiverse reading is
+graded unclosable at §29.2.2, and *"what was computed stands and does not support it."* Those rows
+are records of what was said, not results. Do not flatten them.
+
 ## The open item this list creates
 
-**199 unbanked CORRECTIONs.** Multiple agents independently flagged the same hazard: a superseded
+**212 unbanked CORRECTIONs.** Multiple agents independently flagged the same hazard: a superseded
 number may sit in the repository *with its withdrawal missing*. Register 66 is the confirmed
 instance. Finding the rest is a distinct job — take each `CORRECTION` row, extract the superseded
 value, and search the repository for it. That audit has **not** been run.
@@ -173,14 +195,19 @@ for t,s in sizes.most_common(): print(f'{t:<16}{counts[t]:>8,}{s/1e6:>10.1f} MB'
 EOF
 
 # 2. spot-check any row: its quote must be in the shard and absent from the repo.
-#    NOTE: exclude this file and PROSE-ONLY.tsv — they now quote the finding themselves,
-#    so a naive grep matches them and looks like the claim has been falsified.
-grep -c '172 violations' drive/chats/2026-*/f5fb44a9-*.json          # expect >0
-grep -rl '172 violations' --include='*.md' . \
-  | grep -v drive/chats | grep -v 'docs/PROSE-ONLY.md'               # expect nothing
+#    IMPORTANT: exclude this file AND PROSE-ONLY.tsv. Both now quote the findings they
+#    describe, so a naive grep matches them and looks like the claim has been falsified.
+#    Use this helper for any row's quote:
+notbanked() {  # usage: notbanked '<verbatim phrase>'
+  grep -rl "$1" --include='*.md' --include='*.tsv' --include='*.txt' . 2>/dev/null \
+    | grep -v '^./drive/chats' | grep -v 'PROSE-ONLY'
+}
+grep -c '172 violations' drive/chats/2026-*/f5fb44a9-*.json   # expect >0 (it is in the shard)
+notbanked '172 violations'                                    # expect nothing
+notbanked '14D is an axis'                                    # expect nothing
 
 # 3. the fault census
-grep -rn 'F51\.2' --include='*.md' . | grep -v drive/chats           # expect nothing
+notbanked 'F51.2'                                             # expect nothing
 ```
 
 ## How to use the list
@@ -193,6 +220,6 @@ To read the full context of any row, open its shard and go to the message index.
 is verbatim, so it greps.
 
 **A row is a candidate for a home, not an instruction to create one.** Deciding which of these
-1,101 statements deserves a register entry, a fault file, a docket row or nothing at all is the
+1,168 statements deserves a register entry, a fault file, a docket row or nothing at all is the
 author's call. This list only guarantees that the decision can now be made deliberately, instead of
 depending on whether anyone happens to re-read the right conversation.
