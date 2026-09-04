@@ -563,6 +563,19 @@ message rather than guessing, so one run out of order tells you what to run firs
   **All three flags default to off, so re-running the cell untouched hashes the two copies and
   writes nothing.** That is the intended safe default, and it is also the most common reason a run
   appears to have done nothing.
+* **`--single-branch` makes other branches unreachable, and the symptom is misleading.** Cell 2
+  clones with `--single-branch` for speed, which pins `remote.origin.fetch` to that one branch. A
+  later `git fetch origin <other-branch>` then reports success — `* branch <name> -> FETCH_HEAD` —
+  while creating no `origin/<name>` ref, so the `git checkout <name>` that follows fails with
+  `pathspec '<name>' did not match any file(s) known to git`. The fetch really did transfer the
+  objects; only the ref is missing. Cell 2 now restores the default refspec after cloning, and on an
+  existing clone before fetching. On a clone made before that fix, one line repairs it:
+
+  ```sh
+  git -C /content/repo config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+  git -C /content/repo fetch origin
+  ```
+
 * **If the notebook open in your browser predates those flags**, do not re-open it — the whole job
   is in [`../tools/colab_land_chats.py`](../tools/colab_land_chats.py). With Drive mounted and the
   repo cloned (cells 1 and 2), three lines in a fresh cell fetch the current branch and run it:
