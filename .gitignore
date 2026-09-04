@@ -3,7 +3,7 @@ __pycache__/
 
 # graphify intermediate sidecars (final outputs graph.json/graph.html/GRAPH_REPORT.md are tracked)
 graphify-out/.graphify_*
-graphify-out/.chunklist_*
+graphify-out/.chunk*
 graphify-out/.needs_update
 graphify-out/cache/
 graphify-out/2026-*/
@@ -11,7 +11,7 @@ graphify-out/2026-*/
 # these are unanchored so that scratch never lands in a generated tree
 **/graphify-out/cache/
 **/graphify-out/.graphify_*
-**/graphify-out/.chunklist_*
+**/graphify-out/.chunk*
 
 # staged by method/bin/stage-gate; census output, never committed
 method/DEFECT-CENSUS.tsv
