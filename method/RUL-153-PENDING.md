@@ -28,13 +28,20 @@ removal — and that tying register 1448 to 1332 could therefore only be done by
 4. **Ruling 29 is superseded in part.** Pointer removal is no longer the only Register edit class; pointer
    *addition and repair* join it. Ruling 29's purpose — that the Register is not quietly rewritten — is carried
    by item 5 instead.
-5. **A structural edit still leaves a record, and this is the one safeguard added rather than lifted.** M's
-   stated reason for the directive is that *the register was my way to show my work to the referees and
-   readers*. An in-place edit that left no trace would satisfy the new ruling and defeat its own purpose. So
-   **every in-place edit is carried by a Register entry in the same build that names the sites and what
-   changed** — the existing no-silent-change rule, unchanged — and the reverse-md5 guard and count-asserted
-   substitutions stand untouched. What is lifted is the requirement that a correction take the form of a NEW
-   entry; what is not lifted is that the correction be recorded.
+5. **A structural edit still leaves a record — in the WORKING register, not the Register.** M, correcting the
+   first draft of this item: *"I agree, but these are working register, not to be included in the publishable
+   volumes — work matter not subject matter."* An in-place edit that left no trace would satisfy the new
+   ruling and defeat its own purpose, so **every in-place structural or prose edit is carried by a
+   `WORKING-REGISTER.md` entry in the same build, naming the sites and what changed**, and the reverse-md5
+   guard and count-asserted substitutions stand untouched. What is lifted is the requirement that a
+   correction take the form of a new entry; what is not lifted is that it be recorded.
+   **This is §2's standing distinction applied, not a new one:** the Register is a reader-facing compendium
+   and records subject matter only; `WORKING-REGISTER.md` is the audit log and every editorial entry belongs
+   there and is forbidden from the books. A structural or prose edit is **work matter**. It gets no Register
+   entry, and nothing about it reaches a publishable volume.
+   **What still earns a Register entry is unchanged:** a correction to the subject matter itself — something
+   written wrong in the mathematics or the record and put right, with both states kept. Entries 1798, 1799 and
+   1800 are of that kind and stand.
 6. **The close route has to change with it.** `close.py` mechanically enforces append-only: it asserts that
    among old members only WORKING-REGISTER.md, MANIFEST.tsv and the `--append` targets differ, and that each
    grown body equals old body plus appended text. **An in-place Register edit cannot pass it.** A structural
