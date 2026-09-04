@@ -180,6 +180,18 @@ marker in a Register that marks elsewhere — corroboration, not proof. One row 
 absent from the nine volumes, **not** from the repo — the governance tree is outside them. Nothing
 was repaired. See `docs/RETRACTION-AUDIT.md`.
 
+**`REGISTER-GAPS.tsv` accounts for every hole in the Register's numbering.** The Register seats
+**1,660 entries** over 1–1792 (grouped headings `### 219, 220, 221` honoured — a bare `### N` read
+gives 1,628 and invents 32 gaps). **132 numbers have no entry**, and `RULING 27 — TWO REGISTERS`
+explains 119 of them: they are seated in `WORKING-REGISTER.md`, moved there under an
+`<!-- EXCISED N : reason -->` marker in the live bundle. The correspondence is **exact both ways** —
+114 marker lines cover 119 numbers (three markers are themselves grouped), every Working Register
+entry has one, and no marker names an entry The Register still seats. **A gap is a relocation, not a
+loss.** **13 numbers are seated in neither** — 176 and 177 with no trace at all, ten in 661–688 that
+a collection log quotes as live instructions, and 1138. Complements rather than supersedes the
+corpus's own cited-but-absent census (`register_cites.py`, `DEFERRED.md` docket 9(c)/30), which asks
+the other question. See `docs/REGISTER-GAPS.md`.
+
 **What the graph pass measured is written up in `docs/GRAPH-FINDINGS.md`** — the seven `AMBIGUOUS`
 edges traced to their files, the `HANDOFF-13` byte-fingerprint for an absent document, the 23-file
 truncation census (only `HANDOFF-34.md` lines 34–42 is a hard boundary, and it is one the chat export
