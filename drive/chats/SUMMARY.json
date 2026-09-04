@@ -1,0 +1,36 @@
+{
+  "tool": "shard_conversations.py",
+  "mode": "shard",
+  "generated_at": "2026-09-04T05:59:05Z",
+  "input": {
+    "path": "/content/drive/MyDrive/The Method Materials /Claude Chats/conversations.json",
+    "bytes": 388264753
+  },
+  "parser": "ijson 3.5.1 (streaming)",
+  "schema": {
+    "container_key": null,
+    "id_key": "uuid",
+    "title_key": "name",
+    "created_key": "created_at",
+    "updated_key": "updated_at",
+    "messages_key": "chat_messages"
+  },
+  "dry_run": false,
+  "output_dir": "/content/chats-shards",
+  "conversations": 352,
+  "messages": 11879,
+  "bytes_in": 388264753,
+  "bytes_out": 411163510,
+  "shards_written": 352,
+  "largest_shard": {
+    "path": "2026-08/3851d6dc-a805-49de-a922-d81e36fba67c.json",
+    "bytes": 40319162
+  },
+  "index": {
+    "path": "INDEX.tsv",
+    "rows": 352,
+    "bytes": 56240
+  },
+  "max_files": 5000,
+  "verified": true
+}

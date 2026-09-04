@@ -1,0 +1,83 @@
+{
+  "uuid": "b87e92d2-ab35-4457-9484-2e79eacaba5f",
+  "name": "",
+  "summary": "",
+  "created_at": "2026-08-24T23:22:05.720369Z",
+  "updated_at": "2026-08-25T23:03:14.788212Z",
+  "account": {
+    "uuid": "b44b80ef-cbad-492a-8346-4f16631749fd"
+  },
+  "chat_messages": [
+    {
+      "uuid": "01a03614-c547-7184-aa64-db4932363f5a",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-24T23:22:09.806543Z",
+      "updated_at": "2026-08-24T23:22:09.806543Z",
+      "attachments": [],
+      "files": [
+        {
+          "file_uuid": "f2c232ce-76ec-49f1-a1c1-0c460885f4fa",
+          "file_name": null
+        }
+      ],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "01a03614-c547-71a7-8c42-a0c1ba687a16",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-24T23:32:59.169406Z",
+      "updated_at": "2026-08-24T23:32:59.169406Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03614-c547-7184-aa64-db4932363f5a"
+    },
+    {
+      "uuid": "01a03620-d344-7edc-ac58-e1dc44a93631",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-24T23:35:22.319170Z",
+      "updated_at": "2026-08-24T23:35:22.319170Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03614-c547-71a7-8c42-a0c1ba687a16"
+    },
+    {
+      "uuid": "01a03620-d344-7f29-9811-d92f56d23728",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-24T23:39:01.702366Z",
+      "updated_at": "2026-08-24T23:39:01.702366Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03620-d344-7edc-ac58-e1dc44a93631"
+    },
+    {
+      "uuid": "01a03625-8ec7-76e4-b4da-126b04e4de8e",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-24T23:40:27.319659Z",
+      "updated_at": "2026-08-24T23:40:27.319659Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03620-d344-7f29-9811-d92f56d23728"
+    },
+    {
+      "uuid": "01a03625-8ec7-76f5-b91f-4e3c35f8a686",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-24T23:41:06.066438Z",
+      "updated_at": "2026-08-24T23:41:06.066438Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03625-8ec7-76e4-b4da-126b04e4de8e"
+    }
+  ]
+}
