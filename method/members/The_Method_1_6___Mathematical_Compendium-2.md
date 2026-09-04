@@ -3645,14 +3645,24 @@ falsification was run, and the falsification withdrew it.*
 
 ## The necessity of state
 
-**The object.** For each admissible subshell, set a to that subshell's own crossing
-value and ask whether it is then least-ν. **104 of 106 steps admit two to four
-self-consistent subshells** — the observed one is always among them, never uniquely
-determined.
+**The object.** For each admissible subshell, ask whether some value of `a` makes it
+least-ν against its Pauli-admissible rivals. **Every step admits more than one — two to
+six across the table, and one never** — the observed one always among them, never
+uniquely determined.
 
-**This work.** *That the periodic table is not computable from a single atom's
-configuration. It requires one number carried forward: the arithmetic supplies the
-values, the walk supplies the selection.*
+**The theorem.** *In the plane where each admissible subshell is the point (√r, n),
+ν = n − a√r takes whichever point a line of slope `a` reaches first, so only vertices of
+the lower convex hull are ever taken. A point set carrying two distinct node counts has
+at least two such vertices, and the unfilled set carries two below 124 electrons — every
+neutral atom there is. Proved, and it needs no observation: the ambiguity is a fact about
+point sets, not about atoms.*
+
+**This work.** *One number is carried so the form stays exact. No single `a` lies in all
+106 corridors and the running intersection empties eleven times; three values suffice for
+the whole table and three are forced, boron, lanthanum and lawrencium having pairwise
+disjoint corridors (register 1580). What is not geometry is that the observed subshell is
+among the admissible ones at all 106 steps — that is the corridor, and it is what survives
+the form's demotion (registers 1445, 1460, 1463).*
 
 ## The observability boundary
 
@@ -3748,7 +3758,7 @@ discarded exchange integrals equals the count of bracket failures is this work's
 | **the staircase algebra** | ⌊s/2⌋ ≤ d ≤ s + ⌊s/3⌋, read out of a closed index |
 | **the sequence-index fix** | rank parity is not a free coordinate |
 | **the selection-rule falsification** | the corridor is forced, the path is not |
-| **the necessity of state** | 104 of 106 steps ambiguous without memory |
+| **the necessity of state** | no step admits fewer than two; the theorem is geometry, the corridor is the physics |
 | **the observability boundary** | closure enumerates; observation values |
 | **the singleton-output rule** | an index is closed when its reading is unique |
 | **the domain prohibition** | no parameter of this work is universal, so no pooled fit across regions is admissible |
