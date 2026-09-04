@@ -13,6 +13,10 @@ answered**, because a rebuild carries no resolutions forward. §12 is the census
 `AMBIGUOUS` edges in the rebuilt graph, the other 113 included, and it is where the one edge that
 found a real fault in the repository is written up.
 
+**§13 is not a trace but a refusal**, and it is the one section about the tool rather than the corpus:
+an incremental `--update` was run on six changed files and stopped before the write, because its
+merge would have collapsed 121 provenance distinctions across files that had not changed.
+
 ## Status vocabulary
 
 Used as `method/README.md` and `docs/COVERAGE.md` use it, and never flattened:
@@ -558,6 +562,137 @@ grep -l -iE 'FILED BEFORE|WRITTEN BEFORE|before any (run|solve|number|row|code)'
 
 ---
 
+## 13. `--update` is not usable on this repository, and the reason is provenance
+
+**Deferred, not repaired.** Run on 2026-09-04 after six files changed; **nothing was written** — the
+run was stopped before the graph write, `graph.json` came out byte-identical to its pre-run backup,
+and `manifest.json` was restored because the merge step had already stamped the six as extracted
+while the graph never took them.
+
+The six were `CLAUDE.md`, `docs/DOCFIGURES.md`, `docs/GRAPH-FINDINGS.md`, `docs/HANDOFF-GAP.md`,
+`docs/R3-REPAIR-PLAN.md` and `tools/docfigures.py` — 0.15 % of the 4,090 files the index covers, and
+**nothing under `drive/`, `extracted/`, `recovered/` or `method/` had moved.** Extraction itself went
+cleanly: AST gave 31 nodes and 67 edges for the one `.py`, and one agent gave **117 nodes, 163 edges,
+3 hyperedges** for the five documents at 144,489 subagent tokens. The extraction is **in the semantic
+cache**, so re-running costs no agent tokens; it is the *merge* that is the problem.
+
+### What the merge does
+
+```
+[graphify] Replaced 63 node(s) from re-extracted source file(s).
+[graphify] Deduplicated 354 node(s) (285 exact, 69 fuzzy).
+old 26364 nodes -> merged 26095 nodes
+```
+
+**The merged graph is smaller than the one it merges into**, so graphify's own shrink guard (#479)
+refuses the write and directs you to a full rebuild with `--force`. That guard is the second reason
+to stop. The first is what the shrink is made of:
+
+| | |
+|---|---|
+| old node ids absent from the merged graph | **377** |
+| …of those, sourced from one of the six changed files | 24 |
+| **…sourced from a file that did not change** | **353** |
+| …of the 353, a node with an identical label survives elsewhere | 206 |
+| **…of those, the survivor is in a different top-level tree** | **121** |
+
+`build_merge` runs a repository-wide dedup as a side effect of an incremental update on six
+documents, and it folds trees into each other:
+
+```
+extracted/…/transitions/Transitions.md  ->  drive/…/CORPUS/INTEGRATION-transitions.md
+recovered/REGISTER_AUDIT.md             ->  method/members/REGISTER_AUDIT.md
+drive/…/CORPUS/READ-ch16d.md            ->  method/members/READ-ch16d.md
+drive/…/EXPANSION-MC54.md               ->  recovered/EXPANSION-MC54.md
+```
+
+### Why that is a defect here and not everywhere
+
+**Those pairs are not duplicates in this repository.** `drive/` is the mirror of record and `method/`
+is the store of record; `extracted/` and `recovered/` are generated trees carrying their own ledgers
+and their own statuses, and `CLAUDE.md` states outright that **RECOVERED is not mirrored** — no
+recovered file is claimed byte-identical to a copy held elsewhere, nor is any of it a member of a
+bundle. Which tree a body sits in *is* the finding about it. Collapsing a mirrored copy into a seated
+member is the same class of error as flattening `RECOVERED-BY-WRITE` to `RECOVERED`: it destroys a
+distinction the corpus is built to keep.
+
+So the trade the merge offers is **121 collapsed provenance distinctions across untouched files, to
+seat 148 nodes about six documents.** That is why it was refused. A corpus with one source tree and
+no provenance semantics would take this merge happily; this one cannot.
+
+### The standing decision
+
+**Leave the graph at 26,364 and let those six documents describe an earlier state of themselves.**
+The staleness is now exactly known and bounded — five documents, plus `docs/R3-REPAIR-PLAN.md`, which
+is in no node at all. The correct route to currency is a **full rebuild** (`/graphify .`), which
+builds through `build_from_json` and never runs this merge-time dedup; that is the ~3.45M-token pass,
+so it is worth spending after a pass that moves the corpus, not after six documents. **Do not
+`--force` past the shrink guard**: forcing writes the 121 collapses, which is the thing being
+avoided.
+
+Nothing here is a defect in graphify. It is a mismatch between a general-purpose dedup and a corpus
+whose whole point is that the same text in two trees means two different things.
+
+### Re-verification for §13
+
+Reads only — it reproduces the merge in memory and writes nothing, so `graph.json` is untouched.
+It needs the semantic cache warm; if it reports the cache cold, the extraction agent has to be
+re-run first.
+
+```python
+# python3 -c with the graphify interpreter: $(cat graphify-out/.graphify_python)
+import json, collections
+from pathlib import Path
+from graphify.detect import detect_incremental
+from graphify.extract import extract
+from graphify.cache import check_semantic_cache
+from graphify.build import build_merge
+
+ROOT = '/home/user/Claude-Method-Works'
+SPEC = f'{ROOT}/.claude/skills/graphify/references/extraction-spec.md'
+
+inc = detect_incremental(Path(ROOT))
+changed = {f for fl in inc.get('new_files', {}).values() for f in fl}
+code = [Path(f) for f in inc['new_files'].get('code', [])]
+ast = extract(code, cache_root=Path(ROOT)) if code else {'nodes': [], 'edges': []}
+docs = [f for c in ('document', 'paper', 'image') for f in inc['new_files'].get(c, [])]
+sn, se, sh, uncached = check_semantic_cache(docs, root=ROOT, prompt_file=SPEC)
+if uncached:
+    raise SystemExit('semantic cache is cold -- re-run the extraction agent first')
+
+seen = {n['id'] for n in ast['nodes']}
+new = {'nodes': list(ast['nodes']) + [n for n in sn if n['id'] not in seen],
+       'edges': ast['edges'] + se, 'hyperedges': sh,
+       'input_tokens': 0, 'output_tokens': 0}
+
+old = json.loads(Path('graphify-out/graph.json').read_text(encoding='utf-8'))
+G = build_merge([new], graph_path='graphify-out/graph.json', prune_sources=None,
+                root=ROOT, directed=False)
+print(f'old {len(old["nodes"])} -> merged {G.number_of_nodes()}')
+
+rel = {str(Path(f).relative_to(ROOT)) for f in changed}
+osrc = {n['id']: (n.get('source_file') or '') for n in old['nodes']}
+olab = {n['id']: n.get('label', '') for n in old['nodes']}
+nid = set(G.nodes())
+nlab = collections.defaultdict(list)
+for n, d in G.nodes(data=True):
+    nlab[(d.get('label') or '').lower()].append(d.get('source_file') or '')
+tree = lambda p: p.split('/')[0]
+gone = [g for g in osrc if g not in nid]
+elsewhere = [g for g in gone if osrc[g] not in rel]
+survives = [g for g in elsewhere if olab[g].lower() in nlab]
+cross = [g for g in survives if tree(nlab[olab[g].lower()][0]) != tree(osrc[g])]
+print(f'gone {len(gone)}: {len(gone) - len(elsewhere)} from changed files, '
+      f'{len(elsewhere)} from unchanged; {len(survives)} have a same-label survivor, '
+      f'{len(cross)} of those in a different tree')
+```
+
+Expected on the 2026-09-04 state: `old 26364 -> merged 26095` and
+`gone 377: 24 from changed files, 353 from unchanged; 206 have a same-label survivor, 121 of those in
+a different tree`.
+
+---
+
 ## What is still open
 
 - **`HANDOFF-26` governance divergence** (§7b) — two complete bodies, two incompatible rules for
@@ -569,6 +704,8 @@ grep -l -iE 'FILED BEFORE|WRITTEN BEFORE|before any (run|solve|number|row|code)'
 - **Four post-restart handoffs — 23, 32, 43 and 44** (§12b) — ABSENT repo-wide; the files at those
   names are the pre-restart documents. Two more, **25 and 33**, are recorded as *retired unused* by
   the handoffs that superseded them, so they may never have existed as live documents at all.
+- **Six documents the graph describes at an earlier state** (§13) — `--update` was run and refused;
+  the currency costs a full rebuild, and the deferral is deliberate.
 
 None of these is a defect to fix. Each is a recorded absence or an unresolved authorial question,
 and this file exists so the next session starts from the measurement rather than re-deriving it.

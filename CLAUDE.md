@@ -226,6 +226,19 @@ newly extracted by 22 subagents). Cost: **3.45M combined subagent tokens**. Stil
 treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`, `extracted/LEDGER.tsv`,
 `recovered/LEDGER.tsv` or `HANDOFF-GAP.tsv` instead.
 
+**Do not run `/graphify --update` here, and do not `--force` past its shrink guard.** It was tried on
+2026-09-04 over six changed documents and **stopped before the write** — extraction was clean, but
+`build_merge` runs a repository-wide dedup as a side effect and would have dropped **353 nodes
+sourced from files that had not changed**, 121 of them folding one tree into another
+(`recovered/REGISTER_AUDIT.md` into `method/members/REGISTER_AUDIT.md`, `drive/…/READ-ch16d.md` into
+`method/members/READ-ch16d.md`). Those are not duplicates here: which tree a body sits in is a
+finding about it, and **RECOVERED is not mirrored**. The merged graph is also *smaller* than the one
+it merges into, so graphify's own guard refuses the write. **Currency costs a full rebuild**
+(`/graphify .`, which never runs that dedup) — worth spending after a pass that moves the corpus, not
+after six documents. Six documents therefore describe an earlier state of themselves in the current
+graph, `docs/R3-REPAIR-PLAN.md` is in no node at all, and that is **deferred by decision**. See
+`docs/GRAPH-FINDINGS.md` §13.
+
 Three limits are recorded rather than repaired. `graph.html` is the **aggregated community view** —
 26,364 nodes is far above the node-level render limit of 5,000, so it draws 2,929 community nodes and
 2,211 cross-community edges, not individual files. The health check reports **8,908 dangling-endpoint
