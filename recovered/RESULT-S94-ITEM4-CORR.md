@@ -1,0 +1,3 @@
+F94.7 SEVERITY: hygiene (prediction). The prediction named the runner-ups at 38 and 72 as "4d" and "(5d)" from memory; the sealed runner-ups are
+   5p (38) and 6p (72) (nlchain order[1]; the instrument read them correctly). Species: reading a label instead of the instrument (recurring).
+   C4's "s over d" rationale at 38 was therefore built on a wrong object; the sign falsification stands regardless.

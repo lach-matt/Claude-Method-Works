@@ -1,0 +1,5 @@
+NOTE F64.2: the detached run of 2026-08-20T19:52:17Z was terminated by the container
+between tool calls, after Z=57 completed and before its row was appended. Its stdout
+is kept as .row57.orphan and is NOT used as the result. Rows are re-run in the
+foreground, one row per call. Z=57 is re-run and the orphan is used only as a
+determinism comparison.

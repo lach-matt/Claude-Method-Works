@@ -18,9 +18,9 @@ python3 tools/recover.py --selftest # assert the corpus's own recorded numbers
 | `RECOVERED-TRUNCATED` | 23 | The body carries a `< truncated lines N-M >` marker — the chat was showing an **elided view**, so the text is incomplete by the stated count. Kept, because a partial document is still evidence, but never to be read as whole. |
 | `PRESENT-IN-REPO` | 51 | Byte-identical to something already tracked; not written again. |
 
-**3,164 files, 15.3 MB** (3,215 rows; the `PRESENT-IN-REPO` rows write nothing).
+**3,173 files, 15.3 MB** (3,224 rows; the `PRESENT-IN-REPO` rows write nothing).
 
-**759 of those files are `RECOVERED-BY-WRITE`, and they are the largest single addition this tree has
+**768 of those files are `RECOVERED-BY-WRITE`, and they are the largest single addition this tree has
 had.** `recover.py` works from a **wanted-set** — the artefact column of `COVERAGE.tsv`, which is the
 names the two live bundles use in filename shape. Anything the bundles never name that way is
 invisible to it, however many times it is re-run. Walking the export's **tool calls** instead, and
@@ -88,7 +88,22 @@ every version, so the order is evidence rather than assertion.
   `file_uuid` and **no content whatsoever**. The bytes are not in the export, so no tool can produce
   them. `HANDOFF-16-1.md` is such an entry.
 * **Bodies shown only as a `view` tool result.** Those carry line numbers and a tab per line.
-  De-numbering them would be reconstruction, not recovery, so they are left alone.
+  De-numbering them would be reconstruction, not recovery, so they are left alone. The class is
+  small: `view` is **123** of roughly 4,545 tool calls in a twenty-shard sample, against **4,141**
+  for `bash_tool`. The shell is where this corpus's files were written.
+
+## The heredoc route was measured and is not a gap
+
+Worth recording as a **negative result**, so nobody re-derives it. `recover.py` reads heredocs but
+only for names in its wanted-set; the `RECOVERED-BY-WRITE` pass reads any name but only the
+`path`+`file_text` write shape, and never looked inside a shell command. A heredoc write to a name
+outside the wanted-set would have fallen between them.
+
+Scanning every `cat`/`tee` heredoc in every `bash_tool` command found **2,056 distinct targets with
+a body, and 9 whose name the repository did not hold — 7.8 KB.** Those nine are seated (as
+`RECOVERED-BY-WRITE`, with the heredoc target in the note, because a heredoc *is* a tool-call write).
+**The other 2,047 were already held**, which is the useful part: between them the two passes cover
+this shape essentially completely, and the shell is not where anything is hiding.
 
 ## What it changed
 

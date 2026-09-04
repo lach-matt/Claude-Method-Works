@@ -58,8 +58,8 @@ seated 759 more; the plain-run ABSENT fell 431 → 288 → **177**. See `docs/CO
 **`drive/chats/` is the sharded chat export, and `recovered/` is what was extracted from it.**
 352 conversations, 11,879 messages, sharded by `tools/shard_conversations.py` with `INDEX.tsv` and
 `SUMMARY.json` as their inventory. `tools/recover.py` then extracts the artefacts those chats wrote:
-**3,164 files, 15.3 MB** over 3,215 ledger rows, in six statuses: `RECOVERED` (2,196) where a
-heredoc named its own target, **`RECOVERED-BY-WRITE` (759)** — found by walking the export's tool
+**3,173 files, 15.3 MB** over 3,224 ledger rows, in six statuses: `RECOVERED` (2,196) where a
+heredoc named its own target, **`RECOVERED-BY-WRITE` (768)** — found by walking the export's tool
 calls rather than from a wanted-set, the largest single addition this tree has had —
 `RECOVERED-BY-HEADING` (163) where a code block carried the body and the name was inferred from its
 heading, `PRESENT-IN-REPO` (51) which write nothing, **`RECOVERED-TRUNCATED` (23) — a body a paging

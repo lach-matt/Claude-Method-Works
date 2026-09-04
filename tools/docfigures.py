@@ -202,10 +202,10 @@ def checks():
              if r["status"] == "RECOVERED-BY-NUMBER")),
         ("docs/HANDOFF-GAP.md", "still held nowhere (all MENTION-ONLY)", 3,
          sum(1 for r in _rows("HANDOFF-GAP.tsv") if r["class"] == "MENTION-ONLY")),
-        ("CLAUDE.md", "recovered/ files", 3164,
+        ("CLAUDE.md", "recovered/ files", 3173,
          len({r["target_path"] for r in _rows("recovered/LEDGER.tsv") if r["target_path"]})),
-        ("CLAUDE.md", "recovered/ ledger rows", 3215, len(_rows("recovered/LEDGER.tsv"))),
-        ("CLAUDE.md", "recovered/ RECOVERED-BY-WRITE", 759,
+        ("CLAUDE.md", "recovered/ ledger rows", 3224, len(_rows("recovered/LEDGER.tsv"))),
+        ("CLAUDE.md", "recovered/ RECOVERED-BY-WRITE", 768,
          sum(1 for r in _rows("recovered/LEDGER.tsv")
              if r["status"] == "RECOVERED-BY-WRITE")),
         ("docs/GRAPH-FINDINGS.md", "Lowdin bridge sessions held", 63,
