@@ -1,0 +1,117 @@
+unit L10264–L10353 (90 lines)
+
+================================================================================================
+§1 READINGS the computable instrument pointed at — printed, not probed
+================================================================================================
+ (a) §25.2 on Sc VI: the limit and the highest measured level (L10303 quotes *highest measured level is 5s at 696,400* from "§24.2")
+   main L6917 the levels are 40–50% configuration-mixed with no assignable parent.
+   main L6918 
+   main L6919 **Sc VI shows this has two causes, not one.** Sc⁵⁺ has a clean core — three parent terms, no mixing worth the name, a limit measured at 892,700 ± 400 cm⁻¹ — and still yields **6 channels, 10 configura
+   main L6920 
+   main L6921 Ti I's limit is structural: no measurement campaign would help. Sc VI's is provisional: 6s
+   main L6922 and beyond exist and are simply unmeasured.
+   main L6923 
+     *highest measured* / *696* anywhere: {'main': [6047, 10337]} {'reg': [2515, 2549], 'ioi': [1076]}
+ (b) §23.10.4 supersedes the 1,061 bounds
+   main L6520 perturbation it sees.
+   main L6521 
+   main L6522 **Which supersedes §25.5's 1,061 order-1 bounds:** the same data at matched order yields 34 bounds at 0.0164 cm⁻¹, **and 619 refusals that are themselves perturbation detections this book did not coun
+   main L6523 
+   main L6524 ### 23.11 The refusal pattern carries four verdicts, not one
+     §25.5 heading and its 1,061 / 1.4 lines: [(6975, '**Every verified cell yields a bound.** Of the 1,442, the 1,105 added in this work are computed directly; the tightest are:'), (6987, 'No configuration interacts with Al I 3s²54f by more than 1.4 cm⁻¹.'), (6992, 'local perturbation, the tightest 1.398 cm⁻¹.')]
+ (c) §10.2 the range the void-free fraction is stable over (unit: *2.4 points over a 100× range*)
+   main L2055 
+   main L2056 ![Figure 10.1](figures/figure-10.1.png)
+   main L2057 
+   main L2058 Figure 10.1. The void-free fraction across a hundredfold range in cell count, computed exhaustively over 776 million
+   main L2059 pairs. Stable at 27.7–30.1%, with no trend.
+ (d) §16.5 on the 30,000 samples (unit: *χ_Λ total — 30,000 ambient points — exact*; §3.3 L1242 says *until register 248*)
+   main L4458 
+   main L4459 **Verified on every ambient point — all 6,912 of them, χ ∈ {0,1} everywhere, nothing undecided, and
+   main L4460 χ agreeing with membership on every cell.** An earlier pass drew 30,000 uniform samples from a box of
+   main L4461 6,912, which is more draws than cells and still not a proof of totality; the exhaustive test costs
+   main L4462 less than the sampling did. Register 248.
+   main L4463 
+     Register 248 body: **A.5 RETESTED ON EVERY AMBIENT POINT RATHER THAN 30,000 SAMPLED — THE BOX HOLDS 6,912, SO THE SAMPLING DREW MORE TIMES THAN THERE ARE CELLS AND STILL ESTABLISHED NOTHING.**
+     Register 248 WARNING: []
+ (e) the +0.35 sites in the Spectra Compendium (unit: *filled-d core raises δ +0.35 at low ℓ*)
+   sc L320 | Ar I | nd 2[7/2]* J=4 | 3–6 | 4 | 2 | 2/2 | 2.8–5.6 | +0.3516 | 0.0715 | 1 | 127,198.600 |
+   sc L429 | Be I | 2snp ¹P° | 3–13 | 11 | 9 | 9/9 | 2.7–12.6 | +0.3590 | 0.1025 | 1 | 75,192.500 |
+ (f) the 200/200 sites (unit: *closure ⟺ ℛ(X) = X — 200/200 agreements* and *on 200 constructions*)
+   main L4683 | operation | outcome |
+   main L4684 |---|---|
+   main L4685 | **ask Λ** | refused, 200/200 |
+   main L4686 | **rebuild around *y*** | admitted, 200/200 |
+   mc L600 **X₀ ⊆ Λ generates Λ iff (a) X₀'s alphabet equals Λ's in every coordinate and (b) X₀'s pairwise envelopes equal Λ's at every alphabet value — exact, two-route validated at 200/200 covers closing to 97
+     *200 constructions* / *constructions* in main: {'main': [10308]} []
+ (g) §32.6 — the three falsification tests, the book's own
+   main L9210 ### 32.6 The falsification tests, run
+   main L9211 A book that invites the reader to look for its breaks has done less than one that looks itself.
+   main L9212 The three conditions are tested here, on this text, with the results reported whether or not they are
+   main L9213 favourable.
+   main L9214 
+   main L9215 Condition 1 — E(book) > 0
+   main L9251 **The three remaining are not claims.** One reads "100% over 2,513 tests", which *is* a verification; two are sentences that happen to contain a number.
+   main L9252 
+   main L9366 **And a work that runs its own falsification tests and reports the two that failed.**
+ (h) §31.3.4 — the test of an external prediction
+   main L8733 ### 31.3.4 E(X) on a specifiable slice, and 540 predictions
+   main L8734 The 30,108 pairs are a gzipped file this session could not read. But one slice of the catalogue is
+   main L8735 specified exactly in print, and a slice is enough for the operator.
+ (i) §16.3 — does it carry multi-target failure counts? (*target* lines in its span)
+     []
+     *multi-target* anywhere: {'main': [418, 7440, 10321]}
+ (j) §25.6.4 — the 735,091 row and the retirement sentence; §25.6 heading
+   main L6996 ### 25.6 The one deduction, and why it is not a prediction
+   main L7065 
+   main L7066 | route | δ used | E(6s) | inside the bracket |
+   main L7067 |---|---|---|---|
+   main L7068 | **two-point Ritz** | 0.9679 | **736,688** | **yes** |
+   main L7069 | Rule 4 constant defect | 0.9934 | 735,091 | **no** |
+   main L7070 
+   main L7071 **An earlier version of this work reported 735,091 ± 1,398.** It was computed with **δ̄ = 0.9934, which exceeds δ(5s) = 0.9812** — a defect larger than the last measured one, on a channel where the de
+   main L7072 
+   main L7073 The estimate fell outside the bracket its own channel implies. Rule 4a now forbids the form
+ (k) §3.5 — does it give the dpi distribution?
+     [(1272, 'figures at 300 dpi or better 5'), (1274, 'under 200 dpi 15'), (1275, 'median 164 dpi'), (1277, 'Fifteen figures were produced by an earlier pipeline whose default was figure.dpi = 160, and'), (1278, 'at 163 mm rendered width that gives 140–164 dpi — below print standard. Regenerating them needs')]
+ (l) §22.2.1 ablation and §25.2 Sr I / Ti I — where the "§24.2" material lives
+   main L6060 ### 22.2.1 Each rule justified by ablation
+   main L6061 A rule that costs nothing to break is not a rule. Each was tested by violating it:
+   main L6062 
+   main L6899 Any property built from a matrix element that passes through zero cannot be monotone. Sr I 5s²¹S₀ →
+   main L6915 Ti I: 23 channels, 26 members, zero interior cells. No channel reaches three members, because the
+ (m) Register 783 WARNING and the 1,442 standing: ['**CHAPTER 24 CLAIMED "1,442 INTERIOR CELLS ACROSS 35 ATOMIC SYSTEMS, THE BRACKET HOLDS IN EVERY ONE", AND THAT SENTENCE WAS CARRYING THE FABRICATION.** *The honest split: **930 cells across 128 channels** hold Appendix B']
+ (n) Chapter 28 L7373 (the 1,635) and the unit's *errors*
+   main L7376 
+   main L7377 **The entries themselves are not printed here.** Every correction, withdrawal and finding this
+   main L7378 work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,635 entries, 1 to 1792, at this build (2026-08-29)** — lives in
+   main L7379 **THE METHOD 1.6 — THE REGISTER**, a volume of its own (generated by `register_gen.py` from this book's own source and
+ (o) the V formula: unit L10317 *V = 4x/(h|p−1|)*; the volume's V definition sites: {'main': [6393, 6413, 6421, 6575, 10351], 'mc': [1898]} [(6188, 'V = w / e = 4ν/3'), (6192, 'V(x, p) = 4x / ( h · |p − 1| )')]
+ (p) *single prediction* / *prediction* sites vs §25.6's title *why it is not a prediction*: {'main': [10333]} {'main': [5956, 6996, 7044, 7045], 'reg': [2937, 3093], 'pc': [163]}
+
+================================================================================================
+§2 PROBES on the unit — first person, false universals, hedges, Ruling 45/46 candidates, formatting
+================================================================================================
+  first person (mine/myself carried; species Roman numerals excluded): NONE in the unit
+  Roman-numeral species in the unit (excluded from the probe): ['Sc VI', 'Sr I', 'Ti I']
+  all            [(10311, 'here, across all 153 channels · the failure condition and its inversion to 1,061 perturbation bounds ·'), (10340, 'All computations in Python 3 with NumPy. Closure tests are either exhaustive over all pairs —'), (10342, 'enumerate all 2^d corners of candidate base cells.')]
+  never          [(10297, '> 2Z²R/ν³ — and §25.4 argues that the collection never enters the regime where it can occur. That')]
+  no             [(10300, '**The perturbation bounds are as strong as the failure condition and no stronger.** If the condition is wrong,')]
+  single         [(10296, "The bracket's 1,442/1,442 breaks on a single reordering. §25.3 states the condition exactly — |ΔT|"), (10333, "The Sc VI defects are the most consequential of the six, because the book's single prediction")]
+  exactly        [(10296, "The bracket's 1,442/1,442 breaks on a single reordering. §25.3 states the condition exactly — |ΔT|"), (10330, 'Chapter 28 records one thousand six hundred and thirty-five errors found in work of exactly that kind — which ')]
+  exact          [(10274, 'the periodic table is not closed E = 36 exact arithmetic —'), (10275, 'closure ⟺ ℛ(X) = X 200/200 agreements exact —'), (10276, 'ⅅ ≥ dim q − dim p 420 random maps exact — rank–nullity —'), (10277, 'V > 2 for any monotone Proposition 23.1 exact, proved —'), (10279, 'Rydberg floor V ≥ 32/11 2.909091 at ν = 2 exact —'), (10280, 'E3 admissibility criterion 2,513/2,513, nine exact —')]
+  silently       [(10351, 'not, since V = 4x/(h|p−1|) assumes unit step. That exclusion is applied silently in the totals and is the')]
+  independently  [(10334, "rests on them, and §25.6's arithmetic was independently reproduced here — 735,091 against")]
+  unaffected     [(10337, '**One inconsistency was found in the inherited material and is recorded.** The exclusion discussion of §24.2 s')]
+  Ruling 45 candidates (process / revision / session / pipeline / build words): [(10304, '### C.2 What was computed in this revision'), (10305, 'Fourteen results rest on computations performed for this book, each reproducible from Appendix'), (10318, 'Six results come from earlier work and were not re-run:'), (10324, 'And fifteen figures at 140–164 dpi, produced by an earlier plotting pipeline whose default was'), (10326, 'recorded, not regenerated — the source data of the sessions that produced them is not in this one.'), (10329, 'These rest on methods described in Appendix B but were performed before this revision.'), (10337, '**One inconsistency was found in the inherited material and is recorded.** The exclusion discussion of §24.2 states that Sc VI\'s "')]
+  Ruling 46 candidates (code identifiers / file labels / software): [(10325, 'figure.dpi = 160: f01, f02, f03, f04, f05, f06, f07, f08, f09, f10, f11, f12, f13, f14, f18. Measured and'), (10340, 'All computations in Python 3 with NumPy. Closure tests are either exhaustive over all pairs —')]
+  table form: C.1 is whitespace-aligned (no `|` rows in the unit): [] ; markdown tables elsewhere in the appendices (`| ` rows L9937–L11408): 49
+  Register cites in the unit (`[Rr]egister N`, `entries N`): [] — none; witness: the sweep above on all 90 lines
+  wrapped-phrase check on the markup-stripped join: *13× better than at an end*, *ℓ ≥ 3, where cores converge*, *2.4 points over a 100× range*: [False, True, False]
+
+================================================================================================
+§3 BIBLIOGRAPHY — every named author in the unit against the `## References` body (docket 36)
+================================================================================================
+  Singer     References body sites: [11636]
+
+END r2-ch21b

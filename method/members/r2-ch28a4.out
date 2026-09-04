@@ -1,0 +1,224 @@
+
+== §0 the unit by my own scan: `## References` LAST hit to the end of the member; the `### R.n` heading lines; entries per section under a NAMED convention
+  member 11904 lines; `References` heading hits [173, 11550]; unit L11550–L11904 = 355 lines, 270 non-blank
+  headings: [(11550, '## References'), (11604, '### R.1 Spectroscopic data'), (11630, '### R.2 Exotic systems and collect'), (11638, '### R.3 Series structure and quant'), (11677, '### R.4 Bounds, acceleration and t'), (11703, '### R.5 Order, lattices and closur'), (11829, '### R.6 Cited in the transfer test'), (11853, '### R.7 What is not cited, and why')]
+  R.1  L11604–L11629: paragraph entries 6 (A) / with inline ` · **` splits 6 (B)
+  R.2  L11630–L11637: paragraph entries 3 (A) / with inline ` · **` splits 3 (B)
+  R.3  L11638–L11676: paragraph entries 11 (A) / with inline ` · **` splits 11 (B)
+  R.4  L11677–L11702: paragraph entries 10 (A) / with inline ` · **` splits 10 (B)
+  R.5  L11703–L11828: paragraph entries 23 (A) / with inline ` · **` splits 31 (B)
+  R.6  L11829–L11852: paragraph entries 9 (A) / with inline ` · **` splits 9 (B)
+  R.7  L11853–L11904: paragraph entries 7 (A) / with inline ` · **` splits 7 (B)
+  preamble L11550–L11603 (before R.1): paragraph entries 12; bold block heads at [3, 24]
+  L11726 "alone among the thirteen in this section" (R.5): see the R.5 line above under both conventions; PP R.5 count in r2-ch28b §0
+
+== §1 every § pointer in the unit resolved to the CLAIM under both resolvers (body_range | section_span), key tokens on the join; lettered pointers by exact-token scan
+  §12.11.4   L11509 the four coupling types rebuilt     body_range (3462, 3467)   section_span (3462, 3467)   {'LS': 0, 'jK': 0, 'jj': 0, 'LK': 0} | {'LS': 0, 'jK': 0, 'jj': 0, 'LK': 0}
+  §24.9      L11518 per-species notes                   body_range (6757, 6822)   section_span (6757, 6822)   {'provenance': 1, 'per-species': False} | {'provenance': 1, 'per-species': False}
+  §14.1      L11537 §14.1 had been crediting to Freuder body_range (3687, 3716)   section_span (3687, 3716)   {'Freuder': 2, 'Dechter': 2} | {'Freuder': 2, 'Dechter': 2}
+  §14.5.9    L11545 constraint tightness as a COUNT     body_range (3922, 3964)   section_span (3922, 3964)   {'tightness': 0, 'twice': 0, 'envelope': 1} | {'tightness': 0, 'twice': 0, 'envelope': 1}
+  §8.6       L11553 order dimension                     body_range (1919, 1941)   section_span (1919, 1941)   {'dimension': 4, 'width': 3, 'Dilworth': 1} | {'dimension': 4, 'width': 3, 'Dilworth': 1}
+  §14.5.3    L11563 840-cell witness E = 750            body_range (3805, 3807)   section_span (3805, 3807)   {'840': False, '750': False, 'projection': 0} | {'840': False, '750': False, 'projection': 0}
+  §29.12     L11567 §29.12 U1                           body_range (8243, 8321)   section_span (8243, 8321)   {'U1': True, 'decomposab': 0} | {'U1': True, 'decomposab': 0}
+  §18.4.1    L11595 two realisation modes               body_range (5004, 5253)   section_span (5004, 5253)   {'realisation': 3, 'mode': 1} | {'realisation': 3, 'mode': 1}
+  §22.1.1    L11599 singleton bracket                   body_range (5958, 5987)   section_span (5958, 6011)   {'singleton': 1, 'muon': 3} | {'singleton': 1, 'muon': 3}
+  §12.11.0.1 L11605 occupancy clock                     body_range (2582, 2634)   section_span (2582, 2634)   {'clock': 3, 'occupancy': 7} | {'clock': 3, 'occupancy': 7}
+  §29.9      L11612                                     body_range (8103, 8107)   section_span (8103, 8113)   {'Racah': 0, 'jK': 0} | {'Racah': 2, 'jK': 1}
+  §12.11.1   L11615                                     body_range (3037, 3182)   section_span (3037, 3368)   {'seniority': 3} | {'seniority': 3}
+  §22.9      L11615                                     NO HEADING in the volume (exact-token scan); `§22.9` sites in main: []
+  §16.4.1    L11622 footnote 78 precedent               body_range (4437, 4454)   section_span (4437, 4454)   {'Edl': 3, 'footnote': 1} | {'Edl': 3, 'footnote': 1}
+  §29.5      L11624 / L11713                            body_range (7966, 7974)   section_span (7966, 8034)   {'Edl': 3, 'Dunz': 0, 'route': 0} | {'Edl': 7, 'Dunz': 0, 'route': 0}
+  §23.1      L11632                                     body_range (6185, 6201)   section_span (6185, 6201)   {'central difference': False, 'second difference': False, 'Boole': 0} | {'central difference': False, 'second difference': False, 'Boole': 0}
+  §23.8.1    L11634                                     body_range (6341, 6354)   section_span (6341, 6354)   {'Aitken': 0, 'λ²': True} | {'Aitken': 0, 'λ²': True}
+  §26.6      L11638                                     body_range (7177, 7199)   section_span (7177, 7199)   {'Richardson': 0} | {'Richardson': 0}
+  §23.8.4    L11642                                     body_range (6377, 6388)   section_span (6377, 6388)   {'Moore': 1, 'cost of rigour': False} | {'Moore': 1, 'cost of rigour': False}
+  §23.8.2    L11654                                     body_range (6354, 6370)   section_span (6354, 6370)   {'Newton decrement': True, 'self-concordan': True, 'λ²': False} | {'Newton decrement': True, 'self-concordan': True, 'λ²': False}
+  §12.9      L11658                                     body_range (2465, 2489)   section_span (2465, 2489)   {'maximal chain': True, 'Birkhoff': 0} | {'maximal chain': True, 'Birkhoff': 0}
+  §30.3      L11661–L11775 (R.5 §30.3 claims)           body_range (8404, 8410)   section_span (8404, 8580)   {'3/4': False, 'three quarters': False, 'three-quarters': False, 'Rival': 0, 'subcube': 0, 'residue': 1, 'obstruction': 0, 'arity': 0, 'reorderab': 0, 'Stahl': 0, 'subdirect': 0, 'tight': 0} | {'3/4': False, 'three quarters': True, 'three-quarters': False, 'Rival': 4, 'subcube': 2, 'residue': 2, 'obstruction': 1, 'arity': 17, 'reorderab': 0, 'Stahl': 1, 'subdirect': 0, 'tight': 1}
+  §15        L11670 recovered bound of Chapter 15       body_range (4275, 4277)   section_span (4275, 4337)   {'φ_ij': False, 'φ': 0} | {'φ_ij': False, 'φ': 2}
+  §18.4.2    L11696                                     body_range (5253, 5299)   section_span (5253, 5299)   {'dominance': 4, 'Brylawski': 2, 'partition': 0} | {'dominance': 4, 'Brylawski': 2, 'partition': 0}
+  §29.11     L11702 / L11706                            body_range (8128, 8157)   section_span (8128, 8227)   {'Baker': 2, 'Pixley': 2, 'Bergman': 1, 'majority': 1, 'median': 1} | {'Baker': 2, 'Pixley': 2, 'Bergman': 1, 'majority': 1, 'median': 1}
+  §14.5.7    L11759                                     body_range (3813, 3815)   section_span (3813, 3815)   {'seed': 1, 'NP': 0} | {'seed': 1, 'NP': 0}
+  §2.24      L11759                                     body_range (1187, 1222)   section_span (1187, 1222)   {'heuristic': 5, 'spread': 5} | {'heuristic': 5, 'spread': 5}
+  §14.5.1    L11767                                     body_range (3768, 3803)   section_span (3768, 3803)   {'eleven': 1, 'irredundant': 1, 'generating': 2} | {'eleven': 1, 'irredundant': 1, 'generating': 2}
+  §14.5      L11751 / L11754                            body_range (3737, 3768)   section_span (3737, 4081)   {'Moore famil': True, 'closure system': False, 'cryptomorph': 0} | {'Moore famil': True, 'closure system': False, 'cryptomorph': 0}
+  §2.23      L11726                                     body_range (1151, 1187)   section_span (1151, 1187)   {'requirement': 0, 'named': 0} | {'requirement': 0, 'named': 0}
+  §31.1      L11783                                     body_range (8619, 8623)   section_span (8619, 8664)   {'Poincar': 0, 'non-integrab': False, 'touch': 0} | {'Poincar': 2, 'non-integrab': False, 'touch': 1}
+  §31.1.1    L11788                                     body_range (8623, 8656)   section_span (8623, 8656)   {'bracket': 2, 'Lagrange': 1, 'equilibrium': 0} | {'bracket': 2, 'Lagrange': 1, 'equilibrium': 0}
+  §23.14.1   L11790                                     body_range (6600, 6611)   section_span (6600, 6611)   {'Hill': 1, 'capacity': 3} | {'Hill': 1, 'capacity': 3}
+  §31.3.1    L11795 / L11802                            body_range (8707, 8719)   section_span (8707, 8719)   {'Batyrev': 1, '248,305': True, '495,515': True, 'mirror': 0} | {'Batyrev': 1, '248,305': True, '495,515': True, 'mirror': 0}
+  §32.2      L11555 / L11799                            body_range (9035, 9043)   section_span (9035, 9043)   {'unread': 0, 'open': 0, 'Kreuzer': 0, '30,108': False} | {'unread': 0, 'open': 0, 'Kreuzer': 0, '30,108': False}
+  §29        L11844                                     body_range (7861, 7864)   section_span (7861, 8227)   {'searched': 0, 'not found': False} | {'searched': 3, 'not found': True}
+  §7         L11842 Chapter 7                           body_range (1729, 1755)   section_span (1729, 1801)   {'exclusion': 0, 'quantum number': False} | {'exclusion': 2, 'quantum number': False}
+  §8.4       L11723                                     body_range (1878, 1906)   section_span (1878, 1906)   {'antichain': 1, 'Sperner': 4, 'largest level': False} | {'antichain': 1, 'Sperner': 4, 'largest level': False}
+  §12.11     L11611                                     body_range (2529, 2540)   section_span (2529, 3513)   {'jK': 0} | {'jK': 1}
+  §14.6      L11763 (24b-06 corrected sites)            body_range (4081, 4106)   section_span (4081, 4275)   {'#P': True} | {'#P': True}
+  §28.10     L11763                                     body_range (8227, 8243)   section_span (8227, 8243)   {'#P': True} | {'#P': True}
+  §12.11.4 printed (short section, body_range L3462–L3466):
+    L3462 ### 12.11.4 Precision is path-dependent; physics is not
+    L3463  The exact J-set of a channel is the same whether J is reached through K or directly — recoupling,
+    L3464  12 of 12 (J_c, f) pairs — but the envelopes differ: 64.4% through K, 39.4% direct. The envelope does
+    L3465  not commute with recoupling. The index remembers the route; the atom does not.
+  §32.2 printed (short section, body_range L9035–L9042):
+    L9035 ### 32.2 Self-reference
+    L9037  **S1 — alphabet.** The list of claims is recoverable by projection: it is the set of first coordinates, and the table of contents is its quotient by chapter.
+    L9039  **S2 — order.** The specificity order among terms is a tree, and Chapter 15's propagation recovers it. **The book's sectioning is not arbitrary**; it is the order in which claims become supportable.
+    L9041  **S3 — bounds.** Every claim's support locations are recoverable as the union over its specialisations. **A reader given only the claims and their evidence could reconstruct the chapter structure**, which is the content of E = 0.
+  §14.5.3 printed (short section, body_range L3805–L3806):
+    L3805 ### 14.5.3 Two pairwise operators, and this book has used one name for both
+  homes located by grep: `840-cell`/`840 cells` main [3584, 11610]; `E(ℛ) = 750`/`750` main [3584, 5591, 5611, 5681, 11610]; `tightness` main [2738, 2759, 2844, 3105, 3919, 4167, 5279, 11202] (L11545 says since §14.5.9); `Richardson` main [8056, 11093, 11685] (L11638 says §26.6); `Q item` main sites [2763, 2788, 3762, 8892, 10693, 11760, 11779, 11790]; `item R` main [3762, 11810]
+  Appendix A heading hits []; `A.2` item sites in main (grep by hand, docket rule) [(3109, 'form argument with sampling beside it. A.2 removes'), (3688, 'Theorem 14.1 (A.2). X is closed iff X = ℛ(X), wher'), (3691, '**This is not new mathematics and the book gains b'), (3714, 'binary-determined since 1975. The development is a'), (8137, '**A.2 is that theorem specialised to products of c'), (8142, 'for A.2 changes from none found to found.')]
+  E.3    hits [11101] (body = LAST) {'chain decomposition': True, 'J(Λ)': True, 'Birkhoff': False}
+  E.6    hits [11236] (body = LAST) {'Adams': True, 'Dwinger': True, 'Schmid': True, 'maximal sublattice': False}
+  A.9    hits [10017] (body = LAST) {'Möbius': False, 'crosscut': True, 'Boolean': True}
+  A.2    hits [] (body = LAST) NO HEADING
+  E.1.5  hits [11060] (body = LAST) {'#P': True}
+  R.7    hits [11853] (body = LAST) {}
+  `P20` sites in main (L11786 "P20's bound"): [(396, 'P20 — the language bounds the question'), (418, "**P20 subsumes E3, the multi-target repair, and P19's reacha"), (2142, '**P20 already said this and used another vocabulary.** It st'), (2144, 'constant depth, and constant depth is combinational — **P20 '), (5564, 'said without loss. That is P20, and it is promoted here from'), (7609, '**112–118. Seven from the transfer work.** "The one coupling')]
+  `§R\.` form sites in main (a lettered pointer written with §): [11901]
+  `Q item [A-Z]` letters in the unit ['B', 'F', 'N', 'R']; in §32.2 (section_span) []
+
+== §2 every Register entry the unit cites: heading located by `^#{1,4}\s*N\s*$`, body (first non-blank line), WARNING lines in the entry
+  cited numbers (41): [301, 302, 303, 319, 344, 345, 346, 355, 400, 401, 409, 433, 436, 557, 1701, 1702, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1710, 1711, 1712, 1713, 1714, 1715, 1716, 1717, 1718, 1719, 1720, 1721, 1722, 1723, 1724, 1736, 1809, 1810]
+   301 heading L1127     WARNING none       body: **THE CAPS PRINTED IN §8.3 DO NOT REPRODUCE Λ** *, and the construction is short an eighth cond
+   302 heading L1131     WARNING none       body: **THE LAW OF REALISED CLOSURE SHARPENED INTO TWO MODES — ORDER-REALISATION, WHICH CLOSES TOTALL
+   303 heading L1135     WARNING none       body: **A CRITERION THE BOOK HAD USED WITHOUT STATING: AN OCCUPANCY COORDINATE IS ADMISSIBLE IFF ITS 
+   319 heading L1183     WARNING none       body: **A SECOND COMPANION PAPER, ON MUON-CATALYSED FUSION.** *Its structural window is a* **bracket 
+   344 heading ABSENT    WARNING —          body: 
+   345 heading L1263     WARNING none       body: **THE OCCUPANCY CLOCK FROM THE THIRD COMPANION PAPER, RECOMPUTED IN FULL.** **Zero of 739 compo
+   346 heading L1267     WARNING none       body: **ONE CORRECTION TO THE THIRD COMPANION PAPER: *IDENTITIES EXIST AT 8 OF 33 OBJECTS* AGAINST *A
+   355 heading L1295     WARNING none       body: **THE N-BODY CONFIGURATION SPACE INDEXED AND CLOSED — AND FOUND ALREADY IN print. THE EXACT SET
+   400 heading L1487     WARNING none       body: **FREUDER WAS CITED FOR DECHTER'S THEOREM.** *Freuder 1982 gives backtrack-free search at stron
+   401 heading L1491     WARNING none       body: **DEVILLE, Barták AND VAN HENTENRYCK 1999 NAME THE OPERATOR'S CONSTRAINT CLASS** *: a (α,β)-mon
+   409 heading L1523     WARNING none       body: **dim(Λ₈) = 8 WAS ASSERTED AND IS DILWORTH'S** *, being the width of J(Λ). Found by building th
+   433 heading L1607     WARNING none       body: **COUPLING SCHEMES ARE BASIS CHANGES AND THE COUNTS PRICE ROUTES.** *The exact J multiset is id
+   436 heading L1619     WARNING none       body: **He I HAS NO OBSERVED LEVEL VALUES IN THE ASD.** *Every level is bracketed, and NIST's note sa
+   557 heading L2087     WARNING none       body: **THE COMPANION'S READING OF Chandrasekaran–Flanagan IS VERIFIED AGAINST THEIR EQUATIONS.** *ar
+  1701 heading L6345     WARNING none       body: **THE LÖWDIN CHALLENGE IS CLOSED — THE ORDERING LAW DERIVED FROM THE EQUATION AT 107 OF 107, TH
+  1702 heading L6349     WARNING none       body: **THE CHAIN, MEASURED.** *119 rows, Z = 2–120; 107 SCORED, 12 UNWITNESSED. Every row records en
+  1703 heading L6353     WARNING none       body: **THE SILENCE OF CHAPTER 34 HAS AN OCCUPANT — THE COLLAPSE CONDITION DECIDES EXACTLY WHERE THE 
+  1704 heading L6357     WARNING none       body: **NO G BLOCK BELOW Z = 121, AND THE FIELD SAYS SO WITHOUT BEING ASKED.** *Measured across the w
+  1705 heading L6361     WARNING none       body: **THE CORRELATION CLAUSE, COMPLETE AT ALL FIVE CONTESTED ROWS — EVERY COMPETITION WIDENS.** *Z 
+  1706 heading L6365     WARNING none       body: **ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical
+  1707 heading L6369     WARNING none       body: **PRIOR ART — THE WALK'S ONE SYSTEMATIC DEFECT IS A PULAY TERM, PUBLISHED THE YEAR THE CHALLENG
+  1708 heading L6373     WARNING none       body: **PRIOR ART — THE OPERATOR ASYMMETRY IS LÖWDIN'S OWN 1950 IDENTITY, AND IT CLOSES THE LAST GAP.
+  1709 heading L6377     WARNING none       body: **A HYPOTHESIS FALSIFIED BY THE CLAUSE THAT SCORED HIT — KEPT, AS HONESTY REQUIRES.** *The resi
+  1710 heading ABSENT    WARNING —          body: 
+  1711 heading L6381     WARNING none       body: **ZERO RESIDUE — THE AUDIT OF THE INSTRUMENT CLOSES AT NOTHING LEFT UNEXPLAINED.** *chord = rot
+  1712 heading L6385     WARNING none       body: **OPEN — TWELVE ROWS UNWITNESSED, AND WHAT WOULD WITNESS THEM.** *Z = 109–120: entrants 6d (109
+  1713 heading L6389     WARNING none       body: **THE THREE-BODY STRATIFICATION IS AN INDEX WITH E = 0 — FIVE ASYMPTOTIC CLASSES.** *The strati
+  1714 heading L6393     WARNING none       body: **E(𝔉) = 0 AND §25.6 TOGETHER GIVE ZERO PREDICTIONS — BRUDNO ON THE CHAOTIC STRATUM.** *E(Λ₃) =
+  1715 heading L6397     WARNING none       body: **THE THREE-BODY POTENTIAL CARRIES §12.11.2'S THREE EXCLUDED FORMS TERM BY TERM.** *The three-b
+  1716 heading L6401     WARNING none       body: **TRIANGLE FORM AT CAP 8 — 344 CELLS, 0 JOIN FAILURES, 8,385 MEET FAILURES.** *Triangle form at
+  1717 heading L6405     WARNING none       body: **THIRTEEN MASS ORDER-TYPES × SIX CHECKS — 78 OF 78.** *13 mass order-types × 6 checks = 78/78.
+  1718 heading L6409     WARNING none       body: **FIRST AUDIT FAILED 13/13 — THE SHAPE POTENTIAL WAS DIVIDED BY R ONCE TOO OFTEN.** *First audi
+  1719 heading L6413     WARNING none       body: **THE DEGREE-8 POLYNOMIAL WITHDRAWN — REPLACED BY THE NORM N.** *The degree-8 polynomial "U⁸ − 
+  1720 heading L6417     WARNING none       body: **N IS LAGRANGE'S RESOLVENT NORM (1770) — PRIOR ART.** *N₈ is the norm over (ℤ/2)³ — Lagrange's
+  1721 heading L6421     WARNING none       body: **EIGHT ATTRIBUTION QUESTIONS — SEVEN CLOSED TO NAMED OWNERS.** *Eight attribution questions fo
+  1722 heading L6425     WARNING none       body: **NEW PROTOCOL — UNIFORM FAILURE IS A FAULT IN THE INSTRUMENT.** **Uniform failure is a fault i
+  1723 heading L6429     WARNING none       body: **A FAULT OF MINE — A CONVENTION CARRIED INTO A VERIFIED FORMULA UNCHECKED.** *Carried a conven
+  1724 heading L6433     WARNING none       body: **OPEN QUESTION CLOSED — THE MAXIMAL FORBIDDEN CASE IS THE SOLVED CASE.** *Whether the three-bo
+  1736 heading L6457     WARNING none       body: **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN
+  1809 heading L6672     WARNING none       body: **FIFTY-NINE WAS A 172-ROW DATUM PRINTED BESIDE A 162-ROW COUNT; RE-TAKEN ON THE LIST IT SITS B
+  1810 heading L6676     WARNING none       body: **§R.7's TWO LEAD-INS SAID THE CHAPTERS REST ON THE BLOCKS; THEY NOW SAY WHAT IS TRUE AS PRINTE
+  `Register 344` / `344` sites in the six volumes: main [7244, 9936, 11656] reg [5013, 6403, 6574] mc [3278]
+
+== §3 computable figures: recomputed where the data is in the bundle; otherwise located at their source (a location is not a re-derivation)
+  L11607 "739 of 1,089 joined pairs" with "33 objects": 33² = 1089 (ordered pairs incl. diagonal); C(33,2) = 528; 739/1089 = 67.9 %
+  L11608 "904 conservative cells at 54.7%" and "675,606 of 2,735,716 cell pairs": Λ₉ = 1654 cells; 1654² = 2735716 (ORDERED pairs with diagonal — the printed denominator); C(1654,2) = 1367031; 904/1654 = 54.7 % (ROUND_HALF_UP, 1 dp)
+    739        main sites [1669, 2587, 2599, 3213, 3222, 4156, 4748, 11654]; Register entries [345, 393, 621, 739, 778, 1190, 1739]
+    1,089      main sites [2587, 11654]; Register entries []
+    389        main sites [2612, 2891, 2914, 2920, 3236, 11655]; Register entries [350, 389, 770]
+    904        main sites [1671, 2599, 2612, 3211, 11655]; Register entries [393, 765, 839, 892, 904]
+    54.7       main sites [2599, 2606, 2612, 3211, 3228, 11655]; Register entries [393]
+    675,606    main sites [2622, 11655]; Register entries []
+    2,735,716  main sites [2618, 11655]; Register entries []
+    33 objects main sites [2587, 11654]; Register entries []
+    8/15/10    main sites [11654]; Register entries []
+    25,000     main sites [11652]; Register entries []
+    43 sections main sites [11652]; Register entries []
+  L11600–L11602 muon figures at Register 319 / §22.1.1 (record-carried; the paper is not a member):
+    119        §22.1.1 span 2; main sites [3900, 4785, 5967, 5970, 6451]; Register 319 0
+    918        §22.1.1 span 2; main sites [5968, 5970, 11647]; Register 319 0
+    2.6 × 10   §22.1.1 span 0; main sites [11648]; Register 319 0
+    0.203      §22.1.1 span 0; main sites [11648]; Register 319 0
+    0.262      §22.1.1 span 0; main sites [6725, 11648]; Register 319 0
+    0.292      §22.1.1 span 0; main sites [11648]; Register 319 0
+    11.2 m     §22.1.1 span 0; main sites [11648]; Register 319 0
+    623 m      §22.1.1 span 0; main sites [11648]; Register 319 0
+    7.29       §22.1.1 span 0; main sites [11649]; Register 319 0
+  L11563 "§14.5.3 gives an 840-cell witness … E(ℛ) = 750": `840` / `750` in §14.5.3 span: {'840': 0, '750': 0}
+  L11755 Moore families 1, 2, 7, 61, 2 480, 1 385 552, 75 973 751 474 (n = 0…6): brute force for n ≤ 4 (families of subsets of [n] containing [n] and closed under ∩):
+    n = 0: 1
+    n = 1: 2
+    n = 2: 7
+    n = 3: 61
+    n = 4: 2480
+  L11798 / L11801 Hodge figures at their main sites: {'473,800,776': [8709, 11845], '30,108': [8709, 8734, 11123, 11845], '248,305': [8712, 8713, 11848], '495,515': [7644, 8712, 8713, 8726, 11848]}
+  L11846 R = 109,737.31568 cm⁻¹: sites of `109,737.31568` main [5992, 11893]; other printed forms `109737.3` / `109,737.3` main [] [6738]; MC []; PC [41, 44, 428]
+  L11767 "§14.5.1's eleven-cell generating set": `eleven` in §14.5.1 span 1; `11 cells` / `eleven cells` main sites [1570, 6903, 7844, 7845, 9289, 11814]
+
+== §4 the MC bibliography against L11848–L11853: "162 works, 1669 to 2026"; "Fifty-nine of them are the works listed above" (surname ∩ year convention, NAMED)
+  MC bibliography heading hits: [(3376, '# VII · THE BIBLIOGRAPHY')]
+  `|` lines 164; first three: ['| year | work | objects |', '|---|---|---|', '| 1669 | Newton | `B.newton` |']
+  DATA rows (split on unescaped `|`, header and separator excluded, carrying a year): 162
+  MC bibliography L3376–L3546: 162 work rows; years 1669–2026
+  surnames MC rows 37, unit 163, shared 13: ['Andrew', 'Baker', 'Beek', 'Chenciner', 'Dechter', 'Drake', 'Fleischer', 'Gerratt', 'Griffin', 'Hsiang', 'Lach', 'Marchal', 'Nesterov']
+  MC rows whose surname is in the unit: 16 of 162 (the printed fifty-nine counts WORKS; this is a surname-overlap bound, stated as such)
+    Newton    MC rows 2 (years [1669, 1687])
+    Leibniz   MC rows 1 (years [1682])
+    Euler     MC rows 3 (years [1736, 1748, 1767])
+    Gauss     MC rows 1 (years [1809])
+    Moore     MC rows 1 (years [1910])
+    Birkhoff  MC rows 2 (years [1937, 1940])
+  Register 1736 body: **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN VOLUME NOW SAYS WHICH BIBLIOGRAPHY IS WHOSE.** *Matching the compendium's "172 works, 1669–2026" against the main volume's References by author and year found fifty-nine shared and the rest classical attr
+
+== §5 years against the Register's dating (docket 16) and against the unit itself
+  Edlén      unit years ['1960', '1964']; main (outside unit) name+year {'1964': 5, '1960': 3}; Register name+year {'1964': 5}
+  Janet      unit years ['1928']; main (outside unit) name+year {}; Register name+year {'1929': 3, '1928': 1}
+  Montgomery unit years ['1998', '2000', '2002', '2014', '2015']; main (outside unit) name+year {}; Register name+year {'2014': 1}
+  Kimura     unit years ['2024']; main (outside unit) name+year {}; Register name+year {'2024': 1}
+  Siggers    unit years ['2016']; main (outside unit) name+year {'2016': 4}; Register name+year {}
+  Ritz       unit years ['1903']; main (outside unit) name+year {'1908': 2}; Register name+year {}
+  Rydberg    unit years ['1890', '1942', '2005']; main (outside unit) name+year {}; Register name+year {'1890': 1}
+  Seki       unit years ['1680']; main (outside unit) name+year {}; Register name+year {}
+  Hill       unit years ['1713', '1724', '1878', '1890', '1975', '1982', '2001']; main (outside unit) name+year {}; Register name+year {}
+  Poincar    unit years ['1713', '1724', '1878', '1890', '1982', '2001']; main (outside unit) name+year {}; Register name+year {}
+  L11820 Montgomery "(2014) … Amer. Math. Monthly 122 (2015)": two years on one line — ['· Montgomery, R. (2014). The three-body problem and the shape sphere. *Amer. Mat']
+  L11621 Edlén (1960) Handbuch der Physik 27 and L11624 Edlén (1964) Encyclopedia of Physics: `Handbuch` sites main [4444, 5438, 5458, 5474, 6681, 7969, 8010, 8020, 8039, 11668]; `Encyclopedia of Physics` main [11671]; Register lines naming both years with Edlén []
+
+== §6 count words on raw lines AND the join; the [unread] / [F] / [S] marks against §32.2
+  thirteen           raw 1  join 1
+  Fifty-nine         raw 1  join 1
+  162 works          raw 1  join 1
+  1669 to 2026       raw 1  join 1
+  25,000 words       raw 1  join 1
+  43 sections        raw 1  join 1
+  four cycles        raw 1  join 1
+  eleven-cell        raw 1  join 1
+  four types         raw 1  join 1
+  three-way          raw 1  join 1
+  five equilibrium   raw 1  join 1
+  five fixed points  raw 1  join 1
+  five cells         raw 1  join 1
+  two blocks         raw 1  join 1
+  the three defects  raw 1  join 1
+  [unread]/unread lines 7: [(11601, ' Every work cited in this book, with what it is ci'), (11673, ' **Paschen, F. & Götze, R.** (1922). *Seriengesetz'), (11675, ' **Runge, C.** (1926). *Die Seriengesetze in den S'), (11733, ' Algebra Universalis 36, 488–504. — [unread], §E.6'), (11735, ' Ryter, Ch. & Schmid, J. (1994). Deciding Frattini'), (11761, '   unread: the volume is in Q, not in evidence.'), (11827, ' topologies; cited via the catalogue of large subl')]
+  [F] 1, [S] 9 lines; definitions of the marks in the unit: none (marks used, not defined)
+    Paschen  in §32.2 0 (span (9035, 9043)); unit lines [124]
+    Götze    in §32.2 0 (span (9035, 9043)); unit lines [124]
+    Runge    in §32.2 0 (span (9035, 9043)); unit lines [126]
+    Adams    in §32.2 0 (span (9035, 9043)); unit lines [183]
+    Ryter    in §32.2 0 (span (9035, 9043)); unit lines [186]
+    Schmid   in §32.2 0 (span (9035, 9043)); unit lines [183, 186]
+    Sharp    in §32.2 0 (span (9035, 9043)); unit lines [277]
+    Stephen  in §32.2 0 (span (9035, 9043)); unit lines [277]
+    Dunz     in §32.2 0 (span (9035, 9043)); unit lines [210]
+    Kreuzer  in §32.2 0 (span (9035, 9043)); unit lines [295]
+    Skarke   in §32.2 0 (span (9035, 9043)); unit lines [295]
+
+== §7 census rows in the unit's range and the docket-27 paragraph test
+  census columns: ['id', 'class', 'member', 'line', 'item', 'detail']
+  rows with member main/all and line in L11550–L11904: 2 [['718', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11600', '119,', 'other sites: main=2 reg=3 sc=2 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap'], ['719', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11600', '918', 'other sites: main=2 reg=2 ioi=1 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap']]
+  L11600 printed: claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap
+  docket 27: unit lines ≥ 40 chars 242; duplicated outside the unit 0 []

@@ -1,0 +1,175 @@
+
+================================================================================================
+1  UNIT EXTENT -- body_range AND section_span, both resolvers, per standing method
+================================================================================================
+  heading_line(32.7)   = 9313
+  body_range(32.7)     = (9313, 9399)
+  section_span(32.7)   = (9313, 9405)
+  COINCIDE             = False   (32.7 has no subsections -- expected True)
+  next heading         = L9399 '# PART VII — THE CHALLENGES'
+  unit                 = L9313-L9398, 86 lines
+  member true lines    = 11903
+
+================================================================================================
+2  COUNT WORDS AGAINST THEIR OWN DATA ROWS
+================================================================================================
+  32.7 table  L9320-L9326: 7 pipe lines, 5 DATA rows -> [9328, 9329, 9330, 9331, 9332]
+  L9318 count word: "Five worked cases"  -> five == 5: True
+  L9352 "the other four things": bolded contribution lines [9360, 9362, 9364, 9366] -> four == 4: True
+      L9360 **The failure condition, inverted.** |Δ*T*| < 2*Z*²*R*/ν³ turns 1,061 non-failures into 
+      L9362 **The cost of a guarantee.** *V* = 4ν/3 is two lines from the Rydberg formula and has no
+      L9364 **The law with its three mechanisms**, each demonstrated on a real error made in the wri
+      L9366 **And a work that runs its own falsification tests and reports the two that failed.**
+
+  29.6 heading L8034: '### 29.6 The three documents we could not reach'
+  29.6 body_range (8034, 8046); table DATA rows = 4 -> [8039, 8040, 8041, 8042]
+  heading says THREE; table lists 4  -- agree: False
+      L8039 | **Edlén, *Handbuch der Physik* XXVII (1964)**, on series formulas | Edlén wrote the standard a
+      L8040 | **Ritz, *Physikalische Zeitschrift* **9**, 521 (1908)** | Two pages longer than the ApJ versio
+      L8041 | **Paschen & Götze, *Seriengesetze der Linienspektren* (Springer, 1922)** | Book-length treatme
+      L8042 | **Dunz, *Seriengesetze der Linienspektra* (Leipzig, 1911)** | Earliest complete compilation, c
+
+================================================================================================
+3  THE SELF-DUALITY CASE -- L9322: "max+min-x gave 112, not 8; the right map is max-x"
+================================================================================================
+  Lambda_8 cells = 976   (gate core: 976)
+  per-coordinate max = [3, 1, 3, 3, 3, 1, 3, 3]
+  per-coordinate min = [1, 0, 1, 0, 1, 0, 0, 0]
+  max-x      : image-in-lattice 8  OUT 968  fixed points 0  injective True
+  max+min-x  : image-in-lattice 112  OUT 864  fixed points 0  injective True
+  identical maps (min all zero)? False
+  SITES of 112 and of 8 in the volume, and the words of the case:
+    112 -> [1893, 1895, 7609, 8754, 9328, 11118]
+    self-dual      -> [1892, 2192, 2276, 2281, 2290, 2307, 2918, 3504, 7530, 8707, 8716, 9054, 9328, 9334, 10979, 10988]
+    self-duality   -> [2918, 3504, 8707, 9054, 9328, 9334, 10979, 10988]
+    involution     -> [6327, 8710, 9055, 9334]
+    twenty-member  -> [9056, 9334]
+
+================================================================================================
+4  THE OTHER FOUR CASES OF THE TABLE, TRACED TO THE BOOK'S OWN RECORD (L9318 universal)
+================================================================================================
+  -0.00128           {'main': [9329]}
+  -0.00159           {'main': [9329]}
+  560/560            {'main': [7424, 9330]}
+  "3 of 85"          {'main': [7409, 9331]}
+  22 of 60           {'main': [9332]}
+  coerce/coerced     {'main': [617, 620, 1483, 4468, 4484, 4491, 4499, 7408, 9331], 'reg': [6279, 6287, 6315, 6327]}
+  prefix loop        {'main': [7424, 9330], 'reg': [1321, 5762, 6151, 6327]}
+  proper projection  {'main': [4988, 4992, 8350, 9330]}
+
+  32.3 account (the two traced audit failures) vs 32.7 rows 1-2:
+   9050       102 quantitative claims were extracted from the draft and re-derived independently from
+   9051       the data. Thirty were checkable in full. Two appeared to fail; both were traced to the
+   9052       auditor, not to the book.
+   9053 
+   9054  The two failures are the demonstration, not the exception. A claim about self-duality was flagged
+   9055  because the audit used the wrong involution. A defect was flagged because the audit sampled four levels
+   9056  of a twenty-member channel. In both cases the disagreement was visible, was pursued, and
+   9057  located the error. That is ⅅ_def operating on the text.
+
+================================================================================================
+5  THE 1,635 SITES AND THEIR REFERENT -- unit carries L9364, L9376, L9381
+================================================================================================
+  word-form sites in main: 15 -> [20, 89, 104, 202, 523, 646, 3519, 7372, 7905, 8923, 9060, 9370, 9382, 9387, 10330]
+  of which inside the unit: [9370, 9382, 9387]
+      L9370 and recording the one thousand six hundred and thirty-five times it caught the author — is the part
+      L9382 Its register of one thousand six hundred and thirty-five withdrawn claims is offered as the primary
+      L9387 all one thousand six hundred and thirty-five failures and naming the four results that exist because a conclus
+  digit-form 1,635 sites main: []
+  Register: 1656 bare-numeral headings, 1681 distinct entry numbers, max 1814
+  Register lines carrying a withdraw* token: 56
+  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1681: False
+
+================================================================================================
+6  E = 36, AND THE NUMERALS THE UNIT PRINTS (SITES, comma-aware, both forms)
+================================================================================================
+  "E = 36" sites: {'main': [3263, 4489, 9356, 10274], 'reg': [1669, 2325, 3729], 'mc': [1453, 1455], 'ioi': [1372, 1454, 2034]}
+  "periodic table" sites in main: [120, 208, 209, 431, 730, 1516, 1517, 1530, 1535, 1549, 1594, 1618, 1641, 3248]
+   4,000 -> 6 sites; in unit [9315]
+   1,061 -> 8 sites; in unit [9360]
+     102 -> 5 sites; in unit []
+      30 -> 21 sites; in unit []
+      39 -> 6 sites; in unit []
+      85 -> 6 sites; in unit [9331]
+      60 -> 13 sites; in unit [9332]
+     560 -> 6 sites; in unit [9330]
+      36 -> 48 sites; in unit [9356]
+  "4,000 triples" sweep: {'main': [9315]}
+  "4nu/3" (4ν/3) sites main: 22
+
+================================================================================================
+7  THE FALSIFICATION RUN -- "three conditions ... reports the two that failed ... repaired both"
+================================================================================================
+  32.6 body_range (9210, 9272)  section_span (9210, 9313)  COINCIDE False
+   9212 The three conditions are tested here, on this text, with the results reported whether or not they are
+   9215 Condition 1 — E(book) > 0
+   9225 | **chapter numbering against the contents** | **FAILED** |
+   9231 **It has been corrected**, and it is recorded here rather than silently repaired, because a falsification test that find
+   9233 Condition 2 — D = 0 for some claim
+   9238 | pass | claims | carrying a verification | bare |
+   9242 | **after repair** | **63** | **60 (95%)** | **3** |
+   9244 The first run failed, and the failure was informative twice over. Thirty-nine claims
+   9249 54% to 89% before a single repair was made.
+   9253 **Condition 2 is satisfied.**
+   9255 Condition 3 — χ not total
+   9265 condition outcome
+   9266 E(book) > 0 failed, found, corrected — a missing Chapter 30
+   9267 ⅅ=0 failed, found, repaired — 39 claims, now 60 of 63
+   9268 χ not total passed
+   9270 **The book satisfies its own law.** Two conditions failed on first testing, both were located by the tests themselves, a
+   9289 general property of this book's shortfall; it held at eleven cells and fails at forty, and the
+
+================================================================================================
+8  THE DATES AND THE EXTERNAL FACTS L9342 STATES
+================================================================================================
+  Birkhoff       {'main': [853, 1822, 1853, 2108, 3726, 3787, 7342, 8126, '...'], 'reg': [297, 305, 353, 373, 385, 1733, 4601, 6459], 'mc': [61, 290, 310, 340, 344, 456, 458, 478, '...']}
+  Dilworth       {'main': [1880, 1926, 8522, 9348, 11129, 11208, 11598, 11708], 'reg': [249, 385], 'mc': [644, 648, 696, 698, 822, 1224, 1228, 1230, '...'], 'pc': [911, 912]}
+  Sperner        {'main': [122, 1801, 1878, 1879, 1883, 1903, 8702, 9348, '...'], 'reg': [249, 385, 6618], 'mc': [1224, 1228, 1230, 1602, 1608, 1610, 3430]}
+  1937           {'main': [9348, 11208, 11704], 'reg': [4601], 'mc': [290, 340, 344, 644, 648, 788, 1038, 1058, '...']}
+  1950           {'main': [9348, 9867, 9902, 11208, 11598, 11708, 11857], 'reg': [4577, 6375], 'mc': [644, 648, 696, 698, 1228, 1230, 1368, 1370, '...'], 'pc': [912], 'ioi': [1500]}
+  1928           {'main': [9348, 11770, 11824], 'reg': [445, 3393, 4569, 4633], 'mc': [776, 780, 1228, 1230, 1608, 1610, 2896, 2904, '...'], 'pc': [474, 484, 554, 574, 584], 'ioi': [83, 1452, 1508]}
+  1920s          {'main': [1656, 9348]}
+  2004           {'main': [7415, 8101, 9348, 11807], 'reg': [5858, 5862], 'mc': [2400]}
+  1922           {'main': [4555, 5439, 5456, 5483, 5488, 8041, 9397, 11673, '...'], 'reg': [2121], 'mc': [3306, 3416], 'ioi': [1534]}
+  Stahl & Wille  {'main': [7893, 8101, 8416, 11818]}
+
+  L9342 five-failed-attempts / reorderability survey, and the 2004 site texts:
+   main L7415 **The retrieval failure.** Chapter 19 argues that an index should enumerate its targets and navigate before searching.
+   main L8101 **And the reorderability material claims nothing.** The problem is known: Stahl & Wille proved 2-dimension NP-complete
+   main L9348 **Not new.** The lattice is a bijective recoding of quantum numbers that have been in place since the 1920s. Closure o
+   main L11807 is the correct treatment rather than a concession. **[S]** · **Kuznetsov, S. O.** (2004). On the
+   reg L5858 **A1's LITERATURE IS NAMED AND IT DOES NOT REACH TWO OF THE SIX ANCHORS.** *Running the literature check for A1 rather
+   reg L5862 **BOTH CANONICAL CHARGE-RADIUS TABLES STOP AT Z = 96, SO A1 IS BOUNDED BY MEASUREMENT RATHER THAN ACCESS.** *Following
+   mc L2400 *common cyclic separating vector; extended to weights by Araki–Zsidó 2004*
+
+================================================================================================
+9  THE INEQUALITY AT L9354 AGAINST ITS OTHER SITES AND AGAINST RULE 4
+================================================================================================
+   9354 **The failure condition, inverted.** |Δ*T*| < 2*Z*²*R*/ν³ turns 1,061 non-failures into 1,061 measurements. Bracketing methods are rare; inverting their silence appears not to have been done.
+   575 r = 2Z²R / (ν³σ) ≥ 5
+   6175 r = 2Z²R / (ν³σ) ≥ 5
+   6350 λ² = (2Z²R/ν³)² / (6Z²R/ν⁴) = (2/3)·Z²R/ν² = (2/3)·T
+   6937 The bracket fails ⟺ |ΔT| > 2Z²R/ν³
+   6941 **Tested on the strongest mixing in the work.** Hg II's 5d¹⁰7p sits at 60% leading percentage with 20% admixture, and the 5d⁹6s6p 
+   6971 the bracket held ⟹ |ΔT| < 2Z²R/ν³ at that cell
+   9360 **The failure condition, inverted.** |Δ*T*| < 2*Z*²*R*/ν³ turns 1,061 non-failures into 1,061 measurements. Bracketing methods are
+   10075 |ΔT| > 2Z²R/ν³
+   10077 **Proof.** Containment fails only if *T*(*n*) leaves the interval bounded by its neighbours. The half-width of that interval is ½|
+   10081 |ΔT| < 2Z²R/ν³
+   10085 **Critical depth.** Solving for ν gives ν_fail = (2*Z*²*R*/|Δ*T*|)^{1/3}: a 3,000 cm⁻¹ perturbation defeats the bracket only above
+   10297 > 2Z²R/ν³ — and §25.4 argues that the collection never enters the regime where it can occur. That
+   Rule 4 (L6047) and 22.5 (L6168):
+   6052 4 — Uncertainty. Fit δ locally by a Ritz expansion and take σ = 2R Z_eff² · SE_pred / ν³ from the fit's
+   6173 A channel is admissible when its levels are separated by more than their uncertainty:
+
+================================================================================================
+10  THE COLLABORATOR PAGE (L9380-L9382): does it name a single pattern and four results?
+================================================================================================
+   L7469 a collaborator's refusal of a conclusion 4 correct reasoning from corrupted or incomplete input
+   L17 ## Nothing is something definable — a note from the collaborator
+   L18 A note from the collaborator who did the computing
+   L42 **And a class of error exists that no structure can catch, which is why a collaborator is not optional.**
+   L9885 collaborator's note names it: reasoning sound, destination wrong, fixable only by
+   "refus" sites near the collaborator note: [4, 50, 51]
+
+END r2-ch16s

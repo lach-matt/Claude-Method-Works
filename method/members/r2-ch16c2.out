@@ -1,0 +1,248 @@
+====================================================================================================
+r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
+====================================================================================================
+
+## 1  EVERY §-POINTER IN THE UNIT, under BOTH resolvers, resolved to the CLAIM
+  pointer sites in unit: 4  [(8507, 'E.5'), (8541, '18.4'), (8570, '2.15.2'), (8577, 'E.6')]
+  L8507 -> §E.5  lettered heading 11190  span (11190, 11236)
+        claim wanted: the precedence of Rival / Chen-Koh-Tan on maximal sublattices
+        tokens: {'Rival': 3, 'sublattice': 6, 'Chen': 1, 'precedence': 1}
+  L8541 -> §18.4  body_range (4985, 5004)  section_span (4985, 5299)  DIFFER
+        source line: Projection-based criteria. §18.4: closure is a d-dimensional condition and no projection serve
+        claim wanted: closure is a d-dimensional condition; no projection is a criterion
+        body_range   {'projection': 5, 'closure': 4, 'criterion': 1, 'dimension': 2}
+        section_span {'projection': 5, 'closure': 15, 'criterion': 9, 'dimension': 2}
+  L8570 -> §2.15.2  body_range (680, 716)  section_span (680, 716)  COINCIDE
+        source line: **Lubiw 1982** and the Γ-free matrix literature are the nearest neighbours; §2.15.2's derivati
+        claim wanted: a derivation settling which predicate this book means
+        body_range   {'reorderable': 4, 'closure': 3, 'characteris': 2, 'chain': 7}
+        section_span {'reorderable': 4, 'closure': 3, 'characteris': 2, 'chain': 7}
+  L8577 -> §E.6  lettered heading 11236  span (11236, 11248)
+        claim wanted: the complexity question possibly settled in unread prior art
+        tokens: {'Ryter': 1, 'Schmid': 2, 'Adams': 1, 'Dwinger': 1, 'complexity': 2, 'unread': 0}
+
+  L8516 "its structure is constructed in Chapter 7" -- chapter 7 resolved and swept
+  chapter 7 span (1729, 1801) | structure 1  constructed 1  axis 0  embedding 0  tight 0
+
+## 2  EVERY ATTRIBUTION IN THE UNIT against ## References (BODY) and R.7
+  ## References occurrences: [173, 11550]   BODY = L11550
+  R.7 heading L11853
+  Booth        unit [8460, 8464]     | References 1 | R.7 0 | six-volume {'main': 4}
+  Lueker       unit [8460, 8464]     | References 1 | R.7 0 | six-volume {'main': 4}
+  Rival        unit [8502, 8505]     | References 1 | R.7 0 | six-volume {'main': 17, 'reg': 33, 'mc': 8, 'pc': 1}
+  Chen         unit [8506]           | References 2 | R.7 1 | six-volume {'main': 5, 'reg': 1, 'mc': 1}
+  Koh          unit [8506]           | References 1 | R.7 0 | six-volume {'main': 3}
+  Tan          unit [8506]           | References 1 | R.7 0 | six-volume {'main': 8, 'reg': 2}
+  Dilworth     unit [8522]           | References 2 | R.7 0 | six-volume {'main': 8, 'reg': 3, 'mc': 21, 'pc': 2}
+  Larson       unit [8523]           | References 1 | R.7 0 | six-volume {'main': 7, 'reg': 1}
+  Tucker       unit [8549]           | References 1 | R.7 0 | six-volume {'main': 6}
+  NextClosure  unit [8515]           | References 0 | R.7 0 | six-volume {'main': 1}
+  Ganter       unit []               | References 0 | R.7 0 | six-volume {}
+  Anstee       unit [8569]           | References 1 | R.7 0 | six-volume {'main': 3, 'reg': 3}
+  Farber       unit [8569]           | References 1 | R.7 0 | six-volume {'main': 2, 'reg': 1}
+  Hoffman      unit [8569]           | References 1 | R.7 0 | six-volume {'main': 3, 'reg': 3}
+  Kolen        unit [8569]           | References 1 | R.7 0 | six-volume {'main': 2, 'reg': 1}
+  Sakarovitch  unit [8569]           | References 1 | R.7 0 | six-volume {'main': 2, 'reg': 1}
+  Lubiw        unit [8570]           | References 1 | R.7 0 | six-volume {'main': 3, 'reg': 4}
+  Ryter        unit [8577]           | References 1 | R.7 0 | six-volume {'main': 3}
+  Schmid       unit [8577, 8578]     | References 2 | R.7 0 | six-volume {'main': 7, 'reg': 1}
+  Adams        unit [8578]           | References 1 | R.7 0 | six-volume {'main': 4, 'reg': 1}
+  Dwinger      unit [8578]           | References 1 | R.7 0 | six-volume {'main': 4, 'reg': 1}
+  UNBIBLIOGRAPHED (zero in References AND zero in R.7): ['NextClosure', 'Ganter']
+  NOTE L8572 calls Ryter & Schmid and Adams-Dwinger-Schmid "both unread" -- R.7 is the
+  section for what is not cited and why, so that is where they belong if not in References.
+
+## 3  REGISTER CITATIONS in the unit -- existence FIRST, then the headline
+  sites: [(8476, '247')]
+  register 247 cited at main L8476
+     exact heading in Register: [975] | grouped heading covering it: []
+     entry headline: **§30.3.3's FOURTH LEMMA, LEFT ON A CITATION AND NOW PROVED IN FULL.** / ### 248
+     citing line: reason the qualifier is in the statement. Register 247.
+
+## 4  16b-04 CARRIED: which section completes §30.2.3's landscape reading?
+  L8396 promises "§30.3.3 completes this reading".  Chat 116 measured §30.3.3 at zero.
+  §30.3.3   (8456, 8481) COINCIDE  zero
+  §30.3.4   (8481, 8509) COINCIDE  zero
+  §30.3.5   (8509, 8525) COINCIDE  zero
+  §30.3.6   (8525, 8538) COINCIDE  zero
+  §30.3.7   (8538, 8553) COINCIDE  {'descent': 1, 'plateau': 1, 'uphill': 1, 'component': 2}
+  §30.3.8   (8553, 8567) COINCIDE  zero
+  §30.3.9   (8567, 8580) COINCIDE  zero
+  the landscape vocabulary in the UNIT, by line:
+     descent    L8546  and the components are orbits of the identical-fibre swap group, exact on 493 of 493
+     plateau    L8547  plateaus: 89.8%, and 96.7% with bounded uphill moves.
+     uphill     L8547  plateaus: 89.8%, and 96.7% with bounded uphill moves.
+     component  L8545  Local search through valid orders. The valid set is DISCONNECTED — 1.66 to 2.19 comp
+     component  L8546  and the components are orbits of the identical-fibre swap group, exact on 493 of 493
+
+## 5  RULING 45 -- process and past-state remarks, split from plain self-reference
+  an earlier version       unit []             main total 8
+  an earlier draft         unit []             main total 7
+  a previous draft         unit []             main total 0
+  from recollection        unit []             main total 1
+  now states               unit []             main total 4
+  the earlier figure of    unit []             main total 1
+  the earlier reading      unit []             main total 1
+  is withdrawn             unit []             main total 6
+  was tried first          unit [8475]         main total 1
+  is now discharged        unit [8465]         main total 1
+  reopened the question    unit [8550]         main total 1
+  unread                   unit [8578]         main total 20
+  nothing of this book     unit [8464]         main total 1
+  the whole reason         unit []             main total 0
+
+  candidate Ruling 45 sites read out in full:
+     L8463  **The fourth lemma, verified.** The three lemmas above were checked at 2,047, 3,751 and 20,000
+     L8464  instances; the fourth stood on Booth and Lueker's construction and on nothing of this book's own.
+     L8465  It is now discharged, and it did not need a linear-time algorithm:
+     L8475  on 1,098 of those 2,354 sets. That reading was tried first here and was wrong, which is the whole
+     L8476  reason the qualifier is in the statement. Register 247.
+     L8550  — and the census is finite within any box, which is what reopened the question. The infinite anticha
+
+## 6  RULING 46 -- script names, build numbers, internal files (case-sensitive, bounded)
+  BUILD        zero sites in unit
+  gate.py      zero sites in unit
+  close.py     zero sites in unit
+  r2lib        zero sites in unit
+  tower-2.py   zero sites in unit
+  MANIFEST     zero sites in unit
+  md5          zero sites in unit
+  commit       zero sites in unit
+  repo         zero sites in unit
+
+## 7  FIRST-PERSON PRONOUNS in the unit
+  {'I': [8521, 8528]}
+
+## 8  DEFECT-CENSUS.tsv rows in range -- READ, not counted
+  member values present: ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+  rows in unit: 2
+     id 1180   L8553   C9-OVERGENERALISATION-WORD   token 'never'
+        line: ### 30.3.8 The residue
+     id 1181   L8569   C9-OVERGENERALISATION-WORD   token 'never'
+        line: **Anstee & Farber 1984** and **Hoffman, Kolen & Sakarovitch 1985** give the recognition results.
+  WITNESS either side:
+     id 1178   L8231   C9-OVERGENERALISATION-WORD   never
+     id 1179   L8303   C9-OVERGENERALISATION-WORD   at every cap
+     id 1182   L8581   C9-OVERGENERALISATION-WORD   never
+     id 1183   L8657   C9-OVERGENERALISATION-WORD   never
+  id run [1178, 1179, 1180, 1181, 1182, 1183] contiguous: True
+
+## 9  DUPLICATED-SECTION SWEEP (DEF-105 item 1) -- long unit lines recurring elsewhere
+  65 long lines tested, 0 recurrences
+
+## 10  THE SPLICE AT L8563-L8567, and the TWICE-PRINTED TABLE HEADER at L8480/L8483
+     L8568   Λ's constraint graph is a tree. Its nine recovered extra edges are implied. Every sublattice and
+     L8569   **Anstee & Farber 1984** and **Hoffman, Kolen & Sakarovitch 1985** give the recognition results.
+     L8570   **Lubiw 1982** and the Γ-free matrix literature are the nearest neighbours; §2.15.2's derivation settle
+     L8571   interval of Λ has E = 0. Its own case is decidable by enumeration, and it arrives with a
+     L8572   derivation — box → interval → sublattice → product, three preserving rules, no search.
+  L8563 + L8566 joined: ...implied. Every sublattice and interval of Λ has E = 0. Its own case is decidable by enumeration, and it arrives with a
+  L8563 ends mid-sentence: True   L8566 begins mid-sentence: True
+  L8564 and L8565 are two COMPLETE prior-art sentences inserted between them: True
+
+  the step-law table, header printed twice:
+     L8485  '  d                     step                      boxes'
+     L8486  '  2                     1                         eight, all 2-D'
+     L8487  ''
+     L8488  '  d                     step                      boxes'
+     L8489  '  3                     2                         three'
+     L8490  '  4                     4                         one'
+     L8491  ''
+
+## 11  PRINTS & PROOFS: is the unit textually the same there?
+  PP §30.3.3 heading at [8371]
+  offset -85 ; 82 differing lines over the 124-line unit
+     DIFF main L8498 | PP P8413
+        main: ![Figure 30.2](figures/figure-30.2.png)
+        PP  :  Figure 23.2. Left: the growth step against dimension — 1, 2, 4 measured exhaustively over twe
+     DIFF main L8499 | PP P8414
+        main: 
+        PP  :  by the subcube construction, against 2^(d−2). Right: the box against its largest reorderable 
+     DIFF main L8500 | PP P8415
+        main:  Figure 30.2. Left: the growth step against dimension — 1, 2, 4 measured exhaustively over twe
+        PP  :  cells, exactly three quarters at every dimension. Rival's 1973 bound on maximal sublattices i
+     DIFF main L8501 | PP P8416
+        main:  by the subcube construction, against 2^(d−2). Right: the box against its largest reorderable 
+        PP  :  Boolean case is tighter.
+     DIFF main L8502 | PP P8417
+        main:  cells, exactly three quarters at every dimension. Rival's 1973 bound on maximal sublattices i
+        PP  : 
+     DIFF main L8503 | PP P8418
+        main:  Boolean case is tighter.
+        PP  :  And this is Rival's theorem. His 1973 bound is \|K\| ≤ (3/2)\|L\| for a maximal sublattice;
+     DIFF main L8504 | PP P8419
+        main: 
+        PP  :  Chen–Koh–Tan give the interval form; the large sublattices of 2^[r] are catalogued, and the
+     DIFF main L8505 | PP P8420
+        main:  And this is Rival's theorem. His 1973 bound is \|K\| ≤ (3/2)\|L\| for a maximal sublattice;
+        PP  :  maximal ones studied in finite topology. §E.5 records the precedence.
+     DIFF main L8506 | PP P8421
+        main:  Chen–Koh–Tan give the interval form; the large sublattices of 2^[r] are catalogued, and the
+        PP  : 
+     DIFF main L8507 | PP P8422
+        main:  maximal ones studied in finite topology. §E.5 records the precedence.
+        PP  : ### 30.3.5 The procedure, and its cost
+
+  WITNESSES ANCHORED ON THEIR OWN TEXT (the offset shifts at the inserted image line)
+  splice: PP anchor [8481]
+     PP block == main L8563-L8567 block: True
+        P8481   Λ's constraint graph is a tree. Its nine recovered extra edges are implied. Every subla
+        P8482   **Anstee & Farber 1984** and **Hoffman, Kolen & Sakarovitch 1985** give the recognition
+        P8483   **Lubiw 1982** and the Γ-free matrix literature are the nearest neighbours; §2.15.2's d
+        P8484   interval of Λ has E = 0. Its own case is decidable by enumeration, and it arrives with 
+        P8485   derivation — box → interval → sublattice → product, three preserving rules, no search.
+  the two prior-art sentences sit inside the sentence in PP TOO -> AUTHORING, not
+  production.  Docket 26 gets its clearest member and it is original.
+  raw symbol test on the unit (never transliterated): Gamma-char 1, lambda-char 6
+
+  caption: PP prints [8413] ; volume prints [8498, 8500] ; image reference in PP absent / volume [8498]
+  and "Figure 23.2" is LIVE elsewhere in the volume at %s -- the production
+  renumbering resolved a collision.
+  table header printed twice: main L8483 '  d                     step                      boxes'
+                              PP sites in range [8400, 8403] -> twice in PP too: True
+
+## 12  UNIVERSALS AND SUPERLATIVES, each recorded measurable or NOT measurable
+  L8473   zero counterexamples   five points: zero counterexamples. **Strictly** is load-bearing — an interva
+  L8459   no interval nests      monotone, iff no interval nests strictly inside another. Four lemmas, three 
+  L8458   every row              characterisation is proved there: X is reorderable iff every row is an inter
+  L8494   all four               at d = 2, 3, 4 and 5, with one-fewer failing at all four.
+  L8535   no signature           Three complete boxes, 267,000 subsets, no signature containing both answers.
+  L8558   never the reverse      satisfiable formulas encoding as non-reorderable, never the reverse. The map
+  L8549   no finite census       Forbidden-substructure procedures. Tucker's families are unbounded, so no fi
+  L8572   no search              derivation — box → interval → sublattice → product, three preserving rules, 
+  L8536   no loss                merge the 19 canonical forms reduce to 12 with no loss.
+  L8562   It is complete         to 2^d − 1 hyperedges. It is complete, so treewidth gives back the 2^d bound
+  L8549   unbounded              Forbidden-substructure procedures. Tucker's families are unbounded, so no fi
+  L8541   no projection          Projection-based criteria. §18.4: closure is a d-dimensional condition and n
+
+## 13  "nine recovered extra edges" -- LOCATED in six volumes, not re-derived
+  extra edge         {'main': [8568]}
+  recovered edge     zero sites in six volumes
+  nine recovered     {'main': [8568]}
+  constraint graph   {'main': [770, 1906, 1917, 2066, 2078, 2092, 2169, 2227], 'reg': [1893, 1953, 1961, 2001, 2181, 2201, 2393, 5717], 'mc': [380, 896, 898, 900, 936, 950, 956, 998], 'ioi': [15, 2027]}
+  implied            {'main': [2836, 3775, 4752, 4988, 6482, 8568, 9228, 11609], 'reg': [1729, 1741, 1757, 3105, 5533, 6091], 'mc': [6, 17, 131, 1304, 2736, 3200]}
+
+## 14  FIGURE REFERENCES vs FIGURE MEMBERS (production layer, NOT a text defect)
+  main-volume inline figure references: 33 ; in unit: [8498]
+  PP inline figure references: 0
+  any .png member: none
+
+## 15  SINGLE-WITNESS SWEEP (docket 17) -- unit figures across six volumes
+  2,354        total 3   {'main': 3}
+  1,098        total 1   {'main': 1}   SINGLE-WITNESS
+  2,047        total 2   {'main': 2}
+  3,751        total 2   {'main': 2}
+  20,000       total 2   {'main': 2}
+  18,736       total 2   {'main': 2}
+  1,834        total 1   {'main': 1}   SINGLE-WITNESS
+  401          total 8   {'main': 5, 'reg': 2, 'ioi': 1}
+  493          total 7   {'main': 5, 'reg': 1, 'ioi': 1}
+  89.8         total 1   {'main': 1}   SINGLE-WITNESS
+  96.7         total 1   {'main': 1}   SINGLE-WITNESS
+  1.66         total 2   {'main': 1, 'mc': 1}
+  2.19         total 6   {'main': 3, 'reg': 3}
+  4,168        total 1   {'main': 1}   SINGLE-WITNESS
+  267,000      total 1   {'main': 1}   SINGLE-WITNESS
+  11,943,936   total 1   {'main': 1}   SINGLE-WITNESS
+
+END r2-ch16c

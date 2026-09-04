@@ -1,0 +1,112 @@
+====================================================================================================
+r2-ch16h  COMPUTABLE  chat 119  main L8705-L8794  (§31.3 - §31.3.4)
+====================================================================================================
+
+## 1  L8707-L8708  INCLUSION-EXCLUSION OF THE THREE PUBLISHED COUNTS
+   printed: 248305 with h11>=140, 248305 with h21>=140, 495515 with at least one
+   a + b - u  = 248305 + 248305 - 495515 = 1095      printed 1,095   EXACT
+   (the identity is |A and B| = |A| + |B| - |A or B|; both counts equal, as mirror symmetry
+    of the list requires -- that equality is itself a check and it holds)
+
+## 2  L8721-L8723  THE PARETO STATISTIC AGAINST BOTH DENOMINATORS
+   1,095 / 495,515        = 0.2209822104275349888499843597 %   -> 0.221 %  (3 dp, ROUND_HALF_EVEN)  printed 0.221 %   EXACT
+   1,095 / 473,800,776    = 0.0002311097945521304929226202871 %   -> 0.0002 %  (4 dp, ROUND_HALF_EVEN)  printed 0.0002 %  EXACT
+   factor, unrounded percentages  = 956.1784729019303149248761391 -> 956   printed 956   EXACT
+   factor, ratio of denominators  = 956.1784729019303149248761390 -> 956   (the same number: the numerator cancels)
+   factor from the PRINTED rounded pair 0.221/0.0002 = 1105 -- NOT 956.  The printed factor is
+   computed on the unrounded values, which is the right convention; recorded so the
+   arithmetic-convention docket carries the PASS and not a false charge.
+
+## 3  L8732-L8734  THE SLICE AS A CELL SET  (chi = +/-6, Candelas et al.)
+   h range 13..128 inclusive                     116 values   (printed range, inclusive)
+   excluded h VALUES named: 102, 103, 115, 117, 119, 120, 121, 122, 123, 124, 125, 126
+   excluded h values, counted                    12          L8783 prints "The 24 excluded values"
+   excluded CELLS (2 per value)                  24          <- 24 is the CELL count
+   -> DEVIATION SHAPE: the numeral 24 is exact as a count of cells and wrong as a count of
+      "values"; the same sentence then lists twelve values.  232 - 208 = 24 confirms cells.
+   |X| with exclusions   = 208      printed 208   EXACT
+   |X| without           = 232      printed 232   EXACT
+   pairs C(|X|,2) UNORDERED = 21528   printed 21,528   EXACT
+   (ordered would be 43056; the printed figure names the UNORDERED convention)
+
+## 4  L8736  E(X) ON THE SLICE   (two conventions, and the printed line uses BOTH)
+   with exclusions (208)      |X|  208  join-fail pairs   498  meet-fail pairs   498  ONE-STEP new cells  534
+                              FIXED-POINT closure adds 540 cells in 3 round(s)
+   printed: E(X) = 540, 498 join failures and 498 meet failures of 21,528 pairs
+   MEASURED, closure to a FIXED POINT: E(X) = 540  EXACT
+   MEASURED, ONE STEP over pairs of X only:  534  -- six short of the printed figure
+   join failures 498  EXACT ;  meet failures 498  EXACT   (ONE STEP, on unordered pairs of X)
+   CONVENTION, NAMED: the printed line mixes them.  498 + 498 are one-step failures over
+   the 21,528 pairs of X; 540 is the fixed-point closure, reached in a second round that
+   adds the 6 cells the gaps in H put out of one-step reach.  Both figures are exact under
+   the convention each needs, and neither convention is printed.  Recorded as an incidental.
+   no exclusions (232)        |X|  232  join-fail pairs   574  meet-fail pairs   574  ONE-STEP new cells  589
+                              FIXED-POINT closure adds 589 cells in 2 round(s)
+   L8780 prints 589 predictions on the unexcluded set: MEASURED 589  EXACT
+   (on the ungapped set one step and the fixed point coincide at 589 -- which is WHY the
+    gapped set is the one that separates the two conventions)
+   L8783-L8784 "reduce the predictions by 49": 589 - 540 = 49   EXACT
+
+## 5  L8746-L8750  THE PREDICTIONS TABLE, ROW BY ROW
+   cells                      540      printed 540    EXACT
+   distinct chi values          5 [-4, -2, 0, 2, 4]   printed 5 -- only 0, +/-2, +/-4   EXACT
+   on the diagonal, chi = 0   112      printed 112    EXACT   first (13, 13) last (131, 131)  (printed (13,13) to (131,131))
+   h11 + h21 range           26 to 262   printed 26 to 262   EXACT
+   L8744 join of (h,h+3) and (h+3,h) = (h+3,h+3):  holds for 104 of 104 h in H
+
+## 6  L8760-L8768  THE FOUR FALSIFICATION-TEST ROWS
+   h11 >= 1 and h21 >= 1                       540 / 540   printed 540/540   EXACT
+   h11 + h21 <= 502 (published maximum)        540 / 540   printed 540/540   EXACT
+   mirror partner present                      540 / 540   printed 540/540   EXACT
+   in the thin tip h11+h21 < 22 (would refute) 0 / 540   printed 0/540     EXACT
+   falsified                                   0        printed 0         EXACT by the rows above
+   named in print: X_19,19 (split bicubic)  (19, 19) in the prediction set   PRESENT
+   named in print: X_20,20 (the 24-cell)    (20, 20) in the prediction set   PRESENT
+   NOTE: the tip row is a tautology of the slice, not a test -- min sum is 26, so no closure
+   of THIS slice could ever land below 22.  Recorded as an incidental, not a deviation:
+   the row is true, and its "would have been refuted" is unfalsifiable by construction.
+
+## 7  L8710-L8712  THE LAMBDA COLUMN OF §31.3.1"S TABLE
+   |Lambda_8| = 976   (printed denominator 976)   EXACT
+   "self-dual cells  8 of 976" -- the section prints NO definition of self-dual on Lambda.
+   Candidate involutions measured, so the class is bounded rather than guessed:
+      coordinate reversal  c == c[::-1]               0   
+      complement  c_k -> max_k - c_k                  0   
+      reversal-image IN Lambda (set-level)            0   
+      complement-image IN Lambda (set-level)          8   <-- MATCHES the printed 8
+   coordinate maxima (n,e,l,k,f caps as built): [3, 1, 3, 3, 3, 1, 3, 3]
+
+   "rank polynomial palindromic  false" -- the rank sequence is READ OUT of chat 118"s
+   banked golden, not re-derived (HANDOFF-71: read values out of the member).
+   source: r2-ch16e.out :: ranks 3..20   sizes [1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4,
+   sequence read: [1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1]
+   palindromic? False   printed "false"   EXACT
+   sum of ranks = 976 (should equal |Lambda_8| = 976)  consistent
+
+## 8  EVERY NUMERAL PRINTED IN THE UNIT, AND WHETHER THIS BATCH REPRODUCED IT
+   22                     external threshold (thin tip); used in the tip row above
+   49                     REPRODUCED
+   112                    REPRODUCED
+   208                    REPRODUCED
+   232                    REPRODUCED
+   498                    REPRODUCED x2
+   502                    external (published maximum h11+h21) -- used, not verified
+   540                    REPRODUCED
+   589                    REPRODUCED
+   956                    REPRODUCED
+   976                    REPRODUCED from the tower
+   1,095                  REPRODUCED exactly from the three counts
+   21,528                 REPRODUCED
+   30,108                 external (distinct Hodge pairs) -- NOT checkable from the files
+   0.221 %                REPRODUCED
+   13..128                external (Triadophilia range) -- used as printed
+   248,305                external x2, but their equality and the inclusion-exclusion are checked above
+   495,515                external; used as the right denominator, checked above
+   0.0002 %               REPRODUCED
+   26 to 262              REPRODUCED
+   473,800,776            external (Kreuzer-Skarke list size) -- NOT checkable from the files
+   5 (chi values)         REPRODUCED
+   36 (periodic table)    cross-volume; swept in the prose batch
+   24 (excluded values)   DEVIATION -- 12 values, 24 cells
+
+====================================================================================================

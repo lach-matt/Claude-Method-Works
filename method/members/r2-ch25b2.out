@@ -1,0 +1,175 @@
+r2-ch25b — Appendix E part 2 (E.3–E.8), prose / pointers / PP diff; conventions named inline
+§0 PP diff: main L11101–L11268 (168 lines) vs PP P10567–P10760 (194 lines)
+   headings (section number stripped from both sides): main 8 [(11101, 'Each open item, in full'), (11152, 'The grid, read on the current set'), (11179, 'Q, enumerated and closed at eight'), (11184, 'And the column that matters'), (11190, 'Precedence, pushed as far as it goes'), (11236, 'And the complexity question itself may b'), (11248, 'What precedence costs the book'), (11259, 'What closed, and what it cost')]
+   PP 8 [(10567, 'Each open item, in full'), (10618, 'The grid, read on the current set'), (10645, 'Q, enumerated and closed at eight'), (10650, 'And the column that matters'), (10656, 'Precedence, pushed as far as it goes'), (10702, 'And the complexity question itself may b'), (10714, 'What precedence costs the book'), (10725, 'What closed, and what it cost')]
+   PP heading-form lines WITHOUT a blank line above (read on their text): [(10618, 'The grid, read on the current set')]
+   heading text only-main: [] ; only-PP: []
+   body non-blank: main 119, PP 139, shared 118, only-main 1, only-PP 21
+   only-main: It is printed here, read when the set stood at eleven.
+   only-PP:   It is printed here, read on the current eleven.
+   only-PP:   E(G), recomputed by the press at every build, across the six fibres of F.2 and on the coordinates as now constrained — 38 as first
+   only-PP:   stated, 24 once register 367's constraint is imposed, and 23 after §12.11.0.1's four-cap table
+   only-PP:   occupied one. Each remaining cell is a combination of definition, inputs and verification admitted by
+   only-PP:   the structure of what the book prints and occupied by nothing it prints.
+   only-PP:   And seventeen of the twenty-three are cells the book should not want. Each admitted cell was
+   only-PP:   tested against the cells its own fibre already occupies:
+   only-PP:   standing cells
+   only-PP:   dominated — some occupied cell of that fibre is at least as good on all three axes 17
+   only-PP:   not dominated — genuinely above what the fibre already carries 6
+   only-PP:   A dominated cell is a weaker description of a number than the fibre already achieves: a bound
+   only-PP:   recomputed but with its definition merely asserted, where the fibre already holds bounds stated with
+   only-PP:   their inputs. Occupying it would mean writing a worse paragraph.
+   only-PP:   E(X) counts what a structure admits without asking whether occupying it is an improvement.
+   only-PP:   On an ordered index the admitted-and-absent set contains cells below the object's own practice
+   only-PP:   as readily as above it, and only the second kind is work.
+   only-PP:   That is a third resolution §12's loop does not offer. The loop gives two — a cell is filled by a
+   only-PP:   number that belongs there, or excluded by a constraint the coordinates are missing. Seventeen of these
+   only-PP:   are neither: admitted, unoccupied, and correctly so. The actionable count for this index is six,
+   only-PP:   and five of the six are verification = under variation, which is one computation each at several cap
+   only-PP:   settings rather than a search or a judgement. Register 368.
+§1 numeric pointers in the unit: 16 at ['12.11.1', '12.11.6', '2.10', '2.16', '2.16.1', '24.9', '29.7', '30.3', '30.3.5', '32.2']
+   §12.11.1 E.3 lead / E.8: item E answered here; Λ₉ six tests body L3037–L3182 span L3037–L3368: target-spin body 0 span 0; six .*tests|six independent body 0 span 0; Λ₉|Lambda_9|Λ9 body 5 span 13
+   §29.7 items C, G: the nine literatures and their vocabulary body L8046–L8074 span L8046–L8088: excess width body 1 span 1; Newton decrement body 0 span 0; partial identification body 0 span 0; zero-error capacity body 1 span 1; nine body 1 span 4
+   §12.11.6 item D: E(X) proposal vetoed by structure the index does not carry body L3487–L3499 span L3487–L3499: veto body 2 span 2; proposal body 3 span 3; calibrat body 1 span 1
+   §31.3.4 item D's slice (where E.3's figures live) body L8733–L8795 span L8733–L8795: 13 ≤ h body 1 span 1; 208 body 2 span 2; 540 body 12 span 12; 21,528 body 1 span 1; 131 body 1 span 1; 128 body 2 span 2; twelve body 0 span 0; 30,108 body 1 span 1; 502 body 1 span 1
+   §30.3 items F, G; E.5–E.8 body L8404–L8410 span L8404–L8580: law body 2 span 7; procedure body 2 span 5; reorderab body 1 span 9; polynomial body 0 span 3; realisab body 0 span 2; residue body 1 span 2; Dilworth body 0 span 1; Larson body 0 span 2; width body 0 span 2; J\(Λ\) body 0 span 2; characteris body 0 span 1; d = 2 body 0 span 3
+   §30.3.5 item F: *states the law, the procedure, and the residue — realisability* body L8509–L8525 span L8509–L8525: law body 0 span 0; procedure body 1 span 1; residue body 0 span 0; realisab body 0 span 0
+   §24.9 item P: §24.9 concedes three kinds of value, two independently checkable body L6757–L6822 span L6757–L6822: three kinds body 1 span 1; independently body 0 span 0; circular body 0 span 0; Ritz body 5 span 5; 1,442 body 8 span 8
+   §2.16 E.4: §2.16's grid, first unmet requirement body L723–L729 span L723–L794: first unmet body 0 span 0; grid body 2 span 5; downstream body 1 span 2; reachable body 0 span 0
+   §2.16.1 E.4: *§2.16.1 claims* what blocks is access body L729–L754 span L729–L754: access body 0 span 0; difficulty body 0 span 0; cost body 0 span 0; reachable body 0 span 0
+   §32.2 E.4.1: *§32.2 asserted |Q| = 7* body L9035–L9043 span L9035–L9043: \|Q\| body 0 span 0; seven body 0 span 0; assert body 0 span 0
+   §2.10 E.7: *§2.10 says: enumerate targets before searching. It should have said, and now does: SEARCH BEFORE DERIVING* body L622–L637 span L622–L637: enumerate targets body 1 span 1; before searching body 1 span 1; SEARCH BEFORE DERIVING body 0 span 0; search before deriving body 0 span 0; derive body 0 span 0
+   §30 E.6 against Chapter 30 body L8321–L8326 span L8321–L8614: Frattini body 0 span 0; NP-complete body 0 span 1; Ryter body 0 span 1; Schmid body 0 span 2; Adams body 0 span 1; Dwinger body 0 span 1; Stahl body 0 span 1; Wille body 0 span 1; Yannakakis body 0 span 1
+   §29.8 E.6 against §29.8 body L8088–L8103 span L8088–L8103: Frattini body 0 span 0; NP-complete body 1 span 1; Stahl body 1 span 1; Wille body 1 span 1; Yannakakis body 1 span 1; complexit body 1 span 1
+   §28 E.8: *Sixty-odd corrections come from §30.3 alone* body L7371–L7391 span L7371–L7861: 30\.3 body 0 span 3; reorderab body 0 span 3; Siggers body 0 span 0; Rival body 0 span 0; sublattice body 0 span 0
+   §7 item F: *its structure is constructed in Chapter 7* body L1729–L1755 span L1729–L1801: constructed body 0 span 0; Λ₈|Λ8|Lambda_8 body 2 span 2
+   Chapter 28 numbered item lines 8; items naming 30.3 / reorderab / Siggers / Rival / sublattice / subdirect / tight: 0 [] (E.8 *Sixty-odd*; a token probe, not a reading — witness only)
+   lettered E.1.2 heading hits [10987]
+   lettered E.4 heading hits [] — NO HEADING (E.4: unmarked line L11152)
+   lettered E.5 heading hits [11190]
+   lettered E.2 heading hits [11083]
+   *audit 15* (L11057; docket 33 numbering): sites main [(970, '2.19.1'), (11104, 'E.3')] ; Register [1425]
+§2 `## References` body from L11550: {'Paschen': 1, 'Götze': 1, 'Runge': 1, 'Kreuzer': 1, 'Skarke': 1, 'Dilworth': 2, 'Larson': 1, 'Rival': 1, 'Siggers': 1, 'Birkhoff': 2, 'Chen': 1, 'Koh': 1, 'Tan': 1, 'Sharp': 1, 'Stephen': 1, 'Tucker': 1, 'Booth': 1, 'Lueker': 1, 'Fulkerson': 1, 'Gross': 1, 'Schaefer': 1, 'Ryter': 1, 'Schmid': 2, 'Adams': 1, 'Dwinger': 1, 'Ritz': 3}
+   absent from the References body: []
+   *Springer Book Archives* / *Encyklopädie* / *Order 11* / *Algebra Universalis* in References: {'Springer Book Archives': 1, 'Encyklopädie': 1, 'Order 11': 1, 'Algebra Universalis': 2}
+§3 first-person hits (label lines `I —` and the grid row `I  the …` excluded): []
+   Ruling 45 / 46 candidates: [(11104, '§12.11.1. Both repaired, and audit 15 extended so the pair cannot drift again.'), (11123, 'kind. **What remains is one file read.** The 30,108 pairs are in a gzipped catal'), (11146, 'term designations the line lists carry and this session did not fetch.'), (11244, 'the claim "open" is a claim about this author\'s reading, not about the state of '), (11260, "Two items closed during this work. The target-spin axis was taken on the grid's ")]
+   *This chapter is where that is done* L11220 inside an APPENDIX: sites of `This chapter` in appendices []
+   three kinds of value                          in unit True ; outside [(6803, '24.9')]
+   only two are independently checkable          in unit True ; outside []
+   SEARCH BEFORE DERIVING                        in unit True ; outside [(70, '?'), (9861, '35.4')]
+   enumerate targets before searching            in unit True ; outside [(8611, '30.4.2')]
+   not one open question blocks                  in unit True ; outside []
+   the only column whose value has never changed in unit True ; outside [(11026, 'E.1.3')]
+   An assertion is not an enumeration            in unit True ; outside []
+   Nine components, nine precedents              in unit True ; outside []
+   is it reachable from here                     in unit True ; outside [(9301, '32.6.1')]
+   3/2 bound                                     in unit True ; outside [(11717, 'Appendix G')]
+   measured 3/4                                  in unit True ; outside [(11717, 'Appendix G')]
+   Sixty-odd                                     in unit True ; outside []
+   closed at d = 2                               in unit True ; outside []
+   nine unentered literatures                    in unit True ; outside []
+   *3/4* volume-wide: [(11251, 'E.7'), (11717, 'Appendix G')] ; *3/2* volume-wide: [(6356, '23.8.2'), (6358, '23.8.2'), (6366, '23.8.2'), (8502, '30.3.4'), (8505, '30.3.4'), (8642, '31.1.1'), (9960, '36.4'), (11233, 'E.5'), (11251, 'E.7'), (11717, 'Appendix G')]
+   *An assertion is not an enumeration* — Register 211 body: **APPENDIX D'S CLOSURE WAS ASSERTED RATHER THAN ENUMERATED, A DISTINCTION THE BOOK HAD ALREADY RULED AGAINST ITSELF AT E.4.1 AND NOT APPLIED HERE.** *Enumerated
+   Frattini sites [(11237, 'E.6'), (11735, 'Appendix G')] ; NP-complete sites [(8101, '29.8'), (8554, '30.3.8'), (11237, 'E.6'), (11241, 'E.6'), (11735, 'Appendix G')] ; Ryter [(8577, '30.3.9'), (11237, 'E.6'), (11735, 'Appendix G')]
+§5 §25.6.3 body L7044–L7064 (item A's figures; printed rather than probed):
+   L7044 ### 25.6.3 What was already solved — not a prediction
+   L7045  The value below is not a prediction, and calling it one was a category error against the book's own
+   L7046  law. A prediction is a proposal about an unlisted cell, and E(Λ) = 0: the index proposes none. What
+   L7047  §25.6.1 and §25.6.2 produce is a deduction — two measured defects and two order properties
+   L7048  determine the interval, so the problem arrives already solved by the data in hand. The bracket is
+   L7049  stated as the solution it is:
+   L7050     E(Sc VI 3s²3p³(⁴S°)6s ³S°₁) = 736,688 cm⁻¹ bracketed in [735,860, 737,380] cm⁻¹ 13.5743
+   L7051     nm, in the window 13.5615–13.5895 nm 91.338 eV
+   L7053  **And for 7s, with a caution the 6s case does not need:**
+   L7055     E(7s) = 784,416 cm⁻¹, bracketed in [784,128, 785,209] cm⁻¹, width 1,081 — tighter than 6s
+   L7056     because the spacing has fallen as ν⁻³.
+   L7058  **The 7s convex tangent would give [784,128, 784,605], width 478 — but it requires δ(6s), which is *estimated* rather than measured.**
+   L7060     The 6s convex bracket is deductive. The 7s one is conditional on an estimate, and the
+   L7061     book states the monotone bracket for 7s for that reason. A bracket that inherits an estimate
+   L7062     is not a bracket.
+   §31.3.4 lines carrying 13 ≤ h / 208 / 131 / 128 / twelve:
+   L8738  points have Hodge numbers (h, h+3) and (h+3, h) for 13 ≤ h ≤ 128, and name the exclusions: h = 102,
+   L8739  103, 115, 117 and 119–126. That is a complete cell set — 208 cells — and ℛ applies to it.
+   L8754   on the diagonal, χ = 0                    112, from (13,13) to (131,131)
+   L8785   all h from 13 to 128                                                              232          589
+   L8786   with the documented exclusions                                                    208          540
+   §2.10 body L622–L637 lines carrying enumerate / search / deriv:
+   L623     Enumerate targets from the index before searching. List routes per cell. Prefer high-ρ
+   L625     along the route set. Record ρ for cells that fail. And RE-ENUMERATE whenever the set the
+   L630  The second clause was added late. §30.4 found five enumerations in one chapter — its own target list,
+   L634     Enumerating once is not a protocol. It is a snapshot, and a snapshot of a growing object
+§6 §25.6.3 L7045 E = 736,688 cm⁻¹: × hc = 91.338 eV (printed 91.338 at L7046 and E.3 L11059); 10⁷/736,688 = 13.5743 nm (printed 13.5743) — E.3 prints the eV of the POINT value beside the bracket, without the point value
+   realisab sites (item F: *§30.3.5 states … the residue — realisability*):
+   L4009  **Grounded against the control group**: all 976 cells are realisable against the nineteen subshells
+   L5977  single realisable object, so the reaction is not selected but forced. **The same operation reads as a
+   L8557  The realisability is blocked. Three reduction attempts, all over-constraining in the same direction:
+   L8564     Three walls: hardness blocked at realisability, tractability blocked at the completeness of
+   L11134     and the residue — realisability.
+   §2.16.1 body (E.4 L11126 *what §2.16.1 claims for it*):
+   L729 ### 2.16.1 Why this is the method and not a technique
+   L730  It is Chapter 6 applied to the book's own ignorance. A periodic table with 36 unfilled cells does not
+   L731  need a chemist to guess which are missing — the layout shows them. An open question with eight
+   L732  unfilled requirements does not need twenty-two attempts — the grid shows that four of them are one.
+   L734  Worked on §30.3: eight empty cells, four rows deep, at d ≥ 3.
+   L736   requirement                     d=2                                d≥3
+   L737   characterisation                proved                             ·
+   L738   decision procedure              linear                             ·
+   L739   YES certificate                 an order                           an order
+   L740   NO certificate                  Tucker — unbounded                 unbounded
+   L741   obstruction family              Tucker 1972                        unbounded, route closed
+   L742   construction rules              six preserving                     six preserving
+   L743   hardness                        P, the CSP is binary               ·
+   L744   the data structure              PQ-tree                            ·
+   L746     Three rows are full at every d, and they are the three that needed no d-specific work —
+   L747     the certificate is the order itself, the obstruction family is Tucker's, the construction rules were
+   L748     established once. Every empty cell is downstream of one missing object: the d ≥ 3 analogue
+   L749     of a PQ-tree.
+   L751  Twenty-two formulations were attempts on four cells that depend on one. The grid says so in
+   L752  a table; hunting concealed it for a day.
+   SEARCH BEFORE DERIVING outside the unit (E.7 L11209 *§2.10 … now does*):
+   L70  said *enumerate before searching* where it should have said *search before deriving*. §E.5 is the
+   L9861 **Search before deriving closed the endgame.** §E.5 exists because nine things
+   NP-complete / Ryter sites in §29.8, §30.3.8, §30.3.9 (E.6 L11196 *This book has not read it*):
+   L8101  **And the reorderability material claims nothing.** The problem is known: Stahl & Wille proved 2-dimension NP-complete in 1984; Yannakakis proved dimension ≤ 3 NP-complete in
+   L8554  The language is NP-complete — it contains exactly-one-of-three and no Schaefer class covers it, with
+   L8577  §E.6 records that the complexity question may already be settled in Ryter & Schmid 1994 or
+   Chapter 28 lines naming 30.3 (E.8 *Sixty-odd corrections come from §30.3 alone*):
+   L7624  123–139. Seventeen from one question. §30.3's reorderability problem produced more corrections
+   L7631     Ten of the seventeen produced the characterisation in §30.3.1. Seven produced nothing
+   L7649 ### 28.7.4 Forty more, from the session that closed §30.3 and §32.2 — retained in the compendium
+   3/2 in §30.3.4 and 3/2 · 3/4 in Appendix G (E.7 L11204 *Rival's 3/2 bound contains the measured 3/4*):
+   L8502  cells, exactly three quarters at every dimension. Rival's 1973 bound on maximal sublattices is \|K\| ≤ (3/2)\|L\|; the
+   L8505  And this is Rival's theorem. His 1973 bound is \|K\| ≤ (3/2)\|L\| for a maximal sublattice;
+   L11717  Chapter 15, and the 3/2 bound on maximal sublattices contains §30.3's measured 3/4.
+   §12.11.1 span lines with test / target / spin (E.8 *Λ₉ passed six independent tests*; Register 384 *item E answered at §12.11.1*):
+   L3039   9        2S′           2S′ ≤ g                  1,654      63.7%      the target's multiplicity
+   L3044   13       2J            |2J − 2K| ≤ 1            199,130    64.4%      the outer electron's spin bit
+   L3065     **microstate enumeration**: list every way of placing k electrons in the 2(2ℓ+1) spin-orbitals,
+   L3086  at occupancy v — terms(f^v) less terms(f^(v−2)) as multisets, not merely a term of spin 2S′
+   L3088  not to all terms of ℓᵏ; and the target spin at axis 9 is the spin set of f^g by microstate
+   L3102  Λ₉′ closes at 1,561 cells. The 93 cells it cuts are exactly (f = 0, g = 2, 2S′ = 2), an s² target
+   L3103  carrying triplet spin. The price is structural: the constraint graph gains its first cycle, f–g–2S′,
+   L3174  spin orientation, the weakest and last coupling, and nothing else. But it is the only coordinate in
+   L3212  a different population: **the composable cells only**, those whose target is a legal source, which is
+   L3217  **The method.** Build Λ₉ at a caps tuple, keep the cells whose target is a legal source, and count
+   §24.9 lines with independen / checkab / circular / three kinds (item P):
+   L6773  independent tests by the criterion this section itself states.** H I, the other species read, is
+   L6776  **Second, and larger: independence is a property of TRIPLES, not of cells.** The bracket is a
+   L6777  relation on T(n−1), T(n), T(n+1). A cell is an independent test only if **all three** of its levels
+   L6778  are independent, so one Ritz-fitted level poisons **three** tests rather than one.
+   L6786  Computed on H I, which is 38% plain: **only 13 of 64 interior cells — 20% — are independent tests.**
+   L6792     independent test at all — He I's nine certainly, H I's nd series certainly — and the
+   L6793     count of independent tests is bounded above by the count of CLEAN TRIPLES, not by
+   L6801     Cells resting on series-formula values are consistency checks, not independent tests.
+   L6805  ab initio QED calculations. The first and third are independent tests of the bracket; the second are
+   L6809  so the number of genuinely independent tests among the 1,442 is unknown and is not zero and is not
+   L6815  does not touch. What cannot be said is *the bracket held on 1,442 independent tests*, and the book
+   L6817  of which are independent**, and it should be written that way wherever the figure carries weight.
+   Newton decrement         volume sites [(6341, '23.8.1'), (6346, '23.8.1'), (6352, '23.8.1'), (6355, '23.8.2'), (6373, '23.8.3'), (10399, 'D.4'), (11701, 'Appendix G')]
+   partial identification   volume sites [(11114, 'E.3')]
+   excess width             volume sites [(6379, '23.8.4'), (8059, '29.7'), (11113, 'E.3'), (11691, 'Appendix G')]
+   zero-error capacity      volume sites [(7501, '28.7'), (7897, '29.2'), (8069, '29.7'), (11114, 'E.3'), (11695, 'Appendix G')]
+   Register 368 (PP's removed paragraph cites it) body: **ITEM M ANSWERED, AND THE ANSWER IS ABOUT E(X) RATHER THAN ABOUT THE NUMBERS.** *After register 367's constraint and one paragraph written to standar
+   Register lines (volume-wide) naming 208 / 540 / 21,528 — Register 1437 among their entries: [845, 849, 863, 1437, 2019, 3725, 3873, 3937, 4417, 5954]
+END r2-ch25b

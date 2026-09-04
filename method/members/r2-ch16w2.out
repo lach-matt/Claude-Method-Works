@@ -1,0 +1,354 @@
+
+================================================================================================
+1  UNIT BOUNDARY re-measured on the member (never carried)
+================================================================================================
+main member lines: 11904
+   heading 9399 # PART VII — THE CHALLENGES
+   heading 9405 ## 33. The cypher analysis
+   heading 9410 ### 33.1 Where it came from
+   heading 9433 ### 33.2 Its purpose
+   heading 9446 ### 33.3 How it is used
+   heading 9461 ### 33.4 The singleton criterion
+   heading 9483 ### 33.5 What it cost to learn
+   heading 9500 ## 34. The Löwdin challenge
+   heading 9506 ### 34.1 The problem, and the wrong target
+   heading 9538 ### 34.2 The three bodies, and the pair that has no variable
+   heading 9568 ### 34.3 What the ladders can and cannot reach
+   heading 9584 ### 34.4 The rule
+   heading 9623 ### 34.5 The corridor
+   heading 9636 ### 34.6 The walk
+   heading 9668 ### 34.7 The entry point
+   heading 9683 ### 34.8 The provenance
+   heading 9695 ### 34.9 Domain, stated by the form itself
+   heading 9707 ### 34.10 How the method delivered it
+   heading 9750 ## 35. The Löwdin solution
+   heading 9761 ### 35.1 The problem, finished
+   heading 9778 ### 35.2 What the walk returned
+
+chapter 34 body opens L9500; "## 35." body opens L9750; chapter 34 = 250 lines
+unit taken: L9500-L9614 = 115 lines (cut at the end of 34.4, closing the rule movement)
+
+================================================================================================
+2  POINTER RESOLUTION -- every pointer under BOTH body_range and section_span
+================================================================================================
+  §34     body_range=(9500, 9506)  section_span=(9500, 9750)  DIFFER
+  §34.1   body_range=(9506, 9538)  section_span=(9506, 9538)  COINCIDE
+  §34.2   body_range=(9538, 9568)  section_span=(9538, 9568)  COINCIDE
+  §34.3   body_range=(9568, 9584)  section_span=(9568, 9584)  COINCIDE
+  §34.4   body_range=(9584, 9623)  section_span=(9584, 9623)  COINCIDE
+  §34.5   body_range=(9623, 9636)  section_span=(9623, 9636)  COINCIDE
+  §34.6   body_range=(9636, 9668)  section_span=(9636, 9668)  COINCIDE
+  §34.7   body_range=(9668, 9683)  section_span=(9668, 9683)  COINCIDE
+  §34.8   body_range=(9683, 9695)  section_span=(9683, 9695)  COINCIDE
+  §34.9   body_range=(9695, 9707)  section_span=(9695, 9707)  COINCIDE
+  §34.10  body_range=(9707, 9750)  section_span=(9707, 9750)  COINCIDE
+  §35     body_range=(9750, 9761)  section_span=(9750, 9926)  DIFFER
+
+pointer SITES inside the unit:
+   L9521  §34.4
+   L9586  §34.5
+   L9586  §34.7
+   L9592  §34.1
+   L9595  §34.6
+   L9595  §34.3
+   L9599  §34.10
+   L9601  §34.5
+   L9602  §34.6
+   L9602  §34.8
+   L9610  §34.1
+   L9612  §34.1
+
+================================================================================================
+3  THE OPENING SEQUENCE at L9507 -- parsed from the line, not recited
+================================================================================================
+raw line: > 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s **5d 4f** 6p 7s **6d 5f** 7p
+parsed  : 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 5d 4f 6p 7s 6d 5f 7p  -> 19 openings
+capacities from the unit's own 2(2l+1): 1s=2, 2s=2, 2p=6, 3s=2, 3p=6, 4s=2, 3d=10, 4p=6, 5s=2, 4d=10, 5p=6, 6s=2, 5d=10, 4f=14, 6p=6, 7s=2, 6d=10, 5f=14, 7p=6
+printed count words: "Seventeen of nineteen openings agree; two do not" -> nineteen matches parsed 19: True;  17+2=19: True
+
+Madelung (n+l, then n), generated: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f 6d 7p
+CONVENTION A -- position-by-position agreement: 15 of 19 agree, 4 differ
+   differing positions: [(13, '5d', '4f'), (14, '4f', '5d'), (17, '6d', '5f'), (18, '5f', '6d')]
+CONVENTION B -- longest common subsequence (= minimum displacement): 17 of 19 agree, 2 displaced
+   the printed figure "Seventeen of nineteen" is EXACT under B and NOT under A.
+
+inversions named at L9509: 5d/4f and 6d/5f
+   5d/4f: printed order 5d before 4f: True ; Madelung order 5d before 4f: False -> inverted: True
+   6d/5f: printed order 6d before 5f: True ; Madelung order 6d before 5f: False -> inverted: True
+
+================================================================================================
+4  THE 89% FIGURE at L9514 and L9605, under both conventions
+================================================================================================
+   B  17/19 = 89.47%  -> quantized HALF_UP to 0 places: 89%
+   A  15/19 = 78.95%  -> quantized HALF_UP to 0 places: 79%
+   printed: 89% at L9514 and L9605 -> matches convention B only.
+   sites of "89%" in main: [9241, 9249, 9520, 9611]
+
+================================================================================================
+5  THE POPULATION -- "all 108 neutrals" (L9504) and "the 108 neutrals" (L9592)
+================================================================================================
+   unit site L9510: Read from the observed ground configurations of all 108 neutrals, the sequence in
+   unit site L9598: **How it was derived.** Read from the observed ground configurations of the 108 neutrals, not from
+   main  "neutrals" sites: [9510, 9598]
+   reg   "neutrals" sites: [1997, 3597, 3649, 4681, 4869, 4929, 4957, 5037, 5986, 6079, 6119, 6123, 6127, 6183, 6187, 6191, 6259, 6267, 6499]
+   mc    "neutrals" sites: [3733]
+   pc    "neutrals" sites: []
+   ioi   "neutrals" sites: []
+   sc    "neutrals" sites: []
+   main sites of 108: [7600, 9510, 9598, 9697, 9780]
+   main sites of 118: [214, 1561, 1589, 1724, 3326, 3339, 4010, 4200, 4598, 5037, 5609, 7609, 7613]
+   main sites of 103: [1248, 8195, 8739, 8788]
+   main sites of 92: [7582]
+   LOWDIN paper (absorbed; provenance only, NOT a reader-facing volume) sites of 108: [13, 35, 55, 94, 150]
+
+  DERIVED opening Z from the printed sequence + the printed capacity rule
+  (convention: a subshell opens at Z = 1 + the total capacity of everything before it,
+   which holds wherever the preceding subshells are full when it opens):
+     1s  opens at Z = 1    (cumulative capacity before it = 0)
+     2s  opens at Z = 3    (cumulative capacity before it = 2)
+     2p  opens at Z = 5    (cumulative capacity before it = 4)
+     3s  opens at Z = 11   (cumulative capacity before it = 10)
+     3p  opens at Z = 13   (cumulative capacity before it = 12)
+     4s  opens at Z = 19   (cumulative capacity before it = 18)
+     3d  opens at Z = 21   (cumulative capacity before it = 20)
+     4p  opens at Z = 31   (cumulative capacity before it = 30)
+     5s  opens at Z = 37   (cumulative capacity before it = 36)
+     4d  opens at Z = 39   (cumulative capacity before it = 38)
+     5p  opens at Z = 49   (cumulative capacity before it = 48)
+     6s  opens at Z = 55   (cumulative capacity before it = 54)
+     5d  opens at Z = 57   (cumulative capacity before it = 56)
+     4f  opens at Z = 67   (cumulative capacity before it = 66)
+     6p  opens at Z = 81   (cumulative capacity before it = 80)
+     7s  opens at Z = 87   (cumulative capacity before it = 86)
+     6d  opens at Z = 89   (cumulative capacity before it = 88)
+     5f  opens at Z = 99   (cumulative capacity before it = 98)
+     7p  opens at Z = 113  (cumulative capacity before it = 112)
+  ANCHORS the unit itself prints: lanthanum opens 5d at Z = 57; actinium opens 6d at Z = 89
+     derived 5d -> Z = 57  exact: True
+     derived 6d -> Z = 89  exact: True
+  the model does NOT give the second member of an inverted pair (4f, 5f): the pair opens out
+  of order, so those two derived Z are void -- and the unit prints no Z for them either.
+  LAST opening: 7p at Z = 113.  Stated population: 108 neutrals.  7p > 108: True
+  openings requiring Z > 108: ['7p']
+
+================================================================================================
+6  THE TEN SCATTER FIGURES at L9528-L9529 -- corroboration sweep, all six volumes
+================================================================================================
+printed: radicand the scatter in a within a subshell falls from 0.187 to 0.041 at 3p, 0.119 / to 0.028 at 4p, 0.088 to 0.018 at 5p, 0.059 to 0.021 at 6p, 0.086 to 0.047 at 5d.
+  3p  0.187 -> 0.041   falls: True   drop 0.146   ratio 4.561
+  4p  0.119 -> 0.028   falls: True   drop 0.091   ratio 4.250
+  5p  0.088 -> 0.018   falls: True   drop 0.070   ratio 4.889
+  6p  0.059 -> 0.021   falls: True   drop 0.038   ratio 2.810
+  5d  0.086 -> 0.047   falls: True   drop 0.039   ratio 1.830
+  0.187  sites across the six volumes: [('main', 9534), ('reg', 5065)]
+  0.041  sites across the six volumes: [('main', 9534), ('reg', 2753), ('reg', 5065)]
+  0.119  sites across the six volumes: [('main', 9534), ('reg', 5065), ('mc', 3080)]
+  0.028  sites across the six volumes: [('main', 9535), ('reg', 2689), ('reg', 5065), ('pc', 778)]
+  0.088  sites across the six volumes: [('main', 9535), ('reg', 5065), ('reg', 5914)]
+  0.018  sites across the six volumes: [('main', 9535), ('reg', 4293), ('reg', 5065), ('reg', 5469), ('mc', 778)]
+  0.059  sites across the six volumes: [('main', 9535), ('reg', 5065), ('reg', 5277)]
+  0.021  sites across the six volumes: [('main', 9535), ('reg', 3917), ('reg', 5065), ('reg', 5870), ('pc', 702)]
+  0.086  sites across the six volumes: [('main', 9535), ('reg', 3965), ('reg', 4721), ('reg', 5065)]
+  0.047  sites across the six volumes: [('main', 4373), ('main', 9535), ('reg', 2445), ('reg', 2689), ('reg', 2705), ('reg', 3177), ('reg', 5065), ('mc', 1354), ('mc', 1360)]
+  "Raw occupancy makes every one worse" (L9530): NOT RECOMPUTABLE in this unit --
+  a needs the corridor of §34.5 and the walk of §34.6, both outside it.  Budget, not a negative.
+
+================================================================================================
+7  THE RULE PRINTED TWICE -- L9518 vs L9583, verbatim
+================================================================================================
+  L9518: ν(n,ℓ,q) = n − a·√( n − ℓ − 1 + q/2(2ℓ+1) )
+  L9583: ν(n,ℓ,q) = n − a·√( n − ℓ − 1 + q/2(2ℓ+1) )
+  formula identical, character for character after whitespace-normalising: True
+  raw byte-identity of the two extracted forms: True
+  L9520-21 admissibility: **The incoming electron occupies the subshell of least ν among those with q < 2(2ℓ+1).**
+  L9580-81 admissibility: Stated here in the form §34.5 to §34.7 use it. For each candidate subshell (n, ℓ) with occupancy q < 2(2ℓ+1),
+
+================================================================================================
+8  THE RADICAND -- "the count of states below" (L9524, restated L9593)
+================================================================================================
+  radicand = n - l - 1 + q/2(2l+1)
+  (n,l)    n-l-1  lower subshells same l   states below same l    equal?
+  (2,0)    1      1                        2                      False
+  (2,1)    0      0                        0                      True
+  (3,0)    2      2                        4                      False
+  (3,1)    1      1                        6                      False
+  (3,2)    0      0                        0                      True
+  (4,0)    3      3                        6                      False
+  (4,1)    2      2                        12                     False
+  (4,2)    1      1                        10                     False
+  (4,3)    0      0                        0                      True
+  (5,0)    4      4                        8                      False
+  (5,1)    3      3                        18                     False
+  (5,2)    2      2                        20                     False
+  (5,3)    1      1                        14                     False
+  (6,0)    5      5                        10                     False
+  (6,1)    4      4                        24                     False
+  (6,2)    3      3                        30                     False
+  (6,3)    2      2                        28                     False
+  (7,0)    6      6                        12                     False
+  (7,1)    5      5                        30                     False
+  (7,2)    4      4                        40                     False
+  (7,3)    3      3                        42                     False
+  n-l-1 == number of complete lower subshells of the same l: always TRUE (l+1..n-1).
+  n-l-1 == number of STATES below of the same l: FALSE in 18 of 18 cases tested;
+  the two differ by the factor 2(2l+1), which is never 1.  The apposition is exact;
+  the head of the sentence ("the count of states below") is not.
+  L9587/L9593 give the same term a third reading, "the node count" / node theorem:
+    radial nodes = n - l - 1, numerically identical to the subshell count, so no clash there.
+
+================================================================================================
+9  Lambda_var AND ITS TABLE, L9537-L9546
+================================================================================================
+  table rows incl. header and rule: 8
+  DATA rows: 6
+     | **nucleus** | Z | · | · |
+     | **core** | Nₑ | ℓ_core, n_out | · |
+     | **core + rydberg** | · | p, n₀, T | · |
+     | **nucleus + core** | c | u | · |
+     | **rydberg** | ℓ | · | δ |
+     | **nucleus + rydberg** | **—** | **—** | **—** |
+  bodies named in §34.2 heading: three ->  3 singletons + C(3,2)=3 pairs = 6 rows; DATA rows = 6; match: True
+  rows whose every value cell is empty: ['nucleus + rydberg'] -> exactly one: True
+  variables placed on (body, role): ['Z', 'Nₑ', 'ℓ_core', 'n_out', 'p', 'n₀', 'T', 'c', 'u', 'ℓ', 'δ'] -> 11
+  E = 0 claim at L9537.  The Index of Indices entry for Lambda_var, read in full:
+    entry heading at ioi L[1596]
+    ioi L1596: ## Λ_var — the variables
+    ioi L1598: **What it is.** Twelve variables on (body, role), body order
+    ioi L1599: **nucleus < core < core+rydberg < nucleus+core < rydberg**. **E = 0.**
+    ioi L1601: **What only it contributes.** *That there is no nucleus + rydberg cell.* Not one
+    ioi L1602: variable relates them directly: every quantity connecting the Rydberg electron to
+    ioi L1603: the nucleus — c, u — is a nucleus–core quantity that the Rydberg electron then
+    ioi L1604: reads. **That is the screening statement appearing as a structural fact of the
+    ioi L1605: index rather than a modelling choice, and it is the three-body factorisation:
+    ioi L1606: nucleus–core gives c and u, core–Rydberg gives p, n₀ and T, and the Rydberg
+    ioi L1607: electron's own ℓ closes it.**
+    ioi L1609: **And the singleton rule.** Λ_var passes ℛ with both δ and n\* present, because
+    ioi L1610: both land in the same cell — **only a second criterion sees it. An index is closed
+    ioi L1611: when its output class is a singleton; two outputs mean the observer is still
+    ioi L1612: choosing which to read.**
+    "E = 0" present in the entry: True ; "E=0": False
+    every "E" assignment in the entry: ['E = 0']
+    every "V" assignment in the entry: []
+    other ioi site L1589: the object respects.** The same fault recurs as `origin` in Λ_var, `kind` in
+    other ioi site L1609: **And the singleton rule.** Λ_var passes ℛ with both δ and n\* present, because
+    other ioi site L1869: | **Λ_var** | no nucleus + rydberg cell — the three-body factorisation |
+  channel equation at L9558: delta = sqrt(p) . f(u); p is a core+rydberg variable: True ; u is a nucleus+core variable: True
+
+================================================================================================
+10  THE LADDER TABLE, L9568-L9573, against Z = Ne + c - 1 (L9564)
+================================================================================================
+  DATA rows: 4
+     | **isoelectronic** | Nₑ | Z and c | the valence shell |
+     | **the walk** | c | Z and Nₑ | the valence shell |
+     | **ionisation** | Z | Nₑ and c | the subvalence shell |
+     | **isotopic** | **Z, Nₑ and c** | the neutron number | **the nucleus** |
+  identity Z = Ne + c - 1 -> exactly two of {Z, Ne, c} are free.
+    isoelectronic    fixes=['Nₑ']         varies=['Z', 'c']     covers all three electronic quantities: True
+    the walk         fixes=['c']          varies=['Nₑ', 'Z']    covers all three electronic quantities: True
+    ionisation       fixes=['Z']          varies=['Nₑ', 'c']    covers all three electronic quantities: True
+    isotopic         fixes=['Nₑ', 'Z', 'c'] varies=[]             covers all three electronic quantities: True
+  "no ladder can vary Z alone": under the identity, moving Z with Ne and c both fixed is impossible: True
+  "Three ladders exhaust the electronic space": electronic rows = 3 ; the fourth varies the neutron number: True
+
+================================================================================================
+11  WHAT §34.4 SAYS ITS NEIGHBOURS DO -- tested at the target, in full
+================================================================================================
+  §34.5   L9623-L9635  ν   occurrences: 1   table rows: 0   "corridor": 1  "reset": 0  " a "/"a is": 1
+  §34.6   L9636-L9667  ν   occurrences: 2   table rows: 0   "corridor": 4  "reset": 3  " a "/"a is": 12
+  §34.7   L9668-L9682  ν   occurrences: 0   table rows: 0   "corridor": 1  "reset": 0  " a "/"a is": 3
+  §34.8   L9683-L9694  |   occurrences: 21   table rows: 7   "corridor": 0  "reset": 0  " a "/"a is": 3
+  §34.10  L9707-L9749  ν   occurrences: 0   table rows: 0   "corridor": 2  "reset": 1  " a "/"a is": 12
+  §34.4 L9580 says the rule is "stated here in the form §34.5 to §34.7 use it".
+  §34.4 L9596 says "the provenance of every term is §34.8's table".
+
+  §34.5-§34.7 printed in full (short sections; the pointer at L9580 is tested on the text):
+    L9623 ### 34.5 The corridor
+    L9625 Requiring the observed subshell to have least ν gives one linear inequality per
+    L9626 rival, and their intersection is an interval:
+    L9628 > **L(Z) < a < U(Z)**,  **L, U = Δn(√p_g + √p_r)/(p_g − p_r)**
+    L9630 **All 106 non-empty. Nineteen distinct surds across the whole table. No
+    L9631 measurement enters — only Pauli's capacity and the node count.**
+    L9633 *For every ns/(n−1)d competition the crossing is (√(n−1) + √(n−4))/3, giving
+    L9634 0.5773503, 1.0000000, 1.2168450, 1.3938270 at n = 4 to 7.*
+    L9636 ### 34.6 The walk
+    L9638 **`a` is carried between elements and resets eighteen times.** Every reset is a
+    L9639 **subshell opening** (8), an **aufbau exception** (6), or the **return from one**
+    L9640 (4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
+    L9641 mid-subshell**, which is why each subshell fills at constant `a`.
+    L9643 *But eighteen is the cost of walking Z in order, not the cost of the table.*
+    L9644 Read as an arrangement of intervals, the 106 corridors are pierced by **three**
+    L9645 values of `a`, and three are forced: boron, lanthanum and lawrencium have
+    L9646 pairwise disjoint corridors, so no two of them can share one. The largest
+    L9647 disjoint set and the smallest piercing set agree at three, which certifies both
+    L9648 (register 1580).
+    L9650 **And the state is necessary — to the form.** With no carried value every step
+    L9651 admits more than one self-consistent subshell: two to six across the table, and
+    L9652 one never. *The observed one is always among them and never uniquely
+    L9653 determined.* **That much is geometry.** In the plane where each subshell is the
+    L9654 point (√r, n), ν takes whichever point a line of slope `a` reaches first, and a
+    L9655 point set with two distinct abscissae always offers more than one such point, at
+    L9656 every neutral atom there is. **What is not geometry is that the observed subshell
+    L9657 is among them at all 106 steps.** That is the corridor, and it is what survives
+    L9658 the form's demotion (§34.4; registers 1445, 1460, 1463).
+    L9660 **And the carried value is what the ordering costs.** In that same plane the
+    L9661 Madelung number is **M = 2n − p − 1** (register 1460) — with x = √p, the parabola
+    L9662 **M = 2y − x² − 1**, where ν sweeps straight lines. No single slope follows a
+    L9663 parabola, which is why no fixed `a` reaches it and why a re-set one does: **the
+    L9664 number carried between elements is the price of reading a quadratic order off a
+    L9665 linear form**, and the Madelung pick lies inside the corridor at every one of the
+    L9666 106 steps.
+    L9668 ### 34.7 The entry point
+    L9670 Where `a` sits in its corridor is fixed by the single-state observation — the
+    L9671 ionisation energy — and the position is
+    L9673 > **t(ℓ) → √( ℓ(ℓ+1) / 2 )**
+    L9675 **Measured 1.028 at p across four subshells and 1.785 at d across two: the ratio
+    L9676 is √3 to 0.19%.** *ℓ(ℓ+1) is the centrifugal term, the only place ℓ enters the
+    L9677 radial Schrödinger equation.*
+    L9679 **And it is a limit approached along n**, not a constant: the p row of Λ_t reads
+    L9680 1.120, 1.049, 1.022, 1.002 at n = 3, 4, 5, 6 — **6p sits 0.2% above the
+    L9681 centrifugal value.**
+
+  the two out-of-unit sites of 108 (from test 5), read:
+    L9697 [34.9] **A non-empty corridor at all 106 elements**, Z = 3 to 108, including every aufbau anomaly — and 99 of 106 steps reproduced when *a* is placed on each step's own corridor,
+    L9780 [35.2] > **107 of 107.** Across Z = 2–108 — every element with a measured ground
+
+  the References entries naming the n+l rule's owners, read at the target:
+    L11824 Janet, C. (1928). — the left-step periodic table; E(Janet) = 0.
+    L11854 **The Löwdin solution.** Entered at registers 1701–1712. The companion paper carries the full list; these are the works entered with Chapter 35 (register 1810).
+    L11856 · Löwdin, P.-O. (1969). Some comments on the periodic system of the elements. *Int. J. Quantum Chem.* **3**(S3A), 331–334. — the challenge.
+    L11857 · Löwdin, P.-O. (1950). On the non-orthogonality problem. *J. Chem. Phys.* **18**, 365. — the multiplier identity is an instance.
+    L11862 · Madelung, E. (1936). *Die Mathematischen Hilfsmittel des Physikers*, 3rd ed. Springer. — the rule as a rule.
+    L11863 · Lach, M. (2026). *The Löwdin Solution.* — the companion paper; the formal statement.
+
+================================================================================================
+12  ATTRIBUTIONS IN THE UNIT vs the References BODY occurrence
+================================================================================================
+  "## References" occurrences: [173, 11550] -> BODY occurrence is the last: 11550
+  Löwdin        unit sites [9500, 9502, 9508, 9606, 9609] in References body: True
+  Madelung      unit sites [9515, 9605]           in References body: True
+  Janet         unit sites [9605]                 in References body: True
+  Klechkovskii  unit sites [9606]                 in References body: False
+  Schrödinger   unit sites [9503]                 in References body: False
+  Pauli         unit sites [9529, 9533, 9593]     in References body: False
+  Rydberg       unit sites [9540, 9554, 9556]     in References body: True
+  year 1936 -- unit sites [9605] ; References body sites [11862]
+  year 1929 -- unit sites [9606] ; References body sites []
+  year 1969 -- unit sites [9502, 9606] ; References body sites [11856, 11859, 11860]
+
+================================================================================================
+13  "The ν rule is this record's own, first stated in this work" (L9601)
+================================================================================================
+  main  sites of the printed form ν(n,ℓ,q): [9524, 9589]
+  reg   sites of the printed form ν(n,ℓ,q): [5073]
+  mc    sites of the printed form ν(n,ℓ,q): []
+  pc    sites of the printed form ν(n,ℓ,q): []
+  ioi   sites of the printed form ν(n,ℓ,q): []
+  sc    sites of the printed form ν(n,ℓ,q): []
+  main  "Madelung" sites: [1565, 9515, 9605, 9618, 9661, 9665, 11862] 
+  reg   "Madelung" sites: [47, 265, 269, 273, 277, 349, 4633, 4677, 4701, 4901, 4909, 5069, 5233, 5305] ...
+  mc    "Madelung" sites: [716, 720, 1588, 1590, 3438, 3700, 3708] 
+  pc    "Madelung" sites: [474, 892] 
+  ioi   "Madelung" sites: [1452, 1456, 1895, 2035] 
+  sc    "Madelung" sites: [] 
+
+END r2-ch16w

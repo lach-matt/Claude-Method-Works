@@ -1,0 +1,160 @@
+
+================================================================================================
+1  RULING 45 -- build or editorial-process remarks in a reader-facing volume
+================================================================================================
+  L9522  [the reading that found]  follows here is the reading that found its shape.*
+  L9586  [stated here]  Stated here in the form §34.5 to §34.7 use it. For each candidate subshell (n, ℓ) with occupancy
+  L9599  [the session]  a fit; §34.10 gives the session that did it. *The radicand is the count of states below* — the node
+  L9605  [this work]  **Whose it is.** The rule it replaces is not this work's: n+ℓ belongs to Madelung (1936), to Janet
+  L9607  [this record]  ν rule is this record's own, first stated in this work.
+
+  chat-115 discriminator: a remark about the WORK'S OWN MAKING is a member;
+  a remark locating a statement inside the finished text is not.
+
+================================================================================================
+2  RULING 46 -- script names, build numbers, internal file references (CASE-SENSITIVE)
+================================================================================================
+  Ruling 46 sites in the unit: 0
+
+================================================================================================
+3  FIRST PERSON -- guarded: \b(I|my|we|our)\b matches the Roman numeral in "He I"
+================================================================================================
+  first-person sites in the unit: 0
+
+================================================================================================
+4  UNMARKED SUB-HEADINGS -- must require a BLANK LINE ABOVE (else italic wrap tails fire)
+================================================================================================
+  unmarked sub-headings in the unit: 0
+
+================================================================================================
+5  DUPLICATED-SECTION SWEEP (docket 27) -- long unit lines recurring elsewhere in the volume
+================================================================================================
+  L9502 recurs at [9495] :: *In 1969 Per-Olov Löwdin set a challenge: derive the n+ℓ filling rule from the
+  1 of 56 long lines recur outside the unit
+
+================================================================================================
+6  PRINTS & PROOFS -- is chapter 34 in the original at all?  Titles, not whole lines.
+================================================================================================
+  PP lines: 11372 ; volume lines: 11904
+  "Löwdin challenge"                                   PP [156, 9400]    main [157, 9500, 10877, 10925] offset [-10769, -10721, -9344, -1525]
+  "The problem, and the wrong target"                  PP [9406]         main [9506]                 offset [-100]
+  "The three bodies, and the pair that has no variable" PP [9436]         main [9538]                 offset [-102]
+  "What the ladders can and cannot reach"              PP [9466]         main [9568]                 offset [-102]
+  "The rule"                                           PP [475, 5101, 5896, 6024, 6079, 7062, 7667, 9379, 9408, 9482, 10795] main [479, 5147, 5948, 6076, 6131, 7139, 7750, 9479, 9508, 9520, 9584, 9605, 11360] offset [-10885, -9130, -9109, -9045]
+  "Klechkovskii"                                       PP []             main [9606]                 offset []
+  "Seventeen of nineteen"                              PP [9417]         main [9517]                 offset [-100]
+  "108 neutrals"                                       PP [9410]         main [9510, 9598]           offset [-188, -100]
+
+  heading TITLES of the unit against PP (numbering is a production layer -- compare titles):
+  §34     L9500   "The Löwdin challenge"  -> PP [156, 9400]  offset [-9344, -100]
+  §34.1   L9506   "The problem, and the wrong target"  -> PP [9406]  offset [-100]
+  §34.2   L9538   "The three bodies, and the pair that has no variable"  -> PP [9436]  offset [-102]
+  §34.3   L9568   "What the ladders can and cannot reach"  -> PP [9466]  offset [-102]
+  §34.4   L9584   "The rule"  -> PP [5896, 9482]  offset [-3688, -102]
+
+  THE OFFSET SHIFT: -94 at L9511, -96 at L9532 -- the volume gained two lines in §34.1.
+  aligned diff of main L9512-L9531 against PP L9418-L9435:
+    --- PP
+    +++ volume
+    @@ -2,3 +2,5 @@
+     **So deriving n+ℓ exactly would mean deriving something false at two elements.**
+    -The target is the ORDER, and n+ℓ is a name for it that is 89% accurate.
+    +The target is the ORDER, and n+ℓ is a name for it that is 89% accurate. *The rule
+    +that names the order exactly is stated, derived and attributed at §34.4; what
+    +follows here is the reading that found its shape.*
+     
+
+================================================================================================
+7  COUNT WORDS -- each against its own body, its data rows and its numeral span
+================================================================================================
+  L9523 "Both Pauli quantities appear." -- distinct quantities named in L9523-L9525:
+     **Both Pauli quantities appear.** The capacity 2(2ℓ+1) governs admissibility AND sits inside the radicand. *The radicand is the count of states below: complete lower shells of the same ℓ, plus the fraction of the current one already filled.*
+    distinct Pauli quantities printed: ['2(2ℓ+1)'] -> 1
+    the paragraph names ONE quantity, 2(2ℓ+1), in TWO roles (admissibility; radicand).
+    L9594 restates it as "the capacity 2(2ℓ+1), twice" -- one quantity, twice.
+
+  L9534 "three bodies" vs the §34.2 table: 3 singleton rows + 3 pair rows = 6 DATA rows.
+  L9575 "Three ladders exhaust the electronic space" vs 4 DATA rows, the fourth isotopic.
+  L9564 "only two of the three electronic quantities are independent" vs Z = Nₑ + c − 1.
+  L9559 "no third factor because the index holds no third pair":
+    the §34.2 table PRINTS a third pair row (nucleus + rydberg) carrying no variable;
+    "holds no third pair" is exact only under "holds" = "carries a variable in".
+
+================================================================================================
+8  FALSE-UNIVERSAL AND SUPERLATIVE SWEEP (docket 19)
+================================================================================================
+  "has never been traced"            unit sites [9582]
+  "No parameter is fitted"           unit sites [9602]
+  "makes every one worse"            unit sites [9536]
+  "every variable of the problem"    unit sites [9543]
+  "No variable in the index"         unit sites [9554]
+  "nothing measured"                 unit sites [9593]
+  "the only route to the nucleus"    unit sites [9582]
+  "exhaust the electronic space"     unit sites [9581]
+  "No variable"                      unit sites [9538, 9554]
+
+  "has never been traced" (L9576) -- corroboration sweep on "isotopic" across six volumes:
+    main  [9579]
+    reg   [5097, 5161, 5169, 5189, 5209, 5365]
+    mc    []
+    pc    [536]
+    ioi   [1788, 1801, 1823]
+    sc    []
+
+================================================================================================
+9  L9596 "the provenance of every term is §34.8's table" -- tested at §34.8, printed
+================================================================================================
+  L9683 ### 34.8 The provenance
+  L9685 | term | source |
+  L9686 |---|---|
+  L9687 | **n − ℓ − 1** | the node theorem |
+  L9688 | **2(2ℓ+1)** | antisymmetry, twice |
+  L9689 | **ℓ(ℓ+1)** | the centrifugal term, from the angular separation |
+  L9690 | **the energy of a single state** | the observation that fixes what the ordering bounds |
+  L9691 | **the endpoints** | arithmetic on the above |
+  L9693 **No parameter is fitted in the form;** the placement of *a* along the walk is a fit (register 1445).
+
+  terms of the rule ν(n,ℓ,q) = n − a·√( n − ℓ − 1 + q/2(2ℓ+1) ) against §34.8:
+    term n        occurrences in §34.8: 1
+    term ℓ        occurrences in §34.8: 4
+    term q        occurrences in §34.8: 0
+    term a        occurrences in §34.8: 3
+    term 2(2ℓ+1)  occurrences in §34.8: 1
+    term ν        occurrences in §34.8: 0
+
+================================================================================================
+10  "the paper" / "companion paper" -- absorbed-companion reference class
+================================================================================================
+  main  [1164, 1341, 4521, 5192, 5973, 6029, 9006, 9611, 9756, 9928, 9936, 10532, 10762, 10787, 10795, 11413]
+  reg   [89, 97, 117, 169, 329, 449, 1293, 2037, 3201, 3541, 3809, 3829, 5778, 5810, 5842, 5846]
+  mc    [3150, 3164, 3224]
+  pc    []
+  ioi   [90, 1498, 2000, 2019]
+  sc    [1144]
+  unit site L9611: 35 and the paper derive is the order ν names, not the name that is 89% accurate. Where the order
+
+================================================================================================
+11  ELEMENT NAMES OF THE UNIT (docket 20, notation-tolerant) across six volumes
+================================================================================================
+  lanthanum     main name 2 sym 1 | reg name 14 sym 20 | mc name 1 sym 2 | pc name 0 sym 3 | ioi name 0 sym 0 | sc name 0 sym 6
+  cerium        main name 1 sym 0 | reg name 7 sym 14 | mc name 0 sym 1 | pc name 0 sym 1 | ioi name 0 sym 0 | sc name 0 sym 4
+  actinium      main name 1 sym 1 | reg name 8 sym 13 | mc name 0 sym 3 | pc name 0 sym 3 | ioi name 0 sym 0 | sc name 0 sym 2
+  protactinium  main name 1 sym 0 | reg name 6 sym 9 | mc name 0 sym 1 | pc name 0 sym 1 | ioi name 0 sym 0 | sc name 0 sym 0
+
+================================================================================================
+12  WRAPPED SENTENCES read on the normalised JOIN, not the line
+================================================================================================
+  L9515+9516  **Madelung's rule inverts 5d/4f and 6d/5f.** Lanthanum opens 5d at Z = 57 and 4f does not appear until cerium; actinium opens 6d at Z = 89 and 5f not 
+  L9516+9517  does not appear until cerium; actinium opens 6d at Z = 89 and 5f not until protactinium. *Seventeen of nineteen openings agree; two do not.*
+  L9517+9518  protactinium. *Seventeen of nineteen openings agree; two do not.*
+  L9518+9519  **So deriving n+ℓ exactly would mean deriving something false at two elements.**
+  L9519+9520  **So deriving n+ℓ exactly would mean deriving something false at two elements.** The target is the ORDER, and n+ℓ is a name for it that is 89% accurat
+  L9520+9521  The target is the ORDER, and n+ℓ is a name for it that is 89% accurate. *The rule that names the order exactly is stated, derived and attributed at §3
+
+================================================================================================
+13  REGISTER CITATIONS IN THE UNIT (lowercase "register NNN" grepped by hand rule)
+================================================================================================
+  citations found: NONE -- the unit cites the Register nowhere
+  Chapter-34 span L9494-L9715 register citations: [(9617, 'registers 1437'), (9619, 'register 1445'), (9620, 'registers 1445'), (9648, 'register 1580'), (9658, 'registers 1445'), (9661, 'register 1460'), (9693, 'register 1445'), (9698, 'registers 1437')]
+
+END r2-ch16x

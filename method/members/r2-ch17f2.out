@@ -1,0 +1,69 @@
+unit L9926–L9970, 45 lines (own scan)
+
+================================================================================================
+§1 RULING 45 / RULING 46 PROBES (case-sensitive, word-bounded on the raw line; every hit READ)
+================================================================================================
+  ledger         [9956]
+  register       [9928, 9936, 9956]
+  audit          [9936, 9954, 9954, 9956]
+  run            [9954]
+  rerun          [9936]
+  READ: "register" (L9894 "register entries 1713–1724", L9902 "(register 1717") and "Registers" cites name the Register — the volume's own object, not production. "audit"/"rerun"/"ledger"/"protocol": L9902 "audit paragraph … rerun by", L9920 "first audit run", L9922 "audit 7 supplied the ledger" — the chapter's declared subject is the method's run on the three-body problem (as §34.10 and §35.4: docket 5, chat 115's split); recorded for that split, not scored here.
+  Ruling 46 (backticks, .py, BUILDn, file extensions): [(9936, ['`tb_audit.py`'])]
+  DEVIATION 17e-01 site: L9902 `tb_audit.py` — a script name visible to readers (docket 6), the same site as the 1756 citation with no entry (docket 9c).
+
+================================================================================================
+§2 FIRST PERSON (probe carries mine and myself; He I Roman-numeral trap excluded by requiring the pronoun be followed by a lowercase word or punctuation)
+================================================================================================
+  hits: [] -> first-person zero: True
+  witness that the probe fires: "A fault of mine" in register 1723 body: True
+
+================================================================================================
+§3 STRUCTURE — bold lead-ins, italics, unmarked sub-headings (blank line above, then READ), long lines, recurrence (docket 27)
+================================================================================================
+  bold lead-in paragraphs: 10 [9940, 9942, 9944, 9946, 9948, 9950, 9952, 9954, 9956, 9960]
+    ['§25.6 supplied the definition of sol', '§18.4.1 supplied the certificate.', '§12.11.2 supplied the shape of the a', '§12.11.1.3 and §12.11.0.2 supplied t', '§21.5.1 supplied the deficit and its', "§14.5's seed supplied the five point", '§31.1.1 supplied the silence.', '§2.14 supplied the correction.', '§E.5 and audit 7 supplied the ledger', 'Mass-uniformity.']
+  of these in §36.3 (L9938–L9957): 9 lead-ins, each opening with a § pointer: True ; sections named across them: ['§12.11.0.2', '§12.11.1.3', '§12.11.2', '§14.5', '§18.4.1', '§2.14', '§21.5.1', '§25.6', '§31.1.1', '§E.5'] ; the tenth bold lead-in is §36.4's "Mass-uniformity." (L9926)
+  whole-line italics (epigraph L9894, one-line summary L9934): [9928, 9968]
+  unmarked sub-heading candidates (short line after a blank, not a heading): [] -> READ: none (each is a full sentence or a heading)
+  lines over 400 chars: 9 ; recurrence test (docket 27): each unit line of ≥ 60 chars searched in the rest of main: [] -> none recurring (headings excluded; the `## 36.` heading recurs at L159 as the contents entry): True
+  tables in unit (pipe rows): 0 ; horizontal rules: []
+
+================================================================================================
+§4 §36.5 — EVERY NEGATIVE WITH A WITNESS (the unit L9892–L9936 and the companion paper searched for the thing denied)
+================================================================================================
+  L9964: No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause (Xia 1992 shows non-collision singulariti …
+  "No trajectory": a trajectory formula — unit sites [9940]; companion sites [164]
+  "No prediction": a positive prediction — unit sites []; companion sites []
+  "No extension to n ≥ 4": an n ≥ 4 claim — unit sites [9964]; companion sites []
+  "Nothing that touches Poincaré": the name Poincaré — unit sites [9932, 9964]; companion sites [13, 207]
+  READ: "No trajectory" unit site L9906 is "no trajectory formula exists" (the negative, quoted as one of two statements); companion L164 is its claims paragraph "the absence of a trajectory formula" (the negative again). "n ≥ 4" hits in the unit are the negative itself (L9930: "n ≥ 4", "n = 5" inside its own clause); Poincaré at L9898 is the §31.1.1 quotation and at L9894/L9930 the negative — the unit asserts nothing positive under any of the four; the companion's Poincaré sites are its own scope clauses (read: 2 lines).
+  "No statement about the contents of ℳ_per beyond the equal-mass figure-eight": ℳ_per sites in unit: [9964] (the negative only); "figure-eight" attribution Moore / Chenciner–Montgomery — companion carries both: True
+
+================================================================================================
+§5 WORDING PAIRS AND CROSS-VOLUME PHRASES (read on the join)
+================================================================================================
+  "eight closed" (L9902): unit 1 · main 2 · reg 1 · ioi 0 · companion 0
+  "seven closed to named owners" (register 1721): unit 0 · main 0 · reg 1 · ioi 0 · companion 0
+  "Seven belonged to others" (L9922): unit 1 · main 1 · reg 0 · ioi 0 · companion 0
+  "Hill regions" (L9914): unit 1 · main 2 · reg 0 · ioi 0 · companion 1
+  "Hill spheres" (L5156): unit 0 · main 1 · reg 0 · ioi 0 · companion 0
+  "the book's own five" (L9908): unit 1 · main 1 · reg 0 · ioi 0 · companion 0
+  "coordinates come from the subject or from nowhere" (L9926 — the Index of Indices' "one-line claim"): unit 1 · main 1 · reg 0 · ioi 1 · companion 1
+  IoI sites of "from the subject or from nowhere": [1557] ; the phrase at L9926 is not a quotation (no quotation marks): True
+  "envelope precision only" (L9898) vs §18.4.1 L5154–L5155 "the book's prediction is envelope precision only" — read on the join: True ; L9898 attributes it to §12.11.2; §12.11.2 span carries "envelope": 2
+  L9898 "nothing here touches Poincaré" is quoted; §31.1.1 carries it verbatim: 1
+
+================================================================================================
+§6 "THE BOOK HAD ALREADY COMPUTED THAT PRECISION BEFORE THE PROBLEM WAS POSED" (L9934) — witnessed against Prints & Proofs
+================================================================================================
+  PP carries §21.5.1 at [5647] and §12.11.2 at [3333] (headings; body = last)
+  PP §21.5.1 states treewidth 2 / strong 3-consistency / "exactly one level": True True True
+  PP §12.11.2 carries "excluded forms": 1 ; the sentence "three bodies carry all three excluded forms" lives in §18.4.1 (main L5152–L5154), and PP carries "three bodies"/"three-body" at [2692, 2834, 5107, 5111, 5139, 5178, 5181, 5208] … (15 sites)
+  PP carries "## 36." body / "36.1": [] [] -> the chapter is post-PP; the precision it cites is pre-PP: the claim is witnessed
+
+================================================================================================
+§7 THE COMPANION PAPER MEMBER against the unit's summary sentences (token presence, no diff)
+================================================================================================
+    "78 of 78": 1    "78/78": 0    "Thirteen": 0    "thirteen": 5    "order-type": 4    "Mass-uniformity": 2    "mass-uniformity": 1    "Brudno": 4    "Saari": 7    "Painlevé": 4    "Xia": 1    "measure zero": 4    "figure-eight": 1    "resolvent": 1    "hyper-radius": 2    "Routh": 0    "0.0385209": 1
+  the companion cites the same absent entry: "1756" sites in the companion: [146] ; "tb_audit" sites: [146]

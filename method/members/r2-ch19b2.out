@@ -1,0 +1,178 @@
+unit L10088–L10198, 111 lines (own scan: `### A.15` = last hit, `## Appendix B` body = last hit)
+
+================================================================================================
+§1 RULING 45 (build/editorial-process remarks) AND RULING 46 (script names, build numbers, internal files) — case-insensitive letter-bounded tokens on the raw line; hits READ
+================================================================================================
+  register         [10105, 10185, 10189, 10197] ['which is a sublattice and is the reason the last coupling step is carried exactly. Registe', '§7.1 and the implications between bits are the same object counted twice.** Register 268.', 'register 208 spent an entry on:', '(1,0,1,0,1,0,0,0) at rank 3. Register 255.']
+  ledger           [10103] ['Remark. This corrects the ledger, which called C a *join-closed sublattice*. A sublattice ']
+  verified         [10142] ['Verified: the down-sets of this seventeen-element poset number exactly 976, computed by di']
+  corrects         [10103] ['Remark. This corrects the ledger, which called C a *join-closed sublattice*. A sublattice ']
+  entry            [10189] ['register 208 spent an entry on:']
+  until now        [10196] ['cells**, unique and unnamed until now: the top is (3,1,3,3,3,1,3,3) at rank 20, the bottom']
+  had not supplied [10145] ['alphabet and what the book had not supplied.']
+  never prints     [10128] ['cells of Λ. **It never prints the seventeen.** The alphabet was counted, its covering rela']
+  read: "This corrects the ledger" (L10069), "register 208 spent an entry on" (L10155), "which is what S1 requires … and what the book had not supplied" (L10111), "unique and unnamed until now" (L10161), "It never prints the seventeen … the letters left unwritten" (L10093–L10095): the appendix narrating its own repair of the book — Ruling 45 candidates for chat 115's split (docket 5), the appendix's declared form being a corrective; "Verified:" (L10108) is the appendix's check form as in part 1
+  R46 — backticked names: [] ; .py / BUILD / md5 / file references: [] — zero: negative witnessed by the two probes over all 111 lines
+
+================================================================================================
+§2 FIRST PERSON (probe carries mine and myself; `\b(I|my|we|our)\b` also matches a Roman numeral — hits are READ)
+================================================================================================
+  hits: [] []
+  read: first person ZERO — the probe fires on no line of the unit (witness: the empty hit list over 111 lines)
+
+================================================================================================
+§3 STRUCTURE — bold lead-ins, whole-line italics, tables, code lines, unmarked sub-headings, long lines, Statement/Remark/∎ conventions
+================================================================================================
+  bold lead-ins (7): [(10092, 'Proof, B_k.'), (10098, 'And C is not.'), (10111, 'Proof of join-closure.'), (10117, 'Meets fail on both inequalities.'), (10151, 'Every generator is the least cell with o'), (10155, 'Σᵢ (|Aᵢ| − 1)'), (10180, 'And the twenty implications split cleanl')]
+  whole-line italics: [] ; markdown table rows (a | at line start outside 4-space code lines): [] ; code lines (4-space): [10132, 10134, 10136, 10137, 10138, 10139, 10140, 10151, 10152, 10191, 10192] (A.19's rank table 7 lines, A.19.0's displayed definition 1 lines, A.19.1's two rows)
+  the whitespace-aligned table (A.19.0): header L[10157], DATA rows 17 (rows starting with a letter ≥ v)
+  unmarked sub-heading candidates (short line after a blank, not a heading, not code, not sentence-terminated): [] []
+  lines over 400 chars: [] ; "Statement." lines: [10089, 10108] (2: A.15, A.18 — A.19/A.19.0/A.19.1 are expository, no Statement); "Remark." lines: [10103, 10121] ; ∎ lines: [10096, 10115] (2 proofs, 2 ∎; A.15's "And C is not" is a counted refutation, no ∎)
+  "Proof, B_k." / "Proof of join-closure." lead-ins: [10092, 10111] ; numbering gap A.16/A.17 between A.15 and A.18 is by design (table rows, r2-ch18a §1)
+
+================================================================================================
+§4 NEGATIVES AND UNIVERSALS, EACH WITH A WITNESS (docket 19)
+================================================================================================
+  candidate lines: [10088, 10098, 10104, 10109, 10118, 10119, 10122, 10127, 10128, 10143, 10144, 10145, 10151, 10152, 10155, 10176, 10187, 10194, 10196]
+  "only one of them is a sublattice" / "C … is not a sublattice": witness r2-ch19a §1 — 44 bands B_k with 0 failures; C 12,654 / 113,568 / 565,284 failing meets, 0 joins
+  "which does not use the upper bound": witness r2-ch19a §1 — the Lower inequality holds on every pair of C at cap 8 with no upper bound present
+  "the phrase describes nothing" (a join-closed sublattice): a sublattice is closed under both operations by definition — a set closed under join only is not one; witness: C itself (r2-ch19a §1)
+  "is not closed under coordinatewise min" (A.18): witness r2-ch19a §2 — the two printed meets and 2,862 / 12,489 / 40,887 / 110,229
+  "not explained by this proof" (A.18): the proof bounds the join only; the split of failing meets by bound (upper 954 / lower 1,908 at cap 6; 4,163 / 8,326 at cap 8) is not in U4 — U4 L8288–L8291 print totals; the appendix's statement is exact
+  "It never prints the seventeen" (A.19): witness r2-ch19a §3 — 0 eight-tuples in §8.3, 0 lines with ≥ 3 eight-tuples anywhere in main before the appendices
+  "Λ is recoverable from this table and nothing else": witness r2-ch19a §3 — the joins of the 976 down-sets equal Λ₈ — with the one unprinted datum, the bottom cell (the empty down-set's join), which A.19.1 prints; "nothing else" is exact given the bottom, READ as the empty join
+  "Nothing needs to be counted" (A.19.0): witness r2-ch19a §4 — Σ(|Aᵢ| − 1) = 17 from the supports; every (c, v) has a unique least cell and the least cells are exactly the join-irreducibles
+  "unique and unnamed until now" (A.19.1): unique — r2-ch19a §5, one greatest and one least cell; "unnamed until now" — main sites of the top tuple before the unit: [] ; of the bottom tuple: [] (a line list is the witness; an empty list means unnamed as a tuple before A.19)
+  "Every one has q = k, g = q and 2S = q" / "each at (1,0) or (2,1)": r2-ch19a §5, 8 of 8
+
+================================================================================================
+§5 DOCKET 27 — RECURRENCE: every sentence of the unit ≥ 60 chars searched across the six volumes on the whitespace-normalised join (headings, code and table lines excluded)
+================================================================================================
+  sentences tested: 31 ; recurrences outside the unit: 0
+  → docket 27 verdict: CLEAN — no sentence of the unit recurs outside it; the four-cap figures  recur as FIGURES at §12.11.2 L3387, §29.12 L8290 and MC L1254/L1260 (r2-ch19a §2), not as sentences
+
+================================================================================================
+§6 DOCKET 36 — NAMES IN THE UNIT AGAINST THE REFERENCES BODY (L11503–L11805) AND R.7 (L11806 on)
+================================================================================================
+  Birkhoff  unit lines [10126] · References body 1 · R.7 1 · Register lines 8
+  Dilworth  unit lines [] · References body 2 · R.7 0 · Register lines 2
+  Wigner    unit lines [] · References body 0 · R.7 0 · Register lines 1
+  Sperner   unit lines [] · References body 1 · R.7 0 · Register lines 3
+  verdict: Birkhoff is the unit's only named author and has a References-body line; docket 36 gains nothing from this unit
+
+================================================================================================
+§7 WRAPPED PHRASES READ ON THE MARKUP-STRIPPED JOIN
+================================================================================================
+  only one of them is a sublattice                                       join: 1 ; raw lines (markup stripped): [10088]
+  a bound by a constant is monotone in both directions, a bound by a fre join: 1 ; raw lines (markup stripped): []
+  which §14.4 admits in both directions                                  join: 1 ; raw lines (markup stripped): []
+  Certainty survives upward and dies downward                            join: 1 ; raw lines (markup stripped): [10121]
+  It never prints the seventeen                                          join: 1 ; raw lines (markup stripped): [10128]
+  Λ is recoverable from this table and nothing else                      join: 1 ; raw lines (markup stripped): [10144]
+  Every generator is the least cell with one coordinate at one value     join: 1 ; raw lines (markup stripped): [10151]
+  one for each way χ's seven constraints bind at a value                 join: 1 ; raw lines (markup stripped): []
+  The constraint system of §7.1 and the implications between bits are th join: 1 ; raw lines (markup stripped): []
+  unique and unnamed until now                                           join: 1 ; raw lines (markup stripped): [10196]
+  Nothing needs to be counted                                            join: 1 ; raw lines (markup stripped): [10155]
+
+================================================================================================
+§8 THE TWO POINTER FINDINGS — WHERE THE CLAIM LIVES (docket 9(b): a citation whose target says nothing of the claim)
+================================================================================================
+  A.15 "monotone single-coordinate bounds … which §14.4 admits in both directions" — §14.4 is two lines (r2-ch19a §7). Every main line with admissib- before the appendices (line, section, text):
+    L574 §2.2: ### 2.2 Admissibility
+    L618 §2.9: No third state. A quantity is admissible or it is refused; it is never silently defaulted.
+    L926 §2.18.1: is the closure rule correct? the object (Λ closes) · the law (the admissibility criterion) ·
+    L1475 §5: §2.2 admissibility bracketing unresolved levels —
+    L1654 §6.2: refused, **67% admissible**.
+    L2443 §12.8.2: ⟨q⟩ = 1.4631, sd 0.930 — the mean number of electrons moved across all admissible
+    L2687 §12.11.0.3: **So what does a second bridge cost?** Twenty admissible couplings between the two ends were imposed on
+    L2888 §12.11.0.8: admissible future is the full interval between its own extremes, nothing inside missing. E(X) = 0 read
+    L3084 §12.11.1: divide by the values the admissible bound allows. Three of the six exact sets are not the obvious
+    L3090 §12.11.1: 64.4 — at the caps of §7.4 and cap-dependent as always. Every bound is §14.4-admissible; every stage is closed — exhaustively to
+    L3100 §12.11.1: 2S′ ∈ {0, 2}; p³ gives {⁴S, ²D, ²P}, 2S′ ∈ {1, 3}. And Λ₉ is not the tightest admissible object:
+    L3101 §12.11.1: 2S′ ≤ 2f+1 is §14.4-admissible and provably containing — min(g, 4f+2−g) ≤ 2f+1 by averaging — and
+    L3159 §12.11.1: on its fibre. §12.11.4 gives the reason. And carrying both with all admissible bounds closes the
+    L3388 §12.11.2: non-monotone φ. Each admissible extension is the monotone envelope of its physics.
+    L3625 §12.11.8: the mutual bound |2J − 2K| ≤ 1, which is admissible on both sides and closed, losing only the
+    L3674 §13.4: admissible, what is conserved — all structural. Which transition actually occurs is not.
+    L4207 §14.6.4: two the bracket's admissibility threshold and its optimum, needing the collection
+    L4388 §16.3.1: physically admissible assignments; everything else the coordinates offer is a tripwire cell.
+    L4390 §16.3.1: subshell k admissible 2S′ rejected / offered
+    L4403 §16.3.1: same holds one level up: given (subshell, k, 2S′) the admissible seniorities are fixed — d⁴ with
+    L4404 §16.3.1: 2S′ = 2 admits v ∈ {2, 4} and nothing else — and given (subshell, k, 2S) the admissible core J are
+    L4869 §17.3: **The essential feature is that it is *q*-dependent.** Admissibility belongs to the *pair* (*h*, *q*), not to *h* alone — which is why *a* + *b* ≤ 3 c
+    L4887 §17.4: The canonicalisation e₁ ≤ e₂ is admissible: φ is the identity, non-decreasing in a single coordinate. Zero
+    L4909 §17.4: The map (g₁, g₂) ↦ (g₁, g₁+g₂) is a bijection onto an admissible lattice and order-preserving in one
+    L4955 §18.1.1: inadmissible (1,1,1).
+    L4975 §18.2: ### 18.2 ν is inadmissible as an axis
+    L5096 §18.4.1: curl; the rectangular cavity's admissible core closes by μ = ν − 1, whose kernel is trivial, and its
+    L5102 §18.4.1: retained.** As first stated: *an occupancy coordinate is admissible if and only if its cap is a
+    L5126 §18.4.1: **The criterion, corrected: an occupancy coordinate is admissible if and only if its cap is a
+    L5143 §18.4.1: **A bound gives the exact admissible set only if it is a morphism for the operation preserved
+    L5181 §18.4.1: fitting. **The transferable piece is the admissibility filter** — a bracket on a parameter is valid
+    L5958 §22.1.1: ### 22.1.1 A bracket whose admissible set is a singleton
+    L5961 §22.1.1: admissible set comes out with one element. That is a use this book had not stated.
+    L5979 §22.1.1: many admissible cells the interval contains.**
+    L6054 §22.2: only two do — subject to the admissibility clause below. Rule 4a — Admissibility of the
+    L6058 §22.2: two-point Ritz solve is the admissible form.
+    L6124 §22.2.5: **With two neighbours the Ritz form is exactly determined** — two equations, two unknowns, no residual and therefore no fitted σ — but it is *admissib
+    L6172 §22.5: ### 22.5 Admissibility
+    L6173 §22.5: A channel is admissible when its levels are separated by more than their uncertainty:
+    L6275 §23.4.2: **The *h* = 2 pairs bracket from neighbours two principal quantum numbers away and obey the same law.** And the outliers identify themselves: Al I at 
+    L6505 §23.10.4: ### 23.10.4 And the admissibility rule generalises
+    L6508 §23.10.4: order k is admissible only while \|Δ^(k+1)T\| > 5·2^(k+1)·σ
+    L6551 §23.11.2: failing on the logistic map at r = 2.5, a fixed point, which it called an oscillation. The admissibility rule
+    L6571 §23.12: Better data raises k\. It never creates an interior peak. The optimum is the admissibility cap,
+    L6582 §23.13: Figure 23.4. Left: the fate of every cell in the collection at each order, once the admissibility rule \|Δ^(k+1)T\| >
+    L6589 §23.14: Every constraint in Λ is a CAPACITY: ℓ ≤ n−1, k ≤ 2(2ℓ+1), g ≤ q. Every admissibility rule is a
+    L7582 §28.7.3: **90–92. Three more, from the closing pass.** An admissibility test that compared the bracket *width* to the noise floor when the rule is about the *d
+    L7613 §28.7.3: **118. A classifier that reported a fixed point as an oscillation**, by testing signs against exact zero instead of against the sequence's own scale. 
+    L8180 §29.11.1: and no model atmosphere. A line list carrying a term designation outside its subshell's admissible
+    L8272 §29.12: *Definition.* In an index whose admissible constraints are monotone bounds of one coordinate by one
+    L9529 §34.1: **Both Pauli quantities appear.** The capacity 2(2ℓ+1) governs admissibility AND
+  main lines pairing monotone with admissible/direction/single:
+    L412 §1: §7.1 chose monotone two-variable bounds. That single decision determined that E(X) is
+    L1770 §7.2: Each constraint reads xᵢ ≤ φ(xⱼ) — one coordinate bounded by a monotone function of one other. None is
+    L2651 §12.11.0.2: with 2S′ ≤ G since a target's multiplicity answers to what is present. All single-parent monotone
+    L2713 §12.11.0.3: **Closure survives all twenty**, as §14.4 guarantees for monotone single-coordinate bounds. **Sixteen
+    L3388 §12.11.2: non-monotone φ. Each admissible extension is the monotone envelope of its physics.
+    L5058 §18.4.1: a box ordering, l ≥ w ≥ h 0 the two bounds *are* monotone single-coordinate bounds
+    L5084 §18.4.1: its own *order* — the constraint tree of monotone single-variable bounds is ℛ — and the closure is
+    L5118 §18.4.1: **A single-argument monotone increasing cap is automatically both — and the reason is the chain.**
+    L7745 §28.8: **That is §16.4 form** — one coordinate bounded by a monotone function of one other. **36 cells, closed, E = 0.**
+    L7834 §28.9.1: constraints; what it returned is a single monotone envelope:
+    L8272 §29.12: *Definition.* In an index whose admissible constraints are monotone bounds of one coordinate by one
+    L8273 §29.12: other, a coordinate whose exact physical range is a monotone function of a single parent is carried
+    L8278 §29.12: coordinate with an exact single-parent monotone bound at some cap setting. Five presentations were
+  §14.4 in PP: heading lines [3695] ; PP body to the next heading: ['### 14.4 The three consequences', 'Closure yields three properties, developed in the next three chapters:'] — the colon-terminated lead-in with no list after it is PP's state too (record-carried), a docket 1 kind: the section announces three properties and prints none; the admissibility criterion the four citers mean lives at §7.2 L1765 (the constraint form) and §18.4.1 L5097/L5121 (the criterion, corrected)
+  the same pointer elsewhere: "admissibility condition (§14.4)" MC lines: [1254] ; "§14.4" in main outside the unit: [2713, 3090, 3101, 3372, 5591]
+  A.15 Remark "This corrects the ledger, which called C a join-closed sublattice … Register 230": Register 230 is Appendix D's kind coordinate (r2-ch19a §7). Register entries naming the band / B_k / C, bodies read:
+    298: **§6.2's NUCLIDE ROW CONFLATED A DRAWN BAND WITH A MEASUREMENT.** *The band's closure is a theorem, since ℛ is idempotent; the measured chart gives* **E = 9* **, and the nine cells are pairing and clustering — mechanisms the coord
+    402: **THE CLOSURE RULE WAS ONE-SIDED AND THE OPERATOR IS TWO-SIDED.** *φ̂ runs over ordered pairs, so a band closes at E = 0 where the stated rule refuses it. The correct characterisation was already at §2.15.2, six chapters away, obt
+    449: **THE CONVEXITY CRITERION AND THE TWO-SIDED CLOSURE RULE BOTH ASSUME A CLOSED AMBIENT** *, and neither said so. On the eighteen-column table — not a sublattice, E = 36 — the criterion misses and a band fails at E = 5 while a one-s
+    588: **DISJUNCTIVE HEADS ARE THE MISSING ALPHABET, AND THE NEC LAYER PROVES IT.** *Extending the edge form from A ≥ a → B ≥ b to A ≥ a → (B₁ ≥ b₁ ∨ … ∨ Bₖ ≥ bₖ), as T §8.2 prints, and searching 14,000 eight-rule sets over the real box:
+    707: **Ne II GIVES NINE CHANNELS AND THE ℓ-split IS A FACTOR OF TWELVE.** **Five ns series cluster at 0.86–0.99, four nd series at 0.055–0.081** *— every one inside its own band, in the same ion, from the same table.* *A defect is a pr
+    1163: **THE INDEX IS FINISHED, AND IT CARRIES A REGIME ASSIGNMENT FOR EVERY CELL.** *101,328 cells: **63,193 forced · 35,852 bounded · 1,043 walked · 929 exact · 311 measured**, of which **179 carry a fitted Ritz pair and therefore a ME
+    1164: **WHICH IS THE INDEX'S OWN STATEMENT OF WHERE IT DOES NOT KNOW ITS OWN PHYSICS.** *Every other cell can be assigned a regime with a stated confidence from ℓ alone. The 12,472 at ℓ = 2 cannot.* **That is 12.3% of the survey, and it
+    1199: **THE METHOD EQUATION PARTITIONS THE INDEX INTO THREE POPULATIONS, EACH WITH A JOB.** *At τ = 3.0: **INTERIOR 1,503** cells ℛ places and no step values — median ℓ = 2, charge 4, and these are CAPTURES. **BOTH 145** placed and valu
+    1494: **THE RESIDUAL IS NOT A CANCELLATION — IT IS A CORRELATION OF +0.905, AND THAT EXPLAINS THE EIGHT FAILURES BETTER.** *Register 1493 read the violation index's stuck +16 on NEC ≥ 2 and −9 on NEC ≥ 3 as a cancellation signature, by 
+    1543: **THEODOSIOU IDENTIFIED CORRECTLY AT LAST — MY PII WAS A TWO-DIGIT TRANSPOSITION — AND THREE OF ITS CLAIMS VERIFY AGAINST HELD DATA.** *The correct identification supplied: 'Quantum Defect Values for Positive Atomic Ions', Theodos
+    1591: **THE READING LIST: FORTY-FOUR SPECTRA ALREADY FITTED, 193 CHANNELS UNREAD, AND 555 CELLS OF CLOSURE WITH NO NEW EXPERIMENT.** *Acting on register 1590. If a measured ionisation energy means a Rydberg series was fitted, and the de
+    1621: **P2 CLOSED: DEMKOV-OSTROVSKY DERIVE MADELUNG AT E = 0, WHICH IS SEATON'S OWN LIMIT — AND THE CORRIDOR TEST REFUTES THE CONNECTION.** *Board row 11, closed by reading and then by computing. Demkov and Ostrovskii, Zh. Eksp. Teor. F
+    1652: **THE d120 FAILS ON GEOMETRY AND THE JANET GRADING IS ALREADY INSIDE THE INDEX — AS A FIBRATION, NOT A COORDINATE.** *M stopped the index write to have the 120-sided uniperiodic material looked at properly first. Built the solid r
+  "the ledger" in main (every site with section): [(9956, '36.3'), (10103, 'App A.15'), (10569, 'App D.5.1'), (11192, 'App E.5')]
+  "join-closed" every volume: {'main': [8294, 9944, 10090, 10103, 10107, 10742], 'reg': [6403], 'mc': [1254, 1260, 1494, 3278]}
+
+================================================================================================
+§9 PRE-PP POINTER RENUMBERING SEEN IN THE DIFF (record-carried; r2-ch19a §6): "§3" in PP → "§8" / "§8.3" in the volume at three lines; A.19.1's property sentence rewritten after PP
+================================================================================================
+  volume lines with §8 / §8.3 in the unit: [10121, 10126, 10143, 10188] ; §8.3 = "Seventeen generators" (L1847); §8 = "Shape" chapter heading: [(122, '## 8. What Λ is — distributive, modular, Sperner'), (1801, '## 8. What Λ is — distributive, modular, Sperner')]
+  A.19.1 L10159 "Every one has q = k, g = q and 2S = q, with (n, ℓ) and (e, f) each at (1,0) or (2,1)" — PP P[9811] read "q = k − something equal on both sides and g equal to q": the volume's sentence is the measured one (r2-ch19a §5, 8 of 8); post-PP correction, not a defect
+
+================================================================================================
+§10 CENSUS ROWS IN RANGE (DEFECT-CENSUS.tsv, member main, line in [L10088, L10198])
+================================================================================================
+  header: ['id', 'class', 'member', 'line', 'item', 'detail']
+  rows in range: 2
+    ['1202', 'C9-OVERGENERALISATION-WORD', 'main', '10094', 'never', 'cells of Λ. **It never prints the seventeen.** The alphabet was counted, its covering relations']
+    ['1203', 'C9-OVERGENERALISATION-WORD', 'main', '10153', 'never', '### A.19.1 And two other sets counted but never listed']

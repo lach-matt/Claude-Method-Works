@@ -1,0 +1,112 @@
+
+== §0 pre-PP diff: PP `# Appendix F` (LAST hit) to the next `# ` heading; headings with section numbers stripped BOTH sides; body lines shared / only-main / only-PP
+  PP P10761–P10991 (231 lines; next `# ` heading P10992 # END MATTER); Appendix G in PP: NONE — Appendix G is post-PP
+  main headings 9; PP heading-form lines 12 (marked or unmarked, leading space admitted):
+    PP  # Appendix F — The numbers, indexed
+    PP  F.1 The population
+    PP  F.2 The coordinates
+    PP  F.3 The index, built
+    PP  F.3.1 And the distribution is the finding
+    PP  F.3.2 The tripwire
+    PP  F.3.3 The closure, represented as it must be
+    PP  F.4 What closing it would establish, and what it costs
+    PP  F.4.1 Two ratios the book had never measured about itself
+    PP  F.4.2 The ideal withdrawal ratio is 1 : 1
+    PP  F.4.3 Time, which this book already has and does not read
+    PP  F.5 And it needs its own falsification
+  shared heading texts 1; only-main ['The closure, represented as it must be', 'The fibring of a quantity-kind over an ordered ground', 'The ideal withdrawal ratio', 'The index, built', 'The population', 'The readings', 'Time, which this work has and does not read', 'Two ratios the book had never measured about itself']; only-PP ['F.1 The population', 'F.2 The coordinates', 'F.3 The index, built', 'F.3.1 And the distribution is the finding', 'F.3.2 The tripwire', 'F.3.3 The closure, represented as it must be', 'F.4 What closing it would establish, and what it costs', 'F.4.1 Two ratios the book had never measured about itself', 'F.4.2 The ideal withdrawal ratio is 1 : 1', 'F.4.3 Time, which this book already has and does not read', 'F.5 And it needs its own falsification']
+  body lines: main 96, PP 188, shared 0, only-main 96, only-PP 188
+  shared body lines (printed): []
+  Register 1780 (post-PP): "**APPENDIX F REBUILT ON A DIFFERENT DOMAIN: THE KINDS OF QUANTITY AND THE GROUNDS THEY ARE CARRIED OVER, NOT THE NUMBERS"
+  the PP appendix is the withdrawn numbers-index; its only-PP lines are the rebuild's removals under 1780 (a recorded change, not silent); a duplicate-section test of the unit against the volume is at §6
+
+== §1 pointers OUT of the unit, resolved to the CLAIM
+  L11269 (register 1779): heading True; 1779 carries "electron count" 1, "7,260" 2 (the (iii) claim is r2-ch26a §2's; fault 1: a literal 0 stood here)
+  L11321 "Chapter 2's distinction … held by the law … stable structure": §2.21 body_range (1081, 1148) section_span (1081, 1148); "By the law" 2, "stable structure" 2, "F.3.1" 3 in range
+  Chapter 2 span L568–L1003 carries "stable structure" 0 (all in §2.21: True)
+  L11292–L11293 "Chapters 6, 12 and 24 state their central measurements to this standard explicitly and say so": every main site naming F.3 outside the unit, with its enclosing heading:
+    L1687 [L1686 ### 6.2.1 The nuclide chart's defect, recomputed under varia] §6.2 reports E = 9 on the measured chart at one cutoff. **The measurement is stated here to F.3's
+    L3184 [L3182 ### 12.11.1.1 The eleventh axis's density, computed under va] caps move. **This is that measurement, and it is stated to the standard F.3 defines and no number in
+    L3206 [L3182 ### 12.11.1.1 The eleventh axis's density, computed under va] and why the fourth column of F.3 exists.
+    L5989 [L5987 ### 22.1.1.1 Containment on level energies, recomputed under] to F.3's highest standard**: the method named with its input set, every input printed, and the test
+    L11071 [L11060 ### E.1.5 The fourteenth item, the column that was never pri] #P-complete (§29). A constraint refuted by its own extent is dead, which is F.3's rule, and it dies
+  chapters that cite F.3 by name: {'6': [1687], '12': [3184, 3206], '22': [5989], 'E': [11071]}; Chapter 24 cites F.3: False; Chapter 22 does: True
+  Chapter 24 span L6628–L6889: "F.3" 0, "four columns" 0, "highest standard" 0, "the standard" 0, "refutation" 0, "the test that would" 0
+  Chapter 22 span L5944–L6183: "F.3" 1 at [5989]
+  L11250 / L11345 F.1 ↔ F.4.3 mutual: F.1 names F.4.3 True; F.4.3 names F.1 True; F.4.3 names F.2 (iii) True
+  L11313 "The rule, stated as the chapters cite it: Assert the law, compute the extent" — sites of the phrase in the volume: [(11030, 'L11011 ### E.1.3 What this'), (11362, 'L11348 ### F.3.1 The closu')]
+  §12.11.3.1 (24b-06 C item, re-probed on its OWN words): body_range (3414, 3462) section_span (3414, 3462); "law" 20, "extent" 6, "assert" 0, "compute" 1; the rule in its words:
+    L3449 **A bound taken from the law closes exactly. A bound taken from the extent closes only to an
+    L3457 operator throughout. So **E(X) = |ℛ(X)| − |X| is the price of describing a set by its extent rather
+  L11334 "under the ruling that separates the record of the work from the work": Register entries naming Ruling 45 or "the record of the work": []
+
+== §2 citers INTO the unit, tested against the unit's content (a label that resolves is not a claim that resolves)
+  F.3.1 = L11348–L11375; F.4.1 = L11377–L11385; F.4.2 = L11385–L11390; F.4.3 = L11390–L11408; F.3 own body L11325–L11348
+  F.3.1 citer L1082 [L1081 ### 2.21 A figure ]: §F.3.1 and §E.1.3 remove two counts because a figure computed from the book cannot be printed as
+  F.3.1 citer L1093 [L1081 ### 2.21 A figure ]: **By the law.** Best where one exists. §F.3.1 replaces a count with the constraint that generates it —
+  F.3.1 citer L1097 [L1081 ### 2.21 A figure ]: **By the stable structure.** Where no law is available but the shape holds still. §F.3.1 names the
+  F.3.1 citer L11002 [L10987 ### E.1.2 The ope]: M     Appendix F — nine stable cells, named at F.3.1                      CLOSED       —             —   computational
+  F.3.1 citer L11012 [L11011 ### E.1.3 What th]: F.3.1 establishes that a count computed from the book cannot be printed as prose, because writing the
+  F.3.1 citer L11030 [L11011 ### E.1.3 What th]: §12.11.3.1's rule applied here as F.3.1 applies it there — **assert the law, compute the extent.**
+  F.3.1 carries: {'\\bnine\\b': 0, '\\bcells?\\b': 1, 'stable': 4, '\\bprose\\b': 0, 'cannot be (stated|printed)': 1, 'unstable by construction': 1, 'names the cells': 1, '\\bcount\\b': 4}
+    → "nine stable cells, named at F.3.1" (E.1.2 L10955; E.3 L11119): the unit names NO cell and prints no "nine"; "the cells where that structure holds" are named nowhere in Appendix F (witness: "cells" in the whole unit 3, all at L[11289, 11367, 11402])
+    → "a count computed from the book cannot be printed as prose" (E.1.3 L10965; §2.21 L1082): F.3.1 L11303 "cannot be stated as a figure", L11310 "unstable by construction" — the claim resolves in other words
+  F.4.1 citer L8966 [L8938 ### 32.1.3 The fra]: §F.4.1's withdrawal ratio measures and does not excuse. Registers 320 and 321.
+  F.4.1 citer L9028 [L9002 ### 32.1.4.1 Which]: the ratios of F.4.1, the counts of Appendices D, E and F, the fifty-five of §32.1.4 — is true of a
+  F.4.1 carries: {'withdrawal ratio': 0, 'method ratio': 0, '\\bratio': 2, 'withdrawn as content': 1, 'Register': 1}
+    → §32.1.3 L8961 "§F.4.1's withdrawal ratio measures and does not excuse. Registers 320 and 321" and §32.1.4.1 L9023 "the ratios of F.4.1" cite F.4.1 for content F.4.1 declares withdrawn (L11332); the ratios live at Register 296 / 320 / 321 / 1762: 296 "**TWO MEASUREMENTS OF THE BOOK'S OWN SHAPE NAMED AT F.4.1 — THE WITHDRAWAL RATIO AND THE M"
+  F.4.2 citers in main outside the unit: 0; Register 1762 names F.4.2's withdrawal ratio 4.21 : 1 — the value is not in the unit (r2-ch26a §3)
+  F.4.3 citer L1664 [L1599 ### 6.2 It is not ]: above is a thing indexed. Time is not — §F.4.3 records that a date must never enter Λ, since a
+  F.4.3 citer L8941 [L8938 ### 32.1.3 The fra]: has a signature in the register, read against the clock §F.4.3 identifies.
+  F.4.3 carries: {'\\bdate\\b': 4, 'Λ': 1, '\\bclock\\b': 1, 'keyed by a date': 0, 'Register': 1}
+    → §6.2 L1659 "a date must never enter Λ" ⇐ L11345 "A date is admitted nowhere in Λ" / L11355; §32.1.3 L8936 "the clock §F.4.3 identifies" ⇐ L11357 "ordered by exactly that clock": both resolve
+  D.5.3 L10616 "Clause (iii) is the boundary between this appendix and Appendix F": F.2 (iii) L11263 "a function of the ground alone"; D.5.3 "(iii)" 2
+  E.1.5 L11024 "A constraint refuted by its own extent is dead, which is F.3's rule": F.3 own body carries the sentence True (L[11342])
+  §32.1.4 L8974 row "Appendix F, the numbers … 3  33  thirty-three": the rebuilt appendix prints 3 body numerals (r2-ch26a §3: 6, 12, 24 — chapter numbers); the row counts the withdrawn appendix; §32.1.4.1 L9023 "the counts of Appendices D, E and F" likewise
+  §32.1.4 row's context (L8972–L8976):
+    L8977   Appendix E (Q), fibred by domain           4   0     —
+    L8978   Appendix E (Q), unfibred                   4   1     one
+    L8979   Appendix F, the numbers                    3  33     thirty-three
+    L8980   the audit set, at four coordinates         4  17     seventeen
+    L8981                                                        **a build readout; instrument not held (register 1813)*
+
+== §3 first-person, Ruling 45 and Ruling 46 probes on the unit
+  first-person (mine, myself carried; species numerals excluded; "(i)" clause markers are lowercase and not matched): none
+  Ruling 45 candidates (build / editorial-process prose in a reader-facing volume): 9
+    L11272 produces them over. It does not index the numbers this book prints about itself. That was 
+    L11273 domain the appendix first took, and it was the wrong one: an account of a volume's own pri
+    L11274 figures belongs to the making of the volume and not to what the volume is about. The const
+    L11338 The fourth column is the one this work added and the one it defends. A claim that names no
+    L11379 **Retained as a reference, withdrawn as content.** Two ratios of the book's own shape stoo
+    L11380 They were measurements of the volume rather than of its subject, and under the ruling that
+    L11381 the record of the work from the work they do not return to this appendix. The entries that
+    L11387 **Retained as a reference, withdrawn as content**, on the same ground as F.4.1 and by the 
+    L11388 ruling. Its census and its ruled row are in the Register.
+  Ruling 46 candidates (script names, build numbers, file names): none
+  "coordinate file" / "coordinate table" (L11268, L11270) name the data companion as an object, not a file name: [11315, 11317, 11395]
+
+== §4 count words and quantifier words in the unit, each with its witness
+  Six kinds L11238: 1 × (raw) / 1 × (join) — r2-ch26a §1: 6 DATA rows
+  seventh candidate L11250/L11345: 2 × (raw) / 2 × (join) — r2-ch26a §1: 6 + 1
+  four columns L11280: 1 × (raw) / 1 × (join) — r2-ch26a §1: 4 DATA rows
+  fewer than four L11281: 1 × (raw) / 1 × (join) — the same table
+  The fourth column L11291: 2 × (raw) / 2 × (join) — row 4 = the refutation
+  Two ratios L11330/L11332: 2 × (raw) / 2 × (join) — Register 296: the withdrawal ratio and the method ratio
+  one case L11233 / One class L11303: 2 × (raw) / 2 × (join) — F.3.1 is the single sub-section of F.3
+  third clause L11358: 1 × (raw) / 1 × (join) — F.2 (iii)
+  several of the corrections L11299: 1 × (raw) / 1 × (join) — r2-ch26a §5: Register entries matching the rule's words = 0 (token probe; a reading is owed)
+  without exception L11298: 1 × (raw) / 1 × (join) — census 1228; the rule's own scope statement
+  Chapters 6, 12 and 24 L11293: 0 × (raw) / 1 × (join) — §1 above: F.3 cited from Chapters 2, 6, 12, 22, E; not 24
+  Register 296's two ratios: "withdrawal ratio" 1, "method ratio" 1 in its body
+
+== §5 census rows in range (DEFECT-CENSUS.tsv, member main, L11222–L11360)
+  717 C7-WITHDRAWAL-LINE-NUMBER-SURVIVES L11394 "6.5" — other sites: reg=1 mc=1 ioi=1 sc=2 | | 6.5 | The corrected alphabet — what becom
+  1228 C9-OVERGENERALISATION-WORD L11298 "without exception" — test that could reach it — not weakened, not pending, dead. The work applies thi
+  1229 C9-OVERGENERALISATION-WORD L11318 "never" — whenever it is wanted and is never printed as a property of the object. Where no
+  1230 C9-OVERGENERALISATION-WORD L11330 "never" — ### F.4.1 Two ratios the book had never measured about itself
+  1231 C9-OVERGENERALISATION-WORD L11370 "never" — entry bodies are never edited, and what a past entry recorded is part of the rec
+  verdicts: 1226 / 1227 / 1229 (never) and 1228 (without exception) state the definition F.1–F.3 lays down — the section's own claim, precedent 678 / 1217 → not a defect; 1230 is a heading word (F.4.1's title) → not a defect; the "several" of L11299 is scored at §4, not here
+
+== §6 docket 27 — duplicated-section test: each unit paragraph's first 70 characters against the rest of the volume (markup stripped)
+  paragraphs 24 (a paragraph start is a non-blank line after a blank or after the heading); duplicated openings: none — 0 of 24
+  PP-only lines of the withdrawn appendix are NOT tested for duplication (they are removals under 1780, not text in the volume)

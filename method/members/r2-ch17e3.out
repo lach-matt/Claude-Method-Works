@@ -1,0 +1,35 @@
+
+================================================================================================
+§0 BOUNDARY — own heading scan, body occurrences; the chapter bounded by body_range and `# APPENDICES`
+================================================================================================
+  `## 36.` occurrences (contents, body): [159, 9926] ; `# APPENDICES` occurrences: [161, 9971] ; body = last hit
+  §36.1 body_range 9930–9933
+  §36.2 body_range 9934–9937
+  §36.3 body_range 9938–9957
+  §36.4 body_range 9958–9961
+  §36.5 body_range 9962–9965
+  §36.6 body_range 9966–9970
+  unit: 9926 to 9970 = 45 lines
+  section_span(M, "36") = (9926, 11905) (runs into the appendices — NOT used; witness for the handoff note)
+  sub-section ranges tile the unit after the opening italic (L9927–L9929): True
+  POST-PP: PP carries no `## 36.` body — chat 129 measured 0 occurrences (r2-ch17c §0); stated once here, the unit is not diffed.
+
+================================================================================================
+§1 §36.2 FIGURES AGAINST REGISTER 1716/1717/1718/1719 AND THE INTAKE GOLDEN (r2-tb1, this chat)
+================================================================================================
+  L9936 begins: Thirteen mass order-types, six checks each, 78 of 78 (regist
+  "Thirteen mass order-types, six checks each, 78 of 78": 13 × 6 = 78 ; r2-tb1 §3b labels 13, distinct orderings 12 (intake1-01: the count is of labels)
+  "344 cells, 0 join failures, 8,385 meet failures" vs r2-tb1 own cap 8: False
+  caps 3–12 meet failures printed: [12, 111, 477, 1488, 3780, 8385, 16812, 31227, 54555, 90705] ; count 10 = 10 caps: True ; equal to own: True
+  "join failures at 0 throughout" vs own: True ; "Two-body chain: 0 of either kind at every cap" vs own chain: True (the delivered operator counts meet-or-join failures in one number — "either kind" is that convention)
+  1716 body carries the same cap-8 triple and "caps 3–12 as in `3B.tri`" (the per-cap list is NOT in the Register — only main L9936 and the delivery print it): False False reg sites of "90,705": [] main sites: [9936]
+  "Eight attribution questions, eight closed" — 1721 says "seven closed to named owners"; L9956 (§E.5 paragraph) says "Seven belonged to others; the eighth … turned out to be classical" (1720 Lagrange 1770): False True — convention: eight closed = seven to others + one to prior art; both counts reproduce under their own convention (wording pair, docket 34)
+  "One inherited polynomial wrong, replaced" vs 1719 "withdrawn" / "Replaced by N₈": False False
+  `tb_audit.py` (1756): register 1756 present: True ; Register lines containing tb_audit: [] ; the 78/78 lives at 1717: False — DEVIATION: a citation with no entry (docket 9c); also a script name in a reader-facing line (Ruling 46, docket 6)
+
+================================================================================================
+§2 REGISTER EXISTENCE 1713–1724 (L9928 "register entries 1713–1724 carry the record") and every entry the unit cites
+================================================================================================
+  1713–1724 present: 12 / 12; absent: []
+  entry numbers named in the unit: [784, 1713, 1717, 1718, 1722, 1723, 1724, 1756] ; present: {784: True, 1713: True, 1717: True, 1718: True, 1722: True, 1723: True, 1724: True, 1756: False}
+  "Registers" cites (counted, G0i) in the unit: 2 ; "register N" lowercase names: 2

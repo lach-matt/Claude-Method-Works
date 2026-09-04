@@ -1,0 +1,549 @@
+
+================================================================================================
+1.  Every pointer the unit makes, resolved under BOTH resolvers
+================================================================================================
+  15 pointer sites in the unit:
+   L 9163 §32.1       body_range (8806, 8813)  section_span (8806, 9035) DIFFER
+   L 9170 AppB         (chapter/appendix pointer, resolved in section 2)
+   L 9175 §25.6       body_range (6996, 7008)  section_span (6996, 7122) DIFFER
+   L 9198 §16.5       body_range (4454, 4476)  section_span (4454, 4487) DIFFER
+   L 9204 §25.6       body_range (6996, 7008)  section_span (6996, 7122) DIFFER
+   L 9206 §16.3       body_range (4364, 4384)  section_span (4364, 4412) DIFFER
+   L 9208 Ch6          (chapter/appendix pointer, resolved in section 2)
+   L 9227 Ch31         (chapter/appendix pointer, resolved in section 2)
+   L 9228 Ch30         (chapter/appendix pointer, resolved in section 2)
+   L 9266 Ch30         (chapter/appendix pointer, resolved in section 2)
+   L 9287 §14.5.6     body_range (3811, 3813)  section_span (3811, 3813) COINCIDE
+   L 9291 §6.3        body_range (1710, 1723)  section_span (1710, 1723) COINCIDE
+   L 9300 AppE         (chapter/appendix pointer, resolved in section 2)
+   L 9308 §E.1.4      LETTERED resolver -> (11033, 11060)
+   L 9309 §29.2.2     body_range (7927, 7945)  section_span (7927, 7945) COINCIDE
+
+================================================================================================
+2.  L9158 -- the range "§32.1--24.4"
+================================================================================================
+    §32.1–24.4 ask whether this book obeys its own law. They never ask whether it obeys its own
+  every 32.x heading in the chapter body:
+     ### 32.1 The book is an index
+     ### 32.1.1 What a referee would flag
+     ### 32.1.2 Four of the seven, answered by computation
+     ### 32.1.3 The frame has changed, and the change is measurable
+     ### 32.1.4 What this book names before anyone tells it
+     ### 32.1.4.1 Which of this book's numbers hold still
+     ### 32.2 Self-reference
+     ### 32.3 Self-defence
+     ### 32.4 The recursion, and where it stops
+     ### 32.4.1 Why the recursion is safe — logic without negation
+     ### 32.4.2 Which of this book's figures survive their own inputs moving
+     ### 32.5 The book satisfies its own method
+     ### 32.5.1 The prediction, recomputed from the text
+     ### 32.5.2 And it generalises to every bracket in the book
+     ### 32.5.3 Which is what D3 asks for, made operational
+     ### 32.6 The falsification tests, run
+     ### 32.6.1 What is left, asked of the indices rather than of the author
+     ### 32.7 On a verification that does not test its claim
+  §24.4 resolves to: (6693, 6704) -- a section of CHAPTER 24, before chapter 32.
+  §32.4.4 resolves to: None  §32.4.2 resolves to: (9125, 9162)
+  -> the range runs from a section of chapter 32 to a section of chapter 24, i.e. backwards;
+     the chapter has no §32.4.4 and its self-audit run ends at §32.4.2.
+
+================================================================================================
+3.  The cited criteria, PRINTED IN FULL at their targets (a token probe is not a reading)
+================================================================================================
+
+  §16.5: body_range (4454, 4476)  section_span (4454, 4487)  DIFFER   [L9193 cites it for totality: "every claim supported, cited, or marked open"]
+  --- §16.5 body L4454-L4475 ---
+   4454 ### 16.5 D3 — totality catches a missing value
+   4455     Theorem. If Λ is closed, χ_Λ : ∏Aᵢ → {0,1} is total: membership is decided for every ambient point
+   4456     by a finite conjunction of decidable comparisons. Proof. Each bound compares two elements of a
+   4457     chain. Λ is a finite intersection of such conditions. ∎
+   4458 
+   4459  **Verified on every ambient point — all 6,912 of them, χ ∈ {0,1} everywhere, nothing undecided, and
+   4460  χ agreeing with membership on every cell.** An earlier pass drew 30,000 uniform samples from a box of
+   4461  6,912, which is more draws than cells and still not a proof of totality; the exhaustive test costs
+   4462  less than the sampling did. Register 248.
+   4463 
+   4464  **Worked case.** A species was misidentified — Na II read as neutral neon, and the wrong ionisation limit applied. Every channel had *T* = *I* − *E* ≤ 0 and **every one was refused at entry.**
+   4465 
+   4466     Totality does not detect that error. It forbids it. The computation never ran.
+   4467 
+   4468  **Worked case, the other way.** A guard in the author's code returned `None` when an alphabet exceeded a cap, and the caller coerced `None` to `False`. That produced "3 reorderable of 85 trials," which produced "almost never reorderable," which produced a false dismissal of an entire line of evidence.
+   4469 
+   4470     One silent discard propagated through three conclusions, none of which looked wrong,
+   4471     because the arithmetic was consistent throughout.
+   4472 
+   4473  ⅅ ≥ 1 cannot catch that. Every relation checks out on data that was never measured. Only totality
+   4474  closes the hole, because undetermined is not in the codomain.
+   4475 
+
+  §16.3: body_range (4364, 4384)  section_span (4364, 4412)  DIFFER   [L9201 cites it for D_phys]
+  --- §16.3 body L4364-L4383 ---
+   4364 ### 16.3 D1 — D_phys catches a wrong value in the data
+   4365  Worked case. Two species in this work, Al II and K II, were first computed with Z_eff = 1. Both have
+   4366  doubly charged cores.
+   4367 
+   4368     The bracket held 56 of 56 either way. Containment depends only on monotonicity of T, and Z
+   4369     cancels from it entirely.
+   4370 
+   4371  What failed were the quantities the method does not use. δ̄ came out near 4.9 with a spread of several units — impossible for a Rydberg series, where δ is near-constant. *V* departed from 4ν/3 by a **median of 50%**, where Na I gives 0.2%.
+   4372 
+   4373  Corrected to *Z*_eff = 2: δ̄ = 1.271 with spread 0.047 over ten members, and *V* to **0.86%** across the fifty cells.
+   4374 
+   4375     The bracket verifies the data. V verifies the indexing. An index carrying only what its method
+   4376     consumes would have passed fifty-six wrong cells.
+   4377 
+   4378 ![Figure 16.1](figures/figure-16.1.png)
+   4379 
+   4380  Figure 16.1. The bracket holds fifty-six of fifty-six under either charge, because Z cancels from containment. The defect
+   4381  does not: at Z = 1 it spreads over several units, which no Rydberg series can do. The method was blind; a quantity the
+   4382  method never uses was not.
+   4383 
+
+  §6.3: body_range (1710, 1723)  section_span (1710, 1723)  COINCIDE   [L9285 cites it for the calendar, "E = 7 is the price of keeping January first"]
+  --- §6.3 body L1710-L1722 ---
+   1710 ### 6.3 The calendar can be repaired, and the repair is instructive
+   1711  The calendar fails for one reason: days(m) is not monotone in m, because February has 28. Relabel the
+   1712  months in order of length — February, April, June, September, November, January, March, … — and E
+   1713  drops to 0. The 365 cells are identical; only the labels move.
+   1714 
+   1715  **And the repaired calendar is useless.** A calendar whose months run in order of length is self-defining and unusable.
+   1716 
+   1717  So the trade is explicit, and it has a number:
+   1718 
+   1719       E(X) = 7 is the price of keeping January first.
+   1720 
+   1721  Non-closure is not always a fault. It is sometimes a purchase — usability bought with definitional self-sufficiency. What this book supplies is the price tag, not the verdict.
+   1722 
+
+================================================================================================
+4.  L9281 -- "the same pair §14.5.6 finds R_4 refusing"
+================================================================================================
+  §14.5.6 body_range (3811, 3813)  section_span (3811, 3813)  COINCIDE
+  --- §14.5.6 whole L3811-L3812 ---
+   3811 ### 14.5.6 What the second operator localises, and what it leaves undetermined
+   3812 
+  non-blank BODY lines in §14.5.6: 0 []
+  "dishonest" sites in main: 6  in §14.5 span: []   in unit: [9287]
+  "outside" sites in main: 60  in §14.5 span: [3796]   in unit: [9287, 9308]
+  R_4 (script-R subscript 4) sites in main: 7 [3809, 4162, 5785, 5789, 5848, 5851, 9288]
+  PP check -- does §14.5.6 carry a body in the ORIGINAL?
+   PP §14.5.6 heading at: [3772]
+  --- PP §14.5.6 L3772-L3775 ---
+   3772 ### 14.5.6 What the second operator localises, and what it leaves undetermined
+   3773 
+   3774 ### 14.5.7 The seed is constructible, and it is a size rather than a set
+   3775 
+
+================================================================================================
+5.  L9302-L9305 -- §E.1.4 and §29.2.2
+================================================================================================
+
+  §E.1.4 at L11033, body to L11059
+  --- §E.1.4 L11033-L11059 ---
+   11033 ### E.1.4 This is an index of tractable ignorance, and it cannot say otherwise
+   11034  Every item here is closable. The obstacle coordinate takes three values — **nonexistent** (the datum
+   11035  can be made to exist), **buildable** (it can be constructed), **retrievable** (it can be fetched) —
+   11036  and all three name a route. Eleven items: one nonexistent, two buildable, eight retrievable.
+   11037 
+   11038     **No value of this coordinate means *there is no route*.** An unclosable question is not
+   11039     missing from this appendix. It is **inexpressible** in the coordinates the appendix uses.
+   11040 
+   11041  **That is not an oversight, and §32.1.4 says why it cannot be repaired from inside.** ℛ(X) ⊆ ∏ᵢ Aᵢ(X):
+   11042  the operator is bounded by the index's own value sets, so it can name a cell the index lacks and never
+   11043  a *value*. Nothing in this appendix could ever produce the fourth obstacle, however long it ran.
+   11044 
+   11045  **Offer it from outside and the shape of what is missing appears.** Adding *no route* as a fourth
+   11046  obstacle value grows the ambient box from 18 cells to 24 and takes E from 4 to **10** — six further
+   11047  combinations the structure admits and this appendix does not contain, every one of them an unclosable
+   11048  question at some cost and some consequence.
+   11049 
+   11050  **So the book has two kinds of ignorance and indexes only one.** The tractable kind is here, graded and
+   11051  costed. The other kind is elsewhere and unindexed: §29.2.2's reading that the branches leave the
+   11052  object, and the destination coordinate that the temporal mechanisms would need. **Those are not open
+   11053  items. They are the shape of the question this index cannot pose**, and each had to be named in prose
+   11054  because no coordinate here would hold it.
+   11055 
+   11056  That is register 332 arriving where it is least comfortable — an index names cells and never
+   11057  coordinates, so **an index of one's own ignorance is an index of the ignorance one already has words
+   11058  for.** Register 382.
+   11059 
+
+  §29.2.2 at L7927, body to L7944
+  --- §29.2.2 L7927-L7944 ---
+   7927 ### 29.2.2 A reading the language cannot close
+   7928  The promotion arithmetic of §12.11.0.10 invites a reading in which the branches leave the object and the
+   7929  lattice continues into indices we cannot observe. **It is recorded here and not argued**, because P20
+   7930  says what kind of claim it is.
+   7931 
+   7932  A question closes at a cost set by the language it is posed in: monotone two-variable bounds close in
+   7933  one pass; full arithmetic never closes, by Gödel; **the documentary language has no closure mechanism
+   7934  at all.** A claim about indices outside every measurement is posed in the third. It cannot be settled
+   7935  in either direction by any search, which is the same status §29.1 proves for novelty — **not false,
+   7936  not true, unclosable** — and the discipline is identical: name it, decline to argue it, and do not let
+   7937  it lean on results that were computed inside.
+   7938 
+   7939  **What was computed stands and does not support it.** Λ₁₃ enters a larger index at a cost of 12.14
+   7940  bits per cell; a coarse coordinate branches up to 185 ways; composition seen from above is an interval
+   7941  and not a map. All three are statements about *this* object viewed at lower resolution. **None of them
+   7942  reaches outside it, and §32.1.4 proves none of them can**: ℛ(X) ⊆ ∏ᵢ Aᵢ(X), so the operator cannot
+   7943  produce a value the index lacks, let alone an axis, let alone another index. Register 335.
+   7944 
+
+================================================================================================
+6.  16j-05 -- "The three conditions" (L9207) against §31.3.4's "fourth falsification test"
+================================================================================================
+  §31.3.4 body_range (8733, 8795)  section_span (8733, 8795)
+  --- §31.3.4 L8733-L8794 ---
+   8733 ### 31.3.4 E(X) on a specifiable slice, and 540 predictions
+   8734  The 30,108 pairs are a gzipped file this session could not read. But one slice of the catalogue is
+   8735  specified exactly in print, and a slice is enough for the operator.
+   8736 
+   8737  Candelas, de la Ossa, He & Szendroi (Triadophilia, ATMP 12 (2008) 429) state that the KS list's χ = ±6
+   8738  points have Hodge numbers (h, h+3) and (h+3, h) for 13 ≤ h ≤ 128, and name the exclusions: h = 102,
+   8739  103, 115, 117 and 119–126. That is a complete cell set — 208 cells — and ℛ applies to it.
+   8740 
+   8741     E(X) = 540. 498 join failures and 498 meet failures of 21,528 pairs.
+   8742 
+   8743  24.3.4.1 Which is 540 predictions, not a defect
+   8744  Chapter 6 reads E(X) > 0 as what a structure admits and lacks. The periodic table admits 36 such
+   8745  cells and they are the elements. Here the slice admits 540 and they are Hodge pairs the
+   8746  catalogue must contain if the pair set is closed.
+   8747 
+   8748  The slice cannot contain them, and the reason is geometric. Two parallel lines have no fixed point:
+   8749  the join of (h, h+3) and (h+3, h) is (h+3, h+3). So ℛ immediately names the diagonal.
+   8750 
+   8751   the predictions
+   8752   cells                                     540
+   8753   distinct χ values                         5 — only 0, ±2, ±4
+   8754   on the diagonal, χ = 0                    112, from (13,13) to (131,131)
+   8755   h¹¹ + h²¹ range                           26 to 262
+   8756 
+   8757  The slice was cut at χ = ±6 and the closure predicts inward. It says the set the slice came from fills
+   8758  the gap between the two lines — which is where the rest of the Kreuzer–Skarke list lives.
+   8759 
+   8760  24.3.4.2 The fourth falsification test, run
+   8761 
+   8762  The file is missing, so the predictions cannot be looked up. They can still be refuted, because
+   8763  the literature states where the catalogue's contents lie.
+   8764 
+   8765   test                                                                     result
+   8766   h¹¹ ≥ 1 and h²¹ ≥ 1                                                      540 / 540
+   8767   h¹¹ + h²¹ ≤ 502, the published maximum                                   540 / 540
+   8768   mirror partner present                                                   540 / 540
+   8769   falling where Candelas et al. record "essentially every site occupied"   540 / 540
+   8770   falling in the "thinly populated" tip, where a prediction would be       0 / 540
+   8771   refuted
+   8772   falsified                                                                0
+   8773   individually named in print                                              X₁₉,₁₉ (split bicubic), X₂₀,₂₀ (the 24-cell)
+   8774 
+   8775     Zero falsifications, two named confirmations, and every prediction inside the region
+   8776     published as fully populated.
+   8777 
+   8778  This is weaker than a lookup and it is not nothing. A prediction landing in the sparse tip would have
+   8779  been refuted, and none does. The test is against the literature's characterisation of the file
+   8780  rather than against the file.
+   8781 
+   8782  24.3.4.3 And the void reads the same way
+   8783 
+   8784                                                                                     cells        predictions
+   8785   all h from 13 to 128                                                              232          589
+   8786   with the documented exclusions                                                    208          540
+   8787 
+   8788  The 24 excluded values — 102, 103, 115, 117 and the run 119–126 — reduce the predictions by
+   8789  49. The gaps in the published list are not noise with respect to closure: removing them moves the set
+   8790  toward its own normal form, which is what §10 says a void should do when it is structural rather than
+   8791  accidental.
+   8792 
+   8793  What remains of item D is the lookup. 540 named cells, a file, and an afternoon.
+   8794 
+  "falsification" sites in main: 14 [5203, 7086, 7088, 7481, 7901, 8760, 9210, 9231, 9366, 9393, 9731, 10314, 10893, 11119]
+  ordinal + "falsification" sites: [8760]
+   L8760: 24.3.4.2 The fourth falsification test, run
+
+================================================================================================
+7.  The register citations the unit makes, read against their entries
+================================================================================================
+
+  register 275 at reg L1055, entry to L1058
+  --- register 275 L1055-L1058 ---
+   1055 ### 275
+   1056 
+   1057 **E(audits) = 0 WAS TRUE AND WEAK.** *Adding the fourth coordinate DEPTH takes it to 19: a zero is worth the size of the box it was computed in, and every E owes both its fibration and its coordinate list.*
+   1058 
+
+  register 387 at reg L1435, entry to L1438
+  --- register 387 L1435-L1438 ---
+   1435 ### 387
+   1436 
+   1437 **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: every figure the printed slice specifies reproduces — 208 cells, E(X) = 540, 498 join and 498 meet failures of 21,528 pairs, five χ values, 112 on the diagonal, h¹¹ + h²¹ from 26 to 262 — and all three falsification tests hold at 540 of 540. Only the lookup remains, which E.4's grid already placed at* *reachable from here**. M:* **ten of the eleven admitted cells are dominated** *— for each, an occupied cell of the same fibre is at least as good on all three axes — so filling them would add nothing a reader wants.* **E(X) counts what a structure admits, not what it should contain* **, which §6.3's calendar states and this appendix had not applied to itself.* **One cell is not dominated* **, the highest standard the coordinates allow, and closing M is stating one number that way. The item's cost falls from unbounded to a day.*
+   1438 
+
+  register 396 at reg L1471, entry to L1474
+  --- register 396 L1471-L1474 ---
+   1471 ### 396
+   1472 
+   1473 **ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR.** *Forty-three cells stand admitted and absent across the four — E(Λ) = 0, E(audits) = 16, E(G) = 19, E(Q) = 5, E(D) = 4 — and* **the count overstates the work by most of its size.** *Register 387's domination test, run on one index, found ten of eleven cells dominated; the same test has not been run on the other three and should be before any cell there is treated as work. The sixteen audits* **wait for a defect rather than for an author** *— the three occupied so far each arrived because something got past the set. What is genuinely actionable is eight of the ten open items, all stopping at* *is it reachable from here**. And two things sit outside every index and always will, since §E.1.4 shows the open set cannot express an unclosable question. §32.6.1.*
+   1474 
+
+  register 571: *** NO ENTRY IN THE REGISTER ***   cited at main [9280]
+
+  register 572 at reg L2135, entry to L2138
+  --- register 572 L2135-L2138 ---
+   2135 ### 572
+   2136 
+   2137 **AND THE LEVEL IS A COORDINATE §4 DOES NOT HAVE.** *The ten mechanisms distribute three at the value, three at the derivation, four at the inference, and nothing in the book says so.* **The axis merges two mechanisms §4 keeps apart**: *stale figures left behind their own correction* *is a value going stale and* *a conclusion written before the output* *is an inference drawn early —* **the same act at two depths.** *This book's characteristic defect is dimensional: it records an index as a scalar, and every time the coordinate is restored the population re-sorts.*
+   2138 
+
+  register 573 at reg L2139, entry to L2142
+  --- register 573 L2139-L2142 ---
+   2139 ### 573
+   2140 
+   2141 **THE DOMINATION TEST NOW DISAGREES WITH ITSELF ACROSS TWO INDEXES.** *The audits index went as §32.6.1 predicted — sixteen admitted,* **fourteen dominated, two on the frontier* **, both of them* *outside · dishonest*. **G went the opposite way: forty admitted, thirty on the frontier* **, by fibre measurement 10, defect 8, count 5, density 4, rate 2, bound 1.* **Domination is not a general property of this book's shortfall* **; it held for the numbers index at eleven cells and fails at forty.*
+   2142 
+
+================================================================================================
+8.  Appendix B -- 153 channels against the channel table arbiter
+================================================================================================
+  --- Appendix B whole L10199-L10263 ---
+   10199 ## Appendix B — Data and provenance
+   10200  Serving PART V — THE METHOD. Every number the method was run on, with its source, its
+   10201  provenance and its known defects.
+   10202 
+   10203  **Every channel in the collection, with its source, its limit, and what it contributes.** 153 channels, **1105 interior cells**, bracket **1105 of 1105**.
+   10204 
+   10205  The 763 cells of the earlier verification are included where their channels appear here; the totals in Chapter 24 state the union.
+   10206 
+   10207 ### B.1 Sources
+   10208   compilation                 spectra drawn
+   10209   Kaufman & Martin            Al I, Al II
+   10210   1991, JPCRD 20, 775
+   10211   Kramida & Martin            Be I
+   10212   1997, JPCRD 26, 1185
+   10213   NIST ASD                    Ar II, Be II, Bi I, C II, Ca II, Cd II, Ga I, He I, He II, Hg II, K II, Li I, Li II, Mg II, N II, Na II, Ne I (³⁄₂), Ne
+   10214                               I (¹⁄₂), Si I, Si II, Zn II
+   10215   Sansonetti 2008,            Na I
+   10216   JPCRD 37, 1659
+   10217   Sansonetti 2008,            K I
+   10218   JPCRD 37, 7
+   10219 
+   10220  **Additional sources used for exotic systems and collective quantities:**
+   10221 
+   10222  Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:1203.5425) and arXiv:1304.4330 · Korobov, *Phys. Rev. A* **77**, 042506 (2008) · Singer, Stanojevic, Weidemüller & Côté, *J. Phys. B* **38**, S295 (2005) · Sugar & Corliss 1985, *JPCRD* **14** Suppl. 2 · Sugar & Musgrove 1990, *JPCRD* **19**, 527 and 1995, *JPCRD* **24**, 1803.
+   10223 
+   10224 ### B.2 Channels
+   10225   **The channel rows are lifted to the Spectra Compendium.** Each carries its species,
+   10226   channel, n-range, level count, interior cells, bracket, ν range, mean quantum defect, its
+   10227   spread, Z_eff and the series limit. *Reproduced in the book only where one carries an
+   10228   argument; the rest are data and live where data belongs.*
+   10229   **THE METHOD 1.6 — SPECTRA COMPENDIUM, Part II, counted from its own table:** 596 channel
+   10230   rows — 477 series of three or more members and 119 two-member channels — across 28 elements
+   10231   and 70 species; 3,342 levels, 2,269 interior cells; the bracket at **1,577 of 1,738 cells
+   10232   across 392 rows** — 844 of 844 from the first collection, 658 of 813 on 250 rows run under
+   10233   ruling 26 at strict membership with the quotation floor as the only ε, and 75 of 81 on 35
+   10234   rows run by the same instrument on six hash-verified captures, zero cells refused throughout
+   10235   — 78 rows `no-triple` and 126 `untested` for want of data, not of definition (registers
+   10236   1763, 1768).
+   10237  *This paragraph once read "133 rows, 23 elements, 869 interior cells, bracket 869/869,
+   10238  generated by* `spectra.py` *so it cannot drift," with a twenty-channel gap disclosed against a
+   10239  total of 153. That was true at registers 630–631 and was overtaken by the parent-term wall
+   10240  (register 1578) and the J-resolved rows of T8-J (registers 1699–1700); the table drifted from
+   10241  the script, and the script is owed a rebuild against the table. The exotic and collective
+   10242  sources carry sources and no rows, and that remains disclosed rather than reconciled.*
+   10243  Registers 630–631; 1578; 1699–1700.
+   10244 
+   10245 ### B.3 Flagged channels
+   10246  Channels whose δ spread exceeds 0.25 or whose V departs from 4ν/3 by more than 5% are flagged.
+   10247  Every flag in this collection has an identified cause; none is unexplained.
+   10248 
+   10249   species      channel        δ spread    cause
+   10250   Al I         3s²nd ²D       0.630       compilers relabelled this series; y²D removed as a perturber
+   10251   Al II        3snd ¹D        0.390       local perturber
+   10252   Al II        3snf ³F°       0.409       δ reverses sign between n = 6 and 7 — local perturber
+   10253   Li I         np 2P°         0.678       39 cells to n = 42; quotation coarsens above n = 33
+   10254   Si II        3s²np ²P°      0.272       perturber
+   10255 
+   10256 ### B.4 Reproducibility
+   10257 
+   10258  Every computation in this book is reproducible from the level tables above and the rules of Chapters 22
+   10259  and 23. No fitted parameter enters at any point; the only inputs are measured or calculated energy levels,
+   10260  their stated uncertainties, and the ionisation limits carried per channel in the Spectra Compendium, Part II.
+   10261  The coordinate index those channels sit in is the file `COORDINATES-2.13` (104,832 cells), delivered with the
+   10262  Spectra Compendium and described there under *The file*; a cell is cited from this book as COORD(Z, charge, ℓ, 2S+1).
+   10263 
+  spectra totals line L900: **596 channel rows across 28 elements · 2,269 interior cells parsed.**
+
+================================================================================================
+9.  1,061 -- "Every bracket in this book is recomputable from this book. All 1,061."
+================================================================================================
+   main L60: That single reframing produced the split running through Chapter 16. It then produced 1,061 perturbation
+   main L6522: **Which supersedes §25.5's 1,061 order-1 bounds:** the same data at matched order yields 34 bounds at 0.0164 cm⁻¹, **and 619 refusals that are themselves perturbation det
+   main L6688: a deductive upper limit on the local perturbation at 1,061 cells. The observation is sixty-five years
+   main L6963: Figure 25.1. Each of the 1,061 cells that yield a perturbation bound, plotted at the bound its containment implies. The two curves are
+   main L9193: Every bracket in this book is recomputable from this book. All 1,061.
+   main L9360: **The failure condition, inverted.** |Δ*T*| < 2*Z*²*R*/ν³ turns 1,061 non-failures into 1,061 measurements. Bracketing methods are rare; inverting their silence appears n
+   main L10300: **The perturbation bounds are as strong as the failure condition and no stronger.** If the condition is wrong, 1,061 bounds go with it.
+   main L10311: here, across all 153 channels · the failure condition and its inversion to 1,061 perturbation bounds ·
+   reg  L3939: ### 1061
+   reg  L6487: **TWO RULINGS: CAPTION 25.1 READS 1,061, AND THE Λ_phys COUNT STAYS AT FIFTEEN ON THE RULE AS PRINTED.** *Ruling 21: the caption of Figure 25.1 said "each of 1,105 verifi
+
+================================================================================================
+10. Ruling 45 -- build, press and editorial-process prose inside the unit
+================================================================================================
+   L 9173 ['recomputed']
+         ### 32.5.1 The prediction, recomputed from the text
+   L 9174 ['markdown']
+         Parsing δ(4s), δ(5s), the limit and Z out of this book's own markdown and running the
+   L 9177 ['recomputed']
+         | quantity | recomputed | stated |
+   L 9231 ['corrected', 'repaired']
+         **It has been corrected**, and it is recorded here rather than silently repaired, because a falsification test that finds something and does not say s
+   L 9240 ['first run']
+         | first run, same-line window | 85 | 46 (54%) | **39** |
+   L 9241 ['checker', 'corrected']
+         | **corrected checker, paragraph window** | 63 | 56 (89%) | 7 |
+   L 9242 ['repair']
+         | **after repair** | **63** | **60 (95%)** | **3** |
+   L 9244 ['first run']
+         The first run failed, and the failure was informative twice over. Thirty-nine claims
+   L 9245 ['now states']
+         genuinely lacked a verification, and each has been given one: the rank skew now states the cell
+   L 9247 ['checker']
+         checker itself was wrong. It searched ninety characters on one line, but prose wraps; verifications
+   L 9249 ['repair']
+         54% to 89% before a single repair was made.
+   L 9266 ['corrected']
+         E(book) > 0           failed, found, corrected — a missing Chapter 30
+   L 9267 ['repaired']
+         ⅅ=0                   failed, found, repaired — 39 claims, now 60 of 63
+   L 9270 ['repaired']
+         **The book satisfies its own law.** Two conditions failed on first testing, both were located by the tests themselves, and both have been repaired. **
+   L 9274 ['build', 'page', 'press']
+         answer rather than an opinion. At the build that produced this page the press printed, by
+   L 9275 ['build']
+         instruments this build does not hold (register 1813),
+   L 9277 ['earlier form']
+         all.** *An earlier form of this section gave a smaller value for the G index and a total of forty-three. The first was
+   L 9278 ['build', 'press', 'recomputes']
+         stale — the press recomputes E(G) at every build precisely because a figure about the book goes
+  Ruling 45 candidate sites in the unit: 18 of 151 lines
+  naive probe (WRONG -- matches "He I"): [9246]
+  first-person prose sites in the unit: none
+
+================================================================================================
+11. Ruling 46 -- script names, build numbers and internal file references (case-sensitive)
+================================================================================================
+  main: 43 sites; in the unit: 1
+    L9174 [''] :: Parsing δ(4s), δ(5s), the limit and Z out of this book's own markdown and running the
+  reg: 158 sites; in the unit: 0
+  mc: 15 sites; in the unit: 0
+  pc: 6 sites; in the unit: 0
+  ioi: 10 sites; in the unit: 0
+  sc: 10 sites; in the unit: 0
+  PP sites: 7
+
+================================================================================================
+12. False universals and absent members inside the unit
+================================================================================================
+   L 9163 ['never']
+         §32.1–24.4 ask whether this book obeys its own law. They never ask whether it obeys its own
+   L 9170 ['all']
+         Appendix B carries all three for all 153 channels. So the question has an answer, and it is checkable
+   L 9186 ['no ']
+         Six of six, exact. No external table, no database, no constant supplied by hand.
+   L 9188 ['only']
+         **R* is the only import**, and it has the status of the definition of a centimetre.
+   L 9190 ['every']
+         ### 32.5.2 And it generalises to every bracket in the book
+   L 9193 ['every', 'all']
+         Every bracket in this book is recomputable from this book. All 1,061.
+   L 9195 ['no ', 'each']
+         **A reader with these pages and no internet reproduces each of them.**
+   L 9198 ['every']
+         §16.5 states totality as every claim supported, cited, or marked open. That is a bibliographic condition.
+   L 9202 ['every']
+         Λ contains the cell the book says every number the prediction needs
+   L 9218 ['every', 'each']
+         **Test.** Extract every chapter heading, every cross-reference, every section reference and every figure. Check that each target exists and that figur
+   L 9222 ['none']
+         | chapters cross-referenced but absent | **none** |
+   L 9223 ['none']
+         | § references to absent chapters | **none** |
+   L 9231 ['none']
+         **It has been corrected**, and it is recorded here rather than silently repaired, because a falsification test that finds something and does not say s
+   L 9236 ['every']
+         **Test.** Take every paragraph carrying a quantitative claim, excluding tables and citations, and check whether a verification appears within it.
+   L 9245 ['each']
+         genuinely lacked a verification, and each has been given one: the rank skew now states the cell
+   L 9261 ['no ']
+         No claim in this book is left in limbo.
+   L 9277 ['all']
+         all.** *An earlier form of this section gave a smaller value for the G index and a total of forty-three. The first was
+   L 9278 ['every']
+         stale — the press recomputes E(G) at every build precisely because a figure about the book goes
+   L 9279 ['never']
+         stale the moment the book is written into. The second never closed: its own five terms summed to
+   L 9284 ['each']
+         ten of eleven admitted cells dominated: for each, a cell the fibre already occupies is at least as
+   L 9285 ['every', 'nothing']
+         good on every axis, so filling it adds nothing a reader wants. **That ratio has since inverted and
+   L 9292 ['any']
+         same test has not been run on the other three indices, and it should be before any of their cells is
+   L 9296 ['each']
+         kind. Three of that count have been occupied — SEQUENCE, PROJECTION and INPUT — and **each arrived
+   L 9298 ['nothing']
+         invented. An audit written to fill a cell would test nothing that has ever gone wrong.
+   L 9308 ['all']
+         **And two things sit outside all four indices.** §E.1.4 shows the open set cannot express an unclosable
+   L 9309 ['every']
+         question — every value of its obstacle column names a route — so the multiverse reading of §29.2.2 and
+   L 9310 ['never']
+         the destination coordinate of the temporal mechanisms are not open items and never will be. **They are
+
+================================================================================================
+13. "Sc VI" and the sulphur-like sequence -- the absent-member class (docket 20)
+================================================================================================
+  main: literal "Sc VI" 30 [757, 5360, 6103, 6119, 6919, 6921, 6924, 6997, 7023, 7050, 7080, 7092]   any Sc row 31 [757, 5360, 6103, 6106, 6119, 6919, 6921, 6924, 6997, 7023, 7050, 7080]
+  reg: literal "Sc VI" 0 []   any Sc row 41 [2441, 2445, 2449, 2457, 2645, 2657, 2765, 2837, 2957, 3293, 3593, 3597]
+  mc: literal "Sc VI" 0 []   any Sc row 1 [3016]
+  pc: literal "Sc VI" 0 []   any Sc row 1 [482]
+  ioi: literal "Sc VI" 0 []   any Sc row 1 [345]
+  sc: literal "Sc VI" 0 []   any Sc row 13 [279, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810]
+  sulphur-like in main: [7102]
+
+================================================================================================
+14. Prints & Proofs -- every witness anchored on its OWN text
+================================================================================================
+   L 9162 PP [9063]   offset [-99]   :: ### 32.5 The book satisfies its own method
+   L 9170 PP [9071]   offset [-99]   :: Appendix B carries all three for all 153 channels. So the question has
+   L 9186 PP [9087]   offset [-99]   :: Six of six, exact. No external table, no database, no constant supplie
+   L 9193 PP [9094]   offset [-99]   :: Every bracket in this book is recomputable from this book. All 1,061.
+   L 9204 PP [9105]   offset [-99]   :: **Together they close.** The index supplies the *what*; the collection
+   L 9212 PP [9113]   offset [-99]   :: The three conditions are tested here, on this text, with the results r
+   L 9227 PP [9128]   offset [-99]   :: The test found a break. This chapter was written as Chapter 31 while t
+   L 9244 PP [9145]   offset [-99]   :: The first run failed, and the failure was informative twice over. Thir
+   L 9251 PP [9152]   offset [-99]   :: **The three remaining are not claims.** One reads "100% over 2,513 tes
+   L 9260 PP [9161]   offset [-99]   :: One hit, and it is a false positive: "a fit says where a level probabl
+   L 9273 PP [9174]   offset [-99]   :: The book carries four indices of its own shortfall, and the question *
+   L 9276 PP [9176]   offset [-100]   :: **E(Λ) = 0, E(audits) = 16, E(G) = 40, E(Q) = 5 unfibred, E(D) = 4 unf
+   L 9287 PP [9187]   offset [-100]   :: **fourteen dominated, two on the frontier** — both *outside · dishones
+   L 9300 PP [9200]   offset [-100]   :: **Cells that are ordinary work.** Ten open items in Appendix E, of whi
+   L 9304 PP [9204]   offset [-100]   :: **So the honest count is not forty-three.** It is: some number of domi
+   L 9308 PP [9208]   offset [-100]   :: **And two things sit outside all four indices.** §E.1.4 shows the open
+
+================================================================================================
+15. Census rows 713, 1191, 1192, 1193 -- re-tested from the file
+================================================================================================
+
+  row 713: L9173 token '32.5'
+   ### 32.5.1 The prediction, recomputed from the text
+   §32.5 heading resolves to (9162, 9173); the token is the section's OWN live number, sites [6687, 7480, 7495, 7901, 9162, 9173, 9190, 9197, 11473, 11506, 11519, 11524]
+   withdrawal words anywhere near §32.5: []
+
+  row 1194: L9163 token 'never'
+   §32.1–24.4 ask whether this book obeys its own law. They never ask whether it obeys its own
+
+  row 1195: L9279 token 'never'
+   stale the moment the book is written into. The second never closed: its own five terms summed to
+
+  row 1196: L9310 token 'never'
+   the destination coordinate of the temporal mechanisms are not open items and never will be. **They are

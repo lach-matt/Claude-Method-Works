@@ -1,0 +1,80 @@
+r2-ch22b — Appendix D part 1 (D.1–D.4.4.3), prose and pointers
+§1 unit L10354–L10495, 142 lines; blank 38; code/indented(4sp) 19; `|` table rows outside code 0
+§2 PP `# Appendix D` P9967 to `# Appendix E` P10437 (470 lines); marked #-headings inside: 0; unmarked ` D.n` lines after a blank: 21
+   L10354 Appendix D — The mathematics, indexed                      -> PP P9967
+   L10363 D.1 Why the first attempt failed, and what it established  -> PP P9976
+   L10376 D.2 The structure                                          -> PP P9989
+   L10386 D.3 The two constraints, found by closing                  -> PP P9999
+   L10397 D.4 The two elements the closure demanded                  -> PP P10010
+   L10402 D.4.1 λ² = (2/3)T, proved and exhaustively verified        -> PP P10015
+   L10414 D.4.2 The pointwise-minimum reconstruction                 -> PP P10027
+   L10422 D.4.3 And it is not the coupling F carries                 -> PP P10035
+   L10446 D.4.4 Two perspectives of one definition, and one of them  -> PP P10059
+   L10457 D.4.4.1 And three of the four directions are functions     -> PP P10070
+   L10470 D.4.4.2 Which is what the single expression contributes    -> PP P10083
+   L10481 D.4.4.3 A refinement of P21                                -> PP P10094
+   part-1 body vs PP P9967–P10108: main non-blank 104, PP 104; lines only in main 5, only in PP 5
+      main-only: Serving PART VI — THE RECORD AND THE REACH. The book's own mathematics as a closed index — seventy-seven
+      main-only: elements, twenty-four fibres, E = 0.
+      main-only: status              withdrawn < conjectured < measured < verified < unwitnessed < proved           ordered
+      main-only: E(X) > 0 in three fibres, and the excess cells shared a form. §16.7.1's diagnostic loop says a separating
+      main-only: The caterpillar of Figure 11.1 — a path of seven nodes with one pendant at k — is a fact about
+      PP-only:   Serving PART V — THE RECORD. The book's own mathematics as a closed index — thirty-two
+      PP-only:   elements, sixteen fibres, E = 0.
+      PP-only:   status              withdrawn < conjectured < measured < verified < proved                         ordered
+      PP-only:   E(X) > 0 in three fibres, and the excess cells shared a form. §12's diagnostic loop says a separating
+      PP-only:   The caterpillar of Figure 6.1 — a path of seven nodes with one pendant at k — is a fact about
+§3 § pointers (sec, line): [('11.1', 10482), ('11.5', 10438), ('11.7', 10474), ('11.7', 10493), ('12.9', 10476), ('16.7.1', 10387)] ; Chapter (n, line): [('11', 10478), ('15', 10478), ('15', 10479), ('23', 10411), ('7', 10461)] ; Figure: [('11.1', 10473)]
+   §11.1 heading L2084 span (2084, 2179) :: ### 11.1 In all six languages, and a seventh
+   §11.5 heading L2236 span (2236, 2248) :: ### 11.5 The one coupling, and it is the Pauli principle
+   §11.7 heading L2256 span (2256, 2280) :: ### 11.7 Why a closed expression exists at all
+   §12.9 heading L2465 span (2465, 2489) :: ### 12.9 Every other shape the lattice contains
+   §16.7.1 heading L4583 span (4583, 4623) :: ### 16.7.1 A missing cell — and the index can tell whether the gap is 
+   Chapter 7 heading lines [121, 1729] :: ## 7. The construction of Λ
+   Chapter 11 heading lines [125, 2080] :: ## 11. The single expression
+   Chapter 15 heading lines [131, 4275] :: ## 15. Self-reference — alphabet, order, bounds
+   Chapter 23 heading lines [143, 6183] :: ## 23. The cost surface
+   diagnostic loop                -> {'main': [10387]}
+   separating form                -> NO SITE in six volumes
+   \bexcess\b.*\bconstraint       -> {'main': [10388]}
+   means a missing constraint     -> {'main': [10388]}
+   §16.7.1 span (4583, 4623) heading: ### 16.7.1 A missing cell — and the index can tell whether the gap is real ; tokens loop/excess/separat in span: []
+   PART VI heading: [(149, '# PART VI — THE RECORD AND THE REACH'), (7369, '# PART VI — THE RECORD AND THE REACH')] ; L10321 serving line:  Serving PART VI — THE RECORD AND THE REACH. The book's own mathematic
+   P21 sites: [420, 437, 2085, 2180, 5579, 10481, 10482, 10493] ; first:  P21 — every definition true in every language
+   fibre figures (77 / 24 / 32 / 16 / 42) sites in Appendix D: {'seventy-seven': [10355, 10531, 10543, 10901], 'twenty-four fibres': [10356, 10525, 10901], 'Thirty-two': [10384, 10747], 'sixteen of the forty-two': [10384], 'forty-two': [10384, 10543]} — the DATA table that fixes them is in D.5 (part 2); carried, not scored here
+   7 kinds × 6 languages = 42 (printed forty-two) ; D.2 table rows with ≥3-space gap: [10377, 10378, 10379, 10380, 10381, 10382]
+   lowercase `register NNN` in unit: [] ; `Register NNN`: []
+§4 numerals in unit: 35 distinct; 0×3@[10356, 10387, 10428] 2×7@[10371, 10402, 10405] 16.7×1@[10387] 4×3@[10399, 10427, 10436] 3×4@[10399, 10402, 10405] 6×1@[10405] 12,000×1@[10407] 1×3@[10407, 10427, 10428] 30×1@[10407] 1.01×1@[10408] 60×1@[10408] 7.1×1@[10408] 10×1@[10408] 23×1@[10411] 976×8@[10415, 10415, 10430] 92.6×1@[10418] 39.9×1@[10418] 35.1×1@[10418] 11.2×1@[10418] 100×2@[10430, 10433] 93×1@[10432] 40×1@[10432] 35×1@[10432] 20×1@[10433] 66×1@[10433] 48×1@[10433] 11.5×1@[10438] 7×1@[10461] 11.1×2@[10473, 10482] 11.7×2@[10474, 10493] 12.9×1@[10476] 1,113,045,672×1@[10476] 11×2@[10478, 10478] 15×2@[10478, 10479] 21×3@[10481, 10482, 10493]
+   976            unit [10415, 10415, 10430, 10430, 10438, 10443, 10448, 10450] ; other main sites [4, 13, 331, 425, 448, 853, 855, 924, 1612, 1791]
+   12,000         unit [10407] ; other main sites []
+   7.1            unit [10408] ; other main sites [412, 1596, 1755, 1776, 1778, 1875, 2594, 2636, 2646, 2733]
+   92.6           unit [10418] ; other main sites [10549]
+   39.9           unit [10418] ; other main sites [10549]
+   35.1           unit [10418] ; other main sites [2601, 9761, 10550]
+   11.2           unit [10418] ; other main sites [2179, 2273, 2275, 4970, 11648]
+   93             unit [10432] ; other main sites [4, 2190, 2738, 2759, 3102, 6637, 7587, 7809, 8521, 11809]
+   40             unit [10432] ; other main sites [547, 934, 1211, 1697, 1924, 1937, 2669, 2865, 3176, 3356]
+   35             unit [10432] ; other main sites [158, 200, 857, 1175, 2440, 2473, 2601, 2602, 2606, 2679]
+   20             unit [10433] ; other main sites [138, 396, 418, 448, 770, 960, 1018, 1139, 1273, 1274]
+   100            unit [10430, 10433] ; other main sites [3744, 3745, 3746, 3754, 4010, 4027, 4028, 4029, 4030, 4031]
+   66             unit [10433] ; other main sites [1174, 2701, 2945, 2971, 3117, 3139, 3145, 3586, 3997, 7175]
+   48             unit [10433] ; other main sites [1486, 1697, 1752, 2602, 2711, 2720, 3303, 3304, 3392, 5410]
+   1,113,045,672  unit [10476] ; other main sites [2483, 3676, 10624]
+   1.01           unit [10408] ; other main sites [7242]
+   60             unit [10408] ; other main sites [2024, 2470, 2622, 2710, 2899, 3137, 3195, 3352, 3858, 4013]
+   30             unit [10407] ; other main sites [152, 448, 526, 630, 631, 680, 734, 777, 800, 1267]
+§5 first-person hits: []
+   R45 candidates: [] ; R46 candidates: []
+   never been checked here  unit [] ; main-elsewhere 0; mc 0; reg 0
+   no precedent found       unit [10443] ; main-elsewhere 0; mc 0; reg 1
+   exhaustive               unit [10381, 10398, 10399, 10402, 10407, 10443] ; main-elsewhere 103; mc 17; reg 19
+   idempotent               unit [10450] ; main-elsewhere 4; mc 4; reg 3
+   caterpillar              unit [10435, 10473] ; main-elsewhere 11; mc 8; reg 5
+   pendant                  unit [10473] ; main-elsewhere 9; mc 5; reg 1
+   normal form              unit [10454, 10467] ; main-elsewhere 2; mc 0; reg 0
+   canonical form           unit [10451] ; main-elsewhere 2; mc 0; reg 0
+   MONOTONE                 unit [10367, 10370, 10394] ; main-elsewhere 112; mc 81; reg 81
+   INTERCHANGEABLE          unit [10489] ; main-elsewhere 2; mc 0; reg 0
+   Register 230 body: **APPENDIX D'S *KIND* COORDINATE DISAGREES WITH PART III'S TITLE — THE PART IS CALLED THE LAW AND ITS CONTENTS ARE THEOREMS.** *Recorded rather than r
+   Register 385 WARNING line: none
+done
