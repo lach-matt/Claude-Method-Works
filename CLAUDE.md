@@ -167,16 +167,18 @@ at 30 findings per chunk. See `docs/PROSE-ONLY.md`, which also records the one f
 ruling — register 66's order-ideal claim against an unbanked re-measurement — and points at the
 retraction audit.
 
-**`RETRACTION-AUDIT.tsv` asks the consequent question: is a withdrawn figure still standing?** For
-each of the 212 unbanked corrections, every distinctive number was searched across the nine live
-volumes — 303 (correction, number) pairs, adjudicated with the volume text in view. 187 are digit
-coincidence, **87 corrections had already landed**, 10 are undecidable, and **19 are withdrawn values
-asserted as current**. The clearest needs no interpretation: `The_Method_1_6-2.md` prints *"the 2,475
-previously printed here is withdrawn"* in one passage and *"costs the cylinder 2,475 cells"* in two
-others. Seventeen of the nineteen rest on register entries that carry no withdrawal marker in a
-Register that marks elsewhere — corroboration, not proof, and each needs the entry read in full
-before any repair. 88 corrections carried no number in any volume and are untested. Nothing was
-repaired. See `docs/RETRACTION-AUDIT.md`.
+**`RETRACTION-AUDIT.tsv` asks the consequent question: is a withdrawn figure still standing?**
+**391 rows in two passes.** The numeric pass fingerprinted every distinctive number of the 212
+unbanked corrections against the nine live volumes — 303 (correction, number) pairs; the claim pass
+took the **88** that carried no number and adjudicated the claim itself. 187 are digit coincidence,
+**142 corrections had already landed**, 29 are in no volume, 7 are undecidable, and **25 are
+withdrawn values or claims asserted as current**. The clearest needs no interpretation:
+`The_Method_1_6-2.md` prints *"the 2,475 previously printed here is withdrawn"* in one passage and
+*"costs the cylinder 2,475 cells"* in two others. Eleven flagged register entries carry no withdrawal
+marker in a Register that marks elsewhere — corroboration, not proof. One row is
+`CORRECTION-SUPERSEDED`: **an unbanked correction can itself be stale.** `NOT-IN-VOLUMES` means
+absent from the nine volumes, **not** from the repo — the governance tree is outside them. Nothing
+was repaired. See `docs/RETRACTION-AUDIT.md`.
 
 **What the graph pass measured is written up in `docs/GRAPH-FINDINGS.md`** — the seven `AMBIGUOUS`
 edges traced to their files, the `HANDOFF-13` byte-fingerprint for an absent document, the 23-file
