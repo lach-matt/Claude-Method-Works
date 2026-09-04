@@ -125,3 +125,8 @@ document, drafts shown to M first; the twelve rows with no draft stay leads.*
 - **Q5 passes 3–5 — RULED (M, 4 September 2026): *approved; stdlib re-derivations for passes 4 and 5, no shortcuts.*** The
   chat-57 and chat-58 packs need numpy; their figures are re-derived by standard-library instruments of R3's (the
   chats' own stdlib instruments, mc11.py and mc12.py, are seated as they are), each entry naming what re-derived it.
+- **Q5 pass 6 — DRAFTED, awaiting ruling** (`DRAFT-Q5-06-owed-expansions.md`): `OWED-REGISTER-EXPANSIONS.md`'s six R-rows
+  resolve to seated entries (400, 468, 493–506, 511, 519, 527, 551, 596–600) and nothing is owed for them; registers
+  603, 604 and 605 are corrected from the seed-cap return as 1833–1835, every figure re-derived by `r3-q6-measure.py`
+  (standard library; the 24,585 covers enumerated and matched set for set to `covers8.json`; the d-shell seed 10 named as
+  not re-derived). Four rulings wanted, listed at the draft's end.
