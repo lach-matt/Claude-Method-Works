@@ -56,6 +56,39 @@ python3 tools/idcensus.py --kind Register
 - **It pins no total in its selftest.** A total is the thing that moves; the fixtures are the
   patterns themselves, the register floor biting at 164/165, and the exclusions being in place.
 
+## The census as it stands
+
+```
+kind          in prose  in repo  prose-only
+W-entry            185      195           0
+Ruling              55       55           0
+Docket              39       39           0
+Fault              238      220          18
+Register          1397     1071         329   (+21 above the Register's max 1792, read as line refs)
+MC-entry            56       55           1
+DEF                 58       65           1
+HANDOFF            111      107           6
+```
+
+**The governance spine is intact, and now under a banked method.** Zero prose-only rulings, zero
+dockets, zero `W-` entries. That was stage A's headline finding and it survives re-measurement — the
+one result here that can be said to corroborate the earlier pass rather than merely differ from it.
+
+Three of these numbers are only right because two spellings are handled, and both were found making
+the first run of this file wrong:
+
+- **Zero padding.** `W-001…W-027` and `W-1` are the same entry written two ways. Counting them
+  separately reported **15 prose-only `W-` entries**; normalising leading zeros gives **0**, which is
+  also what stage A found. `MC-entry` went 4 → 1 the same way.
+- **List continuation.** `MC-07/08/09` and `registers 219, 220, 221` carry the prefix once. A pattern
+  requiring it on every element reads the first and loses the rest — understating what the prose
+  names and, through the repository side, overstating what is prose-only.
+
+**A register numbered above the Register's own maximum is reported, not counted.** Twenty-one of
+them: `4481` is `WORKING-REGISTER.md`'s line count and not an entry at all, as `docs/REGISTER-GAPS.md`
+established. `1793` and `1794` are the two real entries drafted past the end and are *not* in that
+set. Folding line references into a prose-only count would inflate it by a fifth.
+
 ## What its numbers are, and are not
 
 They are a measurement under a declared method, taken after the `RECOVERED-BY-WRITE` pass seated 759

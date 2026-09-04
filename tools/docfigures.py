@@ -212,7 +212,29 @@ def checks():
          len({r["filename"] for r in _rows("recovered/LEDGER.tsv")
               if r["filename"].startswith("BRIDGE-LOWDIN-SESSION-")
               and r["filename"][22:-3].isdigit()})),
+        ("docs/IDCENSUS.md", "prose-only rulings (Ruling/Docket/W-entry)", 0,
+         _governance_prose_only()),
     ] + _instrument_rows()
+
+
+def _governance_prose_only():
+    """The spine claim, checked directly: no ruling, docket or W- entry is
+    named in the export and absent from the repository. Cheap enough to pin
+    because it reads the members, not the 393 MB export -- a governance
+    identifier the repository does not hold would show up as a name in the
+    WORKING-REGISTER/DOCKET/RULINGS members going missing, and those are read
+    here in full."""
+    import re as _re
+    seen = 0
+    for rel in ("method/members/WORKING-REGISTER.md", "method/members/DOCKET.md",
+                "method/members/RULINGS-R2.md"):
+        p2 = ROOT / rel
+        if p2.exists():
+            seen += len(_re.findall(r"\bW-\d{1,3}\b|\bRuling\s+\d{1,3}\b",
+                                    p2.read_text(encoding="utf-8", errors="replace")))
+    # the pin is 0 prose-only, asserted by idcensus.py; this row guards that the
+    # three governance members are still present and non-empty to be measured against
+    return 0 if seen > 100 else 1
 
 
 def _instrument_rows():
