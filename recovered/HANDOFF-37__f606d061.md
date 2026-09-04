@@ -96,23 +96,7 @@ computable claims on the tower; §16.8.5's "the floor is derived rather than mea
 **Patterns chats 77–84 established, to watch for:** a Register entry restating a section may carry
 different figures — measure both, withdraw neither; a withdrawn figure may still stand at other sites
 — the later line governs, record the residue; a section may attribute a proof, a table, a count or **a
-constraint form** to a neighbour that does not contain it (13d-01, 13h-01, 13i-04, 13j-08, 13l-03,
-13l-05, and now **13o-01** at eight sites); a claim may be true while the statement printed for it is
-not (13g-01, 13h-04, 13j-01, 13l-01, and now **13n-01**, where an inequality is printed as an
-equality); a rounded ratio may be printed with the word *exactly*; a figure may be printed with its
-population unstated (13j-07, 13l-06, 13l-09, **13n-02**, **13o-03**); a heading may be truncated with
-its remainder rendering as body text (**13o-04**, four sites). Resolve every pointer to the claim,
-never to the heading; check the arithmetic of every ratio and percentage as well as every count;
-measure a claim and its stated witness separately; and where the text prints a sample, measure the
-population. **Chat 84's B6 is the standing warning against checking by eye:** d³ at 2S = 3 admits five
-2J values only because d³ carries two quartet terms; read from ⁴F alone the printed set looks wrong.
-
-**Per section read (close it — files written, md5s measured, both goldens banked — before the next
-opens):** `python3 members/r2-tools.py lines|pointers|figures|census|layout A B` over the whole section
-(its pointer regex is case-sensitive and does not know Appendix A's item numbers or Chapter 4's
-protocol rows — a bare `§4.6` or `A.2` reported UNRESOLVED is usually one of those, not a defect; and
-a `§N` inside a quoted external citation is an artefact, not a pointer — chat 84 confirmed L4440's
-`§17` is Edlén's Handbuch §17); read every line; census the claims into the two kinds, writing the
+< truncated lines 99-115 >
 census into the READ file; then the two batches in `members/r2-chNN.py` (next names **r2-ch13p**
 computable, **r2-ch13q** prose), importing r2lib by path:
 

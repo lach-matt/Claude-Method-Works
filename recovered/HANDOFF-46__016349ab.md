@@ -101,27 +101,7 @@ Everything the chapter computes reproduces: the containment table exactly at all
 including all eight energy extremes, 36 of 36, seven interior held at every defect, the seven widths
 at δ = 0.35 with maximum deviation 0.0, all six ratios, the true next width 281.7474, the presumed
 274.10, and **the printed 2.72 % as 2.715 % against the true width** — exact to the printed precision.
-The ν⁻³ ratio 0.7640 → 0.764. Note for any later touch of this material: the law-derived presumption
-is **9.3× more accurate** than the pattern-derived one (0.29 % against 2.72 %), which the book does
-not claim and which supports its argument.
-
-**Chat 93's own errors, carried as method.** Four instrument faults, all rewritten rather than
-trimmed. The one that matters: F11's verdict printed *LARGER* comparing 0.29 % with 2.72 % and
-concluded the book's argument was undercut — the arithmetic was right and the sentence built on it
-inverted it, which is chat 92's inverted-verdict class in a new form. G8's summary generalised over
-nineteen sites before classifying them and described eleven unrelated ones as records of this section;
-rewriting it is what produced the §33.4 twin finding. F3 printed a bare `CHECK` without naming which
-half of a compound condition failed, and F6 asserted a reading it had never measured.
-
-## Chat 94's section read — Chapter 22 remainder, *The four rules* onward
-
-MEASURED by heading scan in chat 93: **§22.2 L6036**, §22.2.1 L6056, §22.2.2 L6071, §22.2.3 L6087,
-§22.2.4 L6101, §22.2.5 L6107, §22.3 L6129, §22.4 L6138, §22.4.1 L6148, §22.5 L6168, §22.6 L6175;
-the chapter ends **L6178** and Chapter 23 opens L6179. That is **143 lines, eleven headings** —
-larger than chats 90/92/93 closed (93, 63, 99). Scan the headings forward again and confirm every
-boundary before reading a line, then take as much as will close in one chat: **§22.2–§22.2.5
-(L6036–L6128, 93 lines) is the natural unit**, with §22.3–§22.6 (L6129–L6178, 50 lines) left to chat
-95, or take the whole chapter if the census looks light after the read. A section read is never split
+< truncated lines 104-124 >
 across chats.
 
 Instruments: **r2-ch14h** (computable) and **r2-ch14i** (prose). Use chat 88's exact-token heading

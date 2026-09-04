@@ -100,7 +100,50 @@ claimed of a pair sharing three digits and a pair sharing one; **§22.6's "the o
 quantity"** is contradicted by L = n/3 printed thirty-two lines above it; **"true for some species,
 false for others"** has no witness among its own two ranges (2 × 0.4 = 0.8 against the tightest
 bracket 1.398); **§22.4.1's predicted column needs δ₂ = 0.06**, never printed. **Five printed
-< truncated lines 103-146 >
+figures do not follow from their printed inputs** (446×, 1,577, 3.47 %, *a factor of 17*, 0.9934);
+1,577 is unrecoverable from any printed pair because the asymmetry is baseline-independent.
+**Seventeen of twenty-four figures checked appear at no other site in any of the six volumes.**
+
+**Pointers: three of five resolve**, and two exactly (L6114 and L6098 against §25.6.1 and §25.6.6).
+**L6135 fails** — ten sites name antiprotonic helium, none in §25.6, which is Sc VI throughout.
+**L6138 fails** — §32.3 is *Self-defence*, carrying none of the claim's tokens word-bounded. That is
+the second failed prose citation of §32.3 after chat 91's L5692, and L7492 miscounts its clauses:
+**§32.3 is now a class, not a site.** Full detail is in READ-ch14h.md and W-132; do not re-measure
+any of it. Zero Register citations in the 141 lines, against three in the chapter's first 99.
+
+**Chat 94's own errors, carried as method.** Seven instrument faults, all rewritten rather than
+trimmed. The one that matters: **an instrument that contradicts a measurement already taken from
+the file is wrong until proved otherwise.** Twice a batch reported a pointer failing that the hand
+reading had already resolved — once because `section_span` used heading rank, which truncates §25.6
+at §25.6.1 since the book sets both at `###`, and once because a substring test read *gain* out of
+*against*. Both were the instrument. Three further faults were **Python's `round()`, which is binary
+and returns 17.2 for 17.25 and 2.1 for 2.15** — every rounding now goes through `Decimal.quantize`
+with the convention named. One test measured what §22.4 does not claim (δ₀ cancellation on T rather
+than on δ), and one asserted a sign disagreement on a reading the text does not use.
+
+## Chat 95's section read — Chapter 23, *The cost surface*
+
+MEASURED this chat, opening only: **Chapter 23 at L6178**, §23.1 L6180, §23.2 L6196, §23.2.1 L6215;
+the chapter runs to **L6622** and Chapter 24 opens **L6623**. That is **445 lines**, three times any
+section read yet closed, so **scan the headings forward and confirm every boundary on the member
+before reading a line**, then take §23.1–§23.2.x as the first unit. A section read is never split
+across chats, so choose a unit that will close.
+
+Chapter 23 is where two of chat 94's findings resolve: **14h-02** (V = w/e, §23.1 L6183) and
+**14h-06** (*the only linearly rising quantity*, against §23.1's V(x, p) = 4x/(h|p − 1|) at L6187).
+Confirm them from the chapter rather than re-deriving them. Expect the computable core at
+**Proposition 23.1** (L6199–L6204, a printed proof with V = 2(d₀+d₁)/|d₀−d₁| > 2), the **figure
+caption at L6193–L6194** (32/11 = 2.909 against 26/9, low by 0.69 % at ν = 2, converging by ν = 10),
+and the **pole at p = 1** (L6234, L6331, L6422). §23.2's *This holds for any monotone sequence
+whatever* (L6206) and *Every empirical V in this book is an instance of this bound* (L6211) are
+universal claims needing witnesses, and L6211's *understates* is a directional claim to measure
+separately.
+
+Instruments: **r2-ch14j** (computable) and **r2-ch14k** (prose). **Lift `section_span()`,
+`has_token()` and the appendix-aware `enclosing()` out of r2-ch14i.py into r2lib rather than copying
+them a third time** — DEFERRED records them as owed. Use chat 88's exact-token heading resolver,
+never prefix matching. Grep lowercase `register NNN` by hand; r2-tools' pointer regex is
+case-sensitive. Check every printed pair count against C(N, 2). Resolve every pointer to the claim
 and not the heading; before recording any pointer as unresolved, read the target section and test
 for the claim **as that section words it**, case-exact and word-bounded. Measure a claim and its
 stated witness separately; check the arithmetic of every ratio and percentage; where the text prints

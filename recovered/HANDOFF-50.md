@@ -101,7 +101,112 @@ not re-measure any of it.**
 
 **The three findings that carry furthest:**
 
-< truncated lines 104-209 >
+- **14n-A1 — a pointer names the one section that carries neither of its objects, and the right one
+  is measured.** L6501 sends the reader to §23.13 for *r ≥ 5* and *ν_V*; §23.13 ("Inversion",
+  L6569–L6581) carries ν_V 0, curvature 0, spacing 0 and `r ≥ 5` 0. **Both live at L6585, §23.14** —
+  which chat 98 reads. Confirm from the section when you reach it, then the repair is a retarget.
+- **14n-A3 — two sites cite Register entries that contain no such correction.** L6455 *the
+  correction is recorded at 96–98* and L6484 *withdrawn at correction 97*. Registers 96, 97, 98 are
+  each the single line *SUPERSEDED (Λ₈ successor development); see register 313*, and 313 is about
+  iteration in Λ₉. "V = 2", "Figure 23.3" and "matched order" appear **nowhere** in the Register.
+  Append-only, so this is a **missing entry**, joining the §18.4.1 item.
+- **14n-A4 — "1,585-fold" is not the quotient of its own two figures.** 25.96 / 0.0164 =
+  **1582.9268**. Restated with the same pair at **App E.2 L11037–L11038**, so the class has two
+  sites.
+
+**Also measured:** the ν_V docket closes on the §23.11 side — all fifteen main-volume ν_V sites are
+resolved to their sections and §23.11, which **both** L6270 and L6923 cite, carries it zero times;
+§23.15 carries four. §23.11's heading claims *four verdicts* against its own table's five (four
+patterns), and §23.11.1 then returns *repeated structure*, a verdict in none of the five and
+occurring once in six volumes. Verified exactly: the sign rule at j = 0…6; **560 containments, zero
+failures** over ν = 8…119, k = 1…5 in exact rational arithmetic; both printed widths (0.362;
+8.9350 × 10⁻⁶); both displacement figures as the distance to the nearer bracket end (0.128732;
+4.2675 × 10⁻⁶); 8/4 cells; 3.7 % → 81 %; the logistic-map caution at r = 2.5.
+
+**Eleven instrument faults, all self-caught and rewritten, none trimmed.** The three to carry are in
+DEFERRED's chat-97 block; the shortest form is: **re-read a verdict against the numbers printed
+below it as well as above it** (a verdict called a figure unreproducible two lines above its own
+reproduction); **a sign convention is not a magnitude** (an error term carried as −0.128598 was
+reported as reproducing 0.129 and poisoned two ratios); and **a token count cannot settle a
+pointer** (resolve to the section's own claim lines and print them).
+
+## Chat 98's section read — Chapter 23, §23.12 to the end
+
+MEASURED by heading scan on the member: **§23.12 L6549 through §23.15, ending L6622; 74 lines, five
+headings** — §23.12 6549, §23.13 6569, §23.14 6582, §23.14.1 6595, §23.15 6606. Chapter 24 opens
+**L6623**. **Re-scan them before reading a line.** The unit closes Chapter 23 and is well inside the
+141-line ceiling, so it takes the whole remainder in one read.
+
+**What this unit owes, beyond the read itself:**
+
+- **§23.15 closes chat 95's ν_V docket.** Read it once, then test both citing sites — main **L6270**
+  and **L6923** — against §23.15 as it words the claim, and close the **Ga I attribution** (14k-02):
+  §23.15 gives Al I nf's failing cells as n = 48, 51, 53, 54 and prints no ν_V for Ga I anywhere,
+  while L6270 names *Al I at n = 51 and Ga I at n = 53*. Note **§23.11.1 L6538 does name Ga I** — 15
+  members, one refusal, a bifurcation — so the question is not whether Ga I is mentioned but whether
+  any section gives Ga I a ν_V. Repair items under the chat-95 ruling, not questions.
+- **§23.14 is the true home of 14n-A1's two objects** (L6585 carries both `r ≥ 5` and ν_V). Confirm
+  from the section, then record the retarget.
+- **§23.14 "Two kinds of bound, and the book has been calling them"** is a vocabulary claim about
+  the book's own usage: test it against the six volumes' actual usage, word-bounded, not read.
+- **§23.13 "Inversion"** L6573 recovers exponents empirically (Na I −1.993, K I −1.998, C₃ 3.999,
+  α 6.990) — a fitted-exponent claim testable against the exact V of each observable; chat 96
+  measured all eight of §23.9.1's exact V values and they are in `r2-ch14l.out`, which reproduces
+  only when BUILD124 is on disk, so **read the values out of the banked golden rather than re-running
+  it**.
+- **§23.12 "The optimal order is a boundary, not a peak"** is testable against §23.10.2's V table,
+  which chat 97 measured as monotone in k across every row — a boundary and not a peak, on that
+  evidence. Test the section's own statement, not this sentence.
+
+Instruments: **r2-ch14p** (computable) and **r2-ch14q** (prose). Import `heading_line`,
+`section_span`, `has_token` and `enclosing` from r2lib by path; **copy nothing**; **read members,
+never a bundle**. Six functions are still owed to r2lib and DEFERRED lists them; add to that list
+that **`heading_line` requires a trailing space after the number**, so the Register's bare `### 96`
+headings return None — locate Register entries with an explicit `^#{1,4}\s*N\s*$` match.
+
+**Standing method, unchanged and all of it earned:** use the exact-token heading resolver, never
+prefix matching; never span a section by heading rank. Grep lowercase `register NNN` by hand. Check
+every printed pair count against C(N, 2). Resolve every pointer to the claim and not the heading,
+and before recording any pointer as unresolved **read the target section and test for the claim as
+that section words it**, case-exact and word-bounded — and if it fails there, grep the whole volume
+for the claim before recording it. Give every negative claim its own witness. Check the arithmetic
+of every ratio and percentage; **never round with `round()`** — use `Decimal.quantize` and name the
+convention; convert exact Fractions numerator/denominator. A formula numerator is not a value; a
+citation is not a declaration; a heading is not a statement; a bound is not a measurement; a
+boundary case is not a violation. Where the text prints a sample, measure the population. Grep the
+Register for a later entry naming the section before recording any figure as unreproducible.
+**When an instrument disagrees with a hand reading already taken from the file, the instrument is
+wrong until proved otherwise** — chat 94 hit that twice, chat 95 four times, chat 96 three, chat 97
+twice.
+
+## The repair docket
+
+Carried forward until R3 executes it. **None of these goes to M.** Chat 97's additions are in
+DEFERRED's chat-97 block in full; the docket below is the standing list.
+
+1. **§14.5.2–§14.5.7 — six heading-only sections, forty citations. R3's largest single item.**
+   MEASURED against the Prints & Proofs original (738,550 B · md5 49900cf41f818ab789bb90fc596ac977):
+   **authoring gap, not production loss.** Citations: §14.5.2 → 4, §14.5.3 → 1, §14.5.4 → 4,
+   §14.5.5 → 4, §14.5.6 → 3, **§14.5.7 → 24**. **Order:** read the Register's nine §14.5.7 citations
+   first and author to what they already say, then §21.5.4, then the Mathematical Compendium's
+   twelve. Chat 90's **seed(Λ₈) = 7** is the settled material §14.5.7 owes.
+2. **The §18.4.1 one-dimensional refinement — a missing Register entry** (main L5977–L5980).
+   Register 319, which the passage cites, states a different claim.
+3. **The Register has no entry for the correction §23.10.2 cites** (14n-A3) — a second missing
+   entry, written when the chat-67 hold lifts, and interacting with 5 below.
+4. **The σ collision — flagged for correction.** Rule 4 (main L6047) defines σ = 2R Z_eff² ·
+   SE_pred / ν³; §22.5 (L6168) uses σ as the levels' measured uncertainty, and substituting Rule 4's
+   σ into §22.5's r = 2Z²R/(ν³σ) cancels ν³ identically — MEASURED r = 100.000000 at ν = 10, 20, 40,
+   80.
+5. **The Ruling 45 class inside Chapter 23** (14n-A12) — L6453 *An earlier draft claimed…* and the
+   Figure 23.3 caption at L6483–L6484 *withdrawn at correction 97*. Captions state facts only.
+6. **§23.8.3's affine-invariance reason** (chat 96's 14l-16) — the docket's only *reason* item. R3
+   must decide which invariance the chapter claims before rewriting, and check §29.2 L7881, §29.7
+   L8052 and App D.4.1 L10377 for the same reasoning.
+7. **The §25.6 pointer with no target** (chat 96's 14m-01) — author the explanation or drop the
+   clause; the clause is load-bearing for the novelty claim beside it.
+8. **The pointer-off-by-one class, now five members and never yet swept as a class** — 14n-A1,
+   14n-A2, 14n-A7, chat 95's 14k-01, chat 96's 14m-01. R3 sweeps **every §-pointer in the six
    volumes against the claim rather than the heading**; `enclosing` makes the test cheap: find the
    claim's sites, resolve each to its section, compare with the section cited.
 9. **The unprinted-input class, now nine members** — §22.1.2 needs δ = 0.35; §22.4.1 needs

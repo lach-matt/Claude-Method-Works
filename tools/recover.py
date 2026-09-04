@@ -198,6 +198,11 @@ def harvest_blocks(wanted):
     return found
 
 
+def _negate_date(value):
+    """Sort key that puts the newest date first while ascending."""
+    return tuple(-ord(c) for c in value)
+
+
 def target_for(filename, digest, newest):
     if digest == newest:
         return filename
@@ -222,9 +227,15 @@ def build(write=True):
     written = 0
     for filename in sorted(found):
         versions = found[filename]
-        # newest conversation keeps the plain name
-        ordered = sorted(versions.items(),
-                         key=lambda kv: index.get(kv[1][0], ("", ""))[1], reverse=True)
+        # A complete body always outranks a truncated one for the plain name, and
+        # only then does recency decide. Ordering on date alone hands the canonical
+        # name to whichever conversation was latest -- which for HANDOFF-37/38/39
+        # is the one showing an elided view, leaving the full text hidden behind a
+        # __<md5> suffix. Completeness first, then newest.
+        ordered = sorted(
+            versions.items(),
+            key=lambda kv: (bool(TRUNCATED.search(kv[1][1])),
+                            _negate_date(index.get(kv[1][0], ("", ""))[1])))
         newest = ordered[0][0]
         for digest, (shard, body) in ordered:
             title, created = index.get(shard, ("", ""))
@@ -303,7 +314,7 @@ def selftest():
     blocks = harvest_blocks(census_wanted() - set(found))
     check("census names reached only by the code-block rule", len(blocks), 123)
     trunc = sum(1 for vs in found.values() for _, b in vs.values() if TRUNCATED.search(b))
-    check("bodies carrying a truncation marker", trunc, 15)
+    check("bodies carrying a truncation marker", trunc, 23)
     check("HANDOFF-47.md among them", "HANDOFF-47.md" in blocks, True)
     print("\n%s" % ("SELFTEST OK" if ok else "SELFTEST FAILED"))
     return 0 if ok else 1

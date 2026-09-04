@@ -97,46 +97,7 @@ for it is false* — and §18.1.3 announces its own limits, so read the two agai
 **Patterns chats 77–86 established, to watch for:** a running self-count printed several ways in one
 chapter (13j-11, 13p-03, 13p-09); a class minimum or a sample printed as a population (13j-01,
 13p-01) **and now its inverse, a population-shaped figure printed as a sample (13r-01)** — check
-every pair count against C(N, 2), which is this volume's convention, verified exact at three sites;
-a figure left stale by an earlier absorption (13p-04); a section attributing a proof, table, count,
-rule or constraint form to a neighbour that does not contain it (13d-01, 13h-01, 13i-04, 13j-08,
-13l-03, 13l-05, 13o-01, 13p-06, **13r-05**, **13r-06**); a claim true while the statement printed for
-it is false (13g-01, 13h-04, 13j-01, 13l-01, 13n-01, 13p-02, **13r-03**); a figure printed with its
-population or its defining term unstated (13j-07, 13l-06, 13l-09, 13n-02, 13o-03, 13p-11, 13p-13,
-**13r-08**, **13r-09**); a section contradicting its own adjacent table or its own bijection (13p-10,
-**13r-01**); and **new this chat, a promise with no referent** — a colon, "the criterion is:", or a
-"three X" head that the following lines do not deliver (**13r-04**). Resolve every pointer to the
-claim, never to the heading; check the arithmetic of every ratio, percentage and pair count as well
-as every count; measure a claim and its stated witness separately; and where the text prints a
-sample, measure the population. **Chat 85's C9 is the standing warning against letting a display
-artefact become a finding.** Measure from the file (G0aa, G0c).
-
-**Per section read (close it — files written, md5s measured, both goldens banked — before the next
-opens):** `python3 members/r2-tools.py lines|pointers|figures|census|layout A B` over the whole
-section (its pointer regex is case-sensitive and does not know Appendix A's item numbers or Chapter
-4's protocol rows — a bare `§4.6` or `A.2` reported UNRESOLVED is usually one of those, not a defect;
-and a `§N` inside a quoted external citation is an artefact, not a pointer); read every line; census
-the claims into the two kinds, writing the census into the READ file; then the two batches in
-`members/r2-chNN.py` (next names **r2-ch13t** computable, **r2-ch13u** prose), importing r2lib by path:
-
-```
-import importlib.util, os; H=os.path.dirname(os.path.abspath(__file__))
-s=importlib.util.spec_from_file_location('r2lib', os.path.join(H,'r2lib.py')); r2lib=importlib.util.module_from_spec(s); s.loader.exec_module(r2lib); T=r2lib.load_tower()
-```
-
-**`load_tower()` returns the tower-2 MODULE — call `T.L8()`, `T.L9()`, `T.L10()`, not `T[8]`.** r2lib
-carries build9/tarjan/analyse, is_tree, closure/factor_q/ci/components/separates, support/direct/
-composed, mi/ci_sets/gG_index, lam9p, read_member, md5, the Λ₉/Λ₉′ and (g, G) constants, `Rset`,
-`cover_model`, `cover_reduce`, `exact_seed`, `enum_min_covers`, `closure_mask`, `staircase`, and
-**`L8_at(caps)`** — the tower at arbitrary caps, caps = (n_max, e_max, l_max, k_max, f_max);
-(3,3,1,3,1) → 976, (3,3,1,4,1) → 1,636, (4,3,1,4,1) → 2,394, and 216 at 32 distinct settings of which
-only 4 give all eight axes more than one value. Still owed, to be lifted verbatim with provenance when
-a batch next needs them (DEFERRED lists them): r2-ch12c/e/g/h's functions; chat 75's `closure_chunked`,
-`fixed_point`, `length`, `fibre_check`, `criterion`; chat 76's `terms`, `new_terms`, `jc_values`,
-`TERMS` and **`phi_at`**; chat 77's stage-composability sets; chat 78's `first_fail` / `failing_pairs`
-(note r2lib.closure counts **ordered** pairs including self, so halve for the unordered counts the
-book prints); chat 79's `sections(X, w)` and `R(X)` / `failing(X, op)`; chat 80's `Rn(X)` and
-r2-ch13f's interval Box/binding measure; chat 84's numeric-Jacobian + pivoted `rank` pair, the
+< truncated lines 100-139 >
 Slater-determinant term engine and the alphabet sweep; chat 85's `therm`/`untherm` (thermometer
 bit-packing — join is bitwise OR, meet is bitwise AND), `lat_closure`, `Rtree` and `pushback` —
 **`therm`/`untherm` have now been carried verbatim twice and should be lifted next**.

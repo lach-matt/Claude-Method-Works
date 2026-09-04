@@ -24,6 +24,14 @@ python3 tools/recover.py --selftest # assert the corpus's own recorded numbers
 
 **Truncated bodies were labelled as whole.** A chat that shows a file through a paging viewer elides the middle and says so. That display is valid text and hashes cleanly, so `--verify` passed it and the ledger called it `RECOVERED`. Twenty-three files are affected — **every one from the code-block rule, none from the heredoc rule** — the worst being `HANDOFF-53.md` at 160 lines missing. They now carry `RECOVERED-TRUNCATED` and a note stating the line count.
 
+**A truncated body could hold the canonical name.** Versions were ordered by conversation date
+alone, so the newest won the plain name and older ones took the `__<md5>` suffix. But for
+`HANDOFF-37`, `-38`, `-39` and `-53` the newest conversation is the one showing an *elided* view, so
+the plain name held the truncated text while the full document hid behind a suffix — the exact
+inversion of what a reader expects. Completeness now outranks recency: a body with no truncation
+marker takes the plain name, and only among equals does the newest win. `HANDOFF-53.md` went from
+16,165 to **29,951 bytes** on that change alone.
+
 **The tool was not idempotent.** Its code-block rule asked `COVERAGE.tsv` which names the repo still lacked — but `COVERAGE.tsv` is regenerated *from* `recovered/`, so every name this tool recovered turned `HELD` and vanished from the next run's wanted-set. A second run produced 2,196 rows where the first produced 2,337, with the extra files still on disk and no longer in the ledger. The rule now reads the artefact column unfiltered, making it a pure function of the corpus. That also widened its reach: 163 by-heading recoveries where the status-filtered version found 141. Among them **71 handoffs**, **68 `READ-*` slips** and over a thousand `.py`
 instruments. Every one is verified: `--verify` re-hashes the tree against `LEDGER.tsv` and reports
 `0 bad`.

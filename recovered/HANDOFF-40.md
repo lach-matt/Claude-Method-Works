@@ -96,7 +96,64 @@ and Chapter 19 is where it becomes unavoidable — three chats have now deferred
 chapter (13j-11, 13p-03, 13p-09, **13t-03**, **13t-10**); a class minimum or a sample printed as a
 population (13j-01, 13p-01) and its inverse, a population-shaped figure printed as a sample (13r-01)
 — check every pair count against C(N, 2), this volume's convention, now verified exact at five sites;
-< truncated lines 99-156 >
+a figure left stale by an earlier absorption (13p-04, confirmed at its second site **13t-11**); a
+section attributing a proof, table, count, rule or constraint form to a neighbour that does not
+contain it (13d-01, 13h-01, 13i-04, 13j-08, 13l-03, 13l-05, 13o-01, 13p-06, 13r-05, 13r-06,
+**13t-08**); a claim true while the statement printed for it is false (13g-01, 13h-04, 13j-01,
+13l-01, 13n-01, 13p-02, 13r-03, **13t-04**); a figure printed with its population or its defining
+term unstated (13j-07, 13l-06, 13l-09, 13n-02, 13o-03, 13p-11, 13p-13, 13r-08, 13r-09, **13t-05**,
+**13t-07**); a section contradicting its own adjacent table (13p-10, 13r-01, **13t-02**); a promise
+with no referent (13r-04); and **new this chat, a label pointing at nothing** — a theorem, object or
+section number cited by name that occurs nowhere in the six volumes (**13t-01**, **13t-06**). Resolve
+every pointer to the claim, never to the heading; check the arithmetic of every ratio, percentage and
+pair count as well as every count; measure a claim and its stated witness separately; and where the
+text prints a sample, measure the population. **Chat 85's C9 is the standing warning against letting
+a display artefact become a finding** — 13t-06 stops short of an impossibility claim for exactly that
+reason. Measure from the file (G0aa, G0c).
+
+**Per section read (close it — files written, md5s measured, both goldens banked — before the next
+opens):** `python3 members/r2-tools.py lines|pointers|figures|census|layout A B` over the whole
+section (its pointer regex is case-sensitive and does not know Appendix A's item numbers or Chapter
+4's protocol rows — a bare `§4.6` or `A.2` reported UNRESOLVED is usually one of those, not a defect,
+and L5011 is now its third site; and a `§N` inside a quoted external citation is an artefact, not a
+pointer). **Its heading resolver reads the front-matter contents list**, so a chapter pointer
+resolves to L120–L172 rather than the body; take the later match — chat 87's r2-ch13u carries the
+two-line fix. Read every line; census the claims into the two kinds, writing the census into the READ
+file; then the two batches in `members/r2-chNN.py` (next names **r2-ch13v** computable, **r2-ch13w**
+prose), importing r2lib by path:
+
+```
+import importlib.util, os; H=os.path.dirname(os.path.abspath(__file__))
+s=importlib.util.spec_from_file_location('r2lib', os.path.join(H,'r2lib.py')); r2lib=importlib.util.module_from_spec(s); s.loader.exec_module(r2lib); T=r2lib.load_tower()
+```
+
+**`load_tower()` returns the tower-2 MODULE — call `T.L8()`, `T.L9()`, `T.L10()`, not `T[8]`.** r2lib
+carries build9/tarjan/analyse, is_tree, closure/factor_q/ci/components/separates, support/direct/
+composed, mi/ci_sets/gG_index, lam9p, read_member, md5, the Λ₉/Λ₉′ and (g, G) constants, `Rset`,
+`cover_model`, `cover_reduce`, `exact_seed`, `enum_min_covers`, `closure_mask`, `staircase`, and
+**`L8_at(caps)`** — the tower at arbitrary caps, caps = (n_max, e_max, l_max, k_max, f_max);
+(3,3,1,3,1) → 976, (3,3,1,4,1) → 1,636, (4,3,1,4,1) → 2,394. Still owed, to be lifted verbatim with
+provenance when a batch next needs them (DEFERRED lists them): r2-ch12c/e/g/h's functions; chat 75's
+`closure_chunked`, `fixed_point`, `length`, `fibre_check`, `criterion`; chat 76's `terms`,
+`new_terms`, `jc_values`, `TERMS`, `phi_at`; chat 77's stage-composability sets; chat 78's
+`first_fail` / `failing_pairs` (r2lib.closure counts **ordered** pairs including self, so halve for
+the unordered counts the book prints); chat 79's `sections(X, w)` and `R(X)` / `failing(X, op)`;
+chat 80's `Rn(X)` and r2-ch13f's interval Box/binding measure; chat 84's numeric-Jacobian + pivoted
+`rank` pair, the Slater-determinant term engine and the alphabet sweep; chat 85's `therm`/`untherm`,
+`lat_closure`, `Rtree` and `pushback`; and **new, chat 87's `viol`, `failcount` and `parts`**.
+
+**The two tools chat 87 adds.** **`viol(X, h, axes)`** reports a function's non-monotonicity under
+five readings at once — comparable pairs, covering pairs, unit steps, join-homomorphism failures, and
+the projection over realised value tuples — which is what let 13t-04 be stated as *no reading
+reproduces the printed figure* rather than *one reading does not*. Use it for every "N violations"
+figure in the volume. **`parts(n, N)`** enumerates partitions of s ≤ N into at most n parts, which is
+the cell set behind §18.4.2's whole table; the printed reading of an unstated cell set is usually
+findable by sweeping two or three natural readings and taking the one that reproduces every row, as
+it did for §18.4.1's cap table (6 of 6 at side 4, 0-based) and §18.4.1's fibre table (5 of 5 on the
+364 non-increasing triples over 1…12).
+
+**Chat 86's reduction still holds and is still the cheapest tool in the box.** For any h that is a
+function of coordinates (i, j), the (i, j) part of a join is (max, max) and of a meet is (min, min),
 so quantifying over the **realised value pairs of the projection of Λ onto (i, j)** is exhaustive
 over all cell pairs at ≤ 256 tests instead of 475,800. Chat 87 extended it to a closure proof: Λ₁₁'s
 13,585 cells were shown closed by testing that all **110** φ̂ bounds are monotone on their realised

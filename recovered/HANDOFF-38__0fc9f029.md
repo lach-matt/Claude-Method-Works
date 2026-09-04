@@ -96,36 +96,7 @@ here, and this section read is where it must be measured or withdrawn.
 **Patterns chats 77–85 established, to watch for:** a running self-count printed several ways in one
 chapter (13j-11, 13p-03, 13p-09 — now measured in three chapters); a class minimum or a sample
 printed as a population (13j-01, 13p-01 — and in 13p-01 the section's own figure caption carried the
-right number); a figure left stale by an earlier absorption (13p-04, the first Löwdin/three-body
-residue — sweep extent-like counts against their post-absorption values); a section attributing a
-proof, table, count or constraint form to a neighbour that does not contain it (13d-01, 13h-01,
-13i-04, 13j-08, 13l-03, 13l-05, 13o-01, and now **13p-06**, off by one subsection); a claim true
-while the statement printed for it is false (13g-01, 13h-04, 13j-01, 13l-01, 13n-01, **13p-02**); a
-figure printed with its population or its defining term unstated (13j-07, 13l-06, 13l-09, 13n-02,
-13o-03, **13p-11**, **13p-13**); a section contradicting its own adjacent table (**13p-10**).
-Resolve every pointer to the claim, never to the heading; check the arithmetic of every ratio and
-percentage as well as every count; measure a claim and its stated witness separately; and where the
-text prints a sample, measure the population. **Chat 85's C9 is the standing warning against letting
-a display artefact become a finding:** §16.3 L4366 looked truncated in a 150-character view and is
-complete in the file. Measure from the file (G0aa, G0c).
-
-**Per section read (close it — files written, md5s measured, both goldens banked — before the next
-opens):** `python3 members/r2-tools.py lines|pointers|figures|census|layout A B` over the whole
-section (its pointer regex is case-sensitive and does not know Appendix A's item numbers or Chapter
-4's protocol rows — a bare `§4.6` or `A.2` reported UNRESOLVED is usually one of those, not a defect;
-and a `§N` inside a quoted external citation is an artefact, not a pointer); read every line; census
-the claims into the two kinds, writing the census into the READ file; then the two batches in
-`members/r2-chNN.py` (next names **r2-ch13r** computable, **r2-ch13s** prose), importing r2lib by path:
-
-```
-import importlib.util, os; H=os.path.dirname(os.path.abspath(__file__))
-s=importlib.util.spec_from_file_location('r2lib', os.path.join(H,'r2lib.py')); r2lib=importlib.util.module_from_spec(s); s.loader.exec_module(r2lib); T=r2lib.load_tower()
-```
-
-**`load_tower()` returns the tower-2 MODULE — call `T.L8()`, `T.L9()`, `T.L10()`, not `T[8]`.** r2lib
-carries build9/tarjan/analyse, is_tree, closure/factor_q/ci/components/separates, support/direct/
-composed, mi/ci_sets/gG_index, lam9p, read_member, md5, the Λ₉/Λ₉′ and (g, G) constants, `Rset`,
-`cover_model`, `cover_reduce`, `exact_seed`, `enum_min_covers`, `closure_mask`, `staircase`, and
+< truncated lines 99-128 >
 **`L8_at(caps)`** — the tower at arbitrary caps, caps = (n_max, e_max, l_max, k_max, f_max);
 (3,3,1,3,1) → 976, (3,3,1,4,1) → 1,636, (4,3,1,4,1) → 2,394, and 216 at 32 distinct settings of which
 only 4 give all eight axes more than one value. Still owed, to be lifted verbatim with provenance when

@@ -102,7 +102,117 @@ any of it.**
   nd row reaches 12.7 and no K I channel passes 15.8. The K I row cannot be a sibling-channel slip,
   so at least one figure points outside the six volumes. **The first main-volume/compendium
   contradiction of the phase**; DEFERRED's chat-98 block sets the sweep.
-< truncated lines 105-215 >
+- **14q-03 / 14q-04 — the ν_V docket closes.** No site in the six volumes gives Ga I a ν_V. §25.5
+  L6976's 51.7 is a **ν**, read from its header at L6972 — the number sits beside Ga I and reads like
+  a ceiling until the header is read. L6270 hands Ga I one of Al I's own failing cells: §23.15 lists
+  **51 and 53 both** for Al I *n*f. L6270 and L6923 retarget from §23.11 to §23.15.
+- **14p-03b — a reproducing column with an unprinted convention.** All four §23.12 Δ^(k+1)T rows come
+  out of R/n² with the volumes' own R and no quantum defect, on **the m+1 levels nearest ν, ties
+  broken downward**. The window is never stated. Tenth member of the unprinted-input class and the
+  cheapest to repair; 14p-11 (the +0.86 Hill slope) and 14p-12 (the Kirkwood floor) are the eleventh
+  and twelfth and are not cheap.
+- **14p-17 — two figures that looked unsourced are sourced.** The 94 is Al I's usable cells over its
+  four channels (50+30+11+3); the 55 is Li I's over its three undivided ones (39+8+8). **Grep the
+  Spectra Compendium's channel table before recording any cell count as unsourced.**
+
+**Eleven instrument faults, all self-caught and rewritten, none trimmed.** The three to carry are in
+DEFERRED's chat-98 block; the shortest form is: **a negative result from a sweep is a statement about
+the sweep** (a two-anchor sweep called a reproducing column unreproducible); **ν is not n** (41.8 is
+the ν a series reaches, not its last principal quantum number); and **read the header, never the
+neighbourhood**. Chat 97's note still bites: two of the eleven were verdicts contradicting numbers
+the instrument printed **below** them.
+
+## Chat 99's section read — Chapter 24, the collection
+
+MEASURED by heading scan on the member: **Chapter 24 opens L6623 and runs to L6883; §25 opens
+L6884.** Headings: 24 (6623), 24.1 (6634), 24.2 (6653), 24.3 (6668), 24.4 (6688), 24.5 (6699), 24.6
+(6710), 24.7 (6725), 24.8 (6741), 24.9 (6752), 24.10 (6817), 24.11 (6826), 24.12 (6844), 24.13
+(6857). **261 lines, fourteen headings — too large for one read.** **Re-scan before reading a line.**
+
+**Proposed split, three reads** (chat 99 decides its own unit before reading, and may re-cut):
+
+- **Chat 99: L6623–L6740 — §24 through §24.7**, 118 lines, eight headings, closing before the
+  independence argument. Inside the 141-line ceiling.
+- Chat 100: §24.8–§24.9, L6741–L6816 (76 lines) — §24.9 alone is 65 lines and is the chapter's
+  longest.
+- Chat 101: §24.10–§24.13, L6817–L6883 (67 lines), closing the chapter.
+
+**What this unit owes, beyond the read itself:**
+
+- **The census claim.** §24.12 is titled *The census, computed rather than searched* — outside chat
+  99's proposed unit, but §24.1 *What it spans* and §24.2 *The largest contributors* will state spans
+  and counts that the **Spectra Compendium's 477 channel rows** can settle exactly. After 14p-19,
+  **every count and every ν attributed to a named species must be measured against that species'
+  compendium rows**, not merely checked for internal consistency.
+- **He I, He II and Bi I get their own sections** (§24.3–§24.5) and each will carry species-specific
+  figures. The compendium's row format is
+  `| species | channel | n range | members | usable | fit | ν range | δ̄ | spread | Z | limit |` —
+  columns 4 and 5 are members and usable, column 7 is the ν range. Chat 98's 14p-17 and 14p-19 both
+  came out of those columns.
+- **§24.7 "Hydrogen, and a floor on interpretation"** will make a claim about the δ = 0 case that the
+  tower can test directly.
+- **L6634 is one of the four heading-runs-into-body sites** (14q-06) and sits at the head of this
+  unit; it is a table header rather than a sentence, so read it before assuming it is the same defect
+  as §23.14's.
+
+Instruments: **r2-ch14r** (computable) and **r2-ch14s** (prose). Import `heading_line`,
+`section_span`, `has_token` and `enclosing` from r2lib by path; **copy nothing**; **read members,
+never a bundle**. Six functions are still owed to r2lib and DEFERRED lists them; note that
+`heading_line` requires a trailing space after the number, so the Register's bare `### 96` headings
+return None — locate Register entries with an explicit `^#{1,4}\s*N\s*$` match.
+
+**Standing method, unchanged and all of it earned:** use the exact-token heading resolver, never
+prefix matching; never span a section by heading rank; **r2lib's resolvers take the LINE LIST, not
+the member text** (chat 98's first fault). Grep lowercase `register NNN` by hand. Check every printed
+pair count against C(N, 2). Resolve every pointer to the claim and not the heading, and before
+recording any pointer as unresolved **read the target section and test for the claim as that section
+words it**, case-exact and word-bounded — and if it fails there, grep the whole volume before
+recording it. Give every negative claim its own witness. **State what a sweep covered before
+recording a negative from it.** Check the arithmetic of every ratio and percentage; **never round
+with `round()`** — use `Decimal.quantize` and name the convention; convert exact Fractions
+numerator/denominator. A formula numerator is not a value; a citation is not a declaration; a heading
+is not a statement; a bound is not a measurement; a boundary case is not a violation; **a number
+beside a species is not that species' ceiling** — read the header. Where the text prints a sample,
+measure the population — the Spectra Compendium usually holds it. Grep the Register for a later entry
+naming the section before recording any figure as unreproducible. **When an instrument disagrees with
+a hand reading already taken from the file, the instrument is wrong until proved otherwise** — chat
+94 hit that twice, chat 95 four times, chat 96 three, chat 97 twice, chat 98 twice.
+
+## The repair docket
+
+Carried forward until R3 executes it. **None of these goes to M.** Chat 98's additions are in
+DEFERRED's chat-98 block in full; the docket below is the standing list.
+
+1. **§14.5.2–§14.5.7 — six heading-only sections, forty citations. R3's largest single item.**
+   MEASURED against the Prints & Proofs original (738,550 B · md5 49900cf41f818ab789bb90fc596ac977):
+   **authoring gap, not production loss.** Citations: §14.5.2 → 4, §14.5.3 → 1, §14.5.4 → 4,
+   §14.5.5 → 4, §14.5.6 → 3, **§14.5.7 → 24**. **Order:** read the Register's nine §14.5.7 citations
+   first and author to what they already say, then §21.5.4, then the Mathematical Compendium's
+   twelve. Chat 90's **seed(Λ₈) = 7** is the settled material §14.5.7 owes.
+2. **The §18.4.1 one-dimensional refinement — a missing Register entry** (main L5977–L5980).
+   Register 319, which the passage cites, states a different claim.
+3. **The Register has no entry for the correction §23.10.2 cites** (14n-A3) — a second missing entry,
+   written when the chat-67 hold lifts, and interacting with 5 below.
+4. **The σ collision — flagged for correction.** Rule 4 (main L6047) defines σ = 2R Z_eff² ·
+   SE_pred / ν³; §22.5 (L6168) uses σ as the levels' measured uncertainty, and substituting Rule 4's
+   σ into §22.5's r = 2Z²R/(ν³σ) cancels ν³ identically — MEASURED r = 100.000000 at ν = 10, 20, 40,
+   80.
+5. **The Ruling 45 class inside Chapter 23** (14n-A12) — L6453 *An earlier draft claimed…* and the
+   Figure 23.3 caption at L6483–L6484 *withdrawn at correction 97*. Captions state facts only.
+6. **§23.8.3's affine-invariance reason** (chat 96's 14l-16) — the docket's only *reason* item. R3
+   must decide which invariance the chapter claims before rewriting, and check §29.2 L7881, §29.7
+   L8052 and App D.4.1 L10377 for the same reasoning.
+7. **The §25.6 pointer with no target** (chat 96's 14m-01) — author the explanation or drop the
+   clause; the clause is load-bearing for the novelty claim beside it.
+8. **The pointer-off-by-one class, now eight members and never yet swept as a class** — 14n-A1,
+   14n-A2, 14n-A7, chat 95's 14k-01, chat 96's 14m-01, and chat 98's 14q-02, 14q-03, 14q-04. R3
+   sweeps **every §-pointer in the six volumes against the claim rather than the heading**;
+   `enclosing` makes the test cheap.
+9. **The unprinted-input class, now twelve members** — §22.1.2's δ = 0.35; §22.4.1's δ₂ = 0.06;
+   L6060's 446×, L6068's 1,577, L6093's 3.47 %, L6104's *factor of 17*; §23.1 L6189's *agreement
+   under 1 %*; §23.9.3's two columns; §23.10.3's displacement row; and chat 98's **§23.12 window**
+   (a convention, cheap), **+0.86 Hill slope** and **Kirkwood detection floor** (both absent data).
+   R3 should split the class into *conventions unstated* and *inputs absent*.
 10. **The 32/11 scope docket** (14j-01), with six measured main-volume sites — L6193, L6213, L6233,
     L6237, L6381, L10245 — plus 2.909 at four. L6381 claims the floor as an original result and must
     be repaired **after** the scope decision, not with it.

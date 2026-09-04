@@ -88,93 +88,113 @@
   (**52 `##` headings — 51 chat blocks plus the verbatim HANDOFF-25 block; chat 123's is the last**)
   governs; do not re-derive.
 - **One open scope question, put to M by chat 113 and not yet answered** (a scope choice, not a
-< truncated lines 91-491 >
-  the gate itself, now read by **fifteen** banked instruments — the certificates,
-  OWED-REGISTER-EXPANSIONS.md, OWED-EXPANSIONS-2.md, covers8.json, factor.py.
+  finding, so properly M's): should R2's remaining scope stay a full source-order read of all six
+  volumes, or should the five compendia be read against what the transversal sweeps have already
+  covered rather than line by line? Measured basis: main volume now **78.5 % read at L9306**, the
+  other five volumes 0 % in source order but swept transversally by every batch since chat ~90;
+  measured rate ~74–150 main-volume lines per chat. **Do not re-ask it unprompted; carry it.**
 
-## Prompt for chat 124
+## §0 Gate (each step its own tool call under `timeout 280`; any FAIL stops the chat with a report)
 
-"Chat 124. READ EVERYTHING BEFORE YOU DO ANYTHING. Live files: BUILD90 main (1,983,081 B, md5
-49065309b0c4fe8e055f693aed295cca) and BUILD152 compendia (7,146,099 B, md5
-38bd45711e2813dc9b73d8335a306103, 94,030 lines, 562 members). List uploads, outputs and /home/claude
-first. Run HANDOFF-76's §0 gate in full and in order — fetch both bundles by title, bootstrap
-(decode, md5, extract, expect 564 files), fetch the Prints & Proofs original 'The Method 1.6.md'
-(738,550 B, md5 49900cf41f818ab789bb90fc596ac977) to /home/claude/PP_The_Method_1_6.md because
-fifteen banked instruments read it, then gate.py census, run --core, manifest, run r2-ch16q
-r2-ch16r, cert 124; any FAIL stops the chat with a report. Read RULINGS-R2.md last block first: the
-chat-95 block governs and it says a finding is not a question — deviations in the mathematics and in
-the prose are recorded and flagged for repair, never put to M, and Prints & Proofs is read before any
-question is asked. Do not ask M to rule on a defect. Read DEFERRED.md; chat 123's block is the last
-of fifty-one chat blocks (fifty-two ## headings). The standing block's Phase 0–4 Löwdin/three-body
-plan is executed carried state; discard it per Ruling 41 — its discard is W-118. Line numbers are
-MEMBER line numbers and are never carried between chats, and neither is any count or any heading
-list. §32.5 through §32.6.1 are CLOSED: chat 123 closed L9157–L9306. §32.7 opens at L9307 and
-# PART VII at L9393. Re-measure by heading scan, resolving each heading to its BODY occurrence —
-'## 30.', '## 31.', '## 32.', '## 33.' and '## References' each have two occurrences and taking the
-contents one reports every attribution unbibliographed, while Chapters 20 and 21 have only ONE
-because their contents entries are plain body lines at L138–L139. The proposed unit is L9307–L9392
-(§32.7 alone, 86 lines), which closes chapter 32. Cut it yourself and say which you chose, preferring
-the cut that closes a movement, and never split a section read. §32.7 is 'On a verification that does
-not test its claim': read it against §32.3 L9045–L9052, because L9328 is the second site of
-'twenty-member channel', 'self-duality' and 'involution', so the two accounts of the traced audit
-failures must agree. Count every count word against its own body, its DATA rows, its numeral span,
-its own body's status markers AND the Register entry that restates it — chat 123 found 'four indices'
-printed twice over five terms with register 396 carrying the same 'across the four', and 'thirty-nine
-claims … each has been given one' over a table showing seven bare before repair and three after.
-Read every cited criterion IN FULL at its target before accepting OR rejecting the conclusion:
-chat 123 printed §16.5, §16.3, §6.3, §14.5.6, §E.1.4, §29.2.2, §31.3.4 and Appendix B whole, and
-three of ten deviations were visible only in the full text — §16.5 read whole is D3, stating totality
-as χ_Λ total on the ambient box, and carries nothing of the bibliographic condition §32.5.3
-attributes to it. Re-measure every figure a section computes about the BOOK against the book as it
-now stands; chat 123's '18 / 18' figures is now 33 embedded, 33 distinct tags, 0 unpaired. Derive a
-table's convention from the book before scoring the table, and find its missing input before calling
-a recomputation circular — the Sc VI limit is printed at L6914 (892,700 ± 400 cm⁻¹) and with
-δ(4s) = 1.0057 and δ(5s) = 0.9812 from L7004 all six figures reproduce exactly. Never round with
-Python's round(); use Decimal.quantize and name the convention. A numeral sweep must match the
-printed thousands separator. The volume heads appendices '## Appendix X — …' twice, so
-lettered_heading returns None for Appendix B and E — use a body-occurrence resolver; and
-heading_line is numeric-only, so §E.1.4 resolves to None though the volume heads it at L10986 —
-a lettered pointer needs §([A-Z]\.\d+(?:\.\d+)*). A pointer-site regex must be §N(?!\d)(?!\.\d).
-A caption count is not a caption test: pair each embed against a following window. \b(I|my|we|our)\b
-matches the Roman numeral in 'He I'. A literal 'Sc VI' probe scores zero in the Spectra Compendium,
-which carries Sc rows at L800–L810 — a literal species string is not a species test. Measure the
-census rows in range yourself from DEFECT-CENSUS.tsv keyed on the column named member, whose values
-are all, ioi, main, mc, pc, reg and sc; sweep classes main AND all; chat 123's range held four, one
-of them a defect. Do not re-derive chat 123's findings: the Sc VI table exact at six of six, the
-seven display lines of §25.6.1–2, 33 figures all paired, all 36 chapters present with no absent
-cross-reference, the condition-2 table exact at every cell and percentage, condition 3 exact at one
-genuine hit, 0+16+40+5+4 = 65, and registers 275, 387, 396 and 573 all present and on point with
-396's five terms summing to 44 against its printed 43. Register 571 has NO ENTRY and is cited at
-L7719 and L9274 — recorded, not re-derived, and never put to M. Then continue Phase R2 under the
-chat-81 cadence: read the unit in full, census its claims into computable and prose, then run exactly
-two instrument batches, r2-ch16s computable and r2-ch16t prose, importing heading_line, section_span,
-has_token, enclosing, Rset, L8_at and is_tree from r2lib — copy nothing, pass them the LINE LIST and
-not the member text, read the six volume MEMBERS never a BUILDnnn bundle path, and note that
-tower-2.py's L8 is a FUNCTION, so call it, and that L8_at takes (n_max, e_max, l_max, k_max, f_max)
-in that order. r2lib.factor_q is a Λ₉ function and cannot be called on 8-tuples. Report numeral SITES
-rather than counts, and sweep the word form too. A symbol is tested raw and never transliterated.
-has_token is letter-bounded on BOTH sides, so use a left-bounded matcher for a stem, and test a
-Ruling 46 token case-sensitively and word-bounded. A colon-terminated lead-in is not a list item.
-Anchor every Prints & Proofs witness on its own text — chat 123 measured a uniform −94 at sixteen
-witnesses for sixteen. body_range is the resolver for a section body and section_span for a chapter;
-resolve every pointer under BOTH before recording an absence, say so when they coincide, and locate
-where the claim does live — §14.5.6 is heading-only in BUILD90 and in PP, and the pair it is cited
-for lives in register 573. A heading-RANK scan can never end a span. A token probe is not a reading;
-where a section is short, print it rather than probe it. An identity entailed by another is not an
-independent test. A Register entry restating a count is not independent corroboration of it. Sweep:
-every attribution against the BODY occurrence of ## References and against R.7, and the reverse
-direction too; every register citation against its entry's headline, grouped-aware and existence
-first; every section citing another for a figure the cited section later withdrew. Figure references
-are a production layer: the volume has 33 and PP has none, no .png is a member, and an unresolvable
-image path is NOT a text defect. The book's present is 2026. Expect the instrument to be wrong before
-the book — that fired four times in chat 123, three in 122, six in 121, four in 120. Name the pair
-convention before reporting any pair count, the monomial order before any Groebner basis size, and
-the closure convention before any E(X). Give every negative claim its own witness and state what a
-sweep covered. Record the passes as well as the failures, or a class will look worse than the book
-is. Index each volume once rather than rescanning it per phrase. Close the section read before the
-next opens. At close: bank both goldens with gate.py bank, write W-163 ending with a blank line,
-build BUILD153 with close.py (reverse must recover 38bd4571…), write HANDOFF-77 BEFORE the final
-verification, and begin the close with at least eight tool calls left. No corrections, no Register
-entries, no TASK 1 until the review closes. Handoff at 90–95% of context or on a closed section read
-— never earlier, never mid-section. Timeout on every call. Delete-only calls for pycache, never
-chained to any other command. Never copy over an existing file."
+1. `ls -la /mnt/user-data/uploads /mnt/user-data/outputs /home/claude`; `recent_chats` confirms the
+   latest chat is 123. Read `/mnt/project/CLAUDE.md` (project instruction; never a member).
+2. Fetch both bundles by title: `Google Drive:search_files` with
+   `title contains 'BUILD152_compendia' or title contains 'BUILD90_main'`, pageSize 5,
+   excludeContentSnippets; `Google Drive:download_file_content` on each fileId. Both spill to
+   `/mnt/user-data/tool_results/<id>.json`; note the two paths.
+3. Bootstrap (the only step outside gate.py, because gate.py is a member):
+
+```
+timeout 280 python3 - <<'EOF'
+import json, base64, hashlib, re, os
+EXP={'main':'49065309b0c4fe8e055f693aed295cca','comp':'38bd45711e2813dc9b73d8335a306103'}
+NAME={'main':'/home/claude/The_Method_1_6_BUILD90_main_and_register.md','comp':'/home/claude/The_Method_1_6_BUILD152_compendia_papers_audits.md'}
+SPILL={'main':'/mnt/user-data/tool_results/<main-id>.json','comp':'/mnt/user-data/tool_results/<comp-id>.json'}
+for tag in ('main','comp'):
+    b=base64.b64decode(json.loads(json.load(open(SPILL[tag]))[0]['text'])['content'], validate=True)
+    m=hashlib.md5(b).hexdigest(); print(tag, f'{len(b):,} B', m, b.count(b'\n'), 'lines', 'OK' if m==EXP[tag] else 'FAIL'); assert m==EXP[tag]
+    assert not os.path.exists(NAME[tag]); open(NAME[tag],'wb').write(b)
+os.makedirs('/home/claude/members'); n=0
+for tag in NAME:
+    for m in re.finditer(rb'^<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', open(NAME[tag],'rb').read(), re.S|re.M):
+        p='/home/claude/members/'+m.group(1).decode(); assert not os.path.exists(p); open(p,'wb').write(m.group(2)); n+=1
+print('members extracted', n)
+EOF
+```
+
+   Expected: main 1,983,081 B · `49065309b0c4fe8e055f693aed295cca` · 18,470 lines; compendia
+   **7,146,099 B · `38bd45711e2813dc9b73d8335a306103` · 94,030 lines**; **564 members extracted
+   (2 + 562)**.
+4. **Fetch the Prints & Proofs original before step 7** — `r2-ch15e`, `r2-ch15o`, `r2-ch15p`,
+   `r2-ch15q`, `r2-ch15s`, `r2-ch15u`, `r2-ch15z`, `r2-ch16a`, `r2-ch16c`, `r2-ch16f`, `r2-ch16i`,
+   `r2-ch16l`, `r2-ch16n`, `r2-ch16p` and **`r2-ch16r`** all read it and will fail on a missing path.
+   Folder `1vYctzLppUZ2vFPJDCZ6wvkgSdj3v_f6n`, title `The Method 1.6.md`, fileId
+   `1vsWwRT9BmUNeMrqokuo4jI4DJnoADubH`, **738,550 B · md5 49900cf41f818ab789bb90fc596ac977 ·
+   11,371 lines**, written to `/home/claude/PP_The_Method_1_6.md`. **Fifteen banked instruments now
+   read it.**
+5. `python3 /home/claude/members/gate.py census` → `OK census: DEFECT-CENSUS.tsv byte-identical`
+   (1,556 rows + header, ≈ 14 s).
+6. `python3 /home/claude/members/gate.py run --core` → five `OK` (tower 976/1,654/2,535/13,585/
+   70,905/199,130; kinds 1565 · 1356 · 499 · 149; minmax; r2-tools-constants; extent "1 to 1792").
+7. `python3 /home/claude/members/gate.py manifest` → `MANIFEST OK`; MANIFEST.tsv **37,791 B ·
+   c06506f22d3ac875e94fa7de5faf7b98 · 564 lines**; WORKING-REGISTER.md **793,430 B ·
+   753d52cd7b3c6de6d881ab2b4a6b793d · 7,307 lines**, ends **W-162** (163 entries); DEFERRED.md
+   **52 `##` headings / 51 chat blocks**; RULINGS-R2.md 9,844 B · 10a2ea7e · 82 lines (unchanged);
+   r2lib.py 21,022 B · 580d2ea2 · 453 lines (unchanged); gate.py 9,377 B · a01ef15a;
+   close.py 6,456 B · 98acae67; r2-tools.py 6,529 B · 4702f5f9; tower-2.py c0bce27a;
+   census.py f5a73e2b; kinds.py 4262f7c5; minmax.py 26da1d78. If two `BUILD*_compendia` files are
+   present after a close, pass `--comp <path>` explicitly.
+8. `python3 /home/claude/members/gate.py run r2-ch16q r2-ch16r` → two `OK` (chat 123's goldens:
+   r2-ch16q.out **14,494 B · dd756ed0 · 185 lines**; r2-ch16r.out **39,054 B · 97074f49 · 547
+   lines**). Both are fast (≈ 2 s and ≈ 1 s); **r2-ch16r reads the Prints & Proofs path**.
+9. `python3 /home/claude/members/gate.py cert 124` → writes `/home/claude/GATE-ch124.txt`, verdict
+   PASS only if every logged step passed. A FAIL anywhere stops the chat and is reported.
+
+## What chat 123 did (do not repeat)
+
+**Unit L9157–L9306 (§32.5, §32.5.1, §32.5.2, §32.5.3, §32.6, §32.6.1) read, censused, instrumented
+in two batches, closed.** Ten deviations, nineteen verified groups, eight incidentals, four census
+rows disposed. All of it is in `READ-ch16r.md` and DEF-123; **do not re-measure any of it.** The six
+that carry:
+
+- **16r-02 — *All 1,061* with the wrong referent.** L9188 makes it a count of **brackets**; main
+  L6517 supersedes *§25.5's 1,061 order-1 bounds*, and L6683, L6958, L9354 and L10266 all make it
+  the **perturbation-bound** count. Appendix B prints the bracket at **1,105 of 1,105** (head) and
+  **1,577 of 1,738 cells across 392 rows** (§B.2). Same shape as chat 122's 16q-02.
+- **16r-06 — *four indices* over five terms, and register 396 on the same side.** L9268 and L9302
+  say four; L9270 prints five; L9273 says *its own five terms*. Under four, L9286's *the other three*
+  fails. Register **396** carries the identical *across the four* over the same five terms.
+- **16r-07 — register 571 cited and absent.** *Registers 571–573* at L9274. 572 is present but
+  carries the ten mechanisms, not this claim; 573 is exactly on point.
+- **16r-03 — §16.5 cited for a formulation it does not carry.** Read whole (L4449–L4470) it is
+  **D3**, stating totality as χ_Λ total on the ambient box, verified on 6,912 points. *supported*,
+  *cited*, *marked open* appear nowhere in it.
+- **16r-05 — a count word its own table refutes.** *Thirty-nine claims … each has been given one*
+  against a table showing **7 bare before repair and 3 after** — four repairs — in a paragraph that
+  says the 54 %→89 % move happened *before a single repair was made*.
+- **16r-10 — §14.5.6 cited for a pair it cannot carry.** Heading-only in BUILD90 (L3806–L3807) and
+  in PP (P3772–P3775); *dishonest* has zero sites in the §14.5 span; the pair's home is **register
+  573**, which prints *outside · dishonest* verbatim.
+
+**16j-05 CLOSED as a finding.** §31.3.4 L8755's *fourth falsification test* is the fourth of §32.6's
+three conditions plus its own. The enumeration exists and is printed **450 lines later**; none
+precedes the ordinal. A forward reference, not a phantom.
+
+**Negative witnesses recorded so classes aren't made to look worse than the book is:** the Sc VI
+table exact at six of six from inputs the volume itself prints; the seven-line arithmetic reaching
+at exactly seven; §16.3, §6.3, §E.1.4 and §29.2.2 all carrying their claims, §6.3 verbatim;
+condition 1's first two checks and its figure pairing all still passing; condition 2's table exact
+at every cell and percentage; condition 3 exact at one genuine hit; the E-terms summing to
+sixty-five; the domination arithmetic closing three ways; registers 275, 387, 396 and 573 all on
+point; PP at sixteen for sixteen at −94; and **seventeen consecutive units with zero duplicated
+sections**.
+
+**Nine faults, self-caught, rewritten in place, none trimmed.** The book was right and the
+instrument wrong **four** times (faults 6, 7, 8, 9 above). Running tally: chat 110 five, 111 three,
+112 zero, 113 one, 114 one, 115 two, 116 three, 117 four, 118 three, 119 two, 120 four, 121 six,
+122 three, **123 nine**.
+
+## Chat 124's section read
+
+- **Re-measure the extent by heading scan before reading a line.** Proposed unit: **L9307–L9392
+  (§32.7), 86 lines**, which closes chapter 32 and ends where `# PART VII` opens at L9393.
