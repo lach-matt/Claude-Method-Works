@@ -111,3 +111,6 @@ each draft before it is seated?** They were parked for a "Register 1.1" no seate
 their corrections and the Register does not, which is what the retraction audit measured (DEF-153R). Precedent:
 `REGISTER-QUEUE-APPEND-cypher-audit.md` → entries 1793–1796 at BUILD91. *Recommended: yes, one seating pass per queue
 document, drafts shown to M first; the twelve rows with no draft stay leads.*
+- **Q5 — RULED (M, 4 September 2026): *Yes*.** The drafted slips are appended as Register entries under the current
+  numbering, one seating pass per queue document, each entry citing the entry it corrects and its source document,
+  the drafts shown to M before each pass is seated. The twelve rows with no draft stay leads.
