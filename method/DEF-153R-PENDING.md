@@ -54,3 +54,17 @@ Nothing on 1138, nothing on 176 and 177, one node on 661 (the REGISTER-GAPS docu
 Its `CLAUDE.md`, `docs/COVERAGE.md`, `docs/RECOVER.md` and `docs/HANDOFF-GAP.md` still say the chapter 12–15 members are
 held nowhere and `HANDOFF-2.md` is mention-only; the graph's own ARCHIVE1 community contradicts them. The 23 handoffs
 it recovered by number are not in ARCHIVE1 and stand.
+
+## Corrected at Q5 pass 6 (W-233)
+
+- **PO-0087 (κ = S/4 at +0.980, registers 500 and 502) is closed by register 504**, seated long before the retraction audit
+  — *REGISTERS 497, 498, 499, 500 AND 502 ARE WITHDRAWN … refitting κ against S gives −0.079 at rms 0.999* — not by an
+  owed draft. The row above mislocated its correction to `OWED-REGISTER-EXPANSIONS.md` R-02, which restates 504.
+- **PO-0190 (register 314, composability lost at Λ₁₀)**: the row's pointer `OWED-REGISTER-EXPANSIONS.md` does not contain
+  the string *314* (measured, 0 hits); `entry-MC22.md` is in neither the mirror's manifest nor `extracted/LEDGER.tsv`.
+  The row stays a lead with no drafted correction — the thirteenth of the "twelve others".
+- **PO-0015 / 0026**: 602 at 1820 (chat 152); 603, 604, 605 at 1833, 1834, 1835 (this pass). Closed.
+- **The six R-rows of `OWED-REGISTER-EXPANSIONS.md` are not owed**: each resolves to seated entries (R-01 → 503, 505, 506,
+  511, 551; R-02 → 497–502, 504; R-03 → 468, 493–495; R-04 → 400; R-05 → 596–598, 600; R-06 → 519, 527), the row's own
+  figures in the entries. The rows were written against the reader draft, where the workshop had been cut, without
+  consulting the Register. `DRAFT-Q5-06-owed-expansions.md` Part A carries the table.

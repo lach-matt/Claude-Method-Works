@@ -12,7 +12,7 @@
    distinct as sets                                                         24585                  OK
    nodes 2821732
 == against the banked enumeration covers8.json (coverscheck.py)
-   covers8.json md5 (drive/MANIFEST.tsv)                                    '5bb92ebb6cd122115b8b3 OK
+   covers8.json: the seated member ends in one newline; md5 of the rest (drive/MANIFEST.tsv) (True, '5bb92ebb6cd122 OK
    n_covers field / listed / distinct                                       (24585, 24585, 24585)  OK
    sizes                                                                    {7: 24585}             OK
    every listed cell is in Λ₈                                               True                   OK
@@ -41,19 +41,19 @@
    covers containing all four core cells (the 519 completions)              519                    OK
    distinct completing cells; none in all; min / median / max               (66, True, 3, 12, 157) OK
 == the cap sweep (SEED-CAP-FINDING's table): cells, the seed by branch and bound, element-forced conditions
-   cap (2, 2, 1, 3, 1) cells   328  universe 100  seed 7  (0 s)
+   cap (2, 2, 1, 3, 1) cells   328  universe 100  seed 7 
       element-forced: s→p (l=0,f=1), p→s (l=1,f=0), p→p (l=1,f=1), null q=0, full q=k, full q=k=3, corner-3-type
    cap (2, 2, 1, 3, 1): cells, seed decided here                            (328, 7)               OK
    cap (2, 2, 1, 3, 1): s→p, p→s, p→p, null, full, corner-3-type forced; s→s not [True, True, True, Tru OK
-   cap (3, 3, 1, 3, 1) cells   976  universe 102  seed 7  (3 s)
+   cap (3, 3, 1, 3, 1) cells   976  universe 102  seed 7 
       element-forced: s→p (l=0,f=1), p→s (l=1,f=0), p→p (l=1,f=1), null q=0, full q=k, full q=k=3, corner-3-type
    cap (3, 3, 1, 3, 1): cells, seed decided here                            (976, 7)               OK
    cap (3, 3, 1, 3, 1): s→p, p→s, p→p, null, full, corner-3-type forced; s→s not [True, True, True, Tru OK
-   cap (4, 4, 1, 3, 1) cells  1968  universe 104  seed 7  (40 s)
+   cap (4, 4, 1, 3, 1) cells  1968  universe 104  seed 7 
       element-forced: s→p (l=0,f=1), p→s (l=1,f=0), p→p (l=1,f=1), null q=0, full q=k, full q=k=3, corner-3-type
    cap (4, 4, 1, 3, 1): cells, seed decided here                            (1968, 7)              OK
    cap (4, 4, 1, 3, 1): s→p, p→s, p→p, null, full, corner-3-type forced; s→s not [True, True, True, Tru OK
-   cap (3, 3, 2, 6, 2) cells  7605  universe 130  seed None greedy cover of 10 cells exhibited, so seed ≤ 10; the recorded 10 is SEED-CAP-FINDING's and is not re-derived here (0 s)
+   cap (3, 3, 2, 6, 2) cells  7605  universe 130  seed None greedy cover of 10 cells exhibited, so seed ≤ 10; the recorded 10 is SEED-CAP-FINDING's and is not re-derived here
       element-forced: null q=0, full q=k, full q=k=3, s→d (l=0,f=2), d→s (l=2,f=0)
    cap (3, 3, 2, 6, 2): cells, seed decided here                            (7605, None)           OK
    cap (3, 3, 2, 6, 2): s→d, d→s, null, full forced; s→p, p→s, s→s, corner-3-type not [True, True, True, Tru OK

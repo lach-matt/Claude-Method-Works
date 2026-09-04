@@ -8,11 +8,11 @@
 # (one Python integer per cell) where seedenum3.py used a numpy matrix. The cap sweep follows SEED-CAP-FINDING's table:
 # caps (n,e,ℓ,k,f) as tower-2's loop with caps in place of its constants; a condition is ELEMENT-FORCED at a cap when
 # some element of the census is carried only by cells of that type (a cover is infeasible without the type).
-import os, sys, io, contextlib, importlib.util, json, hashlib, heapq, time, statistics
+import os, sys, io, contextlib, importlib.util, json, hashlib, heapq, statistics
 from collections import Counter
 H = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(H))
-COVERS8 = os.path.join(REPO, 'drive', 'The Method Materials', 'covers8.json'); COVERS8_MD5 = '5bb92ebb6cd122115b8b3a96372868e9'
+COVERS8 = os.path.join(H, 'covers8.json'); COVERS8_MD5 = '5bb92ebb6cd122115b8b3a96372868e9'   # the seated member: the mirror's bytes (drive/MANIFEST.tsv md5) plus the closing newline the bundle format requires
 spec = importlib.util.spec_from_file_location('tower2', os.path.join(H, 'tower-2.py')); T2 = importlib.util.module_from_spec(spec)
 with contextlib.redirect_stdout(io.StringIO()): spec.loader.exec_module(T2)
 FAIL = []
@@ -103,12 +103,12 @@ check('alphabet slots', len(slots), 25); check('envelope steps', len(steps), 77)
 check('elements with a unique carrier (Chvátal forcing at the root)', [elems[k] for k in range(M) if carriers[k].bit_count() == 1], [])
 print('   steps by stepped coordinate j (n l k q e f g 2S): %s; least-carried element has %d carriers' % ([Counter(s[1] for s in steps)[j] for j in range(N)], min(carriers[k].bit_count() for k in range(M))))
 print('== every minimum cover of the 102 elements by cells of Λ₈, duplicate-free branch and bound (seedenum3.py)')
-t0 = time.time(); f6, n6, _ = search(W, carriers, M, 6); check('6-covers', len(f6), 0); print('   nodes %d' % n6)
+f6, n6, _ = search(W, carriers, M, 6); check('6-covers', len(f6), 0); print('   nodes %d' % n6)
 f7, n7, _ = search(W, carriers, M, 7)
 covs = sorted(set(tuple(sorted(cells[s] for s in f)) for f in f7))
 check('7-covers found', len(f7), 24585); check('distinct as sets', len(covs), 24585); print('   nodes %d' % n7)
 print('== against the banked enumeration covers8.json (coverscheck.py)')
-raw = open(COVERS8, 'rb').read(); check('covers8.json md5 (drive/MANIFEST.tsv)', hashlib.md5(raw).hexdigest(), COVERS8_MD5)
+raw = open(COVERS8, 'rb').read(); check('covers8.json: the seated member ends in one newline; md5 of the rest (drive/MANIFEST.tsv)', (raw.endswith(b'\n'), hashlib.md5(raw[:-1]).hexdigest()), (True, COVERS8_MD5))
 d = json.loads(raw); bank = [tuple(sorted(tuple(x) for x in cv)) for cv in d['covers']]
 check('n_covers field / listed / distinct', (d['n_covers'], len(bank), len(set(bank))), (24585, 24585, 24585))
 check('sizes', dict(Counter(len(c) for c in bank)), {7: 24585})
@@ -159,7 +159,7 @@ CONDC = dict(COND); CONDC.update({'s→d (l=0,f=2)': lambda x: x[1] == 0 and x[5
 for cap in CAPS:
     cx = lattice(*cap); a, sl, st, el, Wx, cr = census(cx); Mx = len(el)
     exp_cells, exp_seed = EXP[cap]
-    t1 = time.time(); seed = None; note = ''
+    seed = None; note = ''
     if cap[2] == 1:   # the seed decided exactly: no (seed−1)-cover, a seed-cover exhibited
         fk, nk, cut = search(Wx, cr, Mx, exp_seed - 1); assert not fk and not cut
         fk, nk, cut = search(Wx, cr, Mx, exp_seed, first_only=True); assert fk; seed = exp_seed
@@ -169,7 +169,7 @@ for cap in CAPS:
             s_ = max(range(len(cx)), key=lambda s: (Wx[s] & ~cov).bit_count()); g.append(s_); cov |= Wx[s_]
         note = 'greedy cover of %d cells exhibited, so seed ≤ %d; the recorded %d is SEED-CAP-FINDING\'s and is not re-derived here' % (len(g), len(g), exp_seed)
     fx = {k: forced(cx, Wx, cr, Mx, p) for k, p in CONDC.items()}; fx['corner-3-type'] = forced(cx, Wx, cr, Mx, lambda c: c3type(c, a))
-    print('   cap %-14s cells %5d  universe %3d  seed %s %s (%.0f s)' % (cap, len(cx), Mx, seed, note, time.time() - t1))
+    print('   cap %-14s cells %5d  universe %3d  seed %s %s' % (cap, len(cx), Mx, seed, note))
     print('      element-forced: %s' % ', '.join(k for k, v in fx.items() if v))
     check('cap %s: cells, seed decided here' % (cap,), (len(cx), seed), (exp_cells, exp_seed if cap[2] == 1 else None))
     if cap[2] == 1: check('cap %s: s→p, p→s, p→p, null, full, corner-3-type forced; s→s not' % (cap,), [fx[k] for k in ('s→p (l=0,f=1)', 'p→s (l=1,f=0)', 'p→p (l=1,f=1)', 'null q=0', 'full q=k', 'corner-3-type', 's→s (l=0,f=0)')], [True] * 6 + [False])

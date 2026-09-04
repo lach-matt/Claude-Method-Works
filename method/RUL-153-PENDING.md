@@ -130,3 +130,8 @@ document, drafts shown to M first; the twelve rows with no draft stay leads.*
   603, 604 and 605 are corrected from the seed-cap return as 1833–1835, every figure re-derived by `r3-q6-measure.py`
   (standard library; the 24,585 covers enumerated and matched set for set to `covers8.json`; the d-shell seed 10 named as
   not re-derived). Four rulings wanted, listed at the draft's end.
+- **Q5 pass 6 — RULED (M, 4 September 2026):** *1 — yes; 2 — yes; 3 — correction if it is just a correction, withdrawal
+  if it is withdrawing a previous statement; 4 — seat it.* So: Part A recorded in W-233 with no entry seated and
+  DEF-153R's PO-0087 row corrected to register 504; 1833–1835 seated with `r3-q6-measure.py` and its golden; 1833 and
+  1834 are corrections (the sample's figures restated as the sample's), 1835 a withdrawal (605's properties 1–3 are
+  withdrawn at Λ₈); `covers8.json` seated as a member, byte-exact from the mirror, and the instrument reads it there.
