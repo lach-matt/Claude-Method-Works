@@ -21,7 +21,7 @@
    4.2    located in the volume at [1443]
    4.1    located in the volume at [1441]
    4.6    located in the volume at [1447]
-   4.7    located in the volume at [1448]
+   4.7    located in the volume at [1450]
    4.3    located in the volume at [1444]
    §4.x are Chapter 4's list items and not headings (MAIN_AUDIT V1, re-measured at the
    sweep), so they are located as items, never by the heading resolver.
@@ -43,8 +43,8 @@
    §4.3      Chapter 4 list item (not a heading) — MAIN_AUDIT V1
    §4.6      Chapter 4 list item (not a heading) — MAIN_AUDIT V1
    §4.7      Chapter 4 list item (not a heading) — MAIN_AUDIT V1
-   §7.1      L1750   The constraints, and where each comes from
-   §28.8     L7721   A dependent choice is indexable, and naming the
+   §7.1      L1752   The constraints, and where each comes from
+   §28.8     L7723   A dependent choice is indexable, and naming the
 
 == 5  CENSUS
    census rows in range: 3
