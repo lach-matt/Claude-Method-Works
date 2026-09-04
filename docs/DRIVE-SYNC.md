@@ -556,7 +556,13 @@ message rather than guessing, so one run out of order tells you what to run firs
   default) md5s every copy the mount exposes and says whether they are genuinely the same bytes;
   `APPENDIX_MODE = "shard"` hands one to `tools/shard_conversations.py`, dry-running until you set
   `SHARD_CONFIRM = True`, and writing to `/content/chats-shards` — outside the clone, so moving the
-  shards into `drive/chats` stays a deliberate step. Note that a Drive **mount** normally exposes only
+  shards into `drive/chats` stays a deliberate step. Setting `LAND_IN_REPO = True` as well performs
+  that step for you after a successful shard: it copies the tree into the clone, commits and pushes.
+  It refuses to overwrite a non-empty `drive/chats`, and if the push fails because cell 6 already
+  unset the credential helper it says so — the commit is made either way, so nothing is lost.
+  **All three flags default to off, so re-running the cell untouched hashes the two copies and
+  writes nothing.** That is the intended safe default, and it is also the most common reason a run
+  appears to have done nothing. Note that a Drive **mount** normally exposes only
   one file per name per folder, so the checksum mode usually cannot settle whether the two Drive
   copies are identical; that needs the Drive API (Route 2) or the Drive web UI.
   See [§5](#5-the-two-370-mib-chat-exports).
