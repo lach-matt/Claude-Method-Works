@@ -80,9 +80,16 @@ member of a bundle. See `docs/RECOVER.md`.
 
 ## It is a document corpus, not a software project
 
-No build, no test suite, no linter, no package manager. Do not offer to run tests or add CI for
-them, and do not try to "set the project up". The `.py` files under `drive/` are mirrored Drive
-artifacts, not a codebase to maintain or execute.
+No build, no linter, no package manager. Do not offer to add CI, and do not try to "set the project
+up". The `.py` files under `drive/` are mirrored Drive artifacts, not a codebase to maintain or
+execute.
+
+**There is one test suite, and it is not general.** `tools/test_drive_sync.py` (215 lines, stdlib
+only, `python3 tools/test_drive_sync.py`) is a regression guard on `drive_sync.py` alone, because the
+mirror's guarantee is byte-exactness and each test defends one way that can fail silently. **Run it
+after any change to `drive_sync.py`** — it is not covered by that tool's `--selftest`, which checks
+the adopt path only. Everything else here is checked by an instrument's own `--selftest`, not by a
+test file.
 
 The exceptions, and they are the only ones: `method/verify.py` and the instruments in
 `method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror (and takes a
@@ -180,6 +187,13 @@ before any pass that spans more than one file.
 ## Skills
 
 - **graphify** (`.claude/skills/graphify/SKILL.md`) — any input to knowledge graph. Trigger: `/graphify`
+
+Two more programs exist and are named here so nothing in the tree is unaccounted for:
+`tools/colab_land_chats.py` shards the Claude Chats export and lands it in the repository (**Colab
+only** — it is the mount-side half of the route `docs/DRIVE-SYNC.md` describes, and does not run
+here), and `tools/test_drive_sync.py` is the regression suite named above. `docs/REPO-SIZE.md` is a
+size audit **measured 2026-09-02 on another branch at 8 commits** — historical, and superseded by any
+figure `tools/docfigures.py` pins.
 
 Use the graphify skill **only when the user types `/graphify`**, and then follow it before doing
 anything else. Its own description invites treating any question about the corpus as a graph query;

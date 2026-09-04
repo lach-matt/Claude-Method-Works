@@ -38,6 +38,7 @@ import pathlib
 import re
 import subprocess
 import sys
+from typing import Dict
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -214,7 +215,38 @@ def checks():
               and r["filename"][22:-3].isdigit()})),
         ("docs/IDCENSUS.md", "prose-only rulings (Ruling/Docket/W-entry)", 0,
          _governance_prose_only()),
+        ("CLAUDE.md", "standing artefacts CLAUDE.md does not name", 0,
+         len(unreferenced_artefacts())),
     ] + _instrument_rows()
+
+
+def unreferenced_artefacts():
+    """Every standing artefact must be named in CLAUDE.md.
+
+    This row exists because the rest of this file could not catch what it is
+    for. On 2026-09-04 an index-based splice in CLAUDE.md deleted five
+    paragraphs -- the pointers to PROSE-ONLY.tsv, RETRACTION-AUDIT.tsv,
+    REGISTER-GAPS.tsv, HANDOFF-GAP.tsv and docs/GRAPH-FINDINGS.md -- and every
+    pinned figure still held, because the figures were all still TRUE. They just
+    had no sentence left to be true about. Pinning a number cannot see a deleted
+    pointer; only naming the artefacts can.
+
+    A file that is deliberately not pointed at belongs in EXEMPT, with a reason,
+    rather than being quietly tolerated.
+    """
+    EXEMPT: Dict[str, str] = {
+        # nothing at present: every docs/ page, standing TSV and tool is named.
+    }
+    out = []
+    for pattern in ("docs/*.md", "*.tsv", "tools/*.py"):
+        for path in sorted(ROOT.glob(pattern)):
+            rel = str(path.relative_to(ROOT))
+            if rel in EXEMPT:
+                continue
+            claude = (ROOT / "CLAUDE.md").read_text(encoding="utf-8", errors="replace")
+            if path.name not in claude and rel not in claude:
+                out.append(rel)
+    return out
 
 
 def _governance_prose_only():

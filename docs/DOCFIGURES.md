@@ -10,7 +10,7 @@ python3 tools/docfigures.py               # the drift report; exit 1 if anything
 python3 tools/docfigures.py -v            # same, every row printed
 ```
 
-**50 pinned figures, 1.2 s, stdlib only.** Fast enough to run at the top of a session.
+**57 pinned figures, 1.2 s, stdlib only.** Fast enough to run at the top of a session.
 
 ## Why it exists
 
@@ -63,6 +63,29 @@ give **25** and miss the seventeen `REGISTER-RANGE` census rows. Their union is 
 text report class by class. The selftest asserts all three numbers, so the mistake cannot return
 quietly — I made it once in the course of writing this, read 40 against the report's 42, and was
 about to file a bug against `pointers.py --json` that does not exist.
+
+## The pointer row, and why pinning numbers was not enough
+
+One row does not pin a number: **"standing artefacts CLAUDE.md does not name"**, which must be 0.
+
+It exists because the rest of this file could not catch what it is for. On 2026-09-04 an index-based
+splice in `CLAUDE.md` deleted five paragraphs — the pointers to `PROSE-ONLY.tsv`,
+`RETRACTION-AUDIT.tsv`, `REGISTER-GAPS.tsv`, `HANDOFF-GAP.tsv` and `docs/GRAPH-FINDINGS.md`, 5,757
+characters — and **every pinned figure still held.** They were all still *true*. They simply had no
+sentence left to be true about. Five standing artefacts became invisible to any future session and
+the guard said `all 56 pinned figures still hold`.
+
+So the row checks a different thing: every `docs/*.md`, every top-level `*.tsv` and every
+`tools/*.py` must be **named in `CLAUDE.md`**. A file deliberately not pointed at belongs in the
+`EXEMPT` map in the source, with a reason, rather than being quietly tolerated. `EXEMPT` is currently
+empty — everything is named.
+
+Verified against the real failure: removing one pointer takes the row from 0 to 1.
+
+**The general lesson, which is worth more than the row.** A guard that pins values answers *"is this
+number still right?"* and cannot answer *"is this document still whole?"* Those are different
+questions and they need different instruments. Ask, of any check: what would a deletion look like
+here?
 
 ## What it refuses
 
