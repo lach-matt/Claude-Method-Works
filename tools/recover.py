@@ -67,8 +67,12 @@ HEREDOC = re.compile(
     r"cat\s*>\s*(?:'([^']+)'|\"([^\"]+)\"|(\S+))\s*<<\s*'?(\w+)'?\n(.*?)\n\4", re.S)
 BLOCK_HEAD = re.compile(r"^#+[ \t]*([A-Za-z0-9][A-Za-z0-9._-]{2,60})")
 COVERAGE = os.path.join(ROOT, "COVERAGE.tsv")
+# A chat that showed a file through a paging viewer elides the middle and says so.
+# Capturing that display yields a body that is valid text, hashes cleanly, and is
+# silently missing content -- so it must be labelled, not trusted.
+TRUNCATED = re.compile(rb"<[ ]*truncated lines (\d+)-(\d+)[ ]*>")
 COLS = ("filename", "md5", "size_bytes", "status", "target_path",
-        "source_shard", "conversation", "created_at", "versions")
+        "source_shard", "conversation", "created_at", "versions", "note")
 
 
 def md5b(data):
@@ -139,12 +143,19 @@ def harvest():
 
 
 def census_wanted():
-    """Names COVERAGE.tsv reports the corpus asks for but the repo lacks."""
+    """Every artefact name the corpus itself names, whatever its current status.
+
+    NOT filtered on status. COVERAGE.tsv is regenerated *from* recovered/, so a
+    name this tool successfully recovers turns HELD on the next census -- and
+    filtering on "not held" would then hide it from the code-block rule, so a
+    second run would silently produce a smaller tree than the first. Reading the
+    artefact column alone keeps the rule a pure function of the corpus, which is
+    what makes the tool idempotent.
+    """
     if not os.path.isfile(COVERAGE):
         return set()
     with open(COVERAGE) as handle:
-        return {r["artefact"] for r in csv.DictReader(handle, delimiter="\t")
-                if r["status"] in ("IN-CHAT-BODY", "IN-CHAT", "ABSENT")}
+        return {r["artefact"] for r in csv.DictReader(handle, delimiter="\t")}
 
 
 def walk_blocks(obj, out):
@@ -219,8 +230,16 @@ def build(write=True):
             title, created = index.get(shard, ("", ""))
             if digest in have:
                 rows.append((filename, digest, len(body), "PRESENT-IN-REPO", "",
-                             shard, title, created, len(versions)))
+                             shard, title, created, len(versions), ""))
                 continue
+            elided = TRUNCATED.findall(body)
+            note = ""
+            status = origin[filename]
+            if elided:
+                lost = sum(int(b) - int(a) + 1 for a, b in elided)
+                status = "RECOVERED-TRUNCATED"
+                note = ("INCOMPLETE: %d line(s) elided by the chat's own display "
+                        "across %d marker(s)" % (lost, len(elided)))
             target = os.path.join("recovered", target_for(filename, digest, newest))
             if write:
                 dest = os.path.join(ROOT, target)
@@ -228,8 +247,8 @@ def build(write=True):
                 with open(dest, "wb") as handle:
                     handle.write(body)
                 written += 1
-            rows.append((filename, digest, len(body), origin[filename], target,
-                         shard, title, created, len(versions)))
+            rows.append((filename, digest, len(body), status, target,
+                         shard, title, created, len(versions), note))
     if write:
         os.makedirs(OUT, exist_ok=True)
         with open(LEDGER, "w", newline="") as handle:
@@ -283,6 +302,8 @@ def selftest():
           sum(1 for v in found.values() if len(v) > 1), 147)
     blocks = harvest_blocks(census_wanted() - set(found))
     check("census names reached only by the code-block rule", len(blocks), 123)
+    trunc = sum(1 for vs in found.values() for _, b in vs.values() if TRUNCATED.search(b))
+    check("bodies carrying a truncation marker", trunc, 15)
     check("HANDOFF-47.md among them", "HANDOFF-47.md" in blocks, True)
     print("\n%s" % ("SELFTEST OK" if ok else "SELFTEST FAILED"))
     return 0 if ok else 1

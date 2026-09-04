@@ -11,13 +11,20 @@ python3 tools/recover.py --selftest # assert the corpus's own recorded numbers
 
 ## What it recovers, and how surely
 
-| Status | Files | The claim |
+| Status | Rows | The claim |
 | --- | ---: | --- |
 | `RECOVERED` | 2,196 | A shell heredoc wrote the file and **named its own target**: `cat > …/HANDOFF-16.md <<'EOF'`. Filename and body both come from the source. |
-| `RECOVERED-BY-HEADING` | 141 | A `code_block` carried the body but no filename, so the name is **inferred from the document's own Markdown heading**. Weaker, and separately labelled. |
-| `PRESENT-IN-REPO` | 2 | Byte-identical to something already tracked; not written again. |
+| `RECOVERED-BY-HEADING` | 163 | A `code_block` carried the body but no filename, so the name is **inferred from the document's own Markdown heading**. Weaker, and separately labelled. |
+| `RECOVERED-TRUNCATED` | 23 | The body carries a `< truncated lines N-M >` marker — the chat was showing an **elided view**, so the text is incomplete by the stated count. Kept, because a partial document is still evidence, but never to be read as whole. |
+| `PRESENT-IN-REPO` | 51 | Byte-identical to something already tracked; not written again. |
 
-**2,337 files, 8.7 MB.** Among them **71 handoffs**, **68 `READ-*` slips** and over a thousand `.py`
+**2,382 files, 9.4 MB** (2,433 rows; the `PRESENT-IN-REPO` rows write nothing).
+
+## Two defects found by the graph pass, and fixed
+
+**Truncated bodies were labelled as whole.** A chat that shows a file through a paging viewer elides the middle and says so. That display is valid text and hashes cleanly, so `--verify` passed it and the ledger called it `RECOVERED`. Twenty-three files are affected — **every one from the code-block rule, none from the heredoc rule** — the worst being `HANDOFF-53.md` at 160 lines missing. They now carry `RECOVERED-TRUNCATED` and a note stating the line count.
+
+**The tool was not idempotent.** Its code-block rule asked `COVERAGE.tsv` which names the repo still lacked — but `COVERAGE.tsv` is regenerated *from* `recovered/`, so every name this tool recovered turned `HELD` and vanished from the next run's wanted-set. A second run produced 2,196 rows where the first produced 2,337, with the extra files still on disk and no longer in the ledger. The rule now reads the artefact column unfiltered, making it a pure function of the corpus. That also widened its reach: 163 by-heading recoveries where the status-filtered version found 141. Among them **71 handoffs**, **68 `READ-*` slips** and over a thousand `.py`
 instruments. Every one is verified: `--verify` re-hashes the tree against `LEDGER.tsv` and reports
 `0 bad`.
 
