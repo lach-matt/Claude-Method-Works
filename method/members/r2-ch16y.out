@@ -53,24 +53,24 @@
 ================================================================================================
 2  THE REGISTER AT EACH FIGURE OF THE UNIT -- earlier statement, and the LATER entry that moved it
 ================================================================================================
-  106 of 106 / 106 non-empty           14 sites: R1309 L4911, R1328 L4987, R1331 L4999, R1350 L5075, R1356 L5099, R1366 L5135, R1367 L5139, R1402 L5263, R1412 L5303, R1445 L5431, R1461 L5495, R1463 L5503, R1515 L5703, R1798 L6632
-  99 of 106                            5 sites: R1350 L5075, R1437 L5403, R1438 L5407, R1440 L5415, R1445 L5431
-  90 of 106                            2 sites: R1309 L4911, R1445 L5431
-  eighteen resets/recalibrations       5 sites: R1328 L4987, R1331 L4999, R1407 L5283, R1435 L5395, R1804 L6656
-  "ten resets" / "ten moves"           4 sites: R1402 L5263, R1403 L5267, R1411 L5299, R1413 L5307
-  fifteen moves                        2 sites: R1409 L5291, R1438 L5407
-  104 of 106                           4 sites: R1332 L5003, R1803 L6652, R1804 L6656, R1805 L6660
-  nineteen surds / distinct values     13 sites: R514 L1923, R1309 L4911, R1318 L4947, R1328 L4987, R1350 L5075, R1403 L5267, R1425 L5355, R1460 L5491, R1466 L5515, R1468 L5523, R1734 L6457, R1799 L6636, R1801 L6644
-  DEACTIVATED                          2 sites: R1309 L4911, R1460 L5491
-  No parameter is fitted               1 sites: R1350 L5075
-  Exceptionless on 106                 1 sites: R1350 L5075
+  106 of 106 / 106 non-empty           14 sites: R1309 L4912, R1328 L4988, R1331 L5000, R1350 L5076, R1356 L5100, R1366 L5136, R1367 L5140, R1402 L5264, R1412 L5304, R1445 L5432, R1461 L5496, R1463 L5504, R1515 L5704, R1798 L6633
+  99 of 106                            5 sites: R1350 L5076, R1437 L5404, R1438 L5408, R1440 L5416, R1445 L5432
+  90 of 106                            2 sites: R1309 L4912, R1445 L5432
+  eighteen resets/recalibrations       5 sites: R1328 L4988, R1331 L5000, R1407 L5284, R1435 L5396, R1804 L6657
+  "ten resets" / "ten moves"           4 sites: R1402 L5264, R1403 L5268, R1411 L5300, R1413 L5308
+  fifteen moves                        2 sites: R1409 L5292, R1438 L5408
+  104 of 106                           4 sites: R1332 L5004, R1803 L6653, R1804 L6657, R1805 L6661
+  nineteen surds / distinct values     13 sites: R514 L1924, R1309 L4912, R1318 L4948, R1328 L4988, R1350 L5076, R1403 L5268, R1425 L5356, R1460 L5492, R1466 L5516, R1468 L5524, R1734 L6458, R1799 L6637, R1801 L6645
+  DEACTIVATED                          2 sites: R1309 L4912, R1460 L5492
+  No parameter is fitted               1 sites: R1350 L5076
+  Exceptionless on 106                 1 sites: R1350 L5076
   blocked four fits                    0 sites: 
-  BLOCKED (protocol replay)            13 sites: R243 L963, R244 L967, R1336 L5019, R1355 L5095, R1474 L5547, R1489 L5599, R1524 L5740, R1530 L5764, R1549 L5836, R1556 L5864, R1562 L5888, R1598 L6004, R1644 L6169
-  1.028                                2 sites: R1214 L4547, R1350 L5075
-  1.785                                1 sites: R1350 L5075
-  1.029                                2 sites: R1272 L4763, R1337 L5023
-  every f opening / any f opening      1 sites: R1350 L5075
-  Lr 7p configuration                  1 sites: R1306 L4899
+  BLOCKED (protocol replay)            13 sites: R243 L964, R244 L968, R1336 L5020, R1355 L5096, R1474 L5548, R1489 L5600, R1524 L5741, R1530 L5765, R1549 L5837, R1556 L5865, R1562 L5889, R1598 L6005, R1644 L6170
+  1.028                                2 sites: R1214 L4548, R1350 L5076
+  1.785                                1 sites: R1350 L5076
+  1.029                                2 sites: R1272 L4764, R1337 L5024
+  every f opening / any f opening      1 sites: R1350 L5076
+  Lr 7p configuration                  1 sites: R1306 L4900
 
 ================================================================================================
 3  RECONSTRUCTION INPUT -- NIST neutral ground configurations Z = 1..108 (instrument data), VALIDATED

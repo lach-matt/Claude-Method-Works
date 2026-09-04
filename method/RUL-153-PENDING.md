@@ -114,3 +114,8 @@ document, drafts shown to M first; the twelve rows with no draft stay leads.*
 - **Q5 — RULED (M, 4 September 2026): *Yes*.** The drafted slips are appended as Register entries under the current
   numbering, one seating pass per queue document, each entry citing the entry it corrects and its source document,
   the drafts shown to M before each pass is seated. The twelve rows with no draft stay leads.
+- **Q5 pass 1 — RULED (M, 4 September 2026):** *1 — approved; 2 — working register; 3 — re-run the instrument before
+  seating, no shortcuts.* So: slips 05, 06, 07, 08 and 11 become registers 1821–1825; slips 09 and 10 (figure assets)
+  go to the Working Register as editorial; every figure an entry states is re-measured by running the slip's own
+  instrument at this build before the entry is seated, and the entry says what was re-run and what it gave. This
+  governs every later Q5 pass unless M says otherwise.

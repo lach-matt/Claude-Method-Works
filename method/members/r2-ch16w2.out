@@ -90,7 +90,7 @@ inversions named at L9509: 5d/4f and 6d/5f
    unit site L9510: Read from the observed ground configurations of all 108 neutrals, the sequence in
    unit site L9598: **How it was derived.** Read from the observed ground configurations of the 108 neutrals, not from
    main  "neutrals" sites: [9510, 9598]
-   reg   "neutrals" sites: [1999, 3599, 3651, 4683, 4871, 4931, 4959, 5039, 5988, 6081, 6121, 6125, 6129, 6185, 6189, 6193, 6261, 6269, 6501]
+   reg   "neutrals" sites: [2000, 3600, 3652, 4684, 4872, 4932, 4960, 5040, 5989, 6082, 6122, 6126, 6130, 6186, 6190, 6194, 6262, 6270, 6502]
    mc    "neutrals" sites: [3733]
    pc    "neutrals" sites: []
    ioi   "neutrals" sites: []
@@ -140,16 +140,16 @@ printed: radicand the scatter in a within a subshell falls from 0.187 to 0.041 a
   5p  0.088 -> 0.018   falls: True   drop 0.070   ratio 4.889
   6p  0.059 -> 0.021   falls: True   drop 0.038   ratio 2.810
   5d  0.086 -> 0.047   falls: True   drop 0.039   ratio 1.830
-  0.187  sites across the six volumes: [('main', 9534), ('reg', 5067)]
-  0.041  sites across the six volumes: [('main', 9534), ('reg', 2755), ('reg', 5067)]
-  0.119  sites across the six volumes: [('main', 9534), ('reg', 5067), ('mc', 3080)]
-  0.028  sites across the six volumes: [('main', 9535), ('reg', 2691), ('reg', 5067), ('pc', 778)]
-  0.088  sites across the six volumes: [('main', 9535), ('reg', 5067), ('reg', 5916)]
-  0.018  sites across the six volumes: [('main', 9535), ('reg', 4295), ('reg', 5067), ('reg', 5471), ('mc', 778)]
-  0.059  sites across the six volumes: [('main', 9535), ('reg', 5067), ('reg', 5279)]
-  0.021  sites across the six volumes: [('main', 9535), ('reg', 3919), ('reg', 5067), ('reg', 5872), ('pc', 702)]
-  0.086  sites across the six volumes: [('main', 9535), ('reg', 3967), ('reg', 4723), ('reg', 5067)]
-  0.047  sites across the six volumes: [('main', 4373), ('main', 9535), ('reg', 2447), ('reg', 2691), ('reg', 2707), ('reg', 3179), ('reg', 5067), ('mc', 1354), ('mc', 1360)]
+  0.187  sites across the six volumes: [('main', 9534), ('reg', 5068)]
+  0.041  sites across the six volumes: [('main', 9534), ('reg', 2756), ('reg', 5068)]
+  0.119  sites across the six volumes: [('main', 9534), ('reg', 5068), ('mc', 3080)]
+  0.028  sites across the six volumes: [('main', 9535), ('reg', 2692), ('reg', 5068), ('pc', 778)]
+  0.088  sites across the six volumes: [('main', 9535), ('reg', 5068), ('reg', 5917)]
+  0.018  sites across the six volumes: [('main', 9535), ('reg', 4296), ('reg', 5068), ('reg', 5472), ('mc', 778)]
+  0.059  sites across the six volumes: [('main', 9535), ('reg', 5068), ('reg', 5280)]
+  0.021  sites across the six volumes: [('main', 9535), ('reg', 3920), ('reg', 5068), ('reg', 5873), ('pc', 702)]
+  0.086  sites across the six volumes: [('main', 9535), ('reg', 3968), ('reg', 4724), ('reg', 5068)]
+  0.047  sites across the six volumes: [('main', 4373), ('main', 9535), ('reg', 2448), ('reg', 2692), ('reg', 2708), ('reg', 3180), ('reg', 5068), ('mc', 1354), ('mc', 1360)]
   "Raw occupancy makes every one worse" (L9530): NOT RECOMPUTABLE in this unit --
   a needs the corridor of §34.5 and the walk of §34.6, both outside it.  Budget, not a negative.
 
@@ -339,13 +339,13 @@ printed: radicand the scatter in a within a subshell falls from 0.187 to 0.041 a
 13  "The ν rule is this record's own, first stated in this work" (L9601)
 ================================================================================================
   main  sites of the printed form ν(n,ℓ,q): [9524, 9589]
-  reg   sites of the printed form ν(n,ℓ,q): [5075]
+  reg   sites of the printed form ν(n,ℓ,q): [5076]
   mc    sites of the printed form ν(n,ℓ,q): []
   pc    sites of the printed form ν(n,ℓ,q): []
   ioi   sites of the printed form ν(n,ℓ,q): []
   sc    sites of the printed form ν(n,ℓ,q): []
   main  "Madelung" sites: [1565, 9515, 9605, 9618, 9661, 9665, 11862] 
-  reg   "Madelung" sites: [40, 267, 271, 275, 279, 351, 4635, 4679, 4703, 4903, 4911, 5071, 5235, 5307] ...
+  reg   "Madelung" sites: [40, 268, 272, 276, 280, 352, 4636, 4680, 4704, 4904, 4912, 5072, 5236, 5308] ...
   mc    "Madelung" sites: [716, 720, 1588, 1590, 3438, 3700, 3708] 
   pc    "Madelung" sites: [474, 892] 
   ioi   "Madelung" sites: [1452, 1456, 1895, 2035] 

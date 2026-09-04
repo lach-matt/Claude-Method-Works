@@ -1,0 +1,67 @@
+r2-bib.py — census mc 387–672 (the bibliography's `objects` column) and mc 293 (the modular ledger's numerals)
+members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main 14e54c80 | reg 55053981 | pc 6e904d82 | sc 5ba7f61c | ioi 43a28121 | census ba8306f2
+
+== §1 THE TABLE, located by scan — the census rows point into it and every one of them is a handle
+   exactly one bibliography table header                                  1                        OK
+   header L3382, rows L3384–L3545, DATA rows 162
+   the table prints 162 data rows, as the volume states                   162                      OK
+   census ids 387–672 are 286 rows                                        286                      OK
+   all 286 are C13-HANDLE-LEAK in mc                                      [('C13-HANDLE-LEAK', 'mc OK
+   every one of the 286 points at a line of this table                    True                     OK
+   every one of the 286 lines still carries its handle                    True                     OK
+   distinct handles 179 in 18 families: {'3B': 8, 'A': 27, 'B': 12, 'C': 6, 'E': 3, 'EM': 5, 'F': 3, 'G': 11, 'I': 2, 'K': 18, 'L': 23, 'LS': 8, 'M': 4, 'P': 8, 'Q': 10, 'S': 16, 'T': 9, 'W': 6}
+   every item is an object handle (family.name), none a BUILD, chat, W or MC token True                     OK
+   handles the column actually prints: 265; of which the census pattern admits 179
+   the census handles are a subset of the column's                        []                       OK
+
+== §2 RESOLUTION — where else, if anywhere, each handle is printed
+   in the compendium outside the table: 6 | elsewhere only: 124 | nowhere: 135
+   A.staircls   in the compendium outside the table at: [(3600, '**`A.staircls`** states that E(ℛ) = 0 iff the held set is an intersection of'), (3785, 'The held cells form a **staircase**, which by `A.staircls` is exactly the')]
+   C.Aq         in the compendium outside the table at: [(2688, '*as C.Aq*'), (2692, '> **Prior art: as C.Aq — the second factor of the fibred count, built the same way.**')]
+   E.nuclide    in the compendium outside the table at: [(3709, "E.nuclide's shape, a defect whose every missing cell can be named.*")]
+   L.F          in the compendium outside the table at: [(1014, '*as L.F*')]
+   M.C1         in the compendium outside the table at: [(2414, 'COMPLETED 2026-08-11 (R 1484): the sum is TWO accountings. LEVEL ONE, the manifold, is wha')]
+   M.C2         in the compendium outside the table at: [(2414, 'COMPLETED 2026-08-11 (R 1484): the sum is TWO accountings. LEVEL ONE, the manifold, is wha')]
+   handles the compendium prints outside the table                        ['A.staircls', 'C.Aq', ' OK
+   every one of those six is printed as a REFERENCE inside another entry, not as the name of its own True                     OK
+   the elsewhere-only handles resolve in: {'main': 57, 'reg': 107}
+   of those, printed in Appendix G's "what rests on it" column: 27
+   nowhere: A.E A.EW A.S A.W A.anchor A.bound A.ebits A.expr A.intext A.logic A.morph A.prod A.prodE A.r4 A.relax A.seaton A.slack A.stair A.stat2 A.three A.two B.V B.V43 B.Vexact B.floor2 B.floor32 B.frac B.newton B.ordbr B.ordk B.pareto B.pole B.rank1 B.selfconc C.Bq C.box C.compare C.cut C.fib C.local C.pareto C.qmean E.ioniz E.layout E.table EM.cross EM.notcomp EM.parity EM.quotient EM.spin F.exact F.moore F.open F.unstatable G.allcons G.book G.cons G.graph G.near G.prot G.ref G.reg G.shape G.stat G.tower G.trip I.convex I.interval I.shape K.arrow K.clock K.clockfail K.comp K.corner K.coupling K.decay K.jump K.markov K.three K.transit K.zcross L.E0 L.F1 L.Fm1 L.alpha L.amp L.arith L.birk L.bits L.box L.c2 L.c4 L.c5 L.c7 L.chains L.chi L.circuit L.def L.dim L.metric L.mobius L.modular L.occ L.omega L.pal L.pushback L.rankpoly L.skew L.step L.tree L.void L.voidfrac Q.pen S.bits S.bounds S.box S.car S.channel S.cover S.down S.erasure S.open S.parent S.status S.unit T.a10 T.a11 T.a13 T.a9 T.dens T.dich T.excl T.invariant T.real W.face
+   census handles resolving nowhere                                       92                       measured (93 at the closing reading)
+   census handles resolving only outside the compendium                   87                       measured (86 at the closing reading)
+   census rows whose handle resolves nowhere                              132                      measured (133 at the closing reading)
+   census rows whose handle the compendium prints outside the table       0                        OK
+   mathreg.py, where the handle -> object map lives, is a member of this build False                    OK
+   a reader can follow every handle in the `objects` column to an object the volume states False                    DEVIATION (bib-01) — printed True
+
+== §3 CENSUS 293 — the modular ledger's numerals under census.py's own rule, then read
+   census 293: 293	C6-NUMBERS-NOT-IN-SOURCE	mc	2406	The modular ledger	9 of 11: 107 114 143 315 332 1035 1483 1484 1019, | sources § R1019 R1020 R1022 R1035 R1483 R1484
+   293 is C6-NUMBERS-NOT-IN-SOURCE on "The modular ledger"                ('C6-NUMBERS-NOT-IN-SOUR OK
+   block L2406–L2417; numerals under the rule (years and 1–2 digit figures excluded): ['107', '114', '143', '315', '332', '1020', '1022', '1035', '1483', '1484', '1019,']
+   eleven numerals, as the census counted                                 11                       OK
+   the block's Register pointers                                          [1019, 1020, 1022, 1035, OK
+   not in the cited entries' text: ['107', '114', '143', '315', '332', '1035', '1483', '1484', '1019,']
+   nine of the eleven, as the census counted                              9                        OK
+   the two that are in source are the pointers other cited entries name   ['1020', '1022']         OK
+   Register pointers among the nine: ['1035', '1483', '1484', '1019,']
+   locators of the block's own prior-art line among the nine: ['107', '114', '143', '315', '332']
+   prior art: > **Prior art: one half-sided modular inclusion per generator supplies the affine line — the Borchers-Wiesbrock theorem, Borchers, Commun. Math. Phys.
+   the nine are four Register pointers and five journal locators, nothing else (['1019,', '1035', '1483 OK
+   (census.py's rule keeps a trailing comma on "1019," — the numeral is 1019, the block's first pointer)
+   the locators are Borchers 1992 (CMP 143, 315–332) and Wiesbrock 1993 (LMP 28, 107–114) True                     OK
+   the block states a figure about its object that its sources do not carry False                    as printed
+
+== VERDICT
+   integrity checks: ALL OK
+   deviations recorded: 1
+      bib-01  a reader can follow every handle in the `objects` column to an object the volume states — measured False, printed True
+   mc 387–672: DEFECT, one class at one site. The `objects` column prints 265 handles; the compendium prints
+   6 of them outside the table and only as references inside other entries, never as an object's own name;
+   124 resolve only to another volume — the Register and the main volume, Appendix G's column among the sites —
+   and 135 resolve nowhere.
+   nowhere. The map from handle to object is mathreg.py's, and mathreg.py is not a member — docket 38 as much
+   as docket 28. Recorded, not repaired: the repair is the generator's, printing each handle beside the object
+   it names, and the generator is not held.
+   mc 293: NOT A DEFECT. The nine numerals are the block's four Register pointers and the five journal locators
+   of its own prior-art line; the class asks for a figure the block states about its object that its sources
+   do not carry, and there is none. The two "in source" are 1020 and 1022 because 1483 and 1484 name them.

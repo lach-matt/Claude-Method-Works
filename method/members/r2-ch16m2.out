@@ -78,35 +78,35 @@
       L9013 "Every figure about the book moves": True over 3 rows  --- App D row: ['forty', 'forty-eight', 'forty-eight'] moves once then holds
 
 == D. every register cited in the unit, existence first, headline second ==
-  register  236: reg L937 "### 236" -> **CLOSURE HOLDS THROUGH THE F SHELL** *— E(Λ) = 0 at 8,853 cells, 89,438 with d, and 267,858 and
-  register  237: reg L941 "### 237" -> **S3 TESTED FOR THE FIRST TIME AND FAILING IN ITS STRONG FORM: 26% CHAPTER RECOVERY FROM CROSS-R
-  register  203: reg L1321 "### 203, 215, 218, 259, 280, 283, 284, 286, 291" -> **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows;
-  register  207: reg L1325 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
-  register  213: reg L1325 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
-  register  215: reg L1321 "### 203, 215, 218, 259, 280, 283, 284, 286, 291" -> **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows;
-  register  218: reg L1321 "### 203, 215, 218, 259, 280, 283, 284, 286, 291" -> **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows;
-  register  220: reg L1325 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
-  register  221: reg L1325 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
-  register  227: reg L1329 "### 227, 253, 254, 305" -> **§4.6 — A TEST THAT COULD NOT FAIL.** *A summary line hardcoded one line below the computation 
-  register  305: reg L1329 "### 227, 253, 254, 305" -> **§4.6 — A TEST THAT COULD NOT FAIL.** *A summary line hardcoded one line below the computation 
-  register  310: reg L1341 "### 310, 337, 340, 351, 354" -> **An INSTRUMENT NARROWED BY A LITERAL IT CARRIED, CONTINUED.** *A spelled reference stopping at*
-  register  318: reg L1345 "### 293, 318, 342" -> **A CHECK THAT PASSED ON A DEFECT IT WAS BUILT TO CATCH.** *Five sections absent from a derived 
-  register  320: reg L1189 "### 320" -> **THE BOOK IS PROCEDURAL RATHER THAN EXPLORATORY, AND THE CHANGE IS MEASURABLE** *: defects foun
-  register  321: reg L1193 "### 321" -> **THE BOOK REARRANGED TO AGREE WITH WHAT IT IS.** *The procedure was Appendix B, behind the math
-  register  285: reg L1085 "### 285" -> **A NINETEENTH PRIME AUDIT, SEQUENCE.** *A numbering is a claim about position and nothing was t
-  register  294: reg L1101 "### 294" -> **A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen be
-  register  278: reg L1069 "### 278" -> **THE LATTICE APPLIED TO THE UNCOMPUTABLE.** *E(decisions) = 1, naming a decision deferred rathe
-  register  332: reg L1233 "### 332" -> **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED
-  register  373: reg L1381 "### 373" -> **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls
+  register  236: reg L938 "### 236" -> **CLOSURE HOLDS THROUGH THE F SHELL** *— E(Λ) = 0 at 8,853 cells, 89,438 with d, and 267,858 and
+  register  237: reg L942 "### 237" -> **S3 TESTED FOR THE FIRST TIME AND FAILING IN ITS STRONG FORM: 26% CHAPTER RECOVERY FROM CROSS-R
+  register  203: reg L1322 "### 203, 215, 218, 259, 280, 283, 284, 286, 291" -> **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows;
+  register  207: reg L1326 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
+  register  213: reg L1326 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
+  register  215: reg L1322 "### 203, 215, 218, 259, 280, 283, 284, 286, 291" -> **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows;
+  register  218: reg L1322 "### 203, 215, 218, 259, 280, 283, 284, 286, 291" -> **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows;
+  register  220: reg L1326 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
+  register  221: reg L1326 "### 207, 209, 213, 219, 220, 221, 231" -> **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a question its pref
+  register  227: reg L1330 "### 227, 253, 254, 305" -> **§4.6 — A TEST THAT COULD NOT FAIL.** *A summary line hardcoded one line below the computation 
+  register  305: reg L1330 "### 227, 253, 254, 305" -> **§4.6 — A TEST THAT COULD NOT FAIL.** *A summary line hardcoded one line below the computation 
+  register  310: reg L1342 "### 310, 337, 340, 351, 354" -> **An INSTRUMENT NARROWED BY A LITERAL IT CARRIED, CONTINUED.** *A spelled reference stopping at*
+  register  318: reg L1346 "### 293, 318, 342" -> **A CHECK THAT PASSED ON A DEFECT IT WAS BUILT TO CATCH.** *Five sections absent from a derived 
+  register  320: reg L1190 "### 320" -> **THE BOOK IS PROCEDURAL RATHER THAN EXPLORATORY, AND THE CHANGE IS MEASURABLE** *: defects foun
+  register  321: reg L1194 "### 321" -> **THE BOOK REARRANGED TO AGREE WITH WHAT IT IS.** *The procedure was Appendix B, behind the math
+  register  285: reg L1086 "### 285" -> **A NINETEENTH PRIME AUDIT, SEQUENCE.** *A numbering is a claim about position and nothing was t
+  register  294: reg L1102 "### 294" -> **A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen be
+  register  278: reg L1070 "### 278" -> **THE LATTICE APPLIED TO THE UNCOMPUTABLE.** *E(decisions) = 1, naming a decision deferred rathe
+  register  332: reg L1234 "### 332" -> **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED
+  register  373: reg L1382 "### 373" -> **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls
 
 == E. figures the unit states about the BOOK, re-measured against the book as it stands ==
-  Register: 1655 bare-number entry headings, 7 grouped headings (comma- AND dash-grouped; a dash-only pattern sees none of them) spanning 32 numbers; distinct entry numbers 1687
+  Register: 1660 bare-number entry headings, 7 grouped headings (comma- AND dash-grouped; a dash-only pattern sees none of them) spanning 32 numbers; distinct entry numbers 1692
   L8918 "one thousand six hundred and thirty-five" --- word-form sites in the main volume:
       15 sites: [20, 89, 104, 202, 523, 646, 3519, 7372, 7905, 8923, 9060, 9370, 9382, 9387, 10330]   (L8918 in the set: True)
       digit-form 1,635 in main at []
   L8957 "the register is a quarter of it":
-      main member 11,904 lines / 769,406 B;  Register member 6,722 lines / 1,223,105 B
-      Register as a share of main+Register: lines 36.1 %, bytes 61.4 % (half-up);  as a share of main alone: lines 56.5 %, bytes 159.0 %
+      main member 11,904 lines / 769,412 B;  Register member 6,743 lines / 1,229,622 B
+      Register as a share of main+Register: lines 36.2 %, bytes 61.5 % (half-up);  as a share of main alone: lines 56.6 %, bytes 159.8 %
   audit counts across the main volume (docket 33):
       "twenty-two audits": 4 sites [79, 1004, 1402, 9858]
       "twenty audits": 1 sites [8954]
@@ -118,7 +118,7 @@
       "companion papers": 3 sites [4180, 8950, 11901]
   |J(Lambda)| = 17 generators and 7.07 bits per cell --- corroborating sites, six volumes:
       main: 7.07 at [315, 854, 2120, 9013, 9137] (5);  "17 ... generator" at [1868, 9012, 9133] (3)
-      reg: 7.07 at [1011, 1383, 1471, 1555] (4);  "17 ... generator" at [1039, 1947, 5567, 6341, 6469] (5)
+      reg: 7.07 at [1012, 1384, 1472, 1556] (4);  "17 ... generator" at [1040, 1948, 5568, 6342, 6470] (5)
       mc: 7.07 at [1074] (1);  "17 ... generator" at [1064, 1074, 1426, 1514, 2394] (5)
       pc: 7.07 at [] (0);  "17 ... generator" at [] (0)
       ioi: 7.07 at [] (0);  "17 ... generator" at [] (0)

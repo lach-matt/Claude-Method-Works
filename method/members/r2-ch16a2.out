@@ -93,7 +93,7 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
         L8416   §30.3's original citations — Stahl & Wille, Yannakakis — were correct; a draft withdrew them  <-- IN UNIT
         L11821  Yannakakis, M. (1982). SIAM J. Alg. Disc. Meth. 3, 351. — the complexity of order-dimension 
   Yannakakis       reg   1 site(s)
-        L6461   **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE M
+        L6462   **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE M
   Yannakakis       mc    8 site(s)
         L402    Measured — R 1196-1199; Beeri, Fagin, Maier & Yannakakis 1983; Dijkstra 1959.
         L510    Proved — M §14.5.4; Beeri, Fagin, Maier & Yannakakis 1983.
@@ -113,10 +113,10 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
   withdraw         reg   59 site(s)
         L27     | **a withdrawal** | 33 | 61 | a claim removed, with the reason |
         L31     *The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cit
-        L69     Every correction, withdrawal and finding in the order it happened. **The book cites entries 
-        L99     **THE FOUNDING CONCLUSION: THE RESERVED CELLS TRANSFORM ELEMENTAL DISCOVERY INTO A BOUNDED S
-        L123    **THE RESERVED-CELL RECOUNT CORRECTS 78 → 92.** *The founding draft quoted 78 reserved cells
-        L207    **THE RESERVED-CELL ANALYSIS CONSTRAINS VALENCE CONFIGURATION ONLY — THE BOUNDED-SEARCH CLAI
+        L70     Every correction, withdrawal and finding in the order it happened. **The book cites entries 
+        L100    **THE FOUNDING CONCLUSION: THE RESERVED CELLS TRANSFORM ELEMENTAL DISCOVERY INTO A BOUNDED S
+        L124    **THE RESERVED-CELL RECOUNT CORRECTS 78 → 92.** *The founding draft quoted 78 reserved cells
+        L208    **THE RESERVED-CELL ANALYSIS CONSTRAINS VALENCE CONFIGURATION ONLY — THE BOUNDED-SEARCH CLAI
   withdraw         mc    5 site(s)
         L3090   Asserted — R 987, withdrawn R 1168.
         L3092   WITHDRAWN (R 1168). The claim was that the fitted s recovers register 987's sign and size. I
@@ -229,11 +229,11 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
 
   WHERE THE LANDSCAPE READING DOES LIVE — six-volume sweep
   basin          {'main': [8338, 8401]}
-  landscape      {'main': [693, 805, 8399], 'reg': [3751], 'ioi': [76]}
-  potential      {'main': [8400, 9787, 9944, 9956, 10847, 10864, 10868, 11447], 'reg': [2567, 2611, 4675, 4715, 5039, 5227, 5451, 5455], 'mc': [73, 1024, 2376, 2378, 2384, 2394, 3250], 'pc': [72, 95, 106, 358, 365, 391, 502, 674], 'ioi': [2074], 'sc': [1130]}
-  descent        {'main': [392, 686, 693, 8401, 8546, 9712], 'reg': [4527, 4943, 4947, 4951, 4955, 5063, 5079, 5103], 'ioi': [1660, 1667, 1873]}
-  transposition  {'main': [693, 3709, 8400], 'reg': [5271, 5812]}
-  stall          {'main': [686, 8401], 'reg': [5615]}
+  landscape      {'main': [693, 805, 8399], 'reg': [3752], 'ioi': [76]}
+  potential      {'main': [8400, 9787, 9944, 9956, 10847, 10864, 10868, 11447], 'reg': [2568, 2612, 4676, 4716, 5040, 5228, 5452, 5456], 'mc': [73, 1024, 2376, 2378, 2384, 2394, 3250], 'pc': [72, 95, 106, 358, 365, 391, 502, 674], 'ioi': [2074], 'sc': [1130]}
+  descent        {'main': [392, 686, 693, 8401, 8546, 9712], 'reg': [4528, 4944, 4948, 4952, 4956, 5064, 5080, 5104], 'ioi': [1660, 1667, 1873]}
+  transposition  {'main': [693, 3709, 8400], 'reg': [5272, 5813]}
+  stall          {'main': [686, 8401], 'reg': [5616]}
 
 ## 14  FIGURE REFERENCES vs FIGURE MEMBERS (production, not authoring)
   main-volume inline figure references: 33

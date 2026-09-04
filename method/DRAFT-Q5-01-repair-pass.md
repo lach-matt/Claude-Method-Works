@@ -1,4 +1,15 @@
-# DRAFT for M's review — Q5 pass 1: the chat-53 repair-pass slips as Register entries 1821–1827. NOTHING SEATED.
+# DRAFT for M's review — Q5 pass 1: the chat-53 repair-pass slips as Register entries. RULED AND SEATED (W-222).
+
+**M's rulings (4 September 2026): 1 approved; 2 working register; 3 re-run the instrument before seating, no shortcuts.**
+As seated: slips 05, 06, 07, 08 and 11 became registers **1821, 1822, 1823, 1824, 1825**; slips 09 and 10 went to W-222;
+every figure was re-run by `r3-q5a.py` from the eight instruments seated with the pass, and each entry says so. The
+draft below is kept as reviewed (numbered 1821–1827 with the two figure slips still in it); the seated text differs only
+by the renumbering and the re-run sentence each entry gained.
+
+---
+
+*The draft as reviewed:*
+
 
 Source document: `drive/The Method Materials/REGISTER-QUEUE-APPEND-repair-pass.md` (chat 53, successor to HANDOFF-5,
 2026-08-28), slips 05–11, "ready for Register 1.1 (R-numbers theirs to assign; append-only, cite, never overwrite)".

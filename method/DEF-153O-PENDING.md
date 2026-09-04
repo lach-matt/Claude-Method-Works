@@ -81,3 +81,7 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
 - **M's four rulings executed (W-220, W-221; BUILD104 main, BUILD216 compendia):** registers 1817–1820; READ-lead.md,
   READ-gaps13.md; Q4 withdrawn on its premise (DEF-153Q). Pointer rule learned: a Register pointer goes inside the
   entry's closing italic. The held set is unchanged in kind.
+- **Q5 pass 1 seated (W-222–W-224; BUILD105 main, BUILD219 compendia):** registers 1821–1825 with the eight repair-pass
+  instruments; `r2-bib2` seated (the constant-carrying class in the census reading). **The census-by-line class now bites
+  in the Register:** the front matter has grown three lines and a census row keyed to L1469 crossed unit 12's bound;
+  `r2-reg11a2` and `r2-reg12b` join the held set. The content-keyed census and `close_census.py` move up the queue.

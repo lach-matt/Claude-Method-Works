@@ -20,7 +20,7 @@
   the Part VII epigraph the §33.5 tail also echoes, L9395-L9397:
     *Parts I to VI state the method. This part applies it. Each chapter takes a problem posed outside this work, states what the method delivered, and — because the method is the subject — how the method itself did the work.*
   register 1359 (reg L5105) fixes Part VII's structure:
-    
+    ### 1360
 
 ================================================================================================
 3. EVERY ATTRIBUTION IN THE UNIT against the References BODY occurrence and R.7
@@ -35,9 +35,9 @@
       inside the References body (L11550+): NONE -- unbibliographed
   and where the Demkov-Ostrovsky claim of L9468 does live:
     main L9474: restated: the Demkov–Ostrovsky slope-½ comparison was an identity, and the closure
-    reg L5451: **THE OUTSIDE LITERATURE, SEARCHED AT LAST, AND OUR COORDINATES ARE FIFTY YEARS OLD.** *A precedent search on the Löwdin challenge itself, owed since 
-    reg L5455: **AND BELOKOLOS ANSWERS THE OBJECTION THAT SANK DEMKOV–OSTROVSKY: THE 2 IS DERIVED, NOT CHOSEN.** *His chain: any central potential carries a dynamica
-    reg L6085: **P2 CLOSED: DEMKOV-OSTROVSKY DERIVE MADELUNG AT E = 0, WHICH IS SEATON'S OWN LIMIT — AND THE CORRIDOR TEST REFUTES THE CONNECTION.** *Board row 11, c
+    reg L5452: **THE OUTSIDE LITERATURE, SEARCHED AT LAST, AND OUR COORDINATES ARE FIFTY YEARS OLD.** *A precedent search on the Löwdin challenge itself, owed since 
+    reg L5456: **AND BELOKOLOS ANSWERS THE OBJECTION THAT SANK DEMKOV–OSTROVSKY: THE 2 IS DERIVED, NOT CHOSEN.** *His chain: any central potential carries a dynamica
+    reg L6086: **P2 CLOSED: DEMKOV-OSTROVSKY DERIVE MADELUNG AT E = 0, WHICH IS SEATON'S OWN LIMIT — AND THE CORRIDOR TEST REFUTES THE CONNECTION.** *Board row 11, c
 
 ================================================================================================
 4. RULING 45 (build / editorial-process prose) and RULING 46 (script and file names)
@@ -50,7 +50,7 @@
     L9497  [\bthis book\b]  delivered, what it cost, and — because the method is the subject of this book —
   Ruling 46 sites in the unit (case-sensitive, word-bounded): 0 []
   for contrast, the SAME protocol names a script in the Register (permitted there):
-    reg L5017 tail: 
+    reg L5017 tail: ### 1337
 
 ================================================================================================
 5. FIRST-PERSON PROSE (guarded against the Roman numeral in species names)

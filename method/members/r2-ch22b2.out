@@ -67,7 +67,7 @@ r2-ch22b — Appendix D part 1 (D.1–D.4.4.3), prose and pointers
    R45 candidates: [] ; R46 candidates: []
    never been checked here  unit [] ; main-elsewhere 0; mc 0; reg 0
    no precedent found       unit [10443] ; main-elsewhere 0; mc 0; reg 1
-   exhaustive               unit [10381, 10398, 10399, 10402, 10407, 10443] ; main-elsewhere 103; mc 17; reg 19
+   exhaustive               unit [10381, 10398, 10399, 10402, 10407, 10443] ; main-elsewhere 103; mc 17; reg 20
    idempotent               unit [10450] ; main-elsewhere 4; mc 4; reg 3
    caterpillar              unit [10435, 10473] ; main-elsewhere 11; mc 8; reg 5
    pendant                  unit [10473] ; main-elsewhere 9; mc 5; reg 1
