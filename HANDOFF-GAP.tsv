@@ -1,27 +1,27 @@
-handoff	number	class	prose_mentions	chars_after_title	truncation_warning	conversation	conversation_title	date	msg	title_line
-HANDOFF-2	2	MENTION-ONLY	416	0						
-HANDOFF-33	33	BODY-WRITTEN	603	42775		8eea2e7b-041a-4b21-83cb-d68a798e80f7	81	2026-08-30	3	# HANDOFF-33 — The Method 1.6 — chat 81 → chat 82 (supersedes HANDOFF-32)\n\n- Written from **chat 81** for **chat 82**. Live files: **BUILD
-HANDOFF-54	54	BODY-WRITTEN	307	74189		cb7b153e-1822-4506-b491-de8025d76fb7	101	2026-08-31	3	# HANDOFF-54 — The Method 1.6 — chat 101 → chat 102\n\n- Written from **chat 101** for **chat 102**. Live files: **BUILD90 main** (unchanged
-HANDOFF-55	55	BODY-READ-BACK	385	632583	"n7xZUi"", ""name"": ""view"", ""input"": {""description"": ""Read the truncated middle of HANDOFF-55"", ""path"": ""/mnt/user-data/upl"	22f6f4ec-c68d-4f24-b253-7e50b899118d	103	2026-08-31	1	# HANDOFF-55 — The Method 1.6 — chat 102 → chat 103\n 2\t\n 3\t- Written from **chat 102** for **chat 103**. Live files: **BUILD90 m
-HANDOFF-56	56	BODY-READ-BACK	309	1639897	"P4mNSq"", ""name"": ""view"", ""input"": {""description"": ""Read the truncated middle of HANDOFF-56"", ""path"": ""/mnt/user-data/upl"	aae9604f-db73-4f73-955d-31a5bd961d7d	104	2026-08-31	1	# HANDOFF-56 — The Method 1.6 — chat 103 → chat 104\n 2\t\n 3\t- Written from **chat 103** for **chat 104**. Live files: **BUILD90 m
-HANDOFF-63	63	BODY-READ-BACK	185	1669626	"TVLZBF"", ""name"": ""view"", ""input"": {""description"": ""Read the truncated middle of HANDOFF-63"", ""path"": ""/mnt/user-data/upl"	81ce11d3-3572-43bb-b601-083c48bdeb41	111	2026-09-01	1	# HANDOFF-63 — The Method 1.6 — chat 110 → chat 111\n 2\t\n 3\t- Written from **chat 110** for **chat 111**. Live files: **BUILD90 m
-HANDOFF-65	65	BODY-WRITTEN	171	101304		15546118-a6b0-4290-a583-08bca893bdfe	112	2026-09-01	1	# HANDOFF-65 — The Method 1.6 — chat 112 → chat 113\n\n- Written from **chat 112** for **chat 113**. Live files: **BUILD90 main** (unchanged
-HANDOFF-66	66	BODY-WRITTEN	205	105126		b79550e0-2b9b-4828-8a3c-573837c5f6be	113	2026-09-01	3	# HANDOFF-66 — The Method 1.6 — chat 113 → chat 114\n\n- Written from **chat 113** for **chat 114**. Live files: **BUILD90 main** (unchanged
-HANDOFF-68	68	BODY-READ-BACK	123	1619076	"uGE"", ""name"": ""view"", ""input"": {""description"": ""Reading the truncated middle of HANDOFF-68"	bc0e6e01-030f-484c-83ec-61212ef6232c	116	2026-09-01	1	# HANDOFF-68 — The Method 1.6 — chat 115 → chat 116\n 2\t\n 3\t- Written from **chat 115** for **chat 116**. Live files: **BUILD90 m
-HANDOFF-69	69	BODY-READ-BACK	155	1674886	"otXZXX"", ""name"": ""view"", ""input"": {""description"": ""Read the truncated middle of HANDOFF-69"	84ffea7c-877d-4f8d-83b4-99e203bd9f51	117	2026-09-01	1	# HANDOFF-69 — The Method 1.6 — chat 116 → chat 117\n 2\t\n 3\t- Written from **chat 116** for **chat 117**. Live files: **BUILD90 m
-HANDOFF-70	70	BODY-READ-BACK	209	1630371	"swz2Mw"", ""name"": ""view"", ""input"": {""description"": ""Read the truncated middle of HANDOFF-70"	3f5b4f34-3500-4e17-9757-e8a2b324982c	118	2026-09-01	1	# HANDOFF-70 — The Method 1.6 — chat 117 → chat 118\n 2\t\n 3\t- Written from **chat 117** for **chat 118**. Live files: **BUILD90 m
-HANDOFF-71	71	BODY-READ-BACK	222	1794478	"view"", ""input"": {""description"": ""Read handoff lines 87-280 (truncated portion, first half)"", ""path"": ""/mnt/user-data/upl"	918d6f5c-bda3-41ff-aec9-46e8955c3ed7	119	2026-09-01	1	# HANDOFF-71 — The Method 1.6 — chat 118 → chat 119\n 2\t\n 3\t- Written from **chat 118** for **chat 119**. Live files: **BUILD90 m
-HANDOFF-81	81	BODY-WRITTEN	126	39116		30e87b6f-5001-4643-86c5-e3b5fce8373a	128	2026-09-01	13	# HANDOFF-81 — The Method 1.6 — chat 128 → chat 129\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-82	82	BODY-READ-BACK	152	2220466		284f1a46-01f0-411d-b832-478876eaf96e	130	2026-09-01	1	# HANDOFF-82 — The Method 1.6 — chat 129 → chat 130\n 2\t\n 3\tSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work,
-HANDOFF-85	85	BODY-WRITTEN	114	36705		4299d074-4bd3-4a20-b963-c8de70fb6ebc	132	2026-09-01	1	# HANDOFF-85 — The Method 1.6 — chat 132 → chat 133\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-86	86	BODY-WRITTEN	125	40367		46083acb-ccf9-4e45-b7a5-a406f9b37286	133	2026-09-01	3	# HANDOFF-86 — The Method 1.6 — chat 133 → chat 134\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-87	87	BODY-WRITTEN	133	41237		4ac69d8c-f1e9-4db4-a4cd-88e6d07821d7	134	2026-09-02	1	# HANDOFF-87 — The Method 1.6 — chat 134 → chat 135\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-89	89	BODY-WRITTEN	127	41849		d5c6c324-b158-40d3-a350-9d82715c5af9	136	2026-09-02	1	# HANDOFF-89 — The Method 1.6 — chat 136 → chat 137\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-90	90	BODY-WRITTEN	159	44149		a57df6d5-935a-4058-bd94-426d0ecd0bfe	137	2026-09-02	1	# HANDOFF-90 — The Method 1.6 — chat 137 → chat 138\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-91	91	BODY-WRITTEN	150	42443		78a643a1-e0c0-4e21-a341-aeec0d0e6bcb	138	2026-09-02	1	# HANDOFF-91 — The Method 1.6 — chat 138 → chat 139\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-92	92	BODY-WRITTEN	170	44369		35701547-47d4-4d07-b2ab-ea2e8edc7678	139	2026-09-02	1	# HANDOFF-92 — The Method 1.6 — chat 139 → chat 140\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-93	93	BODY-WRITTEN	154	42684		80b69cee-fe13-4553-99bd-5fcd4233858e	140	2026-09-02	3	# HANDOFF-93 — The Method 1.6 — chat 140 → chat 141\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-94	94	BODY-WRITTEN	178	41627		b86be6a1-6693-4403-8783-a33d613e3ff1	141	2026-09-02	1	# HANDOFF-94 — The Method 1.6 — chat 141 → chat 142\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-95	95	BODY-WRITTEN	151	42112		d5f09633-b77b-45ad-a47a-2f84cbacadb5	142	2026-09-02	1	# HANDOFF-95 — The Method 1.6 — chat 142 → chat 143\n\nSlim form (RULINGS-R2.md chat-127 item 5): identity, gate, next work, Drive actions,
-HANDOFF-103	103	MENTION-ONLY	64	0						
-HANDOFF-104	104	MENTION-ONLY	18	0						
+handoff	number	class	prose_mentions	bytes	lines	md5	writes_seen	conversation	conversation_title	date	msg	title_line
+HANDOFF-2	2	MENTION-ONLY	416	0	0		0					
+HANDOFF-33	33	BODY-EXACT	603	28512	359	3ac2197b03adfe538ecc31ecc8a02e98	2	60dbcf1c-6566-4df6-a745-cae7c65a298b	31	2026-08-26	7	# THE METHOD 1.6 — HANDOFF (chat 31 → chat 32), 2026-08-26
+HANDOFF-54	54	BODY-EXACT	307	31345	380	aeb195ecc9c208f4faa94ceb2c673e1a	1	cb7b153e-1822-4506-b491-de8025d76fb7	101	2026-08-31	3	# HANDOFF-54 — The Method 1.6 — chat 101 → chat 102
+HANDOFF-55	55	BODY-EXACT	385	32534	392	437c4b19d2015be3dd4b23b44a4f8987	1	9c9a7394-cf0f-4bd4-b663-c4c2e4c15f95	102	2026-08-31	3	# HANDOFF-55 — The Method 1.6 — chat 102 → chat 103
+HANDOFF-56	56	BODY-EXACT	309	32869	398	ed888cd65126cbc0a700ba28ac957a87	1	22f6f4ec-c68d-4f24-b253-7e50b899118d	103	2026-08-31	3	# HANDOFF-56 — The Method 1.6 — chat 103 → chat 104
+HANDOFF-63	63	BODY-EXACT	185	39230	465	af191e3051f18c34dbad15ba6a73dbe4	1	5abbd543-33fe-4e92-9fd1-42de6bca9f45	110	2026-09-01	3	# HANDOFF-63 — The Method 1.6 — chat 110 → chat 111
+HANDOFF-65	65	BODY-EXACT	171	43570	511	1b47f06330d45cb28b16722dbce94825	1	15546118-a6b0-4290-a583-08bca893bdfe	112	2026-09-01	1	# HANDOFF-65 — The Method 1.6 — chat 112 → chat 113
+HANDOFF-66	66	BODY-EXACT	205	45214	526	1ba44bcf680010ee13b938e1645accbf	1	b79550e0-2b9b-4828-8a3c-573837c5f6be	113	2026-09-01	3	# HANDOFF-66 — The Method 1.6 — chat 113 → chat 114
+HANDOFF-68	68	BODY-EXACT	123	47643	557	692c94a58c7864ab6eb04ff5999568a5	1	7a495fd1-93f1-4bfe-acdf-f0a8c13ebb46	115	2026-09-01	3	# HANDOFF-68 — The Method 1.6 — chat 115 → chat 116
+HANDOFF-69	69	BODY-EXACT	155	49963	573	bd431f88736f050270e851ab41e2d730	1	bc0e6e01-030f-484c-83ec-61212ef6232c	116	2026-09-01	3	# HANDOFF-69 — The Method 1.6 — chat 116 → chat 117
+HANDOFF-70	70	BODY-EXACT	209	46955	542	3619b8fa81772aebb4af631f350934f7	1	84ffea7c-877d-4f8d-83b4-99e203bd9f51	117	2026-09-01	3	# HANDOFF-70 — The Method 1.6 — chat 117 → chat 118
+HANDOFF-71	71	BODY-EXACT	222	48075	552	1a5292e864b83eac54f1880dc5d2daa7	1	3f5b4f34-3500-4e17-9757-e8a2b324982c	118	2026-09-01	3	# HANDOFF-71 — The Method 1.6 — chat 118 → chat 119
+HANDOFF-81	81	BODY-EXACT	126	11922	137	72a20482393582139835715f52031a62	1	30e87b6f-5001-4643-86c5-e3b5fce8373a	128	2026-09-01	13	# HANDOFF-81 — The Method 1.6 — chat 128 → chat 129
+HANDOFF-82	82	BODY-EXACT	152	12669	149	70dfd4715bdc5976deb2580c5a52b51b	1	7fc71c15-0413-476a-b38d-fa5bc5a668a2	129	2026-09-01	5	# HANDOFF-82 — The Method 1.6 — chat 129 → chat 130
+HANDOFF-85	85	BODY-EXACT	114	11323	126	2b06d5383188e9d084d252d849fdab87	1	4299d074-4bd3-4a20-b963-c8de70fb6ebc	132	2026-09-01	1	# HANDOFF-85 — The Method 1.6 — chat 132 → chat 133
+HANDOFF-86	86	BODY-EXACT	125	12497	135	663e474c90d82f71eb906f539b196012	1	46083acb-ccf9-4e45-b7a5-a406f9b37286	133	2026-09-01	3	# HANDOFF-86 — The Method 1.6 — chat 133 → chat 134
+HANDOFF-87	87	BODY-EXACT	133	12643	134	d50a086cadc390114afd32e3590e27cf	1	4ac69d8c-f1e9-4db4-a4cd-88e6d07821d7	134	2026-09-02	1	# HANDOFF-87 — The Method 1.6 — chat 134 → chat 135
+HANDOFF-89	89	BODY-EXACT	127	13911	142	060233fc21398efb3450674364907a51	1	d5c6c324-b158-40d3-a350-9d82715c5af9	136	2026-09-02	1	# HANDOFF-89 — The Method 1.6 — chat 136 → chat 137
+HANDOFF-90	90	BODY-EXACT	159	15202	154	43d80d7e3295d4068134fb0cb6c597b9	1	a57df6d5-935a-4058-bd94-426d0ecd0bfe	137	2026-09-02	1	# HANDOFF-90 — The Method 1.6 — chat 137 → chat 138
+HANDOFF-91	91	BODY-EXACT	150	14897	153	b4a983905d8ba95d3db250f46568ddaa	1	78a643a1-e0c0-4e21-a341-aeec0d0e6bcb	138	2026-09-02	1	# HANDOFF-91 — The Method 1.6 — chat 138 → chat 139
+HANDOFF-92	92	BODY-EXACT	170	15364	156	0e87bf1e1d77c2f7813b3d48f279f5e1	1	35701547-47d4-4d07-b2ab-ea2e8edc7678	139	2026-09-02	1	# HANDOFF-92 — The Method 1.6 — chat 139 → chat 140
+HANDOFF-93	93	BODY-EXACT	154	15304	156	5ea2cbd2681f3450f1aee176cda25caf	1	80b69cee-fe13-4553-99bd-5fcd4233858e	140	2026-09-02	3	# HANDOFF-93 — The Method 1.6 — chat 140 → chat 141
+HANDOFF-94	94	BODY-EXACT	178	14590	152	a26199832b12c2dec81bfd66473dcba2	1	b86be6a1-6693-4403-8783-a33d613e3ff1	141	2026-09-02	1	# HANDOFF-94 — The Method 1.6 — chat 141 → chat 142
+HANDOFF-95	95	BODY-EXACT	151	14103	147	96718c2de01f42cd8931fc86ace8da1a	1	d5f09633-b77b-45ad-a47a-2f84cbacadb5	142	2026-09-02	1	# HANDOFF-95 — The Method 1.6 — chat 142 → chat 143
+HANDOFF-103	103	MENTION-ONLY	64	0	0		0					
+HANDOFF-104	104	MENTION-ONLY	18	0	0		0					

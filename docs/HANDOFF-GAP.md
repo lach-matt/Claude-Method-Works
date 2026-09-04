@@ -1,82 +1,87 @@
-# HANDOFF-GAP — the handoffs the corpus names, holds nowhere, and the chats still carry
+# HANDOFF-GAP — the handoffs the corpus names, holds nowhere, and the chats carry
 
 `COVERAGE.tsv` censuses artefact names of **filename shape** and knows 61 handoffs. The two live
-bundles also refer to **88 distinct `HANDOFF-<n>` by bare number**, and **26 of those are held
-nowhere in the repository** — not in `method/`, not in `drive/`, not in `extracted/`, not in
-`recovered/`.
+bundles also cite **88 distinct `HANDOFF-<n>` by bare number**, and **26 of those are held nowhere in
+the repository** — not in `method/`, `drive/`, `extracted/` or `recovered/`.
 
-**Twenty-three of the twenty-six have a body in the chat export.** `HANDOFF-GAP.tsv` is the standing
-list: one row per unheld handoff, with the conversation and message index to open.
+**Twenty-three have a complete body in the chat export — 596 KB, extracted exactly.**
+`HANDOFF-GAP.tsv` is the standing list: byte length, line count, md5, and the conversation and
+message that hold each one.
 
 **Nothing was recovered and nothing was written into `recovered/`.** Regenerating a tree is the
-author's call; the chat-67 full hold governs.
+author's call; the chat-67 full hold governs. Every row is a verifiable pointer, not a file.
 
 ## Why they were missed, and it is a clean mechanism
 
 `recover.py` builds its wanted-set from `COVERAGE.tsv`'s artefact column. That column holds names of
 filename shape. **Twenty-five of these twenty-six never appear in filename shape** — the bundles cite
 them as `HANDOFF-71`, never as `HANDOFF-71.md` — so they were never in the wanted-set, never wanted,
-and never recovered. The census and the recovery pass are both working correctly; the names simply
-fall between them.
+and never recovered. The census and the recovery pass are both working correctly; the names fall
+between them.
 
-This is a **different** limitation from the one `docs/RECOVER.md` already records. That one was the
-tool not being idempotent, and it was fixed. This one is the shape of the wanted-set itself.
+This is a **different** limitation from the one `docs/RECOVER.md` records. That one was the tool not
+being idempotent, and it was fixed. This one is the shape of the wanted-set itself.
 
-## What is there
+## How the export is read, and why it matters
+
+**A handoff is written by a tool call, so its body is the literal value of that call's
+`file_text`/`content`.** Walking each message's blocks and matching a `tool_use` whose path ends
+`HANDOFF-<n>.md` recovers the document **exactly** — not by pattern, and with no guess about where it
+ends.
+
+That distinction was not academic. A first version of this file classified by regex over the
+serialised message and reported **15** exact bodies plus 8 "read back from an upload, possibly
+truncated". **It was too pessimistic by eight.** A session that read a handoff back also wrote it out
+again elsewhere in the export, and the structural walk finds a write for all 23. The truncation
+caveat that version carried does not apply to any of them.
 
 | class | count | what it means |
 |---|---:|---|
-| **`BODY-WRITTEN`** | **15** | a tool call writes `HANDOFF-<n>.md` and carries the content with it — the body is in the export in full |
-| **`BODY-READ-BACK`** | **8** | the file was uploaded and read into the chat; a body is present, but the read was paged |
+| **`BODY-EXACT`** | **23** | the body is the content of the tool call that wrote the file; md5 recorded |
 | `MENTION-ONLY` | 3 | the name is spoken and nothing more — `HANDOFF-2`, `HANDOFF-103`, `HANDOFF-104` |
 
-Every one of the 23 is a real handoff document. The title lines chain exactly:
+## They are the documents they claim to be
 
-> `# HANDOFF-71 — The Method 1.6 — chat 118 → chat 119`
+Each title line chains, and the chat that writes it is the chat it is written *from*:
 
-and that title is found in the conversation titled **119** — the chat it was written *for*. All 23
-line up that way, which is the strongest single check that these are the documents they claim to be
-and not stray references.
+> `# HANDOFF-71 — The Method 1.6 — chat 118 → chat 119`, written in the conversation titled **118**
 
-## The truncation notes are reassuring, not alarming
+All 23 line up that way. They open with the title and close with the standing directive block
+(*"…Timeout on every call. Never copy over an existing file."*), which is what a complete handoff of
+this corpus looks like.
 
-Seven of the eight `BODY-READ-BACK` rows carry a truncation note **about that very document**, and
-none of the fifteen `BODY-WRITTEN` rows does — exactly the split you would predict, since a written
-file is not paged and an uploaded one is. But read what the notes say:
-
-> `"description": "Read the truncated middle of HANDOFF-55"`
-
-> `"description": "Read handoff lines 87-280 (truncated portion, first half)"`
-
-**That is a session noticing the truncation and going back for the missing part.** The note is
-evidence the gap was addressed, not that content is lost. Whether the union of those reads covers the
-whole file is a question for a recovery pass to answer file by file — it is **not** asserted here.
+**One is different, and it is not a fault.** `HANDOFF-33` is titled
+`# THE METHOD 1.6 — HANDOFF (chat 31 → chat 32)` — the earlier convention, before the documents were
+numbered in their own titles. It is `HANDOFF-33.md` by its write path, not by its heading.
 
 ## What this does not establish
 
 - **`MENTION-ONLY` is not a finding of loss.** A name in prose is not proof a file existed. The three
-  are reported as the conservative call, not as absences.
-- **`chars_after_title` is an upper bound, not a length.** It counts from the title line to the end
-  of the containing message, which for a read-back is the whole megabyte-scale message. It says
-  material is there; it does not say how much of it is the handoff.
-- **No body was extracted, verified against a hash, or compared with a held copy.** The row names a
-  conversation and a message. Opening it is the next step, and it has not been taken.
+  are the conservative call, not an absence.
+- **No extracted body was compared against a held copy**, because none is held — that is the
+  premise. The md5 is of what the export carries, so a recovery pass can be checked against this
+  file, and it is not a claim of identity with anything.
+- **Where a handoff was written more than once, the longest write is the row.** `writes_seen` says
+  how many were found; earlier drafts of the same document are not reconciled here.
+- **Nothing was seated.** The 23 are pointers into the export until an author says otherwise.
 
 ## Two traps, both of which produced a wrong answer here first
 
-1. **The bodies are in tool calls, not prose.** A handoff is *written* by a tool, so its body lives
-   in a `tool_use` input. An extractor reading only `text` blocks reports **all twenty-six as
-   `MENTION-ONLY`**, which is what the first pass here did.
+1. **The bodies are in tool calls, not prose.** An extractor reading only `text` blocks reports
+   **all twenty-six as `MENTION-ONLY`**, which the first pass did.
 2. **The export nests JSON inside JSON.** A message's own newlines arrive double-escaped once it is
-   re-serialised, so a `^`-anchored heading pattern matches nothing at all. `coverage.py` carries a
-   comment about the same trap one level down. And an *unanchored* `cat` matches the middle of
-   "trun**cat**ed" — which is how a first pass claimed a written body for `HANDOFF-54` on the strength
-   of the phrase *"truncated middle of HANDOFF-54"*. Every pattern in the generator is word-anchored.
+   re-serialised, so a `^`-anchored heading pattern matches nothing at all; `coverage.py` carries a
+   comment on the same trap one level down. And an *unanchored* `cat` matches the middle of
+   "trun**cat**ed", which is how a pass claimed a written body for `HANDOFF-54` from the phrase
+   *"truncated middle of HANDOFF-54"*.
+
+Both are arguments for reading the export **structurally** rather than as text, which is what the
+generator now does and why the count rose from 15 to 23.
 
 ## Re-verification
 
 ```bash
-# the count that starts it: referenced by bare number, held nowhere
+# referenced by bare number, held nowhere
 python3 - <<'EOF'
 import re, pathlib
 b = ''.join(pathlib.Path(p).read_text(errors='replace') for p in (
@@ -88,13 +93,12 @@ held = {int(m.group(1)) for p in pathlib.Path('.').rglob('*')
 print(len(ref), 'referenced,', len(ref & held), 'held,', len(ref - held), 'not')
 EOF
 
-# and that they are not in the census's artefact column, which is why they were missed
-cut -f1 COVERAGE.tsv | grep -c '^HANDOFF'        # 61 of filename shape
-grep -c 'HANDOFF-71' COVERAGE.tsv                # 0
+# why they were missed: not in the census's artefact column
+cut -f1 COVERAGE.tsv | grep -c '^HANDOFF'     # 61, all of filename shape
+grep -c 'HANDOFF-71' COVERAGE.tsv             # 0
 ```
 
 ## Columns
 
-`handoff`, `number`, `class`, `prose_mentions`, `chars_after_title` (upper bound — see above),
-`truncation_warning` (the note, verbatim, when one names this document), `conversation`,
-`conversation_title`, `date`, `msg`, `title_line`.
+`handoff`, `number`, `class`, `prose_mentions`, `bytes`, `lines`, `md5` (of the extracted body),
+`writes_seen`, `conversation`, `conversation_title`, `date`, `msg`, `title_line`.
