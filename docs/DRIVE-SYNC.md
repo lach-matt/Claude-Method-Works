@@ -131,6 +131,23 @@ ambient Google token present (`CLOUDSDK_AUTH_ACCESS_TOKEN`) belongs to the sandb
 the Drive account, and must not be pointed at a user's personal Drive. **The Colab mount remains the
 only working route for the two exports.**
 
+### drive_sync.py cannot authenticate in a headless container
+
+Measured 2026-09-04. The three Google libraries install and import fine here (the system
+`cryptography` is broken for want of `_cffi_backend`; `pip install cffi` repairs it), and the tool
+runs — but `get_credentials` ends at `flow.run_local_server(port=0)`, which opens a browser and
+waits on a localhost callback. A remote container has neither, and the callback would not reach the
+operator's browser in any case. **Only a pre-minted `token.json` passed with `--token` works there**,
+which means transporting a `drive.readonly` refresh token into the session.
+
+A Drive mount avoids the question entirely for everything except same-titled duplicates, which a
+mount cannot see. That is why the two `BUILD174`/`BUILD178` rows in `PENDING.tsv` are marked pending
+by decision rather than by obstacle.
+
+**The folder is named `The Method Materials` with a trailing space.** A mount shows it as
+`/content/drive/MyDrive/The Method Materials /…`, so a hand-typed `cp` path fails. Glob it
+(`The Method Materials*`) rather than typing it.
+
 ### The governing constraint is context, not the size limit
 
 Measured 2026-09-04, and it supersedes the size arithmetic above as the reason this route fails.
