@@ -562,7 +562,13 @@ message rather than guessing, so one run out of order tells you what to run firs
   unset the credential helper it says so — the commit is made either way, so nothing is lost.
   **All three flags default to off, so re-running the cell untouched hashes the two copies and
   writes nothing.** That is the intended safe default, and it is also the most common reason a run
-  appears to have done nothing. Note that a Drive **mount** normally exposes only
+  appears to have done nothing.
+* **If the notebook open in your browser predates those flags**, do not re-open it — the whole job
+  is in [`../tools/colab_land_chats.py`](../tools/colab_land_chats.py). With Drive mounted and the
+  repo cloned (cells 1 and 2), three lines in a fresh cell fetch the current branch and run it:
+  it finds the export, installs `ijson` and reports whether it got it, dry-runs the sharder, writes,
+  copies into `drive/chats`, commits and pushes. It refuses rather than guesses at every step, takes
+  `--dry-run`, and never clobbers a non-empty `drive/chats`. Note that a Drive **mount** normally exposes only
   one file per name per folder, so the checksum mode usually cannot settle whether the two Drive
   copies are identical; that needs the Drive API (Route 2) or the Drive web UI.
   See [§5](#5-the-two-370-mib-chat-exports).

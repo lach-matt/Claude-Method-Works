@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+"""Shard the Claude Chats export and land it in the repository. Colab only.
+
+Run this from a Colab notebook that has already mounted Drive and cloned the
+repo (cells 1 and 2 of ``drive_sync_colab.ipynb``)::
+
+    !python3 /content/repo/tools/colab_land_chats.py
+
+It does, in order, refusing rather than guessing at every step:
+
+1. finds ``conversations.json`` on the Drive mount;
+2. installs ``ijson`` and says plainly whether it got it -- without it the
+   sharder falls back to ``json.load`` and needs 4-8x the file size in RAM;
+3. dry-runs ``shard_conversations.py``, then writes to ``/content/chats-shards``;
+4. copies the tree to ``drive/chats`` in the clone, refusing to clobber a
+   non-empty one;
+5. commits and pushes, and on a failed push names the likely cause -- cell 6
+   unsets the credential helper, so a clone that has run it can no longer
+   authenticate. The commit is made either way; nothing is lost.
+
+``--dry-run`` stops after step 3's dry run. Stdlib only, apart from the ijson it
+installs for the sharder.
+"""
+
+import argparse
+import os
+import shlex
+import shutil
+import subprocess
+import sys
+
+DRIVE_ROOT = "/content/drive/MyDrive"
+CHATS = ("The Method Materials", "Claude Chats")
+TITLE = "conversations.json"
+REPO = "/content/repo"
+SHARD_OUT = "/content/chats-shards"
+DEST_REL = os.path.join("drive", "chats")
+
+
+def die(message):
+    print("\nSTOP: %s" % message)
+    raise SystemExit(1)
+
+
+def run(command, **kwargs):
+    print("$ %s" % shlex.join(command))
+    return subprocess.run(command, text=True, **kwargs)
+
+
+def norm(name):
+    return name.strip().strip(".").casefold()
+
+
+def find_export():
+    if not os.path.isdir(DRIVE_ROOT):
+        die("Drive is not mounted at %s. Run cell 1 first." % DRIVE_ROOT)
+    folder = DRIVE_ROOT
+    for part in CHATS:
+        matches = [e for e in os.listdir(folder) if norm(e) == norm(part)]
+        if len(matches) != 1:
+            die("expected exactly one %r inside %r, found %d: %s"
+                % (part, folder, len(matches), sorted(matches)))
+        folder = os.path.join(folder, matches[0])
+    copies = sorted(os.path.join(folder, e) for e in os.listdir(folder)
+                    if norm(e) == norm(TITLE) and os.path.isfile(os.path.join(folder, e)))
+    if not copies:
+        die("no file named %r in %r" % (TITLE, folder))
+    print("found %d copy/copies of %s:" % (len(copies), TITLE))
+    for path in copies:
+        print("  %s  (%s bytes)" % (path, format(os.path.getsize(path), ",")))
+    if len(copies) == 1:
+        print("  (only one is visible: a mount cannot show two files of the same name in a folder)")
+    return copies[0]
+
+
+def check_repo():
+    if not os.path.isdir(os.path.join(REPO, ".git")):
+        die("no clone at %s. Run cell 2 first." % REPO)
+    script = os.path.join(REPO, "tools", "shard_conversations.py")
+    if not os.path.isfile(script):
+        die("%s is missing. This clone is on a branch that predates it; check out the "
+            "branch carrying it and re-run." % script)
+    branch = subprocess.run(("git", "-C", REPO, "rev-parse", "--abbrev-ref", "HEAD"),
+                            text=True, capture_output=True).stdout.strip()
+    print("clone at %s is on branch %s" % (REPO, branch))
+    return script, branch
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--dry-run", action="store_true",
+                        help="stop after the sharder's dry run; write nothing")
+    args = parser.parse_args()
+
+    source = find_export()
+    script, branch = check_repo()
+
+    print("\ninstalling ijson (constant-memory streaming for the sharder):")
+    subprocess.run((sys.executable, "-m", "pip", "install", "--quiet", "ijson"), check=False)
+    try:
+        import ijson  # noqa: F401
+        print("  ijson present - the sharder will stream at flat memory.")
+    except ImportError:
+        print("  ijson NOT available. The sharder will fall back to json.load, which needs\n"
+              "  roughly 1.5-3 GB of RAM for a 370 MiB export. It will still work on a\n"
+              "  standard Colab instance, but it will say so in its own output.")
+
+    print("\n--- dry run ---")
+    if run((sys.executable, script, source, "--out", SHARD_OUT, "--dry-run")).returncode != 0:
+        die("the dry run failed. Read its output above; nothing was written.")
+    if args.dry_run:
+        print("\n--dry-run given: stopping here. Nothing was written.")
+        return 0
+
+    print("\n--- writing shards ---")
+    if run((sys.executable, script, source, "--out", SHARD_OUT)).returncode != 0:
+        die("sharding failed. Read the output above.")
+
+    dest = os.path.join(REPO, DEST_REL)
+    if os.path.isdir(dest) and os.listdir(dest):
+        die("%s already exists and is not empty. Inspect it before overwriting; this "
+            "script will not clobber an existing shard tree." % dest)
+    shutil.copytree(SHARD_OUT, dest, dirs_exist_ok=True)
+    landed = sum(len(files) for _, _, files in os.walk(dest))
+    print("\ncopied %s file(s) into %s" % (format(landed, ","), dest))
+
+    for step in (("git", "-C", REPO, "add", "--", DEST_REL),
+                 ("git", "-C", REPO, "commit", "-m",
+                  "drive: shard the Claude Chats conversations.json export into drive/chats")):
+        if run(step).returncode != 0:
+            die("%r failed. Nothing was pushed; the shards are at %s." % (step[3], dest))
+
+    if run(("git", "-C", REPO, "push", "-u", "origin", branch)).returncode != 0:
+        print("\nPush failed, and the commit is already made - nothing is lost.\n"
+              "Cell 6 unsets the credential helper when it finishes, so the usual cause is\n"
+              "that this clone can no longer authenticate. Re-run cell 2, then re-run:\n"
+              "  !git -C %s push -u origin %s" % (REPO, branch))
+        return 1
+    print("\nPushed to %s. The shards are in the repository." % branch)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
