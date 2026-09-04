@@ -46,9 +46,13 @@ rose 559 → 702 and the plain-run ABSENT fell 431 → 288 with no new fetch. Se
 **`drive/chats/` is the sharded chat export, and `recovered/` is what was extracted from it.**
 352 conversations, 11,879 messages, sharded by `tools/shard_conversations.py` with `INDEX.tsv` and
 `SUMMARY.json` as their inventory. `tools/recover.py` then extracts the artefacts those chats wrote:
-**2,337 files**, `RECOVERED` where a heredoc named its own target, `RECOVERED-BY-HEADING` where a
-code block carried the body and the name was inferred from its heading. Both are generated trees —
-regenerate, never hand-edit. **RECOVERED is not mirrored**: the bytes were measured out of the
+**2,382 files, 9.4 MB** over 2,433 ledger rows, in four statuses: `RECOVERED` (2,196) where a
+heredoc named its own target, `RECOVERED-BY-HEADING` (163) where a code block carried the body and
+the name was inferred from its heading, `PRESENT-IN-REPO` (51) which write nothing, and
+**`RECOVERED-TRUNCATED` (23) — a body a paging viewer elided in the middle**, which hashes cleanly
+and so once passed as whole; read the ledger's note for the missing line count before trusting one.
+**2,337 is the superseded figure** from a first run that was not idempotent, and `docs/RECOVER.md`
+records why. Both are generated trees — regenerate, never hand-edit. **RECOVERED is not mirrored**: the bytes were measured out of the
 export, and no recovered file is claimed byte-identical to a copy held elsewhere, nor is any of it a
 member of a bundle. See `docs/RECOVER.md`.
 
@@ -67,12 +71,17 @@ index), `tools/arith.py` (the arithmetic of every ratio, percentage and equation
 about themselves), `tools/pointers.py` (every pointer resolved across the volumes and the
 companion), `tools/buildtrace.py` (when a figure entered the books, from the BUILD series) and
 `tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
-of the method equation, per register 1206) and `tools/orderideal.py` (register 66's downward-closure
+of the method equation, per register 1206), `tools/orderideal.py` (register 66's downward-closure
 test, run against the seated observed configurations; it imports `LW1-ground.py`, offers no verdict,
-and files its measurement for R3 — see `docs/ORDER-IDEAL.md`). Those are real programs with a real contract — see
+and files its measurement for R3 — see `docs/ORDER-IDEAL.md`) and **`tools/docfigures.py`**, which
+checks the numbers *this* file and `docs/` state about the repository against the tree.
+**Run it after any pass that changes a count** — it takes 0.15 s and exits 1 on drift. It exists
+because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true figures were 702 and
+4; four other figures had gone stale the same way. A `STALE` row means the tree is right and the
+sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real contract — see
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
-`docs/COVERAGE.md` and `docs/ORDER-IDEAL.md`.
+`docs/COVERAGE.md`, `docs/ORDER-IDEAL.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
@@ -128,12 +137,14 @@ about 6 MB. Do not read or grep the tree wholesale: start from `MANIFEST.tsv`, t
   build that introduced it. `python3 tools/buildtrace.py --builds` prints the series from
   `drive/MANIFEST.tsv` without reading a build file; ask it rather than globbing. These are
   snapshots: do not dedupe, prune or renumber them.
-- `The_Method_1_6_figures_BUILD<N>.zip` — the matching figure bundles, BUILD8 to BUILD13. The
-  figure numbering is its own sequence; it does not line up with the Markdown build numbers.
+- `The_Method_1_6_figures_BUILD<N>.zip` — the matching figure bundles. **Three are held, not a
+  run: BUILD8, BUILD9 and BUILD13**, beside `The_Method_1_6_figures.zip`,
+  `The_Method_1_6_figures_complete.zip` and a `__<driveFileId>` copy of BUILD9. The figure numbering
+  is its own sequence; it does not line up with the Markdown build numbers.
 - Uppercase topic prefixes on notes: `REWRITE-`, `HANDOFF-`, `REGISTER-`, `RULING-`, `FILL-`,
   `STORE-`, `READING-`, `LIMITS-`, `REPAIR-`, `PROPOSED-`, `MERGE-` — e.g. `REWRITE-chapter10-void.md`, `REGISTER-QUEUE-APPEND-batch1.md`.
 - A few ordered notes use `NN-topic.md` (`01-fill-limit.md`, `03-fill-value.md`).
-- A `__<driveFileId>` suffix (94 files) marks an older Drive copy of a duplicated title; the
+- A `__<driveFileId>` suffix (**99 files**) marks an older Drive copy of a duplicated title; the
   newest copy keeps the plain name. Both are intentional — do not merge or delete either.
 
 ## If asked to change the corpus
