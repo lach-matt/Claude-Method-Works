@@ -120,7 +120,7 @@ of the method equation, per register 1206), `tools/orderideal.py` (register 66's
 test, run against the seated observed configurations; it imports `LW1-ground.py`, offers no verdict,
 and files its measurement for R3 — see `docs/ORDER-IDEAL.md`) and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
-**Run it after any pass that changes a count** — 50 pinned figures, 1.2 s, exits 1 on drift. The
+**Run it after any pass that changes a count** — 59 pinned figures, ~3 s, exits 1 on drift. The
 last fourteen are the totals `pointers.py` and `arith.py` report, which their own selftests do not
 cover: those pin individual sites, so a change in a corpus-wide total passes them silently. It exists
 because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true figures were 702 and
@@ -301,15 +301,10 @@ parent document* that neither endpoint names, a shape a pairwise edge cannot exp
 edges traced to their files, the `HANDOFF-13` byte-fingerprint for an absent document, the 23-file
 truncation census (only `HANDOFF-34.md` lines 34–42 is a hard boundary, and it is one the chat export
 imposed), the 171 duplicated filenames in `recovered/` and what the `__<md5>` suffix there actually
-means, and the 31 absent Löwdin bridges. Read it before re-deriving any of that; every claim in it
+means, and the Löwdin bridge series (**63 of 66 held**; §8 records the 31 that were
+absent before the recovery, and the three that still are). Read it before re-deriving any of that; every claim in it
 carries a command to re-verify.
 
-Two limits are recorded rather than repaired. `graph.html` is the **aggregated community view** —
-20,463 nodes is above the node-level render limit of 5,000, so it draws 2,434 community nodes and
-1,696 cross-community edges, not individual files. And the health check reports **7,088
-dangling-endpoint edges**: every one is an AST `imports`/`imports_from` pointing at a module that is
-not a file in this repo (`re`, `numpy`, `itertools`, `sympy`). The semantic layer contributes zero
-dangling edges. That is expected for a corpus whose `.py` files import a stdlib, not corruption.
 
 `.graphifyignore` scopes a re-index to **4,090 files, 13.3M words** — the 2026-09-04 rebuild's own
 detect figure, up from 3,976 files as `recovered/` grew. Every exclusion answers "would a node here tell a reader something", not "is this file
