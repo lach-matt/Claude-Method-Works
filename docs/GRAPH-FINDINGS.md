@@ -1,0 +1,295 @@
+# GRAPH-FINDINGS — what the 2026-09-04 graph pass measured
+
+Every number here was measured in this repository on 2026-09-04 and every claim can be re-run from
+the commands in the last section. **Nothing recorded here has been repaired.** The chat-67 full hold
+governs this file exactly as it governs a section read: a finding is recorded, never repaired.
+
+The findings came out of the `/graphify` rebuild (20,463 nodes, 27,601 edges, 2,434 communities over
+3,279 files). The graph's own `AMBIGUOUS` flags were the starting point — seven of them, all traced
+below. **All seven refusals were correct.** None was an extraction defect. Four mark a place where a
+filename or a phrase is shared but the referent is not.
+
+## Status vocabulary
+
+Used as `method/README.md` and `docs/COVERAGE.md` use it, and never flattened:
+
+- **HELD** — the bytes are in this repo and their md5 is recorded.
+- **ABSENT** — not reachable from any source here. **Not a finding of loss.** A name in prose, a
+  certificate or a handoff is not proof a file ever existed as a file.
+- **RECOVERED** — measured out of the corpus's own data.
+- **RECONSTRUCTED** — not measured; derived.
+
+---
+
+## 1. The `HANDOFF-13` collision, and a fingerprint for an absent document
+
+`recovered/GATE-CERTIFICATE-chat62.md` opens `# §0 GATE CERTIFICATE — chat 62 (HANDOFF-13)` and
+pins the handoff it gated. The `HANDOFF-13` this repo holds is a **different document**:
+
+| | the certificate's HANDOFF-13 | `recovered/HANDOFF-13.md` |
+|---|---|---|
+| size | 9,463 B | 9,015 B |
+| lines | 112 | 54 |
+| md5 | `a07ad36d649743186447c3b3a67a33f8` | `54f720751582ed0872bfc7dc3b68cf77` |
+| self-ID | chat 62 · BUILD62 compendia · Register 165–present | chat 63 → chat 64 · BUILD76 main + BUILD79 compendia · Register 1–1787 |
+| source conversation | — | 63 |
+| created | 2026-08-29 16:33 (certificate) | 2026-08-29 22:00 |
+
+**md5 `a07ad36d649743186447c3b3a67a33f8` appears in no row of `recovered/LEDGER.tsv`,
+`extracted/LEDGER.tsv` or `drive/MANIFEST.tsv`.** Status: **ABSENT**, and not a loss — the
+certificate records it as *"not present in Drive Materials listing (page 1); chat-uploaded copy
+used."* It was never in the mirror. What this trace adds is a **byte-exact fingerprint**: if a
+9,463 B / 112-line file with that md5 ever surfaces, it verifies in one command.
+
+**Why the collision exists.** The corpus says so itself, in the recovered HANDOFF-13's second line:
+*"HANDOFF-11-1.md called this session 'chat 62' — the chat that produced BUILD75/HANDOFF-11 is
+titled 62."* Chat numbering was already unstable, so handoff numbers were reused across
+generations. The same mechanism produces the `HANDOFF-23`/`24`, `HANDOFF-25`/`26` and
+`HANDOFF-3`/`4` pairs.
+
+### An open item this trace closed
+
+The certificate ends with an explicit non-measurement:
+
+> *"Drive holds three tower instruments … Sizes of tower-1-1 and tower-2 agree; **identity not
+> measured**."*
+
+It is now measured, four ways, all agreeing on md5 `c0bce27abe23ad939d297ac1022a01d7` at 1,213 B:
+
+- `drive/The Method Materials/tower-1-1.py`
+- `drive/The Method Materials/tower-2.py`
+- `drive/The Method Materials/CORPUS/tower-2.py`
+- `method/members/tower-2.py` (the seated member)
+
+and the recovered HANDOFF-13, written by a different chat, independently states that same md5 for
+`tower-2.py`. **`tower-1-1.py` and `tower-2.py` are byte-identical.** `python3
+method/members/tower-2.py` prints `976 / 1654 / 2535 / 13585 / 70905 / 199130` — six of six. That
+retroactively validates the certificate's own PASS, which checked `tower-1-1.py` behaviourally
+rather than by hash.
+
+---
+
+## 2. `Ruling 28` ↔ `Ruling 41` — a dependency, not a contradiction
+
+Ruling 41 exists **because** Ruling 28 was already executed. The project's standing prompt still
+carried a "Phase 0–4" plan to *perform* the absorption (Löwdin then three-body merge, renumber
+three-body to 1713–1724, Chapter 36, Part VII retitled). Chat 71 measured (W-107) that BUILD90 main
+**already** seats Chapter 35 at L9716 and Chapter 36 at L9892 under Part VII, with the Register
+carrying Löwdin at 1701–1712 and three-body at 1713–1724.
+
+So the plan described completed work, and Ruling 41 is its closure notice — *"Do not re-open it and
+do not put it to M; this handoff's plan governs."* Stated in `recovered/HANDOFF-22.md` and
+`recovered/HANDOFF-24.md`. No sentence in the corpus names both rulings, which is why the edge could
+only be `AMBIGUOUS`: the link is recoverable only by reading the Phase 0–4 content.
+
+---
+
+## 3. Two instrument faults, same family, opposite polarity
+
+Both are instruments trusted before the instrument itself was checked. They fail in opposite
+directions, which is why `semantically_similar_to` was correctly held at `AMBIGUOUS`:
+
+| | hyper-radius normalisation | first-match version picker |
+|---|---|---|
+| where | `audit_state1_failing.py` L58, `Vs=V0_shape(w,m)/R` | the Contents checker / `index_pages.py` |
+| fault | the hyper-radius carried into the shape potential | takes the first page whose *text* contains the heading, so prose occurrences win |
+| symptom | check A **False 13/13** — fails loudly | six "mis-paged" Contents lines — **manufactures findings** |
+| resolution | delete `/R`, giving `audit.py` L58 | W-088 built the sound checker (require a heading-shaped line, skip Contents lines, search the body): **all six were correct** |
+| recorded in | `recovered/README.md` item 4 | `method/members/WORKING-REGISTER.md` W-085, W-088 |
+
+One produces a false negative you cannot miss; the other produces false positives that look like
+findings. Same mechanism *class*, not the same mechanism. Both sit under the corpus's own standing
+rule from F59.3: **"a control must be proven to vary the thing it controls for."**
+
+---
+
+## 4. `DEF-151d` ↔ `GATE-ch151Bclose4` — co-membership, not citation
+
+Both are artefacts of the same close (chat 151-B) under `incoming/BUILD184-PARTS/`.
+`GATE-ch151Bclose4` is the §0 gate certificate that authorised the build — verdict PASS, census
+byte-identical, `run --core` 5/5, MANIFEST 358 listed / 359 extracted, 72 of 72 banked goldens
+reproducing, §0a empty. `DEF-151d` is the deferred block whose items that build closes. **Neither
+document names the other**; `incoming/BUILD184-PARTS/REBUILD-BUILD184.md` names both. A correct
+`references` relation that is unprovable from either endpoint alone.
+
+---
+
+## 5. The two three-body questions — the graph's doubt matches a rule the corpus states
+
+Both ask whether the gravitational three-body stratification connects to the nuclear / deuterium
+physics. **The corpus answers directly, and the answer is no.** From the Register, the *dimensional
+obstruction*:
+
+> *"the dimensional obstruction applies to any scheme reasoning from combinatorial or
+> configuration-space quantities to nuclear rates"*
+
+with the reason given as scale separation — bonding energies of order 10⁻¹ eV over 10⁻¹⁰ m against
+barrier penetration at 10⁵ eV over 10⁻¹⁵ m, *"a six-order gap in energy and five-order gap in
+length."* The master theorem is a phase-space (configuration-space) result. **Upgrading either edge
+above `AMBIGUOUS` would reproduce exactly the error the corpus documents as its own worked negative
+result.**
+
+A second reason to hold them low: `recovered/README.md` item 6 records the stratification as
+**`NOT HELD — never data`** — *"E(𝔉)=0 was a theorem-assembly, not a computation … No data object
+was ever built; the Brudno step is a citation."*
+
+---
+
+## 6. The truncation census — 23 files, 3,004 lines, and only one hard boundary
+
+23 files under `recovered/` still carry a `< truncated lines N-M >` marker, totalling **3,004
+missing lines**. This is a bounded, enumerated set, not an unknown.
+
+**22 of the 23 have a complete copy in this repo.** `recover.py`'s "completeness outranks recency"
+ordering worked: the complete body took the plain name and the truncated one took the `__<md5>`
+suffix. The three that had no plain-named sibling — `HANDOFF-74`, `75`, `78` — are marked
+`PRESENT-IN-REPO` in `recovered/LEDGER.tsv` with an empty target, because their complete bodies were
+already held under `drive/`:
+
+| handoff | complete body | md5 | held at |
+|---|---|---|---|
+| HANDOFF-74 | 51,439 B | `badd59f900…` | `drive/The Method Materials/{LOWDIN,THREEBODY}-DELIVERY-1/` |
+| HANDOFF-75 | 47,460 B | `3e8423fe84…` | same, both folders |
+| HANDOFF-78 | 47,710 B | `0b30bba90f…` | same, both folders |
+
+**The single hard boundary is `recovered/HANDOFF-34.md`** — 15,426 B, **lines 34–42 missing (9
+lines)**, no complete copy anywhere in the repo, and the gap falls inside its §0 gate step list
+(after step 5, before "The computable batch (r2-ch13j.py)").
+
+That truncation is **not a recovery defect**. The marker `< truncated lines 34-42 >` is present
+twice in the source shard itself, `drive/chats/2026-08/37aaed26-2634-4eba-8490-9cac72ddc78a.json` —
+the chat export rendered the message with the lines already elided. Status: **ABSENT**, hard
+boundary of the export, not reachable by re-running `recover.py`.
+
+---
+
+## 7. Duplicate names in `recovered/` — the `__<md5>` convention
+
+**171 filenames in `recovered/` have more than one distinct body**, 25 of them `HANDOFF-*`.
+
+> **The `__<hash>` suffix in `recovered/` is NOT the `__<driveFileId>` convention.** CLAUDE.md's
+> rule — *"a `__<driveFileId>` suffix marks an older Drive copy; the newest copy keeps the plain
+> name"* — governs `drive/`. In `recovered/` the suffix is `recover.py`'s **md5 prefix**, a
+> disambiguator for two distinct bodies claiming one filename. The "older/newer" reading does not
+> transfer.
+
+Two distinct shapes hide under that one convention:
+
+**(a) The truncated re-posting.** For `HANDOFF-37` … `HANDOFF-53`, the pattern is regular: a full
+body written *from* chat N, and a ~16.2 KB truncated body appearing in chat N+1 — the handoff being
+received and re-posted. These are damaged duplicates, not separate documents. All carry exactly one
+truncation marker; all their plain-named counterparts carry none.
+
+**(b) The genuine divergence.** `HANDOFF-26.md` (conv 75, 10,675 B) and
+`HANDOFF-26__66aa3bd5.md` (conv 74, 10,707 B) are both complete and **disagree on a governance
+rule**:
+
+| | plain `HANDOFF-26.md` | `HANDOFF-26__66aa3bd5.md` |
+|---|---|---|
+| source conversation | 75 | 74 |
+| LEDGER `created_at` | 16:14:53Z | 15:22:57Z |
+| stated bundle md5 | `893a9826…` | `1f9024af…` |
+| stated bundle size | 3,204,034 B | 3,203,041 B |
+| how `RULINGS-R2.md` / `DEFERRED.md` grow | `close.py --append DEFERRED.md …` | forbids it — accretion into new `RULINGS-R2-chNN.md` / `DEFERRED-chNN.md` members |
+
+The variant argues itself out of the append flag mid-sentence: *"pass nothing extra — **no:** those
+two are old members … (append-only by accretion; never edit the seated member)."* **The direction is
+the surprise**: that self-correction is in the *earlier* file (conv 74, 15:22); the *later* one
+(conv 75, 16:14) is back to `--append`. The accretion rule was reached and then abandoned within the
+hour. Both preserve "never edit a seated member"; they differ on whether `close.py` may append to
+one. **Unreconciled — this file records it, it does not settle it.**
+
+---
+
+## 8. The Löwdin bridge series — 31 of 63 numbered sessions ABSENT
+
+`recovered/` holds 32 numbered `BRIDGE-LOWDIN-SESSION-N.md` files, the highest being 63. Present:
+
+```
+4 8 9 11 12 13 14 15 16 17 18 22 23 25 26 28 29 30 31 32 33 34 35 36 37 52 55 56 58 59 60 63
+```
+
+Absent from `recovered/`, and — checked against `drive/MANIFEST.tsv` and `extracted/LEDGER.tsv` —
+**absent from the whole repository**:
+
+```
+1 2 3 5 6 7 10 19 20 21 24 27 38 39 40 41 42 43 44 45 46 47 48 49 50 51 53 54 57 61 62
+```
+
+Each surviving bridge names its predecessor in its header, so the successor spine reconstructs
+itself and the gaps are visible from inside the chain. Sessions 19, 20, 21, 24 and 27 are explicitly
+named as predecessors by bridges that survive.
+
+Status: **ABSENT — not a finding of loss.** A bridge naming its predecessor is not proof that
+predecessor was ever written to a file. There is also an unnumbered `BRIDGE-LOWDIN-SESSION.md`.
+
+---
+
+## 9. Instrument notes from the AST pass
+
+**Four `.py` files under `recovered/` fail `ast.parse` on Python 3.11 but are valid Python 3.12+.**
+They are *not* defects — the failure is "f-string expression part cannot include a backslash", a
+restriction lifted by PEP 701. The AST extractor here runs 3.11.
+
+- `recovered/chk.py`, `recovered/mo.py`, `recovered/r2-ch13o.py`, `recovered/readB.py`
+
+**Three are genuinely malformed, and the malformation is the corpus's own** — each construct was
+checked byte-for-byte against its source shard and is present there verbatim. `recover.py` did not
+introduce them, and none carries a truncation marker:
+
+| file | line | the construct |
+|---|---|---|
+| `recovered/l-ch1.py` | 5 | `from tower import L8 if False else None` — a conditional expression in an import; never valid Python |
+| `recovered/whatisit.py` | 39 | `if (a[i]+b[i])%2==0 for i in range(0) else True:` — malformed comprehension |
+| `recovered/caps__163a1d7c.py` | 7–8 | `for n in range(1,NM+1):` with no indented body; the next line dedents to `several=0` |
+
+**The graph's 7,088 dangling-endpoint edges are benign.** Every one is an AST `imports` /
+`imports_from` naming a module that is not a file in this repo — `re`, `numpy`, `itertools`,
+`sympy`. The semantic layer contributes **zero** dangling edges. Expected for a corpus whose `.py`
+files import a stdlib; not corruption.
+
+---
+
+## 10. Re-verification
+
+Every claim above re-runs from these:
+
+```bash
+# §1 — the HANDOFF-13 collision and the absent fingerprint
+md5sum recovered/HANDOFF-13.md && wc -lc recovered/HANDOFF-13.md
+grep -rn 'a07ad36d649743186447c3b3a67a33f8' recovered/LEDGER.tsv extracted/LEDGER.tsv drive/MANIFEST.tsv   # expect: no rows
+
+# §1 — tower-1-1 == tower-2, and the seated member still runs
+md5sum "drive/The Method Materials/tower-1-1.py" "drive/The Method Materials/tower-2.py" method/members/tower-2.py
+python3 method/members/tower-2.py      # expect 976 / 1654 / 2535 / 13585 / 70905 / 199130
+
+# §6 — the truncation census
+grep -rlc 'truncated lines' recovered/*.md | wc -l                      # expect 23
+grep -c 'truncated lines' recovered/HANDOFF-34.md                       # expect 1
+grep -c 'truncated lines 34-42' drive/chats/2026-08/37aaed26-2634-4eba-8490-9cac72ddc78a.json   # expect 2
+
+# §7 — duplicate names, and the HANDOFF-26 divergence
+awk -F'\t' 'NR>1{c[$1]++; if(c[$1]==2) n++} END{print n" duplicated filenames"}' recovered/LEDGER.tsv
+grep -c -- '--append' recovered/HANDOFF-26.md recovered/HANDOFF-26__66aa3bd5.md   # expect 1 and 0
+
+# §8 — the Löwdin bridge gaps
+ls recovered/ | grep -oP 'BRIDGE-LOWDIN-SESSION-\K[0-9]+' | sort -n | uniq | tr '\n' ' '
+
+# §9 — the three malformed instruments; each must fail to parse on any Python.
+# l-ch1 and whatisit raise SyntaxError, caps raises IndentationError (a SyntaxError
+# subclass). Four further files fail ONLY on Python < 3.12 and are not defects.
+for f in recovered/l-ch1.py recovered/whatisit.py recovered/caps__163a1d7c.py; do
+  python3 -c "import ast,sys; ast.parse(open(sys.argv[1]).read())" "$f"; done
+```
+
+## What is still open
+
+- **`HANDOFF-26` governance divergence** (§7b) — two complete bodies, two incompatible rules for
+  growing `RULINGS-R2.md` / `DEFERRED.md`. Unreconciled by design; the author's call.
+- **`HANDOFF-13`, 9,463 B / md5 `a07ad36d…`** (§1) — ABSENT, fingerprint recorded.
+- **`HANDOFF-34.md` lines 34–42** (§6) — ABSENT at the export boundary; not recoverable by re-running
+  `recover.py`.
+- **31 numbered Löwdin bridges** (§8) — ABSENT repo-wide.
+
+None of these is a defect to fix. Each is a recorded absence or an unresolved authorial question,
+and this file exists so the next session starts from the measurement rather than re-deriving it.

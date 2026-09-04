@@ -153,6 +153,13 @@ covers `extracted/`, `recovered/` and the repo's own tools; `drive/chats/` stays
 Still a snapshot: do not treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`,
 `extracted/LEDGER.tsv` or `recovered/LEDGER.tsv` instead.
 
+**What the graph pass measured is written up in `docs/GRAPH-FINDINGS.md`** — the seven `AMBIGUOUS`
+edges traced to their files, the `HANDOFF-13` byte-fingerprint for an absent document, the 23-file
+truncation census (only `HANDOFF-34.md` lines 34–42 is a hard boundary, and it is one the chat export
+imposed), the 171 duplicated filenames in `recovered/` and what the `__<md5>` suffix there actually
+means, and the 31 absent Löwdin bridges. Read it before re-deriving any of that; every claim in it
+carries a command to re-verify.
+
 Two limits are recorded rather than repaired. `graph.html` is the **aggregated community view** —
 20,463 nodes is above the node-level render limit of 5,000, so it draws 2,434 community nodes and
 1,696 cross-community edges, not individual files. And the health check reports **7,088
