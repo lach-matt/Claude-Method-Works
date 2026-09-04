@@ -1,0 +1,166 @@
+r2-28b4.py — 28b-06/07/08 after rulings: R.7's two blocks and lead-ins, located by content, read as printed
+members: The_Method_1_6-2.md 32d22f8b | The_Method_1_6___The_Register-2.md 2f553ed0
+
+== §1 THE TWO SENTENCES, THE TWO BLOCKS AND THE TWO CHAPTERS — bounds by scan, chapters under the chat-130 convention
+   `### R.7 What is not cited, and why` heading hits                    [11853]                OK
+   `# APPENDICES` hits (the chapter bound is the LAST)                  [161, 9971]            OK
+   Chapter 35 heading hits                                              [158, 9750]            OK
+   Chapter 36 heading hits                                              [159, 9926]            OK
+   Chapter 35 L9750–L9925 (176 lines) | Chapter 36 L9926–L9970 (45 lines)
+   R.7 carries one Löwdin lead-in and one three-body lead-in            (1, 1)                 OK
+   sentence A as printed: **The Löwdin solution.** Entered at registers 1701–1712. The companion paper carries the full list; these are the works entered with Chapter 35 (regis
+   sentence A asserts DEPENDENCE ("rests on"): False
+   sentence B "every structural object of Chapter 36 is his or older" sits at [11867]                OK
+   both sentences sit inside R.7 and OUTSIDE both chapters              True                   OK
+   Löwdin block L11856–L11863 | three-body block L11867–L11887 (by content)
+   Löwdin block: bullet works                                           8                      OK
+   three-body block: bullet works                                       21                     OK
+
+== §2 REGISTER 1721, READ FIRST AND IN FULL — what DEFERRED asked for before any decision
+   register 1721 L6421–L6424:
+     **EIGHT ATTRIBUTION QUESTIONS — SEVEN CLOSED TO NAMED OWNERS.** *Eight attribution questions formed from residue before deriving (§E.5); seven closed to named owners: Montgomery, Saari, Painlevé, Moore/Chenciner–Montgomery, Maupertuis/Jacobi, Alekseev/Moser, Monaghan/Stone–Leigh/Kol, Brudno, Hill/Marchal–Bozis, Baker–Pixley/Montanari/Dechter/Freuder. "Microcanonical ergodic flux" is Kol's term; K(s) ≈ |s| is Brudno's theorem.* *(prior art.)*
+   1721 states eight questions and seven closed to named owners         True                   OK
+   1721 says the questions were formed from residue BEFORE deriving, citing §E.5 True                   OK
+   1721 lists 10 owner-groups: ['Montgomery', 'Saari', 'Painlevé', 'Moore/Chenciner–Montgomery', 'Maupertuis/Jacobi', 'Alekseev/Moser', 'Monaghan/Stone–Leigh/Kol', 'Brudno', 'Hill/Marchal–Bozis', 'Baker–Pixley/Montanari/Dechter/Freuder']
+   THE READING: 1721 records the ATTRIBUTION ACT — questions formed, owners named — and cites §E.5 as
+   the method. It is a Register act, and the chapter states the same act in its own words (§3 below).
+
+== §3 THE THREE-BODY BLOCK — every bullet's names and years, read out of the block itself
+   L11867  Montgomery                                   [2014, 2015]
+   L11868  Montgomery                                   [1998, 2002]
+   L11869  Chenciner,Montgomery                         [2000]
+   L11870  Hsiang,Straume                               [2006]
+   L11871  Euler,Lagrange                               [1767, 1772]
+   L11872  Lagrange                                     [1770]
+   L11873  Maupertuis,Jacobi                            [1744, 1837, 1842]
+   L11874  Chazy                                        [1922]
+   L11875  Saari                                        [1971, 1973, 1984]
+   L11876  Fleischer,Knauf                              [2019]
+   L11877  Painlevé                                     [1897]
+   L11878  McGehee                                      [1974]
+   L11879  Kolmogorov,Arnold,Moser                      [1954, 1962, 1963, 1973]
+   L11880  Alekseev                                     [1968]
+   L11881  Brudno                                       [1983]
+   L11882  Marchal,Saari,Marchal,Bozis                  [1975, 1982]
+   L11883  Monaghan,Nash,Monaghan                       [1976, 1978]
+   L11884  Stone,Leigh,Kol                              [2019, 2021, 2023]
+   L11885  Moore                                        [1993]
+   L11886  Montanari,Baker,Pixley,Dechter               [1974, 1975, 1992]
+   L11887  Lach                                         [2026]
+   Montgomery's latest year in the block                                2015                   OK
+   the block carries 2026 works (the companion paper)                   2026                   OK
+
+== §4 WHERE EACH NAME LIVES — Chapter 36, registers 1713–1724, 1721 alone, or nowhere
+   Alekseev     ch36 .    1713–24 YES  1721 YES   block year 1968
+   Arnold       ch36 .    1713–24 .    1721 .     block year 1973
+   Baker        ch36 .    1713–24 YES  1721 YES   block year 1992
+   Bozis        ch36 .    1713–24 YES  1721 YES   block year 1982
+   Brudno       ch36 YES  1713–24 YES  1721 YES   block year 1983
+   Chazy        ch36 .    1713–24 .    1721 .     block year 1922
+   Chenciner    ch36 YES  1713–24 YES  1721 YES   block year 2000
+   Dechter      ch36 .    1713–24 YES  1721 YES   block year 1992
+   Euler        ch36 YES  1713–24 .    1721 .     block year 1772
+   Fleischer    ch36 .    1713–24 .    1721 .     block year 2019
+   Hsiang       ch36 .    1713–24 .    1721 .     block year 2006
+   Jacobi       ch36 YES  1713–24 YES  1721 YES   block year 1842
+   Knauf        ch36 .    1713–24 .    1721 .     block year 2019
+   Kol          ch36 .    1713–24 YES  1721 YES   block year 2023
+   Kolmogorov   ch36 .    1713–24 .    1721 .     block year 1973
+   Lach         ch36 .    1713–24 .    1721 .     block year 2026
+   Lagrange     ch36 YES  1713–24 YES  1721 .     block year 1772
+   Leigh        ch36 .    1713–24 YES  1721 YES   block year 2023
+   Marchal      ch36 .    1713–24 YES  1721 YES   block year 1982
+   Maupertuis   ch36 YES  1713–24 YES  1721 YES   block year 1842
+   McGehee      ch36 .    1713–24 .    1721 .     block year 1974
+   Monaghan     ch36 .    1713–24 YES  1721 YES   block year 1978
+   Montanari    ch36 .    1713–24 YES  1721 YES   block year 1992
+   Montgomery   ch36 YES  1713–24 YES  1721 YES   block year 2015
+   Moore        ch36 YES  1713–24 YES  1721 YES   block year 1993
+   Moser        ch36 .    1713–24 YES  1721 YES   block year 1973
+   Nash         ch36 .    1713–24 .    1721 .     block year 1978
+   Painlevé     ch36 YES  1713–24 YES  1721 YES   block year 1897
+   Pixley       ch36 .    1713–24 YES  1721 YES   block year 1992
+   Saari        ch36 YES  1713–24 YES  1721 YES   block year 1984
+   Stone        ch36 .    1713–24 YES  1721 YES   block year 2023
+   Straume      ch36 .    1713–24 .    1721 .     block year 2006
+   block names PRESENT in Chapter 36                                    ['Brudno', 'Chenciner', 'Euler', 'Jacobi', 'Lagrange', 'Maupertuis', 'Montgomery', 'Moore', 'Painlevé', 'Saari'] OK
+   block names in NEITHER Chapter 36 nor 1713–1724 (READ-ch28b measured nine) ['Arnold', 'Chazy', 'Fleischer', 'Hsiang', 'Knauf', 'Kolmogorov', 'McGehee', 'Nash', 'Straume'] OK
+   names living ONLY in 1721 within 1713–1724: 12 — ['Alekseev', 'Baker', 'Bozis', 'Dechter', 'Kol', 'Leigh', 'Marchal', 'Monaghan', 'Montanari', 'Moser', 'Pixley', 'Stone']
+   the record's count, read from register 1811: 12
+   the block names living only in Register 1721 number as the record lists them 12                     as printed
+   Baker, Dechter, Montanari and Pixley — the constraint-consistency line — are in 1721's tenth owner-group,
+   in no other entry of 1713–1724 and not in Chapter 36; register 1811 corrected the record to twelve.
+
+== §5 CONVENTION PROV — sentence B scored over the objects CHAPTER 36 NAMES, not over the block it sits in
+   Chapter 36 names 10 of the block's works. Newest year among them: 2015 (Montgomery's own).
+   Works in the block NEWER than Montgomery: ['Fleischer', 'Knauf', 'Kol', 'Lach', 'Leigh', 'Stone']
+   every one of those newer works is ABSENT from Chapter 36             []                     OK
+   "every structural object of Chapter 36 is his or older", scored on Chapter 36 0                      as printed
+   MEASURED TRUE OF THE CHAPTER. Not one object Chapter 36 names post-dates Montgomery; the six works
+   that do — Fleischer, Knauf, Kol, Lach, Leigh, Stone — live in the block and in no part of the chapter.
+   Chapter 36's only other dated outsider is Xia 1992, in §36.5's disclaimer — one line, carrying 1992 (1, True)              OK
+   Xia appears nowhere in the three-body block                          False                  OK
+
+== §6 SENTENCE A — the Löwdin block against Chapter 35 and registers 1701–1712
+   L11856  Löwdin                         Chapter 35 YES  1701–12 YES 
+   L11857  Löwdin                         Chapter 35 YES  1701–12 YES 
+   L11858  Koelling,Harmon                Chapter 35 .    1701–12 YES 
+   L11859  Griffin,Andrew,Cowan,Griffin   Chapter 35 YES  1701–12 YES 
+   L11860  Pulay                          Chapter 35 YES  1701–12 YES 
+   L11861  Gerratt,Mills                  Chapter 35 .    1701–12 YES 
+   L11862  Madelung                       Chapter 35 .    1701–12 .   
+   L11863  Lach,Löwdin                    Chapter 35 .    1701–12 YES    (this work's own companion paper, not prior art)
+   the block carries one non-prior-art bullet, the companion paper      1                      OK
+   Madelung is in NEITHER Chapter 35 nor registers 1701–1712            True                   OK
+   Koelling, Harmon, Gerratt and Mills are absent from Chapter 35 but present in 1701–1712 []                     OK
+   the chapter names the companion paper by title                       True                   OK
+   sentence A no longer asserts dependence (register 1810, ruling b): 4 of 7 prior-art works are named in
+   Chapter 35 and the block says "entered with", which is true of all eight. 28b-06 is closed by the wording.
+   Koelling & Harmon, Gerratt & Mills and Madelung the chapter never names, and Madelung is in no Register
+   entry of the run either — recorded, and no longer a claim the block fails.
+
+== §7 THE EIGHT AND THE SEVEN — read across §36.2, §36.3, 1719 / 1720 and 1721; ENGAGED, NOT SCORED
+   §36.2 states "Eight attribution questions, eight closed" — once, inside Chapter 36 (1, True)              OK
+   §36.3 states "Seven belonged to others; the eighth"                  True                   OK
+   1719 records the eighth as a WITHDRAWAL and 1720 gives it to Lagrange 1770 as prior art True                   OK
+   1721's owner list names neither Lagrange nor Euler                   []                     OK
+   §36.2 (eight closed) and §36.3 (seven to others, the eighth classical) RECONCILE, and 1721's "seven
+   closed to named owners" agrees with §36.3: the eighth went to Lagrange 1770 at 1720, outside 1721's
+   list. What does NOT resolve on the bundle is 1721's own arithmetic — 10 owner-groups printed against
+   seven closures. A question may close to more than one group, and the audit-7 ledger that maps question
+   to owner is not a member of this build, so THE READING DOES NOT DECIDE IT and does not score it.
+
+== §8 CENSUS — rows in the ranges this reading engaged
+   engaged: main L9750–L9925 (Chapter 35), main L9926–L9970 (Chapter 36), main L11853–L11904 (R.7),
+            reg L6345–L6388 (registers 1701–1712) and L6389–L6436 (registers 1713–1724)
+   main 1199 / 1200  C9 at L9902 / L9910 — closed in the ch17e / tb1 line as not defects; earlier governs (G0b)
+   reg  1460         C9 "never" at L6367 (register 1706) — closed earlier, not a defect; earlier governs (G0b)
+   reg  1546         C13-HANDLE-LEAK `3B.tri` at L6403 (register 1716) — CLOSED HERE as a defect: this
+                     reading read 1716 entire and the handle is in the body it read; the class is ruled
+                     (26b-10, ruling 46, docket 28) with census 1536 and 1556 closed on the same form.
+   R.7 L11806–L11840 carries NO census row of its own.
+
+== VERDICT
+   28b-06 STANDS, AND THE QUESTION DEFERRED PUT TO R3 IS ANSWERED: **THE BLOCK CARRIES THE ATTRIBUTION,
+   NOT THE CHAPTER.** Register 1721, read first as DEFERRED required, records the attribution act itself —
+   eight questions formed from residue before deriving, seven closed to named owners — and Chapter 36
+   states that same act in its own words at §36.3 (*§E.5 and audit 7 supplied the ledger … Seven belonged
+   to others*), citing registers 1718 and 1722–1723. The chapter therefore neither needs nor makes R.7's
+   claim; R.7 makes it about the chapter.
+   28b-07 NEW, AND IT FALLS FOR THE BOOK. Scored under CONVENTION PROV on the objects Chapter 36 actually
+   names, "every structural object of Chapter 36 is his or older" is **TRUE**: of the 10 block works the
+   chapter uses, not one post-dates Montgomery, and the 6 that do — Fleischer, Knauf, Kol, Lach, Leigh, Stone —
+   appear in no part of Chapter 36. What over-reaches is the BLOCK's scope, not the sentence, and not the
+   chapter. R3: the sentence stands; the block either narrows to the works the chapters use or stops
+   saying the chapters rest on it.
+   28b-08 NEW. The block names living only in Register 1721 within 1713–1724 number **12**, not the eight
+   the record lists: Baker, Dechter, Montanari and Pixley — L11839's constraint-consistency line — sit in
+   1721's tenth owner-group, in no other entry of the run, and in no part of Chapter 36. The record's
+   list is a subset, corrected here.
+   SENTENCE A does not fare as well: only 4 of the Löwdin block's 7 prior-art works have their names in
+   Chapter 35, and Madelung is in neither the chapter nor registers 1701–1712 — the one work of either
+   block with no home anywhere in the record.
+
+DEVIATIONS RECORDED (findings, not instrument faults):
+
+ALL INSTRUMENT CHECKS OK — 0 deviations recorded

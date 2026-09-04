@@ -1,0 +1,269 @@
+
+====================================================================================================
+§0 members and the unit (lettered headings; body = LAST hit; a `### D.x` unit ends at the next heading of any rank)
+====================================================================================================
+   main The_Method_1_6-2.md                                  md5 32d22f8b  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 2f553ed0  6695 lines
+   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 facd6191  3813 lines
+   pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
+   ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 27d387ef  2094 lines
+   sc   The_Method_1_6___Spectra_Compendium-2.md             md5 5ba7f61c  1160 lines
+   D.2    hits [10376]  body L10376–L10385 (10 lines)  ### D.2 The structure
+   D.3    hits [10386]  body L10386–L10396 (11 lines)  ### D.3 The two constraints, found by closing
+   D.5    hits [10496]  body L10496–L10546 (51 lines)  ### D.5 The closed index
+   D.5.2  hits [10597]  body L10597–L10638 (42 lines)  ### D.5.2 The twenty-seven, enumerated
+   D.5.4  hits [10668]  body L10668–L10695 (28 lines)  ### D.5.4 The five, placed, and the table corrected
+   D.5.5  hits [10696]  body L10696–L10736 (41 lines)  ### D.5.5 The promotion tested, and what the test exposed about E
+   D.5.6  hits [10737]  body L10737–L10761 (25 lines)  ### D.5.6 The re-closure this appendix owes, performed, and it fails
+   D.5.7  hits [10762]  body L10762–L10794 (33 lines)  ### D.5.7 What the companion paper does to this index
+   D.5.8  hits [10795]  body L10795–L10827 (33 lines)  ### D.5.8 The re-closure owed after the third companion paper
+   D.5.9  hits [10828]  body L10828–L10876 (49 lines)  ### D.5.9 The re-closure owed after Chapters 35 and 36
+   D.5.10 hits [10877]  body L10877–L10931 (55 lines)  ### D.5.10 The re-closure owed for the mathematics of the Löwdin chall
+   `## Appendix D` hits [165, 10354] (the contents line and the body; body = LAST) ; `## Appendix E` hits [166, 10945]
+   heading_line (numeric-only resolver) on "D.5.9": None — the numeric resolver does not see a lettered heading; `lettered` governs (chat-129 convention)
+
+====================================================================================================
+§1 the Register: the entries the unit cites, their headings, WARNING lines; the family figures grepped in six volumes
+====================================================================================================
+     222 heading L887 body L887–L890 WARNING lines [] :: **ITEM L CLOSED.** *Five results the table had no room for are all theorem · order, placed by reading each proof rather than its subject; A.5's verifi
+     230 heading L915 body L915–L918 WARNING lines [] :: **APPENDIX D'S *KIND* COORDINATE DISAGREES WITH PART III'S TITLE — THE PART IS CALLED THE LAW AND ITS CONTENTS ARE THEOREMS.** *Recorded rather than r
+     232 heading L919 body L919–L922 WARNING lines [] :: **THE LAW-PROMOTION OF 230, TESTED AND DECLINED.** *Both readings close at E = 0, so the book's own measure cannot decide its own classification, and 
+     233 heading L923 body L923–L926 WARNING lines [] :: **E = 0 IS MONOTONE IN THE FIBRATION AND REACHABLE BY REFINEMENT ALONE.** *The same thirty-two elements give 4 in one fibre, 3 by language, 2 by kind,
+     248 heading L979 body L979–L982 WARNING lines [] :: **A.5 RETESTED ON EVERY AMBIENT POINT RATHER THAN 30,000 SAMPLED — THE BOX HOLDS 6,912, SO THE SAMPLING DREW MORE TIMES THAN THERE ARE CELLS AND STILL
+     282 heading L1079 body L1079–L1082 WARNING lines [] :: **APPENDIX D'S RE-CLOSURE PERFORMED FOR THE FIRST TIME, AND IT FAILED** *— E = 1 at* *proved · sampled · none found**. Closed by proving what had been
+     305 heading LNone body LNone–LNone WARNING lines None :: 
+     361 heading L1315 body L1315–L1318 WARNING lines [] :: **APPENDIX D RE-CLOSED AFTER THE INTAKE — FORTY ELEMENTS BECOME FORTY-EIGHT AND E RETURNS TO 0, BUT THE FIRST RUN GAVE E = 1 AND WHAT CLOSED IT WAS CO
+    1718 heading L6409 body L6409–L6412 WARNING lines [] :: **FIRST AUDIT FAILED 13/13 — THE SHAPE POTENTIAL WAS DIVIDED BY R ONCE TOO OFTEN.** *First audit run: check A failed 13/13. Cause: the shape potential
+    1726 heading L6437 body L6437–L6440 WARNING lines [] :: **APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, D
+    1734 heading L6453 body L6453–L6456 WARNING lines [] :: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPT
+   register pointers inside D.5.9: [1718, 1249, 1726]
+   'E = 4'              {'main': (2, [10861, 10863]), 'reg': (4, [3145, 3565, 6006, 6439]), 'pc': (1, [61])}
+   'E = 2'              {'main': (2, [5758, 10865]), 'reg': (7, [1285, 1897, 1985, 5177, 5838, 6658]), 'mc': (2, [870, 1870])}
+   'sixty-five'         {'main': (4, [6688, 9276, 10854, 10882]), 'reg': (6, [2221, 5337, 5341, 6439, 6455, 6463])}
+   'twenty-two fibres'  {'main': (2, [10854, 10883]), 'reg': (3, [6455, 6463, 6658])}
+   '3B.five'            {'main': (2, [10849, 10860]), 'reg': (1, [6439]), 'mc': (3, [3391, 3393, 3534])}
+   '3B.pot'             {'main': (2, [10847, 10860]), 'reg': (2, [6439, 6467]), 'mc': (1, [3538])}
+   '650'                {'main': (2, [6022, 10864]), 'reg': (3, [2525, 6439, 6592]), 'mc': (1, [3254]), 'ioi': (1, [1030]), 'sc': (6, [417, 418, 459, 460, 461, 462])}
+   'formula · analysis' {'main': (11, [10509, 10594, 10605, 10606, 10607, 10845]), 'reg': (1, [6439])}
+   Register lines naming *D.5.9*: [6439, 6455] ; lines with "E = 4": [3565, 6006, 6439]
+
+====================================================================================================
+§2 census: every numeral printed in D.5.5 (fibration table) and D.5.9 (member line numbers)
+====================================================================================================
+   L10702 15 1 16 0
+   L10703 4 12 18 0
+   L10704 10 6 17 0
+   L10708 18
+   L10710 0,
+   L10715 16 0
+   L10716 7 2
+   L10717 6 3
+   L10718 1 4
+   L10721 0 0
+   L10726 0
+   L10727 976
+   L10728 0,
+   L10731 0
+   L10735 232 233
+   D.5.5: 30 numerals on 15 lines
+   L10828 35 36
+   L10829 0
+   L10832 0
+   L10836 35
+   L10850 8
+   L10852 0
+   L10854 0
+   L10861 4
+   L10863 4
+   L10864 650
+   L10865 10 2,
+   L10867 1767 1772
+   L10868 1718 0
+   L10870 32.4
+   L10873 34, 1249 1357
+   L10875 1726
+   D.5.9: 22 numerals on 16 lines
+
+====================================================================================================
+§3 the index rebuilt from the volume's own tables (D.2 coordinates L10376–; D.5.2; D.5.4 prose; D.5.6–D.5.10 tables)
+====================================================================================================
+   §D.2 declares status ['withdrawn', 'conjectured', 'measured', 'verified', 'unwitnessed', 'proved'] | verification ['cited', 'sampled', 'exhaustive'] | precedent ['none found', 'found'] (read as DATA; r2-23a hard-coded five status values)
+   D.2 rows: ['coordinate', 'kind', 'language', 'status', 'verification', 'precedent'] ; status order read: withdrawn < conjectured < measured < verified < unwitnessed < proved
+   D.5.2 DATA rows parsed: 27 (printed twenty-seven); first/last: a closed index, §14.1 / the 540 Kreuzer–Skarke proposals, §31.3.4
+   D.5.4 line *proved · sampled, not proved · exhaustive* (A.5, the paragraph opens at L10679): [10680] :: uniformly sampled ambient points**, so it is proved · sampled, not proved · exhaustive. The
+   D.5.6  DATA rows 4 (printed four)
+   D.5.7  DATA rows 4 (printed four)
+   D.5.8  DATA rows 8 (printed eight)
+   D.5.9  DATA rows 17 (printed seventeen)
+   D.5.10 DATA rows 12 (printed twelve)
+   running totals: {'D.5.2': 27, 'D.5.4': 32, 'D.5.6': 36, 'D.5.7': 40, 'D.5.8': 48, 'D.5.9': 65, 'D.5.10': 77} (printed 27 / 32 / 36 / 40 / 48 / 65 / 77) ; fibres: {'D.5.2': 16, 'D.5.4': 16, 'D.5.6': 16, 'D.5.7': 16, 'D.5.8': 16, 'D.5.9': 22, 'D.5.10': 24} (printed 16 / 16 / 16 / 16 / 16 / 22 / 24)
+   D.5.9 rows: LS 8 3B 9 ; fibres new at D.5.9: [('definition', 'analysis'), ('law', 'physics'), ('mechanism', 'physics'), ('theorem', 'algebraic geometry'), ('theorem', 'complexity'), ('theorem', 'physics')] (printed six: mechanism · physics, law · physics, theorem · physics, definition · analysis, theorem · algebraic geometry, theorem · complexity)
+   3B.five as printed: theorem · analysis :: proved · exhaustive · found  (L10849)
+   3B.pot as printed: formula · analysis :: proved · exhaustive · found  (L10847)
+   D.5 table rows 24 cells sum 77 E column sum 3 ; rebuilt == table: True ; differences: {}
+
+====================================================================================================
+§4 conventions named before scoring. E(X) = |ℛ(X)| − |X| per fibre, summed (§6.1, D.1).
+====================================================================================================
+   BOOK  — r2lib.Rset (§6.1 L1540, lifted verbatim at chat 74): φ̂ᵢⱼ(v) = max{xᵢ : x ∈ X, xⱼ ≤ v} (running maximum), ambient ∏ Âᵢ(X).
+   EQ    — chat 136's reconstruction (r2-ch23a.py §4): φ(v) = max{xᵢ : xⱼ = v} (equality, no running maximum), ambient ∏ Âᵢ(X).
+   HULL  — as BOOK but the ambient is the interval hull [min, max] of each coordinate.
+   +D3   — cells violating D.3's two constraints (verification = cited ⟹ precedent = found; status ≥ measured ⟹ verification ≥ sampled) removed from ℛ(X) before counting.
+   Coordinates ordered as D.2 prints them: status withdrawn < conjectured < measured < verified < proved; verification cited < sampled < exhaustive; precedent none found < found.
+
+====================================================================================================
+§5 D.5.5's fibration table on the thirty-two (printed: kind × language 16 fibres E 0 · kind only 7 / 2 · language only 6 / 3 · none 1 / 4; Register 233 *4 in one fibre, 3 by language, 2 by kind, 0 by kind × language*)
+====================================================================================================
+   A.5 sampled (as printed L10644)  BOOK      {'kind × language': (16, 0), 'kind only': (7, 2), 'language only': (6, 3), 'none': (1, 5)}
+   A.5 sampled (as printed L10644)  BOOK+D3   {'kind × language': (16, 0), 'kind only': (7, 2), 'language only': (6, 3), 'none': (1, 5)}
+   A.5 sampled (as printed L10644)  EQ        {'kind × language': (16, 0), 'kind only': (7, 1), 'language only': (6, 3), 'none': (1, 3)}
+   A.5 sampled (as printed L10644)  EQ+D3     {'kind × language': (16, 0), 'kind only': (7, 1), 'language only': (6, 3), 'none': (1, 3)}
+   A.5 sampled (as printed L10644)  HULL      {'kind × language': (16, 1), 'kind only': (7, 3), 'language only': (6, 6), 'none': (1, 5)}
+   A.5 sampled (as printed L10644)  HULL+D3   {'kind × language': (16, 1), 'kind only': (7, 3), 'language only': (6, 6), 'none': (1, 5)}
+   A.5 exhaustive (Register 222)    BOOK      {'kind × language': (16, 0), 'kind only': (7, 2), 'language only': (6, 2), 'none': (1, 4)}
+   A.5 exhaustive (Register 222)    BOOK+D3   {'kind × language': (16, 0), 'kind only': (7, 2), 'language only': (6, 2), 'none': (1, 4)}
+   A.5 exhaustive (Register 222)    EQ        {'kind × language': (16, 0), 'kind only': (7, 1), 'language only': (6, 2), 'none': (1, 3)}
+   A.5 exhaustive (Register 222)    EQ+D3     {'kind × language': (16, 0), 'kind only': (7, 1), 'language only': (6, 2), 'none': (1, 3)}
+   A.5 exhaustive (Register 222)    HULL      {'kind × language': (16, 1), 'kind only': (7, 3), 'language only': (6, 5), 'none': (1, 4)}
+   A.5 exhaustive (Register 222)    HULL+D3   {'kind × language': (16, 1), 'kind only': (7, 3), 'language only': (6, 5), 'none': (1, 4)}
+   kind-only excess by kind under BOOK, A.5 sampled: {'measurement': ['measured · sampled · none found', 'measured · exhaustive · found']} ; A.5 exhaustive: {'measurement': ['measured · sampled · none found', 'measured · exhaustive · found']}
+   theorem cells of the thirty-two (A.5 sampled): [('proved · exhaustive · found', 3), ('proved · exhaustive · none found', 7), ('unwitnessed · exhaustive · none found', 4), ('unwitnessed · sampled · none found', 1)]
+
+====================================================================================================
+§6 the stage closures and the narrated first runs, under every convention (E = 0 printed at every stage as closed)
+====================================================================================================
+   BOOK, A.5 exhaustive: {'D.5.2': 0, 'D.5.4': 0, 'D.5.6': 0, 'D.5.7': 0, 'D.5.8': 1, 'D.5.9': 1, 'D.5.10': 4} ; A.5 sampled: {'D.5.2': 0, 'D.5.4': 0, 'D.5.6': 0, 'D.5.7': 0, 'D.5.8': 0, 'D.5.9': 0, 'D.5.10': 3}
+   BOOK+D3, A.5 exhaustive: {'D.5.2': 0, 'D.5.4': 0, 'D.5.6': 0, 'D.5.7': 0, 'D.5.8': 1, 'D.5.9': 1, 'D.5.10': 4} ; A.5 sampled: {'D.5.2': 0, 'D.5.4': 0, 'D.5.6': 0, 'D.5.7': 0, 'D.5.8': 0, 'D.5.9': 0, 'D.5.10': 3}
+   EQ, A.5 exhaustive: {'D.5.2': 0, 'D.5.4': 0, 'D.5.6': 0, 'D.5.7': 0, 'D.5.8': 1, 'D.5.9': 1, 'D.5.10': 2} ; A.5 sampled: {'D.5.2': 0, 'D.5.4': 0, 'D.5.6': 0, 'D.5.7': 0, 'D.5.8': 0, 'D.5.9': 0, 'D.5.10': 1}
+   EQ+D3, A.5 exhaustive: {'D.5.2': 0, 'D.5.4': 0, 'D.5.6': 0, 'D.5.7': 0, 'D.5.8': 1, 'D.5.9': 1, 'D.5.10': 2} ; A.5 sampled: {'D.5.2': 0, 'D.5.4': 0, 'D.5.6': 0, 'D.5.7': 0, 'D.5.8': 0, 'D.5.9': 0, 'D.5.10': 1}
+   HULL, A.5 exhaustive: {'D.5.2': 1, 'D.5.4': 1, 'D.5.6': 1, 'D.5.7': 1, 'D.5.8': 4, 'D.5.9': 4, 'D.5.10': 10} ; A.5 sampled: {'D.5.2': 1, 'D.5.4': 1, 'D.5.6': 1, 'D.5.7': 3, 'D.5.8': 3, 'D.5.9': 3, 'D.5.10': 9}
+   HULL+D3, A.5 exhaustive: {'D.5.2': 1, 'D.5.4': 1, 'D.5.6': 1, 'D.5.7': 1, 'D.5.8': 4, 'D.5.9': 4, 'D.5.10': 10} ; A.5 sampled: {'D.5.2': 1, 'D.5.4': 1, 'D.5.6': 1, 'D.5.7': 3, 'D.5.8': 3, 'D.5.9': 3, 'D.5.10': 9}
+   narrated: D.5.6 first run E = 1 (ℛ-as-closure-operator proved · sampled · found, Register 282); D.5.8 first run E = 1 at proved · sampled · none found (separation hypothesis entered exhaustive); D.5.10 first run E = 1 in theorem · analysis at verified · exhaustive · none found (corridor entered with precedent found)
+   BOOK:
+   D.5.6 first run, ℛ closure operator → proved · sampled · found                 elements 36 fibres 16 E = 2 {'theorem · order': ['unwitnessed · sampled · none found', 'unwitnessed · exhaustive · found']}
+   D.5.8 first run, separation hypothesis → proved · exhaustive · none found      elements 48 fibres 16 E = 2 {'theorem · order': ['unwitnessed · sampled · none found', 'proved · sampled · none found']}
+   D.5.10 first run, corridor → verified · exhaustive · found                     elements 77 fibres 24 E = 5 {'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['verified · exhaustive · none found'], 'law · physics': ['verified · sampled · none found', 'verified · exhaustive · found', 'proved · exhaustive · found']}
+   BOOK+D3:
+   D.5.6 first run, ℛ closure operator → proved · sampled · found                 elements 36 fibres 16 E = 2 {'theorem · order': ['unwitnessed · sampled · none found', 'unwitnessed · exhaustive · found']}
+   D.5.8 first run, separation hypothesis → proved · exhaustive · none found      elements 48 fibres 16 E = 2 {'theorem · order': ['unwitnessed · sampled · none found', 'proved · sampled · none found']}
+   D.5.10 first run, corridor → verified · exhaustive · found                     elements 77 fibres 24 E = 5 {'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['verified · exhaustive · none found'], 'law · physics': ['verified · sampled · none found', 'verified · exhaustive · found', 'proved · exhaustive · found']}
+   EQ:
+   D.5.6 first run, ℛ closure operator → proved · sampled · found                 elements 36 fibres 16 E = 2 {'theorem · order': ['unwitnessed · sampled · none found', 'unwitnessed · exhaustive · found']}
+   D.5.8 first run, separation hypothesis → proved · exhaustive · none found      elements 48 fibres 16 E = 2 {'theorem · order': ['unwitnessed · sampled · none found', 'proved · sampled · none found']}
+   D.5.10 first run, corridor → verified · exhaustive · found                     elements 77 fibres 24 E = 3 {'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['verified · exhaustive · none found'], 'law · physics': ['verified · sampled · none found']}
+   EQ+D3:
+   D.5.6 first run, ℛ closure operator → proved · sampled · found                 elements 36 fibres 16 E = 2 {'theorem · order': ['unwitnessed · sampled · none found', 'unwitnessed · exhaustive · found']}
+   D.5.8 first run, separation hypothesis → proved · exhaustive · none found      elements 48 fibres 16 E = 2 {'theorem · order': ['unwitnessed · sampled · none found', 'proved · sampled · none found']}
+   D.5.10 first run, corridor → verified · exhaustive · found                     elements 77 fibres 24 E = 3 {'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['verified · exhaustive · none found'], 'law · physics': ['verified · sampled · none found']}
+   HULL:
+   D.5.6 first run, ℛ closure operator → proved · sampled · found                 elements 36 fibres 16 E = 3 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found', 'unwitnessed · exhaustive · found']}
+   D.5.8 first run, separation hypothesis → proved · exhaustive · none found      elements 48 fibres 16 E = 5 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found', 'proved · sampled · none found']}
+   D.5.10 first run, corridor → verified · exhaustive · found                     elements 77 fibres 24 E = 13 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['unwitnessed · exhaustive · none found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found'], 'theorem · analysis': ['verified · exhaustive · none found', 'unwitnessed · exhaustive · none found', 'unwitnessed · exhaustive · found'], 'law · physics': ['verified · sampled · none found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · none found', 'unwitnessed · exhaustive · found', 'proved · exhaustive · found']}
+   HULL+D3:
+   D.5.6 first run, ℛ closure operator → proved · sampled · found                 elements 36 fibres 16 E = 3 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found', 'unwitnessed · exhaustive · found']}
+   D.5.8 first run, separation hypothesis → proved · exhaustive · none found      elements 48 fibres 16 E = 5 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found', 'proved · sampled · none found']}
+   D.5.10 first run, corridor → verified · exhaustive · found                     elements 77 fibres 24 E = 13 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['unwitnessed · exhaustive · none found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found'], 'theorem · analysis': ['verified · exhaustive · none found', 'unwitnessed · exhaustive · none found', 'unwitnessed · exhaustive · found'], 'law · physics': ['verified · sampled · none found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · none found', 'unwitnessed · exhaustive · found', 'proved · exhaustive · found']}
+
+====================================================================================================
+§7 D.5.9 — the family. Printed L10828–L10877: first run (3B.five, 3B.pot as MEASURED) E = 4, three cells in formula · analysis and one in theorem · analysis; second run (3B.five proved, 3B.pot on its 650-triangle check = sampled) E = 2, formula · analysis admits measured · sampled · none found and verified · sampled · none found; third run (both on their derivations) E = 0
+====================================================================================================
+   BOOK — first run, both as measured, the four measured cells for each (sixteen pairs):
+         both measured · sampled · none found                                     elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         both measured · sampled · found                                          elements 65 fibres 22 E = 5 {'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found', 'verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · sampled · none found']}
+         both measured · exhaustive · none found                                  elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         both measured · exhaustive · found                                       elements 65 fibres 22 E = 3 {'formula · analysis': ['verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · exhaustive · none found']}
+      pairs reproducing E = 4 as 3 (formula · analysis) + 1 (theorem · analysis): NONE
+   BOOK — second run, 3B.five proved · exhaustive · found, 3B.pot on its sampled check:
+         3B.pot measured · sampled · none found                                   elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · none found                                   elements 65 fibres 22 E = 2 {'formula · analysis': ['measured · sampled · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot measured · sampled · found                                        elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found', 'verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · found                                        elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · found                                     elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · none found                                elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · exhaustive · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+      BOOK — third run, both as printed (derivations)                             elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+   BOOK+D3 — first run, both as measured, the four measured cells for each (sixteen pairs):
+         both measured · sampled · none found                                     elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         both measured · sampled · found                                          elements 65 fibres 22 E = 5 {'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found', 'verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · sampled · none found']}
+         both measured · exhaustive · none found                                  elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         both measured · exhaustive · found                                       elements 65 fibres 22 E = 3 {'formula · analysis': ['verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · exhaustive · none found']}
+      pairs reproducing E = 4 as 3 (formula · analysis) + 1 (theorem · analysis): NONE
+   BOOK+D3 — second run, 3B.five proved · exhaustive · found, 3B.pot on its sampled check:
+         3B.pot measured · sampled · none found                                   elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · none found                                   elements 65 fibres 22 E = 2 {'formula · analysis': ['measured · sampled · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot measured · sampled · found                                        elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found', 'verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · found                                        elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · found                                     elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · none found                                elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · exhaustive · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+      BOOK+D3 — third run, both as printed (derivations)                          elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+   EQ — first run, both as measured, the four measured cells for each (sixteen pairs):
+         both measured · sampled · none found                                     elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         both measured · sampled · found                                          elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · sampled · none found']}
+         both measured · exhaustive · none found                                  elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         both measured · exhaustive · found                                       elements 65 fibres 22 E = 2 {'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · exhaustive · none found']}
+      pairs reproducing E = 4 as 3 (formula · analysis) + 1 (theorem · analysis): NONE
+   EQ — second run, 3B.five proved · exhaustive · found, 3B.pot on its sampled check:
+         3B.pot measured · sampled · none found                                   elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · none found                                   elements 65 fibres 22 E = 2 {'formula · analysis': ['measured · sampled · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot measured · sampled · found                                        elements 65 fibres 22 E = 3 {'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · found                                        elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · found                                     elements 65 fibres 22 E = 3 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · none found                                elements 65 fibres 22 E = 3 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+      EQ — third run, both as printed (derivations)                               elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+   EQ+D3 — first run, both as measured, the four measured cells for each (sixteen pairs):
+         both measured · sampled · none found                                     elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         both measured · sampled · found                                          elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · sampled · none found']}
+         both measured · exhaustive · none found                                  elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         both measured · exhaustive · found                                       elements 65 fibres 22 E = 2 {'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · exhaustive · none found']}
+      pairs reproducing E = 4 as 3 (formula · analysis) + 1 (theorem · analysis): NONE
+   EQ+D3 — second run, 3B.five proved · exhaustive · found, 3B.pot on its sampled check:
+         3B.pot measured · sampled · none found                                   elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · none found                                   elements 65 fibres 22 E = 2 {'formula · analysis': ['measured · sampled · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot measured · sampled · found                                        elements 65 fibres 22 E = 3 {'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · found                                        elements 65 fibres 22 E = 4 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · found                                     elements 65 fibres 22 E = 3 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · none found                                elements 65 fibres 22 E = 3 {'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found'], 'theorem · order': ['unwitnessed · sampled · none found']}
+      EQ+D3 — third run, both as printed (derivations)                            elements 65 fibres 22 E = 1 {'theorem · order': ['unwitnessed · sampled · none found']}
+   HULL — first run, both as measured, the four measured cells for each (sixteen pairs):
+         both measured · sampled · none found                                     elements 65 fibres 22 E = 4 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         both measured · sampled · found                                          elements 65 fibres 22 E = 9 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · sampled · none found']}
+         both measured · exhaustive · none found                                  elements 65 fibres 22 E = 6 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found'], 'theorem · analysis': ['verified · exhaustive · none found', 'unwitnessed · exhaustive · none found']}
+         both measured · exhaustive · found                                       elements 65 fibres 22 E = 11 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['verified · exhaustive · found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · exhaustive · none found', 'verified · exhaustive · none found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · none found', 'unwitnessed · exhaustive · found']}
+      pairs reproducing E = 4 as 3 (formula · analysis) + 1 (theorem · analysis): NONE
+   HULL — second run, 3B.five proved · exhaustive · found, 3B.pot on its sampled check:
+         3B.pot measured · sampled · none found                                   elements 65 fibres 22 E = 4 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · none found                                   elements 65 fibres 22 E = 5 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot measured · sampled · found                                        elements 65 fibres 22 E = 8 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · found                                        elements 65 fibres 22 E = 8 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · found                                     elements 65 fibres 22 E = 7 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · none found                                elements 65 fibres 22 E = 7 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · exhaustive · none found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+      HULL — third run, both as printed (derivations)                             elements 65 fibres 22 E = 4 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+   HULL+D3 — first run, both as measured, the four measured cells for each (sixteen pairs):
+         both measured · sampled · none found                                     elements 65 fibres 22 E = 4 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         both measured · sampled · found                                          elements 65 fibres 22 E = 9 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · sampled · none found']}
+         both measured · exhaustive · none found                                  elements 65 fibres 22 E = 6 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found'], 'theorem · analysis': ['verified · exhaustive · none found', 'unwitnessed · exhaustive · none found']}
+         both measured · exhaustive · found                                       elements 65 fibres 22 E = 11 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['verified · exhaustive · found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · exhaustive · none found', 'verified · exhaustive · none found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · none found', 'unwitnessed · exhaustive · found']}
+      pairs reproducing E = 4 as 3 (formula · analysis) + 1 (theorem · analysis): NONE
+   HULL+D3 — second run, 3B.five proved · exhaustive · found, 3B.pot on its sampled check:
+         3B.pot measured · sampled · none found                                   elements 65 fibres 22 E = 4 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · none found                                   elements 65 fibres 22 E = 5 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot measured · sampled · found                                        elements 65 fibres 22 E = 8 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'measured · exhaustive · found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot verified · sampled · found                                        elements 65 fibres 22 E = 8 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'verified · exhaustive · found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · found                                     elements 65 fibres 22 E = 7 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+         3B.pot unwitnessed · sampled · none found                                elements 65 fibres 22 E = 7 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'formula · analysis': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · exhaustive · none found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+      HULL+D3 — third run, both as printed (derivations)                          elements 65 fibres 22 E = 4 {'formula · combinatorics': ['unwitnessed · exhaustive · found'], 'theorem · order': ['measured · sampled · none found', 'verified · sampled · none found', 'unwitnessed · sampled · none found']}
+   formula · analysis occupants at 65 (as printed): [('measured · exhaustive · none found', 1), ('proved · exhaustive · found', 4), ('verified · exhaustive · none found', 1)]
+   theorem · analysis occupants at 65 (as printed): [('proved · exhaustive · found', 3), ('proved · exhaustive · none found', 3)]
+   the first-run excess under BOOK with both measured · exhaustive · found, by fibre: {'formula · analysis': ['verified · exhaustive · found'], 'theorem · order': ['unwitnessed · sampled · none found'], 'theorem · analysis': ['measured · exhaustive · none found']}
+
+====================================================================================================
+§8 the D.5.10 and L10880 statements (law · physics box) and the fibre counts at 65 / 77
+====================================================================================================
+   law · physics: elements 4 cells ['proved · exhaustive · none found', 'verified · exhaustive · none found', 'verified · sampled · found'] ; ℛ(X) − X under BOOK: ['verified · sampled · none found', 'verified · exhaustive · found', 'proved · exhaustive · found'] ; box ∏Âᵢ − X: ['verified · sampled · none found', 'verified · exhaustive · found', 'proved · sampled · none found', 'proved · sampled · found', 'proved · exhaustive · found'] (L10880 names conjectured · exhaustive and proved · sampled)
+   fibres at 65: 22 (printed twenty-two) ; at 77: 24 (printed twenty-four) ; fibres new at D.5.10: [('formula', 'order'), ('measurement', 'analysis')] (printed measurement · analysis, formula · order)
+   D.5.9 sum: 48 + 17 = 65 ; D.5 column: 32 + 4 + 4 + 8 + 17 + 12 = 77
+
+====================================================================================================
+§9 census rows of DEFECT-CENSUS.tsv inside D.5.5 / D.5.9 (main volume)
+====================================================================================================
+   header: ['id', 'class', 'member', 'line', 'item', 'detail']
+   rows in the two units: [['1215', 'C9-OVERGENERALISATION-WORD', 'main', '10836']]
