@@ -239,7 +239,7 @@ r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
   493          total 7   {'main': 5, 'reg': 1, 'ioi': 1}
   89.8         total 1   {'main': 1}   SINGLE-WITNESS
   96.7         total 1   {'main': 1}   SINGLE-WITNESS
-  1.66         total 2   {'main': 1, 'mc': 1}
+  1.66         total 3   {'main': 1, 'reg': 1, 'mc': 1}
   2.19         total 6   {'main': 3, 'reg': 3}
   4,168        total 1   {'main': 1}   SINGLE-WITNESS
   267,000      total 1   {'main': 1}   SINGLE-WITNESS

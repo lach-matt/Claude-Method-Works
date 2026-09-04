@@ -1,4 +1,9 @@
-# DRAFT for M's review — Q5 pass 3: the chat-56 B-list batch 2 slip as register 1829. NOTHING SEATED.
+# DRAFT for M's review — Q5 pass 3: the chat-56 B-list batch 2 slip as register 1829. RULED AND SEATED (W-227).
+
+**M's ruling (4 September 2026): approved; stdlib re-derivations for passes 4 and 5, no shortcuts.** Seated as 1829 with the
+re-run sentence filled from `r3-q5c-measure.py` (BUILD107 main, BUILD222 compendia); the draft below is kept as reviewed.
+
+---
 
 Source: `REGISTER-QUEUE-APPEND-batch2.md` (chat 56, BUILD56 → BUILD57), slip B2-C1. Instrument: chat 56 left no pack;
 the re-run is R3's (pass 2's ruling), a short addition to `r3-q5b-measure.py`'s reading of ω — the two readings of

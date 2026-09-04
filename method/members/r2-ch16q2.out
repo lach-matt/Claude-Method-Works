@@ -40,7 +40,7 @@ Appendix B span: (10199, 10264) '## Appendix B — Data and provenance'
   numeral 2,269 sites in Appendix B span: [10231]
   the channel table ARBITER (spectra member, section II L293-L934), totals line L900:
     **596 channel rows across 28 elements · 2,269 interior cells parsed.**
-  numeral   153 sites, all six volumes: {'main': [641, 1485, 2526, 3411, 8194, 9170, 10203, 10239, 10311, 11739], 'reg': [686, 2360, 4692, 6713, 6725, 6729, 6733, 6737, 6741, 6745, 6749, 6753], 'ioi': [533], 'sc': [995]}
+  numeral   153 sites, all six volumes: {'main': [641, 1485, 2526, 3411, 8194, 9170, 10203, 10239, 10311, 11739], 'reg': [686, 2360, 4692, 6713, 6725, 6729, 6733, 6737, 6741, 6745, 6749, 6753, 6757, 6761, 6765, 6769], 'ioi': [533], 'sc': [995]}
   numeral   596 sites, all six volumes: {'main': [4013, 10229], 'reg': [2226, 2244, 3980, 3984, 4208, 4292, 6218, 6581], 'pc': [30], 'ioi': [278, 316, 976], 'sc': [900, 994, 995]}
 
 ================================================================================================

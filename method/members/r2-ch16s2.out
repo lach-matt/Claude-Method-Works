@@ -76,9 +76,9 @@
       L9382 Its register of one thousand six hundred and thirty-five withdrawn claims is offered as the primary
       L9387 all one thousand six hundred and thirty-five failures and naming the four results that exist because a conclus
   digit-form 1,635 sites main: []
-  Register: 1670 bare-numeral headings, 1695 distinct entry numbers, max 1828
-  Register lines carrying a withdraw* token: 57
-  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1695: False
+  Register: 1674 bare-numeral headings, 1699 distinct entry numbers, max 1832
+  Register lines carrying a withdraw* token: 59
+  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1699: False
 
 ================================================================================================
 6  E = 36, AND THE NUMERALS THE UNIT PRINTS (SITES, comma-aware, both forms)
@@ -122,10 +122,10 @@
 ================================================================================================
 8  THE DATES AND THE EXTERNAL FACTS L9342 STATES
 ================================================================================================
-  Birkhoff       {'main': [853, 1822, 1853, 2108, 3726, 3787, 7342, 8126, '...'], 'reg': [300, 308, 356, 376, 388, 1736, 4604, 6462], 'mc': [61, 290, 310, 340, 344, 456, 458, 478, '...']}
+  Birkhoff       {'main': [853, 1822, 1853, 2108, 3726, 3787, 7342, 8126, '...'], 'reg': [300, 308, 356, 376, 388, 1736, 4604, 6462, '...'], 'mc': [61, 290, 310, 340, 344, 456, 458, 478, '...']}
   Dilworth       {'main': [1880, 1926, 8522, 9348, 11129, 11208, 11598, 11708], 'reg': [252, 388, 6745, 6753], 'mc': [644, 648, 696, 698, 822, 1224, 1228, 1230, '...'], 'pc': [911, 912]}
   Sperner        {'main': [122, 1801, 1878, 1879, 1883, 1903, 8702, 9348, '...'], 'reg': [252, 388, 6621, 6753], 'mc': [1224, 1228, 1230, 1602, 1608, 1610, 3430]}
-  1937           {'main': [9348, 11208, 11704], 'reg': [4604], 'mc': [290, 340, 344, 644, 648, 788, 1038, 1058, '...']}
+  1937           {'main': [9348, 11208, 11704], 'reg': [4604, 6769], 'mc': [290, 340, 344, 644, 648, 788, 1038, 1058, '...']}
   1950           {'main': [9348, 9867, 9902, 11208, 11598, 11708, 11857], 'reg': [4580, 6378, 6745], 'mc': [644, 648, 696, 698, 1228, 1230, 1368, 1370, '...'], 'pc': [912], 'ioi': [1500]}
   1928           {'main': [9348, 11770, 11824], 'reg': [448, 3396, 4572, 4636], 'mc': [776, 780, 1228, 1230, 1608, 1610, 2896, 2904, '...'], 'pc': [474, 484, 554, 574, 584], 'ioi': [83, 1452, 1508]}
   1920s          {'main': [1656, 9348]}

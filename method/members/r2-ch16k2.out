@@ -67,8 +67,8 @@
   12.11.2 body_range (3368, 3399)  section_span (3368, 3399)  (coincide)
     L3374 half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances.
 === J. withdrawals in the Register against "three hundred and sixty-eight" ===
-  register entry headings 1663 ; entries whose body contains a withdrawal word 59
-  occurrences of the stem anywhere in the Register: 91
+  register entry headings 1667 ; entries whose body contains a withdrawal word 61
+  occurrences of the stem anywhere in the Register: 93
   368 sites, six volumes: {'reg': [1366, 1368, 2416, 6318], 'mc': [1520], 'ioi': [748]}
   37 sites in main: [2283, 3232, 6242, 6855, 10216, 10218, 11622, 11624, 11714]
   printed: 368 withdrawals, ~37 from a single late session
@@ -80,7 +80,7 @@
   354      8 sites  {'main': [2706, 2714, 8820], 'reg': [16, 1342, 2780, 6577], 'ioi': [734]}
   138      8 sites  {'main': [8820, 8825, 8847], 'reg': [626, 2200, 5120, 6494], 'ioi': [518]}
   162     15 sites  {'main': [4172, 8846, 8847, 8850, 11739, 11875, 11896], 'reg': [722, 1940, 6342, 6346, 6462, 6677], 'mc': [3380], 'ioi': [542]}
-  58      32 sites  {'main': [1235, 1239, 7520, 7532], 'reg': [306, 2952, 2960, 2984, 2988, 2992, 3024, 3900, 3916, 4732, 5120, 5236, 5260, 5292, 5308, 5392, 5408, 5448, 5504, 5512, 5813, 6677], 'mc': [1240, 2836, 3688, 3704], 'ioi': [438, 1894]}
+  58      35 sites  {'main': [1235, 1239, 7520, 7532], 'reg': [306, 2952, 2960, 2984, 2988, 2992, 3024, 3900, 3916, 4732, 5120, 5236, 5260, 5292, 5308, 5392, 5408, 5448, 5504, 5512, 5813, 6677, 6761, 6765, 6769], 'mc': [1240, 2836, 3688, 3704], 'ioi': [438, 1894]}
   1,442   35 sites  {'main': [28, 200, 564, 5659, 6637, 6747, 6749, 6751, 6755, 6772, 6791, 6804, 6807, 6809, 6810, 6815, 6816, 6892, 6975, 6991, 7373, 7459, 8855, 10284, 10296, 10587, 10625, 11005, 11149, 11168], 'reg': [976, 1820, 2004, 2868, 6186]}
   368      6 sites  {'reg': [1366, 1368, 2416, 6318], 'mc': [1520], 'ioi': [748]}
   540     28 sites  {'main': [2891, 3496, 8733, 8741, 8743, 8745, 8752, 8766, 8767, 8768, 8769, 8770, 8786, 8793, 8890, 10588, 10626, 11116, 11117, 11120], 'reg': [848, 852, 1440, 2022], 'mc': [1274, 1314], 'ioi': [234, 920]}

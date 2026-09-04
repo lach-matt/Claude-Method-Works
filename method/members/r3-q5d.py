@@ -1,22 +1,23 @@
 #!/usr/bin/env python3
-"""r3-q5c.py — R3: Q5 pass 3. The chat-56 B-list batch 2 slip B2-C1 seated as register 1829, its figures re-derived first by
-r3-q5c-measure.py (chat 56 left no instrument pack; the pass-2 ruling), seated beside it with its golden. BUILD106 -> BUILD107 main.
+"""r3-q5d.py — R3: Q5 pass 4. The chat-57 batch 2b slip B2-C2 seated as register 1830, its figures re-derived first by
+r3-q5d-measure.py (a standard-library re-derivation of chat 57's numpy pack, M's ruling for passes 4 and 5), seated
+beside it with its golden. BUILD107 -> BUILD108 main.
 
-No volume site is edited: the object the slip corrected by handle (L.omega) is no longer printed by the live Mathematical
-Compendium, which names the handle only in its bibliography. The count classes of entries 1815 and 1816 are re-taken in
+No volume site is edited: the object the slip corrected by handle (L.voidfrac) is no longer printed by the live
+Mathematical Compendium; §10.2, §10.3 and Figure 10.1 stand as they are. The count classes of entries 1815 and 1816 are re-taken in
 the same build.
 
-Usage:  python3 r3-q5c.py            dry run (runs the measurement, builds nothing)
-        python3 r3-q5c.py --write    writes staging members + BUILD107 main
+Usage:  python3 r3-q5d.py            dry run (runs the measurement, builds nothing)
+        python3 r3-q5d.py --write    writes staging members + BUILD108 main
 """
 import os, sys, re, hashlib, runpy, tempfile, subprocess, io, contextlib, importlib.util, time
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 MEM = os.path.join(REPO, 'method', 'members') + os.sep
 TOOLS = os.path.join(REPO, 'tools') + os.sep
-OLD_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD106_main_and_register.md'); OLD_M_MD5 = '6eda490aa0ef2c2d5570326bc1f1a6bf'
-NEW_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD107_main_and_register.md')
-OUT = os.path.join(REPO, 'method', 'build107') + os.sep
+OLD_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD107_main_and_register.md'); OLD_M_MD5 = 'a96555e8192ad340f5069da3745c787a'
+NEW_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD108_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build108') + os.sep
 MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
 WRITE = '--write' in sys.argv
 md5 = lambda b: hashlib.md5(b).hexdigest()
@@ -25,25 +26,25 @@ g = lambda n: '{:,}'.format(n)
 def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
 
 # ---- the measurement, from the seated instrument ------------------------------------------------------------------------
-p = subprocess.run([sys.executable, MEM + 'r3-q5c-measure.py'], capture_output=True, text=True, cwd=MEM)
-print(p.stdout.rstrip()); assert p.returncode == 0 and 'integrity checks: ALL OK' in p.stdout, 'r3-q5c-measure.py did not pass'
-gold = open(MEM + 'r3-q5c-measure.out', encoding='utf-8').read(); assert p.stdout == gold, 'r3-q5c-measure.out is not this run'
+p = subprocess.run([sys.executable, MEM + 'r3-q5d-measure.py'], capture_output=True, text=True, cwd=MEM)
+print(p.stdout.rstrip()); assert p.returncode == 0 and 'integrity checks: ALL OK' in p.stdout, 'r3-q5d-measure.py did not pass'
+gold = open(MEM + 'r3-q5d-measure.out', encoding='utf-8').read(); assert p.stdout == gold, 'r3-q5d-measure.out is not this run'
 import re as _re
 _norm = lambda t: _re.sub(r'\s+', ' ', t)
-for s_ in ('positive-exponent reading: cells attaining 8 100 OK', 'non-minimal reading: cells attaining 8 96 OK', 'the discrepancy is exactly four cells 4 OK', 'the tight cell (2,1,3,3,2,1,3,3): ω = 8 by direct factorisation 8 OK'):
+for s_ in ('factor joint/product 1.4081 OK', 'the six edge lifts in tree order [1.0838, 1.0854, 1.1212, 1 OK', 'conditional lift 1.0000 in every shared pair [1.0, 1.0, 1.0, 1.0, 1.0] OK', 'the factor at the seven settings, three decimals [1.408, 1.372, 1.366, 1.32 OK', 'the factor is cap-dependent: its range beyond the base (1.326, 1.66) OK'):
     assert s_ in _norm(p.stdout), s_
-print('MEASURED at this build: every figure the entry states reproduces from r3-q5c-measure.py.')
+print('MEASURED at this build: every figure the entry states reproduces from r3-q5d-measure.py.')
 
 # ---- the volumes as they stand --------------------------------------------------------------------------------------
 old = {n: open(MEM + n, 'rb').read() for n in (MAIN, REG)}
 txt = {n: old[n].decode('utf-8') for n in old}
-r = txt[REG]; assert r.count('### 1829\n') == 0 and r.rstrip().endswith('Registers 44; 1228; 1794. (a correction.)')
+r = txt[REG]; assert r.count('### 1830\n') == 0 and r.rstrip().endswith('Registers 1827. (a correction.)')
 
 ENTRIES = """
 
-### 1829
+### 1830
 
-**THE ω-BOUND'S PRIOR-ART GLOSS MISSTATED WHAT ω COUNTS; CORRECTED FROM "NON-MINIMAL COORDINATES" TO "POSITIVE-EXPONENT COORDINATES".** *The L.omega object's prior-art line read "the number of coordinates in which x is non-minimal". This is false in the divisor embedding: ω(N(x)) is the number of distinct primes dividing N(x), which is |{ i : xᵢ > 0 }|, not |{ i : xᵢ > minᵢ }|. The floors n, k, e ≥ 1 (L.def) put those three exponents positive on every cell, so three primes divide N(x) universally and ω ≥ 3 everywhere; the "non-minimal" reading undercounts by treating a floored coordinate at its minimum (value 1) as contributing no prime, when it contributes one. Measured: over Λ₈, max ω = 8 attained at 100 cells (the "non-minimal" reading gives 96 — the discrepancy is exactly the cells where a floored coordinate sits at its minimum yet still carries its prime). Tight cell (2,1,3,3,2,1,3,3), ω = 8 by direct factorisation. The bold statement of L.omega was already correct (register 1827: "coordinate count", not dim); this slip corrects only the prior-art gloss beneath it, as the object stood at BUILD57; the live compendium names the handle only in its bibliography. Drafted at chat 56 (B-list batch 2, MC-07) as slip B2-C1 and queued for a "Register 1.1"; seated under RUL-153 Q5. Re-derived at this build by r3-q5c-measure.py, seated with this entry with its golden — chat 56 left no instrument, and the re-run is R3's, named as such; Λ₈ from the seated tower-2.py — 100 cells at ω = 8 under the positive-exponent reading against 96 under the non-minimal one, the four that differ being (2,1,1,1,2,1,1,1), (2,1,1,1,3,1,1,1), (3,1,1,1,2,1,1,1) and (3,1,1,1,3,1,1,1), each with every coordinate positive and a floored one at 1; minimum 3; 8 at the tight cell. Both states preserved.* Registers 1827. (a correction.)
+**THE VOID-FREE FRACTION'S CONDITION FIELD POINTED AT A STATEMENT THAT DOES NOT EXIST; THE OBJECT NOW STATES ITS POPULATION AND CARRIES THE CORRELATION LAW IT WAS OWED.** *The L.voidfrac object's condition line read "at stated caps" while the cited §10.2 states no caps: the recorded figures — void-free 27.7–30.1% across 776 million pairs, joint 30.13% against product 20.19%, factor 1.49 — are given in the main volume, in Figure 10.1's caption, and in the object, and in none of them is the cap family named. Measured in chat 57: the pair population at the base caps (3,3,1,3,1) is 475,800, and no one-parameter cap family from the base sums to 776 million; the factor is cap-dependent (1.4081 exhaustive at 976 cells; 1.33–1.66 sampled across six settings to 234,340 cells), so 1.49 is consistent with the law and is a measurement at a population the record does not name. The object now states the law the figures instance — box containment is a narrowness condition in each coordinate it touches; two constraints sharing a coordinate are two decreasing functions of one width, hence positively dependent (Chebyshev); conditioned on the shared coordinate's interval the lift is 1.0000 in every stratum for all five shared pairs; the factor is exactly the product of the six edge lifts in tree order, 1.0838 × 1.0854 × 1.1212 × 1.0522 × 1.0125 × 1.0022 = 1.4081 — with the base-cap instance as its worked number and the recorded figures retained as the measurement at their original population. The prior figures stand as history; nothing is withdrawn. The population of the 776 million pairs was not recovered by chat 57 (named, not glossed: absent from §10.2, the object, the caption, the Register and both restore packs; the driver that called method_tower.py is the missing piece). Drafted at chat 57 (MC-10) as slip B2-C2 and queued for a "Register 1.1"; seated under RUL-153 Q5. Re-derived at this build by r3-q5d-measure.py, seated with this entry with its golden — a standard-library instrument of R3's following chat 57's mc10.py, mc10b.py, mc10c.py and mc10d.py definition by definition, those needing numpy (M's ruling, passes 4 and 5); Λ₈ from the seated tower-2.py — the seven containment rates 69.95–98.06%, product 20.1311%, joint 28.3462%, factor 1.4081; the six lifts as stated and their product 1.4081; conditional lift 1.0000 in every stratum for the five shared pairs, non-adjacent pairs 0.9999–1.0101; the narrowness mechanism 1.000 / 0.599 / 0.319; the factor 1.408, 1.372, 1.366, 1.326, 1.526, 1.456, 1.660 across the seven cap settings, exhaustive to 600,000 pairs and 400,000 sampled beyond, seed 11 as the pack sampled. Cites the L.voidfrac object as it stood at BUILD58, L.tree, §10.2 and §10.3. Both states preserved.* Registers 347. (a correction.)
 """
 def with_entries(t): return t.rstrip() + ENTRIES + '\n'
 SUBS = {}
@@ -66,7 +67,7 @@ K_N = int(kout.split()[0]); K = eval(kout[kout.index('{'):])
 for f in os.listdir(stage): os.unlink(os.path.join(stage, f))
 os.rmdir(stage)
 sys.path.insert(0, TOOLS); import close_main as cm; import register_counts as rc
-print('register_cites with 1829: by entries %d | main %d | main+companions %d | anywhere %d | >=7 %s' % (CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY, TOP))
+print('register_cites with 1830: by entries %d | main %d | main+companions %d | anywhere %d | >=7 %s' % (CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY, TOP))
 print('kinds.py: %d %s' % (K_N, K))
 rr, edits = cm.recount(new[REG]); assert edits
 for o, n in edits: print('recount: %s -> %s' % (o[:50], n[:50]))
@@ -116,7 +117,7 @@ for v in new: print('%-36s %d -> %d B, lines %+d' % (v, len(old[v]), len(new[v].
 if WRITE: assert not os.path.exists(OUT); os.makedirs(OUT)
 elif not os.path.isdir(OUT): os.makedirs(OUT)
 for v in new: open(OUT + v, 'wb').write(new[v].encode('utf-8'))
-ob = open(OLD_M, 'rb').read(); assert md5(ob) == OLD_M_MD5, 'BUILD106 md5 mismatch'
+ob = open(OLD_M, 'rb').read(); assert md5(ob) == OLD_M_MD5, 'BUILD107 md5 mismatch'
 ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(ob)); nb = ob
 for n in (MAIN, REG):
     assert ms[n] == old[n]; b0 = block(n, ms[n]); assert nb.count(b0) == 1; nb = nb.replace(b0, block(n, new[n].encode('utf-8')))
@@ -124,6 +125,6 @@ rv = nb
 for n in (MAIN, REG):
     b1 = block(n, new[n].encode('utf-8')); assert rv.count(b1) == 1; rv = rv.replace(b1, block(n, ms[n]))
 assert md5(rv) == OLD_M_MD5, 'reverse FAILED'
-print('BUILD106 -> BUILD107: reverse recovers md5 %s == old: True; new %s B md5 %s %s lines' % (OLD_M_MD5, format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ',')))
+print('BUILD107 -> BUILD108: reverse recovers md5 %s == old: True; new %s B md5 %s %s lines' % (OLD_M_MD5, format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ',')))
 if WRITE: assert not os.path.exists(NEW_M); open(NEW_M, 'wb').write(nb); print('written', NEW_M)
 else: print('DRY RUN — nothing installed')

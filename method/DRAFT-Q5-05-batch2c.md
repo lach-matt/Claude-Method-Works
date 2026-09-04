@@ -1,4 +1,11 @@
-# DRAFT for M's review — Q5 pass 5: the chat-58 batch 2c slips as registers 1831–1832, and one item to the docket. NOTHING SEATED.
+# DRAFT for M's review — Q5 pass 5: the chat-58 batch 2c slips as registers 1831–1832, and one item to the docket. RULED AND SEATED (W-231).
+
+**M's ruling (4 September 2026): approved; stdlib re-derivations for passes 4 and 5, no shortcuts.** Seated as 1831 and 1832
+with the re-run sentences filled from `r3-q5e-measure.py` (a standard-library re-derivation of chat 58's `mc11.py` and
+`mc11b.py`, which need numpy) and from chat 58's own `mc12.py`, standard-library and seated as it is with `lam8.py`;
+MV-DEF-01 appended to `DOCKET.md` (BUILD109 main, BUILD224 compendia); the draft below is kept as reviewed.
+
+---
 
 Source: `REGISTER-QUEUE-APPEND-batch2c.md` (chat 58, BUILD58 → BUILD59), slips B2-C3 and B3-C1, and the deferred
 main-volume item MV-DEF-01. Instruments: **chat 58's own pack is held** — `chat58-instruments.tar.gz`: `mc11.py`,

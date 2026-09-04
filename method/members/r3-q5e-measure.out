@@ -1,0 +1,33 @@
+   |Λ₈| from tower-2.py, equal to lattice(3,3,1,3,1) in order             (976, True)              OK
+== the eight random intervals (mc11.py, random.seed(1106))
+   lo=(2, 1, 3, 1, 3, 0, 1, 2) hi=(2, 1, 3, 2, 3, 1, 2, 3)  direct=12 factorised=12 box=16 void=4  OK
+   lo=(1, 0, 2, 1, 2, 1, 1, 1) hi=(2, 1, 2, 2, 2, 1, 2, 1)  direct=9 factorised=9 box=16 void=7  OK
+   lo=(2, 1, 2, 2, 1, 0, 0, 1) hi=(3, 1, 3, 3, 3, 1, 2, 1)  direct=90 factorised=90 box=144 void=54  OK
+   lo=(2, 0, 2, 1, 2, 1, 1, 0) hi=(3, 0, 2, 2, 3, 1, 2, 2)  direct=36 factorised=36 box=48 void=12  OK
+   lo=(1, 0, 1, 1, 2, 0, 0, 0) hi=(3, 1, 3, 3, 2, 0, 0, 1)  direct=42 factorised=42 box=108 void=66  OK
+   lo=(1, 0, 2, 2, 3, 0, 0, 0) hi=(2, 0, 2, 2, 3, 1, 1, 2)  direct=24 factorised=24 box=24 void=0  OK
+   lo=(1, 0, 2, 2, 2, 0, 0, 0) hi=(3, 1, 3, 2, 2, 1, 1, 1)  direct=56 factorised=56 box=96 void=40  OK
+   lo=(2, 0, 2, 0, 2, 0, 0, 1) hi=(3, 1, 3, 3, 2, 0, 0, 2)  direct=40 factorised=40 box=64 void=24  OK
+   eight random intervals reproduced                                      8                        OK
+== exhaustive over every unordered pair and singleton
+   pairs + singletons                                                     476776                   OK
+   distinct boxes                                                         116138                   OK
+   factorised ≠ direct                                                    0                        OK
+   pairs whose box has void > 0                                           340929                   OK
+   void-free fraction (pairs + singletons), four decimals                 0.2849                   OK
+== leaf-peeling, width measured (mc11b.py stage a, random.seed(1106), 100 boxes per cap)
+   cap (3, 3, 1, 3, 1) |Λ|=976: 100 random boxes, peel≠direct: 0, max message arity seen: [1]
+   cap (4, 4, 2, 5, 1) |Λ|=8847: 100 random boxes, peel≠direct: 0, max message arity seen: [1]
+   cap (5, 5, 2, 6, 1) |Λ|=25748: 100 random boxes, peel≠direct: 0, max message arity seen: [1]
+   cells at the three caps                                                [976, 8847, 25748]       OK
+   peel = direct everywhere, message arity 1                              True                     OK
+== the cycle witness: 2S ≤ q+1 closes the triangle k–q–2S (mc11b.py stage b, 40 boxes)
+   |Λ ∩ {2S ≤ q+1}| (the constraint is not redundant)                     911                      OK
+   peel = direct with the cycle                                           0                        OK
+   max message arity with the cycle                                       [2]                      OK
+   tree-style count wrong on                                              (9, 40)                  OK
+   eight-term sieve over the triangle right on                            (40, 40)                 OK
+   exhibit: lo=(2, 1, 2, 0, 2, 0, 0, 0) hi=(3, 1, 3, 2, 3, 1, 1, 3): |box∩Λ|=280 (tree count), |box∩Λ'|=240; correction = 40
+   the exhibit                                                            ((2, 1, 2, 0, 2, 0, 0, 0 OK
+
+   integrity checks: ALL OK

@@ -1,4 +1,10 @@
-# DRAFT for M's review — Q5 pass 4: the chat-57 batch 2b slip as register 1830. NOTHING SEATED.
+# DRAFT for M's review — Q5 pass 4: the chat-57 batch 2b slip as register 1830. RULED AND SEATED (W-229).
+
+**M's ruling (4 September 2026): approved; stdlib re-derivations for passes 4 and 5, no shortcuts.** Seated as 1830 with the
+re-run sentence filled from `r3-q5d-measure.py`, a standard-library re-derivation of chat 57's numpy pack (BUILD108 main,
+BUILD223 compendia); the draft below is kept as reviewed.
+
+---
 
 Source: `REGISTER-QUEUE-APPEND-batch2b.md` (chat 57, BUILD57 → BUILD58), slip B2-C2. Instruments: **chat 57's own pack
 is held** — `chat57-instruments.tar.gz` (mirror; `extracted/archives/chat57-instruments/`): `lam8.py`, `mc10.py`,

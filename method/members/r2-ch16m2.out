@@ -100,13 +100,13 @@
   register  373: reg L1382 "### 373" -> **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls
 
 == E. figures the unit states about the BOOK, re-measured against the book as it stands ==
-  Register: 1663 bare-number entry headings, 7 grouped headings (comma- AND dash-grouped; a dash-only pattern sees none of them) spanning 32 numbers; distinct entry numbers 1695
+  Register: 1667 bare-number entry headings, 7 grouped headings (comma- AND dash-grouped; a dash-only pattern sees none of them) spanning 32 numbers; distinct entry numbers 1699
   L8918 "one thousand six hundred and thirty-five" --- word-form sites in the main volume:
       15 sites: [20, 89, 104, 202, 523, 646, 3519, 7372, 7905, 8923, 9060, 9370, 9382, 9387, 10330]   (L8918 in the set: True)
       digit-form 1,635 in main at []
   L8957 "the register is a quarter of it":
-      main member 11,904 lines / 769,412 B;  Register member 6,755 lines / 1,234,080 B
-      Register as a share of main+Register: lines 36.2 %, bytes 61.6 % (half-up);  as a share of main alone: lines 56.7 %, bytes 160.4 %
+      main member 11,904 lines / 769,412 B;  Register member 6,771 lines / 1,243,281 B
+      Register as a share of main+Register: lines 36.3 %, bytes 61.8 % (half-up);  as a share of main alone: lines 56.9 %, bytes 161.6 %
   audit counts across the main volume (docket 33):
       "twenty-two audits": 4 sites [79, 1004, 1402, 9858]
       "twenty audits": 1 sites [8954]
@@ -118,7 +118,7 @@
       "companion papers": 3 sites [4180, 8950, 11901]
   |J(Lambda)| = 17 generators and 7.07 bits per cell --- corroborating sites, six volumes:
       main: 7.07 at [315, 854, 2120, 9013, 9137] (5);  "17 ... generator" at [1868, 9012, 9133] (3)
-      reg: 7.07 at [1012, 1384, 1472, 1556] (4);  "17 ... generator" at [1040, 1948, 5568, 6342, 6470, 6745] (6)
+      reg: 7.07 at [1012, 1384, 1472, 1556, 6769] (5);  "17 ... generator" at [1040, 1948, 5568, 6342, 6470, 6745, 6769] (7)
       mc: 7.07 at [1074] (1);  "17 ... generator" at [1064, 1074, 1426, 1514, 2394] (5)
       pc: 7.07 at [] (0);  "17 ... generator" at [] (0)
       ioi: 7.07 at [] (0);  "17 ... generator" at [] (0)

@@ -85,3 +85,12 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
   instruments; `r2-bib2` seated (the constant-carrying class in the census reading). **The census-by-line class now bites
   in the Register:** the front matter has grown three lines and a census row keyed to L1469 crossed unit 12's bound;
   `r2-reg11a2` and `r2-reg12b` join the held set. The content-keyed census and `close_census.py` move up the queue.
+- **Q5 passes 3–5 seated and re-banked (W-227, W-229, W-231, W-232; BUILD107 → BUILD109 main, BUILD222 → BUILD225
+  compendia):** registers 1829–1832, each figure re-derived at its build — 1829 by `r3-q5c-measure`, 1830 by
+  `r3-q5d-measure`, 1831 by `r3-q5e-measure` (standard-library re-derivations, chats 56–58's own packs needing numpy
+  or absent), 1832 by chat 58's own `mc12.py`, seated byte-exact with `lam8.py`, the Λ₈ builder it imports. MV-DEF-01
+  (§10.4 leaf subscripts) appended to `DOCKET.md`, not executed — M's chat-58 ruling holds it to the prose run. Thirty-
+  eight goldens re-banked once after pass 5, every moved integer named in W-232; the held set is unchanged in kind, and
+  `r2-ch17e2`'s literal index (DEF-153N) is now visibly stale by a shift older than Q5. **Q5 is complete through the
+  five queue documents; pass 6 (`OWED-REGISTER-EXPANSIONS.md`: R-01…R-06 and the register 602–605 corrections) is the
+  next draft for M.**

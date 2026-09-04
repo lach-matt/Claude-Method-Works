@@ -79,7 +79,7 @@ r2-ch16b  COMPUTABLE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
      0.12         unit 1 | six volumes {'main': 3, 'reg': 4}
      401          unit 2 | six volumes {'main': 5, 'reg': 2, 'ioi': 1}
      11,943,936   unit 1 | six volumes {'main': 1}
-     17           unit 1 | six volumes {'main': 64, 'reg': 37, 'mc': 31, 'pc': 1, 'ioi': 10, 'sc': 3}
+     17           unit 1 | six volumes {'main': 64, 'reg': 41, 'mc': 31, 'pc': 1, 'ioi': 10, 'sc': 3}
   "47.8 s against 86" -- the 86 carries NO UNIT on the line: Verified end to end at 2×3×3 by growth against exhaustion: 18,736 = 18,736, in 47.8 s against
 
 ## 4  §30.3.6 THE SIGNATURE BOXES AND THEIR TOTAL
@@ -109,7 +109,7 @@ r2-ch16b  COMPUTABLE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
   a colon-terminated lead-in is not a class: lead-ins 1, classes 3
   count word "Three method classes ruled out" MATCH True
   "Thirteen of seventeen attempted criteria": 13 <= 17 True ; four unaccounted for = 4
-     1.66   unit 1 | six volumes {'main': 1, 'mc': 1}
+     1.66   unit 1 | six volumes {'main': 1, 'reg': 1, 'mc': 1}
      2.19   unit 1 | six volumes {'main': 3, 'reg': 3}
      493    unit 2 | six volumes {'main': 5, 'reg': 1, 'ioi': 1}
      89.8   unit 1 | six volumes {'main': 1}

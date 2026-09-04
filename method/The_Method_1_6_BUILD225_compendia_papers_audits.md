@@ -23276,6 +23276,30 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **Three entries, no front-matter growth, no volume site edited.** `tools/shiftinv.py --all` over BUILD106; each movement read against its golden; `close_rebank.py` regenerated each by running. **(a) fingerprints and line references** — `r2-24a`, `r2-25b`, `r2-21a2`, `r2-23a2`, `r2-26c2`, `r2-27a3`, `r2-28a4`, `r2-28b4`, `r2-32a`, `r2-bib2`, `r2-ch34re2`, `r3-em`, `r2-scf`, `r2-warn`, `r2-ch16k2`, `r2-ch18a2`, `r2-ch21a`, `r2-ch21b2`, `r2-reg7a2`; **(b) counts the entries' own words move** — `r2-ch16b2`, `r2-ch16c2` (Dilworth in the Register 3 → 7), `r2-ch16f2`, `r2-ch16i2`, `r2-ch16m2`, `r2-ch16p3`, `r2-ch16q2`, `r2-ch16r2`, `r2-ch16s2`, `r2-ch17c2` (1950, Dilworth's year), `r2-ch19b2` (Dilworth, Sperner), `r2-ch22b2` (monotone), `r2-ch28b2` (Stanley 1980 cited), `r2-reg8a`, `r2-regsweep2`, `r2-reg1a3`; **(c) the count classes** — `kinds` (correction 180), `extent` (*1 to 1828*).
 - **Held:** `r2-reg11a2`, `r2-reg12b` (census rows by Register line, W-224), `r2-ch18b`, `r2-ch23b`, `r2-26b`, `r3-wl`, the superseded predecessors.
 
+### W-227 — R3 — Book repairs and corrections — Q5 pass 3 seated: the chat-56 batch 2 slip as register 1829, re-derived by an instrument of R3's; the W-B2 record carried here. BUILD221 -> BUILD222
+
+- **M's rulings** (DRAFT-Q5-03-batch2.md; RUL-153): approved; chat 56 left no pack, so the re-run is R3's (pass 2's ruling). `r3-q5c-measure.py` takes Λ₈ from the seated `tower-2.py` and measures the two readings of ω(N(x)): 100 cells at ω = 8 under the positive-exponent reading, 96 under the non-minimal one, the four that differ named, minimum 3, 8 at the tight cell. Golden banked by running. `r3-q5c.py` asserts it and appends 1829; no volume site edited (the L.omega object is no longer printed by the live Mathematical Compendium). Kinds: one correction (181).
+- **The W-B2 record, carried here as chat 56 wrote it (editorial).** B-list batch 2 partial — MC-07, MC-08, MC-09 authored and verified at BUILD57 (compendia md5 e2c0f5a8ead1996b3a69850f11ec0ccc, six hunks in the L.* cluster; main untouched at 5292fce89637c6b495363f76f99a4885), MC-10 and MC-11 open. MC-07: ω(N(x)) = |{i : xᵢ > 0}| = the number of distinct primes dividing N(x), max 8 at 100 cells, tight at (2,1,3,3,2,1,3,3), ω ≥ 3 everywhere, rank(x) = Ω(N(x)) = Σxᵢ on all 976 cells; `L.omega` upgraded to a worked proof, `L.arith` expanded. MC-08: the book's five §9.2 forms of d(x,y) all equal ∏(|Δᵢ|+1) on 2,000 pairs; d(x,x) = 1, symmetric, ≥ 1 with equality iff x = y; the multiplicative triangle on 200,000 integer triples, equality iff y ∈ [x∧z, x∨z]; log d an ℓ¹ metric; `L.occ` and `L.metric` COMPUTED → PROVED. MC-09: the Möbius closed form μ = (−1)^{|y∖x|} on antichains, else 0; the transfer biconditional μ_Λ = μ_arith ⟺ void-free unit hypercube on the correct population — 1,500 unit-hypercube pairs, 741 void-free all agreeing, 759 void-bearing all disagreeing, 0 mixed; "seven comparisons" grounded (max local up-degree 7 at 6 cells); a first test's 4,000 "violations" were the test's own (non-unit pairs counted), corrected before authoring; `L.mobius` COMPUTED → PROVED. Not re-run here: MC-08 and MC-09's figures, which no entry states.
+- **Seated this close:** `r3-q5c.py`, `r3-q5c-measure.py`, `r3-q5c-measure.out`; BUILD107 main; BUILD106 leaves the tree. The goldens moved by this and the next two passes are re-banked once, after pass 5 (W-232), the three intermediate compendia bundles never gated.
+
+### W-229 — R3 — Book repairs and corrections — Q5 pass 4 seated: the chat-57 batch 2b slip as register 1830, its numpy pack re-derived in the standard library; the W-B2b record carried here. BUILD222 -> BUILD223
+
+- **M's rulings** (DRAFT-Q5-04-batch2b.md; RUL-153): approved; *stdlib re-derivations for passes 4 and 5, no shortcuts.* Chat 57's own pack (`mc10.py`, `mc10b.py`, `mc10c.py`, `mc10d.py`, `caps.py`, with `lam8.py`; `chat57-instruments.tar.gz`) was run first, from `extracted/`, and reproduces every figure; it needs numpy and is not seated. `r3-q5d-measure.py` follows it definition by definition — the seven constraints on the box [x∧y, x∨y] of each of the 475,800 unordered pairs, the tree order (l≤n−1, k≤2(2l+1), q≤k, 2S≤k, g≤q, g≤2(2f+1), f≤e−1) for the chain rule, the strata of at least 500 pairs on the shared coordinate's interval, the seven cap settings, exhaustive to 600,000 pairs and 400,000 sampled beyond with `random.seed(11)` and `randrange` as the pack sampled — with Λ₈ from the seated `tower-2.py`. Every figure reproduces: rates 69.95–98.06 %, product 20.1311 %, joint 28.3462 %, factor 1.4081; lifts 1.0838, 1.0854, 1.1212, 1.0522, 1.0125, 1.0022 and their unrounded product 1.4081; conditional lift 1.0000 in every stratum for the five shared pairs; non-adjacent 1.0022, 0.9999, 1.0000, 1.0101, 1.0001; narrowness 1.000 / 0.599 / 0.319, 1.000 / 0.672 / 0.446 / 0.294, 1.000 / 0.726 / 0.500; the factor 1.408, 1.372, 1.366, 1.326, 1.526, 1.456, 1.660 at 976, 1,968, 8,847, 25,748, 55,682, 234,340 and 800,958 cells. Golden banked by running (30 s). `r3-q5d.py` asserts it and appends 1830; no volume site edited. Kinds: one correction (182).
+- **The W-B2b record, carried here as chat 57 wrote it (editorial).** MC-10 closed in fallback form; `L.voidfrac` was the one unwired object. The population of the recorded 776 million pairs was not recovered — absent from §10.2, the object, Figure 10.1's caption, `REWRITE-chapter10-void.md`, the Register, and restore packs A (340 files) and B (80 files); Request 5 to the original-works project named `method_tower.py`'s driver and reported the file absent from pack A, which was wrong: `method_tower.py` is in pack A (4,575 B, 140 lines), the cap-parameterised builder, and contains no pair sweep — the driver that calls it is the missing piece; pack C (figures) unsearched. Instrument finding: `mathreg.json` in pack B records `L.void` with check "void" and `L.voidfrac` with check null, and `mathverify.py` carries no row for either — the figure passed every gate because no gate was pointed at it; `The_Method_1_6_audits.py` line 381 requires "473,800,776" in the main volume and BUILD56 main does not contain it. Open, reader-facing, needing data: §10.2 and the rewrite caption say "seventeenfold range in cell count", BUILD56's caption "hundredfold" and the audit table "100×". `L.voidfrac` authored (statement, condition, COMPUTED → PROVED, `L.tree` dependency, §10.3 and Lauritzen 1996), bibliography row 1996 gaining `L.voidfrac`; BUILD58 compendia md5 0832b5a9f3546b36a94e762a0467baca, five hunks.
+- **Seated this close:** `r3-q5d.py`, `r3-q5d-measure.py`, `r3-q5d-measure.out`; BUILD108 main; BUILD107 leaves the tree. Re-bank after pass 5 (W-232).
+
+### W-231 — R3 — Book repairs and corrections — Q5 pass 5 seated: the chat-58 batch 2c slips as registers 1831–1832, slip B2-C3's numpy pack re-derived in the standard library and slip B3-C1's mc12.py seated as it is; MV-DEF-01 to the docket; the W-B2c and W-B3a records carried here. BUILD223 -> BUILD224
+
+- **M's rulings** (DRAFT-Q5-05-batch2c.md; RUL-153): approved; *stdlib re-derivations for passes 4 and 5, no shortcuts.* Chat 58's pack (`chat58-instruments.tar.gz`; `extracted/archives/chat58-instruments/`: `mc11.py`, `mc11b.py`, `mc12.py`, with `lam8.py`) was run first, from `extracted/`, and reproduces every figure. `mc11.py` and `mc11b.py` import numpy and are not seated — RUL-153's note that "mc11.py and mc12.py" are the chat's stdlib instruments was wrong by one: only `mc12.py` is. `r3-q5e-measure.py` follows `mc11.py` and `mc11b.py` definition by definition — the closed form with its two leaves, the eight intervals of `random.seed(1106)` by `random.sample`, the exhaustive pass over every unordered pair and singleton, the leaf-peeling elimination with the seven edge predicates under the "at most one live neighbour" rule the pack corrected to, the cycle witness 2S ≤ q+1 with the eight-term sieve, the seed-7 exhibit — with Λ₈ from the seated `tower-2.py` and the direct count by bitsets where the pack used numpy. Every figure reproduces: 8 of 8 intervals; 476,776 pairs and singletons, 116,138 distinct boxes, 0 discrepancies, 340,929 void-bearing pairs, void-free 0.2849; message arity 1 at 976 / 8,847 / 25,748 cells, 100 boxes each, 0 failures; 976 to 911, arity 2, tree-style count wrong on 9 of 40, eight-term sieve right on 40 of 40, exhibit 280 / 240 / 40. Golden banked by running (6 s). `mc12.py` is standard-library and is seated byte-exact (md5 e0b55118…, `extracted/LEDGER.tsv`) with `lam8.py` (md5 b837a69e…, the mirror's copy, byte-identical in the chat-57 and chat-58 packs) — chat 58's Λ₈ builder, which `mc12.py` imports from its own directory; no golden for either, on the pass-1 precedent (`tower.py`, `req4.py`). Its ten lines reproduce and `r3-q5e.py` asserts them: |Λ| 976, bottom (1,0,1,0,1,0,0,0), |J(Λ)| 17, 20 covers, bijection OK, 475,800 pairs with 0 OR and 0 AND failures, 976 of 131,072 accepted and the accepted set equal to the image of Λ, longest chain 5, AND-tree depth 5 and total 6, 17 / 9.93 / 7.07 / 0.7446 % (5 s). `r3-q5e.py` appends 1831 and 1832; no volume site edited (§10.4 and §11.1.1 stand; L.box, L.bits and L.circuit are no longer printed by the live Mathematical Compendium). Kinds: two corrections (184).
+- **MV-DEF-01 to `DOCKET.md` by `--append`** — M's chat-58 ruling: execute when the prose rewrite reaches source Chapter 10 / reader Chapter 8, not before; R3 executes nothing of it. Register 1831 records the ambiguity it names.
+- **The W-B2c and W-B3a records, carried here as chat 58 wrote them (editorial).** W-B2c: MC-11 closed, batch 2 complete (MC-07..11, 5 of 5) at BUILD58 → BUILD59; the eight intervals 8/8; 116,138 boxes over 476,776 pairs and singletons, 0 failures; 340,929 void-bearing, 28.49 % void-free including singletons, cross-checked against MC-10's joint 28.35 %; leaf-first elimination arity 1 at all three caps, 100 boxes each, 0 failures — an earlier run's "arity 2 on the tree" was an ordering artefact (a min-factor-count tie-break peeled q before it was a leaf), corrected and recorded so it is not mistaken for a finding; the closing constraint 976 → 911, width 2, 9/40 and 40/40, exhibit 280/240/40. `L.box` authored (statement, condition with convention, caps and the scope of the converse; COMPUTED → PROVED; Lauritzen 1996 added; prior-art line Freuder both directions, Rota for the sieve, Lauritzen for the chain rule); bibliography row 1996 gains `L.box`; dependencies unchanged (`L.void` cited in text, not an edge). Guard by measured substitute: five hunks (14525/14527/14529/14531, 16670), 32,451 → 32,451 lines; BUILD59 compendia md5 d7448858e09af0b5bfff2c0d36f275ba after MC-11, main untouched at 5292fce89637c6b495363f76f99a4885. NOT EXAMINED, named by chat 58: the audit line at compendia 25237 ("COMPUTED 114 · PROVED 66") is a dated finding, not a live census, and was not edited. W-B3a: MC-12 closed, batch 3 opened (MC-12..16, 1 of 5); |J(Λ)| 17, covers 20, bijection, 475,800 pairs with 0/0 failures, 976 of 131,072 with set equality, longest chain 5 vertices / 4 edges, AND-tree 5 and total 6, unbounded fan-in 2, max forcing fan-in 3 and fan-out 3, 9.93 / 7.07 / 0.7446 %; `L.bits` and `L.circuit` authored, both COMPUTED → PROVED, `L.circuit` gaining Birkhoff 1937 and `L.birk`; eleven hunks after MC-11 + MC-12 (14515/14519, 14525–14531, 14635–14641, 16670); BUILD59 compendia md5 2ad6eae4b896b3198ca975b4286ac96b. Named open by chat 58: MC-13, MC-14, MC-15 have no compendium home (P21's ten combinations, the 2S leaf-detachment, the three-facts theorem) and would need new objects on the `K.bracket` / `S.gen` precedent; MC-16 has a home (`L.Fm1`, with `L.pal` and `L.rankpoly`).
+- **Seated this close:** `r3-q5e.py`, `r3-q5e-measure.py`, `r3-q5e-measure.out`, `mc12.py`, `lam8.py`; BUILD109 main; BUILD108 leaves the tree. The goldens moved by passes 3–5 are re-banked next (W-232).
+
+### W-232 — R3 — Book repairs and corrections — thirty-eight goldens re-banked by running on BUILD109 after registers 1829–1832 (Q5 passes 3–5). BUILD224 -> BUILD225
+
+- **Four entries, sixteen Register lines, no front-matter growth, no volume site edited.** `tools/shiftinv.py --all` over BUILD109 (`extent` run singly — `--all` did not list it); each movement read against its golden and every moved integer named before `close_rebank.py` regenerated each by running. **(a) fingerprints and line references** — `r2-21a2`, `r2-23a2`, `r2-24a`, `r2-25b`, `r2-26c2`, `r2-27a3` (entries indexed 1663 → 1667), `r2-28a4`, `r2-28b4`, `r2-32a`, `r2-ch34re2` (*0.19%* gains 1830, a substring of its *20.19%*), `r2-scf` (*57*: 1829's BUILD57 and 1830's chat 57; *28*: 1830's 28.3462), `r2-warn`, `r2-ch21a` (*27.7–30.1% void-free* gains 1830), `r2-ch21b2` (L7378's count text), `r2-reg1a3`, `r2-reg7a2` (16.4 % of 1,674), `r3-em`; **(b) counts the entries' own words move** — `kinds` (correction 180 → 184), `extent` (*1 to 1832*), `r2-ch16a2`, `r2-ch16k2` and `r2-ch16s2` (withdraw: 1830 and 1832; *58*: BUILD58 in 1830, chat 58 in 1831 and 1832), `r2-ch16b2` and `r2-ch16c2` (*1.66*: 1830's 1.33–1.66 and 1.660; *17*: four in 1832), `r2-ch16f2` (*11*: 1830's seed 11 and 1831's MC-11, 1832's §11.1.1 excluded by the instrument's own bound; *100*: 1829's 100 cells and 1831's 100 boxes; *2*: 1831's width 2 and 1832's fan-in 2; *6*: 1832's 6 in total; *10*: 1830's MC-10), `r2-ch16i2` and `r2-ch16p3` (*976*: 1830, 1831, 1832), `r2-ch16m2` (*7.07* and *17 … generator*: 1832), `r2-ch16q2` (the four entry lines), `r2-ch16r2` (Ruling 46 candidates in the Register 169 → 173: each of the four entries names the instrument that re-ran it and a build number — the class of 1821–1828, standing under ruling 46 / docket 28, recorded not repaired), `r2-ch18a2` (*eight random intervals* and Möbius: 1831; tree factor: 1829, 1831), `r2-ch19b2` and `r2-ch28b2` (Birkhoff and 1937: 1832; Rota and Freuder: 1831; *Reader* leaves the References' nowhere-cited list on 1831's "Reader-facing" — a regex artefact of the C7/C9 kind, named, not a citation), `r2-ch22b2` (caterpillar: 1831; exhaustive: 1830), `r2-ch25a2` (*131*: 1832's 131,072), `r2-regsweep2` (cited numbers 644 → 646: 267 by 1832 and 1830 by 1831, measured by `register_cites.py` on the BUILD108 and BUILD109 Registers; figure numerals 6 → 7: 1830's Figure 10.1), `r2-bib2` (seven handles leave *nowhere* for *elsewhere only*, all resolving in the Register — L.birk, L.bits, L.box, L.circuit, L.tree, L.void, L.voidfrac, named by 1830, 1831 and 1832; census handles resolving nowhere 88 → 83, only outside the compendium 91 → 96), `r2-reg8a` (reg8-B's list loses 666 and 1670 because the front-matter counts that coincided with those withdrawn numbers now read 671 and 1,674 — the finding's mechanism shown, not a retraction).
+- **Held, unchanged in kind:** `r2-reg11a2`, `r2-reg12b` (census rows by Register line, W-224), `r2-ch17e2` (a literal index, DEF-153N: it prints Chapter 36 at L9900 against L9926 measured, a shift older than Q5), `r2-ch18b`, `r2-ch23b`, `r2-26b`, `r3-wl`, the superseded predecessors. `r2-ch17c2` did not move.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35610,7 +35634,7 @@ All of HANDOFF-24's list stands (none closed this chat): L8794/L11107 "eight ite
 <<<END FILE: tower-2.out>>>
 
 <<<FILE: kinds.out>>>
-1600 {'a finding': 1360, 'a measurement': 502, 'a withdrawal': 33, 'a correction': 180, 'prior art': 61, 'a new protocol': 24, 'an open question': 23, 'a fault of mine': 16}
+1604 {'a finding': 1360, 'a measurement': 502, 'a withdrawal': 33, 'a correction': 184, 'prior art': 61, 'a new protocol': 24, 'an open question': 23, 'a fault of mine': 16}
 protocol REVIEW candidates (keyword match, not on list): ['48', '211', '313', '326', '402', '449', '590', '615', '617', '618', '681', '727', '738', '790', '819', '872', '930', '945', '977', '1055', '1059', '1080', '1127', '1131', '1135', '1140', '1211', '1249', '1275', '1292', '1316', '1331', '1339', '1400', '1401', '1409', '1434', '1582', '1602', '1607', '1792', '1817', '1818']
 <<<END FILE: kinds.out>>>
 
@@ -35645,15 +35669,15 @@ VARIANT '199130': 3 sites [('reg', 5249), ('mc', 1820), ('ioi', 1434)]
 <<<END FILE: r2-tools-constants.out>>>
 
 <<<FILE: extent.out>>>
-extent from Register L6: 1 to 1828
-"1 to 1828": 3 sites main:L7378 The_Register-2.md:L6 The_Register-2.md:L68
-"1 to 1827": 0 sites 
+extent from Register L6: 1 to 1832
+"1 to 1832": 3 sites main:L7378 The_Register-2.md:L6 The_Register-2.md:L68
+"1 to 1831": 0 sites 
 <<<END FILE: extent.out>>>
 
 <<<FILE: MANIFEST.tsv>>>
 bundle	name	bytes	md5	lines
-main	The_Method_1_6-2.md	784432	ffe43fd4081d4cfa3107acb94983ec67	11903
-main	The_Method_1_6___The_Register-2.md	1252955	caacd11e9eaafbf775149e6abfabe247	6754
+main	The_Method_1_6-2.md	784432	e5875231cb620edfff135ad7acad68ea	11903
+main	The_Method_1_6___The_Register-2.md	1262282	33e109327e5f58e9e9cd292c1579f436	6770
 compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -35727,7 +35751,7 @@ compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236413	ba8306f2ffafb1f5373990bc1790a289	1558
 compendia	DEFERRED.md	442840	80584b86ba08d016df4530acd9c84844	3527
-compendia	DOCKET.md	80238	2e329f12bec1215ec793b7133ba9a442	479
+compendia	DOCKET.md	81415	e77bbf1e9ed22f5b3da369971b2b969b	483
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
 compendia	EXCISE-SITES-BUILD14.json	9383	d8b75a860415ae02adb9f980350abe2b	664
@@ -35859,7 +35883,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1039092	ed7c618823e09435d150d586e460ed04	8283
+compendia	WORKING-REGISTER.md	1053340	8d4ceb849172f5a47c19845fffaebebe	8307
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
@@ -35886,7 +35910,7 @@ compendia	depoint.py	5965	e72e22298bb2222ed9f19d3f2dfe977a	160
 compendia	excise.py	2840	77216203a26321d36bb9b099ef4c3b5d	30
 compendia	excise_plan.json	1757	cb54cc364832a9017b57ef6eeb0df445	1
 compendia	excision_result.json	941	ed120e7fb3210f98e49a95a884eba597	1
-compendia	extent.out	132	9b781ad4c9a4265f5110e838dc16ffe0	3
+compendia	extent.out	132	aa2a3b0a4df2fb182d5d7ede6d8ed751	3
 compendia	fig241_data.json	8186	e2b03fb220217fb3f357ee8b9a87b37a	1
 compendia	fig_rerender.py	6293	7c9c956330ea0f38a243d625e14b054e	69
 compendia	gate.py	9377	a01ef15a7920b7a11f3f2e9168d5d130	147
@@ -35895,10 +35919,12 @@ compendia	heii_levels.txt	2187	dda9699248cdea825d4367237fcd8490	89
 compendia	heii_series.json	606	980b9052236962e11ed754749100c4d0	1
 compendia	index_gen.py	5653	85330972a30f4fc1f9bffa40c4af0594	111
 compendia	index_pages.py	6797	5d5096ae95835886903ab78335e2d64d	102
-compendia	kinds.out	556	5ea35dccfd24219ad41f035b78e79239	2
+compendia	kinds.out	556	1b38c2e4d66c6b858fbf81f06415421e	2
 compendia	kinds.py	3370	4262f7c52dace40a103cdfa352ec02e5	46
 compendia	l-ch1.py	2087	448ef66cc15143fffdfe6e7ebfc007bb	34
 compendia	l-ch2.py	1147	e2f4ad4f78ca904e126587134808edde	16
+compendia	lam8.py	570	b837a69ec7c05819b531acff665ae5da	17
+compendia	mc12.py	3646	e0b55118991688f5c9f1b05fcf50e8ae	82
 compendia	minmax.out	563	2e8fdd40d731821f77b4d344b8cfa0e8	10
 compendia	minmax.py	1824	26da1d78643f244e3e8b0fa268057300	17
 compendia	mkref.py	7199	10fc0c63b389e0b30c9f14417cb91c3d	121
@@ -35906,58 +35932,58 @@ compendia	numcheck.py	795	d36764328bd1cb669d5c4fa929763be4	13
 compendia	qgraph.py	828	5aac43b570de45fe5215e2ca17ef5244	17
 compendia	r2-21a.out	25222	5edba63b729984297869173c17b88f47	281
 compendia	r2-21a.py	21177	b98f2c83d3005ff6bff41d3b361ff2de	181
-compendia	r2-21a2.out	25222	2af58c846b96d49481e79a64ab40612d	281
+compendia	r2-21a2.out	25222	261ba8207f51b11bc80803119f16b46c	281
 compendia	r2-21a2.py	24527	aecdb52c18a98462020266d70479b41f	196
 compendia	r2-23a.out	37448	028f44ed38c23683ad9f6fbf7134bf3d	268
 compendia	r2-23a.py	20065	85bd124a1e6cd5dcd5e6198e15259782	222
-compendia	r2-23a2.out	45298	de86c3409215246c425025675460f3a6	269
+compendia	r2-23a2.out	45298	099cd0371f5e8e2282cb88e1e0a121e1	269
 compendia	r2-23a2.py	21230	9ec2bf76d5eaa6b7626a67aab0db5357	235
-compendia	r2-24a.out	24268	71395c58dd64a2c90aeb7699a8395589	227
+compendia	r2-24a.out	24268	0dc764c7f5c0deb0a5e680465b94d389	227
 compendia	r2-24a.py	28685	b905b44fd84c599626c8ef3118c701d5	286
-compendia	r2-25b.out	16449	06abe07b10f06179c23c843426d15609	169
+compendia	r2-25b.out	16449	9678974319ba6e4510ab42a969689a6a	169
 compendia	r2-25b.py	21612	2387c3a5291d209a0bbf048913568cac	293
 compendia	r2-26b.out	21029	d55bf6f57d6f8fb3846c9f55698e00aa	190
 compendia	r2-26b.py	27320	bbcf1ed1811aea2ead6bc1559b9c2a21	311
 compendia	r2-26c.out	13613	f7f2ccafe97d5cc16a42a9e296e9b92c	156
 compendia	r2-26c.py	16897	6f1062f07b0108ee6d2dd395bd232ef0	231
-compendia	r2-26c2.out	13738	0cd7dc7037d6a5f365ffbd512f4857ef	157
+compendia	r2-26c2.out	13738	0a8cffa2f50be0deae69da2ba13a836c	157
 compendia	r2-26c2.py	17671	407da30d6045e80995b9f4429f448618	239
 compendia	r2-27a.out	10142	1c050f9a69f02d213fecfc53d779d72f	125
 compendia	r2-27a.py	15219	103078f4bf922ce6b9e9d5cad1b30224	218
 compendia	r2-27a2.out	10142	000939f9c8009ae8f41601378b7e6238	125
 compendia	r2-27a2.py	16080	f789a55122470886ac112e6e07314972	227
-compendia	r2-27a3.out	13999	b59f6c07463f8cf0aca1cff5a36b11bf	163
+compendia	r2-27a3.out	13999	4d37c6e244555c4bda9c9863a6bcfbca	163
 compendia	r2-27a3.py	18218	534753c50df14a47ed546c3fa825dc6f	224
 compendia	r2-28a2.out	12319	7e58b2bf026973b3e0523d7ed623c083	184
 compendia	r2-28a2.py	16676	c7eafbaf76e9ddc908a3cc8af1423a32	223
 compendia	r2-28a3.out	12319	f96b01bd298a69644ffc37b2301c192a	184
 compendia	r2-28a3.py	17716	02fe220d752f043b3dc001792999d709	234
-compendia	r2-28a4.out	11369	e33c4c7ca480a84626fee72b5b5afda1	173
+compendia	r2-28a4.out	11369	41295ec72e860b1d71a0ed1f9c7f9826	173
 compendia	r2-28a4.py	17331	e08007a8f225b8729169d3962c259b0f	229
 compendia	r2-28b2.out	14026	0bd7f8b2946821179e351053382fe1c3	165
 compendia	r2-28b2.py	17057	ccb9fc499e8d20e953936f472dab34b2	229
-compendia	r2-28b4.out	14056	b768a23ff4a8e8947fc4a4b41aea3baa	166
+compendia	r2-28b4.out	14056	b09fcfaf351f1996ffaa042801883047	166
 compendia	r2-28b4.py	19749	230c937b5be0b7012ce89e0a496abc03	261
-compendia	r2-32a.out	16599	2b22ff91b910b35b49c8655e93405d32	179
+compendia	r2-32a.out	16599	9c7c4d67affb045f41f404c29249ae49	179
 compendia	r2-32a.py	22360	15a9047af4a637eb7bdb05d0ea982878	306
 compendia	r2-bib.out	7712	6505f5280dd4f6928f6a62f0b52f0823	67
 compendia	r2-bib.py	11246	8d53e12dd6d84b00e6fbb145ae9cfd5a	141
-compendia	r2-bib2.out	7770	4aa8c42695b6215c423a802b233a97b5	67
+compendia	r2-bib2.out	7715	81ae9e70ccccc9686d46082061e773bc	67
 compendia	r2-bib2.py	12497	1ee17f0becc1497a4b43160c729482e9	152
 compendia	r2-ch1.py	2940	172fb73dacbf30d5d85eb04f4463c064	48
 compendia	r2-ch10.py	5035	f1603d3f2310ed33583d01f67eb7020c	61
 compendia	r2-ch11.py	8759	ee1555717f4401e80aa3730fe4d6b9f5	102
 compendia	r2-ch16a.out	17491	7c93abbef1197e007da8c9e4880db7ec	244
 compendia	r2-ch16a.py	14072	b2d71512b926d7a394a7aae99c280f56	282
-compendia	r2-ch16a2.out	17491	878a36a177e4a5ab113e9128c93b4881	244
+compendia	r2-ch16a2.out	17491	fb8b19bbb3c3157cf0f219f6992f25dd	244
 compendia	r2-ch16a2.py	16862	cb3e0fe6e4268801ddd8991366049504	297
 compendia	r2-ch16b.out	11957	81670a576186c646126ca6aaaacb3232	173
 compendia	r2-ch16b.py	21250	165bf22d271fc7af7b11949b09a284f0	406
-compendia	r2-ch16b2.out	11958	c252b8fa774293be90d9b53cbc8f144c	173
+compendia	r2-ch16b2.out	11968	a7cff7cf6ddf9bc58e84fe555ee76bd8	173
 compendia	r2-ch16b2.py	22983	17acdcee44d774a003b86dacb6cf4325	421
 compendia	r2-ch16c.out	16427	435b5d92d15dd444b688b995c417d7b6	248
 compendia	r2-ch16c.py	18745	5b92aa61b147d3d9327242cf3d4e2e45	354
-compendia	r2-ch16c2.out	16361	0a048782b59878d3a2ffa8504db64626	248
+compendia	r2-ch16c2.out	16371	70dcb5c1b437574e5bdee847d4073fcd	248
 compendia	r2-ch16c2.py	21859	3d0e973282bbeaad84a17b7d7855f8da	369
 compendia	r2-ch16e.out	9894	d816d8ea67e3786404b612d488e4fb36	145
 compendia	r2-ch16e.py	18228	dd5b6fe7d9f56f7cc5a4e19f68d9daa2	338
@@ -35965,7 +35991,7 @@ compendia	r2-ch16e2.out	9894	42cca5fcf50f0e20dba60beed8ad2595	145
 compendia	r2-ch16e2.py	19497	37dec7c387c8a049d2be65353ade7133	354
 compendia	r2-ch16f.out	30931	581eaa258081560315dce68f5ee02bcd	343
 compendia	r2-ch16f.py	17508	300dd46f4dd1dbc1501a5dc19cfecc39	328
-compendia	r2-ch16f2.out	30905	5ff2db6a4598a5fdbc40fbb4fdd19918	342
+compendia	r2-ch16f2.out	30905	a8f8267446b08cb9a112affec22577da	342
 compendia	r2-ch16f2.py	20479	a79c623c9f7669140b72e3584a4b83a6	344
 compendia	r2-ch16h.out	7780	6063a7c10ac234f7c3980e68e880660b	112
 compendia	r2-ch16h.py	14923	971c053d890738aecb33746c50ab78a1	251
@@ -35973,11 +35999,11 @@ compendia	r2-ch16h2.out	7780	45126ea77c7caa35f8e7aaa692507956	112
 compendia	r2-ch16h2.py	16062	b8ea84f445c1c4120235dbc369a39b88	267
 compendia	r2-ch16i.out	19423	aa1177df2882f3640abd6d7298a5f8bb	228
 compendia	r2-ch16i.py	16897	3ed8a41888da5e0613fcb322e2a6380c	305
-compendia	r2-ch16i2.out	19457	066398942ca80cc60e9f0ea01419ecdd	228
+compendia	r2-ch16i2.out	19475	75abf3accca75d1184d5acc31eb1d462	228
 compendia	r2-ch16i2.py	20348	8644ae3c2ae089df68b62bcc62e95a36	321
 compendia	r2-ch16k.out	7787	c48cada6e569a9a15dd41b5eae3da67a	87
 compendia	r2-ch16k.py	11223	da8d609526e0c4d5e35a9095aa38902d	197
-compendia	r2-ch16k2.out	7799	e26bd47c0b0beb25f9a5bcf7f7e30c7b	87
+compendia	r2-ch16k2.out	7817	baa00a599626374e1e336154fb5a79ef	87
 compendia	r2-ch16k2.py	12437	2f948c09077ecb5423e3eb9f4afe9502	213
 compendia	r2-ch16l.out	7857	ffae544614b8fa8ffdfbb8299d9754a3	106
 compendia	r2-ch16l.py	9134	f36814c727d0ae018d597a14c361b9c0	184
@@ -35985,7 +36011,7 @@ compendia	r2-ch16l2.out	7859	a0bb8686499022b4a795cb9e9d257f00	107
 compendia	r2-ch16l2.py	11426	ef7c1889e4351c6fc69276c0a832b21f	200
 compendia	r2-ch16m.out	11481	6ef3e13a6f1e1555c6ddb15da945eb47	129
 compendia	r2-ch16m.py	15438	ff46e7b2a2c086d1317921adbc97df31	274
-compendia	r2-ch16m2.out	11483	56f74b1c2160193b7bd94b1831a211ec	129
+compendia	r2-ch16m2.out	11495	2af8e914717ba8ad008f3a0b4f521ed5	129
 compendia	r2-ch16m2.py	16868	359a423437fa9d458efbbfa80b4c7e02	289
 compendia	r2-ch16n.out	19953	d2ef24a24e5e63fe4fc3fec9b33e8e82	235
 compendia	r2-ch16n.py	15533	8cdac8e94d45fad7936ef11b9a1cbc34	304
@@ -36001,19 +36027,19 @@ compendia	r2-ch16p.out	31499	3d911393727b9e7d1cd74814cc6ecb94	406
 compendia	r2-ch16p.py	19134	ad69c34b47dc8984ef16aaa9d1fa1980	376
 compendia	r2-ch16p2.out	31499	a826da9a7ad6eed8f5ceff1049bc348e	406
 compendia	r2-ch16p2.py	20360	2d29d8247a510a412f2383035bb7e03c	392
-compendia	r2-ch16p3.out	31675	c8f61c03299d670cc6d2da3fae7b1d2e	408
+compendia	r2-ch16p3.out	31675	18fc22c35023b1257e07acfdafe524af	408
 compendia	r2-ch16p3.py	23145	c167cac8be8ca0fe5ff1ec4278b57bf7	407
 compendia	r2-ch16q.out	14494	55dd818446a0e902ca80af5b63e6d249	185
 compendia	r2-ch16q.py	19180	9802e46cb07a2540ae20ee67a1b685fd	319
-compendia	r2-ch16q2.out	14794	0fe83f6d4997131a449b596c076c629d	187
+compendia	r2-ch16q2.out	14818	38743f38a33c39900a3081cb10031021	187
 compendia	r2-ch16q2.py	20629	67de823ab5dc0aac0089d567683ec9ec	334
 compendia	r2-ch16r.out	39054	98059f5a0b4ba8167a8dc51440e07d4f	547
 compendia	r2-ch16r.py	13585	6d2d618560d4b2603f986b9ce82126ce	240
-compendia	r2-ch16r2.out	39147	7f71b574d0458acdc052d360f781633e	549
+compendia	r2-ch16r2.out	39147	01989749c3cd4108dce6fae6fd53014e	549
 compendia	r2-ch16r2.py	17457	ac826376e3850cd687e1e8dfd26f27c1	255
 compendia	r2-ch16s.out	13116	4955d7fef772f507929616497f517208	175
 compendia	r2-ch16s.py	10902	ae6c788602776d0169b69381beb7954c	190
-compendia	r2-ch16s2.out	13136	833c459db756c2efbf0820807116d09e	175
+compendia	r2-ch16s2.out	13149	c5eeade0a6e96ffa37ce7b460293d921	175
 compendia	r2-ch16s2.py	13251	b88221521324c619a7899f827585bf34	205
 compendia	r2-ch16t.out	17666	4aacbcca26f52562741d7d73a6d6b451	219
 compendia	r2-ch16t.py	12215	bf7f0e331a1623c2d4ba2f7d3c193bde	213
@@ -36073,7 +36099,7 @@ compendia	r2-ch17f2.out	7740	a81da5ad091f33abbe368fe4ef6121f4	69
 compendia	r2-ch17f2.py	12826	ba8cd1915f2972d266635dc0b693c6f7	119
 compendia	r2-ch18a.out	20364	d5b741a9c2d3e6ebcda0b9117808d64f	166
 compendia	r2-ch18a.py	29678	7ff90d81589ae5a48a5eea4380cc50c7	250
-compendia	r2-ch18a2.out	20552	ce93708a1e61ec640fa50516ad4bdd07	167
+compendia	r2-ch18a2.out	20573	067412cf0ec6e5213672fa2ed3657113	167
 compendia	r2-ch18a2.py	31190	3c7763f6bd7691145000264dff42af35	265
 compendia	r2-ch18b.out	9256	0d29a486695fcb7a533ef40cfc4f3e3f	70
 compendia	r2-ch18b.py	9786	846485e12a53c6c01090327aad065b15	82
@@ -36083,7 +36109,7 @@ compendia	r2-ch19a2.out	21963	bb993cafa1371d7297ab6b659c7b9434	156
 compendia	r2-ch19a2.py	29532	7246ddce98b82f9002743ede87c0277a	243
 compendia	r2-ch19b.out	23097	9ebdb9d15f6acbf3b31bf6ac71b221d1	178
 compendia	r2-ch19b.py	14688	b2044d751378072f8d0315374029f9df	107
-compendia	r2-ch19b2.out	23097	11fbbc178194a7c90815f2da0b7825d5	178
+compendia	r2-ch19b2.out	23097	3ea23a2267945745f4515df0bbc071d1	178
 compendia	r2-ch19b2.py	16607	9b064948cd831ce277d6dfb3c6a55c9c	122
 compendia	r2-ch2.py	2712	64145381de3468efcafdbb1f38fdf94d	37
 compendia	r2-ch20a.out	25571	ac451215b629390590173edc88152c18	180
@@ -36092,11 +36118,11 @@ compendia	r2-ch20a2.out	25585	122c930f6b26101da76fa9e182242644	180
 compendia	r2-ch20a2.py	30102	78c9be416a73aa52e125085d0fc48ab1	240
 compendia	r2-ch20b.out	10530	b6e4a62260df4664ec94fa06d6387f5e	93
 compendia	r2-ch20b.py	14608	87b0f700bf073dca766d6cde0ef308d3	109
-compendia	r2-ch21a.out	26346	2020855359ca033ee0658b2bf2adb848	178
+compendia	r2-ch21a.out	26367	ca19b45ee55c1fae67db5b24c19059be	178
 compendia	r2-ch21a.py	18582	72dd8300ec05c3c02ff7376774add3d3	187
 compendia	r2-ch21b.out	12052	aee2c49fad34add53fd0f9c581d4df20	117
 compendia	r2-ch21b.py	8826	7e0b8578f2260ade998e99bb2e257c77	69
-compendia	r2-ch21b2.out	12052	57d109e92f42b38712a2422886172381	117
+compendia	r2-ch21b2.out	12052	768d4b2e72f1327bf7f3fe0a69e54f7e	117
 compendia	r2-ch21b2.py	12803	ad0fe70ccc389b1480aa8481ca0ca78d	84
 compendia	r2-ch22a.out	5591	30049651d3c1ef978976a515115c53cb	48
 compendia	r2-ch22a.py	12106	a96e3451a0306047016134bb8fe914d5	137
@@ -36104,7 +36130,7 @@ compendia	r2-ch22a2.out	5591	07aa8fc93e13977e0d75f34505fc9da8	48
 compendia	r2-ch22a2.py	12563	10173e7fb9b535fe109db643589dc190	144
 compendia	r2-ch22b.out	7963	9a41ed042d0b0b4f11d4a323cb9562cb	78
 compendia	r2-ch22b.py	10122	1647fde8dfa22d7cc4fbf1a05d906f37	97
-compendia	r2-ch22b2.out	8211	5f1981e7e80fe75677070c8981161be7	80
+compendia	r2-ch22b2.out	8211	3cec023d5ac6614ed3568ed686ea7b16	80
 compendia	r2-ch22b2.py	11688	6ebf009607f608c9dbf2d084ac53d496	112
 compendia	r2-ch23a.out	9970	76775e080d1c25f09a594e8b5a92e1fc	81
 compendia	r2-ch23a.py	19325	98df78713fccb763bc8ac644ad3654d6	182
@@ -36118,7 +36144,7 @@ compendia	r2-ch24b2.out	29468	4419839a6638f02c02a444e2e4fbdf57	322
 compendia	r2-ch24b2.py	17356	6a7eb0fd0dfd0ecee1ac18bda62fea64	141
 compendia	r2-ch25a.out	12009	9c68ffc6ee2f49e88b8e72fa0e572aa6	90
 compendia	r2-ch25a.py	18313	3950aa6a5e409e7612d1e293304a1bb8	177
-compendia	r2-ch25a2.out	12092	7063746d7539438d76b276b89e374326	91
+compendia	r2-ch25a2.out	12098	0661c250fa0a74d1d3415ceeff146f6c	91
 compendia	r2-ch25a2.py	19584	df3a7f62ad9742022ec51cb84d5145e2	192
 compendia	r2-ch25b.out	20682	acf7ca5abd2fc5b8e96152cab3f5e057	175
 compendia	r2-ch25b.py	14694	eb1442d5984d660e7c894241ff34004d	138
@@ -36144,12 +36170,12 @@ compendia	r2-ch28a4.out	27919	65477c02b20ba27e033e5979469ecc5c	224
 compendia	r2-ch28a4.py	21589	e5d7fc4612acefd0aff29a70b39bca2e	197
 compendia	r2-ch28b.out	25818	02d9c05899ca67e0d6ba0231973a1dee	170
 compendia	r2-ch28b.py	18874	2e8d1a1a5e556f423989e4141b6fac9d	139
-compendia	r2-ch28b2.out	25931	1f4300999a457876be99ba54dfb70dae	170
+compendia	r2-ch28b2.out	25969	ec66910365ebfba3bfaa9a7c2b19ed9d	170
 compendia	r2-ch28b2.py	20155	8ebe3662ea4e02920f37f5a7411f4fbb	154
 compendia	r2-ch3.py	8140	3557dc8e0d79a6448c35ea1cf144b202	125
 compendia	r2-ch34re.out	20928	e7698bfbcd8bbe169ec9df23657ed9a1	250
 compendia	r2-ch34re.py	28981	216d12f7a691447133b5ac18f94f2277	309
-compendia	r2-ch34re2.out	21431	545c623ebe433c04288ffecc9304b40d	264
+compendia	r2-ch34re2.out	21439	d3dae737fd01f21dc2163315b99e6e8b	264
 compendia	r2-ch34re2.py	30481	fa9318efe1377e8ed45d6466929d60a0	327
 compendia	r2-ch6.py	7411	ac48e9ce30d629e2d70230948dea7ae8	83
 compendia	r2-ch7.py	3733	c5bc647be5dea7fc94ed1736e0da84ae	65
@@ -36173,7 +36199,7 @@ compendia	r2-reg1a.out	9189	ce5cd6073c2ae167c606e26740fc98a4	114
 compendia	r2-reg1a.py	10846	4c20849d88e96fb83a33bf0495bfa415	180
 compendia	r2-reg1a2.out	9228	50c78aa3d930f4e7224ac2995718136f	114
 compendia	r2-reg1a2.py	13117	b69af2e58d89474a3f91c1d3549c3b5a	200
-compendia	r2-reg1a3.out	8420	671284281e71f222749c642674097948	108
+compendia	r2-reg1a3.out	8420	153fcc3e3f8d5fdac41fe2ddb309f828	108
 compendia	r2-reg1a3.py	14775	4c73bd7ebf36b88fd3128e1013d5a6f3	213
 compendia	r2-reg2a.out	6885	5fe0328224837535e17b34dcb8fa90f0	105
 compendia	r2-reg2a.py	10939	fdc7e85c932947d48084a24abd4b1977	186
@@ -36197,9 +36223,9 @@ compendia	r2-reg6a2.out	3991	3eb80134066c289993822de97622463a	64
 compendia	r2-reg6a2.py	9315	a257ea1f027ae2e1ef8abf39944a883b	143
 compendia	r2-reg7a.out	4023	6ed594d1985bbdea0150722670fd55a6	59
 compendia	r2-reg7a.py	6751	659b80fb83768464947cc7e376f75bfc	111
-compendia	r2-reg7a2.out	4023	193c19738309265d8b68535d20dbbc5a	59
+compendia	r2-reg7a2.out	4023	0ae40a64b724b997edfb85f5cf9188e2	59
 compendia	r2-reg7a2.py	7117	59b57f1debdd1f5acecb266d8a061efc	114
-compendia	r2-reg8a.out	5182	1b05293b9d6e7f7d7fd92b68380854cb	64
+compendia	r2-reg8a.out	5160	4e3fd48bb37e2d567c65feea321a757b	64
 compendia	r2-reg8a.py	7244	80b7def8bef9f863848c8afac0fa693f	121
 compendia	r2-reg9a.out	2922	5268720f3b1c0b9de48c514cfe136f60	52
 compendia	r2-reg9a.py	6194	15c2fb53562979245039c9a0fda5cfb1	109
@@ -36207,15 +36233,15 @@ compendia	r2-reg9a2.out	2922	f73555b12f134083792624600ff80d59	52
 compendia	r2-reg9a2.py	7452	f7b5fe059ce527443ae1ed94718b1aaf	125
 compendia	r2-regsweep.out	4641	d23a87ed1143ef3442ff0d60e7c1b858	85
 compendia	r2-regsweep.py	10087	c8f400118dbe57bcf8914d37e9522fe6	163
-compendia	r2-regsweep2.out	4892	9df3edd872f78f7df75d0b6003dc8f7f	87
+compendia	r2-regsweep2.out	4892	75980eed7e3279418269a43a418c35a3	87
 compendia	r2-regsweep2.py	11409	7bf329ed357a77811bdc4e4ae71bbf2b	174
-compendia	r2-scf.out	29920	f5aaca014beb73ecaf0a533c5f79d68f	334
+compendia	r2-scf.out	29920	3c8c3e63792328425a4d11aa0f54874b	334
 compendia	r2-scf.py	19583	70292ea5151a9fe086aab6639529a3d7	220
 compendia	r2-tb1.out	10827	7f79293d9c4f790eae0da949ee9c493a	120
 compendia	r2-tb1.py	14072	a97e9548c5aa4adf885682ed76fc299d	145
 compendia	r2-tools-constants.out	1032	ad0ca7bcc803f3e7a2858c4b40f7e5fd	14
 compendia	r2-tools.py	6529	4702f5f937087b1e806e4bc78b17f3c3	98
-compendia	r2-warn.out	40383	de8c36d6b6a3f9fce060771e0132f9f7	273
+compendia	r2-warn.out	40383	d022e927f87e42069b61e4733bba40f8	273
 compendia	r2-warn.py	13763	228d883a25bfce317cd8a8bd9abd5c2d	185
 compendia	r2lib.py	21022	580d2ea2e43c2ddf78018afcba2f7de7	453
 compendia	r3-arith-01.py	10030	3a4385d819ff24f3fe4c48e43d0e22f4	154
@@ -36223,7 +36249,7 @@ compendia	r3-ch346.py	9960	255af2b55ad3a32bea77a46e42011a69	146
 compendia	r3-d152.py	13894	eb050f0b2a8bdd8f37321617b6ecc69b	135
 compendia	r3-d152b.py	12668	509c6b5e956c17151fe9e0c654a4bd68	132
 compendia	r3-dclose.py	9438	c3a85889be5936cba3e30936a3d908d0	127
-compendia	r3-em.out	2387	8c6d77c6b102991000243b100cb5ed43	40
+compendia	r3-em.out	2387	42b1f7461230ce6e9e14a7355155ab87	40
 compendia	r3-em.py	6678	04d782126f4d18cff4790e7bbf586dbb	121
 compendia	r3-lead.py	19790	2ff3557f19682b0c57f8e91608291dbc	199
 compendia	r3-mc-nos.py	7981	3831a333861587545667c78f63eadca5	139
@@ -36232,6 +36258,15 @@ compendia	r3-q5a.py	19721	c76f3476ea79801a3e89410b23bc98c2	186
 compendia	r3-q5b-measure.out	2937	84242be73260f393eeb157c921503c1b	29
 compendia	r3-q5b-measure.py	6461	a1a19fa6c1d54e25887278d4427e973f	98
 compendia	r3-q5b.py	14540	827bfcf78d588281ee3b9264f55d28e8	140
+compendia	r3-q5c-measure.out	1067	4a25054804d6039eddd2d60067f28d59	12
+compendia	r3-q5c-measure.py	2588	c0d11928d82425064be22b36bfc7dd17	33
+compendia	r3-q5c.py	11677	fe39c57c4f6d7a068cf83b5dffc72adc	129
+compendia	r3-q5d-measure.out	4374	2b5a4c436f51b78c54a0f421923c72cd	60
+compendia	r3-q5d-measure.py	8222	c0230d00720c1e9e6b70982dc9c52a98	123
+compendia	r3-q5d.py	12768	e107a09fa78cdeec9218e7a268d73390	130
+compendia	r3-q5e-measure.out	3110	aba89ac9cf7aad581532cacdab2297fc	33
+compendia	r3-q5e-measure.py	9447	5b52a113d189e1af6eb1cdf0c2eb9cee	150
+compendia	r3-q5e.py	16572	7f331588c09ee8e9754b15e9aba6fe09	152
 compendia	r3-reg104.py	11930	61c868af79f913fefe010ad14bec60d5	129
 compendia	r3-reg1g.py	14599	bd53c58b300de8bc4052c150f9d0309f	168
 compendia	r3-unwit.py	12112	22766966e7b90eb67eee1a74d0aa5dce	147
@@ -50417,6 +50452,10 @@ detail; this is the standing index, unchanged from HANDOFF-79 except where chat 
 - **Convention earned on the mechanics, and it is the reason 26c-02 mislocated the 47: A CITATION SWEEP MUST READ THE WHITESPACE-NORMALISED JOIN.** *Register* and *332.* sit on either side of a line break in §32.1.4, so a line-wise pointer regex returns [278, 285, 294] and misses the one entry that carries the figure. The chat-125 convention for a wrapped list now governs wrapped **pointers** too, and both sweeps are printed side by side in the instrument so the difference is visible.
 - **Container conventions for this environment, measured (§0a kit).** Default `python3` here is **3.11**, under which `gate.py` and `r2-tools.py` do not parse (f-string backslash); `gate.py` spawns children as literal `python3`, so a **PATH shim to /usr/bin/python3.12 is the fix and it touches no member**. numpy, sympy, scipy and mpmath must be installed for 3.12. `r2-26c` and `r2-32a` need Prints & Proofs at `/home/claude/PP_The_Method_1_6.md`, which in Drive is titled **The Method 1.6.md**, not PP_*. `r2-ch20a` / `r2-ch26a` need COORDINATES-2_13.csv at `/mnt/project/`, which must be created. Bash calls time out at two minutes by default: a batch containing `r2-ch23b` (214 s) needs an explicit longer timeout. `gate.py cert` **exits 2 when any ERROR row is in the log while still writing verdict PASS** --- the exit code is not the verdict.
 - **Drive read costs (§0a kit).** `search_files` returns a multi-KB content snippet per hit with no field selector: a bare `title contains` query cost ~15 KB of context for five hits and `list_recent_files` ~17 KB. Always qualify by parentId **and** a near-exact title; prefer a Graphify recall when what is wanted is state rather than bytes.
+
+## Chat 153-R second delta, Q5 pass 5 (appended; read with the chat-153-R delta above. R3 — the Claude Code session keyed 153-R — carrying one deferred main-volume item out of the chat-58 queue document, `REGISTER-QUEUE-APPEND-batch2c.md`, at W-231)
+
+- **MV-DEF-01 — §10.4 leaf subscripts; M's ruling at chat 58: execute when the prose rewrite reaches source Chapter 10 "The void" (reader Chapter 8), not before. Not executed by R3.** The two closed-form leaves are written hi₇/lo₇ (2S) and hi₆/lo₆ (g), coordinate position counted from zero in (n, ℓ, k, q, e, f, g, 2S), while the book elsewhere counts the eight coordinates from one. When the rewrite reaches §10.4, either state the convention in place or renumber the leaves to hi₈/lo₈ (2S) and hi₇/lo₇ (g) — M's choice at that point. The `L.box` object (BUILD59) states the zero-based convention and is to be kept in agreement with whichever form §10.4 takes. A press-time SUBS pair, not a source edit, per standing practice. Enters the Register as a correction citing §10.4 and `L.box` when executed; both states preserved. Register 1831 records the ambiguity as reader-facing and unedited.
 <<<END FILE: DOCKET.md>>>
 
 <<<FILE: R3-CLASS-WL.md>>>
@@ -57103,7 +57142,7 @@ print('\nEND r2-ch21b')
       main: [(1245, '3.3 L1242', 'is affordable — §16.5 stood on 30,000 samples of a 6,912-cell box until register 248.'), (4460, '16.5 L4454', 'χ agreeing with membership on every cell.** An earlier pass drew 30,000 uniform samples from a box of'), (10679, 'D.5.4 L10668', 'A.5 also corrects its own verification: §16.5 proves it in one line and checks it on **30,000')]
   20/20 two cap settings (order recovery, tree) {'main': [1915, 4317, 10933], 'sc': [583, 584]}
       main: [(1915, '8.5 L1906', "**The order is recoverable.** Chapter 15 recovers Λ's coordinate orders from an unlabelled bag of cells by propagation a"), (4317, '15.4 L4313', "Λ's orders are recovered from a scrambled bag of cells: 20 of 20, at two cap settings, on 216"), (10933, 'D.6 L10932', "It does not prove the mathematics correct. Audits 2 and 3 do that — 20 of 20 on Λ's structure over")]
-    order recovery / tree propagation / cap settings: {'main': [1290, 2764, 10584, 10620, 11529]} {'main': [10584, 10620, 11004, 11468], 'reg': [1356]} {'main': [1791, 1880, 3215, 3586, 4317, 4851, 9143, 10815], 'reg': [1444, 1448, 1460, 1468, 1640, 1652, 1796], 'mc': [610, 1284, 1286, 2634]}
+    order recovery / tree propagation / cap settings: {'main': [1290, 2764, 10584, 10620, 11529]} {'main': [10584, 10620, 11004, 11468], 'reg': [1356]} {'main': [1791, 1880, 3215, 3586, 4317, 4851, 9143, 10815], 'reg': [1444, 1448, 1460, 1468, 1640, 1652, 1796, 6761], 'mc': [610, 1284, 1286, 2634]}
   1,442/1,442 bracket (20a-01 family; Register 783) ABSENT outside the unit in all six volumes
     1,442 sites outside the unit: {'main': [200, 564, 5659, 6637, 6747, 6749, 6751, 6755, 6772, 6791, 6804, 6807, 6809, 6810, 6815, 6816, 6892, 6991, 7373, 7459, 8855, 10587, 10625, 11005, 11149, 11168], 'reg': [976, 1820, 2004, 2868, 5422, 6186]} ; 783 body: **CHAPTER 24 CLAIMED "1,442 INTERIOR CELLS ACROSS 35 ATOMIC SYSTEMS, THE BRACKET HOLDS IN EVERY ONE", AND THAT SENTENCE WAS CARRYING THE FABRICATION.** *The honest split: **930 cells across 128 channe
   1,061 perturbation bounds                    {'main': [60, 6522, 6688, 6963, 9193, 9360], 'reg': [6490]}
@@ -57118,7 +57157,7 @@ print('\nEND r2-ch21b')
       main: [(6101, '22.2.3 L6091', '**Only the quadratic form is usable, and it costs 3.5% rather than the 2.1% a hold-out suggests** — a factor of 1.7 for stepping outside the fitted ra')]
   0.06%–4.4% median (V = 4ν/3 real channels)   ABSENT outside the unit in all six volumes
     4ν/3 median / real channels sites: {'main': [1979, 4354, 4371, 6188, 6237, 6242, 6386, 6502, 7313, 7516, 7954, 7958, 8090, 8582, 9362, 9397, 10246, 10399, 10606, 10675, 11492], 'mc': [1898], 'sc': [997]} (docket 11: 24 sites); "coarse quotation": {}
-  27.7–30.1% void-free                         {'main': [2038, 2059], 'mc': [1664], 'pc': [779]}
+  27.7–30.1% void-free                         {'main': [2038, 2059], 'reg': [6761], 'mc': [1664], 'pc': [779]}
       main: [(2038, '10.2 L2037', 'The void-free fraction is 27.7–30.1% across 776 million pairs and a seventeenfold range in cell count.'), (2059, '10.2 L2037', 'pairs. Stable at 27.7–30.1%, with no trend.')]
     *2.4 points* = 30.1 − 27.7 = 2.4 ; *100× range* sites: {'main': [2058]} ; §10.2 says: ['The void-free fraction is 27.7–30.1% across 776 million pairs and a seventeenfold range in cell count.', 'of one transition — they are one transition said four ways, and the 2.17-fold spread in cell count']
   +0.35 at low ℓ (filled-d core)               {'sc': [320, 429]}
@@ -57154,8 +57193,8 @@ print('\nEND r2-ch21b')
       main: [(6119, '22.2.5 L6111', "**Sc VI's ⁴S°*n*s channel is the case that forced the clause.** With δ(4s) = 1.0057 and δ(5s) = 0.9812, the constant form gives **δ̄ = 0.993"), (7009, '25.6.1 L7008', 'Two measured defects: δ(4s) = 1.0057, δ(5s) = 0.9812 — consistent to 0.025, a clean Rydberg'), (7019, '25.6.1 L7008', 'δ∞ = 0.9376 < δ(6s) < δ(5s) = 0.9812')]
   1,635 (Chapter 28 count)                     {'main': [20, 89, 104, 202, 523, 646, 3519, 7372, 7905, 8923, 9060, 9370, 9382, 9387], 'reg': [6629, 6701]}
       main: [(20, 'Nothing L17', 'The register holds one thousand six hundred and thirty-five entries. They are one sequence over three'), (89, 'Nothing L17', 'a process that recorded one thousand six hundred and thirty-five corrections, and it survived because the object,'), (104, 'Nothing L17', 'The one thousand six hundred and thirty-five are in Chapter 28. **They are not a confession. They are the')]
-    Register `### N` headings measured: 1663 ; distinct numbers 1663 ; min 1 max 1828 ; missing in 1..max: [176, 177, 190, 196, 199, 202, 203, 204, 206, 207, 209, 210, 213, 215, 218, 219, 220, 221, 227, 231]
-    Chapter 28 body L7371–L7860; its count lines: [(7378, 'work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,670 entries, 1 to 1828, at this build (2026-09-04)** — lives in'), (7387, 'level a fault lands at, and what the whole set shows about where errors are caught.* Register 658.'), (7567, 'out-of-sample errors of 652%, 560% and 1,156%. Seven constraints, six of them clustered, one'), (7656, '152–164. Thirteen implementation errors across nine attempts at a d ≥ 3 PQ-tree analogue: a'), (7663, 'cite in turn. The complete record — 436 entries when this paragraph was written, 1,670 at this build — is THE REGISTER, a volume of its own**, whose file is'), (7666, "material §4's ten mechanisms were built from.* **242 of 436 kept at that reading; at this build the main volume cites 411 entries and the Register's front matter carries the count.**")]
+    Register `### N` headings measured: 1667 ; distinct numbers 1667 ; min 1 max 1832 ; missing in 1..max: [176, 177, 190, 196, 199, 202, 203, 204, 206, 207, 209, 210, 213, 215, 218, 219, 220, 221, 227, 231]
+    Chapter 28 body L7371–L7860; its count lines: [(7378, 'work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,674 entries, 1 to 1832, at this build (2026-09-04)** — lives in'), (7387, 'level a fault lands at, and what the whole set shows about where errors are caught.* Register 658.'), (7567, 'out-of-sample errors of 652%, 560% and 1,156%. Seven constraints, six of them clustered, one'), (7656, '152–164. Thirteen implementation errors across nine attempts at a d ≥ 3 PQ-tree analogue: a'), (7663, 'cite in turn. The complete record — 436 entries when this paragraph was written, 1,674 at this build — is THE REGISTER, a volume of its own**, whose file is'), (7666, "material §4's ten mechanisms were built from.* **242 of 436 kept at that reading; at this build the main volume cites 411 entries and the Register's front matter carries the count.**")]
   C₆ = n¹¹(...) Singer §26.5 / 2^d corners     {'main': [2267, 8527, 8562]}
       main: [(2267, '11.7 L2256', 'third, and 2^d inclusion–exclusion terms return.'), (8527, '30.3.6 L8525', '3-subsets of X. O(\\|X\\|³) structure, 2^d labels — the two factor, where every order-space method'), (8562, '30.3.8 L8553', 'to 2^d − 1 hyperedges. It is complete, so treewidth gives back the 2^d bound already known.')]
 
@@ -62090,8 +62129,8 @@ hr('§5 TALLY'); print('WARNING\'d entries', len(WARN), '| citer lines', sum(len
 <<<FILE: r2-warn.out>>>
 
 == §0 CONVENTIONS AND FRESH COUNTS
-Register member lines 6755 | main 11904 | MC 3813 | PC 914 | IoI 2094 | SC 1160
-Heading convention A (bare `^#{1,4}\s*N\s*$`): 1663 entries; max 1828
+Register member lines 6771 | main 11904 | MC 3813 | PC 914 | IoI 2094 | SC 1160
+Heading convention A (bare `^#{1,4}\s*N\s*$`): 1667 entries; max 1832
 Heading convention B (grouped `^#{1,4}\s*N, N, …\s*$`): 32 numbers on 7 lines: [1322, 1326, 1330, 1334, 1338, 1342, 1346]
 Absent under A (1..1792): 164 | absent under A and B: 132
 WARNING marker convention: raw case-sensitive `WARNING:` (the colon excludes headline words such as 1463's FISHBURN'S WARNING); raw `WARNING` lines: 41 | `WARNING:` lines: 39 | markers: 40
@@ -63237,8 +63276,8 @@ for tag, name, sp_, ep_ in (('MC', MC, r'^## LS\. ', r'^## 3B\. '), ('PC', PC, r
 ====================================================================================================
 §0 IDENTITY AND BOUNDARIES
 ====================================================================================================
-  The_Method_1_6-2.md                                  md5 ffe43fd4  11904 lines
-  The_Method_1_6___The_Register-2.md                   md5 caacd11e  6755 lines
+  The_Method_1_6-2.md                                  md5 e5875231  11904 lines
+  The_Method_1_6___The_Register-2.md                   md5 33e10932  6771 lines
   The_Method_1_6___Mathematical_Compendium-2.md        md5 ce104a99  3813 lines
   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
@@ -63438,8 +63477,8 @@ for tag, name, sp_, ep_ in (('MC', MC, r'^## LS\. ', r'^## 3B\. '), ('PC', PC, r
   '-1/(2n²)'                                 chapter L-              | in 1701-1712: -                    | other Register lines: 0
   '65'                                       chapter L9793           | in 1701-1712: 1704                 | other Register lines: 23
   '70'                                       chapter L9794           | in 1701-1712: 1704                 | other Register lines: 30
-  '57'                                       chapter L9794           | in 1701-1712: 1704                 | other Register lines: 30
-  '28'                                       chapter L9794           | in 1701-1712: 1704                 | other Register lines: 55
+  '57'                                       chapter L9794           | in 1701-1712: 1704                 | other Register lines: 32
+  '28'                                       chapter L9794           | in 1701-1712: 1704                 | other Register lines: 56
   '38, 56, 72, 89, 105'                      chapter L9801           | in 1701-1712: 1705                 | other Register lines: 0
   '+1.33'                                    chapter L9802           | in 1701-1712: 1705                 | other Register lines: 0
   '+1.24'                                    chapter L9802           | in 1701-1712: 1705                 | other Register lines: 0
@@ -64963,8 +65002,8 @@ print('\nEND r2-24a')
 ====================================================================================================
 §0 members and the units (lettered E.x headings, body = LAST hit; a `### E.x` unit ends at the next heading of any rank; E.4 has no heading line)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 ffe43fd4  11904 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 caacd11e  6755 lines
+   main The_Method_1_6-2.md                                  md5 e5875231  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 33e10932  6771 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 ce104a99  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
@@ -65519,7 +65558,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-25b.out>>>
 r2-25b.py — 25b-03: E.8 "Sixty-odd corrections come from §30.3 alone" against Chapter 28
-members: The_Method_1_6-2.md md5 ffe43fd4 | The_Method_1_6___The_Register-2.md md5 caacd11e
+members: The_Method_1_6-2.md md5 e5875231 | The_Method_1_6___The_Register-2.md md5 33e10932
 
 §1 SITES (located this chat; member line numbers are never carried between chats)
    lettered("E.8") hits: [11259] -> '### E.8 What closed, and what it cost'
@@ -72595,7 +72634,7 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    archive: BUILD10 main_and_register, 2022827 B
    the archive holds a register                             True                       OK
    BUILD10 register: 1547 numbers, 165..1764
-   live    register: 1695 numbers, 1..1828
+   live    register: 1699 numbers, 1..1832
 
 == 1  THE FOUR PROVENANCE POINTERS WERE WRITTEN, SEATED, AND REMOVED
    1725  archive True  live False  **THE RECORD NORMALISED TO ITS OWN SETTLED FORM — 1,517 ENTRIES, ONE HEADLINE AND ONE BODY EACH,
@@ -72618,10 +72657,10 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    [190, 196, 199, 202, 204, 272, 324, 341, 363, 366, 369, 411, 430, 431, 445, 456, 460, 517, 560, 570, 571, 574, 575, 606, 632, 637, 642, 647, 649, 650, 651, 654, 657, 660, 664, 665, 666, 667, 668, 669, 902, 995, 996, 998, 999, 1000, 1002, 1013, 1051, 1149, 1223, 1245, 1248, 1257, 1358, 1373, 1386, 1388, 1389, 1443, 1477, 1478, 1537, 1564, 1565, 1569, 1570, 1571, 1572, 1594, 1614, 1615, 1616, 1631, 1640, 1650, 1659, 1667, 1668, 1670, 1676, 1680, 1684, 1685, 1688, 1697, 1698, 1710, 1725, 1728, 1730, 1731, 1732, 1735, 1737, 1741, 1742, 1743, 1744, 1745, 1746, 1747, 1752, 1753, 1754, 1756, 1757, 1759, 1760, 1764]
 
 == 4  WHAT THE FRONT MATTER STILL POINTS AT
-   numbers from the withdrawn set appearing in the front matter: [411, 666, 1670, 1725, 1732, 1744, 1756]
+   numbers from the withdrawn set appearing in the front matter: [411, 1725, 1732, 1744, 1756]
    571 is the load-bearing COUNT ("571 entries are cited by other entries"), not a pointer,
    and is excluded. The remaining four are citations, and all four are provenance:
-   front-matter provenance pointers that were withdrawn     [411, 666, 1670, 1725, 173 FINDING (reg8-B)
+   front-matter provenance pointers that were withdrawn     [411, 1725, 1732, 1744, 17 FINDING (reg8-B)
      1725  the settled form, the ruling-C normalisation
      1732  the citation counts recomputed and the load-bearing table regenerated
      1744  the asterisk residues -- "THE REGISTER'S TANGLES WERE SPLIT DELIMITERS"
@@ -72650,7 +72689,7 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    instrument checks failed : 0 
    findings recorded        : 3
      reg8-A    entries in the archive and not in the live register  110
-     reg8-B    front-matter provenance pointers that were withdrawn [411, 666, 1670, 1725, 1732, 1744, 1756]
+     reg8-B    front-matter provenance pointers that were withdrawn [411, 1725, 1732, 1744, 1756]
      reg8-C    entries still carrying the split delimiters 1744 named 275
 
    ALL INSTRUMENT CHECKS OK
@@ -73204,7 +73243,7 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
 <<<FILE: r3-em.out>>>
 
 == 0  THE SEATED MEMBER
-   The_Method_1_6___The_Register-2.md  1252955 B  md5 caacd11e9eaafbf775149e6abfabe247  6754 lines
+   The_Method_1_6___The_Register-2.md  1262282 B  md5 33e109327e5f58e9e9cd292c1579f436  6770 lines
 
 == 1  THE CLASS
    entries carrying the split                               275                        OK
@@ -73221,13 +73260,13 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    declined entries: ['238', '290', '313', '327', '338', '397', '463', '543', '595', '604', '608', '640', '641', '646', '648', '702', '707', '724', '747', '1394', '1642', '1643', '1648', '1649', '1652', '1653', '1657', '1681', '1722']
 
 == 3  THE REPAIRED MEMBER, MEASURED (NOT WRITTEN)
-   would become 1253315 B  md5 8b7643c135d79ee402c5ed9ed152f86f  6754 lines
+   would become 1262642 B  md5 5689bb93c4ec478ba11721434c8d2f17  6770 lines
    delta +360 B, +0 lines
-   line count unchanged                                     6754                       OK
+   line count unchanged                                     6770                       OK
    only the 246 repaired lines differ                       246                        OK
 
 == 4  THE REVERSE GUARD
-   reversing every substitution recovers the seated bytes   'caacd11e9eaafbf775149e6ab OK
+   reversing every substitution recovers the seated bytes   '33e109327e5f58e9e9cd292c1 OK
 
 == 5  WHAT R3 MUST DO BEYOND THIS INSTRUMENT
    1. The 29 declined entries are repaired by hand, with both texts, not by this rule.
@@ -79494,7 +79533,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-26c2.out>>>
 r2-26c.py — 26b-02 / 26b-03: the withdrawn Appendix F, what still cites it, and where its figures went
-members: The_Method_1_6-2.md md5 ffe43fd4 | The_Method_1_6___The_Register-2.md md5 caacd11e | PP md5 49900cf4
+members: The_Method_1_6-2.md md5 e5875231 | The_Method_1_6___The_Register-2.md md5 33e10932 | PP md5 49900cf4
 
 == §1 THE TWO UNITS, measured this chat by scan — member line numbers are never carried between chats
    rebuilt Appendix F first line                                      11269                    OK
@@ -80387,7 +80426,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-32a.out>>>
 r2-32a.py — 26c-02 ruling (c): the origin of §32.1.4's fifty-five, of §32.1.4.1's 48, and of register 375's 47
-members: The_Method_1_6-2.md md5 ffe43fd4 | The_Method_1_6___The_Register-2.md md5 caacd11e | PP md5 49900cf4
+members: The_Method_1_6-2.md md5 e5875231 | The_Method_1_6___The_Register-2.md md5 33e10932 | PP md5 49900cf4
 
 == §1 §32.1.4 AND ITS TABLE — located by scan; the four E-bearing rows and their sum
    §32.1.4   body L8968–L9001   ### 32.1.4 What this book names before anyone tells it
@@ -80945,7 +80984,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-27a3.out>>>
 r2-27a3.py — 27a-02 under ruling (a): the Register pointers of Appendix G rows 8.2, 8.4, 10.4c re-taken under CONVENTION DEP
-members: The_Method_1_6-2.md ffe43fd4 | The_Method_1_6___The_Register-2.md caacd11e | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md ce104a99
+members: The_Method_1_6-2.md e5875231 | The_Method_1_6___The_Register-2.md 33e10932 | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md ce104a99
 
 == §1 THE ROWS, located by scan — pointers are read OUT of the rows, never carried in
    Appendix G body L11408–L11453 (46 lines)
@@ -80974,7 +81013,7 @@ members: The_Method_1_6-2.md ffe43fd4 | The_Method_1_6___The_Register-2.md caacd
    main volume has no §10.4c and no §10.4e                            []                           OK
 
 == §3 THE REGISTER, indexed; the DEP-N sweep — every entry naming one of the four locators, over all entries
-   entries indexed: 1663 (1 to 1828)
+   entries indexed: 1667 (1 to 1832)
    entries that RECORD this reading name every locator and rest on nothing; excluded from the sweep: [1812]
    the excluded entries are the record of the re-take and no other    [1812]                       OK
    §8.2    T-locator (DEP-N): [543, 584, 585, 588, 592]    bare §-locator (candidate): []
@@ -83220,7 +83259,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-28a4.out>>>
 r2-28a4.py — 28a-06 after ruling (a): does the author-and-year match on the 162 rows give the figure the sentence prints?
-members: The_Method_1_6-2.md ffe43fd4 | The_Method_1_6___The_Register-2.md caacd11e | The_Method_1_6___Mathematical_Compendium-2.md ce104a99
+members: The_Method_1_6-2.md e5875231 | The_Method_1_6___The_Register-2.md 33e10932 | The_Method_1_6___Mathematical_Compendium-2.md ce104a99
 
 == §1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about
    main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it) [173, 11550]             OK
@@ -83660,7 +83699,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-28b4.out>>>
 r2-28b4.py — 28b-06/07/08 after rulings: R.7's two blocks and lead-ins, located by content, read as printed
-members: The_Method_1_6-2.md ffe43fd4 | The_Method_1_6___The_Register-2.md caacd11e
+members: The_Method_1_6-2.md e5875231 | The_Method_1_6___The_Register-2.md 33e10932
 
 == §1 THE TWO SENTENCES, THE TWO BLOCKS AND THE TWO CHAPTERS — bounds by scan, chapters under the chat-130 convention
    `### R.7 What is not cited, and why` heading hits                    [11853]                OK
@@ -84070,8 +84109,8 @@ except Exception as ex: print('   census read:', ex)
 ====================================================================================================
 §0 members and the unit (lettered headings; body = LAST hit; a `### D.x` unit ends at the next heading of any rank)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 ffe43fd4  11904 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 caacd11e  6755 lines
+   main The_Method_1_6-2.md                                  md5 e5875231  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 33e10932  6771 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 ce104a99  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
@@ -84568,8 +84607,8 @@ print('  the family\'s Register home: NONE (§1) — every figure of §25.6 / §
 ====================================================================================================
 §0 IDENTITY AND BOUNDARIES
 ====================================================================================================
-  The_Method_1_6-2.md                                  md5 ffe43fd4  11904 lines
-  The_Method_1_6___The_Register-2.md                   md5 caacd11e  6755 lines
+  The_Method_1_6-2.md                                  md5 e5875231  11904 lines
+  The_Method_1_6___The_Register-2.md                   md5 33e10932  6771 lines
   The_Method_1_6___Mathematical_Compendium-2.md        md5 ce104a99  3813 lines
   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
@@ -85260,7 +85299,7 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
         L513    register records what was added and withdrawn. Enumeration is finite work and this book does
         L643    ### 2.12 Withdrawal
         L720    A register of withdrawals is a list of bounds. Read it that way and it stops being a
-  withdraw         reg   59 site(s)
+  withdraw         reg   61 site(s)
         L27     | **a withdrawal** | 33 | 61 | a claim removed, with the reason |
         L31     *The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cit
         L70     Every correction, withdrawal and finding in the order it happened. **The book cites entries 
@@ -85900,7 +85939,7 @@ r2-ch16b  COMPUTABLE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
      0.12         unit 1 | six volumes {'main': 3, 'reg': 4}
      401          unit 2 | six volumes {'main': 5, 'reg': 2, 'ioi': 1}
      11,943,936   unit 1 | six volumes {'main': 1}
-     17           unit 1 | six volumes {'main': 64, 'reg': 37, 'mc': 31, 'pc': 1, 'ioi': 10, 'sc': 3}
+     17           unit 1 | six volumes {'main': 64, 'reg': 41, 'mc': 31, 'pc': 1, 'ioi': 10, 'sc': 3}
   "47.8 s against 86" -- the 86 carries NO UNIT on the line: Verified end to end at 2×3×3 by growth against exhaustion: 18,736 = 18,736, in 47.8 s against
 
 ## 4  §30.3.6 THE SIGNATURE BOXES AND THEIR TOTAL
@@ -85930,7 +85969,7 @@ r2-ch16b  COMPUTABLE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
   a colon-terminated lead-in is not a class: lead-ins 1, classes 3
   count word "Three method classes ruled out" MATCH True
   "Thirteen of seventeen attempted criteria": 13 <= 17 True ; four unaccounted for = 4
-     1.66   unit 1 | six volumes {'main': 1, 'mc': 1}
+     1.66   unit 1 | six volumes {'main': 1, 'reg': 1, 'mc': 1}
      2.19   unit 1 | six volumes {'main': 3, 'reg': 3}
      493    unit 2 | six volumes {'main': 5, 'reg': 1, 'ioi': 1}
      89.8   unit 1 | six volumes {'main': 1}
@@ -86608,7 +86647,7 @@ r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
   493          total 7   {'main': 5, 'reg': 1, 'ioi': 1}
   89.8         total 1   {'main': 1}   SINGLE-WITNESS
   96.7         total 1   {'main': 1}   SINGLE-WITNESS
-  1.66         total 2   {'main': 1, 'mc': 1}
+  1.66         total 3   {'main': 1, 'reg': 1, 'mc': 1}
   2.19         total 6   {'main': 3, 'reg': 3}
   4,168        total 1   {'main': 1}   SINGLE-WITNESS
   267,000      total 1   {'main': 1}   SINGLE-WITNESS
@@ -87704,9 +87743,9 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
    distinct numerals printed in the unit: 56
    30.4       six-volume sites 5      main outside unit [630, 7638, 7640]   other volumes {}
    18         six-volume sites 137    main outside unit [134, 220, 233, 1017, 1137, 1378, 1379, 1381]   other volumes {'reg': [120, 146, 248, 276, 284], 'mc': [4, 6, 1566, 1740, 1876], 'pc': [24, 87, 391, 401, 402], 'ioi': [213, 223, 398, 1364, 1365], 'sc': [20, 147, 406, 586, 604]}
-   6,         six-volume sites 72     main outside unit [291, 317, 3195, 3196, 3197, 3223, 3224, 3225]   other volumes {'reg': [128, 264, 372, 1452, 1956], 'mc': [750, 870, 900, 950, 1024], 'pc': [773], 'ioi': [209, 324, 1367, 1368, 1369], 'sc': [20, 1136, 1144]}
+   6,         six-volume sites 73     main outside unit [291, 317, 3195, 3196, 3197, 3223, 3224, 3225]   other volumes {'reg': [128, 264, 372, 1452, 1956], 'mc': [750, 870, 900, 950, 1024], 'pc': [773], 'ioi': [209, 324, 1367, 1368, 1369], 'sc': [20, 1136, 1144]}
    16         six-volume sites 189    main outside unit [36, 47, 60, 132, 189, 292, 315, 355]   other volumes {'reg': [20, 28, 31, 138, 372], 'mc': [750, 840, 858, 1254, 1564], 'pc': [176, 391, 403, 504, 520], 'ioi': [223, 271, 324, 396, 1365], 'sc': [53, 269, 303, 305, 406]}
-   2,         six-volume sites 238    main outside unit [212, 477, 494, 585, 816, 1307, 1335, 1394]   other volumes {'reg': [160, 248, 264, 276, 284], 'mc': [374, 594, 614, 772, 900], 'pc': [135, 391, 773, 811, 906], 'ioi': [209, 234, 324, 345, 1358], 'sc': [20, 1114, 1136]}
+   2,         six-volume sites 240    main outside unit [212, 477, 494, 585, 816, 1307, 1335, 1394]   other volumes {'reg': [160, 248, 264, 276, 284], 'mc': [374, 594, 614, 772, 900], 'pc': [135, 391, 773, 811, 906], 'ioi': [209, 234, 324, 345, 1358], 'sc': [20, 1114, 1136]}
    30.2       six-volume sites 7      main outside unit [631, 8334, 8352, 8498, 8500]   other volumes {'reg': [3036]}
    31.1       six-volume sites 9      main outside unit [631, 3052, 7587, 7641, 11491, 11494, 11830]   other volumes {}
    31.2       six-volume sites 8      main outside unit [631, 7642, 11491, 11494]   other volumes {'reg': [6454, 6595]}
@@ -87714,9 +87753,9 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
    2.10       six-volume sites 9      main outside unit [622, 1484, 11256, 11515, 11517]   other volumes {'reg': [1928, 4160, 6592]}
    31         six-volume sites 52     main outside unit [153, 1233, 1238, 1868, 4169, 4197, 4239, 4272]   other volumes {'reg': [180, 198, 1244, 1940, 1972], 'mc': [986, 1110, 1732, 2546, 3042], 'pc': [83, 414], 'ioi': [411, 1394, 1395, 1396, 1397], 'sc': [811, 839]}
    6.9        six-volume sites 15     main outside unit []   other volumes {'sc': [372, 464, 490, 514, 515]}
-   10         six-volume sites 373    main outside unit [124, 233, 262, 325, 1014, 1129, 1564, 1565]   other volumes {'reg': [41, 42, 114, 168, 200], 'mc': [404, 416, 488, 620, 806], 'pc': [112, 391, 444, 556, 855], 'ioi': [46, 128, 223, 390, 1367], 'sc': [93, 201, 205, 259, 283]}
+   10         six-volume sites 374    main outside unit [124, 233, 262, 325, 1014, 1129, 1564, 1565]   other volumes {'reg': [41, 42, 114, 168, 200], 'mc': [404, 416, 488, 620, 806], 'pc': [112, 391, 444, 556, 855], 'ioi': [46, 128, 223, 390, 1367], 'sc': [93, 201, 205, 259, 283]}
    3.6        six-volume sites 12     main outside unit [1285, 1421]   other volumes {'reg': [6029], 'sc': [493, 494, 533, 759, 880]}
-   100        six-volume sites 94     main outside unit [3744, 3745, 3746, 3754, 4010, 4027, 4028, 4029]   other volumes {'reg': [180, 474, 772, 1712, 1904], 'mc': [838, 1084, 1405, 1604, 2330], 'pc': [64, 170, 454], 'ioi': [345, 480], 'sc': [1017]}
+   100        six-volume sites 96     main outside unit [3744, 3745, 3746, 3754, 4010, 4027, 4028, 4029]   other volumes {'reg': [180, 474, 772, 1712, 1904], 'mc': [838, 1084, 1405, 1604, 2330], 'pc': [64, 170, 454], 'ioi': [345, 480], 'sc': [1017]}
    47.9       six-volume sites 1      main outside unit []   other volumes {}
    17.9       six-volume sites 2      main outside unit []   other volumes {'reg': [4908]}
    16.7       six-volume sites 7      main outside unit [4579, 6598, 11099, 11506, 11509, 11511]   other volumes {'reg': [2040]}
@@ -87745,7 +87784,7 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
    23.10      six-volume sites 7      main outside unit [6439, 7587, 11085, 11089, 11091, 11473, 11475]   other volumes {}
    1787       six-volume sites 2      main outside unit []   other volumes {'reg': [6594]}
    24         six-volume sites 108    main outside unit [144, 564, 2240, 2333, 3377, 4262, 4727, 5784]   other volumes {'reg': [26, 62, 170, 1364, 1368], 'mc': [384, 718, 750, 752, 754], 'pc': [554], 'ioi': [33, 242, 245, 404], 'sc': [247, 267, 560, 581, 813]}
-   11         six-volume sites 232    main outside unit [125, 291, 352, 858, 1130, 1374, 1388, 1566]   other volumes {'reg': [92, 118, 252, 264, 372], 'mc': [966, 1016, 1224, 1344, 1444], 'pc': [365, 391, 600, 646, 740], 'ioi': [47, 324, 391, 1367, 1368], 'sc': [146, 151, 303, 305, 307]}
+   11         six-volume sites 234    main outside unit [125, 291, 352, 858, 1130, 1374, 1388, 1566]   other volumes {'reg': [92, 118, 252, 264, 372], 'mc': [966, 1016, 1224, 1344, 1444], 'pc': [365, 391, 600, 646, 740], 'ioi': [47, 324, 391, 1367, 1368], 'sc': [146, 151, 303, 305, 307]}
    11.7       six-volume sites 8      main outside unit [414, 2256, 2265, 10474, 10493]   other volumes {'mc': [1498], 'sc': [306]}
    26         six-volume sites 54     main outside unit [146, 4131, 5475, 5888, 6199, 6915, 7122, 7969]   other volumes {'reg': [68, 178, 944, 1440, 1668], 'mc': [1100, 1876, 2128], 'pc': [424, 741], 'ioi': [234, 406], 'sc': [297, 890, 980, 994]}
    122        six-volume sites 17     main outside unit [1881, 2173, 2175, 2479, 2510, 7619, 9136, 11867]   other volumes {'reg': [562, 6617, 6753], 'mc': [1224, 1444, 1574, 1604], 'ioi': [502]}
@@ -88647,7 +88686,7 @@ r2-ch16i  PROSE  chat 119  main L8705-L8794  (§31.3 - §31.3.4)
    112          {'main': [1893, 1895, 7609, 8754, 9328, 11118], 'reg': [522, 1440, 1484, 4408, 4412, 5116, 5765, 5769, 6350, 6390], 'mc': [3162], 'ioi': [234, 492], 'sc': [216, 1112]}
    502          {'main': [3611, 3951, 8767, 11121, 11555], 'reg': [24, 1874, 1884], 'mc': [1399, 2669], 'ioi': [234, 882]}
    36           {'main': [159, 431, 730, 1526, 1550, 1576, 1588, 1594, 1618, 1935, 3263, 3722, 4480, 4489, 4594, 4598, 4610, 4611, 4849, 4851, 5029, 5065, 5322, 5609, 5679, 5886, 6825, 7005, 7258, 7285, 7745, 8099, 8393, 8653, 8722, 8744, 9135, 9356, 9457, 9746, 9926, 10274, 10828, 11238, 11466, 11481, 11733, 11867], 'reg': [218, 448, 796, 1640, 1668, 1672, 1684, 1776, 1836, 2248, 2328, 2404, 2852, 3732, 3768, 3936, 4356, 4392, 4400, 4508, 5120, 5208, 5220, 5240, 5444, 5472, 5480, 5765, 5769, 5793, 5809, 5833, 5845, 5985, 5989, 6033, 6162, 6194, 6198, 6234, 6270, 6274, 6442, 6474, 6550, 6681, 6685, 6745], 'mc': [124, 1453, 1455, 1494, 1876, 2330, 3128, 3224, 3286, 3306, 3338], 'pc': [344, 356, 391, 668], 'ioi': [65, 202, 264, 416, 1372, 1442, 1454, 1506, 2034, 2035], 'sc': [105, 910, 920, 1070, 1101, 1112]}
-   976          {'main': [4, 13, 331, 425, 448, 853, 855, 924, 1612, 1791, 1856, 1858, 1868, 1874, 1888, 1892, 1903, 1939, 1957, 2022, 2051, 2090, 2091, 2092, 2093, 2094, 2095, 2104, 2119, 2130, 2136, 2154, 2175, 2189, 2201, 2240, 2245, 2254, 2277, 2285, 2365, 2380, 2447, 2502, 2508, 2513, 2691, 2852, 2941, 2968, 3114, 3245, 3266, 3280, 3531, 3773, 3832, 3877, 3934, 3940, 4009, 4113, 4318, 4629, 4745, 5578, 5616, 5690, 7240, 7576, 7582, 8317, 8716, 8867, 8901, 8908, 9011, 9132, 9429, 10127, 10142, 10176, 10415, 10430, 10438, 10443, 10448, 10450, 10551, 10623, 10652, 10727, 10745], 'reg': [1004, 1012, 1036, 1048, 1132, 1232, 1252, 1312, 1472, 1684, 1696, 1700, 1708, 1732, 1744, 1804, 1820, 1836, 1888, 1908, 2180, 2236, 2240, 2328, 2404, 2412, 3068, 3580, 3634, 3696, 3884, 4072, 4380, 4388, 5236, 5252, 5552, 5556, 5720, 6598, 6610, 6753], 'mc': [81, 88, 90, 97, 572, 600, 724, 816, 960, 1012, 1064, 1074, 1084, 1194, 1200, 1214, 1216, 1224, 1244, 1314, 1326, 1344, 1424, 1444, 1450, 1453, 1455, 1554, 1594, 1604, 1614, 1664, 1820, 2346, 2352, 2728, 3684], 'pc': [14, 22], 'ioi': [33, 44, 183, 262, 263, 320, 377, 1356, 1358, 1426, 1434, 2056, 2070, 2087]}
+   976          {'main': [4, 13, 331, 425, 448, 853, 855, 924, 1612, 1791, 1856, 1858, 1868, 1874, 1888, 1892, 1903, 1939, 1957, 2022, 2051, 2090, 2091, 2092, 2093, 2094, 2095, 2104, 2119, 2130, 2136, 2154, 2175, 2189, 2201, 2240, 2245, 2254, 2277, 2285, 2365, 2380, 2447, 2502, 2508, 2513, 2691, 2852, 2941, 2968, 3114, 3245, 3266, 3280, 3531, 3773, 3832, 3877, 3934, 3940, 4009, 4113, 4318, 4629, 4745, 5578, 5616, 5690, 7240, 7576, 7582, 8317, 8716, 8867, 8901, 8908, 9011, 9132, 9429, 10127, 10142, 10176, 10415, 10430, 10438, 10443, 10448, 10450, 10551, 10623, 10652, 10727, 10745], 'reg': [1004, 1012, 1036, 1048, 1132, 1232, 1252, 1312, 1472, 1684, 1696, 1700, 1708, 1732, 1744, 1804, 1820, 1836, 1888, 1908, 2180, 2236, 2240, 2328, 2404, 2412, 3068, 3580, 3634, 3696, 3884, 4072, 4380, 4388, 5236, 5252, 5552, 5556, 5720, 6598, 6610, 6753, 6761, 6765, 6769], 'mc': [81, 88, 90, 97, 572, 600, 724, 816, 960, 1012, 1064, 1074, 1084, 1194, 1200, 1214, 1216, 1224, 1244, 1314, 1326, 1344, 1424, 1444, 1450, 1453, 1455, 1554, 1594, 1604, 1614, 1664, 1820, 2346, 2352, 2728, 3684], 'pc': [14, 22], 'ioi': [33, 44, 183, 262, 263, 320, 377, 1356, 1358, 1426, 1434, 2056, 2070, 2087]}
 
 ## 8  "THE PERIODIC TABLE"S 36" AND "THE BELT"S SIX", against the book"s own statements
    36  L431    E(periodic table)                    36           36           36              36         36                  
@@ -89040,8 +89079,8 @@ for pat in ('1,021', '400', '1,681', '861', '354', '138', '162', '58', '1,442', 
   12.11.2 body_range (3368, 3399)  section_span (3368, 3399)  (coincide)
     L3374 half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances.
 === J. withdrawals in the Register against "three hundred and sixty-eight" ===
-  register entry headings 1663 ; entries whose body contains a withdrawal word 59
-  occurrences of the stem anywhere in the Register: 91
+  register entry headings 1667 ; entries whose body contains a withdrawal word 61
+  occurrences of the stem anywhere in the Register: 93
   368 sites, six volumes: {'reg': [1366, 1368, 2416, 6318], 'mc': [1520], 'ioi': [748]}
   37 sites in main: [2283, 3232, 6242, 6855, 10216, 10218, 11622, 11624, 11714]
   printed: 368 withdrawals, ~37 from a single late session
@@ -89053,7 +89092,7 @@ for pat in ('1,021', '400', '1,681', '861', '354', '138', '162', '58', '1,442', 
   354      8 sites  {'main': [2706, 2714, 8820], 'reg': [16, 1342, 2780, 6577], 'ioi': [734]}
   138      8 sites  {'main': [8820, 8825, 8847], 'reg': [626, 2200, 5120, 6494], 'ioi': [518]}
   162     15 sites  {'main': [4172, 8846, 8847, 8850, 11739, 11875, 11896], 'reg': [722, 1940, 6342, 6346, 6462, 6677], 'mc': [3380], 'ioi': [542]}
-  58      32 sites  {'main': [1235, 1239, 7520, 7532], 'reg': [306, 2952, 2960, 2984, 2988, 2992, 3024, 3900, 3916, 4732, 5120, 5236, 5260, 5292, 5308, 5392, 5408, 5448, 5504, 5512, 5813, 6677], 'mc': [1240, 2836, 3688, 3704], 'ioi': [438, 1894]}
+  58      35 sites  {'main': [1235, 1239, 7520, 7532], 'reg': [306, 2952, 2960, 2984, 2988, 2992, 3024, 3900, 3916, 4732, 5120, 5236, 5260, 5292, 5308, 5392, 5408, 5448, 5504, 5512, 5813, 6677, 6761, 6765, 6769], 'mc': [1240, 2836, 3688, 3704], 'ioi': [438, 1894]}
   1,442   35 sites  {'main': [28, 200, 564, 5659, 6637, 6747, 6749, 6751, 6755, 6772, 6791, 6804, 6807, 6809, 6810, 6815, 6816, 6892, 6975, 6991, 7373, 7459, 8855, 10284, 10296, 10587, 10625, 11005, 11149, 11168], 'reg': [976, 1820, 2004, 2868, 6186]}
   368      6 sites  {'reg': [1366, 1368, 2416, 6318], 'mc': [1520], 'ioi': [748]}
   540     28 sites  {'main': [2891, 3496, 8733, 8741, 8743, 8745, 8752, 8766, 8767, 8768, 8769, 8770, 8786, 8793, 8890, 10588, 10626, 11116, 11117, 11120], 'reg': [848, 852, 1440, 2022], 'mc': [1274, 1314], 'ioi': [234, 920]}
@@ -89768,13 +89807,13 @@ sys.stdout.write('\n'.join(out) + '\n')
   register  373: reg L1382 "### 373" -> **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls
 
 == E. figures the unit states about the BOOK, re-measured against the book as it stands ==
-  Register: 1663 bare-number entry headings, 7 grouped headings (comma- AND dash-grouped; a dash-only pattern sees none of them) spanning 32 numbers; distinct entry numbers 1695
+  Register: 1667 bare-number entry headings, 7 grouped headings (comma- AND dash-grouped; a dash-only pattern sees none of them) spanning 32 numbers; distinct entry numbers 1699
   L8918 "one thousand six hundred and thirty-five" --- word-form sites in the main volume:
       15 sites: [20, 89, 104, 202, 523, 646, 3519, 7372, 7905, 8923, 9060, 9370, 9382, 9387, 10330]   (L8918 in the set: True)
       digit-form 1,635 in main at []
   L8957 "the register is a quarter of it":
-      main member 11,904 lines / 769,412 B;  Register member 6,755 lines / 1,234,080 B
-      Register as a share of main+Register: lines 36.2 %, bytes 61.6 % (half-up);  as a share of main alone: lines 56.7 %, bytes 160.4 %
+      main member 11,904 lines / 769,412 B;  Register member 6,771 lines / 1,243,281 B
+      Register as a share of main+Register: lines 36.3 %, bytes 61.8 % (half-up);  as a share of main alone: lines 56.9 %, bytes 161.6 %
   audit counts across the main volume (docket 33):
       "twenty-two audits": 4 sites [79, 1004, 1402, 9858]
       "twenty audits": 1 sites [8954]
@@ -89786,7 +89825,7 @@ sys.stdout.write('\n'.join(out) + '\n')
       "companion papers": 3 sites [4180, 8950, 11901]
   |J(Lambda)| = 17 generators and 7.07 bits per cell --- corroborating sites, six volumes:
       main: 7.07 at [315, 854, 2120, 9013, 9137] (5);  "17 ... generator" at [1868, 9012, 9133] (3)
-      reg: 7.07 at [1012, 1384, 1472, 1556] (4);  "17 ... generator" at [1040, 1948, 5568, 6342, 6470, 6745] (6)
+      reg: 7.07 at [1012, 1384, 1472, 1556, 6769] (5);  "17 ... generator" at [1040, 1948, 5568, 6342, 6470, 6745, 6769] (7)
       mc: 7.07 at [1074] (1);  "17 ... generator" at [1064, 1074, 1426, 1514, 2394] (5)
       pc: 7.07 at [] (0);  "17 ... generator" at [] (0)
       ioi: 7.07 at [] (0);  "17 ... generator" at [] (0)
@@ -91299,7 +91338,7 @@ for n in (976, 8853, 19109, 35789, 704, 1497, 2742, 2873, _L(' §12.11.0.9 bound
       L7374  Twenty-six were made after the register was first closed — six in the literature search of Chapter
       L7375  29, eight in the structural work of §24.8 and §25.6, and twelve in the structural and audit work. They are listed at §28.7–28.7.2.
       L7377  **The entries themselves are not printed here.** Every correction, withdrawal and finding this
-      L7378  work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,670 entries, 1 to 1828, at this build (2026-09-04)** — li
+      L7378  work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,674 entries, 1 to 1832, at this build (2026-09-04)** — li
       L7379  **THE METHOD 1.6 — THE REGISTER**, a volume of its own (generated by `register_gen.py` from this book's own source and
       L7380  its archive until entry 1700; entered by hand since, as the Register's front matter states), so it cannot be thinned by an edit here.
       L7382  **The book cites a register entry where the entry carries an argument. It does not
@@ -91633,7 +91672,7 @@ for n in (976, 8853, 19109, 35789, 704, 1497, 2742, 2873, _L(' §12.11.0.9 bound
 ================================================================================================
 20. the unit's figures re-sited with the comma-aware sweep (fault 3 repaired)
 ================================================================================================
-  976     main:93  reg:42  mc:37  pc:2  ioi:14   in-unit main sites [9132]
+  976     main:93  reg:45  mc:37  pc:2  ioi:14   in-unit main sites [9132]
   8853    main:2  reg:1   in-unit main sites [9132]
   19109   main:1   in-unit main sites [9132]
   35789   main:1   in-unit main sites [9132]
@@ -92028,7 +92067,7 @@ Appendix B span: (10199, 10264) '## Appendix B — Data and provenance'
   numeral 2,269 sites in Appendix B span: [10231]
   the channel table ARBITER (spectra member, section II L293-L934), totals line L900:
     **596 channel rows across 28 elements · 2,269 interior cells parsed.**
-  numeral   153 sites, all six volumes: {'main': [641, 1485, 2526, 3411, 8194, 9170, 10203, 10239, 10311, 11739], 'reg': [686, 2360, 4692, 6713, 6725, 6729, 6733, 6737, 6741, 6745, 6749, 6753], 'ioi': [533], 'sc': [995]}
+  numeral   153 sites, all six volumes: {'main': [641, 1485, 2526, 3411, 8194, 9170, 10203, 10239, 10311, 11739], 'reg': [686, 2360, 4692, 6713, 6725, 6729, 6733, 6737, 6741, 6745, 6749, 6753, 6757, 6761, 6765, 6769], 'ioi': [533], 'sc': [995]}
   numeral   596 sites, all six volumes: {'main': [4013, 10229], 'reg': [2226, 2244, 3980, 3984, 4208, 4292, 6218, 6581], 'pc': [30], 'ioi': [278, 316, 976], 'sc': [900, 994, 995]}
 
 ================================================================================================
@@ -92870,7 +92909,7 @@ for rid, l, tok in ((713, _L('### 32.5.1 The prediction, recomputed from the tex
 ================================================================================================
   main: 43 sites; in the unit: 1
     L9174 [''] :: Parsing δ(4s), δ(5s), the limit and Z out of this book's own markdown and running the
-  reg: 169 sites; in the unit: 0
+  reg: 173 sites; in the unit: 0
   mc: 15 sites; in the unit: 0
   pc: 6 sites; in the unit: 0
   ioi: 10 sites; in the unit: 0
@@ -93272,9 +93311,9 @@ print('\nEND r2-ch16s')
       L9382 Its register of one thousand six hundred and thirty-five withdrawn claims is offered as the primary
       L9387 all one thousand six hundred and thirty-five failures and naming the four results that exist because a conclus
   digit-form 1,635 sites main: []
-  Register: 1670 bare-numeral headings, 1695 distinct entry numbers, max 1828
-  Register lines carrying a withdraw* token: 57
-  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1695: False
+  Register: 1674 bare-numeral headings, 1699 distinct entry numbers, max 1832
+  Register lines carrying a withdraw* token: 59
+  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1699: False
 
 ================================================================================================
 6  E = 36, AND THE NUMERALS THE UNIT PRINTS (SITES, comma-aware, both forms)
@@ -93318,10 +93357,10 @@ print('\nEND r2-ch16s')
 ================================================================================================
 8  THE DATES AND THE EXTERNAL FACTS L9342 STATES
 ================================================================================================
-  Birkhoff       {'main': [853, 1822, 1853, 2108, 3726, 3787, 7342, 8126, '...'], 'reg': [300, 308, 356, 376, 388, 1736, 4604, 6462], 'mc': [61, 290, 310, 340, 344, 456, 458, 478, '...']}
+  Birkhoff       {'main': [853, 1822, 1853, 2108, 3726, 3787, 7342, 8126, '...'], 'reg': [300, 308, 356, 376, 388, 1736, 4604, 6462, '...'], 'mc': [61, 290, 310, 340, 344, 456, 458, 478, '...']}
   Dilworth       {'main': [1880, 1926, 8522, 9348, 11129, 11208, 11598, 11708], 'reg': [252, 388, 6745, 6753], 'mc': [644, 648, 696, 698, 822, 1224, 1228, 1230, '...'], 'pc': [911, 912]}
   Sperner        {'main': [122, 1801, 1878, 1879, 1883, 1903, 8702, 9348, '...'], 'reg': [252, 388, 6621, 6753], 'mc': [1224, 1228, 1230, 1602, 1608, 1610, 3430]}
-  1937           {'main': [9348, 11208, 11704], 'reg': [4604], 'mc': [290, 340, 344, 644, 648, 788, 1038, 1058, '...']}
+  1937           {'main': [9348, 11208, 11704], 'reg': [4604, 6769], 'mc': [290, 340, 344, 644, 648, 788, 1038, 1058, '...']}
   1950           {'main': [9348, 9867, 9902, 11208, 11598, 11708, 11857], 'reg': [4580, 6378, 6745], 'mc': [644, 648, 696, 698, 1228, 1230, 1368, 1370, '...'], 'pc': [912], 'ioi': [1500]}
   1928           {'main': [9348, 11770, 11824], 'reg': [448, 3396, 4572, 4636], 'mc': [776, 780, 1228, 1230, 1608, 1610, 2896, 2904, '...'], 'pc': [474, 484, 554, 574, 584], 'ioi': [83, 1452, 1508]}
   1920s          {'main': [1656, 9348]}
@@ -98226,7 +98265,7 @@ print('  unit lines containing "register" (lowercase, G0i) or "Register":', ulin
   constraints as coded (tower-2 L8): l≤n−1, k≤4l+2, q≤k, f≤e−1, g≤4f+2, g≤q, 2S≤k → 7 edges on 8 nodes, connected: True ; |E| = |V| − 1: True ⇒ a tree (cap constraints l≤1, k≤3, e≤3, f≤1 are unary and add no edge)
   degrees: {'n': 1, 'l': 2, 'k': 3, 'q': 2, 'e': 1, 'f': 2, 'g': 2, '2S': 1} — the graph's leaves are n, e, 2S (degree 1); g has degree 2 (neighbours q and f): the printed "leaves 2S and g" names g as a leaf; g is innermost in the nested sum with BOTH its neighbours fixed — the factor #{g | q, f} is still independent (incidental wording, measured below)
   seeded random boxes (seed 1811), 40 drawn: direct = factorised on 40 of 40 ; first three: [([2, 0, 1, 1, 3, 0, 0, 2], [2, 0, 2, 3, 3, 1, 0, 2], 4, 4), ([0, 1, 2, 2, 2, 1, 1, 0], [1, 1, 3, 2, 2, 1, 2, 0], 0, 0), ([0, 1, 1, 1, 2, 0, 0, 3], [1, 1, 1, 1, 3, 0, 2, 3], 0, 0)]
-  full box: direct 976 = factorised 976 = 976: True ; "eight random intervals" sites: [2076, 10047] Register: []
+  full box: direct 976 = factorised 976 = 976: True ; "eight random intervals" sites: [2076, 10047] Register: [6765]
   the two leaf formulas as printed: #{2S} = max(0, min(hi7, k) - lo7 + 1) - coordinate 7 = 2S with 2S <= k: True ; #{g} = max(0, min(hi6, q, 2(2f+1)) - lo6 + 1) - coordinate 6 = g with g <= q and g <= 4f+2: True ; both bounds attained somewhere (2S = k, g = min(q, 4f+2)): True
 
 ================================================================================================
@@ -98312,12 +98351,12 @@ print('  unit lines containing "register" (lowercase, G0i) or "Register":', ulin
 §11 REGISTER — entries naming A.3/A.8–A.13 and the unit's named objects; WARNING lines read (a Register entry body is the first non-blank line after its heading)
 ================================================================================================
   Register lines naming A.3/A.8–A.13: [1324] ['**§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the block it follows; the contents ']
-  Möbius|Mobius: 0 Register lines, entries []
+  Möbius|Mobius: 1 Register lines, entries [1831]
   crosscut: 0 Register lines, entries []
   projection of a closed|projections of closed: 0 Register lines, entries []
   total order: 0 Register lines, entries []
   may precede: 0 Register lines, entries []
-  tree factor: 8 Register lines, entries [228, 347, 353, 394, 1359, 1488, 1812, 1819]
+  tree factor: 10 Register lines, entries [228, 347, 353, 394, 1359, 1488, 1812, 1819, 1829, 1831]
      1812 WARNING: **APPENDIX G's THREE ROWS NAMED ENTRIES THAT REST ON OTHER MECHANISMS; RE-TAKEN BY READING, THEY NAME NINE THAT REST ON THEIRS, AND THE COMP
   limit-free: 0 Register lines, entries []
   ν_fail|half-spacing: 0 Register lines, entries []
@@ -98912,7 +98951,7 @@ unit L10088–L10198, 111 lines (own scan: `### A.15` = last hit, `## Appendix B
 ================================================================================================
 §6 DOCKET 36 — NAMES IN THE UNIT AGAINST THE REFERENCES BODY (L11503–L11805) AND R.7 (L11806 on)
 ================================================================================================
-  Birkhoff  unit lines [10126] · References body 1 · R.7 1 · Register lines 8
+  Birkhoff  unit lines [10126] · References body 1 · R.7 1 · Register lines 9
   Dilworth  unit lines [] · References body 2 · R.7 0 · Register lines 4
   Wigner    unit lines [] · References body 0 · R.7 0 · Register lines 1
   Sperner   unit lines [] · References body 1 · R.7 0 · Register lines 4
@@ -99636,7 +99675,7 @@ unit L10264–L10353 (90 lines)
  (n) Chapter 28 L7373 (the 1,635) and the unit's *errors*
    main L7376 
    main L7377 **The entries themselves are not printed here.** Every correction, withdrawal and finding this
-   main L7378 work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,670 entries, 1 to 1828, at this build (2026-09-04)** — lives in
+   main L7378 work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,674 entries, 1 to 1832, at this build (2026-09-04)** — lives in
    main L7379 **THE METHOD 1.6 — THE REGISTER**, a volume of its own (generated by `register_gen.py` from this book's own source and
  (o) the V formula: unit L10317 *V = 4x/(h|p−1|)*; the volume's V definition sites: {'main': [6393, 6413, 6421, 6575, 10351], 'mc': [1898]} [(6188, 'V = w / e = 4ν/3'), (6192, 'V(x, p) = 4x / ( h · |p − 1| )')]
  (p) *single prediction* / *prediction* sites vs §25.6's title *why it is not a prediction*: {'main': [10333]} {'main': [5956, 6996, 7044, 7045], 'reg': [2940, 3096], 'pc': [163]}
@@ -99854,9 +99893,9 @@ r2-ch22b — Appendix D part 1 (D.1–D.4.4.3), prose and pointers
    R45 candidates: [] ; R46 candidates: []
    never been checked here  unit [] ; main-elsewhere 0; mc 0; reg 0
    no precedent found       unit [10443] ; main-elsewhere 0; mc 0; reg 1
-   exhaustive               unit [10381, 10398, 10399, 10402, 10407, 10443] ; main-elsewhere 103; mc 17; reg 20
+   exhaustive               unit [10381, 10398, 10399, 10402, 10407, 10443] ; main-elsewhere 103; mc 17; reg 21
    idempotent               unit [10450] ; main-elsewhere 4; mc 4; reg 3
-   caterpillar              unit [10435, 10473] ; main-elsewhere 11; mc 8; reg 5
+   caterpillar              unit [10435, 10473] ; main-elsewhere 11; mc 8; reg 6
    pendant                  unit [10473] ; main-elsewhere 9; mc 5; reg 1
    normal form              unit [10454, 10467] ; main-elsewhere 2; mc 0; reg 0
    canonical form           unit [10451] ; main-elsewhere 2; mc 0; reg 0
@@ -100567,7 +100606,7 @@ r2-ch25a — Appendix E part 2 (E.3–E.8), computable claims; conventions named
    *208 cells from 13 ≤ h ≤ 128 less twelve exclusions*: 128 − 13 + 1 = 116 values; *112 on the diagonal from (13,13) to (131,131)*: 131 − 13 + 1 = 119 diagonal positions — 131 > 128: the diagonal end exceeds the stated range (a slice defined elsewhere: sites below)
    sites of 13 ≤ h   main [(8738, '31.3.4'), (11117, 'E.3')] ; register []
    sites of \b208\b  main [(8739, '31.3.4'), (8786, '31.3.4'), (10189, 'A.19.1'), (11117, 'E.3')] ; register [848, 866, 1440, 3728, 3940, 4420]
-   sites of \b131\b  main [(855, '2.18'), (2129, '11.1.1'), (2136, '11.1.1'), (2154, '11.1.1'), (6661, '24.2'), (6751, '24.8'), (8754, '31.3.4'), (11119, 'E.3')] ; register [598, 1036, 1232, 4548, 6126]
+   sites of \b131\b  main [(855, '2.18'), (2129, '11.1.1'), (2136, '11.1.1'), (2154, '11.1.1'), (6661, '24.2'), (6751, '24.8'), (8754, '31.3.4'), (11119, 'E.3')] ; register [598, 1036, 1232, 4548, 6126, 6769]
    sites of \b128\b  main [(7055, '25.6.3'), (7058, '25.6.3'), (8738, '31.3.4'), (8785, '31.3.4'), (11117, 'E.3')] ; register [586, 2868, 3008, 3100, 3108, 3324, 3612, 3900, 4456, 4460, 4564, 5188]
    sites of 30,108   main [(8709, '31.3.1'), (8734, '31.3.4'), (11123, 'E.3'), (11845, 'Appendix G')] ; register []
    sites of \b502\b  main [(3611, '12.11.8'), (3951, '14.5.9'), (8767, '31.3.4'), (11121, 'E.3'), (11555, 'Appendix G')] ; register [24, 1874, 1884]
@@ -102528,14 +102567,14 @@ print('  L11592 / L11604 / L11816 / L11840 companion papers: cited with `Lach, M
   Borchers      References body 0; outside {'main': 3, 'reg': 18, 'mc': 13, 'ioi': 1} ← OWED (cited, unbibliographed)
   Wiesbrock     References body 0; outside {'main': 4, 'reg': 14, 'mc': 12, 'ioi': 1} ← OWED (cited, unbibliographed)
   Hadamard      References body 0; outside {'main': 1, 'reg': 19, 'mc': 7, 'pc': 2, 'ioi': 1} ← OWED (cited, unbibliographed)
-  Rota          References body 1; outside {'main': 1, 'mc': 20} present
-  Birkhoff      References body 2; outside {'main': 12, 'reg': 11, 'mc': 94} present
-  Freuder       References body 3; outside {'main': 10, 'reg': 8, 'mc': 56, 'ioi': 2} present
+  Rota          References body 1; outside {'main': 1, 'reg': 1, 'mc': 20} present
+  Birkhoff      References body 2; outside {'main': 12, 'reg': 12, 'mc': 94} present
+  Freuder       References body 3; outside {'main': 10, 'reg': 9, 'mc': 56, 'ioi': 2} present
   Montanari     References body 2; outside {'main': 2, 'reg': 2, 'mc': 4, 'ioi': 1} present
 
 == §2 docket 36, direction 2: every surname in the References body against the six volumes (a surname followed by an initial, `&`, `and`, a comma, an en dash or a year bracket; markup stripped); names cited nowhere else
   surnames extracted 156 (convention above; a STOP list of journal/title words is applied and printed in the source)
-  cited in the References and NOWHERE in the six volumes (8): ['Duquenne', 'Huang', 'Nash', 'Physikers', 'Ralchenko', 'Reader', 'Std', 'Team']
+  cited in the References and NOWHERE in the six volumes (7): ['Duquenne', 'Huang', 'Nash', 'Physikers', 'Ralchenko', 'Std', 'Team']
   extraction artefacts among them (title/organisation words, not surnames): ['Physikers', 'Std', 'Team']
     Huang       outside the unit: NONE
     Taylor      outside the unit: {'reg': 1, 'mc': 6}
@@ -102543,7 +102582,7 @@ print('  L11592 / L11604 / L11816 / L11840 companion papers: cited with `Lach, M
     Guigues     outside the unit: NONE
     Nash        outside the unit: NONE
     Ralchenko   outside the unit: NONE
-    Reader      outside the unit: NONE
+    Reader      outside the unit: {'reg': 1}
     Sharp       outside the unit: {'main': 1}
     Stephen     outside the unit: {'main': 1}
     Kimura      outside the unit: {'main': 1, 'reg': 2, 'mc': 1}
@@ -102562,7 +102601,7 @@ print('  L11592 / L11604 / L11816 / L11840 companion papers: cited with `Lach, M
     Hoffman     outside the unit: {'main': 2, 'reg': 3}
     Kandula     outside the unit: {'main': 1, 'reg': 1}
     Drake       outside the unit: {'main': 1, 'reg': 1, 'mc': 2, 'pc': 1, 'sc': 1}
-  the rest, cited somewhere: {'Aarseth': {'main': 1}, 'Adams': {'main': 3, 'reg': 1}, 'Aitken': {'main': 10, 'mc': 5}, 'Alekseev': {'reg': 2, 'mc': 1}, 'Andrew': {'main': 2, 'reg': 4, 'mc': 15, 'pc': 2, 'ioi': 1}, 'Anstee': {'main': 2, 'reg': 3}, 'Archives': {'main': 2, 'reg': 1}, 'Arnold': {'mc': 1}, 'Atomic': {'main': 1, 'reg': 10, 'mc': 13, 'sc': 1}, 'August': {'ioi': 1}, 'Baker': {'main': 5, 'reg': 3, 'mc': 15, 'pc': 1}, 'Batyrev': {'main': 1, 'ioi': 1}, 'Beek': {'reg': 2, 'mc': 7}, 'Bergman': {'main': 3, 'reg': 2, 'mc': 7}, 'Birkhoff': {'main': 12, 'reg': 11, 'mc': 94}, 'Boole': {'main': 1, 'mc': 3}, 'Booth': {'main': 3}, 'Bozis': {'reg': 2, 'mc': 1, 'pc': 1}, 'Brudno': {'main': 2, 'reg': 3, 'mc': 3, 'ioi': 1}, 'Brylawski': {'main': 2, 'reg': 1}, 'Candelas': {'main': 2}, 'Caspard': {'main': 2, 'reg': 3}, 'Chandrasekaran': {'main': 2, 'reg': 11, 'mc': 5}, 'Chazy': {'mc': 3, 'ioi': 1}, 'Chen': {'main': 2}, 'Chenciner': {'main': 1, 'reg': 1, 'mc': 1}, 'Colomb': {'main': 2, 'reg': 3}, 'Corliss': {'main': 1, 'reg': 2, 'sc': 1}, 'Cowan': {'main': 2, 'reg': 4, 'mc': 17, 'pc': 2, 'ioi': 1}, 'Dechter': {'main': 3, 'reg': 5, 'mc': 21}, 'Deville': {'main': 1, 'reg': 3, 'mc': 23, 'pc': 1}, 'Dilworth': {'main': 6, 'reg': 6, 'mc': 21, 'pc': 2}, 'Drake': {'main': 1, 'reg': 1, 'mc': 2, 'pc': 1, 'sc': 1}, 'Dunz': {'main': 10, 'reg': 1}, 'Dwinger': {'main': 3, 'reg': 1}, 'Edlén': {'main': 25, 'reg': 13, 'ioi': 1}, 'Euler': {'main': 4, 'reg': 3, 'mc': 26, 'pc': 1, 'ioi': 1}, 'Farber': {'main': 1, 'reg': 1}, 'Flanagan': {'main': 2, 'reg': 11, 'mc': 5}, 'Fleischer': {'mc': 1}, 'Freuder': {'main': 10, 'reg': 8, 'mc': 56, 'ioi': 2}, 'Fulkerson': {'main': 1}, 'Gauss': {'reg': 2, 'mc': 9}, 'Gerratt': {'reg': 1, 'mc': 3}, 'Griffin': {'main': 1, 'reg': 3, 'mc': 9, 'pc': 2, 'ioi': 1}, 'Gross': {'main': 1}, 'Gödel': {'main': 4}, 'Götze': {'main': 11, 'reg': 3}, 'Harmon': {'reg': 1, 'mc': 1, 'pc': 2}, 'Hentenryck': {'main': 1, 'reg': 2, 'mc': 14, 'pc': 1}, 'Hill': {'main': 8, 'reg': 1, 'mc': 1, 'pc': 3}, 'Hoffman': {'main': 2, 'reg': 3}, 'Hori': {'main': 2, 'reg': 1, 'sc': 1}, 'Hsiang': {'mc': 1}, 'Irlande': {'main': 1, 'reg': 1}, 'Isacker': {'main': 2, 'reg': 2}, 'Jacobi': {'main': 5, 'reg': 2, 'mc': 4, 'pc': 5, 'ioi': 1}, 'Janet': {'main': 15, 'reg': 83, 'mc': 21, 'pc': 8, 'ioi': 15, 'sc': 9}, 'Kandula': {'main': 1, 'reg': 1}, 'Kaufman': {'main': 4, 'sc': 1}, 'Kimura': {'main': 1, 'reg': 2, 'mc': 1}, 'Knauf': {'mc': 1}, 'Koelling': {'reg': 1, 'mc': 1, 'pc': 2}, 'Koh': {'main': 2}, 'Kol': {'reg': 3, 'mc': 2}, 'Kolen': {'main': 1, 'reg': 1}, 'Kolmogorov': {'mc': 4}, 'Korobov': {'main': 2, 'reg': 1, 'sc': 1}, 'Kramida': {'main': 3, 'sc': 1}, 'Kreuzer': {'main': 12, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Kuznetsov': {'main': 3, 'reg': 4}, 'Körner': {'main': 1}, 'Lach': {'main': 8, 'reg': 5, 'mc': 2}, 'Lagrange': {'main': 5, 'reg': 2, 'mc': 9, 'pc': 1}, 'Larson': {'main': 6, 'reg': 1}, 'Leibniz': {'reg': 1, 'mc': 3}, 'Leigh': {'reg': 4}, 'Lubiw': {'main': 2, 'reg': 4}, 'Lueker': {'main': 3}, 'Löwdin': {'main': 21, 'reg': 57, 'mc': 9, 'pc': 5, 'ioi': 2, 'sc': 2}, 'Madelung': {'main': 6, 'reg': 52, 'mc': 7, 'pc': 2, 'ioi': 4}, 'Makino': {'main': 1, 'reg': 1}, 'Manski': {'main': 5}, 'Marchal': {'reg': 2, 'mc': 2, 'pc': 1}, 'Mardling': {'main': 1}, 'Martin': {'main': 7, 'sc': 2}, 'Maupertuis': {'main': 2, 'reg': 1, 'mc': 3, 'pc': 4, 'ioi': 1}, 'Mills': {'reg': 1, 'mc': 3}, 'Molecular': {'main': 1, 'ioi': 1}, 'Monaghan': {'reg': 2, 'mc': 1}, 'Monjardet': {'main': 1, 'reg': 1, 'mc': 7}, 'Montanari': {'main': 2, 'reg': 2, 'mc': 4, 'ioi': 1}, 'Montgomery': {'main': 3, 'reg': 6, 'mc': 10, 'pc': 1}, 'Moore': {'main': 12, 'reg': 6, 'mc': 38, 'pc': 1, 'ioi': 2}, 'Moser': {'reg': 3}, 'Musgrove': {'main': 2, 'reg': 1, 'sc': 1}, 'Nemirovskii': {'main': 3, 'mc': 6}, 'Nesterov': {'main': 4, 'mc': 6}, 'Newton': {'main': 10, 'reg': 3, 'mc': 12, 'pc': 1}, 'Nuclear': {'reg': 5}, 'Nörlund': {'main': 1}, 'Obiedkov': {'main': 1, 'reg': 1}, 'Orlitsky': {'main': 1}, 'Ossa': {'main': 1}, 'P-completeness': {'main': 1, 'reg': 1}, 'Painlevé': {'main': 1, 'reg': 1, 'mc': 1, 'pc': 1, 'ioi': 1}, 'Paschen': {'main': 11, 'reg': 4}, 'Pixley': {'main': 5, 'reg': 3, 'mc': 15, 'pc': 1}, 'Poincaré': {'main': 4, 'reg': 2, 'mc': 2, 'ioi': 3}, 'Pulay': {'main': 4, 'reg': 1, 'mc': 4}, 'Racah': {'main': 5, 'reg': 18, 'mc': 46, 'ioi': 3}, 'Raynaud': {'main': 2, 'reg': 1}, 'Richardson': {'main': 2}, 'Ritz': {'main': 29, 'reg': 23, 'mc': 14, 'pc': 2, 'ioi': 1}, 'Rival': {'main': 9}, 'Rota': {'main': 1, 'mc': 20}, 'Runge': {'main': 1}, 'Rydberg': {'main': 50, 'reg': 82, 'mc': 48, 'pc': 22, 'ioi': 13, 'sc': 6}, 'Ryter': {'main': 2}, 'Saari': {'main': 1, 'reg': 1, 'mc': 5, 'ioi': 1}, 'Sakarovitch': {'main': 1, 'reg': 1}, 'Sansonetti': {'main': 4, 'reg': 2, 'sc': 2}, 'Schaefer': {'main': 4}, 'Schmid': {'main': 5, 'reg': 1}, 'Shanks': {'main': 1}, 'Shannon': {'main': 5, 'reg': 1, 'mc': 38, 'pc': 1}, 'Sharp': {'main': 1}, 'Siggers': {'main': 7, 'reg': 1}, 'Singer': {'main': 3, 'reg': 1, 'sc': 1}, 'Skarke': {'main': 11, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Sommerfeld': {'reg': 2, 'mc': 3, 'pc': 1}, 'Sperner': {'main': 8, 'reg': 6, 'mc': 10}, 'Stahl': {'main': 3}, 'Stanojevic': {'main': 1, 'sc': 1}, 'Steffensen': {'main': 1}, 'Stephen': {'main': 1}, 'Stone': {'reg': 3, 'mc': 1}, 'Straume': {'mc': 1}, 'Structure': {'main': 2}, 'Sugar': {'main': 3, 'reg': 3, 'sc': 2}, 'Tan': {'main': 2}, 'Taylor': {'reg': 1, 'mc': 6}, 'Tucker': {'main': 5}, 'Weidemüller': {'main': 1, 'sc': 1}, 'Wille': {'main': 3}, 'Yamada': {'main': 1, 'reg': 1}, 'Yannakakis': {'main': 2, 'reg': 1, 'mc': 8}, 'Yoshizumi': {'main': 1, 'reg': 1}}
+  the rest, cited somewhere: {'Aarseth': {'main': 1}, 'Adams': {'main': 3, 'reg': 1}, 'Aitken': {'main': 10, 'mc': 5}, 'Alekseev': {'reg': 2, 'mc': 1}, 'Andrew': {'main': 2, 'reg': 4, 'mc': 15, 'pc': 2, 'ioi': 1}, 'Anstee': {'main': 2, 'reg': 3}, 'Archives': {'main': 2, 'reg': 1}, 'Arnold': {'mc': 1}, 'Atomic': {'main': 1, 'reg': 10, 'mc': 13, 'sc': 1}, 'August': {'ioi': 1}, 'Baker': {'main': 5, 'reg': 3, 'mc': 15, 'pc': 1}, 'Batyrev': {'main': 1, 'ioi': 1}, 'Beek': {'reg': 2, 'mc': 7}, 'Bergman': {'main': 3, 'reg': 2, 'mc': 7}, 'Birkhoff': {'main': 12, 'reg': 12, 'mc': 94}, 'Boole': {'main': 1, 'mc': 3}, 'Booth': {'main': 3}, 'Bozis': {'reg': 2, 'mc': 1, 'pc': 1}, 'Brudno': {'main': 2, 'reg': 3, 'mc': 3, 'ioi': 1}, 'Brylawski': {'main': 2, 'reg': 1}, 'Candelas': {'main': 2}, 'Caspard': {'main': 2, 'reg': 3}, 'Chandrasekaran': {'main': 2, 'reg': 11, 'mc': 5}, 'Chazy': {'mc': 3, 'ioi': 1}, 'Chen': {'main': 2}, 'Chenciner': {'main': 1, 'reg': 1, 'mc': 1}, 'Colomb': {'main': 2, 'reg': 3}, 'Corliss': {'main': 1, 'reg': 2, 'sc': 1}, 'Cowan': {'main': 2, 'reg': 4, 'mc': 17, 'pc': 2, 'ioi': 1}, 'Dechter': {'main': 3, 'reg': 5, 'mc': 21}, 'Deville': {'main': 1, 'reg': 3, 'mc': 23, 'pc': 1}, 'Dilworth': {'main': 6, 'reg': 6, 'mc': 21, 'pc': 2}, 'Drake': {'main': 1, 'reg': 1, 'mc': 2, 'pc': 1, 'sc': 1}, 'Dunz': {'main': 10, 'reg': 1}, 'Dwinger': {'main': 3, 'reg': 1}, 'Edlén': {'main': 25, 'reg': 13, 'ioi': 1}, 'Euler': {'main': 4, 'reg': 3, 'mc': 26, 'pc': 1, 'ioi': 1}, 'Farber': {'main': 1, 'reg': 1}, 'Flanagan': {'main': 2, 'reg': 11, 'mc': 5}, 'Fleischer': {'mc': 1}, 'Freuder': {'main': 10, 'reg': 9, 'mc': 56, 'ioi': 2}, 'Fulkerson': {'main': 1}, 'Gauss': {'reg': 2, 'mc': 9}, 'Gerratt': {'reg': 1, 'mc': 3}, 'Griffin': {'main': 1, 'reg': 3, 'mc': 9, 'pc': 2, 'ioi': 1}, 'Gross': {'main': 1}, 'Gödel': {'main': 4}, 'Götze': {'main': 11, 'reg': 3}, 'Harmon': {'reg': 1, 'mc': 1, 'pc': 2}, 'Hentenryck': {'main': 1, 'reg': 2, 'mc': 14, 'pc': 1}, 'Hill': {'main': 8, 'reg': 1, 'mc': 1, 'pc': 3}, 'Hoffman': {'main': 2, 'reg': 3}, 'Hori': {'main': 2, 'reg': 1, 'sc': 1}, 'Hsiang': {'mc': 1}, 'Irlande': {'main': 1, 'reg': 1}, 'Isacker': {'main': 2, 'reg': 2}, 'Jacobi': {'main': 5, 'reg': 2, 'mc': 4, 'pc': 5, 'ioi': 1}, 'Janet': {'main': 15, 'reg': 83, 'mc': 21, 'pc': 8, 'ioi': 15, 'sc': 9}, 'Kandula': {'main': 1, 'reg': 1}, 'Kaufman': {'main': 4, 'sc': 1}, 'Kimura': {'main': 1, 'reg': 2, 'mc': 1}, 'Knauf': {'mc': 1}, 'Koelling': {'reg': 1, 'mc': 1, 'pc': 2}, 'Koh': {'main': 2}, 'Kol': {'reg': 3, 'mc': 2}, 'Kolen': {'main': 1, 'reg': 1}, 'Kolmogorov': {'mc': 4}, 'Korobov': {'main': 2, 'reg': 1, 'sc': 1}, 'Kramida': {'main': 3, 'sc': 1}, 'Kreuzer': {'main': 12, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Kuznetsov': {'main': 3, 'reg': 4}, 'Körner': {'main': 1}, 'Lach': {'main': 8, 'reg': 5, 'mc': 2}, 'Lagrange': {'main': 5, 'reg': 2, 'mc': 9, 'pc': 1}, 'Larson': {'main': 6, 'reg': 1}, 'Leibniz': {'reg': 1, 'mc': 3}, 'Leigh': {'reg': 4}, 'Lubiw': {'main': 2, 'reg': 4}, 'Lueker': {'main': 3}, 'Löwdin': {'main': 21, 'reg': 57, 'mc': 9, 'pc': 5, 'ioi': 2, 'sc': 2}, 'Madelung': {'main': 6, 'reg': 52, 'mc': 7, 'pc': 2, 'ioi': 4}, 'Makino': {'main': 1, 'reg': 1}, 'Manski': {'main': 5}, 'Marchal': {'reg': 2, 'mc': 2, 'pc': 1}, 'Mardling': {'main': 1}, 'Martin': {'main': 7, 'sc': 2}, 'Maupertuis': {'main': 2, 'reg': 1, 'mc': 3, 'pc': 4, 'ioi': 1}, 'Mills': {'reg': 1, 'mc': 3}, 'Molecular': {'main': 1, 'ioi': 1}, 'Monaghan': {'reg': 2, 'mc': 1}, 'Monjardet': {'main': 1, 'reg': 1, 'mc': 7}, 'Montanari': {'main': 2, 'reg': 2, 'mc': 4, 'ioi': 1}, 'Montgomery': {'main': 3, 'reg': 6, 'mc': 10, 'pc': 1}, 'Moore': {'main': 12, 'reg': 6, 'mc': 38, 'pc': 1, 'ioi': 2}, 'Moser': {'reg': 3}, 'Musgrove': {'main': 2, 'reg': 1, 'sc': 1}, 'Nemirovskii': {'main': 3, 'mc': 6}, 'Nesterov': {'main': 4, 'mc': 6}, 'Newton': {'main': 10, 'reg': 3, 'mc': 12, 'pc': 1}, 'Nuclear': {'reg': 5}, 'Nörlund': {'main': 1}, 'Obiedkov': {'main': 1, 'reg': 1}, 'Orlitsky': {'main': 1}, 'Ossa': {'main': 1}, 'P-completeness': {'main': 1, 'reg': 1}, 'Painlevé': {'main': 1, 'reg': 1, 'mc': 1, 'pc': 1, 'ioi': 1}, 'Paschen': {'main': 11, 'reg': 4}, 'Pixley': {'main': 5, 'reg': 3, 'mc': 15, 'pc': 1}, 'Poincaré': {'main': 4, 'reg': 2, 'mc': 2, 'ioi': 3}, 'Pulay': {'main': 4, 'reg': 1, 'mc': 4}, 'Racah': {'main': 5, 'reg': 18, 'mc': 46, 'ioi': 3}, 'Raynaud': {'main': 2, 'reg': 1}, 'Reader': {'reg': 1}, 'Richardson': {'main': 2}, 'Ritz': {'main': 29, 'reg': 23, 'mc': 14, 'pc': 2, 'ioi': 1}, 'Rival': {'main': 9}, 'Rota': {'main': 1, 'reg': 1, 'mc': 20}, 'Runge': {'main': 1}, 'Rydberg': {'main': 50, 'reg': 82, 'mc': 48, 'pc': 22, 'ioi': 13, 'sc': 6}, 'Ryter': {'main': 2}, 'Saari': {'main': 1, 'reg': 1, 'mc': 5, 'ioi': 1}, 'Sakarovitch': {'main': 1, 'reg': 1}, 'Sansonetti': {'main': 4, 'reg': 2, 'sc': 2}, 'Schaefer': {'main': 4}, 'Schmid': {'main': 5, 'reg': 1}, 'Shanks': {'main': 1}, 'Shannon': {'main': 5, 'reg': 1, 'mc': 38, 'pc': 1}, 'Sharp': {'main': 1}, 'Siggers': {'main': 7, 'reg': 1}, 'Singer': {'main': 3, 'reg': 1, 'sc': 1}, 'Skarke': {'main': 11, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Sommerfeld': {'reg': 2, 'mc': 3, 'pc': 1}, 'Sperner': {'main': 8, 'reg': 6, 'mc': 10}, 'Stahl': {'main': 3}, 'Stanojevic': {'main': 1, 'sc': 1}, 'Steffensen': {'main': 1}, 'Stephen': {'main': 1}, 'Stone': {'reg': 3, 'mc': 1}, 'Straume': {'mc': 1}, 'Structure': {'main': 2}, 'Sugar': {'main': 3, 'reg': 3, 'sc': 2}, 'Tan': {'main': 2}, 'Taylor': {'reg': 1, 'mc': 6}, 'Tucker': {'main': 5}, 'Weidemüller': {'main': 1, 'sc': 1}, 'Wille': {'main': 3}, 'Yamada': {'main': 1, 'reg': 1}, 'Yannakakis': {'main': 2, 'reg': 1, 'mc': 8}, 'Yoshizumi': {'main': 1, 'reg': 1}}
 
 == §3 L11818 "Hill 1878, Poincaré 1890, Freuder 1982 and Mardling & Aarseth 2001 are cited above and reused"; R.7 Löwdin block vs the chapter; R.7 three-body names vs Chapter 36 and Register 1713–1724
   Hill      1878: above L11818 at [11837]
@@ -102989,8 +103028,8 @@ print('  tower-2 module attributes carrying a cell count (introspected, names on
 ====================================================================================================
 §0 IDENTITY AND BOUNDARIES
 ====================================================================================================
-  The_Method_1_6-2.md                              md5 ffe43fd4  11904 lines
-  The_Method_1_6___The_Register-2.md               md5 caacd11e  6755 lines
+  The_Method_1_6-2.md                              md5 e5875231  11904 lines
+  The_Method_1_6___The_Register-2.md               md5 33e10932  6771 lines
   LW1-ground.py                                    md5 236975ac  130 lines
   r2lib.py                                         md5 580d2ea2  454 lines
   tower-2.py                                       md5 c0bce27a  31 lines
@@ -103235,7 +103274,7 @@ print('  tower-2 module attributes carrying a cell count (introspected, names on
   'return from one'        -> entries []
   'subshell opening'       -> entries ['529', '530', '1333']
   'mid-subshell'           -> entries ['1350']
-  '0.19%'                  -> entries ['1337', '1350']
+  '0.19%'                  -> entries ['1337', '1350', '1830']
   '1.2168450'              -> entries ['1330']
   '1.3938270'              -> entries ['1330']
   'Seventeen of nineteen'  -> entries []
@@ -103923,7 +103962,7 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    sites                                                    429                        OK
    entries with an odd asterisk total                       22                         OK
    the split class spans the record, 238 to 1729            275                        FINDING (reg7-A)
-   16.5% of the 1,670 entries. The 1642-1699 "cluster" holds 10 of them.
+   16.4% of the 1,674 entries. The 1642-1699 "cluster" holds 10 of them.
 
 == 2  THE TWO SUB-CLASSES
    odd AND split: a literal asterisk must reach the page    11                         OK
@@ -104152,13 +104191,13 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
 <<<FILE: r2-regsweep2.out>>>
 
 == 0  THE POPULATION
-   entries (heading lines) = the front matter's printed total 1670                       OK
-   bare / grouped                                             (1663, 7)                  OK
-   distinct numbers = headings + the 25 extra numbers the seven grouped headings carry 1695                       OK
+   entries (heading lines) = the front matter's printed total 1674                       OK
+   bare / grouped                                             (1667, 7)                  OK
+   distinct numbers = headings + the 25 extra numbers the seven grouped headings carry 1699                       OK
    no entry number printed twice                              []                         OK
 
 == 1  THE ENTRY FORM, OVER EVERY ENTRY
-   entries with a body            : 1670
+   entries with a body            : 1674
    entries whose body is empty    : 0
    every non-empty body opens on a bold headline              []                         OK
    entries whose first line carries an ODD number of asterisks: 22
@@ -104189,7 +104228,7 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    Entry 313 is the one CONFIRMED by reading (reg3-01). The rest are handed to their units.
 
 == 2  REGISTER POINTERS, OVER EVERY VOLUME
-   distinct register numbers cited anywhere : 644
+   distinct register numbers cited anywhere : 646
    cited numbers with no entry, BARE-NUMBER net               [344, 571]                 OK
    in which volumes: {344: ['main'], 571: ['main']}
    register_cites.py reports 31 on a RANGE-AWARE net that also expands "registers 344-346"
@@ -104198,7 +104237,7 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
 
 == 3  ABSENT NUMBERS, AND WHETHER ANYTHING CITES THEM
    numbers absent in 1..1792 (the predecessor's measurement, unchanged) 132                        OK
-   numbers absent above 1792, in 1..1828: [1797] (staged, not seated — register 1797 is queued in REGISTER-QUEUE-APPEND-cypher-audit.md)
+   numbers absent above 1792, in 1..1832: [1797] (staged, not seated — register 1797 is queued in REGISTER-QUEUE-APPEND-cypher-audit.md)
    absent AND cited   : 2 [344, 571]
    absent and uncited : 131
    L6574 enumerates eleven "in no group at all", scoped between 203 and 354: [204, 206, 210, 260, 264, 269, 272, 287, 324, 341, 344]
@@ -104222,7 +104261,7 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    section pointers unaccounted for                           ['1.8']                    EXPECTED []
 
 == 5  FIGURE NUMERALS: RESOLVES, OR COLLIDES
-   figure numerals named in the register : 6
+   figure numerals named in the register : 7
    figures actually embedded in the main volume : 32
    named by the register, NOT embedded : []
    every other numeral the register names is live; whether it names the RIGHT figure is a
@@ -104663,32 +104702,32 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
 <<<FILE: r2-reg1a3.out>>>
 
 == 0  PROVENANCE
-   The_Method_1_6___The_Register-2.md              1252955 B  md5 caacd11e
-   The_Method_1_6-2.md                              784432 B  md5 ffe43fd4
+   The_Method_1_6___The_Register-2.md              1262282 B  md5 33e10932
+   The_Method_1_6-2.md                              784432 B  md5 e5875231
    kinds.py                                           3370 B  md5 4262f7c5
    register_cites.py                                  2403 B  md5 c38ad7ee
-   register lines: 6755
+   register lines: 6771
 
 == 1  THE UNIT, BOUNDED BY ITS OWN SCAN
    front matter runs L1 to the line before the first entry (### 1 is the first heading) 78                         OK
    unit = L1-L77, 77 lines, 7914 B
-   printed, read as data: total 1670 to 1828 | mature 165-1828 at 1506 (back matter 165-1828) | kinds over 1600 | cited-by-entries 666 | table 14 rows | cited 411 / 883 / 1085
+   printed, read as data: total 1674 to 1832 | mature 165-1832 at 1510 (back matter 165-1832) | kinds over 1604 | cited-by-entries 671 | table 14 rows | cited 411 / 883 / 1088
 
 == 2  THE ENTRY POPULATION (docket 30 convention)
-   heading lines = bare + grouped                             1670                       OK
-   entries (headings)                                         1670                       as printed
-   bare 1663, grouped 7, distinct numbers 1695, min 1, max 1828
+   heading lines = bare + grouped                             1674                       OK
+   entries (headings)                                         1674                       as printed
+   bare 1667, grouped 7, distinct numbers 1699, min 1, max 1832
    extent low                                                 1                          as printed
-   extent high                                                1828                       as printed
+   extent high                                                1832                       as printed
    genesis block 1-94 (headings)                              94                         as printed
    superseded block 95-164 (headings)                         70                         as printed
    NOTE the front matter does not print a count for 95-164; 70 is the full range and is measured, not scored.
 
-== 3  THE MATURE RECORD: 165-1828 / 1,506  AGAINST THE CLOSING LINE 165-1828
-   headings 165-1828 1506 | headings 165-1828 1506
-   numbers  165-1828 1531 | numbers  165-1828 1531   (numbers are NOT what the book counts)
-   mature record 165-1828, headings                           1506                       as printed
-   "165 to 1828" at L[6] ; "165-1828" at L[68]
+== 3  THE MATURE RECORD: 165-1832 / 1,510  AGAINST THE CLOSING LINE 165-1832
+   headings 165-1832 1510 | headings 165-1832 1510
+   numbers  165-1832 1535 | numbers  165-1832 1535   (numbers are NOT what the book counts)
+   mature record 165-1832, headings                           1510                       as printed
+   "165 to 1832" at L[6] ; "165-1832" at L[68]
    READING: 1,470 is EXACT on the heading convention for 165-1791. The closing line names
    165-1792 for the same block while the count printed beside it excludes 1792, which is
    itself an entry. The defective half is the RANGE in the closing line, not the count.
@@ -104703,20 +104742,20 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
    entry 361 at L1318; grouped headings at L[1322, 1326, 1330, 1334, 1338, 1342, 1346]
 
 == 5  THE KINDS TABLE, RECOMPUTED BY kinds.py (the book's own operator)
-   kinds.py heading population                                1600                       as printed
+   kinds.py heading population                                1604                       as printed
    kinds: a finding                                           1360                       as printed
-   kinds: a correction                                        180                        as printed
+   kinds: a correction                                        184                        as printed
    kinds: a measurement                                       502                        as printed
    kinds: prior art                                           61                         as printed
    kinds: a new protocol                                      24                         as printed
    kinds: a withdrawal                                        33                         as printed
    kinds: a fault of mine                                     16                         as printed
    kinds: an open question                                    23                         as printed
-   NOTE kinds.py counts 1,600 headings, not the 1,670 of section 2: it drops the 95-164
-   supersession stubs under the chat-52 ruling. 1670 - 70 = 1600, and that reconciles.
+   NOTE kinds.py counts 1,604 headings, not the 1,674 of section 2: it drops the 95-164
+   supersession stubs under the chat-52 ruling. 1674 - 70 = 1604, and that reconciles.
 
 == 6  THE LOAD-BEARING TABLE, RECOMPUTED BY register_cites.py (the book's own operator)
-   entries cited by other entries                             666                        as printed
+   entries cited by other entries                             671                        as printed
    load-bearing 1460                                          21                         as printed
    load-bearing 1445                                          14                         as printed
    load-bearing 1475                                          10                         as printed
@@ -104737,7 +104776,7 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
 == 7  THE THREE CITATION FIGURES
    cited in the main volume                                   411                        as printed
    counting compendia and papers                              883                        as printed
-   counting citations by other entries                        1085                       as printed
+   counting citations by other entries                        1088                       as printed
 
 == 8  POINTERS IN THE FRONT MATTER, EVERY ONE RESOLVED TO ITS CLAIM
    register 1725  the settled entry form           ABSENT
@@ -107696,7 +107735,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-bib2.out>>>
 r2-bib.py — census mc 387–672 (the bibliography's `objects` column) and mc 293 (the modular ledger's numerals)
-members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main ffe43fd4 | reg caacd11e | pc 6e904d82 | sc 5ba7f61c | ioi 43a28121 | census ba8306f2
+members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main e5875231 | reg 33e10932 | pc 6e904d82 | sc 5ba7f61c | ioi 43a28121 | census ba8306f2
 
 == §1 THE TABLE, located by scan — the census rows point into it and every one of them is a handle
    exactly one bibliography table header                                  1                        OK
@@ -107712,7 +107751,7 @@ members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main ffe43fd4 
    the census handles are a subset of the column's                        []                       OK
 
 == §2 RESOLUTION — where else, if anywhere, each handle is printed
-   in the compendium outside the table: 6 | elsewhere only: 128 | nowhere: 131
+   in the compendium outside the table: 6 | elsewhere only: 135 | nowhere: 124
    A.staircls   in the compendium outside the table at: [(3600, '**`A.staircls`** states that E(ℛ) = 0 iff the held set is an intersection of'), (3785, 'The held cells form a **staircase**, which by `A.staircls` is exactly the')]
    C.Aq         in the compendium outside the table at: [(2688, '*as C.Aq*'), (2692, '> **Prior art: as C.Aq — the second factor of the fibred count, built the same way.**')]
    E.nuclide    in the compendium outside the table at: [(3709, "E.nuclide's shape, a defect whose every missing cell can be named.*")]
@@ -107721,12 +107760,12 @@ members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main ffe43fd4 
    M.C2         in the compendium outside the table at: [(2414, 'COMPLETED 2026-08-11 (R 1484): the sum is TWO accountings. LEVEL ONE, the manifold, is wha')]
    handles the compendium prints outside the table                        ['A.staircls', 'C.Aq', ' OK
    every one of those six is printed as a REFERENCE inside another entry, not as the name of its own True                     OK
-   the elsewhere-only handles resolve in: {'main': 57, 'reg': 111}
+   the elsewhere-only handles resolve in: {'main': 57, 'reg': 118}
    of those, printed in Appendix G's "what rests on it" column: 27
-   nowhere: A.E A.EW A.S A.W A.anchor A.bound A.ebits A.expr A.intext A.logic A.morph A.prod A.prodE A.r4 A.relax A.seaton A.slack A.stair A.stat2 A.three A.two B.V B.V43 B.Vexact B.floor2 B.floor32 B.frac B.newton B.ordbr B.ordk B.pareto B.pole B.rank1 B.selfconc C.Bq C.box C.compare C.cut C.fib C.local C.pareto C.qmean E.ioniz E.layout E.table EM.cross EM.notcomp EM.parity EM.quotient EM.spin F.exact F.moore F.open F.unstatable G.allcons G.book G.cons G.graph G.near G.prot G.ref G.reg G.shape G.stat G.tower G.trip I.convex I.interval I.shape K.arrow K.clock K.clockfail K.comp K.corner K.coupling K.decay K.jump K.markov K.three K.transit K.zcross L.E0 L.F1 L.Fm1 L.alpha L.amp L.birk L.bits L.box L.c2 L.c4 L.c5 L.c7 L.chains L.chi L.circuit L.metric L.mobius L.modular L.occ L.pal L.pushback L.rankpoly L.skew L.step L.tree L.void L.voidfrac Q.pen S.bits S.bounds S.box S.car S.channel S.cover S.down S.erasure S.open S.parent S.status S.unit T.a10 T.a11 T.a13 T.a9 T.dens T.dich T.excl T.invariant T.real W.face
-   census handles resolving nowhere                                       88                       measured (93 at the closing reading)
-   census handles resolving only outside the compendium                   91                       measured (86 at the closing reading)
-   census rows whose handle resolves nowhere                              125                      measured (133 at the closing reading)
+   nowhere: A.E A.EW A.S A.W A.anchor A.bound A.ebits A.expr A.intext A.logic A.morph A.prod A.prodE A.r4 A.relax A.seaton A.slack A.stair A.stat2 A.three A.two B.V B.V43 B.Vexact B.floor2 B.floor32 B.frac B.newton B.ordbr B.ordk B.pareto B.pole B.rank1 B.selfconc C.Bq C.box C.compare C.cut C.fib C.local C.pareto C.qmean E.ioniz E.layout E.table EM.cross EM.notcomp EM.parity EM.quotient EM.spin F.exact F.moore F.open F.unstatable G.allcons G.book G.cons G.graph G.near G.prot G.ref G.reg G.shape G.stat G.tower G.trip I.convex I.interval I.shape K.arrow K.clock K.clockfail K.comp K.corner K.coupling K.decay K.jump K.markov K.three K.transit K.zcross L.E0 L.F1 L.Fm1 L.alpha L.amp L.c2 L.c4 L.c5 L.c7 L.chains L.chi L.metric L.mobius L.modular L.occ L.pal L.pushback L.rankpoly L.skew L.step Q.pen S.bits S.bounds S.box S.car S.channel S.cover S.down S.erasure S.open S.parent S.status S.unit T.a10 T.a11 T.a13 T.a9 T.dens T.dich T.excl T.invariant T.real W.face
+   census handles resolving nowhere                                       83                       measured (93 at the closing reading)
+   census handles resolving only outside the compendium                   96                       measured (86 at the closing reading)
+   census rows whose handle resolves nowhere                              117                      measured (133 at the closing reading)
    census rows whose handle the compendium prints outside the table       0                        OK
    mathreg.py, where the handle -> object map lives, is a member of this build False                    OK
    a reader can follow every handle in the `objects` column to an object the volume states False                    DEVIATION (bib-01) — printed True
@@ -107754,8 +107793,8 @@ members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main ffe43fd4 
       bib-01  a reader can follow every handle in the `objects` column to an object the volume states — measured False, printed True
    mc 387–672: DEFECT, one class at one site. The `objects` column prints 265 handles; the compendium prints
    6 of them outside the table and only as references inside other entries, never as an object's own name;
-   128 resolve only to another volume — the Register and the main volume, Appendix G's column among the sites —
-   and 131 resolve nowhere.
+   135 resolve only to another volume — the Register and the main volume, Appendix G's column among the sites —
+   and 124 resolve nowhere.
    nowhere. The map from handle to object is mathreg.py's, and mathreg.py is not a member — docket 38 as much
    as docket 28. Recorded, not repaired: the repair is the generator's, printing each handle beside the object
    it names, and the generator is not held.
@@ -108039,3 +108078,957 @@ sys.exit(1 if FAIL else 0)
 
    integrity checks: ALL OK
 <<<END FILE: r3-q5b-measure.out>>>
+
+<<<FILE: r3-q5c.py>>>
+#!/usr/bin/env python3
+"""r3-q5c.py — R3: Q5 pass 3. The chat-56 B-list batch 2 slip B2-C1 seated as register 1829, its figures re-derived first by
+r3-q5c-measure.py (chat 56 left no instrument pack; the pass-2 ruling), seated beside it with its golden. BUILD106 -> BUILD107 main.
+
+No volume site is edited: the object the slip corrected by handle (L.omega) is no longer printed by the live Mathematical
+Compendium, which names the handle only in its bibliography. The count classes of entries 1815 and 1816 are re-taken in
+the same build.
+
+Usage:  python3 r3-q5c.py            dry run (runs the measurement, builds nothing)
+        python3 r3-q5c.py --write    writes staging members + BUILD107 main
+"""
+import os, sys, re, hashlib, runpy, tempfile, subprocess, io, contextlib, importlib.util, time
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+TOOLS = os.path.join(REPO, 'tools') + os.sep
+OLD_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD106_main_and_register.md'); OLD_M_MD5 = '6eda490aa0ef2c2d5570326bc1f1a6bf'
+NEW_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD107_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build107') + os.sep
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+g = lambda n: '{:,}'.format(n)
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+
+# ---- the measurement, from the seated instrument ------------------------------------------------------------------------
+p = subprocess.run([sys.executable, MEM + 'r3-q5c-measure.py'], capture_output=True, text=True, cwd=MEM)
+print(p.stdout.rstrip()); assert p.returncode == 0 and 'integrity checks: ALL OK' in p.stdout, 'r3-q5c-measure.py did not pass'
+gold = open(MEM + 'r3-q5c-measure.out', encoding='utf-8').read(); assert p.stdout == gold, 'r3-q5c-measure.out is not this run'
+import re as _re
+_norm = lambda t: _re.sub(r'\s+', ' ', t)
+for s_ in ('positive-exponent reading: cells attaining 8 100 OK', 'non-minimal reading: cells attaining 8 96 OK', 'the discrepancy is exactly four cells 4 OK', 'the tight cell (2,1,3,3,2,1,3,3): ω = 8 by direct factorisation 8 OK'):
+    assert s_ in _norm(p.stdout), s_
+print('MEASURED at this build: every figure the entry states reproduces from r3-q5c-measure.py.')
+
+# ---- the volumes as they stand --------------------------------------------------------------------------------------
+old = {n: open(MEM + n, 'rb').read() for n in (MAIN, REG)}
+txt = {n: old[n].decode('utf-8') for n in old}
+r = txt[REG]; assert r.count('### 1829\n') == 0 and r.rstrip().endswith('Registers 44; 1228; 1794. (a correction.)')
+
+ENTRIES = """
+
+### 1829
+
+**THE ω-BOUND'S PRIOR-ART GLOSS MISSTATED WHAT ω COUNTS; CORRECTED FROM "NON-MINIMAL COORDINATES" TO "POSITIVE-EXPONENT COORDINATES".** *The L.omega object's prior-art line read "the number of coordinates in which x is non-minimal". This is false in the divisor embedding: ω(N(x)) is the number of distinct primes dividing N(x), which is |{ i : xᵢ > 0 }|, not |{ i : xᵢ > minᵢ }|. The floors n, k, e ≥ 1 (L.def) put those three exponents positive on every cell, so three primes divide N(x) universally and ω ≥ 3 everywhere; the "non-minimal" reading undercounts by treating a floored coordinate at its minimum (value 1) as contributing no prime, when it contributes one. Measured: over Λ₈, max ω = 8 attained at 100 cells (the "non-minimal" reading gives 96 — the discrepancy is exactly the cells where a floored coordinate sits at its minimum yet still carries its prime). Tight cell (2,1,3,3,2,1,3,3), ω = 8 by direct factorisation. The bold statement of L.omega was already correct (register 1827: "coordinate count", not dim); this slip corrects only the prior-art gloss beneath it, as the object stood at BUILD57; the live compendium names the handle only in its bibliography. Drafted at chat 56 (B-list batch 2, MC-07) as slip B2-C1 and queued for a "Register 1.1"; seated under RUL-153 Q5. Re-derived at this build by r3-q5c-measure.py, seated with this entry with its golden — chat 56 left no instrument, and the re-run is R3's, named as such; Λ₈ from the seated tower-2.py — 100 cells at ω = 8 under the positive-exponent reading against 96 under the non-minimal one, the four that differ being (2,1,1,1,2,1,1,1), (2,1,1,1,3,1,1,1), (3,1,1,1,2,1,1,1) and (3,1,1,1,3,1,1,1), each with every coordinate positive and a floored one at 1; minimum 3; 8 at the tight cell. Both states preserved.* Registers 1827. (a correction.)
+"""
+def with_entries(t): return t.rstrip() + ENTRIES + '\n'
+SUBS = {}
+new = dict(txt)
+new[REG] = with_entries(new[REG])
+
+# ---- the counts, from the seated tools on the members as they will stand (entries 1815 and 1816's classes) --------------
+stage = tempfile.mkdtemp(prefix='r3-q5a-')
+for f in os.listdir(MEM):
+    if f.endswith('.md') and f not in new: os.symlink(MEM + f, os.path.join(stage, f))
+for n in new: open(os.path.join(stage, n), 'w', encoding='utf-8').write(new[n])
+cwd = os.getcwd(); os.chdir(stage); buf = io.StringIO()
+with contextlib.redirect_stdout(buf): G = runpy.run_path(MEM + 'register_cites.py', run_name='__main__')
+os.chdir(cwd)
+byent, bymain, comp = G['byent'], G['bymain'], G['comp']
+CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY = len(byent), len(bymain), len(set(bymain) | set(comp)), len(byent + bymain + comp)
+TOP = sorted(((n, k) for n, k in byent.items() if k >= 7), key=lambda t: (-t[1], t[0]))
+kout = subprocess.run([sys.executable, MEM + 'kinds.py', os.path.join(stage, REG)], capture_output=True, text=True, cwd=MEM).stdout.split('\n')[0]
+K_N = int(kout.split()[0]); K = eval(kout[kout.index('{'):])
+for f in os.listdir(stage): os.unlink(os.path.join(stage, f))
+os.rmdir(stage)
+sys.path.insert(0, TOOLS); import close_main as cm; import register_counts as rc
+print('register_cites with 1829: by entries %d | main %d | main+companions %d | anywhere %d | >=7 %s' % (CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY, TOP))
+print('kinds.py: %d %s' % (K_N, K))
+rr, edits = cm.recount(new[REG]); assert edits
+for o, n in edits: print('recount: %s -> %s' % (o[:50], n[:50]))
+c = rc.count(rr)
+def sub1(t, pat, repl, label):
+    m = re.search(pat, t, re.M); assert m, label + ': anchor absent'
+    n = repl(m); assert t.count(m.group(0)) == 1, label + ': anchor not unique'
+    print('%-40s %s -> %s' % (label, m.group(0)[:60].replace('\n', ' '), n[:60].replace('\n', ' ')) if n != m.group(0) else '%-40s unchanged' % label)
+    return t.replace(m.group(0), n)
+for kind in ('a finding', 'a correction', 'a measurement', 'a new protocol', 'a withdrawal', 'prior art', 'an open question', 'a fault of mine'):
+    rr = sub1(rr, r'^\| \*\*%s\*\* \| (\d[\d,]*) \| (\d+) \|' % re.escape(kind), lambda m, kind=kind: '| **%s** | %s | %s |' % (kind, g(K[kind]), m.group(2)), 'kinds row ' + kind)
+rr = sub1(rr, r'by `kinds\.py` over the (\d[\d,]*) entry headings,', lambda m: 'by `kinds.py` over the %s entry headings,' % g(K_N), 'kinds headings')
+rr = sub1(rr, r'\*\*(\d[\d,]*) entries are cited by other entries\.\*\*', lambda m: '**%d entries are cited by other entries.**' % CITED_BY, 'cited by entries')
+rr = sub1(rr, r'the (\d+) cited seven times or more:', lambda m: 'the %d cited seven times or more:' % len(TOP), 'the N cited')
+rr = sub1(rr, r'\*\*(\d[\d,]*) entries are cited in the main volume\'s chapters and appendices; (\d[\d,]*) counting the four compendia and the two papers; (\d[\d,]*) counting citations by other entries\.\*\*',
+          lambda m: '**%d entries are cited in the main volume\'s chapters and appendices; %d counting the four compendia and the two papers; %s counting citations by other entries.**' % (CITED_MAIN, CITED_MC, g(CITED_ANY)), 'cited 3 figures')
+rows = re.findall(r'^\| \*\*(\d+)\*\* \| (\d+)× \| (.*) \|$', rr, re.M)
+what = {int(e): w for e, _, w in rows}
+# No entry is expected to reach seven citations with this pass; if one does the instrument refuses (a new row is a hand act).
+NEW_ROWS = {}
+norm = lambda t: re.sub(r'\W', '', t).casefold()
+def headline(e):
+    body = new[REG].split('\n### %d\n' % e, 1)[1]; return re.match(r'\s*\*\*(.+?)\*\*', body, re.S).group(1).strip()
+for e, w in NEW_ROWS.items(): assert norm(headline(e)) == norm(w), (e, headline(e))
+assert sorted(set(what) | set(NEW_ROWS)) == sorted(n for n, _ in TOP) and not (set(what) & set(NEW_ROWS)), ('the >=7 set changed beyond the hand-written rows; REFUSED', sorted(what), TOP)
+what.update(NEW_ROWS); print('table: +%d row(s) %s' % (len(NEW_ROWS), sorted(NEW_ROWS)))
+i0 = rr.index('| entry | cited | what it established |\n|---|---|---|\n'); i1 = rr.index('\n\n', i0)
+rr = rr[:i0] + '| entry | cited | what it established |\n|---|---|---|\n' + ''.join('| **%d** | %d× | %s |\n' % (n, k, what[n]) for n, k in TOP) + rr[i1 + 1:]
+new[REG] = rr
+mm = new[MAIN]
+mm = sub1(mm, r'(\d[\d,]*) entries, 1 to (\d+), at this build \(2026-09-04\)', lambda m: '%s entries, 1 to %d, at this build (2026-09-04)' % (g(c['headings']), c['highest']), 'main: at this build')
+mm = sub1(mm, r'436 entries when this paragraph was written, (\d[\d,]*) at this build', lambda m: '436 entries when this paragraph was written, %s at this build' % g(c['headings']), 'main: N at this build')
+mm = sub1(mm, r'at this build the main volume cites (\d+) entries', lambda m: 'at this build the main volume cites %d entries' % CITED_MAIN, 'main: cites N')
+new[MAIN] = mm
+c2 = rc.count(new[REG]); p2 = rc.printed(new[REG])
+assert (p2['front_total'], p2['front_highest'], p2['front_mature'], p2['front_mature_highest'], p2['back_mature_highest']) == (c2['headings'], c2['highest'], c2['mature'], c2['highest'], c2['highest']), (p2, c2)
+assert c2['genesis'] + c2['superseded'] + c2['mature'] == c2['headings'] == p2['front_total']
+print('the front matter sums to itself: %d + %d + %d = %d, highest %d' % (c2['genesis'], c2['superseded'], c2['mature'], c2['headings'], c2['highest']))
+
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v in new:
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:40], txt[v].count(a), new[v].count(a)) for a in anchors if txt[v].count(a) != new[v].count(a)]
+    print('build.py SUBS anchors on %-36s %3d checked; moved: %s' % (v, len(anchors), moved)); assert not moved
+for v in new: print('%-36s %d -> %d B, lines %+d' % (v, len(old[v]), len(new[v].encode('utf-8')), new[v].count('\n') - txt[v].count('\n')))
+if WRITE: assert not os.path.exists(OUT); os.makedirs(OUT)
+elif not os.path.isdir(OUT): os.makedirs(OUT)
+for v in new: open(OUT + v, 'wb').write(new[v].encode('utf-8'))
+ob = open(OLD_M, 'rb').read(); assert md5(ob) == OLD_M_MD5, 'BUILD106 md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(ob)); nb = ob
+for n in (MAIN, REG):
+    assert ms[n] == old[n]; b0 = block(n, ms[n]); assert nb.count(b0) == 1; nb = nb.replace(b0, block(n, new[n].encode('utf-8')))
+rv = nb
+for n in (MAIN, REG):
+    b1 = block(n, new[n].encode('utf-8')); assert rv.count(b1) == 1; rv = rv.replace(b1, block(n, ms[n]))
+assert md5(rv) == OLD_M_MD5, 'reverse FAILED'
+print('BUILD106 -> BUILD107: reverse recovers md5 %s == old: True; new %s B md5 %s %s lines' % (OLD_M_MD5, format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ',')))
+if WRITE: assert not os.path.exists(NEW_M); open(NEW_M, 'wb').write(nb); print('written', NEW_M)
+else: print('DRY RUN — nothing installed')
+<<<END FILE: r3-q5c.py>>>
+
+<<<FILE: r3-q5c-measure.py>>>
+#!/usr/bin/env python3
+# r3-q5c-measure.py — R3 (Q5 pass 3): the chat-56 batch 2 slip B2-C1 re-derived. Chat 56 left no instrument pack; M ruled
+# (RUL-153, pass 2) that the re-run is an instrument of R3's, named as a re-derivation. Λ₈ from the seated tower-2.py,
+# imported by path; standard library; deterministic.
+#
+# The two readings of ω(N(x)) in the divisor embedding N(x) = ∏ pᵢ^{xᵢ}: the number of distinct primes dividing N(x) is
+# the number of POSITIVE coordinates, |{i : xᵢ > 0}| (B2-C1's corrected gloss); the gloss the object carried read it as
+# the number of NON-MINIMAL coordinates, |{i : xᵢ > minᵢ}|, which drops a floored coordinate (n, k, e ≥ 1) sitting at its
+# minimum 1 though it still carries its prime. The slip: max ω = 8 at 100 cells under the first, 96 under the second.
+import os, sys, importlib.util, io, contextlib
+H = os.path.dirname(os.path.abspath(__file__))
+spec = importlib.util.spec_from_file_location('tower2', os.path.join(H, 'tower-2.py')); T2 = importlib.util.module_from_spec(spec)
+with contextlib.redirect_stdout(io.StringIO()): spec.loader.exec_module(T2)
+FAIL = []
+def check(tag, got, exp):
+    ok = got == exp; print('   %-66s %-26s %s' % (tag, repr(got)[:26], 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+L8 = T2.L8(); check('|Λ₈|', len(L8), 976)
+mins = [min(x[i] for x in L8) for i in range(8)]
+check('the floors: coordinates whose minimum over Λ₈ is 1 (n, k, e)', [i for i, m in enumerate(mins) if m == 1], [0, 2, 4])
+pos = {x: sum(1 for v in x if v > 0) for x in L8}
+nonmin = {x: sum(1 for i, v in enumerate(x) if v > mins[i]) for x in L8}
+check('positive-exponent reading: max ω', max(pos.values()), 8)
+check('positive-exponent reading: cells attaining 8', sum(1 for v in pos.values() if v == 8), 100)
+check('positive-exponent reading: min ω (three primes divide every N(x))', min(pos.values()), 3)
+check('non-minimal reading: cells attaining 8', sum(1 for v in nonmin.values() if v == 8), 96)
+diff = sorted(x for x in L8 if pos[x] == 8 and nonmin[x] != 8)
+check('the discrepancy is exactly four cells', len(diff), 4)
+check('each has a floored coordinate at its minimum 1 and every coordinate positive', all(all(v > 0 for v in x) and any(x[i] == 1 for i in (0, 2, 4)) for x in diff), True)
+print('   the four cells:', ' '.join(str(x) for x in diff))
+check('the tight cell (2,1,3,3,2,1,3,3): ω = 8 by direct factorisation', pos[(2, 1, 3, 3, 2, 1, 3, 3)], 8)
+print('\n   integrity checks: %s' % ('ALL OK' if not FAIL else 'FAILED: ' + '; '.join(FAIL)))
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r3-q5c-measure.py>>>
+
+<<<FILE: r3-q5c-measure.out>>>
+   |Λ₈|                                                               976                        OK
+   the floors: coordinates whose minimum over Λ₈ is 1 (n, k, e)       [0, 2, 4]                  OK
+   positive-exponent reading: max ω                                   8                          OK
+   positive-exponent reading: cells attaining 8                       100                        OK
+   positive-exponent reading: min ω (three primes divide every N(x))  3                          OK
+   non-minimal reading: cells attaining 8                             96                         OK
+   the discrepancy is exactly four cells                              4                          OK
+   each has a floored coordinate at its minimum 1 and every coordinate positive True                       OK
+   the four cells: (2, 1, 1, 1, 2, 1, 1, 1) (2, 1, 1, 1, 3, 1, 1, 1) (3, 1, 1, 1, 2, 1, 1, 1) (3, 1, 1, 1, 3, 1, 1, 1)
+   the tight cell (2,1,3,3,2,1,3,3): ω = 8 by direct factorisation    8                          OK
+
+   integrity checks: ALL OK
+<<<END FILE: r3-q5c-measure.out>>>
+
+<<<FILE: r3-q5d.py>>>
+#!/usr/bin/env python3
+"""r3-q5d.py — R3: Q5 pass 4. The chat-57 batch 2b slip B2-C2 seated as register 1830, its figures re-derived first by
+r3-q5d-measure.py (a standard-library re-derivation of chat 57's numpy pack, M's ruling for passes 4 and 5), seated
+beside it with its golden. BUILD107 -> BUILD108 main.
+
+No volume site is edited: the object the slip corrected by handle (L.voidfrac) is no longer printed by the live
+Mathematical Compendium; §10.2, §10.3 and Figure 10.1 stand as they are. The count classes of entries 1815 and 1816 are re-taken in
+the same build.
+
+Usage:  python3 r3-q5d.py            dry run (runs the measurement, builds nothing)
+        python3 r3-q5d.py --write    writes staging members + BUILD108 main
+"""
+import os, sys, re, hashlib, runpy, tempfile, subprocess, io, contextlib, importlib.util, time
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+TOOLS = os.path.join(REPO, 'tools') + os.sep
+OLD_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD107_main_and_register.md'); OLD_M_MD5 = 'a96555e8192ad340f5069da3745c787a'
+NEW_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD108_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build108') + os.sep
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+g = lambda n: '{:,}'.format(n)
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+
+# ---- the measurement, from the seated instrument ------------------------------------------------------------------------
+p = subprocess.run([sys.executable, MEM + 'r3-q5d-measure.py'], capture_output=True, text=True, cwd=MEM)
+print(p.stdout.rstrip()); assert p.returncode == 0 and 'integrity checks: ALL OK' in p.stdout, 'r3-q5d-measure.py did not pass'
+gold = open(MEM + 'r3-q5d-measure.out', encoding='utf-8').read(); assert p.stdout == gold, 'r3-q5d-measure.out is not this run'
+import re as _re
+_norm = lambda t: _re.sub(r'\s+', ' ', t)
+for s_ in ('factor joint/product 1.4081 OK', 'the six edge lifts in tree order [1.0838, 1.0854, 1.1212, 1 OK', 'conditional lift 1.0000 in every shared pair [1.0, 1.0, 1.0, 1.0, 1.0] OK', 'the factor at the seven settings, three decimals [1.408, 1.372, 1.366, 1.32 OK', 'the factor is cap-dependent: its range beyond the base (1.326, 1.66) OK'):
+    assert s_ in _norm(p.stdout), s_
+print('MEASURED at this build: every figure the entry states reproduces from r3-q5d-measure.py.')
+
+# ---- the volumes as they stand --------------------------------------------------------------------------------------
+old = {n: open(MEM + n, 'rb').read() for n in (MAIN, REG)}
+txt = {n: old[n].decode('utf-8') for n in old}
+r = txt[REG]; assert r.count('### 1830\n') == 0 and r.rstrip().endswith('Registers 1827. (a correction.)')
+
+ENTRIES = """
+
+### 1830
+
+**THE VOID-FREE FRACTION'S CONDITION FIELD POINTED AT A STATEMENT THAT DOES NOT EXIST; THE OBJECT NOW STATES ITS POPULATION AND CARRIES THE CORRELATION LAW IT WAS OWED.** *The L.voidfrac object's condition line read "at stated caps" while the cited §10.2 states no caps: the recorded figures — void-free 27.7–30.1% across 776 million pairs, joint 30.13% against product 20.19%, factor 1.49 — are given in the main volume, in Figure 10.1's caption, and in the object, and in none of them is the cap family named. Measured in chat 57: the pair population at the base caps (3,3,1,3,1) is 475,800, and no one-parameter cap family from the base sums to 776 million; the factor is cap-dependent (1.4081 exhaustive at 976 cells; 1.33–1.66 sampled across six settings to 234,340 cells), so 1.49 is consistent with the law and is a measurement at a population the record does not name. The object now states the law the figures instance — box containment is a narrowness condition in each coordinate it touches; two constraints sharing a coordinate are two decreasing functions of one width, hence positively dependent (Chebyshev); conditioned on the shared coordinate's interval the lift is 1.0000 in every stratum for all five shared pairs; the factor is exactly the product of the six edge lifts in tree order, 1.0838 × 1.0854 × 1.1212 × 1.0522 × 1.0125 × 1.0022 = 1.4081 — with the base-cap instance as its worked number and the recorded figures retained as the measurement at their original population. The prior figures stand as history; nothing is withdrawn. The population of the 776 million pairs was not recovered by chat 57 (named, not glossed: absent from §10.2, the object, the caption, the Register and both restore packs; the driver that called method_tower.py is the missing piece). Drafted at chat 57 (MC-10) as slip B2-C2 and queued for a "Register 1.1"; seated under RUL-153 Q5. Re-derived at this build by r3-q5d-measure.py, seated with this entry with its golden — a standard-library instrument of R3's following chat 57's mc10.py, mc10b.py, mc10c.py and mc10d.py definition by definition, those needing numpy (M's ruling, passes 4 and 5); Λ₈ from the seated tower-2.py — the seven containment rates 69.95–98.06%, product 20.1311%, joint 28.3462%, factor 1.4081; the six lifts as stated and their product 1.4081; conditional lift 1.0000 in every stratum for the five shared pairs, non-adjacent pairs 0.9999–1.0101; the narrowness mechanism 1.000 / 0.599 / 0.319; the factor 1.408, 1.372, 1.366, 1.326, 1.526, 1.456, 1.660 across the seven cap settings, exhaustive to 600,000 pairs and 400,000 sampled beyond, seed 11 as the pack sampled. Cites the L.voidfrac object as it stood at BUILD58, L.tree, §10.2 and §10.3. Both states preserved.* Registers 347. (a correction.)
+"""
+def with_entries(t): return t.rstrip() + ENTRIES + '\n'
+SUBS = {}
+new = dict(txt)
+new[REG] = with_entries(new[REG])
+
+# ---- the counts, from the seated tools on the members as they will stand (entries 1815 and 1816's classes) --------------
+stage = tempfile.mkdtemp(prefix='r3-q5a-')
+for f in os.listdir(MEM):
+    if f.endswith('.md') and f not in new: os.symlink(MEM + f, os.path.join(stage, f))
+for n in new: open(os.path.join(stage, n), 'w', encoding='utf-8').write(new[n])
+cwd = os.getcwd(); os.chdir(stage); buf = io.StringIO()
+with contextlib.redirect_stdout(buf): G = runpy.run_path(MEM + 'register_cites.py', run_name='__main__')
+os.chdir(cwd)
+byent, bymain, comp = G['byent'], G['bymain'], G['comp']
+CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY = len(byent), len(bymain), len(set(bymain) | set(comp)), len(byent + bymain + comp)
+TOP = sorted(((n, k) for n, k in byent.items() if k >= 7), key=lambda t: (-t[1], t[0]))
+kout = subprocess.run([sys.executable, MEM + 'kinds.py', os.path.join(stage, REG)], capture_output=True, text=True, cwd=MEM).stdout.split('\n')[0]
+K_N = int(kout.split()[0]); K = eval(kout[kout.index('{'):])
+for f in os.listdir(stage): os.unlink(os.path.join(stage, f))
+os.rmdir(stage)
+sys.path.insert(0, TOOLS); import close_main as cm; import register_counts as rc
+print('register_cites with 1830: by entries %d | main %d | main+companions %d | anywhere %d | >=7 %s' % (CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY, TOP))
+print('kinds.py: %d %s' % (K_N, K))
+rr, edits = cm.recount(new[REG]); assert edits
+for o, n in edits: print('recount: %s -> %s' % (o[:50], n[:50]))
+c = rc.count(rr)
+def sub1(t, pat, repl, label):
+    m = re.search(pat, t, re.M); assert m, label + ': anchor absent'
+    n = repl(m); assert t.count(m.group(0)) == 1, label + ': anchor not unique'
+    print('%-40s %s -> %s' % (label, m.group(0)[:60].replace('\n', ' '), n[:60].replace('\n', ' ')) if n != m.group(0) else '%-40s unchanged' % label)
+    return t.replace(m.group(0), n)
+for kind in ('a finding', 'a correction', 'a measurement', 'a new protocol', 'a withdrawal', 'prior art', 'an open question', 'a fault of mine'):
+    rr = sub1(rr, r'^\| \*\*%s\*\* \| (\d[\d,]*) \| (\d+) \|' % re.escape(kind), lambda m, kind=kind: '| **%s** | %s | %s |' % (kind, g(K[kind]), m.group(2)), 'kinds row ' + kind)
+rr = sub1(rr, r'by `kinds\.py` over the (\d[\d,]*) entry headings,', lambda m: 'by `kinds.py` over the %s entry headings,' % g(K_N), 'kinds headings')
+rr = sub1(rr, r'\*\*(\d[\d,]*) entries are cited by other entries\.\*\*', lambda m: '**%d entries are cited by other entries.**' % CITED_BY, 'cited by entries')
+rr = sub1(rr, r'the (\d+) cited seven times or more:', lambda m: 'the %d cited seven times or more:' % len(TOP), 'the N cited')
+rr = sub1(rr, r'\*\*(\d[\d,]*) entries are cited in the main volume\'s chapters and appendices; (\d[\d,]*) counting the four compendia and the two papers; (\d[\d,]*) counting citations by other entries\.\*\*',
+          lambda m: '**%d entries are cited in the main volume\'s chapters and appendices; %d counting the four compendia and the two papers; %s counting citations by other entries.**' % (CITED_MAIN, CITED_MC, g(CITED_ANY)), 'cited 3 figures')
+rows = re.findall(r'^\| \*\*(\d+)\*\* \| (\d+)× \| (.*) \|$', rr, re.M)
+what = {int(e): w for e, _, w in rows}
+# No entry is expected to reach seven citations with this pass; if one does the instrument refuses (a new row is a hand act).
+NEW_ROWS = {}
+norm = lambda t: re.sub(r'\W', '', t).casefold()
+def headline(e):
+    body = new[REG].split('\n### %d\n' % e, 1)[1]; return re.match(r'\s*\*\*(.+?)\*\*', body, re.S).group(1).strip()
+for e, w in NEW_ROWS.items(): assert norm(headline(e)) == norm(w), (e, headline(e))
+assert sorted(set(what) | set(NEW_ROWS)) == sorted(n for n, _ in TOP) and not (set(what) & set(NEW_ROWS)), ('the >=7 set changed beyond the hand-written rows; REFUSED', sorted(what), TOP)
+what.update(NEW_ROWS); print('table: +%d row(s) %s' % (len(NEW_ROWS), sorted(NEW_ROWS)))
+i0 = rr.index('| entry | cited | what it established |\n|---|---|---|\n'); i1 = rr.index('\n\n', i0)
+rr = rr[:i0] + '| entry | cited | what it established |\n|---|---|---|\n' + ''.join('| **%d** | %d× | %s |\n' % (n, k, what[n]) for n, k in TOP) + rr[i1 + 1:]
+new[REG] = rr
+mm = new[MAIN]
+mm = sub1(mm, r'(\d[\d,]*) entries, 1 to (\d+), at this build \(2026-09-04\)', lambda m: '%s entries, 1 to %d, at this build (2026-09-04)' % (g(c['headings']), c['highest']), 'main: at this build')
+mm = sub1(mm, r'436 entries when this paragraph was written, (\d[\d,]*) at this build', lambda m: '436 entries when this paragraph was written, %s at this build' % g(c['headings']), 'main: N at this build')
+mm = sub1(mm, r'at this build the main volume cites (\d+) entries', lambda m: 'at this build the main volume cites %d entries' % CITED_MAIN, 'main: cites N')
+new[MAIN] = mm
+c2 = rc.count(new[REG]); p2 = rc.printed(new[REG])
+assert (p2['front_total'], p2['front_highest'], p2['front_mature'], p2['front_mature_highest'], p2['back_mature_highest']) == (c2['headings'], c2['highest'], c2['mature'], c2['highest'], c2['highest']), (p2, c2)
+assert c2['genesis'] + c2['superseded'] + c2['mature'] == c2['headings'] == p2['front_total']
+print('the front matter sums to itself: %d + %d + %d = %d, highest %d' % (c2['genesis'], c2['superseded'], c2['mature'], c2['headings'], c2['highest']))
+
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v in new:
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:40], txt[v].count(a), new[v].count(a)) for a in anchors if txt[v].count(a) != new[v].count(a)]
+    print('build.py SUBS anchors on %-36s %3d checked; moved: %s' % (v, len(anchors), moved)); assert not moved
+for v in new: print('%-36s %d -> %d B, lines %+d' % (v, len(old[v]), len(new[v].encode('utf-8')), new[v].count('\n') - txt[v].count('\n')))
+if WRITE: assert not os.path.exists(OUT); os.makedirs(OUT)
+elif not os.path.isdir(OUT): os.makedirs(OUT)
+for v in new: open(OUT + v, 'wb').write(new[v].encode('utf-8'))
+ob = open(OLD_M, 'rb').read(); assert md5(ob) == OLD_M_MD5, 'BUILD107 md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(ob)); nb = ob
+for n in (MAIN, REG):
+    assert ms[n] == old[n]; b0 = block(n, ms[n]); assert nb.count(b0) == 1; nb = nb.replace(b0, block(n, new[n].encode('utf-8')))
+rv = nb
+for n in (MAIN, REG):
+    b1 = block(n, new[n].encode('utf-8')); assert rv.count(b1) == 1; rv = rv.replace(b1, block(n, ms[n]))
+assert md5(rv) == OLD_M_MD5, 'reverse FAILED'
+print('BUILD107 -> BUILD108: reverse recovers md5 %s == old: True; new %s B md5 %s %s lines' % (OLD_M_MD5, format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ',')))
+if WRITE: assert not os.path.exists(NEW_M); open(NEW_M, 'wb').write(nb); print('written', NEW_M)
+else: print('DRY RUN — nothing installed')
+<<<END FILE: r3-q5d.py>>>
+
+<<<FILE: r3-q5d-measure.py>>>
+#!/usr/bin/env python3
+# r3-q5d-measure.py — R3 (Q5 pass 4): the chat-57 batch 2b slip B2-C2 re-derived with the standard library. Chat 57's own
+# instruments (mc10.py, mc10b.py, mc10c.py, mc10d.py; extracted from chat57-instruments.tar.gz) need numpy, and M ruled
+# (RUL-153, passes 3–5) that the re-run is a standard-library instrument of R3's. This one follows their definitions
+# exactly — the same seven constraints on the box [x∧y, x∨y] of every unordered pair, the same tree order for the chain
+# rule, the same strata, the same cap settings and the same sampling (random.seed(11), randrange, 400,000 pairs where the
+# pair count exceeds 600,000) — so that each figure is comparable to the pack's output, which is also recorded (W-227).
+# Λ₈ is taken from the seated tower-2.py, imported by path; the cap-parameterised lattice below is tower-2's loop with
+# caps in place of its constants. Deterministic; no wall clock.
+import os, sys, importlib.util, io, contextlib, random
+from itertools import combinations
+H = os.path.dirname(os.path.abspath(__file__))
+spec = importlib.util.spec_from_file_location('tower2', os.path.join(H, 'tower-2.py')); T2 = importlib.util.module_from_spec(spec)
+with contextlib.redirect_stdout(io.StringIO()): spec.loader.exec_module(T2)
+FAIL = []
+def check(tag, got, exp):
+    ok = got == exp; print('   %-66s %-26s %s' % (tag, repr(got)[:26], 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def build(capn, cape, capl, capk, capf):
+    out = []
+    for n in range(1, capn + 1):
+        for l in range(0, min(capl, n - 1) + 1):
+            for k in range(1, min(capk, 4 * l + 2) + 1):
+                for q in range(0, k + 1):
+                    for e in range(1, cape + 1):
+                        for f in range(0, min(capf, e - 1) + 1):
+                            for g in range(0, min(4 * f + 2, q) + 1):
+                                for S2 in range(0, k + 1):
+                                    out.append((n, l, k, q, e, f, g, S2))
+    return out
+# coordinate order: 0 n, 1 l, 2 k, 3 q, 4 e, 5 f, 6 g, 7 2S; the seven constraints as hi_i <= phi(lo_j)
+CONS = [('l<=n-1', lambda lo, hi: hi[1] <= lo[0] - 1), ('k<=2(2l+1)', lambda lo, hi: hi[2] <= 4 * lo[1] + 2),
+        ('q<=k', lambda lo, hi: hi[3] <= lo[2]), ('g<=q', lambda lo, hi: hi[6] <= lo[3]),
+        ('g<=2(2f+1)', lambda lo, hi: hi[6] <= 4 * lo[5] + 2), ('f<=e-1', lambda lo, hi: hi[5] <= lo[4] - 1),
+        ('2S<=k', lambda lo, hi: hi[7] <= lo[2])]
+NAMES = [n for n, _ in CONS]
+cells = T2.L8(); check('|Λ₈| from tower-2.py', len(cells), 976); check('tower-2.py\'s Λ₈ is build(3,3,1,3,1)', build(3, 3, 1, 3, 1) == cells, True)
+
+print('== the base-cap pairs: rates, product, joint, factor (mc10.py)')
+rows = []; LO = []; HI = []
+for a, b in combinations(cells, 2):
+    lo = tuple(min(u, v) for u, v in zip(a, b)); hi = tuple(max(u, v) for u, v in zip(a, b))
+    rows.append(tuple(1 if f(lo, hi) else 0 for _, f in CONS)); LO.append(lo); HI.append(hi)
+N = len(rows); check('unordered pairs', N, 475800)
+p = [sum(r[i] for r in rows) / N for i in range(7)]
+for nm, v in zip(NAMES, p): print('   %-14s %6.2f%%' % (nm, v * 100))
+check('individual range, two decimals', (round(min(p) * 100, 2), round(max(p) * 100, 2)), (69.95, 98.06))
+prod = 1.0
+for v in p: prod *= v
+joint = sum(1 for r in rows if all(r)) / N
+check('product, four decimals (%)', round(prod * 100, 4), 20.1311); check('joint, four decimals (%)', round(joint * 100, 4), 28.3462)
+check('factor joint/product', round(joint / prod, 4), 1.4081)
+
+print('== the chain rule in tree order (mc10b.py)')
+order = [0, 1, 2, 6, 3, 4, 5]; mask = [True] * N; lifts = []; raw_lifts = []
+for i in order:
+    sel = [r for r, m in zip(rows, mask) if m]; cond = sum(r[i] for r in sel) / len(sel); lift = cond / p[i]; lifts.append(round(lift, 4)); raw_lifts.append(lift)
+    print('   P(%-11s| previous) = %.4f   marginal %.4f   lift %.4f' % (NAMES[i], cond, p[i], lift))
+    mask = [m and bool(r[i]) for r, m in zip(rows, mask)]
+check('the six edge lifts in tree order', lifts[1:], [1.0838, 1.0854, 1.1212, 1.0522, 1.0125, 1.0022])
+pl = 1.0
+for x in raw_lifts: pl *= x   # unrounded, as mc10b.py multiplies them
+check('product of the lifts = the factor', round(pl, 4), 1.4081)
+
+print('== conditional independence given the shared coordinate\'s interval (mc10d.py test 1)')
+def lift_on(a, b, sel):
+    n = len(sel); pa = sum(rows[t][a] for t in sel) / n; pb = sum(rows[t][b] for t in sel) / n; pab = sum(rows[t][a] & rows[t][b] for t in sel) / n
+    return pab / (pa * pb) if pa * pb > 0 else float('nan')
+ALL = list(range(N))
+tests = [('q<=k', 'g<=q', 3, 'q'), ('k<=2(2l+1)', 'q<=k', 2, 'k'), ('q<=k', '2S<=k', 2, 'k'), ('l<=n-1', 'k<=2(2l+1)', 1, 'l'), ('g<=q', 'g<=2(2f+1)', 6, 'g')]
+means = []
+for a, b, ci, cn in tests:
+    ia, ib = NAMES.index(a), NAMES.index(b); raw = lift_on(ia, ib, ALL); ls = []; ws = []
+    for v_lo in range(4):
+        for v_hi in range(4):
+            sel = [t for t in ALL if LO[t][ci] == v_lo and HI[t][ci] == v_hi]
+            if len(sel) < 500: continue
+            l = lift_on(ia, ib, sel)
+            if l == l: ls.append(l); ws.append(len(sel))
+    avg = sum(l * w for l, w in zip(ls, ws)) / sum(ws); means.append(round(avg, 4))
+    print('   %-11s & %-11s share %s: raw lift %.4f -> mean lift given (%slo,%shi) %.4f  (strata %d)' % (a, b, cn, raw, cn, cn, avg, len(ls)))
+check('conditional lift 1.0000 in every shared pair', means, [1.0] * 5)
+print('== non-adjacent pairs (test 2)')
+na = []
+for a, b in [('l<=n-1', 'g<=q'), ('l<=n-1', 'f<=e-1'), ('f<=e-1', '2S<=k'), ('l<=n-1', '2S<=k'), ('k<=2(2l+1)', 'f<=e-1')]:
+    l = round(lift_on(NAMES.index(a), NAMES.index(b), ALL), 4); na.append(l); print('   %-11s & %-11s: lift %.4f' % (a, b, l))
+check('non-adjacent lifts', na, [1.0022, 0.9999, 1.0, 1.0101, 1.0001])
+print('== the narrowness mechanism (test 3)')
+nar = {}
+for nm, ci in [('q<=k', 2), ('g<=q', 3), ('2S<=k', 2)]:
+    i = NAMES.index(nm); vals = []
+    for w in range(4):
+        sel = [t for t in ALL if HI[t][ci] - LO[t][ci] == w]
+        if len(sel) > 200: vals.append(round(sum(rows[t][i] for t in sel) / len(sel), 3))
+    nar[nm] = vals; print('   P(%-11s) by width of coord %d: %s' % (nm, ci, ' '.join('w=%d:%.3f' % (w, v) for w, v in enumerate(vals))))
+check('q<=k by width', nar['q<=k'], [1.0, 0.599, 0.319]); check('g<=q by width', nar['g<=q'], [1.0, 0.672, 0.446, 0.294]); check('2S<=k by width', nar['2S<=k'], [1.0, 0.726, 0.5])
+
+print('== the factor across cap settings (mc10c.py: exhaustive to 600,000 pairs, else 400,000 sampled, random.seed(11))')
+random.seed(11)
+def stats(cs, nsamp=400000):
+    n_ = len(cs); tot = n_ * (n_ - 1) // 2
+    it = combinations(cs, 2) if tot <= 600000 else ((cs[random.randrange(n_)], cs[random.randrange(n_)]) for _ in range(nsamp))
+    cnt = [0] * 7; joint_ = 0; m = 0
+    for a, b in it:
+        lo = tuple(min(u, v) for u, v in zip(a, b)); hi = tuple(max(u, v) for u, v in zip(a, b)); ok = True; m += 1
+        for i, (_, f) in enumerate(CONS):
+            if f(lo, hi): cnt[i] += 1
+            else: ok = False
+        if ok: joint_ += 1
+    pp = [c / m for c in cnt]; pr = 1.0
+    for v in pp: pr *= v
+    return n_, tot, min(pp), max(pp), pr, joint_ / m, (joint_ / m) / pr
+caps = [(3, 3, 1, 3, 1), (4, 4, 1, 3, 1), (4, 4, 2, 5, 1), (5, 5, 2, 6, 1), (5, 5, 2, 8, 2), (6, 6, 3, 10, 2), (7, 7, 3, 14, 3)]
+print('   %-22s%7s%12s%7s%7s%8s%8s%8s' % ('caps', 'cells', 'pairs', 'min%', 'max%', 'prod%', 'joint%', 'factor'))
+factors = []; ncells = []
+for c in caps:
+    cs = build(*c); n_, tot, mn, mx, pr, j, f = stats(cs); factors.append(round(f, 3)); ncells.append(n_)
+    print('   %-22s%7d%12d%7.1f%7.1f%8.2f%8.2f%8.3f' % (str(c), n_, tot, mn * 100, mx * 100, pr * 100, j * 100, f))
+check('cells at the seven settings', ncells, [976, 1968, 8847, 25748, 55682, 234340, 800958])
+check('the factor at the seven settings, three decimals', factors, [1.408, 1.372, 1.366, 1.326, 1.526, 1.456, 1.66])
+check('the factor is cap-dependent: its range beyond the base', (min(factors[1:]), max(factors[1:])), (1.326, 1.66))
+print('\n   integrity checks: %s' % ('ALL OK' if not FAIL else 'FAILED: ' + '; '.join(FAIL)))
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r3-q5d-measure.py>>>
+
+<<<FILE: r3-q5d-measure.out>>>
+   |Λ₈| from tower-2.py                                               976                        OK
+   tower-2.py's Λ₈ is build(3,3,1,3,1)                                True                       OK
+== the base-cap pairs: rates, product, joint, factor (mc10.py)
+   unordered pairs                                                    475800                     OK
+   l<=n-1          84.46%
+   k<=2(2l+1)      71.55%
+   q<=k            71.97%
+   g<=q            69.95%
+   g<=2(2f+1)      98.06%
+   f<=e-1          83.86%
+   2S<=k           80.45%
+   individual range, two decimals                                     (69.95, 98.06)             OK
+   product, four decimals (%)                                         20.1311                    OK
+   joint, four decimals (%)                                           28.3462                    OK
+   factor joint/product                                               1.4081                     OK
+== the chain rule in tree order (mc10b.py)
+   P(l<=n-1     | previous) = 0.8446   marginal 0.8446   lift 1.0000
+   P(k<=2(2l+1) | previous) = 0.7755   marginal 0.7155   lift 1.0838
+   P(q<=k       | previous) = 0.7812   marginal 0.7197   lift 1.0854
+   P(2S<=k      | previous) = 0.9020   marginal 0.8045   lift 1.1212
+   P(g<=q       | previous) = 0.7360   marginal 0.6995   lift 1.0522
+   P(g<=2(2f+1) | previous) = 0.9929   marginal 0.9806   lift 1.0125
+   P(f<=e-1     | previous) = 0.8404   marginal 0.8386   lift 1.0022
+   the six edge lifts in tree order                                   [1.0838, 1.0854, 1.1212, 1 OK
+   product of the lifts = the factor                                  1.4081                     OK
+== conditional independence given the shared coordinate's interval (mc10d.py test 1)
+   q<=k        & g<=q        share q: raw lift 1.0523 -> mean lift given (qlo,qhi) 1.0000  (strata 10)
+   k<=2(2l+1)  & q<=k        share k: raw lift 1.0891 -> mean lift given (klo,khi) 1.0000  (strata 6)
+   q<=k        & 2S<=k       share k: raw lift 1.0714 -> mean lift given (klo,khi) 1.0000  (strata 6)
+   l<=n-1      & k<=2(2l+1)  share l: raw lift 1.0838 -> mean lift given (llo,lhi) 1.0000  (strata 3)
+   g<=q        & g<=2(2f+1)  share g: raw lift 1.0162 -> mean lift given (glo,ghi) 1.0000  (strata 9)
+   conditional lift 1.0000 in every shared pair                       [1.0, 1.0, 1.0, 1.0, 1.0]  OK
+== non-adjacent pairs (test 2)
+   l<=n-1      & g<=q       : lift 1.0022
+   l<=n-1      & f<=e-1     : lift 0.9999
+   f<=e-1      & 2S<=k      : lift 1.0000
+   l<=n-1      & 2S<=k      : lift 1.0101
+   k<=2(2l+1)  & f<=e-1     : lift 1.0001
+   non-adjacent lifts                                                 [1.0022, 0.9999, 1.0, 1.01 OK
+== the narrowness mechanism (test 3)
+   P(q<=k       ) by width of coord 2: w=0:1.000 w=1:0.599 w=2:0.319
+   P(g<=q       ) by width of coord 3: w=0:1.000 w=1:0.672 w=2:0.446 w=3:0.294
+   P(2S<=k      ) by width of coord 2: w=0:1.000 w=1:0.726 w=2:0.500
+   q<=k by width                                                      [1.0, 0.599, 0.319]        OK
+   g<=q by width                                                      [1.0, 0.672, 0.446, 0.294] OK
+   2S<=k by width                                                     [1.0, 0.726, 0.5]          OK
+== the factor across cap settings (mc10c.py: exhaustive to 600,000 pairs, else 400,000 sampled, random.seed(11))
+   caps                    cells       pairs   min%   max%   prod%  joint%  factor
+   (3, 3, 1, 3, 1)           976      475800   70.0   98.1   20.13   28.35   1.408
+   (4, 4, 1, 3, 1)          1968     1935528   69.9   97.9   22.44   30.78   1.372
+   (4, 4, 2, 5, 1)          8847    39130281   68.3   90.3   20.90   28.54   1.366
+   (5, 5, 2, 6, 1)         25748   331466878   68.7   92.4   23.47   31.12   1.326
+   (5, 5, 2, 8, 2)         55682  1550214721   65.0   87.4   14.19   21.64   1.526
+   (6, 6, 3, 10, 2)       234340 27457500630   65.4   85.1   15.93   23.20   1.456
+   (7, 7, 3, 14, 3)       800958320766458403   61.7   88.9   11.32   18.78   1.660
+   cells at the seven settings                                        [976, 1968, 8847, 25748, 5 OK
+   the factor at the seven settings, three decimals                   [1.408, 1.372, 1.366, 1.32 OK
+   the factor is cap-dependent: its range beyond the base             (1.326, 1.66)              OK
+
+   integrity checks: ALL OK
+<<<END FILE: r3-q5d-measure.out>>>
+
+<<<FILE: r3-q5e.py>>>
+#!/usr/bin/env python3
+"""r3-q5e.py — R3: Q5 pass 5. The chat-58 batch 2c slips B2-C3 and B3-C1 seated as registers 1831 and 1832. B2-C3's figures
+are re-derived first by r3-q5e-measure.py (a standard-library re-derivation of chat 58's numpy instruments mc11.py and
+mc11b.py, M's ruling for passes 4 and 5), seated beside it with its golden; B3-C1's by chat 58's own mc12.py, which is
+standard-library and is seated as it is with lam8.py, the Λ₈ builder it imports. BUILD108 -> BUILD109 main.
+
+No volume site is edited: §10.4 and §11.1.1 stand as they are; the objects the slips corrected by handle (L.box, L.bits,
+L.circuit) are no longer printed by the live Mathematical Compendium. The deferred main-volume item MV-DEF-01 goes to
+DOCKET.md at the close, not through this instrument. The count classes of entries 1815 and 1816 are re-taken in the same build.
+
+Usage:  python3 r3-q5e.py            dry run (runs both measurements, builds nothing)
+        python3 r3-q5e.py --write    writes staging members + BUILD109 main
+"""
+import os, sys, re, hashlib, runpy, tempfile, subprocess, io, contextlib, importlib.util, time
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+TOOLS = os.path.join(REPO, 'tools') + os.sep
+OLD_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD108_main_and_register.md'); OLD_M_MD5 = '79e6c273cfc8e708562af664e1dc3dd1'
+NEW_M = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD109_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build109') + os.sep
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+g = lambda n: '{:,}'.format(n)
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+
+# ---- the measurements, from the seated instruments -----------------------------------------------------------------
+LAM8_MD5, MC12_MD5 = 'b837a69ec7c05819b531acff665ae5da', 'e0b55118991688f5c9f1b05fcf50e8ae'   # drive/MANIFEST.tsv; extracted/LEDGER.tsv
+assert md5(open(MEM + 'lam8.py', 'rb').read()) == LAM8_MD5, 'lam8.py is not the mirror\'s'
+assert md5(open(MEM + 'mc12.py', 'rb').read()) == MC12_MD5, 'mc12.py is not chat 58\'s'
+p = subprocess.run([sys.executable, MEM + 'r3-q5e-measure.py'], capture_output=True, text=True, cwd=MEM)
+print(p.stdout.rstrip()); assert p.returncode == 0 and 'integrity checks: ALL OK' in p.stdout, 'r3-q5e-measure.py did not pass'
+gold = open(MEM + 'r3-q5e-measure.out', encoding='utf-8').read(); assert p.stdout == gold, 'r3-q5e-measure.out is not this run'
+import re as _re
+_norm = lambda t: _re.sub(r'\s+', ' ', t)
+for s_ in ('eight random intervals reproduced 8 OK', 'pairs + singletons 476776 OK', 'distinct boxes 116138 OK', 'factorised ≠ direct 0 OK',
+           'pairs whose box has void > 0 340929 OK', 'void-free fraction (pairs + singletons), four decimals 0.2849 OK',
+           'cells at the three caps [976, 8847, 25748] OK', 'peel = direct everywhere, message arity 1 True OK',
+           '|Λ ∩ {2S ≤ q+1}| (the constraint is not redundant) 911 OK', 'max message arity with the cycle [2] OK',
+           'tree-style count wrong on (9, 40) OK', 'eight-term sieve over the triangle right on (40, 40) OK',
+           '|box∩Λ|=280 (tree count), |box∩Λ\'|=240; correction = 40'):
+    assert s_ in _norm(p.stdout), s_
+print('MEASURED at this build: every figure entry 1831 states reproduces from r3-q5e-measure.py.')
+q = subprocess.run([sys.executable, MEM + 'mc12.py'], capture_output=True, text=True, cwd=MEM)
+print(q.stdout.rstrip()); assert q.returncode == 0, 'mc12.py failed'
+MC12_LINES = ['|Λ| = 976  bottom = (1, 0, 1, 0, 1, 0, 0, 0)  |J(Λ)| = 17', 'covering relations in J(Λ): 20', 'bijection cell↦word: OK',
+              'pairs 475800: OR failures 0, AND failures 0', 'words in {0,1}^17 = 131072; accepted by the 20 implications = 976 -> exactly Λ',
+              'accepted set == image of Λ: True', 'height of the generator poset J(Λ) (longest chain, in generators): 5',
+              'balanced AND tree over 20 gates: depth 5; implication gate 1; total accept depth 6',
+              'bits carried 17; bits needed log2(976) = 9.93; surplus 7.07', 'occupancy 976/131072 = 0.7446%']
+assert q.stdout.split('\n')[:10] == MC12_LINES and q.stdout.count('\n') == 10, 'mc12.py did not print its ten lines'
+print('MEASURED at this build: every figure entry 1832 states reproduces from mc12.py (chat 58, seated byte-exact).')
+
+# ---- the volumes as they stand --------------------------------------------------------------------------------------
+old = {n: open(MEM + n, 'rb').read() for n in (MAIN, REG)}
+txt = {n: old[n].decode('utf-8') for n in old}
+r = txt[REG]; assert r.count('### 1831\n') == 0 and r.count('### 1832\n') == 0 and r.rstrip().endswith('Registers 347. (a correction.)')
+
+ENTRIES = """
+
+### 1831
+
+**THE BOX COUNT'S CLOSED FORM WAS ASSERTED FROM THE TREE AND IS NOW PROVED, IN BOTH DIRECTIONS, WITH THE LEAF CONVENTION STATED.** *The L.box object carried a one-sentence statement ("factorises because the constraint graph is a tree; no Möbius sieve needed") at grade COMPUTED, and §10.4 states the factorisation with its two closed-form leaves, verified on eight random intervals. Measured in chat 58: the factorisation agrees with direct enumeration on every box [x∧y, x∨y] of Λ at the base caps — 475,800 unordered pairs and 976 singletons, 116,138 distinct boxes, zero discrepancies — and the full peel of the caterpillar, one coordinate per step, carries a message of one argument at every step and agrees with enumeration on 100 random boxes at each of 976, 8,847 and 25,748 cells; the argument uses no cap. The converse is Freuder's: width 1 if and only if the constraint graph is a forest, so a cycle forces a two-coordinate message and the Rota sieve with its signs — witnessed on Λ by closing the triangle k—q—2S with 2S ≤ q+1 (976 cells to 911; elimination width 2; tree-style count wrong on 9 of 40 boxes, eight-term sieve right on 40 of 40; box lo = (2,1,2,0,2,0,0,0), hi = (3,1,3,2,3,1,1,3): 280 against 240, the 40 being the box's points of Λ violating the closing constraint). Reader-facing ambiguity recorded, not edited: §10.4 writes the leaves as hi₇/lo₇ (2S) and hi₆/lo₆ (g), coordinate position counted from zero in the order (n, ℓ, k, q, e, f, g, 2S); the book elsewhere counts eight coordinates from one. The object stated the convention as it stood at BUILD59; the main volume is untouched pending M's ruling (MV-DEF-01, docketed with this pass). Grade COMPUTED → PROVED. Drafted at chat 58 (MC-11) as slip B2-C3; seated under RUL-153 Q5. Re-derived at this build by r3-q5e-measure.py, seated with this entry with its golden — a standard-library instrument of R3's following chat 58's mc11.py and mc11b.py definition by definition, those needing numpy (M's ruling, passes 4 and 5); Λ₈ from the seated tower-2.py, the direct count by bitsets where the pack used numpy — the eight random intervals of seed 1106 reproduced 8 of 8; 476,776 pairs and singletons, 116,138 distinct boxes, 0 discrepancies, 340,929 pairs with void, void-free 0.2849; leaf-peeling at 976, 8,847 and 25,748 cells, 100 boxes each, 0 failures, message arity 1 throughout; the closing constraint 976 to 911, arity 2, tree-style count wrong on 9 of 40, eight-term sieve right on 40 of 40, the exhibit 280 / 240 / 40. Cites the L.box object, L.tree, L.void, L.voidfrac and §10.4; register 347 for treeness as the hypothesis. Both states preserved.* Registers 347; 1830. (a correction.)
+
+### 1832
+
+**THE BINARY LANGUAGE'S CUT IS EXACT AS A SET, NOT ONLY AS A COUNT, AND "DEPTH FIVE" NAMES ONE OF THREE CIRCUITS.** *§11.1.1 states that the twenty cover-implications cut 131,072 words to exactly 976 and that the circuit accepts at a depth of five; L.bits and L.circuit carried both at grade COMPUTED; registers 267 and 331 state the same. Measured in chat 58: J(Λ) has 17 generators and 20 covering relations; cell ↦ word is injective on all 976 cells; join is bitwise OR and meet bitwise AND with zero failures over all 475,800 unordered pairs; the twenty implications accept exactly 976 of the 131,072 words and the accepted set is equal as a set to the image of Λ, which the record had asserted only as a count; 17 bits carried, log₂976 = 9.93 needed, 7.07 surplus, occupancy 0.7446%. The depth figure is reading-dependent and all three are now recorded: unbounded fan-in 2; two-input accept circuit ⌈log₂20⌉ = 5 above the implication level, 6 in total; downward forcing circuit 4 covering steps along the longest chain of 5 generators. The book's five is the AND-tree reading and the objects said so, as they stood at BUILD59. Grades COMPUTED → PROVED on both objects; L.circuit gained L.birk as a dependency and Birkhoff 1937 as a source, the cut being the down-set theorem. Nothing withdrawn. Drafted at chat 58 (MC-12) as slip B3-C1; seated under RUL-153 Q5. Re-run at this build by chat 58's own mc12.py, a standard-library instrument seated as it is with this entry beside lam8.py, the Λ₈ builder it imports — |J(Λ)| = 17, 20 covering relations, the bijection, 0 OR and 0 AND failures over 475,800 pairs, 976 of 131,072 accepted and the accepted set equal to the image of Λ, longest chain 5, AND-tree depth 5 and total 6, 17 / 9.93 / 7.07 / 0.7446%. Cites L.bits, L.circuit, L.birk and §11.1.1. Both states preserved.* Registers 267; 331. (a correction.)
+"""
+def with_entries(t): return t.rstrip() + ENTRIES + '\n'
+SUBS = {}
+new = dict(txt)
+new[REG] = with_entries(new[REG])
+
+# ---- the counts, from the seated tools on the members as they will stand (entries 1815 and 1816's classes) --------------
+stage = tempfile.mkdtemp(prefix='r3-q5a-')
+for f in os.listdir(MEM):
+    if f.endswith('.md') and f not in new: os.symlink(MEM + f, os.path.join(stage, f))
+for n in new: open(os.path.join(stage, n), 'w', encoding='utf-8').write(new[n])
+cwd = os.getcwd(); os.chdir(stage); buf = io.StringIO()
+with contextlib.redirect_stdout(buf): G = runpy.run_path(MEM + 'register_cites.py', run_name='__main__')
+os.chdir(cwd)
+byent, bymain, comp = G['byent'], G['bymain'], G['comp']
+CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY = len(byent), len(bymain), len(set(bymain) | set(comp)), len(byent + bymain + comp)
+TOP = sorted(((n, k) for n, k in byent.items() if k >= 7), key=lambda t: (-t[1], t[0]))
+kout = subprocess.run([sys.executable, MEM + 'kinds.py', os.path.join(stage, REG)], capture_output=True, text=True, cwd=MEM).stdout.split('\n')[0]
+K_N = int(kout.split()[0]); K = eval(kout[kout.index('{'):])
+for f in os.listdir(stage): os.unlink(os.path.join(stage, f))
+os.rmdir(stage)
+sys.path.insert(0, TOOLS); import close_main as cm; import register_counts as rc
+print('register_cites with 1831-1832: by entries %d | main %d | main+companions %d | anywhere %d | >=7 %s' % (CITED_BY, CITED_MAIN, CITED_MC, CITED_ANY, TOP))
+print('kinds.py: %d %s' % (K_N, K))
+rr, edits = cm.recount(new[REG]); assert edits
+for o, n in edits: print('recount: %s -> %s' % (o[:50], n[:50]))
+c = rc.count(rr)
+def sub1(t, pat, repl, label):
+    m = re.search(pat, t, re.M); assert m, label + ': anchor absent'
+    n = repl(m); assert t.count(m.group(0)) == 1, label + ': anchor not unique'
+    print('%-40s %s -> %s' % (label, m.group(0)[:60].replace('\n', ' '), n[:60].replace('\n', ' ')) if n != m.group(0) else '%-40s unchanged' % label)
+    return t.replace(m.group(0), n)
+for kind in ('a finding', 'a correction', 'a measurement', 'a new protocol', 'a withdrawal', 'prior art', 'an open question', 'a fault of mine'):
+    rr = sub1(rr, r'^\| \*\*%s\*\* \| (\d[\d,]*) \| (\d+) \|' % re.escape(kind), lambda m, kind=kind: '| **%s** | %s | %s |' % (kind, g(K[kind]), m.group(2)), 'kinds row ' + kind)
+rr = sub1(rr, r'by `kinds\.py` over the (\d[\d,]*) entry headings,', lambda m: 'by `kinds.py` over the %s entry headings,' % g(K_N), 'kinds headings')
+rr = sub1(rr, r'\*\*(\d[\d,]*) entries are cited by other entries\.\*\*', lambda m: '**%d entries are cited by other entries.**' % CITED_BY, 'cited by entries')
+rr = sub1(rr, r'the (\d+) cited seven times or more:', lambda m: 'the %d cited seven times or more:' % len(TOP), 'the N cited')
+rr = sub1(rr, r'\*\*(\d[\d,]*) entries are cited in the main volume\'s chapters and appendices; (\d[\d,]*) counting the four compendia and the two papers; (\d[\d,]*) counting citations by other entries\.\*\*',
+          lambda m: '**%d entries are cited in the main volume\'s chapters and appendices; %d counting the four compendia and the two papers; %s counting citations by other entries.**' % (CITED_MAIN, CITED_MC, g(CITED_ANY)), 'cited 3 figures')
+rows = re.findall(r'^\| \*\*(\d+)\*\* \| (\d+)× \| (.*) \|$', rr, re.M)
+what = {int(e): w for e, _, w in rows}
+# No entry is expected to reach seven citations with this pass; if one does the instrument refuses (a new row is a hand act).
+NEW_ROWS = {}
+norm = lambda t: re.sub(r'\W', '', t).casefold()
+def headline(e):
+    body = new[REG].split('\n### %d\n' % e, 1)[1]; return re.match(r'\s*\*\*(.+?)\*\*', body, re.S).group(1).strip()
+for e, w in NEW_ROWS.items(): assert norm(headline(e)) == norm(w), (e, headline(e))
+assert sorted(set(what) | set(NEW_ROWS)) == sorted(n for n, _ in TOP) and not (set(what) & set(NEW_ROWS)), ('the >=7 set changed beyond the hand-written rows; REFUSED', sorted(what), TOP)
+what.update(NEW_ROWS); print('table: +%d row(s) %s' % (len(NEW_ROWS), sorted(NEW_ROWS)))
+i0 = rr.index('| entry | cited | what it established |\n|---|---|---|\n'); i1 = rr.index('\n\n', i0)
+rr = rr[:i0] + '| entry | cited | what it established |\n|---|---|---|\n' + ''.join('| **%d** | %d× | %s |\n' % (n, k, what[n]) for n, k in TOP) + rr[i1 + 1:]
+new[REG] = rr
+mm = new[MAIN]
+mm = sub1(mm, r'(\d[\d,]*) entries, 1 to (\d+), at this build \(2026-09-04\)', lambda m: '%s entries, 1 to %d, at this build (2026-09-04)' % (g(c['headings']), c['highest']), 'main: at this build')
+mm = sub1(mm, r'436 entries when this paragraph was written, (\d[\d,]*) at this build', lambda m: '436 entries when this paragraph was written, %s at this build' % g(c['headings']), 'main: N at this build')
+mm = sub1(mm, r'at this build the main volume cites (\d+) entries', lambda m: 'at this build the main volume cites %d entries' % CITED_MAIN, 'main: cites N')
+new[MAIN] = mm
+c2 = rc.count(new[REG]); p2 = rc.printed(new[REG])
+assert (p2['front_total'], p2['front_highest'], p2['front_mature'], p2['front_mature_highest'], p2['back_mature_highest']) == (c2['headings'], c2['highest'], c2['mature'], c2['highest'], c2['highest']), (p2, c2)
+assert c2['genesis'] + c2['superseded'] + c2['mature'] == c2['headings'] == p2['front_total']
+print('the front matter sums to itself: %d + %d + %d = %d, highest %d' % (c2['genesis'], c2['superseded'], c2['mature'], c2['headings'], c2['highest']))
+
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v in new:
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:40], txt[v].count(a), new[v].count(a)) for a in anchors if txt[v].count(a) != new[v].count(a)]
+    print('build.py SUBS anchors on %-36s %3d checked; moved: %s' % (v, len(anchors), moved)); assert not moved
+for v in new: print('%-36s %d -> %d B, lines %+d' % (v, len(old[v]), len(new[v].encode('utf-8')), new[v].count('\n') - txt[v].count('\n')))
+if WRITE: assert not os.path.exists(OUT); os.makedirs(OUT)
+elif not os.path.isdir(OUT): os.makedirs(OUT)
+for v in new: open(OUT + v, 'wb').write(new[v].encode('utf-8'))
+ob = open(OLD_M, 'rb').read(); assert md5(ob) == OLD_M_MD5, 'BUILD108 md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(ob)); nb = ob
+for n in (MAIN, REG):
+    assert ms[n] == old[n]; b0 = block(n, ms[n]); assert nb.count(b0) == 1; nb = nb.replace(b0, block(n, new[n].encode('utf-8')))
+rv = nb
+for n in (MAIN, REG):
+    b1 = block(n, new[n].encode('utf-8')); assert rv.count(b1) == 1; rv = rv.replace(b1, block(n, ms[n]))
+assert md5(rv) == OLD_M_MD5, 'reverse FAILED'
+print('BUILD108 -> BUILD109: reverse recovers md5 %s == old: True; new %s B md5 %s %s lines' % (OLD_M_MD5, format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ',')))
+if WRITE: assert not os.path.exists(NEW_M); open(NEW_M, 'wb').write(nb); print('written', NEW_M)
+else: print('DRY RUN — nothing installed')
+<<<END FILE: r3-q5e.py>>>
+
+<<<FILE: r3-q5e-measure.py>>>
+#!/usr/bin/env python3
+# r3-q5e-measure.py — R3 (Q5 pass 5): the chat-58 batch 2c slip B2-C3 re-derived with the standard library. Chat 58's
+# mc11.py (its direct count is numpy-vectorised) and mc11b.py (imports numpy) are followed definition by definition —
+# the same closed form, the same eight random intervals (random.seed(1106), random.sample), the same exhaustive pass over
+# every unordered pair and singleton, the same leaf-peeling variable elimination with the seven edge predicates, the
+# same cycle witness 2S ≤ q+1 with the eight-term sieve and the seed-7 exhibit — so that each figure is comparable to the
+# pack's run, also recorded (W-231). The direct count |box ∩ Λ| is by bitsets (one Python integer per coordinate value),
+# which the pack did with numpy. Λ₈ from the seated tower-2.py; the cap-parameterised lattice is tower-2's loop with
+# caps in place of its constants. Slip B3-C1's figures are mc12.py's, which is standard-library and is seated as it is.
+import os, sys, importlib.util, io, contextlib, random, itertools
+from collections import Counter
+H = os.path.dirname(os.path.abspath(__file__))
+spec = importlib.util.spec_from_file_location('tower2', os.path.join(H, 'tower-2.py')); T2 = importlib.util.module_from_spec(spec)
+with contextlib.redirect_stdout(io.StringIO()): spec.loader.exec_module(T2)
+FAIL = []
+def check(tag, got, exp):
+    ok = got == exp; print('   %-70s %-24s %s' % (tag, repr(got)[:24], 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def lattice(capn, cape, capl, capk, capf):
+    out = []
+    for n in range(1, capn + 1):
+        for l in range(0, min(capl, n - 1) + 1):
+            for k in range(1, min(capk, 4 * l + 2) + 1):
+                for q in range(0, k + 1):
+                    for e in range(1, cape + 1):
+                        for f in range(0, min(capf, e - 1) + 1):
+                            for g in range(0, min(4 * f + 2, q) + 1):
+                                for S2 in range(0, k + 1):
+                                    out.append((n, l, k, q, e, f, g, S2))
+    return out
+class Direct:
+    """|box ∩ Λ| by bitsets: for coordinate i and value v, GE[i][v] is the set of cells with xᵢ ≥ v, LE[i][v] with xᵢ ≤ v."""
+    def __init__(self, cells):
+        self.cells = cells; m = [max(c[i] for c in cells) for i in range(8)]
+        self.GE = [[0] * (m[i] + 2) for i in range(8)]; self.LE = [[0] * (m[i] + 2) for i in range(8)]
+        for idx, c in enumerate(cells):
+            b = 1 << idx
+            for i in range(8):
+                for v in range(0, c[i] + 1): self.GE[i][v] |= b
+                for v in range(c[i], m[i] + 1): self.LE[i][v] |= b
+        self.m = m
+    def __call__(self, lo, hi):
+        acc = None
+        for i in range(8):
+            if lo[i] > self.m[i]: return 0
+            g = self.GE[i][lo[i]]; l = self.LE[i][min(hi[i], self.m[i])]; x = g & l
+            acc = x if acc is None else acc & x
+            if not acc: return 0
+        return bin(acc).count('1')
+def leaf_S2(lo, hi, k): return max(0, min(hi[7], k) - lo[7] + 1)
+def leaf_g(lo, hi, q, f): return max(0, min(hi[6], q, 2 * (2 * f + 1)) - lo[6] + 1)
+def factorised(lo, hi):
+    tot = 0
+    for n in range(lo[0], hi[0] + 1):
+        for l in range(lo[1], hi[1] + 1):
+            if not (l <= n - 1): continue
+            for k in range(lo[2], hi[2] + 1):
+                if not (1 <= k <= 2 * (2 * l + 1)): continue
+                for q in range(lo[3], hi[3] + 1):
+                    if not (q <= k): continue
+                    for e in range(lo[4], hi[4] + 1):
+                        for f in range(lo[5], hi[5] + 1):
+                            if not (f <= e - 1): continue
+                            tot += leaf_S2(lo, hi, k) * leaf_g(lo, hi, q, f)
+    return tot
+def meet_join(x, y): return tuple(min(a, b) for a, b in zip(x, y)), tuple(max(a, b) for a, b in zip(x, y))
+EDGES = [(0, 1, lambda n, l: l <= n - 1), (1, 2, lambda l, k: 1 <= k <= 4 * l + 2), (2, 3, lambda k, q: q <= k), (3, 6, lambda q, g: g <= q),
+         (5, 6, lambda f, g: g <= 4 * f + 2), (4, 5, lambda e, f: f <= e - 1), (2, 7, lambda k, S2: S2 <= k)]
+def peel_count(lo, hi, edges, nvars=8):
+    dom = {i: list(range(lo[i], hi[i] + 1)) for i in range(nvars)}
+    factors = [((i, j), (lambda p: (lambda a: 1 if p(*a) else 0))(pred)) for i, j, pred in edges]
+    maxar = 0; remaining = set(range(nvars))
+    while remaining:
+        deg = {v: len(set(u for sc, _ in factors if v in sc for u in sc) - {v}) for v in remaining}
+        v = min(remaining, key=lambda x: (deg[x], x))
+        inv = [(sc, f) for sc, f in factors if v in sc]; rest = [(sc, f) for sc, f in factors if v not in sc]
+        newscope = tuple(sorted(set(u for sc, _ in inv for u in sc) - {v})); maxar = max(maxar, len(newscope)); table = {}
+        for assign in itertools.product(*[dom[u] for u in newscope]):
+            ctx = dict(zip(newscope, assign)); s = 0
+            for val in dom[v]:
+                ctx[v] = val; prod = 1
+                for sc, f in inv:
+                    prod *= f(tuple(ctx[u] for u in sc))
+                    if prod == 0: break
+                s += prod
+            table[assign] = s
+        rest.append((newscope, (lambda t, sc: (lambda a: t[a]))(table, newscope))); factors = rest; remaining.discard(v)
+    tot = 1
+    for sc, f in factors: assert sc == (); tot *= f(())
+    return tot, maxar
+
+cells = T2.L8(); check('|Λ₈| from tower-2.py, equal to lattice(3,3,1,3,1) in order', (len(cells), lattice(3, 3, 1, 3, 1) == cells), (976, True))
+D8 = Direct(cells)
+print('== the eight random intervals (mc11.py, random.seed(1106))')
+random.seed(1106); ok8 = 0
+for t in range(8):
+    x, y = random.sample(cells, 2); lo, hi = meet_join(x, y); d, fct = D8(lo, hi), factorised(lo, hi)
+    box = 1
+    for i in range(8): box *= hi[i] - lo[i] + 1
+    print('   lo=%s hi=%s  direct=%d factorised=%d box=%d void=%d  %s' % (lo, hi, d, fct, box, box - d, 'OK' if d == fct else 'FAIL')); ok8 += d == fct
+check('eight random intervals reproduced', ok8, 8)
+print('== exhaustive over every unordered pair and singleton')
+boxes = Counter()
+for i in range(len(cells)):
+    ci = cells[i]
+    for j in range(i, len(cells)): boxes[meet_join(ci, cells[j])] += 1
+npairs = sum(boxes.values()); check('pairs + singletons', npairs, 476776); check('distinct boxes', len(boxes), 116138)
+fails = 0; voidpairs = 0
+for (lo, hi), mult in boxes.items():
+    d = D8(lo, hi)
+    if d != factorised(lo, hi): fails += 1
+    box = 1
+    for t in range(8): box *= hi[t] - lo[t] + 1
+    if box - d > 0: voidpairs += mult
+check('factorised ≠ direct', fails, 0); check('pairs whose box has void > 0', voidpairs, 340929)
+check('void-free fraction (pairs + singletons), four decimals', round((npairs - voidpairs) / npairs, 4), 0.2849)
+print('== leaf-peeling, width measured (mc11b.py stage a, random.seed(1106), 100 boxes per cap)')
+random.seed(1106); ar = {}
+for cap in [(3, 3, 1, 3, 1), (4, 4, 2, 5, 1), (5, 5, 2, 6, 1)]:
+    cs = lattice(*cap); Dc = Direct(cs); f_ = 0; widths = set()
+    for t in range(100):
+        x, y = random.sample(cs, 2); lo, hi = meet_join(x, y); c, w = peel_count(lo, hi, EDGES); widths.add(w)
+        if c != Dc(lo, hi): f_ += 1
+    ar[cap] = (len(cs), f_, sorted(widths)); print('   cap %s |Λ|=%d: 100 random boxes, peel≠direct: %d, max message arity seen: %s' % (cap, len(cs), f_, sorted(widths)))
+check('cells at the three caps', [ar[c][0] for c in ar], [976, 8847, 25748]); check('peel = direct everywhere, message arity 1', all(v[1] == 0 and v[2] == [1] for v in ar.values()), True)
+print('== the cycle witness: 2S ≤ q+1 closes the triangle k–q–2S (mc11b.py stage b, 40 boxes)')
+random.seed(1106); close = (3, 7, lambda q, S2: S2 <= q + 1); cells_c = [z for z in cells if close[2](z[3], z[7])]; Dc = Direct(cells_c)
+check('|Λ ∩ {2S ≤ q+1}| (the constraint is not redundant)', len(cells_c), 911)
+E2 = EDGES + [close]; f_ = 0; widths = set(); tree_wrong = 0; sieve_ok = 0; NB = 40
+for t in range(NB):
+    x, y = random.sample(cells_c, 2); lo, hi = meet_join(x, y); d = Dc(lo, hi); c, w = peel_count(lo, hi, E2); widths.add(w)
+    if c != d: f_ += 1
+    tri = [EDGES[2], EDGES[6], close]; other = [e for e in EDGES if e not in tri]
+    pts = [z for z in itertools.product(*[range(lo[i], hi[i] + 1) for i in range(8)]) if all(p(z[i], z[j]) for i, j, p in other) and z[0] >= 1 and z[4] >= 1 and z[2] >= 1]
+    sieve = 0
+    for r in range(4):
+        for T in itertools.combinations(range(3), r):
+            sieve += (-1) ** r * sum(1 for z in pts if all(not tri[a][2](z[tri[a][0]], z[tri[a][1]]) for a in T))
+    if D8(lo, hi) != d: tree_wrong += 1
+    if sieve == d: sieve_ok += 1
+check('peel = direct with the cycle', f_, 0); check('max message arity with the cycle', sorted(widths), [2])
+check('tree-style count wrong on', (tree_wrong, NB), (9, 40)); check('eight-term sieve over the triangle right on', (sieve_ok, NB), (40, 40))
+random.seed(7)
+while True:
+    x, y = random.sample(cells_c, 2); lo, hi = meet_join(x, y); d = Dc(lo, hi); tc = D8(lo, hi)
+    if tc != d: break
+print('   exhibit: lo=%s hi=%s: |box∩Λ|=%d (tree count), |box∩Λ\'|=%d; correction = %d' % (lo, hi, tc, d, tc - d))
+check('the exhibit', (lo, hi, tc, d, tc - d), ((2, 1, 2, 0, 2, 0, 0, 0), (3, 1, 3, 2, 3, 1, 1, 3), 280, 240, 40))
+print('\n   integrity checks: %s' % ('ALL OK' if not FAIL else 'FAILED: ' + '; '.join(FAIL)))
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r3-q5e-measure.py>>>
+
+<<<FILE: r3-q5e-measure.out>>>
+   |Λ₈| from tower-2.py, equal to lattice(3,3,1,3,1) in order             (976, True)              OK
+== the eight random intervals (mc11.py, random.seed(1106))
+   lo=(2, 1, 3, 1, 3, 0, 1, 2) hi=(2, 1, 3, 2, 3, 1, 2, 3)  direct=12 factorised=12 box=16 void=4  OK
+   lo=(1, 0, 2, 1, 2, 1, 1, 1) hi=(2, 1, 2, 2, 2, 1, 2, 1)  direct=9 factorised=9 box=16 void=7  OK
+   lo=(2, 1, 2, 2, 1, 0, 0, 1) hi=(3, 1, 3, 3, 3, 1, 2, 1)  direct=90 factorised=90 box=144 void=54  OK
+   lo=(2, 0, 2, 1, 2, 1, 1, 0) hi=(3, 0, 2, 2, 3, 1, 2, 2)  direct=36 factorised=36 box=48 void=12  OK
+   lo=(1, 0, 1, 1, 2, 0, 0, 0) hi=(3, 1, 3, 3, 2, 0, 0, 1)  direct=42 factorised=42 box=108 void=66  OK
+   lo=(1, 0, 2, 2, 3, 0, 0, 0) hi=(2, 0, 2, 2, 3, 1, 1, 2)  direct=24 factorised=24 box=24 void=0  OK
+   lo=(1, 0, 2, 2, 2, 0, 0, 0) hi=(3, 1, 3, 2, 2, 1, 1, 1)  direct=56 factorised=56 box=96 void=40  OK
+   lo=(2, 0, 2, 0, 2, 0, 0, 1) hi=(3, 1, 3, 3, 2, 0, 0, 2)  direct=40 factorised=40 box=64 void=24  OK
+   eight random intervals reproduced                                      8                        OK
+== exhaustive over every unordered pair and singleton
+   pairs + singletons                                                     476776                   OK
+   distinct boxes                                                         116138                   OK
+   factorised ≠ direct                                                    0                        OK
+   pairs whose box has void > 0                                           340929                   OK
+   void-free fraction (pairs + singletons), four decimals                 0.2849                   OK
+== leaf-peeling, width measured (mc11b.py stage a, random.seed(1106), 100 boxes per cap)
+   cap (3, 3, 1, 3, 1) |Λ|=976: 100 random boxes, peel≠direct: 0, max message arity seen: [1]
+   cap (4, 4, 2, 5, 1) |Λ|=8847: 100 random boxes, peel≠direct: 0, max message arity seen: [1]
+   cap (5, 5, 2, 6, 1) |Λ|=25748: 100 random boxes, peel≠direct: 0, max message arity seen: [1]
+   cells at the three caps                                                [976, 8847, 25748]       OK
+   peel = direct everywhere, message arity 1                              True                     OK
+== the cycle witness: 2S ≤ q+1 closes the triangle k–q–2S (mc11b.py stage b, 40 boxes)
+   |Λ ∩ {2S ≤ q+1}| (the constraint is not redundant)                     911                      OK
+   peel = direct with the cycle                                           0                        OK
+   max message arity with the cycle                                       [2]                      OK
+   tree-style count wrong on                                              (9, 40)                  OK
+   eight-term sieve over the triangle right on                            (40, 40)                 OK
+   exhibit: lo=(2, 1, 2, 0, 2, 0, 0, 0) hi=(3, 1, 3, 2, 3, 1, 1, 3): |box∩Λ|=280 (tree count), |box∩Λ'|=240; correction = 40
+   the exhibit                                                            ((2, 1, 2, 0, 2, 0, 0, 0 OK
+
+   integrity checks: ALL OK
+<<<END FILE: r3-q5e-measure.out>>>
+
+<<<FILE: mc12.py>>>
+"""MC-12 — §11.1.1 binary / circuit.  Verify: J(Λ) and its covers; cell ↦ down-set-of-J
+bijection; join = OR, meet = AND over all pairs; the 20 cover-implications cut 2^17 to
+exactly 976; the implication circuit's depth; the 17 / 9.93 / 7.07 bit accounting."""
+import itertools, math
+from lam8 import L8
+
+def leq(x, y): return all(a <= b for a, b in zip(x, y))
+def join(x, y): return tuple(max(a, b) for a, b in zip(x, y))
+def meet(x, y): return tuple(min(a, b) for a, b in zip(x, y))
+
+cells = L8(); S = set(cells); n = len(cells)
+rank = {c: sum(c) for c in cells}
+bottom = min(cells, key=lambda c: rank[c])
+
+# covers in Λ
+below = {c: [] for c in cells}
+for x in cells:
+    for y in cells:
+        if x != y and leq(x, y) and rank[y] == rank[x] + 1:
+            below[y].append(x)
+J = [c for c in cells if len(below[c]) == 1]           # join-irreducible: covers exactly one
+print("|Λ| =", n, " bottom =", bottom, " |J(Λ)| =", len(J))
+
+Jset = sorted(J, key=lambda c: (rank[c], c))
+idx = {g: i for i, g in enumerate(Jset)}
+# covers within J (the generator poset A.19)
+Jcov = []
+for a in Jset:
+    for b in Jset:
+        if a != b and leq(a, b):
+            if not any(a != m != b and leq(a, m) and leq(m, b) for m in Jset):
+                Jcov.append((idx[a], idx[b]))     # a < b covering: bit b set forces bit a set
+print("covering relations in J(Λ):", len(Jcov))
+
+# cell -> word
+def word(x): return tuple(1 if leq(g, x) else 0 for g in Jset)
+W = {c: word(c) for c in cells}
+print("bijection cell↦word:", "OK" if len(set(W.values())) == n else "FAIL")
+
+# join = OR, meet = AND over all unordered pairs
+bad_or = bad_and = 0; npair = 0
+for i in range(n):
+    for j in range(i + 1, n):
+        x, y = cells[i], cells[j]; npair += 1
+        if W[join(x, y)] != tuple(a | b for a, b in zip(W[x], W[y])): bad_or += 1
+        if W[meet(x, y)] != tuple(a & b for a, b in zip(W[x], W[y])): bad_and += 1
+print(f"pairs {npair}: OR failures {bad_or}, AND failures {bad_and}")
+
+# the 20 implications cut 2^17 to exactly 976
+accept = 0; k17 = len(Jset)
+for bits in itertools.product((0, 1), repeat=k17):
+    if all(not (bits[b] and not bits[a]) for a, b in Jcov):
+        accept += 1
+print(f"words in {{0,1}}^{k17} = {2**k17}; accepted by the {len(Jcov)} implications = {accept}",
+      "-> exactly Λ" if accept == n else "-> MISMATCH")
+# and the accepted set is exactly the image of Λ
+imgs = set(W.values())
+sat = set(b for b in itertools.product((0, 1), repeat=k17)
+          if all(not (b[y] and not b[x]) for x, y in Jcov))
+print("accepted set == image of Λ:", sat == imgs)
+
+# circuit depth: acceptance = AND over the 20 implication gates, each ¬b ∨ a i.e. one gate.
+# monotone form: the circuit computes, per bit, forced-closure; depth = longest chain in J
+# plus the AND tree.  Measure both: (a) height of the generator poset, (b) depth of the
+# balanced AND tree over 20 gates, (c) their sum as the accept-circuit depth.
+h = 0
+for g in Jset:
+    # longest descending chain of generators below g
+    memo = {}
+    def down(x):
+        if x in memo: return memo[x]
+        d = 1 + max([down(m) for m in Jset if m != x and leq(m, x)] or [0])
+        memo[x] = d; return d
+    h = max(h, down(g))
+print("height of the generator poset J(Λ) (longest chain, in generators):", h)
+and_depth = math.ceil(math.log2(len(Jcov)))
+print(f"balanced AND tree over {len(Jcov)} gates: depth {and_depth}; "
+      f"implication gate 1; total accept depth {and_depth + 1}")
+
+# bit accounting
+print(f"bits carried {k17}; bits needed log2({n}) = {math.log2(n):.2f}; surplus {k17 - math.log2(n):.2f}")
+print(f"occupancy {n}/{2**k17} = {100*n/2**k17:.4f}%")
+<<<END FILE: mc12.py>>>
+
+<<<FILE: lam8.py>>>
+from itertools import product
+def L8():
+    out=[]
+    for n in range(1,4):
+      for l in range(0,min(1,n-1)+1):
+        for k in range(1,min(3,4*l+2)+1):
+          for q in range(0,k+1):
+            for e in range(1,4):
+              for f in range(0,min(1,e-1)+1):
+                for g in range(0,min(4*f+2,q)+1):
+                  for S2 in range(0,k+1):
+                    out.append((n,l,k,q,e,f,g,S2))
+    return out
+def L9():
+    return [x+(s,) for x in L8() for s in range(0,x[6]+1)]
+if __name__=='__main__':
+    print('|Λ8|=',len(L8()),' |Λ9|=',len(L9()))
+<<<END FILE: lam8.py>>>

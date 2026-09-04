@@ -1,5 +1,5 @@
 r2-bib.py — census mc 387–672 (the bibliography's `objects` column) and mc 293 (the modular ledger's numerals)
-members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main ffe43fd4 | reg caacd11e | pc 6e904d82 | sc 5ba7f61c | ioi 43a28121 | census ba8306f2
+members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main e5875231 | reg 33e10932 | pc 6e904d82 | sc 5ba7f61c | ioi 43a28121 | census ba8306f2
 
 == §1 THE TABLE, located by scan — the census rows point into it and every one of them is a handle
    exactly one bibliography table header                                  1                        OK
@@ -15,7 +15,7 @@ members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main ffe43fd4 
    the census handles are a subset of the column's                        []                       OK
 
 == §2 RESOLUTION — where else, if anywhere, each handle is printed
-   in the compendium outside the table: 6 | elsewhere only: 128 | nowhere: 131
+   in the compendium outside the table: 6 | elsewhere only: 135 | nowhere: 124
    A.staircls   in the compendium outside the table at: [(3600, '**`A.staircls`** states that E(ℛ) = 0 iff the held set is an intersection of'), (3785, 'The held cells form a **staircase**, which by `A.staircls` is exactly the')]
    C.Aq         in the compendium outside the table at: [(2688, '*as C.Aq*'), (2692, '> **Prior art: as C.Aq — the second factor of the fibred count, built the same way.**')]
    E.nuclide    in the compendium outside the table at: [(3709, "E.nuclide's shape, a defect whose every missing cell can be named.*")]
@@ -24,12 +24,12 @@ members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main ffe43fd4 
    M.C2         in the compendium outside the table at: [(2414, 'COMPLETED 2026-08-11 (R 1484): the sum is TWO accountings. LEVEL ONE, the manifold, is wha')]
    handles the compendium prints outside the table                        ['A.staircls', 'C.Aq', ' OK
    every one of those six is printed as a REFERENCE inside another entry, not as the name of its own True                     OK
-   the elsewhere-only handles resolve in: {'main': 57, 'reg': 111}
+   the elsewhere-only handles resolve in: {'main': 57, 'reg': 118}
    of those, printed in Appendix G's "what rests on it" column: 27
-   nowhere: A.E A.EW A.S A.W A.anchor A.bound A.ebits A.expr A.intext A.logic A.morph A.prod A.prodE A.r4 A.relax A.seaton A.slack A.stair A.stat2 A.three A.two B.V B.V43 B.Vexact B.floor2 B.floor32 B.frac B.newton B.ordbr B.ordk B.pareto B.pole B.rank1 B.selfconc C.Bq C.box C.compare C.cut C.fib C.local C.pareto C.qmean E.ioniz E.layout E.table EM.cross EM.notcomp EM.parity EM.quotient EM.spin F.exact F.moore F.open F.unstatable G.allcons G.book G.cons G.graph G.near G.prot G.ref G.reg G.shape G.stat G.tower G.trip I.convex I.interval I.shape K.arrow K.clock K.clockfail K.comp K.corner K.coupling K.decay K.jump K.markov K.three K.transit K.zcross L.E0 L.F1 L.Fm1 L.alpha L.amp L.birk L.bits L.box L.c2 L.c4 L.c5 L.c7 L.chains L.chi L.circuit L.metric L.mobius L.modular L.occ L.pal L.pushback L.rankpoly L.skew L.step L.tree L.void L.voidfrac Q.pen S.bits S.bounds S.box S.car S.channel S.cover S.down S.erasure S.open S.parent S.status S.unit T.a10 T.a11 T.a13 T.a9 T.dens T.dich T.excl T.invariant T.real W.face
-   census handles resolving nowhere                                       88                       measured (93 at the closing reading)
-   census handles resolving only outside the compendium                   91                       measured (86 at the closing reading)
-   census rows whose handle resolves nowhere                              125                      measured (133 at the closing reading)
+   nowhere: A.E A.EW A.S A.W A.anchor A.bound A.ebits A.expr A.intext A.logic A.morph A.prod A.prodE A.r4 A.relax A.seaton A.slack A.stair A.stat2 A.three A.two B.V B.V43 B.Vexact B.floor2 B.floor32 B.frac B.newton B.ordbr B.ordk B.pareto B.pole B.rank1 B.selfconc C.Bq C.box C.compare C.cut C.fib C.local C.pareto C.qmean E.ioniz E.layout E.table EM.cross EM.notcomp EM.parity EM.quotient EM.spin F.exact F.moore F.open F.unstatable G.allcons G.book G.cons G.graph G.near G.prot G.ref G.reg G.shape G.stat G.tower G.trip I.convex I.interval I.shape K.arrow K.clock K.clockfail K.comp K.corner K.coupling K.decay K.jump K.markov K.three K.transit K.zcross L.E0 L.F1 L.Fm1 L.alpha L.amp L.c2 L.c4 L.c5 L.c7 L.chains L.chi L.metric L.mobius L.modular L.occ L.pal L.pushback L.rankpoly L.skew L.step Q.pen S.bits S.bounds S.box S.car S.channel S.cover S.down S.erasure S.open S.parent S.status S.unit T.a10 T.a11 T.a13 T.a9 T.dens T.dich T.excl T.invariant T.real W.face
+   census handles resolving nowhere                                       83                       measured (93 at the closing reading)
+   census handles resolving only outside the compendium                   96                       measured (86 at the closing reading)
+   census rows whose handle resolves nowhere                              117                      measured (133 at the closing reading)
    census rows whose handle the compendium prints outside the table       0                        OK
    mathreg.py, where the handle -> object map lives, is a member of this build False                    OK
    a reader can follow every handle in the `objects` column to an object the volume states False                    DEVIATION (bib-01) — printed True
@@ -57,8 +57,8 @@ members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main ffe43fd4 
       bib-01  a reader can follow every handle in the `objects` column to an object the volume states — measured False, printed True
    mc 387–672: DEFECT, one class at one site. The `objects` column prints 265 handles; the compendium prints
    6 of them outside the table and only as references inside other entries, never as an object's own name;
-   128 resolve only to another volume — the Register and the main volume, Appendix G's column among the sites —
-   and 131 resolve nowhere.
+   135 resolve only to another volume — the Register and the main volume, Appendix G's column among the sites —
+   and 124 resolve nowhere.
    nowhere. The map from handle to object is mathreg.py's, and mathreg.py is not a member — docket 38 as much
    as docket 28. Recorded, not repaired: the repair is the generator's, printing each handle beside the object
    it names, and the generator is not held.
