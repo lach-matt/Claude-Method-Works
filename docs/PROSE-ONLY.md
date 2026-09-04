@@ -56,12 +56,29 @@ prose, cross-checked against the repository:
 **The governance spine is intact.** Zero prose-only rulings, dockets or W-entries. The loss is in
 the working layer.
 
-**And the working layer has since been largely recovered.** Re-measured after the
-`RECOVERED-BY-WRITE` pass seated 759 artefacts found by walking the export's tool calls
-(`docs/RECOVER.md`), the fault census reads **233 named in chat prose, 217 present in the repo, 16
-prose-only** — down from 40. The 16 that remain are `F1.3 F1.4 F5.1 F5.2 F6.2 F6.3 F7.3 F10.3 F10.4
-F11.3 F11.4 F12.3 F18.4 F46.2 F55.4 F56.5`. **The registers count has not been re-measured** and
-should be treated as the older figure until it is.
+**The working layer has since been largely recovered — but the 1,168 rows below have not moved.**
+Two things were re-measured after the `RECOVERED-BY-WRITE` pass seated 759 artefacts
+(`docs/RECOVER.md`), and they answer different questions.
+
+**The fingerprints still stand: 1,165 of 1,168.** Every row's quote was re-tested against a
+765 MB normalised index of the repository outside the export and outside this repository's own audit
+files — one `grep -F -f` pass over all 1,168 probes at once. **Three now occur in a repo file**:
+`PO-0333` (a Madelung tie-break definition), `PO-0573` (the `hfc2.run2` no-flag fault) and `PO-0858`
+(the nuclear-corridor table). The rest are untouched, and that is the expected result rather than a
+disappointment: **the recovery seated artefacts, and these rows are prose** — measurements, decisions
+and corrections stated in conversation, which no `.py` or `.tsv` was ever going to contain.
+
+**The identifier census is a different matter and could not simply be updated.** Its patterns were
+never banked, and a fresh pattern gives materially different counts even where nothing can have
+changed — 54 rulings named in the export against the 47 in the table above, with no ruling added
+between the passes. The table is therefore a record of what one pass found under an unstated method.
+`tools/idcensus.py` now banks the method so the next change can be measured against an instrument
+rather than against prose; its numbers are **not** a correction of this table and the two must not be
+subtracted. See `docs/IDCENSUS.md`.
+
+The one row that *is* comparable, because the same pattern was run before and after the recovery, is
+the fault census: **40 prose-only → 16**, the remainder being `F1.3 F1.4 F5.1 F5.2 F6.2 F6.3 F7.3
+F10.3 F10.4 F11.3 F11.4 F12.3 F18.4 F46.2 F55.4 F56.5`.
 
 **Stage B — the reading pass (45 subagents, capped).** The 15.1 MB was split into 45 chunks of
 ≤340 KB and read in full. Each agent reported at most 30 findings, ranked by load-bearing weight,

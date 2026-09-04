@@ -191,7 +191,11 @@ every candidate was checked against a 657 MB index of the repo, and 184 already-
 dropped. The governance spine is intact — **zero** prose-only rulings, dockets or `W-` entries — but
 **40 numbered faults and 178 registers are named in prose and held nowhere.** A row is a candidate
 for a home, not an instruction to make one, and the list is a **floor**: the reading pass was capped
-at 30 findings per chunk. See `docs/PROSE-ONLY.md`, which also records the one finding that needs a
+at 30 findings per chunk. **Re-tested after 782 files were seated into `recovered/`, 1,165 of the
+1,168 fingerprints still occur nowhere outside the chat export** — the recovery seated artefacts and
+these rows are prose, so they were never going to move. The identifier census beside them could not
+be re-run at all: its patterns were never banked, which is why `tools/idcensus.py` now exists
+(`docs/IDCENSUS.md`); its numbers are a different measurement, not a correction. See `docs/PROSE-ONLY.md`, which also records the one finding that needs a
 ruling — register 66's order-ideal claim against an unbanked re-measurement — and points at the
 retraction audit.
 
