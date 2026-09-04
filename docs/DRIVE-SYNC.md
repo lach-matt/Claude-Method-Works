@@ -111,6 +111,26 @@ It is a ceiling, not a flaky connection. On 2026-09-02 the smallest failing file
 So the connector and its OAuth session were live throughout. The oversized response payload itself
 tears the MCP session down. Retrying cannot help, and neither can `read_file_content`.
 
+**Re-measured 2026-09-04 — the connector now refuses cleanly instead of tearing down.** A
+`download_file_content` call on `conversations.json` (`1HDX_rVzgr_JYFylw5MhwFPGumLLj-lsc`,
+388,264,753 B) returned, immediately and without disturbing the session:
+
+> `File too large for download, over limit of 10 MB. For downloading larger files, use the standard
+> Google Drive API.`
+
+Two changes worth recording. The guard is now an **explicit 10 MB limit with a proper error**, not
+the silent session teardown measured above — a later `search_files` call on the same connector
+succeeded. And the ceiling sits at 10 MB rather than ~6 MiB, so the 31 files that failed in the
+first pass (6.07–7.26 MB) would very likely come through this route today. The two chat exports
+still cannot: 388 MB is 38× the limit.
+
+The error's own advice — use the Drive API directly — needs an OAuth token this container does not
+have. Checked on the same day: no `credentials.json` or `token.json` anywhere on disk, no Drive
+environment variables, and an unauthenticated `files/…?alt=media` fetch returns **403**. The one
+ambient Google token present (`CLOUDSDK_AUTH_ACCESS_TOKEN`) belongs to the sandbox platform, not to
+the Drive account, and must not be pointed at a user's personal Drive. **The Colab mount remains the
+only working route for the two exports.**
+
 All 31 files were re-checked in Drive the same day: 31 of 31 still exist, every reported byte count
 matches what was expected, nothing has been modified since 2026-09-01. They are simply out of reach
 of this route.
