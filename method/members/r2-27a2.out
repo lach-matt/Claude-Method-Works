@@ -1,16 +1,16 @@
 r2-27a.py — 27a-02: do the seven Register entries Appendix G names actually rest on the sections?
-members: The_Method_1_6-2.md 4eec7650 | The_Method_1_6___The_Register-2.md bfc8c01d | Transitions.md dabed88e | The_Method_1_6___Mathematical_Compendium-2.md 53a446c8
+members: The_Method_1_6-2.md c81f0379 | The_Method_1_6___The_Register-2.md 5edcae66 | Transitions.md dabed88e | The_Method_1_6___Mathematical_Compendium-2.md facd6191
 
 == §1 THE THREE ROWS, located by scan this chat — the seven numbers are read OUT of the rows, never carried in
-   Appendix G first line                                            11369                      OK
+   Appendix G first line                                            11403                      OK
    Appendix G line count (to `# END MATTER`)                        46                         OK
    DATA rows in Appendix G                                          30                         OK
    the three rows are present                                       [True, True, True]         OK
-   row 8.2   L11404  rests on: `W.jur`; Chapter 12; Register 1375, 1519, 1523, 1535, 1551
+   row 8.2   L11438  rests on: `W.jur`; Chapter 12; Register 1375, 1519, 1523, 1535, 1551
         states: A jurisdicted forcing and an unjurisdicted disjunction are the same object. A theorem holding only under a scope condition is inherently ternary, and 
-   row 8.4   L11405  rests on: `W.rel`; Chapter 12; Register 1375
+   row 8.4   L11439  rests on: `W.rel`; Chapter 12; Register 1375
         states: The vocabularies. A locally covariant QFT is a functor with exactly four parts, which replaces the seven-vocabulary partition.
-   row 10.4c L11408  rests on: `M.C1`; Register 1399, 1403
+   row 10.4c L11442  rests on: `M.C1`; Register 1399, 1403
         states: C1, computed. The presymplectic potential on a null surface contains no transverse derivative, so Ω is block diagonal and the algebra factorises over 
    row 8.2 cites                                                    [1375, 1519, 1523, 1535, 1551] OK
    row 8.4 cites                                                    [1375]                     OK

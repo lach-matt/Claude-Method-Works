@@ -1,22 +1,22 @@
 r2-26c.py — 26b-02 / 26b-03: the withdrawn Appendix F, what still cites it, and where its figures went
-members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md md5 bfc8c01d | PP md5 49900cf4
+members: The_Method_1_6-2.md md5 c81f0379 | The_Method_1_6___The_Register-2.md md5 5edcae66 | PP md5 49900cf4
 
 == §1 THE TWO UNITS, measured this chat by scan — member line numbers are never carried between chats
-   rebuilt Appendix F first line                                      11230                    OK
+   rebuilt Appendix F first line                                      11264                    OK
    rebuilt Appendix F line count (to `## Appendix G`)                 139                      OK
    PP Appendix F first line                                           10761                    OK
    PP Appendix F line count (to `# END MATTER`)                       231                      OK
    heading lines, rebuilt unit                                        9                        OK
    heading-form lines, PP unit                                        12                       OK
-   L11230  ## Appendix F — The numbers, indexed
-   L11243  ### F.1 The population
-   L11261  ### F.2 The fibring of a quantity-kind over an ordered ground
-   L11286  ### F.3 The index, built
-   L11309  ### F.3.1 The closure, represented as it must be
-   L11336  ### F.4 The readings
-   L11338  ### F.4.1 Two ratios the book had never measured about itself
-   L11346  ### F.4.2 The ideal withdrawal ratio
-   L11351  ### F.4.3 Time, which this work has and does not read
+   L11264  ## Appendix F — The numbers, indexed
+   L11277  ### F.1 The population
+   L11295  ### F.2 The fibring of a quantity-kind over an ordered ground
+   L11320  ### F.3 The index, built
+   L11343  ### F.3.1 The closure, represented as it must be
+   L11370  ### F.4 The readings
+   L11372  ### F.4.1 Two ratios the book had never measured about itself
+   L11380  ### F.4.2 The ideal withdrawal ratio
+   L11385  ### F.4.3 Time, which this work has and does not read
    ---
    P10761  # Appendix F — The numbers, indexed
    P10774  F.1 The population
@@ -39,7 +39,7 @@ members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md m
    the two units share no body line                                   0                        OK
 
 == §3 26b-02 — F.4.1 declares its content withdrawn; two chapter sentences still cite it for that content
-   F.4.1 L11338-L11345 (8 lines), F.4.2 L11346-L11350 (5 lines)
+   F.4.1 L11372-L11379 (8 lines), F.4.2 L11380-L11384 (5 lines)
    F.4.1 declares withdrawal in its own words                         True                     OK
    F.4.2 declares the same                                            True                     OK
    "withdrawal ratio" in F.4.1 body (case-folded)                     0                        OK
@@ -47,10 +47,10 @@ members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md m
    "withdrawal ratio" in the rebuilt unit BODY (fault 2: headings excluded) 0                        OK
    "withdrawal ratio" in the rebuilt unit HEADINGS (F.4.2's title)    1                        OK
    every F.4.1 mention in the main volume:
-     L8961   §F.4.1's withdrawal ratio measures and does not excuse. Registers 320 and 321.
-     L9023   the ratios of F.4.1, the counts of Appendices D, E and F, the fifty-five of §32.1.4 — is true of a
-     L11338  ### F.4.1 Two ratios the book had never measured about itself
-     L11348  **Retained as a reference, withdrawn as content**, on the same ground as F.4.1 and by the same
+     L8963   §F.4.1's withdrawal ratio measures and does not excuse. Registers 320 and 321.
+     L9025   the ratios of F.4.1, the counts of Appendices D, E and F, the fifty-five of §32.1.4 — is true of a
+     L11372  ### F.4.1 Two ratios the book had never measured about itself
+     L11382  **Retained as a reference, withdrawn as content**, on the same ground as F.4.1 and by the same
    F.4.1 cited from outside the appendix exactly twice                2                        OK
    F.4.1 keeps the label so "every reference written to it still resolves". The LABEL resolves; the
    CONTENT the two sentences name does not. That is 26b-02, and it stands.
@@ -76,10 +76,10 @@ members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md m
 
 == §5 26b-03 — §32.1.4's row against the appendix as rebuilt (appf.py occurrence rule, copied from r2-ch26a §3)
    numeral occurrences in the REBUILT unit                            ['6', '12', '24']        OK
-   rebuilt: 3 occurrences [(11301, '6'), (11301, '12'), (11301, '24')]
+   rebuilt: 3 occurrences [(11335, '6'), (11335, '12'), (11335, '24')]
    PP     : 87 occurrences, 57 distinct
    the §32.1.4 row has one site                                       1                        OK
-   §32.1.4 row L8974: Appendix F, the numbers 3 33 thirty-three
+   §32.1.4 row L8976: Appendix F, the numbers 3 33 thirty-three
    the row still reads coordinates 3, E 33                            ('3', '33')              OK
    "thirty-three" stands beside it                                    True                     OK
    E is *cells named and unoccupied*, so the row is a claim about the appendix's number-space and not a
@@ -92,9 +92,9 @@ members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md m
    register 375: **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's element count, §32.1.4's total and the withdrawal ratio are now computed by the press at every build, joining E(G), E(Q) and the open item count — six readouts pr
    register 374 states the §2.21 protocol                             True                     OK
    §32.1.4 still writes the total as a number                         1                        OK
-   L8978: **Fifty-five cells are named and nobody has put anything in them.** Each is a combination the
+   L8980: **Fifty-five cells are named and nobody has put anything in them.** Each is a combination the
    register 375's replacement shape sentence, in the main volume      []                       OK
-   §32.1.4.1 L8998: §32.1.4 counts fifty-five cells named and unoccupied. **Recomputed now the total is 48**, and the
+   §32.1.4.1 L9000: §32.1.4 counts fifty-five cells named and unoccupied. **Recomputed now the total is 48**, and the
    THREE totals stand at once: §32.1.4 prints fifty-five, §32.1.4.1 and register 373 recompute 48, and
    register 375 states 47 and states the number is no longer written. It is still written.
    register 375: §32.1.4's fifty-five "is no longer written as a number" 1                        DEVIATION (26c-02) — printed 0
@@ -139,7 +139,7 @@ members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md m
      1762 establishes the withdrawal ratio with a value; register 296 only NAMES the method ratio and
      carries no figure, and no other entry names it. For one of the two there is no establishing entry.
    26c-02 NEW, and the largest of the four. Register 375 records that §32.1.4's fifty-five "is no longer
-     written as a number" and is replaced by a shape sentence. The number is still written at L8978 and
+     written as a number" and is replaced by a shape sentence. The number is still written at L8980 and
      the shape sentence is in no volume; 375's own 47 disagrees with 373's and §32.1.4.1's 48. A change
      the Register records and the volume did not receive is the mirror of a silent change, and is why
      26b-03's row is still standing.

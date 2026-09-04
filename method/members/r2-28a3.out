@@ -1,17 +1,17 @@
 r2-28a2.py — 28a-06: does the author-and-year match on the 162 rows give fifty-nine?
-members: The_Method_1_6-2.md 4eec7650 | The_Method_1_6___The_Register-2.md bfc8c01d | The_Method_1_6___Mathematical_Compendium-2.md 53a446c8
+members: The_Method_1_6-2.md c81f0379 | The_Method_1_6___The_Register-2.md 5edcae66 | The_Method_1_6___Mathematical_Compendium-2.md facd6191
 
 == §1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about
-   main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it) [173, 11511]             OK
-   the claim paragraph "The companions' own bibliographies" begins at 11856                    OK
-   entry region L11511–L11855 (345 lines); the claim paragraph L11856–L11863 is read, never matched
-    11856 **The companions' own bibliographies.** The Mathematical Compendium names a work for every one of its
-    11857 objects — 162 works, 1669 to 2026, ordered by year with the objects each carries. Fifty-nine of them
-    11858 are the works listed above; the remainder are the attributions of standard results — Newton 1669,
-    11859 Leibniz 1682, Euler 1748, Gauss 1809, Moore 1910, Birkhoff 1940 and their kind — that the objects
-    11860 rest on and this volume uses without citing, as it uses a metre. Those live in the compendium and are
-    11861 not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7's
-    11862 two blocks are the works the chapters rest on, not those lists.
+   main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it) [173, 11545]             OK
+   the claim paragraph "The companions' own bibliographies" begins at 11890                    OK
+   entry region L11545–L11889 (345 lines); the claim paragraph L11890–L11897 is read, never matched
+    11890 **The companions' own bibliographies.** The Mathematical Compendium names a work for every one of its
+    11891 objects — 162 works, 1669 to 2026, ordered by year with the objects each carries. Fifty-nine of them
+    11892 are the works listed above; the remainder are the attributions of standard results — Newton 1669,
+    11893 Leibniz 1682, Euler 1748, Gauss 1809, Moore 1910, Birkhoff 1940 and their kind — that the objects
+    11894 rest on and this volume uses without citing, as it uses a metre. Those live in the compendium and are
+    11895 not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7's
+    11896 two blocks are the works the chapters rest on, not those lists.
    the sentence prints "162 works"                                    True                     OK
    the sentence prints "Fifty-nine of them"                           True                     OK
    the sentence names register 1736 as its source                     True                     OK
@@ -140,7 +140,7 @@ members: The_Method_1_6-2.md 4eec7650 | The_Method_1_6___The_Register-2.md bfc8c
    MC 1989 Dechter & Pearl                    References years for Dechter: [1992, 1995]
    MC 1991 Drake & Swainson                   References years for Drake: [2023]
    the compendium carries exactly one Janet row, at 1929              ['1929']                 OK
-   the References carry Janet at 1928, one site                       [11785]                  OK
+   the References carry Janet at 1928, one site                       [11819]                  OK
    both name the same work (the left-step periodic table)             True                     OK
    1736's "the rest … this volume never listed" holds of every unmatched row 1                        DEVIATION (28a-09) — printed 0
    ONE row is decidable and it falsifies the word: the left-step periodic table is listed at L11777 as
@@ -149,7 +149,7 @@ members: The_Method_1_6-2.md 4eec7650 | The_Method_1_6___The_Register-2.md bfc8c
    not decide them; they are carried as NEAR (SUBJ, chat 148), an upper bound, never assigned.
 
 == §7 CENSUS — rows in the ranges this reading engaged
-   engaged: main L11511–L11863 (References entire), mc L3376–L3546 (the bibliography block), reg L6457–L6460 (entry 1736)
+   engaged: main L11545–L11897 (References entire), mc L3376–L3546 (the bibliography block), reg L6457–L6460 (entry 1736)
    main 718 / 719  C7 at L11600 — closed in the ch28a unit, not a defect; the earlier line governs (G0b)
    reg 1463        C9 "never" at L6459 — CLOSED HERE as a defect on the Janet row (28a-09)
    mc 387–672      C13-HANDLE-LEAK, 286 rows, the bibliography table's `objects` column — ENGAGED and

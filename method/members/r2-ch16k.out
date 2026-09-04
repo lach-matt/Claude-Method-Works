@@ -32,56 +32,56 @@
   register 425: bare heading L1583  **§32.6's CONDITION 1 IS NAMED E(book) > 0 AND TESTS REFERENCE INTEGRITY.** *It found th
   register 426: bare heading L1587  **§32.1's CONSTRAINT IS VIOLATED BY 42% OF THIS BOOK'S OWN CELLS.** *Support at or befor
 === G. the count word *seven* against the object it names (L8809) ===
-  bolded ordinal items  3: [8813, 8835, 8841]
-  bolded numbered items 7: [8848, 8860, 8865, 8871, 8876, 8881, 8885]
-    L8813 **First, the index of §32.1 is computed here, which 
-    L8835 **Second, §32.6's Condition 1 is named for a quantit
-    L8841 **Third, §32.1's own constraint is violated 162 time
-    L8848 **1. The object does not contain the demonstration.*
-    L8860 **2. E = 0 is fibration-dependent, and two of the th
-    L8865 **3. The central theorem is not first.** §29.11: A.2
-    L8871 **4. The register is longer than the results.** Thre
-    L8876 **5. There is no prediction.** §25.6.3 withdrew the 
-    L8881 **6. S3 has never been tested.** §32.2 claims a read
-    L8885 **7. The 540 remain unverified.** §31.3.4's Kreuzer–
+  bolded ordinal items  3: [8815, 8837, 8843]
+  bolded numbered items 7: [8850, 8862, 8867, 8873, 8878, 8883, 8887]
+    L8815 **First, the index of §32.1 is computed here, which 
+    L8837 **Second, §32.6's Condition 1 is named for a quantit
+    L8843 **Third, §32.1's own constraint is violated 162 time
+    L8850 **1. The object does not contain the demonstration.*
+    L8862 **2. E = 0 is fibration-dependent, and two of the th
+    L8867 **3. The central theorem is not first.** §29.11: A.2
+    L8873 **4. The register is longer than the results.** Thre
+    L8878 **5. There is no prediction.** §25.6.3 withdrew the 
+    L8883 **6. S3 has never been tested.** §32.2 claims a read
+    L8887 **7. The 540 remain unverified.** §31.3.4's Kreuzer–
   count word says seven; numbered items = 7; ALL bolded flag items = 10
-  out-of-unit anchor: 32.1.2 heading L8889 -> ### 32.1.2 Four of the seven, answered by computation
+  out-of-unit anchor: 32.1.2 heading L8891 -> ### 32.1.2 Four of the seven, answered by computation
 === H. Appendix E, its items, and the Q lettering ===
-  Appendix E body heading: [10906]
-  span L10906-L11229 ; single-letter item labels inside: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'd']
-    L10907 Serving PART VI — THE RECORD AND THE REACH. The book's own ignorance as a closed index — fourteen items,
-    L10908 ten of them open, four ordered coordinates, one categorical fibre, E(Q) = 0 fibred by domain at the
-    L10914 nine items; eight closed at E(Q) = 0 with four entered by §12.11.7; thirteen — are kept there as history
-    L10931 replacing it, so this appendix carried **three live item counts** — eight at E.4, fifteen here, and
-    L10945 when it stood at eight, and E.2 and E.8 record what closed. Register 307.
-    L10948 ### E.1.2 The open set as this session leaves it — ten open of 14, listed
-    L10986 has held at seven, eight, twelve, thirteen and eleven items; and the standing result that **every item
-    L10997 and all three name a route. Eleven items: one nonexistent, two buildable, eight retrievable.
-    L11115 downstream. It was read once at eight items and the reading was never printed, only described.
-    L11134 **That is the grid doing what §2.16.1 claims for it.** Eight items do not present eight obstacles;
-    L11140 ### E.4.1 Q, enumerated and closed at eight
-    L11142 blocks, obstacle, cost, depends, fibred by domain — and closed at eight. The same computation on the
+  Appendix E body heading: [10940]
+  span L10940-L11263 ; single-letter item labels inside: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'd']
+    L10941 Serving PART VI — THE RECORD AND THE REACH. The book's own ignorance as a closed index — fourteen items,
+    L10942 ten of them open, four ordered coordinates, one categorical fibre, E(Q) = 0 fibred by domain at the
+    L10948 nine items; eight closed at E(Q) = 0 with four entered by §12.11.7; thirteen — are kept there as history
+    L10965 replacing it, so this appendix carried **three live item counts** — eight at E.4, fifteen here, and
+    L10979 when it stood at eight, and E.2 and E.8 record what closed. Register 307.
+    L10982 ### E.1.2 The open set as this session leaves it — ten open of 14, listed
+    L11020 has held at seven, eight, twelve, thirteen and eleven items; and the standing result that **every item
+    L11031 and all three name a route. Eleven items: one nonexistent, two buildable, eight retrievable.
+    L11149 downstream. It was read once at eight items and the reading was never printed, only described.
+    L11168 **That is the grid doing what §2.16.1 claims for it.** Eight items do not present eight obstacles;
+    L11174 ### E.4.1 Q, enumerated and closed at eight
+    L11176 blocks, obstacle, cost, depends, fibred by domain — and closed at eight. The same computation on the
   chapter head L8794 prints "eight items"; item 7 L8887 cites "Q item D"
-  "Q item X" sites in main: [8887, 11721, 11740]
+  "Q item X" sites in main: [8889, 11755, 11774]
 === I. the f-shell ceiling at its target (12.11.2) ===
-  12.11.2 body_range (3363, 3394)  section_span (3363, 3394)  (coincide)
-    L3369 half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances.
+  12.11.2 body_range (3365, 3396)  section_span (3365, 3396)  (coincide)
+    L3371 half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances.
 === J. withdrawals in the Register against "three hundred and sixty-eight" ===
-  register entry headings 1635 ; entries whose body contains a withdrawal word 54
-  occurrences of the stem anywhere in the Register: 83
+  register entry headings 1641 ; entries whose body contains a withdrawal word 55
+  occurrences of the stem anywhere in the Register: 84
   368 sites, six volumes: {'reg': [1363, 1365, 2413, 6315], 'mc': [1520], 'ioi': [748]}
-  37 sites in main: [2278, 3227, 6237, 6850, 10190, 10192, 11583, 11585, 11675]
+  37 sites in main: [2280, 3229, 6239, 6852, 10212, 10214, 11617, 11619, 11709]
   printed: 368 withdrawals, ~37 from a single late session
 === K. numeral SITES for the unit's figures, six volumes ===
-  1,021    1 sites  {'main': [8817]}
-  400     14 sites  {'main': [3700, 5108, 5151, 6914, 7019, 8817], 'reg': [1487, 3473, 5910], 'ioi': [780]}
-  1,681    1 sites  {'main': [8820]}
-  861      3 sites  {'main': [8821], 'reg': [3175], 'ioi': [1241]}
-  354      8 sites  {'main': [2701, 2709, 8815], 'reg': [16, 1339, 2777, 6574], 'ioi': [734]}
-  138      8 sites  {'main': [8815, 8820, 8842], 'reg': [623, 2197, 5117, 6491], 'ioi': [518]}
-  162     14 sites  {'main': [4167, 8841, 8842, 8845, 11700, 11836, 11857], 'reg': [719, 1937, 6339, 6343, 6459], 'mc': [3380], 'ioi': [542]}
-  58      31 sites  {'main': [1232, 1236, 7515, 7527], 'reg': [303, 2949, 2957, 2981, 2985, 2989, 3021, 3897, 3913, 4729, 5117, 5233, 5257, 5289, 5305, 5389, 5405, 5445, 5501, 5509, 5810], 'mc': [1240, 2836, 3678, 3694], 'ioi': [438, 1894]}
-  1,442   35 sites  {'main': [28, 200, 564, 5654, 6632, 6742, 6744, 6746, 6750, 6767, 6786, 6799, 6802, 6804, 6805, 6810, 6811, 6887, 6970, 6986, 7368, 7454, 8850, 10258, 10270, 10560, 10598, 10966, 11110, 11129], 'reg': [973, 1817, 2001, 2865, 6183]}
+  1,021    1 sites  {'main': [8819]}
+  400     14 sites  {'main': [3702, 5110, 5153, 6916, 7021, 8819], 'reg': [1487, 3473, 5910], 'ioi': [780]}
+  1,681    1 sites  {'main': [8822]}
+  861      3 sites  {'main': [8823], 'reg': [3175], 'ioi': [1241]}
+  354      8 sites  {'main': [2703, 2711, 8817], 'reg': [16, 1339, 2777, 6574], 'ioi': [734]}
+  138      8 sites  {'main': [8817, 8822, 8844], 'reg': [623, 2197, 5117, 6491], 'ioi': [518]}
+  162     14 sites  {'main': [4169, 8843, 8844, 8847, 11734, 11870, 11891], 'reg': [719, 1937, 6339, 6343, 6459], 'mc': [3380], 'ioi': [542]}
+  58      31 sites  {'main': [1232, 1236, 7517, 7529], 'reg': [303, 2949, 2957, 2981, 2985, 2989, 3021, 3897, 3913, 4729, 5117, 5233, 5257, 5289, 5305, 5389, 5405, 5445, 5501, 5509, 5810], 'mc': [1240, 2836, 3688, 3704], 'ioi': [438, 1894]}
+  1,442   35 sites  {'main': [28, 200, 564, 5656, 6634, 6744, 6746, 6748, 6752, 6769, 6788, 6801, 6804, 6806, 6807, 6812, 6813, 6889, 6972, 6988, 7370, 7456, 8852, 10280, 10292, 10582, 10620, 11000, 11144, 11163], 'reg': [973, 1817, 2001, 2865, 6183]}
   368      6 sites  {'reg': [1363, 1365, 2413, 6315], 'mc': [1520], 'ioi': [748]}
-  540     28 sites  {'main': [2886, 3491, 8728, 8736, 8738, 8740, 8747, 8761, 8762, 8763, 8764, 8765, 8781, 8788, 8885, 10561, 10599, 11077, 11078, 11081], 'reg': [845, 849, 1437, 2019], 'mc': [1274, 1314], 'ioi': [234, 920]}
-  25      73 sites  {'main': [92, 145, 200, 228, 1250, 1559], 'reg': [171, 829, 1665, 2969, 3313, 3465], 'mc': [186, 1100, 1183, 1185, 1254, 1876], 'pc': [44, 356, 389], 'ioi': [405, 1510], 'sc': [132, 136, 402, 578, 579, 580]}
+  540     28 sites  {'main': [2888, 3493, 8730, 8738, 8740, 8742, 8749, 8763, 8764, 8765, 8766, 8767, 8783, 8790, 8887, 10583, 10621, 11111, 11112, 11115], 'reg': [845, 849, 1437, 2019], 'mc': [1274, 1314], 'ioi': [234, 920]}
+  25      73 sites  {'main': [92, 145, 200, 228, 1250, 1561], 'reg': [171, 829, 1665, 2969, 3313, 3465], 'mc': [186, 1100, 1183, 1185, 1254, 1876], 'pc': [44, 356, 389], 'ioi': [405, 1510], 'sc': [132, 136, 402, 578, 579, 580]}

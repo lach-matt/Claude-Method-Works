@@ -2,15 +2,15 @@
 ================================================================================================
 0  UNIT BOUNDARY -- body_range and section_span, both, for every heading of the unit
 ================================================================================================
-  §34.5   heading_line 9609   body_range (9609, 9622)   section_span (9609, 9622)
-  §34.6   heading_line 9622   body_range (9622, 9634)   section_span (9622, 9634)
-  §34.7   heading_line 9634   body_range (9634, 9649)   section_span (9634, 9649)
-  §34.8   heading_line 9649   body_range (9649, 9661)   section_span (9649, 9661)
-  §34.9   heading_line 9661   body_range (9661, 9673)   section_span (9661, 9673)
-  §34.10  heading_line 9673   body_range (9673, 9716)   section_span (9673, 9716)
-  §34     heading_line 9494   body_range (9494, 9500)   section_span (9494, 9716)
-  §35     heading_line 9716   body_range (9716, 9727)   section_span (9716, 9892)
-  unit bound by body_range: L9609-L9715 (107 lines); "## 35." body at L9716
+  §34.5   heading_line 9619   body_range (9619, 9632)   section_span (9619, 9632)
+  §34.6   heading_line 9632   body_range (9632, 9664)   section_span (9632, 9664)
+  §34.7   heading_line 9664   body_range (9664, 9679)   section_span (9664, 9679)
+  §34.8   heading_line 9679   body_range (9679, 9691)   section_span (9679, 9691)
+  §34.9   heading_line 9691   body_range (9691, 9703)   section_span (9691, 9703)
+  §34.10  heading_line 9703   body_range (9703, 9746)   section_span (9703, 9746)
+  §34     heading_line 9496   body_range (9496, 9502)   section_span (9496, 9746)
+  §35     heading_line 9746   body_range (9746, 9757)   section_span (9746, 9922)
+  unit bound by body_range: L9609-L9715 (107 lines); "## 35." body at L9746
 
 ================================================================================================
 1  ARITHMETIC PRINTED IN THE UNIT, recomputed (Decimal, HALF_UP, convention named)
@@ -53,14 +53,14 @@
 ================================================================================================
 2  THE REGISTER AT EACH FIGURE OF THE UNIT -- earlier statement, and the LATER entry that moved it
 ================================================================================================
-  106 of 106 / 106 non-empty           13 sites: R1309 L4909, R1328 L4985, R1331 L4997, R1350 L5073, R1356 L5097, R1366 L5133, R1367 L5137, R1402 L5261, R1412 L5301, R1445 L5429, R1461 L5493, R1463 L5501, R1515 L5701
+  106 of 106 / 106 non-empty           14 sites: R1309 L4909, R1328 L4985, R1331 L4997, R1350 L5073, R1356 L5097, R1366 L5133, R1367 L5137, R1402 L5261, R1412 L5301, R1445 L5429, R1461 L5493, R1463 L5501, R1515 L5701, R1798 L6630
   99 of 106                            5 sites: R1350 L5073, R1437 L5401, R1438 L5405, R1440 L5413, R1445 L5429
   90 of 106                            2 sites: R1309 L4909, R1445 L5429
-  eighteen resets/recalibrations       4 sites: R1328 L4985, R1331 L4997, R1407 L5281, R1435 L5393
+  eighteen resets/recalibrations       5 sites: R1328 L4985, R1331 L4997, R1407 L5281, R1435 L5393, R1804 L6654
   "ten resets" / "ten moves"           4 sites: R1402 L5261, R1403 L5265, R1411 L5297, R1413 L5305
   fifteen moves                        2 sites: R1409 L5289, R1438 L5405
-  104 of 106                           1 sites: R1332 L5001
-  nineteen surds / distinct values     11 sites: R514 L1921, R1309 L4909, R1318 L4945, R1328 L4985, R1350 L5073, R1403 L5265, R1425 L5353, R1460 L5489, R1466 L5513, R1468 L5521, R1734 L6455
+  104 of 106                           4 sites: R1332 L5001, R1803 L6650, R1804 L6654, R1805 L6658
+  nineteen surds / distinct values     13 sites: R514 L1921, R1309 L4909, R1318 L4945, R1328 L4985, R1350 L5073, R1403 L5265, R1425 L5353, R1460 L5489, R1466 L5513, R1468 L5521, R1734 L6455, R1799 L6634, R1801 L6642
   DEACTIVATED                          2 sites: R1309 L4909, R1460 L5489
   No parameter is fitted               1 sites: R1350 L5073
   Exceptionless on 106                 1 sites: R1350 L5073

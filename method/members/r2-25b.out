@@ -1,30 +1,30 @@
 r2-25b.py — 25b-03: E.8 "Sixty-odd corrections come from §30.3 alone" against Chapter 28
-members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md md5 bfc8c01d
+members: The_Method_1_6-2.md md5 c81f0379 | The_Method_1_6___The_Register-2.md md5 5edcae66
 
 §1 SITES (located this chat; member line numbers are never carried between chats)
-   lettered("E.8") hits: [11220] -> '### E.8 What closed, and what it cost'
+   lettered("E.8") hits: [11254] -> '### E.8 What closed, and what it cost'
    E.8 sentence, one site                                     1                          OK
-   L11225 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
+   L11259 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
    sentence inside E.8                                        True                       OK
    numeric resolver on "E.8": None — a lettered heading is invisible to it (DOCKET conventions)
-   §28.7    heading_line 7481   body_range (7481, 7506)   section_span (7481, 7721)   DIFFER — both reported
-   §28.7.1  heading_line 7506   body_range (7506, 7531)   section_span (7506, 7531)   AGREE
-   §28.7.2  heading_line 7531   body_range (7531, 7559)   section_span (7531, 7559)   AGREE
-   §28.7.3  heading_line 7559   body_range (7559, 7644)   section_span (7559, 7644)   AGREE
-   §28.7.4  heading_line 7644   body_range (7644, 7664)   section_span (7644, 7664)   AGREE
-   §28.7.5  heading_line 7664   body_range (7664, 7677)   section_span (7664, 7677)   AGREE
-   §30.3    heading_line 8399   body_range (8399, 8405)   section_span (8399, 8575)   DIFFER — both reported
-   §30.4    heading_line 8575   body_range (8575, 8583)   section_span (8575, 8609)   DIFFER — both reported
-   §32.2    heading_line 9030   body_range (9030, 9038)   section_span (9030, 9038)   AGREE
+   §28.7    heading_line 7483   body_range (7483, 7508)   section_span (7483, 7723)   DIFFER — both reported
+   §28.7.1  heading_line 7508   body_range (7508, 7533)   section_span (7508, 7533)   AGREE
+   §28.7.2  heading_line 7533   body_range (7533, 7561)   section_span (7533, 7561)   AGREE
+   §28.7.3  heading_line 7561   body_range (7561, 7646)   section_span (7561, 7646)   AGREE
+   §28.7.4  heading_line 7646   body_range (7646, 7666)   section_span (7646, 7666)   AGREE
+   §28.7.5  heading_line 7666   body_range (7666, 7679)   section_span (7666, 7679)   AGREE
+   §30.3    heading_line 8401   body_range (8401, 8407)   section_span (8401, 8577)   DIFFER — both reported
+   §30.4    heading_line 8577   body_range (8577, 8585)   section_span (8577, 8611)   DIFFER — both reported
+   §32.2    heading_line 9032   body_range (9032, 9040)   section_span (9032, 9040)   AGREE
 
 §2 CENSUS — every count word in §28.7 and its subsections against its DATA rows
    (chat-133 convention: the DATA-row set is fixed before a count word is scored; a count word counts DATA rows)
-   §28.7    L7481   lead-ins  6  numbers   6  distinct   6  range 49-54      dup -      unprinted-in-span -
-   §28.7.1  L7506   lead-ins  8  numbers   8  distinct   8  range 55-62      dup -      unprinted-in-span -
-   §28.7.2  L7531   lead-ins 10  numbers  13  distinct  13  range 59-74      dup -      unprinted-in-span [60, 61, 62]
-   §28.7.3  L7559   lead-ins 15  numbers  64  distinct  63  range 75-149     dup [118]  unprinted-in-span [99, 100, 101, 102, 103, 104, 105, 140, 141, 142, 143, 144]
-   §28.7.4  L7644   lead-ins  2  numbers  15  distinct  15  range 150-164    dup -      unprinted-in-span -
-   §28.7.5  L7664   lead-ins  0  numbers   0  distinct   0  range -          dup -      unprinted-in-span -
+   §28.7    L7483   lead-ins  6  numbers   6  distinct   6  range 49-54      dup -      unprinted-in-span -
+   §28.7.1  L7508   lead-ins  8  numbers   8  distinct   8  range 55-62      dup -      unprinted-in-span -
+   §28.7.2  L7533   lead-ins 10  numbers  13  distinct  13  range 59-74      dup -      unprinted-in-span [60, 61, 62]
+   §28.7.3  L7561   lead-ins 15  numbers  64  distinct  63  range 75-149     dup [118]  unprinted-in-span [99, 100, 101, 102, 103, 104, 105, 140, 141, 142, 143, 144]
+   §28.7.4  L7646   lead-ins  2  numbers  15  distinct  15  range 150-164    dup -      unprinted-in-span -
+   §28.7.5  L7666   lead-ins  0  numbers   0  distinct   0  range -          dup -      unprinted-in-span -
 
    §28.7 heading: '### 28.7 Six made after the register was closed, two printed here — retained in the compendium'
    §28.7 "Six" vs distinct DATA rows                          6                          OK
@@ -33,7 +33,7 @@ members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md m
          closing line reads *Two of these six are corrections of corrections* — the count word does not count its rows.
    §28.7.1 "Eight more" vs distinct rows                      8                          OK
    §28.7.2 "Twelve more" vs distinct numbers in span          13                         DEVIATION (25b-09) — printed 12
-      -> 25b-09: §28.7.2 carries a SECOND entry numbered 59 (L7533), the number already used in §28.7.1 (L7517);
+      -> 25b-09: §28.7.2 carries a SECOND entry numbered 59 (L7535), the number already used in §28.7.1 (L7519);
          §28.7.2's own block is 63-74 = 12 and the count word is right; the numeral is the defect (docket 31).
          §28.7.1 59: '**59. Purity as a perturbation measure.** It measured **numerical resolution**: the deep, clean '
          §28.7.2 59: '59. The cheapest undetectable forgery in Λ is 60 cells, not one.'
@@ -44,11 +44,11 @@ members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md m
    §28.7.3 "all printed" — numbers in span not printed        12                         DEVIATION (25b-08) — printed 0
       -> 25b-08: the count word counts the RANGE 75-149 (75), not the rows; 12 of the 75 are not printed
          (99-105, 140-144) and 118 is printed twice — *all printed* is false at 63 of 75 (docket 34 / 31 / 23).
-         118 appears in lead-ins at L7604, L7608
+         118 appears in lead-ins at L7606, L7610
    §28.7.3 carries the 123-139 lead-in                        1                          OK
-   L7619 "123–139. Seventeen from one question. §30.3's reorderability problem produced more corrections"
+   L7621 "123–139. Seventeen from one question. §30.3's reorderability problem produced more corrections"
    *Ten of the seventeen* present                             1                          OK
-   L7626 'Ten of the seventeen produced the characterisation in §30.3.1. Seven produced nothing'
+   L7628 'Ten of the seventeen produced the characterisation in §30.3.1. Seven produced nothing'
    ten + seven == seventeen                                   17                         OK
    §28.7.5 names *Thirty-one of the forty*                    True                       OK
    §28.7.5 names the two audit entries 186 and 189            True                       OK
@@ -141,8 +141,8 @@ members: The_Method_1_6-2.md md5 4eec7650 | The_Method_1_6___The_Register-2.md m
 
 §6 REGISTER SWEEP — before any figure is called unreproducible
    WARNING lines on any entry of the family                   []                         OK
-   WARNING lines in the Register at all: 39 — none of them on this family (docket 35's instrument, run)
-   *sixty-odd* site: The_Method_1_6-2.md L11225 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
+   WARNING lines in the Register at all: 40 — none of them on this family (docket 35's instrument, run)
+   *sixty-odd* site: The_Method_1_6-2.md L11259 'The cost is in Chapter 28. Sixty-odd corrections come from §30.3 alone.'
    *sixty-odd* sites in main + Register                       1                          OK
    the forty cited as "register N" in the main volume         []                         OK
    E.8's sentence is a single witness (docket 17, already recorded) and no later statement in either volume

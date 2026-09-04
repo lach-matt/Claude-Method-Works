@@ -2,20 +2,20 @@
 ================================================================================================
 §0 BOUNDARY — own heading scan; the unit is `## Appendix C` (body = last hit) to `## Appendix D` (body = last hit)
 ================================================================================================
-  `## Appendix C` [164, 10230] ; `## Appendix D` [165, 10320] ; unit L10230–L10319 = 90 lines; C.n headings: [(10236, 'C.1'), (10270, 'C.2'), (10283, 'C.3'), (10305, 'C.4')]
-  lettered(M, "C.1") = [[10236], [10270], [10283], [10305]] ; unmarked-heading test (blank line above + `C.n ` start): []
-  main volume read to L10319 of 11855 = 0.870 (HALF_UP 3 places); lines 9937 `# APPENDICES` = [161, 9937]
+  `## Appendix C` [164, 10260] ; `## Appendix D` [165, 10350] ; unit L10260–L10349 = 90 lines; C.n headings: [(10266, 'C.1'), (10300, 'C.2'), (10313, 'C.3'), (10335, 'C.4')]
+  lettered(M, "C.1") = [[10266], [10300], [10313], [10335]] ; unmarked-heading test (blank line above + `C.n ` start): []
+  main volume read to L10349 of 11897 = 0.870 (HALF_UP 3 places); lines 9937 `# APPENDICES` = [161, 9967]
   numerals in the unit (digit-bounded both sides, comma groups kept, trailing non-thousands comma admitted): [('735,092', 1), ('735,091', 1), ('696,400', 3), ('648,096', 1), ('30,000', 2), ('2,513', 3), ('1,442', 4), ('1,105', 1), ('1,061', 2), ('420', 2), ('200', 3), ('164', 1), ('160', 1), ('153', 1), ('140', 1), ('100', 1), ('36', 1), ('32', 2), ('31', 1), ('30', 1), ('28', 1), ('27', 1), ('25', 4), ('24', 3), ('23', 2), ('20', 4), ('18', 1), ('16', 1), ('14', 1), ('13', 2), ('12', 1), ('11', 2), ('10', 2), ('09', 1), ('08', 1), ('07', 1), ('06', 1), ('05', 1), ('5', 4), ('4', 3), ('04', 1), ('3', 7), ('03', 1), ('2', 8), ('02', 1), ('1', 10), ('01', 1), ('0', 6)]
 
 ================================================================================================
 §1 PRE-PP — headings and Statement lines against Prints & Proofs (section number stripped from BOTH sides; PP C.n headings are unmarked)
 ================================================================================================
   PP `# Appendix C` P9877 to `# Appendix D` P9967 = 90 lines; PP unmarked C.n headings: [(9883, 'C.1'), (9917, 'C.2'), (9930, 'C.3'), (9952, 'C.4')]
-   L10230 ~ P9877  equal after strip: True  [Margins, and what was recomputed]
-   L10236 ~ P9883  equal after strip: True  [Margins on the load-bearing conclusions]
-   L10270 ~ P9917  equal after strip: True  [What was computed in this revision]
-   L10283 ~ P9930  equal after strip: True  [What was inherited and not recomputed]
-   L10305 ~ P9952  equal after strip: True  [Computational methods]
+   L10260 ~ P9877  equal after strip: True  [Margins, and what was recomputed]
+   L10266 ~ P9883  equal after strip: True  [Margins on the load-bearing conclusions]
+   L10300 ~ P9917  equal after strip: True  [What was computed in this revision]
+   L10313 ~ P9930  equal after strip: True  [What was inherited and not recomputed]
+   L10335 ~ P9952  equal after strip: True  [Computational methods]
   Statement lines: main [] ; PP []
   non-blank lines main 69 vs PP 69; lines of main not in PP: 11; lines of PP not in main: 11
     -# Appendix C — Margins, and what was recomputed
@@ -44,105 +44,105 @@
 ================================================================================================
 §2 THE C.1 TABLE — DATA-row set fixed first (rows begin at the conclusion column; deeper-indented continuation lines are joined to the row above)
 ================================================================================================
-  header L10239; DATA rows fixed: 14 (L10240–L10257); rows:
-   L10240 the periodic table is not closed E = 36 exact arithmetic —
-   L10241 closure ⟺ ℛ(X) = X 200/200 agreements exact —
-   L10242 ⅅ ≥ dim q − dim p 420 random maps exact — rank–nullity —
-   L10243 V > 2 for any monotone Proposition 23.1 exact, proved — ⏎ sequence
-   L10245 Rydberg floor V ≥ 32/11 2.909091 at ν = 2 exact —
-   L10246 E3 admissibility criterion 2,513/2,513, nine exact — ⏎ functions
-   L10248 χ_Λ total 30,000 ambient points exact —
-   L10249 order recovery on a tree 20/20, two cap settings — a cyclic constraint graph
-   L10250 the bracket holds 1,442/1,442 — one reordering
-   L10251 perturbation bounds tightest 1.40 cm⁻¹ deductive a 1.4 cm⁻¹ shift at that cell
-   L10252 isoelectronic interpolation 1.3% median 13× better than at an the sequence end ⏎ end
-   L10254 V = 4ν/3 on real channels 0.06%–4.4% median — coarse quotation
-   L10255 void-free fraction stable 27.7–30.1% 2.4 points over a 100× — ⏎ range
-   L10257 filled-d core raises δ +0.35 at low ℓ — ℓ ≥ 3, where cores ⏎ converge
-  *Three rows deserve a sceptic's attention first* L[10260] → the three discussed below: bracket L[10262], perturbation L[10266], isoelectronic L[10268]
+  header L10269; DATA rows fixed: 14 (L10270–L10287); rows:
+   L10270 the periodic table is not closed E = 36 exact arithmetic —
+   L10271 closure ⟺ ℛ(X) = X 200/200 agreements exact —
+   L10272 ⅅ ≥ dim q − dim p 420 random maps exact — rank–nullity —
+   L10273 V > 2 for any monotone Proposition 23.1 exact, proved — ⏎ sequence
+   L10275 Rydberg floor V ≥ 32/11 2.909091 at ν = 2 exact —
+   L10276 E3 admissibility criterion 2,513/2,513, nine exact — ⏎ functions
+   L10278 χ_Λ total 30,000 ambient points exact —
+   L10279 order recovery on a tree 20/20, two cap settings — a cyclic constraint graph
+   L10280 the bracket holds 1,442/1,442 — one reordering
+   L10281 perturbation bounds tightest 1.40 cm⁻¹ deductive a 1.4 cm⁻¹ shift at that cell
+   L10282 isoelectronic interpolation 1.3% median 13× better than at an the sequence end ⏎ end
+   L10284 V = 4ν/3 on real channels 0.06%–4.4% median — coarse quotation
+   L10285 void-free fraction stable 27.7–30.1% 2.4 points over a 100× — ⏎ range
+   L10287 filled-d core raises δ +0.35 at low ℓ — ℓ ≥ 3, where cores ⏎ converge
+  *Three rows deserve a sceptic's attention first* L[10290] → the three discussed below: bracket L[10292], perturbation L[10296], isoelectronic L[10298]
 
 ================================================================================================
 §3 EVERY PRINTED FIGURE OF C.1/C.2/C.3 RE-TAKEN — witness site outside the unit (six volumes; digit-bounded) or the arithmetic that reproduces it
 ================================================================================================
-  E = 36 (periodic table not closed)           {'main': [3258, 4484, 9350], 'reg': [1669, 2325, 3729], 'mc': [1453, 1455], 'ioi': [1372, 1454, 2034]}
-      main: [(3258, '12.11.1.3 L3233', "alike.** The periodic table's E = 36 and Λ's E = 0 are not one quantity measured"), (4484, '16.6 L4482', 'ℛ(Λ) = Λ rules not recoverable from cells periodic table, E = 36'), (9350, '32.7 L9307', 'E = 36 is elementary arithmetic on a table every chemist knows. It required no new mathema')]
-  seven indices                                {'main': [1529]}
-      main: [(1529, '6. L1511', "Figure 6.1. The external definition cost of seven indices. Four are self-defining. The calendar's se")]
-  200/200 agreements / constructions           {'main': [4680, 4681], 'mc': [600]}
-      main: [(4680, '16.8.2 L4669', '| **ask Λ** | refused, 200/200 |'), (4681, '16.8.2 L4669', '| **rebuild around *y*** | admitted, 200/200 |')]
-  420 random (nonlinear) maps                  {'main': [343, 4342, 11667], 'reg': [1563, 5754, 5846, 5866], 'ioi': [800]}
-      main: [(343, '1. L241', 'a question put to it. Registers 417–420.'), (4342, '16.1 L4335', '**Verified on seven dimension pairs and 420 random nonlinear maps.** No closure required, no smoothness beyond'), (11667, 'R.5 L11656', 'Rival, I. (1973). Maximal sublattices of finite distributive lattices. Proc. Amer. Math. Soc. 37, 417–420.')]
-  Proposition 23.1 (V > 2 monotone)            {'main': [6199, 6477, 7273, 7583, 11044]}
-      main: [(6199, '23.2 L6196', 'Proposition 23.1. Let three consecutive cells of a channel carry values y₀ < y₁ < y₂ at equally'), (6477, '23.10.2 L6452', "**And Proposition 23.1's floor applies to the classical bracket only** — first-order, against the linear inter"), (7273, '27.3 L7243', "precision surrendered for certainty. Proposition 23.1's floor V > 2 becomes the statement that a guarantee nev")]
-    V > 2 monotone site: {'main': [6204, 7266, 7273, 7281], 'mc': [1972, 1978, 1988]}
-    32/11 = 2.909091 (HALF_UP 6 places) ; printed 2.909091 ; 32/11 sites (docket 11): {'main': [6193, 6213, 6233, 6237, 6381], 'mc': [1982, 1988]} ; 2.909 sites: {'main': [6193, 6213, 6233], 'mc': [1982]}
-  2,513/2,513 nine functions                   {'main': [4862, 9246]}
-      main: [(4862, '17.3 L4814', '**100% over 2,513 tests, nine functions.**'), (9246, '32.6 L9205', '**The three remaining are not claims.** One reads "100% over 2,513 tests", which *is* a ve')]
-  30,000 ambient points (χ_Λ)                  {'main': [1242, 4455, 10644], 'reg': [981]}
-      main: [(1242, '3.3 L1239', 'is affordable — §16.5 stood on 30,000 samples of a 6,912-cell box until register 248.'), (4455, '16.5 L4449', 'χ agreeing with membership on every cell.** An earlier pass drew 30,000 uniform samples from a box of'), (10644, 'D.5.4 L10633', 'A.5 also corrects its own verification: §16.5 proves it in one line and checks it on **30,000')]
-  20/20 two cap settings (order recovery, tree) {'main': [1910, 4312, 10886], 'sc': [583, 584]}
-      main: [(1910, '8.5 L1901', "**The order is recoverable.** Chapter 15 recovers Λ's coordinate orders from an unlabelled bag of cells by propagation a"), (4312, '15.4 L4308', "Λ's orders are recovered from a scrambled bag of cells: 20 of 20, at two cap settings, on 216"), (10886, 'D.6 L10885', "It does not prove the mathematics correct. Audits 2 and 3 do that — 20 of 20 on Λ's structure over")]
-    order recovery / tree propagation / cap settings: {'main': [1287, 2759, 10549, 10585, 11482]} {'main': [10549, 10585, 10957, 11421], 'reg': [1353]} {'main': [1786, 1875, 3210, 3581, 4312, 4846, 9138, 10777], 'reg': [1441, 1445, 1457, 1465, 1637, 1649, 1793], 'mc': [610, 1284, 1286, 2634]}
+  E = 36 (periodic table not closed)           {'main': [3260, 4486, 9352], 'reg': [1669, 2325, 3729], 'mc': [1453, 1455], 'ioi': [1372, 1454, 2034]}
+      main: [(3260, '12.11.1.3 L3235', "alike.** The periodic table's E = 36 and Λ's E = 0 are not one quantity measured"), (4486, '16.6 L4484', 'ℛ(Λ) = Λ rules not recoverable from cells periodic table, E = 36'), (9352, '32.7 L9309', 'E = 36 is elementary arithmetic on a table every chemist knows. It required no new mathema')]
+  seven indices                                {'main': [1531]}
+      main: [(1531, '6. L1513', "Figure 6.1. The external definition cost of seven indices. Four are self-defining. The calendar's se")]
+  200/200 agreements / constructions           {'main': [4682, 4683], 'mc': [600]}
+      main: [(4682, '16.8.2 L4671', '| **ask Λ** | refused, 200/200 |'), (4683, '16.8.2 L4671', '| **rebuild around *y*** | admitted, 200/200 |')]
+  420 random (nonlinear) maps                  {'main': [343, 4344, 11709], 'reg': [1563, 5754, 5846, 5866], 'ioi': [800]}
+      main: [(343, '1. L241', 'a question put to it. Registers 417–420.'), (4344, '16.1 L4337', '**Verified on seven dimension pairs and 420 random nonlinear maps.** No closure required, no smoothness beyond'), (11709, 'R.5 L11698', 'Rival, I. (1973). Maximal sublattices of finite distributive lattices. Proc. Amer. Math. Soc. 37, 417–420.')]
+  Proposition 23.1 (V > 2 monotone)            {'main': [6201, 6479, 7275, 7585, 11086]}
+      main: [(6201, '23.2 L6198', 'Proposition 23.1. Let three consecutive cells of a channel carry values y₀ < y₁ < y₂ at equally'), (6479, '23.10.2 L6454', "**And Proposition 23.1's floor applies to the classical bracket only** — first-order, against the linear inter"), (7275, '27.3 L7245', "precision surrendered for certainty. Proposition 23.1's floor V > 2 becomes the statement that a guarantee nev")]
+    V > 2 monotone site: {'main': [6206, 7268, 7275, 7283], 'mc': [1972, 1978, 1988]}
+    32/11 = 2.909091 (HALF_UP 6 places) ; printed 2.909091 ; 32/11 sites (docket 11): {'main': [6195, 6215, 6235, 6239, 6383], 'mc': [1982, 1988]} ; 2.909 sites: {'main': [6195, 6215, 6235], 'mc': [1982]}
+  2,513/2,513 nine functions                   {'main': [4864, 9248]}
+      main: [(4864, '17.3 L4816', '**100% over 2,513 tests, nine functions.**'), (9248, '32.6 L9207', '**The three remaining are not claims.** One reads "100% over 2,513 tests", which *is* a ve')]
+  30,000 ambient points (χ_Λ)                  {'main': [1242, 4457, 10674], 'reg': [981]}
+      main: [(1242, '3.3 L1239', 'is affordable — §16.5 stood on 30,000 samples of a 6,912-cell box until register 248.'), (4457, '16.5 L4451', 'χ agreeing with membership on every cell.** An earlier pass drew 30,000 uniform samples from a box of'), (10674, 'D.5.4 L10663', 'A.5 also corrects its own verification: §16.5 proves it in one line and checks it on **30,000')]
+  20/20 two cap settings (order recovery, tree) {'main': [1912, 4314, 10928], 'sc': [583, 584]}
+      main: [(1912, '8.5 L1903', "**The order is recoverable.** Chapter 15 recovers Λ's coordinate orders from an unlabelled bag of cells by propagation a"), (4314, '15.4 L4310', "Λ's orders are recovered from a scrambled bag of cells: 20 of 20, at two cap settings, on 216"), (10928, 'D.6 L10927', "It does not prove the mathematics correct. Audits 2 and 3 do that — 20 of 20 on Λ's structure over")]
+    order recovery / tree propagation / cap settings: {'main': [1287, 2761, 10579, 10615, 11524]} {'main': [10579, 10615, 10999, 11463], 'reg': [1353]} {'main': [1788, 1877, 3212, 3583, 4314, 4848, 9140, 10810], 'reg': [1441, 1445, 1457, 1465, 1637, 1649, 1793], 'mc': [610, 1284, 1286, 2634]}
   1,442/1,442 bracket (20a-01 family; Register 783) ABSENT outside the unit in all six volumes
-    1,442 sites outside the unit: {'main': [200, 564, 5654, 6632, 6742, 6744, 6746, 6750, 6767, 6786, 6799, 6802, 6804, 6805, 6810, 6811, 6887, 6986, 7368, 7454, 8850, 10552, 10590, 10958, 11102, 11121], 'reg': [973, 1817, 2001, 2865, 5419, 6183]} ; 783 body: **CHAPTER 24 CLAIMED "1,442 INTERIOR CELLS ACROSS 35 ATOMIC SYSTEMS, THE BRACKET HOLDS IN EVERY ONE", AND THAT SENTENCE WAS CARRYING THE FABRICATION.** *The honest split: **930 cells across 128 channe
-  1,061 perturbation bounds                    {'main': [60, 6517, 6683, 6958, 9188, 9354], 'reg': [6487]}
-      main: [(60, 'Nothing L17', 'That single reframing produced the split running through Chapter 16. It then produced 1,061 perturbation'), (6517, '23.10.4 L6500', "**Which supersedes §25.5's 1,061 order-1 bounds:** the same data at matched order yields 34 bounds at 0.0164 cm⁻¹, **and 619 refusals that are themselves perturbation det"), (6683, '24.3 L6668', 'a deductive upper limit on the local perturbation at 1,061 cells. The observation is sixty-five years')]
-  tightest 1.40 cm⁻¹ / 1.4 cm⁻¹ shift          {'main': [6982]}
-      main: [(6982, '25.5 L6962', 'No configuration interacts with Al I 3s²54f by more than 1.4 cm⁻¹.')]
-    *tightest* within 40 chars of *bound*: {'main': [2799, 10383, 10514], 'reg': [3453, 5265, 5529]}
-  1.3% median (isoelectronic)                  {'main': [6078, 6098, 6866]}
-      main: [(6078, '22.2.2 L6070', '| ***Z***, along a sequence | **17.3%** | 1.3% | **2.1%** |'), (6098, '22.2.3 L6086', '**This matters for §25.6** The Sc VI prediction has a second, independent route through its isoelectronic sequence, and **3.5% is the figure'), (6866, '24.13 L6857', 'Z=3 0.8% 1.3%')]
-    13× = 17.3 / 1.3 = 13 (HALF_UP 0 places) from L6078 row *Z, along a sequence | 17.3% | 1.3% | 2.1%*; 13× literal sites: {'main': [3996]}
-  2.1% hold-out / 3.5% fifth member            {'main': [6096]}
-      main: [(6096, '22.2.3 L6086', '**Only the quadratic form is usable, and it costs 3.5% rather than the 2.1% a hold-out suggests** — a factor of 1.7 for stepping outside the fitted ra')]
+    1,442 sites outside the unit: {'main': [200, 564, 5656, 6634, 6744, 6746, 6748, 6752, 6769, 6788, 6801, 6804, 6806, 6807, 6812, 6813, 6889, 6988, 7370, 7456, 8852, 10582, 10620, 11000, 11144, 11163], 'reg': [973, 1817, 2001, 2865, 5419, 6183]} ; 783 body: **CHAPTER 24 CLAIMED "1,442 INTERIOR CELLS ACROSS 35 ATOMIC SYSTEMS, THE BRACKET HOLDS IN EVERY ONE", AND THAT SENTENCE WAS CARRYING THE FABRICATION.** *The honest split: **930 cells across 128 channe
+  1,061 perturbation bounds                    {'main': [60, 6519, 6685, 6960, 9190, 9356], 'reg': [6487]}
+      main: [(60, 'Nothing L17', 'That single reframing produced the split running through Chapter 16. It then produced 1,061 perturbation'), (6519, '23.10.4 L6502', "**Which supersedes §25.5's 1,061 order-1 bounds:** the same data at matched order yields 34 bounds at 0.0164 cm⁻¹, **and 619 refusals that are themselves perturbation det"), (6685, '24.3 L6670', 'a deductive upper limit on the local perturbation at 1,061 cells. The observation is sixty-five years')]
+  tightest 1.40 cm⁻¹ / 1.4 cm⁻¹ shift          {'main': [6984]}
+      main: [(6984, '25.5 L6964', 'No configuration interacts with Al I 3s²54f by more than 1.4 cm⁻¹.')]
+    *tightest* within 40 chars of *bound*: {'main': [2801, 10413, 10544], 'reg': [3453, 5265, 5529]}
+  1.3% median (isoelectronic)                  {'main': [6080, 6100, 6868]}
+      main: [(6080, '22.2.2 L6072', '| ***Z***, along a sequence | **17.3%** | 1.3% | **2.1%** |'), (6100, '22.2.3 L6088', '**This matters for §25.6** The Sc VI prediction has a second, independent route through its isoelectronic sequence, and **3.5% is the figure'), (6868, '24.13 L6859', 'Z=3 0.8% 1.3%')]
+    13× = 17.3 / 1.3 = 13 (HALF_UP 0 places) from L6078 row *Z, along a sequence | 17.3% | 1.3% | 2.1%*; 13× literal sites: {'main': [3998]}
+  2.1% hold-out / 3.5% fifth member            {'main': [6098]}
+      main: [(6098, '22.2.3 L6088', '**Only the quadratic form is usable, and it costs 3.5% rather than the 2.1% a hold-out suggests** — a factor of 1.7 for stepping outside the fitted ra')]
   0.06%–4.4% median (V = 4ν/3 real channels)   ABSENT outside the unit in all six volumes
-    4ν/3 median / real channels sites: {'main': [1974, 4349, 4366, 6183, 6232, 6237, 6381, 6497, 7308, 7511, 7949, 7953, 8085, 8577, 9356, 9391, 10212, 10365, 10571, 10640, 11445], 'mc': [1898], 'sc': [997]} (docket 11: 24 sites); "coarse quotation": {}
-  27.7–30.1% void-free                         {'main': [2033, 2054], 'mc': [1664], 'pc': [744]}
-      main: [(2033, '10.2 L2032', 'The void-free fraction is 27.7–30.1% across 776 million pairs and a seventeenfold range in cell count.'), (2054, '10.2 L2032', 'pairs. Stable at 27.7–30.1%, with no trend.')]
-    *2.4 points* = 30.1 − 27.7 = 2.4 ; *100× range* sites: {'main': [2053]} ; §10.2 says: ['The void-free fraction is 27.7–30.1% across 776 million pairs and a seventeenfold range in cell count.', 'of one transition — they are one transition said four ways, and the 2.17-fold spread in cell count']
+    4ν/3 median / real channels sites: {'main': [1976, 4351, 4368, 6185, 6234, 6239, 6383, 6499, 7310, 7513, 7951, 7955, 8087, 8579, 9358, 9393, 10242, 10395, 10601, 10670, 11487], 'mc': [1898], 'sc': [997]} (docket 11: 24 sites); "coarse quotation": {}
+  27.7–30.1% void-free                         {'main': [2035, 2056], 'mc': [1664], 'pc': [744]}
+      main: [(2035, '10.2 L2034', 'The void-free fraction is 27.7–30.1% across 776 million pairs and a seventeenfold range in cell count.'), (2056, '10.2 L2034', 'pairs. Stable at 27.7–30.1%, with no trend.')]
+    *2.4 points* = 30.1 − 27.7 = 2.4 ; *100× range* sites: {'main': [2055]} ; §10.2 says: ['The void-free fraction is 27.7–30.1% across 776 million pairs and a seventeenfold range in cell count.', 'of one transition — they are one transition said four ways, and the 2.17-fold spread in cell count']
   +0.35 at low ℓ (filled-d core)               {'sc': [320, 429]}
     ℓ ≥ 3 cores converge: {'reg': [3213, 4337, 4357]} {}
-  0.09σ antiprotonic two-route                 {'main': [612, 4426, 5412]}
-      main: [(612, '2.8 L607', 'experimentally in the antiprotonic-helium check of §16.4, where two laser measurements agree at 0.09'), (4426, '16.4 L4407', '**Agreement at 0.09σ, with no shared measurement.** One laser resonance against a two-photon resonan'), (5412, '19.2 L5400', '**ρ = 6. Two blocked, four open.** The cell was retrieved and the two-path check on it closed at 0.0')]
-  Singer et al. C₆ cost-law                    {'main': [7163, 10188, 11589], 'reg': [2357], 'sc': [988]}
-      main: [(7163, '26.5 L7162', 'Singer et al. (2005) give C₆ = n¹¹(c₀ + c₁n + c₂n²) for Rb ns–ns. The quadratic factor makes the local'), (10188, 'B.1 L10173', 'Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:120'), (11589, 'R.2 L11583', '**Singer, K., Stanojevic, J., Weidemüller, M. & Côté, R.** (2005). *J. Phys. B* **38**, S295. — long-range Rydberg interaction coefficients.')]
-    Singer in `## References` body: [11589]
-  antisymmetric-state enumeration / census     {'main': [593, 6846], 'reg': [2113, 2509, 2829]}
-      main: [(593, '2.5 L590', 'D is obtained from the core configuration by enumerating antisymmetric states. No spectroscopic data enters. **27 sequen'), (6846, '24.12 L6844', 'D = the number of J levels in the (*N*−1)-electron ground configuration, obtained by enumerating antisymmetric states. *')]
-  three falsification tests (§32.6)            {'main': [9205, 9360, 11072], 'reg': [1437]}
-      main: [(9205, '32.6 L9205', '### 32.6 The falsification tests, run'), (9360, '32.7 L9307', '**And a work that runs its own falsification tests and reports the two that failed.**'), (11072, 'E.3 L11054', 'diagonal from (13,13) to (131,131); h¹¹ + h²¹ from 26 to 262. All three falsification tests hold at')]
+  0.09σ antiprotonic two-route                 {'main': [612, 4428, 5414]}
+      main: [(612, '2.8 L607', 'experimentally in the antiprotonic-helium check of §16.4, where two laser measurements agree at 0.09'), (4428, '16.4 L4409', '**Agreement at 0.09σ, with no shared measurement.** One laser resonance against a two-photon resonan'), (5414, '19.2 L5402', '**ρ = 6. Two blocked, four open.** The cell was retrieved and the two-path check on it closed at 0.0')]
+  Singer et al. C₆ cost-law                    {'main': [7165, 10218, 11631], 'reg': [2357], 'sc': [988]}
+      main: [(7165, '26.5 L7164', 'Singer et al. (2005) give C₆ = n¹¹(c₀ + c₁n + c₂n²) for Rb ns–ns. The quadratic factor makes the local'), (10218, 'B.1 L10203', 'Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:120'), (11631, 'R.2 L11625', '**Singer, K., Stanojevic, J., Weidemüller, M. & Côté, R.** (2005). *J. Phys. B* **38**, S295. — long-range Rydberg interaction coefficients.')]
+    Singer in `## References` body: [11631]
+  antisymmetric-state enumeration / census     {'main': [593, 6848], 'reg': [2113, 2509, 2829]}
+      main: [(593, '2.5 L590', 'D is obtained from the core configuration by enumerating antisymmetric states. No spectroscopic data enters. **27 sequen'), (6848, '24.12 L6846', 'D = the number of J levels in the (*N*−1)-electron ground configuration, obtained by enumerating antisymmetric states. *')]
+  three falsification tests (§32.6)            {'main': [9207, 9362, 11114], 'reg': [1437]}
+      main: [(9207, '32.6 L9207', '### 32.6 The falsification tests, run'), (9362, '32.7 L9309', '**And a work that runs its own falsification tests and reports the two that failed.**'), (11114, 'E.3 L11096', 'diagonal from (13,13) to (131,131); h¹¹ + h²¹ from 26 to 262. All three falsification tests hold at')]
   external prediction (§31.3.4)                {'reg': [849]}
-  rule-ablation costs (§24.2)                  {'main': [6055]}
-      main: [(6055, '22.2.1 L6055', '### 22.2.1 Each rule justified by ablation')]
-  Sr I node coverages (§24.2)                  {'main': [6894], 'reg': [4277, 4281, 4285, 4429, 4433, 4437, 4705, 4709, 6163, 6179, 6515], 'mc': [3116], 'sc': [273]}
-      main: [(6894, '25.2 L6890', 'Any property built from a matrix element that passes through zero cannot be monotone. Sr I 5s²¹S₀ →')]
-  Ti I channel inventory                       {'main': [6910, 6916], 'reg': [3593, 3629, 3645, 3661, 3665, 3889, 6155, 6187, 6231, 6275, 6291, 6331, 6343, 6515, 6531], 'ioi': [345]}
-      main: [(6910, '25.2 L6890', 'Ti I: 23 channels, 26 members, zero interior cells. No channel reaches three members, because the'), (6916, '25.2 L6890', "Ti I's limit is structural: no measurement campaign would help. Sc VI's is provisional: 6s")]
-  multi-target failure counts (§16.3)          {'main': [418, 7435]}
-      main: [(418, '1. L241', "**P20 subsumes E3, the multi-target repair, and P19's reachability.** And it answers the novelty question structurally: **novelty is posed i"), (7435, '28.4 L7426', '**A regex parsing failure.** An early configuration parser read `3d4s` as 3d⁴, **silently dropping the second subshell** and reporting 0% of')]
-  per-species medians (earlier verification)   {'main': [10171]}
-      main: [(10171, 'Appendix L10165', 'The 763 cells of the earlier verification are included where their channels appear here; the totals in Chapter 24 state the union.')]
+  rule-ablation costs (§24.2)                  {'main': [6057]}
+      main: [(6057, '22.2.1 L6057', '### 22.2.1 Each rule justified by ablation')]
+  Sr I node coverages (§24.2)                  {'main': [6896], 'reg': [4277, 4281, 4285, 4429, 4433, 4437, 4705, 4709, 6163, 6179, 6515], 'mc': [3116], 'sc': [273]}
+      main: [(6896, '25.2 L6892', 'Any property built from a matrix element that passes through zero cannot be monotone. Sr I 5s²¹S₀ →')]
+  Ti I channel inventory                       {'main': [6912, 6918], 'reg': [3593, 3629, 3645, 3661, 3665, 3889, 6155, 6187, 6231, 6275, 6291, 6331, 6343, 6515, 6531], 'ioi': [345]}
+      main: [(6912, '25.2 L6892', 'Ti I: 23 channels, 26 members, zero interior cells. No channel reaches three members, because the'), (6918, '25.2 L6892', "Ti I's limit is structural: no measurement campaign would help. Sc VI's is provisional: 6s")]
+  multi-target failure counts (§16.3)          {'main': [418, 7437]}
+      main: [(418, '1. L241', "**P20 subsumes E3, the multi-target repair, and P19's reachability.** And it answers the novelty question structurally: **novelty is posed i"), (7437, '28.4 L7428', '**A regex parsing failure.** An early configuration parser read `3d4s` as 3d⁴, **silently dropping the second subshell** and reporting 0% of')]
+  per-species medians (earlier verification)   {'main': [10201]}
+      main: [(10201, 'Appendix L10195', 'The 763 cells of the earlier verification are included where their channels appear here; the totals in Chapter 24 state the union.')]
   fifteen figures / figure.dpi = 160 / 140–164 dpi {'main': [1274, 1275]}
       main: [(1274, '3.5 L1257', 'Fifteen figures were produced by an earlier pipeline whose default was figure.dpi = 160, and'), (1275, '3.5 L1257', 'at 163 mm rendered width that gives 140–164 dpi — below print standard. Regenerating them needs')]
-    §3.5 body L1257–L1281 figure labels [] (0) vs unit's list ['f01', 'f02', 'f03', 'f04', 'f05', 'f06', 'f07', 'f08', 'f09', 'f10', 'f11', 'f12', 'f13', 'f14', 'f18'] (15) equal: False ; *fifteen* printed: [10290] ; §3.5 says: ['Fifteen figures were produced by an earlier pipeline whose default was figure.dpi = 160, and']
-  735,091 / 735,092 (§25.6 arithmetic)         {'main': [7064, 7066]}
-      main: [(7064, '25.6.4 L7059', '| Rule 4 constant defect | 0.9934 | 735,091 | **no** |'), (7066, '25.6.4 L7059', '**An earlier version of this work reported 735,091 ± 1,398.** It was computed with **δ̄ = 0.9934, which exceeds δ(5s) = 0.9812** — a defect larger than the last measured one, on a channel where the de')]
-    §25.6 live figures: [(7018, '735,860 cm⁻¹ < E(Sc VI (⁴S°)6s) < 738,547 cm⁻¹, a deductive bracket 2,687 cm⁻¹ wide, with'), (7030, 'monotone only 0.9376–0.9812 735,860–738,547 2,687'), (7033, '+ convexity 0.9567–0.9812 735,860–737,380 1,520'), (7045, 'E(Sc VI 3s²3p³(⁴S°)6s ³S°₁) = 736,688 cm⁻¹ bracketed in [735,860, 737,380] cm⁻¹ 13.5743'), (7077, 'If the measured level falls outside [735,860, 737,380] cm⁻¹, the bracket is wrong, and it'), (7081, '**The lower edge tests monotonicity; the upper edge tests convexity.** A level above 737,380 but below 738,547 would refute convexity and leave monoto')]
+    §3.5 body L1257–L1281 figure labels [] (0) vs unit's list ['f01', 'f02', 'f03', 'f04', 'f05', 'f06', 'f07', 'f08', 'f09', 'f10', 'f11', 'f12', 'f13', 'f14', 'f18'] (15) equal: False ; *fifteen* printed: [10320] ; §3.5 says: ['Fifteen figures were produced by an earlier pipeline whose default was figure.dpi = 160, and']
+  735,091 / 735,092 (§25.6 arithmetic)         {'main': [7066, 7068]}
+      main: [(7066, '25.6.4 L7061', '| Rule 4 constant defect | 0.9934 | 735,091 | **no** |'), (7068, '25.6.4 L7061', '**An earlier version of this work reported 735,091 ± 1,398.** It was computed with **δ̄ = 0.9934, which exceeds δ(5s) = 0.9812** — a defect larger than the last measured one, on a channel where the de')]
+    §25.6 live figures: [(7020, '735,860 cm⁻¹ < E(Sc VI (⁴S°)6s) < 738,547 cm⁻¹, a deductive bracket 2,687 cm⁻¹ wide, with'), (7032, 'monotone only 0.9376–0.9812 735,860–738,547 2,687'), (7035, '+ convexity 0.9567–0.9812 735,860–737,380 1,520'), (7047, 'E(Sc VI 3s²3p³(⁴S°)6s ³S°₁) = 736,688 cm⁻¹ bracketed in [735,860, 737,380] cm⁻¹ 13.5743'), (7079, 'If the measured level falls outside [735,860, 737,380] cm⁻¹, the bracket is wrong, and it'), (7083, '**The lower edge tests monotonicity; the upper edge tests convexity.** A level above 737,380 but below 738,547 would refute convexity and leave monoto')]
   696,400 (Sc VI 5s, §24.2)                    ABSENT outside the unit in all six volumes
-  648,096 / 0.514 / 0.9812                     {'main': [6114, 7004, 7014, 7030, 7033, 7066, 7485], 'reg': [165, 169]}
-      main: [(6114, '22.2.5 L6106', "**Sc VI's ⁴S°*n*s channel is the case that forced the clause.** With δ(4s) = 1.0057 and δ(5s) = 0.9812, the constant form gives **δ̄ = 0.993"), (7004, '25.6.1 L7003', 'Two measured defects: δ(4s) = 1.0057, δ(5s) = 0.9812 — consistent to 0.025, a clean Rydberg'), (7014, '25.6.1 L7003', 'δ∞ = 0.9376 < δ(6s) < δ(5s) = 0.9812')]
-  1,635 (Chapter 28 count)                     {'main': [20, 89, 104, 202, 523, 646, 3514, 7367, 7373, 7900, 8918, 9055, 9364, 9376, 9381], 'reg': [6626]}
+  648,096 / 0.514 / 0.9812                     {'main': [6116, 7006, 7016, 7032, 7035, 7068, 7487], 'reg': [165, 169]}
+      main: [(6116, '22.2.5 L6108', "**Sc VI's ⁴S°*n*s channel is the case that forced the clause.** With δ(4s) = 1.0057 and δ(5s) = 0.9812, the constant form gives **δ̄ = 0.993"), (7006, '25.6.1 L7005', 'Two measured defects: δ(4s) = 1.0057, δ(5s) = 0.9812 — consistent to 0.025, a clean Rydberg'), (7016, '25.6.1 L7005', 'δ∞ = 0.9376 < δ(6s) < δ(5s) = 0.9812')]
+  1,635 (Chapter 28 count)                     {'main': [20, 89, 104, 202, 523, 646, 3516, 7369, 7375, 7902, 8920, 9057, 9366, 9378, 9383], 'reg': [6626]}
       main: [(20, 'Nothing L17', 'The register holds one thousand six hundred and thirty-five entries. They are one sequence over three'), (89, 'Nothing L17', 'a process that recorded one thousand six hundred and thirty-five corrections, and it survived because the object,'), (104, 'Nothing L17', 'The one thousand six hundred and thirty-five are in Chapter 28. **They are not a confession. They are the')]
-    Register `### N` headings measured: 1632 ; distinct numbers 1632 ; min 1 max 1796 ; missing in 1..max: [176, 177, 190, 196, 199, 202, 203, 204, 206, 207, 209, 210, 213, 215, 218, 219, 220, 221, 227, 231]
-    Chapter 28 body L7366–L7855; its count lines: [(7373, 'work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,635 entries, 1 to 1792, at this build (2026-08-29)** — lives in'), (7382, 'level a fault lands at, and what the whole set shows about where errors are caught.* Register 658.'), (7562, 'out-of-sample errors of 652%, 560% and 1,156%. Seven constraints, six of them clustered, one'), (7651, '152–164. Thirteen implementation errors across nine attempts at a d ≥ 3 PQ-tree analogue: a'), (7658, 'cite in turn. The complete record — 436 entries when this paragraph was written, 1,631 at this build — is THE REGISTER, a volume of its own**, whose file is'), (7661, "material §4's ten mechanisms were built from.* **242 of 436 kept at that reading; at this build the main volume cites 392 entries and the Register's front matter carries the count.**")]
-  C₆ = n¹¹(...) Singer §26.5 / 2^d corners     {'main': [2262, 8522, 8557]}
-      main: [(2262, '11.7 L2251', 'third, and 2^d inclusion–exclusion terms return.'), (8522, '30.3.6 L8520', '3-subsets of X. O(\\|X\\|³) structure, 2^d labels — the two factor, where every order-space method'), (8557, '30.3.8 L8548', 'to 2^d − 1 hyperedges. It is complete, so treewidth gives back the 2^d bound already known.')]
+    Register `### N` headings measured: 1641 ; distinct numbers 1641 ; min 1 max 1806 ; missing in 1..max: [176, 177, 190, 196, 199, 202, 203, 204, 206, 207, 209, 210, 213, 215, 218, 219, 220, 221, 227, 231]
+    Chapter 28 body L7368–L7857; its count lines: [(7375, 'work has made — **273 kept in an earlier form of this chapter, 493 in all at that reading; 1,635 entries, 1 to 1792, at this build (2026-08-29)** — lives in'), (7384, 'level a fault lands at, and what the whole set shows about where errors are caught.* Register 658.'), (7564, 'out-of-sample errors of 652%, 560% and 1,156%. Seven constraints, six of them clustered, one'), (7653, '152–164. Thirteen implementation errors across nine attempts at a d ≥ 3 PQ-tree analogue: a'), (7660, 'cite in turn. The complete record — 436 entries when this paragraph was written, 1,631 at this build — is THE REGISTER, a volume of its own**, whose file is'), (7663, "material §4's ten mechanisms were built from.* **242 of 436 kept at that reading; at this build the main volume cites 392 entries and the Register's front matter carries the count.**")]
+  C₆ = n¹¹(...) Singer §26.5 / 2^d corners     {'main': [2264, 8524, 8559]}
+      main: [(2264, '11.7 L2253', 'third, and 2^d inclusion–exclusion terms return.'), (8524, '30.3.6 L8522', '3-subsets of X. O(\\|X\\|³) structure, 2^d labels — the two factor, where every order-space method'), (8559, '30.3.8 L8550', 'to 2^d − 1 hyperedges. It is complete, so treewidth gives back the 2^d bound already known.')]
 
 ================================================================================================
 §4 THE Sc VI ARITHMETIC OF L10303 — δ from a level and a limit; two Rydberg conventions tried; the limit is looked for in the volumes
 ================================================================================================
-  limit sites for Sc VI in the volumes: {'main': [6914, 6916, 11579]}
-  Sc VI lines carrying an 8xx,xxx/9xx,xxx figure: [('main', 6914, '**Sc VI shows this has two causes, not one.** Sc⁵⁺ has a clean core — three parent terms, no mixing worth the name, a limit measured at 892,700 ± 400 ')]
+  limit sites for Sc VI in the volumes: {'main': [6916, 6918, 11621]}
+  Sc VI lines carrying an 8xx,xxx/9xx,xxx figure: [('main', 6916, '**Sc VI shows this has two causes, not one.** Sc⁵⁺ has a clean core — three parent terms, no mixing worth the name, a limit measured at 892,700 ± 400 ')]
   R_inf = 109737.316: I implied by δ(5s)=0.9812 at 648,096 → 892700 cm⁻¹ ; then 696,400 gives δ = 0.514 (printed 0.514) ; δ=0.514 gives E = 696392
   R_Sc = 109735.977: I implied by δ(5s)=0.9812 at 648,096 → 892697 cm⁻¹ ; then 696,400 gives δ = 0.514 (printed 0.514) ; δ=0.514 gives E = 696392
   with printed limit 892700 and R_inf: δ(696,400) = 0.5139 ; E(δ=0.9812) = 648096
@@ -153,26 +153,26 @@
 ================================================================================================
   pointers in the unit: ['3.5', '16.3', '24.2', '25.3', '25.4', '25.6', '31.3.4', '32.6'] ; Chapter/Appendix/Part/Proposition words: ['Appendix B', 'Appendix B.', 'Appendix C', 'Chapter 28', 'Part V', 'Proposition 23.1']
   §3.5     body_range L1257–L1281  section_span (1257, 1282)  heading [### 3.5 What the figure audit found]  claim-hits [1274, 1275]
-  §16.3    body_range L4359–L4378  section_span (4359, 4407)  heading [### 16.3 D1 — D_phys catches a wrong value in the data]  claim-hits []
-  §24.2    body_range L6653–L6667  section_span (6653, 6668)  heading [### 24.2 The largest contributors]  claim-hits []
-  §25.3    body_range L6931–L6948  section_span (6931, 6949)  heading [### 25.3 The failure condition]  claim-hits [6932]
-  §25.4    body_range L6949–L6961  section_span (6949, 6962)  heading [### 25.4 Why the collection never enters the failure regime]  claim-hits [6949]
-  §25.6    body_range L6991–L7002  section_span (6991, 7117)  heading [### 25.6 The one deduction, and why it is not a prediction]  claim-hits []
-  §31.3.4  body_range L8728–L8789  section_span (8728, 8790)  heading [### 31.3.4 E(X) on a specifiable slice, and 540 predictions]  claim-hits [8728, 8736, 8738, 8740, 8747]
-  §32.6    body_range L9205–L9266  section_span (9205, 9307)  heading [### 32.6 The falsification tests, run]  claim-hits [9205, 9207, 9226, 9246]
-  Chapter 28       heading sites: [(150, '## 28. Withdrawals'), (7366, '## 28. Withdrawals'), (7386, '### 28.1 The dominant pattern'), (7393, '### 28.2 The five that earned their place')]
+  §16.3    body_range L4361–L4380  section_span (4361, 4409)  heading [### 16.3 D1 — D_phys catches a wrong value in the data]  claim-hits []
+  §24.2    body_range L6655–L6669  section_span (6655, 6670)  heading [### 24.2 The largest contributors]  claim-hits []
+  §25.3    body_range L6933–L6950  section_span (6933, 6951)  heading [### 25.3 The failure condition]  claim-hits [6934]
+  §25.4    body_range L6951–L6963  section_span (6951, 6964)  heading [### 25.4 Why the collection never enters the failure regime]  claim-hits [6951]
+  §25.6    body_range L6993–L7004  section_span (6993, 7119)  heading [### 25.6 The one deduction, and why it is not a prediction]  claim-hits []
+  §31.3.4  body_range L8730–L8791  section_span (8730, 8792)  heading [### 31.3.4 E(X) on a specifiable slice, and 540 predictions]  claim-hits [8730, 8738, 8740, 8742, 8749]
+  §32.6    body_range L9207–L9268  section_span (9207, 9309)  heading [### 32.6 The falsification tests, run]  claim-hits [9207, 9209, 9228, 9248]
+  Chapter 28       heading sites: [(150, '## 28. Withdrawals'), (7368, '## 28. Withdrawals'), (7388, '### 28.1 The dominant pattern'), (7395, '### 28.2 The five that earned their place')]
   Proposition 23.1 heading sites: []
-  Appendix B       heading sites: [(163, '## Appendix B — Data and provenance'), (10165, '## Appendix B — Data and provenance'), (10173, '### B.1 Sources'), (10190, '### B.2 Channels')]
-  Part V           heading sites: [(141, '# PART V — THE METHOD'), (149, '# PART VI — THE RECORD AND THE REACH'), (155, '# PART VII — THE CHALLENGES'), (5937, '# PART V — THE METHOD')]
-  PART VI          heading sites: [(149, '# PART VI — THE RECORD AND THE REACH'), (155, '# PART VII — THE CHALLENGES'), (7364, '# PART VI — THE RECORD AND THE REACH'), (9393, '# PART VII — THE CHALLENGES')]
-  L10231 *Serving PART VI — THE RECORD AND THE REACH*; PART headings: [(141, '# PART V — THE METHOD'), (149, '# PART VI — THE RECORD AND THE REACH'), (5937, '# PART V — THE METHOD'), (7364, '# PART VI — THE RECORD AND THE REACH')]
+  Appendix B       heading sites: [(163, '## Appendix B — Data and provenance'), (10195, '## Appendix B — Data and provenance'), (10203, '### B.1 Sources'), (10220, '### B.2 Channels')]
+  Part V           heading sites: [(141, '# PART V — THE METHOD'), (149, '# PART VI — THE RECORD AND THE REACH'), (155, '# PART VII — THE CHALLENGES'), (5939, '# PART V — THE METHOD')]
+  PART VI          heading sites: [(149, '# PART VI — THE RECORD AND THE REACH'), (155, '# PART VII — THE CHALLENGES'), (7366, '# PART VI — THE RECORD AND THE REACH'), (9395, '# PART VII — THE CHALLENGES')]
+  L10231 *Serving PART VI — THE RECORD AND THE REACH*; PART headings: [(141, '# PART V — THE METHOD'), (149, '# PART VI — THE RECORD AND THE REACH'), (5939, '# PART V — THE METHOD'), (7366, '# PART VI — THE RECORD AND THE REACH')]
 
 ================================================================================================
 §6 COUNT WORDS — C.2 *Fourteen results*, C.3 *Six results*, C.1 *Three rows*, C.3 *the six* — items on the middle-dot split of the normalised join
 ================================================================================================
-  C.2 L10274–L10281 items = 14 (printed *Fourteen*): ['E(X) for seven indices, the periodic tab', 'closure ⟺ ℛ(X) = X on 200 constructions', 'ⅅ ≥ dim q − dim p on 420 random nonlinea', 'the E3 criterion on 2,513 tests', 'χ_Λ totality on 30,000 uniformly sampled', 'order recovery by tree propagation, 20/2', 'the 1,105 cells added here, across all 1', 'the failure condition and its inversion ', 'the isoelectronic hold-out and fifth-mem', 'the C₆ cost-law check against Singer et ', 'the antiprotonic-helium two-route check ', 'the census by antisymmetric-state enumer', 'Proposition 23.1 re-derived', 'the three falsification tests of §32.6 —']
-  C.3 L10286–L10288 items = 6 (printed *Six*): ['the rule-ablation costs of §24.2', 'the Sr I node coverages and fine-structu', 'the Ti I channel inventory', 'the multi-target failure counts of §16.3', "the Sc VI prediction's input defects", "the earlier verification's per-species m"]
-  *the six* at L[10299] refers back to the six inherited results; *fifteen figures* list count 15
-  1,105 / 153 sites in the unit (sites of 20a-01, not new findings): [10276, 10277] ; *earlier verification* in the unit (20a-02 site): [10288]
+  C.2 L10304–L10311 items = 14 (printed *Fourteen*): ['E(X) for seven indices, the periodic tab', 'closure ⟺ ℛ(X) = X on 200 constructions', 'ⅅ ≥ dim q − dim p on 420 random nonlinea', 'the E3 criterion on 2,513 tests', 'χ_Λ totality on 30,000 uniformly sampled', 'order recovery by tree propagation, 20/2', 'the 1,105 cells added here, across all 1', 'the failure condition and its inversion ', 'the isoelectronic hold-out and fifth-mem', 'the C₆ cost-law check against Singer et ', 'the antiprotonic-helium two-route check ', 'the census by antisymmetric-state enumer', 'Proposition 23.1 re-derived', 'the three falsification tests of §32.6 —']
+  C.3 L10316–L10318 items = 6 (printed *Six*): ['the rule-ablation costs of §24.2', 'the Sr I node coverages and fine-structu', 'the Ti I channel inventory', 'the multi-target failure counts of §16.3', "the Sc VI prediction's input defects", "the earlier verification's per-species m"]
+  *the six* at L[10329] refers back to the six inherited results; *fifteen figures* list count 15
+  1,105 / 153 sites in the unit (sites of 20a-01, not new findings): [10306, 10307] ; *earlier verification* in the unit (20a-02 site): [10318]
 
 END r2-ch21a
