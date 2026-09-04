@@ -72,3 +72,11 @@ withdrawn, or never issued?** A collection log quotes *Register 661* as a live i
 issued once. Every other gap in 1..1792 is a relocation to the Working Register under an EXCISED marker. This joins
 the census retirement question of DEF-153O. *Recommended: 176 and 177 never issued (no trace anywhere); 661–688 and
 1138 withdrawn, each to be recorded with a one-line reason in the Working Register, no renumbering.*
+
+**Q4 — May R3 seat the recovered chapter 12–15 readings from the consolidation branch — 56 `READ-*.md`, 29
+`CENSUS-CLOSURES-*.tsv`, 48 cited instruments — into the compendia bundle as one pass, each carrying its recovery status
+(`RECOVERED` / `RECOVERED-BY-HEADING` / `RECOVERED-BY-WRITE`) and ledger provenance?** The store seats no reading of
+chapters 12–15 though W-112 … W-121, DEFERRED and DOCKET cite them (DEF-153Q). *Recommended: yes for the readings and
+closures, which are documents with an md5 and a source shard; the instruments only with a golden proved on the bundle
+they were banked against, otherwise seated unproved as `r3-wl2` is; the 22 closures and 3 readings the export does not
+hold recorded as ABSENT, not loss.*
