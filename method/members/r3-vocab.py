@@ -95,6 +95,15 @@ R1 = row('the corridor, 106 consistent inequalities', 'verified as a result abou
 R2 = row('the nineteen surds, the complete endpoint set', 'withdrawn with ν at 1460',
          'unwitnessed · exhaustive · none found (true of ν as a form; register 1460)')
 
+# M's ruling: the observability boundary is not a conjecture. Register 1377 states a decidable
+# criterion — does the effect modify the equation, or require its solution? — names the prior art on
+# both sides (Schrödinger 1926 and its sequels; Born–Heisenberg–Jordan 1925–26; von Neumann 1927/1932)
+# and EXPLAINS Λ_cross's exception rather than recording it. And M's principle: outside literature and
+# prior art COUNT AS WITNESS, which is why the citations and the bibliography exist — so the precedent
+# column moves from 'none found' to 'found' on the same ruling.
+R3 = row('the observability boundary, tested once', 'conjectured · sampled · none found',
+         'verified · sampled · found')
+
 # §4.6 marked proved (M: A3). Proof is mathematics, not observation — the protocol is proved because
 # the case it was built for arrived and it caught it. This is the one protocol of the ten that is not
 # merely earned by a failure but established by one.
@@ -108,22 +117,38 @@ SUBS_MAIN = [
     ('L10748–L10753 the scale paragraph', PARA_OLD, PARA_NEW),
     ('the corridor row', R1[0], R1[1]),
     ('the nineteen surds row', R2[0], R2[1]),
+    ('the observability boundary row', R3[0], R3[1]),
 ]
 
 # ---------------------------------------------------------------- the Register entry (subject matter)
 seated = sorted(int(x) for x in re.findall(r'^### (\d+)$', r, re.M))
 N = max(seated) + 1
-assert N == 1801, f'expected to take 1801, next free is {N}'
-E = (f"### {N}\n\n**THE STATUS COORDINATE TAKES A SIXTH VALUE: *UNWITNESSED*, ABOVE *VERIFIED* AND BELOW "
-     "*PROVED*.** *§D.2 defined status on five values. A result can be measured, verified and exhaustive over "
-     "everything the index reaches while no cell inside it witnesses the claim; that is not a doubt and not a "
-     "demotion, and the five values had no room for it. The corridor is the first to take the value — "
-     "non-empty at every one of the 106 steps and saying nothing about any element of the table it ranges "
-     "over (1445, 1463) — and the nineteen surds follow it, true of ν as a form and of nothing in the "
-     "periodic table (1460). Where an observation does not yet exist the value is the ceiling, and it is what "
-     "the spectra index needs above Z = 108. Neither row is withdrawn and nothing is deleted.* "
-     "Registers 1445; 1460; 1463. (a new protocol.)\n")
-TAIL = '\n' + E
+assert N == 1801, f'expected to take 1801-1802, next free is {N}'
+assert not re.search(rf'^### {N + 1}\b', r, re.M)
+E1 = (f"### {N}\n\n**THE STATUS COORDINATE TAKES A SIXTH VALUE: *UNWITNESSED*, ABOVE *VERIFIED* AND BELOW "
+      "*PROVED*.** *§D.2 defined status on five values. A result can be measured, verified and exhaustive over "
+      "everything the index reaches while nothing witnesses the claim; that is not a doubt and not a demotion, "
+      "and the five values had no room for it. Proof is a matter of mathematics and not of observation, so the "
+      "new value ranks below proved for a reason that is a bias and not a defect — observation. The corridor is "
+      "the first to take it (1445, 1463), and the nineteen surds follow, true of ν as a form and of nothing in "
+      "the periodic table (1460). Neither is withdrawn and nothing is deleted.* "
+      "**WHAT COUNTS AS A WITNESS, stated because the value is meaningless without it: that ANYONE has observed "
+      "it — this work or another.** *An observation of our own and an attribution found in the literature "
+      "witness equally. That is why the search for outside attribution is method and not courtesy: a search "
+      "that finds one moves a result out of this value, and a search that finds none is what leaves it "
+      "there. An unwitnessed result is one nobody has yet seen. Above Z = 108 the spectra index is written "
+      "almost entirely in the value, and it wants only for something to be seen.* "
+      "Registers 1445; 1460; 1463. (a new protocol.)\n")
+E2 = (f"### {N + 1}\n\n**THE OBSERVABILITY BOUNDARY IS NOT A CONJECTURE; IT IS VERIFIED, AND ITS PRIOR ART IS "
+      "ITS WITNESS.** *Appendix D ranked it conjectured with no precedent found. Register 1377 states it as a "
+      "decidable criterion — does the effect modify the equation, or require its solution? — names the prior "
+      "art on both sides, Schrödinger's* Quantisierung als Eigenwertproblem *(1926) and its three sequels for "
+      "the enumerable half and Born–Heisenberg–Jordan with von Neumann's spectral theorem for the operator "
+      "half, and EXPLAINS Λ_cross's exception rather than recording it. A criterion that decides cases and "
+      "carries its literature is not a guess.* **Re-ranked verified · sampled · found: verified because it "
+      "decides, sampled because it has been applied once, and found because the literature is there — and by "
+      "the witness rule of the entry above, someone has seen it.** Registers 1377. (a correction.)\n")
+TAIL = '\n' + E1 + '\n' + E2
 assert not re.search(rf'^### {N}\b', r, re.M)
 
 def apply(t, subs):
@@ -147,7 +172,7 @@ WARN = "  **WARNING:** Qualified at register 1448. The memoryless test set *a* t
 SUBS_REG = [('the WARNING on 1332', _body + chr(10), _body + WARN + chr(10))]
 new_r = apply(r, SUBS_REG) + TAIL; assert md5(reverse(new_r[:-len(TAIL)], SUBS_REG).encode('utf-8')) == md5(old_reg), 'Register reverse FAILED'
 print(f'main: {len(SUBS_MAIN)} substitutions, reverse recovers md5 {md5(old_main)} == old: True')
-print(f'Register: {len(SUBS_REG)} substitution (the 1332 WARNING, +0 lines) + entry {N} appended, reverse recovers {md5(old_reg)}')
+print(f'Register: {len(SUBS_REG)} substitution (the 1332 WARNING, +0 lines) + entries {N} and {N+1} appended, reverse recovers {md5(old_reg)}')
 
 # ---------------------------------------------------------------- what must NOT have moved
 NL = new_m.split('\n')
@@ -160,17 +185,18 @@ _b1 = A46_NEW.count(chr(10)) + 1 - 1          # §4.6: one line becomes three
 _b2 = PARA_NEW.count(chr(10)) - PARA_OLD.count(chr(10))
 print(f'shift bands: +{_b1} for main L >= 1448 (§4.6), then a further +{_b2} below the scale paragraph')
 print(f'  net: lines after the appendix paragraph move +{_b1 + _b2}; total {len(ML)} -> {len(NL)}')
-for probe in ('nothing withdrawn survived to be listed', 'the observability boundary, tested once',
-              'slack = kernel, §18.4.1'):
+for probe in ('nothing withdrawn survived to be listed', 'slack = kernel, §18.4.1'):
     assert new_m.count(probe) == m.count(probe), f'{probe!r} count moved'
 assert 'slack = kernel conjecture occupies' not in new_m, 'the slack sentence was not removed'
-assert new_m.count('**conjectured** · sampled · none found') == m.count('**conjectured** · sampled · none found')
-print('rows untouched: slack = kernel and the observability boundary keep their status (M: no row changes)')
+assert new_m.count('**conjectured** · sampled · none found') == m.count('**conjectured** · sampled · none found'), \
+    'slack = kernel must keep its status'
+assert 'the observability boundary, tested once' in new_m and 'verified · sampled · found' in new_m
+print('slack = kernel keeps conjectured (M: unchanged); the observability boundary moves to verified · sampled · found')
 
 # ---------------------------------------------------------------- Ruling A: the parked counts, scored
 for pat in (r'\*\*1635 entries, 1 to 1792\.\*\*', r'\| \*\*a correction\*\* \| ([\d,]+) \|'):
     assert re.search(pat, new_r), f'count site {pat} moved — Ruling A parks it'
-print(f'PARKED (Ruling A): entries now 1 to {N}; the front matter still prints its BUILD180 extent — reg1-04 carries it')
+print(f'PARKED (Ruling A): entries now 1 to {N+1}; the front matter still prints its BUILD180 extent — reg1-04 carries it')
 
 # ---------------------------------------------------------------- press anchors
 src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
