@@ -122,10 +122,13 @@ member `method/members/LW1-ground.py` — V `3d3` → Cr `3d5` (nothing has 3d�
 3d⁹), Rh `4d8` → Pd `4d10` (no 4d⁹), Ir `5d7` → Pt `5d9` (no 5d⁸). That member's own line 9 reads
 *"patched the exceptions by hand. That table was wrong at Pd."*
 
-**The order-ideal computation has not been re-run here.** What is recorded is that the corpus holds
-two contradictory records of one claim under the same stated convention, that the later is unbanked,
-and that its mechanism is present in the repository's own ground-state data. Which stands is the
-author's ruling to make.
+**The computation has since been re-run — see `docs/ORDER-IDEAL.md` and `tools/orderideal.py`.**
+On the seated member (Z = 1..108) the occupied set is **not** downward closed: 98 cells, 197
+violations, 5 subshells with an occupancy gap, 6 Z-order breaks, and **0 of 120** admissible
+ℓ-orderings — the last matching the unbanked re-measurement exactly, against register 66's 1 of 120.
+The three records disagree on the cell count (118 / 110 / 98) before they disagree on the property,
+because they quantify over different element ranges. **No verdict is offered on register 66**; the
+narrowed question for R3 is which object it quantifies over.
 
 ## Other material of the same weight
 

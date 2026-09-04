@@ -63,10 +63,12 @@ index), `tools/arith.py` (the arithmetic of every ratio, percentage and equation
 about themselves), `tools/pointers.py` (every pointer resolved across the volumes and the
 companion), `tools/buildtrace.py` (when a figure entered the books, from the BUILD series) and
 `tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
-of the method equation, per register 1206). Those are real programs with a real contract — see
+of the method equation, per register 1206) and `tools/orderideal.py` (register 66's downward-closure
+test, run against the seated observed configurations; it imports `LW1-ground.py`, offers no verdict,
+and files its measurement for R3 — see `docs/ORDER-IDEAL.md`). Those are real programs with a real contract — see
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
-`docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md` and
-`docs/COVERAGE.md`.
+`docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
+`docs/COVERAGE.md` and `docs/ORDER-IDEAL.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
