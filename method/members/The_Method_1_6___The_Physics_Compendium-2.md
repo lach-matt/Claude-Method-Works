@@ -271,6 +271,41 @@ kind the domain protocol blocks.
 
 ---
 
+## The corridor law — interface only
+
+*Chapter 34's law, as physics. The mechanism — the corridor as a system of linear
+inequalities, and the hull form beneath it — is stated once, in the Mathematical
+Compendium addition; this entry records what the law claims about nature and where
+it could have failed.*
+
+**derived here** · from this work · valid Z = 3–108 · four objects state it; the transitive count is not computable at this build (register 1814)
+
+**What it states.** The subshell the differentiating electron enters is always one
+the ν form can select at all: a vertex of the lower convex hull of the points
+(√r, n), r = p + q/2(2ℓ+1), over the Pauli-admissible subshells — equivalently, its
+corridor of admissible slopes `a` is non-empty. It holds at all 106 steps, Z = 3 to
+108, in the node-only form and the finished form alike, and it could have failed at
+any of them (§34.5; registers 1445, 1460, 1463).
+
+**The transition.** From the observed ground configurations (NIST ASD 5.12,
+register 1306) to a corridor per step: the two hull-edge slopes flanking the entrant.
+The identity of the corridor with the hull-edge slopes is asserted at 0 mismatches
+over 106 steps, in both forms.
+
+**Must be measured.** Every step. The law is a statement about which configurations
+nature realises, so it is *verified* and never *proved*; the theorem beside it — the
+necessity of state — is the mathematics and needs no observation, and the law is
+what observation adds.
+
+**What physics does.** It supplies the entrant; the law says the entrant is never
+outside the form's reach. **What it does NOT do:** select the entrant — every step
+admits two to six hull vertices and one carried number decides among them (§34.6);
+and non-emptiness refutes nothing: an empty corridor refutes the form and a
+non-empty one does not confirm it (register 1460). **Where it fails:** not known
+past Z = 108, where NIST lists no neutral ground configuration.
+
+---
+
 ## The collapse condition — interface only
 
 *Per this compendium's charter, the mechanism is stated once, in the Mathematical

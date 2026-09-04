@@ -46,3 +46,12 @@ sentence, the C7 counts, `slack = kernel … always admitted` — because their 
 **Owed, and neither is a re-bank:** a census successor that reads the extent as data, and a regeneration that
 re-addresses an id by (class, volume, item, text) and retires — never deletes — a row whose site no longer exists.
 The retired rows are the ones the closures cite as repaired; how they are marked is M's.
+
+## DEF-153G-2 executed: the corridor law is in the Physics Compendium (BUILD205 compendia, BUILD101 main)
+
+`r3-pclaw.py`. Placed in the Löwdin-solution section in its interface template, before *The collapse condition —
+interface only*; the kind line M ruled on kept as the entry's second line. The template's count is not computable:
+the seated Mathematical Compendium prints no dependency field (the lines register 1749 walked are gone from the
+printed form), so "N objects rest on it" is record-carried for this entry and for Λ_phys's twenty-seven — register
+1814 says so, and the entry prints the four seeds. DEF-153G-1 (the Appendix D row split) still awaits M's ruling on
+structural versus content.
