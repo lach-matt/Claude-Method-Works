@@ -10886,7 +10886,7 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
   the staircase algebra, ⌊s/2⌋ ≤ d ≤ s + ⌊s/3⌋           formula · order              verified · exhaustive · found
   the sequence-index fix, rank parity not free           mechanism · physics          verified · exhaustive · found
   the selection-rule falsification, 200 of 200 seeds     measurement · analysis       measured · sampled · none found
-  the necessity of state, §34.6                          theorem · physics            verified · sampled · none found (the claim stands at register 1332; its count is fixed from the case it judges and is not independently reproducible, register 1448)
+  the necessity of state, §34.6                          theorem · physics            verified · exhaustive · none found (register 1460 demoted the verification because the count was not reproducible; §34.6 no longer rests on a count — the ambiguity is geometry, and the corridor is the lower-hull vertex set at all 106 steps in both forms, register 1805)
   the observability boundary, tested once                law · physics                verified · sampled · found
   the singleton-output rule                              definition · order           proved · exhaustive · none found
   the domain prohibition                                 law · physics                verified · exhaustive · none found
