@@ -172,10 +172,15 @@ are records of what was said, not results. Do not flatten them.
 
 ## The open item this list creates
 
-**212 unbanked CORRECTIONs.** Multiple agents independently flagged the same hazard: a superseded
-number may sit in the repository *with its withdrawal missing*. Register 66 is the confirmed
-instance. Finding the rest is a distinct job — take each `CORRECTION` row, extract the superseded
-value, and search the repository for it. That audit has **not** been run.
+**212 unbanked CORRECTIONs.** That audit **has now been run** — see `RETRACTION-AUDIT.tsv` and
+`docs/RETRACTION-AUDIT.md`. 124 of the 212 had a number occurring in a live volume (303 pairs);
+187 were digit coincidence, **87 corrections had already landed**, 10 were undecidable, and
+**19 are withdrawn values still standing as current**. The one that needs no interpretation:
+`The_Method_1_6-2.md` prints *"the 2,475 previously printed here is withdrawn"* in one passage and
+asserts *"costs the cylinder 2,475 cells"* in two others.
+
+What remains untested: **88 corrections carried no number that appears in any volume**, so a
+correction that withdrew a claim rather than a figure is out of that audit's reach.
 
 ## Re-verification
 

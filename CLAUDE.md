@@ -164,8 +164,19 @@ dropped. The governance spine is intact — **zero** prose-only rulings, dockets
 **40 numbered faults and 178 registers are named in prose and held nowhere.** A row is a candidate
 for a home, not an instruction to make one, and the list is a **floor**: the reading pass was capped
 at 30 findings per chunk. See `docs/PROSE-ONLY.md`, which also records the one finding that needs a
-ruling — register 66's order-ideal claim against an unbanked re-measurement — and the open
-retraction audit (212 corrections whose superseded values may still stand in the volumes).
+ruling — register 66's order-ideal claim against an unbanked re-measurement — and points at the
+retraction audit.
+
+**`RETRACTION-AUDIT.tsv` asks the consequent question: is a withdrawn figure still standing?** For
+each of the 212 unbanked corrections, every distinctive number was searched across the nine live
+volumes — 303 (correction, number) pairs, adjudicated with the volume text in view. 187 are digit
+coincidence, **87 corrections had already landed**, 10 are undecidable, and **19 are withdrawn values
+asserted as current**. The clearest needs no interpretation: `The_Method_1_6-2.md` prints *"the 2,475
+previously printed here is withdrawn"* in one passage and *"costs the cylinder 2,475 cells"* in two
+others. Seventeen of the nineteen rest on register entries that carry no withdrawal marker in a
+Register that marks elsewhere — corroboration, not proof, and each needs the entry read in full
+before any repair. 88 corrections carried no number in any volume and are untested. Nothing was
+repaired. See `docs/RETRACTION-AUDIT.md`.
 
 **What the graph pass measured is written up in `docs/GRAPH-FINDINGS.md`** — the seven `AMBIGUOUS`
 edges traced to their files, the `HANDOFF-13` byte-fingerprint for an absent document, the 23-file
