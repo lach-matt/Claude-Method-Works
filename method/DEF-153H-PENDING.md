@@ -26,34 +26,45 @@ The build that did this checked its substitution anchors, its press anchors and 
 none of those could have caught it: every guard was structural, and this is a semantic dependency
 between a table and prose forty lines below it. That is DEF-153F item 3 with a consequence attached.
 
-## H-2  The theorem/law split cannot be executed here — the element set is not reconstructible
+## H-2  The theorem/law split is a RE-CLOSURE — and it is no longer blocked
 
-DEF-153G item 1 proposed splitting the necessity-of-state row in two. Measured, that is not a row
-edit but a RE-CLOSURE of §D.5.10, and it moves at least six recorded figures:
+UPDATED after M landed `extracted/` (782 files) on main. The earlier reading of this item said the
+element set was not reconstructible from the volume. **That was wrong, and the error was mine: it
+was a format assumption, not a missing set.**
 
-  - the sum: "Sixty-five elements become **seventy-seven** over **twenty-four** fibres, and E = 0"
-  - "Law · physics now holds **four** elements over three cells"
-  - Appendix D's whole-appendix fibre census: theorem · physics 2 -> 1, theorem · order 21 -> 22,
-    law · physics 4 -> 5
-  - F.4.2's bracket, which register 1449 records as recomputed at 77: 2.47 : 1, 0.288, 0.867 bits,
-    and 128 -> 1.48 : 1 with the Index's terms
-  - E itself, per fibre, under §6.1's ℛ
+Appendix D's element tables do not share a column order. §D.5.2 writes
 
-E is computable in principle — `tools/cypher.py --cells` takes a TSV of cells and returns
-|ℛ(X)| − |X| — and the house discipline is to reproduce the recorded E = 0 at seventy-seven before
-computing anything at seventy-eight.
+    fibre                              element                       status · verification · precedent
 
-**It cannot be reproduced from the volume.** The main volume holds FIVE element tables carrying
-`element / fibre / coordinates`, at L10736, L10761, L10794, L10830 and L10882, and they hold
-**45 rows in total**. The closure is stated over seventy-seven. Thirty-two elements of §D.5.2–§D.5.9
-are not in that form and are not recoverable by reading the tables.
+and §D.5.6 through §D.5.10 write
 
-So computing E at 78 would mean inventing the element set that E is computed over. Register 1400's
-precedent forbids exactly this: quoting against a basis the artefact does not supply is a fault.
-The split is therefore NOT TAKEN, and the blocker is the missing element set rather than the ruling.
+    new element                        fibre                         coordinates
 
-What would unblock it: the source §D.5.10 was closed from — the same generator estate as DEF-153F
-item 1, or a listing of the sixty-five.
+An element-first reader silently matches the second family and misses the first — which is how 27
+rows disappeared and the count came out at 45 against a closure stated over 77. A reader that takes
+each table's own header and slices by its own column offsets recovers **72 of 77** immediately, and
+`law · physics` = 4, matching §D.5.10's caption exactly.
+
+This is the same defect class as `qgraph.py` (DEF-153F item 2) and as the wrong-table-header bug
+`r3-vocab` hit at §D.2: **Appendix D's tables are not one format, and any instrument that assumes
+they are will under-report rather than fail.** The reader must be written against each header.
+
+STILL OUTSTANDING before E can be computed at 78:
+
+  - §D.5.3's five elements ("What makes something an element, and the five that test it") are not
+    in either table family and have not been located.
+  - four rows whose element text overruns its column, shifting the slice by one character:
+    `V = 4ν/3, §23`, `the bracket width, §23`, `the Rydberg term T(ν) = Z²R/ν², §22`, and
+    `the limit — Λ_spectra closes at the last species`. Column slicing must be bounded by the
+    NEXT column's start, not by a fixed width.
+  - the reconciliation of the extracted fibre counts against §D.5's printed census: extraction
+    gives theorem · order 16 where the census prints 21, and §D.5.4 records a correction
+    "theorem · order 5 -> 10" applied after that census was written. Which of the two is current
+    has to be established before either is used as a fixture.
+
+The discipline is unchanged: reproduce the recorded E = 0 at seventy-seven with
+`tools/cypher.py --cells` BEFORE computing anything at seventy-eight. The blocker is now three
+tractable extraction問 rather than an absent set.
 
 ## Status
 
