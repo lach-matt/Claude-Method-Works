@@ -93,7 +93,8 @@ numbered in their own titles. It is `HANDOFF-33.md` by its write path, not by it
 - **Seating is not verification against a lost original.** No held copy exists to compare against —
   that is the premise. The md5 is of what the export carries, and the seating asserts only that the
   bytes in `recovered/` are the bytes the tool call wrote.
-- **`HANDOFF-33` keeps its earlier-convention title.** It was seated as written, not retitled.
+- **`HANDOFF-33` keeps its earlier-convention title.** It was seated as written, not retitled — and
+  that title is now known to mean more than a change of house style. See the third trap below.
 
 ## Two traps, both of which produced a wrong answer here first
 
@@ -107,6 +108,30 @@ numbered in their own titles. It is `HANDOFF-33.md` by its write path, not by it
 
 Both are arguments for reading the export **structurally** rather than as text, which is what the
 generator now does and why the count rose from 15 to 23.
+
+3. **The handoff number space is used twice, and this file resolves by filename.** `recovered/` holds
+   114 numbered handoff files written under **two numberings whose ranges overlap at 3–53**:
+   *pre-restart*, where handoff = origin chat **+ 2** (`HANDOFF-3` from "Rebuild 2" through
+   `HANDOFF-53` from chat 51 → 52), and *post-restart*, where handoff ≈ origin chat **− 48**
+   (`HANDOFF-7` from chat 55 through `HANDOFF-95` from chat 142). The chat lineage is continuous —
+   `drive/chats/INDEX.tsv` runs "Rebuild 1"–"Rebuild 12" then 13 to 143 with gaps only at 20 and 109 —
+   so this is one project renumbering, and `recovered/HANDOFF-7.md` (titled *"Lineage merge"*) records
+   a fork at chats 52/53 merged into BUILD55 at the same moment. Nothing states one caused the other.
+
+   **At six numbers the file that answers a post-restart citation is the pre-restart document: 23, 25,
+   32, 33, 43, 44.** `HANDOFF-45.md` (chat 92 → 93) says *"HANDOFF-44 printed DEFERRED.md as
+   86,899 B"*; `recovered/HANDOFF-44.md` is chat 42 → 43 and contains zero occurrences of `DEFERRED`
+   or `86,899`. Only `HANDOFF-33` is a row **in this file** — seated from chat 31, against a citation
+   made by a chat in the eighties. The other five never entered it, because a file of that name
+   already existed, so they count among the 62 *held*.
+
+   **This file is right about what is on disk and wrong about which document answers**, at up to six
+   numbers. It is recorded, not repaired: the generator would need the lineage discriminator, and the
+   discriminator is free and already banked — the chat pair in each handoff's own first lines, and
+   `recovered/LEDGER.tsv`'s `conversation` column. Two numbers show what the disambiguation looks like
+   when it happens: **7, 11, 15 and 53 hold both documents** under the `__<md5>` convention, and 53 —
+   the exact top of the pre-restart range — carries four files, two from each numbering. Measured and
+   written up in `docs/GRAPH-FINDINGS.md` §12b, which found it by tracing an `AMBIGUOUS` graph edge.
 
 ## Re-verification
 

@@ -299,11 +299,19 @@ remain held nowhere** — `HANDOFF-2`, `103`, `104` — each `MENTION-ONLY`, whi
 loss. They were missed because `recover.py` takes its wanted-set from `COVERAGE.tsv`'s artefact
 column, which holds names of *filename* shape, and 25 of the 26 are only ever cited as `HANDOFF-71`,
 never `HANDOFF-71.md`; `COVERAGE.tsv` is byte-identical after the seating, which is the confirmation
-rather than a surprise. Read the export **structurally**, not as text: a handoff's body is a tool
+rather than a surprise. **A caution the graph found later:** `recovered/` holds 114 numbered handoff
+files written under **two numberings whose ranges overlap at 3–53** — pre-restart is handoff = origin
+chat + 2, post-restart is roughly origin chat − 48, and the corpus records a lineage fork at chats
+52/53 merged at chat 55. `HANDOFF-GAP.tsv` resolves a bare-number citation **by filename**, so at six
+numbers — **23, 25, 32, 33, 43, 44** — the file that answers is the other lineage's document; one of them,
+`HANDOFF-33`, is a row in the gap file itself. The census is right about what is on disk and wrong
+about which document answers. Recorded, not repaired; the discriminator is already banked, in each
+handoff's own first lines and in `recovered/LEDGER.tsv`'s `conversation` column. See
+`docs/GRAPH-FINDINGS.md` §12b. Read the export **structurally**, not as text: a handoff's body is a tool
 call's `file_text`, so a prose-only extractor reports all 26 as mentions and a regex pass reports 15
 where the true figure is 23. See `docs/HANDOFF-GAP.md`.
 
-**Before tracing any `AMBIGUOUS` edge the graph proposes, read `docs/GRAPH-FINDINGS.md` §11.**
+**Before tracing any `AMBIGUOUS` edge the graph proposes, read `docs/GRAPH-FINDINGS.md` §11 and §12.** §12 is the census of all **120** of them — **80 are inside a single figure** (the vision pass doubts at **4.6 %** against text's **0.12 %**, and none of the 80 crosses a file, so there is nothing to trace), and of the 40 from text, 7 are §11's and 5 are within one document. **Only one of the 120 was a fault in the repository rather than a limit of a pairwise edge**, and it is §12b below.
 The 2026-09-04 rebuild asked seven Suggested Questions and **four were already answered in that
 file** — a rebuild starts from the sources and carries no resolutions forward, so a correctly
 ambiguous edge resurfaces at every rebuild. Three of the seven resolve to *co-membership on a

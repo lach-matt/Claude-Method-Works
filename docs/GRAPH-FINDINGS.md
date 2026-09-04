@@ -4,10 +4,14 @@ Every number here was measured in this repository on 2026-09-04 and every claim 
 the commands in the last section. **Nothing recorded here has been repaired.** The chat-67 full hold
 governs this file exactly as it governs a section read: a finding is recorded, never repaired.
 
-The findings came out of the `/graphify` rebuild (20,463 nodes, 27,601 edges, 2,434 communities over
-3,279 files). The graph's own `AMBIGUOUS` flags were the starting point — seven of them, all traced
-below. **All seven refusals were correct.** None was an extraction defect. Four mark a place where a
-filename or a phrase is shared but the referent is not.
+**Three passes are recorded here, and the `AMBIGUOUS` grade is the starting point of all three.**
+§1–§10 come from the first graph (20,463 nodes, 27,601 edges, 2,434 communities over 3,279 files) and
+trace the seven edges it put forward: **all seven refusals were correct**, none was an extraction
+defect, and four mark a place where a filename or a phrase is shared but the referent is not. §11
+answers the seven the 2026-09-04 rebuild proposed (26,364 nodes) — **four of which this file already
+answered**, because a rebuild carries no resolutions forward. §12 is the census of **all 120**
+`AMBIGUOUS` edges in the rebuilt graph, the other 113 included, and it is where the one edge that
+found a real fault in the repository is written up.
 
 ## Status vocabulary
 
@@ -367,6 +371,193 @@ this section for a future extraction pass.
 
 ---
 
+## 12. The other 113 `AMBIGUOUS` edges — a census, and one of them is a real fault
+
+§11 traced the seven the rebuild put forward as Suggested Questions. **The graph carries 120
+`AMBIGUOUS` edges in all**, and this section accounts for the rest of them. The census first:
+
+| | count |
+|---|---|
+| `AMBIGUOUS` edges in the graph | **120** of 36,150 links (0.33 %) |
+| sourced from an image file | **80** |
+| sourced from a text file | **40** |
+| of those 40, traced in §11 as the rebuild's questions | 7 |
+| of those 40, both endpoints in the same document | 5 (two of them §11's Q1 and Q2) |
+| cross-document text edges not previously traced | **28** |
+
+Relations, all 120: `conceptually_related_to` 66 · `references` 35 · `rationale_for` 10 ·
+`semantically_similar_to` 6 · `shares_data_with` 2 · `cites` 1.
+
+### 12a. All 80 image edges are inside one figure, and the vision pass doubts at 38× the text rate
+
+The 80 image-sourced edges come from **52 distinct figures**, 66 of them under
+`extracted/archives/restore-point-2-13/`. **Every one of the 80 has both endpoints in the same
+image** — the vision pass never drew an ambiguous edge from a figure to anything outside it. All ten
+`rationale_for` edges in the whole graph are here.
+
+The rates are the finding: **4.6 % of the 1,752 edges from image files are `AMBIGUOUS`, against
+0.12 % of the 34,398 from text files.** Reading a chart produces relations the reader cannot ground —
+a caption's axis label against a plotted series, a legend entry against a fitted line — and the
+extractor graded them honestly. **These are not candidates for tracing**: the figure is the whole
+evidence, and a reader looking at it has everything the edge has. They are a measurement of the
+vision pass, not of the corpus.
+
+### 12b. The five handoff-supersession edges: the handoff number space is used twice
+
+The graph drew five `AMBIGUOUS` edges between consecutively numbered handoffs —
+`HANDOFF-24 → 23`, `26 → 25`, `32 → 31`, `45 → 44`, and `22 → 15__99520fa7`. Tracing them found
+something neither endpoint states and no earlier pass here recorded.
+
+**`recovered/` holds 114 numbered handoff files written under two different numberings, and the
+ranges overlap at 3–53.** Classify each file by the chat pair its own body states:
+
+| numbering | rule | earliest | latest | files |
+|---|---|---|---|---|
+| **pre-restart** | handoff = origin chat **+ 2** | `HANDOFF-3` ← "Rebuild 2" | `HANDOFF-53` ← chat 51 → 52 | **18** |
+| **post-restart** | handoff ≈ origin chat **− 48** | `HANDOFF-7` ← chat 55 | `HANDOFF-95` ← chat 142 | **85** |
+| header states no chat pair | (early post-restart, "written by chat 60" form) | | | 11 |
+
+The chat lineage itself is continuous — `drive/chats/INDEX.tsv` holds "Rebuild 1"–"Rebuild 12" and
+then plain-numbered conversations **13 to 143 with only two gaps, 20 and 109**. So this is *one*
+project renumbering its handoffs, not two projects. **The corpus records a fork at the same
+moment.** `recovered/HANDOFF-7.md` — the earliest post-restart file, titled *"Lineage merge"* — says:
+
+> *"**LINEAGE MERGE (BUILD55).** Chats 52/53 had forked from BUILD53: chat 52 → BUILD54 … chat 53 →
+> BUILD53.REPAIRED … repair set replayed onto BUILD54 by patch, zero rejects → BUILD55, M-ruled."*
+
+The renumbering and the fork coincide. **Nothing states that one caused the other**, and this file
+does not assert it.
+
+**Where the post-restart numbering steps, a handoff was retired unused.** The offset moves −49 → −48
+between numbers 25 and 26, and −48 → −47 between 33 and 34; both steps are documented:
+
+> `HANDOFF-26`: *"chat 74 → chat 75 (**supersedes HANDOFF-25, retired unused**)"*
+> `HANDOFF-34`: *"**HANDOFF-33 and BUILD108 are retired unused** — they were presented before M's
+> ruling arrived … **must not be uploaded**"*
+
+`RULINGS-R2.md` states the same event from the other side — chat 74's ruling 4, *"built in chat 74
+itself (BUILD101 + HANDOFF-26; HANDOFF-25 and BUILD100 retired unused)"*.
+
+#### The fault, and it is small, exact and worth knowing
+
+**Six numbers hold only the pre-restart document while a post-restart handoff cites that number as
+its own predecessor: 23, 25, 32, 33, 43, 44.** At each, a citation resolves to the wrong document:
+
+- `HANDOFF-24.md` (chat 73 → 74) — *"supersedes HANDOFF-23"*, *"Rulings in force (unchanged from
+  HANDOFF-23)"*. `recovered/HANDOFF-23.md` is **chat 21 → 22**.
+- `HANDOFF-26.md` (chat 74 → 75) — *"supersedes HANDOFF-25"*. `recovered/HANDOFF-25.md` is
+  **chat 23 → 24**.
+- `HANDOFF-32.md` is itself **pre-restart** (chat 30 → 31) and says *"RETIRE the BUILD-30 bundles and
+  HANDOFF-31"*; `recovered/HANDOFF-31.md` is **chat 79 → 80**. This edge points the other way.
+- `HANDOFF-45.md` (chat 92 → 93) — *"HANDOFF-44 printed DEFERRED.md as 86,899 B"* and *"HANDOFF-43
+  mis-cited that and HANDOFF-44 corrected it"*. `recovered/HANDOFF-44.md` is **chat 42 → 43** and
+  contains **zero** occurrences of `DEFERRED` or `86,899`; `HANDOFF-43.md` names neither W-118 nor
+  W-107. The citation is checkable and it fails.
+
+**Four numbers hold both documents — 7, 11, 15 and 53** — and that is the `__<md5>` convention §7
+describes, doing work §7 did not know it was doing. `HANDOFF-53` is the corroboration: it carries
+**four** files, two from chat 100 → 101 and two from chat 51 → 52, and 53 is exactly the top of the
+pre-restart range.
+
+The fifth edge, `HANDOFF-22 → HANDOFF-15__99520fa7`, is §2's `Ruling 28 ↔ Ruling 41` pair and it
+crosses the same seam: `HANDOFF-15__99520fa7.md` is pre-restart and **names no Ruling 28 at all** —
+its own rulings run to 27, and it states the absorption as *"PAPERS ABSORBED"* in prose. §2's reading
+stands as written (it already says *"no sentence in the corpus names both rulings"*); what this adds
+is why — the two numberings number their rulings differently too, and `RULINGS-R2.md` numbers its
+rulings **per chat** ("Chat 74 … 1, 2, 3, 4") rather than globally.
+
+#### The consequence for `HANDOFF-GAP.tsv`
+
+That census resolves a bare-number citation by **filename**, and the filename space is doubly used.
+One row is directly affected: `HANDOFF-33` is seated as `recovered/HANDOFF-33.md` with the title line
+*"# THE METHOD 1.6 — HANDOFF (chat 31 → chat 32)"* — the **pre-restart** document, against a
+post-restart citation. The other five numbers (23, 25, 32, 43, 44) never entered the gap file because
+a file of that name already existed, so they count among its 62 *held*. **`HANDOFF-GAP.tsv` is not
+wrong about what is on disk; it is wrong about which document answers the citation, at up to six
+numbers.** Recorded, not repaired — the file is generated, and the generator would need the lineage
+discriminator to do better. **The discriminator is free and already banked**: the chat pair in each
+handoff's own first lines, or `recovered/LEDGER.tsv`'s `conversation` column.
+
+### 12c. The six session-series edges — house style, and two shared registers
+
+Six edges pair documents in the Löwdin/atomic-physics session run
+(`FINDING-HFCORR-SESSION-37 ↔ FINDING-ONEFUNC-SESSION-28`, `FINDING-SO-SESSION-38 ↔
+FINDING-HFTERM-SESSION-27`, `FINDING-T0a-SESSION-10 ↔ FINDING-HFTERM-SESSION-27`,
+`PREDICTION-CELLCUT-SESSION-28 ↔ PREDICTION-CHAIN-LIGHT-SESSION-40`, `PREDICTION-S92-ITEM1-SP ↔
+PREDICTION-S84-ITEM1-SEMICLASSICAL`, `PREDICTION-S82-ITEM4 ↔ PREDICTION-T-E`). **None of the six
+names the other file.**
+
+They resemble each other because the series has a house style. Of the **291** `PREDICTION-*` and
+`FINDING-*` files in `recovered/`, **164 carry a pre-registration declaration** — *"FILED BEFORE
+THE INSTRUMENT EXISTS"*, *"written BEFORE any code change or run"* — and smaller sets repeat *"no
+constant beyond c"* (27), `RECALLED-NOT-ENTERED` (44) and *"Not a closure"* (25). A semantic
+extractor reading two of these finds the same frame, the same disclaimers and the same vocabulary,
+and cannot tell a relationship from a convention. **`AMBIGUOUS` is the correct grade and the reason
+is the corpus's discipline, not the extractor's weakness.**
+
+Two of the six do have a shared anchor, and it is a register neither file cites the other over:
+`FINDING-HFCORR-SESSION-37` and `FINDING-ONEFUNC-SESSION-28` both cite **R 1578** (the
+object-versus-observer seam); `FINDING-T0a-SESSION-10` and `FINDING-HFTERM-SESSION-27` both cite
+**R 1449**. That is the same shape §11 named — *co-membership on a parent neither endpoint names* —
+with a **Register entry** as the parent instead of a document. Across all 35 cross-document
+`AMBIGUOUS` text edges, **7 share at least one register or ruling identifier and 28 share none**;
+four of the seven are the handoff edges sharing the boilerplate `Ruling 41` paragraph, which is why
+the handoff edges were drawn in the first place.
+
+### 12d. The three remaining same-document edges
+
+`recovered/BRIDGE-LOWDIN-SESSION-46.md` and `recovered/REQUEST-2-to-original-works-…md` each carry an
+edge between two of their own concepts — an internal relation the extractor could see but not ground,
+and the whole evidence is one file a reader can open. The third is this document: the graph drew an
+`AMBIGUOUS` edge from **§4's `DEF-151d` finding to §7's `HANDOFF-26` divergence**, inside the file
+that records both. Neither section claims a link to the other and none is claimed here.
+
+### What the census says about the grade
+
+`AMBIGUOUS` runs at **0.12 %** on text and **4.6 %** on images, and where it fires on text it fires
+for four reasons, all of them real: co-membership on an unnamed parent (document or register entry),
+a house style that makes unrelated documents read alike, an identifier space used twice, and a
+genuine relation graded too low (§11's Q7, the only one). **Only one of the 120 turned out to be a
+fault in the repository rather than a limit of a pairwise edge** — and the graph found it by doubting
+a citation that a filename lookup accepts.
+
+---
+
+## Re-verification for §12
+
+```bash
+# the census: 120 AMBIGUOUS edges, and the image/text split
+python3 - <<'EOF'
+import json, collections
+g=json.load(open('graphify-out/graph.json'))
+a=[x for x in g['links'] if x.get('confidence')=='AMBIGUOUS']
+img=[x for x in a if x.get('source_file','').lower().endswith(('.png','.jpg','.jpeg','.svg'))]
+print(len(a), 'AMBIGUOUS;', len(img), 'from images;', len(a)-len(img), 'from text')
+print(collections.Counter(x['relation'] for x in a).most_common())
+EOF
+
+# 12b: the two numberings, by each handoff's own chat pair
+grep -h -o 'chat [0-9]* → [a-z ]*[0-9]*' recovered/HANDOFF-{23,24,25,26,31,32,43,44,45,53}.md
+
+# 12b: the four files at number 53, two from each numbering
+head -1 recovered/HANDOFF-53*.md
+
+# 12b: the citation that fails
+grep -c 'DEFERRED\|86,899' recovered/HANDOFF-44.md          # 0
+grep -o 'HANDOFF-44[^.]*' recovered/HANDOFF-45.md | head -2
+
+# 12b: the retired-unused steps
+grep -o 'retired unused' recovered/HANDOFF-{26,34}.md
+
+# 12b: the gap census row that seats the wrong lineage
+awk -F'	' '$1=="HANDOFF-33"{print $1, $13, $14}' HANDOFF-GAP.tsv
+
+# 12c: the house style, 164 of 291
+grep -l -iE 'FILED BEFORE|WRITTEN BEFORE|before any (run|solve|number|row|code)'   recovered/PREDICTION-*.md recovered/FINDING-*.md | wc -l
+```
+
+---
+
 ## What is still open
 
 - **`HANDOFF-26` governance divergence** (§7b) — two complete bodies, two incompatible rules for
@@ -375,6 +566,9 @@ this section for a future extraction pass.
 - **`HANDOFF-34.md` lines 34–42** (§6) — ABSENT at the export boundary; not recoverable by re-running
   `recover.py`.
 - **31 numbered Löwdin bridges** (§8) — ABSENT repo-wide.
+- **Four post-restart handoffs — 23, 32, 43 and 44** (§12b) — ABSENT repo-wide; the files at those
+  names are the pre-restart documents. Two more, **25 and 33**, are recorded as *retired unused* by
+  the handoffs that superseded them, so they may never have existed as live documents at all.
 
 None of these is a defect to fix. Each is a recorded absence or an unresolved authorial question,
 and this file exists so the next session starts from the measurement rather than re-deriving it.
