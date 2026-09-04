@@ -188,82 +188,29 @@ about a file is answered from `drive/MANIFEST.tsv` and a targeted `grep`, never 
 over 508 MB.
 
 The generated graph lives in `graphify-out/`; regenerate it rather than hand-editing it. It is a
-snapshot, not an index of the current tree — **rebuilt 2026-09-04 over 3,279 files, and it now
-covers `extracted/`, `recovered/` and the repo's own tools; `drive/chats/` stays excluded by
-`.graphifyignore` because its artefacts are already extracted into `recovered/`.** 20,463 nodes and
-27,601 edges in 2,434 communities, from an AST pass over 2,030 code files plus 137 semantic chunks.
-Still a snapshot: do not treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`,
-`extracted/LEDGER.tsv` or `recovered/LEDGER.tsv` instead.
+snapshot, not an index of the current tree — **rebuilt 2026-09-04 over 4,090 files after the
+`RECOVERED-BY-WRITE` pass, so it now covers `recovered/` in full**; `drive/chats/` stays excluded by
+`.graphifyignore` because its artefacts are already extracted into `recovered/`. **26,364 nodes and
+36,150 edges in 2,929 communities**, from an AST pass over 2,374 code files (11,019 nodes) plus a
+semantic pass over 1,716 documents (15,345 nodes, of which 11,583 replayed from cache and 3,762 were
+newly extracted by 22 subagents). Cost: **3.45M combined subagent tokens**. Still a snapshot: do not
+treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`, `extracted/LEDGER.tsv`,
+`recovered/LEDGER.tsv` or `HANDOFF-GAP.tsv` instead.
 
-**`PROSE-ONLY.tsv` is the standing list of what the chat history holds that this repository does
-not** — **1,168 statements** (275 measurements, 224 faults, 212 corrections, 201 definitions, 158
-standing rules, 74 decisions, 24 named artefacts) drawn from 194 conversations, appearing only in message prose and whose
-verbatim fingerprint occurs in no file outside `drive/chats/`. Measured over all 352 conversations;
-every candidate was checked against a 657 MB index of the repo, and 184 already-banked ones were
-dropped. The governance spine is intact — **zero** prose-only rulings, dockets or `W-` entries — but
-**40 numbered faults and 178 registers are named in prose and held nowhere.** A row is a candidate
-for a home, not an instruction to make one, and the list is a **floor**: the reading pass was capped
-at 30 findings per chunk. **Re-tested after 782 files were seated into `recovered/`, 1,165 of the
-1,168 fingerprints still occur nowhere outside the chat export** — the recovery seated artefacts and
-these rows are prose, so they were never going to move. The identifier census beside them could not
-be re-run at all: its patterns were never banked, which is why `tools/idcensus.py` now exists
-(`docs/IDCENSUS.md`); its numbers are a different measurement, not a correction. See `docs/PROSE-ONLY.md`, which also records the one finding that needs a
-ruling — register 66's order-ideal claim against an unbanked re-measurement — and points at the
-retraction audit.
+Three limits are recorded rather than repaired. `graph.html` is the **aggregated community view** —
+26,364 nodes is far above the node-level render limit of 5,000, so it draws 2,929 community nodes and
+2,211 cross-community edges, not individual files. The health check reports **8,908 dangling-endpoint
+edges**, and the split is the point: **8,881 are AST `imports`/`imports_from` to modules that are not
+files here** (`numpy`, `itertools`, `sys`, `collections`, `math`), which is expected of a corpus whose
+`.py` files import a stdlib; **27 come from the semantic layer**, and those are cross-chunk id
+coordination — an agent citing `claude_chat_67_full_hold` or `claude_manifest_tree_bijection` that the
+chunk owning `CLAUDE.md` did not declare under that exact id. Real concepts, dangling references.
+**Only 44 of the 2,929 community labels are hand-written**; the other 2,885 are derived
+mechanically from each community's dominant source file, which is a naming convenience and not a
+reading of the community.
 
-**`RETRACTION-AUDIT.tsv` asks the consequent question: is a withdrawn figure still standing?**
-**391 rows in two passes.** The numeric pass fingerprinted every distinctive number of the 212
-unbanked corrections against the nine live volumes — 303 (correction, number) pairs; the claim pass
-took the **88** that carried no number and adjudicated the claim itself. 187 are digit coincidence,
-**142 corrections had already landed**, 29 are in no volume, 7 are undecidable, and **25 are
-withdrawn values or claims asserted as current**. The clearest needs no interpretation:
-`The_Method_1_6-2.md` prints *"the 2,475 previously printed here is withdrawn"* in one passage and
-*"costs the cylinder 2,475 cells"* in two others. Eleven flagged register entries carry no withdrawal
-marker in a Register that marks elsewhere — corroboration, not proof. One row is
-`CORRECTION-SUPERSEDED`: **an unbanked correction can itself be stale.** `NOT-IN-VOLUMES` means
-absent from the nine volumes, **not** from the repo — the governance tree is outside them. Nothing
-was repaired. See `docs/RETRACTION-AUDIT.md`.
-
-**`REGISTER-GAPS.tsv` accounts for every hole in the Register's numbering.** The Register seats
-**1,660 entries** over 1–1792 (grouped headings `### 219, 220, 221` honoured — a bare `### N` read
-gives 1,628 and invents 32 gaps). **132 numbers have no entry**, and `RULING 27 — TWO REGISTERS`
-explains 119 of them: they are seated in `WORKING-REGISTER.md`, moved there under an
-`<!-- EXCISED N : reason -->` marker in the live bundle. The correspondence is **exact both ways** —
-114 marker lines cover 119 numbers (three markers are themselves grouped), every Working Register
-entry has one, and no marker names an entry The Register still seats. **A gap is a relocation, not a
-loss.** **13 numbers are seated in neither** — 176 and 177 with no trace at all, ten in 661–688 that
-a collection log quotes as live instructions, and 1138. Complements rather than supersedes the
-corpus's own cited-but-absent census (`register_cites.py`, `DEFERRED.md` docket 9(c)/30), which asks
-the other question. See `docs/REGISTER-GAPS.md`.
-
-**`HANDOFF-GAP.tsv` records the handoffs the corpus named and the repository did not hold.** The
-bundles cite **88** distinct `HANDOFF-<n>` by bare number; 62 were held, 26 were not, and **23 of
-those 26 are now seated in `recovered/` under the status `RECOVERED-BY-NUMBER` — 596 KB**, extracted
-exactly from the tool call that wrote each file, md5 recorded in `recovered/LEDGER.tsv`. **Three
-remain held nowhere** — `HANDOFF-2`, `103`, `104` — each `MENTION-ONLY`, which is not a finding of
-loss. They were missed because `recover.py` takes its wanted-set from `COVERAGE.tsv`'s artefact
-column, which holds names of *filename* shape, and 25 of the 26 are only ever cited as `HANDOFF-71`,
-never `HANDOFF-71.md`; `COVERAGE.tsv` is byte-identical after the seating, which is the confirmation
-rather than a surprise. Read the export **structurally**, not as text: a handoff's body is a tool
-call's `file_text`, so a prose-only extractor reports all 26 as mentions and a regex pass reports 15
-where the true figure is 23. See `docs/HANDOFF-GAP.md`.
-
-**What the graph pass measured is written up in `docs/GRAPH-FINDINGS.md`** — the seven `AMBIGUOUS`
-edges traced to their files, the `HANDOFF-13` byte-fingerprint for an absent document, the 23-file
-truncation census (only `HANDOFF-34.md` lines 34–42 is a hard boundary, and it is one the chat export
-imposed), the 171 duplicated filenames in `recovered/` and what the `__<md5>` suffix there actually
-means, and the 31 absent Löwdin bridges. Read it before re-deriving any of that; every claim in it
-carries a command to re-verify.
-
-Two limits are recorded rather than repaired. `graph.html` is the **aggregated community view** —
-20,463 nodes is above the node-level render limit of 5,000, so it draws 2,434 community nodes and
-1,696 cross-community edges, not individual files. And the health check reports **7,088
-dangling-endpoint edges**: every one is an AST `imports`/`imports_from` pointing at a module that is
-not a file in this repo (`re`, `numpy`, `itertools`, `sympy`). The semantic layer contributes zero
-dangling edges. That is expected for a corpus whose `.py` files import a stdlib, not corruption.
-
-`.graphifyignore` scopes a re-index to **3,976 files, 108 MB** — down from 4,700 files and 1.3 GB
-unfiltered. Every exclusion answers "would a node here tell a reader something", not "is this file
+`.graphifyignore` scopes a re-index to **4,090 files, 13.3M words** — the 2026-09-04 rebuild's own
+detect figure, up from 3,976 files as `recovered/` grew. Every exclusion answers "would a node here tell a reader something", not "is this file
 big": `drive/chats/` is a transcript store whose artefacts are already extracted into `recovered/`;
 the mirror's `.zip`/`.gz`/`.pdf` are containers whose contents `extracted/LEDGER.tsv` already
 accounts for; the `.partNN` pieces are superseded by the assembled file beside them. `extracted/`

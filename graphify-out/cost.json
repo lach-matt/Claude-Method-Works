@@ -12,8 +12,15 @@
       "output_tokens": 0,
       "files": 3279,
       "note": "2026-09-04 full rebuild over 137 semantic chunks + AST. Per-chunk token counts were NOT captured back into the chunk JSONs, so this run contributes 0 to the totals rather than a fabricated figure. Actual cost was ~137 subagents averaging roughly 60k-180k tokens each; treat the all-time totals below as a floor, not a measurement."
+    },
+    {
+      "date": "2026-09-04T19:32:49.359150+00:00",
+      "input_tokens": 3449959,
+      "output_tokens": 0,
+      "files": 4090,
+      "note": "input_tokens is the COMBINED subagent total (22 chunks); the harness reports one subagent_tokens figure, not an input/output split, so output_tokens is 0 rather than a fabricated share."
     }
   ],
-  "total_input_tokens": 2600000,
+  "total_input_tokens": 6049959,
   "total_output_tokens": 190000
 }
