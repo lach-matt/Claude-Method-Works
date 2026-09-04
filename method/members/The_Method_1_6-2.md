@@ -9636,10 +9636,30 @@ measurement enters — only Pauli's capacity and the node count.**
 (4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
 mid-subshell**, which is why each subshell fills at constant `a`.
 
-**And the state is necessary.** With no carried value, 104 of 106 steps admit two
-to four self-consistent subshells. *The observed one is always among them and
-never uniquely determined. The periodic table is not computable from a single
-atom's configuration.*
+*But eighteen is the cost of walking Z in order, not the cost of the table.*
+Read as an arrangement of intervals, the 106 corridors are pierced by **three**
+values of `a`, and three are forced: boron, lanthanum and lawrencium have
+pairwise disjoint corridors, so no two of them can share one. The largest
+disjoint set and the smallest piercing set agree at three, which certifies both
+(register 1580).
+
+**And the state is necessary — to the form.** With no carried value every step
+admits more than one self-consistent subshell: two to six across the table, and
+one never. *The observed one is always among them and never uniquely
+determined.* **That much is geometry.** In the plane where each subshell is the
+point (√r, n), ν takes whichever point a line of slope `a` reaches first, and a
+point set with two distinct abscissae always offers more than one such point, at
+every neutral atom there is. **What is not geometry is that the observed subshell
+is among them at all 106 steps.** That is the corridor, and it is what survives
+the form's demotion (§34.4; registers 1445, 1460, 1463).
+
+**And the carried value is what the ordering costs.** In that same plane the
+Madelung number is **M = 2n − p − 1** (register 1460) — with x = √p, the parabola
+**M = 2y − x² − 1**, where ν sweeps straight lines. No single slope follows a
+parabola, which is why no fixed `a` reaches it and why a re-set one does: **the
+number carried between elements is the price of reading a quadratic order off a
+linear form**, and the Madelung pick lies inside the corridor at every one of the
+106 steps.
 
 ### 34.7 The entry point
 

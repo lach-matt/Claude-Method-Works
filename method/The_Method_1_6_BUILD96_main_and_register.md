@@ -9637,10 +9637,30 @@ measurement enters — only Pauli's capacity and the node count.**
 (4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
 mid-subshell**, which is why each subshell fills at constant `a`.
 
-**And the state is necessary.** With no carried value, 104 of 106 steps admit two
-to four self-consistent subshells. *The observed one is always among them and
-never uniquely determined. The periodic table is not computable from a single
-atom's configuration.*
+*But eighteen is the cost of walking Z in order, not the cost of the table.*
+Read as an arrangement of intervals, the 106 corridors are pierced by **three**
+values of `a`, and three are forced: boron, lanthanum and lawrencium have
+pairwise disjoint corridors, so no two of them can share one. The largest
+disjoint set and the smallest piercing set agree at three, which certifies both
+(register 1580).
+
+**And the state is necessary — to the form.** With no carried value every step
+admits more than one self-consistent subshell: two to six across the table, and
+one never. *The observed one is always among them and never uniquely
+determined.* **That much is geometry.** In the plane where each subshell is the
+point (√r, n), ν takes whichever point a line of slope `a` reaches first, and a
+point set with two distinct abscissae always offers more than one such point, at
+every neutral atom there is. **What is not geometry is that the observed subshell
+is among them at all 106 steps.** That is the corridor, and it is what survives
+the form's demotion (§34.4; registers 1445, 1460, 1463).
+
+**And the carried value is what the ordering costs.** In that same plane the
+Madelung number is **M = 2n − p − 1** (register 1460) — with x = √p, the parabola
+**M = 2y − x² − 1**, where ν sweeps straight lines. No single slope follows a
+parabola, which is why no fixed `a` reaches it and why a re-set one does: **the
+number carried between elements is the price of reading a quadratic order off a
+linear form**, and the Madelung pick lies inside the corridor at every one of the
+106 steps.
 
 ### 34.7 The entry point
 
@@ -18519,4 +18539,8 @@ are the record of how the work went, which is the material §4's mechanisms were
 ### 1803
 
 **THE NECESSITY OF STATE IS A STRUCTURAL THEOREM AND IS NAMED AS ONE; ITS SCORE LEAVES ITS NAME.** *Appendix D carried it as ‘the necessity of state, 104 of 106 steps’ — the only element of the twenty-two whose fibre is theorem to be named by a sample score rather than by its assertion or by a handle and its section. The theorem is that the observed subshell is never uniquely determined, so the periodic table is not computable from a single atom’s configuration and one number must be carried forward (§34.6; register 1332). That is structural and does not depend on how any run scored.* **Renamed to the handle-and-section form the table uses, and the count moved into the coordinates where register 1448’s objection can qualify it: the placement it was measured under is fixed from the case it judges and cannot fail, so the claim stands and the figure does not — 104 of 106 under that placement, 62 of 106 under the corridor-non-empty convention.** Registers 1332; 1448. (a correction.)
+
+### 1804
+
+**§34.6 CLAIMED THE WRONG THING, AND THE FIGURE IT CLAIMED IT WITH REPRODUCES UNDER NO CONVENTION.** *The unit stated ‘104 of 106 steps admit two to four self-consistent subshells’ and concluded that the periodic table is not computable from a single atom's configuration. Measured on the corpus's own instrument the range is two to six and no step admits fewer than two; 104 reproduces under none of the four conventions — 62 and 71 with `a` real, 79 and 85 with `a` > 0 — which is register 1448's objection, and the repair is to drop the count rather than reconcile it. The unit also read the sign of its own residue backwards: the steps outside the bracket are outside because they admit FIVE or SIX, which is more ambiguity and not less.* **And the conclusion is refuted four paragraphs above it — §34.4 records Madelung's memoryless rule at 96 of 106 with no parameter at all (register 1445) against the held-out walk's 90, so a rule reading one atom's configuration does better than the carried one.** *Rewritten. The ambiguity is stated as what it is, geometry: ν is affine in `a`, each admissible subshell is the point (√r, n), and only vertices of the lower convex hull are ever selected, so a point set with two distinct abscissae always offers more than one — at every neutral atom below 124 electrons. What is NOT geometry is that the observed subshell is among them at all 106 steps, and that is the corridor, which survives the form's demotion at register 1460 and confirms nothing by being non-empty.* **Two figures enter. Register 1580's certified three — B, La and Lr have pairwise disjoint corridors, so eighteen resets is the cost of walking Z in order and not the cost of the table. And register 1460's surviving arithmetic M = 2n − p − 1, which in that plane is the parabola M = 2y − x² − 1 where ν sweeps lines, so the carried number is the price of reading a quadratic order off a linear form.** Registers 1332; 1445; 1448; 1460; 1580. (a correction.)
 <<<END FILE: The_Method_1_6___The_Register-2.md>>>
