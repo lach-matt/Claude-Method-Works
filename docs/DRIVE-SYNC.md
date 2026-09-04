@@ -131,6 +131,45 @@ ambient Google token present (`CLOUDSDK_AUTH_ACCESS_TOKEN`) belongs to the sandb
 the Drive account, and must not be pointed at a user's personal Drive. **The Colab mount remains the
 only working route for the two exports.**
 
+### The governing constraint is context, not the size limit
+
+Measured 2026-09-04, and it supersedes the size arithmetic above as the reason this route fails.
+A `download_file_content` call on `CORPUS/r2-ch25a.out` (12,009 B) returned its bytes **inline as
+base64 in the conversation**. The transfer is faithful — the decoded content matched
+`9c68ffc6ee2f49e88b8e72fa0e572aa6`, its recorded md5, exactly. But faithful is not the problem.
+
+**Everything the connector returns is spent as model context.** Base64 costs 4 characters per 3
+bytes, so:
+
+| | |
+| --- | ---: |
+| `conversations.json` | 388,264,753 B |
+| as base64 in context | 517,686,340 chars |
+| tokens, at 3.5–4 chars/token | **129–148 million** |
+| a whole session's budget | 15 million |
+
+One copy needs roughly **ten times an entire session**, and no chunking strategy changes that: the
+cost is the total, not the per-call payload. Splitting the export into 40 pieces of 9 MB spends the
+same 130M+ tokens, just spread over 40 calls. Requesting it in pieces and rebuilding on the far end
+is sound engineering against a *transport* limit; this is not one.
+
+The real dividing line is **whether bytes pass through the context or go straight to disk**:
+
+* **Straight to disk — works at any size.** A Drive mount in Colab; `curl` in this container;
+  `drive_sync.py` with OAuth. The model never sees the bytes, so 388 MB costs nothing.
+* **Through the context — capped near 100 KB, whatever the connector allows.** Any
+  `download_file_content` / `read_file_content` call. The 10 MB connector limit is far above what is
+  practically affordable and is therefore not the binding constraint.
+
+**This corrects the note above about the 31 originally-blocked files.** They are under the new 10 MB
+connector limit, so the connector would accept them — but at 6.07–7.26 MB each they cost **2.4–2.8M
+tokens apiece, 16–18% of a session's entire budget for one file**, and roughly 70M tokens for all
+31. They are affordable only by a route that writes to disk, exactly like the two chat exports. Use
+`drive_sync.py` or the Colab mount for those too; do not fetch them through the connector.
+
+Useful rule of thumb: the connector is for **metadata, search, and small text files**. It is not a
+file-transfer mechanism, at any chunk size.
+
 All 31 files were re-checked in Drive the same day: 31 of 31 still exist, every reported byte count
 matches what was expected, nothing has been modified since 2026-09-01. They are simply out of reach
 of this route.
