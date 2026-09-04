@@ -69,9 +69,10 @@ assert 'first conjecture this index has ever held' in PARA_OLD and 'slack = kern
 assert m.count(PARA_OLD) == 1, 'the scale paragraph is not unique'
 _text = ("**The interesting part is that one of the four is the first conjecture this index was built on.** "
          "§D.2 defines *status* on six values — withdrawn < conjectured < measured < verified < unwitnessed "
-         "< proved — and until now the enumeration occupied three of them. Everything in this book was proved, "
-         "verified or measured; nothing was ever merely conjectured without the intention to prove or "
-         "withdraw, and nothing withdrawn survived to be listed. An unwitnessed result is measured, verified, "
+         "< proved — and until now the enumeration occupied three of them. Everything in this book was measured, "
+         "verified, or proved, with and without witness; nothing was ever merely conjectured without the "
+         "intention to prove or withdraw, and nothing withdrawn survived to be listed. An unwitnessed result "
+         "is measured, verified, "
          "and exhaustive over everything the index can reach — and no cell inside it witnesses the claim. What "
          "it lacks is an observation. Where the observation does not yet exist the value is the ceiling — "
          "above verified, and short of proved until something is seen.")
