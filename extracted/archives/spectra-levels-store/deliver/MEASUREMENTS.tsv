@@ -1,0 +1,555 @@
+Z	charge	l	mult	delta	spread	term	parent	language	n_lo	n_hi	members	limit	limit_label	limit_status	delta_status	span	cell_exists
+13	1	1	2	1.29719	0.20958	2P*		LS	3	7	10	48278.48	Al_II_(3s2_1S<0>)	no parent — fallback	usable	series	yes
+13	1	0	2	1.76093	0.05360	2S		LS	4	16	13	48278.48	Al_II_(3s2_1S<0>)	no parent — fallback	usable	series	yes
+13	1	1	4	0.61003	0.00762	4P		LS	3	3	3	48278.48	Al_II_(3s2_1S<0>)	no parent — fallback	usable	single-n	no
+13	1	2	2	-0.02977	0.63035	2D		LS	3	34	39	48278.48	Al_II_(3s2_1S<0>)	no parent — fallback	usable	series	yes
+13	1	3	2	0.03474	0.00884	2F*		LS	4	10	9	48278.48	Al_II_(3s2_1S<0>)	no parent — fallback	usable	series	yes
+13	1	4	2	0.00841	0.00134	2G		LS	5	7	3	48278.48	Al_II_(3s2_1S<0>)	no parent — fallback	usable	series	yes
+13	1	0	4	1.85615	0.06439	4P*	3P*	LS	4	5	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	no
+13	1	2	2	0.53244	0.01378	2D*	3P*	LS	3	5	6	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes
+13	1	1	0	1.26525	0.37299		3P*	LS	4	11	21	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	no
+13	1	1	2	1.28691	0.00505	2P	3P*	LS	4	5	3	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes
+13	1	2	4	0.24130	0.00490	4D*	3P*	LS	3	3	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	single-n	no
+13	1	1	2	1.12650	0.17750	2D	3P*	LS	4	7	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes
+13	1	2	4	0.14055	0.00785	4P*	3P*	LS	3	3	3	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	single-n	no
+13	1	2	2	0.05270	0.03003	2F*	3P*	LS	3	4	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes
+13	1	1	2	1.00069	0.13014	2S	3P*	LS	4	7	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes
+13	1	1	2	0.77072	0.69486	2D?	3P*	LS	8	11	5	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes
+13	1	1	2	0.60311	0.57613	2S?	3P*	LS	8	11	4	85671.4	Al_II_(3s.3p_3P*<0>)	parent-matched	usable	series	yes
+5	1	1	2	0.53527	0.19569	2P*		LS	2	9	11	66928.04	B_II_(2s2_1S<0>)	no parent — fallback	usable	series	yes
+5	1	1	4	0.30682	0.00024	4P		LS	2	2	3	66928.04	B_II_(2s2_1S<0>)	no parent — fallback	usable	single-n	no
+5	1	0	2	0.92172	0.32363	2S		LS	3	10	8	66928.04	B_II_(2s2_1S<0>)	no parent — fallback	usable	series	yes
+5	1	2	2	0.03920	0.10803	2D		LS	3	39	38	66928.04	B_II_(2s2_1S<0>)	no parent — fallback	usable	series	yes
+5	1	3	2	0.01382	0.00449	2F*		LS	4	11	9	66928.04	B_II_(2s2_1S<0>)	no parent — fallback	usable	series	yes
+5	1	0	4	0.99291	0.00385	4P*	3P*	LS	3	4	4	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	series	no
+5	1	1	2	0.47161	0.02394	2P	3P*	LS	3	6	6	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	series	yes
+5	1	2	4	0.18383	0.11909	4D*	3P*	LS	3	5	7	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	series	no
+5	1	2	4	0.05118	0.00063	4P*	3P*	LS	3	3	3	104263.58	B_II_(2s.2p_3P*<0>)	parent-matched	usable	single-n	no
+56	1	0	1	4.20179	0.29476	1S		LS	6	25	20	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	2	3	2.78367	9.98484	3D		LS	5	25	63	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	2	1	2.68725	19.93596	1D		LS	5	25	24	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	1	3	3.80231	16.05682	3P*		LS	6	25	46	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	1	1	3.74874	2.49595	1P*		LS	6	25	22	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	2	3	1.07872	19.79772	3F		LS	5	7	9	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	1	3	3.54973	1.38683	3F*		LS	6	7	5	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	2	3	0.87629	28.06892	3P		LS	5	7	8	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	1	3	2.54904	5.32634	3D*		LS	6	8	7	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	0	3	4.28261	0.12908	3S		LS	7	25	16	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	0	3	2.48808	3.17521	3D		LS	7	8	6	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	1	3	2.09911	0.23522	3P		LS	6	6	3	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	single-n	yes
+56	1	3	3	0.16810	0.14466	3F*		LS	4	25	25	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	3	1	0.11054	0.19155	1F*		LS	4	7	4	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	2	3	-0.32851	9.82049	3G		LS	6	7	6	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	4	1	0.05072	0.03354	1G		LS	8	25	18	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+56	1	4	3	0.05145	0.10473	3G		LS	8	25	29	42034.91	Ba_II_(5s2.5p6.6s_2S<1/2>)	no parent — fallback	usable	series	yes
+55	1	0	2	4.05120	0.08085	2S		LS	6	25	20	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	no parent — fallback	usable	series	yes
+55	1	1	2	3.59251	0.11203	2P*		LS	6	25	40	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	no parent — fallback	usable	series	yes
+55	1	2	2	2.46643	0.03053	2D		LS	5	25	42	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	no parent — fallback	usable	series	yes
+55	1	3	2	0.03254	0.01136	2F*		LS	4	25	44	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	no parent — fallback	usable	series	yes
+55	1	4	2	0.00667	0.00194	2G		LS	5	25	28	31406.4677325	Cs_II_(5s2.5p6_1S<0>)	no parent — fallback	usable	series	yes
+87	1	0	2	5.07221	0.10117	2S		LS	7	30	24	32848.872		no limit recorded	usable	series	yes
+87	1	1	2	4.59521	0.19183	2P*		LS	7	30	48	32848.872		no limit recorded	usable	series	yes
+87	1	2	2	3.42371	2.38116	2D		LS	6	30	50	32848.872		no limit recorded	usable	series	yes
+31	1	1	2	2.23129	0.49296	2P*		LS	4	70	50	48387.634	Ga_II_(4s2_1S<0>)	no parent — fallback	usable	series	yes
+31	1	0	2	2.79528	0.05340	2S		LS	5	28	24	48387.634	Ga_II_(4s2_1S<0>)	no parent — fallback	usable	series	yes
+31	1	2	2	1.31599	0.19230	2D		LS	4	34	45	48387.634	Ga_II_(4s2_1S<0>)	no parent — fallback	usable	series	yes
+31	1	1	4	0.69493	0.15711	4P		LS	4	4	3	48387.634	Ga_II_(4s2_1S<0>)	no parent — fallback	usable	single-n	no
+31	1	3	2	0.02587	0.00570	2F*		LS	4	8	5	48387.634	Ga_II_(4s2_1S<0>)	no parent — fallback	usable	series	yes
+31	1	1	2	2.30452	0.44994	2[1]	3P*<0>	jK	5	17	15	95755.14	Ga_II_(4s.4p_3P*<0>)	parent-matched	usable	series	yes
+31	1	1	2	2.27448	0.50299	2[1]	3P*<1>	jK	5	16	17	96201.68	Ga_II_(4s.4p_3P*<1>)	parent-matched	usable	series	yes
+31	1	1	2	2.21009	0.22201	2[2]	3P*<1>	jK	5	10	6	96201.68	Ga_II_(4s.4p_3P*<1>)	parent-matched	usable	series	yes
+31	1	1	2	2.22557	0.40521	2[2]	3P*<2>	jK	5	11	8	97137.37	Ga_II_(4s.4p_3P*<2>)	parent-matched	usable	series	yes
+31	1	1	2	2.21720	0.14907	2[0]	3P*<1>	jK	5	8	4	96201.68	Ga_II_(4s.4p_3P*<1>)	parent-matched	usable	series	yes
+31	1	1	2	2.30816	0.21568	2[1]	3P*<2>	jK	5	8	7	97137.37	Ga_II_(4s.4p_3P*<2>)	parent-matched	usable	series	yes
+32	1	1	3	2.32485	1.37494	3P		LS	4	7	12	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	yes
+32	1	1	1	2.04292	1.41217	1D		LS	4	7	4	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	yes
+32	1	1	1	1.89965	1.48553	1S		LS	4	7	4	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	yes
+32	1	0	3	2.94601	0.06811	3P*		LS	5	5	3	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	single-n	yes
+32	1	1	3	2.39570	1.11552	3D		LS	5	7	9	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	yes
+32	1	1	1	2.39358	0.10385	1P		LS	5	8	4	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	yes
+32	1	2	3	1.28748	0.11726	3D*		LS	4	5	6	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	yes
+32	1	1	3	1.93166	0.97797	3S		LS	5	7	3	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	yes
+32	1	2	3	1.11179	0.52420	3F*		LS	4	5	6	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	yes
+32	1	2	3	0.88662	0.32856	3P*		LS	4	5	6	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	yes
+32	1	0	0	2.88466	0.12564	(1/2,1/2)*		jj	6	43	68	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	no
+32	1	0	0	2.86568	0.07256	(3/2,1/2)*		jj	6	33	49	65480.6	Ge_II_(4p_2P*<3/2>)	no parent — fallback	usable	series	no
+32	1	3	2	0.02640	0.00704	2[7/2]	2P*<1/2>	jK	4	7	8	63713.24	Ge_II_(4p_2P*<1/2>)	parent-matched	usable	series	no
+32	1	3	2	0.02495	0.00717	2[5/2]	2P*<1/2>	jK	4	7	8	63713.24	Ge_II_(4p_2P*<1/2>)	parent-matched	usable	series	no
+32	1	2	0	0.38923	0.77693	*		unresolved	5	5	3	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	single-n	no
+32	1	2	0	1.25782	25.01763	(3/2,3/2)*		jj	6	41	85	65480.6	Ge_II_(4p_2P*<3/2>)	no parent — fallback	usable	series	no
+32	1	3	2	0.04890	0.00452	2[7/2]	2P*<3/2>	jK	4	6	6	65480.6	Ge_II_(4p_2P*<3/2>)	parent-matched	usable	series	no
+32	1	3	2	0.03014	0.00198	2[5/2]	2P*<3/2>	jK	4	5	4	65480.6	Ge_II_(4p_2P*<3/2>)	parent-matched	usable	series	no
+32	1	3	2	0.01731	0.00823	2[9/2]	2P*<3/2>	jK	4	7	7	65480.6	Ge_II_(4p_2P*<3/2>)	parent-matched	usable	series	no
+32	1	3	2	-0.00416	0.00490	2[3/2]	2P*<3/2>	jK	4	5	4	65480.6	Ge_II_(4p_2P*<3/2>)	parent-matched	usable	series	no
+32	1	2	0	1.31584	1.07465	(1/2,3/2)*		jj	6	67	82	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	no
+32	1	2	0	1.21619	0.90882	(1/2,5/2)*		jj	6	70	90	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	no
+32	1	2	0	0.96223	0.52972	(3/2,5/2)*		jj	6	64	127	65480.6	Ge_II_(4p_2P*<3/2>)	no parent — fallback	usable	series	no
+32	1	4	0	0.00683	0.00779	(1/2,7/2)*		jj	6	15	8	63713.24	Ge_II_(4p_2P*<1/2>)	no parent — fallback	usable	series	no
+72	1	0	3	4.55686	0.06249	a 3F		LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	no parent — fallback	usable	single-n	yes
+72	1	0	3	4.49542	0.05492	a 3P		LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	no parent — fallback	usable	single-n	yes
+72	1	1	3	4.32008	0.09458	z 3D*	a_2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	0	5	4.33057	0.08188	a 5F	b_4F	LS	6	6	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	1	3	4.35405	0.08252	z 3F*	a_2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	1	5	4.20577	0.20459	z 5G*	a_4F	LS	6	6	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	1	3	4.27264	0.03984	z 3P*	a_2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	0	5	4.20713	0.03812	a 5P	b_4P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	1	5	4.13646	0.13539	z 5F*	a_4F	LS	6	6	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	0	3	4.14221	0.03560	a 3G	b_2G	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	4.07994	0.12065	b 3F	b_4F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	4.08628	0.09879	a 3D	c_2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	1	5	4.06847	0.08648	z 5D*	a_4F	LS	6	6	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	0	3	4.02488	0.09641	c 3P	b_2P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	4.02397	0.04567	a 3H	2H	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	3.99851	0.14113	y 3F*	a_4F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	5	3.91714	0.19313	y 5D*	a_4P	LS	6	6	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	1	3	3.95568	0.06871	y 3D*	a_4F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	3.90075	0.07151	b 3P	b_4P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	3.93768	0.09884	z 3G*	a_4F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	3.83778	0.02565	c 3F	b_2F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	5	3.76286	0.05826	z 5P*	a_4P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	1	3	3.71694	0.19211	y 3G*	a_2F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	3.66343	0.20163	x 3D*	a_4P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	3.71940	0.14627	x 3F*	a_2F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	3.63346	0.20141	w 3F*	a_2G	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	3.54954	0.25162	w 3D*	a_2F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	3.57291	0.15834	z 3H*	a_2G	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	3.53151	0.05519	b 3D	2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	1	3	3.43831	0.16855	v 3D*	b_2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	1	3	3.45151	0.12560	x 3P*	b_2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	0	5	4.21673	0.53204	b 5F	a_4F	LS	7	7	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	0	3	4.25224	0.24627	d 3D	a_2D	LS	7	7	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	1	3	3.27522	0.09775	u 3D*	a_2P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	5	3.19853	0.29573	c 5F	4F	LS	6	6	4	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	2	5	2.18384	0.23321	a 5D		LS	5	5	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	no parent — fallback	usable	single-n	no
+72	1	1	3	2.96879	0.64084	v 3F*	b_2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	1	5	3.08004	0.44051	y 5G*	b_4F	LS	6	6	4	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	1	3	3.18558	0.10018	w 3P*	a_2P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	3.11924	0.12168	u 3F*	b_2G	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	3.91877	0.44368	d 3F	a_4F	LS	7	7	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	3.05898	0.07094	e 3D	4D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	5	2.98014	0.13770	b 5D	4D	LS	6	6	4	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	1	5	2.67663	0.65815	y 5F*	b_4F	LS	6	6	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	0	3	3.64991	0.13658	e 3P	a_4P	LS	7	7	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	5	2.63356	0.15466	b 5P	4P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	0	3	2.57993	0.11117	e 3F	4F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	5	2.48419	0.56326	x 5D*	b_4F	LS	6	6	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	0	3	2.50654	0.12123	f 3F	2F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	2.37907	0.14611	g 3F	2F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	1.98626	0.76153	w 3G*	b_4F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	5	3.32153	0.26770	c 5P	a_4P	LS	7	7	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	0	3	2.22536	0.19181	b 3G	2G	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	0	3	2.23534	0.19254	f 3D	2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	0	3	2.12194	0.14367	g 3P	2P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	5	1.85929	0.33103	y 5P*	b_4P	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	0	3	2.06657	0.11827	g 3D	2D	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	parent-matched	usable	single-n	yes
+72	1	2	3	0.67525	1.18446	b 3H		LS	5	5	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	no parent — fallback	usable	single-n	yes
+72	1	2	3	0.78558	0.24745	h 3F		LS	5	5	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	no parent — fallback	usable	single-n	yes
+72	1	1	5	1.15936	1.94916	w 5D*	b_4P	LS	6	6	5	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+72	1	2	3	0.87490	0.41407	c 3G		LS	5	5	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	no parent — fallback	usable	single-n	yes
+72	1	0	3	2.82689	0.18050	i 3F	a_2F	LS	7	7	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	2	3	0.77291	0.05919	h 3D		LS	5	5	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	no parent — fallback	usable	single-n	yes
+72	1	1	3	0.86920	1.42570	s 3D*	b_4F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+72	1	1	3	1.16456	1.96792	t 3F*	b_4F	LS	6	6	3	55047.9	Hf_II_(5d.6s2_2D<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+80	1	0	1	4.63928	0.22324	1S		LS	6	20	15	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	1	3	4.20528	0.37242	3P*		LS	6	20	43	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	1	1	4.02736	0.22763	1P*		LS	6	20	15	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	0	3	4.70092	0.06196	3S		LS	7	20	14	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	1	2	4.13166	0.53717	2[3/2]*	2D<5/2>	jK	6	20	16	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	parent-matched	usable	series	no
+80	1	2	1	3.08048	0.06593	1D		LS	6	20	15	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	2	3	3.05671	0.04541	3D		LS	6	20	45	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	3	3	1.03294	0.08672	3F*		LS	5	21	35	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	3	1	1.03520	0.10234	1F*		LS	5	21	17	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	4	3	0.00379	0.05853	3G		LS	5	11	9	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	4	1	0.00352	0.04858	1G		LS	5	11	7	84184.15	Hg_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+80	1	1	2	4.22544	0.51900	2[1/2]*	2D<3/2>	jK	6	20	15	134746.0	Hg_II_(5d9.6s2_2D<3/2>)	parent-matched	usable	series	no
+80	1	1	3	3.93442	0.23505	3P		LS	6	6	3	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	no parent — fallback	usable	single-n	yes
+80	1	1	2	4.17028	0.21594	2[3/2]*	2D<3/2>	jK	6	13	8	134746.0	Hg_II_(5d9.6s2_2D<3/2>)	parent-matched	usable	series	no
+80	1	3	2	1.04341	0.03146	2[3/2]*	2D<5/2>	jK	5	13	9	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	parent-matched	usable	series	no
+80	1	3	2	1.03651	0.03121	2[1/2]*	2D<5/2>	jK	5	13	9	119700.0	Hg_II_(5d9.6s2_2D<5/2>)	parent-matched	usable	series	no
+80	1	3	2	1.03824	0.22176	2[3/2]*	2D<3/2>	jK	5	13	9	134746.0	Hg_II_(5d9.6s2_2D<3/2>)	parent-matched	usable	series	no
+49	1	1	2	3.23261	0.26525	2P*		LS	5	11	14	46670.107	In_II_(5s2_1S<0>)	no parent — fallback	usable	series	yes
+49	1	0	2	3.72626	0.07521	2S		LS	6	24	19	46670.107	In_II_(5s2_1S<0>)	no parent — fallback	usable	series	yes
+49	1	2	2	2.35880	0.24241	2D		LS	5	30	52	46670.107	In_II_(5s2_1S<0>)	no parent — fallback	usable	series	yes
+49	1	1	4	1.78993	0.38674	4P		LS	5	5	3	46670.107	In_II_(5s2_1S<0>)	no parent — fallback	usable	single-n	no
+49	1	3	2	0.03940	0.01038	2F*		LS	4	12	12	46670.107	In_II_(5s2_1S<0>)	no parent — fallback	usable	series	yes
+36	1	0	2	3.10103	0.10812	2[3/2]*	2P*<3/2>	jK	5	20	32	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	1	2	2.54309	0.64668	2[1/2]	2P*<3/2>	jK	5	20	32	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	1	2	2.62801	0.07442	2[5/2]	2P*<3/2>	jK	5	20	28	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	1	2	2.59629	0.13251	2[3/2]	2P*<3/2>	jK	5	20	32	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	2	2	1.45565	0.19036	2[1/2]*	2P*<3/2>	jK	4	20	34	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	1	2	1.01205	12.53044	2[3/2]	2P*<1/2>	jK	5	7	6	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	2	2	1.23945	0.32757	2[3/2]*	2P*<3/2>	jK	4	20	34	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	2	2	1.35829	0.13739	2[7/2]*	2P*<3/2>	jK	4	20	34	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	1	2	0.91407	16.40979	2[1/2]	2P*<1/2>	jK	5	7	6	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	2	2	1.27794	0.12890	2[5/2]*	2P*<3/2>	jK	4	20	34	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	3	2	0.03068	0.02381	2[3/2]	2P*<3/2>	jK	4	20	32	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	3	2	0.02447	0.00585	2[9/2]	2P*<3/2>	jK	4	20	16	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	3	2	0.01477	0.00671	2[5/2]	2P*<3/2>	jK	4	20	29	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+36	1	3	2	0.00744	0.00575	2[7/2]	2P*<3/2>	jK	4	20	13	112914.433	Kr_II_(4p5_2P*<3/2>)	parent-matched	usable	series	no
+71	1	1	2	4.02164	0.40387	2P*		LS	6	27	38	43762.6	Lu_II_(6s2_1S<0>)	no parent — fallback	usable	series	yes
+71	1	1	4	3.87341	0.23636	4F*	3D	LS	6	6	4	43762.6	Lu_II_(6s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+71	1	0	4	3.85864	0.10861	4F	3F	LS	6	6	4	43762.6	Lu_II_(6s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+71	1	1	4	3.76889	0.14427	4D*	3D	LS	6	6	4	43762.6	Lu_II_(6s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+71	1	0	4	3.72994	0.06930	4P	3P	LS	6	6	3	43762.6	Lu_II_(6s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+71	1	1	4	3.62499	0.06791	4P*	3D	LS	6	6	3	43762.6	Lu_II_(6s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+71	1	0	2	4.48879	0.56311	2S		LS	7	14	8	43762.6	Lu_II_(6s2_1S<0>)	no parent — fallback	usable	series	yes
+71	1	2	2	2.88031	0.72844	2D		LS	6	34	31	43762.6	Lu_II_(6s2_1S<0>)	no parent — fallback	usable	series	yes
+71	1	1	4	2.67588	0.40444	4P		LS	6	6	3	43762.6	Lu_II_(6s2_1S<0>)	no parent — fallback	usable	single-n	no
+71	1	3	2	1.12064	0.15290	2F*		LS	5	35	60	43762.6	Lu_II_(6s2_1S<0>)	no parent — fallback	usable	series	yes
+71	1	0	4	2.82159	0.94876	4D	3D	LS	7	7	4	43762.6	Lu_II_(6s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+11	1	0	2	1.34857	0.02475	2S		LS	3	20	18	41449.451	Na_II_(2p6_1S<0>)	no parent — fallback	usable	series	yes
+11	1	1	2	0.85615	0.02842	2P*		LS	3	20	36	41449.451	Na_II_(2p6_1S<0>)	no parent — fallback	usable	series	yes
+11	1	2	2	0.01488	0.00466	2D		LS	3	20	29	41449.451	Na_II_(2p6_1S<0>)	no parent — fallback	usable	series	yes
+11	1	3	2	0.00160	0.00050	2F*		LS	4	20	17	41449.451	Na_II_(2p6_1S<0>)	no parent — fallback	usable	series	yes
+11	1	4	2	0.00042	0.00015	2G		LS	5	20	18	41449.451	Na_II_(2p6_1S<0>)	no parent — fallback	usable	series	yes
+11	1	5	2	0.00013	0.00003	2H*		LS	6	10	6	41449.451	Na_II_(2p6_1S<0>)	no parent — fallback	usable	series	yes
+11	1	1	4	1.32826	0.02104	4D	3P*	LS	3	3	4	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	single-n	no
+11	1	1	4	1.28883	0.01302	4P	3P*	LS	3	3	3	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	single-n	no
+11	1	1	2	1.25839	0.38312	2D	3P*	LS	3	4	3	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes
+11	1	1	2	1.09397	0.13811	2D	1P*	LS	3	4	4	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	series	yes
+11	1	1	2	1.08301	0.12271	2P	1P*	LS	3	4	4	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	series	yes
+11	1	0	4	1.56493	14.75494	4P*	3P*	LS	4	10	7	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no
+11	1	0	2	1.57204	0.45287	2P*	3P*	LS	4	16	13	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes
+11	1	2	2	0.40245	0.06654	2P*	3P*	LS	3	4	4	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes
+11	1	0	2	1.63961	0.23160	2P*	1P*	LS	4	15	12	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	series	yes
+11	1	2	4	0.21561	0.15832	4P*	3P*	LS	3	10	5	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no
+11	1	2	4	-0.04256	39.13219	4F*	3P*	LS	3	9	8	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no
+11	1	2	4	0.12116	2.00129	4D*	3P*	LS	3	8	5	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no
+11	1	2	2	0.34747	0.68170	2P*	1P*	LS	3	20	18	310212.41	Na_II_(2p5.3s_1P*<1>)	parent-matched	usable	series	yes
+11	1	0	4	1.26176	4.95102	4P*?	3P*	LS	6	9	3	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no
+11	1	2	4	0.12220	0.28423	4P*?	3P*	LS	6	12	3	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	no
+11	1	0	2	-6.40190	20.28772	2P*,4P*	3P*	LS	7	13	4	306373.77	Na_II_(2p5.3s_3P*<2>)	parent-matched	usable	series	yes
+11	1	1	2	9.32216	11.98973	2[1]*	3S<1>	jK	4	16	13	572350.0	Na_II_(2s.2p6.3s_3S<1>)	parent-matched	usable	series	yes
+11	1	1	0	6.31527	5.99068		1D<2>	LS	4	10	7	572350.0	Na_II_(2s.2p6.3s_3S<1>)	MISMATCHED core	void — limit is not this parent's core	series	no
+11	1	1	0	8.31288	9.99023		1P<1>	LS	4	14	11	572350.0	Na_II_(2s.2p6.3s_3S<1>)	MISMATCHED core	void — limit is not this parent's core	series	no
+11	1	0	2	9.25797	11.96763	2[1]*	3D*<1>	jK	4	16	13	572350.0	Na_II_(2s.2p6.3s_3S<1>)	MISMATCHED core	void — limit is not this parent's core	series	yes
+11	1	2	0	6.76188	6.98672		3F*<2>	LS	4	11	8	572350.0	Na_II_(2s.2p6.3s_3S<1>)	MISMATCHED core	void — limit is not this parent's core	series	no
+82	1	1	0	4.37696	0.35367	(1/2,1/2)		jj	6	12	13	59819.558	Pb_II_(6p_2P*<1/2>)	no parent — fallback	usable	series	no
+82	1	1	0	2.62823	4.57647	(3/2,1/2)		jj	6	7	4	59819.558	Pb_II_(6p_2P*<1/2>)	no parent — fallback	usable	series	no
+82	1	1	0	4.35373	0.26494	(3/2,3/2)		jj	6	8	6	73900.632	Pb_II_(6p_2P*<3/2>)	no parent — fallback	usable	series	no
+82	1	0	0	4.82896	0.08349	(1/2,1/2)*		jj	7	17	18	59819.558	Pb_II_(6p_2P*<1/2>)	no parent — fallback	usable	series	no
+82	1	1	0	4.26949	0.24522	(1/2,3/2)		jj	7	12	12	59819.558	Pb_II_(6p_2P*<1/2>)	no parent — fallback	usable	series	no
+82	1	2	2	3.19730	0.12559	2[5/2]*	2P*<1/2>	jK	6	14	17	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no
+82	1	2	2	3.17641	0.08354	2[3/2]*	2P*<1/2>	jK	6	20	22	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no
+82	1	0	0	4.88142	0.06878	(3/2,1/2)*		jj	7	9	4	73900.632	Pb_II_(6p_2P*<3/2>)	no parent — fallback	usable	series	no
+82	1	3	2	1.04692	0.09304	2[5/2]	2P*<1/2>	jK	5	8	8	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no
+82	1	3	2	1.04014	0.01546	2[7/2]	2P*<1/2>	jK	5	11	14	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no
+82	1	4	2	0.01073	0.00448	2[7/2]*	2P*<1/2>	jK	5	10	6	59819.558	Pb_II_(6p_2P*<1/2>)	parent-matched	usable	series	no
+82	1	2	2	3.26694	0.47084	2[5/2]*	2P*<3/2>	jK	6	8	4	73900.632	Pb_II_(6p_2P*<3/2>)	parent-matched	usable	series	no
+82	1	2	2	3.30311	0.05702	2[3/2]*	2P*<3/2>	jK	6	8	3	73900.632	Pb_II_(6p_2P*<3/2>)	parent-matched	usable	series	no
+88	1	1	3	4.84293	1.73146	3P*		LS	7	8	9	42573.36	Ra_II_(6p6.7s_2S<1/2>)	no parent — fallback	usable	series	yes
+88	1	2	3	3.89749	0.30201	3D		LS	6	7	6	42573.36	Ra_II_(6p6.7s_2S<1/2>)	no parent — fallback	usable	series	yes
+88	1	1	1	4.61288	0.20364	1P*		LS	7	52	42	42573.36	Ra_II_(6p6.7s_2S<1/2>)	no parent — fallback	usable	series	yes
+88	1	1	3	4.03180	0.53145	3F*		LS	7	7	3	42573.36	Ra_II_(6p6.7s_2S<1/2>)	no parent — fallback	usable	single-n	yes
+88	1	1	3	3.69836	0.16393	3D*		LS	7	7	3	42573.36	Ra_II_(6p6.7s_2S<1/2>)	no parent — fallback	usable	single-n	yes
+88	1	3	3	1.14629	0.05501	3F*		LS	5	8	10	42573.36	Ra_II_(6p6.7s_2S<1/2>)	no parent — fallback	usable	series	yes
+86	1	0	2	5.04772	0.13676	2[3/2]*	2P*<3/2>	jK	7	12	9	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	1	2	4.45545	0.29622	2[1/2]	2P*<3/2>	jK	7	11	9	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	1	2	4.54979	0.16583	2[5/2]	2P*<3/2>	jK	7	12	10	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	2	2	3.51651	0.10706	2[1/2]*	2P*<3/2>	jK	6	10	10	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	1	2	4.48326	0.10510	2[3/2]	2P*<3/2>	jK	7	12	11	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	2	2	3.40150	0.05761	2[7/2]*	2P*<3/2>	jK	6	12	13	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	2	2	3.40491	0.23732	2[3/2]*	2P*<3/2>	jK	6	11	8	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	2	2	3.33075	0.04067	2[5/2]*	2P*<3/2>	jK	7	11	10	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	3	2	1.06324	0.01569	2[3/2]	2P*<3/2>	jK	5	8	8	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	3	2	1.05089	0.01229	2[9/2]	2P*<3/2>	jK	5	10	6	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	3	2	1.03175	0.01546	2[5/2]	2P*<3/2>	jK	5	9	7	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+86	1	3	2	1.01832	0.00725	2[7/2]	2P*<3/2>	jK	5	7	3	86692.5	Rn_II_(6p5_2P*<3/2>)	parent-matched	usable	series	no
+50	1	1	3	3.32111	1.84709	3P		LS	5	9	12	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	series	yes
+50	1	1	1	2.84765	1.95041	1D		LS	5	7	3	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	series	yes
+50	1	1	1	2.65823	2.30769	1S		LS	5	7	3	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	series	yes
+50	1	0	3	4.76150	10.35357	3P*		LS	6	19	21	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+50	1	0	1	3.80188	0.09023	1P*		LS	6	17	12	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+50	1	1	3	3.33962	1.62950	3D		LS	6	9	10	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	series	yes
+50	1	2	3	3.24536	5.34322	3F*		LS	5	12	16	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+50	1	2	3	2.38083	5.63990	3D*		LS	5	12	19	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+50	1	2	1	2.39562	0.10440	1D*		LS	5	12	4	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+50	1	2	3	2.51090	2.01968	3P*		LS	5	27	34	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+50	1	2	1	-0.11499	11.78168	1F*		LS	5	7	3	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	series	yes
+50	1	2	1	2.05799	0.16970	1P*		LS	5	19	15	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+50	1	3	3	0.03098	0.85279	3G		LS	4	6	5	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+50	1	3	3	0.04108	2.37169	3F		LS	4	8	15	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	series	yes
+50	1	3	1	0.04405	2.26973	1F		LS	4	7	4	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	series	yes
+50	1	2	3	2.19145	0.39326	a 3F*		LS	8	12	4	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	series	yes
+50	1	3	3	-2.49422	0.17557	3D		LS	4	4	3	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	single-n	yes
+50	1	2	3	2.11182	0.64467	a 3P*		LS	9	12	4	59232.69	Sn_II_(5s2.5p_2P*<1/2>)	no parent — fallback	usable	series	yes
+50	1	2	3	2.56415	2.35424	b 3P*		LS	9	19	11	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+50	1	2	3	2.16362	0.02757	b 3F*		LS	8	12	3	63484.18	Sn_II_(5s2.5p_2P*<3/2>)	no parent — fallback	usable	series	yes
+38	1	0	1	3.26812	0.28246	1S		LS	5	20	16	45932.2036	Sr_II_(5s_2S<1/2>)	no parent — fallback	usable	series	yes
+38	1	1	3	8.39906	14.48304	3P*		LS	5	20	48	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	yes
+38	1	2	3	1.98478	0.77124	3D		LS	4	20	44	45932.2036	Sr_II_(5s_2S<1/2>)	no parent — fallback	usable	series	yes
+38	1	2	1	8.37367	15.75302	1D		LS	4	20	19	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	yes
+38	1	1	1	8.87832	14.70699	1P*		LS	5	20	18	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	yes
+38	1	0	3	3.37505	0.07947	3S		LS	6	20	15	45932.2036	Sr_II_(5s_2S<1/2>)	no parent — fallback	usable	series	yes
+38	1	1	3	2.01823	0.07888	3F*		LS	5	5	3	45932.2036	Sr_II_(5s_2S<1/2>)	no parent — fallback	usable	single-n	yes
+38	1	1	3	1.77211	0.07412	3P		LS	5	5	3	45932.2036	Sr_II_(5s_2S<1/2>)	no parent — fallback	usable	single-n	yes
+38	1	1	3	2.85559	0.05591	3D*		LS	5	6	6	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	yes
+38	1	3	3	0.10967	0.02953	3F*		LS	4	20	50	45932.2036	Sr_II_(5s_2S<1/2>)	no parent — fallback	usable	series	yes
+38	1	3	1	0.07684	0.22893	1F*		LS	4	20	17	45932.2036	Sr_II_(5s_2S<1/2>)	no parent — fallback	usable	series	yes
+38	1	2	3	1.37802	0.15639	3P		LS	4	5	5	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	yes
+38	1	2	3	1.57190	0.03991	3F		LS	5	5	3	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	single-n	yes
+38	1	3	2	0.22550	0.23363	2[3/2]*	2D<3/2>	jK	4	10	4	60488.09	Sr_II_(4d_2D<3/2>)	parent-matched	usable	series	no
+38	1	3	2	0.13677	0.14243	2[3/2]*	2D<5/2>	jK	4	10	4	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	series	no
+38	1	2	0	1.58691	0.31413	(3/2,3/2)		jj	6	10	15	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	2	0	1.77250	0.21215	(3/2,5/2)		jj	6	10	9	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	2	0	1.28129	1.17818	(5/2,5/2)		jj	6	10	16	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	1	2	2.64452	0.17881	2[3/2]*	2D<3/2>	jK	7	10	3	60488.09	Sr_II_(4d_2D<3/2>)	parent-matched	usable	series	no
+38	1	2	0	1.36044	0.62220	(5/2,3/2)		jj	6	10	10	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	1	2	2.64581	0.13039	2[3/2]*	2D<5/2>	jK	7	10	3	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	series	no
+38	1	0	0	3.25459	0.95079	(3/2,1/2)		jj	8	11	4	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	0	0	3.14923	0.55257	(5/2,1/2)		jj	8	11	3	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	3	0	0.17610	0.20654	(3/2,5/2)*		jj	5	7	6	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	3	0	0.07319	0.00603	(3/2,7/2)*		jj	5	7	3	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	4	2	0.03587	0.02571	2[5/2]	2D<3/2>	jK	5	9	4	60488.09	Sr_II_(4d_2D<3/2>)	parent-matched	usable	series	no
+38	1	3	0	-0.04892	0.20957	(5/2,5/2)*		jj	5	7	6	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	3	0	-0.14365	0.28697	(5/2,7/2)*		jj	5	7	6	60488.09	Sr_II_(4d_2D<3/2>)	no parent — fallback	usable	series	no
+38	1	4	2	0.03533	0.02321	2[5/2]	2D<5/2>	jK	5	10	6	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	series	no
+38	1	4	2	0.02844	0.02733	2[3/2]	2D<5/2>	jK	5	10	7	60768.43	Sr_II_(4d_2D<5/2>)	parent-matched	usable	series	no
+22	1	0	3	2.58623	0.00498	a 3F		LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	0	5	2.49443	0.00445	a 5F	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	0	3	2.46512	0.00273	a 3P		LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	0	3	2.41048	0.00449	b 3F	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	0	5	2.36488	0.00247	a 5P	4P	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+22	1	0	3	2.34193	0.00233	a 3G	2G	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	5	2.32186	0.01255	z 5G*	3P*	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+22	1	1	5	2.30313	0.00888	z 5F*	3P*	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+22	1	0	3	2.29274	0.00387	a 3D	2D2	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	0	3	2.27810	0.00349	b 3P	2P	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	0	3	2.27624	0.00362	a 3H	2H	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	5	2.26721	0.00552	z 5D*	3P*	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+22	1	0	3	2.26004	0.00224	c 3P	4P	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	2.24556	0.00618	z 3F*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	2.23100	0.00475	z 3D*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	2.18968	0.00731	z 3G*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	0	3	2.12354	0.10125	3F	2F	LS	4	5	6	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	series	yes
+22	1	1	3	2.08249	0.00903	y 3F*	1P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	2.07566	0.01060	y 3D*	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	2.07245	0.00265	3P*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	5	2.06712	0.01038	5D*	3P*	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+22	1	1	5	2.03483	0.01443	y 5G*	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	1	3	2.02663	0.00779	x 3F*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	2.00799	0.00450	x 3D*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	2.00087	0.00915	y 3G*	1P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	5	1.99628	0.00817	z 5P*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+22	1	1	5	1.96004	0.01162	y 5F*	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	5	0.95516	0.00700	a 5D		LS	3	3	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	no
+22	1	1	3	1.91752	0.01034	w 3D*	1P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	5	1.91179	0.00962	x 5D*	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	1	3	1.90914	0.00518	x 3G*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.85641	0.00099	v 3D*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.84288	0.01167	w 3G*	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	1.83200	0.00558	y 3P*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.82318	0.00863	z 3H*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	0	3	1.79317	0.00210	3D	2D1	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.76570	0.00149	x 3P*	4P	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.73511	0.00238	w 3F*	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	1.71373	0.01223	v 3F*	3P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	2	3	0.70003	0.01756	3P2		LS	3	3	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	2	3	0.65161	0.00701	3F2		LS	3	3	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	2	3	0.63818	0.00744	3H		LS	3	3	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	1	3	1.62855	0.01406	y 3H*	2G	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	5	1.62749	0.01552	w 5D*	4P	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+22	1	0	5	2.59523	0.02497	e 5F	4F	LS	5	5	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	3	0.59297	0.00860	b 3G		LS	3	3	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	1	5	1.57961	0.00751	y 5P*	4P	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+22	1	1	3	1.52398	0.01630	w 3P*	2D2	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	0	3	2.48959	0.02065	e 3F	4F	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	1.49262	0.00972	v 3G*	2G	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.48352	0.01437	u 3F*	2D2	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.46646	0.02286	u 3D*	1P*	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.42331	0.01713	t 3F*	2G	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	2	3	0.42857	0.00044	3D		LS	3	3	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	1	3	1.41355	0.01634	z 3I*	2H	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.41110	0.00877	t 3D*	2P	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	0	5	2.36944	0.02547	f 5F	4F	LS	5	5	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	1	3	1.37459	0.00679	x 3H*	2H	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	0	3	2.33332	0.02241	f 3F	4F	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	1.32943	0.00463	s 3D*	2D2	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.26666	0.00910	v 3P*		LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	1	3	1.23965	0.02770	r 3D*	4P	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.18183	0.01749	3G*	2H	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.16098	0.02995	s 3F*		LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	1	5	1.98471	0.30470	5G*	4F	LS	5	5	10	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	5	1.12256	0.03326	e 5G	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	5	1.10069	0.04243	e 5H	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	1	5	1.95144	0.33700	5F*	4F	LS	5	5	10	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	3	1.10541	0.03353	3G	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	2	5	1.10728	0.03483	e 5D	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	3	1.10396	0.02603	g 3F	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	1.10889	0.00339	u 3P*	2P	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	1.07950	0.01877	q 3D*		LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	1	5	1.92652	0.31925	5D*	4F	LS	5	5	10	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	3	1.06101	0.03652	3H	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	2	5	1.01896	0.02989	e 5P	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	3	1.01337	0.03062	3D	4F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	2	3	-0.01067	0.00653	3F1		LS	3	3	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	2	5	0.96640	0.03783	g 5F	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	1	3	1.90949	0.03740	r 3F*	4F	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	2	5	0.89381	0.04064	5G	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	5	0.85591	0.04130	f 5H	4F	LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	5	0.86160	0.10013	5F	4F	LS	4	5	10	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	series	no
+22	1	1	3	1.84048	0.03719	o 3D*	4F	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	1.74806	0.16545	3G*	4F	LS	5	5	6	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	1.71185	0.03350	3F*	4F	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	1.68877	0.03983	n 3D*	4F	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	yes
+22	1	1	3	0.68437	0.02284	3P*	2P	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	0	3	1.68324	0.00152	3D	2D	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	2	3	0.61440	0.04019	3G	2F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	2	3	0.55381	0.04456	f 3H	2F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	0	5	2.54244	0.07490	h 5F	4F	LS	6	6	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	3	0.55284	0.02877	3F	2F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	0.58316	0.59277	3G*	2F	LS	4	5	6	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	series	yes
+22	1	1	5	0.28069	0.11919	g 5G		LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	no
+22	1	1	3	0.24691	0.06696	p 3F*	2F	LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	2	5	1.06254	0.11898	g 5H	4F	LS	5	5	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	2	5	1.05593	0.10223	h 5G	4F	LS	5	5	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.10613	0.33522	2[7/2]*	4F<3/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.10477	0.32589	2[9/2]*	4F<3/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	0.05803	0.32818	2[5/2]*	4F<3/2>	jK	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	1	5	0.00149	0.12178	5F		LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	no
+22	1	3	2	-0.13336	0.33214	2[5/2]*	4F<5/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.13319	0.33342	2[9/2]*	4F<5/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.13143	0.33187	2[7/2]*	4F<5/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	0.03155	0.32900	2[11/2]*	4F<5/2>	jK	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	0.03004	0.32677	2[3/2]*	4F<5/2>	jK	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.17198	0.33551	2[9/2]*	4F<7/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.17134	0.33544	2[11/2]*	4F<7/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.17161	0.33307	2[7/2]*	4F<7/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.00788	0.32838	2[13/2]*	4F<7/2>	jK	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.00789	0.32896	2[5/2]*	4F<7/2>	jK	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.22056	0.33424	2[13/2]*	4F<9/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.22246	0.33687	2[11/2]*	4F<9/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.22105	0.33158	2[9/2]*	4F<9/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.21788	0.32749	2[15/2]*	4F<9/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	3	2	-0.22052	0.32478	2[7/2]*	4F<9/2>	jK	4	4	4	55072.5	Ti_II_(3d2.4s_4F<3/2>)	parent-matched	usable	single-n	no
+22	1	1	3	0.87298	0.10026	3F*	2F	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+22	1	1	3	-0.15788	0.03831	e 3D		LS	4	4	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+22	1	1	5	-0.22157	0.08035	h 5D		LS	4	4	5	55072.5	Ti_II_(3d2.4s_4F<3/2>)	no parent — fallback	usable	single-n	no
+22	1	1	3	0.71375	0.02522	3D*	2F	LS	5	5	3	55072.5	Ti_II_(3d2.4s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+81	1	1	2	4.22722	0.34257	2P*		LS	6	16	18	49266.66	Tl_II_(6s2_1S<0>)	no parent — fallback	usable	series	yes
+81	1	0	2	4.75066	0.07830	2S		LS	7	20	14	49266.66	Tl_II_(6s2_1S<0>)	no parent — fallback	usable	series	yes
+81	1	2	2	3.11838	0.09181	2D		LS	6	23	24	49266.66	Tl_II_(6s2_1S<0>)	no parent — fallback	usable	series	yes
+81	1	3	2	1.03131	0.00904	2F*		LS	5	8	4	49266.66	Tl_II_(6s2_1S<0>)	no parent — fallback	usable	series	yes
+54	1	0	2	4.02132	0.11987	2[3/2]*	2P*<3/2>	jK	6	20	30	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	0	2	4.01526	0.14172	2[1/2]*	2P*<1/2>	jK	6	20	17	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no
+54	1	1	2	3.50651	0.26181	2[1/2]	2P*<3/2>	jK	6	20	27	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	1	2	3.55895	0.10399	2[5/2]	2P*<3/2>	jK	6	20	25	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	1	2	3.51029	0.09485	2[3/2]	2P*<3/2>	jK	6	20	22	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	2	2	2.53195	0.17268	2[1/2]*	2P*<3/2>	jK	5	20	32	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	2	2	2.47536	0.10491	2[7/2]*	2P*<3/2>	jK	5	20	32	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	2	2	2.36861	0.43609	2[3/2]*	2P*<3/2>	jK	5	20	32	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	2	2	2.38184	0.09501	2[5/2]*	2P*<3/2>	jK	5	20	32	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	1	2	3.60697	0.09173	2[3/2]	2P*<1/2>	jK	6	7	4	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no
+54	1	1	2	3.56826	0.03735	2[1/2]	2P*<1/2>	jK	6	7	3	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no
+54	1	3	2	0.05046	0.02474	2[3/2]	2P*<3/2>	jK	4	20	33	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	3	2	0.04200	0.01341	2[9/2]	2P*<3/2>	jK	4	11	15	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	3	2	0.02709	0.01349	2[5/2]	2P*<3/2>	jK	4	19	24	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	3	2	0.01741	0.01150	2[7/2]	2P*<3/2>	jK	4	13	15	97833.787	Xe_II_(5s2.5p5_2P*<3/2>)	parent-matched	usable	series	no
+54	1	2	2	2.28287	0.18092	2[3/2]*	2P*<1/2>	jK	5	20	17	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no
+54	1	3	2	0.02999	0.01554	2[5/2]	2P*<1/2>	jK	4	8	7	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no
+54	1	3	2	0.03353	0.01425	2[7/2]	2P*<1/2>	jK	4	8	5	108370.8	Xe_II_(5s2.5p5_2P*<1/2>)	parent-matched	usable	series	no
+39	1	0	4	3.32187	0.01283	a 4F	3F	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	3.22078	0.03315	z 4F*	3D	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	0	4	3.22466	0.00650	a 4P	3P	LS	5	5	3	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	3.18844	0.01848	z 4D*	3D	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	3.12211	0.00519	z 4P*	3D	LS	5	5	3	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	2.71230	0.06182	z 4G*	3F	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	2	4	1.69354	0.03200	b 4F		LS	4	4	4	50145.6	Y_II_(5s2_1S<0>)	no parent — fallback	usable	single-n	no
+39	1	1	4	2.55459	0.04549	y 4F*	3F	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	2	4	1.53463	0.02673	b 4P		LS	4	4	3	50145.6	Y_II_(5s2_1S<0>)	no parent — fallback	usable	single-n	no
+39	1	2	2	1.26726	0.46264	2D		LS	4	4	4	50145.6	Y_II_(5s2_1S<0>)	no parent — fallback	usable	single-n	yes
+39	1	0	4	3.44579	0.04641	e 4D	3D	LS	6	6	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	2.44682	0.03054	y 4D*	3F	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	0	4	2.38027	0.05023	e 4P	3P	LS	5	5	3	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	2.22069	0.06710	x 4D*	3P	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	2.09430	0.04944	y 4P*	3P	LS	5	5	3	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	2	4	1.91573	0.05330	f 4D	3D	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	2.90184	0.09542	4D*	3D	LS	6	6	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	2	4	1.88225	0.08193	e 4G	3D	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	2.89064	0.07096	4F*	3D	LS	6	6	3	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	1	4	2.80163	0.06877	4P*	3D	LS	6	6	3	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	2	4	1.76463	0.07022	e 4F	3D	LS	5	5	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	2	4	1.63487	0.03949	f 4P	3D	LS	5	5	3	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	0	4	2.24277	0.17234	4F	3F	LS	6	6	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	2	4	-0.07120	0.34724	4F	3P	LS	4	4	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+39	1	2	4	-0.56544	0.23960	h 4D	3P	LS	4	4	4	50145.6	Y_II_(5s2_1S<0>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+70	1	0	1	4.40762	0.13640	1S		LS	6	8	3	50443.2	Yb_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+70	1	1	3	3.98846	0.25669	3P*		LS	6	9	12	50443.2	Yb_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+70	1	0	0	4.44180	0.08356	(7/2,3/2)*	2F*<7/2>	jj	6	6	4	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	parent-matched	usable	single-n	no
+70	1	0	3	3.93327	0.03169	3D		LS	6	6	3	50443.2	Yb_II_(6s_2S<1/2>)	no parent — fallback	usable	single-n	yes
+70	1	1	1	3.83838	0.25327	1P*		LS	6	9	4	50443.2	Yb_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+70	1	0	0	4.39388	0.05980	(7/2,5/2)*	2F*<7/2>	jj	6	6	6	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	parent-matched	usable	single-n	no
+70	1	0	3	4.45272	0.06733	3S		LS	7	13	7	50443.2	Yb_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+70	1	1	0	4.26263	0.02118	(7/2,3/2)	2F*<7/2>	jj	6	6	4	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	parent-matched	usable	single-n	no
+70	1	2	3	2.76365	0.05015	3D		LS	6	8	9	50443.2	Yb_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+70	1	1	0	1.51625	2.49592	(7/2,3/2)	4F*<3/2>	jj	6	6	5	50443.2	Yb_II_(6s_2S<1/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+70	1	1	0	1.33025	2.69396		4F*<5/2>	LS	6	6	7	50443.2	Yb_II_(6s_2S<1/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+70	1	1	3	1.93402	0.69214	3P		LS	6	6	3	50443.2	Yb_II_(6s_2S<1/2>)	no parent — fallback	usable	single-n	yes
+70	1	3	3	1.05460	0.02285	3F*		LS	5	7	3	50443.2	Yb_II_(6s_2S<1/2>)	no parent — fallback	usable	series	yes
+70	1	1	0	1.28949	0.49886	(5/2,3/2)	2F*<5/2>	jj	6	6	3	50443.2	Yb_II_(6s_2S<1/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+70	1	1	0	3.24233	0.89635		2D*<5/2>	LS	6	6	3	71859.7	Tm_II_(4f13.6s2_2F*<7/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+70	1	1	0	-0.41062	3.14978	(7/2,7/2)	4F*<7/2>	jj	6	6	5	50443.2	Yb_II_(6s_2S<1/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+70	1	1	0	3.99911	0.14700	(1/2,1/2)*	2S<1/2>	jj	10	25	15	50443.2	Yb_II_(6s_2S<1/2>)	parent-matched	usable	series	no
+70	1	1	0	3.98579	0.84355	(1/2,3/2)*	2S<1/2>	jj	10	48	40	50443.2	Yb_II_(6s_2S<1/2>)	parent-matched	usable	series	no
+70	1	1	0	-3.48469	1.19025		4F*<9/2>	LS	6	6	3	50443.2	Yb_II_(6s_2S<1/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+40	1	0	3	3.56023	0.01690	a 3F		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	0	3	3.50822	0.00288	a 3P		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	0	5	3.49205	0.01598	a 5F	4F	LS	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no
+40	1	0	5	3.39296	0.00707	a 5P	4P	LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	no
+40	1	0	3	3.37489	0.01374	b 3F	4F	LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	yes
+40	1	0	3	3.35893	0.00540	a 3G	2G	LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+40	1	0	3	3.32598	0.01230	a 3D	b_2D	LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+40	1	1	5	3.29587	0.04983	z 5G*		LS	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	0	3	3.31214	0.00719	a 3H	2H	LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+40	1	0	3	3.29108	0.02054	b 3P	4P	LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+40	1	1	5	3.26050	0.02515	z 5F*		LS	5	5	4	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	0	3	3.26287	0.00626	c 3P	2P	LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+40	1	1	3	3.24662	0.02001	z 3D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	5	3.21423	0.00904	z 5D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	3	3.17758	0.00783	z 3P*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	2	5	2.13543	0.01995	a 5D		LS	4	4	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	3	3.12948	0.02137	z 3G*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	3.09340	0.02030	y 3D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	5	3.08803	0.04047	y 5D*		LS	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	3	3.08458	0.01420	y 3F*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	5	3.01541	0.01458	z 5P*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	5	3.00371	0.02583	y 5G*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	3	3.00226	0.02567	y 3G*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.98637	0.03272	x 3F*	a_2D	LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+40	1	1	3	2.98214	0.03599	x 3D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.96066	0.02250	w 3D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.94192	0.00401	y 3P*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.91719	0.02892	z 3H*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.89468	0.02533	x 3G*	a_2F	LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	MISMATCHED core	void — limit is not this parent's core	single-n	yes
+40	1	1	5	2.90123	0.01567	y 5F*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	3	2.89638	0.01179	x 3P*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.88146	0.02052	v 3D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	5	2.85411	0.01171	x 5D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	3	2.75707	0.04257	w 3G*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.66270	0.02290	u 3F*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	5	2.65027	0.05625	w 5D*		LS	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	3	2.64245	0.04531	u 3D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.58412	0.04429	y 3H*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	5	2.58054	0.03081	y 5P*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	3	2.55137	0.03091	w 3P*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	0	5	3.53307	0.09164	e 5F	4F	LS	6	6	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no
+40	1	1	3	2.51021	0.03410	t 3F*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.48543	0.02793	z 3I*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.48052	0.01236	t 3D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.45176	0.01851	x 3H*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.40360	0.03817	v 3G*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.38430	0.06538	s 3F*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	0	3	3.36516	0.05388	e 3F	4F	LS	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	yes
+40	1	1	3	2.31141	0.01466	s 3D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.26087	0.05692	r 3F*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	3.15667	0.08134	u 3G*		LS	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	2	5	2.03205	0.25613	e 5H	4F	LS	5	5	4	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no
+40	1	1	3	2.04108	0.15132	t 3P*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	0	5	3.05564	0.04829	f 5F	4F	LS	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no
+40	1	2	5	2.01654	0.15749	e 5G	4F	LS	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	parent-matched	usable	single-n	no
+40	1	1	3	2.87478	0.26634	t 3G*		LS	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	1.85211	0.07255	q 3D*		LS	5	5	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.72633	0.08758	q 3F*		LS	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	3	2.27773	0.07128	p 3D*		LS	6	6	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes
+40	1	1	5	1.00229	0.57332	f 5G		LS	5	5	5	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	no
+40	1	1	3	2.48124	0.41266	o 3D*		LS	7	7	3	53507.832	Zr_II_(4d2.5s_4F<3/2>)	no parent — fallback	usable	single-n	yes

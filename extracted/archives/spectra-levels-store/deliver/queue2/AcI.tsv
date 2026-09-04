@@ -1,0 +1,66 @@
+# Ac I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Ac+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT, from the table:  Ac II (6p6.7s2 1S<0>)  43394.52 cm-1
+#
+# 53 levels, every one carrying BOTH configuration and term — a far
+# cleaner table than Ce I's. Ground 6d.7s2 2D3/2, and 5f.7s2 appears at
+# 31240 cm-1, which is the 6d-before-5f ordering R 1594 confirmed.
+# Noted, not used.
+#
+# config	term	J	level_cm1
+6d.7s2	2D	3/2	0.000
+6d.7s2	2D	5/2	2231.432
+7s2.7p	2P*	1/2	7477.36
+7s2.7p	2P*	3/2	12276.591
+6d2.(3F).7s	4F	3/2	9217.288
+6d2.(3F).7s	4F	5/2	9863.589
+6d2.(3F).7s	4F	7/2	10906.027
+6d2.(3F).7s	4F	9/2	12078.067
+6d.7s.(3D).7p	4F*	3/2	13712.902
+6d.7s.(3D).7p	4F*	5/2	14940.714
+6d.7s.(3D).7p	4F*	7/2	17683.869
+6d2.(3P).7s	4P	5/2	13877.59
+6d.7s.(3D).7p	4D*	1/2	17199.710
+6d.7s.(3D).7p	4D*	3/2	17736.265
+6d.7s.(3D).7p	4D*	5/2	19121.32
+6d.7s.(3D).7p	4D*	7/2	21232.31
+6d.7s.(3D).7p	2D*	5/2	17950.709
+6d.7s.(3D).7p	2D*	3/2	19012.450
+6d.7s.(1D).7p	2F*	5/2	21195.870
+6d.7s.(1D).7p	2F*	7/2	24632.95
+6d.7s.(3D).7p	4P*	5/2	22801.11
+6d.7s.(3D).7p	2F*	5/2	23898.867
+6d.7s.(3D).7p	2F*	7/2	24969.294
+6d.7s.(1D).7p	2D*	3/2	23916.835
+6d.7s.(1D).7p	2D*	5/2	26836.194
+6d.7s.(3D).7p	2P*	1/2	25729.03
+6d.7s.(3D).7p	2P*	3/2	28245.12
+6d.7s.(1D).7p	2P*	3/2	26066.045
+7s2.8s	2S	1/2	26467.30
+6d2.(3F).7p	4G*	5/2	27009.857
+6d2.(3F).7p	4G*	7/2	28568.376
+6d2.(3F).7p	4G*	9/2	30485.96
+6d2.(3F).7p	4G*	11/2	33322.58
+6d2.(3F).7p	4F*	3/2	30396.575
+6d2.(3F).7p	4F*	5/2	31494.679
+6d2.(3F).7p	4F*	7/2	32219.622
+6d2.(3F).7p	4F*	9/2	34788.09
+5f.7s2	2F*	7/2	31240.17
+5f.7s2	2F*	5/2	31800.350
+7s2.7d	2D	3/2	31530.46
+6d2.(3F).7p	2F*	5/2	32495.679
+6d2.(3F).7p	2F*	7/2	33756.455
+6d2.(1G).7p	2G*	9/2	32867.395
+6d2.(1G).7p	2G*	7/2	34360.247
+6d2.(3F).7p	4D*	1/2	32873.72
+6d2.(3F).7p	4D*	5/2	34658.472
+6d2.(3F).7p	4D*	7/2	35870.009
+6d2.(3P).7p	2D*	3/2	32918.416
+6d.7s.(3D).8s	4D	5/2	33452.12
+6d.7s.(3D).8s	4D	7/2	33928.090
+6d2.(3P).7p	4D*	3/2	33673.650
+6d2.(3P).7p	4P*	3/2	34761.82

@@ -1,0 +1,63 @@
+# Sc IV — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Sc+IV&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT, from the table:  Sc V (3p5 2P*<3/2>)  592732 cm-1
+#
+# Ar-like, same sequence as K II and Ca III captured this round — three
+# members of one isoelectronic sequence now held, which is what the
+# corridor work wants.
+#
+# Same mixed notation: LS below ~454000, Racah 2[K] above. The LS block
+# is transcribed; the Racah block is refused by R 1576 and NOT written.
+# One level lies ABOVE the limit (3s.3p6.5p at 652700) — a 3s-hole state
+# on a higher convergence, flagged as in Ca III.
+#
+# config	term	J	level_cm1	flag
+3s2.3p6	1S	0	0.0	
+3s2.3p5.3d	3P*	0	239723.2	
+3s2.3p5.3d	3P*	1	240403.0	
+3s2.3p5.3d	3P*	2	241814.0	
+3s2.3p5.3d	3F*	4	250708.2	
+3s2.3p5.3d	3F*	3	252108.3	
+3s2.3p5.3d	3F*	2	253405.7	
+3s2.3p5.3d	1D*	2	267424.4	
+3s2.3p5.3d	3D*	3	268034.2	
+3s2.3p5.3d	3D*	1	269426.5	
+3s2.3p5.3d	3D*	2	269459.9	
+3s2.3p5.3d	1F*	3	271055.4	
+3s2.3p5.4s	3P*	2	333090.8	
+3s2.3p5.4s	3P*	1	334405.1	
+3s2.3p5.4s	3P*	0	337340.1	
+3s2.3p5.4s	1P*	1	337483.5	
+3s2.3p5.3d	1P*	1	345005.4	
+3s2.3p5.4p	3S	1	371735.2	
+3s2.3p5.4p	3D	3	378077.0	
+3s2.3p5.4p	3D	2	378418.6	
+3s2.3p5.4p	3D	1	380148.3	
+3s2.3p5.4p	3P	2	381712.0	
+3s2.3p5.4p	3P	0	384817.8	
+3s2.3p5.4p	3P	1	385570.0	
+3s2.3p5.4p	1P	1	383527.1	
+3s2.3p5.4p	1D	2	384661.3	
+3s2.3p5.4p	1S	0	397510.7	
+3s.3p6.3d	3D	1	429695.7	
+3s.3p6.3d	3D	2	429842.4	
+3s.3p6.3d	3D	3	430078.5	
+3s2.3p5.4d	3P*	0	440517.9	
+3s2.3p5.4d	3P*	1	440983.0	
+3s2.3p5.4d	3P*	2	441927.3	
+3s.3p6.3d	1D	2	442046.0	
+3s2.3p5.4d	3F*	4	442558.6	
+3s2.3p5.4d	3F*	3	443191.3	
+3s2.3p5.4d	3F*	2	444427.4	
+3s2.3p5.4d	3D*	3	445207.5	
+3s2.3p5.4d	3D*	1	447622.4	
+3s2.3p5.4d	3D*	2	448725.1	
+3s2.3p5.4d	1D*	2	448062.0	
+3s2.3p5.4d	1F*	3	448607.8	
+3s2.3p5.4d	1P*	1	453972.7	
+# ABOVE THE LIMIT — 3s-hole state, different convergence
+3s.3p6.5p	1P*	1	652700	above-limit

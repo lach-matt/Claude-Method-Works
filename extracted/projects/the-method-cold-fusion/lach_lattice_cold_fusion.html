@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lach Elemental Field Equation — Cold Fusion Host Analysis</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #080c14;
+    color: #c8d4e8;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  #canvas-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+
+  /* Header */
+  #header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 14px 20px 10px;
+    background: linear-gradient(to bottom, rgba(8,12,20,0.97), transparent);
+    z-index: 10;
+    border-bottom: 1px solid rgba(100,160,255,0.15);
+  }
+  #header h1 {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: #7ab4ff;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  #header p {
+    font-size: 10px;
+    color: #4a6080;
+    margin-top: 3px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Legend */
+  #legend {
+    position: fixed;
+    top: 62px;
+    left: 16px;
+    z-index: 10;
+    background: rgba(8,12,20,0.88);
+    border: 1px solid rgba(100,160,255,0.2);
+    padding: 12px 14px;
+    width: 210px;
+  }
+  #legend h3 {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: #4a6080;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 7px;
+    font-size: 10px;
+    color: #8aa0c0;
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-ring {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid;
+    flex-shrink: 0;
+    background: transparent;
+  }
+  .legend-divider {
+    border-top: 1px solid rgba(100,160,255,0.1);
+    margin: 8px 0;
+  }
+
+  /* Tooltip */
+  #tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: rgba(8,12,20,0.95);
+    border: 1px solid rgba(100,160,255,0.35);
+    padding: 10px 13px;
+    font-size: 10px;
+    line-height: 1.7;
+    z-index: 20;
+    min-width: 190px;
+    display: none;
+  }
+  #tooltip .sym { font-size: 16px; color: #7ab4ff; font-weight: bold; letter-spacing: 0.05em; }
+  #tooltip .label { color: #4a6080; }
+  #tooltip .val { color: #c8d4e8; }
+  #tooltip .badge {
+    display: inline-block;
+    padding: 1px 6px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+  .badge-fcc { background: rgba(255,200,50,0.15); color: #ffc832; border: 1px solid rgba(255,200,50,0.3); }
+  .badge-priority { background: rgba(50,255,150,0.12); color: #32ff96; border: 1px solid rgba(50,255,150,0.3); }
+  .badge-b { background: rgba(120,180,255,0.1); color: #78b4ff; border: 1px solid rgba(120,180,255,0.2); }
+  .badge-c { background: rgba(180,120,255,0.1); color: #b478ff; border: 1px solid rgba(180,120,255,0.2); }
+
+  /* Controls panel */
+  #controls {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    z-index: 10;
+    background: rgba(8,12,20,0.88);
+    border: 1px solid rgba(100,160,255,0.15);
+    padding: 10px 14px;
+    font-size: 9px;
+    color: #3a5070;
+    letter-spacing: 0.1em;
+    line-height: 1.9;
+  }
+
+  /* FCC ranking panel */
+  #ranking {
+    position: fixed;
+    top: 62px;
+    right: 16px;
+    z-index: 10;
+    background: rgba(8,12,20,0.88);
+    border: 1px solid rgba(100,160,255,0.2);
+    padding: 12px 14px;
+    width: 230px;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+  }
+  #ranking h3 {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: #4a6080;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .rank-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(100,160,255,0.06);
+    font-size: 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .rank-row:hover { background: rgba(100,160,255,0.06); }
+  .rank-num { color: #3a5070; width: 18px; text-align: right; flex-shrink: 0; }
+  .rank-sym { color: #7ab4ff; width: 28px; font-weight: bold; }
+  .rank-hcp { color: #8aa0c0; width: 52px; text-align: right; }
+  .rank-bar-wrap { flex: 1; height: 3px; background: rgba(100,160,255,0.1); }
+  .rank-bar { height: 3px; }
+  .rank-struct { font-size: 8px; color: #3a5070; width: 30px; }
+  .priority-glow { color: #32ff96; }
+
+  /* Axis labels */
+  #axis-labels {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 10;
+    font-size: 9px;
+    color: #3a5070;
+    text-align: right;
+    letter-spacing: 0.1em;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+
+<div id="canvas-container"></div>
+
+<div id="header">
+  <h1>Lach Elemental Field Equation — Three-Dimensional Configuration Space</h1>
+  <p>Cold Fusion Host Analysis · Three-Body Overlap O₃ · FCC Structure Filter · H_cp(n,ℓ,k) = √(n²+ℓ²+k²) · (k/2(2ℓ+1))^(ℓ/4)</p>
+</div>
+
+<div id="legend">
+  <h3>Legend</h3>
+  <div class="legend-row"><div class="legend-dot" style="background:#1e4a8c"></div> s-block</div>
+  <div class="legend-row"><div class="legend-dot" style="background:#b06000"></div> p-block</div>
+  <div class="legend-row"><div class="legend-dot" style="background:#4a2080"></div> d-block</div>
+  <div class="legend-row"><div class="legend-dot" style="background:#8c2040"></div> f-block</div>
+  <div class="legend-divider"></div>
+  <div class="legend-row"><div class="legend-ring" style="border-color:#ffc832"></div> FCC structure</div>
+  <div class="legend-row"><div class="legend-ring" style="border-color:#32ff96; box-shadow:0 0 6px #32ff9660"></div> FCC + H-absorbing (viable host)</div>
+  <div class="legend-divider"></div>
+  <div class="legend-row" style="font-size:9px; color:#4a6080">Sphere size ∝ H_cp</div>
+  <div class="legend-row" style="font-size:9px; color:#4a6080">Brightness ∝ O₃_phys</div>
+  <div class="legend-divider"></div>
+  <div class="legend-row" style="font-size:9px; color:#7ab4ff">Class B → higher ℓ (useful hosts)</div>
+  <div class="legend-row" style="font-size:9px; color:#b478ff">Class C → lower ℓ</div>
+</div>
+
+<div id="ranking">
+  <h3>FCC Viable Hosts · H_cp Ranking</h3>
+  <div id="rank-list"></div>
+</div>
+
+<div id="tooltip"></div>
+
+<div id="controls">
+  DRAG — rotate &nbsp;|&nbsp; SCROLL — zoom &nbsp;|&nbsp; HOVER — inspect
+</div>
+
+<script>
+const RAW = [{"Z":1,"sym":"H","n":1,"l":0,"k":1,"hcp":1.4142135623730951,"O3":11.390625,"direction":"A","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":2,"sym":"He","n":1,"l":0,"k":2,"hcp":2.23606797749979,"O3":32.95694686978366,"direction":"A","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":3,"sym":"Li","n":2,"l":0,"k":1,"hcp":2.23606797749979,"O3":32.95694686978366,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":4,"sym":"Be","n":2,"l":0,"k":2,"hcp":2.8284271247461903,"O3":64.0,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":5,"sym":"B","n":2,"l":1,"k":1,"hcp":1.565084580073287,"O3":14.04755578819529,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":6,"sym":"C","n":2,"l":1,"k":2,"hcp":2.2795070569547775,"O3":34.68979985604192,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":7,"sym":"N","n":2,"l":1,"k":3,"hcp":3.1463462836457885,"O3":88.85025440106669,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":8,"sym":"O","n":2,"l":1,"k":4,"hcp":4.140824579655874,"O3":223.79322707241417,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":9,"sym":"F","n":2,"l":1,"k":5,"hcp":5.233175696960528,"O3":536.1155750785853,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":10,"sym":"Ne","n":2,"l":1,"k":6,"hcp":6.4031242374328485,"O3":1208.8660504003126,"direction":"C","is_fcc":true,"is_h_abs":false,"block":"p"},{"Z":11,"sym":"Na","n":3,"l":0,"k":1,"hcp":3.1622776601683795,"O3":90.28124729577702,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":12,"sym":"Mg","n":3,"l":0,"k":2,"hcp":3.605551275463989,"O3":138.55035104795195,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":13,"sym":"Al","n":3,"l":1,"k":1,"hcp":2.1191345391698215,"O3":28.64688030549423,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":14,"sym":"Si","n":3,"l":1,"k":2,"hcp":2.8430448059527236,"O3":64.99871353174741,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":15,"sym":"P","n":3,"l":1,"k":3,"hcp":3.665382496076556,"O3":146.46280676312304,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":16,"sym":"S","n":3,"l":1,"k":4,"hcp":4.607484248928136,"O3":330.16822008098217,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":17,"sym":"Cl","n":3,"l":1,"k":5,"hcp":5.652475786868502,"O3":726.7458959767981,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":18,"sym":"Ar","n":3,"l":1,"k":6,"hcp":6.782329983125268,"O3":1539.1312213789993,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"p"},{"Z":19,"sym":"K","n":4,"l":0,"k":1,"hcp":4.123105625617661,"O3":220.40095807524028,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":20,"sym":"Ca","n":4,"l":0,"k":2,"hcp":4.47213595499958,"O3":295.71148061287164,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"s"},{"Z":21,"sym":"Sc","n":3,"l":2,"k":1,"hcp":1.1832159566199232,"O3":8.140737640974677,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":22,"sym":"Ti","n":3,"l":2,"k":2,"hcp":1.8439088914585775,"O3":20.320502673207677,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":23,"sym":"V","n":3,"l":2,"k":3,"hcp":2.569046515733026,"O3":48.29178065522176,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":24,"sym":"Cr","n":3,"l":2,"k":4,"hcp":3.40587727318528,"O3":114.67217758691947,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":25,"sym":"Mn","n":3,"l":2,"k":5,"hcp":4.358898943540674,"O3":269.23661826795546,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":26,"sym":"Fe","n":3,"l":2,"k":6,"hcp":5.422176684690384,"O3":616.0903932806324,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":27,"sym":"Co","n":3,"l":2,"k":7,"hcp":6.587867636800242,"O3":1361.4769984943985,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":28,"sym":"Ni","n":3,"l":2,"k":8,"hcp":7.848566748139434,"O3":2893.5034199926718,"direction":"C","is_fcc":true,"is_h_abs":true,"block":"d"},{"Z":29,"sym":"Cu","n":3,"l":2,"k":9,"hcp":9.197825830053535,"O3":5908.973539260405,"direction":"C","is_fcc":true,"is_h_abs":false,"block":"d"},{"Z":30,"sym":"Zn","n":3,"l":2,"k":10,"hcp":10.63014581273465,"O3":11607.110363527112,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":31,"sym":"Ga","n":4,"l":1,"k":1,"hcp":2.710806010829534,"O3":56.419327328993894,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":32,"sym":"Ge","n":4,"l":1,"k":2,"hcp":3.4820045452270936,"O3":123.33446381207645,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":33,"sym":"As","n":4,"l":1,"k":3,"hcp":4.287747230288911,"O3":253.63519715394628,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":34,"sym":"Se","n":4,"l":1,"k":4,"hcp":5.1907983172740355,"O3":519.4270662279176,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":35,"sym":"Br","n":4,"l":1,"k":5,"hcp":6.191976988439285,"O3":1052.1702184487856,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":36,"sym":"Kr","n":4,"l":1,"k":6,"hcp":7.280109889280518,"O3":2083.81842174181,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"p"},{"Z":37,"sym":"Rb","n":5,"l":0,"k":1,"hcp":5.0990195135927845,"O3":484.7636013202365,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":38,"sym":"Sr","n":5,"l":0,"k":2,"hcp":5.385164807134504,"O3":599.6927155314437,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"s"},{"Z":39,"sym":"Y","n":4,"l":2,"k":1,"hcp":1.449137674618944,"O3":11.964915131842353,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":40,"sym":"Zr","n":4,"l":2,"k":2,"hcp":2.1908902300206643,"O3":31.231868851908306,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":41,"sym":"Nb","n":4,"l":2,"k":3,"hcp":2.949576240750525,"O3":72.67696483757473,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":42,"sym":"Mo","n":4,"l":2,"k":4,"hcp":3.794733192202055,"O3":164.86240992255216,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":43,"sym":"Tc","n":4,"l":2,"k":5,"hcp":4.74341649025257,"O3":368.0779937970482,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":44,"sym":"Ru","n":4,"l":2,"k":6,"hcp":5.796550698475776,"O3":804.0405676011059,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":45,"sym":"Rh","n":4,"l":2,"k":7,"hcp":6.9498201415576215,"O3":1707.246104549497,"direction":"B","is_fcc":true,"is_h_abs":true,"block":"d"},{"Z":46,"sym":"Pd","n":4,"l":2,"k":8,"hcp":8.197560612767678,"O3":3509.4177626207406,"direction":"B","is_fcc":true,"is_h_abs":true,"block":"d"},{"Z":47,"sym":"Ag","n":4,"l":2,"k":9,"hcp":9.534149149242422,"O3":6972.426480660892,"direction":"B","is_fcc":true,"is_h_abs":true,"block":"d"},{"Z":48,"sym":"Cd","n":4,"l":2,"k":10,"hcp":10.954451150103322,"O3":13389.66042131947,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":49,"sym":"In","n":5,"l":1,"k":1,"hcp":3.3200457591009647,"O3":105.51971541695862,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":50,"sym":"Sn","n":5,"l":1,"k":2,"hcp":4.161791450287817,"O3":227.86340021756237,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":51,"sym":"Sb","n":5,"l":1,"k":3,"hcp":4.97481028196344,"O3":440.93945392110925,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":52,"sym":"Te","n":5,"l":1,"k":4,"hcp":5.856010279957207,"O3":837.8768173362291,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":53,"sym":"I","n":5,"l":1,"k":5,"hcp":6.823226318094624,"O3":1578.848126624406,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":54,"sym":"Xe","n":5,"l":1,"k":6,"hcp":7.874007874011811,"O3":2935.1184473352505,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"p"},{"Z":55,"sym":"Cs","n":6,"l":0,"k":1,"hcp":6.082762530298219,"O3":978.0119461989243,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":56,"sym":"Ba","n":6,"l":0,"k":2,"hcp":6.324555320336759,"O3":1148.4334022399464,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":57,"sym":"La","n":5,"l":2,"k":1,"hcp":1.7320508075688774,"O3":17.57082649951155,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":58,"sym":"Ce","n":4,"l":3,"k":1,"hcp":0.7045156537712899,"O3":3.797953643119941,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":59,"sym":"Pr","n":4,"l":3,"k":2,"hcp":1.251340408023537,"O3":9.006219841520846,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":60,"sym":"Nd","n":4,"l":3,"k":3,"hcp":1.836472260464925,"O3":20.1272168499355,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":61,"sym":"Pm","n":4,"l":3,"k":4,"hcp":2.5023087531785406,"O3":44.81805749301014,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":62,"sym":"Sm","n":4,"l":3,"k":5,"hcp":3.2667543543881945,"O3":100.14975346003737,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":63,"sym":"Eu","n":4,"l":3,"k":6,"hcp":4.136969590336105,"O3":223.05151614175682,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":64,"sym":"Gd","n":4,"l":3,"k":7,"hcp":5.114973206567387,"O3":490.64654274552765,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":65,"sym":"Tb","n":4,"l":3,"k":8,"hcp":6.200353731643862,"O3":1058.046394558413,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":66,"sym":"Dy","n":4,"l":3,"k":9,"hcp":7.391605636286528,"O3":2225.582853814057,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":67,"sym":"Ho","n":4,"l":3,"k":10,"hcp":8.686783139634954,"O3":4553.667056585483,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":68,"sym":"Er","n":4,"l":3,"k":11,"hcp":10.083816058584869,"O3":9051.909839950215,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":69,"sym":"Tm","n":4,"l":3,"k":12,"hcp":11.580658636397446,"O3":17480.288513969885,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":70,"sym":"Yb","n":4,"l":3,"k":13,"hcp":13.175355808708833,"O3":32814.51217128281,"direction":"C","is_fcc":true,"is_h_abs":true,"block":"f"},{"Z":71,"sym":"Lu","n":4,"l":3,"k":14,"hcp":14.866068747318506,"O3":59945.860939558916,"direction":"C","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":72,"sym":"Hf","n":5,"l":2,"k":2,"hcp":2.569046515733026,"O3":48.29178065522176,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":73,"sym":"Ta","n":5,"l":2,"k":3,"hcp":3.3763886032268258,"O3":111.45597837745532,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":74,"sym":"W","n":5,"l":2,"k":4,"hcp":4.242640687119286,"O3":244.140625,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":75,"sym":"Re","n":5,"l":2,"k":5,"hcp":5.196152422706632,"O3":521.5113424021756,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":76,"sym":"Os","n":5,"l":2,"k":6,"hcp":6.244997998398398,"O3":1089.8270845494667,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":77,"sym":"Ir","n":5,"l":2,"k":7,"hcp":7.3891812807644675,"O3":2222.4170682964964,"direction":"B","is_fcc":true,"is_h_abs":true,"block":"d"},{"Z":78,"sym":"Pt","n":5,"l":2,"k":8,"hcp":8.625543461139129,"O3":4410.282611568928,"direction":"B","is_fcc":true,"is_h_abs":true,"block":"d"},{"Z":79,"sym":"Au","n":5,"l":2,"k":9,"hcp":9.9498743710662,"O3":8502.934310072873,"direction":"B","is_fcc":true,"is_h_abs":true,"block":"d"},{"Z":80,"sym":"Hg","n":5,"l":2,"k":10,"hcp":11.357816691600547,"O3":15919.688194206026,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":81,"sym":"Tl","n":6,"l":1,"k":1,"hcp":3.938709818916188,"O3":187.56846757000997,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":82,"sym":"Pb","n":6,"l":1,"k":2,"hcp":4.865322295262119,"O3":405.0962885503024,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"p"},{"Z":83,"sym":"Bi","n":6,"l":1,"k":3,"hcp":5.703236969877824,"O3":753.2385322911629,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":84,"sym":"Po","n":6,"l":1,"k":4,"hcp":6.5783218824537215,"O3":1353.2167864174905,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":85,"sym":"At","n":6,"l":1,"k":5,"hcp":7.5231640689850146,"O3":2403.1048157186733,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":86,"sym":"Rn","n":6,"l":1,"k":6,"hcp":8.54400374531753,"O3":4225.225306973273,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":87,"sym":"Fr","n":7,"l":0,"k":1,"hcp":7.0710678118654755,"O3":1838.265625,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":88,"sym":"Ra","n":7,"l":0,"k":2,"hcp":7.280109889280518,"O3":2083.81842174181,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"s"},{"Z":89,"sym":"Ac","n":6,"l":2,"k":1,"hcp":2.024845673131659,"O3":25.52338424863239,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"d"},{"Z":90,"sym":"Th","n":5,"l":3,"k":1,"hcp":0.8174063278327742,"O3":4.586812550036119,"direction":"B","is_fcc":true,"is_h_abs":true,"block":"f"},{"Z":91,"sym":"Pa","n":5,"l":3,"k":2,"hcp":1.432413047690137,"O3":11.686958493467479,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":92,"sym":"U","n":5,"l":3,"k":3,"hcp":2.065280963856104,"O3":26.826153101266357,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":93,"sym":"Np","n":5,"l":3,"k":4,"hcp":2.7633377432395276,"O3":59.70675193106877,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":94,"sym":"Pu","n":5,"l":3,"k":5,"hcp":3.5486035470391433,"O3":131.3533259905776,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":95,"sym":"Am","n":5,"l":3,"k":6,"hcp":4.4316599735583635,"O3":286.0098725468974,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"f"},{"Z":96,"sym":"Cm","n":5,"l":3,"k":7,"hcp":5.417096216539053,"O3":613.8176773357966,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"f"},{"Z":97,"sym":"Bk","n":5,"l":3,"k":8,"hcp":6.5063062467911426,"O3":1292.2351353204194,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":98,"sym":"Cf","n":5,"l":3,"k":9,"hcp":7.6990080814630995,"O3":2658.6765300476764,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":99,"sym":"Es","n":5,"l":3,"k":10,"hcp":8.99407225953458,"O3":5333.175059096805,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":100,"sym":"Fm","n":5,"l":3,"k":11,"hcp":10.3899710195856,"O3":10418.447613482267,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":101,"sym":"Md","n":5,"l":3,"k":12,"hcp":11.885019782164468,"O3":19816.027566630175,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":102,"sym":"No","n":5,"l":3,"k":13,"hcp":13.47750514924045,"O3":36711.644909697716,"direction":"B","is_fcc":true,"is_h_abs":false,"block":"f"},{"Z":103,"sym":"Lr","n":5,"l":3,"k":14,"hcp":15.165750888103101,"O3":66301.31075498795,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"f"},{"Z":104,"sym":"Rf","n":6,"l":2,"k":2,"hcp":2.9664793948382653,"O3":73.96199998647947,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":105,"sym":"Db","n":6,"l":2,"k":3,"hcp":3.8340579025361627,"O3":170.82346042219274,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":106,"sym":"Sg","n":6,"l":2,"k":4,"hcp":4.732863826479693,"O3":365.01081858655124,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":107,"sym":"Bh","n":6,"l":2,"k":5,"hcp":5.70087712549569,"O3":751.98932908727,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":108,"sym":"Hs","n":6,"l":2,"k":6,"hcp":6.752777206453654,"O3":1510.9519443011047,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":109,"sym":"Mt","n":6,"l":2,"k":7,"hcp":7.893034904268446,"O3":2966.5666495290434,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":110,"sym":"Ds","n":6,"l":2,"k":8,"hcp":9.121403400793103,"O3":5687.226378588685,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":111,"sym":"Rg","n":6,"l":2,"k":9,"hcp":10.435516278555651,"O3":10635.69806162469,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":112,"sym":"Cn","n":6,"l":2,"k":10,"hcp":11.832159566199232,"O3":19392.693841012475,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"d"},{"Z":113,"sym":"Nh","n":7,"l":1,"k":1,"hcp":4.562966448885748,"O3":318.48428451413486,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":114,"sym":"Fl","n":7,"l":1,"k":2,"hcp":5.583629154612598,"O3":692.0588975518056,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":115,"sym":"Mc","n":7,"l":1,"k":3,"hcp":6.459047924424024,"O3":1253.4759313124403,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":116,"sym":"Lv","n":7,"l":1,"k":4,"hcp":7.340897379832381,"O3":2160.143858710239,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":117,"sym":"Ts","n":7,"l":1,"k":5,"hcp":8.274377299117184,"O3":3658.694753987671,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"},{"Z":118,"sym":"Og","n":7,"l":1,"k":6,"hcp":9.273618495495704,"O3":6135.963300329319,"direction":"B","is_fcc":false,"is_h_abs":false,"block":"p"}];
+
+// Block base colors
+const BLOCK_COLORS = { s: 0x1e4a8c, p: 0xb06000, d: 0x4a2080, f: 0x8c2040 };
+
+// Setup Three.js
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x080c14);
+scene.fog = new THREE.FogExp2(0x080c14, 0.018);
+
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 500);
+camera.position.set(22, 16, 28);
+camera.lookAt(8, 6, 8);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+// Lights
+scene.add(new THREE.AmbientLight(0x303050, 1.2));
+const dir1 = new THREE.DirectionalLight(0x6090ff, 0.8);
+dir1.position.set(20, 30, 20); scene.add(dir1);
+const dir2 = new THREE.DirectionalLight(0xffc832, 0.3);
+dir2.position.set(-10, 5, -10); scene.add(dir2);
+
+// Grid helpers (axis planes, subtle)
+function addGrid(axis) {
+  const size = 20; const divs = 20;
+  const g = new THREE.GridHelper(size, divs, 0x1a2840, 0x0e1a2c);
+  if (axis === 'xz') { g.position.set(9,0,9); }
+  if (axis === 'xy') { g.rotation.x = Math.PI/2; g.position.set(9,9,0); }
+  if (axis === 'yz') { g.rotation.z = Math.PI/2; g.position.set(0,9,9); }
+  scene.add(g);
+}
+addGrid('xz'); addGrid('xy'); addGrid('yz');
+
+// Axis lines
+function axisLine(from, to, color) {
+  const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.5 });
+  const geo = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(...from), new THREE.Vector3(...to)
+  ]);
+  scene.add(new THREE.Line(geo, mat));
+}
+axisLine([0,0,0],[20,0,0], 0x3a6090);  // n-axis (x)
+axisLine([0,0,0],[0,0,20], 0x603a90);  // l-axis (z)
+axisLine([0,0,0],[0,20,0], 0x906040);  // k-axis (y)
+
+// Compute ranges for normalization
+const maxHcp = Math.max(...RAW.map(e => e.hcp));
+const maxO3  = Math.max(...RAW.map(e => e.O3));
+
+// Build spheres
+const meshes = [];
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+RAW.forEach(el => {
+  // Position: x=n, z=l, y=k (matching Lach paper axes)
+  const x = el.n * 2;
+  const z = el.l * 2;
+  const y = el.k * 0.9;
+
+  // Size based on H_cp
+  const sizeNorm = el.hcp / maxHcp;
+  const radius = 0.08 + sizeNorm * 0.45;
+
+  // Brightness based on O3
+  const brightness = 0.25 + 0.75 * Math.log(el.O3 + 1) / Math.log(maxO3 + 1);
+
+  // Base color from block
+  const baseHex = BLOCK_COLORS[el.block];
+  const baseColor = new THREE.Color(baseHex);
+  baseColor.multiplyScalar(brightness);
+
+  const geo = new THREE.SphereGeometry(radius, 12, 12);
+  const mat = new THREE.MeshPhongMaterial({
+    color: baseColor,
+    emissive: baseColor.clone().multiplyScalar(0.3),
+    shininess: 60,
+    transparent: true,
+    opacity: el.is_fcc ? 1.0 : 0.55
+  });
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.position.set(x, y, z);
+  mesh.userData = el;
+  scene.add(mesh);
+  meshes.push(mesh);
+
+  // FCC ring — yellow halo
+  if (el.is_fcc) {
+    const ringColor = el.is_h_abs ? 0x32ff96 : 0xffc832;
+    const ringMat = new THREE.MeshBasicMaterial({
+      color: ringColor, transparent: true, opacity: 0.85, side: THREE.DoubleSide
+    });
+    const ringGeo = new THREE.TorusGeometry(radius * 1.6, 0.03, 6, 24);
+    const ring = new THREE.Mesh(ringGeo, ringMat);
+    ring.position.set(x, y, z);
+    // Orient ring to face camera roughly (billboard-ish via XY plane tilt)
+    ring.rotation.x = Math.PI / 3;
+    scene.add(ring);
+
+    // Glow for priority targets (FCC + H-absorbing)
+    if (el.is_h_abs) {
+      const glowGeo = new THREE.SphereGeometry(radius * 2.2, 8, 8);
+      const glowMat = new THREE.MeshBasicMaterial({
+        color: 0x32ff96, transparent: true, opacity: 0.06, side: THREE.BackSide
+      });
+      const glow = new THREE.Mesh(glowGeo, glowMat);
+      glow.position.set(x, y, z);
+      scene.add(glow);
+    }
+  }
+});
+
+// Build FCC ranking panel
+const fccHostsSorted = RAW
+  .filter(e => e.is_fcc && e.is_h_abs)
+  .sort((a,b) => b.hcp - a.hcp);
+
+const maxFccHcp = Math.max(...fccHostsSorted.map(e => e.hcp));
+const rankList = document.getElementById('rank-list');
+
+fccHostsSorted.forEach((el, i) => {
+  const isPriority = el.hcp > 8;
+  const barPct = (el.hcp / maxFccHcp * 100).toFixed(1);
+  const barColor = isPriority ? '#32ff96' : '#7ab4ff';
+  const row = document.createElement('div');
+  row.className = 'rank-row';
+  row.innerHTML = `
+    <span class="rank-num">${i+1}</span>
+    <span class="rank-sym ${isPriority ? 'priority-glow' : ''}">${el.sym}</span>
+    <span class="rank-hcp">${el.hcp.toFixed(2)}</span>
+    <div class="rank-bar-wrap"><div class="rank-bar" style="width:${barPct}%;background:${barColor}"></div></div>
+    <span class="rank-struct">${el.block.toUpperCase()}</span>
+  `;
+  row.title = `Z=${el.Z} · O₃=${el.O3.toFixed(0)}`;
+  rankList.appendChild(row);
+});
+
+// Tooltip
+const tooltip = document.getElementById('tooltip');
+
+function onMouseMove(e) {
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const hits = raycaster.intersectObjects(meshes);
+
+  if (hits.length > 0) {
+    const el = hits[0].object.userData;
+    const isPriority = el.is_fcc && el.is_h_abs;
+    tooltip.style.display = 'block';
+    tooltip.style.left = (e.clientX + 16) + 'px';
+    tooltip.style.top  = (e.clientY - 10) + 'px';
+
+    let badges = '';
+    if (el.is_fcc) badges += '<span class="badge badge-fcc">FCC</span> ';
+    if (isPriority) badges += '<span class="badge badge-priority">VIABLE HOST</span> ';
+    if (el.direction === 'B') badges += '<span class="badge badge-b">CLASS B</span>';
+    if (el.direction === 'C') badges += '<span class="badge badge-c">CLASS C</span>';
+
+    tooltip.innerHTML = `
+      <div class="sym">${el.sym} <span style="font-size:11px;color:#4a6080">Z=${el.Z}</span></div>
+      <div><span class="label">coord   </span><span class="val">(n=${el.n}, ℓ=${el.l}, k=${el.k})</span></div>
+      <div><span class="label">block   </span><span class="val">${el.block}-block</span></div>
+      <div><span class="label">H_cp    </span><span class="val">${el.hcp.toFixed(4)}</span></div>
+      <div><span class="label">O₃_phys </span><span class="val">${el.O3.toFixed(1)}</span></div>
+      <div style="margin-top:5px">${badges}</div>
+    `;
+  } else {
+    tooltip.style.display = 'none';
+  }
+}
+window.addEventListener('mousemove', onMouseMove);
+
+// Orbit controls (manual)
+let isDragging = false, prevMouse = {x:0,y:0};
+let theta = 0.6, phi = 0.5, radius_cam = 45;
+let target = new THREE.Vector3(8, 6, 8);
+
+function updateCamera() {
+  camera.position.x = target.x + radius_cam * Math.sin(phi) * Math.cos(theta);
+  camera.position.y = target.y + radius_cam * Math.cos(phi);
+  camera.position.z = target.z + radius_cam * Math.sin(phi) * Math.sin(theta);
+  camera.lookAt(target);
+}
+updateCamera();
+
+renderer.domElement.addEventListener('mousedown', e => {
+  isDragging = true; prevMouse = {x: e.clientX, y: e.clientY};
+});
+renderer.domElement.addEventListener('mouseup', () => isDragging = false);
+renderer.domElement.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  const dx = e.clientX - prevMouse.x;
+  const dy = e.clientY - prevMouse.y;
+  theta -= dx * 0.008;
+  phi = Math.max(0.1, Math.min(Math.PI - 0.1, phi + dy * 0.008));
+  prevMouse = {x: e.clientX, y: e.clientY};
+  updateCamera();
+});
+renderer.domElement.addEventListener('wheel', e => {
+  radius_cam = Math.max(10, Math.min(90, radius_cam + e.deltaY * 0.06));
+  updateCamera();
+});
+
+// Resize
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Animate — slow auto-rotation
+let autoRotate = true;
+renderer.domElement.addEventListener('mousedown', () => autoRotate = false);
+
+function animate() {
+  requestAnimationFrame(animate);
+  if (autoRotate) { theta += 0.002; updateCamera(); }
+  renderer.render(scene, camera);
+}
+animate();
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+4b: E(base)=0  E(base x T, unconstrained)=0  cells 5 -> 20
+4b: E with t<=a constraint = 0 cells 11
+---
+COMP L767: 101,328 cells. *** THE STATUS AXIS WAS REPLACED AT REGISTER 1578: VERIFIED/POSSIBLE/IMPROBABLE became WITNESSED/UNWITNESSED plus a NAMED BOUND, because improbab
+JSON census: 16 files: ['PROPAGATED.json', 'RITZ.json', 'WALKED.json', 'WALKED4.json', 'asd_pass.json', 'channels_map.json', 'index_final.json', 'index_viz.json', 'lattice.json', 'lattice4.json', 'mathreg.json', 'survey.json']

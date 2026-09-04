@@ -1,0 +1,17 @@
+# Zn I — NIST Handbook zinctable5_a.htm, ref GL00 · limit Zn II (2S1/2) 75769.33 SM95
+# ionization 75769.33 cm-1 = 9.394199 eV
+config	term	J	level_cm1
+4s2	1S	0	0.000
+4s4p	3P°	0	32311.319
+4s4p	3P°	1	32501.399
+4s4p	3P°	2	32890.327
+4s4p	1P°	1	46745.404
+4s5s	3S	1	53672.240
+4s5s	1S	0	55789.213
+4s4d	1D	2	62458.533
+4s4d	3D	1	62768.747
+4s4d	3D	2	62772.014
+4s4d	3D	3	62776.981
+4s5d	3D	1	68579.141
+4s5d	3D	2	68580.705
+4s5d	3D	3	68583.083

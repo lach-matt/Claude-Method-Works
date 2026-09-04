@@ -1,0 +1,30 @@
+# P IV — NIST ASD 5.12, Martin et al. 1985, ref L7147 · Mg-like, Z=15, 12 electrons
+# limit NOT given in the capture; DERIVED from the series (register 918)
+# the 3s.nl series from the 3s2 ground state
+config	term	J	level_cm1
+4s	3S	1	226898.14
+5s	3S	1	309111.44
+6s	3S	1	346472.11
+7s	3S	1	367535.64
+4s	1S	0	233997.96
+5s	1S	0	311183.04
+6s	1S	0	347602.39
+4p	3P*	0	256553.36
+5p	3P*	0	322387.52
+6p	3P*	0	353659.02
+4p	1P*	1	257522.66
+5p	1P*	1	316888.09
+6p	1P*	1	354234.79
+4d	3D	1	293242.94
+5d	3D	1	337245.64
+6d	3D	1	363041.47
+4d	1D	2	295328.63
+5d	1D	2	338035.09
+6d	1D	2	363751.86
+4f	3F*	2	303660.64
+5f	3F*	2	343603.59
+6f	3F*	2	365445.49
+5g	3G	3	344006.44
+6g	3G	3	365578.07
+5g	1G	4	344011.61
+6g	1G	4	365569.46

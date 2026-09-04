@@ -1,0 +1,555 @@
+Z	l	term	parent	members	cause	subcause
+13	1	2P*		10	Z_match	—
+13	0	2S		13	Z_match	—
+13	1	4P		3	D_term_string_mismatch	outer shell occupancy>1
+13	2	2D		39	G_over_recover	no parent recorded
+13	3	2F*		9	G_over_recover	no parent recorded
+13	4	2G		3	G_over_recover	no parent recorded
+13	0	4P*	3P*	4	Z_match	—
+13	2	2D*	3P*	6	Z_match	—
+13	1		3P*	21	H_under_recover	parent pooling / unresolved
+13	1	2P	3P*	3	Z_match	—
+13	2	4D*	3P*	4	Z_match	—
+13	1	2D	3P*	4	G_over_recover	parent pooling / unresolved
+13	2	4P*	3P*	3	Z_match	—
+13	2	2F*	3P*	4	Z_match	—
+13	1	2S	3P*	4	Z_match	—
+13	1	2D?	3P*	5	D_term_string_mismatch	uncertainty flag on shell
+13	1	2S?	3P*	4	D_term_string_mismatch	uncertainty flag on shell
+5	1	2P*		11	Z_match	—
+5	1	4P		3	D_term_string_mismatch	outer shell occupancy>1
+5	0	2S		8	Z_match	—
+5	2	2D		38	G_over_recover	no parent recorded
+5	3	2F*		9	G_over_recover	no parent recorded
+5	0	4P*	3P*	4	Z_match	—
+5	1	2P	3P*	6	Z_match	—
+5	2	4D*	3P*	7	Z_match	—
+5	2	4P*	3P*	3	Z_match	—
+56	0	1S		20	H_under_recover	no parent recorded
+56	2	3D		63	G_over_recover	no parent recorded
+56	2	1D		24	H_under_recover	no parent recorded
+56	1	3P*		46	Z_match	—
+56	1	1P*		22	Z_match	—
+56	2	3F		9	H_under_recover	no parent recorded
+56	1	3F*		5	Z_match	—
+56	2	3P		8	H_under_recover	no parent recorded
+56	1	3D*		7	Z_match	—
+56	0	3S		16	Z_match	—
+56	0	3D		6	Z_match	—
+56	1	3P		3	D_term_string_mismatch	outer shell occupancy>1
+56	3	3F*		25	Z_match	—
+56	3	1F*		4	Z_match	—
+56	2	3G		6	Z_match	—
+56	4	1G		18	Z_match	—
+56	4	3G		29	G_over_recover	no parent recorded
+55	0	2S		20	Z_match	—
+55	1	2P*		40	Z_match	—
+55	2	2D		42	Z_match	—
+55	3	2F*		44	Z_match	—
+55	4	2G		28	Z_match	—
+87	0	2S		24	Z_match	—
+87	1	2P*		48	Z_match	—
+87	2	2D		50	Z_match	—
+31	1	2P*		50	G_over_recover	no parent recorded
+31	0	2S		24	Z_match	—
+31	2	2D		45	G_over_recover	no parent recorded
+31	1	4P		3	D_term_string_mismatch	outer shell occupancy>1
+31	3	2F*		5	G_over_recover	no parent recorded
+31	1	2[1]	3P*<0>	15	G_over_recover	parent pooling / unresolved
+31	1	2[1]	3P*<1>	17	G_over_recover	parent pooling / unresolved
+31	1	2[2]	3P*<1>	6	G_over_recover	parent pooling / unresolved
+31	1	2[2]	3P*<2>	8	G_over_recover	parent pooling / unresolved
+31	1	2[0]	3P*<1>	4	Z_match	—
+31	1	2[1]	3P*<2>	7	G_over_recover	parent pooling / unresolved
+32	1	3P		12	H_under_recover	no parent recorded
+32	1	1D		4	H_under_recover	no parent recorded
+32	1	1S		4	H_under_recover	no parent recorded
+32	0	3P*		3	Z_match	—
+32	1	3D		9	Z_match	—
+32	1	1P		4	Z_match	—
+32	2	3D*		6	Z_match	—
+32	1	3S		3	Z_match	—
+32	2	3F*		6	Z_match	—
+32	2	3P*		6	Z_match	—
+32	0	(1/2,1/2)*		68	Z_match	—
+32	0	(3/2,1/2)*		49	Z_match	—
+32	3	2[7/2]	2P*<1/2>	8	G_over_recover	parent pooling / unresolved
+32	3	2[5/2]	2P*<1/2>	8	G_over_recover	parent pooling / unresolved
+32	2	*		3	Z_match	—
+32	2	(3/2,3/2)*		85	Z_match	—
+32	3	2[7/2]	2P*<3/2>	6	G_over_recover	parent pooling / unresolved
+32	3	2[5/2]	2P*<3/2>	4	G_over_recover	parent pooling / unresolved
+32	3	2[9/2]	2P*<3/2>	7	Z_match	—
+32	3	2[3/2]	2P*<3/2>	4	Z_match	—
+32	2	(1/2,3/2)*		82	Z_match	—
+32	2	(1/2,5/2)*		90	G_over_recover	no parent recorded
+32	2	(3/2,5/2)*		127	G_over_recover	no parent recorded
+32	4	(1/2,7/2)*		8	Z_match	—
+72	0	a 3F		3	D_term_string_mismatch	outer shell occupancy>1
+72	0	a 3P		3	D_term_string_mismatch	outer shell occupancy>1
+72	1	z 3D*	a_2D	3	Z_match	—
+72	0	a 5F	b_4F	5	Z_match	—
+72	1	z 3F*	a_2D	3	Z_match	—
+72	1	z 5G*	a_4F	5	Z_match	—
+72	1	z 3P*	a_2D	3	Z_match	—
+72	0	a 5P	b_4P	3	Z_match	—
+72	1	z 5F*	a_4F	5	Z_match	—
+72	0	a 3G	b_2G	3	Z_match	—
+72	0	b 3F	b_4F	3	Z_match	—
+72	0	a 3D	c_2D	3	Z_match	—
+72	1	z 5D*	a_4F	5	Z_match	—
+72	0	c 3P	b_2P	3	Z_match	—
+72	0	a 3H	2H	3	Z_match	—
+72	1	y 3F*	a_4F	3	Z_match	—
+72	1	y 5D*	a_4P	5	Z_match	—
+72	1	y 3D*	a_4F	3	Z_match	—
+72	0	b 3P	b_4P	3	Z_match	—
+72	1	z 3G*	a_4F	3	Z_match	—
+72	0	c 3F	b_2F	3	Z_match	—
+72	1	z 5P*	a_4P	3	Z_match	—
+72	1	y 3G*	a_2F	3	Z_match	—
+72	1	x 3D*	a_4P	3	Z_match	—
+72	1	x 3F*	a_2F	3	Z_match	—
+72	1	w 3F*	a_2G	3	Z_match	—
+72	1	w 3D*	a_2F	3	Z_match	—
+72	1	z 3H*	a_2G	3	Z_match	—
+72	0	b 3D	2D	3	Z_match	—
+72	1	v 3D*	b_2D	3	Z_match	—
+72	1	x 3P*	b_2D	3	Z_match	—
+72	0	b 5F	a_4F	5	Z_match	—
+72	0	d 3D	a_2D	3	Z_match	—
+72	1	u 3D*	a_2P	3	Z_match	—
+72	0	c 5F	4F	4	Z_match	—
+72	2	a 5D		5	D_term_string_mismatch	outer shell occupancy>1
+72	1	v 3F*	b_2D	3	Z_match	—
+72	1	y 5G*	b_4F	4	Z_match	—
+72	1	w 3P*	a_2P	3	Z_match	—
+72	1	u 3F*	b_2G	3	Z_match	—
+72	0	d 3F	a_4F	3	Z_match	—
+72	0	e 3D	4D	3	Z_match	—
+72	0	b 5D	4D	4	Z_match	—
+72	1	y 5F*	b_4F	5	Z_match	—
+72	0	e 3P	a_4P	3	Z_match	—
+72	0	b 5P	4P	3	Z_match	—
+72	0	e 3F	4F	3	Z_match	—
+72	1	x 5D*	b_4F	5	Z_match	—
+72	0	f 3F	2F	3	Z_match	—
+72	0	g 3F	2F	3	Z_match	—
+72	1	w 3G*	b_4F	3	Z_match	—
+72	0	c 5P	a_4P	3	Z_match	—
+72	0	b 3G	2G	3	Z_match	—
+72	0	f 3D	2D	3	Z_match	—
+72	0	g 3P	2P	3	Z_match	—
+72	1	y 5P*	b_4P	3	Z_match	—
+72	0	g 3D	2D	3	Z_match	—
+72	2	b 3H		3	D_term_string_mismatch	outer shell occupancy>1
+72	2	h 3F		3	D_term_string_mismatch	outer shell occupancy>1
+72	1	w 5D*	b_4P	5	Z_match	—
+72	2	c 3G		3	D_term_string_mismatch	outer shell occupancy>1
+72	0	i 3F	a_2F	3	Z_match	—
+72	2	h 3D		3	D_term_string_mismatch	outer shell occupancy>1
+72	1	s 3D*	b_4F	3	Z_match	—
+72	1	t 3F*	b_4F	3	Z_match	—
+80	0	1S		15	H_under_recover	no parent recorded
+80	1	3P*		43	G_over_recover	no parent recorded
+80	1	1P*		15	Z_match	—
+80	0	3S		14	Z_match	—
+80	1	2[3/2]*	2D<5/2>	16	G_over_recover	parent pooling / unresolved
+80	2	1D		15	Z_match	—
+80	2	3D		45	Z_match	—
+80	3	3F*		35	G_over_recover	no parent recorded
+80	3	1F*		17	Z_match	—
+80	4	3G		9	Z_match	—
+80	4	1G		7	Z_match	—
+80	1	2[1/2]*	2D<3/2>	15	Z_match	—
+80	1	3P		3	D_term_string_mismatch	outer shell occupancy>1
+80	1	2[3/2]*	2D<3/2>	8	G_over_recover	parent pooling / unresolved
+80	3	2[3/2]*	2D<5/2>	9	G_over_recover	parent pooling / unresolved
+80	3	2[1/2]*	2D<5/2>	9	Z_match	—
+80	3	2[3/2]*	2D<3/2>	9	G_over_recover	parent pooling / unresolved
+49	1	2P*		14	Z_match	—
+49	0	2S		19	Z_match	—
+49	2	2D		52	Z_match	—
+49	1	4P		3	D_term_string_mismatch	outer shell occupancy>1
+49	3	2F*		12	G_over_recover	no parent recorded
+36	0	2[3/2]*	2P*<3/2>	32	Z_match	—
+36	1	2[1/2]	2P*<3/2>	32	G_over_recover	parent pooling / unresolved
+36	1	2[5/2]	2P*<3/2>	28	G_over_recover	parent pooling / unresolved
+36	1	2[3/2]	2P*<3/2>	32	G_over_recover	parent pooling / unresolved
+36	2	2[1/2]*	2P*<3/2>	34	Z_match	—
+36	1	2[3/2]	2P*<1/2>	6	G_over_recover	parent pooling / unresolved
+36	2	2[3/2]*	2P*<3/2>	34	G_over_recover	parent pooling / unresolved
+36	2	2[7/2]*	2P*<3/2>	34	Z_match	—
+36	1	2[1/2]	2P*<1/2>	6	G_over_recover	parent pooling / unresolved
+36	2	2[5/2]*	2P*<3/2>	34	G_over_recover	parent pooling / unresolved
+36	3	2[3/2]	2P*<3/2>	32	Z_match	—
+36	3	2[9/2]	2P*<3/2>	16	G_over_recover	parent pooling / unresolved
+36	3	2[5/2]	2P*<3/2>	29	G_over_recover	parent pooling / unresolved
+36	3	2[7/2]	2P*<3/2>	13	G_over_recover	parent pooling / unresolved
+71	1	2P*		38	G_over_recover	no parent recorded
+71	1	4F*	3D	4	Z_match	—
+71	0	4F	3F	4	Z_match	—
+71	1	4D*	3D	4	Z_match	—
+71	0	4P	3P	3	Z_match	—
+71	1	4P*	3D	3	Z_match	—
+71	0	2S		8	G_over_recover	no parent recorded
+71	2	2D		31	Z_match	—
+71	1	4P		3	D_term_string_mismatch	outer shell occupancy>1
+71	3	2F*		60	G_over_recover	no parent recorded
+71	0	4D	3D	4	Z_match	—
+11	0	2S		18	Z_match	—
+11	1	2P*		36	Z_match	—
+11	2	2D		29	G_over_recover	no parent recorded
+11	3	2F*		17	G_over_recover	no parent recorded
+11	4	2G		18	Z_match	—
+11	5	2H*		6	Z_match	—
+11	1	4D	3P*	4	D_term_string_mismatch	other config shape
+11	1	4P	3P*	3	D_term_string_mismatch	other config shape
+11	1	2D	3P*	3	H_under_recover	parent pooling / unresolved
+11	1	2D	1P*	4	H_under_recover	parent pooling / unresolved
+11	1	2P	1P*	4	H_under_recover	parent pooling / unresolved
+11	0	4P*	3P*	7	Z_match	—
+11	0	2P*	3P*	13	G_over_recover	parent pooling / unresolved
+11	2	2P*	3P*	4	G_over_recover	parent pooling / unresolved
+11	0	2P*	1P*	12	G_over_recover	parent pooling / unresolved
+11	2	4P*	3P*	5	Z_match	—
+11	2	4F*	3P*	8	Z_match	—
+11	2	4D*	3P*	5	Z_match	—
+11	2	2P*	1P*	18	G_over_recover	parent pooling / unresolved
+11	0	4P*?	3P*	3	Z_match	—
+11	2	4P*?	3P*	3	Z_match	—
+11	0	2P*,4P*	3P*	4	Z_match	—
+11	1	2[1]*	3S<1>	13	G_over_recover	parent pooling / unresolved
+11	1		1D<2>	7	G_over_recover	parent pooling / unresolved
+11	1		1P<1>	11	G_over_recover	parent pooling / unresolved
+11	0	2[1]*	3D*<1>	13	G_over_recover	parent pooling / unresolved
+11	2		3F*<2>	8	G_over_recover	parent pooling / unresolved
+82	1	(1/2,1/2)		13	H_under_recover	no parent recorded
+82	1	(3/2,1/2)		4	H_under_recover	no parent recorded
+82	1	(3/2,3/2)		6	H_under_recover	no parent recorded
+82	0	(1/2,1/2)*		18	Z_match	—
+82	1	(1/2,3/2)		12	G_over_recover	no parent recorded
+82	2	2[5/2]*	2P*<1/2>	17	G_over_recover	parent pooling / unresolved
+82	2	2[3/2]*	2P*<1/2>	22	G_over_recover	parent pooling / unresolved
+82	0	(3/2,1/2)*		4	Z_match	—
+82	3	2[5/2]	2P*<1/2>	8	Z_match	—
+82	3	2[7/2]	2P*<1/2>	14	Z_match	—
+82	4	2[7/2]*	2P*<1/2>	6	Z_match	—
+82	2	2[5/2]*	2P*<3/2>	4	G_over_recover	parent pooling / unresolved
+82	2	2[3/2]*	2P*<3/2>	3	G_over_recover	parent pooling / unresolved
+88	1	3P*		9	Z_match	—
+88	2	3D		6	Z_match	—
+88	1	1P*		42	Z_match	—
+88	1	3F*		3	Z_match	—
+88	1	3D*		3	Z_match	—
+88	3	3F*		10	Z_match	—
+86	0	2[3/2]*	2P*<3/2>	9	Z_match	—
+86	1	2[1/2]	2P*<3/2>	9	Z_match	—
+86	1	2[5/2]	2P*<3/2>	10	Z_match	—
+86	2	2[1/2]*	2P*<3/2>	10	Z_match	—
+86	1	2[3/2]	2P*<3/2>	11	Z_match	—
+86	2	2[7/2]*	2P*<3/2>	13	Z_match	—
+86	2	2[3/2]*	2P*<3/2>	8	Z_match	—
+86	2	2[5/2]*	2P*<3/2>	10	Z_match	—
+86	3	2[3/2]	2P*<3/2>	8	Z_match	—
+86	3	2[9/2]	2P*<3/2>	6	Z_match	—
+86	3	2[5/2]	2P*<3/2>	7	Z_match	—
+86	3	2[7/2]	2P*<3/2>	3	Z_match	—
+50	1	3P		12	H_under_recover	no parent recorded
+50	1	1D		3	H_under_recover	no parent recorded
+50	1	1S		3	H_under_recover	no parent recorded
+50	0	3P*		21	Z_match	—
+50	0	1P*		12	Z_match	—
+50	1	3D		10	Z_match	—
+50	2	3F*		16	Z_match	—
+50	2	3D*		19	Z_match	—
+50	2	1D*		4	Z_match	—
+50	2	3P*		34	Z_match	—
+50	2	1F*		3	Z_match	—
+50	2	1P*		15	Z_match	—
+50	3	3G		5	Z_match	—
+50	3	3F		15	Z_match	—
+50	3	1F		4	Z_match	—
+50	2	a 3F*		4	Z_match	—
+50	3	3D		3	Z_match	—
+50	2	a 3P*		4	Z_match	—
+50	2	b 3P*		11	Z_match	—
+50	2	b 3F*		3	Z_match	—
+38	0	1S		16	H_under_recover	no parent recorded
+38	1	3P*		48	Z_match	—
+38	2	3D		44	Z_match	—
+38	2	1D		19	H_under_recover	no parent recorded
+38	1	1P*		18	Z_match	—
+38	0	3S		15	Z_match	—
+38	1	3F*		3	Z_match	—
+38	1	3P		3	D_term_string_mismatch	outer shell occupancy>1
+38	1	3D*		6	Z_match	—
+38	3	3F*		50	Z_match	—
+38	3	1F*		17	Z_match	—
+38	2	3P		5	H_under_recover	no parent recorded
+38	2	3F		3	Z_match	—
+38	3	2[3/2]*	2D<3/2>	4	G_over_recover	parent pooling / unresolved
+38	3	2[3/2]*	2D<5/2>	4	G_over_recover	parent pooling / unresolved
+38	2	(3/2,3/2)		15	Z_match	—
+38	2	(3/2,5/2)		9	Z_match	—
+38	2	(5/2,5/2)		16	Z_match	—
+38	1	2[3/2]*	2D<3/2>	3	G_over_recover	parent pooling / unresolved
+38	2	(5/2,3/2)		10	Z_match	—
+38	1	2[3/2]*	2D<5/2>	3	G_over_recover	parent pooling / unresolved
+38	0	(3/2,1/2)		4	Z_match	—
+38	0	(5/2,1/2)		3	Z_match	—
+38	3	(3/2,5/2)*		6	Z_match	—
+38	3	(3/2,7/2)*		3	Z_match	—
+38	4	2[5/2]	2D<3/2>	4	G_over_recover	parent pooling / unresolved
+38	3	(5/2,5/2)*		6	Z_match	—
+38	3	(5/2,7/2)*		6	Z_match	—
+38	4	2[5/2]	2D<5/2>	6	G_over_recover	parent pooling / unresolved
+38	4	2[3/2]	2D<5/2>	7	Z_match	—
+22	0	a 3F		3	D_term_string_mismatch	outer shell occupancy>1
+22	0	a 5F	4F	5	Z_match	—
+22	0	a 3P		3	D_term_string_mismatch	outer shell occupancy>1
+22	0	b 3F	4F	3	Z_match	—
+22	0	a 5P	4P	3	Z_match	—
+22	0	a 3G	2G	3	Z_match	—
+22	1	z 5G*	3P*	5	D_term_string_mismatch	other config shape
+22	1	z 5F*	3P*	5	D_term_string_mismatch	other config shape
+22	0	a 3D	2D2	3	Z_match	—
+22	0	b 3P	2P	3	Z_match	—
+22	0	a 3H	2H	3	Z_match	—
+22	1	z 5D*	3P*	5	D_term_string_mismatch	other config shape
+22	0	c 3P	4P	3	Z_match	—
+22	1	z 3F*	3P*	3	D_term_string_mismatch	other config shape
+22	1	z 3D*	3P*	3	D_term_string_mismatch	other config shape
+22	1	z 3G*	3P*	3	D_term_string_mismatch	other config shape
+22	0	3F	2F	6	Z_match	—
+22	1	y 3F*	1P*	3	D_term_string_mismatch	other config shape
+22	1	y 3D*	4F	3	Z_match	—
+22	1	3P*	3P*	3	Z_match	—
+22	1	5D*	3P*	5	Z_match	—
+22	1	y 5G*	4F	5	Z_match	—
+22	1	x 3F*	3P*	3	D_term_string_mismatch	other config shape
+22	1	x 3D*	3P*	3	D_term_string_mismatch	other config shape
+22	1	y 3G*	1P*	3	D_term_string_mismatch	other config shape
+22	1	z 5P*	3P*	3	D_term_string_mismatch	other config shape
+22	1	y 5F*	4F	5	Z_match	—
+22	2	a 5D		5	D_term_string_mismatch	outer shell occupancy>1
+22	1	w 3D*	1P*	3	D_term_string_mismatch	other config shape
+22	1	x 5D*	4F	5	Z_match	—
+22	1	x 3G*	3P*	3	D_term_string_mismatch	other config shape
+22	1	v 3D*	3P*	3	D_term_string_mismatch	other config shape
+22	1	w 3G*	4F	3	Z_match	—
+22	1	y 3P*	3P*	3	D_term_string_mismatch	other config shape
+22	1	z 3H*	3P*	3	D_term_string_mismatch	other config shape
+22	0	3D	2D1	3	G_over_recover	parent pooling / unresolved
+22	1	x 3P*	4P	3	Z_match	—
+22	1	w 3F*	4F	3	Z_match	—
+22	1	v 3F*	3P*	3	D_term_string_mismatch	other config shape
+22	2	3P2		3	D_term_string_mismatch	outer shell occupancy>1
+22	2	3F2		3	D_term_string_mismatch	outer shell occupancy>1
+22	2	3H		3	Z_match	—
+22	1	y 3H*	2G	3	Z_match	—
+22	1	w 5D*	4P	5	Z_match	—
+22	0	e 5F	4F	5	Z_match	—
+22	2	b 3G		3	D_term_string_mismatch	outer shell occupancy>1
+22	1	y 5P*	4P	3	Z_match	—
+22	1	w 3P*	2D2	3	Z_match	—
+22	0	e 3F	4F	3	Z_match	—
+22	1	v 3G*	2G	3	Z_match	—
+22	1	u 3F*	2D2	3	Z_match	—
+22	1	u 3D*	1P*	3	D_term_string_mismatch	other config shape
+22	1	t 3F*	2G	3	Z_match	—
+22	2	3D		3	Z_match	—
+22	1	z 3I*	2H	3	Z_match	—
+22	1	t 3D*	2P	3	Z_match	—
+22	0	f 5F	4F	5	Z_match	—
+22	1	x 3H*	2H	3	Z_match	—
+22	0	f 3F	4F	3	Z_match	—
+22	1	s 3D*	2D2	3	Z_match	—
+22	1	v 3P*		3	Z_match	—
+22	1	r 3D*	4P	3	Z_match	—
+22	1	3G*	2H	3	G_over_recover	parent pooling / unresolved
+22	1	s 3F*		3	Z_match	—
+22	1	5G*	4F	10	Z_match	—
+22	2	e 5G	4F	5	Z_match	—
+22	2	e 5H	4F	5	Z_match	—
+22	1	5F*	4F	10	Z_match	—
+22	2	3G	4F	3	G_over_recover	parent pooling / unresolved
+22	2	e 5D	4F	5	Z_match	—
+22	2	g 3F	4F	3	Z_match	—
+22	1	u 3P*	2P	3	Z_match	—
+22	1	q 3D*		3	Z_match	—
+22	1	5D*	4F	10	Z_match	—
+22	2	3H	4F	3	Z_match	—
+22	2	e 5P	4F	3	Z_match	—
+22	2	3D	4F	3	Z_match	—
+22	2	3F1		3	D_term_string_mismatch	outer shell occupancy>1
+22	2	g 5F	4F	5	Z_match	—
+22	1	r 3F*	4F	3	Z_match	—
+22	2	5G	4F	5	Z_match	—
+22	2	f 5H	4F	5	Z_match	—
+22	2	5F	4F	10	Z_match	—
+22	1	o 3D*	4F	3	Z_match	—
+22	1	3G*	4F	6	G_over_recover	parent pooling / unresolved
+22	1	3F*	4F	3	G_over_recover	parent pooling / unresolved
+22	1	n 3D*	4F	3	Z_match	—
+22	1	3P*	2P	3	Z_match	—
+22	0	3D	2D	3	G_over_recover	parent pooling / unresolved
+22	2	3G	2F	3	G_over_recover	parent pooling / unresolved
+22	2	f 3H	2F	3	Z_match	—
+22	0	h 5F	4F	5	Z_match	—
+22	2	3F	2F	3	Z_match	—
+22	1	3G*	2F	6	G_over_recover	parent pooling / unresolved
+22	1	g 5G		5	D_term_string_mismatch	outer shell occupancy>1
+22	1	p 3F*	2F	3	Z_match	—
+22	2	g 5H	4F	5	Z_match	—
+22	2	h 5G	4F	5	Z_match	—
+22	3	2[7/2]*	4F<3/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[9/2]*	4F<3/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[5/2]*	4F<3/2>	3	G_over_recover	parent pooling / unresolved
+22	1	5F		5	D_term_string_mismatch	outer shell occupancy>1
+22	3	2[5/2]*	4F<5/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[9/2]*	4F<5/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[7/2]*	4F<5/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[11/2]*	4F<5/2>	3	G_over_recover	parent pooling / unresolved
+22	3	2[3/2]*	4F<5/2>	3	G_over_recover	parent pooling / unresolved
+22	3	2[9/2]*	4F<7/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[11/2]*	4F<7/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[7/2]*	4F<7/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[13/2]*	4F<7/2>	3	G_over_recover	parent pooling / unresolved
+22	3	2[5/2]*	4F<7/2>	3	G_over_recover	parent pooling / unresolved
+22	3	2[13/2]*	4F<9/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[11/2]*	4F<9/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[9/2]*	4F<9/2>	4	G_over_recover	parent pooling / unresolved
+22	3	2[15/2]*	4F<9/2>	4	Z_match	—
+22	3	2[7/2]*	4F<9/2>	4	G_over_recover	parent pooling / unresolved
+22	1	3F*	2F	3	G_over_recover	parent pooling / unresolved
+22	1	e 3D		3	D_term_string_mismatch	outer shell occupancy>1
+22	1	h 5D		5	D_term_string_mismatch	outer shell occupancy>1
+22	1	3D*	2F	3	Z_match	—
+81	1	2P*		18	Z_match	—
+81	0	2S		14	Z_match	—
+81	2	2D		24	Z_match	—
+81	3	2F*		4	Z_match	—
+54	0	2[3/2]*	2P*<3/2>	30	Z_match	—
+54	0	2[1/2]*	2P*<1/2>	17	Z_match	—
+54	1	2[1/2]	2P*<3/2>	27	G_over_recover	parent pooling / unresolved
+54	1	2[5/2]	2P*<3/2>	25	Z_match	—
+54	1	2[3/2]	2P*<3/2>	22	G_over_recover	parent pooling / unresolved
+54	2	2[1/2]*	2P*<3/2>	32	Z_match	—
+54	2	2[7/2]*	2P*<3/2>	32	Z_match	—
+54	2	2[3/2]*	2P*<3/2>	32	G_over_recover	parent pooling / unresolved
+54	2	2[5/2]*	2P*<3/2>	32	G_over_recover	parent pooling / unresolved
+54	1	2[3/2]	2P*<1/2>	4	G_over_recover	parent pooling / unresolved
+54	1	2[1/2]	2P*<1/2>	3	G_over_recover	parent pooling / unresolved
+54	3	2[3/2]	2P*<3/2>	33	Z_match	—
+54	3	2[9/2]	2P*<3/2>	15	G_over_recover	parent pooling / unresolved
+54	3	2[5/2]	2P*<3/2>	24	G_over_recover	parent pooling / unresolved
+54	3	2[7/2]	2P*<3/2>	15	G_over_recover	parent pooling / unresolved
+54	2	2[3/2]*	2P*<1/2>	17	G_over_recover	parent pooling / unresolved
+54	3	2[5/2]	2P*<1/2>	7	G_over_recover	parent pooling / unresolved
+54	3	2[7/2]	2P*<1/2>	5	G_over_recover	parent pooling / unresolved
+39	0	a 4F	3F	4	Z_match	—
+39	1	z 4F*	3D	4	Z_match	—
+39	0	a 4P	3P	3	Z_match	—
+39	1	z 4D*	3D	4	Z_match	—
+39	1	z 4P*	3D	3	Z_match	—
+39	1	z 4G*	3F	4	Z_match	—
+39	2	b 4F		4	D_term_string_mismatch	outer shell occupancy>1
+39	1	y 4F*	3F	4	Z_match	—
+39	2	b 4P		3	D_term_string_mismatch	outer shell occupancy>1
+39	2	2D		4	Z_match	—
+39	0	e 4D	3D	4	Z_match	—
+39	1	y 4D*	3F	4	Z_match	—
+39	0	e 4P	3P	3	Z_match	—
+39	1	x 4D*	3P	4	Z_match	—
+39	1	y 4P*	3P	3	Z_match	—
+39	2	f 4D	3D	4	Z_match	—
+39	1	4D*	3D	4	Z_match	—
+39	2	e 4G	3D	4	Z_match	—
+39	1	4F*	3D	3	Z_match	—
+39	1	4P*	3D	3	Z_match	—
+39	2	e 4F	3D	4	Z_match	—
+39	2	f 4P	3D	3	Z_match	—
+39	0	4F	3F	4	Z_match	—
+39	2	4F	3P	4	Z_match	—
+39	2	h 4D	3P	4	Z_match	—
+70	0	1S		3	H_under_recover	no parent recorded
+70	1	3P*		12	Z_match	—
+70	0	(7/2,3/2)*	2F*<7/2>	4	D_term_string_mismatch	jK/jj coupling in config
+70	0	3D		3	Z_match	—
+70	1	1P*		4	Z_match	—
+70	0	(7/2,5/2)*	2F*<7/2>	6	D_term_string_mismatch	jK/jj coupling in config
+70	0	3S		7	Z_match	—
+70	1	(7/2,3/2)	2F*<7/2>	4	D_term_string_mismatch	jK/jj coupling in config
+70	2	3D		9	Z_match	—
+70	1	(7/2,3/2)	4F*<3/2>	5	D_term_string_mismatch	jK/jj coupling in config
+70	1		4F*<5/2>	7	D_term_string_mismatch	jK/jj coupling in config
+70	1	3P		3	D_term_string_mismatch	outer shell occupancy>1
+70	3	3F*		3	Z_match	—
+70	1	(5/2,3/2)	2F*<5/2>	3	D_term_string_mismatch	jK/jj coupling in config
+70	1		2D*<5/2>	3	D_term_string_mismatch	jK/jj coupling in config
+70	1	(7/2,7/2)	4F*<7/2>	5	D_term_string_mismatch	jK/jj coupling in config
+70	1	(1/2,1/2)*	2S<1/2>	15	D_term_string_mismatch	jK/jj coupling in config
+70	1	(1/2,3/2)*	2S<1/2>	40	D_term_string_mismatch	jK/jj coupling in config
+70	1		4F*<9/2>	3	D_term_string_mismatch	jK/jj coupling in config
+40	0	a 3F		3	D_term_string_mismatch	outer shell occupancy>1
+40	0	a 3P		3	D_term_string_mismatch	outer shell occupancy>1
+40	0	a 5F	4F	5	Z_match	—
+40	0	a 5P	4P	3	Z_match	—
+40	0	b 3F	4F	3	Z_match	—
+40	0	a 3G	2G	3	Z_match	—
+40	0	a 3D	b_2D	3	Z_match	—
+40	1	z 5G*		5	G_over_recover	no parent recorded
+40	0	a 3H	2H	3	Z_match	—
+40	0	b 3P	4P	3	Z_match	—
+40	1	z 5F*		4	G_over_recover	no parent recorded
+40	0	c 3P	2P	3	Z_match	—
+40	1	z 3D*		3	Z_match	—
+40	1	z 5D*		3	G_over_recover	no parent recorded
+40	1	z 3P*		3	Z_match	—
+40	2	a 5D		5	D_term_string_mismatch	outer shell occupancy>1
+40	1	z 3G*		3	Z_match	—
+40	1	y 3D*		3	Z_match	—
+40	1	y 5D*		5	Z_match	—
+40	1	y 3F*		3	Z_match	—
+40	1	z 5P*		3	Z_match	—
+40	1	y 5G*		3	G_over_recover	no parent recorded
+40	1	y 3G*		3	Z_match	—
+40	1	x 3F*	a_2D	3	Z_match	—
+40	1	x 3D*		3	Z_match	—
+40	1	w 3D*		3	Z_match	—
+40	1	y 3P*		3	Z_match	—
+40	1	z 3H*		3	Z_match	—
+40	1	x 3G*	a_2F	3	Z_match	—
+40	1	y 5F*		3	G_over_recover	no parent recorded
+40	1	x 3P*		3	Z_match	—
+40	1	v 3D*		3	Z_match	—
+40	1	x 5D*		3	G_over_recover	no parent recorded
+40	1	w 3G*		3	Z_match	—
+40	1	u 3F*		3	Z_match	—
+40	1	w 5D*		5	Z_match	—
+40	1	u 3D*		3	Z_match	—
+40	1	y 3H*		3	Z_match	—
+40	1	y 5P*		3	Z_match	—
+40	1	w 3P*		3	Z_match	—
+40	0	e 5F	4F	5	Z_match	—
+40	1	t 3F*		3	Z_match	—
+40	1	z 3I*		3	Z_match	—
+40	1	t 3D*		3	Z_match	—
+40	1	x 3H*		3	Z_match	—
+40	1	v 3G*		3	Z_match	—
+40	1	s 3F*		3	Z_match	—
+40	0	e 3F	4F	3	Z_match	—
+40	1	s 3D*		3	Z_match	—
+40	1	r 3F*		3	Z_match	—
+40	1	u 3G*		3	Z_match	—
+40	2	e 5H	4F	4	Z_match	—
+40	1	t 3P*		3	Z_match	—
+40	0	f 5F	4F	3	Z_match	—
+40	2	e 5G	4F	5	Z_match	—
+40	1	t 3G*		3	D_term_string_mismatch	uncertainty flag on shell
+40	1	q 3D*		3	Z_match	—
+40	1	q 3F*		3	Z_match	—
+40	1	p 3D*		3	Z_match	—
+40	1	f 5G		5	D_term_string_mismatch	outer shell occupancy>1
+40	1	o 3D*		3	D_term_string_mismatch	uncertainty flag on shell

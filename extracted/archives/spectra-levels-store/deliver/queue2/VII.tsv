@@ -1,0 +1,118 @@
+# V II — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=V+II&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  V III (3d3 4F<3/2>)  118030 cm-1
+#
+# 3d4 ground. ** THE LETTER DEPTH REACHES ITS MAXIMUM HERE: the even
+# side runs a, b, c, d, e and the odd side runs z, y, x, w, v, u, t, s,
+# r, q — FOURTEEN LETTERS. V III needed ten; K VII needed none. **
+# Recorded against M's note (R 1639) as the strongest instance yet.
+#
+# The 3d3.(4F).nl series, one parent, LS-termed throughout:
+#    ns  n = 4, 5, 6      np  n = 4, 5
+#    nd  n = 4, 5         nf  n = 4  (Racah, refused)
+# The 3d3.(4F<J>).4f block is Racah 2[K] on a J-resolved parent and is
+# refused by R 1576 — but it is the SAME jK structure register 1602
+# rebuilt the index around, at a d3 core rather than a p5 one.
+#
+# config	term	J	level_cm1
+3d4	a 5D	0	0.000
+3d4	a 5D	1	36.1017
+3d4	a 5D	2	106.6421
+3d4	a 5D	3	208.7901
+3d4	a 5D	4	339.1256
+3d3.(4F).4s	a 5F	1	2605.0400
+3d3.(4F).4s	a 5F	2	2687.2090
+3d3.(4F).4s	a 5F	3	2808.9590
+3d3.(4F).4s	a 5F	4	2968.3883
+3d3.(4F).4s	a 5F	5	3162.9673
+3d3.(4F).4s	a 3F	2	8640.3641
+3d3.(4F).4s	a 3F	3	8842.0507
+3d3.(4F).4s	a 3F	4	9097.8891
+3d3.(4F).5s	5F	1	69146.385
+3d3.(4F).5s	5F	2	69228.317
+3d3.(4F).5s	5F	3	69352.5300
+3d3.(4F).5s	5F	4	69518.5261
+3d3.(4F).5s	5F	5	69724.235
+3d3.(4F).5s	3F	2	70415.5416
+3d3.(4F).5s	3F	3	70629.8323
+3d3.(4F).5s	3F	4	70898.5669
+3d3.(4F).6s	3F	2	91228.554
+3d3.(4F).6s	3F	3	91445.745
+3d3.(4F).6s	3F	4	91711.733
+3d3.(4F).4p	z 5G*	2	34592.8439
+3d3.(4F).4p	z 5G*	3	34745.8281
+3d3.(4F).4p	z 5G*	4	34946.6366
+3d3.(4F).4p	z 5G*	5	35193.1820
+3d3.(4F).4p	z 5G*	6	35483.6058
+3d3.(4F).4p	z 3D*	1	36489.4382
+3d3.(4F).4p	z 3D*	2	37041.1798
+3d3.(4F).4p	z 3D*	3	37205.0213
+3d3.(4F).4p	z 5F*	1	36954.6872
+3d3.(4F).4p	z 5F*	2	36673.5838
+3d3.(4F).4p	z 5F*	3	36919.2647
+3d3.(4F).4p	z 5F*	4	37150.6143
+3d3.(4F).4p	z 5F*	5	37352.4639
+3d3.(4F).4p	z 5D*	0	37201.5378
+3d3.(4F).4p	z 5D*	1	37259.5288
+3d3.(4F).4p	z 5D*	2	37369.1542
+3d3.(4F).4p	z 5D*	3	37520.6639
+3d3.(4F).4p	z 5D*	4	37531.1324
+3d3.(4F).4p	z 3G*	3	39234.0877
+3d3.(4F).4p	z 3G*	4	39403.7873
+3d3.(4F).4p	z 3G*	5	39612.9643
+3d3.(4F).4p	z 3F*	2	40001.7556
+3d3.(4F).4p	z 3F*	3	40195.5675
+3d3.(4F).4p	z 3F*	4	40430.0878
+3d3.(4F).5p	3D*	1	79259.21
+3d3.(4F).5p	3D*	2	79435.13
+3d3.(4F).5p	3D*	3	79697.04
+3d3.(4F).5p	3F*	2	79853.67
+3d3.(4F).5p	3F*	3	80057.65
+3d3.(4F).5p	3F*	4	80298.09
+3d3.(4F).5p	5F*	5	80155.588
+3d3.(4F).5p	3G*	3	80463.13
+3d3.(4F).5p	3G*	4	80595.64
+3d3.(4F).5p	3G*	5	80767.68
+3d3.(4F).4d	e 5H	3	72448.6001
+3d3.(4F).4d	e 5H	4	72551.2964
+3d3.(4F).4d	e 5H	5	72680.855
+3d3.(4F).4d	e 5H	6	72837.5795
+3d3.(4F).4d	e 5H	7	73021.1428
+3d3.(4F).4d	e 5P	1	72518.624
+3d3.(4F).4d	e 5P	2	72674.9214
+3d3.(4F).4d	e 5P	3	72908.9974
+3d3.(4F).4d	5F	1	72839.3466
+3d3.(4F).4d	5F	2	73027.3122
+3d3.(4F).4d	5F	3	73146.3451
+3d3.(4F).4d	5F	4	73279.3426
+3d3.(4F).4d	5F	5	73417.3293
+3d3.(4F).4d	5G	2	72878.0558
+3d3.(4F).4d	5G	3	72951.5577
+3d3.(4F).4d	5G	4	73063.7177
+3d3.(4F).4d	5G	5	73223.3529
+3d3.(4F).4d	5G	6	73499.7723
+3d3.(4F).4d	3D	1	73181.640
+3d3.(4F).4d	3D	2	73310.0695
+3d3.(4F).4d	3D	3	73530.7114
+3d3.(4F).4d	3P	0	74949.588
+3d3.(4F).4d	3P	1	75080.739
+3d3.(4F).4d	3P	2	75335.877
+3d3.(4F).4d	3H	4	75140.640
+3d3.(4F).4d	3H	5	75346.305
+3d3.(4F).4d	3H	6	75592.4821
+3d3.(4F).4d	3G	3	75422.913
+3d3.(4F).4d	3G	4	75615.399
+3d3.(4F).4d	3G	5	75854.2212
+3d3.(4F).4d	3F	2	75813.492
+3d3.(4F).4d	3F	3	75966.120
+3d3.(4F).4d	3F	4	76143.0526
+3d3.(4F).4d	5D	0	76281.367
+3d3.(4F).4d	5D	1	76322.694
+3d3.(4F).4d	5D	2	76403.6726
+3d3.(4F).4d	5D	3	76521.357
+3d3.(4F).4d	5D	4	76673.1011
+3d3.(4F).5d	3D	3	93806.17

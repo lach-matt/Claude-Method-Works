@@ -1,0 +1,1851 @@
+{
+ "A.alph": {
+  "id": "A.alph",
+  "stmt": "\u00c2_i(X) = { x_i : x \u2208 X }",
+  "hyp": "X a finite set of integer tuples",
+  "dep": [],
+  "src": "M \u00a76.1 / T A1",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": "projection onto coordinate i"
+ },
+ "A.env": {
+  "id": "A.env",
+  "stmt": "\u03c6\u0302_ij(v) = max{ x_i : x \u2208 X, x_j \u2264 v }; max \u2205 = \u2212\u221e",
+  "hyp": "i \u2260 j",
+  "dep": [
+   "A.alph"
+  ],
+  "src": "M \u00a76.1 / T A2",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": "monotone upper envelope / staircase bound"
+ },
+ "A.R": {
+  "id": "A.R",
+  "stmt": "\u211b(X) = { x \u2208 \u220f_i \u00c2_i(X) : x_i \u2264 \u03c6\u0302_ij(x_j) \u2200 i\u2260j }",
+  "hyp": "none beyond A.alph, A.env",
+  "dep": [
+   "A.alph",
+   "A.env"
+  ],
+  "src": "M \u00a76.1 / T A3",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": "the recovery operator"
+ },
+ "A.E": {
+  "id": "A.E",
+  "stmt": "E(X) = |\u211b(X)| \u2212 |X|",
+  "hyp": "none",
+  "dep": [
+   "A.R"
+  ],
+  "src": "M \u00a76.1 / T A4",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": "closure defect"
+ },
+ "A.ext": {
+  "id": "A.ext",
+  "stmt": "X \u2286 \u211b(X), hence E(X) \u2265 0",
+  "hyp": "none",
+  "dep": [
+   "A.R"
+  ],
+  "src": "T 1.2 / M A.2",
+  "grade": "PROVED",
+  "check": "extensive",
+  "named": "extensivity"
+ },
+ "A.clos": {
+  "id": "A.clos",
+  "stmt": "\u211b is extensive, monotone, idempotent; the closed sets form a Moore family",
+  "hyp": "none",
+  "dep": [
+   "A.ext"
+  ],
+  "src": "M \u00a714.2 / T 1.3",
+  "grade": "PROVED",
+  "check": "closure_axioms",
+  "named": "closure operator (Moore family)"
+ },
+ "A.fix": {
+  "id": "A.fix",
+  "stmt": "X is closed \u27fa X = \u211b(X)",
+  "hyp": "each coordinate presented as a chain",
+  "dep": [
+   "A.clos"
+  ],
+  "src": "M \u00a714.1 (Thm 9.1, A.2)",
+  "grade": "PROVED",
+  "check": "fixpoint",
+  "named": "Bergman double-projection; Baker\u2013Pixley 1975 (majority term)"
+ },
+ "A.bpc": {
+  "id": "A.bpc",
+  "stmt": "X \u2286 BPC(X) \u2286 \u211b(X), BPC(X) = { x : (x_i,x_j) \u2208 proj_ij(X) \u2200 i<j }",
+  "hyp": "none",
+  "dep": [
+   "A.R"
+  ],
+  "src": "T A5",
+  "grade": "PROVED",
+  "check": "bpc_vs_R",
+  "named": "binary path consistency / 2-decomposability (Kimura et al. 2024)"
+ },
+ "A.gc": {
+  "id": "A.gc",
+  "stmt": "E(X) = 0 \u27fa the binary constraint network is globally consistent",
+  "hyp": "the constraints are the monotone binary projections",
+  "dep": [
+   "A.bpc",
+   "A.E"
+  ],
+  "src": "T 1.4 / A5c",
+  "grade": "CITED",
+  "check": null,
+  "named": "global consistency (CSP)"
+ },
+ "A.freuder": {
+  "id": "A.freuder",
+  "stmt": "a tree-structured constraint network is globally consistent after arc consistency",
+  "hyp": "constraint graph acyclic",
+  "dep": [
+   "A.gc"
+  ],
+  "src": "T 1.10",
+  "grade": "CITED",
+  "check": null,
+  "named": "Freuder 1982"
+ },
+ "A.montanari": {
+  "id": "A.montanari",
+  "stmt": "for monotone constraints, path consistency implies global consistency",
+  "hyp": "constraints monotone",
+  "dep": [
+   "A.gc"
+  ],
+  "src": "T 1.10",
+  "grade": "CITED",
+  "check": null,
+  "named": "Montanari 1974"
+ },
+ "A.rule": {
+  "id": "A.rule",
+  "stmt": "a tightening preserves E = 0 iff it binds one coordinate by a monotone function of one other",
+  "hyp": "the index is a sublattice of a product of chains",
+  "dep": [
+   "A.fix"
+  ],
+  "src": "T 1.8 / M \u00a714.4",
+  "grade": "COMPUTED",
+  "check": "closure_rule",
+  "named": null
+ },
+ "A.morph": {
+  "id": "A.morph",
+  "stmt": "an occupancy coordinate's cap is admissible iff it is a morphism for the operation preserved",
+  "hyp": "meet-morphism preserves meets; join-morphism preserves joins",
+  "dep": [
+   "A.rule"
+  ],
+  "src": "M \u00a718.4.1",
+  "grade": "COMPUTED",
+  "check": "cap_forms",
+  "named": null
+ },
+ "A.modeA": {
+  "id": "A.modeA",
+  "stmt": "sub-case A, ORDERING: the term is present and determined but non-monotone; repairable by re-ordering",
+  "hyp": "the term is a function of an existing coordinate",
+  "dep": [
+   "A.rule"
+  ],
+  "src": "T 1.6",
+  "grade": "COMPUTED",
+  "check": "mode_A",
+  "named": null
+ },
+ "A.modeB": {
+  "id": "A.modeB",
+  "stmt": "sub-case B, ARITY: every term is monotone; the constraint names more coordinates than an envelope has arguments; not repairable by any operation on coordinates",
+  "hyp": "the minimal failing support has size \u2265 3",
+  "dep": [
+   "A.rule"
+  ],
+  "src": "T 1.6",
+  "grade": "COMPUTED",
+  "check": "mode_B",
+  "named": null
+ },
+ "A.derived": {
+  "id": "A.derived",
+  "stmt": "a derived coordinate cannot repair closure: the box grows by its value count and |X| is fixed",
+  "hyp": "the coordinate is a function of the others",
+  "dep": [
+   "A.E"
+  ],
+  "src": "T 1.7 / M \u00a717.2 Thm 10.1",
+  "grade": "PROVED",
+  "check": "derived_coord",
+  "named": "adjunction never repairs (M Thm 10.1)"
+ },
+ "A.dens": {
+  "id": "A.dens",
+  "stmt": "E = 0 is informative at any density; E > 0 at low density measures sparsity",
+  "hyp": "density = |X| / |box|",
+  "dep": [
+   "A.E"
+  ],
+  "src": "T 1.9",
+  "grade": "COMPUTED",
+  "check": "density_table",
+  "named": null
+ },
+ "A.bound": {
+  "id": "A.bound",
+  "stmt": "0 \u2264 E(X) \u2264 |box| \u2212 |X|",
+  "hyp": "box = \u220f_i |\u00c2_i(X)|",
+  "dep": [
+   "A.E",
+   "A.ext"
+  ],
+  "src": "T audit 27",
+  "grade": "PROVED",
+  "check": "possibility_bound",
+  "named": null
+ },
+ "A.prod": {
+  "id": "A.prod",
+  "stmt": "if no constraint links the factors, \u211b(A\u00d7B) = \u211b(A)\u00d7\u211b(B)",
+  "hyp": "A, B on disjoint coordinate sets, no cross constraint",
+  "dep": [
+   "A.R"
+  ],
+  "src": "T D9",
+  "grade": "PROVED",
+  "check": "product_factorises",
+  "named": null
+ },
+ "A.prodE": {
+  "id": "A.prodE",
+  "stmt": "E(A\u00d7B) = |A|\u00b7E_B + |B|\u00b7E_A + E_A\u00b7E_B",
+  "hyp": "as A.prod",
+  "dep": [
+   "A.prod",
+   "A.E"
+  ],
+  "src": "T D10",
+  "grade": "PROVED",
+  "check": "product_E",
+  "named": null
+ },
+ "A.ebits": {
+  "id": "A.ebits",
+  "stmt": "E_bits(X) = log\u2082 C(|\u211b(X)|, E(X))",
+  "hyp": "counting measure",
+  "dep": [
+   "A.E"
+  ],
+  "src": "M \u00a725.3",
+  "grade": "COMPUTED",
+  "check": "ebits",
+  "named": "description length"
+ },
+ "A.slack": {
+  "id": "A.slack",
+  "stmt": "SLACK(S) = measure(ambient)/measure(S); log SLACK = log|\u211b(X)| \u2212 log|X|",
+  "hyp": "a measure on the ambient",
+  "dep": [
+   "A.E",
+   "A.ebits"
+  ],
+  "src": "M \u00a725.2",
+  "grade": "COMPUTED",
+  "check": "slack",
+  "named": null
+ },
+ "L.c1": {
+  "id": "L.c1",
+  "stmt": "\u2113 \u2264 n \u2212 1",
+  "hyp": "hydrogenic radial solution",
+  "dep": [],
+  "src": "M \u00a77.1",
+  "grade": "CITED",
+  "check": null,
+  "named": "node counting"
+ },
+ "L.c2": {
+  "id": "L.c2",
+  "stmt": "k \u2264 2(2\u2113+1) = 4\u2113+2",
+  "hyp": "Pauli exclusion",
+  "dep": [],
+  "src": "M \u00a77.1",
+  "grade": "CITED",
+  "check": null,
+  "named": "Pauli"
+ },
+ "L.c3": {
+  "id": "L.c3",
+  "stmt": "q \u2264 k",
+  "hyp": "counting",
+  "dep": [],
+  "src": "M \u00a77.1",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": null
+ },
+ "L.c4": {
+  "id": "L.c4",
+  "stmt": "f \u2264 e \u2212 1",
+  "hyp": "hydrogenic radial solution",
+  "dep": [],
+  "src": "M \u00a77.1",
+  "grade": "CITED",
+  "check": null,
+  "named": "node counting"
+ },
+ "L.c5": {
+  "id": "L.c5",
+  "stmt": "g \u2264 4f+2",
+  "hyp": "Pauli exclusion",
+  "dep": [],
+  "src": "M \u00a77.1",
+  "grade": "CITED",
+  "check": null,
+  "named": "Pauli"
+ },
+ "L.c6": {
+  "id": "L.c6",
+  "stmt": "g \u2264 q",
+  "hyp": "counting",
+  "dep": [],
+  "src": "M \u00a77.1",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": null
+ },
+ "L.c7": {
+  "id": "L.c7",
+  "stmt": "2S \u2264 k",
+  "hyp": "vector coupling on the source",
+  "dep": [],
+  "src": "M \u00a77.1",
+  "grade": "CITED",
+  "check": null,
+  "named": "vector coupling"
+ },
+ "L.c8": {
+  "id": "L.c8",
+  "stmt": "k \u2265 1 (definitional restriction, not a bound)",
+  "hyp": "a cell is a transition, not a state",
+  "dep": [],
+  "src": "M \u00a710.2, reg. 301",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": null
+ },
+ "L.def": {
+  "id": "L.def",
+  "stmt": "\u039b = { (n,\u2113,k,q,e,f,g,2S) \u2208 \u2124\u2078 : L.c1..L.c8 }, caps (n,e,\u2113,k,f) = (3,3,1,3,1)",
+  "hyp": "caps stated; figures at other caps must say so (\u00a77.4)",
+  "dep": [
+   "L.c1",
+   "L.c2",
+   "L.c3",
+   "L.c4",
+   "L.c5",
+   "L.c6",
+   "L.c7",
+   "L.c8"
+  ],
+  "src": "M \u00a77",
+  "grade": "DEFINITIONAL",
+  "check": "lambda_count",
+  "named": null
+ },
+ "L.closed": {
+  "id": "L.closed",
+  "stmt": "\u039b is closed under coordinatewise \u2228 and \u2227",
+  "hyp": "every constraint of the form x_i \u2264 \u03c6(x_j) with \u03c6 non-decreasing",
+  "dep": [
+   "L.def",
+   "A.rule"
+  ],
+  "src": "M \u00a77.3",
+  "grade": "PROVED",
+  "check": "lambda_closed",
+  "named": null
+ },
+ "L.E0": {
+  "id": "L.E0",
+  "stmt": "E(\u039b) = 0",
+  "hyp": "at the stated caps; verified at four settings and through the f shell",
+  "dep": [
+   "L.closed",
+   "A.E"
+  ],
+  "src": "M \u00a77.3, reg. 236",
+  "grade": "COMPUTED",
+  "check": "lambda_E",
+  "named": null
+ },
+ "L.dist": {
+  "id": "L.dist",
+  "stmt": "\u039b is distributive (a sublattice of a product of chains)",
+  "hyp": "none",
+  "dep": [
+   "L.closed"
+  ],
+  "src": "M \u00a78.1",
+  "grade": "PROVED",
+  "check": "distributive",
+  "named": "Birkhoff / product of chains"
+ },
+ "L.modular": {
+  "id": "L.modular",
+  "stmt": "rank(a\u2228b) + rank(a\u2227b) = rank(a) + rank(b), rank = \u03a3x_i",
+  "hyp": "graded lattice",
+  "dep": [
+   "L.dist"
+  ],
+  "src": "M \u00a78.2",
+  "grade": "COMPUTED",
+  "check": "rank_modular",
+  "named": "modularity (equality, not submodularity)"
+ },
+ "L.birk": {
+  "id": "L.birk",
+  "stmt": "\u039b \u2245 down-sets of J(\u039b); |J(\u039b)| = 17, 20 covering relations",
+  "hyp": "\u039b finite distributive",
+  "dep": [
+   "L.dist"
+  ],
+  "src": "M \u00a78.3",
+  "grade": "COMPUTED",
+  "check": "birkhoff",
+  "named": "Birkhoff representation 1937"
+ },
+ "L.alpha": {
+  "id": "L.alpha",
+  "stmt": "|J(\u039b)| = \u03a3_i (|A_i| \u2212 1)",
+  "hyp": "each generator is min{x \u2208 \u039b : x_c \u2265 v} for one coordinate and one value",
+  "dep": [
+   "L.birk"
+  ],
+  "src": "M reg. 268",
+  "grade": "COMPUTED",
+  "check": "alphabet_size",
+  "named": null
+ },
+ "L.sperner": {
+  "id": "L.sperner",
+  "stmt": "the largest antichain equals the largest rank level; max 122 at rank 11",
+  "hyp": "rank sequence log-concave hence unimodal",
+  "dep": [
+   "L.dist"
+  ],
+  "src": "M \u00a78.4",
+  "grade": "COMPUTED",
+  "check": "sperner",
+  "named": "Sperner property / Dilworth"
+ },
+ "L.skew": {
+  "id": "L.skew",
+  "stmt": "centre of mass 11.0666 vs midpoint 11.5, skew \u22120.43; only 8 of 976 cells fixed by x \u21a6 max \u2212 x",
+  "hyp": "at the stated caps",
+  "dep": [
+   "L.def"
+  ],
+  "src": "M \u00a78.4",
+  "grade": "COMPUTED",
+  "check": "skew",
+  "named": null
+ },
+ "L.dim": {
+  "id": "L.dim",
+  "stmt": "order dimension of \u039b\u2088 is 8, rising by one per adjoined axis",
+  "hyp": "at the stated caps",
+  "dep": [
+   "L.def"
+  ],
+  "src": "M \u00a78.6",
+  "grade": "ASSERTED",
+  "check": null,
+  "named": null
+ },
+ "L.arith": {
+  "id": "L.arith",
+  "stmt": "N(x) = \u220f_i p_i^{x_i}; x\u2264y \u27fa N(x)|N(y); \u2228\u21a6lcm, \u2227\u21a6gcd, rank \u21a6 \u03a9(N)",
+  "hyp": "p_i the i-th prime",
+  "dep": [
+   "L.def"
+  ],
+  "src": "M \u00a79",
+  "grade": "COMPUTED",
+  "check": "arith_encoding",
+  "named": "divisor lattice embedding"
+ },
+ "L.omega": {
+  "id": "L.omega",
+  "stmt": "\u03c9(N(x)) \u2264 dim(\u039b)",
+  "hyp": "one prime per coordinate",
+  "dep": [
+   "L.arith",
+   "L.dim"
+  ],
+  "src": "M \u00a79.1",
+  "grade": "PROVED",
+  "check": null,
+  "named": "distinct-prime-counting function"
+ },
+ "L.occ": {
+  "id": "L.occ",
+  "stmt": "d(x,y) = \u03c4( lcm(N(x),N(y)) / gcd(N(x),N(y)) ) = \u220f_i(|x_i\u2212y_i|+1) = |[x\u2227y, x\u2228y]|",
+  "hyp": "\u03c4 the divisor count; d(x,x)=1",
+  "dep": [
+   "L.arith"
+  ],
+  "src": "M \u00a79.2",
+  "grade": "COMPUTED",
+  "check": "occupancy_measure",
+  "named": null
+ },
+ "L.metric": {
+  "id": "L.metric",
+  "stmt": "log d is an \u2113\u00b9 metric; d(x,z) \u2264 d(x,y)\u00b7d(y,z)",
+  "hyp": "as L.occ",
+  "dep": [
+   "L.occ"
+  ],
+  "src": "M \u00a79.2",
+  "grade": "COMPUTED",
+  "check": "occ_metric",
+  "named": null
+ },
+ "L.mobius": {
+  "id": "L.mobius",
+  "stmt": "\u03bc(x,y) = (\u22121)^{|y\u2216x|} if y\u2216x is an antichain in J(\u039b), else 0",
+  "hyp": "\u039b \u2245 J(P)",
+  "dep": [
+   "L.birk"
+  ],
+  "src": "M \u00a79.3",
+  "grade": "COMPUTED",
+  "check": "mobius",
+  "named": "M\u00f6bius function of a distributive lattice"
+ },
+ "L.void": {
+  "id": "L.void",
+  "stmt": "void(x,y) = \u220f_i(|\u0394_i|+1) \u2212 |[x\u2227y, x\u2228y] \u2229 \u039b|",
+  "hyp": "none",
+  "dep": [
+   "L.occ"
+  ],
+  "src": "M \u00a710",
+  "grade": "DEFINITIONAL",
+  "check": "void",
+  "named": null
+ },
+ "L.voidfrac": {
+  "id": "L.voidfrac",
+  "stmt": "void-free fraction 27.7\u201330.1% across 776M pairs; joint 30.13% vs product 20.19%, factor 1.49",
+  "hyp": "at stated caps",
+  "dep": [
+   "L.void"
+  ],
+  "src": "M \u00a710.2",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "L.box": {
+  "id": "L.box",
+  "stmt": "|box \u2229 \u039b| factorises because the constraint graph is a tree; no M\u00f6bius sieve needed",
+  "hyp": "constraint graph acyclic",
+  "dep": [
+   "L.tree"
+  ],
+  "src": "M \u00a710.4",
+  "grade": "COMPUTED",
+  "check": "box_count",
+  "named": null
+ },
+ "L.tree": {
+  "id": "L.tree",
+  "stmt": "constraint graph n\u2014\u2113\u2014k\u2014q\u2014g\u2014f\u2014e with 2S pendant at k: 8 nodes, 7 edges, a caterpillar; treewidth 1",
+  "hyp": "every constraint binds exactly two coordinates",
+  "dep": [
+   "L.def"
+  ],
+  "src": "M \u00a78.5, \u00a711.4",
+  "grade": "COMPUTED",
+  "check": "tree_shape",
+  "named": "caterpillar tree"
+ },
+ "L.F": {
+  "id": "L.F",
+  "stmt": "F = \u03a3_n z\u2081\u207f \u03a3_{\u2113\u2264n\u22121} z\u2082^\u2113 \u03a3_{k\u22644\u2113+2} z\u2083^k [\u03a3_{S\u2264k} z\u2088^S] \u03a3_{q\u2264k} z\u2084^q \u03a3_e z\u2085^e \u03a3_{f<e} z\u2086^f \u03a3_{g\u2264min(q,4f+2)} z\u2087^g",
+  "hyp": "at stated caps; the tree has no cycles so the sum factorises",
+  "dep": [
+   "L.tree",
+   "L.def"
+  ],
+  "src": "M \u00a711.3",
+  "grade": "COMPUTED",
+  "check": "genfun",
+  "named": null
+ },
+ "L.F1": {
+  "id": "L.F1",
+  "stmt": "F(1,\u2026,1) = |\u039b| = 976",
+  "hyp": "as L.F",
+  "dep": [
+   "L.F"
+  ],
+  "src": "M \u00a711",
+  "grade": "COMPUTED",
+  "check": "F1",
+  "named": null
+ },
+ "L.rankpoly": {
+  "id": "L.rankpoly",
+  "stmt": "F(z) = z\u00b3(z\u00b9\u2077 + 4z\u00b9\u2076 + 10z\u00b9\u2075 + \u2026 + 122z\u2078 + 121z\u2077 + \u2026 + 5z + 1); F\u2032(1)/F(1) = 11.0666",
+  "hyp": "single-variable specialisation",
+  "dep": [
+   "L.F"
+  ],
+  "src": "M \u00a711.1",
+  "grade": "COMPUTED",
+  "check": "rankpoly",
+  "named": null
+ },
+ "L.Fm1": {
+  "id": "L.Fm1",
+  "stmt": "F(\u22121) = 2, because \u2113 and f each have exactly two consecutive values but are coupled to n and e",
+  "hyp": "at stated caps",
+  "dep": [
+   "L.rankpoly"
+  ],
+  "src": "M \u00a711.8.1",
+  "grade": "COMPUTED",
+  "check": "Fminus1",
+  "named": null
+ },
+ "L.pal": {
+  "id": "L.pal",
+  "stmt": "F palindromic \u27fa the poset is self-dual; \u039b's F is not palindromic",
+  "hyp": "graded poset",
+  "dep": [
+   "L.rankpoly",
+   "L.skew"
+  ],
+  "src": "M \u00a711.8",
+  "grade": "PROVED",
+  "check": "palindrome",
+  "named": "palindromic rank polynomial \u27fa self-dual"
+ },
+ "L.chi": {
+  "id": "L.chi",
+  "stmt": "\u03c7(x) = H(n\u22121\u2212\u2113)H(4\u2113+2\u2212k)H(k\u2212q)H(k\u22122S)H(e\u22121\u2212f)H(4f+2\u2212g)H(q\u2212g); the coefficient function of F is \u03c7",
+  "hyp": "H the Heaviside step",
+  "dep": [
+   "L.F",
+   "L.def"
+  ],
+  "src": "M \u00a711.1",
+  "grade": "COMPUTED",
+  "check": "chi_total",
+  "named": null
+ },
+ "L.total": {
+  "id": "L.total",
+  "stmt": "\u03c7_\u039b : \u220fA_i \u2192 {0,1} is total: membership decided for every ambient point",
+  "hyp": "\u039b a finite intersection of decidable comparisons",
+  "dep": [
+   "L.chi"
+  ],
+  "src": "M \u00a716.5",
+  "grade": "PROVED",
+  "check": "chi_total",
+  "named": null
+ },
+ "L.bits": {
+  "id": "L.bits",
+  "stmt": "\u039b is the 976 words in {0,1}\u00b9\u2077 that are down-sets of J(\u039b); join = OR, meet = AND; 17 bits carried, 9.93 needed, 7.07 surplus",
+  "hyp": "Birkhoff correspondence",
+  "dep": [
+   "L.birk"
+  ],
+  "src": "M \u00a711.1.1",
+  "grade": "COMPUTED",
+  "check": "binary",
+  "named": null
+ },
+ "L.circuit": {
+  "id": "L.circuit",
+  "stmt": "the 20 covering relations, as implications, cut 2\u00b9\u2077 = 131,072 words to exactly 976, at depth 5",
+  "hyp": "monotone: AND, OR, implication; no NOT, no feedback",
+  "dep": [
+   "L.bits"
+  ],
+  "src": "M \u00a711.1.1",
+  "grade": "COMPUTED",
+  "check": "circuit",
+  "named": "monotone boolean circuit"
+ },
+ "L.chains": {
+  "id": "L.chains",
+  "stmt": "maximal chains of \u039b = linear extensions of J(\u039b) = 1,113,045,672",
+  "hyp": "\u039b \u2245 J(P)",
+  "dep": [
+   "L.birk"
+  ],
+  "src": "M \u00a712.9",
+  "grade": "COMPUTED",
+  "check": "linext",
+  "named": null
+ },
+ "L.pushback": {
+  "id": "L.pushback",
+  "stmt": "no cell of \u039b\u2088 is both join-prime and meet-prime, so pushback \u2265 16 > 0 for every cell",
+  "hyp": "18 join-irreducibles and 18 meet-irreducibles, intersection empty",
+  "dep": [
+   "L.birk"
+  ],
+  "src": "M \u00a716.8.5",
+  "grade": "PROVED",
+  "check": "pushback",
+  "named": null
+ },
+ "L.step": {
+  "id": "L.step",
+  "stmt": "X \u2216 [a,b] is a sublattice iff a is join-prime and b is meet-prime; step(\u039b\u2088) = 4",
+  "hyp": "distributive",
+  "dep": [
+   "L.pushback"
+  ],
+  "src": "M \u00a716.8.5",
+  "grade": "PROVED",
+  "check": "step",
+  "named": null
+ },
+ "L.amp": {
+  "id": "L.amp",
+  "stmt": "A(y) = N[\u03c6(\u039b \u222a {y})] \u2212 N[\u03c6(\u039b)] \u2212 1; median 340, minimum 59 over 220 trials",
+  "hyp": "y a single inserted cell",
+  "dep": [
+   "A.R",
+   "L.def"
+  ],
+  "src": "M \u00a716.8.4",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "C.fib": {
+  "id": "C.fib",
+  "stmt": "|\u039b| = \u03a3_q |A(q)|\u00b7|B(q)| = 33\u00b75 + 33\u00b710 + 23\u00b715 + 8\u00b717 = 976",
+  "hyp": "conditioned on the transfer q",
+  "dep": [
+   "L.def"
+  ],
+  "src": "M \u00a712.6.1 / T C1eq",
+  "grade": "COMPUTED",
+  "check": "cylinder_factorisation",
+  "named": null
+ },
+ "C.cut": {
+  "id": "C.cut",
+  "stmt": "every two-sided cut of the tree gives defect zero, not only q",
+  "hyp": "the tree is doing the work, not the transfer",
+  "dep": [
+   "C.fib",
+   "L.tree"
+  ],
+  "src": "M \u00a712.11.0.8",
+  "grade": "COMPUTED",
+  "check": "every_cut",
+  "named": null
+ },
+ "C.Aq": {
+  "id": "C.Aq",
+  "stmt": "A_q(z) = \u03a3_{n=1}^{3} z\u207f \u03a3_{\u2113=0}^{min(n\u22121,1)} z^\u2113 \u03a3_{k=max(q,1)}^{min(4\u2113+2,3)} z^k (1\u2212z^{min(k,3)+1})/(1\u2212z)",
+  "hyp": "caps as stated; q held fixed",
+  "dep": [
+   "L.F"
+  ],
+  "src": "M \u00a712.7 / T C2eq",
+  "grade": "COMPUTED",
+  "check": "Aq",
+  "named": null
+ },
+ "C.Bq": {
+  "id": "C.Bq",
+  "stmt": "B_q(z) = \u03a3_{e=1}^{3} z^e \u03a3_{f=0}^{min(e\u22121,1)} z^f (1\u2212z^{min(q,4f+2)+1})/(1\u2212z)",
+  "hyp": "as C.Aq",
+  "dep": [
+   "L.F"
+  ],
+  "src": "M \u00a712.7 / T C3eq",
+  "grade": "COMPUTED",
+  "check": "Bq",
+  "named": null
+ },
+ "C.box": {
+  "id": "C.box",
+  "stmt": "Box(a,b)(z) = \u220f_i z^{a_i}(1\u2212z^{b_i\u2212a_i+1})/(1\u2212z)",
+  "hyp": "every fibre bottoms out in a product of chains",
+  "dep": [
+   "C.Aq",
+   "C.Bq"
+  ],
+  "src": "M \u00a712.7.2 / T C4eq",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": null
+ },
+ "C.local": {
+  "id": "C.local",
+  "stmt": "E(\u039b) = 0 and E(A_q) = E(B_q) = 0 for every q; the second does not follow from the first",
+  "hyp": "cross-sections with induced coordinates",
+  "dep": [
+   "C.fib",
+   "A.E"
+  ],
+  "src": "M \u00a712.8.5 / T C5eq",
+  "grade": "COMPUTED",
+  "check": "local_E",
+  "named": null
+ },
+ "C.pareto": {
+  "id": "C.pareto",
+  "stmt": "|A(q)| falls 33,33,23,8 while |B(q)| rises 5,10,15,17; no q improves both",
+  "hyp": "at stated caps",
+  "dep": [
+   "C.fib"
+  ],
+  "src": "M \u00a712.8.1",
+  "grade": "COMPUTED",
+  "check": "pareto",
+  "named": null
+ },
+ "C.qmean": {
+  "id": "C.qmean",
+  "stmt": "\u27e8q\u27e9 = 1.4631, sd 0.930; peak at q = 2 with 345 cells (35.3%)",
+  "hyp": "at stated caps",
+  "dep": [
+   "C.fib"
+  ],
+  "src": "M \u00a712.8.2",
+  "grade": "COMPUTED",
+  "check": "qmean",
+  "named": null
+ },
+ "T.a9": {
+  "id": "T.a9",
+  "stmt": "2S\u2032 \u2264 g",
+  "hyp": "vector coupling on the target",
+  "dep": [
+   "L.c7"
+  ],
+  "src": "M \u00a712.10.1",
+  "grade": "CITED",
+  "check": null,
+  "named": null
+ },
+ "T.a9p": {
+  "id": "T.a9p",
+  "stmt": "2S\u2032 \u2264 2f+1 (the admissible Pauli cut); \u039b\u2089\u2032 = 1,561 cells, 93 removed; closes the cycle f\u2013g\u20132S\u2032",
+  "hyp": "min(g,4f+2\u2212g) \u2264 2f+1 by averaging",
+  "dep": [
+   "T.a9"
+  ],
+  "src": "M \u00a712.11.1 / T 2.2",
+  "grade": "COMPUTED",
+  "check": "lambda9p",
+  "named": null
+ },
+ "T.a10": {
+  "id": "T.a10",
+  "stmt": "2S\u2032 \u2264 v \u2264 g, v \u2261 g (mod 2)",
+  "hyp": "Racah seniority for \u2113^N",
+  "dep": [
+   "T.a9"
+  ],
+  "src": "M \u00a712.11.1 / T A14",
+  "grade": "CITED",
+  "check": null,
+  "named": "Racah 1943 seniority"
+ },
+ "T.a11": {
+  "id": "T.a11",
+  "stmt": "2J_c \u2264 \u03c6\u0302(k), \u03c6\u0302 = max 2J over terms of \u2113^k = {1:3, 2:4, 3:5}",
+  "hyp": "\u03c6\u0302 read off the realised extent, not from a law",
+  "dep": [
+   "T.a10"
+  ],
+  "src": "M \u00a712.11.1 / T A15",
+  "grade": "COMPUTED",
+  "check": "phihat",
+  "named": null
+ },
+ "T.a12": {
+  "id": "T.a12",
+  "stmt": "loose: 2K \u2264 2J_c + 2f_max (one parent). exact: |2J_c\u22122f| \u2264 2K \u2264 2J_c+2f step 2 (two parents)",
+  "hyp": "jK pair coupling",
+  "dep": [
+   "T.a11"
+  ],
+  "src": "M \u00a712.11.1 / T A16",
+  "grade": "CITED",
+  "check": null,
+  "named": null
+ },
+ "T.a13": {
+  "id": "T.a13",
+  "stmt": "|2J \u2212 2K| \u2264 1",
+  "hyp": "outer electron carries spin \u00bd",
+  "dep": [
+   "T.a12"
+  ],
+  "src": "M \u00a712.11.1 / T A17",
+  "grade": "CITED",
+  "check": null,
+  "named": null
+ },
+ "T.tower": {
+  "id": "T.tower",
+  "stmt": "\u039b\u2088\u2026\u039b\u2081\u2083 = 976, 1654, 2535, 13585, 70905, 199130; E = 0 at every stage, swept against every ambient cell to 47,775,744",
+  "hyp": "at stated caps",
+  "dep": [
+   "T.a9",
+   "T.a10",
+   "T.a11",
+   "T.a12",
+   "T.a13"
+  ],
+  "src": "M \u00a712.11.0.10, reg. 249",
+  "grade": "COMPUTED",
+  "check": "tower_counts",
+  "named": null
+ },
+ "T.dens": {
+  "id": "T.dens",
+  "stmt": "density(axis) = \u03a3_parents |exact fibre| / \u03a3_parents |admissible fibre| = 63.7, 67.5, 44.7, 17.0, 31.4, 64.4%",
+  "hyp": "three non-obvious exact sets required",
+  "dep": [
+   "T.tower"
+  ],
+  "src": "M \u00a712.11.1 / T A18",
+  "grade": "COMPUTED",
+  "check": "densities",
+  "named": null
+ },
+ "T.dich": {
+  "id": "T.dich",
+  "stmt": "counting coordinates close exactly; coupling coordinates close as envelopes; no third kind",
+  "hyp": "the exact coupling bound is made of reflection, congruence and triangle",
+  "dep": [
+   "T.dens"
+  ],
+  "src": "M \u00a712.11.3",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "T.excl": {
+  "id": "T.excl",
+  "stmt": "three excluded forms: REFLECTION (particle\u2013hole conjugation), CONGRUENCE (fermion parity), TRIANGLE (one sum and one difference)",
+  "hyp": "each is non-monotone or multi-parent",
+  "dep": [
+   "T.dich",
+   "A.rule"
+  ],
+  "src": "M \u00a712.11.2",
+  "grade": "COMPUTED",
+  "check": "excluded_forms",
+  "named": null
+ },
+ "T.para": {
+  "id": "T.para",
+  "stmt": "capacity(\u2113) = m(4\u2113+2) for parastatistics of order m; E = 0 through \u039b\u2081\u2083 for m = 1,2,3",
+  "hyp": "m(4\u2113+2) monotone in \u2113 for every m, so A.rule is preserved",
+  "dep": [
+   "T.tower",
+   "A.rule"
+  ],
+  "src": "T 2.1 / D3",
+  "grade": "COMPUTED",
+  "check": "parastatistics",
+  "named": null
+ },
+ "T.scheme": {
+  "id": "T.scheme",
+  "stmt": "closure holds in LS, LK, jK, jj: \u039b\u2081\u2083 = 431,050 / 341,150 / 199,130 / 206,520, E = 0 throughout",
+  "hyp": "a uniform one-parameter looseness convention",
+  "dep": [
+   "T.tower"
+  ],
+  "src": "T 2.1b",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "T.trad": {
+  "id": "T.trad",
+  "stmt": "the tree or the tightness: imposing the exact triangle at axis 12 gives 22,275 cells and E = 35,570",
+  "hyp": "the exact bound has two parents",
+  "dep": [
+   "T.a12",
+   "A.rule"
+  ],
+  "src": "M \u00a712.11.5 / T 2.4",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "K.comp": {
+  "id": "K.comp",
+  "stmt": "b\u2218a defined when tgt(a) = src(b); the composite transfers min(q_a, q_b)",
+  "hyp": "\u039b\u2089's target (e,f,g,2S\u2032) has the source's constraint forms",
+  "dep": [
+   "T.a9"
+  ],
+  "src": "M \u00a712.11.0",
+  "grade": "COMPUTED",
+  "check": "composition_closed",
+  "named": null
+ },
+ "K.cat": {
+  "id": "K.cat",
+  "stmt": "\u039b\u2089 is a category: 41,682 composable pairs, zero failures, associative",
+  "hyp": "as K.comp",
+  "dep": [
+   "K.comp"
+  ],
+  "src": "M \u00a712.11.0",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "K.window": {
+  "id": "K.window",
+  "stmt": "\u039b\u2089 is the first composable level and the last tree level",
+  "hyp": "\u039b\u2088 target has 3 coordinates against 4; \u039b\u2081\u2080 has 10 nodes and 10 edges",
+  "dep": [
+   "K.comp",
+   "L.tree"
+  ],
+  "src": "T 4.1",
+  "grade": "COMPUTED",
+  "check": "first_composable_last_tree",
+  "named": null
+ },
+ "K.quiver": {
+  "id": "K.quiver",
+  "stmt": "composable cells are the arcs of a quiver Q on 33 objects; the composition graph is the line digraph L(Q), |E| = \u03a3_v in(v)\u00b7out(v) = 27,027",
+  "hyp": "a loop at every vertex",
+  "dep": [
+   "K.cat"
+  ],
+  "src": "T 4.2",
+  "grade": "COMPUTED",
+  "check": "line_digraph",
+  "named": null
+ },
+ "K.girth": {
+  "id": "K.girth",
+  "stmt": "the girth of the unit-step graph on \u039b\u2089 is exactly 4",
+  "hyp": "unit-step adjacency = covering relation, 6,658 edges",
+  "dep": [
+   "L.dist"
+  ],
+  "src": "T 4.3",
+  "grade": "PROVED",
+  "check": "girth",
+  "named": null
+ },
+ "K.clock": {
+  "id": "K.clock",
+  "stmt": "occupancy never rises along composition: 0 of 739 steps; the tick is k \u2212 g = (k\u2212q) + (q\u2212g)",
+  "hyp": "destinations begin empty -- an assumption, not a constraint",
+  "dep": [
+   "K.comp"
+  ],
+  "src": "M \u00a712.11.0.1",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "K.clockfail": {
+  "id": "K.clockfail",
+  "stmt": "index (g,G) with g \u2264 G \u2264 4f+2 and g \u2264 q: 13,775 cells, closed, and 31.6% of composable pairs raise occupancy",
+  "hyp": "prior occupancy carried as a coordinate",
+  "dep": [
+   "K.clock",
+   "A.rule"
+  ],
+  "src": "M \u00a712.11.0.2",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "K.arrow": {
+  "id": "K.arrow",
+  "stmt": "X_w = {a : w(tgt a) \u2264 w(src a)} is closed; one arrow per coordinate and no others; sums, max and min all fail",
+  "hyp": "w a single coordinate",
+  "dep": [
+   "K.clockfail",
+   "A.rule"
+  ],
+  "src": "M \u00a712.11.0.2",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "K.markov": {
+  "id": "K.markov",
+  "stmt": "the future is conditionally independent of the past given the transfer: every past gives the same future set at each q",
+  "hyp": "the constraint graph is a tree, q the cut vertex",
+  "dep": [
+   "C.cut",
+   "L.tree"
+  ],
+  "src": "M \u00a712.11.0.8",
+  "grade": "COMPUTED",
+  "check": "markov",
+  "named": null
+ },
+ "K.decay": {
+  "id": "K.decay",
+  "stmt": "for a tree-structured index, I(u;v) is non-increasing in tree distance d, and |P(A_u\u2229A_v) \u2212 P(A_u)P(A_v)| \u2264 \u221a(I(u;v)\u00b7ln2 / 2)",
+  "hyp": "Markov random field on a tree; data processing; Pinsker",
+  "dep": [
+   "K.markov"
+  ],
+  "src": "M \u00a712.11.0.7",
+  "grade": "PROVED",
+  "check": "mutual_info",
+  "named": "data-processing inequality + Pinsker"
+ },
+ "K.helly": {
+  "id": "K.helly",
+  "stmt": "molecular transit is an intersection question; the Helly number is \u2265 5 and \u2264 144",
+  "hyp": "a molecule moves as one fibre; a circuit is a square; ground set C(9,2)\u00b74 = 144",
+  "dep": [
+   "K.comp"
+  ],
+  "src": "T 4.4",
+  "grade": "COMPUTED",
+  "check": "helly",
+  "named": "Helly number"
+ },
+ "B.brk": {
+  "id": "B.brk",
+  "stmt": "T(n) lies between T(n\u22121) and T(n+1)",
+  "hyp": "T monotone in n within a channel",
+  "dep": [],
+  "src": "M \u00a720.1",
+  "grade": "PROVED",
+  "check": null,
+  "named": "monotone interpolation bracket"
+ },
+ "B.V": {
+  "id": "B.V",
+  "stmt": "V = w/e where w = |T(n+1)\u2212T(n\u22121)|, e = |T(n) \u2212 \u00bd(T(n\u22121)+T(n+1))|",
+  "hyp": "three consecutive members",
+  "dep": [
+   "B.brk"
+  ],
+  "src": "M \u00a721.1",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": null
+ },
+ "B.V43": {
+  "id": "B.V43",
+  "stmt": "V = 4\u03bd/3 for a Rydberg series; in general V(x,p) = 4x/(h|p\u22121|) for y = x^p",
+  "hyp": "T = Z\u00b2R/\u03bd\u00b2",
+  "dep": [
+   "B.V"
+  ],
+  "src": "M \u00a721.1",
+  "grade": "COMPUTED",
+  "check": "V_rydberg",
+  "named": null
+ },
+ "B.Vexact": {
+  "id": "B.Vexact",
+  "stmt": "V = 4\u03bd\u00b3/(h(3\u03bd\u00b2\u2212h\u00b2)); with r = \u03bd/h, V = 4r\u00b3/(3r\u00b2\u22121). Z and R cancel identically",
+  "hyp": "step h free",
+  "dep": [
+   "B.V43"
+  ],
+  "src": "M \u00a721.4",
+  "grade": "PROVED",
+  "check": "V_exact",
+  "named": null
+ },
+ "B.floor2": {
+  "id": "B.floor2",
+  "stmt": "V > 2 for any monotone sequence; V \u2192 2 only as one step vanishes",
+  "hyp": "d\u2080,d\u2081 > 0; V = 2(d\u2080+d\u2081)/|d\u2080\u2212d\u2081|",
+  "dep": [
+   "B.V"
+  ],
+  "src": "M \u00a721.2 Prop 14.1",
+  "grade": "PROVED",
+  "check": "V_floor",
+  "named": null
+ },
+ "B.floor32": {
+  "id": "B.floor32",
+  "stmt": "V \u2265 32/11 = 2.909 for a Rydberg series specifically",
+  "hyp": "hydrogenic form",
+  "dep": [
+   "B.floor2",
+   "B.V43"
+  ],
+  "src": "M \u00a721.2",
+  "grade": "COMPUTED",
+  "check": "V_floor_rydberg",
+  "named": null
+ },
+ "B.pole": {
+  "id": "B.pole",
+  "stmt": "V has a pole at p = 1: a linear observable has no curvature to price",
+  "hyp": "y = x^p",
+  "dep": [
+   "B.V43"
+  ],
+  "src": "M \u00a718.5",
+  "grade": "PROVED",
+  "check": null,
+  "named": null
+ },
+ "B.pareto": {
+  "id": "B.pareto",
+  "stmt": "dw/dh > 0 and dV/dh < 0 for every monotone convex y and every h; the family {(w,V)} is a Pareto frontier",
+  "hyp": "w ~ h, e ~ h\u00b2",
+  "dep": [
+   "B.Vexact"
+  ],
+  "src": "M \u00a721.5.2",
+  "grade": "PROVED",
+  "check": "wV_pareto",
+  "named": null
+ },
+ "B.hstar": {
+  "id": "B.hstar",
+  "stmt": "h* = \u221a(2\u03b2/(\u03b1 y\u2033)) minimises \u03b1w + \u03b2V, valid for h* \u226a \u03bd",
+  "hyp": "leading order",
+  "dep": [
+   "B.pareto"
+  ],
+  "src": "M \u00a721.5.3",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "B.frac": {
+  "id": "B.frac",
+  "stmt": "w/T = 4(h/\u03bd) + 8(h/\u03bd)\u00b3 and e/T = 3(h/\u03bd)\u00b2; their ratio is V",
+  "hyp": "Rydberg",
+  "dep": [
+   "B.Vexact"
+  ],
+  "src": "M \u00a721.6",
+  "grade": "COMPUTED",
+  "check": "fractional_forms",
+  "named": null
+ },
+ "B.newton": {
+  "id": "B.newton",
+  "stmt": "8y\u2032\u00b2/y\u2033 = 8\u03bb\u00b2 with \u03bb\u00b2 = \u2207f \u1d40[\u2207\u00b2f]\u207b\u00b9\u2207f; for a Rydberg series \u03bb\u00b2 = (2/3)T",
+  "hyp": "one dimension: \u03bb\u00b2 = f\u2032\u00b2/f\u2033",
+  "dep": [
+   "B.V"
+  ],
+  "src": "M \u00a721.8.1",
+  "grade": "PROVED",
+  "check": "newton_decrement",
+  "named": "Newton decrement, Nesterov\u2013Nemirovskii 1994"
+ },
+ "B.selfconc": {
+  "id": "B.selfconc",
+  "stmt": "T(\u03bd) is self-concordant, |f\u2034| \u2264 2(f\u2033)^{3/2}, for \u03bd \u2264 (\u221a6/2)\u00b7Z\u221aR",
+  "hyp": "T = Z\u00b2R/\u03bd\u00b2",
+  "dep": [
+   "B.newton"
+  ],
+  "src": "M \u00a721.8.2",
+  "grade": "PROVED",
+  "check": "self_concordance",
+  "named": "self-concordance"
+ },
+ "B.aitken": {
+  "id": "B.aitken",
+  "stmt": "Aitken's \u0394\u00b2 on a Rydberg series lands at I \u2212 T/3, because the correction is (\u0394T)\u00b2/\u0394\u00b2T \u2192 (2/3)T",
+  "hyp": "algebraic not geometric convergence",
+  "dep": [
+   "B.newton"
+  ],
+  "src": "M \u00a724.6",
+  "grade": "PROVED",
+  "check": "aitken_bias",
+  "named": "Aitken \u0394\u00b2 / Seki K\u014dwa"
+ },
+ "B.adm": {
+  "id": "B.adm",
+  "stmt": "r = 2Z\u00b2R/(\u03bd\u00b3\u03c3) \u2265 5",
+  "hyp": "levels separated by more than 5\u03c3",
+  "dep": [],
+  "src": "M \u00a720.5",
+  "grade": "DEFINITIONAL",
+  "check": null,
+  "named": null
+ },
+ "B.nuV": {
+  "id": "B.nuV",
+  "stmt": "\u03bd_V = (3Z\u00b2R/5q)^{1/4}",
+  "hyp": "curvature resolvable at quotation granularity q",
+  "dep": [],
+  "src": "M \u00a721.15",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "B.ordk": {
+  "id": "B.ordk",
+  "stmt": "order k admissible while |\u0394^{k+1}T| > 5\u00b72^{k+1}\u00b7\u03c3",
+  "hyp": "the (k+1)-th difference is a signed sum of 2^{k+1} levels",
+  "dep": [
+   "B.adm"
+  ],
+  "src": "M \u00a721.10.4",
+  "grade": "PROVED",
+  "check": "order_admissibility",
+  "named": null
+ },
+ "B.ordbr": {
+  "id": "B.ordbr",
+  "stmt": "sign(f(n) \u2212 p(n)) = (\u22121)^{k+1}(\u22121)^m with m nodes above n; a two-sided deductive bracket at every order",
+  "hyp": "sign(f^{(j)}) = (\u22121)^j",
+  "dep": [
+   "B.brk"
+  ],
+  "src": "M \u00a721.10.1",
+  "grade": "PROVED",
+  "check": null,
+  "named": null
+ },
+ "B.fail": {
+  "id": "B.fail",
+  "stmt": "the bracket fails \u27fa |\u0394T| > 2Z\u00b2R/\u03bd\u00b3",
+  "hyp": "a perturber reorders only if the shift exceeds half the local spacing",
+  "dep": [
+   "B.brk"
+  ],
+  "src": "M \u00a723.3",
+  "grade": "PROVED",
+  "check": null,
+  "named": null
+ },
+ "B.silence": {
+  "id": "B.silence",
+  "stmt": "the bracket holding \u27f9 |\u0394T| < 2Z\u00b2R/\u03bd\u00b3 at that cell",
+  "hyp": "contrapositive of B.fail",
+  "dep": [
+   "B.fail"
+  ],
+  "src": "M \u00a723.5",
+  "grade": "PROVED",
+  "check": null,
+  "named": null
+ },
+ "B.coll": {
+  "id": "B.coll",
+  "stmt": "an observable \u27e8r\u27e9^a/(\u0394E)^b scales as \u03bd^{2a+3b}",
+  "hyp": "\u27e8r\u27e9 \u221d \u03bd\u00b2, \u0394E \u221d \u03bd\u207b\u00b3",
+  "dep": [],
+  "src": "M \u00a724.1",
+  "grade": "COMPUTED",
+  "check": "collective_exponents",
+  "named": null
+ },
+ "B.rank1": {
+  "id": "B.rank1",
+  "stmt": "rank(log q) = 1 across fifteen Rydberg observables; second singular value 1.8\u00d710\u207b\u00b9\u2074",
+  "hyp": "every observable is \u03bd to a power",
+  "dep": [
+   "B.coll"
+  ],
+  "src": "M \u00a724.2",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "W.core9": {
+  "id": "W.core9",
+  "stmt": "at nine letters: 2,370 cells, E = 30 = 1 \u00d7 30, core (X=0, U=0, NEC=3)",
+  "hyp": "the coordinate set of T \u00a75.1",
+  "dep": [
+   "A.E"
+  ],
+  "src": "T 5.3",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "W.supp": {
+  "id": "W.supp",
+  "stmt": "of 414 coordinate subsets excluding {X,U,NEC}, 0 fail: the triple is the unique minimal failing subset, arity exactly 3",
+  "hyp": "as W.core9",
+  "dep": [
+   "W.core9",
+   "A.modeB"
+  ],
+  "src": "T 5.4",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "W.core15": {
+  "id": "W.core15",
+  "stmt": "at fifteen letters: 18,072 cells, E = 816 = 1 \u00d7 816, core (X_exp=0, U_ghost=0, NEC_pt=3, EOM=2nd)",
+  "hyp": "the split alphabet of T \u00a76.5",
+  "dep": [
+   "W.core9"
+  ],
+  "src": "T 7.1",
+  "grade": "COMPUTED",
+  "check": "fifteen_arith",
+  "named": null
+ },
+ "W.scale": {
+  "id": "W.scale",
+  "stmt": "the defect does not scale: core = 1 at 4, 5, 7 and 9 coordinates; only the multiplicity moves (3,5,10,30)",
+  "hyp": "projections of one index",
+  "dep": [
+   "W.core9"
+  ],
+  "src": "T 5.7",
+  "grade": "COMPUTED",
+  "check": "defect_scaling",
+  "named": null
+ },
+ "W.frontier": {
+  "id": "W.frontier",
+  "stmt": "d(c) = X_exp + U_ghost + |NEC_pt\u22123| + EOM + d_P; s(c) = 1{\u00b7}+1{\u00b7}+1{\u00b7}+1{\u00b7} + s_P",
+  "hyp": "the fifteen-letter alphabet; d_P the L1 distance on the eleven free letters",
+  "dep": [
+   "W.core15"
+  ],
+  "src": "T D7, D8",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "W.jur": {
+  "id": "W.jur",
+  "stmt": "a jurisdicted forcing and an unjurisdicted disjunction give identical defects; arity \u2265 3 makes a defect possible, jurisdiction narrowness makes it small",
+  "hyp": "the scope condition is a coordinate",
+  "dep": [
+   "W.supp"
+  ],
+  "src": "T 8.2",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "W.rel": {
+  "id": "W.rel",
+  "stmt": "a term that is a relation between two vocabularies cannot be a coordinate of either",
+  "hyp": "the BFV partition A : Loc \u2192 Alg has four parts",
+  "dep": [
+   "A.R"
+  ],
+  "src": "T 8.4",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": "Brunetti\u2013Fredenhagen\u2013Verch 2003"
+ },
+ "W.onehot": {
+  "id": "W.onehot",
+  "stmt": "status is one bit per vocabulary and the partition forces one-hot: 35 of 40 terms weight 1, 2 weight 0, 3 weight 2",
+  "hyp": "weight 2 = relation or unsplit conflation; weight 0 = ungrounded or constructible",
+  "dep": [
+   "W.rel"
+  ],
+  "src": "T 10.5",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "M.rs": {
+  "id": "M.rs",
+  "stmt": "the vacuum is cyclic and separating for local algebras",
+  "hyp": "Hadamard state; region with nonempty causal complement",
+  "dep": [],
+  "src": "T E0",
+  "grade": "CITED",
+  "check": null,
+  "named": "Reeh\u2013Schlieder"
+ },
+ "M.tt": {
+  "id": "M.tt",
+  "stmt": "for (M,\u03a9) there exist \u0394, J with \u0394^{it} M \u0394^{\u2212it} = M",
+  "hyp": "M a von Neumann algebra, \u03a9 cyclic and separating",
+  "dep": [
+   "M.rs"
+  ],
+  "src": "T E1",
+  "grade": "CITED",
+  "check": null,
+  "named": "Tomita\u2013Takesaki"
+ },
+ "M.hsmi": {
+  "id": "M.hsmi",
+  "stmt": "half-sided modular inclusion is CHARACTERISED by a one-parameter unitary group with positive generator",
+  "hyp": "common cyclic separating vector; extended to weights by Araki\u2013Zsid\u00f3 2004",
+  "dep": [
+   "M.tt"
+  ],
+  "src": "T E2, E3",
+  "grade": "CITED",
+  "check": null,
+  "named": "Borchers 1992 / Wiesbrock 1993"
+ },
+ "M.takesaki": {
+  "id": "M.takesaki",
+  "stmt": "N = M \u22ca_{\u03c3^\u03c6} \u211d is type II_\u221e with trace \u03c4, \u03c4\u2218\u03b8_s = e^{\u2212s}\u03c4, and M = N \u22ca_\u03b8 \u211d uniquely",
+  "hyp": "M type III, \u03c6 a faithful semifinite normal weight; STATED FOR \u211d",
+  "dep": [
+   "M.tt"
+  ],
+  "src": "T E4",
+  "grade": "CITED",
+  "check": null,
+  "named": "Takesaki duality 1973"
+ },
+ "M.semi": {
+  "id": "M.semi",
+  "stmt": "a semifinite factor carries a trace, hence an entropy; type III carries none",
+  "hyp": "von Neumann classification",
+  "dep": [
+   "M.takesaki"
+  ],
+  "src": "T E5",
+  "grade": "CITED",
+  "check": null,
+  "named": "semifiniteness"
+ },
+ "M.C1": {
+  "id": "M.C1",
+  "stmt": "the presymplectic potential \u03b8 = \u03b4\u03c6 \u00a3_\u2113\u03c6 \u03b7 carries no transverse derivative, so \u03a9 is block diagonal in y and {\u03c6(u,y),\u03c6(u\u2032,y\u2032)} = (1/4\u221aq(y))sgn(u\u2212u\u2032)\u03b4^{d\u22122}(y\u2212y\u2032)",
+  "hyp": "u-independent transverse metric, i.e. \u0398 = 0; non-derivative interactions only",
+  "dep": [
+   "M.hsmi"
+  ],
+  "src": "T 10.4c, F1, F2",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "M.C2": {
+  "id": "M.C2",
+  "stmt": "\u0394_{M(u\u2081)}^{it} M(u\u2082) \u0394_{M(u\u2081)}^{\u2212it} \u2286 M(u\u2082) for t \u2264 0, u\u2081 < u\u2082",
+  "hyp": "N a non-expanding horizon with no Killing field, \u03c9 Hadamard",
+  "dep": [
+   "M.C1",
+   "M.hsmi"
+  ],
+  "src": "T 10.4d, F6",
+  "grade": "OPEN",
+  "check": null,
+  "named": null
+ },
+ "M.ledger": {
+  "id": "M.ledger",
+  "stmt": "d \u2212 1 = 1 + (d \u2212 2): one HSMI per generator supplies the affine line; the transverse direct integral is C1 and no HSMI supplies it",
+  "hyp": "a null hypersurface in d dimensions",
+  "dep": [
+   "M.C1",
+   "M.C2"
+  ],
+  "src": "T 10.4e, F7",
+  "grade": "COMPUTED",
+  "check": "dimensional_ledger",
+  "named": null
+ },
+ "M.sorce": {
+  "id": "M.sorce",
+  "stmt": "any geometric modular flow must be generated by a conformal Killing field",
+  "hyp": "general",
+  "dep": [
+   "M.tt"
+  ],
+  "src": "T 10.4",
+  "grade": "CITED",
+  "check": null,
+  "named": "Sorce 2024"
+ },
+ "A.two": {
+  "id": "A.two",
+  "stmt": "a tightening preserves E = 0 iff each binary projection is the intersection of that projection's own two upper envelopes",
+  "hyp": "phi-hat indexed over ORDERED pairs",
+  "dep": [
+   "A.rule"
+  ],
+  "src": "M \u00a714.4 / \u00a72.15.2",
+  "grade": "PROVED",
+  "check": "two_sided",
+  "named": null
+ },
+ "A.stair": {
+  "id": "A.stair",
+  "stmt": "phi-hat recovers a STAIRCASE constraint: (alpha,beta)-monotone with alpha,beta in {<=,>=}",
+  "hyp": "binary",
+  "dep": [
+   "A.env"
+  ],
+  "src": "Deville, Bart\u00e1k, Van Hentenryck 1999",
+  "grade": "CITED",
+  "check": null,
+  "named": "staircase / connected row-convex"
+ },
+ "A.dechter": {
+  "id": "A.dechter",
+  "stmt": "strong (w*+1)-consistency on induced width w* gives decomposability",
+  "hyp": "induced width w*",
+  "dep": [
+   "A.gc"
+  ],
+  "src": "Dechter 1992",
+  "grade": "CITED",
+  "check": null,
+  "named": "Dechter 1992"
+ },
+ "A.cert": {
+  "id": "A.cert",
+  "stmt": "an open index does not close itself except where a CERTIFICATE exhibits an operation on its coordinate system reaching a fixed point of R",
+  "hyp": "the admitted operations: relabel, re-coordinatise, refine a fibration, drop a coordinate",
+  "dep": [
+   "A.clos",
+   "A.modeA",
+   "A.modeB"
+  ],
+  "src": "M \u00a718.4.1, promoted",
+  "grade": "PROVED",
+  "check": "certificates",
+  "named": null
+ },
+ "A.expr": {
+  "id": "A.expr",
+  "stmt": "a closed index equals the set its own envelopes admit, so its expression always exists and is recoverable",
+  "hyp": "X = R(X)",
+  "dep": [
+   "A.R",
+   "S.bounds"
+  ],
+  "src": "M \u00a715.2 corollary / \u00a72.23",
+  "grade": "PROVED",
+  "check": null,
+  "named": null
+ },
+ "S.bounds": {
+  "id": "S.bounds",
+  "stmt": "S3: the bounds are recoverable from the cells",
+  "hyp": "closure",
+  "dep": [
+   "A.R"
+  ],
+  "src": "M \u00a715.2",
+  "grade": "PROVED",
+  "check": "bound_recovery",
+  "named": null
+ },
+ "I.interval": {
+  "id": "I.interval",
+  "stmt": "delta = f - l is an INTERVAL MAP: min(da,db) <= delta(a v b), delta(a ^ b) <= max(da,db)",
+  "hyp": "a sublattice of a product of chains",
+  "dep": [
+   "L.dist"
+  ],
+  "src": "M \u00a717.3",
+  "grade": "PROVED",
+  "check": "interval_property",
+  "named": null
+ },
+ "I.convex": {
+  "id": "I.convex",
+  "stmt": "delta^-1(T) is a sublattice iff T intersect range(delta) is convex in range(delta)",
+  "hyp": "as I.interval",
+  "dep": [
+   "I.interval",
+   "T.excl"
+  ],
+  "src": "M \u00a717.3",
+  "grade": "PROVED",
+  "check": "convexity_criterion",
+  "named": null
+ },
+ "I.shape": {
+  "id": "I.shape",
+  "stmt": "between any two points there is an interval and the method returns its measure; three objects, one shape",
+  "hyp": "cells, states under composition, measurements",
+  "dep": [
+   "L.occ",
+   "K.comp",
+   "B.brk",
+   "A.slack"
+  ],
+  "src": "M \u00a79.2",
+  "grade": "COMPUTED",
+  "check": null,
+  "named": null
+ },
+ "EM.map": {
+  "id": "EM.map",
+  "stmt": "the multipole is determined by |\u0394l| and parity alone: 0->M1, 1->E1, 2->E2, 3->E3",
+  "hyp": "one-electron jump; no source J exists in \u039b",
+  "dep": [
+   "L.def"
+  ],
+  "src": "M \u00a712.11.8",
+  "grade": "COMPUTED",
+  "check": "multipole_map",
+  "named": "electric/magnetic multipole selection rules"
+ },
+ "EM.image": {
+  "id": "EM.image",
+  "stmt": "\u039b\u2089's image on (multipole, \u0394S) is the COMPLETE rectangle at every cap; E = 0 vacuously",
+  "hyp": "as EM.map",
+  "dep": [
+   "EM.map",
+   "A.dens"
+  ],
+  "src": "M \u00a712.11.8",
+  "grade": "COMPUTED",
+  "check": "em_image",
+  "named": null
+ },
+ "EM.spin": {
+  "id": "EM.spin",
+  "stmt": "\u0394S = 0 is a diagonal, hence two monotone one-parent bounds; imposing it preserves E = 0 at four cap settings",
+  "hyp": "LS coupling",
+  "dep": [
+   "EM.map",
+   "I.convex"
+  ],
+  "src": "M \u00a712.11.8",
+  "grade": "COMPUTED",
+  "check": "spin_rule",
+  "named": null
+ },
+ "EM.parity": {
+  "id": "EM.parity",
+  "stmt": "|\u0394l| = 1 is delta^-1({-1,+1}), a hole at zero, not convex; E = 750",
+  "hyp": "as EM.spin",
+  "dep": [
+   "EM.map",
+   "I.convex",
+   "T.excl"
+  ],
+  "src": "M \u00a712.11.8",
+  "grade": "COMPUTED",
+  "check": "parity_rule",
+  "named": null
+ },
+ "EM.quotient": {
+  "id": "EM.quotient",
+  "stmt": "the EM index is a QUOTIENT of \u039b, not an extension: adjoining its coordinates gives E = 3,900",
+  "hyp": "every EM coordinate is a function of \u039b's own",
+  "dep": [
+   "EM.map",
+   "A.derived"
+  ],
+  "src": "M \u00a712.11.8",
+  "grade": "COMPUTED",
+  "check": "em_adjoin",
+  "named": null
+ },
+ "EM.notcomp": {
+  "id": "EM.notcomp",
+  "stmt": "composability and the EM condition share 0.0004 bits of a possible 0.633",
+  "hyp": "on \u039b\u2089's cells",
+  "dep": [
+   "EM.map",
+   "K.comp"
+  ],
+  "src": "M \u00a712.11.8",
+  "grade": "COMPUTED",
+  "check": "em_vs_comp",
+  "named": null
+ },
+ "T.invariant": {
+  "id": "T.invariant",
+  "stmt": "the exact J multiset is identical in jK, LS, LK and jj; the four cell counts price four ROUTES",
+  "hyp": "coupling schemes are basis changes",
+  "dep": [
+   "T.scheme",
+   "T.dens"
+  ],
+  "src": "M \u00a712.11.4",
+  "grade": "COMPUTED",
+  "check": "scheme_invariance",
+  "named": "basis independence of the level set"
+ },
+ "G.book": {
+  "id": "G.book",
+  "stmt": "E(book) = 578 at chapter resolution, 0 at part resolution; a certificate exists",
+  "hyp": "claim-bearing paragraphs with a \u00a7 citation",
+  "dep": [
+   "A.E",
+   "A.cert"
+  ],
+  "src": "M \u00a730.1",
+  "grade": "COMPUTED",
+  "check": "e_book",
+  "named": null
+ },
+ "G.reg": {
+  "id": "G.reg",
+  "stmt": "E(register) = 6 at 68.8% density, and R recovers repair <= phi(corroboration)",
+  "hyp": "coordinates assigned from the entry text",
+  "dep": [
+   "A.E",
+   "A.R"
+  ],
+  "src": "M \u00a726.9",
+  "grade": "COMPUTED",
+  "check": "e_register",
+  "named": null
+ },
+ "G.ref": {
+  "id": "G.ref",
+  "stmt": "the reference index: 38 cells, box 144, E = 0, and NOT a tree -- access closes a cycle",
+  "hyp": "access, referent, checked, verdict",
+  "dep": [
+   "A.E"
+  ],
+  "src": "M \u00a716.6.1",
+  "grade": "COMPUTED",
+  "check": "e_reference",
+  "named": null
+ },
+ "G.trip": {
+  "id": "G.trip",
+  "stmt": "independence is a property of TRIPLES: surviving tests go as (1-f)^3, not (1-f)",
+  "hyp": "the bracket relates T(n-1), T(n), T(n+1)",
+  "dep": [
+   "B.brk"
+  ],
+  "src": "M \u00a722.9",
+  "grade": "COMPUTED",
+  "check": "triadic_independence",
+  "named": null
+ }
+}

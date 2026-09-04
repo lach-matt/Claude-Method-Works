@@ -1,0 +1,12 @@
+# La I — ATTEMPT 2, ERROR PAGE. Recorded as received, R 1639.
+# sent:        https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=La+I
+# destination: https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=La+I
+# MATCH.
+#
+# NIST ASD : Input Error
+# Error Message: Unknown parameter
+#
+# ONE parameter sent, one unknown. Therefore `spectra` is not this
+# endpoint's parameter name. `ie.pl` is plural and returns many spectra;
+# `energy1.pl` is singular — its form label reads "Spectrum:" — so the
+# next candidate is `spectrum=`.
