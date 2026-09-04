@@ -285,6 +285,88 @@ for f in recovered/l-ch1.py recovered/whatisit.py recovered/caps__163a1d7c.py; d
   python3 -c "import ast,sys; ast.parse(open(sys.argv[1]).read())" "$f"; done
 ```
 
+## 11. The 2026-09-04 rebuild's seven questions — four were already answered here
+
+The rebuilt graph (26,364 nodes) proposed seven Suggested Questions, all from `AMBIGUOUS` edges.
+**Four of the seven are questions this document already answers.** That is not a defect in either the
+graph or the document: the questions are generated from `AMBIGUOUS` edges, a rebuild starts from the
+sources and carries no resolutions forward, and the edges are *correctly* ambiguous — so the same
+questions will resurface at every rebuild. **Read this file before tracing them.**
+
+| # | question | verdict |
+|---|---|---|
+| 1 | `READING-LIST-STAGING.tsv` ↔ `T9 — 1.7 staging fault` | **co-membership** (new) |
+| 2 | `LADDER-K-Kr.tsv` ↔ `Kr II URL` | **co-membership + a data dependency** (new) |
+| 3 | dimensional obstruction ↔ gravitational three-body stratification | already §5 — **no** |
+| 4 | `O3` deuterium overlap ↔ measure-disjoint stratification | already §5 — **no** |
+| 5 | `DEF-151d` ↔ `GATE-ch151Bclose4` | already §4 — co-membership |
+| 6 | hyper-radius normalisation ↔ first-match version picker | §3, **but a third instrument** (new) |
+| 7 | `Lr I 7p < 6d` ↔ tail convention ruled out | **stated, and graded too low** (new) |
+
+### 1 and 2 — two more rows of one owed board
+
+Both pairs are the same species as §4's `DEF-151d` finding: **co-membership on a parent that neither
+endpoint names.** `BRIDGE-1_8_3-to-next.md` §4 lists five open threads with owners —
+
+> *"(1) ladder-as-limit ruling — M; (2) T8-J width — M; (3) Kr II URL — M; (4) write the 93 —
+> Claude on M's word; (5) T9 quarantine/repair — M."*
+
+— and `recovered/OWED.md` names the set outright: *"**Board rows 1–5** — ladder-as-limit · T8-J
+width · Kr II URL · the 93 series · T9's 65."* Question 1 pairs row (4) — the *93 new* series in
+`READING-LIST-STAGING.tsv`'s own row — with row (5), T9. Question 2 pairs row (3) with the ladder it
+concerns.
+
+**Question 2 carries something question 1 does not: a real data dependency.** `URLS-SUPPLIED.md`
+states that *"`sremoval=on` is the parameter that produces the MULTI-CHARGE ladder — it is what gave
+`LADDER-K-Kr.tsv` its 495 rows across every ionisation stage."* The Kr II URL is the outstanding
+capture for that ladder's Kr II stage, so the two are linked by the data and not only by the board.
+`conceptually_related_to` is the right relation; `AMBIGUOUS` understates it slightly and
+`references` would overstate it, since neither file cites the other.
+
+### 6 — the first-match fault has a third instrument, and §3 did not have it
+
+§3 pairs the hyper-radius normalisation fault with a first-match picker in **the Contents checker /
+`index_pages.py`**. The rebuilt graph points at a *different* one: `recovered/03-seal.md`, where
+`regchat.py`'s **version picker** used `re.search` across three directory listings and
+
+> *"took the FIRST match rather than the highest, so it computed the bank name already in force and
+> wrote over it — and over the copy already staged in outputs."*
+
+That is a third member of the family, and the file names the family itself — *"an instrument that
+reads a population and takes what it happens to reach first rather than what the population says —
+R 1578's object-versus-observer fault."* §3's reading stands unchanged; the class is larger than it
+recorded. Note the polarity: this one is **destructive** rather than merely wrong, and the same entry
+draws the second rule — *"a seal is a fixed point of the record and MUST NOT be silently replaced."*
+
+### 7 — stated, and the only edge here graded too low
+
+Session 19 (`FINDING-T7C-SO-SESSION-19.md`) reaches Lr I's 7p < 6d ground order from the
+one-electron object and then names what remains:
+
+> *"The one open shell-systematic is the 5d edge … **the single named obstruction to a closure
+> statement on the corridor observables.** Candidates (none opened; M ruling): (a) … (c) …"*
+
+Session 20 (`FINDING-T7C-TAIL-SESSION-20.md`) opens with *"T7C TAIL CONVENTION (**candidate (c) of
+bridge-19 s6**)"* and closes it: *"(c) RULED OUT as a closure of the 5d edge — wrong sign, and not
+SR-specific."* The softer floor moves the object **away** from measurement.
+
+So the relationship is **stated, directional and eliminative**: session 20 rules out one of the
+candidate closures for the obstruction session 19 named. The citation is in session 20's own title.
+`AMBIGUOUS` is too low — this is `references` at `EXTRACTED` strength — and it is the one edge of the
+seven where the grade, not the reading, is what needs correcting. **Not repaired in the graph**: the
+graph is regenerated, never hand-edited, and the finding is recorded here instead.
+
+### What the four repeats mean for reading the graph
+
+A question resurfacing is evidence the edge is genuinely undecidable **from its two endpoints**,
+which is what `AMBIGUOUS` means. Three of the seven resolve to *co-membership on a parent document* —
+a shape the corpus produces constantly (owed boards, gate certificates, deferral blocks) and one a
+pairwise edge cannot express. The graph carries hyperedges for exactly this, and the fact that these
+three arrived as ambiguous pairwise edges rather than as hyperedges is the most actionable thing in
+this section for a future extraction pass.
+
+---
+
 ## What is still open
 
 - **`HANDOFF-26` governance divergence** (§7b) — two complete bodies, two incompatible rules for
