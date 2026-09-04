@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 members and the unit (lettered headings; body = LAST hit; a `### D.x` unit ends at the next heading of any rank)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 32d22f8b  11904 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 2f553ed0  6695 lines
+   main The_Method_1_6-2.md                                  md5 cf4d90ce  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 e0187dde  6699 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 facd6191  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 27d387ef  2094 lines
@@ -43,7 +43,7 @@
    'twenty-two fibres'  {'main': (2, [10854, 10883]), 'reg': (3, [6455, 6463, 6658])}
    '3B.five'            {'main': (2, [10849, 10860]), 'reg': (1, [6439]), 'mc': (3, [3391, 3393, 3534])}
    '3B.pot'             {'main': (2, [10847, 10860]), 'reg': (2, [6439, 6467]), 'mc': (1, [3538])}
-   '650'                {'main': (2, [6022, 10864]), 'reg': (3, [2525, 6439, 6592]), 'mc': (1, [3254]), 'ioi': (1, [1030]), 'sc': (6, [417, 418, 459, 460, 461, 462])}
+   '650'                {'main': (2, [6022, 10864]), 'reg': (4, [2525, 6439, 6592, 6698]), 'mc': (1, [3254]), 'ioi': (1, [1030]), 'sc': (6, [417, 418, 459, 460, 461, 462])}
    'formula · analysis' {'main': (11, [10509, 10594, 10605, 10606, 10607, 10845]), 'reg': (1, [6439])}
    Register lines naming *D.5.9*: [6439, 6455] ; lines with "E = 4": [3565, 6006, 6439]
 

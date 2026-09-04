@@ -65,3 +65,11 @@ the seven successors whose live goldens bank content R3 itself changed. The gate
 set — `r2-26c2`, `r2-ch18b`, `r2-reg1a`, `r2-reg7a`, `kinds`, `r2-regsweep`, `r2-26b`, `r3-wl` — plus the
 superseded predecessors, which stay seated and red by design until an archive pass; `r2-28b3.py` is staged in
 members/ by an earlier session with no golden and is superseded by `r2-28b4`, left in place.
+
+## Closed after this file was written (W-215, W-216; BUILD102 main, BUILD210 compendia)
+
+- **reg1-04 repaired with its class** — the Register's span and counts current at entry 1815; `kinds` and `extent`
+  re-banked for the first time since BUILD90; the "register's span" line under *Open, and named* above is closed.
+- **The held set is now** `r2-ch18b`, `r2-ch23b` (added: its §7 selects census rows by line, as ch18b's does), `r2-26b`,
+  `r3-wl`, the superseded predecessors including `r2-reg1a` / `r2-reg7a` / `r2-regsweep`. The census successor and a
+  content-keyed `close_census.py` remain owed. DEF-153P records the consolidation branch read against this queue.

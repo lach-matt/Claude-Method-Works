@@ -1,0 +1,59 @@
+
+== 0  THE UNIT, AND WHY IT IS OUT OF SOURCE ORDER
+   M directed the read to jump to the 1642-1699 cluster and return to entry 290 after it.
+   Recorded as a directed departure from the chat-81 source order, not a drift.
+   entries in the flagged band 1642..1699: 46 (measured, not asserted -- an earlier draft
+   of this instrument checked it against a guessed 51 and failed its own gate. Fault 1.)
+
+== 1  THE SHAPE, MEASURED RATHER THAN THE PARITY
+   entries carrying the split shape "X* *Y"                 275                        OK
+   sites                                                    429                        OK
+   entries with an odd asterisk total                       22                         OK
+   the split class spans the record, 238 to 1729            275                        FINDING (reg7-A)
+   16.6% of the 1,657 entries. The 1642-1699 "cluster" holds 10 of them.
+
+== 2  THE TWO SUB-CLASSES
+   odd AND split: a literal asterisk must reach the page    11                         OK
+   odd but NOT split: notation, correct as printed          11                         OK
+   entries leaving a literal asterisk on the page           11                         FINDING (reg7-B)
+   scored: ['313', '604', '747', '1642', '1643', '1648', '1649', '1652', '1653', '1657', '1681']
+   acquitted as notation: ['26', '27', '1003', '1646', '1673', '1674', '1677', '1682', '1694', '1699', '1774']
+   Entry 313 is the case confirmed by reading at reg3-01 and is in the scored set.
+
+== 3  WHAT THE SHAPE COSTS, SHOWN FROM THE RECORD
+   entry 289  **§28.7.3 IS TITLED *FIFTEEN MORE* AND COVERS SEVENTY-FIVE ENTRY NUMBERS.** *What* *fifteen* *counted cannot be settled from the section and it predat
+   entry 290  **BOTH ITEMS §2.19.1 LEFT UNREPAIRED ARE REPAIRED.** **Every other block of the register ascends* **, so the descending block was the anomaly; and fou
+   entry 238  **NOVELTY CLOSED BY THE AUTHOR: NOT CLAIMED.** *E(Q) unmoved, and six Q items move from* *blocks: novelty* *to* *blocks: nothing*.
+   Each intends emphasis on a sub-phrase inside an italic body -- *fifteen*, *made* and
+   *selection*, *blocks: novelty* and *blocks: nothing*. Single asterisks cannot nest inside
+   an italic run: each pair CLOSES the body and opens a new italic, so the page shows one
+   continuous italic and the distinction the author made is not on it. The markup is not
+   merely untidy -- it is emphasis that does not arrive.
+
+== 4  THE PASS THIS IS CONSISTENT WITH, AND WHY NOTHING ATTESTS IT
+   REGISTER_AUDIT R4: "Five forms of entry across the record ... Closed - ruling C. Every
+   entry normalised to the settled form (caps headline, italic body); tags removed; no
+   content changed. Recorded as entry 1725 with Register-1 named as the witness."
+   entry 1725 exists                                        False                      OK
+   The pass that normalised every entry to the form this class disfigures is recorded at an
+   entry that is NOT IN THE REGISTER (reg1-05). Causation is NOT claimed here: what is
+   measured is a 275-entry class, a normalisation that matches its shape, and no seated
+   entry attesting the normalisation. R3 reads the three together.
+
+== 5  SPREAD, SO THE CLASS IS NOT MISTAKEN FOR A CLUSTER AGAIN
+      200- 399   32 entries  ################################
+      400- 599   86 entries  ######################################################################################
+      600- 799   46 entries  ##############################################
+      800- 999   20 entries  ####################
+     1000-1199   12 entries  ############
+     1200-1399   23 entries  #######################
+     1400-1599   26 entries  ##########################
+     1600-1799   30 entries  ##############################
+
+== SUMMARY
+   instrument checks failed : 0 
+   findings recorded        : 2
+     reg7-A    the split class spans the record, 238 to 1729        275
+     reg7-B    entries leaving a literal asterisk on the page       11
+
+   ALL INSTRUMENT CHECKS OK

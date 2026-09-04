@@ -1,0 +1,114 @@
+
+== 0  PROVENANCE
+   The_Method_1_6___The_Register-2.md              1235111 B  md5 e0187dde
+   The_Method_1_6-2.md                              783996 B  md5 cf4d90ce
+   kinds.py                                           3370 B  md5 4262f7c5
+   register_cites.py                                  2403 B  md5 c38ad7ee
+   register lines: 6699
+
+== 1  THE UNIT, BOUNDED BY ITS OWN SCAN
+   front matter runs L1 to the line before the first entry    75                         OK
+   unit = L1-L74, 74 lines, 7547 B
+   printed, read as data: total 1657 to 1815 | mature 165-1815 at 1493 (back matter 165-1815) | kinds over 1587 | cited-by-entries 571 | table 11 rows | cited 387 / 701 / 970
+
+== 2  THE ENTRY POPULATION (docket 30 convention)
+   heading lines = bare + grouped                             1657                       OK
+   entries (headings)                                         1657                       as printed
+   bare 1650, grouped 7, distinct numbers 1682, min 1, max 1815
+   extent low                                                 1                          as printed
+   extent high                                                1815                       as printed
+   genesis block 1-94 (headings)                              94                         as printed
+   superseded block 95-164 (headings)                         70                         as printed
+   NOTE the front matter does not print a count for 95-164; 70 is the full range and is measured, not scored.
+
+== 3  THE MATURE RECORD: 165-1815 / 1,493  AGAINST THE CLOSING LINE 165-1815
+   headings 165-1815 1493 | headings 165-1815 1493
+   numbers  165-1815 1518 | numbers  165-1815 1518   (numbers are NOT what the book counts)
+   mature record 165-1815, headings                           1493                       as printed
+   "165 to 1815" at L[6] ; "165-1815" at L[65, 6698]
+   READING: 1,470 is EXACT on the heading convention for 165-1791. The closing line names
+   165-1792 for the same block while the count printed beside it excludes 1792, which is
+   itself an entry. The defective half is the RANGE in the closing line, not the count.
+
+== 4  THE GROUPED FAULT ENTRIES
+   grouped fault entries, count                               32                         as printed
+   grouped fault entries, low                                 203                        as printed
+   grouped fault entries, high                                354                        as printed
+   grouped HEADINGS ("seven of which")                        7                          as printed
+   grouped HEADINGS ("the ten grouped headings")              7                          DEVIATION (reg1-E) - printed 10
+   all grouped headings printed after entry 361               True                       OK
+   entry 361 at L1315; grouped headings at L[1319, 1323, 1327, 1331, 1335, 1339, 1343]
+
+== 5  THE KINDS TABLE, RECOMPUTED BY kinds.py (the book's own operator)
+   kinds.py heading population                                1587                       as printed
+   kinds: a finding                                           1359                       as printed
+   kinds: a correction                                        168                        as printed
+   kinds: a measurement                                       501                        as printed
+   kinds: prior art                                           61                         as printed
+   kinds: a new protocol                                      24                         as printed
+   kinds: a withdrawal                                        33                         as printed
+   kinds: a fault of mine                                     16                         as printed
+   kinds: an open question                                    23                         as printed
+   NOTE kinds.py counts 1,587 headings, not the 1,657 of section 2: it drops the 95-164
+   supersession stubs under the chat-52 ruling. 1657 - 70 = 1587, and that reconciles.
+
+== 6  THE LOAD-BEARING TABLE, RECOMPUTED BY register_cites.py (the book's own operator)
+   entries cited by other entries                             650                        DEVIATION (reg1-G) - printed 571
+   load-bearing 1460                                          21                         DEVIATION (reg1-H) - printed 10
+   load-bearing 1475                                          10                         as printed
+   load-bearing 784                                           9                          as printed
+   load-bearing 1581                                          9                          as printed
+   load-bearing 1649                                          10                         DEVIATION (reg1-H) - printed 9
+   load-bearing 1664                                          9                          as printed
+   load-bearing 1578                                          9                          as printed
+   load-bearing 1020                                          8                          as printed
+   load-bearing 1445                                          14                         DEVIATION (reg1-H) - printed 8
+   load-bearing 1462                                          7                          as printed
+   load-bearing 1595                                          None                       DEVIATION (reg1-H) - printed 7
+   entries cited 7 or more times ("the 11")                   12                         DEVIATION (reg1-H) - printed 11
+   measured at 7+ but ABSENT from the printed table: [1448, 1526]
+
+== 7  THE THREE CITATION FIGURES
+   cited in the main volume                                   407                        DEVIATION (reg1-I) - printed 387
+   counting compendia and papers                              879                        DEVIATION (reg1-I) - printed 701
+   counting citations by other entries                        1076                       DEVIATION (reg1-I) - printed 970
+
+== 8  POINTERS IN THE FRONT MATTER, EVERY ONE RESOLVED TO ITS CLAIM
+   register 1725  the settled entry form           ABSENT
+   register 1732  register_cites                   ABSENT
+   register 1756  kinds                            ABSENT
+   register 1744  build.py / entry form            ABSENT
+   register 868   R-inf -> R_M, Bohr 1913          EXISTS |  **A SYSTEMATIC IS FOUND IN EVERY CHANNEL: `channels.py` USES R∞ FOR ALL S
+   register 1241  Fowler/Pickering                 EXISTS |  **TWO ATTRIBUTIONS CAME OUT SHARPER THAN THE REGISTER HAD THEM.** *`R_M`,
+   register 1139  multiplicity constraint proved   EXISTS |  **THE MULTIPLICITY OF A CHANNEL IS DERIVABLE FROM THE GROUND STATE, EXACT
+   register 1178  carried into the operator        EXISTS |  **THE INDEX WAS UNDER-CONSTRAINED, NOT UNDER-COORDINATISED, AND THE MISSI
+   register 1208  dependency cycle                 EXISTS |  **A DEPENDENCY CYCLE PASSED 248 OBJECTS AND SIX AUDIT SETS UNDETECTED.** 
+   register 1225  audit 24                         EXISTS |  **THREE NEW PRIME AUDITS, AND THEY EXIST BECAUSE THREE FAULTS REACHED THE
+
+== 9  RULING 46 AND RULING 38 IN THE FRONT MATTER
+   script names visible to the reader : ['build.py', 'kinds.py', 'register_cites.py', 'register_gen.py']
+   build handles visible to the reader: ['Build 16', 'Build 9']
+   Ruling 46 forbids script names, build numbers and internal file references in a
+   reader-facing volume. Ruling 38 makes the front matter a PURPOSE STATEMENT ONLY.
+   4 script names and 2 build handles stand in it. Docket 6 / 5.
+
+== SUMMARY
+   instrument checks failed : 0 
+   deviations recorded      : 15
+     reg1-E    grouped HEADINGS ("the ten grouped headings")        measured 7              printed 10
+     reg1-G    entries cited by other entries                       measured 650            printed 571
+     reg1-H    load-bearing 1460                                    measured 21             printed 10
+     reg1-H    load-bearing 1649                                    measured 10             printed 9
+     reg1-H    load-bearing 1445                                    measured 14             printed 8
+     reg1-H    load-bearing 1595                                    measured None           printed 7
+     reg1-H    entries cited 7 or more times ("the 11")             measured 12             printed 11
+     reg1-I    cited in the main volume                             measured 407            printed 387
+     reg1-I    counting compendia and papers                        measured 879            printed 701
+     reg1-I    counting citations by other entries                  measured 1076           printed 970
+     reg1-J    front-matter pointer 1725 absent                     measured False          printed True
+     reg1-J    front-matter pointer 1732 absent                     measured False          printed True
+     reg1-J    front-matter pointer 1756 absent                     measured False          printed True
+     reg1-J    front-matter pointer 1744 absent                     measured False          printed True
+     reg1-K    Ruling 46 sites in the Register front matter         measured 6              printed 0
+
+   ALL INSTRUMENT CHECKS OK
