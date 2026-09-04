@@ -1,0 +1,51 @@
+
+Entry order is append-only, so the record's own sequence is:
+
+| state | total | site |
+|---|---|---|
+| §32.1.4 as first computed (332's words) | **55** | Register L1231 |
+| register 332, a press readout | **47** | Register L1231 |
+| register 373 / §32.1.4.1 | **48** | Register L1379 |
+| register 375, discharging §2.21 | **47** | Register L1387 |
+
+**The total is not monotone: 55, 47, 48, 47.** The record has it at 47 *before* it has it at 48. Register
+375's 47 is not a further movement down from 48 — it is 332's figure restated after 373 printed a higher
+one. **That is the mechanism behind 26c-02**, and it is not the mechanism 26c-02 named.
+
+## 32a-01 — 26c-02 IS CORRECTED (deviation)
+
+26c-02 recorded that *the replacement shape sentence appears in no volume*. **Measured, case-folded over
+all six volumes and Prints & Proofs: it has TWO sites, both in the Register — entries 332 and 375.**
+Zero in the main volume's chapters, zero in the other four compendia, zero in Prints & Proofs. What is
+true, and is what the finding meant, is narrower: **§32.1.4 does not carry it.** A claim about a volume is
+not a claim about a section, and the recorded wording scored the wrong object. Recorded, not repaired.
+
+## 32a-02 — the answer to the ruling: only 55 is reproducible, and the 47 mixes two states
+
+Every printed value of each component, swept over the six volumes: Appendix D unfibred **{3, 4}**; E(Q)
+unfibred **{1, 5}**; the numbers index **{21, 23, 33}**; the audit set **{0, 11, 16, 17}**. Over the
+Cartesian product:
+
+- **55 is reached by exactly ONE assignment** — (4, 1, 33, 17), §32.1.4's own table.
+- **48 is reached by THREE** — (3, 1, 33, 11), (3, 5, 23, 17), (4, 5, 23, 16).
+- **47 is reached by TWO** — (3, 5, 23, 16) and (4, 5, 21, 17).
+
+Of the two reaching 47, only **(D 4, Q 5, numbers 21, audits 17)** agrees with the shape sentence that 332
+and 375 both assert in the same breath (*the audit set seventeen*); the other takes the audits to 16. And
+that one **mixes two states of the book**: the numbers index at **21** is §32.1.4.1's *before compression*
+column (main L9010), while E(Q) unfibred at **5** is §32.6.1 / register 396's readout at *the build that
+produced this page* (main L9270), which is after compression.
+
+**32a-02a, the corollary that decides it.** A readout is reproducible only if its inputs are printed at ONE
+state. §32.1.4.1's own rule is that a figure about the book *is true of a state, and the state is named*.
+The 47 satisfies its own shape sentence only by drawing components from two states, so it is not a reading
+taken at one moment. **Three totals stand at once because the record prints components from four states and
+a total from three of them.**
+
+## 32a-03 — the instrument that computes the largest component is not a member, and was itself a rebuild
+
+Register 435 (Register L1615): ***densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE
+PRINTED rules.** *Five of six densities reproduce exactly and the sixth to a rounding … All six build-time
+readouts run for the first time.* Measured against BUILD184's members: **`numbers-index.py` is not a member.
+Neither is `densities.py`, `indices.py`, `appendix_audit.py`, `mathreg.py`, `compendium.py`,
+`register_gen.py` or `guard.py`.** `register_cites.py`, `kinds.py`, `build.py` and `close.py` are.

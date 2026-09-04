@@ -1,0 +1,43 @@
+# REBUILD-BUILD183.md — how BUILD183 is rebuilt from Drive alone, with no upload by M
+
+Written by chat 151-B, third segment. **BUILD183 is not in Drive as a single file**: a 5.9 MB bundle cannot be created
+through the Drive connector, which takes content inline only. It does not need to be. BUILD183 is *bit-exactly
+determined* by BUILD182 — itself determined by BUILD181 + BUILD182-PARTS, itself by BUILD180 + BUILD181-PARTS, itself
+by BUILD179 + BUILD180-PARTS, all in Materials — plus the ten parts in this folder.
+
+**Every part below was uploaded by Claude and read back byte-for-byte against the copy that went into the build.**
+
+## Inputs
+
+| object | where | bytes | md5 |
+|---|---|---|---|
+| BUILD90 main | Materials, `1lJ9R3vqAz3TNriJOyxJIKJGh5HqwY7GH` | 1,983,081 | 49065309b0c4fe8e055f693aed295cca |
+| BUILD182 compendia | rebuilt from BUILD181 + BUILD182-PARTS | 5,864,276 | 27e66a61061cec78283c4a88d53ba964 |
+| W-192.md | this folder | 6,023 | 334fddaa39b581adebe05ba1d506fae6 |
+| DEF-151c.md.part00 | this folder | 4,471 | fb1c26c90a19732b5232f5f8bc7103d3 |
+| DEF-151c.md.part01 | this folder | 3,183 | a8c153d2634b6cb74fcc509cae837a9c |
+| DOCKET-151c.md | this folder | 3,460 | 2a89c78c9bd7eac36d0d58bca2f3d746 |
+| READ-28a2.md.part00 | this folder | 3,895 | 0293fa426e0ca78d9e2ac9bcc1562480 |
+| READ-28a2.md.part01 | this folder | 3,809 | 849700188593f71610960d05d0203bd6 |
+| CENSUS-CLOSURES-28a2.tsv | this folder | 1,580 | df436792af39ac4dbbdb5177386659bc |
+| r2-28a2.py.part00 | this folder | 5,652 | 860009249f0130fb2ace8136b6bf8b7e |
+| r2-28a2.py.part01 | this folder | 5,541 | f56554f1e13ca830f2313eb249eaed11 |
+| r2-28a2.py.part02 | this folder | 5,483 | 0f5939f574d525211819dbc0c8ae8d0e |
+
+Reassemble before anything else: `cat DEF-151c.md.part00 DEF-151c.md.part01 > DEF-151c.md` (**7,654 B,
+`18180c2e6e56ccad6ed41a5cc5b9bf01`**) and `cat READ-28a2.md.part00 READ-28a2.md.part01 > READ-28a2.md` (**7,704 B,
+`c5f9f345c869d0915e57072876836503`**).
+
+**Why more parts here, and the finding that produced them.** `base64Content` with `disableConversionToGoogleType: true`
+removes the *transport* failure mode chat 150 measured under `textContent` (HTML entities for `&` and `<`, a dropped
+blank line), and 17 of 17 parts went up byte-exact under it across this chat's first two closes. It does not remove the
+*transcription* failure mode, which is mine: **at ~8 KB and ~10 KB of base64 this chat produced two wrong uploads in
+four attempts — one truncated (205 B against 6,023) and one three bytes short — and the read-back byte count caught
+both.** They were trashed and re-created; nothing wrong ever entered a build. The structural fix is the one already in
+the standing note, applied a notch further: **keep every part near 5 KB**, which is ~7 KB of base64 and has not yet
+failed. So the two markdown members over 7 KB are split as well as the instrument. Every split is `split -n l/N` at
+line boundaries and every concatenation was verified to reproduce its file exactly before any part was uploaded.
+
+## Steps
+
+0. Rebuild BUILD182 first, per REBUILD-BUILD182.md (which itself begins from REBUILD-BUILD181.md, and that from

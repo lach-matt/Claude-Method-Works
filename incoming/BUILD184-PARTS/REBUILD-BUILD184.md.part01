@@ -1,0 +1,44 @@
+   `d215c184aee08b884d8748fb6d79c0cb`.** Everything below is on top of it.
+1. `cat r2-28b2.py.part00 r2-28b2.py.part01 r2-28b2.py.part02 r2-28b2.py.part03 > members/r2-28b2.py`
+   — **assert 17,057 B, md5 `ccb9fc499e8d20e953936f472dab34b2`.** Stop if it differs.
+2. Regenerate the golden: `gate.py bank r2-28b2`
+   — **assert 14,026 B, md5 `553c84c9d548389da05c9aaf77ce243d`, 165 lines.** The instrument is deterministic (no
+   wall clock, no randomness) and `gate.py run r2-28b2` reproduced this golden exactly in chat 151-B, so the
+   output is carried as a derivation rather than as a transcription. Stop if it differs.
+3. Put the reassembled `READ-28b2.md` and `CENSUS-CLOSURES-28b2.tsv` in `members/` unchanged.
+4. Run the close, `--append` before `--members`:
+
+```
+python3 members/close.py \
+  --old  The_Method_1_6_BUILD183_compendia_papers_audits.md \
+  --new  The_Method_1_6_BUILD184_compendia_papers_audits.md \
+  --w    W-193.md \
+  --append DEFERRED.md DEF-151d.md \
+  --append DOCKET.md   DOCKET-151d.md \
+  --members members/r2-28b2.py members/r2-28b2.out members/READ-28b2.md members/CENSUS-CLOSURES-28b2.tsv
+```
+
+5. **Assert the result: 5,977,919 B, md5 `d4350094449e3a4bf488315e21199bd4`, 67,533 lines, 357 members.**
+   `close.py`'s own reverse guard must also report that stripping the appended text recovers
+   `d215c184aee08b884d8748fb6d79c0cb`. Any mismatch stops the chat with a report; nothing here is to be patched
+   into agreement.
+
+Expected inside the rebuilt bundle: MANIFEST.tsv 24,056 B / `11e2e43e938a21176e2c3bdfaed24902` / 359 lines (358
+listed); WORKING-REGISTER.md 932,240 B / `84fc75211fb075369651ef5f3284fc4d` / 8,013 lines, 194 W entries ending
+W-193; DEFERRED.md 417,777 B / `fb39f84dbf0b702174ec5acf27b74714` / 3,461 lines; DOCKET.md 64,938 B /
+`0eddf7e5eeb0e4969c87786b0386ecbf` / 420 lines.
+
+## Standing
+
+**W-190's loop ruling governs and is unchanged:** a chat opens from Drive, works with Graphify as the substrate
+for state and cross-check, and closes by writing only these small parts and the handoff back to Drive.
+
+**The gate at this build:** GATE-ch151Bclose4, verdict PASS, run against a fresh re-extract of BUILD184 — census
+byte-identical, `run --core` 5/5, MANIFEST OK 358 listed / 359 extracted, and **72 of 72 banked goldens
+reproduce**, with every golden separately verified byte-identical to its copy in the bundle after the sweep.
+§0a remains empty.
+
+**What this build closes.** DEF-143 item 11's order of computable re-derivations is **empty**: nine families,
+the last four in this chat (26b-02/-03, 27a-02, 28a-06, 28b-06). No new re-derivation is owed by item 11. What
+the order now waits on is **R3's rulings** — 26c-02's three standing totals, 27a-02's disjoint sets, 28a-06's
+figure, 28b-07's block scope — and the census rows left engaged and open (mc 387–672, mc 293).

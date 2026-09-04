@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+# r2-32a.py — chat 152 (Cowork) — 26c-02 under M's ruling (c): the ORIGIN of each of §32.1.4's three totals.
+# M ruled (c), a third state: hunt the record for where 55, 48 and 47 each come from, rather than choosing
+# between (a) the section takes register 375's change and (b) 375 is corrected.
+# WHAT WAS OWED. 26c-02 recorded that three totals stand at once — the printed fifty-five, §32.1.4.1's 48
+# with register 373, and register 375's 47 — and that "the replacement shape sentence appears in no volume".
+# It did NOT say where any of the three came from. This instrument supplies the provenance of each, and it
+# CORRECTS the reading that recorded it (a finding about the earlier reading, measured, not a repair).
+# CONVENTION ORIG, stated before anything is scored:
+#   a total's ORIGIN is the object that computed it — a printed component set whose sum reaches it, or an
+#   entry that states it as a readout. A total is REPRODUCIBLE only if some assignment of PRINTED values to
+#   the four components §32.1.4's own table names sums to it; a component value that appears nowhere in the
+#   six volumes or Prints & Proofs may not be supplied by this instrument to close an arithmetic. Where no
+#   printed assignment reaches a total, the total is UNREPRODUCIBLE and the entry that states it is its only
+#   provenance — which is a fact about the record, not a defect in the arithmetic.
+# FAULTS SELF-CAUGHT AND NAMED (this instrument's, not the book's):
+#   fault 1: the shape sentence was first swept case-sensitively over MAIN only, reproducing 26c-02's
+#            "no volume" verdict. The sweep is over all six volumes AND Prints & Proofs; it has two sites.
+#   fault 2: the component sweep first admitted E(audits) = 16 from §32.6.1 without checking whose readout
+#            it is. §32.6.1's readout is a FIVE-term set over a different index family (Λ, audits, G, Q, D),
+#            not §32.1.4's four. The value is admitted as a printed value of the audits component and the
+#            distinction is printed beside it, because a value is printed or it is not.
+# Deterministic: no wall clock, no randomness. Reads MEMBERS by name; PP is Prints & Proofs.
+import os, re, sys, hashlib, itertools, importlib.util
+H = os.path.dirname(os.path.abspath(__file__))
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+
+MAIN, REG = 'The_Method_1_6-2.md', 'The_Method_1_6___The_Register-2.md'
+VOLS = [MAIN, REG, 'The_Method_1_6___Mathematical_Compendium-2.md', 'The_Method_1_6___The_Physics_Compendium-2.md',
+        'The_Method_1_6___Spectra_Compendium-2.md', 'The_Method_1_6___The_Index_of_Indices-2.md']
+M, R = rd(MAIN), rd(REG)
+PPN = 'PP_The_Method_1_6.md'
+P = (rd(PPN) if os.path.exists(os.path.join(H, PPN))
+     else open('/home/claude/' + PPN, encoding='utf-8').read().split('\n'))
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+def nvol(v): return v.split('___')[-1].replace('The_Method_1_6-2.md', 'main').replace('-2.md', '')
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-70s %-26s %s' % (tag, repr(got), 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-70s %-26s %s' % (tag, repr(got), 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+
+print('r2-32a.py — 26c-02 ruling (c): the origin of §32.1.4\'s fifty-five, of §32.1.4.1\'s 48, and of register 375\'s 47')
+print('members: %s md5 %s | %s md5 %s | PP md5 %s'
+      % (MAIN, md5(MAIN), REG, md5(REG), hashlib.md5('\n'.join(P).encode()).hexdigest()[:8]))
+
+def head_body(lines, sec):
+    """body occurrence of '### <sec> ' — the LAST such heading, contents entries excluded by taking the last."""
+    hits = [i for i, l in enumerate(lines, 1) if re.match(r'^\s*#{2,4}\s+%s\s' % re.escape(sec), l)]
+    return hits[-1] if hits else None
+def sec_end(lines, start):
+    return next((j for j in range(start + 1, len(lines) + 1) if re.match(r'^\s*#{1,4}\s', lines[j - 1])), len(lines) + 1)
+
+# ------------------------------------------------------------------ §1
+hr('§1 §32.1.4 AND ITS TABLE — located by scan; the four E-bearing rows and their sum')
+s4 = head_body(M, '32.1.4'); e4 = sec_end(M, s4)

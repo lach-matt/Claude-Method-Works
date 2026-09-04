@@ -1,0 +1,64 @@
+VALS = {}
+for k, pat in COMP.items():
+    found = {}
+    for v in VOLS:
+        L = rd(v)
+        for i, l in enumerate(L, 1):
+            for mm in re.finditer(pat, l):
+                for g in mm.groups():
+                    if g: found.setdefault(int(g), []).append('%s L%d' % (nvol(v), i))
+    # the table rows themselves
+    for _, n, _, E, _ in ROWS:
+        if n == k: found.setdefault(E, []).append('main L(table)')
+    VALS[k] = found
+    print('   %-38s printed values %s' % (k, sorted(found)))
+for k in VALS: check('%s has at least one printed value' % k, len(VALS[k]) > 0, True)
+reach = {}
+for combo in itertools.product(*[sorted(VALS[k]) for k in NOW]):
+    reach.setdefault(sum(combo), []).append(combo)
+for t in (47, 48, 55):
+    print('   total %d reachable by %d printed assignment(s): %s' % (t, len(reach.get(t, [])), reach.get(t, [])))
+check('55 is reachable from printed values', 55 in reach, True)
+check('48 is reachable from printed values', 48 in reach, True)
+check('47 is reachable from printed values', 47 in reach, True)
+S47 = reach.get(47, []); S48 = reach.get(48, []); S55 = reach.get(55, [])
+AI = list(NOW).index('the audit set, at four coordinates')
+NI = list(NOW).index('Appendix F, the numbers')
+QI = list(NOW).index('Appendix E (Q), unfibred')
+print('   Every assignment reaching 47, and whether it agrees with the shape sentence the same entries assert:')
+for c in S47:
+    print('      %-22s audits = %-3d  %s' % (str(c), c[AI],
+          'CONTRADICTS 375\'s own *the audit set seventeen*' if c[AI] != 17 else 'AGREES with *the audit set seventeen*'))
+SHAPE_OK = [c for c in S47 if c[AI] == 17]
+check('assignments reaching 47 that keep the audits at seventeen', len(SHAPE_OK), 1)
+check('the shape-consistent assignment reaching 47', SHAPE_OK[0], (4, 5, 21, 17))
+check('55 is reached by exactly one printed assignment, the table itself', S55, [(4, 1, 33, 17)])
+check('48 is reached by more than one printed assignment', len(S48) > 1, True)
+check('47 is reached by more than one printed assignment', len(S47) > 1, True)
+# where do the shape-consistent 47's two moving components come from?
+src_numbers = [w for v, w in VALS['Appendix F, the numbers'].items() if v == SHAPE_OK[0][NI]][0]
+src_q = [w for v, w in VALS['Appendix E (Q), unfibred'].items() if v == SHAPE_OK[0][QI]][0]
+print('   numbers index = %d printed at: %s' % (SHAPE_OK[0][NI], src_numbers))
+print('   E(Q) unfibred = %d printed at: %s' % (SHAPE_OK[0][QI], src_q))
+check('the numbers-index value in that assignment is §32.1.4.1\'s BEFORE-COMPRESSION column, not its NOW column',
+      (SHAPE_OK[0][NI], int(T3['E over the numbers index'][1]), int(T3['E over the numbers index'][2])), (21, 21, 23))
+print('   32a-02 NEW, AND IT IS THE ANSWER TO THE RULING. Of the three totals, only 55 is uniquely determined')
+print('   by printed values — one assignment, §32.1.4\'s own table, (4, 1, 33, 17). 48 is reached by three')
+print('   printed assignments and 47 by two, so neither is recoverable from the page without choosing a state.')
+print('   The ONLY assignment reaching 47 that agrees with the shape sentence 332 and 375 both assert is')
+print('   (D 4, Q 5, numbers 21, audits 17) — and it MIXES TWO STATES: the numbers index at 21 is')
+print('   §32.1.4.1\'s BEFORE-COMPRESSION column, while E(Q) unfibred at 5 is §32.6.1 / register 396\'s')
+print('   readout at *the build that produced this page*, which is after compression. So the 47 is not a')
+print('   reading taken at one moment, which is the very thing §32.1.4.1 says a figure about the book must be.')
+print('   32a-02a, the corollary that decides it: a readout is reproducible only if its inputs are printed at')
+print('   ONE state. Three totals stand at once because the record prints components from four states and a')
+print('   total from three of them.')
+print('   FAULT OF MINE, CAUGHT BEFORE BANKING AND NAMED (fault 5): the draft of this section asserted that')
+print('   NO shape-consistent assignment reaches 47 and would have recorded 47 as flatly unreproducible. The')
+print('   scan found (4, 5, 21, 17). The scan was right and the assertion was corrected to the measurement.')
+
+# ------------------------------------------------------------------ §7
+hr('§7 WHOSE READOUT — the instrument that computes the largest component, and whether the build holds it')
+i435, t435 = entry(435)
+print('   register 435 Register L%d: %s' % (i435, norm(t435)[:200]))
+check('435 records the two readout scripts as having been ABSENT', 'WERE ABSENT AND ARE REBUILT' in t435.upper(), True)

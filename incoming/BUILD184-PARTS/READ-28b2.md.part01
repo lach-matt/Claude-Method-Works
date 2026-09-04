@@ -1,0 +1,47 @@
+  Griffin–Andrew–Cowan 1969/1971, and Pulay 1969. **Koelling & Harmon, Gerratt & Mills and Madelung the chapter
+  never names**, and **Madelung is in neither Chapter 35 nor registers 1701–1712** — the one work of either
+  block with no home anywhere in the record. This is 28b-06's Löwdin half, unchanged in direction and now
+  measured against the right denominator.
+
+## B — verified (measured true)
+
+- **B-01** `### R.7 What is not cited, and why` is at L11806; `# APPENDICES` at L161 and L9937, the chapter
+  bound being the last. Chapter 35 L9716–L9891, Chapter 36 L9892–L9936. Both sentences sit inside R.7
+  L11806–L11840 and **outside both chapters**.
+- **B-02** The Löwdin block carries **8** bullet works, the three-body block **21**.
+- **B-03** Register 1721 states both the eight questions and the seven closures, and says the questions were
+  *formed from residue before deriving*, citing **§E.5** — the Register's own account of the attribution act.
+- **B-04** Every one of the six block works newer than Montgomery is absent from Chapter 36; the nine names in
+  neither Chapter 36 nor 1713–1724 reproduce READ-ch28b exactly — Arnold, Chazy, Fleischer, Hsiang, Knauf,
+  Kolmogorov, McGehee, Nash, Straume.
+- **B-05** Koelling, Harmon, Gerratt and Mills are absent from Chapter 35 and present in 1701–1712; the chapter
+  names the companion paper by title at L9723.
+- **B-06** §36.2's *Eight attribution questions, eight closed* and §36.3's *Seven belonged to others; the
+  eighth* **reconcile**, and 1721's *seven closed to named owners* agrees with §36.3: the eighth question is
+  the withdrawn degree-8 polynomial (register 1719), given to **Lagrange's resolvent method, 1770** as prior art
+  at register 1720 — and 1721's owner list names neither Lagrange nor Euler, which is why it says seven.
+
+## Census
+
+Engaged: main L9716–L9891, L9892–L9936 and L11806–L11840; reg L6345–L6388 (1701–1712) and L6389–L6436
+(1713–1724). **main 1199 and 1200** and **reg 1460** were closed earlier as not defects and the earlier line
+governs (G0b). **reg 1546 closed here as a defect**: the C13 handle leak `3B.tri` at L6403 sits inside register
+1716, which this reading read entire; the class is ruled at 26b-10 / ruling 46 / docket 28 with census 1536 and
+1556 closed on the same form, so no new ruling is made. R.7 L11806–L11840 carries no census row of its own.
+
+## C — incidental
+
+- **Two faults of mine, caught before banking and neither the book's.** The first draft's §6 prose said *four*
+  while its verdict said *five*: the count was picking up the companion-paper bullet because the word *Löwdin*
+  is in its title. Fixed by excluding the one non-prior-art bullet from both numerator and denominator and
+  asserting that exclusion, which is also the honest denominator for a claim about *the works Chapter 35 rests
+  on*. The second was a §1 check that was true by construction; it was replaced with a real one — that both
+  sentences sit inside R.7's line range and outside both chapters.
+- **Engaged and NOT scored: 1721's own arithmetic.** The entry prints **ten** owner-groups — Montgomery, Saari,
+  Painlevé, Moore/Chenciner–Montgomery, Maupertuis/Jacobi, Alekseev/Moser, Monaghan/Stone–Leigh/Kol, Brudno,
+  Hill/Marchal–Bozis, Baker–Pixley/Montanari/Dechter/Freuder — against its stated **seven** closures. A single
+  question may close to more than one group, and the audit-7 ledger that maps question to owner is **not a
+  member of this build**, so the reading cannot decide it and does not score it. Recorded for R3.
+- **Not scored, recorded.** *Hill*, *Poincaré*, *Freuder* and *Mardling & Aarseth* are named at L11818 as
+  *cited above and reused* rather than as block bullets, so they are outside this reading's scope; Freuder none
+  the less appears inside 1721's tenth owner-group.

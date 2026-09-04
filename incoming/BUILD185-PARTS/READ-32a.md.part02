@@ -1,0 +1,45 @@
+
+`build.py` **is** a member and computes none of it: it is a prose-substitution press — 919 lines of
+markdown/pandoc repair and a substitution table whose job is to **strip the script names out of
+reader-facing prose** (`'**densities.py* AND *numbers-index.py*'` → `'**the six densities* AND *the numbers
+index*'`). It contains no arithmetic over the four components. **So the origin of the 47 is a reconstruction
+of an absent instrument, the reconstruction is not held either, and the total cannot be re-derived from the
+artefact as delivered. This is docket 38 — a figure whose instrument is not a member — not docket 12.**
+
+## 32a-04 — register 332's own text is damaged where it would answer the question
+
+Read entire, as docket 9(b) asks, 332's body reads: *Across its six indices**since** been confirmed by
+occupants arriving.* **Two sentences collapsed with text lost between *indices* and *since*.** The entry
+§32.1.4 cites for its total is damaged at exactly the point where it would say how many of the named cells
+have since been filled — the figure §32.1.4's own *confirmed three times* paragraph depends on. Append-only:
+a new entry citing 332 restores the sentence; 332 is not edited.
+
+## Faults of mine, caught before banking and named
+
+1. **`entry()` read the MAIN member for register entries.** The registers live in the Register member; main
+   and register are separate members of separate bundles. Corrected; every entry line number here is a
+   Register line.
+2. **The pointer sweep was line-wise and missed *Register 332*** — the pointer wraps a line break. Corrected
+   to the whitespace-normalised join, and both sweeps are printed so the difference is visible. This is the
+   chat-125 convention (a list wrapping across two lines is read on the normalised join) applied to a
+   citation, and it is why 26c-02 could record 375 as the 47's home.
+3. **The shape sweep was first case-sensitive and over MAIN only**, which reproduced 26c-02's *no volume*
+   verdict. Widened to all six volumes and PP, case-folded.
+4. **§32.6.1's E(audits) = 16 was first admitted without asking whose readout it is.** §32.6.1's readout is
+   a FIVE-term set over a different index family (Λ, audits, G, Q, D — sixty-five cells), not §32.1.4's
+   four. The value is admitted as a printed value of the audits component, and the distinction is printed
+   beside it, because a value is printed or it is not.
+5. **The draft of §6 asserted that NO shape-consistent assignment reaches 47** and would have recorded the
+   47 as flatly unreproducible. The scan found (4, 5, 21, 17). **The scan was right and the assertion was
+   corrected to the measurement** — the same fault class chat 151-B recorded at 28a-06.
+
+## Census
+
+**Zero DEFECT-CENSUS.tsv rows fall in main L8963–L9029** under any class value. `CENSUS-CLOSURES-32a.tsv`
+is header-only per the chat-70 R1 rule.
+
+## Not measurable, recorded
+
+Whether the press's own run at 332 used (4, 5, 21, 17) or a component set the book never printed. The
+readout's inputs are not on the page and `numbers-index.py` is not a member; the assignment above is the
+only shape-consistent one **available**, which is weaker than saying it is the one that was used.
