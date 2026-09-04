@@ -33,11 +33,15 @@ hand-edit it or `LEDGER.tsv`. `drive/` stays the mirror of record and is never w
 pass. See `extracted/README.md` and `docs/CONSOLIDATE.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
-1,005 artefact names in the two live bundles: 559 held, 15 held only under a figure's pre-rename
-source name, **431 absent**. `COVERAGE.tsv` is the standing list. An `ABSENT` means "not reachable
-from any source here" and is **not** a finding of loss — a name in prose is not proof a file existed
-— and every count is a floor, since extraction is literal (58 handoffs named in filename shape
-against 88 referenced by bare number). See `docs/COVERAGE.md`.
+1,005 artefact names in the two live bundles: **702 held**, 15 held only under a figure's pre-rename
+source name, 273 reachable in the chat export, 11 with a body there, and **4 absent** — and those
+four are unhyphenated spellings of handoffs the repo holds, not missing documents. **Run it as
+`python3 tools/coverage.py --chats`**; the plain run drops every chat resolution and rewrites
+`COVERAGE.tsv` with 288 ABSENT. An `ABSENT` means "not reachable from any source here" and is
+**not** a finding of loss — a name in prose is not proof a file existed — and every count is a
+floor, since extraction is literal (58 handoffs named in filename shape against 88 referenced by
+bare number, 62 of those held). `extracted/` and `recovered/` moved these figures a long way: held
+rose 559 → 702 and the plain-run ABSENT fell 431 → 288 with no new fetch. See `docs/COVERAGE.md`.
 
 **`drive/chats/` is the sharded chat export, and `recovered/` is what was extracted from it.**
 352 conversations, 11,879 messages, sharded by `tools/shard_conversations.py` with `INDEX.tsv` and

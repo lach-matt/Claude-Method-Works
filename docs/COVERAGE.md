@@ -11,15 +11,20 @@ own recorded numbers.
 
 | family | named | held | via alias | ABSENT |
 | --- | ---: | ---: | ---: | ---: |
-| instrument (`.py`) | 338 | 213 | 0 | 125 |
-| data (`.tsv`/`.csv`/`.json`) | 218 | 136 | 0 | 82 |
-| other | 150 | 73 | 0 | 77 |
-| `READ-*` | 119 | 48 | 0 | 71 |
+| instrument (`.py`) | 338 | 245 | 0 | 93 |
+| data (`.tsv`/`.csv`/`.json`) | 218 | 137 | 0 | 81 |
+| other | 150 | 75 | 0 | 75 |
+| `READ-*` | 119 | 114 | 0 | 5 |
 | figure (`.png`) | 117 | 75 | 15 | 27 |
-| `HANDOFF-*` | 58 | 12 | 0 | 46 |
+| `HANDOFF-*` | 58 | 54 | 0 | 4 |
 | `DEF-*` | 3 | 0 | 0 | 3 |
 | `REGISTER-*`, `RULING-*` | 2 | 2 | 0 | 0 |
-| **Total** | **1,005** | **559** | **15** | **431** |
+| **Total** | **1,005** | **702** | **15** | **288** |
+
+**These figures moved when `extracted/` and `recovered/` landed, and by a lot.** The census above
+previously read 559 held against 431 ABSENT; consolidation and recovery raised `held` by 143 and cut
+`ABSENT` by 143 without a single new fetch — `READ-*` from 48 held to **114**, `HANDOFF-*` from 12 to
+**54**. Anything quoting the old figures is quoting a repository that no longer exists.
 
 ## Resolved against the chats (`--chats`)
 
@@ -29,19 +34,24 @@ conversation to open.
 
 | family | named | held | alias | in-body | in-chat | ABSENT |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| instrument | 338 | 213 | 0 | 0 | 125 | 0 |
-| data | 218 | 136 | 0 | 0 | 82 | 0 |
-| other | 150 | 73 | 0 | 10 | 63 | 4 |
-| `READ-*` | 119 | 48 | 0 | 44 | 27 | 0 |
+| instrument | 338 | 245 | 0 | 0 | 93 | 0 |
+| data | 218 | 137 | 0 | 0 | 81 | 0 |
+| other | 150 | 75 | 0 | 8 | 63 | 4 |
+| `READ-*` | 119 | 114 | 0 | 3 | 2 | 0 |
 | figure | 117 | 75 | 15 | 0 | 27 | 0 |
-| `HANDOFF-*` | 58 | 12 | 0 | 41 | 5 | 0 |
+| `HANDOFF-*` | 58 | 54 | 0 | 0 | 4 | 0 |
 | `DEF-*` | 3 | 0 | 0 | 0 | 3 | 0 |
-| **Total** | **1,005** | **559** | **15** | **95** | **332** | **4** |
+| **Total** | **1,005** | **702** | **15** | **11** | **273** | **4** |
+
+**`--chats` is not optional if you want these numbers.** A plain `python3 tools/coverage.py`
+overwrites `COVERAGE.tsv` with the 288-ABSENT census and drops every `IN-CHAT` resolution — the file
+in the repository is the `--chats` run, and it reproduces byte-for-byte only with the flag.
 
 `IN-CHAT-BODY` means a shard carries the document's own title line, so the body is recoverable from
 that conversation. `IN-CHAT` means only that the name is spoken there — possibly a passing mention.
-The distinction is deliberate and the weaker status is never reported as the stronger: **41 of the
-46 handoffs have a body; the other 5 are mentions.**
+The distinction is deliberate and the weaker status is never reported as the stronger. It used to
+carry most of the handoff family — 41 of 46 by body — and now carries almost none of it: **54 of the
+58 handoffs are held outright**, and the remaining 4 are mentions.
 
 The heading test is not line-anchored, because inside a shard the newlines are JSON-escaped `\n`
 literals and a `^`-anchored pattern matches nothing at all. Headings only evidence a body for
@@ -62,8 +72,9 @@ instruments follow applies here: an `ABSENT` may not be quoted as a finding of l
 
 Every count is also a **floor, not a total**, because extraction is deliberately literal. The
 bundles name 58 handoffs in filename shape but refer to **88 distinct `HANDOFF-<n>` by bare
-number** — of which 20 are held and **68 are not**. Counting prose references would raise every
-ABSENT figure.
+number** — of which **62 are held and 26 are not** (was 20 held and 68 not, before recovery):
+2, 33, 54, 55, 56, 63, 65, 66, 68–71, 81, 82, 85–87, 89–95, 103, 104. Counting prose references
+still raises every ABSENT figure, but by far less than it once did.
 
 ## Figures are in better shape than the raw count suggests
 
