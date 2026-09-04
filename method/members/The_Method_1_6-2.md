@@ -1102,7 +1102,10 @@ d(x,y) = τ( lcm(N(x),N(y)) / gcd(N(x),N(y)) ) = ∏ᵢ(|Δᵢ|+1) = |[x∧y, x�
  **By computation at build.** The weakest, and necessary where the quantity is genuinely a reading. The
  press prints E(G), the open count, E(Q) unfibred, the register's span and the withdrawal ratio on
  every build. **These are readouts and are marked as such** — a number the artefact computes about
- itself is evidence of a state, not a claim about the work.
+ itself is evidence of a state, not a claim about the work. And a readout is checkable only while its
+ instrument is held: the scripts that compute these — numbers-index.py and its companions — are not
+ members of this build, so each stands as a record-carried figure, true of the state it names and not
+ recomputable from the artefact as delivered (register 1813).
 
  **And the rule caught its author immediately.** §E.1.3 removed E(Q) and supplied only the fibred
  statement; the unfibred count had no representation at all until the press was extended to compute it,
@@ -8861,7 +8864,7 @@ d(x,y) = τ( lcm(N(x),N(y)) / gcd(N(x),N(y)) ) = ∏ᵢ(|Δᵢ|+1) = |[x∧y, x�
 
  **2. E = 0 is fibration-dependent, and two of the three are fibred.** §D.5.5 shows it for the
  mathematics: sixteen fibres give 0, one fibre gives 4. It holds for the ignorance too — E(Q) = 0 at
- four fibres and non-zero unfibred, the unfibred value being a build readout per §2.21. Only E(Λ) = 0 is computed unfibred, over 976 cells, and only that one
+ four fibres and non-zero unfibred, the unfibred value being a build readout per §2.21, by an instrument this build does not hold (register 1813). Only E(Λ) = 0 is computed unfibred, over 976 cells, and only that one
  is the strong claim. Every other *E = 0* here must be read with its fibration attached.
 
  **3. The central theorem is not first.** §29.11: A.2 is Bergman's Double-projection Theorem
@@ -8908,7 +8911,7 @@ d(x,y) = τ( lcm(N(x),N(y)) / gcd(N(x),N(y)) ) = ∏ᵢ(|Δᵢ|+1) = |[x∧y, x�
  closure and remains open for the coupling results. Register 236.
 
  **Flag 2 — fibration — is answered by disclosure, not by repair.** The honest number for a fibred
- index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build,
+ index is its unfibred one. E(Appendix D) = 4 at one fibre, E(Q) unfibred as the press reports it at each build (instrument not held, register 1813),
  E(Λ) = 0 at one fibre = 0 at one
  fibre. Those are the comparable figures and the book now prints them beside the fibred ones wherever
  the fibred ones appear. Nothing was fixed; something was stopped being hidden.
@@ -8975,7 +8978,7 @@ d(x,y) = τ( lcm(N(x),N(y)) / gcd(N(x),N(y)) ) = ∏ᵢ(|Δᵢ|+1) = |[x∧y, x�
   Appendix E (Q), unfibred                   4   1     one
   Appendix F, the numbers                    3  33     thirty-three
   the audit set, at four coordinates         4  17     seventeen
-                                                       **a build readout**
+                                                       **a build readout; instrument not held (register 1813)**
 
  **Fifty-five cells are named and nobody has put anything in them.** Each is a combination the
  structure admits, stated in coordinates already defined, arrived at by computation and not by
@@ -9023,9 +9026,9 @@ d(x,y) = τ( lcm(N(x),N(y)) / gcd(N(x),N(y)) ) = ∏ᵢ(|Δᵢ|+1) = |[x∧y, x�
  **The consequence for a reader.** Every figure in Parts II and III can be checked against the
  construction and will agree forever. Every figure the book states about itself — the register's size,
  the ratios of F.4.1, the counts of Appendices D, E and F, the fifty-five of §32.1.4 — is true of a
- state, and the state is named. The press recomputes the two that move fastest at every build. **Three
- more are asserted here and should not be**, which is the work register 373 leaves open rather than
- does.
+ state, and the state is named. The press recomputes the two that move fastest at every build, by
+ instruments this build does not hold (register 1813). **Three more are asserted here and should not
+ be**, which is the work register 373 leaves open rather than does.
 
  Register 373.
 
@@ -9268,7 +9271,8 @@ d(x,y) = τ( lcm(N(x),N(y)) / gcd(N(x),N(y)) ) = ∏ᵢ(|Δᵢ|+1) = |[x∧y, x�
 
 ### 32.6.1 What is left, asked of the indices rather than of the author
  The book carries four indices of its own shortfall, and the question *what remains* has an arithmetic
- answer rather than an opinion. At the build that produced this page the press prints
+ answer rather than an opinion. At the build that produced this page the press printed, by
+ instruments this build does not hold (register 1813),
  **E(Λ) = 0, E(audits) = 16, E(G) = 40, E(Q) = 5 unfibred, E(D) = 4 unfibred — sixty-five cells in
  all.** *An earlier form of this section gave a smaller value for the G index and a total of forty-three. The first was
  stale — the press recomputes E(G) at every build precisely because a figure about the book goes
@@ -10519,7 +10523,8 @@ No trajectory. No prediction. No extension to n ≥ 4 of the measure-zero clause
   measurement · algebraic geometry                                                        1           0
 
     Seventy-seven elements over twenty-four fibres at the time of writing; the count is recomputed by the
-    press at every build, per §2.21. No combination of status, verification and
+    press at every build, per §2.21, by an instrument this build does not hold (register 1813). No
+    combination of status, verification and
     precedent is admitted by the structure and missing from the book, in any kind and any
     language.
 
@@ -11435,13 +11440,13 @@ entry bodies are never edited, and what a past entry recorded is part of the rec
 | 5.7 | The defect does not scale. The core is one cell at every resolution, and the multiplicity moves non-arithmetically. | `W.scale` |
 | 6.5 | The corrected alphabet — what becomes expressible once the conflated letters are split. | Mathematical Compendium, the split alphabet |
 | 7.1 | Every structural result survives at fifteen letters: E = 816, one cell, arity 3. | `W.core15` |
-| 8.2 | A jurisdicted forcing and an unjurisdicted disjunction are the same object. A theorem holding only under a scope condition is inherently ternary, and no further physics removes the scope. | `W.jur`; Chapter 12; Register 1375, 1519, 1523, 1535, 1551 |
-| 8.4 | The vocabularies. A locally covariant QFT is a functor with exactly four parts, which replaces the seven-vocabulary partition. | `W.rel`; Chapter 12; Register 1375 |
+| 8.2 | A jurisdicted forcing and an unjurisdicted disjunction are the same object. A theorem holding only under a scope condition is inherently ternary, and no further physics removes the scope. | `W.jur`; Chapter 12; Register 543, 584, 585, 588, 592 |
+| 8.4 | The vocabularies. A locally covariant QFT is a functor with exactly four parts, which replaces the seven-vocabulary partition. | `W.rel`; Chapter 12; Register 543, 544 |
 | 10.1 | Every vocabulary index closes; the charger index does not. The defect sits in V1, on the V1–V3 edge, and in the partition itself. | Mathematical Compendium, the index vocabularies |
 | 10.4 | Six independent curved-space routes to the ANEC. Five require a Killing field or a horizon generated by one; the sixth yields a weighted bound instead. | `M.sorce` |
-| 10.4c | C1, computed. The presymplectic potential on a null surface contains no transverse derivative, so Ω is block diagonal and the algebra factorises over generators. | `M.C1`; Register 1399, 1403 |
+| 10.4c | C1, computed. The presymplectic potential on a null surface contains no transverse derivative, so Ω is block diagonal and the algebra factorises over generators. | `M.C1`; Register 549, 550 |
 | 10.4d | C2, the open condition — whether the state respects the decomposition. Independent of the Hadamard condition, which says nothing at finite transverse separation. | `M.C2` |
-| 10.4e | Half-sided modular inclusion is the converter from algebra to geometry: Borchers and Wiesbrock return the affine group acting on a line. | `M.ledger` |
+| 10.4e | Half-sided modular inclusion is the converter from algebra to geometry: Borchers and Wiesbrock return the affine group acting on a line. | `M.ledger`; Register 1035, 1483, 1484 |
 | 10.5 | Status is one bit per vocabulary and the partition forces one-hot — every term is physical in exactly one vocabulary, or in none. | `W.onehot` |
 
 Thirty sections, thirty resolved locators, thirty-four citations re-sourced inward.
@@ -11846,7 +11851,7 @@ Thirty sections, thirty resolved locators, thirty-four citations re-sourced inwa
  **Candelas, P., de la Ossa, X. & Rodriguez-Villegas, F.** (2007). *Triadophilia* (arXiv:0706.3134). — the thinly populated tip of the Hodge plot.
 
 ### R.7 What is not cited, and why
- **The Löwdin solution.** Entered at registers 1701–1712. The companion paper carries the full list; these are the works Chapter 35 rests on.
+ **The Löwdin solution.** Entered at registers 1701–1712. The companion paper carries the full list; these are the works entered with Chapter 35 (register 1810).
 
  · Löwdin, P.-O. (1969). Some comments on the periodic system of the elements. *Int. J. Quantum Chem.* **3**(S3A), 331–334. — the challenge.
  · Löwdin, P.-O. (1950). On the non-orthogonality problem. *J. Chem. Phys.* **18**, 365. — the multiplier identity is an instance.
@@ -11888,9 +11893,11 @@ Thirty sections, thirty resolved locators, thirty-four citations re-sourced inwa
  **Physical constants** — *R* = 109,737.31568 cm⁻¹ — are used without citation, as a metre is.
 
  **The companions' own bibliographies.** The Mathematical Compendium names a work for every one of its
- objects — 162 works, 1669 to 2026, ordered by year with the objects each carries. Fifty-nine of them
- are the works listed above; the remainder are the attributions of standard results — Newton 1669,
+ objects — 162 works, 1669 to 2026, ordered by year with the objects each carries. Fifty-two of them
+ are the works listed above (fifty-nine of the 172 rows matched at register 1736, before ten rows were
+ removed; register 1809); the remainder are the attributions of standard results — Newton 1669,
  Leibniz 1682, Euler 1748, Gauss 1809, Moore 1910, Birkhoff 1940 and their kind — that the objects
  rest on and this volume uses without citing, as it uses a metre. Those live in the compendium and are
  not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7's
- two blocks are the works the chapters rest on, not those lists.
+ two blocks are the works entered with the chapters at registers 1701–1712 and 1713–1724, not those
+ lists (register 1810).

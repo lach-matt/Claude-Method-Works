@@ -23135,6 +23135,21 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **A literal in prose over a live divisor.** `r2-reg7a` prints `'%.1f%% of the 1,635 entries'` with the percentage computed as `len(split_e) / len(pos)` over the live Register: 275 / 1648 = 16.7%, printed beside a literal 1,635 that no longer divides it. Re-banking would bank a sentence false on its own line. Held; needs a successor that prints `len(pos)`.
 - **Held, by class:** `kinds` and `r2-regsweep` are the Register's own census instruments and wait with `reg1-04`, sequenced after the readings on M's ruling. Ruling A holds: no front-matter count is touched and `kinds.py --write` is not run.
 
+### W-210 — R3 — Book repairs and corrections — DEF-152 executed: the four rulings of chat 152 and the entries they owed; Appendix G re-taken; the readout class qualified; the two census bodies closed; chat 152's reading seated. BUILD98 -> BUILD100 main, BUILD202 -> BUILD203
+
+- **Chat 152's reading recovered and seated.** `r2-32a.py` (22,360 B, md5 15a9047a…, byte-identical to the md5 READ-32a.md states), READ-32a.md and CENSUS-CLOSURES-32a.tsv were held only as Drive parts; decoded, the instrument was run on this store and its golden banked by running, not copied. ALL OK, one deviation (32a-01), exactly as READ-32a records. DEF-152 item 1's provenance is now in the bundle.
+- **BUILD99 (`r3-d152.py`): the entries owed and the three sentences ruled.** Entry 1807 (26c-02, ruling c): the three totals' origins — 55 the table, 48 register 373, 47 register 332 on a wrapped pointer; sequence 55, 47, 48, 47; only 55 reproducible; 375's "no longer written as a number" false as printed and recorded, not repaired. 1808 (32a-04): 332's lost sentence stated, not filled. 1809 (28a-06, ruling a; 28a-08): fifty-nine re-taken on the 162 rows as fifty-two, the 172-row fifty-nine kept beside it on 1736's own precedent, 1736 not withdrawn; the 16 not cited. 1810 (28b-07, ruling b): R.7's two lead-ins re-worded to "entered with the chapters at registers 1701–1712 and 1713–1724"; Montgomery's sentence stands; the six post-2015 works and Madelung stay. 1811 (28b-08): the block names living only in 1721 are twelve. Main +2 lines, Register +20.
+- **BUILD100 (`r3-d152b.py`): Appendix G re-taken, and the readout class qualified.** `r2-27a3` re-took rows 8.2, 8.4 and 10.4c under CONVENTION DEP with the DEP-N sweep exhaustive over the Register: 8 pairs asserted, 0 kept; 12 written, 0 from a probe — 8.2 on 543, 584, 585, 588, 592; 8.4 on 543, 544; 10.4c on 549, 550. The question M left to R3 is ruled: the compendium's six are NOT 10.4c's set; 1035, 1483 and 1484 rest on §10.4e's dimensional ledger, the row the compendium's block names, and row 10.4e takes them; 1019 and 1020 NEAR, not written; 1403 dropped, 27a-08 discharged by the drop (entry 1812). Entry 1813 (32a-03): the seven §2.21 readouts are figures no member can recompute; the qualification stated once at §2.21 and pointed to from six sites, the seventh — the register's span — waiting with reg1-04 under Ruling A. Main +5, Register +8.
+- **The two census bodies, closed by measurement (`r2-bib`).** mc 387–672: DEFECT, one class at one site — the bibliography's `objects` column prints 265 handles, the compendium states none as an object's own name outside the table, 122 resolve only in another volume and 137 nowhere; the map is mathreg.py's and mathreg.py is not a member. mc 293: NOT A DEFECT — the nine numerals are four Register pointers and five journal locators. 287 rows in CENSUS-CLOSURES-d152.tsv.
+- **Two things the readings could not bound, recorded.** DEP-M over entries that instance a mechanism without naming the paper (NEAR is the class), and whether the press's own run at 332 used the one shape-consistent assignment or a component set never printed.
+- **Seated with this close:** the five earlier R3 build scripts (`r3-vocab`, `r3-ch346`, `r3-mc-nos`, `r3-dclose`, `r3-unwit`) and the two of this session, so BUILD95–BUILD100 carry their generators in the bundle. Ruling A holds: no front-matter count touched, `kinds.py --write` not run.
+- **The census cannot be regenerated, and the reason is two seated tools, measured.** `census.py` line 50 flags every Register citation above a literal 1792 — `n>1792` — so the fresh census carries 16 new C5 rows for citations of 1801–1813 that resolve, three of them inside the Register itself; that is DEF-151r3 item 5's class, the extent encoded as an invariant, in a fourth instrument. And `close_census.py`'s guard keys an id to (class, volume, LINE): a build that moves a main-volume line moves every id below it, so the guard refuses — 1,280 ids — exactly as designed for a store that never shifted a line. `gate.py census` was red at BUILD98 on the first mechanism and stays red on both; the seated census stands at BUILD188's lines, and every closure cites ids, not lines, so nothing cited is wrong. Successors are owed — a census that reads the extent as data, and a regeneration that re-addresses ids by content — and neither is a re-bank. Recorded in DEF-153O.
+
+### W-211 — R3 — Book repairs and corrections — the core gate after BUILD100: `extent` re-banked by running; `kinds` held. BUILD203 -> BUILD204
+
+- **`extent` moved by one line reference** — the main volume's "1 to 1792" site at L7375 is at L7378 after BUILD99 and BUILD100 — and by nothing else; re-banked by running, W-208's class. The three sites of the stale extent are unchanged in number, which is reg1-04 as it stands.
+- **`kinds` is held**, with `r2-regsweep`, under Ruling A: it counts the Register, the Register grew by seven entries, and `kinds.py --write` is not run. Core gate 4 of 5; `gate.py census` red on the two mechanisms W-210 records.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35447,6 +35462,16 @@ All of HANDOFF-24's list stands (none closed this chat): L8794/L11107 "eight ite
 4. **`tools/proveanchor.py` is the guard for every successor, and it is built.** Re-anchoring changes how an instrument finds its site, which can silently change what it measures --- exactly G0c. So a successor is trustworthy only if, run against the corpus as it stood **before** the shift, it reproduces its predecessor's banked golden **byte-exact**; then the change is provably addressing and nothing else. The tool extracts the old bundles to a scratch tree, points `/home/claude/members` at it for the duration because seated instruments hard-code that path, restores the symlink on exit including on failure, and writes nothing into `method/`.
 5. **The first successor's shape, MEASURED on `r2-ch17e`.** Its line 95 prints `L11832 is R.7` as a literal inside a string while line 130 computes the position correctly into `r7`; the computation simply happens after the print. The re-anchor is to compute it before the print and interpolate. On the pre-shift bundle that yields 11832 and the golden reproduces byte-exact, which is what makes the change provable.
 6. **Not done:** the 56 successors. `r2-ch28a`, `r2-ch16z`, `r2-ch26b`, `r2-ch23a`, `r2-ch17d` and `r2-ch17c` carry between 31 and 60 literals each and are the expensive ones; the rest are single-figure.
+
+## Chat 153-R (the repository session), DEF-152 executed — read with DEF-152 and RULING-DOCKET-152 (R3)
+
+1. **26c-02 CLOSED on ruling (c), executed at entry 1807.** The three totals have three origins and 47 is register 332's, the entry §32.1.4 already cites. Nothing in §32.1.4 or 375 is changed; 375's *no longer written as a number* stands false and recorded. **32a-01** corrects 26c-02's own wording (two Register sites, none in the section). **32a-04** at entry 1808: 332's lost sentence stated, not filled — the figure is held nowhere.
+2. **27a-02 CLOSED on ruling (a), executed at entry 1812 and four rows of Appendix G.** 8 pairs asserted, 0 kept; 12 written, 0 from a probe (`r2-27a3`, READ-27a3). **27a-07 RESOLVED**: the compendium's six are not row 10.4c's set; 1035, 1483, 1484 rest on §10.4e and row 10.4e takes them. **27a-08 DISCHARGED** by the drop of 1403. **NEW, carried NEAR and open:** 1019 and 1020 against §10.4e — the converter's input condition and the affine-line caution, read from the other side. **NEW, unruled:** row 10.4d (`M.C2`) prints no pointer and 1022's deciding sentence is C2's frontier; the reading stopped at the four rows the ruling and the compendium name and wrote nothing on 10.4d.
+3. **28a-06 CLOSED on ruling (a), executed at entry 1809 and the References' closing paragraph**: fifty-two, with the 172-row fifty-nine kept beside it. **28a-08 recorded, not repaired** — `r2-ch28a` still prints 16; the entry does not cite it. **28a-09 stands open** (1736's *never listed* falsified at Janet 1928/1929), unruled and untouched.
+4. **28b-07 CLOSED on ruling (b), executed at entry 1810 and two lead-ins.** **28b-08 CLOSED** at entry 1811 (twelve). **Engaged and not scored, still:** 1721's ten owner-groups against seven closures — the audit-7 ledger is not a member.
+5. **32a-03 EXECUTED at entry 1813 on the qualification route.** Six of seven readout sites carry it; the seventh, the register's span, is the Register's front matter and waits with reg1-04 under Ruling A. The restore-point's scripts are stale against the volumes and were not seated as members: a generator that does not reproduce what it generated would be a second record-carried figure.
+6. **Census mc 293 CLOSED not a defect; mc 387–672 CLOSED as one class defect** (`r2-bib`, READ-bib, CENSUS-CLOSURES-d152.tsv). **NEW and the largest thing this unit found:** the Mathematical Compendium never states its own handle vocabulary — 265 handles printed in one column, none defined in the volume, 137 resolving nowhere in any volume. The repair is the generator's and the generator is not held (docket 38 / 28).
+7. **Chat 152's own DOCKET delta is appended below this session's**, verbatim, with the chat number as M ruled it. Its container conventions (Python 3.12 shim, PP at /home/claude, COORDINATES at /mnt/project) are the ones this repository's `stage-gate` now implements.
 <<<END FILE: DEFERRED.md>>>
 
 <<<FILE: tower-2.out>>>
@@ -35495,14 +35520,14 @@ VARIANT '199130': 3 sites [('reg', 5249), ('mc', 1820), ('ioi', 1434)]
 
 <<<FILE: extent.out>>>
 extent from Register L6: 1 to 1792
-"1 to 1792": 3 sites main:L7375 The_Register-2.md:L6 The_Register-2.md:L65
+"1 to 1792": 3 sites main:L7378 The_Register-2.md:L6 The_Register-2.md:L65
 "1 to 1791": 0 sites 
 <<<END FILE: extent.out>>>
 
 <<<FILE: MANIFEST.tsv>>>
 bundle	name	bytes	md5	lines
-main	The_Method_1_6-2.md	783167	c81f03795f07a45f4f5856856c9870a9	11896
-main	The_Method_1_6___The_Register-2.md	1220286	5edcae66f76ae0c79e714ee62148f946	6662
+main	The_Method_1_6-2.md	783996	32d22f8b22b2d54e201d9aeec3ba0647	11903
+main	The_Method_1_6___The_Register-2.md	1230795	c03091daa709acf8d607d361ca4e6c3e	6690
 compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -35512,8 +35537,10 @@ compendia	CENSUS-CLOSURES-25b.tsv	1830	22989acb08138d07e011f2f4f887adf4	11
 compendia	CENSUS-CLOSURES-26b.tsv	4621	34689057a6210d81baead0fe39069bd7	27
 compendia	CENSUS-CLOSURES-26c.tsv	1546	5a0fe37622c98cc8369567cf4665f827	10
 compendia	CENSUS-CLOSURES-27a.tsv	1683	342fc89447fa37da6d1fc75188a353c4	5
+compendia	CENSUS-CLOSURES-27a3.tsv	171	3750d87daf3cd0cb638f4b3f21e65e21	2
 compendia	CENSUS-CLOSURES-28a2.tsv	1580	df436792af39ac4dbbdb5177386659bc	4
 compendia	CENSUS-CLOSURES-28b2.tsv	1510	564764a4e92f7b296389fa7818998c77	5
+compendia	CENSUS-CLOSURES-32a.tsv	301	f72818a3dc011cb6fa7ab383fd23b6c3	4
 compendia	CENSUS-CLOSURES-A.tsv	2328	1a54d81d329d8b6b392e1096ba41b671	22
 compendia	CENSUS-CLOSURES-B.tsv	2605	dad836e2c5f74b1bf48a623bde593df8	22
 compendia	CENSUS-CLOSURES-ch10.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -35552,6 +35579,7 @@ compendia	CENSUS-CLOSURES-ch6.tsv	705	c3814b8019cc2daa72d804ccea2c7858	6
 compendia	CENSUS-CLOSURES-ch7.tsv	18	2deb87a95756d48874feff7dd5098af1	1
 compendia	CENSUS-CLOSURES-ch8.tsv	394	405ceb673597435aa0e0c2c414e5c0f6	3
 compendia	CENSUS-CLOSURES-ch9.tsv	18	2deb87a95756d48874feff7dd5098af1	1
+compendia	CENSUS-CLOSURES-d152.tsv	171349	d5303f09bbbb348cb3d1519c1fe60767	288
 compendia	CENSUS-CLOSURES-reg1.tsv	860	7b25f1b9fdcef2ef477a06b9931854fd	4
 compendia	CENSUS-CLOSURES-reg10.tsv	1033	d4f79c0a0a438c69b625da573cfc01b9	4
 compendia	CENSUS-CLOSURES-reg11.tsv	1546	5723a77b56d131b1c2a415b7dc4f722e	8
@@ -35572,8 +35600,8 @@ compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	236413	ba8306f2ffafb1f5373990bc1790a289	1558
-compendia	DEFERRED.md	439928	4ee617720a1a4b7860f7a1748d8abea2	3517
-compendia	DOCKET.md	73451	7a9e069c99a0347dd459606d7ac33508	455
+compendia	DEFERRED.md	442840	80584b86ba08d016df4530acd9c84844	3527
+compendia	DOCKET.md	80238	2e329f12bec1215ec793b7133ba9a442	479
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
 compendia	EXCISE-SITES-BUILD14.json	9383	d8b75a860415ae02adb9f980350abe2b	664
@@ -35606,8 +35634,11 @@ compendia	READ-25b.md	7374	b1b6ef51dff6f7a9ac74e01785db20a5	76
 compendia	READ-26b.md	8240	fedb545964f6f5d691d7cf1ca69a2616	91
 compendia	READ-26c.md	7580	b8452727307936ec1d76e6ef97563290	82
 compendia	READ-27a.md	7558	2be267b65f9bf8f93855c3d29820a40d	88
+compendia	READ-27a3.md	5839	a90a9cc1a4d3a6bfc757e6c9af382ef0	68
 compendia	READ-28a2.md	7704	c5f9f345c869d0915e57072876836503	90
 compendia	READ-28b2.md	7811	fe431b7c7cbb2961aa77e7d80dfb9e54	91
+compendia	READ-32a.md	9954	7a36f9b4f0f32ef0546a821fa07e011b	139
+compendia	READ-bib.md	3747	07bc9b428684f0ed3678746fd22d6cf8	50
 compendia	READ-ch1-A.md	17750	43e915fa2a54f1d7ae18f3d6561dad95	76
 compendia	READ-ch1-B.md	9681	ce572d36d9f30f810aa08fb0bb1bab48	62
 compendia	READ-ch10.md	7558	f80183b6bf3cb06ed576f36d68ac363d	34
@@ -35696,7 +35727,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	61366	5a9646100eae8fba6a2
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121692	dabed88eed79835098b0700fc63c82ef	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	999421	0389149c992eb62b7233cd7d29acdf45	8177
+compendia	WORKING-REGISTER.md	1004538	6aba130c7ba0aa3591895dae49623ed9	8192
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
@@ -35721,7 +35752,7 @@ compendia	depoint.py	5965	e72e22298bb2222ed9f19d3f2dfe977a	160
 compendia	excise.py	2840	77216203a26321d36bb9b099ef4c3b5d	30
 compendia	excise_plan.json	1757	cb54cc364832a9017b57ef6eeb0df445	1
 compendia	excision_result.json	941	ed120e7fb3210f98e49a95a884eba597	1
-compendia	extent.out	132	11fc2ee66f710ff1721cd30c606a0e27	3
+compendia	extent.out	132	a1fca633c1364a7b52161c95ecf0928f	3
 compendia	fig241_data.json	8186	e2b03fb220217fb3f357ee8b9a87b37a	1
 compendia	fig_rerender.py	6293	7c9c956330ea0f38a243d625e14b054e	69
 compendia	gate.py	9377	a01ef15a7920b7a11f3f2e9168d5d130	147
@@ -35757,12 +35788,18 @@ compendia	r2-27a.out	10142	1c050f9a69f02d213fecfc53d779d72f	125
 compendia	r2-27a.py	15219	103078f4bf922ce6b9e9d5cad1b30224	218
 compendia	r2-27a2.out	10142	000939f9c8009ae8f41601378b7e6238	125
 compendia	r2-27a2.py	16080	f789a55122470886ac112e6e07314972	227
+compendia	r2-27a3.out	13883	0919d556ee1581fda6342d97aa1e4aa0	162
+compendia	r2-27a3.py	18218	534753c50df14a47ed546c3fa825dc6f	224
 compendia	r2-28a2.out	12319	7e58b2bf026973b3e0523d7ed623c083	184
 compendia	r2-28a2.py	16676	c7eafbaf76e9ddc908a3cc8af1423a32	223
 compendia	r2-28a3.out	12319	f96b01bd298a69644ffc37b2301c192a	184
 compendia	r2-28a3.py	17716	02fe220d752f043b3dc001792999d709	234
 compendia	r2-28b2.out	14026	0bd7f8b2946821179e351053382fe1c3	165
 compendia	r2-28b2.py	17057	ccb9fc499e8d20e953936f472dab34b2	229
+compendia	r2-32a.out	16599	90b6d30f675204c23054b25d125a6afb	179
+compendia	r2-32a.py	22360	15a9047af4a637eb7bdb05d0ea982878	306
+compendia	r2-bib.out	7712	58c7e8f633c23e97208d550a16e55fbf	67
+compendia	r2-bib.py	11246	8d53e12dd6d84b00e6fbb145ae9cfd5a	141
 compendia	r2-ch1.py	2940	172fb73dacbf30d5d85eb04f4463c064	48
 compendia	r2-ch10.py	5035	f1603d3f2310ed33583d01f67eb7020c	61
 compendia	r2-ch11.py	8759	ee1555717f4401e80aa3730fe4d6b9f5	102
@@ -35926,8 +35963,15 @@ compendia	r2-warn.out	38680	681bc359e92df1f982d29577443fc5fd	266
 compendia	r2-warn.py	13763	228d883a25bfce317cd8a8bd9abd5c2d	185
 compendia	r2lib.py	21022	580d2ea2e43c2ddf78018afcba2f7de7	453
 compendia	r3-arith-01.py	10030	3a4385d819ff24f3fe4c48e43d0e22f4	154
+compendia	r3-ch346.py	9960	255af2b55ad3a32bea77a46e42011a69	146
+compendia	r3-d152.py	13894	eb050f0b2a8bdd8f37321617b6ecc69b	135
+compendia	r3-d152b.py	12668	509c6b5e956c17151fe9e0c654a4bd68	132
+compendia	r3-dclose.py	9438	c3a85889be5936cba3e30936a3d908d0	127
 compendia	r3-em.out	2387	6dfd8a81069ba8f82fb532f1ff666a44	40
 compendia	r3-em.py	6678	04d782126f4d18cff4790e7bbf586dbb	121
+compendia	r3-mc-nos.py	7981	3831a333861587545667c78f63eadca5	139
+compendia	r3-unwit.py	12112	22766966e7b90eb67eee1a74d0aa5dce	147
+compendia	r3-vocab.py	20592	d6c9b5b62304cea8d690f6e5e361456c	269
 compendia	r3-wl.out	3638	1bb27e471f8429e4d6e759f528c838f1	31
 compendia	r3-wl.py	15100	791f540520bc9f48eaed81830996fa1e	184
 compendia	r3-wl2.py	12959	ce0ed8792717932db00b7920036e558e	192
@@ -50079,6 +50123,30 @@ detail; this is the standing index, unchanged from HANDOFF-79 except where chat 
 - **NEW DOCKET ITEM — three instruments encode the Register's extent as an INVARIANT rather than scoring it.** `r2-regsweep` (INSTRUMENT FAULT, three checks), `r2-26b` (exit 1), `r3-wl` (exit 1). **Extent is data.** An instrument that asserts it cannot survive a build that seats an entry. **`r2-regsweep2`, `r2-26b2` and `r3-wl2` are owed, and each is a reading, not a re-bank** (DEF-151r3 item 5).
 - **`close_rebank.py` seated — the route a golden had none for.** `close.py` correctly refuses any seated member to change, but assumed goldens never legitimately move. The new tool regenerates every golden **by running its instrument**, refuses on a non-zero exit or an unchanged output, asserts the change set, and reverse-guards to the old bundle's md5 (DEF-151r3 item 6).
 - **RULING B SEATED — hybrid, with four working rules** on line-naming, never renumbering another line's seated work, carrying entries verbatim, and skipping spent names (DEF-151r3 item 7).
+
+## Chat 153-R delta, DEF-152 executed (appended; read with the chat-152 delta 151-R carried and re-keyed above)
+
+- **Item 23 / 35 / 12 — 26c-02 closed on ruling (c) at entry 1807; 32a-04 at 1808.** No section and no entry corrected; the origin of each total recorded and 375's false claim recorded with it.
+- **Item 9(b) / 35 — 27a-02 closed on ruling (a) at entry 1812, four rows of Appendix G re-taken by `r2-27a3` under CONVENTION DEP.** 8 pairs asserted, 0 kept; 12 written, 0 from a probe. 27a-07 resolved in the compendium's favour for the three entries carrying the ledger's phrase (row 10.4e); 27a-08 discharged by the drop of 1403. NEW open: 1019 / 1020 NEAR against 10.4e; row 10.4d unread.
+- **Item 17 / 37 — 28a-06 closed on ruling (a) at entry 1809**: fifty-two on the 162 rows, the 172-row fifty-nine kept beside it on 1736's precedent. 28a-08's 16 not cited.
+- **Item 9(b) / 17 — 28b-07 closed on ruling (b) at entry 1810; 28b-08 at 1811 (twelve).**
+- **Item 38 — 32a-03 executed at entry 1813**: the readout class qualified at §2.21 and six sites; the register's span waits with reg1-04 (item 30) under Ruling A.
+- **Item 28 / 38 — census mc 387–672 closed as ONE CLASS DEFECT and mc 293 not a defect (`r2-bib`).** NEW class: the Mathematical Compendium's handle vocabulary is stated nowhere — 265 handles in one column, 137 resolving in no volume; the map is `mathreg.py`'s, not a member.
+- **Chat 152's reading seated** — `r2-32a.py` byte-identical to the md5 its READ states, golden banked by running on this store.
+- **Convention, measured on my own instrument:** a reading that re-takes what a volume prints must treat the printed state as DATA and exclude the entry that records the re-take from its own sweep, or it fails on the build it justified. `r2-27a3` carries the eight prior pairs as data and names 1812 as excluded.
+
+## Chat 152 delta (appended; read with the index above and the chat-128 to chat-151-B deltas; Cowork. The first chat since 143 whose subject is a ruling rather than a re-derivation: DEF-143 item 11's order is empty and M ruled on the four questions it waited on)
+
+- **Item 23 / 35 / 12 --- 26c-02 is answered and its own wording corrected.** M ruled (c). The origin of each total is now measured: **55** = §32.1.4's own table, the only assignment of printed values reaching it; **48** = register 373 / §32.1.4.1, three printed assignments reach it; **47** = **register 332**, the entry §32.1.4 already cites, on a pointer that wraps a line break. The record's sequence is **55, 47, 48, 47** and is not monotone. R3's entry cites 332, 373 and 375 together. `r2-32a.py`, READ-32a.md.
+- **Item 38 GAINS THE WHOLE §2.21 READOUT CLASS (32a-03).** `numbers-index.py`, `densities.py`, `indices.py`, `appendix_audit.py`, `mathreg.py`, `compendium.py`, `register_gen.py` and `guard.py` are **not members**; register 435 records the first two as having been absent and rebuilt from the printed rules. All seven §2.21 readouts are figures no member can recompute. `build.py` is a member and is a prose-substitution press that computes none of them --- and whose substitution table strips those script names out of reader-facing prose. **A build readout is not a checkable figure while its instrument is not held.**
+- **Item 9(b) / 35 --- ruling (a) taken on 27a-02.** Appendix G rows 8.2, 8.4 and 10.4c keep the *what rests on it* column and have their Register pointers re-taken by reading under CONVENTION DEP. Whether the compendium's disjoint set (1019 / 1020 / 1022 / 1035 / 1483 / 1484) becomes row 10.4c's is R3's, and no row may be written from a token probe.
+- **Item 17 / 37 --- ruling (a) taken on 28a-06.** *Fifty-nine* is re-taken on the 162 rows as **52** with a new entry citing 1736, which is not withdrawn and whose own figure is a 172-row datum. The new entry does not cite r2-ch28a's 16, which 28a-08 measured to be no bound at all.
+- **Item 9(b) / 17 --- ruling (b) taken on 28b-07.** R.7's two lead-ins (main L11808, L11854) stop asserting that the chapters rest on the blocks; Montgomery's sentence at L11821 stands. The six post-2015 three-body works and Madelung stay in the blocks, and the scope question does not recur because the block stops making the claim.
+- **Item 15 / 23 gains 32a-04.** Register 332's body has two sentences collapsed with text lost between *indices* and *since* --- at the point where it would say how many named cells have since been filled. Append-only: a new entry citing 332 states the loss.
+- **CONVENTION ORIG, the fifth in five units** (after FLOOR, DEP, AY, PROV): a total's origin is the object that computed it, and a total is reproducible only if some assignment of values **printed somewhere in the six volumes or Prints & Proofs** to its named components sums to it. **A value the record does not print may not be supplied to close an arithmetic.** Corollary that decided the unit: **a readout is reproducible only if its inputs are printed at one state** --- three totals stand at once because the record prints components from four states and a total from three of them.
+- **Convention earned on the mechanics, and it is the reason 26c-02 mislocated the 47: A CITATION SWEEP MUST READ THE WHITESPACE-NORMALISED JOIN.** *Register* and *332.* sit on either side of a line break in §32.1.4, so a line-wise pointer regex returns [278, 285, 294] and misses the one entry that carries the figure. The chat-125 convention for a wrapped list now governs wrapped **pointers** too, and both sweeps are printed side by side in the instrument so the difference is visible.
+- **Container conventions for this environment, measured (§0a kit).** Default `python3` here is **3.11**, under which `gate.py` and `r2-tools.py` do not parse (f-string backslash); `gate.py` spawns children as literal `python3`, so a **PATH shim to /usr/bin/python3.12 is the fix and it touches no member**. numpy, sympy, scipy and mpmath must be installed for 3.12. `r2-26c` and `r2-32a` need Prints & Proofs at `/home/claude/PP_The_Method_1_6.md`, which in Drive is titled **The Method 1.6.md**, not PP_*. `r2-ch20a` / `r2-ch26a` need COORDINATES-2_13.csv at `/mnt/project/`, which must be created. Bash calls time out at two minutes by default: a batch containing `r2-ch23b` (214 s) needs an explicit longer timeout. `gate.py cert` **exits 2 when any ERROR row is in the log while still writing verdict PASS** --- the exit code is not the verdict.
+- **Drive read costs (§0a kit).** `search_files` returns a multi-KB content snippet per hit with no field selector: a bare `title contains` query cost ~15 KB of context for five hits and `list_recent_files` ~17 KB. Always qualify by parentId **and** a near-exact title; prefer a Graphify recall when what is wanted is state rather than bytes.
 <<<END FILE: DOCKET.md>>>
 
 <<<FILE: R3-CLASS-WL.md>>>
@@ -79702,3 +79770,2785 @@ DEVIATIONS RECORDED (findings, not instrument faults):
 
 ALL INSTRUMENT CHECKS OK — 3 deviations recorded
 <<<END FILE: r2-28a3.out>>>
+
+<<<FILE: r2-32a.py>>>
+#!/usr/bin/env python3
+# r2-32a.py — chat 152 (Cowork) — 26c-02 under M's ruling (c): the ORIGIN of each of §32.1.4's three totals.
+# M ruled (c), a third state: hunt the record for where 55, 48 and 47 each come from, rather than choosing
+# between (a) the section takes register 375's change and (b) 375 is corrected.
+# WHAT WAS OWED. 26c-02 recorded that three totals stand at once — the printed fifty-five, §32.1.4.1's 48
+# with register 373, and register 375's 47 — and that "the replacement shape sentence appears in no volume".
+# It did NOT say where any of the three came from. This instrument supplies the provenance of each, and it
+# CORRECTS the reading that recorded it (a finding about the earlier reading, measured, not a repair).
+# CONVENTION ORIG, stated before anything is scored:
+#   a total's ORIGIN is the object that computed it — a printed component set whose sum reaches it, or an
+#   entry that states it as a readout. A total is REPRODUCIBLE only if some assignment of PRINTED values to
+#   the four components §32.1.4's own table names sums to it; a component value that appears nowhere in the
+#   six volumes or Prints & Proofs may not be supplied by this instrument to close an arithmetic. Where no
+#   printed assignment reaches a total, the total is UNREPRODUCIBLE and the entry that states it is its only
+#   provenance — which is a fact about the record, not a defect in the arithmetic.
+# FAULTS SELF-CAUGHT AND NAMED (this instrument's, not the book's):
+#   fault 1: the shape sentence was first swept case-sensitively over MAIN only, reproducing 26c-02's
+#            "no volume" verdict. The sweep is over all six volumes AND Prints & Proofs; it has two sites.
+#   fault 2: the component sweep first admitted E(audits) = 16 from §32.6.1 without checking whose readout
+#            it is. §32.6.1's readout is a FIVE-term set over a different index family (Λ, audits, G, Q, D),
+#            not §32.1.4's four. The value is admitted as a printed value of the audits component and the
+#            distinction is printed beside it, because a value is printed or it is not.
+# Deterministic: no wall clock, no randomness. Reads MEMBERS by name; PP is Prints & Proofs.
+import os, re, sys, hashlib, itertools, importlib.util
+H = os.path.dirname(os.path.abspath(__file__))
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+
+MAIN, REG = 'The_Method_1_6-2.md', 'The_Method_1_6___The_Register-2.md'
+VOLS = [MAIN, REG, 'The_Method_1_6___Mathematical_Compendium-2.md', 'The_Method_1_6___The_Physics_Compendium-2.md',
+        'The_Method_1_6___Spectra_Compendium-2.md', 'The_Method_1_6___The_Index_of_Indices-2.md']
+M, R = rd(MAIN), rd(REG)
+PPN = 'PP_The_Method_1_6.md'
+P = (rd(PPN) if os.path.exists(os.path.join(H, PPN))
+     else open('/home/claude/' + PPN, encoding='utf-8').read().split('\n'))
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+def nvol(v): return v.split('___')[-1].replace('The_Method_1_6-2.md', 'main').replace('-2.md', '')
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-70s %-26s %s' % (tag, repr(got), 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-70s %-26s %s' % (tag, repr(got), 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+
+print('r2-32a.py — 26c-02 ruling (c): the origin of §32.1.4\'s fifty-five, of §32.1.4.1\'s 48, and of register 375\'s 47')
+print('members: %s md5 %s | %s md5 %s | PP md5 %s'
+      % (MAIN, md5(MAIN), REG, md5(REG), hashlib.md5('\n'.join(P).encode()).hexdigest()[:8]))
+
+def head_body(lines, sec):
+    """body occurrence of '### <sec> ' — the LAST such heading, contents entries excluded by taking the last."""
+    hits = [i for i, l in enumerate(lines, 1) if re.match(r'^\s*#{2,4}\s+%s\s' % re.escape(sec), l)]
+    return hits[-1] if hits else None
+def sec_end(lines, start):
+    return next((j for j in range(start + 1, len(lines) + 1) if re.match(r'^\s*#{1,4}\s', lines[j - 1])), len(lines) + 1)
+
+# ------------------------------------------------------------------ §1
+hr('§1 §32.1.4 AND ITS TABLE — located by scan; the four E-bearing rows and their sum')
+s4 = head_body(M, '32.1.4'); e4 = sec_end(M, s4)
+s41 = head_body(M, '32.1.4.1'); e41 = sec_end(M, s41)
+print('   §32.1.4   body L%d–L%d   %s' % (s4, e4 - 1, norm(M[s4 - 1])))
+print('   §32.1.4.1 body L%d–L%d   %s' % (s41, e41 - 1, norm(M[s41 - 1])))
+check('§32.1.4 encloses §32.1.4.1 (the subsection follows the section)', s41 > s4 and s41 <= e4, True)
+
+# the table rows: an aligned display line whose last two fields are an integer E and a word
+ROWS = []
+for i in range(s4, e4):
+    l = M[i - 1]
+    if not l.startswith('  ') or l.startswith('   **'): continue
+    mm = re.match(r'^\s{2}(\S.*?)\s{2,}(\d+)\s+(\d+)\s+(\S.*)$', l)
+    if mm: ROWS.append((i, norm(mm.group(1)), int(mm.group(2)), int(mm.group(3)), norm(mm.group(4))))
+for i, name, coords, Eval, cells in ROWS:
+    print('   L%-5d %-42s coords %-3d E %-3d cells named and unoccupied: %s' % (i, name, coords, Eval, cells))
+check('table rows located', len(ROWS), 7)
+BEAR = [(n, E, c) for _, n, _, E, c in ROWS if c != '—']
+check('E-bearing rows (a cells-named entry that is not an em dash)', len(BEAR), 4)
+check('their E values, in printed order', [E for _, E, _ in BEAR], [4, 1, 33, 17])
+check('their words, in printed order', [c for _, _, c in BEAR], ['four', 'one', 'thirty-three', 'seventeen'])
+check('SUM of the four printed E values', sum(E for _, E, _ in BEAR), 55)
+w55 = [i for i in range(s4, e4) if 'Fifty-five cells are named' in M[i - 1]]
+check('§32.1.4 prints the total as a WORD, and once', len(w55), 1)
+print('   L%d %s' % (w55[0], norm(M[w55[0] - 1])[:96]))
+check('the four rows the total is built from are exactly the four §32.1.4 names',
+      [n for n, _, _ in BEAR],
+      ['Appendix D, unfibred', 'Appendix E (Q), unfibred', 'Appendix F, the numbers', 'the audit set, at four coordinates'])
+print('   ORIGIN OF 55: §32.1.4\'s own table. 4 + 1 + 33 + 17 = 55, exact, from values printed on the page.')
+
+# ------------------------------------------------------------------ §2
+hr('§2 §32.1.4.1\'s THREE-STATE TABLE — the 48 and which components moved')
+T3 = {}
+for i in range(s41, e41):
+    mm = re.match(r'^\s{2}(\S.*?)\s{2,}(\S+)\s+(\S+)\s+(\S+)\s*$', M[i - 1])
+    if mm and not M[i - 1].startswith('   **'):
+        T3[norm(mm.group(1))] = (mm.group(2), mm.group(3), mm.group(4))
+HDRK = next(k for k in T3 if k.startswith('figure'))
+for k, v in T3.items():
+    if k == HDRK: print('   %-38s %-14s %-20s %s' % ('(header)', v[0], v[1], v[2])); continue
+    print('   %-38s before intake %-12s before compression %-12s now %s' % (k, v[0], v[1], v[2]))
+check('the three-state table has a header row and seven figures', len(T3), 8)
+check('E over the numbers index, three states', T3.get('E over the numbers index'), ('33', '21', '23'))
+check('E(Q), unfibred, three states', T3.get('E(Q), unfibred'), ('1', '1', '4'))
+check('every figure about Λ is identical across the three states',
+      [T3[k][0] == T3[k][1] == T3[k][2] for k in ('E(Λ)', '|Λ|', 'generators |J(Λ)|', 'surplus, bits per cell')],
+      [True, True, True, True])
+w48 = [i for i in range(s41, e41) if 'Recomputed now the total is' in M[i - 1]]
+check('§32.1.4.1 states the recomputed total, once', len(w48), 1)
+print('   L%d %s' % (w48[0], norm(M[w48[0] - 1])[:110]))
+check('the recomputed total as printed', re.search(r'total is (\d+)', M[w48[0] - 1]).group(1), '48')
+# the 48 reconstructed: the table moves TWO of the four components and is silent on the other two
+NOW = {'Appendix D, unfibred': 4, 'Appendix E (Q), unfibred': int(T3['E(Q), unfibred'][2]),
+       'Appendix F, the numbers': int(T3['E over the numbers index'][2]), 'the audit set, at four coordinates': 17}
+check('48 reconstructed from the "now" column, D unfibred and the audits carried unmoved',
+      sum(NOW.values()), 48)
+check('the two components §32.1.4.1 does NOT restate',
+      sorted(k for k in NOW if k not in ('Appendix E (Q), unfibred', 'Appendix F, the numbers')),
+      ['Appendix D, unfibred', 'the audit set, at four coordinates'])
+print('   ORIGIN OF 48: §32.1.4.1 / register 373. Two of the four components move (Q 1→4, numbers 33→23);')
+print('   the other two are carried at their §32.1.4 values and are not restated. 4 + 4 + 23 + 17 = 48, exact.')
+
+# ------------------------------------------------------------------ §3
+hr('§3 THE ENTRY §32.1.4 CITES — register 332, and it is where the 47 comes from')
+JOIN = norm(' '.join(M[s4 - 1:e4 - 1]))   # fault 4: *Register* and *332.* sit on either side of a line break
+cited = sorted({int(x) for x in re.findall(r'[Rr]egisters?\s+(\d+)', JOIN)})
+cited_lw = sorted({int(x) for i in range(s4, e4) for x in re.findall(r'[Rr]egisters?\s+(\d+)', M[i - 1])})
+print('   line-wise sweep (WRONG — misses a wrapped pointer):', cited_lw)
+print('   registers cited inside §32.1.4:', cited)
+check('§32.1.4 cites register 332', 332 in cited, True)
+def entry(n, lines=None):
+    L = lines if lines is not None else R
+    i = next((i for i, l in enumerate(L, 1) if l.strip() == '### %d' % n), None)
+    if i is None: return (None, '')
+    e = next((j for j in range(i + 1, len(L) + 1) if re.match(r'^#{1,4} ', L[j - 1])), len(L) + 1)
+    return (i, '\n'.join(L[i:e - 1]).strip())
+for n in (332, 373, 375, 435):
+    i, t = entry(n)
+    print('   register %-4d Register L%-6s %s' % (n, i, norm(t)[:120]))
+i332, t332 = entry(332)
+check('332 states the total is a press readout', 'READOUT THE PRESS PRINTS AT EVERY BUILD' in t332, True)
+check('332 states the current figure', re.search(r'BUILD — (\d+) AT THE TIME OF WRITING', t332).group(1), '47')
+check('332 states the figure it replaced', re.search(r'HAVING BEEN (\d+) WHEN THIS SECTION WAS FIRST COMPUTED', t332).group(1), '55')
+check('332 carries the shape sentence', 'the audit set seventeen' in t332, True)
+print('   ORIGIN OF 47: register 332 — the entry §32.1.4 itself cites. It is a PRESS READOUT, and 332 is')
+print('   its only statement of provenance. Register 375 restates it; it does not originate it.')
+
+# ------------------------------------------------------------------ §4
+hr('§4 THE CHRONOLOGY OF THE TOTAL — append-only entry order, so the sequence is the record\'s own')
+seq = [('§32.1.4 as first computed (332\'s own words)', 55, i332),
+       ('register 332, a press readout', 47, i332),
+       ('register 373 / §32.1.4.1', 48, entry(373)[0]),
+       ('register 375, discharging §2.21', 47, entry(375)[0])]
+for lab, v, ln in seq: print('   %-46s %3d   Register L%s' % (lab, v, ln))
+check('entry order 332 < 373 < 375', [entry(332)[0] < entry(373)[0], entry(373)[0] < entry(375)[0]], [True, True])
+check('the total is NOT monotone across the record', [v for _, v, _ in seq], [55, 47, 48, 47])
+print('   The record has the total at 47 BEFORE it has it at 48. 375\'s 47 is not a further movement from 48;')
+print('   it is 332\'s figure restated after 373 printed a higher one. THAT is why three totals stand at once.')
+
+# ------------------------------------------------------------------ §5
+hr('§5 THE SHAPE SENTENCE — 26c-02 said it appears in no volume. Swept over all six volumes and PP')
+SHAPE = 'the audit set seventeen'
+sites = []
+for v in VOLS:
+    L = rd(v)
+    for i, l in enumerate(L, 1):
+        if SHAPE.lower() in l.lower(): sites.append((nvol(v), i))
+for i, l in enumerate(P, 1):
+    if SHAPE.lower() in l.lower(): sites.append(('PP', i))
+for vn, i in sites: print('   %-12s L%-6d %s' % (vn, i, norm((rd([v for v in VOLS if nvol(v) == vn][0])[i - 1] if vn != 'PP' else P[i - 1]))[:104]))
+check('sites of the shape sentence across six volumes and PP', len(sites), 2)
+check('the volumes carrying it', sorted({vn for vn, _ in sites}), ['The_Register'])
+check('sites in the main volume\'s chapters', len([1 for vn, _ in sites if vn == 'main']), 0)
+check('sites in Prints & Proofs', len([1 for vn, _ in sites if vn == 'PP']), 0)
+check('the two Register sites are entries 332 and 375',
+      sorted({n for n in (332, 373, 375, 435) if SHAPE in entry(n)[1]}), [332, 375])
+score('26c-02 as recorded: the shape sentence appears in NO VOLUME', len(sites) == 0, True, '32a-01')
+print('   32a-01 CORRECTS 26c-02. The sentence has TWO sites, both in the Register (332 and 375). What is')
+print('   true, and is what the finding meant, is that §32.1.4 does not carry it: 0 sites in any chapter,')
+print('   0 in the other four compendia, 0 in Prints & Proofs. A claim about a volume is not a claim about')
+print('   a section, and the recorded wording scored the wrong object.')
+
+# ------------------------------------------------------------------ §6
+hr('§6 IS 47 REPRODUCIBLE? Every PRINTED value of each of the four components, and every sum they reach')
+COMP = {'Appendix D, unfibred': r'E\(D\) = (\d+) unfibred|Appendix D, unfibred\s+(\d+)',
+        'Appendix E (Q), unfibred': r'E\(Q\) = (\d+) unfibred|E\(Q\), unfibred\s+(\d+)',
+        'Appendix F, the numbers': r'E over the numbers index\s+(\d+)\s+(\d+)\s+(\d+)',
+        'the audit set, at four coordinates': r'E\(audits\)\s*(?:=|read|at|,\s*then)\s*(\d+)'}
+VALS = {}
+for k, pat in COMP.items():
+    found = {}
+    for v in VOLS:
+        L = rd(v)
+        for i, l in enumerate(L, 1):
+            for mm in re.finditer(pat, l):
+                for g in mm.groups():
+                    if g: found.setdefault(int(g), []).append('%s L%d' % (nvol(v), i))
+    # the table rows themselves
+    for _, n, _, E, _ in ROWS:
+        if n == k: found.setdefault(E, []).append('main L(table)')
+    VALS[k] = found
+    print('   %-38s printed values %s' % (k, sorted(found)))
+for k in VALS: check('%s has at least one printed value' % k, len(VALS[k]) > 0, True)
+reach = {}
+for combo in itertools.product(*[sorted(VALS[k]) for k in NOW]):
+    reach.setdefault(sum(combo), []).append(combo)
+for t in (47, 48, 55):
+    print('   total %d reachable by %d printed assignment(s): %s' % (t, len(reach.get(t, [])), reach.get(t, [])))
+check('55 is reachable from printed values', 55 in reach, True)
+check('48 is reachable from printed values', 48 in reach, True)
+check('47 is reachable from printed values', 47 in reach, True)
+S47 = reach.get(47, []); S48 = reach.get(48, []); S55 = reach.get(55, [])
+AI = list(NOW).index('the audit set, at four coordinates')
+NI = list(NOW).index('Appendix F, the numbers')
+QI = list(NOW).index('Appendix E (Q), unfibred')
+print('   Every assignment reaching 47, and whether it agrees with the shape sentence the same entries assert:')
+for c in S47:
+    print('      %-22s audits = %-3d  %s' % (str(c), c[AI],
+          'CONTRADICTS 375\'s own *the audit set seventeen*' if c[AI] != 17 else 'AGREES with *the audit set seventeen*'))
+SHAPE_OK = [c for c in S47 if c[AI] == 17]
+check('assignments reaching 47 that keep the audits at seventeen', len(SHAPE_OK), 1)
+check('the shape-consistent assignment reaching 47', SHAPE_OK[0], (4, 5, 21, 17))
+check('55 is reached by exactly one printed assignment, the table itself', S55, [(4, 1, 33, 17)])
+check('48 is reached by more than one printed assignment', len(S48) > 1, True)
+check('47 is reached by more than one printed assignment', len(S47) > 1, True)
+# where do the shape-consistent 47's two moving components come from?
+src_numbers = [w for v, w in VALS['Appendix F, the numbers'].items() if v == SHAPE_OK[0][NI]][0]
+src_q = [w for v, w in VALS['Appendix E (Q), unfibred'].items() if v == SHAPE_OK[0][QI]][0]
+print('   numbers index = %d printed at: %s' % (SHAPE_OK[0][NI], src_numbers))
+print('   E(Q) unfibred = %d printed at: %s' % (SHAPE_OK[0][QI], src_q))
+check('the numbers-index value in that assignment is §32.1.4.1\'s BEFORE-COMPRESSION column, not its NOW column',
+      (SHAPE_OK[0][NI], int(T3['E over the numbers index'][1]), int(T3['E over the numbers index'][2])), (21, 21, 23))
+print('   32a-02 NEW, AND IT IS THE ANSWER TO THE RULING. Of the three totals, only 55 is uniquely determined')
+print('   by printed values — one assignment, §32.1.4\'s own table, (4, 1, 33, 17). 48 is reached by three')
+print('   printed assignments and 47 by two, so neither is recoverable from the page without choosing a state.')
+print('   The ONLY assignment reaching 47 that agrees with the shape sentence 332 and 375 both assert is')
+print('   (D 4, Q 5, numbers 21, audits 17) — and it MIXES TWO STATES: the numbers index at 21 is')
+print('   §32.1.4.1\'s BEFORE-COMPRESSION column, while E(Q) unfibred at 5 is §32.6.1 / register 396\'s')
+print('   readout at *the build that produced this page*, which is after compression. So the 47 is not a')
+print('   reading taken at one moment, which is the very thing §32.1.4.1 says a figure about the book must be.')
+print('   32a-02a, the corollary that decides it: a readout is reproducible only if its inputs are printed at')
+print('   ONE state. Three totals stand at once because the record prints components from four states and a')
+print('   total from three of them.')
+print('   FAULT OF MINE, CAUGHT BEFORE BANKING AND NAMED (fault 5): the draft of this section asserted that')
+print('   NO shape-consistent assignment reaches 47 and would have recorded 47 as flatly unreproducible. The')
+print('   scan found (4, 5, 21, 17). The scan was right and the assertion was corrected to the measurement.')
+
+# ------------------------------------------------------------------ §7
+hr('§7 WHOSE READOUT — the instrument that computes the largest component, and whether the build holds it')
+i435, t435 = entry(435)
+print('   register 435 Register L%d: %s' % (i435, norm(t435)[:200]))
+check('435 records the two readout scripts as having been ABSENT', 'WERE ABSENT AND ARE REBUILT' in t435.upper(), True)
+check('435 names the numbers-index script', 'numbers-index.py' in t435, True)
+check('435 names the densities script', 'densities.py' in t435, True)
+NAMED = ['numbers-index.py', 'densities.py', 'indices.py', 'appendix_audit.py', 'mathreg.py', 'compendium.py',
+         'register_gen.py', 'guard.py', 'register_cites.py', 'kinds.py', 'build.py', 'close.py']
+present = {n: os.path.exists(os.path.join(H, n)) for n in NAMED}
+for n, p in present.items(): print('   %-22s %s' % (n, 'MEMBER' if p else 'NOT A MEMBER OF THIS BUILD'))
+check('numbers-index.py is a member', present['numbers-index.py'], False)
+check('densities.py is a member', present['densities.py'], False)
+check('build.py IS a member', present['build.py'], True)
+# build.py computes nothing numeric: it is a prose-substitution press
+bp = open(os.path.join(H, 'build.py'), encoding='utf-8').read()
+check('build.py names numbers-index.py only inside a prose substitution', "numbers-index.py" in bp, True)
+check('build.py contains no arithmetic on the four components',
+      any(t in bp for t in ('E(audits)', 'E_num', 'numbers_index(', 'def readout')), False)
+print('   32a-03 NEW. The four components of §32.1.4\'s total are computed by `numbers-index.py` and its')
+print('   companions, and register 435 records that those scripts WERE ABSENT and were REBUILT FROM THE')
+print('   PRINTED RULES. Neither is a member of this build. `build.py`, which IS a member, is a')
+print('   prose-substitution press and computes none of them — it only strips the script names from')
+print('   reader-facing prose. So the origin of the 47 is a reconstruction of an absent instrument, and')
+print('   the total cannot be re-derived from the artefact as delivered. Docket 38, not docket 12.')
+
+# ------------------------------------------------------------------ §8
+hr('§8 REGISTER 332\'s OWN TEXT — read entire, as docket 9(b) asks')
+print('   ' + norm(t332))
+check('332\'s body carries a joined word where a sentence was lost', 'indicessince' in t332, True)
+print('   32a-04 NEW. Register 332 reads *Across its six indicessince been confirmed by occupants arriving.*')
+print('   — two sentences collapsed with text lost between *indices* and *since*. The entry §32.1.4 cites')
+print('   for its total is itself damaged at the point where it would say how many of the cells have since')
+print('   been filled. Append-only: a new entry citing 332 restores the sentence; 332 is not edited.')
+
+# ------------------------------------------------------------------ §9
+hr('§9 CENSUS ROWS IN RANGE — DEFECT-CENSUS.tsv rows whose main line lies in §32.1.4–§32.1.4.1')
+cen = [l.split('\t') for l in rd('DEFECT-CENSUS.tsv') if l.strip()]
+hdr = cen[0]; li = hdr.index('line') if 'line' in hdr else 2
+inr = [r for r in cen[1:] if r[1] == 'main' and r[li].isdigit() and s4 <= int(r[li]) < e41]
+for r in inr: print('   id %-6s main L%-6s %s' % (r[0], r[li], ' '.join(r[3:])[:100]))
+print('   rows in range: %d' % len(inr))
+
+# ------------------------------------------------------------------ verdict
+hr('VERDICT')
+print('   integrity checks: %s' % ('ALL OK' if not FAIL else 'FAILED: ' + '; '.join(FAIL)))
+print('   deviations recorded: %d' % len(DEV))
+for tagno, tag, got, exp in DEV: print('      %s  %s — measured %r, printed %r' % (tagno, tag, got, exp))
+print('   ORIGINS, the ruling\'s answer:')
+print('      55  §32.1.4\'s own table, 4 + 1 + 33 + 17, exact — the state when the section was first computed')
+print('      48  §32.1.4.1 / register 373, 4 + 4 + 23 + 17 — two components moved, two carried unrestated')
+print('      47  register 332\'s press readout — the entry §32.1.4 itself cites, on a wrapped pointer;')
+print('          restated at 375, which does not originate it. Reached by two printed assignments, and the')
+print('          only one agreeing with 332\'s and 375\'s own shape sentence is (4, 5, 21, 17), which mixes')
+print('          two states of the book. Computed by `numbers-index.py`, which register 435 records as')
+print('          having been absent and rebuilt from the printed rules and which is not a member.')
+print('   AND THE SHAPE OF THE ANSWER: 55 is the only one of the three a reader can reconstruct. The section')
+print('   prints the one total that is reproducible and cites the entry that says it is no longer the number.')
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r2-32a.py>>>
+
+<<<FILE: r2-32a.out>>>
+r2-32a.py — 26c-02 ruling (c): the origin of §32.1.4's fifty-five, of §32.1.4.1's 48, and of register 375's 47
+members: The_Method_1_6-2.md md5 32d22f8b | The_Method_1_6___The_Register-2.md md5 c03091da | PP md5 49900cf4
+
+== §1 §32.1.4 AND ITS TABLE — located by scan; the four E-bearing rows and their sum
+   §32.1.4   body L8968–L9001   ### 32.1.4 What this book names before anyone tells it
+   §32.1.4.1 body L9002–L9034   ### 32.1.4.1 Which of this book's numbers hold still
+   §32.1.4 encloses §32.1.4.1 (the subsection follows the section)        True                       OK
+   L8974  Λ, the object                              coords 8   E 0   cells named and unoccupied: —
+   L8975  Appendix D, fibred by kind × language      coords 16  E 0   cells named and unoccupied: —
+   L8976  Appendix D, unfibred                       coords 3   E 4   cells named and unoccupied: four
+   L8977  Appendix E (Q), fibred by domain           coords 4   E 0   cells named and unoccupied: —
+   L8978  Appendix E (Q), unfibred                   coords 4   E 1   cells named and unoccupied: one
+   L8979  Appendix F, the numbers                    coords 3   E 33  cells named and unoccupied: thirty-three
+   L8980  the audit set, at four coordinates         coords 4   E 17  cells named and unoccupied: seventeen
+   table rows located                                                     7                          OK
+   E-bearing rows (a cells-named entry that is not an em dash)            4                          OK
+   their E values, in printed order                                       [4, 1, 33, 17]             OK
+   their words, in printed order                                          ['four', 'one', 'thirty-three', 'seventeen'] OK
+   SUM of the four printed E values                                       55                         OK
+   §32.1.4 prints the total as a WORD, and once                           1                          OK
+   L8983 **Fifty-five cells are named and nobody has put anything in them.** Each is a combination the
+   the four rows the total is built from are exactly the four §32.1.4 names ['Appendix D, unfibred', 'Appendix E (Q), unfibred', 'Appendix F, the numbers', 'the audit set, at four coordinates'] OK
+   ORIGIN OF 55: §32.1.4's own table. 4 + 1 + 33 + 17 = 55, exact, from values printed on the page.
+
+== §2 §32.1.4.1's THREE-STATE TABLE — the 48 and which components moved
+   (header)                               before         compression          now
+   E(Λ)                                   before intake 0            before compression 0            now 0
+   |Λ|                                    before intake 976          before compression 976          now 976
+   generators |J(Λ)|                      before intake 17           before compression 17           now 17
+   surplus, bits per cell                 before intake 7.07         before compression 7.07         now 7.07
+   elements of Appendix D                 before intake forty        before compression forty-eight  now forty-eight
+   E over the numbers index               before intake 33           before compression 21           now 23
+   E(Q), unfibred                         before intake 1            before compression 1            now 4
+   the three-state table has a header row and seven figures               8                          OK
+   E over the numbers index, three states                                 ('33', '21', '23')         OK
+   E(Q), unfibred, three states                                           ('1', '1', '4')            OK
+   every figure about Λ is identical across the three states              [True, True, True, True]   OK
+   §32.1.4.1 states the recomputed total, once                            1                          OK
+   L9003 §32.1.4 counts fifty-five cells named and unoccupied. **Recomputed now the total is 48**, and the
+   the recomputed total as printed                                        '48'                       OK
+   48 reconstructed from the "now" column, D unfibred and the audits carried unmoved 48                         OK
+   the two components §32.1.4.1 does NOT restate                          ['Appendix D, unfibred', 'the audit set, at four coordinates'] OK
+   ORIGIN OF 48: §32.1.4.1 / register 373. Two of the four components move (Q 1→4, numbers 33→23);
+   the other two are carried at their §32.1.4 values and are not restated. 4 + 4 + 23 + 17 = 48, exact.
+
+== §3 THE ENTRY §32.1.4 CITES — register 332, and it is where the 47 comes from
+   line-wise sweep (WRONG — misses a wrapped pointer): [278, 285, 294, 1813]
+   registers cited inside §32.1.4: [278, 285, 294, 332, 1813]
+   §32.1.4 cites register 332                                             True                       OK
+   register 332  Register L1231   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A REA
+   register 373  Register L1379   **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls exactly at the boundary
+   register 375  Register L1387   **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's element count, §32.1.4
+   register 435  Register L1615   **densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE PRINTED rules.*** *Five of six densities rep
+   332 states the total is a press readout                                True                       OK
+   332 states the current figure                                          '47'                       OK
+   332 states the figure it replaced                                      '55'                       OK
+   332 carries the shape sentence                                         True                       OK
+   ORIGIN OF 47: register 332 — the entry §32.1.4 itself cites. It is a PRESS READOUT, and 332 is
+   its only statement of provenance. Register 375 restates it; it does not originate it.
+
+== §4 THE CHRONOLOGY OF THE TOTAL — append-only entry order, so the sequence is the record's own
+   §32.1.4 as first computed (332's own words)     55   Register L1231
+   register 332, a press readout                   47   Register L1231
+   register 373 / §32.1.4.1                        48   Register L1379
+   register 375, discharging §2.21                 47   Register L1387
+   entry order 332 < 373 < 375                                            [True, True]               OK
+   the total is NOT monotone across the record                            [55, 47, 48, 47]           OK
+   The record has the total at 47 BEFORE it has it at 48. 375's 47 is not a further movement from 48;
+   it is 332's figure restated after 373 printed a higher one. THAT is why three totals stand at once.
+
+== §5 THE SHAPE SENTENCE — 26c-02 said it appears in no volume. Swept over all six volumes and PP
+   The_Register L1233   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND TH
+   The_Register L1389   **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's elemen
+   sites of the shape sentence across six volumes and PP                  2                          OK
+   the volumes carrying it                                                ['The_Register']           OK
+   sites in the main volume's chapters                                    0                          OK
+   sites in Prints & Proofs                                               0                          OK
+   the two Register sites are entries 332 and 375                         [332, 375]                 OK
+   26c-02 as recorded: the shape sentence appears in NO VOLUME            False                      DEVIATION (32a-01) — printed True
+   32a-01 CORRECTS 26c-02. The sentence has TWO sites, both in the Register (332 and 375). What is
+   true, and is what the finding meant, is that §32.1.4 does not carry it: 0 sites in any chapter,
+   0 in the other four compendia, 0 in Prints & Proofs. A claim about a volume is not a claim about
+   a section, and the recorded wording scored the wrong object.
+
+== §6 IS 47 REPRODUCIBLE? Every PRINTED value of each of the four components, and every sum they reach
+   Appendix D, unfibred                   printed values [3, 4]
+   Appendix E (Q), unfibred               printed values [1, 5]
+   Appendix F, the numbers                printed values [21, 23, 33]
+   the audit set, at four coordinates     printed values [0, 11, 16, 17]
+   Appendix D, unfibred has at least one printed value                    True                       OK
+   Appendix E (Q), unfibred has at least one printed value                True                       OK
+   Appendix F, the numbers has at least one printed value                 True                       OK
+   the audit set, at four coordinates has at least one printed value      True                       OK
+   total 47 reachable by 2 printed assignment(s): [(3, 5, 23, 16), (4, 5, 21, 17)]
+   total 48 reachable by 3 printed assignment(s): [(3, 1, 33, 11), (3, 5, 23, 17), (4, 5, 23, 16)]
+   total 55 reachable by 1 printed assignment(s): [(4, 1, 33, 17)]
+   55 is reachable from printed values                                    True                       OK
+   48 is reachable from printed values                                    True                       OK
+   47 is reachable from printed values                                    True                       OK
+   Every assignment reaching 47, and whether it agrees with the shape sentence the same entries assert:
+      (3, 5, 23, 16)         audits = 16   CONTRADICTS 375's own *the audit set seventeen*
+      (4, 5, 21, 17)         audits = 17   AGREES with *the audit set seventeen*
+   assignments reaching 47 that keep the audits at seventeen              1                          OK
+   the shape-consistent assignment reaching 47                            (4, 5, 21, 17)             OK
+   55 is reached by exactly one printed assignment, the table itself      [(4, 1, 33, 17)]           OK
+   48 is reached by more than one printed assignment                      True                       OK
+   47 is reached by more than one printed assignment                      True                       OK
+   numbers index = 21 printed at: ['main L9015']
+   E(Q) unfibred = 5 printed at: ['main L9276']
+   the numbers-index value in that assignment is §32.1.4.1's BEFORE-COMPRESSION column, not its NOW column (21, 21, 23)               OK
+   32a-02 NEW, AND IT IS THE ANSWER TO THE RULING. Of the three totals, only 55 is uniquely determined
+   by printed values — one assignment, §32.1.4's own table, (4, 1, 33, 17). 48 is reached by three
+   printed assignments and 47 by two, so neither is recoverable from the page without choosing a state.
+   The ONLY assignment reaching 47 that agrees with the shape sentence 332 and 375 both assert is
+   (D 4, Q 5, numbers 21, audits 17) — and it MIXES TWO STATES: the numbers index at 21 is
+   §32.1.4.1's BEFORE-COMPRESSION column, while E(Q) unfibred at 5 is §32.6.1 / register 396's
+   readout at *the build that produced this page*, which is after compression. So the 47 is not a
+   reading taken at one moment, which is the very thing §32.1.4.1 says a figure about the book must be.
+   32a-02a, the corollary that decides it: a readout is reproducible only if its inputs are printed at
+   ONE state. Three totals stand at once because the record prints components from four states and a
+   total from three of them.
+   FAULT OF MINE, CAUGHT BEFORE BANKING AND NAMED (fault 5): the draft of this section asserted that
+   NO shape-consistent assignment reaches 47 and would have recorded 47 as flatly unreproducible. The
+   scan found (4, 5, 21, 17). The scan was right and the assertion was corrected to the measurement.
+
+== §7 WHOSE READOUT — the instrument that computes the largest component, and whether the build holds it
+   register 435 Register L1615: **densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE PRINTED rules.*** *Five of six densities reproduce exactly and the sixth to a rounding; E(G) now recomputes at build rather 
+   435 records the two readout scripts as having been ABSENT              True                       OK
+   435 names the numbers-index script                                     True                       OK
+   435 names the densities script                                         True                       OK
+   numbers-index.py       NOT A MEMBER OF THIS BUILD
+   densities.py           NOT A MEMBER OF THIS BUILD
+   indices.py             NOT A MEMBER OF THIS BUILD
+   appendix_audit.py      NOT A MEMBER OF THIS BUILD
+   mathreg.py             NOT A MEMBER OF THIS BUILD
+   compendium.py          NOT A MEMBER OF THIS BUILD
+   register_gen.py        NOT A MEMBER OF THIS BUILD
+   guard.py               NOT A MEMBER OF THIS BUILD
+   register_cites.py      MEMBER
+   kinds.py               MEMBER
+   build.py               MEMBER
+   close.py               MEMBER
+   numbers-index.py is a member                                           False                      OK
+   densities.py is a member                                               False                      OK
+   build.py IS a member                                                   True                       OK
+   build.py names numbers-index.py only inside a prose substitution       True                       OK
+   build.py contains no arithmetic on the four components                 False                      OK
+   32a-03 NEW. The four components of §32.1.4's total are computed by `numbers-index.py` and its
+   companions, and register 435 records that those scripts WERE ABSENT and were REBUILT FROM THE
+   PRINTED RULES. Neither is a member of this build. `build.py`, which IS a member, is a
+   prose-substitution press and computes none of them — it only strips the script names from
+   reader-facing prose. So the origin of the 47 is a reconstruction of an absent instrument, and
+   the total cannot be re-derived from the artefact as delivered. Docket 38, not docket 12.
+
+== §8 REGISTER 332's OWN TEXT — read entire, as docket 9(b) asks
+   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A READOUT THE PRESS PRINTS AT EVERY BUILD — 47 AT THE TIME OF WRITING, HAVING BEEN 55 WHEN THIS SECTION WAS FIRST COMPUTED.** *What does not move is the* *shape*: **Λ contributes none, the audit set seventeen, the numbers index the largest share, and Q and the mathematics four each.** *Across its six indicessince been confirmed by occupants arriving.* **The boundary is that E names cells and never coordinates.**
+   332's body carries a joined word where a sentence was lost             True                       OK
+   32a-04 NEW. Register 332 reads *Across its six indicessince been confirmed by occupants arriving.*
+   — two sentences collapsed with text lost between *indices* and *since*. The entry §32.1.4 cites
+   for its total is itself damaged at the point where it would say how many of the cells have since
+   been filled. Append-only: a new entry citing 332 restores the sentence; 332 is not edited.
+
+== §9 CENSUS ROWS IN RANGE — DEFECT-CENSUS.tsv rows whose main line lies in §32.1.4–§32.1.4.1
+   rows in range: 0
+
+== VERDICT
+   integrity checks: ALL OK
+   deviations recorded: 1
+      32a-01  26c-02 as recorded: the shape sentence appears in NO VOLUME — measured False, printed True
+   ORIGINS, the ruling's answer:
+      55  §32.1.4's own table, 4 + 1 + 33 + 17, exact — the state when the section was first computed
+      48  §32.1.4.1 / register 373, 4 + 4 + 23 + 17 — two components moved, two carried unrestated
+      47  register 332's press readout — the entry §32.1.4 itself cites, on a wrapped pointer;
+          restated at 375, which does not originate it. Reached by two printed assignments, and the
+          only one agreeing with 332's and 375's own shape sentence is (4, 5, 21, 17), which mixes
+          two states of the book. Computed by `numbers-index.py`, which register 435 records as
+          having been absent and rebuilt from the printed rules and which is not a member.
+   AND THE SHAPE OF THE ANSWER: 55 is the only one of the three a reader can reconstruct. The section
+   prints the one total that is reproducible and cites the entry that says it is no longer the number.
+<<<END FILE: r2-32a.out>>>
+
+<<<FILE: READ-32a.md>>>
+# READ-32a.md — chat 152 (Cowork) — the origin of §32.1.4's three totals, under M's ruling (c)
+
+Instrument `r2-32a.py` (22,360 B, md5 `15a9047af4a637eb7bdb05d0ea982878`, 306 lines), golden `r2-32a.out`
+(16,587 B, md5 `0d5d75a2264ff50217db542a5baf28c6`, 179 lines). ALL INTEGRITY CHECKS OK, one deviation
+recorded. Reads the six volumes and Prints & Proofs as members. Deterministic.
+
+**WHAT WAS OWED.** 26c-02 recorded that three totals for §32.1.4 stand at once — the printed *fifty-five*,
+§32.1.4.1's 48 with register 373, and register 375's 47 — and put to R3 the choice between the section
+taking 375's change and 375 being corrected. **M ruled (c), a third state: find where each of the three
+numbers came from.** This is that reading. It also corrects the finding that recorded it.
+
+**CONVENTION ORIG, stated before anything was scored.** A total's ORIGIN is the object that computed it —
+a printed component set whose sum reaches it, or an entry that states it as a readout. A total is
+REPRODUCIBLE only if some assignment of PRINTED values to the four components §32.1.4's own table names
+sums to it; a component value appearing nowhere in the six volumes or Prints & Proofs may not be supplied
+to close an arithmetic. Where no printed assignment reaches a total, the entry stating it is its only
+provenance — a fact about the record, not a defect in the arithmetic.
+
+## The origins
+
+**55 — §32.1.4's own table, and the only one of the three a reader can reconstruct.** The section's table
+carries seven rows, four of them E-bearing (a *cells named and unoccupied* entry that is not an em dash):
+Appendix D unfibred **4** (*four*), Appendix E (Q) unfibred **1** (*one*), Appendix F the numbers **33**
+(*thirty-three*), the audit set at four coordinates **17** (*seventeen*). 4 + 1 + 33 + 17 = **55**, exact,
+against L8978's *Fifty-five cells are named and nobody has put anything in them* — the only site, and the
+total is printed as a word. **Measured: (4, 1, 33, 17) is the ONLY assignment of printed values reaching 55.**
+
+**48 — §32.1.4.1 / register 373, and two of the four components are not restated.** The three-state table
+moves two: E over the numbers index 33 → 21 → 23, E(Q) unfibred 1 → 1 → 4. Appendix D unfibred and the
+audit set are carried at their §32.1.4 values and are not restated anywhere on the page. 4 + 4 + 23 + 17 =
+**48**, exact, against L8998's *Recomputed now the total is 48*. Every figure about Λ (E(Λ), |Λ|, |J(Λ)|,
+the surplus) is identical in all three states; every figure about the book moves — which is register 373's
+own headline and reproduces here.
+
+**47 — register 332's press readout, and 375 restates it rather than originating it.** §32.1.4's own
+citation is *Register 332*, and it is missed by a line-wise pointer sweep because *Register* and *332.*
+sit on either side of a line break: the line-wise sweep returns [278, 285, 294] and the
+whitespace-normalised join returns [278, 285, 294, **332**]. Register 332 (Register L1231) states in terms:
+*THE TOTAL IS A READOUT THE PRESS PRINTS AT EVERY BUILD — **47 AT THE TIME OF WRITING**, HAVING BEEN **55**
+WHEN THIS SECTION WAS FIRST COMPUTED*, and carries the shape sentence. **So the 47 does not enter the
+record at 375. It is there at 332, before 373 printed 48.**
+
+## The chronology, and why three totals stand at once
+
+Entry order is append-only, so the record's own sequence is:
+
+| state | total | site |
+|---|---|---|
+| §32.1.4 as first computed (332's words) | **55** | Register L1231 |
+| register 332, a press readout | **47** | Register L1231 |
+| register 373 / §32.1.4.1 | **48** | Register L1379 |
+| register 375, discharging §2.21 | **47** | Register L1387 |
+
+**The total is not monotone: 55, 47, 48, 47.** The record has it at 47 *before* it has it at 48. Register
+375's 47 is not a further movement down from 48 — it is 332's figure restated after 373 printed a higher
+one. **That is the mechanism behind 26c-02**, and it is not the mechanism 26c-02 named.
+
+## 32a-01 — 26c-02 IS CORRECTED (deviation)
+
+26c-02 recorded that *the replacement shape sentence appears in no volume*. **Measured, case-folded over
+all six volumes and Prints & Proofs: it has TWO sites, both in the Register — entries 332 and 375.**
+Zero in the main volume's chapters, zero in the other four compendia, zero in Prints & Proofs. What is
+true, and is what the finding meant, is narrower: **§32.1.4 does not carry it.** A claim about a volume is
+not a claim about a section, and the recorded wording scored the wrong object. Recorded, not repaired.
+
+## 32a-02 — the answer to the ruling: only 55 is reproducible, and the 47 mixes two states
+
+Every printed value of each component, swept over the six volumes: Appendix D unfibred **{3, 4}**; E(Q)
+unfibred **{1, 5}**; the numbers index **{21, 23, 33}**; the audit set **{0, 11, 16, 17}**. Over the
+Cartesian product:
+
+- **55 is reached by exactly ONE assignment** — (4, 1, 33, 17), §32.1.4's own table.
+- **48 is reached by THREE** — (3, 1, 33, 11), (3, 5, 23, 17), (4, 5, 23, 16).
+- **47 is reached by TWO** — (3, 5, 23, 16) and (4, 5, 21, 17).
+
+Of the two reaching 47, only **(D 4, Q 5, numbers 21, audits 17)** agrees with the shape sentence that 332
+and 375 both assert in the same breath (*the audit set seventeen*); the other takes the audits to 16. And
+that one **mixes two states of the book**: the numbers index at **21** is §32.1.4.1's *before compression*
+column (main L9010), while E(Q) unfibred at **5** is §32.6.1 / register 396's readout at *the build that
+produced this page* (main L9270), which is after compression.
+
+**32a-02a, the corollary that decides it.** A readout is reproducible only if its inputs are printed at ONE
+state. §32.1.4.1's own rule is that a figure about the book *is true of a state, and the state is named*.
+The 47 satisfies its own shape sentence only by drawing components from two states, so it is not a reading
+taken at one moment. **Three totals stand at once because the record prints components from four states and
+a total from three of them.**
+
+## 32a-03 — the instrument that computes the largest component is not a member, and was itself a rebuild
+
+Register 435 (Register L1615): ***densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE
+PRINTED rules.** *Five of six densities reproduce exactly and the sixth to a rounding … All six build-time
+readouts run for the first time.* Measured against BUILD184's members: **`numbers-index.py` is not a member.
+Neither is `densities.py`, `indices.py`, `appendix_audit.py`, `mathreg.py`, `compendium.py`,
+`register_gen.py` or `guard.py`.** `register_cites.py`, `kinds.py`, `build.py` and `close.py` are.
+
+`build.py` **is** a member and computes none of it: it is a prose-substitution press — 919 lines of
+markdown/pandoc repair and a substitution table whose job is to **strip the script names out of
+reader-facing prose** (`'**densities.py* AND *numbers-index.py*'` → `'**the six densities* AND *the numbers
+index*'`). It contains no arithmetic over the four components. **So the origin of the 47 is a reconstruction
+of an absent instrument, the reconstruction is not held either, and the total cannot be re-derived from the
+artefact as delivered. This is docket 38 — a figure whose instrument is not a member — not docket 12.**
+
+## 32a-04 — register 332's own text is damaged where it would answer the question
+
+Read entire, as docket 9(b) asks, 332's body reads: *Across its six indices**since** been confirmed by
+occupants arriving.* **Two sentences collapsed with text lost between *indices* and *since*.** The entry
+§32.1.4 cites for its total is damaged at exactly the point where it would say how many of the named cells
+have since been filled — the figure §32.1.4's own *confirmed three times* paragraph depends on. Append-only:
+a new entry citing 332 restores the sentence; 332 is not edited.
+
+## Faults of mine, caught before banking and named
+
+1. **`entry()` read the MAIN member for register entries.** The registers live in the Register member; main
+   and register are separate members of separate bundles. Corrected; every entry line number here is a
+   Register line.
+2. **The pointer sweep was line-wise and missed *Register 332*** — the pointer wraps a line break. Corrected
+   to the whitespace-normalised join, and both sweeps are printed so the difference is visible. This is the
+   chat-125 convention (a list wrapping across two lines is read on the normalised join) applied to a
+   citation, and it is why 26c-02 could record 375 as the 47's home.
+3. **The shape sweep was first case-sensitive and over MAIN only**, which reproduced 26c-02's *no volume*
+   verdict. Widened to all six volumes and PP, case-folded.
+4. **§32.6.1's E(audits) = 16 was first admitted without asking whose readout it is.** §32.6.1's readout is
+   a FIVE-term set over a different index family (Λ, audits, G, Q, D — sixty-five cells), not §32.1.4's
+   four. The value is admitted as a printed value of the audits component, and the distinction is printed
+   beside it, because a value is printed or it is not.
+5. **The draft of §6 asserted that NO shape-consistent assignment reaches 47** and would have recorded the
+   47 as flatly unreproducible. The scan found (4, 5, 21, 17). **The scan was right and the assertion was
+   corrected to the measurement** — the same fault class chat 151-B recorded at 28a-06.
+
+## Census
+
+**Zero DEFECT-CENSUS.tsv rows fall in main L8963–L9029** under any class value. `CENSUS-CLOSURES-32a.tsv`
+is header-only per the chat-70 R1 rule.
+
+## Not measurable, recorded
+
+Whether the press's own run at 332 used (4, 5, 21, 17) or a component set the book never printed. The
+readout's inputs are not on the page and `numbers-index.py` is not a member; the assignment above is the
+only shape-consistent one **available**, which is weaker than saying it is the one that was used.
+<<<END FILE: READ-32a.md>>>
+
+<<<FILE: CENSUS-CLOSURES-32a.tsv>>>
+id	verdict	reason
+# No DEFECT-CENSUS.tsv row falls in main L8963-L9029 (§32.1.4 through §32.1.4.1) under any class.
+# Header only, per the chat-70 R1 rule. The sweep covered every value in the `member` column
+# (all, ioi, main, mc, pc, reg, sc), not only the class this family's sections belong to.
+<<<END FILE: CENSUS-CLOSURES-32a.tsv>>>
+
+<<<FILE: r2-27a3.py>>>
+#!/usr/bin/env python3
+# r2-27a3.py — R3 (chat 153-R) — 27a-02 under M's ruling (a), and 27a-07 / 27a-08 with it: Appendix G's
+# "what rests on it" column names entries that REST ON the section, so the Register pointers of rows 8.2,
+# 8.4 and 10.4c are RE-TAKEN BY READING under CONVENTION DEP (r2-27a, chat 151-B), and the one question
+# the ruling left open — whether the Mathematical Compendium's modular-ledger set 1019 / 1020 / 1022 /
+# 1035 / 1483 / 1484 becomes row 10.4c's — is answered by the same reading, over row 10.4e as well,
+# because that is the row the compendium's block names as its source (T 10.4e).
+# CONVENTION DEP, restated: an entry RESTS ON section S if DEP-N, it names the source — "T §S", "T S",
+# "App. G" at S, or S's number where the context is the paper's — or DEP-M, its own deciding sentence is
+# an instance or a consequence of the mechanism S establishes; in both cases the deciding phrase is
+# ASSERTED PRESENT in the entry's own text before any verdict prints. NEAR is an upper bound, never
+# assigned. NO ROW IS WRITTEN FROM A TOKEN PROBE: the DEP-N sweep below is exhaustive over the Register
+# for the four locators, and DEP-M is read on the candidates it and the two prior lists supply — the
+# eight pairs the column asserts (r2-27a) and the six the compendium's block cites. DEP-M beyond those
+# candidates is not claimed.
+# A bare "§8.2" / "§8.4" in the Register can be the main volume's own section (§8.2 Rank is conserved;
+# §8.4 Sperner), so a bare locator is a CANDIDATE, decided by the entry's own text; "§10.4c" and "§10.4e"
+# exist in no volume but Transitions and resolve to it.
+# Book-versus-record deviations go through score() and never through the integrity checker check().
+# Reads MEMBERS by name (never a bundle path). Deterministic: no wall clock, no randomness.
+import os, re, sys, hashlib
+H = os.path.dirname(os.path.abspath(__file__))
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+MAIN, REG = 'The_Method_1_6-2.md', 'The_Method_1_6___The_Register-2.md'
+MC, TR = 'The_Method_1_6___Mathematical_Compendium-2.md', 'Transitions.md'
+M, R, T, C = rd(MAIN), rd(REG), rd(TR), rd(MC)
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-66s %-28s %s' % (tag, repr(got)[:28], 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-66s %-28s %s' % (tag, repr(got)[:28], 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+print('r2-27a3.py — 27a-02 under ruling (a): the Register pointers of Appendix G rows 8.2, 8.4, 10.4c re-taken under CONVENTION DEP')
+print('members: %s %s | %s %s | %s %s | %s %s' % (MAIN, md5(MAIN), REG, md5(REG), TR, md5(TR), MC, md5(MC)))
+
+# ------------------------------------------------------------------ §1
+hr('§1 THE ROWS, located by scan — pointers are read OUT of the rows, never carried in')
+GA = [i for i, l in enumerate(M, 1) if re.match(r'^#{1,4}\s', l) and l.strip().endswith('Appendix G — Transitions, indexed')][-1]
+GEND = min(i for i, l in enumerate(M, 1) if l.strip() == '# END MATTER' and i > GA)
+print('   Appendix G body L%d–L%d (%d lines)' % (GA, GEND - 1, GEND - GA))
+WANT = ['8.2', '8.4', '10.4c', '10.4e']
+rows = {}
+for i in range(GA, GEND):
+    m = re.match(r'^\|\s*(\S+)\s*\|(.*)\|(.*)\|\s*$', M[i - 1])
+    if m and m.group(1) in WANT: rows[m.group(1)] = (i, norm(m.group(2)), norm(m.group(3)))
+check('the four rows located, once each', sorted(rows), sorted(WANT))
+cited = {}
+for w in WANT:
+    i, stmt, col = rows[w]
+    cited[w] = sorted({int(x) for x in re.findall(r'\b(\d{3,4})\b', re.sub(r'`[^`]*`', '', col))})
+    print('   row %-6s L%-6d %s' % (w, i, col))
+print('   (the pointers as printed are DATA, scored in §5 against the reading; before the re-take they were')
+print('    8.2: 1375, 1519, 1523, 1535, 1551 | 8.4: 1375 | 10.4c: 1399, 1403 | 10.4e: none — r2-27a, chat 151-B)')
+
+# ------------------------------------------------------------------ §2
+hr('§2 THE MECHANISMS, asserted present in Transitions.md — the row is scored against the section, not the row text')
+def tsec(s):
+    a = [i for i, l in enumerate(T, 1) if re.match(r'^###\s+%s\s' % re.escape(s), l)][0]
+    e = next((i for i, l in enumerate(T, 1) if i > a and re.match(r'^#{1,3}\s', l)), len(T) + 1)
+    return norm(' '.join(T[a - 1:e - 1]))
+TS = {w: tsec(w) for w in WANT}
+MECH = {'8.2':   ['A theorem holding only under a scope condition is inherently ternary', 'Arity ≥ 3 is what makes a defect', 'NEC ≥ 3 → (IC ∨ U ∨ X)'],
+        '8.4':   ['A : Loc → Alg', 'exactly four parts', 'Three of my seven vocabularies dissolve'],
+        '10.4c': ['no transverse derivative', 'Ω is block diagonal', 'factorise over them'],
+        '10.4e': ['Half-sided modular inclusion is what turns algebra into geometry', 'd − 1 = 1 + (d − 2)', 'one HSMI per generator']}
+for w in WANT:
+    for ph in MECH[w]: check('T §%s carries "%s"' % (w, ph[:44]), ph in TS[w], True)
+# the main volume's own §8.2 and §8.4 are other sections entirely, and §10.4c / §10.4e do not exist in it
+def mhead(s): return [norm(l) for l in M if re.match(r'^###\s+%s\s' % re.escape(s), l)]
+print('   main volume\'s own §8.2: %s | §8.4: %s' % (mhead('8.2'), mhead('8.4')))
+check('main volume has no §10.4c and no §10.4e', mhead('10.4c') + mhead('10.4e'), [])
+
+# ------------------------------------------------------------------ §3
+hr('§3 THE REGISTER, indexed; the DEP-N sweep — every entry naming one of the four locators, over all entries')
+IDX = {}
+for i, l in enumerate(R, 1):
+    m = re.match(r'^###\s+(\d+)\s*$', l)
+    if m: IDX[int(m.group(1))] = i
+KS = sorted(IDX)
+def span(n):
+    s = IDX[n]; e = next((IDX[k] for k in KS if IDX[k] > s), len(R) + 1) - 1
+    return s, e
+def body(n):
+    s, e = span(n); return norm(' '.join(x for x in R[s:e] if x.strip()))
+BODY = {n: body(n) for n in KS}
+print('   entries indexed: %d (%d to %d)' % (len(KS), KS[0], KS[-1]))
+STRICT = {w: re.compile(r'\bT\s*§?\s*%s\b' % re.escape(w)) for w in WANT}
+BARE = {w: re.compile(r'(?<!T )(?<!T)§\s*%s\b' % re.escape(w)) for w in WANT}
+GEN = re.compile(r'Transitions|App\. ?G\b|Appendix G')
+EXCL = [n for n in KS if 're-taken by reading' in BODY[n].lower() and 'appendix g' in BODY[n].lower()]
+print('   entries that RECORD this reading name every locator and rest on nothing; excluded from the sweep: %s' % EXCL)
+check('the excluded entries are the record of the re-take and no other', EXCL, [1812])
+strict, bare, gen = {w: [] for w in WANT}, {w: [] for w in WANT}, []
+for n in KS:
+    if n in EXCL: continue
+    b = BODY[n]
+    for w in WANT:
+        if STRICT[w].search(b): strict[w].append(n)
+        elif BARE[w].search(b): bare[w].append(n)
+    if GEN.search(b): gen.append(n)
+for w in WANT: print('   §%-6s T-locator (DEP-N): %-28s bare §-locator (candidate): %s' % (w, strict[w], bare[w]))
+print('   entries naming the paper or the appendix without a section locator: %s' % gen)
+check('T-locator hits, §8.2', strict['8.2'], [543, 584, 585, 588, 592])
+check('T-locator hits, §8.4', strict['8.4'], [543])
+check('T-locator hits, §10.4c', strict['10.4c'], [549, 550])
+check('T-locator hits, §10.4e', strict['10.4e'], [])
+check('bare-locator candidates, §8.4', bare['8.4'], [544])
+check('bare-locator candidates, §8.2 / §10.4c / §10.4e', bare['8.2'] + bare['10.4c'] + bare['10.4e'], [])
+check('paper-or-appendix-only entries name no row section', [n for n in gen if any(STRICT[w].search(BODY[n]) or BARE[w].search(BODY[n]) for w in WANT)], [])
+for n in gen: print('   %-5d %s' % (n, BODY[n][:100]))
+print('   Those name the source and no section: 1769 counts its citations, 1770 absorbs the paper as Appendix G,')
+print('   1778 enters its full table in the Index of Indices. None rests on 8.2, 8.4, 10.4c or 10.4e.')
+
+# ------------------------------------------------------------------ §4
+hr('§4 THE COMPENDIUM\'S SET — the modular-ledger block and the row it names')
+led = [i for i, l in enumerate(C, 1) if l.strip() == '### The modular ledger'][0]
+e = next(i for i, l in enumerate(C, 1) if i > led and re.match(r'^###\s', l))
+blk = norm(' '.join(C[led - 1:e - 1]))
+SIX = sorted({int(x) for x in re.findall(r'(?:[Rr]egisters?|R)\s+(\d{3,4})', blk)})
+print('   MC "The modular ledger" L%d–L%d rests on registers %s' % (led, e - 1, SIX))
+check('the block cites the six', SIX, [1019, 1020, 1022, 1035, 1483, 1484])
+check('the block names T 10.4e (App. G) as its source', 'T 10.4e (App. G)' in blk, True)
+check('the block does not name 10.4c', '10.4c' in blk, False)
+
+# ------------------------------------------------------------------ §5
+hr('§5 THE READING — every candidate scored for DEPENDENCE on each row, with a deciding phrase asserted in its own text')
+print('   DEP-N names the source at the section | DEP-M deciding sentence is an instance of the mechanism | NEAR upper bound | NOT another mechanism\n')
+SC = [
+ # §8.2 — the five the row names (r2-27a's verdicts, re-asserted) and the five the sweep finds
+ ('8.2', 1375, 'NOT',   'THE DUAL OF A.DEFINE', "A.define's degeneracy — a rung-1 coordinate and its injective dual — not a scope condition"),
+ ('8.2', 1519, 'NEAR',  "which is Freuder's classical result", 'the arity mechanism from the low side, credited to Freuder and derived from register 507'),
+ ('8.2', 1523, 'NEAR',  'Λ at max clique 1', 'arity again, and it names M.C2, an object of §10.4d'),
+ ('8.2', 1535, 'NOT',   'A NILSSON SHELL N ADMITS ONLY', 'a parity check on a supplied nuclear table'),
+ ('8.2', 1551, 'NOT',   "K I's QUANTUM DEFECTS", 'a spectra capture'),
+ ('8.2', 543,  'DEP-N', "verifies against T §8.2's own table", 'W.jur verified against the section\'s table: E = 0 at arity 2, E = 30 and core 1 at arities 3 and 4'),
+ ('8.2', 584,  'DEP-N', 'T §8.2 prints a disjunction', 'the candidate space was wrong because the section prints NEC ≥ 3 → (IC ∨ U ∨ X)'),
+ ('8.2', 585,  'DEP-N', 'T §8.2 prints NEC ≥ 3 → (IC ∨ U ∨ X)', 'the rule family is incomplete because the section prints a disjunction no A ≥ a → B ≥ b can express'),
+ ('8.2', 588,  'DEP-N', 'as T §8.2 prints', 'the edge form is extended to disjunctive heads because that is the section\'s shape'),
+ ('8.2', 592,  'DEP-N', 'CONJUNCTIVE BODIES ARE THE FORM T §8.2 PRINTS', 'conjunctive bodies tested because the section prints NEC ≥ 3 ∧ X = 0 → U ≥ 1'),
+ # §8.4
+ ('8.4', 1375, 'NOT',   'THE DUAL OF A.DEFINE', 'no vocabulary, no functor and no partition of any size'),
+ ('8.4', 543,  'DEP-N', 'verifies against T §8.4', 'W.rel verified against the section, which replaces seven vocabularies with the functor\'s four parts'),
+ ('8.4', 544,  'DEP-M', 'V6 is not a vocabulary index', 'a consequence of the section: the achronal ANEC is a relation between a spacetime and a state, so V6 is not a coordinate of either — the bare §8.4 is the paper\'s, its V-numbering being retired there'),
+ # §10.4c — the two the row names, the two the sweep finds, and the compendium's six read against C1's mechanism
+ ('10.4c', 1399, 'NOT',   'the sequence as printed was not one measurement', 'two tower conventions printed as one sequence'),
+ ('10.4c', 1403, 'NOT',   "the corridor's lower endpoint", 'where a sits in the Λ_T corridor'),
+ ('10.4c', 549,  'DEP-N', 'printed in full at T §10.4c', 'M.C1 closed by reading the section, control included'),
+ ('10.4c', 550,  'DEP-N', 'T §10.4c reads', 'the section\'s forest-of-paths against ladder is §21.5.3\'s constraint-graph vocabulary'),
+ ('10.4c', 1019, 'NOT',   'Half-sidedness fails on the DRESSED algebra', 'corner edge modes and the converter\'s input — not the factorisation over generators'),
+ ('10.4c', 1020, 'NOT',   'a condition invariant under a group cannot fix that group\'s parameter', 'the relative boost — not the factorisation'),
+ ('10.4c', 1022, 'NOT',   'M.C2 stays OPEN', 'C2\'s frontier, §10.4d'),
+ ('10.4c', 1035, 'NOT',   'The STATEFUL object supplies exactly one dimension', 'the ledger\'s split; it names C1 as the ledger\'s term and rests on the ledger'),
+ ('10.4c', 1483, 'NOT',   'IT IS THE FREE COUNT', 'the ledger\'s sum qualified; not the factorisation'),
+ ('10.4c', 1484, 'NOT',   'THE LEDGER COUNTS A MANIFOLD', 'the ledger completed as two accountings; not the factorisation'),
+ # §10.4e — the compendium's six read against the converter and the dimensional ledger
+ ('10.4e', 1019, 'NEAR',  'Half-sidedness fails on the DRESSED algebra', 'where the converter\'s input condition fails — the section\'s mechanism read at its input, not an instance of its ledger; carried, not assigned'),
+ ('10.4e', 1020, 'NEAR',  'Non-expansion does not supply a preferred scaling of u', 'the section\'s own caution — identifying the affine line is a further step — read from the other side; carried, not assigned'),
+ ('10.4e', 1022, 'NOT',   'M.C2 stays OPEN', 'C2\'s frontier is §10.4d\'s'),
+ ('10.4e', 1035, 'DEP-M', 'one HSMI per generator supplies the affine line; the transverse direct integral is C1 and no HSMI supplies it', 'the ledger\'s own line, d − 1 = 1 + (d − 2), read as the stateful / kinematic split'),
+ ('10.4e', 1483, 'DEP-M', 'M.ledger states d − 1 = 1 + (d − 2)', 'the ledger\'s sum is the free count — a qualification OF the section\'s ledger'),
+ ('10.4e', 1484, 'DEP-M', 'the ledger is right about it: d − 1 = 1 + (d − 2)', 'the ledger completed as two accountings — a consequence OF the section\'s ledger'),
+]
+PRIOR = {'8.2': [1375, 1519, 1523, 1535, 1551], '8.4': [1375], '10.4c': [1399, 1403], '10.4e': []}   # the eight pairs the column asserted before the re-take (r2-27a)
+cands = {w: sorted(set(cited[w]) | set(PRIOR[w]) | set(strict[w]) | set(bare[w]) | (set(SIX) if w in ('10.4c', '10.4e') else set())) for w in WANT}
+check('every candidate of every row is scored exactly once', sorted((w, n) for w, n, *_ in SC), sorted((w, n) for w in WANT for n in cands[w]))
+miss = []
+for w, n, v, ph, why in SC:
+    if ph.lower() not in BODY[n].lower(): miss.append((w, n, ph))
+    print('   §%-6s %-5d %-6s "%s"' % (w, n, v, ph[:80]))
+    print('                        %s' % why)
+check('every deciding phrase present in its own entry', miss, [])
+RES = {w: sorted(n for ww, n, v, *_ in SC if ww == w and v in ('DEP-N', 'DEP-M')) for w in WANT}
+NEARS = {w: sorted(n for ww, n, v, *_ in SC if ww == w and v == 'NEAR') for w in WANT}
+for w in WANT: print('   §%-6s rests on: %-28s NEAR (carried, not assigned): %s' % (w, RES[w], NEARS[w]))
+check('§8.2 re-taken', RES['8.2'], [543, 584, 585, 588, 592])
+check('§8.4 re-taken', RES['8.4'], [543, 544])
+check('§10.4c re-taken', RES['10.4c'], [549, 550])
+check('§10.4e re-taken', RES['10.4e'], [1035, 1483, 1484])
+check('the compendium\'s six: how many rest on 10.4c', [n for n in SIX if n in RES['10.4c']], [])
+check('the compendium\'s six: how many rest on 10.4e', [n for n in SIX if n in RES['10.4e']], [1035, 1483, 1484])
+for w in WANT:
+    score('row %s: the entries that rest on it are the entries it names' % w, RES[w], cited[w], '27a3-0%d' % (WANT.index(w) + 1))
+
+# ------------------------------------------------------------------ §6
+hr('§6 27a-08 — the WARNING on 1403, and what the re-take does with it')
+s, e = span(1403)
+w1403 = [norm(R[i - 1]) for i in range(s + 1, e + 1) if 'WARNING' in R[i - 1].upper()]
+check('1403 carries a WARNING that its a values are reconstructions', bool(w1403) and 'RECONSTRUCTION' in w1403[0].upper(), True)
+check('1403 rests on no row under DEP', [w for w in WANT if 1403 in RES[w]], [])
+print('   The citation is DROPPED by the re-take, which is the second of docket 35\'s two routes; nothing restates it.')
+check('no entry the re-take assigns carries a WARNING', [n for w in WANT for n in RES[w] if any('WARNING' in R[i - 1].upper() for i in range(span(n)[0] + 1, span(n)[1] + 1))], [])
+
+# ------------------------------------------------------------------ §7
+hr('§7 THE ROWS AS THEY WOULD READ — the third column re-taken, the first two untouched')
+def col3(w):
+    i, stmt, col = rows[w]
+    keep = re.sub(r';\s*Register[^;|]*$', '', col).strip()
+    return keep + ('; Register ' + ', '.join(str(n) for n in RES[w]) if RES[w] else '')
+for w in WANT: print('   | %s | … | %s |' % (w, col3(w)))
+check('row 8.2 third column', col3('8.2'), '`W.jur`; Chapter 12; Register 543, 584, 585, 588, 592')
+check('row 8.4 third column', col3('8.4'), '`W.rel`; Chapter 12; Register 543, 544')
+check('row 10.4c third column', col3('10.4c'), '`M.C1`; Register 549, 550')
+check('row 10.4e third column', col3('10.4e'), '`M.ledger`; Register 1035, 1483, 1484')
+
+# ------------------------------------------------------------------ verdict
+hr('VERDICT')
+print('   integrity checks: %s' % ('ALL OK' if not FAIL else 'FAILED: ' + '; '.join(FAIL)))
+print('   deviations recorded: %d' % len(DEV))
+for tagno, tag, got, exp in DEV: print('      %s  %s — measured %r, printed %r' % (tagno, tag, got, exp))
+print('   Under ruling (a) the three rows carry what the reading finds. Of the eight pairs the column asserted,')
+print('   none rests on its section (r2-27a, reproduced); of the entries the exhaustive DEP-N sweep finds, nine do,')
+print('   and one bare-locator candidate is decided DEP-M by its own text. The compendium\'s six are NOT 10.4c\'s')
+print('   set: none rests on C1\'s factorisation. Three of them — 1035, 1483, 1484 — rest on the dimensional ledger')
+print('   of §10.4e, the row the compendium\'s block itself names, and 27a-07\'s disagreement resolves that way:')
+print('   the appendix takes the compendium\'s address for the three that carry the deciding phrase, and carries')
+print('   1019 and 1020 as NEAR, never assigned. 1403 rests on no row, so its citation is dropped and 27a-08 is')
+print('   discharged by the drop. Pointer arithmetic: 8 pairs asserted, 0 kept; 12 pairs written, 0 from a probe.')
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r2-27a3.py>>>
+
+<<<FILE: r2-27a3.out>>>
+r2-27a3.py — 27a-02 under ruling (a): the Register pointers of Appendix G rows 8.2, 8.4, 10.4c re-taken under CONVENTION DEP
+members: The_Method_1_6-2.md 32d22f8b | The_Method_1_6___The_Register-2.md c03091da | Transitions.md dabed88e | The_Method_1_6___Mathematical_Compendium-2.md facd6191
+
+== §1 THE ROWS, located by scan — pointers are read OUT of the rows, never carried in
+   Appendix G body L11408–L11453 (46 lines)
+   the four rows located, once each                                   ['10.4c', '10.4e', '8.2', '8 OK
+   row 8.2    L11443  `W.jur`; Chapter 12; Register 543, 584, 585, 588, 592
+   row 8.4    L11444  `W.rel`; Chapter 12; Register 543, 544
+   row 10.4c  L11447  `M.C1`; Register 549, 550
+   row 10.4e  L11449  `M.ledger`; Register 1035, 1483, 1484
+   (the pointers as printed are DATA, scored in §5 against the reading; before the re-take they were
+    8.2: 1375, 1519, 1523, 1535, 1551 | 8.4: 1375 | 10.4c: 1399, 1403 | 10.4e: none — r2-27a, chat 151-B)
+
+== §2 THE MECHANISMS, asserted present in Transitions.md — the row is scored against the section, not the row text
+   T §8.2 carries "A theorem holding only under a scope conditi"      True                         OK
+   T §8.2 carries "Arity ≥ 3 is what makes a defect"                  True                         OK
+   T §8.2 carries "NEC ≥ 3 → (IC ∨ U ∨ X)"                            True                         OK
+   T §8.4 carries "A : Loc → Alg"                                     True                         OK
+   T §8.4 carries "exactly four parts"                                True                         OK
+   T §8.4 carries "Three of my seven vocabularies dissolve"           True                         OK
+   T §10.4c carries "no transverse derivative"                        True                         OK
+   T §10.4c carries "Ω is block diagonal"                             True                         OK
+   T §10.4c carries "factorise over them"                             True                         OK
+   T §10.4e carries "Half-sided modular inclusion is what turns a"    True                         OK
+   T §10.4e carries "d − 1 = 1 + (d − 2)"                             True                         OK
+   T §10.4e carries "one HSMI per generator"                          True                         OK
+   main volume's own §8.2: ['### 8.2 Rank is conserved'] | §8.4: ['### 8.4 Sperner, and not symmetric']
+   main volume has no §10.4c and no §10.4e                            []                           OK
+
+== §3 THE REGISTER, indexed; the DEP-N sweep — every entry naming one of the four locators, over all entries
+   entries indexed: 1648 (1 to 1813)
+   entries that RECORD this reading name every locator and rest on nothing; excluded from the sweep: [1812]
+   the excluded entries are the record of the re-take and no other    [1812]                       OK
+   §8.2    T-locator (DEP-N): [543, 584, 585, 588, 592]    bare §-locator (candidate): []
+   §8.4    T-locator (DEP-N): [543]                        bare §-locator (candidate): [544]
+   §10.4c  T-locator (DEP-N): [549, 550]                   bare §-locator (candidate): []
+   §10.4e  T-locator (DEP-N): []                           bare §-locator (candidate): []
+   entries naming the paper or the appendix without a section locator: [1769, 1770, 1778]
+   T-locator hits, §8.2                                               [543, 584, 585, 588, 592]    OK
+   T-locator hits, §8.4                                               [543]                        OK
+   T-locator hits, §10.4c                                             [549, 550]                   OK
+   T-locator hits, §10.4e                                             []                           OK
+   bare-locator candidates, §8.4                                      [544]                        OK
+   bare-locator candidates, §8.2 / §10.4c / §10.4e                    []                           OK
+   paper-or-appendix-only entries name no row section                 []                           OK
+   1769  **R 1002'S ARCHIVE NOTE IS SUPERSEDED: T IS REFERENCED BY A COMPENDIUM, IN TWENTY-NINE PLACES.** *R 
+   1770  **T IS ABSORBED: ITS THIRTY CITED SECTIONS ENTER AS APPENDIX G AND THIRTY-FOUR CITATIONS RE-SOURCE I
+   1778  **THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK 
+   Those name the source and no section: 1769 counts its citations, 1770 absorbs the paper as Appendix G,
+   1778 enters its full table in the Index of Indices. None rests on 8.2, 8.4, 10.4c or 10.4e.
+
+== §4 THE COMPENDIUM'S SET — the modular-ledger block and the row it names
+   MC "The modular ledger" L2406–L2417 rests on registers [1019, 1020, 1022, 1035, 1483, 1484]
+   the block cites the six                                            [1019, 1020, 1022, 1035, 148 OK
+   the block names T 10.4e (App. G) as its source                     True                         OK
+   the block does not name 10.4c                                      False                        OK
+
+== §5 THE READING — every candidate scored for DEPENDENCE on each row, with a deciding phrase asserted in its own text
+   DEP-N names the source at the section | DEP-M deciding sentence is an instance of the mechanism | NEAR upper bound | NOT another mechanism
+
+   every candidate of every row is scored exactly once                [('10.4c', 549), ('10.4c', 5 OK
+   §8.2    1375  NOT    "THE DUAL OF A.DEFINE"
+                        A.define's degeneracy — a rung-1 coordinate and its injective dual — not a scope condition
+   §8.2    1519  NEAR   "which is Freuder's classical result"
+                        the arity mechanism from the low side, credited to Freuder and derived from register 507
+   §8.2    1523  NEAR   "Λ at max clique 1"
+                        arity again, and it names M.C2, an object of §10.4d
+   §8.2    1535  NOT    "A NILSSON SHELL N ADMITS ONLY"
+                        a parity check on a supplied nuclear table
+   §8.2    1551  NOT    "K I's QUANTUM DEFECTS"
+                        a spectra capture
+   §8.2    543   DEP-N  "verifies against T §8.2's own table"
+                        W.jur verified against the section's table: E = 0 at arity 2, E = 30 and core 1 at arities 3 and 4
+   §8.2    584   DEP-N  "T §8.2 prints a disjunction"
+                        the candidate space was wrong because the section prints NEC ≥ 3 → (IC ∨ U ∨ X)
+   §8.2    585   DEP-N  "T §8.2 prints NEC ≥ 3 → (IC ∨ U ∨ X)"
+                        the rule family is incomplete because the section prints a disjunction no A ≥ a → B ≥ b can express
+   §8.2    588   DEP-N  "as T §8.2 prints"
+                        the edge form is extended to disjunctive heads because that is the section's shape
+   §8.2    592   DEP-N  "CONJUNCTIVE BODIES ARE THE FORM T §8.2 PRINTS"
+                        conjunctive bodies tested because the section prints NEC ≥ 3 ∧ X = 0 → U ≥ 1
+   §8.4    1375  NOT    "THE DUAL OF A.DEFINE"
+                        no vocabulary, no functor and no partition of any size
+   §8.4    543   DEP-N  "verifies against T §8.4"
+                        W.rel verified against the section, which replaces seven vocabularies with the functor's four parts
+   §8.4    544   DEP-M  "V6 is not a vocabulary index"
+                        a consequence of the section: the achronal ANEC is a relation between a spacetime and a state, so V6 is not a coordinate of either — the bare §8.4 is the paper's, its V-numbering being retired there
+   §10.4c  1399  NOT    "the sequence as printed was not one measurement"
+                        two tower conventions printed as one sequence
+   §10.4c  1403  NOT    "the corridor's lower endpoint"
+                        where a sits in the Λ_T corridor
+   §10.4c  549   DEP-N  "printed in full at T §10.4c"
+                        M.C1 closed by reading the section, control included
+   §10.4c  550   DEP-N  "T §10.4c reads"
+                        the section's forest-of-paths against ladder is §21.5.3's constraint-graph vocabulary
+   §10.4c  1019  NOT    "Half-sidedness fails on the DRESSED algebra"
+                        corner edge modes and the converter's input — not the factorisation over generators
+   §10.4c  1020  NOT    "a condition invariant under a group cannot fix that group's parameter"
+                        the relative boost — not the factorisation
+   §10.4c  1022  NOT    "M.C2 stays OPEN"
+                        C2's frontier, §10.4d
+   §10.4c  1035  NOT    "The STATEFUL object supplies exactly one dimension"
+                        the ledger's split; it names C1 as the ledger's term and rests on the ledger
+   §10.4c  1483  NOT    "IT IS THE FREE COUNT"
+                        the ledger's sum qualified; not the factorisation
+   §10.4c  1484  NOT    "THE LEDGER COUNTS A MANIFOLD"
+                        the ledger completed as two accountings; not the factorisation
+   §10.4e  1019  NEAR   "Half-sidedness fails on the DRESSED algebra"
+                        where the converter's input condition fails — the section's mechanism read at its input, not an instance of its ledger; carried, not assigned
+   §10.4e  1020  NEAR   "Non-expansion does not supply a preferred scaling of u"
+                        the section's own caution — identifying the affine line is a further step — read from the other side; carried, not assigned
+   §10.4e  1022  NOT    "M.C2 stays OPEN"
+                        C2's frontier is §10.4d's
+   §10.4e  1035  DEP-M  "one HSMI per generator supplies the affine line; the transverse direct integral "
+                        the ledger's own line, d − 1 = 1 + (d − 2), read as the stateful / kinematic split
+   §10.4e  1483  DEP-M  "M.ledger states d − 1 = 1 + (d − 2)"
+                        the ledger's sum is the free count — a qualification OF the section's ledger
+   §10.4e  1484  DEP-M  "the ledger is right about it: d − 1 = 1 + (d − 2)"
+                        the ledger completed as two accountings — a consequence OF the section's ledger
+   every deciding phrase present in its own entry                     []                           OK
+   §8.2    rests on: [543, 584, 585, 588, 592]    NEAR (carried, not assigned): [1519, 1523]
+   §8.4    rests on: [543, 544]                   NEAR (carried, not assigned): []
+   §10.4c  rests on: [549, 550]                   NEAR (carried, not assigned): []
+   §10.4e  rests on: [1035, 1483, 1484]           NEAR (carried, not assigned): [1019, 1020]
+   §8.2 re-taken                                                      [543, 584, 585, 588, 592]    OK
+   §8.4 re-taken                                                      [543, 544]                   OK
+   §10.4c re-taken                                                    [549, 550]                   OK
+   §10.4e re-taken                                                    [1035, 1483, 1484]           OK
+   the compendium's six: how many rest on 10.4c                       []                           OK
+   the compendium's six: how many rest on 10.4e                       [1035, 1483, 1484]           OK
+   row 8.2: the entries that rest on it are the entries it names      [543, 584, 585, 588, 592]    as printed
+   row 8.4: the entries that rest on it are the entries it names      [543, 544]                   as printed
+   row 10.4c: the entries that rest on it are the entries it names    [549, 550]                   as printed
+   row 10.4e: the entries that rest on it are the entries it names    [1035, 1483, 1484]           as printed
+
+== §6 27a-08 — the WARNING on 1403, and what the re-take does with it
+   1403 carries a WARNING that its a values are reconstructions       True                         OK
+   1403 rests on no row under DEP                                     []                           OK
+   The citation is DROPPED by the re-take, which is the second of docket 35's two routes; nothing restates it.
+   no entry the re-take assigns carries a WARNING                     []                           OK
+
+== §7 THE ROWS AS THEY WOULD READ — the third column re-taken, the first two untouched
+   | 8.2 | … | `W.jur`; Chapter 12; Register 543, 584, 585, 588, 592 |
+   | 8.4 | … | `W.rel`; Chapter 12; Register 543, 544 |
+   | 10.4c | … | `M.C1`; Register 549, 550 |
+   | 10.4e | … | `M.ledger`; Register 1035, 1483, 1484 |
+   row 8.2 third column                                               '`W.jur`; Chapter 12; Regist OK
+   row 8.4 third column                                               '`W.rel`; Chapter 12; Regist OK
+   row 10.4c third column                                             '`M.C1`; Register 549, 550'  OK
+   row 10.4e third column                                             '`M.ledger`; Register 1035,  OK
+
+== VERDICT
+   integrity checks: ALL OK
+   deviations recorded: 0
+   Under ruling (a) the three rows carry what the reading finds. Of the eight pairs the column asserted,
+   none rests on its section (r2-27a, reproduced); of the entries the exhaustive DEP-N sweep finds, nine do,
+   and one bare-locator candidate is decided DEP-M by its own text. The compendium's six are NOT 10.4c's
+   set: none rests on C1's factorisation. Three of them — 1035, 1483, 1484 — rest on the dimensional ledger
+   of §10.4e, the row the compendium's block itself names, and 27a-07's disagreement resolves that way:
+   the appendix takes the compendium's address for the three that carry the deciding phrase, and carries
+   1019 and 1020 as NEAR, never assigned. 1403 rests on no row, so its citation is dropped and 27a-08 is
+   discharged by the drop. Pointer arithmetic: 8 pairs asserted, 0 kept; 12 pairs written, 0 from a probe.
+<<<END FILE: r2-27a3.out>>>
+
+<<<FILE: READ-27a3.md>>>
+# READ-27a3.md — R3 (chat 153-R) — Appendix G rows 8.2, 8.4 and 10.4c re-taken under M's ruling (a), and the compendium's six placed
+
+Instrument `r2-27a3.py`, golden `r2-27a3.out`. ALL INTEGRITY CHECKS OK. Read on BUILD99, where it recorded four deviations — the rows as printed against the reading — and banked on BUILD100, where the rows carry the reading and it records none; the pointers as printed are data to it, the eight pairs the column asserted before the re-take are carried as data from r2-27a, and register 1812, which records the re-take and therefore names every locator, is excluded from the sweep by its own phrase and named. Reads the main
+volume, the Register in full through its entry index, Transitions.md and the Mathematical Compendium as members.
+Line numbers are MEMBER line numbers, measured this session, never carried. Successor in subject to `r2-27a`
+(chat 151-B), which measured that none of the eight (row, entry) pairs the column asserts is DEP-N or DEP-M and
+refused to name a better candidate; M's ruling (a) at chat 152 is that the column names entries that REST ON the
+section and the pointers are re-taken by reading, and that whether the compendium's six become row 10.4c's set is
+R3's to rule. This is that reading and that ruling.
+
+**CONVENTION DEP, unchanged from r2-27a and applied exhaustively where it can be.** DEP-N is a sweep over every
+entry of the Register for the four locators — `T §8.2`, `T §8.4`, `T §10.4c`, `T §10.4e`, and the bare section
+numbers as candidates — so the DEP-N half is complete. DEP-M is a reading and is claimed only over the candidates:
+the eight pairs the column asserted, the entries the sweep finds, and the six the compendium's modular-ledger block
+cites. Every deciding phrase is asserted present in its entry's own text before a verdict prints; NEAR is carried
+and never assigned. A bare `§8.2` or `§8.4` in the Register can be the main volume's own section (§8.2 *Rank is
+conserved*, §8.4 *Sperner*), so a bare locator is decided by the entry's text; `§10.4c` and `§10.4e` exist in no
+volume but the paper and resolve to it.
+
+## The reading
+
+- **§8.2 rests on 543, 584, 585, 588 and 592 — five entries that name `T §8.2` and use what it prints.** 543
+  verifies `W.jur` against the section's own table (E = 0 at arity 2, E = 30 and core 1 at arities 3 and 4); 584,
+  585, 588 and 592 are the violation-index reconstruction, each turning on the section's printed form — the
+  disjunction NEC ≥ 3 → (IC ∨ U ∨ X) and the conjunctive body NEC ≥ 3 ∧ X = 0 → U ≥ 1. Of the five the row named,
+  none rests on it (r2-27a, reproduced): 1375, 1535 and 1551 are other mechanisms, 1519 and 1523 stay NEAR.
+- **§8.4 rests on 543 and 544.** 543 verifies `W.rel` against `T §8.4`. 544 carries the bare `§8.4` and is decided
+  DEP-M by its own text — *V6 is not a vocabulary index* is a consequence of the section's four-part functor, and
+  the V-numbering it says §8.4 retired is the paper's. 1375 does not rest on it.
+- **§10.4c rests on 549 and 550.** 549 closes `M.C1` by reading the section, control included; 550 reads its
+  forest-of-paths against ladder as §21.5.3's own vocabulary. 1399 and 1403 do not rest on it, and **none of the
+  compendium's six does**: not one has a deciding sentence that is an instance of C1's factorisation over
+  generators. So the answer to the question M left open is NO — the six are not row 10.4c's set.
+- **§10.4e rests on 1035, 1483 and 1484**, three of the six, each of whose deciding sentence is the dimensional
+  ledger d − 1 = 1 + (d − 2) read, qualified or completed. 1019 and 1020 are NEAR — the converter's input
+  condition and the section's own caution about identifying the affine line, read from the other side — and are
+  carried, not assigned; 1022 is §10.4d's. This is where 27a-07's disagreement resolves: the compendium's block
+  names T 10.4e as its source, and the appendix takes that address for the three entries that carry the deciding
+  phrase. Row 10.4e printed no Register pointer at all.
+- **27a-08 is discharged by the drop.** 1403 rests on no row, so the re-take removes its citation, which is the
+  second of docket 35's two routes; no entry the re-take assigns carries a WARNING.
+- **Entries naming the paper or the appendix without a section — 1769, 1770, 1778 — rest on none of the four.**
+  They count, absorb and index the paper.
+
+## The rows as re-taken (the third column; the first two untouched)
+
+| row | as printed | re-taken |
+|---|---|---|
+| 8.2 | `W.jur`; Chapter 12; Register 1375, 1519, 1523, 1535, 1551 | `W.jur`; Chapter 12; Register 543, 584, 585, 588, 592 |
+| 8.4 | `W.rel`; Chapter 12; Register 1375 | `W.rel`; Chapter 12; Register 543, 544 |
+| 10.4c | `M.C1`; Register 1399, 1403 | `M.C1`; Register 549, 550 |
+| 10.4e | `M.ledger` | `M.ledger`; Register 1035, 1483, 1484 |
+
+Pointer arithmetic: 8 pairs asserted, 0 kept; 12 pairs written, 0 from a probe. Deviations 27a3-01 to 27a3-04 were
+the four rows as printed on BUILD99 against the reading; `r3-d152b.py` (BUILD99 → BUILD100) executed them on
+the ruling, with register 1812.
+
+## Not measurable, recorded
+
+DEP-M over the 1,795 entries that are neither cited by the rows, found by the sweep, nor cited by the compendium's
+block. The sweep bounds DEP-N exactly and DEP-M not at all; an entry whose deciding sentence is an instance of one
+of the four mechanisms without naming the paper would be missed. NEAR is the class for that, and it is why the
+rows say *what rests on it* over what was read, not over the Register.
+
+## Census
+
+No DEFECT-CENSUS.tsv row engages this reading beyond those r2-27a's unit closed; Appendix G's own rows (main 717,
+1231) were closed in the ch27a unit and the earlier line governs (G0b). `CENSUS-CLOSURES-27a3.tsv` is header-only.
+<<<END FILE: READ-27a3.md>>>
+
+<<<FILE: CENSUS-CLOSURES-27a3.tsv>>>
+id	verdict	reason
+# No census row is engaged by this reading beyond those the ch27a and 27a units closed (main 717, 1231, reg 1349). Header only, per the chat-70 R1 rule.
+<<<END FILE: CENSUS-CLOSURES-27a3.tsv>>>
+
+<<<FILE: r2-bib.py>>>
+#!/usr/bin/env python3
+# r2-bib.py — R3 (chat 153-R) — the two census bodies DEF-152 item 10 carried open from chat 151-B, taken:
+#   mc 387–672  the 286 C13-HANDLE-LEAK rows of the Mathematical Compendium's bibliography table, its `objects` column
+#   mc 293      the C6-NUMBERS-NOT-IN-SOURCE row on the modular-ledger block's eleven numerals
+# The question for the 286 is computable and was never computed: does a handle printed in that column RESOLVE —
+# to an object stated anywhere in the compendium outside the table, or to any site in any other volume? A handle
+# that resolves nowhere is a generator identifier printed for a reader who cannot follow it. The question for 293
+# is what the nine numerals census.py could not find in the block's sources ARE, reproduced under census.py's own
+# extraction rule and then read.
+# Reads MEMBERS by name (never a bundle path). Deterministic: no wall clock, no randomness.
+import os, re, sys, hashlib, collections
+H = os.path.dirname(os.path.abspath(__file__))
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+MC = 'The_Method_1_6___Mathematical_Compendium-2.md'
+VOLS = {'main': 'The_Method_1_6-2.md', 'reg': 'The_Method_1_6___The_Register-2.md', 'pc': 'The_Method_1_6___The_Physics_Compendium-2.md',
+        'sc': 'The_Method_1_6___Spectra_Compendium-2.md', 'ioi': 'The_Method_1_6___The_Index_of_Indices-2.md'}
+C = rd(MC); V = {k: '\n'.join(rd(v)) for k, v in VOLS.items()}
+CEN = [l.split('\t') for l in rd('DEFECT-CENSUS.tsv') if l.strip()]
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-70s %-24s %s' % (tag, repr(got)[:24], 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-70s %-24s %s' % (tag, repr(got)[:24], 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+print('r2-bib.py — census mc 387–672 (the bibliography\'s `objects` column) and mc 293 (the modular ledger\'s numerals)')
+print('members: %s %s | %s | census %s' % (MC, md5(MC), ' | '.join('%s %s' % (k, md5(v)) for k, v in VOLS.items()), md5('DEFECT-CENSUS.tsv')))
+
+# ------------------------------------------------------------------ §1
+hr('§1 THE TABLE, located by scan — the census rows point into it and every one of them is a handle')
+h = [i for i, l in enumerate(C, 1) if l.startswith('| year | work | objects |')]
+check('exactly one bibliography table header', len(h), 1); h = h[0]
+e = h + 1
+while e < len(C) and C[e].startswith('|'): e += 1
+data = [l for l in C[h + 1:e] if not l.startswith('|---')]
+print('   header L%d, rows L%d–L%d, DATA rows %d' % (h, h + 2, e, len(data)))
+check('the table prints 162 data rows, as the volume states', len(data), 162)
+rows = [r for r in CEN[1:] if 387 <= int(r[0]) <= 672]
+check('census ids 387–672 are 286 rows', len(rows), 286)
+check('all 286 are C13-HANDLE-LEAK in mc', sorted({(r[1], r[2]) for r in rows}), [('C13-HANDLE-LEAK', 'mc')])
+check('every one of the 286 points at a line of this table', all(h + 2 <= int(r[3]) <= e for r in rows), True)
+check('every one of the 286 lines still carries its handle', all(r[4] in C[int(r[3]) - 1] for r in rows), True)
+HANDLES = sorted({r[4] for r in rows})
+fam = collections.Counter(x.split('.')[0] for x in HANDLES)
+print('   distinct handles %d in %d families: %s' % (len(HANDLES), len(fam), dict(sorted(fam.items()))))
+check('every item is an object handle (family.name), none a BUILD, chat, W or MC token', all(re.fullmatch(r'(?:3B|[A-Z]{1,2})\.[a-z]{3,6}', x) for x in HANDLES), True)
+# the table's own handle set, read from the column — the census rows are a subset because census.py's pattern
+# admits only 3–6 lowercase letters after the dot (`A.E`, `A.R`, `L.E0`, `S.bounds` are not in it)
+allh = sorted({m for l in data for m in re.findall(r'`([^`]+)`', l.split('|')[3])})
+print('   handles the column actually prints: %d; of which the census pattern admits %d' % (len(allh), len(HANDLES)))
+check('the census handles are a subset of the column\'s', sorted(set(HANDLES) - set(allh)), [])
+
+# ------------------------------------------------------------------ §2
+hr('§2 RESOLUTION — where else, if anywhere, each handle is printed')
+rest = '\n'.join(C[:h - 1] + C[e:])
+def sites(hd, text): return len(re.findall(r'(?<![\w.`])`?' + re.escape(hd) + r'`?(?![\w.])', text))
+RESOLVE = {}
+for hd in allh:
+    RESOLVE[hd] = {'mc': sites(hd, rest), **{k: sites(hd, v) for k, v in V.items()}}
+inmc = [hd for hd in allh if RESOLVE[hd]['mc']]
+elsewhere = [hd for hd in allh if not RESOLVE[hd]['mc'] and sum(RESOLVE[hd][k] for k in VOLS)]
+nowhere = [hd for hd in allh if not sum(RESOLVE[hd].values())]
+print('   in the compendium outside the table: %d | elsewhere only: %d | nowhere: %d' % (len(inmc), len(elsewhere), len(nowhere)))
+for hd in inmc:
+    where = [(i, norm(l)[:90]) for i, l in enumerate(C, 1) if not (h + 2 <= i <= e) and sites(hd, l)]
+    print('   %-12s in the compendium outside the table at: %s' % (hd, where[:2]))
+check('handles the compendium prints outside the table', inmc, ['A.staircls', 'C.Aq', 'E.nuclide', 'L.F', 'M.C1', 'M.C2'])
+check('every one of those six is printed as a REFERENCE inside another entry, not as the name of its own', all(not any(re.match(r'^#', l) for i, l in enumerate(C, 1) if not (h + 2 <= i <= e) and sites(hd, l)) for hd in inmc), True)
+byvol = collections.Counter(k for hd in elsewhere for k in VOLS if RESOLVE[hd][k])
+print('   the elsewhere-only handles resolve in: %s' % dict(byvol))
+GA = [i for i, l in enumerate(rd(VOLS['main']), 1) if re.match(r'^#{1,4}\s', l) and l.strip().endswith('Appendix G — Transitions, indexed')][-1]
+gtext = '\n'.join(rd(VOLS['main'])[GA - 1:GA + 60])
+ing = [hd for hd in elsewhere if sites(hd, gtext)]
+print('   of those, printed in Appendix G\'s "what rests on it" column: %d' % len(ing))
+print('   nowhere: %s' % ' '.join(nowhere))
+cn = [hd for hd in HANDLES if hd in nowhere]; ce = [hd for hd in HANDLES if hd in elsewhere]
+check('census handles resolving nowhere', len(cn), 93)
+check('census handles resolving only outside the compendium', len(ce), 86)
+check('census rows whose handle resolves nowhere', len([r for r in rows if r[4] in nowhere]), 133)
+check('census rows whose handle the compendium prints outside the table', len([r for r in rows if r[4] in inmc]), 0)
+check('mathreg.py, where the handle -> object map lives, is a member of this build', os.path.exists(os.path.join(H, 'mathreg.py')), False)
+score('a reader can follow every handle in the `objects` column to an object the volume states', len(nowhere) == 0 and len(inmc) == len(allh), True, 'bib-01')
+
+# ------------------------------------------------------------------ §3
+hr('§3 CENSUS 293 — the modular ledger\'s numerals under census.py\'s own rule, then read')
+r293 = [r for r in CEN[1:] if r[0] == '293'][0]
+print('   census 293: %s' % '\t'.join(r293)[:160])
+check('293 is C6-NUMBERS-NOT-IN-SOURCE on "The modular ledger"', (r293[1], r293[4]), ('C6-NUMBERS-NOT-IN-SOURCE', 'The modular ledger'))
+led = [i for i, l in enumerate(C, 1) if l.strip() == '### The modular ledger'][0]
+nh = [i for i, l in enumerate(C, 1) if i > led and (l.startswith('### ') or l.startswith('## '))][0]
+body = '\n'.join(C[led:nh - 1])
+def nums(s): return set(re.findall(r'(?<![\w.])\d[\d,]*(?:\.\d+)?(?![\w])', s))
+yr = lambda x: re.fullmatch(r'1[5-9]\d\d|20[0-2]\d', x)
+en = sorted((x for x in nums(body) if not yr(x) and not re.fullmatch(r'\d{1,2}', x)), key=lambda z: (len(z), z))
+print('   block L%d–L%d; numerals under the rule (years and 1–2 digit figures excluded): %s' % (led, nh - 1, en))
+check('eleven numerals, as the census counted', len(en), 11)
+rr = sorted({int(x) for x in re.findall(r'\b(?:R|[Rr]egister)\s(\d{1,4})\b', body)})
+check('the block\'s Register pointers', rr, [1019, 1020, 1022, 1035, 1483, 1484])
+R = rd(VOLS['reg']); regtext = {}; cur = None
+for l in R:
+    m = re.match(r'^### (\d+)\s*$', l)
+    if m: cur = int(m.group(1)); regtext[cur] = []
+    elif cur is not None: regtext[cur].append(l)
+src = '\n'.join('\n'.join(regtext[n]) for n in rr); sn = nums(src)
+miss = [x for x in en if x not in sn]
+print('   not in the cited entries\' text: %s' % miss)
+check('nine of the eleven, as the census counted', len(miss), 9)
+check('the two that are in source are the pointers other cited entries name', sorted(set(en) - set(miss)), ['1020', '1022'])
+POINTERS = [x for x in miss if int(x.rstrip(',')) in rr]
+prior = [norm(l) for l in C[led:nh - 1] if l.startswith('> **Prior art')]
+LOCATORS = [x for x in miss if x not in POINTERS and any(x.rstrip(',') in p for p in prior)]
+print('   Register pointers among the nine: %s' % POINTERS)
+print('   locators of the block\'s own prior-art line among the nine: %s' % LOCATORS)
+print('   prior art: %s' % prior[0][:150])
+check('the nine are four Register pointers and five journal locators, nothing else', (sorted(POINTERS), sorted(LOCATORS), sorted(set(miss) - set(POINTERS) - set(LOCATORS))),
+      (['1019,', '1035', '1483', '1484'], ['107', '114', '143', '315', '332'], []))
+print('   (census.py\'s rule keeps a trailing comma on "1019," — the numeral is 1019, the block\'s first pointer)')
+check('the locators are Borchers 1992 (CMP 143, 315–332) and Wiesbrock 1993 (LMP 28, 107–114)', all(t in prior[0] for t in ('143 (1992) 315-332', '28 (1993) 107-114')), True)
+score('the block states a figure about its object that its sources do not carry', len(set(miss) - set(POINTERS) - set(LOCATORS)) > 0, False, 'bib-02')
+
+# ------------------------------------------------------------------ verdict
+hr('VERDICT')
+print('   integrity checks: %s' % ('ALL OK' if not FAIL else 'FAILED: ' + '; '.join(FAIL)))
+print('   deviations recorded: %d' % len(DEV))
+for tagno, tag, got, exp in DEV: print('      %s  %s — measured %r, printed %r' % (tagno, tag, got, exp))
+print('   mc 387–672: DEFECT, one class at one site. The `objects` column prints %d handles; the compendium prints' % len(allh))
+print('   %d of them outside the table and only as references inside other entries, never as an object\'s own name;' % len(inmc))
+print('   %d resolve only to another volume — the Register and the main volume, Appendix G\'s column among the sites —' % len(elsewhere))
+print('   and %d resolve nowhere.' % len(nowhere))
+print('   nowhere. The map from handle to object is mathreg.py\'s, and mathreg.py is not a member — docket 38 as much')
+print('   as docket 28. Recorded, not repaired: the repair is the generator\'s, printing each handle beside the object')
+print('   it names, and the generator is not held.')
+print('   mc 293: NOT A DEFECT. The nine numerals are the block\'s four Register pointers and the five journal locators')
+print('   of its own prior-art line; the class asks for a figure the block states about its object that its sources')
+print('   do not carry, and there is none. The two "in source" are 1020 and 1022 because 1483 and 1484 name them.')
+sys.exit(1 if FAIL else 0)
+<<<END FILE: r2-bib.py>>>
+
+<<<FILE: r2-bib.out>>>
+r2-bib.py — census mc 387–672 (the bibliography's `objects` column) and mc 293 (the modular ledger's numerals)
+members: The_Method_1_6___Mathematical_Compendium-2.md facd6191 | main 32d22f8b | reg c03091da | pc 5a964610 | sc 5ba7f61c | ioi 27d387ef | census ba8306f2
+
+== §1 THE TABLE, located by scan — the census rows point into it and every one of them is a handle
+   exactly one bibliography table header                                  1                        OK
+   header L3382, rows L3384–L3545, DATA rows 162
+   the table prints 162 data rows, as the volume states                   162                      OK
+   census ids 387–672 are 286 rows                                        286                      OK
+   all 286 are C13-HANDLE-LEAK in mc                                      [('C13-HANDLE-LEAK', 'mc OK
+   every one of the 286 points at a line of this table                    True                     OK
+   every one of the 286 lines still carries its handle                    True                     OK
+   distinct handles 179 in 18 families: {'3B': 8, 'A': 27, 'B': 12, 'C': 6, 'E': 3, 'EM': 5, 'F': 3, 'G': 11, 'I': 2, 'K': 18, 'L': 23, 'LS': 8, 'M': 4, 'P': 8, 'Q': 10, 'S': 16, 'T': 9, 'W': 6}
+   every item is an object handle (family.name), none a BUILD, chat, W or MC token True                     OK
+   handles the column actually prints: 265; of which the census pattern admits 179
+   the census handles are a subset of the column's                        []                       OK
+
+== §2 RESOLUTION — where else, if anywhere, each handle is printed
+   in the compendium outside the table: 6 | elsewhere only: 122 | nowhere: 137
+   A.staircls   in the compendium outside the table at: [(3600, '**`A.staircls`** states that E(ℛ) = 0 iff the held set is an intersection of'), (3785, 'The held cells form a **staircase**, which by `A.staircls` is exactly the')]
+   C.Aq         in the compendium outside the table at: [(2688, '*as C.Aq*'), (2692, '> **Prior art: as C.Aq — the second factor of the fibred count, built the same way.**')]
+   E.nuclide    in the compendium outside the table at: [(3709, "E.nuclide's shape, a defect whose every missing cell can be named.*")]
+   L.F          in the compendium outside the table at: [(1014, '*as L.F*')]
+   M.C1         in the compendium outside the table at: [(2414, 'COMPLETED 2026-08-11 (R 1484): the sum is TWO accountings. LEVEL ONE, the manifold, is wha')]
+   M.C2         in the compendium outside the table at: [(2414, 'COMPLETED 2026-08-11 (R 1484): the sum is TWO accountings. LEVEL ONE, the manifold, is wha')]
+   handles the compendium prints outside the table                        ['A.staircls', 'C.Aq', ' OK
+   every one of those six is printed as a REFERENCE inside another entry, not as the name of its own True                     OK
+   the elsewhere-only handles resolve in: {'main': 57, 'reg': 105}
+   of those, printed in Appendix G's "what rests on it" column: 27
+   nowhere: A.E A.EW A.S A.W A.anchor A.bound A.ebits A.expr A.intext A.logic A.morph A.prod A.prodE A.r4 A.relax A.seaton A.slack A.stair A.stat2 A.three A.two B.V B.V43 B.Vexact B.floor2 B.floor32 B.frac B.newton B.ordbr B.ordk B.pareto B.pole B.rank1 B.selfconc C.Bq C.box C.compare C.cut C.fib C.local C.pareto C.qmean E.ioniz E.layout E.table EM.cross EM.notcomp EM.parity EM.quotient EM.spin F.exact F.moore F.open F.unstatable G.allcons G.book G.cons G.graph G.near G.prot G.ref G.reg G.shape G.stat G.tower G.trip I.convex I.interval I.shape K.arrow K.clock K.clockfail K.comp K.corner K.coupling K.deadend K.decay K.jump K.markov K.peak K.three K.transit K.zcross L.E0 L.F1 L.Fm1 L.alpha L.amp L.arith L.birk L.bits L.box L.c2 L.c4 L.c5 L.c7 L.chains L.chi L.circuit L.def L.dim L.metric L.mobius L.modular L.occ L.omega L.pal L.pushback L.rankpoly L.skew L.step L.tree L.void L.voidfrac Q.pen S.bits S.bounds S.box S.car S.channel S.cover S.down S.erasure S.open S.parent S.status S.unit T.a10 T.a11 T.a13 T.a9 T.dens T.dich T.excl T.invariant T.real W.face
+   census handles resolving nowhere                                       93                       OK
+   census handles resolving only outside the compendium                   86                       OK
+   census rows whose handle resolves nowhere                              133                      OK
+   census rows whose handle the compendium prints outside the table       0                        OK
+   mathreg.py, where the handle -> object map lives, is a member of this build False                    OK
+   a reader can follow every handle in the `objects` column to an object the volume states False                    DEVIATION (bib-01) — printed True
+
+== §3 CENSUS 293 — the modular ledger's numerals under census.py's own rule, then read
+   census 293: 293	C6-NUMBERS-NOT-IN-SOURCE	mc	2406	The modular ledger	9 of 11: 107 114 143 315 332 1035 1483 1484 1019, | sources § R1019 R1020 R1022 R1035 R1483 R1484
+   293 is C6-NUMBERS-NOT-IN-SOURCE on "The modular ledger"                ('C6-NUMBERS-NOT-IN-SOUR OK
+   block L2406–L2417; numerals under the rule (years and 1–2 digit figures excluded): ['107', '114', '143', '315', '332', '1020', '1022', '1035', '1483', '1484', '1019,']
+   eleven numerals, as the census counted                                 11                       OK
+   the block's Register pointers                                          [1019, 1020, 1022, 1035, OK
+   not in the cited entries' text: ['107', '114', '143', '315', '332', '1035', '1483', '1484', '1019,']
+   nine of the eleven, as the census counted                              9                        OK
+   the two that are in source are the pointers other cited entries name   ['1020', '1022']         OK
+   Register pointers among the nine: ['1035', '1483', '1484', '1019,']
+   locators of the block's own prior-art line among the nine: ['107', '114', '143', '315', '332']
+   prior art: > **Prior art: one half-sided modular inclusion per generator supplies the affine line — the Borchers-Wiesbrock theorem, Borchers, Commun. Math. Phys.
+   the nine are four Register pointers and five journal locators, nothing else (['1019,', '1035', '1483 OK
+   (census.py's rule keeps a trailing comma on "1019," — the numeral is 1019, the block's first pointer)
+   the locators are Borchers 1992 (CMP 143, 315–332) and Wiesbrock 1993 (LMP 28, 107–114) True                     OK
+   the block states a figure about its object that its sources do not carry False                    as printed
+
+== VERDICT
+   integrity checks: ALL OK
+   deviations recorded: 1
+      bib-01  a reader can follow every handle in the `objects` column to an object the volume states — measured False, printed True
+   mc 387–672: DEFECT, one class at one site. The `objects` column prints 265 handles; the compendium prints
+   6 of them outside the table and only as references inside other entries, never as an object's own name;
+   122 resolve only to another volume — the Register and the main volume, Appendix G's column among the sites —
+   and 137 resolve nowhere.
+   nowhere. The map from handle to object is mathreg.py's, and mathreg.py is not a member — docket 38 as much
+   as docket 28. Recorded, not repaired: the repair is the generator's, printing each handle beside the object
+   it names, and the generator is not held.
+   mc 293: NOT A DEFECT. The nine numerals are the block's four Register pointers and the five journal locators
+   of its own prior-art line; the class asks for a figure the block states about its object that its sources
+   do not carry, and there is none. The two "in source" are 1020 and 1022 because 1483 and 1484 name them.
+<<<END FILE: r2-bib.out>>>
+
+<<<FILE: READ-bib.md>>>
+# READ-bib.md — R3 (chat 153-R) — the two census bodies carried open since chat 151-B, taken: mc 387–672 and mc 293
+
+Instrument `r2-bib.py`, golden `r2-bib.out`. ALL INTEGRITY CHECKS OK, one deviation recorded. Reads the six volumes
+and DEFECT-CENSUS.tsv as members. Line numbers are MEMBER line numbers, measured this session, never carried.
+DEF-152 item 10 carried both bodies forward unchanged as *computable work needing no ruling*; this is the
+computation.
+
+## mc 387–672 — the bibliography table's `objects` column (286 C13-HANDLE-LEAK rows)
+
+The Mathematical Compendium's bibliography (`| year | work | objects |`, 162 data rows, as the volume states)
+prints beside each work the handles of the objects that rest on it. The census flags every handle in that column
+as a leak; chat 151-B engaged the rows and did not close them, and the question no one had computed is whether a
+handle printed there RESOLVES — to an object the compendium states under that name, or to any site in another
+volume.
+
+- **The column prints 265 handles; the census pattern admits 179 of them** (it takes 3–6 lowercase letters after
+  the dot, so `A.E`, `A.R`, `L.E0` and `S.bounds` are outside it). Every one of the 286 census items is an object
+  handle in one of eighteen families — none is a BUILD, chat, W or MC token.
+- **The compendium states none of its handles as an object's own name anywhere outside the table.** Six appear
+  elsewhere in it — `A.staircls`, `C.Aq`, `E.nuclide`, `L.F`, `M.C1`, `M.C2` — and each of those only as a
+  reference inside another entry's text. No entry heading carries its handle; no glossary maps handle to object.
+- **122 resolve only in another volume** — the Register (105 handles) and the main volume (57), Appendix G's
+  *what rests on it* column among the sites — **and 137 resolve nowhere.** Of the census's 179, 86 resolve only
+  outside the compendium and 93 nowhere; 133 of the 286 rows carry a handle that resolves nowhere.
+- **The map from handle to object is `mathreg.py`'s, and `mathreg.py` is not a member.** The generator names the
+  objects; the volume it generates prints the names and never says what they name.
+
+**Verdict: DEFECT, one class at one site, closed on all 286 rows together** — deviation bib-01, *a reader can
+follow every handle in the column to an object the volume states*, measured False. Docket 28 / ruling 46 with
+precedent 1546 for the handle in a reader-facing volume; docket 38 for the instrument that is not held. Recorded,
+not repaired: the repair is the generator's — each handle printed beside the object it names — and the generator
+is not a member.
+
+## mc 293 — the modular ledger's eleven numerals (C6-NUMBERS-NOT-IN-SOURCE)
+
+Reproduced under census.py's own extraction rule (years and one- and two-digit figures excluded, a trailing comma
+kept on `1019,`), the block carries eleven numerals and nine are absent from the six entries it cites. Read, the
+nine are: **four Register pointers** — 1019, 1035, 1483, 1484, the block's own citations, which an entry does not
+print inside its own body — and **five journal locators** of the block's prior-art line — Borchers, *Commun. Math.
+Phys.* 143 (1992) 315–332; Wiesbrock, *Lett. Math. Phys.* 28 (1993) 107–114. The two *in source* are 1020 and
+1022, because 1483 and 1484 name them. The class asks for a figure the block states about its object that its
+sources do not carry, and there is none.
+
+**Verdict: NOT A DEFECT.** Carried open from the 27a unit, which took the block's citation list and not its
+numerals; closed here on the numerals.
+
+## Census
+
+`CENSUS-CLOSURES-d152.tsv` carries the 287 rows: 293 not a defect, 387–672 defect, each reason citing the
+instrument's section.
+<<<END FILE: READ-bib.md>>>
+
+<<<FILE: CENSUS-CLOSURES-d152.tsv>>>
+id	verdict	reason
+293	not a defect	C6 numbers-not-in-source at mc "The modular ledger" (census line 2406): the nine numerals census.py could not find in the cited entries are the block's own four Register pointers (1019, 1035, 1483, 1484 — 1020 and 1022 are "in source" only because 1483 and 1484 name them) and the five journal locators of its prior-art line (Borchers, CMP 143 (1992) 315–332; Wiesbrock, LMP 28 (1993) 107–114). A pointer is an address and a locator is a citation; the class asks for a figure the block states about its object that its sources do not carry, and there is none. Measured by r2-bib.py §3; carried open from 27a (engaged, not closed) and closed here
+387	defect	C13 handle leak at mc L3384, `B.newton` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+388	defect	C13 handle leak at mc L3385, `B.brk` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+389	defect	C13 handle leak at mc L3386, `B.ordbr` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+390	defect	C13 handle leak at mc L3387, `B.frac` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+391	defect	C13 handle leak at mc L3387, `B.pole` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+392	defect	C13 handle leak at mc L3388, `G.graph` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+393	defect	C13 handle leak at mc L3390, `C.box` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+394	defect	C13 handle leak at mc L3391, `3B.five` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+395	defect	C13 handle leak at mc L3392, `3B.norm` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+396	defect	C13 handle leak at mc L3393, `3B.five` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+397	defect	C13 handle leak at mc L3394, `B.hstar` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+398	defect	C13 handle leak at mc L3395, `A.anchor` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+399	defect	C13 handle leak at mc L3395, `B.adm` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+400	defect	C13 handle leak at mc L3395, `C.qmean` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+401	defect	C13 handle leak at mc L3395, `L.skew` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+402	defect	C13 handle leak at mc L3398, `A.logic` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+403	defect	C13 handle leak at mc L3399, `E.ioniz` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+404	defect	C13 handle leak at mc L3399, `E.table` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+405	defect	C13 handle leak at mc L3400, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+406	defect	C13 handle leak at mc L3401, `B.fail` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+407	defect	C13 handle leak at mc L3401, `P.lens` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+408	defect	C13 handle leak at mc L3402, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+409	defect	C13 handle leak at mc L3403, `L.chi` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+410	defect	C13 handle leak at mc L3404, `B.pareto` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+411	defect	C13 handle leak at mc L3404, `C.pareto` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+412	defect	C13 handle leak at mc L3404, `Q.bridge` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+413	defect	C13 handle leak at mc L3406, `P.mono` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+414	defect	C13 handle leak at mc L3406, `S.regime` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+415	defect	C13 handle leak at mc L3406, `S.ritz` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+416	defect	C13 handle leak at mc L3407, `Q.bridge` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+417	defect	C13 handle leak at mc L3409, `C.fib` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+418	defect	C13 handle leak at mc L3410, `A.bound` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+419	defect	C13 handle leak at mc L3410, `A.clos` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+420	defect	C13 handle leak at mc L3410, `A.expr` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+421	defect	C13 handle leak at mc L3410, `A.ext` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+422	defect	C13 handle leak at mc L3410, `A.fix` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+423	defect	C13 handle leak at mc L3410, `F.exact` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+424	defect	C13 handle leak at mc L3410, `F.moore` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+425	defect	C13 handle leak at mc L3410, `S.bounds` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+426	defect	C13 handle leak at mc L3410, `S.open` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+427	defect	C13 handle leak at mc L3410, `S.seed` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+428	defect	C13 handle leak at mc L3411, `S.car` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+429	defect	C13 handle leak at mc L3412, `B.coll` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+430	defect	C13 handle leak at mc L3412, `L.def` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+431	defect	C13 handle leak at mc L3413, `L.def` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+432	defect	C13 handle leak at mc L3414, `P.jsplit` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+433	defect	C13 handle leak at mc L3416, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+434	defect	C13 handle leak at mc L3417, `K.helly` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+435	defect	C13 handle leak at mc L3418, `P.polar` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+436	defect	C13 handle leak at mc L3418, `Q.alpha` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+437	defect	C13 handle leak at mc L3418, `Q.pol` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+438	defect	C13 handle leak at mc L3419, `EM.cross` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+439	defect	C13 handle leak at mc L3419, `EM.map` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+440	defect	C13 handle leak at mc L3419, `EM.parity` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+441	defect	C13 handle leak at mc L3421, `Q.exch` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+442	defect	C13 handle leak at mc L3421, `S.ground` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+443	defect	C13 handle leak at mc L3422, `L.def` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+444	defect	C13 handle leak at mc L3422, `Q.bound` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+445	defect	C13 handle leak at mc L3422, `Q.delta` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+446	defect	C13 handle leak at mc L3422, `Q.final` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+447	defect	C13 handle leak at mc L3423, `EM.spin` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+448	defect	C13 handle leak at mc L3424, `B.aitken` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+449	defect	C13 handle leak at mc L3426, `EM.image` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+450	defect	C13 handle leak at mc L3426, `EM.parity` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+451	defect	C13 handle leak at mc L3427, `P.jsplit` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+452	defect	C13 handle leak at mc L3428, `Q.delta` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+453	defect	C13 handle leak at mc L3428, `Q.final` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+454	defect	C13 handle leak at mc L3428, `Q.pen` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+455	defect	C13 handle leak at mc L3429, `Q.pen` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+456	defect	C13 handle leak at mc L3429, `S.ritz` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+457	defect	C13 handle leak at mc L3431, `E.layout` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+458	defect	C13 handle leak at mc L3431, `E.table` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+459	defect	C13 handle leak at mc L3431, `Q.bound` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+460	defect	C13 handle leak at mc L3431, `Q.final` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+461	defect	C13 handle leak at mc L3431, `S.ground` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+462	defect	C13 handle leak at mc L3432, `EM.spin` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+463	defect	C13 handle leak at mc L3432, `T.dens` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+464	defect	C13 handle leak at mc L3432, `T.excl` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+465	defect	C13 handle leak at mc L3433, `3B.shape` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+466	defect	C13 handle leak at mc L3434, `Q.alpha` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+467	defect	C13 handle leak at mc L3435, `B.brk` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+468	defect	C13 handle leak at mc L3435, `B.ordbr` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+469	defect	C13 handle leak at mc L3435, `B.ordk` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+470	defect	C13 handle leak at mc L3435, `B.pole` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+471	defect	C13 handle leak at mc L3436, `EM.map` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+472	defect	C13 handle leak at mc L3436, `S.parent` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+473	defect	C13 handle leak at mc L3436, `T.real` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+474	defect	C13 handle leak at mc L3436, `T.scheme` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+475	defect	C13 handle leak at mc L3436, `T.tower` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+476	defect	C13 handle leak at mc L3438, `L.real` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+477	defect	C13 handle leak at mc L3438, `S.ground` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+478	defect	C13 handle leak at mc L3439, `A.logic` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+479	defect	C13 handle leak at mc L3440, `M.semi` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+480	defect	C13 handle leak at mc L3441, `A.define` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+481	defect	C13 handle leak at mc L3441, `A.erel` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+482	defect	C13 handle leak at mc L3441, `I.convex` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+483	defect	C13 handle leak at mc L3441, `K.arrow` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+484	defect	C13 handle leak at mc L3441, `L.alpha` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+485	defect	C13 handle leak at mc L3441, `L.arith` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+486	defect	C13 handle leak at mc L3441, `L.birk` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+487	defect	C13 handle leak at mc L3441, `L.bits` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+488	defect	C13 handle leak at mc L3441, `L.dist` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+489	defect	C13 handle leak at mc L3441, `L.omega` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+490	defect	C13 handle leak at mc L3441, `L.step` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+491	defect	C13 handle leak at mc L3441, `S.box` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+492	defect	C13 handle leak at mc L3441, `S.seed` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+493	defect	C13 handle leak at mc L3442, `L.bits` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+494	defect	C13 handle leak at mc L3443, `S.bits` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+495	defect	C13 handle leak at mc L3443, `W.onehot` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+496	defect	C13 handle leak at mc L3444, `P.trunc` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+497	defect	C13 handle leak at mc L3445, `A.erel` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+498	defect	C13 handle leak at mc L3445, `A.morph` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+499	defect	C13 handle leak at mc L3445, `A.prod` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+500	defect	C13 handle leak at mc L3445, `I.convex` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+501	defect	C13 handle leak at mc L3445, `I.shape` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+502	defect	C13 handle leak at mc L3445, `L.arith` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+503	defect	C13 handle leak at mc L3445, `L.closed` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+504	defect	C13 handle leak at mc L3445, `L.total` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+505	defect	C13 handle leak at mc L3446, `G.stat` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+506	defect	C13 handle leak at mc L3447, `A.erel` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+507	defect	C13 handle leak at mc L3447, `K.axis` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+508	defect	C13 handle leak at mc L3447, `L.dim` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+509	defect	C13 handle leak at mc L3449, `T.dens` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+510	defect	C13 handle leak at mc L3449, `T.dich` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+511	defect	C13 handle leak at mc L3449, `T.scheme` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+512	defect	C13 handle leak at mc L3449, `T.tower` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+513	defect	C13 handle leak at mc L3450, `A.clos` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+514	defect	C13 handle leak at mc L3450, `F.moore` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+515	defect	C13 handle leak at mc L3450, `F.open` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+516	defect	C13 handle leak at mc L3451, `S.parent` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+517	defect	C13 handle leak at mc L3451, `T.excl` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+518	defect	C13 handle leak at mc L3451, `T.tower` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+519	defect	C13 handle leak at mc L3453, `W.face` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+520	defect	C13 handle leak at mc L3454, `A.blind` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+521	defect	C13 handle leak at mc L3454, `A.ebits` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+522	defect	C13 handle leak at mc L3454, `A.slack` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+523	defect	C13 handle leak at mc L3454, `G.reg` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+524	defect	C13 handle leak at mc L3454, `K.axis` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+525	defect	C13 handle leak at mc L3454, `K.redun` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+526	defect	C13 handle leak at mc L3455, `S.box` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+527	defect	C13 handle leak at mc L3455, `S.down` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+528	defect	C13 handle leak at mc L3458, `LS.asym` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+529	defect	C13 handle leak at mc L3459, `T.para` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+530	defect	C13 handle leak at mc L3460, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+531	defect	C13 handle leak at mc L3461, `A.cert` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+532	defect	C13 handle leak at mc L3461, `F.open` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+533	defect	C13 handle leak at mc L3462, `B.coll` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+534	defect	C13 handle leak at mc L3463, `Q.delta` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+535	defect	C13 handle leak at mc L3464, `A.seaton` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+536	defect	C13 handle leak at mc L3464, `P.polar` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+537	defect	C13 handle leak at mc L3464, `P.qdt` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+538	defect	C13 handle leak at mc L3464, `Q.delta` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+539	defect	C13 handle leak at mc L3464, `Q.final` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+540	defect	C13 handle leak at mc L3464, `Q.pol` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+541	defect	C13 handle leak at mc L3465, `A.intext` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+542	defect	C13 handle leak at mc L3465, `A.three` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+543	defect	C13 handle leak at mc L3466, `A.dens` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+544	defect	C13 handle leak at mc L3469, `G.near` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+545	defect	C13 handle leak at mc L3469, `G.tower` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+546	defect	C13 handle leak at mc L3469, `K.girth` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+547	defect	C13 handle leak at mc L3469, `K.peak` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+548	defect	C13 handle leak at mc L3470, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+549	defect	C13 handle leak at mc L3471, `K.zcross` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+550	defect	C13 handle leak at mc L3471, `P.charge` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+551	defect	C13 handle leak at mc L3471, `P.iso` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+552	defect	C13 handle leak at mc L3471, `Q.final` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+553	defect	C13 handle leak at mc L3472, `G.book` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+554	defect	C13 handle leak at mc L3473, `C.local` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+555	defect	C13 handle leak at mc L3473, `G.book` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+556	defect	C13 handle leak at mc L3473, `L.amp` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+557	defect	C13 handle leak at mc L3473, `L.box` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+558	defect	C13 handle leak at mc L3473, `L.mobius` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+559	defect	C13 handle leak at mc L3473, `L.void` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+560	defect	C13 handle leak at mc L3476, `K.clock` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+561	defect	C13 handle leak at mc L3479, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+562	defect	C13 handle leak at mc L3480, `LS.chord` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+563	defect	C13 handle leak at mc L3481, `Q.final` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+564	defect	C13 handle leak at mc L3482, `LS.coll` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+565	defect	C13 handle leak at mc L3483, `LS.chord` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+566	defect	C13 handle leak at mc L3484, `A.alph` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+567	defect	C13 handle leak at mc L3487, `K.cat` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+568	defect	C13 handle leak at mc L3487, `K.comp` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+569	defect	C13 handle leak at mc L3487, `K.jump` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+570	defect	C13 handle leak at mc L3487, `K.twocol` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+571	defect	C13 handle leak at mc L3488, `LS.coll` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+572	defect	C13 handle leak at mc L3489, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+573	defect	C13 handle leak at mc L3490, `K.quiver` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+574	defect	C13 handle leak at mc L3491, `S.core` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+575	defect	C13 handle leak at mc L3491, `S.cover` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+576	defect	C13 handle leak at mc L3491, `S.lam` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+577	defect	C13 handle leak at mc L3491, `S.unit` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+578	defect	C13 handle leak at mc L3493, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+579	defect	C13 handle leak at mc L3494, `B.hstar` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+580	defect	C13 handle leak at mc L3495, `S.cover` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+581	defect	C13 handle leak at mc L3495, `S.lam` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+582	defect	C13 handle leak at mc L3497, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+583	defect	C13 handle leak at mc L3498, `A.fix` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+584	defect	C13 handle leak at mc L3498, `A.two` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+585	defect	C13 handle leak at mc L3499, `G.stat` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+586	defect	C13 handle leak at mc L3500, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+587	defect	C13 handle leak at mc L3501, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+588	defect	C13 handle leak at mc L3502, `A.blind` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+589	defect	C13 handle leak at mc L3502, `A.three` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+590	defect	C13 handle leak at mc L3502, `G.prot` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+591	defect	C13 handle leak at mc L3502, `K.corner` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+592	defect	C13 handle leak at mc L3502, `W.jur` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+593	defect	C13 handle leak at mc L3503, `L.step` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+594	defect	C13 handle leak at mc L3504, `A.ebits` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+595	defect	C13 handle leak at mc L3505, `S.core` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+596	defect	C13 handle leak at mc L3505, `S.unit` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+597	defect	C13 handle leak at mc L3506, `G.trip` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+598	defect	C13 handle leak at mc L3508, `I.shape` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+599	defect	C13 handle leak at mc L3508, `L.metric` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+600	defect	C13 handle leak at mc L3508, `L.occ` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+601	defect	C13 handle leak at mc L3509, `C.cut` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+602	defect	C13 handle leak at mc L3509, `G.cons` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+603	defect	C13 handle leak at mc L3509, `G.ref` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+604	defect	C13 handle leak at mc L3509, `G.shape` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+605	defect	C13 handle leak at mc L3509, `L.box` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+606	defect	C13 handle leak at mc L3509, `L.tree` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+607	defect	C13 handle leak at mc L3509, `T.trad` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+608	defect	C13 handle leak at mc L3509, `3B.def` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+609	defect	C13 handle leak at mc L3510, `T.trad` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+610	defect	C13 handle leak at mc L3511, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+611	defect	C13 handle leak at mc L3512, `A.intext` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+612	defect	C13 handle leak at mc L3512, `K.three` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+613	defect	C13 handle leak at mc L3513, `A.intext` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+614	defect	C13 handle leak at mc L3513, `A.relax` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+615	defect	C13 handle leak at mc L3513, `K.three` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+616	defect	C13 handle leak at mc L3513, `K.window` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+617	defect	C13 handle leak at mc L3514, `Q.anchor` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+618	defect	C13 handle leak at mc L3514, `Q.region` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+619	defect	C13 handle leak at mc L3514, `S.status` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+620	defect	C13 handle leak at mc L3515, `L.chains` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+621	defect	C13 handle leak at mc L3515, `L.pal` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+622	defect	C13 handle leak at mc L3516, `G.trip` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+623	defect	C13 handle leak at mc L3516, `K.decay` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+624	defect	C13 handle leak at mc L3516, `K.markov` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+625	defect	C13 handle leak at mc L3517, `A.bpc` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+626	defect	C13 handle leak at mc L3518, `G.cons` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+627	defect	C13 handle leak at mc L3518, `G.shape` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+628	defect	C13 handle leak at mc L3519, `A.bpc` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+629	defect	C13 handle leak at mc L3520, `W.scale` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+630	defect	C13 handle leak at mc L3520, `W.supp` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+631	defect	C13 handle leak at mc L3521, `K.decay` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+632	defect	C13 handle leak at mc L3522, `A.seaton` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+633	defect	C13 handle leak at mc L3524, `M.hsmi` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+634	defect	C13 handle leak at mc L3524, `M.ledger` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+635	defect	C13 handle leak at mc L3526, `M.hsmi` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+636	defect	C13 handle leak at mc L3526, `M.ledger` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+637	defect	C13 handle leak at mc L3527, `B.newton` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+638	defect	C13 handle leak at mc L3528, `A.rule` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+639	defect	C13 handle leak at mc L3529, `K.decay` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+640	defect	C13 handle leak at mc L3529, `K.markov` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+641	defect	C13 handle leak at mc L3529, `L.box` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+642	defect	C13 handle leak at mc L3530, `3B.shape` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+643	defect	C13 handle leak at mc L3531, `A.env` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+644	defect	C13 handle leak at mc L3531, `A.orient` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+645	defect	C13 handle leak at mc L3531, `T.tight` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+646	defect	C13 handle leak at mc L3532, `A.orient` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+647	defect	C13 handle leak at mc L3532, `A.rule` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+648	defect	C13 handle leak at mc L3532, `A.stair` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+649	defect	C13 handle leak at mc L3532, `T.tight` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+650	defect	C13 handle leak at mc L3534, `3B.five` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+651	defect	C13 handle leak at mc L3535, `3B.metric` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+652	defect	C13 handle leak at mc L3536, `W.rel` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+653	defect	C13 handle leak at mc L3537, `3B.shape` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+654	defect	C13 handle leak at mc L3538, `3B.shape` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+655	defect	C13 handle leak at mc L3538, `3B.metric` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+656	defect	C13 handle leak at mc L3538, `3B.pot` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+657	defect	C13 handle leak at mc L3539, `G.graph` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+658	defect	C13 handle leak at mc L3540, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+659	defect	C13 handle leak at mc L3541, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+660	defect	C13 handle leak at mc L3542, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+661	defect	C13 handle leak at mc L3543, `M.sorce` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+662	defect	C13 handle leak at mc L3544, `LS.ent` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+663	defect	C13 handle leak at mc L3544, `LS.law` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+664	defect	C13 handle leak at mc L3544, `LS.coll` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+665	defect	C13 handle leak at mc L3544, `LS.pin` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+666	defect	C13 handle leak at mc L3544, `LS.asym` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+667	defect	C13 handle leak at mc L3544, `LS.quart` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+668	defect	C13 handle leak at mc L3544, `LS.chord` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+669	defect	C13 handle leak at mc L3544, `LS.twin` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+670	defect	C13 handle leak at mc L3545, `3B.tri` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+671	defect	C13 handle leak at mc L3545, `3B.def` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+672	defect	C13 handle leak at mc L3545, `3B.index` in the bibliography table's `objects` column. One class at one site, closed on all 286 rows together: the column prints 265 handles, the compendium states none of them as an object's own name anywhere outside the table (six appear only as references inside other entries), 122 resolve only in another volume and 137 resolve nowhere; the handle-to-object map is mathreg.py's, which is not a member (docket 38, with docket 28 / ruling 46 and precedent 1546). Measured by r2-bib.py §2; carried open from 28a2 and closed here. Recorded, not repaired
+<<<END FILE: CENSUS-CLOSURES-d152.tsv>>>
+
+<<<FILE: r3-d152.py>>>
+#!/usr/bin/env python3
+"""r3-d152.py — R3: DEF-152's rulings executed, part one — the entries owed and the three sentences ruled.
+BUILD98 -> BUILD99 main.
+
+M's four rulings at chat 152 (RULING-DOCKET-152) and what DEF-152 carried as owed. Executed here:
+  item 1  26c-02, ruling (c): the origin of each of §32.1.4's three totals, measured by r2-32a (chat 152,
+          re-run on this build) — a new entry citing 332, 373 and 375 together.                 -> entry 1807
+  item 8  32a-04: register 332's collapsed sentence — a new entry citing 332 states the loss.   -> entry 1808
+  item 4  28a-06, ruling (a): *Fifty-nine* re-taken on the 162 rows it is printed beside: 52,
+          with a new entry citing 1736, which is not withdrawn. The one question the ruling left
+          open — whether the 172-row figure is kept beside the new one — is answered by 1736's own
+          precedent, "the prior count kept beside it": yes.                                      -> entry 1809, main site
+  item 5  28a-08: the entry does not cite the earlier instrument's 16.                           -> (by omission)
+  item 6  28b-07, ruling (b): R.7's two lead-ins stop saying the chapters rest on the blocks;
+          Montgomery's sentence stands.                                                          -> entry 1810, two main sites
+  item 7  28b-08: the record's list of block names living only in 1721 corrected to twelve.      -> entry 1811
+Deferred to part two (r3-d152b, after r2-27a3's reading): items 2, 3 (Appendix G rows) and 9 (docket 38).
+Item 10 (census 293 and 387–672) is r2-bib's and closes at the compendia bundle.
+
+MEASURED on this build before writing: r2-32a exits 0 with one deviation (32a-01); r2-28a3 prints 52 / 55 /
+55 / 57 / 58 / 70 of 162; r2-28b2 prints 1721's ten owner-groups and L11839's four names.
+
+THREE MAIN SITES, all in §R.7 / the closing paragraph of References:
+  A  the Löwdin lead-in: "these are the works Chapter 35 rests on" -> "these are the works entered with Chapter 35"
+  B  "Fifty-nine of them are the works listed above" -> "Fifty-two of them are the works listed above (fifty-nine
+     of the 172 rows matched at register 1736, before ten rows were removed; register 1809)"
+  C  "§R.7's two blocks are the works the chapters rest on" -> "the works entered with the chapters at registers
+     1701–1712 and 1713–1724"
+Line shift: main +2 (sites B and C each grow a line), reported not hidden. Register +20 (five entries).
+Ruling A holds: the Register's front-matter counts are untouched.
+
+Usage:  python3 r3-d152.py            dry run
+        python3 r3-d152.py --write    writes staging members + the BUILD99 bundle
+"""
+import os, sys, hashlib, re
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+OLD_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD98_main_and_register.md')
+OLD_MD5 = 'bf50a6c19e6f76b1f922b4552971274d'
+NEW_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD99_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build99') + os.sep
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+
+old_main = open(MEM + MAIN, 'rb').read(); m = old_main.decode('utf-8')
+old_reg = open(MEM + REG, 'rb').read();   r = old_reg.decode('utf-8')
+
+SUBS = [
+ # A. the Löwdin lead-in
+ (' **The Löwdin solution.** Entered at registers 1701–1712. The companion paper carries the full list; these are the works Chapter 35 rests on.\n',
+  ' **The Löwdin solution.** Entered at registers 1701–1712. The companion paper carries the full list; these are the works entered with Chapter 35 (register 1810).\n'),
+ # B. fifty-nine -> fifty-two, the 172-row figure kept beside it
+ (' objects — 162 works, 1669 to 2026, ordered by year with the objects each carries. Fifty-nine of them\n'
+  ' are the works listed above; the remainder are the attributions of standard results — Newton 1669,\n',
+  ' objects — 162 works, 1669 to 2026, ordered by year with the objects each carries. Fifty-two of them\n'
+  ' are the works listed above (fifty-nine of the 172 rows matched at register 1736, before ten rows were\n'
+  ' removed; register 1809); the remainder are the attributions of standard results — Newton 1669,\n'),
+ # C. the closing sentence
+ (' not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7\'s\n'
+  ' two blocks are the works the chapters rest on, not those lists.\n',
+  ' not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7\'s\n'
+  ' two blocks are the works entered with the chapters at registers 1701–1712 and 1713–1724, not those\n'
+  ' lists (register 1810).\n'),
+]
+for i, (o, n) in enumerate(SUBS, 1):
+    c = m.count(o); print('site %d: anchor occurs %d time(s)' % (i, c)); assert c == 1
+    m = m.replace(o, n)
+
+ENTRIES = """
+
+### 1807
+
+**§32.1.4's THREE TOTALS HAVE THREE ORIGINS, AND THE ENTRY THAT CARRIES THE 47 IS THE ONE THE SECTION ALREADY CITES.** *M's ruling on 26c-02 was (c): find where each total came from before choosing between the section and register 375. Measured (r2-32a, chat 152; re-run on this build). The fifty-five at §32.1.4 is the section's own table, 4 + 1 + 33 + 17, and it is the ONLY total of the three that one assignment of printed values reaches. The 48 of §32.1.4.1 and register 373 is 4 + 4 + 23 + 17 — two components moved, two carried at their §32.1.4 values and not restated — and three printed assignments reach it. The 47 enters the record at REGISTER 332, the entry §32.1.4 cites on a pointer that wraps a line break: a readout the press prints at every build, 47 at the time of writing, having been 55. Register 375 restates it and does not originate it.* **So the record's sequence is 55, 47, 48, 47, and it is not monotone: the total stood at 47 before it stood at 48.** *Two printed assignments reach 47, and the only one that agrees with the shape sentence 332 and 375 both assert — D 4, Q 5, numbers 21, audits 17 — mixes two states of the book: the numbers index at 21 is §32.1.4.1's before-compression column and E(Q) at 5 is §32.6.1's readout after it. A readout is reproducible only if its inputs are printed at one state, and these are not.* **Neither §32.1.4 nor 375 is corrected, since neither was ruled: 375's 'no longer written as a number' remains false as printed — the section still writes the total as a word — and is recorded here, not repaired.** *The shape sentence has two sites, 332 and 375, and §32.1.4 carries neither; 26c-02's 'appears in no volume' scored the volume where the finding meant the section. And the total's instrument is not held: numbers-index.py computes the largest component, register 435 records it absent and rebuilt from the printed rules, and it is not a member of this build — docket 38, not docket 12.* Registers 332; 373; 375; 435. (a correction.)
+
+### 1808
+
+**REGISTER 332 LOST A SENTENCE BETWEEN *INDICES* AND *SINCE*, AND THE FIGURE IT WOULD HAVE CARRIED IS HELD NOWHERE.** *Read entire, 332's body runs 'Across its six indicessince been confirmed by occupants arriving' — two sentences collapsed, with the text between them lost at exactly the point where the entry would state how many of the named cells have since been filled. That is the figure §32.1.4's 'confirmed three times' paragraph rests on, and the three it names — registers 285, 294 and 278 — are the nearest printed datum and not the lost sentence. The figure appears in no volume and not in Prints & Proofs.* **This entry states the loss and does not fill it: a number the record does not print may not be supplied to close a sentence, any more than an arithmetic.** *332 is not edited.* Registers 332; 1807. (a correction.)
+
+### 1809
+
+**FIFTY-NINE WAS A 172-ROW DATUM PRINTED BESIDE A 162-ROW COUNT; RE-TAKEN ON THE LIST IT SITS BESIDE, IT IS FIFTY-TWO.** *M's ruling on 28a-06 was (a): the figure is re-taken on the list it is printed beside. Under CONVENTION AY — the works listed above are the References from their heading to the line before the claim, matched by surname paired with the row's own year — the 162 rows of the Mathematical Compendium's bibliography share 52 works with the References. The figure is bracketed: 52 exact, 55 at a year tolerance of ±1 and ±2, 57 at ±3, 58 at ±5, and 70 with the year dropped. No author-and-year reading of the 162 rows reaches fifty-nine.* **Register 1736 is not withdrawn, and what it remains right about is stated in its own terms: its fifty-nine was matched by author and year against '172 works, 1669–2026', before the ten rows it removed, and it kept the prior count beside the new one.** *§R.7 now does the same for this pair — fifty-two on the 162 rows, with the fifty-nine of the 172 named beside it as 1736's — which is the one question the ruling left to R3, answered by 1736's own precedent.* Registers 1736. (a correction.)
+
+### 1810
+
+**§R.7's TWO LEAD-INS SAID THE CHAPTERS REST ON THE BLOCKS; THEY NOW SAY WHAT IS TRUE AS PRINTED.** *M's ruling on 28b-07 was (b). Under CONVENTION PROV the sentence on Montgomery's line — every structural object of Chapter 36 is his or older — is TRUE over the ten works Chapter 36 names, the newest of them 2015 and Montgomery's own, and it stands as written. What over-reached was the container: 'these are the works Chapter 35 rests on' and '§R.7's two blocks are the works the chapters rest on' asserted a dependence six three-body works and Madelung do not satisfy, the six appearing in no part of Chapter 36 and Madelung in neither Chapter 35 nor registers 1701–1712.* **Both lead-ins are re-worded to the works entered with the chapters at registers 1701–1712 and 1713–1724, which is what the block records and asserts no dependence.** *Carried deliberately: the six post-2015 works and Madelung stay in the blocks, and the scope question does not recur, because the block no longer claims what they were failing to satisfy.* Registers 1701–1724. (a correction.)
+
+### 1811
+
+**THE BLOCK NAMES LIVING ONLY IN REGISTER 1721 NUMBER TWELVE, NOT EIGHT.** *The record listed eight three-body works whose only home in registers 1713–1724 is entry 1721 — Marchal, Bozis, Monaghan, Stone, Leigh, Kol, Moser, Alekseev. Measured across the run, the list is a subset: Baker, Dechter, Montanari and Pixley — the block's constraint-consistency line — sit in 1721's tenth owner-group, in no other entry of 1713–1724, and in no part of Chapter 36. Twelve in all.* **Under ruling (b) the record's list is corrected by this entry and the block is not narrowed to fit it.** *Engaged and not scored: 1721 prints ten owner-groups against its stated seven closures. A question may close to more than one owner, and the audit-7 ledger that maps question to owner is not a member of this build, so the reading cannot decide it; §36.2's eight closed and §36.3's seven belonged to others reconcile, the eighth being the withdrawn degree-8 polynomial given to Lagrange's resolvent at register 1720.* Registers 1719; 1720; 1721; 1810. (a correction.)"""
+
+for n in range(1807, 1812): assert r.count('### %d\n' % n) == 0, n
+assert r.rstrip().endswith('(a correction.)')
+r = r.rstrip() + ENTRIES + '\n'
+
+for probe, want in (('Fifty-nine of them', 0), ('works Chapter 35 rests on', 0), ('works the chapters rest on', 0),
+                    ('Fifty-two of them', 1), ('entered with the chapters at registers 1701–1712 and 1713–1724', 1)):
+    got = m.count(probe); print('  main after: %-64s %d (want %d)' % (repr(probe), got, want)); assert got == want
+for n in range(1807, 1812): assert r.count('\n### %d\n' % n) == 1
+
+new_m = m.encode('utf-8'); new_r = r.encode('utf-8')
+print('main %d -> %d B, lines %+d' % (len(old_main), len(new_m), m.count('\n') - old_main.decode('utf-8').count('\n')))
+print('reg  %d -> %d B, lines %+d' % (len(old_reg), len(new_r), r.count('\n') - old_reg.decode('utf-8').count('\n')))
+
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v, oldt, newt in ((MAIN, old_main.decode('utf-8'), m), (REG, old_reg.decode('utf-8'), r)):
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:40], oldt.count(a), newt.count(a)) for a in anchors if oldt.count(a) != newt.count(a)]
+    print('build.py SUBS anchors on %s: %d checked; changed: %s' % (v, len(anchors), moved)); assert not moved
+
+if WRITE:
+    assert not os.path.exists(OUT); os.makedirs(OUT)
+elif not os.path.isdir(OUT):
+    os.makedirs(OUT)
+open(OUT + MAIN, 'wb').write(new_m); open(OUT + REG, 'wb').write(new_r)
+old_b = open(OLD_BUNDLE, 'rb').read(); assert md5(old_b) == OLD_MD5, 'BUILD98 md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(old_b))
+assert ms[MAIN] == old_main and ms[REG] == old_reg
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+nb = old_b
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    ob = block(n_, ms[n_]); assert nb.count(ob) == 1; nb = nb.replace(ob, block(n_, body))
+rv = nb
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    assert rv.count(block(n_, body)) == 1; rv = rv.replace(block(n_, body), block(n_, ms[n_]))
+assert md5(rv) == OLD_MD5, 'bundle reverse FAILED'
+print('bundle reverse recovers md5 %s == old: True' % md5(rv))
+print('new BUILD99  %s B  md5 %s  %s lines  %d members' % (format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ','), len(ms)))
+if WRITE:
+    assert not os.path.exists(NEW_BUNDLE); open(NEW_BUNDLE, 'wb').write(nb); print('written', NEW_BUNDLE)
+else:
+    print('DRY RUN — nothing installed')
+<<<END FILE: r3-d152.py>>>
+
+<<<FILE: r3-d152b.py>>>
+#!/usr/bin/env python3
+"""r3-d152b.py — R3: DEF-152's rulings executed, part two — Appendix G's rows re-taken, and the readout class qualified.
+BUILD99 -> BUILD100 main.
+
+  items 2, 3  27a-02 under M's ruling (a), 27a-07 and 27a-08 with it. The Register pointers of rows 8.2, 8.4
+              and 10.4c are re-taken by reading under CONVENTION DEP (r2-27a3, READ-27a3): 8 pairs asserted,
+              0 kept; 12 written, 0 from a probe. The question M left to R3 — whether the compendium's set
+              1019 / 1020 / 1022 / 1035 / 1483 / 1484 becomes row 10.4c's — is ruled NO: none rests on C1's
+              factorisation; 1035, 1483 and 1484 rest on §10.4e's dimensional ledger, the row the compendium's
+              own block names as its source, and row 10.4e takes them. 1019 and 1020 are NEAR and not written.
+              1403 rests on no row, so its citation is dropped: 27a-08 discharged by docket 35's second route.
+                                                                                     -> four rows, entry 1812
+  item 9      32a-03: every §2.21 build readout carries the docket-38 qualification that its instrument is not
+              held. The class is stated once in full at §2.21 and pointed to from the other six sites the sweep
+              found — §32.1's two, §32.1.4's table, §32.1.4.1, §32.6.1 and §D.5's census. The seventh readout,
+              the register's span, is printed only in the Register's front matter, which Ruling A holds
+              untouched; it waits with reg1-04 and the entry says so.      -> seven sites, entry 1813
+
+Line shift: main +5 (§2.21 +3, §32.6.1 +1, §D.5 +1), reported not hidden. Register +8 (two entries).
+Ruling A holds: the Register's front-matter counts are untouched.
+
+Usage:  python3 r3-d152b.py            dry run
+        python3 r3-d152b.py --write    writes staging members + the BUILD100 bundle
+"""
+import os, sys, hashlib, re
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+OLD_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD99_main_and_register.md')
+OLD_MD5 = '196acc456adad97fd3bb8cbfe91fc3bf'
+NEW_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD100_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build100') + os.sep
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+
+old_main = open(MEM + MAIN, 'rb').read(); m = old_main.decode('utf-8')
+old_reg = open(MEM + REG, 'rb').read();   r = old_reg.decode('utf-8')
+
+SUBS = [
+ # Appendix G, the third column of four rows — exactly as r2-27a3 §7 prints them
+ ('| `W.jur`; Chapter 12; Register 1375, 1519, 1523, 1535, 1551 |\n', '| `W.jur`; Chapter 12; Register 543, 584, 585, 588, 592 |\n'),
+ ('| `W.rel`; Chapter 12; Register 1375 |\n', '| `W.rel`; Chapter 12; Register 543, 544 |\n'),
+ ('| `M.C1`; Register 1399, 1403 |\n', '| `M.C1`; Register 549, 550 |\n'),
+ ('| `M.ledger` |\n', '| `M.ledger`; Register 1035, 1483, 1484 |\n'),
+ # the readout class — §2.21 states it
+ (' every build. **These are readouts and are marked as such** — a number the artefact computes about\n'
+  ' itself is evidence of a state, not a claim about the work.\n',
+  ' every build. **These are readouts and are marked as such** — a number the artefact computes about\n'
+  ' itself is evidence of a state, not a claim about the work. And a readout is checkable only while its\n'
+  ' instrument is held: the scripts that compute these — numbers-index.py and its companions — are not\n'
+  ' members of this build, so each stands as a record-carried figure, true of the state it names and not\n'
+  ' recomputable from the artefact as delivered (register 1813).\n'),
+ # §32.1, two sites
+ ('the unfibred value being a build readout per §2.21. Only E(Λ) = 0 is computed unfibred',
+  'the unfibred value being a build readout per §2.21, by an instrument this build does not hold (register 1813). Only E(Λ) = 0 is computed unfibred'),
+ ('E(Q) unfibred as the press reports it at each build,\n', 'E(Q) unfibred as the press reports it at each build (instrument not held, register 1813),\n'),
+ # §32.1.4's table
+ ('                                                       **a build readout**\n',
+  '                                                       **a build readout; instrument not held (register 1813)**\n'),
+ # §32.1.4.1
+ (' state, and the state is named. The press recomputes the two that move fastest at every build. **Three\n'
+  ' more are asserted here and should not be**, which is the work register 373 leaves open rather than\n'
+  ' does.\n',
+  ' state, and the state is named. The press recomputes the two that move fastest at every build, by\n'
+  ' instruments this build does not hold (register 1813). **Three more are asserted here and should not\n'
+  ' be**, which is the work register 373 leaves open rather than does.\n'),
+ # §32.6.1
+ (' answer rather than an opinion. At the build that produced this page the press prints\n **E(Λ) = 0, E(audits) = 16',
+  ' answer rather than an opinion. At the build that produced this page the press printed, by\n instruments this build does not hold (register 1813),\n **E(Λ) = 0, E(audits) = 16'),
+ # §D.5's census
+ ('    press at every build, per §2.21. No combination of status, verification and\n',
+  '    press at every build, per §2.21, by an instrument this build does not hold (register 1813). No\n'
+  '    combination of status, verification and\n'),
+]
+for i, (o, n) in enumerate(SUBS, 1):
+    c = m.count(o); print('site %2d: anchor occurs %d time(s)' % (i, c)); assert c == 1
+    m = m.replace(o, n)
+
+ENTRIES = """
+
+### 1812
+
+**APPENDIX G's THREE ROWS NAMED ENTRIES THAT REST ON OTHER MECHANISMS; RE-TAKEN BY READING, THEY NAME NINE THAT REST ON THEIRS, AND THE COMPENDIUM's SIX GO TO THE ROW THE COMPENDIUM NAMES.** *M's ruling on 27a-02 was (a): the column 'what rests on it' names entries that rest on the section, and the Register pointers of rows 8.2, 8.4 and 10.4c are re-taken by reading under CONVENTION DEP — an entry rests on a section if it names the source at that section or if its own deciding sentence is an instance or consequence of the mechanism the section establishes, the phrase asserted present in the entry's text before any verdict, and nothing written from a token probe. The DEP-N sweep is exhaustive over the Register; DEP-M is read on the candidates and claimed no further.* **Of the eight pairs the column asserted, none rests on its section (register 1770's rows; r2-27a reproduced). Row 8.2 rests on 543, 584, 585, 588 and 592, each naming T §8.2 and turning on what it prints — the disjunction NEC ≥ 3 → (IC ∨ U ∨ X) and the conjunctive body; row 8.4 on 543 and 544; row 10.4c on 549 and 550, which close and read M.C1 at the section.** *The question the ruling left to R3 — whether the Mathematical Compendium's modular-ledger set, 1019, 1020, 1022, 1035, 1483 and 1484, becomes row 10.4c's — is answered NO: none has a deciding sentence that is an instance of C1's factorisation over generators. Three of them — 1035, 1483, 1484 — have the dimensional ledger d − 1 = 1 + (d − 2) as their deciding sentence, read, qualified and completed, and that is §10.4e's, the row the compendium's block itself names as its source; row 10.4e takes the three, and 27a-07's disagreement between the address and the compendium resolves in the compendium's favour for exactly the entries that carry the phrase. 1019 and 1020 are NEAR and are not written; 1022 is §10.4d's.* **1403 rests on no row, so its citation is dropped, and 27a-08 — the WARNING the row did not restate — is discharged by the drop, which is the second of docket 35's two routes.** *Pointer arithmetic: eight pairs asserted, none kept; twelve written, none from a probe. What the reading cannot bound is DEP-M over entries that instance a mechanism without naming the paper; NEAR is that class, and the rows say what rests on them over what was read.* Registers 543; 544; 549; 550; 584; 585; 588; 592; 1035; 1483; 1484; 1770. (a correction.)
+
+### 1813
+
+**SEVEN FIGURES THE BOOK PRINTS AS BUILD READOUTS ARE FIGURES NO MEMBER OF THIS BUILD CAN RECOMPUTE, AND EVERY SITE NOW SAYS SO.** *§2.21 makes computation at build the third representation of a figure about the book — E(G), the open item count, E(Q) unfibred, the register's span, the withdrawal ratio, and by register 375 Appendix D's element count and §32.1.4's total — and marks them readouts. Measured (r2-32a §7): numbers-index.py, densities.py, indices.py, appendix_audit.py, mathreg.py, compendium.py, register_gen.py and guard.py are not members of this build, register 435 records the first two as having been absent and rebuilt from the printed rules, and build.py, which is a member, is a prose-substitution press that computes none of them and whose substitution table strips the script names out of reader-facing prose.* **A build readout is not a checkable figure while its instrument is not held. This is not a defect in any of the seven; it is their standing, and it is docket 38's class — the record-carried figure — entered whole.** *DEF-152 item 9 offered two routes, the scripts becoming members or every readout carrying the qualification; the scripts in the store are the restore-point's, stale against the volumes by hundreds of lines, and seating a generator that does not reproduce what it generated would be a second record-carried figure. The qualification is taken: stated once in full at §2.21 and pointed to from the six other sites — §32.1's two, §32.1.4's table, §32.1.4.1, §32.6.1 and §D.5's census. The seventh readout, the register's span, is printed only in this Register's front matter, which Ruling A holds untouched until the readings; it waits with the count repair and is qualified here rather than there.* Registers 374; 375; 435; 1807. (a measurement.)"""
+
+for n in (1812, 1813): assert r.count('### %d\n' % n) == 0, n
+assert r.rstrip().endswith('(a correction.)')
+r = r.rstrip() + ENTRIES + '\n'
+
+for probe, want in (('Register 1375', 0), ('Register 1399, 1403', 0), ('(register 1813)', 6), ('register 1813)', 7),
+                    ('| `M.ledger`; Register 1035, 1483, 1484 |', 1), ('Register 543, 584, 585, 588, 592', 1)):
+    got = m.count(probe); print('  main after: %-52s %d (want %d)' % (repr(probe), got, want)); assert got == want
+assert r.count('\n### 1812\n') == 1 and r.count('\n### 1813\n') == 1
+
+new_m = m.encode('utf-8'); new_r = r.encode('utf-8')
+print('main %d -> %d B, lines %+d' % (len(old_main), len(new_m), m.count('\n') - old_main.decode('utf-8').count('\n')))
+print('reg  %d -> %d B, lines %+d' % (len(old_reg), len(new_r), r.count('\n') - old_reg.decode('utf-8').count('\n')))
+
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v, oldt, newt in ((MAIN, old_main.decode('utf-8'), m), (REG, old_reg.decode('utf-8'), r)):
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:40], oldt.count(a), newt.count(a)) for a in anchors if oldt.count(a) != newt.count(a)]
+    print('build.py SUBS anchors on %s: %d checked; changed: %s' % (v, len(anchors), moved)); assert not moved
+
+if WRITE:
+    assert not os.path.exists(OUT); os.makedirs(OUT)
+elif not os.path.isdir(OUT):
+    os.makedirs(OUT)
+open(OUT + MAIN, 'wb').write(new_m); open(OUT + REG, 'wb').write(new_r)
+old_b = open(OLD_BUNDLE, 'rb').read(); assert md5(old_b) == OLD_MD5, 'BUILD99 md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(old_b))
+assert ms[MAIN] == old_main and ms[REG] == old_reg
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+nb = old_b
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    ob = block(n_, ms[n_]); assert nb.count(ob) == 1; nb = nb.replace(ob, block(n_, body))
+rv = nb
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    assert rv.count(block(n_, body)) == 1; rv = rv.replace(block(n_, body), block(n_, ms[n_]))
+assert md5(rv) == OLD_MD5, 'bundle reverse FAILED'
+print('bundle reverse recovers md5 %s == old: True' % md5(rv))
+print('new BUILD100  %s B  md5 %s  %s lines  %d members' % (format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ','), len(ms)))
+if WRITE:
+    assert not os.path.exists(NEW_BUNDLE); open(NEW_BUNDLE, 'wb').write(nb); print('written', NEW_BUNDLE)
+else:
+    print('DRY RUN — nothing installed')
+<<<END FILE: r3-d152b.py>>>
+
+<<<FILE: r3-vocab.py>>>
+#!/usr/bin/env python3
+"""r3-vocab.py — R3: the sixth status value. BUILD94 -> BUILD95 main.
+
+M's ruling, this session. Appendix D's `status` coordinate is an ORDERED scale defined at §D.2 on five
+values. A sixth, **unwitnessed**, is added between `verified` and `proved`, for a result that is measured,
+verified and exhaustive over everything the index can reach while no cell inside it witnesses the claim.
+M: it "ranks higher in rank as something other than proven", and its largest use is the Löwdin spectra
+index above Z = 108, where the cells are computed and the elements are not yet observed.
+
+FOUR SITES, all content or prose ruled by M, none of them chosen here:
+  1. §D.2 L10354      the definition line — the value inserted in the ordered chain, realigned to the
+                      header's own column so the table's alignment is measured and not guessed.
+  2. L10748–L10753    the paragraph that states the scale. "five values" -> "six values"; the chain
+                      restated; "nothing was ever merely conjectured" -> "...without the intention to
+                      prove or withdraw" (M's wording, which makes the sentence a claim about METHOD, so
+                      the two standing conjectures at L10741 and L10865 sit inside it rather than
+                      falsifying it — NO ROW CHANGES); the slack = kernel sentence removed on M's ruling
+                      that the index is calibrated to the periodic elements and holds no idle conjecture;
+                      and the value introduced with its own invitation.
+  3. L10858           the corridor row -> unwitnessed (M, question 1).
+  4. L10859           the nineteen surds row -> unwitnessed (M, question 2, option (a)).
+
+NOT DONE HERE: L10864, the necessity of state. Its disposition waits on M — register 1448 is to be marked
+proven and tied to 1332, and the Register carries no status coordinate, so what that attaches to is open.
+
+RULING A still holds: the Register's front-matter counts are NOT touched, and kinds.py is NOT run. Entry
+1801 is appended; the count drift it widens is scored, never repaired, and reg1-04 carries it.
+
+Every anchor is the site's own text, so the two row edits are order-independent of the paragraph edit that
+shifts them. The paragraph grows by 2 lines: everything below L10753 moves +2, and that is reported, not
+hidden — the instrument estate is re-anchored against it.
+
+Usage:  python3 r3-vocab.py            dry run
+        python3 r3-vocab.py --write    writes /home/claude/build95/<members> and the BUILD95 bundle
+"""
+import os, re, sys, hashlib, tempfile, textwrap
+
+MEM = '/home/claude/members/'; HOME = '/home/claude/'
+OLD_BUNDLE = HOME + 'The_Method_1_6_BUILD94_main_and_register.md'
+OLD_MD5 = '6079e066b5e480db6c47f754660a9b6e'
+NEW_BUNDLE = HOME + 'The_Method_1_6_BUILD95_main_and_register.md'
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+OUT = HOME + 'build95/' if WRITE else tempfile.mkdtemp(prefix='r3vocab-dry-') + '/'
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'^<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S | re.M)
+
+old_main = open(MEM + MAIN, 'rb').read(); old_reg = open(MEM + REG, 'rb').read()
+m = old_main.decode('utf-8'); r = old_reg.decode('utf-8'); ML = m.split('\n')
+print(f'old {MAIN}  {len(old_main):,} B  md5 {md5(old_main)}  {old_main.count(chr(10).encode()):,} lines')
+print(f'old {REG}   {len(old_reg):,} B  md5 {md5(old_reg)}  {old_reg.count(chr(10).encode()):,} lines')
+
+# ---------------------------------------------------------------- 1. the §D.2 definition line
+DEF_OLD = '  status              withdrawn < conjectured < measured < verified < proved                         ordered'
+assert m.count(DEF_OLD) == 1, 'the §D.2 status line is not unique'
+_hdr = next(l for l in ML if 'coordinate' in l and 'values' in l and 'kind' in l)
+_kind_col = _hdr.index('kind', _hdr.index('values'))
+_vals_col = DEF_OLD.index('withdrawn')
+_chain = 'withdrawn < conjectured < measured < verified < unwitnessed < proved'
+_pad = _kind_col - (_vals_col + len(_chain))
+assert _pad > 0, 'the new chain does not fit the table column'
+DEF_NEW = DEF_OLD[:_vals_col] + _chain + (' ' * _pad) + 'ordered'
+assert DEF_NEW.index('ordered') == _kind_col, 'realignment failed against the header'
+print(f'§D.2 realigned: "ordered" stays at column {_kind_col} (measured from the header, not assumed)')
+
+# ---------------------------------------------------------------- 2. the paragraph
+PARA_OLD = '\n'.join(ML[10747:10753]) + '\n'   # L10748–L10753
+assert 'first conjecture this index has ever held' in PARA_OLD and 'slack = kernel conjecture' in PARA_OLD
+assert m.count(PARA_OLD) == 1, 'the scale paragraph is not unique'
+_text = ("**The interesting part is that one of the four is the first conjecture this index was built on.** "
+         "§D.2 defines *status* on six values — withdrawn < conjectured < measured < verified < unwitnessed "
+         "< proved — and until now the enumeration occupied three of them. Everything in this book was "
+         "measured, verified, or proved, with and without witness; nothing was ever merely conjectured "
+         "without the intention to prove or withdraw, and nothing withdrawn survived to be listed. An "
+         "unwitnessed result is proved and not yet observed — measured, verified, and exhaustive over "
+         "everything the index can reach, with no cell inside it witnessing the claim. Proof is a matter of "
+         "mathematics and not of observation, so the value ranks below proved for a reason that is a bias "
+         "and not a defect — observation.")
+_w = max(len(l) for l in ML[10747:10753])
+PARA_NEW = '\n'.join('  ' + l for l in textwrap.wrap(' '.join(_text.split()), width=_w - 2,
+                                                     break_long_words=False, break_on_hyphens=False)) + '\n'
+_shift = PARA_NEW.count('\n') - PARA_OLD.count('\n')
+print(f'paragraph: {PARA_OLD.count(chr(10))} lines -> {PARA_NEW.count(chr(10))} lines  (shift {_shift:+d} for every line below L10753)')
+
+# ---------------------------------------------------------------- 3 & 4. the two rows, anchored by their own text
+def row(anchor, old_coord, new_coord):
+    hits = [l for l in ML if anchor in l and old_coord in l]
+    assert len(hits) == 1, f'{anchor!r}: {len(hits)} rows match, not 1'
+    l = hits[0]
+    assert l.count(old_coord) == 1
+    return l + '\n', l.replace(old_coord, new_coord) + '\n'
+
+R1 = row('the corridor, 106 consistent inequalities', 'verified as a result about the form (1445, 1463)',
+         'unwitnessed · exhaustive · none found (a result about the form; registers 1445, 1463)')
+R2 = row('the nineteen surds, the complete endpoint set', 'withdrawn with ν at 1460',
+         'unwitnessed · exhaustive · none found (true of ν as a form; register 1460)')
+
+# M's ruling: the observability boundary is not a conjecture. Register 1377 states a decidable
+# criterion — does the effect modify the equation, or require its solution? — names the prior art on
+# both sides (Schrödinger 1926 and its sequels; Born–Heisenberg–Jordan 1925–26; von Neumann 1927/1932)
+# and EXPLAINS Λ_cross's exception rather than recording it. And M's principle: outside literature and
+# prior art COUNT AS WITNESS, which is why the citations and the bibliography exist — so the precedent
+# column moves from 'none found' to 'found' on the same ruling.
+R3 = row('the observability boundary, tested once', 'conjectured · sampled · none found',
+         'verified · sampled · found')
+
+# M's ruling on L10864: name a theorem by what it IS, not by how a run scored. Of the 22 theorem rows in
+# Appendix D, every name is either the assertion itself or a handle plus its section; '104 of 106 steps'
+# is the only sample score among them. The theorem is STRUCTURAL — non-uniqueness forces carried state —
+# so it takes the handle-and-section form, which is also shift-proof where a line number is not. The
+# score leaves the name and the coordinates carry the qualification.
+# The ENCLOSING table's header, not the first in the document — Appendix D has six element tables and
+# their columns do not line up with each other. Taking the wrong one misaligns the row against its own
+# neighbours, which is what happened on the first attempt.
+_old864 = next(l for l in ML if 'the necessity of state, 104 of 106 steps' in l)
+assert ML.count(_old864) == 1
+_i864 = ML.index(_old864)
+_hdr = next(ML[j] for j in range(_i864, -1, -1)
+            if ML[j].strip().startswith('new element') and 'coordinates' in ML[j])
+_c_fib = _hdr.index('fibre'); _c_crd = _hdr.index('coordinates')
+# and prove it against a neighbour in the SAME table, so a wrong header cannot pass silently
+_nbr = ML[_i864 - 1]
+assert _nbr.index('measurement · analysis') == _c_fib, 'header does not match this table'
+_name = 'the necessity of state, §34.6'; _fib = 'theorem · physics'
+_crd = ('verified · sampled · none found (the claim stands at register 1332; its count is fixed from the '
+        'case it judges and is not independently reproducible, register 1448)')
+_new864 = ('  ' + _name).ljust(_c_fib) + _fib.ljust(_c_crd - _c_fib) + _crd
+assert _new864.index(_fib) == _c_fib and _new864.index(_crd) == _c_crd, 'row realignment failed'
+R4 = (_old864 + chr(10), _new864 + chr(10))
+
+# §4.6 marked proved (M: A3). Proof is mathematics, not observation — the protocol is proved because
+# the case it was built for arrived and it caught it. This is the one protocol of the ten that is not
+# merely earned by a failure but established by one.
+A46_OLD = '  4.6   **a test that could not fail** — exhibit the failure mode before trusting the pass'
+A46_NEW = '  4.6   **a test that could not fail** — exhibit the failure mode before trusting the pass; a\n        criterion fixed from the case it judges cannot fail — proved by the case it was built for and\n        then caught'
+assert m.count(A46_OLD + chr(10)) == 1, "the §4.6 line is not unique"
+
+SUBS_MAIN = [
+    ('§4.6 marked proved', A46_OLD + chr(10), A46_NEW + chr(10)),
+    ('§D.2 L10354 the ordered scale', DEF_OLD + '\n', DEF_NEW + '\n'),
+    ('L10748–L10753 the scale paragraph', PARA_OLD, PARA_NEW),
+    ('the corridor row', R1[0], R1[1]),
+    ('the nineteen surds row', R2[0], R2[1]),
+    ('the observability boundary row', R3[0], R3[1]),
+    ('the necessity of state row', R4[0], R4[1]),
+]
+
+# ---------------------------------------------------------------- the Register entry (subject matter)
+seated = sorted(int(x) for x in re.findall(r'^### (\d+)$', r, re.M))
+N = max(seated) + 1
+assert N == 1801, f'expected to take 1801-1802, next free is {N}'
+assert not re.search(rf'^### {N + 1}\b', r, re.M) and not re.search(rf'^### {N + 2}\b', r, re.M)
+E1 = (f"### {N}\n\n**THE STATUS COORDINATE TAKES A SIXTH VALUE: *UNWITNESSED*, ABOVE *VERIFIED* AND BELOW "
+      "*PROVED*.** *§D.2 defined status on five values. A result can be measured, verified and exhaustive over "
+      "everything the index reaches while nothing witnesses the claim; that is not a doubt and not a demotion, "
+      "and the five values had no room for it. Proof is a matter of mathematics and not of observation, so the "
+      "new value ranks below proved for a reason that is a bias and not a defect — observation. The corridor is "
+      "the first to take it (1445, 1463), and the nineteen surds follow, true of ν as a form and of nothing in "
+      "the periodic table (1460). Neither is withdrawn and nothing is deleted.* "
+      "**WHAT COUNTS AS A WITNESS, stated because the value is meaningless without it: that ANYONE has observed "
+      "it — this work or another.** *An observation of our own and an attribution found in the literature "
+      "witness equally. That is why the search for outside attribution is method and not courtesy: a search "
+      "that finds one moves a result out of this value, and a search that finds none is what leaves it "
+      "there. An unwitnessed result is one nobody has yet seen. Above Z = 108 the spectra index is written "
+      "almost entirely in the value, and it wants only for something to be seen.* "
+      "Registers 1445; 1460; 1463. (a new protocol.)\n")
+E2 = (f"### {N + 1}\n\n**THE OBSERVABILITY BOUNDARY IS NOT A CONJECTURE; IT IS VERIFIED, AND ITS PRIOR ART IS "
+      "THE LITERATURE IT STANDS ON.** *Appendix D ranked it conjectured with no precedent found. Register 1377 states it as a "
+      "decidable criterion — does the effect modify the equation, or require its solution? — names the prior "
+      "art on both sides, Schrödinger's* Quantisierung als Eigenwertproblem *(1926) and its three sequels for "
+      "the enumerable half and Born–Heisenberg–Jordan with von Neumann's spectral theorem for the operator "
+      "half, and EXPLAINS Λ_cross's exception rather than recording it. 1377 is exact about what is borrowed "
+      "and what is not: there is no single theory of observability to cite, so the two halves are the "
+      "literature and the boundary drawn between them is this work's. A criterion that decides cases and "
+      "carries the literature of both its sides is not a guess.* **Re-ranked verified · sampled · found: verified because it "
+      "decides, sampled because it has been applied once, and found because the literature is there — and by "
+      "the witness rule of the entry above, someone has seen it.** Registers 1377. (a correction.)\n")
+E3 = (f"### {N + 2}\n\n**THE NECESSITY OF STATE IS A STRUCTURAL THEOREM AND IS NAMED AS ONE; ITS SCORE "
+      "LEAVES ITS NAME.** *Appendix D carried it as \u2018the necessity of state, 104 of 106 steps\u2019 \u2014 the only "
+      "element of the twenty-two whose fibre is theorem to be named by a sample score rather than by its "
+      "assertion or by a handle and its section. The theorem is that the observed subshell is never uniquely "
+      "determined, so the periodic table is not computable from a single atom\u2019s configuration and one number "
+      "must be carried forward (\u00a734.6; register 1332). That is structural and does not depend on how any run "
+      "scored.* **Renamed to the handle-and-section form the table uses, and the count moved into the "
+      "coordinates where register 1448\u2019s objection can qualify it: the placement it was measured under is "
+      "fixed from the case it judges and cannot fail, so the claim stands and the figure does not \u2014 104 of 106 "
+      "under that placement, 62 of 106 under the corridor-non-empty convention.** Registers 1332; 1448. (a correction.)\n")
+TAIL = '\n' + E1 + '\n' + E2 + '\n' + E3
+assert not re.search(rf'^### {N}\b', r, re.M)
+
+def apply(t, subs):
+    for name, a, b in subs:
+        assert t.count(a) == 1, f'{name}: anchor occurs {t.count(a)} times'; assert a != b; t = t.replace(a, b)
+    return t
+def reverse(t, subs):
+    for name, a, b in reversed(subs):
+        assert t.count(b) == 1, f'{name}: reverse anchor occurs {t.count(b)} times'; t = t.replace(b, a)
+    return t
+
+new_m = apply(m, SUBS_MAIN); assert md5(reverse(new_m, SUBS_MAIN).encode('utf-8')) == md5(old_main), 'main reverse FAILED'
+# The tie M ruled: a WARNING on 1332 citing 1448, in the Register's own idiom (39 already exist) and
+# appended to the entry's single body line, so it adds no line and shifts nothing.
+_i = next(i for i, l in enumerate(r.split(chr(10))) if l.strip() == '### 1332')
+_b = next(j for j in range(_i, _i + 6) if r.split(chr(10))[j].strip() and not r.split(chr(10))[j].strip().startswith('###'))
+_body = r.split(chr(10))[_b]
+assert 'WARNING' not in _body, '1332 already carries a WARNING'
+assert r.count(_body) == 1, "1332's body line is not unique"
+WARN = "  **WARNING:** Qualified at register 1448. The memoryless test set *a* to each candidate subshell's own crossing value — a criterion fixed from the case it judges, which §4.6 shows cannot fail. **The claim stands:** the observed subshell is never uniquely determined, so the table is not computable from a single atom's configuration. **The count does not:** 104 of 106 under this placement, 62 of 106 under the corridor-non-empty convention."
+SUBS_REG = [('the WARNING on 1332', _body + chr(10), _body + WARN + chr(10))]
+new_r = apply(r, SUBS_REG) + TAIL; assert md5(reverse(new_r[:-len(TAIL)], SUBS_REG).encode('utf-8')) == md5(old_reg), 'Register reverse FAILED'
+print(f'main: {len(SUBS_MAIN)} substitutions, reverse recovers md5 {md5(old_main)} == old: True')
+print(f'Register: {len(SUBS_REG)} substitution (the 1332 WARNING, +0 lines) + entries {N}–{N+2} appended, reverse recovers {md5(old_reg)}')
+
+# ---------------------------------------------------------------- what must NOT have moved
+NL = new_m.split('\n')
+# TWO shift bands now, because §4.6 is edited as well as the appendix paragraph. The reverse-md5 guard
+# above is what proves the edit; this reports the bands and asserts that nothing ABOVE the first one moved.
+_first = min(i + 1 for i in range(min(len(NL), len(ML))) if NL[i] != ML[i])
+assert _first == 1447, f'the first changed line is L{_first}, expected §4.6 at L1447'
+assert NL[:1446] == ML[:1446], 'a line above §4.6 moved'
+_b1 = A46_NEW.count(chr(10)) + 1 - 1          # §4.6: one line becomes three
+_b2 = PARA_NEW.count(chr(10)) - PARA_OLD.count(chr(10))
+print(f'shift bands: +{_b1} for main L >= 1448 (§4.6), then a further +{_b2} below the scale paragraph')
+print(f'  net: lines after the appendix paragraph move +{_b1 + _b2}; total {len(ML)} -> {len(NL)}')
+for probe in ('nothing withdrawn survived to be listed', 'slack = kernel, §18.4.1'):
+    assert new_m.count(probe) == m.count(probe), f'{probe!r} count moved'
+assert 'slack = kernel conjecture occupies' not in new_m, 'the slack sentence was not removed'
+assert new_m.count('**conjectured** · sampled · none found') == m.count('**conjectured** · sampled · none found'), \
+    'slack = kernel must keep its status'
+assert 'the observability boundary, tested once' in new_m and 'verified · sampled · found' in new_m
+print('slack = kernel keeps conjectured (M: unchanged); the observability boundary moves to verified · sampled · found')
+
+# ---------------------------------------------------------------- Ruling A: the parked counts, scored
+for pat in (r'\*\*1635 entries, 1 to 1792\.\*\*', r'\| \*\*a correction\*\* \| ([\d,]+) \|'):
+    assert re.search(pat, new_r), f'count site {pat} moved — Ruling A parks it'
+print(f'PARKED (Ruling A): entries now 1 to {N+2}; the front matter still prints its BUILD180 extent — reg1-04 carries it')
+
+# ---------------------------------------------------------------- press anchors
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v, oldt, newt in ((MAIN, m, new_m), (REG, r, new_r)):
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:44], oldt.count(a), newt.count(a)) for a in anchors if oldt.count(a) != newt.count(a)]
+    print(f'build.py SUBS anchors on {v}: {len(anchors)} checked; changed by this edit: {moved}')
+    assert not moved, 'this edit changed a press anchor'
+
+# ---------------------------------------------------------------- the bundle
+if WRITE: assert not os.path.exists(OUT), f'{OUT} exists'; os.makedirs(OUT)
+elif not os.path.isdir(OUT): os.makedirs(OUT)
+nm = new_m.encode('utf-8'); nr = new_r.encode('utf-8')
+open(OUT + MAIN, 'wb').write(nm); open(OUT + REG, 'wb').write(nr)
+old_b = open(OLD_BUNDLE, 'rb').read(); assert md5(old_b) == OLD_MD5, 'BUILD94 bundle md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(old_b))
+assert ms[MAIN] == old_main and ms[REG] == old_reg
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+nb = old_b
+for n_, body in ((MAIN, nm), (REG, nr)):
+    ob = block(n_, ms[n_]); assert nb.count(ob) == 1; nb = nb.replace(ob, block(n_, body))
+rv = nb
+for n_, body in ((MAIN, nm), (REG, nr)):
+    assert rv.count(block(n_, body)) == 1; rv = rv.replace(block(n_, body), block(n_, ms[n_]))
+assert md5(rv) == OLD_MD5, 'bundle reverse FAILED'
+print(f'bundle reverse recovers md5 {md5(rv)} == old: True')
+print(f'new BUILD95  {len(nb):,} B  md5 {md5(nb)}  {nb.count(chr(10).encode()):,} lines  {len(ms)} members')
+if WRITE:
+    assert not os.path.exists(NEW_BUNDLE), f'{NEW_BUNDLE} exists — never overwrite'
+    open(NEW_BUNDLE, 'wb').write(nb); print('written', NEW_BUNDLE, 'and', OUT)
+else:
+    print('DRY RUN — nothing written under /home/claude')
+<<<END FILE: r3-vocab.py>>>
+
+<<<FILE: r3-ch346.py>>>
+#!/usr/bin/env python3
+"""r3-ch346.py — R3: §34.6 rewritten. BUILD95 -> BUILD96 main.
+
+M approved the prose this session. §34.6 carried three defects, and the third was found only by
+the main-volume sweep:
+
+  1. "104 of 106 steps" reproduces under NO convention. Measured on the corpus's own instrument:
+     62 (node-only, a real), 71 (finished, a real), 79 and 85 under a > 0. That is register 1448's
+     objection — the placement was fixed from the case it judges — and docket 37 already records
+     the figure as not reconstructible. The repair is to DROP the count, not reconcile it.
+
+  2. "two to four" has the wrong ceiling. The measured range is two to six, and the steps outside
+     the bracket are outside because they admit FIVE or SIX — more ambiguity, not less. The unit
+     read the sign of its own residue backwards.
+
+  3. "resets eighteen times" stood as the table's cost. Register 1580 certifies the minimum at
+     THREE by Gallai duality — B, La and Lr have pairwise disjoint corridors — so eighteen is the
+     cost of walking Z in order. Qualified, not removed: the eighteen are still what the walk does.
+
+And the conclusion is refuted four paragraphs above it. §34.4's Status paragraph already records
+Madelung's memoryless rule at 96 of 106 with no parameter (register 1445) against the held-out
+walk's 90, so "the periodic table is not computable from a single atom's configuration" is
+contradicted by the unit's own chapter. It is removed rather than rescoped: unrestricted over
+rules it is false as quantified, since a lookup table is a memoryless function of one
+configuration.
+
+WHAT REPLACES IT is smaller than what it says now. The ambiguity is named as geometry — ν is
+affine in a, each subshell is the point (√r, n), only lower-hull vertices are ever selected — and
+what is NOT geometry is that the observed subshell is among them at all 106 steps. That is the
+corridor, and register 1460 already placed it: a statement about the FORM, and non-emptiness
+confirms nothing.
+
+TWO SITES: main §34.6, and Register entry 1804 appended. Ruling A holds — the Register's
+front-matter counts are NOT touched and kinds.py is NOT run; the drift entry 1804 widens is scored,
+never repaired.
+
+The unit grows by 20 lines: everything below §34.6 moves +20, reported and not hidden. The
+Register grows by 4.
+
+Usage:  python3 r3-ch346.py            dry run
+        python3 r3-ch346.py --write    writes staging members + the BUILD96 bundle
+"""
+import os, sys, hashlib, re
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+OLD_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD95_main_and_register.md')
+OLD_MD5 = '6551e685267852b85acbd9985d030113'
+NEW_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD96_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build96') + os.sep
+MAIN = 'The_Method_1_6-2.md'
+REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+
+old_main = open(MEM + MAIN, 'rb').read(); m = old_main.decode('utf-8')
+old_reg = open(MEM + REG, 'rb').read();   r = old_reg.decode('utf-8')
+
+OLD = """**And the state is necessary.** With no carried value, 104 of 106 steps admit two
+to four self-consistent subshells. *The observed one is always among them and
+never uniquely determined. The periodic table is not computable from a single
+atom's configuration.*"""
+
+NEW = """*But eighteen is the cost of walking Z in order, not the cost of the table.*
+Read as an arrangement of intervals, the 106 corridors are pierced by **three**
+values of `a`, and three are forced: boron, lanthanum and lawrencium have
+pairwise disjoint corridors, so no two of them can share one. The largest
+disjoint set and the smallest piercing set agree at three, which certifies both
+(register 1580).
+
+**And the state is necessary — to the form.** With no carried value every step
+admits more than one self-consistent subshell: two to six across the table, and
+one never. *The observed one is always among them and never uniquely
+determined.* **That much is geometry.** In the plane where each subshell is the
+point (√r, n), ν takes whichever point a line of slope `a` reaches first, and a
+point set with two distinct abscissae always offers more than one such point, at
+every neutral atom there is. **What is not geometry is that the observed subshell
+is among them at all 106 steps.** That is the corridor, and it is what survives
+the form's demotion (§34.4; registers 1445, 1460, 1463).
+
+**And the carried value is what the ordering costs.** In that same plane the
+Madelung number is **M = 2n − p − 1** (register 1460) — with x = √p, the parabola
+**M = 2y − x² − 1**, where ν sweeps straight lines. No single slope follows a
+parabola, which is why no fixed `a` reaches it and why a re-set one does: **the
+number carried between elements is the price of reading a quadratic order off a
+linear form**, and the Madelung pick lies inside the corridor at every one of the
+106 steps."""
+
+c = m.count(OLD); print('§34.6 anchor occurs %d time(s)' % c); assert c == 1
+m = m.replace(OLD, NEW)
+
+E1804 = """
+
+### 1804
+
+**§34.6 CLAIMED THE WRONG THING, AND THE FIGURE IT CLAIMED IT WITH REPRODUCES UNDER NO CONVENTION.** *The unit stated ‘104 of 106 steps admit two to four self-consistent subshells’ and concluded that the periodic table is not computable from a single atom's configuration. Measured on the corpus's own instrument the range is two to six and no step admits fewer than two; 104 reproduces under none of the four conventions — 62 and 71 with `a` real, 79 and 85 with `a` > 0 — which is register 1448's objection, and the repair is to drop the count rather than reconcile it. The unit also read the sign of its own residue backwards: the steps outside the bracket are outside because they admit FIVE or SIX, which is more ambiguity and not less.* **And the conclusion is refuted four paragraphs above it — §34.4 records Madelung's memoryless rule at 96 of 106 with no parameter at all (register 1445) against the held-out walk's 90, so a rule reading one atom's configuration does better than the carried one.** *Rewritten. The ambiguity is stated as what it is, geometry: ν is affine in `a`, each admissible subshell is the point (√r, n), and only vertices of the lower convex hull are ever selected, so a point set with two distinct abscissae always offers more than one — at every neutral atom below 124 electrons. What is NOT geometry is that the observed subshell is among them at all 106 steps, and that is the corridor, which survives the form's demotion at register 1460 and confirms nothing by being non-empty.* **Two figures enter. Register 1580's certified three — B, La and Lr have pairwise disjoint corridors, so eighteen resets is the cost of walking Z in order and not the cost of the table. And register 1460's surviving arithmetic M = 2n − p − 1, which in that plane is the parabola M = 2y − x² − 1 where ν sweeps lines, so the carried number is the price of reading a quadratic order off a linear form.** Registers 1332; 1445; 1448; 1460; 1580. (a correction.)"""
+
+assert r.count('### 1804') == 0, 'entry 1804 already exists'
+assert r.rstrip().endswith('(a correction.)'), 'Register tail is not where it was'
+r = r.rstrip() + E1804 + '\n'
+
+for probe, want in (('104 of 106', 0), ('not computable from a single', 0),
+                    ('two to six across the table', 1), ('M = 2n − p − 1', 1)):
+    got = m.count(probe); print('  main after: %-32s %d (want %d)' % (repr(probe), got, want))
+    assert got == want, 'post-condition failed on %r' % probe
+
+new_m = m.encode('utf-8'); new_r = r.encode('utf-8')
+print('main  %d B -> %d B, lines %+d' % (len(old_main), len(new_m),
+      m.count('\n') - old_main.decode('utf-8').count('\n')))
+print('reg   %d B -> %d B, lines %+d' % (len(old_reg), len(new_r),
+      r.count('\n') - old_reg.decode('utf-8').count('\n')))
+
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v, oldt, newt in ((MAIN, old_main.decode('utf-8'), m), (REG, old_reg.decode('utf-8'), r)):
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:44], oldt.count(a), newt.count(a)) for a in anchors if oldt.count(a) != newt.count(a)]
+    print('build.py SUBS anchors on %s: %d checked; changed: %s' % (v, len(anchors), moved))
+    assert not moved, 'this edit changed a press anchor'
+
+if WRITE:
+    assert not os.path.exists(OUT), '%s exists' % OUT
+    os.makedirs(OUT)
+elif not os.path.isdir(OUT):
+    os.makedirs(OUT)
+open(OUT + MAIN, 'wb').write(new_m); open(OUT + REG, 'wb').write(new_r)
+old_b = open(OLD_BUNDLE, 'rb').read(); assert md5(old_b) == OLD_MD5, 'BUILD95 md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(old_b))
+assert ms[MAIN] == old_main and ms[REG] == old_reg
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+nb = old_b
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    ob = block(n_, ms[n_]); assert nb.count(ob) == 1; nb = nb.replace(ob, block(n_, body))
+rv = nb
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    assert rv.count(block(n_, body)) == 1; rv = rv.replace(block(n_, body), block(n_, ms[n_]))
+assert md5(rv) == OLD_MD5, 'bundle reverse FAILED'
+print('bundle reverse recovers md5 %s == old: True' % md5(rv))
+print('new BUILD96  %s B  md5 %s  %s lines  %d members'
+      % (format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ','), len(ms)))
+if WRITE:
+    assert not os.path.exists(NEW_BUNDLE), '%s exists — never overwrite' % NEW_BUNDLE
+    open(NEW_BUNDLE, 'wb').write(nb); print('written', NEW_BUNDLE, 'and', OUT)
+else:
+    print('DRY RUN — nothing installed')
+<<<END FILE: r3-ch346.py>>>
+
+<<<FILE: r3-mc-nos.py>>>
+#!/usr/bin/env python3
+"""r3-mc-nos.py — R3: the necessity of state, restated in the Mathematical Compendium.
+BUILD199 -> BUILD200 compendia.
+
+M's ruling, this session: the LAW goes to the Physics Compendium and the THEOREM to the
+Mathematical Compendium, "even though it is no longer mentioned here — we still identified it in
+getting to this point". This member does the second half. The Physics Compendium is NOT touched:
+it is generated end to end and a new entry's "N objects rest on it" is computed at build time from
+the MC dependency graph under register 1740's rule, so it waits on `mathreg.py`.
+
+WHY THIS REGION MAY BE EDITED AT ALL. Register 1503: the compendium's Löwdin tail was authored by
+hand and appended by `compendium.py`, and every rebuild silently discarded 6,659 characters of it
+until it was moved to `COMPENDIUM-TAIL.md`. So this section is hand-authored BY DESIGN. The debt
+that carries: the same text must reach COMPENDIUM-TAIL.md upstream, or the next regeneration drops
+it. Recorded, not resolved here — `mathreg.py`, `compendium.py` and `COMPENDIUM-TAIL.md` are in
+neither the store, the Drive mirror, the CORPUS tree, the chat149 archive nor the bundles' 476
+embedded FILE blocks.
+
+TWO SITES, both carrying the same defects §34.6 carries:
+
+  1. "## The necessity of state"  — the object paragraph states "104 of 106 steps admit two to
+     four", which reproduces under NO convention (register 1448: the count is fixed from the case
+     it judges; docket 37). Measured on the corpus's own instrument the range is two to six and no
+     step admits fewer than two. And the "This work" paragraph claims the periodic table is not
+     computable from a single atom's configuration — contradicted by the compendium's own record
+     that Madelung's memoryless rule scores 96 of 106 with no parameter (register 1445).
+     A THEOREM paragraph is added between them, which is the half M ruled belongs here.
+
+  2. the row in "What this work introduces, in one list" — same figure, same repair.
+
+WHAT IS NOT CLAIMED. The theorem is about the ν-family, not about all rules; a lookup table is a
+memoryless function of one configuration, so the unrestricted sentence is false as quantified and
+is removed rather than rescoped. The corridor's non-emptiness is left exactly where register 1460
+put it: a statement about the FORM, and non-emptiness confirms nothing.
+
+Usage:  python3 r3-mc-nos.py            dry run
+        python3 r3-mc-nos.py --write    writes staging members + the BUILD200 bundle
+"""
+import os, sys, hashlib, re
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+OLD_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD199_compendia_papers_audits.md')
+OLD_MD5 = 'b480d217d5695c3f3898bc57cde00126'
+NEW_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD200_compendia_papers_audits.md')
+OUT = os.path.join(REPO, 'method', 'build200') + os.sep
+MC = 'The_Method_1_6___Mathematical_Compendium-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+
+old_mc = open(MEM + MC, 'rb').read()
+t = old_mc.decode('utf-8')
+
+# ---------------------------------------------------------------- site 1: the section
+OLD1 = """**The object.** For each admissible subshell, set a to that subshell's own crossing
+value and ask whether it is then least-ν. **104 of 106 steps admit two to four
+self-consistent subshells** — the observed one is always among them, never uniquely
+determined.
+
+**This work.** *That the periodic table is not computable from a single atom's
+configuration. It requires one number carried forward: the arithmetic supplies the
+values, the walk supplies the selection.*"""
+
+NEW1 = """**The object.** For each admissible subshell, ask whether some value of `a` makes it
+least-ν against its Pauli-admissible rivals. **Every step admits more than one — two to
+six across the table, and one never** — the observed one always among them, never
+uniquely determined.
+
+**The theorem.** *In the plane where each admissible subshell is the point (√r, n),
+ν = n − a√r takes whichever point a line of slope `a` reaches first, so only vertices of
+the lower convex hull are ever taken. A point set carrying two distinct node counts has
+at least two such vertices, and the unfilled set carries two below 124 electrons — every
+neutral atom there is. Proved, and it needs no observation: the ambiguity is a fact about
+point sets, not about atoms.*
+
+**This work.** *One number is carried so the form stays exact. No single `a` lies in all
+106 corridors and the running intersection empties eleven times; three values suffice for
+the whole table and three are forced, boron, lanthanum and lawrencium having pairwise
+disjoint corridors (register 1580). What is not geometry is that the observed subshell is
+among the admissible ones at all 106 steps — that is the corridor, and it is what survives
+the form's demotion (registers 1445, 1460, 1463).*"""
+
+# ---------------------------------------------------------------- site 2: the list row
+OLD2 = "| **the necessity of state** | 104 of 106 steps ambiguous without memory |"
+NEW2 = ("| **the necessity of state** | no step admits fewer than two; the theorem is geometry, "
+        "the corridor is the physics |")
+
+for i, (o, n) in enumerate(((OLD1, NEW1), (OLD2, NEW2)), 1):
+    c = t.count(o)
+    print('site %d: anchor occurs %d time(s)' % (i, c))
+    assert c == 1, 'site %d anchor is not unique' % i
+    t = t.replace(o, n)
+
+# the two defects must be gone from this member, and nothing else may carry them in
+for probe, want in (('104 of 106', 0), ('not computable from a single', 0),
+                    ('The theorem.', 1), ('two to\nsix across the table', 1)):
+    got = t.count(probe)
+    print('  after: %-32s %d (want %d)' % (repr(probe), got, want))
+    assert got == want, 'post-condition failed on %r' % probe
+
+new_mc = t.encode('utf-8')
+d = t.count('\n') - old_mc.decode('utf-8').count('\n')
+print('member %s: %d B -> %d B, lines %+d' % (MC, len(old_mc), len(new_mc), d))
+
+# ---------------------------------------------------------------- press anchors
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+anchors = [a for a, b in ns['SUBS'].get(MC, [])]
+moved = [(a[:44], old_mc.decode('utf-8').count(a), t.count(a))
+         for a in anchors if old_mc.decode('utf-8').count(a) != t.count(a)]
+print('build.py SUBS anchors on %s: %d checked; changed by this edit: %s' % (MC, len(anchors), moved))
+assert not moved, 'this edit changed a press anchor'
+
+# ---------------------------------------------------------------- the bundle
+if WRITE:
+    assert not os.path.exists(OUT), '%s exists' % OUT
+    os.makedirs(OUT)
+elif not os.path.isdir(OUT):
+    os.makedirs(OUT)
+open(OUT + MC, 'wb').write(new_mc)
+old_b = open(OLD_BUNDLE, 'rb').read()
+assert md5(old_b) == OLD_MD5, 'BUILD199 bundle md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(old_b))
+assert ms[MC] == old_mc, 'member does not match the copy inside the bundle'
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+ob = block(MC, ms[MC]); assert old_b.count(ob) == 1
+nb = old_b.replace(ob, block(MC, new_mc))
+rv = nb.replace(block(MC, new_mc), block(MC, ms[MC]))
+assert md5(rv) == OLD_MD5, 'bundle reverse FAILED'
+print('bundle reverse recovers md5 %s == old: True' % md5(rv))
+print('new BUILD200  %s B  md5 %s  %s lines  %d members'
+      % (format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ','), len(ms)))
+if WRITE:
+    assert not os.path.exists(NEW_BUNDLE), '%s exists — never overwrite' % NEW_BUNDLE
+    open(NEW_BUNDLE, 'wb').write(nb)
+    print('written', NEW_BUNDLE, 'and', OUT)
+else:
+    print('DRY RUN — nothing installed')
+<<<END FILE: r3-mc-nos.py>>>
+
+<<<FILE: r3-dclose.py>>>
+#!/usr/bin/env python3
+"""r3-dclose.py — R3: the necessity of state's verification, and theorem · physics closes.
+BUILD96 -> BUILD97 main.
+
+MEASURED FIRST, on M's instruction. Appendix D asserts E = 0 in every fibre. Recomputed from the
+volume's own element tables under §D.2's declared value orders — 77 elements over 24 fibres, which
+reconciles against four independently stated numbers — twenty-two close and two do not:
+
+    law · physics       4 elements  3 cells  box 8   E = 3
+    theorem · physics   2 elements  2 cells  box 4   E = 2
+
+§D.5.6 IS THE PRECEDENT, and it is the same shape. There `theorem · order` admitted
+`proved · sampled · none found` and held nothing there, and the repair was not a new element:
+"the re-closure found a defect that was not in the index but in the evidence for one of its
+elements, and the repair was to prove a thing that had been sampled." ℛ's three closure properties
+were given two-line proofs and its verification moved `sampled -> exhaustive`. STATUS WAS NOT
+TOUCHED. This does the same and no more.
+
+WHY THE EVIDENCE CHANGED, which is what makes this a repair and not a promotion to fit. Register
+1460 demoted this row's verification to `sampled` because §34.6's "104 of 106" was fixed from the
+case it judged and was not independently reproducible (register 1448). That was right. But BUILD96
+removed the count from §34.6 entirely: the section now rests on the geometry — ν is affine in `a`,
+each subshell is the point (√r, n), only lower-hull vertices are ever selected — and
+`tools/slopeaxis.py --selftest` asserts the corridor set equals the lower-hull vertex set at
+0 mismatches over all 106 steps in BOTH forms. The sampling is no longer necessary, exactly as
+ℛ's was not. The row's parenthetical still qualifies a count the volume no longer prints.
+
+MEASURED CONSEQUENCE: with `verified · exhaustive · none found` the fibre's box falls 4 -> 2 and
+E = 2 -> 0. Any status closes it so long as the verification is exhaustive; the status is left
+exactly as printed because nothing here licenses moving it.
+
+WHAT IS NOT DONE. `law · physics` still fails at E = 3 and is NOT touched. It closes only if the
+observability boundary is `proved · exhaustive · found`, and nobody has proved it. Reordering is
+ruled out: all 6! x 3! x 2! = 8,640 orderings of §D.2's three axes were swept and NONE closes the
+appendix (DEF-153K). So the appendix closes in 23 of 24 after this, not 24, and the Register entry
+says so rather than claiming the closure whole.
+
+Usage:  python3 r3-dclose.py            dry run
+        python3 r3-dclose.py --write    writes staging members + the BUILD97 bundle
+"""
+import os, sys, hashlib, re
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+OLD_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD96_main_and_register.md')
+OLD_MD5 = '8b07978cbc2986ad4f56189d48151463'
+NEW_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD97_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build97') + os.sep
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+
+old_main = open(MEM + MAIN, 'rb').read(); m = old_main.decode('utf-8')
+old_reg = open(MEM + REG, 'rb').read();   r = old_reg.decode('utf-8')
+
+OLD = ("  the necessity of state, §34.6                          theorem · physics            "
+       "verified · sampled · none found (the claim stands at register 1332; its count is fixed from "
+       "the case it judges and is not independently reproducible, register 1448)")
+NEW = ("  the necessity of state, §34.6                          theorem · physics            "
+       "verified · exhaustive · none found (register 1460 demoted the verification because the count "
+       "was not reproducible; §34.6 no longer rests on a count — the ambiguity is geometry, and the "
+       "corridor is the lower-hull vertex set at all 106 steps in both forms, register 1805)")
+
+c = m.count(OLD); print('Appendix D row anchor occurs %d time(s)' % c); assert c == 1
+# the coordinates column must still start where the enclosing table's header puts it
+_i = m.index(OLD); _line_start = m.rfind('\n', 0, _i) + 1
+_hdr = m.rfind('\n  new element', 0, _i)
+_hcol = m[_hdr + 1:m.index('\n', _hdr + 1)].index('coordinates')
+assert NEW.index('verified · exhaustive') == _hcol, 'new row breaks the table\'s column'
+print('coordinates column %d: preserved' % _hcol)
+m = m.replace(OLD, NEW)
+
+E1805 = """
+
+### 1805
+
+**THE NECESSITY OF STATE'S VERIFICATION IS EXHAUSTIVE NOW, AND THEOREM · PHYSICS CLOSES; LAW · PHYSICS DOES NOT AND IS LEFT OPEN.** *Appendix D asserts E = 0 in every fibre. Recomputed from the volume's own element tables under §D.2's declared value orders — seventy-seven elements over twenty-four fibres, reconciling against §D.5.10's sum, §D.5's census at twenty-one for theorem · order and its caption's four for law · physics — **twenty-two fibres close and two do not**: law · physics at E = 3 and theorem · physics at E = 2.* **§D.5.6 is the precedent and the same shape: there theorem · order admitted a cell it did not hold, and the repair was not a new element but the evidence for an old one — 'the repair was to prove a thing that had been sampled', ℛ moving from sampled to exhaustive with its status untouched.** *Register 1460 demoted this row's verification because §34.6's 104 of 106 was fixed from the case it judged (register 1448). That was right, and BUILD96 removed the count from §34.6 altogether: the section rests on the geometry — ν affine in a, each subshell the point (√r, n), only lower-hull vertices ever selected — and slopeaxis.py asserts the corridor set IS the hull-vertex set at 0 mismatches over all 106 steps in both forms. The sampling is no longer necessary. Verification alone moves, sampled → exhaustive; the box falls from four to two and E from two to zero.* **AND THE OTHER FIBRE IS NOT REPAIRED. law · physics closes only with the observability boundary at proved · exhaustive · found, and nobody has proved it; §D.5.10's caption 'Law · physics now holds four elements over three cells and closes' was false when written, and recomputing at the boundary's pre-BUILD95 coordinates it fails identically. Reordering is ruled out by measurement: all 8,640 orderings of §D.2's three axes were swept and NONE closes the appendix — 1,440 close both failing fibres and every one of them breaks a fibre that closes today.** *So the appendix closes in twenty-three of twenty-four, and this entry says so rather than claiming the closure whole. Registers 1332; 1448; 1460; and §D.5.5's own warning that E = 0 is a claim relative to a stated fibration.* (a correction.)"""
+
+assert r.count('### 1805') == 0, 'entry 1805 already exists'
+assert r.rstrip().endswith('(a correction.)'), 'Register tail moved'
+r = r.rstrip() + E1805 + '\n'
+
+for probe, want in (('verified · sampled · none found (the claim stands', 0),
+                    ('verified · exhaustive · none found (register 1460 demoted', 1)):
+    got = m.count(probe); print('  main after: %-52s %d (want %d)' % (repr(probe)[:52], got, want))
+    assert got == want
+
+new_m = m.encode('utf-8'); new_r = r.encode('utf-8')
+print('main %d -> %d B, lines %+d' % (len(old_main), len(new_m),
+      m.count('\n') - old_main.decode('utf-8').count('\n')))
+print('reg  %d -> %d B, lines %+d' % (len(old_reg), len(new_r),
+      r.count('\n') - old_reg.decode('utf-8').count('\n')))
+
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v, oldt, newt in ((MAIN, old_main.decode('utf-8'), m), (REG, old_reg.decode('utf-8'), r)):
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:40], oldt.count(a), newt.count(a)) for a in anchors if oldt.count(a) != newt.count(a)]
+    print('build.py SUBS anchors on %s: %d checked; changed: %s' % (v, len(anchors), moved))
+    assert not moved
+
+if WRITE:
+    assert not os.path.exists(OUT), '%s exists' % OUT
+    os.makedirs(OUT)
+elif not os.path.isdir(OUT):
+    os.makedirs(OUT)
+open(OUT + MAIN, 'wb').write(new_m); open(OUT + REG, 'wb').write(new_r)
+old_b = open(OLD_BUNDLE, 'rb').read(); assert md5(old_b) == OLD_MD5, 'BUILD96 md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(old_b))
+assert ms[MAIN] == old_main and ms[REG] == old_reg
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+nb = old_b
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    ob = block(n_, ms[n_]); assert nb.count(ob) == 1; nb = nb.replace(ob, block(n_, body))
+rv = nb
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    assert rv.count(block(n_, body)) == 1; rv = rv.replace(block(n_, body), block(n_, ms[n_]))
+assert md5(rv) == OLD_MD5, 'bundle reverse FAILED'
+print('bundle reverse recovers md5 %s == old: True' % md5(rv))
+print('new BUILD97  %s B  md5 %s  %s lines  %d members'
+      % (format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ','), len(ms)))
+if WRITE:
+    assert not os.path.exists(NEW_BUNDLE)
+    open(NEW_BUNDLE, 'wb').write(nb); print('written', NEW_BUNDLE)
+else:
+    print('DRY RUN — nothing installed')
+<<<END FILE: r3-dclose.py>>>
+
+<<<FILE: r3-unwit.py>>>
+#!/usr/bin/env python3
+"""r3-unwit.py — R3: law · physics recorded as unwitnessed. BUILD97 -> BUILD98 main.
+
+M's ruling: A. The fibre's closure is recorded as what it measures as, in the vocabulary M built
+for exactly this shape at BUILD95 — proved and exhaustive over what it holds, wanting a witness and
+nothing else. Nothing is promoted, re-fibred or reordered to make it close.
+
+MEASURED (DEF-153I, K, L, M), at BUILD97 under §D.2's declared value orders:
+  - 23 of 24 fibres close. law · physics stands at E = 3.
+  - The whole defect is one element: without the observability boundary the fibre closes;
+    without any other element it does not move.
+  - With the boundary's verification exhaustive, one want remains, and it differs from the cell
+    the fibre already holds (LS.law, proved · exhaustive · none found) on PRECEDENT alone.
+    Precedent is the witness in this index (M's ruling; §D.5.2). So: unwitnessed.
+  - The witness it wants is one the book's thesis says cannot exist: a precedent found for the
+    ordering law would mean the Löwdin challenge had been answered before Chapter 35.
+  - No ordering of §D.2's three axes closes the appendix: 0 of 8,640 (DEF-153K).
+  - Re-fibring the boundary closes all 24 only into eight fibres it does not belong to; the one
+    defensible home, measurement · physics, gives E = 2 (DEF-153M). §D.5.5's own warning.
+
+FOUR SITES:
+  1. §D.5's fibre census, the law · physics row: E printed 0, measured 3.
+  2. §D.5.10's sum: "E = 0" -> "E = 0 in twenty-three of them".
+  3. §D.5.10's caption on the observability boundary — this also repairs DEF-153H item 1, the
+     regression r3-vocab left at BUILD95: the caption still called the boundary "the second element
+     to enter as conjectured" after its row had moved to verified · sampled · found on M's ruling
+     (register 1802), and its closure argument was computed from coordinates the row no longer
+     carried. Rewritten to state the measured closure and the fibre's status.
+  4. Register entry 1806.
+
+NOT DONE, recorded: the census column headed `cells` counts ELEMENTS (theorem · order prints 21;
+that fibre holds 5 cells). A mislabel of long standing and not this class. And the census's
+theorem · physics E = 0 was false from register 1460 until BUILD97 and is true now; left as printed.
+
+Grammar: §D.2 defines `status` for an element. This entry uses the word `unwitnessed` of a fibre's
+closure in prose, and adds no column and no value — M's ruling A, taken at its narrowest.
+
+Line shift: main +9 below §D.5.10 (the caption and the sum grow), reported not hidden. Register +4.
+
+Usage:  python3 r3-unwit.py            dry run
+        python3 r3-unwit.py --write    writes staging members + the BUILD98 bundle
+"""
+import os, sys, hashlib, re
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MEM = os.path.join(REPO, 'method', 'members') + os.sep
+OLD_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD97_main_and_register.md')
+OLD_MD5 = '8e2ab973ecf7c5dbef0b922b30d22fef'
+NEW_BUNDLE = os.path.join(REPO, 'method', 'The_Method_1_6_BUILD98_main_and_register.md')
+OUT = os.path.join(REPO, 'method', 'build98') + os.sep
+MAIN = 'The_Method_1_6-2.md'; REG = 'The_Method_1_6___The_Register-2.md'
+WRITE = '--write' in sys.argv
+md5 = lambda b: hashlib.md5(b).hexdigest()
+MEMBER = re.compile(rb'<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S)
+
+old_main = open(MEM + MAIN, 'rb').read(); m = old_main.decode('utf-8')
+old_reg = open(MEM + REG, 'rb').read();   r = old_reg.decode('utf-8')
+
+SUBS = [
+ # 1. the census row — E measured 3
+ ('  law · physics                                                                           4           0\n',
+  '  law · physics                                                                           4           3\n'),
+ # 2. the sum
+ (' **Sixty-five elements become seventy-seven over twenty-four fibres, and E = 0 — after the index named\n'
+  ' one cell and the cell was filled by reading one entry honestly.** Two fibres open for the first time,\n',
+  ' **Sixty-five elements become seventy-seven over twenty-four fibres, and E = 0 in twenty-three of\n'
+  ' them — after the index named one cell and the cell was filled by reading one entry honestly.** Two\n'
+  ' fibres open for the first time,\n'),
+ # 3. the caption
+ (" The observability boundary is the second element to enter as *conjectured* (§D.5.7's slack = kernel\n"
+  " was the first): one confirming instance, falsifiable, tested once — the compendium says so in those\n"
+  " words, and *conjectured · sampled* is what those words are. Law · physics now holds four elements over\n"
+  " three cells and closes; the box it spans admits *conjectured · exhaustive* and *proved · sampled*, and\n"
+  " §6.1's bounds exclude both, which is the closure doing its work rather than the count.\n",
+  " The observability boundary entered as *conjectured* and does not stay there. Its two halves are the\n"
+  " literature's and the boundary between them is this work's, and outside attribution is what witness\n"
+  " means in this index, so it stands *verified · sampled · found* (register 1802). Law · physics now\n"
+  " holds four elements over three cells **and does not close: E = 3.** The whole of that is the one\n"
+  " element — without the boundary the fibre closes, without any other it does not move. What the\n"
+  " closure admits and nothing holds is *proved · exhaustive · found*, against the ordering law's\n"
+  " *proved · exhaustive · none found*: the same status, the same verification, wanting a witness and\n"
+  " nothing else. That is §D.2's sixth value read of a fibre rather than a row — **law · physics is\n"
+  " unwitnessed.** And the witness it wants is one this book's thesis says cannot exist, since a\n"
+  " precedent found for the ordering law would mean the Löwdin challenge had been answered before\n"
+  " Chapter 35. The mechanical routes were measured and refused: no ordering of §D.2's three axes\n"
+  " closes the appendix, 0 of 8,640, and re-fibring the boundary closes it only into fibres it does\n"
+  " not belong to (register 1806).\n"),
+]
+for i, (o, n) in enumerate(SUBS, 1):
+    c = m.count(o); print('site %d: anchor occurs %d time(s)' % (i, c)); assert c == 1
+    m = m.replace(o, n)
+
+# the census column: E must still sit under the header's E
+_h = m[m.index('  fibre') : m.index('\n', m.index('  fibre'))]
+_hdr_line = next(l for l in m.split('\n') if l.startswith('  fibre') and l.rstrip().endswith('E'))
+_row = next(l for l in m.split('\n') if l.startswith('  law · physics') and l.rstrip().endswith('3') and '·' in l and 'exhaustive' not in l)
+assert _row.rstrip().rindex('3') == _hdr_line.rstrip().rindex('E'), 'E column misaligned'
+print('census E column preserved at col %d' % _hdr_line.rstrip().rindex('E'))
+
+E1806 = """
+
+### 1806
+
+**LAW · PHYSICS IS UNWITNESSED, AND THE APPENDIX SAYS SO INSTEAD OF SAYING IT CLOSES.** *At BUILD97 Appendix D closed in twenty-three of twenty-four fibres, and the one open fibre was law · physics at E = 3. M's ruling, A of five: record the fibre's closure as what it measures as, in the vocabulary built at register 1801 for this shape, and promote, re-fibre or reorder nothing. Measured first. The whole defect is one element — without the observability boundary the fibre closes at E = 0, without any other of its four it does not move. With the boundary's verification exhaustive one want remains, and it differs from the cell the fibre already holds, the ordering law at proved · exhaustive · none found, on PRECEDENT alone: the same status, the same verification, a witness and nothing else. Precedent is the witness in this index (register 1802; §D.5.2), so the fibre is proved and exhaustive over what it holds and wanting only observation, which is §D.2's sixth value word for word.* **AND THE WITNESS IT WANTS IS ONE THIS BOOK'S THESIS SAYS CANNOT EXIST. The only proved element in the fibre is the ordering law, and a precedent found for it would mean the Löwdin challenge had been answered before Chapter 35 — which is the claim Chapter 35 exists to deny. Closing the fibre through that cell would falsify the achievement it indexes.** *The mechanical routes were run and refused. All 6! × 3! × 2! = 8,640 orderings of §D.2's three axes were swept with ℛ imported from cypher.py: 1,440 close both fibres that were open at BUILD96 and NONE closes the appendix, every one breaking a fibre that closes today. The boundary was moved to each of the other twenty-three fibres: eight close all twenty-four and not one is a home for it, while the one defensible home — measurement · physics, since §D.5.10 describes the boundary as a survey of eleven indexes returning nine of eleven — gives E = 2. That is §D.5.5's warning instantiated, and the section's own governing claim, that E falls as the fibration is refined, is false at seventy-seven elements: one fibre 4, language 6, kind 9, kind × language 5.* **Four sites: the census row (E printed 0, measured 3); §D.5.10's sum; §D.5.10's caption, which also repairs the regression the sixth-value build left there — it still called the boundary the second element to enter as conjectured after register 1802 had moved its row, and argued a closure from coordinates the row no longer carried; and this entry.** *Left as printed and recorded: the census column headed `cells` counts elements. §D.2 defines status for an element; this entry uses the word of a fibre's closure in prose and adds no column and no value.* Registers 1460; 1734; 1801; 1802; 1805. (a correction.)"""
+
+assert r.count('### 1806') == 0; assert r.rstrip().endswith('(a correction.)')
+r = r.rstrip() + E1806 + '\n'
+
+for probe, want in (('second element to enter as *conjectured*', 0),
+                    ('three cells and closes', 0),
+                    ('law · physics is\n unwitnessed', 1),
+                    ('E = 0 in twenty-three of', 1)):
+    got = m.count(probe); print('  main after: %-44s %d (want %d)' % (repr(probe)[:44], got, want)); assert got == want
+
+new_m = m.encode('utf-8'); new_r = r.encode('utf-8')
+print('main %d -> %d B, lines %+d' % (len(old_main), len(new_m), m.count('\n') - old_main.decode('utf-8').count('\n')))
+print('reg  %d -> %d B, lines %+d' % (len(old_reg), len(new_r), r.count('\n') - old_reg.decode('utf-8').count('\n')))
+
+src = open(MEM + 'build.py', encoding='utf-8').read(); ns = {}
+exec(src[src.index('SUBS = {'):src.index('\ndef sweep')], ns)
+for v, oldt, newt in ((MAIN, old_main.decode('utf-8'), m), (REG, old_reg.decode('utf-8'), r)):
+    anchors = [a for a, b in ns['SUBS'].get(v, [])]
+    moved = [(a[:40], oldt.count(a), newt.count(a)) for a in anchors if oldt.count(a) != newt.count(a)]
+    print('build.py SUBS anchors on %s: %d checked; changed: %s' % (v, len(anchors), moved)); assert not moved
+
+if WRITE:
+    assert not os.path.exists(OUT); os.makedirs(OUT)
+elif not os.path.isdir(OUT):
+    os.makedirs(OUT)
+open(OUT + MAIN, 'wb').write(new_m); open(OUT + REG, 'wb').write(new_r)
+old_b = open(OLD_BUNDLE, 'rb').read(); assert md5(old_b) == OLD_MD5, 'BUILD97 md5 mismatch'
+ms = dict((x.group(1).decode(), x.group(2)) for x in MEMBER.finditer(old_b))
+assert ms[MAIN] == old_main and ms[REG] == old_reg
+def block(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+nb = old_b
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    ob = block(n_, ms[n_]); assert nb.count(ob) == 1; nb = nb.replace(ob, block(n_, body))
+rv = nb
+for n_, body in ((MAIN, new_m), (REG, new_r)):
+    assert rv.count(block(n_, body)) == 1; rv = rv.replace(block(n_, body), block(n_, ms[n_]))
+assert md5(rv) == OLD_MD5, 'bundle reverse FAILED'
+print('bundle reverse recovers md5 %s == old: True' % md5(rv))
+print('new BUILD98  %s B  md5 %s  %s lines  %d members' % (format(len(nb), ','), md5(nb), format(nb.count(b'\n'), ','), len(ms)))
+if WRITE:
+    assert not os.path.exists(NEW_BUNDLE); open(NEW_BUNDLE, 'wb').write(nb); print('written', NEW_BUNDLE)
+else:
+    print('DRY RUN — nothing installed')
+<<<END FILE: r3-unwit.py>>>

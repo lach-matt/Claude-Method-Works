@@ -1,0 +1,4 @@
+id	verdict	reason
+# No DEFECT-CENSUS.tsv row falls in main L8963-L9029 (§32.1.4 through §32.1.4.1) under any class.
+# Header only, per the chat-70 R1 rule. The sweep covered every value in the `member` column
+# (all, ioi, main, mc, pc, reg, sc), not only the class this family's sections belong to.

@@ -1,0 +1,179 @@
+r2-32a.py — 26c-02 ruling (c): the origin of §32.1.4's fifty-five, of §32.1.4.1's 48, and of register 375's 47
+members: The_Method_1_6-2.md md5 32d22f8b | The_Method_1_6___The_Register-2.md md5 c03091da | PP md5 49900cf4
+
+== §1 §32.1.4 AND ITS TABLE — located by scan; the four E-bearing rows and their sum
+   §32.1.4   body L8968–L9001   ### 32.1.4 What this book names before anyone tells it
+   §32.1.4.1 body L9002–L9034   ### 32.1.4.1 Which of this book's numbers hold still
+   §32.1.4 encloses §32.1.4.1 (the subsection follows the section)        True                       OK
+   L8974  Λ, the object                              coords 8   E 0   cells named and unoccupied: —
+   L8975  Appendix D, fibred by kind × language      coords 16  E 0   cells named and unoccupied: —
+   L8976  Appendix D, unfibred                       coords 3   E 4   cells named and unoccupied: four
+   L8977  Appendix E (Q), fibred by domain           coords 4   E 0   cells named and unoccupied: —
+   L8978  Appendix E (Q), unfibred                   coords 4   E 1   cells named and unoccupied: one
+   L8979  Appendix F, the numbers                    coords 3   E 33  cells named and unoccupied: thirty-three
+   L8980  the audit set, at four coordinates         coords 4   E 17  cells named and unoccupied: seventeen
+   table rows located                                                     7                          OK
+   E-bearing rows (a cells-named entry that is not an em dash)            4                          OK
+   their E values, in printed order                                       [4, 1, 33, 17]             OK
+   their words, in printed order                                          ['four', 'one', 'thirty-three', 'seventeen'] OK
+   SUM of the four printed E values                                       55                         OK
+   §32.1.4 prints the total as a WORD, and once                           1                          OK
+   L8983 **Fifty-five cells are named and nobody has put anything in them.** Each is a combination the
+   the four rows the total is built from are exactly the four §32.1.4 names ['Appendix D, unfibred', 'Appendix E (Q), unfibred', 'Appendix F, the numbers', 'the audit set, at four coordinates'] OK
+   ORIGIN OF 55: §32.1.4's own table. 4 + 1 + 33 + 17 = 55, exact, from values printed on the page.
+
+== §2 §32.1.4.1's THREE-STATE TABLE — the 48 and which components moved
+   (header)                               before         compression          now
+   E(Λ)                                   before intake 0            before compression 0            now 0
+   |Λ|                                    before intake 976          before compression 976          now 976
+   generators |J(Λ)|                      before intake 17           before compression 17           now 17
+   surplus, bits per cell                 before intake 7.07         before compression 7.07         now 7.07
+   elements of Appendix D                 before intake forty        before compression forty-eight  now forty-eight
+   E over the numbers index               before intake 33           before compression 21           now 23
+   E(Q), unfibred                         before intake 1            before compression 1            now 4
+   the three-state table has a header row and seven figures               8                          OK
+   E over the numbers index, three states                                 ('33', '21', '23')         OK
+   E(Q), unfibred, three states                                           ('1', '1', '4')            OK
+   every figure about Λ is identical across the three states              [True, True, True, True]   OK
+   §32.1.4.1 states the recomputed total, once                            1                          OK
+   L9003 §32.1.4 counts fifty-five cells named and unoccupied. **Recomputed now the total is 48**, and the
+   the recomputed total as printed                                        '48'                       OK
+   48 reconstructed from the "now" column, D unfibred and the audits carried unmoved 48                         OK
+   the two components §32.1.4.1 does NOT restate                          ['Appendix D, unfibred', 'the audit set, at four coordinates'] OK
+   ORIGIN OF 48: §32.1.4.1 / register 373. Two of the four components move (Q 1→4, numbers 33→23);
+   the other two are carried at their §32.1.4 values and are not restated. 4 + 4 + 23 + 17 = 48, exact.
+
+== §3 THE ENTRY §32.1.4 CITES — register 332, and it is where the 47 comes from
+   line-wise sweep (WRONG — misses a wrapped pointer): [278, 285, 294, 1813]
+   registers cited inside §32.1.4: [278, 285, 294, 332, 1813]
+   §32.1.4 cites register 332                                             True                       OK
+   register 332  Register L1231   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A REA
+   register 373  Register L1379   **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls exactly at the boundary
+   register 375  Register L1387   **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's element count, §32.1.4
+   register 435  Register L1615   **densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE PRINTED rules.*** *Five of six densities rep
+   332 states the total is a press readout                                True                       OK
+   332 states the current figure                                          '47'                       OK
+   332 states the figure it replaced                                      '55'                       OK
+   332 carries the shape sentence                                         True                       OK
+   ORIGIN OF 47: register 332 — the entry §32.1.4 itself cites. It is a PRESS READOUT, and 332 is
+   its only statement of provenance. Register 375 restates it; it does not originate it.
+
+== §4 THE CHRONOLOGY OF THE TOTAL — append-only entry order, so the sequence is the record's own
+   §32.1.4 as first computed (332's own words)     55   Register L1231
+   register 332, a press readout                   47   Register L1231
+   register 373 / §32.1.4.1                        48   Register L1379
+   register 375, discharging §2.21                 47   Register L1387
+   entry order 332 < 373 < 375                                            [True, True]               OK
+   the total is NOT monotone across the record                            [55, 47, 48, 47]           OK
+   The record has the total at 47 BEFORE it has it at 48. 375's 47 is not a further movement from 48;
+   it is 332's figure restated after 373 printed a higher one. THAT is why three totals stand at once.
+
+== §5 THE SHAPE SENTENCE — 26c-02 said it appears in no volume. Swept over all six volumes and PP
+   The_Register L1233   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND TH
+   The_Register L1389   **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's elemen
+   sites of the shape sentence across six volumes and PP                  2                          OK
+   the volumes carrying it                                                ['The_Register']           OK
+   sites in the main volume's chapters                                    0                          OK
+   sites in Prints & Proofs                                               0                          OK
+   the two Register sites are entries 332 and 375                         [332, 375]                 OK
+   26c-02 as recorded: the shape sentence appears in NO VOLUME            False                      DEVIATION (32a-01) — printed True
+   32a-01 CORRECTS 26c-02. The sentence has TWO sites, both in the Register (332 and 375). What is
+   true, and is what the finding meant, is that §32.1.4 does not carry it: 0 sites in any chapter,
+   0 in the other four compendia, 0 in Prints & Proofs. A claim about a volume is not a claim about
+   a section, and the recorded wording scored the wrong object.
+
+== §6 IS 47 REPRODUCIBLE? Every PRINTED value of each of the four components, and every sum they reach
+   Appendix D, unfibred                   printed values [3, 4]
+   Appendix E (Q), unfibred               printed values [1, 5]
+   Appendix F, the numbers                printed values [21, 23, 33]
+   the audit set, at four coordinates     printed values [0, 11, 16, 17]
+   Appendix D, unfibred has at least one printed value                    True                       OK
+   Appendix E (Q), unfibred has at least one printed value                True                       OK
+   Appendix F, the numbers has at least one printed value                 True                       OK
+   the audit set, at four coordinates has at least one printed value      True                       OK
+   total 47 reachable by 2 printed assignment(s): [(3, 5, 23, 16), (4, 5, 21, 17)]
+   total 48 reachable by 3 printed assignment(s): [(3, 1, 33, 11), (3, 5, 23, 17), (4, 5, 23, 16)]
+   total 55 reachable by 1 printed assignment(s): [(4, 1, 33, 17)]
+   55 is reachable from printed values                                    True                       OK
+   48 is reachable from printed values                                    True                       OK
+   47 is reachable from printed values                                    True                       OK
+   Every assignment reaching 47, and whether it agrees with the shape sentence the same entries assert:
+      (3, 5, 23, 16)         audits = 16   CONTRADICTS 375's own *the audit set seventeen*
+      (4, 5, 21, 17)         audits = 17   AGREES with *the audit set seventeen*
+   assignments reaching 47 that keep the audits at seventeen              1                          OK
+   the shape-consistent assignment reaching 47                            (4, 5, 21, 17)             OK
+   55 is reached by exactly one printed assignment, the table itself      [(4, 1, 33, 17)]           OK
+   48 is reached by more than one printed assignment                      True                       OK
+   47 is reached by more than one printed assignment                      True                       OK
+   numbers index = 21 printed at: ['main L9015']
+   E(Q) unfibred = 5 printed at: ['main L9276']
+   the numbers-index value in that assignment is §32.1.4.1's BEFORE-COMPRESSION column, not its NOW column (21, 21, 23)               OK
+   32a-02 NEW, AND IT IS THE ANSWER TO THE RULING. Of the three totals, only 55 is uniquely determined
+   by printed values — one assignment, §32.1.4's own table, (4, 1, 33, 17). 48 is reached by three
+   printed assignments and 47 by two, so neither is recoverable from the page without choosing a state.
+   The ONLY assignment reaching 47 that agrees with the shape sentence 332 and 375 both assert is
+   (D 4, Q 5, numbers 21, audits 17) — and it MIXES TWO STATES: the numbers index at 21 is
+   §32.1.4.1's BEFORE-COMPRESSION column, while E(Q) unfibred at 5 is §32.6.1 / register 396's
+   readout at *the build that produced this page*, which is after compression. So the 47 is not a
+   reading taken at one moment, which is the very thing §32.1.4.1 says a figure about the book must be.
+   32a-02a, the corollary that decides it: a readout is reproducible only if its inputs are printed at
+   ONE state. Three totals stand at once because the record prints components from four states and a
+   total from three of them.
+   FAULT OF MINE, CAUGHT BEFORE BANKING AND NAMED (fault 5): the draft of this section asserted that
+   NO shape-consistent assignment reaches 47 and would have recorded 47 as flatly unreproducible. The
+   scan found (4, 5, 21, 17). The scan was right and the assertion was corrected to the measurement.
+
+== §7 WHOSE READOUT — the instrument that computes the largest component, and whether the build holds it
+   register 435 Register L1615: **densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE PRINTED rules.*** *Five of six densities reproduce exactly and the sixth to a rounding; E(G) now recomputes at build rather 
+   435 records the two readout scripts as having been ABSENT              True                       OK
+   435 names the numbers-index script                                     True                       OK
+   435 names the densities script                                         True                       OK
+   numbers-index.py       NOT A MEMBER OF THIS BUILD
+   densities.py           NOT A MEMBER OF THIS BUILD
+   indices.py             NOT A MEMBER OF THIS BUILD
+   appendix_audit.py      NOT A MEMBER OF THIS BUILD
+   mathreg.py             NOT A MEMBER OF THIS BUILD
+   compendium.py          NOT A MEMBER OF THIS BUILD
+   register_gen.py        NOT A MEMBER OF THIS BUILD
+   guard.py               NOT A MEMBER OF THIS BUILD
+   register_cites.py      MEMBER
+   kinds.py               MEMBER
+   build.py               MEMBER
+   close.py               MEMBER
+   numbers-index.py is a member                                           False                      OK
+   densities.py is a member                                               False                      OK
+   build.py IS a member                                                   True                       OK
+   build.py names numbers-index.py only inside a prose substitution       True                       OK
+   build.py contains no arithmetic on the four components                 False                      OK
+   32a-03 NEW. The four components of §32.1.4's total are computed by `numbers-index.py` and its
+   companions, and register 435 records that those scripts WERE ABSENT and were REBUILT FROM THE
+   PRINTED RULES. Neither is a member of this build. `build.py`, which IS a member, is a
+   prose-substitution press and computes none of them — it only strips the script names from
+   reader-facing prose. So the origin of the 47 is a reconstruction of an absent instrument, and
+   the total cannot be re-derived from the artefact as delivered. Docket 38, not docket 12.
+
+== §8 REGISTER 332's OWN TEXT — read entire, as docket 9(b) asks
+   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A READOUT THE PRESS PRINTS AT EVERY BUILD — 47 AT THE TIME OF WRITING, HAVING BEEN 55 WHEN THIS SECTION WAS FIRST COMPUTED.** *What does not move is the* *shape*: **Λ contributes none, the audit set seventeen, the numbers index the largest share, and Q and the mathematics four each.** *Across its six indicessince been confirmed by occupants arriving.* **The boundary is that E names cells and never coordinates.**
+   332's body carries a joined word where a sentence was lost             True                       OK
+   32a-04 NEW. Register 332 reads *Across its six indicessince been confirmed by occupants arriving.*
+   — two sentences collapsed with text lost between *indices* and *since*. The entry §32.1.4 cites
+   for its total is itself damaged at the point where it would say how many of the cells have since
+   been filled. Append-only: a new entry citing 332 restores the sentence; 332 is not edited.
+
+== §9 CENSUS ROWS IN RANGE — DEFECT-CENSUS.tsv rows whose main line lies in §32.1.4–§32.1.4.1
+   rows in range: 0
+
+== VERDICT
+   integrity checks: ALL OK
+   deviations recorded: 1
+      32a-01  26c-02 as recorded: the shape sentence appears in NO VOLUME — measured False, printed True
+   ORIGINS, the ruling's answer:
+      55  §32.1.4's own table, 4 + 1 + 33 + 17, exact — the state when the section was first computed
+      48  §32.1.4.1 / register 373, 4 + 4 + 23 + 17 — two components moved, two carried unrestated
+      47  register 332's press readout — the entry §32.1.4 itself cites, on a wrapped pointer;
+          restated at 375, which does not originate it. Reached by two printed assignments, and the
+          only one agreeing with 332's and 375's own shape sentence is (4, 5, 21, 17), which mixes
+          two states of the book. Computed by `numbers-index.py`, which register 435 records as
+          having been absent and rebuilt from the printed rules and which is not a member.
+   AND THE SHAPE OF THE ANSWER: 55 is the only one of the three a reader can reconstruct. The section
+   prints the one total that is reproducible and cites the entry that says it is no longer the number.
