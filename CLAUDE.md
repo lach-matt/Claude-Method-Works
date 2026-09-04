@@ -146,10 +146,19 @@ about a file is answered from `drive/MANIFEST.tsv` and a targeted `grep`, never 
 over 508 MB.
 
 The generated graph lives in `graphify-out/`; regenerate it rather than hand-editing it. It is a
-snapshot, not an index of the current tree — **built 2026-09-02, before `extracted/`, `recovered/`,
-`drive/chats/` and `incoming/` existed, so it covers none of them and misses roughly 3,200 of the
-files now present.** Do not treat a miss in the graph as evidence a file is absent; ask
-`COVERAGE.tsv`, `extracted/LEDGER.tsv` or `recovered/LEDGER.tsv` instead.
+snapshot, not an index of the current tree — **rebuilt 2026-09-04 over 3,279 files, and it now
+covers `extracted/`, `recovered/` and the repo's own tools; `drive/chats/` stays excluded by
+`.graphifyignore` because its artefacts are already extracted into `recovered/`.** 20,463 nodes and
+27,601 edges in 2,434 communities, from an AST pass over 2,030 code files plus 137 semantic chunks.
+Still a snapshot: do not treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`,
+`extracted/LEDGER.tsv` or `recovered/LEDGER.tsv` instead.
+
+Two limits are recorded rather than repaired. `graph.html` is the **aggregated community view** —
+20,463 nodes is above the node-level render limit of 5,000, so it draws 2,434 community nodes and
+1,696 cross-community edges, not individual files. And the health check reports **7,088
+dangling-endpoint edges**: every one is an AST `imports`/`imports_from` pointing at a module that is
+not a file in this repo (`re`, `numpy`, `itertools`, `sympy`). The semantic layer contributes zero
+dangling edges. That is expected for a corpus whose `.py` files import a stdlib, not corruption.
 
 `.graphifyignore` scopes a re-index to **3,976 files, 108 MB** — down from 4,700 files and 1.3 GB
 unfiltered. Every exclusion answers "would a node here tell a reader something", not "is this file
