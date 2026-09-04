@@ -13,6 +13,29 @@ be dropped.
 
 **Every file here was verified by byte count against Drive's own `fileSize` before being kept.**
 
+## Assembled from parts
+
+Drive holds seventeen of these files split into `.partNN` pieces, because that was the only way a
+Cowork session could write them back. Both forms are kept: the parts are the byte-exact Drive
+records, and the whole file sits beside them, concatenated in index order. **Every split was
+contiguous from `part00`** — no gaps — and assembly is reproducible by concatenation alone.
+
+One of them carries independent proof. `HANDOFF-152.md` records `r2-32a.py` as
+**22,360 B / `15a9047af4a637eb7bdb05d0ea982878`**, written by chat 152 before these parts existed.
+Concatenating the five Drive parts reproduces that size and that md5 exactly, so the split, the
+transfer and the reassembly are all byte-exact against a hash the corpus recorded independently.
+
+Its golden output `r2-32a.out` (16,587 B) is named in the same line but is **not** in these folders.
+
+| Assembled | Parts | Bytes |
+| --- | ---: | ---: |
+| `HANDOFF-152.md` | 6 | 13,176 |
+| `r2-32a.py` | 5 | 22,360 |
+| `RULING-DOCKET-152.md` | 4 | 15,318 |
+| `r2-28b2.py` | 4 | 17,057 |
+| `r2-28a2.py`, `READ-32a.md`, `REBUILD-BUILD185.md` | 3 each | 16,676 / 9,954 / 8,430 |
+| ten more at 2 parts each | 2 | 4,919 – 8,473 |
+
 ## What is here so far
 
 | File | Bytes | Drive says |
