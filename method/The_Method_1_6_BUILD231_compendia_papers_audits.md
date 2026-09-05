@@ -23328,6 +23328,31 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **Gate after this close:** `gate.py run --core` and `tools/gate_live.py` over the live set, recorded in DEF-153O with their verdicts.
 - **Seated this close:** the ten successors and their goldens; BUILD228 compendia; BUILD227 leaves the tree.
 
+### W-236 — R3 — Book repairs and corrections — M's ruling that every tool goes in the archive, executed: twenty seated, each proved to run from the archive; two selftests repaired to content-keyed fixtures. BUILD228 -> BUILD229
+
+- **The ruling (M, 5 September 2026):** "all tools go in the archive, no exceptions. we never know when they will be needed again." Until this build the repository's `tools/` held seventeen instruments the archive did not — the audit instruments over the store (`arith`, `pointers`, `buildtrace`, `populate`, `slopeaxis`, `audit_math`; `cypher` and `dclose` were seated already), the mirror's own (`drive_sync`, `test_drive_sync`, `consolidate`, `shard_conversations`), the build's (`restage`, `close_census2`) and the triage tools (`shiftinv`, `shiftcheck2`, `reanchor`, `proveanchor`, `gate_live`) — with `bin/stage-gate`, `census2.py` and `r3-br-measure.py` unseated beside them. All twenty are members now. `tools/` and `method/bin` keep byte-identical working copies; any later change is a successor member, never an edit in place.
+- **Proved to run from the archive, each executed from members/ as the seated copy** (the gate's Python 3.12 shim on PATH): `arith`, `populate`, `slopeaxis`, `shiftcheck2`, `pointers`, `buildtrace` `--selftest` SELFTEST OK; `buildtrace --builds`, `shiftinv --list`, `gate_live --list`; `reanchor`, `proveanchor`, `restage`, `consolidate`, `drive_sync`, `shard_conversations` `--help`; `test_drive_sync` ALL PASS; `r3-br-measure` ALL OK; `census2.py` (20 s) and `close_census2.py --dry` from members/ reproduce the tools/ run byte for byte (renumbered census md5 4742c83a…, W-237's); `audit_math` exits 1 by design — it prints the counterexample its docstring names — with output identical from both locations.
+- **One edit for that, in thirteen tools:** each derived the repository root as its own directory's parent, which from members/ is `method/`; each now reads its own directory's name and takes the root two levels up when that name is `members`, one level when it is `tools`. Nothing else in any tool changed but the two fixture repairs below; the four with no root of their own (`audit_math`, `test_drive_sync`, `proveanchor`, `shard_conversations`) needed nothing.
+- **Two selftests were red before this close, from tools/ exactly as from members/, on the positional class — recorded, and repaired in the tools' own fixtures, which are not goldens.** `pointers.py` pinned the body occurrences of "Appendix A" and "Chapter 4" to literal main lines (9947 and 1436, the first already moved once by hand, "+8, the r3-wl2 line shift"); BUILD110 holds them at 9973 and 1439. The fixture is now the heading's own text, found in the live member at selftest time, asserting that the contents entry and the body heading are its two occurrences and resolving to the second — proved to fail when the text is absent. `buildtrace.py` named the live bundles as literals (BUILD94 main, BUILD192 compendia, with their md5s), which every restage since retired; it now reads the names and md5s from `method/verify.py`, the authority `restage.py` retargets. Both SELFTEST OK from both locations.
+- **Members seated (name, bytes, md5 prefix):** arith.py 34,061 B df12392d; audit_math.py 7,167 B 8329b70c; buildtrace.py 24,884 B 77659d72; census2.py 10,402 B d76b58ea; close_census2.py 15,218 B fe776f23; consolidate.py 10,542 B 89c71f5c; drive_sync.py 57,818 B c9b4c876; gate_live.py 4,786 B 4f711385; pointers.py 34,023 B d283e97d; populate.py 46,383 B 419f9690; proveanchor.py 5,401 B 84275f94; r3-br-measure.py 4,880 B bc6be5d4; reanchor.py 6,657 B 856ede33; restage.py 4,551 B 2c6e89f0; shard_conversations.py 55,389 B 34de8a6b; shiftcheck2.py 8,606 B a895efd1; shiftinv.py 4,719 B bfe6ad1e; slopeaxis.py 34,953 B 422ef790; stage-gate 2,545 B 9a62b6ba; test_drive_sync.py 8,925 B ce58a025.
+- **Not seated, named:** `r2-28b3.py` in members/ is chat 153's re-anchored successor draft for `r2-28b2` with no golden banked (DEF-153B) — an instrument awaiting its bank, not a tool. **Next:** W-237 regenerates the census with `close_census2.py` under M's rulings on `DRAFT-R3-CENSUS.md`; the second pass re-banks the census readers that move.
+
+### W-237 — R3 — Book repairs and corrections — DEFECT-CENSUS.tsv regenerated on BUILD110 / BUILD229 by content, the first regeneration since BUILD190: 1,555 of 1,557 ids re-found, two retired under M's ruling, fifty-two new rows recorded; the §0 gate's census step has a live route again. BUILD229 -> BUILD230
+
+- **What was owed.** The census (1,557 rows) was last regenerated at BUILD190 (W-199) against main BUILD92, and `gate.py census` had been red since BUILD98 for two measured reasons (W-210): `census.py` carries the Register's extent as the literal `n>1792`, so every citation of an entry seated after BUILD90 was a false C5 row; and `close_census.py` keys an id to (class, volume, LINE), so the first build that moved a main-volume line made it refuse on 1,280 ids at once. Census ids are cited by all 65 `CENSUS-CLOSURES-*.tsv`; an id is an address and must survive; but the address is the defect — class, member, item, words — not the line it sat on when the census was taken.
+- **The route.** `census2.py` (seated at W-236) is `census.py` row for row with three changes: the extent is data (`n not in regnums`), the members are read from its own directory, the output path is an argument. `close_census2.py` (W-236) regenerates by RUNNING it and matches the fresh rows onto the seated ids in four tiers, every pairing below the first printed with both texts: (1) exact, (class, member, item, detail) equal, k-th to k-th; (2) by item, (class, member, item) unique on both sides with the detail changed; (3) by text, the quoted line equal and only the tally prefix changed; (4) by run, the two quoted lines sharing a run of characters containing the item at least six characters longer than it, longest run then nearest line. A row still unmatched is GONE and the tool REFUSES unless its id is typed in `--retire`; a retired row is CARRIED — the seated row verbatim with its detail prefixed `RETIRED W-237: not measured at this build | ` — so that every cited id still resolves and the row says it is no longer a measurement; it is carried by its mark on every later regeneration, never re-measured, and if the defect measures again it is a NEW row under a new id. The rest is `close_census.py`'s discipline unchanged: W text, MANIFEST.tsv recomputed, change set asserted, reverse guard to the old bundle's md5.
+- **Measured (`close_census2.py --retire 102,1213`).** 1,557 seated rows → 1,607 measured. **Exact 1,524. By item 26. By text 2. By run 3. NEW 52. GONE 2.** The census now has 1,609 rows, ids 1558–1609 new, sorted by id. Run again on its own output it is a fixed point: 1,607 exact, 0 NEW, 0 GONE, 2 carried, "== the seated member" — which is what `gate_live.py --census` asserts from this build on; `gate.py census` runs `census.py` and stays red by construction, a seated member never being edited in place.
+- **The 26 by item** (the id keeps its row, only the free text moved): four C6 tallies — 80 *The tightening rule*, 95 *The seed as binary, corrected*, 104 *The seed's forced set, corrected*, 119 *Non-uniqueness as a Krein–Milman failure*; sixteen C7 "other sites" tallies grown by registers 1817–1835's pointers — 673, 675, 676, 678, 679, 686, 687, 690, 691, 692, 693, 694, 695, 697, 700, 712, the main-volume ones at their +5 lines; five C8 site counts — 727 *ordering law*, 744 *closure rule*, 763 *envelope-step law*, 913 *corridor law*, 947 *ν rule*; and 1510 (C9 *always*, mc L3650), the entry corrected at pass 6 keeping the word. **The 2 by text:** 688 (C7 *12.11*, main L3205 → L3210) and 689 (C7 *2,475*, main L3477 → L3482), their tallies grown, their lines unchanged. **The 3 by run:** 1197 (*always*, main L9630 → L9652, run `. *The observed one is always among them and`) and 1198 (*never*, L9631 → L9652, run `never uniquely`) — §34.6's rewrite reflowed "The observed one is always among them and never uniquely determined" onto one line, and both keep the ids CENSUS-CLOSURES-ch16z.tsv closed as not defects; 1511 (*never*, mc L3650, run ` always among them, never`), the corrected entry keeping the phrase.
+- **Two ids retired, and why — M's ruling 1.** **102** (C6, mc L660, *The envelope-step law*: "24,585 not in §14.5.12"): register 1820's pointer put the exact count into §14.5.12 at BUILD104 (W-220), main L4019 now, and the number is in the Register at six lines — the defect does not measure. **1213** (C9, main L10744, "a value the coordinate has always admitted"): D.5.7's paragraph was rewritten by the vocabulary class at BUILD95 and reads "the first conjecture this index was built on", without the word; CENSUS-CLOSURES-ch23a.tsv had closed it as not a defect. M asked whether carrying them avoids rebuilding a table or tool, and ruled that a reader must see no work matter and nothing not interpretable from the subject. It does not: the census is rebuilt from nothing by running the instrument, the two rows are carried only so the closure files' addresses still resolve, and the census is an audit table in the compendia bundle, not one of the six reader-facing volumes — no reader sees it. Carried on that answer; the census being derived, a later ruling to drop them is one regeneration away.
+- **Fifty-two new rows, 1558–1609, every one about text seated since BUILD190 — recorded, none repaired.** **C13-HANDLE-LEAK ×22**, all in the Register: 1805 (`BUILD96`, `BUILD95`), 1806 (`BUILD97`, `BUILD96`), 1815 (`BUILD90`, `BUILD92`, `BUILD208`), 1825 (`W-222`), 1826 (`BUILD56`, `MC-06`), 1827 (`BUILD56`), 1828 (`BUILD56`), 1829 (`BUILD57`, `MC-07`), 1830 (`MC-10`, `BUILD58`, `L.tree`), 1831 (`BUILD59`, `MC-11`, `L.tree`), 1832 (`BUILD59`, `MC-12`) — build, chat and object handles in a reader-facing volume, eight of the eleven entries R3's own. **M's ruling 3: closed as defects on the standing ruling** (26b-10 / ruling 46 / docket 28, on which W-199 closed census 1557), no new closures file, the repair owed to the class. **C9-OVERGENERALISATION-WORD ×14**: main L9652 (*never*, the "one never" §34.6's rewrite added to the same line) and L9655 (*always*, the rewritten claim "a point set with two distinct abscissae always offers more than one such point"); reg 1332 L5006 (*never*, the second in the appended sentence "**The claim stands:** the observed subshell is never uniquely determined"), 1803, 1804, 1814 (×2), 1815, 1827, 1833; mc L3650 (*never*, "and one never" in the corrected entry); pc L283, L296, L300 (the corridor law's interface entry, W-212). **C7-WITHDRAWAL-LINE-NUMBER-SURVIVES ×9**: main L914, L2538, L3072, L3439 (*12.11* at all four; *2,475* at L914 and L3439; *3.5* at L2538 and L3072) — the withdrawn numbers survive INSIDE the pointers W-220 seated, "(the figure §12.11.5 withdraws; register 1819)", the class's known form; and L4019 (*24,585*, the exact count 1820 put into §14.5.12). **C8-NAMED-STATEMENT ×6**: *witness rule*, *reading cannot bound*, *mathematical compendium's tightening rule*, *admissible bound*, *object's law*, *down-set theorem* — names the new entries coin, none stated in bold in main but *admissible bound*. **C1-SECTION-POINTER-UNRESOLVED ×1**: reg L6715, register 1818, "Transitions §1.8" — a pointer into another volume, which the census resolves against main's headings only. **M's ruling 4: recorded as the instrument's blind spot** (`census.py`'s too), not the entry's error; `census2.py` stays row for row with its predecessor.
+- **The second order (W-200's rule), pre-measured before this close.** Twenty-four live goldens read `DEFECT-CENSUS.tsv`. Run against this census in a staged copy of members/, **18 move, 6 do not** (`r2-24a`, `r2-32a`, `r2-ch16i2`, `r2-reg3a2`, `r2-reg4a2`, `r2-reg5a2`, `r2-reg6a2`). Every movement read: the census's lines were BUILD92's and are BUILD110's / the Register's +5, so each printed row moves by the volume's shift (`r2-ch16a2`, `c2`, `f2`, `l3`, `n3`, `v4`, `z3`, `r2-ch19b2`, `r2-reg9a2`, `r2-reg10a2`); goldens that count "rows in range L…–L…" against a literal range see rows enter or leave as their lines move (`r2-23a2` gains 1536 and 1537; `r2-ch16p3` loses 1191, 4 → 3; `r2-ch25a2` gains 715 and loses 1226 and 1227 to `r2-ch26b2`'s range, 5 → 4; `r2-ch28a4` keeps 2) — DEF-153N's positional class, now on the census side; `r2-ch16z3` gains the two new §34.6 rows (1574, 1575; 3 → 5); `r2-ch16t3` counts 1,557 → 1,609; `r2-bib2` prints the census's md5. They are re-banked by running at W-238, each movement named against this list.
+
+### W-238 — R3 — Book repairs and corrections — the second pass after the census regeneration: seventeen census-reading goldens re-banked by running on BUILD230, every movement the one W-237 pre-measured; a count in W-237 corrected. BUILD230 -> BUILD231
+
+- **W-200's rule, applied.** A build that regenerates a derived member moves the goldens that READ it, and they are re-banked in a second pass after the first. `gate_live.py` over the twenty-four live goldens that read `DEFECT-CENSUS.tsv`, on BUILD230: **17 FAIL, 7 OK.** The seven OK are the seven W-237 names — `r2-24a`, `r2-32a`, `r2-ch16i2`, `r2-reg3a2`, `r2-reg4a2`, `r2-reg5a2`, `r2-reg6a2`. **Corrected here: W-237 says "18 move, 6 do not" and then lists seven that do not; the totals were miscounted, the names were right.** Seventeen move: `r2-23a2`, `r2-bib2`, `r2-ch16a2`, `r2-ch16c2`, `r2-ch16f2`, `r2-ch16l3`, `r2-ch16n3`, `r2-ch16p3`, `r2-ch16t3`, `r2-ch16v4`, `r2-ch16z3`, `r2-ch19b2`, `r2-ch25a2`, `r2-ch26b2`, `r2-ch28a4`, `r2-reg10a2`, `r2-reg9a2`.
+- **Each movement is the one W-237 pre-measured in the staged copy, and nothing else:** the census's rows carry BUILD110's main lines and the Register's +5 where they carried BUILD92's, so every printed row moves by the volume's shift (`r2-ch16a2`, `c2`, `f2`, `l3`, `n3`, `v4`, `z3`, `r2-ch19b2`, `r2-reg9a2`, `r2-reg10a2`); the goldens that count rows inside a literal line range see rows enter or leave it as the lines move (`r2-23a2` gains 1536 and 1537; `r2-ch16p3` loses 1191 and 712's tally reads main=3, 4 → 3; `r2-ch25a2` gains 715 and loses 1226 and 1227 to `r2-ch26b2`'s range, 5 → 4; `r2-ch28a4` keeps its 2 at 718's new line); `r2-ch16z3` gains the two §34.6 rows the regeneration added (1574, 1575; 3 → 5); `r2-ch16t3` counts 1,557 → 1,609; `r2-bib2` prints the census's md5, ba8306f2 → 4742c83a. No instrument changed; every golden was re-banked by `close_rebank.py` running it, never by copying.
+- **Gate verdict after W-237, recorded as promised:** `gate_live.py --census` OK — the seated census a fixed point of `close_census2.py` (1,609 rows, 2 carried as retired, 1,607 exact, 0 NEW, 0 GONE). The full `gate_live.py` walk (census step, then the live goldens) after this close is recorded in DEF-153O.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -27789,24 +27814,24 @@ print('headings',len(heads),'keys',len(keys),'appendices',sorted(appx),'theorems
 
 <<<FILE: DEFECT-CENSUS.tsv>>>
 id	class	member	line	item	detail
-1	C3-FIGURE-POINTER-UNPLACED	main	7584	Figure 15.3	impossible and was the signal. The earlier version's Figure 15.3, since withdrawn, drew a line labelled
-2	C2-THEOREM-POINTER-UNPRINTED	main	10619	Theorem 7.1	Theorem 7.1 is absent — withdrawn, and the status coordinate's *withdrawn* value is
+1	C3-FIGURE-POINTER-UNPLACED	main	7589	Figure 15.3	impossible and was the signal. The earlier version's Figure 15.3, since withdrawn, drew a line labelled
+2	C2-THEOREM-POINTER-UNPRINTED	main	10654	Theorem 7.1	Theorem 7.1 is absent — withdrawn, and the status coordinate's *withdrawn* value is
 3	C5-REGISTER-POINTER-UNRESOLVED	reg	10	entry 1725	**Every entry has one form: a capitalised headline, then the body in italics** (entry 1725 records how the form was reached).
-4	C2-THEOREM-POINTER-UNPRINTED	reg	1629	Theorem 11.2	**THE THREE INTERVALS ARE ONE SHAPE.** *[x∧y, x∨y] between cells, [min, max] output rank between states, [T(n−1), T(n+1)] between measurements — three objects the book computes separately, whose measu
-5	C2-THEOREM-POINTER-UNPRINTED	reg	1657	Theorem 11.2	**THE THREE MEASURES ARE ONE QUANTITY BECAUSE THE THREE OBJECTS ARE ONE SHAPE.** *§27.2 proved the first and never said why. [x∧y, x∨y] between cells, [min, max] output rank between states, [T(n−1), T
-6	C2-THEOREM-POINTER-UNPRINTED	reg	2389	Theorem 12.1	**AND ITS FIFTH SECTION IS THE ONE THAT MATTERS.** **Sound** *is indexable and would index a material rather than an atom, so it sits beside Λ and no such index exists here.* **Frequency** *is ΔE/h an
-7	C1-SECTION-POINTER-UNRESOLVED	reg	3113	§784	**REGISTER 815 IS WITHDRAWN: ITS SEVEN "NEW TESTS" OF P.coreblind COMPARED DUPLICATE ROWS, NOT TWO PARENT CORES.** *Ar II's `(³P)ns ⁴P J=5/2` and `3s2.3p4.(3P).ns 4P J=5/2` are the same series from tw
-8	C5-REGISTER-POINTER-UNRESOLVED	reg	4661	entry 1000	**AND WRITING IT EXPOSED A THREE-DIGIT REGEX THAT HAD BEEN DROPPING A QUARTER OF THE REGISTER.** *`register_gen.py` matched entry labels with `\d{3}` exactly, so **every entry from 1000 onward — 243 o
-9	C2-THEOREM-POINTER-UNPRINTED	reg	5513	Theorem 12.1	**THE NINE STEPS WHERE THE TWO TRAJECTORIES DIFFER ARE NOT A CELL OF THE INDEX ANYWHERE.** *Two trajectories were compared in (Z, a): A, the handshake placement that reproduces the recorded eight, and
-10	C1-SECTION-POINTER-UNRESOLVED	reg	5605	§5.7	**THE VIOLATION INDEX AND THE M.C2 THREAD ARE THE SAME CONDITION FROM OPPOSITE SIDES, AND NOTHING JOINED THEM.** *The person asked what the book holds on black holes and wormholes, and the answer is s
-11	C1-SECTION-POINTER-UNRESOLVED	reg	5609	§5.7	**REACHABILITY IN THE VIOLATION INDEX IS NOT A THRESHOLD CONDITION, AND THAT IS PROVABLE WITHOUT THE EDGE LIST.** *The companion's reachable column has been treated as needing the unprinted edge list 
-12	C2-THEOREM-POINTER-UNPRINTED	reg	6219	Theorem 10.1	**PART III READ WHOLE, AND IT NAMES THE OPERATION THE LAST TWO SESSIONS PERFORMED.** *Second bounded pass on M's instruction to read everything. Chapters 14, 17 and 18 read in full, §18.4.1 included, 
-13	C2-THEOREM-POINTER-UNPRINTED	reg	6299	Theorem 11.1	**BOARD ROW 4b CLOSES: THE CLOSURE TEST WAS THE WRONG INSTRUMENT, AND TEMPERATURE IS A COLUMN, NOT AN AXIS.** *Computed: adjoining an UNCONSTRAINED chain T to a closed staircase index keeps E = 0 vacu
-14	C1-SECTION-POINTER-UNRESOLVED	reg	6311	§0	**T2 CLOSES: THE MEDIAN DECLARATION IS WRITTEN INTO THE SPECTRA COMPENDIUM AT ITS §0, WHERE δ IS DEFINED.** *The declaration states what was measured, not chosen: 430 of 433 exact-count series equal t
-15	C5-REGISTER-POINTER-UNRESOLVED	reg	6523	R 1002	**R 1002'S ARCHIVE NOTE IS SUPERSEDED: T IS REFERENCED BY A COMPENDIUM, IN TWENTY-NINE PLACES.** *R 1002 recorded* Transitions *as archived and referenced by no compendium. The attribution pass at R 1
-16	C5-REGISTER-POINTER-UNRESOLVED	reg	6523	R 1002	**R 1002'S ARCHIVE NOTE IS SUPERSEDED: T IS REFERENCED BY A COMPENDIUM, IN TWENTY-NINE PLACES.** *R 1002 recorded* Transitions *as archived and referenced by no compendium. The attribution pass at R 1
-17	C5-REGISTER-POINTER-UNRESOLVED	reg	6523	R 1002	**R 1002'S ARCHIVE NOTE IS SUPERSEDED: T IS REFERENCED BY A COMPENDIUM, IN TWENTY-NINE PLACES.** *R 1002 recorded* Transitions *as archived and referenced by no compendium. The attribution pass at R 1
-18	C1-SECTION-POINTER-UNRESOLVED	reg	6559	§8.7	**THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT USE ARE NAMED FOR THE FIRST TIME.** *Register 1770 set the thirty cited sections of* Transi
+4	C2-THEOREM-POINTER-UNPRINTED	reg	1634	Theorem 11.2	**THE THREE INTERVALS ARE ONE SHAPE.** *[x∧y, x∨y] between cells, [min, max] output rank between states, [T(n−1), T(n+1)] between measurements — three objects the book computes separately, whose measu
+5	C2-THEOREM-POINTER-UNPRINTED	reg	1662	Theorem 11.2	**THE THREE MEASURES ARE ONE QUANTITY BECAUSE THE THREE OBJECTS ARE ONE SHAPE.** *§27.2 proved the first and never said why. [x∧y, x∨y] between cells, [min, max] output rank between states, [T(n−1), T
+6	C2-THEOREM-POINTER-UNPRINTED	reg	2394	Theorem 12.1	**AND ITS FIFTH SECTION IS THE ONE THAT MATTERS.** **Sound** *is indexable and would index a material rather than an atom, so it sits beside Λ and no such index exists here.* **Frequency** *is ΔE/h an
+7	C1-SECTION-POINTER-UNRESOLVED	reg	3118	§784	**REGISTER 815 IS WITHDRAWN: ITS SEVEN "NEW TESTS" OF P.coreblind COMPARED DUPLICATE ROWS, NOT TWO PARENT CORES.** *Ar II's `(³P)ns ⁴P J=5/2` and `3s2.3p4.(3P).ns 4P J=5/2` are the same series from tw
+8	C5-REGISTER-POINTER-UNRESOLVED	reg	4666	entry 1000	**AND WRITING IT EXPOSED A THREE-DIGIT REGEX THAT HAD BEEN DROPPING A QUARTER OF THE REGISTER.** *`register_gen.py` matched entry labels with `\d{3}` exactly, so **every entry from 1000 onward — 243 o
+9	C2-THEOREM-POINTER-UNPRINTED	reg	5518	Theorem 12.1	**THE NINE STEPS WHERE THE TWO TRAJECTORIES DIFFER ARE NOT A CELL OF THE INDEX ANYWHERE.** *Two trajectories were compared in (Z, a): A, the handshake placement that reproduces the recorded eight, and
+10	C1-SECTION-POINTER-UNRESOLVED	reg	5610	§5.7	**THE VIOLATION INDEX AND THE M.C2 THREAD ARE THE SAME CONDITION FROM OPPOSITE SIDES, AND NOTHING JOINED THEM.** *The person asked what the book holds on black holes and wormholes, and the answer is s
+11	C1-SECTION-POINTER-UNRESOLVED	reg	5614	§5.7	**REACHABILITY IN THE VIOLATION INDEX IS NOT A THRESHOLD CONDITION, AND THAT IS PROVABLE WITHOUT THE EDGE LIST.** *The companion's reachable column has been treated as needing the unprinted edge list 
+12	C2-THEOREM-POINTER-UNPRINTED	reg	6224	Theorem 10.1	**PART III READ WHOLE, AND IT NAMES THE OPERATION THE LAST TWO SESSIONS PERFORMED.** *Second bounded pass on M's instruction to read everything. Chapters 14, 17 and 18 read in full, §18.4.1 included, 
+13	C2-THEOREM-POINTER-UNPRINTED	reg	6304	Theorem 11.1	**BOARD ROW 4b CLOSES: THE CLOSURE TEST WAS THE WRONG INSTRUMENT, AND TEMPERATURE IS A COLUMN, NOT AN AXIS.** *Computed: adjoining an UNCONSTRAINED chain T to a closed staircase index keeps E = 0 vacu
+14	C1-SECTION-POINTER-UNRESOLVED	reg	6316	§0	**T2 CLOSES: THE MEDIAN DECLARATION IS WRITTEN INTO THE SPECTRA COMPENDIUM AT ITS §0, WHERE δ IS DEFINED.** *The declaration states what was measured, not chosen: 430 of 433 exact-count series equal t
+15	C5-REGISTER-POINTER-UNRESOLVED	reg	6528	R 1002	**R 1002'S ARCHIVE NOTE IS SUPERSEDED: T IS REFERENCED BY A COMPENDIUM, IN TWENTY-NINE PLACES.** *R 1002 recorded* Transitions *as archived and referenced by no compendium. The attribution pass at R 1
+16	C5-REGISTER-POINTER-UNRESOLVED	reg	6528	R 1002	**R 1002'S ARCHIVE NOTE IS SUPERSEDED: T IS REFERENCED BY A COMPENDIUM, IN TWENTY-NINE PLACES.** *R 1002 recorded* Transitions *as archived and referenced by no compendium. The attribution pass at R 1
+17	C5-REGISTER-POINTER-UNRESOLVED	reg	6528	R 1002	**R 1002'S ARCHIVE NOTE IS SUPERSEDED: T IS REFERENCED BY A COMPENDIUM, IN TWENTY-NINE PLACES.** *R 1002 recorded* Transitions *as archived and referenced by no compendium. The attribution pass at R 1
+18	C1-SECTION-POINTER-UNRESOLVED	reg	6564	§8.7	**THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT USE ARE NAMED FOR THE FIRST TIME.** *Register 1770 set the thirty cited sections of* Transi
 19	C2-THEOREM-POINTER-UNPRINTED	mc	304	Theorem 10.1	### Adjunction never repairs (M Thm 10.1)
 20	C2-THEOREM-POINTER-UNPRINTED	mc	310	Theorem 10.1	Proved — T 1.7 (App. G) / M §17.2 Thm 10.1; Birkhoff 1940.
 21	C2-THEOREM-POINTER-UNPRINTED	mc	372	Theorem 9.1	Proved — M §14.1 (Thm 9.1, A.2); Moore 1910; Baker & Pixley 1975.
@@ -27868,7 +27893,7 @@ id	class	member	line	item	detail
 77	C10-PROVED-WITHOUT-REGISTER	mc	482	The product rule for the defect	Proved — T D10; classical; Euler 1748.
 78	C6-NUMBERS-NOT-IN-SOURCE	mc	504	ℛ as a relaxation	4 of 5: 479 513 750 2,3,4 | sources §14.5.4 R
 79	C10-PROVED-WITHOUT-REGISTER	mc	504	ℛ as a relaxation	Proved — M §14.5.4; Beeri, Fagin, Maier & Yannakakis 1983.
-80	C6-NUMBERS-NOT-IN-SOURCE	mc	514	The tightening rule	6 of 7: 1.8 109 243 543 561 271, | sources §14.4 R
+80	C6-NUMBERS-NOT-IN-SOURCE	mc	514	The tightening rule	7 of 9: 1.8 109 243 402 543 561 271, | sources §14.4 §2.15.2 R402
 81	C6a-ENTRY-NO-SOURCE-POINTER	mc	526	The polarisation formula	no § or Register pointer in entry
 82	C11-R-FORM-INCOMPLETE	mc	526	The polarisation formula	missing: grade, prior-art | first lines: **delta(n) = (alpha/K(l))(3 - l(l+1)/n^2 / *a Rydberg electron that does not enter  / Cited — Seaton 1958; Drake & Swainson 19
 83	C6a-ENTRY-NO-SOURCE-POINTER	mc	546	Staircase / connected row-convex	no § or Register pointer in entry
@@ -27883,16 +27908,16 @@ id	class	member	line	item	detail
 92	C6-NUMBERS-NOT-IN-SOURCE	mc	598	The generation criterion	4 of 6: 143 165 174 200 | sources §14.5.9 R
 93	C10-PROVED-WITHOUT-REGISTER	mc	598	The generation criterion	Proved — M §14.5.9; EXPANSION-MC54 T1, L1.
 94	C10-PROVED-WITHOUT-REGISTER	mc	608	The alphabet law	Proved — M §14.5.12; EXPANSION-MC54 T2, C2.1.
-95	C6-NUMBERS-NOT-IN-SOURCE	mc	618	The seed as binary, corrected	3 of 6: 713 723 24,585 | sources §14.5.12 §14.5.14 R
+95	C6-NUMBERS-NOT-IN-SOURCE	mc	618	The seed as binary, corrected	2 of 6: 713 723 | sources §14.5.12 §14.5.14 R
 96	C10-PROVED-WITHOUT-REGISTER	mc	618	The seed as binary, corrected	Proved — M §14.5.14; EXPANSION-MC54 T2; Shannon 1938.
 97	C10-PROVED-WITHOUT-REGISTER	mc	628	The bounds are recoverable	Proved — M §15.2; Moore 1910.
 98	C6-NUMBERS-NOT-IN-SOURCE	mc	638	The box seed law, d + c − 2	2 of 3: 161 166 | sources §14.5.9 R
 99	C10-PROVED-WITHOUT-REGISTER	mc	638	The box seed law, d + c − 2	Proved — M §14.5.9; classical; Dilworth 1950; Birkhoff 1937.
 100	C6a-ENTRY-NO-SOURCE-POINTER	mc	650	The Carathéodory lower bound	no § or Register pointer in entry
 101	C11-R-FORM-INCOMPLETE	mc	650	The Carathéodory lower bound	missing: grade | first lines: **seed ≥ the Carathéodory number = the b / *semilattice with subsemilattices as con / Cited — Carathéodory / convexity spaces;
-102	C6-NUMBERS-NOT-IN-SOURCE	mc	660	The envelope-step law	1 of 2: 24,585 | sources §14.5.12 R
+102	C6-NUMBERS-NOT-IN-SOURCE	mc	660	The envelope-step law	RETIRED W-237: not measured at this build | 1 of 2: 24,585 | sources §14.5.12 R
 103	C10-PROVED-WITHOUT-REGISTER	mc	660	The envelope-step law	Proved — M §14.5.12; EXPANSION-MC54 T3; Condon & Shortley 1935.
-104	C6-NUMBERS-NOT-IN-SOURCE	mc	670	The seed's forced set, corrected	3 of 5: 3, 24,585 2,1,3,3,2,1,3,0 | sources §14.5.10 §14.5.12 R
+104	C6-NUMBERS-NOT-IN-SOURCE	mc	670	The seed's forced set, corrected	2 of 5: 3, 2,1,3,3,2,1,3,0 | sources §14.5.10 §14.5.12 R
 105	C6-NUMBERS-NOT-IN-SOURCE	mc	680	The seed is a set cover	2 of 3: 256 278 | sources §14.5.7 §14.5.9 R
 106	C10-PROVED-WITHOUT-REGISTER	mc	680	The seed is a set cover	Proved — M §14.5.9; Karp 1972; Johnson 1974.
 107	C6-NUMBERS-NOT-IN-SOURCE	mc	690	The down-set seed law, d + c − 1	2 of 3: 161 166 | sources §14.5.9 R
@@ -27907,7 +27932,7 @@ id	class	member	line	item	detail
 116	C10-PROVED-WITHOUT-REGISTER	mc	782	A seed	Proved — M §14.5.7; Birkhoff 1937; Moore 1910.
 117	C6-NUMBERS-NOT-IN-SOURCE	mc	792	The existence partition	12 of 14: 225 337 1191 1192 1287 0.333 2,929 17,428 24,312 26,641 28,527 100,991 | sources § R1191 R1287 R1577
 118	C6-NUMBERS-NOT-IN-SOURCE	mc	804	The unit template, corrected	3 of 5: 0,1,1 24,585 3,0,1,1, | sources §14.5.11 §14.5.13 R
-119	C6-NUMBERS-NOT-IN-SOURCE	mc	814	Non-uniqueness as a Krein–Milman failure	5 of 7: 247 270 290 299 24,585 | sources §14.5.11 §14.5.12 R
+119	C6-NUMBERS-NOT-IN-SOURCE	mc	814	Non-uniqueness as a Krein–Milman failure	4 of 7: 247 270 290 299 | sources §14.5.11 §14.5.12 R
 120	C10-PROVED-WITHOUT-REGISTER	mc	814	Non-uniqueness as a Krein–Milman failure	Proved — M §14.5.11; EXPANSION-MC54 P4; Edelman 1980; Edelman & Jamison 1985.
 121	C10-PROVED-WITHOUT-REGISTER	mc	826	The family's defect, exactly	Proved — M §14.6.2; Moore 1910.
 122	C6-NUMBERS-NOT-IN-SOURCE	mc	836	The family of closed sets	1 of 10: 196 | sources §14.5 §14.6 R1789
@@ -28461,53 +28486,53 @@ id	class	member	line	item	detail
 670	C13-HANDLE-LEAK	mc	3545	3B.tri	back matter: | 2026 | Lach, *The Three-Body Problem for Unknown Masses* | `3B.tri` `3B.def` `3B.index` |
 671	C13-HANDLE-LEAK	mc	3545	3B.def	back matter: | 2026 | Lach, *The Three-Body Problem for Unknown Masses* | `3B.tri` `3B.def` `3B.index` |
 672	C13-HANDLE-LEAK	mc	3545	3B.index	back matter: | 2026 | Lach, *The Three-Body Problem for Unknown Masses* | `3B.tri` `3B.def` `3B.index` |
-673	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	203	28,	other sites: main=1 reg=9 sc=1 | withdrawn. They are listed in Chapter 28, with what replaced them. Several were caught not by the author
+673	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	203	28,	other sites: main=1 reg=10 sc=1 | withdrawn. They are listed in Chapter 28, with what replaced them. Several were caught not by the author
 674	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	333	16.6	other sites: main=7 reg=3 mc=1 | ungrounded in the sense §16.6's ⅅ_gro names. The corrected form carries no N: *following the bounds
-675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=29 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
-676	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	150	other sites: main=13 reg=6 mc=8 pc=1 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
+675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=30 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
+676	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	150	other sites: main=13 reg=7 mc=8 pc=1 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=8 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
-678	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1500	2.21	other sites: main=3 reg=7 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
-679	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1500	374	other sites: main=3 reg=1 ioi=2 sc=5 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
-680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1681	6.2	other sites: main=13 reg=11 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
-681	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.070	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-682	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.094	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-683	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.199	other sites: reg=2 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-684	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.227	other sites: main=1 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	1,	other sites: main=86 reg=106 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2827	2,	other sites: main=95 reg=140 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3205	12.11	other sites: main=154 reg=33 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
-689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3477	2,475	other sites: main=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
-690	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3477	21.4	other sites: main=1 mc=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
-691	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3477	22.8	other sites: reg=2 mc=1 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
-692	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3477	45,450	other sites: mc=3 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
-693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3700	400	other sites: main=13 reg=5 ioi=2 | mis-citation is corrected here and recorded at register 400.
-694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3877	14.5	other sites: main=47 reg=20 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
-695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3877	7,	other sites: main=16 reg=25 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
-696	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3878	497	other sites: main=3 reg=3 ioi=1 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
-697	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3878	9,	other sites: main=5 reg=21 mc=5 pc=4 ioi=7 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
-698	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3946	497	other sites: main=3 reg=3 ioi=1 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
-699	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3946	500	other sites: main=2 reg=6 ioi=2 sc=4 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
-700	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3946	502	other sites: main=4 reg=2 mc=2 ioi=2 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
-701	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5239	308	other sites: main=4 reg=3 mc=4 ioi=1 | corrected criterion rather than an observation about chemistry. Register 308. A multi-argument cap is a hypere
-702	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5982	22.1	other sites: main=20 reg=5 mc=1 pc=2 sc=1 | ### 22.1.1.1 Containment on level energies, recomputed under variation
-703	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	6279	23.5	other sites: main=6 reg=1 mc=3 pc=1 | ### 23.5.1 A withdrawn proposition
-704	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7584	15.3	other sites: main=4 | impossible and was the signal. The earlier version's Figure 15.3, since withdrawn, drew a line labelled
-705	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7604	112	other sites: main=5 reg=13 mc=1 ioi=2 sc=2 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
-706	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7604	118	other sites: main=12 reg=72 mc=9 pc=5 ioi=15 sc=5 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
-707	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7604	71.8	other sites: reg=2 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
-708	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7920	238	other sites: main=1 reg=5 ioi=1 sc=5 | withdrawn, not answered, and the book was built to permit exactly that. Register 238.
-709	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	8678	23.10	other sites: main=15 reg=2 mc=2 | sign, not a positive one (§23.10.1), so the channel stands and the word is corrected; recorded at register 178
-710	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	9150	388,	other sites: main=1 reg=2 ioi=1 | **That is why the three figures recomputed under variation at registers 388, 391 and 392 all turned
-711	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	9150	391	other sites: main=1 reg=4 ioi=1 | **That is why the three figures recomputed under variation at registers 388, 391 and 392 all turned
-712	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	9150	392	other sites: main=4 reg=4 ioi=1 sc=1 | **That is why the three figures recomputed under variation at registers 388, 391 and 392 all turned
-713	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	9168	32.5	other sites: main=11 | ### 32.5.1 The prediction, recomputed from the text
-714	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	10619	7.1	other sites: main=22 reg=1 mc=23 pc=2 ioi=1 sc=3 | Theorem 7.1 is absent — withdrawn, and the status coordinate's *withdrawn* value is
-715	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11069	540	other sites: main=27 reg=7 mc=2 ioi=4 sc=7 | D — verifying 540 Kreuzer–Skarke predictions. **Everything the slice specifies is recomputed and
-716	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11202	30.3	other sites: main=50 reg=8 | Nothing in §30.3 is withdrawn. The derivations agree with the literature wherever both exist, and the
-717	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11394	6.5	other sites: reg=1 mc=1 ioi=1 sc=2 | | 6.5 | The corrected alphabet — what becomes expressible once the conflated letters are split. | Mathematical
-718	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11600	119,	other sites: main=2 reg=3 sc=2 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap
-719	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11600	918	other sites: main=2 reg=2 ioi=1 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap
+678	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	2.21	other sites: main=3 reg=9 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
+679	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	374	other sites: main=3 reg=2 ioi=2 sc=5 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
+680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1686	6.2	other sites: main=13 reg=11 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
+681	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.070	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+682	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.094	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+683	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.199	other sites: reg=2 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+684	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.227	other sites: main=1 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=115 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=143 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3210	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
+689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	2,475	other sites: main=2 reg=4 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
+690	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	21.4	other sites: main=1 reg=1 mc=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
+691	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	22.8	other sites: reg=3 mc=1 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
+692	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	45,450	other sites: reg=1 mc=3 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
+693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=6 ioi=2 | mis-citation is corrected here and recorded at register 400.
+694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=30 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
+695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	7,	other sites: main=16 reg=30 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
+696	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	497	other sites: main=3 reg=3 ioi=1 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
+697	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	9,	other sites: main=5 reg=24 mc=5 pc=4 ioi=7 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
+698	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3951	497	other sites: main=3 reg=3 ioi=1 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
+699	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3951	500	other sites: main=2 reg=6 ioi=2 sc=4 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
+700	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3951	502	other sites: main=4 reg=3 mc=2 ioi=2 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
+701	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5244	308	other sites: main=4 reg=3 mc=4 ioi=1 | corrected criterion rather than an observation about chemistry. Register 308. A multi-argument cap is a hypere
+702	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5987	22.1	other sites: main=20 reg=5 mc=1 pc=2 sc=1 | ### 22.1.1.1 Containment on level energies, recomputed under variation
+703	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	6284	23.5	other sites: main=6 reg=1 mc=3 pc=1 | ### 23.5.1 A withdrawn proposition
+704	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7589	15.3	other sites: main=4 | impossible and was the signal. The earlier version's Figure 15.3, since withdrawn, drew a line labelled
+705	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7609	112	other sites: main=5 reg=13 mc=1 ioi=2 sc=2 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
+706	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7609	118	other sites: main=12 reg=72 mc=9 pc=5 ioi=15 sc=5 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
+707	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7609	71.8	other sites: reg=2 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
+708	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7925	238	other sites: main=1 reg=5 ioi=1 sc=5 | withdrawn, not answered, and the book was built to permit exactly that. Register 238.
+709	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	8683	23.10	other sites: main=15 reg=2 mc=2 | sign, not a positive one (§23.10.1), so the channel stands and the word is corrected; recorded at register 178
+710	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	9155	388,	other sites: main=1 reg=2 ioi=1 | **That is why the three figures recomputed under variation at registers 388, 391 and 392 all turned
+711	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	9155	391	other sites: main=1 reg=4 ioi=1 | **That is why the three figures recomputed under variation at registers 388, 391 and 392 all turned
+712	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	9155	392	other sites: main=3 reg=4 ioi=1 sc=1 | **That is why the three figures recomputed under variation at registers 388, 391 and 392 all turned
+713	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	9173	32.5	other sites: main=11 | ### 32.5.1 The prediction, recomputed from the text
+714	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	10654	7.1	other sites: main=22 reg=1 mc=23 pc=2 ioi=1 sc=3 | Theorem 7.1 is absent — withdrawn, and the status coordinate's *withdrawn* value is
+715	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11116	540	other sites: main=27 reg=7 mc=2 ioi=4 sc=7 | D — verifying 540 Kreuzer–Skarke predictions. **Everything the slice specifies is recomputed and
+716	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11249	30.3	other sites: main=50 reg=8 | Nothing in §30.3 is withdrawn. The derivations agree with the literature wherever both exist, and the
+717	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11441	6.5	other sites: reg=1 mc=1 ioi=1 sc=2 | | 6.5 | The corrected alphabet — what becomes expressible once the conflated letters are split. | Mathematical
+718	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11647	119,	other sites: main=2 reg=3 sc=2 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap
+719	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	11647	918	other sites: main=2 reg=2 ioi=1 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap
 720	C8-NAMED-STATEMENT	all	0	parity rule	sites=19 in ioi,main,mc,reg | bold/heading statement in main: yes
 721	C8-NAMED-STATEMENT	all	0	pauli bound	sites=13 in main,mc,pc,reg,sc | bold/heading statement in main: yes
 722	C8-NAMED-STATEMENT	all	0	spin rule	sites=9 in ioi,main,mc,reg | bold/heading statement in main: NO
@@ -28515,7 +28540,7 @@ id	class	member	line	item	detail
 724	C8-NAMED-STATEMENT	all	0	lower bound	sites=8 in main,mc,reg | bold/heading statement in main: yes
 725	C8-NAMED-STATEMENT	all	0	tightening rule	sites=8 in mc | bold/heading statement in main: NO
 726	C8-NAMED-STATEMENT	all	0	node theorem	sites=7 in main,mc,reg | bold/heading statement in main: yes
-727	C8-NAMED-STATEMENT	all	0	ordering law	sites=7 in main,mc,pc | bold/heading statement in main: yes
+727	C8-NAMED-STATEMENT	all	0	ordering law	sites=11 in main,mc,pc,reg | bold/heading statement in main: yes
 728	C8-NAMED-STATEMENT	all	0	step law	sites=6 in main,reg | bold/heading statement in main: yes
 729	C8-NAMED-STATEMENT	all	0	earlier bound	sites=5 in main,mc,reg | bold/heading statement in main: yes
 730	C8-NAMED-STATEMENT	all	0	selection rule	sites=5 in main,mc,reg | bold/heading statement in main: yes
@@ -28532,7 +28557,7 @@ id	class	member	line	item	detail
 741	C8-NAMED-STATEMENT	all	0	amplitude law	sites=4 in mc,pc,reg | bold/heading statement in main: NO
 742	C8-NAMED-STATEMENT	all	0	dipole rule	sites=4 in ioi,mc,reg | bold/heading statement in main: NO
 743	C8-NAMED-STATEMENT	all	0	transfer bound	sites=4 in mc | bold/heading statement in main: yes
-744	C8-NAMED-STATEMENT	all	0	closure rule	sites=3 in ioi,main | bold/heading statement in main: yes
+744	C8-NAMED-STATEMENT	all	0	closure rule	sites=4 in ioi,main,reg | bold/heading statement in main: yes
 745	C8-NAMED-STATEMENT	all	0	admissibility criterion	sites=3 in main,mc | bold/heading statement in main: yes
 746	C8-NAMED-STATEMENT	all	0	exclusion principle	sites=3 in main,mc | bold/heading statement in main: yes
 747	C8-NAMED-STATEMENT	all	0	same rule	sites=3 in main,reg | bold/heading statement in main: yes
@@ -28551,7 +28576,7 @@ id	class	member	line	item	detail
 760	C8-NAMED-STATEMENT	all	0	second transfer bound	sites=3 in mc | bold/heading statement in main: NO
 761	C8-NAMED-STATEMENT	all	0	product rule	sites=3 in mc | bold/heading statement in main: yes
 762	C8-NAMED-STATEMENT	all	0	generation criterion	sites=3 in mc,pc | bold/heading statement in main: NO
-763	C8-NAMED-STATEMENT	all	0	envelope-step law	sites=3 in mc | bold/heading statement in main: NO
+763	C8-NAMED-STATEMENT	all	0	envelope-step law	sites=4 in mc,reg | bold/heading statement in main: NO
 764	C8-NAMED-STATEMENT	all	0	chain rule	sites=3 in mc | bold/heading statement in main: NO
 765	C8-NAMED-STATEMENT	all	0	modular law	sites=3 in mc | bold/heading statement in main: yes
 766	C8-NAMED-STATEMENT	all	0	data-processing inequality	sites=3 in mc | bold/heading statement in main: NO
@@ -28701,7 +28726,7 @@ id	class	member	line	item	detail
 910	C8-NAMED-STATEMENT	all	0	nearer bound	sites=1 in reg | bold/heading statement in main: NO
 911	C8-NAMED-STATEMENT	all	0	count is rule	sites=1 in reg | bold/heading statement in main: yes
 912	C8-NAMED-STATEMENT	all	0	score being rule	sites=1 in reg | bold/heading statement in main: NO
-913	C8-NAMED-STATEMENT	all	0	corridor law	sites=1 in reg | bold/heading statement in main: yes
+913	C8-NAMED-STATEMENT	all	0	corridor law	sites=2 in pc,reg | bold/heading statement in main: yes
 914	C8-NAMED-STATEMENT	all	0	per-step rule	sites=1 in reg | bold/heading statement in main: NO
 915	C8-NAMED-STATEMENT	all	0	corridor of the law	sites=1 in reg | bold/heading statement in main: NO
 916	C8-NAMED-STATEMENT	all	0	closure axiom	sites=1 in reg | bold/heading statement in main: yes
@@ -28735,7 +28760,7 @@ id	class	member	line	item	detail
 944	C8-NAMED-STATEMENT	all	0	unprinted rule	sites=1 in reg | bold/heading statement in main: NO
 945	C8-NAMED-STATEMENT	all	0	author's to rule	sites=1 in reg | bold/heading statement in main: yes
 946	C8-NAMED-STATEMENT	all	0	formula and selection principle	sites=1 in reg | bold/heading statement in main: NO
-947	C8-NAMED-STATEMENT	all	0	ν rule	sites=1 in reg | bold/heading statement in main: yes
+947	C8-NAMED-STATEMENT	all	0	ν rule	sites=2 in main,reg | bold/heading statement in main: yes
 948	C8-NAMED-STATEMENT	all	0	line that the rule	sites=1 in reg | bold/heading statement in main: NO
 949	C8-NAMED-STATEMENT	all	0	left-step rule	sites=1 in reg | bold/heading statement in main: NO
 950	C8-NAMED-STATEMENT	all	0	right rule	sites=1 in reg | bold/heading statement in main: yes
@@ -28821,447 +28846,447 @@ id	class	member	line	item	detail
 1030	C9-OVERGENERALISATION-WORD	main	938	never	once with the element criterion in view and never with both. Register 232 declines the promotion and
 1031	C9-OVERGENERALISATION-WORD	main	950	never	edit is a *permutation or an insertion*, never a rewrite: existing text is moved, not retyped,
 1032	C9-OVERGENERALISATION-WORD	main	985	never	retried; a step that has succeeded is never recomputed.
-1033	C9-OVERGENERALISATION-WORD	main	1151	always	envelopes are recoverable from its cells, so an expression always exists — and
-1034	C9-OVERGENERALISATION-WORD	main	1177	never	almost never be traced to what it corrected.
-1035	C9-OVERGENERALISATION-WORD	main	1241	never	size in the same sentence as the result, and never let a sampled figure stand where an exhaustive one
-1036	C9-OVERGENERALISATION-WORD	main	1344	never	does not print.** E(audits), then 17, rested on coordinates that were never printed; dim(hierarchy) = 2
-1037	C9-OVERGENERALISATION-WORD	main	1345	never	rested on precedences that were never printed. Both were correct and neither was checkable.
-1038	C9-OVERGENERALISATION-WORD	main	1358	never	the input exists in the text.** A result whose input was never printed passes every one of them,
-1039	C9-OVERGENERALISATION-WORD	main	1405	never	**And three of the twenty-one have never fired, which §4.6 says is not the same as passing.** A check
-1040	C9-OVERGENERALISATION-WORD	main	1420	never	being wrong. **An audit that has never returned a failure is indistinguishable from one that
-1041	C9-OVERGENERALISATION-WORD	main	1449	never	4.8   **a reading the source never made** — an assumption is the reader's until the source states it
-1042	C9-OVERGENERALISATION-WORD	main	1463	never	never defined them. Register 655.*
-1043	C9-OVERGENERALISATION-WORD	main	1504	never	coordinate values — has three realisations and no register entry, because **it was never learned
-1044	C9-OVERGENERALISATION-WORD	main	1659	never	above is a thing indexed. Time is not — §F.4.3 records that a date must never enter Λ, since a
-1045	C9-OVERGENERALISATION-WORD	main	1663	never	What makes it a subject rather than a metaphor is that it is measured. **Occupancy never rises along
-1046	C9-OVERGENERALISATION-WORD	main	1699	always	That matters because a closure defect measured once can always be blamed on the boundary. **Here the
-1047	C9-OVERGENERALISATION-WORD	main	1716	always	Non-closure is not always a fault. It is sometimes a purchase — usability bought with definitional self-sufficiency. What this book supplies is the price tag, not the verdict.
-1048	C9-OVERGENERALISATION-WORD	main	1808	never	The convention was in force from the first page and had never been written down: 84 paragraphs carry a
-1049	C9-OVERGENERALISATION-WORD	main	1916	never	The eight-coordinate construction gives dim ≤ 8 for free; the eighth is never spent.
-1050	C9-OVERGENERALISATION-WORD	main	2127	always	seven bits live in the twenty implications, which is where redundancy always lives in a closed index.
-1051	C9-OVERGENERALISATION-WORD	main	2138	always	*close always in one pass*, where full arithmetic never closes by Gödel. Closing in one pass is
-1052	C9-OVERGENERALISATION-WORD	main	2138	never	*close always in one pass*, where full arithmetic never closes by Gödel. Closing in one pass is
-1053	C9-OVERGENERALISATION-WORD	main	2252	never	Three structural facts, proved separately in this book and never combined:
-1054	C9-OVERGENERALISATION-WORD	main	2271	never	rank 1 — 5 against 4 — and never rejoin. A rank polynomial is palindromic if and only if the poset is self-dual, so this
-1055	C9-OVERGENERALISATION-WORD	main	2297	never	constraints couple ℓ to n and f to e, the vanishing factors never appear free, and a residue
-1056	C9-OVERGENERALISATION-WORD	main	2315	never	**The sign structure is bipartite**, and a bipartite structure can never produce an odd number of orientation reversals. Verified exhaustively: **zero reversing loops among all cycles of length 3 to 5
-1057	C9-OVERGENERALISATION-WORD	main	2489	never	That was never a closure defect — ℛ cannot see a coordinate that was never supplied. It was an axis
-1058	C9-OVERGENERALISATION-WORD	main	2489	never	That was never a closure defect — ℛ cannot see a coordinate that was never supplied. It was an axis
-1059	C9-OVERGENERALISATION-WORD	main	2581	never	**Occupancy never rises.** Take the source signature (n, ℓ, k, 2S) and the target (e, f, g, 2S′) as
-1060	C9-OVERGENERALISATION-WORD	main	2659	never	temporal structure survives as a *restriction*: the maximal sub-index on which a weight never rises is
-1061	C9-OVERGENERALISATION-WORD	main	2678	never	The structural content of q was never stated: computed on the constraint graph, **q is the unique cut
-1062	C9-OVERGENERALISATION-WORD	main	2728	never	propagation of Chapter 15 all use it; §7.1 records treeness as a fact about Λ and never as a
-1063	C9-OVERGENERALISATION-WORD	main	2729	never	condition. **A hypothesis that is never stated cannot be checked, and the counterexample has been
-1064	C9-OVERGENERALISATION-WORD	main	2860	never	complete when it was written and never said why. Register 408.
-1065	C9-OVERGENERALISATION-WORD	main	2867	never	**The future is never a value.** Of **97** (past, present) pairs, **none determines a single future** —
-1066	C9-OVERGENERALISATION-WORD	main	2946	never	never spends.
-1067	C9-OVERGENERALISATION-WORD	main	2986	never	axis — §32.1.4 shows ℛ never produces a coordinate — but it can bound the *direction*: an object that
-1068	C9-OVERGENERALISATION-WORD	main	3056	never	coordinates and were never themselves defined, which is the failure S1 exists to prevent. They are
-1069	C9-OVERGENERALISATION-WORD	main	3085	always	64.4 — at the caps of §7.4 and cap-dependent as always. Every bound is §14.4-admissible; every stage is closed — exhaustively to
-1070	C9-OVERGENERALISATION-WORD	main	3102	never	**Every stage closed exhaustively, by the book's own theorem.** The upper tower was never
-1071	C9-OVERGENERALISATION-WORD	main	3117	never	does not contain. **The instrument was in the book from Chapter 14 onward and was never turned on the
-1072	C9-OVERGENERALISATION-WORD	main	3124	at every cap	cells, defect zero at every cap. The shape is not an artefact of the book's caps.
-1073	C9-OVERGENERALISATION-WORD	main	3448	never	states for brackets: presume the next bracket from the law that generates the widths, never from the
-1074	C9-OVERGENERALISATION-WORD	main	3484	at every cap	Remove the one cell nature forbids, J = 0 ↛ 0, and closure fails by exactly four meets at every cap
-1075	C9-OVERGENERALISATION-WORD	main	3610	every configuration	**The exact J multiset is identical in all four schemes, in every configuration tested.**
-1076	C9-OVERGENERALISATION-WORD	main	3647	never	**Chapter 7 introduces both ends and never says the pair is the object.** The shape says it: |Λ| = Σ_q |A_q| · |B_q|, and there is no factorisation that does not pass through the transfer.
-1077	C9-OVERGENERALISATION-WORD	main	3795	never	**This book already cites Helly and has never cited Carathéodory**, which is the second bibliography
-1078	C9-OVERGENERALISATION-WORD	main	3955	never	identity — the tight-pair count is exactly 2S** — which never depended on a seed measurement.
-1079	C9-OVERGENERALISATION-WORD	main	3975	at every cap	**zero at every cap setting from 216 cells to 1,636, and zero at Λ₉.** No cell is
-1080	C9-OVERGENERALISATION-WORD	main	4184	never	were. **The chain settled what they are and never went back to record it.** Named:
-1081	C9-OVERGENERALISATION-WORD	main	4213	never	citation present and never checked against what it cites — and checking is a search.**
-1082	C9-OVERGENERALISATION-WORD	main	4240	never	### 14.6.6 Two of the violation six were never blocked, and §10.1 speaks a retired language
-1083	C9-OVERGENERALISATION-WORD	main	4287	always	therefore expressible, and the expression is always already present in what it prints.** Stating it
-1084	C9-OVERGENERALISATION-WORD	main	4315	never	**Cost Σᵢ|Aᵢ|!, never the product ∏ᵢ|Aᵢ|!.**
-1085	C9-OVERGENERALISATION-WORD	main	4377	never	method never uses was not.
-1086	C9-OVERGENERALISATION-WORD	main	4380	never	Referee flag 5 says the tripwire has never run on anyone else's data. The reply is that **the data
-1087	C9-OVERGENERALISATION-WORD	main	4461	never	Totality does not detect that error. It forbids it. The computation never ran.
-1088	C9-OVERGENERALISATION-WORD	main	4463	never	**Worked case, the other way.** A guard in the author's code returned `None` when an alphabet exceeded a cap, and the caller coerced `None` to `False`. That produced "3 reorderable of 85 trials," whic
-1089	C9-OVERGENERALISATION-WORD	main	4468	never	ⅅ ≥ 1 cannot catch that. Every relation checks out on data that was never measured. Only totality
-1090	C9-OVERGENERALISATION-WORD	main	4514	never	with. ⅅ_ref cannot see it: if no theorem names the term, the pair never enters the table.
-1091	C9-OVERGENERALISATION-WORD	main	4535	never	forbids one — adjunction never repairs. It is read off.
-1092	C9-OVERGENERALISATION-WORD	main	4544	never	occupied of thirty-eight, E = 11.** One term with no referent, eight named and never checked, nine
-1093	C9-OVERGENERALISATION-WORD	main	4563	never	necessarily and permanently, because search is one route and can never be two.
-1094	C9-OVERGENERALISATION-WORD	main	4616	never	— run once, on one example, and never named as one.
-1095	C9-OVERGENERALISATION-WORD	main	4661	never	the same object, so it can never be short of an answer and never give one that contradicts itself.
-1096	C9-OVERGENERALISATION-WORD	main	4661	never	the same object, so it can never be short of an answer and never give one that contradicts itself.
-1097	C9-OVERGENERALISATION-WORD	main	4676	never	**The index never believed the lie. It was never consulted.** Replacement is not a question put to an index; **it is an act performed on it by whoever holds it.**
-1098	C9-OVERGENERALISATION-WORD	main	4676	never	**The index never believed the lie. It was never consulted.** Replacement is not a question put to an index; **it is an act performed on it by whoever holds it.**
-1099	C9-OVERGENERALISATION-WORD	main	4692	never	Insertion is never free. Adding one cell forces the closure to admit a median of 340 more — minimum
-1100	C9-OVERGENERALISATION-WORD	main	4698	always	**Substitution gains nothing.** Deletions are always repaired, so C(Λ − *x* + *y*) = C(Λ + *y*) identically — **0 of 300 random swaps and 0 of 1,600 targeted swaps evaded detection.**
-1101	C9-OVERGENERALISATION-WORD	main	4702	always	| delete | **repaired, always** |
-1102	C9-OVERGENERALISATION-WORD	main	4703	always	| insert one | **amplifies, always** — minimum 59 |
-1103	C9-OVERGENERALISATION-WORD	main	4751	at every cap	at every cap tested. So zero is unreachable by construction, not by luck.
-1104	C9-OVERGENERALISATION-WORD	main	4806	never	Theorem 17.1 (adjunction never repairs). For any h : S → H, with S′ = {(x, h(x))}: S′ closed ⇒ S
-1105	C9-OVERGENERALISATION-WORD	main	4866	never	**Meet never breaks it.** For monotone *h* with *h*(*x*), *h*(*y*) ≤ *q*, *x*∧*y* ≤ *x* gives *h*(*x*∧*y*) ≤ *q* at once. **Only the join can break it**, and it does so when the join raises *h* above 
-1106	C9-OVERGENERALISATION-WORD	main	5008	never	was never given a test a candidate had to pass. The law was therefore confirmed by naming something
-1107	C9-OVERGENERALISATION-WORD	main	5036	never	**The realiser is exhibited, never found. What is falsifiable is the exhibition.**
-1108	C9-OVERGENERALISATION-WORD	main	5048	always	does close, something in it is doing ℛ's work, and that something can always be pointed at.
-1109	C9-OVERGENERALISATION-WORD	main	5067	always	property discovered in an object, when it is always a property of an object *plus* the structure
-1110	C9-OVERGENERALISATION-WORD	main	5129	never	the index's own extent                     3   never    **0 — universal**
-1111	C9-OVERGENERALISATION-WORD	main	5135	in every case	extent gives an envelope in every case tested, including the drawn nuclide band, whose drip lines are
-1112	C9-OVERGENERALISATION-WORD	main	5140	never	gives its envelope and never its law.**
-1113	C9-OVERGENERALISATION-WORD	main	5157	never	never where it will be. One asymmetry: φ = min(a,b) closes with zero failures, which is the restricted
-1114	C9-OVERGENERALISATION-WORD	main	5220	never	smallest: determined by two others and by neither alone. **The book's own Q has never been empty**,
-1115	C9-OVERGENERALISATION-WORD	main	5265	at every cap	**The envelope is a closed index at every cap. The exact set is meet-closed at every cap and joins
-1116	C9-OVERGENERALISATION-WORD	main	5265	at every cap	**The envelope is a closed index at every cap. The exact set is meet-closed at every cap and joins
-1117	C9-OVERGENERALISATION-WORD	main	5275	at every cap	strictly smaller than the hand-built chain at n ≥ 4. **It is equal, at every cap tested** — the path of
-1118	C9-OVERGENERALISATION-WORD	main	5325	never	**The bibliography, indexed on era, retrieval redundancy ρ, access and depth of entry, holds twenty-two sources over seven cells and admits six it does not carry.** Under exhaustive relabelling E fall
-1119	C9-OVERGENERALISATION-WORD	main	5328	never	because a bibliography is never closed — E(search) > 0 always, by §29.1,
-1120	C9-OVERGENERALISATION-WORD	main	5328	always	because a bibliography is never closed — E(search) > 0 always, by §29.1,
-1121	C9-OVERGENERALISATION-WORD	main	5366	never	**Which is why the bracket must be handed two measured neighbours before it can say anything at all.** It is not extracting a prediction from the lattice. **It is carrying a constraint between two mea
-1122	C9-OVERGENERALISATION-WORD	main	5489	never	the forty-nine cells in the table above were never tried, and ρ recorded them at the same value as
-1123	C9-OVERGENERALISATION-WORD	main	5534	never	empty* and *never tried* take the same ρ, and §19.5 drew a law from their union.
-1124	C9-OVERGENERALISATION-WORD	main	5567	never	carries no closure mechanism at all, which is why §29's precedent question can be bounded and never
-1125	C9-OVERGENERALISATION-WORD	main	5569	never	languages never have to produce.
-1126	C9-OVERGENERALISATION-WORD	main	5601	never	Eight results in this book have the same shape and have never been put beside one another.
-1127	C9-OVERGENERALISATION-WORD	main	5634	never	carried through thirteen coordinates and never grounded.
-1128	C9-OVERGENERALISATION-WORD	main	5699	never	the one place in this work where ℛ has never been the right operator.
-1129	C9-OVERGENERALISATION-WORD	main	5887	always	WITH coordinates**, and a relabelling into a rectangle is always available.
-1130	C9-OVERGENERALISATION-WORD	main	5898	never	its count is composite — so the question is never *what is E* but **who fixed the coordinates**.
-1131	C9-OVERGENERALISATION-WORD	main	5915	never	value because the object is the thing for which that value never varies.**
-1132	C9-OVERGENERALISATION-WORD	main	6014	never	interior bracket bounds a state the index never saw.
-1133	C9-OVERGENERALISATION-WORD	main	6027	never	**Presume the next bracket from the law that generates the widths, never from the pattern the
-1134	C9-OVERGENERALISATION-WORD	main	6163	never	quantity, needs the limit, and the energy bound is never better than the limit is known.
-1135	C9-OVERGENERALISATION-WORD	main	6208	always	The deductive interval is always more than twice the error of the crudest possible point
-1136	C9-OVERGENERALISATION-WORD	main	6341	in every case	**λ is the Newton decrement**, introduced by Nesterov and Nemirovskii (1994) for interior-point methods and standard in convex optimisation since. In one dimension λ² = *f*′²/*f*″, and ½λ² is *exactly
-1137	C9-OVERGENERALISATION-WORD	main	6531	never	**An index does not see *a* refusal. It sees a family**, and the spacing of the refusals across it is what separates these. §16.7.1 makes the same move for a different pair: the discriminating questio
-1138	C9-OVERGENERALISATION-WORD	main	6566	never	Better data raises k\. It never creates an interior peak. The optimum is the admissibility cap,
-1139	C9-OVERGENERALISATION-WORD	main	6674	never	**An electron with six units of angular momentum never reaches the 1s core.**
-1140	C9-OVERGENERALISATION-WORD	main	6690	never	2.50, 1.41, 0.856, 0.446 and 0.159 in units of 10⁻⁵ — monotone across six orders of magnitude, and never
-1141	C9-OVERGENERALISATION-WORD	main	6697	never	**And the ionisation limit came out of the data.** Minimising the δ spread over the *n*g channel — six members, scanned at 0.001 cm⁻¹ — gives **438,908.871 cm⁻¹** against the tabulated 438,908.885 — *
-1142	C9-OVERGENERALISATION-WORD	main	6801	never	not, for the reason above. **The book has never counted the three.** Nothing in the method prevents
-1143	C9-OVERGENERALISATION-WORD	main	6803	never	mark is a lookup, not a computation — but the classification was never carried into the collection,
-1144	C9-OVERGENERALISATION-WORD	main	6879	always	Interior members need not be fetched. The ends always must — and the neutral is always
-1145	C9-OVERGENERALISATION-WORD	main	6879	always	Interior members need not be fetched. The ends always must — and the neutral is always
-1146	C9-OVERGENERALISATION-WORD	main	6886	never	### 25.1 A method that has never failed has not been tested
-1147	C9-OVERGENERALISATION-WORD	main	6949	never	### 25.4 Why the collection never enters the failure regime
-1148	C9-OVERGENERALISATION-WORD	main	7266	never	Prop. 23.1: V > 2 ⟺ log₂V > 1. A guarantee never costs less than one bit, and a Rydberg
-1149	C9-OVERGENERALISATION-WORD	main	7273	never	precision surrendered for certainty. Proposition 23.1's floor V > 2 becomes the statement that a guarantee never costs
-1150	C9-OVERGENERALISATION-WORD	main	7281	always	the floor, Prop. 23.1          V > 2 always                          slack in an inference can never reach 1
-1151	C9-OVERGENERALISATION-WORD	main	7281	never	the floor, Prop. 23.1          V > 2 always                          slack in an inference can never reach 1
-1152	C9-OVERGENERALISATION-WORD	main	7286	always	bracket always has slack, and can therefore never be as narrow as an estimate. And a
-1153	C9-OVERGENERALISATION-WORD	main	7286	never	bracket always has slack, and can therefore never be as narrow as an estimate. And a
-1154	C9-OVERGENERALISATION-WORD	main	7287	never	linear observable has unbounded slack, because it never turns.
-1155	C9-OVERGENERALISATION-WORD	main	7359	never	The three languages were never in competition. Algebra says what a structure permits;
-1156	C9-OVERGENERALISATION-WORD	main	7404	never	produced "3 of 85," which produced "almost never reorderable," which produced a false dismissal of a
-1157	C9-OVERGENERALISATION-WORD	main	7413	never	• Claimed a species integrated that had never been written to the source; found by auditing the built
-1158	C9-OVERGENERALISATION-WORD	main	7418	never	• Asserted "almost never reorderable" from a sampler that silently discarded most trials.
-1159	C9-OVERGENERALISATION-WORD	main	7431	never	A quantity the method never used located a typing error in a level table.
-1160	C9-OVERGENERALISATION-WORD	main	7466	never	totality — a refusal at entry                       3    the computation never ran
-1161	C9-OVERGENERALISATION-WORD	main	7552	never	**70–71. A conclusion written past its evidence.** "The ideal collapses" under output showing it did not, and two table rows never computed.
-1162	C9-OVERGENERALISATION-WORD	main	7556	never	74. "Self-consistency never defends against invention." It does. 220 of 220 single fabrications
-1163	C9-OVERGENERALISATION-WORD	main	7567	never	**84–86. Three claims about closure, each contradicted by the table beside it.** "Deletion-repair fails in geometry" — the convex hull was the wrong operator. "Self-consistency never defends against i
-1164	C9-OVERGENERALISATION-WORD	main	7569	never	**87–88. The index was never deceived.** Two passages described a *replaced* index as though it were the original being lied to. **Asked, Λ refuses 200 of 200. Rebuilt around them, it admits 200 of 20
-1165	C9-OVERGENERALISATION-WORD	main	7637	never	correlation measured in §23.14.1 and never carried across. §31.2's, missing five, two of them computed
-1166	C9-OVERGENERALISATION-WORD	main	7700	never	written before the output · a reading the source never made
-1167	C9-OVERGENERALISATION-WORD	main	7703	never	never closed, and an inference drawn from a ratio that has since inverted. Read
-1168	C9-OVERGENERALISATION-WORD	main	7711	never	written before the output*, which is §4.6's *test that could not fail*, already recorded and never
-1169	C9-OVERGENERALISATION-WORD	main	7828	never	**And ℛ recovers a bound this book has never stated.** The operator was given the cells and not the
-1170	C9-OVERGENERALISATION-WORD	main	7847	never	one to watch: a protocol built on an object the entry never names would be a protocol whose warrant
-1171	C9-OVERGENERALISATION-WORD	main	7863	never	**By Chapter 16's criterion a claim is defended when two disjoint routes reach it. Novelty has one route — search — and can never have two.** More searching is more of the same route.
-1172	C9-OVERGENERALISATION-WORD	main	7867	always	**And Chapter 27 supplies the second prohibition.** E(search) > 0 always: the question admits more literatures than any search enters. Nine were entered here; **nine more are named and unentered**, an
-1173	C9-OVERGENERALISATION-WORD	main	7928	never	one pass; full arithmetic never closes, by Gödel; **the documentary language has no closure mechanism
-1174	C9-OVERGENERALISATION-WORD	main	8072	never	Controls were never chosen in advance. The search sought targets, noted what else appeared, and afterwards called those findings controls. **Nothing was recorded as *looked for and not found* among th
-1175	C9-OVERGENERALISATION-WORD	main	8140	never	one direction the method settles. It costs the book nothing it was entitled to — the book never
-1176	C9-OVERGENERALISATION-WORD	main	8182	never	**What could not be reached.** Kurucz's line files are the right target — computed lines, many never
-1177	C9-OVERGENERALISATION-WORD	main	8215	never	**This changes referee flag 5's status and does not answer it.** The flag said the tripwire has never
-1178	C9-OVERGENERALISATION-WORD	main	8231	never	was found.** The record's citations were carrying references the book itself never
-1179	C9-OVERGENERALISATION-WORD	main	8303	at every cap	at every cap setting tested; the tight two-parent form of K destroys the factorisation.
-1180	C9-OVERGENERALISATION-WORD	main	8553	never	satisfiable formulas encoding as non-reorderable, never the reverse. The map X → C(X) is global,
-1181	C9-OVERGENERALISATION-WORD	main	8569	never	The open problem concerns cell sets arriving with no construction. This book never has
-1182	C9-OVERGENERALISATION-WORD	main	8581	never	structure admitting cells its keeper never enumerated.
-1183	C9-OVERGENERALISATION-WORD	main	8657	never	on a channel, never a coordinate.
-1184	C9-OVERGENERALISATION-WORD	main	8813	never	**First, the index of §32.1 is computed here, which it never was.** Harvesting every claim-bearing
-1185	C9-OVERGENERALISATION-WORD	main	8838	never	missing Chapter 30 — and it has never computed E over the index §32.1 defines. The two are separated
-1186	C9-OVERGENERALISATION-WORD	main	8856	never	statement, which the book has never made in one sentence: Λ is a model of indexing demonstrated on a
-1187	C9-OVERGENERALISATION-WORD	main	8879	never	own misidentified species; it has never run on anyone else's data.
-1188	C9-OVERGENERALISATION-WORD	main	8881	never	**6. S3 has never been tested.** §32.2 claims a reader given the claims and their evidence could
-1189	C9-OVERGENERALISATION-WORD	main	8930	never	needs a spectroscopist's data the tripwire has never seen. Seven needs a file this work cannot read.
-1190	C9-OVERGENERALISATION-WORD	main	8989	never	**And there is a hard boundary, which is the honest half of the answer.** E names cells; it never
-1191	C9-OVERGENERALISATION-WORD	main	9158	never	§32.1–24.4 ask whether this book obeys its own law. They never ask whether it obeys its own
-1192	C9-OVERGENERALISATION-WORD	main	9273	never	stale the moment the book is written into. The second never closed: its own five terms summed to
-1193	C9-OVERGENERALISATION-WORD	main	9304	never	the destination coordinate of the temporal mechanisms are not open items and never will be. **They are
-1194	C9-OVERGENERALISATION-WORD	main	9474	never	intermediate — it is fitted from a series and never measured. **A quantity the
-1195	C9-OVERGENERALISATION-WORD	main	9576	never	three, is the only route to the nucleus, and has never been traced.*
-1196	C9-OVERGENERALISATION-WORD	main	9626	never	(4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
-1197	C9-OVERGENERALISATION-WORD	main	9630	always	to four self-consistent subshells. *The observed one is always among them and
-1198	C9-OVERGENERALISATION-WORD	main	9631	never	never uniquely determined. The periodic table is not computable from a single
-1199	C9-OVERGENERALISATION-WORD	main	9902	at every cap	Thirteen mass order-types, six checks each, 78 of 78 (register 1717; the six are named A–F in the paper's §8 audit paragraph and rerun by `tb_audit.py`, 1756). Triangle form at cap 8: 344 cells, 0 joi
-1200	C9-OVERGENERALISATION-WORD	main	9910	never	**§12.11.2 supplied the shape of the answer.** The three excluded forms are read directly off the potential: U = Σ c_ij/d_ij is a sum; the Jacobi vectors are differences; the potential's minimal polyn
-1201	C9-OVERGENERALISATION-WORD	main	9950	never	A.6       adjunction never repairs closure                                        §24.2, in full
-1202	C9-OVERGENERALISATION-WORD	main	10094	never	cells of Λ. **It never prints the seventeen.** The alphabet was counted, its covering relations
-1203	C9-OVERGENERALISATION-WORD	main	10153	never	### A.19.1 And two other sets counted but never listed
-1204	C9-OVERGENERALISATION-WORD	main	10263	never	> 2Z²R/ν³ — and §25.4 argues that the collection never enters the regime where it can occur. That
-1205	C9-OVERGENERALISATION-WORD	main	10331	never	admitted hundreds of cells. The reason is a precondition the book had never stated:
-1206	C9-OVERGENERALISATION-WORD	main	10337	never	coordinates are all ordered — n, ℓ, k, q, e, f, g, 2S are counts — so the book never met the case.
-1207	C9-OVERGENERALISATION-WORD	main	10377	never	The identity was stated in Chapter 23 and cited to Nesterov–Nemirovskii. It had never
-1208	C9-OVERGENERALISATION-WORD	main	10519	never	What could not be rechecked was E = 0 itself, because the appendix printed fibre totals and never
-1209	C9-OVERGENERALISATION-WORD	main	10558	never	printed tag, Theorem 17.1 is A.6, "adjunction never repairs". And a candidate whose language belongs
-1210	C9-OVERGENERALISATION-WORD	main	10577	never	theorem · order                    A.6 adjunction never repairs (Theorem 17.1)         proved · exhaustive · none found
-1211	C9-OVERGENERALISATION-WORD	main	10608	never	appendix never said. It says now.
-1212	C9-OVERGENERALISATION-WORD	main	10620	never	for statements withdrawn after being indexed, not for statements never indexed.
-1213	C9-OVERGENERALISATION-WORD	main	10744	always	slack = kernel conjecture occupies a value the coordinate has always admitted and no element had
-1214	C9-OVERGENERALISATION-WORD	main	10755	never	has therefore never been tested against an occupant. Register 304.
-1215	C9-OVERGENERALISATION-WORD	main	10836	never	and had never been entered here; whether it should be was the next question this appendix owed.
-1216	C9-OVERGENERALISATION-WORD	main	10933	never	E.1.2, as first listed                   13   N, O and P entered, having been named and never entered
-1217	C9-OVERGENERALISATION-WORD	main	10979	never	has depends = no**, which has held at every size and is the only column whose value has never changed.
-1218	C9-OVERGENERALISATION-WORD	main	10995	never	the operator is bounded by the index's own value sets, so it can name a cell the index lacks and never
-1219	C9-OVERGENERALISATION-WORD	main	11009	never	That is register 332 arriving where it is least comfortable — an index names cells and never
-1220	C9-OVERGENERALISATION-WORD	main	11013	never	### E.1.5 The fourteenth item, the column that was never printed, and the constraint it killed
-1221	C9-OVERGENERALISATION-WORD	main	11014	never	The domain column above was assigned in the code that computed E(Q) at register 256 and never
-1222	C9-OVERGENERALISATION-WORD	main	11021	never	The code also carried a constraint the page never stated: *obstacle = buildable ⟹ cost ≤ days.*
-1223	C9-OVERGENERALISATION-WORD	main	11026	never	was never resting on it; only the unfibred count was.
-1224	C9-OVERGENERALISATION-WORD	main	11107	never	downstream. It was read once at eight items and the reading was never printed, only described.
-1225	C9-OVERGENERALISATION-WORD	main	11140	never	at thirteen — the only column whose value has never changed.
-1226	C9-OVERGENERALISATION-WORD	main	11237	never	A quantity in this work is never loose. It arrives as a **kind** carried at a **point of a ground**,
-1227	C9-OVERGENERALISATION-WORD	main	11260	never	fibre is a fact about the ground and never about the reading;
-1228	C9-OVERGENERALISATION-WORD	main	11298	without exception	test that could reach it — not weakened, not pending, dead. The work applies this without exception,
-1229	C9-OVERGENERALISATION-WORD	main	11318	never	whenever it is wanted and is never printed as a property of the object. Where no law is available,
-1230	C9-OVERGENERALISATION-WORD	main	11330	never	### F.4.1 Two ratios the book had never measured about itself
-1231	C9-OVERGENERALISATION-WORD	main	11370	never	entry bodies are never edited, and what a past entry recorded is part of the record.
+1033	C9-OVERGENERALISATION-WORD	main	1154	always	envelopes are recoverable from its cells, so an expression always exists — and
+1034	C9-OVERGENERALISATION-WORD	main	1180	never	almost never be traced to what it corrected.
+1035	C9-OVERGENERALISATION-WORD	main	1244	never	size in the same sentence as the result, and never let a sampled figure stand where an exhaustive one
+1036	C9-OVERGENERALISATION-WORD	main	1347	never	does not print.** E(audits), then 17, rested on coordinates that were never printed; dim(hierarchy) = 2
+1037	C9-OVERGENERALISATION-WORD	main	1348	never	rested on precedences that were never printed. Both were correct and neither was checkable.
+1038	C9-OVERGENERALISATION-WORD	main	1361	never	the input exists in the text.** A result whose input was never printed passes every one of them,
+1039	C9-OVERGENERALISATION-WORD	main	1408	never	**And three of the twenty-one have never fired, which §4.6 says is not the same as passing.** A check
+1040	C9-OVERGENERALISATION-WORD	main	1423	never	being wrong. **An audit that has never returned a failure is indistinguishable from one that
+1041	C9-OVERGENERALISATION-WORD	main	1454	never	4.8   **a reading the source never made** — an assumption is the reader's until the source states it
+1042	C9-OVERGENERALISATION-WORD	main	1468	never	never defined them. Register 655.*
+1043	C9-OVERGENERALISATION-WORD	main	1509	never	coordinate values — has three realisations and no register entry, because **it was never learned
+1044	C9-OVERGENERALISATION-WORD	main	1664	never	above is a thing indexed. Time is not — §F.4.3 records that a date must never enter Λ, since a
+1045	C9-OVERGENERALISATION-WORD	main	1668	never	What makes it a subject rather than a metaphor is that it is measured. **Occupancy never rises along
+1046	C9-OVERGENERALISATION-WORD	main	1704	always	That matters because a closure defect measured once can always be blamed on the boundary. **Here the
+1047	C9-OVERGENERALISATION-WORD	main	1721	always	Non-closure is not always a fault. It is sometimes a purchase — usability bought with definitional self-sufficiency. What this book supplies is the price tag, not the verdict.
+1048	C9-OVERGENERALISATION-WORD	main	1813	never	The convention was in force from the first page and had never been written down: 84 paragraphs carry a
+1049	C9-OVERGENERALISATION-WORD	main	1921	never	The eight-coordinate construction gives dim ≤ 8 for free; the eighth is never spent.
+1050	C9-OVERGENERALISATION-WORD	main	2132	always	seven bits live in the twenty implications, which is where redundancy always lives in a closed index.
+1051	C9-OVERGENERALISATION-WORD	main	2143	always	*close always in one pass*, where full arithmetic never closes by Gödel. Closing in one pass is
+1052	C9-OVERGENERALISATION-WORD	main	2143	never	*close always in one pass*, where full arithmetic never closes by Gödel. Closing in one pass is
+1053	C9-OVERGENERALISATION-WORD	main	2257	never	Three structural facts, proved separately in this book and never combined:
+1054	C9-OVERGENERALISATION-WORD	main	2276	never	rank 1 — 5 against 4 — and never rejoin. A rank polynomial is palindromic if and only if the poset is self-dual, so this
+1055	C9-OVERGENERALISATION-WORD	main	2302	never	constraints couple ℓ to n and f to e, the vanishing factors never appear free, and a residue
+1056	C9-OVERGENERALISATION-WORD	main	2320	never	**The sign structure is bipartite**, and a bipartite structure can never produce an odd number of orientation reversals. Verified exhaustively: **zero reversing loops among all cycles of length 3 to 5
+1057	C9-OVERGENERALISATION-WORD	main	2494	never	That was never a closure defect — ℛ cannot see a coordinate that was never supplied. It was an axis
+1058	C9-OVERGENERALISATION-WORD	main	2494	never	That was never a closure defect — ℛ cannot see a coordinate that was never supplied. It was an axis
+1059	C9-OVERGENERALISATION-WORD	main	2586	never	**Occupancy never rises.** Take the source signature (n, ℓ, k, 2S) and the target (e, f, g, 2S′) as
+1060	C9-OVERGENERALISATION-WORD	main	2664	never	temporal structure survives as a *restriction*: the maximal sub-index on which a weight never rises is
+1061	C9-OVERGENERALISATION-WORD	main	2683	never	The structural content of q was never stated: computed on the constraint graph, **q is the unique cut
+1062	C9-OVERGENERALISATION-WORD	main	2733	never	propagation of Chapter 15 all use it; §7.1 records treeness as a fact about Λ and never as a
+1063	C9-OVERGENERALISATION-WORD	main	2734	never	condition. **A hypothesis that is never stated cannot be checked, and the counterexample has been
+1064	C9-OVERGENERALISATION-WORD	main	2865	never	complete when it was written and never said why. Register 408.
+1065	C9-OVERGENERALISATION-WORD	main	2872	never	**The future is never a value.** Of **97** (past, present) pairs, **none determines a single future** —
+1066	C9-OVERGENERALISATION-WORD	main	2951	never	never spends.
+1067	C9-OVERGENERALISATION-WORD	main	2991	never	axis — §32.1.4 shows ℛ never produces a coordinate — but it can bound the *direction*: an object that
+1068	C9-OVERGENERALISATION-WORD	main	3061	never	coordinates and were never themselves defined, which is the failure S1 exists to prevent. They are
+1069	C9-OVERGENERALISATION-WORD	main	3090	always	64.4 — at the caps of §7.4 and cap-dependent as always. Every bound is §14.4-admissible; every stage is closed — exhaustively to
+1070	C9-OVERGENERALISATION-WORD	main	3107	never	**Every stage closed exhaustively, by the book's own theorem.** The upper tower was never
+1071	C9-OVERGENERALISATION-WORD	main	3122	never	does not contain. **The instrument was in the book from Chapter 14 onward and was never turned on the
+1072	C9-OVERGENERALISATION-WORD	main	3129	at every cap	cells, defect zero at every cap. The shape is not an artefact of the book's caps.
+1073	C9-OVERGENERALISATION-WORD	main	3453	never	states for brackets: presume the next bracket from the law that generates the widths, never from the
+1074	C9-OVERGENERALISATION-WORD	main	3489	at every cap	Remove the one cell nature forbids, J = 0 ↛ 0, and closure fails by exactly four meets at every cap
+1075	C9-OVERGENERALISATION-WORD	main	3615	every configuration	**The exact J multiset is identical in all four schemes, in every configuration tested.**
+1076	C9-OVERGENERALISATION-WORD	main	3652	never	**Chapter 7 introduces both ends and never says the pair is the object.** The shape says it: |Λ| = Σ_q |A_q| · |B_q|, and there is no factorisation that does not pass through the transfer.
+1077	C9-OVERGENERALISATION-WORD	main	3800	never	**This book already cites Helly and has never cited Carathéodory**, which is the second bibliography
+1078	C9-OVERGENERALISATION-WORD	main	3960	never	identity — the tight-pair count is exactly 2S** — which never depended on a seed measurement.
+1079	C9-OVERGENERALISATION-WORD	main	3980	at every cap	**zero at every cap setting from 216 cells to 1,636, and zero at Λ₉.** No cell is
+1080	C9-OVERGENERALISATION-WORD	main	4189	never	were. **The chain settled what they are and never went back to record it.** Named:
+1081	C9-OVERGENERALISATION-WORD	main	4218	never	citation present and never checked against what it cites — and checking is a search.**
+1082	C9-OVERGENERALISATION-WORD	main	4245	never	### 14.6.6 Two of the violation six were never blocked, and §10.1 speaks a retired language
+1083	C9-OVERGENERALISATION-WORD	main	4292	always	therefore expressible, and the expression is always already present in what it prints.** Stating it
+1084	C9-OVERGENERALISATION-WORD	main	4320	never	**Cost Σᵢ|Aᵢ|!, never the product ∏ᵢ|Aᵢ|!.**
+1085	C9-OVERGENERALISATION-WORD	main	4382	never	method never uses was not.
+1086	C9-OVERGENERALISATION-WORD	main	4385	never	Referee flag 5 says the tripwire has never run on anyone else's data. The reply is that **the data
+1087	C9-OVERGENERALISATION-WORD	main	4466	never	Totality does not detect that error. It forbids it. The computation never ran.
+1088	C9-OVERGENERALISATION-WORD	main	4468	never	**Worked case, the other way.** A guard in the author's code returned `None` when an alphabet exceeded a cap, and the caller coerced `None` to `False`. That produced "3 reorderable of 85 trials," whic
+1089	C9-OVERGENERALISATION-WORD	main	4473	never	ⅅ ≥ 1 cannot catch that. Every relation checks out on data that was never measured. Only totality
+1090	C9-OVERGENERALISATION-WORD	main	4519	never	with. ⅅ_ref cannot see it: if no theorem names the term, the pair never enters the table.
+1091	C9-OVERGENERALISATION-WORD	main	4540	never	forbids one — adjunction never repairs. It is read off.
+1092	C9-OVERGENERALISATION-WORD	main	4549	never	occupied of thirty-eight, E = 11.** One term with no referent, eight named and never checked, nine
+1093	C9-OVERGENERALISATION-WORD	main	4568	never	necessarily and permanently, because search is one route and can never be two.
+1094	C9-OVERGENERALISATION-WORD	main	4621	never	— run once, on one example, and never named as one.
+1095	C9-OVERGENERALISATION-WORD	main	4666	never	the same object, so it can never be short of an answer and never give one that contradicts itself.
+1096	C9-OVERGENERALISATION-WORD	main	4666	never	the same object, so it can never be short of an answer and never give one that contradicts itself.
+1097	C9-OVERGENERALISATION-WORD	main	4681	never	**The index never believed the lie. It was never consulted.** Replacement is not a question put to an index; **it is an act performed on it by whoever holds it.**
+1098	C9-OVERGENERALISATION-WORD	main	4681	never	**The index never believed the lie. It was never consulted.** Replacement is not a question put to an index; **it is an act performed on it by whoever holds it.**
+1099	C9-OVERGENERALISATION-WORD	main	4697	never	Insertion is never free. Adding one cell forces the closure to admit a median of 340 more — minimum
+1100	C9-OVERGENERALISATION-WORD	main	4703	always	**Substitution gains nothing.** Deletions are always repaired, so C(Λ − *x* + *y*) = C(Λ + *y*) identically — **0 of 300 random swaps and 0 of 1,600 targeted swaps evaded detection.**
+1101	C9-OVERGENERALISATION-WORD	main	4707	always	| delete | **repaired, always** |
+1102	C9-OVERGENERALISATION-WORD	main	4708	always	| insert one | **amplifies, always** — minimum 59 |
+1103	C9-OVERGENERALISATION-WORD	main	4756	at every cap	at every cap tested. So zero is unreachable by construction, not by luck.
+1104	C9-OVERGENERALISATION-WORD	main	4811	never	Theorem 17.1 (adjunction never repairs). For any h : S → H, with S′ = {(x, h(x))}: S′ closed ⇒ S
+1105	C9-OVERGENERALISATION-WORD	main	4871	never	**Meet never breaks it.** For monotone *h* with *h*(*x*), *h*(*y*) ≤ *q*, *x*∧*y* ≤ *x* gives *h*(*x*∧*y*) ≤ *q* at once. **Only the join can break it**, and it does so when the join raises *h* above 
+1106	C9-OVERGENERALISATION-WORD	main	5013	never	was never given a test a candidate had to pass. The law was therefore confirmed by naming something
+1107	C9-OVERGENERALISATION-WORD	main	5041	never	**The realiser is exhibited, never found. What is falsifiable is the exhibition.**
+1108	C9-OVERGENERALISATION-WORD	main	5053	always	does close, something in it is doing ℛ's work, and that something can always be pointed at.
+1109	C9-OVERGENERALISATION-WORD	main	5072	always	property discovered in an object, when it is always a property of an object *plus* the structure
+1110	C9-OVERGENERALISATION-WORD	main	5134	never	the index's own extent                     3   never    **0 — universal**
+1111	C9-OVERGENERALISATION-WORD	main	5140	in every case	extent gives an envelope in every case tested, including the drawn nuclide band, whose drip lines are
+1112	C9-OVERGENERALISATION-WORD	main	5145	never	gives its envelope and never its law.**
+1113	C9-OVERGENERALISATION-WORD	main	5162	never	never where it will be. One asymmetry: φ = min(a,b) closes with zero failures, which is the restricted
+1114	C9-OVERGENERALISATION-WORD	main	5225	never	smallest: determined by two others and by neither alone. **The book's own Q has never been empty**,
+1115	C9-OVERGENERALISATION-WORD	main	5270	at every cap	**The envelope is a closed index at every cap. The exact set is meet-closed at every cap and joins
+1116	C9-OVERGENERALISATION-WORD	main	5270	at every cap	**The envelope is a closed index at every cap. The exact set is meet-closed at every cap and joins
+1117	C9-OVERGENERALISATION-WORD	main	5280	at every cap	strictly smaller than the hand-built chain at n ≥ 4. **It is equal, at every cap tested** — the path of
+1118	C9-OVERGENERALISATION-WORD	main	5330	never	**The bibliography, indexed on era, retrieval redundancy ρ, access and depth of entry, holds twenty-two sources over seven cells and admits six it does not carry.** Under exhaustive relabelling E fall
+1119	C9-OVERGENERALISATION-WORD	main	5333	never	because a bibliography is never closed — E(search) > 0 always, by §29.1,
+1120	C9-OVERGENERALISATION-WORD	main	5333	always	because a bibliography is never closed — E(search) > 0 always, by §29.1,
+1121	C9-OVERGENERALISATION-WORD	main	5371	never	**Which is why the bracket must be handed two measured neighbours before it can say anything at all.** It is not extracting a prediction from the lattice. **It is carrying a constraint between two mea
+1122	C9-OVERGENERALISATION-WORD	main	5494	never	the forty-nine cells in the table above were never tried, and ρ recorded them at the same value as
+1123	C9-OVERGENERALISATION-WORD	main	5539	never	empty* and *never tried* take the same ρ, and §19.5 drew a law from their union.
+1124	C9-OVERGENERALISATION-WORD	main	5572	never	carries no closure mechanism at all, which is why §29's precedent question can be bounded and never
+1125	C9-OVERGENERALISATION-WORD	main	5574	never	languages never have to produce.
+1126	C9-OVERGENERALISATION-WORD	main	5606	never	Eight results in this book have the same shape and have never been put beside one another.
+1127	C9-OVERGENERALISATION-WORD	main	5639	never	carried through thirteen coordinates and never grounded.
+1128	C9-OVERGENERALISATION-WORD	main	5704	never	the one place in this work where ℛ has never been the right operator.
+1129	C9-OVERGENERALISATION-WORD	main	5892	always	WITH coordinates**, and a relabelling into a rectangle is always available.
+1130	C9-OVERGENERALISATION-WORD	main	5903	never	its count is composite — so the question is never *what is E* but **who fixed the coordinates**.
+1131	C9-OVERGENERALISATION-WORD	main	5920	never	value because the object is the thing for which that value never varies.**
+1132	C9-OVERGENERALISATION-WORD	main	6019	never	interior bracket bounds a state the index never saw.
+1133	C9-OVERGENERALISATION-WORD	main	6032	never	**Presume the next bracket from the law that generates the widths, never from the pattern the
+1134	C9-OVERGENERALISATION-WORD	main	6168	never	quantity, needs the limit, and the energy bound is never better than the limit is known.
+1135	C9-OVERGENERALISATION-WORD	main	6213	always	The deductive interval is always more than twice the error of the crudest possible point
+1136	C9-OVERGENERALISATION-WORD	main	6346	in every case	**λ is the Newton decrement**, introduced by Nesterov and Nemirovskii (1994) for interior-point methods and standard in convex optimisation since. In one dimension λ² = *f*′²/*f*″, and ½λ² is *exactly
+1137	C9-OVERGENERALISATION-WORD	main	6536	never	**An index does not see *a* refusal. It sees a family**, and the spacing of the refusals across it is what separates these. §16.7.1 makes the same move for a different pair: the discriminating questio
+1138	C9-OVERGENERALISATION-WORD	main	6571	never	Better data raises k\. It never creates an interior peak. The optimum is the admissibility cap,
+1139	C9-OVERGENERALISATION-WORD	main	6679	never	**An electron with six units of angular momentum never reaches the 1s core.**
+1140	C9-OVERGENERALISATION-WORD	main	6695	never	2.50, 1.41, 0.856, 0.446 and 0.159 in units of 10⁻⁵ — monotone across six orders of magnitude, and never
+1141	C9-OVERGENERALISATION-WORD	main	6702	never	**And the ionisation limit came out of the data.** Minimising the δ spread over the *n*g channel — six members, scanned at 0.001 cm⁻¹ — gives **438,908.871 cm⁻¹** against the tabulated 438,908.885 — *
+1142	C9-OVERGENERALISATION-WORD	main	6806	never	not, for the reason above. **The book has never counted the three.** Nothing in the method prevents
+1143	C9-OVERGENERALISATION-WORD	main	6808	never	mark is a lookup, not a computation — but the classification was never carried into the collection,
+1144	C9-OVERGENERALISATION-WORD	main	6884	always	Interior members need not be fetched. The ends always must — and the neutral is always
+1145	C9-OVERGENERALISATION-WORD	main	6884	always	Interior members need not be fetched. The ends always must — and the neutral is always
+1146	C9-OVERGENERALISATION-WORD	main	6891	never	### 25.1 A method that has never failed has not been tested
+1147	C9-OVERGENERALISATION-WORD	main	6954	never	### 25.4 Why the collection never enters the failure regime
+1148	C9-OVERGENERALISATION-WORD	main	7271	never	Prop. 23.1: V > 2 ⟺ log₂V > 1. A guarantee never costs less than one bit, and a Rydberg
+1149	C9-OVERGENERALISATION-WORD	main	7278	never	precision surrendered for certainty. Proposition 23.1's floor V > 2 becomes the statement that a guarantee never costs
+1150	C9-OVERGENERALISATION-WORD	main	7286	always	the floor, Prop. 23.1          V > 2 always                          slack in an inference can never reach 1
+1151	C9-OVERGENERALISATION-WORD	main	7286	never	the floor, Prop. 23.1          V > 2 always                          slack in an inference can never reach 1
+1152	C9-OVERGENERALISATION-WORD	main	7291	always	bracket always has slack, and can therefore never be as narrow as an estimate. And a
+1153	C9-OVERGENERALISATION-WORD	main	7291	never	bracket always has slack, and can therefore never be as narrow as an estimate. And a
+1154	C9-OVERGENERALISATION-WORD	main	7292	never	linear observable has unbounded slack, because it never turns.
+1155	C9-OVERGENERALISATION-WORD	main	7364	never	The three languages were never in competition. Algebra says what a structure permits;
+1156	C9-OVERGENERALISATION-WORD	main	7409	never	produced "3 of 85," which produced "almost never reorderable," which produced a false dismissal of a
+1157	C9-OVERGENERALISATION-WORD	main	7418	never	• Claimed a species integrated that had never been written to the source; found by auditing the built
+1158	C9-OVERGENERALISATION-WORD	main	7423	never	• Asserted "almost never reorderable" from a sampler that silently discarded most trials.
+1159	C9-OVERGENERALISATION-WORD	main	7436	never	A quantity the method never used located a typing error in a level table.
+1160	C9-OVERGENERALISATION-WORD	main	7471	never	totality — a refusal at entry                       3    the computation never ran
+1161	C9-OVERGENERALISATION-WORD	main	7557	never	**70–71. A conclusion written past its evidence.** "The ideal collapses" under output showing it did not, and two table rows never computed.
+1162	C9-OVERGENERALISATION-WORD	main	7561	never	74. "Self-consistency never defends against invention." It does. 220 of 220 single fabrications
+1163	C9-OVERGENERALISATION-WORD	main	7572	never	**84–86. Three claims about closure, each contradicted by the table beside it.** "Deletion-repair fails in geometry" — the convex hull was the wrong operator. "Self-consistency never defends against i
+1164	C9-OVERGENERALISATION-WORD	main	7574	never	**87–88. The index was never deceived.** Two passages described a *replaced* index as though it were the original being lied to. **Asked, Λ refuses 200 of 200. Rebuilt around them, it admits 200 of 20
+1165	C9-OVERGENERALISATION-WORD	main	7642	never	correlation measured in §23.14.1 and never carried across. §31.2's, missing five, two of them computed
+1166	C9-OVERGENERALISATION-WORD	main	7705	never	written before the output · a reading the source never made
+1167	C9-OVERGENERALISATION-WORD	main	7708	never	never closed, and an inference drawn from a ratio that has since inverted. Read
+1168	C9-OVERGENERALISATION-WORD	main	7716	never	written before the output*, which is §4.6's *test that could not fail*, already recorded and never
+1169	C9-OVERGENERALISATION-WORD	main	7833	never	**And ℛ recovers a bound this book has never stated.** The operator was given the cells and not the
+1170	C9-OVERGENERALISATION-WORD	main	7852	never	one to watch: a protocol built on an object the entry never names would be a protocol whose warrant
+1171	C9-OVERGENERALISATION-WORD	main	7868	never	**By Chapter 16's criterion a claim is defended when two disjoint routes reach it. Novelty has one route — search — and can never have two.** More searching is more of the same route.
+1172	C9-OVERGENERALISATION-WORD	main	7872	always	**And Chapter 27 supplies the second prohibition.** E(search) > 0 always: the question admits more literatures than any search enters. Nine were entered here; **nine more are named and unentered**, an
+1173	C9-OVERGENERALISATION-WORD	main	7933	never	one pass; full arithmetic never closes, by Gödel; **the documentary language has no closure mechanism
+1174	C9-OVERGENERALISATION-WORD	main	8077	never	Controls were never chosen in advance. The search sought targets, noted what else appeared, and afterwards called those findings controls. **Nothing was recorded as *looked for and not found* among th
+1175	C9-OVERGENERALISATION-WORD	main	8145	never	one direction the method settles. It costs the book nothing it was entitled to — the book never
+1176	C9-OVERGENERALISATION-WORD	main	8187	never	**What could not be reached.** Kurucz's line files are the right target — computed lines, many never
+1177	C9-OVERGENERALISATION-WORD	main	8220	never	**This changes referee flag 5's status and does not answer it.** The flag said the tripwire has never
+1178	C9-OVERGENERALISATION-WORD	main	8236	never	was found.** The record's citations were carrying references the book itself never
+1179	C9-OVERGENERALISATION-WORD	main	8308	at every cap	at every cap setting tested; the tight two-parent form of K destroys the factorisation.
+1180	C9-OVERGENERALISATION-WORD	main	8558	never	satisfiable formulas encoding as non-reorderable, never the reverse. The map X → C(X) is global,
+1181	C9-OVERGENERALISATION-WORD	main	8574	never	The open problem concerns cell sets arriving with no construction. This book never has
+1182	C9-OVERGENERALISATION-WORD	main	8586	never	structure admitting cells its keeper never enumerated.
+1183	C9-OVERGENERALISATION-WORD	main	8662	never	on a channel, never a coordinate.
+1184	C9-OVERGENERALISATION-WORD	main	8818	never	**First, the index of §32.1 is computed here, which it never was.** Harvesting every claim-bearing
+1185	C9-OVERGENERALISATION-WORD	main	8843	never	missing Chapter 30 — and it has never computed E over the index §32.1 defines. The two are separated
+1186	C9-OVERGENERALISATION-WORD	main	8861	never	statement, which the book has never made in one sentence: Λ is a model of indexing demonstrated on a
+1187	C9-OVERGENERALISATION-WORD	main	8884	never	own misidentified species; it has never run on anyone else's data.
+1188	C9-OVERGENERALISATION-WORD	main	8886	never	**6. S3 has never been tested.** §32.2 claims a reader given the claims and their evidence could
+1189	C9-OVERGENERALISATION-WORD	main	8935	never	needs a spectroscopist's data the tripwire has never seen. Seven needs a file this work cannot read.
+1190	C9-OVERGENERALISATION-WORD	main	8994	never	**And there is a hard boundary, which is the honest half of the answer.** E names cells; it never
+1191	C9-OVERGENERALISATION-WORD	main	9163	never	§32.1–24.4 ask whether this book obeys its own law. They never ask whether it obeys its own
+1192	C9-OVERGENERALISATION-WORD	main	9279	never	stale the moment the book is written into. The second never closed: its own five terms summed to
+1193	C9-OVERGENERALISATION-WORD	main	9310	never	the destination coordinate of the temporal mechanisms are not open items and never will be. **They are
+1194	C9-OVERGENERALISATION-WORD	main	9480	never	intermediate — it is fitted from a series and never measured. **A quantity the
+1195	C9-OVERGENERALISATION-WORD	main	9582	never	three, is the only route to the nucleus, and has never been traced.*
+1196	C9-OVERGENERALISATION-WORD	main	9640	never	(4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
+1197	C9-OVERGENERALISATION-WORD	main	9652	always	one never. *The observed one is always among them and never uniquely
+1198	C9-OVERGENERALISATION-WORD	main	9652	never	one never. *The observed one is always among them and never uniquely
+1199	C9-OVERGENERALISATION-WORD	main	9936	at every cap	Thirteen mass order-types, six checks each, 78 of 78 (register 1717; the six are named A–F in the paper's §8 audit paragraph and rerun by `tb_audit.py`, 1756). Triangle form at cap 8: 344 cells, 0 joi
+1200	C9-OVERGENERALISATION-WORD	main	9944	never	**§12.11.2 supplied the shape of the answer.** The three excluded forms are read directly off the potential: U = Σ c_ij/d_ij is a sum; the Jacobi vectors are differences; the potential's minimal polyn
+1201	C9-OVERGENERALISATION-WORD	main	9984	never	A.6       adjunction never repairs closure                                        §24.2, in full
+1202	C9-OVERGENERALISATION-WORD	main	10128	never	cells of Λ. **It never prints the seventeen.** The alphabet was counted, its covering relations
+1203	C9-OVERGENERALISATION-WORD	main	10187	never	### A.19.1 And two other sets counted but never listed
+1204	C9-OVERGENERALISATION-WORD	main	10297	never	> 2Z²R/ν³ — and §25.4 argues that the collection never enters the regime where it can occur. That
+1205	C9-OVERGENERALISATION-WORD	main	10365	never	admitted hundreds of cells. The reason is a precondition the book had never stated:
+1206	C9-OVERGENERALISATION-WORD	main	10371	never	coordinates are all ordered — n, ℓ, k, q, e, f, g, 2S are counts — so the book never met the case.
+1207	C9-OVERGENERALISATION-WORD	main	10411	never	The identity was stated in Chapter 23 and cited to Nesterov–Nemirovskii. It had never
+1208	C9-OVERGENERALISATION-WORD	main	10554	never	What could not be rechecked was E = 0 itself, because the appendix printed fibre totals and never
+1209	C9-OVERGENERALISATION-WORD	main	10593	never	printed tag, Theorem 17.1 is A.6, "adjunction never repairs". And a candidate whose language belongs
+1210	C9-OVERGENERALISATION-WORD	main	10612	never	theorem · order                    A.6 adjunction never repairs (Theorem 17.1)         proved · exhaustive · none found
+1211	C9-OVERGENERALISATION-WORD	main	10643	never	appendix never said. It says now.
+1212	C9-OVERGENERALISATION-WORD	main	10655	never	for statements withdrawn after being indexed, not for statements never indexed.
+1213	C9-OVERGENERALISATION-WORD	main	10744	always	RETIRED W-237: not measured at this build | slack = kernel conjecture occupies a value the coordinate has always admitted and no element had
+1214	C9-OVERGENERALISATION-WORD	main	10793	never	has therefore never been tested against an occupant. Register 304.
+1215	C9-OVERGENERALISATION-WORD	main	10874	never	and had never been entered here; whether it should be was the next question this appendix owed.
+1216	C9-OVERGENERALISATION-WORD	main	10980	never	E.1.2, as first listed                   13   N, O and P entered, having been named and never entered
+1217	C9-OVERGENERALISATION-WORD	main	11026	never	has depends = no**, which has held at every size and is the only column whose value has never changed.
+1218	C9-OVERGENERALISATION-WORD	main	11042	never	the operator is bounded by the index's own value sets, so it can name a cell the index lacks and never
+1219	C9-OVERGENERALISATION-WORD	main	11056	never	That is register 332 arriving where it is least comfortable — an index names cells and never
+1220	C9-OVERGENERALISATION-WORD	main	11060	never	### E.1.5 The fourteenth item, the column that was never printed, and the constraint it killed
+1221	C9-OVERGENERALISATION-WORD	main	11061	never	The domain column above was assigned in the code that computed E(Q) at register 256 and never
+1222	C9-OVERGENERALISATION-WORD	main	11068	never	The code also carried a constraint the page never stated: *obstacle = buildable ⟹ cost ≤ days.*
+1223	C9-OVERGENERALISATION-WORD	main	11073	never	was never resting on it; only the unfibred count was.
+1224	C9-OVERGENERALISATION-WORD	main	11154	never	downstream. It was read once at eight items and the reading was never printed, only described.
+1225	C9-OVERGENERALISATION-WORD	main	11187	never	at thirteen — the only column whose value has never changed.
+1226	C9-OVERGENERALISATION-WORD	main	11284	never	A quantity in this work is never loose. It arrives as a **kind** carried at a **point of a ground**,
+1227	C9-OVERGENERALISATION-WORD	main	11307	never	fibre is a fact about the ground and never about the reading;
+1228	C9-OVERGENERALISATION-WORD	main	11345	without exception	test that could reach it — not weakened, not pending, dead. The work applies this without exception,
+1229	C9-OVERGENERALISATION-WORD	main	11365	never	whenever it is wanted and is never printed as a property of the object. Where no law is available,
+1230	C9-OVERGENERALISATION-WORD	main	11377	never	### F.4.1 Two ratios the book had never measured about itself
+1231	C9-OVERGENERALISATION-WORD	main	11417	never	entry bodies are never edited, and what a past entry recorded is part of the record.
 1232	C9-OVERGENERALISATION-WORD	reg	8	never	**A correction never replaces what it corrects.** Both states are kept, and the entry that corrects names the entry corrected, so the record of a mistake survives its repair. It is the discipline the 
 1233	C9-OVERGENERALISATION-WORD	reg	31	never	*The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cites prior art. The counts are of entries matching each pattern, not a partition.* *The Build 16 column is rec
-1234	C9-OVERGENERALISATION-WORD	reg	77	never	**THE ORIGIN IS THE CLOSEST MEASURABLE DISTANCE TO ZERO, NOT ZERO — HYDROGEN ANCHORS BY PHYSICAL ARGUMENT.** *At the outset the origin was set not at zero but at the smallest non-zero step outward, be
-1235	C9-OVERGENERALISATION-WORD	reg	233	never	**THE CLOSURE IS STRUCTURAL: BOTH CONSTRAINTS ARE PRESERVED UNDER JOIN AND MEET.** *Raising n never violates ℓ ≤ n−1; raising ℓ raises the capacity ceiling 2(2ℓ+1) so a raised k stays admissible; lowe
-1236	C9-OVERGENERALISATION-WORD	reg	337	every configuration	**THE OCCUPIED CELLS FORM AN ORDER IDEAL OF Λ — DOWNWARD CLOSED WITHOUT EXCEPTION.** *For every occupied x and every admissible y ≤ x componentwise, y is also occupied: no violations across all 118 ce
-1237	C9-OVERGENERALISATION-WORD	reg	341	never	**THE REALISED IDEAL IS ALL-OR-NOTHING BY COLUMN: 19 SATURATED, 6 EMPTY, NONE PARTIAL.** *Grouping admissible cells into columns indexed by (n,ℓ) of capacity 2(2ℓ+1): of the twenty-five columns, ninet
-1238	C9-OVERGENERALISATION-WORD	reg	409	never	**THE YTTERBIUM OBSERVATION, WHICH STANDS INDEPENDENT OF THE INDEX.** *Ytterbium forms YbH₂ and YbH₃ under accessible conditions, adopts an FCC structure, is stable and commercially available — and a 
-1239	C9-OVERGENERALISATION-WORD	reg	1101	never	**A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen because FIDELITY checks that what is rendered matches its source, and the five sections were never rendere
-1240	C9-OVERGENERALISATION-WORD	reg	1205	never	**THREE TIERS RESTORED AFTER TWO PROVED TOO FEW.** *And the author's bracket rule — presume the next from the law that generates the widths, never from the pattern they make — turns out to govern the 
-1241	C9-OVERGENERALISATION-WORD	reg	1233	never	**ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A READOUT THE PRESS PRINTS AT EVERY BUILD — 47 AT THE TIME OF WRITING, HAVING BEEN 55
-1242	C9-OVERGENERALISATION-WORD	reg	1305	never	**PAST, PRESENT AND FUTURE.** *Treated as free the three parts overcount by 130%;* **the balance holds at every two-sided cut, not only at q.** *The future is never a value, and for each present every
-1243	C9-OVERGENERALISATION-WORD	reg	1337	never	**§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written as kept in the pass that failed to keep them; three Q items described as entered and never entered. Two instances, and the 
-1244	C9-OVERGENERALISATION-WORD	reg	1373	never	**ITEM M IS WITHDRAWN RATHER THAN CLOSED.** *It asked for E(G) = 33 to be* *resolved**, meaning driven to zero, and register 370 shows the count was never the thing to assert — it moves whenever the b
-1245	C9-OVERGENERALISATION-WORD	reg	1377	never	**E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER.** *Stated as nought fibred and one unfibred, it is 4 unfibred on the table as it now stands — moved by items O and K closing and item M being re
-1246	C9-OVERGENERALISATION-WORD	reg	1393	never	**THE AUDIT COORDINATES PRINTED, AND THE LAST FIGURE §2.21 COULD NOT REACH IS NOW COMPUTED.** *E(audits), then 17, and dim(hierarchy) = 2 were asserted from four values per audit that* **the book neve
-1247	C9-OVERGENERALISATION-WORD	reg	1397	never	**I NEARLY WITHDREW A CORRECT CLAIM ON TWO FAILING INSTRUMENTS.** *§3.8 asserts dim(hierarchy) = 2 from precedences the book did not print, so I set out to print them and test it. A hand-built orienta
-1248	C9-OVERGENERALISATION-WORD	reg	1405	never	**A TWENTY-FIRST PRIME AUDIT, INPUT, DEFINED AT §3.7.1 AND RETAINED** *: every stated result must print the data it was computed from. Registers 376 and 377 found the same defect twice in two turns — 
-1249	C9-OVERGENERALISATION-WORD	reg	1429	never	**EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six resolve cleanly — 96 section references, 103 appendix references and 13 chapter references, none unresolved — and
-1250	C9-OVERGENERALISATION-WORD	reg	1449	always	**THE MEASUREMENT FIBRE'S TOP CELL OCCUPIED AT §6.2.1, AND THE RECOMPUTATION IS A RESULT.** *§6.2 reported E = 9 on the measured nuclide chart at one cutoff; moving the cutoff four times gives 6, 8, 9
-1251	C9-OVERGENERALISATION-WORD	reg	1469	never	**THE BOOK'S CAP CONVENTION WAS IN FORCE FROM THE FIRST PAGE AND NEVER STATED.** *84 paragraphs carry a cap-dependent figure and* **69 of them name no cap — 82% relying on a rule that was not written 
-1252	C9-OVERGENERALISATION-WORD	reg	1473	always	**ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR.** *Forty-three cells stand admitted and absent across the four — E(Λ) = 0, E(audits) = 16, E(G) = 19, E(Q) = 5, E(D) 
-1253	C9-OVERGENERALISATION-WORD	reg	1481	never	**Λ IS NOT THE CLEAN CONTROL.** *Audited from outside against Condon–Shortley and Racah, seven of thirteen letters are conflated,* *q* *is ungrounded and one quantity is read and never indexed. No com
-1254	C9-OVERGENERALISATION-WORD	reg	1529	never	**§18.6.1 GAINS A FIFTH INDEX AND §16.7.1 A THIRD VERDICT.** *The bibliography, indexed on era, ρ, access and depth of entry, holds 22 sources over 7 cells with E = 6 —* **the only non-zero prediction
-1255	C9-OVERGENERALISATION-WORD	reg	1549	never	**THE REGISTER IS AN INDEX AND IT CLOSES AT E = 6.** *248 entries over 33 cells in a box of 48, density 68.8% — the densest object here after the periodic table. And ℛ, given the cells and none of the
-1256	C9-OVERGENERALISATION-WORD	reg	1585	never	**§32.6's CONDITION 1 IS NAMED E(book) > 0 AND TESTS REFERENCE INTEGRITY.** *It found the missing Chapter 30 and has never evaluated E. Separated here.*
-1257	C9-OVERGENERALISATION-WORD	reg	1597	never	**THE THESIS RESTATED AFTER SCRUTINY.** *Cannot help containing* *was exact for six of the nine mechanisms and conditional for three — S2 needs a tree, D1 an outside measurement, D2 a second derivatio
-1258	C9-OVERGENERALISATION-WORD	reg	1649	at every cap	**Λ IMPOSES NO ELECTROMAGNETIC CONSTRAINT.** *Its image on (multipole, ΔS) is the complete rectangle at every cap tested, so E = 0 there is register 333's vacuous zero.* **576 Λ₉ cells are E1 transiti
-1259	C9-OVERGENERALISATION-WORD	reg	1657	never	**THE THREE MEASURES ARE ONE QUANTITY BECAUSE THE THREE OBJECTS ARE ONE SHAPE.** *§27.2 proved the first and never said why. [x∧y, x∨y] between cells, [min, max] output rank between states, [T(n−1), T
-1260	C9-OVERGENERALISATION-WORD	reg	1741	never	**THE CYCLE HAS AN EXPRESSION AND THE EXPRESSION HAS A FALSIFIER.** *X_{n+1} = ℛ(X_n ∪ Δ_n), halting when Δ_n ⊆ ℛ(X_n) — fill to the limit, take in what is not held, close again, stop when the increme
-1261	C9-OVERGENERALISATION-WORD	reg	1745	always	**THERE ARE TWO PAIRWISE OPERATORS IN THIS BOOK AND IT HAS USED ONE NAME FOR BOTH.** *2-wise closure admits a cell when every pair appears in the projection; ℛ admits it when the monotone envelope all
-1262	C9-OVERGENERALISATION-WORD	reg	1753	never	**THE THREE EXCLUDED FORMS ARE EXCLUDED BY MONOTONICITY, NOT BY PAIRWISE STRUCTURE.** *A congruence is perfectly representable by pairwise projections and not by monotone envelopes, so §12.11.2's refu
-1263	C9-OVERGENERALISATION-WORD	reg	1817	never	**THREE OBSTRUCTIONS, ONE LANGUAGE ERROR.** *The violation index prints a cell count and withholds its edge list; the coupling schemes print four counts and withhold the convention; the collection pri
-1264	C9-OVERGENERALISATION-WORD	reg	1821	never	**THE THREE-BODY SHORTFALL IS EXACTLY ONE LEVEL.** *ℛ reaches pairwise consistency; a K₃ of treewidth 2 requires strong 3-consistency.* **Pairs, plus one thing pairs cannot carry** *— and this book ha
-1265	C9-OVERGENERALISATION-WORD	reg	1845	in every case	**THE SEED FORMULA PREDICTS TO WITHIN ONE, AND ONLY ONE OF THE FOUR TESTS IS REAL.** *Predicting d + (largest alphabet − 1):* **the audit index, rebuilt from this book's own table, hits exactly at sev
-1266	C9-OVERGENERALISATION-WORD	reg	1849	never	**THE SEED FORMULA IS EXACT FOR COUNTING AXES AND FAILS FOR COUPLING AXES.** *Predicted against measured up the tower:* **11, 12, 13 exact** *at d = 8, 9, 10 — two of them at dimensions it was never f
-1267	C9-OVERGENERALISATION-WORD	reg	1857	never	**EIGHTEEN POINTS GIVE AN EXPRESSION, AND IT IS ADDITIVE.** *Sweeping parent count against alphabet on one base:* **at p = 2 the seed cost is exactly a + 4* **, on five distinct alphabets with no resi
-1268	C9-OVERGENERALISATION-WORD	reg	1881	never	**REGISTERS 497, 498, 499, 500 AND 502 ARE WITHDRAWN.** *Under greedy set cover a two-parent axis costs* **one or two cells, the same as a one-parent axis* **, where prune-greedy reported seven to ele
-1269	C9-OVERGENERALISATION-WORD	reg	1921	never	**INDEXING THE PROTOCOLS FOUND THAT §2.24 WAS ALREADY §2.8.** *Twenty-four protocols occupy nineteen distinct cells in four coordinates — trigger, object, failure, and how each was earned — and* **§2.
-1270	C9-OVERGENERALISATION-WORD	reg	1945	never	**THE SEED OF THE MATHEMATICS NEVER MOVED, AND NINETEEN CYCLES OF REPORTING SAID IT DID.** *Measured:* **14 generators over 176 objects** *at cycle 23, against* **14 over 152** *at cycle 4 — the seed 
-1271	C9-OVERGENERALISATION-WORD	reg	1973	never	**AND I NEARLY RECORDED A FALSE ERROR AGAINST B.hstar.** *Testing whether h∗ = √(2β/(αy″)) minimises αw + βV, I* **assumed** *w linear and V inverse-square, got a cube root, and had the makings of a c
-1272	C9-OVERGENERALISATION-WORD	reg	1993	never	**FIVE MODULAR OBJECTS WERE CITED AND NEVER CHECKED, AND CHECKING THEM WAS A SEARCH.** *Reeh–Schlieder, Tomita–Takesaki, Takesaki duality with its trace scaling and uniqueness, the semifinite/type III
-1273	C9-OVERGENERALISATION-WORD	reg	2045	never	**E = 0 IS RELATIVE TO COORDINATES, AND A THEOREM SAYS SO.** *Any X with |X| = a·b relabels onto an a × b rectangle, which is a full box and therefore closed —* **so every index whose cell count is co
-1274	C9-OVERGENERALISATION-WORD	reg	2125	never	**ρ IS A PROPERTY OF (DOCUMENT, ROUTE), AND §19 COLLAPSED THE SECOND INDEX INTO A COUNT.** *The coordinate is printed one section later at §19.6 step 2 — primary, preprint, review, compilation, citing
-1275	C9-OVERGENERALISATION-WORD	reg	2209	never	**CONJUNCTIVE BODIES ARE THE FORM T §8.2 PRINTS, AND ADDING THEM DOES NOT IMPROVE ON 29.** *§8.2 gives NEC ≥ 3 ∧ X = 0 → U ≥ 1 — a conjunctive body at arity 3 — where the search had disjunctive heads 
-1276	C9-OVERGENERALISATION-WORD	reg	2225	at every cap	**WITHDRAWN — NO CELL OF THE SEED IS NECESSARY, AND §14.5.7 WAS RIGHT.** *Across 140 sampled seeds four cells appear in all 140; tested directly — is any envelope element covered by exactly ONE cell? 
-1277	C9-OVERGENERALISATION-WORD	reg	2293	never	**THE REPAIR IS TO TEST WHAT A SECOND IMPLEMENTATION CANNOT.** *A criterion cannot be checked by restating it. What can be checked without restating it is* **monotonicity** *— adding a name or a check
-1278	C9-OVERGENERALISATION-WORD	reg	2305	never	**No SINGLE-RULE EDIT TOUCHES THE NEC INTERIOR, AND THE REASON IS A MISSING THRESHOLD.** *All 47 edits to the seventeen rules — removal, and every body or head threshold shifted by one —* **move only 
-1279	C9-OVERGENERALISATION-WORD	reg	2321	never	**A NEAR-AGREEMENT DISSOLVED ON REPRODUCTION, AND THE ERROR WAS MINE TWICE OVER.** *Λ₉'s printed 63.2% appeared to match the violation index's mean reachable fraction of 0.630 to within 0.002.* **Two 
-1280	C9-OVERGENERALISATION-WORD	reg	2345	never	**THE NON-COMPOSABLE CELLS ARE DEFINED EXHAUSTIVELY AT BOTH STAGES.** *At Λ₁₀'s peak,* **all 485 have g = 0 and every g = 0 cell is non-composable, 485 for 485** *— five target signatures failing on o
-1281	C9-OVERGENERALISATION-WORD	reg	2425	never	**CHAPTER 4 WAS A HEADING WITH NO BODY, AND IT SAID SEVEN.** *The book has cited §4.1 and §4.2 throughout its life and* **never defined them** *— the mechanisms lived at §28.7.8, and there are ten.* *
-1282	C9-OVERGENERALISATION-WORD	reg	2425	never	**CHAPTER 4 WAS A HEADING WITH NO BODY, AND IT SAID SEVEN.** *The book has cited §4.1 and §4.2 throughout its life and* **never defined them** *— the mechanisms lived at §28.7.8, and there are ten.* *
-1283	C9-OVERGENERALISATION-WORD	reg	2437	never	**REMOVING THE REGISTER ORPHANED EIGHT REFERENCES, WHICH IS WHAT REMOVING IT CAUGHT.** *Lubiw, Anstee, Kuznetsov, Caspard, Colomb, Hoffman, Van Isacker and Chandrasekaran & Flanagan were cited* **only
-1284	C9-OVERGENERALISATION-WORD	reg	2461	never	**THE CHEAPEST TAIL WAS THE MOST INFORMATIVE: Li III RETURNS ZERO, AND THAT IS THE TEST.** *Its configurations are single tokens — 4f, 7h — so it costs least per level, and being hydrogenic at Z = 3 i
-1285	C9-OVERGENERALISATION-WORD	reg	2493	never	**AND THE FAILURE THAT COST MOST TODAY WAS MINE, NOT THE TRANSFER'S.** *Uploads were catalogued by FILENAME, so every new batch that resembled an earlier one was checked against names already known an
-1286	C9-OVERGENERALISATION-WORD	reg	2497	never	**Ne I'S HIGH RYDBERG SERIES ARRIVED AND THE DEFECT MATCHES AN INDEPENDENT COMPILATION TO THREE DECIMAL PLACES.** *Levels with* **n running 11 to 20** *on both fine-structure cores, and the limit 173,
-1287	C9-OVERGENERALISATION-WORD	reg	2621	never	**REGISTER 713's NEGATIVE F DEFECTS WERE AN ARTEFACT OF TRUNCATION, AND ADDING ONE MISSING MEMBER CORRECTS THEM.** *With the 5f level restored, Ne II's nf channels go from three members to four and* *
-1288	C9-OVERGENERALISATION-WORD	reg	2681	never	**Si I'S NS SERIES RUNS FOURTEEN MEMBERS AND REPRODUCES AN INDEPENDENT COMPILATION TO 0.04.** *n = 11 to 24 on the ²P°₃/₂ core, δ = +1.8545 ± 0.0082; the J = 2 component gives +1.8882 with a spread of
-1289	C9-OVERGENERALISATION-WORD	reg	2793	without exception	**AND P.iso IS EXACT ALONG ISOELECTRONIC SEQUENCES WHEREVER THE DEFECT EXCEEDS THE NOISE FLOOR.** *3 electrons: ns 0.4055 → 0.2623 → 0.1958, np 0.0643 → 0.0491 → 0.0436. 2 electrons: ns 0.2178 → 0.127
-1290	C9-OVERGENERALISATION-WORD	reg	2817	never	**WHICH SUGGESTS THE ℓ-ordering CHECK SHOULD WEIGHT BY RELIABILITY, AND DELIBERATELY DOES NOT YET.** *Adding `if spread > |delta|: skip` would restore 144 of 144 — and would also let a genuine inversi
-1291	C9-OVERGENERALISATION-WORD	reg	2821	never	**Si III'S GROUND-STATE CAPTURE COMPLETES THE 12-electron SEQUENCE AND DISSOLVES REGISTER 770's INVERSION.** *The two Si III captures had been read as separate cores — `3s.nf` against `nf` — so P.lcol
-1292	C9-OVERGENERALISATION-WORD	reg	2841	never	**THE FAULT WAS FOUND BY A SECOND READING OF THE SAME DATA, NOT BY ANY AUDIT HERE.** *`channel_verify.py` asked whether two defects agreed and never asked whether they COULD differ.* **A check that ad
-1293	C9-OVERGENERALISATION-WORD	reg	2845	never	**THE MECHANISM LIST WAS KEPT BY HAND IN THREE FILES AND DRIFTED IN ALL THREE.** *`mathreg.py` held fifteen, `MECHANISMS.md` fourteen — P.termsplit was registered at 739 and never given an entry — and
-1294	C9-OVERGENERALISATION-WORD	reg	2865	never	**CHAPTER 24 CLAIMED "1,442 INTERIOR CELLS ACROSS 35 ATOMIC SYSTEMS, THE BRACKET HOLDS IN EVERY ONE", AND THAT SENTENCE WAS CARRYING THE FABRICATION.** *The honest split: **930 cells across 128 channe
-1295	C9-OVERGENERALISATION-WORD	reg	2869	always	**THE FAULT WAS INVISIBLE TO EVERY AUDIT BECAUSE THE AUDITS CHECK CONSISTENCY, NOT PROVENANCE.** *`bracket == interior` is internally consistent whatever the values are; the compendium audit confirmed
-1296	C9-OVERGENERALISATION-WORD	reg	2877	never	**AND THE DEFECT SPLITS THREE WAYS, WITH THE THIRD CLASS EMPTY.** *93 cells are a spectrum already held missing one ℓ; 330 are an element held at a different ionisation stage; **zero are an element ab
-1297	C9-OVERGENERALISATION-WORD	reg	2945	never	**THE MONOTONICITY RESULT IS THE TRADE-OFF THE COMPENDIUM HAS BEEN CARRYING UNSTATED.** *A bracket that cannot fail tells you nothing about the data and everything about the definition; a bracket that
-1298	C9-OVERGENERALISATION-WORD	reg	2973	always	**A CLAIM AT 100% CANNOT BE STRENGTHENED BY MORE OF THE SAME.** *P.lcollapse gains nothing from another ℓ-pair that was always going to order correctly; it gains from a sample that COULD have broken i
-1299	C9-OVERGENERALISATION-WORD	reg	3049	never	**THE TWO COMPENDIA ARE CROSS-REFERENCED, AND 211 OF 213 MATHEMATICAL OBJECTS NAME A PHYSICAL COORDINATE.** *By grade: 111 COMPUTED, 51 PROVED, 21 CITED, 16 MEASURED, 13 DEFINITIONAL, 1 OPEN. **121 ca
-1300	C9-OVERGENERALISATION-WORD	reg	3061	never	**AND THE THEOREM'S OWN YARDSTICK CHECKS OUT AGAINST THE DATA.** *2Z²R/ν³ against the measured adjacent-level spacing over 742 pairs: median ratio **1.201*. **The twenty per cent is the difference bet
-1301	C9-OVERGENERALISATION-WORD	reg	3233	never	**AND THE CORRECTION LEAVES EVERY MECHANISM'S HEADLINE FIGURE INTACT.** *145 ℓ-pairs correct, 0 inverted · 44 J-pairs consistent within 0.05 · 546 of 789 on the tight bracket · 113 of 130 resolved ste
-1302	C9-OVERGENERALISATION-WORD	reg	3305	never	**AND ALL THREE FAILURES ARE ONE FAULT: A BRACKET INHERITED FROM A SEQUENCE CARRYING NO SIGNAL.** *The 1-electron ladder is He II −0.0003 → Li III +0.0003 → Be IV +0.0004 → B V +0.0008 — **four bare n
-1303	C9-OVERGENERALISATION-WORD	reg	3481	never	**THE INTERIOR TEST WAS THE SHARPER ONE AND THE FORM PASSED IT.** *Register 934 argued from stability that the ln form was right rather than lucky; Ca IX at charge 9 and Ti XI at 11 sit BETWEEN the fi
-1304	C9-OVERGENERALISATION-WORD	reg	3581	without exception	**A THIRD PROPAGATION AXIS IS FOUND AND AT S AND P IT IS EXACT: δ FALLS WITH CHARGE AT FIXED ELEMENT.** *This is not P.iso, which fixes the electron count; it fixes the element. Across every element w
-1305	C9-OVERGENERALISATION-WORD	reg	3585	never	**AND A FAULT IN THE PROPAGATION IS FOUND THAT WAS WORTH MORE THAN THE AXIS: IT STEPPED TO c+1 WHERE THE ALPHABET IS SPARSE.** *The charge alphabet is [1, 2, 3, 4, 5, 9, 11, 15]. Stepping from Fe XI t
-1306	C9-OVERGENERALISATION-WORD	reg	3681	never	**THE DROP THAT EXPOSED IT WAS B V AND C V ENTERING WITH QUOTED UNCERTAINTIES.** *B V is a bare nucleus with a median defect of **0.0003** and levels quoted to ±0.000001, so its steps pass a 3σ cut wh
-1307	C9-OVERGENERALISATION-WORD	reg	3817	never	**AND THE PHYSICAL COROLLARY IS STRONGER THAN THE COUNTEREXAMPLE.** *"Any ground- or thermal (i.e. KMS) state on a static space-time satisfies the microlocal spectrum condition."* **Thermal states are
-1308	C9-OVERGENERALISATION-WORD	reg	4009	never	**Of 1,356 BOUNDED CELLS, 1,050 HAD ZERO WIDTH AND 70 WERE INVERTED.** *A zero-width interval is a value asserted as a deduction; an inverted one is not a statement at all. Only **157 were genuine int
-1309	C9-OVERGENERALISATION-WORD	reg	4017	never	**WHICH IS THE COMPENDIUM'S OWN RULE, NEVER APPLIED.** *BRACKETED has been defined since register 831 as "bounded above AND below by DIFFERENT mechanisms". PROPAGATED never carried that requirement.* 
-1310	C9-OVERGENERALISATION-WORD	reg	4053	never	**THE PROPAGATED INDEX IS BUILT ON BOTH LAYERS AND VERIFIED FROM OUTSIDE.** *ℛ supplies reach and the mechanisms supply tightness, and the two never contradict: **zero empty intersections across 1,696
-1311	C9-OVERGENERALISATION-WORD	reg	4121	never	**THE (Z, CHARGE) PLANE HAS THREE DIRECTIONS AND THE WALK USED TWO.** *iso moves (Z,c) → (Z+1,c+1); elem moves (Z,c) → (Z,c+1); and **isocharge** — same charge state, next element, (Z,c) → (Z+1,c) — w
-1312	C9-OVERGENERALISATION-WORD	reg	4137	always	**THREE THINGS WERE NEEDED AND NONE SUFFICED ALONE.** *The observation that the plane has three directions rather than two; the reparametrisation to (Nₑ, charge, ℓ), which says WHY the diagonal was ti
-1313	C9-OVERGENERALISATION-WORD	reg	4161	never	**THREE FAILURES, ONE CAUSE: A STEP IS USABLE WHERE THE PHYSICS HAS COLLAPSED TO ONE PARAMETER.** *At ℓ ≥ 4 the electron never enters the core and only the polarisability matters — Seaton, 1.12. At ℓ 
-1314	C9-OVERGENERALISATION-WORD	reg	4217	always	**So THE REIMAGINED SPECTRA INDEX IS (Z, CORE CHARGE, ℓ, MULTIPLICITY), FOUR COORDINATES.** *It admits |L−S| ≤ J ≤ L+S as a CONSTRAINT on the cells it holds rather than as an axis, exactly as Λ carrie
-1315	C9-OVERGENERALISATION-WORD	reg	4229	never	**So THE METHOD HAS FOUR PARTS, AND THREE OF THEM WERE RUNNING UNNAMED.** *𝒮 derives the STEP SET from the index itself. W is the VALUATION closure. ℛ is the PLACEMENT closure, the book's own. 𝒜 ancho
-1316	C9-OVERGENERALISATION-WORD	reg	4261	never	**n₀ IS THE PERIODIC TABLE'S OWN COORDINATE AND THE INDEX HAS NEVER HELD IT.** *n₀ − ℓ − 1 is the radial quantum number of the series' first member. The compendium records n as a RANGE on each channel
-1317	C9-OVERGENERALISATION-WORD	reg	4285	always	**A STRUCTURAL FLAW REMAINS AND MY REPAIR MADE IT WORSE.** *Sr I nd has B = 2 and a measured δ = 2.38 — the defect EXCEEDS the bound, which floor(δ) ≤ B permits since δ may reach B + 1. But the equati
-1318	C9-OVERGENERALISATION-WORD	reg	4285	never	**A STRUCTURAL FLAW REMAINS AND MY REPAIR MADE IT WORSE.** *Sr I nd has B = 2 and a measured δ = 2.38 — the defect EXCEEDS the bound, which floor(δ) ≤ B permits since δ may reach B + 1. But the equati
-1319	C9-OVERGENERALISATION-WORD	reg	4321	never	**AND IT NAMES THE TRANSITION ZONE EXACTLY.** *np is 66% penetrating, **nd is 35%** and nf 9%.* **ℓ = 2 is the only orbital where the two populations sit together in comparable number* **, and every s
-1320	C9-OVERGENERALISATION-WORD	reg	4377	never	**AND IT REPORTS FIVE language/index PAIRS NEVER RUN.** *Λ_spectra has been read in ORDER and ANALYSIS only; geometry, algebra, information and statistics have never touched it. Λ_α has been read in o
-1321	C9-OVERGENERALISATION-WORD	reg	4393	without exception	**AND THE CYPHER ANALYSIS THEN RETURNS A THEOREM-SHAPED RESULT: E(X) = 0 IF AND ONLY IF THE LANGUAGES AGREE.** *Six indexes, three operators — order, statistics and geometry — and the agreement tracks
-1322	C9-OVERGENERALISATION-WORD	reg	4401	never	**THE INDEX WAS UNDER-CONSTRAINED, NOT UNDER-COORDINATISED, AND THE MISSING CONSTRAINT WAS ONE THE COMPENDIUM HAD ALREADY PROVED.** *Applying register 1139's rule — the multiplicity must be one Hund a
-1323	C9-OVERGENERALISATION-WORD	reg	4481	never	**BUT THE DIVERGENCE SURVIVES THE REPAIR, AND IT HAS ONE CAUSE.** *All 218 refused cells fail the same envelope: **charge given Z**. The measured set runs Z 2–83 and charge 1–9; the refused cells run 
-1324	C9-OVERGENERALISATION-WORD	reg	4521	never	**A DEPENDENCY CYCLE PASSED 248 OBJECTS AND SIX AUDIT SETS UNDETECTED.** *Q.delta → Q.exch → Q.delta: the channel equation depends on the exchange factor and the exchange factor was registered as depe
-1325	C9-OVERGENERALISATION-WORD	reg	4637	never	**Λ_phys: THE INDEX OF PHYSICAL PARAMETERS.** *The Physics Compendium stated the interface between a quantity and the index holding it, and never held the parameters themselves.* **22 parameters on fo
-1326	C9-OVERGENERALISATION-WORD	reg	4677	never	**THE MEASURED DEFECTS REPRODUCE THE MADELUNG ORDERING, AND THE COMPENDIUM'S OWN EQUATION PRODUCES THE FILLING SEQUENCE.** *n∗ = n − δ orders by n+ℓ in **608 of 626 pairs, 97.1%* **, against 81.5% for
-1327	C9-OVERGENERALISATION-WORD	reg	4689	never	**THE CYPHER READING SUPPLIES THE MISSING STEP: THE ORDER LANGUAGE ALREADY HELD IT.** *Q.bound says floor(δ) ≤ p, exceptionless on 328 channels — an ORDER statement. dδ/dp = 1 is the ANALYSIS statemen
-1328	C9-OVERGENERALISATION-WORD	reg	4701	always	**WHAT IS DERIVED AND WHAT IS NOT, STATED PLAINLY.** *Derived and parameter-free: n₀ = p+ℓ+1; floor(δ) = p − min(p, max(2−ℓ,0)); frac(δ) ≈ 0 above the centrifugal gate; n∗ = ℓ+1 for non-penetrating ch
-1329	C9-OVERGENERALISATION-WORD	reg	4701	never	**WHAT IS DERIVED AND WHAT IS NOT, STATED PLAINLY.** *Derived and parameter-free: n₀ = p+ℓ+1; floor(δ) = p − min(p, max(2−ℓ,0)); frac(δ) ≈ 0 above the centrifugal gate; n∗ = ℓ+1 for non-penetrating ch
-1330	C9-OVERGENERALISATION-WORD	reg	4733	never	**THE MERCURY-CORE CAPTURE: Tl II, Pb III, Bi IV AT Nₑ = 80.** *The 5d¹⁰6s core, p = 4 at ℓ = 1 — the corner regime 2 had never had, since 19 of its 21 channels were p = 1 and two were p = 2. The 5d¹⁰
-1331	C9-OVERGENERALISATION-WORD	reg	4737	never	**THE CHARGE DEPENDENCE COLLAPSES AT HIGH ELECTRON COUNT.** *Successive ratios along the mercury sequence are 1.050 and 1.051 — δ ∝ c^(−0.14). Every candidate form predicts far steeper: ln(c+1)/c give
-1332	C9-OVERGENERALISATION-WORD	reg	4761	never	**A DISCIPLINE, EARNED BY LOSING IT REPEATEDLY.** *Every joint refit today moved three quantities at once and I could not tell which was real: refitting with the regime factor drove x(Nₑ) from 0.86 − 
-1333	C9-OVERGENERALISATION-WORD	reg	4777	without exception	**STEP 1 · ONE EQUATION PER ELEMENT.** *Within a species only ℓ varies and p is fixed by the ground configuration, so the natural form is **δ = a·√p** with one constant.* **41 species fitted, 22 with 
-1334	C9-OVERGENERALISATION-WORD	reg	4781	never	**STEP 2 · WHAT THE 41 SHARE AND HOW THEY DIFFER.** *They share the FORM exactly — δ = a√p, with p read and never fitted. They differ only in a.* **C = x·√Nₑ measured from the a-grid gives median 1.32
-1335	C9-OVERGENERALISATION-WORD	reg	4781	never	**STEP 2 · WHAT THE 41 SHARE AND HOW THEY DIFFER.** *They share the FORM exactly — δ = a√p, with p read and never fitted. They differ only in a.* **C = x·√Nₑ measured from the a-grid gives median 1.32
-1336	C9-OVERGENERALISATION-WORD	reg	4873	never	**THE SINGLETON-OUTPUT CRITERION, AND IT IS NOT ENFORCED BY ℛ.** *Λ_var gives E = 0 with δ alone AND with n∗ added, because both land in the same cell.* **An index is closed when its output class is a
-1337	C9-OVERGENERALISATION-WORD	reg	4957	never	**ALL ELEVEN LADDERS, AND SIX OF THEM ARE NULL FOR A REASON THE LAW SUPPLIES.** *Nₑ = 4, 12, 30, 48, 80 and 102 never cross at any charge.* **Where the incoming subshell shares a principal number with
-1338	C9-OVERGENERALISATION-WORD	reg	5001	always	**AND THE STATE IS NECESSARY.** *Tested memoryless: for each admissible subshell set a to that subshell's own crossing value and ask whether it is then least-ν. **104 of 106 steps admit two to four se
-1339	C9-OVERGENERALISATION-WORD	reg	5001	never	**AND THE STATE IS NECESSARY.** *Tested memoryless: for each admissible subshell set a to that subshell's own crossing value and ask whether it is then least-ν. **104 of 106 steps admit two to four se
-1340	C9-OVERGENERALISATION-WORD	reg	5005	never	**EVERY RESET IS AN OPENING, AN EXCEPTION, OR A RETURN — ALL EIGHTEEN ACCOUNTED.** *Eight at a subshell opening, six at an aufbau exception (four of them also openings), and **four at the RETURN from 
-1341	C9-OVERGENERALISATION-WORD	reg	5009	never	**THE THIRD COORDINATE: A FROM A SINGLE STATE.** *ν = c√(R/IE) gives a = (n−ν)/√p from one observation with no comparison. **18 of 51 fall inside their corridor, 33 outside, and a_meas is systematical
-1342	C9-OVERGENERALISATION-WORD	reg	5017	never	**THE DOMAIN PROTOCOL, WRITTEN BECAUSE I KEPT VIOLATING IT.** *Four questions before any fit: which single cell of Λ_phys · which carrier does Λ_law assign · points ≥ 3× parameters IN THIS CELL · am I
-1343	C9-OVERGENERALISATION-WORD	reg	5037	never	**A AND δ ARE ONE OBJECT, AND THE MERGED INDEX HAS THE AXIS NEITHER PARENT HAD.** *a = δ/√p, so the corridor bounds the quantum defect. δ lives in Λ_spectra on (Z, c, ℓ, 2S+1); a lives in the walk, pe
-1344	C9-OVERGENERALISATION-WORD	reg	5041	never	**AND THE TWO SOURCES AGREE WHERE THEY MEET.** *123 cells populated from Λ_spectra's defects, 14 from ionisation energies, **four overlapping*. **K I 4s: 1.2872 from the ionisation energy against 1.26
-1345	C9-OVERGENERALISATION-WORD	reg	5041	never	**AND THE TWO SOURCES AGREE WHERE THEY MEET.** *123 cells populated from Λ_spectra's defects, 14 from ionisation energies, **four overlapping*. **K I 4s: 1.2872 from the ionisation energy against 1.26
-1346	C9-OVERGENERALISATION-WORD	reg	5057	never	**THE LAST DEFECT CELL, FOUND BY EXHAUSTIVE REORDERING AND FILLED FROM THE LADDER DATA.** *All 1,440 orderings of the three axes give minimum E = 1 and none reaches zero — the defect is structural, no
-1347	C9-OVERGENERALISATION-WORD	reg	5073	never	**THE LÖWDIN SOLUTION, FINISHED FORM.** *ν(n,ℓ,q) = n − a·√(n−ℓ−1 + q/2(2ℓ+1)); the incoming electron takes the subshell of least ν among those with q < 2(2ℓ+1).* **The corridor L(Z) < a < U(Z) with L
-1348	C9-OVERGENERALISATION-WORD	reg	5153	always	**THE RATIO 4 IS AN IDENTITY, AND 1368 UNDERCOUNTS THE PAIRS BY HALF.** *Write the spin–orbit expectation in closed form: ⟨L·S⟩ = ℓ/2 for j = ℓ+½ and −(ℓ+1)/2 for j = ℓ−½, exact on all twenty-two leve
-1349	C9-OVERGENERALISATION-WORD	reg	5165	always	**A COORDINATE THAT INDIVIDUATES THE CELLS IS A KEY, NOT AN AXIS: THE DUAL OF A.DEFINE.** *A.define records that a rung-1 coordinate contributes no envelope — one value, nothing to bound. The other en
-1350	C9-OVERGENERALISATION-WORD	reg	5177	never	**Λ_XRAY, THE INDEX THE LADDER INDEX DEMANDED, BUILT FROM MATERIAL ALREADY HELD.** *Λ_ladder at seven cells left E = 1 with two candidate defects, both at the subvalence seat and both in directions io
-1351	C9-OVERGENERALISATION-WORD	reg	5189	in every case	**THE ISOTOPIC LADDER HAS ITS FIRST TRACED RUNG, FROM THE INDEX THE LADDER INDEX DEMANDED.** *1376 computed that the mass shift is null for δ everywhere and that the field shift could only matter wher
-1352	C9-OVERGENERALISATION-WORD	reg	5193	never	**Q.FINAL'S HYDROGENIC ZERO IS STRUCTURAL, AND WAS LISTED AS A RESULT.** *The compendium put "hydrogenic output exactly zero" among the fit statistics, between the rms and the Pauli bound, where it re
-1353	C9-OVERGENERALISATION-WORD	reg	5213	never	**THE 2P AND 3P DOUBLETS ARE ONE OBJECT, BUT NOT UNDER ONE Σ, AND THE FIRST TEST FAILED.** *L1M3 − L1M2 is the 3p spin–orbit splitting, the same object Kα gives at 2p, so the hydrogenic form ΔE = (Z−σ
-1354	C9-OVERGENERALISATION-WORD	reg	5213	never	**THE 2P AND 3P DOUBLETS ARE ONE OBJECT, BUT NOT UNDER ONE Σ, AND THE FIRST TEST FAILED.** *L1M3 − L1M2 is the 3p spin–orbit splitting, the same object Kα gives at 2p, so the hydrogenic form ΔE = (Z−σ
-1355	C9-OVERGENERALISATION-WORD	reg	5225	never	**THE REFUTED FAMILY IS NILSSON'S MODIFIED OSCILLATOR, AND 1368 DID NOT NAME IT.** *A precedent search, run late and owed earlier, identifies the form exactly:* **H = HO − κℏω₀[2 l·s + μ(l² − ⟨l²⟩_N)]
-1356	C9-OVERGENERALISATION-WORD	reg	5229	never	**THE SIX-PAIR SCREEN APPLIED: ALL THREE NAMED CANDIDATES FAIL, AND WOODS–SAXON WAS NEVER OUTSIDE THE FAMILY.** **Woods–Saxon: ΔT = 0 on every one of the six, identically.** *Both members of each pair
-1357	C9-OVERGENERALISATION-WORD	reg	5253	never	**THE CORRIDOR RELATION IS THE TOWER'S BRACKET RULE, AND R 325 STATED IT FIRST.** *Register 325:* *"the author's bracket rule — presume the next from the law that generates the widths, never from the 
-1358	C9-OVERGENERALISATION-WORD	reg	5257	never	**FOURTEEN OF THE EIGHTEEN RESETS ARE FORCED BY THE CORRIDOR, AND THE UPDATE RULE IS NOT NEEDED FOR THEM.** *The queue listed the update rule,* *keep a unless forced, move minimally**, as the one thin
-1359	C9-OVERGENERALISATION-WORD	reg	5261	always	**AND THE EIGHTEEN ARE A PROPERTY OF ONE TRAJECTORY, NOT OF THE CORRIDOR.** *Register 1331 found the walk rule-independent, seven of eight rules giving 106 of 106. The resets are the opposite. Placing
-1360	C9-OVERGENERALISATION-WORD	reg	5261	always	**AND THE EIGHTEEN ARE A PROPERTY OF ONE TRAJECTORY, NOT OF THE CORRIDOR.** *Register 1331 found the walk rule-independent, seven of eight rules giving 106 of 106. The resets are the opposite. Placing
-1361	C9-OVERGENERALISATION-WORD	reg	5273	never	**THE RESIDUE IS TWO ELEMENTS, AND THREE CANDIDATE CLASSES WERE ELIMINATED BY COUNT.** *After the forced moves and the handshakes, molybdenum 42 and rhodium 45 remain: resets with nothing requiring th
-1362	C9-OVERGENERALISATION-WORD	reg	5281	never	**AND WHAT THE MECHANISM DOES NOT DO: PROXIMITY IS A SIGNAL, NOT A TRIGGER.** *Tested on all ninety-nine two-sided steps rather than the three: resets have median margin plus 0.50 against plus 1.15 fo
-1363	C9-OVERGENERALISATION-WORD	reg	5289	never	**THE UPDATE RULE IS DERIVED: PER-BLOCK MONOTONE ASCENT, ZERO VIOLATIONS IN 106 STEPS.** *The person asked whether a should simply ascend by size. Globally it cannot: ascent breaks at cerium 58 and st
-1364	C9-OVERGENERALISATION-WORD	reg	5293	never	**AND THE RESIDUE WAS MINE, NOT THE WALK'S.** *Twelve exchanges were spent on molybdenum and rhodium as the two elements resetting with nothing requiring it. Under per-block ascent neither is an excep
-1365	C9-OVERGENERALISATION-WORD	reg	5301	always	**THE LAW HAS NO RESIDUE; THE TRAJECTORY DOES, AND THEY ARE DIFFERENT CLAIMS.** *The person asked how a law can be a law if it has residue. The answer is that it cannot, and this one does not — I had 
-1366	C9-OVERGENERALISATION-WORD	reg	5305	never	**END TO END, WITH NOTHING FITTED: NINETY-NINE OF ONE HUNDRED AND SIX.** *The corridor from node counts, a from the handshake, the tie-break, and q in the radicand. The scorer's tie-break is the whole
-1367	C9-OVERGENERALISATION-WORD	reg	5333	never	**THE LANDING AXES REFUSE AT Q EQUAL TO TWO, AND THE SOURCE SUBSHELL CLOSES THEM.** *Register 1418 left the finding that every axis describing what the electron is closes and every axis describing whe
-1368	C9-OVERGENERALISATION-WORD	reg	5369	never	**AND THE TERM AND J LADDERS ARE FIVE TOWER STAGES APART, NESTED RATHER THAN PARALLEL.** *The person supplied the context: when the tower was constructed, transition was found to happen down and inwar
-1369	C9-OVERGENERALISATION-WORD	reg	5373	never	**C3, THE NUCLEAR CLAIM SURVIVES ITS OWN FALSIFIER, BY ONE SHELL.** *Register 1393 narrowed the refutation: the field has never claimed a universal beta and alpha, and fits kappa and mu per mass regio
-1370	C9-OVERGENERALISATION-WORD	reg	5397	never	**THERE ARE EIGHT ADJACENT HANDSHAKES, NOT FOUR, AND THEY SPLIT ON A CRITERION NO REGISTER STATES.** *Computed from the exact intervals: eight places where one element's ceiling is exactly the next's 
-1371	C9-OVERGENERALISATION-WORD	reg	5421	never	**AND WHAT THE ROLLBACK DEMONSTRATED, WHICH IS AT THE SCALE OF THE PROJECT.** *The 1.6.1 container reverted to register 1370. Its compendium tail, its queue, `xray_index.py`, `traj_index.py`, the capt
-1372	C9-OVERGENERALISATION-WORD	reg	5429	always	**THE 99 WAS FITTED, NOT GENERATED: HELD OUT THE WALK SCORES 90 AND PLAIN MADELUNG BEATS IT.** *`scorer.py` placed a using each step's OWN corridor — and a corridor is built by `brack.py` FROM the obs
-1373	C9-OVERGENERALISATION-WORD	reg	5457	always	**THE INTRA-GROUP CROSSING IS THE ARITHMETIC MEAN OF TWO SQUARE ROOTS, AND THAT IS WHERE THE GOLDEN RATIO COMES FROM.** *The person pointed at φ = 1.6180 appearing among the crossings and said that wh
-1374	C9-OVERGENERALISATION-WORD	reg	5457	never	**THE INTRA-GROUP CROSSING IS THE ARITHMETIC MEAN OF TWO SQUARE ROOTS, AND THAT IS WHERE THE GOLDEN RATIO COMES FROM.** *The person pointed at φ = 1.6180 appearing among the crossings and said that wh
-1375	C9-OVERGENERALISATION-WORD	reg	5485	without exception	**δ IS PER CHANNEL ON A MONOTONE (ℓ, BLOCK) GRID — WHICH IS A RE-COORDINATISATION, NOT A JOIN.** *The person asked whether δ might be per Madelung group or per Janet block rather than per channel. Tes
-1376	C9-OVERGENERALISATION-WORD	reg	5489	never	**ν IS DEACTIVATED AS A LAW AND RETAINED AS A FORM; THE CORRIDOR IS THE INSTRUMENT AND IT SURVIVES INTACT.** *The person's reading: the law was created to find the rule, and now that the rule is found
-1377	C9-OVERGENERALISATION-WORD	reg	5489	never	**ν IS DEACTIVATED AS A LAW AND RETAINED AS A FORM; THE CORRIDOR IS THE INSTRUMENT AND IT SURVIVES INTACT.** *The person's reading: the law was created to find the rule, and now that the rule is found
-1378	C9-OVERGENERALISATION-WORD	reg	5501	always	**AND FISHBURN'S WARNING BITES ON REGISTER 1461'S OWN ATOMIC CLAIM, TWENTY MINUTES OLD.** *1461 states that the observed ATOMIC order is additively representable in ν's family because 106 of 106 corri
-1379	C9-OVERGENERALISATION-WORD	reg	5529	never	**A4b CLOSED: THE FOUR UNFORCED RESETS ARE THREE MECHANISMS PLUS AN ORIGIN, AND NOT ONE CLASS AT ALL.** *Queue item A4b, open since 1.6.1. Register 1401 called the four 'every one the first element of
-1380	C9-OVERGENERALISATION-WORD	reg	5533	never	**G1 · M.C2's OBSTRUCTION IS RELOCATED AND SHARPENED, NOT REMOVED — AND THE PERSON'S CAUTION IS WHY.** *M.C2 is the one OPEN object of 214. Its check says positivity of the null translation generator 
-1381	C9-OVERGENERALISATION-WORD	reg	5545	never	**AND THE GAP NARROWS TO ONE QUESTION IN DIFFERENTIAL GEOMETRY: IS AN NEH GENERATOR AFFINELY COMPLETE?** *With the null computed, M.C2's requirement is checkable: the horizon regime must supply EITHER
-1382	C9-OVERGENERALISATION-WORD	reg	5565	never	**THE FOUR CONDITIONS ARE ONE TERM, AND M.C2 STATED IT WITH A CLAUSE MISSING.** *The person: four conditions look like a single mathematical term. They are, and the literature writes it as one.* **A H
-1383	C9-OVERGENERALISATION-WORD	reg	5569	never	**AND EDITING THE SOURCE BROKE THE GATE TWICE — THE GUARD AT REGISTER 1226 IS WHY THAT WAS VISIBLE.** *Applying 1481's correction to `mathreg.py` broke the file twice in succession. First an unescaped
-1384	C9-OVERGENERALISATION-WORD	reg	5577	never	**THE SUM IS COMPLETED BY BECOMING TWO: THE LEDGER COUNTS A MANIFOLD, AND M.C2 NEEDS AN ALGEBRA.** *Completing M.ledger from entries already held, as the person required before the sudoku reading coul
-1385	C9-OVERGENERALISATION-WORD	reg	5577	never	**THE SUM IS COMPLETED BY BECOMING TWO: THE LEDGER COUNTS A MANIFOLD, AND M.C2 NEEDS AN ALGEBRA.** *Completing M.ledger from entries already held, as the person required before the sudoku reading coul
-1386	C9-OVERGENERALISATION-WORD	reg	5605	never	**THE VIOLATION INDEX AND THE M.C2 THREAD ARE THE SAME CONDITION FROM OPPOSITE SIDES, AND NOTHING JOINED THEM.** *The person asked what the book holds on black holes and wormholes, and the answer is s
-1387	C9-OVERGENERALISATION-WORD	reg	5637	never	**WHAT THE ANE VACUUM IS, AND WHERE THE REAL THREAT TO ITS CYCLICITY LIES — IN THE SAME PAPER THAT ASSUMES IT.** *The person asked plainly what the ANE vacuum is, and the register had been resting a w
-1388	C9-OVERGENERALISATION-WORD	reg	5661	never	**M.C2 HAS ONE UNDETERMINED PARAMETER, NOT FOUR, AND IT IS A CHOICE OF OBSERVABLE RATHER THAN A DEFECT.** *The person asked how many undetermined parameters actually operate in M.C2. Four appear — a(y
-1389	C9-OVERGENERALISATION-WORD	reg	5661	never	**M.C2 HAS ONE UNDETERMINED PARAMETER, NOT FOUR, AND IT IS A CHOICE OF OBSERVABLE RATHER THAN A DEFECT.** *The person asked how many undetermined parameters actually operate in M.C2. Four appear — a(y
-1390	C9-OVERGENERALISATION-WORD	reg	5697	never	**M.C2 IS NOT A THREE-BODY REMNANT — IT IS THE CONVERSE, A TERNARY CONDITION THAT PROVABLY DECOMPOSES.** *The person had assumed M.C2 was residue from the three-body thread. Tested against the registe
-1391	C9-OVERGENERALISATION-WORD	reg	5766	never	**WHAT THE EIGHT CAPTURES CLOSE — AND MY FIRST FRAMING OF THE L-SHELL TEST WAS WRONG.** *Asked what the fetches close and open. First a correction: I framed the L-shell test as asking whether the five
-1392	C9-OVERGENERALISATION-WORD	reg	5770	never	**AND WHAT THEY OPEN: A MOSELEY FIT THAT FAILS ON FOUR OF SEVEN LINES, WITH THE FAILURE LOCALISED.** *The real test the captures permit is whether Λ_xray's CELL MEMBERSHIP predicts measured behaviour.
-1393	C9-OVERGENERALISATION-WORD	reg	5774	never	**FIVE FETCHES, ZERO DATA — AND THE FAILURES ARE OF FOUR DIFFERENT KINDS, WHICH IS ITSELF THE FINDING.** *All five outstanding external sources attempted in one pass, on the person's instruction to fe
-1394	C9-OVERGENERALISATION-WORD	reg	5822	never	**THE PER-LEVEL DEFECT IS NOT THE ASYMPTOTIC ONE, AND EXTRAPOLATING MY OWN NUMBERS RECOVERS THE TEXTBOOK VALUES EXACTLY.** *A quantum-defect note supplied, comparing the levels route against the Theod
-1395	C9-OVERGENERALISATION-WORD	reg	5822	never	**THE PER-LEVEL DEFECT IS NOT THE ASYMPTOTIC ONE, AND EXTRAPOLATING MY OWN NUMBERS RECOVERS THE TEXTBOOK VALUES EXACTLY.** *A quantum-defect note supplied, comparing the levels route against the Theod
-1396	C9-OVERGENERALISATION-WORD	reg	5846	in every case	**THE TWO NEW CAPTURES OVERLAP ON EIGHT SPECIES, AND THE DEFECT GAP FALLS TOWARD ZERO AS THE ION CHARGE RISES.** *Reassessing after the capture run, and incorporating rather than merely listing. The T
-1397	C9-OVERGENERALISATION-WORD	reg	5858	never	**A1's LITERATURE IS NAMED AND IT DOES NOT REACH TWO OF THE SIX ANCHORS.** *Running the literature check for A1 rather than naming it from memory. A1 needs δ⟨r²⟩ for the six isotope anchors held in `X
-1398	C9-OVERGENERALISATION-WORD	reg	5886	never	**WE DID NOT NEED Z = 97 — A1's TEST IS CIRCULAR ON THE THEORY COLUMN AND BURIED IN NOISE ON THE EXPERIMENTAL ONE.** *Asked, now that Bk and Cf are predicted, why they were needed. Running A1's test f
-1399	C9-OVERGENERALISATION-WORD	reg	5902	never	**THE SIX ARE NOTES, NOT TASKS, AND PROMOTING THEM TO THE QUEUE WAS A CATEGORY ERROR.** *M, reading register 1567's list: these literally just seem to be notes. Tested by asking of each whether it des
-1400	C9-OVERGENERALISATION-WORD	reg	5902	never	**THE SIX ARE NOTES, NOT TASKS, AND PROMOTING THEM TO THE QUEUE WAS A CATEGORY ERROR.** *M, reading register 1567's list: these literally just seem to be notes. Tested by asking of each whether it des
-1401	C9-OVERGENERALISATION-WORD	reg	5910	never	**YES, BUT BY SEVENTY-TWO CELLS — AND THE CHECK IS WORTH MORE THAN THE COUNT.** *M's question, and the one the project was begun for: the Löwdin challenge was accepted in order to populate the spectra
-1402	C9-OVERGENERALISATION-WORD	reg	5926	never	**IMPROBABLE IS REMOVED FROM THE INDEX ALTOGETHER — IT WAS A JUDGEMENT ABOUT THE FUTURE STANDING IN A COLUMN OF FACTS.** *M's diagnosis, sharper than register 1577's: the problem is not which cutoff i
-1403	C9-OVERGENERALISATION-WORD	reg	5930	never	**TWENTY-SIX CELLS. THE POPULATION GOAL RETURNED TWENTY-SIX WITNESSED CELLS AND THE INDEX RETURNED A MEASURE OF ITS OWN IGNORANCE.** *M asked what has been populated of the spectra index. Traced cell 
-1404	C9-OVERGENERALISATION-WORD	reg	5938	never	**SIX CANDIDATE AXES TESTED: FIVE ARE DETERMINED, Z IS REFUSED AT 2.1%, AND H1's RE-COORDINATISATION DOES NOT CLOSE.** *M's ask: take everything since the Löwdin work began and make an axis of anythin
-1405	C9-OVERGENERALISATION-WORD	reg	5938	never	**SIX CANDIDATE AXES TESTED: FIVE ARE DETERMINED, Z IS REFUSED AT 2.1%, AND H1's RE-COORDINATISATION DOES NOT CLOSE.** *M's ask: take everything since the Löwdin work began and make an axis of anythin
-1406	C9-OVERGENERALISATION-WORD	reg	5942	never	**M IS RIGHT: THE OBSERVER RULE WAS INFERRED FROM ONE CASE, MY CONFIRMATION OF IT COULD NOT FAIL, AND THE REGISTER ALREADY CONTRADICTS IT.** *M: observer facts are what determine an object. Checked, a
-1407	C9-OVERGENERALISATION-WORD	reg	5946	never	**SPACE AND TIME ARE TWO WITNESSES DOING DIFFERENT WORK: TIME ORDERS THE TRAJECTORY, SPACE DETERMINES THE YIELD.** *M's reframing, and it puts `witness` in a role I had wrong. The facts an observer su
-1408	C9-OVERGENERALISATION-WORD	reg	5970	never	**YES — AND 54 PER CENT OF THE UNBOUNDED SPECIES ALREADY HAVE A MEASURED IONISATION ENERGY, SO THE PLAUSIBILITY IS NOT AN INFERENCE.** *M asked whether the unbounded cells are plausible ions not witne
-1409	C9-OVERGENERALISATION-WORD	reg	5974	always	**M IS RIGHT ABOUT THE ORDER, AND IT MAKES THE 44 SPECIES A READING NOT TAKEN RATHER THAN A CAPTURE TO MAKE.** *M: most ions we know were synthesised before being measured. Tested by predicting that a
-1410	C9-OVERGENERALISATION-WORD	reg	5982	never	**NO — THE READING LIST IS ONE OF FOUR FETCHES, AND ONE OF THE OTHERS ANSWERS 288 SPECIES BY ITSELF.** *M asked whether the reading list is all the fetching now needed. It is not, and checking why exp
-1411	C9-OVERGENERALISATION-WORD	reg	5982	never	**NO — THE READING LIST IS ONE OF FOUR FETCHES, AND ONE OF THE OTHERS ANSWERS 288 SPECIES BY ITSELF.** *M asked whether the reading list is all the fetching now needed. It is not, and checking why exp
-1412	C9-OVERGENERALISATION-WORD	reg	5994	never	**M IS RIGHT AND I NEVER LOOKED: THE H–Ar LADDER AND A HUNDRED SPECTRA HAVE BEEN ON DISK ALL SESSION.** *M said he had given me all of this, that I had read it and registered it. He is right on every 
-1413	C9-OVERGENERALISATION-WORD	reg	5998	never	**THE EIGHT ON-DISK SPECIES YIELD ZERO ENTERABLE CELLS, AND THE FRONTIER IS 245 TRIPLES RATHER THAN 1,802.** *Reading the eight species register 1596 found on disk. The extraction ran and every stage 
-1414	C9-OVERGENERALISATION-WORD	reg	6022	never	**THE JK SPLIT IS REAL AT TWO TIMES TIGHTER, AND A GREEDY REGEX READ 289,119 AS 9,119 AND WOULD NOT HAVE BEEN CAUGHT.** *Applying the rebuild across every spectrum on disk. Fifteen of ninety-one files
-1415	C9-OVERGENERALISATION-WORD	reg	6026	never	**THE REBUILT TABLE HOLDS 49 CELLS THE OLD KEY COLLAPSES TO 13, AND I NEARLY READ ITS REACH AS A DEFECT.** *Building `captures/COORDINATES-jK.tsv` — the spectra index rebuilt on the three axes argon's
-1416	C9-OVERGENERALISATION-WORD	reg	6038	never	**THE RULE PAYS AND THE SPLIT IS NOT ON AN AXIS — IT IS ON THE REGIME, AND ℓ BECOMES PERFECTLY MONOTONE INSIDE IT.** *M's rule: any axis holding more than a single monotone value must be split. Applie
-1417	C9-OVERGENERALISATION-WORD	reg	6054	never	**THE SIX HUNDRED ARE WITHDRAWN: RANK IS NOT REACH, AND ALL OF THEM WERE THE EXACT CELLS THAT NEED NO MEASUREMENT.** *M thought register 1610's six hundred unreachable-but-unobstructed cells were what
-1418	C9-OVERGENERALISATION-WORD	reg	6062	never	**THE SEED IS THE NUCLEUS: HALF OF Λ_spectra's 242 GENERATING CELLS ARE BARE NUCLEI WITH ONE ELECTRON, AND I HAD BEEN USING THE WORD WRONGLY ALL SESSION.** *M: the seed is the atom — the nucleus — and
-1419	C9-OVERGENERALISATION-WORD	reg	6062	never	**THE SEED IS THE NUCLEUS: HALF OF Λ_spectra's 242 GENERATING CELLS ARE BARE NUCLEI WITH ONE ELECTRON, AND I HAD BEEN USING THE WORD WRONGLY ALL SESSION.** *M: the seed is the atom — the nucleus — and
-1420	C9-OVERGENERALISATION-WORD	reg	6067	never	**P3 IS ANSWERED AND DOES NOT ADVANCE THE DERIVATION; PR4 AND PR5 ARE CLOSED; AND MY PARITY CHECKER HAD BEEN MISCOUNTING ENTRIES ALL ALONG.** *Closing the board rows marked as needing nothing. Three o
-1421	C9-OVERGENERALISATION-WORD	reg	6067	never	**P3 IS ANSWERED AND DOES NOT ADVANCE THE DERIVATION; PR4 AND PR5 ARE CLOSED; AND MY PARITY CHECKER HAD BEEN MISCOUNTING ENTRIES ALL ALONG.** *Closing the board rows marked as needing nothing. Three o
-1422	C9-OVERGENERALISATION-WORD	reg	6075	always	**Λ_XRAY IS REBUILT FROM ITS SPECIFICATION ALONE AND REPRODUCES ALL THREE RECORDED NUMBERS — 33 LINES, 9 CELLS, E = 0.** *The last board row marked as needing nothing. `PROVENANCE.md` recorded Λ_xray 
-1423	C9-OVERGENERALISATION-WORD	reg	6075	always	**Λ_XRAY IS REBUILT FROM ITS SPECIFICATION ALONE AND REPRODUCES ALL THREE RECORDED NUMBERS — 33 LINES, 9 CELLS, E = 0.** *The last board row marked as needing nothing. `PROVENANCE.md` recorded Λ_xray 
-1424	C9-OVERGENERALISATION-WORD	reg	6095	never	**THE OBSERVER CORRESPONDENCE HOLDS AS A SHAPE AND FAILS AS A MECHANISM, AND THE PROJECT HAS NO OBSERVER IN IT TO TEST THE REST.** *M: this is where the basal needs, consciousness and the observer as 
-1425	C9-OVERGENERALISATION-WORD	reg	6115	never	**THERE IS NO CACHE — ONE PERMISSION LAYER WITH TWO EXITS, AND M PUT THE TWO DESCRIPTIONS SIDE BY SIDE UNTIL IT WAS OBVIOUS.** *M quoted register 1628's own table back at me: `ie.pl` succeeding with t
-1426	C9-OVERGENERALISATION-WORD	reg	6119	never	**THE SIXTY-ONE BECOME TEN URLS, BATCHED BY IONISATION STAGE.** *M asked for the URLs to feed back. Sixty-one lines is a poor thing to hand someone when NIST's `spectra` parameter accepts a semicolon-
-1427	C9-OVERGENERALISATION-WORD	reg	6123	never	**THE SEMICOLON LIST IS NOT NIST'S SYNTAX, AND ASKING FOR THE FIX CONFIRMED REGISTER 1629's MECHANISM BY PREDICTION.** *M pasted the neutral batch and the fetch reached NIST — permission and length bo
-1428	C9-OVERGENERALISATION-WORD	reg	6127	never	**THE STAGE SUFFIX IS `ie.pl` SYNTAX AND I USED IT ON `energy1.pl` — ISOLATED BY DIFFERENCING AGAINST THE ONE URL THAT WORKS.** *The range syntax reached NIST unaltered this time — destination_url mat
-1429	C9-OVERGENERALISATION-WORD	reg	6135	never	**THE UNKNOWN PARAMETER IS `order=0`, WHICH BELONGS TO `ie.pl` — I INVENTED ONE PARAMETER AND DROPPED FOUR.** *Four rejected URLs in a row, and the cause was one parameter the whole time. Found by dif
-1430	C9-OVERGENERALISATION-WORD	reg	6135	never	**THE UNKNOWN PARAMETER IS `order=0`, WHICH BELONGS TO `ie.pl` — I INVENTED ONE PARAMETER AND DROPPED FOUR.** *Four rejected URLs in a row, and the cause was one parameter the whole time. Found by dif
-1431	C9-OVERGENERALISATION-WORD	reg	6135	never	**THE UNKNOWN PARAMETER IS `order=0`, WHICH BELONGS TO `ie.pl` — I INVENTED ONE PARAMETER AND DROPPED FOUR.** *Four rejected URLs in a row, and the cause was one parameter the whole time. Found by dif
-1432	C9-OVERGENERALISATION-WORD	reg	6135	never	**THE UNKNOWN PARAMETER IS `order=0`, WHICH BELONGS TO `ie.pl` — I INVENTED ONE PARAMETER AND DROPPED FOUR.** *Four rejected URLs in a row, and the cause was one parameter the whole time. Found by dif
-1433	C9-OVERGENERALISATION-WORD	reg	6139	never	**FIVE REJECTIONS, SO STOP GUESSING: THE HELP PAGE STATES A TWO-PARAMETER MINIMUM AND EVERY OPTIONAL PARAMETER IS A CHANCE TO BE WRONG.** *The fifth `energy1.pl` rejection, this time on M's own full p
-1434	C9-OVERGENERALISATION-WORD	reg	6139	never	**FIVE REJECTIONS, SO STOP GUESSING: THE HELP PAGE STATES A TWO-PARAMETER MINIMUM AND EVERY OPTIONAL PARAMETER IS A CHANCE TO BE WRONG.** *The fifth `energy1.pl` rejection, this time on M's own full p
-1435	C9-OVERGENERALISATION-WORD	reg	6143	never	**ONE SPECTRUM PER REQUEST — THE FORM'S OWN EXAMPLES SAID SO BEFORE SIX FETCHES WENT ON RANGES.** *M: you can only fetch one ion at a time, and it is better to take sixty-one turns than to corrupt the
-1436	C9-OVERGENERALISATION-WORD	reg	6151	never	**NINETEEN SPECIES AND 1,253 LEVELS CAPTURED, NOTHING EXTRACTED, AND THE THIRD SPECIES EXPLAINED THE FIRST TWO.** *M's protocol: stagger the URLs, capture all sixty, extract nothing until they are in.
-1437	C9-OVERGENERALISATION-WORD	reg	6155	never	**BATCH 1 RECOVERED LIVE — EIGHT QUEUE SPECIES, ONE OUT-OF-QUEUE, ONE RECITATION FAULT.** *The paste route ran: Ti I (559 rows, count matches holdings; Racah 4f/5g blocks), Cr III (215), Cr VI (63 — K
-1438	C9-OVERGENERALISATION-WORD	reg	6191	never	**THE COLLISIONS ARE THE KEYABILITY BOUND, NOT A DEFECT OF THE KEY — AND R 1648 MISREAD THE CHARGE AXIS.** *M asked whether the index needs a rebuild that removes collisions while keeping E = 0, and w
-1439	C9-OVERGENERALISATION-WORD	reg	6219	never	**PART III READ WHOLE, AND IT NAMES THE OPERATION THE LAST TWO SESSIONS PERFORMED.** *Second bounded pass on M's instruction to read everything. Chapters 14, 17 and 18 read in full, §18.4.1 included, 
-1440	C9-OVERGENERALISATION-WORD	reg	6223	never	**THE Λ_spectra COLLISION SETTLED — AND THE COLUMN THAT READ E WAS NEVER A CLOSURE DEFECT.** *M ruled by provenance, not timestamp: INDICES.md and SPECTRA.md carry the same mtime because they are gene
-1441	C9-OVERGENERALISATION-WORD	reg	6239	never	**145 OF 554 CARRY A δ COMPUTED AGAINST THE WRONG CORE — AND R 1649's FALLBACK IS THE SILENT DEFAULT §2.9 FORBIDS.** *Eight rows resisted language classification because NIST leaves their term column 
-1442	C9-OVERGENERALISATION-WORD	reg	6255	never	**C6 PASSED ON THREE OF FIVE THREADS — A CLAUSE THAT COULD NOT FAIL FOR THE REASON IT NAMES.** **The certificate found open threads with a pattern that required a full stop before `Owner:`; T6 and T7 
-1443	C9-OVERGENERALISATION-WORD	reg	6259	never	**THE ARCHIVES ARE NOT DISJOINT — THE PROBE WAS, AND IT IS R 1671's FAULT COMMITTED ONE ENTRY LATER.** **I reported that `spectra_raw` and `MEASUREMENTS.tsv` share NO species and that 0 of 554 rows co
-1444	C9-OVERGENERALISATION-WORD	reg	6263	never	**T2 IS ANSWERED BY MEASUREMENT, NOT BY RULING: THE STORE'S STATISTIC IS ALREADY THE MEDIAN.** *The bridge carried T2 as M's to declare — which statistic a cell's derived δ uses. It was never undecide
-1445	C9-OVERGENERALISATION-WORD	reg	6275	never	**T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge named three candidates — term-string variants, J-splitting conventions, an
-1446	C9-OVERGENERALISATION-WORD	reg	6275	never	**T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge named three candidates — term-string variants, J-splitting conventions, an
-1447	C9-OVERGENERALISATION-WORD	reg	6283	never	**THE GENERATOR REPAIRED; JK NEARLY TRIPLES; ZERO REGRESSIONS.** *`store_gen.py` rebuilt to implement the two rules already on record — the (l, term, parent) split, and per-row language parsing — with
-1448	C9-OVERGENERALISATION-WORD	reg	6283	never	**THE GENERATOR REPAIRED; JK NEARLY TRIPLES; ZERO REGRESSIONS.** *`store_gen.py` rebuilt to implement the two rules already on record — the (l, term, parent) split, and per-row language parsing — with
-1449	C9-OVERGENERALISATION-WORD	reg	6291	never	**THE COST WAS MANUFACTURED BY THE COORDINATE NAME: 554 OF 554 SERIES LAND ON AN EXISTING CELL, ZERO REFUSED.** *With `mult` in the measurement's key, 244 of 554 series land on cells the index refuses
-1450	C9-OVERGENERALISATION-WORD	reg	6291	never	**THE COST WAS MANUFACTURED BY THE COORDINATE NAME: 554 OF 554 SERIES LAND ON AN EXISTING CELL, ZERO REFUSED.** *With `mult` in the measurement's key, 244 of 554 series land on cells the index refuses
-1451	C9-OVERGENERALISATION-WORD	reg	6295	never	**M'S RULING "NO CELLS SHOULD BE COST" IS SATISFIED AT ZERO, AND A.cert IS NOT INVOKED AT ALL.** *The ruling is not a constraint the data strains against. No admitted operation is required — not add-a
-1452	C9-OVERGENERALISATION-WORD	reg	6299	never	**BOARD ROW 4b CLOSES: THE CLOSURE TEST WAS THE WRONG INSTRUMENT, AND TEMPERATURE IS A COLUMN, NOT AN AXIS.** *Computed: adjoining an UNCONSTRAINED chain T to a closed staircase index keeps E = 0 vacu
-1453	C9-OVERGENERALISATION-WORD	reg	6303	always	**TWO BOUNDED NEGATIVES WITH THEIR SCOPES, AND A FETCH-LAYER MECHANISM NAMED.** *Theodosiou ADNDT 35, 473 (1986): one search on the full title; paywalled at the publisher, request-only at the aggregat
-1454	C9-OVERGENERALISATION-WORD	reg	6307	never	**T7 CLOSES FROM THE RECORD: THE `mult` COLUMN STAYS, AND ITS JJ VALUES ARE NULLS BY LANGUAGE, NOT VALUES.** *R 1683 named the three options — drop, refuse, leave — and the record decides among them: 
-1455	C9-OVERGENERALISATION-WORD	reg	6319	never	**THE BOARD IS REBUILT FROM THE REGISTER AT SOURCE, AND THE JSON HALF OF C3 IS MEASURED.** *Rows 0 and 0b retire on R 1646; rows 16, 17, 1, 4, 7 unblock on the same entry; 4b closes at R 1686; rows 2 
-1456	C9-OVERGENERALISATION-WORD	reg	6335	never	**M ASKED WHETHER THE INDEX CLOSES AT Z = 120 WITH 119 AND 120 PRESENT — IT DOES, E = 0, AND THE TWO INSTRUMENTS I FIRST REACHED FOR WERE BOTH WRONG.** *Measured on COORDINATES.tsv: 104,832 cells; 7,2
-1457	C9-OVERGENERALISATION-WORD	reg	6339	never	**T8-J RULED YES (M) — NARROW SCOPE APPLIED, THE WIDTH RETURNED TO M.** *A J-resolved parent may borrow its limit from the parent ION's own level table: limit(J) = printed limit(J₀) + [E_ion(term,J) −
-1458	C9-OVERGENERALISATION-WORD	reg	6343	never	**ROW 1 RUN — AND THE FIRST FINDING IS THAT NO SERIES CONSTRUCTOR EXISTED.** *`store_gen.py` closes the VALUE derivation and inherits the series list from the authored store; nothing on disk construct
-1459	C9-OVERGENERALISATION-WORD	reg	6343	never	**ROW 1 RUN — AND THE FIRST FINDING IS THAT NO SERIES CONSTRUCTOR EXISTED.** *`store_gen.py` closes the VALUE derivation and inherits the series list from the authored store; nothing on disk construct
-1460	C9-OVERGENERALISATION-WORD	reg	6367	never	**ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 
-1461	C9-OVERGENERALISATION-WORD	reg	6439	never	**APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, DECIDED TWO PLACEMENTS.** *The forty-eight of D.5.8
-1462	C9-OVERGENERALISATION-WORD	reg	6447	never	**Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED.** *The four domains (physical 4, bibliographic 3, mathematica
-1463	C9-OVERGENERALISATION-WORD	reg	6459	never	**THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN VOLUME NOW SAYS WHICH BIBLIOGRAPHY IS WHOSE.** *Matching the compendium's "172 works, 1669–2026" against
-1464	C9-OVERGENERALISATION-WORD	reg	6499	never	**RULING 24: §34.4 IS THE CANONICAL STATEMENT OF THE RULE — THE SECTION IS ORIGINAL TO THIS RECORD, THE WORDING IS THE BUILDER'S, AND THE BODY NOW GIVES THE RULE, WHAT IT IS, ITS DERIVATION, ITS ATTRI
-1465	C9-OVERGENERALISATION-WORD	reg	6503	never	**RULING 25: A SURVIVING CLAIM IS DEFINED, THE MOVE §D.5.3 MADE FOR *ELEMENT* — AND F.4.2'S WITHDRAWAL RATIO, IN Q SINCE REGISTER 297, HAS A VALUE: 4.21 : 1, p 0.192, 0.705 BITS.** *The author's rulin
-1466	C9-OVERGENERALISATION-WORD	reg	6503	never	**RULING 25: A SURVIVING CLAIM IS DEFINED, THE MOVE §D.5.3 MADE FOR *ELEMENT* — AND F.4.2'S WITHDRAWAL RATIO, IN Q SINCE REGISTER 297, HAS A VALUE: 4.21 : 1, p 0.192, 0.705 BITS.** *The author's rulin
-1467	C9-OVERGENERALISATION-WORD	reg	6507	never	**RULING 26: THE 489 UNTESTED SPECTRA ROWS ARE RUN UNDER M'S SEALED-TEST RULING — STRICT MEMBERSHIP, THE QUOTATION FLOOR AS THE ONLY ε, §22.5 ADMISSIBILITY — AND 318 ROWS CLOSE: 658 OF 813 CELLS PASS,
-1468	C9-OVERGENERALISATION-WORD	reg	6527	never	**T IS ABSORBED: ITS THIRTY CITED SECTIONS ENTER AS APPENDIX G AND THIRTY-FOUR CITATIONS RE-SOURCE INWARD.** *A citation to a work no reader can obtain gives the reader nothing.* Transitions *v3.0 has
-1469	C9-OVERGENERALISATION-WORD	reg	6531	never	**THE 98.6% CEILING WAS COMPUTED OFF THE WRONG ONE OF THE THREE KINDS, AND THE THREE WERE PRINTED AS TWO.** *The channel survey's thirty-three unconstrained cells fall into three kinds, and register 9
-1470	C9-OVERGENERALISATION-WORD	reg	6551	never	**THE CALENDAR'S SEVENTH MISSING CELL WAS NEVER NAMED, AND THE PRINTED DEFECT WAS RIGHT ALL ALONG.** *The Index of Indices draws the calendar beside the atomic index as a subject with no physics in it
-1471	C9-OVERGENERALISATION-WORD	reg	6563	never	**THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET.** *The Spectra Compendium sets out* COORDINATES-2.13 *column by col
-1472	C9-OVERGENERALISATION-WORD	reg	6574	never	**THREE CLAIMS THE REGISTER MADE ABOUT ITS OWN NUMBERING ARE WITHDRAWN, TWO OF THEM MEASURED FALSE.** *First: thirteen numbers were said to be absent everywhere. Across 165 to 1781 the span holds 1,61
-1473	C9-OVERGENERALISATION-WORD	reg	6589	never	**APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. There was never an F.3.1 or an F.3.2 — F.3 carried
+1234	C9-OVERGENERALISATION-WORD	reg	82	never	**THE ORIGIN IS THE CLOSEST MEASURABLE DISTANCE TO ZERO, NOT ZERO — HYDROGEN ANCHORS BY PHYSICAL ARGUMENT.** *At the outset the origin was set not at zero but at the smallest non-zero step outward, be
+1235	C9-OVERGENERALISATION-WORD	reg	238	never	**THE CLOSURE IS STRUCTURAL: BOTH CONSTRAINTS ARE PRESERVED UNDER JOIN AND MEET.** *Raising n never violates ℓ ≤ n−1; raising ℓ raises the capacity ceiling 2(2ℓ+1) so a raised k stays admissible; lowe
+1236	C9-OVERGENERALISATION-WORD	reg	342	every configuration	**THE OCCUPIED CELLS FORM AN ORDER IDEAL OF Λ — DOWNWARD CLOSED WITHOUT EXCEPTION.** *For every occupied x and every admissible y ≤ x componentwise, y is also occupied: no violations across all 118 ce
+1237	C9-OVERGENERALISATION-WORD	reg	346	never	**THE REALISED IDEAL IS ALL-OR-NOTHING BY COLUMN: 19 SATURATED, 6 EMPTY, NONE PARTIAL.** *Grouping admissible cells into columns indexed by (n,ℓ) of capacity 2(2ℓ+1): of the twenty-five columns, ninet
+1238	C9-OVERGENERALISATION-WORD	reg	414	never	**THE YTTERBIUM OBSERVATION, WHICH STANDS INDEPENDENT OF THE INDEX.** *Ytterbium forms YbH₂ and YbH₃ under accessible conditions, adopts an FCC structure, is stable and commercially available — and a 
+1239	C9-OVERGENERALISATION-WORD	reg	1106	never	**A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen because FIDELITY checks that what is rendered matches its source, and the five sections were never rendere
+1240	C9-OVERGENERALISATION-WORD	reg	1210	never	**THREE TIERS RESTORED AFTER TWO PROVED TOO FEW.** *And the author's bracket rule — presume the next from the law that generates the widths, never from the pattern they make — turns out to govern the 
+1241	C9-OVERGENERALISATION-WORD	reg	1238	never	**ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A READOUT THE PRESS PRINTS AT EVERY BUILD — 47 AT THE TIME OF WRITING, HAVING BEEN 55
+1242	C9-OVERGENERALISATION-WORD	reg	1310	never	**PAST, PRESENT AND FUTURE.** *Treated as free the three parts overcount by 130%;* **the balance holds at every two-sided cut, not only at q.** *The future is never a value, and for each present every
+1243	C9-OVERGENERALISATION-WORD	reg	1342	never	**§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written as kept in the pass that failed to keep them; three Q items described as entered and never entered. Two instances, and the 
+1244	C9-OVERGENERALISATION-WORD	reg	1378	never	**ITEM M IS WITHDRAWN RATHER THAN CLOSED.** *It asked for E(G) = 33 to be* *resolved**, meaning driven to zero, and register 370 shows the count was never the thing to assert — it moves whenever the b
+1245	C9-OVERGENERALISATION-WORD	reg	1382	never	**E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER.** *Stated as nought fibred and one unfibred, it is 4 unfibred on the table as it now stands — moved by items O and K closing and item M being re
+1246	C9-OVERGENERALISATION-WORD	reg	1398	never	**THE AUDIT COORDINATES PRINTED, AND THE LAST FIGURE §2.21 COULD NOT REACH IS NOW COMPUTED.** *E(audits), then 17, and dim(hierarchy) = 2 were asserted from four values per audit that* **the book neve
+1247	C9-OVERGENERALISATION-WORD	reg	1402	never	**I NEARLY WITHDREW A CORRECT CLAIM ON TWO FAILING INSTRUMENTS.** *§3.8 asserts dim(hierarchy) = 2 from precedences the book did not print, so I set out to print them and test it. A hand-built orienta
+1248	C9-OVERGENERALISATION-WORD	reg	1410	never	**A TWENTY-FIRST PRIME AUDIT, INPUT, DEFINED AT §3.7.1 AND RETAINED** *: every stated result must print the data it was computed from. Registers 376 and 377 found the same defect twice in two turns — 
+1249	C9-OVERGENERALISATION-WORD	reg	1434	never	**EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six resolve cleanly — 96 section references, 103 appendix references and 13 chapter references, none unresolved — and
+1250	C9-OVERGENERALISATION-WORD	reg	1454	always	**THE MEASUREMENT FIBRE'S TOP CELL OCCUPIED AT §6.2.1, AND THE RECOMPUTATION IS A RESULT.** *§6.2 reported E = 9 on the measured nuclide chart at one cutoff; moving the cutoff four times gives 6, 8, 9
+1251	C9-OVERGENERALISATION-WORD	reg	1474	never	**THE BOOK'S CAP CONVENTION WAS IN FORCE FROM THE FIRST PAGE AND NEVER STATED.** *84 paragraphs carry a cap-dependent figure and* **69 of them name no cap — 82% relying on a rule that was not written 
+1252	C9-OVERGENERALISATION-WORD	reg	1478	always	**ASKED WHAT REMAINS, AND THE ANSWER PUT TO THE INDICES RATHER THAN TO THE AUTHOR.** *Forty-three cells stand admitted and absent across the four — E(Λ) = 0, E(audits) = 16, E(G) = 19, E(Q) = 5, E(D) 
+1253	C9-OVERGENERALISATION-WORD	reg	1486	never	**Λ IS NOT THE CLEAN CONTROL.** *Audited from outside against Condon–Shortley and Racah, seven of thirteen letters are conflated,* *q* *is ungrounded and one quantity is read and never indexed. No com
+1254	C9-OVERGENERALISATION-WORD	reg	1534	never	**§18.6.1 GAINS A FIFTH INDEX AND §16.7.1 A THIRD VERDICT.** *The bibliography, indexed on era, ρ, access and depth of entry, holds 22 sources over 7 cells with E = 6 —* **the only non-zero prediction
+1255	C9-OVERGENERALISATION-WORD	reg	1554	never	**THE REGISTER IS AN INDEX AND IT CLOSES AT E = 6.** *248 entries over 33 cells in a box of 48, density 68.8% — the densest object here after the periodic table. And ℛ, given the cells and none of the
+1256	C9-OVERGENERALISATION-WORD	reg	1590	never	**§32.6's CONDITION 1 IS NAMED E(book) > 0 AND TESTS REFERENCE INTEGRITY.** *It found the missing Chapter 30 and has never evaluated E. Separated here.*
+1257	C9-OVERGENERALISATION-WORD	reg	1602	never	**THE THESIS RESTATED AFTER SCRUTINY.** *Cannot help containing* *was exact for six of the nine mechanisms and conditional for three — S2 needs a tree, D1 an outside measurement, D2 a second derivatio
+1258	C9-OVERGENERALISATION-WORD	reg	1654	at every cap	**Λ IMPOSES NO ELECTROMAGNETIC CONSTRAINT.** *Its image on (multipole, ΔS) is the complete rectangle at every cap tested, so E = 0 there is register 333's vacuous zero.* **576 Λ₉ cells are E1 transiti
+1259	C9-OVERGENERALISATION-WORD	reg	1662	never	**THE THREE MEASURES ARE ONE QUANTITY BECAUSE THE THREE OBJECTS ARE ONE SHAPE.** *§27.2 proved the first and never said why. [x∧y, x∨y] between cells, [min, max] output rank between states, [T(n−1), T
+1260	C9-OVERGENERALISATION-WORD	reg	1746	never	**THE CYCLE HAS AN EXPRESSION AND THE EXPRESSION HAS A FALSIFIER.** *X_{n+1} = ℛ(X_n ∪ Δ_n), halting when Δ_n ⊆ ℛ(X_n) — fill to the limit, take in what is not held, close again, stop when the increme
+1261	C9-OVERGENERALISATION-WORD	reg	1750	always	**THERE ARE TWO PAIRWISE OPERATORS IN THIS BOOK AND IT HAS USED ONE NAME FOR BOTH.** *2-wise closure admits a cell when every pair appears in the projection; ℛ admits it when the monotone envelope all
+1262	C9-OVERGENERALISATION-WORD	reg	1758	never	**THE THREE EXCLUDED FORMS ARE EXCLUDED BY MONOTONICITY, NOT BY PAIRWISE STRUCTURE.** *A congruence is perfectly representable by pairwise projections and not by monotone envelopes, so §12.11.2's refu
+1263	C9-OVERGENERALISATION-WORD	reg	1822	never	**THREE OBSTRUCTIONS, ONE LANGUAGE ERROR.** *The violation index prints a cell count and withholds its edge list; the coupling schemes print four counts and withhold the convention; the collection pri
+1264	C9-OVERGENERALISATION-WORD	reg	1826	never	**THE THREE-BODY SHORTFALL IS EXACTLY ONE LEVEL.** *ℛ reaches pairwise consistency; a K₃ of treewidth 2 requires strong 3-consistency.* **Pairs, plus one thing pairs cannot carry** *— and this book ha
+1265	C9-OVERGENERALISATION-WORD	reg	1850	in every case	**THE SEED FORMULA PREDICTS TO WITHIN ONE, AND ONLY ONE OF THE FOUR TESTS IS REAL.** *Predicting d + (largest alphabet − 1):* **the audit index, rebuilt from this book's own table, hits exactly at sev
+1266	C9-OVERGENERALISATION-WORD	reg	1854	never	**THE SEED FORMULA IS EXACT FOR COUNTING AXES AND FAILS FOR COUPLING AXES.** *Predicted against measured up the tower:* **11, 12, 13 exact** *at d = 8, 9, 10 — two of them at dimensions it was never f
+1267	C9-OVERGENERALISATION-WORD	reg	1862	never	**EIGHTEEN POINTS GIVE AN EXPRESSION, AND IT IS ADDITIVE.** *Sweeping parent count against alphabet on one base:* **at p = 2 the seed cost is exactly a + 4* **, on five distinct alphabets with no resi
+1268	C9-OVERGENERALISATION-WORD	reg	1886	never	**REGISTERS 497, 498, 499, 500 AND 502 ARE WITHDRAWN.** *Under greedy set cover a two-parent axis costs* **one or two cells, the same as a one-parent axis* **, where prune-greedy reported seven to ele
+1269	C9-OVERGENERALISATION-WORD	reg	1926	never	**INDEXING THE PROTOCOLS FOUND THAT §2.24 WAS ALREADY §2.8.** *Twenty-four protocols occupy nineteen distinct cells in four coordinates — trigger, object, failure, and how each was earned — and* **§2.
+1270	C9-OVERGENERALISATION-WORD	reg	1950	never	**THE SEED OF THE MATHEMATICS NEVER MOVED, AND NINETEEN CYCLES OF REPORTING SAID IT DID.** *Measured:* **14 generators over 176 objects** *at cycle 23, against* **14 over 152** *at cycle 4 — the seed 
+1271	C9-OVERGENERALISATION-WORD	reg	1978	never	**AND I NEARLY RECORDED A FALSE ERROR AGAINST B.hstar.** *Testing whether h∗ = √(2β/(αy″)) minimises αw + βV, I* **assumed** *w linear and V inverse-square, got a cube root, and had the makings of a c
+1272	C9-OVERGENERALISATION-WORD	reg	1998	never	**FIVE MODULAR OBJECTS WERE CITED AND NEVER CHECKED, AND CHECKING THEM WAS A SEARCH.** *Reeh–Schlieder, Tomita–Takesaki, Takesaki duality with its trace scaling and uniqueness, the semifinite/type III
+1273	C9-OVERGENERALISATION-WORD	reg	2050	never	**E = 0 IS RELATIVE TO COORDINATES, AND A THEOREM SAYS SO.** *Any X with |X| = a·b relabels onto an a × b rectangle, which is a full box and therefore closed —* **so every index whose cell count is co
+1274	C9-OVERGENERALISATION-WORD	reg	2130	never	**ρ IS A PROPERTY OF (DOCUMENT, ROUTE), AND §19 COLLAPSED THE SECOND INDEX INTO A COUNT.** *The coordinate is printed one section later at §19.6 step 2 — primary, preprint, review, compilation, citing
+1275	C9-OVERGENERALISATION-WORD	reg	2214	never	**CONJUNCTIVE BODIES ARE THE FORM T §8.2 PRINTS, AND ADDING THEM DOES NOT IMPROVE ON 29.** *§8.2 gives NEC ≥ 3 ∧ X = 0 → U ≥ 1 — a conjunctive body at arity 3 — where the search had disjunctive heads 
+1276	C9-OVERGENERALISATION-WORD	reg	2230	at every cap	**WITHDRAWN — NO CELL OF THE SEED IS NECESSARY, AND §14.5.7 WAS RIGHT.** *Across 140 sampled seeds four cells appear in all 140; tested directly — is any envelope element covered by exactly ONE cell? 
+1277	C9-OVERGENERALISATION-WORD	reg	2298	never	**THE REPAIR IS TO TEST WHAT A SECOND IMPLEMENTATION CANNOT.** *A criterion cannot be checked by restating it. What can be checked without restating it is* **monotonicity** *— adding a name or a check
+1278	C9-OVERGENERALISATION-WORD	reg	2310	never	**No SINGLE-RULE EDIT TOUCHES THE NEC INTERIOR, AND THE REASON IS A MISSING THRESHOLD.** *All 47 edits to the seventeen rules — removal, and every body or head threshold shifted by one —* **move only 
+1279	C9-OVERGENERALISATION-WORD	reg	2326	never	**A NEAR-AGREEMENT DISSOLVED ON REPRODUCTION, AND THE ERROR WAS MINE TWICE OVER.** *Λ₉'s printed 63.2% appeared to match the violation index's mean reachable fraction of 0.630 to within 0.002.* **Two 
+1280	C9-OVERGENERALISATION-WORD	reg	2350	never	**THE NON-COMPOSABLE CELLS ARE DEFINED EXHAUSTIVELY AT BOTH STAGES.** *At Λ₁₀'s peak,* **all 485 have g = 0 and every g = 0 cell is non-composable, 485 for 485** *— five target signatures failing on o
+1281	C9-OVERGENERALISATION-WORD	reg	2430	never	**CHAPTER 4 WAS A HEADING WITH NO BODY, AND IT SAID SEVEN.** *The book has cited §4.1 and §4.2 throughout its life and* **never defined them** *— the mechanisms lived at §28.7.8, and there are ten.* *
+1282	C9-OVERGENERALISATION-WORD	reg	2430	never	**CHAPTER 4 WAS A HEADING WITH NO BODY, AND IT SAID SEVEN.** *The book has cited §4.1 and §4.2 throughout its life and* **never defined them** *— the mechanisms lived at §28.7.8, and there are ten.* *
+1283	C9-OVERGENERALISATION-WORD	reg	2442	never	**REMOVING THE REGISTER ORPHANED EIGHT REFERENCES, WHICH IS WHAT REMOVING IT CAUGHT.** *Lubiw, Anstee, Kuznetsov, Caspard, Colomb, Hoffman, Van Isacker and Chandrasekaran & Flanagan were cited* **only
+1284	C9-OVERGENERALISATION-WORD	reg	2466	never	**THE CHEAPEST TAIL WAS THE MOST INFORMATIVE: Li III RETURNS ZERO, AND THAT IS THE TEST.** *Its configurations are single tokens — 4f, 7h — so it costs least per level, and being hydrogenic at Z = 3 i
+1285	C9-OVERGENERALISATION-WORD	reg	2498	never	**AND THE FAILURE THAT COST MOST TODAY WAS MINE, NOT THE TRANSFER'S.** *Uploads were catalogued by FILENAME, so every new batch that resembled an earlier one was checked against names already known an
+1286	C9-OVERGENERALISATION-WORD	reg	2502	never	**Ne I'S HIGH RYDBERG SERIES ARRIVED AND THE DEFECT MATCHES AN INDEPENDENT COMPILATION TO THREE DECIMAL PLACES.** *Levels with* **n running 11 to 20** *on both fine-structure cores, and the limit 173,
+1287	C9-OVERGENERALISATION-WORD	reg	2626	never	**REGISTER 713's NEGATIVE F DEFECTS WERE AN ARTEFACT OF TRUNCATION, AND ADDING ONE MISSING MEMBER CORRECTS THEM.** *With the 5f level restored, Ne II's nf channels go from three members to four and* *
+1288	C9-OVERGENERALISATION-WORD	reg	2686	never	**Si I'S NS SERIES RUNS FOURTEEN MEMBERS AND REPRODUCES AN INDEPENDENT COMPILATION TO 0.04.** *n = 11 to 24 on the ²P°₃/₂ core, δ = +1.8545 ± 0.0082; the J = 2 component gives +1.8882 with a spread of
+1289	C9-OVERGENERALISATION-WORD	reg	2798	without exception	**AND P.iso IS EXACT ALONG ISOELECTRONIC SEQUENCES WHEREVER THE DEFECT EXCEEDS THE NOISE FLOOR.** *3 electrons: ns 0.4055 → 0.2623 → 0.1958, np 0.0643 → 0.0491 → 0.0436. 2 electrons: ns 0.2178 → 0.127
+1290	C9-OVERGENERALISATION-WORD	reg	2822	never	**WHICH SUGGESTS THE ℓ-ordering CHECK SHOULD WEIGHT BY RELIABILITY, AND DELIBERATELY DOES NOT YET.** *Adding `if spread > |delta|: skip` would restore 144 of 144 — and would also let a genuine inversi
+1291	C9-OVERGENERALISATION-WORD	reg	2826	never	**Si III'S GROUND-STATE CAPTURE COMPLETES THE 12-electron SEQUENCE AND DISSOLVES REGISTER 770's INVERSION.** *The two Si III captures had been read as separate cores — `3s.nf` against `nf` — so P.lcol
+1292	C9-OVERGENERALISATION-WORD	reg	2846	never	**THE FAULT WAS FOUND BY A SECOND READING OF THE SAME DATA, NOT BY ANY AUDIT HERE.** *`channel_verify.py` asked whether two defects agreed and never asked whether they COULD differ.* **A check that ad
+1293	C9-OVERGENERALISATION-WORD	reg	2850	never	**THE MECHANISM LIST WAS KEPT BY HAND IN THREE FILES AND DRIFTED IN ALL THREE.** *`mathreg.py` held fifteen, `MECHANISMS.md` fourteen — P.termsplit was registered at 739 and never given an entry — and
+1294	C9-OVERGENERALISATION-WORD	reg	2870	never	**CHAPTER 24 CLAIMED "1,442 INTERIOR CELLS ACROSS 35 ATOMIC SYSTEMS, THE BRACKET HOLDS IN EVERY ONE", AND THAT SENTENCE WAS CARRYING THE FABRICATION.** *The honest split: **930 cells across 128 channe
+1295	C9-OVERGENERALISATION-WORD	reg	2874	always	**THE FAULT WAS INVISIBLE TO EVERY AUDIT BECAUSE THE AUDITS CHECK CONSISTENCY, NOT PROVENANCE.** *`bracket == interior` is internally consistent whatever the values are; the compendium audit confirmed
+1296	C9-OVERGENERALISATION-WORD	reg	2882	never	**AND THE DEFECT SPLITS THREE WAYS, WITH THE THIRD CLASS EMPTY.** *93 cells are a spectrum already held missing one ℓ; 330 are an element held at a different ionisation stage; **zero are an element ab
+1297	C9-OVERGENERALISATION-WORD	reg	2950	never	**THE MONOTONICITY RESULT IS THE TRADE-OFF THE COMPENDIUM HAS BEEN CARRYING UNSTATED.** *A bracket that cannot fail tells you nothing about the data and everything about the definition; a bracket that
+1298	C9-OVERGENERALISATION-WORD	reg	2978	always	**A CLAIM AT 100% CANNOT BE STRENGTHENED BY MORE OF THE SAME.** *P.lcollapse gains nothing from another ℓ-pair that was always going to order correctly; it gains from a sample that COULD have broken i
+1299	C9-OVERGENERALISATION-WORD	reg	3054	never	**THE TWO COMPENDIA ARE CROSS-REFERENCED, AND 211 OF 213 MATHEMATICAL OBJECTS NAME A PHYSICAL COORDINATE.** *By grade: 111 COMPUTED, 51 PROVED, 21 CITED, 16 MEASURED, 13 DEFINITIONAL, 1 OPEN. **121 ca
+1300	C9-OVERGENERALISATION-WORD	reg	3066	never	**AND THE THEOREM'S OWN YARDSTICK CHECKS OUT AGAINST THE DATA.** *2Z²R/ν³ against the measured adjacent-level spacing over 742 pairs: median ratio **1.201*. **The twenty per cent is the difference bet
+1301	C9-OVERGENERALISATION-WORD	reg	3238	never	**AND THE CORRECTION LEAVES EVERY MECHANISM'S HEADLINE FIGURE INTACT.** *145 ℓ-pairs correct, 0 inverted · 44 J-pairs consistent within 0.05 · 546 of 789 on the tight bracket · 113 of 130 resolved ste
+1302	C9-OVERGENERALISATION-WORD	reg	3310	never	**AND ALL THREE FAILURES ARE ONE FAULT: A BRACKET INHERITED FROM A SEQUENCE CARRYING NO SIGNAL.** *The 1-electron ladder is He II −0.0003 → Li III +0.0003 → Be IV +0.0004 → B V +0.0008 — **four bare n
+1303	C9-OVERGENERALISATION-WORD	reg	3486	never	**THE INTERIOR TEST WAS THE SHARPER ONE AND THE FORM PASSED IT.** *Register 934 argued from stability that the ln form was right rather than lucky; Ca IX at charge 9 and Ti XI at 11 sit BETWEEN the fi
+1304	C9-OVERGENERALISATION-WORD	reg	3586	without exception	**A THIRD PROPAGATION AXIS IS FOUND AND AT S AND P IT IS EXACT: δ FALLS WITH CHARGE AT FIXED ELEMENT.** *This is not P.iso, which fixes the electron count; it fixes the element. Across every element w
+1305	C9-OVERGENERALISATION-WORD	reg	3590	never	**AND A FAULT IN THE PROPAGATION IS FOUND THAT WAS WORTH MORE THAN THE AXIS: IT STEPPED TO c+1 WHERE THE ALPHABET IS SPARSE.** *The charge alphabet is [1, 2, 3, 4, 5, 9, 11, 15]. Stepping from Fe XI t
+1306	C9-OVERGENERALISATION-WORD	reg	3686	never	**THE DROP THAT EXPOSED IT WAS B V AND C V ENTERING WITH QUOTED UNCERTAINTIES.** *B V is a bare nucleus with a median defect of **0.0003** and levels quoted to ±0.000001, so its steps pass a 3σ cut wh
+1307	C9-OVERGENERALISATION-WORD	reg	3822	never	**AND THE PHYSICAL COROLLARY IS STRONGER THAN THE COUNTEREXAMPLE.** *"Any ground- or thermal (i.e. KMS) state on a static space-time satisfies the microlocal spectrum condition."* **Thermal states are
+1308	C9-OVERGENERALISATION-WORD	reg	4014	never	**Of 1,356 BOUNDED CELLS, 1,050 HAD ZERO WIDTH AND 70 WERE INVERTED.** *A zero-width interval is a value asserted as a deduction; an inverted one is not a statement at all. Only **157 were genuine int
+1309	C9-OVERGENERALISATION-WORD	reg	4022	never	**WHICH IS THE COMPENDIUM'S OWN RULE, NEVER APPLIED.** *BRACKETED has been defined since register 831 as "bounded above AND below by DIFFERENT mechanisms". PROPAGATED never carried that requirement.* 
+1310	C9-OVERGENERALISATION-WORD	reg	4058	never	**THE PROPAGATED INDEX IS BUILT ON BOTH LAYERS AND VERIFIED FROM OUTSIDE.** *ℛ supplies reach and the mechanisms supply tightness, and the two never contradict: **zero empty intersections across 1,696
+1311	C9-OVERGENERALISATION-WORD	reg	4126	never	**THE (Z, CHARGE) PLANE HAS THREE DIRECTIONS AND THE WALK USED TWO.** *iso moves (Z,c) → (Z+1,c+1); elem moves (Z,c) → (Z,c+1); and **isocharge** — same charge state, next element, (Z,c) → (Z+1,c) — w
+1312	C9-OVERGENERALISATION-WORD	reg	4142	always	**THREE THINGS WERE NEEDED AND NONE SUFFICED ALONE.** *The observation that the plane has three directions rather than two; the reparametrisation to (Nₑ, charge, ℓ), which says WHY the diagonal was ti
+1313	C9-OVERGENERALISATION-WORD	reg	4166	never	**THREE FAILURES, ONE CAUSE: A STEP IS USABLE WHERE THE PHYSICS HAS COLLAPSED TO ONE PARAMETER.** *At ℓ ≥ 4 the electron never enters the core and only the polarisability matters — Seaton, 1.12. At ℓ 
+1314	C9-OVERGENERALISATION-WORD	reg	4222	always	**So THE REIMAGINED SPECTRA INDEX IS (Z, CORE CHARGE, ℓ, MULTIPLICITY), FOUR COORDINATES.** *It admits |L−S| ≤ J ≤ L+S as a CONSTRAINT on the cells it holds rather than as an axis, exactly as Λ carrie
+1315	C9-OVERGENERALISATION-WORD	reg	4234	never	**So THE METHOD HAS FOUR PARTS, AND THREE OF THEM WERE RUNNING UNNAMED.** *𝒮 derives the STEP SET from the index itself. W is the VALUATION closure. ℛ is the PLACEMENT closure, the book's own. 𝒜 ancho
+1316	C9-OVERGENERALISATION-WORD	reg	4266	never	**n₀ IS THE PERIODIC TABLE'S OWN COORDINATE AND THE INDEX HAS NEVER HELD IT.** *n₀ − ℓ − 1 is the radial quantum number of the series' first member. The compendium records n as a RANGE on each channel
+1317	C9-OVERGENERALISATION-WORD	reg	4290	always	**A STRUCTURAL FLAW REMAINS AND MY REPAIR MADE IT WORSE.** *Sr I nd has B = 2 and a measured δ = 2.38 — the defect EXCEEDS the bound, which floor(δ) ≤ B permits since δ may reach B + 1. But the equati
+1318	C9-OVERGENERALISATION-WORD	reg	4290	never	**A STRUCTURAL FLAW REMAINS AND MY REPAIR MADE IT WORSE.** *Sr I nd has B = 2 and a measured δ = 2.38 — the defect EXCEEDS the bound, which floor(δ) ≤ B permits since δ may reach B + 1. But the equati
+1319	C9-OVERGENERALISATION-WORD	reg	4326	never	**AND IT NAMES THE TRANSITION ZONE EXACTLY.** *np is 66% penetrating, **nd is 35%** and nf 9%.* **ℓ = 2 is the only orbital where the two populations sit together in comparable number* **, and every s
+1320	C9-OVERGENERALISATION-WORD	reg	4382	never	**AND IT REPORTS FIVE language/index PAIRS NEVER RUN.** *Λ_spectra has been read in ORDER and ANALYSIS only; geometry, algebra, information and statistics have never touched it. Λ_α has been read in o
+1321	C9-OVERGENERALISATION-WORD	reg	4398	without exception	**AND THE CYPHER ANALYSIS THEN RETURNS A THEOREM-SHAPED RESULT: E(X) = 0 IF AND ONLY IF THE LANGUAGES AGREE.** *Six indexes, three operators — order, statistics and geometry — and the agreement tracks
+1322	C9-OVERGENERALISATION-WORD	reg	4406	never	**THE INDEX WAS UNDER-CONSTRAINED, NOT UNDER-COORDINATISED, AND THE MISSING CONSTRAINT WAS ONE THE COMPENDIUM HAD ALREADY PROVED.** *Applying register 1139's rule — the multiplicity must be one Hund a
+1323	C9-OVERGENERALISATION-WORD	reg	4486	never	**BUT THE DIVERGENCE SURVIVES THE REPAIR, AND IT HAS ONE CAUSE.** *All 218 refused cells fail the same envelope: **charge given Z**. The measured set runs Z 2–83 and charge 1–9; the refused cells run 
+1324	C9-OVERGENERALISATION-WORD	reg	4526	never	**A DEPENDENCY CYCLE PASSED 248 OBJECTS AND SIX AUDIT SETS UNDETECTED.** *Q.delta → Q.exch → Q.delta: the channel equation depends on the exchange factor and the exchange factor was registered as depe
+1325	C9-OVERGENERALISATION-WORD	reg	4642	never	**Λ_phys: THE INDEX OF PHYSICAL PARAMETERS.** *The Physics Compendium stated the interface between a quantity and the index holding it, and never held the parameters themselves.* **22 parameters on fo
+1326	C9-OVERGENERALISATION-WORD	reg	4682	never	**THE MEASURED DEFECTS REPRODUCE THE MADELUNG ORDERING, AND THE COMPENDIUM'S OWN EQUATION PRODUCES THE FILLING SEQUENCE.** *n∗ = n − δ orders by n+ℓ in **608 of 626 pairs, 97.1%* **, against 81.5% for
+1327	C9-OVERGENERALISATION-WORD	reg	4694	never	**THE CYPHER READING SUPPLIES THE MISSING STEP: THE ORDER LANGUAGE ALREADY HELD IT.** *Q.bound says floor(δ) ≤ p, exceptionless on 328 channels — an ORDER statement. dδ/dp = 1 is the ANALYSIS statemen
+1328	C9-OVERGENERALISATION-WORD	reg	4706	always	**WHAT IS DERIVED AND WHAT IS NOT, STATED PLAINLY.** *Derived and parameter-free: n₀ = p+ℓ+1; floor(δ) = p − min(p, max(2−ℓ,0)); frac(δ) ≈ 0 above the centrifugal gate; n∗ = ℓ+1 for non-penetrating ch
+1329	C9-OVERGENERALISATION-WORD	reg	4706	never	**WHAT IS DERIVED AND WHAT IS NOT, STATED PLAINLY.** *Derived and parameter-free: n₀ = p+ℓ+1; floor(δ) = p − min(p, max(2−ℓ,0)); frac(δ) ≈ 0 above the centrifugal gate; n∗ = ℓ+1 for non-penetrating ch
+1330	C9-OVERGENERALISATION-WORD	reg	4738	never	**THE MERCURY-CORE CAPTURE: Tl II, Pb III, Bi IV AT Nₑ = 80.** *The 5d¹⁰6s core, p = 4 at ℓ = 1 — the corner regime 2 had never had, since 19 of its 21 channels were p = 1 and two were p = 2. The 5d¹⁰
+1331	C9-OVERGENERALISATION-WORD	reg	4742	never	**THE CHARGE DEPENDENCE COLLAPSES AT HIGH ELECTRON COUNT.** *Successive ratios along the mercury sequence are 1.050 and 1.051 — δ ∝ c^(−0.14). Every candidate form predicts far steeper: ln(c+1)/c give
+1332	C9-OVERGENERALISATION-WORD	reg	4766	never	**A DISCIPLINE, EARNED BY LOSING IT REPEATEDLY.** *Every joint refit today moved three quantities at once and I could not tell which was real: refitting with the regime factor drove x(Nₑ) from 0.86 − 
+1333	C9-OVERGENERALISATION-WORD	reg	4782	without exception	**STEP 1 · ONE EQUATION PER ELEMENT.** *Within a species only ℓ varies and p is fixed by the ground configuration, so the natural form is **δ = a·√p** with one constant.* **41 species fitted, 22 with 
+1334	C9-OVERGENERALISATION-WORD	reg	4786	never	**STEP 2 · WHAT THE 41 SHARE AND HOW THEY DIFFER.** *They share the FORM exactly — δ = a√p, with p read and never fitted. They differ only in a.* **C = x·√Nₑ measured from the a-grid gives median 1.32
+1335	C9-OVERGENERALISATION-WORD	reg	4786	never	**STEP 2 · WHAT THE 41 SHARE AND HOW THEY DIFFER.** *They share the FORM exactly — δ = a√p, with p read and never fitted. They differ only in a.* **C = x·√Nₑ measured from the a-grid gives median 1.32
+1336	C9-OVERGENERALISATION-WORD	reg	4878	never	**THE SINGLETON-OUTPUT CRITERION, AND IT IS NOT ENFORCED BY ℛ.** *Λ_var gives E = 0 with δ alone AND with n∗ added, because both land in the same cell.* **An index is closed when its output class is a
+1337	C9-OVERGENERALISATION-WORD	reg	4962	never	**ALL ELEVEN LADDERS, AND SIX OF THEM ARE NULL FOR A REASON THE LAW SUPPLIES.** *Nₑ = 4, 12, 30, 48, 80 and 102 never cross at any charge.* **Where the incoming subshell shares a principal number with
+1338	C9-OVERGENERALISATION-WORD	reg	5006	always	**AND THE STATE IS NECESSARY.** *Tested memoryless: for each admissible subshell set a to that subshell's own crossing value and ask whether it is then least-ν. **104 of 106 steps admit two to four se
+1339	C9-OVERGENERALISATION-WORD	reg	5006	never	**AND THE STATE IS NECESSARY.** *Tested memoryless: for each admissible subshell set a to that subshell's own crossing value and ask whether it is then least-ν. **104 of 106 steps admit two to four se
+1340	C9-OVERGENERALISATION-WORD	reg	5010	never	**EVERY RESET IS AN OPENING, AN EXCEPTION, OR A RETURN — ALL EIGHTEEN ACCOUNTED.** *Eight at a subshell opening, six at an aufbau exception (four of them also openings), and **four at the RETURN from 
+1341	C9-OVERGENERALISATION-WORD	reg	5014	never	**THE THIRD COORDINATE: A FROM A SINGLE STATE.** *ν = c√(R/IE) gives a = (n−ν)/√p from one observation with no comparison. **18 of 51 fall inside their corridor, 33 outside, and a_meas is systematical
+1342	C9-OVERGENERALISATION-WORD	reg	5022	never	**THE DOMAIN PROTOCOL, WRITTEN BECAUSE I KEPT VIOLATING IT.** *Four questions before any fit: which single cell of Λ_phys · which carrier does Λ_law assign · points ≥ 3× parameters IN THIS CELL · am I
+1343	C9-OVERGENERALISATION-WORD	reg	5042	never	**A AND δ ARE ONE OBJECT, AND THE MERGED INDEX HAS THE AXIS NEITHER PARENT HAD.** *a = δ/√p, so the corridor bounds the quantum defect. δ lives in Λ_spectra on (Z, c, ℓ, 2S+1); a lives in the walk, pe
+1344	C9-OVERGENERALISATION-WORD	reg	5046	never	**AND THE TWO SOURCES AGREE WHERE THEY MEET.** *123 cells populated from Λ_spectra's defects, 14 from ionisation energies, **four overlapping*. **K I 4s: 1.2872 from the ionisation energy against 1.26
+1345	C9-OVERGENERALISATION-WORD	reg	5046	never	**AND THE TWO SOURCES AGREE WHERE THEY MEET.** *123 cells populated from Λ_spectra's defects, 14 from ionisation energies, **four overlapping*. **K I 4s: 1.2872 from the ionisation energy against 1.26
+1346	C9-OVERGENERALISATION-WORD	reg	5062	never	**THE LAST DEFECT CELL, FOUND BY EXHAUSTIVE REORDERING AND FILLED FROM THE LADDER DATA.** *All 1,440 orderings of the three axes give minimum E = 1 and none reaches zero — the defect is structural, no
+1347	C9-OVERGENERALISATION-WORD	reg	5078	never	**THE LÖWDIN SOLUTION, FINISHED FORM.** *ν(n,ℓ,q) = n − a·√(n−ℓ−1 + q/2(2ℓ+1)); the incoming electron takes the subshell of least ν among those with q < 2(2ℓ+1).* **The corridor L(Z) < a < U(Z) with L
+1348	C9-OVERGENERALISATION-WORD	reg	5158	always	**THE RATIO 4 IS AN IDENTITY, AND 1368 UNDERCOUNTS THE PAIRS BY HALF.** *Write the spin–orbit expectation in closed form: ⟨L·S⟩ = ℓ/2 for j = ℓ+½ and −(ℓ+1)/2 for j = ℓ−½, exact on all twenty-two leve
+1349	C9-OVERGENERALISATION-WORD	reg	5170	always	**A COORDINATE THAT INDIVIDUATES THE CELLS IS A KEY, NOT AN AXIS: THE DUAL OF A.DEFINE.** *A.define records that a rung-1 coordinate contributes no envelope — one value, nothing to bound. The other en
+1350	C9-OVERGENERALISATION-WORD	reg	5182	never	**Λ_XRAY, THE INDEX THE LADDER INDEX DEMANDED, BUILT FROM MATERIAL ALREADY HELD.** *Λ_ladder at seven cells left E = 1 with two candidate defects, both at the subvalence seat and both in directions io
+1351	C9-OVERGENERALISATION-WORD	reg	5194	in every case	**THE ISOTOPIC LADDER HAS ITS FIRST TRACED RUNG, FROM THE INDEX THE LADDER INDEX DEMANDED.** *1376 computed that the mass shift is null for δ everywhere and that the field shift could only matter wher
+1352	C9-OVERGENERALISATION-WORD	reg	5198	never	**Q.FINAL'S HYDROGENIC ZERO IS STRUCTURAL, AND WAS LISTED AS A RESULT.** *The compendium put "hydrogenic output exactly zero" among the fit statistics, between the rms and the Pauli bound, where it re
+1353	C9-OVERGENERALISATION-WORD	reg	5218	never	**THE 2P AND 3P DOUBLETS ARE ONE OBJECT, BUT NOT UNDER ONE Σ, AND THE FIRST TEST FAILED.** *L1M3 − L1M2 is the 3p spin–orbit splitting, the same object Kα gives at 2p, so the hydrogenic form ΔE = (Z−σ
+1354	C9-OVERGENERALISATION-WORD	reg	5218	never	**THE 2P AND 3P DOUBLETS ARE ONE OBJECT, BUT NOT UNDER ONE Σ, AND THE FIRST TEST FAILED.** *L1M3 − L1M2 is the 3p spin–orbit splitting, the same object Kα gives at 2p, so the hydrogenic form ΔE = (Z−σ
+1355	C9-OVERGENERALISATION-WORD	reg	5230	never	**THE REFUTED FAMILY IS NILSSON'S MODIFIED OSCILLATOR, AND 1368 DID NOT NAME IT.** *A precedent search, run late and owed earlier, identifies the form exactly:* **H = HO − κℏω₀[2 l·s + μ(l² − ⟨l²⟩_N)]
+1356	C9-OVERGENERALISATION-WORD	reg	5234	never	**THE SIX-PAIR SCREEN APPLIED: ALL THREE NAMED CANDIDATES FAIL, AND WOODS–SAXON WAS NEVER OUTSIDE THE FAMILY.** **Woods–Saxon: ΔT = 0 on every one of the six, identically.** *Both members of each pair
+1357	C9-OVERGENERALISATION-WORD	reg	5258	never	**THE CORRIDOR RELATION IS THE TOWER'S BRACKET RULE, AND R 325 STATED IT FIRST.** *Register 325:* *"the author's bracket rule — presume the next from the law that generates the widths, never from the 
+1358	C9-OVERGENERALISATION-WORD	reg	5262	never	**FOURTEEN OF THE EIGHTEEN RESETS ARE FORCED BY THE CORRIDOR, AND THE UPDATE RULE IS NOT NEEDED FOR THEM.** *The queue listed the update rule,* *keep a unless forced, move minimally**, as the one thin
+1359	C9-OVERGENERALISATION-WORD	reg	5266	always	**AND THE EIGHTEEN ARE A PROPERTY OF ONE TRAJECTORY, NOT OF THE CORRIDOR.** *Register 1331 found the walk rule-independent, seven of eight rules giving 106 of 106. The resets are the opposite. Placing
+1360	C9-OVERGENERALISATION-WORD	reg	5266	always	**AND THE EIGHTEEN ARE A PROPERTY OF ONE TRAJECTORY, NOT OF THE CORRIDOR.** *Register 1331 found the walk rule-independent, seven of eight rules giving 106 of 106. The resets are the opposite. Placing
+1361	C9-OVERGENERALISATION-WORD	reg	5278	never	**THE RESIDUE IS TWO ELEMENTS, AND THREE CANDIDATE CLASSES WERE ELIMINATED BY COUNT.** *After the forced moves and the handshakes, molybdenum 42 and rhodium 45 remain: resets with nothing requiring th
+1362	C9-OVERGENERALISATION-WORD	reg	5286	never	**AND WHAT THE MECHANISM DOES NOT DO: PROXIMITY IS A SIGNAL, NOT A TRIGGER.** *Tested on all ninety-nine two-sided steps rather than the three: resets have median margin plus 0.50 against plus 1.15 fo
+1363	C9-OVERGENERALISATION-WORD	reg	5294	never	**THE UPDATE RULE IS DERIVED: PER-BLOCK MONOTONE ASCENT, ZERO VIOLATIONS IN 106 STEPS.** *The person asked whether a should simply ascend by size. Globally it cannot: ascent breaks at cerium 58 and st
+1364	C9-OVERGENERALISATION-WORD	reg	5298	never	**AND THE RESIDUE WAS MINE, NOT THE WALK'S.** *Twelve exchanges were spent on molybdenum and rhodium as the two elements resetting with nothing requiring it. Under per-block ascent neither is an excep
+1365	C9-OVERGENERALISATION-WORD	reg	5306	always	**THE LAW HAS NO RESIDUE; THE TRAJECTORY DOES, AND THEY ARE DIFFERENT CLAIMS.** *The person asked how a law can be a law if it has residue. The answer is that it cannot, and this one does not — I had 
+1366	C9-OVERGENERALISATION-WORD	reg	5310	never	**END TO END, WITH NOTHING FITTED: NINETY-NINE OF ONE HUNDRED AND SIX.** *The corridor from node counts, a from the handshake, the tie-break, and q in the radicand. The scorer's tie-break is the whole
+1367	C9-OVERGENERALISATION-WORD	reg	5338	never	**THE LANDING AXES REFUSE AT Q EQUAL TO TWO, AND THE SOURCE SUBSHELL CLOSES THEM.** *Register 1418 left the finding that every axis describing what the electron is closes and every axis describing whe
+1368	C9-OVERGENERALISATION-WORD	reg	5374	never	**AND THE TERM AND J LADDERS ARE FIVE TOWER STAGES APART, NESTED RATHER THAN PARALLEL.** *The person supplied the context: when the tower was constructed, transition was found to happen down and inwar
+1369	C9-OVERGENERALISATION-WORD	reg	5378	never	**C3, THE NUCLEAR CLAIM SURVIVES ITS OWN FALSIFIER, BY ONE SHELL.** *Register 1393 narrowed the refutation: the field has never claimed a universal beta and alpha, and fits kappa and mu per mass regio
+1370	C9-OVERGENERALISATION-WORD	reg	5402	never	**THERE ARE EIGHT ADJACENT HANDSHAKES, NOT FOUR, AND THEY SPLIT ON A CRITERION NO REGISTER STATES.** *Computed from the exact intervals: eight places where one element's ceiling is exactly the next's 
+1371	C9-OVERGENERALISATION-WORD	reg	5426	never	**AND WHAT THE ROLLBACK DEMONSTRATED, WHICH IS AT THE SCALE OF THE PROJECT.** *The 1.6.1 container reverted to register 1370. Its compendium tail, its queue, `xray_index.py`, `traj_index.py`, the capt
+1372	C9-OVERGENERALISATION-WORD	reg	5434	always	**THE 99 WAS FITTED, NOT GENERATED: HELD OUT THE WALK SCORES 90 AND PLAIN MADELUNG BEATS IT.** *`scorer.py` placed a using each step's OWN corridor — and a corridor is built by `brack.py` FROM the obs
+1373	C9-OVERGENERALISATION-WORD	reg	5462	always	**THE INTRA-GROUP CROSSING IS THE ARITHMETIC MEAN OF TWO SQUARE ROOTS, AND THAT IS WHERE THE GOLDEN RATIO COMES FROM.** *The person pointed at φ = 1.6180 appearing among the crossings and said that wh
+1374	C9-OVERGENERALISATION-WORD	reg	5462	never	**THE INTRA-GROUP CROSSING IS THE ARITHMETIC MEAN OF TWO SQUARE ROOTS, AND THAT IS WHERE THE GOLDEN RATIO COMES FROM.** *The person pointed at φ = 1.6180 appearing among the crossings and said that wh
+1375	C9-OVERGENERALISATION-WORD	reg	5490	without exception	**δ IS PER CHANNEL ON A MONOTONE (ℓ, BLOCK) GRID — WHICH IS A RE-COORDINATISATION, NOT A JOIN.** *The person asked whether δ might be per Madelung group or per Janet block rather than per channel. Tes
+1376	C9-OVERGENERALISATION-WORD	reg	5494	never	**ν IS DEACTIVATED AS A LAW AND RETAINED AS A FORM; THE CORRIDOR IS THE INSTRUMENT AND IT SURVIVES INTACT.** *The person's reading: the law was created to find the rule, and now that the rule is found
+1377	C9-OVERGENERALISATION-WORD	reg	5494	never	**ν IS DEACTIVATED AS A LAW AND RETAINED AS A FORM; THE CORRIDOR IS THE INSTRUMENT AND IT SURVIVES INTACT.** *The person's reading: the law was created to find the rule, and now that the rule is found
+1378	C9-OVERGENERALISATION-WORD	reg	5506	always	**AND FISHBURN'S WARNING BITES ON REGISTER 1461'S OWN ATOMIC CLAIM, TWENTY MINUTES OLD.** *1461 states that the observed ATOMIC order is additively representable in ν's family because 106 of 106 corri
+1379	C9-OVERGENERALISATION-WORD	reg	5534	never	**A4b CLOSED: THE FOUR UNFORCED RESETS ARE THREE MECHANISMS PLUS AN ORIGIN, AND NOT ONE CLASS AT ALL.** *Queue item A4b, open since 1.6.1. Register 1401 called the four 'every one the first element of
+1380	C9-OVERGENERALISATION-WORD	reg	5538	never	**G1 · M.C2's OBSTRUCTION IS RELOCATED AND SHARPENED, NOT REMOVED — AND THE PERSON'S CAUTION IS WHY.** *M.C2 is the one OPEN object of 214. Its check says positivity of the null translation generator 
+1381	C9-OVERGENERALISATION-WORD	reg	5550	never	**AND THE GAP NARROWS TO ONE QUESTION IN DIFFERENTIAL GEOMETRY: IS AN NEH GENERATOR AFFINELY COMPLETE?** *With the null computed, M.C2's requirement is checkable: the horizon regime must supply EITHER
+1382	C9-OVERGENERALISATION-WORD	reg	5570	never	**THE FOUR CONDITIONS ARE ONE TERM, AND M.C2 STATED IT WITH A CLAUSE MISSING.** *The person: four conditions look like a single mathematical term. They are, and the literature writes it as one.* **A H
+1383	C9-OVERGENERALISATION-WORD	reg	5574	never	**AND EDITING THE SOURCE BROKE THE GATE TWICE — THE GUARD AT REGISTER 1226 IS WHY THAT WAS VISIBLE.** *Applying 1481's correction to `mathreg.py` broke the file twice in succession. First an unescaped
+1384	C9-OVERGENERALISATION-WORD	reg	5582	never	**THE SUM IS COMPLETED BY BECOMING TWO: THE LEDGER COUNTS A MANIFOLD, AND M.C2 NEEDS AN ALGEBRA.** *Completing M.ledger from entries already held, as the person required before the sudoku reading coul
+1385	C9-OVERGENERALISATION-WORD	reg	5582	never	**THE SUM IS COMPLETED BY BECOMING TWO: THE LEDGER COUNTS A MANIFOLD, AND M.C2 NEEDS AN ALGEBRA.** *Completing M.ledger from entries already held, as the person required before the sudoku reading coul
+1386	C9-OVERGENERALISATION-WORD	reg	5610	never	**THE VIOLATION INDEX AND THE M.C2 THREAD ARE THE SAME CONDITION FROM OPPOSITE SIDES, AND NOTHING JOINED THEM.** *The person asked what the book holds on black holes and wormholes, and the answer is s
+1387	C9-OVERGENERALISATION-WORD	reg	5642	never	**WHAT THE ANE VACUUM IS, AND WHERE THE REAL THREAT TO ITS CYCLICITY LIES — IN THE SAME PAPER THAT ASSUMES IT.** *The person asked plainly what the ANE vacuum is, and the register had been resting a w
+1388	C9-OVERGENERALISATION-WORD	reg	5666	never	**M.C2 HAS ONE UNDETERMINED PARAMETER, NOT FOUR, AND IT IS A CHOICE OF OBSERVABLE RATHER THAN A DEFECT.** *The person asked how many undetermined parameters actually operate in M.C2. Four appear — a(y
+1389	C9-OVERGENERALISATION-WORD	reg	5666	never	**M.C2 HAS ONE UNDETERMINED PARAMETER, NOT FOUR, AND IT IS A CHOICE OF OBSERVABLE RATHER THAN A DEFECT.** *The person asked how many undetermined parameters actually operate in M.C2. Four appear — a(y
+1390	C9-OVERGENERALISATION-WORD	reg	5702	never	**M.C2 IS NOT A THREE-BODY REMNANT — IT IS THE CONVERSE, A TERNARY CONDITION THAT PROVABLY DECOMPOSES.** *The person had assumed M.C2 was residue from the three-body thread. Tested against the registe
+1391	C9-OVERGENERALISATION-WORD	reg	5771	never	**WHAT THE EIGHT CAPTURES CLOSE — AND MY FIRST FRAMING OF THE L-SHELL TEST WAS WRONG.** *Asked what the fetches close and open. First a correction: I framed the L-shell test as asking whether the five
+1392	C9-OVERGENERALISATION-WORD	reg	5775	never	**AND WHAT THEY OPEN: A MOSELEY FIT THAT FAILS ON FOUR OF SEVEN LINES, WITH THE FAILURE LOCALISED.** *The real test the captures permit is whether Λ_xray's CELL MEMBERSHIP predicts measured behaviour.
+1393	C9-OVERGENERALISATION-WORD	reg	5779	never	**FIVE FETCHES, ZERO DATA — AND THE FAILURES ARE OF FOUR DIFFERENT KINDS, WHICH IS ITSELF THE FINDING.** *All five outstanding external sources attempted in one pass, on the person's instruction to fe
+1394	C9-OVERGENERALISATION-WORD	reg	5827	never	**THE PER-LEVEL DEFECT IS NOT THE ASYMPTOTIC ONE, AND EXTRAPOLATING MY OWN NUMBERS RECOVERS THE TEXTBOOK VALUES EXACTLY.** *A quantum-defect note supplied, comparing the levels route against the Theod
+1395	C9-OVERGENERALISATION-WORD	reg	5827	never	**THE PER-LEVEL DEFECT IS NOT THE ASYMPTOTIC ONE, AND EXTRAPOLATING MY OWN NUMBERS RECOVERS THE TEXTBOOK VALUES EXACTLY.** *A quantum-defect note supplied, comparing the levels route against the Theod
+1396	C9-OVERGENERALISATION-WORD	reg	5851	in every case	**THE TWO NEW CAPTURES OVERLAP ON EIGHT SPECIES, AND THE DEFECT GAP FALLS TOWARD ZERO AS THE ION CHARGE RISES.** *Reassessing after the capture run, and incorporating rather than merely listing. The T
+1397	C9-OVERGENERALISATION-WORD	reg	5863	never	**A1's LITERATURE IS NAMED AND IT DOES NOT REACH TWO OF THE SIX ANCHORS.** *Running the literature check for A1 rather than naming it from memory. A1 needs δ⟨r²⟩ for the six isotope anchors held in `X
+1398	C9-OVERGENERALISATION-WORD	reg	5891	never	**WE DID NOT NEED Z = 97 — A1's TEST IS CIRCULAR ON THE THEORY COLUMN AND BURIED IN NOISE ON THE EXPERIMENTAL ONE.** *Asked, now that Bk and Cf are predicted, why they were needed. Running A1's test f
+1399	C9-OVERGENERALISATION-WORD	reg	5907	never	**THE SIX ARE NOTES, NOT TASKS, AND PROMOTING THEM TO THE QUEUE WAS A CATEGORY ERROR.** *M, reading register 1567's list: these literally just seem to be notes. Tested by asking of each whether it des
+1400	C9-OVERGENERALISATION-WORD	reg	5907	never	**THE SIX ARE NOTES, NOT TASKS, AND PROMOTING THEM TO THE QUEUE WAS A CATEGORY ERROR.** *M, reading register 1567's list: these literally just seem to be notes. Tested by asking of each whether it des
+1401	C9-OVERGENERALISATION-WORD	reg	5915	never	**YES, BUT BY SEVENTY-TWO CELLS — AND THE CHECK IS WORTH MORE THAN THE COUNT.** *M's question, and the one the project was begun for: the Löwdin challenge was accepted in order to populate the spectra
+1402	C9-OVERGENERALISATION-WORD	reg	5931	never	**IMPROBABLE IS REMOVED FROM THE INDEX ALTOGETHER — IT WAS A JUDGEMENT ABOUT THE FUTURE STANDING IN A COLUMN OF FACTS.** *M's diagnosis, sharper than register 1577's: the problem is not which cutoff i
+1403	C9-OVERGENERALISATION-WORD	reg	5935	never	**TWENTY-SIX CELLS. THE POPULATION GOAL RETURNED TWENTY-SIX WITNESSED CELLS AND THE INDEX RETURNED A MEASURE OF ITS OWN IGNORANCE.** *M asked what has been populated of the spectra index. Traced cell 
+1404	C9-OVERGENERALISATION-WORD	reg	5943	never	**SIX CANDIDATE AXES TESTED: FIVE ARE DETERMINED, Z IS REFUSED AT 2.1%, AND H1's RE-COORDINATISATION DOES NOT CLOSE.** *M's ask: take everything since the Löwdin work began and make an axis of anythin
+1405	C9-OVERGENERALISATION-WORD	reg	5943	never	**SIX CANDIDATE AXES TESTED: FIVE ARE DETERMINED, Z IS REFUSED AT 2.1%, AND H1's RE-COORDINATISATION DOES NOT CLOSE.** *M's ask: take everything since the Löwdin work began and make an axis of anythin
+1406	C9-OVERGENERALISATION-WORD	reg	5947	never	**M IS RIGHT: THE OBSERVER RULE WAS INFERRED FROM ONE CASE, MY CONFIRMATION OF IT COULD NOT FAIL, AND THE REGISTER ALREADY CONTRADICTS IT.** *M: observer facts are what determine an object. Checked, a
+1407	C9-OVERGENERALISATION-WORD	reg	5951	never	**SPACE AND TIME ARE TWO WITNESSES DOING DIFFERENT WORK: TIME ORDERS THE TRAJECTORY, SPACE DETERMINES THE YIELD.** *M's reframing, and it puts `witness` in a role I had wrong. The facts an observer su
+1408	C9-OVERGENERALISATION-WORD	reg	5975	never	**YES — AND 54 PER CENT OF THE UNBOUNDED SPECIES ALREADY HAVE A MEASURED IONISATION ENERGY, SO THE PLAUSIBILITY IS NOT AN INFERENCE.** *M asked whether the unbounded cells are plausible ions not witne
+1409	C9-OVERGENERALISATION-WORD	reg	5979	always	**M IS RIGHT ABOUT THE ORDER, AND IT MAKES THE 44 SPECIES A READING NOT TAKEN RATHER THAN A CAPTURE TO MAKE.** *M: most ions we know were synthesised before being measured. Tested by predicting that a
+1410	C9-OVERGENERALISATION-WORD	reg	5987	never	**NO — THE READING LIST IS ONE OF FOUR FETCHES, AND ONE OF THE OTHERS ANSWERS 288 SPECIES BY ITSELF.** *M asked whether the reading list is all the fetching now needed. It is not, and checking why exp
+1411	C9-OVERGENERALISATION-WORD	reg	5987	never	**NO — THE READING LIST IS ONE OF FOUR FETCHES, AND ONE OF THE OTHERS ANSWERS 288 SPECIES BY ITSELF.** *M asked whether the reading list is all the fetching now needed. It is not, and checking why exp
+1412	C9-OVERGENERALISATION-WORD	reg	5999	never	**M IS RIGHT AND I NEVER LOOKED: THE H–Ar LADDER AND A HUNDRED SPECTRA HAVE BEEN ON DISK ALL SESSION.** *M said he had given me all of this, that I had read it and registered it. He is right on every 
+1413	C9-OVERGENERALISATION-WORD	reg	6003	never	**THE EIGHT ON-DISK SPECIES YIELD ZERO ENTERABLE CELLS, AND THE FRONTIER IS 245 TRIPLES RATHER THAN 1,802.** *Reading the eight species register 1596 found on disk. The extraction ran and every stage 
+1414	C9-OVERGENERALISATION-WORD	reg	6027	never	**THE JK SPLIT IS REAL AT TWO TIMES TIGHTER, AND A GREEDY REGEX READ 289,119 AS 9,119 AND WOULD NOT HAVE BEEN CAUGHT.** *Applying the rebuild across every spectrum on disk. Fifteen of ninety-one files
+1415	C9-OVERGENERALISATION-WORD	reg	6031	never	**THE REBUILT TABLE HOLDS 49 CELLS THE OLD KEY COLLAPSES TO 13, AND I NEARLY READ ITS REACH AS A DEFECT.** *Building `captures/COORDINATES-jK.tsv` — the spectra index rebuilt on the three axes argon's
+1416	C9-OVERGENERALISATION-WORD	reg	6043	never	**THE RULE PAYS AND THE SPLIT IS NOT ON AN AXIS — IT IS ON THE REGIME, AND ℓ BECOMES PERFECTLY MONOTONE INSIDE IT.** *M's rule: any axis holding more than a single monotone value must be split. Applie
+1417	C9-OVERGENERALISATION-WORD	reg	6059	never	**THE SIX HUNDRED ARE WITHDRAWN: RANK IS NOT REACH, AND ALL OF THEM WERE THE EXACT CELLS THAT NEED NO MEASUREMENT.** *M thought register 1610's six hundred unreachable-but-unobstructed cells were what
+1418	C9-OVERGENERALISATION-WORD	reg	6067	never	**THE SEED IS THE NUCLEUS: HALF OF Λ_spectra's 242 GENERATING CELLS ARE BARE NUCLEI WITH ONE ELECTRON, AND I HAD BEEN USING THE WORD WRONGLY ALL SESSION.** *M: the seed is the atom — the nucleus — and
+1419	C9-OVERGENERALISATION-WORD	reg	6067	never	**THE SEED IS THE NUCLEUS: HALF OF Λ_spectra's 242 GENERATING CELLS ARE BARE NUCLEI WITH ONE ELECTRON, AND I HAD BEEN USING THE WORD WRONGLY ALL SESSION.** *M: the seed is the atom — the nucleus — and
+1420	C9-OVERGENERALISATION-WORD	reg	6072	never	**P3 IS ANSWERED AND DOES NOT ADVANCE THE DERIVATION; PR4 AND PR5 ARE CLOSED; AND MY PARITY CHECKER HAD BEEN MISCOUNTING ENTRIES ALL ALONG.** *Closing the board rows marked as needing nothing. Three o
+1421	C9-OVERGENERALISATION-WORD	reg	6072	never	**P3 IS ANSWERED AND DOES NOT ADVANCE THE DERIVATION; PR4 AND PR5 ARE CLOSED; AND MY PARITY CHECKER HAD BEEN MISCOUNTING ENTRIES ALL ALONG.** *Closing the board rows marked as needing nothing. Three o
+1422	C9-OVERGENERALISATION-WORD	reg	6080	always	**Λ_XRAY IS REBUILT FROM ITS SPECIFICATION ALONE AND REPRODUCES ALL THREE RECORDED NUMBERS — 33 LINES, 9 CELLS, E = 0.** *The last board row marked as needing nothing. `PROVENANCE.md` recorded Λ_xray 
+1423	C9-OVERGENERALISATION-WORD	reg	6080	always	**Λ_XRAY IS REBUILT FROM ITS SPECIFICATION ALONE AND REPRODUCES ALL THREE RECORDED NUMBERS — 33 LINES, 9 CELLS, E = 0.** *The last board row marked as needing nothing. `PROVENANCE.md` recorded Λ_xray 
+1424	C9-OVERGENERALISATION-WORD	reg	6100	never	**THE OBSERVER CORRESPONDENCE HOLDS AS A SHAPE AND FAILS AS A MECHANISM, AND THE PROJECT HAS NO OBSERVER IN IT TO TEST THE REST.** *M: this is where the basal needs, consciousness and the observer as 
+1425	C9-OVERGENERALISATION-WORD	reg	6120	never	**THERE IS NO CACHE — ONE PERMISSION LAYER WITH TWO EXITS, AND M PUT THE TWO DESCRIPTIONS SIDE BY SIDE UNTIL IT WAS OBVIOUS.** *M quoted register 1628's own table back at me: `ie.pl` succeeding with t
+1426	C9-OVERGENERALISATION-WORD	reg	6124	never	**THE SIXTY-ONE BECOME TEN URLS, BATCHED BY IONISATION STAGE.** *M asked for the URLs to feed back. Sixty-one lines is a poor thing to hand someone when NIST's `spectra` parameter accepts a semicolon-
+1427	C9-OVERGENERALISATION-WORD	reg	6128	never	**THE SEMICOLON LIST IS NOT NIST'S SYNTAX, AND ASKING FOR THE FIX CONFIRMED REGISTER 1629's MECHANISM BY PREDICTION.** *M pasted the neutral batch and the fetch reached NIST — permission and length bo
+1428	C9-OVERGENERALISATION-WORD	reg	6132	never	**THE STAGE SUFFIX IS `ie.pl` SYNTAX AND I USED IT ON `energy1.pl` — ISOLATED BY DIFFERENCING AGAINST THE ONE URL THAT WORKS.** *The range syntax reached NIST unaltered this time — destination_url mat
+1429	C9-OVERGENERALISATION-WORD	reg	6140	never	**THE UNKNOWN PARAMETER IS `order=0`, WHICH BELONGS TO `ie.pl` — I INVENTED ONE PARAMETER AND DROPPED FOUR.** *Four rejected URLs in a row, and the cause was one parameter the whole time. Found by dif
+1430	C9-OVERGENERALISATION-WORD	reg	6140	never	**THE UNKNOWN PARAMETER IS `order=0`, WHICH BELONGS TO `ie.pl` — I INVENTED ONE PARAMETER AND DROPPED FOUR.** *Four rejected URLs in a row, and the cause was one parameter the whole time. Found by dif
+1431	C9-OVERGENERALISATION-WORD	reg	6140	never	**THE UNKNOWN PARAMETER IS `order=0`, WHICH BELONGS TO `ie.pl` — I INVENTED ONE PARAMETER AND DROPPED FOUR.** *Four rejected URLs in a row, and the cause was one parameter the whole time. Found by dif
+1432	C9-OVERGENERALISATION-WORD	reg	6140	never	**THE UNKNOWN PARAMETER IS `order=0`, WHICH BELONGS TO `ie.pl` — I INVENTED ONE PARAMETER AND DROPPED FOUR.** *Four rejected URLs in a row, and the cause was one parameter the whole time. Found by dif
+1433	C9-OVERGENERALISATION-WORD	reg	6144	never	**FIVE REJECTIONS, SO STOP GUESSING: THE HELP PAGE STATES A TWO-PARAMETER MINIMUM AND EVERY OPTIONAL PARAMETER IS A CHANCE TO BE WRONG.** *The fifth `energy1.pl` rejection, this time on M's own full p
+1434	C9-OVERGENERALISATION-WORD	reg	6144	never	**FIVE REJECTIONS, SO STOP GUESSING: THE HELP PAGE STATES A TWO-PARAMETER MINIMUM AND EVERY OPTIONAL PARAMETER IS A CHANCE TO BE WRONG.** *The fifth `energy1.pl` rejection, this time on M's own full p
+1435	C9-OVERGENERALISATION-WORD	reg	6148	never	**ONE SPECTRUM PER REQUEST — THE FORM'S OWN EXAMPLES SAID SO BEFORE SIX FETCHES WENT ON RANGES.** *M: you can only fetch one ion at a time, and it is better to take sixty-one turns than to corrupt the
+1436	C9-OVERGENERALISATION-WORD	reg	6156	never	**NINETEEN SPECIES AND 1,253 LEVELS CAPTURED, NOTHING EXTRACTED, AND THE THIRD SPECIES EXPLAINED THE FIRST TWO.** *M's protocol: stagger the URLs, capture all sixty, extract nothing until they are in.
+1437	C9-OVERGENERALISATION-WORD	reg	6160	never	**BATCH 1 RECOVERED LIVE — EIGHT QUEUE SPECIES, ONE OUT-OF-QUEUE, ONE RECITATION FAULT.** *The paste route ran: Ti I (559 rows, count matches holdings; Racah 4f/5g blocks), Cr III (215), Cr VI (63 — K
+1438	C9-OVERGENERALISATION-WORD	reg	6196	never	**THE COLLISIONS ARE THE KEYABILITY BOUND, NOT A DEFECT OF THE KEY — AND R 1648 MISREAD THE CHARGE AXIS.** *M asked whether the index needs a rebuild that removes collisions while keeping E = 0, and w
+1439	C9-OVERGENERALISATION-WORD	reg	6224	never	**PART III READ WHOLE, AND IT NAMES THE OPERATION THE LAST TWO SESSIONS PERFORMED.** *Second bounded pass on M's instruction to read everything. Chapters 14, 17 and 18 read in full, §18.4.1 included, 
+1440	C9-OVERGENERALISATION-WORD	reg	6228	never	**THE Λ_spectra COLLISION SETTLED — AND THE COLUMN THAT READ E WAS NEVER A CLOSURE DEFECT.** *M ruled by provenance, not timestamp: INDICES.md and SPECTRA.md carry the same mtime because they are gene
+1441	C9-OVERGENERALISATION-WORD	reg	6244	never	**145 OF 554 CARRY A δ COMPUTED AGAINST THE WRONG CORE — AND R 1649's FALLBACK IS THE SILENT DEFAULT §2.9 FORBIDS.** *Eight rows resisted language classification because NIST leaves their term column 
+1442	C9-OVERGENERALISATION-WORD	reg	6260	never	**C6 PASSED ON THREE OF FIVE THREADS — A CLAUSE THAT COULD NOT FAIL FOR THE REASON IT NAMES.** **The certificate found open threads with a pattern that required a full stop before `Owner:`; T6 and T7 
+1443	C9-OVERGENERALISATION-WORD	reg	6264	never	**THE ARCHIVES ARE NOT DISJOINT — THE PROBE WAS, AND IT IS R 1671's FAULT COMMITTED ONE ENTRY LATER.** **I reported that `spectra_raw` and `MEASUREMENTS.tsv` share NO species and that 0 of 554 rows co
+1444	C9-OVERGENERALISATION-WORD	reg	6268	never	**T2 IS ANSWERED BY MEASUREMENT, NOT BY RULING: THE STORE'S STATISTIC IS ALREADY THE MEDIAN.** *The bridge carried T2 as M's to declare — which statistic a cell's derived δ uses. It was never undecide
+1445	C9-OVERGENERALISATION-WORD	reg	6280	never	**T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge named three candidates — term-string variants, J-splitting conventions, an
+1446	C9-OVERGENERALISATION-WORD	reg	6280	never	**T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge named three candidates — term-string variants, J-splitting conventions, an
+1447	C9-OVERGENERALISATION-WORD	reg	6288	never	**THE GENERATOR REPAIRED; JK NEARLY TRIPLES; ZERO REGRESSIONS.** *`store_gen.py` rebuilt to implement the two rules already on record — the (l, term, parent) split, and per-row language parsing — with
+1448	C9-OVERGENERALISATION-WORD	reg	6288	never	**THE GENERATOR REPAIRED; JK NEARLY TRIPLES; ZERO REGRESSIONS.** *`store_gen.py` rebuilt to implement the two rules already on record — the (l, term, parent) split, and per-row language parsing — with
+1449	C9-OVERGENERALISATION-WORD	reg	6296	never	**THE COST WAS MANUFACTURED BY THE COORDINATE NAME: 554 OF 554 SERIES LAND ON AN EXISTING CELL, ZERO REFUSED.** *With `mult` in the measurement's key, 244 of 554 series land on cells the index refuses
+1450	C9-OVERGENERALISATION-WORD	reg	6296	never	**THE COST WAS MANUFACTURED BY THE COORDINATE NAME: 554 OF 554 SERIES LAND ON AN EXISTING CELL, ZERO REFUSED.** *With `mult` in the measurement's key, 244 of 554 series land on cells the index refuses
+1451	C9-OVERGENERALISATION-WORD	reg	6300	never	**M'S RULING "NO CELLS SHOULD BE COST" IS SATISFIED AT ZERO, AND A.cert IS NOT INVOKED AT ALL.** *The ruling is not a constraint the data strains against. No admitted operation is required — not add-a
+1452	C9-OVERGENERALISATION-WORD	reg	6304	never	**BOARD ROW 4b CLOSES: THE CLOSURE TEST WAS THE WRONG INSTRUMENT, AND TEMPERATURE IS A COLUMN, NOT AN AXIS.** *Computed: adjoining an UNCONSTRAINED chain T to a closed staircase index keeps E = 0 vacu
+1453	C9-OVERGENERALISATION-WORD	reg	6308	always	**TWO BOUNDED NEGATIVES WITH THEIR SCOPES, AND A FETCH-LAYER MECHANISM NAMED.** *Theodosiou ADNDT 35, 473 (1986): one search on the full title; paywalled at the publisher, request-only at the aggregat
+1454	C9-OVERGENERALISATION-WORD	reg	6312	never	**T7 CLOSES FROM THE RECORD: THE `mult` COLUMN STAYS, AND ITS JJ VALUES ARE NULLS BY LANGUAGE, NOT VALUES.** *R 1683 named the three options — drop, refuse, leave — and the record decides among them: 
+1455	C9-OVERGENERALISATION-WORD	reg	6324	never	**THE BOARD IS REBUILT FROM THE REGISTER AT SOURCE, AND THE JSON HALF OF C3 IS MEASURED.** *Rows 0 and 0b retire on R 1646; rows 16, 17, 1, 4, 7 unblock on the same entry; 4b closes at R 1686; rows 2 
+1456	C9-OVERGENERALISATION-WORD	reg	6340	never	**M ASKED WHETHER THE INDEX CLOSES AT Z = 120 WITH 119 AND 120 PRESENT — IT DOES, E = 0, AND THE TWO INSTRUMENTS I FIRST REACHED FOR WERE BOTH WRONG.** *Measured on COORDINATES.tsv: 104,832 cells; 7,2
+1457	C9-OVERGENERALISATION-WORD	reg	6344	never	**T8-J RULED YES (M) — NARROW SCOPE APPLIED, THE WIDTH RETURNED TO M.** *A J-resolved parent may borrow its limit from the parent ION's own level table: limit(J) = printed limit(J₀) + [E_ion(term,J) −
+1458	C9-OVERGENERALISATION-WORD	reg	6348	never	**ROW 1 RUN — AND THE FIRST FINDING IS THAT NO SERIES CONSTRUCTOR EXISTED.** *`store_gen.py` closes the VALUE derivation and inherits the series list from the authored store; nothing on disk construct
+1459	C9-OVERGENERALISATION-WORD	reg	6348	never	**ROW 1 RUN — AND THE FIRST FINDING IS THAT NO SERIES CONSTRUCTOR EXISTED.** *`store_gen.py` closes the VALUE derivation and inherits the series list from the authored store; nothing on disk construct
+1460	C9-OVERGENERALISATION-WORD	reg	6372	never	**ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 
+1461	C9-OVERGENERALISATION-WORD	reg	6444	never	**APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, DECIDED TWO PLACEMENTS.** *The forty-eight of D.5.8
+1462	C9-OVERGENERALISATION-WORD	reg	6452	never	**Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED.** *The four domains (physical 4, bibliographic 3, mathematica
+1463	C9-OVERGENERALISATION-WORD	reg	6464	never	**THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN VOLUME NOW SAYS WHICH BIBLIOGRAPHY IS WHOSE.** *Matching the compendium's "172 works, 1669–2026" against
+1464	C9-OVERGENERALISATION-WORD	reg	6504	never	**RULING 24: §34.4 IS THE CANONICAL STATEMENT OF THE RULE — THE SECTION IS ORIGINAL TO THIS RECORD, THE WORDING IS THE BUILDER'S, AND THE BODY NOW GIVES THE RULE, WHAT IT IS, ITS DERIVATION, ITS ATTRI
+1465	C9-OVERGENERALISATION-WORD	reg	6508	never	**RULING 25: A SURVIVING CLAIM IS DEFINED, THE MOVE §D.5.3 MADE FOR *ELEMENT* — AND F.4.2'S WITHDRAWAL RATIO, IN Q SINCE REGISTER 297, HAS A VALUE: 4.21 : 1, p 0.192, 0.705 BITS.** *The author's rulin
+1466	C9-OVERGENERALISATION-WORD	reg	6508	never	**RULING 25: A SURVIVING CLAIM IS DEFINED, THE MOVE §D.5.3 MADE FOR *ELEMENT* — AND F.4.2'S WITHDRAWAL RATIO, IN Q SINCE REGISTER 297, HAS A VALUE: 4.21 : 1, p 0.192, 0.705 BITS.** *The author's rulin
+1467	C9-OVERGENERALISATION-WORD	reg	6512	never	**RULING 26: THE 489 UNTESTED SPECTRA ROWS ARE RUN UNDER M'S SEALED-TEST RULING — STRICT MEMBERSHIP, THE QUOTATION FLOOR AS THE ONLY ε, §22.5 ADMISSIBILITY — AND 318 ROWS CLOSE: 658 OF 813 CELLS PASS,
+1468	C9-OVERGENERALISATION-WORD	reg	6532	never	**T IS ABSORBED: ITS THIRTY CITED SECTIONS ENTER AS APPENDIX G AND THIRTY-FOUR CITATIONS RE-SOURCE INWARD.** *A citation to a work no reader can obtain gives the reader nothing.* Transitions *v3.0 has
+1469	C9-OVERGENERALISATION-WORD	reg	6536	never	**THE 98.6% CEILING WAS COMPUTED OFF THE WRONG ONE OF THE THREE KINDS, AND THE THREE WERE PRINTED AS TWO.** *The channel survey's thirty-three unconstrained cells fall into three kinds, and register 9
+1470	C9-OVERGENERALISATION-WORD	reg	6556	never	**THE CALENDAR'S SEVENTH MISSING CELL WAS NEVER NAMED, AND THE PRINTED DEFECT WAS RIGHT ALL ALONG.** *The Index of Indices draws the calendar beside the atomic index as a subject with no physics in it
+1471	C9-OVERGENERALISATION-WORD	reg	6568	never	**THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET.** *The Spectra Compendium sets out* COORDINATES-2.13 *column by col
+1472	C9-OVERGENERALISATION-WORD	reg	6579	never	**THREE CLAIMS THE REGISTER MADE ABOUT ITS OWN NUMBERING ARE WITHDRAWN, TWO OF THEM MEASURED FALSE.** *First: thirteen numbers were said to be absent everywhere. Across 165 to 1781 the span holds 1,61
+1473	C9-OVERGENERALISATION-WORD	reg	6594	never	**APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. There was never an F.3.1 or an F.3.2 — F.3 carried
 1474	C9-OVERGENERALISATION-WORD	mc	19	never	**It has never halted.** Its falsifier is the ratio of closure to seed:
 1475	C9-OVERGENERALISATION-WORD	mc	134	never	computation, which is why §29's precedent question can be bounded and never settled, and why two
 1476	C9-OVERGENERALISATION-WORD	mc	135	never	searches returning nothing is evidence of a kind the other six never have to produce.
@@ -29298,18 +29323,18 @@ id	class	member	line	item	detail
 1507	C9-OVERGENERALISATION-WORD	mc	2712	never	three checks. COVERAGE: every index coordinate has a math object and every family an index part — 0 and 0. LANGUAGE: five index/language pairs never run — Λ_spectra in geometry, algebra, information a
 1508	C9-OVERGENERALISATION-WORD	mc	3080	never	311 measured channels: rms 0.2449, R^2 0.924, median |error| 0.090. By l: s 0.283, p 0.276, d 0.280, f 0.119, g 0.0096. Against TWELVE published values never fitted on: median error 0.00155 at l ≥ 3 a
 1509	C9-OVERGENERALISATION-WORD	mc	3280	never	*confirms §12.11.2 on a grid the book never ran*
-1510	C9-OVERGENERALISATION-WORD	mc	3650	always	self-consistent subshells** — the observed one is always among them, never uniquely
-1511	C9-OVERGENERALISATION-WORD	mc	3650	never	self-consistent subshells** — the observed one is always among them, never uniquely
+1510	C9-OVERGENERALISATION-WORD	mc	3650	always	six across the table, and one never** — the observed one always among them, never
+1511	C9-OVERGENERALISATION-WORD	mc	3650	never	six across the table, and one never** — the observed one always among them, never
 1512	C9-OVERGENERALISATION-WORD	pc	135	never	**Above ℓ = 4 the electron never enters the core and only the polarisability matters — one number, and Seaton's formula follows. At ℓ ≤ 1 with Nₑ ≥ 9 penetration is statistical and Thomas-Fermi govern
 1513	C9-OVERGENERALISATION-WORD	pc	153	always	**The practical consequence.** Register 879's Li III fault was a Coulomb expression used where a relativistic one was required: the limit was written as 9R∞ and was low by 26.45 cm⁻¹, showing as a spu
 1514	C9-OVERGENERALISATION-WORD	pc	170	never	**The trade-off, stated.** §22.1's bracket is a genuine deduction and carries no information. §25.6.1's carries information and is not a deduction. **Chapter 22's modesty is exactly what buys the 100%
 1515	C9-OVERGENERALISATION-WORD	pc	186	never	**The bracket's own inputs.** `channels.py` writes `bracket = "untested"` for every channel it builds, because running the bracketing method needs measured neighbours and a tolerance and the script su
 1516	C9-OVERGENERALISATION-WORD	pc	242	never	fallback ordering anywhere; its role is the counterfactual, and it must never be
-1517	C9-OVERGENERALISATION-WORD	pc	327	never	**The point of observability.** What Λ₃ delivers for a given state: the stratum, the family within it (torus / braid word / symbolic sequence / distribution P(ε)), and the geodesic as far as the natur
-1518	C9-OVERGENERALISATION-WORD	pc	391	never	> **Where it fails.** never within non-relativistic quantum mechanics.
-1519	C9-OVERGENERALISATION-WORD	pc	401	never	> **Where it fails.** never as a constant; but using it in place of the reduced-mass R_M is wrong for every species (register 868). The error is 1 part in 1836 A, largest at hydrogen.
-1520	C9-OVERGENERALISATION-WORD	pc	411	never	> **Where it fails.** never; it enters only through R_M, so an error here is an error there.
-1521	C9-OVERGENERALISATION-WORD	pc	854	never	| the gate ℓ(ℓ+1) | never as a gate | but SIX appearances under six discipline names |
+1517	C9-OVERGENERALISATION-WORD	pc	362	never	**The point of observability.** What Λ₃ delivers for a given state: the stratum, the family within it (torus / braid word / symbolic sequence / distribution P(ε)), and the geodesic as far as the natur
+1518	C9-OVERGENERALISATION-WORD	pc	426	never	> **Where it fails.** never within non-relativistic quantum mechanics.
+1519	C9-OVERGENERALISATION-WORD	pc	436	never	> **Where it fails.** never as a constant; but using it in place of the reduced-mass R_M is wrong for every species (register 868). The error is 1 part in 1836 A, largest at hydrogen.
+1520	C9-OVERGENERALISATION-WORD	pc	446	never	> **Where it fails.** never; it enters only through R_M, so an error here is an error there.
+1521	C9-OVERGENERALISATION-WORD	pc	889	never	| the gate ℓ(ℓ+1) | never as a gate | but SIX appearances under six discipline names |
 1522	C9-OVERGENERALISATION-WORD	ioi	6	never	what role it plays for Λ.** Measured where measurable; where an index is named and never built,
 1523	C9-OVERGENERALISATION-WORD	ioi	188	never	supplies. *A date must never enter Λ: a transition is a type, and types are not dated.*
 1524	C9-OVERGENERALISATION-WORD	ioi	288	never	**Remove cells at random and ask whether ℛ puts them back.** The largest fraction removable with exact recovery is a property of the index, and it had never been measured for any of these.
@@ -29324,28 +29349,80 @@ id	class	member	line	item	detail
 1533	C9-OVERGENERALISATION-WORD	ioi	2068	never	| 9.3 | Pair-completion. The nine leave four value-directions unoccupied, and every hand-found axis outside the box occupies a pair — never one direction, never three. | not used |
 1534	C9-OVERGENERALISATION-WORD	ioi	2085	in every case	| 12.6 | Thirty instances of one class — a conclusion drawn from a comparison that was not licensed. The arithmetic was correct in every case; the warrant was not. | not used |
 1535	C9-OVERGENERALISATION-WORD	sc	80	without exception	with **p** the core's orbital count at that ℓ and **n₀** the first Pauli-allowed principal number, both read from the ground-state configuration. **floor(δ) ≤ B holds on every measured channel without
-1536	C13-HANDLE-LEAK	main	10806	3B.shape	3B.shape the shape sphere                            definition · analysis         proved · exhaustive · found
-1537	C13-HANDLE-LEAK	main	10807	3B.metric	3B.metric the shape metric                           formula · analysis            proved · exhaustive · found
-1538	C13-HANDLE-LEAK	main	10809	3B.pot	3B.pot the potential on shape space                  formula · analysis            proved · exhaustive · found
-1539	C13-HANDLE-LEAK	main	10810	3B.norm	3B.norm the norm variety                             theorem · algebraic geometry  proved · exhaustive · found
-1540	C13-HANDLE-LEAK	main	10811	3B.five	3B.five the five fixed points                        theorem · analysis            proved · exhaustive · found
-1541	C13-HANDLE-LEAK	main	10812	3B.tri	3B.tri the triangle form at cap 8                    measurement · combinatorics   measured · exhaustive · none found
-1542	C13-HANDLE-LEAK	main	10813	3B.def	3B.def the deficit, one level                        theorem · complexity          proved · exhaustive · found
-1543	C13-HANDLE-LEAK	main	10814	3B.index	3B.index Λ₃, E = 0                                   theorem · order               proved · exhaustive · found
-1544	C13-HANDLE-LEAK	main	10822	3B.five	**The first run entered 3B.five and 3B.pot as measurements, because the compendium graded them
-1545	C13-HANDLE-LEAK	main	10822	3B.pot	**The first run entered 3B.five and 3B.pot as measurements, because the compendium graded them
-1546	C13-HANDLE-LEAK	reg	6403	3B.tri	**TRIANGLE FORM AT CAP 8 — 344 CELLS, 0 JOIN FAILURES, 8,385 MEET FAILURES.** *Triangle form at cap 8: 344 cells, 0 join failures, 8,385 meet failures; caps 3–12 as in `3B.tri`; two-body chain 0. Conf
-1547	C13-HANDLE-LEAK	reg	6439	3B.five	**APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, DECIDED TWO PLACEMENTS.** *The forty-eight of D.5.8
-1548	C13-HANDLE-LEAK	reg	6439	3B.pot	**APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, DECIDED TWO PLACEMENTS.** *The forty-eight of D.5.8
-1549	C13-HANDLE-LEAK	reg	6455	3B.shape	**THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPTHS AND DEPENDENCE COUNTS RECOMPUTED FROM THEIR OWN
-1550	C13-HANDLE-LEAK	reg	6467	3B.shape	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
-1551	C13-HANDLE-LEAK	reg	6467	3B.shape	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
-1552	C13-HANDLE-LEAK	reg	6467	3B.shape	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
-1553	C13-HANDLE-LEAK	reg	6467	3B.shape	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
-1554	C13-HANDLE-LEAK	reg	6467	3B.metric	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
-1555	C13-HANDLE-LEAK	reg	6467	3B.pot	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
-1556	C13-HANDLE-LEAK	reg	6507	BUILD-10	**RULING 26: THE 489 UNTESTED SPECTRA ROWS ARE RUN UNDER M'S SEALED-TEST RULING — STRICT MEMBERSHIP, THE QUOTATION FLOOR AS THE ONLY ε, §22.5 ADMISSIBILITY — AND 318 ROWS CLOSE: 658 OF 813 CELLS PASS,
-1557	C13-HANDLE-LEAK	reg	6626	BUILD180	**THE REGISTER'S FRONT MATTER GIVES ITS MATURE RECORD AS "165 TO 1791, 1,470 ENTRIES" WHERE THE BACK MATTER GIVES 165–1792; THE BACK MATTER IS CURRENT, THE FIGURE IS 1,471, AND UNDER THE PRINTED 1,470
+1536	C13-HANDLE-LEAK	main	10844	3B.shape	3B.shape the shape sphere                            definition · analysis         proved · exhaustive · found
+1537	C13-HANDLE-LEAK	main	10845	3B.metric	3B.metric the shape metric                           formula · analysis            proved · exhaustive · found
+1538	C13-HANDLE-LEAK	main	10847	3B.pot	3B.pot the potential on shape space                  formula · analysis            proved · exhaustive · found
+1539	C13-HANDLE-LEAK	main	10848	3B.norm	3B.norm the norm variety                             theorem · algebraic geometry  proved · exhaustive · found
+1540	C13-HANDLE-LEAK	main	10849	3B.five	3B.five the five fixed points                        theorem · analysis            proved · exhaustive · found
+1541	C13-HANDLE-LEAK	main	10850	3B.tri	3B.tri the triangle form at cap 8                    measurement · combinatorics   measured · exhaustive · none found
+1542	C13-HANDLE-LEAK	main	10851	3B.def	3B.def the deficit, one level                        theorem · complexity          proved · exhaustive · found
+1543	C13-HANDLE-LEAK	main	10852	3B.index	3B.index Λ₃, E = 0                                   theorem · order               proved · exhaustive · found
+1544	C13-HANDLE-LEAK	main	10860	3B.five	**The first run entered 3B.five and 3B.pot as measurements, because the compendium graded them
+1545	C13-HANDLE-LEAK	main	10860	3B.pot	**The first run entered 3B.five and 3B.pot as measurements, because the compendium graded them
+1546	C13-HANDLE-LEAK	reg	6408	3B.tri	**TRIANGLE FORM AT CAP 8 — 344 CELLS, 0 JOIN FAILURES, 8,385 MEET FAILURES.** *Triangle form at cap 8: 344 cells, 0 join failures, 8,385 meet failures; caps 3–12 as in `3B.tri`; two-body chain 0. Conf
+1547	C13-HANDLE-LEAK	reg	6444	3B.five	**APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, DECIDED TWO PLACEMENTS.** *The forty-eight of D.5.8
+1548	C13-HANDLE-LEAK	reg	6444	3B.pot	**APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, DECIDED TWO PLACEMENTS.** *The forty-eight of D.5.8
+1549	C13-HANDLE-LEAK	reg	6460	3B.shape	**THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPTHS AND DEPENDENCE COUNTS RECOMPUTED FROM THEIR OWN
+1550	C13-HANDLE-LEAK	reg	6472	3B.shape	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
+1551	C13-HANDLE-LEAK	reg	6472	3B.shape	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
+1552	C13-HANDLE-LEAK	reg	6472	3B.shape	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
+1553	C13-HANDLE-LEAK	reg	6472	3B.shape	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
+1554	C13-HANDLE-LEAK	reg	6472	3B.metric	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
+1555	C13-HANDLE-LEAK	reg	6472	3B.pot	**`3B.shape` IS THE EIGHTEENTH ROOT OF THE MATHEMATICAL COMPENDIUM, AND THREE STALE LINES ABOUT THE ROOTS ARE CORRECTED TO THE FILE.** *Register 1734 found `3B.shape` — shape space, ℝ³ = ℂ³/(translati
+1556	C13-HANDLE-LEAK	reg	6512	BUILD-10	**RULING 26: THE 489 UNTESTED SPECTRA ROWS ARE RUN UNDER M'S SEALED-TEST RULING — STRICT MEMBERSHIP, THE QUOTATION FLOOR AS THE ONLY ε, §22.5 ADMISSIBILITY — AND 318 ROWS CLOSE: 658 OF 813 CELLS PASS,
+1557	C13-HANDLE-LEAK	reg	6631	BUILD180	**THE REGISTER'S FRONT MATTER GIVES ITS MATURE RECORD AS "165 TO 1791, 1,470 ENTRIES" WHERE THE BACK MATTER GIVES 165–1792; THE BACK MATTER IS CURRENT, THE FIGURE IS 1,471, AND UNDER THE PRINTED 1,470
+1558	C1-SECTION-POINTER-UNRESOLVED	reg	6715	§1.8	**THE CLOSURE RULE IS PRINTED ONE-SIDED AT FOUR SITES REGISTER 402 CORRECTS, AND EACH NOW POINTS AT THE CORRECTION.** *Register 402: the closure rule was one-sided and the operator is two-sided, the c
+1559	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	914	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | 2,475 cells (the figure §12.11.5 withdraws; register 1819). A two-parent *decision* is the same shape: **no ea
+1560	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	914	2,475	other sites: main=2 reg=4 | 2,475 cells (the figure §12.11.5 withdraws; register 1819). A two-parent *decision* is the same shape: **no ea
+1561	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
+1562	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	3.5	other sites: main=10 reg=7 mc=1 sc=2 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
+1563	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
+1564	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	3.5	other sites: main=10 reg=7 mc=1 sc=2 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
+1565	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3439	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | it costs, 2,475 cells of the cylinder (the figure §12.11.5 withdraws; register 1819). The book substitutes f_m
+1566	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3439	2,475	other sites: main=2 reg=4 | it costs, 2,475 cells of the cylinder (the figure §12.11.5 withdraws; register 1819). The book substitutes f_m
+1567	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	4019	24,585	other sites: reg=9 mc=5 pc=1 | in every one.** *(A sample: exact enumeration gives 24,585 minimum covers with one cell common to all — Mathem
+1568	C8-NAMED-STATEMENT	all	0	witness rule	sites=1 in reg | bold/heading statement in main: NO
+1569	C8-NAMED-STATEMENT	all	0	reading cannot bound	sites=1 in reg | bold/heading statement in main: NO
+1570	C8-NAMED-STATEMENT	all	0	mathematical compendium's tightening rule	sites=1 in reg | bold/heading statement in main: NO
+1571	C8-NAMED-STATEMENT	all	0	admissible bound	sites=1 in reg | bold/heading statement in main: yes
+1572	C8-NAMED-STATEMENT	all	0	object's law	sites=1 in reg | bold/heading statement in main: NO
+1573	C8-NAMED-STATEMENT	all	0	down-set theorem	sites=1 in reg | bold/heading statement in main: NO
+1574	C9-OVERGENERALISATION-WORD	main	9652	never	one never. *The observed one is always among them and never uniquely
+1575	C9-OVERGENERALISATION-WORD	main	9655	always	point set with two distinct abscissae always offers more than one such point, at
+1576	C9-OVERGENERALISATION-WORD	reg	5006	never	**AND THE STATE IS NECESSARY.** *Tested memoryless: for each admissible subshell set a to that subshell's own crossing value and ask whether it is then least-ν. **104 of 106 steps admit two to four se
+1577	C9-OVERGENERALISATION-WORD	reg	6655	never	**THE NECESSITY OF STATE IS A STRUCTURAL THEOREM AND IS NAMED AS ONE; ITS SCORE LEAVES ITS NAME.** *Appendix D carried it as ‘the necessity of state, 104 of 106 steps’ — the only element of the twenty
+1578	C9-OVERGENERALISATION-WORD	reg	6659	always	**§34.6 CLAIMED THE WRONG THING, AND THE FIGURE IT CLAIMED IT WITH REPRODUCES UNDER NO CONVENTION.** *The unit stated ‘104 of 106 steps admit two to four self-consistent subshells’ and concluded that 
+1579	C9-OVERGENERALISATION-WORD	reg	6699	always	**THE CORRIDOR LAW ENTERS THE PHYSICS COMPENDIUM AS AN INTERFACE ENTRY, AND THE COUNT ITS TEMPLATE ASKS FOR IS ONE THE COMPENDIUM CAN NO LONGER SUPPLY.** *M's ruling: the theorem to the Mathematical C
+1580	C9-OVERGENERALISATION-WORD	reg	6699	never	**THE CORRIDOR LAW ENTERS THE PHYSICS COMPENDIUM AS AN INTERFACE ENTRY, AND THE COUNT ITS TEMPLATE ASKS FOR IS ONE THE COMPENDIUM CAN NO LONGER SUPPLY.** *M's ruling: the theorem to the Mathematical C
+1581	C9-OVERGENERALISATION-WORD	reg	6703	never	**THE REGISTER'S OWN COUNTS ARE CURRENT FOR THE FIRST TIME SINCE BUILD90, AND THE THREE UNITS THE VOLUME COUNTS IN ARE NAMED SO THEY ARE NOT MISTAKEN FOR ONE.** *reg1-04, docket 30: the front matter p
+1582	C9-OVERGENERALISATION-WORD	reg	6751	always	**ω(N(x)) IS BOUNDED BY THE COORDINATE COUNT, NOT THE ORDER DIMENSION.** *The printed proof — one prime per coordinate — always proved ω ≤ 8; the bound was quoted against dim(Λ) when 8 was believed to
+1583	C9-OVERGENERALISATION-WORD	reg	6775	never	**REGISTER 603'S SIX CHANNEL CONDITIONS ARE FIVE OVER THE EXACT COVERS, AND THE FIVE ARE THE ℓ ≤ 1 FACE OF AN ENVELOPE-STEP LAW.** *Register 603 states that every minimum seed of Λ₈ contains an s→s, a
+1584	C9-OVERGENERALISATION-WORD	mc	3650	never	six across the table, and one never** — the observed one always among them, never
+1585	C9-OVERGENERALISATION-WORD	pc	283	always	**What it states.** The subshell the differentiating electron enters is always one
+1586	C9-OVERGENERALISATION-WORD	pc	296	never	nature realises, so it is *verified* and never *proved*; the theorem beside it — the
+1587	C9-OVERGENERALISATION-WORD	pc	300	never	**What physics does.** It supplies the entrant; the law says the entrant is never
+1588	C13-HANDLE-LEAK	reg	6663	BUILD96	**THE NECESSITY OF STATE'S VERIFICATION IS EXHAUSTIVE NOW, AND THEOREM · PHYSICS CLOSES; LAW · PHYSICS DOES NOT AND IS LEFT OPEN.** *Appendix D asserts E = 0 in every fibre. Recomputed from the volume
+1589	C13-HANDLE-LEAK	reg	6663	BUILD95	**THE NECESSITY OF STATE'S VERIFICATION IS EXHAUSTIVE NOW, AND THEOREM · PHYSICS CLOSES; LAW · PHYSICS DOES NOT AND IS LEFT OPEN.** *Appendix D asserts E = 0 in every fibre. Recomputed from the volume
+1590	C13-HANDLE-LEAK	reg	6667	BUILD97	**LAW · PHYSICS IS UNWITNESSED, AND THE APPENDIX SAYS SO INSTEAD OF SAYING IT CLOSES.** *At BUILD97 Appendix D closed in twenty-three of twenty-four fibres, and the one open fibre was law · physics at
+1591	C13-HANDLE-LEAK	reg	6667	BUILD96	**LAW · PHYSICS IS UNWITNESSED, AND THE APPENDIX SAYS SO INSTEAD OF SAYING IT CLOSES.** *At BUILD97 Appendix D closed in twenty-three of twenty-four fibres, and the one open fibre was law · physics at
+1592	C13-HANDLE-LEAK	reg	6703	BUILD90	**THE REGISTER'S OWN COUNTS ARE CURRENT FOR THE FIRST TIME SINCE BUILD90, AND THE THREE UNITS THE VOLUME COUNTS IN ARE NAMED SO THEY ARE NOT MISTAKEN FOR ONE.** *reg1-04, docket 30: the front matter p
+1593	C13-HANDLE-LEAK	reg	6703	BUILD92	**THE REGISTER'S OWN COUNTS ARE CURRENT FOR THE FIRST TIME SINCE BUILD90, AND THE THREE UNITS THE VOLUME COUNTS IN ARE NAMED SO THEY ARE NOT MISTAKEN FOR ONE.** *reg1-04, docket 30: the front matter p
+1594	C13-HANDLE-LEAK	reg	6703	BUILD208	**THE REGISTER'S OWN COUNTS ARE CURRENT FOR THE FIRST TIME SINCE BUILD90, AND THE THREE UNITS THE VOLUME COUNTS IN ARE NAMED SO THEY ARE NOT MISTAKEN FOR ONE.** *reg1-04, docket 30: the front matter p
+1595	C13-HANDLE-LEAK	reg	6743	W-222	**THE MATHEMATICAL COMPENDIUM'S K.deadend OBJECT PRINTED THE TRIANGLE-OBJECT Λ₁₃ DECOMPOSITION AS CURRENT FACT — 11,188 / 5,116 / 8,214 — AND IS CORRECTED TO THE CANONICAL 35,630 / 13,750 / 22,680.** 
+1596	C13-HANDLE-LEAK	reg	6747	BUILD56	**THE ORDER DIMENSION OF Λ₈ IS SEVEN, NOT EIGHT; THE ASSERTED FIGURE IS CORRECTED BY THE DERIVATION IT NEVER HAD.** *Register 35 proved dim = 3 at three coordinates both ways; register 36 exhibited th
+1597	C13-HANDLE-LEAK	reg	6747	MC-06	**THE ORDER DIMENSION OF Λ₈ IS SEVEN, NOT EIGHT; THE ASSERTED FIGURE IS CORRECTED BY THE DERIVATION IT NEVER HAD.** *Register 35 proved dim = 3 at three coordinates both ways; register 36 exhibited th
+1598	C13-HANDLE-LEAK	reg	6751	BUILD56	**ω(N(x)) IS BOUNDED BY THE COORDINATE COUNT, NOT THE ORDER DIMENSION.** *The printed proof — one prime per coordinate — always proved ω ≤ 8; the bound was quoted against dim(Λ) when 8 was believed to
+1599	C13-HANDLE-LEAK	reg	6755	BUILD56	**THE PECK INHERITANCE ON L.sperner WAS OVER-BROAD; SPERNER SURVIVES BY DIRECT CERTIFICATE, SYMMETRY DOES NOT TRANSFER.** *Stanley 1980's Peck property includes rank-symmetry, which Λ measurably lacks
+1600	C13-HANDLE-LEAK	reg	6759	BUILD57	**THE ω-BOUND'S PRIOR-ART GLOSS MISSTATED WHAT ω COUNTS; CORRECTED FROM "NON-MINIMAL COORDINATES" TO "POSITIVE-EXPONENT COORDINATES".** *The L.omega object's prior-art line read "the number of coordin
+1601	C13-HANDLE-LEAK	reg	6759	MC-07	**THE ω-BOUND'S PRIOR-ART GLOSS MISSTATED WHAT ω COUNTS; CORRECTED FROM "NON-MINIMAL COORDINATES" TO "POSITIVE-EXPONENT COORDINATES".** *The L.omega object's prior-art line read "the number of coordin
+1602	C13-HANDLE-LEAK	reg	6763	MC-10	**THE VOID-FREE FRACTION'S CONDITION FIELD POINTED AT A STATEMENT THAT DOES NOT EXIST; THE OBJECT NOW STATES ITS POPULATION AND CARRIES THE CORRELATION LAW IT WAS OWED.** *The L.voidfrac object's cond
+1603	C13-HANDLE-LEAK	reg	6763	BUILD58	**THE VOID-FREE FRACTION'S CONDITION FIELD POINTED AT A STATEMENT THAT DOES NOT EXIST; THE OBJECT NOW STATES ITS POPULATION AND CARRIES THE CORRELATION LAW IT WAS OWED.** *The L.voidfrac object's cond
+1604	C13-HANDLE-LEAK	reg	6763	L.tree	**THE VOID-FREE FRACTION'S CONDITION FIELD POINTED AT A STATEMENT THAT DOES NOT EXIST; THE OBJECT NOW STATES ITS POPULATION AND CARRIES THE CORRELATION LAW IT WAS OWED.** *The L.voidfrac object's cond
+1605	C13-HANDLE-LEAK	reg	6767	BUILD59	**THE BOX COUNT'S CLOSED FORM WAS ASSERTED FROM THE TREE AND IS NOW PROVED, IN BOTH DIRECTIONS, WITH THE LEAF CONVENTION STATED.** *The L.box object carried a one-sentence statement ("factorises becau
+1606	C13-HANDLE-LEAK	reg	6767	MC-11	**THE BOX COUNT'S CLOSED FORM WAS ASSERTED FROM THE TREE AND IS NOW PROVED, IN BOTH DIRECTIONS, WITH THE LEAF CONVENTION STATED.** *The L.box object carried a one-sentence statement ("factorises becau
+1607	C13-HANDLE-LEAK	reg	6767	L.tree	**THE BOX COUNT'S CLOSED FORM WAS ASSERTED FROM THE TREE AND IS NOW PROVED, IN BOTH DIRECTIONS, WITH THE LEAF CONVENTION STATED.** *The L.box object carried a one-sentence statement ("factorises becau
+1608	C13-HANDLE-LEAK	reg	6771	BUILD59	**THE BINARY LANGUAGE'S CUT IS EXACT AS A SET, NOT ONLY AS A COUNT, AND "DEPTH FIVE" NAMES ONE OF THREE CIRCUITS.** *§11.1.1 states that the twenty cover-implications cut 131,072 words to exactly 976 
+1609	C13-HANDLE-LEAK	reg	6771	MC-12	**THE BINARY LANGUAGE'S CUT IS EXACT AS A SET, NOT ONLY AS A COUNT, AND "DEPTH FIVE" NAMES ONE OF THREE CIRCUITS.** *§11.1.1 states that the twenty cover-implications cut 131,072 words to exactly 976 
 <<<END FILE: DEFECT-CENSUS.tsv>>>
 
 <<<FILE: minmax.py>>>
@@ -35777,7 +35854,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
-compendia	DEFECT-CENSUS.tsv	236413	ba8306f2ffafb1f5373990bc1790a289	1558
+compendia	DEFECT-CENSUS.tsv	247256	4742c83a4dcf7d9eb1af0ee27e6b020d	1610
 compendia	DEFERRED.md	442840	80584b86ba08d016df4530acd9c84844	3527
 compendia	DOCKET.md	82784	123594d2918d8c02727b8a6d065c0c0d	488
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
@@ -35911,31 +35988,38 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1073751	c0f50c76459e1bc1d26ec2546ac15d84	8335
+compendia	WORKING-REGISTER.md	1088747	6c547df1158591fe33a1458ce324f336	8360
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
 compendia	archive-split.out	388	a6c479930b96f11f90b9174d2b0153a9	4
 compendia	archive-split.py	30795	efa95d2cd75390221c1304db12f3f229	508
+compendia	arith.py	34061	df12392d8277b2e4a0d8a3eab1715706	867
 compendia	audit_lambda.py	10875	504c6a8484ac15856922cd89a55b398c	244
+compendia	audit_math.py	7167	8329b70c980d608ba20f766bb4198cd1	147
 compendia	bookindex.py	2801	8410b2152c956b71091eb28d99677b13	45
 compendia	build.py	63738	d2fa72523b1f27634d20b84922c8a984	919
 compendia	build126.py	5764	7962ef041e1e64bfff09ffb8af2944d4	159
+compendia	buildtrace.py	24884	77659d72ef0d24c302b99227efb2971b	620
 compendia	bundle.py	6787	0b7da480d03c6e77c9e70ec9b9e4903a	162
 compendia	census.py	9299	f5a73e2b595dd6215ad8d3c8910b6337	136
+compendia	census2.py	10402	d76b58eaa4af3fee7e28811a1404753a	143
 compendia	channels_LIMB.py	326	185a39862e8e5b38e4b13e67f3dab0b7	10
 compendia	classify.json	1371	5ed19968f4e6ebb2db8a3ffdc629529b	1
 compendia	close.py	6456	98acae678629305fad0f3830488b3ee9	90
 compendia	close_census.py	7590	6fcae92b5827e15cd8851db148e2fef1	124
+compendia	close_census2.py	15218	fe776f23646888a8203d09bb9a5eab5a	189
 compendia	close_main.py	10111	e75d871c0ad0f4af7791b148ac662b81	215
 compendia	close_rebank.py	8261	722f8dc7c876c47e69c5aefe3bb33e76	139
 compendia	compose.py	922	193f1b9cef510f82397e508f9fa0e3bf	22
+compendia	consolidate.py	10542	89c71f5cb6673f982314c24f1fea190b	257
 compendia	coords.py	8006	211687a4879c2023cfc448725c54979c	159
 compendia	covers8.json	4523683	a269a32cfff8083a42b930e74646da2d	1
 compendia	crop_titles.py	807	4358151cb4c00e1a22f71943e8791f62	12
 compendia	cypher.py	45232	6a7ffede5f691424295adaaa2c53fd47	975
 compendia	dclose.py	5925	02cb091e7aa80068a42a79e95d8135e1	103
 compendia	depoint.py	5965	e72e22298bb2222ed9f19d3f2dfe977a	160
+compendia	drive_sync.py	57818	c9b4c87625ece891e87ed74537394702	1598
 compendia	excise.py	2840	77216203a26321d36bb9b099ef4c3b5d	30
 compendia	excise_plan.json	1757	cb54cc364832a9017b57ef6eeb0df445	1
 compendia	excision_result.json	941	ed120e7fb3210f98e49a95a884eba597	1
@@ -35943,6 +36027,7 @@ compendia	extent.out	132	10b1b098a0549f16d426b0e2610f5a19	3
 compendia	fig241_data.json	8186	e2b03fb220217fb3f357ee8b9a87b37a	1
 compendia	fig_rerender.py	6293	7c9c956330ea0f38a243d625e14b054e	69
 compendia	gate.py	9377	a01ef15a7920b7a11f3f2e9168d5d130	147
+compendia	gate_live.py	4786	4f711385bb8d2c48d85495521c7c1720	68
 compendia	heii.py	2344	049919c10cd77f97dff1aae0466a4df3	41
 compendia	heii_levels.txt	2187	dda9699248cdea825d4367237fcd8490	89
 compendia	heii_series.json	606	980b9052236962e11ed754749100c4d0	1
@@ -35958,6 +36043,9 @@ compendia	minmax.out	563	2e8fdd40d731821f77b4d344b8cfa0e8	10
 compendia	minmax.py	1824	26da1d78643f244e3e8b0fa268057300	17
 compendia	mkref.py	7199	10fc0c63b389e0b30c9f14417cb91c3d	121
 compendia	numcheck.py	795	d36764328bd1cb669d5c4fa929763be4	13
+compendia	pointers.py	34023	d283e97de73d6bbce7b7060ac9e2f4b5	787
+compendia	populate.py	46383	419f96906fa4401ae2928825e820785a	1079
+compendia	proveanchor.py	5401	84275f94ea87f8218178fd1415d21bb0	116
 compendia	qgraph.py	828	5aac43b570de45fe5215e2ca17ef5244	17
 compendia	r2-21a.out	25222	5edba63b729984297869173c17b88f47	281
 compendia	r2-21a.py	21177	b98f2c83d3005ff6bff41d3b361ff2de	181
@@ -35965,7 +36053,7 @@ compendia	r2-21a2.out	25222	57d47ba664d4b2e8b09dd078b5694609	281
 compendia	r2-21a2.py	24527	aecdb52c18a98462020266d70479b41f	196
 compendia	r2-23a.out	37448	028f44ed38c23683ad9f6fbf7134bf3d	268
 compendia	r2-23a.py	20065	85bd124a1e6cd5dcd5e6198e15259782	222
-compendia	r2-23a2.out	45298	516d894480d90f8eefbb9550e950516f	269
+compendia	r2-23a2.out	45758	ac0f1e18d7d421e14d4b280b66ab7f9b	269
 compendia	r2-23a2.py	21230	9ec2bf76d5eaa6b7626a67aab0db5357	235
 compendia	r2-24a.out	24268	151c5992b971c1ee39d301276345f928	227
 compendia	r2-24a.py	28685	b905b44fd84c599626c8ef3118c701d5	286
@@ -35997,14 +36085,14 @@ compendia	r2-32a.out	16599	eb5c1631ceebe686bdd60008e0baaef1	179
 compendia	r2-32a.py	22360	15a9047af4a637eb7bdb05d0ea982878	306
 compendia	r2-bib.out	7712	6505f5280dd4f6928f6a62f0b52f0823	67
 compendia	r2-bib.py	11246	8d53e12dd6d84b00e6fbb145ae9cfd5a	141
-compendia	r2-bib2.out	7715	97bb290d660237d19a2b656a0881ff72	67
+compendia	r2-bib2.out	7715	31ddf44e73226bcbf44eedcd923bfeec	67
 compendia	r2-bib2.py	12497	1ee17f0becc1497a4b43160c729482e9	152
 compendia	r2-ch1.py	2940	172fb73dacbf30d5d85eb04f4463c064	48
 compendia	r2-ch10.py	5035	f1603d3f2310ed33583d01f67eb7020c	61
 compendia	r2-ch11.py	8759	ee1555717f4401e80aa3730fe4d6b9f5	102
 compendia	r2-ch16a.out	17491	7c93abbef1197e007da8c9e4880db7ec	244
 compendia	r2-ch16a.py	14072	b2d71512b926d7a394a7aae99c280f56	282
-compendia	r2-ch16a2.out	17491	ba1ca7efb371c476509bf7eb17c3add3	244
+compendia	r2-ch16a2.out	17491	4e2d19cf64c54f9fa100fc98711b19f2	244
 compendia	r2-ch16a2.py	16862	cb3e0fe6e4268801ddd8991366049504	297
 compendia	r2-ch16b.out	11957	81670a576186c646126ca6aaaacb3232	173
 compendia	r2-ch16b.py	21250	165bf22d271fc7af7b11949b09a284f0	406
@@ -36012,7 +36100,7 @@ compendia	r2-ch16b2.out	11968	a7cff7cf6ddf9bc58e84fe555ee76bd8	173
 compendia	r2-ch16b2.py	22983	17acdcee44d774a003b86dacb6cf4325	421
 compendia	r2-ch16c.out	16427	435b5d92d15dd444b688b995c417d7b6	248
 compendia	r2-ch16c.py	18745	5b92aa61b147d3d9327242cf3d4e2e45	354
-compendia	r2-ch16c2.out	16371	79ec75e936bba9202f6ce1d28299ea23	248
+compendia	r2-ch16c2.out	16437	2ce19dbb40e3e123c9586e16a03f89e8	248
 compendia	r2-ch16c2.py	21859	3d0e973282bbeaad84a17b7d7855f8da	369
 compendia	r2-ch16e.out	9894	d816d8ea67e3786404b612d488e4fb36	145
 compendia	r2-ch16e.py	18228	dd5b6fe7d9f56f7cc5a4e19f68d9daa2	338
@@ -36020,7 +36108,7 @@ compendia	r2-ch16e2.out	9894	42cca5fcf50f0e20dba60beed8ad2595	145
 compendia	r2-ch16e2.py	19497	37dec7c387c8a049d2be65353ade7133	354
 compendia	r2-ch16f.out	30931	581eaa258081560315dce68f5ee02bcd	343
 compendia	r2-ch16f.py	17508	300dd46f4dd1dbc1501a5dc19cfecc39	328
-compendia	r2-ch16f2.out	30905	ffb642e28c5a3979e1959382a97ab7d4	342
+compendia	r2-ch16f2.out	30855	4bf165fa7852fd6fffb20b1354b42dc6	342
 compendia	r2-ch16f2.py	20479	a79c623c9f7669140b72e3584a4b83a6	344
 compendia	r2-ch16h.out	7780	6063a7c10ac234f7c3980e68e880660b	112
 compendia	r2-ch16h.py	14923	971c053d890738aecb33746c50ab78a1	251
@@ -36038,7 +36126,7 @@ compendia	r2-ch16l.out	7857	ffae544614b8fa8ffdfbb8299d9754a3	106
 compendia	r2-ch16l.py	9134	f36814c727d0ae018d597a14c361b9c0	184
 compendia	r2-ch16l2.out	7859	a0bb8686499022b4a795cb9e9d257f00	107
 compendia	r2-ch16l2.py	11426	ef7c1889e4351c6fc69276c0a832b21f	200
-compendia	r2-ch16l3.out	7956	1e06eaf790f3c1d4ae08852fb8d0310d	107
+compendia	r2-ch16l3.out	7956	d944ae8b79d4d74de3cc21cfcedbcbff	107
 compendia	r2-ch16l3.py	15200	b0568bde77fbcb1aa9d97178b62e9bb5	223
 compendia	r2-ch16m.out	11481	6ef3e13a6f1e1555c6ddb15da945eb47	129
 compendia	r2-ch16m.py	15438	ff46e7b2a2c086d1317921adbc97df31	274
@@ -36048,7 +36136,7 @@ compendia	r2-ch16n.out	19953	d2ef24a24e5e63fe4fc3fec9b33e8e82	235
 compendia	r2-ch16n.py	15533	8cdac8e94d45fad7936ef11b9a1cbc34	304
 compendia	r2-ch16n2.out	19953	08f87cf33c290f72a793c517dff79223	235
 compendia	r2-ch16n2.py	16628	6e35d45ab76951f624dda8156985b960	321
-compendia	r2-ch16n3.out	20125	ab7404992988bd762b7bcd45965b5813	236
+compendia	r2-ch16n3.out	20125	39e46b5c85c8cd01695887d8ed9da001	236
 compendia	r2-ch16n3.py	19431	a7bb3584a615ffbd4a65f0a93b0fb907	336
 compendia	r2-ch16o.out	10828	8d8fab16c16120ca7f3e42733d0c9854	146
 compendia	r2-ch16o.py	16242	7caf86f7af8ab84cbb92b93831aa7ef2	285
@@ -36058,7 +36146,7 @@ compendia	r2-ch16p.out	31499	3d911393727b9e7d1cd74814cc6ecb94	406
 compendia	r2-ch16p.py	19134	ad69c34b47dc8984ef16aaa9d1fa1980	376
 compendia	r2-ch16p2.out	31499	a826da9a7ad6eed8f5ceff1049bc348e	406
 compendia	r2-ch16p2.py	20360	2d29d8247a510a412f2383035bb7e03c	392
-compendia	r2-ch16p3.out	31675	f45fdb97644a342a0136b206f7aecaa5	408
+compendia	r2-ch16p3.out	31527	cab8e84d70e5762b46b3cab9b84ceca3	407
 compendia	r2-ch16p3.py	23145	c167cac8be8ca0fe5ff1ec4278b57bf7	407
 compendia	r2-ch16q.out	14494	55dd818446a0e902ca80af5b63e6d249	185
 compendia	r2-ch16q.py	19180	9802e46cb07a2540ae20ee67a1b685fd	319
@@ -36076,7 +36164,7 @@ compendia	r2-ch16t.out	17666	4aacbcca26f52562741d7d73a6d6b451	219
 compendia	r2-ch16t.py	12215	bf7f0e331a1623c2d4ba2f7d3c193bde	213
 compendia	r2-ch16t2.out	17246	0f87dd89edd094dc784ed54644548f14	219
 compendia	r2-ch16t2.py	18031	f413b562e920ef866a80c382d3782696	228
-compendia	r2-ch16t3.out	17432	c4333ee132b23c498db07949d4a4dd49	219
+compendia	r2-ch16t3.out	17432	b98b3631f6001c0d0a159d302c9cec4a	219
 compendia	r2-ch16t3.py	21697	ea7fd5f18aca2dee3a34bdef80dd72f5	247
 compendia	r2-ch16u.out	15292	6a8473620928aad45f23ef66890488ea	194
 compendia	r2-ch16u.py	12078	f50c7e286f55e01aebf4d7c32fea8dc2	211
@@ -36092,7 +36180,7 @@ compendia	r2-ch16v2.out	9486	9087f79109554c7e10f5daadfa064fc9	110
 compendia	r2-ch16v2.py	13219	962819e42716a8ea5ec1a1f8c6315f08	246
 compendia	r2-ch16v3.out	9174	2bc8318a1247b392e2cc3d575cda9d68	110
 compendia	r2-ch16v3.py	15116	80806e1ad8cb6f7cb8e444ba4891ae81	261
-compendia	r2-ch16v4.out	9487	aca53ec0b773e2410943ea8c267f3877	110
+compendia	r2-ch16v4.out	9487	f557b999150ab291b38c1bc0cd3d0db9	110
 compendia	r2-ch16v4.py	16247	5e69a01b2b0b9ce1945f5828ece88058	275
 compendia	r2-ch16w.out	22951	e4d1ebb373062c372feff8aded063db0	336
 compendia	r2-ch16w.py	19151	511bcb6fddebaeb5632c2ca008be9bf8	316
@@ -36108,7 +36196,7 @@ compendia	r2-ch16z.out	18831	a41471e0ff1342c806ba37b84636a71d	203
 compendia	r2-ch16z.py	17541	424cb742a25e4a101f9e505a021b943a	219
 compendia	r2-ch16z2.out	22381	e1baa7fb0b7b0fab26b79261b57f1ac0	256
 compendia	r2-ch16z2.py	22163	80558823a4aa42b3df5c8586dfae7b27	234
-compendia	r2-ch16z3.out	22477	52be792f1dbe17186c844e7ef1f1366c	256
+compendia	r2-ch16z3.out	22714	de13c57390f568aed50794be4bce0cf8	258
 compendia	r2-ch16z3.py	24377	cb28c20fd673d98651decd995de5dc89	258
 compendia	r2-ch17a.out	9917	95c21429279e7df205bd5905f3e9888f	107
 compendia	r2-ch17a.py	13778	31fd7383078d7f30b1760fdf9559811c	155
@@ -36150,7 +36238,7 @@ compendia	r2-ch19a3.out	21962	5815514bf08d0d5ac6a59d5df54458ee	156
 compendia	r2-ch19a3.py	32769	640d68984f01ef5f0dc7f0b561b5b025	257
 compendia	r2-ch19b.out	23097	9ebdb9d15f6acbf3b31bf6ac71b221d1	178
 compendia	r2-ch19b.py	14688	b2044d751378072f8d0315374029f9df	107
-compendia	r2-ch19b2.out	23097	837e73d2cf656ef20558036776687624	178
+compendia	r2-ch19b2.out	23097	81361c713fa13329ce412817b7adeaea	178
 compendia	r2-ch19b2.py	16607	9b064948cd831ce277d6dfb3c6a55c9c	122
 compendia	r2-ch2.py	2712	64145381de3468efcafdbb1f38fdf94d	37
 compendia	r2-ch20a.out	25571	ac451215b629390590173edc88152c18	180
@@ -36189,7 +36277,7 @@ compendia	r2-ch24b3.out	29473	9a196172287904a27e8ffd1a15e536c9	322
 compendia	r2-ch24b3.py	19016	5c688715af4a4c720267e46fba2dcd38	158
 compendia	r2-ch25a.out	12009	9c68ffc6ee2f49e88b8e72fa0e572aa6	90
 compendia	r2-ch25a.py	18313	3950aa6a5e409e7612d1e293304a1bb8	177
-compendia	r2-ch25a2.out	12098	9f38323ab9bee78f1a23cf512f45ce2d	91
+compendia	r2-ch25a2.out	12019	7d94e543a4eece438d45bbbf647b8528	90
 compendia	r2-ch25a2.py	19584	df3a7f62ad9742022ec51cb84d5145e2	192
 compendia	r2-ch25b.out	20682	acf7ca5abd2fc5b8e96152cab3f5e057	175
 compendia	r2-ch25b.py	14694	eb1442d5984d660e7c894241ff34004d	138
@@ -36199,7 +36287,7 @@ compendia	r2-ch26a.out	13541	9ad4e620bc66b282f30a2a9a88078566	114
 compendia	r2-ch26a.py	12464	91c664d4f1a9de951eeb791452cbcd07	153
 compendia	r2-ch26b.out	13135	68e215433eb88f711551e72650337331	112
 compendia	r2-ch26b.py	16958	0befc4c187b8b3353c2a137dab16352b	135
-compendia	r2-ch26b2.out	13197	e287159c7aafe434e2a79252faa3be0a	112
+compendia	r2-ch26b2.out	13171	dbc0fc70baa90ee4bffc3ef46cdbb741	112
 compendia	r2-ch26b2.py	18256	5aa683156d950b626fbe0c27389409dc	150
 compendia	r2-ch27a.out	19325	09865804eb88a3fafdd82098a78f666f	169
 compendia	r2-ch27a.py	27415	17aa0bcaa17f60a2709b73862d1b4841	255
@@ -36211,7 +36299,7 @@ compendia	r2-ch27b2.out	11976	8aee567426e26ab728be34311346d9ad	95
 compendia	r2-ch27b2.py	14599	93103ab69bae8ac2e75feaf7c3d0e5b0	124
 compendia	r2-ch28a.out	27613	e9b25d8f62d770970570c8dbf315190b	222
 compendia	r2-ch28a.py	20471	010ea4c627fc75e8a04eed8a74cad459	182
-compendia	r2-ch28a4.out	27919	f42d6b085bbebd3334a6fcb9a6bafa49	224
+compendia	r2-ch28a4.out	27919	e23ab0b5e18f66c0e469a5f17aad052b	224
 compendia	r2-ch28a4.py	21589	e5d7fc4612acefd0aff29a70b39bca2e	197
 compendia	r2-ch28b.out	25818	02d9c05899ca67e0d6ba0231973a1dee	170
 compendia	r2-ch28b.py	18874	2e8d1a1a5e556f423989e4141b6fac9d	139
@@ -36232,7 +36320,7 @@ compendia	r2-lw1.out	5606	94ce22466b45d2e85cbf0d5e8929d84f	65
 compendia	r2-lw1.py	8975	5face9ff9c210979addca70f6461ee83	107
 compendia	r2-reg10a.out	3723	04ac097cf4c036ee5a70fdad333d91a4	59
 compendia	r2-reg10a.py	5400	f86ba71b04e9c662db41f0ef244cedbb	103
-compendia	r2-reg10a2.out	3723	98a9e0bf72cfe4ab6dd7e564009fea18	59
+compendia	r2-reg10a2.out	3723	b15024da1fd0f16f7d54559a3ab3c580	59
 compendia	r2-reg10a2.py	6671	399e4c657167c6965b22d066f1586b4d	119
 compendia	r2-reg11a.out	5218	c3223bb4d4b0a63ae5e3df8d110fa1d0	84
 compendia	r2-reg11a.py	6031	ef829b5eb50f709ea8c4f71f0ea408cf	110
@@ -36278,7 +36366,7 @@ compendia	r2-reg8a2.out	5160	8073fcfb543d1f38269ecefa8a0cb038	64
 compendia	r2-reg8a2.py	8582	71a5986132f43e2590f5202426269134	133
 compendia	r2-reg9a.out	2922	5268720f3b1c0b9de48c514cfe136f60	52
 compendia	r2-reg9a.py	6194	15c2fb53562979245039c9a0fda5cfb1	109
-compendia	r2-reg9a2.out	2922	9eabde6510ccb16bbfd0700b97e1c8f8	52
+compendia	r2-reg9a2.out	2922	ae2990434d9ab7b2842d02ce9fddd1bb	52
 compendia	r2-reg9a2.py	7452	f7b5fe059ce527443ae1ed94718b1aaf	125
 compendia	r2-regsweep.out	4641	d23a87ed1143ef3442ff0d60e7c1b858	85
 compendia	r2-regsweep.py	10087	c8f400118dbe57bcf8914d37e9522fe6	163
@@ -36294,6 +36382,7 @@ compendia	r2-warn.out	40383	a61b537f94265100b9678f8f46793f4a	273
 compendia	r2-warn.py	13763	228d883a25bfce317cd8a8bd9abd5c2d	185
 compendia	r2lib.py	21022	580d2ea2e43c2ddf78018afcba2f7de7	453
 compendia	r3-arith-01.py	10030	3a4385d819ff24f3fe4c48e43d0e22f4	154
+compendia	r3-br-measure.py	4880	bc6be5d42df021bfc3268ca2526d4fa7	58
 compendia	r3-ch346.py	9960	255af2b55ad3a32bea77a46e42011a69	146
 compendia	r3-d152.py	13894	eb050f0b2a8bdd8f37321617b6ecc69b	135
 compendia	r3-d152b.py	12668	509c6b5e956c17151fe9e0c654a4bd68	132
@@ -36327,21 +36416,29 @@ compendia	r3-wl.out	3638	1bb27e471f8429e4d6e759f528c838f1	31
 compendia	r3-wl.py	15100	791f540520bc9f48eaed81830996fa1e	184
 compendia	r3-wl2.py	12959	ce0ed8792717932db00b7920036e558e	192
 compendia	rclose.py	1728	707a1061b4fede0b94e288d569dc9f0e	41
+compendia	reanchor.py	6657	856ede33010c655cc176281de1e2c80d	97
 compendia	register_cites.py	2403	c38ad7ee009b9df571c143261b43e9d9	46
 compendia	register_counts.py	9691	6152fd7146e4159128eaae0fb71af598	209
 compendia	req4.py	1015	8a9a2b33237e988375fcafd56cbe2c9f	18
+compendia	restage.py	4551	2c6e89f0bcd2a60e3250a34c4c66f3ad	105
 compendia	ruled_bracket.py	2721	af39145dee35a8da3c96d52d665d9159	58
 compendia	run489.py	4611	55356e24f309250ab69272ea61c9fa14	87
 compendia	run489_45.json	8365	337f720d4e2525d0b8c010d334f6d482	1199
 compendia	run489_anomalies.json	18496	a019f825faf5305e14f8b0a566327409	1
 compendia	run489_final.json	22410	e45a87646723ce0a3b84865c2b01c7d7	1
+compendia	shard_conversations.py	55389	34de8a6b6b80e1360f9a9a43e47b8b3f	1461
 compendia	shiftcheck.py	9613	a568607e9ba9e6d399b37194640b2bb0	203
+compendia	shiftcheck2.py	8606	a895efd1dc19076f406c8ea5eee6f0c6	111
+compendia	shiftinv.py	4719	bfe6ad1eec87ad6821444a56d3fd7db4	66
 compendia	sig_l13.py	966	b7aea345ee56cdf259429edf0ec73faa	18
 compendia	sig_sweep.py	901	30f14f10494b3b1588b789f50b66d595	23
 compendia	sig_val.py	1147	06126261ce3d9cdb956eba1af0f7adb9	28
+compendia	slopeaxis.py	34953	422ef7903d6f90968c0820b0ad6da93d	789
 compendia	spectra_count.py	1266	3f2c705950f52b88c6dc5e22b74ec0d2	18
 compendia	split.py	2956	525a169a46588cbbdb3254c6d5ae48d4	83
+compendia	stage-gate	2545	9a62b6ba14cfcbfa42c043a1b4df6f64	43
 compendia	tb_audit.py	3443	4021ebf8daa9ea6b8e25a82c715a9260	56
+compendia	test_drive_sync.py	8925	ce58a0250cfb753761854a7f7d0077ca	215
 compendia	tower-2.out	85	433e8fb54120d1aac5e98af2f257080f	6
 compendia	tower-2.py	1213	c0bce27abe23ad939d297ac1022a01d7	30
 compendia	tower.py	1708	93db2fc9ab2cf9604db3bb2b8c985db3	44
@@ -84430,7 +84527,7 @@ except Exception as ex: print('   census read:', ex)
 §9 census rows of DEFECT-CENSUS.tsv inside D.5.5 / D.5.9 (main volume)
 ====================================================================================================
    header: ['id', 'class', 'member', 'line', 'item', 'detail']
-   rows in the two units: [['1215', 'C9-OVERGENERALISATION-WORD', 'main', '10836']]
+   rows in the two units: [['1215', 'C9-OVERGENERALISATION-WORD', 'main', '10874'], ['1536', 'C13-HANDLE-LEAK', 'main', '10844'], ['1537', 'C13-HANDLE-LEAK', 'main', '10845'], ['1538', 'C13-HANDLE-LEAK', 'main', '10847'], ['1539', 'C13-HANDLE-LEAK', 'main', '10848'], ['1540', 'C13-HANDLE-LEAK', 'main', '10849'], ['1541', 'C13-HANDLE-LEAK', 'main', '10850'], ['1542', 'C13-HANDLE-LEAK', 'main', '10851'], ['1543', 'C13-HANDLE-LEAK', 'main', '10852'], ['1544', 'C13-HANDLE-LEAK', 'main', '10860'], ['1545', 'C13-HANDLE-LEAK', 'main', '10860']]
 <<<END FILE: r2-23a2.out>>>
 
 <<<FILE: READ-succ-153R.md>>>
@@ -85384,10 +85481,10 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
   member values present: ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows in unit: 0
   WITNESS either side:
-     id 1178   L8231   C9-OVERGENERALISATION-WORD   never
-     id 1179   L8303   C9-OVERGENERALISATION-WORD   at every cap
-     id 1180   L8553   C9-OVERGENERALISATION-WORD   never
-     id 1181   L8569   C9-OVERGENERALISATION-WORD   never
+     id 1178   L8236   C9-OVERGENERALISATION-WORD   never
+     id 1179   L8308   C9-OVERGENERALISATION-WORD   at every cap
+     id 1180   L8558   C9-OVERGENERALISATION-WORD   never
+     id 1181   L8574   C9-OVERGENERALISATION-WORD   never
   ids either side [1179, 1180] contiguous: True
 
 ## 9  DUPLICATED-SECTION SWEEP (DEF-105 item 1) — long unit lines recurring elsewhere
@@ -86581,15 +86678,15 @@ r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
 ## 8  DEFECT-CENSUS.tsv rows in range -- READ, not counted
   member values present: ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows in unit: 2
-     id 1180   L8553   C9-OVERGENERALISATION-WORD   token 'never'
-        line: ### 30.3.8 The residue
-     id 1181   L8569   C9-OVERGENERALISATION-WORD   token 'never'
-        line: **Anstee & Farber 1984** and **Hoffman, Kolen & Sakarovitch 1985** give the recognition results.
+     id 1180   L8558   C9-OVERGENERALISATION-WORD   token 'never'
+        line: satisfiable formulas encoding as non-reorderable, never the reverse. The map X → C(X) is global,
+     id 1181   L8574   C9-OVERGENERALISATION-WORD   token 'never'
+        line: The open problem concerns cell sets arriving with no construction. This book never has
   WITNESS either side:
-     id 1178   L8231   C9-OVERGENERALISATION-WORD   never
-     id 1179   L8303   C9-OVERGENERALISATION-WORD   at every cap
-     id 1182   L8581   C9-OVERGENERALISATION-WORD   never
-     id 1183   L8657   C9-OVERGENERALISATION-WORD   never
+     id 1178   L8236   C9-OVERGENERALISATION-WORD   never
+     id 1179   L8308   C9-OVERGENERALISATION-WORD   at every cap
+     id 1182   L8586   C9-OVERGENERALISATION-WORD   never
+     id 1183   L8662   C9-OVERGENERALISATION-WORD   never
   id run [1178, 1179, 1180, 1181, 1182, 1183] contiguous: True
 
 ## 9  DUPLICATED-SECTION SWEEP (DEF-105 item 1) -- long unit lines recurring elsewhere
@@ -87896,15 +87993,15 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
 
 ## 10  CENSUS ROWS IN RANGE, measured from DEFECT-CENSUS.tsv on the `member` column
    3 rows in L8580-L8704
-   709  C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  L8678  item '23.10'
+   709  C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  L8683  item '23.10'
         detail: other sites: main=15 reg=2 mc=2 | sign, not a positive one (§23.10.1), so the channel stands and
-        line  : ### 31.2.2 The degeneracy is where the content is
-   1182  C9-OVERGENERALISATION-WORD  L8581  item 'never'
+        line  : sign, not a positive one (§23.10.1), so the channel stands and the word is corrected; recorded a
+   1182  C9-OVERGENERALISATION-WORD  L8586  item 'never'
         detail: structure admitting cells its keeper never enumerated.
-        line  : The target list for the novelty search was audited by closing the relation set, and it was
-   1183  C9-OVERGENERALISATION-WORD  L8657  item 'never'
+        line  : structure admitting cells its keeper never enumerated.
+   1183  C9-OVERGENERALISATION-WORD  L8662  item 'never'
         detail: on a channel, never a coordinate.
-        line  : An atom's mass sits in its nucleus, and nucleons are fermions. Indexed by (N, L, 2j, occupancy)
+        line  : on a channel, never a coordinate.
 
 ====================================================================================================
 end r2-ch16f
@@ -90412,8 +90509,8 @@ sys.stdout.write('\n'.join(out) + '\n')
 == G. census rows in range, duplicated-section sweep, attribution sweep ==
   DEFECT-CENSUS.tsv columns ['id', 'class', 'member', 'line', 'item', 'detail']; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows with member in (main, all) and line in [8894,9034]: 2
-      ('1189', 'C9-OVERGENERALISATION-WORD', 'main', 8930, 'never')
-      ('1190', 'C9-OVERGENERALISATION-WORD', 'main', 8989, 'never')
+      ('1189', 'C9-OVERGENERALISATION-WORD', 'main', 8935, 'never')
+      ('1190', 'C9-OVERGENERALISATION-WORD', 'main', 8994, 'never')
   duplicated-section sweep (DEF-105 item 1): every unit line over 60 chars sought elsewhere:
       96 long lines swept, 0 recur elsewhere in the main volume []
   attribution sweep: proper-noun attributions in the unit against ## References (BODY) and R.7:
@@ -91554,11 +91651,10 @@ for n in (976, 8853, 19109, 35789, 704, 1497, 2742, 2873, _L(' §12.11.0.9 bound
 ================================================================================================
 11. census rows in range, and the duplicated-section sweep (docket 27)
 ================================================================================================
-  id 710  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9150  item 388,  detail other sites: main=1 reg=2 ioi=1 | **That is why the three fi
-  id 711  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9150  item 391  detail other sites: main=1 reg=4 ioi=1 | **That is why the three fi
-  id 712  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9150  item 392  detail other sites: main=4 reg=4 ioi=1 sc=1 | **That is why the thr
-  id 1191  class C9-OVERGENERALISATION-WORD  member main  L9158  item never  detail §32.1–24.4 ask whether this book obeys its own law. They nev
-  census rows in range (member main OR all): 4
+  id 710  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9155  item 388,  detail other sites: main=1 reg=2 ioi=1 | **That is why the three fi
+  id 711  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9155  item 391  detail other sites: main=1 reg=4 ioi=1 | **That is why the three fi
+  id 712  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9155  item 392  detail other sites: main=3 reg=4 ioi=1 sc=1 | **That is why the thr
+  census rows in range (member main OR all): 3
   duplicated-section sweep: 45 long lines swept, 0 recur elsewhere
 
 ================================================================================================
@@ -99128,8 +99224,8 @@ unit L10088–L10198, 111 lines (own scan: `### A.15` = last hit, `## Appendix B
 ================================================================================================
   header: ['id', 'class', 'member', 'line', 'item', 'detail']
   rows in range: 2
-    ['1202', 'C9-OVERGENERALISATION-WORD', 'main', '10094', 'never', 'cells of Λ. **It never prints the seventeen.** The alphabet was counted, its covering relations']
-    ['1203', 'C9-OVERGENERALISATION-WORD', 'main', '10153', 'never', '### A.19.1 And two other sets counted but never listed']
+    ['1202', 'C9-OVERGENERALISATION-WORD', 'main', '10128', 'never', 'cells of Λ. **It never prints the seventeen.** The alphabet was counted, its covering relations']
+    ['1203', 'C9-OVERGENERALISATION-WORD', 'main', '10187', 'never', '### A.19.1 And two other sets counted but never listed']
 <<<END FILE: r2-ch19b2.out>>>
 
 <<<FILE: r2-ch20a2.py>>>
@@ -100712,12 +100808,11 @@ r2-ch25a — Appendix E part 2 (E.3–E.8), computable claims; conventions named
    Register lines naming E.3–E.8 / Appendix E: 10, entries: [195, 211, 384, 385, 386, 387, 418, 565, 1707, 1721]
    WARNING lines among them: []
 §11 DEFECT-CENSUS.tsv header: ['id', 'class', 'member', 'line', 'item', 'detail']
-   rows in main L11101–L11268: 5
-   716 | C7-WITHDRAWAL-LINE-NUMBER-SURVIVES | main | 11202 | 30.3 | other sites: main=50 reg=8 | Nothing in §30.3 is withdrawn. The derivations agree with the literature wherever both exist, and the
-   1224 | C9-OVERGENERALISATION-WORD | main | 11107 | never | downstream. It was read once at eight items and the reading was never printed, only described.
-   1225 | C9-OVERGENERALISATION-WORD | main | 11140 | never | at thirteen — the only column whose value has never changed.
-   1226 | C9-OVERGENERALISATION-WORD | main | 11237 | never | A quantity in this work is never loose. It arrives as a **kind** carried at a **point of a ground**,
-   1227 | C9-OVERGENERALISATION-WORD | main | 11260 | never | fibre is a fact about the ground and never about the reading;
+   rows in main L11101–L11268: 4
+   715 | C7-WITHDRAWAL-LINE-NUMBER-SURVIVES | main | 11116 | 540 | other sites: main=27 reg=7 mc=2 ioi=4 sc=7 | D — verifying 540 Kreuzer–Skarke predictions. **Everything the slice specifies is recompute
+   716 | C7-WITHDRAWAL-LINE-NUMBER-SURVIVES | main | 11249 | 30.3 | other sites: main=50 reg=8 | Nothing in §30.3 is withdrawn. The derivations agree with the literature wherever both exist, and the
+   1224 | C9-OVERGENERALISATION-WORD | main | 11154 | never | downstream. It was read once at eight items and the reading was never printed, only described.
+   1225 | C9-OVERGENERALISATION-WORD | main | 11187 | never | at thirteen — the only column whose value has never changed.
 END r2-ch25a
 <<<END FILE: r2-ch25a2.out>>>
 
@@ -101311,11 +101406,11 @@ print('  PP-only lines of the withdrawn appendix are NOT tested for duplication 
   Register 296's two ratios: "withdrawal ratio" 1, "method ratio" 1 in its body
 
 == §5 census rows in range (DEFECT-CENSUS.tsv, member main, L11222–L11360)
-  717 C7-WITHDRAWAL-LINE-NUMBER-SURVIVES L11394 "6.5" — other sites: reg=1 mc=1 ioi=1 sc=2 | | 6.5 | The corrected alphabet — what becom
-  1228 C9-OVERGENERALISATION-WORD L11298 "without exception" — test that could reach it — not weakened, not pending, dead. The work applies thi
-  1229 C9-OVERGENERALISATION-WORD L11318 "never" — whenever it is wanted and is never printed as a property of the object. Where no
-  1230 C9-OVERGENERALISATION-WORD L11330 "never" — ### F.4.1 Two ratios the book had never measured about itself
-  1231 C9-OVERGENERALISATION-WORD L11370 "never" — entry bodies are never edited, and what a past entry recorded is part of the rec
+  1226 C9-OVERGENERALISATION-WORD L11284 "never" — A quantity in this work is never loose. It arrives as a **kind** carried at a **
+  1227 C9-OVERGENERALISATION-WORD L11307 "never" — fibre is a fact about the ground and never about the reading;
+  1228 C9-OVERGENERALISATION-WORD L11345 "without exception" — test that could reach it — not weakened, not pending, dead. The work applies thi
+  1229 C9-OVERGENERALISATION-WORD L11365 "never" — whenever it is wanted and is never printed as a property of the object. Where no
+  1230 C9-OVERGENERALISATION-WORD L11377 "never" — ### F.4.1 Two ratios the book had never measured about itself
   verdicts: 1226 / 1227 / 1229 (never) and 1228 (without exception) state the definition F.1–F.3 lays down — the section's own claim, precedent 678 / 1217 → not a defect; 1230 is a heading word (F.4.1's title) → not a defect; the "several" of L11299 is scored at §4, not here
 
 == §6 docket 27 — duplicated-section test: each unit paragraph's first 70 characters against the rest of the volume (markup stripped)
@@ -102415,7 +102510,7 @@ print('  docket 27: unit lines ≥ 40 chars %d; duplicated outside the unit %d %
 
 == §7 census rows in the unit's range and the docket-27 paragraph test
   census columns: ['id', 'class', 'member', 'line', 'item', 'detail']
-  rows with member main/all and line in L11550–L11904: 2 [['718', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11600', '119,', 'other sites: main=2 reg=3 sc=2 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap'], ['719', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11600', '918', 'other sites: main=2 reg=2 ioi=1 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap']]
+  rows with member main/all and line in L11550–L11904: 2 [['718', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11647', '119,', 'other sites: main=2 reg=3 sc=2 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap'], ['719', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11647', '918', 'other sites: main=2 reg=2 ioi=1 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap']]
   L11600 printed: claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap
   docket 27: unit lines ≥ 40 chars 242; duplicated outside the unit 0 []
 <<<END FILE: r2-ch28a4.out>>>
@@ -106280,8 +106375,8 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
 
 == 6  CENSUS
    census rows in range: 2
-     1239	C9-OVERGENERALISATION-WORD	reg	1101	never	**A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen
-     1240	C9-OVERGENERALISATION-WORD	reg	1205	never	**THREE TIERS RESTORED AFTER TWO PROVED TOO FEW.** *And the author's bracket rule — presume t
+     1239	C9-OVERGENERALISATION-WORD	reg	1106	never	**A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen
+     1240	C9-OVERGENERALISATION-WORD	reg	1210	never	**THREE TIERS RESTORED AFTER TWO PROVED TOO FEW.** *And the author's bracket rule — presume t
 
 == SUMMARY
    instrument checks failed : 0 
@@ -106463,9 +106558,9 @@ print('\n   ALL INSTRUMENT CHECKS OK' if not FAIL else '\n   INSTRUMENT FAULT - 
 
 == 5  CENSUS
    census rows in range: 3
-     1241	C9-OVERGENERALISATION-WORD	reg	1233	never	**ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, 
-     1242	C9-OVERGENERALISATION-WORD	reg	1305	never	**PAST, PRESENT AND FUTURE.** *Treated as free the three parts overcount by 130%;* **the balance h
-     1243	C9-OVERGENERALISATION-WORD	reg	1337	never	**§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written as kept in the pass t
+     1241	C9-OVERGENERALISATION-WORD	reg	1238	never	**ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, 
+     1242	C9-OVERGENERALISATION-WORD	reg	1310	never	**PAST, PRESENT AND FUTURE.** *Treated as free the three parts overcount by 130%;* **the balance h
+     1243	C9-OVERGENERALISATION-WORD	reg	1342	never	**§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written as kept in the pass t
 
 == SUMMARY
    instrument checks failed : 0 
@@ -107794,7 +107889,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-bib2.out>>>
 r2-bib.py — census mc 387–672 (the bibliography's `objects` column) and mc 293 (the modular ledger's numerals)
-members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main cc039ffe | reg 87bd1b80 | pc 6e904d82 | sc 5ba7f61c | ioi 43a28121 | census ba8306f2
+members: The_Method_1_6___Mathematical_Compendium-2.md ce104a99 | main cc039ffe | reg 87bd1b80 | pc 6e904d82 | sc 5ba7f61c | ioi 43a28121 | census 4742c83a
 
 == §1 THE TABLE, located by scan — the census rows point into it and every one of them is a handle
    exactly one bibliography table header                                  1                        OK
@@ -109814,11 +109909,11 @@ for probe in ('What a referee would flag', 'The book is an index', 'The law appl
   long lines 70, recurring elsewhere 0
   first-person candidates: [8834]
   census rows in range (classes main AND all): 5
-    1184	C9-OVERGENERALISATION-WORD	main	8813	never	**First, the index of §32.1 is computed here, which it never w
-    1185	C9-OVERGENERALISATION-WORD	main	8838	never	missing Chapter 30 — and it has never computed E over the inde
-    1186	C9-OVERGENERALISATION-WORD	main	8856	never	statement, which the book has never made in one sentence: Λ is
-    1187	C9-OVERGENERALISATION-WORD	main	8879	never	own misidentified species; it has never run on anyone else's d
-    1188	C9-OVERGENERALISATION-WORD	main	8881	never	**6. S3 has never been tested.** §32.2 claims a reader given t
+    1184	C9-OVERGENERALISATION-WORD	main	8818	never	**First, the index of §32.1 is computed here, which it never w
+    1185	C9-OVERGENERALISATION-WORD	main	8843	never	missing Chapter 30 — and it has never computed E over the inde
+    1186	C9-OVERGENERALISATION-WORD	main	8861	never	statement, which the book has never made in one sentence: Λ is
+    1187	C9-OVERGENERALISATION-WORD	main	8884	never	own misidentified species; it has never run on anyone else's d
+    1188	C9-OVERGENERALISATION-WORD	main	8886	never	**6. S3 has never been tested.** §32.2 claims a reader given t
 === I. Prints & Proofs, anchored witness by witness ===
   What a referee would flag                      main [8813]  PP [8720]  offset [-93]
   The book is an index                           main [8806]  PP [8713]  offset [-93]
@@ -110171,7 +110266,7 @@ print('\nEND r2-ch16t')
 ================================================================================================
 7  DEFECT-CENSUS ROWS IN RANGE -- classes main AND all, keyed on the column named member
 ================================================================================================
-  census rows 1557; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+  census rows 1609; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows in L9313-L9398: 0
 
 ================================================================================================
@@ -111132,7 +111227,7 @@ print('    ' + norm(MAIN[heading_line(MAIN, '36') - 1]))
 ================================================================================================
   header: ['id', 'class', 'member', 'line', 'item', 'detail']
   rows with member in (main, all) and line in [9399,9499]: 1
-    1194	C9-OVERGENERALISATION-WORD	main	9474	never	intermediate — it is fitted from a series and never measured. **A quantity the
+    1194	C9-OVERGENERALISATION-WORD	main	9480	never	intermediate — it is fitted from a series and never measured. **A quantity the
 
 ================================================================================================
 8. DUPLICATED-SECTION SWEEP (DEF-105 item 1) -- long unit lines recurring elsewhere
@@ -111679,10 +111774,12 @@ print('\nEND r2-ch16z')
 14  DEFECT-CENSUS rows in range (member main AND all, line 9623-9749)
 ================================================================================================
   columns: ['id', 'class', 'member', 'line', 'item', 'detail']
-  rows in range: 3
-    1196	C9-OVERGENERALISATION-WORD	main	9626	never	(4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
-    1197	C9-OVERGENERALISATION-WORD	main	9630	always	to four self-consistent subshells. *The observed one is always among them and
-    1198	C9-OVERGENERALISATION-WORD	main	9631	never	never uniquely determined. The periodic table is not computable from a single
+  rows in range: 5
+    1196	C9-OVERGENERALISATION-WORD	main	9640	never	(4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
+    1197	C9-OVERGENERALISATION-WORD	main	9652	always	one never. *The observed one is always among them and never uniquely
+    1198	C9-OVERGENERALISATION-WORD	main	9652	never	one never. *The observed one is always among them and never uniquely
+    1574	C9-OVERGENERALISATION-WORD	main	9652	never	one never. *The observed one is always among them and never uniquely
+    1575	C9-OVERGENERALISATION-WORD	main	9655	always	point set with two distinct abscissae always offers more than one such point, at
 
 END r2-ch16z
 <<<END FILE: r2-ch16z3.out>>>
@@ -113560,3 +113657,8879 @@ else:
     P: their stated uncertainties, and the ionisation limits listed in B.2.
   PP B.3 header split across two lines ("specie"/"s"; "δ"/"spread") at P[9863] — the volume's single header L10249: "species channel δ spread cause"
 <<<END FILE: r2-ch20a3.out>>>
+
+<<<FILE: arith.py>>>
+#!/usr/bin/env python3
+"""tools/arith.py -- the arithmetic audit of The Method 1.6, run as a program.
+
+The standing method (DOCKET.md section 2) requires, at every section read:
+
+    "Check the arithmetic of every ratio and percentage; never round with
+     round() -- Decimal.quantize, convention named."
+
+This is that sweep run as a class over whole members instead of one section at
+a time. It extracts the arithmetic the volumes state *about themselves* -- a
+fraction bound to a percentage, a signed additive expression, a binomial pair
+count, a stated complement, a percentage of a base -- recomputes each in
+Decimal, and reports a verdict per claim.
+
+Stdlib only, Python 3.9+. No dependencies, so an audit can run it from any tree.
+
+Three things it refuses to do:
+
+  1. It never rounds with round(). Every comparison is Decimal.quantize at the
+     precision the text itself states, under a named convention, and the
+     convention is printed with the verdict.
+
+  2. It never reports DISAGREE for a co-located pair. A fraction and a
+     percentage on one line are not a claim unless the text binds them. An
+     unbound pair is NOT-BOUND -- an assertion, not a result. This is the
+     regex-artefact discipline of the C7/C9 precedents.
+
+  3. It never picks the rounding convention for you. A claim that agrees under
+     one convention and fails under another is ROUNDING-SENSITIVE, reported as
+     such rather than resolved: an exact tie is a finding about the text, which
+     owes its convention a name.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import os
+import re
+import sys
+from decimal import (
+    Decimal,
+    InvalidOperation,
+    localcontext,
+    ROUND_DOWN,
+    ROUND_HALF_DOWN,
+    ROUND_HALF_EVEN,
+    ROUND_HALF_UP,
+    ROUND_UP,
+)
+
+_here = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(_here)) if os.path.basename(_here) == 'members' else os.path.dirname(_here)   # the repo root, from tools/ or from a seated copy in method/members/
+DEFAULT_MEMBERS = os.path.join(REPO, "method", "members")
+
+# ---------------------------------------------------------------------------
+# Rosters are data. Which members are reader-facing is a matter of record, not
+# of this program's opinion; name one and it audits that.
+# ---------------------------------------------------------------------------
+
+VOLUMES = [
+    "The_Method_1_6-2.md",
+    "The_Method_1_6___The_Register-2.md",
+    "The_Method_1_6___Mathematical_Compendium-2.md",
+    "The_Method_1_6___The_Physics_Compendium-2.md",
+    "The_Method_1_6___The_Index_of_Indices-2.md",
+    "The_Method_1_6___Spectra_Compendium-2.md",
+]
+
+PAPERS = [
+    "THE-LOWDIN-SOLUTION-2.md",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md",
+]
+
+AUDITS = [
+    "MAIN_AUDIT.md",
+    "MATH_AUDIT.md",
+    "PHYS_AUDIT.md",
+    "REGISTER_AUDIT.md",
+    "IOI_SPEC_AUDIT.md",
+]
+
+ROSTERS = {
+    "volumes": VOLUMES,
+    "papers": PAPERS,
+    "audits": AUDITS,
+    "reader-facing": VOLUMES + PAPERS,
+    "all": VOLUMES + PAPERS + AUDITS,
+}
+
+SHORT = {
+    "The_Method_1_6-2.md": "main",
+    "The_Method_1_6___The_Register-2.md": "reg",
+    "The_Method_1_6___Mathematical_Compendium-2.md": "mc",
+    "The_Method_1_6___The_Physics_Compendium-2.md": "pc",
+    "The_Method_1_6___The_Index_of_Indices-2.md": "ioi",
+    "The_Method_1_6___Spectra_Compendium-2.md": "sc",
+    "THE-LOWDIN-SOLUTION-2.md": "lw",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md": "tb",
+}
+
+# ---------------------------------------------------------------------------
+# Rounding conventions, named
+# ---------------------------------------------------------------------------
+
+CONVENTIONS = {
+    "HALF_UP": ROUND_HALF_UP,
+    "HALF_EVEN": ROUND_HALF_EVEN,
+    "HALF_DOWN": ROUND_HALF_DOWN,
+    "DOWN": ROUND_DOWN,
+    "UP": ROUND_UP,
+}
+
+# The two standard half-conventions. A claim that separates them is sitting on
+# an exact tie, and the text owes its convention a name.
+DEFAULT_CONVENTIONS = ("HALF_UP", "HALF_EVEN")
+
+AGREE = "AGREE"
+DISAGREE = "DISAGREE"
+SENSITIVE = "ROUNDING-SENSITIVE"
+WITHIN = "WITHIN-INPUT-PRECISION"
+NOT_BOUND = "NOT-BOUND"
+UNCHECKABLE = "UNCHECKABLE"
+
+VERDICTS = (AGREE, WITHIN, DISAGREE, SENSITIVE, NOT_BOUND, UNCHECKABLE)
+
+# Verdicts that are results about the text rather than notes about the sweep.
+FINDINGS = (DISAGREE, SENSITIVE)
+
+MINUS = "−"  # U+2212, the corpus's minus sign. The em dash is punctuation.
+
+
+class Claim:
+    """One arithmetic claim the text makes about itself."""
+
+    __slots__ = ("cls", "member", "line", "text", "stated", "computed",
+                 "verdict", "binder", "note")
+
+    def __init__(self, cls, member, line, text, stated, computed, verdict,
+                 binder="", note=""):
+        self.cls = cls
+        self.member = member
+        self.line = line
+        self.text = text
+        self.stated = stated
+        self.computed = computed
+        self.verdict = verdict
+        self.binder = binder
+        self.note = note
+
+    def asdict(self):
+        return {
+            "class": self.cls,
+            "member": self.member,
+            "short": SHORT.get(self.member, self.member),
+            "line": self.line,
+            "text": self.text,
+            "stated": self.stated,
+            "computed": self.computed,
+            "verdict": self.verdict,
+            "binder": self.binder,
+            "note": self.note,
+        }
+
+
+# ---------------------------------------------------------------------------
+# Numbers
+# ---------------------------------------------------------------------------
+
+def _n(s):
+    """A corpus number to a Decimal. Thousands separators and U+2212 minus."""
+    return Decimal(s.replace(",", "").replace(MINUS, "-").strip())
+
+
+def _dp(stated_str):
+    """The decimal places the text itself states. This fixes the precision of
+    the comparison: a value printed to 1 dp is not a claim about the 2nd."""
+    return len(stated_str.split(".")[1]) if "." in stated_str else 0
+
+
+def _exact(fn):
+    with localcontext() as ctx:
+        ctx.prec = 50
+        return fn()
+
+
+def _verdict(exact, stated_str, conventions):
+    """Compare an exact Decimal against a stated value at the stated precision,
+    under every named convention. Returns (verdict, computed_str, note)."""
+    try:
+        stated = Decimal(stated_str.replace(",", ""))
+    except InvalidOperation:
+        return UNCHECKABLE, "", "stated value does not parse"
+
+    dp = _dp(stated_str)
+    q = Decimal(1).scaleb(-dp)
+
+    agreeing, failing = [], []
+    for name in conventions:
+        with localcontext() as ctx:
+            ctx.prec = 50
+            got = exact.quantize(q, rounding=CONVENTIONS[name])
+        (agreeing if got == stated else failing).append(name)
+
+    # Show the computed value with two more places than the text states, so a
+    # near miss reads as a near miss and a tie reads as a tie.
+    with localcontext() as ctx:
+        ctx.prec = 50
+        shown = exact.quantize(Decimal(1).scaleb(-(dp + 2)),
+                               rounding=ROUND_HALF_EVEN)
+    computed = format(shown.normalize() if shown == shown.to_integral_value()
+                      else shown, "f")
+
+    if not failing:
+        return AGREE, computed, "convention-independent at %d dp" % dp
+    if not agreeing:
+        return DISAGREE, computed, "under every convention: %s" % ", ".join(conventions)
+    return (SENSITIVE, computed,
+            "agrees under %s, fails under %s -- an exact tie; the text owes "
+            "its convention a name" % (", ".join(agreeing), ", ".join(failing)))
+
+
+# ---------------------------------------------------------------------------
+# Patterns
+# ---------------------------------------------------------------------------
+
+# A number may carry thousands separators but may not END in one: without the
+# closing \d, "5 of 28," matches with the sentence's comma glued on.
+INT = r"\d(?:[\d,]*\d)?"
+NUM = INT + r"(?:\.\d+)?"
+
+# "146 of 163" or "84/99". Counts, so integers on both sides.
+FRAC = r"(?P<a>" + INT + r")(?:\s+of\s+|\s*/\s*)(?P<b>" + INT + r")"
+
+# At most three lowercase-ish words may stand between the fraction and the
+# percentage -- "556 of 1,664 cells valued, 33%". A digit or any punctuation in
+# between breaks the binding.
+TAIL = r"(?P<tail>(?:\s+[A-Za-z][A-Za-z-]*){0,3})"
+PCT = r"(?P<p>\d+(?:\.\d+)?)\s?%"
+
+RE_FRAC = re.compile(FRAC)
+RE_PCT = re.compile(PCT)
+
+# Strong binders assert the identity; the comma merely apposes it.
+RE_BOUND_EQ = re.compile(FRAC + TAIL + r"\s*(?P<sep>=)\s*" + PCT)
+RE_BOUND_PAREN = re.compile(FRAC + TAIL + r"\s*\(\s*" + PCT + r"\s*\)")
+RE_BOUND_REV = re.compile(PCT + r"\s*\(\s*" + FRAC + r"\s*\)")
+RE_BOUND_COMMA = re.compile(FRAC + TAIL + r"\s*(?P<sep>,)\s*" + PCT)
+
+STRONG_BINDERS = (("=", RE_BOUND_EQ), ("(...)", RE_BOUND_PAREN),
+                  ("%(...)", RE_BOUND_REV))
+WEAK_BINDERS = ((",", RE_BOUND_COMMA),)
+
+# A term may be a product: "12*10 + 20*6". An expression is a signed sum of
+# terms, and a *chain* of expressions joined by "=" asserts that all of them
+# are equal -- which is how the volumes actually write arithmetic:
+#
+#   |L| = S_q |A(q)| x |B(q)| = 33*5 + 33*10 + 23*15 + 8*17
+#                             = 165 + 330 + 345 + 136 = 976
+#
+# Pairing only the first "=" with what follows it reads the second expression
+# as a scalar total and invents two defects where the text has none.
+TERM = NUM + r"(?:\s*[·×*]\s*" + NUM + r")*"
+EXPR = TERM + r"(?:\s*[+\-" + MINUS + r"]\s*" + TERM + r")*"
+# The trailing (?![A-Za-z]) is why "the degree sum 12*10 + 20*6 + 30*4 = 360
+# = 2E" closes on 360 and not on the 2 of "2E". A digit glued to a letter is a
+# variable; reading it as a value manufactures a defect where the text says
+# "the arithmetic is sound throughout" -- and is right.
+RE_EQ = re.compile(
+    r"(?<![\d.,\w])(?P<chain>" + EXPR
+    + r"(?:\s*=\s*" + EXPR + r")+)(?![\d,]*\d)(?![A-Za-z])"
+)
+RE_HAS_OP = re.compile(r"[+\-" + MINUS + r"·×*]")
+
+RE_CHOOSE = re.compile(
+    r"C\(\s*(?P<n>\d+)\s*,\s*(?P<k>\d+)\s*\)"
+    r"(?:\s*[·×*]\s*(?P<f>" + INT + r"))?"
+    r"\s*=\s*(?P<m>" + INT + r")\b(?![A-Za-z])"
+)
+
+RE_FAIL = re.compile(
+    # "fail at 23%" states a rate, not a count of failures, so "at" is not a
+    # preposition this reads and no candidate may be a percentage.
+    r"fail(?:s|ed)?\s+(?:on|for|in)\s+(?P<f1>" + INT + r")\b(?!\s*%)"
+    r"|\b(?P<f2>" + INT + r")\b(?!\s*%)\s+(?:\w+\s+)?fail(?:s|ed)?\b",
+    re.I,
+)
+
+RE_PCT_OF = re.compile(
+    PCT + r"\s+of\s+(?P<b>" + INT + r")\s*(?:is|=|,)\s*(?P<r>" + INT + r")\b"
+)
+
+
+def _squash(s):
+    return re.sub(r"\s+", " ", s).strip()
+
+
+RE_DANGLING = re.compile(r"[+\-" + MINUS + r"=×·*]\s*$")
+
+
+def logical_lines(text, max_join=4):
+    """Physical lines, with a wrapped expression joined to its continuation.
+
+    DOCKET.md section 2: a construction that wraps is read on the
+    whitespace-normalised join. A line ending in a dangling arithmetic
+    operator is continued by the next non-blank line, which is why
+
+        ... and 248,305 +
+        248,305 - 495,515 = 1,095, as reported.
+
+    is one claim -- correct inclusion-exclusion -- and not a false one.
+    Nothing else is joined. Joining two adjacent table rows would fabricate
+    arithmetic the text never states, so only a dangling operator licenses it.
+
+    Yields (starting physical line number, joined text).
+    """
+    raw = text.split("\n")
+    out = []
+    i = 0
+    while i < len(raw):
+        start = i
+        buf = raw[i].rstrip()
+        while (RE_DANGLING.search(buf) and i + 1 < len(raw)
+               and raw[i + 1].strip() and (i - start) < max_join):
+            i += 1
+            buf = buf + " " + raw[i].strip()
+        out.append((start + 1, buf))
+        i += 1
+    return out
+
+
+def _fmt(v):
+    v = v.normalize()
+    return format(v, "f")
+
+
+# ---------------------------------------------------------------------------
+# Finders. Each yields Claims for one line.
+# ---------------------------------------------------------------------------
+
+def find_fraction_pct(member, lineno, line, conventions, strict):
+    binders = list(STRONG_BINDERS)
+    if not strict:
+        binders += list(WEAK_BINDERS)
+
+    bound_spans = []
+    for name, rx in binders:
+        for m in rx.finditer(line):
+            a, b, p = _n(m.group("a")), _n(m.group("b")), m.group("p")
+            bound_spans.append(m.span())
+            if b == 0:
+                yield Claim("FRACTION-PCT", member, lineno, _squash(m.group(0)),
+                            p + "%", "", UNCHECKABLE, name,
+                            "denominator is zero")
+                continue
+            exact = _exact(lambda: a / b * 100)
+            verdict, computed, note = _verdict(exact, p, conventions)
+            if a > b:
+                note = (note + "; " if note else "") + \
+                    "numerator exceeds denominator -- read the site"
+            yield Claim("FRACTION-PCT", member, lineno, _squash(m.group(0)),
+                        p + "%", computed + "%", verdict, name, note)
+
+    # Refusal 2: a fraction co-located with a percentage but not bound to it is
+    # not a claim. Report it as NOT-BOUND so the site can be read by eye, and
+    # never as a disagreement.
+    if not RE_PCT.search(line):
+        return
+    for m in RE_FRAC.finditer(line):
+        if any(s <= m.start() and m.end() <= e for s, e in bound_spans):
+            continue
+        pcts = [x.group(0) for x in RE_PCT.finditer(line)]
+        yield Claim("FRACTION-PCT", member, lineno, _squash(m.group(0)),
+                    "; ".join(pcts[:3]), "", NOT_BOUND, "",
+                    "percentage on the line is not bound to this fraction")
+
+
+def _lit_interval(tok):
+    """A literal's value as an interval. A count is exact; a decimal printed to
+    d places stands for anything within half an ulp of itself."""
+    v = _n(tok)
+    if "." in tok:
+        half = Decimal(1).scaleb(-_dp(tok)) / 2
+        return v - half, v + half
+    return v, v
+
+
+def _prod_interval(term):
+    ivs = [_lit_interval(x) for x in re.split(r"\s*[·×*]\s*", term.strip())]
+    lo, hi = ivs[0]
+    for a, b in ivs[1:]:
+        c = [lo * a, lo * b, hi * a, hi * b]
+        lo, hi = min(c), max(c)
+    return lo, hi
+
+
+def _eval_interval(expr):
+    parts = re.split(r"\s*([+\-" + MINUS + r"])\s*", expr)
+    lo, hi = _prod_interval(parts[0])
+    i = 1
+    while i + 1 < len(parts):
+        op, term = parts[i], parts[i + 1]
+        a, b = _prod_interval(term)
+        lo, hi = (lo + a, hi + b) if op == "+" else (lo - b, hi - a)
+        i += 2
+    return lo, hi
+
+
+def _soften(verdict, note, expr, stated_str):
+    """A disagreement smaller than the operands' own printed precision is not a
+    defect -- it is the operands' rounding, and saying otherwise would fault the
+    text for arithmetic it never claimed. MC's
+
+        1.0838 x 1.0854 x 1.1212 x 1.0522 x 1.0125 x 1.0022 = 1.4081
+
+    is stated "to four decimals" from factors printed to four; the product of
+    the printed factors is 1.408218, but the product of what they stand for
+    lies in an interval that covers 1.4081. Integer operands are exact, so a
+    count-only expression is never softened."""
+    if verdict != DISAGREE or "." not in expr:
+        return verdict, note
+    try:
+        lo, hi = _exact(lambda: _eval_interval(expr))
+    except (InvalidOperation, IndexError):
+        return verdict, note
+    try:
+        stated = Decimal(stated_str.replace(",", ""))
+    except InvalidOperation:
+        return verdict, note
+    half = Decimal(1).scaleb(-_dp(stated_str)) / 2
+    if lo - half <= stated <= hi + half:
+        q = Decimal(1).scaleb(-(_dp(stated_str) + 2))
+        with localcontext() as ctx:
+            ctx.prec = 50
+            shown = (lo.quantize(q, rounding=ROUND_DOWN),
+                     hi.quantize(q, rounding=ROUND_UP))
+        return WITHIN, ("the operands are printed to their own precision, so "
+                        "the value lies in [%s, %s]; that interval covers the "
+                        "stated %s" % (_fmt(shown[0]), _fmt(shown[1]),
+                                       stated_str))
+    return verdict, note
+
+
+def _prod(term):
+    vals = [_n(x) for x in re.split(r"\s*[·×*]\s*", term.strip())]
+    out = vals[0]
+    for v in vals[1:]:
+        out *= v
+    return out
+
+
+def _eval_additive(expr):
+    parts = re.split(r"\s*([+\-" + MINUS + r"])\s*", expr)
+    total = _prod(parts[0])
+    i = 1
+    while i + 1 < len(parts):
+        op, term = parts[i], parts[i + 1]
+        v = _prod(term)
+        total = total + v if op == "+" else total - v
+        i += 2
+    return total
+
+
+def find_equation(member, lineno, line, conventions, strict):
+    for m in RE_EQ.finditer(line):
+        chain = m.group("chain")
+        parts = [p.strip() for p in chain.split("=") if p.strip()]
+        if len(parts) < 2:
+            continue
+        # Two bare numbers joined by "=" are a label or an assignment, not
+        # arithmetic. At least one side must actually compute something.
+        if not any(RE_HAS_OP.search(p) for p in parts):
+            continue
+        try:
+            vals = [_exact(lambda q=q: _eval_additive(q)) for q in parts]
+        except (InvalidOperation, IndexError):
+            continue
+
+        closing = parts[-1]
+        if not RE_HAS_OP.search(closing):
+            # The chain closes on a bare stated total: compare the computed
+            # value against it at the precision the text states.
+            verdict, computed, note = _verdict(vals[0], closing, conventions)
+            verdict, note = _soften(verdict, note, parts[0], closing)
+            if len(parts) > 2 and len(set(vals[:-1])) > 1:
+                verdict = DISAGREE
+                note = "the chain's own members disagree"
+        else:
+            # Every member is an expression; the claim is that they are equal.
+            verdict = AGREE if len(set(vals)) == 1 else DISAGREE
+            computed = _fmt(vals[0])
+            note = "exact equality; no rounding is involved"
+
+        if len(parts) > 2:
+            note = (note + "; " if note else "") + "chain of %d: %s" % (
+                len(parts), " = ".join(_fmt(v) for v in vals))
+
+        yield Claim("EQUATION", member, lineno, _squash(m.group(0)),
+                    closing, computed, verdict, "=", note)
+
+
+def find_choose(member, lineno, line, conventions, strict):
+    for m in RE_CHOOSE.finditer(line):
+        n, k = int(m.group("n")), int(m.group("k"))
+        if k > n:
+            yield Claim("CHOOSE", member, lineno, _squash(m.group(0)),
+                        m.group("m"), "0", UNCHECKABLE, "=",
+                        "k exceeds n")
+            continue
+        exact = Decimal(math.comb(n, k))
+        factor = m.group("f")
+        if factor:
+            exact *= _n(factor)
+        verdict, computed, note = _verdict(exact, m.group("m"), conventions)
+        yield Claim("CHOOSE", member, lineno, _squash(m.group(0)),
+                    m.group("m"), computed, verdict, "=", note)
+
+
+def find_complement(member, lineno, line, conventions, strict):
+    fracs = list(RE_FRAC.finditer(line))
+    if len(fracs) != 1:
+        return  # ambiguous: which fraction does the failure count complement?
+    # The failure count must FOLLOW the fraction it complements. A table row
+    # reading "D=0   failed, found, repaired -- 39 claims, now 60 of 63" puts a
+    # zero and the word "failed" before the fraction; they are not a claim.
+    end = fracs[0].end()
+    fails = [m for m in RE_FAIL.finditer(line) if m.start() >= end]
+    if not fails:
+        return
+    a, b = _n(fracs[0].group("a")), _n(fracs[0].group("b"))
+    if a > b:
+        return
+    stated = fails[0].group("f1") or fails[0].group("f2")
+    exact = b - a
+    verdict, computed, note = _verdict(exact, stated, conventions)
+    yield Claim("COMPLEMENT", member, lineno,
+                _squash(fracs[0].group(0) + " ... " + fails[0].group(0)),
+                stated, computed, verdict, "fail",
+                (note + "; " if note else "") + "complement of %s of %s"
+                % (fracs[0].group("a"), fracs[0].group("b")))
+
+
+def find_pct_of(member, lineno, line, conventions, strict):
+    for m in RE_PCT_OF.finditer(line):
+        p, b = Decimal(m.group("p")), _n(m.group("b"))
+        exact = _exact(lambda: p / 100 * b)
+        verdict, computed, note = _verdict(exact, m.group("r"), conventions)
+        yield Claim("PCT-OF", member, lineno, _squash(m.group(0)),
+                    m.group("r"), computed, verdict, "is/=", note)
+
+
+FINDERS = {
+    "FRACTION-PCT": find_fraction_pct,
+    "EQUATION": find_equation,
+    "CHOOSE": find_choose,
+    "COMPLEMENT": find_complement,
+    "PCT-OF": find_pct_of,
+}
+
+
+# ---------------------------------------------------------------------------
+# The sweep
+# ---------------------------------------------------------------------------
+
+def audit_text(member, text, conventions=DEFAULT_CONVENTIONS, strict=False,
+               classes=None):
+    classes = classes or list(FINDERS)
+    out = []
+    for lineno, line in logical_lines(text):
+        low = line.lower()
+        if "%" not in line and "=" not in line and "fail" not in low:
+            continue  # nothing in this file's claim classes can fire
+        for cls in classes:
+            out.extend(FINDERS[cls](member, lineno, line, conventions, strict))
+    return out
+
+
+def audit_member(members_dir, member, **kw):
+    path = os.path.join(members_dir, member)
+    with open(path, encoding="utf-8") as fh:
+        return audit_text(member, fh.read(), **kw)
+
+
+# ---------------------------------------------------------------------------
+# Reporting
+# ---------------------------------------------------------------------------
+
+def report(claims, conventions, only=None, quiet_not_bound=True, width=96):
+    order = {v: i for i, v in enumerate(VERDICTS)}
+    shown = [c for c in claims if not only or c.verdict in only]
+    if quiet_not_bound and not only:
+        shown = [c for c in shown if c.verdict != NOT_BOUND]
+    shown.sort(key=lambda c: (order.get(c.verdict, 9), c.member, c.line))
+
+    print("conventions: %s   (Decimal.quantize; round() is never used)"
+          % ", ".join(conventions))
+    print()
+    for c in shown:
+        site = "%s:%d" % (SHORT.get(c.member, c.member), c.line)
+        head = "%-14s %-13s %-24s" % (site, c.cls, c.verdict)
+        print(head + _squash(c.text)[:width])
+        detail = "  stated %s" % c.stated
+        if c.computed:
+            detail += "   computed %s" % c.computed
+        if c.binder:
+            detail += "   bound by '%s'" % c.binder
+        print(" " * 14 + detail)
+        if c.note:
+            print(" " * 16 + c.note)
+        print()
+
+    tally = {}
+    for c in claims:
+        tally[c.verdict] = tally.get(c.verdict, 0) + 1
+    print("-" * 72)
+    print("  ".join("%s %d" % (v, tally.get(v, 0)) for v in VERDICTS
+                    if tally.get(v)))
+    findings = sum(tally.get(v, 0) for v in FINDINGS)
+    print("%d claim%s checked, %d finding%s"
+          % (len(claims), "" if len(claims) == 1 else "s",
+             findings, "" if findings == 1 else "s"))
+    return findings
+
+
+# ---------------------------------------------------------------------------
+# Self-test. The fixtures are the corpus's own recorded arithmetic, addressed by
+# the text of the site rather than by line number so a rebuild cannot move them.
+# Failures are reported, never tuned away.
+# ---------------------------------------------------------------------------
+
+SYNTHETIC = [
+    # (line, class, expected verdict, expected computed prefix)
+    ("146 of 163 = 92%", "FRACTION-PCT", DISAGREE, "89.5"),
+    ("52 of 52 = 100%", "FRACTION-PCT", AGREE, "100"),
+    ("71/80 = 89%", "FRACTION-PCT", AGREE, "88.75"),
+    ("84/99 = 85%", "FRACTION-PCT", AGREE, "84.8"),
+    # An exact tie at the stated precision: 12.5 is 13 under HALF_UP and 12
+    # under HALF_EVEN. The convention decides, so the text owes it a name.
+    ("1 of 8 = 13%", "FRACTION-PCT", SENSITIVE, "12.5"),
+    ("311 of 311 measured channels. As an equality it is right 57%",
+     "FRACTION-PCT", NOT_BOUND, ""),
+    ("0 of 0 = 50%", "FRACTION-PCT", UNCHECKABLE, ""),
+    ("V-E+F = 62" + MINUS + "180+120 = 2", "EQUATION", AGREE, "2"),
+    ("165 + 330 + 345 + 136 = 976", "EQUATION", AGREE, "976"),
+    ("12·10 + 20·6 = 240", "EQUATION", AGREE, "240"),
+    # A chain: every member must equal every other.
+    ("|L| = 33·5 + 33·10 + 23·15 + 8·17 = 165 + 330 + 345 + 136 = 976",
+     "EQUATION", AGREE, "976"),
+    ("|A| × |B| × |q| = 33 × 17 × 4 = 2,244 against 976", "EQUATION",
+     AGREE, "2244"),
+    ("2 + 2 = 5", "EQUATION", DISAGREE, "4"),
+    ("C(5,2) = 10 combinations", "CHOOSE", AGREE, "10"),
+    ("C(6,2) = 15 exist", "CHOOSE", AGREE, "15"),
+    ("C(120,2) = 7,140", "CHOOSE", AGREE, "7140"),
+    ("C(9,2)·4 = 144", "CHOOSE", AGREE, "144"),
+    ("C(5,2) = 11", "CHOOSE", DISAGREE, "10"),
+    ("546 of 789 interior cells pass. It fails on 243 cells", "COMPLEMENT",
+     AGREE, "243"),
+    ("held for 318 of 407 channels and failed for 89", "COMPLEMENT",
+     AGREE, "89"),
+    ("20% of 264 is 53", "PCT-OF", AGREE, "52.8"),
+    # Operands printed to four decimals: the product of what they stand for
+    # covers the stated value, so this is not a defect.
+    ("1.0838 × 1.0854 × 1.1212 × 1.0522 × 1.0125 × 1.0022 = 1.4081",
+     "EQUATION", WITHIN, "1.408218"),
+    # Integer operands are exact, so the same shape is NOT softened.
+    ("33 × 5 = 166", "EQUATION", DISAGREE, "165"),
+    # The chain must close on 360, not on the 2 of "2E".
+    ("the degree sum 12·10 + 20·6 + 30·4 = 360 = 2E", "EQUATION", AGREE, "360"),
+    # A failure rate is not a failure count.
+    ("114 of 129 consistent, interval 82-93%; heavy elements fail at 23% "
+     "against light at 8%", "FRACTION-PCT", NOT_BOUND, ""),
+]
+
+# Sites that must yield NO claim. Each one is a construction that a looser
+# reading turns into a defect the text does not contain.
+NEGATIVE = [
+    # A table row: the zero and the word "failed" both precede the fraction.
+    ("\u2145=0        failed, found, repaired \u2014 39 claims, now 60 of 63",
+     "COMPLEMENT"),
+    # An assignment is not arithmetic.
+    ("n = 3", "EQUATION"),
+    ("the cap is k = 3 and f = 1", "EQUATION"),
+    # "fail at 23%" is a rate; there is no complement claim here.
+    ("114 of 129 consistent on raw levels, interval 82-93%; heavy elements "
+     "fail at 23% against light at 8%", "COMPLEMENT"),
+]
+
+# Fixtures that must be read across a line wrap, through audit_text.
+WRAPPED = [
+    ("    248,305 with h11 >= 140 \u00b7 495,515 with at least one \u00b7 and 248,305 +\n"
+     "    248,305 \u2212 495,515 = 1,095, as reported.",
+     "EQUATION", AGREE, "1095"),
+]
+
+# Sites in the live members. Addressed by the matched text, not by line
+# number, so a rebuild cannot move a fixture out from under the self-test.
+CORPUS = [
+    # Repaired under R3 (item 153-01, Register 1800): the site read 92% against its own
+    # count and now reads 90%. The SYNTHETIC fixture keeps the defective form, so the
+    # DISAGREE path is still exercised on a literal.
+    ("mc", "FRACTION-PCT", "146 of 163 = 90%", AGREE),
+    ("mc", "FRACTION-PCT", "52 of 52 = 100%", AGREE),
+    ("reg", "FRACTION-PCT", "1,169 of 1,654 = 70.7%", AGREE),
+    ("reg", "FRACTION-PCT", "84/99 = 85%", AGREE),
+    ("reg", "FRACTION-PCT", "71/80 = 89%", AGREE),
+    ("reg", "CHOOSE", "C(120,2) = 7,140", AGREE),
+    ("mc", "EQUATION",
+     "33\u00b75 + 33\u00b710 + 23\u00b715 + 8\u00b717 = 165 + 330 + 345 + 136 = 976",
+     AGREE),
+    ("mc", "EQUATION", "33 × 17 × 4 = 2,244", AGREE),
+    ("mc", "EQUATION",
+     "1.0838 × 1.0854 × 1.1212 × 1.0522 × 1.0125 × 1.0022 = 1.4081", WITHIN),
+    ("reg", "EQUATION", "12·10 + 20·6 + 30·4 = 360", AGREE),
+    ("main", "EQUATION", "248,305 + 248,305 − 495,515 = 1,095", AGREE),
+    ("reg", "COMPLEMENT", "318 of 407 ... failed for 89", AGREE),
+]
+
+
+def selftest(members_dir):
+    fails = []
+    checked = 0
+
+    for line, cls, want_verdict, want_computed in SYNTHETIC:
+        got = [c for c in FINDERS[cls]("synthetic", 1, line,
+                                       DEFAULT_CONVENTIONS, False)]
+        got = [c for c in got if c.verdict == want_verdict] or got
+        checked += 1
+        if not got:
+            fails.append("no %s claim found in %r" % (cls, line))
+            continue
+        c = got[0]
+        if c.verdict != want_verdict:
+            fails.append("%r: verdict %s, expected %s"
+                         % (line, c.verdict, want_verdict))
+        elif want_computed and not c.computed.lstrip("-").startswith(want_computed):
+            fails.append("%r: computed %s, expected ~%s"
+                         % (line, c.computed, want_computed))
+
+    for line, cls in NEGATIVE:
+        got = list(FINDERS[cls]("synthetic", 1, line, DEFAULT_CONVENTIONS, False))
+        got = [c for c in got if c.verdict != NOT_BOUND]
+        checked += 1
+        if got:
+            fails.append("%r should yield no %s claim, got %s %s"
+                         % (line, cls, got[0].verdict, got[0].text))
+
+    for text, cls, want_verdict, want_computed in WRAPPED:
+        got = [c for c in audit_text("synthetic", text) if c.cls == cls]
+        checked += 1
+        if not got:
+            fails.append("no %s claim across the wrap in %r" % (cls, text))
+        elif got[0].verdict != want_verdict:
+            fails.append("wrapped %r: verdict %s, expected %s"
+                         % (got[0].text, got[0].verdict, want_verdict))
+        elif not got[0].computed.startswith(want_computed):
+            fails.append("wrapped %r: computed %s, expected ~%s"
+                         % (got[0].text, got[0].computed, want_computed))
+
+    long_to_short = {v: k for k, v in SHORT.items()}
+    by_member = {}
+    for short, cls, text, want in CORPUS:
+        member = long_to_short[short]
+        if member not in by_member:
+            by_member[member] = audit_member(members_dir, member)
+        hits = [c for c in by_member[member]
+                if c.cls == cls and c.text == text]
+        checked += 1
+        if not hits:
+            fails.append("%s: %r not found in %s" % (cls, text, short))
+        elif hits[0].verdict != want:
+            fails.append("%s %r in %s: verdict %s, expected %s"
+                         % (cls, text, short, hits[0].verdict, want))
+
+    print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
+    for f in fails:
+        print("  FAIL " + f)
+    print()
+    print("SELFTEST OK" if not fails else "SELFTEST FAILED")
+    return 0 if not fails else 1
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="The arithmetic audit of The Method 1.6, run as a program.")
+    ap.add_argument("--members", default=DEFAULT_MEMBERS,
+                    help="the members directory (default: method/members)")
+    ap.add_argument("--member", action="append", default=[],
+                    help="audit this member; repeatable")
+    ap.add_argument("--roster", help="audit a named roster of members")
+    ap.add_argument("--list-rosters", action="store_true")
+    ap.add_argument("--class", dest="classes", action="append", default=[],
+                    choices=sorted(FINDERS), help="restrict to this claim class")
+    ap.add_argument("--conventions", default=",".join(DEFAULT_CONVENTIONS),
+                    help="comma-separated rounding conventions: "
+                         + ", ".join(sorted(CONVENTIONS)))
+    ap.add_argument("--strict-binding", action="store_true",
+                    help="require '=' or parentheses; do not accept a comma")
+    ap.add_argument("--only", help="report only these verdicts, comma-separated")
+    ap.add_argument("--all-verdicts", action="store_true",
+                    help="include NOT-BOUND sites in the report")
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args(argv)
+
+    if args.list_rosters:
+        for name, members in sorted(ROSTERS.items()):
+            print("%-14s %d members" % (name, len(members)))
+            for m in members:
+                print("    %-6s %s" % (SHORT.get(m, ""), m))
+        return 0
+
+    if args.selftest:
+        return selftest(args.members)
+
+    conventions = [c.strip().upper() for c in args.conventions.split(",") if c.strip()]
+    for c in conventions:
+        if c not in CONVENTIONS:
+            ap.error("unknown convention %r; choose from %s"
+                     % (c, ", ".join(sorted(CONVENTIONS))))
+
+    members = list(args.member)
+    if args.roster:
+        if args.roster not in ROSTERS:
+            ap.error("unknown roster %r; --list-rosters shows them" % args.roster)
+        members += ROSTERS[args.roster]
+    if not members:
+        ap.error("name a member with --member or a roster with --roster")
+
+    claims = []
+    for m in members:
+        path = os.path.join(args.members, m)
+        if not os.path.exists(path):
+            print("missing member: %s" % path, file=sys.stderr)
+            return 2
+        claims.extend(audit_member(args.members, m, conventions=conventions,
+                                   strict=args.strict_binding,
+                                   classes=args.classes or None))
+
+    only = None
+    if args.only:
+        only = [v.strip().upper() for v in args.only.split(",")]
+        for v in only:
+            if v not in VERDICTS:
+                ap.error("unknown verdict %r" % v)
+
+    if args.json:
+        json.dump({"conventions": conventions,
+                   "members": members,
+                   "claims": [c.asdict() for c in claims
+                              if not only or c.verdict in only]},
+                  sys.stdout, indent=2, ensure_ascii=False)
+        print()
+        return 0
+
+    report(claims, conventions, only=only,
+           quiet_not_bound=not args.all_verdicts)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: arith.py>>>
+
+<<<FILE: audit_math.py>>>
+#!/usr/bin/env python3
+"""audit_math.py — the book's own mathematical objects read as an index, in five languages.
+
+    python3 tools/audit_math.py
+
+`dclose.py` is a seated instrument that treats the book's mathematical objects as an index: each
+element is a (kind, discipline) fibre carrying a cell (status, verification, precedent), and it
+reports E per fibre under an operator augmented with two domain rules. It finds E = 0 on all 24
+fibres of its 77 elements — in the ORDER language alone.
+
+This reads the same 77 elements in all five operator-bearing languages, three ways, and the third
+produces a counterexample to the corpus's own agreement theorem.
+
+  1. AS ONE OBJECT, kind and discipline on axes. Wide open — E = 492 in order, 1 of 10 pairs
+     agreeing. That is the expected refutation, not a finding: kind and discipline are nominal,
+     they individuate rather than order, and register 1356 names putting such a coordinate on an
+     axis as the fault that voided Lambda_ladder. `dclose.py` fibres over them for that reason.
+
+  2. PER FIBRE. What `dclose.py` measures, now in five languages rather than one.
+
+  3. THE GRADING ALONE — (status, verification, precedent) over all 77 elements, every coordinate
+     ordinal by construction. All five languages return the SAME 13-cell set and the index holds
+     11, so the languages agree exactly and E = 2.
+
+Register 1176 states E(X) = 0 IF AND ONLY IF the languages agree, on six indexes and three
+operators, "without exception". The third reading is agreement WITHOUT closure, so the "only if"
+half does not hold in general. The defect census already flags that entry's "without exception" as
+C9-OVERGENERALISATION-WORD (row 1321); this supplies the exception it was flagged for.
+
+The two cells the languages admit and the index lacks are `measured · exhaustive · found` and
+`verified · sampled · found` — both gradings a mathematical object could carry, neither occurring
+among the 77.
+"""
+from __future__ import annotations
+
+import collections
+import itertools
+import pathlib
+import re
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import cypher
+
+STATUS = ["withdrawn", "conjectured", "measured", "verified", "proved"]
+VERIF = ["cited", "sampled", "exhaustive"]
+PRECED = ["none found", "found"]
+OPTS = {"statistics_order": 2, "algebra_budget": 200000,
+        "max_box": 10 ** 9, "max_pairwise_cells": 10 ** 9}
+
+
+def elements():
+    """The 77 elements dclose.py carries, read from the seated instrument itself."""
+    here = pathlib.Path(__file__).resolve().parent
+    for c in (here / "dclose.py", here.parent / "method" / "members" / "dclose.py",
+              here.parent.parent / "method" / "members" / "dclose.py"):
+        if c.exists():
+            src = c.read_text(encoding="utf-8")
+            break
+    else:
+        sys.exit("dclose.py not found beside this file or under method/members/")
+    out = []
+    for blk in re.findall(r'"""(.*?)"""', src, re.S):
+        for line in blk.strip().splitlines():
+            if "|" not in line:
+                continue
+            fib, name, cell = line.split("|")
+            kind, disc = fib.split("·")
+            a, b, c = [x.strip() for x in cell.split("·")]
+            out.append((kind, disc, name, a, b, c))
+    return out
+
+
+def main():
+    els = elements()
+    kinds = sorted({k for k, *_ in els})
+    discs = sorted({d for _, d, *_ in els})
+    fibres = collections.defaultdict(list)
+    for k, d, _, a, b, c in els:
+        fibres[(k, d)].append((a, b, c))
+    print(f"{len(els)} elements, {len(fibres)} (kind, discipline) fibres, "
+          f"{len(kinds)} kinds, {len(discs)} disciplines\n")
+
+    print("1. AS ONE OBJECT — kind and discipline on axes")
+    cells = sorted({(k, d, a, b, c) for k, d, _, a, b, c in els})
+    ix = cypher.Index("math index", ["kind", "discipline", "status", "verification", "precedent"],
+                      [list(x) for x in cells],
+                      value_order={"kind": kinds, "discipline": discs, "status": STATUS,
+                                   "verification": VERIF, "precedent": PRECED})
+    r = cypher.run(ix, "1173", OPTS)
+    E = {v.language: v.E for v in r["_verdicts"] if v.E is not None}
+    print(f"   cells {len(ix.cells)}  box {ix.box}   E: " +
+          "  ".join(f"{k} {v}" for k, v in sorted(E.items())))
+    print(f"   {r['pairs_agreeing']} of {len(r['pairs'])} pairs agree")
+    print("   -> nominal coordinates on axes; the expected refutation, not a finding (reg 1356)\n")
+
+    print("2. PER FIBRE — what dclose.py measures, in five languages")
+    open_f = []
+    for key, cs in sorted(fibres.items()):
+        fx = cypher.Index("f", ["status", "verification", "precedent"],
+                          [list(x) for x in sorted(set(cs))],
+                          value_order={"status": STATUS, "verification": VERIF,
+                                       "precedent": PRECED})
+        fr = cypher.run(fx, "1173", OPTS)
+        fe = {v.language: v.E for v in fr["_verdicts"] if v.E is not None}
+        if any(v for v in fe.values()):
+            open_f.append((key, len(fx.cells), fe))
+    print(f"   {len(fibres)} fibres; {len(fibres) - len(open_f)} close at E = 0 in every language")
+    for key, n, fe in open_f:
+        print(f"   OPEN  {key[0]}·{key[1]:<18} {n} cells   " +
+              "  ".join(f"{k} {v}" for k, v in sorted(fe.items())))
+    print()
+
+    print("3. THE GRADING ALONE — (status, verification, precedent) over all 77")
+    g = sorted({(a, b, c) for *_, a, b, c in els})
+    gx = cypher.Index("the grading", ["status", "verification", "precedent"],
+                      [list(x) for x in g],
+                      value_order={"status": STATUS, "verification": VERIF, "precedent": PRECED})
+    sets = {}
+    for nm, fn in (("order", cypher.op_order), ("algebra", cypher.op_algebra),
+                   ("geometry", cypher.op_geometry), ("information", cypher.op_information),
+                   ("statistics", cypher.op_statistics)):
+        out, _ = fn(gx, OPTS)
+        sets[nm] = frozenset(out)
+    agree = len(set(sets.values())) == 1
+    adm = next(iter(sets.values()))
+    E = len(adm) - len(gx.cells)
+    print(f"   cells {len(gx.cells)}  box {gx.box}   every language admits "
+          f"{len(adm)}   E = {E}")
+    print(f"   languages agree (identical admitted sets): {agree}")
+    held = {tuple(gx.decode[i][v] for i, v in enumerate(c)) for c in gx.cells}
+    for c in sorted(adm):
+        t = tuple(gx.decode[i][v] for i, v in enumerate(c))
+        if t not in held:
+            print(f"     admitted and not held:  {t[0]:<12} {t[1]:<11} {t[2]}")
+    ok = not (agree and E > 0)
+    print(f"\n   K.langclose (E = 0 iff the languages agree): "
+          f"{'holds' if ok else 'FAILS — agreement WITHOUT closure'}")
+    if not ok:
+        print("   Register 1176 states it on six indexes and three operators, without exception.")
+        print("   This is an exception. Census row 1321 already flags that wording as")
+        print("   C9-OVERGENERALISATION-WORD; this is the case it was flagged for.")
+    return 0 if ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: audit_math.py>>>
+
+<<<FILE: buildtrace.py>>>
+#!/usr/bin/env python3
+"""tools/buildtrace.py -- provenance across the BUILD series.
+
+The archive holds the build series as snapshots: The_Method_1_6_BUILD<N>_*.md,
+BUILD9 to BUILD179, in two streams, 596 MiB in 140 files. They are the only
+record of when a figure entered the books and when it changed. Answering
+"which build introduced this number" by hand means grepping a third of a
+gigabyte, which CLAUDE.md forbids outright:
+
+    "Do not read or grep the tree wholesale: start from MANIFEST.tsv, then run
+     targeted ls/grep against specific paths."
+
+So this starts from MANIFEST.tsv, and every mode that touches the tree states
+its byte budget first and refuses to exceed it. DOCKET.md section 2: "State a
+budget rather than a negative when a computation is too large."
+
+    python3 tools/buildtrace.py --builds              # from the manifest; reads no build
+    python3 tools/buildtrace.py --first "976 cells"   # bisect: ~9 reads, not 119
+    python3 tools/buildtrace.py --trace "976 cells" --stream main
+    python3 tools/buildtrace.py --verify 90
+    python3 tools/buildtrace.py --selftest
+
+Stdlib only, Python 3.9+.
+
+Three things it refuses to do:
+
+  1. It never scans the tree wholesale without saying what that costs. Every
+     tree-touching mode prints "budget: N files, X MiB" and --trace refuses
+     over --budget (default 256 MiB) rather than quietly reading 596.
+
+  2. It never reports a first-appearance from a bisect without checking that
+     the token is monotone. A bisect is only valid if a token, once
+     introduced, stays; if the newest build lacks it, the token was withdrawn,
+     the bisect is meaningless, and it says NON-MONOTONE instead of a number.
+
+  3. It never merges a build's variant copies. A ".REPAIRED", a "-1" and a
+     "__<driveFileId>" copy are all deliberate (CLAUDE.md: "Both are
+     intentional -- do not merge or delete either"), so the canonical plain
+     name is traced and the variants are listed, never silently averaged in.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+import sys
+
+_here = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(_here)) if os.path.basename(_here) == 'members' else os.path.dirname(_here)   # the repo root, from tools/ or from a seated copy in method/members/
+DEFAULT_MANIFEST = os.path.join(REPO, "drive", "MANIFEST.tsv")
+DEFAULT_TREE = os.path.join(REPO, "drive")
+STORE = os.path.join(REPO, "method")
+
+# The live bundles, which are the newest members of the two streams — read from method/verify.py,
+# the authority tools/restage.py retargets at every build. Named here as literals until W-236, the
+# selftest broke at every restage (the store had no BUILD94 main or BUILD192 compendia once they retired).
+def _live():
+    src = open(os.path.join(STORE, "verify.py"), encoding="utf-8").read()
+    names = dict(re.findall(r"'(\w+)': '(The_Method_1_6_BUILD\d+_[^']+)'", src))
+    md5s = dict(re.findall(r"'(\w+)': '([0-9a-f]{32})'", src))
+    return {k: (names[k], md5s[k]) for k in ("main", "compendia")}
+LIVE = _live()
+
+STREAMS = {"compendia": "compendia_papers_audits", "main": "main_and_register"}
+
+RE_BUILD = re.compile(
+    r"The_Method_1_6_BUILD(?P<n>\d+)_"
+    r"(?P<stream>compendia_papers_audits|main_and_register)"
+    r"(?P<variant>|\.REPAIRED|-1|__[A-Za-z0-9_-]+)\.md$"
+)
+
+CHUNK = 1 << 20
+
+
+class Build:
+    __slots__ = ("n", "stream", "variant", "repo_path", "size", "md5", "folder")
+
+    def __init__(self, n, stream, variant, repo_path, size, md5):
+        self.n = n
+        self.stream = stream
+        self.variant = variant
+        self.repo_path = repo_path
+        self.size = size
+        self.md5 = md5
+        self.folder = os.path.dirname(repo_path)
+
+    @property
+    def canonical(self):
+        return self.variant == ""
+
+    @property
+    def label(self):
+        return "BUILD%d%s" % (self.n, self.variant)
+
+    def path(self, tree=DEFAULT_TREE):
+        return os.path.join(tree, self.repo_path)
+
+    def asdict(self):
+        return {"build": self.n, "stream": self.stream,
+                "variant": self.variant, "canonical": self.canonical,
+                "repo_path": self.repo_path, "size": self.size,
+                "md5": self.md5}
+
+
+def read_series(manifest=DEFAULT_MANIFEST):
+    """The build series, from MANIFEST.tsv alone. Reads no build file.
+
+    CLAUDE.md: the manifest is the entry point and is never hand-edited; the
+    manifest and the tree are an exact bijection. Everything here -- which
+    builds exist, their size, their md5 -- comes from it."""
+    out = []
+    with open(manifest, encoding="utf-8") as fh:
+        header = fh.readline().rstrip("\n").split("\t")
+        col = {name: i for i, name in enumerate(header)}
+        for line in fh:
+            row = line.rstrip("\n").split("\t")
+            if len(row) < len(header):
+                continue
+            repo_path = row[col["repo_path"]]
+            m = RE_BUILD.search(repo_path)
+            if not m:
+                continue
+            out.append(Build(int(m.group("n")), m.group("stream"),
+                             m.group("variant"), repo_path,
+                             int(row[col["drive_size_bytes"]] or 0),
+                             row[col["md5"]]))
+    out.sort(key=lambda b: (b.stream, b.n, b.variant))
+    return out
+
+
+def select(series, stream=None, canonical_only=True, folder=None):
+    out = series
+    if stream:
+        out = [b for b in out if b.stream == STREAMS[stream]]
+    if canonical_only:
+        out = [b for b in out if b.canonical]
+    if folder is not None:
+        out = [b for b in out if b.folder == folder]
+    return sorted(out, key=lambda b: (b.n, b.variant))
+
+
+def primary_folder(series):
+    """The folder the series proper lives in. The delivery subfolders hold
+    their own copies of a handful of builds; tracing across both would
+    interleave two histories."""
+    counts = {}
+    for b in select(series, canonical_only=True):
+        counts[b.folder] = counts.get(b.folder, 0) + 1
+    return max(counts, key=counts.get) if counts else ""
+
+
+# ---------------------------------------------------------------------------
+# Counting
+# ---------------------------------------------------------------------------
+
+def count_in(path, token, chunk=CHUNK):
+    """Occurrences of a fixed string, streamed.
+
+    The overlap is why a token straddling a chunk boundary is still counted:
+    without carrying the last len(token)-1 bytes forward, a 596 MiB scan
+    silently loses roughly one occurrence per megabyte boundary."""
+    needle = token.encode("utf-8")
+    keep = len(needle) - 1
+    total = 0
+    tail = b""
+    with open(path, "rb") as fh:
+        while True:
+            block = fh.read(chunk)
+            if not block:
+                break
+            buf = tail + block
+            total += buf.count(needle)
+            tail = buf[-keep:] if keep else b""
+    return total
+
+
+def md5_of(path, chunk=CHUNK):
+    h = hashlib.md5()
+    with open(path, "rb") as fh:
+        for block in iter(lambda: fh.read(chunk), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+class Cache:
+    """Counts, keyed by the file's manifest md5 and the token. A build is a
+    snapshot and never changes, so a count once measured is permanent."""
+
+    def __init__(self, path):
+        self.path = path
+        self.data = {}
+        if path and os.path.exists(path):
+            try:
+                with open(path, encoding="utf-8") as fh:
+                    self.data = json.load(fh)
+            except (ValueError, OSError):
+                self.data = {}
+
+    def get(self, md5, token):
+        return self.data.get(md5 + "\t" + token)
+
+    def put(self, md5, token, n):
+        self.data[md5 + "\t" + token] = n
+
+    def flush(self):
+        if not self.path:
+            return
+        try:
+            os.makedirs(os.path.dirname(self.path), exist_ok=True)
+            with open(self.path, "w", encoding="utf-8") as fh:
+                json.dump(self.data, fh)
+        except OSError:
+            pass
+
+
+def counted(build, token, tree, cache, reads):
+    hit = cache.get(build.md5, token) if cache else None
+    if hit is not None:
+        return hit, False
+    n = count_in(build.path(tree), token)
+    if cache:
+        cache.put(build.md5, token, n)
+    reads.append(build)
+    return n, True
+
+
+def transitions(counts):
+    """The builds where a count changes, labelled.
+
+    Pure, so the labelling is unit-tested rather than inferred from a 448 MiB
+    scan. counts is [(build number, count)] in series order; a token absent
+    throughout yields nothing at all -- printing "BUILD9 0 WITHDRAWN" for
+    something that was never there states a withdrawal that never happened."""
+    out = []
+    prev = 0
+    for n, c in counts:
+        if c == prev:
+            continue
+        out.append((n, c, "first appears" if prev == 0
+                    else "WITHDRAWN" if c == 0 else "changes"))
+        prev = c
+    return out
+
+
+def budget(builds, label="budget"):
+    total = sum(b.size for b in builds)
+    print("%s: %d file%s, %.1f MiB"
+          % (label, len(builds), "" if len(builds) == 1 else "s",
+             total / 1048576.0))
+    return total
+
+
+# ---------------------------------------------------------------------------
+# Modes
+# ---------------------------------------------------------------------------
+
+def mode_builds(series, stream, variants):
+    for name, key in sorted(STREAMS.items()):
+        if stream and stream != name:
+            continue
+        rows = select(series, name, canonical_only=not variants)
+        if not rows:
+            continue
+        total = sum(b.size for b in rows)
+        print("%s stream (%s): %d files, %.1f MiB, BUILD%d to BUILD%d"
+              % (name, key, len(rows), total / 1048576.0,
+                 rows[0].n, rows[-1].n))
+        folders = {}
+        for b in rows:
+            folders.setdefault(b.folder, []).append(b.n)
+        for folder, ns in sorted(folders.items()):
+            print("    %-46s %3d: %s"
+                  % (folder or ".", len(ns),
+                     ", ".join(str(n) for n in sorted(set(ns)))))
+        var = [b for b in select(series, name, canonical_only=False)
+               if not b.canonical]
+        if var and not variants:
+            print("    %d variant cop%s not traced (--variants lists them): %s"
+                  % (len(var), "y" if len(var) == 1 else "ies",
+                     ", ".join(sorted(b.label for b in var))))
+        print()
+    return 0
+
+
+def mode_first(series, token, stream, tree, cache, cap):
+    """Bisect for the first build containing a fixed string.
+
+    Refusal 2: valid only if the token is monotone -- once in, it stays. The
+    endpoints are measured first, so a token that was WITHDRAWN is reported as
+    non-monotone rather than as a first appearance that does not mean
+    anything."""
+    rows = select(series, stream, folder=primary_folder(series))
+    if len(rows) < 2:
+        print("not enough builds in the %s stream to bisect" % (stream or "?"))
+        return 2
+    reads = []
+    lo_n, hi_n = rows[0], rows[-1]
+    print("series: %s BUILD%d to BUILD%d, %d builds"
+          % (stream or "both", lo_n.n, hi_n.n, len(rows)))
+    print("bisect reads about %d of them" % (len(rows).bit_length() + 1))
+
+    first_c, _ = counted(rows[0], token, tree, cache, reads)
+    last_c, _ = counted(rows[-1], token, tree, cache, reads)
+    if last_c == 0 and first_c == 0:
+        print()
+        print("ABSENT from both endpoints (BUILD%d and BUILD%d)."
+              % (lo_n.n, hi_n.n))
+        print("  That is not absence from the series: a token added and later "
+              "withdrawn is absent at both ends.")
+        print("  Only --trace can settle it, and only for the builds the "
+              "archive holds.")
+        budget(reads, "read")
+        return 1
+    if last_c == 0:
+        print()
+        print("WITHDRAWN, so NON-MONOTONE: present in the oldest build "
+              "(BUILD%d, %d occurrence%s) and absent from the newest "
+              "(BUILD%d)." % (lo_n.n, first_c, "" if first_c == 1 else "s",
+                              hi_n.n))
+        print("  A bisect locates a first appearance only for a token that "
+              "persists; this one does not.")
+        print("  Use --trace for the whole series; it will show where it went.")
+        budget(reads, "read")
+        return 1
+    if first_c:
+        print()
+        print("present in the OLDEST build in the series (BUILD%d), %d "
+              "occurrence%s" % (lo_n.n, first_c, "" if first_c == 1 else "s"))
+        print("  Its introduction predates the series; the archive cannot "
+              "date it.")
+        budget(reads, "read")
+        return 0
+
+    lo, hi = 0, len(rows) - 1          # rows[lo] absent, rows[hi] present
+    while hi - lo > 1:
+        mid = (lo + hi) // 2
+        c, _ = counted(rows[mid], token, tree, cache, reads)
+        if c:
+            hi = mid
+        else:
+            lo = mid
+    print()
+    print("FIRST APPEARANCE  BUILD%d  (%s)" % (rows[hi].n, rows[hi].repo_path))
+    c, _ = counted(rows[hi], token, tree, cache, reads)
+    print("  BUILD%-4d %d occurrence%s" % (rows[hi].n, c,
+                                           "" if c == 1 else "s"))
+    print("  BUILD%-4d absent  (the build immediately before it in the series)"
+          % rows[lo].n)
+    print("  Monotone at the endpoints; the series has gaps, so BUILD%d is the "
+          "first build PRESENT IN THE ARCHIVE that carries it." % rows[hi].n)
+    budget(reads, "read")
+    return 0
+
+
+def mode_trace(series, token, stream, tree, cache, cap):
+    rows = select(series, stream, folder=primary_folder(series))
+    unread = [b for b in rows if cache.get(b.md5, token) is None]
+    total = budget(unread or rows, "budget")
+    if unread and total > cap:
+        print()
+        print("REFUSED: %.1f MiB exceeds the %.1f MiB budget."
+              % (total / 1048576.0, cap / 1048576.0))
+        print("  --first bisects the same question in about %d reads."
+              % (len(rows).bit_length() + 1))
+        print("  --stream main is %.1f MiB; raise the ceiling with --budget."
+              % (sum(b.size for b in select(series, "main",
+                                            folder=primary_folder(series)))
+                 / 1048576.0))
+        return 2
+    print()
+    reads = []
+    counts = []
+    for b in rows:
+        c, _ = counted(b, token, tree, cache, reads)
+        counts.append((b, c))
+    rows_t = transitions([(b.n, c) for b, c in counts])
+    print("transitions in %r (only the builds where the count changes):"
+          % token)
+    print()
+    if not rows_t:
+        print("  none -- absent from all %d builds read" % len(counts))
+    for n, c, label in rows_t:
+        print("  BUILD%-5d %-6d %s" % (n, c, label))
+    print()
+    nz = [c for _, c in counts if c]
+    print("%d builds read, present in %d of them, count %s"
+          % (len(counts), len(nz),
+             "steady at %d" % nz[0] if nz and len(set(nz)) == 1
+             else "%d to %d" % (min(nz), max(nz)) if nz else "0 throughout"))
+    if reads:
+        budget(reads, "read")
+    return 0
+
+
+def mode_verify(series, which, tree):
+    """The mirror's own guarantee, re-asserted: the on-disk file against the
+    md5 the manifest records for it."""
+    rows = [b for b in series if which is None or b.n == which]
+    if not rows:
+        print("no build %s in the manifest" % which)
+        return 2
+    budget(rows, "budget")
+    print()
+    bad = 0
+    for b in sorted(rows, key=lambda x: (x.stream, x.n, x.variant)):
+        path = b.path(tree)
+        if not os.path.exists(path):
+            print("  MISSING  %s" % b.repo_path)
+            bad += 1
+            continue
+        got = md5_of(path)
+        ok = got == b.md5
+        size_ok = os.path.getsize(path) == b.size
+        print("  %-8s %-12s %s%s"
+              % ("OK" if ok and size_ok else "MISMATCH", b.label, b.repo_path,
+                 "" if ok and size_ok else "  (md5 %s, manifest %s)"
+                 % (got[:12], b.md5[:12])))
+        if not (ok and size_ok):
+            bad += 1
+    print()
+    print("%d checked, %d bad" % (len(rows), bad))
+    return 0 if not bad else 1
+
+
+# ---------------------------------------------------------------------------
+# Self-test
+# ---------------------------------------------------------------------------
+
+def selftest(manifest, tree):
+    fails = []
+    checked = 0
+
+    def check(cond, msg):
+        nonlocal checked
+        checked += 1
+        if not cond:
+            fails.append(msg)
+
+    series = read_series(manifest)
+    check(bool(series), "no build files found in the manifest")
+
+    canon = select(series, canonical_only=True)
+    main = select(series, "main", folder=primary_folder(series))
+    comp = select(series, "compendia", folder=primary_folder(series))
+    check(len(main) >= 12, "main_and_register stream has %d canonical builds "
+                           "in the primary folder, expected >= 12" % len(main))
+    check(len(comp) >= 100, "compendia stream has %d canonical builds in the "
+                            "primary folder, expected >= 100" % len(comp))
+    check(comp[0].n == 9, "the compendia series starts at BUILD%d, expected 9"
+          % comp[0].n)
+
+    # Ordering must be by build number, since higher N is newer.
+    check(all(a.n < b.n for a, b in zip(comp, comp[1:])),
+          "the compendia series is not strictly increasing in build number")
+
+    # The manifest and the tree are an exact bijection (CLAUDE.md), so every
+    # build row must have a file.
+    absent = [b.repo_path for b in canon if not os.path.exists(b.path(tree))]
+    check(not absent, "%d canonical build rows have no file on disk: %s"
+          % (len(absent), absent[:3]))
+
+    # Variants are recognised and kept apart, never merged.
+    variants = [b for b in series if not b.canonical]
+    check(bool(variants), "no variant copies recognised; the .REPAIRED, -1 "
+                          "and __<driveFileId> forms should parse")
+    check(all(b.canonical for b in canon), "select() leaked a variant")
+
+    # The chunk-boundary overlap. Without the carry a token straddling the
+    # boundary is lost, which is the one bug a streamed count can hide.
+    tmp = os.path.join(os.path.dirname(os.path.abspath(manifest)),
+                       ".buildtrace-selftest.tmp")
+    try:
+        with open(tmp, "wb") as fh:
+            fh.write(b"x" * 30 + b"NEEDLE" + b"y" * 30)
+        for chunk in (1, 2, 3, 7, 31, 32, 33, 64, 4096):
+            got = count_in(tmp, "NEEDLE", chunk=chunk)
+            check(got == 1, "count_in with chunk=%d found %d NEEDLE, "
+                            "expected 1" % (chunk, got))
+        check(count_in(tmp, "x" * 30, chunk=4) == 1,
+              "count_in lost a 30-byte token at chunk=4")
+        check(count_in(tmp, "ABSENT", chunk=8) == 0,
+              "count_in invented an absent token")
+    finally:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+
+    # The transition labeller, which is what a 448 MiB scan reports through.
+    for counts, want in [
+            ([(9, 0), (10, 0)], []),
+            ([(9, 3), (10, 3)], [(9, 3, "first appears")]),
+            ([(9, 0), (10, 2), (11, 2), (12, 5)],
+             [(10, 2, "first appears"), (12, 5, "changes")]),
+            ([(9, 4), (10, 0)],
+             [(9, 4, "first appears"), (10, 0, "WITHDRAWN")]),
+            ([(9, 0), (10, 1), (11, 0), (12, 1)],
+             [(10, 1, "first appears"), (11, 0, "WITHDRAWN"),
+              (12, 1, "first appears")]),
+    ]:
+        check(transitions(counts) == want,
+              "transitions(%s) = %s, expected %s"
+              % (counts, transitions(counts), want))
+
+    # A dated withdrawal, on two targeted reads rather than a series scan.
+    # DEFECT-CENSUS row 2 records "Theorem 7.1 is absent -- withdrawn". The
+    # main stream carries the token twice through BUILD10 -- the statement and
+    # a citation -- and once from BUILD54 on. That dates the withdrawal.
+    main_by_n = {b.n: b for b in main}
+    for n, want in ((10, 2), (54, 1)):
+        if n not in main_by_n:
+            check(False, "the main stream has no BUILD%d to date the "
+                         "Theorem 7.1 withdrawal against" % n)
+            continue
+        checked += 1
+        got = count_in(main_by_n[n].path(tree), "Theorem 7.1")
+        if got != want:
+            fails.append("BUILD%d main carries 'Theorem 7.1' %d time(s), "
+                         "expected %d (census row 2 dates the withdrawal to "
+                         "BUILD54)" % (n, got, want))
+
+    # The store and the archive must agree on the live bundles. This is what
+    # drive/ is for: Ruling 56 makes Prints & Proofs the original-input
+    # witness, and a witness that disagrees with the store is the finding.
+    for stream, (fname, want_md5) in sorted(LIVE.items()):
+        rows = [b for b in series if os.path.basename(b.repo_path) == fname]
+        store = os.path.join(STORE, fname)
+        if not os.path.exists(store):
+            check(False, "the store has no %s" % fname)
+            continue
+        checked += 1
+        got = md5_of(store)
+        if got != want_md5:
+            fails.append("the store's %s is md5 %s; method/verify.py "
+                         "records %s" % (fname, got, want_md5))
+        if rows:
+            checked += 1
+            if rows[0].md5 != want_md5:
+                fails.append("the archive's %s is md5 %s; the store's live "
+                             "bundle is %s -- store and witness disagree"
+                             % (fname, rows[0].md5, want_md5))
+        else:
+            print("  note: the archive does not mirror %s (the live %s "
+                  "bundle); nothing to cross-check" % (fname, stream))
+
+    print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
+    for f in fails:
+        print("  FAIL " + f)
+    print()
+    print("SELFTEST OK" if not fails else "SELFTEST FAILED")
+    return 0 if not fails else 1
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="Provenance across the BUILD series.")
+    ap.add_argument("--manifest", default=DEFAULT_MANIFEST)
+    ap.add_argument("--tree", default=DEFAULT_TREE)
+    ap.add_argument("--cache",
+                    default=os.path.join(REPO, ".buildtrace-cache.json"),
+                    help="counts, keyed by manifest md5; a snapshot never "
+                         "changes so a count is permanent")
+    ap.add_argument("--no-cache", action="store_true")
+    ap.add_argument("--stream", choices=sorted(STREAMS))
+    ap.add_argument("--variants", action="store_true",
+                    help="--builds: list the .REPAIRED / -1 / __id copies")
+    ap.add_argument("--budget", type=float, default=256.0,
+                    help="ceiling in MiB for --trace (default 256)")
+    ap.add_argument("--builds", action="store_true",
+                    help="the series, from the manifest; reads no build file")
+    ap.add_argument("--first", metavar="TOKEN",
+                    help="bisect for the first build carrying a fixed string")
+    ap.add_argument("--trace", metavar="TOKEN",
+                    help="the whole series; prints only the transitions")
+    ap.add_argument("--verify", nargs="?", type=int, const=-1,
+                    metavar="N", help="on-disk md5 against the manifest's; "
+                                      "a build number, or all of them")
+    ap.add_argument("--json", action="store_true",
+                    help="--builds: the series as JSON")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args(argv)
+
+    if args.selftest:
+        return selftest(args.manifest, args.tree)
+
+    series = read_series(args.manifest)
+    if not series:
+        print("no build files in %s" % args.manifest, file=sys.stderr)
+        return 2
+
+    if args.json and args.builds:
+        json.dump([b.asdict() for b in
+                   select(series, args.stream, not args.variants)],
+                  sys.stdout, indent=2)
+        print()
+        return 0
+    if args.builds:
+        return mode_builds(series, args.stream, args.variants)
+    if args.verify is not None:
+        return mode_verify(series, None if args.verify == -1 else args.verify,
+                           args.tree)
+
+    cache = Cache(None if args.no_cache else args.cache)
+    cap = args.budget * 1048576.0
+    try:
+        if args.first:
+            return mode_first(series, args.first, args.stream, args.tree,
+                              cache, cap)
+        if args.trace:
+            return mode_trace(series, args.trace, args.stream, args.tree,
+                              cache, cap)
+    finally:
+        cache.flush()
+
+    ap.error("name a mode: --builds, --first, --trace, --verify or --selftest")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: buildtrace.py>>>
+
+<<<FILE: census2.py>>>
+# census2.py — successor of census.py (chat 68; md5 f5a73e2b595dd6215ad8d3c8910b6337), R3 (W-236): the same census, row for row, with three changes and
+# nothing else. (1) The Register's extent is data — `n not in regnums` — where census.py carried `n>1792` as a literal and so
+# flagged every citation of an entry seated after BUILD90 as C5-REGISTER-POINTER-UNRESOLVED (DEF-153O). (2) The members are read
+# from this script's own directory, not /home/claude/members. (3) The output path is beside members/ (where close_census reads
+# it) or the first argument — never the seated member. Ids are still assigned in measurement order; close_census2.py maps them
+# onto the seated ids by CONTENT (class, member, item, detail), so a build that moves a line no longer moves an id.
+# census.py — Phase R1 instrumented census over the six reader-facing members (chat 68).
+# Every row is MEASURED by this script; the read decides. Output: DEFECT-CENSUS.tsv (id, class, member, line, item, detail).
+import re, collections, sys, os
+H=os.path.dirname(os.path.abspath(__file__)); D=H+os.sep   # the members: this script's own directory, not /home/claude
+OUT=sys.argv[1] if len(sys.argv)>1 else os.path.join(os.path.dirname(H),'DEFECT-CENSUS.tsv')   # written beside members/, where close_census reads it; never the member itself
+F={'main':'The_Method_1_6-2.md','reg':'The_Method_1_6___The_Register-2.md','mc':'The_Method_1_6___Mathematical_Compendium-2.md',
+   'pc':'The_Method_1_6___The_Physics_Compendium-2.md','ioi':'The_Method_1_6___The_Index_of_Indices-2.md','sc':'The_Method_1_6___Spectra_Compendium-2.md'}
+L={k:open(D+v,encoding='utf-8').read().split('\n') for k,v in F.items()}
+rows=[]
+def row(cls,mem,ln,item,detail): rows.append((cls,mem,ln,item.replace('\t',' ').replace('\n',' ')[:160],detail.replace('\t',' ').replace('\n',' ')[:200]))
+# ---- main heading map and section ranges
+heads=[]  # (line, key, level)
+for i,l in enumerate(L['main']):
+    m=re.match(r'^(#+) (?:§)?(\d+(?:\.\d+)*)\.?\s',l)
+    if m: heads.append((i+1,m.group(2),len(m.group(1))))
+keys={k for _,k,_ in heads}|{'4.%d'%i for i in range(1,8)}
+def rng(key):
+    if re.fullmatch(r'4\.[1-7]',key): ln=1440+int(key[2]); return (ln,ln)
+    idx=[j for j,(ln,k,lv) in enumerate(heads) if k==key]
+    if not idx: return None
+    j=idx[-1] if '.' not in key else idx[0]; a=heads[j][0]
+    b=len(L['main'])
+    for ln,k,lv in heads[j+1:]:
+        if not (k==key or k.startswith(key+'.')): b=ln-1; break
+    return (a,b)
+appx={m.group(1) for l in L['main'] for m in [re.match(r'^## Appendix ([A-Z])\b',l)] if m}
+thm_printed={m.group(1) for l in L['main'] for m in [re.match(r'^\s*Theorem (\d+\.\d+)(?:\.| \()',l)] if m}
+regnums={int(n) for l in L['reg'] if re.match(r'^### [\d, ]+$',l) for n in re.findall(r'\d+',l)}
+# figures placed: number on the ![ line or the next non-empty line
+figplaced=set()
+for i,l in enumerate(L['main']):
+    if l.startswith('!['):
+        nxt=next((x for x in L['main'][i+1:i+4] if x.strip()),'')
+        for n in re.findall(r'Fig(?:ure|\.)\s?(\d+\.\d+)',l+' '+nxt): figplaced.add(n)
+# ---- C1..C5 pointer resolution over all members
+for mem,lines in L.items():
+    for i,l in enumerate(lines):
+        for m in re.finditer(r'§\s?(\d+(?:\.\d+)*)',l):
+            if m.group(1) not in keys: row('C1-SECTION-POINTER-UNRESOLVED',mem,i+1,'§'+m.group(1),l.strip())
+        for m in re.finditer(r'\b(?:Theorem|Thm\.?)\s(\d+\.\d+)',l):
+            t=m.group(1)
+            if l.startswith('> **Prior art'): continue
+            if t not in thm_printed: row('C2-THEOREM-POINTER-UNPRINTED',mem,i+1,'Theorem '+t,l.strip())
+            elif t=='17.1' and re.search(r'§\s?17\.1\b',l): row('C2b-THEOREM-17.1-CITED-AS-§17.1',mem,i+1,'Theorem 17.1 / §17.1',l.strip())
+        for m in re.finditer(r'\bFig(?:ure|\.)\s?(\d+\.\d+)',l):
+            if m.group(1) not in figplaced: row('C3-FIGURE-POINTER-UNPLACED',mem,i+1,'Figure '+m.group(1),l.strip())
+        for m in re.finditer(r'\bAppendix ([A-Z])\b',l):
+            if m.group(1) not in appx: row('C4-APPENDIX-POINTER-UNRESOLVED',mem,i+1,'Appendix '+m.group(1),l.strip())
+        for m in re.finditer(r'\b(?:R|[Rr]egister|[Ee]ntry|[Ee]ntries)\s(\d{1,4})\b',l):
+            n=int(m.group(1))
+            if n not in regnums: row('C5-REGISTER-POINTER-UNRESOLVED',mem,i+1,m.group(0),l.strip())   # the Register's extent is DATA (regnums), not the literal 1792 census.py carried
+# ---- MC entries
+mc=L['mc']; ent=[]; fam=None
+for i,l in enumerate(mc):
+    if l.startswith('## '): fam=l[3:].strip()
+    if l.startswith('### '): ent.append([i+1,l[4:].strip(),fam])
+nexthead=[i+1 for i,l in enumerate(mc) if l.startswith('## ')]
+for k,e in enumerate(ent):
+    a=e[0]; b=ent[k+1][0]-1 if k+1<len(ent) else len(mc)
+    b=min([b]+[h-1 for h in nexthead if h>a])
+    e.append('\n'.join(mc[a:b])); e.append(b)
+def nums(s): return set(re.findall(r'(?<![\w.])\d[\d,]*(?:\.\d+)?(?![\w])',s))
+yr=lambda x: re.fullmatch(r'1[5-9]\d\d|20[0-2]\d',x)
+regtext={}
+cur=None
+for l in L['reg']:
+    m=re.match(r'^### (\d+)\s*$',l)
+    if m: cur=int(m.group(1)); regtext[cur]=[]
+    elif cur is not None: regtext[cur].append(l)
+regtext={k:'\n'.join(v) for k,v in regtext.items()}
+for a,title,family,body,b in ent:
+    secs=sorted(set(re.findall(r'§\s?(\d+(?:\.\d+)*)',body)))
+    rr=sorted({int(x) for x in re.findall(r'\b(?:R|[Rr]egister)\s(\d{1,4})\b',body)})
+    src=''.join('\n'.join(L['main'][x[0]-1:x[1]]) for s in secs for x in [rng(s)] if x)+'\n'+'\n'.join(regtext.get(n,'') for n in rr)
+    en=nums(body); sn=nums(src)
+    miss=[x for x in sorted(en,key=lambda z:(len(z),z)) if x not in sn and not yr(x) and not re.fullmatch(r'\d{1,2}',x)]
+    if not secs and not rr: row('C6a-ENTRY-NO-SOURCE-POINTER','mc',a,title,'no § or Register pointer in entry')
+    elif miss: row('C6-NUMBERS-NOT-IN-SOURCE','mc',a,title,'%d of %d: %s | sources §%s R%s'%(len(miss),len([x for x in en if not yr(x) and not re.fullmatch(r'\d{1,2}',x)]),' '.join(miss)[:120],' §'.join(secs)[:40],' R'.join(map(str,rr))[:40]))
+    lines=[x for x in body.split('\n')[1:] if x.strip()]
+    head_ok=bool(lines) and lines[0].startswith('**')
+    scope_ok=any(x.startswith('*') and not x.startswith('**') for x in lines[:4])
+    grade=[x for x in lines[:6] if re.match(r'^(Proved|Computed|Measured|Conjectured|Open|Observed|Record-carried|Stated)\b',x)]
+    prior=any(x.startswith('> **Prior art') for x in lines)
+    missing=[n for n,ok in [('headline',head_ok),('scope',scope_ok),('grade',bool(grade)),('prior-art',prior)] if not ok]
+    if missing: row('C11-R-FORM-INCOMPLETE','mc',a,title,'missing: '+', '.join(missing)+(' | first lines: '+' / '.join(x[:40] for x in lines[:3]) if lines else ''))
+    if grade and grade[0].startswith('Proved') and not rr: row('C10-PROVED-WITHOUT-REGISTER','mc',a,title,grade[0][:120])
+    for m in re.finditer(r'\b(?:MC|W)-\d+|\b[A-Z]{1,2}\.[a-z]{3,6}\b|\bBUILD\s?\d+|\bchat \d+|\b3B\.[a-z]+',body):
+        row('C13-HANDLE-LEAK','mc',a,m.group(0),'entry: '+title)
+inent=set()
+for a,title,family,body,b in ent: inent.update(range(a,b+1))
+for i,l in enumerate(mc):
+    if i+1 not in inent:
+        for m in re.finditer(r'\b(?:MC|W)-\d+|\b[A-Z]{1,2}\.[a-z]{3,6}\b|\bBUILD\s?\d+|\bchat \d+|\b3B\.[a-z]+',l): row('C13-HANDLE-LEAK','mc',i+1,m.group(0),'back matter: '+l.strip())
+# duplicates by title / theorem citation across families
+tn=collections.defaultdict(list)
+for a,title,family,body,b in ent:
+    tn[re.sub(r'[^a-z0-9]+',' ',title.lower()).strip()].append((a,family))
+    for t in set(re.findall(r'\b(?:Theorem|Thm\.?)\s(\d+\.\d+)',body)): tn['thm '+t].append((a,family))
+for k,v in tn.items():
+    if len(v)>1 and len({f for _,f in v})>1: row('C12-DUPLICATE-HOME','mc',v[0][0],k,'; '.join('L%d [%s]'%(a,f[:30]) for a,f in v))
+# ---- C7 withdrawn-figure survival (main)
+alltext={k:'\n'.join(v) for k,v in L.items()}
+for i,l in enumerate(L['main']):
+    if re.search(r'\b(withdrawn|withdraws?|recomputed|corrected|superseded|retracted)\b',l):
+        for n in sorted({x for x in nums(l) if not yr(x) and not re.fullmatch(r'\d{1,2}',x)}):
+            pat=r'(?<![\w.])'+re.escape(n)+r'(?![\w])'
+            cnt={k:len(re.findall(pat,t)) for k,t in alltext.items()}; cnt['main']-=len(re.findall(pat,l))
+            tot=sum(cnt.values())
+            if tot: row('C7-WITHDRAWAL-LINE-NUMBER-SURVIVES','main',i+1,n,'other sites: '+' '.join('%s=%d'%(k,c) for k,c in cnt.items() if c)+' | '+l.strip()[:110])
+# ---- C8 named statements
+names=collections.Counter(); where=collections.defaultdict(set)
+for mem,lines in L.items():
+    for i,l in enumerate(lines):
+        for m in re.finditer(r"\b(?:the|The) ((?:[\w'’\-]+ ){1,3})(lemma|law|criterion|theorem|rule|principle|axiom|inequality|bound)\b",l):
+            key=(m.group(1).strip().lower(),m.group(2)); names[key]+=1; where[key].add(mem)
+for (nm,kind),c in names.most_common():
+    phrase=nm+' '+kind
+    stated=any(re.search(r'\*\*[^*]*'+re.escape(phrase)+r'|^#+ .*'+re.escape(nm),l,re.I) for l in L['main'])
+    row('C8-NAMED-STATEMENT','all',0,phrase,'sites=%d in %s | bold/heading statement in main: %s'%(c,','.join(sorted(where[(nm,kind)])),'yes' if stated else 'NO'))
+# ---- C9 overgeneralisation words (reader-facing members)
+for mem,lines in L.items():
+    for i,l in enumerate(lines):
+        for m in re.finditer(r'\b(at every cap|every configuration|in every case|without exception|for all caps|at all caps|always|never)\b',l):
+            row('C9-OVERGENERALISATION-WORD',mem,i+1,m.group(1),l.strip())
+# ---- C13 handle leaks outside MC
+for mem in ['main','reg','pc','ioi','sc']:
+    for i,l in enumerate(L[mem]):
+        for m in re.finditer(r'\bMC-\d+\b|\bW-\d{2,3}\b|\bBUILD-?\d+\b|\b3B\.[a-z]+\b|\b[LKMWTEB]\.(?:tree|three|tri|two|one|four|five|six)\b',l):
+            row('C13-HANDLE-LEAK',mem,i+1,m.group(0),l.strip())
+# ---- write
+with open(OUT,'w',encoding='utf-8') as f:
+    f.write('id\tclass\tmember\tline\titem\tdetail\n')
+    for n,(c,m,ln,it,dt) in enumerate(rows,1): f.write('%d\t%s\t%s\t%s\t%s\t%s\n'%(n,c,m,ln,it,dt))
+cnt=collections.Counter(c for c,_,_,_,_ in rows)
+print('rows',len(rows)); 
+for c in sorted(cnt): print(' ',c,cnt[c],'|',dict(collections.Counter(m for cc,m,_,_,_ in rows if cc==c)))
+print('headings',len(heads),'keys',len(keys),'appendices',sorted(appx),'theorems printed',sorted(thm_printed),'reg numbers',len(regnums),'figs placed',len(figplaced),'MC entries',len(ent))
+<<<END FILE: census2.py>>>
+
+<<<FILE: close_census2.py>>>
+#!/usr/bin/env python3
+"""close_census2.py — close_census.py's successor: the census regenerated with ids matched by CONTENT, not by line.
+
+    python3 tools/close_census2.py --dry [--retire ID,ID] [--mark W-NNN] [--save PATH]      run census2.py, match, report; write nothing
+    python3 tools/close_census2.py --old OLD --new NEW --w W-NNN.md --main MAIN [--retire ID,ID] [--append NAME PATH ...]
+
+WHY. `close_census.py` keys an id's stability to (class, volume, line). That was the right guard while the volumes were
+frozen; the moment a build moved a main-volume line it refused on 1,280 ids at once (DEF-153O), and it has had no route
+since. An id is an address cited by every CENSUS-CLOSURES-*.tsv, so it must survive; but the address is the DEFECT — the
+class, the member, the item and the words — not the line the defect happened to sit on when the census was first taken.
+
+THE MATCH, in tiers; every pairing below tier 1 is printed in full, with both texts:
+  1  exact     (class, member, item, detail) equal — the k-th such old row to the k-th such new row when repeated;
+  2  by item   (class, member, item) equal and unique among the rows still unmatched on both sides — the detail changed
+               (a site count in a C6 or C8 row, a shifted line quoted in a C13 row);
+  3  by text   (class, member, item) equal and the quoted line equal — only the tally prefix of the detail, up to its last
+               " | ", changed (a C7 number whose "other sites" grew); k-th to k-th when repeated;
+  4  by run    (class, member, item) equal and the two quoted lines share a run of characters containing the item as a whole
+               word, at least six characters longer than the item — the line was reflowed or reworded around the same words;
+               each old row takes the still-unmatched new row with the longest run, the nearest line breaking ties. The run
+               is printed with the pair.
+  Nothing else. An old row still unmatched is GONE: its defect does not measure at this build. The tool REFUSES unless every
+  GONE id is named in --retire, and a retired row is CARRIED: the seated row verbatim, its detail prefixed
+  "RETIRED W-NNN: not measured at this build | ", so that the id every CENSUS-CLOSURES-*.tsv cites still resolves and the row
+  says plainly that it is no longer a measurement. A row so marked is carried by its mark on every later regeneration and
+  never re-measured; if the defect measures again it is a NEW row with a new id. Retirement is a ruling, never the tool's:
+  --retire is typed, and the W text says why. A new row with no match is NEW and takes the next id above the seated
+  maximum, in measurement order. For each GONE row the report says whether its quoted line still occurs in the member.
+The regenerated census carries the seated ids with their new lines and details, sorted by id; new rows appended. Then
+close_census.py's discipline unchanged: the census is REGENERATED BY RUNNING census2.py (never copied; a carried row is the
+one exception, and it is carried by a mark the seated member itself bears), the W text goes to WORKING-REGISTER.md,
+MANIFEST.tsv is recomputed, the change set is asserted, and the reverse guard must recover the old bundle's md5 before
+anything is written. This tool adds and removes no member. --save (dry only) writes the renumbered census to PATH;
+--seated PATH (dry only) matches against that file instead of the seated member — run it on a --save output to prove the
+regeneration is a fixed point: every row exact, nothing NEW, nothing GONE, the carried rows carried, "== the seated member".
+"""
+import sys, os, re, hashlib, subprocess, collections, tempfile, shutil
+MEMBER = re.compile(rb'^<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S | re.M)
+md5 = lambda b: hashlib.md5(b).hexdigest()
+T = os.path.dirname(os.path.abspath(__file__)); H = T if os.path.basename(T) == 'members' else os.path.join(os.path.dirname(T), 'method', 'members'); HOME = os.path.dirname(H)   # from tools/ or from a seated copy
+CENSUS = 'DEFECT-CENSUS.tsv'; RETIRED = 'RETIRED '
+F = {'main': 'The_Method_1_6-2.md', 'reg': 'The_Method_1_6___The_Register-2.md', 'mc': 'The_Method_1_6___Mathematical_Compendium-2.md',
+     'pc': 'The_Method_1_6___The_Physics_Compendium-2.md', 'ioi': 'The_Method_1_6___The_Index_of_Indices-2.md', 'sc': 'The_Method_1_6___Spectra_Compendium-2.md'}
+def arg(k, d=None): return sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
+def parse(t):
+    ms = [(m.group(1).decode(), m.group(2)) for m in MEMBER.finditer(t)]
+    assert len(set(n for n, _ in ms)) == len(ms), 'duplicate member name'; return ms
+def blk(n, b): return b'<<<FILE: ' + n.encode() + b'>>>\n' + b + b'<<<END FILE: ' + n.encode() + b'>>>\n'
+def manifest_text(main_ms, comp_ms):
+    rows = ['bundle\tname\tbytes\tmd5\tlines']
+    for tag, ms in (('main', main_ms), ('compendia', comp_ms)):
+        for n, b in sorted(ms):
+            if n == 'MANIFEST.tsv': continue
+            rows.append(f'{tag}\t{n}\t{len(b)}\t{md5(b)}\t{b.count(b"\n")}')
+    return ('\n'.join(rows) + '\n').encode('utf-8')
+def rows_of(text):
+    out = []
+    for line in text.decode('utf-8').splitlines():
+        f = line.split('\t')
+        if len(f) < 6 or not f[0].isdigit(): continue
+        out.append((int(f[0]), f[1], f[2], f[3], f[4], '\t'.join(f[5:])))   # id, class, member, line, item, detail
+    return out
+def text(d): return d.rsplit(' | ', 1)[-1] if ' | ' in d else d   # the quoted line, after any tally prefix
+def run(a, b, item):
+    """the longest common substring of a and b containing item as a whole word: (length, string); (0, '') if none."""
+    pat = r'(?<!\w)' + re.escape(item) + r'(?!\w)'; best = (0, '')
+    for i in (m.start() for m in re.finditer(pat, a)):
+        for j in (m.start() for m in re.finditer(pat, b)):
+            l = 0
+            while i - l > 0 and j - l > 0 and a[i - l - 1] == b[j - l - 1]: l += 1
+            r = len(item)
+            while i + r < len(a) and j + r < len(b) and a[i + r] == b[j + r]: r += 1
+            if l + r > best[0]: best = (l + r, a[i - l:i + r])
+    return best
+def match(old, new):
+    """returns (assign, tiers, gone, fresh): assign[new_index] = old id or None; tiers = [(tier, old_row, new_row, run)]."""
+    assign = [None] * len(new); used = set(); tiers = []
+    def take(t, o, i, r=''): assign[i] = o[0]; used.add(o[0]); tiers.append((t, o, new[i], r))
+    def rest(): return [r for r in old if r[0] not in used], [i for i in range(len(new)) if assign[i] is None]
+    for t, key in ((1, lambda r: (r[1], r[2], r[4], r[5])), (3, lambda r: (r[1], r[2], r[4], text(r[5])))):
+        if t == 3:   # tier 2 sits between the two grouping tiers
+            ro, rn = rest()
+            c_old = collections.Counter((r[1], r[2], r[4]) for r in ro); c_new = collections.Counter((new[i][1], new[i][2], new[i][4]) for i in rn)
+            idx = {(new[i][1], new[i][2], new[i][4]): i for i in rn}
+            for r in ro:
+                k = (r[1], r[2], r[4])
+                if c_old[k] == 1 and c_new.get(k) == 1: take(2, r, idx[k])
+        ro, rn = rest(); g_old = collections.defaultdict(list); g_new = collections.defaultdict(list)
+        for r in ro: g_old[key(r)].append(r)
+        for i in rn: g_new[key(new[i])].append(i)
+        for k, olds in g_old.items():
+            for o, i in zip(olds, g_new.get(k, [])): take(t, o, i)
+    ro, rn = rest()
+    for r in ro:
+        cands = []
+        for i in rn:
+            n = new[i]
+            if assign[i] is not None or (n[1], n[2], n[4]) != (r[1], r[2], r[4]): continue
+            ln, s = run(text(r[5]), text(n[5]), r[4])
+            if ln >= len(r[4]) + 6: cands.append((-ln, abs(int(n[3]) - int(r[3])), i, s))
+        if cands: cands.sort(); take(4, r, cands[0][2], cands[0][3])
+    gone = [r for r in old if r[0] not in used]; fresh = [i for i in range(len(new)) if assign[i] is None]
+    return assign, tiers, gone, fresh
+def still_there(r):
+    """for a GONE row: what the member holds at this build — the quoted line's whereabouts, or for a C6 row (which quotes
+    numbers, not a line) where each missing number now occurs in the volumes."""
+    if r[2] not in F: return 'member not a file'
+    lines = lambda m: open(os.path.join(H, F[m]), encoding='utf-8').read().split('\n')
+    m6 = re.match(r'(\d+) of (\d+): (.*?) \| sources', r[5])
+    if r[1].startswith('C6-') and m6:
+        L = lines(r[2]); here = 'entry %r still at %s L%s; ' % (r[4], r[2], r[3]) if int(r[3]) <= len(L) and r[4] in L[int(r[3]) - 1] else 'entry not at %s L%s; ' % (r[2], r[3])
+        for n in m6.group(3).split():
+            hits = ['%s L%s' % (m, ','.join(str(i + 1) for i, l in enumerate(lines(m)) if n in l)[:60]) for m in ('main', 'reg') if any(n in l for l in lines(m))]
+            here += '%s now in %s' % (n, '; '.join(hits) if hits else 'no volume')
+        return here
+    t = text(r[5]); hits = [i + 1 for i, l in enumerate(lines(r[2])) if t and t in l]
+    return ('quoted line still at L%s' % ','.join(map(str, hits[:3]))) if hits else 'quoted line no longer in the member'
+def regenerate():
+    d = tempfile.mkdtemp(prefix='census2-'); out = os.path.join(d, CENSUS)
+    p = subprocess.run([sys.executable, 'census2.py', out], cwd=H, capture_output=True)
+    assert p.returncode == 0, f'census2.py exit {p.returncode} — REFUSED\n' + p.stderr.decode()[-800:]
+    t = open(out, 'rb').read(); shutil.rmtree(d); return t, p.stdout.decode()
+def renumber(old_text, fresh_text, retire=(), mark='W-?'):
+    old_all, new = rows_of(old_text), rows_of(fresh_text)
+    carried = [r for r in old_all if r[5].startswith(RETIRED)]; old = [r for r in old_all if not r[5].startswith(RETIRED)]
+    assign, tiers, gone, fresh = match(old, new)
+    n_t = collections.Counter(t[0] for t in tiers)
+    print(f'  seated {len(old_all):,} rows ({len(carried)} carried as retired) -> regenerated {len(new):,}   exact {n_t[1]:,}   by item {n_t[2]}   by text {n_t[3]}   by run {n_t[4]}   NEW {len(fresh)}   GONE {len(gone)}')
+    for t in tiers:
+        if t[0] == 1: continue
+        print(f'    tier {t[0]}  id {t[1][0]:<5} {t[1][1]} {t[1][2]} L{t[1][3]}->L{t[2][3]}  {t[1][4][:40]!r}' + (f'  run {t[3]!r}' if t[3] else ''))
+        print(f'            was: {t[1][5][:110]}\n            now: {t[2][5][:110]}')
+    for i in fresh: r = new[i]; print(f'    NEW    {r[1]} {r[2]} L{r[3]} {r[4][:50]!r} | {r[5][:90]}')
+    for r in gone: print(f'    GONE   id {r[0]} {r[1]} {r[2]} L{r[3]} {r[4][:50]!r} | {r[5][:90]}\n            {still_there(r)}')
+    retire = set(retire); gone_ids = {r[0] for r in gone}
+    bad = retire - gone_ids; assert not bad, f'REFUSED: --retire names ids that are matched, carried or unknown: {sorted(bad)}'
+    left = gone_ids - retire; assert not left, f'REFUSED: {len(left)} seated census ids have no match and are not named in --retire — a row is never dropped by a regeneration: {sorted(left)}'
+    top = max(r[0] for r in old_all); nxt = top; out = {}
+    for r in carried: out[r[0]] = r
+    for r in gone: out[r[0]] = r[:5] + (f'{RETIRED}{mark}: not measured at this build | ' + r[5],); print(f'    RETIRE id {r[0]} under {mark}')
+    for i, r in enumerate(new):
+        if assign[i] is None: nxt += 1; assign[i] = nxt
+        out[assign[i]] = (assign[i],) + r[1:]
+    assert len(out) == len(new) + len(carried) + len(gone), 'id collision'
+    lines = ['id\tclass\tmember\tline\titem\tdetail'] + ['%d\t%s\t%s\t%s\t%s\t%s' % out[k] for k in sorted(out)]
+    return ('\n'.join(lines) + '\n').encode('utf-8'), n_t, len(fresh), len(gone)
+def retire_arg(): return [int(x) for x in arg('--retire', '').split(',') if x]
+if __name__ == '__main__':
+    if '--dry' in sys.argv:
+        seated = open(arg('--seated', os.path.join(H, CENSUS)), 'rb').read(); fresh, log = regenerate(); print(log.strip()[:600])
+        text_, *_ = renumber(seated, fresh, retire_arg(), arg('--mark', 'W-?'))
+        print(f'  renumbered census {len(text_):,} B md5 {md5(text_)}  {"== the seated member" if text_ == seated else "differs from the seated member"}' + ('' if '--save' in sys.argv else '  (written nowhere: --dry)'))
+        if '--save' in sys.argv: open(arg('--save'), 'wb').write(text_); print('  saved', arg('--save'))
+        sys.exit(0)
+    old_p, new_p, w_p, main_p = arg('--old'), arg('--new'), arg('--w'), arg('--main')
+    appends = [(sys.argv[i + 1], open(sys.argv[i + 2], 'rb').read()) for i, a in enumerate(sys.argv) if a == '--append']
+    assert old_p and new_p and w_p and main_p, 'need --old --new --w --main'
+    assert not os.path.exists(new_p), f'{new_p} exists — never overwrite'
+    old = open(old_p, 'rb').read(); old_ms = parse(old); od = dict(old_ms); old_names = [n for n, _ in old_ms]
+    assert CENSUS in od, f'{CENSUS} is not a seated member'
+    main_ms = parse(open(main_p, 'rb').read()); W = open(w_p, 'rb').read()
+    assert W.startswith(b'### W-') and W.endswith(b'\n\n'), 'W text must begin "### W-" and end with a blank line'
+    mark = re.match(rb'### (W-\d+)', W).group(1).decode()
+    fresh, log = regenerate(); print(log.strip()[:400])
+    text_, n_t, newn, gonen = renumber(od[CENSUS], fresh, retire_arg(), mark)
+    assert text_ != od[CENSUS], f'{CENSUS} is unchanged — REFUSED, there is nothing to regenerate'
+    end = b'<<<END FILE: WORKING-REGISTER.md>>>\n'; assert old.count(end) == 1
+    i = old.index(end); assert old[i - 2:i] == b'\n\n', 'WR body must end with a blank line'
+    new = old[:i] + W + old[i:]
+    for n, txt in appends:
+        e = b'<<<END FILE: ' + n.encode() + b'>>>\n'; assert n in old_names and new.count(e) == 1 and txt.endswith(b'\n')
+        j = new.index(e); new = new[:j] + txt + new[j:]
+    ob = blk(CENSUS, od[CENSUS]); assert new.count(ob) == 1; new = new.replace(ob, blk(CENSUS, text_))
+    man_old = od['MANIFEST.tsv']; man = manifest_text(main_ms, parse(new))
+    ob = blk('MANIFEST.tsv', man_old); assert new.count(ob) == 1; new = new.replace(ob, blk('MANIFEST.tsv', man))
+    new_ms = parse(new); nd = dict(new_ms)
+    print(f'old {os.path.basename(old_p)}  {len(old):,} B  md5 {md5(old)}  {old.count(b"\n"):,} lines  {len(old_ms)} members')
+    print(f'new {os.path.basename(new_p)}  {len(new):,} B  md5 {md5(new)}  {new.count(b"\n"):,} lines  {len(new_ms)} members')
+    allowed = {'WORKING-REGISTER.md', 'MANIFEST.tsv', CENSUS} | {n for n, _ in appends}
+    ch = [n for n in old_names if nd[n] != od[n]]; assert set(ch) <= allowed, f'unexpected change: {sorted(set(ch) - allowed)}'
+    assert nd['WORKING-REGISTER.md'] == od['WORKING-REGISTER.md'] + W and [n for n, _ in new_ms] == old_names
+    for n, txt in appends: assert nd[n] == od[n] + txt
+    rev = new.replace(blk('MANIFEST.tsv', man), blk('MANIFEST.tsv', man_old))
+    nb = blk(CENSUS, text_); assert rev.count(nb) == 1; rev = rev.replace(nb, blk(CENSUS, od[CENSUS]))
+    for n, txt in reversed(appends):
+        e = b'<<<END FILE: ' + n.encode() + b'>>>\n'; assert rev.count(txt + e) == 1; rev = rev.replace(txt + e, e)
+    assert rev.count(W + end) == 1; rev = rev.replace(W + end, end)
+    print(f'reverse recovers md5 {md5(rev)}  == old: {md5(rev) == md5(old)}'); assert md5(rev) == md5(old), 'REVERSE GUARD FAILED'
+    open(new_p, 'wb').write(new); print('written', new_p)
+<<<END FILE: close_census2.py>>>
+
+<<<FILE: consolidate.py>>>
+#!/usr/bin/env python3
+"""Consolidate the artefacts sealed inside drive/ into extracted/.
+
+The Drive mirror holds 31 archives (.zip/.tar.gz) and 9 Claude project exports
+whose contents are not reachable without unpacking them. This walks all of them
+and writes every distinct body exactly once into extracted/, with
+extracted/LEDGER.tsv recording what every source occurrence resolved to.
+
+Disposition of each source occurrence, in order of precedence:
+
+  PRESENT-IN-REPO   already tracked under drive/, method/, tools/ or docs/;
+                    not written, target_path names the existing file
+  DUP-OF-EXTRACTED  same md5 already written from an earlier source;
+                    not written, target_path names the single copy
+  SKIPPED-DERIVED   compiled bytecode (.pyc), which .gitignore excludes
+  EXTRACTED         written to target_path
+
+Archives are visited canonical copy first, so a body lands under the plain
+archive name rather than a `__<driveFileId>` or `-1` variant.
+
+A project doc whose filename claims a binary container (.pdf, .docx, ...) holds
+extracted *text*, not the original bytes — the export stores no binary. Those
+are written with `.txt` appended and the substitution noted in the ledger.
+
+drive/ is input only and is never modified: the MANIFEST.tsv <-> tree bijection
+it asserts stays intact.
+
+Regenerate:  python3 tools/consolidate.py
+Verify:      python3 tools/consolidate.py --verify
+
+Stdlib only. Idempotent: rerunning reproduces the same tree and ledger.
+"""
+
+import argparse
+import csv
+import hashlib
+import json
+import os
+import re
+import sys
+import tarfile
+import unicodedata
+import zipfile
+from collections import Counter
+
+_here = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(_here)) if os.path.basename(_here) == 'members' else os.path.dirname(_here)   # the repo root, from tools/ or from a seated copy in method/members/
+OUT = os.path.join(ROOT, "extracted")
+SEARCH = ("drive", "method", "tools", "docs")
+TEXT_MASK = (".pdf", ".docx", ".doc", ".pptx", ".xlsx")
+LEDGER_COLS = ("source", "member", "size_bytes", "md5",
+               "disposition", "target_path", "note")
+
+
+def md5b(data):
+    return hashlib.md5(data).hexdigest()
+
+
+def slug(text):
+    text = unicodedata.normalize("NFKD", text).strip()
+    text = re.sub(r"[^\w\s.-]", "", text, flags=re.U)
+    text = re.sub(r"[\s_]+", "-", text).strip("-.")
+    return text.lower() or "untitled"
+
+
+def index_repo():
+    """md5 -> first repo-relative path, for everything already tracked."""
+    have = {}
+    for sub in SEARCH:
+        for dirpath, _, names in os.walk(os.path.join(ROOT, sub)):
+            for name in names:
+                path = os.path.join(dirpath, name)
+                try:
+                    data = open(path, "rb").read()
+                except OSError:
+                    continue
+                have.setdefault(md5b(data), os.path.relpath(path, ROOT))
+    return have
+
+
+def find_archives():
+    """Archives in drive/, canonical copies first."""
+    found = []
+    for dirpath, _, names in os.walk(os.path.join(ROOT, "drive")):
+        for name in names:
+            if name.endswith((".zip", ".tgz")) or (name.endswith(".gz") and ".tar" in name):
+                found.append(os.path.join(dirpath, name))
+    found.sort(key=lambda p: ("__" in os.path.basename(p),
+                              ".tar-1." in p or "-1." in os.path.basename(p),
+                              len(p), p))
+    return found
+
+
+def archive_dirname(path):
+    base = os.path.basename(path)
+    for suffix in (".tar.gz", ".tar-1.gz", ".tgz", ".zip", ".gz"):
+        if base.endswith(suffix):
+            base = base[: -len(suffix)]
+            break
+    return slug(re.sub(r"__[A-Za-z0-9_-]{20,}$", "", base))
+
+
+def iter_archive(path):
+    """Yield (member_name, bytes) for every regular file in the archive."""
+    if path.endswith(".zip"):
+        with zipfile.ZipFile(path) as zf:
+            for info in zf.infolist():
+                if not info.is_dir():
+                    yield info.filename, zf.read(info)
+    else:
+        with tarfile.open(path, "r:gz") as tf:
+            for member in tf:
+                if not member.isfile():
+                    continue
+                handle = tf.extractfile(member)
+                if handle is not None:
+                    yield member.name, handle.read()
+
+
+class Consolidator:
+    def __init__(self):
+        self.have = index_repo()
+        self.placed = {}
+        self.ledger = []
+
+    def consider(self, data, target_rel, source, member, note=""):
+        digest = md5b(data)
+        if member.lower().endswith(".pyc"):
+            self._row(source, member, data, digest, "SKIPPED-DERIVED", "",
+                      "compiled bytecode; .gitignore excludes *.py[cod]")
+            return
+        if digest in self.have:
+            self._row(source, member, data, digest, "PRESENT-IN-REPO",
+                      self.have[digest],
+                      note or "byte-identical to a file already tracked")
+            return
+        if digest in self.placed:
+            self._row(source, member, data, digest, "DUP-OF-EXTRACTED",
+                      self.placed[digest], note)
+            return
+        path = os.path.join(ROOT, target_rel)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "wb") as fh:
+            fh.write(data)
+        self.placed[digest] = target_rel
+        self._row(source, member, data, digest, "EXTRACTED", target_rel, note)
+
+    def _row(self, source, member, data, digest, disposition, target, note):
+        self.ledger.append((source, member, len(data), digest,
+                            disposition, target, note))
+
+    def run_archives(self):
+        for path in find_archives():
+            rel = os.path.relpath(path, ROOT)
+            into = archive_dirname(path)
+            try:
+                for member, data in iter_archive(path):
+                    self.consider(data,
+                                  "extracted/archives/%s/%s" % (into, member.lstrip("./")),
+                                  rel, member)
+            except (tarfile.TarError, zipfile.BadZipFile, OSError) as exc:
+                self.ledger.append((rel, "", 0, "", "ERROR", "", str(exc)))
+
+    def run_projects(self):
+        folder = os.path.join(ROOT, "drive", "The Method Materials", "Claude Projects")
+        projects = []
+        for name in sorted(os.listdir(folder)):
+            if not name.endswith(".json"):
+                continue
+            path = os.path.join(folder, name)
+            export = json.load(open(path))
+            rel = os.path.relpath(path, ROOT)
+            title = (export.get("name") or "").strip()
+            docs = export.get("docs", [])
+            into = slug(title) if title else export["uuid"]
+            projects.append({
+                "project_uuid": export["uuid"], "name": title,
+                "created_at": export.get("created_at", ""),
+                "updated_at": export.get("updated_at", ""),
+                "doc_count": str(len(docs)),
+                "extract_dir": into if docs else "", "source": rel,
+            })
+            for doc in docs:
+                body = doc.get("content", "").encode()
+                filename = doc.get("filename") or doc.get("uuid", "doc")
+                note = ""
+                if filename.lower().endswith(TEXT_MASK):
+                    filename += ".txt"
+                    note = ("stored content is extracted text, not the original "
+                            "binary; .txt appended")
+                self.consider(body, "extracted/projects/%s/%s" % (into, filename),
+                              rel, doc.get("filename", ""), note)
+        return projects
+
+    def write_reports(self, projects):
+        os.makedirs(OUT, exist_ok=True)
+        with open(os.path.join(OUT, "LEDGER.tsv"), "w", newline="") as fh:
+            fh.write("\t".join(LEDGER_COLS) + "\n")
+            for row in sorted(self.ledger, key=lambda r: (r[0], r[1])):
+                fh.write("\t".join(str(c).replace("\t", " ") for c in row) + "\n")
+        cols = ("project_uuid", "name", "created_at", "updated_at",
+                "doc_count", "extract_dir", "source")
+        with open(os.path.join(OUT, "PROJECT-INDEX.tsv"), "w", newline="") as fh:
+            fh.write("\t".join(cols) + "\n")
+            for p in sorted(projects, key=lambda p: p["name"]):
+                fh.write("\t".join(p[c] for c in cols) + "\n")
+
+
+def verify():
+    ledger = os.path.join(OUT, "LEDGER.tsv")
+    if not os.path.isfile(ledger):
+        print("no ledger at %s; run without --verify first" % ledger)
+        return 1
+    checked = bad = dangling = 0
+    with open(ledger) as fh:
+        for row in csv.DictReader(fh, delimiter="\t"):
+            disposition = row["disposition"]
+            target = os.path.join(ROOT, row["target_path"])
+            if disposition == "EXTRACTED":
+                checked += 1
+                if not os.path.isfile(target):
+                    bad += 1
+                    print("MISSING  %s" % row["target_path"])
+                    continue
+                data = open(target, "rb").read()
+                if md5b(data) != row["md5"] or str(len(data)) != row["size_bytes"]:
+                    bad += 1
+                    print("MISMATCH %s" % row["target_path"])
+            elif disposition in ("DUP-OF-EXTRACTED", "PRESENT-IN-REPO"):
+                if not os.path.isfile(target):
+                    dangling += 1
+                    print("DANGLING %s" % row["target_path"])
+    print("verified %d extracted files: %d bad, %d dangling pointers"
+          % (checked, bad, dangling))
+    return 1 if (bad or dangling) else 0
+
+
+def main():
+    worker = Consolidator()
+    worker.run_archives()
+    projects = worker.run_projects()
+    worker.write_reports(projects)
+    counts = Counter(row[4] for row in worker.ledger)
+    print("ledger rows: %d" % len(worker.ledger))
+    for disposition, count in counts.most_common():
+        print("  %-18s %d" % (disposition, count))
+    written = sum(row[2] for row in worker.ledger if row[4] == "EXTRACTED")
+    print("distinct bodies written: %d (%s bytes)"
+          % (len(worker.placed), format(written, ",")))
+    return 0
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--verify", action="store_true",
+                        help="re-hash the extracted tree against LEDGER.tsv and exit")
+    sys.exit(verify() if parser.parse_args().verify else main())
+<<<END FILE: consolidate.py>>>
+
+<<<FILE: drive_sync.py>>>
+#!/usr/bin/env python3
+"""Mirror Google Drive folders into this repository.
+
+This is the size-unlimited replacement for the Google Drive MCP connector, which
+drops any payload larger than about 6 MiB.  Every download here is streamed to a
+temporary file with ``MediaIoBaseDownload`` and then atomically moved into place,
+so file size is bounded only by disk space.
+
+Typical use::
+
+    python3 tools/drive_sync.py                 # sync both Method folders
+    python3 tools/drive_sync.py --only BUILD15  # just the big build files
+    python3 tools/drive_sync.py --dry-run -v    # show what would change
+    python3 tools/drive_sync.py --prune         # also delete local orphans
+
+Authentication uses the OAuth 2.0 installed-application flow.  Put the OAuth
+client secrets ("Desktop app" credentials from the Google Cloud console) at
+``~/.config/drive-sync/credentials.json`` (or point ``--credentials`` /
+``$GOOGLE_DRIVE_CREDENTIALS`` at them).  The resulting token is cached next to it
+in ``token.json`` and refreshed automatically; the browser consent flow only runs
+again when the refresh fails.
+
+The script rewrites ``<dest>/MANIFEST.tsv``, an 8-column tab-separated file with
+the columns ``repo_path drive_id drive_title mime_type drive_size_bytes
+drive_modified md5 status``, sorted by ``repo_path``.  The naming conventions of
+the existing mirror are preserved exactly:
+
+* Within one Drive folder, when several files share a title the most recently
+  modified copy keeps the plain name and every older copy gets
+  ``__<driveFileId>`` inserted before the extension.
+* Google-native documents are exported (Docs to Markdown, Sheets to CSV, Slides
+  to PDF, Drawings to PNG); their recorded size is the size of the export, not
+  the size Drive reports for the native file.
+"""
+
+from __future__ import annotations
+
+import argparse
+import concurrent.futures
+import dataclasses
+import hashlib
+import http.client
+import logging
+import os
+import socket
+import ssl
+import sys
+import tempfile
+import threading
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Callable, Dict, Iterable, List, Optional, Sequence, Set, Tuple, TypeVar
+
+# --------------------------------------------------------------------------- #
+# Constants
+# --------------------------------------------------------------------------- #
+
+SCOPES: Tuple[str, ...] = ("https://www.googleapis.com/auth/drive.readonly",)
+
+DEFAULT_FOLDER_NAMES: Tuple[str, ...] = (
+    "The Method Materials",
+    "The Method Prints & Proofs",
+)
+
+CONFIG_DIR = Path.home() / ".config" / "drive-sync"
+DEFAULT_CREDENTIALS_PATH = CONFIG_DIR / "credentials.json"
+DEFAULT_TOKEN_PATH = CONFIG_DIR / "token.json"
+CREDENTIALS_ENV_VAR = "GOOGLE_DRIVE_CREDENTIALS"
+
+FOLDER_MIME = "application/vnd.google-apps.folder"
+SHORTCUT_MIME = "application/vnd.google-apps.shortcut"
+GOOGLE_NATIVE_PREFIX = "application/vnd.google-apps."
+
+#: Google-native mime type -> (export mime type, file extension).
+EXPORT_FORMATS: Dict[str, Tuple[str, str]] = {
+    "application/vnd.google-apps.document": ("text/markdown", ".md"),
+    "application/vnd.google-apps.spreadsheet": ("text/csv", ".csv"),
+    "application/vnd.google-apps.presentation": ("application/pdf", ".pdf"),
+    "application/vnd.google-apps.drawing": ("image/png", ".png"),
+}
+
+LIST_FIELDS = (
+    "nextPageToken, files(id, name, mimeType, size, md5Checksum, "
+    "modifiedTime, shortcutDetails)"
+)
+GET_FIELDS = "id, name, mimeType, size, md5Checksum, modifiedTime, shortcutDetails"
+PAGE_SIZE = 1000
+
+DOWNLOAD_CHUNK_BYTES = 8 * 1024 * 1024
+HTTP_TIMEOUT_SECONDS = 300
+RETRY_ATTEMPTS = 5
+RETRY_BASE_SECONDS = 2.0
+#: Drive refuses to export a native document larger than this.
+EXPORT_SIZE_LIMIT_BYTES = 10 * 1024 * 1024
+MAX_FILENAME_BYTES = 255
+# GitHub rejects any single file over 100 MiB on push, so fetching one costs
+# transfer and disk for something that can never be committed.  Default ceiling
+# for --max-file-bytes; see docs/REPO-SIZE.md.
+GITHUB_FILE_LIMIT_BYTES = 100 * 1024 * 1024
+
+MANIFEST_NAME = "MANIFEST.tsv"
+MANIFEST_COLUMNS: Tuple[str, ...] = (
+    "repo_path",
+    "drive_id",
+    "drive_title",
+    "mime_type",
+    "drive_size_bytes",
+    "drive_modified",
+    "md5",
+    "status",
+)
+#: Never pruned, even when they sit inside the destination tree.
+PROTECTED_DEST_FILES = frozenset({MANIFEST_NAME, "README.md"})
+TEMP_PREFIX = ".drive-sync-"
+
+STATUS_OK = "ok"
+
+LOGGER = logging.getLogger("drive_sync")
+
+T = TypeVar("T")
+
+#: Transport-level failures worth retrying.  ``socket.timeout`` is an alias of
+#: ``TimeoutError`` on modern Pythons; both are listed for 3.9 compatibility.
+RETRYABLE_NETWORK_ERRORS: Tuple[type, ...] = (
+    socket.timeout,
+    socket.gaierror,
+    TimeoutError,
+    ConnectionError,
+    ssl.SSLError,
+    http.client.HTTPException,
+)
+
+
+class ContentMismatch(http.client.HTTPException):
+    """A transfer completed but the bytes are not what Drive said they would be.
+
+    Subclasses ``HTTPException`` deliberately, for two reasons: it is in
+    ``RETRYABLE_NETWORK_ERRORS``, so a truncated transfer is retried like any
+    other transport fault; and ``sync_entry`` already treats that class as an
+    I/O failure, so a persistent mismatch becomes a FAILED row rather than
+    crashing the run.
+    """
+
+
+class Action:
+    """Outcome categories reported in the final summary."""
+
+    ADDED = "added"
+    UPDATED = "updated"
+    UNCHANGED = "unchanged"
+    EXPORTED = "exported"
+    SKIPPED = "skipped"
+    FAILED = "failed"
+
+    ORDER: Tuple[str, ...] = (ADDED, UPDATED, UNCHANGED, EXPORTED, SKIPPED, FAILED)
+
+
+# --------------------------------------------------------------------------- #
+# Data model
+# --------------------------------------------------------------------------- #
+
+
+@dataclasses.dataclass(frozen=True)
+class DriveEntry:
+    """One downloadable Drive file, already located inside the mirror tree."""
+
+    file_id: str
+    title: str
+    mime_type: str
+    size: Optional[int]
+    md5: Optional[str]
+    modified_time: str
+    folder_path: str
+    via_shortcut: bool = False
+
+    @property
+    def is_native(self) -> bool:
+        return self.mime_type.startswith(GOOGLE_NATIVE_PREFIX)
+
+    @property
+    def export_format(self) -> Optional[Tuple[str, str]]:
+        return EXPORT_FORMATS.get(self.mime_type)
+
+
+@dataclasses.dataclass(frozen=True)
+class ManifestRow:
+    repo_path: str
+    drive_id: str
+    drive_title: str
+    mime_type: str
+    drive_size_bytes: str
+    drive_modified: str
+    md5: str
+    status: str
+
+    def as_fields(self) -> Tuple[str, ...]:
+        return (
+            self.repo_path,
+            self.drive_id,
+            self.drive_title,
+            self.mime_type,
+            self.drive_size_bytes,
+            self.drive_modified,
+            self.md5,
+            self.status,
+        )
+
+
+@dataclasses.dataclass(frozen=True)
+class SyncOutcome:
+    repo_path: str
+    action: str
+    row: ManifestRow
+    message: str = ""
+
+
+@dataclasses.dataclass(frozen=True)
+class RootFolder:
+    name: str
+    folder_id: str
+
+
+# --------------------------------------------------------------------------- #
+# Small helpers
+# --------------------------------------------------------------------------- #
+
+
+def clean_field(value: object) -> str:
+    """Make a value safe for a tab-separated field: no tabs, no newlines."""
+    text = "" if value is None else str(value)
+    for char in ("\t", "\r\n", "\r", "\n"):
+        text = text.replace(char, " ")
+    return text.strip()
+
+
+def md5_of_file(path: Path, chunk_bytes: int = 1024 * 1024) -> str:
+    digest = hashlib.md5()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(chunk_bytes), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def parse_rfc3339(value: str) -> datetime:
+    """Parse a Drive timestamp; unparseable values sort as 'very old'."""
+    if not value:
+        return datetime.min.replace(tzinfo=timezone.utc)
+    text = value.strip()
+    if text.endswith("Z"):
+        text = text[:-1] + "+00:00"
+    try:
+        parsed = datetime.fromisoformat(text)
+    except ValueError:
+        for fmt in ("%Y-%m-%dT%H:%M:%S.%f%z", "%Y-%m-%dT%H:%M:%S%z"):
+            try:
+                parsed = datetime.strptime(value, fmt)
+                break
+            except ValueError:
+                continue
+        else:
+            return datetime.min.replace(tzinfo=timezone.utc)
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def sanitize_filename(raw: str, fallback: str) -> str:
+    """Turn a Drive title into a safe single path component.
+
+    Path separators and NUL are replaced, control characters dropped, and
+    leading/trailing whitespace and dots stripped.  Callers append the export
+    extension *before* sanitizing so that titles which legitimately end in dots
+    (``"... corresponds to ..."`` -> ``"... corresponds to ....md"``) survive.
+    """
+    text = raw.replace("\x00", "").replace("/", "_")
+    if os.sep != "/":
+        text = text.replace(os.sep, "_")
+    if os.altsep and os.altsep != "/":
+        text = text.replace(os.altsep, "_")
+    text = "".join(" " if char in "\t\r\n" else char for char in text)
+    text = "".join(char for char in text if char.isprintable())
+
+    previous = None
+    while previous != text:
+        previous = text
+        text = text.strip().strip(".")
+
+    if text in ("", ".", ".."):
+        text = fallback
+    return text
+
+
+def compose_name(stem: str, extension: str, suffix: str = "") -> str:
+    """Join a stem, an optional ``__<id>`` suffix and an extension.
+
+    The stem is truncated (never the suffix or extension) so the result fits in
+    a single filesystem component.
+    """
+    tail = f"{suffix}{extension}"
+    budget = MAX_FILENAME_BYTES - len(tail.encode("utf-8"))
+    if budget < 1:
+        budget = 1
+    encoded = stem.encode("utf-8")
+    if len(encoded) > budget:
+        stem = encoded[:budget].decode("utf-8", "ignore")
+    return f"{stem}{tail}"
+
+
+def join_repo_path(folder_path: str, name: str) -> str:
+    return f"{folder_path}/{name}" if folder_path else name
+
+
+def remove_quietly(path: Path) -> None:
+    try:
+        path.unlink()
+    except FileNotFoundError:
+        pass
+    except OSError as exc:  # pragma: no cover - best effort cleanup
+        LOGGER.debug("could not remove %s: %s", path, exc)
+
+
+# --------------------------------------------------------------------------- #
+# Manifest I/O
+# --------------------------------------------------------------------------- #
+
+
+def read_manifest(path: Path) -> Dict[str, ManifestRow]:
+    """Load an existing manifest, keyed by ``repo_path``.  Missing file -> {}."""
+    rows: Dict[str, ManifestRow] = {}
+    if not path.is_file():
+        return rows
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        for line_number, line in enumerate(handle, start=1):
+            line = line.rstrip("\n").rstrip("\r")
+            if not line:
+                continue
+            fields = line.split("\t")
+            if line_number == 1 and fields and fields[0] == MANIFEST_COLUMNS[0]:
+                continue
+            if len(fields) != len(MANIFEST_COLUMNS):
+                LOGGER.warning(
+                    "%s line %d: expected %d columns, found %d - ignoring",
+                    path,
+                    line_number,
+                    len(MANIFEST_COLUMNS),
+                    len(fields),
+                )
+                continue
+            row = ManifestRow(*fields)
+            rows[row.repo_path] = row
+    return rows
+
+
+def write_manifest(path: Path, rows: Iterable[ManifestRow]) -> None:
+    ordered = sorted(rows, key=lambda row: row.repo_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    handle = tempfile.NamedTemporaryFile(
+        "w",
+        encoding="utf-8",
+        newline="\n",
+        dir=str(path.parent),
+        prefix=TEMP_PREFIX,
+        suffix=".tsv",
+        delete=False,
+    )
+    temp_path = Path(handle.name)
+    try:
+        with handle:
+            handle.write("\t".join(MANIFEST_COLUMNS) + "\n")
+            for row in ordered:
+                handle.write("\t".join(clean_field(f) for f in row.as_fields()) + "\n")
+        os.replace(str(temp_path), str(path))
+    except BaseException:
+        remove_quietly(temp_path)
+        raise
+
+
+# --------------------------------------------------------------------------- #
+# Google API plumbing
+# --------------------------------------------------------------------------- #
+
+
+@dataclasses.dataclass(frozen=True)
+class GoogleModules:
+    """Lazily imported Google symbols, passed around instead of globals.
+
+    Importing lazily keeps ``--help`` (and any argument error) working on a
+    machine that has not installed the client libraries yet.
+    """
+
+    build: Callable[..., object]
+    http_error: type
+    media_download: type
+    credentials_cls: type
+    installed_app_flow: type
+    refresh_request: type
+    refresh_error: type
+    authorized_http: Callable[..., object]
+    http_factory: Callable[..., object]
+
+
+def load_google_modules() -> GoogleModules:
+    try:
+        import google_auth_httplib2
+        import httplib2
+        from google.auth.exceptions import RefreshError
+        from google.auth.transport.requests import Request
+        from google.oauth2.credentials import Credentials
+        from google_auth_oauthlib.flow import InstalledAppFlow
+        from googleapiclient.discovery import build
+        from googleapiclient.errors import HttpError
+        from googleapiclient.http import MediaIoBaseDownload
+    except ImportError as exc:  # pragma: no cover - environment dependent
+        raise SystemExit(
+            "Missing Google client libraries ({}).\n"
+            "Install them with:\n"
+            "    python3 -m pip install -r tools/requirements.txt".format(exc)
+        ) from exc
+
+    return GoogleModules(
+        build=build,
+        http_error=HttpError,
+        media_download=MediaIoBaseDownload,
+        credentials_cls=Credentials,
+        installed_app_flow=InstalledAppFlow,
+        refresh_request=Request,
+        refresh_error=RefreshError,
+        authorized_http=google_auth_httplib2.AuthorizedHttp,
+        http_factory=httplib2.Http,
+    )
+
+
+def http_status_of(error: BaseException) -> Optional[int]:
+    response = getattr(error, "resp", None)
+    status = getattr(response, "status", None)
+    if status is None:
+        status = getattr(error, "status_code", None)
+    try:
+        return int(status)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return None
+
+
+def is_retryable_http_error(error: BaseException) -> bool:
+    """429 and 5xx are transient; 401/403/404 never are."""
+    status = http_status_of(error)
+    if status is None:
+        return False
+    if status in (401, 403, 404):
+        return False
+    return status == 429 or 500 <= status < 600
+
+
+def is_export_too_large(error: BaseException) -> bool:
+    """Detect Drive's 10 MB ``files.export`` ceiling."""
+    status = http_status_of(error)
+    if status not in (400, 403):
+        return False
+    text = str(error).lower()
+    content = getattr(error, "content", b"")
+    if isinstance(content, bytes):
+        text += " " + content.decode("utf-8", "replace").lower()
+    else:  # pragma: no cover - defensive
+        text += " " + str(content).lower()
+    return "exportsizelimitexceeded" in text or "too large to be exported" in text
+
+
+def call_with_retry(
+    operation: Callable[[], T],
+    *,
+    description: str,
+    http_error_cls: type,
+    attempts: int = RETRY_ATTEMPTS,
+    base_seconds: float = RETRY_BASE_SECONDS,
+    sleep: Callable[[float], None] = time.sleep,
+) -> T:
+    """Run ``operation`` with deterministic exponential backoff (2s, 4s, 8s...).
+
+    Retries 429/5xx responses and transport timeouts only; 401/403/404 and every
+    other exception propagate immediately.
+    """
+    for attempt in range(1, attempts + 1):
+        try:
+            return operation()
+        except http_error_cls as exc:  # type: ignore[misc]
+            if attempt >= attempts or not is_retryable_http_error(exc):
+                raise
+            reason = "HTTP {}".format(http_status_of(exc))
+        except RETRYABLE_NETWORK_ERRORS as exc:
+            if attempt >= attempts:
+                raise
+            reason = type(exc).__name__
+        delay = base_seconds * (2 ** (attempt - 1))
+        LOGGER.warning(
+            "%s failed (%s); retry %d/%d in %.0fs",
+            description,
+            reason,
+            attempt + 1,
+            attempts,
+            delay,
+        )
+        sleep(delay)
+    raise RuntimeError("unreachable: retry loop exhausted for " + description)
+
+
+def escape_query_value(value: str) -> str:
+    return value.replace("\\", "\\\\").replace("'", "\\'")
+
+
+class DriveClient:
+    """Thin Drive v3 wrapper.
+
+    ``googleapiclient`` service objects are not thread safe, so one service is
+    built per thread from the shared credentials.
+    """
+
+    def __init__(
+        self,
+        credentials: object,
+        modules: GoogleModules,
+        timeout: int = HTTP_TIMEOUT_SECONDS,
+    ) -> None:
+        self._credentials = credentials
+        self._modules = modules
+        self._timeout = timeout
+        self._thread_state = threading.local()
+
+    @property
+    def service(self) -> object:
+        service = getattr(self._thread_state, "service", None)
+        if service is None:
+            authorized = self._modules.authorized_http(
+                self._credentials,
+                http=self._modules.http_factory(timeout=self._timeout),
+            )
+            service = self._modules.build(
+                "drive", "v3", http=authorized, cache_discovery=False
+            )
+            self._thread_state.service = service
+        return service
+
+    def _retry(self, operation: Callable[[], T], description: str) -> T:
+        return call_with_retry(
+            operation,
+            description=description,
+            http_error_cls=self._modules.http_error,
+        )
+
+    @property
+    def http_error_class(self) -> type:
+        """``googleapiclient.errors.HttpError``, for callers' except clauses."""
+        return self._modules.http_error
+
+    # -- metadata ---------------------------------------------------------- #
+
+    def get_file(self, file_id: str, fields: str = GET_FIELDS) -> Dict[str, object]:
+        return self._retry(
+            lambda: self.service.files()  # type: ignore[attr-defined]
+            .get(fileId=file_id, fields=fields, supportsAllDrives=True)
+            .execute(),
+            "get metadata for {}".format(file_id),
+        )
+
+    def list_children(self, folder_id: str) -> List[Dict[str, object]]:
+        """List every non-trashed child of ``folder_id``, following pageToken."""
+        query = "'{}' in parents and trashed = false".format(escape_query_value(folder_id))
+        return self._list_all(query, LIST_FIELDS, "list children of {}".format(folder_id))
+
+    def find_folders_by_name(self, name: str) -> List[Dict[str, object]]:
+        query = "name = '{}' and mimeType = '{}' and trashed = false".format(
+            escape_query_value(name), FOLDER_MIME
+        )
+        return self._list_all(
+            query,
+            "nextPageToken, files(id, name, mimeType, modifiedTime)",
+            "search for folder {!r}".format(name),
+        )
+
+    def _list_all(self, query: str, fields: str, description: str) -> List[Dict[str, object]]:
+        items: List[Dict[str, object]] = []
+        page_token: Optional[str] = None
+        while True:
+            token = page_token
+
+            def request() -> Dict[str, object]:
+                return (
+                    self.service.files()  # type: ignore[attr-defined]
+                    .list(
+                        q=query,
+                        pageSize=PAGE_SIZE,
+                        fields=fields,
+                        pageToken=token,
+                        supportsAllDrives=True,
+                        includeItemsFromAllDrives=True,
+                    )
+                    .execute()
+                )
+
+            response = self._retry(request, description)
+            items.extend(response.get("files", []) or [])
+            page_token = response.get("nextPageToken")  # type: ignore[assignment]
+            if not page_token:
+                return items
+
+    # -- content ----------------------------------------------------------- #
+
+    def download_file(
+        self,
+        file_id: str,
+        destination: Path,
+        expected_size: Optional[int] = None,
+        expected_md5: str = "",
+    ) -> Tuple[int, str]:
+        return self._stream(
+            lambda: self.service.files().get_media(  # type: ignore[attr-defined]
+                fileId=file_id, supportsAllDrives=True
+            ),
+            destination,
+            "download {}".format(file_id),
+            expected_size=expected_size,
+            expected_md5=expected_md5,
+        )
+
+    def export_file(
+        self, file_id: str, export_mime: str, destination: Path
+    ) -> Tuple[int, str]:
+        # Drive reports neither size nor md5 for a native document, so an export
+        # has nothing to check against; it is verified by the manifest instead.
+        return self._stream(
+            lambda: self.service.files().export_media(  # type: ignore[attr-defined]
+                fileId=file_id, mimeType=export_mime
+            ),
+            destination,
+            "export {} as {}".format(file_id, export_mime),
+        )
+
+    def _stream(
+        self,
+        make_request: Callable[[], object],
+        destination: Path,
+        description: str,
+        expected_size: Optional[int] = None,
+        expected_md5: str = "",
+    ) -> Tuple[int, str]:
+        """Stream a media request to ``destination`` via a sibling temp file.
+
+        Nothing is ever held in memory beyond one chunk, which is what removes
+        the size ceiling the MCP connector has.
+        """
+
+        def attempt() -> Tuple[int, str]:
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            handle_fd, temp_name = tempfile.mkstemp(
+                dir=str(destination.parent), prefix=TEMP_PREFIX, suffix=".part"
+            )
+            temp_path = Path(temp_name)
+            try:
+                with os.fdopen(handle_fd, "wb") as handle:
+                    downloader = self._modules.media_download(
+                        handle, make_request(), chunksize=DOWNLOAD_CHUNK_BYTES
+                    )
+                    done = False
+                    try:
+                        while not done:
+                            _progress, done = downloader.next_chunk(num_retries=0)
+                    except self._modules.http_error as exc:  # type: ignore[misc]
+                        # Drive answers a ranged GET for zero-byte content with
+                        # 416; that is an empty file, not a failure.  It only
+                        # means that when NOTHING has been written yet: a 416
+                        # partway through is a truncated transfer, and treating
+                        # it as "empty" would install the partial file as
+                        # complete.
+                        if http_status_of(exc) != 416:
+                            raise
+                        if handle.tell():
+                            raise ContentMismatch(
+                                "{}: HTTP 416 after {} bytes — transfer truncated".format(
+                                    description, handle.tell()
+                                )
+                            ) from exc
+                        LOGGER.debug("%s returned 416: treating as empty", description)
+                    handle.flush()
+                    os.fsync(handle.fileno())
+
+                # Verify BEFORE installing.  Everything above wrote to a sibling
+                # temp file, so a transfer that fails this check is discarded and
+                # any previously verified copy at `destination` is left intact.
+                size = temp_path.stat().st_size
+                if expected_size is not None and size != expected_size:
+                    raise ContentMismatch(
+                        "{}: got {} bytes, Drive says {}".format(
+                            description, size, expected_size
+                        )
+                    )
+                digest = md5_of_file(temp_path)
+                if expected_md5 and digest != expected_md5:
+                    raise ContentMismatch(
+                        "{}: md5 {} does not match Drive's {}".format(
+                            description, digest, expected_md5
+                        )
+                    )
+                os.replace(str(temp_path), str(destination))
+                return size, digest
+            except BaseException:
+                remove_quietly(temp_path)
+                raise
+
+        return call_with_retry(
+            attempt,
+            description=description,
+            http_error_cls=self._modules.http_error,
+        )
+
+
+# --------------------------------------------------------------------------- #
+# Credentials
+# --------------------------------------------------------------------------- #
+
+
+def save_token(credentials: object, token_path: Path) -> None:
+    token_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = credentials.to_json()  # type: ignore[attr-defined]
+    temp_path = token_path.with_name(token_path.name + ".tmp")
+    with open(str(temp_path), "w", encoding="utf-8") as handle:
+        handle.write(payload)
+    os.chmod(str(temp_path), 0o600)
+    os.replace(str(temp_path), str(token_path))
+
+
+def has_required_scopes(credentials: object) -> bool:
+    """True unless the cached token demonstrably lacks the read-only scope."""
+    checker = getattr(credentials, "has_scopes", None)
+    if checker is None:
+        return True
+    try:
+        return bool(checker(list(SCOPES)))
+    except Exception:  # noqa: BLE001 - a scope check must never break auth
+        return True
+
+
+def load_credentials(
+    modules: GoogleModules,
+    credentials_path: Path,
+    token_path: Path,
+) -> object:
+    """Return usable OAuth credentials, refreshing or re-consenting as needed."""
+    credentials = None
+    if token_path.is_file():
+        try:
+            credentials = modules.credentials_cls.from_authorized_user_file(  # type: ignore[attr-defined]
+                str(token_path), list(SCOPES)
+            )
+        except (ValueError, OSError) as exc:
+            LOGGER.warning("ignoring unreadable token %s: %s", token_path, exc)
+            credentials = None
+
+    if credentials is not None and not has_required_scopes(credentials):
+        LOGGER.warning("cached token lacks %s; starting consent flow", SCOPES[0])
+        credentials = None
+
+    if credentials is not None and getattr(credentials, "valid", False):
+        return credentials
+
+    if (
+        credentials is not None
+        and getattr(credentials, "expired", False)
+        and getattr(credentials, "refresh_token", None)
+    ):
+        try:
+            LOGGER.debug("refreshing cached token")
+            credentials.refresh(modules.refresh_request())  # type: ignore[attr-defined]
+            save_token(credentials, token_path)
+            return credentials
+        except (modules.refresh_error, OSError) as exc:  # type: ignore[misc]
+            LOGGER.warning("token refresh failed (%s); starting consent flow", exc)
+            credentials = None
+
+    if not credentials_path.is_file():
+        raise SystemExit(
+            "OAuth client secrets not found at {}\n"
+            "Create a Desktop-app OAuth client in the Google Cloud console, download\n"
+            "the JSON, and save it there (or pass --credentials / set ${}).".format(
+                credentials_path, CREDENTIALS_ENV_VAR
+            )
+        )
+
+    LOGGER.info("starting browser consent flow using %s", credentials_path)
+    flow = modules.installed_app_flow.from_client_secrets_file(  # type: ignore[attr-defined]
+        str(credentials_path), list(SCOPES)
+    )
+    credentials = flow.run_local_server(port=0)
+    save_token(credentials, token_path)
+    return credentials
+
+
+# --------------------------------------------------------------------------- #
+# Folder resolution and traversal
+# --------------------------------------------------------------------------- #
+
+
+def resolve_root_folders(
+    client: DriveClient,
+    folder_names: Sequence[str],
+    folder_ids: Sequence[str],
+) -> List[RootFolder]:
+    """Turn names/ids into concrete root folders, refusing ambiguous names."""
+    roots: List[RootFolder] = []
+    seen: Set[str] = set()
+
+    for folder_id in folder_ids:
+        metadata = client.get_file(folder_id, fields="id, name, mimeType")
+        if metadata.get("mimeType") != FOLDER_MIME:
+            raise SystemExit(
+                "--folder-id {} is not a folder (mimeType {})".format(
+                    folder_id, metadata.get("mimeType")
+                )
+            )
+        identifier = str(metadata.get("id", folder_id))
+        if identifier in seen:
+            continue
+        seen.add(identifier)
+        roots.append(RootFolder(name=str(metadata.get("name", folder_id)), folder_id=identifier))
+
+    for name in folder_names:
+        matches = client.find_folders_by_name(name)
+        if not matches:
+            raise SystemExit(
+                "No Drive folder named {!r} is visible to this account.".format(name)
+            )
+        if len(matches) > 1:
+            lines = [
+                "Folder name {!r} is ambiguous - {} folders match. "
+                "Re-run with --folder-id for the one you want:".format(name, len(matches))
+            ]
+            for match in matches:
+                lines.append(
+                    "  --folder-id {}   (name={!r}, modified={})".format(
+                        match.get("id"), match.get("name"), match.get("modifiedTime")
+                    )
+                )
+            raise SystemExit("\n".join(lines))
+        match = matches[0]
+        identifier = str(match.get("id"))
+        if identifier in seen:
+            continue
+        seen.add(identifier)
+        roots.append(RootFolder(name=str(match.get("name", name)), folder_id=identifier))
+
+    if not roots:
+        raise SystemExit("No folders to sync; pass --folder or --folder-id.")
+    return roots
+
+
+def walk_root(
+    client: DriveClient, root: RootFolder
+) -> Tuple[List[DriveEntry], Dict[str, Set[str]]]:
+    """Recursively list one root folder.
+
+    Returns the files found (with their mirror-relative folder path) and, per
+    folder path, the set of subdirectory names, which the naming pass uses to
+    avoid file/directory collisions.
+    """
+    root_dir = sanitize_filename(root.name, "drive-{}".format(root.folder_id))
+    entries: List[DriveEntry] = []
+    dir_names: Dict[str, Set[str]] = {}
+    visited: Set[str] = set()
+    stack: List[Tuple[str, str]] = [(root.folder_id, root_dir)]
+
+    while stack:
+        folder_id, folder_path = stack.pop()
+        if folder_id in visited:
+            LOGGER.warning("skipping already-visited folder %s at %s", folder_id, folder_path)
+            continue
+        visited.add(folder_id)
+        dir_names.setdefault(folder_path, set())
+
+        LOGGER.debug("listing %s (%s)", folder_path, folder_id)
+        for child in client.list_children(folder_id):
+            child_id = str(child.get("id", ""))
+            child_name = str(child.get("name", "") or "")
+            child_mime = str(child.get("mimeType", "") or "")
+            if not child_id:
+                continue
+
+            if child_mime == FOLDER_MIME:
+                sub_dir = sanitize_filename(child_name, "folder-{}".format(child_id))
+                if sub_dir in dir_names[folder_path]:
+                    LOGGER.warning(
+                        "two Drive subfolders named %r in %s will merge into one directory",
+                        sub_dir,
+                        folder_path or ".",
+                    )
+                dir_names[folder_path].add(sub_dir)
+                stack.append((child_id, join_repo_path(folder_path, sub_dir)))
+                continue
+
+            if child_mime == SHORTCUT_MIME:
+                resolved = resolve_shortcut(client, child, folder_path)
+                if resolved is None:
+                    continue
+                target_id, target = resolved
+                target_mime = str(target.get("mimeType", "") or "")
+                if target_mime == FOLDER_MIME:
+                    sub_dir = sanitize_filename(child_name, "folder-{}".format(target_id))
+                    dir_names[folder_path].add(sub_dir)
+                    stack.append((target_id, join_repo_path(folder_path, sub_dir)))
+                    continue
+                entries.append(make_entry(target, folder_path, title=child_name, via_shortcut=True))
+                continue
+
+            entries.append(make_entry(child, folder_path))
+
+    return entries, dir_names
+
+
+def resolve_shortcut(
+    client: DriveClient, shortcut: Dict[str, object], folder_path: str
+) -> Optional[Tuple[str, Dict[str, object]]]:
+    details = shortcut.get("shortcutDetails") or {}
+    target_id = ""
+    if isinstance(details, dict):
+        target_id = str(details.get("targetId", "") or "")
+    if not target_id:
+        LOGGER.warning(
+            "shortcut %r in %s has no target; skipping",
+            shortcut.get("name"),
+            folder_path or ".",
+        )
+        return None
+    try:
+        target = client.get_file(target_id)
+    except Exception as exc:  # noqa: BLE001 - a dead shortcut must not stop the sync
+        LOGGER.warning(
+            "shortcut %r in %s points at unreachable file %s (%s); skipping",
+            shortcut.get("name"),
+            folder_path or ".",
+            target_id,
+            clean_field(exc)[:160],
+        )
+        return None
+    return target_id, target
+
+
+def make_entry(
+    metadata: Dict[str, object],
+    folder_path: str,
+    title: Optional[str] = None,
+    via_shortcut: bool = False,
+) -> DriveEntry:
+    raw_size = metadata.get("size")
+    try:
+        size = int(raw_size) if raw_size is not None else None
+    except (TypeError, ValueError):
+        size = None
+    return DriveEntry(
+        file_id=str(metadata.get("id", "")),
+        title=str(title if title is not None else metadata.get("name", "")),
+        mime_type=str(metadata.get("mimeType", "") or ""),
+        size=size,
+        md5=str(metadata.get("md5Checksum")) if metadata.get("md5Checksum") else None,
+        modified_time=str(metadata.get("modifiedTime", "") or ""),
+        folder_path=folder_path,
+        via_shortcut=via_shortcut,
+    )
+
+
+# --------------------------------------------------------------------------- #
+# Naming
+# --------------------------------------------------------------------------- #
+
+
+def candidate_filename(entry: DriveEntry) -> str:
+    """The filename a Drive file wants, before duplicate resolution."""
+    name = entry.title
+    export = entry.export_format
+    if export is not None:
+        extension = export[1]
+        if not name.lower().endswith(extension):
+            name = name + extension
+    return sanitize_filename(name, "drive-{}".format(entry.file_id))
+
+
+def assign_repo_paths(
+    entries: Sequence[DriveEntry], dir_names: Dict[str, Set[str]]
+) -> List[Tuple[DriveEntry, str]]:
+    """Resolve same-title files within a folder.
+
+    Newest modifiedTime keeps the plain name; older copies get ``__<driveFileId>``
+    inserted before the extension.  Ties are broken by ascending file id so the
+    result is stable across runs.
+    """
+    grouped: Dict[str, List[DriveEntry]] = {}
+    for entry in entries:
+        grouped.setdefault(entry.folder_path, []).append(entry)
+
+    assignments: List[Tuple[DriveEntry, str]] = []
+    for folder_path in sorted(grouped):
+        buckets: Dict[str, List[DriveEntry]] = {}
+        for entry in grouped[folder_path]:
+            buckets.setdefault(candidate_filename(entry), []).append(entry)
+
+        taken: Set[str] = set(dir_names.get(folder_path, set()))
+        for name in sorted(buckets):
+            bucket = sorted(buckets[name], key=lambda item: item.file_id)
+            bucket.sort(key=lambda item: parse_rfc3339(item.modified_time), reverse=True)
+            stem, extension = os.path.splitext(name)
+            for index, entry in enumerate(bucket):
+                if index == 0 and name not in taken:
+                    final = compose_name(stem, extension)
+                else:
+                    final = compose_name(stem, extension, "__{}".format(entry.file_id))
+                taken.add(final)
+                assignments.append((entry, join_repo_path(folder_path, final)))
+    return assignments
+
+
+# --------------------------------------------------------------------------- #
+# Syncing one file
+# --------------------------------------------------------------------------- #
+
+
+def build_row(
+    entry: DriveEntry,
+    repo_path: str,
+    size: Optional[int],
+    md5: str,
+    status: str,
+) -> ManifestRow:
+    return ManifestRow(
+        repo_path=repo_path,
+        drive_id=entry.file_id,
+        drive_title=entry.title,
+        mime_type=entry.mime_type,
+        drive_size_bytes="" if size is None else str(size),
+        drive_modified=entry.modified_time,
+        md5=md5 or "",
+        status=status,
+    )
+
+
+def short_error(exc: BaseException) -> str:
+    return clean_field("{}: {}".format(type(exc).__name__, exc))[:200]
+
+
+def local_path_for(dest_root: Path, repo_path: str) -> Path:
+    return dest_root.joinpath(*repo_path.split("/"))
+
+
+def sync_entry(
+    client: DriveClient,
+    entry: DriveEntry,
+    repo_path: str,
+    dest_root: Path,
+    previous: Dict[str, ManifestRow],
+    dry_run: bool,
+) -> SyncOutcome:
+    """Bring one Drive file into the mirror and describe what happened."""
+    target = local_path_for(dest_root, repo_path)
+    previous_row = previous.get(repo_path)
+    io_errors = (OSError, http.client.HTTPException)
+
+    if entry.is_native and entry.export_format is None:
+        message = "unsupported Google-native type {}".format(entry.mime_type)
+        LOGGER.warning("skipping %s: %s", repo_path, message)
+        return SyncOutcome(
+            repo_path,
+            Action.SKIPPED,
+            build_row(entry, repo_path, entry.size, "", "skipped: " + message),
+            message,
+        )
+
+    try:
+        local_md5 = md5_of_file(target) if target.is_file() else ""
+    except OSError as exc:
+        local_md5 = ""
+        LOGGER.debug("cannot hash %s: %s", target, exc)
+
+    if entry.export_format is not None:
+        export_mime, _extension = entry.export_format
+        # Drive reports neither size nor md5 for native docs, so freshness comes
+        # from the manifest: same export bytes and no newer Drive revision.
+        if (
+            local_md5
+            and previous_row is not None
+            and previous_row.drive_id == entry.file_id
+            and previous_row.md5 == local_md5
+            and parse_rfc3339(previous_row.drive_modified) >= parse_rfc3339(entry.modified_time)
+        ):
+            LOGGER.debug("unchanged export %s", repo_path)
+            return SyncOutcome(
+                repo_path,
+                Action.UNCHANGED,
+                build_row(entry, repo_path, target.stat().st_size, local_md5, STATUS_OK),
+            )
+
+        if dry_run:
+            return SyncOutcome(
+                repo_path,
+                Action.EXPORTED,
+                build_row(
+                    entry,
+                    repo_path,
+                    previous_row.drive_size_bytes if previous_row else None,
+                    local_md5,
+                    "dry-run: would export as " + export_mime,
+                ),
+                "would export",
+            )
+
+        try:
+            size, new_md5 = client.export_file(entry.file_id, export_mime, target)
+        except client.http_error_class as exc:  # type: ignore[misc]
+            if is_export_too_large(exc):
+                status = (
+                    "export-too-large: Drive will not export documents over "
+                    "{} MB".format(EXPORT_SIZE_LIMIT_BYTES // (1024 * 1024))
+                )
+            else:
+                status = "failed: " + short_error(exc)
+            LOGGER.error("%s: %s", repo_path, status)
+            return SyncOutcome(
+                repo_path, Action.FAILED, build_row(entry, repo_path, entry.size, "", status), status
+            )
+        except io_errors as exc:
+            status = "failed: " + short_error(exc)
+            LOGGER.error("%s: %s", repo_path, status)
+            return SyncOutcome(
+                repo_path, Action.FAILED, build_row(entry, repo_path, entry.size, "", status), status
+            )
+
+        action = Action.UNCHANGED if new_md5 == local_md5 else Action.EXPORTED
+        LOGGER.info("%s %s (%d bytes)", action, repo_path, size)
+        return SyncOutcome(
+            repo_path, action, build_row(entry, repo_path, size, new_md5, STATUS_OK)
+        )
+
+    existed = target.is_file()
+    if existed:
+        if entry.md5 and local_md5 == entry.md5:
+            LOGGER.debug("unchanged %s", repo_path)
+            return SyncOutcome(
+                repo_path,
+                Action.UNCHANGED,
+                build_row(entry, repo_path, entry.size, local_md5, STATUS_OK),
+            )
+        if (
+            not entry.md5
+            and local_md5
+            and previous_row is not None
+            and previous_row.drive_id == entry.file_id
+            and previous_row.md5 == local_md5
+            and parse_rfc3339(previous_row.drive_modified) >= parse_rfc3339(entry.modified_time)
+        ):
+            LOGGER.debug("unchanged (no Drive md5) %s", repo_path)
+            return SyncOutcome(
+                repo_path,
+                Action.UNCHANGED,
+                build_row(entry, repo_path, entry.size, local_md5, STATUS_OK),
+            )
+
+    action = Action.UPDATED if existed else Action.ADDED
+    if dry_run:
+        return SyncOutcome(
+            repo_path,
+            action,
+            build_row(entry, repo_path, entry.size, "", "dry-run: would " + action),
+            "would " + action,
+        )
+
+    # Both checks happen inside download_file, against the temp file, before it
+    # replaces anything.  A mismatch therefore leaves `target` untouched: a bad
+    # transfer can no longer destroy a previously verified copy.
+    try:
+        size, new_md5 = client.download_file(
+            entry.file_id,
+            target,
+            expected_size=entry.size,
+            expected_md5=entry.md5 or "",
+        )
+    except client.http_error_class as exc:  # type: ignore[misc]
+        status = "failed: " + short_error(exc)
+        LOGGER.error("%s: %s", repo_path, status)
+        return SyncOutcome(
+            repo_path, Action.FAILED, build_row(entry, repo_path, entry.size, "", status), status
+        )
+    except io_errors as exc:
+        status = "failed: " + short_error(exc)
+        LOGGER.error("%s: %s", repo_path, status)
+        return SyncOutcome(
+            repo_path, Action.FAILED, build_row(entry, repo_path, entry.size, "", status), status
+        )
+
+    LOGGER.info("%s %s (%d bytes)", action, repo_path, size)
+    # Record the bytes actually written, never Drive's declared size: when both
+    # are known they have just been asserted equal, and when Drive gives no size
+    # this is the only honest number.
+    return SyncOutcome(
+        repo_path, action, build_row(entry, repo_path, size, new_md5, STATUS_OK)
+    )
+
+
+# --------------------------------------------------------------------------- #
+# Pruning
+# --------------------------------------------------------------------------- #
+
+
+def find_local_extras(
+    dest_root: Path, root_dir_names: Sequence[str], expected: Set[str]
+) -> List[Path]:
+    """Files inside the mirrored roots that Drive no longer has."""
+    extras: List[Path] = []
+    for dir_name in root_dir_names:
+        base = dest_root / dir_name
+        if not base.is_dir():
+            continue
+        for path in sorted(base.rglob("*")):
+            if not path.is_file():
+                continue
+            if path.name in PROTECTED_DEST_FILES or path.name.startswith(TEMP_PREFIX):
+                continue
+            relative = path.relative_to(dest_root).as_posix()
+            if relative in expected:
+                continue
+            extras.append(path)
+    return extras
+
+
+def prune_extras(dest_root: Path, extras: Sequence[Path]) -> Tuple[int, int]:
+    """Delete orphaned files and any directories they leave empty."""
+    removed = 0
+    failed = 0
+    parents: Set[Path] = set()
+    for path in extras:
+        try:
+            path.unlink()
+            removed += 1
+            parents.add(path.parent)
+            LOGGER.info("pruned %s", path.relative_to(dest_root).as_posix())
+        except OSError as exc:
+            failed += 1
+            LOGGER.error("could not prune %s: %s", path, exc)
+
+    for parent in sorted(parents, key=lambda item: len(item.parts), reverse=True):
+        current = parent
+        while current != dest_root and dest_root in current.parents:
+            try:
+                current.rmdir()
+            except OSError:
+                break
+            LOGGER.info("removed empty directory %s", current.relative_to(dest_root).as_posix())
+            current = current.parent
+    return removed, failed
+
+
+# --------------------------------------------------------------------------- #
+# CLI
+# --------------------------------------------------------------------------- #
+
+
+def repo_root() -> Path:
+    _h = Path(__file__).resolve().parent
+    return _h.parent.parent if _h.name == 'members' else _h.parent   # the repo root, from tools/ or from a seated copy in method/members/
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="drive_sync.py",
+        description=(
+            "Mirror Google Drive folders into this repository with no file size "
+            "limit, and regenerate MANIFEST.tsv."
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Default folders: {}\n"
+            "Credentials: --credentials, ${}, or {}\n".format(
+                ", ".join(repr(name) for name in DEFAULT_FOLDER_NAMES),
+                CREDENTIALS_ENV_VAR,
+                DEFAULT_CREDENTIALS_PATH,
+            )
+        ),
+    )
+    parser.add_argument(
+        "--dest",
+        default=str(repo_root() / "drive"),
+        help="destination directory for the mirror (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--folder",
+        action="append",
+        default=[],
+        metavar="NAME",
+        help="Drive folder name to sync; repeatable. Overrides the defaults.",
+    )
+    parser.add_argument(
+        "--folder-id",
+        action="append",
+        default=[],
+        metavar="ID",
+        help="Drive folder id to sync; repeatable. Overrides the defaults.",
+    )
+    parser.add_argument(
+        "--only",
+        action="append",
+        default=[],
+        metavar="SUBSTRING",
+        help="only sync files whose repo path contains SUBSTRING; repeatable.",
+    )
+    parser.add_argument(
+        "--exclude",
+        action="append",
+        default=[],
+        metavar="SUBSTRING",
+        help="never sync files whose repo path contains SUBSTRING; repeatable. "
+        "Applied after --only.",
+    )
+    parser.add_argument(
+        "--max-file-bytes",
+        type=int,
+        default=GITHUB_FILE_LIMIT_BYTES,
+        metavar="N",
+        help="skip files larger than N bytes (default: %(default)s, GitHub's "
+        "per-file hard limit). Git cannot accept a file over this size, so "
+        "downloading one only costs transfer and disk. Pass 0 to disable.",
+    )
+    parser.add_argument(
+        "--credentials",
+        default=None,
+        metavar="PATH",
+        help="OAuth client secrets JSON (default: ${} or {})".format(
+            CREDENTIALS_ENV_VAR, DEFAULT_CREDENTIALS_PATH
+        ),
+    )
+    parser.add_argument(
+        "--token",
+        default=str(DEFAULT_TOKEN_PATH),
+        metavar="PATH",
+        help="cached OAuth token (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--jobs",
+        type=int,
+        default=4,
+        metavar="N",
+        help="parallel download workers (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="report what would change; write nothing, not even the manifest.",
+    )
+    parser.add_argument(
+        "--prune",
+        action="store_true",
+        help="delete local files that are no longer in Drive (default: report only).",
+    )
+    parser.add_argument("--verbose", "-v", action="store_true", help="debug logging")
+    return parser
+
+
+def configure_logging(verbose: bool) -> None:
+    logging.basicConfig(
+        level=logging.DEBUG if verbose else logging.INFO,
+        format="%(levelname)s %(message)s",
+        stream=sys.stderr,
+    )
+
+
+def resolve_credentials_path(argument: Optional[str]) -> Path:
+    if argument:
+        return Path(argument).expanduser()
+    env_value = os.environ.get(CREDENTIALS_ENV_VAR)
+    if env_value:
+        return Path(env_value).expanduser()
+    return DEFAULT_CREDENTIALS_PATH
+
+
+def selected_by_only(repo_path: str, patterns: Sequence[str]) -> bool:
+    return not patterns or any(pattern in repo_path for pattern in patterns)
+
+
+def excluded_reason(
+    entry: DriveEntry, repo_path: str, patterns: Sequence[str], max_bytes: Optional[int]
+) -> str:
+    """Why this file is being left alone, or "" to sync it."""
+    for pattern in patterns:
+        if pattern in repo_path:
+            return "excluded by --exclude {}".format(pattern)
+    if max_bytes is not None and entry.size is not None and entry.size > max_bytes:
+        return "excluded: {} bytes is over --max-file-bytes {}".format(
+            entry.size, max_bytes
+        )
+    return ""
+
+
+def run_sync(
+    client: DriveClient,
+    assignments: Sequence[Tuple[DriveEntry, str]],
+    dest_root: Path,
+    previous: Dict[str, ManifestRow],
+    jobs: int,
+    dry_run: bool,
+) -> List[SyncOutcome]:
+    outcomes: List[SyncOutcome] = []
+    if not assignments:
+        return outcomes
+    workers = max(1, min(jobs, len(assignments)))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {
+            pool.submit(
+                sync_entry, client, entry, repo_path, dest_root, previous, dry_run
+            ): (entry, repo_path)
+            for entry, repo_path in assignments
+        }
+        for future in concurrent.futures.as_completed(futures):
+            entry, repo_path = futures[future]
+            try:
+                outcomes.append(future.result())
+            except Exception as exc:  # noqa: BLE001
+                # sync_entry handles HTTP and I/O faults itself, so reaching here
+                # means something unforeseen.  Turn it into a FAILED row instead
+                # of letting it propagate: one bad file used to abort the whole
+                # run and discard the outcomes of every file that had already
+                # succeeded, losing the manifest for all of them.
+                status = "failed: " + short_error(exc)
+                LOGGER.exception("%s: unexpected error", repo_path)
+                outcomes.append(
+                    SyncOutcome(
+                        repo_path,
+                        Action.FAILED,
+                        build_row(entry, repo_path, entry.size, "", status),
+                        status,
+                    )
+                )
+    return outcomes
+
+
+def print_summary(
+    outcomes: Sequence[SyncOutcome],
+    deferred: int,
+    extras: Sequence[Path],
+    pruned: int,
+    dest_root: Path,
+    dry_run: bool,
+) -> int:
+    counts: Dict[str, int] = {action: 0 for action in Action.ORDER}
+    for outcome in outcomes:
+        counts[outcome.action] = counts.get(outcome.action, 0) + 1
+    counts[Action.SKIPPED] += deferred
+
+    print()
+    print("Drive sync summary ({}{}):".format(dest_root, " - DRY RUN" if dry_run else ""))
+    for action in Action.ORDER:
+        print("  {:<10} {}".format(action, counts[action]))
+
+    failures = [outcome for outcome in outcomes if outcome.action == Action.FAILED]
+    if failures:
+        print("\nFailures:")
+        for outcome in sorted(failures, key=lambda item: item.repo_path):
+            print("  {}: {}".format(outcome.repo_path, outcome.row.status))
+
+    if extras:
+        header = "Pruned {} local file(s) not in Drive:".format(pruned) if pruned else (
+            "{} local file(s) are no longer in Drive (re-run with --prune to delete):".format(
+                len(extras)
+            )
+        )
+        print("\n" + header)
+        for path in extras[:50]:
+            print("  {}".format(path.relative_to(dest_root).as_posix()))
+        if len(extras) > 50:
+            print("  ... and {} more".format(len(extras) - 50))
+
+    return 1 if failures else 0
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    args = build_parser().parse_args(argv)
+    configure_logging(args.verbose)
+
+    if args.jobs < 1:
+        raise SystemExit("--jobs must be at least 1")
+
+    dest_root = Path(args.dest).expanduser().resolve()
+    manifest_path = dest_root / MANIFEST_NAME
+    folder_names: Sequence[str] = args.folder or (
+        [] if args.folder_id else list(DEFAULT_FOLDER_NAMES)
+    )
+
+    # Everything above this line is argument handling only: no network, no auth.
+    modules = load_google_modules()
+    credentials = load_credentials(
+        modules,
+        resolve_credentials_path(args.credentials),
+        Path(args.token).expanduser(),
+    )
+    client = DriveClient(credentials, modules)
+
+    roots = resolve_root_folders(client, folder_names, args.folder_id)
+    LOGGER.info(
+        "syncing %s into %s",
+        ", ".join("{!r} ({})".format(root.name, root.folder_id) for root in roots),
+        dest_root,
+    )
+
+    entries: List[DriveEntry] = []
+    dir_names: Dict[str, Set[str]] = {}
+    root_dir_names: List[str] = []
+    for root in roots:
+        root_entries, root_dirs = walk_root(client, root)
+        entries.extend(root_entries)
+        for folder_path, names in root_dirs.items():
+            dir_names.setdefault(folder_path, set()).update(names)
+        root_dir_names.append(sanitize_filename(root.name, "drive-{}".format(root.folder_id)))
+    LOGGER.info("found %d file(s) in Drive", len(entries))
+
+    assignments = assign_repo_paths(entries, dir_names)
+    expected_paths: Set[str] = set()
+    for _entry, repo_path in assignments:
+        if repo_path in expected_paths:
+            LOGGER.warning("two Drive files map to the same path %s", repo_path)
+        expected_paths.add(repo_path)
+
+    previous = read_manifest(manifest_path)
+
+    max_file_bytes = args.max_file_bytes if args.max_file_bytes > 0 else None
+    selected: List[Tuple[DriveEntry, str]] = []
+    deferred: List[Tuple[DriveEntry, str]] = []
+    excluded: List[Tuple[DriveEntry, str, str]] = []
+    for entry, repo_path in assignments:
+        if not selected_by_only(repo_path, args.only):
+            deferred.append((entry, repo_path))
+            continue
+        reason = excluded_reason(entry, repo_path, args.exclude, max_file_bytes)
+        if reason:
+            excluded.append((entry, repo_path, reason))
+        else:
+            selected.append((entry, repo_path))
+    if args.only:
+        LOGGER.info(
+            "--only matched %d of %d file(s); the rest keep their manifest rows",
+            len(selected) + len(excluded),
+            len(assignments),
+        )
+    if excluded:
+        LOGGER.info(
+            "excluded %d file(s) totalling %d bytes; each keeps a manifest row "
+            "saying why",
+            len(excluded),
+            sum(entry.size or 0 for entry, _path, _reason in excluded),
+        )
+        for _entry, path, reason in excluded:
+            LOGGER.debug("excluded %s: %s", path, reason)
+
+    outcomes = run_sync(client, selected, dest_root, previous, args.jobs, args.dry_run)
+
+    rows: List[ManifestRow] = [outcome.row for outcome in outcomes]
+    for entry, repo_path in deferred:
+        carried = previous.get(repo_path)
+        if carried is not None and carried.drive_id == entry.file_id:
+            rows.append(carried)
+        else:
+            rows.append(
+                build_row(entry, repo_path, entry.size, "", "not-checked: excluded by --only")
+            )
+    for entry, repo_path, reason in excluded:
+        # An excluded file that is already mirrored keeps the row it earned; the
+        # exclusion says "do not fetch this", not "forget what we know about it".
+        carried = previous.get(repo_path)
+        if carried is not None and carried.drive_id == entry.file_id and carried.md5:
+            rows.append(carried)
+        else:
+            rows.append(build_row(entry, repo_path, entry.size, "", reason))
+
+    extras = find_local_extras(dest_root, root_dir_names, expected_paths)
+    pruned = 0
+    prune_failures = 0
+    if extras and args.prune and not args.dry_run:
+        pruned, prune_failures = prune_extras(dest_root, extras)
+
+    if not args.dry_run:
+        write_manifest(manifest_path, rows)
+        LOGGER.info("wrote %s (%d rows)", manifest_path, len(rows))
+    else:
+        LOGGER.info("dry run: %s left untouched", manifest_path)
+
+    exit_code = print_summary(
+        outcomes, len(deferred), extras, pruned, dest_root, args.dry_run
+    )
+    return 1 if prune_failures else exit_code
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except KeyboardInterrupt:  # pragma: no cover - interactive use
+        print("interrupted", file=sys.stderr)
+        sys.exit(130)
+<<<END FILE: drive_sync.py>>>
+
+<<<FILE: gate_live.py>>>
+#!/usr/bin/env python3
+"""gate_live.py — the gate over the LIVE goldens only.
+
+    python3 tools/gate_live.py            run gate.py on every live golden (in members/, through gate.py's own runner)
+    python3 tools/gate_live.py --list     print the live set and the reason each other golden is left out; run nothing
+    python3 tools/gate_live.py --census   the census step alone: close_census2.py --dry must find the seated census a fixed point
+
+WHY. `gate.py run --all` walks every NAME.out alphabetically; the superseded predecessors and the held readings
+(DEF-153B, DEF-153N, W-224, W-234) fail as recorded and several run long, so a full walk costs an hour and reports
+nothing the held list does not. This tool decides nothing about a golden: it computes the set the store treats as
+live — every NAME.out that has no seated successor and is not held — prints it, and hands it to gate.py, whose
+verdict is the verdict. The core five are always included.
+
+SUCCESSOR RULE, by name: NAME is superseded when another golden's name is NAME's stem with a later version mark —
+a higher trailing digit (r2-ch16p2 → r2-ch16p3) or a trailing digit where NAME has none (r2-bib → r2-bib2). A
+trailing letter is the instrument's own (r2-ch16a … r2-ch16z), so the one letter-marked successor is named in RENAMED.
+Where a predecessor is held with no successor yet, the name is listed in HELD with the record that says so; edit those
+tables when the record changes, never the rule.
+
+THE CENSUS STEP. `gate.py census` runs `census.py`, which reads /home/claude and carries the Register's extent as a literal,
+so it has been red since BUILD98 and stays red by construction (DEF-153O). The live step is `close_census2.py --dry`: it
+runs `census2.py`, matches the fresh rows onto the seated ids by content, and must report the seated member a FIXED POINT —
+every row exact, nothing NEW, nothing GONE, the retired rows carried — printing "== the seated member". The default walk
+runs it first, then the live goldens.
+"""
+import os, re, subprocess, sys
+_here = os.path.dirname(os.path.abspath(__file__))
+H = _here if os.path.basename(_here) == 'members' else os.path.join(os.path.dirname(_here), 'method', 'members')   # from tools/ or from a seated copy
+CORE = ['tower-2', 'kinds', 'minmax', 'r2-tools-constants', 'extent']
+HELD = {  # name: the record that holds it (a golden with a seated successor needs no entry — the name rule finds it)
+    'r2-reg11a2': 'W-224: census rows by Register line', 'r2-reg12b': 'W-224: census rows by Register line',
+    'r2-ch18b': 'DEF-153B: a reading, not a re-bank', 'r2-ch23b': 'DEF-153B: a reading', 'r2-26b': 'DEF-153B: UNRUNNABLE, successor r2-26b2 owed',
+    'r3-wl': 'chat 153: re-taken by r3-wl2', 'r2-ch23a': 'DEF-153B: a reading', 'r2-ch28a': 'DEF-153B: a reading',
+}
+def goldens():
+    return sorted(f[:-4] for f in os.listdir(H) if f.endswith('.out'))
+RENAMED = {'r2-reg12': 'r2-reg12b'}   # the one successor whose mark is a letter (a trailing letter is otherwise the instrument's own, r2-ch16a … r2-ch16z)
+def split(n):
+    m = re.fullmatch(r'(.*?\D)(\d*)', n); return m.group(1), m.group(2)
+def superseded_by(n, names):
+    stem, mark = split(n); out = [g for g in names if g != n and split(g)[0] == stem and split(g)[1] and (mark == '' or int(split(g)[1]) > int(mark))]
+    if RENAMED.get(n) in names: out.append(RENAMED[n])
+    return sorted(out)
+def live():
+    names = goldens(); keep, left = [], {}
+    for n in names:
+        succ = superseded_by(n, names)
+        if n in CORE: keep.append(n)
+        elif n in HELD: left[n] = 'held — ' + HELD[n]
+        elif succ: left[n] = 'superseded by ' + ', '.join(succ)
+        else: keep.append(n)
+    return keep, left
+def census():
+    p = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'close_census2.py'), '--dry'], capture_output=True, text=True)
+    tail = [l for l in p.stdout.splitlines() if l.strip().startswith(('seated ', 'renumbered '))]
+    ok = p.returncode == 0 and any('== the seated member' in l for l in tail)
+    print(('OK  ' if ok else 'FAIL') + ' census: ' + (' / '.join(l.strip() for l in tail) or (p.stderr.strip().splitlines() or ['no output'])[-1]))
+    return ok
+if __name__ == '__main__':
+    keep, left = live()
+    if '--census' in sys.argv: sys.exit(0 if census() else 1)
+    if '--list' in sys.argv:
+        print('LIVE (%d):' % len(keep)); print('  ' + ' '.join(keep)); print('LEFT OUT (%d):' % len(left))
+        for n, why in left.items(): print('  %-14s %s' % (n, why))
+        sys.exit(0)
+    names = [a for a in sys.argv[1:] if not a.startswith('--')]
+    c = True if names else census()
+    sys.exit(subprocess.call([sys.executable, 'gate.py', 'run'] + (names or keep), cwd=H) or (0 if c else 1))
+<<<END FILE: gate_live.py>>>
+
+<<<FILE: pointers.py>>>
+#!/usr/bin/env python3
+"""tools/pointers.py -- the pointer audit of The Method 1.6, run as a program.
+
+DOCKET.md section 2 requires, of every section read:
+
+    "resolve every pointer to the claim and not the heading, under both
+     resolvers, and locate where the claim does live"
+
+and CLAUDE.md section 6 adds that the pointer regex is case-sensitive and that
+lowercase "register NNN" and "A.N" are grepped BY HAND. This is that resolution
+run as a class over the whole store, in both cases, with the hand-grep folded in.
+
+It answers the four census classes mechanically:
+
+    C1-SECTION-POINTER-UNRESOLVED     a section pointer with no such heading
+    C2-THEOREM-POINTER-UNPRINTED      a theorem cited but never stated
+    C3-FIGURE-POINTER-UNPLACED        a figure cited but never placed
+    C5-REGISTER-POINTER-UNRESOLVED    a register pointer with no such entry
+
+Stdlib only, Python 3.9+. No dependencies, so an audit can run it from any tree.
+
+The one thing it refuses to do:
+
+    It never reports UNRESOLVED for a pointer that resolves somewhere else in
+    the roster. DOCKET.md asks where the claim DOES live, so a pointer that
+    misses the citing volume and lands in another is RESOLVED, with the member
+    named. Four of the census's own C1 rows are this case: reg L5605, reg
+    L5609, mc L2474 and ioi L141 all cite a section that exists in the
+    companion (Transitions.md) and nowhere else, and the text says so --
+    "of the companion", "of T". Calling those unresolved loses the finding.
+"""
+
+from __future__ import annotations
+
+import argparse
+import collections
+import json
+import os
+import re
+import sys
+
+_here = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(_here)) if os.path.basename(_here) == 'members' else os.path.dirname(_here)   # the repo root, from tools/ or from a seated copy in method/members/
+DEFAULT_MEMBERS = os.path.join(REPO, "method", "members")
+
+VOLUMES = [
+    ("main", "The_Method_1_6-2.md"),
+    ("reg", "The_Method_1_6___The_Register-2.md"),
+    ("mc", "The_Method_1_6___Mathematical_Compendium-2.md"),
+    ("pc", "The_Method_1_6___The_Physics_Compendium-2.md"),
+    ("ioi", "The_Method_1_6___The_Index_of_Indices-2.md"),
+    ("sc", "The_Method_1_6___Spectra_Compendium-2.md"),
+]
+
+COMPANION = [("T", "Transitions.md")]
+
+PAPERS = [
+    ("lw", "THE-LOWDIN-SOLUTION-2.md"),
+    ("tb", "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md"),
+]
+
+ROSTERS = {
+    "volumes": VOLUMES,
+    "with-companion": VOLUMES + COMPANION,
+    "all": VOLUMES + COMPANION + PAPERS,
+}
+
+# The Register is where a register pointer resolves, and nowhere else.
+REGISTER_MEMBER = "reg"
+
+RESOLVED_HERE = "RESOLVED-HERE"
+RESOLVED = "RESOLVED"
+AMBIGUOUS = "AMBIGUOUS"
+PREFIX_ONLY = "PREFIX-ONLY"
+UNRESOLVED = "UNRESOLVED"
+KIND_MISMATCH = "KIND-MISMATCH"
+OUT_OF_EXTENT = "OUT-OF-EXTENT"
+PARTIAL = "PARTIAL"
+
+VERDICTS = (RESOLVED_HERE, RESOLVED, AMBIGUOUS, PARTIAL, PREFIX_ONLY,
+            UNRESOLVED, KIND_MISMATCH, OUT_OF_EXTENT)
+
+# A pointer that lands is not a finding, wherever it lands.
+FINDINGS = (PARTIAL, PREFIX_ONLY, UNRESOLVED, KIND_MISMATCH, OUT_OF_EXTENT)
+
+CENSUS_CLASS = {
+    "SECTION": "C1-SECTION-POINTER-UNRESOLVED",
+    "THEOREM": "C2-THEOREM-POINTER-UNPRINTED",
+    "FIGURE": "C3-FIGURE-POINTER-UNPLACED",
+    "REGISTER": "C5-REGISTER-POINTER-UNRESOLVED",
+    "REGISTER-RANGE": "C5-REGISTER-POINTER-UNRESOLVED",
+}
+
+
+# ---------------------------------------------------------------------------
+# Site patterns. The section, chapter, appendix and appendix-section forms are
+# copied verbatim from the seated member r2-tools.py (chat 70), which is the
+# recorded convention; the register forms are copied from register_cites.py,
+# whose (?i) is the reason the hand-grep for lowercase "register NNN" is no
+# longer owed. PROVENANCE: both are bundle members, not lifted to r2lib.
+# ---------------------------------------------------------------------------
+
+RE_SECTION = re.compile(r"§\s?(\d+\.\d+(?:\.\d+)*|\d+)(?!\d)")
+RE_SECTION_LETTERED = re.compile(r"§\s?([A-G]\.\d+(?:\.\d+)*)")
+RE_CHAPTER = re.compile(r"\b(?:Chapter|Ch\.)\s?(\d+)\b")
+RE_APPENDIX = re.compile(r"\bAppendix ([A-G])\b(?!\.)")
+RE_APPSEC = re.compile(r"(?<![A-Za-z§])([A-G]\.\d+)(?![\d.])")
+RE_THEOREM = re.compile(r"\b(?:Theorem|Thm\.?)\s?(\d+\.\d+)\b")
+RE_FIGURE = re.compile(r"\bFigure (\d+\.\d+)\b")
+
+# register_cites.py's own two patterns, plus the "entry/entries" wording that
+# r2-tools.py reads and register_cites.py does not.
+RE_REG_WORD = re.compile(
+    r"(?i)\b(?:registers?|reg\.|entries|entry)\s+"
+    r"((?:\d{3,4}(?:\s*[–\-]\s*\d{3,4})?)"
+    r"(?:\s*(?:,|and|/|;)\s*\d{3,4}(?:\s*[–\-]\s*\d{3,4})?)*)"
+)
+RE_REG_R = re.compile(
+    r"(?:\*R|\bR) ((?:\d{3,4}(?:\s*[–\-]\s*\d{3,4})?)"
+    r"(?:\s*(?:,|and|/|;)\s*\d{3,4}(?:\s*[–\-]\s*\d{3,4})?)*)"
+)
+
+# register_cites.py's floor. Below 165 a three-digit token is not a register
+# citation, and reading it as one was the fault that entry 1000 records.
+REG_FLOOR = 165
+REG_RANGE_CAP = 200
+
+# Declaration and placement forms, calibrated against the store.
+#   "Theorem 14.1 (A.2). X is closed iff X = R(X)"   <- declared
+#   "Theorem 18.2 permits it, because an interval"   <- merely cited
+RE_THM_DECL = re.compile(
+    r"\b(?:Theorem|Thm\.?)\s?(\d+\.\d+)\s*(?:\([^)]*\))?\.\s")
+RE_FIG_PLACED = re.compile(r"^!\[Figure (\d+\.\d+)")
+RE_HEADING = re.compile(r"^(#{2,6}) (.+)$")
+# DOCKET.md: heading_line is numeric-only.
+RE_HEAD_NUM = re.compile(r"^([A-G]\.\d+(?:\.\d+)*|\d+\.\d+(?:\.\d+)*)[\s.]")
+RE_HEAD_CH = re.compile(r"^(\d+)\.\s")
+RE_HEAD_APP = re.compile(r"^Appendix ([A-G])")
+RE_REG_HEAD = re.compile(r"^### ([\d, ]+)")
+# Appendix A states most of its proofs as a labelled TABLE, not as headings:
+#   "  A.2       X closed <=> R(X) = X        SS14.1, in full"
+# while A.3, A.8 and A.9 take "### A.n" headings. This is what CLAUDE.md
+# section 6 means by the pointer regex "ignoring Appendix A item numbers" and
+# owing a hand grep: A.1, A.2, A.4-A.7, A.14, A.16 and A.17 are table rows.
+RE_APP_ITEM = re.compile(r"^\s{2,}([A-G]\.\d+)\s{2,}\S")
+
+
+class Site:
+    __slots__ = ("cls", "token", "member", "lines", "verdict", "where", "note")
+
+    def __init__(self, cls, token, member, lines, verdict, where, note=""):
+        self.cls = cls
+        self.token = token
+        self.member = member
+        self.lines = lines
+        self.verdict = verdict
+        self.where = where
+        self.note = note
+
+    def asdict(self):
+        return {"class": self.cls, "token": self.token, "member": self.member,
+                "lines": self.lines, "verdict": self.verdict,
+                "where": self.where, "note": self.note,
+                "census_class": (CENSUS_CLASS.get(self.cls, "")
+                                 if self.verdict in FINDINGS else "")}
+
+
+# ---------------------------------------------------------------------------
+# The index of what a pointer can land on
+# ---------------------------------------------------------------------------
+
+class Index:
+    def __init__(self):
+        self.sections = collections.defaultdict(list)
+        self.chapters = collections.defaultdict(list)
+        self.appendices = collections.defaultdict(list)
+        self.appsecs = collections.defaultdict(list)
+        self.theorems = collections.defaultdict(list)
+        self.figures = collections.defaultdict(list)
+        self.register = {}
+        self.body = set()
+        self.reg_grouped = set()
+        self.reg_extent = (0, 0)
+
+
+def _is_body(lines, i):
+    """Is the heading on 1-based line i a BODY heading, or a contents entry?
+
+    DOCKET.md section 2: the heading resolver resolves to the BODY occurrence,
+    and the same section records that the volume heads its appendices
+    "## Appendix X -- ..." twice. Line 162 of the main volume is the contents
+    -- seven appendix headings in a row with no prose between them -- and line
+    9939 is Appendix A itself. A contents entry is a heading followed by
+    another heading; a body heading is followed by prose."""
+    for j in range(i, min(i + 3, len(lines))):
+        nxt = lines[j]
+        if not nxt.strip():
+            continue
+        return not bool(RE_HEADING.match(nxt))
+    return False
+
+
+def build_index(lines):
+    ix = Index()
+    for i, line in enumerate(lines, 1):
+        m = RE_APP_ITEM.match(line)
+        if m:
+            # A labelled proof row is a placement, and a body one.
+            ix.appsecs[m.group(1)].append(i)
+            ix.body.add((("appsecs"), m.group(1), i))
+        h = RE_HEADING.match(line)
+        if h:
+            title = h.group(2)
+            body = _is_body(lines, i)
+            m = RE_HEAD_NUM.match(title)
+            if m:
+                tok = m.group(1)
+                which = "appsecs" if tok[0].isalpha() else "sections"
+                getattr(ix, which)[tok].append(i)
+                if body:
+                    ix.body.add((which, tok, i))
+            mc = RE_HEAD_CH.match(title)
+            if mc and h.group(1) == "##":
+                ix.chapters[mc.group(1)].append(i)
+                if body:
+                    ix.body.add(("chapters", mc.group(1), i))
+            ma = RE_HEAD_APP.match(title)
+            if ma and h.group(1) == "##":
+                ix.appendices[ma.group(1)].append(i)
+                if body:
+                    ix.body.add(("appendices", ma.group(1), i))
+        for m in RE_THM_DECL.finditer(line):
+            ix.theorems[m.group(1)].append(i)
+        m = RE_FIG_PLACED.match(line)
+        if m:
+            ix.figures[m.group(1)].append(i)
+        m = RE_REG_HEAD.match(line)
+        if m:
+            nums = re.findall(r"\d+", m.group(1))
+            for n in nums:
+                ix.register.setdefault(int(n), (i, line[:60]))
+                if len(nums) > 1:
+                    ix.reg_grouped.add(int(n))
+    if ix.register:
+        ix.reg_extent = (min(ix.register), max(ix.register))
+    return ix
+
+
+RE_REG_SPAN = re.compile(r"(\d{3,4})\s*[–\-]\s*(\d{3,4})")
+
+
+def _reg_ranges(blob):
+    """The spans inside a register citation, as (a, b) pairs.
+
+    A span is ONE claim about a stretch of the Register, not one claim per
+    number in it. The Spectra Compendium's "Registers 1524-1677 record the
+    capture of these bodies one at a time" is a single sentence; expanding it
+    into 154 pointers and reporting 30 of them turns one finding about the
+    range into thirty rows, and DOCKET.md section 2 wants a sweep to state
+    what it covered."""
+    out = []
+    for m in RE_REG_SPAN.finditer(blob):
+        a, b = int(m.group(1)), int(m.group(2))
+        if REG_FLOOR <= a <= b and (b - a) < REG_RANGE_CAP:
+            out.append((a, b))
+    return out
+
+
+def _reg_nums(blob, top):
+    """register_cites.py's nums(), copied verbatim in substance: a range is
+    expanded only when it is inside the extent and shorter than 200, and a
+    token below 165 is not a register citation at all."""
+    out = set()
+    for part in re.split(r"\s*(?:,|and|/|;)\s*", blob):
+        part = part.strip()
+        m = re.match(r"(\d{3,4})\s*[–\-]\s*(\d{3,4})$", part)
+        if m:
+            a, b = int(m.group(1)), int(m.group(2))
+            if REG_FLOOR <= a <= b and (b - a) < REG_RANGE_CAP:
+                out.update(range(a, b + 1))
+        elif part.isdigit():
+            n = int(part)
+            if n >= REG_FLOOR:
+                out.add(n)
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Collecting sites
+# ---------------------------------------------------------------------------
+
+def collect(short, lines, classes):
+    """token sites in one member: {(class, token): [line numbers]}"""
+    seen = collections.OrderedDict()
+
+    def add(cls, tok, i):
+        if cls in classes:
+            seen.setdefault((cls, tok), []).append(i)
+
+    for i, line in enumerate(lines, 1):
+        if RE_HEADING.match(line):
+            continue  # a heading is not a pointer to itself
+        for m in RE_SECTION.finditer(line):
+            add("SECTION", m.group(1), i)
+        for m in RE_SECTION_LETTERED.finditer(line):
+            add("APPSEC", m.group(1), i)
+        for m in RE_CHAPTER.finditer(line):
+            add("CHAPTER", m.group(1), i)
+        for m in RE_APPENDIX.finditer(line):
+            add("APPENDIX", m.group(1), i)
+        for m in RE_APPSEC.finditer(line):
+            add("APPSEC", m.group(1), i)
+        for m in RE_THEOREM.finditer(line):
+            add("THEOREM", m.group(1), i)
+        for m in RE_FIGURE.finditer(line):
+            add("FIGURE", m.group(1), i)
+        for rx in (RE_REG_WORD, RE_REG_R):
+            for m in rx.finditer(line):
+                blob = m.group(1)
+                spans = _reg_ranges(blob)
+                spanned = set()
+                for a, b in spans:
+                    add("REGISTER-RANGE", "%d-%d" % (a, b), i)
+                    spanned.update(range(a, b + 1))
+                for n in _reg_nums(blob, None):
+                    if n not in spanned:
+                        add("REGISTER", str(n), i)
+    return seen
+
+
+ATTR = {"SECTION": "sections", "CHAPTER": "chapters",
+        "APPENDIX": "appendices", "APPSEC": "appsecs",
+        "THEOREM": "theorems", "FIGURE": "figures"}
+
+
+def _lookup(ix, cls, tok):
+    """Every occurrence, body ones first. A pointer resolves to the body
+    occurrence when there is one; a contents entry alone is not a claim.
+
+    A section pointer with no dot is a CHAPTER pointer written with a section
+    sign -- the volumes write "SS12" for chapter 12, whose heading is
+    "## 12. ...". r2-tools.py has this fallback ("if key.count('.')==0:
+    heads.get('ch'+key)") and it is the recorded convention; without it 59
+    whole-chapter pointers read PREFIX-ONLY against their own sub-sections."""
+    which = ATTR[cls]
+    all_hits = ix.__getattribute__(which).get(tok, [])
+    if not all_hits and cls == "SECTION" and "." not in tok:
+        which = "chapters"
+        all_hits = ix.chapters.get(tok, [])
+    body = [i for i in all_hits if (which, tok, i) in ix.body]
+    return body or all_hits
+
+
+def _prefix_hit(ix, cls, tok):
+    """The second resolver, named. DOCKET.md section 2: the heading resolver is
+    exact-token and NEVER prefix. Running both and reporting the difference is
+    how a pointer to a section that exists only as sub-sections is told apart
+    from one that does not exist at all: PREFIX-ONLY, not UNRESOLVED."""
+    if cls not in ("SECTION", "APPSEC"):
+        return []
+    table = ix.sections if cls == "SECTION" else ix.appsecs
+    return sorted(l for k, v in table.items()
+                  if k.startswith(tok + ".") for l in v)
+
+
+def resolve(short, cls, tok, indexes):
+    if cls == "REGISTER-RANGE":
+        ix = indexes.get(REGISTER_MEMBER)
+        if ix is None:
+            return UNRESOLVED, "", "the Register is not in the roster"
+        a, b = (int(x) for x in tok.split("-"))
+        want = list(range(a, b + 1))
+        absent = [n for n in want if n not in ix.register]
+        lo, hi = ix.reg_extent
+        if not absent:
+            return (RESOLVED, "%s:%d" % (REGISTER_MEMBER, ix.register[a][0]),
+                    "all %d entries present" % len(want))
+        if len(absent) == len(want):
+            return (UNRESOLVED, "",
+                    "none of the %d numbers in the range carries an entry"
+                    % len(want))
+        shown = ", ".join(str(n) for n in absent[:12])
+        if len(absent) > 12:
+            shown += ", +%d more" % (len(absent) - 12)
+        return (PARTIAL, "%s:%d" % (REGISTER_MEMBER, ix.register[want[0]][0])
+                if want[0] in ix.register else "",
+                "%d of the %d numbers in the range carry an entry; absent: %s"
+                % (len(want) - len(absent), len(want), shown))
+
+    if cls == "REGISTER":
+        ix = indexes.get(REGISTER_MEMBER)
+        if ix is None:
+            return UNRESOLVED, "", "the Register is not in the roster"
+        n = int(tok)
+        lo, hi = ix.reg_extent
+        if n > hi:
+            return (OUT_OF_EXTENT, "",
+                    "beyond the Register's extent, %d to %d" % (lo, hi))
+        if n in ix.register:
+            line, head = ix.register[n]
+            note = "grouped heading" if n in ix.reg_grouped else ""
+            return RESOLVED, "%s:%d" % (REGISTER_MEMBER, line), note
+        return UNRESOLVED, "", "no ### entry in the Register"
+
+    # A three- or four-digit section pointer with no dot has the shape of a
+    # register number, not of a section. reg L3113's "§784" is the census's
+    # own C1 row and this is what it is.
+    if cls == "SECTION" and "." not in tok and len(tok) >= 3:
+        reg = indexes.get(REGISTER_MEMBER)
+        n = int(tok)
+        if reg and n >= REG_FLOOR and n <= reg.reg_extent[1]:
+            seat = reg.register.get(n)
+            return (KIND_MISMATCH,
+                    "%s:%d" % (REGISTER_MEMBER, seat[0]) if seat else "",
+                    "a register number written as a section pointer"
+                    + ("" if seat else "; and no such entry either"))
+
+    hits = {}
+    for k, ix in indexes.items():
+        got = _lookup(ix, cls, tok)
+        if got:
+            hits[k] = got
+
+    if short in hits:
+        extra = [k for k in hits if k != short]
+        note = ("also in " + ", ".join(sorted(extra))) if extra else ""
+        ix = indexes[short]
+        which = ATTR[cls]
+        every = ix.__getattribute__(which).get(tok, [])
+        if not every and cls == "SECTION" and "." not in tok:
+            every = ix.chapters.get(tok, [])
+        if len(every) > len(hits[short]):
+            note = ((note + "; ") if note else "") + (
+                "%d contents entr%s above the body occurrence"
+                % (len(every) - len(hits[short]),
+                   "y" if len(every) - len(hits[short]) == 1 else "ies"))
+        return RESOLVED_HERE, "%s:%d" % (short, hits[short][0]), note
+    if len(hits) == 1:
+        k = next(iter(hits))
+        return RESOLVED, "%s:%d" % (k, hits[k][0]), ""
+    if len(hits) > 1:
+        return (AMBIGUOUS,
+                ", ".join("%s:%d" % (k, v[0]) for k, v in sorted(hits.items())),
+                "the pointer does not say which volume")
+
+    for k, ix in indexes.items():
+        pre = _prefix_hit(ix, cls, tok)
+        if pre:
+            return (PREFIX_ONLY, "%s:%d" % (k, pre[0]),
+                    "no exact heading; %d sub-section heading(s) begin '%s.' "
+                    "-- the exact-token resolver is the one in force"
+                    % (len(pre), tok))
+
+    if cls == "THEOREM":
+        return UNRESOLVED, "", "cited but never stated in the roster"
+    if cls == "FIGURE":
+        return UNRESOLVED, "", "cited but never placed in the roster"
+    return UNRESOLVED, "", "no such heading in the roster"
+
+
+def audit(members_dir, roster, classes):
+    lines = {}
+    for short, fname in roster:
+        path = os.path.join(members_dir, fname)
+        with open(path, encoding="utf-8") as fh:
+            lines[short] = fh.read().split("\n")
+    indexes = {k: build_index(v) for k, v in lines.items()}
+
+    out = []
+    for short, _ in roster:
+        for (cls, tok), sites in collect(short, lines[short], classes).items():
+            verdict, where, note = resolve(short, cls, tok, indexes)
+            out.append(Site(cls, tok, short, sorted(set(sites)), verdict,
+                            where, note))
+    return out, indexes
+
+
+# ---------------------------------------------------------------------------
+# Reporting
+# ---------------------------------------------------------------------------
+
+def report(sites, only=None, limit_lines=6):
+    order = {v: i for i, v in enumerate(VERDICTS)}
+    shown = [s for s in sites if not only or s.verdict in only]
+    shown.sort(key=lambda s: (-order.get(s.verdict, 0), s.cls, s.member,
+                              s.lines[0] if s.lines else 0))
+    for s in shown:
+        ls = ",".join(str(x) for x in s.lines[:limit_lines])
+        if len(s.lines) > limit_lines:
+            ls += "+%d" % (len(s.lines) - limit_lines)
+        token = ("§" + s.token if s.cls == "SECTION" else
+                 "reg " + s.token if s.cls.startswith("REGISTER") else s.token)
+        print("%-4s %-15s %-11s at L%-18s %s"
+              % (s.member, s.cls, token, ls, s.verdict))
+        tail = []
+        if s.where:
+            tail.append("-> " + s.where)
+        if s.note:
+            tail.append(s.note)
+        if tail:
+            print("      " + "  ".join(tail))
+        if s.verdict in FINDINGS and s.cls in CENSUS_CLASS:
+            print("      census class %s" % CENSUS_CLASS[s.cls])
+
+    tally = collections.Counter(s.verdict for s in sites)
+    cls_find = collections.Counter(s.cls for s in sites
+                                  if s.verdict in FINDINGS)
+    print()
+    print("-" * 72)
+    print("  ".join("%s %d" % (v, tally[v]) for v in VERDICTS if tally[v]))
+    findings = sum(tally[v] for v in FINDINGS)
+    print("%d pointer token%s, %d finding%s%s"
+          % (len(sites), "" if len(sites) == 1 else "s",
+             findings, "" if findings == 1 else "s",
+             ("  (" + ", ".join("%s %d" % (c, n)
+                                for c, n in sorted(cls_find.items())) + ")")
+             if cls_find else ""))
+    return findings
+
+
+def report_extent(sites, indexes):
+    """A gap in the Register's numbering is only a defect if something cites
+    it. The extent is stated as a range; 1660 of the 1792 numbers in it carry a
+    ### entry, and an uncited absence is not a pointer failure. This lists the
+    absences that ARE cited, with the citing sites."""
+    reg = indexes.get(REGISTER_MEMBER)
+    if reg is None:
+        print("the Register is not in the roster")
+        return 0
+    lo, hi = reg.reg_extent
+    missing = [n for n in range(lo, hi + 1) if n not in reg.register]
+    cited = collections.defaultdict(list)
+    for s in sites:
+        if s.cls == "REGISTER" and s.verdict in (UNRESOLVED, OUT_OF_EXTENT):
+            cited[int(s.token)].extend("%s:%d" % (s.member, l) for l in s.lines)
+    print("Register extent %d to %d; %d numbers carry a ### entry, %d do not."
+          % (lo, hi, len(reg.register), len(missing)))
+    print("An uncited absence is not a pointer failure. Cited absences:")
+    print()
+    for n in sorted(cited):
+        print("  reg %-5d cited at %s" % (n, ", ".join(sorted(set(cited[n])))[:100]))
+    print()
+    print("%d cited absence%s of %d absences in the extent."
+          % (len(cited), "" if len(cited) == 1 else "s", len(missing)))
+    return len(cited)
+
+
+# ---------------------------------------------------------------------------
+# Self-test. Every fixture is a row the DEFECT-CENSUS.tsv already records, or a
+# convention the store already fixes. Addressed by token and member, never by
+# line number.
+# ---------------------------------------------------------------------------
+
+# (roster, member, class, token, expected verdict, census id if any)
+CORPUS = [
+    # C3: the one recorded figure row. 32 figures placed, 33 cited.
+    ("volumes", "main", "FIGURE", "15.3", UNRESOLVED, "census 1"),
+    ("volumes", "main", "FIGURE", "15.1", RESOLVED_HERE, ""),
+    # C2: theorems cited and never stated.
+    ("volumes", "main", "THEOREM", "7.1", UNRESOLVED, "census 2"),
+    ("volumes", "reg", "THEOREM", "11.2", UNRESOLVED, "census 4, 5"),
+    ("volumes", "reg", "THEOREM", "12.1", UNRESOLVED, "census 6, 9"),
+    ("volumes", "mc", "THEOREM", "10.1", UNRESOLVED, "census 19, 20"),
+    ("volumes", "mc", "THEOREM", "4.4", UNRESOLVED, "census 23"),
+    # ... against ones that ARE stated, so the class is not vacuous.
+    ("volumes", "main", "THEOREM", "14.1", RESOLVED_HERE, ""),
+    ("volumes", "main", "THEOREM", "18.2", RESOLVED_HERE, ""),
+    # C5: register pointers with no entry.
+    ("volumes", "reg", "REGISTER", "1002", UNRESOLVED, "census 15-17"),
+    ("volumes", "reg", "REGISTER", "1000", UNRESOLVED, "census 8"),
+    ("volumes", "reg", "REGISTER", "1725", UNRESOLVED, "census 3"),
+    ("volumes", "mc", "REGISTER", "1173", RESOLVED, ""),
+    # A range is one claim about a stretch of the Register, not one per number.
+    ("volumes", "sc", "REGISTER-RANGE", "1524-1677", PARTIAL, ""),
+    # C1: a register number written as a section pointer.
+    ("volumes", "reg", "SECTION", "784", KIND_MISMATCH, "census 7"),
+    # C1: the companion's sections. Unresolved among the volumes ...
+    ("volumes", "reg", "SECTION", "5.7", UNRESOLVED, "census 10, 11"),
+    ("volumes", "mc", "SECTION", "6.5", UNRESOLVED, "census 24"),
+    ("volumes", "ioi", "SECTION", "5.7", UNRESOLVED, "census 26"),
+    # ... and RESOLVED, in Transitions.md, once the companion is in the roster.
+    # This is the refusal: the claim does live somewhere, and the text says so.
+    ("with-companion", "reg", "SECTION", "5.7", RESOLVED, "census 10, 11"),
+    ("with-companion", "mc", "SECTION", "6.5", RESOLVED, "census 24"),
+    ("with-companion", "mc", "SECTION", "5.1", RESOLVED, "census 25"),
+    ("with-companion", "ioi", "SECTION", "5.7", RESOLVED, "census 26"),
+    # A section of the main volume, cited from the main volume.
+    ("volumes", "main", "SECTION", "17.1", RESOLVED_HERE, ""),
+    # Appendix A states A.2 as a proof-TABLE row and A.3 as a "### A.3"
+    # heading. Both are placements; a heading-only resolver misses the table.
+    ("volumes", "main", "APPSEC", "A.2", RESOLVED_HERE, ""),
+    ("volumes", "main", "APPSEC", "A.3", RESOLVED_HERE, ""),
+    ("volumes", "main", "APPSEC", "A.17", RESOLVED_HERE, ""),
+    # Recorded, not new: WORKING-REGISTER L4687 has "SS4.4/SS4.6/SS4.7 resolve
+    # to unheaded lines", and DEFERRED L156 dockets it for R3.
+    ("volumes", "main", "SECTION", "4.6", UNRESOLVED, "WR L4687, DEF L156"),
+    # Recorded, not new: the same WR line has "259 and 287-class pointers
+    # resolve only to groups".
+    ("volumes", "main", "REGISTER", "287", UNRESOLVED, "WR L4687"),
+    # "SS12" is chapter 12, whose heading is "## 12. ...", per r2-tools.py.
+    ("volumes", "main", "SECTION", "12", RESOLVED_HERE, ""),
+    ("volumes", "main", "SECTION", "27", RESOLVED_HERE, ""),
+    # census 14 records SS0 at reg L6311 as C1-UNRESOLVED, and among the
+    # volumes it is. Adding the companion makes it PREFIX-ONLY, because
+    # SS0.1 to SS0.4 exist -- in Transitions.md. The citation is to the
+    # SPECTRA COMPENDIUM's SS0, so that prefix hit is a coincidence in the
+    # wrong member, and both rosters are asserted to keep it visible.
+    ("volumes", "reg", "SECTION", "0", UNRESOLVED, "census 14"),
+    ("with-companion", "reg", "SECTION", "0", PREFIX_ONLY, "census 14"),
+    ("volumes", "main", "APPSEC", "E.4", PREFIX_ONLY, ""),
+]
+
+# Conventions the store fixes, asserted directly.
+UNITS = [
+    # (index attribute, member, key, present?)
+    ("theorems", "main", "18.1", True),
+    ("theorems", "main", "7.1", False),
+    ("figures", "main", "15.1", True),
+    ("figures", "main", "15.3", False),
+    ("appsecs", "main", "A.2", True),
+    ("appsecs", "main", "A.3", True),
+]
+
+# The contents/body rule, asserted on the two occurrences the store carries.
+BODY = [
+    # (member, attribute, token, the heading line a pointer must resolve to — the BODY occurrence, never the
+    # contents entry; keyed to the heading's own text and found in the live member at selftest time, because
+    # a literal line (9947, 1436 until W-236) moved with every build that grew the volume above it)
+    ("main", "APPENDIX", "A", "## Appendix A — Proofs"),
+    ("main", "CHAPTER", "4", "## 4. The failures of the assistant, and the protocol each one earns"),
+]
+
+# A theorem STATEMENT and a theorem CITATION differ by the period.
+DECL = [
+    ("Theorem 14.1 (A.2). X is closed iff X = R(X), where R recon", True),
+    ("Theorem 17.1 (adjunction never repairs). For any h : S -> H", True),
+    ("Theorem 18.1. On a product order, join, meet and comparability", True),
+    (" Theorem 18.2 permits it, because an interval", False),
+    ("Theorem 7.1 is absent -- withdrawn, and the status coordinate", False),
+    ("Theorem 14.1 is A.2 by its own", False),
+]
+
+# register_cites.py's floor, and its range cap.
+REGNUMS = [
+    ("register 1173", {1173}),
+    ("registers 1201-1203", {1201, 1202, 1203}),
+    ("R 1002", set()),          # RE_REG_R is a separate pattern; see below
+    ("entry 164", set()),       # below the 165 floor: not a citation
+    ("entry 165", {165}),
+    ("registers 200-900", set()),  # a 700-wide range is not a citation
+]
+
+
+def selftest(members_dir):
+    fails = []
+    checked = 0
+
+    for line, want in DECL:
+        checked += 1
+        got = bool(RE_THM_DECL.search(line))
+        if got != want:
+            fails.append("declaration test on %r: got %s, expected %s"
+                         % (line[:44], got, want))
+
+    for blob, want in REGNUMS:
+        checked += 1
+        got = set()
+        for rx in (RE_REG_WORD, RE_REG_R):
+            for m in rx.finditer(blob):
+                got |= _reg_nums(m.group(1), None)
+        if blob == "R 1002":
+            want = {1002}  # the "R NNN" form does resolve as a citation
+        if got != want:
+            fails.append("register numbers in %r: got %s, expected %s"
+                         % (blob, sorted(got), sorted(want)))
+
+    cache = {}
+
+    def run(roster_name):
+        if roster_name not in cache:
+            cache[roster_name] = audit(members_dir, ROSTERS[roster_name],
+                                       set(CENSUS_CLASS) | {"CHAPTER",
+                                                            "APPENDIX",
+                                                            "APPSEC"})
+        return cache[roster_name]
+
+    for member, cls, tok, want_text in BODY:
+        checked += 1
+        _, indexes = run("volumes")
+        fname = dict(VOLUMES)[member]
+        hits = [i for i, l in enumerate(open(os.path.join(members_dir, fname), encoding="utf-8").read().split("\n"), 1) if l.rstrip() == want_text]
+        if len(hits) != 2:   # the contents entry first, the body heading second: the two occurrences the rule is about
+            fails.append("%s occurs %d times in %s; the fixture needs the contents entry and the body heading" % (want_text, len(hits), member)); continue
+        want_line = hits[1]
+        got = _lookup(indexes[member], cls, tok)
+        if not got or got[0] != want_line:
+            fails.append("%s %s in %s resolves to %s, expected the body "
+                         "occurrence at L%d" % (cls, tok, member, got,
+                                                want_line))
+
+    for attr, member, key, want in UNITS:
+        checked += 1
+        _, indexes = run("volumes")
+        got = bool(getattr(indexes[member], attr).get(key))
+        if got != want:
+            fails.append("index %s[%s] in %s: got %s, expected %s"
+                         % (attr, key, member, got, want))
+
+    for roster, member, cls, tok, want, cid in CORPUS:
+        checked += 1
+        sites, _ = run(roster)
+        hits = [s for s in sites if s.member == member and s.cls == cls
+                and s.token == tok]
+        if not hits:
+            fails.append("%s %s %s not cited in %s under roster %s"
+                         % (cls, tok, cid, member, roster))
+        elif hits[0].verdict != want:
+            fails.append("%s %s in %s (%s, roster %s): verdict %s, expected %s"
+                         % (cls, tok, member, cid or "-", roster,
+                            hits[0].verdict, want))
+
+    print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
+    for f in fails:
+        print("  FAIL " + f)
+    print()
+    print("SELFTEST OK" if not fails else "SELFTEST FAILED")
+    return 0 if not fails else 1
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="The pointer audit of The Method 1.6, run as a program.")
+    ap.add_argument("--members", default=DEFAULT_MEMBERS)
+    ap.add_argument("--roster", default="with-companion",
+                    help="which members are in scope (default: with-companion)")
+    ap.add_argument("--list-rosters", action="store_true")
+    ap.add_argument("--class", dest="classes", action="append", default=[],
+                    choices=sorted(set(CENSUS_CLASS) | {"CHAPTER", "APPENDIX",
+                                                        "APPSEC"}),
+                    help="restrict to this pointer class; repeatable")
+    ap.add_argument("--only", help="report only these verdicts, comma-separated")
+    ap.add_argument("--findings", action="store_true",
+                    help="shorthand for --only " + ",".join(FINDINGS))
+    ap.add_argument("--extent", action="store_true",
+                    help="the Register's numbering gaps, and which are cited")
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args(argv)
+
+    if args.list_rosters:
+        for name, roster in sorted(ROSTERS.items()):
+            print("%-16s %s" % (name, " ".join(s for s, _ in roster)))
+        return 0
+    if args.selftest:
+        return selftest(args.members)
+    if args.roster not in ROSTERS:
+        ap.error("unknown roster %r; --list-rosters shows them" % args.roster)
+
+    classes = set(args.classes) or (set(CENSUS_CLASS) | {"CHAPTER", "APPENDIX",
+                                                         "APPSEC"})
+    sites, indexes = audit(args.members, ROSTERS[args.roster], classes)
+
+    if args.extent:
+        report_extent(sites, indexes)
+        return 0
+
+    only = list(FINDINGS) if args.findings else None
+    if args.only:
+        only = [v.strip().upper() for v in args.only.split(",")]
+        for v in only:
+            if v not in VERDICTS:
+                ap.error("unknown verdict %r" % v)
+
+    if args.json:
+        json.dump({"roster": args.roster,
+                   "sites": [s.asdict() for s in sites
+                             if not only or s.verdict in only]},
+                  sys.stdout, indent=2, ensure_ascii=False)
+        print()
+        return 0
+
+    report(sites, only=only)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: pointers.py>>>
+
+<<<FILE: populate.py>>>
+#!/usr/bin/env python3
+"""tools/populate.py -- populate an element on every axis of every index.
+
+Give it a ground-state atomic number and it returns that element, and every
+ion of it, on every coordinate the books define: the observed ground
+configuration, the per-subshell quantum axes, the three periodic-table indexes,
+the Rydberg channels of the spectra index, the Pauli bound, the quantum defect
+under the method equation, and the Lambda_8 transition cells of its ionisation
+ladder with the caps each one needs.
+
+    python3 tools/populate.py --element K
+    python3 tools/populate.py --z 19 --charge 1
+    python3 tools/populate.py --element Fe --json
+    python3 tools/populate.py --axes
+    python3 tools/populate.py --equation
+    python3 tools/populate.py --check-B
+    python3 tools/populate.py --selftest
+
+THE TWO HALVES. Register 1206 names the architecture: "the two halves of the
+method equation meet for the first time on this index" -- R PLACES cells and
+the channel equation VALUES them. This runs both. R is imported from
+tools/cypher.py, where it is the PINNED order operator of section 32.4.1; the
+channel equation is register 1205's final form.
+
+PROVENANCE, AND WHY NOTHING HERE IS COPIED. The observed ground configurations
+are LW1-ground.py, a seated bundle member (register 1306, NIST ASD 5.12, read
+not computed), and the tower is tower-2.py. Both are imported BY PATH and
+never transcribed, per CLAUDE.md section 5. The spectra index is
+COORDINATES-2.13 in the Drive mirror, read with the csv module because its
+source column contains commas.
+
+STATUS, CARRIED NOT FLATTENED. Every axis this tool populates says where it
+comes from, in cypher.py's vocabulary:
+
+    READ           a measurement, taken from a member or the mirror
+    PINNED         the corpus defines it at the precision a program needs
+    DERIVED        arithmetic on a READ or PINNED quantity, nothing added
+    RECONSTRUCTED  the corpus states the object and its behaviour but not the
+                   form a program needs. Reconstructed here, measured against
+                   the corpus's own numbers, and kept as RECONSTRUCTED so a
+                   later ruling can move it.
+
+Three things it refuses to do:
+
+  1. It never prints a value without its status. A RECONSTRUCTED defect and a
+     READ one are different objects and the report never merges them.
+
+  2. It never silently places an element outside the caps. Lambda at section
+     7.4's caps (n,e <= 3, l,f <= 1, k <= 3) admits almost no real element;
+     rather than truncate, the report says OUTSIDE CAPS and names the caps at
+     which the cell would be admitted.
+
+  3. It never repairs a disagreement. Where the recomputed value differs from
+     the recorded one the report carries both, per G0c: when a reconstruction
+     disagrees with the record, the finding is about the reconstruction.
+"""
+
+from __future__ import annotations
+
+import argparse
+import bisect
+import csv
+import importlib.util
+import json
+import math
+import os
+import sys
+
+_here = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(_here)) if os.path.basename(_here) == 'members' else os.path.dirname(_here)   # the repo root, from tools/ or from a seated copy in method/members/
+MEMBERS = os.path.join(REPO, "method", "members")
+DEFAULT_SPECTRA = os.path.join(REPO, "drive", "The Method Materials",
+                               "COORDINATES-2_13.csv")
+
+READ, PINNED, DERIVED, RECON = "READ", "PINNED", "DERIVED", "RECONSTRUCTED"
+# RECOVERED — not stated in any member, but recovered by measurement from the
+# index's own computed column and consistent with what the registers say about
+# it qualitatively. Stronger than RECONSTRUCTED, weaker than PINNED.
+RECOVERED = "RECOVERED"
+
+
+def _load(name, filename):
+    """Import a seated member by path. CLAUDE.md section 5: never by copying."""
+    path = os.path.join(MEMBERS, filename)
+    spec = importlib.util.spec_from_file_location(name, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+LW1 = _load("lw1_ground", "LW1-ground.py")
+TOWER = _load("tower_2", "tower-2.py")
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import cypher  # noqa: E402  -- R, the PINNED order operator of section 32.4.1
+
+LSYM = "spdfgh"
+SYMBOL_TO_Z = {sym: z for z, (sym, _c, _l) in LW1.GROUND.items()}
+
+# ---------------------------------------------------------------------------
+# The periodic table, laid out as chapter 6 lays it out
+# ---------------------------------------------------------------------------
+
+# Section 6: "main-table cells (lanthanides and actinides set aside) = 90".
+PERIOD_END = [2, 10, 18, 36, 54, 86, 118]
+LANTHANIDES = range(58, 72)      # Ce to Lu
+ACTINIDES = range(90, 104)       # Th to Lr
+
+
+def period_of(Z):
+    return bisect.bisect_left(PERIOD_END, Z) + 1
+
+
+def set_aside(Z):
+    """The f-block rows chapter 6 sets aside from the main table."""
+    return Z in LANTHANIDES or Z in ACTINIDES
+
+
+def group_of(Z):
+    """Group in the drawn eighteen-column layout, or None if set aside.
+
+    Reproduces chapter 6's ninety main-table cells exactly: period 1 holds
+    groups 1 and 18, periods 2 and 3 hold 1, 2 and 13 to 18, and periods 4 to 7
+    hold all eighteen. That is 2 + 8 + 8 + 18*4 = 90, and the self-test asserts
+    it against section 6's own figure."""
+    if set_aside(Z):
+        return None
+    p = period_of(Z)
+    start = 1 if p == 1 else PERIOD_END[p - 2] + 1
+    i = Z - start                       # 0-based position within the period
+    if p == 1:
+        return 1 if Z == 1 else 18
+    if p in (2, 3):
+        return (1, 2, 13, 14, 15, 16, 17, 18)[i]
+    if p in (6, 7):
+        # 3 before the f-block, then 15 after it
+        return i + 1 if i <= 2 else i + 1 - 14
+    return i + 1
+
+
+def block_of(Z):
+    """The block, from the DIFFERENTIATING electron -- the subshell that
+    distinguishes Z from Z-1. This is the Loewdin construction's own object,
+    and it is why the block is a fact about filling rather than about the
+    drawn layout."""
+    if Z == 1:
+        return 0
+    if Z not in LW1.GROUND or Z - 1 not in LW1.GROUND:
+        return None
+    now = {(n, l): o for n, l, o in LW1.expand(Z)}
+    before = {(n, l): o for n, l, o in LW1.expand(Z - 1)}
+    gained = [(n, l) for (n, l), o in now.items() if o > before.get((n, l), 0)]
+    if not gained:
+        return None
+    return sorted(gained)[-1][1]
+
+
+def janet_cell(Z):
+    """Janet's coordinate IS n+l (register 1188), so its blocks ARE the
+    collapse boundaries. The cell is (n+l, l) of the differentiating electron."""
+    if Z == 1:
+        return (1, 0)
+    now = {(n, l): o for n, l, o in LW1.expand(Z)}
+    before = {(n, l): o for n, l, o in LW1.expand(Z - 1)}
+    gained = [(n, l) for (n, l), o in now.items() if o > before.get((n, l), 0)]
+    if not gained:
+        return None
+    n, l = sorted(gained)[-1]
+    return (n + l, l)
+
+
+# ---------------------------------------------------------------------------
+# The Pauli bound -- register 1141, PINNED
+# ---------------------------------------------------------------------------
+
+MADELUNG = sorted(((n, l) for n in range(1, 9) for l in range(0, min(n, 5))),
+                  key=lambda t: (t[0] + t[1], t[0]))
+
+
+def aufbau_config(Ne):
+    """The configuration Madelung order predicts. Register 1306 WITHDREW this
+    table as the store's ground configurations -- "that table was wrong at Pd
+    ... and at Lr" -- but COORDINATES-2.13 was built on it, so reproducing the
+    index as it stands requires it. It is never the default."""
+    out, left = [], Ne
+    for n, l in MADELUNG:
+        if left <= 0:
+            break
+        take = min(2 * (2 * l + 1), left)
+        out.append((n, l, take))
+        left -= take
+    return out
+
+
+CONFIG_TABLES = {
+    "observed": lambda Ne: (LW1.expand(Ne) if Ne in LW1.GROUND else None),
+    "aufbau": aufbau_config,
+}
+
+
+def config_of(Ne, table="observed"):
+    if Ne < 1:
+        return None
+    return CONFIG_TABLES[table](Ne)
+
+
+def core_p(core_Ne, l, table="observed"):
+    """p, the core's orbital count at this l, from the OBSERVED ground
+    configuration of the core (register 1306)."""
+    cfg = config_of(core_Ne, table)
+    if cfg is None:
+        return None
+    return sum(1 for _n, ll, o in cfg if ll == l and o > 0)
+
+
+def n0_of(core_Ne, l, table="observed"):
+    """n0, the first Pauli-allowed n.
+
+    RECONSTRUCTED. Register 1141 states the bound and names its two terms; it
+    does not say whether a PARTIALLY filled subshell counts as allowed. Both
+    readings were measured against COORDINATES-2.13's own B column: "first n
+    with room" matches 87.0% of 102,871 rows, "first ENTIRELY UNOCCUPIED n"
+    matches 97.7%. He I ns settles it -- the core is 1s(1), the CSV gives B = 1,
+    and only the second reading returns 1."""
+    cfg = config_of(core_Ne, table)
+    if cfg is None:
+        return None
+    occ = {(n, ll): o for n, ll, o in cfg}
+    n = l + 1
+    while occ.get((n, l), 0) > 0:
+        n += 1
+    return n
+
+
+def pauli_bound(Z, charge, l, config=None):
+    """B = min(p, n0 - l - 1). Register 1141, Pauli 1925, Janet 1929."""
+    core = Z - charge
+    if core < 1:
+        return 0
+    if config is not None:
+        occ = {(n, ll): o for n, ll, o in config}
+        p = sum(1 for n, ll, o in config if ll == l and o > 0)
+        n = l + 1
+        while occ.get((n, l), 0) > 0:
+            n += 1
+    else:
+        p = core_p(core, l)
+        n = n0_of(core, l)
+        if p is None or n is None:
+            return None
+    return max(0, min(p, n - l - 1))
+
+
+# ---------------------------------------------------------------------------
+# The channel equation, final form -- register 1205
+# ---------------------------------------------------------------------------
+
+A_COEFF = 0.3772
+E0, E1 = 0.8297, 0.0900
+K_COEFF = 0.4942
+H_COEFF = 0.5415
+
+# The Janet block opening for each l: the Z at which the n+l block containing
+# that subshell opens. Register 1188 gives two of them exactly -- "the n+l = 5
+# block opens at Z = 21 (Sc) and 3d collapses at 21. The n+l = 7 block opens at
+# 57 (La) and 4f collapses at 57" -- and l = 1 falls out of the same rule at
+# boron, where the 2p block opens.
+COLLAPSE_Z = {1: 5, 2: 21, 3: 57}
+COLLAPSE_WIDTH = 8.0
+
+
+def collapse_C(Z, l):
+    """C(Z), the collapse coordinate across the Janet boundary.
+
+        C(Z, l) = clamp( 0.5 + (Z - Z0(l)) / 8, 0, 1 )
+
+    RECOVERED, not reconstructed. No member states the form: register 1190 says
+    only that it is "read off the periodic table, not fitted -- one lookup".
+    But COORDINATES-2.13's own computed column is generated by this equation,
+    so C can be INVERTED out of it, and it comes back exact:
+
+        l = 2:  C = 0.125, 0.250, 0.375, 0.500, 0.625, 0.750, 0.875, 1.000
+                at Z =  18,   19,    20,    21,    22,    23,    24,    25
+        l = 3:  the same eight values at Z = 54 to 61
+        l = 1:  the same eight values at Z =  2 to  9
+
+    A linear ramp eight wide, reaching exactly 0.5 at the Janet boundary and
+    saturating four beyond it. That is register 1189 in closed form -- "the
+    collapse is a rapid transition, NOT A STEP" -- and it is why Ca I nd is
+    0.908 at Z = 20, below the threshold: C(20, 2) = 0.375, already a third of
+    the way up the ramp. An indicator would have made it zero.
+
+    Above l = 3 there is no collapse and C is zero, which the index agrees
+    with: every l >= 4 channel inverts to C = 0 exactly."""
+    z0 = COLLAPSE_Z.get(l)
+    if z0 is None:
+        return 0.0
+    return min(1.0, max(0.0, 0.5 + (Z - z0) / COLLAPSE_WIDTH))
+
+
+def channel_delta(Z, charge, l, table="observed"):
+    """delta for a Rydberg channel, register 1205's standing form.
+
+        delta = a p^e(Ne) Ne^k ln(c+1)/c                  where p > 0
+        delta = h C(Z) ((Ne-1)/Ne) Ne^k ln(c+1)/c         where p = 0
+
+    Ne is the electron count of the ION and c its spectroscopic charge, so a
+    neutral atom is c = 1 and the core it presents is singly charged.
+
+    Register 5193 records that at Ne = 1 the (Ne-1)/Ne factor vanishes
+    identically for every charge and every C(Z), which is what makes a
+    one-electron ion return exactly zero -- the hydrogenic case, and not a
+    fitted one."""
+    Ne = Z - charge + 1
+    c = charge
+    if Ne < 1 or c < 1:
+        return None
+    core = Ne - 1
+    p = core_p(core, l, table) if core >= 1 else 0
+    if p is None:
+        return None
+    charge_factor = math.log(c + 1) / c
+    if p > 0:
+        e = E0 - E1 * math.log(Ne)
+        return A_COEFF * (p ** e) * (Ne ** K_COEFF) * charge_factor
+    return (H_COEFF * collapse_C(Z, l) * ((Ne - 1) / Ne)
+            * (Ne ** K_COEFF) * charge_factor)
+
+
+# ---------------------------------------------------------------------------
+# The spectra index
+# ---------------------------------------------------------------------------
+
+class Spectra:
+    """COORDINATES-2.13, the spectra index: (Z, charge, l, mult) -> a channel."""
+
+    def __init__(self, path):
+        self.path = path
+        self.rows = []
+        self.by_z = {}
+        if not path or not os.path.exists(path):
+            return
+        with open(path, encoding="utf-8-sig", newline="") as fh:
+            for r in csv.DictReader(fh):
+                self.rows.append(r)
+                self.by_z.setdefault(int(r["Z"]), []).append(r)
+
+    @property
+    def present(self):
+        return bool(self.rows)
+
+    def channels(self, Z, charge=None):
+        out = [r for r in self.by_z.get(Z, [])
+               if charge is None or int(r["charge"]) == charge]
+        return sorted(out, key=lambda r: (int(r["charge"]), int(r["l"]),
+                                          int(r["mult"])))
+
+
+def csv_bound(r):
+    """The CSV's B column, as the Pauli bound -- or None.
+
+    The column is OVERLOADED. In 104,807 rows it carries the integer Pauli
+    bound; in 25 measured rows from the 2026-08-14 NIST fetch it carries a
+    float, a dispersion of the median defect rather than a bound. Reading it as
+    a bound in those 25 rows is wrong, so this returns None and the report says
+    so rather than comparing an integer against a spread."""
+    v = r.get("B", "")
+    return int(v) if v.lstrip("-").isdigit() else None
+
+
+# ---------------------------------------------------------------------------
+# Lambda_8 and the tower
+# ---------------------------------------------------------------------------
+
+CAPS = dict(n=3, e=3, l=1, f=1, k=3)     # section 7.4's standing caps
+
+LAMBDA_COORDS = ["n", "l", "k", "q", "e", "f", "g", "2S"]
+LAMBDA_MEANING = {
+    "n": "source shell", "l": "source subshell", "k": "source occupancy",
+    "q": "electrons removed", "e": "target shell", "f": "target subshell",
+    "g": "target occupancy", "2S": "multiplicity",
+}
+
+
+def lambda_constraints(cell):
+    """Section 7.1's seven constraints, four origins. PINNED."""
+    n, l, k, q, e, f, g, S2 = cell
+    return [
+        ("l <= n-1", l <= n - 1, "hydrogenic radial solution"),
+        ("k <= 2(2l+1)", k <= 2 * (2 * l + 1), "Pauli exclusion"),
+        ("q <= k", q <= k, "counting"),
+        ("f <= e-1", f <= e - 1, "hydrogenic radial solution"),
+        ("g <= 2(2f+1)", g <= 2 * (2 * f + 1), "Pauli exclusion"),
+        ("g <= q", g <= q, "counting"),
+        ("2S <= k", S2 <= k, "vector coupling (an envelope)"),
+    ]
+
+
+def caps_needed(cell):
+    n, l, k, q, e, f, g, _S2 = cell
+    return dict(n=n, e=e, l=l, f=f, k=k)
+
+
+def within_caps(cell, caps=CAPS):
+    need = caps_needed(cell)
+    return {ax: need[ax] <= caps[ax] for ax in caps}
+
+
+def ionisation_cells(Z):
+    """The ionisation ladder as Lambda_8 transition cells.
+
+    RECONSTRUCTED, and the reconstruction is stated rather than assumed.
+    Chapter 7 makes a Lambda_8 cell a TRANSITION -- a source configuration, a
+    target configuration and the electron count moved between them -- so an
+    element is not a cell and a mapping has to be chosen. The one chosen here
+    is the element's own ionisation ladder, read off the observed
+    configurations: at each step, the electrons the ion loses relative to the
+    neutral atom leave a source subshell, and the subshell that differs
+    identifies the target. Nothing else in the store fixes this mapping, so it
+    is marked RECONSTRUCTED and a later ruling can move it.
+
+    2S is the ion's own ground multiplicity where the term is known, else the
+    envelope 2S <= k leaves it undetermined and it is reported as None."""
+    out = []
+    for charge in range(2, min(Z, 108) + 2):
+        Ne = Z - charge + 1
+        if Ne < 1 or Ne not in LW1.GROUND or (Ne + 1) not in LW1.GROUND:
+            continue
+        parent = {(n, l): o for n, l, o in LW1.expand(Ne + 1)}
+        child = {(n, l): o for n, l, o in LW1.expand(Ne)}
+        lost = [(nl, parent[nl] - child.get(nl, 0)) for nl in parent
+                if parent[nl] > child.get(nl, 0)]
+        gained = [(nl, child[nl] - parent.get(nl, 0)) for nl in child
+                  if child[nl] > parent.get(nl, 0)]
+        if not lost:
+            continue
+        (sn, sl), q = sorted(lost)[-1]
+        k = parent[(sn, sl)]
+        if gained:
+            (tn, tl), g = sorted(gained)[-1]
+        else:
+            tn, tl, g = sn, sl, 0
+        out.append({
+            "charge": charge, "Ne": Ne,
+            "from": LW1.GROUND[Ne + 1][0], "to": LW1.GROUND[Ne][0],
+            "cell": (sn, sl, k, q, tn, tl, g, None),
+        })
+    return out
+
+
+# ---------------------------------------------------------------------------
+# The report
+# ---------------------------------------------------------------------------
+
+AXES = [
+    ("Z", READ, "the ground-state atomic number, the input"),
+    ("symbol", READ, "NIST ASD 5.12 via LW1-ground.py (register 1306)"),
+    ("configuration", READ, "observed ground shells, cores expanded"),
+    ("level", READ, "observed ground level"),
+    ("n", DERIVED, "principal quantum number, per occupied subshell"),
+    ("l", DERIVED, "azimuthal quantum number, per occupied subshell"),
+    ("occupancy", DERIVED, "electrons in the subshell"),
+    ("capacity", PINNED, "2(2l+1), Pauli exclusion (section 7.1)"),
+    ("n+l", DERIVED, "the Madelung/Janet coordinate (register 1188)"),
+    ("period", DERIVED, "the drawn eighteen-column layout (section 6)"),
+    ("group", DERIVED, "the same layout; None where set aside"),
+    ("block", DERIVED, "l of the differentiating electron"),
+    ("janet cell", DERIVED, "(n+l, l) of the differentiating electron; E = 0"),
+    ("charge", READ, "spectroscopic stage; 1 is neutral"),
+    ("Ne", DERIVED, "electron count of the ion, Z - charge + 1"),
+    ("p", PINNED, "the core's orbital count at this l (register 1141)"),
+    ("n0", RECON, "first entirely unoccupied n at this l; see n0_of"),
+    ("B", PINNED, "min(p, n0-l-1), the Pauli bound (register 1141)"),
+    ("delta measured", READ, "COORDINATES-2.13, grade measured/exact"),
+    ("delta equation", PINNED, "the channel equation, final form (register 1205)"),
+    ("C(Z)", RECON, "the collapse coordinate (registers 1188-1190)"),
+    ("witness", READ, "COORDINATES-2.13"),
+    ("bound", READ, "COORDINATES-2.13"),
+    ("Lambda_8 cell", RECON, "the ionisation ladder as transitions; see ionisation_cells"),
+    ("caps", PINNED, "section 7.4's (n,e,l,k,f) = (3,3,1,3,1)"),
+]
+
+
+_R_CACHE = {}
+
+
+def layout_closure():
+    """The structural half: R over the drawn layout. Section 6 -- 90 cells
+    held, 126 admitted, E = 36, and the thirty-six are the gaps in the short
+    periods. Computed once and cached; R is cypher.py's PINNED order operator,
+    imported rather than reimplemented."""
+    if "periodic" not in _R_CACHE:
+        main = [Z for Z in range(1, 119) if not set_aside(Z)]
+        held = {(period_of(Z), group_of(Z)) for Z in main}
+        ix = cypher.Index("periodic table (period x group)",
+                          ["period", "group"], sorted(held))
+        admitted, _note = cypher.op_order(ix, {})
+        # cypher.Index recodes every coordinate value to an ordinal, because R
+        # is order-dependent (section 20.3). Decode before comparing to the
+        # layout, or the cells come back as ranks and read as the wrong groups.
+        admitted = {tuple(ix.decode[i][v] for i, v in enumerate(cell))
+                    for cell in admitted}
+        _R_CACHE["periodic"] = (held, admitted)
+    return _R_CACHE["periodic"]
+
+
+def populate(Z, spectra, charge=None, table="observed"):
+    if Z not in LW1.GROUND:
+        raise KeyError("Z = %d is outside LW1-ground.py's table (1 to 108)" % Z)
+    sym, shells, level = LW1.GROUND[Z]
+    cfg = LW1.expand(Z)
+    out = {
+        "Z": Z, "symbol": sym, "shells_as_printed": shells, "level": level,
+        "electron_count": LW1.occ_count(Z),
+        "electron_count_ok": LW1.occ_count(Z) == Z,
+        "configuration": [{"n": n, "l": l, "subshell": "%d%s" % (n, LSYM[l]),
+                           "occupancy": o, "capacity": 2 * (2 * l + 1),
+                           "full": o == 2 * (2 * l + 1), "n+l": n + l}
+                          for n, l, o in cfg],
+        "period": period_of(Z), "group": group_of(Z), "block": block_of(Z),
+        "block_letter": (LSYM[block_of(Z)] if block_of(Z) is not None else None),
+        "set_aside": set_aside(Z), "janet_cell": janet_cell(Z),
+        "outer": LW1.outer(Z),
+    }
+    held, admitted = layout_closure()
+    out["closure"] = {
+        "held": len(held), "admitted": len(admitted),
+        "E": len(admitted) - len(held),
+        "cell_held": (out["period"], out["group"]) in held,
+        "denied_in_this_period": sorted(
+            g for (p, g) in (admitted - held) if p == out["period"]),
+    }
+
+    chans = []
+    stages = range(1, Z + 1) if charge is None else [charge]
+    seen_csv = {}
+    if spectra.present:
+        for r in spectra.channels(Z, charge):
+            seen_csv[(int(r["charge"]), int(r["l"]), int(r["mult"]))] = r
+    ls = sorted({l for (_c, l, _m) in seen_csv} | {0, 1, 2, 3})
+    for c in stages:
+        Ne = Z - c + 1
+        if Ne < 1:
+            continue
+        core = Ne - 1
+        for l in ls:
+            rows = [r for (cc, ll, _m), r in seen_csv.items()
+                    if cc == c and ll == l]
+            eq = channel_delta(Z, c, l, table)
+            B = pauli_bound(Z, c, l, config=config_of(core, table))
+            ch = {
+                "charge": c, "Ne": Ne, "l": l, "subshell_letter": LSYM[l]
+                if l < len(LSYM) else str(l),
+                "core_Ne": core,
+                "core_symbol": LW1.GROUND[core][0] if core in LW1.GROUND else None,
+                "p": core_p(core, l, table) if core >= 1 else 0,
+                "n0": n0_of(core, l, table) if core >= 1 else None,
+                "B_computed": B,
+                "C_of_Z": collapse_C(Z, l),
+                "delta_equation": eq,
+                "measured": [],
+            }
+            for r in sorted(rows, key=lambda r: int(r["mult"])):
+                cb = csv_bound(r)
+                ch["measured"].append({
+                    "mult": int(r["mult"]), "delta": float(r["delta"]),
+                    "grade": r["grade"], "witness": r["witness"],
+                    "source": r["source"], "bound_note": r["bound"],
+                    "B_csv": cb,
+                    "B_agrees": (None if cb is None or B is None else cb == B),
+                    "B_csv_is_not_a_bound": cb is None and r.get("B", "") != "",
+                    "floor_le_B": (None if B is None
+                                   else math.floor(float(r["delta"])) <= B),
+                    "residual": (None if eq is None
+                                 else float(r["delta"]) - eq),
+                })
+            chans.append(ch)
+    out["config_table"] = table
+    out["channels"] = chans
+    out["lambda8"] = []
+    for step in ionisation_cells(Z):
+        cell = step["cell"]
+        probe = tuple(0 if v is None else v for v in cell)
+        out["lambda8"].append({
+            **step,
+            "coords": dict(zip(LAMBDA_COORDS, cell)),
+            "constraints": [{"rule": r, "holds": h, "origin": o}
+                            for r, h, o in lambda_constraints(probe)],
+            "within_caps": within_caps(probe),
+            "caps_needed": caps_needed(probe),
+        })
+    return out
+
+
+def _fmt(v, nd=4):
+    return "-" if v is None else ("%.*f" % (nd, v) if isinstance(v, float)
+                                  else str(v))
+
+
+def report(rep, show_channels=True, max_charge=None):
+    print("=" * 78)
+    print("  Z = %-4d %-3s   %s" % (rep["Z"], rep["symbol"],
+                                    rep["shells_as_printed"]))
+    print("  ground level %s   electrons %d %s"
+          % (rep["level"], rep["electron_count"],
+             "OK" if rep["electron_count_ok"] else "MISMATCH"))
+    print("=" * 78)
+    print()
+    print("  THE LAYOUT INDEXES                                        [DERIVED]")
+    print("    periodic table 2-D   (period, group)  = (%s, %s)%s"
+          % (rep["period"], rep["group"],
+             "   SET ASIDE from the main table (f-block)"
+             if rep["set_aside"] else ""))
+    print("    periodic table 3-D   (period, group, block) = (%s, %s, %s)"
+          % (rep["period"], rep["group"], rep["block_letter"]))
+    print("    Janet                (n+l, l) = %s     [E = 0, register 1188]"
+          % (rep["janet_cell"],))
+    cl = rep["closure"]
+    print()
+    print("  THE STRUCTURAL HALF -- R over the drawn layout          [PINNED]")
+    print("    the table holds %d cells; R admits %d; E = %d   [section 6]"
+          % (cl["held"], cl["admitted"], cl["E"]))
+    print("    this element's cell is %s"
+          % ("held" if cl["cell_held"]
+             else "NOT a main-table cell (set aside)"))
+    if cl["denied_in_this_period"]:
+        print("    in period %s, R admits and the table denies groups %s"
+              % (rep["period"],
+                 ", ".join(str(g) for g in cl["denied_in_this_period"])))
+    print("    differentiating electron: %s-block"
+          % (rep["block_letter"] or "?"))
+    print()
+    print("  THE GROUND CONFIGURATION, PER SUBSHELL                        [READ]")
+    print("    %-8s %-3s %-3s %-6s %-9s %-5s" %
+          ("subshell", "n", "l", "occ", "capacity", "n+l"))
+    for s in rep["configuration"]:
+        print("    %-8s %-3d %-3d %-6d %-9d %-5d %s"
+              % (s["subshell"], s["n"], s["l"], s["occupancy"],
+                 s["capacity"], s["n+l"], "full" if s["full"] else ""))
+    print()
+
+    if show_channels and rep["channels"]:
+        print("  THE RYDBERG CHANNELS -- the spectra index and the equation")
+        print("    delta_eq is register 1205's channel equation [PINNED];")
+        print("    delta is COORDINATES-2.13 [READ]; B is the Pauli bound [PINNED].")
+        print()
+        print("    %-4s %-4s %-3s %-5s %-4s %-4s %-4s %-9s %-9s %-9s %s"
+              % ("chg", "Ne", "l", "mult", "p", "n0", "B", "delta_eq", "delta",
+                 "resid", "grade"))
+        shown = 0
+        for ch in rep["channels"]:
+            if max_charge is not None and ch["charge"] > max_charge:
+                continue
+            if ch["measured"]:
+                for m in ch["measured"]:
+                    flag = ""
+                    if m["B_agrees"] is False:
+                        flag += "  B_csv=%s DIFFERS" % m["B_csv"]
+                    if m["B_csv_is_not_a_bound"]:
+                        flag += "  B column is not a bound here"
+                    if m["floor_le_B"] is False:
+                        flag += "  PAULI BOUND VIOLATED"
+                    print("    %-4d %-4d %-3d %-5d %-4s %-4s %-4s %-9s %-9s "
+                          "%-9s %s%s"
+                          % (ch["charge"], ch["Ne"], ch["l"], m["mult"],
+                             _fmt(ch["p"]), _fmt(ch["n0"]),
+                             _fmt(ch["B_computed"]),
+                             _fmt(ch["delta_equation"]), _fmt(m["delta"]),
+                             _fmt(m["residual"]), m["grade"], flag))
+                    shown += 1
+            else:
+                print("    %-4d %-4d %-3d %-5s %-4s %-4s %-4s %-9s %-9s %-9s %s"
+                      % (ch["charge"], ch["Ne"], ch["l"], "-", _fmt(ch["p"]),
+                         _fmt(ch["n0"]), _fmt(ch["B_computed"]),
+                         _fmt(ch["delta_equation"]), "-", "-",
+                         "not in the index"))
+                shown += 1
+            if shown > 400:
+                print("    ... truncated; use --charge or --json")
+                break
+        print()
+
+    if rep["lambda8"]:
+        print("  THE IONISATION LADDER AS LAMBDA_8 CELLS         [RECONSTRUCTED]")
+        print("    A Lambda_8 cell is a transition (section 7). The mapping from an")
+        print("    element to cells is not fixed by the store; this one is the")
+        print("    ionisation ladder, and its status is carried, not flattened.")
+        print()
+        print("    %-10s %-26s %-8s %s"
+              % ("step", "(n,l,k,q,e,f,g,2S)", "7 rules", "caps"))
+        for row in rep["lambda8"][:24]:
+            cell = row["cell"]
+            held = sum(1 for c in row["constraints"] if c["holds"])
+            over = [ax for ax, ok in row["within_caps"].items() if not ok]
+            caps = ("within 7.4" if not over
+                    else "OUTSIDE: needs " + ", ".join(
+                        "%s>=%d" % (ax, row["caps_needed"][ax]) for ax in over))
+            print("    %-10s %-26s %-8s %s"
+                  % ("%s->%s" % (row["from"], row["to"]),
+                     str(tuple("-" if v is None else v for v in cell)),
+                     "%d/7" % held, caps))
+        if len(rep["lambda8"]) > 24:
+            print("    ... %d more; --json for all" % (len(rep["lambda8"]) - 24))
+        print()
+
+
+def report_axes():
+    print("Every axis this tool populates, with where it comes from.")
+    print()
+    for name, status, note in AXES:
+        print("  %-16s %-14s %s" % (name, status, note))
+    print()
+    print("  READ           a measurement, from a member or the mirror")
+    print("  PINNED         the corpus defines it at the precision a program needs")
+    print("  DERIVED        arithmetic on a READ or PINNED quantity")
+    print("  RECONSTRUCTED  stated by the corpus but not in the form a program")
+    print("                 needs; reconstructed, measured, and kept as such")
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# The equation, measured against the index
+# ---------------------------------------------------------------------------
+
+def equation_report(spectra, grades=("measured",), table="observed"):
+    if not spectra.present:
+        print("the spectra index is not in the tree: %s" % spectra.path)
+        return 2
+    rows = [r for r in spectra.rows if r["grade"] in grades]
+    res, skipped = [], 0
+    for r in rows:
+        Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+        if (Z - c) >= 1 and (Z - c) not in LW1.GROUND:
+            skipped += 1
+            continue
+        eq = channel_delta(Z, c, l, table)
+        if eq is None:
+            skipped += 1
+            continue
+        res.append((float(r["delta"]) - eq, float(r["delta"]), eq, l, r))
+    if not res:
+        print("no comparable channels")
+        return 2
+    n = len(res)
+    rms = math.sqrt(sum(d * d for d, *_ in res) / n)
+    mean = sum(v for _d, v, *_ in res) / n
+    ss_tot = sum((v - mean) ** 2 for _d, v, *_ in res)
+    ss_res = sum(d * d for d, *_ in res)
+    r2 = 1 - ss_res / ss_tot if ss_tot else float("nan")
+    med = sorted(abs(d) for d, *_ in res)[n // 2]
+    print("the channel equation, final form (register 1205), against "
+          "COORDINATES-2.13")
+    print("  grades: %s   configurations: %s" % (", ".join(grades), table))
+    print("  channels compared: %d   skipped (core outside the table): %d"
+          % (n, skipped))
+    print("  rms %.4f   R2 %.4f   median |error| %.4f" % (rms, r2, med))
+    print()
+    print("  by l:")
+    for l in sorted({x[3] for x in res}):
+        sub = [d for d, _v, _e, ll, _r in res if ll == l]
+        print("    l = %d   n = %-5d rms %.4f"
+              % (l, len(sub), math.sqrt(sum(d * d for d in sub) / len(sub))))
+    print()
+    print("  RECORDED at register 1205, on a different sample: 284 channels,")
+    print("  Z = 2 to 90, charge 1 to 10, rms 0.1610, R2 0.9741, l >= 4 rms 0.0150.")
+    print("  COORDINATES-2.13 now holds %d measured channels, so the samples are"
+          % len([r for r in spectra.rows if r["grade"] == "measured"]))
+    print("  not the same and the numbers are not expected to match exactly.")
+    print("  G0c: where they disagree the finding is about the reconstruction.")
+    return 0
+
+
+def check_B(spectra):
+    """The B column against both configuration tables. This is the finding."""
+    if not spectra.present:
+        print("the spectra index is not in the tree: %s" % spectra.path)
+        return 2
+
+    order = sorted(((n, l) for n in range(1, 9) for l in range(0, min(n, 5))),
+                   key=lambda t: (t[0] + t[1], t[0]))
+
+    def aufbau(Ne):
+        out, left = [], Ne
+        for n, l in order:
+            if left <= 0:
+                break
+            take = min(2 * (2 * l + 1), left)
+            out.append((n, l, take))
+            left -= take
+        return out
+
+    obs = auf = n = 0
+    both_wrong = []
+    cores = {}
+    for r in spectra.rows:
+        b = csv_bound(r)
+        if b is None:
+            continue
+        Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+        core = Z - c
+        if not (1 <= core <= 108):
+            continue
+        n += 1
+        o = pauli_bound(Z, c, l)
+        a = pauli_bound(Z, c, l, config=aufbau(core))
+        obs += (o == b)
+        auf += (a == b)
+        if o != b and a == b:
+            cores[core] = cores.get(core, 0) + 1
+        elif o != b and a != b:
+            both_wrong.append((Z, c, l, o, a, b))
+
+    print("COORDINATES-2.13's B column, against the two configuration tables")
+    print()
+    print("  rows with an integer B and a core inside the table: %d" % n)
+    print("  B from the OBSERVED configurations (register 1306):  %6d  %.2f%%"
+          % (obs, 100.0 * obs / n))
+    print("  B from AUFBAU configurations:                        %6d  %.2f%%"
+          % (auf, 100.0 * auf / n))
+    print()
+    print("  The B column was built on AUFBAU, and register 1306 withdrew that")
+    print("  table: 'Every previous version built configurations by aufbau and")
+    print("  patched exceptions by hand; that table was wrong at Pd ... and at Lr.'")
+    print("  The spectra index has not been rebuilt on the observed table.")
+    print()
+    print("  cores where aufbau matches the column and observation does not:")
+    for core, cnt in sorted(cores.items(), key=lambda kv: -kv[1])[:14]:
+        sym, sh, _lv = LW1.GROUND[core]
+        print("    Ne=%-4d %-3s %5d rows   observed %s" % (core, sym, cnt, sh))
+    print()
+    print("  rows neither table reproduces: %d" % len(both_wrong))
+    for x in both_wrong[:5]:
+        print("    Z=%d charge=%d l=%d  observed %s  aufbau %s  column %s" % x)
+    floats = sum(1 for r in spectra.rows if csv_bound(r) is None)
+    print()
+    print("  and %d rows carry a NON-INTEGER B -- a dispersion, not a bound."
+          % floats)
+    print("  The column is overloaded; those rows are not compared.")
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# Self-test
+# ---------------------------------------------------------------------------
+
+def selftest(spectra):
+    fails, checked = [], 0
+
+    def check(cond, msg):
+        nonlocal checked
+        checked += 1
+        if not cond:
+            fails.append(msg)
+
+    # --- the seated members, as imported -----------------------------------
+    check(len(LW1.GROUND) == 108,
+          "LW1-ground.py holds %d elements, register 1306 says 108"
+          % len(LW1.GROUND))
+    bad = [Z for Z in LW1.GROUND if LW1.occ_count(Z) != Z]
+    check(not bad, "electron counts fail at %s; register 1306 says 108 of 108"
+          % bad[:5])
+    check(len(TOWER.L8()) == 976,
+          "tower-2.py gives |L8| = %d at section 7.4's caps, expected 976"
+          % len(TOWER.L8()))
+    for d, want in ((9, 1654), (10, 2535), (11, 13585), (12, 70905),
+                    (13, 199130)):
+        got = len(TOWER.STAGES[d]())
+        check(got == want, "|L%d| = %d, section 12.11.0.10 says %d"
+              % (d, got, want))
+
+    # --- the layout: chapter 6's ninety ------------------------------------
+    main = [Z for Z in range(1, 119) if not set_aside(Z)]
+    check(len(main) == 90,
+          "the main table holds %d cells, section 6 says 90" % len(main))
+    check(len({(period_of(Z), group_of(Z)) for Z in main}) == 90,
+          "the ninety cells are not distinct in (period, group)")
+    check(len([Z for Z in range(1, 119) if set_aside(Z)]) == 28,
+          "the f-block rows set aside are not 28")
+    for Z, want in ((1, (1, 1)), (2, (1, 18)), (3, (2, 1)), (10, (2, 18)),
+                    (19, (4, 1)), (20, (4, 2)), (21, (4, 3)), (26, (4, 8)),
+                    (36, (4, 18)), (57, (6, 3)), (72, (6, 4)), (86, (6, 18)),
+                    (89, (7, 3)), (104, (7, 4)), (118, (7, 18))):
+        got = (period_of(Z), group_of(Z))
+        check(got == want, "Z=%d lands at %s, the layout puts it at %s"
+              % (Z, got, want))
+    check(group_of(58) is None and group_of(92) is None,
+          "a lanthanide or actinide was given a main-table group")
+
+    # --- blocks and the Janet coordinate -----------------------------------
+    for Z, want in ((19, 0), (21, 2), (31, 1), (58, 3)):
+        check(block_of(Z) == want,
+              "Z=%d differentiates into block %s, expected %s"
+              % (Z, block_of(Z), want))
+    # Register 1188: the n+l = 5 block opens at Sc, 7 at La, 8 at Ac.
+    for Z, want in ((21, 5), (57, 7), (89, 8)):
+        cell = janet_cell(Z)
+        check(cell is not None and cell[0] == want,
+              "Z=%d sits in Janet block %s, register 1188 says n+l = %d"
+              % (Z, cell, want))
+
+    # --- the collapse thresholds, register 1188 ----------------------------
+    # The ramp reaches exactly 0.5 at the Janet boundary, 0 four below it and
+    # 1 four above -- inverted out of COORDINATES-2.13's computed column.
+    for l, z0 in COLLAPSE_Z.items():
+        check(collapse_C(z0, l) == 0.5,
+              "C at the l=%d Janet boundary Z=%d is %s, not 0.5"
+              % (l, z0, collapse_C(z0, l)))
+        check(collapse_C(z0 - 4, l) == 0.0 and collapse_C(z0 + 4, l) == 1.0,
+              "the l=%d ramp is not eight wide about Z=%d" % (l, z0))
+    for Z, want in ((18, 0.125), (19, 0.25), (20, 0.375), (21, 0.5),
+                    (25, 1.0), (17, 0.0)):
+        check(abs(collapse_C(Z, 2) - want) < 1e-12,
+              "C(%d, 2) = %s, the index inverts to %s"
+              % (Z, collapse_C(Z, 2), want))
+    check(collapse_C(50, 4) == 0.0 and collapse_C(50, 7) == 0.0,
+          "C is non-zero above l = 3, where the index inverts to exactly 0")
+
+    # --- the channel equation ----------------------------------------------
+    # Register 5193: at Ne = 1 the (Ne-1)/Ne factor vanishes identically, for
+    # every charge and every C(Z). The hydrogenic output is exactly zero and
+    # no parameter can move it.
+    for Z in (1, 20, 50, 92):
+        for l in (0, 2, 3):
+            d = channel_delta(Z, Z, l)          # charge = Z is one electron
+            check(d == 0.0,
+                  "hydrogenic channel Z=%d l=%d returns %r, register 1205 "
+                  "says exactly zero" % (Z, l, d))
+    check(channel_delta(19, 1, 0) > channel_delta(19, 1, 3),
+          "the equation does not fall with l for K I")
+
+    # --- the Pauli bound, and its reconstruction ---------------------------
+    # He I ns: the core is 1s(1), so p = 1 and the first ENTIRELY unoccupied
+    # ns is n = 2, giving B = 1. The other reading of n0 gives 0.
+    check(pauli_bound(2, 1, 0) == 1,
+          "He I ns has B = %s, COORDINATES-2.13 gives 1" % pauli_bound(2, 1, 0))
+    check(pauli_bound(4, 1, 0) == 2, "Be I ns has B = %s, expected 2"
+          % pauli_bound(4, 1, 0))
+
+    # --- Lambda_8's seven constraints, on a known cell ---------------------
+    inside = TOWER.L8()[0]
+    check(all(h for _r, h, _o in lambda_constraints(inside)),
+          "a cell of L8 fails one of section 7.1's seven constraints")
+    check(len(lambda_constraints(inside)) == 7,
+          "section 7.1 states seven constraints")
+    bad_cell = (1, 1, 1, 1, 1, 0, 1, 1)          # l <= n-1 fails
+    check(not lambda_constraints(bad_cell)[0][1],
+          "the l <= n-1 constraint does not fire on a cell that breaks it")
+
+    # --- R, imported rather than reimplemented -----------------------------
+    _held_st, admitted = layout_closure()
+    check(admitted is not None, "cypher.op_order returned no admitted set")
+    if admitted is not None:
+        E = len(admitted) - 90
+        check(E == 36, "R admits %d cells over the ninety, so E = %d; "
+                       "section 6 says 36" % (len(admitted), E))
+        # Section 6 names the thirty-six exactly: (p1,g2)..(p1,g17),
+        # (p2,g3)..(p2,g12) and (p3,g3)..(p3,g12).
+        held = {(period_of(Z), group_of(Z)) for Z in main}
+        denied = admitted - held
+        want = ({(1, g) for g in range(2, 18)}
+                | {(2, g) for g in range(3, 13)}
+                | {(3, g) for g in range(3, 13)})
+        check(denied == want,
+              "the cells R admits and the table denies are not section 6's "
+              "thirty-six; %d differ" % len(denied ^ want))
+
+    # --- the equation against the index it generated ------------------------
+    # The p > 0 branch is register 1205's, coefficient for coefficient; the
+    # p = 0 branch carries the RECOVERED ramp. Together they reproduce the
+    # computed column of COORDINATES-2.13 -- which is the evidence that the
+    # recovery is right, since nothing was fitted to it.
+    if spectra.present:
+        comp = [r for r in spectra.rows if r["grade"] == "computed"]
+        for table, floor in (("aufbau", 0.980), ("observed", 0.970)):
+            ok = tot = 0
+            for r in comp:
+                Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+                if not (1 <= Z - c <= 108):
+                    continue
+                got = channel_delta(Z, c, l, table)
+                if got is None:
+                    continue
+                tot += 1
+                ok += abs(got - float(r["delta"])) < 5e-4
+            check(tot > 100000, "only %d computed rows compared" % tot)
+            check(ok / tot >= floor,
+                  "the equation reproduces %.3f%% of the computed column under "
+                  "%s configurations, expected at least %.1f%%"
+                  % (100.0 * ok / tot, table, 100 * floor))
+
+    # --- the spectra index --------------------------------------------------
+    if spectra.present:
+        check(len(spectra.rows) == 104832,
+              "COORDINATES-2.13 holds %d rows, coords.py's gate reads 104,832"
+              % len(spectra.rows))
+        wit = sum(1 for r in spectra.rows if r["witness"] == "witnessed")
+        check(wit == 358, "witnessed rows: %d, expected 358" % wit)
+        k1 = [r for r in spectra.channels(19, 1)]
+        check(bool(k1), "no K I channels in the spectra index")
+        # The B column is overloaded; exactly the 2026-08-14 NIST fetch rows
+        # carry a float where a bound belongs.
+        floats = [r for r in spectra.rows if csv_bound(r) is None]
+        check(len(floats) == 25,
+              "%d rows carry a non-integer B, expected 25" % len(floats))
+        check(all(r["grade"] == "measured" for r in floats),
+              "a non-measured row carries a non-integer B")
+    else:
+        print("  note: the spectra index is not in the tree; its fixtures are "
+              "skipped")
+
+    print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
+    for f in fails:
+        print("  FAIL " + f)
+    print()
+    print("SELFTEST OK" if not fails else "SELFTEST FAILED")
+    return 0 if not fails else 1
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="Populate an element on every axis of every index.")
+    ap.add_argument("--z", type=int)
+    ap.add_argument("--element")
+    ap.add_argument("--charge", type=int,
+                    help="restrict to one spectroscopic stage; 1 is neutral")
+    ap.add_argument("--spectra", default=DEFAULT_SPECTRA)
+    ap.add_argument("--config", choices=sorted(CONFIG_TABLES),
+                    default="observed",
+                    help="which configuration table the derived quantities use: "
+                         "'observed' is register 1306's, the store's; 'aufbau' "
+                         "is the withdrawn one COORDINATES-2.13 was built on, "
+                         "and reproduces the index as it stands")
+    ap.add_argument("--max-charge", type=int, default=6,
+                    help="stages to print in the channel table (default 6)")
+    ap.add_argument("--no-channels", action="store_true")
+    ap.add_argument("--axes", action="store_true")
+    ap.add_argument("--equation", action="store_true")
+    ap.add_argument("--check-B", dest="check_b", action="store_true")
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args(argv)
+
+    if args.axes:
+        return report_axes()
+
+    spectra = Spectra(args.spectra)
+
+    if args.selftest:
+        return selftest(spectra)
+    if args.equation:
+        return equation_report(spectra, table=args.config)
+    if args.check_b:
+        return check_B(spectra)
+
+    Z = args.z
+    if Z is None and args.element:
+        Z = SYMBOL_TO_Z.get(args.element)
+        if Z is None:
+            ap.error("unknown element %r" % args.element)
+    if Z is None:
+        ap.error("name an element with --element or --z")
+
+    try:
+        rep = populate(Z, spectra, args.charge, args.config)
+    except KeyError as exc:
+        print(exc.args[0], file=sys.stderr)
+        return 2
+
+    if args.json:
+        json.dump(rep, sys.stdout, indent=2, default=str)
+        print()
+        return 0
+    report(rep, show_channels=not args.no_channels,
+           max_charge=args.charge or args.max_charge)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: populate.py>>>
+
+<<<FILE: proveanchor.py>>>
+#!/usr/bin/env python3
+"""proveanchor.py — prove a re-anchored successor reproduces its predecessor on the OLD bytes.
+
+    python3 tools/proveanchor.py --old-bundle PATH [--old-bundle PATH ...] \
+                                 --pred NAME --succ NAME2 [--pred ... --succ ...]
+
+WHY. R3's first volume change mis-targeted every instrument that hard-codes a main-volume line
+number, so each needs a successor that resolves its site by content instead. Re-anchoring is the
+risky kind of change: altering how an instrument finds its site can silently alter WHAT it measures,
+which is precisely G0c -- never change an instrument to make a discrepancy disappear.
+
+THE GUARD. A successor is trustworthy only if, run against the corpus as it stood BEFORE the shift,
+it reproduces its predecessor's banked golden **byte-exact**. Then the re-anchoring provably changed
+addressing and nothing else, and its output on the new corpus can be trusted. If it cannot reproduce
+the old reading on the old bytes, the re-anchor is wrong -- or the difference is a finding, and
+either way it is not a re-bank.
+
+HOW. The old bundles are extracted to a scratch tree and `/home/claude/members` is pointed at it for
+the duration, because seated instruments hard-code that path. The live tree is never modified: the
+symlink is restored on exit, including on failure. Nothing is written into method/.
+
+Exit 0 only if every pair reproduces byte-exact.
+"""
+import argparse, hashlib, os, pathlib, re, shutil, subprocess, sys, tempfile
+
+MEMBER = re.compile(rb'^<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S | re.M)
+CLAUDE = pathlib.Path('/home/claude/members')
+md5 = lambda b: hashlib.md5(b).hexdigest()
+
+
+def extract(bundles, dest):
+    dest.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for b in bundles:
+        raw = pathlib.Path(b).read_bytes()
+        buf = bytearray(raw)
+        found = list(MEMBER.finditer(raw))
+        if not found:
+            sys.exit(f'{b}: no members matched — bundle form changed')
+        for m in found:
+            (dest / m.group(1).decode()).write_bytes(m.group(2))
+            buf[m.start(2):m.start(2) + len(m.group(2))] = m.group(2)
+            n += 1
+        if md5(bytes(buf)) != md5(raw):
+            sys.exit(f'{b}: splice guard failed')
+        print(f'  extracted {len(found)} members from {pathlib.Path(b).name}  md5 {md5(raw)}')
+    return n
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--old-bundle', action='append', required=True)
+    ap.add_argument('--pred', action='append', required=True)
+    ap.add_argument('--succ', action='append', required=True)
+    ap.add_argument('--timeout', type=int, default=270)
+    a = ap.parse_args()
+    if len(a.pred) != len(a.succ):
+        ap.error('--pred and --succ must pair up')
+
+    live = pathlib.Path(os.readlink(CLAUDE)) if CLAUDE.is_symlink() else None
+    if live is None:
+        sys.exit('/home/claude/members is not a symlink — run method/bin/stage-gate first')
+
+    scratch = pathlib.Path(tempfile.mkdtemp(prefix='proveanchor-'))
+    old = scratch / 'members'
+    print(f'old tree: {old}')
+    total = extract(a.old_bundle, old)
+    print(f'  {total} members\n')
+    # Prints & Proofs is not a member: three instruments open it at members/../ and two at /home/claude/, as
+    # stage-gate links it. The scratch tree gets the same links, or those instruments fail for a missing file
+    # and the failure would be misread as a re-anchor that changed the measurement.
+    pp = pathlib.Path('/home/claude/PP_The_Method_1_6.md')
+    if pp.exists():
+        for where in (scratch / 'PP_The_Method_1_6.md', old / 'PP_The_Method_1_6.md'):
+            if not where.exists(): where.symlink_to(pp.resolve())
+
+    # The successors are not in the old bundles; copy them in from the live tree.
+    for s in a.succ:
+        src = live / f'{s}.py'
+        if not src.exists():
+            shutil.rmtree(scratch, ignore_errors=True)
+            sys.exit(f'{s}.py not found in the live tree')
+        shutil.copy2(src, old / f'{s}.py')
+
+    failures = []
+    try:
+        CLAUDE.unlink()
+        CLAUDE.symlink_to(old)
+        for pred, succ in zip(a.pred, a.succ):
+            gold = old / f'{pred}.out'
+            if not gold.exists():
+                failures.append((succ, f'no banked {pred}.out in the old bundles')); continue
+            p = subprocess.run(['python3', f'{succ}.py'], cwd=old, capture_output=True, timeout=a.timeout)
+            if p.returncode != 0:
+                failures.append((succ, f'exit {p.returncode}: {p.stderr.decode()[-200:]}')); continue
+            got, want = p.stdout.decode('utf-8', 'replace'), gold.read_text(encoding='utf-8')
+            if got == want:
+                print(f'PROVED     {succ} reproduces {pred}.out byte-exact on the old bytes')
+            else:
+                failures.append((succ, f'differs from {pred}.out ({md5(got.encode())[:8]} vs {md5(want.encode())[:8]})'))
+    finally:
+        CLAUDE.unlink(missing_ok=True)
+        CLAUDE.symlink_to(live)
+        print(f'\nrestored /home/claude/members -> {live}')
+        shutil.rmtree(scratch, ignore_errors=True)
+
+    for s, why in failures:
+        print(f'NOT PROVED {s}: {why}')
+    if failures:
+        print('\nA successor that cannot reproduce its predecessor on the old bytes is not a re-anchor.')
+        sys.exit(1)
+    print('\nALL PROVED')
+
+
+if __name__ == '__main__':
+    main()
+<<<END FILE: proveanchor.py>>>
+
+<<<FILE: r3-br-measure.py>>>
+#!/usr/bin/env python3
+# r3-br-measure.py — R3 (a lead outside Q5, M's direction of 5 September): the Request-3 return of 2026-08-28
+# (03-1D-lands-inside-14D.md in the mirror) re-run from the seated instruments. The tower is rebuilt by the seated
+# tower.py (Λ₈ with its seven fingerprints, L8.json) and tower3.py (Λ₉ … Λ₁₃, tower.json), and the bracket system is
+# measured by factor.py — chat 58's own script, standard-library, seated byte-exact beside this instrument — exactly as
+# the return ran them, in a scratch directory the instrument removes; nothing is written into method/. Each printed
+# figure is checked against the return's: rank-value counts 18, 21, 24, 29, 36, 44 (register 334's chain of 44),
+# the strict map refuted at every stage with branching 4, 4, 6, 8, 9, bracket endpoints monotone and fibres gap-free
+# at every stage, the composed bracket χ(Λ₁₃) → χ(Λ₈) not equal to the direct one with slack at most 2, the image of
+# Λ₁₃ in χ(Λ₈) the whole chain 3 … 20.
+import os, sys, re, shutil, subprocess, tempfile, hashlib
+H = os.path.dirname(os.path.abspath(__file__))
+FAIL = []
+def check(tag, got, exp):
+    ok = got == exp; print('   %-72s %-22s %s' % (tag, repr(got)[:22], 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+MD5 = {'tower.py': None, 'tower3.py': None, 'factor.py': '55c518c9e0d267d9ce6fd95d1e42dbde'}   # factor.py: drive/MANIFEST.tsv
+work = tempfile.mkdtemp(prefix='r3-br-')
+try:
+    for n, m in MD5.items():
+        src = os.path.join(H, n)
+        if not os.path.exists(src) and n == 'factor.py':   # before seating: the mirror's copy, asserted
+            src = os.path.join(os.path.dirname(os.path.dirname(H)), 'drive', 'The Method Materials', n)
+        b = open(src, 'rb').read()
+        if m: check('%s is the return\'s script (md5 %s…)' % (n, m[:8]), hashlib.md5(b).hexdigest(), m)
+        open(os.path.join(work, n), 'wb').write(b)
+    run = lambda *a: subprocess.run([sys.executable] + list(a), cwd=work, capture_output=True, text=True, timeout=600)
+    t = run('tower.py'); assert t.returncode == 0, t.stderr[-500:]
+    print('== tower.py (Λ₈ and its seven fingerprints)')
+    for l in t.stdout.rstrip().split('\n'): print('   ' + l[:150])
+    check('Λ₈: E = 0', 'Λ8: E = 0' in t.stdout, True)
+    check('rank sequence forwards / backwards, mean rank, F(−1)', all(s in t.stdout for s in ('fwd [1, 5, 15, 34, 59, 87]', 'bwd [1, 4, 10, 21, 37, 57]', 'mean rank=11.0666', 'F(-1)=2')), True)
+    check('L8.json written', os.path.exists(os.path.join(work, 'L8.json')), True)
+    t3 = run('tower3.py', 'bank'); assert t3.returncode == 0, t3.stderr[-500:]
+    print('== tower3.py bank (Λ₁₀ … Λ₁₃)')
+    for l in t3.stdout.rstrip().split('\n'): print('   ' + l[:150])
+    check('the printed counts 2,535 / 13,585 / 70,905 / 199,130 and #{2K = 0 in Λ₁₂} = 13,585', all(s in t3.stdout for s in ('Λ10 = 2535', 'Λ11 = 13585', 'Λ12 = 70905', 'Λ13 = 199130', 'cells with 2K=0 in Λ12 = 13585')), True)
+    check('tower.json written', os.path.exists(os.path.join(work, 'tower.json')), True)
+    f = run('factor.py'); assert f.returncode == 0, f.stderr[-500:]
+    print('== factor.py (the bracket system)')
+    for l in f.stdout.rstrip().split('\n'): print('   ' + l[:160])
+    out = f.stdout
+    counts = eval(re.search(r'rank-value counts per stage: (\{.*\})', out).group(1))
+    check('rank-value counts per stage (χ(Λ₁₃) carries 44, register 334)', [counts[d] for d in (8, 9, 10, 11, 12, 13)], [18, 21, 24, 29, 36, 44])
+    rows = re.findall(r'Λ(\d+)→Λ(\d+): strict map: (\w+) \| max branching: (\d+) \| bracket endpoints monotone: (\w+) \| fibres gap-free intervals: (\w+)', out)
+    check('five stages, top to bottom', [(int(a), int(b)) for a, b, *_ in rows], [(9, 8), (10, 9), (11, 10), (12, 11), (13, 12)])
+    check('the strict map refuted at every stage', [r[2] for r in rows], ['False'] * 5)
+    check('branching 4, 4, 6, 8, 9', [int(r[3]) for r in rows], [4, 4, 6, 8, 9])
+    check('bracket endpoints monotone at every stage', [r[4] for r in rows], ['True'] * 5)
+    check('fibres gap-free intervals at every stage', [r[5] for r in rows], ['True'] * 5)
+    m = re.search(r'composite bracket χ\(Λ13\)→χ\(Λ8\): equals direct bracket: (\w+) \| max slack: (\d+)', out)
+    check('composed bracket ≠ direct bracket, slack at most 2', (m.group(1), int(m.group(2))), ('False', 2))
+    m = re.search(r'image of Λ13 under projection to Λ8 ranks: (\d+)\.\.(\d+) \| covers all of χ\(Λ8\): (\w+)', out)
+    check('image of Λ₁₃ in χ(Λ₈): ranks 3 … 20, the whole chain', (int(m.group(1)), int(m.group(2)), m.group(3)), (3, 20, 'True'))
+finally:
+    shutil.rmtree(work, ignore_errors=True)
+print('\n   integrity checks: %s' % ('ALL OK' if not FAIL else 'FAILED: ' + '; '.join(FAIL)))
+sys.exit(0 if not FAIL else 1)
+<<<END FILE: r3-br-measure.py>>>
+
+<<<FILE: reanchor.py>>>
+#!/usr/bin/env python3
+"""reanchor.py — write a successor that resolves a predecessor's literal main-volume line numbers by CONTENT.
+
+    python3 tools/reanchor.py --pred NAME --succ NAME2 --old-tree DIR [--keep N,N,...] [--write]
+
+THE CLASS. A positional instrument pins a unit "measured by heading scan in this chat" as a literal —
+`LO, HI = 8575, 8699`, `MAIN[9507 - 1]`, `range(9171, 9180)` — and reads the wrong site after any build that
+moves a line above it (W-207, DEF-153N). The repair for each such literal is the same: replace the number by
+the line it pointed at, found by its own text. This tool does that mechanically and prints what it did, so
+the operator reviews every literal and the proof is left to `proveanchor.py`.
+
+WHAT IT DOES. Every NUMBER token in the predecessor's CODE (never in a string or a comment) whose value lies
+inside the old main member's line range, and is not on the --keep list, is looked up in the OLD main member
+(the tree the golden was banked against): the text of that line becomes the anchor, `_L(text)`, when the
+line is non-blank and unique in both the old member and the live one; otherwise the nearest unique non-blank
+line within six lines becomes the anchor and the literal becomes `_L(text) + d`; otherwise the literal is
+left and flagged MANUAL. `_L` is defined at the top of the successor and reads the main member from the
+successor's own directory, so proveanchor's scratch tree and the live tree each resolve against their own
+bytes. Nothing else in the predecessor changes: measurements, prose, the print format, the verdict.
+
+WHAT IT CANNOT DECIDE, and why --keep exists. A number in the same range that is NOT a line — a Register entry
+number, a cell count, a cap — would be anchored to the text of that line and drift with the volume; on the
+old bytes it resolves to itself, so proveanchor would pass it. The operator reads the printed table and names
+those on --keep. That is the blind spot DEF-153N records, stated here as the tool's contract.
+"""
+import argparse, io, os, re, sys, tokenize
+
+MAIN = 'The_Method_1_6-2.md'
+HELPER = '''
+# --- re-anchoring helper (tools/reanchor.py): a main-volume line found by its own text, never by a number ---
+def _L(t, d=0):
+    import os as _o
+    global _LM
+    try: _LM
+    except NameError: _LM = open(_o.path.join(_o.path.dirname(_o.path.abspath(__file__)), 'The_Method_1_6-2.md'), encoding='utf-8').read().split('\\n')
+    h = [i for i, l in enumerate(_LM, 1) if l == t]
+    assert len(h) == 1, ('re-anchor: line text is not unique or is absent', t[:60], h)
+    return h[0] + d
+'''
+
+def main():
+    ap = argparse.ArgumentParser(); ap.add_argument('--pred', required=True); ap.add_argument('--succ', required=True)
+    ap.add_argument('--old-tree', required=True); ap.add_argument('--keep', default=''); ap.add_argument('--write', action='store_true')
+    _here = os.path.dirname(os.path.abspath(__file__))
+    ap.add_argument('--live', default=_here if os.path.basename(_here) == 'members' else os.path.join(os.path.dirname(_here), 'method', 'members'))   # from tools/ or from a seated copy
+    a = ap.parse_args()
+    keep = {int(x) for x in a.keep.split(',') if x.strip()}
+    old = open(os.path.join(a.old_tree, MAIN), encoding='utf-8').read().split('\n')
+    live = open(os.path.join(a.live, MAIN), encoding='utf-8').read().split('\n')
+    src = open(os.path.join(a.live, a.pred + '.py'), encoding='utf-8').read()
+    lines = src.split('\n')
+    def uniq(t): return t.strip() != '' and old.count(t) == 1 and live.count(t) == 1
+    edits = []  # (row, col_start, col_end, replacement, note)
+    for tok in tokenize.generate_tokens(io.StringIO(src).readline):
+        if tok.type != tokenize.NUMBER or not re.fullmatch(r'\d{4,5}', tok.string): continue
+        v = int(tok.string)
+        if v < 1000 or v > len(old): continue
+        row, c0 = tok.start; _, c1 = tok.end
+        ctx = lines[row - 1].strip()
+        if v in keep: print('KEEP   %5d  %s' % (v, ctx[:100])); continue
+        # entry-number contexts are never lines: a line that reads the Register by entry — rbody(N), ent[N],
+        # entry(N), span(N), IDX[N], regtext — or seeds a generator, Random(N). Every literal below 1900 on
+        # such a line is auto-kept and printed for review; a main-volume line below 1900 on the same line
+        # would be missed, so the operator reads the table.
+        if v < 1900 and re.search(r'rbody|ent\[|entry\(|span\(|Random\(|blk\(|regtext|IDX\[|\bR\[|REG\[|1701|1713', lines[row - 1]):
+            print('AUTO-KEEP %5d  %s' % (v, ctx[:100])); continue
+        if uniq(old[v - 1]):
+            rep = '_L(%r)' % old[v - 1]; note = 'exact'
+        else:
+            rep = None
+            for d in (1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6):
+                j = v - d
+                if 1 <= j <= len(old) and uniq(old[j - 1]):
+                    rep = '_L(%r, %d)' % (old[j - 1], d); note = 'offset %+d from L%d' % (d, j); break
+            if rep is None:
+                print('MANUAL %5d  %s   (old line %r is not unique and no unique neighbour within 6)' % (v, ctx[:80], old[v - 1][:40])); continue
+        print('ANCHOR %5d  %-9s old L%d %-50r  <- %s' % (v, note, v, old[v - 1][:48], ctx[:70]))
+        edits.append((row, c0, c1, rep))
+    if not a.write:
+        print('\nDRY RUN: %d anchors. Re-run with --write (and --keep for any number above that is not a line).' % len(edits)); return
+    for row, c0, c1, rep in sorted(edits, key=lambda e: (e[0], -e[1])):
+        l = lines[row - 1]; lines[row - 1] = l[:c0] + rep + l[c1:]
+    out = '\n'.join(lines)
+    # header: after the shebang and the predecessor's leading comment block
+    head = ('# %s.py — R3 (chat 153-R) — SUCCESSOR to %s.py, re-anchored by tools/reanchor.py: every main-volume line the\n'
+            '# predecessor pinned as a literal is resolved by the text of the line it pointed at in the bundle its golden was\n'
+            '# banked against (%d anchors); nothing else changes. %s.py is seated and never edited in place (chat 68).\n'
+            '# PROVED by tools/proveanchor.py when the line below says so; until then this file is a draft.\n'
+            '# PROVEANCHOR: pending\n') % (a.succ, a.pred, len(edits), a.pred)
+    first_code = next(i for i, l in enumerate(lines) if l.strip() and not l.startswith('#'))
+    out = '\n'.join(lines[:first_code]) + '\n' + head + HELPER + '\n'.join(lines[first_code:])
+    if lines[0].startswith('#!'): pass
+    open(os.path.join(a.live, a.succ + '.py'), 'w', encoding='utf-8').write(out)
+    print('\nwritten %s.py with %d anchors' % (a.succ, len(edits)))
+
+if __name__ == '__main__':
+    main()
+<<<END FILE: reanchor.py>>>
+
+<<<FILE: restage.py>>>
+#!/usr/bin/env python3
+"""restage.py — re-extract the bundles into method/members/ and retarget the witness check.
+
+    python3 tools/restage.py --bundle TAG=PATH [--bundle TAG=PATH ...] [--prune]
+
+`method/` mirrors the two live bundles as an extracted tree: every member byte-exact under
+`members/`, an index in `MEMBER-INDEX.tsv`, and `verify.py` asserting both. When a bundle is
+rebuilt — by `close.py` on the compendia side or `close_main.py` on the main side — that mirror
+is stale until it is rebuilt from the new bundles. Nothing in the tree did that; this does.
+
+It is deliberately not a member and not an instrument. It maintains the repository's copy of the
+store of record, not the store of record itself, which is why it sits beside `verify.py` rather
+than inside a bundle.
+
+The extraction is asserted, not assumed: each member is spliced back into the bundle at the offset
+recorded for it and the bundle's own md5 must come back. `--prune` additionally removes member
+files that no longer appear in any bundle; without it they are reported and left alone.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import pathlib
+import re
+import sys
+
+MEMBER = re.compile(rb"^<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n", re.S | re.M)
+md5 = lambda b: hashlib.md5(b).hexdigest()
+
+
+def parse(raw: bytes):
+    ms = [(m.group(1).decode(), m.group(2), m.start(2)) for m in MEMBER.finditer(raw)]
+    assert len({n for n, _, _ in ms}) == len(ms), "duplicate member name"
+    return ms
+
+
+def main(argv=None):
+    _h = pathlib.Path(__file__).resolve().parent
+    root = _h.parent.parent if _h.name == 'members' else _h.parent   # the repo root, from tools/ or from a seated copy in method/members/
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--bundle", action="append", required=True, metavar="TAG=PATH")
+    ap.add_argument("--prune", action="store_true",
+                    help="delete member files no longer in any bundle (default: report only)")
+    a = ap.parse_args(argv)
+
+    bundles = {}
+    for spec in a.bundle:
+        tag, _, path = spec.partition("=")
+        assert path, f"--bundle wants TAG=PATH, got {spec!r}"
+        bundles[tag] = pathlib.Path(path)
+
+    mem = root / "method" / "members"
+    mem.mkdir(parents=True, exist_ok=True)
+    rows, seen = [], set()
+
+    for tag, path in bundles.items():
+        raw = path.read_bytes()
+        ms = parse(raw)
+        for n, b, off in ms:
+            (mem / n).write_bytes(b)
+            rows.append([n, tag, pathlib.Path(n).suffix, str(len(b)), md5(b), str(off)])
+            seen.add(n)
+        # assert the extraction rather than assume it: splice every member back
+        back = bytearray(raw)
+        for n, b, off in ms:
+            back[off:off + len(b)] = (mem / n).read_bytes()
+        got = md5(bytes(back))
+        ok = got == md5(raw)
+        print(f"{tag:<20} {len(ms):>3} members  {len(raw):,} B  md5 {md5(raw)}  "
+              f"round-trip {'OK' if ok else 'MISMATCH ' + got}")
+        assert ok, f"{tag}: extraction does not reproduce the bundle"
+
+    rows.sort(key=lambda r: (r[1], r[0]))
+    idx = root / "method" / "MEMBER-INDEX.tsv"
+    idx.write_text("member\tbundle\text\tbytes\tmd5\tbundle_offset\n"
+                   + "\n".join("\t".join(r) for r in rows) + "\n", encoding="utf-8")
+    print(f"MEMBER-INDEX.tsv     {len(rows)} rows")
+
+    orphans = sorted(p.name for p in mem.iterdir() if p.is_file() and p.name not in seen)
+    if orphans:
+        if a.prune:
+            for n in orphans:
+                (mem / n).unlink()
+            print(f"pruned {len(orphans)} orphan member file(s): {', '.join(orphans)}")
+        else:
+            print(f"NOTE {len(orphans)} member file(s) are in no bundle and were left in place "
+                  f"(--prune removes them): {', '.join(orphans)}")
+
+    vp = root / "method" / "verify.py"
+    v = vp.read_text(encoding="utf-8")
+    v = re.sub(r"BUNDLES = \{.*?\n\}",
+               "BUNDLES = {\n" + "".join(f"    '{t}': '{p.name}',\n" for t, p in bundles.items())
+               + "}", v, count=1, flags=re.S)
+    v = re.sub(r"EXPECT_MD5 = \{.*?\n\}",
+               "EXPECT_MD5 = {\n"
+               + "".join(f"    '{t}': '{md5(p.read_bytes())}',\n" for t, p in bundles.items())
+               + "}", v, count=1, flags=re.S)
+    vp.write_text(v, encoding="utf-8")
+    print(f"verify.py            retargeted to {', '.join(bundles)}")
+    print("\nrun: python3 method/verify.py")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+<<<END FILE: restage.py>>>
+
+<<<FILE: shard_conversations.py>>>
+#!/usr/bin/env python3
+"""Turn a huge Claude ``conversations.json`` export into something git can hold.
+
+A Claude data export is one enormous JSON document -- the copies in this repo's
+Drive folder are 388,264,753 bytes (370 MiB) each.  GitHub hard-limits a single
+file to 100 MB, so the export cannot enter the repository as an ordinary git
+object.  This script offers the two ways out:
+
+**shard** (the default) writes one small JSON file per conversation, grouped into
+``YYYY-MM`` subdirectories taken from each conversation's creation date, plus an
+``INDEX.tsv`` and a ``SUMMARY.json``.  Many small readable files are what a
+code-graph indexer such as Graphify can actually use; one 370 MiB blob is not.
+
+**--gzip** writes a single ``<name>.json.gz`` instead.  JSON compresses roughly
+ten to one, so a 370 MiB export should land near 35 MiB, under the GitHub limit.
+The script measures the real ratio and refuses to leave a file behind if the
+result is still over 100 MB, pointing at sharding instead.
+
+Typical use::
+
+    python3 tools/shard_conversations.py conversations.json --dry-run
+    python3 tools/shard_conversations.py conversations.json --out drive/chats
+    python3 tools/shard_conversations.py conversations.json --gzip --out drive/chats
+
+Memory: if `ijson <https://pypi.org/project/ijson/>`_ is importable the input is
+parsed as a stream and memory stays flat no matter how large the file is.  Without
+it the script falls back to ``json.load``, which needs roughly 4-8x the file size
+in RAM (about 3 GB for a 370 MiB export); that fallback always announces itself
+on stderr, it never happens silently.  ``--gzip`` never parses at all, so it is
+safe on any input regardless of ijson.
+
+Nothing about the export's shape is assumed.  The top level may be a JSON array
+of conversations or an object wrapping one (``{"conversations": [...]}``), and the
+per-conversation key names (``uuid``/``id``, ``name``/``title``,
+``chat_messages``/``messages``, ...) are detected from the data.  When nothing
+recognisable is found the script says which keys it *did* see and stops, rather
+than raising a KeyError or writing garbage.
+
+Exit codes: 0 success, 1 refusal or failed verification, 2 bad arguments.
+"""
+
+from __future__ import annotations
+
+import argparse
+import dataclasses
+import decimal
+import gzip
+import io
+import json
+import logging
+import os
+import re
+import sys
+import tempfile
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, Iterator, List, Optional, Sequence, Set, Tuple
+
+# --------------------------------------------------------------------------- #
+# Constants
+# --------------------------------------------------------------------------- #
+
+#: GitHub rejects any single file larger than this, on push, with no override.
+GITHUB_FILE_LIMIT_BYTES = 100 * 1024 * 1024
+
+#: Tens of thousands of tiny files is its own problem for git; raise with
+#: --max-files when that really is what you want.
+DEFAULT_MAX_FILES = 5000
+
+INDEX_NAME = "INDEX.tsv"
+SUMMARY_NAME = "SUMMARY.json"
+UNDATED_DIR = "undated"
+
+INDEX_COLUMNS: Tuple[str, ...] = (
+    "shard_path",
+    "conversation_id",
+    "title",
+    "created_at",
+    "updated_at",
+    "message_count",
+    "bytes",
+)
+
+#: Candidate key names, in order of preference.  Claude exports have used the
+#: first of each group; the rest are defensive.
+ID_KEYS: Tuple[str, ...] = ("uuid", "id", "conversation_id", "conversationId", "chat_id")
+TITLE_KEYS: Tuple[str, ...] = ("name", "title", "summary", "subject")
+CREATED_KEYS: Tuple[str, ...] = ("created_at", "createdAt", "create_time", "created", "created_on")
+UPDATED_KEYS: Tuple[str, ...] = ("updated_at", "updatedAt", "update_time", "updated", "modified_at")
+MESSAGE_KEYS: Tuple[str, ...] = ("chat_messages", "messages", "chatMessages", "turns", "events")
+
+#: When the document is an object rather than an array, these key names win if
+#: present; otherwise the first top-level key holding an array is used.
+CONTAINER_KEYS: Tuple[str, ...] = ("conversations", "chats", "data", "items", "records")
+
+#: How many conversations to look at before deciding on the key names.
+SCHEMA_SAMPLE_SIZE = 8
+
+#: Bytes of input compressed to estimate the ratio during ``--gzip --dry-run``.
+GZIP_SAMPLE_BYTES = 64 * 1024 * 1024
+COPY_CHUNK_BYTES = 4 * 1024 * 1024
+GZIP_LEVEL = 9
+
+MAX_COMPONENT_CHARS = 120
+UNSAFE_CHARS = re.compile(r"[^A-Za-z0-9._-]+")
+
+#: Every C0 and C1 control character.  A NUL in a conversation title would make
+#: git treat INDEX.tsv as binary, killing diffs on the one file the shards exist
+#: to make readable, so no control character reaches a TSV field.
+CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f-\x9f]")
+
+#: Lone UTF-16 surrogates occur in real chat exports and cannot be encoded as
+#: UTF-8 at all; ``serialise`` escapes them rather than dying mid-write.
+SURROGATES = re.compile(r"[\ud800-\udfff]")
+
+LOGGER = logging.getLogger("shard_conversations")
+
+
+class ExportError(Exception):
+    """The input is not a Claude export shape this tool can handle."""
+
+
+class StreamingUnsupported(ExportError):
+    """ijson cannot represent something in this document, but ``json.load`` can.
+
+    Raised only for inputs the in-memory parser reads losslessly (a JSON integer
+    wider than 64 bits, say).  ``main`` catches it and re-runs with ``json.load``
+    instead of failing; it never reaches the user as an error.
+    """
+
+
+# --------------------------------------------------------------------------- #
+# Small helpers
+# --------------------------------------------------------------------------- #
+
+
+def clean_field(value: Any) -> str:
+    """Make a value safe for a tab-separated field: no control characters at all.
+
+    Tabs and newlines would break the row; a NUL would make git call INDEX.tsv a
+    binary file; the rest of the C0/C1 range confuses TSV readers.  All of them
+    become a space.
+    """
+    text = "" if value is None else str(value)
+    return CONTROL_CHARS.sub(" ", text).strip()
+
+
+def human_bytes(count: float) -> str:
+    step = float(count)
+    for unit in ("B", "KiB", "MiB", "GiB", "TiB"):
+        if abs(step) < 1024.0 or unit == "TiB":
+            if unit == "B":
+                return "{:.0f} B".format(step)
+            return "{:.1f} {}".format(step, unit)
+        step /= 1024.0
+    return "{:.1f} TiB".format(step)  # pragma: no cover - unreachable
+
+
+def sanitize_component(raw: str, fallback: str) -> str:
+    """Turn arbitrary text into one safe, portable path component."""
+    text = UNSAFE_CHARS.sub("-", str(raw))
+    previous = None
+    while previous != text:
+        previous = text
+        text = text.strip("-. ")
+    if len(text) > MAX_COMPONENT_CHARS:
+        text = text[:MAX_COMPONENT_CHARS].rstrip("-. ")
+    if not text or text in (".", ".."):
+        return fallback
+    return text
+
+
+def parse_timestamp(value: Any) -> Optional[datetime]:
+    """Best-effort timestamp parse; ``None`` when the value is unusable.
+
+    Handles ISO 8601 with or without ``Z``/offset/fractional seconds, plain
+    dates, and epoch seconds or milliseconds given as a number.
+    """
+    if value is None or isinstance(value, bool):
+        return None
+    if isinstance(value, (int, float, decimal.Decimal)):
+        seconds = float(value)
+        if seconds > 1e11:  # milliseconds
+            seconds /= 1000.0
+        try:
+            return datetime.fromtimestamp(seconds, tz=timezone.utc)
+        except (OverflowError, OSError, ValueError):
+            return None
+    if not isinstance(value, str):
+        return None
+    text = value.strip()
+    if not text:
+        return None
+    if text.endswith("Z"):
+        text = text[:-1] + "+00:00"
+    try:
+        parsed = datetime.fromisoformat(text)
+    except ValueError:
+        for fmt in ("%Y-%m-%dT%H:%M:%S.%f%z", "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%d %H:%M:%S", "%Y-%m-%d"):
+            try:
+                parsed = datetime.strptime(value.strip(), fmt)
+                break
+            except ValueError:
+                continue
+        else:
+            return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def month_directory(value: Any) -> str:
+    """``YYYY-MM`` for a usable timestamp, ``undated`` otherwise."""
+    parsed = parse_timestamp(value)
+    return UNDATED_DIR if parsed is None else parsed.strftime("%Y-%m")
+
+
+def remove_quietly(path: Path) -> None:
+    try:
+        path.unlink()
+    except FileNotFoundError:
+        pass
+    except OSError as exc:  # pragma: no cover - best effort cleanup
+        LOGGER.debug("could not remove %s: %s", path, exc)
+
+
+def write_text_atomically(path: Path, text: str) -> int:
+    """Write ``text`` via a sibling temp file and an atomic rename."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    handle = tempfile.NamedTemporaryFile(
+        "w",
+        encoding="utf-8",
+        newline="\n",
+        dir=str(path.parent),
+        prefix=".shard-conversations-",
+        delete=False,
+    )
+    temp_path = Path(handle.name)
+    try:
+        with handle:
+            handle.write(text)
+        size = temp_path.stat().st_size
+        # NamedTemporaryFile is 0600; these files are meant to be committed.
+        os.chmod(str(temp_path), 0o644)
+        os.replace(str(temp_path), str(path))
+        return size
+    except BaseException:
+        remove_quietly(temp_path)
+        raise
+
+
+# --------------------------------------------------------------------------- #
+# Schema detection
+# --------------------------------------------------------------------------- #
+
+
+@dataclasses.dataclass(frozen=True)
+class Schema:
+    """Which key names this particular export actually uses."""
+
+    container_key: Optional[str]
+    id_key: Optional[str]
+    title_key: Optional[str]
+    created_key: Optional[str]
+    updated_key: Optional[str]
+    messages_key: Optional[str]
+
+    def as_dict(self) -> Dict[str, Optional[str]]:
+        return {
+            "container_key": self.container_key,
+            "id_key": self.id_key,
+            "title_key": self.title_key,
+            "created_key": self.created_key,
+            "updated_key": self.updated_key,
+            "messages_key": self.messages_key,
+        }
+
+    def describe(self) -> str:
+        used = ", ".join(
+            "{}={}".format(name, value)
+            for name, value in self.as_dict().items()
+            if value is not None
+        )
+        return used or "none detected"
+
+
+def first_present(
+    record: Dict[str, Any], preferred: Optional[str], candidates: Sequence[str]
+) -> Tuple[Optional[str], Any]:
+    """Return the first key of ``candidates`` present in ``record``, plus value.
+
+    The schema's detected key is tried first so a mixed export still resolves
+    consistently, then the remaining candidates as a per-record fallback.
+    """
+    order: List[str] = []
+    if preferred:
+        order.append(preferred)
+    order.extend(key for key in candidates if key != preferred)
+    for key in order:
+        if key in record and record[key] is not None:
+            return key, record[key]
+    return None, None
+
+
+def detect_schema(samples: Sequence[Any], container_key: Optional[str]) -> Schema:
+    """Work out the key names from the first few conversations.
+
+    Raises ``ExportError`` -- naming the keys that were actually seen -- when the
+    records look nothing like conversations.
+    """
+    dict_samples = [item for item in samples if isinstance(item, dict)]
+    if samples and not dict_samples:
+        kinds = sorted({type(item).__name__ for item in samples})
+        raise ExportError(
+            "the export's list holds {} values, not conversation objects; "
+            "this does not look like a Claude conversations export".format("/".join(kinds))
+        )
+
+    def pick(candidates: Sequence[str]) -> Optional[str]:
+        for key in candidates:
+            if any(key in sample for sample in dict_samples):
+                return key
+        return None
+
+    schema = Schema(
+        container_key=container_key,
+        id_key=pick(ID_KEYS),
+        title_key=pick(TITLE_KEYS),
+        created_key=pick(CREATED_KEYS),
+        updated_key=pick(UPDATED_KEYS),
+        messages_key=pick(MESSAGE_KEYS),
+    )
+
+    if dict_samples and not (schema.id_key or schema.title_key or schema.messages_key):
+        seen: List[str] = []
+        for sample in dict_samples:
+            for key in sample:
+                if key not in seen:
+                    seen.append(str(key))
+        shown = ", ".join(repr(key) for key in seen[:25]) or "(no keys at all)"
+        raise ExportError(
+            "no conversation-shaped keys found in the first {} record(s).\n"
+            "Expected one of id={} title={} messages={}.\n"
+            "The keys actually present are: {}".format(
+                len(dict_samples),
+                "/".join(ID_KEYS[:3]),
+                "/".join(TITLE_KEYS[:2]),
+                "/".join(MESSAGE_KEYS[:2]),
+                shown,
+            )
+        )
+    return schema
+
+
+def message_count_of(record: Dict[str, Any], schema: Schema) -> int:
+    _key, value = first_present(record, schema.messages_key, MESSAGE_KEYS)
+    if isinstance(value, (list, tuple)):
+        return len(value)
+    if isinstance(value, dict):
+        return len(value)
+    return 0
+
+
+# --------------------------------------------------------------------------- #
+# Reading the export
+# --------------------------------------------------------------------------- #
+
+
+class ConversationSource:
+    """A re-iterable sequence of conversation objects.
+
+    Re-iterable matters: the ``--max-files`` guard has to know the conversation
+    count *before* the first shard is written, which means one counting pass and
+    then one writing pass.
+    """
+
+    container_key: Optional[str] = None
+    parser: str = "unknown"
+    streaming: bool = False
+
+    def __iter__(self) -> Iterator[Any]:  # pragma: no cover - interface
+        raise NotImplementedError
+
+
+class MemorySource(ConversationSource):
+    """Conversations already materialised by ``json.load``."""
+
+    def __init__(self, records: Sequence[Any], container_key: Optional[str]) -> None:
+        self._records = records
+        self.container_key = container_key
+        self.parser = "json (whole file in memory)"
+        self.streaming = False
+
+    def __iter__(self) -> Iterator[Any]:
+        return iter(self._records)
+
+
+class StreamingSource(ConversationSource):
+    """Conversations pulled from disk one at a time by ijson."""
+
+    def __init__(self, path: Path, container_key: Optional[str], ijson_module: Any) -> None:
+        self._path = path
+        self._ijson = ijson_module
+        self.container_key = container_key
+        self.parser = "ijson {} (streaming)".format(getattr(ijson_module, "__version__", "?"))
+        self.streaming = True
+        self._prefix = "item" if container_key is None else "{}.item".format(container_key)
+        self._kwargs: Dict[str, Any] = {"use_float": True} if supports_use_float(ijson_module) else {}
+        self._errors = ijson_error_types(ijson_module)
+
+    def __iter__(self) -> Iterator[Any]:
+        try:
+            with self._path.open("rb") as handle:
+                for record in self._ijson.items(handle, self._prefix, **self._kwargs):
+                    yield record
+        except self._errors as exc:
+            raise translate_ijson_error(self._path, exc) from exc
+
+
+def supports_use_float(ijson_module: Any) -> bool:
+    """ijson >= 3.1 can decode JSON numbers as float instead of Decimal.
+
+    Older versions cannot, so their Decimals are converted at serialisation time
+    by ``json_default`` instead.
+    """
+    try:
+        list(ijson_module.items(io.BytesIO(b"[]"), "item", use_float=True))
+    except TypeError:
+        return False
+    except Exception:  # noqa: BLE001 - a probe must never break the run
+        return False
+    return True
+
+
+def import_ijson() -> Optional[Any]:
+    try:
+        import ijson  # type: ignore
+    except ImportError:
+        return None
+    return ijson
+
+
+def ijson_error_types(ijson_module: Any) -> Tuple[type, ...]:
+    """The parse-failure exceptions this ijson exposes, as a tuple for ``except``.
+
+    ijson's errors do not inherit from ``ValueError``, so nothing else in this
+    file would catch them; without this they escape ``main`` as a traceback.
+    """
+    found: List[type] = []
+    holders = [ijson_module, getattr(ijson_module, "common", None)]
+    for holder in holders:
+        for name in ("JSONError", "IncompleteJSONError"):
+            candidate = getattr(holder, name, None)
+            if isinstance(candidate, type) and issubclass(candidate, BaseException):
+                if not any(issubclass(candidate, existing) for existing in found):
+                    found.append(candidate)
+    return tuple(found)
+
+
+def translate_ijson_error(path: Path, exc: BaseException) -> ExportError:
+    """Turn an ijson parse failure into a readable ``ExportError``.
+
+    A number too wide for ijson's C backend is not a broken file -- ``json.load``
+    reads it losslessly -- so that one becomes ``StreamingUnsupported`` and
+    ``main`` retries in memory instead of reporting a corrupt export.
+    """
+    text = " ".join(str(exc).split())
+    if "overflow" in text.lower():
+        return StreamingUnsupported(
+            "{}: ijson cannot represent a number in this export ({})".format(path, text)
+        )
+    return ExportError(
+        "{} is not valid JSON (streaming parser): {}.\n"
+        "If the export was copied over a network, re-download it and compare byte "
+        "counts against the source.".format(path, text)
+    )
+
+
+def choose_container_key(
+    array_keys: Sequence[str], counts: Optional[Dict[str, int]] = None
+) -> Optional[str]:
+    """Pick the one top-level array to shard, out of every array that exists.
+
+    Both parsers call this, so ijson and ``json.load`` can never disagree about
+    which array a given file means.  Preference order is ``CONTAINER_KEYS``; any
+    other top-level array is named in a warning rather than dropped in silence.
+    """
+    if not array_keys:
+        return None
+
+    chosen: Optional[str] = None
+    for name in CONTAINER_KEYS:
+        if name in array_keys:
+            chosen = name
+            break
+    if chosen is None:
+        chosen = array_keys[0]
+        LOGGER.warning(
+            "no %s key; using the first top-level array, %r",
+            "/".join(CONTAINER_KEYS[:2]),
+            chosen,
+        )
+
+    ignored = [key for key in array_keys if key != chosen]
+    if ignored:
+        def describe(key: str) -> str:
+            if counts is not None and key in counts:
+                count = counts[key]
+                return "{!r} ({} {})".format(key, count, "entry" if count == 1 else "entries")
+            return repr(key)
+
+        LOGGER.warning(
+            "the top-level object holds %d arrays; sharding %r only and IGNORING %s. "
+            "If the conversations are in one of those, pass a file whose wrapper key "
+            "is one of %s, or unwrap it.",
+            len(array_keys),
+            chosen,
+            ", ".join(describe(key) for key in ignored),
+            "/".join(CONTAINER_KEYS),
+        )
+    return chosen
+
+
+def first_json_token(path: Path) -> str:
+    """The first non-whitespace character of the document (``[``, ``{`` or ...)."""
+    with path.open("rb") as handle:
+        while True:
+            chunk = handle.read(4096)
+            if not chunk:
+                return ""
+            # strip leading whitespace and any UTF-8 BOM bytes
+            stripped = chunk.lstrip(b" \t\r\n\xef\xbb\xbf")
+            if stripped:
+                return stripped[:1].decode("utf-8", "replace")
+
+
+def detect_container_key_streaming(path: Path, ijson_module: Any) -> Optional[str]:
+    """For an object-wrapped export, find the top-level key holding the array.
+
+    Returns ``None`` when the document is a bare array.  Raises ``ExportError``
+    when it is neither, or when no top-level array exists.
+    """
+    token = first_json_token(path)
+    if token == "[":
+        return None
+    if token != "{":
+        raise ExportError(
+            "the file does not start with '[' or '{{' (found {!r}); "
+            "it is not a JSON conversations export".format(token or "end of file")
+        )
+
+    keys_seen: List[str] = []
+    array_keys: List[str] = []
+    counts: Dict[str, int] = {}
+    item_prefixes: Dict[str, str] = {}
+    current_key: Optional[str] = None
+    # Every top-level array is collected before choosing, so that this and
+    # container_key_from_object below cannot pick different arrays from one file.
+    try:
+        with path.open("rb") as handle:
+            for prefix, event, value in ijson_module.parse(handle):
+                if prefix == "" and event == "map_key":
+                    current_key = str(value)
+                    keys_seen.append(current_key)
+                    continue
+                if current_key is not None and prefix == current_key and event == "start_array":
+                    array_keys.append(current_key)
+                    counts[current_key] = 0
+                    item_prefixes["{}.item".format(current_key)] = current_key
+                    continue
+                owner = item_prefixes.get(prefix)
+                if owner is not None and event in (
+                    "start_map",
+                    "start_array",
+                    "string",
+                    "number",
+                    "integer",
+                    "double",
+                    "boolean",
+                    "null",
+                ):
+                    counts[owner] += 1
+                if prefix == "" and event == "end_map":
+                    break
+    except ijson_error_types(ijson_module) as exc:
+        raise translate_ijson_error(path, exc) from exc
+
+    chosen = choose_container_key(array_keys, counts)
+    if chosen is not None:
+        return chosen
+
+    shown = ", ".join(repr(key) for key in keys_seen[:25]) or "(none)"
+    raise ExportError(
+        "the top-level object holds no array of conversations.\n"
+        "Top-level keys present: {}".format(shown)
+    )
+
+
+def container_key_from_object(document: Dict[str, Any]) -> str:
+    array_keys = [str(key) for key, value in document.items() if isinstance(value, list)]
+    counts = {str(key): len(value) for key, value in document.items() if isinstance(value, list)}
+    chosen = choose_container_key(array_keys, counts)
+    if chosen is not None:
+        return chosen
+    shown = ", ".join(repr(key) for key in list(document)[:25]) or "(none)"
+    raise ExportError(
+        "the top-level object holds no array of conversations.\n"
+        "Top-level keys present: {}".format(shown)
+    )
+
+
+def open_source(path: Path, size_bytes: int) -> ConversationSource:
+    """Build a re-iterable source, streaming when ijson is available."""
+    ijson_module = import_ijson()
+    if ijson_module is not None:
+        LOGGER.info(
+            "using ijson %s: the input is parsed as a stream, memory stays flat",
+            getattr(ijson_module, "__version__", "?"),
+        )
+        container_key = detect_container_key_streaming(path, ijson_module)
+        if container_key is not None and "." in container_key:
+            raise ExportError(
+                "the wrapper key {!r} contains a dot, which ijson prefixes cannot "
+                "address unambiguously. Uninstall ijson to use the in-memory "
+                "parser, or rename the key.".format(container_key)
+            )
+        return StreamingSource(path, container_key, ijson_module)
+
+    return load_in_memory(path, size_bytes)
+
+
+def load_in_memory(path: Path, size_bytes: int) -> ConversationSource:
+    """Parse the whole document with ``json.load``; used when ijson is absent or
+    cannot represent the file (see ``StreamingUnsupported``)."""
+    LOGGER.warning(
+        "ijson is NOT installed: falling back to json.load, which holds the whole "
+        "document in memory and typically needs 4-8x the file size in RAM "
+        "(roughly %s for this %s input). Install it with "
+        "'python3 -m pip install ijson' for constant-memory streaming.",
+        human_bytes(size_bytes * 6),
+        human_bytes(size_bytes),
+    )
+    try:
+        with path.open("r", encoding="utf-8") as handle:
+            document = json.load(handle)
+    except json.JSONDecodeError as exc:
+        raise ExportError("{} is not valid JSON: {}".format(path, exc)) from exc
+    except MemoryError as exc:  # pragma: no cover - environment dependent
+        raise ExportError(
+            "ran out of memory loading {} ({}). Install ijson "
+            "('python3 -m pip install ijson') so the file can be streamed.".format(
+                path, human_bytes(size_bytes)
+            )
+        ) from exc
+
+    if isinstance(document, list):
+        return MemorySource(document, None)
+    if isinstance(document, dict):
+        key = container_key_from_object(document)
+        return MemorySource(document[key], key)
+    raise ExportError(
+        "the top level of {} is a {}, not an array or object; "
+        "this is not a conversations export".format(path, type(document).__name__)
+    )
+
+
+def sample_records(source: ConversationSource, limit: int = SCHEMA_SAMPLE_SIZE) -> List[Any]:
+    samples: List[Any] = []
+    for record in source:
+        samples.append(record)
+        if len(samples) >= limit:
+            break
+    return samples
+
+
+# --------------------------------------------------------------------------- #
+# Sharding
+# --------------------------------------------------------------------------- #
+
+
+@dataclasses.dataclass(frozen=True)
+class IndexRow:
+    shard_path: str
+    conversation_id: str
+    title: str
+    created_at: str
+    updated_at: str
+    message_count: int
+    bytes: int
+
+    def as_fields(self) -> Tuple[str, ...]:
+        return (
+            self.shard_path,
+            self.conversation_id,
+            self.title,
+            self.created_at,
+            self.updated_at,
+            str(self.message_count),
+            str(self.bytes),
+        )
+
+
+@dataclasses.dataclass
+class ShardResult:
+    conversations: int = 0
+    messages: int = 0
+    bytes_out: int = 0
+    rows: List[IndexRow] = dataclasses.field(default_factory=list)
+
+    @property
+    def largest(self) -> Optional[IndexRow]:
+        if not self.rows:
+            return None
+        return max(self.rows, key=lambda row: row.bytes)
+
+
+def json_default(value: Any) -> Any:
+    """Make ijson's Decimal numbers serialisable again, losing no integer."""
+    if isinstance(value, decimal.Decimal):
+        if value == value.to_integral_value():
+            return int(value)
+        return float(value)
+    raise TypeError(
+        "cannot serialise {} in a conversation record".format(type(value).__name__)
+    )
+
+
+def serialise(record: Any) -> str:
+    """One conversation as pretty JSON: readable in a diff and to an indexer.
+
+    ``ensure_ascii=False`` keeps accents, CJK and emoji legible.  Real exports do
+    contain lone UTF-16 surrogates (an unpaired ``\\ud800``), which no UTF-8
+    encoder will accept; when one is present this re-dumps the record with
+    ``ensure_ascii=True`` so it round-trips as the escape it arrived as, instead
+    of raising UnicodeEncodeError halfway through writing the output tree.
+    """
+    text = json.dumps(
+        record, ensure_ascii=False, indent=2, sort_keys=False, default=json_default
+    )
+    if SURROGATES.search(text):
+        text = json.dumps(
+            record, ensure_ascii=True, indent=2, sort_keys=False, default=json_default
+        )
+    return text + "\n"
+
+
+def shard_relative_path(
+    record: Dict[str, Any], schema: Schema, index: int, taken: Set[str]
+) -> Tuple[str, str, str, str, str]:
+    """Decide where one conversation goes.
+
+    Returns ``(relative_path, conversation_id, title, created_at, updated_at)``.
+    The id becomes the filename; with no id, a sanitised title plus the record's
+    ordinal is used, and a bare ordinal when there is no title either.
+    """
+    _id_key, raw_id = first_present(record, schema.id_key, ID_KEYS)
+    _title_key, raw_title = first_present(record, schema.title_key, TITLE_KEYS)
+    _created_key, raw_created = first_present(record, schema.created_key, CREATED_KEYS)
+    _updated_key, raw_updated = first_present(record, schema.updated_key, UPDATED_KEYS)
+
+    conversation_id = "" if raw_id is None else str(raw_id).strip()
+    title = "" if raw_title is None else str(raw_title)
+
+    if conversation_id:
+        stem = sanitize_component(conversation_id, "conversation-{:06d}".format(index))
+    elif title.strip():
+        stem = "{}-{:06d}".format(
+            sanitize_component(title, "conversation"), index
+        )
+    else:
+        stem = "conversation-{:06d}".format(index)
+
+    directory = month_directory(raw_created)
+    relative = "{}/{}.json".format(directory, stem)
+    if relative in taken:
+        # Duplicate ids (or titles) exist in real exports; keep both.
+        suffix = 2
+        while "{}/{}__{}.json".format(directory, stem, suffix) in taken:
+            suffix += 1
+        relative = "{}/{}__{}.json".format(directory, stem, suffix)
+    taken.add(relative)
+
+    return (
+        relative,
+        conversation_id,
+        clean_field(title),
+        clean_field(raw_created),
+        clean_field(raw_updated),
+    )
+
+
+def require_dict(record: Any, index: int) -> Dict[str, Any]:
+    if isinstance(record, dict):
+        return record
+    raise ExportError(
+        "conversation #{} is a {}, not an object; this does not look like a "
+        "Claude conversations export".format(index, type(record).__name__)
+    )
+
+
+def survey(source: ConversationSource, schema: Schema, measure: bool) -> Tuple[int, int, int]:
+    """Count conversations and messages without writing anything.
+
+    With ``measure`` the exact serialised size is computed too, which is what
+    ``--dry-run`` reports as the projected output size.
+    """
+    conversations = 0
+    messages = 0
+    projected = 0
+    for index, raw in enumerate(source):
+        record = require_dict(raw, index)
+        conversations += 1
+        messages += message_count_of(record, schema)
+        if measure:
+            projected += len(serialise(record).encode("utf-8"))
+        if conversations % 1000 == 0:
+            LOGGER.debug("surveyed %d conversations", conversations)
+    return conversations, messages, projected
+
+
+def write_shards(
+    source: ConversationSource,
+    schema: Schema,
+    out_dir: Path,
+    result: Optional[ShardResult] = None,
+) -> ShardResult:
+    """Write one file per conversation.
+
+    ``result`` may be supplied by the caller so that a failure part-way through
+    still leaves it holding everything written up to that point, which is what
+    ``run_shard`` reports instead of a traceback.
+    """
+    if result is None:
+        result = ShardResult()
+    taken: Set[str] = set()
+    made_dirs: Set[Path] = set()
+
+    for index, raw in enumerate(source):
+        record = require_dict(raw, index)
+        relative, conversation_id, title, created, updated = shard_relative_path(
+            record, schema, index, taken
+        )
+        target = out_dir.joinpath(*relative.split("/"))
+        if target.parent not in made_dirs:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            made_dirs.add(target.parent)
+
+        # Atomic: a shard is either absent or complete, never torn.
+        size = write_text_atomically(target, serialise(record))
+
+        count = message_count_of(record, schema)
+        result.conversations += 1
+        result.messages += count
+        result.bytes_out += size
+        result.rows.append(
+            IndexRow(
+                shard_path=relative,
+                conversation_id=conversation_id,
+                title=title,
+                created_at=created,
+                updated_at=updated,
+                message_count=count,
+                bytes=size,
+            )
+        )
+        if result.conversations % 1000 == 0:
+            LOGGER.info("wrote %d shards", result.conversations)
+
+    return result
+
+
+def write_index(out_dir: Path, rows: Sequence[IndexRow]) -> int:
+    lines = ["\t".join(INDEX_COLUMNS)]
+    for row in sorted(rows, key=lambda item: item.shard_path):
+        lines.append("\t".join(clean_field(field) for field in row.as_fields()))
+    return write_text_atomically(out_dir / INDEX_NAME, "\n".join(lines) + "\n")
+
+
+def write_summary(out_dir: Path, summary: Dict[str, Any]) -> int:
+    return write_text_atomically(
+        out_dir / SUMMARY_NAME,
+        json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=False) + "\n",
+    )
+
+
+def verify_shards(out_dir: Path, rows: Sequence[IndexRow], expected: int) -> List[str]:
+    """Re-read every shard: it must exist, parse, and be one of ``expected``."""
+    problems: List[str] = []
+    for row in rows:
+        path = out_dir.joinpath(*row.shard_path.split("/"))
+        try:
+            with path.open("r", encoding="utf-8") as handle:
+                json.load(handle)
+        except FileNotFoundError:
+            problems.append("{}: missing after writing".format(row.shard_path))
+        except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+            # A shard truncated mid multi-byte character raises UnicodeDecodeError,
+            # not JSONDecodeError; both are corruption this pass exists to report,
+            # so neither may abort the run before the other shards are checked.
+            problems.append("{}: does not parse ({})".format(row.shard_path, exc))
+        except OSError as exc:
+            problems.append("{}: unreadable ({})".format(row.shard_path, exc))
+    if len(rows) != expected:
+        problems.append(
+            "wrote {} shard(s) for {} conversation(s) read".format(len(rows), expected)
+        )
+    # Shards always live one level down (YYYY-MM/ or undated/); INDEX.tsv and
+    # SUMMARY.json sit at the top and must not be counted as shards.
+    on_disk = sum(
+        1
+        for path in out_dir.rglob("*.json")
+        if path.is_file() and path.parent != out_dir
+    )
+    if on_disk != expected:
+        problems.append(
+            "found {} .json file(s) under {} but read {} conversation(s)".format(
+                on_disk, out_dir, expected
+            )
+        )
+    return problems
+
+
+# --------------------------------------------------------------------------- #
+# Gzip mode
+# --------------------------------------------------------------------------- #
+
+
+class ByteCounter:
+    """A write-only sink that records how many bytes it was handed."""
+
+    def __init__(self) -> None:
+        self.total = 0
+
+    def write(self, data: bytes) -> int:
+        self.total += len(data)
+        return len(data)
+
+    def flush(self) -> None:
+        return None
+
+
+def compress_stream(source_path: Path, sink: Any, limit_bytes: Optional[int] = None) -> Tuple[int, int]:
+    """Gzip ``source_path`` into ``sink``; returns ``(bytes_read, bytes_written)``.
+
+    ``mtime=0`` and an empty embedded filename keep the output byte-identical
+    across runs, so re-running does not churn the git object.  Nothing larger
+    than one chunk is ever held in memory.
+    """
+    read_total = 0
+    counter = sink if isinstance(sink, ByteCounter) else None
+    with gzip.GzipFile(filename="", mode="wb", compresslevel=GZIP_LEVEL, fileobj=sink, mtime=0) as gz:
+        with source_path.open("rb") as handle:
+            while True:
+                if limit_bytes is not None and read_total >= limit_bytes:
+                    break
+                want = COPY_CHUNK_BYTES
+                if limit_bytes is not None:
+                    want = min(want, limit_bytes - read_total)
+                chunk = handle.read(want)
+                if not chunk:
+                    break
+                read_total += len(chunk)
+                gz.write(chunk)
+    written = counter.total if counter is not None else sink.tell()
+    return read_total, written
+
+
+def verify_gzip(path: Path, expected_bytes: int) -> List[str]:
+    """Decompress the result and confirm it yields the original byte count."""
+    problems: List[str] = []
+    total = 0
+    try:
+        with gzip.open(str(path), "rb") as handle:
+            while True:
+                chunk = handle.read(COPY_CHUNK_BYTES)
+                if not chunk:
+                    break
+                total += len(chunk)
+    except OSError as exc:
+        problems.append("{} does not decompress ({})".format(path.name, exc))
+        return problems
+    if total != expected_bytes:
+        problems.append(
+            "{} decompresses to {} bytes, expected {}".format(path.name, total, expected_bytes)
+        )
+    return problems
+
+
+def run_gzip(
+    input_path: Path,
+    size_bytes: int,
+    out_dir: Path,
+    dry_run: bool,
+    force: bool,
+) -> Tuple[int, Dict[str, Any]]:
+    """Compress the export to a single .gz, refusing to leave one over 100 MB."""
+    target = out_dir / (input_path.name + ".gz")
+    summary: Dict[str, Any] = {
+        "tool": "shard_conversations.py",
+        "mode": "gzip",
+        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "input": {"path": str(input_path), "bytes": size_bytes},
+        "parser": "none (gzip mode copies bytes, it does not parse)",
+        "schema": None,
+        "conversations": None,
+        "messages": None,
+        "bytes_in": size_bytes,
+    }
+
+    if dry_run:
+        sample_limit = min(size_bytes, GZIP_SAMPLE_BYTES)
+        counter = ByteCounter()
+        read, written = compress_stream(input_path, counter, limit_bytes=sample_limit)
+        ratio = (read / written) if written else 0.0
+        projected = int(size_bytes / ratio) if ratio else 0
+        print("Dry run - gzip mode, nothing written")
+        print("  input               {} ({} bytes)".format(human_bytes(size_bytes), size_bytes))
+        print("  sampled             {} at level {}".format(human_bytes(read), GZIP_LEVEL))
+        print("  measured ratio      {:.1f} to 1".format(ratio))
+        print("  projected output    ~{} -> {}".format(human_bytes(projected), target))
+        print(
+            "  GitHub 100 MB limit {}".format(
+                "would be exceeded - use the default sharding mode"
+                if projected > GITHUB_FILE_LIMIT_BYTES
+                else "OK"
+            )
+        )
+        summary.update(
+            {
+                "dry_run": True,
+                "output": str(target),
+                "sampled_bytes": read,
+                "measured_ratio": round(ratio, 3),
+                "projected_bytes_out": projected,
+            }
+        )
+        return 0, summary
+
+    if target.exists() and not force:
+        raise SystemExit(
+            "refusing to overwrite {}\nRe-run with --force to replace it.".format(target)
+        )
+
+    # The same rule shard mode applies: a directory holding an earlier run's
+    # output is not a safe place to drop a .gz and a fresh SUMMARY.json into,
+    # because that SUMMARY.json is the only record of what those shards are.
+    if out_dir.is_dir():
+        leftovers = sorted(entry.name for entry in out_dir.iterdir() if entry != target)
+        if leftovers and not force:
+            raise SystemExit(
+                "refusing to write into non-empty directory {}\n"
+                "It already holds {} entr{} ({}{}), and gzip mode would overwrite "
+                "{} there -- destroying the record of whatever produced them.\n"
+                "Move it aside, choose another --out, or re-run with --force.".format(
+                    out_dir,
+                    len(leftovers),
+                    "y" if len(leftovers) == 1 else "ies",
+                    ", ".join(leftovers[:5]),
+                    ", ..." if len(leftovers) > 5 else "",
+                    SUMMARY_NAME,
+                )
+            )
+        if leftovers:
+            LOGGER.warning(
+                "--force: writing into non-empty %s; %s is replaced with this gzip run's "
+                "summary and any earlier shard inventory there is lost",
+                out_dir,
+                SUMMARY_NAME,
+            )
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    handle = tempfile.NamedTemporaryFile(
+        "wb", dir=str(out_dir), prefix=".shard-conversations-", suffix=".gz.part", delete=False
+    )
+    temp_path = Path(handle.name)
+    try:
+        with handle:
+            read, _written = compress_stream(input_path, handle)
+        bytes_out = temp_path.stat().st_size
+        ratio = (read / bytes_out) if bytes_out else 0.0
+
+        if bytes_out > GITHUB_FILE_LIMIT_BYTES:
+            remove_quietly(temp_path)
+            raise SystemExit(
+                "refusing to write {}: it compressed to {} ({} bytes), still above "
+                "GitHub's 100 MB per-file hard limit (achieved ratio {:.1f} to 1).\n"
+                "Use the default sharding mode instead, which writes one small file "
+                "per conversation:\n"
+                "    python3 {} {} --out {}".format(
+                    target.name,
+                    human_bytes(bytes_out),
+                    bytes_out,
+                    ratio,
+                    sys.argv[0] or Path(__file__).name,
+                    input_path,
+                    out_dir,
+                )
+            )
+
+        os.chmod(str(temp_path), 0o644)
+        os.replace(str(temp_path), str(target))
+    except BaseException:
+        remove_quietly(temp_path)
+        raise
+
+    LOGGER.info("verifying %s", target.name)
+    problems = verify_gzip(target, size_bytes)
+
+    summary.update(
+        {
+            "dry_run": False,
+            "output": str(target),
+            "bytes_out": bytes_out,
+            "compression_ratio": round(ratio, 3),
+            "github_limit_bytes": GITHUB_FILE_LIMIT_BYTES,
+            "verified": not problems,
+        }
+    )
+    summary_bytes = write_summary(out_dir, summary)
+
+    print("Gzip summary:")
+    print("  input             {} ({} bytes)".format(human_bytes(size_bytes), size_bytes))
+    print("  output            {}".format(target))
+    print("  compressed        {} ({} bytes)".format(human_bytes(bytes_out), bytes_out))
+    print("  ratio             {:.1f} to 1".format(ratio))
+    print(
+        "  GitHub 100 MB     OK, {} to spare".format(
+            human_bytes(GITHUB_FILE_LIMIT_BYTES - bytes_out)
+        )
+    )
+    print("  summary           {} ({} bytes)".format(out_dir / SUMMARY_NAME, summary_bytes))
+
+    if problems:
+        print("\nVerification FAILED:", file=sys.stderr)
+        for problem in problems:
+            print("  {}".format(problem), file=sys.stderr)
+        return 1, summary
+    print("  verified          decompresses to the original {} bytes".format(size_bytes))
+    return 0, summary
+
+
+# --------------------------------------------------------------------------- #
+# Shard mode
+# --------------------------------------------------------------------------- #
+
+
+def base_summary(input_path: Path, size_bytes: int, source: ConversationSource, schema: Schema) -> Dict[str, Any]:
+    return {
+        "tool": "shard_conversations.py",
+        "mode": "shard",
+        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "input": {"path": str(input_path), "bytes": size_bytes},
+        "parser": source.parser,
+        "schema": schema.as_dict(),
+    }
+
+
+def run_shard(
+    input_path: Path,
+    size_bytes: int,
+    source: ConversationSource,
+    schema: Schema,
+    out_dir: Path,
+    dry_run: bool,
+    force: bool,
+    max_files: int,
+) -> Tuple[int, Dict[str, Any]]:
+    summary = base_summary(input_path, size_bytes, source, schema)
+
+    LOGGER.info("counting conversations before writing anything")
+    conversations, messages, projected = survey(source, schema, measure=dry_run)
+    over_limit = conversations > max_files
+
+    if conversations == 0:
+        # An empty result must not read like a clean run: the usual cause is that
+        # the wrong top-level array was picked (see choose_container_key's warning).
+        LOGGER.warning(
+            "%s holds NO conversations. Nothing but an empty index would be written. "
+            "If the export is not genuinely empty, the wrong top-level array was "
+            "chosen -- check any 'IGNORING' warning above.",
+            "the {!r} array".format(schema.container_key)
+            if schema.container_key
+            else "the top-level array",
+        )
+
+    if dry_run:
+        print("Dry run - shard mode, nothing written")
+        print("  input               {} ({} bytes)".format(human_bytes(size_bytes), size_bytes))
+        print("  parser              {}".format(source.parser))
+        print("  schema              {}".format(schema.describe()))
+        print("  conversations       {:,}".format(conversations))
+        print("  messages            {:,}".format(messages))
+        print(
+            "  projected output    {} across {:,} file(s) -> {}".format(
+                human_bytes(projected), conversations, out_dir
+            )
+        )
+        print(
+            "  --max-files         {}".format(
+                "WOULD REFUSE: {:,} shards exceeds the limit of {:,}".format(
+                    conversations, max_files
+                )
+                if over_limit
+                else "OK (limit {:,})".format(max_files)
+            )
+        )
+        summary.update(
+            {
+                "dry_run": True,
+                "output_dir": str(out_dir),
+                "conversations": conversations,
+                "messages": messages,
+                "bytes_in": size_bytes,
+                "projected_bytes_out": projected,
+                "max_files": max_files,
+            }
+        )
+        return 0, summary
+
+    if over_limit:
+        raise SystemExit(
+            "refusing to write {:,} shards: --max-files is {:,}.\n"
+            "That many small files is its own problem for git. Re-run with "
+            "--max-files {} if that is genuinely what you want.".format(
+                conversations, max_files, conversations
+            )
+        )
+
+    if out_dir.exists() and out_dir.is_dir() and any(out_dir.iterdir()):
+        if not force:
+            raise SystemExit(
+                "refusing to write into non-empty directory {}\n"
+                "Move it aside, choose another --out, or re-run with --force.".format(out_dir)
+            )
+        LOGGER.warning(
+            "--force: writing into non-empty %s; files left from an earlier run are "
+            "not removed, and any that remain are reported by the final verification",
+            out_dir,
+        )
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    LOGGER.info("writing %d shard(s) to %s", conversations, out_dir)
+    result = ShardResult()
+    try:
+        write_shards(source, schema, out_dir, result)
+    except (ExportError, KeyboardInterrupt, SystemExit):
+        raise
+    except Exception as exc:  # noqa: BLE001 - say what was written, never a traceback
+        raise SystemExit(
+            "failed while writing shards: {}: {}\n"
+            "{:,} shard(s) were written before the failure{}; no {} and no {} were "
+            "written, so the output directory is incomplete.\n"
+            "Delete {} and re-run once the cause is fixed.".format(
+                type(exc).__name__,
+                exc,
+                len(result.rows),
+                " (last: {})".format(result.rows[-1].shard_path) if result.rows else "",
+                INDEX_NAME,
+                SUMMARY_NAME,
+                out_dir,
+            )
+        ) from exc
+    index_bytes = write_index(out_dir, result.rows)
+
+    LOGGER.info("verifying %d shard(s)", len(result.rows))
+    problems = verify_shards(out_dir, result.rows, conversations)
+
+    largest = result.largest
+    summary.update(
+        {
+            "dry_run": False,
+            "output_dir": str(out_dir),
+            "conversations": result.conversations,
+            "messages": result.messages,
+            "bytes_in": size_bytes,
+            "bytes_out": result.bytes_out,
+            "shards_written": len(result.rows),
+            "largest_shard": (
+                None if largest is None else {"path": largest.shard_path, "bytes": largest.bytes}
+            ),
+            "index": {"path": INDEX_NAME, "rows": len(result.rows), "bytes": index_bytes},
+            "max_files": max_files,
+            "verified": not problems,
+        }
+    )
+    summary_bytes = write_summary(out_dir, summary)
+
+    print("Shard summary:")
+    print("  input             {} ({} bytes)".format(human_bytes(size_bytes), size_bytes))
+    print("  parser            {}".format(source.parser))
+    print("  schema            {}".format(schema.describe()))
+    print("  conversations     {:,}".format(result.conversations))
+    print("  messages          {:,}".format(result.messages))
+    print(
+        "  shards            {:,} file(s), {} total, in {}".format(
+            len(result.rows), human_bytes(result.bytes_out), out_dir
+        )
+    )
+    if largest is not None:
+        print("  largest shard     {} ({})".format(largest.shard_path, human_bytes(largest.bytes)))
+    print("  index             {} ({} rows, {} bytes)".format(INDEX_NAME, len(result.rows), index_bytes))
+    print("  summary           {} ({} bytes)".format(SUMMARY_NAME, summary_bytes))
+
+    if problems:
+        print("\nVerification FAILED:", file=sys.stderr)
+        for problem in problems[:20]:
+            print("  {}".format(problem), file=sys.stderr)
+        if len(problems) > 20:
+            print("  ... and {} more".format(len(problems) - 20), file=sys.stderr)
+        return 1, summary
+
+    print("  verified          all {:,} shard(s) re-read and parsed".format(len(result.rows)))
+    return 0, summary
+
+
+# --------------------------------------------------------------------------- #
+# CLI
+# --------------------------------------------------------------------------- #
+
+
+def default_out_dir(input_path: Path) -> Path:
+    stem = input_path.name
+    for extension in (".json", ".JSON"):
+        if stem.endswith(extension):
+            stem = stem[: -len(extension)]
+            break
+    return input_path.parent / "{}-shards".format(stem or "conversations")
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="shard_conversations.py",
+        description=(
+            "Split a Claude conversations.json export into one small JSON file per "
+            "conversation (default), or compress it to a single .json.gz, so it can "
+            "live in a git repository under GitHub's 100 MB per-file limit."
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Modes:\n"
+            "  (default)  shard: <out>/<YYYY-MM>/<uuid>.json plus INDEX.tsv and SUMMARY.json.\n"
+            "             Undated conversations go to <out>/undated/. Many small readable\n"
+            "             files are what a code-graph indexer can use.\n"
+            "  --gzip     one <out>/<name>.json.gz instead. JSON compresses about ten to\n"
+            "             one; the script measures the real ratio and refuses to leave a\n"
+            "             file behind if it is still over 100 MB.\n"
+            "\n"
+            "Memory: install ijson (python3 -m pip install ijson) and the input is parsed\n"
+            "as a stream at flat memory. Without it json.load is used, which needs roughly\n"
+            "4-8x the file size in RAM; that fallback always warns on stderr. --gzip never\n"
+            "parses, so it is safe on any input either way.\n"
+            "\n"
+            "Exit codes: 0 success, 1 refusal or failed verification, 2 bad arguments.\n"
+        ),
+    )
+    parser.add_argument("input", metavar="INPUT", help="the conversations.json export to read")
+    parser.add_argument(
+        "--out",
+        metavar="DIR",
+        default=None,
+        help="output directory (default: <input>-shards next to the input)",
+    )
+    parser.add_argument(
+        "--gzip",
+        action="store_true",
+        help="write one compressed <name>.json.gz instead of sharding",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="parse and report counts and projected output size; write nothing",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="write into a non-empty output directory (or replace an existing .gz)",
+    )
+    parser.add_argument(
+        "--max-files",
+        type=int,
+        default=DEFAULT_MAX_FILES,
+        metavar="N",
+        help="refuse to write more than N shards (default: %(default)s)",
+    )
+    parser.add_argument("--verbose", "-v", action="store_true", help="debug logging")
+    return parser
+
+
+def configure_logging(verbose: bool) -> None:
+    logging.basicConfig(
+        level=logging.DEBUG if verbose else logging.INFO,
+        format="%(levelname)s %(message)s",
+        stream=sys.stderr,
+    )
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    configure_logging(args.verbose)
+
+    if args.max_files < 1:
+        parser.error("--max-files must be at least 1")
+
+    input_path = Path(args.input).expanduser()
+    out_dir = Path(args.out).expanduser() if args.out else default_out_dir(input_path)
+
+    # Everything above this line is argument handling only: nothing is read.
+    if not input_path.is_file():
+        raise SystemExit("no such file: {}".format(input_path))
+    size_bytes = input_path.stat().st_size
+    if size_bytes == 0:
+        raise SystemExit("{} is empty".format(input_path))
+
+    out_dir = out_dir.resolve()
+    # Checked here rather than at mkdir time so an --out typo (--out drive/chats.json)
+    # fails in one line now, not with a FileExistsError after the whole counting pass.
+    if out_dir.exists() and not out_dir.is_dir():
+        raise SystemExit("--out {} exists and is not a directory".format(out_dir))
+
+    def shard_with(source: ConversationSource) -> int:
+        schema = detect_schema(sample_records(source), source.container_key)
+        LOGGER.info("detected schema: %s", schema.describe())
+        code, _summary = run_shard(
+            input_path.resolve(),
+            size_bytes,
+            source,
+            schema,
+            out_dir,
+            args.dry_run,
+            args.force,
+            args.max_files,
+        )
+        return code
+
+    try:
+        if args.gzip:
+            code, _summary = run_gzip(
+                input_path.resolve(), size_bytes, out_dir, args.dry_run, args.force
+            )
+            return code
+
+        try:
+            return shard_with(open_source(input_path, size_bytes))
+        except StreamingUnsupported as exc:
+            # Not a broken export: json.load reads this one losslessly. Nothing has
+            # been written yet -- run_shard counts the whole input before writing,
+            # so any streaming parse failure surfaces during that pass.
+            LOGGER.warning("%s; retrying with the in-memory parser", exc)
+            return shard_with(load_in_memory(input_path, size_bytes))
+    except ExportError as exc:
+        print("error: {}".format(exc), file=sys.stderr)
+        return 2
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except KeyboardInterrupt:  # pragma: no cover - interactive use
+        print("interrupted", file=sys.stderr)
+        sys.exit(130)
+<<<END FILE: shard_conversations.py>>>
+
+<<<FILE: shiftcheck2.py>>>
+#!/usr/bin/env python3
+"""shiftcheck2.py — shiftcheck's successor for a REGISTER line shift: the window applies only in a line-reference context.
+
+    python3 tools/shiftcheck2.py --shift PIVOT:DELTA:MAX [--subst OLD=NEW ...] [--load DIR] [--banked DIR] [--all | NAME ...]
+    python3 tools/shiftcheck2.py --selftest
+
+WHY. `shiftcheck.py` bumps EVERY integer in its window and so cannot sort a Register shift: a Register line number and a
+same-range count sit on the same output line (*six-volume sites 137* beside `'reg': [120, …]`), and the unchanged count
+then fails the check — 132 of 136 changed goldens UNEXPLAINED at W-234's `--shift 50:2:6800`. This tool keeps
+shiftcheck's contract (a declared shift, declared substitutions, EXPLAINED means every changed line reduces to its banked
+form) and adds the one thing it lacked: an integer is a candidate for the shift ONLY where the text around it says it is a
+Register line reference — after `L`, `reg`, `Register`, `register`, `R`, `heading`, `unit = L`, `->`, an en-dash range
+`L…–L…`, at the start of a line, or inside a bracket list or tuple — and only when its own change is exactly the declared delta from at or above
+the pivot. An unchanged integer is never touched. A count that moved by exactly the delta in such a context would be
+explained wrongly; every shift-explained integer that is not in an L/reg/Register context is therefore PRINTED for the
+reader (`bare`), which is the price of the context rule and is paid visibly. Verdicts: UNCHANGED, EXPLAINED (with the
+bare list), RESIDUE (the first unexplained change, quoted), UNRUNNABLE (no output). It writes nothing into method/.
+"""
+import argparse, os, re, subprocess, sys, tempfile, difflib, importlib.util
+_here = os.path.dirname(os.path.abspath(__file__))
+H = _here if os.path.basename(_here) == 'members' else os.path.join(os.path.dirname(_here), 'method', 'members')   # from tools/ or from a seated copy
+NUM = re.compile(r'(?<![\[\d,])\d{1,3}(?:,\d{3})+(?![\d,])|\d+')   # a thousands group, unless it sits in a comma-joined list
+CTX = re.compile(r"(L|reg|Register|register|R\d+ L|heading|unit = L|–L|\[|,|\(|'reg': \[|lines: \[|L\d+[-–]|->|\bR|^\s*)\s*$")
+STRONG = re.compile(r"(L|reg|Register|register|R\d+ L|heading|unit = L|–L|'reg': \[|lines: \[|L\d+[-–])\s*$")
+def parse_shift(s):
+    m = re.fullmatch(r'(\d+):([+-]?\d+):(\d+)', s)
+    if not m: raise argparse.ArgumentTypeError('--shift wants PIVOT:DELTA:MAX')
+    return int(m.group(1)), int(m.group(2)), int(m.group(3))
+ISNUM = lambda t: bool(NUM.fullmatch(t))
+def explain_line(a, b, shifts, substs):
+    """(kind, detail): kind in 'same' | 'decl' | 'shift' | 'residue'; detail lists bare shift sites.
+    A numeric substitution (1832=1835) is matched token by token, never as a substring — '14=16' must not touch 1442;
+    a non-numeric one (an md5 prefix) is a substring."""
+    for x, y in substs:
+        if not (ISNUM(x) and ISNUM(y)): a = a.replace(x, y)
+    if a == b: return 'decl', []
+    ta, tb = NUM.split(a), NUM.split(b)
+    if ta != tb: return 'residue', ['text differs: %r' % b.strip()[:100]]
+    kinds, bare = set(), []
+    for x, y, m in zip(NUM.findall(a), NUM.findall(b), NUM.finditer(a)):
+        if x == y: continue
+        if (x, y) in substs: kinds.add('decl'); continue
+        pre = a[:m.start()][-16:]
+        try: xi, yi = int(x.replace(',', '')), int(y.replace(',', ''))
+        except ValueError: return 'residue', ['%s -> %s' % (x, y)]
+        ok = any(lo <= xi <= hi and yi == xi + d for lo, d, hi in shifts) and ',' not in x and CTX.search(pre)
+        if not ok: return 'residue', ['%s -> %s in %r' % (x, y, (pre + x)[-40:])]
+        kinds.add('shift')
+        if not STRONG.search(pre): bare.append('%s->%s after %r' % (x, y, pre.strip()[-12:]))
+    return ('shift' if 'shift' in kinds else 'decl'), bare
+def classify(banked, now, shifts, substs):
+    if banked == now: return 'UNCHANGED', []
+    bl, nl = banked.split('\n'), now.split('\n')
+    if len(bl) != len(nl): return 'RESIDUE', ['line count %d -> %d' % (len(bl), len(nl))]
+    bare = []
+    for a, b in zip(bl, nl):
+        if a == b: continue
+        k, d = explain_line(a, b, shifts, substs)
+        if k == 'residue': return 'RESIDUE', d
+        bare += d
+    return 'EXPLAINED', bare
+def gate_cmd(name):
+    spec = importlib.util.spec_from_file_location('gate', os.path.join(H, 'gate.py')); g = importlib.util.module_from_spec(spec); spec.loader.exec_module(g)
+    return g.SPECIAL.get(name, ['python3', name + '.py'])
+def run_now(name, load):
+    if load:
+        p = os.path.join(load, name + '.now')
+        return open(p, encoding='utf-8', errors='replace').read() if os.path.exists(p) else None
+    r = subprocess.run(gate_cmd(name), cwd=H, capture_output=True, text=True, timeout=300)
+    return r.stdout if r.returncode == 0 else None
+def selftest():
+    S = [(50, 2, 6800)]; U = [('1832', '1835'), ('33e10932', '87bd1b80')]
+    cases = [('reg list shifts', "478      main [7058] reg [1778] ioi [858]", "478      main [7058] reg [1780] ioi [858]", 'EXPLAINED'),
+             ('unchanged in-window count untouched', "18 six-volume sites 137 other volumes {'reg': [120, 146]}", "18 six-volume sites 137 other volumes {'reg': [122, 148]}", 'EXPLAINED'),
+             ('a count that moved by one is a residue', 'withdraw reg 61 site(s)', 'withdraw reg 62 site(s)', 'RESIDUE'),
+             ('a count below the pivot moving by the delta is a residue', '976 main:93 reg:45 mc:37', '976 main:93 reg:47 mc:37', 'RESIDUE'),
+             ('declared count', 'live register: 1699 numbers, 1..1832', 'live register: 1699 numbers, 1..1835', 'EXPLAINED'),
+             ('declared md5', 'md5 33e10932 6771 lines', 'md5 87bd1b80 6771 lines', 'EXPLAINED'),
+             ('literal read prints other words', 'reg  L1366 ### 368', 'reg  L1366 **ITEM M …**', 'RESIDUE'),
+             ('added line', 'one\ntwo', 'one\ntwo\nthree', 'RESIDUE'),
+             ('unit window', 'unit = L78-L453, 376 lines', 'unit = L80-L455, 376 lines', 'EXPLAINED'),
+             ('entry-line tuple', 'Register (line, entry) [(1376, 371), (6570, 1780)]', 'Register (line, entry) [(1378, 371), (6572, 1780)]', 'EXPLAINED'),
+             ('arrow reference', 'register 1787 cited at L8683 -> 6594 (exact)', 'register 1787 cited at L8683 -> 6596 (exact)', 'EXPLAINED'),
+             ('R-prefixed reference', '    R6566: Both rows now state', '    R6568: Both rows now state', 'EXPLAINED'),
+             ('line-leading reference', '   1058 **ITEMS D AND M**', '   1060 **ITEMS D AND M**', 'EXPLAINED'),
+             ('comma-joined list is not a thousands group', 'reg:5[368,400,5732]', 'reg:5[370,402,5734]', 'EXPLAINED'),
+             ('a list that grew is a residue', "'reg': [686, 2360]", "'reg': [688, 2362, 6775]", 'RESIDUE')]
+    bad = 0
+    for name, a, b, want in cases:
+        got, d = classify(a, b, S, U)
+        if got != want: print('  FAIL %s: %s expected %s %s' % (name, got, want, d)); bad += 1
+    got, bare = classify('main:0 reg:4[5004,6653]', 'main:0 reg:4[5006,6655]', S, U)
+    if got != 'EXPLAINED' or not bare: print('  FAIL bare sites are printed: %s %s' % (got, bare)); bad += 1
+    print('fixtures checked: %d  failed: %d' % (len(cases) + 1, bad)); print('\nSELFTEST OK' if not bad else '\nSELFTEST FAILED'); return bad
+def main():
+    ap = argparse.ArgumentParser(); ap.add_argument('names', nargs='*'); ap.add_argument('--shift', action='append', type=parse_shift, default=[])
+    ap.add_argument('--subst', action='append', default=[]); ap.add_argument('--load'); ap.add_argument('--banked', help='read NAME.out from this directory instead of members/ (a retired build\'s goldens, from git)'); ap.add_argument('--all', action='store_true'); ap.add_argument('--selftest', action='store_true')
+    a = ap.parse_args()
+    if a.selftest: sys.exit(selftest())
+    substs = [tuple(s.split('=', 1)) for s in a.subst]
+    names = sorted(f[:-4] for f in os.listdir(a.banked or H) if f.endswith('.out')) if a.all else a.names
+    print('shift windows:', a.shift, '| substitutions:', substs, '| load:', a.load or '(run)')
+    tally = {}
+    for n in names:
+        banked = open(os.path.join(a.banked or H, n + '.out'), encoding='utf-8', errors='replace').read(); now = run_now(n, a.load)
+        if now is None: v, d = 'UNRUNNABLE', []
+        else: v, d = classify(banked, now, a.shift, substs)
+        tally[v] = tally.get(v, 0) + 1; print('%-11s %s' % (v, n))
+        for x in d[:4]: print('    ', x[:160])
+    print('\n', ' '.join('%s %d' % kv for kv in sorted(tally.items())))
+if __name__ == '__main__': main()
+<<<END FILE: shiftcheck2.py>>>
+
+<<<FILE: shiftinv.py>>>
+#!/usr/bin/env python3
+"""shiftinv.py — triage a moved golden: shift-invariant, or a finding, or a literal read.
+
+    python3 tools/shiftinv.py NAME [NAME ...]        run each instrument now, diff against its banked golden
+    python3 tools/shiftinv.py --all                  every seated golden
+
+WHY. After a build that moves lines, every golden that prints a line reference moves. `close_rebank.py`
+re-banks by running and does not decide whether the movement is a finding; `shiftcheck.py` decides it
+for a DECLARED shift, and the estate's drift predates any one declaration (DEF-153J). This tool asks the
+question the other way round: strip every digit run from both outputs and compare the WORDS. What is
+left is the residual — lines whose words changed — and beside it every integer that changed by
+something other than a plausible line shift. Three verdicts, none of them a re-bank on its own:
+
+  SHIFT     no residual words, no non-shift integer: the output moved with the volume. Re-bank only after
+            reading the instrument for a literal line index (a literal read whose content moved by a
+            whole line prints the same SHAPE; DEF-153N's caveat — the mask cannot see it).
+  COUNT     an integer below 1,000 changed: a count moved. Explain it by name (an appended entry, a
+            repaired row) before re-banking, or it is a finding.
+  TEXT      words changed: the instrument reads different content — a positional window, or the
+            volume changed under it. A reading, never a re-bank.
+
+Runs each instrument through gate.py's own command table (SPECIAL), in members/, writing nothing.
+W-234 (Q5 pass 6): `--all` used to enumerate only NAME.out with a NAME.py beside it, so the goldens gate.py runs
+by a SPECIAL command with no .py of their own name (r2-tools-constants, extent) were never triaged, and a CORE
+golden stayed stale from BUILD104 to BUILD110. `--all` now walks every NAME.out that has a .py or a SPECIAL entry,
+and `--list` prints that set without running anything
+into method/. Fresh outputs go to a scratch directory named on stderr.
+"""
+import os, re, subprocess, sys, difflib, importlib.util, tempfile, concurrent.futures as cf
+from collections import Counter
+_here = os.path.dirname(os.path.abspath(__file__))
+H = _here if os.path.basename(_here) == 'members' else os.path.join(os.path.dirname(_here), 'method', 'members')   # from tools/ or from a seated copy
+spec = importlib.util.spec_from_file_location('gate', os.path.join(H, 'gate.py')); gate = importlib.util.module_from_spec(spec); spec.loader.exec_module(gate)
+NOW = tempfile.mkdtemp(prefix='shiftinv-'); print('fresh outputs ->', NOW, file=sys.stderr)
+mask = lambda s: re.sub(r'\d[\d,]*(?:\.\d+)?', '#', s)
+nums = lambda s: re.findall(r'\d[\d,]*(?:\.\d+)?', s)
+def run(n):
+    cmd = gate.SPECIAL.get(n, ['python3', n + '.py'])
+    p = subprocess.run(cmd, cwd=H, capture_output=True, timeout=1200)
+    out = p.stdout.decode('utf-8', 'replace'); open(os.path.join(NOW, n + '.out'), 'w', encoding='utf-8').write(out)
+    return n, p.returncode, out
+names = [f[:-4] for f in sorted(os.listdir(H)) if f.endswith('.out') and (os.path.exists(os.path.join(H, f[:-4] + '.py')) or f[:-4] in gate.SPECIAL)] if '--all' in sys.argv else [a for a in sys.argv[1:] if not a.startswith('--')]
+if '--list' in sys.argv: print('\n'.join(names)); sys.exit(0)
+rows = []
+with cf.ThreadPoolExecutor(4) as ex:
+    for n, rc, out in ex.map(run, names):
+        gold = open(os.path.join(H, n + '.out'), encoding='utf-8').read()
+        if rc != 0: rows.append((n, 'ERROR', rc, '', '')); continue
+        if out == gold: rows.append((n, 'SAME', 0, '', '')); continue
+        a, b = gold.split('\n'), out.split('\n')
+        ca, cb = Counter(mask(x) for x in a), Counter(mask(x) for x in b)
+        res = sum((ca - cb).values()) + sum((cb - ca).values())
+        da = {mask(x): x for x in a if 'md5' not in x}; db = {mask(x): x for x in b if 'md5' not in x}
+        flags = []
+        for k in set(da) & set(db):
+            if da[k] == db[k]: continue
+            na, nb = nums(da[k]), nums(db[k])
+            if len(na) != len(nb): continue
+            for p, q in zip(na, nb):
+                if p != q:
+                    try: pv, qv = float(p.replace(',', '')), float(q.replace(',', ''))
+                    except ValueError: continue
+                    if pv < 1000 or qv < 1000 or abs(qv - pv) > 60: flags.append('%s->%s %s' % (p, q, da[k].strip()[:80])); break
+        kind = 'TEXT' if res else ('COUNT' if flags else 'SHIFT')
+        rows.append((n, kind, res, len(flags), ' | '.join(flags[:2])))
+for r in sorted(rows, key=lambda r: (r[1], r[0])): print('%-14s %-6s residual %4s  non-shift ints %3s  %s' % r)
+<<<END FILE: shiftinv.py>>>
+
+<<<FILE: slopeaxis.py>>>
+#!/usr/bin/env python3
+"""tools/slopeaxis.py -- the occupation law of Chapter 34 as one object.
+
+Section 34.4 states the rule as nu = n - a*sqrt(r), r = p + q/2(2l+1), and the
+incoming electron takes the least nu.  Minimising n - a*sqrt(r) is minimising
+y - a*x at the point (x, y) = (sqrt(r), n).  So every admissible subshell is a
+POINT in a plane and `a` is a SLOPE: a line of slope a rising from below stops
+at one point, and only vertices of the lower convex hull can ever be that
+point.  An element's place on the axis is the interval between the two
+hull-edge slopes flanking its observed entrant -- which is section 34.5's
+corridor, arrived at from the other side.
+
+That identity is not assumed here, it is asserted: --selftest checks the
+corridor set against the hull-vertex set at all 106 steps in both forms and
+fails on any mismatch.
+
+    python3 tools/slopeaxis.py --selftest
+    python3 tools/slopeaxis.py --json out/axis.json
+    python3 tools/slopeaxis.py --html out/slope-axis.html
+    python3 tools/slopeaxis.py --report
+
+It IMPORTS the seated member method/members/r2-ch16y.py by path for the
+observed ground configurations and the corridor machinery; it reimplements
+neither.  Stdlib only, Python 3.9+.
+
+Three things it refuses to do:
+
+  1. It never draws a row past Z = 108.  Register 1304: there are FOUR edges,
+     not two -- optical spectroscopy ends at 102, the NIST ASD listing holds no
+     neutral ground configuration past 108, synthesis ends at 118, and Janet's
+     lattice counts 120 cells.  A row beyond the listing would be an invented
+     cell, which register 1288 already refused once.  The four edges are
+     printed as an annotation and never as data.
+
+  2. It never reports a coverage figure without naming the form AND the sign
+     convention.  Coverage under a in R and under a > 0 are different numbers;
+     the corpus records both and docket 20x is not closed by picking one.
+
+  3. It never merges the two forms.  Node-only gives 17 distinct edge slopes
+     and 14 forced emptyings; the finished form gives 121 and 11.  Averaging
+     them, or silently defaulting to whichever is prettier, would flatten
+     docket 37.  Both are computed, both are emitted, neither is preferred.
+"""
+
+from __future__ import annotations
+
+import argparse
+import contextlib
+import io
+import json
+import math
+import os
+import runpy
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(HERE)) if os.path.basename(HERE) == 'members' else os.path.dirname(HERE)   # the repo root, from tools/ or from a seated copy in method/members/
+MEMBERS = os.path.join(ROOT, "method", "members")
+INF = float("inf")
+
+# the four edges of register 1304 -- annotation, never a row
+EDGES = [
+    (102, "optical spectroscopy ends (No)"),
+    (108, "NIST ASD listing ends (Hs)"),
+    (118, "synthesised ends (Og)"),
+    (120, "Janet's cell count"),
+]
+
+
+def load_member():
+    """Import r2-ch16y by path.  An instrument imports a seated member; it never copies one."""
+    if MEMBERS not in sys.path:
+        sys.path.insert(0, MEMBERS)
+    path = os.path.join(MEMBERS, "r2-ch16y.py")
+    if not os.path.exists(path):
+        sys.exit("slopeaxis: seated member not found: %s" % path)
+    with contextlib.redirect_stdout(io.StringIO()):
+        return runpy.run_path(path)
+
+
+class Store:
+    def __init__(self):
+        g = load_member()
+        self.cap = g["cap"]
+        self.nl = g["nl"]
+        self.CONF = g["CONF"]
+        self.ENT = g["ENT"]
+        self.SYM = g["SYM"]
+        LQ = g["LQ"]
+        self.ALL = [
+            "%d%s" % (n, l)
+            for n in range(1, 8)
+            for l in "spdfg"
+            if LQ[l] < n and LQ[l] <= 3
+        ]
+
+    def p_of(self, s):
+        n, l = self.nl(s)
+        return n - l - 1
+
+    def k_of(self, s):
+        n, l = self.nl(s)
+        return n + l
+
+    def rad(self, s, q, form):
+        return self.p_of(s) + (q / self.cap(s) if form == "q" else 0.0)
+
+    def x(self, s, conf, form):
+        return math.sqrt(self.rad(s, conf.get(s, 0), form))
+
+    def y(self, s):
+        return float(self.nl(s)[0])
+
+    def admissible(self, Z):
+        prev = self.CONF[Z - 1]
+        return [s for s in self.ALL if prev.get(s, 0) < self.cap(s)]
+
+    def corridor(self, conf, cand, S, form):
+        """The interval of slopes on which cand is strictly least-nu against S."""
+        Ps, ns = self.x(cand, conf, form), self.y(cand)
+        lo, hi, infeasible = -INF, INF, False
+        for r in S:
+            if r == cand:
+                continue
+            Pr, nr = self.x(r, conf, form), self.y(r)
+            c, d = Pr - Ps, nr - ns
+            if abs(c) < 1e-12:
+                if d <= 0:
+                    infeasible = True
+            elif c > 0:
+                hi = min(hi, d / c)
+            else:
+                lo = max(lo, d / c)
+        return lo, hi, infeasible
+
+    def hull(self, conf, S, form):
+        """Vertices of the LOWER convex hull of {(sqrt(r), n)}, left to right."""
+        byx = {}
+        for s in S:
+            k = round(self.x(s, conf, form), 12)
+            if k not in byx or self.y(s) < self.y(byx[k]):
+                byx[k] = s
+        Q = sorted(byx.values(), key=lambda s: self.x(s, conf, form))
+        H = []
+        for q in Q:
+            while len(H) >= 2:
+                x1, y1 = self.x(H[-2], conf, form), self.y(H[-2])
+                x2, y2 = self.x(H[-1], conf, form), self.y(H[-1])
+                x3, y3 = self.x(q, conf, form), self.y(q)
+                if (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1) <= 0:
+                    H.pop()
+                else:
+                    break
+            H.append(q)
+        return H
+
+    def kpick(self, S):
+        return min(S, key=lambda s: (self.k_of(s), self.nl(s)[0]))
+
+
+def build(store, form):
+    steps, ends = [], set()
+    for Z in range(3, 109):
+        conf = store.CONF[Z - 1]
+        S = store.admissible(Z)
+        H = store.hull(conf, S, form)
+        lo, hi, bad = store.corridor(conf, store.ENT[Z], S, form)
+        A = [
+            s
+            for s in S
+            if (lambda t: (not t[2]) and t[0] < t[1])(store.corridor(conf, s, S, form))
+        ]
+        for e in (lo, hi):
+            if e not in (INF, -INF):
+                ends.add(round(e, 7))
+        steps.append(
+            {
+                "Z": Z,
+                "sym": store.SYM[Z - 1],
+                "ent": store.ENT[Z],
+                "L": None if lo == -INF else round(lo, 7),
+                "U": None if hi == INF else round(hi, 7),
+                "ok": (not bad) and lo < hi,
+                "nA": len(A),
+                "A": A,
+                "k": store.kpick(S),
+                "hull": [
+                    {"s": s, "x": round(store.x(s, conf, form), 6), "y": store.y(s)}
+                    for s in H
+                ],
+                "pts": [
+                    {"s": s, "x": round(store.x(s, conf, form), 6), "y": store.y(s)}
+                    for s in S
+                ],
+            }
+        )
+
+    # the walk of register 1328: hold a if inside, else the nearest endpoint
+    a = None
+    for st in steps:
+        lo = -INF if st["L"] is None else st["L"]
+        hi = INF if st["U"] is None else st["U"]
+        if a is None or not (lo < a < hi):
+            new = (lo if lo != -INF else (hi if hi != INF else 0.0)) if a is None \
+                else (lo if a <= lo else hi)
+            if new in (INF, -INF):
+                new = 0.0
+            if abs(new) < 1e-12:
+                new = 0.0
+            st["reset"] = (a is None) or abs(new - a) > 1e-12
+            a = new
+        else:
+            st["reset"] = False
+        st["a"] = round(a, 7)
+
+    grid = [i / 1000.0 for i in range(-1000, 5001)]
+    cov = [
+        sum(
+            1
+            for st in steps
+            if (st["L"] is None or g > st["L"]) and (st["U"] is None or g < st["U"])
+        )
+        for g in grid
+    ]
+    bi = max(range(len(grid)), key=lambda i: cov[i])
+
+    lo_r, hi_r, empties = -INF, INF, []
+    for st in steps:
+        lo = -INF if st["L"] is None else st["L"]
+        hi = INF if st["U"] is None else st["U"]
+        nlo, nhi = max(lo_r, lo), min(hi_r, hi)
+        if nlo >= nhi:
+            empties.append(st["Z"])
+            lo_r, hi_r = lo, hi
+        else:
+            lo_r, hi_r = nlo, nhi
+
+    return {
+        "steps": steps,
+        "ends": sorted(ends),
+        "cov": cov,
+        "gridMin": -1.0,
+        "gridStep": 0.001,
+        "bestA": round(grid[bi], 4),
+        "bestCov": cov[bi],
+        "empties": empties,
+    }
+
+
+def object_for(store):
+    return {
+        "forms": {f: build(store, f) for f in ("p", "q")},
+        "edges": [{"z": z, "label": t} for z, t in EDGES],
+    }
+
+
+TEMPLATE = """<title>The Slope Axis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#191b21; --ink-2:#4a4f59; --ink-3:#787d86;
+  --paper:#ecefe9; --panel:#f5f7f2; --rule:#c8ccc3; --rule-2:#dde0d8;
+  --indigo:#2e3c6b; --sodium:#b3760f; --halpha:#a93a33; --teal:#2f6b72;
+  --covered:#2e3c6b; --on-accent:#ecefe9; --font-d:"Spectral",Georgia,"Times New Roman",serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#dfe3da; --ink-2:#a2a89c; --ink-3:#767d72;
+  --paper:#111318; --panel:#181b21; --rule:#333944; --rule-2:#252a32;
+  --indigo:#8ea3e0; --sodium:#e0a33f; --halpha:#e0716a; --teal:#63b3b9;
+  --covered:#8ea3e0; --on-accent:#111318;
+}}
+:root[data-theme="dark"]{
+  --ink:#dfe3da; --ink-2:#a2a89c; --ink-3:#767d72;
+  --paper:#111318; --panel:#181b21; --rule:#333944; --rule-2:#252a32;
+  --indigo:#8ea3e0; --sodium:#e0a33f; --halpha:#e0716a; --teal:#63b3b9;
+  --covered:#8ea3e0; --on-accent:#111318;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-d);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 28px 80px}
+h1{font-size:clamp(30px,4.4vw,50px);font-weight:600;letter-spacing:-.02em;margin:0 0 6px;
+  text-wrap:balance;line-height:1.08}
+.sub{font-family:var(--font-m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 26px}
+.lede{max-width:64ch;color:var(--ink-2);font-size:17.5px;margin:0 0 30px}
+.lede em{color:var(--ink);font-style:italic}
+h2{font-size:12px;font-family:var(--font-m);font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 14px;
+  padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.defn{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:0;
+  border:1px solid var(--rule);background:var(--panel);margin:0 0 40px}
+.defn>div{padding:20px 22px;border-right:1px solid var(--rule-2)}
+.defn>div:last-child{border-right:0}
+.defn h3{font-family:var(--font-m);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 10px;font-weight:600}
+.defn p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.defn b{color:var(--ink);font-weight:600}
+.eq{font-family:var(--font-m);font-size:15px;color:var(--indigo);display:block;margin:0 0 9px}
+.stage{display:grid;grid-template-columns:1fr 380px;gap:34px;align-items:start}
+@media(max-width:960px){.stage{grid-template-columns:1fr}}
+.side{position:sticky;top:22px;display:flex;flex-direction:column;gap:22px}
+@media(max-width:960px){.side{position:static}}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+button{font-family:var(--font-m);font-size:11px;letter-spacing:.05em;
+  background:var(--panel);color:var(--ink-2);border:1px solid var(--rule);padding:7px 12px;
+  cursor:pointer;transition:.12s}
+button:hover{color:var(--ink);border-color:var(--ink-3)}
+button[aria-pressed="true"]{background:var(--indigo);border-color:var(--indigo);color:var(--on-accent)}
+button:focus-visible{outline:2px solid var(--sodium);outline-offset:2px}
+.readout{border:1px solid var(--rule);background:var(--panel)}
+.readout .r{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:9px 16px;border-bottom:1px solid var(--rule-2)}
+.readout .r:last-child{border-bottom:0}
+.readout .k{font-family:var(--font-m);font-size:10.5px;letter-spacing:.08em;color:var(--ink-3)}
+.readout .v{font-family:var(--font-m);font-size:14px;font-weight:500;color:var(--ink);
+  font-variant-numeric:tabular-nums;text-align:right}
+.big{font-family:var(--font-m);font-size:30px;font-weight:600;color:var(--indigo);
+  font-variant-numeric:tabular-nums;line-height:1}
+figure{margin:0}
+figcaption{font-size:13.5px;color:var(--ink-3);margin-top:10px;max-width:62ch;line-height:1.5}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.scroller{overflow-x:auto}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:14px 0 0;
+  font-family:var(--font-m);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{flex:none}
+.sw{width:15px;height:3px;display:inline-block}
+.note{border-left:2px solid var(--sodium);padding:2px 0 2px 16px;margin:38px 0 0;
+  max-width:66ch;color:var(--ink-2);font-size:15.5px}
+.note b{color:var(--ink)}
+table{border-collapse:collapse;width:100%;font-size:14px;margin-top:6px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule-2)}
+th{font-family:var(--font-m);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+td.n{font-family:var(--font-m);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+tr.hi td{background:color-mix(in srgb,var(--sodium) 11%,transparent)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<div class="wrap">
+<header>
+  <h1>The Slope Axis</h1>
+  <p class="sub">The Method 1.6 · §34.4–34.6 · Z = 3 to 108, four edges to 120</p>
+  <p class="lede">Every element in the index sits on one axis, and the axis is <em>a</em> — not a
+  fitted constant but a <em>slope</em>. Each candidate subshell is a point in a plane; the incoming
+  electron takes the point a line of slope <em>a</em> touches first, sweeping up from below. An
+  element's place on the axis is the wedge of slopes for which its observed entrant is that first
+  point of contact.</p>
+</header>
+
+<section class="defn">
+  <div>
+    <h3>The rule</h3>
+    <span class="eq">ν = n − a·√r</span>
+    <p>with <b>r = p + q/2(2ℓ+1)</b>, the node count and the filled fraction of capacity. Least ν
+    takes the electron (§34.4).</p>
+  </div>
+  <div>
+    <h3>The plane</h3>
+    <span class="eq">s ↦ ( √r , n )</span>
+    <p>Minimising <b>n − a·√r</b> is minimising <b>y − a·x</b>. Each admissible subshell is a
+    <b>point</b>; nothing else about it enters.</p>
+  </div>
+  <div>
+    <h3>The axis</h3>
+    <span class="eq">a ∈ ℝ — a slope</span>
+    <p>A line of slope <i>a</i> rising from below stops at one point. Only <b>vertices of the lower
+    convex hull</b> can ever be that point.</p>
+  </div>
+  <div>
+    <h3>The element's place</h3>
+    <span class="eq">L(Z) &lt; a &lt; U(Z)</span>
+    <p>The two <b>hull-edge slopes</b> flanking the observed entrant. Verified identical to the
+    corridor at 106 of 106 steps, both forms.</p>
+  </div>
+</section>
+
+<div class="ctl">
+  <button id="fp" aria-pressed="true">node-only&nbsp; ν = n − a√p</button>
+  <button id="fq" aria-pressed="false">finished&nbsp; ν = n − a√(p+q/cap)</button>
+  <button id="best">go to best fixed a</button>
+  <button id="walkbtn" aria-pressed="true">show the walk</button>
+</div>
+
+<div class="stage">
+  <figure>
+    <h2>The index on one axis</h2>
+    <div class="scroller"><svg id="stack" viewBox="0 0 760 660" role="img"
+      aria-label="106 elements as intervals on the slope axis a"></svg></div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--covered)"></i>covered at this a</span>
+      <span><i class="sw" style="background:var(--rule)"></i>not covered</span>
+      <span><i class="sw" style="background:var(--sodium)"></i>the walk</span>
+      <span><i class="sw" style="background:var(--halpha)"></i>intersection empties</span>
+    </div>
+    <figcaption>Drag the vertical rule, or click any element. Each bar is one element's wedge of
+    admissible slopes. A bar running off an edge is one-sided — no rival bounds it on that side.</figcaption>
+  </figure>
+
+  <div class="side">
+    <div>
+      <h2>At this slope</h2>
+      <div class="readout">
+        <div class="r"><span class="k">slope a</span><span class="v big" id="aVal">0.5780</span></div>
+        <div class="r"><span class="k">elements covered</span><span class="v" id="cov">86 / 106</span></div>
+        <div class="r"><span class="k">best any fixed a</span><span class="v" id="bestv">86 at a = 0.5780</span></div>
+        <div class="r"><span class="k">distinct edge slopes</span><span class="v" id="ends">17</span></div>
+        <div class="r"><span class="k">running intersection empties</span><span class="v" id="emp">14×</span></div>
+      </div>
+    </div>
+    <figure>
+      <h2>The plane at <span id="elName" style="font-family:var(--font-m);font-size:12px">Z = 57 La</span></h2>
+      <svg id="plane" viewBox="0 0 380 300" role="img" aria-label="point set and lower convex hull"></svg>
+      <figcaption id="planeCap"></figcaption>
+    </figure>
+    <div>
+      <h2>Hull vertices here</h2>
+      <table id="hullTab"><thead><tr><th>subshell</th><th>√r</th><th>n</th><th>k</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+</div>
+
+<div class="note">
+  <b>What the picture says about state.</b> A single <i>a</i> is a single vertical rule. The rule
+  never crosses all 106 bars — the best it reaches is 86 (node-only) or 90 (finished), and the
+  running intersection empties 14 times, resp. 11. That is what “the state is necessary” establishes:
+  necessary <b>to this rule</b>, so that <i>a</i> may be re-set and remain exact. It is not a claim
+  about the periodic table, and the index does not support one — the memoryless least-(n+ℓ) rule
+  carries nothing and scores <b>96 of 106</b>, and its pick lies inside the corridor at every step.
+</div>
+
+<div class="note" style="border-left-color:var(--teal)">
+  <b>Why no fixed slope reproduces Madelung.</b> k = n + ℓ and p = n − ℓ − 1, so <b>k = 2n − p − 1</b>
+  — and with x = √p, that is <b>k = 2y − x² − 1</b>. In this plane ν sweeps a family of <i>lines</i>
+  and the Madelung rule sweeps a family of <i>parabolas</i>. They agree over most of the occupied
+  region and cannot agree everywhere: the best fixed <i>a</i> matches the k-rule at 88 of 106
+  (node-only), 91 (finished).
+</div>
+
+<div class="note" style="border-left-color:var(--halpha)">
+  <b>Four edges, not two</b> (register 1304). Optical spectroscopy ends at <b>Z = 102</b>, No.
+  NIST ASD lists no neutral ground configuration past <b>Z = 108</b>, Hs. Synthesis ends at
+  <b>Z = 118</b>, Og. Janet's lattice counts <b>120</b> cells. The axis above is drawn on the 106
+  steps the collection holds; everything beyond 108 is a different kind of row, and the plate does
+  not pretend otherwise.
+</div>
+</div>
+<script id="axisdata" type="application/json">@@DATA@@</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById('axisdata').textContent);
+const NS='http://www.w3.org/2000/svg';
+let form='p', A=0.578, sel=57, showWalk=true;
+
+const el=id=>document.getElementById(id);
+const mk=(t,at)=>{const n=document.createElementNS(NS,t);for(const k in at)n.setAttribute(k,at[k]);return n;};
+const F=()=>D.forms[form];
+const lo=s=>s.L===null?-1e9:s.L, hi=s=>s.U===null?1e9:s.U;
+
+// ---- domain of the slope axis, from the data
+function domain(){
+  let mn=Infinity,mx=-Infinity;
+  F().steps.forEach(s=>{if(s.L!==null){mn=Math.min(mn,s.L);mx=Math.max(mx,s.L);}
+                        if(s.U!==null){mn=Math.min(mn,s.U);mx=Math.max(mx,s.U);}});
+  const pad=(mx-mn)*0.07; return [mn-pad, mx+pad];
+}
+const M={l:46,r:20,t:26,b:44}, W=760, H=660;
+let dom=domain();
+const px=a=>M.l+(a-dom[0])/(dom[1]-dom[0])*(W-M.l-M.r);
+const ax=x=>dom[0]+(x-M.l)/(W-M.l-M.r)*(dom[1]-dom[0]);
+const rowH=(H-M.t-M.b)/106, py=i=>M.t+i*rowH;
+
+function coverage(a){let c=0;F().steps.forEach(s=>{if(a>lo(s)&&a<hi(s))c++;});return c;}
+
+// ---------------------------------------------------------------- the stack
+function drawStack(){
+  const svg=el('stack'); svg.textContent=''; dom=domain();
+  const emp=new Set(F().empties);
+
+  // axis ticks at every distinct edge slope, labelled sparsely
+  const g0=mk('g',{}); svg.appendChild(g0);
+  F().ends.forEach(e=>{
+    if(e<dom[0]||e>dom[1])return;
+    g0.appendChild(mk('line',{x1:px(e),x2:px(e),y1:M.t-6,y2:H-M.b,
+      stroke:'var(--rule-2)','stroke-width':1}));
+  });
+  for(let v=Math.ceil(dom[0]);v<=Math.floor(dom[1]);v++){
+    g0.appendChild(mk('line',{x1:px(v),x2:px(v),y1:M.t-6,y2:H-M.b+6,stroke:'var(--rule)','stroke-width':1}));
+    const t=mk('text',{x:px(v),y:H-M.b+22,'text-anchor':'middle',fill:'var(--ink-3)',
+      'font-family':'var(--font-m)','font-size':11}); t.textContent=v.toFixed(0); g0.appendChild(t);
+  }
+  const al=mk('text',{x:W-M.r,y:H-M.b+38,'text-anchor':'end',fill:'var(--ink-3)',
+    'font-family':'var(--font-m)','font-size':10.5,'letter-spacing':'0.12em'});
+  al.textContent='SLOPE  a  →'; svg.appendChild(al);
+
+  // bars
+  const gb=mk('g',{}); svg.appendChild(gb);
+  F().steps.forEach((s,i)=>{
+    const y=py(i), cov=(A>lo(s)&&A<hi(s));
+    const x1=Math.max(M.l, px(Math.max(lo(s),dom[0]-1)));
+    const x2=Math.min(W-M.r, px(Math.min(hi(s),dom[1]+1)));
+    gb.appendChild(mk('rect',{x:x1,y:y+0.6,width:Math.max(1.2,x2-x1),height:rowH-1.3,
+      fill:cov?'var(--covered)':'var(--rule)',opacity:cov?0.82:0.5,
+      'data-z':s.Z,class:'bar'}));
+    if(s.Z===sel){
+      gb.appendChild(mk('rect',{x:M.l,y:y,width:W-M.l-M.r,height:rowH,
+        fill:'var(--sodium)',opacity:0.16}));
+      gb.appendChild(mk('path',{d:'M'+(M.l-9)+' '+(y+rowH/2-3.4)+'L'+(M.l-3)+' '+(y+rowH/2)+
+        'L'+(M.l-9)+' '+(y+rowH/2+3.4)+'Z',fill:'var(--sodium)'}));
+    }
+    if(emp.has(s.Z)) gb.appendChild(mk('circle',{cx:M.l-13,cy:y+rowH/2,r:2.1,fill:'var(--halpha)'}));
+    if(s.Z%10===0||s.Z===3){
+      const t=mk('text',{x:M.l-20,y:y+rowH/2+3.4,'text-anchor':'end',fill:'var(--ink-3)',
+        'font-family':'var(--font-m)','font-size':9.5}); t.textContent=s.Z; gb.appendChild(t);
+    }
+  });
+
+  // the walk
+  if(showWalk){
+    let d='';
+    F().steps.forEach((s,i)=>{const x=px(s.a),y=py(i)+rowH/2;
+      d+=(i===0?'M':(s.reset?'M':'L'))+x.toFixed(1)+' '+y.toFixed(1)+' ';
+      if(s.reset&&i>0){ // vertical jump drawn faintly
+        const pv=F().steps[i-1];
+        svg.appendChild(mk('line',{x1:px(pv.a),y1:py(i-1)+rowH/2,x2:x,y2:y,
+          stroke:'var(--sodium)','stroke-width':0.9,'stroke-dasharray':'2 2',opacity:0.55}));
+      }});
+    svg.appendChild(mk('path',{d:d,fill:'none',stroke:'var(--sodium)','stroke-width':1.6,opacity:0.95}));
+  }
+
+  // the scrubber
+  const gs=mk('g',{id:'scrub'}); svg.appendChild(gs);
+  gs.appendChild(mk('line',{x1:px(A),x2:px(A),y1:M.t-14,y2:H-M.b+6,
+    stroke:'var(--ink)','stroke-width':1.6}));
+  gs.appendChild(mk('rect',{x:px(A)-15,y:M.t-30,width:30,height:17,fill:'var(--ink)'}));
+  const lt=mk('text',{x:px(A),y:M.t-18,'text-anchor':'middle',fill:'var(--paper)',
+    'font-family':'var(--font-m)','font-size':10,'font-weight':600});
+  lt.textContent=A.toFixed(3); gs.appendChild(lt);
+
+  // hit layer
+  const hit=mk('rect',{x:0,y:0,width:W,height:H,fill:'transparent',style:'cursor:col-resize'});
+  svg.appendChild(hit);
+  const move=ev=>{
+    const r=svg.getBoundingClientRect();
+    const cx=((ev.touches?ev.touches[0].clientX:ev.clientX)-r.left)/r.width*W;
+    A=Math.max(dom[0],Math.min(dom[1],ax(cx)));
+    const ry=((ev.touches?ev.touches[0].clientY:ev.clientY)-r.top)/r.height*H;
+    const i=Math.floor((ry-M.t)/rowH);
+    if(i>=0&&i<106) sel=F().steps[i].Z;
+    render();
+  };
+  let down=false;
+  hit.addEventListener('pointerdown',e=>{down=true;hit.setPointerCapture(e.pointerId);move(e);});
+  hit.addEventListener('pointermove',e=>{if(down)move(e);});
+  hit.addEventListener('pointerup',e=>{down=false;});
+  hit.addEventListener('click',move);
+}
+
+// ---------------------------------------------------------------- the plane
+function drawPlane(){
+  const svg=el('plane'); svg.textContent='';
+  const s=F().steps.find(t=>t.Z===sel); if(!s)return;
+  const m={l:38,r:16,t:16,b:34}, w=380, h=300;
+  const xs=s.pts.map(p=>p.x), ys=s.pts.map(p=>p.y);
+  const xmax=Math.max(...xs)*1.12+0.12, ymin=Math.min(...ys)-0.55, ymax=Math.max(...ys)+0.55;
+  const X=v=>m.l+v/xmax*(w-m.l-m.r);
+  const Y=v=>h-m.b-(v-ymin)/(ymax-ymin)*(h-m.t-m.b);
+
+  // frame
+  svg.appendChild(mk('line',{x1:m.l,y1:h-m.b,x2:w-m.r,y2:h-m.b,stroke:'var(--rule)','stroke-width':1}));
+  svg.appendChild(mk('line',{x1:m.l,y1:m.t,x2:m.l,y2:h-m.b,stroke:'var(--rule)','stroke-width':1}));
+  for(let n=Math.ceil(ymin);n<=Math.floor(ymax);n++){
+    svg.appendChild(mk('line',{x1:m.l,y1:Y(n),x2:w-m.r,y2:Y(n),stroke:'var(--rule-2)','stroke-width':1}));
+    const t=mk('text',{x:m.l-8,y:Y(n)+3.5,'text-anchor':'end',fill:'var(--ink-3)',
+      'font-family':'var(--font-m)','font-size':10}); t.textContent=n; svg.appendChild(t);
+  }
+  for(let v=0;v<=Math.floor(xmax);v++){
+    const t=mk('text',{x:X(v),y:h-m.b+16,'text-anchor':'middle',fill:'var(--ink-3)',
+      'font-family':'var(--font-m)','font-size':10}); t.textContent=v; svg.appendChild(t);
+  }
+  const xl=mk('text',{x:w-m.r,y:h-m.b+30,'text-anchor':'end',fill:'var(--ink-3)',
+    'font-family':'var(--font-m)','font-size':9.5,'letter-spacing':'0.1em'});
+  xl.textContent='√r →'; svg.appendChild(xl);
+  const yl=mk('text',{x:m.l-8,y:m.t-4,'text-anchor':'end',fill:'var(--ink-3)',
+    'font-family':'var(--font-m)','font-size':9.5}); yl.textContent='n'; svg.appendChild(yl);
+
+  // the sweep line of slope A, tangent to the hull
+  let c=Infinity, touch=null;
+  s.pts.forEach(p=>{const v=p.y-A*p.x; if(v<c){c=v;touch=p;}});
+  svg.appendChild(mk('line',{x1:X(0),y1:Y(c),x2:X(xmax),y2:Y(c+A*xmax),
+    stroke:'var(--ink-3)','stroke-width':1.1,'stroke-dasharray':'4 3'}));
+
+  // the lower hull
+  let d='';
+  s.hull.forEach((p,i)=>{d+=(i?'L':'M')+X(p.x).toFixed(1)+' '+Y(p.y).toFixed(1)+' ';});
+  svg.appendChild(mk('path',{d:d,fill:'none',stroke:'var(--indigo)','stroke-width':1.8,opacity:0.9}));
+
+  // points
+  s.pts.forEach(p=>{
+    const onHull=s.hull.some(q=>q.s===p.s);
+    const isEnt=(p.s===s.ent), isK=(p.s===s.k);
+    svg.appendChild(mk('circle',{cx:X(p.x),cy:Y(p.y),r:isEnt?5:(onHull?3.6:2.4),
+      fill:isEnt?'var(--sodium)':(onHull?'var(--indigo)':'var(--rule)'),
+      stroke:isK&&!isEnt?'var(--teal)':'none','stroke-width':2}));
+    if(onHull||isEnt||isK){
+      const nearY=p.x<xmax*0.06;
+      const t=mk('text',{x:nearY?X(p.x)+10:X(p.x),y:nearY?Y(p.y)+3.5:Y(p.y)-9,
+        'text-anchor':nearY?'start':'middle',
+        fill:isEnt?'var(--sodium)':'var(--ink-2)','font-family':'var(--font-m)','font-size':10,
+        'font-weight':isEnt?600:400}); t.textContent=p.s; svg.appendChild(t);
+    }
+  });
+  if(touch) svg.appendChild(mk('circle',{cx:X(touch.x),cy:Y(touch.y),r:8.5,fill:'none',
+    stroke:'var(--ink)','stroke-width':1.2,opacity:0.75}));
+
+  el('elName').textContent='Z = '+s.Z+' '+s.sym;
+  const hit=(touch&&touch.s===s.ent);
+  el('planeCap').innerHTML='Observed entrant <b style="color:var(--sodium)">'+s.ent+'</b>; '+
+    s.hull.length+' hull vertices of '+s.pts.length+' admissible. At a = '+A.toFixed(3)+
+    ' the line touches <b>'+(touch?touch.s:'—')+'</b> — '+
+    (hit?'the observed subshell.':'not the observed one.')+
+    ' k-rule picks <b style="color:var(--teal)">'+s.k+'</b>.';
+
+  const tb=el('hullTab').querySelector('tbody'); tb.textContent='';
+  s.hull.forEach(p=>{
+    const n=parseInt(p.s[0],10), l='spdf'.indexOf(p.s[1]);
+    const tr=document.createElement('tr'); if(p.s===s.ent) tr.className='hi';
+    tr.innerHTML='<td>'+p.s+'</td><td class="n">'+p.x.toFixed(4)+'</td><td class="n">'+
+      p.y+'</td><td class="n">'+(n+l)+'</td>';
+    tb.appendChild(tr);
+  });
+}
+
+function render(){
+  drawStack(); drawPlane();
+  el('aVal').textContent=A.toFixed(4);
+  el('cov').textContent=coverage(A)+' / 106';
+  el('bestv').textContent=F().bestCov+' at a = '+F().bestA.toFixed(4);
+  el('ends').textContent=F().ends.length;
+  el('emp').textContent=F().empties.length+'×';
+}
+el('fp').onclick=()=>{form='p';A=Math.min(Math.max(A,-0.3),4.9);
+  el('fp').setAttribute('aria-pressed','true');el('fq').setAttribute('aria-pressed','false');render();};
+el('fq').onclick=()=>{form='q';
+  el('fq').setAttribute('aria-pressed','true');el('fp').setAttribute('aria-pressed','false');render();};
+el('best').onclick=()=>{A=F().bestA;render();};
+el('walkbtn').onclick=()=>{showWalk=!showWalk;
+  el('walkbtn').setAttribute('aria-pressed',showWalk?'true':'false');render();};
+render();
+})();
+</script>
+"""
+
+
+def emit_html(obj, path):
+    html = TEMPLATE.replace("@@DATA@@", json.dumps(obj, separators=(",", ":")))
+    d = os.path.dirname(os.path.abspath(path))
+    if d:
+        os.makedirs(d, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(html)
+    return len(html)
+
+
+def report(store, obj):
+    print("THE SLOPE AXIS -- Chapter 34's occupation law as one object")
+    print("  the axis is `a`, a SLOPE; each subshell is the point (sqrt(r), n)")
+    print("  an element's place is the interval between the hull-edge slopes flanking its entrant")
+    for form, name in (("p", "node-only  nu = n - a*sqrt(p)"),
+                       ("q", "finished   nu = n - a*sqrt(p + q/cap)")):
+        F = obj["forms"][form]
+        ne = sum(1 for s in F["steps"] if s["ok"])
+        print("\n  FORM: %s" % name)
+        print("    steps                                    : %d" % len(F["steps"]))
+        print("    entrant corridor non-empty               : %d of 106" % ne)
+        print("    distinct hull-edge slopes                : %d" % len(F["ends"]))
+        print("    best coverage by ONE fixed a (a in R)    : %d of 106 at a = %.4f"
+              % (F["bestCov"], F["bestA"]))
+        print("    running intersection empties             : %d times at %s"
+              % (len(F["empties"]), " ".join(map(str, F["empties"]))))
+        print("    walk resets (register 1328 discipline)   : %d"
+              % sum(1 for s in F["steps"] if s["reset"]))
+        h = {}
+        for s in F["steps"]:
+            h[s["nA"]] = h.get(s["nA"], 0) + 1
+        print("    |A| histogram (a in R)                   : %s ; steps with |A| = 1: %d"
+              % (dict(sorted(h.items())), h.get(1, 0)))
+    print("\n  FOUR EDGES (register 1304) -- annotation, not rows:")
+    for z, t in EDGES:
+        print("    Z = %-3d  %s" % (z, t))
+
+
+def selftest(store):
+    """Fixtures are the corpus's own recorded numbers."""
+    obj = object_for(store)
+    ok = True
+
+    def chk(label, got, want):
+        nonlocal ok
+        good = got == want
+        ok = ok and good
+        print("  %-58s %-26s %s" % (label, got, "OK" if good else "FAIL want %s" % (want,)))
+
+    # the identity this instrument exists to assert
+    for form in ("p", "q"):
+        mism = 0
+        for Z in range(3, 109):
+            conf = store.CONF[Z - 1]
+            S = store.admissible(Z)
+            cor = {
+                s for s in S
+                if (lambda t: (not t[2]) and t[0] < t[1])(store.corridor(conf, s, S, form))
+            }
+            if cor != set(store.hull(conf, S, form)):
+                mism += 1
+        chk("form %s: corridor set vs lower-hull vertices, mismatches" % form, mism, 0)
+
+    for form, ends, emp, res, best in (("p", 17, 14, 10, 86), ("q", 121, 11, 15, 90)):
+        F = obj["forms"][form]
+        chk("form %s: distinct hull-edge slopes" % form, len(F["ends"]), ends)
+        chk("form %s: running intersection empties (register 1463)" % form, len(F["empties"]), emp)
+        chk("form %s: walk resets (register 1328)" % form,
+            sum(1 for s in F["steps"] if s["reset"]), res)
+        chk("form %s: best coverage by one fixed a" % form, F["bestCov"], best)
+        chk("form %s: steps with |A| = 1" % form,
+            sum(1 for s in F["steps"] if s["nA"] == 1), 0)
+        chk("form %s: entrant corridor non-empty" % form,
+            sum(1 for s in F["steps"] if s["ok"]), 106)
+        chk("form %s: observed entrant is a hull vertex" % form,
+            sum(1 for s in F["steps"] if s["ent"] in [h["s"] for h in s["hull"]]), 106)
+
+    # register 1463 names the fourteen emptying points of the node-only form
+    chk("node-only emptying points (register 1463)",
+        obj["forms"]["p"]["empties"],
+        [37, 42, 43, 45, 55, 58, 64, 65, 80, 91, 96, 97, 103, 104])
+
+    # section 34.5 prints La's corridor; it must equal the flanking hull-edge slopes
+    conf = store.CONF[56]
+    S = store.admissible(57)
+    H = store.hull(conf, S, "p")
+    i = H.index("5d")
+    sl = lambda A, B: (store.y(B) - store.y(A)) / (store.x(B, conf, "p") - store.x(A, conf, "p"))
+    lo, hi, _ = store.corridor(conf, "5d", S, "p")
+    chk("La 5d: lower hull-edge slope == corridor L",
+        round(sl(H[i - 1], H[i]), 7), round(lo, 7))
+    chk("La 5d: upper hull-edge slope == corridor U",
+        round(sl(H[i], H[i + 1]), 7), round(hi, 7))
+
+    # k = 2n - p - 1 : the Madelung number is a function of the pair nu already uses
+    chk("k = 2n - p - 1 on every subshell, exceptions",
+        sum(1 for s in store.ALL if store.k_of(s) != 2 * store.nl(s)[0] - store.p_of(s) - 1), 0)
+
+    # register 1437: the memoryless least-(n+l) rule scores 96
+    chk("memoryless k-rule score (register 1437)",
+        sum(1 for Z in range(3, 109) if store.kpick(store.admissible(Z)) == store.ENT[Z]), 96)
+
+    print("\n%s" % ("SELFTEST OK" if ok else "SELFTEST FAILED"))
+    return 0 if ok else 1
+
+
+def main():
+    ap = argparse.ArgumentParser(description="the occupation law of Chapter 34 as one object")
+    ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--report", action="store_true")
+    ap.add_argument("--json", metavar="PATH")
+    ap.add_argument("--html", metavar="PATH")
+    a = ap.parse_args()
+    store = Store()
+    if a.selftest:
+        return selftest(store)
+    obj = object_for(store)
+    if a.json:
+        d = os.path.dirname(os.path.abspath(a.json))
+        if d:
+            os.makedirs(d, exist_ok=True)
+        with open(a.json, "w", encoding="utf-8") as fh:
+            json.dump(obj, fh, separators=(",", ":"))
+        print("wrote %s" % a.json)
+    if a.html:
+        n = emit_html(obj, a.html)
+        print("wrote %s (%d bytes)" % (a.html, n))
+    if a.report or not (a.json or a.html):
+        report(store, obj)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+<<<END FILE: slopeaxis.py>>>
+
+<<<FILE: stage-gate>>>
+#!/bin/sh
+# Stage the repo's method/ tree at /home/claude so the gate can run.
+#
+# Why this is needed: census.py is a seated bundle member and hard-codes
+# '/home/claude/members/' and '/home/claude/DEFECT-CENSUS.tsv'. Seated members are
+# append-only and are never edited in place, so the tree moves to the tool rather
+# than the tool to the tree. gate.py itself is location-independent (it derives
+# HOME as the parent of members/), so only `gate.py census` depends on this.
+#
+# Symlinks, not copies: instruments and goldens written during a chat land in the
+# repository, where the close will commit them.
+set -e
+REPO=$(cd "$(dirname "$0")/../.." && pwd)
+mkdir -p /home/claude
+rm -rf /home/claude/members
+ln -s "$REPO/method/members" /home/claude/members
+# The live bundles, read from verify.py's BUNDLES — the authority tools/restage.py retargets at
+# every build. Naming them here instead left a dangling link to a retired bundle after each close,
+# and gate.py resolves the compendia bundle by glob, so a stale link is not inert.
+rm -f /home/claude/The_Method_1_6_BUILD*.md
+for b in $(sed -n "s/^ *'[A-Za-z0-9_]*': *'\(The_Method_1_6_BUILD[^']*\)',/\1/p" "$REPO/method/verify.py"); do
+    ln -s "$REPO/method/$b" "/home/claude/$b"
+done
+rm -f /home/claude/DEFECT-CENSUS.tsv "$REPO/method/DEFECT-CENSUS.tsv"
+# census.py writes /home/claude/DEFECT-CENSUS.tsv (hard-coded), but gate.py looks for it
+# beside members/ — which Python resolves back into the repo. Link the two together.
+ln -s /home/claude/DEFECT-CENSUS.tsv "$REPO/method/DEFECT-CENSUS.tsv"
+# Prints & Proofs, the original-input witness (Ruling 56). Three instruments open it by path:
+# r2-ch16n and r2-ch16t at /home/claude/, r2-ch17c at members/.. — so it is linked in both places.
+# Without it those three raise FileNotFoundError, which is what HANDOFF-97 §0a mistook for an
+# environment limit; §0a was struck at W-190 and all five of its instruments reproduce.
+PP="$REPO/drive/The Method Prints & Proofs/The Method 1.6.md"
+rm -f /home/claude/PP_The_Method_1_6.md
+ln -s "$PP" /home/claude/PP_The_Method_1_6.md
+
+# r2-ch20a and r2-ch26a look for the coordinate file in members/ or /mnt/project/, and it is far
+# too large to be a member. The mirror carries it at the md5 those instruments were banked against.
+mkdir -p /mnt/project
+rm -f /mnt/project/COORDINATES-2_13.csv
+ln -s "$REPO/drive/The Method Materials/COORDINATES-2_13.csv" /mnt/project/COORDINATES-2_13.csv
+
+rm -rf "$REPO/method/members/__pycache__"
+echo "staged: /home/claude/members -> $REPO/method/members"
+<<<END FILE: stage-gate>>>
+
+<<<FILE: test_drive_sync.py>>>
+"""Regression tests for tools/drive_sync.py.
+
+The mirror's guarantee is byte-exactness, and every test here guards one way a
+review found that guarantee could silently break.  Each states the OLD
+behaviour it exists to prevent.  No framework and no CI: run it by hand after
+touching the download path.
+
+    python3 tools/test_drive_sync.py
+
+Exits non-zero if anything regressed.
+"""
+import pathlib
+import sys
+import tempfile
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import drive_sync as ds  # noqa: E402
+
+
+class FakeHttpError(Exception):
+    def __init__(self, status):
+        super().__init__("HTTP {}".format(status))
+        self.resp = type("R", (), {"status": status})()
+
+
+def make_downloader(script):
+    """script: list of (bytes_or_None, done). None means raise 416."""
+
+    class FakeDownloader:
+        def __init__(self, handle, request, chunksize=0):
+            self.handle = handle
+            self.steps = list(script)
+
+        def next_chunk(self, num_retries=0):
+            if not self.steps:
+                return None, True
+            payload, done = self.steps.pop(0)
+            if payload is None:
+                raise FakeHttpError(416)
+            self.handle.write(payload)
+            return None, done
+
+    return FakeDownloader
+
+
+def client_for(script):
+    mods = ds.GoogleModules(
+        build=lambda *a, **k: None,
+        http_error=FakeHttpError,
+        media_download=make_downloader(script),
+        credentials_cls=object,
+        installed_app_flow=object,
+        refresh_request=object,
+        refresh_error=Exception,
+        authorized_http=lambda *a, **k: None,
+        http_factory=lambda *a, **k: None,
+    )
+    class FakeFiles:
+        def get_media(self, **kw):
+            return object()
+
+        def export_media(self, **kw):
+            return object()
+
+    class FakeService:
+        def files(self):
+            return FakeFiles()
+
+    c = ds.DriveClient(credentials=None, modules=mods)
+    c._thread_state.service = FakeService()
+    return c
+
+
+FAILURES = []
+
+
+def check(name, condition, detail=""):
+    print(("  PASS  " if condition else "  FAIL  ") + name + ("" if condition else " -- " + detail))
+    if not condition:
+        FAILURES.append(name)
+
+
+def test_short_download_no_md5():
+    """OLD: a truncated transfer with no Drive md5 was recorded status ok."""
+    print("\n1. short download, Drive supplies size but no md5")
+    with tempfile.TemporaryDirectory() as d:
+        dest = pathlib.Path(d, "file.bin")
+        dest.write_bytes(b"GOOD-ORIGINAL")
+        c = client_for([(b"only-half", True)])
+        try:
+            c.download_file("id", dest, expected_size=100, expected_md5="")
+            check("truncated transfer is rejected", False, "no exception raised")
+        except ds.ContentMismatch as exc:
+            check("truncated transfer is rejected", True)
+            check("error names both sizes", "9" in str(exc) and "100" in str(exc), str(exc))
+        check("previous good copy survives", dest.read_bytes() == b"GOOD-ORIGINAL",
+              repr(dest.read_bytes()))
+        leftovers = [p.name for p in pathlib.Path(d).iterdir() if p.name != "file.bin"]
+        check("no .part left behind", not leftovers, str(leftovers))
+
+
+def test_md5_mismatch_preserves_good_copy():
+    """OLD: bad bytes were installed first, THEN the md5 was checked."""
+    print("\n2. complete transfer whose md5 disagrees with Drive")
+    with tempfile.TemporaryDirectory() as d:
+        dest = pathlib.Path(d, "file.bin")
+        dest.write_bytes(b"GOOD-ORIGINAL")
+        c = client_for([(b"corrupt-but-right-length", True)])
+        try:
+            c.download_file("id", dest, expected_size=24, expected_md5="0" * 32)
+            check("md5 mismatch is rejected", False, "no exception raised")
+        except ds.ContentMismatch:
+            check("md5 mismatch is rejected", True)
+        check("previous good copy survives", dest.read_bytes() == b"GOOD-ORIGINAL",
+              repr(dest.read_bytes()))
+
+
+def test_416_midway():
+    """OLD: a 416 anywhere in the loop installed the partial file as complete."""
+    print("\n3. HTTP 416 partway through a transfer")
+    with tempfile.TemporaryDirectory() as d:
+        dest = pathlib.Path(d, "file.bin")
+        dest.write_bytes(b"GOOD-ORIGINAL")
+        c = client_for([(b"first-chunk", False), (None, False)])
+        try:
+            c.download_file("id", dest, expected_size=None, expected_md5="")
+            check("mid-transfer 416 is rejected", False, "installed as complete")
+        except ds.ContentMismatch as exc:
+            check("mid-transfer 416 is rejected", True)
+            check("error says truncated", "truncated" in str(exc), str(exc))
+        check("previous good copy survives", dest.read_bytes() == b"GOOD-ORIGINAL",
+              repr(dest.read_bytes()))
+
+
+def test_416_at_zero_bytes_still_means_empty():
+    """Guard the behaviour we must NOT break: 416 with nothing written = empty file."""
+    print("\n4. HTTP 416 before any byte (a genuinely empty Drive file)")
+    with tempfile.TemporaryDirectory() as d:
+        dest = pathlib.Path(d, "empty.bin")
+        c = client_for([(None, False)])
+        size, digest = c.download_file("id", dest, expected_size=0, expected_md5="")
+        check("empty file still installs", dest.is_file() and size == 0, str(size))
+        check("md5 is of empty content", digest == "d41d8cd98f00b204e9800998ecf8427e", digest)
+
+
+def test_happy_path():
+    """A good transfer still works and returns real size and md5."""
+    print("\n5. a correct transfer")
+    import hashlib
+    body = b"the actual bytes"
+    want = hashlib.md5(body).hexdigest()
+    with tempfile.TemporaryDirectory() as d:
+        dest = pathlib.Path(d, "file.bin")
+        c = client_for([(body, True)])
+        size, digest = c.download_file("id", dest, expected_size=len(body), expected_md5=want)
+        check("file installed", dest.read_bytes() == body)
+        check("size returned", size == len(body), str(size))
+        check("md5 returned", digest == want, digest)
+
+
+def test_worker_exception_keeps_manifest():
+    """OLD: one unexpected exception aborted run_sync and lost every outcome."""
+    print("\n6. an unexpected exception in one worker")
+    entries = []
+    for i in range(4):
+        entries.append((ds.DriveEntry(
+            file_id="id{}".format(i), title="f{}.txt".format(i), mime_type="text/plain",
+            size=10, md5="", modified_time="2026-01-01T00:00:00.000Z", folder_path="",
+        ), "f{}.txt".format(i)))
+
+    real = ds.sync_entry
+
+    def boom(client, entry, repo_path, dest_root, previous, dry_run):
+        if repo_path == "f2.txt":
+            raise KeyError("something nobody predicted")
+        return ds.SyncOutcome(repo_path, ds.Action.ADDED,
+                              ds.build_row(entry, repo_path, 10, "x" * 32, ds.STATUS_OK))
+
+    ds.sync_entry = boom
+    try:
+        outcomes = ds.run_sync(None, entries, pathlib.Path("/tmp"), {}, 2, False)
+    finally:
+        ds.sync_entry = real
+    check("run completes instead of aborting", len(outcomes) == 4, str(len(outcomes)))
+    failed = [o for o in outcomes if o.action == ds.Action.FAILED]
+    check("the bad file is one FAILED row", len(failed) == 1 and failed[0].repo_path == "f2.txt",
+          str([(o.repo_path, o.action) for o in outcomes]))
+    ok = [o for o in outcomes if o.action == ds.Action.ADDED]
+    check("the other three keep their rows", len(ok) == 3, str(len(ok)))
+    check("failure reason is recorded", "KeyError" in failed[0].row.status, failed[0].row.status)
+
+
+def test_exclusion():
+    """OLD: no way to exclude a path, so a default run pulled the 388 MB files."""
+    print("\n7. exclusion by pattern and by size")
+    big = ds.DriveEntry(file_id="a", title="conversations.json", mime_type="application/json",
+                        size=388264753, md5="", modified_time="", folder_path="")
+    small = ds.DriveEntry(file_id="b", title="note.md", mime_type="text/markdown",
+                          size=1024, md5="", modified_time="", folder_path="")
+    limit = ds.GITHUB_FILE_LIMIT_BYTES
+    r = ds.excluded_reason(big, "Claude Chats/conversations.json", [], limit)
+    check("388 MB file excluded by default size cap", bool(r), repr(r))
+    check("reason names the limit", str(limit) in r, r)
+    check("small file not excluded", not ds.excluded_reason(small, "note.md", [], limit))
+    check("pattern excludes", bool(ds.excluded_reason(small, "note.md", ["note"], limit)))
+    check("size cap disabled by None", not ds.excluded_reason(big, "x", [], None))
+
+
+for fn in (test_short_download_no_md5, test_md5_mismatch_preserves_good_copy,
+           test_416_midway, test_416_at_zero_bytes_still_means_empty, test_happy_path,
+           test_worker_exception_keeps_manifest, test_exclusion):
+    fn()
+
+print("\n" + ("ALL PASS" if not FAILURES else "FAILURES: " + ", ".join(FAILURES)))
+sys.exit(1 if FAILURES else 0)
+<<<END FILE: test_drive_sync.py>>>

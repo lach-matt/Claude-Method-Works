@@ -218,11 +218,10 @@
 ================================================================================================
 11. census rows in range, and the duplicated-section sweep (docket 27)
 ================================================================================================
-  id 710  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9150  item 388,  detail other sites: main=1 reg=2 ioi=1 | **That is why the three fi
-  id 711  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9150  item 391  detail other sites: main=1 reg=4 ioi=1 | **That is why the three fi
-  id 712  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9150  item 392  detail other sites: main=4 reg=4 ioi=1 sc=1 | **That is why the thr
-  id 1191  class C9-OVERGENERALISATION-WORD  member main  L9158  item never  detail §32.1–24.4 ask whether this book obeys its own law. They nev
-  census rows in range (member main OR all): 4
+  id 710  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9155  item 388,  detail other sites: main=1 reg=2 ioi=1 | **That is why the three fi
+  id 711  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9155  item 391  detail other sites: main=1 reg=4 ioi=1 | **That is why the three fi
+  id 712  class C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  member main  L9155  item 392  detail other sites: main=3 reg=4 ioi=1 sc=1 | **That is why the thr
+  census rows in range (member main OR all): 3
   duplicated-section sweep: 45 long lines swept, 0 recur elsewhere
 
 ================================================================================================

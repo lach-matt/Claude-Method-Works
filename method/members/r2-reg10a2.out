@@ -48,9 +48,9 @@
 
 == 5  CENSUS
    census rows in range: 3
-     1241	C9-OVERGENERALISATION-WORD	reg	1233	never	**ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, 
-     1242	C9-OVERGENERALISATION-WORD	reg	1305	never	**PAST, PRESENT AND FUTURE.** *Treated as free the three parts overcount by 130%;* **the balance h
-     1243	C9-OVERGENERALISATION-WORD	reg	1337	never	**§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written as kept in the pass t
+     1241	C9-OVERGENERALISATION-WORD	reg	1238	never	**ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, 
+     1242	C9-OVERGENERALISATION-WORD	reg	1310	never	**PAST, PRESENT AND FUTURE.** *Treated as free the three parts overcount by 130%;* **the balance h
+     1243	C9-OVERGENERALISATION-WORD	reg	1342	never	**§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written as kept in the pass t
 
 == SUMMARY
    instrument checks failed : 0 

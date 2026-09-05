@@ -82,10 +82,9 @@ r2-ch25a — Appendix E part 2 (E.3–E.8), computable claims; conventions named
    Register lines naming E.3–E.8 / Appendix E: 10, entries: [195, 211, 384, 385, 386, 387, 418, 565, 1707, 1721]
    WARNING lines among them: []
 §11 DEFECT-CENSUS.tsv header: ['id', 'class', 'member', 'line', 'item', 'detail']
-   rows in main L11101–L11268: 5
-   716 | C7-WITHDRAWAL-LINE-NUMBER-SURVIVES | main | 11202 | 30.3 | other sites: main=50 reg=8 | Nothing in §30.3 is withdrawn. The derivations agree with the literature wherever both exist, and the
-   1224 | C9-OVERGENERALISATION-WORD | main | 11107 | never | downstream. It was read once at eight items and the reading was never printed, only described.
-   1225 | C9-OVERGENERALISATION-WORD | main | 11140 | never | at thirteen — the only column whose value has never changed.
-   1226 | C9-OVERGENERALISATION-WORD | main | 11237 | never | A quantity in this work is never loose. It arrives as a **kind** carried at a **point of a ground**,
-   1227 | C9-OVERGENERALISATION-WORD | main | 11260 | never | fibre is a fact about the ground and never about the reading;
+   rows in main L11101–L11268: 4
+   715 | C7-WITHDRAWAL-LINE-NUMBER-SURVIVES | main | 11116 | 540 | other sites: main=27 reg=7 mc=2 ioi=4 sc=7 | D — verifying 540 Kreuzer–Skarke predictions. **Everything the slice specifies is recompute
+   716 | C7-WITHDRAWAL-LINE-NUMBER-SURVIVES | main | 11249 | 30.3 | other sites: main=50 reg=8 | Nothing in §30.3 is withdrawn. The derivations agree with the literature wherever both exist, and the
+   1224 | C9-OVERGENERALISATION-WORD | main | 11154 | never | downstream. It was read once at eight items and the reading was never printed, only described.
+   1225 | C9-OVERGENERALISATION-WORD | main | 11187 | never | at thirteen — the only column whose value has never changed.
 END r2-ch25a

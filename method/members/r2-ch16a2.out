@@ -138,10 +138,10 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
   member values present: ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows in unit: 0
   WITNESS either side:
-     id 1178   L8231   C9-OVERGENERALISATION-WORD   never
-     id 1179   L8303   C9-OVERGENERALISATION-WORD   at every cap
-     id 1180   L8553   C9-OVERGENERALISATION-WORD   never
-     id 1181   L8569   C9-OVERGENERALISATION-WORD   never
+     id 1178   L8236   C9-OVERGENERALISATION-WORD   never
+     id 1179   L8308   C9-OVERGENERALISATION-WORD   at every cap
+     id 1180   L8558   C9-OVERGENERALISATION-WORD   never
+     id 1181   L8574   C9-OVERGENERALISATION-WORD   never
   ids either side [1179, 1180] contiguous: True
 
 ## 9  DUPLICATED-SECTION SWEEP (DEF-105 item 1) — long unit lines recurring elsewhere

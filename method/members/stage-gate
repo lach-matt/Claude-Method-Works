@@ -1,0 +1,43 @@
+#!/bin/sh
+# Stage the repo's method/ tree at /home/claude so the gate can run.
+#
+# Why this is needed: census.py is a seated bundle member and hard-codes
+# '/home/claude/members/' and '/home/claude/DEFECT-CENSUS.tsv'. Seated members are
+# append-only and are never edited in place, so the tree moves to the tool rather
+# than the tool to the tree. gate.py itself is location-independent (it derives
+# HOME as the parent of members/), so only `gate.py census` depends on this.
+#
+# Symlinks, not copies: instruments and goldens written during a chat land in the
+# repository, where the close will commit them.
+set -e
+REPO=$(cd "$(dirname "$0")/../.." && pwd)
+mkdir -p /home/claude
+rm -rf /home/claude/members
+ln -s "$REPO/method/members" /home/claude/members
+# The live bundles, read from verify.py's BUNDLES — the authority tools/restage.py retargets at
+# every build. Naming them here instead left a dangling link to a retired bundle after each close,
+# and gate.py resolves the compendia bundle by glob, so a stale link is not inert.
+rm -f /home/claude/The_Method_1_6_BUILD*.md
+for b in $(sed -n "s/^ *'[A-Za-z0-9_]*': *'\(The_Method_1_6_BUILD[^']*\)',/\1/p" "$REPO/method/verify.py"); do
+    ln -s "$REPO/method/$b" "/home/claude/$b"
+done
+rm -f /home/claude/DEFECT-CENSUS.tsv "$REPO/method/DEFECT-CENSUS.tsv"
+# census.py writes /home/claude/DEFECT-CENSUS.tsv (hard-coded), but gate.py looks for it
+# beside members/ — which Python resolves back into the repo. Link the two together.
+ln -s /home/claude/DEFECT-CENSUS.tsv "$REPO/method/DEFECT-CENSUS.tsv"
+# Prints & Proofs, the original-input witness (Ruling 56). Three instruments open it by path:
+# r2-ch16n and r2-ch16t at /home/claude/, r2-ch17c at members/.. — so it is linked in both places.
+# Without it those three raise FileNotFoundError, which is what HANDOFF-97 §0a mistook for an
+# environment limit; §0a was struck at W-190 and all five of its instruments reproduce.
+PP="$REPO/drive/The Method Prints & Proofs/The Method 1.6.md"
+rm -f /home/claude/PP_The_Method_1_6.md
+ln -s "$PP" /home/claude/PP_The_Method_1_6.md
+
+# r2-ch20a and r2-ch26a look for the coordinate file in members/ or /mnt/project/, and it is far
+# too large to be a member. The mirror carries it at the md5 those instruments were banked against.
+mkdir -p /mnt/project
+rm -f /mnt/project/COORDINATES-2_13.csv
+ln -s "$REPO/drive/The Method Materials/COORDINATES-2_13.csv" /mnt/project/COORDINATES-2_13.csv
+
+rm -rf "$REPO/method/members/__pycache__"
+echo "staged: /home/claude/members -> $REPO/method/members"

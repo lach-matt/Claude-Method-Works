@@ -266,4 +266,4 @@
 §9 census rows of DEFECT-CENSUS.tsv inside D.5.5 / D.5.9 (main volume)
 ====================================================================================================
    header: ['id', 'class', 'member', 'line', 'item', 'detail']
-   rows in the two units: [['1215', 'C9-OVERGENERALISATION-WORD', 'main', '10836']]
+   rows in the two units: [['1215', 'C9-OVERGENERALISATION-WORD', 'main', '10874'], ['1536', 'C13-HANDLE-LEAK', 'main', '10844'], ['1537', 'C13-HANDLE-LEAK', 'main', '10845'], ['1538', 'C13-HANDLE-LEAK', 'main', '10847'], ['1539', 'C13-HANDLE-LEAK', 'main', '10848'], ['1540', 'C13-HANDLE-LEAK', 'main', '10849'], ['1541', 'C13-HANDLE-LEAK', 'main', '10850'], ['1542', 'C13-HANDLE-LEAK', 'main', '10851'], ['1543', 'C13-HANDLE-LEAK', 'main', '10852'], ['1544', 'C13-HANDLE-LEAK', 'main', '10860'], ['1545', 'C13-HANDLE-LEAK', 'main', '10860']]

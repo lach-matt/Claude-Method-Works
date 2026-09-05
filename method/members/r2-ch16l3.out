@@ -91,11 +91,11 @@
   long lines 70, recurring elsewhere 0
   first-person candidates: [8834]
   census rows in range (classes main AND all): 5
-    1184	C9-OVERGENERALISATION-WORD	main	8813	never	**First, the index of §32.1 is computed here, which it never w
-    1185	C9-OVERGENERALISATION-WORD	main	8838	never	missing Chapter 30 — and it has never computed E over the inde
-    1186	C9-OVERGENERALISATION-WORD	main	8856	never	statement, which the book has never made in one sentence: Λ is
-    1187	C9-OVERGENERALISATION-WORD	main	8879	never	own misidentified species; it has never run on anyone else's d
-    1188	C9-OVERGENERALISATION-WORD	main	8881	never	**6. S3 has never been tested.** §32.2 claims a reader given t
+    1184	C9-OVERGENERALISATION-WORD	main	8818	never	**First, the index of §32.1 is computed here, which it never w
+    1185	C9-OVERGENERALISATION-WORD	main	8843	never	missing Chapter 30 — and it has never computed E over the inde
+    1186	C9-OVERGENERALISATION-WORD	main	8861	never	statement, which the book has never made in one sentence: Λ is
+    1187	C9-OVERGENERALISATION-WORD	main	8884	never	own misidentified species; it has never run on anyone else's d
+    1188	C9-OVERGENERALISATION-WORD	main	8886	never	**6. S3 has never been tested.** §32.2 claims a reader given t
 === I. Prints & Proofs, anchored witness by witness ===
   What a referee would flag                      main [8813]  PP [8720]  offset [-93]
   The book is an index                           main [8806]  PP [8713]  offset [-93]

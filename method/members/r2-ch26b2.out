@@ -100,11 +100,11 @@
   Register 296's two ratios: "withdrawal ratio" 1, "method ratio" 1 in its body
 
 == §5 census rows in range (DEFECT-CENSUS.tsv, member main, L11222–L11360)
-  717 C7-WITHDRAWAL-LINE-NUMBER-SURVIVES L11394 "6.5" — other sites: reg=1 mc=1 ioi=1 sc=2 | | 6.5 | The corrected alphabet — what becom
-  1228 C9-OVERGENERALISATION-WORD L11298 "without exception" — test that could reach it — not weakened, not pending, dead. The work applies thi
-  1229 C9-OVERGENERALISATION-WORD L11318 "never" — whenever it is wanted and is never printed as a property of the object. Where no
-  1230 C9-OVERGENERALISATION-WORD L11330 "never" — ### F.4.1 Two ratios the book had never measured about itself
-  1231 C9-OVERGENERALISATION-WORD L11370 "never" — entry bodies are never edited, and what a past entry recorded is part of the rec
+  1226 C9-OVERGENERALISATION-WORD L11284 "never" — A quantity in this work is never loose. It arrives as a **kind** carried at a **
+  1227 C9-OVERGENERALISATION-WORD L11307 "never" — fibre is a fact about the ground and never about the reading;
+  1228 C9-OVERGENERALISATION-WORD L11345 "without exception" — test that could reach it — not weakened, not pending, dead. The work applies thi
+  1229 C9-OVERGENERALISATION-WORD L11365 "never" — whenever it is wanted and is never printed as a property of the object. Where no
+  1230 C9-OVERGENERALISATION-WORD L11377 "never" — ### F.4.1 Two ratios the book had never measured about itself
   verdicts: 1226 / 1227 / 1229 (never) and 1228 (without exception) state the definition F.1–F.3 lays down — the section's own claim, precedent 678 / 1217 → not a defect; 1230 is a heading word (F.4.1's title) → not a defect; the "several" of L11299 is scored at §4, not here
 
 == §6 docket 27 — duplicated-section test: each unit paragraph's first 70 characters against the rest of the volume (markup stripped)

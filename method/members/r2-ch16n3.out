@@ -177,8 +177,8 @@
 == G. census rows in range, duplicated-section sweep, attribution sweep ==
   DEFECT-CENSUS.tsv columns ['id', 'class', 'member', 'line', 'item', 'detail']; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows with member in (main, all) and line in [8894,9034]: 2
-      ('1189', 'C9-OVERGENERALISATION-WORD', 'main', 8930, 'never')
-      ('1190', 'C9-OVERGENERALISATION-WORD', 'main', 8989, 'never')
+      ('1189', 'C9-OVERGENERALISATION-WORD', 'main', 8935, 'never')
+      ('1190', 'C9-OVERGENERALISATION-WORD', 'main', 8994, 'never')
   duplicated-section sweep (DEF-105 item 1): every unit line over 60 chars sought elsewhere:
       96 long lines swept, 0 recur elsewhere in the main volume []
   attribution sweep: proper-noun attributions in the unit against ## References (BODY) and R.7:

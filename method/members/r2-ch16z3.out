@@ -248,9 +248,11 @@
 14  DEFECT-CENSUS rows in range (member main AND all, line 9623-9749)
 ================================================================================================
   columns: ['id', 'class', 'member', 'line', 'item', 'detail']
-  rows in range: 3
-    1196	C9-OVERGENERALISATION-WORD	main	9626	never	(4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
-    1197	C9-OVERGENERALISATION-WORD	main	9630	always	to four self-consistent subshells. *The observed one is always among them and
-    1198	C9-OVERGENERALISATION-WORD	main	9631	never	never uniquely determined. The periodic table is not computable from a single
+  rows in range: 5
+    1196	C9-OVERGENERALISATION-WORD	main	9640	never	(4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets
+    1197	C9-OVERGENERALISATION-WORD	main	9652	always	one never. *The observed one is always among them and never uniquely
+    1198	C9-OVERGENERALISATION-WORD	main	9652	never	one never. *The observed one is always among them and never uniquely
+    1574	C9-OVERGENERALISATION-WORD	main	9652	never	one never. *The observed one is always among them and never uniquely
+    1575	C9-OVERGENERALISATION-WORD	main	9655	always	point set with two distinct abscissae always offers more than one such point, at
 
 END r2-ch16z

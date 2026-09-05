@@ -219,6 +219,6 @@
 
 == §7 census rows in the unit's range and the docket-27 paragraph test
   census columns: ['id', 'class', 'member', 'line', 'item', 'detail']
-  rows with member main/all and line in L11550–L11904: 2 [['718', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11600', '119,', 'other sites: main=2 reg=3 sc=2 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap'], ['719', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11600', '918', 'other sites: main=2 reg=2 ioi=1 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap']]
+  rows with member main/all and line in L11550–L11904: 2 [['718', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11647', '119,', 'other sites: main=2 reg=3 sc=2 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap'], ['719', 'C7-WITHDRAWAL-LINE-NUMBER-SURVIVES', 'main', '11647', '918', 'other sites: main=2 reg=2 ioi=1 | claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap']]
   L11600 printed: claim in it was recomputed here and reproduces: the window [119, 918] mₑ, the harmonic-sum cycle cap
   docket 27: unit lines ≥ 40 chars 242; duplicated outside the unit 0 []

@@ -328,15 +328,15 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
 
 ## 10  CENSUS ROWS IN RANGE, measured from DEFECT-CENSUS.tsv on the `member` column
    3 rows in L8580-L8704
-   709  C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  L8678  item '23.10'
+   709  C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  L8683  item '23.10'
         detail: other sites: main=15 reg=2 mc=2 | sign, not a positive one (§23.10.1), so the channel stands and
-        line  : ### 31.2.2 The degeneracy is where the content is
-   1182  C9-OVERGENERALISATION-WORD  L8581  item 'never'
+        line  : sign, not a positive one (§23.10.1), so the channel stands and the word is corrected; recorded a
+   1182  C9-OVERGENERALISATION-WORD  L8586  item 'never'
         detail: structure admitting cells its keeper never enumerated.
-        line  : The target list for the novelty search was audited by closing the relation set, and it was
-   1183  C9-OVERGENERALISATION-WORD  L8657  item 'never'
+        line  : structure admitting cells its keeper never enumerated.
+   1183  C9-OVERGENERALISATION-WORD  L8662  item 'never'
         detail: on a channel, never a coordinate.
-        line  : An atom's mass sits in its nucleus, and nucleons are fermions. Indexed by (N, L, 2j, occupancy)
+        line  : on a channel, never a coordinate.
 
 ====================================================================================================
 end r2-ch16f

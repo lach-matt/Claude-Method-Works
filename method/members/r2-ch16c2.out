@@ -116,15 +116,15 @@ r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
 ## 8  DEFECT-CENSUS.tsv rows in range -- READ, not counted
   member values present: ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows in unit: 2
-     id 1180   L8553   C9-OVERGENERALISATION-WORD   token 'never'
-        line: ### 30.3.8 The residue
-     id 1181   L8569   C9-OVERGENERALISATION-WORD   token 'never'
-        line: **Anstee & Farber 1984** and **Hoffman, Kolen & Sakarovitch 1985** give the recognition results.
+     id 1180   L8558   C9-OVERGENERALISATION-WORD   token 'never'
+        line: satisfiable formulas encoding as non-reorderable, never the reverse. The map X → C(X) is global,
+     id 1181   L8574   C9-OVERGENERALISATION-WORD   token 'never'
+        line: The open problem concerns cell sets arriving with no construction. This book never has
   WITNESS either side:
-     id 1178   L8231   C9-OVERGENERALISATION-WORD   never
-     id 1179   L8303   C9-OVERGENERALISATION-WORD   at every cap
-     id 1182   L8581   C9-OVERGENERALISATION-WORD   never
-     id 1183   L8657   C9-OVERGENERALISATION-WORD   never
+     id 1178   L8236   C9-OVERGENERALISATION-WORD   never
+     id 1179   L8308   C9-OVERGENERALISATION-WORD   at every cap
+     id 1182   L8586   C9-OVERGENERALISATION-WORD   never
+     id 1183   L8662   C9-OVERGENERALISATION-WORD   never
   id run [1178, 1179, 1180, 1181, 1182, 1183] contiguous: True
 
 ## 9  DUPLICATED-SECTION SWEEP (DEF-105 item 1) -- long unit lines recurring elsewhere
