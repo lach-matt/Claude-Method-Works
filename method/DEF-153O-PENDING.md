@@ -111,3 +111,10 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
   Register-line shift because a same-range count sits on the same output line (132 of 136 UNEXPLAINED at `--shift
   50:2:6800`), so the sort was a context-aware read, named in W-234 — a `shiftcheck` successor that reads context
   (`L`, `reg`, `R`, list and tuple) is owed with it. Seven literal-index instruments held (DEF-153N).
+- **Gate verdict after W-234 (recorded as W-234 promised):** `gate.py run --core` 5 OK (`tower-2`, `kinds`, `minmax`,
+  `r2-tools-constants`, `extent`); `gate.py run` over the fifty-eight re-banked goldens 58 OK, 0 FAIL. `gate.py run --all`
+  was started and stopped in the first-generation block: it walks every `NAME.out` alphabetically and the superseded
+  predecessors (`r2-21a`, `r2-23a`, `r2-26b`, `r2-26c`, `r2-27a`, `r2-27a2`, `r2-28a2`, `r2-28a3`, `r2-28b2`, `r2-bib`,
+  `r2-ch16a` …) each fail as DEF-153B records, several running to the 270 s timeout, so a full walk costs hours and
+  reports nothing the held list does not. A `--live` mode that skips a golden with a seated successor is owed with the
+  `shiftinv` successor.
