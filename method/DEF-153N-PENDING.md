@@ -86,3 +86,23 @@ false line. Held for a successor that prints `len(pos)`.
   the front matter stood still and prints another line's words now; none is re-banked. Content-keyed successors owed —
   the anchor is the entry heading or the sentence, never the line (the `_L(text)` locator `r2-ch24b2` itself uses for its
   main-volume sites is the pattern; its Register sites are the exception).
+
+## Repaired at W-235, and the class measured to its root
+
+- **The blind spot `reanchor.py` documents was realised in nine instruments**, and each golden had banked another line's
+  words since the day it was seated (9b718be): the main volume had gained +3 at L1105 and +2 at L1447 between BUILD90 and
+  the re-anchoring, so every re-anchored number above L1452 that was not a main line — a Register or Index index, a
+  register number — resolved five off while `proveanchor` passed on the old bytes. Found by resolving every `_L(text)`
+  in the 49 re-anchored instruments in BUILD90's main and reading the predecessor's use of the number it replaced.
+  `r2-ch16t2`, `r2-ch16l2`, `r2-ch16v3`, `r2-ch24b2`, `r2-ch19a2` (banked *False* for *True*), `r2-ch28b2` (counts),
+  `r2-ch20a2` (five wrong registers), `r2-ch16u3`, `r2-ch16z2` (both red since pass 1, unlisted at W-232); `r2-reg8a`
+  the plain literal. **Ten content-keyed successors seated** (W-235), each proved byte-identical to its predecessor's
+  golden on the pre-shift members except at the mis-targeted sites, where it prints the first-generation instrument's
+  words, and shift-only on the live members. **The rule that survives:** a successor is proved against the FIRST
+  generation's words at every cross-volume site, not against its immediate predecessor's golden, because a predecessor
+  banked green can be wrong. `tools/gate_live.py` finds a superseded golden by name; the seven held here at W-234 need no
+  entry in its table now.
+- **A label class beside the read class, named by the l3 verifier:** the re-anchored family also prints hard-coded main-volume
+  L-numbers inside prose strings (`r2-ch16l3`'s *L8838* and *L8794*, stale by the same +5; `r2-ch16t3`'s *L9356* now computed).
+  Labels, not reads — the words printed are the right words — so the successors carry them unchanged (G0c) and they are
+  recorded here for the day a label successor is worth its own pass.

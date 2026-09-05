@@ -19,7 +19,11 @@ something other than a plausible line shift. Three verdicts, none of them a re-b
   TEXT      words changed: the instrument reads different content — a positional window, or the
             volume changed under it. A reading, never a re-bank.
 
-Runs each instrument through gate.py's own command table (SPECIAL), in members/, writing nothing
+Runs each instrument through gate.py's own command table (SPECIAL), in members/, writing nothing.
+W-234 (Q5 pass 6): `--all` used to enumerate only NAME.out with a NAME.py beside it, so the goldens gate.py runs
+by a SPECIAL command with no .py of their own name (r2-tools-constants, extent) were never triaged, and a CORE
+golden stayed stale from BUILD104 to BUILD110. `--all` now walks every NAME.out that has a .py or a SPECIAL entry,
+and `--list` prints that set without running anything
 into method/. Fresh outputs go to a scratch directory named on stderr.
 """
 import os, re, subprocess, sys, difflib, importlib.util, tempfile, concurrent.futures as cf
@@ -34,7 +38,8 @@ def run(n):
     p = subprocess.run(cmd, cwd=H, capture_output=True, timeout=1200)
     out = p.stdout.decode('utf-8', 'replace'); open(os.path.join(NOW, n + '.out'), 'w', encoding='utf-8').write(out)
     return n, p.returncode, out
-names = [f[:-4] for f in sorted(os.listdir(H)) if f.endswith('.out') and os.path.exists(os.path.join(H, f[:-4] + '.py'))] if '--all' in sys.argv else [a for a in sys.argv[1:] if not a.startswith('--')]
+names = [f[:-4] for f in sorted(os.listdir(H)) if f.endswith('.out') and (os.path.exists(os.path.join(H, f[:-4] + '.py')) or f[:-4] in gate.SPECIAL)] if '--all' in sys.argv else [a for a in sys.argv[1:] if not a.startswith('--')]
+if '--list' in sys.argv: print('\n'.join(names)); sys.exit(0)
 rows = []
 with cf.ThreadPoolExecutor(4) as ex:
     for n, rc, out in ex.map(run, names):

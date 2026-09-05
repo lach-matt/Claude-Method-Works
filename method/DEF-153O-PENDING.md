@@ -118,3 +118,12 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
   `r2-ch16a` …) fail as DEF-153B records; the walk reached `r2-ch16a2` (OK) after fifteen minutes and was stopped
   there, a full walk reporting nothing the held list does not. A `--live` mode that skips a golden with a seated successor is owed with the
   `shiftinv` successor.
+- **Item 1 of M's direction (5 September) executed (W-235; BUILD227 → BUILD228):** ten content-keyed successors for the
+  literal-index and re-anchoring class (DEF-153N, above), the triage tool walking the gate's SPECIAL table, `tools/gate_live.py`
+  and `tools/shiftcheck2.py`. **Recorded against W-232:** `r2-ch16u3` and `r2-ch16z2` were red from pass 1 and that close's
+  held list did not name them. Item 2: the two leads docketed (chat 153-R third delta); the bracket result drafted as 1836
+  in `DRAFT-R3-LEAD-bracket.md` with `r3-br-measure.py`, awaiting M. Item 3: `method/README.md` rewritten to the store's
+  state; the merge question measured — main's head is the merge of the consolidation branch's PR #11 and this branch's
+  merge-base with main is that head, so this branch merges to main without conflict, and only the consolidation branch's
+  later, unmerged commits conflict with it (two hunks of `CLAUDE.md`'s tools list); the content-keyed census remains.
+- **Gate verdict after W-235:** `gate.py run --core` 5 OK; the ten successors 10 OK; `tools/gate_live.py` over the live set 86 OK, 0 FAIL.

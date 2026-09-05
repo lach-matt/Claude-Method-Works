@@ -8,19 +8,30 @@ tree, and nothing is fetched from Drive to open a chat.
 
 | Path | What it is |
 | --- | --- |
-| `The_Method_1_6_BUILD92_main_and_register.md` | Live main bundle — 1,987,447 B · `ac49200f5a8a02511865260202e75cbb` · 18,485 lines · 2 members |
-| `The_Method_1_6_BUILD191_compendia_papers_audits.md` | Live compendia bundle — 6,640,248 B · `072cc2b825eb52102a23ab657e680ccd` · 75,219 lines · 422 members |
-| `members/` | All 424 members extracted from those two bundles, byte-exact. Instruments read these by name. |
+| `The_Method_1_6_BUILD110_main_and_register.md` | Live main bundle — 2,054,674 B · `e1264def2a04df9ac010db3f0ea90953` · 18,692 lines · 2 members |
+| `The_Method_1_6_BUILD228_compendia_papers_audits.md` | Live compendia bundle — 14,574,369 B · `5c74cdac6cc662681bc99c1f4e53d134` · 113,562 lines · 642 members |
+| `members/` | All 644 members extracted from those two bundles, byte-exact. Instruments read these by name. |
 | `MEMBER-INDEX.tsv` | Per member: bundle, extension, size, md5, and byte offset in its bundle |
 | `verify.py` | The witness check — see below |
 | `CLAUDE.md` | The project instruction and the §0 gate |
 | `bin/python3` | Interpreter shim — the instruments need Python ≥ 3.12 |
-| `bin/stage-gate` | Stages the tree at `/home/claude` so `gate.py census` can run |
-| `rebuild/` | `REBUILD-BUILD181…191.md` — how each build is derived from its predecessor, with every md5 to assert |
+| `bin/stage-gate` | Stages the tree at `/home/claude` so `gate.py census` and the path-bound instruments can run |
+| `rebuild/` | `REBUILD-BUILD181…191.md` — how those builds were derived from their predecessors, with every md5 to assert |
+| `DEF-153*-PENDING.md`, `RUL-153-PENDING.md`, `DRAFT-*.md` | R3's notes to M: the deferred items, the rulings asked and given, and every Register entry drafted for review before it was seated |
 
 The bundles sit beside `members/` rather than in a subdirectory because `gate.py` derives its
 `HOME` as the parent of the members directory. `gate.py` is a seated bundle member and is never
 edited in place, so the tree matches the tool.
+
+**Where the store stands (5 September 2026, W-235).** The Register runs 1 to 1835; R3's Q5 is
+complete — the five Register queue documents and the owed-expansions document parked in the mirror
+for a "Register 1.1" are seated as entries 1821–1835 or resolved to entries already seated, every
+figure re-derived by a standard-library instrument before its entry was written. The main bundle is
+built by an instrument per pass (`r3-q5a.py` … `r3-q6.py`), each asserting its predecessor's md5,
+appending the entries, re-taking the count classes and reverse-guarding to the old bundle; the
+compendia bundle by `close.py` (seating), `close_rebank.py` (re-banking a golden by running it) and
+`close_census.py` (the derived census). `WORKING-REGISTER.md` ends at W-235 and records every one of
+those closes, and `DEF-153O-PENDING.md` is the running account of what R3 executed and what it left.
 
 ## Verifying
 
@@ -35,57 +46,66 @@ Two independent checks, and a mismatch is a hard failure that is reported, never
    is asserted. This is what makes the extracted tree a witness rather than a plausible copy: a tree
    that passes provably reproduces what the old Drive gate used to extract.
 
-Current state: `members checked: 424  mismatched: 0`, both bundles recovered, `VERIFY OK`.
+Current state: `members checked: 644  mismatched: 0`, both bundles recovered, `VERIFY OK`.
 
-Exactly one compendia bundle lives here at a time. `BUILD180` through `BUILD190` were each
-removed once its successor was asserted — all remain in git history, and all are re-derivable from
-Drive through their `REBUILD-BUILDNNN.md`. Keeping a superseded bundle beside the live one is not
-merely untidy: `gate.py manifest` refuses to guess which is live and stops until one remains.
+Exactly one bundle of each kind lives here at a time; a superseded one is removed once its successor
+is asserted and stays in git history. `tools/restage.py --bundle main=… --bundle compendia=…`
+re-extracts the members and retargets `verify.py` after every close.
 
 ## Running the gate
 
 ```sh
-./method/bin/stage-gate                                   # once per container
+sh method/bin/stage-gate                                  # once per container
 export PATH="$(pwd)/method/bin:$PATH"                     # python3 -> 3.12
-python3 method/verify.py                                  # 424 members, both bundles
-cd /home/claude/members
-rm -rf __pycache__ && python3 gate.py census              # byte-identical to the member
+python3 method/verify.py                                  # every member, both bundles
+cd method/members
 rm -rf __pycache__ && python3 gate.py run --core          # tower-2, kinds, minmax, r2-tools-constants, extent
-rm -rf __pycache__ && python3 gate.py manifest --main ../The_Method_1_6_BUILD92_main_and_register.md   # 423 / 424
-rm -rf __pycache__ && python3 gate.py run --all           # all 86 goldens, one line each (~13 min)
+rm -rf __pycache__ && python3 gate.py manifest --main ../The_Method_1_6_BUILD110_main_and_register.md
+cd ../.. && python3 tools/gate_live.py --list             # the live goldens, and why each other one is left out
+python3 tools/gate_live.py                                # gate.py run over the live set (~10 min)
 ```
 
-All of the above was run in this container and passed: **86 of 86 goldens reproduce byte-exact.**
+`gate.py run --all` walks every `NAME.out` alphabetically, and the store now carries the
+superseded predecessors of every re-anchored or content-keyed successor beside them — they fail as
+DEF-153B and DEF-153N record, several running to the timeout, and a full walk reports nothing the
+held list does not. `tools/gate_live.py` is the walk over the goldens the store treats as live:
+every `NAME.out` without a seated successor (trailing-digit rule, one recorded rename) and not on
+its HELD table, the core five always included; `--list` prints the set and the reason for each
+exclusion. Its verdict after each re-bank is recorded in `DEF-153O-PENDING.md`.
 
-One caveat, measured and not worked around: `r2-ch23b` takes **300 s** here against `gate.py`'s own
-270 s per-instrument ceiling, so `run --all` reports it `TIMEOUT`. Run alone it reproduces its golden
-byte-exact. That is an environment note about this container, not a fault in the instrument or the
-bundle — and `run --all` reporting 85 OK plus that one timeout is the expected result here.
-
-### Why `stage-gate` exists
-
-`census.py` is a seated member and hard-codes `/home/claude/members/` and
-`/home/claude/DEFECT-CENSUS.tsv`. Seated members are append-only and never edited in place, so the
-script symlinks the tree to where the tool expects it. Everything written during a chat lands back
-in the repository through those links, which is what the close then commits.
+After a build that moves lines, three tools sort the moved goldens before any re-bank, and each
+refuses to decide what it cannot see: `tools/shiftinv.py --all` (a verdict per golden — SHIFT, COUNT
+or TEXT — from the words and the integers that changed), `tools/shiftcheck2.py` (a declared shift
+applied only in a Register line-reference context, declared counts matched token by token, and every
+bare shift-explained integer printed for the reader; `--selftest`), and `tools/reanchor.py` with
+`tools/proveanchor.py` for the positional class — whose documented blind spot, a number in the line
+range that is not a line, was found realised in nine instruments at W-235 and repaired by
+content-keyed successors. `census.py` is a seated member that hard-codes `/home/claude/members/`
+and `/home/claude/DEFECT-CENSUS.tsv`; seated members are never edited in place, so `stage-gate`
+symlinks the tree to where the tool expects it, links the Prints & Proofs witness and the coordinate
+file out of `drive/`, and everything written during a chat lands back in the repository.
 
 ### Environment
 
-`numpy` is required (`r2lib` imports it) and `sympy` for one instrument. `gate.py` and several
-instruments contain f-strings whose expression part includes a backslash, which does not parse
-under Python 3.11 — hence `bin/python3`. `gate.py` runs instruments as `python3 NAME.py`, so the
-shim must be on `PATH`, not merely used to launch `gate.py`.
+`numpy` is required (`r2lib` imports it) and `sympy` for one instrument; the R3 instruments
+(`r3-*`) are standard-library by ruling. `gate.py` and several instruments contain f-strings whose
+expression part includes a backslash, which does not parse under Python 3.11 — hence `bin/python3`.
+`gate.py` runs instruments as `python3 NAME.py`, so the shim must be on `PATH`, not merely used to
+launch `gate.py`.
 
 ```sh
 python3.12 -m pip install --break-system-packages numpy sympy
 ```
 
-**Every banked instrument runs here.** An earlier note in this file repeated `HANDOFF-97` §0a's
-claim that `r2-ch16n/s/t/u` and `r2-ch17c` cannot run in a container of this shape. That was never
-measured, and it is wrong: §0a was struck at `W-190`, and all five reproduce their goldens
-byte-exact. Three of them were only ever missing an input — the Prints & Proofs witness — and
-`r2-ch20a`/`r2-ch26a` likewise need the coordinate file. `bin/stage-gate` now links both out of
-`drive/`, so a fresh container runs the whole set with nothing done by hand.
+**Every banked instrument runs here** (an earlier note repeating `HANDOFF-97` §0a's claim that five
+could not was never measured and was struck at `W-190`); `r2-ch23b` alone exceeds `gate.py`'s 270 s
+ceiling in this container and reproduces its golden run alone.
+
+## History: how the store got here
+
+The sections below are the record of the store's first weeks — BUILD184 carried back from Drive,
+the collisions of 3 September, and what the first main build broke. They are kept as written; the
+state they describe is superseded by the paragraph above.
 
 ## How BUILD184 got here
 
