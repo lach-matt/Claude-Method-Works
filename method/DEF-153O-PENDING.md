@@ -147,3 +147,10 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
   1,609 rows, 2 carried, 1,607 exact, 0 NEW, 0 GONE), then the 86 live goldens **86 OK, 0 FAIL** (`r3-q6-measure` the
   slowest at 127 s). The store is green on every step it treats as live; `gate.py census` and the held predecessors stay
   red as recorded.
+- **A second slip of mine at W-236–W-238, found by the readiness survey and repaired:** the three restages named only the
+  compendia bundle (`restage.py --bundle compendia=…`), and `restage.py` rewrites `verify.py`'s BUNDLES and
+  `MEMBER-INDEX.tsv` from the bundles it is given — so for three commits (fd88a3a … 934609e) the store's verifier and index
+  covered 662 compendia members and not the main bundle, and `buildtrace.py`, which reads the live names from `verify.py`
+  since W-236, failed with `KeyError: 'main'`. The main bundle file (BUILD110, md5 e1264def…) and its two members were
+  untouched on disk throughout. Restaged naming both bundles: 664 members indexed, `VERIFY OK`, `buildtrace --selftest`
+  OK. **Rule from this:** a restage always names both bundles, and `verify.py` must be checked to declare two after it.
