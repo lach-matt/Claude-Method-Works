@@ -1,4 +1,21 @@
-# DRAFT for M's review — Q5 pass 6: `OWED-REGISTER-EXPANSIONS.md`. Part A — the six R-rows resolve to seated entries and nothing is owed; Part B — registers 603, 604 and 605 corrected from the seed-cap finding as 1833–1835, every figure re-derived. NOTHING SEATED.
+# DRAFT for M's review — Q5 pass 6: `OWED-REGISTER-EXPANSIONS.md`. Part A — the six R-rows resolve to seated entries and nothing is owed; Part B — registers 603, 604 and 605 corrected from the seed-cap finding as 1833–1835, every figure re-derived. RULED AND SEATED (W-233).
+
+**M's rulings (4 September 2026): 1 — yes; 2 — yes; 3 — correction if it is just a correction, withdrawal if it is
+withdrawing a previous statement; 4 — seat it.** Part A recorded in W-233 with no entry seated. Seated as 1833 and 1834
+(corrections) and 1835 (a withdrawal), with `r3-q6-measure.py`, its golden and `covers8.json` (BUILD110 main, BUILD226
+compendia). The seated text differs from the draft below by the changes six independent auditors found before seating
+(recorded in W-233): the step definition includes the alphabet-minimum steps; the full transfer follows from q's maximum
+with q ≤ k, not from q's alphabet alone; the compendium object is cited by its printed title, *The seed's forced set,
+corrected*; the 219 of 219 is a biased randomised sample (the return's word); *s→p and p→s fall* reads *are no longer
+element-forced*; 1835's headline names properties 1–3 and corner 3's *type*; T2's proviso is *at least two values*; ℓ
+for the coordinate; each closing pointer carries every register its body names; Chvátal's forced set is the return's
+term; §14.5.14's closing sentence is named superseded. Part A's corrections: the lower bound 5 is also in the
+Mathematical Compendium's prior-art note; R-01 adds 467; R-02's *asymmetry survives* clause is stated by no entry after
+504 (496 states it on prune-greedy's figures) — a lead for the prose pass; §14.1's correction is at main L3701–L3705; the
+absence of citations to 603–605 was measured by a pointer sweep of the Register, not by `register_cites.py`. The draft
+below is kept as reviewed.
+
+---
 
 Source: `OWED-REGISTER-EXPANSIONS.md` (mirror, 27,931 B; the prose-pass chat of 2026-08-28, source Chapter 14 → reader
 14A), its "Register consequences" block returned from the original-works project (`SEED-CAP-FINDING.md`, 4,714 B, and

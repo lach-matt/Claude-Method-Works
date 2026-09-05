@@ -1,5 +1,5 @@
 r2-27a3.py — 27a-02 under ruling (a): the Register pointers of Appendix G rows 8.2, 8.4, 10.4c re-taken under CONVENTION DEP
-members: The_Method_1_6-2.md e5875231 | The_Method_1_6___The_Register-2.md 33e10932 | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md ce104a99
+members: The_Method_1_6-2.md cc039ffe | The_Method_1_6___The_Register-2.md 87bd1b80 | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md ce104a99
 
 == §1 THE ROWS, located by scan — pointers are read OUT of the rows, never carried in
    Appendix G body L11408–L11453 (46 lines)
@@ -28,7 +28,7 @@ members: The_Method_1_6-2.md e5875231 | The_Method_1_6___The_Register-2.md 33e10
    main volume has no §10.4c and no §10.4e                            []                           OK
 
 == §3 THE REGISTER, indexed; the DEP-N sweep — every entry naming one of the four locators, over all entries
-   entries indexed: 1667 (1 to 1832)
+   entries indexed: 1670 (1 to 1835)
    entries that RECORD this reading name every locator and rest on nothing; excluded from the sweep: [1812]
    the excluded entries are the record of the re-take and no other    [1812]                       OK
    §8.2    T-locator (DEP-N): [543, 584, 585, 588, 592]    bare §-locator (candidate): []

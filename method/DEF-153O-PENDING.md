@@ -94,3 +94,20 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
   `r2-ch17e2`'s literal index (DEF-153N) is now visibly stale by a shift older than Q5. **Q5 is complete through the
   five queue documents; pass 6 (`OWED-REGISTER-EXPANSIONS.md`: R-01…R-06 and the register 602–605 corrections) is the
   next draft for M.**
+- **Q5 pass 6 seated (W-233; BUILD109 → BUILD110 main, BUILD225 → BUILD226 compendia):** `OWED-REGISTER-EXPANSIONS.md`'s
+  six R-rows resolve to seated entries (467, 400, 468, 493–506, 511, 519, 527, 551, 596–600) and seat nothing; registers
+  603 and 604 corrected and 605's properties 1–3 withdrawn at 1833–1835, every figure re-derived by `r3-q6-measure.py`
+  (standard library; the 24,585 covers enumerated and matched set for set to `covers8.json`, seated as a member on M's
+  ruling), the d-shell seed 10 named as not re-derived. Six independent auditors read the entries before seating and
+  their sound findings were applied (W-233). **Q5 is complete: the five queue documents and the owed-expansions document
+  are seated or resolved.** Leads named, not owed: the bracket-system theorem (Request 3) has no Register entry; the reader
+  draft 14A keeps *a coupling axis costs more*, which register 504 withdrew.
+- **Q5 pass 6 re-bank (W-234; BUILD226 → BUILD227):** fifty-eight goldens re-banked on BUILD110 after the Register's front
+  matter grew by two lines (the load-bearing table's rows for 1820 and 602), every moved integer a Register line reference
+  +2 from L50, a declared count or a count named to its entry. **Two tool findings, recorded:** `shiftinv.py --all` never
+  runs the gate's SPECIAL commands, so `r2-tools-constants` (`r2-tools.py constants`, a CORE golden) went un-re-banked
+  from BUILD104 through W-226 and W-232 and was caught only now — a `shiftinv` successor walking `gate.py`'s SPECIAL table
+  is owed, and `gate.py run --all` is run after every re-bank from this close; `shiftcheck.py`'s window cannot sort a
+  Register-line shift because a same-range count sits on the same output line (132 of 136 UNEXPLAINED at `--shift
+  50:2:6800`), so the sort was a context-aware read, named in W-234 — a `shiftcheck` successor that reads context
+  (`L`, `reg`, `R`, list and tuple) is owed with it. Seven literal-index instruments held (DEF-153N).

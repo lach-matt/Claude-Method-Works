@@ -1,14 +1,14 @@
-     976 |Λ8|     sites  175 {'main': 86, 'reg': 38, 'mc': 36, 'pc': 2, 'ioi': 13}
-   1,654 |Λ9|     sites   42 {'main': 24, 'reg': 6, 'mc': 9, 'ioi': 3}
-   2,535 |Λ10|    sites   15 {'main': 8, 'reg': 2, 'mc': 3, 'ioi': 2}
-  13,585 |Λ11|    sites   12 {'main': 8, 'reg': 1, 'mc': 2, 'ioi': 1}
-  70,905 |Λ12|    sites   15 {'main': 8, 'reg': 2, 'mc': 3, 'ioi': 2}
- 199,130 |Λ13|    sites   30 {'main': 14, 'reg': 2, 'mc': 12, 'ioi': 2}
- 475,800 C(976,2) sites   19 {'main': 10, 'reg': 1, 'mc': 7, 'ioi': 1}
-VARIANT '975': 3 sites [('reg', 1729), ('reg', 3627), ('ioi', 1355)]
-VARIANT '977': 2 sites [('reg', 3635), ('reg', 3885)]
-VARIANT '1654 ': 5 sites [('reg', 5249), ('reg', 6201), ('reg', 6595), ('mc', 1820)]
-VARIANT '2535 ': 4 sites [('reg', 5249), ('reg', 6595), ('mc', 1820), ('ioi', 1434)]
-VARIANT '13585': 4 sites [('reg', 5249), ('reg', 6595), ('mc', 1820), ('ioi', 1434)]
-VARIANT '70905': 3 sites [('reg', 5249), ('mc', 1820), ('ioi', 1434)]
-VARIANT '199130': 3 sites [('reg', 5249), ('mc', 1820), ('ioi', 1434)]
+     976 |Λ8|     sites  181 {'main': 86, 'reg': 44, 'mc': 36, 'pc': 2, 'ioi': 13}
+   1,654 |Λ9|     sites   43 {'main': 24, 'reg': 7, 'mc': 9, 'ioi': 3}
+   2,535 |Λ10|    sites   16 {'main': 8, 'reg': 3, 'mc': 3, 'ioi': 2}
+  13,585 |Λ11|    sites   13 {'main': 8, 'reg': 2, 'mc': 2, 'ioi': 1}
+  70,905 |Λ12|    sites   19 {'main': 8, 'reg': 6, 'mc': 3, 'ioi': 2}
+ 199,130 |Λ13|    sites   32 {'main': 14, 'reg': 4, 'mc': 12, 'ioi': 2}
+ 475,800 C(976,2) sites   22 {'main': 10, 'reg': 4, 'mc': 7, 'ioi': 1}
+VARIANT '975': 3 sites [('reg', 1734), ('reg', 3632), ('ioi', 1355)]
+VARIANT '977': 2 sites [('reg', 3640), ('reg', 3890)]
+VARIANT '1654 ': 5 sites [('reg', 5254), ('reg', 6206), ('reg', 6600), ('mc', 1820)]
+VARIANT '2535 ': 4 sites [('reg', 5254), ('reg', 6600), ('mc', 1820), ('ioi', 1434)]
+VARIANT '13585': 4 sites [('reg', 5254), ('reg', 6600), ('mc', 1820), ('ioi', 1434)]
+VARIANT '70905': 3 sites [('reg', 5254), ('mc', 1820), ('ioi', 1434)]
+VARIANT '199130': 3 sites [('reg', 5254), ('mc', 1820), ('ioi', 1434)]

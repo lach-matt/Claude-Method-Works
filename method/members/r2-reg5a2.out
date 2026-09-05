@@ -1,8 +1,8 @@
 
 == 0  THE UNIT
-   unit opens at entry 200                                  854                          OK
-   entry 246 opens the next unit                            974                          OK
-   unit = L854-L973, 120 lines, entries 200..245, 30 headings
+   unit opens at entry 200                                  856                          OK
+   entry 246 opens the next unit                            976                          OK
+   unit = L856-L975, 120 lines, entries 200..245, 30 headings
 
 == 1  THE GAPS, CLASSIFIED AGAINST THE WHOLE REGISTER
    gaps in the unit span                                    16                           OK

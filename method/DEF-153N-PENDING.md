@@ -75,3 +75,14 @@ false line. Held for a successor that prints `len(pos)`.
     ~45 positional             successors, W-207's discipline     ->  a reading each
     r2-reg7a                   a successor printing len(pos)       ->  small
     r2-ch19b                   a successor with A.19's sub-window re-anchored  ->  small
+
+## Added at W-234 (Q5 pass 6's re-bank): the front matter grew and the class bit
+
+- **Seven more members of this class, exposed by the first Register front-matter growth since the volumes were frozen** (two
+  rows added to the load-bearing table at L50–L51, every line from 50 moving by +2): `r2-ch16l2` (prints L1366, L1368 and
+  L2418 as fixed lines), `r2-ch16t2` (L1929), `r2-ch16v3` (L5017's neighbourhood), `r2-ch16u3` and `r2-ch16z2` (`REG[5016]`,
+  register 1336 read at a fixed line — both now exit 1), `r2-ch24b2` (L1798, L1936), `r2-reg8a` (`RL[:74]` as the front
+  matter, now 79 lines, so its reg8-B list drops the *411 entries are cited* line at L75). Each printed the same words while
+  the front matter stood still and prints another line's words now; none is re-banked. Content-keyed successors owed —
+  the anchor is the entry heading or the sentence, never the line (the `_L(text)` locator `r2-ch24b2` itself uses for its
+  main-volume sites is the pattern; its Register sites are the exception).

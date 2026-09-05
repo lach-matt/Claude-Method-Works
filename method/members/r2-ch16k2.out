@@ -28,9 +28,9 @@
   s+p over three shells fills 2+2+6+2+6+2+6 -> Ne 10, Ar 18; "reaching argon" consistent with n=3, l<=1
   item 1 cap tuple (5,5,2,6,2): l_max = 2 -> d, NOT f; "not the f shell either" is EXACT
 === F. registers 424-426 (existence first, grouped-aware) ===
-  register 424: bare heading L1582  **E(book) IS COMPUTED FOR THE FIRST TIME: 578 AT CHAPTER RESOLUTION, 0 AT PART RESOLUTIO
-  register 425: bare heading L1586  **§32.6's CONDITION 1 IS NAMED E(book) > 0 AND TESTS REFERENCE INTEGRITY.** *It found th
-  register 426: bare heading L1590  **§32.1's CONSTRAINT IS VIOLATED BY 42% OF THIS BOOK'S OWN CELLS.** *Support at or befor
+  register 424: bare heading L1584  **E(book) IS COMPUTED FOR THE FIRST TIME: 578 AT CHAPTER RESOLUTION, 0 AT PART RESOLUTIO
+  register 425: bare heading L1588  **§32.6's CONDITION 1 IS NAMED E(book) > 0 AND TESTS REFERENCE INTEGRITY.** *It found th
+  register 426: bare heading L1592  **§32.1's CONSTRAINT IS VIOLATED BY 42% OF THIS BOOK'S OWN CELLS.** *Support at or befor
 === G. the count word *seven* against the object it names (L8809) ===
   bolded ordinal items  3: [8818, 8840, 8846]
   bolded numbered items 7: [8853, 8865, 8870, 8876, 8881, 8886, 8890]
@@ -67,21 +67,21 @@
   12.11.2 body_range (3368, 3399)  section_span (3368, 3399)  (coincide)
     L3374 half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances.
 === J. withdrawals in the Register against "three hundred and sixty-eight" ===
-  register entry headings 1667 ; entries whose body contains a withdrawal word 61
-  occurrences of the stem anywhere in the Register: 93
-  368 sites, six volumes: {'reg': [1366, 1368, 2416, 6318], 'mc': [1520], 'ioi': [748]}
+  register entry headings 1670 ; entries whose body contains a withdrawal word 62
+  occurrences of the stem anywhere in the Register: 96
+  368 sites, six volumes: {'reg': [1368, 1370, 2418, 6320], 'mc': [1520], 'ioi': [748]}
   37 sites in main: [2283, 3232, 6242, 6855, 10216, 10218, 11622, 11624, 11714]
   printed: 368 withdrawals, ~37 from a single late session
 === K. numeral SITES for the unit's figures, six volumes ===
   1,021    1 sites  {'main': [8822]}
-  400     14 sites  {'main': [3705, 5113, 5156, 6919, 7024, 8822], 'reg': [1490, 3476, 5913], 'ioi': [780]}
+  400     14 sites  {'main': [3705, 5113, 5156, 6919, 7024, 8822], 'reg': [1492, 3478, 5915], 'ioi': [780]}
   1,681    1 sites  {'main': [8825]}
-  861      3 sites  {'main': [8826], 'reg': [3178], 'ioi': [1241]}
-  354      8 sites  {'main': [2706, 2714, 8820], 'reg': [16, 1342, 2780, 6577], 'ioi': [734]}
-  138      8 sites  {'main': [8820, 8825, 8847], 'reg': [626, 2200, 5120, 6494], 'ioi': [518]}
-  162     15 sites  {'main': [4172, 8846, 8847, 8850, 11739, 11875, 11896], 'reg': [722, 1940, 6342, 6346, 6462, 6677], 'mc': [3380], 'ioi': [542]}
-  58      35 sites  {'main': [1235, 1239, 7520, 7532], 'reg': [306, 2952, 2960, 2984, 2988, 2992, 3024, 3900, 3916, 4732, 5120, 5236, 5260, 5292, 5308, 5392, 5408, 5448, 5504, 5512, 5813, 6677, 6761, 6765, 6769], 'mc': [1240, 2836, 3688, 3704], 'ioi': [438, 1894]}
-  1,442   35 sites  {'main': [28, 200, 564, 5659, 6637, 6747, 6749, 6751, 6755, 6772, 6791, 6804, 6807, 6809, 6810, 6815, 6816, 6892, 6975, 6991, 7373, 7459, 8855, 10284, 10296, 10587, 10625, 11005, 11149, 11168], 'reg': [976, 1820, 2004, 2868, 6186]}
-  368      6 sites  {'reg': [1366, 1368, 2416, 6318], 'mc': [1520], 'ioi': [748]}
-  540     28 sites  {'main': [2891, 3496, 8733, 8741, 8743, 8745, 8752, 8766, 8767, 8768, 8769, 8770, 8786, 8793, 8890, 10588, 10626, 11116, 11117, 11120], 'reg': [848, 852, 1440, 2022], 'mc': [1274, 1314], 'ioi': [234, 920]}
-  25      73 sites  {'main': [92, 145, 200, 228, 1253, 1564], 'reg': [174, 832, 1668, 2972, 3316, 3468], 'mc': [186, 1100, 1183, 1185, 1254, 1876], 'pc': [44, 391, 424], 'ioi': [405, 1510], 'sc': [132, 136, 402, 578, 579, 580]}
+  861      3 sites  {'main': [8826], 'reg': [3180], 'ioi': [1241]}
+  354      8 sites  {'main': [2706, 2714, 8820], 'reg': [16, 1344, 2782, 6579], 'ioi': [734]}
+  138      8 sites  {'main': [8820, 8825, 8847], 'reg': [628, 2202, 5122, 6496], 'ioi': [518]}
+  162     15 sites  {'main': [4172, 8846, 8847, 8850, 11739, 11875, 11896], 'reg': [724, 1942, 6344, 6348, 6464, 6679], 'mc': [3380], 'ioi': [542]}
+  58      35 sites  {'main': [1235, 1239, 7520, 7532], 'reg': [308, 2954, 2962, 2986, 2990, 2994, 3026, 3902, 3918, 4734, 5122, 5238, 5262, 5294, 5310, 5394, 5410, 5450, 5506, 5514, 5815, 6679, 6763, 6767, 6771], 'mc': [1240, 2836, 3688, 3704], 'ioi': [438, 1894]}
+  1,442   35 sites  {'main': [28, 200, 564, 5659, 6637, 6747, 6749, 6751, 6755, 6772, 6791, 6804, 6807, 6809, 6810, 6815, 6816, 6892, 6975, 6991, 7373, 7459, 8855, 10284, 10296, 10587, 10625, 11005, 11149, 11168], 'reg': [978, 1822, 2006, 2870, 6188]}
+  368      6 sites  {'reg': [1368, 1370, 2418, 6320], 'mc': [1520], 'ioi': [748]}
+  540     28 sites  {'main': [2891, 3496, 8733, 8741, 8743, 8745, 8752, 8766, 8767, 8768, 8769, 8770, 8786, 8793, 8890, 10588, 10626, 11116, 11117, 11120], 'reg': [850, 854, 1442, 2024], 'mc': [1274, 1314], 'ioi': [234, 920]}
+  25      74 sites  {'main': [92, 145, 200, 228, 1253, 1564], 'reg': [176, 834, 1670, 2974, 3318, 3470], 'mc': [186, 1100, 1183, 1185, 1254, 1876], 'pc': [44, 391, 424], 'ioi': [405, 1510], 'sc': [132, 136, 402, 578, 579, 580]}
