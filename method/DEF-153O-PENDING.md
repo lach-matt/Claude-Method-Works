@@ -127,3 +127,10 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
   merge-base with main is that head, so this branch merges to main without conflict, and only the consolidation branch's
   later, unmerged commits conflict with it (two hunks of `CLAUDE.md`'s tools list); the content-keyed census remains.
 - **Gate verdict after W-235:** `gate.py run --core` 5 OK; the ten successors 10 OK; `tools/gate_live.py` over the live set 86 OK, 0 FAIL.
+- **Item 3's last piece built, not seated (5 September; DRAFT-R3-CENSUS.md):** `census2.py` (census.py with the extent as
+  data, its own directory, an output argument) and `tools/close_census2.py` (ids matched by content in four printed tiers;
+  a row with no site is never dropped by the tool — it REFUSES unless the id is typed in `--retire`, and a retired row is
+  carried with its mark). Dry-run on BUILD110/BUILD228: 1,557 seated → 1,607 measured; 1,524 exact, 26 by item, 2 by text,
+  3 by run, 52 NEW, 2 GONE — **102** (24,585 is now in §14.5.12, register 1820's pointer) and **1213** (D.5.7's line
+  rewritten by the vocabulary class at BUILD95). Its own output is a fixed point (0 NEW, 0 GONE). `gate_live.py --census`
+  is the live census step; `gate.py census` stays red by construction. Four rulings put to M in the draft; nothing seated.

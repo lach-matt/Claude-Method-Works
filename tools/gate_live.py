@@ -3,6 +3,7 @@
 
     python3 tools/gate_live.py            run gate.py on every live golden (in members/, through gate.py's own runner)
     python3 tools/gate_live.py --list     print the live set and the reason each other golden is left out; run nothing
+    python3 tools/gate_live.py --census   the census step alone: close_census2.py --dry must find the seated census a fixed point
 
 WHY. `gate.py run --all` walks every NAME.out alphabetically; the superseded predecessors and the held readings
 (DEF-153B, DEF-153N, W-224, W-234) fail as recorded and several run long, so a full walk costs an hour and reports
@@ -15,6 +16,12 @@ a higher trailing digit (r2-ch16p2 → r2-ch16p3) or a trailing digit where NAME
 trailing letter is the instrument's own (r2-ch16a … r2-ch16z), so the one letter-marked successor is named in RENAMED.
 Where a predecessor is held with no successor yet, the name is listed in HELD with the record that says so; edit those
 tables when the record changes, never the rule.
+
+THE CENSUS STEP. `gate.py census` runs `census.py`, which reads /home/claude and carries the Register's extent as a literal,
+so it has been red since BUILD98 and stays red by construction (DEF-153O). The live step is `close_census2.py --dry`: it
+runs `census2.py`, matches the fresh rows onto the seated ids by content, and must report the seated member a FIXED POINT —
+every row exact, nothing NEW, nothing GONE, the retired rows carried — printing "== the seated member". The default walk
+runs it first, then the live goldens.
 """
 import os, re, subprocess, sys
 H = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'method', 'members')
@@ -42,11 +49,19 @@ def live():
         elif succ: left[n] = 'superseded by ' + ', '.join(succ)
         else: keep.append(n)
     return keep, left
+def census():
+    p = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'close_census2.py'), '--dry'], capture_output=True, text=True)
+    tail = [l for l in p.stdout.splitlines() if l.strip().startswith(('seated ', 'renumbered '))]
+    ok = p.returncode == 0 and any('== the seated member' in l for l in tail)
+    print(('OK  ' if ok else 'FAIL') + ' census: ' + (' / '.join(l.strip() for l in tail) or (p.stderr.strip().splitlines() or ['no output'])[-1]))
+    return ok
 if __name__ == '__main__':
     keep, left = live()
+    if '--census' in sys.argv: sys.exit(0 if census() else 1)
     if '--list' in sys.argv:
         print('LIVE (%d):' % len(keep)); print('  ' + ' '.join(keep)); print('LEFT OUT (%d):' % len(left))
         for n, why in left.items(): print('  %-14s %s' % (n, why))
         sys.exit(0)
-    names = [a for a in sys.argv[1:] if not a.startswith('--')] or keep
-    sys.exit(subprocess.call([sys.executable, 'gate.py', 'run'] + names, cwd=H))
+    names = [a for a in sys.argv[1:] if not a.startswith('--')]
+    c = True if names else census()
+    sys.exit(subprocess.call([sys.executable, 'gate.py', 'run'] + (names or keep), cwd=H) or (0 if c else 1))
