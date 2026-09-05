@@ -1,4 +1,6 @@
-# DRAFT for M's review — R3 item 3, last piece: the census content-keyed. `census2.py`, `close_census2.py`, and a dry regeneration of DEFECT-CENSUS.tsv on BUILD110 / BUILD228. NOTHING SEATED; four rulings wanted.
+# DRAFT for M's review — R3 item 3, last piece: the census content-keyed. `census2.py`, `close_census2.py`, and a dry regeneration of DEFECT-CENSUS.tsv on BUILD110 / BUILD228. RULED AND SEATED (W-236, W-237, W-238).
+
+**M's rulings (5 September 2026):** 1 — a question (does the carrying avoid rebuilding a table or tool? the reader must see no work matter): it does not, and the census is not a reader-facing volume; carried as proposed, recorded in W-237. 2 — "all tools go in the archive, no exceptions": twenty seated at W-236. 3 — yes. 4 — yes. **Correction:** the second-order count below says 18 move and 6 do not; the names are right and the totals wrong — 17 move, 7 do not (W-238).
 
 Written 5 September 2026 under "do each in order proposed". Item 1 (ten successors) and item 2 (two leads, the bracket
 draft) are closed at W-235; item 3's README and merge measurement are in DEF-153O; this is the piece that remained.
