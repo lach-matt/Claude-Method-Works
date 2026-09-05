@@ -1,0 +1,64 @@
+  WHAT IS EVERY RESET?
+
+         Z  el    opens a subshell    aufbau exception
+         3  Li             YES  2s                   —
+        19   K             YES  4s                   —
+        37  Rb             YES  5s                   —
+        42  Mo                   —                 YES
+        43  Tc                   —                   —
+        45  Rh                   —                 YES
+        55  Cs             YES  6s                   —
+        58  Ce             YES  4f                 YES
+        64  Gd             YES  5d                 YES
+        65  Tb                   —                   —
+        80  Hg                   —                   —
+        81  Tl             YES  6p                   —
+        87  Fr             YES  7s                   —
+        91  Pa             YES  5f                 YES
+        96  Cm             YES  6d                 YES
+        97  Bk                   —                   —
+       103  Lr             YES  7p                 YES
+       104  Rf             YES  6d                   —
+
+      opens a subshell : 12 of 18
+      aufbau exception : 7 of 18
+      NEITHER          : 4 of 18
+
+  AND THE CONVERSE — does every subshell opening force a reset?
+
+         Z  el   opens   reset?
+         3  Li      2s      YES
+         5   B      2p       no
+        11  Na      3s       no
+        13  Al      3p       no
+        19   K      4s      YES
+        21  Sc      3d       no
+        31  Ga      4p       no
+        37  Rb      5s      YES
+        39   Y      4d       no
+        47  Ag      5s       no
+        49  In      5p       no
+        55  Cs      6s      YES
+        57  La      5d       no
+        58  Ce      4f      YES
+        64  Gd      5d      YES
+        71  Lu      5d       no
+        81  Tl      6p      YES
+        87  Fr      7s      YES
+        89  Ac      6d       no
+        91  Pa      5f      YES
+        96  Cm      6d      YES
+       103  Lr      7p      YES
+       104  Rf      6d      YES
+
+      subshell openings that do NOT reset : 11
+
+  THE STATEMENT
+
+      a resets ONLY at a subshell opening or an aufbau exception —
+      never in the middle of a subshell's filling. so every subshell
+      is filled at CONSTANT a, and its occupancy slope is a property
+      of that subshell alone.
+
+      the slopes are not comparable because the index says so, and the
+      reset mechanism is WHY: each subshell is its own segment.

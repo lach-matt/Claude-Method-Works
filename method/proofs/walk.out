@@ -1,0 +1,55 @@
+  THE HANDSHAKE  —  a resets only when the previous atom's value fails
+
+      walk Z upward. keep a if it still lies in the new bracket.
+      if not, move it the MINIMUM distance to re-enter.
+
+      106 steps · 106 satisfied · 18 recalibrations
+
+      → a single a walking with minimal resets satisfies 100.0% of the table.
+
+  WHERE IT RECALIBRATES
+
+         Z  el  fills   a before   a after      move
+         3  Li     2s     0.0000    0.0000   +0.0000
+        19   K     4s     0.0000    0.5774   +0.5774
+        37  Rb     5s     0.5774    1.0000   +0.4226
+        42  Mo     4d     1.0000    1.0000   -0.0000
+        43  Tc     5s     1.0000    1.0000   +0.0000
+        45  Rh     4d     1.0000    1.0000   -0.0000
+        55  Cs     6s     1.0000    1.2168   +0.2168
+        58  Ce     4f     1.2168    0.7071   -0.5097
+        64  Gd     5d     0.7071    0.7071   +0.0000
+        65  Tb     4f     0.7071    0.7071   -0.0000
+        80  Hg     6s     0.7071    0.8090   +0.1019
+        81  Tl     6p     0.8090    1.0000   +0.1910
+        87  Fr     7s     1.0000    1.3938   +0.3938
+        91  Pa     5f     1.3938    1.3660   -0.0278
+        96  Cm     6d     1.3660    1.3660   +0.0000
+        97  Bk     5f     1.3660    1.3660   -0.0000
+       103  Lr     7p     1.3660    1.9841   +0.6180
+       104  Rf     6d     1.9841    1.9841   -0.0000
+
+      18 resets in 106 steps.
+
+  THE TRAJECTORY OF a
+
+          Z         a
+          3    0.0000
+          5    0.0000
+         10    0.0000
+         19    0.5774
+         20    0.5774
+         21    0.5774
+         37    1.0000
+         38    1.0000
+         39    1.0000
+         55    1.2168
+         56    1.2168
+         57    1.2168
+         70    0.7071
+         71    0.7071
+         87    1.3938
+         88    1.3938
+         89    1.3938
+        102    1.3660
+        103    1.9841
