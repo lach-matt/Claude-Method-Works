@@ -87,11 +87,19 @@ as the only trace (the id then resolves nowhere in the census); or hold the rege
   volume; the census resolves `§` against main's headings only. The instrument's blind spot (census.py's too), not the
   entry's error; recorded as the census reads it.
 
-## The second order (W-200's rule)
+## The second order (W-200's rule), pre-measured
 
-Twenty-four live goldens read `DEFECT-CENSUS.tsv` (r2-23a2, r2-24a, r2-32a, r2-bib2, r2-ch16a2, c2, f2, i2, l3, n3, p3, t3,
-v4, z3, r2-ch19b2, r2-ch25a2, r2-ch26b2, r2-ch28a4, r2-reg10a2, 3a2, 4a2, 5a2, 6a2, 9a2). A regeneration is a second-order
-build: those that print row counts or rows in range will move and are re-banked in a second pass, by running, named.
+Twenty-four live goldens read `DEFECT-CENSUS.tsv`. Run against the renumbered census in a staged copy of members/
+(symlinks and the new file; the repository untouched; `/home/claude/members` re-pointed for the run and restored by
+`stage-gate`): **18 move, 6 do not** (r2-24a, r2-32a, r2-ch16i2, r2-reg3a2, r2-reg4a2, r2-reg5a2, r2-reg6a2 — six; r2-32a
+and r2-24a read rows the regeneration leaves byte-identical). Every movement read: the census's lines are BUILD92's and
+become BUILD110's / the Register's +5, so each row a golden prints moves by the volume's shift (r2-ch16a2, c2, f2, l3, n3,
+v4, z3, ch19b2, reg9a2, reg10a2); goldens that count "rows in range L…–L…" against a literal range see rows enter or
+leave it as their lines move (r2-23a2 gains 1536, 1537; r2-ch16p3 loses 1191, 4 → 3; r2-ch25a2 gains 715 and loses
+1226, 1227 to r2-ch26b2's range, 5 → 4; r2-ch28a4 keeps 2) — the positional class DEF-153N names, now visible on the
+census side; r2-ch16z3 gains the two new §34.6 rows (1574, 1575; 3 → 5); r2-ch16t3 counts 1,557 → 1,609; r2-bib2
+prints the census's md5. Two ran under the wrong Python at first (the 3.12 shim is required, as the store says) and
+reproduce under it. The re-bank is by running, in the second pass, each movement named against this list.
 
 ## Rulings wanted
 
@@ -106,5 +114,5 @@ build: those that print row counts or rows in range will move and are re-banked 
 
 W-236: `close.py` seats the instruments (BUILD228 → BUILD229). W-237: `close_census2.py --retire 102,1213` regenerates the
 census (BUILD229 → BUILD230), the report above going into the W text. Then the second pass: the 24 census-reading live
-goldens run, the movers re-banked by `close_rebank.py` and named (BUILD230 → BUILD231). `gate_live.py` (census step first,
+goldens run, the 18 movers re-banked by `close_rebank.py` and named (BUILD230 → BUILD231). `gate_live.py` (census step first,
 then the live goldens) is the verdict, recorded in DEF-153O.
