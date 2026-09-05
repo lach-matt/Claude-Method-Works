@@ -1,0 +1,1091 @@
+[
+ {
+  "id": "F-133",
+  "title": "L9486 'the fourth question of the domain protocol' \u2014 not among register 1336's four; 'the one that blocks the most' unmeasurable",
+  "owed": "Repair the ordinal; soften the superlative.",
+  "source": "DEFERRED.md L2651\u20132657 (Chat 125 item 5)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-134",
+  "title": "L\u00f6wdin epigraph printed three times (L9395\u201397, L9489\u201392, L9496\u201398); both copies are in PP",
+  "owed": "Reword the shared 126-character opening (not delete a copy), per chat 126's re-read.",
+  "source": "DEFERRED.md L2659\u20132664 (Chat 125 item 6); L2789\u20132794 (Chat 126 item 10)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-136",
+  "title": "Ruling 45 unambiguous sites in ch.33\u201334: L9401, L9479, L9485, L9593, L9700 ('the trajectory was mine')",
+  "owed": "Repair; first-person probe must include 'mine' (out-of-unit L25, L5865, L10771).",
+  "source": "DEFERRED.md L2672\u20132678 (Chat 125 item 8); L2779\u20132783 (Chat 126 item 9); L2866\u20132869 (Chat 127 item 9)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-137",
+  "title": "Language-bounds claim assigned to P2 at L366 and headed P20 at L396; \u00a720.1 says P20",
+  "owed": "Reconcile the principle number.",
+  "source": "DEFERRED.md L2690\u20132692 (Chat 125 item 11)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-138",
+  "title": "'Seventeen of nineteen openings agree; 89 %' \u2014 convention (adjacent inversions, not position) unnamed at L9511/L9514/L9605",
+  "owed": "Name the convention; the figure stands.",
+  "source": "DEFERRED.md L2726\u20132730 (Chat 126 item 2, 16x-02); L3337 (34re-06)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-139",
+  "title": "Main L9537 table places eleven variables; IoI \u039b_var says twelve and its singleton rule needs n*",
+  "owed": "Add n* to the main-volume table.",
+  "source": "DEFERRED.md L2732\u20132737 (Chat 126 item 3, 16x-03)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-140",
+  "title": "L9524\u201325 radicand 'count of states below' \u2014 apposition (complete lower subshells) is exact, head is not",
+  "owed": "Correct the head of the definition (also L9593).",
+  "source": "DEFERRED.md L2739\u20132743 (Chat 126 item 4, 16x-04)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-141",
+  "title": "Appendix B opener L10169 '153 channels, 1105 interior cells, bracket 1105 of 1105' vs B.2's 596 rows / 2,269 cells / 1,577 of 1,738; eleven sites outside",
+  "owed": "Restate from the table after the mathematics; sweep the eleven sites (L641, L1480, L2521, L3406, L6632, L6970, L8189, L8299, L9165, L10276, L10277).",
+  "source": "DEFERRED.md L3108\u20133111 (Chat 133 item 1, 20a-01)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-142",
+  "title": "L9596 'the provenance of every term is \u00a734.8's table' \u2014 occupancy q has no row; L9576 'has never been traced'",
+  "owed": "Add q's row or narrow the universal; settle L9576 (census 1195).",
+  "source": "DEFERRED.md L2745\u20132749 (Chat 126 item 5, 16x-05)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-143",
+  "title": "L9600 'Janet (1929)' vs References L11777 (1928); Register 1929 \u00d73; MC row 1929",
+  "owed": "One date across main, Register and MC; also settles 28a-09 (1736's 'never listed' falsified).",
+  "source": "DEFERRED.md L2751\u20132752 (Chat 126 item 6, 16x-06); L3445 (28a-09)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-144",
+  "title": "L9523 'Both Pauli quantities appear' followed by one quantity in two roles",
+  "owed": "Repair the count word.",
+  "source": "DEFERRED.md L2754\u20132756 (Chat 126 item 7, 16x-07)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-145",
+  "title": "Post-PP clause at L9515\u201316 ('what follows here is the reading that found its shape') is itself a docket 5 member",
+  "owed": "Repair under Ruling 45.",
+  "source": "DEFERRED.md L2785\u20132787 (Chat 126 item 11)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-147",
+  "title": "\u00a734.6 'resets eighteen times' (8 + 6 + 4) \u2014 reconstruction gives 10 (node-only) / 15 (finished), 9/4/5 or 8/5/5 split; 1333's overlapping six",
+  "owed": "Restate the reset count; R3 reads 1333 against 1306; finding about reconstruction until walk.py delivered.",
+  "source": "DEFERRED.md L2813\u20132817 (Chat 127 item 2, 16z-02); L3331 (34re-02)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-148",
+  "title": "\u00a734.5's endpoints and 'Nineteen distinct surds' are the node-only form's; \u00a734.4 declares the q/2(2\u2113+1) form (121\u2013138 endpoints)",
+  "owed": "Reconcile the form inside the chapter; name the generator (n \u2264 8).",
+  "source": "DEFERRED.md L2819\u20132823 (Chat 127 item 3, 16z-03)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-149",
+  "title": "(\u221a5+\u221a2)/3 and (\u221a6+\u221a3)/3 misprinted at L9620, Register 1330 L4993, MC L3595; appendix row L10852",
+  "owed": "New Register entry citing 1330 with corrected numerals (1.2167605 / 1.3938469); main and MC sites follow it.",
+  "source": "DEFERRED.md L2825\u20132827 (Chat 127 item 4, 16z-04); L3330 (34re-01)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-150",
+  "title": "L9666 'At any f opening p = n\u2212\u2113\u22121 = 0' false at 5f (Pa, p = 1); also L9786\u201388, register 1350",
+  "owed": "Repair the reason at both main sites (conclusion stands); new entry citing 1350/1403.",
+  "source": "DEFERRED.md L2829\u20132832 (Chat 127 item 5, 16z-05); L2911 (17a-04); L3334 (34re-07)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-151",
+  "title": "L9641 entry-point figures 1.028 / 1.785 / \u221a3 to 0.19 % \u2014 medians, no convention; UNREPRODUCIBLE without per-element a values",
+  "owed": "Repair after REQUEST-LOWDIN delivers the a values; name convention.",
+  "source": "DEFERRED.md L2834\u20132838 (Chat 127 item 6, 16z-06); L3332 (34re-04)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-152",
+  "title": "L9685 'blocked four fits' over three named; L9702\u201306 'One object, six appearances' counts 1/(2\u2113+1) as \u2113(\u2113+1)",
+  "owed": "Repair both count words (register 1336: three BLOCKED; 1340 keeps two objects).",
+  "source": "DEFERRED.md L2840\u20132843 (Chat 127 item 7, 16z-07)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-153",
+  "title": "L9702\u201303 four prior recordings of \u2113(\u2113+1) have one main site each (Seaton's ratio: reg 33, mc 28, pc 14)",
+  "owed": "Give each recording its home or cite the compendia (docket 20).",
+  "source": "DEFERRED.md L2845\u20132847 (Chat 127 item 8, 16z-08)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-155",
+  "title": "build.py's Register SUBS carry five dead anchors \u2014 the Register press would assert-fail at BUILD90",
+  "owed": "Repair the press anchors before any Register press run.",
+  "source": "DEFERRED.md L2899\u20132900 (Chat 128 item 1, pre-existing states)",
+  "kind": "tooling",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "F-158",
+  "title": "Ordering law clause 2 'exceptions exactly La, Ac and Th' holds only under 'rival never yet opened' \u2014 convention unstated at main L9750, Register 1701, MC L3162 (PC states it)",
+  "owed": "New entry citing 1701 naming the convention; propagate to four sites.",
+  "source": "DEFERRED.md L2903\u20132905 (Chat 128 item 2, 17a-01); L3344 (scf-A-01)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-159",
+  "title": "0.058 \u2212 0.083 = \u22120.025 Ha: SO clearance false under plain reading at L9749\u201350, Register 1701, 1712, MC L3162",
+  "owed": "Undecidable per row until REQUEST-LOWDIN item 10 is delivered; then repair or restate.",
+  "source": "DEFERRED.md L2904\u20132905 (17a-03); L3345 (Chat 144 item 2)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-160",
+  "title": "'every element with a measured ground configuration' Z = 2\u2013108 (L9746) and 'twelve unwitnessed rows' (L9867) vs register 1446's edge at 102",
+  "owed": "One convention for the measured edge (102 vs 108) at both sites.",
+  "source": "DEFERRED.md L2907\u20132909 (Chat 128 item 3, 17a-02); L2946\u20132947 (17c-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-162",
+  "title": "L\u00f6wdin chain and three-body chain are record-carried: no member reproduces 107/107, \u039b_chain, \u039b_cinf, collapse criterion, 1705's second order, 1707\u20131711's audit, 1712's margins; three-body objects 6 an",
+  "owed": "Complete intake: LOWDIN-HANDOFF-103.tgz (objects 1, 2, 4\u20138, 10), packs 93\u2013103, M's copies; fetch three-body 10's PDF and md5 it; seat drafted entries 1795\u20131798 (READ-intake1.md \u00a7C) via guarded build; compare five PNGs.",
+  "source": "DEFERRED.md L2918\u20132921 (Chat 128 item 7); L3005\u20133011 (Chat 130 item 6)",
+  "kind": "instrument",
+  "size": "L",
+  "reader_facing": false
+ },
+ {
+  "id": "F-163",
+  "title": "'nine things' (L9827, L68, L4051) vs \u00a7E.5's eleven ledger rows under 'Nine components, nine precedents'",
+  "owed": "Name the convention or correct the count at all sites.",
+  "source": "DEFERRED.md L2943\u20132945 (Chat 129 item 1, 17c-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-164",
+  "title": "\u00a735.4's thirteen Ruling 45 tokens and Chapter 36's R45 tokens \u2014 section's declared subject is the method's own run",
+  "owed": "Decide with \u00a734.10 under chat 115's split; repair those that are process, not subject.",
+  "source": "DEFERRED.md L2949\u20132951 (Chat 129 item 3); L3020\u20133021 (Chat 130 item 9)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-165",
+  "title": "Wording pairs: L9824 'outside the work' vs L79 'outside the book'; L9865 'five close rows' vs 1705 'contested'; 'eight closed' vs 1721 'seven closed'; 'Hill regions' vs 'Hill spheres'",
+  "owed": "Align the wording (no figure moves).",
+  "source": "DEFERRED.md L2953\u20132954 (Chat 129 item 4); L3016 (Chat 130 item 4)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-166",
+  "title": "\u00a7E.5 L11165\u201368 typesets the step-law row's right column as a broken four-line fraction",
+  "owed": "Production/press repair.",
+  "source": "DEFERRED.md L2956\u20132957 (Chat 129 item 5)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-167",
+  "title": "L9902 cites `tb_audit.py` (register 1756, ABSENT); companion member L146 and REQUEST-THREEBODY carry it",
+  "owed": "Point at 1717 (the 78/78) or seat drafted 1796; remove the script name under Ruling 46 \u2014 one repair, three sites.",
+  "source": "DEFERRED.md L2984\u20132987 (Chat 130 item 1, 17e-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-168",
+  "title": "L9914 '\u00a731.1.1 had already named the brackets' and L9898 credits \u00a712.11.2 \u2014 both sentences are \u00a718.4.1's",
+  "owed": "Repoint both to \u00a718.4.1.",
+  "source": "DEFERRED.md L2989\u20132991 (Chat 130 item 2, 17e-02); L3016 (item 4, C3)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-169",
+  "title": "Xia (L9930) and Routh (threshold 0.0385209 at L8642, L9918, PC L332, author unnamed) unbibliographed; Saari, Painlev\u00e9, Brudno, Montgomery, Chenciner, Jacobi, Maupertuis in R.7 but not the References b",
+  "owed": "Add to the References pass (F-199); decide body/R.7 convention.",
+  "source": "DEFERRED.md L2993\u20132995 (Chat 130 item 3); L3289 (27b-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-170",
+  "title": "L9908 'a fourth open object outside the book's own five' \u2014 the three earlier outside objects are named nowhere in main",
+  "owed": "Name the three or restate.",
+  "source": "DEFERRED.md L3016\u20133017 (Chat 130 item 4)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-171",
+  "title": "Docket 37 intake1-01 (13 labels, 12 distinct weak orderings; z<x<y untested) and intake1-04 (reconstructed polynomial's constant term differs)",
+  "owed": "Flag to the three-body project through M; book's 78/78 stands.",
+  "source": "DEFERRED.md L2999\u20133003 (Chat 130 item 5)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "F-172",
+  "title": "Appendix A index rows A.6 \u2192 \u00a724.2 (should be \u00a717.2 Theorem 17.1) and A.7 \u2192 \u00a716.3 (should be \u00a715.3)",
+  "owed": "Repoint both rows; correct ch13n's 'other eight resolve' to seven.",
+  "source": "DEFERRED.md L3035\u20133038 (Chat 131 item 1, 18a-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-173",
+  "title": "A.12 Consequence L10035 = \u00a722.3 L6135 word for word, both pointing antiprotonic-helium cells at \u00a725.6 (0 sites)",
+  "owed": "Apply the target M chose under 14h-05 at both sites together (with 14h-02).",
+  "source": "DEFERRED.md L3040\u20133043 (Chat 131 item 2, 18a-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-174",
+  "title": "A.13 Statement 'fails iff |\u0394T| > 2Z\u00b2R/\u03bd\u00b3' vs its proof's 'to leading order' (0.656\u20130.811 gap)",
+  "owed": "Move 'to leading order' into the Statement or 'iff' \u2192 'when'; the Inversion inherits the caveat.",
+  "source": "DEFERRED.md L3045\u20133048 (Chat 131 item 3, 18a-03)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-175",
+  "title": "A.10 'leaves 2S and g' wording; L10051 'anticorrelated in nature' with no population; 'no channel enters the failure regime' single witness",
+  "owed": "Wording repair and population statement.",
+  "source": "DEFERRED.md L3050\u20133052 (Chat 131 item 4)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-176",
+  "title": "Standing items re-measured at Appendix A: 13l-01 (A.8 total preorder), 13t-04/05 (A.11's 86 \u2260 9,894/384), 12a-01 ('24 of 70' no site); single-witness counts 120 / 274 / 47 / eight lack Register sites",
+  "owed": "Repair 13l-01, 13t-04/05, 12a-01 at their appendix sites; Register the single-witness counts.",
+  "source": "DEFERRED.md L3054\u20133058 (Chat 131 item 5)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-177",
+  "title": "A.15 Remark L10071 cites Register 230 for 'the ledger, which called C a join-closed sublattice' \u2014 230 carries no such thing; no entry records the correction",
+  "owed": "Locate or repoint; record the ledger correction.",
+  "source": "DEFERRED.md L3074\u20133077 (Chat 132 item 1, 19a-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-178",
+  "title": "\u00a714.4 is a heading and a colon-terminated lead-in with no list, cited as the admissibility theorem at seven sites in two volumes",
+  "owed": "Fill \u00a714.4 or repoint the seven citers together, after the mathematics.",
+  "source": "DEFERRED.md L3079\u20133082 (Chat 132 item 2, 19a-02)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-179",
+  "title": "Appendix A part 2 Ruling 45 candidates (L10069, L10155, L10111, L10162, L10094\u201395); L10148 'eleven' wording; L10070 axis 13 band single witness",
+  "owed": "Repair the R45 sites; name the (constraint, value) reading at L10148.",
+  "source": "DEFERRED.md L3084\u20133087 (Chat 132 item 3)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-180",
+  "title": "L10171 'the 763 cells of the earlier verification \u2026 Chapter 24 state the union' \u2014 763 nowhere a cell count; Chapter 24 has no union",
+  "owed": "Re-derive the union from the table and Register 783's split (with F-141).",
+  "source": "DEFERRED.md L3113\u20133115 (Chat 133 item 2, 20a-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-181",
+  "title": "B.3 L10220 Si II 3s\u00b2np \u00b2P\u00b0 0.272 has no row in the Part II table; 'Every flag in this collection' (L10213) false; Register 1774 leaves the flag's standing open",
+  "owed": "R3 rules the row (same block at SC L1005); the 4\u03bd/3 half of the criterion has no V column (BUDGET).",
+  "source": "DEFERRED.md L3117\u20133120 (Chat 133 item 3, 20a-03)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-182",
+  "title": "Appendix B Ruling 46 sites L10204 (`spectra.py`), L10206 (*T8-J*); Ruling 45 candidates L10199, L10200, L10203\u201308",
+  "owed": "Remove work matter from the reader-facing appendix.",
+  "source": "DEFERRED.md L3122\u20133124 (Chat 133 item 4)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-183",
+  "title": "392 bracket rows hold 1,748 interior cells vs 1,738 bracket denominators (five rows below interior); Register 905's 'five of 49 species supply uncertainties' vs B.4's wording",
+  "owed": "Instrument datum for the Register WARNING sweep; wording repair.",
+  "source": "DEFERRED.md L3126\u20133128 (Chat 133 item 5); L3325 (Chat 142 item 7)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-184",
+  "title": "\u00a724.2 cited at L10286 (twice) and L10303 for ablation costs, Sr I figures, Sc VI exclusion \u2014 targets are \u00a722.2.1, \u00a725.2",
+  "owed": "Retarget the three sites.",
+  "source": "DEFERRED.md L3146\u20133148 (Chat 134 item 1, 21a-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-185",
+  "title": "L10303 quotes \u00a724.2 as stating 'highest measured level is 5s at 696,400 cm-1' \u2014 696,400 has one site in six volumes",
+  "owed": "Retire the quotation or restore its source sentence.",
+  "source": "DEFERRED.md L3150\u20133152 (Chat 134 item 2, 21a-02); L3358 (Chat 145 item 2)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-186",
+  "title": "C.3 L10299\u20133301 '735,091 against 735,092' reproduces the retired \u03b4\u0304 row at a coarser constant, not the live 736,688; 'single prediction' vs \u00a725.6 'not a prediction'",
+  "owed": "Restate C.3's reproduction against the live figure; fix the wording; with docket 37 (Sc VI chain).",
+  "source": "DEFERRED.md L3154\u20133156 (Chat 134 item 3, 21a-03); L3356\u20133357 (Chat 145 item 1)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-187",
+  "title": "1,061 perturbation bounds live at L10251, L10266, L10277 (and L60, L6683, L6958, L9188, L9354; Register L6487) while \u00a723.10.4 L6517 supersedes them (34 bounds)",
+  "owed": "Settle the count in one direction after the mathematics.",
+  "source": "DEFERRED.md L3158\u20133160 (Chat 134 item 4, 21a-04)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-188",
+  "title": "'1,442/1,442' at L10250, L10262; Register 783 withdraws the 1,442 headline; \u00a725.5 L6970",
+  "owed": "Restate with F-141's family.",
+  "source": "DEFERRED.md L3162\u20133163 (Chat 134 item 5, 21a-05)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-189",
+  "title": "L10287 'the multi-target failure counts of \u00a716.3' \u2014 \u00a716.3 has no target line; counts' home not located",
+  "owed": "Locate the home, then repoint.",
+  "source": "DEFERRED.md L3165\u20133166 (Chat 134 item 6, 21a-06)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-190",
+  "title": "C.1/C.2 '30,000 ambient points' and D.5.4 L10644 'A.5 sampled, not proved' after \u00a716.5 / Register 222, 248 retired sampling for the exhaustive 6,912 (twin sites \u00a73.3 L1242)",
+  "owed": "Restate the statistic as the exhaustive count at all sites; D.5.5 table then reads 0/2/2/3 (chat 146).",
+  "source": "DEFERRED.md L3168\u20133170 (Chat 134 item 7, 21a-07); L3214 (23a-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-191",
+  "title": "\u00a710.2 L2033 'seventeenfold range' and L2054 '2.17-fold spread' vs Figure 10.1 caption 'hundredfold'; L10254 '0.06%-4.4% median', L10257 '+0.35 at low l' no site",
+  "owed": "Reconcile \u00a710.2 with its caption (docket 23 candidate); source the single-site figures.",
+  "source": "DEFERRED.md L3175\u20133177 (Chat 134 item 9)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-192",
+  "title": "Appendix C R45 candidates (L10270, L10271, L10284, L10290\u201392, L10295), R46 candidates L10291 (`figure.dpi`, f01\u2013f18), L10306 (Python 3, NumPy); C.1 whitespace table; '200 constructions' vs '200/200 co",
+  "owed": "Repair under Rulings 45/46 and docket 28.",
+  "source": "DEFERRED.md L3179\u20133181 (Chat 134 item 10)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-193",
+  "title": "Cited Register numbers with no bare heading: 344, 571, 1257, 1710 absent; 219/220/221/305/239/256 headed only under grouped headings",
+  "owed": "R3 decides whether a grouped heading satisfies a range citation (not yet put to M); one entry citing the missing headings, never a relocation.",
+  "source": "DEFERRED.md L3299\u20133300 (Chat 141 item 1, 28a-01); L3318\u20133320 (Chat 142 warn-04); L3218 (23b-03); L3232 (24b-03)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-194",
+  "title": "L11615 '\u00a7\u00a712.11.1, 22.9' \u2014 \u00a722.9 has no heading",
+  "owed": "Locate seniority's second home (candidates \u00a722.2, \u00a722.5 \u2014 unmeasured) and repoint.",
+  "source": "DEFERRED.md L3302\u20133303 (Chat 141 item 2, 28a-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-195",
+  "title": "References pointers: L11509\u2192\u00a712.11.4, L11545\u2192\u00a714.5.9, L11563\u2192\u00a714.5.3 (heading-only), L11638\u2192\u00a726.6, L11632\u2192\u00a723.1, L11555/L11799\u2192\u00a732.2 \u2014 none carry the claim",
+  "owed": "Re-point each after reading the target.",
+  "source": "DEFERRED.md L3305\u20133307 (Chat 141 item 3, 28a-03)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-196",
+  "title": "Muon paper figures L11600\u201302 ('recomputed here and reproduces') have one site and no instrument; Register 319 carries none",
+  "owed": "Ask the muon paper for its instrument or label the sentence record-carried.",
+  "source": "DEFERRED.md L3309\u20133311 (Chat 141 item 4, 28a-04)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-197",
+  "title": "L11726 'thirteen in this section' \u2014 R.5 has 23 paragraph entries (31 with inline works)",
+  "owed": "Restate or remove the count.",
+  "source": "DEFERRED.md L3313 (Chat 141 item 5, 28a-05)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-198",
+  "title": "References date/title inconsistencies: Montgomery 2014/2015 on one line; Janet 1928 vs 1929; Edl\u00e9n 1960/1964 two titles; Ritz 1903 vs main 1908 \u00d72",
+  "owed": "Run docket 16's sweep on the References first.",
+  "source": "DEFERRED.md L3317\u20133318 (Chat 141 item 7, 28a-07)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-199",
+  "title": "Docket 36 complete roll: 33 cited-and-unbibliographed names; 4 bibliographed-and-uncited (Huang & Taylor, Nash & Monaghan, Ralchenko, Reader)",
+  "owed": "One References pass adds the 33 and cites the 4 (or removes them); every addition is a Register entry.",
+  "source": "DEFERRED.md L3320\u20133322 (Chat 141 item 8, 28b-01)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "F-200",
+  "title": "References lead-in L11554 sits after the two bold blocks (pre-PP)",
+  "owed": "Move the lead-in above the blocks.",
+  "source": "DEFERRED.md L3324\u20133325 (Chat 141 item 9, 28b-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-201",
+  "title": "References R45 narrated past state at nine lines (L11530\u2026L11775); [F] (L11518) and [S] (nine lines) undefined",
+  "owed": "Repair R45 sites; define [F]/[S] at L11554 with [unread] or drop.",
+  "source": "DEFERRED.md L3327\u20133328 (Chat 141 item 10, 28b-03)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-202",
+  "title": "References misfiled entries (Kimura under R.1; Dunz, Janet, Van Isacker/Racah, Chandrasekaran-Flanagan under R.5) and formatting (split entries, inline works, bold/plain, 'Dunz, --', author forms, [un",
+  "owed": "One formatting pass covering 28b-04/05 and 27b-03.",
+  "source": "DEFERRED.md L3330\u20133332 (Chat 141 item 11, 28b-04/05); L3291 (27b-03)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-204",
+  "title": "R2's source-order reads of the four remaining compendia (Mathematical, Physics, Index of Indices, Spectra) by class sweep under M's RULINGS-R2 scope ruling",
+  "owed": "Execute the four compendia class sweeps (the standing block's open question, answered by M's ruling of 3 September).",
+  "source": "DEFERRED.md L3340\u20133342 (Chat 141 item 15); L3466 (Chat 151-R item 1)",
+  "kind": "instrument",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "F-205",
+  "title": "IoI L1861 cites 1385 (WARNING: eighty-five row set UNVERIFIED) with none of it carried; IoI L2074 twin of G row 10.4c drops the Register pointer",
+  "owed": "Citers restate the qualification or drop the citation; IoI row regenerates from G (1403 dropped from G at entry 1812).",
+  "source": "DEFERRED.md L3317\u20133318 (Chat 142 item 1, warn-02/03)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-206",
+  "title": "Register 1779 'the electron count Z \u2212 charge alone' and SC L126 'mult' row \u2014 the count is Z \u2212 charge + 1 (charge = ionisation stage)",
+  "owed": "New Register entry citing 1779 with the convention corrected; SC L126 re-pointed; F.2 unchanged.",
+  "source": "DEFERRED.md L3321 (Chat 142 warn-05); L3266 (26a-02)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-207",
+  "title": "Reader-facing extent spans naming withdrawn/absent entries (main L10835/L10840, Register L6455, MC L3150/L3566 '1249-1357'; IoI L1561 '1249-1429'; SC L1061 '1524-1677')",
+  "owed": "R3 rules whether a reader-facing span needs a qualifier.",
+  "source": "DEFERRED.md L3322 (Chat 142 warn-06)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-208",
+  "title": "1396's MC citer (L3716's section) read for the six-and-five split against the twelve donor steps \u2014 token probe only; 1395 carried (B-02)",
+  "owed": "Read the MC citer for the split.",
+  "source": "DEFERRED.md L3323 (Chat 142 item 5)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-209",
+  "title": "MC reader-facing work matter: \u039bspectra-closure section carries 'Corrected at register 1426', 'first reported as 47 / 11', `ground.py` (L3671\u20133716); MC L3150 names `mathverify.py`, 'a build task'",
+  "owed": "Remove under Rulings 45/46 (compendia's first R45/R46 sites).",
+  "source": "DEFERRED.md L3326 (Chat 142 item 8); L3348 (Chat 144 item 5)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-210",
+  "title": "'Never resets mid-subshell' (main L9626; Register 1333/1350) fails at Mo 42 and Rh 45 \u2014 members of 1401's own forced resets",
+  "owed": "New entry citing 1401, 1333, 1350; repair L9626.",
+  "source": "DEFERRED.md L3332 (Chat 143 item 3, 34re-03)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-211",
+  "title": "MC L3202 'Proved \u2014 M \u00a735;.' cites no Register entry for the exact-quartic decomposition (1709, 1711 carry it); MC L3208 prints 1708's ratios outside the entry's chain",
+  "owed": "Add the Register citations to the MC lines (successor).",
+  "source": "DEFERRED.md L3346 (Chat 144 item 3, scf-A-03)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-212",
+  "title": "Five of the eight MC LS objects lack the R-FORM prior-art blockquote (L3152, L3160, L3178, L3196, L3214)",
+  "owed": "R3 writes the attributions (Koelling & Harmon 1977, n+\u2113 rule, hydrogenic level attributable now).",
+  "source": "DEFERRED.md L3347 (Chat 144 item 4, scf-A-04)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-214",
+  "title": "Drive housekeeping for M: BUILD174 duplicated in Materials (two fileIds); a 'Claude Chats' export folder under Materials duplicates bundle titles and will stop the gate's exactly-one-hit rule",
+  "owed": "M retires one BUILD174 copy and moves the export folders.",
+  "source": "DEFERRED.md L3349 (Chat 144 item 6); L3398 (Chat 148 item 10)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "F-215",
+  "title": "The committed Sc VI prediction of \u00a725.6 / E.3 item A (736,688 in [735,860, 737,380]; 7s figures; \u03b4\u2082/\u03b4\u221e/\u03b4(6s)) has no Register entry; none of its thirty-three figures a Register site",
+  "owed": "Seat a Register entry for the family (both chains, the constant, Z_eff = 6, chain U named) before any prose is touched.",
+  "source": "DEFERRED.md L3359\u20133360 (Chat 145 item 3)",
+  "kind": "register-entry",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-216",
+  "title": "14z-15 re-confirmed: \u00b1 1,398 (L7066), \u00b1 1,594 (L7105), \u00b1 2,169 (L7106) match no base; 14z-07 re-confirmed (L7115 \u2192 \u00a724.6 carries no family figure)",
+  "owed": "Restate the \u00b1 figures with a base or drop; repoint L7115.",
+  "source": "DEFERRED.md L3362\u20133363 (Chat 145 item 5)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-217",
+  "title": "14x-05/06 (79 %, 58.8/35.3/41.2 %; Ti I 23/26 and Sc VI 6/10 inventories) UNREPRODUCIBLE without ASD captures; L7550 '129\u00d7' unreproducible from the page",
+  "owed": "Obtain the ASD captures / bracket instrument or label the figures; source 129\u00d7.",
+  "source": "DEFERRED.md L3364 (Chat 145 item 6)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-218",
+  "title": "D.5.9 L10823/L10827 E figures reproduce only with 3B.five / 3B.pot precedent and first-run verification unstated on the page and in Register 1726",
+  "owed": "R3's entry citing 1726 names the pair (measured \u00b7 sampled \u00b7 found etc.).",
+  "source": "DEFERRED.md L3371 (Chat 146 item 2, 23a-03 (ii))",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-219",
+  "title": "E.1.4 L10998\u201399 'takes E from 4 to 10' \u2014 a +6 convention no reading of \u211b yields; record (382) carries it; 256's code not a member",
+  "owed": "Name the convention on the page or in a new entry, or label record-carried.",
+  "source": "DEFERRED.md L3379 (Chat 147 item 1, 24a-05 narrowed)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-220",
+  "title": "Four closed-item coordinates fixed only by reproduction (M = one claim \u00b7 retrievable \u00b7 unbounded; N = nothing \u00b7 buildable \u00b7 hours; O = one claim \u00b7 buildable \u00b7 days; R constraint) \u2014 unprinted conventio",
+  "owed": "Print the coordinates (docket 34) and the eleven-state M/N rows (docket 10), or record them in an entry.",
+  "source": "DEFERRED.md L3380 (Chat 147 item 2)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-221",
+  "title": "Register 396 / \u00a732.6.1 L9270 'E(Q) = 5 unfibred' readout stale (state unprinted); ten printed open rows give 3",
+  "owed": "Mark the readout as a state or restate (Register 2221 already records it stale at a second passage).",
+  "source": "DEFERRED.md L3381 (Chat 147 item 3)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-222",
+  "title": "Budget: Register 212's fifteen-state, \u00a732.2's seven, E.4.1's eight and the twelve-state print no rows; E.1.3's 'held at seven, eight, twelve' not re-taken",
+  "owed": "Record-carried; re-take if rows are ever printed.",
+  "source": "DEFERRED.md L3382 (Chat 147 item 4)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-223",
+  "title": "E.8 L11217 'Sixty-odd corrections come from \u00a730.3 alone' \u2014 no convention respecting 'alone' reaches sixty (\u00a730.3 share 50, upper bound 52)",
+  "owed": "Repair the word 'alone' (\u00a730.3 shares the block with \u00a732.2 and \u00a730.4).",
+  "source": "DEFERRED.md L3390 (Chat 148 item 1, 25b-03 narrowed)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-224",
+  "title": "Chapter 28: \u00a728.7 heading 'Six \u2026 two printed here' counts nothing; \u00a728.7.3 'Seventy-five \u2026 all printed' \u2014 twelve unprinted, 118 twice; entry 59 printed twice (L7517, L7533)",
+  "owed": "Repair the three heading/numeral defects.",
+  "source": "DEFERRED.md L3391\u20133393 (Chat 148 items 2\u20134, 25b-07/08/09)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-225",
+  "title": "Chapter 28's descriptions of entries 150\u2013164 single-witness (Register carries 'SUPERSEDED; see 313'); \u00a728.7.5's 'Thirty-one of the forty' cannot be censused",
+  "owed": "Record as single-witness / budget (docket 17 / 38).",
+  "source": "DEFERRED.md L3394\u20133395 (Chat 148 items 5\u20136, 25b-10)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-226",
+  "title": "L962 '\u00a728.7 states a count in its title \u2014 Eight, Twelve, Fifteen, Forty' names no 'Fifteen more' heading; L7614 repeats L7599 almost verbatim",
+  "owed": "Belongs to the unit reading \u00a72.19 and \u00a728.7.3 as sections; repair the stale list and the duplicate.",
+  "source": "DEFERRED.md L3396 (Chat 148 item 7)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-227",
+  "title": "F.3's rule printed as headline (L11295) and elaboration (L11296\u201398) with different extents; E.1.5 L11024 / Register 1729 cite it for item R, refuted by counterexample",
+  "owed": "Read L11295\u201399 and L11024 together and settle the rule's form before either sentence is touched.",
+  "source": "DEFERRED.md L3404 (Chat 150 item 2, 26b-11)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-228",
+  "title": "Register defects: L3113 '\u00a7784' (Register number with \u00a7 sigil); L6299 'Thm 11.1' printed nowhere; L6507 (entry 1763) names run489.py, ruled_bracket.py, RULING-TOLERANCE-489.md, BUILD-10",
+  "owed": "Successor entries correcting the three sites under Rulings 46 / dockets 9(c), 2, 6, 28.",
+  "source": "DEFERRED.md L3405\u20133407 (Chat 150 items 3\u20135, 26b-08/09/10)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-229",
+  "title": "L11298 'The work applies this without exception' \u2014 register 333 is the nearest exception (criterion weakened, not declared dead)",
+  "owed": "Docket 19 candidate for R3; soften or defend.",
+  "source": "DEFERRED.md L3408 (Chat 150 item 6)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-230",
+  "title": "\u00a732.1.3 L8961 and \u00a732.1.4.1 L9023 cite F.4.1 for the withdrawal/method ratios F.4.1 withdrew as content",
+  "owed": "Cite the Register entry that carries the figure (1762) or restore the content.",
+  "source": "DEFERRED.md L3415 (Chat 151-B item 1, 26b-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-231",
+  "title": "\u00a732.1.4 L8974 row 'Appendix F, the numbers 3 33 thirty-three' and L9023's 'counts of Appendices D, E and F' were computed on the withdrawn appendix; L8978 still prints 'Fifty-five' beside 48 and 332's",
+  "owed": "Recompute the row on the rebuilt appendix or mark it; 26c-02 closed by ruling (c) at 1807 but 375's 'no longer written as a number' stands false and recorded.",
+  "source": "DEFERRED.md L3416 (Chat 151-B item 2, 26b-03); L3520 (Chat 153-R item 1)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-232",
+  "title": "F.4.1 says entries establish both ratios; 'method ratio' has one site (register 296) with no numeral",
+  "owed": "An entry establishes the method ratio, or F.4.1's sentence is narrowed to the withdrawal ratio.",
+  "source": "DEFERRED.md L3417 (Chat 151-B item 3, 26c-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-233",
+  "title": "188 only-PP lines of withdrawn Appendix F: 19 substantive figures have no Register site, 16 in no volume (incl. 24,162 : 54,241 = 0.445, the original withdrawal ratio)",
+  "owed": "R3 reads the nineteen against \u00a72.21's protocol ('any figure withdrawn must have its data represented another way') and rules.",
+  "source": "DEFERRED.md L3419 (Chat 151-B item 5, 26c-03)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-234",
+  "title": "Register 375's 'the press computes them at every build' not exercised; appf.py press untested",
+  "owed": "Exercise the press readout or record it untested (docket 38).",
+  "source": "DEFERRED.md L3423 (Chat 151-B item 9)",
+  "kind": "tooling",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "F-235",
+  "title": "Appendix G after entry 1812: registers 1019 and 1020 carried NEAR against \u00a710.4e (unassigned); row 10.4d (M.C2) prints no pointer and 1022's deciding sentence is C2's frontier \u2014 unruled",
+  "owed": "Rule 1019/1020 and row 10.4d's pointer.",
+  "source": "DEFERRED.md L3521 (Chat 153-R item 2); L3429 (27a-07)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-236",
+  "title": "Appendix G rows 8.2 / 8.4 point at 'Chapter 12'; the sites are \u00a714.6.6 L4245\u201350",
+  "owed": "Chapter 12 \u2192 Chapter 14 (\u00a714.6.6) in both rows.",
+  "source": "DEFERRED.md L3285 (Chat 140 item 3, 27a-03)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-237",
+  "title": "IoI L2021 row \u00a71.7 truncated ('\u2026value count while \\') \u2014 escaped |X| read as cell boundaries; Register 1778's 'copied unchanged' false at one row",
+  "owed": "Regenerate the row from G with the escape preserved; new entry citing 1778.",
+  "source": "DEFERRED.md L3283 (Chat 140 item 1, 27a-01)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-238",
+  "title": "L11363 'thirty-seven objects' record-carried (G column 32; 1769 sources 37 to R 1218\u20131230 which carry no Transitions); row 10.1's three MC objects have no pointers",
+  "owed": "Re-measure notation-tolerantly; give the three MC objects their pointers.",
+  "source": "DEFERRED.md L3286 (Chat 140 item 4, 27a-04)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-239",
+  "title": "Index L11429/L11432 'interiority' twice under 'bracket'; '311 entries' / '57 terms' depend on the duplicate",
+  "owed": "Drop one and restate 310, or keep 311 with the duplicate removed and one entry added \u2014 the generator (index_gen.py) decides.",
+  "source": "DEFERRED.md L3287 (Chat 140 item 5, 27a-05)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-240",
+  "title": "Index L11419 'The previous index (57 terms, 139 entries, 44 relations)' vs PP's 51/129/40; L11419, L11363\u201364, L11369\u201370, L11405 carry index_gen.py, a 2026-08-24 date, 'Regenerated', 'until now' etc.",
+  "owed": "Remove the R45/R46 narration with 27b-01 or carry the witness's figures.",
+  "source": "DEFERRED.md L3288\u20133289 (Chat 140 items 6\u20137, 27a-06, 27b-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-241",
+  "title": "L11417 'a down-set condition in \u00a716.4 form' \u2014 \u00a716.4 carries no down-set; the condition is \u00a72.23 L1162; '\u00a716.4 form' idiom at six other sites",
+  "owed": "Read the six sites before repairing.",
+  "source": "DEFERRED.md L3292 (Chat 140 item 10, 27b-04)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-242",
+  "title": "F.3 L11292\u201393 'Chapters 6, 12 and 24 state their central measurements to this standard' \u2014 Chapter 24 carries none; F.3 is cited from \u00a722",
+  "owed": "24 \u2192 22.",
+  "source": "DEFERRED.md L3265 (Chat 139 item 1, 26a-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-243",
+  "title": "E.1.2 L10955, E.3 L11119 'nine stable cells, named at F.3.1' \u2014 rebuilt F.3.1 names no cell; cells live in Register 371/372/388/392",
+  "owed": "E.1.2 / E.3 point at the Register entry, or F.3.1 names the cells.",
+  "source": "DEFERRED.md L3267 (Chat 139 item 3, 26b-01); L3232 (24b-05); L3252 (Chat 138 item 10)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-244",
+  "title": "Register 1786 'There was never an F.3.1 or an F.3.2' \u2014 PP carries both; history sentence false",
+  "owed": "New entry citing 1786.",
+  "source": "DEFERRED.md L3272 (Chat 139 item 8, 26b-06)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-245",
+  "title": "F.4.1 / F.4.2 entire are build narration (Ruling 45: L11225\u201327, L11291, L11332\u201334, L11340\u201341); 'the ruling that separates the record of the work from the work' is unnamed",
+  "owed": "Rewrite or remove the build narration; name or drop the ruling reference.",
+  "source": "DEFERRED.md L3273 (Chat 139 item 9, 26b-07)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-246",
+  "title": "E.3 lists A B C D F G H I P; E.1.2 is open at those plus R \u2014 R has no E.3 entry against L11055 'the two must list the same items'",
+  "owed": "Write R's E.3 entry from 1729; re-run the audit Register 384 describes (audit 15).",
+  "source": "DEFERRED.md L3245 (Chat 138 item 1, 25a-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-247",
+  "title": "E.4.1 L11133 '\u00a732.2 asserted |Q| = 7' \u2014 \u00a732.2 carries no Q, seven, assert",
+  "owed": "Locate the assertion (Register?) or retarget.",
+  "source": "DEFERRED.md L3246 (Chat 138 item 2, 25a-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-248",
+  "title": "Stale state narration in Appendices D\u2013E: 'sixteen fibres' beside a 24-fibre table (L10463, L10526\u201327, D.2 L10350); 'the current thirteen' (E.4.1 L11135, E.4.2 L11140) beside E.1.2's fourteen; lead 'si",
+  "owed": "Update each narration to the current state or mark it as a past state.",
+  "source": "DEFERRED.md L3247 (Chat 138 item 3, 25a-03); L3236 (24b-04/24a-04); L3215 (23a-02)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-249",
+  "title": "L11086\u201387 '\u00a730.3.5 states the law, the procedure, and the residue \u2014 realisability' \u2014 realisability is at \u00a730.3.8",
+  "owed": "Repoint.",
+  "source": "DEFERRED.md L3248 (Chat 138 item 4, 25b-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-250",
+  "title": "E.7 L11209\u201310 '\u00a72.10 \u2026 should have said, and now does: SEARCH BEFORE DERIVING' \u2014 \u00a72.10 L623 still does not",
+  "owed": "\u00a72.10 gains the clause or E.7 drops 'and now does' (prose, after the mathematics).",
+  "source": "DEFERRED.md L3249 (Chat 138 item 5, 25b-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-251",
+  "title": "E.3 item C's vocabulary: 'Newton decrement' absent from \u00a729.7 (sites \u00a723.8.1\u20133); 'partial identification' single witness",
+  "owed": "Repoint the vocabulary claim; source or drop 'partial identification'.",
+  "source": "DEFERRED.md L3251 (Chat 138 item 7, 25b-04)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-252",
+  "title": "E.8 L11214 '\u039b\u2089 passed six independent tests' one site; 'target-spin axis' vs \u00a712.11.1's '2S\u2032' notation",
+  "owed": "Re-measure notation-tolerantly before repair; enumerate the six tests or restate.",
+  "source": "DEFERRED.md L3252 (Chat 138 item 8, 25b-05)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-253",
+  "title": "E.6 \u2194 \u00a730.3.9 mutual citation for one open state while \u00a730.3.8 and \u00a729.8 state hardness results",
+  "owed": "R3 reads \u00a730.3.8\u2013\u00a730.3.9 with E.6 before touching either.",
+  "source": "DEFERRED.md L3253 (Chat 138 item 9, 25b-06)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-254",
+  "title": "L11219\u201320 'This chapter is where that is done' in an appendix; E.3 L11059 prints 91.338 eV beside the bracket without the point value 736,688",
+  "owed": "Wording fix; print the point value beside the eV.",
+  "source": "DEFERRED.md L3254 (Chat 138 item 10); L3256 (item 12)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-255",
+  "title": "Appendix E Ruling 45 candidates: L10940 heading 'as this session leaves it', L11057 'audit 15', L11076, L11099 'this session did not fetch', L11197 'this author's reading', L11213; R46 'the code' L110",
+  "owed": "Repair under Rulings 45/46.",
+  "source": "DEFERRED.md L3257 (Chat 138 item 13); L3235 (Chat 137 item 11)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-256",
+  "title": "Appendix E.2 figures and pointers: L11042 '518 at order 1' vs \u00a723.10.4's 499; L11048 Gr\u00f6bner basis cited to \u00a729.8 (home \u00a730.4.1); L11046 accelerator identity cited to \u00a726.6; L11040 \u00a723.11\u2192\u00a723.12; L110",
+  "owed": "Repair the figure and repoint the five pointers.",
+  "source": "DEFERRED.md L3227\u20133230 (Chat 137 items 1\u20134, 24a-01/02/03, 24b-01, 24b-06)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-257",
+  "title": "'E.4' cited at L10923, L10936 but no `### E.4` heading; heading text is an unmarked body line at L11105",
+  "owed": "Mark the heading (production layer).",
+  "source": "DEFERRED.md L3231 (Chat 137 item 5, 24b-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-258",
+  "title": "'1,585-fold' at L11037 and \u00a723.10.4 L6514 \u2014 25.96/0.0164 = 1,582.93 at two-decimal inputs; unrounded medians unprinted",
+  "owed": "Docket 12 candidate; print the unrounded inputs or restate.",
+  "source": "DEFERRED.md L3234 (Chat 137 item 10)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-259",
+  "title": "Owed re-probes with no finding yet: pointers \u00a712.11.0.1/.0.2/.0.5/.0.6, \u00a716.8.5, \u00a730.3.3, \u00a732.1.4 on their sections' own words; \u00a732.1.4 for \u211b(X) \u2286 \u220fA\u1d62(X) in symbols; MC grade lines for 3B.five / 3B.po",
+  "owed": "Run the re-probes.",
+  "source": "DEFERRED.md L3236 (Chat 137 item 12); L3218\u20133219 (Chat 136 item 7)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-260",
+  "title": "L10546 cites \u00a716.2 for the closure operator (should be \u00a714.2, as L10567); L10500\u201302: 'register 269' removed post-PP leaving two subject-less clauses",
+  "owed": "Repoint L10546; restore a subject at L10500\u201302.",
+  "source": "DEFERRED.md L3214\u20133217 (Chat 136 items 3\u20134, 23b-01/02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-261",
+  "title": "Appendix D part 2: Fourier, Motzkin (L10867) unbibliographed; first person L10771, L10779, L10784, L10785; L10492 'press \u2026 build', L10723 'The entry is kept'; '24 of 24' single site L10887; L10880 two",
+  "owed": "Bibliography (F-199), Ruling 45 repairs, name the third cell.",
+  "source": "DEFERRED.md L3219 (Chat 136 item 6)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ }
+]

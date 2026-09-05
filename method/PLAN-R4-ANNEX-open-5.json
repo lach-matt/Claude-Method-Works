@@ -1,0 +1,1091 @@
+[
+ {
+  "id": "F-262",
+  "title": "Appendix D part 1: L10383 'forty-eight bounds' should be 56; L10353 cites \u00a716.7.1 for a 'diagnostic loop' it does not carry; '976 of 976' ties and 'sixteen that constrain' conventions unnamed",
+  "owed": "Print 56; locate the loop (Chapter 12/16) and retarget; name the two conventions.",
+  "source": "DEFERRED.md L3191\u20133195 (Chat 135 items 1\u20133, 22a-01, 22b-01, 22a-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-263",
+  "title": "Register emphasis class: 22 unbalanced entries (1617 left five); `register_review.py` not a member; R3-CLASS-EM dry-run 246 repairs / 29 declines, held",
+  "owed": "Seat register_review.py or an equivalent checker into the gate first; then apply R3-CLASS-EM after the mathematics (RUL-128 item 1), with the 29 declines repaired by hand.",
+  "source": "DEFERRED.md L3468 (Chat 151-R item 2, reg13-01); L3469 (item 3)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "F-264",
+  "title": "Entry 1725 (the form record) was written and removed; 110 withdrawn entries recovered in WITHDRAWN-RECOVERED.md; whether any is reinstated is M's ruling",
+  "owed": "M rules on reinstatement of 1725 (and any of the 110); it blocks the emphasis-class recording entry.",
+  "source": "DEFERRED.md L3470 (Chat 151-R item 4, reg1-05)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-266",
+  "title": "Register-read findings reg1-01 to reg1-06, reg2-01, reg3-01, reg4-01, reg7-01/-02, reg8-01/-03, reg12-01 to reg12-03 \u2014 named here by id only (bodies in the READ-reg* members)",
+  "owed": "Each is an open Register finding for R3 unless the WR closes it; reg8-02 withdrawn, reg1-04 and reg1-05 detailed above.",
+  "source": "DEFERRED.md L3466 (Chat 151-R item 1)",
+  "kind": "unknown",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-268",
+  "title": "Cypher instruments: audit_lambda.py exits 1 with two FAILs standing; audit_math.py NOT seated (counterexample to register 1176 stands; entry 1797 staged in REGISTER-QUEUE-APPEND-cypher-audit.md); docs",
+  "owed": "M/R3 decide: seat audit_math.py and entry 1797, adopt the newer CYPHER.md section, rule on the four Lambda findings (1793\u20131796) and audit_lambda's two FAILs.",
+  "source": "DEFERRED.md L3483\u20133485 (Chat 152 items 7\u20138); L3497 (151-R third block item 8)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-269",
+  "title": "Successor instruments owed: r2-regsweep2, r2-26b2 (extent asserted as invariant), plus the 12 ERROR instruments after the +8 shift (r2-23a, r2-26b, r2-26c, r2-27a, r2-28a2, r2-28b2, r2-ch16z, r2-ch17a",
+  "owed": "Write successors that score the Register extent as a claim and resolve sites by content; a non-zero-exit instrument cannot be re-banked.",
+  "source": "DEFERRED.md L3494 (151-R third block item 5); L3503 (Chat 153B item 4)",
+  "kind": "tooling",
+  "size": "L",
+  "reader_facing": false
+ },
+ {
+  "id": "F-272",
+  "title": "Mathematical Compendium never states its own handle vocabulary \u2014 265 handles in one column, none defined, 137 resolving nowhere in any volume; the generator is not held",
+  "owed": "Define the handle vocabulary in the MC or regenerate; requires the generator (docket 38/28).",
+  "source": "DEFERRED.md L3525 (Chat 153-R item 6)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "F-273",
+  "title": "28a-08: r2-ch28a still prints '16 of 162' (multi-author rows, not overlap) \u2014 recorded, not repaired; 28a-09: Register 1736's 'never listed' falsified at Janet \u2014 open, unruled",
+  "owed": "Successor for r2-ch28a if re-anchored; rule 28a-09 (new entry citing 1736 or leave recorded).",
+  "source": "DEFERRED.md L3522 (Chat 153-R item 3); L3442\u20133443 (Chat 151-B third, items 2\u20133)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-275",
+  "title": "F.3-rule reading: three entries undecidable and carried as an upper bound (333, 810, 1504)",
+  "owed": "Record-only unless R3's docket-19 ruling on L11298 needs them.",
+  "source": "DEFERRED.md L3410 (Chat 150 item 7)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "F-276",
+  "title": "Delivery form for the next external request: logs must be deterministic (caps_table.log's wall-clock column not bankable); text members enter under a prefix byte-unchanged; PNGs stay on Drive",
+  "owed": "Carry into the next REQUEST to the L\u00f6wdin / three-body projects.",
+  "source": "DEFERRED.md L3012\u20133013 (Chat 130 item 7)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "G-01",
+  "title": "\u00a722.5 / Rule 4 \u03c3 collision \u2014 flagged for correction in R3, both readings carried",
+  "owed": "The two sites cannot both stand; the item was flagged for correction in R3 carrying both readings and is not disposed of by any later block of the rulings member. The repair (which reading the mathematics supports, then the prose) is owed under the RUL-128 order of correction.",
+  "source": "method/members/RULINGS-R2.md, Chat 95 block, items 3 and disposition list (L51-54, L75)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "G-02",
+  "title": "\u00a718.4.1 one-dimensional refinement \u2014 Register entry owed when the hold lifts",
+  "owed": "A missing Register entry for the \u00a718.4.1 one-dimensional refinement, to be written when the chat-67 hold lifts; not recorded as seated in this member.",
+  "source": "method/members/RULINGS-R2.md, Chat 95 block, disposition list (L73-74)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "G-03",
+  "title": "\u03bd_V pointer and Ga I attribution (14k-01, 14k-02) \u2014 flagged for repair",
+  "owed": "Two main-volume findings from chat 95 (a wrong pointer to \u03bd_V and a misattributed Ga I species) flagged for repair in R3 and not recorded as executed in the rulings member.",
+  "source": "method/members/RULINGS-R2.md, Chat 95 block (L76-77)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "G-04",
+  "title": "Six heading-only sections and the Chapter 34 rewrite \u2014 authoring by M, entry via guarded build",
+  "owed": "M authors \u00a714.5.2\u2013\u00a714.5.7 (six empty sections, an authoring gap confirmed against Prints & Proofs), \u00a72.22, \u00a728.7.6, \u00a728.9 and the Chapter 34 rewrite; each text enters a volume only through a guarded build with a Register entry in the same build, every figure censused and instrumented before seating. Nothing in the sources records these seated (W-235 mentions a \u00a734.6 rewrite at BUILD95, so Chapter 34 may be partly done \u2014 verify).",
+  "source": "method/members/RULINGS-R2.md, Chat 95 disposition (L66-72) and Chat 127 item 3 (L109-115)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "G-05",
+  "title": "R2 compendia leg: the four compendia by class sweep (nine classes) plus line-by-line read of narrative sections",
+  "owed": "The Mathematical Compendium, Physics Compendium, Index of Indices and Spectra Compendium close by one transversal instrument per docket class, in the order (i) WARNING sweep, (ii) citations and \u00a7 pointers, (iii) attributions vs References/R.7, (iv) count words vs DATA rows, (v) numerals cross-site, (vi) heading-only/placeholder vs Prints & Proofs, (vii) absent members, (viii) formatting, (ix) species figures vs the channel table \u2014 each banked as a golden with a READ-sweep file and a W entry; the narrative sections of the Physics and Spectra Compendia are read line by line. The rulings member s",
+  "source": "method/members/RULINGS-R2.md, Chat 127 item 2 (L97-108), Chat 151-R item 2 and closing line (L201-203, L216); method/CLAUDE.md L79",
+  "kind": "instrument",
+  "size": "L",
+  "reader_facing": false
+ },
+ {
+  "id": "G-06",
+  "title": "Every computable claim in the Register and the Mathematical Compendium re-derived by instrument and banked \u2014 Chapter 34 re-take and the SCF chain first",
+  "owed": "Audit order step (ii): the Register WARNING sweep, then every computable claim in the Register and the Mathematical Compendium re-derived by instrument and banked, the Chapter 34 re-take (docket 37) and the SCF chain first. Reaffirmed unaffected by the scope ruling; not recorded discharged in the sources.",
+  "source": "method/members/RULINGS-R2.md, Chat 128 item 3 and Chat 151-R item 4 (L159-163, L206-207)",
+  "kind": "instrument",
+  "size": "L",
+  "reader_facing": false
+ },
+ {
+  "id": "G-07",
+  "title": "R3 by class in the order mathematics \u2192 prose \u2192 appendices and indices, every change through a guarded build with a Register entry",
+  "owed": "The general R3 pass: after the mathematics is corrected and proven, the prose that reflects it, then the appendices (A\u2013G) and the indices corrected to reflect both. Only single classes (WL, the Q5 queues, reg1-04, vocabulary) have executed; the ordered pass over the docket remains, and the chat-67 hold stands for every other class until the review closes.",
+  "source": "method/members/RULINGS-R2.md, Chat 128 items 1 and 3(iii) (L152-154, L162); method/CLAUDE.md L82-83",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "G-08",
+  "title": "R4 cross-volume audit \u2014 every figure in every volume equal to its golden \u2014 then the press",
+  "owed": "After R3, the R4 cross-volume audit (every figure in every volume equal to its banked golden) and only then the press (Markdown \u2192 pandoc \u2192 LibreOffice \u2192 docx/pdf, measured in the pressed PDF per G0aa). Neither is recorded begun.",
+  "source": "method/members/RULINGS-R2.md, Chat 128 item 3(iv) (L162-163); method/CLAUDE.md L83",
+  "kind": "instrument",
+  "size": "L",
+  "reader_facing": false
+ },
+ {
+  "id": "G-09",
+  "title": "Compendium task line after R4: renumber \u2192 bibliography \u2192 Register expansions \u2192 main-volume prose; canon reorder/renumber as the one last step",
+  "owed": "The post-audit production line: compendium renumbering into the main volume's physical order (a last step executed once after all subject matter is settled), the bibliography, the Register expansions (OWED-REGISTER-EXPANSIONS resolved at W-233 \u2014 that sub-item appears discharged), and the main-volume prose run (MV-DEF-01 is docketed to it).",
+  "source": "method/CLAUDE.md L83 and L124",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "G-10",
+  "title": "L\u00f6wdin and three-body instruments requested (REQUEST-LOWDIN twelve items, REQUEST-THREEBODY ten items) \u2014 deliveries to enter by guarded build or figures labelled record-carried",
+  "owed": "Each requested object enters only through a guarded build with a Register entry, a validation block against the Register's anchors and a golden; where the answer is 'not held' the figure is labelled record-carried and reconstructed. WORKING-REGISTER (L7922) still records 'every walk figure (no instrument held \u2014 budget REQUEST-LOWDIN items 1, 2, 4\u201311)' as not done; the labelling/seating pass is outstanding.",
+  "source": "method/members/RULINGS-R2.md, Chat 128 item 4 (L164-168)",
+  "kind": "instrument",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "G-12",
+  "title": "Drive/repository reconciliation \u2014 the transfer half not done; Drive frozen at BUILD184 + BUILD90",
+  "owed": "Under the hybrid store ruling the next reconciliation was owed before either surface advanced two more builds; the repository has since advanced to BUILD110/BUILD231 while Drive holds BUILD184/BUILD90 with only a pointer document (RECONCILE-153-STORE-STATE.md). Carrying the bundles (or their derivation via BUILDNNN-PARTS + REBUILD docs) back to Drive, or a ruling that retires Drive as a build surface, is outstanding.",
+  "source": "method/members/RULINGS-R2.md, Ruling B item 4 (L280-282); method/CLAUDE.md L77-78",
+  "kind": "tooling",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "G-13",
+  "title": "The suspended store ruling \u2014 settle Cowork's access to GitHub or retire the BUILDNNN-PARTS split",
+  "owed": "The gate opens with a SUSPENDED notice: the repository-is-the-store ruling is suspended while GitHub is unreachable from Cowork, so Cowork chats open from Drive (which is stale and, per RECONCILE-153, may not be opened from). The access question is unsettled; until it is, the gate's own opening instruction contradicts the store's state and BUILDNNN-PARTS remains 'NOT retired'.",
+  "source": "method/CLAUDE.md \u00a70 (L12-21, L40-47), L78",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "G-14",
+  "title": "The \u00a70 gate text is stale against the store: names BUILD94/BUILD194, 424 members, 'known red 56', 'manifest --main BUILD92', kinds stale by seven, DEF-152 items 1\u20139 queued",
+  "owed": "CLAUDE.md is the instruction every chat opens with, yet its \u00a70/\u00a73/\u00a76 describe the state at chat 153 (BUILD94/194, 424 members, 56 readings, manifest --main BUILD92, DEF-152 1\u20139 queued, reg1-04 stale by seven) while the store stands at BUILD110/BUILD231 with 664 members, DEF-152 executed (DEF-153O), reg1-04 repaired at entry 1815, the positional class closed by generator, and the census step routed through gate_live.py --census. A successor gate text (with the manifest step naming BUILD110 and the census step naming the live route) is owed so a chat does not open on a superseded state.",
+  "source": "method/CLAUDE.md \u00a70 L22-23, \u00a73 L66-79, \u00a76 L114 \u2014 the whole gate text vs method/README.md",
+  "kind": "record-only",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "G-15",
+  "title": "Register entry 1797 staged, never seated \u2014 a hole in the seated Register between 1796 and 1798",
+  "owed": "Entry 1797 (the cypher-audit entry with tools/audit_math.py) is staged in method/REGISTER-QUEUE-APPEND-cypher-audit.md and was left alone by r3-wl2, which took 1798\u20131799 around it. audit_math.py is now a seated member (W-236) but the entry is not: the seated Register goes ### 1796 \u2192 ### 1798. It must be seated (by a guarded build with its figures re-derived) or withdrawn by a ruling, since a numbered gap in a reader-facing append-only volume is otherwise unexplained.",
+  "source": "method/CLAUDE.md L79; method/REGISTER-QUEUE-APPEND-cypher-audit.md; the seated Register (### 1796 at L6629, ### 1798 at L6633)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "G-16",
+  "title": "R3-CLASS-EM (the Register emphasis class, 246 repairs) specified and held \u2014 must not apply until a checker is seated into the gate",
+  "owed": "The emphasis class (R3-CLASS-EM.md, r3-em.py dry-run: 246 repairs, 29 declines) waits on the mathematics leg under RUL-128 item 1 and on a checker (register_review.py, never a member \u2014 reg13-01) being seated into the gate, because entry 1617's earlier repair of this class did not hold. Both the checker and the application are owed.",
+  "source": "method/CLAUDE.md L79; RULINGS-R2.md Chat 128 item 1",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "G-17",
+  "title": "Held instruments still owed a successor reading: r2-26b (r2-26b2 named owed), r2-ch18b, r2-ch23b, r2-reg11a2, r2-reg12b, r2-ch17e2, the seven literal-index instruments of DEF-153N",
+  "owed": "CLAUDE.md names r2-regsweep2 and r2-26b2 as owed readings (r2-regsweep2 has since been seated, W-2xx L8216; r2-26b2 does not exist in members/). The latest held list adds r2-ch18b and r2-ch23b (census rows selected by line), r2-reg11a2/r2-reg12b (census rows by Register line), r2-ch17e2 (literal index) and seven literal-index instruments; W-235 seated ten content-keyed successors, so the residue must be re-measured with gate_live.py --list. Each remaining one is a reading, never a re-bank, until a content-keyed successor is seated; superseded predecessors stay red until an archive pass.",
+  "source": "method/CLAUDE.md L73 and L79 (the held/red set); WORKING-REGISTER W-232/W-234 held lists (L8282, L8306, L8322)",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "G-18",
+  "title": "Handle leaks in the reader-facing Register: entry 1796 prints BUILD180 (census 1557, C13-HANDLE-LEAK); entries 1805\u20131806 print BUILD95\u2013BUILD97",
+  "owed": "Build numbers inside seated Register entries are Ruling 46 defects, recorded as census rows on the standing ruling and not repaired. The R3 handle class must repair them (successor entries or the approved pointer-removal class) before the volume is publishable.",
+  "source": "method/CLAUDE.md L76; DEF-153O L37-40 (census C13 rows)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "G-19",
+  "title": "Work matter around LIMITS-B in the reader-facing Register: file names, byte counts, hash fragments and script names (LIMITS-B, channels.py, run489.py, run489_45.json, spectra_count.py, MANIFEST, 'sha2",
+  "owed": "LIMITS-B.tsv itself carries no unresolved marker (six species, six limits, six spectra; its sha256-first-16 1d35ea57\u2026 matches what the Register and channels_LIMB.py cite). But the Register entry that closes the 45-row item prints the file's name, size and hash, the instrument names and the delivery's MANIFEST \u2014 none interpretable from the subject matter and all in Ruling 46's class. The entry (and the neighbouring capture/delivery entries) need the R3 handle-class treatment: the subject-matter result kept, the work matter removed by successor entries.",
+  "source": "method/members/LIMITS-B.tsv (whole file) as printed into the Register at L6524 (entry on the six captures) and its neighbours L6512-6520",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "G-20",
+  "title": "126 Spectra Compendium channel rows remain 'untested' (Ne I 3, Zn I 2, Ba III 11, Ne II 37, Ar II 34, Si I 26, Ca II 6, Ca I 7) \u2014 no captures in reach",
+  "owed": "LIMITS-B closed the six-species 45-row item, but the Register records that the delivered stores cover none of the eight species the 126 unreconciled rows belong to, so their bracket status stays untested and the printed count paragraph says so ('126 untested'). Whether the volume ships with 126 untested rows stated as a limitation, or captures are sought and run under Ruling 26 first, is a scope decision not settled in the sources.",
+  "source": "method/members/LIMITS-B.tsv context: Register L6520 and L6524; Spectra Compendium L336-342 and the count paragraph at L994",
+  "kind": "ruling-needed",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "G-21",
+  "title": "gate.py's MAIN constant still names BUILD90 \u2014 every manifest step must pass --main by hand",
+  "owed": "gate.py is a seated member never edited in place, so its stale default persists; a successor gate.py (or the documented invocation carried in the gate text) must name the live main bundle, currently BUILD110, not BUILD92 as CLAUDE.md L114 still prints.",
+  "source": "method/CLAUDE.md L72, L114; README 'Running the gate'",
+  "kind": "tooling",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "G-23",
+  "title": "r2-ch23b exceeds gate.py's 270 s ceiling and selects census rows by line \u2014 held; a trimmed, content-keyed successor owed",
+  "owed": "CLAUDE.md's discipline says an instrument over ~200 s is trimmed; r2-ch23b runs past the gate's 270 s ceiling in this container and is also held for selecting census rows by line. A successor that is both content-keyed and within the ceiling is owed before its golden can be trusted by the gate.",
+  "source": "method/CLAUDE.md L109 (instrument ceiling); README L~108; WORKING-REGISTER held lists (L8282)",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "G-24",
+  "title": "Functions owed to r2lib are copied verbatim into new instruments 'until lifted' \u2014 the lift is deferred (DEFERRED.md lists them)",
+  "owed": "Instrument functions duplicated with a provenance comment await being lifted into r2lib as a successor; the list lives in DEFERRED.md (Group of another reader) and the lift is not recorded done.",
+  "source": "method/CLAUDE.md L109",
+  "kind": "tooling",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "G-25",
+  "title": "The R2 read-position line in the gate is carried from chat 76 and never re-measured",
+  "owed": "A stale carried line ('next \u00a712.11.1.1, main L3177') sits in the gate text with an explicit warning that it has not been re-measured; the successor gate text should replace it with the measured position (the main volume and the Register are read in full; the compendia leg is what remains).",
+  "source": "method/CLAUDE.md L81",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "G-26",
+  "title": "The repair docket (DOCKET.md) is carried forward until R3 executes each item \u2014 the docket's items are the R3 work queue",
+  "owed": "Every finding since chat 95 is carried as a docket item (finding, both texts, measurement, candidate repairs) 'until R3 executes it'; DOCKET.md is rewritten at every close. The sources here only establish the obligation; the item list itself is DOCKET.md (another group's source) and none of its items is marked executed in the rulings member.",
+  "source": "method/members/RULINGS-R2.md, Chat 95 consequence (L59-62) and Chat 127 item 5 (L125-126)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "H-01",
+  "title": "Remaining classes of the 37-item R3 docket not executed",
+  "owed": "W-201 defers 'every other class of the 37-item docket' behind the readings. W-210 (DEF-152), W-215 (reg1-04), W-220 (Q1\u2013Q4) and W-222\u2013W-234 (Q5) close named classes, but no entry through W-238 states the docket is exhausted; the residue of DOCKET.md is still open.",
+  "source": "WORKING-REGISTER.md W-201 (line 8108, 'Not done, by design')",
+  "kind": "unknown",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "H-02",
+  "title": "Register 1797 staged by REGISTER-QUEUE-APPEND-cypher-audit.md, never seated",
+  "owed": "Entry number 1797 was skipped because the cypher-audit queue append stages it for audit_math.py. audit_math.py is now a seated member (W-236, exits 1 by design) but the entry is still absent \u2014 r2-regsweep2 prints 1797 as the one absent number above 1792. The staged entry must be seated or the gap ruled on.",
+  "source": "WORKING-REGISTER.md W-201 (line 8101, Segment A); W-215 (line 8216); W-236 (audit_math seated)",
+  "kind": "register-entry",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-03",
+  "title": "Entry 1800: origin of the compendium's 92% left undecided",
+  "owed": "The Mathematical Compendium's '146 of 163 = 92%' was corrected to 90%, but which of register 1048's two figures the 92% came from is stated as not decided in entry 1800. Recorded, not resolved.",
+  "source": "WORKING-REGISTER.md W-201 (line 8102, Segment B)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-04",
+  "title": "Archive pass over superseded predecessor instruments awaits M's ruling",
+  "owed": "Every predecessor an R3 successor replaced (r2-reg1a/7a/regsweep, r2-reg1a2, the nine Register-unit readers, the 44 + 10 re-anchored predecessors, r3-wl, r2-bib, r2-ch17e2 ...) stays seated, red on gate.py and not withdrawn until M rules on an archive pass. gate_live.py hides them from the live walk but the ruling is still owed.",
+  "source": "WORKING-REGISTER.md W-216 (line 8222), W-219, W-221, W-226, W-232, W-234 ('Held, and why')",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "H-05",
+  "title": "RETIRED.tsv not carried forward past chat 153's first retirees",
+  "owed": "W-203 institutes RETIRED.tsv as the record of superseded\u2192successor with proof bundles. The member holds 9 rows while W-212, W-214, W-215, W-217, W-218, W-223 and W-235 seat some 70 further successors and none says it appended to RETIRED.tsv. Either the member is a stale record or its role passed to gate_live's trailing-digit rule; the record does not say which.",
+  "source": "WORKING-REGISTER.md W-203 (line 8125, 'The disposition') \u2014 inferred gap, not named as owed by the record",
+  "kind": "tooling",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "H-06",
+  "title": "r2-28b3.py in members/ with no golden \u2014 bank or retire, and its stale check tags",
+  "owed": "r2-28b3 was written and proved but deliberately not seated because its L\u00f6wdin and three-body block-length checks fail; its check tags also print stale line numbers (L11807\u2013L11816, L11818\u2013L11840). W-212 seated r2-28b4 for the same family but W-236 still lists r2-28b3.py as 'an instrument awaiting its bank' (DEF-153B). Its disposition is unresolved.",
+  "source": "WORKING-REGISTER.md W-207 (line 8158\u20138159); W-236 (line 8343, 'Not seated, named')",
+  "kind": "instrument",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "H-07",
+  "title": "r2-26b successor is a reading, still owed",
+  "owed": "The last member of the extent-as-invariant class (DEF-151r3 item 5): r2-26b's mechanical successor failed because its pool moved from 69 to 72 under 1332's WARNING and entries 1795/1803, so a read successor is owed. Held on every close to W-234.",
+  "source": "WORKING-REGISTER.md W-215 (line 8216); held through W-216, W-219, W-221, W-224, W-226, W-232, W-234",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "H-08",
+  "title": "Four census-by-line readers held: r2-ch18b, r2-ch23b, r2-reg11a2, r2-reg12b",
+  "owed": "All four select DEFECT-CENSUS.tsv rows by a literal volume line and were held because the census stood at BUILD188 lines. The census was regenerated by content at W-237, but these stay on gate_live's HELD table and were not among the 17 re-banked at W-238. Successors (or readings) are owed, and r2-ch23b's recorded movements (\u00a7D.5 law\u00b7physics row 4/3 unwitnessed, \u00a72.21's qualification lines, the 104 of 106 removed from \u00a734.6 \u2014 DEF-153G) and r2-reg12b's (70,905 stated by six entries) are recorded, not banked.",
+  "source": "WORKING-REGISTER.md W-212 (line 8197), W-216 (line 8222), W-224 (line 8270), W-234 (held list); W-237/W-238 (24 live census readers, these four absent",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "H-09",
+  "title": "Register 375's 'no longer written as a number' false as printed \u2014 recorded, not repaired",
+  "owed": "Entry 1807 records that register 375's sentence is false as printed (the totals 55/48/47 and a wrapped pointer). The falsehood stands in the Register; no repair or withdrawal is seated.",
+  "source": "WORKING-REGISTER.md W-210 (line 8181, BUILD99 entry 1807)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-10",
+  "title": "Register 332's lost sentence stated, not filled",
+  "owed": "Entry 1808 (32a-04) states that register 332 lost a sentence and does not restore it. The gap in a reader-facing entry is recorded only.",
+  "source": "WORKING-REGISTER.md W-210 (line 8181, entry 1808)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-12",
+  "title": "bib-01: Mathematical Compendium bibliography 'objects' column handles a reader cannot follow",
+  "owed": "The bibliography's objects column prints 265 handles; the compendium names none as an object's own name outside the table, ~96 resolve only in another volume and ~83 nowhere (W-232 figures). The map is mathreg.py's, which is not a member; entries 1826\u20131832 record that L.dim, L.omega, L.sperner, L.box, L.bits, L.circuit are no longer printed by the live compendium. Class defect stands as read; repair or ruling owed.",
+  "source": "WORKING-REGISTER.md W-210 (line 8183, mc 387\u2013672); W-223 (line 8265); W-232 (r2-bib2 counts)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "H-13",
+  "title": "Two bounds the DEF-152 readings could not set: DEP-M NEAR class and register 332's press run",
+  "owed": "Recorded as unbounded: DEP-M over Register entries that instance a mechanism without naming the paper (the NEAR class), and whether the press's own run at register 332 used the one shape-consistent assignment or a component set never printed. No instrument or ruling closes either by W-238.",
+  "source": "WORKING-REGISTER.md W-210 (line 8184)",
+  "kind": "record-only",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-14",
+  "title": "Fifteen word-form narrative count sites ('one thousand six hundred and thirty-five') left for M",
+  "owed": "reg1-04's digit-form counts were repaired, but fifteen narrative sites that spell the Register's old total in words are a class of their own and were deliberately not touched. Their disposition awaits M; they remain stale in reader-facing text.",
+  "source": "WORKING-REGISTER.md W-215 (line 8215, READ-reg104)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-15",
+  "title": "reg1-E: Register front matter says 'the ten grouped headings' where seven are measured",
+  "owed": "After the citation-figure class closed, r2-reg1a3 exits 0 with reg1-E alone remaining \u2014 the front matter's 'ten grouped headings' against a measured 7. It is r2-reg1a's original finding and no entry through W-238 repairs it.",
+  "source": "WORKING-REGISTER.md W-217 (line 8228); r2-reg1a3.out",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-16",
+  "title": "Twenty retraction rows whose witness is conversation \u2014 docketed in DEF-153P, wait for M",
+  "owed": "Of the consolidation branch's retraction audit, five rows were read on the volumes and three executed (registers 1818\u20131820); one is left with register 1790, one is not R3's, and the twenty rows witnessed only by conversation are docketed and await M's ruling before any pointer is seated.",
+  "source": "WORKING-REGISTER.md W-220 (line 8244, Q1); W-216 (DEF-153P)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-17",
+  "title": "Register 66's aufbau-table re-measurement instrument cited by entry 1817 but not seated",
+  "owed": "Entry 1817 carries the observed-table re-measurement (98 cells, 197 violations, 0 of 120) and cites the consolidation branch's instrument, which is not a member. Under M's 5 September ruling that every tool goes in the archive, and the standing rule that every figure is re-run before seating, the instrument is owed as a member with its figures re-run.",
+  "source": "WORKING-REGISTER.md W-220 (line 8245, Q2, entry 1817); W-236 (M's ruling: all tools go in the archive)",
+  "kind": "instrument",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-19",
+  "title": "DEF-153R prose-only statements: PO-0190 lead and the class's remainder",
+  "owed": "The consolidation branch's 1,168 prose-only statements (DEF-153R) were assessed; W-233 closes PO-0087 by register 504 and leaves PO-0190 a lead (the document it points at does not contain '314'), both written to DEF-153R-PENDING.md. No entry states the disposition of the remaining rows.",
+  "source": "WORKING-REGISTER.md W-233 (Part A, line 8311); W-216 (DEF-153P: 1,168 prose-only statements)",
+  "kind": "unknown",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "H-20",
+  "title": "Index of Indices figure assets (fig-i1-tower.png, fig-i2-landscape.png) not re-run by R3; fig_indices.py not seated",
+  "owed": "Slips 09/10 record that chat 53 regenerated the two Index of Indices figures with fig_indices.py patched in its data values (0.6592/0.6381; 199,130). R3 did not re-run it (matplotlib/PIL), the figure files are not members and the instrument stays in an extracted pack. Against 'every figure re-run before seating' and the W-236 ruling, the re-run and seating are outstanding.",
+  "source": "WORKING-REGISTER.md W-222 (line 8259, slips 09 and 10)",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-21",
+  "title": "Triangle object's E = 35,570 unreproduced; a4_census.py / a4b_census.py not seated",
+  "owed": "Two reconstructions gave 11,535 and 28,780 against the recorded 35,570, the original instrument is absent, and the record stands by the slip's own ruling with no entry. The two census instruments remain in the extracted pack, unseated. A figure in the volumes stands without a reproducing instrument.",
+  "source": "WORKING-REGISTER.md W-222 (line 8260, 'The A4 disposition')",
+  "kind": "record-only",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-22",
+  "title": "numpy instrument packs named by the record and left unseated (chat 57, chat 58, chat 65)",
+  "owed": "mc10.py/mc10b/c/d/caps.py (chat 57), mc11.py/mc11b.py (chat 58) and chat 65's seedcensus.py/seedenum3.py/coverscheck.py were run from extracted/ to reproduce figures but not seated because they need numpy; stdlib re-derivations were seated instead. M's W-236 ruling ('all tools go in the archive, no exceptions') was made after; whether it extends to these packs is unruled.",
+  "source": "WORKING-REGISTER.md W-229 (line 8292), W-231 (line 8298), W-233 (Part B), W-236 (ruling)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "H-23",
+  "title": "\u00a710.2 'seventeenfold range in cell count' vs 'hundredfold' / '100\u00d7' \u2014 open, reader-facing, needing data",
+  "owed": "Register 1830's record names a live contradiction: main \u00a710.2 and the rewrite caption say seventeenfold, BUILD56's caption hundredfold and the audit table 100\u00d7. It is marked open and needs data (the void-fraction population) to settle; no later entry closes it.",
+  "source": "WORKING-REGISTER.md W-229 (line 8292, W-B2b record)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-24",
+  "title": "L.voidfrac's 776-million-pair population (473,800,776) not recovered; the driver of method_tower.py missing; pack C unsearched",
+  "owed": "The population behind the recorded void fraction is absent from \u00a710.2, the object, Figure 10.1, the Register and restore packs A and B; method_tower.py is in pack A but the driver that sweeps pairs is not, and pack C (figures) has not been searched. A lead, not closed by passes 4\u20136.",
+  "source": "WORKING-REGISTER.md W-229 (line 8292)",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-25",
+  "title": "MV-DEF-01 docketed \u2014 execute when the prose rewrite reaches source Chapter 10 / reader Chapter 8",
+  "owed": "M's chat-58 ruling defers MV-DEF-01 (the ambiguity register 1831 records) to the prose rewrite of Chapter 10; R3 executes none of it. It stands in DOCKET.md as owed to a later pass.",
+  "source": "WORKING-REGISTER.md W-231 (line 8299, 'MV-DEF-01 to DOCKET.md')",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-26",
+  "title": "Compendia audit line 'COMPUTED 114 \u00b7 PROVED 66' \u2014 a dated finding printed as if live, NOT EXAMINED",
+  "owed": "Chat 58 named the Mathematical Compendium's audit line (compendia L25237 at BUILD59) as a dated tally not a live census and left it unedited; W-231 carries it as NOT EXAMINED and no later entry reads it. Whether it survives in the live compendium and what it should say is unread.",
+  "source": "WORKING-REGISTER.md W-231 (line 8300, W-B2c record)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-27",
+  "title": "B-list batch 3 open: MC-13, MC-14, MC-15 have no compendium home; MC-16 has one",
+  "owed": "Chat 58 opened batch 3 (MC-12..16) and closed only MC-12. MC-13 (P21's ten combinations), MC-14 (the 2S leaf-detachment) and MC-15 (the three-facts theorem) would need new compendium objects on the K.bracket / S.gen precedent; MC-16 has a home in L.Fm1. Named open and not closed by Q5.",
+  "source": "WORKING-REGISTER.md W-231 (line 8300, W-B3a record)",
+  "kind": "unknown",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "H-28",
+  "title": "C13-HANDLE-LEAK: Register entries 1805\u20131835 print build, chat, W-, MC- and object handles in a reader-facing volume",
+  "owed": "Twenty-two new census rows (eleven entries, eight of them R3's own) plus the Ruling-46 candidate count 176 record work matter \u2014 BUILD numbers, W-222, MC-06, L.tree \u2014 inside Register entries. Closed as defects on ruling 46 / docket 28 with the repair owed to the class; nothing is repaired, and the class grows with every Q5 pass.",
+  "source": "WORKING-REGISTER.md W-232 (r2-ch16r2), W-234 (r2-ch16r2 173\u2192176), W-237 (C13-HANDLE-LEAK \u00d722)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "H-29",
+  "title": "Fourteen new C9 overgeneralisation-word rows (always/never) in main, Register, mc and pc \u2014 recorded, none repaired",
+  "owed": "Census 1558\u20131609 add fourteen C9 rows: main L9652 and L9655 (\u00a734.6's rewrite), Register 1332 L5006, 1803, 1804, 1814 \u00d72, 1815, 1827, 1833, mc L3650 and pc L283/L296/L300 (the corridor law's interface entry). All in reader-facing text, recorded only.",
+  "source": "WORKING-REGISTER.md W-237 (line 8352, C9-OVERGENERALISATION-WORD \u00d714)",
+  "kind": "record-only",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "H-30",
+  "title": "Nine C7 rows: withdrawn numbers survive inside the pointers W-220 seated (main L914, L2538, L3072, L3439, L4019)",
+  "owed": "12.11, 2,475 and 3.5 survive in main inside the '(the figure \u00a712.11.5 withdraws; register 1819)' pointers, and 24,585 at L4019 in \u00a714.5.12. Recorded as the class's known form; whether the pointer shape is acceptable or must change is not ruled.",
+  "source": "WORKING-REGISTER.md W-237 (line 8352, C7-WITHDRAWAL-LINE-NUMBER-SURVIVES \u00d79)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-31",
+  "title": "Six named statements coined by new entries not stated in bold in main (witness rule, reading cannot bound, tightening rule, object's law, down-set theorem)",
+  "owed": "New Register entries coin six statement names; only 'admissible bound' is stated in bold in the main volume. The other five are names a reader cannot find as statements. Recorded, not repaired.",
+  "source": "WORKING-REGISTER.md W-237 (line 8352, C8-NAMED-STATEMENT \u00d76)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-32",
+  "title": "census2.py resolves cross-volume section pointers against main only (register 1818 'Transitions \u00a71.8') \u2014 instrument blind spot recorded",
+  "owed": "The one C1 row is the census's own blind spot, not the entry's error; M ruled it recorded and census2.py kept row-for-row with census.py. A successor that resolves pointers into other volumes is not ruled owed, but the blind spot stays open in the census.",
+  "source": "WORKING-REGISTER.md W-237 (line 8352, C1 \u00d71, M's ruling 4)",
+  "kind": "tooling",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "H-33",
+  "title": "Reader draft of Chapter 14 keeps 'a coupling axis costs more', register 504's withdrawn reading \u2014 lead for the prose pass",
+  "owed": "The reader draft (14A) retains a claim the Register withdrew at 504. Docketed as a lead for the prose pass; the draft is not in the mirror so nothing can be executed yet.",
+  "source": "WORKING-REGISTER.md W-233 (Part A); W-235 (line 8332, 'Two leads, docketed')",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-34",
+  "title": "Request-3 bracket result drafted as register 1836 (DRAFT-R3-LEAD-bracket.md), not seated pending M's rulings",
+  "owed": "The bracket result (rank counts 18, 21, 24, 29, 36, 44; branching 4, 4, 6, 8, 9; slack 2) has no Register entry. r3-br-measure.py is seated (W-236) but the entry waits on the rulings asked at the draft's end.",
+  "source": "WORKING-REGISTER.md W-235 (line 8332); W-236 (r3-br-measure seated)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-35",
+  "title": "The lower bound 5 of \u00a714.5.9's seed table is stated in no Register entry",
+  "owed": "Every figure OWED-REGISTER-EXPANSIONS' rows state is in a seated entry except the lower bound 5, which lives only in the main-volume table, the compendium's prior-art note and mathadd.py. Noted; no entry or ruling follows.",
+  "source": "WORKING-REGISTER.md W-233 (Part A)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "H-36",
+  "title": "d-shell seed 10 (no 9-cover) and p\u2192p 'forced at exact minimum only' at 7,605 cells not re-derived before entries 1833\u20131835 were seated",
+  "owed": "Two figures the pass-6 entries carry from chat 65's return were outside r3-q6-measure.py's budget and were not reproduced. Against 'every figure re-run before an entry is seated' they stand as a named exception; a run that finishes is owed or the exception ruled.",
+  "source": "WORKING-REGISTER.md W-233 (Part B, 'Not re-derived, named')",
+  "kind": "instrument",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "H-37",
+  "title": "'Reader' enters the References' nowhere-cited list from register 1831's 'Reader-facing' \u2014 a regex artefact banked in two goldens",
+  "owed": "r2-ch19b2 and r2-ch28b2 were re-banked with a false nowhere-cited line ('Reader') that the record names as a C7/C9-kind regex artefact, not a citation. The artefact stays in the banked goldens; a successor or a note in the instrument is not recorded.",
+  "source": "WORKING-REGISTER.md W-232 (r2-ch19b2 and r2-ch28b2)",
+  "kind": "tooling",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "I-001",
+  "title": "Chapter 1 principle-table pointers do not resolve to their claims",
+  "owed": "Repoint P1 (\u00a716.1/Ch.8), P2 (Ch.9), P7/P13 (\u00a725.6; \u03a9 is a Chapter-1-only symbol for Q), P8 (\u00a728.6), P9 (\u00a724.2\u2192\u00a726.2), P10 (Ch.10), P12 (B.2\u2192\u00a72.7), the 'carried more than it needed' attribution to Ch.16, and the 'P20 subsumes E3' gloss.",
+  "source": "READ-ch1-A.md 1-01,1-02,1-03,1-04,1-05,1-06,1-07,1-13,1-18 / READ-ch1-B.md D1.5,D1.6,D1.7",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-002",
+  "title": "Chapter 1 taxonomy contradictions (seven operations, P7/P17, P2 equivalence, 'no register entry')",
+  "owed": "Reconcile the seven-operations list (P3 vs P16), P7/P17 kind and expression status (table prints pre-correction P17 form), P2 stated as equivalence where \u00a716.1 proves one direction (Register 417 'requires' too), and 'no register entry' beside Register 421.",
+  "source": "READ-ch1-A.md 1-09,1-10,1-11,1-12 / READ-ch1-B.md D1.1,D1.2,D1.3,D1.4,D1.16",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-003",
+  "title": "Chapter 1 unsourced or contradicted figures",
+  "owed": "Source or withdraw: the sequence 5\u21924\u21923\u21924\u21923\u21927\u21923\u21923; 13\u219210 vs \u00a729.2.1 (11/13/14); 'rank(x) 13'; 30 deletions/20 additions; T\u00b7h enters the ideal; 120 sublattices/40 intervals/six construction rules; Part I index E=0; '\u00a716.3's five failures'; |A_i| \u2264 |X| row; timing 0.00018/0.010 s with no Register entry.",
+  "source": "READ-ch1-A.md 1-08,1-14,1-15,1-17,1-19,1-21,1-22,1-25,1-26,1-27,1-29 / READ-ch1-B.md D1.8,D1.9,D1.10,D1.11,D1.15,D1.17",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-004",
+  "title": "Prior-art rows in Chapter 1/2 without references (Hilbert, Mayr\u2013Meyer, Oppen/Fischer\u2013Rabin; rule of three)",
+  "owed": "Add references for the Gr\u00f6bner/QE complexity rows and for \u03c1 \u2264 3/n (Hanley & Lippman-Hand 1983) or drop the attributions.",
+  "source": "READ-ch1-A.md 1-16 / READ-ch2-A.md 2-22",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-005",
+  "title": "'spin multiplicity 2' names the possible state; the forged rule's 225 needs the cap stated",
+  "owed": "Reword 'multiplicity 2' at L475, \u00a716.7 L4621, \u00a716.8.2 L4665 (2S=2 is S=1); state the cap 2S \u2264 3 under which 2S \u2264 k+1 admits 225 cells.",
+  "source": "READ-ch1-A.md 1-24 / READ-ch1-B.md D1.13,D1.14",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-006",
+  "title": "Chapter 2 pointers whose targets do not carry the claim",
+  "owed": "\u00a72.6's four causes \u2192 \u00a723.11 carries none; the d=2 \u211b-closed characterisation (running maxima) is printed only in \u00a72.15.2, not in \u00a730.3; '\u00a73.8 ends by saying \u2026 two masters' \u2014 \u00a73.8 does not.",
+  "source": "READ-ch2-A.md 2-02,2-05,2-12 / READ-ch2-B.md D2.6,D2.8",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-007",
+  "title": "Chapter 2 count words and stale states against their own tables",
+  "owed": "'five structural' (3); 'eight empty cells' (4) and 'three rows full' (4); six-item Q presented as the whole (14 now); E(audits) 11/0/19 stale partial list; 'Nineteen quantities' (18); overlapping 17\u201320/20\u201340 ranges; \u00a728.7.6/7 counts (four/eighty-seven vs two/119); 'seven prime audits of \u00a73.1\u20137'; 'six properties' over seven listed.",
+  "source": "READ-ch2-A.md 2-04,2-07,2-08,2-13,2-14,2-15,2-17 / READ-ch2-B.md D2.2,D2.3,D2.4,D2.5,D2.7,D2.10,D2.11,D2.12",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-008",
+  "title": "Chapter 2 unsourced measurements",
+  "owed": "Source or point: 53%/68% (\u00a72.15.2), the quoted earlier reading of \u00a732.2, 94% of \u039b's pairs, 39%/49.5% (Register 187 carries it, chapter cites nothing), 'three false conclusions', 'Si I to four cells and P II to one'.",
+  "source": "READ-ch2-A.md 2-06,2-09,2-10,2-11,2-20 / READ-ch2-B.md D2.9,D2.13",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-009",
+  "title": "\u00a72.21\u2013\u00a72.24 printed inside Chapter 3; \u00a72.22 is an empty section whose text migrated to \u00a72.23",
+  "owed": "Move the four protocol sections before L1003 and give \u00a72.22 its body (or fold the \u00a72.23 text back); \u00a75's table and the Register cite \u00a72.22.",
+  "source": "READ-ch3.md 3-02,3-03 / READ-ch2-A.md 2-01 / READ-ch5.md 5-06",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-010",
+  "title": "Chapter 3: seven-audit text under a twenty-two heading; audit count printed as 20/21/22; E(audits) table two audits short",
+  "owed": "Rewrite the ordering claim (true of 1\u20137 only), the lost sentence at L1004, the 21-name list, three-component and 362-comparison counts, the \u00a73.8 table (ATTRIBUTION row; stops at 20; L1385 drops 18; DEPTH vs 'presupposes'), and settle the audit count across \u00a73.9/\u00a72.20.",
+  "source": "READ-ch3.md 3-01,3-04,3-13,3-14,3-15,3-16,3-17,3-18,3-19,3-21 / READ-ch2-A.md 2-19 / READ-ch2-B.md D2.4",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "I-011",
+  "title": "'Twenty-two audits over twenty-two distinct cells' is false: CENSUS duplicates SCOPE's cell",
+  "owed": "M rules whether CENSUS gets its own coordinate (subject matter); then L1140 and 'The twenty' at L1112 are repaired.",
+  "source": "READ-ch3.md 3-05",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-012",
+  "title": "Chapter 3 stale and unsourced figures; Figures 23.1/23.2 named for what are now 30.1/30.2 (main L1264 and Register 193)",
+  "owed": "Repair 'three coordinates', 66+89+35+59\u2260219/248, 'five different item totals', 'Twenty-eight figures' (33), 'four works' vs three, the unlabelled coordinate tuple; a new Register entry citing 193 naming the current figure numbers (never an edit to 193).",
+  "source": "READ-ch3.md 3-06,3-07,3-09,3-10,3-11,3-22,3-25,3-29 / READ-reg4.md reg4-01",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-013",
+  "title": "\u00a74.1\u2013\u00a74.10 are plain-line items cited as sections; one mechanism under two names",
+  "owed": "M rules whether the ten mechanisms become headings (cited \u00a74.6 \u00d77 in the volume, grouped Register headings); reconcile 4.7 'a flag is a hypothesis' with \u00a728.7.9's 'detector artifact'.",
+  "source": "READ-ch3.md 3-23 / READ-ch4.md 4-01,4-02",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-014",
+  "title": "'The Method 1.6 audits.py runs the whole set' names a file not in the bundle",
+  "owed": "M rules whether audits.py should be a member; otherwise the sentence is a Ruling 46 site.",
+  "source": "READ-ch3.md 3-30",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-015",
+  "title": "\u039b's order-dimension-seven certificate lives in the Mathematical Compendium unpointed",
+  "owed": "Point L1393\u2013L1395 at the MC certificate (R-ATTR); Register 35's 'dimension three' is a different object.",
+  "source": "READ-ch3.md 3-20",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-016",
+  "title": "Chapter 5: Part II heading 22 lines early; \u00a72.4 'uncited'; \u00a72.23/\u00a72.24 in neither table; A.4 label should be A.5",
+  "owed": "Move the PART II heading to before Chapter 6; correct 'Eight are uncited'; add rows for \u00a72.23\u2013\u00a72.24 per the chapter's own rule; relabel A.4 \u2192 A.5.",
+  "source": "READ-ch5.md 5-01,5-02,5-03,5-04",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-017",
+  "title": "Chapter 6 measurements whose inputs are unprinted (nuclide chart Z \u2264 9; Janet column orientation)",
+  "owed": "Print the (Z,N) input set (Z \u2264 9 gives 77/86/9 against the printed 80/89/9) and state the column coordinate under which the Janet row gives E=0.",
+  "source": "READ-ch6.md 6-01,6-03",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-018",
+  "title": "Chapter 6: '118 elements' closing sentence names the earlier \u039b; definition line break lost; 'four conventions' over three rows; Janet/helium-at-2 attribution",
+  "owed": "M rules whether L1719 says 976 or 'the elements' index'; restore the break at L1535; reconcile 'four conventions' and '118 elements' over 90 cells; name the quantum-chemical helium-at-2 case.",
+  "source": "READ-ch6.md 6-02,6-05,6-06,6-07,6-04",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-019",
+  "title": "\u039b\u2088's defining caps under-specified at their home: \u00a77.4 names four coordinates, L1800 five; f-cap and k \u2265 1 unstated; Chapter 8 four-tuples",
+  "owed": "Add the f cap (or 'the two subshell coordinates') to \u00a77.4, align Chapter 8's three four-tuples with L1800, and add 'within the box of \u00a77.4, k \u2265 1' at \u00a711.1.",
+  "source": "READ-ch7.md 7-01 / READ-ch8.md 8-04 / READ-ch11.md 11-04",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-020",
+  "title": "Chapters 7\u20138 promise settings beside recomputed figures and do not print them; 'three results' unnamed; 'twenty-eight-fold' stale",
+  "owed": "Print the four/five/six cap settings and counts (ladder banked in READ-ch8 C), define 'fifteen patterns', name the three results of Figure 7.1 (and fix \u00a77.1\u2192\u00a77.2), update twenty-eight-fold (28.56; 511-fold against \u00a732.1.2's table).",
+  "source": "READ-ch7.md 7-02,7-03,7-04 / READ-ch8.md 8-01,8-03 / READ-ch16o.md C1",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-021",
+  "title": "Mathematical overstatements in Chapters 8\u201311 (iff/equivalence/exactly claims that hold one way)",
+  "owed": "Restate: rank-modularity 'equivalent' to distributivity (\u2192 modularity); \u03bc_\u039b=\u03bc_arith iff void-free (restrict to unit hypercubes; Register correction entry); 'counts cells' (\u2192 points of the box); \u00a710.1 'exactly' omits 2S \u2264 k; correlation reason vs MC's proof; cycles\u2192no closed form; palindromic iff self-dual; F(\u22121)=0 for self-dual (odd height); 'would deduce g \u2264 2(2f+1)'; 'never rejoin'.",
+  "source": "READ-ch8.md 8-02 / READ-ch9.md 9-01,9-02 / READ-ch10.md 10-01,10-04,10-05 / READ-ch11.md 11-01,11-02,11-05,11-06",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-022",
+  "title": "The 776-million-pair void measurement: seventeenfold vs hundredfold range, population unnamed, no Register entry",
+  "owed": "M rules which range stands or the cap family is recovered; a Register entry either way (figure also carried into Appendix C's '100\u00d7').",
+  "source": "READ-ch10.md 10-02,10-03 / READ-ch21a.md C",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-024",
+  "title": "\u00a711.7 cites itself for \u00a717.4's 89,864 join failures",
+  "owed": "Repoint L2260 to \u00a717.4.",
+  "source": "READ-ch11.md 11-03 / READ-ch16g.md C5",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-025",
+  "title": "Chapter 30 count words refuted by their tables or standing on no enumeration",
+  "owed": "'six invariants' (4), 'five points' (4), '114 of 141', 'Three walls' (2), 'nine rounds'/'Three reduction attempts'/'nine recovered extra edges', '19 canonical forms', '47.8 s against 86' (unit), 'at least nine' over eight (three sites incl. L7636), omission-column row, 'eight polynomial relations' unlisted / Gr\u00f6bner 18 / '18 of 18'.",
+  "source": "READ-ch16b.md 16b-01,16b-02,16b-05 / READ-ch16d.md 16d-04,16d-07,16d-08,16d-09 / READ-ch16g.md 16g-02,16g-04,16g-09",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-026",
+  "title": "Chapter 30\u201331 figures reproducible from no printed inputs (slope 2.29/R\u00b2, Hill/Roche V, order-3 widths)",
+  "owed": "State the regression population (1,480 instances) or the grids/width convention; the Hill row's printed 47.9 is the Roche row's value on the section's own grid.",
+  "source": "READ-ch16b.md 16b-03 / READ-ch16g.md 16g-07,16g-10",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-027",
+  "title": "Pointers in Chapters 30\u201332 and the Index whose target carries none of the claim",
+  "owed": "Redirect or supply: \u00a730.3.3 'completes this reading' (lives L686\u2013693); \u00a716.7.1 criterion departed from; \u00a710 'structural vs accidental'; \u00a716.4 'form' (ordering clause) and \u00a716.4 down-set; \u00a722.4 'no language for'; 'single open item'; \u00a718 for symmetric bounds (\u00a712.11.2); \u00a716.5 totality; \u00a714.5.6 heading-only cited.",
+  "source": "READ-ch16b.md 16b-04 / READ-ch16j.md 16j-02,16j-03 / READ-ch16m.md 16m-05 / READ-ch16o.md 16o-06 / READ-ch16q.md 16q-04,16q-05 / READ-ch16r.md 16r-03,",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-028",
+  "title": "Spliced or corrupt sentences (docket 26)",
+  "owed": "Repair L8400\u20138402 (Van Isacker inserted), L8419\u20138422 (blank line, mangled spacing), L8563\u20138566 (two sentences inserted), L8908\u2013L8912 (duplicated '= 0 at one fibre', E(Q) clause without a number), L10500\u2013L10502 (subject-less clauses after 'register 269' removed), the References lead-in after its first two blocks, L7614 repeating L7599.",
+  "source": "READ-ch16b.md 16b-06,16b-07 / READ-ch16d.md 16d-05 / READ-ch16o.md 16o-07 / READ-ch23a.md 23b-02 / READ-ch28a.md 28b-02 / READ-25b.md C",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-029",
+  "title": "\u00a730.3.3\u20139: Rival's bound printed in the vacuous orientation; 267,000 vs 266,496; Dilworth cited for a decomposition it does not give",
+  "owed": "Reverse |K| \u2264 (3/2)|L| or bind the letters; print 266,496 or name the rounding; soften 'the chain decomposition IS the axis system'.",
+  "source": "READ-ch16d.md 16d-01,16d-02,16d-03",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-030",
+  "title": "\u00a730.4\u2013\u00a731.2: entailment short of w = V\u00b7e; 'five enumerations in this chapter'; L3 sign pattern; Titius\u2013Bode 'fails worst'; a correction of \u00a718.5 with no Register entry",
+  "owed": "Add w = V\u00b7e to \u00a730.4's set and drop it from \u00a730.4.1's new list; 'this part' at L8597 and L7641; fix L3's alternation; Neptune not Saturn; a Register entry for the \u00a718.5 correction.",
+  "source": "READ-ch16g.md 16g-01,16g-03,16g-05,16g-06,16g-08",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-031",
+  "title": "\u00a731.3: '24 excluded values' (twelve); Triadophilia author lists differ; stale 24.3.4.x sub-numbering; two conventions in L8736; L11801 reverse attribution",
+  "owed": "Repair the count, reconcile text and bibliography for Candelas et al., renumber the three lines as \u00a731.3.4.1\u20133 headings, add a clause naming one-step (534) vs fixed-point (540) closure, attribute Huang & Taylor in \u00a731.3.1.",
+  "source": "READ-ch16j.md 16j-01,16j-04,16j-06 / READ-ch16r.md C2 / READ-ch16j.md C1,C5",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-032",
+  "title": "\u00a732.1 self-readouts stale or inconsistent (E(book) on 41 units; 'seven things'; 40%; 368 withdrawals; 25-chapter baseline; rows summing to 98; 'six indices, two closed'; 'a quarter'; 'two companion pa",
+  "owed": "Recompute on the book as it stands (43 units; 1/36 baseline) and repair each count word; state which object 368 counts; mark the superseded audit counts.",
+  "source": "READ-ch16m.md 16m-01,16m-02,16m-03,16m-07 / READ-ch16o.md 16o-01,16o-02,16o-03,16o-04,16o-05,16o-08",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-033",
+  "title": "Chapter 32 head and bibliography cite chapters/sections for content they do not carry (parked questions in Ch 15/17; Appendix E 'eight items' at L8794/L11107; \u00a732.2 'lists them as open' at L11555/L117",
+  "owed": "Repoint the parked questions (\u00a716.4 etc.), cite Appendix E at its current count, and give L11555/L11799 a section that actually lists the unobtained works.",
+  "source": "READ-ch16m.md 16m-04,16m-06,16m-08 / READ-ch3.md 3-12 / READ-ch28a.md 28a-03",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-034",
+  "title": "\u00a732.2\u2013\u00a732.7: 'nine of nine'/'six of six' unreachable (Register 394 too); 1,635 as 'measured levels that failed'; unreachable documents attributed to Chapter 28 and \u00a724.2; \u00a729.6 heading three vs four",
+  "owed": "Repair the count words in both volumes, the referent at L9055, repoint L9057/L9356 to \u00a729.6, and settle the document count in \u00a729.6's heading.",
+  "source": "READ-ch16q.md 16q-01,16q-02,16q-03 / READ-ch16t.md 16t-01,16t-02",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-035",
+  "title": "\u00a732.6\u2013\u00a732.6.1: captions 18/18 stale (33); 'Thirty-nine claims each given one' refuted by its table; 'four indices' over five terms (Register 396); ten vs eleven open items; range \u00a732.1\u201324.4 backwards;",
+  "owed": "Repair each figure against its own table; reconcile with Register 396 and \u00a7E.1.4.",
+  "source": "READ-ch16r.md 16r-04,16r-05,16r-06,16r-08,16r-09,C3",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-036",
+  "title": "\u00a732.7: fifth worked case '22 of 60' has no home; two unmarked sub-headings; 'Principle 8' form; '1922 German volume nobody cites' is self-false",
+  "owed": "Source the fifth case or drop 'all from this book's own record'; mark L9338/L9367; use P8; reword L9391.",
+  "source": "READ-ch16t.md 16t-03,C3,C5,C6",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-037",
+  "title": "Chapter 33 pointers and denominators: L9449 cites Chapter 27 for Chapter 33's own sentence; 'indexes of \u00a736'; 'nine of eleven' (twelve per Register 1347) at three sites; 'fourth question of the domain",
+  "owed": "Repoint L9449 as \u00a735.1 already reads (register 1755); repoint \u00a736 \u2192 register 1327/MC/IoI; settle the closed-index population once and propagate to main/mc/ioi; correct the protocol's fourth question (am I pooling).",
+  "source": "READ-ch16v.md 16v-01,16v-02,16v-03,16v-05",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-038",
+  "title": "Six languages: \u00a733.1's roster differs from \u00a720.2's; \u00a720.2 'ten of their combinations' needs a convention; P2 and P20 both carry the language-bounds claim",
+  "owed": "Reconcile the two rosters (docket 14; the roster question is docket 20x-04/09, still open) and name \u00a720.2's convention.",
+  "source": "READ-ch16v.md 16v-04,C4,C5",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-039",
+  "title": "The L\u00f6wdin epigraph printed three times in 101 lines (Part VII frame, \u00a733.5 tail, Chapter 34 head)",
+  "owed": "Reword the shared opening (PP carries both frames; not a splice) so the copies do not all stand.",
+  "source": "READ-ch16v.md 16v-06 / READ-ch16x.md C2",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-040",
+  "title": "\u00a734.1\u2013\u00a734.4: 'Seventeen of nineteen' convention unnamed; \u039b_var eleven vs twelve (n* missing); radicand 'count of states'; 'provenance of every term' (q has no row); 'Both Pauli quantities'",
+  "owed": "Name the displacement convention; add n* to the main table; say subshells; add q to \u00a734.8's table or narrow 'every'; one quantity in two roles.",
+  "source": "READ-ch16x.md 16x-02,16x-03,16x-04,16x-05,16x-07 / READ-ch34re.md 34re-06",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-042",
+  "title": "Chapter 34 figure-level defects: two crossings wrong at the 5th decimal (main, Register 1330, MC L3595); 'p=0 at any f opening' false at 5f (two sites); 1.028/1.785/0.19% unreproducible; 'blocked four",
+  "owed": "Correct 1.2168450\u21921.2167605 and 1.3938270\u21921.3938469 at three sites; restate the f-opening reason; name the median convention or withdraw; name the fourth fit (1355); separate the two objects; point the recordings to register 1340; qualify the universal.",
+  "source": "READ-ch16z.md 16z-04,16z-05,16z-06,16z-07,16z-08,16z-09 / READ-ch34re.md 34re-01,34re-03,34re-04,34re-07 / READ-ch17a.md 17a-04",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-043",
+  "title": "Chapter 35 / Register 1701,1712 / MC L3162: n+\u2113 tie-break convention unnamed (PC alone states it); Z=2\u2013108 vs observational edge 102 (1446); spin-orbit 0.083 'cleared by all' fails at 0.058",
+  "owed": "State the never-yet-opened-rival convention at main L9749, Register 1701, MC L3162; reconcile the edge (18 unwitnessed rows under 1446); the clearance is undecidable per row until REQUEST-LOWDIN item 10 is delivered.",
+  "source": "READ-ch17a.md 17a-01,17a-02,17a-03 / READ-ch17c.md 17c-02 / READ-scf.md A-01,A-02",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-044",
+  "title": "'Nine things were derived here that were already in print' vs \u00a7E.5's eleven ledger rows (main L68, L4051, L9827; E.5 totals line; E.7)",
+  "owed": "Reconcile the count (9 \u2260 11) or name the folding convention.",
+  "source": "READ-ch17c.md 17c-01 / READ-ch25a.md B(E.5)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-045",
+  "title": "Chapter 36: L9902 cites Register 1756 (withdrawn) and names tb_audit.py; L9914 cites \u00a731.1.1 for brackets that live at \u00a718.4.1",
+  "owed": "Replace the 1756 citation with a live entry (1717 holds 78/78) and drop the script name; repoint to \u00a718.4.1.",
+  "source": "READ-ch17e.md 17e-01,17e-02 / READ-intake1.md",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-046",
+  "title": "Appendix A misdirected pointers (A.6 \u2192 \u00a724.2, A.7 \u2192 \u00a716.3, A.12 \u2192 \u00a725.6 with L6133 twin, A.15 Remark \u2192 Register 230) and A.13's 'iff' that holds to leading order",
+  "owed": "Repoint A.6 to \u00a717.2, A.7 to \u00a715.3, choose a target for the antiprotonic-helium cells (14h-05 twin), locate the entry that corrects 'the ledger' or repoint; restate A.13 as O(1/\u03bd).",
+  "source": "READ-ch18a.md 18a-01,18a-02,18a-03 / READ-ch19a.md 19a-01",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-047",
+  "title": "\u00a714.4 is a two-line lead-in whose announced three properties were never printed, cited as the admissibility theorem at seven sites in two volumes",
+  "owed": "Fill \u00a714.4 or re-point the seven citers (L2708, L3085, L3096, L3367, L5586, A.15, MC L1254) to \u00a77.2 / \u00a718.4.1 / \u00a729.12.",
+  "source": "READ-ch19a.md 19a-02",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-048",
+  "title": "The 153 channels / 1,105 / 1,442 / 763 family: withdrawn collection figures re-asserted at the Appendix B opener and eleven+ main sites",
+  "owed": "After the mathematics, restate the opener from the table (596 rows / 2,269 interior / 1,577 of 1,738) and sweep every site (L641, L1480, L2521, L3406, L6970, L8189, L8299, L9165, L10169, L10171, L10250, L10262, L10276\u201377, L564 and 29 more 1,442 sites); re-derive the union from Register 783's split.",
+  "source": "READ-ch20a.md 20a-01,20a-02 / READ-ch1-A.md 1-28 / READ-ch2-A.md 2-03 / READ-ch16r.md 16r-01 / READ-ch21a.md 21a-05 / READ-ch23a.md,READ-ch25a.md twin",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "I-049",
+  "title": "B.3 'none is unexplained' is false: the Si II 0.272 flag row has no table row (Register 1774 leaves the flag's standing open)",
+  "owed": "R3 rules whether a flag whose channel the table no longer carries stands; repair the universal.",
+  "source": "READ-ch20a.md 20a-03",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-050",
+  "title": "Appendix C cites \u00a724.2 three times for \u00a722.2.1/\u00a725.2 material; 'multi-target failure counts of \u00a716.3' have no home; \u00a725.6.6's 'deductive bracket of \u00a724.6'",
+  "owed": "Repoint the three \u00a724.2 sites, locate or drop the multi-target counts, repoint \u00a724.6.",
+  "source": "READ-ch21a.md 21a-01,21a-06 / READ-21a.md A-05",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-051",
+  "title": "Appendix C.3's Sc VI paragraph: the 696,400 quotation exists nowhere; 735,091/735,092 is the withdrawn Rule-4 row (735,092 under R=109,737 only); 'single prediction' vs 'not a prediction'; three sprea",
+  "owed": "Retire the quotation or restore its source; replace the retired row with the live bracket; align wording; print the spread convention (\u00b11,398/\u00b11,594/\u00b12,169) and 736,688 at E.3.",
+  "source": "READ-ch21a.md 21a-02,21a-03 / READ-21a.md A-01,A-02,A-04 / READ-ch25a.md C",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-052",
+  "title": "The Sc VI 6s prediction family (736,688 in [735,860, 737,380], 7s figures, \u03b4 chain) has no Register entry",
+  "owed": "A Register entry for the committed prediction (docket 9(c)/30 under RUL-128 item 1).",
+  "source": "READ-21a.md A-03",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "I-053",
+  "title": "1,061 perturbation bounds superseded by \u00a723.10.4 L6517 yet live at eight main sites and Register L6487; 'All 1,061' at L9188 has the wrong referent",
+  "owed": "Sweep L60, L6683, L6958, L9188, L9354, L10251, L10266, L10277 against the superseding sentence (34 bounds at 0.0164).",
+  "source": "READ-ch21a.md 21a-04 / READ-ch16r.md 16r-02",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-054",
+  "title": "The retired 30,000-sample totality test narrated as live (C.1, C.2, \u00a73.3 L1242, D.5.4 L10644\u201345 'A.5 sampled')",
+  "owed": "Restate as exhaustive (Register 222/248); D.5.4's A.5 row to proved\u00b7exhaustive.",
+  "source": "READ-ch21a.md 21a-07 / READ-ch23a.md 23a-01",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ }
+]

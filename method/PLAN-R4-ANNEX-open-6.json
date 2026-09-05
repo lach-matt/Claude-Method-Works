@@ -1,0 +1,1046 @@
+[
+ {
+  "id": "I-055",
+  "title": "Fifteen main-volume word-form '1,635' sentences at no named state (referent drifts: entries/errors/levels)",
+  "owed": "A prose pass, M's to rule: the Register now runs to 1835 and no tool maintains the word-form sites.",
+  "source": "READ-ch21a.md 21a-08 / READ-ch16q.md 16q-02 / READ-reg104.md (i)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-056",
+  "title": "Appendix D part 1: forty-eight vs fifty-six bounds; two counts under unstated conventions; \u00a716.7.1's 'diagnostic loop' pointer wrong at two sites",
+  "owed": "Print 56; name the tie/constraining conventions; locate the loop's home (Chapter 12/16) and retarget L10353 and L10717.",
+  "source": "READ-ch22a.md 22a-01,22a-02,22b-01 / READ-ch23a.md twin L10717",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-057",
+  "title": "Appendix D part 2: 'sixteen fibres'/'twenty-seven' narrated in the present tense against the 24/77 table (L10463, L10526\u201329, L10350); D.5.1 cites \u00a716.2 for the closure operator (\u00a714.2)",
+  "owed": "Mark the historical stages or update; \u00a714.2 at L10546.",
+  "source": "READ-ch23a.md 23a-02,23b-01 / READ-ch22a.md C",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-058",
+  "title": "Appendix D.5.9 and Appendix E chains reproduce only under coordinates the page does not print (3B.pot sampled\u00b7found; M/N/O rows; L10880's three unoccupied cells)",
+  "owed": "Print the entry coordinates the runs used (or point to Register 1726/256) so the E figures are reproducible from the page; reword L10880.",
+  "source": "READ-23a.md A-02,A-03,A-04 / READ-ch23a.md 23a-03(ii),(iii) / READ-24a.md A-02",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-059",
+  "title": "Appendix E.2 and E.1.5 pointers: 518 vs 499; a Gr\u00f6bner basis of eight (superseded, \u00a729.8 carries none); accelerator identity \u2192 \u00a726.6; \u00a723.11\u2192\u00a723.12, \u00a716.7\u2192\u00a716.8.4; '#P-complete (\u00a729)' \u2192 \u00a714.6/\u00a728.10",
+  "owed": "Repair each figure/pointer; E.2 asserts as live a state \u00a730.4.1 narrates as superseded.",
+  "source": "READ-ch24a.md 24a-01,24a-02,24a-03,24b-01,24b-06 / READ-ch26a.md 24b-06 corrected",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-060",
+  "title": "'E.4 The grid, read on the current set' lost as a heading (unmarked body line L11105); cited at L10923/L10936",
+  "owed": "Restore `### E.4`.",
+  "source": "READ-ch24a.md 24b-02 / READ-ch25a.md",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-061",
+  "title": "Appendix E item-state drift: 'recomputed six times' vs 'five'; E.1.3\u2013E.1.4 eleven-state present tense (retrievable 7 vs 8); E.1.4 'E from 4 to 10' under no convention of \u00a76.1's operator; E.3 has no en",
+  "owed": "Add an E.3 entry for R (from Register 1729); mark the eleven/thirteen-state passages; name or withdraw E.1.4's E convention (Register 382 restates it).",
+  "source": "READ-ch24a.md 24b-04,24a-04,24a-05 / READ-ch25a.md 25a-01,25a-03 / READ-24a.md A-01",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-062",
+  "title": "'nine stable cells, named at F.3.1' at E.1.2, E.1.3 \u00d72, E.4 grid, \u00a72.19 L1082/L1093\u201398: the rebuilt F.3.1 names no cell (content removed at Register 1780; 371/372 name F.3.3)",
+  "owed": "Repoint the citers to the Register homes (371/372) or restore the content; one decision for the family.",
+  "source": "READ-ch24a.md 24b-05 / READ-ch26a.md 26b-01 / READ-ch25a.md 25b-07 / READ-ch3.md 3-08",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-063",
+  "title": "Appendix E.3\u2013E.8 pointer and single-witness defects: '\u00a732.2 asserted |Q| = 7'; item F \u2192 \u00a730.3.5 (\u00a730.3.8); E.7 '\u00a72.10 \u2026 now does' (unchanged); item C vocabulary not at \u00a729.7 ('partial identification' ",
+  "owed": "Repair each; R3 reads \u00a730.3.8\u20139 with E.6 together.",
+  "source": "READ-ch25a.md 25a-02,25b-01,25b-02,25b-04,25b-05,25b-06,25b-07",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-064",
+  "title": "\u00a728.7 and E.8: 'Sixty-odd from \u00a730.3 alone' (share 50\u201352); \u00a728.7 heading 'two printed here'; \u00a728.7.3 'all printed' (63 of 75; 118 twice; 99\u2013105, 140\u2013144 absent); a second entry numbered 59; L962 'Fift",
+  "owed": "Repair the count words and the numeral; print or account for the twelve missing entries.",
+  "source": "READ-25b.md 25b-03,25b-07,25b-08,25b-09,C / READ-reg6.md",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-065",
+  "title": "Census rows 1166 (L7700) and 1167 (L7703) in \u00a728.7.8\u2013\u00a728.7.9 left open, not read by any unit",
+  "owed": "A reading of \u00a728.7.8\u2013\u00a728.7.9 that takes the two rows.",
+  "source": "READ-25b.md Census",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "I-066",
+  "title": "Appendix F: 'Chapters 6, 12 and 24' (22); \u00a732.1.3/\u00a732.1.4.1 cite F.4.1 for withdrawn content; 'Assert the law, compute the extent \u2026 as the chapters cite it' (no chapter does); F.4.1/F.4.2 are build-na",
+  "owed": "Repair the chapter number and the two citers; reword F.3.1; decide the placeholders' form (docket 5/15).",
+  "source": "READ-ch26a.md 26a-01,26b-02,26b-05,26b-07",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-067",
+  "title": "F.3 prints two forms of one rule (RULE-H headline, RULE-E elaboration) with different extents; the one named instance (E.1.5/1729, item R) satisfies only RULE-H; register 333 is a candidate exception ",
+  "owed": "State which form is meant; R3 reads 333 against the rule (docket 19).",
+  "source": "READ-26b.md 26b-11 / READ-26b.md C (register 333)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-068",
+  "title": "The withdrawn Appendix F's data: 'method ratio' was never established by any entry; 19 of 38 substantive figures (incl. 24,162 : 54,241 = 0.445) are represented in no volume, against \u00a72.21's own proto",
+  "owed": "A Register entry representing the withdrawn figures another way, or M's ruling that the \u00a72.21 protocol is not owed here; correct F.4.1's 'The entries that established them stand'.",
+  "source": "READ-26c.md 26c-01,26c-03",
+  "kind": "register-entry",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-070",
+  "title": "Register entries cite '\u00a7784' (a register number with a \u00a7 sigil) and Theorems 11.1, 11.2, 12.1 that are printed in no volume",
+  "owed": "New entries correcting 845's sigil and either printing the theorems or withdrawing the citations (docket 2/9(c)).",
+  "source": "READ-26b.md 26b-08,26b-09 / READ-reg12.md reg12-02",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-071",
+  "title": "Object-handle and build-handle leaks in reader-facing volumes: Register L6507 (BUILD-10 + four file names), ten 3B.* sites at L6403\u2013L6467, the MC bibliography's 286 objects-column handles (137 resolve",
+  "owed": "Ruling 46 repair: each handle printed beside the object it names (the generator's repair) or the handles removed; the label-form decision for 3B.*.",
+  "source": "READ-26b.md 26b-10 / READ-reg12.md reg12-03 / READ-bib.md bib-01 / READ-ch23a.md census 1536\u20131545 / READ-28b2.md census 1546",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "I-072",
+  "title": "Register 1779's formula 'a function of Z \u2212 charge alone' is off by one (N\u2091 = Z \u2212 charge + 1); Spectra Compendium L126 restates it",
+  "owed": "A new entry citing 1779; re-point SC L126 (SC L90 has the correct count).",
+  "source": "READ-ch26a.md 26a-02 / READ-warn.md warn-05",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-073",
+  "title": "Register 1786 'There was never an F.3.1 or an F.3.2' is false as history (PP carried both)",
+  "owed": "A new entry correcting 1786's narrated history.",
+  "source": "READ-ch26a.md 26b-06",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "I-074",
+  "title": "Appendix G and the Index: IoI row \u00a71.7 truncated at `\\|X\\|`; 'Chapter 12' in rows 8.2/8.4 (\u00a714.6.6); 'thirty-seven objects' reproduces from no set and row 10.1's MC phrase; 'interiority' twice; 'previ",
+  "owed": "Repair each; 27a3 re-took the Register column only and left 'Chapter 12'.",
+  "source": "READ-ch27a.md 27a-01,27a-03,27a-04,27a-05,27a-06 / READ-warn.md warn-03",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-075",
+  "title": "References unit: \u00a722.9 has no heading; seven pointers carry none of the claim (\u00a712.11.4, \u00a714.5.9, \u00a714.5.3 heading-only, \u00a726.6, \u00a723.1, \u00a732.2 \u00d72); 'thirteen in this section' (23/31); years (Montgomery 2",
+  "owed": "Repair each pointer, count and year; refile the misplaced entries.",
+  "source": "READ-ch28a.md 28a-02,28a-03,28a-05,28a-07,28b-04",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-077",
+  "title": "Docket 36: 33 names cited in the volumes and absent from the References body; four listed and cited nowhere; five LS objects lack their Prior-art blockquote",
+  "owed": "Add entries for Habib, Nourine, Thierry, Kurucz, VALD, BRASS, Hasse, QSAR, NextClosure/Ganter, Roche, Titius, Bode, Regge, Hagedorn, Gr\u00f6bner, Klemm, Knaster, Tarski, Schr\u00f6dinger, Demkov, Ostrovsky, Klechkovskii, Pauli, Seaton, Xia, Fourier, Motzkin, Borchers, Wiesbrock, Hadamard (and R.7-only Saari, Painlev\u00e9, Brudno, Montgomery, Chenciner, Jacobi, Maupertuis; Routh unnamed at three sites); decide Huang, Nash, Ralchenko, Reader; add the LS blockquotes.",
+  "source": "READ-ch28a.md 28b-01 / READ-ch16d.md 16d-06 / READ-ch16g.md C6 / READ-ch16j.md 16j-08 / READ-ch16q.md 16q-06 / READ-ch16v.md 16v-07 / READ-ch16x.md C6",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-078",
+  "title": "Production/layout class (dockets 28/31/32) across the main volume",
+  "owed": "Column dumps and four-space code-rendered paragraphs (Chs 1\u201311), split principle numbers, tables with headers printed twice (\u00a76.2, step law), contents lines for Chs 20/21 as plain lines, \u00a728.8 and \u00a731.2 headings wrapped/finishing in body, plain-line sub-headings (Ch 1 \u00d714, \u00a732.7 \u00d72, Index), broken fraction at E.5, backticked `a` in \u00a734 prose, [F]/[S] marks undefined, References formatting (split entries, inline runs, mixed bold, `\u00a7R.7`), Index indentation and italic rule, C.1 whitespace table.",
+  "source": "READ-ch28a.md 28b-03,28b-05 / READ-ch16q.md C5 / READ-ch16t.md C4 / READ-ch16z.md C2 / READ-ch17c.md C6 / READ-ch27a.md 27b-03 / READ-ch6.md 6-08,6-11",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "I-079",
+  "title": "Ruling 45 / docket 15: build narration and narrated past states in reader-facing prose (130+ candidate sites, densest in Chapter 32)",
+  "owed": "Apply chat 115's discriminator to the standing list and repair the unambiguous members (e.g. L8816 'Recomputed at this build', L9269/L9272 'the press prints', L9311, L9364, L9401, L9479, L9485, L9593, L10069, L10203\u201308, L11225\u201327, L11419, L7373 'at this build (2026-08-29)').",
+  "source": "READ-ch16b.md 16b-08 / READ-ch16m.md 16m-10 / READ-ch16o.md C4 / READ-ch16q.md C4 / READ-ch16r.md C5 / READ-ch16t.md C8 / READ-ch16v.md C2 / READ-ch16",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "I-080",
+  "title": "Ruling 46 sites: script names, build handles and file names visible to readers",
+  "owed": "Remove or reword: bookindex.py L8816, rclose.py L9107, spectra.py L10204, T8-J L10206, figure.dpi/f-labels L10291, 'Python 3 with NumPy' L10306, index_gen.py L11419, register_gen.py L7374, the Register front matter's four script names and Build 9/16, MC L3150 mathverify.py 'build task', MC L3697 ground.py, 'the code' at E.1.5.",
+  "source": "READ-ch16m.md 16m-09 / READ-ch16q.md 16q-07 / READ-ch20a.md C1 / READ-ch21a.md C / READ-ch27a.md 27b-01 / READ-reg1.md reg1-06 / READ-scf.md C / READ-",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-081",
+  "title": "First-person prose in the main volume (L9700 'the trajectory was mine', D.5.8 L10771\u2013L10785, \u00a716.4 L4415, L25/L5865/L10771, front matter L50\u201355)",
+  "owed": "Reword under docket 5's first-person class (M rules on the collaborator's note).",
+  "source": "READ-ch16z.md 16z-10 / READ-ch23a.md 23b-05 / READ-ch16m.md C3 / READ-ch17c.md C8",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-082",
+  "title": "Register numbers cited with no heading: 344 (L11609), 571 (L7719, L9274), 1257 (Register L4857), 1710 (five sites), 287; and citations resolving only to grouped headings (219\u2013221, 305, 239, 256, 259, ",
+  "owed": "R3 rules whether a grouped heading satisfies a citation; repoint or supply entries for 344/571/1257/1710/287; locate 1710's sixth site.",
+  "source": "READ-warn.md warn-04 / READ-ch16r.md 16r-07 / READ-ch28a.md 28a-01 / READ-ch17a.md 17b-01 / READ-ch23a.md 23b-03 / READ-ch24a.md 24b-03 / READ-ch2-A.m",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-083",
+  "title": "The Register cites entries it withdrew: front matter \u2192 1725/1732/1744/1756 (the volume's own machinery), body \u2192 1000 (entry) and 1002 (R 1002 \u00d73); 110 archive entries removed with content and named by",
+  "owed": "M rules: restore the targets (re-admitting Ruling-45 material) or remove the citations; decide whether 1782's aggregate suffices under the append-only discipline.",
+  "source": "READ-reg1.md reg1-05 / READ-reg8.md reg8-01,reg8-02,reg8-03 / READ-reg12.md reg12-01",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-084",
+  "title": "Register front matter says 'the ten grouped headings' where there are seven",
+  "owed": "Correct the kinds paragraph (the one deviation r2-reg1a3 leaves on BUILD103).",
+  "source": "READ-reg1.md reg1-03 / READ-reg1g.md (reg1-E)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-085",
+  "title": "The Register's emphasis class: 275 entries at 429 sites where split `**` leaves emphasis unrendered; 11 entries with a literal asterisk on the page (313, 604, 747, 1642\u20131681); entry 313 scrambled; the",
+  "owed": "Repair under R3-CLASS-EM.md citing 1617 and archive 1743/1744; seat register_review.py or an equivalent into the gate so the repair holds.",
+  "source": "READ-reg3.md reg3-01 / READ-reg7.md reg7-01,reg7-02 / READ-regsweep.md / READ-reg13.md reg13-01 / READ-reg8.md reg8-03",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "I-086",
+  "title": "Genesis entries 43 and 50 state unbounded-lattice capacities (2n\u00b2; Madelung pairing) as counts of the bounded genesis lattice; no entry corrects them",
+  "owed": "A new entry bounding the sentences to the idealisation or stating the \u2113 \u2264 4 cap.",
+  "source": "READ-reg2.md reg2-01",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-087",
+  "title": "Instrument successors owed or held: r2-26b's successor is a reading (its 69-entry pool moved under 1332's WARNING and entries 1795/1803); r2-26c2 (two listing lines unexplained), r2-ch18b (census stal",
+  "owed": "Write and bank the reading successor for r2-26b; resolve or record the held goldens.",
+  "source": "READ-reg104.md / READ-succ2-153R.md",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "I-088",
+  "title": "Docket 38: instruments the volumes' figures rest on that are not members (numbers-index.py, densities.py, indices.py, appendix_audit.py, mathreg.py, compendium.py, register_gen.py, guard.py, register_",
+  "owed": "Seat or reconstruct (with status RECOVERED/RECONSTRUCTED) each instrument, or record the figures as record-carried with a reader-visible qualification.",
+  "source": "READ-32a.md 32a-03 / READ-bib.md / READ-reg13.md / READ-26c.md C / READ-24a.md A-03 / READ-23a.md C / READ-ch3.md 3-30 / READ-28b2.md C / READ-21a.md ",
+  "kind": "instrument",
+  "size": "L",
+  "reader_facing": false
+ },
+ {
+  "id": "I-089",
+  "title": "L\u00f6wdin deliveries pending: REQUEST-LOWDIN items 1, 2, 4\u201310 (LOWDIN-HANDOFF-103.tgz), 11 (pack104 never sealed, FOUNDATIONAL), 12 (paper copy); every Chapter 35 walk figure (107/107, 65/70/57/28, +1.33",
+  "owed": "Delivery and intake through a guarded build; until then the figures carry docket 38's label.",
+  "source": "READ-intake1.md / READ-scf.md C / READ-ch17a.md C5 / READ-ch34re.md",
+  "kind": "unknown",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "I-090",
+  "title": "Compendia citing WARNING'd or wrong entries: MC L3202 'Proved \u2014 M \u00a735;.' cites no entry (1709/1711 carry it), L3208's figures are 1708's; IoI L1861 cites 1385 without its UNVERIFIED qualification; 139",
+  "owed": "Repair the MC citations; restate or drop 1385's qualification at IoI; R3 reads 1396 against the section.",
+  "source": "READ-scf.md A-03 / READ-warn.md warn-02,B-02,C",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-091",
+  "title": "Extent statements (registers 1249\u20131357, 1249\u20131429, 1524\u20131677) span deactivated/withdrawn and absent entries; eight WARNING'd entries incl. 1309 and 1350 reach readers only through such spans",
+  "owed": "R3/M rule whether a reader-facing span over withdrawn entries needs a qualifier (docket 15/35).",
+  "source": "READ-warn.md warn-06 / READ-warn.md B-05",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "I-093",
+  "title": "Retraction-audit leads left: 'the whole tower' (Figure 21.1 caption, \u00a721.5.3 table, register 1790) owed at the prose pass; \u00a714.5.12's false heading (13j-01); \u00a712.11.3's pointer to \u00a7A.15/register 230 (",
+  "owed": "Prose-pass repairs for the three volume sites; M's Register entries for the lead-only rows when he wants them.",
+  "source": "READ-lead.md 5, Not read here / READ-lead.md 2,3",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-094",
+  "title": "Ten register numbers issued in working files and never seated (661\u2013663, 670\u2013672, 682, 683, 687, 688) and 1138's two chat-only claims",
+  "owed": "M decides whether the ten log entries enter the Register; a reading of Chapter 24's alphabet construction decides 1138's claims.",
+  "source": "READ-gaps13.md",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "I-095",
+  "title": "Absent-and-uncited Register numbers outside the register's own enumeration (190, 196, 199, 202)",
+  "owed": "Record-only unless M extends L6574's enumeration.",
+  "source": "READ-reg4.md C / READ-reg5.md C",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "I-096",
+  "title": "Tooling owed: r2-ch23b runs 175 s (trim owed); the corrected digit-boundary regex and rbody/body_range/lettered owed to r2lib",
+  "owed": "Trim r2-ch23b; fold the shared helpers into r2lib as a successor member.",
+  "source": "READ-ch23a.md C / READ-ch16d.md D1 / READ-ch22a.md\u2013READ-ch28a.md 'Functions owed to r2lib'",
+  "kind": "tooling",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "I-097",
+  "title": "Docket 17 single-witness figures (\u22120.00128/\u22120.00159, 3,781, 1,487, 928, 211, 1,480, 396, 47.9, 6.9e-4, 3.6e-9, 2,873, 'axis 13 is B\u2081', muon figures, 150\u2013164, 'thirty-seven objects', 0.06\u20134.4 %, +0.35)",
+  "owed": "R3 decides per class whether a Register home or a qualification is owed; recorded as informational.",
+  "source": "READ-ch16t.md 16t-04 / READ-ch16b.md C5 / READ-ch16g.md C7 / READ-ch16q.md C3 / READ-ch18a.md B11 / READ-ch19a.md C4 / READ-ch21a.md C / READ-ch27a.md",
+  "kind": "record-only",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "I-098",
+  "title": "Docket 37 reconstruction-versus-record datums (walk figures never re-taken under the q/cap form; memoryless 104 of 106; 13 labels/12 orderings; three differing coefficients)",
+  "owed": "Record-only; flagged to the L\u00f6wdin and three-body projects, not book deviations without the original instruments.",
+  "source": "READ-ch17a.md C3 / READ-ch16z.md C6 / READ-ch34re.md C / READ-ch17e.md C8 / READ-intake1.md intake1-01",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "J-01",
+  "title": "Register 1821\u20131835 carry chat, BUILD, RUL, slip, ledger, W- and 'golden/mirror/seated' handles",
+  "owed": "Fifteen freshly seated entries print work matter a reader cannot interpret: chat 53/54/56/57/58/65, BUILD56\u201359, 'seated under RUL-153 Q5', 'slip 05\u2026B3-C1', 'closing its ledger A1', 'queued for a \"Register 1.1\"', 'Working Register (W-222)', 'byte-exact from the mirror', 'with its golden', 'MC-06', 'the original-works project (SEED-CAP-FINDING.md, EXPANSION-MC54.md)', 'M ruled (RUL-153, pass 2)', 'M's ruling, passes 4 and 5'. Under the Register's own rule (bodies never edited) this needs either successor entries or a press-time redaction ruling. Counts in the Register: BUILD\\d+ 15 matches/11 lin",
+  "source": "method/members/The_Method_1_6___The_Register-2.md, entries 1821\u20131835 (lines 6727\u20136783)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-02",
+  "title": "Register 1813\u20131820 carry docket-item, reading and R2/R3 instrument handles",
+  "owed": "The reading-pass entries print docket handles (docket 30/35/38/12, reg1-04, reg1-G/H/I, READ-reg104 (ii), 26c-02, 28a-06, 28b-07, 27a-02/07/08, DEFERRED 13a-01, READ-ch2-B D2.1, DEF-152 item 9, 'Ruling A'), BUILD180/90/92/95/96/97/208, R2/R3 instrument names (r2-32a, r2-regsweep, r2-26b, r3-wl, r2-reg1a, r2-reg7a, register_counts.py, kinds.py, register_cites.py, qgraph.py, cypher.py, slopeaxis.py, tools/orderideal.py, 'the consolidation branch') and 'left to R3'. Same remedy as J-01.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md, entries 1813\u20131820 (lines 6631\u20136723)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-03",
+  "title": "Instrument names throughout the Register body \u2014 ruling needed on whether the chronicle is exempt",
+  "owed": "Instrument names appear in 112 Register lines from the front matter to the last entry (kinds.py, register_cites.py, channels.py, mathreg.py, store_gen.py, spectra.py, pverify.py, contingency.py \u2026), often as the evidence for a registered claim ('pjj.py is register 818'). M's rule names instrument names as work matter; the Register's design is a chronicle of the work. A ruling is owed on whether the Register is exempt, and if not, how 112 lines are treated under the no-edit rule.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md, body entries throughout (213 matches on 112 lines, lines 31\u20136783)",
+  "kind": "ruling-needed",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "J-04",
+  "title": "Register front matter prints build labels, a stale build date and press-tool names",
+  "owed": "The kinds table is headed 'entries (Build 16)', the second block opens 'Build 9, 2026-08-26.' and says register_gen.py 'was retired at Build 9', while the citation sentence says 'Recomputed \u2026 (2026-09-04)' and the main volume dates the build 2026-09-05; two different build labels and a stale date sit in one front matter. The front matter also names `kinds.py`, `register_cites.py`, `register_gen.py`, `build.py`. Register line 6480 records that the press label has not been advanced ('Build 6 \u2026 left for the tool pass'). Counts themselves are current (kinds.py, register_cites.py and register_count",
+  "source": "method/members/The_Method_1_6___The_Register-2.md, front matter lines 24, 31, 35, 70, 73",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-05",
+  "title": "Front matter says 'five compendia' at line 6 and 'four compendia' at line 75",
+  "owed": "Line 6 says the mature record is that 'from which the five compendia are distilled'; line 75 counts 'the four compendia and the two papers'. Transitions was absorbed as Appendix G (register at line 6532), so 'five' is stale; one of the two sentences needs the successor.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md, front matter lines 6 and 75",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-06",
+  "title": "Load-bearing table prints rows 1820 and 602 in capitals against its stated sentence-case convention",
+  "owed": "Register 1816 states 'the table's third column is each entry's own headline in sentence case'; the rows added since (1820 and 602) print the headline in full capitals. Either the two rows are re-cased or the convention sentence takes a successor.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md, front matter load-bearing table (lines 37\u201356) and register 1816 (line 6707)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-07",
+  "title": "build.py's print-edition substitution anchors on the old recount date",
+  "owed": "The press strips the tool's name from the citation sentence by anchoring on the 2026-08-26 date; the sentence now carries 2026-09-04, so the print edition will keep the tool name unless the press's anchor list is moved. Recorded as docket 38's class, the press's to move.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md, register 1816 (line 6707)",
+  "kind": "tooling",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-08",
+  "title": "Fifteen main-volume sentences still write the Register's size as 'one thousand six hundred and thirty-five'",
+  "owed": "The Register holds 1,677 entries; fifteen narrative sentences in the main volume (the collaborator's note, the preface, Chapter 28, \u00a732) write the size in words at no named state. Register 1815 leaves re-typing them to M as a prose pass (docket 35 / 38). Decision owed: re-type, or anchor each to 'at that reading'.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md register 1815 (line 6703); method/members/The_Method_1_6-2.md lines 20, 89, 104, 202, 523, 646, 3519",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-09",
+  "title": "MV-DEF-01: \u00a710.4's leaf-index convention pending M's ruling",
+  "owed": "\u00a710.4 writes the box-count leaves as hi\u2087/lo\u2087 (2S) and hi\u2086/lo\u2086 (g), counting coordinates from zero, while the book elsewhere counts eight coordinates from one. The main volume is untouched pending M's ruling; MV-DEF-01 appears nowhere else in the six volumes.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md, register 1831 (line 6767)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-12",
+  "title": "Physics Compendium's 27 'N objects rest on it' counts are record-carried but the volume says they are counted at this build",
+  "owed": "Register 1814 measured that the seated Mathematical Compendium prints no dependency field and qgraph.py builds a graph of no nodes, so the transitive counts are not computable from the artefact; only the corridor-law row (line 281) says so. Line 391 still claims the counts are 'counted from the Mathematical Compendium at this build'. The 27 rows need the register-1813-class disclosure (docket 38's class) or a successor sentence at 391.",
+  "source": "method/members/The_Method_1_6___The_Physics_Compendium-2.md lines 375, 391, 410\u2013420 (27 rows); Register 1814 (line 6699)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-13",
+  "title": "Physics Compendium's tail is hand-authored and physics.py is not a member \u2014 upstream debt unchanged",
+  "owed": "The Physics Compendium has no seated generator; its tail is hand-authored by design and physics.py is absent from the store. Named as an unchanged upstream debt; a seated instrument or a ruling that the volume is hand-authored by design is owed.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md, register 1814 (line 6699)",
+  "kind": "instrument",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "J-14",
+  "title": "Mathematical Compendium tells the reader to rebuild with compendium.py, which is not a member, and names mathreg.py/mathverify.py/check_audit.py",
+  "owed": "Line 8 instructs 'Rebuild with `python3 compendium.py > COMPENDIUM.md`. It reads the register, so it cannot drift' \u2014 compendium.py, mathreg.py, mathverify.py and check_audit.py are absent from the store (register 1813 lists them as not members), so the instruction is both work matter and false at this build. A successor front matter is owed.",
+  "source": "method/members/The_Method_1_6___Mathematical_Compendium-2.md lines 4\u20138; Register 1813 (line 6695)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-15",
+  "title": "Index of Indices claims to be generated by indices.py, which is absent and would print the superseded tower rows",
+  "owed": "Line 4 says 'Generated on 2026-08-15 by `indices.py`', but register 1821 corrected the \u039b\u2081\u2082/\u039b\u2081\u2083 rows by hand to 70,905 and 199,130 (the generator computes 22,275 and 64,290 per Register line 5254) and indices.py is not a member. The generation claim is now false; a successor front matter (or a seated generator agreeing with the table) is owed.",
+  "source": "method/members/The_Method_1_6___The_Index_of_Indices-2.md line 4 and tower table lines 48\u201349; Register 1821 (line 6727) and line 5254",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-16",
+  "title": "Mathematical Compendium front matter carries three mutually stale object counts",
+  "owed": "Line 4 prints '299 objects \u00b7 18 roots \u00b7 297 settled \u00b7 2 unfinished'; the cycle table (22\u201326) prints closure 265, seed 17, ratio 15.6 : 1; line 6 says mathverify.py names 46 objects and 'no verifier touches the other 167' (46 + 167 = 213). The 299-object count matches the 299 '###' object headings; the other two readings are earlier states and need re-taking or dating.",
+  "source": "method/members/The_Method_1_6___Mathematical_Compendium-2.md lines 4, 6, 22\u201326",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-17",
+  "title": "Physics Compendium front matter: stale '248 registered objects', generator names, and a pointer to MECHANISMS.md",
+  "owed": "Line 4 reads 'Generated from `mathreg.py` and `SPECTRA-DATA.tsv` on 2026-08-12. 248 registered objects' while the Mathematical Compendium prints 299; lines 6 and 66 send the reader to `MECHANISMS.md`, which is neither a volume nor a member. Successor sentences owed.",
+  "source": "method/members/The_Method_1_6___The_Physics_Compendium-2.md lines 4, 6, 66",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-18",
+  "title": "Physics Compendium's '285 of 431 channels are unverified' is stale against the Spectra Compendium's current count",
+  "owed": "Line 186 says channels.py writes bracket = \"untested\" for every channel and '285 of 431 channels are unverified'; the Spectra Compendium now prints 596 rows, 1,577 of 1,738 cells passing across 392 rows, 78 no-triple and 126 untested. The sentence needs re-taking on the current table, and channels.py is an instrument name (not a member).",
+  "source": "method/members/The_Method_1_6___The_Physics_Compendium-2.md line 186; Spectra Compendium line 994",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-19",
+  "title": "Main volume prints stale snapshots of the mathematics register's object counts, one of them as 'now'",
+  "owed": "\u00a714.6 and \u00a728.9 print '248 objects \u00b7 246 settled \u00b7 2 unfinished', '179 \u2192 170 settled \u00b7 twelve unfinished', '152 objects \u00b7 47 unfinished, 105 settled', and line 4169's parenthetical claims 'the register now holds 197, 191 settled, 6 unfinished \u2014 the Mathematical Compendium prints it live' while the compendium prints 299 \u00b7 297 \u00b7 2. Each site needs dating as a reading or re-taking.",
+  "source": "method/members/The_Method_1_6-2.md lines 4169, 4197, 4239, 4272, 7784",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-20",
+  "title": "\u00a732.1's self-index was recomputed on 2026-08-24 over 35 chapters and 6 appendices; the book now has 36 and 7",
+  "owed": "The readout '1,021 claims and 400 cells' is dated 2026-08-24 and says 'over the thirty-five chapters and six appendices the book now has'; Chapter 36 and Appendix G exist, and the seated bookindex.py hard-codes n = 41 with APP = 'ABCDEF'. A content-keyed successor and a re-run are owed, and the dated build stamp plus tool name are work matter.",
+  "source": "method/members/The_Method_1_6-2.md lines 8821\u20138822 (\u00a732.1.1); member bookindex.py",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-21",
+  "title": "The main volume's Index was regenerated 2026-08-24 by index_gen.py and carries no locator into Appendix G",
+  "owed": "The Index's verification line dates its regeneration 2026-08-24; index_gen.py matches '^# Appendix ([A-F])' only, and the Index block has zero locators to Appendix G (four to \u00a735 and \u00a736). Sections re-edited by registers 1821\u20131835 (\u00a78.6, \u00a710.4, \u00a712.11.1.4\u20135, \u00a712.11.3.1, \u00a714.5.14) may also have moved. A successor covering G and a re-run are owed; the tool name and date are work matter.",
+  "source": "method/members/The_Method_1_6-2.md lines 11456\u201311466 (Index) ; member index_gen.py",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-22",
+  "title": "Instrument names in the main volume's reader text (9 sites)",
+  "owed": "zeno.py and .zeno/ (994), numbers-index.py (1106), 'The Method 1.6 audits.py' (1404), register_gen.py (7379), bookindex.py (8821), rclose.py (9112), tb_audit.py (9936), spectra.py (10238, in a quoted earlier sentence), index_gen.py (11466). The \u00a72.21 'instrument not held (register 1813)' disclosures at 8867/8914/8981/9030/9275/10526 are subject matter by the book's own rule and are not counted here. 'Claude (Anthropic)' at 11639/11651 is bibliographic authorship, judged legitimate.",
+  "source": "method/members/The_Method_1_6-2.md lines 994, 1106, 1404, 7379, 8821, 9112, 9936, 10238, 11466",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-23",
+  "title": "'Session' used as a work unit in the main volume, including two Chapter 28 headings",
+  "owed": "The main volume refers to chats as sessions in 23 places: '\u00a728.7.4 Forty more, from the session that closed \u00a730.3 and \u00a732.2', '\u00a728.7.6 Two from the tower session and its repair, in the collaborator's hand', 'Across this session its settled count rose by twenty', '\u00a7E.1.2 The open set as this session leaves it', 'a gzipped file this session could not read'. These are chat handles in prose form; 'Every session closes with twenty-two audits' (1004) is protocol language and legitimate. Each site needs judgement.",
+  "source": "method/members/The_Method_1_6-2.md \u2014 23 matches, e.g. lines 963\u2013964, 1893, 7649, 7682\u20137683, 7790, 8734, 8920, 10987, 11123, 11146",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-24",
+  "title": "'Build 9' as a build label in two main-volume sentences",
+  "owed": "Two sentences date states by a build label: 'the uncorrected series the Spectra Compendium carried until Build 9' and 'the source since Build 9'. A reader cannot interpret Build 9; successor wording by date or register is owed.",
+  "source": "method/members/The_Method_1_6-2.md lines 6698 and 7664",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-26",
+  "title": "Appendix B's four totals for one collection are owed a reconciliation needing twenty missing rows",
+  "owed": "The chapter discloses four figures for one collection (1,442 / 1,105 / 869 / 930) and states that reconciling them 'needs the twenty rows, which are owed' (register 783). The rows have not been supplied; the disclosure stands in place of a reconciliation.",
+  "source": "method/members/The_Method_1_6-2.md line 6637 (Chapter 22)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-27",
+  "title": "Spectra Compendium prints session handles, press-tool names and files a reader cannot obtain",
+  "owed": "'(T6, M's ruling, session 1.7.3)' (20), '(session 1.8 queue)' (147), 'read from `COORDINATES-2.13` at build by `coords.py`, which fails the press' (115, 1029), 'the delivering bank's cut \u2026 MANIFEST by hash', `spectra_count.py`, `spectra.py` (994\u2013995), 'The full bibliography \u2026 is in `LITERATURE.md`' (1022), `MEASUREMENTS.tsv` (1080). LITERATURE.md, MEASUREMENTS.tsv and COORDINATES-2.13 are not members; successor sentences owed.",
+  "source": "method/members/The_Method_1_6___Spectra_Compendium-2.md lines 20, 115, 147, 994\u2013995, 1022, 1029, 1080",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-28",
+  "title": "Instrument, script and generated-file names inside compendium object provenance lines",
+  "owed": "Object provenance lines cite scripts and generated files as sources: 'Computed \u2014 M \u00a714.5.9 / twoheur.py', 'allcons.py', 'protindex.py', 'stat_lang.py', 'close_L.py', 'tower.py, tower3.py, factor.py' with the note handle '03-1D-lands-inside-14D' (2138), 'The generated table in INDICES.md \u2026 indices.py says' (2352), 'the 17 rules of vi_best.json' (2488); Index of Indices: 'what `domain_protocol.py` enforces' (1682). tower.py and tower3.py are members; the rest are not. A ruling on provenance-line instrument names, then successors, is owed.",
+  "source": "method/members/The_Method_1_6___Mathematical_Compendium-2.md (15 matches: lines 4, 6, 8, 728, 874, 924, 964, 1588, 2138, 2352, 2488, 3150); The_Index_",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-29",
+  "title": "L\u00f6wdin-solution objects not yet wired into the book's verifier \u2014 named as a build task",
+  "owed": "The eight L\u00f6wdin-solution objects are 'verified by the solution's own sealed instruments and receipts, not yet by `mathverify.py`; wiring them into the book's verifier is a build task'. mathverify.py is not a member, so the task also needs a seated verifier.",
+  "source": "method/members/The_Method_1_6___Mathematical_Compendium-2.md line 3150 (section LS)",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-30",
+  "title": "Thirty-one register numbers are cited across the volumes but carry no entry",
+  "owed": "register_cites.py run on the store reports 'cited but no entry' for 344, 571, 1002, 1149, 1223, 1257, 1358, 1373, 1386, 1388, 1389, 1537, 1564, 1565, 1569\u20131572, 1594, 1614\u20131616, 1631, 1640, 1650, 1659, 1667, 1668, 1670, 1676, 1710 \u2014 mostly interior to range citations ('Registers 344\u2013346', '571\u2013573') and one direct ('R 1002'). The Register's unit is the heading so gaps are by design; docs/POINTERS.md classes range citations over gaps as PARTIAL. What is owed is a ruling whether a range spanning a gap is a defect a reader must be told about, and a successor for 'R 1002' if it is.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md (133 numbers between 1 and 1835 have no heading); citations in The_Method_1_6-2.md lines 7724, 9280,",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-31",
+  "title": "The assistant is named 'Claude' in two Register entries and as co-author in two References",
+  "owed": "Two Register bodies name the assistant as 'Claude' where the volume otherwise says 'the assistant', 'I' or 'the collaborator'; two References read 'Lach, M. & Claude (Anthropic) (2026)'. The References are bibliographic and likely legitimate; the two Register bodies need a ruling on the naming convention.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md lines 6228, 6236; The_Method_1_6-2.md lines 11639, 11651",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "J-32",
+  "title": "Historical Register entries carry store, Drive, bank and work-file handles ('TODO' column, [INCIDENT], HANDOFF.md, restore-point)",
+  "owed": "Entries record 'captures/FETCH-QUEUE.tsv with a TODO column', 'LuI.FABRICATED.tsv \u2026 banked (2_5r)', the headline tag '[INCIDENT]' (the only bracketed tag in the six volumes), 'RECONSTRUCTIONS held in HANDOFF.md', 'RULING-TOLERANCE-489.md \u2026 go to BUILD-10; the store and restore point remain in Drive', 'the Drive channel was found to truncate silently above roughly 30 kB', 'fetched by their recorded Drive ids', 'restore-point-2_13's 708 files'. Same ruling as J-01/J-03 on whether the chronicle is exempt.",
+  "source": "method/members/The_Method_1_6___The_Register-2.md lines 5270, 6136, 6148, 6152, 6172, 6512, 6516, 6520, 6524",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "J-33",
+  "title": "Named-and-not-built index and data-bound open cells disclosed by the volumes",
+  "owed": "The Index of Indices states 'E(local register) \u2026 is a definition with a falsifiable consequence and it is not yet built'; P I, Cd I and Ti II hold eighteen cells 'wanting a longer capture'; the Spectra Compendium's 126 rows remain untested 'for want of data, not of definition'. These are the volumes' own disclosures of what is not done; recorded, not owed before publication unless M rules otherwise.",
+  "source": "method/members/The_Method_1_6___The_Index_of_Indices-2.md lines 197\u2013198 and 345; Spectra Compendium line 994",
+  "kind": "record-only",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "K-05",
+  "title": "Six consecutive empty sections \u00a714.5.2\u2013\u00a714.5.7",
+  "owed": "Six headings in Chapter 14 \u2014 'The seed, and the expression of the cycle', 'Two pairwise operators, and this book has used one name for both', 'What E measures, exactly', '\u211b\u2084 \u2014 the four orientations, adopted', 'What the second operator localises, and what it leaves undetermined', 'The seed is constructible, and it is a size rather than a set' \u2014 have no body at all; \u00a714.5.8 is the first with text. Bodies must be written (or recovered) or the headings removed by a successor, and cross-references to \u00a714.5.5 etc. checked.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 3803\u20133813 (\u00a714.5.2\u2013\u00a714.5.7)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-06",
+  "title": "Empty section \u00a72.22",
+  "owed": "\u00a72.22 'A corroborable entry must carry its object, and the object must carry it' is a heading with no body between it and \u00a72.23. The protocol it names is cited elsewhere (Appendix F, \u00a728.9); a body is owed or the heading removed.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 1148\u20131151 (\u00a72.22)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-07",
+  "title": "\u00a728.7.6 is empty and its title contradicts \u00a72.19.1's account of it",
+  "owed": "\u00a728.7.6 'Two from the tower session and its repair, in the collaborator's hand' is immediately followed by \u00a728.7.7 with no body, while \u00a72.19.1 says the section 'is now four \u2014 the tower's three' and \u00a728.7.7 refers to '\u00a728.7.6's three'. The count in the heading (two / three / four) and the missing body need settling in a successor.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 7682\u20137683 (\u00a728.7.6) and 959\u2013966 (\u00a72.19.1)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-08",
+  "title": "Three blocks of sections sit inside the wrong chapter",
+  "owed": "\u00a72.21, \u00a72.22, \u00a72.23 and \u00a72.24 are printed inside Chapter 3 between \u00a73.0 and \u00a73.1; \u00a712.11.8 is printed inside Chapter 13 between the chapter heading and \u00a713.1; \u00a728.10 is printed inside Chapter 29 between \u00a729.11.2 and \u00a729.12. The numbered sequence a reader follows is broken at three places; the grouped fault entry (Register 203\u2026291) records '\u00a728.8 placed inside the block it follows' as the mechanism. A successor must move the blocks or renumber them.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 1081\u20131187 (\u00a72.21\u20132.24 after \u00a73.0 at 1006), 3548 (\u00a712.11.8 after '## 13.' at 35",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-09",
+  "title": "Two headings broken across two lines",
+  "owed": "The headings of \u00a728.8 and \u00a731.2 are split: the heading line ends mid-phrase and the remainder is an indented body line, so the rendered heading is truncated ('...and naming the'; '...and a') and the tail renders as text.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 7726\u20137727 (\u00a728.8) and 8664\u20138665 (\u00a731.2)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-11",
+  "title": "Appendix E has E.4.1 and E.4.2 with no E.4",
+  "owed": "Appendix E runs E.1\u2013E.3, then E.4.1 and E.4.2, then E.5\u2013E.8: the child sections have no parent heading. The identical defect in Appendix F (F.3.3 with no F.3.1/F.3.2) was corrected by a Register entry; E is not.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 11179, 11184 (Appendix E); Register line 6594 (F.3.3 \u2192 F.3.1 repair)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-12",
+  "title": "Fifteen spelled-out '1,635' totals left to M as a prose pass (docket 35 / 38)",
+  "owed": "The main volume writes the register's size in words \u2014 'one thousand six hundred and thirty-five' \u2014 at fifteen sites, calling them variously entries, corrections, claims that were wrong, errors, failures and withdrawn claims, while the Register now runs to 1,677 headings / 1,835. Register 1815 explicitly excludes these from the count repair and leaves the re-typing to M. Each sentence also equates entry count with wrong-claim count, which the Register's own kinds table (34 withdrawals, 186 corrections) contradicts.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 20, 89, 104, 202, 523, 646, 3519, 7372, 7905, 8923, 9060, 9370, 9382, 9387, 10",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-13",
+  "title": "\u00a728's opening count of post-closure withdrawals is stale against its own subsections",
+  "owed": "The chapter opens 'Twenty-six were made after the register was first closed \u2014 six \u2026 eight \u2026 twelve. They are listed at \u00a728.7\u201328.7.2', but \u00a728.7.3 adds seventy-five, \u00a728.7.4 forty and \u00a728.7.7 one hundred and nineteen. The opening paragraph needs re-taking from the subsections.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 7372\u20137375 (\u00a728 opening) against 7564, 7649, 7683 (\u00a728.7.3, \u00a728.7.4, \u00a728.7.7)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-14",
+  "title": "Main's mathematics-register counts are stale against the Mathematical Compendium",
+  "owed": "\u00a714.6.3 says '265 objects and eighteen roots at this build' and \u00a714.6.4 is built around 'seventeen' unfinished and '248 objects \u00b7 246 settled \u00b7 2 unfinished', while the Mathematical Compendium prints '299 objects \u00b7 18 roots \u00b7 297 settled \u00b7 2 unfinished'. \u00a714.6.4's list of what the seventeen wait on describes a superseded state without saying so.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 4156 (\u00a714.6.3), 4184\u20134213 (\u00a714.6.4); Mathematical_Compendium-2.md line 4",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-15",
+  "title": "Work matter in the main volume: instrument names, build numbers, datelines, session wording, a ruling handle",
+  "owed": "Against M's principle that a reader sees no instrument names, build or chat numbers or docket handles, the main text names nine instruments (zeno.py/.zeno/, numbers-index.py, 'The Method 1.6 audits.py', register_gen.py, bookindex.py, rclose.py, tb_audit.py, spectra.py, index_gen.py), 'Build 9' twice, build datelines ('at this build (2026-09-05)', '2026-08-24, bookindex.py'), 'ruling 26', and session wording in three headings ('of the final session', 'the tower session', 'as this session leaves it') and seven sentences. A ruling is needed on which of these are the record and which are to be str",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 994, 1106, 1404, 6698, 7379, 7664, 8821, 9112, 9936, 10233, 10238, 11466; head",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-16",
+  "title": "Work matter in Register entries: BUILD numbers (11), chat numbers (17), docket handles, instrument names (112)",
+  "owed": "The later Register entries name BUILD56\u201359, BUILD90/92/96/97/180/208, chats 5, 8, 10, 53\u201358, 65 and 152, docket handles (26c-02, 28a-06, 28b-07, 27a-02/07/08, reg1-04, reg1-G/H/I, READ-reg104, docket 12/30/35/38) and instruments (register_counts.py, register_cites.py, kinds.py, r2-regsweep, r2-26b, r3-wl\u2026). Entries are never edited in place, so a ruling is needed on whether the Register is exempt from the no-work-matter principle or whether successor entries / a print filter are owed.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___The_Register-2.md lines 6480, 6504, 6520, 6631, 6663, 6667, 6671, 6679, 6683, 6691, 669",
+  "kind": "ruling-needed",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "K-17",
+  "title": "Register front matter: no table of contents, and it carries build labels, a blank parenthesis and three inconsistent heading counts",
+  "owed": "The front matter is a reader-facing preface (why printed, kinds table, load-bearing entries, resolutions), not a contents list \u2014 no way into 1,677 entries except by number. It is also work matter in places: a dateline 'Build 9, 2026-08-26', a kinds column headed '(Build 16)', instrument names (kinds.py, register_cites.py, register_gen.py, build.py), a broken phrase 'The first-reading column ( and earlier)', and counts that disagree with each other and with the file: 'over the 1,607 entry headings' and 'the ten grouped headings' against 1,677 headings and seven grouped headings actually present",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___The_Register-2.md lines 1\u201375 (front matter): 4, 20, 31, 37, 70, 73",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-18",
+  "title": "133 absent entry numbers are unexplained to the reader",
+  "owed": "The Register has 1,670 numeric headings plus seven grouped headings holding 32 entries; 133 numbers in 1\u20131835 (e.g. 176\u2013177, 190, 196, 199, 202, 204, 660\u2013672, 1564\u20131565, 1569\u20131572, 1753) have no entry because they were excised to the working register by Ruling 27. The front matter names only the grouped block as an exception to sequential numbering; nothing a reader can see says a missing number is an excision rather than a lost entry. A sentence in the front matter (successor) or a ruling that the gaps stand unexplained is owed.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___The_Register-2.md front matter line 14; entry 1782 (line 6579); EXCISE-LIST.md header",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-19",
+  "title": "Register pointers: all direct pointers resolve; one direct and four range pointers reach excised numbers",
+  "owed": "Every 'register N' / 'R N' pointer in the six volumes was resolved against the heading set (main 221, Math 282, Physics 101, IoI 38, Spectra 39, Register 1,005). All direct pointers resolve except 'R 1002' at Register 6528, whose target is excised; four range citations (1145\u20131168, 1660\u20131668, 1218\u20131230, 1701\u20131712) span excised numbers 1149, 1667, 1668, 1223, 1710. A ruling on how a pointer to an excised entry is presented is owed.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___The_Register-2.md line 6528 ('R 1002'), 6256 ('R 1660\u20131668'); Mathematical_Compendium-2",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-20",
+  "title": "Three Appendix G pointers name Mathematical Compendium entries that do not exist",
+  "owed": "Appendix G resolves Transitions \u00a75.1, \u00a76.5 and \u00a710.1 to 'Mathematical Compendium, the coordinate set', '\u2026the split alphabet' and '\u2026the index vocabularies'; no entry with any of those titles exists among the compendium's 299 '###' entries (0 matches each). The other title-form pointers sampled resolve ('The seed's forced set, corrected' at Math 670; 'Spectra Compendium, Part II'; Physics 'family 3B'). Appendix G's line 'Thirty sections, thirty resolved locators' is therefore untrue for three rows.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 11437, 11441, 11445 (Appendix G table)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-21",
+  "title": "Object-id pointers (A.ext, T.para, K.peak, L.voidfrac \u2026) cannot be followed into the compendium",
+  "owed": "The main volume (38 sites) and the Register (201 sites) cite Mathematical Compendium objects by id \u2014 `A.ext`, `A.clos`, `T.para`, `K.window`, `W.core9`, `M.sorce`, B.coll, L.c3, K.peak, L.voidfrac \u2014 but the compendium prints its entries under titles and carries the ids only incidentally (about 10 hits). A reader cannot resolve an id to an entry; either the compendium prints ids beside titles or the pointers are translated.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md Appendix G 11421\u201311451 and \u00a714.6.4 4187\u20134194 (38 id hits); Register (201 id hits, e.",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-22",
+  "title": "Withdrawals are legible where sampled, but \u00a728's 'not printed here' contradicts 'all printed' headings and 'retained in the compendium' names no compendium",
+  "owed": "Sampled withdrawals read well: \u00a723.5.1 states the withdrawn claim, the reason, and what replaces it (\u00a723.5.2); the Physics Compendium keeps the withdrawn exchange coefficient with 'WITHDRAWN at 1168' and names the standing equation; Math VI says what would settle it. But \u00a728 says 'The entries themselves are not printed here' while \u00a728.7.3 is titled 'Seventy-five more \u2026 all printed' and \u00a728.7.7 '119, printed individually' (its body describes rather than prints), and six headings say 'retained in the compendium' without naming which volume. A ruling on the wording is owed.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 7376 (\u00a728), 7431, 7486, 7511, 7536, 7564, 7649 (\u00a728.x headings), 7683\u20137687 (\u00a72",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-23",
+  "title": "Compendia front matter and asides are work matter: generator names, dates, rebuild commands, ruling handles, non-member file names",
+  "owed": "Each compendium opens with its generator and date ('Generated from `mathreg.py` on 2026-08-12', 'Generated from `mathreg.py` and `SPECTRA-DATA.tsv`', 'Generated on 2026-08-15 by `indices.py`'), the Math Compendium prints a rebuild command whose output name is not the member's ('python3 compendium.py > COMPENDIUM.md') and its verifier coverage (`mathverify.py`, `check_audit.py`), the Physics Compendium sends the reader to `MECHANISMS.md` (not a member) and cites 'a single session', the Spectra Compendium names `coords.py`, `spectra.py`, 'ruling 26' and 'T8-J'. Twelve .py names in Math, 2 Physic",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___Mathematical_Compendium-2.md lines 4\u20138; The_Physics_Compendium-2.md 4\u20138; The_Index_of_I",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-24",
+  "title": "L\u00f6wdin-solution objects not yet wired into the compendium's verifier",
+  "owed": "The LS family (8 objects, Chapter 35) states in reader text that its objects are verified only by the solution's own sealed instruments 'not yet by `mathverify.py`; wiring them into the book's verifier is a build task'. The task is undone and the sentence stands.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___Mathematical_Compendium-2.md line 3150 (family LS)",
+  "kind": "tooling",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-25",
+  "title": "Two objects unfinished by design: half-sided modular inclusion; the exchange factor",
+  "owed": "The compendium's own open list: (1) half-sided modular inclusion on a non-expanding horizon \u2014 the gap at perturbation order, settled only by 'the covariance of conditional expectations across the full family of cuts'; (2) the exchange factor s = \u22120.0782, withdrawn at register 1168, needing 'an \u2113-dependent exchange term, fitted against the singlet\u2013triplet pairs the compendium holds'. Recorded as not done; nothing else in the volume names them as blocking.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___Mathematical_Compendium-2.md lines 3342\u20133374 (VI \u00b7 WHAT IS UNFINISHED)",
+  "kind": "record-only",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "K-26",
+  "title": "Physics interface disclosures: 44/49 species without uncertainties, 285/431 channels 'untested', 133 channels without levels",
+  "owed": "'What the interface still does not state' records three gaps in reader text: only 5 of 49 species carry uncertainties (register 807); `channels.py` marks bracket = \"untested\" so 285 of 431 channels are unverified on the central claim (register 782); 133 Appendix B channels were lifted without their levels and `spectra_raw/` holds no He I file, so they could not be recomputed after the Rydberg-constant correction (register 871). Stated as disclosures; a ruling on whether they stand as such at publication, and the script/directory names struck, is owed.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___The_Physics_Compendium-2.md lines 182\u2013190",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-27",
+  "title": "Spectra Compendium's data companion COORDINATES-2.13 is not a member",
+  "owed": "The compendium says 'COORDINATES-2.13 (CSV, 104,832 rows) \u2026 is delivered with this compendium as its data companion' and that its tables are read from the file at build by `coords.py`, which 'fails the press if one of them drifts'. The file exists only in drive/ (11 MB, linked out by stage-gate); it is not seated in the store and does not ship with the volumes. Seating or shipping it, and deciding whether the press-time dependency is stated to a reader, is owed.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___Spectra_Compendium-2.md lines 115\u2013121, 1029; drive/MANIFEST.tsv 'The Method Materials/C",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-28",
+  "title": "spectra.py owed a rebuild against the channel table; exotic and collective sources carry no rows",
+  "owed": "Appendix B.2 states that the channel table drifted from the script that once generated it and 'the script is owed a rebuild against the table', and that the exotic and collective sources 'carry sources and no rows, and that remains disclosed rather than reconciled'. Both are open in reader text (the Spectra Compendium line 995 says spectra.py is retired instead).",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 10236\u201310243 (Appendix B.2)",
+  "kind": "tooling",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-30",
+  "title": "Build-relative counts ('at this build', dated) must be re-taken at the final press",
+  "owed": "The main volume carries figures tied to a build or date: '1,677 entries, 1 to 1835, at this build (2026-09-05)', 'the main volume cites 411 entries', '162 of 400 \u2014 40% \u2014 at this build', 'Recomputed at this build (2026-08-24, bookindex.py)', the back-matter Index 'Regenerated from the text on 2026-08-24 (index_gen.py): 57 terms, 311 entries'. The Index predates the Q5 entries and later re-pointings, and every 'at this build' figure goes stale with the next successor; a final re-take (and a ruling on whether the dates print) is owed.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 7378, 7663, 7666, 8821, 8832, 8846\u20138847, 9274, 11466 (Index)",
+  "kind": "tooling",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "K-31",
+  "title": "References owed: chordal, treewidth, tree decomposition, girth literature absent",
+  "owed": "\u00a721.5.2 states 'Two things are owed and stated rather than assumed' \u2014 one being that the graph-theoretic vocabulary the section rests on (chordal, treewidth, tree decomposition, girth) 'is absent from this book's References entirely'. The References section (R.1\u2013R.7) still lacks it.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 5758\u20135761 (\u00a721.5.2)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "K-32",
+  "title": "The book's own open set: ten Q items, three unreached documents, five unlocated results, one unexplained ratio",
+  "owed": "By design the main volume prints what it could not close: Q items A, B, C, D, F, G, H, I, P, R open (Sc VI level; Paschen & G\u00f6tze \u00a7III; nine literatures; the Kreuzer\u2013Skarke Hodge pairs \u2014 'What remains is one file read'; the reorderability search; complexity literature; Sc VI prior measurement; per-channel v-check 'blocked on data'; the 1,442 split; |Cl(\u211b)|); \u00a712.11.7's 2J_c \u2264 k containment and \u00a712.11.1's density column; \u00a729.6's three documents (Edl\u00e9n 1964, Ritz 1908, one more); \u00a729.12's five unlocated results; \u00a729.11.2's run 'targets identified, run not attempted'; \u00a730.3.8's 2:1 failure ratio ",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6-2.md lines 10987\u201311008 (E.1.2), 3499\u20133506 (\u00a712.11.7), 8034\u20138045 (\u00a729.6), 8243 (\u00a729.12), 8",
+  "kind": "record-only",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "K-33",
+  "title": "Register 1755's carried owed list: two items have no recorded closure",
+  "owed": "Entry 1755 carries a list 'after this entry: \u00a734.4; \u00a732.4.1 N; V14 paper side; Register kinds table / F.1 995/2,433; Main Index \u00a7-locators; item F; and 1753's two 24.1 flags'. \u00a734.4 closed (Ruling 24, line 6504), \u00a732.4.1's placeholder is gone (main 9112 prints 3,000 pairs / 2,873), the Index has \u00a7-locators, F.1's 995/2,433 no longer appears; but the kinds table is still stale (K-17) and '1753's two 24.1 flags' cannot be checked from the volumes because entry 1753 was excised and \u00a724.1 carries no flag. A closing entry or a ruling that the list is discharged is owed.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___The_Register-2.md entry 1755 (line 6496); EXCISE-LIST.md line 113 (1753); main 6639\u2013665",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "K-34",
+  "title": "Index of Indices: indexes named and not built, and a local-register definition 'not yet built'",
+  "owed": "By design the volume records what is not built: sound, frequency and the multiverse (Part VI), 'E(local register) measures what is not yet real to that observer \u2026 it is not yet built' (197\u2013198), and L\u00f6wdin's challenge 'still open' at 1456 (which Chapters 34\u201335 and Part X address \u2014 the sentence may be stale). Record-only except the possibly stale 1456.",
+  "source": "/home/user/Claude-Method-Works/method/members/The_Method_1_6___The_Index_of_Indices-2.md lines 197\u2013198, 350\u2013370 (VI \u00b7 THE INDEXES NAMED AND NOT BUILT)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "L-03",
+  "title": "Store documentation stale against the store: member counts and the arith findings paragraph",
+  "owed": "CLAUDE.md says 'all 343 members', README says 664 (index holds 662, members/ holds 666 files); docs/ARITH.md reports 235 reader-facing claims with mc:2930 reading '146 of 163 = 92%' \u2014 the site now reads 90% (register 1800's correction) and the sweep is 264 claims (AGREE 63, WITHIN 2, DISAGREE 2, NOT-BOUND 197). Recount and rewrite once L-02 settles the member count.",
+  "source": "CLAUDE.md L7; method/README.md L13, L51; docs/ARITH.md 'The findings' and 'mc:2930' paragraphs",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "L-04",
+  "title": "Arithmetic sweep: no live defect in the six volumes; the two DISAGREE sites are quotations of defects",
+  "owed": "Count by volume of DISAGREE: main 1, reg 1, mc 0, pc 0, ioi 0, sc 0 (papers 0). main:1416 '33 \u00d7 5 = 166' is the ARITHMETIC class's own illustration (deliberately wrong); reg:6643 '146 of 163 = 92%' is register 1800 quoting the Mathematical Compendium's superseded figure in the entry that corrected it (mc:2930 now reads 90%, AGREE). No ROUNDING-SENSITIVE. Nothing to repair; record the sweep's verdict so the class is not re-swept by hand.",
+  "source": "python3 tools/arith.py --roster volumes (and --roster reader-facing) \u2014 /tmp/claude-0/groupL/arith-volumes.txt; main L1416; reg L6643 (register 1800)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "L-05",
+  "title": "MC's 'combined 94%' beside the penetration claim does not match register 1048's combined figure 198 of 215 = 92%",
+  "owed": "Register 1800 corrected only the 92%\u219290% at mc:2930 and left the clause 'combined 94% against 66% as a single claim' untouched; register 1048 states the combined two-claim figure as 198 of 215 \u2014 92%. ARITH.md explicitly leaves 'the disposition of the combined 94% clause' to R3; the tool reads the site NOT-BOUND (no fraction on the line), so it is a reader's ruling, then a successor of the MC line if the 94% has no object.",
+  "source": "The_Method_1_6___Mathematical_Compendium-2.md L2930; The_Method_1_6___The_Register-2.md L3898 (register 1048) and L6643 (register 1800); docs/ARITH.md",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "L-06",
+  "title": "Four register numbers cited in the volumes carry no Register entry (reg 287, 1000, 1002, 1725)",
+  "owed": "Of 133 absent numbers in the Register's extent 1\u20131835, four are cited: main L1503 (the \u00a72.19 protocol table row 'reg. 286, 287'), reg L10 (the front matter: 'entry 1725 records how the form was reached'), reg L4666 (register 1000 named as the first of the dropped block), reg L6528 ('R 1002 stands as written; this entry corrects it' \u2014 no ### 1002 exists). Each needs either the entry seated/located (287 is said to live in a grouped heading, '### 227, 253, 254, 305' at reg L1327 per WORKING-REGISTER) or the citation re-pointed. Count by volume: main 1, reg 3 (census rows 3, 8, 15\u201317).",
+  "source": "python3 tools/pointers.py --roster with-companion --findings and --extent (/tmp/claude-0/groupL/pointers-wc.txt, pointers-extent.txt); main L1503; reg",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "L-07",
+  "title": "Section pointers \u00a74.1, \u00a74.2, \u00a74.4, \u00a74.5, \u00a74.6, \u00a74.7 cite Chapter 4's unheaded protocol rows \u2014 37 sites across main, mc and reg",
+  "owed": "Chapter 4's protocol rows carry no ### headings, so every '\u00a74.n' pointer is UNRESOLVED under the exact-token resolver: \u00a74.6 at main L1208, 1408, 3564, 4011, 4839, 5016 (+1), mc L2647, reg 10 sites; \u00a74.7 at main L1433, reg L1338, 1402; \u00a74.5 at reg L1354, 1582; and \u2014 masked in the with-companion roster by coincidental hits on Transitions.md's own \u00a74.1/\u00a74.2/\u00a74.4 \u2014 \u00a74.4 at main L1427, reg L1354, 1582, 2498 and \u00a74.1/\u00a74.2 at main L1467, reg L1326, 1330, 2174, 2178, 2210, 2430, 5642. DEFERRED.md dockets the single ruling: whether Chapter 4's rows take headings (then a main successor) or the pointers ",
+  "source": "pointers.py --roster volumes --findings vs --roster with-companion (/tmp/claude-0/groupL/pointers-vol.txt, pointers-wc.txt); main L1208, L1427, L1433,",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "L-08",
+  "title": "Theorem pointers to theorems the volumes never print \u2014 a chapter-renumbering class (Thm 9.1\u219214.1, 10.1\u219217.1, 11.1/11.2\u219218.1/18.2) plus four with no target",
+  "owed": "The main volume prints Theorems 14.1 (A.2), 17.1 (adjunction never repairs), 18.1 and 18.2 only. MC L304/L310 cite 'M \u00a717.2 Thm 10.1' for adjunction-never-repairs (= Theorem 17.1); MC L372 cites 'M \u00a714.1 (Thm 9.1, A.2)' (= Theorem 14.1); main L4970 \u00a718.1.3 says 'Theorems 11.1 and 11.2 bound information' beside its own Theorems 18.1/18.2 (plural form, not swept by the instrument); reg L1634/L1662 (Thm 11.2), L6224 (Theorem 10.1), L6304 (Thm 11.1) carry the old numbers; reg L2394/L5518 'Theorem 12.1' and main L10654 'Theorem 7.1 is absent \u2014 withdrawn' have no printed target; mc L1494 '(Appendix ",
+  "source": "pointers.py --findings THEOREM rows; mc L304, L310, L372, L1494, L2224; main L3688, L4811, L4937, L4945, L4970, L10654, L11436; reg L1634, L1662, L239",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "L-09",
+  "title": "Nineteen cited register ranges contain numbers with no entry (1710, 1257, 571, 344, 1149, 1223, 1667\u20131668, and 19 in 1524\u20131677)",
+  "owed": "Ranges cited as one claim whose interior numbers are absent from the Register: 1701\u20131712 (absent 1710) at main L9757/11854/11902, mc L3150, pc L194, ioi L1900, reg L6683 (also 1701\u20131724) and pc L333 (1707\u20131711); 1249\u20131357 (absent 1257) at main L10873/10878, mc L3150/3566, reg L6460, reg L4862 (1249\u20131295), ioi L1561 (1249\u20131429, also 1358, 1373, 1386, 1388, 1389); 571\u2013572/573 (absent 571) at main L7724/L9280; 344\u2013346 (absent 344) main L11656; 1145\u20131168 (absent 1149) mc L3078; 1660\u20131668 (absent 1667, 1668) reg L6256; 1218\u20131230 (absent 1223) reg L6528; 1524\u20131677 (19 absent) sc L1061. Per range, a ",
+  "source": "pointers.py --findings REGISTER-RANGE rows (19 sites); main L7724, L9280, L9757, L10873, L10878, L11656, L11854, L11902; mc L3078, L3150, L3566; pc L1",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "L-10",
+  "title": "Register L3118 writes register 784 as a section pointer ('\u00a7784's pattern')",
+  "owed": "The entry (register 815's withdrawal) cites '\u00a7784' where it means register 784; the resolver reads a section pointer and finds none. A successor line reading 'register 784' or a ruling that the form stands.",
+  "source": "pointers.py --findings KIND-MISMATCH; reg L3118; DEFECT-CENSUS.tsv row 7",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "L-11",
+  "title": "'E.4' is cited seven times but Appendix E has only E.4.1/E.4.2 headings; the Register cites the Spectra Compendium 'at its \u00a70' and no \u00a70 heading exists",
+  "owed": "main L10970/10983/11124/11152 and reg L1434/1438/1442 point at E.4 as a section; main L11179 heads E.4.1 and E.4.2 with no E.4 parent heading \u2014 a parent heading in a main successor or a ruling that a prefix resolves. reg L6316 (register 1790-class entry 'T2 CLOSES') cites the Spectra Compendium's \u00a70 where \u03b4 is defined; SC has no \u00a70 heading (the with-companion hit is Transitions.md's \u00a70.1\u20130.4, the wrong member). Count: main 4 sites, reg 4 sites.",
+  "source": "pointers.py --findings PREFIX-ONLY rows; main L10970, L10983, L11124, L11152, L11179; reg L1434, L1438, L1442, L6316; DEFECT-CENSUS.tsv row 14",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "L-12",
+  "title": "Figure 15.3 is cited in main and placed nowhere; Transitions.md carries a 'Figure 0.1' caption with no image placement",
+  "owed": "main L7589 refers to 'The earlier version's Figure 15.3, since withdrawn' \u2014 a figure named in reader text that no volume places; a ruling whether a withdrawn figure may be named by number in the reader text, else a successor line. Transitions.md L58 is an italic caption '*Figure 0.1. \u2026*' with no '![Figure 0.1' embed \u2014 the companion, not one of the six volumes; either the image is owed or the caption is a placement form the instrument does not read.",
+  "source": "pointers.py --findings FIGURE rows; main L7589 (census row 1); Transitions.md L58; tools/pointers.py L133 RE_FIG_PLACED",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "L-13",
+  "title": "pointers.py blind spots realised in this run: plural 'Theorems', external 'Thm 2.8.1', and coincidental resolution into Transitions.md",
+  "owed": "Three successor increments, each a tool change (a successor member, never an edit): (a) RE_THEOREM matches 'Theorem'/'Thm' only, so main L4970 'Theorems 11.1 and 11.2' is un-swept; (b) 'Thm 2.8.1' in a bibliographic citation (mc L2224) is read as the book's Theorem 2.8; (c) under with-companion, main/reg \u00a74.1/\u00a74.2/\u00a74.4 read RESOLVED to Transitions.md headings of the same number \u2014 the docs' own 'obvious next increment' (parse the volume prefix 'M \u00a7', 'T \u00a7', 'of the companion') is not built, and 34 vs 21 UNRESOLVED between the two rosters is the measure of it. docs/POINTERS.md's counts (1,932 to",
+  "source": "tools/pointers.py L108 (RE_THEOREM), L133; docs/POINTERS.md 'Known gaps'; run comparison volumes vs with-companion",
+  "kind": "tooling",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "L-14",
+  "title": "COORDINATES-2.13 was never rebuilt on register 1306's observed ground configurations, and no docket records it",
+  "owed": "Register 1306 corrected the aufbau-plus-patch configurations (Pd is [Kr]4d\u00b9\u2070, Lr is [Rn]5f\u00b9\u20747s\u00b27p); the seated coordinate file still carries the aufbau index (populate's --config aufbau reproduces it, --config observed computes what 1306 implies). Either a docket entry recording the rebuild as outstanding or the rebuild itself, with every volume figure derived from the file re-run before it is seated.",
+  "source": "docs/POPULATE.md L140-146 (register 1306 paragraph)",
+  "kind": "ruling-needed",
+  "size": "L",
+  "reader_facing": false
+ },
+ {
+  "id": "L-15",
+  "title": "Register 1141's B = min(p, n\u2080 \u2212 \u2113 \u2212 1) does not say whether a partially filled subshell counts as allowed \u2014 n\u2080 is carried RECONSTRUCTED",
+  "owed": "The instrument measured both readings against the B column ('first n with room' 87.0%, 'first entirely unoccupied n' 97.7%; He I ns settles it) and carries the status RECONSTRUCTED, never PINNED. A ruling, and if the Register is to state the form, a successor entry stating n\u2080's reading; until then the volumes under-specify the equation they print.",
+  "source": "docs/POPULATE.md 'Known gaps' (n\u2080 bullet); populate.py --selftest (77 fixtures OK)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "L-16",
+  "title": "Dockets 20x-04 and 20x-09 open: which languages the cypher has (six against seven; C(5,2) against C(6,2)), and the measured five differ from register 1173's five",
+  "owed": "Register 1173, \u00a733.1 and \u00a720.2 print three different rosters; measured on \u039b the operator-bearing five are order, algebra, geometry, information, statistics (statistics in, analysis out), which is 1173's count with a different membership, and MC's ten-pair enumeration exhibits only eight of the ten pairs under 1173's names (algebra\u2013analysis and geometry\u2013information appear nowhere; two rest on logic, which 1173 demotes). A ruling on the roster, then successors for \u00a733.1/\u00a720.2/register 1173 and MC's enumeration as the ruling requires; the instrument stays roster-as-data.",
+  "source": "docs/CYPHER.md L43-56 ('The roster is data, and the docket is open'), L95-106, 'Known gaps' (two pairs bullet); cypher.py --selftest (all pairs 10/10 ",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "L-17",
+  "title": "MC \u00a711's marginal-exclusion table (k \u2265 1 at 25) reproduces only on a 9,216-cell box with k from 0, not on the 6,912-cell ambient box the volume quotes",
+  "owed": "The eight counts (g \u2264 q 673, q \u2264 k 575, k \u2264 4\u2113+2 564, \u2113 \u2264 n\u22121 308, 2S \u2264 k 300, f \u2264 e\u22121 200, k \u2265 1 25, g \u2264 4f+2 24) are exact on the 9,216 box; on 6,912 (the box after the floor) k \u2265 1 cannot fail and excludes 0. The text does not name the box the table was measured on; a reader's ruling, then a successor naming it.",
+  "source": "docs/CYPHER.md 'Known gaps' (k \u2265 1 and the two boxes); mc L1183, L1185",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "L-18",
+  "title": "Register 1175's calendar fixture (E = 7 in 2-D, three on weekday) is not stated precisely enough in the volumes to reproduce",
+  "owed": "The instrument's selftest cannot build it; either the construction is stated in a successor entry or the figure is recorded as not re-derivable. Every figure re-run before seating cannot be honoured for this one as printed.",
+  "source": "docs/CYPHER.md 'Known gaps' (calendar fixture)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "L-19",
+  "title": "Main L1410 says ARITHMETIC 'has caught nothing in this book \u2014 no register entry names any of them' after register 1800's arithmetic correction of the Mathematical Compendium",
+  "owed": "Register 1800 is the ARITHMETIC class's first landing (a percentage not following its own count); main's sentence at L1410 (and register L1578 'THREE AUDITS HAVE NEVER FIRED') still says the class has never fired. A ruling whether 'in this book' (the main volume) keeps the sentence true, else a successor line.",
+  "source": "The_Method_1_6-2.md L1410; The_Method_1_6___The_Register-2.md L6643 (register 1800)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ }
+]

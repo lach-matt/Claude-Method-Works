@@ -1,0 +1,1091 @@
+[
+ {
+  "id": "E-012",
+  "title": "Register 434, 241 and 1790 sites for R3 (no withdrawal): 434's '12.7 % against 31.4 %' pairs two populations (12q-03); 241's '\u2154 \u00a712.11.1 states as nominal' has no site (12s-02); 1790's edge count read",
+  "owed": "Record a successor Register entry or main-volume correction for each; entries are append-only.",
+  "source": "DEFERRED.md L26 (chat 76)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-013",
+  "title": "Three sites misdirect the four-cap sweep: \u00a732.1.1 L8855 '\u00a712.11.5's four-cap sweep', \u00a712.11.7 L3499 'reported at \u00a712.11.2 and \u00a712.11.5' \u2014 the sweep is at \u00a712.11.1 L3121\u20133124",
+  "owed": "Re-point all three sites to \u00a712.11.1 L3121\u20133124.",
+  "source": "DEFERRED.md L27, L57 (chat 76 \u00a732.1.1; chat 79 13c-02)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-014",
+  "title": "12t-03 (F.3 'recomputed under variation' fourth column vs F.3's printed refutation column) has further sites \u00a76.2.1 L1681\u20131684, \u00a722.1.1.1 L5982, L9150; Registers 388/389 carry 12t-01/02/03",
+  "owed": "Read those segments and Appendix F against 12t-03; Register 388/389 corrections via successor entries.",
+  "source": "DEFERRED.md L33 (chat 77)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-015",
+  "title": "Registers 392/393 carry 12u-01/02/03; Registers 623/625 correction chain broken (12v-01/02); Register 620's 'exactly 64%'",
+  "owed": "Successor Register entries for 12u-01..03 (d shell absent at 37.1 % row; 'less than a point across fiftyfold growth' joins two ranges; conservative share named 'reversibility'), and for 12v-02 (625 attributes withdrawn 50.3 % to 623 whose body says 0 %).",
+  "source": "DEFERRED.md L34\u201335 (chat 77)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-017",
+  "title": "12x-01: the 4,325-cell (Z, \u2026) population and E = 972,862 / 28,503 are record-carried and printed in no member \u2014 M rules the data into the record or rules Register 529's sourcing sufficient",
+  "owed": "Ruling by M; Registers 628\u2013629 and MC L2574 restate and inherit; keep the 77.9 % numeral collision cross-noted.",
+  "source": "DEFERRED.md L37 (chat 77)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-018",
+  "title": "12z-02 vocabulary sites (grading / dichotomy / boxed rule / 'carried exactly') at L2937\u20132942, L3136\u20133137, L3395\u20133396, L3444\u20133445, A.15 L10070\u201310071; 13a-01 residue 2,475 at L914, L2533, L3067, L3434 (",
+  "owed": "Harmonise the exact/envelope vocabulary (MC L1264 is the candidate resolution) and remove or re-source the withdrawn 2,475 at four sites.",
+  "source": "DEFERRED.md L43\u201344 (chat 78)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-019",
+  "title": "Appendix A A.15 one-sided band C 12,654 meets vs two-sided T's 12,489 \u2014 distinct regions, near-colliding numerals; MC L1254 (12y-01 twice, omits five-presentation list) and MC L1264 (12z-01 'four rows",
+  "owed": "Note at the Appendix A and MC passes; repair main L3439 (13a-02).",
+  "source": "DEFERRED.md L46\u201347 (chat 78)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-020",
+  "title": "13b-01: 'the tight two-parent K' names two rules \u2014 one-sided 2K \u2264 2J_c + 2f (cuts 15,150/45,450) vs MC L1696's exact Wigner\u2013Racah rule (cuts 48,630/134,840); the form is not named at L3475",
+  "owed": "Name the one-sided form at main L3038/L3066/L3425/L3432/L3475 and reconcile MC L1264 and MC L1696.",
+  "source": "DEFERRED.md L53 (chat 79)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-021",
+  "title": "13c-01: item K reported open at \u00a712.11.7 L3496\u20133498 and 'closed' at \u00a712.11.0.6 L2783; 'four cases' vs 'at every occupancy' are exact in different units",
+  "owed": "Reconcile the status of Q item K and name the unit (four terms; three occupancies).",
+  "source": "DEFERRED.md L54 (chat 79)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-022",
+  "title": "13c-03/04/05: L3503 'Figures 7.2\u20137.5' do not exist (they are Figures 12.2\u201312.5); L3505\u20133506 '(fig-sections)' etc. are internal file references (Ruling 46) and a build remark (Ruling 45); L3500 'resolv",
+  "owed": "Repair the figure numbers, strip the file references and build remark, re-point L3500.",
+  "source": "DEFERRED.md L56 (chat 79)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-023",
+  "title": "13d-01: Chapter 13 L3531/L3537 attribute the four-scheme identity and 2.17-fold spread to \u00a712.11.4 (they are \u00a712.11.8's, L3610/L3614); Register 455 carries the same attribution; 'scheme' vs 'route' (L",
+  "owed": "Re-point both sites to \u00a712.11.8, separate scheme from route, successor entry for Register 455.",
+  "source": "DEFERRED.md L58 (chat 79)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-025",
+  "title": "\u00a731.3.4 cross-notes: subsection at L8737 numbered '24.3.4.1' inside Chapter 31; L8729 'a gzipped file this session could not read' is a session remark (Ruling 45)",
+  "owed": "Renumber the heading; strip the session remark.",
+  "source": "DEFERRED.md L60 (chat 79)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-026",
+  "title": "\u00a712.11.8's 83 lines sit inside Chapter 13 (L3543\u2013L3625) \u2014 nothing moved; thirteen external '\u00a712.11.8' pointers survive a move to the end of Chapter 12 and break under renumbering",
+  "owed": "M chooses the disposition at R3 (move to end of Chapter 12); also settle L3614's 2.17 spread / four cell counts and L3618 'The privileged route exists'.",
+  "source": "DEFERRED.md L61, L66 (chats 79\u201380)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-027",
+  "title": "L3518\u20133519 'Fifty sections across fourteen chapters' and \u00a720.1's 'fifty sections' \u2014 predicate has no mechanical criterion as printed",
+  "owed": "Define the predicate or replace with a measured figure (word proxy: 40 of 515 sections).",
+  "source": "DEFERRED.md L61 (chat 79); L317 (chat 89 20x-12)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-028",
+  "title": "13e-01: E = 3,900 for adjoining the electromagnetic coordinates to \u039b\u2089 reproduces under none of ten readings (nearest 3,812); MC L1385/L1389 inherit; no Register entry prints 3,900",
+  "owed": "R3 restates the figure or records it unreproducible; MC sites move with it.",
+  "source": "DEFERRED.md L67 (chat 80)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-029",
+  "title": "13e-02: L3591 misnames the composable set (1,169) as \u00a712.11.0's transit condition; Register 444 and L3276 carry the same misnaming; 13e-03: L3582 'fourth instance of \u00a712.11.2's second excluded form' (",
+  "owed": "Repair three sites and the ordinal; Register 444 by successor.",
+  "source": "DEFERRED.md L68\u201369 (chat 80)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-030",
+  "title": "13e-04: four-scheme J-multiset claim at L3610 rests on a three-chain witness and fifteen configurations printed in no member; Register 433 and MC L1399 inherit",
+  "owed": "Print the witness population or scope the claim; MC and Register sites move with it.",
+  "source": "DEFERRED.md L70 (chat 80)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-031",
+  "title": "13f-01: 'the most active constraint is the coupling' (\u00a712.9 L2467\u20132472, primary site) is refuted on the book's own measure \u2014 q \u2264 k binds 34.1 % against g \u2264 q's 32.6 %; printed 35.6/33.0/4.9 measure 32",
+  "owed": "Repair \u00a712.9 and the Chapter 13 site; 'least is the Pauli bound' needs scoping since \u00a77.1 gives the Pauli origin to two constraints.",
+  "source": "DEFERRED.md L71 (chat 80)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-032",
+  "title": "13f-02 Kreuzer\u2013Skarke listed as closing while \u00a731.3.4 L8736 measures E = 540 and \u00a732 L8885 calls it unverified; 13f-03 L3647 'Chapter 7 never says the pair is the object' (census row 1076); 13f-04 \u00a713",
+  "owed": "Four Chapter 13 repairs; rebuild the table row with measured |A_q|/|B_q|.",
+  "source": "DEFERRED.md L72\u201375 (chat 80)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-033",
+  "title": "13g-01: \u00a714.3's '80/80 agreement' does not reproduce \u2014 26 of 28 folded coordinate pairs give E > 0; the 80 sets are printed nowhere",
+  "owed": "Replace the evidence for 'bundling hides structure' with the measured population or drop the figure.",
+  "source": "DEFERRED.md L76 (chat 80)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-034",
+  "title": "References / attribution (R-ATTR) pass: Bergman entry no year/venue (L11704); Brunetti, Fredenhagen, Verch, Reeh, Takesaki, Sorce no entry, Chandrasekaran & Flanagan by arXiv number (13j-13); Chapter ",
+  "owed": "Supply the missing References entries and attributions; run the eponym-collision sweep.",
+  "source": "DEFERRED.md L77, L105, L125, L139, L147, L173, L214, L259, L1204 (chats 80\u201388, 102)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-035",
+  "title": "13h-01 L3756 '\u00a78.4 already counts those' (no irreducibles in \u00a78.4; join-irreducibles in \u00a78.3, meet-irreducibles only at D.5.7); 13h-03 L3787 'about 1.25 per cell' (1.5/1.556/1.25); 13h-04 L3775 '139 t",
+  "owed": "Three \u00a714.5 repairs; Register successors for 467/505.",
+  "source": "DEFERRED.md L82\u201385 (chat 81)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-036",
+  "title": "\u00a714.5.2\u2013\u00a714.5.7: six section headings with zero body lines, cited 40 times in four reader-facing volumes (\u00a714.5.7 alone 24) \u2014 an authoring gap, not production loss; R3 authors six sections in the orde",
+  "owed": "Author the six sections to their titles and to what Register (nine citations), \u00a721.5.4 and MC already say; R3's largest single item. Closed as a question, open as a repair.",
+  "source": "DEFERRED.md L87, L92, L761\u2013775 (chats 81, 95B)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-037",
+  "title": "MC pass inherits twelve sites resolving into the empty \u00a714.5 block (MC L15, L63, L64, L66, L69, L130, L466, L500, L510, L560, L684, L788) and MC L650\u2013658 refutes main L3795; IoI L281 resolves to \u00a714.5",
+  "owed": "Once \u00a714.5.2\u20137 are authored, re-resolve the MC/IoI/References sites; repair L11765\u201311769.",
+  "source": "DEFERRED.md L88\u201390 (chat 81)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-038",
+  "title": "\u00a714.5.9 L3934's 'ten to thirteen for twelve cycles' still open \u2014 the twelve cycles are a record of past sessions, not re-measurable; settle at R3 against Register 467 (measured prune spreads 12/13 and",
+  "owed": "R3 settles the band against Register 467; \u00a714.5.9's 'reverse = 40 / spread = 33' is recorded as a defect (not re-measurable).",
+  "source": "DEFERRED.md L98 (chat 82)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-039",
+  "title": "13j-01 \u00a714.5.12's '219 of 219' is a sample of 24,585 and heading 'What every minimum seed contains' is false; 13j-11 \u00a714.6.3\u2013\u00a714.6.6 print five running object counts none agreeing; plus 13j-02\u202614 per ",
+  "owed": "Repair the heading and the sample-as-population; recompute the \u00a714.6 running counts to one population; dispose of the rest of the 13j batch.",
+  "source": "DEFERRED.md L97 (chat 82)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-040",
+  "title": "13j-08: \u00a710.1 is six lines (L2026\u2013L2031) with no table; four sections (L4256, L4259 among them) cite it as though it had one",
+  "owed": "Read \u00a710.1's chapter before R3 disposes of 13j-08; re-point or supply the table.",
+  "source": "DEFERRED.md L102 (chat 82)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-041",
+  "title": "13j-09: \u00a714.6.6 cites 'T \u00a78.2 (Appendix G)'s own table' for arity-2/3/4 defect figures printed in no member, and drops the 'T' qualifier at three later sites",
+  "owed": "Supply the source or scope; restore the T qualifier at three sites (with E-054 companion-citation class).",
+  "source": "DEFERRED.md L104 (chat 82)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-042",
+  "title": "Register pass: Register 497 cited affirmatively at L3915 and withdrawn at L3946; Registers 498\u2013500, 502 withdrawn at L3946 and not opened; Register 487 \u2192 L1977's 18,288 tests record-carried",
+  "owed": "Resolve the affirm-then-withdraw within \u00a714.5 and open 498\u2013500/502 at the Register pass; 18,288 is 12x-01 class.",
+  "source": "DEFERRED.md L106 (chat 82)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-043",
+  "title": "13l-01: the d = 2 criterion at \u00a715.3 L4302 and A.8 L9969\u20139970 is false under the literal 'total order' reading and exact under total-preorder; 'that order is the relabelling' must weaken (ties)",
+  "owed": "Move two sites together to the total-preorder statement.",
+  "source": "DEFERRED.md L112 (chat 83)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-044",
+  "title": "Appendix A index (L9945\u20139954): row A.7 sends to \u00a716.3 which contains the phrase zero times (\u00a715.3 has it); the nine rows are exactly the statements with no \u00a7A.N section, so A.8 (site of 13l-01) is unf",
+  "owed": "Fix the A.7 row; re-census the index against claims; decide whether sectioned statements gain rows.",
+  "source": "DEFERRED.md L113, L136 (chats 83\u201384)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-045",
+  "title": "\u00a715.3 L4305 sends to \u00a718.4 for the order development which \u00a718.4 lacks (13l-05, confirmed); \u00a718.3 L4977\u20134978 sends 'depth' to Chapter 19 where depth/channel/measured members occur zero times (19v-03)",
+  "owed": "R3 decides: \u00a718.4 gains the order paragraph or \u00a715.3 loses the pointer; Chapter 19 gains depth or \u00a718.3 re-points; 19v-03 moves with 19v-02.",
+  "source": "DEFERRED.md L114, L164 (chats 83, 87); L263 (chat 88 19v-03)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-046",
+  "title": "FIGURE_ASSETS.md / FIGURE_MAP.md line-number column: 32 of 32 wrong (\u221211 to +29), Figure 16.1 \u221231, Figure 16.2 +33 \u2014 column unusable for placement",
+  "owed": "Recompute the column from the '![Figure N.N]' placements before any figure work.",
+  "source": "DEFERRED.md L115, L137, L145 (chats 83\u201385)",
+  "kind": "tooling",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "E-047",
+  "title": "Not re-measurable, recorded not identified (bare counts with no population): \u00a715.4 L4317 '0 of 12', 42 %, 25 %; L4302 '120 sets'/'274 of 274'; L4475/L7740 '36 cells, E = 0' alphabets unprinted (13n-02",
+  "owed": "R3 supplies the population/definition or scopes each claim; none can be repaired by measurement.",
+  "source": "DEFERRED.md L117, L142, L150, L154 (chats 83\u201386)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-048",
+  "title": "13o-01: '\u00a716.4 form' label at eight sites (L261, L653, L4525, L4886, L4899, L7740, L8803, L11417) while the form is defined at \u00a77.2 L1765 and \u00a716.4 lacks it; sweep every '\u00a7N form' construction",
+  "owed": "R3 decides: \u00a716.4 gains the form or all eight re-point to \u00a77.2; run the '\u00a7N form' sweep (docket 9(a)).",
+  "source": "DEFERRED.md L123, L1697 (chats 84, 110)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-049",
+  "title": "13n-01: L4442 'That is \u2145 = 0, in the special case dim q = dim p' and L11622 assert an equality the argument does not entail (\u2145 \u2265 0; needs full Jacobian rank)",
+  "owed": "Weaken both sites together.",
+  "source": "DEFERRED.md L124 (chat 84)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-050",
+  "title": "13o-04 / 14q-06: four '###' headings truncated with remainder as body text \u2014 L4407/4408, L7721/7722, L6582/6583, L8659/8660 (one is a table header, not a sentence)",
+  "owed": "Read all four before repairing any; production class.",
+  "source": "DEFERRED.md L127, L961 (chats 84, 98)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-051",
+  "title": "13p-05: \u00a714.6.1 L4115\u20134116 says \u00a716.6 grades 'multiverse dimension' with \u2145_gro; \u00a716.6's only \u2145_gro instance is q, asserted as the only instance",
+  "owed": "R3 decides: \u00a716.6 gains the second instance and L4512 weakens, or L4115\u20134116 re-points to \u00a729.2.2 alone.",
+  "source": "DEFERRED.md L135 (chat 85)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-052",
+  "title": "13p-01: \u00a716.8.4's amplification floor 59 (L4693, L4703) vs population minimum 15 (Figure 16.2 caption prints 15); printed medians 340/352 vs measured 309",
+  "owed": "Repair the floor and medians to the population sweep.",
+  "source": "DEFERRED.md L136 (chat 85)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-053",
+  "title": "13p-04: 'fifty-one terms' at L4523 and L5192 is stale by the six terms Chapters 35\u201336 added (Index extent line L11419: 57 terms); plus Index L11419 carries a build remark and script name ('Regenerated",
+  "owed": "Restate the count; sweep every extent-like count against its post-absorption value; lift the extent figures out of L11419's paragraph before removing the build remark.",
+  "source": "DEFERRED.md L136\u2013137, L141 (chat 85)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-054",
+  "title": "Periodic table stated as 118 and 90 cells: 13p-06 \u00a716.7.1 L4615 attributes the Janet table to \u00a76.2 (it is \u00a76.1.1 L1581\u20131585); 13p-07 L4593 'the same 118 elements' vs table's 90/118/120; L5604 'the 118",
+  "owed": "Settle in one cross-chapter pass (Chapters 1, 6, 12, 16, 21); re-point \u00a76.2\u2192\u00a76.1.1 (also 15h-11).",
+  "source": "DEFERRED.md L139, L323\u2013331 (chats 85, 90); L474\u2013476 (chat 92 C-4)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-055",
+  "title": "13p-08: \u00a716.6.2 L4568\u20134569 calls 'verdict' the first coordinate below the \u2145 \u2265 1 floor; \u2145 = 0 occurs earlier at L1589, L4442, L4558, L4562 (derived from \u00a729.1)",
+  "owed": "Drop or scope the primacy claim.",
+  "source": "DEFERRED.md L140 (chat 85)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-056",
+  "title": "Catalogues owed to r2lib: the periodic table, Janet and the audits (bibliography lifted chat 88) \u2014 \u00a716.7.1's E figures, admission counts, \u00a716.6.1's 'thirteen of thirty-eight, E = 11', \u00a718.4.1's certif",
+  "owed": "Add the three catalogues before Chapter 6 or Chapter 19 is re-read; re-measure the listed figures on their own data.",
+  "source": "DEFERRED.md L146, L204\u2013207 (chats 85, 87)",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "E-057",
+  "title": "13r-01: \u00a717.4's '979,300 sampled pairs' = C(1400,2) contradicts the bijection onto 1,040 cells (540,280 pairs); MC L1494/L1496 restate; 13r-02: 45,690 / 1,040 rebuild under none of 1,728 readings \u2014 th",
+  "owed": "State the construction, then repair main and MC together.",
+  "source": "DEFERRED.md L150\u2013151 (chat 86)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-058",
+  "title": "Chapter 17 residue: 13r-04 L4815 'The criterion is:' prints none (it is at L4860); 13r-06 L3364 'two constraint forms' vs three at L4802; 13r-05 L4894 'which \u00a77.1 excludes' (\u00a77.1 excludes nothing; rul",
+  "owed": "Four repairs; 13r-07 needs the axis assignment settled for the tower-axis pass.",
+  "source": "DEFERRED.md L151\u2013153 (chat 86)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-059",
+  "title": "L4834's '\u00a74.6' unresolved twice: \u00a74.1\u2013\u00a74.10 are indented table rows (L1441\u2013L1452) invisible to heading resolvers \u2014 R3 decides once whether Chapter 4's protocol rows take headings; L4920's 'cost surfac",
+  "owed": "Ruling on \u00a74 row headings; resolve L4920 against Chapter 23 as read.",
+  "source": "DEFERRED.md L155, L1660 (chats 86, 109)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-060",
+  "title": "Chapter 18 blockers: 13t-08 L5150/L5244 attribute \u00a77.2's statement to \u00a77.1; 13t-01 'Theorems 11.1 and 11.2' have zero sites; 13t-04 '86 violations' (L4971, A.11 L10020) reproduce under none of fifteen",
+  "owed": "Re-point two sites; decide theorem renumbering vs lost theorems; fix the violation definition and \u03bd/\u03b4 notation together (13t-04 and 13t-05 move together).",
+  "source": "DEFERRED.md L164\u2013175 (chat 87)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-061",
+  "title": "Chapter 18 residue: 13t-02 audits row E = 16 at four sites vs 17 at L5062 (Register 275 carries neither); 13t-03 'all ten indexed objects' vs 3 + 5 = 8; 13t-09/10 self-count contradictions (L4923 vs \u00a7",
+  "owed": "Repair L5062 (the outlier), classify the two objects, fix the self-counts, define the conserving poset or drop the witness, print the ratio's population.",
+  "source": "DEFERRED.md L176\u2013190, L340\u2013341 (chats 87, 90)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-062",
+  "title": "19v-01/19v-02: L5488 'twenty-seven of the forty-nine cells in the table above' uses \u00a718.6.1's figures against a 20-cell table; \u00a718.6.1 gives the bibliography E = 6 over seven cells, \u00a719.5.3 E = 0 over",
+  "owed": "M rules whether \u00a718.6.1 and \u00a719.5.3 describe one index or two; then repair L5488 and 19v-03.",
+  "source": "DEFERRED.md L245\u2013252 (chat 88)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-063",
+  "title": "Chapter 19 residue: 19v-05 L4550\u2013L4551 attributes to \u00a719.5 a sentence at \u00a719.6 step 6 L5545; 19v-04 Figure 19.1 caption (L5416\u20135417) stale against \u00a719.5.1's \u03c1 = 0, 2, 3, 3; 19v-06/C3 Edl\u00e9n 'Handbuch (",
+  "owed": "Repair pointer, caption and table columns; resolve the Edl\u00e9n entry pair; witness Dunz before repair; supply or scope the bare counts.",
+  "source": "DEFERRED.md L266\u2013284 (chat 88)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-064",
+  "title": "For R4: no compendium volume points into Chapter 19 (zero section-level pointers from mc, pc, ioi, sc)",
+  "owed": "Record at R4 whether the compendia should cross-reference Chapter 19.",
+  "source": "DEFERRED.md L285\u2013288 (chat 88)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-065",
+  "title": "Re-run earlier prose batches' multi-level pointer verdicts against the exact-token heading resolver (old prefix resolver sent \u00a719.5 to \u00a719.5.3, \u00a721.5 to \u00a721.5.5, Chapter 28 to A.28)",
+  "owed": "When R3 opens, re-run the pointer verdicts of chats before 88 with the fixed resolver; confirmed not discharged in chat 89.",
+  "source": "DEFERRED.md L296\u2013301, L327\u2013331 (chats 88\u201389)",
+  "kind": "tooling",
+  "size": "M",
+  "reader_facing": false
+ },
+ {
+  "id": "E-066",
+  "title": "20x-C2: whether a non-trivial endpoint restoration of the parity rule exists at \u039b\u2081\u2080 or above \u2014 advanced (no relabelling does it) but not closed",
+  "owed": "Extend r2-ch13x's E-over-relabellings sweep to genuinely different bands at \u039b\u2081\u2080 upward, or record the claim at L5594\u20135595 as unverified.",
+  "source": "DEFERRED.md L318\u2013322, L336\u2013338 (chats 89\u201390)",
+  "kind": "instrument",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-067",
+  "title": "Doctrine rulings: logic's status (20x-06) and the naming of the six languages (20x-05) disagree across main, Register and MC; six languages vs seven (20x-04) and C(5,2) vs C(6,2) (20x-09) re-asserted ",
+  "owed": "M rules which doctrine stands before any site moves; then a new Register entry and site repairs.",
+  "source": "DEFERRED.md L323\u2013326, L339\u2013340 (chats 89\u201390)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-068",
+  "title": "The seed class is one repair: 21z-01 L5685 'ten cells for 976' (7), 21z-02 L5676 seed 13 (7; column 763 \u2192 757), 21z-04 L5682/L5686 'near fifteen'/'nearer twenty', 21z-05 L5683 'near twenty-five carrie",
+  "owed": "Repair all sites together from the withdrawn 'ten to thirteen' band; correcting one alone leaves the others wrong in a new way.",
+  "source": "DEFERRED.md L356\u2013364, L410\u2013414 (chats 90\u201391)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-069",
+  "title": "'audit 21' (L5647) does not resolve \u2014 no member prints a numbered audit list; \u00a73 prints rows 1\u20137 while stating twenty-two audits, so \u00a72.19.1's 'audit 15 ENUMERATION' has no row 15 and 'exhaustiveness ",
+  "owed": "Number \u00a73's audits, then repair the citations at L5647, \u00a72.19.1 and L7673.",
+  "source": "DEFERRED.md L332\u2013335, L1648\u20131651 (chats 90, 109)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-070",
+  "title": "\u039b\u2081\u2083 constraint-graph repair: main L5745 (Figure 21.1 caption) and L5765 (\u00a721.5.3 table) carry the figures Register 1790 withdrew; Figure 21.1's artwork omits 2S\u2032 and gives v wrong parents and must be ",
+  "owed": "Repair the two main-volume sites to Register 1790's measured graph; M instructs the redraw of Figure 21.1.",
+  "source": "DEFERRED.md L401\u2013412 (chat 91)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-071",
+  "title": "Chapter 21 second-part residue: L5785 'largest orientation cost anywhere in this book' has two counterexamples (L5786 untested); L5692 \u2192 \u00a732.3, L5753\u20135755 \u2192 \u00a718.4.1, L5860 \u2192 \u00a717.1 each need a target; ",
+  "owed": "Scope or drop the superlative after measuring L5786; identify intended targets; narrow the range citation; repair L5854 and Register 532 via successor.",
+  "source": "DEFERRED.md L419\u2013437 (chat 91)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-072",
+  "title": "Register 487 prints '\u039b's eight constraints' where \u00a721.5.2 and tower-2.py give seven \u2014 flagged for the cross-volume pass (R4), touches every site stating \u039b's constraint count",
+  "owed": "R4 measures every constraint-count site; Register 487 corrected by successor.",
+  "source": "DEFERRED.md L438\u2013440 (chat 91)",
+  "kind": "register-entry",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-073",
+  "title": "14d-01: bare '\u00a7N.N' companion citations (\u00a710.4 L5928, \u00a78.1 L5932, \u00a710.1 L5933) resolve to unrelated main-volume sections; marked form 'T \u00a7N (App. G)' exists \u2014 sweep the whole main volume for bare comp",
+  "owed": "Run the census of every \u00a7N.N whose resolved section is off-topic; convert to the marked form.",
+  "source": "DEFERRED.md L457\u2013465 (chat 92)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-074",
+  "title": "\u00a721.6 residue: 14d-03 L5911 envelope-step count (narrow to reduced model or seed); 14d-02 L5917 scope \u2014 \u00a721.6.2 heading names five, no site enumerates the five, Registers 547/548 disagree (four vs fiv",
+  "owed": "Narrow L5911; obtain the companion-side enumeration and write the Register entry; census V-index sites; define V3 geometry or drop the row; supply the 26-cell set or drop the row.",
+  "source": "DEFERRED.md L466\u2013480 (chat 92)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-075",
+  "title": "Companion-side and single-witness claims unverifiable within the six volumes: T-companion claims (half-sided modular inclusion, \u00a78.1 five chargers, \u00a710.1 six); Muon-Catalysed Fusion (Lach 2026) figure",
+  "owed": "R4 states which figures are unverifiable (distinguishing uncorroborated from unverifiable) rather than leaving them open-looking; closes in one pass if a companion paper is seated as a member.",
+  "source": "DEFERRED.md L481\u2013484, L539\u2013546, L603\u2013608 (chats 92\u201394)",
+  "kind": "record-only",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-076",
+  "title": "14f-01: F.3's four-column standard is claimed at \u00a722.1.1.1 on three columns; census of every site citing F.3 or claiming its standard has not been taken; the unprinted \u03b4 = 0.35 (\u00a722.1.2) and M (\u00a722.1.",
+  "owed": "Run the F.3 census; per site supply the refutation column or drop 'highest'; M decides.",
+  "source": "DEFERRED.md L515\u2013528 (chat 93)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-077",
+  "title": "Missing Register entries: (a) the one-dimensional refinement of \u00a718.4.1's criterion (Register 319's placement fixed at L5975, but no entry carries the claim); (b) the correction \u00a723.10.2 cites at L645",
+  "owed": "Author two new Register entries (or, for (b), drop the two citations); note L6483's caption is also a Ruling 45 item.",
+  "source": "DEFERRED.md L529\u2013534, L859\u2013867 (chats 93, 97)",
+  "kind": "register-entry",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-078",
+  "title": "Chapter 22 residue: 14f-02 the 'single run' \u00a722.1.1.1 improves on has no printed site; C-5 \u00a733.4 and \u00a722.1.1 are an unlinked twin (R4, compendia ioi L1609\u20131611 / mc L3753 need the same link); C-6 Regi",
+  "owed": "Locate or reword the single-run comparison; add cross-references; sweep Register markup; tighten L6003 and a Register 391 successor.",
+  "source": "DEFERRED.md L535\u2013538, L547\u2013557 (chat 93)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-079",
+  "title": "14h-05: \u00a732.3 is a citation class \u2014 L5692, L6138, L7492 ('four clauses' where three printed), L7535 ('four clauses \u2026 no fourth') disagree with the section; read \u00a732.3 once and test all citations",
+  "owed": "One docket: read \u00a732.3, retarget L6138 to App A.12 or \u00a722.3 (M's choice), repair the others.",
+  "source": "DEFERRED.md L581\u2013590, L1523\u20131529 (chats 94, 107)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-080",
+  "title": "Chapter 22 subject-matter items: 14h-02 '\u03bd, \u03b4 and V all need the ionisation limit' at L6133 and App A.12 L10035 (V as w/e does not); 14h-01 \u03c3 used for two quantities (Rule 4 L6047 vs \u00a722.5 L6168), cha",
+  "owed": "Reword the two-site V statement; grep every \u03c3 and settle the meaning; qualify \u00a722.6 after Chapter 23's definitions.",
+  "source": "DEFERRED.md L591\u2013605 (chat 94)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-081",
+  "title": "The unprinted-input class (docket 10), \u2265 16 members: \u00a722.1.2 \u03b4 = 0.35; \u00a722.1.1 M; \u00a722.4.1 \u03b4\u2082 = 0.06; L6060/L6068/L6093/L6104; \u00a723.1 h/x regime; \u00a723.9.3 V-on-T/V-on-\u03bd columns (reproduce under nothing);",
+  "owed": "Census every site printing a derived figure beside its inputs; split into 'conventions unstated' (local one-clause repairs) and 'inputs absent' (data brought into the volumes or claim scoped).",
+  "source": "DEFERRED.md L596\u2013602, L678\u2013683, L780\u2013786, L873\u2013878, L930\u2013938, L997\u20131003, L1077\u20131083, L1180\u20131187, L1329\u20131334, L1443\u20131446, L1748\u20131751 (chats 93\u2013110)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-082",
+  "title": "14z-01 / C4 / 14z-10: Register 801\u2013803 rule that \u00a725.6.1's bracket is not a deduction while \u00a725.6's body (L6991, L7005, L7018, L7042, L7055; ten 'prediction' uses vs three 'deduction') has not moved; ",
+  "owed": "M settles what \u00a725.6 may call its result before any of its prose is touched; repair \u00a725.6 first, then L6098.",
+  "source": "DEFERRED.md L606\u2013614, L1290\u20131301, L1340\u20131341 (chats 94, 103)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-083",
+  "title": "14h-05 antiprotonic-helium pointer at L6135 needs a target chosen by M (\u00a716.4 apparatus check vs \u00a719.2 retrieval count); C2 ablation table row 4 \u00b11\u03c3 coverage 96.2 % vs 69.6 % with the nominal 68.3 % u",
+  "owed": "M chooses the target; consider printing the nominal in the table.",
+  "source": "DEFERRED.md L615\u2013620, L626\u2013628 (chat 94)",
+  "kind": "ruling-needed",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-084",
+  "title": "14k-02 / 14q-03 Ga I attribution closed as a finding, open as a repair: L6270 names 'Al I at n = 51 and Ga I at n = 53' where \u00a723.15's Al I nf failing cells are n = 48, 51, 53, 54 and no volume gives ",
+  "owed": "Repair L6270 against \u00a723.15 (and L6923's pointer to \u00a723.11 \u2192 \u00a723.15).",
+  "source": "DEFERRED.md L664\u2013668, L924\u2013930 (chats 95, 98)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-085",
+  "title": "14j-01 / 14m-10: the 32/11 floor's scope (h = 1 series or V?) at six main sites (L6193, L6213, L6233, L6237, L6381, L10245) and two MC sites; L6381 claims the asymptote 4\u03bd/3 as an original result and ",
+  "owed": "Decide the scope; check the other three rows of the impossibility table; then repair L6381.",
+  "source": "DEFERRED.md L669\u2013677, L797\u2013800 (chats 95\u201396)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-086",
+  "title": "14j-06: the sign convention on e is chapter-wide and unstated \u2014 \u00a723.5.1 L6283's w\u00b2/e is the signed quantity; sites writing w\u00b2/e, 8y\u2032\u00b2/y\u2033 or w\u00b7V include L7487, L8052, L8577",
+  "owed": "Decide once whether e carries its absolute value into the algebra; repair all sites.",
+  "source": "DEFERRED.md L684\u2013689 (chat 95)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-087",
+  "title": "Chapter 23 first-read residue: 14j-03 + census row 1135 overgeneralisation (L6206, L6208 drop Prop. 23.1's hypotheses); 14j-04 p = 0 second degenerate exponent unnamed; 14k-03 'Observation 14.2' stand",
+  "owed": "Apply \u00a723.2.1's own wording; state p \u2260 0, 1 or confirm untested; renumber or re-cite the Observation; run the ordinal sweep.",
+  "source": "DEFERRED.md L690\u2013706 (chat 95)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-088",
+  "title": "14l-16: \u00a723.8.3's affine-invariance reason for the Z/R cancellation \u2014 which invariance is claimed? (\u00a729.2 L7881, App D.4.1 L10377, \u00a729.7 L8052 recur); 14m-01/14z-08: \u00a723.6 L6319 'the field abandoned t",
+  "owed": "Decide the invariance and repair all sites; author or drop L6319's clause.",
+  "source": "DEFERRED.md L778\u2013786, L1310\u20131314 (chats 96, 103)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-089",
+  "title": "Truncation-printed-as-equality class: \u00a723.6 L6306 two asymptotic forms with '=' whose own table differs; \u00a723.8.4 L6381 and \u00a723.10.3 L6497 print V = 4\u03bd/3 (exact is 4r\u00b3/(3r\u00b2\u22121)) \u2014 sweep every display eq",
+  "owed": "Run the sweep; restate as asymptotes.",
+  "source": "DEFERRED.md L792\u2013796, L887\u2013890 (chats 96\u201397)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-090",
+  "title": "Chapter 23 second-read residue: 14m-07 Nesterov attribution in five forms (L8052 credits Nesterov alone) \u2014 name-form sweep across six volumes incl. Moore, IEEE 1788; C3 two unattributed quotations in ",
+  "owed": "Attribution sweep; source the quotations; margin note; count table conventions across the volumes at press.",
+  "source": "DEFERRED.md L801\u2013815 (chat 96)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-092",
+  "title": "The pointer-off-by-one class (docket 9), \u2265 22 members, never swept as a class: L6501/L6270/L6923 (\u00a723.13/\u00a723.11 \u2192 \u00a723.14/\u00a723.15), L6958 (\u00a725.5 \u2192 \u00a725.4), L6686 (\u00a724.7), L6666 (\u00a724.12), L6809 (\u00a718 \u2192 \u00a725",
+  "owed": "Resolve every \u00a7-pointer in the six volumes to the claim, not the heading, with 'enclosing' and a claim-locator; repair each member.",
+  "source": "DEFERRED.md L868\u2013880, L912\u2013921, L985\u2013990, L1082\u20131085, L1174\u20131179, L1302\u20131309, L1394\u20131401, L1461\u20131470, L1523\u20131529, L1592\u20131598 (chats 97\u2013108)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-093",
+  "title": "\u00a723.11 residue: 14n-A8/A9 heading says four verdicts where the table offers five and \u00a723.11.1 returns 'repeated structure' (a sixth row or the chaotic row \u2014 subject-matter); 14n-A6/A7 L6517's '619 ref",
+  "owed": "One-word heading repair plus the Li I row decision; size and schedule the matched-order recomputation; check PP for the held column.",
+  "source": "DEFERRED.md L881\u2013886, L891\u2013898 (chat 97)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-094",
+  "title": "Main-volume / Spectra Compendium contradiction class: 14p-19 \u00a723.15's '\u03bd reached' column (Na I ns 20.0 vs 18.7; K I nd 45.7 vs 12.7 \u2014 K I decides whether the compendium is short or the table wrong); 1",
+  "owed": "Resolve K I first, then sweep the class; scope the universal or print q for the rest.",
+  "source": "DEFERRED.md L915\u2013923, L939\u2013944, L1069\u20131076 (chats 98\u2013100)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-095",
+  "title": "14r-01 / 14t-01 Chapter 24's headline totals are a retired basis left load-bearing: 1,442 at 30 main sites (twelve in \u00a724.8\u2013\u00a724.9), 'thirty-five' twice, 1,105/869/930 once each at L6632; Spectra state",
+  "owed": "Recompute at the current basis (after settling the double-tabulated channels), name the basis wherever a count is printed, and restate all 1,442 sites.",
+  "source": "DEFERRED.md L978\u2013991, L1050\u20131062 (chats 99\u2013100)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-096",
+  "title": "Spectra Compendium data defects: 14r-19 Ar II and Si I channels tabulated twice under two notations (68 interior cells counted twice); 14x-09 spectra L562 Ga I 'n 41\u20135' malformed (should be 41\u201355); 14",
+  "owed": "Fix the compendium before any recount; run both duplicate sweeps.",
+  "source": "DEFERRED.md L1017\u20131021, L1257\u20131266 (chats 99, 102)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-097",
+  "title": "Chapter 24 first-read residue: 14r-07 \u00a724.3's monotone-with-\u2113 claim (L6669, L6671 prints seven means for nine channels) \u2014 repair the section to Figure 24.1's caption scope; 14r-08 'members' means leve",
+  "owed": "Restate to the caption's scope; fix the word across the phase and the column header.",
+  "source": "DEFERRED.md L1004\u20131016 (chat 99)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-098",
+  "title": "Ruling 45 (session/build remarks, docket 5, \u2265 25 prose members incl. L6628, L6632, L6453, L6483, L6748\u2013L6813 (L6812 is a directive to the writer), L6999, L6993\u20136994, L7040, L7201, L7244, L7312, L7478,",
+  "owed": "Sweep Rulings 45 and 46 as one pass over all six volumes, re-scoped to the measured sites; strip every session remark, build reference and script name from reader-facing text.",
+  "source": "DEFERRED.md L1014\u20131016, L1086\u20131091, L1339\u20131341, L1405\u20131406, L1490\u20131493, L1543\u20131547, L1602\u20131608, L1657\u20131659, L1722\u20131723, L1734\u20131737 (chats 99\u2013110)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-099",
+  "title": "Unretired text surviving its own correction (docket 15): \u00a724.8 L6807\u20136809/L6815 still call He I's cells 'genuine tests' after L6760\u20136767 withdraws; L6811 prints a phrase L6791 supersedes; L6801 vs L67",
+  "owed": "Sweep the six volumes for the shape and the three word-forms; retire the stale paragraphs below each correction.",
+  "source": "DEFERRED.md L1063\u20131068, L1600\u20131601, L1743\u20131745 (chats 100, 108, 110)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-100",
+  "title": "14t-C1 / 14v-06 / Q item P: no volume records per-level provenance (observed vs derived), so L6753\u2013L6754's Al I comparison, the three-way split of 1,442, and L6818's 'two independent sources' (B.1 dra",
+  "owed": "Bring per-level provenance into the Spectra Compendium (B.1) or scope the claims; Q item P (L10958) records this as owed.",
+  "source": "DEFERRED.md L1077\u20131081, L1167\u20131173 (chats 100\u2013101)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-101",
+  "title": "14r-06 settled: \u00a724.7 L6729 'H I gives 5 cells' stands alone against L6781 and Register 437 \u2014 repair L6729; 14t-10 L6783 'the collection is worse than scattered' contradicted by both available computa",
+  "owed": "Repair L6729; compute co-location with tested cells or drop L6783.",
+  "source": "DEFERRED.md L1040\u20131045, L1092\u20131096 (chats 99\u2013100)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-102",
+  "title": "False-universal class (docket 19): 14v-01 L6882 'every sequence \u2026 entered through its neutral or first ion' (six enter above; Fe at XV); 14z-03/04 L7075 'every verified cell at Z_eff between 1 and 3' ",
+  "owed": "Scope or withdraw each; new Register entries citing 447 and 416; run the two sweeps.",
+  "source": "DEFERRED.md L1125\u20131134, L1278\u20131289, L1518\u20131522, L1726\u20131731 (chats 101, 103, 106, 110)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-103",
+  "title": "Absent-member class (docket 20): C IV (Z = 4 member of the lithium-like column, no row); Sr I (\u00a725.2's worked exclusion, 79 % / 100 % on 11 cells, no Sr row); the sulphur-like sequence (S I, Cl II, Ar",
+  "owed": "Seat the missing channels in the Spectra Compendium or scope/drop the dependent figures; run the sweep.",
+  "source": "DEFERRED.md L1135\u20131142, L1230\u20131237, L1327\u20131332, L1402\u20131404 (chats 101\u2013104)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-104",
+  "title": "Chapter 24 third-read residue: 14v-03 sodium-like column systematically 0.1\u20131.2 below ns measurement (name \u03b4 basis and residual convention); 14v-04 \u00a724.11 'cells' column has no base for Si I 4, Bi II ",
+  "owed": "Five repairs; recompute the labelled column; state the anchor and the census range.",
+  "source": "DEFERRED.md L1143\u20131166 (chat 101)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-105",
+  "title": "14x-02: Register 1751 (Ruling 21) fixes Figure 25.1's caption at 1,061 but \u00a725.5's body says 1,442 twice (L6970, L6986) \u2014 a ruled correction applied to a caption and not to the prose; sweep every Regi",
+  "owed": "Repair L6970 and L6986; run the caption-ruling sweep.",
+  "source": "DEFERRED.md L1200\u20131208 (chat 102)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-106",
+  "title": "\u00a725 first-read residue: 14x-03 Hg II half-spacing 24,634 cm\u207b\u00b9 (measured 5,896.8) and the dependent 'displaced by a tenth'; 14x-04 factor of two unreconciled across L6932\u2013L6936 (load-bearing for the 1,",
+  "owed": "Recompute Hg II figure; settle the factor of two before any bound is restated; source or scope the 17-cell base.",
+  "source": "DEFERRED.md L1209\u20131229 (chat 102)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-107",
+  "title": "\u00a725.6 residue: 14z-02 7s bracket [784,128, 785,209] inherits estimated \u03b4(6s) (edge from measured \u03b4(5s) would be 783,646); 14z-11 L7099's route needs a different term and no site names the series of \u03b4(",
+  "owed": "Restate the edge or withdraw the distinction; name the terms; fix the ordinal; add the second cause.",
+  "source": "DEFERRED.md L1315\u20131326, L1335\u20131338, L1342\u20131344 (chat 103)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-108",
+  "title": "Chapter 26: 15b-01/02 spliced sentence at L7156 (identical in PP; lost figure 'about 0.09 %' recoverable) \u2014 restore and cut the spliced cell; 15b-09 Rb absent (docket 20); 15b-10 'Bracket 66 of 66' ha",
+  "owed": "Four Chapter 26 repairs.",
+  "source": "DEFERRED.md L1353\u20131362, L1382\u20131394 (chat 104)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-109",
+  "title": "Chapter 26 computables: 15b-03 Aitken table exact only at R = 109737.30 and window (n\u22121, n, n+1) \u2014 recompute at the book's constant or state both; 15b-05 \u03c3\u2081 = 9.49\u00d710\u00b9 unreproducible over 120 bases (f",
+  "owed": "Recompute/annotate the Aitken table; print or drop \u03c3\u2081's inputs; M settles \u00a726.2's claim, mc L2078 moves with it.",
+  "source": "DEFERRED.md L1363\u20131381 (chat 104)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-110",
+  "title": "Truncation-inside-rounded-table class (docket 12): T(20)/3 printed 91.4477 (should be 91.4478); \u00a727.2's log column 0.337 where ln(126/90) = 0.336 \u2014 which also falsifies \u00a727.6's 'Every number in \u00a727.2 ",
+  "owed": "Repair both rows; qualify the \u00a727.6 universal if 0.337 cannot be recovered.",
+  "source": "DEFERRED.md L1376\u20131380, L1440\u20131442 (chats 104\u2013105)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-111",
+  "title": "15d-01 duplicated section: \u00a79.2 L1961\u2013L1990 and \u00a727.5.1 L7299\u2013L7330 are one passage in two chapters with Register 438 and 446 \u2014 decide the holder, merge, new Register entry citing both; sweep every pa",
+  "owed": "Merge and re-point; write the entry; run the duplicate-passage sweep.",
+  "source": "DEFERRED.md L1413\u20131425, L1447\u20131450 (chat 105)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-112",
+  "title": "15d-05: L7301 and Register 446's headline credit \u00a727.2 with a proof it does not contain \u2014 sweep every 'proves / proved / it was shown' in the six volumes against the cited span (docket 23: Register an",
+  "owed": "Run the sweep; correct L7301; Register 446 by successor entry.",
+  "source": "DEFERRED.md L1426\u20131429 (chat 105)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-113",
+  "title": "Table/formatting class (docket 26/28): four of five Chapter 27 tables space-aligned and \u00a727.1's shattered mid-word; \u00a728.6's header shattered ('co\u00b7un\u00b7t', identical in PP); mid-sentence paragraph breaks",
+  "owed": "Rebuild \u00a727.1, \u00a727.2, \u00a727.4, \u00a727.5.1 and \u00a728.6's tables as markdown; one formatting pass for the breaks and lower-case openers.",
+  "source": "DEFERRED.md L1433\u20131439, L1531\u20131533, L1553\u20131555, L1607\u20131609 (chats 105\u2013108)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-114",
+  "title": "Incoming-pointer imbalance (R4): \u00a727.1, \u00a727.3, \u00a727.5, \u00a727.5.1, \u00a727.6 have zero incoming \u00a7-pointers \u2014 measure across every chapter; a section nothing points at is where a duplicate survives",
+  "owed": "R4 measures incoming pointers per section across the six volumes.",
+  "source": "DEFERRED.md L1451\u20131453 (chat 105)",
+  "kind": "record-only",
+  "size": "S",
+  "reader_facing": false
+ },
+ {
+  "id": "E-115",
+  "title": "15f-01: per-cell \u03c3 coverage printed 69.6 % (\u00a722.2.1 L6063) and 68.1 % 'the expected figure' (\u00a728.4 L7442; expected is 68.3) \u2014 sweep every \u00b11\u03c3 coverage figure and every 'expected' figure",
+  "owed": "Settle which coverage was measured; repair the other site; run the sweep.",
+  "source": "DEFERRED.md L1499\u20131503 (chat 106)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-116",
+  "title": "Summary-vs-body count class (docket 21/31): Chapter 28 head 'Twenty-six' vs 262 listed; L7502/L7527 'two' corrections of corrections unwitnessed; L7573\u201375 fifteen vs L7579\u201380 twenty; \u00a728.7.6/\u00a728.7.7 s",
+  "owed": "State one population per site and drive every count to it; recompute the classifier's four counts.",
+  "source": "DEFERRED.md L1509\u20131512, L1542\u20131546, L1584\u20131587, L1631\u20131636, L1718\u20131721 (chats 106\u2013110)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-117",
+  "title": "15f-05: \u00a728.10 is printed inside Chapter 29 (L8222, between \u00a729.11.2 and \u00a729.12) \u2014 move or renumber, re-check contents list, IoI and order-dependent pointers; run the heading-order test over every cha",
+  "owed": "Move \u00a728.10 and run the heading-order sweep.",
+  "source": "DEFERRED.md L1513\u20131517 (chat 106)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-118",
+  "title": "15f-07: \u00a76.1 does not state 'max \u2205 = \u2212\u221e' (it lives at mc L326) while main L7340 and Register 447 cite \u00a76.1 for it",
+  "owed": "State the convention in \u00a76.1 or re-point both sites to the MC; Register 447 corrected by a new entry.",
+  "source": "DEFERRED.md L1523\u20131529 (chat 106)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-119",
+  "title": "Chapter 28 numbering pass (one pass): orphan item 59 under \u00a728.7.2 (L7533); item 74 truncated mid-sentence (L7556\u201357, recompute the minimum); item 118 printed twice; numerals 99\u2013105 and 140\u2013144 missin",
+  "owed": "Renumber/complete chapter 28 in one pass, then re-check every count word against its body; sweep every placeholder heading PP shows as filled later and every numbered item lacking terminal punctuation.",
+  "source": "DEFERRED.md L1556\u20131568, L1571\u20131573, L1578\u20131583, L1588\u20131591, L1616\u20131622 (chats 107\u2013109)",
+  "kind": "volume-repair",
+  "size": "L",
+  "reader_facing": true
+ },
+ {
+  "id": "E-120",
+  "title": "15g-04 / 15h-09 / 15i-13: 'the first forty-eight' has no printed antecedent \u2014 chapter 28's numerals are Register entry numbers (settled for \u00a728.7.4\u20135), so every unprinted numeral names a Register entr",
+  "owed": "Print the antecedent list, renumber from one, or drop the ordinal framing; fix which register \u00a728.7.3's notes cite.",
+  "source": "DEFERRED.md L1574\u20131577, L1600\u20131601, L1623\u20131626, L1660\u20131663 (chats 107\u2013109)",
+  "kind": "ruling-needed",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-121",
+  "title": "15g-03: \u00a728.6's distribution table sums to 20 against no stated population (candidates 19, 26, 48) and carries the review's first approximate entry '~3' inside a count table",
+  "owed": "State the population, drive the rows to it, resolve the '~3'.",
+  "source": "DEFERRED.md L1569\u20131570 (chat 107)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-122",
+  "title": "15h-10 (census row 1165): L7636\u201337 says \u00a731.1 never carried the Hill-radius correlation; \u00a731.1 L8626\u2013L8633 prints it \u2014 sweep every withdrawal item in chapter 28 that describes another section's state ",
+  "owed": "Repair L7636\u201337; run the withdrawal-vs-current-state sweep.",
+  "source": "DEFERRED.md L1592\u20131598 (chat 108)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-123",
+  "title": "Heading-only class outside \u00a714.5 (docket 1): \u00a728.7.6 (L7772 region, empty in PP), \u00a72.22 L1145 (cited at L7809 and L7835 as a requirement), \u00a728.9 L7772 (cited at L7806 for an envelope printed in its ow",
+  "owed": "Author \u00a72.22 first (two later sections state what it must say), then \u00a728.7.6 and \u00a728.9 to what \u00a72.19.1 / \u00a728.7.7 / \u00a728.9.1 already say.",
+  "source": "DEFERRED.md L1623\u20131630, L1690\u20131696 (chats 109\u2013110)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-124",
+  "title": "15i-06/07: \u00a72.19.1 declares the false-heading-count repair done citing Register 286 (a grouped entry on a different defect; Register 289 is the one) and names 'Fifteen more' as a live heading where th",
+  "owed": "Repair \u00a72.19.1's citation and heading name; run the declared-repair sweep.",
+  "source": "DEFERRED.md L1637\u20131645 (chat 109)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "E-125",
+  "title": "15i-09: Register 571 cited at L7719 and \u00a732.6.1 L9274 and does not exist; register_cites.py's 'cited but no entry' list begins 344, 571, 1002, 1149, 1223, 1257",
+  "owed": "Repair every citation of a non-existent Register entry (docket 9 at Register scale).",
+  "source": "DEFERRED.md L1646\u20131647 (chat 109)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-126",
+  "title": "15i-12: two of the ten mechanism names ('detector artifact', 'claimed completion') are the Register's names, not \u00a74's \u2014 sweep every place the book names one of the ten mechanisms against \u00a74's printed ",
+  "owed": "Run the mechanism-name sweep and harmonise.",
+  "source": "DEFERRED.md L1654\u20131656 (chat 109)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-127",
+  "title": "15j-08: the anchoring error is described at \u00a728.4 L7444 but attributed to \u00a725.6 (L7472, L7723) and \u00a728.6 (L8080), neither of which carries it",
+  "owed": "Fix the home once and drive all four sites to it.",
+  "source": "DEFERRED.md L1701\u20131706 (chat 110)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "E-128",
+  "title": "15j-13: of the withdrawals register's four fibres, PROCEDURE is never printed and OBJECT's cell count is missing; 147 of 248/319 accounted for",
+  "owed": "Print the PROCEDURE fibre and OBJECT's cell count or scope the classifier.",
+  "source": "DEFERRED.md L1748\u20131751 (chat 110)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-001",
+  "title": "'six of the eleven items in Q' (L7911) against every enumerated size of Q",
+  "owed": "R3 fixes the total at main L7911 and states which state of Q the sentence speaks from (seven/eight/thirteen/fourteen all printed elsewhere). Chat 147 item 4 adds that this eleven is Register 238's eleven-state, not E.1.3's.",
+  "source": "DEFERRED.md L1769\u20131774 (Chat 111 item 1, 15k-01)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-002",
+  "title": "L7916 'the shape \u00a729.4 already describes' \u2014 target carries none of it; sweep owed",
+  "owed": "Repoint or reword L7916 (nearest statement E.4.2 L11139\u201340), and sweep every 'the shape \u00a7N describes' construction against the section that prints the shape.",
+  "source": "DEFERRED.md L1776\u20131779 (Chat 111 item 2, 15k-02)",
+  "kind": "volume-repair",
+  "size": "M",
+  "reader_facing": true
+ },
+ {
+  "id": "F-003",
+  "title": "L7907\u201308 attributes 'E(X) is deliberately not claimed as novel' to \u00a729.3; it is printed at L8094 (\u00a729.8)",
+  "owed": "Repoint the attribution to \u00a729.8 (class shared with 15j-07).",
+  "source": "DEFERRED.md L1781\u20131784 (Chat 111 item 3, 15k-03)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-004",
+  "title": "L7890 cites \u00a723.8.4 for four owners; Manski and Shannon are absent there (cited at \u00a729.7)",
+  "owed": "Repair the citation so the four owners are cited where they actually appear.",
+  "source": "DEFERRED.md L1786\u20131789 (Chat 111 item 4, 15k-04)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-005",
+  "title": "'Four independent owners' followed by three named (IEEE 1788 dropped from prose)",
+  "owed": "Reconcile the blockquote count word with the table row L7883 (name four or count three).",
+  "source": "DEFERRED.md L1791\u20131794 (Chat 111 item 5, 15k-05)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-006",
+  "title": "\u00a729.6 heading 'The three documents we could not reach' over a table of four \u2014 three-site tangle",
+  "owed": "Settle the count once and propagate to the heading L8029, to L9057 and to L9356 (chat 124 item 2). Present in PP, so authoring.",
+  "source": "DEFERRED.md L1796\u20131800 (Chat 111 item 6, 15k-06); L2555\u20132559 (Chat 124 item 2)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ },
+ {
+  "id": "F-007",
+  "title": "L8227\u201328 'Each is now cited where its finding is' \u2014 \u00a712.11 carries none of the eight",
+  "owed": "Complete the declared repair: cite Chandrasekaran & Flanagan at \u00a712.11 or repoint the claim to \u00a714.6.5 L4229; 'modular interval' has one site.",
+  "source": "DEFERRED.md L1802\u20131806 (Chat 111 item 7, 15k-07)",
+  "kind": "volume-repair",
+  "size": "S",
+  "reader_facing": true
+ }
+]
