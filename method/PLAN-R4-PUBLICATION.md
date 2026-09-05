@@ -1,10 +1,17 @@
-# PLAN — from the store as it stands (BUILD110 / BUILD231, W-238) to a finalized, publishable set of the six volumes. DRAFT FOR M'S APPROVAL, 5 September 2026.
+# PLAN — from the store as it stands (BUILD110 / BUILD231, W-238) to a finalized, publishable set of the six volumes. APPROVED BY M, 5 September 2026; seated at W-239.
+
+**M's ruling (5 September 2026):** *"approved, proceed with phase 0 rulings as recommended. however, with 2, any math
+that does not resolve to the claims of this book must be flagged to me for review."* The four things §6 asks for are
+approved; the Phase 0 rulings as given, and the five the plan offered no recommendation for, are recorded in
+`RULINGS-R4.md`, which governs. The condition M attached to ruling 2 is a standing rule over every count this plan
+touches, and is stated there. This member is rewritten by successor at each phase close; `PLAN-R4-ANNEX.tsv` is the
+item inventory behind §2, one row per survey item with the phase that owns it.
 
 Written from a survey of every record of outstanding work the store holds (the sixteen DEF-153 files, RUL-153, the
 docket and its twenty-six deltas, DEFERRED.md in full, RULINGS-R2, the §0 gate text, the Working Register W-201 to
 W-238, all seventy-six READ records, the census and its sixty-five closure files) and from two surveys of the six
 reader-facing volumes themselves (work matter; structure), with the five audit instruments run over the store. The
-survey found 800 candidate items; 731 are open. Nothing in this plan is executed; it is the proposal.
+survey found 800 candidate items; 731 are open.
 
 ## 1. What "publishable" has to mean here, or the plan cannot be finished
 
@@ -32,7 +39,7 @@ pressed proofs; that is the end.
 | Register | entries 1 to 1835; 1,677 seated (1,670 numbered + 7 grouped); 133 numbers absent by excision, unexplained to a reader; 1797 staged, never seated |
 | Main volume | 18,692 lines; read in full by R2; three section blocks sit in the wrong chapter; nine sections are headings with no body; 15 sentences spell the Register's size as "one thousand six hundred and thirty-five" |
 | Compendia (4) | never swept by class (M's 3 September scope ruling names the sweep; the docket records none executed); front matter names absent generators, dates and rebuild commands; 265 handles in one Mathematical Compendium column, 137 resolving nowhere; object ids (`A.ext` …) cited at 239 sites cannot be followed into the compendium |
-| Defect census | 1,609 rows; 712 closed by a verdict; **897 open** — C8 299, C9 197, C6 178, C10 85, C11 50, C7 34, C13 23, pointers 9, retired 2 |
+| Defect census | 1,609 rows; 699 closed by a verdict, every closure id still resolving after the content-keyed regeneration; **910 open** — C8 299, C9 197, C6 178, C10 85, C11 50, C6a 35, C7 34, C13 23, pointers 9 (C1 4, C2 4, C2b 1) |
 | Docket | 38 index items and 26 deltas; the R3 work queue; rewritten last at chat 127 |
 | Instruments | 86 live goldens green, census step green; 8 held (readings owed); superseded predecessors seated red pending an archive ruling; 3 numpy packs, the figure generator and 4 census/tower instruments still in `extracted/`, unseated |
 | Audit instruments | arith: 0 live disagreements; pointers: 4 register numbers and 31 in-range numbers cited with no entry, 37 `§4.n` pointers at unheaded rows, theorem numbers from an old chapter order, `E.4` with no parent, Figure 15.3 named and placed nowhere |
@@ -137,11 +144,11 @@ its generator claim.
 
 ### Phase 5 — Closing the census (L, in parallel with 1–4)
 
-897 open rows, one reading instrument per class over the whole census, each row a verdict in a closure file and, where a
-defect, routed to its phase: C6 (178; a compendium number not in its stated source), C9 (197; always/never/every — the
-false-universal class's census face), C10 (85; proved with no Register entry), C11 (50; the R-form incomplete), C7 (34;
-withdrawn numbers surviving — ruling 9 closes most), C13 (23; ruling 1 closes most), the 9 pointer rows, and C8 (299)
-by ruling 14. The census is regenerated after every build that moves a volume; its step in the gate stays green.
+910 open rows, one reading instrument per class over the whole census, each row a verdict in a closure file and, where a
+defect, routed to its phase: C6 (178; a compendium number not in its stated source) with C6a (35; an entry with no source
+pointer), C9 (197; always/never/every — the false-universal class's census face), C10 (85; proved with no Register entry),
+C11 (50; the R-form incomplete), C7 (34; withdrawn numbers surviving — ruling 9 closes them), C13 (23; ruling 1 closes
+them by press), the 9 pointer rows, and C8 (299) by ruling 14. The census is regenerated after every build that moves a volume; its step in the gate stays green.
 
 ### Phase 6 — The instrument estate and the archive (M; alongside)
 
