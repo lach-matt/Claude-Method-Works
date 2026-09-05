@@ -115,6 +115,6 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
   `r2-tools-constants`, `extent`); `gate.py run` over the fifty-eight re-banked goldens 58 OK, 0 FAIL. `gate.py run --all`
   was started and stopped in the first-generation block: it walks every `NAME.out` alphabetically and the superseded
   predecessors (`r2-21a`, `r2-23a`, `r2-26b`, `r2-26c`, `r2-27a`, `r2-27a2`, `r2-28a2`, `r2-28a3`, `r2-28b2`, `r2-bib`,
-  `r2-ch16a` …) each fail as DEF-153B records, several running to the 270 s timeout, so a full walk costs hours and
-  reports nothing the held list does not. A `--live` mode that skips a golden with a seated successor is owed with the
+  `r2-ch16a` …) fail as DEF-153B records; the walk reached `r2-ch16a2` (OK) after fifteen minutes and was stopped
+  there, a full walk reporting nothing the held list does not. A `--live` mode that skips a golden with a seated successor is owed with the
   `shiftinv` successor.
