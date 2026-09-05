@@ -143,3 +143,7 @@ members/ by an earlier session with no golden and is superseded by `r2-28b4`, le
   W-238. **A slip of mine, recovered exactly:** a cleanup line deleted the uncommitted BUILD230 bundle before its
   successor existed; BUILD229 and BUILD230 were rebuilt by re-running the same two closes from the committed BUILD228 and
   reproduced their recorded md5s (5aecd601…, 048cf306…) byte for byte before anything went on.
+- **Gate verdict after W-238 (BUILD110 / BUILD231):** `tools/gate_live.py` — census step OK (the seated census a fixed point:
+  1,609 rows, 2 carried, 1,607 exact, 0 NEW, 0 GONE), then the 86 live goldens **86 OK, 0 FAIL** (`r3-q6-measure` the
+  slowest at 127 s). The store is green on every step it treats as live; `gate.py census` and the held predecessors stay
+  red as recorded.
