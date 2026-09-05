@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>$title$</title>
+<style>
+@page { size: A4; margin: 24mm 20mm 22mm 20mm;
+  @bottom-center { content: counter(page); font-family: "Liberation Serif", serif; font-size: 9pt; color: #333; }
+  @top-center { content: string(runhead); font-family: "Liberation Serif", serif; font-size: 8.5pt; color: #666; letter-spacing: .03em; } }
+@page titlepage { @bottom-center { content: none; } @top-center { content: none; } }
+@page frontmatter { @top-center { content: none; } }
+html { font-family: "Liberation Serif", "Times New Roman", serif; }
+body { font-size: 10.5pt; line-height: 1.44; color: #000; margin: 0; hyphens: auto; }
+.titlepage { page: titlepage; page-break-after: always; padding-top: 58mm; }
+.titlepage p { text-align: center; }
+.titlepage .vol { hyphens: none; font-size: 30pt; font-weight: 700; line-height: 1.15; margin: 0 0 6mm; letter-spacing: .01em; }
+.titlepage .rule { width: 46mm; border-top: 1.4pt solid #000; margin: 8mm auto; }
+.titlepage .author { font-size: 14pt; margin: 0 0 3mm; }
+.titlepage .imprint { font-size: 9.5pt; color: #444; margin-top: 34mm; line-height: 1.6; }
+nav#TOC { page: frontmatter; page-break-after: always; }
+nav#TOC > h2 { font-size: 17pt; margin: 0 0 10pt; page-break-before: avoid; border: 0; }
+nav#TOC ul { list-style: none; padding-left: 0; margin: 0; }
+nav#TOC ul ul { padding-left: 7mm; }
+nav#TOC li { margin: 1.4pt 0; font-size: 9.5pt; }
+nav#TOC > ul > li { margin-top: 5pt; font-weight: 600; font-size: 10pt; }
+nav#TOC > ul > li > ul li { font-weight: 400; }
+nav#TOC a { text-decoration: none; color: #000; hyphens: none; }
+nav#TOC a::after { content: leader('.') target-counter(attr(href), page); color: #333; font-weight: 400; }
+h1 { hyphens: none; font-size: 20pt; font-weight: 700; margin: 0 0 12pt; page-break-before: always; page-break-after: avoid; line-height: 1.2;
+     string-set: runhead content(text); }
+h2 { hyphens: none; font-size: 14pt; margin: 18pt 0 7pt; page-break-after: avoid; line-height: 1.25; string-set: runhead content(text); }
+h3 { hyphens: none; font-size: 11.5pt; margin: 13pt 0 5pt; page-break-after: avoid; }
+h4, h5, h6 { font-size: 10.5pt; margin: 10pt 0 4pt; page-break-after: avoid; }
+p { margin: 0 0 6pt; orphans: 3; widows: 3; text-align: justify; }
+blockquote { margin: 7pt 0 7pt 12pt; padding-left: 9pt; border-left: 2px solid #bbb; color: #222; }
+pre { font-family: "Liberation Mono", monospace; font-size: 7.6pt; line-height: 1.3; white-space: pre-wrap; word-wrap: break-word;
+      background: #f7f7f5; border: .5pt solid #ddd; padding: 4pt 6pt; margin: 6pt 0; page-break-inside: avoid; }
+code { font-family: "Liberation Mono", monospace; font-size: 9pt; }
+table { border-collapse: collapse; font-size: 8pt; margin: 7pt 0; width: 100%; page-break-inside: avoid; }
+th, td { border: .5pt solid #bbb; padding: 1.8pt 3.5pt; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+th { background: #efefec; font-weight: 700; }
+img { max-width: 100%; page-break-inside: avoid; }
+hr { border: 0; border-top: .5pt solid #bbb; margin: 10pt 0; }
+</style></head><body>
+<section class="titlepage">
+  <p class="vol">$title$</p>
+  <div class="rule"></div>
+  <p class="author">Matthew Lach</p>
+  <p class="imprint">The Method 1.6 — a reading copy of the seated volume,<br>pressed 5 September 2026</p>
+</section>
+$if(toc)$<nav id="TOC" role="doc-toc"><h2>Contents</h2>$toc$</nav>$endif$
+$body$
+</body></html>
