@@ -371,6 +371,105 @@ def combined_ceiling(rho, p, f_shift, beta_rot):
     tot = (f_shift ** 2 + (beta_rot * rho) ** 2) ** 0.5
     return dict(total=tot, ceiling=flux_ceiling(rho, p), ok=tot <= flux_ceiling(rho, p))
 
+# ------------------------------------ the shell profile, reconstructed by TOV
+#
+# SHIFT-CEILING.md took rho and p from Fuchs et al.'s plotted profiles by eye and
+# said so.  This integrates the Tolman-Oppenheimer-Volkoff equation for their stated
+# construction instead, and the two disagree by a factor of five -- for a reason:
+# the isotropic TOV pressure is the BULK pressure, while their plotted peak includes
+# the anisotropic hoop spike at the inner boundary that holds the shell against
+# collapse.  Both numbers are real and they are different quantities.
+#
+# The ceiling of SHIFT-CEILING.md is f <= (rho + p_x)/2 with p_x the pressure ALONG
+# the direction of travel.  On the x-axis of the shell that is the radial pressure;
+# at the equator it is the tangential one, which is larger.  The NEC must hold
+# everywhere, so the binding value is the SMALLER -- the radial pressure -- at the
+# radius where the momentum flux peaks.  Fuchs et al. put that peak at mid-shell.
+
+def tov_shell(R1, R2, M, n=40000):
+    """Integrate TOV inward from R2 (P = 0) to R1 for a constant-density shell.
+    Returns the radial pressure profile in units of the energy density."""
+    vol = (4.0 / 3.0) * 3.141592653589793 * (R2**3 - R1**3)
+    rho_m = M / vol
+    rho_E = rho_m * C * C
+    span = R2**3 - R1**3
+    def mass(r):
+        if r <= R1: return 0.0
+        if r >= R2: return M
+        return M * (r**3 - R1**3) / span
+    def dPdr(r, P):
+        m = mass(r)
+        f = 1.0 - 2 * G * m / (C * C * r)
+        if f <= 0.0: return None
+        return -G * (rho_m + P / (C*C)) * (m + 4*3.141592653589793*r**3*P/(C*C)) \
+               / (r * r * f)
+    h = (R2 - R1) / n
+    r, P = R2, 0.0
+    prof, mid = [], None
+    for i in range(n):
+        k1 = dPdr(r, P)
+        if k1 is None: return None
+        k2 = dPdr(r - h/2, P - h*k1/2)
+        if k2 is None: return None
+        k3 = dPdr(r - h/2, P - h*k2/2)
+        if k3 is None: return None
+        k4 = dPdr(r - h, P - h*k3)
+        if k4 is None: return None
+        P = P - (h/6.0) * (k1 + 2*k2 + 2*k3 + k4)
+        r = r - h
+        if P < 0.0: return None
+        if mid is None and r <= (R1 + R2) / 2.0: mid = P / rho_E
+        prof.append((r, P / rho_E))
+    return dict(rho_m=rho_m, rho_E=rho_E, P_inner=P, inner=P/rho_E, mid=mid, prof=prof)
+
+def ceiling_from_profile(p_over_rho):
+    """SHIFT-CEILING's bound, evaluated on a computed pressure rather than a read one."""
+    return (1.0 + p_over_rho) / 2.0
+
+def fill_sweep(R1=10.0, ratio=2.0, fills=(0.1,0.2,0.3,0.4,0.5,0.667,0.8,0.9),
+               f_ref=0.363, beta_ref=0.02, v_over_beta=2.0):
+    """Vary the horizon fill fraction and follow it through to a velocity ceiling
+    and a shell mass.  fill = r_s/R1 = 2GM/(c^2 R1)."""
+    out = []
+    for fl in fills:
+        M = fl * R1 * C * C / (2 * G)
+        t = tov_shell(R1, ratio * R1, M)
+        if t is None:
+            out.append((fl, M, None, None, None)); continue
+        c_ = ceiling_from_profile(t['mid'])
+        beta_max = beta_ref * c_ / f_ref
+        out.append((fl, M, t['mid'], c_, beta_max * v_over_beta))
+    return out
+
+# --------------------------------------------------------------- acceleration
+#
+# ADM 4-momentum is conserved for an isolated asymptotically flat system up to what
+# it radiates or ejects.  No internal rearrangement changes it.  So a warp shell with
+# POSITIVE ADM mass cannot self-accelerate -- and positive ADM mass is exactly what
+# makes it satisfy the energy conditions.  Alcubierre's drive appears to self-
+# accelerate only because its ADM mass is zero, which is the same truncation that
+# forces its negative energy.  The two properties are traded through M_ADM.
+
+def adm_momentum(M, beta):
+    gamma = 1.0 / (1.0 - beta*beta) ** 0.5
+    return gamma * M * beta * C
+
+def photon_rocket(M_final, beta):
+    """Relativistic photon rocket: M_i/M_f = sqrt((1+b)/(1-b)).  This is the BEST
+    any radiative scheme can do -- massless radiation carries p = E/c, so gravitational
+    waves and photons obey the same bound."""
+    ratio = ((1.0 + beta) / (1.0 - beta)) ** 0.5
+    prop = M_final * (ratio - 1.0)
+    return dict(ratio=ratio, prop=prop, energy=prop * C * C,
+                earths=prop / M_EARTH)
+
+def mass_rocket(M_final, beta, v_e_over_c):
+    """Newtonian rocket equation for an ejected-rest-mass exhaust."""
+    import math
+    r = math.exp(beta / v_e_over_c)
+    return dict(ratio=r, prop=M_final * (r - 1.0),
+                earths=M_final * (r - 1.0) / M_EARTH)
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -662,6 +761,88 @@ def report():
     p('        combined flux %10.4e  vs ceiling %10.4e   %s'
       % (cc['total'], cc['ceiling'], 'within budget' if cc['ok'] else 'BREACHES'))
     p()
+    p('  THE SHELL PROFILE, RECONSTRUCTED  (superseding the eyeballed input above)')
+    p('  ' + '-' * 68)
+    t = tov_shell(10.0, 20.0, 4.49e27)
+    p('    TOV integrated inward from R2 with P(R2) = 0, constant-density shell:')
+    p('        radial P/rho at the inner boundary R1   %10.4f' % t['inner'])
+    p('        radial P/rho at mid-shell               %10.4f' % t['mid'])
+    p('        read off fig. 9 by eye and used above   %10.4f' % 0.363)
+    p()
+    p('    The factor of five is not an error in either.  The TOV value is the BULK')
+    p('    radial pressure; the plotted peak includes the ANISOTROPIC HOOP SPIKE at')
+    p('    the inner boundary, which Fuchs et al. describe and which holds the shell')
+    p('    against collapse.  Two different quantities.')
+    p()
+    p('    Which one enters the ceiling?  f <= (rho + p_x)/2 needs p_x along the')
+    p('    direction of travel, and the NEC must hold at every point, so the binding')
+    p('    value is the SMALLEST p_x where the flux peaks -- the radial pressure at')
+    p('    mid-shell.  Corrected:')
+    c_new = ceiling_from_profile(t['mid'])
+    p('        ceiling on an eyeballed p = 0.363       %10.4f rho' % 0.6817)
+    p('        ceiling on the computed p = %.4f       %10.4f rho' % (t['mid'], c_new))
+    p('        implied velocity ceiling                %10.4f c'
+      % (0.02 * c_new / 0.363 * 2.0))
+    p('        SHIFT-CEILING.md was optimistic by       %9.0f %%'
+      % (100 * (0.6817 / c_new - 1)))
+    p()
+    p('    FILL SWEEP.  Vary 2GM/c^2R1 and follow it through:')
+    p('    %-8s %13s %11s %11s %12s'
+      % ('fill', 'M [kg]', 'p_mid/rho', 'ceil/rho', 'v_max [c]'))
+    for fl, M_, pm, c_, v in fill_sweep():
+        if pm is None:
+            p('    %-8.3f %13.3e %11s %11s %12s' % (fl, M_, 'no soln', '-', '-')); continue
+        p('    %-8.3f %13.3e %11.4f %11.4f %12.4f' % (fl, M_, pm, c_, v))
+    p()
+    p('    The curve is nearly flat.  Nine times the mass buys seven per cent more')
+    p('    speed.  DESIGN RULE: MINIMISE THE FILL FRACTION.  Section below prices it.')
+    p()
+    p('  ACCELERATION')
+    p('  ' + '-' * 68)
+    p('    ADM 4-momentum is conserved for an isolated asymptotically flat system up')
+    p('    to what it radiates or ejects.  No internal rearrangement changes it, so a')
+    p('    shell with POSITIVE ADM mass cannot self-accelerate -- and positive ADM')
+    p('    mass is exactly what lets it satisfy the energy conditions.  Alcubierre\'s')
+    p('    drive appears to self-accelerate only because its ADM mass is zero, the')
+    p('    same truncation that forces its negative energy.')
+    p()
+    p('        THE TWO PROPERTIES ARE TRADED THROUGH M_ADM.')
+    p()
+    M_, be = 4.49e27, 0.04
+    p('    momentum to supply, published shell to 0.04 c  %10.4e kg m/s'
+      % adm_momentum(M_, be))
+    pr = photon_rocket(M_, be)
+    p()
+    p('    Photon rocket -- and this is the UNIVERSAL radiative bound, because any')
+    p('    massless radiation carries p = E/c, so gravitational waves do no better:')
+    p('        mass ratio                                 %10.6f' % pr['ratio'])
+    p('        propellant, fully annihilated              %10.4e kg' % pr['prop'])
+    p('                                                   %10.1f Earth masses' % pr['earths'])
+    p('        energy                                     %10.4e J' % pr['energy'])
+    p('        = %.3g years of the Sun\'s ENTIRE output' % (pr['energy']/3.828e26/3.156e7))
+    p()
+    p('    With rest-mass exhaust instead:')
+    for nm, ve in (('fusion, v_e = 0.1 c', 0.1), ('antimatter, v_e = 0.3 c', 0.3)):
+        r = mass_rocket(M_, be, ve)
+        p('        %-26s ratio %6.4f   %8.0f Earth masses'
+          % (nm, r['ratio'], r['earths']))
+    p()
+    bare = photon_rocket(1e6, be)
+    p('    The same manoeuvre without the shell, 1000-tonne payload:')
+    p('        propellant %10.3e kg    energy %10.3e J' % (bare['prop'], bare['energy']))
+    p('        THE SHELL MULTIPLIES THE PROPULSION PROBLEM BY %.2e'
+      % (pr['energy'] / bare['energy']))
+    p()
+    low = photon_rocket(6.733e26, be)
+    p('    And the fill rule pays here.  At fill 0.1, ceiling still 0.055 c:')
+    p('        propellant %10.3e kg = %.1f Earth masses' % (low['prop'], low['earths']))
+    p('        saving against the published fill          %10.2f x'
+      % (pr['prop'] / low['prop']))
+    p()
+    p('    A warp drive is not a propulsion system.  It is an inertial-isolation')
+    p('    system with a propulsion problem attached, and the isolation makes the')
+    p('    propulsion problem twenty-one orders of magnitude worse.')
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -752,6 +933,19 @@ def selftest():
         nec_min_over_directions(1.0, 0.36, 0.36, 1.01 * flux_ceiling(1.0, 0.36)) < 0, True)
     chk('published shift sits below its ceiling', shift_ceiling()['gain'] > 1.0, True)
     chk('velocity ceiling, c', shift_ceiling()['v_max'], 0.0751, tol=0.01)
+    # the TOV reconstruction and the acceleration budget
+    t = tov_shell(10.0, 20.0, 4.49e27)
+    chk('TOV radial P/rho at inner boundary', t['inner'], 0.0732, tol=0.02)
+    chk('TOV radial P/rho at mid-shell', t['mid'], 0.0504, tol=0.02)
+    chk('corrected ceiling is below the eyeballed one',
+        ceiling_from_profile(t['mid']) < 0.6817, True)
+    chk('fill sweep velocity ceiling stays within 10 %',
+        max(v for *_, v in fill_sweep()) / min(v for *_, v in fill_sweep()) < 1.10, True)
+    chk('photon-rocket propellant, Earth masses',
+        photon_rocket(4.49e27, 0.04)['earths'], 30.7, tol=0.02)
+    chk('shell multiplies the propulsion problem by ~4.5e21',
+        photon_rocket(4.49e27, 0.04)['energy'] / photon_rocket(1e6, 0.04)['energy'],
+        4.49e21, tol=0.02)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()

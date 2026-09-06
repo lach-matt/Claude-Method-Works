@@ -18,6 +18,8 @@ a report.
 | `warp-drive/ENGINE-ASSESSMENT.md` | `warp-drive/warpdrive.py` | *Warp Drive Theory* (the Drive design deliverable) checked against the physics it invokes |
 | `warp-drive/ROTATING-SHELL.md` | `warp-drive/warpdrive.py` | whether counter-rotation can be carried onto a positive-energy warp shell, and what it costs |
 | `warp-drive/SHIFT-CEILING.md` | `warp-drive/warpdrive.py` | a closed form for the shift-vector limit Fuchs et al. left open, and the top speed it implies |
+| `warp-drive/SHELL-PROFILE.md` | `warp-drive/warpdrive.py` | the shell reconstructed by TOV integration; corrects the ceiling and gives the fill-fraction design rule |
+| `warp-drive/ACCELERATION.md` | `warp-drive/warpdrive.py` | why a positive-ADM-mass drive cannot self-accelerate, and what starting one costs |
 
 ## `warp-drive/`
 
@@ -26,7 +28,7 @@ object threshold in that paper's own index, and computes its energy budget and e
 against the primary literature.
 
 ```
-python3 research/warp-drive/warpdrive.py --selftest   # 39 fixtures
+python3 research/warp-drive/warpdrive.py --selftest   # 45 fixtures
 python3 research/warp-drive/warpdrive.py              # the full report
 ```
 
@@ -41,11 +43,14 @@ puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte
 `/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never inserts a space
 heuristically.
 
-The four papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
+The six papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
 specification. `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it.
 `ROTATING-SHELL.md` takes the one idea in that deliverable which survived review and carries it onto
 the buildable solution. `SHIFT-CEILING.md` answers the one number Fuchs et al. named as open — how
 far the shift vector can be pushed before the drive stops being physical — and finds a closed form.
+`SHELL-PROFILE.md` then replaces that paper's eyeballed input with a TOV integration and corrects it
+downward, and `ACCELERATION.md` prices the problem all five defer. A paper is never edited to match a
+later finding: `SHIFT-CEILING.md` carries a note naming what superseded it, and both states stand.
 
 The instrument copies the fifteen-letter closure rules verbatim from `recovered/objects15.py` with a
 provenance comment, per the standing rule that an instrument imports a seated form and never silently

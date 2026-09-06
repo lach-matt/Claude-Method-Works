@@ -8,6 +8,13 @@ companions rather than prerequisites.
 
 > **Scope.** Writes nothing into `method/` or `drive/`. Findings recorded, never repaired.
 
+> **Superseded in one number, 2026-09-06.** §3 and §4 take `ρ` and the peak pressure from Fuchs *et
+> al.*'s plotted profiles by eye, and §5 names that as this paper's weakest input. `SHELL-PROFILE.md`
+> replaces the read pressure with a TOV-integrated one and finds the ceiling is **0.5252 ρ**, not
+> 0.6817 ρ, and the velocity ceiling **0.058 c**, not 0.075 c — this paper was 30 % optimistic. The
+> closed form, the type-IV wall, the brute-force agreement and the pressure-is-headroom result are
+> untouched. **Nothing below is edited**; both states stand, and the later one governs.
+
 ---
 
 ## Abstract
