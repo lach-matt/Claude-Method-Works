@@ -118,7 +118,15 @@ companion), `tools/buildtrace.py` (when a figure entered the books, from the BUI
 `tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
 of the method equation, per register 1206), `tools/orderideal.py` (register 66's downward-closure
 test, run against the seated observed configurations; it imports `LW1-ground.py`, offers no verdict,
-and files its measurement for R3 — see `docs/ORDER-IDEAL.md`) and **`tools/docfigures.py`**, which
+and files its measurement for R3 — see `docs/ORDER-IDEAL.md`), **`tools/mucf.py`** (the
+muon-catalysed fusion energy balance over its three free axes — sticking, density and the muon
+production cost `E_μ` that `recovered/Muon_Catalysed_Fusion_v1.0.md` §5.1 holds frozen; its
+`--selftest` is fixtured on that paper's own Table 5.1 and on a re-derivation that exists in no
+file here, only in the chat export, which `docs/MUCF-ENERGY-AXIS.md` banks — including that the
+energy gap is accelerator-dominated rather than sticking-dominated, that §5.1's Q counts heat
+against work, and that the two gaps §5 calls independent are **one collection chain read at two
+thresholds**. It refuses to choose between those two readings: both are the corpus's own)
+and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 59 pinned figures, ~3 s, exits 1 on drift. The
 last fourteen are the totals `pointers.py` and `arith.py` report, which their own selftests do not
@@ -128,7 +136,7 @@ because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true 
 sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real contract — see
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
-`docs/COVERAGE.md`, `docs/ORDER-IDEAL.md` and `docs/DOCFIGURES.md`.
+`docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
