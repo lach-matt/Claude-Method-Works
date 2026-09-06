@@ -1474,6 +1474,122 @@ axis alone — which is the axis §5.24 shows the bred-fuel route can do without
 molecular survival (§5.13). And the in-flight route, which would have lifted that bound, is below the
 binder's own decay rate (§5.20).
 
+## 10. The laboratory programme
+
+§3 states the procedure for the reaction. This section states the procedure for *deciding the
+question* — the experiments that would close what §9 leaves open, written so that a reader with
+access to an existing muon beam can execute them. Everything below runs on apparatus that exists.
+None of it needs a new accelerator, and only one item needs a new magnet.
+
+Three conventions govern all four stages, and they are the corpus's own:
+
+- **A null is a bound.** Every stage is written so that a negative result yields a number, not a
+  disappointment. There is no outcome from which nothing is learned.
+- **A disagreement between two independent routes is a refusal, not an average** (§3.5).
+- **The prediction is committed before the measurement.** Each stage states below what this paper
+  expects and what each outcome settles, so that neither can be adjusted afterwards.
+
+### 10.1 Stage A — the acceptance measurement
+
+**Apparatus.** An existing capture solenoid front end: 20 T on a 7.5 cm clear radius, a field–radius
+product of 1.50 T·m. No new magnet.
+
+**The change.** Instrument both hemispheres of pion emission rather than the backward one alone. The
+hemisphere cut exists to escape the forward neutron and proton flux of a physics target; a reactor's
+target is its detector and has no such background (§5.9, §5.25).
+
+**Measure one number.** η, the negative muons delivered to and stopped in a dense target per negative
+pion produced in the production target. Not the transverse acceptance, and not the capture fraction
+of a momentum-selected channel — the delivered figure, end to end.
+
+**Committed prediction.** The acceptance model puts pions inside the transverse cap at **61 percent**
+of measured production over both hemispheres. §5.25 assumes one stopped muon per accepted pion.
+The two corrections to that assumption run opposite ways: transport, cooling and stopping lose,
+decay-in-channel gains, and the one machine where both quantities can be evaluated returns **2.92**
+captured muons per model-accepted pion. This paper predicts η above **50.8 percent** and does not
+predict a value.
+
+**What each outcome settles.**
+
+| η returns | consequence |
+|---|---|
+| ≥ **50.8 percent** | The bred-fuel route closes at the demonstrated **150** cycles per binder with no other change to anything: no wider bore, no density beyond the scanned record, no resolution of the sticking branch. |
+| **30** to 50.8 percent | The wider bore of §5.9 becomes necessary — **2.60 T·m**, 20 T on a **13 cm** clear bore — and §5.22 prices it at about **2.7** in coil heating or **11 percent** in coil bore. |
+| below **30 percent** | The acceptance model of §5.9 is wrong in the unfavourable direction, and every balance in this paper falls with it proportionally. |
+
+η multiplies every balance in this paper identically, so **whatever it returns is a bound on all of
+them at once.** This is why Stage A runs first.
+
+### 10.2 Stage B — the sticking branch, with purity as a controlled variable
+
+**Apparatus.** A high-pressure cell on an existing muon beam — the diamond anvil cell of [11] reaches
+**933 MPa** and **400 K** with a **500 K** design ceiling and a **19.2 mm³** sample, which is the
+instrument this stage needs.
+
+**Two observables, one target, simultaneously.** Neutrons at **14.1 MeV** give the fusion yield per
+binder. The muonic helium K-alpha line at **8.2 keV** counts stuck binders directly. They share no
+instrument and no calibration, which is what makes them two routes rather than one.
+
+**Purity is a variable of the experiment, not a precondition of it.** §5.28 prices transfer to a
+high-Z contaminant at about **1 × 10¹⁰ s⁻¹** per liquid density of oxygen, so at the bracketed density
+a contamination of **5.49 ppm** costs as much binder as decay does. The existing record confounds
+purity with density and temperature — its cleanest data are also its coldest and densest — so a purity
+series at fixed density and temperature is part of this stage and not a refinement of it.
+
+**The discriminant.** Initial sticking is fixed at **0.938 percent** by calculation. The two published
+final values, **0.45** and **0.56 percent**, carry into the excited-state channel as **0.1487** and
+**0.1851 percent**, and the break-point for the heat form at the measured production cost is
+**0.1580 percent** — between them, which is why the measurement decides rather than confirms.
+
+**What each outcome settles.** Below the break-point the heat form of condition 8 is satisfied at
+perfect collection; above it the residual is **1.17**. If the two routes disagree, §3.5 governs:
+report a bound, not a mean.
+
+### 10.3 Stage C — the production target, measured rather than simulated
+
+**Apparatus.** A proton or deuteron beam of a few GeV and a thick high-Z target. The configuration to
+test first is [9]'s: **3.61 GeV** deuterons on a tungsten rod **652 mm** long and **5.1 mm** across.
+
+**Measure.** π⁻ per **beam** particle — not per interacting particle, which is the quantity the
+existing measured record supplies and the reason this paper's own figure is conservative.
+
+**Committed prediction.** **0.77** π⁻ per beam particle, giving **4.69 GeV** per π⁻ against this
+paper's thin-target measured **11.13 GeV**, a ratio of **2.37**.
+
+**What it settles.** It decides which figure a reactor target should be priced at, and it multiplies
+every balance in this paper by the ratio it returns. It is the only stage that can improve the result
+by more than a factor of two, and it is the cheapest of the four.
+
+### 10.4 Stage D — the integrated demonstration
+
+**This is not a reactor and should not be built as one.** It is the smallest system that measures the
+paper's actual claim, which is a product of three factors and nothing else:
+
+> binders delivered per beam joule (Stage A and C) × cycles per binder (Stage B) × value per fusion
+
+**What it needs from the earlier stages.** η from A, the service life from B, the target from C. What
+it does *not* need, if Stage A returns at or above 50.8 percent: a wider bore, a density beyond the
+scanned experimental record, or any improvement in sticking.
+
+**What it measures and what it does not.** The measured output is **neutron production per beam
+joule**. The bred-fuel product's **146.06 MeV** per fusion is realised downstream in a separate
+blanket and fission cycle, so the demonstration measures the neutron rate and the blanket accounting
+is *applied* to it, not measured by it. **This is the demonstration's limit and it should be stated in
+its own report**: it can establish the neutron source and cannot, by itself, establish the credit.
+A demonstration of the heat form instead — measuring **26.06 MeV** per fusion as deposited energy —
+is a device-internal measurement with no downstream credit, and §5.24 puts it at **1.241** with the
+§5.9 collector and the bound-case service life, so it is the more demanding demonstration and the more
+self-contained one.
+
+### 10.5 The order, and what none of it requires
+
+Stage A first: it bounds every other result, and it needs no new hardware. B and C are independent of
+A and of each other and can run in parallel. D follows all three.
+
+**None of the four requires a new accelerator, and none requires new physics.** The single item that
+requires new hardware is the wider bore of §5.9, and Stage A is designed to determine whether it is
+needed at all.
+
 ## References
 
 1. S. Cook *et al.*, *MuSIC: delivering the world's most intense muon beam*, arXiv:1610.07850;
