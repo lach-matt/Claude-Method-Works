@@ -43,22 +43,28 @@ Add it here:
 
 Name the secret exactly as spelled in the table, paste the value, save.
 
-**If you chose `CLAUDE_CODE_OAUTH_TOKEN`,** one line has to change in *both* workflow files. Each
-one currently reads:
+**The workflows are currently wired for `CLAUDE_CODE_OAUTH_TOKEN`** — the subscription route. If
+that is what you added, there is nothing to edit; add the secret and you are done.
 
-```yaml
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-```
+**If you chose `ANTHROPIC_API_KEY` instead,** the credential is named in **three** places, not two,
+and all three must agree. Both files carry the alternative commented out just below the live line,
+so each is a delete-one-line, uncomment-one-line edit:
 
-Replace it with:
+| file | line | what it does |
+| --- | --- | --- |
+| `.github/workflows/claude.yml` | `claude_code_oauth_token:` | what the action authenticates with |
+| `.github/workflows/claude-code-review.yml` | `claude_code_oauth_token:` | the same, for the review job |
+| `.github/workflows/claude-code-review.yml` | `HAS_KEY: ${{ secrets.… != '' }}` | **the gate** |
 
-```yaml
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-```
+> **The gate is the one that bites.** An earlier revision of this page said "one line has to change
+> in *both* workflow files" and never mentioned `HAS_KEY`. Follow that and the review job tests one
+> secret while the action consumes another — and **nothing fails loudly**. The gate reads false,
+> `claude-review` reports `skipped`, and every PR looks reviewed-and-clean forever. That is exactly
+> how this repository ran from PR #13 to #17 with no Claude review at all: the job log read
+> `HAS_KEY: false` while everyone assumed the workflow was working.
 
-Both files already carry that line commented out just below, so it is a delete-one-line,
-uncomment-one-line edit. Do it in `.github/workflows/claude.yml` and
-`.github/workflows/claude-code-review.yml`.
+To confirm it took, open any PR and look at the `changed-files` job log: it should print
+`HAS_KEY: true`, and `claude-review` should stop reporting `skipped`.
 
 ## 3. Merge this branch to `main`
 
