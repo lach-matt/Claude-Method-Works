@@ -88,8 +88,18 @@ PION_THRESHOLD_GEV = 0.300   # kinematic floor, perfect collection -- a THRESHOL
 # Two published figures, differing by ~6x, and the difference is exactly the
 # distinction the collection argument turns on: captured-at-all vs accepted
 # into a selective channel. muCF needs the first. Both are carried.
-PROD_CAPTURED_PER_P = 0.34   # mu- per 8 GeV proton, Hg jet + 20 T capture,
-PROD_CAPTURED_EP = 8.0       #   muon-collider/neutrino-factory front end MAXIMUM
+# SOURCED, and this is the load-bearing figure. Strait, Mokhov & Striganov,
+# Phys. Rev. ST Accel. Beams 13, 111001 (2010), Table II: HARP-measured pion
+# production cross sections off tantalum, convolved with the MARS15 acceptance
+# of the 20 T NF/MC front-end channel, thick target (2 lambda_I):
+#   Y_P = 0.054 captured muons per INTERACTING proton per GeV, BOTH charges.
+# Per charge that is 0.027 /GeV, i.e. 1/0.027 = 37 GeV per captured mu-.
+# The same paper: yield is flat within 10% over T_beam = 4-11 GeV with an
+# optimum near 7 GeV -- so PROTON ENERGY IS NOT A LEVER, contrary to the
+# budget paper's sec.5, which inferred one from MuSIC's 392 MeV point alone.
+YP_BOTH_CHARGES_PER_GEV = 0.054   # captured mu / interacting proton / GeV
+PROD_CAPTURED_PER_P = 0.34   # superseded; kept only for the selftest's history
+PROD_CAPTURED_EP = 8.0
 PROD_ACCEPTED_PCT = (5.0, 10.0)  # charge-averaged accepted pi+mu per 10 GeV proton,
 PROD_ACCEPTED_EP = 10.0          #   %, through a NF cooling channel (MARS/ICOOL)
 LAMBDA_0 = 4.665e5
@@ -215,9 +225,22 @@ def cycles(ws, phi):
     return phi * LAMBDA_C / (LAMBDA_0 + ws * phi * LAMBDA_C)
 
 
+def e_binder_captured():
+    """GeV of beam per captured mu-, from the sourced Table II yield."""
+    return 1.0 / (YP_BOTH_CHARGES_PER_GEV / 2.0)
+
+
+def condition8(f_work=None):
+    """Condition 8, the binder-economy bound. Net-positive requires
+    N x Q_fus x f_work > E_binder with N <= 1/omega_s, hence
+    E_binder < Q_fus x f_work / omega_s. Returns GeV."""
+    f = F_WORK if f_work is None else f_work
+    return (Q_FUS_MEV / 1000.0) * f / OMEGA_BOTH_LEVERS
+
+
 def report_floor():
     q = Q_FUS_MEV / 1000.0
-    cap = PROD_CAPTURED_EP / PROD_CAPTURED_PER_P
+    cap = e_binder_captured()
     acc_lo = PROD_ACCEPTED_EP / (PROD_ACCEPTED_PCT[1] / 100.0)
     acc_hi = PROD_ACCEPTED_EP / (PROD_ACCEPTED_PCT[0] / 100.0)
     print("THE PRODUCTION FLOOR -- what a target costs before any collection loss")
@@ -227,9 +250,28 @@ def report_floor():
     print(f"  accepted through an NF cooling channel {acc_lo:>7.0f} - {acc_hi:.0f} GeV/mu-   [selective; muCF needs none of it]")
     print()
     print(f"  The threshold bound understates the captured figure by {cap / PION_THRESHOLD_GEV:.0f}x.")
-    print("  Pion yield is ~proportional to beam energy (optimum ~7 GeV, flat over")
-    print("  4-11 GeV), so GeV-per-muon is a SCALING LAW, not an operating point:")
-    print(f"  ~{PROD_CAPTURED_PER_P / PROD_CAPTURED_EP:.4f} mu-/GeV however the driver is built.")
+    print(f"  Sourced: Y_P = {YP_BOTH_CHARGES_PER_GEV} captured mu (both charges) per")
+    print("  interacting proton per GeV -- HARP cross sections convolved with the")
+    print("  MARS15 acceptance of a 20 T front end, thick (2 lambda_I) Ta target.")
+    print()
+    print("  PROTON ENERGY IS NOT A LEVER. The same source finds the beam-power")
+    print("  normalised yield flat within 10% over T_beam = 4-11 GeV, optimum ~7 GeV.")
+    print("  The budget paper's sec.5 inferred a 13.9x gain from MuSIC's 392 MeV")
+    print("  point alone; that extrapolation is WITHDRAWN. Below ~2 GeV the yield")
+    print("  does fall (85% of optimum at 2 GeV), which is all MuSIC's point shows.")
+    print()
+    print("  CONDITION 8 -- the binder-economy bound. Net-positive requires")
+    print("  N x Q_fus x f_work > E_binder with N <= 1/omega_s, hence:")
+    print()
+    for f, lab in ((1.0, "heat"), (F_WORK, "work")):
+        need = cap / condition8(f)
+        print(f"    {lab}: E_binder < {condition8(f):5.2f} GeV;"
+              f" muon costs {cap:.1f} -> need {need:4.1f}x"
+              f" of the {cap / PION_THRESHOLD_GEV:.0f}x headroom, margin"
+              f" {(cap / PION_THRESHOLD_GEV) / need:5.1f}x")
+    print()
+    print("  The admissible set is NOT empty: condition 8 sits between what is")
+    print("  achieved and the kinematic threshold, not beyond it.")
     print()
     print("  CYCLES REQUIRED against the captured figure:")
     for lab, f in (("heat-breakeven", 1.0), ("work-breakeven", F_WORK)):
