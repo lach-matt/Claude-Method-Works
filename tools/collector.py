@@ -473,6 +473,8 @@ def transition_phi(counts_atoms=True):
 # with a tritium breeding ratio near 1.15 (self-sufficient). These supersede
 # this paper's own single-reaction arithmetic as the better-grounded figures,
 # which they exceed: the 6Li-only calculation was conservative.
+LAMBDA_INFLIGHT = 2.8e4   # s^-1 at LHD, CoMD; independent approach gives 0.5e5
+
 BLANKET_MULT_SOURCED = 1.6      # x the neutron's energy, deposited in blanket
 FISSILE_PER_FUSION = 0.6        # sourced, against 0.7 reconstructed
 TBR_SOURCED = 1.15

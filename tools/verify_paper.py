@@ -569,6 +569,17 @@ def qb_bound():
     return N_diss() * (total_sourced() / 1000.0) / cost_pion()
 
 
+def inflight_ratio():
+    return mucf.LAMBDA_C / collector.LAMBDA_INFLIGHT
+
+
+def N_inflight():
+    ws = ws_sin() / 100.0
+    phi = trans_atoms()
+    return phi * collector.LAMBDA_INFLIGHT / (
+        mucf.LAMBDA_0 + ws * phi * collector.LAMBDA_INFLIGHT)
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 

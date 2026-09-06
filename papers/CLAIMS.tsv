@@ -221,3 +221,14 @@ C219	work gain at the bound case, sourced	1.034	dimensionless	DERIVED	C176 x C21
 C220	total value per fusion, sourced with breeding	146.06	MeV	DERIVED	C214 + C212 x C196	fn:total_sourced
 C221	breeding balance, demonstrated cycles with collector	1.77	dimensionless	DERIVED	C44 x C220 / (C100 / 0.9)	fn:qb_demo
 C222	breeding balance at the bound case	7.73	dimensionless	DERIVED	C176 x C220 / C100	fn:qb_bound
+C223	in-flight d-t rate at liquid density	2.8e4	s^-1	SOURCED	CoMD, arXiv:physics/0605206; independent approach 0.5e5	collector.LAMBDA_INFLIGHT
+C224	in-flight route slower than the molecular one	9286	x	DERIVED	C03 / C223	fn:inflight_ratio
+C225	cycles per binder in flight at phi=8.5	0.510	cycles	DERIVED	N(C223, C113, C169)	fn:N_inflight
+C226	sticking estimate, d+t, adiabatic case	5.60	percent	SOURCED	arXiv:physics/0605206 CASE 1	none
+C227	sticking estimate, t+t, adiabatic case	7.84	percent	SOURCED	arXiv:physics/0605206 CASE 1	none
+C228	sticking estimate, d+d to 3He+n, adiabatic case	32.4	percent	SOURCED	arXiv:physics/0605206 CASE 1	none
+C229	measured muon-loss temperature range in ddmu	790	K	SOURCED	Bom et al. JETP 96 457 (2003), 85-790 K	none
+C230	measured muon-loss temperature range, lower	85	K	SOURCED	Bom et al. JETP 96 457 (2003)	none
+C231	resonant stripping wavelength, ground state	0.11	nm	SOURCED	arXiv:physics/0605206, muonic helium fundamental	none
+C232	resonant stripping wavelength, first excited state	0.44	nm	SOURCED	arXiv:physics/0605206	none
+C233	in-flight rate, independent approach	0.5e5	s^-1	SOURCED	arXiv:physics/0605206 citing Melezhik Nucl Phys A 550 223	none

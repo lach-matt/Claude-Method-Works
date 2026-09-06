@@ -706,11 +706,11 @@ average**, and this paper keeps its own pinned value and records the other.
 cycle's own cap. The figure is not used in its tabulated results, so the results survive it, but any
 reader taking that number forward would mis-model the bottleneck entirely.
 
-**Finally, it names an escape from §5.13.** In-flight catalysis — where a fast bound binder–triton
-system collides directly with a deuteron — triggers fusion **without first forming a bound molecule**.
-§5.13's density bound rests on molecular survival because Vesman formation needs a molecular host. A
-route that needs no host is not bounded that way. This paper does not evaluate that route, and notes
-only that §5.13's bound is a bound on *this* mechanism rather than on catalysis as such.
+**Finally, it names an apparent escape from §5.13.** In-flight catalysis — where a fast bound
+binder–triton system collides directly with a deuteron — triggers fusion **without first forming a
+bound molecule**, and §5.13's density bound rests on molecular survival. **§5.20 evaluates that route
+and closes it**: the in-flight rate is below the binder's own decay rate, so it yields fewer than one
+fusion per binder at any density. The escape does not exist and §5.13's bound stands.
 
 ### 5.18 Where the balance closes: the neutron is worth more than its heat
 
@@ -809,6 +809,50 @@ fusion **146.06 MeV**, against §5.18's reconstructed 162.4:
 
 The conclusion of §5.18 is unchanged and now rests on sourced figures throughout: **at the cycle count
 demonstrated in the 1980s, with the collector and nothing else, the breeding balance is near two.**
+
+### 5.20 The in-flight escape closes, and the stripping route opens
+
+§5.17 recorded that in-flight catalysis — fusion triggered by a fast collision without first forming a
+bound molecule — would not be subject to §5.13's density bound, since that bound rests on molecular
+survival. **That escape closes on the rate.**
+
+The in-flight d–t rate at liquid density is **2.8 × 10⁴ per second** by a constrained
+molecular-dynamics calculation, and 0.5 × 10⁵ by an independent approach. Against the molecular
+route's saturation it is **9,286 times slower**, and — decisively — it is *below the binder's own decay
+rate* of 4.665 × 10⁵ per second. Cycles per binder are then **0.510 even at the densest defensibly
+molecular point**: fewer than one fusion per binder at any density.
+
+> **The route removes the molecular requirement and the cycle with it. §5.13's bound stands.**
+
+**Two confirmations arrive with it.** The same source states that the sticking probability is
+insensitive to how the system was assembled, because the 17.59 MeV yield dwarfs any molecular binding
+energy, so the exit dynamics are independent of the entrance channel. §5.7 argued sticking is
+independent of the *binder's mass*; this says it is equally independent of the *formation route*. Both
+follow from one fact: **sticking is a property of the exit.** And its independent channel estimates —
+5.60 percent for d+t, 7.84 for t+t, 32.4 for the d+d channel ending in helium-3 — reproduce §5.16's
+ordering by a different method, with d+t optimal and the d+d channel worse by about six.
+
+**And a route to the reactivation term opens.** §5.15 requires a 4.0 percent reduction in effective
+sticking and locates it in the reactivation coefficient. The same source proposes obtaining it
+directly: the stuck binder on the ash is a nonlinear oscillator, and irradiating it at twice its own
+orbital frequency drives it into resonance and ionises it — the mechanism by which a Rydberg atom is
+ionised in a microwave field. The required wavelengths are **0.11 nm** for the ground state and
+**0.44 nm** for the first excited state, available from synchrotron sources, and the paper notes that
+the muonic molecule itself is *not* destroyed at that frequency.
+
+**This must be set against this paper's own no-go, and the two are not the same claim.** §5 records
+that external-field stripping is defeated by a space–time overlap factor by about six orders. That
+finding concerns a *focused beam* attempting collisional stripping. The proposal here is *resonant
+photo-ionisation* at the bound binder's own eigenfrequency, exploiting its chaotic instability —
+a different mechanism, not a better beam. **Whether the no-go extends to it is not settled**, and per
+§3.5 this paper records both rather than averaging them or choosing.
+
+**One further confirmation for §5.15.** The temperature dependence of muon loss has been measured not
+only over the five-to-sixteen-kelvin range §5.15 cites but across **85 to 790 K** in the d+d system,
+with muon loss *increasing* as temperature *decreases*. That range brackets the 800 K operating point
+§3.2 requires, and the direction is the favourable one. §5.15's caution — that its cited excursion
+spanned a phase change and might not be a temperature effect — is substantially relieved by a
+measurement over seven hundred kelvin in the same direction.
 
 ## 6. What the definition excludes
 
