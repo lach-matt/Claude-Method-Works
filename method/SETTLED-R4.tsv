@@ -18,4 +18,8 @@ E-072	Λ has seven constraints, not the eight one Register entry prints	SEVEN, V
 E-072b	main §21.5.2's constraint graph: 8 nodes, 7 edges, a tree	VERIFIED TRUE	built from the seven printed pairs; connected, acyclic, 7 = 8 - 1	method/proofs/lambda8.py	none needed
 E-072c	main §21.5.2's triple census 0 / 7 / 20 / 8 over thirty-five	VERIFIED TRUE	all C(7,3) = 35 triples of constraints scored by the nodes they span; zero 3-bodies	method/proofs/lambda8.py	none needed
 E-072d	main §21.5.2 "one edge away in exactly seven places", and the seven named	VERIFIED TRUE	seven non-edges at tree distance 2, and each names the same triple the book names	method/proofs/lambda8.py	none needed
+D-61	main §23.10.4 and App E.2 "1,585-fold"	NOT A DEFECT, WITHDRAWN	the printed medians 25.96 and 0.0164 allow [1577.81, 1588.07) and 1,585 is inside; the naive 1582.93 treats rounded inputs as exact	method/proofs/precision.py	FINDING-R4-07
+E-035	main §14.5 "a compression of 139 to 1, exactly"	STANDS, PROSE	976/7 = 139.428571 with both inputs exact counts; the figure is a fair rounding, the word "exactly" is not	method/proofs/precision.py	FINDING-R4-07
+F-033	main L8206 "a factor of five and a half"	STANDS	54/10 = 5.4 with both inputs exact counts; no precision defence	method/proofs/precision.py	FINDING-R4-07
+E-110	main §26.6 Aitken table, T/3 at n = 20	STANDS, ONE PLACE	274.3433/3 = 91.447767 against a printed 91.4477; the other three rows agree exactly	method/proofs/precision.py	FINDING-R4-07
 

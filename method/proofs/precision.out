@@ -1,0 +1,50 @@
+  DOES A PRINTED FIGURE SURVIVE THE PRECISION OF ITS INPUTS?
+
+  D-61  --  main sec 23.10.4 and App E.2
+      printed:   1,585-fold
+      inputs:    25.96 and 0.0164   (the perturbation bound tightens from a median of 25.96 cm-1 at order 1 to 0.0164 at order 6)
+      naive:     25.96 / 0.0164 = 1582.926829
+      interval:  [1577.8116, 1588.0734)  -- what the printed inputs allow
+      figure 1585 lies INSIDE it
+      VERDICT:   INSIDE  -- NOT A DEFECT; the recomputation was measuring the rounded inputs
+      raised as: the record: 25.96 / 0.0164 = 1582.93 at two-decimal inputs, docket 12
+
+  E-035  --  main sec 14.5, twice
+      printed:   a compression of 139 to 1, exactly
+      inputs:    976 and 7   (Lambda-8 has 976 cells and is the closure of a seed of 7)
+      naive:     976 / 7 = 139.428571
+      the inputs are EXACT COUNTS, so there is no interval and no defence.
+      the printed figure is NOT the value: 139.428571 against a printed 139
+      VERDICT:   EXACT-INPUT  -- the disagreement is real, and no rounding explains it
+      raised as: the record 13h-04: 976/7 = 139.4286, and 976 = 7*139 + 3
+
+  F-033  --  main L8206
+      printed:   a factor of five and a half
+      inputs:    54 and 10   (the checkable designations grew from ten to fifty-four)
+      naive:     54 / 10 = 5.400000
+      the inputs are EXACT COUNTS, so there is no interval and no defence.
+      the printed figure is NOT the value: 5.400000 against a printed 5.5
+      VERDICT:   EXACT-INPUT  -- the disagreement is real, and no rounding explains it
+      raised as: the record 15n-02: L8200's factor measures 5.4
+
+  E-110  --  main sec 26.6, the T/3 column, row n = 20
+      printed:   91.4477
+      inputs:    274.3433 and 3   (the T/3 column of the Aitken table, whose other three rows are exact)
+      naive:     274.3433 / 3 = 91.447767
+      interval:  [91.4478, 91.4478)  -- what the printed inputs allow
+      figure 91.4477 lies OUTSIDE it
+      VERDICT:   OUTSIDE  -- the disagreement is real
+      raised as: the record 15b-04: T(20)/3 = 91.44775 -> 91.4478 under either convention; the table prints 91.4477
+
+  THE AITKEN TABLE'S OTHER THREE ROWS, for E-110's context
+      T =  1097.3730   T/3 = 365.7910000   printed 365.7910   agrees
+      T =    68.5858   T/3 = 22.8619333   printed 22.8619   agrees
+      T =    17.1465   T/3 = 5.7155000   printed 5.7155   agrees
+      Three rows agree at the printed precision and one does not, which is why
+      the record calls it a truncation inside a rounded table rather than a
+      wrong quantity.  It is one row and one place.
+
+  WHAT THIS CHANGES
+      D-61: recorded as a disagreeing figure, and it does not
+      survive as one.  The printed value is consistent with the printed inputs.
+      The rest stand as recorded.  Nothing is repaired here.
