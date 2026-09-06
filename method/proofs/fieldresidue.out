@@ -1,0 +1,65 @@
+  THE RESIDUE: SPIN-ORBIT AND CORRELATION ON THE FIELD'S REMOVAL ENERGY, GATED ON THE CORPUS'S OWN MEASUREMENTS
+
+  removal(actual ground) = D_HF + (-DEc_S) + SO(j = l-1/2) [+ term at Pa];  t from each removal energy;  Ha unless marked
+
+  1. THE S FORM'S TABLES  (eps_c^S = eps_ring/2 + eps_2x^scr, from the record's generators)
+     ring constants c0(zeta) at r_s = 0.005, here vs GB-ZETA-RING-23:
+       zeta 0.0: -0.07115  record -0.07115  diff +0.00000
+       zeta 0.4: -0.06824  record -0.06824  diff -0.00000
+       zeta 0.6: -0.06436  record -0.06436  diff -0.00000
+       zeta 0.8: -0.05828  record -0.05828  diff +0.00000
+       zeta 0.9: -0.05399  record -0.05399  diff +0.00000
+       zeta 1.0: -0.04991  record -0.04991  diff -0.00000
+     second-order exchange: integral of g_2b = 0.0239502 Ha (record G-S1 0.0241943; bare E0B 0.0241792); from the S(q) table 0.0239434
+     at r_s = 2, zeta = 0: eps_2x^scr +0.016164, ratio to E0B 0.6685 (record PS-1 0.6747)
+     on the grid at r_s = 1.7783, zeta = 0: eps_ring/2 -0.06454, eps_2x^scr +0.01660, eps_S -0.04794
+
+  2. THE CORRELATED DELTA-SCF AGAINST THE FIVE SEALED ROWS  (O path, HF + S with PZ SIC, f = 1 against f = 0)
+     el  ch     D_HF    DEc here  sealed    diff     D_tot(HF+S)
+     Sc  3d   0.26664  -0.03188  -0.03188  -0.00000   0.29835
+     Y   4d   0.19561  -0.02747  -0.02747  +0.00000   0.22288
+     La  5d   0.20585  -0.02619  -0.02618  -0.00001   0.23183
+     Lu  5d   0.15979  -0.02696  -0.02696  -0.00000   0.18653
+     Cs  6s   0.12779  -0.00675  -0.00675  -0.00000   0.13431
+
+     the Hund construction against the seated member's recorded ground term symbols: 103 of 104; the exception is Z=58 Ce recorded 1G*4, Hund gives 3H4
+
+  3. SPIN-ORBIT: zeta_nl ON THE ENTRANT'S OWN POTENTIAL AGAINST THE STORE'S MEASURED INTERVALS
+     op  el   zeta here (cm-1)  zeta measured  ratio   interval measured (cm-1)
+     3p  Al          68.0           74.7   0.910   112.061
+     4p  Ga         503.4          550.8   0.914   826.19
+     5p  In        1408.6         1475.1   0.955   2212.599
+     6p  Tl        5583.0         5195.1   1.075   7792.7
+     4d  Y          262.4          212.1   1.237   530.351
+     5d  La         572.9          421.3   1.360   1053.164
+     5f  Pa        1631.5   (no measured interval)        open shells: 5f 1631.5, 6d 1490.9
+
+  4. THE REMOVAL ENERGY, FIELD -> CORRECTED -> PREDICTED, AGAINST THE MEASURED LIMIT  (eV)
+     op  el   D_HF   +corr    j-avg meas  diff   |  +SO(+term)  predicted   measured   diff
+     3p  Al   5.489   5.991    5.977   +0.014  |  +0.008       5.999     5.986   +0.014
+     4p  Ga   5.444   5.951    5.931   +0.020  |  +0.062       6.013     5.999   +0.014
+     5p  In   5.125   5.626    5.603   +0.022  |  +0.175       5.800     5.786   +0.014
+     6p  Tl   4.880   5.369    5.464   -0.095  |  +0.692       6.061     6.108   -0.047
+     4d  Y    5.323   6.065    6.178   -0.113  |  +0.049       6.114     6.217   -0.104
+     5d  La   5.601   6.308    6.415   -0.107  |  +0.107       6.415     6.494   -0.079
+     5f  Pa   4.913   5.798        --        --    |  +1.151       6.949      (no anchor)
+
+     WITHOUT the term correction (the one piece no anchored opening tests): removal 5.849 eV, t = 2.5437 (+3.8 %)
+     protactinium in detail (Ha): D_HF +0.18054, DEc -0.03270, D_tot +0.21305; term neutral -0.05991 ion -0.01949 -> +0.04042; SO neutral -0.02900 ion -0.02712 -> +0.00188; predicted +0.25536 = 6.949 eV
+       zetas (cm-1): neutral 5f 1631.5, 6d 1490.9; ion 5f 1848.0, 6d 2188.5
+
+  5. THE ENTRY POINT ON EACH REMOVAL ENERGY  (t; t/form in brackets)
+     op  el   field          +corr (j-avg)   predicted       measured j-avg   measured actual
+     3p  Al  1.0436 (1.0436)  1.0930 (1.0930)  1.0937 (1.0937)  1.0916 (1.0916)  1.0925 (1.0925)
+     4p  Ga  1.0020 (1.0020)  1.0305 (1.0305)  1.0338 (1.0338)  1.0295 (1.0295)  1.0331 (1.0331)
+     5p  In  0.9730 (0.9730)  1.0034 (1.0034)  1.0131 (1.0131)  1.0022 (1.0022)  1.0124 (1.0124)
+     6p  Tl  0.9513 (0.9513)  0.9831 (0.9831)  1.0213 (1.0213)  0.9888 (0.9888)  1.0237 (1.0237)
+     4d  Y   1.7578 (1.0149)  1.8317 (1.0576)  1.8361 (1.0601)  1.8418 (1.0634)  1.8453 (1.0654)
+     5d  La  1.7264 (0.9967)  1.7900 (1.0334)  1.7986 (1.0384)  1.7987 (1.0385)  1.8049 (1.0421)
+     5f  Pa  2.4420 (0.9969)  2.5388 (1.0365)  2.6359 (1.0761)        --                --        
+
+     by l, mean of t/form:
+       p on 4: field 0.9925 (-0.75 %)   +corr 1.0275 (+2.75 %)   predicted 1.0405 (+4.05 %)   measured 1.0404 (+4.04 %)
+       d on 2: field 1.0058 (+0.58 %)   +corr 1.0455 (+4.55 %)   predicted 1.0493 (+4.93 %)   measured 1.0537 (+5.37 %)
+       f on 1: field 0.9969 (-0.31 %)   +corr 1.0365 (+3.65 %)   predicted 1.0761 (+7.61 %)   measured --
+

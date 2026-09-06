@@ -1,4 +1,4 @@
-# FINDING R4-14 — the 5f binding energy at protactinium is in the corpus, its producer runs again from the repository, and with the entrant's own electron the entry point sits at √(ℓ(ℓ+1)/2) within one percent at p, d and f alike. NOT REPAIRED.
+# FINDING R4-14 — the 5f binding energy at protactinium is in the corpus, and its producer runs again from the repository. **The rest of the title, *"and with the entrant's own electron the entry point sits at √(ℓ(ℓ+1)/2) within one percent at p, d and f alike"*, is WITHDRAWN by FINDING-R4-15 — see the foot of this file.** NOT REPAIRED.
 
 Measured 6 September 2026, on M's direction: *"I'm certain that we can produce exactly what we are
 looking for and prove it with everything we have avail to us … remember that one of the laws of a
@@ -165,3 +165,28 @@ on the withdrawn channel equation"*) and is recorded here, not used.
 
 Nothing is repaired. Every figure here is MEASURED by the instrument or RECORD-CARRIED with its
 quote; the two RECONSTRUCTED items are named as such and gated on nine reproductions.
+
+---
+
+## WITHDRAWN IN ITS HEADLINE, same day, by FINDING-R4-15
+
+**Section 4's result — *"with the entrant's own electron the entry point sits at √(ℓ(ℓ+1)/2) within a percent at
+p, d and f alike"* (p −0.75 %, d +0.58 %, f −0.30 %) — is withdrawn.** It read t on the bare field, and the bare
+field is wrong by half an electron-volt: it has no correlation and no spin–orbit, and R4-14 §5 said so in its own
+words while still reading t from it. **That half-electron-volt is the same size as the law's excess and of the
+opposite sign, so the agreement was an error cancelling an excess.**
+
+R4-15 corrects the field with the corpus's own instruments — the standing correlation form S and session 94's
+spin–orbit term, no fitted constant — and gates the result on the corpus's own measured removal energies, where it
+lands to **+0.50, +0.52, +0.52 mHa** at 3p, 4p and 5p. On that corrected object the excess returns and is the
+measured one: **p +4.05 %, d +4.93 %, f +7.61 %**, against measured p +4.04 % and d +5.37 %.
+
+**What survives, and it is most of the file.** The 5f binding energy at protactinium is in the corpus (§1); the
+sealed chain's producer runs again and reproduces nine sealed rows (§2); 3p at Al and 6p at Tl were measured for
+the first time (§3); the chain's Pa row and the atom's Pa row are different quantities (§3). Those stand. What
+falls is the reading of t from an uncorrected field, and with it §5's account of the shortfall as *"a limit of
+the measurement rather than of the law"* — it was a limit of the field, and the field has now been corrected.
+
+**Third correction of the same shape in this pass**, and the rule earned is sharper than "search the record
+first": **a quantity computed from an object whose known error is the size of the effect cannot test the effect.**
+R4-14 knew the field lacked correlation and spin–orbit, wrote it down, and read t anyway.
