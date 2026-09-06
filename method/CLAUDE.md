@@ -63,26 +63,55 @@ no longer on the read path.
 - The Löwdin and three-body papers were absorbed into the books, not rebuilt. **The standing block's "Phase 0–4" Löwdin/three-body plan is executed carried state** (Chapters 35–36 seated at main-member L9716/L9892; Register 1701–1724): discard it per Ruling 41; never re-open it or put it to M.
 - This project is for constructing the drafts. Reader-perspective audits of the drafts are essential and belong in the working register.
 
-## 3. Current state (live files as of chat 153's close, MEASURED in the repo)
+## 3. Current state (live files as of W-239, MEASURED in the repo on 6 September 2026)
 
-- Live files, both in `method/` and asserted by `method/verify.py`: **BUILD94 main** (1,989,847 B · 6079e066b5e480db6c47f754660a9b6e · 18,505 lines · 2 members) and **BUILD194 compendia** (6,684,656 B · d7f362b32f7caa0158ef4c20ea6b6620 · 75,810 lines · 425 members). 427 members in all. **Register 1 to 1800. W-202 seated**, 203 W entries.
-- **R3 IS OPEN and its first two classes are executed** (chat 153, on M's word). `r3-wl2` re-took the withdrawn-law class at entries **1798–1799** (BUILD92 → BUILD93), leaving 1797 to the staged `audit_math.py`; `r3-arith-01` corrected the Mathematical Compendium's *146 of 163 = 92%* to **90%** at entry **1800** (BUILD93 → BUILD94 main, BUILD191 → BUILD192 compendia). Both under **Ruling A — the entries stand, the repair waits**: no count site touched, no `kinds.py --write`. The kinds table now prints *a correction* 149 where `kinds.py` counts 156, **stale by seven**; reg1-04 widens again and R3 repairs it with its class.
-- **BUILD92 is the first main build since chat 62**, and it is what tested an assumption the whole store rested on. It seats Register entries **1793–1796** under M's ruling, `close_main.py` run **without `--recount`** so the front and back matter counts are untouched. **reg1-04 WIDENS: the front matter was stale by one entry, and is now stale by five.** That is the price of the ruling and it is recorded, not softened. Chat 152's BUILD91 is retired; the main line skips 91 so no two bundles share a name.
-- **Three collisions on 3 September, all ruled by M and all closed.** (i) **There is no chat 153** — chat 152's own entry mislabelled itself; the entry is carried **verbatim** at W-195 with the correction in the framing above it. (ii) **W-190 and BUILD181 were spent twice**, by 151-B and 152, both descending from BUILD180 `ea5becc4…`; the Drive chain keeps the numbers. (iii) **Register entries 1793/1794 were claimed twice**, by chat 152's Λ findings and by `r3-wl` (approved at chat 128); the Λ findings keep them and **`r3-wl` re-takes**.
-- **THE §0 GATE'S MANIFEST STEP MUST NAME THE MAIN BUNDLE.** `gate.py`'s `MAIN` constant still says BUILD90; it is a **default**, and line 42 takes `--main`. Run `gate.py manifest --main ../The_Method_1_6_BUILD92_main_and_register.md` — **OK, 423 listed / 424 extracted**. (Line 37 already resolves the compendia bundle by glob: the same file holds both the right pattern and the wrong one.)
-- **KNOWN RED, and it is now 56, not three. `gate.py run --all` on BUILD94/BUILD194 is 16 OK.** `r3-wl2`'s seven-line insertion at §34.4 moved **every main-volume line from 9608 by +8**, and the instrument estate was built against fixed line numbers while the volumes were frozen from chat 62. MEASURED by `shiftcheck.py` (seated this close): **UNCHANGED 16, EXPLAINED 14 (re-banked at BUILD194), UNEXPLAINED 44, UNRUNNABLE 12.** The 56 are **readings, not re-banks** — `close_rebank.py` refuses a non-zero exit, and re-banking a mis-targeted instrument banks its wrong reading and the gate then reports it green forever. `r3-wl2` is delivered; `r2-regsweep2` and `r2-26b2` remain owed. **Extent is data.** DEF-153B carries the whole finding.
-- **`shiftcheck.py` is the guard that makes R3 affordable, and it must be run before any re-bank.** It asks, per changed line, whether the change is accounted for by a reason **declared on the command line** — `--shift PIVOT:DELTA:MAX`, bounded above so byte counts and md5 fragments are not silently explained, and `--subst OLD=NEW`. EXPLAINED means a mechanical re-bank is provably safe; UNEXPLAINED and UNRUNNABLE are readings. It errs toward UNEXPLAINED: a numeric window cannot tell a main-volume line from a same-range number in another file (`r2-ch16x`'s *PP lines: 11372*), so it costs reading, never silence. **An EXPLAINED verdict is only as good as its declared reasons, and every one is printed in the report.**
-- **Three build routes exist that did not before, all because the volumes moved for the first time**: `close_main.py` (chat 152) for a Register entry, `close_rebank.py` for a golden, `close_census.py` for a derived member. Each **runs the producer** rather than trusting a copy, asserts its change set, and reverse-guards to its predecessor's md5. `close_census.py`'s central guard is **id stability** — census ids are addresses cited by every `CENSUS-CLOSURES-*.tsv`, so it refuses unless every id survives with its class, volume and line and new ids run contiguously above the old maximum. Measured at BUILD190: **1,556 → 1,557 rows, no id lost, none moved, 1,553 byte-identical.**
-- **Census 1557 is a defect this chain created and named itself**: `C13-HANDLE-LEAK` at reg L6626 — entry **1796 prints `BUILD180`** in a reader-facing volume. Closed as a defect on the standing ruling (26b-10 / ruling 46 / docket 28; precedents 1536, 1556). No new ruling made or needed.
-- **Drive stands at BUILD184 + BUILD90 main; this tree at BUILD194 / BUILD94. RECONCILED IN PART, on M's ruling, chat 153.** Drive **is** reachable from a Claude Code session, so chat 153 was the reconciling session under M's hybrid ruling. **The pointer half is done:** `RECONCILE-153-STORE-STATE.md` (6,171 B, fileId `1X-APVqUbONNVInje2j2Vboa8i3hc4hin`) is in Materials and states the store head with md5s, the verified-linear chain BUILD184 → 185 → … → 191 → 194, that Drive lacks Register entries 1793–1800, and — first line — **that no chat may open from Drive's BUILD184 + BUILD90.** Drive's BUILD184 is byte-identical in size to the repository's copy (5,977,919 B, md5 `d4350094449e3a4bf488315e21199bd4`), which is what makes the chain checkable.
-- **The transfer half is NOT done, and the shortfall is named.** The Drive connector takes content **inline only** — it must pass through the model's context — and the BUILD184 → BUILD194 delta is ~700 KB of bundle, ~930 KB base64. It was **not attempted rather than attempted badly**, the standing rule being *never hand-transcribe base64*. It wants a Cowork session with the `BUILDNNN-PARTS` + `REBUILD-BUILDNNN.md` derivation machinery, or M copying the two files directly, or Cowork regaining GitHub access, which retires the split.
-- Next work: **the 56 readings** (44 UNEXPLAINED, 12 UNRUNNABLE) before any further R3 class lands — the pattern is small and confirmed, `r2-ch17e` hard-codes `L11832 is R.7` in a printed string while computing the position correctly elsewhere, and a successor must reproduce its predecessor's banked output **byte-exact on the pre-shift bundle** before being trusted on the new one (G0c). Then **DEF-152 items 1–9**; then **R2's four remaining compendia by class sweep** (Mathematical, Physics, Index of Indices, Spectra) — the Register leg is discharged. **DEF-143 item 11's order is empty.** `R3-CLASS-EM.md` remains specified and held. **R3-CLASS-EM must not be applied until a checker is seated into the gate** — entry 1617 made that repair once and it did not hold, because `register_review.py` never became a member (reg13-01). Register entry **1797** is staged and not seated, in `method/REGISTER-QUEUE-APPEND-cypher-audit.md`, with `tools/audit_math.py`.
-
-- The R2 read-position line below is carried from chat 76 and has NOT been re-measured; confirm it from WORKING-REGISTER.md before relying on it.
-- **Full hold (chat 67 ruling):** every volume is read in full; no editing, no corrections, no Register entries, no TASK 1 until the review closes. Findings are identified and recorded, never repaired as found. Repairs are Phase R3, by error class, with guarded builds and Register entries.
-- The review plan: R1 instrumented census → **R2 full read in source order (in progress: next §12.11.1.1, main L3177)** → R3 corrections by class → R4 cross-volume audit. Then the compendium task line: renumber → bibliography → Register expansions → main-volume prose.
-- Governing members (read at every open): `RULINGS-R2.md` (rulings, append-only), `DEFERRED.md` (cross-chapter items, append-only; do not re-derive), the READ-chNN.md members and W-101… in WORKING-REGISTER.md (findings; never restated in handoffs).
-
+- **This section was rewritten on M's order of 6 September 2026** (*"yes. reassess R3 in full"*) because it had
+  gone sixteen main builds and thirty-eight compendia builds out of date and named instruments and gate steps the
+  store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
+  is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
+  kept current with the store; where it and §6 below differ, README governs.
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD110 main** (2,054,674 B ·
+  `e1264def2a04df9ac010db3f0ea90953` · 18,692 lines · 2 members) and **BUILD232 compendia** (15,170,136 B ·
+  `199df6336b30801dfe6567c39cd98485` · 123,726 lines · 665 members). **667 members in all.** **The Register runs
+  1 to 1835, 1,677 seated** (1,670 numbered + 7 grouped). **W-239 seated.**
+- **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 6 September: `python3 method/verify.py`
+  VERIFY OK (667 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
+  `gate.py manifest --main ../The_Method_1_6_BUILD110_main_and_register.md` **OK**, 666 listed / 668 extracted;
+  `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,609 rows, 2 carried retired, 1,607
+  regenerated exactly, 0 NEW, 0 GONE, md5 `4742c83a4dcf7d9eb1af0ee27e6b020d` equal to the seated member);
+  `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL**.
+- **THE OLD "56 READINGS" ARE EIGHT HELD INSTRUMENTS, EACH WITH A STATED REASON**, and the sentence this section
+  used to carry — *"KNOWN RED, and it is now 56, not three"* — is closed. Held: `r2-26b` (UNRUNNABLE, successor
+  `r2-26b2` owed), `r2-ch18b` · `r2-ch23a` · `r2-ch23b` · `r2-ch28a` (readings, not re-banks, DEF-153B),
+  `r2-reg11a2` · `r2-reg12b` (census rows keyed by Register line, W-224), `r3-wl` (re-taken by `r3-wl2`).
+  `tools/gate_live.py --list` prints the live set and the reason every other golden is left out; the superseded
+  predecessors stay seated and red by design until the archive pass (Phase 0 ruling 13).
+- **THE GATE'S OWN TOOLS HAVE MOVED, and this section named the retired ones.** `gate.py census` **stays red by
+  construction** — the live census step is `tools/gate_live.py --census`. `gate.py run --all` reports nothing the
+  held list does not; `tools/gate_live.py` is the live walk. `shiftcheck.py` **cannot sort a Register-line shift**
+  (132 of 136 UNEXPLAINED at W-234) and is superseded for that job by `tools/shiftinv.py`,
+  `tools/shiftcheck2.py`, `tools/reanchor.py` and `tools/proveanchor.py`. `r2-28b3.py` sits in `members/` in no
+  bundle, superseded by `r2-28b4`, left in place by ruling.
+- **R3 IS COMPLETE, and its successor is approved and seated.** DEF-152's ten items (entries 1807–1813), the
+  withdrawn-law and arithmetic classes (1798–1800), reg1-04 repaired with its class (1815), the positional class
+  closed by generator (forty-four successors proved byte-exact), **Q5 in full** (1821–1835, every figure
+  re-derived by a standard-library instrument before its entry was written), the census made content-keyed
+  (`census2.py`, `close_census2.py`), and every tool in the repository seated as a member (W-236). The running
+  account is `DEF-153O-PENDING.md`.
+- **The successor framework is `PLAN-R4-PUBLICATION.md`** — approved by M on 5 September and seated at W-239, with
+  `PLAN-R4-ANNEX.tsv` (800 rows, 731 open at the survey) as its inventory and `RULINGS-R4.md` as its rulings.
+  Eight phases; ten of the fifteen Phase 0 rulings given, **five outstanding and named rather than inferred**:
+  3 (the nine heading-only sections, which only M can author or withdraw), 4 (entry 1797, seat or withdraw),
+  6 (the language roster, dockets 20x-04 / 20x-09), 7 (the retraction and prose-only triage). **Phase 1 (the
+  mathematics leg) and Phase 5 (the census) open on the rulings given.**
+- **OWED, AND IT IS THE FIRST THING: five ruling documents are not in the store.** `RULINGS-R4b.md` through
+  `RULINGS-R4f.md` carry M's rulings from five later sittings and exist only as working files — a chat opening by
+  the §0 gate reads `RULINGS-R2.md` and `RULINGS-R4.md` and does not see them. `SETTLED-R4.tsv` (134 rows) and
+  `FINDING-R4-01` … `FINDING-R4-23` are unseated with them; whether the findings are seated is M's ruling.
+  **Seating the rulings comes before any phase work**, on the store's own precedent that a governing document the
+  store does not carry does not hold (reg13-01, entry 1617).
+- **Drive stands at BUILD184 + BUILD90 and is reconciled once at the end**, not per build (Phase 0 ruling 15).
+  `RECONCILE-153-STORE-STATE.md` in Materials states the store head and forbids opening a chat from Drive's pair.
 ## 4. Rulings in force
 
 - Chat 67: every volume read in full, no editing until the review closes.
