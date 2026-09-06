@@ -39,6 +39,10 @@ FINDINGS = [
   "warp state exists: 4 energy conditions positive, interior frame boosted 0.040000 c"),
  ("T2-ADM",       0, -1, -1, "TARGET-1-RESULT.md",
   "P_ADM = 0 exactly and M_ADM constant across v: the structure cannot translate"),
+ ("RELAX-OK",     0, +1, +1, "residue.py",
+  "relaxation permits the flow and the switching: launch is 0.256 dynamical times"),
+ ("NO-BORE",       0, -1, -1, "residue.py",
+  "a bore closes 100x over before a payload crosses: the gate cannot be loaded"),
  ("NO-PORTAL",   -1, -1,  0, "launcher.py",
   "topological censorship: ANEC forbids any shortcut, so no portal either"),
  ("SSV-NOGO",    -1, -1,  0, "WARP-DRIVE.md",
@@ -174,7 +178,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 19)
+    chk("number of findings indexed", len(FINDINGS), 21)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 11)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
