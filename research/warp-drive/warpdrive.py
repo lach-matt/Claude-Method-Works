@@ -575,6 +575,83 @@ def flux_per_shift(scale=1.0):
     """|f|/rho divided by vWarp -- constant if the shift enters linearly."""
     return [(v, r/v) for v, _, r, *_ in MEASURED[scale] if v > 0]
 
+# ------------------------------------- the fill sweep, measured rather than computed
+#
+# SHELL-PROFILE.md section 5 computed the velocity ceiling against horizon fill and
+# found it nearly flat -- 0.0554 to 0.0596 c across fill 0.1 to 0.9 -- and concluded
+# "minimise the fill fraction".  That computation held the flux-per-shift constant.
+# It is not constant: a lighter shell has proportionally less energy density, so the
+# SAME shift produces a much larger flux RELATIVE to rho.  Measured, k ~ 1/fill, and
+# the design rule inverts.
+#
+# columns: fill, m [kg], rho_max [J/m^3], floor/rho, k = (|f|/rho)/vWarp, v_crit
+
+FILL_MEASURED = [
+ (0.100, 6.7330e26, 2.0415e39, 1.50e-4, 89.551, 0.00583),
+ (0.200, 1.3466e27, 4.0832e39, 1.44e-4, 45.416, 0.00986),
+ (0.300, 2.0199e27, 6.1251e39, 1.37e-4, 30.775, 0.01331),
+ (0.400, 2.6932e27, 8.1672e39, 1.31e-4, 23.512, 0.01623),
+ (0.500, 3.3665e27, 1.0210e40, 1.25e-4, 19.208, 0.01871),
+ (0.667, 4.4909e27, 1.3623e40, 1.42e-4, 15.013, 0.02276),
+ (0.800, 5.3864e27, 1.6342e40, 1.77e-4, 13.037, 0.02542),
+ (0.900, 6.0597e27, 1.8388e40, 2.07e-4, 12.016, 0.02768),
+]
+
+def fill_threshold_flux(row):
+    """The measured flux ratio at which the NEC fails, for one fill."""
+    fill, m, rho, fl, k, vc = row
+    return k * vc
+
+def fill_k_times_fill(row):
+    """k * fill -- constant if the flux is set by the shift and not by the mass."""
+    return row[4] * row[0]
+
+def min_fill_for(v_target):
+    """The design rule, corrected: fill is SET by the target speed, not free to
+    minimise.  Linear interpolation on the measured curve."""
+    pts = [(r[0], r[5]) for r in FILL_MEASURED]
+    if v_target <= pts[0][1]: return pts[0][0]
+    if v_target > pts[-1][1]: return None
+    for (f0, v0), (f1, v1) in zip(pts, pts[1:]):
+        if v0 <= v_target <= v1:
+            return f0 + (f1 - f0) * (v_target - v0) / (v1 - v0)
+    return None
+
+# ------------------------------------------ where the NEC fails, and on what test
+#
+# Measured at fill 0.667, vWarp = 0.03, dx = 1.0 m.  Everything below is read out
+# of Warp Factory at the grid point where its own null map is minimal.
+
+LOCUS = dict(
+    vwarp=0.030, null_min=-1.0889e39,
+    x=0.50, y=12.50, r=12.51,            # metres from the shell centre
+    rho=1.2111e40,
+    f_x=6.1500e39, f_y=-1.8817e38,
+    p_x=5.7617e38, p_y=9.9484e38, p_z=6.6025e38,
+    s_xy=7.0332e36,
+    g_tt=-0.590974, g_tx=-0.027203, g_xx=1.000116, g_yy=1.072389,
+    max_knorm=0.4937,                    # max |g_uv k^u k^v| over the sampled dirs
+)
+
+def locus_ratios():
+    L = LOCUS; r = L['rho']
+    return dict(f_x=L['f_x']/r, p_x=L['p_x']/r, p_y=L['p_y']/r, p_z=L['p_z']/r,
+                closed_form=(r + L['p_x'] - 2*abs(L['f_x']))/r)
+
+def lapse_at_locus():
+    """alpha^2 = -g_tt + beta_i beta^i, with beta^x = -g_tx/g_xx."""
+    L = LOCUS
+    bx = -L['g_tx']/L['g_xx']
+    return (-L['g_tt'] + bx*bx*L['g_xx']) ** 0.5
+
+def sampled_vector_norm(theta_deg):
+    """g_uv k^u k^v for k = (1, cos t, sin t, 0) at the locus.  Zero would mean the
+    vector Warp Factory samples is genuinely null here."""
+    import math
+    L = LOCUS; t = math.radians(theta_deg)
+    nx, ny = math.cos(t), math.sin(t)
+    return (L['g_tt'] + 2*L['g_tx']*nx + L['g_xx']*nx*nx + L['g_yy']*ny*ny)
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -1038,6 +1115,100 @@ def report():
         p('        %-40s %10.4f %7.2f x' % (nm, pred, pred/t2))
     p('        %-40s %10.4f %8s' % ('MEASURED', t2, '-'))
     p()
+    p('  THE FILL SWEEP, MEASURED -- AND THE DESIGN RULE INVERTS')
+    p('  ' + '-' * 68)
+    p('    %-7s %11s %11s %9s %9s %9s %10s'
+      % ('fill', 'm [kg]', 'rho_max', 'k', 'k*fill', 'v_crit', 'f/rho @ vc'))
+    for r in FILL_MEASURED:
+        p('    %-7.3f %11.4e %11.4e %9.3f %9.3f %9.5f %10.4f'
+          % (r[0], r[1], r[2], r[4], fill_k_times_fill(r), r[5], fill_threshold_flux(r)))
+    p()
+    p('    [1] k*fill is nearly constant (%.2f to %.2f), so the momentum flux is set'
+      % (fill_k_times_fill(FILL_MEASURED[0]), fill_k_times_fill(FILL_MEASURED[-1])))
+    p('        by the SHIFT and not by the mass, while rho scales with the mass.')
+    p('        Hence k ~ 1/fill.  SHELL-PROFILE.md held k fixed, and that is the error.')
+    p()
+    lo, hi = FILL_MEASURED[0], FILL_MEASURED[-1]
+    p('    [2] THE CEILING IS NOT FLAT IN FILL.')
+    p('        computed  (SHELL-PROFILE.md 5)   0.0554 -> 0.0596 c    a 7 % rise')
+    p('        measured                         %.4f -> %.4f c    a %.1f x rise'
+      % (lo[5], hi[5], hi[5]/lo[5]))
+    p('        Nine times the mass buys %.1f times the speed, not seven per cent.'
+      % (hi[5]/lo[5]))
+    p()
+    p('    [3] So "minimise the fill fraction" is WRONG, and its opposite is not right')
+    p('        either.  Fill is SET by the speed you need:')
+    p('        %-16s %12s %14s' % ('target speed', 'min fill', 'shell mass [kg]'))
+    for vt in (0.006, 0.010, 0.015, 0.020, 0.0218, 0.025):
+        f = min_fill_for(vt)
+        if f is None:
+            p('        %-16.4f %12s %14s' % (vt, 'unreachable', '-')); continue
+        p('        %-16.4f %12.3f %14.4e' % (vt, f, f * 10.0 * C*C / (2*G)))
+    p()
+    p('    [4] The closed form is the LOW-COMPACTNESS LIMIT, and it has the trend')
+    p('        backwards.  Predicted threshold flux against measured:')
+    p('        %-8s %14s %14s %10s' % ('fill', 'closed form', 'measured', 'error'))
+    for r, pred in zip(FILL_MEASURED, (0.5027, 0.5056, 0.5089, 0.5126, 0.5168,
+                                       0.5252, 0.5335, 0.5412)):
+        meas = fill_threshold_flux(r)
+        p('        %-8.3f %14.4f %14.4f %9.0f %%'
+          % (r[0], pred, meas, 100*(pred/meas - 1)))
+    p('        Nearly exact at fill 0.1 and 63 % high at 0.9 -- and it RISES where the')
+    p('        measurement FALLS.  It captures the pressureless limit and misses')
+    p('        whatever grows with compactness.')
+    p()
+    p('  WHERE IT FAILS, AND ON WHAT TEST')
+    p('  ' + '-' * 68)
+    L, R = LOCUS, locus_ratios()
+    p('    At fill 0.667, vWarp = 0.030, the minimum of Warp Factory\'s null map is at')
+    p('        x = %+.2f  y = %+.2f   r = %.2f m' % (L['x'], L['y'], L['r']))
+    p('    which is NOT mid-shell (15 m) and NOT on the axis of motion.  It is near')
+    p('    the inner wall, on the transverse axis.')
+    p()
+    p('        %-24s %14s %10s' % ('', 'value', 'per rho'))
+    p('        %-24s %14.4e %10s' % ('energy density', L['rho'], '1.0000'))
+    p('        %-24s %14.4e %10.4f' % ('momentum flux f_x', L['f_x'], R['f_x']))
+    p('        %-24s %14.4e %10.4f' % ('pressure p_x', L['p_x'], R['p_x']))
+    p('        %-24s %14.4e %10.4f' % ('pressure p_y', L['p_y'], R['p_y']))
+    p()
+    p('    [1] The binding point has high flux AND below-peak density at once.')
+    p('        global max |f| / global max rho          %10.4f' % 0.4514)
+    p('        LOCAL f_x / rho at the failure point     %10.4f' % R['f_x'])
+    p('        SHIFT-CEILING.md applied the bound to global maxima, which understates')
+    p('        the local stress by %.0f %%.  That is most of the gap.'
+      % (100*(R['f_x']/0.4514 - 1)))
+    p()
+    p('    [2] But not all of it.  The closed form evaluated POINTWISE at the locus:')
+    p('        (rho + p_x - 2|f_x|)/rho                 %+10.4f  -> still SAFE'
+      % R['closed_form'])
+    p('        So the bound does not account for the violation even locally, and the')
+    p('        residual is NOT explained here.')
+    p()
+    p('    [3] A candidate, measured rather than assumed.  Warp Factory contracts the')
+    p('        covariant tensor with k = (1, n_hat) built in the COORDINATE basis.')
+    p('        Those vectors are null in Minkowski.  At this locus the metric is not')
+    p('        Minkowski:')
+    p('            g_tt %+.6f   g_tx %+.6f   g_xx %+.6f   g_yy %+.6f'
+      % (L['g_tt'], L['g_tx'], L['g_xx'], L['g_yy']))
+    p('            lapse alpha                          %10.4f' % lapse_at_locus())
+    p('            max |g_uv k^u k^v| over sampled dirs %10.4f' % L['max_knorm'])
+    for th in (0, 90):
+        p('            g(k,k) at theta = %-3d deg            %+10.4f   (%s)'
+          % (th, sampled_vector_norm(th),
+             'spacelike' if sampled_vector_norm(th) > 0 else 'timelike'))
+    p()
+    p('        The sampled vectors are SPACELIKE here, not null, because the lapse is')
+    p('        %.2f rather than 1.  Whether that shifts the reported minimum, and by' % lapse_at_locus())
+    p('        how much, is NOT settled here -- it is a question for the authors.')
+    p()
+    p('    [4] What this does and does not qualify.')
+    p('        ROBUST: by Warp Factory\'s own diagnostic, beta = 0.02 passes and')
+    p('        beta = 0.04 fails, threshold 0.0218.  Their table 1 operating point')
+    p('        fails their own test.  That comparison uses one instrument throughout.')
+    p('        QUALIFIED: whether 0.0218 is the true NEC ceiling depends on the')
+    p('        diagnostic being the NEC, and the sampled vectors are measurably not')
+    p('        null in this metric.')
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -1173,6 +1344,27 @@ def selftest():
     chk('published 0.02 is inside the measured ceiling',
         0.020 < measured_threshold(2.0), True)
     chk('table 1 0.04 is outside it', 0.040 > measured_threshold(2.0), True)
+    # the measured fill sweep
+    chk('k*fill is constant to within 25 %',
+        max(fill_k_times_fill(r) for r in FILL_MEASURED) /
+        min(fill_k_times_fill(r) for r in FILL_MEASURED) < 1.25, True)
+    chk('the ceiling rises steeply with fill, not 7 %',
+        FILL_MEASURED[-1][5] / FILL_MEASURED[0][5] > 4.0, True)
+    chk('threshold flux FALLS with fill (closed form says rises)',
+        fill_threshold_flux(FILL_MEASURED[0]) > fill_threshold_flux(FILL_MEASURED[-1]), True)
+    chk('closed form is near-exact at low fill',
+        abs(0.5027/fill_threshold_flux(FILL_MEASURED[0]) - 1) < 0.05, True)
+    chk('fill sweep reproduces the fine threshold at 0.667 within 5 %',
+        abs(FILL_MEASURED[5][5]/measured_threshold(2.0) - 1) < 0.05, True)
+    # the locus, and the diagnostic
+    chk('failure locus is inner-shell, not mid-shell', LOCUS['r'] < 14.0, True)
+    chk('failure locus is off the axis of motion', abs(LOCUS['y']) > abs(LOCUS['x']), True)
+    chk('local flux ratio exceeds the global one', locus_ratios()['f_x'] > 0.4514, True)
+    chk('closed form still predicts safe at the locus',
+        locus_ratios()['closed_form'] > 0, True)
+    chk('lapse at the locus is well below 1', lapse_at_locus() < 0.8, True)
+    chk('sampled vectors are spacelike there, not null',
+        (sampled_vector_norm(0) > 0, sampled_vector_norm(90) > 0), (True, True))
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()

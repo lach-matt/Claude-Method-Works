@@ -8,6 +8,13 @@ unaltered; both states stand.
 
 > **Scope.** Writes nothing into `method/` or `drive/`.
 
+> **§5's design rule is OVERTURNED, 2026-09-06.** `WHAT-BINDS.md` runs the fill sweep through Warp
+> Factory. The velocity ceiling is **not** nearly flat in fill: it rises **4.7x** across 0.1 to 0.9,
+> not 7 %. §5 held the flux-per-shift constant across fills; measured, it runs as 1/fill, because
+> the flux is set by the shift while the density scales with the mass. **"Minimise the fill
+> fraction" is withdrawn** — fill is set by the target speed. The pressure reconstruction of §2-3
+> stands and is independently confirmed.
+
 > **Superseded again, 2026-09-06.** `MEASURED.md` runs Warp Factory and measures the ceiling at
 > **0.0218 c**; this paper's 0.0579 c over-estimates by 2.67x. Its pressure reconstruction is
 > independently confirmed there ($\rho_{max} = 1.36\times10^{40}$ measured against 1.376 computed).

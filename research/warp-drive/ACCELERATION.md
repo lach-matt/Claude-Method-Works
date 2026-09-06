@@ -7,6 +7,13 @@ Sixth of six. Reads on `WARP-DRIVE.md` §5 and `SHELL-PROFILE.md` §5.
 
 > **Scope.** Writes nothing into `method/` or `drive/`.
 
+> **§3 is WITHDRAWN, 2026-09-06.** It prices a fill-0.1 shell at 4.6 Earth masses of propellant
+> against 30.7 and calls it "a 6.67x saving for five per cent of the top speed". The five per cent
+> was a 74 % loss: `WHAT-BINDS.md` measures that shell's ceiling at **0.0058 c**, not 0.055 c. The
+> propellant saving is real and buys a far slower ship; read the trade off `WHAT-BINDS.md` §1.4
+> instead. **Everything else here stands** — the ADM conservation argument, the photon-rocket floor
+> of 30.7 Earth masses, and the 4.5e21 multiplier are untouched.
+
 ---
 
 ## Abstract
