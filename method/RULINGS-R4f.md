@@ -134,3 +134,28 @@ t(5f) = 2.636 — the object's prediction carrying the single-entrant class resi
 `FINDING-R4-16`'s 7.05–7.08 withdrawn as double-counting a term form S already approximates. What remains open is
 a different object and was never protactinium's: the compact-shell corridor at ytterbium, which the record left
 open and which this pass has sharpened rather than solved.
+
+---
+
+## 7. Ruling 8(a), discharged
+
+**The g_2b quadrature is repaired, converged and proven** (`FINDING-R4-20`, `method/proofs/soxquad.py`).
+
+**And the finding is about the recovered text, not the record.** `recovered/sox_qres.py` is the snapshot from
+before the record's own numerical fix — `FINDING-SOSEX-SESSION-32` names the fault and the cure in one sentence,
+and the recovered file's own line-33 comment documents the fault it was about to lose. The 1 % was a limit of
+what the chat export carried.
+
+Implemented from the record's sentence, over the recovered `rho_q` called verbatim, the fix reproduces the
+record's sealed golden — **0.0293844 against gate (51)'s 0.0293843**, with nothing fitted to it — and lands
+G-S1 on the exactly known Onsager–Mittag–Stephen constant at **+0.047 %**, closer than the record's own gate
+(+0.062 %), whose residual is now identified as its `NZ = NU = 80` lens mesh. PS-1, a screened quantity and so an
+independent functional of the same g_2b, reproduces the record at **both** spins to −0.05 %.
+
+**Carried through the object, the repair costs nothing** — the five sealed rows move ≤ 0.005 mHa, protactinium
+6.949 → 6.948 eV, t(5f) = 2.6359 unchanged, the ladder ≤ 0.07 mHa. **Every figure of `FINDING-R4-15` through
+`R4-19` stands**, and R4-15's claim that the deficit cost nothing is now established by measurement rather than
+inference. One attribution in `R4-19` §4 is corrected: mercury, not gallium, is the ladder's worst row; the
+0.018 Ha bound it quoted was mercury's number and is unchanged.
+
+**Ruling 8(b) and 8(c) remain the standing work**, in §5's order: the spin–orbit ζ, and `t7c_cuaudit.py`.

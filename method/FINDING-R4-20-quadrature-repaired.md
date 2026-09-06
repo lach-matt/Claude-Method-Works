@@ -4,12 +4,9 @@ Measured 6 September 2026 on M's ruling 8: *"they are all work. they must be rep
 verified/proven completely."* Item (a) was *"the g_2b quadrature runs 1.0 % low at the recovered defaults —
 converge it."*
 
-`method/proofs/soxquad.py` (new), banked `soxquad-converge.json` and `soxquad-table.json`.
-
-> **IN FLIGHT at this commit.** §1–§5 are complete and measured. §6, §7 and the selftest count wait on two runs
-> still computing: the converged 130-point g_2b table at the production mesh, and the rebuild of the S-form
-> tables and the object's twenty rows through it. **Nothing here is quoted as settled until they land** — this
-> file is committed in this state so the instrument and its measurements are not held unbanked.
+`method/proofs/soxquad.py` (new), banked `soxquad-converge.json` and `soxquad-table.json`, with the S-form tables
+and all twenty rows of `fieldresidue.py` rebuilt through it. **Selftest 12 of 12 (soxquad), 106 of 106
+(fieldresidue).**
 
 ## 1. The fault is the record's own, and the record had already fixed it
 
@@ -112,7 +109,78 @@ n = 101 → 201 over [0.02, 30] moves G-S1 by 0.002 %, and over [0.002, 120] by 
 0.02 %, which is the tail convention (g ~ q below, g ~ q⁻⁴ above) and is the largest single term left in the
 budget. **Error budget at the production mesh: lens +0.016 %, P mesh ~0.01 %, q grid ~0.00 %, tails ~0.02 %.**
 
-## 6. What is owed and what is not
+## 6. Repaired, and it lands on the constant more closely than the record's own gate did
+
+| ∫ dq g_2b | Ha | vs the exact E0B |
+|---|---|---|
+| the pre-fix table | 0.0239502 | **−0.947 %** |
+| **the repaired table** | **0.0241905** | **+0.047 %** |
+| the record's own reading | 0.0241943 | +0.062 % |
+| **E0B, Onsager–Mittag–Stephen 1966** | **0.0241792** | — |
+
+The table is on the pre-fix table's own 130-point q grid, so the quadrature is the only thing that changed, and
+three rows recomputed through the instrument reproduce the banked values **bit for bit**.
+
+**And PS-1 confirms it independently.** ε_2x^scr/E0B at r_s = 2 is a *screened* quantity — a different functional
+of the same g_2b(q) — and the record printed it at both spins:
+
+| | ζ = 0 | ζ = 1 |
+|---|---|---|
+| the pre-fix table | 0.6685 | 0.7942 |
+| **the repaired table** | **0.6744** | **0.8015** |
+| the record | 0.6747 | 0.8019 |
+
+**−0.05 % at both spins**, from −0.9 %. Two independent functionals of the repaired g_2b land on the record's two
+numbers at once.
+
+## 7. What the repair moves downstream, measured after the fact rather than argued before it
+
+`FINDING-R4-15` claimed the deficit *"costs nothing on the O path"*. That was read off the sealed rows before the
+repair existed. **Now it is measured by doing the repair and re-running all twenty rows:**
+
+| | pre-fix | repaired | move |
+|---|---|---|---|
+| the five sealed ΔEc_S gate rows | −0.03188 … −0.00675 | unchanged to 5 dp | **+0.002 to +0.005 mHa** |
+| the six anchored openings, D_tot | | | ≤ 0.004 mHa |
+| **protactinium's 5f removal** | **6.949 eV** | **6.948 eV** | **−0.001 eV** |
+| **t(5f)** | **2.6359** | **2.6359** | **0** |
+| ytterbium's residual | −0.11140 Ha | −0.11141 Ha | −0.01 mHa |
+| the ladder's seven rows | | | ≤ 0.07 mHa |
+
+**Every figure of `FINDING-R4-15` through `R4-19` stands.** The claim that the deficit cost nothing was true, and
+it is now established by measurement instead of inference.
+
+## 8. Two things the repair found that were not being looked for
+
+**(a) A limit of the recovered w_q grid at large q, recorded and not repaired.** The table's last four rows
+(q > 80) do not carry the analytic tail coefficient: the ratio is 1.0005 at q = 71 and 0.856 at q = 120. The cause
+is measured and it is the recovered grid, not the fix. For q > 2 the lens is the whole ball, so ρ_q is nonzero
+only for |P| ≤ 2 — that is w_q ∈ (q−2, q+2), a window at the **top** of the (0, 2+q) range — while the recovered
+u² stretching puts the points at the **bottom**. A row therefore carries about 2/√(q(2+q)) of NPP: 40 points at
+q = 4, 6 at q = 30, **under 3 above q = 80**. The coefficient holds to 1 % from q = 13 (where the asymptote is
+first reached; below it the departure is the physical O(1/q²) term, +6.7 % at q = 5) to q = 71, and breaks exactly
+where the points run out. **Recorded, not repaired**: repairing it would be a second departure from the recovered
+text, and dropping every unresolved row moves G-S1 by 2 × 10⁻⁷ of itself.
+
+**(b) A correction to `FINDING-R4-19` §4 — mercury, not gallium, is the ladder's worst row.** Making the report
+compute its own figures instead of printing fixed text surfaced it: Hg 5d is **−0.01806 Ha** and Ga 4s
+**−0.01740**. R4-19 wrote *"the ladder's worst row (gallium)"* while quoting **0.018 Ha** as the bound — and
+0.018 is mercury's number, not gallium's. **The bound is right and its attribution was wrong.** Gallium is the
+largest *one-sibling* residual, which is the row class protactinium belongs to and is why it was the one named;
+its 3d¹⁰ reason stands for that. **The 0.47 eV bound on protactinium is unchanged**, because it was always the
+larger of the two. The correction is appended to R4-19.
+
+**Both are the same lesson, and it is the one this pass keeps re-learning:** a number that is written down rather
+than computed drifts silently. The report now derives every figure in that paragraph from the table above it,
+which is `docfigures.py`'s discipline applied inside an instrument.
+
+## 9. What is owed
+
+1. **Ruling 8(b) and 8(c) are untouched by this** and remain the standing work — the spin–orbit ζ (9 % low at p,
+   36 % high at 5d against the store's measured intervals) and `t7c_cuaudit.py`'s absence.
+2. **`tools/docfigures.py` reports 15 of 59 pinned figures stale**, none of them from this pass: they are the
+   store-state drift (`CLAUDE.md` says 343 members against 667 measured; `docs/REGISTER-GAPS.md` says 1,660
+   Register entries against 1,702). Named here because the tool was run, not repaired here.
 
 Nothing is repaired in any volume, and nothing in `recovered/` is touched — it is a generated tree and the pre-fix
 text is part of what it records. Every figure here is MEASURED by the instrument or RECORD-CARRIED with its quote.

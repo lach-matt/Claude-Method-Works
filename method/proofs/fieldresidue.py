@@ -118,7 +118,12 @@ CORRIDOR = {
 for _k, _v in CORRIDOR.items():
     MEAS.setdefault("C:" + _k, dict(el=_v["el"], Z=_v["Z"], n=_v["n"], l=_v["l"], split=None,
                                     limit=_v["limit"], src=_v["src"], corridor=_k))
-ORDER = ["3p", "4p", "5p", "6p", "4d", "5d", "5f", "4f"] + ["C:" + k for k in CORRIDOR]
+_OPENINGS = ["3p", "4p", "5p", "6p", "4d", "5d", "5f", "4f"]
+# Ytterbium's 4f is BOTH an opening and a ladder row -- the same Z, the same shell, the same store limit -- so the
+# corridor key that duplicates an opening is dropped from the run order and the ladder takes the opening's row.
+# Without this the object solves Yb twice and the ladder prints it twice, which reads as two anchors.
+_DUP = {(MEAS[k]["Z"], MEAS[k]["n"], MEAS[k]["l"]) for k in _OPENINGS}
+ORDER = _OPENINGS + ["C:" + k for k, v in CORRIDOR.items() if (v["Z"], v["n"], v["l"]) not in _DUP]
 
 
 def t_form(l):
@@ -658,16 +663,36 @@ def report():
                     f = f"{abs(d)/se:11.3f}" if se else "          -"
                     print(f"     {lab:<7} {el:<3} {ns:>6}    {r['removal_predicted']*HA_EV:8.3f}  {r['measured_actual']*HA_EV:9.3f}"
                           f"  {d:+9.5f} Ha  {se if se is not None else float('nan'):9.5f} {f}")
+                # Every figure in the paragraph below is READ OFF THE TABLE ABOVE IT.  It said "0.018 at xenon to
+                # 1.049 at gallium" as fixed text once, and a change of quadrature moved the table under it --
+                # which is the drift docfigures.py exists to catch, here inside an instrument.
+                sib = [(lab, el, ns, r["removal_predicted"] - r["measured_actual"], se)
+                       for lab, el, ns, r, se in lad if ns > 0 and "measured_actual" in r]
+                zero = [r["removal_predicted"] - r["measured_actual"]
+                        for lab, el, ns, r, se in lad if ns == 0 and "measured_actual" in r]
+                sib.sort(key=lambda x: abs(x[3]))
+                out = sib[-1]                                     # the outlier
+                bound = sib[-2]                                   # the largest residual of the rest -- the BOUND
+                zmax = max(abs(x) for x in zero)
+                fr = sorted(((abs(d) / se, el) for _, el, _, d, se in sib if se), key=lambda x: x[0])
+                one = [x for x in sib if x[2] == 1]
+                worst1 = max(one, key=lambda x: abs(x[3])) if one else None
                 print()
-                print("     SIX OF SEVEN CORRIDOR ROWS SIT WITHIN 0.018 Ha, and so does every zero-sibling opening.")
-                print("     YTTERBIUM ALONE IS 0.111 Ha -- six times the next largest.  The undelivered fraction runs from")
-                print("     0.018 at xenon to 1.049 at gallium with no order in sibling count, sibling energy or <r>, so")
-                print("     there is no measured law that converts a sibling count into a correction, and a transfer")
-                print("     built on ytterbium's fraction alone has no support.  What the ladder gives is a BOUND, and")
-                print("     the bound is what a one-sibling row is entitled to: |residual| <= 0.018 Ha, and inside the")
-                print("     zero-sibling band of +-0.004 Ha at two of the three one-sibling rows.\n")
-                print("     Gallium is the ladder's worst row at -0.0174 Ha and has a named reason: its 4s sits directly")
-                print("     above a filled 3d10, and the 4s removal carries a d-shell relaxation none of the others do.\n")
+                print(f"     {len(sib)-1} OF {len(sib)} CORRIDOR ROWS SIT WITHIN {abs(bound[3]):.3f} Ha, and so does every"
+                      f" zero-sibling opening ({zmax:.4f} Ha at worst).")
+                print(f"     {out[1]} ALONE IS {abs(out[3]):.3f} Ha -- {abs(out[3])/abs(bound[3]):.0f} times the next"
+                      f" largest, which is {bound[1]} at {bound[3]:+.4f}.")
+                print(f"     The undelivered fraction runs from {fr[0][0]:.3f} at {fr[0][1]} to {fr[-1][0]:.3f} at"
+                      f" {fr[-1][1]} with no order in sibling")
+                print("     count, sibling energy or <r>, so there is no measured law that converts a sibling count into")
+                print(f"     a correction, and a transfer built on {out[1]}'s fraction alone has no support.  What the")
+                print(f"     ladder gives is a BOUND: |residual| <= {abs(bound[3]):.3f} Ha, and inside the zero-sibling band")
+                print(f"     of +-{zmax:.3f} Ha at two of the three one-sibling rows.\n")
+                if worst1:
+                    print(f"     {worst1[1]} carries the largest one-sibling residual, {worst1[3]:+.4f} Ha, and has a named"
+                          f" reason: its {worst1[0][-2:]} sits")
+                    print("     directly above a filled 3d10, so the removal carries a d-shell relaxation none of the")
+                    print("     other one-sibling rows do.  It is not the ladder's worst row -- that is the line above.\n")
         print("  5. THE ENTRY POINT ON EACH REMOVAL ENERGY  (t; t/form in brackets)")
         print("     op  el   field          +corr (j-avg)   predicted       measured j-avg   measured actual")
         for lab in ORDER:

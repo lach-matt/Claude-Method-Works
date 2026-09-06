@@ -10,16 +10,17 @@
        zeta 0.8: -0.05828  record -0.05828  diff +0.00000
        zeta 0.9: -0.05399  record -0.05399  diff +0.00000
        zeta 1.0: -0.04991  record -0.04991  diff -0.00000
-     second-order exchange: integral of g_2b = 0.0239502 Ha (record G-S1 0.0241943; bare E0B 0.0241792); from the S(q) table 0.0239434
-     at r_s = 2, zeta = 0: eps_2x^scr +0.016164, ratio to E0B 0.6685 (record PS-1 0.6747)
-     on the grid at r_s = 1.7783, zeta = 0: eps_ring/2 -0.06454, eps_2x^scr +0.01660, eps_S -0.04794
+     second-order exchange quadrature: soxquad.py, converged, ln(w_q^2 + v) grid at mesh (160, 160, 96, 192)
+     integral of g_2b = 0.0241905 Ha (+0.047 % of the exact E0B 0.0241792; record G-S1 0.0241943, +0.062 %); from the S(q) table 0.0241834
+     at r_s = 2, zeta = 0: eps_2x^scr +0.016306, ratio to E0B 0.6744 (record PS-1 0.6747)
+     on the grid at r_s = 1.7783, zeta = 0: eps_ring/2 -0.06454, eps_2x^scr +0.01675, eps_S -0.04780
 
   2. THE CORRELATED DELTA-SCF AGAINST THE FIVE SEALED ROWS  (O path, HF + S with PZ SIC, f = 1 against f = 0)
      el  ch     D_HF    DEc here  sealed    diff     D_tot(HF+S)
-     Sc  3d   0.26664  -0.03188  -0.03188  -0.00000   0.29835
-     Y   4d   0.19561  -0.02747  -0.02747  +0.00000   0.22288
-     La  5d   0.20585  -0.02619  -0.02618  -0.00001   0.23183
-     Lu  5d   0.15979  -0.02696  -0.02696  -0.00000   0.18653
+     Sc  3d   0.26664  -0.03188  -0.03188  +0.00000   0.29835
+     Y   4d   0.19561  -0.02746  -0.02747  +0.00001   0.22288
+     La  5d   0.20585  -0.02618  -0.02618  -0.00000   0.23183
+     Lu  5d   0.15979  -0.02696  -0.02696  +0.00000   0.18652
      Cs  6s   0.12779  -0.00675  -0.00675  -0.00000   0.13431
 
      the Hund construction against the seated member's recorded ground term symbols: 103 of 104; the exception is Z=58 Ce recorded 1G*4, Hund gives 3H4
@@ -37,29 +38,29 @@
      C:2s  B         6726.2   (no measured interval)        open shells: 2p 15.3
      C:3s  Al       31245.4   (no measured interval)        open shells: 3p 68.0
      C:4s  Ga      328280.5   (no measured interval)        open shells: 4p 503.4
-     C:5p  Xe        6518.5   (no measured interval)        open shells: 
      C:2p  Na         908.5   (no measured interval)        open shells: 3s 5765.9
+     C:5p  Xe        6518.5   (no measured interval)        open shells: 
      C:5d  Hg        6055.4   (no measured interval)        open shells: 
 
   4. THE REMOVAL ENERGY, FIELD -> CORRECTED -> PREDICTED, AGAINST THE MEASURED LIMIT  (eV)
      op  el   D_HF   +corr    j-avg meas  diff   |  +SO(+term)  predicted   measured   diff
-     3p  Al   5.489   5.991    5.977   +0.014  |  +0.008       5.999     5.986   +0.014
+     3p  Al   5.489   5.991    5.977   +0.015  |  +0.008       5.999     5.986   +0.014
      4p  Ga   5.444   5.951    5.931   +0.020  |  +0.062       6.013     5.999   +0.014
      5p  In   5.125   5.626    5.603   +0.022  |  +0.175       5.800     5.786   +0.014
      6p  Tl   4.880   5.369    5.464   -0.095  |  +0.692       6.061     6.108   -0.047
      4d  Y    5.323   6.065    6.178   -0.113  |  +0.049       6.114     6.217   -0.104
      5d  La   5.601   6.308    6.415   -0.107  |  +0.107       6.415     6.494   -0.079
-     5f  Pa   4.913   5.798        --        --    |  +1.151       6.949      (no anchor)
-     4f  Yb   5.202   6.472        --        --    |  -0.594       5.878     8.909   -3.031
-     C:2s  B   12.584  14.256        --        --    |  -1.442      12.814    12.927   -0.113
-     C:3s  Al  10.137  11.560        --        --    |  -1.011      10.549    10.622   -0.073
-     C:4s  Ga  11.167  12.440        --        --    |  -1.042      11.397    11.872   -0.475
-     C:2p  Na  36.613  37.879        --        --    |  -0.163      37.716    37.986   -0.270
+     5f  Pa   4.913   5.797        --        --    |  +1.151       6.948      (no anchor)
+     4f  Yb   5.202   6.471        --        --    |  -0.594       5.878     8.909   -3.032
+     C:2s  B   12.584  14.258        --        --    |  -1.442      12.816    12.927   -0.111
+     C:3s  Al  10.137  11.562        --        --    |  -1.011      10.551    10.622   -0.071
+     C:4s  Ga  11.167  12.441        --        --    |  -1.042      11.399    11.872   -0.473
+     C:2p  Na  36.613  37.879        --        --    |  -0.163      37.716    37.986   -0.269
      C:5p  Xe  11.642  12.615        --        --    |  -0.452      12.163    12.130   +0.033
-     C:5d  Hg  14.041  15.152        --        --    |  -0.803      14.350    14.841   -0.491
+     C:5d  Hg  14.041  15.152        --        --    |  -0.803      14.349    14.841   -0.491
 
-     WITHOUT the term correction (the one piece no anchored opening tests): removal 5.849 eV, t = 2.5437 (+3.8 %)
-     protactinium in detail (Ha): D_HF +0.18054, DEc -0.03270, D_tot +0.21305; term neutral -0.05991 ion -0.01949 -> +0.04042; SO neutral -0.02900 ion -0.02712 -> +0.00188; predicted +0.25536 = 6.949 eV
+     WITHOUT the term correction (the one piece no anchored opening tests): removal 5.848 eV, t = 2.5437 (+3.8 %)
+     protactinium in detail (Ha): D_HF +0.18054, DEc -0.03269, D_tot +0.21304; term neutral -0.05991 ion -0.01949 -> +0.04042; SO neutral -0.02900 ion -0.02712 -> +0.00188; predicted +0.25535 = 6.948 eV
        zetas (cm-1): neutral 5f 1631.5, 6d 1490.9; ion 5f 1848.0, 6d 2188.5
 
   6. THE SIBLING LADDER: the residual measured against how many siblings the removed electron had
@@ -75,24 +76,25 @@
      5d      La       0       6.415      6.494   -0.00290 Ha    0.00000           -
      5p      In       0       5.800      5.786   +0.00052 Ha    0.00000           -
      6p      Tl       0       6.061      6.108   -0.00174 Ha    0.00000           -
-     C:2s    B        1      12.814     12.927   -0.00414 Ha    0.01683       0.246
-     C:3s    Al       1      10.549     10.622   -0.00267 Ha    0.01793       0.149
-     C:4s    Ga       1      11.397     11.872   -0.01744 Ha    0.01662       1.049
-     C:2p    Na       5      37.716     37.986   -0.00991 Ha    0.09138       0.108
+     C:2s    B        1      12.816     12.927   -0.00407 Ha    0.01683       0.242
+     C:3s    Al       1      10.551     10.622   -0.00260 Ha    0.01793       0.145
+     C:4s    Ga       1      11.399     11.872   -0.01740 Ha    0.01662       1.047
+     C:2p    Na       5      37.716     37.986   -0.00990 Ha    0.09138       0.108
      C:5p    Xe       5      12.163     12.130   +0.00121 Ha    0.06629       0.018
-     C:5d    Hg       9      14.350     14.841   -0.01805 Ha    0.09032       0.200
-     4f      Yb      13       5.878      8.909   -0.11140 Ha    0.16664       0.668
+     C:5d    Hg       9      14.349     14.841   -0.01806 Ha    0.09032       0.200
+     4f      Yb      13       5.878      8.909   -0.11141 Ha    0.16664       0.669
 
-     SIX OF SEVEN CORRIDOR ROWS SIT WITHIN 0.018 Ha, and so does every zero-sibling opening.
-     YTTERBIUM ALONE IS 0.111 Ha -- six times the next largest.  The undelivered fraction runs from
-     0.018 at xenon to 1.049 at gallium with no order in sibling count, sibling energy or <r>, so
-     there is no measured law that converts a sibling count into a correction, and a transfer
-     built on ytterbium's fraction alone has no support.  What the ladder gives is a BOUND, and
-     the bound is what a one-sibling row is entitled to: |residual| <= 0.018 Ha, and inside the
-     zero-sibling band of +-0.004 Ha at two of the three one-sibling rows.
+     6 OF 7 CORRIDOR ROWS SIT WITHIN 0.018 Ha, and so does every zero-sibling opening (0.0038 Ha at worst).
+     Yb ALONE IS 0.111 Ha -- 6 times the next largest, which is Hg at -0.0181.
+     The undelivered fraction runs from 0.018 at Xe to 1.047 at Ga with no order in sibling
+     count, sibling energy or <r>, so there is no measured law that converts a sibling count into
+     a correction, and a transfer built on Yb's fraction alone has no support.  What the
+     ladder gives is a BOUND: |residual| <= 0.018 Ha, and inside the zero-sibling band
+     of +-0.004 Ha at two of the three one-sibling rows.
 
-     Gallium is the ladder's worst row at -0.0174 Ha and has a named reason: its 4s sits directly
-     above a filled 3d10, and the 4s removal carries a d-shell relaxation none of the others do.
+     Ga carries the largest one-sibling residual, -0.0174 Ha, and has a named reason: its 4s sits
+     directly above a filled 3d10, so the removal carries a d-shell relaxation none of the
+     other one-sibling rows do.  It is not the ladder's worst row -- that is the line above.
 
   5. THE ENTRY POINT ON EACH REMOVAL ENERGY  (t; t/form in brackets)
      op  el   field          +corr (j-avg)   predicted       measured j-avg   measured actual
@@ -102,10 +104,10 @@
      6p  Tl  0.9513 (0.9513)  0.9831 (0.9831)  1.0213 (1.0213)  0.9888 (0.9888)  1.0237 (1.0237)
      4d  Y   1.7578 (1.0149)  1.8317 (1.0576)  1.8361 (1.0601)  1.8418 (1.0634)  1.8453 (1.0654)
      5d  La  1.7264 (0.9967)  1.7900 (1.0334)  1.7986 (1.0384)  1.7987 (1.0385)  1.8049 (1.0421)
-     5f  Pa  2.4420 (0.9969)  2.5388 (1.0365)  2.6359 (1.0761)        --                --        
+     5f  Pa  2.4420 (0.9969)  2.5388 (1.0364)  2.6359 (1.0761)        --                --        
 
      by l, mean of t/form:
        p on 4: field 0.9925 (-0.75 %)   +corr 1.0275 (+2.75 %)   predicted 1.0405 (+4.05 %)   measured 1.0404 (+4.04 %)
        d on 2: field 1.0058 (+0.58 %)   +corr 1.0455 (+4.55 %)   predicted 1.0493 (+4.93 %)   measured 1.0537 (+5.37 %)
-       f on 1: field 0.9969 (-0.31 %)   +corr 1.0365 (+3.65 %)   predicted 1.0761 (+7.61 %)   measured --
+       f on 1: field 0.9969 (-0.31 %)   +corr 1.0364 (+3.64 %)   predicted 1.0761 (+7.61 %)   measured --
 

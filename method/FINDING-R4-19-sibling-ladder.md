@@ -114,3 +114,22 @@ anchor. It rests on thirteen measured rows: six openings at zero siblings and se
 to thirteen.
 
 Nothing is repaired in any volume. Every figure is MEASURED by the instrument or RECORD-CARRIED with its quote.
+
+---
+
+## §4's ATTRIBUTION IS CORRECTED by FINDING-R4-20: mercury is the ladder's worst row, not gallium
+
+§4 wrote *"the ladder's worst row (gallium) as a bound | 0.018 Ha = 0.47 eV"*, and §2's own table beside it prints
+**Hg 5d −0.01806** against **Ga 4s −0.01740**. **Mercury is the larger.** The bound quoted — 0.018 Ha, 0.47 eV —
+is mercury's number and is correct; only the row named for it was wrong.
+
+It surfaced when `fieldresidue.py`'s report was made to compute that paragraph from the table above it instead of
+printing it as fixed text, which is the same drift `tools/docfigures.py` exists to catch, one level in.
+
+**What stands.** The bound is unchanged, because it was always the larger of the two: **protactinium's 6.95 eV,
+±0.11 eV typical and ±0.47 eV bounded.** Gallium remains the largest *one-sibling* residual — the row class
+protactinium belongs to, which is why it was the row named — and its 3d¹⁰ reason stands for that. What falls is
+one word: gallium is not the ladder's worst row.
+
+**And every figure in §2 is re-measured** through the repaired second-order-exchange quadrature (`FINDING-R4-20`),
+moving by at most 0.07 mHa. The ladder is unchanged: six of seven within 0.018 Ha, ytterbium alone at 0.111.
