@@ -18,6 +18,7 @@ lattice, and asserts nothing about the main paper's subject matter.
 |---|---|
 | `Muon_Catalysed_Fusion_v1.1.md` | The muon-catalysed fusion paper. Supersedes `recovered/Muon_Catalysed_Fusion_v1.0.md` (1 Aug 2026). Revises §3.2, §4 and §5; §§1–2, 3.1, 3.3–3.6 and 6 stand. |
 | `Corrigendum_MuCF_v1_0.md` | The seven corrections to v1.0, as a standalone formal corrigendum. |
+| `Muon_Collection_Budget_v1.0.md` | The per-stage collection budget the companion's §5.5 names as its deciding open item. Built from published MuSIC, Mu2e, COMET and PSI figures. |
 
 ## Provenance and status
 
@@ -40,3 +41,14 @@ which would write to `method/`. These papers deliberately do not.
 
 `python3 tools/mucf.py --selftest` — asserts v1.0's Table 5.1, its three breakeven thresholds, and
 every figure in the corrigendum. Stdlib only. See `docs/MUCF-ENERGY-AXIS.md`.
+
+`python3 tools/collector.py --selftest` — asserts each published figure in the budget paper against
+its recomputation, and reports the one 5 % rounding divergence in a source rather than silencing it.
+`--machines` prints what machines actually cost per muon; the default report prints the budget and
+the 15.3 % allocation. Stdlib only.
+
+**A note on the budget paper's status.** It corrects the companion's own §4: the 5 GeV per muon at
+which the energy balance prices its binder is aspirational, not achieved, and the best published
+figure is 5 TeV per stopped μ⁻. v1.1 carries that correction at §4.2, in its abstract, in its
+provenance and as item 7 of its correction list. The algebra of the balance is unaffected; its
+reference point is not.

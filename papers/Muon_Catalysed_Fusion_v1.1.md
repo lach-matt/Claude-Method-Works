@@ -39,7 +39,11 @@ cost per muon *produced* and already assumes the collection chain is solved; a r
 The consequence is a sharper statement of what is missing than v1.0's "a machine that does not
 exist": neither beam power nor pion production is short — PSI runs 1.4 MW and 1 MW at 590 MeV
 already yields ~10¹⁵ π⁻/s — and what does not exist is a **collector**, whose design objective is
-the inverse of every muon channel ever built. Separately, the cryogenic operating branch is excluded
+the inverse of every muon channel ever built. **A fourth correction follows from pricing that
+collector** (§4.2): the 5 GeV per muon at which v1.0 costs the binder is aspirational rather than
+achieved, the best published figure being 5 TeV per stopped μ⁻ — which leaves §5's algebra intact,
+moves its reference point by three orders, and in the same motion enlarges the headroom to 16,667×
+against a requirement of 2,551×. Separately, the cryogenic operating branch is excluded
 on thermodynamics, and ambient electron-screened fusion remains excluded by conservation.
 
 ---
@@ -226,6 +230,11 @@ throughout §5 is 5 GeV — an inefficiency of 16.7×, distributed across pion y
 decay acceptance, transport and stopping fraction. None of it is forbidden, which makes E_μ the most
 tractable free parameter.
 
+> **Caution, added after §4.2 was computed: 5 GeV is aspirational, not achieved.** It is the figure the
+> μCF literature carries as a target for a dedicated source, and §5 uses it for continuity with v1.0.
+> No machine delivers it. See §4.2 and the companion budget paper: every Q in §5 is conditional on a
+> reference point three orders below the state of the art.
+
 ### 4.1 What the 5 GeV figure assumes  *(new in v1.1)*
 
 **5 GeV is the cost per muon *produced*, and it presumes stages A3–A6 are solved.** It is not what a
@@ -238,6 +247,21 @@ v1.0 did not distinguish these, and the distinction governs §5. It is also self
 own table in the intended direction: at 5 GeV per muon, 1 MW of driver beam yields 1.25 × 10¹⁵ μ/s,
 which is exactly what 1 MW of fusion requires — Q ≈ 1 falls straight out, *provided* the collection
 chain delivers what the driver produces.
+
+### 4.2 What machines actually cost  *(added in v1.1)*
+
+The best published stopped-μ⁻ figure is Mu2e's **0.0016 stopped μ⁻ per 8 GeV proton** — that is
+**5 TeV per stopped muon, a factor of 1,000 above the 5 GeV §5 assumes.** MuSIC, the dedicated
+solenoid-capture source, measures (9.0 ± 1.0) × 10⁴ μ⁻ s⁻¹ W⁻¹, or 69 TeV per μ⁻; PSI's μE4 beamline
+sits at ~18 PeV per muon.
+
+This does not alter §5's algebra, and it does not alter the finding that the two thresholds share one
+chain. It relocates the reference point, and it enlarges the headroom in the same motion: against the
+0.30 GeV floor the best present machine is 16,667× high, of which work-breakeven requires 2,551×,
+leaving a margin of 6.5×. Two levers follow that this paper does not otherwise name — solenoid pion
+capture, demonstrated by MuSIC at a 257× gain over a conventional beamline, and proton energy, where
+8 GeV protons prove 13.9× more efficient per μ⁻ than 392 MeV. The per-stage allocation is the subject
+of the companion paper.
 
 **Flow, not batch.** A chemical catalyst is recovered at cycle's end; the muon decays regardless of
 what it is doing. The accelerator must therefore run continuously at the muon loss rate, and the fuel
@@ -325,7 +349,11 @@ about the balance.
 
 ### 5.5 The open item
 
-**The per-stage collection budget does not exist, and it decides this paper.** "None of it is
+**The per-stage collection budget is supplied by the companion paper, and one measurement in it
+decides this one.** Taking stopping and transport to their ceilings, the front-end production-and-
+capture block must yield **15.3 %** of its loss; the other 84.7 % may remain production cross-section.
+Whether that 15.3 % is recoverable acceptance or irreducible cross-section is unmeasured, and it is
+the quantity on which the programme turns. "None of it is
 forbidden" is a statement about physics, not about engineering. A6 admits any momentum that ranges out
 in the fuel; A3 is named the largest single loss; A4 is bounded by the 11.2 m / 624 m geometry. What is
 required is a stage-by-stage accounting with a defensible ceiling on each, against which the 1.75 × 10⁵
@@ -406,6 +434,9 @@ ash bracket 3.76 × 10⁻⁸ – 2.74 × 10⁻⁷ mol per watt-day at width 7.29
 1.0 × 10⁻³ and 0.63; the ~30 eV static screening ceiling against an 88 eV requirement; the muonic ⁴He
 1s binding 10.9 keV and 1s→2p resonance 8.20 keV.
 
+**Reclassified in v1.1:** E_μ = 5 GeV per muon, described in v1.0 as achieved and verified, is
+**aspirational** — no machine delivers it, and the best published figure is 1,000× above it (§4.2).
+
 **Computed for v1.1:** Q ≈ 13 at the kinematic floor at measured sticking; the crossover E_μ at
 2.93/3.45/3.90 GeV under the three service-life conventions; the convertible fraction 0.501 and
 work-breakeven at 1.96 GeV (2.55×); the cryogenic penalty table of §6.2; 874 TeV per delivered muon and
@@ -433,7 +464,9 @@ beamline capability rather than a fundamental limit, which is the whole content 
    0.92 / 1.09 / 1.20 rather than 0.93 / 1.10 / 1.21 and still clears breakeven at φ ≥ 2. The
    conclusion survives; the row was marginally optimistic against its own parameter.
 6. **The ~222 sticking ceiling is an asymptote**, not a service life; §5 uses the decay-corrected N.
-7. An earlier claim that fusion is confined to the molecular ground state was withdrawn in v1.0
+7. **§4's 5 GeV per muon is reclassified from achieved to aspirational.** The best published
+   stopped-μ⁻ figure is 5 TeV. §5's algebra is unaffected; its reference point is not (§4.2).
+8. An earlier claim that fusion is confined to the molecular ground state was withdrawn in v1.0
    against the variational result for J = 1, and an earlier framing treating energy-positivity as the
    sole remaining requirement was corrected by the flux gap. Both stand withdrawn.
 
