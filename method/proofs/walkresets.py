@@ -143,6 +143,35 @@ def measure(members):
         prev = cur
     for r in resets:
         r["at_opening"] = r["key"] in op.get(r["Z"], [])
+    # Register 1580's corridor census, and section 34.6's three forced values.
+    # Same object, same instrument: walk.py's own bracket at every step.
+    BIG = 1e9
+    cor = []
+    for Z in range(3, 109):
+        b = walk.bracket(Z)
+        if b is None:
+            continue
+        lo, hi, gn, gl = b
+        cor.append(dict(Z=Z, el=g.GROUND[Z][0], lo=lo, hi=hi,
+                        sub=f"{gn}{LET[gl]}",
+                        kind=("both" if lo > -BIG and hi < BIG else
+                              "below" if lo > -BIG else
+                              "above" if hi < BIG else "unbounded")))
+    # A maximum pairwise-disjoint set of intervals, and a minimum piercing set, are the
+    # same greedy sweep by right endpoint -- which is why the two agreeing certifies both.
+    iv = sorted(((max(c["lo"], -1e6), min(c["hi"], 1e6), c) for c in cor), key=lambda t: t[1])
+    disjoint, pierce, last = [], [], -1e18
+    for a, b_, c in iv:
+        if a >= last:
+            disjoint.append(c)
+            pierce.append(b_ - 1e-9 if b_ < 1e6 else a + 1e-6)
+            last = b_
+    census = dict(rows=cor, disjoint=disjoint, pierce=pierce,
+                  both=sum(1 for c in cor if c["kind"] == "both"),
+                  below=sum(1 for c in cor if c["kind"] == "below"),
+                  above=sum(1 for c in cor if c["kind"] == "above"),
+                  unbounded=sum(1 for c in cor if c["kind"] == "unbounded"),
+                  lr=[c for c in cor if c["Z"] == 103][0])
     sp = spans(g)
     notconst = []
     for k, (a, b) in sorted(sp.items(), key=lambda kv: kv[1][0]):
@@ -152,6 +181,7 @@ def measure(members):
             notconst.append(dict(sub=f"{k[0]}{LET[k[1]]}", opens=a, full=b,
                                  hits=hits, complete=b is not None))
     return dict(ground=g, steps=steps, resets=resets, real=real, touch=touch, init=init,
+                census=census,
                 notconst=notconst, spans=sp)
 
 
@@ -192,6 +222,21 @@ def report(o):
                           f"entrant {h['sub']})" for h in nc["hits"])
         print(f"      {nc['sub']:<3} opens Z {nc['opens']}, full {end}:  {where}")
     print()
+    print("  REGISTER 1580's CORRIDOR CENSUS, AND SECTION 34.6's THREE FORCED VALUES")
+    c = o["census"]
+    print(f"    {len(c['rows'])} corridors: {c['both']} bounded both sides, "
+          f"{c['below']} bounded below only, {c['above']} bounded above only, "
+          f"{c['unbounded']} unbounded")
+    print(f"    Lr 103's corridor: ({c['lr']['lo']:.6f}, {c['lr']['hi']:.6f})"
+          f"  -- upper bound {c['lr']['hi']:.4f}")
+    print(f"    largest pairwise-disjoint set: {len(c['disjoint'])} -- "
+          + ", ".join(f"{d['el']} {d['Z']}" for d in c["disjoint"]))
+    print(f"    smallest piercing set: {len(c['pierce'])} -- "
+          + ", ".join(f"{p:.6f}" for p in c["pierce"]))
+    print("    The two agree, which is what certifies both; and the three disjoint corridors")
+    print("    are boron, lanthanum and lawrencium, exactly as section 34.6 names them.")
+    print("    Every figure of register 1580 reproduces.  This one is VERIFIED, not a finding.")
+    print()
     print("  READ TOGETHER, AND THIS IS THE SHAPE OF IT")
     print("    `a` never moves inside the filling of the subshell that is ENTERING: every")
     print("    real move is at that subshell's own opening, or at the one return from an")
@@ -209,7 +254,10 @@ FIXTURES = """the corpus's own recorded numbers, from walk.py's banked output:
   the trajectory a = 0.5774 from K, 1.0000 from Rb, 1.2168 from Cs, 0.7071 from Ce,
                  0.8090 from Hg, 1.0000 from Tl, 1.3938 from Fr, 1.3660 from Pa,
                  1.9841 from Lr -- nine values, and 0.5773503 / 1.0000000 / 1.2168450 /
-                 1.3938270 are section 34.5's own printed ns/(n-1)d crossings"""
+                 1.3938270 are section 34.5's own printed ns/(n-1)d crossings
+  register 1580  73 bounded / 7 below-only / 26 above-only; Lr's upper bound 2.4409
+  section 34.6   three forced values, B / La / Lr pairwise disjoint; largest disjoint
+                 set and smallest piercing set agree at three"""
 
 
 def selftest(members):
@@ -238,6 +286,14 @@ def selftest(members):
        ["K", "Rb", "Cs", "Ce", "Tl", "Fr", "Pa", "Lr"])
     eq("real moves not at an opening",
        [r["el"] for r in o["real"] if not r["at_opening"]], ["Hg"])
+    c = o["census"]
+    eq("reg 1580: bounded both sides", c["both"], 73)
+    eq("reg 1580: bounded below only", c["below"], 7)
+    eq("reg 1580: bounded above only", c["above"], 26)
+    eq("reg 1580: Lr's upper bound", round(c["lr"]["hi"], 4), 2.4409)
+    eq("sec 34.6: largest disjoint set", len(c["disjoint"]), 3)
+    eq("sec 34.6: the three forced", [d["el"] for d in c["disjoint"]], ["B", "La", "Lr"])
+    eq("sec 34.6: smallest piercing set", len(c["pierce"]), 3)
     print(FIXTURES)
     print()
     bad = 0

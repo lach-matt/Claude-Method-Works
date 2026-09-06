@@ -1,0 +1,16 @@
+id	site	verdict	how	instrument	finding
+D-21a	main §34.6 "it never resets mid-subshell"	TRUE OF THE ENTERING SUBSHELL	8 of 9 real moves are at the entrant's own opening; the 9th is Hg, a return from an exception	method/proofs/walkresets.py	FINDING-R4-06
+D-21b	main §34.6 "each subshell fills at constant a"	FALSE	5d carries a real move at Ce 58, 6d at Pa 91 and Lr 103; every other subshell is constant	method/proofs/walkresets.py	FINDING-R4-06
+D-21c	main §34.9 "at any f opening p = n-l-1 = 0"	FALSE AT 5f	5f opens at Pa with p = 1; the record's 34re-07	method/proofs/fdomain.py	FINDING-R4-06
+D-21d	main §34.9 "no rival lies below and L = -inf"	TRUE, WRONG REASON	derived: rivals below an opening are exactly the admissible subshells of smaller node count; at 4f none exists, at 5f all four are full at Th	method/proofs/fdomain.py	FINDING-R4-06
+D-21e	main §34.9 "f is outside the domain"	TRUE, AND STRONGER THAN STATED	L = -inf at exactly 1s 2p 3d 4f 5f; f is the only l every one of whose openings has it	method/proofs/fdomain.py	FINDING-R4-06
+A-F4	register 1580 corridor census	VERIFIED TRUE	73 bounded both sides / 7 below-only / 26 above-only; Lr's upper bound 2.4409	method/proofs/walkresets.py	none needed
+A-F4b	main §34.6 three forced values	VERIFIED TRUE	largest pairwise-disjoint set 3 = B, La, Lr; smallest piercing set 3; the two agree	method/proofs/walkresets.py	none needed
+A-F4c	main §34.6 "106 steps, 106 satisfied, 18 recalibrations"	VERIFIED TRUE	walk.py on the seated ground configurations reproduces all three exactly	method/proofs/walkresets.py	none needed
+A-F4d	main §34.5 ns/(n-1)d crossings 0.5773503 1.0000000 1.2168450 1.3938270	VERIFIED TRUE	four of the nine values a takes on the walk are these, arriving at K, Rb, Cs and Fr	method/proofs/walkresets.py	none needed
+E-061a	main §18 E(audits) printed at 16 and at 17	16 IS RIGHT	17 was the value at twenty audits; the 17 row's gloss belongs to the 16	method/proofs/part1index.py	FINDING-R4-05
+E-061b	Index of Indices "the sixteen missing cells are two"	VERIFIED TRUE	14 dominated, 2 on the frontier, both outside-dishonest, reproduced cell for cell	method/proofs/part1index.py	none needed
+--	main §2.21 "twenty-two distinct cells, no collision"	FALSE, STRUCK BY M	21 cells; SCOPE and CENSUS share one; RULINGS-R4d.md §2	method/proofs/part1index.py	FINDING-R4-05
+--	main Part I / §1 "indexed and closed at E = 0"	FALSE, STRUCK BY M	E(protocols) = 105; no principles index exists; RULINGS-R4d.md §1	method/proofs/part1index.py	FINDING-R4-04
+--	main §3.7 dimension certificate	VERIFIED TRUE	22 precedences, both extensions valid, intersections exactly the orders, 792 and 4,140	method/proofs/part1index.py	none needed
+--	main Part I "twenty-four protocols"	VERIFIED TRUE	the headings §2.1-§2.24, protindex.py's table, the Register's kind table	method/proofs/part1index.py	FINDING-R4-03

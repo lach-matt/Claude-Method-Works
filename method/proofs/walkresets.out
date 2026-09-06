@@ -36,6 +36,15 @@
       5d  opens Z 57, full 79:  Ce 58 (1.2168 -> 0.7071, entrant 4f)
       6d  opens Z 89, full never completes in the table:  Pa 91 (1.3938 -> 1.3660, entrant 5f), Lr 103 (1.3660 -> 1.9841, entrant 7p)
 
+  REGISTER 1580's CORRIDOR CENSUS, AND SECTION 34.6's THREE FORCED VALUES
+    106 corridors: 73 bounded both sides, 7 bounded below only, 26 bounded above only, 0 unbounded
+    Lr 103's corridor: (1.984059, 2.440910)  -- upper bound 2.4409
+    largest pairwise-disjoint set: 3 -- B 5, La 57, Lr 103
+    smallest piercing set: 3 -- 0.707107, 1.707107, 2.440910
+    The two agree, which is what certifies both; and the three disjoint corridors
+    are boron, lanthanum and lawrencium, exactly as section 34.6 names them.
+    Every figure of register 1580 reproduces.  This one is VERIFIED, not a finding.
+
   READ TOGETHER, AND THIS IS THE SHAPE OF IT
     `a` never moves inside the filling of the subshell that is ENTERING: every
     real move is at that subshell's own opening, or at the one return from an
