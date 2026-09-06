@@ -83,25 +83,41 @@ programme, and both are sign 0. They sit at the top of all three axes because th
 balance, not because they have. **A cell filled by undecided measurements is not an answered
 directive**, and the instrument says so in those words.
 
-## The open questions, reduced
+## The open questions, worked
 
-An index that finds a point on all three axes still leaves a corpus full of open questions, and a long
-list is not the same as an uncertain answer. `python3 tools/collector.py --open` tests each open
-question against the *one* configuration the index finds net-positive, rather than against the papers
-as a whole.
+Nine open questions were carried, and the first pass of this work sorted them into categories. A
+category is not an answer, and six of the nine were calculations this repository could already do.
+`python3 tools/collector.py --open` runs them; `python3 tools/mucf.py --selftest` reproduces the three
+that come off the cycle count.
 
-**Nine open questions. One moves a number the answer states.** Five act on configurations §6 does not
-use — each is a question about *exceeding* the witnessed 150 cycles, and §6 does not try to. Two are
-one-sided upward and can only help. One is retired by §6 itself.
+| | question | status |
+|---|---|---|
+| Q1 | the acceptance, never measured end to end | **narrowed** — floor from a second capture simulation with transport removed; the span falls from 2131× to **5.97×** |
+| Q2 | which sticking branch is operative | **closed** — the witnessed 150 cycles, inverted, give **0.517–0.547 %**, inside the measured trio and below theory |
+| Q3 | the service-life model over-predicts by 2.24 | **closed** — at the corrected sticking it returns **150.5** against 150 |
+| Q4 | fuel purity bounded by no experiment | **closed** — the fuel behind the 150 carried at most **10.93 ppm**, under the **31.10 ppm** parity level |
+| Q5 | the temperature axis is confounded | **closed** — every balance already runs the cycle rate *at* its ceiling |
+| Q6 | the 2.37 is unexplained | **explained, not adopted** — a normalisation; **2.389** interacting nucleons reproduce it to 0.8 % |
+| Q7 | a 0.186 sr wedge is uncovered | **closed** — interpolation puts it at **1.072** against a bound of 1.10 |
+| Q8 | transport, cooling, stopping unmodelled | **closed** — retired by §6 |
+| Q9 | the composed sticking 0.234 unresolved | **closed** — superseded |
 
-The one that matters — the acceptance, never measured end to end — is bounded at both ends by numbers
-rather than caveats: a **measured** floor of 0.00564 % of the host beam (MuSIC's built capture
-solenoid, which in-situ cannot do worse than, having no transport line to lose in) and a **modelled**
-ceiling of 12.01 %. A span of **2131**, closed by Stage A.
+**One measurement answered three of them.** The 150-cycle result, read backwards through the
+service-life expression, returns a sticking by a route that uses neither published sticking
+measurement (Q2), disposes of the 2.24 over-prediction as an artefact of the superseded value (Q3),
+and bounds the contamination that fuel can have carried (Q4).
 
-**The sign is not open at any value of any of them.** Marginal beam cost per binder is zero, so every
-remaining term is a positive multiplier: at the measured floor and one fusion per binder it still
-returns 0.0000376 % of the beam. The open questions set how large the result is, not whether it exists.
+**Q6 reverses.** Beam energy was the last candidate standing, and HARP's own 3/5/8/12 GeV columns on
+the same target refute it in the opposite direction: production is **1.63× dearer** at 3 GeV, not
+cheaper. What survives is a normalisation — per beam particle against per interaction — which
+reproduces the number rather than being bounded away from it, and is declined because it reproduces it
+for pions *produced* while a thick target also reabsorbs them.
+
+**Seven closed, one narrowed, one explained and declined.** The two that still move a number are
+measurements rather than calculations: the acceptance (Stage A) and whether the thick-target
+normalisation survives to capture (Stage C). The answer's magnitude is now **2.01 % to 12.01 %** of the
+host beam, and the sign is open at no value of any of them: at the floor and one fusion per binder it
+still returns 0.01341 %.
 
 ## Re-verify
 

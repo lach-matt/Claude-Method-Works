@@ -513,10 +513,42 @@ C516	in-situ bench cell, binders stopped	1.80e8	s^-1	DERIVED	1 MW at 8 GeV, thic
 C517	in-situ bench cell, 14.1 MeV neutrons	2.70e10	s^-1	DERIVED	C516 x 150 witnessed cycles	fn:insitu_neutrons_per_s
 C518	in-situ bench cell, fusion heat	76	mW	DERIVED	C517 x 17.59 MeV	fn:insitu_cell_heat_mw
 C519	open questions carried, reduced against the co-product	9	count	DERIVED	collector.OPEN, one row per open question	fn:open_count
-C520	of them load-bearing on the answer's magnitude	1	count	DERIVED	the acceptance, and nothing else	fn:open_count_load_bearing
+C520	of the nine that still move a number	2	count	DERIVED	the acceptance, and nothing else	fn:open_count_load_bearing
 C521	binders/s at 1 MW, measured floor	9.00e10	s^-1	DERIVED	MuSIC's built capture solenoid at 9.0e4 mu-/s/W	fn:open_floor_mu
 C522	binders/s at 1 MW, modelled ceiling	1.918e14	s^-1	DERIVED	in-situ at the 3.59 kg stopping window	fn:open_ceiling_mu
 C523	fusion heat at the measured floor	0.00564	percent	DERIVED	C521 x 150 x 26.06 MeV / 1 MW	fn:open_floor_pct
 C524	fusion heat at the modelled ceiling	12.01	percent	DERIVED	C522 x 150 x 26.06 MeV / 1 MW	fn:open_ceiling_pct
 C525	the span the one open question covers	2131	ratio	DERIVED	C522 / C521	fn:open_span
 C526	the sign at the floor and one fusion per binder	0.0000376	percent	DERIVED	the worst case no measurement supports; still positive	fn:open_worst_case_pct
+C527	GeV per pi- at 3 GeV/c, common coverage	18.231	GeV	DERIVED	HARP Pb pi- Tables 8 and XXIII, 3 GeV/c column	fn:q_cost_3gev
+C528	GeV per pi- at 5 GeV/c, common coverage	12.604	GeV	DERIVED	the same, 5 GeV/c	fn:q_cost_5gev
+C529	GeV per pi- at 8 GeV/c, common coverage	11.202	GeV	DERIVED	the same, 8 GeV/c; 11.130 is the full-coverage figure	fn:q_cost_8gev
+C530	GeV per pi- at 12 GeV/c, common coverage	11.634	GeV	DERIVED	the same, 12 GeV/c	fn:q_cost_12gev
+C531	pi- per interaction at 3 GeV/c	0.1646	per-interaction	DERIVED	integrated / 1.7 barn inelastic	fn:q_yield_3gev
+C532	pi- per interaction at 5 GeV/c	0.3967	per-interaction	DERIVED	the same	fn:q_yield_5gev
+C533	pi- per interaction at 8 GeV/c	0.7142	per-interaction	DERIVED	the same	fn:q_yield_8gev
+C534	pi- per interaction at 12 GeV/c	1.0314	per-interaction	DERIVED	the same	fn:q_yield_12gev
+C535	going down to 3 GeV/c costs this much per pi-	1.63	ratio	DERIVED	C527 / C529 -- beam energy is refuted as the 2.37	fn:q_energy_penalty
+C536	interacting nucleons the optimised yield needs at 3 GeV/c	4.68	count	DERIVED	0.77 per beam deuteron / C531	fn:q_nucleons_at_3
+C537	interacting nucleons the optimised yield needs at 5 GeV/c	1.94	count	DERIVED	0.77 per beam deuteron / C532	fn:q_nucleons_at_5
+C538	the multiplicity that reconciles the two figures	2.389	count	DERIVED	C529 / 4.69	fn:q_multiplicity
+C539	cost per pi- at 2 interacting nucleons per beam particle	5.601	GeV	DERIVED	C529 / 2	fn:q_cost_at_2
+C540	cost per pi- at the reconciling multiplicity	4.688	GeV	DERIVED	C529 / C538	fn:q_cost_at_reconciling
+C541	cost per pi- at 3 interacting nucleons per beam particle	3.734	GeV	DERIVED	C529 / 3	fn:q_cost_at_3
+C542	the optimised study's rod, in interaction lengths of tungsten	6.3	count	DERIVED	652 mm / 103 mm	fn:q_rod_lengths
+C543	the wedge HARP's two spectrometers leave uncovered	0.1856	sr	DERIVED	2 pi (cos 0.25 - cos 0.35)	fn:q_wedge_solid_angle
+C544	cross section the wedge adds	0.0876	barn	DERIVED	log-interpolated in the overlapping momentum band	fn:q_wedge_sigma
+C545	the wedge as a factor on production	1.0717	ratio	DERIVED	C544 / 1.2220 + 1, against a bound of 1.10	fn:q_wedge_factor
+C546	GeV per pi- with the wedge included	10.385	GeV	DERIVED	8 GeV / ((1.2220 + C544) / 1.7)	fn:q_cost_with_wedge
+C547	binders/s at 1 MW, floor from an independent capture simulation	3.21e13	s^-1	DERIVED	COMET 5 T capture, decay and transport removed	fn:q_comet_floor
+C548	the same at its upper figure	7.58e13	s^-1	DERIVED	the same, upper capture figure	fn:q_comet_floor_hi
+C549	fusion heat at the new floor	2.01	percent	DERIVED	C547 x 150 x 26.06 MeV / 1 MW	fn:q_floor_pct
+C550	fusion heat at the upper floor figure	4.75	percent	DERIVED	C548 x 150 x 26.06 MeV / 1 MW	fn:q_floor_hi_pct
+C551	the acceptance span, narrowed	5.97	ratio	DERIVED	ceiling / C547, was 2131	fn:q_span_now
+C552	the sign at the new floor and one fusion per binder	0.01341	percent	DERIVED	the worst case no measurement supports	fn:q_sign_at_floor
+C553	sticking implied by 150 cycles at phi 1.2	0.5171	percent	DERIVED	the service-life expression inverted	fn:q_omega_from_cycles_12
+C554	sticking implied by 150 cycles at phi 1.5	0.5471	percent	DERIVED	the same at the top of the density bracket	fn:q_omega_from_cycles_15
+C555	cycles the model returns at the corrected sticking	150.5	count	DERIVED	N(0.00515, 1.2) -- it returned 335.3 at the superseded value	fn:q_cycles_at_corrected
+C556	contamination the 150-cycle fuel can have carried	10.93	ppm	DERIVED	the loosest bound across the sticking and density bracket	fn:q_purity_bound
+C557	contamination at which impurity loss equals decay loss	31.10	ppm	DERIVED	lambda_0 / (lambda_transfer x phi) at phi 1.5	fn:q_parity_ppm
+C558	the wedge as headroom rather than a banked figure	7.2	percent	DERIVED	C545 - 1; RECONSTRUCTED and not restated into the balances	fn:q_wedge_headroom_pct

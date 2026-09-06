@@ -1241,7 +1241,7 @@ and a **23 cm** one at the density §5.13 brackets — and both hold the same tr
 
 > **Density buys compactness. It does not buy a gram of inventory back.**
 
-That closes a door §5.29 had appeared to open. §5.29 shows the bred-fuel route needs no compression
+That closes a door §5.27 had appeared to open. §5.27 shows the bred-fuel route needs no compression
 for its *service life*, and that stands. But the stopping window needs areal density, and areal
 density is tritium whatever the compression.
 
@@ -1332,7 +1332,7 @@ hence
 > **0.532**, **0.515** and **0.505 percent**.
 
 The operative sticking is therefore **3.74** times what this paper used. That single ratio is also the
-explanation of the over-prediction §5.29 reports: at the corrected value the service-life model
+explanation of the over-prediction §5.27 reports: at the corrected value the service-life model
 reproduces the 150 cycles measured at Los Alamos instead of returning 335.
 
 **What follows is a cap, not a shortfall.** The service life is bounded by 1/ω_eff **at any density
@@ -1440,7 +1440,7 @@ stripping route demands. And an independent blanket accounting gives 26.0 MeV pe
 
 | correction | what it does |
 |---|---|
-| an optimised target is calculated at **4.69 GeV** per pion against this paper's **11.13** | multiplies every balance above by **2.37** for a reader who prefers the simulation. This paper keeps the measured figure, because a status is never flattened — and §5.26 below shows the difference is **not** target thickness, which was this paper's first explanation of it. |
+| an optimised target is calculated at **4.69 GeV** per pion against this paper's **11.13** | multiplies every balance above by **2.37** for a reader who prefers the simulation. This paper keeps the measured figure, because a status is never flattened — and §5.27 below now identifies the difference as a *normalisation*, per beam particle against per interaction, reproducing it to 0.8 percent while declining to adopt it. |
 | transfer to a high-Z contaminant is a binder-loss channel neither analysis modelled: **5.49 ppm** costs as much binder as decay at the bracketed density | every balance above assumes perfect purity and is an overestimate by an unquantified factor. §3 now carries the requirement. |
 | the service-life model returns **335.3** cycles at the conditions of the one measurement it can be checked against, where **150** were measured | **2.24** over-prediction. Every figure above computed at the "bound case" inherits it; §5.18's and §5.23's bred-fuel figures, computed at the measured cycle count and a sourced blanket, do not. |
 
@@ -1460,22 +1460,35 @@ spine of the production argument is corroborated.**
 §5.26 attributed the difference to target thickness — a long rod letting secondaries produce pions
 that a thin target lets escape. The same source's own table refuses that: measured per interacting
 proton, going from 0.05 to 2 interaction lengths buys **0.963** at 4.1 GeV and **1.186** at 11.1 GeV.
-**Thickness is worth between 0.87 and 1.19, never 2.37.** **What survives is a discrepancy, not an explanation, and this paper now says so.** Three candidates
-have been examined. Target thickness is refuted by the source's own table, just above. The
-phase-space coverage of §5.1 is bounded at **1.10** and cannot carry a factor of 2.37 either. That
-leaves the beam species — the optimised figure is **0.77** π⁻ per beam *deuteron* against the
-**0.375** per interacting *proton* inverted above, a ratio of **2.05** — but a deuteron at that energy
-is two nucleons each carrying about half of it, and on the same source's own energy dependence two
-nucleons at half the energy do not out-produce one at the full energy. **None of the three accounts
-for the gap.**
+**Thickness is worth between 0.87 and 1.19, never 2.37.** **And the discrepancy is now resolved, by a mechanism that reproduces it rather than bounding it.**
+Four candidates have been examined. Target thickness *per interacting proton* is refuted by the
+source's own table, just above. The phase-space coverage of §5.1 is bounded at 1.10 — and §5.29 now
+closes it at **1.072**. Beam energy was the last candidate, and HARP settles it: the same lead target
+at 3, 5, 8 and 12 GeV/c costs **18.231**, **12.604**, **11.202** and **11.634** GeV per π⁻, a broad
+optimum near 8 GeV/c. **Going down to the optimised study's 3.61 GeV makes production 1.63× dearer,
+not 2.37× cheaper**, so that candidate is refuted in the direction opposite to the one it was proposed
+in.
 
-> **The 2.37 is unexplained.** It is recorded as a discrepancy between two calculations rather than as
-> a lever this paper can price, and every balance here continues to use the measured figure.
+**What survives is not a physics gain. It is a normalisation.** The optimised figure is **0.77** π⁻
+per *beam deuteron*; every figure in this paper is per *interaction*. If each interacting nucleon
+behaves as a HARP proton at its own energy, that yield requires **1.94** interacting nucleons per beam
+deuteron at 5 GeV/c and **4.68** at 3 GeV/c — and a deuteron carries **2** nucleons into a rod of
+**6.3** interaction lengths of tungsten, so the lower end of that range is guaranteed before any
+secondary interacts. Re-normalising this paper's own figure, **2.389** interacting nucleons per beam
+particle return **4.688** GeV per π⁻ — the optimised figure to **0.8 percent**.
 
-**§10.3 changes accordingly.** It is a species comparison at matched beam power — the only candidate
-left standing — and its purpose is to *resolve a discrepancy*, not to confirm an expected gain. This
-paper's earlier reading of that stage, and its earlier confidence in the 4.69 figure, are both
-withdrawn.
+> **The 2.37 is the number of interacting nucleons per beam particle.** It is explained and it is
+> **not adopted**: the mechanism reproduces the figure for pions *produced*, and a thick target also
+> reabsorbs them. The same source's thick/thin ratio for *captured* muons is 0.874–1.186 per
+> interacting proton, which is evidence the gain may not survive to capture. Every balance here
+> continues to use the measured per-interaction figure.
+
+**§10.3 changes accordingly, and changes to something sharper.** It is no longer a species comparison
+looking for an unknown mechanism. It is a **normalisation measurement**: pions per *beam particle*
+against pions per *interaction*, on one target at matched beam power, which is the one quantity that
+decides whether the factor of 2.389 survives to capture. This paper's earlier reading of that stage,
+and its earlier confidence in the 4.69 figure, are both withdrawn — and so is its statement that the
+gap is unexplained.
 
 **One result the companion states and this paper should carry, because it is the mirror of §5.22.**
 Solving each balance for the *density* at which it equals one rather than for the collection
@@ -1565,6 +1578,50 @@ out to be a constraint.
 > **The species is μ⁻, from π⁻, off a high-Z target.** Nothing in the balance moves. One line moves
 > into the specification.
 
+
+### 5.29 What one measurement settles: the sticking, the model, the fuel and the wedge
+
+Four things this paper carried as open were calculations it could already do. They are done here.
+None of them needed a new measurement; three of them needed only the one measurement nobody disputes.
+
+**The witnessed cycle count, read backwards.** The service-life expression takes a sticking and returns
+a cycle count. Run the other way it takes the **150** cycles measured at Los Alamos and returns the
+sticking that produced them — by a route that uses **neither published sticking measurement**:
+
+> **ω_eff = 0.5171 percent** at φ = 1.2, **0.5471 percent** at φ = 1.5.
+
+That is a third independent determination of the quantity every balance here turns on, and it lands
+**inside** the measured trio of 0.505, 0.515 and 0.532 percent and **below** the coupled-channels value
+of 0.557. §5.26 adopted the measured band over theory on the grounds that a witnessed value outranks a
+computed one; the cycle count now says the same thing from a different direction.
+
+**And it disposes of the 2.24 over-prediction without a new hypothesis.** §5.27 records that the
+service-life model returns 335.3 cycles where 150 were measured, and leaves open whether the cause is
+"a density-dependent reactivation term or an unrealised reduction". It is neither. At 0.515 percent the
+model returns **150.5** cycles. **The over-prediction was the sticking and nothing else**, and the
+question is closed rather than deferred to Stage B.
+
+**The same measurement bounds the fuel.** §9 records that every balance here assumes perfect purity and
+that no experiment bounds it. One does — the same one. A contaminant costs binder, so the fuel that
+returned 150 cycles cannot have carried more than the amount that would have pushed the model below
+150. Across the sticking and density bracket that is **0 to 10.93 ppm**, and in every case below the
+**31.10 ppm** at which impurity loss equals decay loss. **The witnessed cycle count already carries its
+own purity.** The limit stands for the *modelled* figures of §§5.11–5.24, which assume a purity no
+experiment has demonstrated; it does not stand for any figure computed at the measured 150.
+
+**And the uncovered wedge is now a value rather than a bound.** §5.1 records that HARP's two
+spectrometers leave **0.1856 sr** between 0.25 and 0.35 rad uncovered, and bounds its worth at 1.10.
+Their per-steradian densities can be log-interpolated across it in the momentum band where the two
+tables overlap, carrying the large-angle spectrum's shape:
+
+> the wedge adds **0.0876 barn** to 1.2220 — a factor of **1.0717**, and production is **10.385 GeV**
+> per π⁻ rather than 11.130.
+
+It is `RECONSTRUCTED` and not measured, because the two tables cover different momentum ranges and no
+interpolation returns the wedge's own spectrum. **The balances in this paper are not restated at
+10.385**: a reconstructed figure does not replace a measured one, and the 7.2 percent it would add is
+recorded as headroom rather than banked. What it does retire is the *bound*: the wedge is not worth
+1.10, and cannot be invoked as though it might be.
 
 ## 6. What the definition excludes
 
@@ -1888,16 +1945,20 @@ what this adds is that it must be run at more than one density.
 **Apparatus.** A proton or deuteron beam of a few GeV and a thick high-Z target. The configuration to
 test first is [9]'s: **3.61 GeV** deuterons on a tungsten rod **652 mm** long and **5.1 mm** across.
 
-**Measure, and measure it as a species comparison.** π⁻ per beam particle for a proton beam and a
-deuteron beam **at matched beam power**, on the same target. §5.25 shows target thickness is not the
-variable — per interacting proton it is worth between **0.963** and **1.186** — so a thickness scan is
-not what decides this. The species is.
+**Measure both normalisations on the same target, in the same run.** π⁻ per *beam particle* and π⁻
+per *interaction*, for a proton beam and a deuteron beam **at matched beam power**. §5.25 shows target
+thickness per interacting proton is not the variable — it is worth between **0.963** and **1.186** —
+and §5.27 shows the beam species is not either. **The variable is the ratio between the two
+normalisations**, which §5.27 computes as **2.389** interacting nucleons per beam particle, and the
+question this stage answers is whether that ratio survives to *captured* muons or is cancelled by
+reabsorption in a target thick enough to produce it.
 
 **Committed prediction.** For the deuteron, **0.77** π⁻ per beam particle, giving **4.69 GeV** per π⁻.
 For the proton at comparable beam energy, **0.375** π⁻ per interacting proton — the figure this paper
 recovers by inverting a published yield, which agrees with its own HARP integration to **0.982**. The
-prediction under test is therefore the ratio **2.05** between them, and this paper does not predict
-that it holds.
+ratio between them is **2.05** per beam particle, and §5.27 accounts for it as nucleon multiplicity.
+**What this paper does not predict is that the ratio survives capture**, and the same source's
+thick/thin ratio of **0.874** to **1.186** for captured muons is the reason for the doubt.
 
 **What it settles.** It decides which figure a reactor target should be priced at, and it multiplies
 every balance in this paper by the ratio it returns. It is the only stage that can improve the result
@@ -1940,9 +2001,10 @@ self-contained one.
 **Stage C first.** It was written third because it was found third; §5.24 and §5.25 have since made it
 the stage that decides the route. It is the cheapest measurement, it would price the route at
 **1.73 kg** of tritium per unit of balance against the wider bore's **10.4 kg** — a factor of **6.0**
-on the axis that will govern licensing — **and the figure that promises all of that is unexplained**
-(§5.26). Running it first is how the programme finds out whether its cheapest lever is real before
-spending anything on the others. Stage A next: it bounds every other
+on the axis that will govern licensing — **and the figure that promises all of that is now explained
+but not adopted** (§5.27): it is a normalisation, per beam particle against per interaction, and
+whether it survives to *captured* muons is exactly what this stage measures. Running it first is how
+the programme finds out whether its cheapest lever is real before spending anything on the others. Stage A next: it bounds every other
 result and needs no new hardware, and §5.24 has already computed what it should return. B is
 independent of both and can run in parallel. D follows all three.
 

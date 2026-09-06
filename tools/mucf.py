@@ -297,6 +297,44 @@ TABLE_5_1 = {   # omega_s -> Q at phi = 1.2, 2.0, 3.0, all at E_mu = 5 GeV
 BREAKEVEN_5_1 = {1.2: 0.00202, 2.0: 0.00262, 3.0: 0.00292}
 
 
+
+# ---- inverting the WITNESSED cycle count -----------------------------------
+# The cycle count is a measurement. Read backwards through the service-life
+# expression it returns a sticking, by a route that uses neither published
+# sticking measurement -- a third determination of the quantity the whole
+# balance turns on, from the one number nobody disputes.
+CYCLES_WITNESSED = 150.0
+PHI_LOS_ALAMOS = (1.2, 1.5)      # the density bracket of the 150-cycle result
+
+
+def omega_from_cycles(n=CYCLES_WITNESSED, phi=1.2, lambda_c=LAMBDA_C):
+    """The effective sticking a measured cycle count implies at density phi."""
+    lo, hi = 1e-6, 0.05
+    for _ in range(200):
+        m = 0.5 * (lo + hi)
+        if cycles(m, phi, lambda_c) > n:
+            lo = m
+        else:
+            hi = m
+    return lo
+
+
+def contamination_bound(n=CYCLES_WITNESSED, omega_s=0.00515, phi=1.2):
+    """The most high-Z contamination the fuel behind a measured cycle count can
+    have carried: any more and the model would fall below what was measured.
+    Returns None when the model is already at or below n, which is itself the
+    answer -- that fuel had no room for a contaminant at all."""
+    if cycles(omega_s, phi) <= n:
+        return None
+    lo, hi = 0.0, 1e-3
+    for _ in range(300):
+        m = 0.5 * (lo + hi)
+        if cycles(omega_s, phi, contamination=m) > n:
+            lo = m
+        else:
+            hi = m
+    return lo
+
 def selftest():
     """Fixtures are the paper's own recorded numbers. Reports, never repairs."""
     fail = 0
@@ -432,6 +470,44 @@ def selftest():
     print(f"      crossover is {e_mu_for(0.0045, 3.0):.2f} GeV / "
           f"{5.0 / e_mu_for(0.0045, 3.0):.2f}x, not 3.90 / 1.28x. The prose figure")
     print("      omits muon decay. Both are recorded; neither is flattened.")
+
+    print()
+    print("  the witnessed cycle count, inverted for the sticking it implies")
+    for phi in PHI_LOS_ALAMOS:
+        w = omega_from_cycles(phi=phi)
+        ok = min(OMEGA_EFF_MEASURED) <= w <= max(OMEGA_EFF_MEASURED) or w < OMEGA_EFF_THEORY
+        fail += 0 if ok else 1
+        print(f"    phi {phi:.1f}: omega_eff = {100 * w:.4f} % -- inside the measured band"
+              f" {100 * min(OMEGA_EFF_MEASURED):.3f}-{100 * max(OMEGA_EFF_MEASURED):.3f}"
+              f" and below theory {100 * OMEGA_EFF_THEORY:.3f}   {'PASS' if ok else 'FAIL'}")
+    ok = all(omega_from_cycles(phi=p) < OMEGA_EFF_THEORY for p in PHI_LOS_ALAMOS)
+    fail += 0 if ok else 1
+    print(f"    a third route to the sticking, using neither published measurement,")
+    print(f"    and it excludes the coupled-channels value   {'PASS' if ok else 'FAIL'}")
+
+    print()
+    print("  the 2.24 over-prediction, at the corrected sticking")
+    for w, lab in ((0.001487, "v1.0's excited-state chain"),
+                   (OMEGA_EFF_THEORY, "theory 0.557%"),
+                   (0.00515, "measured 0.515%")):
+        n = cycles(w, 1.2)
+        print(f"    {lab:28s} -> {n:6.1f} cycles vs {CYCLES_WITNESSED:.0f} measured")
+    ok = abs(cycles(0.00515, 1.2) / CYCLES_WITNESSED - 1) < 0.02
+    fail += 0 if ok else 1
+    print(f"    the over-prediction was the sticking and nothing else"
+          f"   {'PASS' if ok else 'FAIL'}")
+
+    print()
+    print("  the purity the 150-cycle fuel can have carried")
+    for w in OMEGA_EFF_MEASURED:
+        c = contamination_bound(omega_s=w, phi=1.2)
+        txt = "none at all" if c is None else f"{c * 1e6:.2f} ppm"
+        print(f"    at omega {100 * w:.3f} %: at most {txt}")
+    worst = max((contamination_bound(omega_s=w, phi=1.5) or 0.0) for w in OMEGA_EFF_MEASURED)
+    ok = worst < purity_for_parity(1.5)
+    fail += 0 if ok else 1
+    print(f"    the loosest bound {worst * 1e6:.2f} ppm is below the parity level"
+          f" {purity_for_parity(1.5) * 1e6:.2f} ppm   {'PASS' if ok else 'FAIL'}")
 
     print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")

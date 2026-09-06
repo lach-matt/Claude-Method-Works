@@ -1595,7 +1595,7 @@ def insitu_cell_heat_mw():
 
 # ---- spec sec.7, the reduction of the open questions ----------------------
 def open_floor_mu():
-    return collector.open_floor_mu_per_s()
+    return collector.open_floor_transported()
 
 
 def open_ceiling_mu():
@@ -1603,7 +1603,7 @@ def open_ceiling_mu():
 
 
 def open_floor_pct():
-    return collector.open_heat_pct(collector.open_floor_mu_per_s())
+    return collector.open_heat_pct(collector.open_floor_transported())
 
 
 def open_ceiling_pct():
@@ -1611,11 +1611,11 @@ def open_ceiling_pct():
 
 
 def open_span():
-    return collector.open_ceiling_mu_per_s() / collector.open_floor_mu_per_s()
+    return collector.open_ceiling_mu_per_s() / collector.open_floor_transported()
 
 
 def open_worst_case_pct():
-    return collector.open_heat_pct(collector.open_floor_mu_per_s(), cycles=1.0)
+    return collector.open_heat_pct(collector.open_floor_transported(), cycles=1.0)
 
 
 def open_count():
@@ -1623,7 +1623,141 @@ def open_count():
 
 
 def open_count_load_bearing():
-    return float(len([q for q in collector.OPEN if "LOAD-BEARING" in q[6]]))
+    return float(len([q for q in collector.OPEN if q[2] != "CLOSED"]))
+
+
+def open_count_closed():
+    return float(len([q for q in collector.OPEN if q[2] == "CLOSED"]))
+
+
+# ---- spec sec.7, the open questions worked --------------------------------
+def q_cost_3gev():
+    return collector.harp_cost_at(0)
+
+
+def q_cost_5gev():
+    return collector.harp_cost_at(1)
+
+
+def q_cost_8gev():
+    return collector.harp_cost_at(2)
+
+
+def q_cost_12gev():
+    return collector.harp_cost_at(3)
+
+
+def q_yield_3gev():
+    return collector.harp_yield_at(0)
+
+
+def q_yield_5gev():
+    return collector.harp_yield_at(1)
+
+
+def q_yield_8gev():
+    return collector.harp_yield_at(2)
+
+
+def q_yield_12gev():
+    return collector.harp_yield_at(3)
+
+
+def q_energy_penalty():
+    return collector.harp_cost_at(0) / collector.harp_cost_at(2)
+
+
+def q_nucleons_at_3():
+    return collector.kelly_nucleons_required(0)
+
+
+def q_nucleons_at_5():
+    return collector.kelly_nucleons_required(1)
+
+
+def q_multiplicity():
+    return collector.kelly_multiplicity_that_reconciles()
+
+
+def q_cost_at_2():
+    return collector.cost_at_multiplicity(2.0)
+
+
+def q_cost_at_3():
+    return collector.cost_at_multiplicity(3.0)
+
+
+def q_cost_at_reconciling():
+    return collector.cost_at_multiplicity(collector.kelly_multiplicity_that_reconciles())
+
+
+def q_rod_lengths():
+    return collector.rod_interaction_lengths()
+
+
+def q_wedge_solid_angle():
+    return collector.HARP_GAP_SOLID_ANGLE
+
+
+def q_wedge_sigma():
+    return collector.wedge_added_sigma()
+
+
+def q_wedge_headroom_pct():
+    return 100.0 * (collector.wedge_factor() - 1.0)
+
+
+def q_wedge_factor():
+    return collector.wedge_factor()
+
+
+def q_cost_with_wedge():
+    return collector.cost_per_pion_with_wedge()
+
+
+def q_comet_floor():
+    return collector.open_floor_mu_per_s()
+
+
+def q_comet_floor_hi():
+    return collector.insitu_from_comet(hi=True)
+
+
+def q_floor_pct():
+    return collector.open_heat_pct(collector.open_floor_mu_per_s())
+
+
+def q_floor_hi_pct():
+    return collector.open_heat_pct(collector.insitu_from_comet(hi=True))
+
+
+def q_span_now():
+    return collector.open_ceiling_mu_per_s() / collector.open_floor_mu_per_s()
+
+
+def q_sign_at_floor():
+    return collector.open_heat_pct(collector.open_floor_mu_per_s(), cycles=1.0)
+
+
+def q_omega_from_cycles_12():
+    return 100.0 * mucf.omega_from_cycles(phi=1.2)
+
+
+def q_omega_from_cycles_15():
+    return 100.0 * mucf.omega_from_cycles(phi=1.5)
+
+
+def q_cycles_at_corrected():
+    return mucf.cycles(0.00515, 1.2)
+
+
+def q_purity_bound():
+    return 1e6 * max((mucf.contamination_bound(omega_s=w, phi=1.5) or 0.0)
+                     for w in mucf.OMEGA_EFF_MEASURED)
+
+
+def q_parity_ppm():
+    return 1e6 * mucf.purity_for_parity(1.5)
 
 
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}

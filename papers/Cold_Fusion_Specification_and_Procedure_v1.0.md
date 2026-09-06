@@ -415,46 +415,116 @@ measurement of the acceptance by a second route.
 **This is the section the index said was missing**, and its absence was the only thing standing
 between this corpus's one proved-positive configuration and a laboratory.
 
-## 7. What is still open, and what it can change
+## 7. The open questions, worked
 
-This corpus carries a long list of open questions, and a long list is not the same as an uncertain
-answer. Each one is tested here against the *one* configuration §5.2 and §6 find net-positive, rather
-than against the papers as a whole. `python3 tools/collector.py --open` runs the test.
+Nine open questions were carried. Six of them were calculations this work could already do, and
+sorting them into categories was not the same as doing them. This section does them.
+`python3 tools/collector.py --open` and `python3 tools/mucf.py --selftest` reproduce every figure.
 
-| | open question | what it acts on | verdict |
+| | question | status | what it returned |
 |---|---|---|---|
-| Q1 | the acceptance has never been measured end to end | the capture efficiency | **load-bearing on the magnitude** |
-| Q2 | the two published final stickings straddle the break point | the *cap* on cycles | not load-bearing: §6 uses the witnessed **150**, below both caps |
-| Q3 | the service-life model over-predicts its one checkable point by **2.24** | modelled cycles | not load-bearing: §6 uses the measurement, not the model |
-| Q4 | fuel purity is bounded by no experiment here | cycles, if the fuel is dirtier than the fuel that returned 150 | not load-bearing: 150 was measured on real fuel and carries its own purity |
-| Q5 | the temperature axis is confounded with purity and density | cycles *above* 150 | not load-bearing: §6 claims no cycle count above the witnessed one |
-| Q6 | the **2.37** between measured and optimised production is unexplained | π⁻ per proton | **one-sided upward**: ×1.00 to ×2.37, it can only help |
-| Q7 | HARP's two datasets leave a **0.186** sr wedge uncovered | π⁻ per proton | **one-sided upward**: ×1.00 to ×1.10 |
-| Q8 | transport, cooling and stopping are unmodelled losses | the capture efficiency | **retired here**: in-situ has no transport, and §6 models the stopping |
-| Q9 | the composed sticking **0.234** inherits an unresolved figure | a projection | not load-bearing: no projected sticking enters this balance |
+| Q1 | the acceptance has never been measured end to end | **narrowed** | a second published capture simulation, transport removed, raises the floor to **3.21e13** binders/s; the span falls from **2131×** to **5.97×** |
+| Q2 | which sticking branch is operative | **closed** | inverting the witnessed 150 cycles gives **0.517–0.547 %**, inside the measured trio and below theory |
+| Q3 | the service-life model over-predicts by **2.24** | **closed** | at the corrected sticking it returns **150.5** cycles against 150 measured |
+| Q4 | fuel purity is bounded by no experiment here | **closed** | the fuel behind the 150 carried at most **10.93 ppm**, below the **31.10 ppm** parity level |
+| Q5 | the temperature axis is confounded | **closed** | every balance already runs the cycle rate *at* its ceiling, so deconfounding can raise nothing |
+| Q6 | the **2.37** is unexplained | **explained, not adopted** | a normalisation, not a physics gain: **2.389** interacting nucleons reproduce it to 0.8 % |
+| Q7 | a **0.186 sr** wedge is uncovered | **closed** | interpolation puts it at **1.072** against a bound of 1.10 |
+| Q8 | transport, cooling and stopping unmodelled | **closed** | retired by §6 |
+| Q9 | the composed sticking **0.234** is unresolved | **closed** | superseded by [1] §5.26 |
 
-**Nine open questions, and one of them moves a number this answer states.** Five act on
-configurations §6 does not use — every one of those five is a question about *exceeding* the witnessed
-cycle count, and §6 does not try to. Two can only move the answer upward. One is retired by §6 itself.
+### 7.1 One measurement answers three of them
 
-**The one that matters is bounded at both ends, and neither end is a guess.**
+The 150 cycles is a measurement nobody disputes. Read *backwards* through the service-life expression
+it returns a sticking — by a route that uses neither published sticking measurement:
 
-| | binders/s at 1 MW | fusion heat, fraction of the host beam |
+> **ω_eff = 0.5171 %** at φ = 1.2 and **0.5471 %** at φ = 1.5.
+
+That is a **third independent determination**, and it lands inside the measured trio (0.505, 0.515,
+0.532 %) and **below** the coupled-channels value of 0.557 %. Q2 is answered: the operative sticking is
+the measured one, not the theoretical one.
+
+The same inversion answers Q3 without a new hypothesis. The **2.24** over-prediction was attributed to
+"a density-dependent reactivation term or an unrealised reduction". It was neither: at 0.515 % the
+model returns **150.5** cycles where it returned 335.3 at the superseded value. **The over-prediction
+was the sticking and nothing else.**
+
+And it bounds Q4. Any contaminant costs binder, so the fuel that returned 150 cannot have carried more
+than the amount that would have pushed the model below 150. That is **0 to 10.93 ppm** across the
+sticking and density bracket — in every case below the **31.10 ppm** at which impurity loss equals
+decay loss. **The witnessed cycle count already carries its own purity**, which is why §6 uses it.
+
+### 7.2 The 2.37, resolved
+
+Three mechanisms were examined and bounded away from it: target thickness per interacting proton
+(0.963–1.186), phase-space coverage (≤1.10), and beam species. Beam *energy* was the last candidate,
+and HARP settles it, having published the same lead target at four beam momenta:
+
+| beam GeV/c | π⁻ per interaction | GeV per π⁻ |
 |---|---|---|
-| floor, **measured** — MuSIC's built capture solenoid, scaled | **9.00e10** | **0.00564 %** |
-| ceiling, **modelled** — in-situ at the 3.59 kg stopping window | **1.918e14** | **12.01 %** |
+| 3 | 0.1646 | **18.231** |
+| 5 | 0.3967 | 12.604 |
+| 8 | 0.7142 | **11.202** |
+| 12 | 1.0314 | 11.634 |
 
-The floor is a *measurement on a machine that exists*, and in-situ capture cannot do worse than it,
-because MuSIC's figure is what survives a transport line and §6 has none. The span between the two is
-a factor of **2131**, and [1] §10.1 — Stage A — is the measurement that closes it. **That is the whole
-of the open question, stated as a number rather than as a caveat.**
+*(These integrate the coverage common to all four beam momenta, which is why the 8 GeV/c entry reads
+11.202 against [1] §5.1's full-coverage 11.130.)*
 
-**And the sign is not open at any value of any of them.** The co-product balance has zero marginal
-beam cost per binder, so every remaining term is a positive multiplier. Run it at the measured floor
-*and* at one fusion per binder — a case no measurement supports and every measurement exceeds — and it
-returns **0.0000376 percent** of the host beam. Small, and positive.
+**Beam energy has a broad optimum near 8 GeV/c, and going down to the optimised study's 3.61 GeV makes
+production 1.63× dearer rather than 2.37× cheaper.** The candidate is refuted, and refuted in the
+direction opposite to the one it was proposed in.
 
-> **The open questions set how large this is. They do not set whether it exists.**
+**What survives is not a physics gain at all. It is a normalisation.** The optimised figure is 0.77 π⁻
+per *beam deuteron*; HARP's is per *interaction*. If each interacting nucleon behaves as a HARP proton,
+that yield requires **1.94** interacting nucleons per beam deuteron at 5 GeV/c and **4.68** at 3 GeV/c
+— and a deuteron carries **2** nucleons into a rod of **6.3** interaction lengths, so the lower end is
+guaranteed before any secondary interacts. Re-normalising this work's own figure:
+
+| interacting nucleons per beam particle | GeV per π⁻ |
+|---|---|
+| 1.000 | 11.202 |
+| 2.000 | 5.601 |
+| **2.389** | **4.688** — reproduces the optimised figure to 0.8 % |
+| 3.000 | 3.734 |
+
+**It is explained and it is not adopted.** The mechanism reproduces the number for pions *produced*,
+and a thick target also reabsorbs them: the same source's thick/thin ratio for *captured* muons is
+0.874–1.186 per interacting proton, which is evidence the gain may not survive to capture. [1] §10.3
+is now the measurement that decides it — pions per beam particle against pions per interaction, on one
+target — and that, rather than a species comparison, is what that stage is for.
+
+### 7.3 The wedge, and the acceptance
+
+HARP's two spectrometers leave **0.1856 sr** between them uncovered. Log-interpolating their
+per-steradian densities in the momentum band where they overlap, and carrying the large-angle
+spectrum's shape across, puts that wedge at **0.0876 barn** on top of 1.2220 — a factor of **1.0717**,
+against a bound of 1.10. Production is therefore **10.385** GeV per π⁻ rather than 11.130. It is
+`RECONSTRUCTED`, not measured: the two tables cover different momentum ranges, so no interpolation
+returns the wedge's own spectrum.
+
+**Q1 is narrowed and not closed, and the narrowing comes from a second simulation rather than an
+argument.** §6's rate rested on [1] §5.24's model against a floor taken from a *transported* beam,
+which is a floor on a different quantity — it is what survives a beamline, and §6 has none. Taking a
+published 5 T capture figure instead and removing decay and transport, because an in-situ cell sits at
+the capture point:
+
+| | binders/s at 1 MW | fusion heat, fraction of host beam |
+|---|---|---|
+| superseded floor, a transported beam | 9.00e10 | 0.00564 % |
+| **floor** — an independent capture simulation, transport removed | **3.21e13** | **2.01 %** |
+| the same at its upper figure | 7.58e13 | 4.75 % |
+| **ceiling** — [1] §5.24's model at the 3.59 kg window | **1.918e14** | **12.01 %** |
+
+**The span was a factor of 2131 and is now 5.97.** The answer's magnitude is between **2.01 and
+12.01 percent** of the host beam.
+
+> **Seven of nine closed, one narrowed to a factor of six, one explained and declined. The two that
+> still move a number are measurements rather than calculations — the acceptance, and whether the
+> thick-target normalisation survives to capture — and [1] §10 already runs both.**
+
+**The sign is still open at no value of any of them.** At the new floor and one fusion per binder — a
+case no measurement supports — the configuration returns **0.01341 percent** of the host beam.
+Positive.
 
 ---
 

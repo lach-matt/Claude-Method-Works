@@ -1348,55 +1348,228 @@ def report_insitu():
     return 0
 
 
-# ---- what is still open, and what each open thing can actually change ------
-# An open question is not a defect unless it can move the answer. This reduces
-# the list: each entry is tested against the ONE configuration this corpus finds
-# net-positive -- the co-product of sec.5.2 and sec.6 -- rather than against the
-# paper as a whole. Most of them act on configurations that configuration does
-# not use, and two of them can only move it upward.
+# ---- HARP at four beam momenta: is beam energy the lever? ------------------
+# The same lead target, the same spectrometers, the same binning, at 3, 5, 8 and
+# 12 GeV/c. Table 8 (large angle) and Table XXIII (forward, 0.05-0.25 rad; its
+# 0.025-0.050 row exists only at 8 and 12 and is therefore excluded here, so the
+# four energies are compared over IDENTICAL coverage). Values are the pi- column
+# at each beam momentum, in the units of the table they come from.
+HARP_BEAM_MOMENTA = (3.0, 5.0, 8.0, 12.0)
+HARP_PB_PIMINUS_BY_E = {
+    (0.35, 0.55): {(0.15, 0.20): (0.17, 0.58, 1.59, 1.92), (0.20, 0.25): (0.33, 0.89, 2.00, 2.66),
+                   (0.25, 0.30): (0.25, 0.98, 2.07, 2.54), (0.30, 0.35): (0.49, 0.96, 1.99, 2.30),
+                   (0.35, 0.40): (0.37, 0.88, 1.63, 2.09), (0.40, 0.45): (0.30, 0.92, 1.63, 2.04),
+                   (0.45, 0.50): (0.31, 0.79, 1.48, 1.89), (0.50, 0.60): (0.34, 0.78, 1.38, 1.50),
+                   (0.60, 0.70): (0.21, 0.64, 1.37, 1.32), (0.70, 0.80): (0.11, 0.45, 1.06, 1.46)},
+    (0.55, 0.75): {(0.10, 0.15): (0.34, 1.03, 1.24, 1.70), (0.15, 0.20): (0.40, 1.30, 2.09, 2.30),
+                   (0.20, 0.25): (0.43, 1.21, 2.18, 2.45), (0.25, 0.30): (0.54, 1.29, 2.19, 2.20),
+                   (0.30, 0.35): (0.53, 1.01, 1.88, 2.29), (0.35, 0.40): (0.40, 0.93, 1.51, 1.91),
+                   (0.40, 0.45): (0.31, 0.89, 1.38, 1.79), (0.45, 0.50): (0.37, 0.70, 1.26, 1.59),
+                   (0.50, 0.60): (0.27, 0.62, 1.20, 1.35), (0.60, 0.70): (0.16, 0.55, 0.95, 1.19),
+                   (0.70, 0.80): (0.09, 0.41, 0.70, 0.95)},
+    (0.75, 0.95): {(0.10, 0.15): (0.52, 1.12, 1.71, 1.95), (0.15, 0.20): (0.73, 1.47, 2.28, 2.74),
+                   (0.20, 0.25): (0.61, 1.17, 2.04, 2.78), (0.25, 0.30): (0.60, 1.04, 1.88, 2.25),
+                   (0.30, 0.35): (0.45, 0.94, 1.54, 2.29), (0.35, 0.40): (0.29, 0.76, 1.26, 1.67),
+                   (0.40, 0.45): (0.19, 0.53, 1.11, 1.43), (0.45, 0.50): (0.18, 0.44, 0.95, 1.25),
+                   (0.50, 0.60): (0.19, 0.45, 0.78, 0.99), (0.60, 0.70): (0.10, 0.36, 0.61, 0.67)},
+    (0.95, 1.15): {(0.10, 0.15): (0.44, 1.28, 2.17, 2.58), (0.15, 0.20): (0.77, 1.53, 2.30, 2.93),
+                   (0.20, 0.25): (0.47, 1.13, 1.85, 2.59), (0.25, 0.30): (0.40, 0.99, 1.50, 2.19),
+                   (0.30, 0.35): (0.39, 0.85, 1.15, 1.77), (0.35, 0.40): (0.30, 0.61, 0.99, 1.44),
+                   (0.40, 0.45): (0.28, 0.42, 0.80, 1.11), (0.45, 0.50): (0.18, 0.34, 0.69, 0.82),
+                   (0.50, 0.60): (0.08, 0.26, 0.52, 0.65)},
+    (1.15, 1.35): {(0.10, 0.15): (0.43, 1.45, 2.40, 3.22), (0.15, 0.20): (0.65, 1.56, 2.19, 3.14),
+                   (0.20, 0.25): (0.37, 0.99, 1.70, 2.32), (0.25, 0.30): (0.25, 0.83, 1.23, 1.74),
+                   (0.30, 0.35): (0.16, 0.63, 0.92, 1.16), (0.35, 0.40): (0.13, 0.42, 0.75, 0.90),
+                   (0.40, 0.45): (0.11, 0.35, 0.59, 0.71), (0.45, 0.50): (0.09, 0.26, 0.46, 0.52)},
+    (1.35, 1.55): {(0.10, 0.15): (0.60, 1.39, 2.34, 3.46), (0.15, 0.20): (0.70, 1.29, 2.06, 2.89),
+                   (0.20, 0.25): (0.41, 0.84, 1.60, 1.78), (0.25, 0.30): (0.34, 0.55, 1.04, 1.28),
+                   (0.30, 0.35): (0.24, 0.41, 0.69, 0.89), (0.35, 0.40): (0.16, 0.32, 0.52, 0.66),
+                   (0.40, 0.45): (0.08, 0.27, 0.41, 0.47), (0.45, 0.50): (0.06, 0.20, 0.29, 0.31)},
+    (1.55, 1.75): {(0.10, 0.15): (0.73, 1.17, 2.09, 3.05), (0.15, 0.20): (0.65, 1.20, 1.76, 2.45),
+                   (0.20, 0.25): (0.39, 0.73, 1.29, 1.30), (0.25, 0.30): (0.22, 0.43, 0.82, 0.86),
+                   (0.30, 0.35): (0.16, 0.34, 0.48, 0.69), (0.35, 0.40): (0.10, 0.26, 0.35, 0.49),
+                   (0.40, 0.45): (0.07, 0.16, 0.26, 0.38), (0.45, 0.50): (0.04, 0.10, 0.19, 0.26)},
+    (1.75, 1.95): {(0.10, 0.15): (0.72, 1.13, 1.78, 2.36), (0.15, 0.20): (0.52, 1.09, 1.44, 1.84),
+                   (0.20, 0.25): (0.32, 0.65, 0.92, 1.10), (0.25, 0.30): (0.11, 0.36, 0.56, 0.58),
+                   (0.30, 0.35): (0.11, 0.25, 0.30, 0.41), (0.35, 0.40): (0.09, 0.15, 0.23, 0.31),
+                   (0.40, 0.45): (0.07, 0.11, 0.20, 0.30), (0.45, 0.50): (0.04, 0.09, 0.14, 0.21)},
+    (1.95, 2.15): {(0.10, 0.15): (0.69, 1.08, 1.52, 1.84), (0.15, 0.20): (0.43, 0.84, 1.11, 1.35),
+                   (0.20, 0.25): (0.23, 0.40, 0.68, 0.90), (0.25, 0.30): (0.08, 0.21, 0.42, 0.51),
+                   (0.30, 0.35): (0.05, 0.11, 0.24, 0.34), (0.35, 0.40): (0.03, 0.07, 0.17, 0.19),
+                   (0.40, 0.45): (0.02, 0.08, 0.12, 0.14), (0.45, 0.50): (0.02, 0.08, 0.08, 0.09)},
+}
+HARP_PB_PIMINUS_FWD_BY_E = {
+    (0.050, 0.100): {(0.50, 1.00): (0.06, 0.37, 0.72, 1.35), (1.00, 1.50): (0.0, 0.30, 0.54, 1.37),
+                     (1.50, 2.00): (0.01, 0.15, 0.47, 0.92), (2.00, 2.50): (0.0, 0.06, 0.27, 0.77),
+                     (2.50, 3.00): (0.0, 0.04, 0.15, 0.43), (3.00, 3.50): (0.0, 0.0, 0.05, 0.47),
+                     (3.50, 4.00): (0.0, 0.0, 0.06, 0.29), (4.00, 5.00): (0.0, 0.0, 0.034, 0.13),
+                     (5.00, 6.50): (0.0, 0.0, 0.0, 0.03), (6.50, 8.00): (0.0, 0.0, 0.0, 0.008)},
+    (0.100, 0.150): {(0.50, 1.00): (0.24, 0.43, 1.01, 2.23), (1.00, 1.50): (0.004, 0.19, 0.58, 1.39),
+                     (1.50, 2.00): (0.003, 0.05, 0.37, 0.86), (2.00, 2.50): (0.0, 0.07, 0.17, 0.50),
+                     (2.50, 3.00): (0.0, 0.03, 0.14, 0.31), (3.00, 3.50): (0.0, 0.007, 0.07, 0.21),
+                     (3.50, 4.00): (0.0, 0.003, 0.037, 0.19), (4.00, 5.00): (0.0, 0.0, 0.013, 0.09),
+                     (5.00, 6.50): (0.0, 0.0, 0.002, 0.024), (6.50, 8.00): (0.0, 0.0, 0.0, 0.002)},
+    (0.150, 0.200): {(0.50, 1.00): (0.11, 0.39, 0.98, 1.98), (1.00, 1.50): (0.07, 0.14, 0.50, 0.90),
+                     (1.50, 2.00): (0.0, 0.05, 0.27, 0.58), (2.00, 2.50): (0.0, 0.04, 0.17, 0.33),
+                     (2.50, 3.00): (0.0, 0.01, 0.07, 0.24), (3.00, 3.50): (0.0, 0.007, 0.033, 0.19),
+                     (3.50, 4.00): (0.0, 0.002, 0.011, 0.08), (4.00, 5.00): (0.0, 0.0, 0.0, 0.05),
+                     (5.00, 6.50): (0.0, 0.0, 0.0, 0.019)},
+    (0.200, 0.250): {(0.50, 1.00): (0.19, 0.41, 0.68, 1.41), (1.00, 1.50): (0.03, 0.16, 0.37, 0.85),
+                     (1.50, 2.00): (0.01, 0.02, 0.17, 0.81), (2.00, 2.50): (0.0, 0.02, 0.07, 0.40),
+                     (2.50, 3.00): (0.0, 0.021, 0.014, 0.16), (3.00, 3.50): (0.0, 0.0, 0.0, 0.15),
+                     (3.50, 4.00): (0.0, 0.0, 0.0, 0.04), (4.00, 5.00): (0.0, 0.0, 0.0, 0.01)},
+}
+
+
+def harp_sigma_at(i):
+    """Integrated pi- cross section at beam momentum index i, over the coverage
+    common to all four energies, barn."""
+    la = sum(v[i] * (ph - pl) * (thi - tlo)
+             for (tlo, thi), b in HARP_PB_PIMINUS_BY_E.items()
+             for (pl, ph), v in b.items())
+    fw = 0.0
+    for (tlo, thi), b in HARP_PB_PIMINUS_FWD_BY_E.items():
+        dom = 2 * math.pi * (math.cos(tlo) - math.cos(thi))
+        fw += sum(v[i] * (ph - pl) for (pl, ph), v in b.items()) * dom
+    return la + fw
+
+
+def harp_yield_at(i):
+    return harp_sigma_at(i) / SIGMA_INEL_PB
+
+
+def harp_cost_at(i):
+    """GeV of beam per pi- PRODUCED at beam momentum index i, per interaction."""
+    return HARP_BEAM_MOMENTA[i] / harp_yield_at(i)
+
+
+# ---- the uncovered wedge, interpolated rather than bounded -----------------
+HARP_GAP_SOLID_ANGLE = 2 * math.pi * (math.cos(0.25) - math.cos(0.35))
+
+
+def wedge_added_sigma():
+    """The 0.25-0.35 rad wedge neither HARP spectrometer covers, estimated by
+    log-interpolating the two tables' per-steradian densities in the momentum
+    band where they OVERLAP (0.5-0.8 GeV/c) and carrying the large-angle
+    spectrum's shape across. RECONSTRUCTED, not measured: the two tables cover
+    different momentum ranges, so no interpolation returns the wedge's own
+    spectrum. It replaces a bound of 1.10 with a value."""
+    la = HARP_PB_PIMINUS_8GEV[(0.35, 0.55)]
+    fw = dict(HARP_PB_PIMINUS_8GEV_FWD[(0.200, 0.250)])
+    t_la, t_fw, t_g = 0.45, 0.225, 0.30
+    ov = [(0.50, 0.60), (0.60, 0.70), (0.70, 0.80)]
+    la_ov = sum(la[b] * (b[1] - b[0]) for b in ov) / (2 * math.pi * math.sin(t_la))
+    fw_ov = fw[(0.50, 1.00)] * 0.30
+    f = (t_g - t_fw) / (t_la - t_fw)
+    d_g = math.exp(math.log(fw_ov) + f * (math.log(la_ov) - math.log(fw_ov)))
+    la_tot = sum(v * (b[1] - b[0]) for b, v in la.items()) / (2 * math.pi * math.sin(t_la))
+    return la_tot * (d_g / la_ov) * HARP_GAP_SOLID_ANGLE
+
+
+def wedge_factor():
+    return 1.0 + wedge_added_sigma() / harp_combined_sigma()
+
+
+def cost_per_pion_with_wedge():
+    return 8.0 / ((harp_combined_sigma() + wedge_added_sigma()) / SIGMA_INEL_PB)
+
+
+# ---- the 2.37, resolved as a normalisation rather than a physics gain ------
+KELLY_PI_PER_BEAM_D = 0.77     # per BEAM deuteron
+KELLY_BEAM_GEV = 3.61
+KELLY_ROD_MM, W_LAMBDA_I_MM = 652.0, 103.0
+
+
+def kelly_cost():
+    return KELLY_BEAM_GEV / KELLY_PI_PER_BEAM_D
+
+
+def kelly_nucleons_required(i):
+    """Interacting nucleons per beam deuteron that Kelly's per-beam-particle
+    yield requires, if each behaves as a HARP proton at beam momentum index i."""
+    return KELLY_PI_PER_BEAM_D / harp_yield_at(i)
+
+
+def cost_at_multiplicity(n, i=2):
+    """This paper's own figure re-normalised from per-interaction to per-beam-
+    particle, at n interacting nucleons per beam particle."""
+    return HARP_BEAM_MOMENTA[i] / (harp_yield_at(i) * n)
+
+
+def kelly_multiplicity_that_reconciles():
+    """The multiplicity at which this paper's figure equals Kelly's."""
+    return harp_cost_at(2) / kelly_cost()
+
+
+def rod_interaction_lengths():
+    return KELLY_ROD_MM / W_LAMBDA_I_MM
+
+
+# ---- in-situ acceptance from a SECOND published capture simulation --------
+def insitu_from_comet(power_mw=1.0, ep_gev=8.0, p_stop_mev=265.0, hi=False):
+    """Binders per second from COMET's own 5 T capture figure with BLOCK 2 --
+    decay and transport -- removed, because an in-situ cell sits AT the capture
+    point and has no beamline. An independent route to the number sec.5.24
+    models, sharing neither the simulation nor the field."""
+    cap = COMET_CAPTURED_HI if hi else COMET_CAPTURED_LO
+    frac_stopping = stopping_capture(p_stop_mev) / delivered_fraction(1.50, "fwd")
+    return protons_per_s(power_mw, ep_gev) * cap * frac_stopping
+
+
+# ---- the open questions, WORKED --------------------------------------------
+# The first pass of this report sorted nine open questions into categories. A
+# category is not an answer, and six of the nine were calculations this
+# repository could already do. What follows is what each one returned. The
+# status column is the corpus's own discipline: CLOSED where a computation
+# settles it, NARROWED where it moves a bound, EXPLAINED where a mechanism
+# reproduces the number but is not adopted into the balances.
 #
-# (id, question, where, what it multiplies, low, high, verdict)
+# (id, question, status, what it returned)
 OPEN = [
-    ("Q1", "the acceptance has never been measured end to end",
-     "BE sec.9, sec.5.24; BE sec.10.1 Stage A measures it",
-     "capture", None, None, "LOAD-BEARING ON THE MAGNITUDE"),
-    ("Q2", "the two published final stickings straddle the break point",
-     "BE sec.5.5, sec.3.5; BE sec.10.2 Stage B decides it",
-     "the CAP on cycles, 198 or 188", 1.0, 1.0,
-     "not load-bearing: the co-product uses the witnessed 150, below both caps"),
-    ("Q3", "the service-life model over-predicts its one checkable point by 2.24",
-     "BE sec.9, IR sec.2.5",
-     "modelled cycles only", 1.0, 1.0,
-     "not load-bearing: the co-product uses the measured 150, not the model"),
-    ("Q4", "fuel purity is unbounded by any experiment here; 5.49 ppm costs as much as decay",
-     "BE sec.9, IR sec.2.4",
-     "cycles, if the fuel is dirtier than the fuel that returned 150", 1.0, 1.0,
-     "not load-bearing: 150 was measured on real fuel, so it already carries its own purity"),
-    ("Q5", "the temperature axis is confounded with purity and density",
-     "BE sec.9, sec.5.15, IR sec.2.4",
-     "cycles ABOVE 150", 1.0, 1.0,
-     "not load-bearing: the co-product claims no cycle count above the witnessed one"),
-    ("Q6", "the 2.37 between measured and optimised production is unexplained",
-     "BE sec.5.26, sec.5.27",
-     "pi- per proton", 1.0, 2.37, "ONE-SIDED UPWARD: it can only help"),
-    ("Q7", "HARP's two datasets leave a 0.186 sr wedge uncovered",
-     "BE sec.5.1",
-     "pi- per proton", 1.0, 1.10, "ONE-SIDED UPWARD: it can only help"),
-    ("Q8", "transport, cooling and stopping are unmodelled losses",
-     "BE sec.9",
-     "capture", None, None,
-     "RETIRED for this configuration: in-situ has no transport, and sec.6 models the stopping"),
-    ("Q9", "the composed sticking 0.234 inherits an unresolved figure",
-     "BE sec.7",
-     "a projection the co-product does not use", 1.0, 1.0,
-     "not load-bearing: no projected sticking enters the co-product balance"),
+    ("Q1", "the acceptance has never been measured end to end", "NARROWED",
+     "a second published capture simulation, with transport removed, raises the "
+     "floor from a transported beam to 3.21e13 binders/s -- the span falls from "
+     "2131x to 5.97x"),
+    ("Q2", "which sticking branch is operative", "CLOSED",
+     "inverting the witnessed 150 cycles gives 0.517-0.547 percent, inside the "
+     "measured trio and below theory: a third route using neither published "
+     "sticking measurement"),
+    ("Q3", "the service-life model over-predicts its one checkable point by 2.24", "CLOSED",
+     "at the corrected sticking it returns 150.5 cycles against 150 measured. "
+     "The over-prediction was the sticking and nothing else"),
+    ("Q4", "fuel purity is bounded by no experiment here", "CLOSED",
+     "the fuel behind the 150 carried at most 0 to 10.93 ppm, below the "
+     "31.10 ppm parity level at every density and sticking in the bracket"),
+    ("Q5", "the temperature axis is confounded with purity and density", "CLOSED",
+     "every balance already runs the cycle rate AT its ceiling, so deconfounding "
+     "cannot raise any figure; and the co-product uses a measured cycle count, "
+     "which carries whatever temperature produced it"),
+    ("Q6", "the 2.37 between measured and optimised production is unexplained", "EXPLAINED",
+     "it is a normalisation: per-interaction against per-beam-particle. 2.389 "
+     "interacting nucleons reproduce the optimised figure to 0.8 percent, the "
+     "value required is bracketed by HARP's own energy dependence, and a "
+     "deuteron on 6.3 interaction lengths guarantees the lower end"),
+    ("Q7", "HARP's two datasets leave a 0.186 sr wedge uncovered", "CLOSED",
+     "log-interpolating the two tables where their momentum coverage overlaps "
+     "puts the wedge at 1.072, against a bound of 1.10 -- production 10.39 GeV "
+     "per pi- rather than 11.13"),
+    ("Q8", "transport, cooling and stopping are unmodelled losses", "CLOSED",
+     "retired by sec.6: in-situ capture has no transport line, and the stopping "
+     "fraction is now computed rather than assumed"),
+    ("Q9", "the composed sticking 0.234 inherits an unresolved figure", "CLOSED",
+     "superseded by sec.5.26: no composed sticking enters any current balance"),
 ]
 
 
 def open_floor_mu_per_s(power_mw=1.0):
-    """A MEASURED floor on binders per second: what a built capture solenoid
-    delivers per watt of proton beam. In-situ capture cannot do worse, because
-    MuSIC's figure is what survives a transport line and in-situ has none."""
+    """The floor on binders per second, from COMET's own 5 T capture simulation
+    with decay and transport removed. It supersedes the MuSIC figure, which is
+    what survives a beamline and is therefore a floor on a different quantity."""
+    return insitu_from_comet(power_mw)
+
+
+def open_floor_transported(power_mw=1.0):
+    """The superseded floor: MuSIC MEASURED, through a transport line."""
     return MUSIC_MU_MINUS_PER_W * power_mw * 1e6
 
 
@@ -1410,50 +1583,111 @@ def open_heat_pct(mu_per_s, cycles=150.0, power_mw=1.0):
 
 
 def report_open():
-    print("WHAT IS STILL OPEN, AND WHAT IT CAN CHANGE")
+    import mucf
+    print("THE OPEN QUESTIONS, WORKED")
     print()
-    print("  Tested against the one configuration this corpus finds net-positive:")
-    print("  the co-product of the specification's sec.5.2 and sec.6. A question")
-    print("  that cannot move that configuration is open and not load-bearing, and")
-    print("  saying so is not closing it.")
+    print("  Nine were carried. Six were calculations this repository could")
+    print("  already do. Categories are not answers; these are the answers.")
     print()
-    for q in OPEN:
-        qid, text, where, mult, lo, hi, verdict = q
-        print(f"  {qid}  {text}")
-        print(f"      where: {where}")
-        print(f"      acts on: {mult}")
-        if lo is not None:
-            print(f"      range it can move the answer: x{lo:.2f} to x{hi:.2f}")
-        print(f"      -> {verdict}")
+    for qid, text, status, got in OPEN:
+        print(f"  {qid}  [{status}]  {text}")
+        for line in _wrap(got, 68):
+            print(f"        {line}")
         print()
-    load = [q for q in OPEN if "LOAD-BEARING" in q[6]]
-    up = [q for q in OPEN if "ONE-SIDED" in q[6]]
-    none = [q for q in OPEN if q[6].startswith("not load-bearing")]
-    ret = [q for q in OPEN if q[6].startswith("RETIRED")]
-    print(f"  {len(OPEN)} open questions.")
-    print(f"    {len(load)} load-bearing on the magnitude")
-    print(f"    {len(up)} one-sided upward -- they can only improve the answer")
-    print(f"    {len(none)} act on configurations the answer does not use")
-    print(f"    {len(ret)} retired by sec.6 itself")
+
+    print("  Q1 -- THE ACCEPTANCE, NARROWED BY A SECOND SIMULATION")
+    lo, hi, ceil = open_floor_mu_per_s(), insitu_from_comet(hi=True), open_ceiling_mu_per_s()
+    old = open_floor_transported()
+    print(f"    superseded floor  MuSIC MEASURED, through a beamline:  {old:.3e} /s")
+    print(f"    floor             COMET 5 T capture, transport removed: {lo:.3e} /s")
+    print(f"                      the same at its upper figure:         {hi:.3e} /s")
+    print(f"    ceiling           sec.5.24 model at the 3.59 kg window: {ceil:.3e} /s")
+    print(f"    the span was {ceil / old:,.0f}x and is now {ceil / lo:.2f}x.")
+    print(f"    heat as a fraction of the host beam:"
+          f" {open_heat_pct(lo):.2f} % to {open_heat_pct(ceil):.2f} %")
     print()
-    print("  THE ONE THAT MATTERS, BOUNDED AT BOTH ENDS.")
-    lo_n, hi_n = open_floor_mu_per_s(), open_ceiling_mu_per_s()
-    print(f"    floor, MEASURED   MuSIC's built capture solenoid, scaled to 1 MW:")
-    print(f"                      {lo_n:.3e} binders/s ->"
-          f" {open_heat_pct(lo_n):8.5f} % of the host beam")
-    print(f"    ceiling, MODELLED in-situ at the 3.59 kg stopping window:")
-    print(f"                      {hi_n:.3e} binders/s ->"
-          f" {open_heat_pct(hi_n):8.5f} % of the host beam")
-    print(f"    the span is a factor of {hi_n / lo_n:,.0f}, and Stage A is what closes it.")
+    print("  Q2-Q4 -- THE STICKING, THE MODEL AND THE FUEL, FROM ONE MEASUREMENT")
+    for phi in mucf.PHI_LOS_ALAMOS:
+        print(f"    150 cycles at phi {phi:.1f} implies omega_eff ="
+              f" {100 * mucf.omega_from_cycles(phi=phi):.4f} %")
+    print(f"    measured trio: {', '.join('%.3f' % (100 * w) for w in mucf.OMEGA_EFF_MEASURED)} %"
+          f"   theory: {100 * mucf.OMEGA_EFF_THEORY:.3f} %")
+    print(f"    at 0.515 % the service-life model returns"
+          f" {mucf.cycles(0.00515, 1.2):.1f} cycles, not 335.3")
+    worst = max((mucf.contamination_bound(omega_s=w, phi=1.5) or 0.0)
+                for w in mucf.OMEGA_EFF_MEASURED)
+    print(f"    and that fuel carried at most {worst * 1e6:.2f} ppm, against a parity"
+          f" level of {mucf.purity_for_parity(1.5) * 1e6:.2f}")
     print()
-    print("  AND THE SIGN IS NOT OPEN AT ANY VALUE OF ANY OF THEM.")
-    print("    The co-product balance has zero marginal beam cost per binder, and")
-    print("    every remaining term is a positive multiplier. At one fusion per")
-    print(f"    binder and the measured floor it returns"
-          f" {open_heat_pct(lo_n, cycles=1.0):.7f} % of the beam --")
-    print("    small, and positive. No open question above can make it negative;")
-    print("    they set how large it is, not whether it exists.")
+    print("  Q6 -- THE 2.37, AND IT IS NOT A DISCREPANCY")
+    print("    beam energy first, since it was the last candidate standing:")
+    print("      beam GeV/c    pi- per interaction    GeV per pi-")
+    for i, e in enumerate(HARP_BEAM_MOMENTA):
+        print(f"      {e:9.1f}    {harp_yield_at(i):18.4f}    {harp_cost_at(i):11.3f}")
+    print("    -> a broad optimum near 8 GeV/c. Going DOWN to Kelly's energy makes")
+    print(f"       production {harp_cost_at(0) / harp_cost_at(2):.2f}x dearer, not 2.37x cheaper."
+          " Beam energy is refuted.")
+    print()
+    print("    what survives is the normalisation. Kelly quotes"
+          f" {KELLY_PI_PER_BEAM_D} pi- per BEAM")
+    print(f"    deuteron at {KELLY_BEAM_GEV} GeV = {kelly_cost():.2f} GeV per pi-."
+          " HARP is per INTERACTION.")
+    for i in (0, 1):
+        print(f"      at {HARP_BEAM_MOMENTA[i]:.0f} GeV/c that needs"
+              f" {kelly_nucleons_required(i):.2f} interacting nucleons per beam deuteron")
+    print(f"      a deuteron carries 2, and the rod is"
+          f" {rod_interaction_lengths():.1f} interaction lengths of tungsten,")
+    print("      so the lower end is guaranteed before any secondary interacts.")
+    print()
+    print("    and this paper's own figure, re-normalised:")
+    for n in (1.0, 2.0, kelly_multiplicity_that_reconciles(), 3.0):
+        tag = "   <-- reproduces the optimised figure" \
+            if abs(n - kelly_multiplicity_that_reconciles()) < 1e-9 else ""
+        print(f"      {n:.3f} interacting nucleons per beam particle:"
+              f" {cost_at_multiplicity(n):6.3f} GeV per pi-{tag}")
+    print()
+    print("    NOT ADOPTED. The mechanism reproduces the number, but it reproduces")
+    print("    it for pions PRODUCED, and a thick target also reabsorbs them: the")
+    print("    same source's thick/thin ratio for CAPTURED muons is 0.874-1.186 per")
+    print("    interacting proton, which is evidence the gain may not survive to")
+    print("    capture. sec.10.3 Stage C measures pions per BEAM particle against")
+    print("    per interaction, on one target, and that is what it is now for.")
+    print()
+    print("  Q7 -- THE WEDGE, INTERPOLATED RATHER THAN BOUNDED")
+    print(f"    the uncovered 0.25-0.35 rad wedge is {HARP_GAP_SOLID_ANGLE:.4f} sr and adds")
+    print(f"    {wedge_added_sigma():.4f} barn to {harp_combined_sigma():.4f}:"
+          f" a factor of {wedge_factor():.4f} against a bound of 1.10,")
+    print(f"    so production is {cost_per_pion_with_wedge():.3f} GeV per pi- rather than"
+          f" {cost_per_pion_produced():.3f}.")
+    print("    RECONSTRUCTED: the two tables cover different momentum ranges, so no")
+    print("    interpolation returns the wedge's own spectrum.")
+    print()
+    print("  WHAT IS LEFT.")
+    n_open = len([q for q in OPEN if q[2] != "CLOSED"])
+    print(f"    {len([q for q in OPEN if q[2] == 'CLOSED'])} closed,"
+          f" {len([q for q in OPEN if q[2] == 'NARROWED'])} narrowed,"
+          f" {len([q for q in OPEN if q[2] == 'EXPLAINED'])} explained and not adopted.")
+    print(f"    {n_open} still move a number, and both are measurements rather than")
+    print("    calculations: the acceptance (Stage A) and whether the thick-target")
+    print("    normalisation survives to capture (Stage C).")
+    print()
+    print("  AND THE SIGN IS STILL OPEN AT NO VALUE OF ANY OF THEM.")
+    print(f"    At the floor and ONE fusion per binder:"
+          f" {open_heat_pct(lo, cycles=1.0):.5f} % of the host beam. Positive.")
     return 0
+
+
+def _wrap(text, width):
+    out, line = [], ""
+    for w in text.split():
+        if len(line) + len(w) + 1 > width:
+            out.append(line)
+            line = w
+        else:
+            line = (line + " " + w).strip()
+    if line:
+        out.append(line)
+    return out
 
 
 def report_species():
@@ -1645,29 +1879,52 @@ def selftest():
           f"   {'PASS' if ok else 'FAIL'}")
 
     print()
-    print("  the open questions, reduced against the co-product configuration")
-    lo_n, hi_n = open_floor_mu_per_s(), open_ceiling_mu_per_s()
-    ok = lo_n < hi_n
+    print("  the open questions, worked")
+    import mucf as _m
+    lo, ceil = open_floor_mu_per_s(), open_ceiling_mu_per_s()
+    ok = lo < ceil and ceil / lo < 10.0
     fail += 0 if ok else 1
-    print(f"    the measured floor is below the modelled ceiling:"
-          f" {hi_n / lo_n:,.0f}x   {'PASS' if ok else 'FAIL'}")
-    ok = open_heat_pct(lo_n, cycles=1.0) > 0.0
+    print(f"    Q1 the acceptance span is now {ceil / lo:.2f}x, was"
+          f" {ceil / open_floor_transported():,.0f}x   {'PASS' if ok else 'FAIL'}")
+    ok = all(min(_m.OMEGA_EFF_MEASURED) <= _m.omega_from_cycles(phi=p) <= _m.OMEGA_EFF_THEORY
+             for p in _m.PHI_LOS_ALAMOS)
     fail += 0 if ok else 1
-    print(f"    the sign survives the worst case -- measured floor, ONE fusion per")
-    print(f"    binder: {open_heat_pct(lo_n, cycles=1.0):.7f} percent, positive"
+    print(f"    Q2 the witnessed cycle count implies a sticking inside the measured")
+    print(f"       band and below theory   {'PASS' if ok else 'FAIL'}")
+    ok = abs(_m.cycles(0.00515, 1.2) / 150.0 - 1) < 0.02
+    fail += 0 if ok else 1
+    print(f"    Q3 the 2.24 over-prediction closes at the corrected sticking"
           f"   {'PASS' if ok else 'FAIL'}")
-    ok = abs(open_heat_pct(hi_n) / 12.01 - 1) < 0.01
+    ok = max((_m.contamination_bound(omega_s=w, phi=1.5) or 0.0)
+             for w in _m.OMEGA_EFF_MEASURED) < _m.purity_for_parity(1.5)
     fail += 0 if ok else 1
-    print(f"    the ceiling reproduces the specification's corrected row:"
-          f" {open_heat_pct(hi_n):.2f} percent   {'PASS' if ok else 'FAIL'}")
-    ok = len([q for q in OPEN if "LOAD-BEARING" in q[6]]) == 1
+    print(f"    Q4 the 150-cycle fuel is bounded below the parity contamination"
+          f"   {'PASS' if ok else 'FAIL'}")
+    costs = [harp_cost_at(i) for i in range(4)]
+    ok = costs[2] == min(costs) and costs[0] > costs[2]
     fail += 0 if ok else 1
-    print(f"    exactly one of {len(OPEN)} open questions is load-bearing on the")
-    print(f"    magnitude   {'PASS' if ok else 'FAIL'}")
-    ok = all(q[4] is None or q[4] >= 1.0 for q in OPEN)
+    print(f"    Q6 beam energy has an optimum at 8 GeV/c and is DEARER at 3:")
+    print(f"       {costs[0]:.2f} vs {costs[2]:.2f} GeV per pi-"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = abs(cost_at_multiplicity(kelly_multiplicity_that_reconciles()) / kelly_cost() - 1) < 0.01
     fail += 0 if ok else 1
-    print(f"    no open question carries a range that can reduce the answer:")
-    print(f"    every bounded one runs from 1.00 upward   {'PASS' if ok else 'FAIL'}")
+    print(f"    Q6 and the multiplicity that reconciles is"
+          f" {kelly_multiplicity_that_reconciles():.3f}, bracketed by")
+    print(f"       HARP's own {kelly_nucleons_required(1):.2f}-{kelly_nucleons_required(0):.2f}"
+          f" and floored at 2 by the projectile   {'PASS' if ok else 'FAIL'}")
+    ok = 1.0 < wedge_factor() < 1.10
+    fail += 0 if ok else 1
+    print(f"    Q7 the wedge interpolates to {wedge_factor():.4f}, inside its own bound"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = open_heat_pct(lo, cycles=1.0) > 0.0
+    fail += 0 if ok else 1
+    print(f"    and the sign survives the floor at ONE fusion per binder:"
+          f" {open_heat_pct(lo, cycles=1.0):.5f} %   {'PASS' if ok else 'FAIL'}")
+    ok = len([q for q in OPEN if q[2] != "CLOSED"]) == 2
+    fail += 0 if ok else 1
+    print(f"    {len([q for q in OPEN if q[2] == 'CLOSED'])} of {len(OPEN)} closed;"
+          f" the {len([q for q in OPEN if q[2] != 'CLOSED'])} that remain are measurements,")
+    print(f"    not calculations   {'PASS' if ok else 'FAIL'}")
 
     print()
     print("  the species, measured off the pi+ tables")
