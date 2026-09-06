@@ -1,4 +1,21 @@
-# FINDING R4-09 — the one thing in Chapter 34 the data cannot settle, and it needs M. Does the law's candidate set include g subshells?
+# FINDING R4-09 — RESOLVED 6 September 2026. M ruled that the candidate set includes g. Kept for its measurement of what the choice does.
+
+> **THE RULING (`RULINGS-R4e.md` §1).** M, asked whether the law may consider a channel that exists,
+> is measured in thirty-six species, and is never a ground entrant: ***"absolutely, especially since
+> it strengthens the claim."*** **g is in.**
+>
+> **What it settles.** Register 1414 stands as printed and is verified at 106 of 106 — the ruling is
+> what makes it true, since it fails at eleven steps without g. Register 1403's *"protactinium's L
+> is degenerate at zero"* stands. **All three of §34.9's claims fail at 5f and hold at 4f**: the
+> premise p = 0, the conclusion L = −∞, and *"the quantity t = (a−L)/(U−L) does not exist there"*,
+> where t = 1 exactly. And *"f is outside the domain"* is replaced by the sharper theorem: **the
+> corridor has no floor exactly when the entering subshell is node-free**, which across the walk is
+> 2p, 3d and 4f, with t defined at the other 73 of the 106 steps.
+>
+> The finding below is kept because its measurement of what the two candidate sets do is what the
+> ruling was made on.
+
+## The question, as it stood
 
 Found 6 September 2026, from M's instruction on finding R4-06 to search the repository exhaustively
 before deriving. The search found more than the answer: it found that **two instruments in this

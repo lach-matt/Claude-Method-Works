@@ -37,9 +37,23 @@ Three things it refuses to do:
      the corpus records both and docket 20x is not closed by picking one.
 
   3. It never merges the two forms.  Node-only gives 17 distinct edge slopes
-     and 14 forced emptyings; the finished form gives 121 and 11.  Averaging
+     and 14 forced emptyings; the finished form gives 134 and 11.  Averaging
      them, or silently defaulting to whichever is prettier, would flatten
      docket 37.  Both are computed, both are emitted, neither is preferred.
+
+THE CANDIDATE SET, and it is a ruling rather than a default.  M ruled on 6 September
+2026 (RULINGS-R4e.md sec 1) that the law's candidate set INCLUDES g subshells: the
+law's own admissibility test is q < 2(2l+1) and mentions no l, an empty 5g passes it,
+and the spectroscopic survey measures g channels in thirty-six species, thirty-two of
+them ions.  This instrument therefore runs at l <= 4 by default.  `--lmax 3` runs the
+seated member's older convention, so the two can be measured against each other
+rather than argued about; the seated member's own comment asks for exactly that
+("one generator convention is not a count.  Sweep (NMAX, LMAX) and say which").
+
+ONE fixture moves between them -- the finished form's distinct endpoint count, 121 at
+l <= 3 and 134 at l <= 4 -- and both figures are printed in the seated member's own
+banked sweep.  Every other fixture holds under both, including the corridor/hull
+identity at 106 of 106 in both forms.
 """
 
 from __future__ import annotations
@@ -79,7 +93,19 @@ def load_member():
 
 
 class Store:
-    def __init__(self):
+    # The angular-momentum cap on the candidate set.  M ruled on 6 September 2026
+    # (RULINGS-R4e.md sec 1) that the law's candidate set INCLUDES g: its own
+    # admissibility test is q < 2(2l+1) and says nothing about l, an empty 5g passes
+    # it, and the spectroscopic survey measures g channels in thirty-six species.
+    # The seated member r2-ch16y.py was written at 3 and knows the convention is open
+    # -- its own comment reads "one generator convention is not a count.  Sweep
+    # (NMAX, LMAX) and say which."  This says which, and keeps 3 runnable so the two
+    # can be measured against each other.
+    LMAX_RULED = 4
+    LMAX_SEATED = 3
+
+    def __init__(self, lmax=None):
+        self.lmax = Store.LMAX_RULED if lmax is None else lmax
         g = load_member()
         self.cap = g["cap"]
         self.nl = g["nl"]
@@ -91,7 +117,7 @@ class Store:
             "%d%s" % (n, l)
             for n in range(1, 8)
             for l in "spdfg"
-            if LQ[l] < n and LQ[l] <= 3
+            if LQ[l] < n and LQ[l] <= self.lmax
         ]
 
     def p_of(self, s):
@@ -341,12 +367,13 @@ tr.hi td{background:color-mix(in srgb,var(--sodium) 11%,transparent)}
 <div class="wrap">
 <header>
   <h1>The Slope Axis</h1>
-  <p class="sub">The Method 1.6 · §34.4–34.6 · Z = 3 to 108, four edges to 120</p>
+  <p class="sub">The Method 1.6 · §34.4–34.6 · Z = 3 to 108, four edges to 120 · @@CANDSET@@</p>
   <p class="lede">Every element in the index sits on one axis, and the axis is <em>a</em> — not a
   fitted constant but a <em>slope</em>. Each candidate subshell is a point in a plane; the incoming
   electron takes the point a line of slope <em>a</em> touches first, sweeping up from below. An
   element's place on the axis is the wedge of slopes for which its observed entrant is that first
   point of contact.</p>
+  <p class="lede" style="font-size:16px">@@CANDNOTE@@</p>
 </header>
 
 <section class="defn">
@@ -653,8 +680,27 @@ render();
 """
 
 
-def emit_html(obj, path):
-    html = TEMPLATE.replace("@@DATA@@", json.dumps(obj, separators=(",", ":")))
+def emit_html(obj, path, lmax=4):
+    # The candidate set is stated on the page, because a reader looking at a g point
+    # cannot otherwise tell why it is there.  Named as a convention, not as a file.
+    if lmax >= 4:
+        cs = "candidate set to \u2113 = 4"
+        note = ("A subshell is a candidate whenever it is not full \u2014 that is the whole of the "
+                "admissibility rule, and it says nothing about \u2113. So the <em>g</em> subshells are "
+                "points here too, even though no element below Z = 121 puts an electron in one: "
+                "5g sits at the origin of the plane, at (0, 5), because a subshell with no radial "
+                "node has \u221ar = 0. Where it lies on the lower hull it gives the element below "
+                "it a floor \u2014 which is why protactinium's wedge starts at zero rather than "
+                "running off the edge.")
+    else:
+        cs = "candidate set to \u2113 = 3"
+        note = ("A subshell is a candidate whenever it is not full. This drawing stops at "
+                "\u2113 = 3, so the <em>g</em> subshells are absent from the plane and any wedge "
+                "they would have bounded runs off the edge instead.")
+    html = (TEMPLATE
+            .replace("@@CANDSET@@", cs)
+            .replace("@@CANDNOTE@@", note)
+            .replace("@@DATA@@", json.dumps(obj, separators=(",", ":"))))
     d = os.path.dirname(os.path.abspath(path))
     if d:
         os.makedirs(d, exist_ok=True)
@@ -716,7 +762,15 @@ def selftest(store):
                 mism += 1
         chk("form %s: corridor set vs lower-hull vertices, mismatches" % form, mism, 0)
 
-    for form, ends, emp, res, best in (("p", 17, 14, 10, 86), ("q", 121, 11, 15, 90)):
+    # The finished form's distinct-endpoint count is the ONE fixture that moves with
+    # the candidate set: 121 at l <= 3, 134 at l <= 4.  Both are the seated member's
+    # own sweep, printed in r2-ch16y.out ("n<=7,l<=3: 121 ... n<=7,l<=4: 134"), so the
+    # ruled value is corroborated by the member rather than asserted here.  Nothing a
+    # reader-facing volume prints depends on it: section 34.5's "nineteen surds" is a
+    # NODE-ONLY figure and measures 17 under both caps, which is a separate and
+    # already-recorded discrepancy.
+    q_ends = 134 if store.lmax == Store.LMAX_RULED else 121
+    for form, ends, emp, res, best in (("p", 17, 14, 10, 86), ("q", q_ends, 11, 15, 90)):
         F = obj["forms"][form]
         chk("form %s: distinct hull-edge slopes" % form, len(F["ends"]), ends)
         chk("form %s: running intersection empties (register 1463)" % form, len(F["empties"]), emp)
@@ -755,6 +809,10 @@ def selftest(store):
     chk("memoryless k-rule score (register 1437)",
         sum(1 for Z in range(3, 109) if store.kpick(store.admissible(Z)) == store.ENT[Z]), 96)
 
+    print("\n  candidate set: l <= %d  (%s)" % (
+        store.lmax,
+        "M's ruling, g admitted" if store.lmax == Store.LMAX_RULED
+        else "the seated member's convention, g excluded"))
     print("\n%s" % ("SELFTEST OK" if ok else "SELFTEST FAILED"))
     return 0 if ok else 1
 
@@ -765,8 +823,12 @@ def main():
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--json", metavar="PATH")
     ap.add_argument("--html", metavar="PATH")
+    ap.add_argument("--lmax", type=int, default=Store.LMAX_RULED, choices=(3, 4),
+                    help="angular-momentum cap on the candidate set. 4 is M's ruling "
+                         "of 6 September 2026 (g admitted); 3 is the seated member's "
+                         "convention, kept runnable so the two can be measured.")
     a = ap.parse_args()
-    store = Store()
+    store = Store(a.lmax)
     if a.selftest:
         return selftest(store)
     obj = object_for(store)
@@ -778,7 +840,7 @@ def main():
             json.dump(obj, fh, separators=(",", ":"))
         print("wrote %s" % a.json)
     if a.html:
-        n = emit_html(obj, a.html)
+        n = emit_html(obj, a.html, store.lmax)
         print("wrote %s (%d bytes)" % (a.html, n))
     if a.report or not (a.json or a.html):
         report(store, obj)

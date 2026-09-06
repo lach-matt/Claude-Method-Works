@@ -40,4 +40,9 @@ S-03	§35 "every g channel sits at its hydrogenic depth ... does not respond to 
 S-04	admitting g to the candidate set	COSTS NOTHING TO THE LAW	g never wins a step, corridors stay 106/106 non-empty either way; only the floor moves, at 16 steps, 11 of them to a > 0	method/proofs/gchannel.py	FINDING-R4-10
 S-05	the levels store behind the survey	FOUND, NOT SEATED	61 species level tables, 9,200 level lines, neutrals and ions to core charge 10; 34 of 61 carry a g term	method/proofs/gchannel.py	FINDING-R4-10
 S-06	the depth of the measured g channels	MEASURED	Ba I 3G runs n = 8 to 25 over 29 members at delta 0.05145; four of twelve carry ten or more members	method/proofs/gchannel.py	FINDING-R4-10
+1414b	register 1414, under M's ruling	TRUE AS PRINTED	the iff holds at 106 of 106 with g admitted; the ruling is what makes it true	tools/slopeaxis.py	RULINGS-R4e
+D-21h	§34.9's three claims, under M's ruling	ALL THREE FAIL AT 5f, ALL THREE HOLD AT 4f	p = 0 false (p = 1); L = -inf false (L = 0); "t does not exist there" false (t = 1 exactly)	method/proofs/candidateset.py	RULINGS-R4e
+D-21i	§34.9's "f is outside the domain"	REPLACED BY A STRONGER THEOREM	the corridor has no floor exactly when the entrant is node-free -- 2p, 3d, 4f across the walk; t is defined at the other 73 of 106 steps	tools/slopeaxis.py	RULINGS-R4e
+T-01	§34.7 measures t = 1.028 at p and 1.785 at d; §34.9 defines t = (a-L)/(U-L)	THE TWO DEFINITIONS ARE INCOMPATIBLE	(a-L)/(U-L) lies in [0,1] at all 73 steps where it is defined, and §34.6 says a is inside its corridor at all 106; 1.028 and 1.785 cannot be that quantity	method/proofs/candidateset.py	owed
+F-01	out/slope-axis.html, the corridor figure	REGENERATED UNDER THE RULING	5g now a point at (0,5) and a hull vertex at 38 steps; L moves at 16; the page states its candidate set	tools/slopeaxis.py	RULINGS-R4e
 
