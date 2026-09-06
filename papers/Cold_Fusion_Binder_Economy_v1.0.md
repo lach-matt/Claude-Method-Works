@@ -7,6 +7,13 @@
 references, and takes no part in the main paper's subject matter. It is not a member of either live
 bundle.*
 
+> **CORRECTION IN FORCE, §5.26.** The effective sticking used throughout §§5.5–5.25 — 0.1487 percent
+> — mixes an excited-state initial sticking with a ground-state survival fraction. The operative value
+> is **0.557 percent** (theory) against **0.505–0.532 percent** witnessed, a factor of **3.74**. §5.26
+> states the corrected result and the specification that follows from it; the balances in §§5.14–5.25
+> are computed at the superseded value and are **not** the paper's finding. Their arithmetic is
+> correct and their input is not.
+
 > **This paper supersedes and retires four documents**: *Muon-Catalysed Fusion* v1.0 and v1.1, the
 > *Corrigendum* to v1.0, and *The Muon Collection Budget* v1.0. Where any of those disagrees with
 > this paper, this paper stands. Their withdrawn claims are listed at §8.
@@ -109,6 +116,20 @@ target, a disagreement being a refusal rather than an average — is what decide
 heat route and not on the bred-fuel one. What the bred-fuel route awaits is not a physical question
 at all but a measurement of what a front end built for a reactor's requirement, rather than a
 collider's, delivers to a dense target.
+
+**The central result, and it is negative.** §5.26 corrects the effective sticking this analysis ran on
+— 0.1487 percent, which mixed an excited-state initial value with a ground-state survival fraction —
+to the operative **0.557 percent**, from a coupled-channels solution that treats the ground state
+throughout and reproduces three independent 2001 measurements. Because the service life is capped at
+1/ω_eff **at any density**, the witnessed quantities then bound the balance absolutely: a binder
+returns at most **5.16 GeV** against a floor of **11.13 GeV** to make one. **The ceiling is 0.464 on
+the heat form and 0.313 on the fusion yield alone**, at perfect collection and unlimited density. The
+reactivation coefficient that would lift it is measured here from first principles at **0.198**
+against a literature **0.35**, and is shown to be density-independent by construction — so
+compression cannot move it, a high-Z admixture loses the binder faster than a cycle completes, and the
+best published field-assisted calculation reaches **0.64** of the **0.727** required. The reaction is
+proven; its net-positive configuration is **specified and unwitnessed**, in four equivalent single
+numbers §5.26 states.
 
 **The eighth condition is not this paper's alone**, and the corroboration comes with a correction. A
 companion paper [15] sets this work beside four independent results published while it was being
@@ -1291,7 +1312,80 @@ is modelled: §5.19's breeding ratio of 1.15 says the reactor makes its own once
 inventory above is the startup charge, and the doubling time that would replace it is not computed
 here.
 
-### 5.26 What the independent literature does to these figures
+### 5.26 What the witnessed quantities prove, and what they forbid
+
+This section corrects the central number of this paper and states the consequence. It is the result
+the paper exists to produce, and it is not the one earlier sections reported.
+
+**The correction.** Every balance above used an effective sticking of **0.1487 percent**, formed as the
+J = 1, v = 0 *excited-state* initial sticking multiplied by a survival fraction derived from a
+*ground-state* measurement. The two belong to different states. The comprehensive coupled-channels
+solution of the fusion reaction [14] treats (dtμ)ᴶ⁼ᵛ⁼⁰ throughout — **fusion occurs from the ground
+state** — and gives an initial sticking of **8.57 × 10⁻³** with a reactivation coefficient of **0.35**,
+hence
+
+> **ω_eff = 0.557 percent**, against three independent high-density measurements in 2001 of
+> **0.532**, **0.515** and **0.505 percent**.
+
+The operative sticking is therefore **3.74** times what this paper used. That single ratio is also the
+explanation of the over-prediction §5.29 reports: at the corrected value the service-life model
+reproduces the 150 cycles measured at Los Alamos instead of returning 335.
+
+**What follows is a cap, not a shortfall.** The service life is bounded by 1/ω_eff **at any density
+whatsoever**, because the sticking term does not scale with density and the cycle term saturates
+against it. Taking the most favourable witnessed value:
+
+| | witnessed |
+|---|---|
+| cycles per binder, ceiling | **198** |
+| energy returned per binder, raw fusion | **3.48 GeV** |
+| energy returned per binder, with the sourced blanket | **5.16 GeV** |
+| beam energy per binder, floor (§5.1, corroborated at 0.982) | **11.13 GeV** |
+
+> **On witnessed quantities alone, muon-catalysed d–t fusion returns at most 0.464 of the energy
+> required to make its binder — 0.313 counting the fusion yield alone.** This is a ceiling at perfect
+> collection, unlimited density and zero impurity. It is proven, and it is negative.
+
+**The reactivation coefficient is not a free parameter, and this paper measured it.** R is the
+probability that the muon is stripped back off the alpha while the (αμ)⁺ ion slows. Integrating the
+stripping cross-section against the stopping cross-section along that path, **the density cancels
+identically** — both are per-atom quantities and the path length goes as the inverse of the number
+density. R is a constant of the d–t system, not a setting. A first-principles integration returns
+**0.198** against the literature's 0.35, the difference being the excited-state cascade the estimate
+omits; the two agree that R is of that order and that nothing the operator controls moves it.
+
+Three routes to raise it were examined and closed:
+
+| route | verdict |
+|---|---|
+| compression | dead by construction — the density cancels |
+| a high-Z admixture, to strip harder | dead by **11.6** or more: the concentration that would double the stripping loses the muon to that impurity faster than one catalytic cycle completes |
+| an external stripping field | reaches **0.64** in the best published rate network, at a sustained **3.28 × 10¹³ W/cm²** that does not exist (§5.20, the companion's §2.6) |
+
+**And this is the proven, unwitnessed specification.** Setting the balance to unity on witnessed
+inputs, the cycle closes if and only if **any one** of the following holds. Each is a single number,
+each is measurable, and none has been witnessed:
+
+| | required | witnessed | gap |
+|---|---|---|---|
+| reactivation coefficient | **0.727** | 0.35 | **2.08** |
+| effective sticking | **0.234 %** | 0.505 % | 2.16 |
+| convertible yield per fusion | **56.2 MeV** | 26.06 MeV | 2.16 |
+| beam energy per binder | **5.16 GeV** | 11.13 GeV | 2.16 |
+
+They are one condition written four ways — condition 8 with the service life at its cap — so
+satisfying any one satisfies all. **The reaction is proven. Its net-positive configuration is
+specified and unwitnessed.** That is the honest terminus of what this paper can establish from
+measurement, and the four rows above are what an experiment would have to return.
+
+**What this does not say.** It does not say cold fusion fails: §§1–3 establish that the reaction is
+defined, unique, demonstrated and reproducible, and none of that is touched. It does not say the
+specification is unreachable — the field-assisted route reaches 0.64 of the 0.727 required, which is
+a factor of 1.14 in a quantity nobody has optimised. And it does not price the bred-fuel product,
+which §5.18 reaches unity on: that route is a fusion–fission hybrid whose credit the same beam's
+spallation neutrons would dominate, so it is not this paper's subject and should not be read as one.
+
+### 5.27 What the independent literature does to these figures
 
 Four independent results were published while this analysis was being done, and the reconciliation is
 a paper of its own [15] rather than a section here, because it is a different kind of work: this

@@ -171,6 +171,27 @@ RESERVATION_J1 = ("the 0.31% J=1 figure is carried by the paper with the "
 # RECORDED, NOT ADOPTED. This paper's chain is built on OMEGA_INITIAL and
 # rebuilding it on a newer value is a separate exercise; sec.5.30 states the
 # first-order effect instead.
+# ---- THE OPERATIVE STICKING, and a correction to this paper's own chain -----
+# This paper computed an effective sticking of 0.1487% as
+#     STICKING["j1"] x (STICKING["sin"] / OMEGA_INITIAL)
+# i.e. the J=1,v=0 EXCITED-state initial sticking times a survival fraction
+# derived from a GROUND-state measurement. Kamimura, Kino & Yamashita (Phys.
+# Rev. C 107, 034607) solve the coupled-channels problem for (dtmu)_{J=v=0}
+# throughout: fusion occurs from the GROUND state. The excited-state initial
+# sticking is therefore not the operative number, and the chain above mixes two
+# states. WITNESSED, three independent high-density measurements in 2001:
+OMEGA_EFF_MEASURED = (0.00532, 0.00515, 0.00505)   # liquid, solid, liquid
+OMEGA_EFF_THEORY = 0.00557       # = OMEGA_INITIAL_MODERN x (1 - R_REACTIVATION)
+R_REACTIVATION = 0.35            # phi = 1.2-1.5; density dependence very small
+
+
+def omega_eff_operative(which="theory"):
+    """The effective sticking that actually governs the cycle."""
+    if which == "theory":
+        return OMEGA_EFF_THEORY
+    return min(OMEGA_EFF_MEASURED)   # the most favourable witnessed value
+
+
 OMEGA_INITIAL_MODERN = 8.57e-3
 LAMBDA_FUSION_INTRAMOLECULAR = 1.15e12   # s^-1
 

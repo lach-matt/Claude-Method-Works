@@ -431,3 +431,18 @@ C429	cost per pi- with the wedge at its high bracket	10.13	GeV	DERIVED	8 GeV / (
 C430	cost per pi- with the wedge at its low bracket	10.54	GeV	DERIVED	8 GeV / (C99 + C427)	fn:cost_gap_high
 C431	uncovered backward cone, ceiling estimate	0.065	pi-/interacting p	DERIVED	last measured bin held flat to 180 degrees	fn:backward_ceiling
 C432	most the coverage gap can be worth	1.10	x	DERIVED	C100 / C429	fn:coverage_max_factor
+C433	effective sticking, modern theory from the ground state	0.557	percent	DERIVED	C352 x (1 - C435)	fn:ws_operative
+C434	effective sticking, best witnessed value	0.505	percent	MEASURED	PSI 2001, liquid; also 0.532 and 0.515	fn:ws_witnessed_best
+C435	reactivation coefficient, witnessed	0.35	fraction	SOURCED	Kamimura et al. sec.5C, phi 1.2-1.5	mucf.R_REACTIVATION
+C436	ratio, operative sticking to this paper's superseded chain	3.74	x	DERIVED	C433 / C113	fn:ws_chain_ratio
+C437	service-life cap at the modern-theory sticking	180	cycles	DERIVED	1 / C433	fn:n_cap_theory
+C438	service-life cap at the best witnessed sticking	198	cycles	DERIVED	1 / C434	fn:n_cap_witnessed
+C439	most a binder can return, heat form	5.16	GeV	DERIVED	C438 x C214	fn:out_per_binder_heat
+C440	most a binder can return, raw fusion	3.48	GeV	DERIVED	C438 x C01	fn:out_per_binder_raw
+C441	the witnessed ceiling on the balance, heat form	0.464	dimensionless	DERIVED	C439 / C100	fn:q_cap_heat
+C442	the witnessed ceiling on the balance, raw fusion	0.313	dimensionless	DERIVED	C440 / C100	fn:q_cap_raw
+C443	sticking the heat form requires	0.234	percent	DERIVED	C214 / C100	fn:ws_required_heat
+C444	reactivation the heat form requires	0.727	fraction	DERIVED	1 - C443 / C352	fn:r_required_heat
+C445	factor by which reactivation must rise	2.08	x	DERIVED	C444 / C435	fn:r_shortfall
+C446	convertible yield per fusion the heat form requires	56.2	MeV	DERIVED	C100 x C434	fn:v_required_heat
+C447	binder cost the heat form requires	5.16	GeV	DERIVED	C214 / C434	fn:ebinder_required_heat

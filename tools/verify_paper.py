@@ -1116,6 +1116,63 @@ def coverage_max_factor():
     return cost_pion() / cost_gap_low()
 
 
+# ---- the witnessed cap ------------------------------------------------------
+def ws_operative():
+    return 100.0 * mucf.omega_eff_operative("theory")
+
+
+def ws_witnessed_best():
+    return 100.0 * mucf.omega_eff_operative("measured")
+
+
+def ws_chain_ratio():
+    return ws_operative() / ws_sin()
+
+
+def n_cap_theory():
+    return 1.0 / mucf.omega_eff_operative("theory")
+
+
+def n_cap_witnessed():
+    return 1.0 / mucf.omega_eff_operative("measured")
+
+
+def out_per_binder_heat():
+    return n_cap_witnessed() * therm_sourced() / 1000.0
+
+
+def out_per_binder_raw():
+    return n_cap_witnessed() * mucf.Q_FUS_MEV / 1000.0
+
+
+def q_cap_heat():
+    return out_per_binder_heat() / cost_pion()
+
+
+def q_cap_raw():
+    return out_per_binder_raw() / cost_pion()
+
+
+def ws_required_heat():
+    return 100.0 * (therm_sourced() / 1000.0) / cost_pion()
+
+
+def r_required_heat():
+    return 1.0 - (ws_required_heat() / 100.0) / mucf.OMEGA_INITIAL_MODERN
+
+
+def r_shortfall():
+    return r_required_heat() / mucf.R_REACTIVATION
+
+
+def v_required_heat():
+    return cost_pion() * mucf.omega_eff_operative("measured") * 1000.0
+
+
+def ebinder_required_heat():
+    return (therm_sourced() / 1000.0) / mucf.omega_eff_operative("measured")
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 
