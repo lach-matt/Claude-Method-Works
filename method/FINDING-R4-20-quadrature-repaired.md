@@ -100,11 +100,17 @@ check of it that does not use the constant the form is later gated on.
 
 **The P mesh is converged at the recovered (64, 128)** — doubling it moves the peak by +0.007 %. **The lens mesh
 carries the whole residual**, and it converges as h²: at the peak the ladder at P = (96, 192) runs 0.0293716 →
-0.0293701 → 0.0293691 for NZ = 160, 200, 240, an h² limit of **0.029367**.
+0.0293701 → 0.0293691 for NZ = 160, 200, 240, an h² limit of **0.0293669**. The production mesh (160, 160, 96,
+192) sits **+0.016 %** above it.
 
-**So the record's own NZ = NU = 80 sits +0.06 % above that limit — and +0.06 % is exactly the residual the record
-recorded on G-S1**: *"∫g_2b dq = 0.0241943 Ha vs E0B 0.0241792, +1.5e-5"*, which it called agreement to 0.06 %.
-**That residual is not the reduction. It is the (z, ρ) lens mesh, and it converges away.**
+**So the record's own NZ = NU = 80 sits +0.060 % above that limit — and +0.06 % is exactly the residual the
+record recorded on G-S1**: *"∫g_2b dq = 0.0241943 Ha vs E0B 0.0241792, +1.5e-5"*, which it called agreement to
+0.06 %. **That residual is not the reduction. It is the (z, ρ) lens mesh, and it converges away.**
+
+**And the q grid is converged too**, measured at a deliberately coarse lens mesh so the q error reads alone:
+n = 101 → 201 over [0.02, 30] moves G-S1 by 0.002 %, and over [0.002, 120] by 0.010 %. The two ranges differ by
+0.02 %, which is the tail convention (g ~ q below, g ~ q⁻⁴ above) and is the largest single term left in the
+budget. **Error budget at the production mesh: lens +0.016 %, P mesh ~0.01 %, q grid ~0.00 %, tails ~0.02 %.**
 
 ## 6. What is owed and what is not
 
