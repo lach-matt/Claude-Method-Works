@@ -178,8 +178,30 @@ jobs:
           # or a single summary comment when there are none.
           prompt: "/code-review:code-review --comment ${{ github.repository }}/pull/${{ github.event.pull_request.number }}"
 
+          # DIAGNOSTIC, REMOVE ONCE THE RUN IS UNDERSTOOD. Every claude-review
+          # run since 2026-09-06 has died in 206-2057 ms with is_error:true and
+          # an empty modelUsage -- before any model call -- under two different
+          # credentials (CLAUDE_CODE_OAUTH_TOKEN, ANTHROPIC_API_KEY) and two
+          # different models (claude-sonnet-5, claude-opus-5[1m]). Since neither
+          # the credential nor the model is the common factor, the error text
+          # itself is needed, and the action suppresses it by default.
+          show_full_output: true
+
           # REQUIRED, even though the code-review skill's own frontmatter names
           # this same tool: the action only starts the github_inline_comment
           # MCP server when --allowedTools names it. Drop this line and the
           # review runs but has no way to post inline comments.
-          claude_args: '--allowedTools "mcp__github_inline_comment__create_inline_comment"'
+          #
+          # --strict-mcp-config is the hypothesis under test. This repository's
+          # .mcp.json seats the Graphify MCP server (added 2026-09-06 in #15),
+          # and the action restores .mcp.json from the default branch and sets
+          # enableAllProjectMcpServers: true. A CI runner holds no Graphify
+          # credential, so that server cannot authenticate. --strict-mcp-config
+          # makes Claude Code ignore project .mcp.json and use only the servers
+          # the action passes, which is all the review needs.
+          #
+          # KNOWN RISK: if the action registers github_inline_comment through
+          # settings rather than --mcp-config, this flag drops it too and the
+          # review will run but post nothing. That failure is visible and is
+          # strictly better than the current one, which produces nothing at all.
+          claude_args: '--strict-mcp-config --allowedTools "mcp__github_inline_comment__create_inline_comment"'
