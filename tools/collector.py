@@ -503,6 +503,40 @@ def kelly_cost_per_pion():
     return KELLY_BEAM_GEV / KELLY_PIMINUS_PER_BEAM
 
 
+# SOURCED, Yin, Kou & Chen, arXiv:2605.26432 -- an independent review that
+# arrives at the same fission-breeding escape this paper reaches in sec.5.18,
+# and states the same service-life law at phi = 1. Their Table I parameters,
+# kept here so their numbers can be recomputed rather than quoted.
+YIN_E_MU_GEV = 5.0          # their assumed cost per mu-, said to include collection
+YIN_LAMBDA_MU = 4.55e5      # their muon decay rate
+YIN_Q_FUS_MEV = 17.6        # their fusion yield
+YIN_TABLE = {               # column: (omega_s, lambda_c, X_mu stated, Q stated)
+    "unpolarised":     (0.0045,  2.0e8, 148, 0.52),
+    "pol-conservative": (0.00342, 2.6e8, 193, 0.68),
+    "pol-optimistic":  (0.00315, 3.0e8, 292, 1.03),
+    "ultimate":        (0.0006,  5.5e8, 873, 3.07),
+}
+YIN_LAMBDA_MU_ULTIMATE = 3.0e5   # the last column assumes lifetime control
+
+
+def yin_cycles(col):
+    """Their own equation, on their own printed parameters."""
+    ws, lc, _, _ = YIN_TABLE[col]
+    lm = YIN_LAMBDA_MU_ULTIMATE if col == "ultimate" else YIN_LAMBDA_MU
+    return 1.0 / (lm / lc + ws)
+
+
+def yin_q(col):
+    return yin_cycles(col) * YIN_Q_FUS_MEV / (YIN_E_MU_GEV * 1000.0)
+
+
+def yin_sticking_for_stated(col):
+    """The sticking their stated X_mu implies at their stated cycle rate."""
+    ws, lc, X, _ = YIN_TABLE[col]
+    lm = YIN_LAMBDA_MU_ULTIMATE if col == "ultimate" else YIN_LAMBDA_MU
+    return 1.0 / X - lm / lc
+
+
 PU239_FISSION_MEV = 200.0   # downstream yield of one bred 239Pu
 BREEDING_RATIO = 0.7        # bred nuclei per fusion after tritium self-sufficiency
 

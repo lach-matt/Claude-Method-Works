@@ -675,6 +675,42 @@ def flux_95():
     return 1e7 / sigma_muhe()
 
 
+def yin_unpol_repro():
+    return collector.yin_cycles("unpolarised")
+
+
+def yin_polopt_repro():
+    return collector.yin_cycles("pol-optimistic")
+
+
+def yin_polopt_q_repro():
+    return collector.yin_q("pol-optimistic")
+
+
+def yin_polopt_implied_ws():
+    return collector.yin_sticking_for_stated("pol-optimistic")
+
+
+def yin_ladder():
+    return collector.YIN_TABLE["ultimate"][2] / collector.YIN_TABLE["unpolarised"][2]
+
+
+def collection_factor_nf():
+    return 100.0 / cap_nf()
+
+
+def collection_factor_fe():
+    return 100.0 / capture_of_production()
+
+
+def yin_unpol_q_at_nf():
+    return collector.YIN_TABLE["unpolarised"][3] * (cap_nf() / 100.0)
+
+
+def yin_polopt_q_corrected_at_nf():
+    return yin_polopt_q_repro() * (cap_nf() / 100.0)
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 

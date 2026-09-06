@@ -1204,6 +1204,59 @@ that share no input. Their Q is below unity where the table above puts the same 
 beam particle is used. **Their conclusion and this paper's agree: at demonstrated cycle counts, heat
 alone does not close the balance.**
 
+### 5.27 An independent review reaches the same escape, and omits the axis this paper measures
+
+§5.18 changed the question — pricing the fusion neutron as bred fuel rather than as heat — and §5.24
+showed that change is what makes the balance robust. An independent review [10] proposes the same
+thing: a decoupled μCF fission-breeding hybrid, with the μCF vessel as a neutron source and a
+²³⁸U blanket bred for ²³⁹Pu, on the grounds that this "avoids the stringent physical requirements of
+direct μCF power generation". Two analyses that share no inputs reach the same escape from the same
+constraint. **That is the strongest corroboration §5.18 has, and it is not this paper's own.**
+
+**They also state this paper's service-life law**, at unit density: cycles per binder as
+1/(λ_μ/λ_c + ω_s), which is §2's N(ω_s, φ) at φ = 1. Their unpolarised row reproduces exactly from
+their own parameters — sticking **0.0045**, cycle rate **2.0 × 10⁸ s⁻¹**, giving **147.6** against
+the **148** they print.
+
+**One row does not reproduce, and it is the row that matters.** Their "fully polarised optimistic"
+column prints a sticking of **0.00315** and a cycle rate of **3.0 × 10⁸ s⁻¹**, and states **292**
+cycles and an energy gain of **1.03**. Their own equation on those two parameters gives **214.3**
+cycles and **0.754**. The sticking that *would* give 292 at that cycle rate is **0.00191** — which is
+the value in the next column, not this one. This is recorded and not repaired, and it may be that the
+row's parameters and its result come from different calculations rather than that either is wrong.
+But the consequence is worth stating, because that column is where their ladder first crosses unity:
+**on the equation printed beside it, full polarisation alone reaches 0.754 and not 1.03.** It is the
+same conclusion §5.7 and §5.15 reach by a different route — sticking improvement alone does not carry
+the balance.
+
+**The larger difference is an axis their analysis does not contain.** They take the cost of a
+negative muon as **5 GeV**, stating that this "includes systematic losses from pion production,
+transport, decay, and muon collection". §5.26 shows an optimised production target is calculated to
+cost **4.69 GeV per pion produced**, *before any collection at all*. A figure of 5 GeV cannot be a
+production cost and also carry the collection loss on top of it. Applying §5.25's acceptance instead:
+
+| | |
+|---|---|
+| their Q at today's aperture, both hemispheres | divide by **1.64** |
+| their Q at today's front end as built | divide by **3.33** |
+
+So their unpolarised **0.52** becomes **0.32**, and their polarised-optimistic column — recomputed at
+0.754 as above — becomes **0.46**.
+
+**And this is the point the two analyses most differ on.** Their entire improvement programme — dual
+polarisation, high-density confinement, field-assisted binder recovery, resonant enhancement — buys a
+factor of **5.9** in cycles per binder, from 148 to 873, and the last of those columns is explicitly
+extrapolative. **The collection factor their accounting omits costs between 1.64 and 3.33.** That is
+the same order as their whole programme, it applies to every column of their table at once, and no
+item on their list addresses it. §5.9 specified the collector against this paper's own numbers; §5.27
+is the same specification arrived at against someone else's.
+
+**In fairness to the review, and it matters:** their table is offered as model-based projection and
+says so, they name the polarisation measurement as the central experimental challenge, and their
+hybrid concept is proposed as conceptual with neutronics and burnup calculations outstanding. The
+disagreement here is about one input, not about their method — and on the escape itself, the two
+papers agree.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -1376,3 +1429,5 @@ binder's own decay rate (§5.20).
 8. M. Lach, *The Method* v1.2-8 — *The Lach Cylinder: an index of transitions*.
 9. R. Spencer Kelly, L. J. F. Hart and S. J. Rose, *An investigation of efficient muon production for
    use in muon catalyzed fusion*, J. Phys. Energy **3**, 035003.
+10. X. Yin, W. Kou and X. Chen, *Muon-Catalyzed Nuclear Fusion: Physical Mechanism, Bottleneck
+    Breakthroughs, and an Engineering Pathway*, arXiv:2605.26432 — Table I and §IV.B.

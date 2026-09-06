@@ -299,3 +299,20 @@ C297	work balance, demonstrated cycles, at Kelly's cost	0.625	dimensionless	DERI
 C298	work balance, bound case, at Kelly's cost	2.46	dimensionless	DERIVED	C176 x C217 / C290	fn:qk_work_bound
 C299	breeding balance, demonstrated cycles, at Kelly's cost	4.67	dimensionless	DERIVED	C44 x C220 / C290	fn:qk_bred_demo
 C300	breeding balance, bound case, at Kelly's cost	18.3	dimensionless	DERIVED	C176 x C220 / C290	fn:qk_bred_bound
+C301	Yin et al. assumed cost per mu-	5	GeV	SOURCED	arXiv:2605.26432 eq 7, said to include collection	collector.YIN_E_MU_GEV
+C302	Yin et al. unpolarised sticking	0.0045	fraction	SOURCED	arXiv:2605.26432 Table I	none
+C303	Yin et al. unpolarised cycle rate	2.0e8	s^-1	SOURCED	arXiv:2605.26432 Table I	none
+C304	Yin et al. stated cycles, unpolarised	148	cycles	SOURCED	arXiv:2605.26432 Table I	none
+C305	that row recomputed from their own equation	147.6	cycles	DERIVED	1 / (C302 + 4.55e5 / C303)	fn:yin_unpol_repro
+C306	Yin et al. polarised-optimistic sticking	0.00315	fraction	SOURCED	arXiv:2605.26432 Table I	none
+C307	Yin et al. polarised-optimistic cycle rate	3.0e8	s^-1	SOURCED	arXiv:2605.26432 Table I	none
+C308	Yin et al. stated cycles, polarised optimistic	292	cycles	SOURCED	arXiv:2605.26432 Table I	none
+C309	that row recomputed from their own equation	214.3	cycles	DERIVED	1 / (C306 + 4.55e5 / C307)	fn:yin_polopt_repro
+C310	Yin et al. stated Q, polarised optimistic	1.03	dimensionless	SOURCED	arXiv:2605.26432 Table I	none
+C311	that Q recomputed from their own equation	0.754	dimensionless	DERIVED	C309 x 17.6 MeV / C301	fn:yin_polopt_q_repro
+C312	sticking their stated cycles imply at their stated rate	0.00191	fraction	DERIVED	1/C308 - 4.55e5/C307	fn:yin_polopt_implied_ws
+C313	Yin et al. improvement ladder, total gain in cycles	5.9	x	DERIVED	873 / C304	fn:yin_ladder
+C314	collection factor omitted, at today's aperture both hemispheres	1.64	x	DERIVED	1 / C142	fn:collection_factor_nf
+C315	collection factor omitted, at today's front end	3.33	x	DERIVED	1 / C106	fn:collection_factor_fe
+C316	Yin et al. unpolarised Q with collection applied	0.32	dimensionless	DERIVED	0.52 x C142	fn:yin_unpol_q_at_nf
+C317	Yin et al. polarised-optimistic Q, recomputed and with collection	0.46	dimensionless	DERIVED	C311 x C142	fn:yin_polopt_q_corrected_at_nf
