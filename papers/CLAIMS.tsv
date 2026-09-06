@@ -442,3 +442,11 @@ C445	factor by which reactivation must rise	2.08	x	DERIVED	C444 / C435	fn:r_shor
 C446	convertible yield per fusion the heat form requires	56.2	MeV	DERIVED	C100 x C434	fn:v_required_heat
 C447	binder cost the heat form requires	5.16	GeV	DERIVED	C214 / C434	fn:ebinder_required_heat
 C448	high-Z admixture: transfer rate against the cycle rate	11.6	x	DERIVED	at the concentration that would double the stripping	none
+C449	hydrogenic photoionisation cross section of the bound binder	3.684e-23	cm2	DERIVED	6.30e-18 / (206.768^2 x 4)	fn:sigma_amu_photo
+C450	that against the rate network's placeholder	1.84	x	DERIVED	C449 / 20 barn	fn:sigma_over_placeholder
+C451	external stripping branch required	0.580	fraction	DERIVED	from C443, C352 and C435	fn:rx_required
+C452	external stripping branch achieved	0.447	fraction	DERIVED	their 112.6 to 156.5 cycle gain	fn:rx_achieved
+C453	the remaining gap in the external branch	1.30	x	DERIVED	C451 / C452	fn:rx_gap
+C454	photon fluence required	2.37e22	/cm2	DERIVED	P_X inverted through C449	fn:fluence_required
+C455	sustained intensity required, on the computed cross section	2.59e13	W/cm2	DERIVED	C454 x 15 keV / a binder lifetime	fn:intensity_required
+C456	its agreement with sec.5.20's independent derivation	1.17	x	DERIVED	C455 / C238	fn:intensity_agreement

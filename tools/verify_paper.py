@@ -1186,6 +1186,48 @@ def ebinder_required_heat():
     return (therm_sourced() / 1000.0) / mucf.omega_eff_operative("measured")
 
 
+# ---- the last escape, priced on a computed cross section --------------------
+def sigma_amu_photo():
+    """Hydrogenic 1s photoionisation of (alpha mu). The published rate network
+    uses 20 barn as an avowed placeholder and states that a microscopic value
+    would need the bound-continuum matrix element; this is that value."""
+    return 6.30e-18 / (206.768 ** 2 * 4)
+
+
+def sigma_over_placeholder():
+    return sigma_amu_photo() / 20e-24
+
+
+def rx_required():
+    """External stripping branch needed, given collisional reactivation."""
+    need = (therm_sourced() / 1000.0) / cost_pion()
+    return 1.0 - need / (mucf.OMEGA_INITIAL_MODERN * (1 - mucf.R_REACTIVATION))
+
+
+def rx_achieved():
+    lam0, lamc, phi = 4.55e5, 1.1e8, 1.25
+    w0 = 1 / 112.6 - lam0 / (lamc * phi)
+    w1 = 1 / 156.5 - lam0 / (lamc * phi)
+    return 1.0 - w1 / w0
+
+
+def rx_gap():
+    return rx_required() / rx_achieved()
+
+
+def fluence_required():
+    px = rx_required() / 0.996
+    return -math.log(1 - px) / sigma_amu_photo()
+
+
+def intensity_required():
+    return fluence_required() * 15e3 * 1.602e-19 / 2.197e-6
+
+
+def intensity_agreement():
+    return intensity_required() / intensity_match()
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 

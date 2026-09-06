@@ -1382,6 +1382,40 @@ satisfying any one satisfies all. **The reaction is proven. Its net-positive con
 specified and unwitnessed.** That is the honest terminus of what this paper can establish from
 measurement, and the four rows above are what an experiment would have to return.
 
+**The last escape, priced on a computed cross-section rather than a placeholder.** The rate network
+that reaches R = 0.64 does so through a factorised external branch, R_X = f_X · P_X · η_X — field
+overlap, microscopic stripping probability, and the chance the freed binder rejoins the cycle. In its
+best benchmark the first and third are already at **1.0** and **0.996**: saturated. So the whole of
+the remaining gap sits in P_X, and P_X depends on one quantity its authors declined to compute,
+stating that a microscopic value "would require the bound–continuum transition matrix element of the
+αμ system". They used **20 barn** as an avowed placeholder.
+
+That matrix element is hydrogenic and is computed here: **3.684 × 10⁻²³ cm²**, which is **1.84** times
+their placeholder — so the true cross-section makes the route *easier* than they assumed, and this
+paper reports that before reporting what remains. Inverting the requirement through it:
+
+| | |
+|---|---|
+| external branch required | **0.580** |
+| external branch achieved | **0.447** |
+| remaining gap | **1.30** |
+| photon fluence required | **2.37 × 10²² /cm²** |
+| **sustained intensity required** | **2.59 × 10¹³ W/cm²** |
+
+> That figure is derived here from a stripping-probability inversion, and §5.20 derived
+> **2.21 × 10¹³ W/cm²** from a photoionisation rate against the binder's decay. The two share no step
+> and agree to **1.17**. **The requirement is corroborated.**
+
+**And it must be sustained, which closes the pulsed-source escape.** A duty cycle enters as f_X, the
+field's overlap with the residual stuck population, and the same rate network shows the gain
+collapsing as f_X falls — a pulsed source at duty *d* buys *d* times the benefit. The requirement is
+therefore on the **time-averaged** intensity over the fuel volume, where the strongest hard-X-ray
+sources sit orders of magnitude lower than free-electron peak figures suggest.
+
+**So the last escape is quantified rather than dismissed**: it needs a sustained hard-X-ray field of
+about 2.6 × 10¹³ W/cm² over a reactor fuel volume. That is the whole of what stands between the
+witnessed cap and a satisfied condition 8, and it is one number.
+
 **What this does not say.** It does not say cold fusion fails: §§1–3 establish that the reaction is
 defined, unique, demonstrated and reproducible, and none of that is touched. It does not say the
 specification is unreachable — the field-assisted route reaches 0.64 of the 0.727 required, which is
