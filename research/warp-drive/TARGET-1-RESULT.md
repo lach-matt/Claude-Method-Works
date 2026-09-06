@@ -1,6 +1,14 @@
-# TARGET 1 — CLOSED: warp travel is possible
+# TARGET 1 — DOWNGRADED: warp travel is possible *in the Eulerian frame*
 
 Measurement record. Not a paper. Drivers: `octave/run_proof.m`, `octave/run_proof2.m`.
+
+> ## ⚠ QUALIFIED — read §Q before quoting this
+>
+> The measurements below stand and were re-checked. But the verdict "warp travel is
+> possible" is an **Eulerian-frame** statement, and the literature holds that
+> frame-independence is the relevant test. Two challenges from
+> **An T. Le, *On the boundary cost of source-consistent warp shells*, arXiv:2605.25417 (2026)**
+> apply directly and this test cannot answer either. See §Q.
 
 ## The claim being tested
 
@@ -68,6 +76,54 @@ is possible.
    conditions are untouched, but the numerical exterior is not exactly Schwarzschild. Recorded, not
    chased.
 4. This verifies a published solution; it does not independently derive one.
+
+## Q. Two challenges this test cannot answer
+
+**Q1. Single-frame.** Every number here contracts in the Eulerian frame. Le's companion
+work (arXiv:2602.18023) reports that single-frame Eulerian analysis **misses 15–28 % of
+DEC-violating grid points**. The relevant test is frame-independent: the Hawking–Ellis
+algebraic type of `T^a_b` and its observer-cap-free Type-I eigenvalue slacks. **Not done
+here.** So "all four conditions satisfied" means "satisfied for Eulerian observers", which
+is weaker than what the claim needs.
+
+**Q2. Metric-first, not source-first.** `metricGet_WarpShellComoving` builds the *metric* and
+reads `T` off the Einstein tensor. Le, following Barzegar, Buchert & Vigneron, prescribes the
+*matter* and solves the Einstein constraints — and grades eight constructions against a
+five-criterion standard, of which **none passes**. A metric-first construction need not
+correspond to a well-posed matter model at all. **Le and this project may be measuring
+different objects**, which is the most likely reason a 600-configuration frame-independent
+scan "finds no admissible shell" while this one configuration reads clean.
+
+**What Le agrees with.** That the bulk is compliant — *"the matter-filled bulk, which is
+Hawking–Ellis Type I and compliant"* — and that failures, where they occur, sit at the smooth
+source–vacuum transition. This project measured the same geography.
+
+**What survives regardless.** Le finds a geodesic-integrated **ANEC positive for every
+source-prescribed shell**, so the pointwise boundary failures do not appear in the average.
+That is the condition topological censorship actually uses, so §NO-PORTAL is unaffected.
+
+**Status:** the warp state is measured physical for Eulerian observers, at two resolutions,
+including the transition band. It is **not certified frame-independently**, and that
+certification is now the open item, ahead of the toroidal question.
+
+## The transition band — the region this test originally masked out
+
+`run_transition.m`, resolving 16–27 m in fine bins. TARGET-1's original masks were
+shell 10.5–19.5 and vacuum 20.5–26.0, **excluding 19.5–20.5 — exactly the transition Le
+names.** Re-run including it:
+
+| band (m) | NULL, dx=1.0 | NULL, dx=0.5 | reading |
+|---|---|---|---|
+| 19.0–19.5 | +4.073e39 | +4.021e39 | converged, positive |
+| **19.5–20.0** | **+3.467e39** | **+3.479e39** | **converged, positive** |
+| **20.0–20.5** | **+2.942e39** | **+2.838e39** | **converged, positive** |
+| 20.5–21.0 | +2.243e39 | +2.265e39 | converged, positive |
+| 24.0–27.0 | −1.035e36 | −1.276e35 | **8.11× — converges away** |
+
+The masked band was clean. And the outer negative now has the discriminator that was
+missing: a physical failure converges to a finite negative value, this one falls 8× for a
+2× refinement (~3rd order). In **this** configuration the outer negatives are numerical —
+established by convergence, not asserted.
 
 ## Correction to the record
 

@@ -39,6 +39,14 @@ FINDINGS = [
   "warp state exists: 4 energy conditions positive, interior frame boosted 0.040000 c"),
  ("T2-ADM",       0, -1, -1, "TARGET-1-RESULT.md",
   "P_ADM = 0 exactly and M_ADM constant across v: the structure cannot translate"),
+ # Le arXiv:2605.25417 / 2602.18023: single-frame Eulerian analysis misses 15-28% of
+ # DEC violations, and metric-first constructions may not have a well-posed matter
+ # model at all.  TARGET-1 is Eulerian and metric-first, so its verdict is not yet
+ # frame-independent.  This cell records the gap, not a refutation.
+ ("NOT-CERTIFIED", 0, -1,  0, "TARGET-1-RESULT.md",
+  "no frame-independent Hawking-Ellis certification: Eulerian is not sufficient"),
+ ("TRANSITION",   +1,  0, +1, "TARGET-1-RESULT.md",
+  "the source-vacuum transition band is clean and converged; outer negatives fall 8x"),
  ("RELAX-OK",     0, +1, +1, "residue.py",
   "relaxation permits the flow and the switching: launch is 0.256 dynamical times"),
  ("NO-BORE",       0, -1, -1, "residue.py",
@@ -178,7 +186,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 21)
+    chk("number of findings indexed", len(FINDINGS), 23)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 11)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
