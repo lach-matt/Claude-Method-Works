@@ -375,6 +375,78 @@ def report_production():
     print("  verdict on condition 8 is offered.")
 
 
+# ---- the collector: capture as a function of solenoid aperture ------------
+# p_T^max (GeV/c) = 0.3 B(T) R(m) / 2  -- MuSIC eq.1. Validated: COMET's
+# 5 T on a 0.15 m bore returns 112 MeV/c against its stated 100 MeV/c cap.
+LI6_Q_MEV = 4.78           # n + 6Li -> T + alpha, EXOTHERMIC, and required
+T_BLANKET, T_AMBIENT = 800.0, 300.0
+ALPHA_MEV, NEUTRON_MEV = 3.5, 14.1
+
+
+def carnot():
+    return 1.0 - T_AMBIENT / T_BLANKET
+
+
+def pt_max(br_tesla_metre):
+    return 0.15 * br_tesla_metre
+
+
+def captured_fraction(br, both_hemispheres=True):
+    """Fraction of HARP-measured pi- production inside a solenoid's p_T cap."""
+    tot = cap = 0.0
+    for (tlo, thi), bins in HARP_PB_PIMINUS_8GEV.items():
+        th, dth = 0.5 * (tlo + thi), thi - tlo
+        for (pl, ph), v in bins.items():
+            p, w = 0.5 * (pl + ph), v * (ph - pl) * dth
+            tot += w
+            if p * math.sin(th) < pt_max(br) and (both_hemispheres or th > math.pi / 2):
+                cap += w
+    for (tlo, thi), bins in HARP_PB_PIMINUS_8GEV_FWD.items():
+        th = 0.5 * (tlo + thi)
+        dom = 2 * math.pi * (math.cos(tlo) - math.cos(thi))
+        for (pl, ph), v in bins:
+            p, w = 0.5 * (pl + ph), v * (ph - pl) * dom
+            tot += w
+            if p * math.sin(th) < pt_max(br) and (both_hemispheres or th > math.pi / 2):
+                cap += w
+    return cap / tot
+
+
+def br_for_capture(target, both_hemispheres=True):
+    lo, hi = 0.1, 20.0
+    for _ in range(80):
+        m = (lo + hi) / 2
+        if captured_fraction(m, both_hemispheres) < target:
+            lo = m
+        else:
+            hi = m
+    return lo
+
+
+def blanket_thermal_mev():
+    """Thermal energy the blanket delivers per fusion. The 6Li breeding
+    reaction is REQUIRED for a D-T cycle and is exothermic, so the blanket
+    returns more than the neutron carries in."""
+    return NEUTRON_MEV + LI6_Q_MEV
+
+
+def total_thermal_mev():
+    return ALPHA_MEV + blanket_thermal_mev()
+
+
+def energy_multiplication():
+    return total_thermal_mev() / Q_FUS_MEV
+
+
+def work_per_fusion_mev():
+    """At the operating point sec.3.2 resolves to -- fuel AND blanket hot."""
+    return total_thermal_mev() * carnot()
+
+
+def f_work_corrected():
+    return work_per_fusion_mev() / Q_FUS_MEV
+
+
 def cycles(ws, phi):
     return phi * LAMBDA_C / (LAMBDA_0 + ws * phi * LAMBDA_C)
 

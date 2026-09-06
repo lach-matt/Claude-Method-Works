@@ -129,3 +129,21 @@ C127	antiproton mass	1836	m_e	MEASURED	PDG	none
 C128	Sigma-minus mass	2343	m_e	MEASURED	PDG	none
 C129	tau mass	3477	m_e	MEASURED	PDG	none
 C130	muon mass above the window floor	1.74	x	DERIVED	C15 / C13	fn:muon_above_floor
+C131	Li-6 breeding reaction Q value	4.78	MeV	MEASURED	n + 6Li -> T + alpha, standard nuclear data	collector.LI6_Q_MEV
+C132	blanket thermal per fusion	18.88	MeV	DERIVED	C58 + C131	fn:blanket_thermal
+C133	total thermal per fusion	22.38	MeV	DERIVED	C59 + C132	fn:total_thermal
+C134	blanket energy multiplication	1.272	x	DERIVED	C133 / C01	fn:energy_mult
+C135	work per fusion, paper's accounting	8.81	MeV	DERIVED	C01 x C12	fn:work_old
+C136	work per fusion, corrected	13.99	MeV	DERIVED	C133 x C62	fn:work_new
+C137	gain from the corrected accounting	1.587	x	DERIVED	C136 / C135	fn:work_gain
+C138	corrected convertible fraction	0.795	fraction	DERIVED	C136 / C01	fn:f_work_new
+C139	work shortfall via SIN, corrected	1.18	x	DERIVED	C120 / C137	fn:short_sin_corr
+C140	work shortfall via PSI, corrected	1.47	x	DERIVED	C121 / C137	fn:short_psi_corr
+C141	NF front-end aperture product	1.50	T.m	DERIVED	20 T x 0.075 m	fn:br_nf
+C142	NF front-end capture, both hemispheres	61	percent	DERIVED	captured_fraction(1.50)	fn:cap_nf
+C143	NF front-end capture, backward only	10.3	percent	DERIVED	captured_fraction(1.50, backward)	fn:cap_nf_back
+C144	aperture product for 90 percent capture	2.60	T.m	DERIVED	solved from the acceptance model	fn:br_90
+C145	bore at 20 T for 90 percent capture	13	cm	DERIVED	C144 / 20 T	fn:bore_90
+C146	aperture increase over the NF front end	1.74	x	DERIVED	C144 / C141	fn:br_ratio
+C147	COMET solenoid cap from the model	112	MeV/c	DERIVED	0.3 x 5 T x 0.15 m / 2, against its stated 100	fn:comet_cap
+C148	MuSIC demonstrator beam power	400	W	MEASURED	Cook et al. arXiv:1610.07850, maximum	none

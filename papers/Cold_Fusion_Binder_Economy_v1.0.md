@@ -390,6 +390,90 @@ guarantees.
 > other occupant would close condition 8 even if one existed. What must improve is the cost of making
 > a binder, and that is the same problem whichever binder it is.
 
+### 5.8 The convertible fraction was an accounting choice, not a limit
+
+The work form of condition 8 uses a convertible fraction of 0.501, obtained by counting only the
+neutron's share at the blanket's Carnot factor. Two omissions in that figure are standard
+fusion-blanket engineering, and both run in the same direction.
+
+**The fuel is hot.** §3.2 resolves the temperature–density bracket at 800 K, because the formation
+resonance demands it. The alpha's 3.5 MeV therefore deposits at 800 K, not at ambient, and is
+convertible at the same Carnot factor as the blanket's. The 0.501 figure came from a row that assumed
+the fuel sat at ambient — an operating point this paper's own §3.2 excludes.
+
+**The blanket is exothermic.** A d–t cycle must breed its own tritium, and the breeding reaction
+
+> n + ⁶Li → T + ⁴He + 4.78 MeV
+
+*releases* energy. Breeding is not overhead to be subtracted; it is required, and the blanket returns
+more heat than the neutron carries into it.
+
+| | |
+|---|---|
+| blanket thermal per fusion | 14.1 + 4.78 = **18.88 MeV** |
+| total thermal per fusion | 3.5 + 18.88 = **22.38 MeV** |
+| energy multiplication | **1.272** (standard designs give 1.1–1.3) |
+| work per fusion, as accounted | 8.81 MeV |
+| work per fusion, corrected | **13.99 MeV** |
+| **gain** | **1.587** |
+
+The effective convertible fraction is therefore **0.795**, not 0.501, and the work-side shortfalls of
+§5.5 fall with it:
+
+> via SIN, **1.88 → 1.18**;  via PSI, **2.34 → 1.47**.
+
+**Caution, and it applies to both figures equally.** Carnot is an upper bound on conversion, not an
+achievable efficiency; a real cycle at 800 K reaches perhaps two thirds of it. This paper uses Carnot
+throughout, so the correction is consistent with what it replaces, and the old and new figures inherit
+the same optimism.
+
+### 5.9 The collector, specified
+
+§5.3 prices the discard; this specifies the machine that would recover it. The transverse-momentum
+cap of a capture solenoid is set by the product of its field and bore radius, and the model is
+validated against a published design: COMET's 5 T on a 0.15 m bore returns 112 MeV/c against its
+stated cap of 100.
+
+Applying that cap to the measured production of §5.1 gives a design curve. Two discards appear, and a
+reactor need make neither:
+
+**Hemisphere.** Physics front ends capture backward-going pions only, to escape the forward neutron
+and proton flux. A reactor's target *is* its detector; it has no backgrounds to escape and may capture
+both hemispheres. At the existing aperture that alone takes capture from **10.3 percent to 61 percent**
+of measured production — a factor of about six, from a discard made for reasons a reactor does not
+share.
+
+**Aperture.** The cap scales as field times bore radius. The best studied front end runs 20 T on a
+7.5 cm bore, a product of **1.50 T·m**.
+
+> To capture **90 percent** of measured production over both hemispheres requires a product of
+> **2.60 T·m** — 20 T on a **13 cm** bore, or **1.74** times the existing aperture.
+
+That is the collector specification: not a larger accelerator, not a stronger magnet, but a wider bore
+and no hemisphere cut.
+
+**The binding constraint is named and not modelled here.** Nuclear heating in the coils scales with
+aperture. MuSIC ran 0.6 W of deposited power against 4 W of cooling at a 400 W beam; at megawatt
+drivers that margin is the design problem, and nothing in this paper addresses it.
+
+### 5.10 The deciding experiment, stated as a protocol
+
+§5.6 identifies the sticking disagreement as decisive and §3.5 states the method. Set out as a
+protocol, it is a bench measurement on an existing beam:
+
+1. **One target, both observables, simultaneously.** Neutrons at 14.1 MeV give the fusion yield per
+   binder; the muonic helium K-alpha line at 8.2 keV counts stuck binders directly. The two share no
+   instrument and no calibration.
+2. **The discriminant.** Initial sticking is fixed at 0.938 percent by calculation. The two published
+   final values, 0.45 and 0.56 percent, imply survival fractions of 0.480 and 0.597. Carried into the
+   excited-state channel these give 0.1487 and 0.1851 percent, and the break-point for the heat form
+   at the measured production cost is 0.1580 — **between them**.
+3. **The refusal that governs the reading.** Per §3.5, a disagreement between the two routes is a
+   refusal and not an average. If they disagree again, the correct output is a bound, not a mean.
+4. **What each outcome settles.** Below the break-point, the heat form of condition 8 is satisfied at
+   perfect collection. Above it, it is not, and the residual is 1.17. Either way the work form is
+   settled by §5.8 to within 1.18 to 1.47.
+
 **Proton energy is not a lever.** The same source finds the beam-power-normalised yield flat within a
 tenth of its optimum across 4 to 11 gigaelectronvolts, with an optimum near 7. Any driver energy in
 that band is equivalent for this purpose.

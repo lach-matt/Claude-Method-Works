@@ -324,6 +324,70 @@ def muon_above_floor():
     return 207.0 / 119.0
 
 
+def blanket_thermal():
+    return collector.blanket_thermal_mev()
+
+
+def total_thermal():
+    return collector.total_thermal_mev()
+
+
+def energy_mult():
+    return collector.energy_multiplication()
+
+
+def work_old():
+    return mucf.Q_FUS_MEV * collector.F_WORK
+
+
+def work_new():
+    return collector.work_per_fusion_mev()
+
+
+def work_gain():
+    return work_new() / work_old()
+
+
+def f_work_new():
+    return collector.f_work_corrected()
+
+
+def short_sin_corr():
+    return work_short_sin() / work_gain()
+
+
+def short_psi_corr():
+    return work_short_psi() / work_gain()
+
+
+def br_nf():
+    return 20.0 * 0.075
+
+
+def cap_nf():
+    return 100.0 * collector.captured_fraction(br_nf(), True)
+
+
+def cap_nf_back():
+    return 100.0 * collector.captured_fraction(br_nf(), False)
+
+
+def br_90():
+    return collector.br_for_capture(0.90, True)
+
+
+def bore_90():
+    return 100.0 * br_90() / 20.0
+
+
+def br_ratio():
+    return br_90() / br_nf()
+
+
+def comet_cap():
+    return 1000.0 * collector.pt_max(5.0 * 0.15)
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 
