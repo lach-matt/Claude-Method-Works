@@ -221,7 +221,7 @@ def checks():
          _members_needing_312()),
         ("CLAUDE.md", ".py files that parse under NO available interpreter", 6,
          _unparseable_anywhere()),
-    ] + _instrument_rows()
+    ] + _instrument_rows() + _hosted()
 
 
 def _newest_python():
@@ -338,6 +338,51 @@ def _governance_prose_only():
     # the pin is 0 prose-only, asserted by idcensus.py; this row guards that the
     # three governance members are still present and non-empty to be measured against
     return 0 if seen > 100 else 1
+
+
+def _hosted():
+    """docs/GRAPH-HOSTED.md against HOSTED-GRAPH.tsv -- the one class of figure no
+    other check could see.
+
+    The hosted Graphify index is a SERVICE. Its numbers cannot be re-counted by a
+    stdlib program, so they are recorded by `hostedgraph.py` and the document is
+    pinned against the RECORD rather than against the live service. That direction
+    is deliberate and docs/GRAPH-HOSTED.md §7 argues it: pinning prose to a service
+    that rebuilds several times a day produces a check that is STALE more often
+    than not, and a check that cries wolf is a check nobody reads.
+
+    A STALE row here therefore means "the record moved and the prose did not",
+    which is a documentation fault of exactly the kind this instrument exists for.
+
+    The document carries its figures in a stamped indented block (§2). Parsing it
+    is how the two are kept to two places rather than three -- were the claimed
+    value hardcoded here, this file would be a third place to forget."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import hostedgraph
+    row = hostedgraph.latest()
+    doc = (ROOT / "docs/GRAPH-HOSTED.md").read_text(encoding="utf-8", errors="replace")
+    out = []
+    if row is None:
+        # No record is not a drift; it is an absence, and it is reported as one.
+        out.append(("docs/GRAPH-HOSTED.md", "a hosted measurement is on record",
+                    True, False))
+        return out
+    stamped = {}
+    for key in ("build", "commit", "nodes", "edges", "communities", "labels_paren"):
+        m = re.search(r"^ {4}%s +(\S+)$" % key, doc, re.M)
+        stamped[key] = m.group(1) if m else None
+    pairs = [("build", "build_id"), ("commit", "commit_sha"), ("nodes", "nodes"),
+             ("edges", "edges"), ("communities", "communities"),
+             ("labels_paren", "labels_paren")]
+    for dockey, tsvkey in pairs:
+        out.append(("docs/GRAPH-HOSTED.md",
+                    "hosted %s, document against record" % dockey,
+                    stamped[dockey], row[tsvkey]))
+    # the bound the document states in prose, recomputed from the record
+    d = hostedgraph.derived(row)
+    out.append(("docs/GRAPH-HOSTED.md", "hosted non-code bound stated in prose",
+                ("\u2264 %s" % f"{d['noncode_max']:,}") in doc, True))
+    return out
 
 
 def _instrument_rows():
