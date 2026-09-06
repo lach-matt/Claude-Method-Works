@@ -43,6 +43,26 @@ to; 188 MB of duplicate content became a pointer rather than a file. Regenerate 
 hand-edit it or `LEDGER.tsv`. `drive/` stays the mirror of record and is never written to by this
 pass. See `extracted/README.md` and `docs/CONSOLIDATE.md`.
 
+**`papers/` holds independent application papers prepared for publication**, and is the one tree
+here that is neither mirror nor generated: `method/` and `drive/` are resource material for it and it
+never writes to them. Its shape follows the author's own standing ruling (`PROSE-ONLY.tsv` PO-0233) —
+each paper carries its own abstract and its own references, states its relation to the lattice, and
+takes no part in the main paper's subject matter. It holds
+**`Muon_Catalysed_Fusion_v1.1.md`**, which supersedes the v1.0 held in `recovered/`,
+**`Corrigendum_MuCF_v1_0.md`**, the seven corrections as a standalone formal corrigendum, and
+**`Muon_Collection_Budget_v1.0.md`**, the per-stage collection budget v1.1's §5.5 names as its
+deciding open item — built with **`tools/collector.py`** from published MuSIC, Mu2e, COMET and PSI
+figures, and returning the correction that **the 5 GeV per muon at which the energy balance prices
+its binder is aspirational, not achieved**: the best published stopped-μ⁻ figure is 5 TeV, a factor
+of 1,000 higher. The algebra is unaffected and the headroom grows with the reference point — 16,667×
+to the kinematic floor against 2,551× required — and the deciding quantity reduces to one number,
+**15.3 %** of the front-end loss, which the capture term cancels out of and which no published figure
+resolves into cross-section versus acceptance. v1.0 itself
+is a generated file, md5-pinned in `recovered/LEDGER.tsv`, and is **never hand-edited** — which is why
+v1.1 is a new document and not a revision in place. Six of the seven corrections are drawn from the
+chat export and were banked nowhere before `docs/MUCF-ENERGY-AXIS.md`. **Docket C-8 stays open**: it
+closes only by seating a member, which would write to `method/`. See `papers/README.md`.
+
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
 1,005 artefact names in the two live bundles: **813 held**, 15 held only under a figure's pre-rename
 source name, 162 reachable in the chat export, 11 with a body there, and **4 absent** — and those
@@ -118,7 +138,15 @@ companion), `tools/buildtrace.py` (when a figure entered the books, from the BUI
 `tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
 of the method equation, per register 1206), `tools/orderideal.py` (register 66's downward-closure
 test, run against the seated observed configurations; it imports `LW1-ground.py`, offers no verdict,
-and files its measurement for R3 — see `docs/ORDER-IDEAL.md`) and **`tools/docfigures.py`**, which
+and files its measurement for R3 — see `docs/ORDER-IDEAL.md`), **`tools/mucf.py`** (the
+muon-catalysed fusion energy balance over its three free axes — sticking, density and the muon
+production cost `E_μ` that `recovered/Muon_Catalysed_Fusion_v1.0.md` §5.1 holds frozen; its
+`--selftest` is fixtured on that paper's own Table 5.1 and on a re-derivation that exists in no
+file here, only in the chat export, which `docs/MUCF-ENERGY-AXIS.md` banks — including that the
+energy gap is accelerator-dominated rather than sticking-dominated, that §5.1's Q counts heat
+against work, and that the two gaps §5 calls independent are **one collection chain read at two
+thresholds**. It refuses to choose between those two readings: both are the corpus's own)
+and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 59 pinned figures, ~3 s, exits 1 on drift. The
 last fourteen are the totals `pointers.py` and `arith.py` report, which their own selftests do not
@@ -128,7 +156,7 @@ because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true 
 sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real contract — see
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
-`docs/COVERAGE.md`, `docs/ORDER-IDEAL.md` and `docs/DOCFIGURES.md`.
+`docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
