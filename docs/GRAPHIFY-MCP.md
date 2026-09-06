@@ -143,6 +143,29 @@ in **three** places, not the two the setup doc used to name. The third is the `H
 if it disagrees with the action's input, **nothing fails** — the job just skips forever. Change all
 three or none.
 
+## Four CI states, and the PR page renders them alike
+
+`claude-review` can reach any of these. **Only the job log separates them**, which is why every
+claim about a review in this repository cites a log line rather than a check colour.
+
+| what happened | check shows | how the log reads |
+|---|---|---|
+| no credential configured | `skipped` | `changed-files` prints `HAS_KEY: false` |
+| credential present, rejected | `failure` | initialises, then `is_error: true`, `modelUsage: {}`, 206–2057 ms |
+| **PR edits a workflow file** | **`success`** | `Skipping action due to workflow validation` |
+| a review actually ran | `success` | Claude Code runs to a result with real `modelUsage` |
+
+The third is the trap, because it is **green and did nothing**. `claude-code-action` refuses to run
+when the workflow file on the PR differs from the version on the default branch — a security
+control, so a pull request cannot rewrite the review workflow and have its own version execute
+against the repository. Its own message says the workflow "will begin working once you merge your
+PR."
+
+The standing consequence: **any PR that edits `.github/workflows/claude*.yml` is structurally
+unreviewable by Claude.** PRs #18 and #21 both changed those files and were skipped for this
+reason, not for want of a credential — a distinction invisible from the PR page and worth an extra
+minute in the log before concluding anything about a credential from a workflow-touching PR.
+
 ## The traps, in one line each
 
 Both are argued in `docs/GRAPH-HOSTED.md` §5; they cost a published error.
