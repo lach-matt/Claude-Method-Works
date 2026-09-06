@@ -73,6 +73,11 @@ FINDINGS = [
  # as CM-THEOREM had not.  Seating them is bookkeeping, not new physics -- and
  # that they all had to be dug out is itself the finding: this project produces
  # entangled results, and the index keeps demanding the disentangled ones.
+ # The structural answer to the structural limit: the theorem forbids moving
+ # YOURSELF, so the object stops being a vehicle and becomes infrastructure.
+ # First cell on (+1,+1,+1) that is a CONSTRUCTED object rather than a found one.
+ ("LAUNCHER",    +1, +1, +1, "launcher.py",
+  "geodesic launcher: 0 g on the payload, 6.5e-18 m/s recoil, 1.1e26 launches"),
  ("NO-EXOTIC",   +1,  0,  0, "TARGET-1-RESULT.md",
   "the warp source is ordinary matter: there is no distinct species of warp energy"),
  ("FREE-FALL",    0, +1,  0, "COUPLING.md",
@@ -167,7 +172,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 17)
+    chk("number of findings indexed", len(FINDINGS), 18)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 11)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -183,9 +188,10 @@ def selftest():
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
-        sorted(["EM-GAP", "FLYBY", "SLINGSHOT"]))
+        sorted(["EM-GAP", "FLYBY", "SLINGSHOT", "LAUNCHER"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
-    chk("cells affirmative on all three", sorted(aff), sorted(["FLYBY","SLINGSHOT"]))
+    chk("cells affirmative on all three", sorted(aff),
+        sorted(["FLYBY","SLINGSHOT","LAUNCHER"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
