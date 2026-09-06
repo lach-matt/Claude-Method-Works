@@ -66,6 +66,24 @@ def launches_available(m, b, E=E_STORE):
     """How many payloads the circulation reservoir can boost before depletion."""
     return E/payload_energy(m, b)
 
+# ---- the gate's reach, and why it is not a portal ---------------------------
+# A gate at rest can only bring a payload to ITS OWN interior-frame velocity,
+# v_warp -- it does not add a fixed increment to whatever you already have.  And
+# v_warp is capped by the null energy condition at ~0.045-0.05 c (TARGET-1).  So
+# the gate is a LOW-BETA TERMINAL: excellent from rest, useless in the middle.
+def rapidity(b):
+    return math.atanh(b)
+
+def gates_in_series(b_target, b_gate=V_WARP):
+    """How many successive boosts of b_gate reach b_target (rapidities add).
+
+    Requires each gate to be at rest in the frame of the previous one -- i.e.
+    already MOVING relative to home.  Gates cannot move (CM-THEOREM), so they
+    would have to be built in motion.  The number is reported to show the scale
+    of that impossibility, not as a proposal.
+    """
+    return rapidity(b_target)/rapidity(b_gate)
+
 def rocket_mass_ratio(b):
     """Photon rocket floor for the same delta-v: sqrt((1+b)/(1-b))."""
     return math.sqrt((1.0+b)/(1.0-b))
@@ -119,6 +137,17 @@ def selftest():
     chk("rocket proper acceleration, 30 days (g)", rocket_accel(V_WARP, 30), 0.561399, tol=1e-6)
     chk("launcher proper acceleration on the payload (g)", 0.0, 0.0)
 
+    print("\nThe gate's reach")
+    chk("rapidity adds: atanh(0.0476)", rapidity(V_WARP), 0.0476359990, tol=1e-9)
+    chk("atanh(0.866)", rapidity(0.866), 1.3168562907, tol=1e-9)
+    chk("gates in series to 0.866 c", gates_in_series(0.866), 27.644141, tol=1e-6)
+    # identity: composing n gate-boosts must reproduce the target rapidity
+    n = gates_in_series(0.866)
+    chk("n * gate rapidity == target rapidity (identity)",
+        n*rapidity(V_WARP), rapidity(0.866), tol=1e-12)
+    chk("one gate from rest reaches exactly v_warp",
+        math.tanh(rapidity(V_WARP)), V_WARP, tol=1e-12)
+
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1
 
@@ -171,6 +200,45 @@ for.  So the shell stops being a vehicle and becomes INFRASTRUCTURE.
   THE DRIVE IS NOT ON THE SHIP.  THE DRIVE IS THE INFRASTRUCTURE.  That is the
   structural answer to a structural limit: the theorem says a thing cannot move
   itself, so nothing tries to.
+
+-- Not a portal, and the reason is the one that made it physical -----------
+  A portal means a topological shortcut: a wormhole.  TOPOLOGICAL CENSORSHIP
+  (Friedman, Schleich & Witt, PRL 71, 1486 (1993)) states that in an
+  asymptotically flat, globally hyperbolic spacetime satisfying the AVERAGED
+  null energy condition, every causal curve from infinity back to infinity is
+  homotopic to a trivial one -- no traversable wormhole, no shortcut.
+
+  TARGET-1 measured this shell satisfying the POINTWISE null energy condition,
+  which implies the averaged one.  So the theorem applies to our own object:
+  the very property that made it physical is what forbids it being a portal.
+
+  That is the third instance of one pattern, and the pattern is the project's
+  real result:
+      positive ADM mass  buys the energy conditions, forfeits self-motion
+      NEC satisfaction   buys physicality,           forfeits shortcuts
+      compact support    buys a clean exterior,      forfeits ADM momentum
+  EVERY PURCHASE OF PHYSICALITY IS PAID FOR IN GEOMETRY.  Exotic matter is not
+  a detail the classic solutions got wrong; it is the price of the geometry
+  they wanted, and refusing to pay it costs exactly those properties.
+
+-- So it is a GATE ---------------------------------------------------------
+  Not a drive, not a portal: fixed infrastructure at both ends, a passive
+  traveller, geodesic transit at 0 g.  You build STATIONS, not ships.
+
+  But the reach is capped.  A gate at rest brings a payload to ITS OWN interior
+  velocity -- it does not add an increment -- and v_warp is capped near 0.05 c
+  by the energy conditions.  Reaching 0.87 c would need 27.6 gates in series,
+  each at rest in the previous one's frame, i.e. each already moving relative
+  to home.  Gates cannot move.  So that chain is not a proposal; it is a
+  measurement of why the gate is a LOW-BETA TERMINAL:
+
+      departure from rest      gate        0 g   <= gate's regime
+      the relativistic cruise  slingshot   0 g   <= coupling family's regime
+      final approach to rest   gate        0 g   <= gate's regime
+
+  The two families are not rivals and never were. The gate owns both ends of
+  the trip, where everything must start and stop at rest, and the coupling
+  family owns the middle. Between them the whole journey is geodesic.
 
 -- The one unproven step ---------------------------------------------------
   A STATIC shell is a lens, not a pump.  A payload that enters and leaves gains

@@ -39,6 +39,8 @@ FINDINGS = [
   "warp state exists: 4 energy conditions positive, interior frame boosted 0.040000 c"),
  ("T2-ADM",       0, -1, -1, "TARGET-1-RESULT.md",
   "P_ADM = 0 exactly and M_ADM constant across v: the structure cannot translate"),
+ ("NO-PORTAL",   -1, -1,  0, "launcher.py",
+  "topological censorship: ANEC forbids any shortcut, so no portal either"),
  ("SSV-NOGO",    -1, -1,  0, "WARP-DRIVE.md",
   "Santiago-Schuster-Visser: M_ADM = 0 warp drives violate the NEC"),
  ("SCALE",       +1,  0, +1, "THE-DRIVE.md",
@@ -172,7 +174,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 18)
+    chk("number of findings indexed", len(FINDINGS), 19)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 11)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
