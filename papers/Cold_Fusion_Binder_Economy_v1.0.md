@@ -854,6 +854,40 @@ with muon loss *increasing* as temperature *decreases*. That range brackets the 
 spanned a phase change and might not be a temperature effect — is substantially relieved by a
 measurement over seven hundred kelvin in the same direction.
 
+### 5.21 Pricing the stripping route
+
+§5.20 opened a route to the reactivation term and left it unquantified. This prices what it must beat.
+
+**The geometry is more favourable than it first appears.** The window is not the ash's slowing time.
+Once the ash has stopped, the bound binder–ash ion persists until the binder decays, so an irradiating
+field has of order **2.14 microseconds** rather than picoseconds. Whatever defeats this route, it is
+not the space–time overlap that defeats a focused beam — which is the second reason §5.20's no-go and
+this proposal are not the same claim.
+
+**Direct photoionisation sets the scale.** The bound state's binding is 10.9 keV, so the threshold is
+**0.1137 nm**, agreeing with the 0.11 the source states. A hydrogenic photoionisation cross-section
+scales as the orbital area, giving **3.68 × 10⁻²³ cm²** for this system. Then:
+
+| to achieve | required flux | **sustained intensity** |
+|---|---|---|
+| a stripping rate merely matching binder decay | 1.27 × 10²⁸ /cm²/s | **2.21 × 10¹³ W/cm²** |
+| stripping of 95 percent of stuck binders | 2.72 × 10²⁹ /cm²/s | 4.74 × 10¹⁴ W/cm² |
+
+**Against what exists**: free-electron lasers reach 10¹⁸ W/cm² and beyond, but in femtosecond pulses
+at duty cycles near 10⁻⁹, so the time-averaged intensity is orders lower; synchrotron beamlines are
+lower still. **A sustained hard-X-ray field of 10¹³ W/cm² over a reactor fuel volume does not exist.**
+
+**But the proposal does not rest on direct photoionisation, and that is the point of it.** Its
+mechanism is resonant: driving at twice the bound binder's own eigenfrequency to excite a chaotic
+instability — the analogue of microwave ionisation of a Rydberg atom — whose effective cross-section
+can exceed the direct one by orders. The source demonstrates that behaviour in simulation and **does
+not quantify the enhancement.**
+
+> **So the route is unquantified, and this section states the gap it must close.** Direct
+> photoionisation would need 2.21 × 10¹³ W/cm² sustained. The required resonant enhancement is whatever
+> brings that within reach of a real source, and **no published figure gives it.** This paper neither
+> credits the route nor dismisses it: it records what would have to be true.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -963,15 +997,25 @@ physics does not.
 
 What would change the answer, in the order this paper can rank them:
 
-1. **The sticking measurement of §5.10** — decides a branch, and now also bears on §5.15's four
-   percent. A bench experiment on an existing beam.
-2. **Effective sticking at the operating temperature.** No measurement exists at 800 K. §5.15 shows
-   the required change is five times smaller than one already observed, in the same direction.
-3. **The collector of §5.9** — decides how much of the measured discard is recoverable.
-4. **Where molecular hydrogen ceases to be molecular at 800 K** — decides whether the density §5.13
+1. **The collector of §5.9** — 20 T on a 13 cm bore with no hemisphere cut. Every balance in this
+   paper depends on it and nothing else depends on anything unbuilt. It is the single component that
+   moves the result furthest.
+2. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
+   bench experiment on an existing beam.
+3. **Effective sticking at the operating temperature.** No determination exists at 800 K, though
+   §5.20 records the muon-loss dependence measured across 85 to 790 K in the d+d system, in the
+   favourable direction.
+4. **The resonant stripping enhancement of §5.21** — unquantified, against a direct-photoionisation
+   requirement of 2.21 × 10¹³ W/cm² sustained.
+5. **Where molecular hydrogen ceases to be molecular at 800 K** — decides whether the density §5.13
    requires exists at all.
 
 None is settled here. The first three need no new machine.
+
+**And four doors are now shut, which is worth as much as an open one.** The binder is not the variable
+(§5.7). The conversion ceiling descends from condition 1 (§5.16). Density is bounded above by
+molecular survival (§5.13). And the in-flight route, which would have lifted that bound, is below the
+binder's own decay rate (§5.20).
 
 **And two doors are shut, which is worth as much as an open one.** The binder is not the variable
 (§5.7): sticking is mass-independent and the known spectrum holds no alternative. The conversion

@@ -580,6 +580,22 @@ def N_inflight():
         mucf.LAMBDA_0 + ws * phi * collector.LAMBDA_INFLIGHT)
 
 
+def thresh_nm():
+    return 1239.8 / 10.9e3
+
+
+def sigma_muhe():
+    return 6.3e-18 / (206.8 ** 2 * 4)
+
+
+def intensity_match():
+    return (mucf.LAMBDA_0 / sigma_muhe()) * 10.9e3 * 1.602e-19
+
+
+def intensity_95():
+    return (1e7 / sigma_muhe()) * 10.9e3 * 1.602e-19
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 

@@ -232,3 +232,11 @@ C230	measured muon-loss temperature range, lower	85	K	SOURCED	Bom et al. JETP 96
 C231	resonant stripping wavelength, ground state	0.11	nm	SOURCED	arXiv:physics/0605206, muonic helium fundamental	none
 C232	resonant stripping wavelength, first excited state	0.44	nm	SOURCED	arXiv:physics/0605206	none
 C233	in-flight rate, independent approach	0.5e5	s^-1	SOURCED	arXiv:physics/0605206 citing Melezhik Nucl Phys A 550 223	none
+C234	muonic helium 1s binding energy	10.9	keV	MEASURED	the paper's own provenance list	none
+C235	photoionisation threshold wavelength	0.1137	nm	DERIVED	1239.8 eV nm / C234	fn:thresh_nm
+C236	hydrogenic photoionisation cross-section, electron scale	6.3e-18	cm2	SOURCED	at threshold, standard	none
+C237	photoionisation cross-section, muonic helium	3.68e-23	cm2	DERIVED	C236 / (C15^2 x 4)	fn:sigma_muhe
+C238	sustained intensity to match binder decay	2.21e13	W/cm2	DERIVED	C02 / C237 x C234	fn:intensity_match
+C239	sustained intensity to strip 95 percent	4.74e14	W/cm2	DERIVED	1e7 / C237 x C234	fn:intensity_95
+C240	XFEL peak intensity, low end	1e18	W/cm2	SOURCED	femtosecond pulses	none
+C241	XFEL duty cycle	1e-9	fraction	SOURCED	femtosecond pulses at typical repetition	none
