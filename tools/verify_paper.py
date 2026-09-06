@@ -1716,7 +1716,7 @@ def q_cost_with_wedge():
 
 
 def q_comet_floor():
-    return collector.open_floor_mu_per_s()
+    return collector.insitu_from_comet()
 
 
 def q_comet_floor_hi():
@@ -1724,7 +1724,7 @@ def q_comet_floor_hi():
 
 
 def q_floor_pct():
-    return collector.open_heat_pct(collector.open_floor_mu_per_s())
+    return collector.open_heat_pct(collector.insitu_from_comet())
 
 
 def q_floor_hi_pct():
@@ -1736,7 +1736,7 @@ def q_span_now():
 
 
 def q_sign_at_floor():
-    return collector.open_heat_pct(collector.open_floor_mu_per_s(), cycles=1.0)
+    return collector.open_heat_pct(collector.open_band_mu_per_s()[0], cycles=1.0)
 
 
 def q_omega_from_cycles_12():
@@ -1758,6 +1758,43 @@ def q_purity_bound():
 
 def q_parity_ppm():
     return 1e6 * mucf.purity_for_parity(1.5)
+
+
+def q_comet_model():
+    return collector.comet_model_at_aperture()
+
+
+def q_comet_ratio():
+    return collector.comet_validation_ratio()
+
+
+def q_band_lo():
+    return collector.open_band_mu_per_s()[0]
+
+
+def q_band_hi():
+    return collector.open_band_mu_per_s()[1]
+
+
+def q_band_lo_pct():
+    return collector.open_heat_pct(collector.open_band_mu_per_s()[0])
+
+
+def q_band_hi_pct():
+    return collector.open_heat_pct(collector.open_band_mu_per_s()[1])
+
+
+def q_band_width():
+    lo, hi = collector.open_band_mu_per_s()
+    return hi / lo
+
+
+def q_comet_published_lo():
+    return collector.COMET_CAPTURED_LO
+
+
+def q_comet_bore():
+    return collector.COMET_BORE_M
 
 
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}

@@ -15,7 +15,7 @@ The project has three directives and they are not one question:
 | **Z** | lay out the laboratory **procedure** that would witness it |
 
 Prose can answer one of those while sounding like it answered three, and for most of this project's
-life it did. An index cannot. Each of the 64 rows carries a grade 0–3 on each axis, so a result that
+life it did. An index cannot. Each of the 66 rows carries a grade 0–3 on each axis, so a result that
 settles the balance but names no apparatus is visibly a one-axis result, and the cell where all three
 meet is a computation rather than a claim.
 
@@ -39,7 +39,7 @@ that *would* decide and has not.
 
 The grade is a judgement. Three things are not:
 
-1. **Every row names a section that exists.** `--selftest` matches all 64 rows against the headings of
+1. **Every row names a section that exists.** `--selftest` matches all 66 rows against the headings of
    the three papers as they are on disk. A row cannot cite a section that is not there.
 2. **The sign discipline.** A sign is carried only at grade ≥ 2 — nothing that merely bears on the
    balance is allowed a direction.
@@ -92,7 +92,7 @@ that come off the cycle count.
 
 | | question | status |
 |---|---|---|
-| Q1 | the acceptance, never measured end to end | **narrowed** — floor from a second capture simulation with transport removed; the span falls from 2131× to **5.97×** |
+| Q1 | the acceptance, never measured end to end | **narrowed** — there is no span: the model run at a 5 T machine's own aperture returns **0.0843**, inside that machine's published 0.061–0.144. Corroborated at two fields 4× apart, to **0.823** and **0.982**; the width is **1.19** |
 | Q2 | which sticking branch is operative | **closed** — the witnessed 150 cycles, inverted, give **0.517–0.547 %**, inside the measured trio and below theory |
 | Q3 | the service-life model over-predicts by 2.24 | **closed** — at the corrected sticking it returns **150.5** against 150 |
 | Q4 | fuel purity bounded by no experiment | **closed** — the fuel behind the 150 carried at most **10.93 ppm**, under the **31.10 ppm** parity level |
@@ -113,16 +113,22 @@ cheaper. What survives is a normalisation — per beam particle against per inte
 reproduces the number rather than being bounded away from it, and is declined because it reproduces it
 for pions *produced* while a thick target also reabsorbs them.
 
-**Seven closed, one narrowed, one explained and declined.** The two that still move a number are
-measurements rather than calculations: the acceptance (Stage A) and whether the thick-target
-normalisation survives to capture (Stage C). The answer's magnitude is now **2.01 % to 12.01 %** of the
-host beam, and the sign is open at no value of any of them: at the floor and one fusion per binder it
-still returns 0.01341 %.
+**Q1 was a mistake before it was a narrowing.** Two earlier passes quoted a *span* on the acceptance —
+2131×, then 5.97× — by treating a 5 T machine's captured yield as a lower estimate of a 20 T machine's.
+It is not one: it is the same model at half the aperture, and the model reproduces it. Both spans are
+withdrawn. What is known about the acceptance is the width of its two corroborations, **1.19**, and
+what is open is that no machine has been run end to end and weighed.
+
+**Seven closed, one narrowed to 1.19, one explained and declined.** The two that still move a number
+are measurements rather than calculations: whether an end-to-end machine loses more than any
+simulation models (Stage A) and whether the thick-target normalisation survives to capture (Stage C).
+The answer's magnitude is **9.88 % to 12.01 %** of the host beam, and the sign is open at no value of
+any of them: at the low end and one fusion per binder it still returns 0.06589 %.
 
 ## Re-verify
 
 ```
-python3 tools/directives.py --selftest     # 64 rows against the papers on disk
+python3 tools/directives.py --selftest     # 66 rows against the papers on disk
 python3 tools/directives.py                # the whole reading
 python3 tools/collector.py --insitu        # the apparatus and its ceiling
 python3 tools/collector.py --open          # every open question, and what it can move

@@ -544,11 +544,21 @@ C547	binders/s at 1 MW, floor from an independent capture simulation	3.21e13	s^-
 C548	the same at its upper figure	7.58e13	s^-1	DERIVED	the same, upper capture figure	fn:q_comet_floor_hi
 C549	fusion heat at the new floor	2.01	percent	DERIVED	C547 x 150 x 26.06 MeV / 1 MW	fn:q_floor_pct
 C550	fusion heat at the upper floor figure	4.75	percent	DERIVED	C548 x 150 x 26.06 MeV / 1 MW	fn:q_floor_hi_pct
-C551	the acceptance span, narrowed	5.97	ratio	DERIVED	ceiling / C547, was 2131	fn:q_span_now
-C552	the sign at the new floor and one fusion per binder	0.01341	percent	DERIVED	the worst case no measurement supports	fn:q_sign_at_floor
+C551	the acceptance span, narrowed	5.97	ratio	WITHDRAWN	superseded by C566/C567: the span was two apertures, not an uncertainty	none
+C552	the sign at the new floor and one fusion per binder	0.01341	percent	WITHDRAWN	superseded by C566/C567: the span was two apertures, not an uncertainty	none
 C553	sticking implied by 150 cycles at phi 1.2	0.5171	percent	DERIVED	the service-life expression inverted	fn:q_omega_from_cycles_12
 C554	sticking implied by 150 cycles at phi 1.5	0.5471	percent	DERIVED	the same at the top of the density bracket	fn:q_omega_from_cycles_15
 C555	cycles the model returns at the corrected sticking	150.5	count	DERIVED	N(0.00515, 1.2) -- it returned 335.3 at the superseded value	fn:q_cycles_at_corrected
 C556	contamination the 150-cycle fuel can have carried	10.93	ppm	DERIVED	the loosest bound across the sticking and density bracket	fn:q_purity_bound
 C557	contamination at which impurity loss equals decay loss	31.10	ppm	DERIVED	lambda_0 / (lambda_transfer x phi) at phi 1.5	fn:q_parity_ppm
 C558	the wedge as headroom rather than a banked figure	7.2	percent	DERIVED	C545 - 1; RECONSTRUCTED and not restated into the balances	fn:q_wedge_headroom_pct
+C559	the model run at a 5 T machine's own aperture	0.0843	per-interaction	DERIVED	sec.5.24 model at 5 T x 0.15 m, inside its published 0.061-0.144	fn:q_comet_model
+C560	that machine's bore radius	0.15	m	SOURCED	the radius the pT formula is already validated against	fn:q_comet_bore
+C561	second corroboration of the acceptance model	0.823	ratio	DERIVED	C559 over the midpoint of 0.061-0.144	fn:q_comet_ratio
+C562	binders/s scaled by the weaker corroboration	1.578e14	s^-1	DERIVED	modelled value x 0.823	fn:q_band_lo
+C563	binders/s scaled by the stronger	1.884e14	s^-1	DERIVED	modelled value x 0.982	fn:q_band_hi
+C564	fusion heat at the weaker corroboration	9.88	percent	DERIVED	C562 x 150 x 26.06 MeV / 1 MW	fn:q_band_lo_pct
+C565	fusion heat at the stronger	11.80	percent	DERIVED	C563 x 150 x 26.06 MeV / 1 MW	fn:q_band_hi_pct
+C566	the width of what is known about the acceptance	1.19	ratio	DERIVED	0.982 / 0.823 -- not 2131 and not 5.97	fn:q_band_width
+C567	the sign at the low end and one fusion per binder	0.06589	percent	DERIVED	the worst case no measurement supports	fn:q_sign_at_floor
+C568	COMET's published captured yield, lower figure	0.061	per-proton	SOURCED	COMET Phase-I TDR, (pi-+mu-) per 8 GeV proton at 3 m, 5 T	fn:q_comet_published_lo

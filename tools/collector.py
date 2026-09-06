@@ -1527,9 +1527,11 @@ def insitu_from_comet(power_mw=1.0, ep_gev=8.0, p_stop_mev=265.0, hi=False):
 # (id, question, status, what it returned)
 OPEN = [
     ("Q1", "the acceptance has never been measured end to end", "NARROWED",
-     "a second published capture simulation, with transport removed, raises the "
-     "floor from a transported beam to 3.21e13 binders/s -- the span falls from "
-     "2131x to 5.97x"),
+     "there is no span. Run at COMET's own aperture the model returns 0.0843 "
+     "captured pi- per interacting proton, INSIDE COMET's published 0.061-0.144: "
+     "the two ends were one model at two apertures, not two estimates of one "
+     "number. Corroborated now at two fields differing by 4x, to 0.823 and "
+     "0.982. What is open is that nothing has measured it end to end"),
     ("Q2", "which sticking branch is operative", "CLOSED",
      "inverting the witnessed 150 cycles gives 0.517-0.547 percent, inside the "
      "measured trio and below theory: a third route using neither published "
@@ -1561,21 +1563,64 @@ OPEN = [
 ]
 
 
-def open_floor_mu_per_s(power_mw=1.0):
-    """The floor on binders per second, from COMET's own 5 T capture simulation
-    with decay and transport removed. It supersedes the MuSIC figure, which is
-    what survives a beamline and is therefore a floor on a different quantity."""
-    return insitu_from_comet(power_mw)
+COMET_BORE_M = 0.15          # the radius the pT formula is already validated on:
+                             # 5 T x 0.15 m returns 112.5 MeV/c against COMET's
+                             # stated 100 MeV/c cap
+
+
+def comet_model_at_aperture(r_m=COMET_BORE_M, b_t=5.0):
+    """The sec.5.24 acceptance model evaluated at COMET's OWN aperture, in
+    COMET's own units: captured pi- per interacting proton, no stopping window,
+    which is what a capture solenoid at 3 m delivers."""
+    return delivered_fraction(b_t * r_m, "fwd") * harp_combined_yield()
+
+
+def comet_validation_ratio():
+    """Model over the midpoint of COMET's published range. A SECOND independent
+    validation of the acceptance model, at a field four times below the one
+    MARS15 validates it at."""
+    return comet_model_at_aperture() / (0.5 * (COMET_CAPTURED_LO + COMET_CAPTURED_HI))
+
+
+def mars_validation_ratio():
+    return (delivered_fraction(1.50, "fwd", NF_RF_WINDOW_MEV)
+            / (nf_captured_per_interacting_proton() / harp_combined_yield()))
+
+
+def acceptance_corroboration():
+    """The two ratios the acceptance model has been checked against, low first.
+    They are the width of what is known about it short of measuring it."""
+    return tuple(sorted((comet_validation_ratio(), mars_validation_ratio())))
+
+
+def open_modelled_mu_per_s(power_mw=1.0, ep_gev=8.0, p_stop_mev=265.0):
+    """Binders per second at the specified aperture -- the value, not a bound."""
+    return (protons_per_s(power_mw, ep_gev) * harp_combined_yield()
+            * stopping_capture(p_stop_mev))
+
+
+def open_band_mu_per_s(power_mw=1.0):
+    """That value scaled by the two corroboration ratios. NOT a floor-to-ceiling
+    span between two rival estimates -- the model reproduces both simulations,
+    and this is the width of the agreement."""
+    lo, hi = acceptance_corroboration()
+    v = open_modelled_mu_per_s(power_mw)
+    return v * lo, v * hi
 
 
 def open_floor_transported(power_mw=1.0):
-    """The superseded floor: MuSIC MEASURED, through a transport line."""
+    """The SUPERSEDED floor: MuSIC MEASURED, through a transport line. It is a
+    floor on a different quantity -- what survives a beamline -- and using it as
+    a floor on in-situ capture was an error, corrected in sec.5.30."""
     return MUSIC_MU_MINUS_PER_W * power_mw * 1e6
 
 
+def open_floor_mu_per_s(power_mw=1.0):
+    return open_band_mu_per_s(power_mw)[0]
+
+
 def open_ceiling_mu_per_s(power_mw=1.0, ep_gev=8.0, p_stop_mev=265.0):
-    return (protons_per_s(power_mw, ep_gev) * harp_combined_yield()
-            * stopping_capture(p_stop_mev))
+    return open_modelled_mu_per_s(power_mw, ep_gev, p_stop_mev)
 
 
 def open_heat_pct(mu_per_s, cycles=150.0, power_mw=1.0):
@@ -1595,16 +1640,35 @@ def report_open():
             print(f"        {line}")
         print()
 
-    print("  Q1 -- THE ACCEPTANCE, NARROWED BY A SECOND SIMULATION")
-    lo, hi, ceil = open_floor_mu_per_s(), insitu_from_comet(hi=True), open_ceiling_mu_per_s()
-    old = open_floor_transported()
-    print(f"    superseded floor  MuSIC MEASURED, through a beamline:  {old:.3e} /s")
-    print(f"    floor             COMET 5 T capture, transport removed: {lo:.3e} /s")
-    print(f"                      the same at its upper figure:         {hi:.3e} /s")
-    print(f"    ceiling           sec.5.24 model at the 3.59 kg window: {ceil:.3e} /s")
-    print(f"    the span was {ceil / old:,.0f}x and is now {ceil / lo:.2f}x.")
-    print(f"    heat as a fraction of the host beam:"
-          f" {open_heat_pct(lo):.2f} % to {open_heat_pct(ceil):.2f} %")
+    print("  Q1 -- THERE IS NO SPAN. THE TWO ENDS WERE TWO APERTURES.")
+    print("    The previous pass of this report put a floor under the acceptance")
+    print("    by taking a 5 T machine's captured yield as a lower ESTIMATE of a")
+    print("    20 T machine's. It is not one. It is the same model at half the")
+    print("    aperture, and the model predicts it:")
+    print()
+    print(f"      the sec.5.24 model at COMET's own 5 T x {COMET_BORE_M:.2f} m:"
+          f" {comet_model_at_aperture():.4f} pi- per")
+    print(f"      interacting proton, against COMET's published"
+          f" {COMET_CAPTURED_LO:.3f}-{COMET_CAPTURED_HI:.3f}   INSIDE")
+    print()
+    print("    So the acceptance model is corroborated by TWO independent published")
+    print("    simulations at fields differing by four times:")
+    print(f"      MARS15, 20 T front end with its rf window:  {mars_validation_ratio():.3f}")
+    print(f"      COMET,  5 T capture at 3 m, no window:      {comet_validation_ratio():.3f}")
+    print()
+    lo, hi = open_band_mu_per_s()
+    v = open_modelled_mu_per_s()
+    print(f"    at the specified aperture the value is {v:.3e} binders/s and"
+          f" {open_heat_pct(v):.2f} %")
+    print(f"    of the host beam; scaled by the two corroborations it is"
+          f" {open_heat_pct(lo):.2f} to {open_heat_pct(hi):.2f} %,")
+    print(f"    a width of {hi / lo:.2f}x rather than the {open_ceiling_mu_per_s() / open_floor_transported():,.0f}x"
+          " this report previously carried.")
+    print()
+    print("    WHAT IS ACTUALLY OPEN. Not which of two numbers is right -- the")
+    print("    model reproduces both. What no simulation can settle is whether an")
+    print("    end-to-end machine loses more than any of them model. Stage A")
+    print("    measures that, and it is the only part of Q1 that survives.")
     print()
     print("  Q2-Q4 -- THE STICKING, THE MODEL AND THE FUEL, FROM ONE MEASUREMENT")
     for phi in mucf.PHI_LOS_ALAMOS:
@@ -1881,11 +1945,24 @@ def selftest():
     print()
     print("  the open questions, worked")
     import mucf as _m
-    lo, ceil = open_floor_mu_per_s(), open_ceiling_mu_per_s()
-    ok = lo < ceil and ceil / lo < 10.0
+    lo, hi = open_band_mu_per_s()
+    ceil = open_ceiling_mu_per_s()
+    cm = comet_model_at_aperture()
+    ok = COMET_CAPTURED_LO <= cm <= COMET_CAPTURED_HI
     fail += 0 if ok else 1
-    print(f"    Q1 the acceptance span is now {ceil / lo:.2f}x, was"
-          f" {ceil / open_floor_transported():,.0f}x   {'PASS' if ok else 'FAIL'}")
+    print(f"    Q1 the model at COMET's own aperture returns {cm:.4f}, inside its")
+    print(f"       published {COMET_CAPTURED_LO:.3f}-{COMET_CAPTURED_HI:.3f}"
+          f"   {'PASS' if ok else 'FAIL'}")
+    r1, r2 = acceptance_corroboration()
+    ok = 0.80 < r1 and r2 < 1.05 and r2 / r1 < 1.30
+    fail += 0 if ok else 1
+    print(f"    Q1 two corroborations at fields 4x apart: {r1:.3f} and {r2:.3f},")
+    print(f"       a width of {r2 / r1:.2f}x   {'PASS' if ok else 'FAIL'}")
+    ok = (open_ceiling_mu_per_s() / open_floor_transported()) > 100 * (hi / lo)
+    fail += 0 if ok else 1
+    print(f"    Q1 REFUSAL: the superseded MuSIC floor is a floor on a different")
+    print(f"       quantity and its {open_ceiling_mu_per_s() / open_floor_transported():,.0f}x is not an uncertainty"
+          f"   {'PASS' if ok else 'FAIL'}")
     ok = all(min(_m.OMEGA_EFF_MEASURED) <= _m.omega_from_cycles(phi=p) <= _m.OMEGA_EFF_THEORY
              for p in _m.PHI_LOS_ALAMOS)
     fail += 0 if ok else 1

@@ -1623,6 +1623,37 @@ interpolation returns the wedge's own spectrum. **The balances in this paper are
 recorded as headroom rather than banked. What it does retire is the *bound*: the wedge is not worth
 1.10, and cannot be invoked as though it might be.
 
+### 5.30 The acceptance model, corroborated at a second field
+
+§5.24 validates the acceptance model against the built front end's own MARS15 simulation, at 20 tesla
+on a 7.5 cm bore, to **0.982**. That was its only check, and a single check invites the reading that
+the model is that simulation restated. It is not, and a second published simulation at a quarter of
+the field says so.
+
+**Run the model at that machine's aperture rather than at this paper's.** A 5 T capture solenoid on a
+**0.15 m** bore is 0.75 T·m — the aperture whose p_T cap this paper already reproduces, 112.5 MeV/c
+against a stated 100. Evaluated there, in that machine's own units of captured π⁻ per interacting
+proton with no momentum window:
+
+> **0.0843**, against its published **0.061 to 0.144**.
+
+**Inside.** The model is therefore corroborated by two independent simulations at fields differing by
+four times: **0.982** against one, **0.823** against the midpoint of the other. Neither is a
+measurement, and two simulations agreeing is not one; what the second does is remove the possibility
+that the model is a paraphrase of the first.
+
+**And it corrects a statement the companion made.** The companion's §7 twice quoted a *span* on the
+acceptance — first 2131×, then 5.97× — by treating the 5 T machine's captured yield as a lower
+estimate of the 20 T machine's. **It is not a lower estimate of the same quantity; it is the same model
+at half the aperture.** The width of what is actually known about the acceptance is the width of its
+two corroborations, **1.19**, and both earlier figures are withdrawn. The superseded floor beneath them
+was a *measured* number, which is why it was attractive — but it measures what survives a beamline,
+and the configuration it was applied to has none.
+
+**What is open is not which of two numbers is right.** It is that no machine has been run end to end
+and weighed. Two simulations can agree and both omit the same loss. §10.1 measures it, and that is the
+whole of what remains.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |

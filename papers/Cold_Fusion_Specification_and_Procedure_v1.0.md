@@ -423,7 +423,7 @@ sorting them into categories was not the same as doing them. This section does t
 
 | | question | status | what it returned |
 |---|---|---|---|
-| Q1 | the acceptance has never been measured end to end | **narrowed** | a second published capture simulation, transport removed, raises the floor to **3.21e13** binders/s; the span falls from **2131×** to **5.97×** |
+| Q1 | the acceptance has never been measured end to end | **narrowed** | there is no span: the model run at a 5 T machine's own aperture reproduces that machine. Corroborated at **two fields differing by 4×**, to **0.823** and **0.982**. What is open is that nothing has measured it end to end |
 | Q2 | which sticking branch is operative | **closed** | inverting the witnessed 150 cycles gives **0.517–0.547 %**, inside the measured trio and below theory |
 | Q3 | the service-life model over-predicts by **2.24** | **closed** | at the corrected sticking it returns **150.5** cycles against 150 measured |
 | Q4 | fuel purity is bounded by no experiment here | **closed** | the fuel behind the 150 carried at most **10.93 ppm**, below the **31.10 ppm** parity level |
@@ -502,29 +502,41 @@ against a bound of 1.10. Production is therefore **10.385** GeV per π⁻ rather
 `RECONSTRUCTED`, not measured: the two tables cover different momentum ranges, so no interpolation
 returns the wedge's own spectrum.
 
-**Q1 is narrowed and not closed, and the narrowing comes from a second simulation rather than an
-argument.** §6's rate rested on [1] §5.24's model against a floor taken from a *transported* beam,
-which is a floor on a different quantity — it is what survives a beamline, and §6 has none. Taking a
-published 5 T capture figure instead and removing decay and transport, because an in-situ cell sits at
-the capture point:
+**Q1 is narrowed, and the narrowing is a correction rather than a refinement.** An earlier version of
+this section put a floor under the acceptance by taking a 5 T machine's captured yield as a lower
+*estimate* of a 20 T machine's, and reported the gap between them — first 2131×, then 5.97× — as
+uncertainty. **It is not uncertainty. It is two apertures.** Run [1] §5.24's model at that machine's
+own aperture, in its own units:
+
+> **0.0843** captured π⁻ per interacting proton, against its published **0.061–0.144**. Inside.
+
+So the two ends were never two estimates of one number; they are one model at two apertures, and the
+model predicts both. **The acceptance model is therefore corroborated by two independent published
+simulations at fields differing by four times** — 0.982 against the 20 T front end's, 0.823 against
+the 5 T capture solenoid's midpoint.
 
 | | binders/s at 1 MW | fusion heat, fraction of host beam |
 |---|---|---|
-| superseded floor, a transported beam | 9.00e10 | 0.00564 % |
-| **floor** — an independent capture simulation, transport removed | **3.21e13** | **2.01 %** |
-| the same at its upper figure | 7.58e13 | 4.75 % |
-| **ceiling** — [1] §5.24's model at the 3.59 kg window | **1.918e14** | **12.01 %** |
+| at the specified aperture, modelled | **1.918e14** | **12.01 %** |
+| scaled by the weaker corroboration | 1.578e14 | **9.88 %** |
+| scaled by the stronger | 1.884e14 | 11.80 % |
 
-**The span was a factor of 2131 and is now 5.97.** The answer's magnitude is between **2.01 and
-12.01 percent** of the host beam.
+**The width is 1.19×, not 2131 and not 5.97.** The superseded floor was a *measured* figure, which is
+why it was attractive, but it measures what survives a beamline and §6 has none — a floor on a
+different quantity. Both earlier statements of this span are withdrawn.
 
-> **Seven of nine closed, one narrowed to a factor of six, one explained and declined. The two that
-> still move a number are measurements rather than calculations — the acceptance, and whether the
-> thick-target normalisation survives to capture — and [1] §10 already runs both.**
+**What survives of Q1 is one thing, and no simulation can settle it.** Two simulations agreeing is not
+a measurement, and neither models what an end-to-end machine loses that no one has thought to model.
+[1] §10.1 — Stage A — measures exactly that, and it is the whole of what remains here.
 
-**The sign is still open at no value of any of them.** At the new floor and one fusion per binder — a
-case no measurement supports — the configuration returns **0.01341 percent** of the host beam.
-Positive.
+> **Seven of nine closed, one narrowed to a width of 1.19, one explained and declined. The two that
+> still move a number are measurements rather than calculations — whether an end-to-end machine loses
+> more than any simulation models, and whether the thick-target normalisation survives to capture —
+> and [1] §10 already runs both.**
+
+**The answer's magnitude is 9.88 to 12.01 percent of the host beam**, and the sign is open at no value
+of any of them: at the low end of that band and *one* fusion per binder — a case no measurement
+supports and every measurement exceeds — it still returns **0.06589 percent**. Positive.
 
 ---
 
