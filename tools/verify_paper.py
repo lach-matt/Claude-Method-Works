@@ -743,6 +743,100 @@ def molar_vol_bound():
     return collector.phi_to_molar_volume(trans_atoms())
 
 
+# ---- the independent closure criterion of Kou & Chen, on this paper's numbers
+def _omega_crit(value_mev, eta):
+    """Their conditional sticking no-go boundary at unit gain, omega < 1/N_L
+    with N_L = E_cost/(eta_sys E_use). In percent."""
+    return 100.0 * (value_mev / 1000.0) / (cost_pion() / eta)
+
+
+def kc_boundary_ref():
+    return 100.0 * (20.4 / 1000.0) / 5.0
+
+
+def omega_crit_heat():
+    return _omega_crit(therm_sourced(), 1.0)
+
+
+def omega_crit_work():
+    return _omega_crit(work_sourced(), 1.0)
+
+
+def omega_crit_bred():
+    return _omega_crit(total_sourced(), 1.0)
+
+
+def omega_crit_heat_nf():
+    return _omega_crit(therm_sourced(), cap_nf() / 100.0)
+
+
+def omega_crit_bred_fe():
+    return _omega_crit(total_sourced(), capture_of_production() / 100.0)
+
+
+def _phi_needed(value_mev, eta):
+    """Density at which the balance is exactly 1. None above the sticking
+    asymptote, where no density suffices -- their no-go, in this paper's terms."""
+    ws = ws_sin() / 100.0
+    n_req = (cost_pion() / eta) / (value_mev / 1000.0)
+    denom = 1.0 - ws * n_req
+    if denom <= 0:
+        return None
+    return n_req * mucf.LAMBDA_0 / (mucf.LAMBDA_C * denom)
+
+
+def phi_heat_perfect():
+    return _phi_needed(therm_sourced(), 1.0)
+
+
+def phi_heat_c90():
+    return _phi_needed(therm_sourced(), 0.90)
+
+
+def phi_work_perfect():
+    return _phi_needed(work_sourced(), 1.0)
+
+
+def phi_work_c90():
+    return _phi_needed(work_sourced(), 0.90)
+
+
+def phi_bred_perfect():
+    return _phi_needed(total_sourced(), 1.0)
+
+
+def phi_bred_c90():
+    return _phi_needed(total_sourced(), 0.90)
+
+
+def phi_bred_nf():
+    return _phi_needed(total_sourced(), cap_nf() / 100.0)
+
+
+def phi_bred_fe():
+    return _phi_needed(total_sourced(), capture_of_production() / 100.0)
+
+
+def N_model_at_la():
+    return mucf.cycles(ws_sin() / 100.0, 1.2)
+
+
+def model_over_measured():
+    return N_model_at_la() / 150.0
+
+
+def N_at_la_final_sticking():
+    return mucf.cycles(mucf.STICKING["sin"][0], 1.2)
+
+
+def L_mu_kc_sin():
+    return 1.93e8 * 2.197e-6
+
+
+def L_mu_bound():
+    return trans_atoms() * mucf.LAMBDA_C / mucf.LAMBDA_0
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 

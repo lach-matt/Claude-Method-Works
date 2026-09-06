@@ -328,3 +328,25 @@ C326	diamond anvil cell design temperature ceiling	500	K	SOURCED	MuFusE arXiv:26
 C327	diamond anvil cell sample volume	19.2	mm3	SOURCED	MuFusE arXiv:2606.19304	collector.DAC_SAMPLE_MM3
 C328	molar volume at twice liquid density	14.2	cm3/mol	DERIVED	phi_to_molar_volume(2)	fn:molar_vol_2lhd
 C329	molar volume the bound case requires	3.33	cm3/mol	DERIVED	phi_to_molar_volume(C169)	fn:molar_vol_bound
+C330	Kou and Chen useful cycle energy	20.4	MeV	SOURCED	arXiv:2607.10989, following Jones' convention	none
+C331	their sticking boundary at their reference cost	0.408	percent	DERIVED	C330 / C301	fn:kc_boundary_ref
+C332	sticking boundary, heat, this paper's cost	0.234	percent	DERIVED	C214 / C100	fn:omega_crit_heat
+C333	sticking boundary, work, this paper's cost	0.176	percent	DERIVED	C217 / C100	fn:omega_crit_work
+C334	sticking boundary, bred fuel, this paper's cost	1.31	percent	DERIVED	C220 / C100	fn:omega_crit_bred
+C335	sticking boundary, heat, at today's aperture both hemispheres	0.143	percent	DERIVED	C214 x C142 / C100	fn:omega_crit_heat_nf
+C336	sticking boundary, bred fuel, at today's front end	0.394	percent	DERIVED	C220 x C106 / C100	fn:omega_crit_bred_fe
+C337	density required, heat, perfect collection	2.10	LHD	DERIVED	solved from N(C113, phi) = C100 / C214	fn:phi_heat_perfect
+C338	density required, heat, at the sec.5.9 collector	2.89	LHD	DERIVED	same at 0.9	fn:phi_heat_c90
+C339	density required, work, perfect collection	6.67	LHD	DERIVED	solved from N(C113, phi) = C100 / C217	fn:phi_work_perfect
+C340	density required, work, at the sec.5.9 collector	19.2	LHD	DERIVED	same at 0.9	fn:phi_work_c90
+C341	density required, bred fuel, perfect collection	0.154	LHD	DERIVED	solved from N(C113, phi) = C100 / C220	fn:phi_bred_perfect
+C342	density required, bred fuel, at the sec.5.9 collector	0.174	LHD	DERIVED	same at 0.9	fn:phi_bred_c90
+C343	density required, bred fuel, at today's aperture both hemispheres	0.28	LHD	DERIVED	same at C142	fn:phi_bred_nf
+C344	density required, bred fuel, at today's front end	0.73	LHD	DERIVED	same at C106	fn:phi_bred_fe
+C345	service life the model gives at Los Alamos conditions	335.3	cycles	DERIVED	N(C113, 1.2)	fn:N_model_at_la
+C346	model over-prediction against the one measured point	2.24	x	DERIVED	C345 / C44	fn:model_over_measured
+C347	service life at Los Alamos conditions on the final sticking	166.8	cycles	DERIVED	N(C07, 1.2)	fn:N_at_la_final_sticking
+C348	Kou and Chen SIN/Crowe anchor yield	124	fusions	SOURCED	arXiv:2607.10989 Table I, citing Crowe LBL-23816	none
+C349	their SIN/Crowe effective sticking	0.57	percent	SOURCED	arXiv:2607.10989 Table I	none
+C350	their SIN/Crowe cycle strength	424	dimensionless	DERIVED	1.93e8 x 2.197 microseconds	fn:L_mu_kc_sin
+C351	this paper's cycle strength at the bound-case density	4738	dimensionless	DERIVED	C169 x C03 / C02	fn:L_mu_bound

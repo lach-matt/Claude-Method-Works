@@ -1312,6 +1312,88 @@ is a purity effect. **This paper cannot separate them and does not claim to** �
 carries purity as an item rather than a caution, and why the same DAC campaign, which varies
 temperature and density at controlled purity, is the instrument that separates them.
 
+### 5.29 Condition 8 has been derived independently, and it exposes an over-prediction here
+
+Condition 8 was introduced in this paper as an addition to the seven: `E_binder < Q_fus · f_work / ω_s`.
+An independent group states the same inequality [12]. Their "conditional sticking no-go condition" is
+ω_eff < 1/(G·N) with N = E_cost/(η·E_use) — which rearranged is E_cost < η·E_use/ω_eff, the same
+inequality with the same three factors, arrived at from a Lawson analogy rather than from a condition
+count. **The spine of this paper is not idiosyncratic**, and their formulation is the better one for
+diagnosis because it separates rate-limited, sticking-limited and cost-limited regimes explicitly.
+
+**Evaluated on this paper's numbers, their boundary reproduces §5.24's conclusion.** Their reference
+case uses a useful cycle energy of **20.4 MeV** against a **5 GeV** binder, giving a boundary at
+**0.408 percent** effective sticking, and their historical anchors at 0.45 to 0.57 percent sit on the
+forbidden side of it. Substituting this paper's own accounting:
+
+| product, at the measured production cost | boundary on effective sticking |
+|---|---|
+| bred fuel | **1.31 %** |
+| heat | **0.234 %** |
+| work | **0.176 %** |
+| heat, at today's aperture over both hemispheres | **0.143 %** |
+| bred fuel, at today's front end as built | **0.394 %** |
+
+This paper's effective sticking is 0.1487 percent. It clears the heat and work boundaries at perfect
+collection, clears the bred-fuel boundary by an order of magnitude, and **fails the heat boundary once
+a real collection efficiency is applied** — which is §5.24's finding restated in someone else's
+coordinates.
+
+**The same criterion inverts into a density specification, which is §5.23's mirror and is new here.**
+Solving the balance for the density at which it equals one, rather than for the collection efficiency:
+
+| product | perfect collection | §5.9 collector | today's aperture, both hemispheres | today's front end |
+|---|---|---|---|---|
+| bred fuel | **0.154 LHD** | **0.174** | **0.275** | **0.730** |
+| heat | **2.10 LHD** | **2.89** | no density suffices | no density suffices |
+| work | **6.67 LHD** | **19.2** | no density suffices | no density suffices |
+
+Two readings, and both are sharper than anything §5.11 to §5.13 states.
+
+**The bred-fuel route needs no compression at all.** At every collection efficiency considered —
+including the 30 percent a front end achieves today — the density it requires is **below liquid
+density**. §5.13's structural bound on density, and the hundreds of gigapascals behind it, do not
+bear on this route in any way. **And the heat route needs 2.10 rather than the bound case's 8.5**: the
+bound case was chosen as ninety percent of the sticking asymptote, not as breakeven, and breakeven is
+a much weaker requirement — one that the diamond anvil cell of §5.28 already reaches at 933 MPa.
+
+**Where "no density suffices" appears, that is their no-go and not a rounding.** The service life
+saturates at 1/ω_eff = 672 cycles however dense the fuel, and the heat route at 61 percent collection
+needs 700. Compression cannot buy it; only sticking or collection can.
+
+---
+
+**And the criterion exposes something in this paper that has to be said plainly.** Their table anchors
+the historical record as **124** fusions at an effective sticking of **0.57 percent** (SIN/Crowe) and
+**150** at **0.45 percent** (LAMPF/Jones). Run this paper's service-life model at Los Alamos
+conditions — the same equation, at 1.2 times liquid density, with the effective sticking of
+0.1487 percent this paper derives through the excited-state channel — and it returns **335.3** cycles
+where **150** were measured.
+
+> **The model over-predicts its one checkable point by a factor of 2.24.**
+
+Run instead with the *final* sticking of 0.45 percent, without the excited-state reduction, and it
+returns **166.8** — consistent with the measurement. So the reduction to 0.1487 percent is not
+realised at Los Alamos conditions, and the paper has not established that it is realised anywhere.
+Two readings are available and this paper does not choose between them: either the excited-state
+reduction is density-dependent through the reactivation term and appears only at densities Los Alamos
+did not reach — in which case the bound case is self-consistent and the historical point is not a
+counter-example — or the reduction is not realised at all, in which case **every "bound case" figure in
+§§5.11 to §5.25 is optimistic by about this factor.** Nothing in the corpus or the literature settles
+it, and §10's Stage B is what would.
+
+**This does not touch the bred-fuel result, and the asymmetry is the point.** The bred-fuel
+headline figures — **1.203** at today's magnet, **1.772** with the §5.9 collector — are computed at the
+**measured** 150 cycles and the sourced blanket, and use the service-life model nowhere. Every heat and
+work figure at the "bound case" uses it. So the over-prediction found here weakens exactly the routes
+§5.24 already identified as the fragile ones, and leaves untouched the one it identified as robust.
+
+**One further note on where this paper sits in their coordinates.** Their cycle-strength parameter for
+the SIN anchor is **424**; this paper's bound case corresponds to **4,738**, an order of magnitude
+above anything measured. That is the density axis stated as they state it, and it is a fair measure of
+how far the bound case is from the record — which is the second reason §10 puts the bred-fuel route,
+which needs none of it, first.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -1391,6 +1473,13 @@ conclusion required assuming the muon's ratio of production cost to rest mass ge
 binder, which is unsupported. §5 states the position that survives: the set is not empty, and the
 requirement lies inside the headroom.
 
+**Found late and not repaired, because repairing it would be a choice this paper has no grounds to
+make.** §5.29 shows the service-life model over-predicts the one measurement it can be checked against
+by a factor of **2.24**. The paper carries the finding rather than adjusting the model, states which of
+its figures depend on the model and which do not, and names the measurement that would decide it
+(§10.2). A model that fits its only checkable point by construction would be worth less than one that
+records where it does not.
+
 ## 9. Limits and the state of the question
 
 The captured-yield figure is a simulation convolved with measured cross sections, not an end-to-end
@@ -1401,6 +1490,12 @@ result is an agreement of two calculations sharing an input, not an independent 
 velocity-ratio expression reproduces two measured sticking values and is used for no third. And this
 paper computes no absolute rate: it prices a binder and compares that price to a bound, which is the
 whole of its claim.
+
+**The service-life model over-predicts its one checkable point by 2.24**, returning 335.3 cycles at
+Los Alamos conditions where 150 were measured (§5.29). Every "bound case" figure in §§5.11–5.25 rests
+on that model; the bred-fuel headline figures do not, using the measured 150 and the sourced blanket
+instead. Whether the discrepancy is a density-dependent reactivation term or an unrealised reduction
+is not settled here, and §10's Stage B is what settles it.
 
 **Three limits added late, and each runs against the result rather than for it.** Every balance here
 assumes **perfectly pure fuel**, and §5.28 shows a contamination of **5.49 ppm** costs as much binder
@@ -1474,8 +1569,11 @@ What would change the answer, in the order this paper can rank them:
 4. **Effective sticking at the operating temperature.** No determination exists at 800 K, though
    §5.20 records the muon-loss dependence measured across 85 to 790 K in the d+d system, in the
    favourable direction.
-5. **Where molecular hydrogen ceases to be molecular at 800 K** — decides whether the density §5.13
-   requires exists at all, and therefore whether the heat route's service life is available.
+5. **Where molecular hydrogen ceases to be molecular at 800 K** — much less important than it looked.
+   §5.29 shows the heat route breaks even at **2.10** times liquid density rather than at the bound
+   case's 8.5, and the bred-fuel route at **0.730** or less, which is below liquid density. §5.13's
+   structural bound therefore constrains only the asymptotic service life, not breakeven on either
+   route.
 6. **The resonant stripping enhancement of §5.21** — unquantified, against a direct-photoionisation
    requirement of 2.21 × 10¹³ W/cm² sustained. It is last because it would lift a bound the other
    items work within.
@@ -1559,6 +1657,13 @@ final values, **0.45** and **0.56 percent**, carry into the excited-state channe
 perfect collection; above it the residual is **1.17**. If the two routes disagree, §3.5 governs:
 report a bound, not a mean.
 
+**And this stage settles §5.29's over-prediction, which is the larger question.** The service-life
+model returns **335.3** cycles at Los Alamos conditions where **150** were measured — a factor of
+**2.24** — and returns **166.8** if the excited-state reduction is not applied. A determination of
+effective sticking *as a function of density* decides between those two readings, and with it whether
+every bound-case figure in this paper is optimistic by that factor. The measurement is the same one;
+what this adds is that it must be run at more than one density.
+
 ### 10.3 Stage C — the production target, measured rather than simulated
 
 **Apparatus.** A proton or deuteron beam of a few GeV and a thick high-Z target. The configuration to
@@ -1624,3 +1729,5 @@ needed at all.
 11. E. Koukina *et al.* (MuFusE Collaboration), *Design and Commissioning of a Deuterium-Tritium Gas
     Delivery System for Muon Catalyzed Fusion in a Diamond Anvil Cell*, arXiv:2606.19304; and
     J. D. Kalow *et al.*, arXiv:2606.05333.
+12. W. Kou and X. Chen, *A Lawson-inspired Cycle-Closure Criterion for Deuterium--Tritium
+    Muon-Catalyzed Fusion*, arXiv:2607.10989 — Eqs. (11)–(13) and Table I.
