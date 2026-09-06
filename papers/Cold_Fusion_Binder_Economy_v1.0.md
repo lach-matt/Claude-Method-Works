@@ -94,6 +94,16 @@ heat route and not on the bred-fuel one. What the bred-fuel route awaits is not 
 at all but a measurement of what a front end built for a reactor's requirement, rather than a
 collider's, delivers to a dense target.
 
+**The eighth condition is not this paper's alone**, and the corroboration comes with a correction. An
+independent group states the same inequality as a cycle-closure criterion, reaching it from a Lawson
+analogy; a second independent analysis proposes the same fission-breeding escape; a third agrees to
+within a factor of one and a half on the field this paper prices for the stripping route. Evaluated in
+those coordinates the results here stand, with one exception that is stated rather than repaired: the
+service-life model over-predicts the one measurement it can be checked against by a factor of **2.24**.
+Every figure here computed at a modelled service life inherits that; the bred-fuel figures, computed
+at the measured cycle count and a sourced blanket, do not — so the correction weakens the routes this
+paper already identifies as fragile and leaves untouched the one it identifies as robust.
+
 ---
 
 ## 1. The definition and the conditions
@@ -1493,7 +1503,21 @@ margins 25.1 and 12.6; the service lives 222, 427, 196 and 340; the velocity rat
 convertible fraction 0.501 and its parts 19.9, 80.2 and 62 percent; the recosted historical gain
 0.071.
 
+**Sourced from independent recent work, and named to it:** the optimised production target's 0.77
+π⁻ per beam particle at 3.61 GeV on tungsten [9]; the μCF fission-breeding hybrid concept and the
+Table I kinetics of [10]; the diamond-anvil-cell operating envelope, 933 MPa at 400 K, and the muon
+transfer rate to oxygen near 1 × 10¹⁰ s⁻¹, from [11]; the cycle-closure criterion, its 20.4 MeV useful
+cycle energy and its historical anchors at 124 and 150 fusions, from [12]; the external-stripping rate
+network, its 7.2 × 10⁷ J/cm² reference fluence and its 112.6 to 156.5 yield gain, from [13]; and the
+coupled-channel initial sticking 8.57 × 10⁻³ with intramolecular fusion rate 1.15 × 10¹² s⁻¹ from [14].
+**None of these is adopted in place of a figure this paper derives**; each is carried beside it, and
+§§5.26–5.30 state what each does to the balances if a reader prefers it.
+
 **Bounds, never targets:** the kinematic floor at 0.30 GeV, and the sticking asymptote 1/ω_s.
+
+**Known to be wrong in a stated direction:** the service-life model, which over-predicts its one
+checkable point by **2.24** (§5.29). Every figure computed at the "bound case" inherits that; no
+figure computed at the measured 150 cycles does.
 
 ## 8. What this paper retires
 
