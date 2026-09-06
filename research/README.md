@@ -27,6 +27,7 @@ a report.
 | `warp-drive/DENSITY-IS-CLOSED.md` | `warp-drive/warpdrive.py` + `octave/` | shaped density built and measured: a closed lever, and the domain of the design equation |
 | `warp-drive/SPHERICITY.md` | `warp-drive/warpdrive.py` + `octave/` | the sphericity cost measured, the oblate test attempted, and the control that invalidated it |
 | `warp-drive/THE-BORROWED-WELL.md` | `warp-drive/warpdrive.py` | register 1206 read backwards; a closed form for transport without a drive |
+| `warp-drive/THE-GR-FLYBY.md` | `warp-drive/grflyby.py` | the flyby in Schwarzschild geometry; the geometric bound dissolves and an IMBH is the minimum instrument |
 
 ## `warp-drive/`
 
@@ -50,7 +51,7 @@ puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte
 `/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never inserts a space
 heuristically.
 
-The thirteen papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
+The fourteen papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
 specification. `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it.
 `ROTATING-SHELL.md` takes the one idea in that deliverable which survived review and carries it onto
 the buildable solution. `SHIFT-CEILING.md` answers the one number Fuchs et al. named as open — how

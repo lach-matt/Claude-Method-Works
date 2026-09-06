@@ -5,6 +5,15 @@
 **Prepared under the protocols of The Method v1.6.** Draft v1.0.
 Thirteenth of thirteen. Method: **register 1206**, read in reverse.
 
+> **§6's caveat is DISCHARGED and §4's horizon-limited rows are SUPERSEDED, 2026-09-06.**
+> `THE-GR-FLYBY.md` does the flyby in Schwarzschild geometry. Strong-field lensing makes the
+> deflection diverge at the capture boundary, so a **full reversal is reachable at every approach
+> speed** — the 90° optimum below is an artefact of weak-field deflection. The bound `√(r_s/b)`
+> dissolves and is replaced by **Δv = 2U/(1+U²)**, limited by the deflector's speed: **0.624 c at
+> U = 0.35 c** against 0.500 c here. **The tide-limited rows — neutron star, stellar black hole —
+> stand exactly** (GR/Newtonian = 1.002). The cost is a mass floor: a full-reversal pass at 1 g needs
+> a deflector above ~8,570 M☉.
+
 > **Scope.** Writes nothing into `method/` or `drive/`.
 
 ---
