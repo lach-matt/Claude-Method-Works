@@ -256,18 +256,23 @@ treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`, `ext
 
 **There is a second graph, and it is not that one.** `.mcp.json` seats the `Graphify` MCP server at
 `https://api.graphify.com/mcp` (no credential is committed — the endpoint authorises on first use).
-It serves a hosted index of this repository built by Graphify's own pipeline: **15,901 nodes, 17,626
-edges, 3,439 communities**, against `graphify-out/`'s 26,364 / 36,150 / 2,929. The gap is **not
-scope** — both cover the same 4,090 files, and the hosted build honours `.graphifyignore` (asked for
-the BUILD snapshots it returns BUILD174 alone, out of the 146 git tracks). It is layer depth: the
-AST pass agrees within a node or two and the hosted one is marginally **richer** (7,919 callable
-labels against 7,405), while the document layer is roughly an order of magnitude thinner and carries
-filenames where the local graph carries claims — `CLAUDE.md` 2 nodes against 14, `docs/GRAPH-FINDINGS.md`
-**0 against 14**. The direction of staleness is the other surprise: `graph.json` was built at
-`1c33255e`, **70 commits behind HEAD**, and the hosted index is at HEAD. So **query the hosted index
-for code** — symbols, callers, imports, blast radius — and `graphify-out/` **for what a document
-argues**, and never quote one graph's totals as the other's. Neither is a census. See
-`docs/GRAPH-HOSTED.md`.
+It serves a hosted index of this repository: **16,216 nodes, 17,690 edges, 3,637 communities** at
+build `f4ba753a`, against `graphify-out/`'s 26,364 / 36,150 / 2,929. **Stamp the `buildId` on
+anything you quote from it** — it rebuilds unannounced, and moved twice in one session on
+2026-09-06. The gap is **not scope**: both cover the same 4,090 files, and the hosted build honours
+`.graphifyignore` (asked for the BUILD snapshots it returns BUILD174 alone, out of the 146 git
+tracks). On the AST layer the two agree exactly except that the hosted pass emits **nested `def`s**
+and the local one does not — 7,405 callable labels against 7,942. **How the two document layers
+compare is UNDECIDED**, because no MCP tool counts hosted nodes by kind; the measured bound is that
+the hosted document layer is **at most 54 %** of local's 15,345 semantic nodes, and its labels are
+citations (`W-137 chat 98`) where the local graph's are propositions. Two traps cost a published
+error and are worth knowing before you query: **`n_symbols` counts neither nodes nor returned
+symbols**, and **`symbols` omits document nodes entirely** — an empty list on a `.md` means "no code
+here", never "no nodes here". Staleness runs both ways: `graph.json` was built at `1c33255e`, **81
+commits back**, and the hosted index tracks `main` with a lag rather than sitting at HEAD. So
+**query the hosted index for code** and `graphify-out/` **for what a document argues**, and never
+quote one graph's totals as the other's. Neither is a census. See `docs/GRAPH-HOSTED.md`, whose §6
+records what an earlier revision of this paragraph claimed and why it was withdrawn.
 
 **Do not run `/graphify --update` here, and do not `--force` past its shrink guard.** It was tried on
 2026-09-04 over six changed documents and **stopped before the write** — extraction was clean, but
