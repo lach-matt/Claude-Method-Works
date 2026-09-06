@@ -103,6 +103,43 @@ CASES = [
     ),
 ]
 
+# Two cases whose "input" is a closed form rather than a printed number.  They are
+# scored separately because a formula has no precision to inherit: it is exact, and a
+# printed value either equals it to the digits printed or does not.
+FORMULA_CASES = [
+    dict(id="16z-04 / 34re-01 (n = 6)",
+         site="main sec 34.5, and register 1330",
+         printed_claim="1.2168450",
+         formula="(sqrt(5) + sqrt(2)) / 3",
+         value=lambda: (Decimal(5).sqrt() + Decimal(2).sqrt()) / 3,
+         corroboration="walk.py's own corridor at the 6s opening (caesium, Z 55) computes "
+                       "the same endpoint by a different code path",
+         raised_as="the record 16z-04, confirmed by measurement as 34re-01"),
+    dict(id="16z-04 / 34re-01 (n = 7)",
+         site="main sec 34.5, and register 1330",
+         printed_claim="1.3938270",
+         formula="(sqrt(6) + sqrt(3)) / 3",
+         value=lambda: (Decimal(6).sqrt() + Decimal(3).sqrt()) / 3,
+         corroboration="walk.py's own corridor at the 7s opening (francium, Z 87) computes "
+                       "the same endpoint by a different code path",
+         raised_as="the record 16z-04, confirmed by measurement as 34re-01"),
+    dict(id="34.5 (n = 4)",
+         site="main sec 34.5",
+         printed_claim="0.5773503",
+         formula="(sqrt(3) + sqrt(0)) / 3",
+         value=lambda: (Decimal(3).sqrt() + Decimal(0).sqrt()) / 3,
+         corroboration="walk.py's corridor at the 4s opening (potassium, Z 19)",
+         raised_as="not raised -- carried here as the control"),
+    dict(id="34.5 (n = 5)",
+         site="main sec 34.5",
+         printed_claim="1.0000000",
+         formula="(sqrt(4) + sqrt(1)) / 3",
+         value=lambda: (Decimal(4).sqrt() + Decimal(1).sqrt()) / 3,
+         corroboration="walk.py's corridor at the 5s opening (rubidium, Z 37)",
+         raised_as="not raised -- carried here as the control"),
+]
+
+
 # The three rows of the same table that are NOT in dispute, carried so the one that is
 # can be read against them.
 E110_SIBLINGS = [("1097.3730", "365.7910"), ("68.5858", "22.8619"), ("17.1465", "5.7155")]
@@ -128,8 +165,20 @@ def judge(c):
                 low=lo, high=hi, value=val, inside=lo <= c["figure"] < hi)
 
 
+def judge_formula(c):
+    exact = c["value"]()
+    printed = Decimal(c["printed_claim"])
+    dp = -printed.as_tuple().exponent
+    rounded = exact.quantize(Decimal(1).scaleb(-dp))
+    return dict(exact=exact, rounded=rounded, agrees=(rounded == printed))
+
+
 def measure():
     return [dict(case=c, **judge(c)) for c in CASES]
+
+
+def measure_formulas():
+    return [dict(case=c, **judge_formula(c)) for c in FORMULA_CASES]
 
 
 def report(rows):
@@ -158,6 +207,20 @@ def report(rows):
                  if not r["inside"] else "  -- the figure is exact"))
         print(f"      raised as: {c['raised_as']}")
         print()
+    print("  A FORMULA HAS NO PRECISION TO INHERIT, so these are scored differently")
+    print("  section 34.5's four ns/(n-1)d crossings, against the chapter's own closed form")
+    for r in measure_formulas():
+        c = r["case"]
+        mark = "agrees" if r["agrees"] else "DIFFERS"
+        print(f"      {c['formula']:<26} = {r['rounded']}   printed {c['printed_claim']}   {mark}")
+        if not r["agrees"]:
+            print(f"        {c['corroboration']}")
+    bad = [r for r in measure_formulas() if not r["agrees"]]
+    print(f"      {len(bad)} of {len(FORMULA_CASES)} differ, and both differ at the fifth decimal.")
+    print("      There is no precision defence: the closed form is exact and its inputs are")
+    print("      integers.  Two independent routes -- the chapter's own formula and walk.py's")
+    print("      corridor -- give the same values, and neither gives the printed ones.")
+    print()
     print("  THE AITKEN TABLE'S OTHER THREE ROWS, for E-110's context")
     for t, printed in E110_SIBLINGS:
         v = Decimal(t) / 3
@@ -181,7 +244,9 @@ FIXTURES = """the arithmetic of each case, checkable by hand:
   E-035   976 / 7 = 139.428571 with both inputs exact counts; 139 is not that value
   F-033   54 / 10 = 5.4 with both inputs exact counts; 5.5 is not that value
   E-110   274.3433 / 3 = 91.447767; the printed 91.4477 is a truncation, and the
-          table's other three rows agree at the printed precision"""
+          table's other three rows agree at the printed precision
+  16z-04  (sqrt5+sqrt2)/3 = 1.2167605 and (sqrt6+sqrt3)/3 = 1.3938469, against a
+          printed 1.2168450 and 1.3938270 -- the record's 34re-01, confirmed"""
 
 
 def selftest():
@@ -202,6 +267,13 @@ def selftest():
     eq("F-033 figure is not the value", by["F-033"]["inside"], False)
     eq("F-033 value", float(by["F-033"]["value"]), 5.4)
     eq("E-110 verdict", by["E-110"]["verdict"], "OUTSIDE")
+    fr = {r["case"]["id"]: r for r in measure_formulas()}
+    eq("sec 34.5 n = 4 agrees", fr["34.5 (n = 4)"]["agrees"], True)
+    eq("sec 34.5 n = 5 agrees", fr["34.5 (n = 5)"]["agrees"], True)
+    eq("sec 34.5 n = 6 differs", fr["16z-04 / 34re-01 (n = 6)"]["agrees"], False)
+    eq("sec 34.5 n = 7 differs", fr["16z-04 / 34re-01 (n = 7)"]["agrees"], False)
+    eq("the n = 6 value", str(fr["16z-04 / 34re-01 (n = 6)"]["rounded"]), "1.2167605")
+    eq("the n = 7 value", str(fr["16z-04 / 34re-01 (n = 7)"]["rounded"]), "1.3938469")
     eq("E-110 the other three rows agree",
        [abs(Decimal(t) / 3 - Decimal(p)) < Decimal("0.00005") for t, p in E110_SIBLINGS],
        [True, True, True])

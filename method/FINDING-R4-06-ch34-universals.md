@@ -46,9 +46,21 @@ recorded, but the value does not change.
 | **initial placement**, no value carried yet | **1** | Li 3 |
 
 The nine values `a` takes are **0.5774 · 1.0000 · 1.2168 · 0.7071 · 0.8090 · 1.0000 · 1.3938 ·
-1.3660 · 1.9841**, and four of them are §34.5's own printed ns/(n−1)d crossings — 0.5773503,
-1.0000000, 1.2168450, 1.3938270 — arriving at K, Rb, Cs and Fr. That is a corroboration of §34.5 by
-a route it does not share.
+1.3660 · 1.9841**, and four of them — at K, Rb, Cs and Fr — are the ns/(n−1)d crossings §34.5 gives
+a closed form for.
+
+**And that corroborates §34.5's formula while contradicting two of its printed values.** The walk's
+corridor computes **0.5773503, 1.0000000, 1.2167605, 1.3938469**, which is exactly what
+(√(n−1) + √(n−4))/3 gives at n = 4 to 7. **§34.5 prints 1.2168450 and 1.3938270 at n = 6 and 7.** So
+two independent routes — the chapter's own closed form and `walk.py`'s corridor, which share no code
+— agree with each other and neither gives the printed values. That is the record's **16z-04**,
+already confirmed by measurement as **34re-01**, and it is not new here; what is new is the third
+route. There is no precision defence: a closed form over integers is exact.
+
+> **A correction to this file's own first version**, which said the four values *are* §34.5's
+> printed crossings. They are the values of §34.5's **formula**. Two of the four printed figures
+> differ from it at the fifth decimal, and saying otherwise credited the book with a corroboration
+> it does not have.
 
 **The distinction is not pedantry.** *"Each subshell fills at constant `a`"* is a claim about a
 **value**. A boundary touch cannot falsify it; a real move can. Scoring all eighteen, as the first

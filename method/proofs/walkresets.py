@@ -253,8 +253,11 @@ FIXTURES = """the corpus's own recorded numbers, from walk.py's banked output:
   section 34.6   106 steps, 106 satisfied, 18 recalibrations
   the trajectory a = 0.5774 from K, 1.0000 from Rb, 1.2168 from Cs, 0.7071 from Ce,
                  0.8090 from Hg, 1.0000 from Tl, 1.3938 from Fr, 1.3660 from Pa,
-                 1.9841 from Lr -- nine values, and 0.5773503 / 1.0000000 / 1.2168450 /
-                 1.3938270 are section 34.5's own printed ns/(n-1)d crossings
+                 1.9841 from Lr -- nine values.  Four of them are the ns/(n-1)d crossings
+                 section 34.5 gives a closed form for, and the walk computes that form's
+                 OWN values: 0.5773503, 1.0000000, 1.2167605, 1.3938469.  Section 34.5
+                 PRINTS 1.2168450 and 1.3938270 at n = 6 and 7, which is the record's
+                 16z-04 / 34re-01 and is not this program's finding
   register 1580  73 bounded / 7 below-only / 26 above-only; Lr's upper bound 2.4409
   section 34.6   three forced values, B / La / Lr pairwise disjoint; largest disjoint
                  set and smallest piercing set agree at three"""

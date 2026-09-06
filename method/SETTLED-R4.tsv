@@ -7,7 +7,8 @@ D-21e	main §34.9 "f is outside the domain"	TRUE, AND STRONGER THAN STATED	L = -
 A-F4	register 1580 corridor census	VERIFIED TRUE	73 bounded both sides / 7 below-only / 26 above-only; Lr's upper bound 2.4409	method/proofs/walkresets.py	none needed
 A-F4b	main §34.6 three forced values	VERIFIED TRUE	largest pairwise-disjoint set 3 = B, La, Lr; smallest piercing set 3; the two agree	method/proofs/walkresets.py	none needed
 A-F4c	main §34.6 "106 steps, 106 satisfied, 18 recalibrations"	VERIFIED TRUE	walk.py on the seated ground configurations reproduces all three exactly	method/proofs/walkresets.py	none needed
-A-F4d	main §34.5 ns/(n-1)d crossings 0.5773503 1.0000000 1.2168450 1.3938270	VERIFIED TRUE	four of the nine values a takes on the walk are these, arriving at K, Rb, Cs and Fr	method/proofs/walkresets.py	none needed
+A-F4d	main §34.5's closed form (√(n-1)+√(n-4))/3 for the ns/(n-1)d crossing	VERIFIED TRUE	walk.py's corridor at the 4s, 5s, 6s and 7s openings reproduces the formula's own values by a different code path	method/proofs/walkresets.py	none needed
+16z-04	main §34.5 prints 1.2168450 and 1.3938270 at n = 6 and 7	STANDS, CONFIRMED BY A THIRD ROUTE	the closed form gives 1.2167605 and 1.3938469, and so does walk.py's corridor; no precision defence exists for a closed form over integers	method/proofs/precision.py	FINDING-R4-06
 E-061a	main §18 E(audits) printed at 16 and at 17	16 IS RIGHT	17 was the value at twenty audits; the 17 row's gloss belongs to the 16	method/proofs/part1index.py	FINDING-R4-05
 E-061b	Index of Indices "the sixteen missing cells are two"	VERIFIED TRUE	14 dominated, 2 on the frontier, both outside-dishonest, reproduced cell for cell	method/proofs/part1index.py	none needed
 --	main §2.21 "twenty-two distinct cells, no collision"	FALSE, STRUCK BY M	21 cells; SCOPE and CENSUS share one; RULINGS-R4d.md §2	method/proofs/part1index.py	FINDING-R4-05
@@ -22,4 +23,3 @@ D-61	main §23.10.4 and App E.2 "1,585-fold"	NOT A DEFECT, WITHDRAWN	the printed
 E-035	main §14.5 "a compression of 139 to 1, exactly"	STANDS, PROSE	976/7 = 139.428571 with both inputs exact counts; the figure is a fair rounding, the word "exactly" is not	method/proofs/precision.py	FINDING-R4-07
 F-033	main L8206 "a factor of five and a half"	STANDS	54/10 = 5.4 with both inputs exact counts; no precision defence	method/proofs/precision.py	FINDING-R4-07
 E-110	main §26.6 Aitken table, T/3 at n = 20	STANDS, ONE PLACE	274.3433/3 = 91.447767 against a printed 91.4477; the other three rows agree exactly	method/proofs/precision.py	FINDING-R4-07
-
