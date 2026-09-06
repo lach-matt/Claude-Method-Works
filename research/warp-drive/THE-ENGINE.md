@@ -244,3 +244,9 @@ about a body in free fall, which changes momentum continuously and violates noth
 the warp shell, which is genuinely a self-accelerating isolated system. It does not bind a coupling
 drive, a flyby, or a slingshot, and those should not have been argued against on this basis. The
 exact replacement is the centre-of-mass theorem. See `COUPLING.md`.
+
+**Supersession note (added later).** §4's worked engine specifies an **equal-mass** binary. That is
+the worst available choice: its Lagrange points are unstable at thirteen times the Routh bound and it
+merges soonest. A 25:1 binary gives the same gain per pass with 178x more orbits and stable L4/L5.
+The scale-invariant orbit count is 3.8855e-4/beta^5, not the 3.91e-4 quoted here. See
+`NAVIGATION.md`, which derives both from M's own three-body result.

@@ -60,7 +60,7 @@ def orbits_to_merger(beta_A):
 
     t_merge = (5/8) a^4 / (c r_s^3)          [equal mass, circular, Peters 1964]
     T_orb   = 2*pi*sqrt(2) a^{3/2} / (c sqrt(r_s))
-    N       = t/T = (5 / (16*pi*sqrt(2))) (a/r_s)^{5/2}
+    N       = t/T = (5 / (16*pi*sqrt(2))) (a/r_s)^{5/2} = 3.8855e-4 / beta^5
 
     Note it depends ONLY on a/r_s -- and therefore only on beta_A.  The number of
     passes a binary can offer is scale invariant: it is the same for a stellar
@@ -134,8 +134,8 @@ def selftest():
     chk("a/r_s at |v_A| = 0.2c", a_over_rs(0.2), 3.125)
     # Peters merger time, checked against the textbook value for a known system:
     # two 1.4 Msun neutron stars at a = 1e9 m merge in ~1.2e10 s.
-    chk("orbits to merger at |v_A| = 0.1c", orbits_to_merger(0.1), 39.08)
-    chk("orbits to merger at |v_A| = 0.04c", orbits_to_merger(0.04), 3813.0)
+    chk("orbits to merger at |v_A| = 0.1c", orbits_to_merger(0.1), 38.8562, tol=1e-4)
+    chk("orbits to merger at |v_A| = 0.04c", orbits_to_merger(0.04), 3794.51, tol=1e-4)
 
     print("\nTides -- derived")
     # Independent hand evaluation of the closed form, digit by digit:
