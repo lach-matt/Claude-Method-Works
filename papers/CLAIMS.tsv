@@ -469,3 +469,46 @@ C472	co-product gain at the sec.5.9 collector	31.6	percent of beam	DERIVED	same 
 C473	binders per second in situ on a one-megawatt driver	2.80e14	s^-1	DERIVED	1 MW at 8 GeV x C99 x 0.50	fn:coproduct_binders_per_second_1mw
 C474	fusion heat from that	176	kW	DERIVED	C473 x C44 x C214	fn:coproduct_kw_1mw
 C475	in-situ capture against the best planned delivered beam	2.80e4	x	DERIVED	C473 / C459	fn:insitu_over_delivered
+C476	pi+ production off Pb, large angle, 8 GeV/c	1.067	barn	DERIVED	HARP Eur. Phys. J. C 63 549 Table 7, integrated	fn:species_sigma_la_plus
+C477	pi+ production off Pb, forward, 8 GeV/c	0.248	barn	DERIVED	HARP Phys. Rev. C 80 035208 Tables XXII and XXXII, Jacobian applied	fn:species_sigma_fwd_plus
+C478	pi-/pi+ off Pb, large angle	0.973	ratio	DERIVED	C5.1 large-angle integral over C476	fn:species_ratio_la
+C479	pi-/pi+ off Pb, forward	0.742	ratio	DERIVED	forward integral over C477	fn:species_ratio_fwd
+C480	pi- as a fraction of charged pions PRODUCED off Pb	0.4816	fraction	DERIVED	both charges, both spectrometers, 8 GeV/c	fn:species_f_minus_produced
+C481	halving overstates the usable half over production	3.8	percent	DERIVED	0.5 / C480 - 1	fn:species_halving_overstatement_pct
+C482	pi-/pi+ off Pb, 0.10-0.15 GeV/c	1.354	ratio	DERIVED	the low-momentum excess HARP reports for lead	fn:species_bin_ratio_100_150
+C483	pi-/pi+ off Pb, 0.15-0.20 GeV/c	1.016	ratio	DERIVED	large-angle tables, one momentum bin	fn:species_bin_ratio_150_200
+C484	pi-/pi+ off Pb, 0.20-0.25 GeV/c	0.967	ratio	DERIVED	large-angle tables, one momentum bin	fn:species_bin_ratio_200_250
+C485	pi-/pi+ off Pb, 0.30-0.35 GeV/c	0.920	ratio	DERIVED	large-angle tables, one momentum bin	fn:species_bin_ratio_300_350
+C486	pi-/pi+ off Pb, 0.45-0.50 GeV/c	0.866	ratio	DERIVED	large-angle tables, one momentum bin	fn:species_bin_ratio_450_500
+C487	pi- as a fraction of the charged pions ACCEPTED	0.5084	fraction	DERIVED	sec.5.24 acceptance model run over each charge in turn	fn:species_f_minus_accepted
+C488	the halving against the accepted fraction	1.7	percent	DERIVED	|C487 / 0.5 - 1|	fn:species_halving_error_pct
+C489	HARP normalisation uncertainty, lead	3	percent	SOURCED	Eur. Phys. J. C 63 549, stated and not in its tables	collector.HARP_NORM_UNCERTAINTY_PB
+C490	charge fraction assumed by the halving	0.5	fraction	ASSUMED	validated by C487, retained -- not flattened to it	collector.CHARGE_FRACTION_ASSUMED
+C491	N/Z of lead	1.537	ratio	MEASURED	Z=82, N=126	collector.N_OVER_Z.Pb
+C492	N/Z of aluminium	1.077	ratio	MEASURED	Z=13, N=14	collector.N_OVER_Z.Al
+C493	pi-/pi+ off Pb, large angle, integrated	0.973	ratio	DERIVED	HARP Tables 7 and 8, 8 GeV/c	fn:species_ratio_pb
+C494	pi-/pi+ off Al, large angle, integrated	0.732	ratio	DERIVED	HARP Tables 5 and 6, 8 GeV/c	fn:species_ratio_al
+C495	f(pi-) off Pb, large angle	0.4930	fraction	DERIVED	C493 / (1 + C493)	fn:species_f_minus_pb
+C496	f(pi-) off Al, large angle	0.4226	fraction	DERIVED	C494 / (1 + C494)	fn:species_f_minus_al
+C497	lead over aluminium in the charge ratio	1.329	ratio	DERIVED	C493 / C494	fn:species_pb_over_al_ratio
+C498	a low-Z target's usable pions against lead's	0.857	ratio	DERIVED	C496 / C495, at equal total charged-pion yield	fn:species_al_usable_vs_pb
+C499	best single momentum bin, f(pi-)	0.5753	fraction	DERIVED	C482 / (1 + C482)	fn:species_best_bin_f_minus
+C500	what charge selection buys on the accepted fraction	1.132	ratio	DERIVED	C499 / C487	fn:species_best_bin_gain
+C501	pi- yield surviving the best single bin	14.7	percent	DERIVED	large-angle pi- integral in 0.10-0.15 over the whole	fn:species_best_bin_yield_pct
+C502	what charge selection costs in yield	6.8	ratio	DERIVED	1 / C501	fn:species_best_bin_cost
+C503	capture-and-stop ceiling at a 265 MeV/c window	0.3420	fraction	DERIVED	sec.5.24 acceptance with a stopping window, not an rf one	fn:insitu_ceiling_265
+C504	capture-and-stop ceiling at a 400 MeV/c window	0.3893	fraction	DERIVED	the same, deeper target	fn:insitu_ceiling_400
+C505	capture-and-stop ceiling at a 700 MeV/c window	0.4512	fraction	DERIVED	the same, deeper still	fn:insitu_ceiling_700
+C506	the ceiling no target depth exceeds	0.5069	fraction	DERIVED	the solenoid's own acceptance, forward hemisphere, no window	fn:insitu_acceptance_ceiling
+C507	fusion heat as a fraction of beam, at 30 percent capture	10.5	percent	DERIVED	spec sec.5.2 table, first row	fn:insitu_heat_pct_at_30
+C508	fusion heat as a fraction of beam, at the reachable ceiling	12.0	percent	DERIVED	0.3420 x 0.7188 x 150 x 26.06 MeV / 8 GeV	fn:insitu_heat_pct_at_ceiling
+C509	tritium over a 7.5 cm beam at a 400 MeV/c window	6.93	kg	DERIVED	areal density times beam area times T mass fraction	fn:insitu_tritium_kg_400
+C510	tritium over a 7.5 cm beam at a 700 MeV/c window	14.5	kg	DERIVED	the same	fn:insitu_tritium_kg_700
+C511	tritium to approach the acceptance ceiling	45	kg	DERIVED	a 2 GeV/c window, at which the ceiling is 0.994 of 0.5069	fn:insitu_tritium_kg_2000
+C512	in-situ bench cell, areal density	5.00	g/cm^2	DERIVED	one muon range at 111.5 MeV/c	fn:insitu_cell_areal
+C513	in-situ bench cell, tritium	2.42	mg	DERIVED	areal density x pi r^2 x T mass fraction, r = 0.16 mm	fn:insitu_cell_tritium_mg
+C514	in-situ bench cell, activity	23.2	Ci	DERIVED	C513 decayed; MuFusE holds 2.4 mg at ~24 Ci	fn:insitu_cell_tritium_ci
+C515	in-situ bench cell, fraction of the beam intercepted	4.55e-6	fraction	DERIVED	(0.16 mm / 7.5 cm)^2	fn:insitu_interception
+C516	in-situ bench cell, binders stopped	1.80e8	s^-1	DERIVED	1 MW at 8 GeV, thick target, through C512-C515	fn:insitu_binders_per_s
+C517	in-situ bench cell, 14.1 MeV neutrons	2.70e10	s^-1	DERIVED	C516 x 150 witnessed cycles	fn:insitu_neutrons_per_s
+C518	in-situ bench cell, fusion heat	76	mW	DERIVED	C517 x 17.59 MeV	fn:insitu_cell_heat_mw

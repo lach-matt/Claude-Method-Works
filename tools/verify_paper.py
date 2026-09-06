@@ -1419,6 +1419,180 @@ def q_bred_demo_fe():
     return _qbal(150.0, total_sourced(), capture_of_production() / 100.0)
 
 
+# ---- sec.5.28, the species -------------------------------------------------
+def species_f_minus_produced():
+    return collector.charge_fraction_produced()
+
+
+def species_f_minus_accepted():
+    return collector.charge_fraction_accepted(1.50, "fwd", collector.NF_RF_WINDOW_MEV)
+
+
+def species_halving_error_pct():
+    return 100.0 * abs(species_f_minus_accepted()
+                       / collector.CHARGE_FRACTION_ASSUMED - 1.0)
+
+
+def species_halving_overstatement_pct():
+    """By how much halving overstates the usable half over PRODUCTION as a whole."""
+    return 100.0 * (collector.CHARGE_FRACTION_ASSUMED
+                    / species_f_minus_produced() - 1.0)
+
+
+def species_ratio_pb():
+    return collector.charge_ratio(collector.HARP_PB_PIMINUS_8GEV,
+                                  collector.HARP_PB_PIPLUS_8GEV)
+
+
+def species_ratio_al():
+    return collector.charge_ratio(collector.HARP_AL_PIMINUS_8GEV,
+                                  collector.HARP_AL_PIPLUS_8GEV)
+
+
+def species_f_minus_pb():
+    r = species_ratio_pb()
+    return r / (1.0 + r)
+
+
+def species_f_minus_al():
+    r = species_ratio_al()
+    return r / (1.0 + r)
+
+
+def species_pb_over_al_ratio():
+    return species_ratio_pb() / species_ratio_al()
+
+
+def species_al_usable_vs_pb():
+    return species_f_minus_al() / species_f_minus_pb()
+
+
+def _species_bin_ratio(lo, hi):
+    return collector.charge_ratio(collector.HARP_PB_PIMINUS_8GEV,
+                                  collector.HARP_PB_PIPLUS_8GEV, window=(lo, hi))
+
+
+def species_bin_ratio_100_150():
+    return _species_bin_ratio(0.10, 0.15)
+
+
+def species_bin_ratio_150_200():
+    return _species_bin_ratio(0.15, 0.20)
+
+
+def species_bin_ratio_200_250():
+    return _species_bin_ratio(0.20, 0.25)
+
+
+def species_bin_ratio_300_350():
+    return _species_bin_ratio(0.30, 0.35)
+
+
+def species_bin_ratio_450_500():
+    return _species_bin_ratio(0.45, 0.50)
+
+
+def species_best_bin_f_minus():
+    r = species_bin_ratio_100_150()
+    return r / (1.0 + r)
+
+
+def species_best_bin_gain():
+    return species_best_bin_f_minus() / species_f_minus_accepted()
+
+
+def species_best_bin_yield_pct():
+    return 100.0 * (collector._la_sigma(collector.HARP_PB_PIMINUS_8GEV,
+                                        window=(0.10, 0.15))
+                    / collector._la_sigma(collector.HARP_PB_PIMINUS_8GEV))
+
+
+def species_best_bin_cost():
+    return 1.0 / (species_best_bin_yield_pct() / 100.0)
+
+
+def species_sigma_la_plus():
+    return collector._la_sigma(collector.HARP_PB_PIPLUS_8GEV)
+
+
+def species_sigma_fwd_plus():
+    return collector._fwd_sigma(collector.HARP_PB_PIPLUS_8GEV_FWD)
+
+
+def species_ratio_la():
+    return collector._la_sigma(collector.HARP_PB_PIMINUS_8GEV) / species_sigma_la_plus()
+
+
+def species_ratio_fwd():
+    return (collector._fwd_sigma(collector.HARP_PB_PIMINUS_8GEV_FWD)
+            / species_sigma_fwd_plus())
+
+
+# ---- the in-situ configuration as an apparatus (spec sec.5.2 and sec.6) ----
+def insitu_ceiling_265():
+    return collector.stopping_capture(265.0)
+
+
+def insitu_ceiling_400():
+    return collector.stopping_capture(400.0)
+
+
+def insitu_ceiling_700():
+    return collector.stopping_capture(700.0)
+
+
+def insitu_acceptance_ceiling():
+    return collector.delivered_fraction(1.50, "fwd")
+
+
+def insitu_heat_pct_at_ceiling():
+    return 100.0 * collector.insitu_heat_fraction(insitu_ceiling_265())
+
+
+def insitu_heat_pct_at_30():
+    return 100.0 * collector.insitu_heat_fraction(0.30)
+
+
+def insitu_tritium_kg_400():
+    return collector.tritium_inventory_kg(400.0, 7.5)
+
+
+def insitu_tritium_kg_700():
+    return collector.tritium_inventory_kg(700.0, 7.5)
+
+
+def insitu_tritium_kg_2000():
+    return collector.tritium_inventory_kg(2000.0, 7.5)
+
+
+def insitu_cell_areal():
+    return collector.areal_for_p(collector.CELL_P_STOP_MEV)
+
+
+def insitu_cell_tritium_mg():
+    return collector.cell_tritium_mg(cell_r_cm=0.016)
+
+
+def insitu_cell_tritium_ci():
+    return collector.tritium_curies(collector.cell_tritium_mg(cell_r_cm=0.016) / 1000.0)
+
+
+def insitu_interception():
+    return (0.016 / 7.5) ** 2
+
+
+def insitu_binders_per_s():
+    return collector.insitu_stopped_per_s()
+
+
+def insitu_neutrons_per_s():
+    return collector.insitu_neutrons_per_s()
+
+
+def insitu_cell_heat_mw():
+    return collector.insitu_neutrons_per_s() * 17.59 * 1.602176634e-13 * 1000.0
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

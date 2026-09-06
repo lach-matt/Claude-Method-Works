@@ -237,6 +237,11 @@ momentum requirement — which **reproduces the MARS15 front-end simulation to 0
 place in this repository where a model of this paper's is validated against a published simulation
 rather than against the corpus), **`tools/verify_paper.py`** (the
 publication-standard harness described under `papers/` above)
+**`tools/directives.py`** (the project's three
+directives as three index axes — every substantive result in the three papers graded on each, and the
+cell where all three coincide computed rather than claimed; the X axis carries a *sign*, so a result
+that forbids self-sustaining operation is never counted as progress toward it, and `--selftest`
+matches all 63 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 59 pinned figures, ~3 s, exits 1 on drift. The

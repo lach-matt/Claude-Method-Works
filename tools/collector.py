@@ -284,6 +284,90 @@ HARP_PB_PIMINUS_8GEV_FWD = {
 SIGMA_INEL_PB = 1.7                    # barn, p-Pb inelastic at few GeV
 
 
+# ---- THE SPECIES: which pion, and therefore which target -------------------
+# Only mu- catalyses. A mu+ binds an electron into muonium and is repelled by
+# every nucleus, so it forms no mesomolecule at all; the catalytic cycle exists
+# for one sign only. mu- comes only from pi- decay, so of everything a target
+# produces only the pi- half is usable, and the yields above are pi- yields for
+# that reason. What follows measures the half rather than assuming it.
+#
+# HARP Table 7 in full: p-Pb, pi+, 8 GeV/c, arXiv:0709.3458 Appendix A -- the
+# same target, beam and binning as the pi- table above, so the two divide bin by
+# bin. Units and layout are identical: barn/(GeV/c . rad).
+HARP_PB_PIPLUS_8GEV = {
+    (0.35, 0.55): _row([1.14, 1.86, 2.09, 1.99, 2.19, 2.21, 2.04],
+                       [2.07, 1.73, 1.09], skip_first=True),
+    (0.55, 0.75): _row([0.93, 1.81, 2.11, 2.26, 2.09, 2.09, 1.86, 1.63],
+                       [1.30, 0.89, 0.56]),
+    (0.75, 0.95): _row([1.21, 2.16, 2.27, 2.02, 1.85, 1.60, 1.39, 1.22],
+                       [0.83, 0.46]),
+    (0.95, 1.15): _row([1.47, 2.19, 1.97, 1.60, 1.31, 1.11, 0.88, 0.66], [0.46]),
+    (1.15, 1.35): _row([1.82, 2.30, 1.86, 1.41, 0.94, 0.74, 0.55, 0.37], []),
+    (1.35, 1.55): _row([1.84, 2.21, 1.57, 1.04, 0.74, 0.53, 0.38, 0.22], []),
+    (1.55, 1.75): _row([1.54, 1.93, 1.34, 0.87, 0.53, 0.36, 0.25, 0.15], []),
+    (1.75, 1.95): _row([1.31, 1.64, 1.02, 0.63, 0.34, 0.22, 0.14, 0.07], []),
+    (1.95, 2.15): _row([1.14, 1.17, 0.75, 0.45, 0.20, 0.09, 0.06, 0.04], []),
+}
+
+# HARP FORWARD, p-Pb pi+, 8 GeV/c: arXiv:0907.3857 Table XXII (0.05-0.25 rad)
+# plus the finest bin of Table XXXII (0.025-0.050 rad) -- the pi+ columns of the
+# same two tables the pi- set above is read from. Same units, same Jacobian.
+HARP_PB_PIPLUS_8GEV_FWD = {
+    (0.025, 0.050): [((0.50, 0.75), 1.12), ((0.75, 1.00), 1.17), ((1.00, 1.25), 0.38),
+                     ((1.25, 1.50), 0.62), ((1.50, 2.00), 1.13), ((2.00, 2.50), 0.54),
+                     ((2.50, 3.00), 0.50), ((3.00, 3.50), 0.33), ((3.50, 4.00), 0.08),
+                     ((4.00, 5.00), 0.05)],
+    (0.050, 0.100): [((0.50, 1.00), 0.99), ((1.00, 1.50), 0.86), ((1.50, 2.00), 0.81),
+                     ((2.00, 2.50), 0.66), ((2.50, 3.00), 0.41), ((3.00, 3.50), 0.16),
+                     ((3.50, 4.00), 0.03), ((4.00, 5.00), 0.06), ((5.00, 6.50), 0.01)],
+    (0.100, 0.150): [((0.50, 1.00), 1.18), ((1.00, 1.50), 0.77), ((1.50, 2.00), 0.80),
+                     ((2.00, 2.50), 0.45), ((2.50, 3.00), 0.15), ((3.00, 3.50), 0.05),
+                     ((3.50, 4.00), 0.031), ((4.00, 5.00), 0.011)],
+    (0.150, 0.200): [((0.50, 1.00), 1.07), ((1.00, 1.50), 0.68), ((1.50, 2.00), 0.40),
+                     ((2.00, 2.50), 0.24), ((2.50, 3.00), 0.08), ((3.00, 3.50), 0.040),
+                     ((3.50, 4.00), 0.018), ((4.00, 5.00), 0.009), ((5.00, 6.50), 0.002)],
+    (0.200, 0.250): [((0.50, 1.00), 0.54), ((1.00, 1.50), 0.41), ((1.50, 2.00), 0.22),
+                     ((2.00, 2.50), 0.13), ((2.50, 3.00), 0.05), ((3.00, 3.50), 0.03),
+                     ((3.50, 4.00), 0.020), ((4.00, 5.00), 0.01)],
+}
+
+# The low-A control. HARP Tables 5 and 6, p-Al, 8 GeV/c, large-angle only -- the
+# same spectrometer and binning. Aluminium has N/Z = 1.077 against lead's 1.537,
+# and the source states the effect this pair is here to measure: "In the lead
+# data ... the number of pi+'s produced is smaller than the number of pi-'s in
+# the lowest momentum bin ... Lower-A targets do not show this behaviour."
+HARP_AL_PIPLUS_8GEV = {
+    (0.35, 0.55): _row([0.321, 0.485, 0.517, 0.625, 0.645, 0.643, 0.675],
+                       [0.626, 0.621, 0.492], skip_first=True),
+    (0.55, 0.75): _row([0.229, 0.353, 0.553, 0.626, 0.601, 0.544, 0.491, 0.505],
+                       [0.485, 0.336, 0.234]),
+    (0.75, 0.95): _row([0.265, 0.464, 0.536, 0.521, 0.442, 0.411, 0.346, 0.307],
+                       [0.256, 0.161]),
+    (0.95, 1.15): _row([0.264, 0.489, 0.513, 0.396, 0.337, 0.293, 0.231, 0.184], [0.126]),
+    (1.15, 1.35): _row([0.308, 0.422, 0.390, 0.337, 0.258, 0.186, 0.138, 0.097], []),
+    (1.35, 1.55): _row([0.353, 0.416, 0.303, 0.215, 0.174, 0.119, 0.073, 0.045], []),
+    (1.55, 1.75): _row([0.288, 0.331, 0.221, 0.159, 0.111, 0.070, 0.047, 0.027], []),
+    (1.75, 1.95): _row([0.279, 0.329, 0.204, 0.125, 0.064, 0.035, 0.025, 0.013], []),
+    (1.95, 2.15): _row([0.249, 0.255, 0.132, 0.066, 0.043, 0.022, 0.015, 0.006], []),
+}
+HARP_AL_PIMINUS_8GEV = {
+    (0.35, 0.55): _row([0.356, 0.371, 0.455, 0.355, 0.383, 0.432, 0.422],
+                       [0.367, 0.350, 0.333], skip_first=True),
+    (0.55, 0.75): _row([0.232, 0.368, 0.424, 0.406, 0.355, 0.366, 0.341, 0.323],
+                       [0.281, 0.250, 0.218]),
+    (0.75, 0.95): _row([0.224, 0.356, 0.360, 0.348, 0.323, 0.293, 0.258, 0.233],
+                       [0.203, 0.156]),
+    (0.95, 1.15): _row([0.222, 0.326, 0.355, 0.288, 0.231, 0.189, 0.153, 0.139], [0.115]),
+    (1.15, 1.35): _row([0.240, 0.338, 0.300, 0.253, 0.168, 0.128, 0.108, 0.091], []),
+    (1.35, 1.55): _row([0.257, 0.279, 0.252, 0.187, 0.141, 0.111, 0.090, 0.066], []),
+    (1.55, 1.75): _row([0.234, 0.257, 0.184, 0.150, 0.094, 0.052, 0.040, 0.033], []),
+    (1.75, 1.95): _row([0.218, 0.234, 0.166, 0.113, 0.069, 0.048, 0.036, 0.026], []),
+    (1.95, 2.15): _row([0.176, 0.178, 0.138, 0.061, 0.040, 0.039, 0.032, 0.017], []),
+}
+N_OVER_Z = {"Pb": 126.0 / 82.0, "Al": 14.0 / 13.0}
+HARP_NORM_UNCERTAINTY_PB = 0.03    # the source's own, and not in its tables
+
+
 def harp_window_sigma(theta_min=HARP_THETA_MIN):
     """Integrated pi- cross section over the measured acceptance, barn.
     theta_min selects a sub-region; the default is the whole table."""
@@ -324,9 +408,73 @@ def harp_window_yield(theta_min=HARP_THETA_MIN):
     return harp_window_sigma(theta_min) / SIGMA_INEL_PB
 
 
+# ---- the charge fraction, measured rather than assumed ---------------------
+def _la_sigma(table, theta_min=HARP_THETA_MIN, window=None):
+    """Integrated large-angle cross section over a table, barn."""
+    tot = 0.0
+    for (tlo, thi), bins in table.items():
+        if tlo < theta_min:
+            continue
+        for (pl, ph), v in bins.items():
+            if window and not (window[0] <= 0.5 * (pl + ph) <= window[1]):
+                continue
+            tot += v * (ph - pl) * (thi - tlo)
+    return tot
+
+
+def _fwd_sigma(table):
+    """Integrated forward cross section over a table, barn, Jacobian applied."""
+    tot = 0.0
+    for (tlo, thi), bins in table.items():
+        dom = 2 * math.pi * (math.cos(tlo) - math.cos(thi))
+        tot += sum(v * (ph - pl) for (pl, ph), v in bins) * dom
+    return tot
+
+
+def charge_fraction_produced():
+    """pi- as a fraction of all charged pions PRODUCED off lead at 8 GeV/c,
+    integrated over everything HARP measured. Below one half: for a proton beam
+    pi+ is the majority channel, because the beam carries two units of charge
+    into the final state and the pion has to carry some of it back."""
+    m = _la_sigma(HARP_PB_PIMINUS_8GEV) + _fwd_sigma(HARP_PB_PIMINUS_8GEV_FWD)
+    p = _la_sigma(HARP_PB_PIPLUS_8GEV) + _fwd_sigma(HARP_PB_PIPLUS_8GEV_FWD)
+    return m / (m + p)
+
+
+def charge_ratio(minus, plus, theta_min=HARP_THETA_MIN, window=None):
+    """pi-/pi+ over one large-angle pair of tables, optionally in one p window."""
+    return (_la_sigma(minus, theta_min, window)
+            / _la_sigma(plus, theta_min, window))
+
+
+def charge_fraction_accepted(br=1.50, hemisphere="fwd", window=None):
+    """pi- as a fraction of the charged pions a COLLECTOR accepts -- the same
+    p_T cap, two-body decay and momentum requirement applied to each charge in
+    turn. This, not the produced fraction, is what a captured-muon yield quoted
+    for both charges has to be divided by."""
+    sm = _la_sigma(HARP_PB_PIMINUS_8GEV) + _fwd_sigma(HARP_PB_PIMINUS_8GEV_FWD)
+    sp = _la_sigma(HARP_PB_PIPLUS_8GEV) + _fwd_sigma(HARP_PB_PIPLUS_8GEV_FWD)
+    m = delivered_fraction(br, hemisphere, window) * sm
+    p = delivered_fraction(br, hemisphere, window,
+                           la=HARP_PB_PIPLUS_8GEV, fwd=HARP_PB_PIPLUS_8GEV_FWD) * sp
+    return m / (m + p)
+
+
+# MEASURED, from the two tables above through the acceptance model of sec.5.24 at
+# the built front end's own aperture and rf window. The captured-muon yield
+# Y_P is quoted for both charges and has always been halved here; this is the
+# number that halving assumes, and it comes out at 0.508 -- a 1.7 percent
+# difference, inside HARP's own 3 percent normalisation uncertainty. The halving
+# therefore stands, and stands MEASURED rather than assumed. It is not adopted as
+# a correction: a 1.7 percent shift smaller than the uncertainty of the
+# measurement that found it would be flattening a bound into a value.
+CHARGE_FRACTION_ASSUMED = 0.5
+
+
 def nf_captured_per_interacting_proton(ep_gev=8.0):
-    """Captured mu- per interacting proton at a stated beam energy."""
-    return (YP_BOTH_CHARGES_PER_GEV / 2.0) * ep_gev
+    """Captured mu- per interacting proton at a stated beam energy. The halving
+    is the charge split, validated by charge_fraction_accepted() -- see there."""
+    return YP_BOTH_CHARGES_PER_GEV * CHARGE_FRACTION_ASSUMED * ep_gev
 
 
 def report_production():
@@ -437,21 +585,23 @@ NF_PT_CAP_MEV = 225.0                # 20 T on a 7.5 cm radius
 NF_CHANNEL_M = 50.0
 
 
-def _production_bins():
+def _production_bins(la=None, fwd=None):
     """(p_pi GeV/c, theta rad, weight) over both HARP tables, with the forward
-    set's solid-angle Jacobian applied exactly as captured_fraction() applies it."""
-    for (tlo, thi), b in HARP_PB_PIMINUS_8GEV.items():
+    set's solid-angle Jacobian applied exactly as captured_fraction() applies it.
+    Defaults to the pi- tables, which are the ones every balance uses; the pi+
+    tables are passed in only to measure the charge fraction against them."""
+    for (tlo, thi), b in (HARP_PB_PIMINUS_8GEV if la is None else la).items():
         th, dth = 0.5 * (tlo + thi), thi - tlo
         for (pl, ph), v in b.items():
             yield 0.5 * (pl + ph), th, v * (ph - pl) * dth
-    for (tlo, thi), b in HARP_PB_PIMINUS_8GEV_FWD.items():
+    for (tlo, thi), b in (HARP_PB_PIMINUS_8GEV_FWD if fwd is None else fwd).items():
         th = 0.5 * (tlo + thi)
         dom = 2 * math.pi * (math.cos(tlo) - math.cos(thi))
         for (pl, ph), v in b:
             yield 0.5 * (pl + ph), th, v * (ph - pl) * dom
 
 
-def muon_spectrum(br, hemisphere="both", ncos=160, nphi=96):
+def muon_spectrum(br, hemisphere="both", ncos=160, nphi=96, la=None, fwd=None):
     """Momentum spectrum of the muons a solenoid of aperture `br` delivers, as
     (p_mu MeV/c, weight) pairs, with the total production weight for normalising.
     A pion outside the transverse cap is lost before it decays -- its decay length
@@ -460,7 +610,7 @@ def muon_spectrum(br, hemisphere="both", ncos=160, nphi=96):
     the muon inside the same cap."""
     ptm = pt_max(br) * 1000.0
     out, total = [], 0.0
-    for p_gev, th, w in _production_bins():
+    for p_gev, th, w in _production_bins(la, fwd):
         total += w
         if hemisphere == "fwd" and th > math.pi / 2:
             continue
@@ -489,11 +639,12 @@ def muon_spectrum(br, hemisphere="both", ncos=160, nphi=96):
     return out, total
 
 
-def delivered_fraction(br, hemisphere="both", window=None, ncos=160, nphi=96):
+def delivered_fraction(br, hemisphere="both", window=None, ncos=160, nphi=96,
+                       la=None, fwd=None):
     """Captured mu- per pi- PRODUCED. `window` is a (p_lo, p_hi) MeV/c momentum
     requirement -- the rf bucket for a collider, the stopping range for a target.
     None applies no momentum requirement at all and is therefore an upper bound."""
-    spec, total = muon_spectrum(br, hemisphere, ncos, nphi)
+    spec, total = muon_spectrum(br, hemisphere, ncos, nphi, la, fwd)
     if window is None:
         kept = sum(w for _, w in spec)
     else:
@@ -700,7 +851,7 @@ def cycles(ws, phi):
 
 def e_binder_captured():
     """GeV of beam per captured mu-, from the sourced Table II yield."""
-    return 1.0 / (YP_BOTH_CHARGES_PER_GEV / 2.0)
+    return 1.0 / (YP_BOTH_CHARGES_PER_GEV * CHARGE_FRACTION_ASSUMED)
 
 
 def condition8(f_work=None):
@@ -1061,6 +1212,217 @@ def report_acceptance():
     return 0
 
 
+# ---- in-situ capture: the co-product configuration, priced as an experiment --
+# The one configuration this corpus finds net-positive does not buy its binder:
+# the pions are a byproduct of a spallation target that is already running, so
+# the marginal beam energy per binder is zero. That argument was stated as an
+# accounting and never as an apparatus. What follows is the apparatus, and it
+# carries a correction to the accounting: a stopping target one muon range deep
+# stops only the part of the accepted spectrum below its range, and the missing
+# part is not recoverable by a better collector.
+J_PER_GEV_EXACT = 1.602176634e-10
+CELL_P_STOP_MEV = 111.5      # a 5 g/cm^2 cell -- see areal_for_p()
+MUFUSE_TRITIUM_MG = 2.4      # the inventory MuFusE already holds and has licensed
+
+
+def areal_for_p(p_mev):
+    """Areal density a cell needs to stop a muon of this momentum, g/cm^2."""
+    return csda_range(p_mev)
+
+
+def p_for_areal(areal, lo=1.0, hi=2000.0):
+    """The inverse: the highest momentum a cell of this areal density stops."""
+    for _ in range(200):
+        m = 0.5 * (lo + hi)
+        if csda_range(m) < areal:
+            lo = m
+        else:
+            hi = m
+    return lo
+
+
+def stopping_capture(p_stop_mev, br=1.50):
+    """Captured mu- per pi- PRODUCED that also STOP in a target one range deep.
+    This is the ceiling on the 'capture efficiency' any in-situ accounting may
+    assume: a muon the solenoid accepts but the fuel does not stop is not a
+    binder. It saturates at the solenoid's own acceptance and no target depth
+    exceeds that."""
+    return delivered_fraction(br, "fwd", (0.0, p_stop_mev))
+
+
+def protons_per_s(power_mw, ep_gev):
+    return power_mw * 1e6 / (ep_gev * J_PER_GEV_EXACT)
+
+
+def insitu_stopped_per_s(power_mw=1.0, ep_gev=8.0, p_stop_mev=CELL_P_STOP_MEV,
+                         cell_r_cm=0.016, beam_r_cm=7.5):
+    """Binders per second stopping in a cell of the stated radius standing in a
+    captured-muon beam of the stated radius. The cell intercepts (r/R)^2 of the
+    beam -- which is the whole reason a bench-scale cell is affordable, and the
+    whole reason it demonstrates a rate rather than a power."""
+    n = protons_per_s(power_mw, ep_gev) * harp_combined_yield()
+    return n * stopping_capture(p_stop_mev) * (cell_r_cm / beam_r_cm) ** 2
+
+
+def cell_tritium_mg(p_stop_mev=CELL_P_STOP_MEV, cell_r_cm=0.016):
+    return (areal_for_p(p_stop_mev) * math.pi * cell_r_cm ** 2
+            * T_MASS_FRAC_DT * 1000.0)
+
+
+def insitu_neutrons_per_s(cycles=150.0, **kw):
+    return insitu_stopped_per_s(**kw) * cycles
+
+
+def insitu_heat_fraction(capture, cycles=150.0, ep_gev=8.0):
+    """Fusion heat as a fraction of beam energy, at a stated capture efficiency
+    -- the accounting of the specification's own table."""
+    return capture * harp_combined_yield() * cycles * MEV_PER_FUSION_HEAT / (ep_gev * 1000.0)
+
+
+MEV_PER_FUSION_HEAT = 26.06   # alpha + blanket at the hot point, sec.5.8
+
+
+def report_insitu():
+    print("IN-SITU CAPTURE -- the co-product configuration as an apparatus")
+    print()
+    print("  The pions are already being made. The question this report answers is")
+    print("  what a cell placed in the captured beam actually stops, and what it")
+    print("  would count.")
+    print()
+    print("  THE CEILING THE ACCOUNTING DID NOT CARRY.")
+    print("  A stopping target is one muon range deep, so it stops only the part of")
+    print("  the accepted spectrum below that range. Capture efficiency is bounded")
+    print("  by this and by nothing a collector can change:")
+    print()
+    print("    window        areal density   captured AND stopped   tritium over a")
+    print("    MeV/c            g/cm2          per pi- produced      7.5 cm beam")
+    for p in (150.0, 200.0, 265.0, 400.0, 700.0, 2000.0):
+        a = areal_for_p(p)
+        print(f"    0-{p:<8.0f}    {a:10.2f}        {stopping_capture(p):.4f}"
+              f"            {tritium_inventory_kg(p, 7.5):8.2f} kg")
+    print(f"    no window          --            {delivered_fraction(1.50, 'fwd'):.4f}"
+          "                  --")
+    print()
+    print("    -> the ceiling is the solenoid's own acceptance, 0.507, approached")
+    print("       only through tens of kilogrammes of tritium. At the 3.59 kg the")
+    print("       specification already carries, the ceiling is 0.342. A capture")
+    print("       efficiency of 0.90 is not reachable by any target depth.")
+    print()
+    print("    heat as a fraction of beam energy, at the reachable capture:")
+    for c in (0.30, stopping_capture(265.0), 0.50, 0.90):
+        tag = "  <-- the 3.59 kg ceiling" if abs(c - stopping_capture(265.0)) < 1e-9 else ""
+        note = "  UNREACHABLE" if c > delivered_fraction(1.50, "fwd") else ""
+        print(f"      capture {c:.3f}   heat {100 * insitu_heat_fraction(c):5.2f} %{tag}{note}")
+    print()
+    print("  THE DEMONSTRATION, AND WHAT IT COSTS IN TRITIUM.")
+    print("  A cell intercepts (r_cell / r_beam)^2 of the beam, and its tritium goes")
+    print("  as r^2 as well -- so rate and inventory fall together and the ratio of")
+    print("  the two is fixed. That is what makes a bench cell affordable.")
+    print()
+    print(f"  1 MW at 8 GeV, thick target, a cell stopping to"
+          f" {CELL_P_STOP_MEV:.1f} MeV/c"
+          f" ({areal_for_p(CELL_P_STOP_MEV):.2f} g/cm2):")
+    print()
+    print("    cell radius   tritium            binders/s      14.1 MeV n/s     heat")
+    for r in (0.016, 0.05, 0.10, 0.30):
+        mg = cell_tritium_mg(cell_r_cm=r)
+        st = insitu_stopped_per_s(cell_r_cm=r)
+        n = insitu_neutrons_per_s(cell_r_cm=r)
+        w = n * 17.59 * 1.602176634e-13
+        print(f"    {10 * r:5.2f} mm     {mg:8.2f} mg ({tritium_curies(mg / 1000.0):7.1f} Ci)"
+              f"  {st:.3e}    {n:.3e}    {w:.3e} W")
+    print()
+    print(f"    The first row is {MUFUSE_TRITIUM_MG} mg -- the inventory MuFusE already")
+    print("    holds, licenses and has commissioned a delivery system for. At that")
+    print(f"    inventory the committed prediction is {insitu_neutrons_per_s():.2e}")
+    print("    neutrons per second at 14.1 MeV. It is a RATE demonstration and not a")
+    print("    power one: the cell intercepts"
+          f" {(0.016 / 7.5) ** 2:.2e} of the beam and returns"
+          f" {insitu_neutrons_per_s() * 17.59 * 1.602176634e-13 * 1000:.0f} mW.")
+    print()
+    print("  WHAT IT DEPENDS ON, STATED RATHER THAN BURIED.")
+    print("    The acceptance is sec.5.24's model, validated against MARS15 to 0.982")
+    print("    and never measured end to end. Stage A of the programme measures it,")
+    print("    and this prediction scales linearly with what Stage A returns.")
+    print("    The cycle count is the witnessed 150 and the sticking cap allows 198.")
+    return 0
+
+
+def report_species():
+    """Which pion the reactor is actually buying, and what that requires of the
+    target. Only mu- catalyses; mu- comes only from pi-; so every yield here is
+    a pi- yield and the charge split is a term in the budget, not a detail."""
+    fp = charge_fraction_produced()
+    print("SPECIES -- which pion, measured off the HARP tables for both charges")
+    print()
+    print("  Only mu- catalyses. A mu+ binds an electron into muonium and is")
+    print("  repelled by every nucleus, so it forms no mesomolecule at all. The")
+    print("  catalytic cycle exists for one sign, and mu- comes only from pi-.")
+    print()
+    print("  charge split of everything produced, p-Pb at 8 GeV/c")
+    for label, mm, pp in (
+            ("large angle, 0.35-2.15 rad",
+             _la_sigma(HARP_PB_PIMINUS_8GEV), _la_sigma(HARP_PB_PIPLUS_8GEV)),
+            ("forward, 0.025-0.25 rad",
+             _fwd_sigma(HARP_PB_PIMINUS_8GEV_FWD), _fwd_sigma(HARP_PB_PIPLUS_8GEV_FWD))):
+        print(f"    {label:<30} sigma- {mm:.3f} b   sigma+ {pp:.3f} b"
+              f"   pi-/pi+ {mm / pp:.3f}")
+    print(f"    {'all of it':<30} f(pi-) = {fp:.4f}"
+          f"   -- BELOW one half: pi+ is the majority channel")
+    print()
+    print("  but the collector does not take all of it, and the part it takes")
+    print("  is the part where the split runs the other way")
+    for lo, hi in ((0.10, 0.15), (0.15, 0.20), (0.20, 0.25), (0.30, 0.35),
+                   (0.45, 0.50), (0.70, 0.80)):
+        r = charge_ratio(HARP_PB_PIMINUS_8GEV, HARP_PB_PIPLUS_8GEV, window=(lo, hi))
+        print(f"    p {lo:.2f}-{hi:.2f} GeV/c   pi-/pi+ = {r:.3f}"
+              f"{'   <-- pi- in the majority' if r > 1 else ''}")
+    fa = charge_fraction_accepted(1.50, "fwd", NF_RF_WINDOW_MEV)
+    print()
+    print("  through the built front end's own acceptance -- 20 T on 7.5 cm, the")
+    print("  two-body decay, and its rf window -- applied to each charge in turn:")
+    print(f"    f(pi-) accepted = {fa:.4f}   against {fp:.4f} produced")
+    print(f"    the halving this repository has always applied assumes"
+          f" {CHARGE_FRACTION_ASSUMED:.4f}")
+    print(f"    difference {100 * abs(fa / CHARGE_FRACTION_ASSUMED - 1):.1f} percent,"
+          f" inside HARP's own {100 * HARP_NORM_UNCERTAINTY_PB:.0f} percent"
+          f" normalisation uncertainty")
+    print("    -> the halving stands, MEASURED. No balance moves. Not adopted as a")
+    print("       correction: a shift smaller than the uncertainty of the")
+    print("       measurement that found it is a bound, not a value.")
+    print()
+    print("  what it does settle is the target, and that is not a detail")
+    rpb = charge_ratio(HARP_PB_PIMINUS_8GEV, HARP_PB_PIPLUS_8GEV)
+    ral = charge_ratio(HARP_AL_PIMINUS_8GEV, HARP_AL_PIPLUS_8GEV)
+    for el, r in (("Pb", rpb), ("Al", ral)):
+        print(f"    {el}  N/Z = {N_OVER_Z[el]:.3f}   pi-/pi+ = {r:.3f}"
+              f"   f(pi-) = {r / (1 + r):.4f}")
+    fpb, fal = rpb / (1 + rpb), ral / (1 + ral)
+    print(f"    lead over aluminium in the ratio: {rpb / ral:.3f};"
+          f" in the usable fraction: {fpb / fal:.3f}")
+    print("    At equal TOTAL charged-pion yield a low-Z target delivers"
+          f" {fal / fpb:.3f} of")
+    print("    lead's pi-, the rest going to the sign that cannot catalyse. So a")
+    print("    high-Z target is required for the CHARGE and not only for the")
+    print("    yield, and sec.10's tungsten rod already satisfies it. This is a")
+    print("    requirement the balances met without stating why.")
+    print()
+    print("  and the charge split is not a lever")
+    (blo, bhi), br_ = max(
+        (((lo, hi), charge_ratio(HARP_PB_PIMINUS_8GEV, HARP_PB_PIPLUS_8GEV,
+                                 window=(lo, hi)))
+         for lo, hi in ((0.10, 0.15), (0.15, 0.20), (0.20, 0.25))),
+        key=lambda kv: kv[1])
+    keep = (_la_sigma(HARP_PB_PIMINUS_8GEV, window=(blo, bhi))
+            / _la_sigma(HARP_PB_PIMINUS_8GEV))
+    print(f"    the best single momentum bin is {blo:.2f}-{bhi:.2f} GeV/c at"
+          f" f(pi-) = {br_ / (1 + br_):.4f},")
+    print(f"    which is {br_ / (1 + br_) / fa:.3f} on the accepted fraction and costs"
+          f" all but {100 * keep:.1f} percent")
+    print(f"    of the pi- yield to reach. Selecting on charge cannot be bought.")
+    return 0
+
+
 def selftest():
     fail = 0
     print("collector.py --selftest   fixtures: published figures, cited in the paper")
@@ -1143,6 +1505,67 @@ def selftest():
               f" {stated:4.1f}   {'PASS' if ok else 'FAIL'}")
 
     print()
+    print("  in-situ capture: the ceiling the accounting did not carry")
+    ok = abs(p_for_areal(areal_for_p(265.0)) / 265.0 - 1) < 1e-6
+    fail += 0 if ok else 1
+    print(f"    p_for_areal inverts areal_for_p   {'PASS' if ok else 'FAIL'}")
+    nowin = delivered_fraction(1.50, "fwd")
+    ok = all(stopping_capture(p) < nowin for p in (150.0, 265.0, 700.0, 2000.0))
+    fail += 0 if ok else 1
+    print(f"    no target depth exceeds the solenoid's own acceptance"
+          f" {nowin:.4f}   {'PASS' if ok else 'FAIL'}")
+    ok = stopping_capture(2000.0) / nowin > 0.99
+    fail += 0 if ok else 1
+    print(f"    and it saturates against it: {stopping_capture(2000.0) / nowin:.4f}"
+          f" at 2 GeV/c   {'PASS' if ok else 'FAIL'}")
+    ok = abs(tritium_inventory_kg(265.0, 7.5) / 3.59 - 1) < 0.01
+    fail += 0 if ok else 1
+    print(f"    the specification's 3.59 kg reproduces:"
+          f" {tritium_inventory_kg(265.0, 7.5):.2f} kg   {'PASS' if ok else 'FAIL'}")
+    ok = abs(100 * insitu_heat_fraction(0.30) / 10.5 - 1) < 0.01
+    fail += 0 if ok else 1
+    print(f"    the specification's 10.5 percent row reproduces:"
+          f" {100 * insitu_heat_fraction(0.30):.2f}   {'PASS' if ok else 'FAIL'}")
+    ok = 0.90 > nowin
+    fail += 0 if ok else 1
+    print(f"    and its 90 percent row is above the ceiling -- UNREACHABLE, which is")
+    print(f"    a correction to that table and not a rounding   {'PASS' if ok else 'FAIL'}")
+    ok = abs(cell_tritium_mg(cell_r_cm=0.016) / MUFUSE_TRITIUM_MG - 1) < 0.05
+    fail += 0 if ok else 1
+    print(f"    the bench cell lands on MuFusE's own inventory:"
+          f" {cell_tritium_mg(cell_r_cm=0.016):.2f} mg vs {MUFUSE_TRITIUM_MG}"
+          f"   {'PASS' if ok else 'FAIL'}")
+
+    print()
+    print("  the species, measured off the pi+ tables")
+    fp, fa = charge_fraction_produced(), charge_fraction_accepted(1.50, "fwd",
+                                                                 NF_RF_WINDOW_MEV)
+    ok = fp < 0.5 < fa
+    fail += 0 if ok else 1
+    print(f"    produced {fp:.4f} < one half < accepted {fa:.4f} -- the collector's")
+    print(f"    window selects the region where pi- is the majority"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = abs(fa / CHARGE_FRACTION_ASSUMED - 1) < HARP_NORM_UNCERTAINTY_PB
+    fail += 0 if ok else 1
+    print(f"    the halving is inside HARP's own normalisation uncertainty:"
+          f" {100 * abs(fa / CHARGE_FRACTION_ASSUMED - 1):.1f}%"
+          f" vs {100 * HARP_NORM_UNCERTAINTY_PB:.0f}%   {'PASS' if ok else 'FAIL'}")
+    lo = charge_ratio(HARP_PB_PIMINUS_8GEV, HARP_PB_PIPLUS_8GEV, window=(0.10, 0.15))
+    ok = lo > 1.0
+    fail += 0 if ok else 1
+    print(f"    HARP's stated lead effect reproduces: pi-/pi+ = {lo:.3f} in the")
+    print(f"    100-150 MeV/c bin, above unity   {'PASS' if ok else 'FAIL'}")
+    rpb = charge_ratio(HARP_PB_PIMINUS_8GEV, HARP_PB_PIPLUS_8GEV)
+    ral = charge_ratio(HARP_AL_PIMINUS_8GEV, HARP_AL_PIPLUS_8GEV)
+    ok = ral < rpb and charge_ratio(HARP_AL_PIMINUS_8GEV, HARP_AL_PIPLUS_8GEV,
+                                    window=(0.10, 0.15)) < 1.0
+    fail += 0 if ok else 1
+    print(f"    and does NOT reproduce for aluminium: {ral:.3f} against lead's"
+          f" {rpb:.3f}, no")
+    print(f"    low-momentum excess -- the source says lower-A targets do not"
+          f" show it   {'PASS' if ok else 'FAIL'}")
+
+    print()
     print("  refusal: mu- and all-mu yields are never interchanged")
     ok = MUSIC_ALL_MU_PER_W / MUSIC_MU_MINUS_PER_W > 10
     fail += 0 if ok else 1
@@ -1162,6 +1585,10 @@ def main():
                     help="integrate the HARP cross sections; price the collector argument")
     ap.add_argument("--acceptance", action="store_true",
                     help="pi- produced -> mu- delivered, validated against MARS15")
+    ap.add_argument("--insitu", action="store_true",
+                    help="the co-product configuration as an apparatus, and its ceiling")
+    ap.add_argument("--species", action="store_true",
+                    help="which pion the reactor buys, and what the target must be")
     ap.add_argument("--stopping", action="store_true",
                     help="the stopping window, its target size and its tritium cost")
     ap.add_argument("--floor", action="store_true",
@@ -1180,6 +1607,10 @@ def main():
         return 0
     if a.acceptance:
         return report_acceptance()
+    if a.insitu:
+        return report_insitu()
+    if a.species:
+        return report_species()
     if a.stopping:
         return report_stopping()
     if a.floor:

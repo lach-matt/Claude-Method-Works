@@ -1490,6 +1490,82 @@ cap is.
 that depend on a modelled service life and a compressed target; none of them touches the bred-fuel
 route at demonstrated cycle counts, which uses neither.
 
+### 5.28 The species: which pion, and what that requires of the target
+
+Every yield in this paper is a π⁻ yield. That was stated once and then assumed everywhere; it is
+measured here, because the assumption sits underneath the production figure, the acceptance model and
+the whole of §10.
+
+**Only one sign catalyses, and the reason is not a detail of rates.** A μ⁻ replaces an electron and
+binds a nucleus. A μ⁺ does the opposite: it binds an *electron*, into muonium, and is repelled by
+every nucleus in the target. It forms no mesomolecule at any density or temperature, so it enters no
+cycle, sticks to no alpha and catalyses nothing. The catalytic cycle exists for one sign of one
+particle. And a μ⁻ has exactly one parent — π⁻ decay — so of everything a production target makes,
+only the π⁻ half is buyable at all. An accounting that quotes pions or muons without a sign is not an
+accounting of this reaction.
+
+**The split, measured rather than halved.** HARP published both charges off the same lead target, in
+the same bins, with the same beam [3]. Integrated over everything the two spectrometers covered:
+
+| region | σ(π⁻) | σ(π⁺) | π⁻/π⁺ |
+|---|---|---|---|
+| large angle, 0.35–2.15 rad | 1.038 b | 1.067 b | **0.973** |
+| forward, 0.025–0.25 rad | 0.184 b | 0.248 b | **0.742** |
+| all of it | | | **f(π⁻) = 0.4816** |
+
+**π⁻ is the minority channel**, and for a proton beam it has to be: the projectile carries two units of
+charge into the final state and the pions carry some of it back. Halving a both-charge yield therefore
+*overstates* the usable half — over production as a whole, by 3.8 percent.
+
+**But no collector takes production as a whole, and the part it takes runs the other way.** The split
+is strongly momentum-dependent, and the direction is the useful one:
+
+| π momentum, GeV/c | 0.10–0.15 | 0.15–0.20 | 0.20–0.25 | 0.30–0.35 | 0.45–0.50 |
+|---|---|---|---|---|---|
+| π⁻/π⁺ | **1.354** | **1.016** | 0.967 | 0.920 | 0.866 |
+
+Running §5.24's acceptance model over each charge in turn — the same transverse cap, the same
+two-body decay integrated over the pion rest frame, the same rf window, nothing changed but the table
+it reads — gives the fraction that actually reaches the channel:
+
+> **f(π⁻) accepted = 0.5084**, against 0.4816 produced.
+
+**So the halving stands, and it now stands measured.** It differs from the accepted fraction by
+**1.7** percent, inside the **3** percent normalisation uncertainty HARP quotes for its own lead data.
+It is *not* adopted as a correction and no figure in this paper moves: a shift smaller than the
+uncertainty of the measurement that found it is a bound, not a value, and 37.0 GeV per captured μ⁻ and
+11.13 GeV per π⁻ are unchanged. What is removed is an unexamined assumption, and what replaces it is
+the finding that the assumption was safe — and safe for a reason, not by luck. The collector's window
+is a low-momentum, large-angle window, and that is exactly where a neutron-rich target's π⁻ excess
+lives.
+
+**What the species does settle is the target, and that is not a detail either.** The same two tables
+run against aluminium:
+
+| target | N/Z | π⁻/π⁺ | f(π⁻) |
+|---|---|---|---|
+| lead | 1.537 | 0.973 | 0.4930 |
+| aluminium | 1.077 | 0.732 | 0.4226 |
+
+A factor of **1.329** in the ratio. At equal *total* charged-pion yield a low-Z target delivers
+**0.857** of lead's π⁻, the remainder going to the sign that cannot catalyse — and aluminium shows no
+low-momentum excess at all, which is HARP's own reading of its data: the effect appears in lead and
+tantalum and *"lower-A targets do not show this behaviour"* [3]. **A high-Z target is therefore
+required for the charge and not only for the yield.** §10's tungsten rod already satisfies it. The
+requirement was met without being stated; it is now stated, and it belongs in the bill of materials
+rather than in a footnote about cross sections.
+
+**And it closes a lever before anyone proposes it.** If π⁻/π⁺ rises to 1.354 at low momentum, why not
+select there? Because the selection is priced: the best single bin reaches **f(π⁻) = 0.5753**, worth
+**1.132** on the accepted fraction, and costs all but **14.7** percent of the π⁻ yield to reach. It is
+a factor of 1.13 bought with a factor of 6.8. **Charge selection is not purchasable**, which is the
+same shape as §5.25's finding about the stopping window: a term that looks like a lever, priced, turns
+out to be a constraint.
+
+> **The species is μ⁻, from π⁻, off a high-Z target.** Nothing in the balance moves. One line moves
+> into the specification.
+
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -1881,7 +1957,10 @@ needed at all.
 2. J. Strait, N. V. Mokhov and S. I. Striganov, *Towards the optimal energy of the proton driver for a
    neutrino factory and muon collider*, Phys. Rev. ST Accel. Beams **13**, 111001 — Table II and §V.
 3. M. G. Catanesi *et al.* (HARP Collaboration), Phys. Rev. C **77**, 055207; A. Bolshakova *et al.*,
-   Eur. Phys. J. C **63**, 549.
+   *Large-angle production of charged pions by 3 GeV/c–12.9 GeV/c protons on beryllium, aluminium and
+   lead targets*, Eur. Phys. J. C **63**, 549 — Tables 5–8, both charges; and M. Apollonio *et al.*,
+   *Forward production of charged pions with incident protons on nuclear targets at the CERN PS*,
+   Phys. Rev. C **80**, 035208 — Tables XXII, XXIII and XXXII, both charges.
 4. Mu2e Collaboration, *Mu2e Conceptual Design Report*, FERMILAB-TM-2545, arXiv:1211.7019.
 5. COMET Collaboration, *COMET Phase-I Technical Design Report*, arXiv:1812.09018.
 6. Variational three-body calculation of muon-alpha sticking, Phys. Rev. A **34**, 2536.

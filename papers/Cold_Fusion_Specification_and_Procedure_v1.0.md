@@ -74,6 +74,13 @@ muon at **207** and the pion at **273**; the pion is hadronic and is absorbed be
 The electron lies below the window and the tau above it. **The candidate index closes at exactly one
 occupant.**
 
+**And on one sign of it.** A μ⁻ replaces an electron and binds a nucleus. A μ⁺ does the opposite — it
+binds an electron, into muonium, and is repelled by every nucleus in the fuel. It forms no
+mesomolecule at any density or temperature, enters no cycle, sticks to no alpha, and catalyses
+nothing. So the binder is not "a muon": it is the negative one, and it has exactly one parent, π⁻
+decay. Every yield quoted in this specification and in [1] is a π⁻ yield for that reason, and §2
+carries the consequence.
+
 **Every free parameter, fixed.**
 
 | parameter | value | why it is fixed there |
@@ -84,7 +91,7 @@ occupant.**
 | temperature | **800 K** | the Vesman resonance transfers the dtμ loose state's **0.66 eV** into a **0.36 eV** host vibrational quantum; the rate rises toward this point |
 | **cycle-rate ceiling** | **2.6e8** s⁻¹ | the cycle is a harmonic sum, so driving the resonance moves the bottleneck to transfer, verified at **2.7e8**. Temperature buys **3.6** and then stops |
 | density | as high as the cell reaches | the cycle rate scales with it; the service life does not, being capped by sticking |
-| binder | μ⁻ | §1 above |
+| binder | **μ⁻** — the negative muon, not the muon | §1 above; the positive one catalyses nothing at all |
 | binder source | an existing muon beam | no new machine is required to witness the reaction |
 
 **The two observables, and they must be simultaneous.**
@@ -120,10 +127,19 @@ are not confused.
 | purity control | permeator plus in-situ Raman; assay to better than **1 ppm** | same |
 | binder source | existing beam, ~**1.0e8** μ⁻/s | **1.2e15** μ⁻/s for one megawatt |
 | capture solenoid | none — use the facility's beamline | **20 T**, field–radius product **2.60 T·m**, a **13 cm** clear bore |
-| production target | none | tungsten or tantalum, thick |
+| **production target** | none | tungsten or tantalum, thick — **high-Z is a requirement, not a convention** |
 | neutron detection | array calibrated at 14.1 MeV | — |
 | X-ray detection | resolving **8.2 keV**, viewing the same sample volume | — |
 | blanket | none | ⁶Li-bearing, **1.6×** neutron energy multiplication |
+
+**The production target's material is set by the charge, not only by the yield.** Measured off the
+HARP tables for both signs at 8 GeV/c, lead returns π⁻/π⁺ = **0.973** and aluminium **0.732** — a
+factor of **1.329**. At equal *total* charged-pion yield a low-Z target therefore delivers **0.857**
+of lead's π⁻, the remainder going to the sign that cannot catalyse; and the low-momentum π⁻ excess
+that a collector's window sits in appears in lead and tantalum and not in lighter targets at all. The
+tungsten of column B already satisfies this. It is recorded here because the requirement was
+previously met without being stated, and a specification that does not state it could be met by a
+target that fails it.
 
 **The two columns differ by six orders of magnitude in binder flux and three in tritium, and that
 difference is the subject of §4.** Column A is buildable now. Column B is not.
@@ -264,11 +280,23 @@ On that accounting the marginal beam energy per binder is zero, and every fusion
 is gain. At the measured production of **0.7188** π⁻ per interacting proton, each captured binder
 returning **150** cycles at **26.06 MeV**:
 
-| capture efficiency | fusion heat, as a fraction of beam energy |
-|---|---|
-| **30 %**, today's front end | **10.5 %** |
-| **50 %** | **17.6 %** |
-| **90 %**, the specified collector | **31.6 %** |
+| capture efficiency | fusion heat, as a fraction of beam energy | reachable? |
+|---|---|---|
+| **30 %**, today's front end | **10.5 %** | yes |
+| **34.2 %**, the ceiling at the specified inventory | **12.0 %** | yes — see below |
+| **50 %** | **17.6 %** | only at ~45 kg of tritium |
+| **90 %**, the specified collector | **31.6 %** | **no — above the ceiling at any target depth** |
+
+**That last row is withdrawn, and the correction is this section's own.** A capture efficiency here
+means a muon that *stops in the fuel*, and a stopping target is one muon range deep, so it stops only
+the part of the accepted spectrum below its range. The bound is therefore not the collector's: it is
+the solenoid's acceptance, **0.5069**, which no target depth exceeds and which tens of kilogrammes of
+tritium only approach. At the **3.59 kg** this specification already carries — a 265 MeV/c window,
+**33.9 g/cm²** — the ceiling is **0.3420**. Going to a 400 MeV/c window buys **0.3893** for
+**6.93 kg**, and 700 MeV/c buys **0.4512** for **14.5 kg**. **The 90 % row compared a collector's
+acceptance with a fuel target's stopping fraction, which are different quantities, and it is
+withdrawn.** What survives is the row above it: **12.0 percent of the host beam returned as fusion
+heat**, at an inventory this specification had already committed to.
 
 On a one-megawatt, 8 GeV driver that is **2.80 × 10¹⁴** binders per second and **176 kW** of fusion
 heat, delivered at the target where the facility's cooling loop already is.
@@ -286,13 +314,13 @@ of buying muons rather than making them where they are used.**
 
 ### 5.3 What this is, and what it is not
 
-**It is a net-positive reaction.** Marginal energy in: zero. Energy out: 10 to 32 percent of the host
-beam. That satisfies the project's criterion — self-sustaining, no input per event — and it is the
-only configuration found that does.
+**It is a net-positive reaction.** Marginal energy in: zero. Energy out: **10.5 to 12.0 percent** of
+the host beam, on the corrected ceiling above. That satisfies the project's criterion —
+self-sustaining, no input per event — and it is the only configuration found that does.
 
 **It is not a standalone power plant, and §5.1 says why it cannot be.** The host beam still costs more
 at the wall than the fusion returns, and no arrangement of a non-fissioning blanket changes that. What
-the fusion does is **recover 10 to 32 percent of the beam**, which on an accelerator-driven system
+the fusion does is **recover 10.5 to 12.0 percent of the beam**, which on an accelerator-driven system
 attacks that machine's dominant economic problem — the recirculating power its accelerator consumes.
 
 **Three costs are real and are not beam.** The collector, priced in [1] §5.21 as a shielding trade of
@@ -305,6 +333,87 @@ it holds only while the host beam is justified by its other product. If the beam
 muons, the full **11.13 GeV** returns and §5.1's theorem applies. **The reaction is net-positive as a
 co-product and negative as a purpose.** That distinction is the whole of the result and it should not
 be blurred.
+
+## 6. The procedure for the net-positive configuration
+
+§3 is the procedure for the bench demonstration, which witnesses the reaction and returns the numbers
+the balance turns on. It is not a procedure for §5.2, and until now §5.2 had none — it was an
+accounting, and an accounting is not an apparatus. This section is the apparatus.
+
+**Why it is separate from §3.** The bench cell in §3 is fed by a *transported* muon beam: momentum
+selected, steered down a channel, about **1.0e8** μ⁻/s. §5.2's whole argument is that transport is
+what makes binders expensive, and that a cell placed where the muons are *made* pays no transport. The
+two experiments therefore share their fuel, their observables and their tolerances, and share nothing
+about where the cell sits.
+
+### 6.1 Apparatus
+
+| item | specification |
+|---|---|
+| host machine | a proton driver of ~**8 GeV** running for another product — spallation neutrons, isotopes, or a subcritical blanket |
+| production target | tungsten or tantalum, thick; **high-Z is required for the charge** (§2) |
+| capture solenoid | around the production target, field–radius product **2.60 T·m**. This is the one thing §5.2 does not get for free, and [1] §5.21 prices it as a shielding trade rather than a magnet problem |
+| fuel cell | D–T, 50/50, areal density **5.00 g/cm²** along the beam, radius **0.16 mm** |
+| tritium inventory | **2.42 mg**, i.e. **23.2 Ci** |
+| cell position | inside the solenoid bore, downstream of the target, **before any momentum selection** |
+| neutron detection | array calibrated at 14.1 MeV, gated on the machine's pulse structure |
+| X-ray detection | resolving **8.2 keV**, viewing the same sample volume |
+
+**The cell is small on purpose, and the reason is the whole of §5.25.** A stopping cell's tritium is
+areal density times area, so it goes as the square of its radius — and so does the fraction of the
+beam it intercepts. Rate and inventory fall together and their ratio is fixed. A cell of 0.16 mm
+radius standing in a **7.5 cm** beam intercepts **4.55e-6** of it and holds **2.42 mg** of D–T. That
+is the inventory an existing collaboration already holds, licenses and has commissioned a delivery
+system for. **No new tritium authorisation is required to run this.**
+
+### 6.2 What it is not
+
+**It is not a power demonstration.** At that interception the cell returns **76 mW**. The experiment
+measures a *rate*, and the rate is what the accounting turns on; the power follows from the geometry
+by a factor this section states rather than hides.
+
+### 6.3 The measurement
+
+1. **Establish the background with the cell empty**, at full beam, gated as in step 4. The spallation
+   flash is prompt and enormous; everything here depends on separating a delayed signal from it.
+2. **Fill with pure deuterium** to the same areal density. d–d fusion runs at a rate some four orders
+   below d–t under the same catalysis, so this is a second null, not a signal.
+3. **Fill with D–T at 50/50**, assayed to better than **1 ppm** high-Z, per §2. Purity is not a
+   refinement here: at the operating density **5.49 ppm** costs as much binder as decay does.
+4. **Count both observables simultaneously, on one cell, gated from 1 μs to 10 μs after each proton
+   pulse.** The muon lifetime is 2.2 μs and the catalytic cycle runs within it, so the fusion signal
+   is delayed against a prompt spallation background by a window the machine's own pulse structure
+   provides. §3.3's rule governs the two observables here exactly as it does there: they share no
+   instrument and no calibration, and **a disagreement between them is a refusal, not an average.**
+
+### 6.4 Committed predictions
+
+Stated before the run, at 1 MW on target and the witnessed cycle count of **150**:
+
+| quantity | committed value |
+|---|---|
+| binders stopped in the cell | **1.80e8** per second |
+| 14.1 MeV neutrons | **2.70e10** per second |
+| fusion heat in the cell | **76 mW** |
+| ratio of the two observables | fixed by the witnessed sticking, **0.505** to **0.557 percent** |
+
+**And the prediction scales linearly with one number that has not been measured.** The acceptance is
+[1] §5.24's model, which reproduces the built front end's own MARS15 simulation to **0.982** and has
+never been measured end to end. [1] §10.1 is that measurement. **If Stage A returns half the modelled
+acceptance, every figure in this section halves**, and the experiment still runs — it becomes a
+measurement of the acceptance by a second route.
+
+### 6.5 What each outcome settles
+
+| outcome | what it settles |
+|---|---|
+| the committed rate, both observables agreeing | §5.2 is demonstrated, not merely argued: a net-positive cold fusion reaction, running on a beam that was already running, with no input per event |
+| a rate low by a constant factor, observables agreeing | the acceptance is lower than modelled by that factor. The configuration stands; the ceiling of §5.2 moves down by it |
+| neutrons without the X-ray line, or the reverse | a refusal. §3.3's rule applies: the two are not averaged, and the run is repeated before either is believed |
+| no delayed signal above background | the in-situ capture argument fails at the first step, and the flux gap of §5.2 is not an artefact of transport after all |
+
+**This is the section the index said was missing**, and its absence was the only thing standing
+between this corpus's one proved-positive configuration and a laboratory.
 
 ---
 
