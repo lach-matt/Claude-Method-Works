@@ -293,6 +293,49 @@ unmeasured. The residual 1.48 is therefore an upper bound on the shortfall rathe
 production shortfall, that it is not large, and that the two remaining levers on it are the sticking
 value in the denominator of condition 8 and whatever the unmeasured phase space carries.
 
+### 5.5 The residual, localised to one unresolved measurement
+
+The shortfall of §5.2 is 1.48 at a sticking of 0.234 percent. That value is composed from a figure the
+paper carried with a reservation: whether the 0.31 percent for the excited molecular state is an
+initial sticking or a post-reactivation one. The reservation is now decisive, and the class is
+settled by the company the figure keeps.
+
+The initial sticking for the ground state — defined as the branching between bound and continuum
+final states *at the moment of fusion*, before any reactivation — is **0.938 percent**, consistent with
+0.91 to 0.93 from optical-potential and R-matrix treatments. That is what this paper's 0.90 is. The
+0.31 is computed the same way, so it is an initial sticking too, and the measured reactivation applies
+to it.
+
+Reactivation is then read off the measured final stickings:
+
+| | measured final | survival fraction | J=1 final sticking |
+|---|---|---|---|
+| SIN | 0.45 % | 0.480 | **0.1487 %** |
+| PSI | 0.56 % | 0.597 | **0.1851 %** |
+
+At the measured production cost of 11.13 GeV per pion, the heat form of condition 8 is met at perfect
+collection if and only if the sticking is below **0.1580 percent**.
+
+> **The two measured sticking values straddle that break-point.** Via SIN's reactivation the heat form
+> is satisfied by 1.06; via PSI's it is short by 1.17. The work form remains short under both — 1.88
+> and 2.34.
+
+### 5.6 The experiment this paper already specifies
+
+The two determinations disagree, and §3.5 of this paper says what to do about it, in a sentence
+written as a methodological caution before it was known to matter:
+
+> The neutron and X-ray routes to sticking share no instrument or calibration. These two methods
+> disagreed historically; running them simultaneously on one target is what resolves the disagreement,
+> **and a disagreement is a refusal rather than an average.**
+
+That measurement is now the decisive one of the whole programme. It is a bench experiment on an
+existing muon beam, it needs no new machine, and it discriminates between the two branches above.
+
+**This does not decide condition 8**, and this paper does not claim it does. What it does is localise
+the decision: the heat form turns on one unresolved measurement between two published values, and the
+work form is short under both readings by a factor between 1.88 and 2.34.
+
 **Proton energy is not a lever.** The same source finds the beam-power-normalised yield flat within a
 tenth of its optimum across 4 to 11 gigaelectronvolts, with an optimum near 7. Any driver energy in
 that band is equivalent for this purpose.

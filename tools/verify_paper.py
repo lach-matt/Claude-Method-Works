@@ -268,6 +268,50 @@ def capture_of_production():
     return 100.0 * nf_captured() / harp_comb_yield()
 
 
+def react_sin():
+    return mucf.STICKING["sin"][0] / mucf.OMEGA_INITIAL
+
+
+def react_psi():
+    return mucf.STICKING["psi"][0] / mucf.OMEGA_INITIAL
+
+
+def ws_sin():
+    return 100.0 * mucf.STICKING["j1"][0] * react_sin()
+
+
+def ws_psi():
+    return 100.0 * mucf.STICKING["j1"][0] * react_psi()
+
+
+def breakpoint():
+    return 100.0 * (mucf.Q_FUS_MEV / 1000.0) / cost_pion()
+
+
+def c8_sin_heat():
+    return (mucf.Q_FUS_MEV / 1000.0) / (ws_sin() / 100.0)
+
+
+def c8_psi_heat():
+    return (mucf.Q_FUS_MEV / 1000.0) / (ws_psi() / 100.0)
+
+
+def margin_sin():
+    return c8_sin_heat() / cost_pion()
+
+
+def short_psi():
+    return cost_pion() / c8_psi_heat()
+
+
+def work_short_sin():
+    return cost_pion() / (c8_sin_heat() * collector.F_WORK)
+
+
+def work_short_psi():
+    return cost_pion() / (c8_psi_heat() * collector.F_WORK)
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 

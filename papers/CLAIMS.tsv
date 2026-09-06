@@ -108,3 +108,17 @@ C106	front end capture as fraction of production	30	percent	DERIVED	C81 / C99	fn
 C107	forward acceptance, angular lower limit	0.025	rad	SOURCED	arXiv:0907.3857 finest binning	none
 C108	forward acceptance, angular upper limit	0.25	rad	SOURCED	arXiv:0907.3857	none
 C109	uncovered angular band, lower	0.25	rad	DERIVED	between the two spectrometers	none
+C110	initial alpha-mu sticking, dtmu J=v=0	0.938	percent	SOURCED	Wu and Kamimura arXiv:2401.17358 Table V, +/- 0.07	mucf.OMEGA_INITIAL
+C111	reactivation survival fraction, via SIN	0.480	fraction	DERIVED	C06 / C110	fn:react_sin
+C112	reactivation survival fraction, via PSI	0.597	fraction	DERIVED	C07 / C110	fn:react_psi
+C113	J=1 final sticking via SIN reactivation	0.1487	percent	DERIVED	C09 x C111	fn:ws_sin
+C114	J=1 final sticking via PSI reactivation	0.1851	percent	DERIVED	C09 x C112	fn:ws_psi
+C115	break-point sticking for the heat form	0.1580	percent	DERIVED	C01 / C100	fn:breakpoint
+C116	condition 8 heat bound via SIN	11.83	GeV	DERIVED	C01 / C113	fn:c8_sin_heat
+C117	condition 8 heat bound via PSI	9.50	GeV	DERIVED	C01 / C114	fn:c8_psi_heat
+C118	heat margin via SIN	1.06	x	DERIVED	C116 / C100	fn:margin_sin
+C119	heat shortfall via PSI	1.17	x	DERIVED	C100 / C117	fn:short_psi
+C120	work shortfall via SIN	1.88	x	DERIVED	C100 / (C116 x C12)	fn:work_short_sin
+C121	work shortfall via PSI	2.34	x	DERIVED	C100 / (C117 x C12)	fn:work_short_psi
+C122	initial sticking, optical-potential and R-matrix low end	0.91	percent	SOURCED	arXiv:2401.17358, corroborating range	none
+C123	initial sticking, S state as carried by this paper	0.90	percent	MEASURED	variational three-body, the paper's own figure	none

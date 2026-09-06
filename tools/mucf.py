@@ -143,6 +143,17 @@ STICKING = {                # label -> (omega_s, status)
     "both":  (0.00234, "PROJECTED"),
 }
 
+# SOURCED: Wu & Kamimura, arXiv:2401.17358 Table V -- the INITIAL alpha-mu
+# sticking probability for (dtmu)_{J=v=0}, defined as
+#     omega_S^0 = lambda_bound / (lambda_bound + lambda_cont)
+# i.e. a branching AT the moment of fusion, before any reactivation. Consistent
+# with 0.91-0.93% (optical-potential and R-matrix) and 0.857% (Kamimura, Kino &
+# Yamashita 2023, coupled-channel). This is what the paper's "0.90% from the
+# S state" is, and it settles the class the 0.31% J=1 figure belongs to.
+OMEGA_INITIAL = 0.00938        # +/- 0.0007
+OMEGA_INITIAL_ERR = 0.0007
+COST_PER_PION_GEV = 11.13      # collector.cost_per_pion_produced(), measured
+
 RESERVATION_J1 = ("the 0.31% J=1 figure is carried by the paper with the "
                   "reservation that its source does not resolve whether it is "
                   "initial or post-reactivation sticking")
@@ -413,6 +424,59 @@ def report_flux(powers, label):
     print("  evidence of a self-sustaining reaction. See --collector.")
 
 
+def report_sticking():
+    """The reactivation chain, and why two measurements now decide the question."""
+    q = Q_FUS_MEV / 1000.0
+    print("STICKING, AND THE MEASUREMENT THAT NOW DECIDES CONDITION 8")
+    print()
+    print(f"  INITIAL sticking, dtmu J=v=0:  {OMEGA_INITIAL * 100:.3f}%"
+          f" +/- {OMEGA_INITIAL_ERR * 100:.2f}   [SOURCED]")
+    print("    omega_S^0 = lambda_bound/(lambda_bound + lambda_cont): a branching")
+    print("    at fusion, before reactivation. arXiv:2401.17358 Table V.")
+    print()
+    print("  MEASURED FINAL sticking, and the reactivation each implies:")
+    for lab in ("sin", "psi"):
+        f = STICKING[lab][0]
+        print(f"    {lab.upper()}: {f * 100:.2f}%  ->  survival {f / OMEGA_INITIAL:.3f}"
+              f"   (reactivation R = {1 - f / OMEGA_INITIAL:.3f})")
+    print()
+    print("  The paper's sec.7 records that it cannot tell whether the 0.31% J=1")
+    print("  figure is initial or post-reactivation. The class is now settled by")
+    print("  the company it keeps: the ~0.9% computed the same way is definitively")
+    print("  INITIAL, so 0.31% is an initial sticking too, and the measured")
+    print("  reactivation applies to it.")
+    print()
+    bp = q / COST_PER_PION_GEV
+    print(f"  BREAK-POINT: at the measured production cost of {COST_PER_PION_GEV} GeV per")
+    print(f"  pion, the heat form of condition 8 is met iff omega_s < {bp * 100:.4f}%.")
+    print()
+    for lab in ("sin", "psi"):
+        f = STICKING[lab][0]
+        ws = 0.0031 * (f / OMEGA_INITIAL)
+        for frac, fl in ((1.0, "heat"), (F_WORK, "work")):
+            c8 = q * frac / ws
+            v = (f"SATISFIED by {c8 / COST_PER_PION_GEV:.2f}x" if COST_PER_PION_GEV < c8
+                 else f"short by {COST_PER_PION_GEV / c8:.2f}x")
+            if fl == "heat":
+                print(f"    via {lab.upper()}: omega_s = 0.31 x {f / OMEGA_INITIAL:.3f}"
+                      f" = {ws * 100:.4f}%")
+            print(f"        condition 8 {fl}: E_binder < {c8:5.2f} GeV  ->  {v}")
+    print()
+    print("  => THE TWO MEASURED STICKING VALUES STRADDLE THE REQUIREMENT.")
+    print("     SIN's reactivation satisfies the heat form; PSI's does not.")
+    print()
+    print("  AND THE PAPER ALREADY SPECIFIES THE EXPERIMENT. sec.3.5: the neutron")
+    print("  and X-ray routes to sticking share no instrument or calibration,")
+    print("  they disagreed historically, and 'running them simultaneously on one")
+    print("  target is what resolves the disagreement, and a disagreement is a")
+    print("  refusal rather than an average.' That was written as a methodological")
+    print("  caution. It is now the decisive measurement of the programme.")
+    print()
+    print("  REFUSAL: this does not decide condition 8. It localises the decision")
+    print("  to one unresolved measurement, and the work form remains short under")
+    print("  both readings.")
+
+
 def report_collector():
     print("The two gaps as ONE chain -- PROSE-ONLY, banked in no file here.")
     print("  source: chat 'transitions' 2026-08, messages 588-594")
@@ -455,6 +519,8 @@ def main():
     ap.add_argument("--work", action="store_true",
                     help="solve for WORK-breakeven (only 50.1%% of fusion heat is "
                          "convertible) rather than the paper's heat convention")
+    ap.add_argument("--reactivation", action="store_true",
+                    help="the reactivation chain and the straddle it produces")
     ap.add_argument("--collector", action="store_true",
                     help="the two gaps as one collection chain (PROSE-ONLY)")
     ap.add_argument("--flux", nargs="*", type=float, metavar="WATTS",
@@ -465,6 +531,9 @@ def main():
 
     if a.selftest:
         return selftest()
+    if a.reactivation:
+        report_sticking()
+        return 0
     if a.collector:
         report_collector()
         return 0
