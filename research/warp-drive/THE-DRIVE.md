@@ -211,3 +211,12 @@ python3 research/warp-drive/drivespec.py --selftest   # 17 fixtures
 python3 research/warp-drive/drivespec.py              # the trade and the point design
 python3 research/warp-drive/slingshot.py              # the launcher
 ```
+
+---
+
+**Correction note (added later).** This paper applies ADM 4-momentum conservation more broadly than
+the theorem supports. ADM forbids an isolated system from accelerating *itself*; it says nothing
+about a body in free fall, which changes momentum continuously and violates nothing. The claim binds
+the warp shell, which is genuinely a self-accelerating isolated system. It does not bind a coupling
+drive, a flyby, or a slingshot, and those should not have been argued against on this basis. The
+exact replacement is the centre-of-mass theorem. See `COUPLING.md`.

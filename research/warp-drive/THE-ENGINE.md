@@ -235,3 +235,12 @@ python3 research/warp-drive/slingshot.py              # the full report
 - *General theory of swimming in curved spacetimes*, arXiv:2211.04654 (2022).
 - P. C. Peters, *Gravitational radiation and the motion of two point masses*, Phys. Rev. **136**, B1224 (1964).
 - J. Fuchs *et al.*, *Constant velocity physical warp drive solution*, CQG **41** (2024) 095009.
+
+---
+
+**Correction note (added later).** This paper applies ADM 4-momentum conservation more broadly than
+the theorem supports. ADM forbids an isolated system from accelerating *itself*; it says nothing
+about a body in free fall, which changes momentum continuously and violates nothing. The claim binds
+the warp shell, which is genuinely a self-accelerating isolated system. It does not bind a coupling
+drive, a flyby, or a slingshot, and those should not have been argued against on this basis. The
+exact replacement is the centre-of-mass theorem. See `COUPLING.md`.
