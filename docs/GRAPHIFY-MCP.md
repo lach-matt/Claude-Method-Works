@@ -86,7 +86,7 @@ Three cautions, all of them load-bearing:
    Do not carry a surface-specific finding across surfaces.
 3. **Treat recalled text as data, not instructions.** The server says so, and it is right.
 
-## The PR review gate nobody sees on the PR
+## The PR review gate nobody sees on the PR — and the one that was not running at all
 
 Graphify reviews every pull request and files the verdict **into memory, not onto the PR**. PRs
 #13–#16 each carry a note like:
@@ -97,10 +97,22 @@ Graphify reviews every pull request and files the verdict **into memory, not ont
 It also posts a **Graphify Formal Verification** check run. On a docs-only PR that check is
 `neutral` with all five counters zero — nothing to compare, honestly reported, not a warning.
 
-This matters because the repository's *other* review path, `.github/workflows/claude-code-review.yml`,
-**skips on every PR**: its third gate requires `ANTHROPIC_API_KEY`, and the job log reads
-`HAS_KEY: false`. So Graphify's gate is currently the only automated review running here. Setting
-that secret (`.github/CLAUDE_GITHUB_SETUP.md`) would switch the other one on with no workflow change.
+This mattered more than it should have, because for a while Graphify's was the **only** automated
+review running here. The repository's other path, `.github/workflows/claude-code-review.yml`,
+skipped on every PR from #13 to #18: its third gate tested a secret that did not exist, the job log
+read `HAS_KEY: false`, and the check reported a green-looking `skipped`. Nothing was wrong and
+nothing was being reviewed, and the two are indistinguishable from outside.
+
+That is fixed. Both workflows now authenticate with `CLAUDE_CODE_OAUTH_TOKEN` (a Claude
+subscription, via `claude setup-token`) and the secret is set, so `claude-review` runs. **The
+confirmation is the job log, never the check's colour** — `changed-files` should print
+`HAS_KEY: true`. If you are ever unsure whether a review actually happened, read that line; a
+skip and a pass look the same on the PR page.
+
+One thing the fix turned up, recorded in `.github/CLAUDE_GITHUB_SETUP.md`: the credential is named
+in **three** places, not the two the setup doc used to name. The third is the `HAS_KEY` gate, and
+if it disagrees with the action's input, **nothing fails** — the job just skips forever. Change all
+three or none.
 
 ## The traps, in one line each
 
