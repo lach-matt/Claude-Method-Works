@@ -1,14 +1,15 @@
-# TARGET 1 — DOWNGRADED: warp travel is possible *in the Eulerian frame*
+# TARGET 1 — CLOSED, frame-independently
 
 Measurement record. Not a paper. Drivers: `octave/run_proof.m`, `octave/run_proof2.m`.
 
-> ## ⚠ QUALIFIED — read §Q before quoting this
+> ## Status
 >
-> The measurements below stand and were re-checked. But the verdict "warp travel is
-> possible" is an **Eulerian-frame** statement, and the literature holds that
-> frame-independence is the relevant test. Two challenges from
-> **An T. Le, *On the boundary cost of source-consistent warp shells*, arXiv:2605.25417 (2026)**
-> apply directly and this test cannot answer either. See §Q.
+> Le (arXiv:2605.25417) raised two challenges: Q1 that a single-frame Eulerian
+> contraction is not the test, and Q2 that a metric-first construction may have no
+> well-posed matter source. **Q1 is now answered by exact Hawking–Ellis certification
+> (§HE): the stress-energy is Type I everywhere with zero Type-IV cells, and all four
+> conditions have large positive slack in bulk and transition at two resolutions.**
+> Q2 is not answered and cannot be, by this apparatus. See §HE and §Q2.
 
 ## The claim being tested
 
@@ -77,7 +78,77 @@ is possible.
    chased.
 4. This verifies a published solution; it does not independently derive one.
 
-## Q. Two challenges this test cannot answer
+## HE. Frame-independent certification — the actual test
+
+`octave/run_he.m`. No observer sampling. At every grid point: take `T_ab` in the
+orthonormal frame, raise one index with η (`T^a_b`, i.e. negate row 0), take the
+eigenvalues. A complex pair means **Hawking–Ellis Type IV** — no rest frame exists and
+WEC/DEC fail automatically. All real with a timelike eigenvector means **Type I**,
+`diag(−ρ, p₁, p₂, p₃)`, and then the conditions are *exact algebra holding for every
+observer*:
+
+```
+NEC  rho + p_i >= 0        DEC  rho - |p_i| >= 0
+WEC  rho >= 0 and NEC      SEC  rho + sum p_i >= 0 and NEC
+```
+
+Minimum slack per region, `vWarp = 0.04`:
+
+| region | NEC | WEC | **DEC** | SEC | Type IV |
+|---|---|---|---|---|---|
+| bulk, dx=1.0 | +5.517e39 | +5.517e39 | **+3.842e39** | +5.517e39 | **0** |
+| bulk, dx=0.5 | +5.044e39 | +5.044e39 | **+4.021e39** | +5.044e39 | **0** |
+| transition, dx=1.0 | +4.426e39 | +4.404e39 | **+4.284e39** | +4.426e39 | **0** |
+| transition, dx=0.5 | +4.491e39 | +4.468e39 | **+4.340e39** | +4.491e39 | **0** |
+| vacuum, dx=1.0 | −2.153e36 | −2.153e36 | −3.909e36 | −2.153e36 | 0 |
+| vacuum, dx=0.5 | −2.552e35 | −2.578e35 | −4.212e35 | −2.552e35 | 0 |
+
+**Zero Type-IV cells anywhere**, at either resolution, at every shift value. A rest frame
+exists throughout, so the algebra above is the complete and exact statement of the
+conditions — there is nothing left for an observer scan to find.
+
+**DEC is the tightest condition**, which is exactly where Le reports single-frame analysis
+fails (15–28 % of DEC-violating points missed). Here it is positive with slack 4.0e39 in
+the bulk and 4.3e39 in the transition.
+
+**The vacuum negatives converge away** at third order:
+
+| | dx=1.0 | dx=0.5 | ratio |
+|---|---|---|---|
+| NEC | −2.153e36 | −2.552e35 | **8.44** |
+| DEC | −3.909e36 | −4.212e35 | **9.28** |
+
+A physical deficit converges to a finite negative; these fall ~8–9× for a 2× refinement.
+Numerical, established by convergence.
+
+**Verdict.** The Fuchs warp shell is Hawking–Ellis Type I and satisfies all four pointwise
+energy conditions frame-independently, in the matter and across the source–vacuum
+transition. Le's Q1 does not apply to this configuration — the Eulerian result was not
+misleading, and the exact test agrees with it.
+
+## Q2. What is still not answered
+
+**Metric-first, not source-first.** `metricGet_WarpShellComoving` builds the *metric* and
+reads `T` off the Einstein tensor. Le, following Barzegar, Buchert & Vigneron, prescribes
+the *matter* and solves the Einstein constraints, grading eight constructions against five
+criteria — of which **none passes**.
+
+What §HE establishes is that the resulting `T` is *admissible matter*: Type I, positive
+density, DEC-compliant. What it does not establish is that this matter is a **fluid with a
+sensible equation of state**. Those are different requirements and only the first is met
+here. Le's five criteria include "an explicit matter model", and this project has none.
+
+**On the disagreement with Le's 600-configuration scan.** Le finds no admissible shell;
+this finds one. The likeliest reconciliation is testable and is stated as a prediction
+rather than a claim: Le attributes the geometric DEC deficit to **source-profile
+regularity**, and Warp Factory smooths its profile very heavily (`smoothFactor = 4000`,
+applied two to four times). If the deficit scales with profile sharpness, then reducing the
+smoothing should make a transition-band DEC deficit appear. **Not yet run.** Note that Le's
+deficit is described as independent of bubble velocity — and the negatives measured here
+are also velocity-independent, which is either corroboration or coincidence and is not yet
+separated.
+
+## Q. Two challenges — superseded by §HE and §Q2
 
 **Q1. Single-frame.** Every number here contracts in the Eulerian frame. Le's companion
 work (arXiv:2602.18023) reports that single-frame Eulerian analysis **misses 15–28 % of
