@@ -114,3 +114,27 @@ attached that it did not have.
 3. **Ruling 8's three repairs are untouched by this** and remain the standing work.
 
 Nothing is repaired in any volume. Every figure is MEASURED by the instrument or RECORD-CARRIED with its quote.
+
+---
+
+## §4 and §5 ARE CORRECTED by FINDING-R4-18: the corridor was residue, and it is now measured
+
+M: *"still an open question … this is residue."* §5 named the ytterbium corridor and set it aside as *"a different
+object and never protactinium's."* **That was wrong on both counts.** It is residue of this question, and it is
+not a different object — it is the same sibling correlation, at thirteen pairs instead of one.
+
+**The corpus holds ytterbium's measured 4f removal energy and the record never used it**: `YbI.tsv`'s second
+limit, printed with the *neighbouring* element's name — `Tm II (4f13.6s2 2F*<7/2>) 71859.7` — which the store's
+own capture header flags. Run through the same object, ytterbium comes out **0.1114 Ha too shallow**, confirming
+the record's +0.09..+0.10 Ha class residual against measurement for the first time, and fixing its mechanism:
+**form S delivers 33 % of the sibling pair correlation.**
+
+**So §4's 6.95 eV is superseded.** It rested on the claim that form S already carries the sibling pair and no
+correction is owed. Form S carries it at 33 %. With the undelivered part transferred to protactinium's one ³H
+pair by pair energy, the figure is **7.04 eV**, t(5f) = 2.643, and the correction is an **interpolation between
+two measured endpoints** — six openings at zero siblings, ytterbium at thirteen — rather than an assumption
+about the functional.
+
+**What §1–§3 established stands**: the ion-relaxation subtraction, the sibling-count law measured a third way,
+and the finding that protactinium sits in the controlled regime where ytterbium does not. Those are what make the
+interpolation legitimate.

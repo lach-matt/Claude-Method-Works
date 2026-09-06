@@ -33,6 +33,7 @@
      4d  Y          262.4          212.1   1.237   530.351
      5d  La         572.9          421.3   1.360   1053.164
      5f  Pa        1631.5   (no measured interval)        open shells: 5f 1631.5, 6d 1490.9
+     4f  Yb        3019.4   (no measured interval)        open shells: 
 
   4. THE REMOVAL ENERGY, FIELD -> CORRECTED -> PREDICTED, AGAINST THE MEASURED LIMIT  (eV)
      op  el   D_HF   +corr    j-avg meas  diff   |  +SO(+term)  predicted   measured   diff
@@ -43,6 +44,7 @@
      4d  Y    5.323   6.065    6.178   -0.113  |  +0.049       6.114     6.217   -0.104
      5d  La   5.601   6.308    6.415   -0.107  |  +0.107       6.415     6.494   -0.079
      5f  Pa   4.913   5.798        --        --    |  +1.151       6.949      (no anchor)
+     4f  Yb   5.202   6.472        --        --    |  -0.594       5.878     8.909   -3.031
 
      WITHOUT the term correction (the one piece no anchored opening tests): removal 5.849 eV, t = 2.5437 (+3.8 %)
      protactinium in detail (Ha): D_HF +0.18054, DEc -0.03270, D_tot +0.21305; term neutral -0.05991 ion -0.01949 -> +0.04042; SO neutral -0.02900 ion -0.02712 -> +0.00188; predicted +0.25536 = 6.949 eV

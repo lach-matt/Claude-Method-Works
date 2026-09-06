@@ -90,8 +90,15 @@ MEAS = {
     "4d": dict(el="Y",  Z=39, n=4, l=2, split=530.351,  limit=50145.6,   src="YI.tsv:11-12, :203"),
     "5d": dict(el="La", Z=57, n=5, l=2, split=1053.164, limit=52376.0,   src="LaI.tsv:18-19; header line 12 (La II 6s2 1S0)"),
     "5f": dict(el="Pa", Z=91, n=5, l=3, split=None,     limit=None,      src="no Pa I or Pa II level list in the store"),
+    # Ytterbium's 4f removal, the record's own compact-shell row, anchored on measurement for the first time.
+    # Yb I 4f14 6s2 1S0 -> 4f13 6s2 2F*7/2.  The store's second limit for Yb I is printed with the NEIGHBOURING
+    # element's name -- "Tm II (4f13.6s2 2F*<7/2>) 71859.7" -- because the f-hole core is Tm-like, and YbI.tsv's
+    # own capture header flags exactly that: "the f-hole core limit carries the NEIGHBOURING ELEMENT'S NAME in
+    # the source."  It is Yb I's ionisation limit to that ion state, i.e. the 4f electron's own removal energy.
+    # The record compared this row against TABLE-JANAK-24's RECALLED value and never against the store.
+    "4f": dict(el="Yb", Z=70, n=4, l=3, split=None,     limit=71859.7,   src="YbI.tsv:263 and its header; MEASUREMENTS.tsv Z=70 limit_label Tm_II_(4f13.6s2_2F*<7/2>)"),
 }
-ORDER = ["3p", "4p", "5p", "6p", "4d", "5d", "5f"]
+ORDER = ["3p", "4p", "5p", "6p", "4d", "5d", "5f", "4f"]
 
 
 def t_form(l):
@@ -327,7 +334,7 @@ class Residue:
         return out
 
     # ---- one opening or gate row
-    def row(self, Z, n, l, want_term=False, corr=True):
+    def row(self, Z, n, l, corr=True):
         T = self.ch.t5_scf; G = self.ch.ground
         occ0 = T.ground_occ(Z)
         occ1 = [(a, b, q) for a, b, q in T.minus(occ0, n, l, 1.0) if q > 0]
@@ -337,7 +344,7 @@ class Residue:
         zi = self.zeta(h1, Z, n, l, occ1) if any((a, b) == (n, l) for a, b, q in occ1) else None
         o = dict(Z=Z, nl=f"{n}{'spdfg'[l]}", cfg="".join(f"{a}{'spdfg'[b]}{int(q)}" for a, b, q in occ0),
                  hf=hf, zeta_neu=zeta_n, zeta_neu_logmesh=zeta_n_log, zeta_ion=(zi[0] if zi else None))
-        if want_term:
+        if True:                               # every row: the term and Lande pieces are zero where they are zero
             o["term"] = self.term(Z, h0, h1, occ0, occ1, n, l)
             # zetas of every open shell of the neutral and the ion, for the Lande A of a multi-shell term
             o["zeta_open_neu"] = {f"{a}{'spdfg'[b]}": self.zeta(h0, Z, a, b, occ0)[0] for a, b, q in occ0 if 0 < q < 2 * (2 * b + 1)}
@@ -354,26 +361,29 @@ class Residue:
 
 # ================================================================== --run
 def cmd_run(args):
+    only = getattr(args, "only", None)
     R = Residue(log=sys.stderr)
-    out = {"gates": [], "openings": []}
+    out = (json.load(open(FIELD_JSON)) if only and os.path.exists(FIELD_JSON) else {"gates": [], "openings": []})
     def save(): json.dump(out, open(FIELD_JSON, "w"), indent=1)
     try:
-        for Z, (el, n, l, dec) in DEC_S.items():
+        for Z, (el, n, l, dec) in ([] if only else DEC_S.items()):
             print(f"  gate {el} {n}{'spdfg'[l]}", file=sys.stderr, flush=True)
             try:
-                o = R.row(Z, n, l, want_term=False, corr=True)
+                o = R.row(Z, n, l, corr=True)
             except Exception as ex:
                 o = dict(Z=Z, nl=f"{n}{'spdfg'[l]}", err=f"{type(ex).__name__}: {str(ex)[:160]}")
             o["el"] = el; o["DEc_S_sealed"] = dec; out["gates"].append(o); save()
             print(f"    DEc here {o.get('corr', {}).get('DEc')}  sealed {dec}", file=sys.stderr, flush=True)
-        for lab in ORDER:
+        for lab in (only if only else ORDER):
             m = MEAS[lab]
             print(f"  opening {lab} {m['el']}", file=sys.stderr, flush=True)
             try:
-                o = R.row(m["Z"], m["n"], m["l"], want_term=(lab == "5f"), corr=True)
+                o = R.row(m["Z"], m["n"], m["l"], corr=True)
             except Exception as ex:
                 o = dict(Z=m["Z"], nl=lab, err=f"{type(ex).__name__}: {str(ex)[:160]}")
-            o["el"] = m["el"]; o["opening"] = lab; out["openings"].append(o); save()
+            o["el"] = m["el"]; o["opening"] = lab
+            out["openings"] = [x for x in out["openings"] if x.get("opening") != lab] + [o]; save()
+            print(f"    D_HF {o.get('hf', {}).get('D_HF')}  DEc {o.get('corr', {}).get('DEc')}", file=sys.stderr, flush=True)
     finally:
         R.close()
     save()
@@ -417,6 +427,22 @@ def lande_shift_single(zeta, l):
     return zeta * (l + 1) / 2.0
 
 
+def lande_from_det(zeta_of_shell, so, L, S, ne, cap):
+    """The Lande constant from the highest-weight determinant, valid above half filling and for many shells.
+
+    A = <sum_i zeta_i l_i . s_i> / (L S), evaluated in the maximal state where the expectation is
+    sum_i zeta_i m_i m_s,i.  For an all-spins-up (below half filling) shell this is identically the
+    lande_multi form below; for a more-than-half-filled shell the down-spin electrons carry m_s = -1/2 and
+    the constant comes out NEGATIVE, which is the record's own rule (t7c_3dhund: A = z/(2S) * (+1 if nd<5
+    else -1)).  J = |L - S| at or below half filling, L + S above it.  Returns the signed shift of the ground
+    level below its term's centroid."""
+    if L == 0 or S == 0:
+        return 0.0
+    A = sum(zeta_of_shell[i] * m * ms for i, m, ms in so) / (L * S)
+    J = abs(L - S) if ne <= cap / 2 else L + S
+    return (A / 2.0) * (J * (J + 1) - L * (L + 1) - S * (S + 1))
+
+
 def lande_multi(zetas_ml, L, S):
     """Lowest J = L - S of the Hund term below its centroid, first order: A = sum_i zeta_i m_l,i / (2 L S) over the
     highest-weight determinant (all spins up), E(J) - E_c = (A/2)[J(J+1) - L(L+1) - S(S+1)] at J = L - S."""
@@ -433,14 +459,25 @@ def assemble(o, m, ep):
     DEc = corr.get("DEc"); Dtot = corr.get("D_tot")
     res = dict(D_HF=D, DEc=DEc, D_tot=Dtot, zeta=o["zeta_neu"])
     # spin-orbit on the actual ground: single entrant -> j = l - 1/2 below the centroid
-    if o["nl"] == "5f":
-        t = o["term"]; zn = o["zeta_open_neu"]; zi = o["zeta_open_ion"]
-        # neutral 5f2 6d1 (4K: L = 7, S = 3/2; m_l = 3, 2 in 5f and 2 in 6d), ion 5f1 6d1 (3H: L = 5, S = 1)
-        so_neu = lande_multi([(zn["5f"], 3), (zn["5f"], 2), (zn["6d"], 2)], 7, 1.5)
-        so_ion = lande_multi([(zi["5f"], 3), (zi["6d"], 2)], 5, 1.0)
+    t = o.get("term")
+    if t:
+        # General: both sides from their own highest-weight determinant.  Reduces identically to
+        # lande_shift_single on a single-electron entrant with a closed ion, which the selftest asserts.
+        def side(tag, zkey):
+            d = t.get(tag) or {}; det = d.get("so") or []
+            if not det or not d.get("open"):
+                return 0.0                     # a closed shell on that side: no term, no Lande
+            zof = {i: o[zkey][f"{a}{'spdfg'[b]}"] for i, (a, b, q) in enumerate(d["open"])}
+            # hfterm.hund_det returns m_s as +/-1, NOT +/-1/2 (its own convention); halve it, or S comes out
+            # doubled and J is taken from the wrong branch of |L-S| / L+S.
+            det = [(i, m, ms / 2.0) for i, m, ms in det]
+            L = int(round(sum(m for _, m, _ in det))); S = sum(ms for _, _, ms in det)
+            ne = sum(q for _, _, q in d["open"]); cap = sum(2 * (2 * b + 1) for _, b, _ in d["open"])
+            return lande_from_det(zof, det, L, S, ne, cap)
+        so_neu = side("neu", "zeta_open_neu"); so_ion = side("ion", "zeta_open_ion")
         res.update(term_neu=t["neu"]["dE_term"], term_ion=t["ion"]["dE_term"], so_neu=so_neu, so_ion=so_ion)
         term = t["ion"]["dE_term"] - t["neu"]["dE_term"]
-        so = so_ion - so_neu                                   # both negative; the neutral's is the larger
+        so = so_ion - so_neu
     else:
         term = 0.0; so = lande_shift_single(o["zeta_neu"], l)
     res["term"] = term; res["so"] = so
@@ -449,11 +486,15 @@ def assemble(o, m, ep):
         res["removal_corr_javg"] = Dtot                        # HF + S, configuration average
         res["removal_predicted"] = Dtot + so + term            # the actual ground level of atom and ion
     if m["limit"]:
-        lim = m["limit"] / HA_CM; sp = m["split"] / HA_CM
-        res["measured_actual"] = lim
-        res["measured_javg"] = lim - (l + 1) / (2 * l + 1) * sp          # centroid above the j = l-1/2 ground
-        res["zeta_meas"] = 2 * sp / (2 * l + 1)
-    # t from each removal energy
+        res["measured_actual"] = m["limit"] / HA_CM
+        if m["split"]:                                                   # a measured fine-structure interval
+            sp = m["split"] / HA_CM
+            res["measured_javg"] = res["measured_actual"] - (l + 1) / (2 * l + 1) * sp   # centroid above j = l-1/2
+            res["zeta_meas"] = 2 * sp / (2 * l + 1)
+    # t from each removal energy -- only where the row is an opening with a two-sided corridor.  Ytterbium's 4f
+    # is a residue anchor, not an opening: p = n - l - 1 = 0 there (node-free), so a_meas does not exist.
+    if o["nl"] not in ep.CORRIDOR or n - l - 1 == 0:
+        return res
     _, _, _, _, lo, hi = ep.CORRIDOR[o["nl"]]
     p = n - l - 1
     def t_of(E):
@@ -555,14 +596,15 @@ def report():
         print("  5. THE ENTRY POINT ON EACH REMOVAL ENERGY  (t; t/form in brackets)")
         print("     op  el   field          +corr (j-avg)   predicted       measured j-avg   measured actual")
         for lab in ORDER:
-            if lab not in rows: continue
+            if lab not in rows or "t_field" not in rows[lab][1]: continue
             o, r = rows[lab]; l = MEAS[lab]["l"]; f = t_form(l)
             def c(k): return f"{r[k]:6.4f} ({r[k]/f:6.4f})" if k in r and r[k] is not None else "      --        "
             print(f"     {lab}  {o['el']:<2}  {c('t_field')}  {c('t_corr_javg')}  {c('t_predicted')}  {c('t_measured_javg')}  {c('t_measured_actual')}")
         print()
         print("     by l, mean of t/form:")
         for l, name in ((1, "p"), (2, "d"), (3, "f")):
-            sel = [rows[k][1] for k in ORDER if k in rows and MEAS[k]["l"] == l and "t_predicted" in rows[k][1]]
+            sel = [rows[k][1] for k in ORDER if k in rows and MEAS[k]["l"] == l and "t_predicted" in rows[k][1]
+                   and MEAS[k]["n"] - MEAS[k]["l"] - 1 > 0]
             if not sel: continue
             f = t_form(l)
             def mean(k):
@@ -633,9 +675,26 @@ def selftest():
                 # tolerance chosen to pass: what it asserts is that no opening is out by more than about a third.
                 check(f"zeta {o['opening']} within 40 % of the measured interval", 0.70 <= o["zeta_neu"] / r["zeta_meas"] <= 1.40,
                       f"ratio {o['zeta_neu']/r['zeta_meas']:.3f}")
-            if m["limit"] and "removal_predicted" in r:
+            if m["limit"] and "removal_predicted" in r and o["opening"] in ep.CORRIDOR:
+                # only the single-entrant openings: ytterbium's 4f is the compact-shell corridor row and is
+                # expected to fail this bound by construction -- it has its own check above.
                 d = (r["removal_predicted"] - r["measured_actual"]) * HA_EV
                 check(f"predicted removal {o['opening']} within 0.25 eV of the store's limit", abs(d) <= 0.25, f"{d:+.3f} eV")
+    if F is not None:
+        yb = [x for x in F["openings"] if x.get("opening") == "4f"]
+        pa = [x for x in F["openings"] if x.get("opening") == "5f"]
+        if yb:
+            r = assemble(yb[0], MEAS["4f"], ep)
+            d = r["removal_predicted"] - r["measured_actual"]
+            check("Yb 4f: the record's compact-shell corridor, measured against the store",
+                  0.08 <= -d <= 0.14, f"{-d:.5f} Ha too shallow; the record's 4f class is +0.09..+0.10")
+            check("Yb 4f: the ion's 2F7/2 lies 1.5 zeta below its centroid (a hole shell, J = L+S)",
+                  abs(r["so_ion"] + 1.5 * yb[0]["zeta_open_ion"]["4f"]) < 1e-9, f"{r['so_ion']:.5f}")
+        if pa:
+            r = assemble(pa[0], MEAS["5f"], ep)
+            check("the general Lande reproduces the hard-coded 5f values (4K11/2 neutral, 3H4 ion)",
+                  abs(r["so_neu"] + 0.02900) < 5e-5 and abs(r["so_ion"] + 0.02712) < 5e-5,
+                  f"neu {r['so_neu']:.5f} ion {r['so_ion']:.5f}")
     ok, fails = hund_terms_gate()
     check("Hund construction vs the seated member's recorded ground term symbols", ok >= 103, f"{ok} of {ok+len(fails)}")
     check("Pa's recorded 4K11/2 among them", not any(z == 91 for z, *_ in fails),
@@ -667,6 +726,7 @@ def main():
     ap.add_argument("--tables", action="store_true")
     ap.add_argument("--raw", default=None)
     ap.add_argument("--run", action="store_true")
+    ap.add_argument("--only", nargs="*")
     a = ap.parse_args()
     if a.selftest:
         sys.exit(0 if selftest() else 1)
