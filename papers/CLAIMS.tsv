@@ -405,3 +405,15 @@ C403	delivered gain from that widening	1.11	x	DERIVED	C381 / C382	fn:eta_ratio_4
 C404	target length for a 265 MeV/c window at liquid density	192	cm	DERIVED	C397 / DT density at 1 LHD	fn:len_265_phi1
 C405	target length for the same window at the bracketed density	23	cm	DERIVED	C397 / DT density at C169	fn:len_265_phi85
 C406	MuFusE target tritium activity, modelled	23.1	Ci	DERIVED	4 mg 50/50 fill; they state about 24	fn:mufuse_curies
+C407	beam envelope at the capture solenoid	7.50	cm	DERIVED	twice the gyroradius at the p_T cap, 20 T; the source states 7.5	fn:envelope_capture
+C408	beam envelope after the adiabatic taper	30.0	cm	DERIVED	same at 1.25 T; the source states an absorber growing to 30	fn:envelope_taper
+C409	beam envelope at the sec.5.9 aperture	13.0	cm	DERIVED	same at 2.60 T.m, 20 T; sec.5.9 specifies 13	fn:envelope_wide
+C410	NF/MC channel field after the taper	1.25	T	SOURCED	Strait et al. Fig. 2	none
+C411	tritium, today's aperture, 265 MeV/c window	3.59	kg	DERIVED	C397 x pi x C407 squared x 3/5	fn:trit_nf_265
+C412	tritium, today's aperture, 400 MeV/c window	6.93	kg	DERIVED	C398 x pi x C407 squared x 3/5	fn:trit_nf_400
+C413	tritium, wider bore, 265 MeV/c window	10.79	kg	DERIVED	C397 x pi x C409 squared x 3/5	fn:trit_wide_265
+C414	tritium, wider bore, 400 MeV/c window	20.82	kg	DERIVED	C398 x pi x C409 squared x 3/5	fn:trit_wide_400
+C415	inventory cost of the wider bore	3.01	x	DERIVED	C413 / C411	fn:bore_trit_cost
+C416	tritium per unit balance, wider bore at measured production	10.4	kg	DERIVED	C413 / C390	fn:kg_per_gain_bore
+C417	tritium per unit balance, today's aperture at the optimised target	1.73	kg	DERIVED	C411 / C391	fn:kg_per_gain_target
+C418	the production target's advantage in tritium per unit balance	6.0	x	DERIVED	C416 / C417	fn:lever_ratio

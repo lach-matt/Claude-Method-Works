@@ -1020,6 +1020,50 @@ def min_ionising_h2():
     return min(collector.bethe_dedx(T) for T in [x * 0.5 for x in range(2, 4000)])
 
 
+def envelope_capture():
+    return collector.beam_envelope_cm(1.50, 20.0)
+
+
+def envelope_taper():
+    return collector.beam_envelope_cm(1.50, 1.25)
+
+
+def envelope_wide():
+    return collector.beam_envelope_cm(2.60, 20.0)
+
+
+def trit_nf_265():
+    return collector.tritium_inventory_derived_kg(265.0, 1.50)
+
+
+def trit_nf_400():
+    return collector.tritium_inventory_derived_kg(400.0, 1.50)
+
+
+def trit_wide_265():
+    return collector.tritium_inventory_derived_kg(265.0, 2.60)
+
+
+def trit_wide_400():
+    return collector.tritium_inventory_derived_kg(400.0, 2.60)
+
+
+def bore_trit_cost():
+    return trit_wide_265() / trit_nf_265()
+
+
+def kg_per_gain_bore():
+    return trit_wide_265() / qb_deliv_both_90_265()
+
+
+def kg_per_gain_target():
+    return trit_nf_265() / qb_deliv_kelly_265()
+
+
+def lever_ratio():
+    return kg_per_gain_bore() / kg_per_gain_target()
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 

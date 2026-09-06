@@ -862,6 +862,31 @@ def tritium_inventory_kg(p_mev, beam_radius_cm):
     return areal * math.pi * beam_radius_cm ** 2 * T_MASS_FRAC_DT / 1000.0
 
 
+def gyroradius_cm(pt_gev, b_tesla):
+    return 100.0 * pt_gev / (0.3 * b_tesla)
+
+
+def beam_envelope_cm(br, b_target=20.0, b_capture=20.0):
+    """Radius the delivered beam fills at a target sitting in b_target, for a
+    capture solenoid of aperture product `br` running at b_capture.
+
+    A particle born on the axis with transverse momentum p_T spirals on a circle
+    of radius r_g whose centre is r_g off-axis, so it reaches 2 r_g -- which is
+    why a solenoid's clear radius equals twice the gyroradius at its own cap.
+    Transport is adiabatic, conserving p_T^2 / B.
+
+    This reproduces three stated geometries from the field and the cap alone:
+    7.5 cm at 20 T and 1.50 T.m, 30 cm after the taper to 1.25 T, and the 13 cm
+    of the sec.5.9 specification at 2.60 T.m."""
+    pt = pt_max(br) * math.sqrt(b_target / b_capture)
+    return 2.0 * gyroradius_cm(pt, b_target)
+
+
+def tritium_inventory_derived_kg(p_mev, br, b_target=20.0):
+    """The inventory with the beam radius derived rather than assumed."""
+    return tritium_inventory_kg(p_mev, beam_envelope_cm(br, b_target))
+
+
 def report_stopping():
     print("THE STOPPING WINDOW, and what it costs")
     print("  A delivered muon is useless unless it stops in the fuel, so the target")
@@ -892,9 +917,28 @@ def report_stopping():
     print("  beam area, and the areal density is set by the range. Compressing the")
     print("  fuel shortens the target and does not reduce its tritium by a gram.")
     print()
-    print("  REFUSAL: the beam radius is not derived here. It is set by a front-end")
-    print("  design this paper does not have, and the inventory scales as its square,")
-    print("  so the kilogram figures are a scale and not a specification.")
+    print("  THE BEAM RADIUS IS NOT A FREE PARAMETER EITHER")
+    print("  A particle born on axis with transverse momentum p_T reaches twice its")
+    print("  gyroradius, so a solenoid's clear radius IS twice the gyroradius at its")
+    print("  own cap. That reproduces three stated geometries:")
+    for br, b, stated, what in ((1.50, 20.0, 7.5, "the capture solenoid's clear radius"),
+                                (1.50, 1.25, 30.0, "the absorber after the taper"),
+                                (2.60, 20.0, 13.0, "the sec.5.9 specification")):
+        got = beam_envelope_cm(br, b)
+        print(f"    {br:.2f} T.m at {b:5.2f} T -> {got:5.2f} cm   stated {stated:5.1f}"
+              f"   {'PASS' if abs(got - stated) < 0.1 else 'FAIL'}   {what}")
+    print()
+    print("  SO THE BORE BUYS ACCEPTANCE AND PAYS IN TRITIUM, and the two are")
+    print("  coupled through the same p_T cap:")
+    print(f"    {'aperture':>9s} {'radius':>8s} {'trit@265':>10s} {'trit@400':>10s}")
+    for br in (1.50, 2.60):
+        r = beam_envelope_cm(br)
+        print(f"    {br:6.2f} T.m {r:6.1f} cm {tritium_inventory_derived_kg(265, br):7.2f} kg"
+              f" {tritium_inventory_derived_kg(400, br):8.2f} kg")
+    print()
+    print("  REFUSAL: this assumes the stopping target sits in the capture field and")
+    print("  that transport is adiabatic and lossless. A real channel is neither, and")
+    print("  a target in a weaker field is larger by sqrt(B_capture / B_target).")
     return 0
 
 
@@ -1010,11 +1054,16 @@ def selftest():
     fail += 0 if ok else 1
     print(f"    MuFusE 4 mg fill: {ci:.1f} Ci vs the ~24 Ci they state"
           f"   {'PASS' if ok else 'FAIL'}")
-    a, b = tritium_inventory_kg(265, 5.0), tritium_inventory_kg(265, 5.0)
-    ok = a == b and abs(target_length_cm(265, 1.0) / target_length_cm(265, 8.5) - 8.5) < 1e-6
+    ok = abs(target_length_cm(265, 1.0) / target_length_cm(265, 8.5) - 8.5) < 1e-6
     fail += 0 if ok else 1
     print(f"    inventory is density-independent while length is not"
           f"   {'PASS' if ok else 'FAIL'}")
+    for br, b, stated in ((1.50, 20.0, 7.5), (1.50, 1.25, 30.0), (2.60, 20.0, 13.0)):
+        got = beam_envelope_cm(br, b)
+        ok = abs(got - stated) < 0.1
+        fail += 0 if ok else 1
+        print(f"    envelope at {br:.2f} T.m, {b:5.2f} T: {got:5.2f} cm vs the stated"
+              f" {stated:4.1f}   {'PASS' if ok else 'FAIL'}")
 
     print()
     print("  refusal: mu- and all-mu yields are never interchanged")

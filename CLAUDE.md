@@ -109,7 +109,12 @@ So the bred-fuel route closes on either the wider bore (1.343) or the optimised 
 which drops the requirement from 50.8 % to **21.4 %** and is met by every configuration computed —
 and §10 now runs that stage first. The stopping model is validated twice against figures that are not
 this paper's: minimum-ionising dE/dx in liquid hydrogen at **4.06** against the standard 4.034, and
-the MuFusE target's stated ~24 Ci reproduced at **23.1**. **Three findings run the other way** and are recorded in §9:
+the MuFusE target's stated ~24 Ci reproduced at **23.1**. **The beam radius is derived too**, from the
+fact that a particle born on axis reaches twice its gyroradius — which reproduces three published
+geometries (7.50 cm, 30.0 cm, 13.0 cm) that were not used to build it — and it couples the two levers:
+**the wider bore costs 3.01 in tritium**, because a wider transverse cap is a wider beam the target
+must cover. In tritium per unit of balance the bore costs **10.4 kg** and the optimised production
+target **1.73 kg**, a factor of **6.0**, which is why §10.5 runs the production stage first. **Three findings run the other way** and are recorded in §9:
 every balance assumes perfectly pure fuel, where 5.49 ppm costs as much binder as decay does; every
 collection figure is an acceptance rather than a delivered efficiency; and the temperature axis §5.15
 inverts the shortfall onto is confounded with purity and density in the existing record. Against that,

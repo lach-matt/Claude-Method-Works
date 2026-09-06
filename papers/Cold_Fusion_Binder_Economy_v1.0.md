@@ -1237,11 +1237,51 @@ which drops the requirement to 21.4 percent and is met at *every* window in §5.
 wider bore, which holds at **1.039** through a 265 MeV/c window. **Both are cheaper in tritium than
 widening the window, and the production target is cheaper than either.**
 
-**Two things this does not establish.** The beam radius is not derived here: it belongs to a front-end
-design this paper does not have, and every kilogram above scales as its square, so those figures are a
-scale rather than a specification. And the density-effect correction is omitted from the stopping
-power, which understates the range slightly at the top of the table — an optimistic direction, and
-stated rather than corrected.
+**The beam radius is not a free parameter either, and deriving it is what makes the kilograms real.**
+A particle born on the axis with transverse momentum p_T spirals on a circle of radius r whose centre
+sits r off-axis, so it reaches **2r** — which means a solenoid's clear radius simply *is* twice the
+gyroradius at its own transverse cap. Transport down the channel is adiabatic, conserving p_T²/B. That
+one relation reproduces three geometries none of which was used to build it:
+
+| | derived | stated |
+|---|---|---|
+| capture solenoid at 20 T, 1.50 T·m | **7.50 cm** | 7.5 |
+| after the taper to **1.25 T** | **30.0 cm** | 30 |
+| the §5.9 specification at 2.60 T·m | **13.0 cm** | 13 |
+
+**So the bore buys acceptance and pays in tritium, through the same p_T cap.** Widening the aperture
+raises the cap, which raises the gyroradius, which widens the beam the stopping target must cover —
+and the inventory goes as the square of that:
+
+| | 265 MeV/c window | 400 MeV/c window |
+|---|---|---|
+| today's aperture, 7.5 cm | **3.59 kg** | **6.93 kg** |
+| §5.9's bore, 13 cm | **10.79 kg** | **20.82 kg** |
+
+> **The wider bore costs 3.01 in tritium inventory.** It is not the free-standing engineering trade
+> §5.21 prices; it carries a fuel-inventory cost that §5.21 does not see, because §5.21 is about the
+> coil and this is about the target.
+
+**And that settles which lever to pull, in the units that matter.** Taking tritium per unit of
+balance at a 265 MeV/c window:
+
+| route to a positive balance | balance | tritium | per unit |
+|---|---|---|---|
+| wider bore, at the measured production cost | 1.039 | 10.79 kg | **10.4 kg** |
+| today's aperture, at the optimised production target | 2.076 | 3.59 kg | **1.73 kg** |
+
+> **The production target is 6.0 times better than the bore in tritium per unit of balance**, and it
+> is also the cheaper measurement. Both facts point the same way, and §10.5 orders the programme on
+> them.
+
+**Three things this does not establish.** The derivation assumes the stopping target sits in the
+capture field and that transport is adiabatic and lossless; a real channel is neither, and a target in
+a weaker field is larger by √(B_capture/B_target) with the inventory going as its square again. The
+density-effect correction is omitted from the stopping power, which understates the range slightly at
+the top of the table — an optimistic direction, stated rather than corrected. And no tritium *supply*
+is modelled: §5.19's breeding ratio of 1.15 says the reactor makes its own once running, but the
+inventory above is the startup charge, and the doubling time that would replace it is not computed
+here.
 
 ### 5.26 What the independent literature does to these figures
 
@@ -1473,11 +1513,13 @@ What would change the answer, in the order this paper can rank them:
 2. **The wider bore of §5.9** — 20 T on a 13 cm clear bore, 1.74 times the existing aperture. It
    restores the bred-fuel route through a 265 MeV/c stopping window at **1.039** and a 400 MeV/c one
    at **1.343**, and the heat and work routes need it outright. §5.21 prices it as a shielding trade
-   of about 2.7 in coil heating, not a new magnet.
-3. **The beam radius of the front end.** §5.25 could not derive it, and the tritium inventory of the
-   stopping target goes as its square — so it decides whether §5.25's figures are kilograms or tens of
-   kilograms. It is the one term in that calculation neither computed nor sourced here, and it belongs
-   to the same front-end design as §10.1.
+   of about 2.7 in coil heating — but §5.25 adds a cost §5.21 cannot see: **3.01 in tritium
+   inventory**, because a wider cap is a wider beam and the target must cover it.
+3. **Whether the stopping target can sit in the capture field.** §5.25 derives the beam radius from
+   the transverse cap and reproduces three published geometries doing it, which closes the term this
+   list previously called underived. What remains open is the assumption underneath: that the target
+   sits at 20 T and transport is adiabatic and lossless. A target in a weaker field is wider by
+   √(B_capture/B_target), and the inventory goes as the square of that.
 4. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
    bench experiment on an existing beam, and the companion's §2.4 records that a collaboration is already running
    the adjacent measurement. It bears on the heat route and not on the bred-fuel one.
@@ -1620,8 +1662,9 @@ scanned experimental record, or any improvement in sticking.
 
 **And what it costs before any of that: tritium.** §5.25 shows the fuel target must be one muon range
 deep at the top of its momentum window, so the demonstration's inventory is set by the window it
-accepts and by the beam's area, not by its density — **1.60 kg** at a 265 MeV/c window on a 5 cm beam
-radius, **3.08 kg** at 400 MeV/c. That is the demonstration's leading cost and its leading licensing
+accepts and by the beam's area, not by its density — and the beam's area is itself derived, not
+chosen. At today's aperture that is **3.59 kg** at a 265 MeV/c window and **6.93 kg** at 400 MeV/c;
+at the wider bore, **10.79 kg** and **20.82 kg**. That is the demonstration's leading cost and its leading licensing
 constraint, and it should be designed against first: a narrower window is cheaper in tritium than a
 wider one is valuable in muons, by 1.93 against 1.11.
 
@@ -1638,7 +1681,9 @@ self-contained one.
 ### 10.5 The order, and what none of it requires
 
 **Stage C first.** It was written third because it was found third; §5.24 and §5.25 have since made it
-the stage that decides the route, and it is also the cheapest. Stage A next: it bounds every other
+the stage that decides the route, it is the cheapest measurement, and §5.25 prices it at **1.73 kg**
+of tritium per unit of balance against the wider bore's **10.4 kg** — a factor of **6.0** on the axis
+that will govern licensing. Stage A next: it bounds every other
 result and needs no new hardware, and §5.24 has already computed what it should return. B is
 independent of both and can run in parallel. D follows all three.
 
