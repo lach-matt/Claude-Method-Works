@@ -81,7 +81,22 @@ MU2E_STOPPING_FRAC = 0.40    # of muons exiting the beamline
 COMET_CAPTURED_LO = 0.061    # (pi- + mu-) per 8 GeV proton at 3 m, 5 T capture
 COMET_CAPTURED_HI = 0.144
 
-PION_THRESHOLD_GEV = 0.300   # kinematic floor, perfect collection
+PION_THRESHOLD_GEV = 0.300   # kinematic floor, perfect collection -- a THRESHOLD
+                             # bound, not a production figure. See PROD_* below.
+
+# ---- what a real target actually produces ----------------------------------
+# Two published figures, differing by ~6x, and the difference is exactly the
+# distinction the collection argument turns on: captured-at-all vs accepted
+# into a selective channel. muCF needs the first. Both are carried.
+PROD_CAPTURED_PER_P = 0.34   # mu- per 8 GeV proton, Hg jet + 20 T capture,
+PROD_CAPTURED_EP = 8.0       #   muon-collider/neutrino-factory front end MAXIMUM
+PROD_ACCEPTED_PCT = (5.0, 10.0)  # charge-averaged accepted pi+mu per 10 GeV proton,
+PROD_ACCEPTED_EP = 10.0          #   %, through a NF cooling channel (MARS/ICOOL)
+LAMBDA_0 = 4.665e5
+LAMBDA_C = 2.6e8
+OMEGA_MEASURED = 0.0045
+OMEGA_BOTH_LEVERS = 0.00234
+F_WORK = 0.501
 PAPER_ASSUMED_GEV = 5.0      # what v1.1 sec.4 costs the binder at
 WORK_BREAKEVEN_GEV = 1.96    # v1.1 sec.5.2
 HEAT_BREAKEVEN_GEV = 3.90    # v1.1 sec.5.1, asymptotic convention
@@ -196,6 +211,77 @@ def report_budget(target_gev):
     print("  measurement that converts this lump into a budget.")
 
 
+def cycles(ws, phi):
+    return phi * LAMBDA_C / (LAMBDA_0 + ws * phi * LAMBDA_C)
+
+
+def report_floor():
+    q = Q_FUS_MEV / 1000.0
+    cap = PROD_CAPTURED_EP / PROD_CAPTURED_PER_P
+    acc_lo = PROD_ACCEPTED_EP / (PROD_ACCEPTED_PCT[1] / 100.0)
+    acc_hi = PROD_ACCEPTED_EP / (PROD_ACCEPTED_PCT[0] / 100.0)
+    print("THE PRODUCTION FLOOR -- what a target costs before any collection loss")
+    print()
+    print(f"  threshold bound (v1.1 sec.4)          {PION_THRESHOLD_GEV:>8.2f} GeV/mu-   [BOUND, not a target]")
+    print(f"  captured, 20 T + Hg jet, 8 GeV        {cap:>8.1f} GeV/mu-   [the muCF-relevant figure]")
+    print(f"  accepted through an NF cooling channel {acc_lo:>7.0f} - {acc_hi:.0f} GeV/mu-   [selective; muCF needs none of it]")
+    print()
+    print(f"  The threshold bound understates the captured figure by {cap / PION_THRESHOLD_GEV:.0f}x.")
+    print("  Pion yield is ~proportional to beam energy (optimum ~7 GeV, flat over")
+    print("  4-11 GeV), so GeV-per-muon is a SCALING LAW, not an operating point:")
+    print(f"  ~{PROD_CAPTURED_PER_P / PROD_CAPTURED_EP:.4f} mu-/GeV however the driver is built.")
+    print()
+    print("  CYCLES REQUIRED against the captured figure:")
+    for lab, f in (("heat-breakeven", 1.0), ("work-breakeven", F_WORK)):
+        print(f"    {lab:<16} N > {cap / (q * f):8.0f} cycles per muon")
+    print()
+    print("  CYCLES AVAILABLE -- N is capped by sticking, asymptote 1/omega_s:")
+    for ws, lab in ((OMEGA_MEASURED, "measured 0.45%"),
+                    (OMEGA_BOTH_LEVERS, "both levers 0.234%")):
+        print(f"    {lab:<20} N(phi=3) = {cycles(ws, 3.0):6.1f}   asymptote = {1 / ws:6.1f}")
+    print()
+    print("  THE SHORTFALL, best case in every direction:")
+    for ws, lab in ((OMEGA_MEASURED, "measured"), (OMEGA_BOTH_LEVERS, "both levers")):
+        for f, fl in ((1.0, "heat"), (F_WORK, "work")):
+            need = cap / (q * f)
+            print(f"    {lab:<12} {fl:<5}: need {need:7.0f}, ceiling {1 / ws:6.1f}"
+                  f"  -> Q = {(1 / ws) * q * f / cap:.3f}, SHORT by {need * ws:5.1f}x")
+    print()
+    print("  Sticking that WOULD be required, at the asymptotic ceiling:")
+    for f, fl in ((1.0, "heat"), (F_WORK, "work")):
+        print(f"    {fl:<5}: omega_s < {100 * q * f / cap:.4f}%  vs 0.234% projected"
+              " (two undemonstrated levers) and 0.45% measured")
+    print()
+    print("  CROSS-CHECK against the historical measurement: Los Alamos reported")
+    print("  ~150 cycles and Q ~ 0.53 costed at 5 GeV. Recosted at the captured")
+    print(f"  production figure, 150 cycles gives Q = {150 * q / cap:.3f}, and 0.53 x 5/{cap:.1f}"
+          f" = {0.53 * 5 / cap:.3f}.")
+    print("  The two agree, which is what makes the floor figure load-bearing.")
+    print()
+    print("  SENSITIVITY -- and it is decisive. The 23.5 GeV figure is CAPTURED")
+    print("  mu- per proton, not TOTAL pi- produced. With perfect collection the")
+    print("  cost falls to the production figure alone, and the verdict flips")
+    print("  across a number this instrument cannot source:")
+    print()
+    print(f"    {'pi-/p @8GeV':>12} {'GeV/pi-':>9} {'FOM heat':>9} {'FOM work':>9}  verdict")
+    for Y in (0.5, 1.0, 1.5, 2.0, 3.0):
+        eb = 8000.0 / Y
+        fh, fw2 = Q_FUS_MEV / (OMEGA_BOTH_LEVERS * eb), Q_FUS_MEV * F_WORK / (OMEGA_BOTH_LEVERS * eb)
+        v = "both PASS" if fw2 > 1 else ("heat PASS, work short" if fh > 1 else "both SHORT")
+        print(f"    {Y:>12.1f} {eb / 1000:>9.2f} {fh:>9.2f} {fw2:>9.2f}  {v}")
+    print()
+    print("  So this is a BRACKET, not a closure. What decides it is the total")
+    print("  pi- yield per proton at 4-11 GeV on a thick high-Z target, and how")
+    print("  much of the gap between production and capture is recoverable.")
+    print("  NO VERDICT IS OFFERED until that number is sourced.")
+    print()
+    print("  REFUSAL: this is a bound on the ENERGY BALANCE, not on the reaction.")
+    print("  The reaction is demonstrated, the definition stands, the procedure")
+    print("  stands. What this closes is net power on published production yields")
+    print("  and published sticking -- and it names the two numbers that would")
+    print("  reopen it.")
+
+
 def selftest():
     fail = 0
     print("collector.py --selftest   fixtures: published figures, cited in the paper")
@@ -252,6 +338,8 @@ def main():
     ap = argparse.ArgumentParser(description="the muon collection budget, stage by stage")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--machines", action="store_true", help="what machines deliver")
+    ap.add_argument("--floor", action="store_true",
+                    help="the production floor and the resulting energy shortfall")
     ap.add_argument("--target", type=float, default=WORK_BREAKEVEN_GEV,
                     help=f"GeV per stopped mu- to solve for (default {WORK_BREAKEVEN_GEV}, "
                          "v1.1 sec.5.2 work-breakeven)")
@@ -260,6 +348,9 @@ def main():
         return selftest()
     if a.machines:
         report_machines()
+        return 0
+    if a.floor:
+        report_floor()
         return 0
     report_budget(a.target)
     return 0
