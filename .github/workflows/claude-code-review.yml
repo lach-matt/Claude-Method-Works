@@ -5,7 +5,7 @@ name: Claude Code Review
 #
 # Prerequisites that CANNOT be done from this file (repo admin must do them):
 #   1. Install the Claude GitHub App: https://github.com/apps/claude
-#   2. Add a repo secret: ANTHROPIC_API_KEY (or CLAUDE_CODE_OAUTH_TOKEN — see below)
+#   2. Add a repo secret: CLAUDE_CODE_OAUTH_TOKEN (or ANTHROPIC_API_KEY — see below)
 #   3. Merge this file to the default branch (`main`).
 
 on:
@@ -86,7 +86,7 @@ jobs:
           # separate references to one credential, and nothing fails loudly if they
           # disagree: the gate reads false, claude-review reports "skipped", and the
           # PR looks reviewed-and-clean forever. Change both or neither.
-          HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+          HAS_KEY: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
         run: |
           echo "has_key=${HAS_KEY}" >> "$GITHUB_OUTPUT"
           # No `|| true`: if the API call fails we want this job to fail
@@ -107,7 +107,7 @@ jobs:
     #      the checkout, only to fail red on every external contribution.
     #      Skip them cleanly instead.
     #   2. Skip PRs that only touch the drive/ mirror (see the job above).
-    #   3. Skip when ANTHROPIC_API_KEY is not configured. Without it the action
+    #   3. Skip when CLAUDE_CODE_OAUTH_TOKEN is not configured. Without it the action
     #      cannot authenticate and the job fails red on every PR — a missing
     #      one-time setup step (.github/CLAUDE_GITHUB_SETUP.md) reported as if
     #      the PR were broken. Same reasoning as gate 1: skip cleanly rather
@@ -158,13 +158,27 @@ jobs:
       - name: Run Claude Code Review
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          # Authenticating with a metered API key from platform.claude.com,
-          # stored as the ANTHROPIC_API_KEY repository secret. To use a Claude
-          # subscription instead, store the output of `claude setup-token` as
-          # CLAUDE_CODE_OAUTH_TOKEN and swap the line above for:
-          # claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Authenticating with a Claude subscription: the token is the output
+          # of `claude setup-token`, stored as the CLAUDE_CODE_OAUTH_TOKEN
+          # repository secret. It draws on an existing subscription's allowance
+          # and adds no bill -- unlike the metered API key, whose empty balance
+          # is what returned HTTP 400 "Credit balance is too low" on PR #24.
+          # To go back to that key, swap the line above for the one below AND
+          # change the HAS_KEY gate above to match -- three references, all or
+          # none:
+          # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+
+          # DIAGNOSTIC, REMOVE ONCE THIS ATTEMPT IS UNDERSTOOD. The subscription
+          # route failed three times earlier on 2026-09-06 and was abandoned
+          # WITHOUT its error ever being read, because this input was off: all
+          # that was visible was is_error:true with an empty modelUsage, and
+          # "the token is being rejected" was inferred from it. That inference
+          # is now doubtful -- the identical signature on the API key turned out
+          # to mean "Credit balance is too low". So this attempt keeps the error
+          # text on from the start rather than inferring from a signature again.
+          show_full_output: true
 
           # Deliberately NOT passing `github_token`: omitting it lets the
           # action authenticate as the Claude GitHub App.
