@@ -46,7 +46,12 @@ figure of merit Q_fus·f_work/(ω_s·E_binder) is therefore 0.203 as heat and 0.
 
 **The admissible set is not empty.** Condition 8 falls between what has been achieved and the
 kinematic threshold floor of 0.30 GeV, which lies 123 below the achieved figure — so the requirement
-is 4.9 or 9.8 of 123 available, leaving a margin of 25.1 or 12.6. Two of the three levers in the
+is 4.9 or 9.8 of 123 available, leaving a margin of 25.1 or 12.6. **The binder itself is not the variable.** Sticking is
+binder-mass-independent — exactly so in the sudden approximation, the mass cancelling from the overlap
+that defines it — and the fusion yield belongs to the channel, so changing the binder moves only its
+cost. Condition 8 is therefore a specification rather than a search, and the known charged spectrum
+holds no second candidate: the window admits the muon and the pion, and the pion is absorbed before it
+can catalyse. Two of the three levers in the
 figure of merit are near their limits: sticking is governed by the ratio of recoil to binder
 orbital velocity, an expression free of the binder's mass, reproducing the measured 2.97 for d+t and
 1.66 for the d+d channel that ends in helium-3, with d+t already optimal; and the fusion yield goes
@@ -335,6 +340,55 @@ existing muon beam, it needs no new machine, and it discriminates between the tw
 **This does not decide condition 8**, and this paper does not claim it does. What it does is localise
 the decision: the heat form turns on one unresolved measurement between two published values, and the
 work form is short under both readings by a factor between 1.88 and 2.34.
+
+### 5.7 The binder is not the problem
+
+It is natural to ask whether the difficulty lies with the muon specifically, and whether some other
+particle would satisfy condition 8. The framework answers this cleanly, because **two of the three
+terms in the figure of merit do not depend on the binder at all.**
+
+**Sticking is binder-mass-independent**, and exactly so in the sudden approximation. Sticking is the
+overlap of the binder's bound state in the molecule with its bound state on the ash, evaluated at the
+recoil momentum. The binder's orbital radius scales as the inverse of its mass, so the phase in that
+overlap is the recoil velocity divided by the product of the ash charge, the fine-structure constant
+and the speed of light — **the mass cancels**. Sticking is a property of the *fusion channel*, not of
+the binder. The expression reproduces both measured values, 2.97 for d+t and 1.66 for the d+d channel
+ending in helium-3, from channel data alone.
+
+The fusion yield is likewise a property of the channel. So changing the binder moves only E_binder,
+and condition 8 becomes a pure **specification**:
+
+> Any binder — known or not — satisfies condition 8 if and only if it is leptonic, lies within the
+> structural window, survives long enough against its own decay, and **can be produced for less than
+> about 5 GeV of beam energy per binder**: 5.93 on one reading of the reactivation and 4.76 on the
+> other. Its mass enters only through that cost.
+
+Against that specification, the known charged spectrum is quickly exhausted:
+
+| particle | mass | | |
+|---|---|---|---|
+| electron | 1 | lepton | below the window: fusion cannot outrun the cycle |
+| **muon** | **207** | **lepton** | **in the window** |
+| pion | 273 | hadron | in the window, but absorbed before catalysis |
+| kaon | 966 | hadron | above the window, and absorbed |
+| antiproton | 1836 | hadron | above the window, and absorbed |
+| sigma minus | 2343 | hadron | above the window, and absorbed |
+| tau | 3477 | lepton | above the window: the molecular index degenerates |
+
+The window admits exactly two occupants and one of them is hadronic. **Within the known spectrum there
+is no alternative binder**, which is §2's uniqueness result arrived at from the economic side rather
+than the geometric one.
+
+Nor would a hypothetical lighter binder rescue the balance by much. The figure of merit varies as the
+inverse of the binder's cost, and any production route costs at least the rest mass, so lighter is
+monotonically better — but the window floor sits only 1.74 below the muon. **A binder at the very
+floor of the window therefore buys at most 1.74 on rest-mass grounds, against a work-side requirement
+of 1.88**, and only if its production were as efficient per unit mass as the muon's, which nothing
+guarantees.
+
+> **The binder is not the problem.** The muon is not merely the unique occupant of the window; no
+> other occupant would close condition 8 even if one existed. What must improve is the cost of making
+> a binder, and that is the same problem whichever binder it is.
 
 **Proton energy is not a lever.** The same source finds the beam-power-normalised yield flat within a
 tenth of its optimum across 4 to 11 gigaelectronvolts, with an optimum near 7. Any driver energy in

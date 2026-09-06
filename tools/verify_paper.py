@@ -312,6 +312,18 @@ def work_short_psi():
     return cost_pion() / (c8_psi_heat() * collector.F_WORK)
 
 
+def c8_sin_work():
+    return c8_sin_heat() * collector.F_WORK
+
+
+def c8_psi_work():
+    return c8_psi_heat() * collector.F_WORK
+
+
+def muon_above_floor():
+    return 207.0 / 119.0
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 
