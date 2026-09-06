@@ -258,3 +258,22 @@ C256	collection needed, bred fuel, phi=3	15.9	percent	DERIVED	C100 / (C152 x C22
 C257	collection needed, bred fuel, demonstrated cycles	50.8	percent	DERIVED	C100 / (C44 x C220)	fn:eta_bred_demo
 C258	product choice, in collector specification	7.5	x	DERIVED	C251 / C255	fn:product_ratio
 C259	bred fuel at demonstrated cycles against today's front end	1.69	x	DERIVED	C257 / C106	fn:demo_vs_frontend
+C260	collection efficiency the sec.5.9 collector targets	90	percent	DESIGN	sec.5.9, acceptance of 20 T on a 13 cm clear bore	none
+C261	heat balance, bound case, at the sec.5.9 collector	1.241	dimensionless	DERIVED	C176 x C214 / (C100 / 0.9)	fn:q_heat_bound_c90
+C262	heat balance, phi=3, at the sec.5.9 collector	1.011	dimensionless	DERIVED	C152 x C214 / (C100 / 0.9)	fn:q_heat_phi3_c90
+C263	heat balance, demonstrated cycles, at the sec.5.9 collector	0.316	dimensionless	DERIVED	C44 x C214 / (C100 / 0.9)	fn:q_heat_demo_c90
+C264	work balance, bound case, at the sec.5.9 collector	0.931	dimensionless	DERIVED	C176 x C217 / (C100 / 0.9)	fn:q_work_bound_c90
+C265	work balance, demonstrated cycles, at the sec.5.9 collector	0.237	dimensionless	DERIVED	C44 x C217 / (C100 / 0.9)	fn:q_work_demo_c90
+C266	breeding balance, bound case, at the sec.5.9 collector	6.96	dimensionless	DERIVED	C176 x C220 / (C100 / 0.9)	fn:q_bred_bound_c90
+C267	heat balance, bound case, at today's front end	0.414	dimensionless	DERIVED	C176 x C214 / (C100 / C106)	fn:q_heat_bound_fe
+C268	breeding balance, bound case, at today's front end	2.32	dimensionless	DERIVED	C176 x C220 / (C100 / C106)	fn:q_bred_bound_fe
+C269	breeding balance, demonstrated cycles, at today's front end	0.591	dimensionless	DERIVED	C44 x C220 / (C100 / C106)	fn:q_bred_demo_fe
+C270	HARP forward band, upper momentum edge	6.50	GeV/c	SOURCED	HARP forward pi- production tables	none
+C271	service life at phi=3, PSI reading	408.3	cycles	DERIVED	N(C08, 3)	fn:N3_psi
+C272	thermal gain at phi=3, PSI reading	0.821	dimensionless	DERIVED	C271 x C133 / C100	fn:tq3_psi
+C273	photon flux matching binder decay	1.27e28	/cm2/s	DERIVED	C02 / C237	fn:flux_match
+C274	photon flux stripping 95 percent	2.72e29	/cm2/s	DERIVED	1e7 / C237	fn:flux_95
+C275	heat balance, demonstrated cycles, at today's front end	0.105	dimensionless	DERIVED	C44 x C214 / (C100 / C106)	fn:q_heat_demo_fe
+C276	heat balance, phi=3, at today's front end	0.337	dimensionless	DERIVED	C152 x C214 / (C100 / C106)	fn:q_heat_phi3_fe
+C277	work balance, bound case, at today's front end	0.310	dimensionless	DERIVED	C176 x C217 / (C100 / C106)	fn:q_work_bound_fe
+C278	work balance, demonstrated cycles, at today's front end	0.079	dimensionless	DERIVED	C44 x C217 / (C100 / C106)	fn:q_work_demo_fe

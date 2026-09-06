@@ -659,6 +659,80 @@ def demo_vs_frontend():
     return eta_bred_demo() / capture_of_production()
 
 
+def N3_psi():
+    return _N(ws_psi() / 100.0, 3.0)
+
+
+def tq3_psi():
+    return N3_psi() * (total_thermal() / 1000.0) / cost_pion()
+
+
+def flux_match():
+    return mucf.LAMBDA_0 / sigma_muhe()
+
+
+def flux_95():
+    return 1e7 / sigma_muhe()
+
+
+def _qbal(N, value_mev, eta):
+    """The balance at an explicit collection efficiency: service life times
+    value, against the production floor divided by that efficiency."""
+    return N * (value_mev / 1000.0) / (cost_pion() / eta)
+
+
+def q_heat_bound_c90():
+    return _qbal(N_diss(), therm_sourced(), 0.90)
+
+
+def q_heat_phi3_c90():
+    return _qbal(N3_sin(), therm_sourced(), 0.90)
+
+
+def q_heat_demo_c90():
+    return _qbal(150.0, therm_sourced(), 0.90)
+
+
+def q_work_bound_c90():
+    return _qbal(N_diss(), work_sourced(), 0.90)
+
+
+def q_work_demo_c90():
+    return _qbal(150.0, work_sourced(), 0.90)
+
+
+def q_bred_bound_c90():
+    return _qbal(N_diss(), total_sourced(), 0.90)
+
+
+def q_heat_bound_fe():
+    return _qbal(N_diss(), therm_sourced(), capture_of_production() / 100.0)
+
+
+def q_bred_bound_fe():
+    return _qbal(N_diss(), total_sourced(), capture_of_production() / 100.0)
+
+
+def q_heat_demo_fe():
+    return _qbal(150.0, therm_sourced(), capture_of_production() / 100.0)
+
+
+def q_heat_phi3_fe():
+    return _qbal(N3_sin(), therm_sourced(), capture_of_production() / 100.0)
+
+
+def q_work_bound_fe():
+    return _qbal(N_diss(), work_sourced(), capture_of_production() / 100.0)
+
+
+def q_work_demo_fe():
+    return _qbal(150.0, work_sourced(), capture_of_production() / 100.0)
+
+
+def q_bred_demo_fe():
+    return _qbal(150.0, total_sourced(), capture_of_production() / 100.0)
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 
@@ -785,7 +859,12 @@ def main():
     text = re.split(r"^##\s+References\s*$", text, flags=re.M)[0]
     text = re.sub(r"```.*?```", " ", text, flags=re.S)          # code blocks
     text = re.sub(r"`[^`]*`", " ", text)                         # inline code
-    text = re.sub(r"^\s*\|.*\|\s*$", " ", text, flags=re.M)      # tables carry their own
+    # Tables are prose for this purpose -- most of the paper's quantities live in
+    # them, so exempting them would leave the standard's main pass checking the
+    # sentences around the numbers rather than the numbers. Only the alignment
+    # row (|---|---|) is structure.
+    text = re.sub(r"^\s*\|[\s|:-]*\|\s*$", " ", text, flags=re.M)
+    text = re.sub(r"\|", " ", text)
     # Section headings are structure, not claims: "### 5.2 Collection alone ..."
     text = re.sub(r"^#{1,6}\s+[\d.]+\s*", "#H ", text, flags=re.M)
     values = set()

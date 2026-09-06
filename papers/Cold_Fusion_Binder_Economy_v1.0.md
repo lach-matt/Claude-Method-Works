@@ -1005,6 +1005,66 @@ delivered-to-target fraction. Every row above therefore states a *necessary* eff
 sufficient one, and the distinction is the same one §5.5 draws about a shortfall: a bound that has
 been localised is not a bound that has been cleared.
 
+### 5.24 Two routes, one shared dependency
+
+§5.23 solved each balance for the collection efficiency it needs. The direct form of the same
+computation is more useful to a builder: **state every balance at the two collection efficiencies that
+actually exist** — the 30 percent the best studied front end captures, and the 90 percent the §5.9
+collector targets — instead of at the perfect collection every earlier table assumed.
+
+| balance | at today's 30 % | at the §5.9 collector, 90 % |
+|---|---|---|
+| heat, demonstrated 150 cycles | 0.105 | **0.316** |
+| heat, bound-case service life | 0.414 | **1.241** |
+| heat, φ = 3 | 0.337 | **1.011** |
+| work, demonstrated 150 cycles | 0.079 | **0.237** |
+| work, bound-case service life | 0.310 | **0.931** |
+| bred fuel, demonstrated 150 cycles | 0.591 | **1.772** |
+| bred fuel, bound-case service life | **2.32** | **6.96** |
+
+Three readings, and the third is the one that matters.
+
+**First: the breeding credit is not load-bearing for the heat form.** At the §5.9 collector, the heat
+balance passes at **1.241** on the bound-case service life and at **1.011** at φ = 3, counting the
+neutron at its heat and taking no fissile credit at all. §5.18's change of question was an escape from
+the shortfall, not the only one; the device-internal form clears unity too, and the paper's scope —
+a *self-sustaining* reaction — is therefore met without leaving the device. The work form does not:
+**0.931** at the collector, which is §5.19's 1.034 with the collection loss put back in, and is a
+statement that electricity remains the demanding product exactly as §5.23 found.
+
+**Second: nothing passes on today's front end at demonstrated cycle counts.** The best row in that
+column at 150 cycles is **0.591**. The collector of §5.9 is therefore not one improvement among
+several — it is necessary in every configuration this paper can construct except one, and that
+exception is the second reading below.
+
+**Third, and this is the structure of the result: the two routes need different things, and they
+overlap in exactly one place.**
+
+- **The heat route needs both.** It needs the collector *and* the bound-case service life — which
+  means the density of §5.13 and the favourable sticking branch of §5.10. Take away either and it
+  fails: 0.316 with the collector at demonstrated cycles, 0.414 with the bound-case life at today's
+  front end.
+- **The bred-fuel route needs either one.** With the collector it passes at demonstrated cycle counts
+  (**1.772**), asking nothing of density or sticking. With the bound-case service life it passes at
+  **today's measured front-end collection** (**2.32**), asking for no new magnet at all. Either
+  suffices; neither is required jointly with the other.
+
+> **The collector and the service life are two independent routes to a positive balance on the
+> bred-fuel product, and the only shared dependency of both products is the collector.**
+
+That is a stronger claim than a margin, and it is the corpus's own two-route protocol applied to an
+engineering question rather than a measurement: a result reachable by two paths that share one
+component is a result whose risk is concentrated in that component. Here the concentration is total.
+Every open item in §9 except the collector bears on the *service life* axis, and the bred-fuel route
+does not need that axis if the collector exists.
+
+**What this does not say.** It does not say the bound-case service life is available — §5.13 bounds
+the density from above and §5.10's measurement is unmade, so the 2.32 in the left column is the most
+speculative number in the table and is stated as the second route rather than the first. It does not
+price the blanket's own capital or the fissile handling §5.18 flags as proliferation-sensitive. And
+the 30 percent column is a capture fraction, not a delivered-to-target fraction, so every entry in it
+is an upper bound on what today's hardware would actually return.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
