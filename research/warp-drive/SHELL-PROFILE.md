@@ -8,6 +8,13 @@ unaltered; both states stand.
 
 > **Scope.** Writes nothing into `method/` or `drive/`.
 
+> **Superseded in one number, 2026-09-06.** §4 carries `v/β = 2`, inferred from Fuchs *et al.*'s
+> Table 1 caption. `SOURCE-CODE.md` reads their implementation and finds `g_tx = −S·vWarp`, so
+> `vWarp` **is** the velocity: `v = β`. The velocity ceiling is **0.029 c**, not the 0.0579 c below.
+> The pressure reconstruction, the hoop-spike explanation and the fill-fraction design rule are
+> untouched, and the pressure is independently corroborated there by the authors' own closed form.
+> **Nothing below is edited**; both states stand, and the later one governs.
+
 ---
 
 ## Abstract

@@ -470,6 +470,62 @@ def mass_rocket(M_final, beta, v_e_over_c):
     return dict(ratio=r, prop=M_final * (r - 1.0),
                 earths=M_final * (r - 1.0) / M_EARTH)
 
+# ------------------------------- what the published implementation actually does
+#
+# Warp Factory (Helmerich & Fuchs, MIT licence, github.com/NerdsWithAttitudes/
+# WarpFactory) is the toolkit the Fuchs et al. solution was built with.  Three of
+# its files settle questions the paper leaves to inference.  Nothing below is
+# copied from it; these are Python restatements of what the MATLAB computes, for
+# comparison against the reconstruction above.
+
+def tov_const_density(R, M, rho_m, r):
+    """Metrics/utils/TOVconstDensity.m, restated.
+
+    This is the interior-Schwarzschild closed form for a UNIFORM SPHERE of radius R,
+    multiplied by the local density -- which is why it vanishes inside R1 without
+    any explicit cut.  Applied to a hollow shell it uses the total mass at every
+    radius, so it overstates the enclosed mass where the interior is empty.  The
+    paper is clear this is an initial guess: the true stress-energy is read back
+    out of the Einstein tensor afterwards."""
+    rs = 2 * G * M / (C * C)
+    num = R * (R - rs) ** 0.5 - (R**3 - rs * r * r) ** 0.5
+    den = (R**3 - rs * r * r) ** 0.5 - 3 * R * (R - rs) ** 0.5
+    return C * C * rho_m * num / den
+
+def compact_sigmoid(r, R1, R2, sigma, Rbuff):
+    """Metrics/utils/compactSigmoid.m, restated.  Exactly 1 inside R1+Rbuff and
+    exactly 0 outside R2-Rbuff, with no tails -- so the shift has compact support
+    and contributes nothing to the exterior."""
+    import math
+    if r <= R1 + Rbuff: return 1.0
+    if r >= R2 - Rbuff: return 0.0
+    k = ((R2 - R1 - 2*Rbuff) * (sigma + 2)) / 2.0
+    x = k * (1.0/(r - R2 + Rbuff) + 1.0/(r - R1 - Rbuff))
+    return abs(1.0 / (math.exp(x) + 1.0) - 1.0)
+
+# Metrics/WarpShell/metricGet_WarpShellComoving.m applies the warp in one line:
+#     g_{tx} = -S_warp(r) * vWarp
+# on a shell metric that is diagonal in the comoving frame.  Two consequences:
+#   (a) the metric perturbation is EXACTLY linear in the shift parameter, so the
+#       momentum flux is linear in it to first order -- the extrapolation the
+#       ceiling papers assume is justified from the source, not from plausibility;
+#   (b) vWarp IS the drive's coordinate velocity in units of c.  With gamma_xx = 1
+#       in the flat interior, beta^x = g_tx = -S vWarp and dx/dt = +S vWarp, so
+#       inside the shell dx/dt = vWarp.  beta_warp and v_warp are ONE parameter.
+V_OVER_BETA_SOURCE = 1.0     # was assumed 2.0 before the source was read
+
+def corrected_ceiling(p_mid, f_ref=0.363, beta_ref=0.02):
+    """The ceiling with v = beta rather than v = 2 beta."""
+    ceil = (1.0 + p_mid) / 2.0
+    beta_max = beta_ref * ceil / f_ref
+    return dict(ceil=ceil, beta_max=beta_max,
+                v_max=beta_max * V_OVER_BETA_SOURCE)
+
+def flux_that_would_permit(beta_target, p_mid, beta_ref=0.02):
+    """The peak flux at beta_ref, in units of rho, below which beta_target is
+    still inside the NEC ceiling.  Turns the eyeballed input into a prediction."""
+    return beta_ref * (1.0 + p_mid) / 2.0 / beta_target
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -843,6 +899,50 @@ def report():
     p('    system with a propulsion problem attached, and the isolation makes the')
     p('    propulsion problem twenty-one orders of magnitude worse.')
     p()
+    p('  WHAT THE PUBLISHED IMPLEMENTATION ACTUALLY DOES')
+    p('  ' + '-' * 68)
+    rho_m = 4.49e27 / ((4.0/3.0)*3.141592653589793*(20.0**3 - 10.0**3))
+    rho_E = rho_m * C * C
+    tt = tov_shell(10.0, 20.0, 4.49e27)
+    p('    [1] Their pressure is the UNIFORM-SPHERE closed form, not a shell TOV.')
+    p('        %-8s %16s %16s %8s' % ('r [m]', 'Warp Factory', 'shell TOV here', 'ratio'))
+    for r_ in (18.0, 16.0, 15.0, 12.0, 10.0):
+        th = tov_const_density(20.0, 4.49e27, rho_m, r_) / rho_E
+        mn = min(tt['prof'], key=lambda t: abs(t[0]-r_))[1]
+        p('        %-8.1f %16.4f %16.4f %8.3f' % (r_, th, mn, th/mn))
+    p('        They agree to 3 %% at the outer wall and part to 29 %% at the inner,')
+    p('        which is what a uniform-sphere formula does to a hollow shell: it')
+    p('        carries the total mass inward past the cavity.  Their paper calls it')
+    p('        an initial guess and reads the true T_uv back from the Einstein')
+    p('        tensor afterwards, so this is a documented approximation, not a fault.')
+    p()
+    p('        BOTH refute the 0.363 read off fig. 9 -- from two directions.')
+    p()
+    p('    [2] The warp is one line: g_tx = -S_warp(r) * vWarp.')
+    p('        So the metric perturbation is EXACTLY linear in the shift, and the')
+    p('        linear extrapolation the ceiling rests on is justified from source.')
+    p()
+    p('    [3] vWarp IS the drive velocity.  beta^x = g_tx and dx/dt = +S vWarp, so')
+    p('        inside the shell dx/dt = vWarp.  The earlier papers assumed v = 2 beta')
+    p('        and that was wrong; v = beta.  The velocity ceiling therefore halves:')
+    cc = corrected_ceiling(tt['mid'])
+    p('            ceiling                    %10.4f rho' % cc['ceil'])
+    p('            beta_max                   %10.4f' % cc['beta_max'])
+    p('            v_max  (was 0.0579 c)      %10.4f c' % cc['v_max'])
+    p()
+    p('    [4] A prediction against their own toolkit.')
+    p('        Their section 4.1 verifies physicality at beta_warp = 0.02.  Their')
+    p('        table 1 reports the Warp Shell at v_warp = 0.04 c.  Same parameter,')
+    p('        twice the value.  On the numbers above, 0.04 sits ABOVE the ceiling:')
+    thresh = flux_that_would_permit(0.04, tt['mid'])
+    p('            ceiling in beta            %10.4f' % cc['beta_max'])
+    p('            table 1 operating point    %10.4f' % 0.04)
+    p('        This is falsifiable and cheap to check: run Warp Factory on the Warp')
+    p('        Shell at vWarp = 0.04 and look for an NEC violation.  It flips on one')
+    p('        number -- the peak momentum flux at beta = 0.02, which was read off a')
+    p('        plot here.  If that flux is below %.3f rho, 0.04 is safe and this' % thresh)
+    p('        prediction is wrong; the eyeballed value was %.3f rho.' % 0.363)
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -946,6 +1046,22 @@ def selftest():
     chk('shell multiplies the propulsion problem by ~4.5e21',
         photon_rocket(4.49e27, 0.04)['energy'] / photon_rocket(1e6, 0.04)['energy'],
         4.49e21, tol=0.02)
+    # against the published implementation
+    rm = 4.49e27 / ((4.0/3.0)*3.141592653589793*(20.0**3 - 10.0**3))
+    rE = rm * C * C
+    chk('Warp Factory closed form at mid-shell',
+        tov_const_density(20.0, 4.49e27, rm, 15.0)/rE, 0.0549, tol=0.02)
+    chk('their formula and mine agree within 10 % at mid-shell',
+        abs(tov_const_density(20.0, 4.49e27, rm, 15.0)/rE / tov_shell(10.,20.,4.49e27)['mid'] - 1) < 0.10, True)
+    chk('both are far below the eyeballed 0.363',
+        tov_const_density(20.0, 4.49e27, rm, 15.0)/rE < 0.15, True)
+    chk('compact sigmoid is 1 inside and 0 outside',
+        (compact_sigmoid(11.0,10.,20.,0.,1.0), compact_sigmoid(19.5,10.,20.,0.,1.0)),
+        (1.0, 0.0))
+    chk('corrected velocity ceiling, c',
+        corrected_ceiling(tov_shell(10.,20.,4.49e27)['mid'])['v_max'], 0.0289, tol=0.02)
+    chk('table 1 operating point exceeds that ceiling',
+        0.04 > corrected_ceiling(tov_shell(10.,20.,4.49e27)['mid'])['v_max'], True)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()

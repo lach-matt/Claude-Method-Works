@@ -8,6 +8,13 @@ companions rather than prerequisites.
 
 > **Scope.** Writes nothing into `method/` or `drive/`. Findings recorded, never repaired.
 
+> **Superseded twice, 2026-09-06.** `SHELL-PROFILE.md` replaces the eyeballed pressure with a
+> TOV-integrated one; `SOURCE-CODE.md` then reads Warp Factory and finds that `v_warp` and
+> `β_warp` are **one parameter**, not a factor of two apart as §3 assumed. The velocity ceiling is
+> **0.029 c**, not the 0.075 c below. Both corrections are downward and both were inferences this
+> paper made where a measurement was available. The closed form, the type-IV wall, the brute-force
+> agreement and the pressure-is-headroom result are untouched.
+
 > **Superseded in one number, 2026-09-06.** §3 and §4 take `ρ` and the peak pressure from Fuchs *et
 > al.*'s plotted profiles by eye, and §5 names that as this paper's weakest input. `SHELL-PROFILE.md`
 > replaces the read pressure with a TOV-integrated one and finds the ceiling is **0.5252 ρ**, not
