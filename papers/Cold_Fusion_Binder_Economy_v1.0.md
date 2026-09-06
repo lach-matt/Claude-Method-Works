@@ -1402,6 +1402,14 @@ velocity-ratio expression reproduces two measured sticking values and is used fo
 paper computes no absolute rate: it prices a binder and compares that price to a bound, which is the
 whole of its claim.
 
+**Three limits added late, and each runs against the result rather than for it.** Every balance here
+assumes **perfectly pure fuel**, and §5.28 shows a contamination of **5.49 ppm** costs as much binder
+as decay does at the bracketed density — so all of them are overestimates by a factor no experiment
+here bounds. Every collection figure is an **acceptance** and not a delivered-to-target efficiency
+(§5.25), which is necessary and not sufficient. And the temperature dependence §5.15 relies on is
+**confounded with purity and density** in the existing record (§5.28), so the axis it inverts the
+shortfall onto is not cleanly separated from two others.
+
 **The state of the question, plainly.** The reaction is defined, unique, demonstrated, and its
 procedure is stated. Condition 8 is a bound on the cost of a binder, and the binder is not the
 variable: sticking is mass-independent and the known spectrum holds no alternative. Against measured
@@ -1411,6 +1419,12 @@ density bounded above by molecular survival. With every lever at a defensible bo
 perfect, **the thermal balance passes at 1.286 and the electrical balance reaches 0.965.** The
 remaining four percent is inside the uncertainty of several inputs, and every effect not modelled here
 runs against it.
+
+**And the production figure itself is conservative by a factor the literature has already measured.**
+§5.26 records that an optimised thick target is calculated to cost **4.69 GeV** per pion against this
+paper's thin-target measured **11.13** — a ratio of **2.37** by which every balance above may be
+multiplied by a reader who prefers the simulation. This paper keeps the measured figure as its spine
+because a status is never flattened, not because the simulated one is doubted.
 
 **The shortfall inverts into a specification**, which is what a bound is for. Work breakeven at the
 bound case needs an effective sticking of 0.1427 percent against 0.1487 — a reduction of 4.0 percent

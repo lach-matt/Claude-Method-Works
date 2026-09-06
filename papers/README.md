@@ -16,7 +16,7 @@ lattice, and asserts nothing about the main paper's subject matter.
 
 | file | what it is |
 |---|---|
-| **`Cold_Fusion_Binder_Economy_v1.0.md`** | **The current paper.** Supersedes and retires the three below. Definition, the seven conditions, the unique realisation, and the eighth condition that decides net energy. |
+| **`Cold_Fusion_Binder_Economy_v1.0.md`** | **The current paper.** Supersedes and retires the three below. Definition, the seven conditions, the unique realisation, the eighth condition that decides net energy, and §10 — the laboratory programme, four staged measurements on apparatus that exists. |
 | `CLAIMS.tsv` | The claims ledger: every quantity the current paper states, with status, provenance and its verifying computation. |
 | `Muon_Catalysed_Fusion_v1.1.md` *(retired)* | The muon-catalysed fusion paper. Supersedes `recovered/Muon_Catalysed_Fusion_v1.0.md` (1 Aug 2026). Revises §3.2, §4 and §5; §§1–2, 3.1, 3.3–3.6 and 6 stand. |
 | `Corrigendum_MuCF_v1_0.md` *(retired)* | The seven corrections to v1.0, as a standalone formal corrigendum. |
@@ -66,7 +66,10 @@ reference point is not.
 row of `CLAIMS.tsv` from the instruments; it **binds** every row naming an instrument constant to that
 constant as the source actually holds it; and it **scans the prose**, failing on any number no ledger
 row carries. The third pass is the one that does the work — a sentence cannot quietly acquire a figure
-the mathematics does not produce.
+the mathematics does not produce. **Pass 3 reads the tables too.** It did not at first — it stripped
+markdown table rows as "structure" — and since most of the paper's quantities live in tables, that
+left the standard's main pass checking the sentences around the numbers rather than the numbers.
+Five figures had been standing unbacked when the exemption was removed; all five now carry rows.
 
     python3 tools/verify_paper.py papers/Cold_Fusion_Binder_Economy_v1.0.md
 

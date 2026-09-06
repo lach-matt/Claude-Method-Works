@@ -78,8 +78,30 @@ fraction is **0.795, not 0.501**, once the alpha is counted at the hot operating
 requires and the exothermic ⁶Li breeding a d–t cycle must run anyway is included. And the residual
 localises to **one unresolved measurement**: the two published final stickings straddle the
 break-point, so the paper's own §3.5 protocol — neutron and X-ray routes run simultaneously on one
-target, a disagreement being a refusal rather than an average — now decides it. **Docket C-8 stays
-open**: it closes only by seating a member, which would write to `method/`. See `papers/README.md`.
+target, a disagreement being a refusal rather than an average — now decides it.
+
+**The balance then closes, and on one product rather than on all of them.** Priced as bred fuel rather
+than as heat, the fusion neutron is worth **146.06 MeV** per fusion against 26.06, and solving each
+balance for the collection efficiency at which it breaks even separates the products: electricity
+needs **96.7 %** collection *and* the bound-case density *and* the favourable sticking branch
+together, heat needs 72.5 %, and bred fuel needs **50.8 %** at the demonstrated 150 cycles and nothing
+else. Stated at the two collection efficiencies that exist rather than at perfect collection, the heat
+form still passes at **1.241** with the specified collector taking no fissile credit at all — so the
+self-sustaining criterion is met without leaving the device — while the bred-fuel form needs **either**
+the collector **or** the service life, not both. The collector specification then splits into two
+physically independent halves, and **the free half is the one the bred-fuel route needs**: dropping
+the front end's forward-hemisphere discard, which costs no aperture, no field and no shielding, gives
+**1.203** at the existing 20 T magnet. **Three findings run the other way** and are recorded in §9:
+every balance assumes perfectly pure fuel, where 5.49 ppm costs as much binder as decay does; every
+collection figure is an acceptance rather than a delivered efficiency; and the temperature axis §5.15
+inverts the shortfall onto is confounded with purity and density in the existing record. Against that,
+§5.26 records an optimised production target calculated at **4.69 GeV per pion** rather than 11.13, a
+factor of 2.37 the paper declines to adopt because a status is never flattened.
+
+**§10 is the laboratory programme**, four staged measurements on apparatus that exists — the
+acceptance measurement first, because it multiplies every balance identically and so bounds all of
+them at once. **Docket C-8 stays open**: it closes only by seating a member, which would write to
+`method/`. See `papers/README.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
 1,005 artefact names in the two live bundles: **813 held**, 15 held only under a figure's pre-rename
