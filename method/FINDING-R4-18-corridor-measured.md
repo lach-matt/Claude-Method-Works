@@ -100,3 +100,24 @@ the term decomposition fixes which pair energy to transfer.
 3. `FINDING-R4-17` §4's 6.95 eV is superseded by §3 above; the correction is appended there.
 
 Nothing is repaired in any volume. Every figure is MEASURED by the instrument or RECORD-CARRIED with its quote.
+
+---
+
+## §3's TRANSFER IS WITHDRAWN by FINDING-R4-19: the fraction is not constant, and the store held six more anchors
+
+§6 named the gap honestly — *"the transfer rests on one compact-shell anchor"* — and then transferred anyway.
+M: *"what's owed is small and named — keep going."* A scan of every species in the store for a second ionisation
+limit finds **seven inner-shell removals**, spanning sibling counts **1, 5, 9 and 13**, three of them with
+exactly one sibling, which is protactinium's own case.
+
+**Measured, the undelivered fraction is not a constant.** It runs **0.018 at xenon to 1.049 at gallium**, with
+no order in sibling count, sibling energy or ⟨r⟩ — sodium and mercury have nearly identical sibling energies and
+residuals differing twofold. **So §3's 0.668 was one row's ratio, not a law, and the +0.090 eV it produced is
+withdrawn.**
+
+**§1 and §2 stand.** Ytterbium's measured 4f removal, the 0.1114 Ha residual, and the mechanism are unaffected —
+what falls is only the claim that the fraction transfers. And the ladder reframes ytterbium itself: with six
+other sibling-bearing rows now measured and all within 0.018 Ha, **ytterbium is an outlier, not a class.**
+
+**Protactinium returns to 6.95 eV**, ±0.11 eV typical and ±0.47 eV bounded by the ladder's worst row — the same
+number `FINDING-R4-17` reached by an argument the ladder now replaces with measurement.

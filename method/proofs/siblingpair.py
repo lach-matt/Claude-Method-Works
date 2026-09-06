@@ -132,8 +132,8 @@ def load_mp2(chain, lmax=3, npts=700, rmax=60.0):
     finally:
         sys.argv = argv
     mod.SH[91] = ("Pa", "5f")                     # data, not method
-    mod.SH[90] = ("Th", "6d")
-    mod.SH[58] = ("Ce", "4f")
+    mod.SH.update({5: ("B", "2s"), 13: ("Al", "3s"), 31: ("Ga", "4s"), 11: ("Na", "2p"),
+                   54: ("Xe", "5p"), 80: ("Hg", "5d")})   # the sibling ladder's entrant shells
     mod.OUT = os.path.join(chain.workdir, "mp2_ent.jsonl")
     return mod
 

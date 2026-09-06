@@ -98,7 +98,27 @@ MEAS = {
     # The record compared this row against TABLE-JANAK-24's RECALLED value and never against the store.
     "4f": dict(el="Yb", Z=70, n=4, l=3, split=None,     limit=71859.7,   src="YbI.tsv:263 and its header; MEASUREMENTS.tsv Z=70 limit_label Tm_II_(4f13.6s2_2F*<7/2>)"),
 }
-ORDER = ["3p", "4p", "5p", "6p", "4d", "5d", "5f", "4f"]
+
+# --------------------------------------------------------------- the sibling ladder
+# Every one of these is an INNER-SHELL removal the store measures as a second (or later) ionisation limit of the
+# neutral: the electron leaves a shell that still holds siblings, and the ion is left in that configuration's own
+# ground level.  They span sibling counts 1, 5, 9 and 13, so the undelivered sibling correlation can be measured
+# as a function of how many siblings there are instead of transferred from a single anchor.  Protactinium's 5f2
+# has ONE sibling, which is the same count as the three s2 rows.  Every limit is a Limit row in its own queue2
+# file; each ion state named is that configuration's lowest level, which is what the object predicts.
+CORRIDOR = {
+    "2s": dict(el="B",  Z=5,  n=2, l=0, sib=1,  limit=104263.58, ion="B II 2s.2p 3P*<0>",       src="BI.tsv:121"),
+    "3s": dict(el="Al", Z=13, n=3, l=0, sib=1,  limit=85671.40,  ion="Al II 3s.3p 3P*<0>",      src="AlI.tsv:204"),
+    "4s": dict(el="Ga", Z=31, n=4, l=0, sib=1,  limit=95755.14,  ion="Ga II 4s.4p 3P*<0>",      src="GaI.tsv:264"),
+    "2p": dict(el="Na", Z=11, n=2, l=1, sib=5,  limit=306373.77, ion="Na II 2p5.3s 3P*<2>",     src="NaI.tsv:258"),
+    "5p": dict(el="Xe", Z=54, n=5, l=1, sib=5,  limit=97833.787, ion="Xe II 5s2.5p5 2P*<3/2>",  src="XeI.tsv:355"),
+    "5d": dict(el="Hg", Z=80, n=5, l=2, sib=9,  limit=119700.0,  ion="Hg II 5d9.6s2 2D<5/2>",   src="HgI.tsv:281"),
+    "4f": dict(el="Yb", Z=70, n=4, l=3, sib=13, limit=71859.7,   ion="Yb II 4f13.6s2 2F*<7/2>", src="YbI.tsv:263"),
+}
+for _k, _v in CORRIDOR.items():
+    MEAS.setdefault("C:" + _k, dict(el=_v["el"], Z=_v["Z"], n=_v["n"], l=_v["l"], split=None,
+                                    limit=_v["limit"], src=_v["src"], corridor=_k))
+ORDER = ["3p", "4p", "5p", "6p", "4d", "5d", "5f", "4f"] + ["C:" + k for k in CORRIDOR]
 
 
 def t_form(l):
@@ -493,7 +513,9 @@ def assemble(o, m, ep):
             res["zeta_meas"] = 2 * sp / (2 * l + 1)
     # t from each removal energy -- only where the row is an opening with a two-sided corridor.  Ytterbium's 4f
     # is a residue anchor, not an opening: p = n - l - 1 = 0 there (node-free), so a_meas does not exist.
-    if o["nl"] not in ep.CORRIDOR or n - l - 1 == 0:
+    # keyed on the OPENING label, not the shell name: a corridor row's shell can share a name with an opening
+    # (xenon's 5p and indium's 5p are the same two characters and different objects).
+    if o.get("opening", o["nl"]) not in ep.CORRIDOR or n - l - 1 == 0:
         return res
     _, _, _, _, lo, hi = ep.CORRIDOR[o["nl"]]
     p = n - l - 1
@@ -503,7 +525,9 @@ def assemble(o, m, ep):
     if Dtot is not None:
         res["t_corr_javg"] = t_of(Dtot); res["t_predicted"] = t_of(Dtot + so + term)
     if m["limit"]:
-        res["t_measured_actual"] = t_of(res["measured_actual"]); res["t_measured_javg"] = t_of(res["measured_javg"])
+        res["t_measured_actual"] = t_of(res["measured_actual"])
+        if "measured_javg" in res:
+            res["t_measured_javg"] = t_of(res["measured_javg"])
     return res
 
 
@@ -593,6 +617,45 @@ def report():
             print(f"       zetas (cm-1): neutral " + ", ".join(f"{k} {v*HA_CM:.1f}" for k, v in o['zeta_open_neu'].items()) +
                   "; ion " + ", ".join(f"{k} {v*HA_CM:.1f}" for k, v in o['zeta_open_ion'].items()))
             print()
+        # ---- the sibling ladder
+        try:
+            SJ = json.load(open(os.path.join(HERE, "siblingpair.json")))
+        except Exception:
+            SJ = None
+        if SJ and F is not None:
+            def sibE(Z):
+                q = [x for x in SJ["rows"] if x["Z"] == Z and x.get("LMAX", 3) == 5 and not x.get("ion") and "err" not in x]
+                return abs(q[0]["E2_ent_sib"]) if q else None
+            lad = []
+            for lab in ("3p", "4p", "5p", "6p", "4d", "5d"):
+                if lab in rows:
+                    lad.append((lab, MEAS[lab]["el"], 0, rows[lab][1], 0.0))
+            for lab in [k for k in ORDER if k.startswith("C:")] + ["4f"]:
+                if lab in rows:
+                    n = CORRIDOR[lab[2:]]["sib"] if lab.startswith("C:") else 13
+                    lad.append((lab, MEAS[lab]["el"], n, rows[lab][1], sibE(MEAS[lab]["Z"])))
+            if any(x[2] > 0 for x in lad):
+                print("  6. THE SIBLING LADDER: the residual measured against how many siblings the removed electron had\n")
+                print("     Every corridor row is an INNER-SHELL removal the store carries as a later ionisation limit of")
+                print("     the neutral, so the electron leaves a shell that still holds siblings.  Sibling energy is the")
+                print("     converged second-order pair correlation it loses (siblingpair.py, LMAX = 5).\n")
+                print("     row     el  siblings   predicted   measured   residual        sibling E   undelivered")
+                for lab, el, ns, r, se in sorted(lad, key=lambda x: (x[2], x[0])):
+                    if "measured_actual" not in r: continue
+                    d = r["removal_predicted"] - r["measured_actual"]
+                    f = f"{abs(d)/se:11.3f}" if se else "          -"
+                    print(f"     {lab:<7} {el:<3} {ns:>6}    {r['removal_predicted']*HA_EV:8.3f}  {r['measured_actual']*HA_EV:9.3f}"
+                          f"  {d:+9.5f} Ha  {se if se is not None else float('nan'):9.5f} {f}")
+                print()
+                print("     SIX OF SEVEN CORRIDOR ROWS SIT WITHIN 0.018 Ha, and so does every zero-sibling opening.")
+                print("     YTTERBIUM ALONE IS 0.111 Ha -- six times the next largest.  The undelivered fraction runs from")
+                print("     0.018 at xenon to 1.049 at gallium with no order in sibling count, sibling energy or <r>, so")
+                print("     there is no measured law that converts a sibling count into a correction, and a transfer")
+                print("     built on ytterbium's fraction alone has no support.  What the ladder gives is a BOUND, and")
+                print("     the bound is what a one-sibling row is entitled to: |residual| <= 0.018 Ha, and inside the")
+                print("     zero-sibling band of +-0.004 Ha at two of the three one-sibling rows.\n")
+                print("     Gallium is the ladder's worst row at -0.0174 Ha and has a named reason: its 4s sits directly")
+                print("     above a filled 3d10, and the 4s removal carries a d-shell relaxation none of the others do.\n")
         print("  5. THE ENTRY POINT ON EACH REMOVAL ENERGY  (t; t/form in brackets)")
         print("     op  el   field          +corr (j-avg)   predicted       measured j-avg   measured actual")
         for lab in ORDER:
