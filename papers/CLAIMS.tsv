@@ -393,3 +393,15 @@ C391	breeding balance at 150 cycles, today's aperture p below 265, Kelly cost	2.
 C392	collection needed, bred fuel at 150 cycles, Kelly cost	21.4	percent	DERIVED	C290 / (C44 x C220)	fn:eta_bred_demo_kelly
 C393	delivered, wider bore, both hemispheres, p below 200 MeV/c	38.68	percent	DERIVED	2.60 T.m	fn:deliv_both_90_200
 C394	collection factor omitted, today's aperture through a 265 MeV/c stopping window	2.25	x	DERIVED	1 / C382	fn:collection_factor_stop265
+C395	minimum-ionising muon dE/dx in liquid hydrogen	4.06	MeV cm2/g	DERIVED	Bethe, integrated; PDG gives 4.034	fn:min_ionising_h2
+C396	muon CSDA range in hydrogen at 150 MeV/c	10.6	g/cm2	DERIVED	Bethe integrated from 0.5 MeV	fn:range_150
+C397	muon CSDA range in hydrogen at 265 MeV/c	33.9	g/cm2	DERIVED	Bethe integrated from 0.5 MeV	fn:range_265
+C398	muon CSDA range in hydrogen at 400 MeV/c	65.4	g/cm2	DERIVED	Bethe integrated from 0.5 MeV	fn:range_400
+C399	tritium inventory for a 150 MeV/c window	0.50	kg	DERIVED	C396 x pi x 5 cm squared x 3/5	fn:trit_150
+C400	tritium inventory for a 265 MeV/c window	1.60	kg	DERIVED	C397 x pi x 5 cm squared x 3/5	fn:trit_265
+C401	tritium inventory for a 400 MeV/c window	3.08	kg	DERIVED	C398 x pi x 5 cm squared x 3/5	fn:trit_400
+C402	inventory cost of widening 265 to 400 MeV/c	1.93	x	DERIVED	C401 / C400	fn:trit_ratio_400_265
+C403	delivered gain from that widening	1.11	x	DERIVED	C381 / C382	fn:eta_ratio_400_265
+C404	target length for a 265 MeV/c window at liquid density	192	cm	DERIVED	C397 / DT density at 1 LHD	fn:len_265_phi1
+C405	target length for the same window at the bracketed density	23	cm	DERIVED	C397 / DT density at C169	fn:len_265_phi85
+C406	MuFusE target tritium activity, modelled	23.1	Ci	DERIVED	4 mg 50/50 fill; they state about 24	fn:mufuse_curies

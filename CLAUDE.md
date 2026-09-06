@@ -101,12 +101,19 @@ not the backward one, so dropping the cut is worth **1.20** and not a factor of 
 them: the dominant cut in the built machine is the **rf-capture window**, worth 1.72 and a genuine
 collider requirement — but a reactor substitutes a **stopping window**, and that is the term that
 decides the route. At today's aperture the balance is **1.199** with no momentum requirement and
-**0.968** through a 400 MeV/c one, so the bred-fuel route now needs either the wider bore (1.343) or
-the optimised production target, which drops the requirement from 50.8 % to **21.4 %**. **Three findings run the other way** and are recorded in §9:
+**0.968** through a 400 MeV/c one. **§5.25 then prices that window and demotes it**: the target must be
+one muon range deep, so its tritium inventory is areal density times beam area and **does not fall
+with compression** — density buys length, not inventory — and widening the window from 265 to
+400 MeV/c costs **1.93** in tritium for **1.11** in muons. The window is a constraint, not a lever.
+So the bred-fuel route closes on either the wider bore (1.343) or the optimised production target,
+which drops the requirement from 50.8 % to **21.4 %** and is met by every configuration computed —
+and §10 now runs that stage first. The stopping model is validated twice against figures that are not
+this paper's: minimum-ionising dE/dx in liquid hydrogen at **4.06** against the standard 4.034, and
+the MuFusE target's stated ~24 Ci reproduced at **23.1**. **Three findings run the other way** and are recorded in §9:
 every balance assumes perfectly pure fuel, where 5.49 ppm costs as much binder as decay does; every
 collection figure is an acceptance rather than a delivered efficiency; and the temperature axis §5.15
 inverts the shortfall onto is confounded with purity and density in the existing record. Against that,
-§5.25 records an optimised production target calculated at **4.69 GeV per pion** rather than 11.13, a
+§5.26 records an optimised production target calculated at **4.69 GeV per pion** rather than 11.13, a
 factor of 2.37 the paper declines to adopt because a status is never flattened.
 
 **§10 is the laboratory programme**, four staged measurements on apparatus that exists — the
@@ -205,7 +212,8 @@ against work, and that the two gaps §5 calls independent are **one collection c
 thresholds**. It refuses to choose between those two readings: both are the corpus's own),
 **`tools/collector.py`** (the collection budget and the production floor, built from published MuSIC,
 Mu2e, COMET, PSI and HARP figures; `--production` integrates the HARP cross sections, `--floor` prices
-the binder, `--collector` states the two gaps as one chain, and **`--acceptance`** runs the
+the binder, `--collector` states the two gaps as one chain, **`--stopping`** prices the fuel target's momentum
+window in tritium, and **`--acceptance`** runs the
 pion-to-muon model — transverse cap, two-body decay integrated over the pion rest frame, then a
 momentum requirement — which **reproduces the MARS15 front-end simulation to 0.982** and is the one
 place in this repository where a model of this paper's is validated against a published simulation

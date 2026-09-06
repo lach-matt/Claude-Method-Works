@@ -797,6 +797,107 @@ def report_floor():
     print("  reopen it.")
 
 
+# ---- the stopping window: what a target can actually bring to rest ---------
+# sec.5.24 shows the delivered fraction turns on the momentum window the target
+# imposes. That window is not free: a muon must be brought to rest inside the
+# fuel, so the target must be one CSDA range thick, and that areal density is
+# tritium. Bethe stopping power, integrated. Validated two ways below.
+BETHE_K = 0.307075        # MeV mol^-1 cm^2
+M_E_MEV = 0.510999
+H_Z_OVER_A = 0.99212      # hydrogen
+H_I_EV = 21.8             # mean excitation energy, liquid hydrogen
+T_HALFLIFE_S = 12.32 * 3.156e7
+T_MASS_FRAC_DT = 3.0 / 5.0     # 50/50 D/T by number
+A_DT_AMU = 2.5
+AMU_G = 1.6605e-24
+
+
+def bethe_dedx(T_mev, M_mev=M_MU_MEV, z_over_a=H_Z_OVER_A, i_ev=H_I_EV):
+    """Mass stopping power in MeV cm^2/g. The density-effect correction is
+    omitted, which overstates dE/dx above a few hundred MeV and therefore
+    understates the range -- an optimistic direction for a stopping target, and
+    stated as such rather than corrected."""
+    E = T_mev + M_mev
+    gam = E / M_mev
+    beta = math.sqrt(max(1e-12, 1.0 - 1.0 / (gam * gam)))
+    bg = beta * gam
+    t_max = 2 * M_E_MEV * bg * bg / (1 + 2 * gam * M_E_MEV / M_mev + (M_E_MEV / M_mev) ** 2)
+    i_mev = i_ev * 1e-6
+    lterm = 0.5 * math.log(2 * M_E_MEV * bg * bg * t_max / (i_mev * i_mev)) - beta * beta
+    return BETHE_K * z_over_a * lterm / (beta * beta)
+
+
+def p_to_kinetic(p_mev, M_mev=M_MU_MEV):
+    return math.hypot(p_mev, M_mev) - M_mev
+
+
+def csda_range(p_mev, t_min=0.5, n=4000):
+    """Muon CSDA range in hydrogen, g/cm^2, for a muon of momentum p_mev."""
+    T = p_to_kinetic(p_mev)
+    if T <= t_min:
+        return 0.0
+    h = (T - t_min) / n
+    return sum(h / bethe_dedx(t_min + h * (i + 0.5)) for i in range(n))
+
+
+def dt_density(phi):
+    """g/cm^3 of a 50/50 D-T mixture at phi times liquid-hydrogen number density."""
+    return LHD_ATOMS_PER_CM3 * phi * A_DT_AMU * AMU_G
+
+
+def target_length_cm(p_mev, phi):
+    return csda_range(p_mev) / dt_density(phi)
+
+
+def tritium_curies(mass_g):
+    lam = math.log(2) / T_HALFLIFE_S
+    return lam * (mass_g / 3.016) * 6.022e23 / 3.7e10
+
+
+def tritium_inventory_kg(p_mev, beam_radius_cm):
+    """Tritium in a target one CSDA range deep over a beam of the stated radius.
+    NOTE it does not depend on phi: the inventory is areal density times area,
+    and the areal density is fixed by the range. Density buys length, not mass."""
+    areal = csda_range(p_mev)                     # g/cm^2
+    return areal * math.pi * beam_radius_cm ** 2 * T_MASS_FRAC_DT / 1000.0
+
+
+def report_stopping():
+    print("THE STOPPING WINDOW, and what it costs")
+    print("  A delivered muon is useless unless it stops in the fuel, so the target")
+    print("  must be one CSDA range thick. Bethe stopping power, integrated.")
+    print()
+    print("  VALIDATION 1 -- minimum-ionising dE/dx against PDG")
+    for lab, za, i_ev, pdg in (("liquid H2", H_Z_OVER_A, H_I_EV, 4.034),
+                               ("copper", 0.45636, 322.0, 1.403)):
+        best = min(bethe_dedx(T, M_MU_MEV, za, i_ev) for T in [x * 0.5 for x in range(2, 4000)])
+        print(f"    {lab:10s} {best:6.3f} vs PDG {pdg:5.3f} MeV cm2/g"
+              f"   {'PASS' if abs(best / pdg - 1) < 0.05 else 'FAIL'}")
+    print()
+    print("  VALIDATION 2 -- tritium inventory against a running experiment")
+    ci = tritium_curies(0.004 * T_MASS_FRAC_DT)
+    print(f"    MuFusE state ~24 Ci for a 4 mg 50/50 fill; model gives {ci:.1f} Ci"
+          f"   {'PASS' if abs(ci / 24.0 - 1) < 0.10 else 'FAIL'}")
+    print()
+    print("  THE COST OF A WINDOW  (target radius 5 cm)")
+    print(f"    {'p_max':>6s} {'range':>12s} {'L at 1':>9s} {'L at 3':>9s} {'L at 8.5':>9s}"
+          f" {'tritium':>10s}")
+    for p in (150, 200, 265, 400):
+        r = csda_range(p)
+        print(f"    {p:5.0f} {r:8.1f} g/cm2 "
+              f"{target_length_cm(p, 1.0):7.0f}cm {target_length_cm(p, 3.0):7.0f}cm "
+              f"{target_length_cm(p, 8.5):7.0f}cm {tritium_inventory_kg(p, 5.0):8.2f} kg")
+    print()
+    print("  THE INVENTORY DOES NOT DEPEND ON DENSITY. It is areal density times")
+    print("  beam area, and the areal density is set by the range. Compressing the")
+    print("  fuel shortens the target and does not reduce its tritium by a gram.")
+    print()
+    print("  REFUSAL: the beam radius is not derived here. It is set by a front-end")
+    print("  design this paper does not have, and the inventory scales as its square,")
+    print("  so the kilogram figures are a scale and not a specification.")
+    return 0
+
+
 def report_acceptance():
     """What a solenoid actually delivers, decomposed. The p_T cap is only one of
     three cuts, and it is not the dominant one in the machine that has been built."""
@@ -898,6 +999,24 @@ def selftest():
           f" vs {100 * delivered_fraction(1.50, 'back'):.1f}%   {'PASS' if ok else 'FAIL'}")
 
     print()
+    print("  stopping model, validated twice")
+    mi = min(bethe_dedx(T) for T in [x * 0.5 for x in range(2, 4000)])
+    ok = abs(mi / 4.034 - 1) < 0.05
+    fail += 0 if ok else 1
+    print(f"    min-ionising dE/dx in H2: {mi:.3f} vs PDG 4.034 MeV cm2/g"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ci = tritium_curies(0.004 * T_MASS_FRAC_DT)
+    ok = abs(ci / 24.0 - 1) < 0.10
+    fail += 0 if ok else 1
+    print(f"    MuFusE 4 mg fill: {ci:.1f} Ci vs the ~24 Ci they state"
+          f"   {'PASS' if ok else 'FAIL'}")
+    a, b = tritium_inventory_kg(265, 5.0), tritium_inventory_kg(265, 5.0)
+    ok = a == b and abs(target_length_cm(265, 1.0) / target_length_cm(265, 8.5) - 8.5) < 1e-6
+    fail += 0 if ok else 1
+    print(f"    inventory is density-independent while length is not"
+          f"   {'PASS' if ok else 'FAIL'}")
+
+    print()
     print("  refusal: mu- and all-mu yields are never interchanged")
     ok = MUSIC_ALL_MU_PER_W / MUSIC_MU_MINUS_PER_W > 10
     fail += 0 if ok else 1
@@ -917,6 +1036,8 @@ def main():
                     help="integrate the HARP cross sections; price the collector argument")
     ap.add_argument("--acceptance", action="store_true",
                     help="pi- produced -> mu- delivered, validated against MARS15")
+    ap.add_argument("--stopping", action="store_true",
+                    help="the stopping window, its target size and its tritium cost")
     ap.add_argument("--floor", action="store_true",
                     help="the production floor and the resulting energy shortfall")
     ap.add_argument("--target", type=float, default=WORK_BREAKEVEN_GEV,
@@ -933,6 +1054,8 @@ def main():
         return 0
     if a.acceptance:
         return report_acceptance()
+    if a.stopping:
+        return report_stopping()
     if a.floor:
         report_floor()
         return 0

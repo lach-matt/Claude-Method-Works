@@ -972,6 +972,54 @@ def eta_bred_demo_kelly():
     return 100.0 * kelly_cost() / (150.0 * (total_sourced() / 1000.0))
 
 
+def range_150():
+    return collector.csda_range(150.0)
+
+
+def range_265():
+    return collector.csda_range(265.0)
+
+
+def range_400():
+    return collector.csda_range(400.0)
+
+
+def trit_265():
+    return collector.tritium_inventory_kg(265.0, 5.0)
+
+
+def trit_400():
+    return collector.tritium_inventory_kg(400.0, 5.0)
+
+
+def trit_150():
+    return collector.tritium_inventory_kg(150.0, 5.0)
+
+
+def trit_ratio_400_265():
+    return trit_400() / trit_265()
+
+
+def eta_ratio_400_265():
+    return deliv_both_nf_400() / deliv_both_nf_265()
+
+
+def len_265_phi1():
+    return collector.target_length_cm(265.0, 1.0)
+
+
+def len_265_phi85():
+    return collector.target_length_cm(265.0, trans_atoms())
+
+
+def mufuse_curies():
+    return collector.tritium_curies(0.004 * collector.T_MASS_FRAC_DT)
+
+
+def min_ionising_h2():
+    return min(collector.bethe_dedx(T) for T in [x * 0.5 for x in range(2, 4000)])
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 

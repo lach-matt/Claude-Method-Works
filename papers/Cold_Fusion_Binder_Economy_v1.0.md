@@ -92,10 +92,14 @@ now computed rather than assumed, from a model that reproduces the built front e
 0.982. That same calculation costs this paper two earlier claims, withdrawn at §5.24: the front end
 captures the forward hemisphere and not the backward one, so dropping the cut is worth 1.20 and not a
 factor of six; and the 1.199 survives only while the target imposes no momentum requirement of its own.
-A stopping window of 400 MeV/c takes it to 0.968. The route therefore needs one of two things, and both
-are already in this paper: the wider bore, which restores it to 1.343, or the optimised production
-target, which drops the requirement from 50.8 to 21.4 percent and is met by every configuration
-computed.
+A stopping window of 400 MeV/c takes it to 0.968. **And that window cannot be bought out of the
+difficulty**: §5.25 integrates the muon's stopping power to show the target must be one range deep,
+that its tritium inventory is therefore areal density times beam area and does not fall with
+compression, and that widening the window from 265 to 400 MeV/c costs **1.93** in inventory for
+**1.11** in delivered muons. The route therefore needs one of two things, and both are already in this
+paper: the wider bore, which restores it to 1.343, or the optimised production target, which drops the
+requirement from 50.8 to 21.4 percent and is met by every configuration computed. The second is the
+cheaper, and it is what §10 now runs first.
 
 One measurement remains genuinely unresolved: the two published final stickings straddle the
 break-point, and this paper's own protocol — neutron and X-ray routes run simultaneously on one
@@ -1182,7 +1186,64 @@ precisely why the MARS15 row, the one that carries 50 m of real transport, is th
 the prediction. A reactor front end will lose something to transport that this model does not charge
 it for.
 
-### 5.25 What the independent literature does to these figures
+### 5.25 The stopping window is bought with tritium, and it saturates
+
+§5.24 leaves the result turning on the momentum window the fuel target imposes, and §9 ranked that
+window first among the things to settle. It is settled here, and the answer demotes it: **the window
+is not a lever, it is a constraint, and pushing it is the wrong way to close the route.**
+
+**A window is a range.** A delivered muon is worth nothing unless it stops in the fuel, so the target
+must be one continuous-slowing-down range deep at the window's top momentum. Integrating the Bethe
+stopping power for muons in hydrogen:
+
+| window top | range required |
+|---|---|
+| 150 MeV/c | **10.6 g/cm²** |
+| 265 MeV/c | **33.9 g/cm²** |
+| 400 MeV/c | **65.4 g/cm²** |
+
+The calculation is validated twice, and neither validation is this paper's own. Its minimum-ionising
+stopping power in liquid hydrogen is **4.06 MeV cm²/g** against the standard **4.034**. And the same
+model, applied to the running experiment of the companion's §2.4 — a 4 mg fifty-fifty fill — returns
+**23.1 Ci** of tritium against the **24** that experiment states.
+
+**The inventory does not depend on density, and that is the structural point.** Tritium held is areal
+density times beam area, and the areal density is fixed by the range. Compressing the fuel changes the
+target's *length* and not its contents. A 265 MeV/c window is a **192 cm** target at liquid density
+and a **23 cm** one at the density §5.13 brackets — and both hold the same tritium.
+
+> **Density buys compactness. It does not buy a gram of inventory back.**
+
+That closes a door §5.29 had appeared to open. §5.29 shows the bred-fuel route needs no compression
+for its *service life*, and that stands. But the stopping window needs areal density, and areal
+density is tritium whatever the compression.
+
+**And the trade is steeply diminishing.** On a 5 cm beam radius — a scale, not a specification, and
+the inventory goes as its square:
+
+| | 265 MeV/c | 400 MeV/c |
+|---|---|---|
+| tritium | **1.60 kg** | **3.08 kg** |
+| delivered fraction (§5.24) | 44.43 % | 49.16 % |
+
+> **Widening the window from 265 to 400 MeV/c costs 1.93 in tritium inventory and returns 1.11 in
+> delivered muons.** The window saturates economically long before it saturates physically.
+
+**So §9's first item is answered, and it changes the ranking rather than the result.** The stopping
+window cannot be widened into a positive balance: reaching unity at today's aperture would need
+essentially the whole spectrum, an inventory several times the table above, and the return curve is
+against it the whole way. The route closes on the other two axes instead — the production target,
+which drops the requirement to 21.4 percent and is met at *every* window in §5.24's table, or the
+wider bore, which holds at **1.039** through a 265 MeV/c window. **Both are cheaper in tritium than
+widening the window, and the production target is cheaper than either.**
+
+**Two things this does not establish.** The beam radius is not derived here: it belongs to a front-end
+design this paper does not have, and every kilogram above scales as its square, so those figures are a
+scale rather than a specification. And the density-effect correction is omitted from the stopping
+power, which understates the range slightly at the top of the table — an optimistic direction, and
+stated rather than corrected.
+
+### 5.26 What the independent literature does to these figures
 
 Four independent results were published while this analysis was being done, and the reconciliation is
 a paper of its own [15] rather than a section here, because it is a different kind of work: this
@@ -1390,27 +1451,33 @@ density axis, the sticking measurement or the reactivation term. The product cho
 on the product the definition permits, is **1.69** in collection efficiency above today's measured
 front end — inside the §5.9 collector, whose cost §5.21 prices as a shielding trade.
 
-**And §5.24 splits the collector, which changes the ranking below.** The specification has two halves —
-drop the hemisphere cut, and widen the bore by 1.74 — and they are not physically coupled. The first
-costs no aperture, no field and no shielding, because it is the removal of a choice made for a
-background a reactor does not have. At today's aperture with that cut alone dropped, the bred-fuel
-balance at demonstrated cycle counts is **1.203**.
+**§5.25 answers what this section previously ranked first, and demotes it.** The stopping window the
+fuel target imposes is a constraint and not a lever: widening it from 265 to 400 MeV/c costs **1.93**
+in tritium inventory for **1.11** in delivered muons, and the inventory does not fall with
+compression, because it is areal density times beam area and the areal density is a range. The route
+therefore closes on the production target or on the bore, and not on the target's window.
+
+**And §5.24 works the collector's number rather than assuming it, which changes the ranking below.**
+The specification has two halves — the hemisphere and the bore — and the earlier claim that the first
+was free and worth a factor of six is withdrawn there: the built front end already takes the forward
+hemisphere, which is the large one, so the second half is worth **1.20**. At today's aperture the
+bred-fuel balance at demonstrated cycle counts is **1.199** with no momentum requirement at all and
+**0.968** through a 400 MeV/c stopping window.
 
 What would change the answer, in the order this paper can rank them:
 
-1. **The stopping window of the fuel target.** §5.24 closes the acceptance question as a calculation
-   and finds the answer turns on a term this paper had not carried: a reactor substitutes a *range*
-   window for the collider's rf bucket, and the delivered fraction runs from **60.92 percent** with no
-   window to **44.43 percent** at 265 MeV/c. That spread straddles the requirement, so it decides the
-   bred-fuel route at demonstrated cycle counts. It is a target-design question — areal density and
-   moderator — not a physical unknown, and **it is what this paper would settle first.**
-2. **The production target of §10.3.** At the companion's optimised figure the requirement falls from
-   50.8 to **21.4 percent**, which every configuration §5.24 computes already meets. It is the
-   cheapest of the measurements and it now moves the result furthest.
-3. **The wider bore of §5.9** — 20 T on a 13 cm clear bore, 1.74 times the existing aperture. It
+1. **The production target of §10.3.** At the companion's optimised figure the requirement falls from
+   50.8 to **21.4 percent**, which every configuration §5.24 computes already meets — including
+   today's aperture through the tightest stopping window, at **2.076**. It is the cheapest of the four
+   measurements and it moves the result furthest. §5.25 is why it stands first rather than second.
+2. **The wider bore of §5.9** — 20 T on a 13 cm clear bore, 1.74 times the existing aperture. It
    restores the bred-fuel route through a 265 MeV/c stopping window at **1.039** and a 400 MeV/c one
    at **1.343**, and the heat and work routes need it outright. §5.21 prices it as a shielding trade
    of about 2.7 in coil heating, not a new magnet.
+3. **The beam radius of the front end.** §5.25 could not derive it, and the tritium inventory of the
+   stopping target goes as its square — so it decides whether §5.25's figures are kilograms or tens of
+   kilograms. It is the one term in that calculation neither computed nor sourced here, and it belongs
+   to the same front-end design as §10.1.
 4. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
    bench experiment on an existing beam, and the companion's §2.4 records that a collaboration is already running
    the adjacent measurement. It bears on the heat route and not on the bred-fuel one.
@@ -1432,8 +1499,10 @@ What would change the answer, in the order this paper can rank them:
    transport rather than by the field. It is the smallest of the three levers and the only one that
    needs a machine that does not exist.
 
-None is settled here. The first three need no new machine, and items 4 to 8 bear on the service-life
-axis alone — which is the axis §5.23 shows the bred-fuel route can do without.
+None is settled here. The first two need no new machine, and items 4 to 8 bear on the service-life
+axis alone — which is the axis §5.23 shows the bred-fuel route can do without. **The item this list
+previously ranked first, the target's stopping window, has been answered at §5.25 and is a constraint
+rather than a lever**; it now bounds every figure above instead of promising to lift one.
 
 **And four doors are now shut, which is worth as much as an open one.** The binder is not the variable
 (§5.7). The conversion ceiling descends from condition 1 (§5.16). Density is bounded above by
@@ -1533,7 +1602,10 @@ paper's thin-target measured **11.13 GeV**, a ratio of **2.37**.
 
 **What it settles.** It decides which figure a reactor target should be priced at, and it multiplies
 every balance in this paper by the ratio it returns. It is the only stage that can improve the result
-by more than a factor of two, and it is the cheapest of the four.
+by more than a factor of two, it is the cheapest of the four, and after §5.24 and §5.25 it is **the
+stage that decides the bred-fuel route**: at the companion's figure the requirement falls to
+**21.4 percent**, met by every configuration §5.24 computes, whereas no stopping window reachable in
+§5.25's inventory table closes the route at the measured production cost. **Run this one first.**
 
 ### 10.4 Stage D — the integrated demonstration
 
@@ -1545,6 +1617,13 @@ paper's actual claim, which is a product of three factors and nothing else:
 **What it needs from the earlier stages.** η from A, the service life from B, the target from C. What
 it does *not* need, if Stage A returns at or above 50.8 percent: a wider bore, a density beyond the
 scanned experimental record, or any improvement in sticking.
+
+**And what it costs before any of that: tritium.** §5.25 shows the fuel target must be one muon range
+deep at the top of its momentum window, so the demonstration's inventory is set by the window it
+accepts and by the beam's area, not by its density — **1.60 kg** at a 265 MeV/c window on a 5 cm beam
+radius, **3.08 kg** at 400 MeV/c. That is the demonstration's leading cost and its leading licensing
+constraint, and it should be designed against first: a narrower window is cheaper in tritium than a
+wider one is valuable in muons, by 1.93 against 1.11.
 
 **What it measures and what it does not.** The measured output is **neutron production per beam
 joule**. The bred-fuel product's **146.06 MeV** per fusion is realised downstream in a separate
@@ -1558,8 +1637,10 @@ self-contained one.
 
 ### 10.5 The order, and what none of it requires
 
-Stage A first: it bounds every other result, and it needs no new hardware. B and C are independent of
-A and of each other and can run in parallel. D follows all three.
+**Stage C first.** It was written third because it was found third; §5.24 and §5.25 have since made it
+the stage that decides the route, and it is also the cheapest. Stage A next: it bounds every other
+result and needs no new hardware, and §5.24 has already computed what it should return. B is
+independent of both and can run in parallel. D follows all three.
 
 **None of the four requires a new accelerator, and none requires new physics.** The single item that
 requires new hardware is the wider bore of §5.9, and Stage A is designed to determine whether it is
