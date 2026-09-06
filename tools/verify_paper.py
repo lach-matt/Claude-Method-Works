@@ -509,6 +509,30 @@ def ws_excursion():
     return 100.0 * (1.0 - 0.64 / 0.86)
 
 
+def bred_credit():
+    return collector.bred_credit_mev()
+
+
+def total_bred():
+    return collector.total_with_breeding_mev()
+
+
+def bred_over_heat():
+    return bred_credit() / 14.1
+
+
+def q_demo_real():
+    return 150.0 * (total_bred() / 1000.0) / (e_binder_captured())
+
+
+def q_demo_collector():
+    return 150.0 * (total_bred() / 1000.0) / (cost_pion() / 0.9)
+
+
+def q_phi3_collector():
+    return N3_sin() * (total_bred() / 1000.0) / (cost_pion() / 0.9)
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 

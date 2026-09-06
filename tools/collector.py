@@ -467,6 +467,18 @@ def transition_phi(counts_atoms=True):
     return n / LHD_ATOMS_PER_CM3
 
 
+PU239_FISSION_MEV = 200.0   # downstream yield of one bred 239Pu
+BREEDING_RATIO = 0.7        # bred nuclei per fusion after tritium self-sufficiency
+
+
+def bred_credit_mev(ratio=None):
+    return (BREEDING_RATIO if ratio is None else ratio) * PU239_FISSION_MEV
+
+
+def total_with_breeding_mev(ratio=None):
+    return total_thermal_mev() + bred_credit_mev(ratio)
+
+
 BE_N2N_COST_MEV = 1.57     # 9Be(n,2n): endothermic, per multiplication
 
 

@@ -194,3 +194,18 @@ C192	3He+3He yield	12.86	MeV	MEASURED	standard nuclear data	none
 C193	p+11B yield	8.70	MeV	MEASURED	standard nuclear data	none
 C194	direct conversion efficiency, low end	60	percent	SOURCED	electrostatic direct conversion of charged products	none
 C195	direct conversion efficiency, high end	90	percent	SOURCED	electrostatic direct conversion of charged products	none
+C196	downstream yield of one bred fissile nucleus	200	MeV	MEASURED	239Pu fission, standard	collector.PU239_FISSION_MEV
+C197	breeding ratio after tritium self-sufficiency	0.7	per fusion	RECONSTRUCTED	with a multiplier at 1.6-1.8 n/source	collector.BREEDING_RATIO
+C198	breeding credit per fusion	140	MeV	DERIVED	C196 x C197	fn:bred_credit
+C199	total value per fusion, with breeding	162.4	MeV	DERIVED	C133 + C198	fn:total_bred
+C200	factor by which breeding exceeds the neutron's heat	9.9	x	DERIVED	C198 / C58	fn:bred_over_heat
+C201	balance at demonstrated cycles and a real front end	0.66	dimensionless	DERIVED	C44 x C199 / C18	fn:q_demo_real
+C202	balance at demonstrated cycles with the sec.5.9 collector	1.97	dimensionless	DERIVED	C44 x C199 / (C100 / 0.9)	fn:q_demo_collector
+C203	balance at phi=3 with the sec.5.9 collector	6.30	dimensionless	DERIVED	C152 x C199 / (C100 / 0.9)	fn:q_phi3_collector
+C204	review's cycle count, unpolarized	148	cycles	SOURCED	arXiv:2605.26432 Table I	none
+C205	review's cycle count, ultimate theoretical	873	cycles	SOURCED	arXiv:2605.26432 Table I	none
+C206	review's cycle rate, ultimate theoretical	5.5e8	s^-1	SOURCED	arXiv:2605.26432 Table I	none
+C207	review's sticking, engineering-limit optimized	0.0008	fraction	SOURCED	arXiv:2605.26432 Table I	none
+C208	review's transfer rate claim, low end	1e5	s^-1	SOURCED	arXiv:2605.26432 sec.II.B -- an error, see sec.5.17	none
+C209	review's cycle count at its unity crossing	292	cycles	SOURCED	arXiv:2605.26432 Table I, fully polarized optimistic	none
+C210	neutron multiplication, upper of the assumed band	1.8	per source	RECONSTRUCTED	blanket with a multiplier	none

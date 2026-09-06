@@ -600,6 +600,12 @@ recirculating power of the driver itself.
 > *sign* is not established by this paper — but every unmodelled effect is unfavourable, and the
 > honest reading of 0.965 is that it is optimistic.
 
+**And that sentence names its own escape.** It is a statement about *electrical* breakeven, and §5.16
+shows why electricity is the hard product here: condition 1 confines the fuel to charge one, which
+forces the yield out as a neutron, which forces conversion at Carnot. §5.18 costs that neutron
+correctly and the balance changes by an order of magnitude. **The shortfall is a property of the
+product demanded, not of the reaction.**
+
 ### 5.15 Inverting the bound: the last four percent sits on an axis held constant
 
 A null is a bound, and a bound is a specification of what must be true to cross it. §5.14's shortfall
@@ -669,6 +675,88 @@ descends from the first of the seven conditions, and it cannot be designed aroun
 one that transfers to higher charge. That is a bound of the same kind as the binder-mass window and
 the density bound of §5.13 — and, like them, it is stated here as a bound rather than as a defeat: it
 says precisely which door is shut, and therefore which are not.
+
+### 5.17 An independent review, its agreements and its errors
+
+A 2026 review of the same problem reaches the energy balance independently, and reading it against
+this paper is worth doing in both directions.
+
+**It agrees where it matters, and one agreement is a correction to §5.15's caution.** It states that
+high-density confinement *promotes collisional stripping* of the bound ash–binder ion and may suppress
+sticking below 0.3 percent. §5.15 argued from a temperature excursion that effective sticking is a
+function and not a constant, and flagged that the excursion might be a phase effect; this is an
+independent statement, from the same mechanism, that the reactivation term moves with the medium and
+moves favourably. **The four percent §5.15 requires now has two independent reasons to be available.**
+
+**It confirms §4.2's central correction, by making the error.** Its energy gains are computed at
+5 GeV per muon, described as including "systematic losses from pion production, transport, decay, and
+muon collection." §4.2 shows that figure is aspirational — the best published stopped-binder cost is
+a thousand times higher, and measured production alone is 11.13 GeV per pion. **Every gain in its
+table is therefore optimistic by that factor**, including the headline crossing of unity at 292
+cycles. That an independent review makes the same error is the strongest available evidence that
+§4.2 is worth stating.
+
+**It disagrees on the cycle rate, and the disagreement is not averaged.** This paper carries a
+saturation at 2.6 × 10⁸ per second, set by transfer; the review tabulates rates to 5.5 × 10⁸ under
+polarisation and resonant enhancement. Per §3.5's rule, **a disagreement is a refusal rather than an
+average**, and this paper keeps its own pinned value and records the other.
+
+**And it contains an error this paper must not inherit.** It gives the transfer rate as "of order
+10⁵–10⁶ s⁻¹". The rate is 2.7 × 10⁸, two to three orders higher, and it is the quantity that sets the
+cycle's own cap. The figure is not used in its tabulated results, so the results survive it, but any
+reader taking that number forward would mis-model the bottleneck entirely.
+
+**Finally, it names an escape from §5.13.** In-flight catalysis — where a fast bound binder–triton
+system collides directly with a deuteron — triggers fusion **without first forming a bound molecule**.
+§5.13's density bound rests on molecular survival because Vesman formation needs a molecular host. A
+route that needs no host is not bounded that way. This paper does not evaluate that route, and notes
+only that §5.13's bound is a bound on *this* mechanism rather than on catalysis as such.
+
+### 5.18 Where the balance closes: the neutron is worth more than its heat
+
+Every figure to this point has costed the 14.1 MeV neutron at 14.1 MeV of heat, converted at Carnot.
+That is the correct accounting for a device whose product is electricity. **It is the wrong accounting
+for the device this reaction is actually good at being.**
+
+A fast neutron entering a fertile blanket does not merely deposit heat. It breeds: ²³⁸U captures it
+and decays to ²³⁹Pu, and that nucleus subsequently yields about **200 MeV** in a fission reactor. The
+same logic runs on ²³²Th to ²³³U. Neutrons compete — tritium self-sufficiency needs about one per
+fusion — so with a multiplier at 1.6 to 1.8 per source neutron, roughly **0.7** remain for breeding:
+
+| | |
+|---|---|
+| breeding credit per fusion | **140 MeV** |
+| plus thermal, from §5.8 | 22.38 MeV |
+| **total value per fusion** | **162.4 MeV** |
+| against the neutron's heat alone | a factor of **9.9** |
+
+Recomputing the balance on that basis:
+
+| configuration | cycles | binder cost | gain |
+|---|---|---|---|
+| demonstrated cycles, a real front end | 150 | 37.0 GeV | 0.66 |
+| **demonstrated cycles, the §5.9 collector** | **150** | **12.4 GeV** | **1.97** |
+| §5.11's physical density, §5.9 collector | 479.6 | 12.4 GeV | 6.30 |
+
+> **At the cycle count demonstrated at Los Alamos in the 1980s, with the collector §5.9 specifies and
+> nothing else, the balance exceeds unity by about two.** No sticking improvement. No polarisation. No
+> extreme density. No new physics of any kind.
+
+**This is a change of the question, and the paper says so rather than concealing it.** The 200 MeV is
+realised downstream, in a separate fission reactor, and is an energy *credit* rather than device
+output; an accounting that refuses such credits will not accept it. What it establishes is narrower
+and still decisive: **the shortfall of §5.14 is a property of demanding electricity from this
+reaction, not a property of the reaction.** Section 5.16 shows why electricity is hard here — condition
+1 confines the fuel to charge one, which forces the yield out as a neutron, which forces Carnot. The
+same neutron that makes electricity hard is what makes breeding easy. **The constraint and the escape
+are the same object.**
+
+**Three things must be said plainly about it.** Breeding fissile material is proliferation-sensitive,
+and the review that proposes this configuration raises the point itself and cites the relevant IAEA
+instrument; a thorium cycle and pure waste transmutation are the two variants with different profiles,
+and transmutation produces no fissile inventory at all. The breeding ratio of 0.7 is reconstructed
+from a multiplier this paper declined to adopt in §5.12 and is the weakest number in the table. And
+the collector of §5.9 remains unbuilt — it is the one component every row above depends on.
 
 ## 6. What the definition excludes
 
