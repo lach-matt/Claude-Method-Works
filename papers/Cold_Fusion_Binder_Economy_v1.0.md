@@ -47,7 +47,7 @@ figure of merit Q_fus·f_work/(ω_s·E_binder) is therefore 0.203 as heat and 0.
 **The admissible set is not empty.** Condition 8 falls between what has been achieved and the
 kinematic threshold floor of 0.30 GeV, which lies 123 below the achieved figure — so the requirement
 is 4.9 or 9.8 of 123 available, leaving a margin of 25.1 or 12.6. Two of the three levers in the
-figure of merit are already near their limits: sticking is governed by the ratio of recoil to binder
+figure of merit are near their limits: sticking is governed by the ratio of recoil to binder
 orbital velocity, an expression free of the binder's mass, reproducing the measured 2.97 for d+t and
 1.66 for the d+d channel that ends in helium-3, with d+t already optimal; and the fusion yield goes
 with that same channel choice. The live lever is E_binder, and condition 8 is a bound on it alone.
@@ -230,48 +230,68 @@ reactor does not share. **The gap between production and capture is where the re
 come from**, and how much of it is recoverable acceptance rather than irreducible cross-section is not
 settled by any figure in this paper.
 
-### 5.1 Production, measured
+### 5.1 Production, measured across the full angular range
 
-The claim that the live lever is capture rather than production can be tested against measured cross
-sections rather than asserted. HARP's large-angle double-differential cross sections for negative pion
-production on lead at 8 GeV/c, integrated over the full acceptance the experiment covers — polar angle
-0.35 to 2.15 radians, momentum 0.10 to 0.80 GeV/c — give **1.0382 barn**, or **0.6107 negative pions
-per interacting proton** against an inelastic cross section of 1.7 barn. That is a cost of
-**13.10 GeV of beam per pion produced**.
+Whether the live lever is capture or production can be tested against measured cross sections rather
+than asserted. Two HARP datasets between them cover almost the whole angular range for negative pion
+production on lead at 8 GeV/c on a 5 percent interaction-length target:
 
-It remains a **lower bound** on production, because HARP's large-angle spectrometer does not cover the
-forward cone below 0.35 radians, where a further substantial fraction of an 8 GeV beam's pions go. The
-13.10 GeV is therefore an **upper bound** on the cost, and the true figure is lower.
+| dataset | coverage | integral |
+|---|---|---|
+| large angle | 0.35 to 2.15 rad, p 0.10 to 0.80 GeV/c | 1.0382 barn |
+| forward | 0.025 to 0.25 rad, p 0.50 to 6.50 GeV/c | 0.1838 barn |
+| **combined** | | **1.2220 barn** |
 
-Set against condition 8 at *perfect* collection — every produced pion becoming a stopped binder, which
-no machine approaches:
+The forward cone contributes only 15 percent. Its differential cross sections are the larger, but its
+solid angle is small, and the two datasets are reported in different differential variables — the
+forward one per unit solid angle — so the Jacobian must be applied. Treating them alike would
+overstate the forward contribution by more than an order of magnitude.
 
-| | condition 8 | measured production | |
+Against an inelastic cross section of 1.7 barn this is **0.7188 negative pions per interacting
+proton**, or **11.13 GeV of beam per pion produced**.
+
+### 5.2 Collection alone cannot satisfy condition 8
+
+Suppose collection were *perfect* — every pion produced becoming a stopped binder, which no machine
+approaches and §5.3 shows none comes near:
+
+| | condition 8 | production at perfect collection | |
 |---|---|---|---|
-| heat | 7.52 GeV | 13.10 GeV | short by 1.74 |
-| work | 3.77 GeV | 13.10 GeV | short by 3.48 |
+| heat | 7.52 GeV | 11.13 GeV | **short by 1.48** |
+| work | 3.77 GeV | 11.13 GeV | short by 2.96 |
 
-The figure of merit at that cost is 0.574 as heat and 0.287 as work — against 0.203 and 0.102 at the
-capture figure of §5.
+The figure of merit rises to 0.675 as heat and 0.338 as work — from 0.203 and 0.102 at the capture
+figure — and does not reach unity.
 
-### 5.2 The discard, measured
+> **Collection efficiency alone cannot satisfy condition 8.** Even a perfect collector leaves the heat
+> form short by 1.48 and the work form by 2.96. Production is binding, not merely capture.
 
-The same integration prices the discard. The best studied front end captures **0.2160** negative muons
-per interacting proton. The backward angular region above 1.15 radians alone — 35 percent of the
-measured acceptance — produces **0.2138** pions per interacting proton. The ratio is 1.01.
+This is the paper's principal negative result, and it inverts the reading §5 alone invites. The
+shortfall at the capture figure is 4.9; of that, the part attributable to collection is real and large
+but bounded, and the residual is production physics, which no collector design changes.
+
+### 5.3 The discard, measured
+
+The same integration prices the discard, which remains substantial. The best studied front end
+captures **0.2160** negative muons per interacting proton against **0.7188** produced — **30 percent**.
+The backward region above 1.15 radians alone, 35 percent of the large-angle acceptance, produces
+0.2138 pions per interacting proton, so the ratio of that region to the whole captured yield is 1.01:
 
 > **The entire captured yield of the best studied front end equals what one backward angular window
-> produces.** Against the full measured acceptance the front end captures 0.35 of what HARP sees, and
-> discards the rest — before the forward cone, which it does not see at all, is counted.
+> produces.**
 
-This is the collector argument in measured numbers rather than in assertion. It establishes the
-direction and the scale of the remaining headroom: between the capture figure of §5 and the production
-figure above lies a factor the front end is throwing away, and it is measured, not inferred.
+So both statements hold together, and neither may be quoted without the other: the discard is real and
+a collector would recover a large factor, **and** recovering all of it still leaves condition 8
+unsatisfied.
 
-**What it does not establish** is a verdict. The forward cone is not integrated here, no total
-production figure is claimed, and perfect collection is a limit no machine approaches. **Condition 8
-is not decided by this data**, and this paper does not decide it. What the data does say is that the
-shortfall at perfect collection is 1.74 rather than the 4.9 that the capture figure alone implies.
+### 5.4 What remains open
+
+This is still a **lower bound** on production. The band from 0.25 to 0.35 radians is covered by neither
+spectrometer; forward momenta below 0.50 GeV/c and large-angle momenta above 0.80 GeV/c are
+unmeasured. The residual 1.48 is therefore an upper bound on the shortfall rather than a closure, and
+**this paper offers no verdict on condition 8.** What it establishes is that the shortfall is a
+production shortfall, that it is not large, and that the two remaining levers on it are the sticking
+value in the denominator of condition 8 and whatever the unmeasured phase space carries.
 
 **Proton energy is not a lever.** The same source finds the beam-power-normalised yield flat within a
 tenth of its optimum across 4 to 11 gigaelectronvolts, with an optimum near 7. Any driver energy in

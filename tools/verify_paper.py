@@ -228,6 +228,46 @@ def short_prod_work():
     return cost_upper() / cond8_work()
 
 
+def harp_fwd_sigma():
+    return collector.harp_forward_sigma()
+
+
+def harp_comb_sigma():
+    return collector.harp_combined_sigma()
+
+
+def harp_comb_yield():
+    return collector.harp_combined_yield()
+
+
+def cost_pion():
+    return collector.cost_per_pion_produced()
+
+
+def fwd_frac():
+    return 100.0 * harp_fwd_sigma() / harp_comb_sigma()
+
+
+def short_perf_heat():
+    return cost_pion() / cond8_heat()
+
+
+def short_perf_work():
+    return cost_pion() / cond8_work()
+
+
+def fom_perf_heat():
+    return (mucf.Q_FUS_MEV / 1000.0) / (mucf.STICKING["both"][0] * cost_pion())
+
+
+def fom_perf_work():
+    return fom_perf_heat() * collector.F_WORK
+
+
+def capture_of_production():
+    return 100.0 * nf_captured() / harp_comb_yield()
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 
@@ -356,6 +396,8 @@ def main():
     text = re.sub(r"```.*?```", " ", text, flags=re.S)          # code blocks
     text = re.sub(r"`[^`]*`", " ", text)                         # inline code
     text = re.sub(r"^\s*\|.*\|\s*$", " ", text, flags=re.M)      # tables carry their own
+    # Section headings are structure, not claims: "### 5.2 Collection alone ..."
+    text = re.sub(r"^#{1,6}\s+[\d.]+\s*", "#H ", text, flags=re.M)
     values = set()
     for r in rows:
         v = norm(r["value"])

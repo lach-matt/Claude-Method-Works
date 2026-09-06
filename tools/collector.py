@@ -59,6 +59,7 @@ Stdlib only. python3 tools/collector.py --selftest before trusting a report.
 """
 
 import argparse
+import math
 import sys
 
 J_PER_GEV = 1.602e-10        # J per GeV
@@ -256,6 +257,30 @@ HARP_PB_PIMINUS_8GEV = {
     (1.95, 2.15): _row([1.52, 1.11, 0.68, 0.42, 0.24, 0.17, 0.12, 0.08], []),
 }
 HARP_THETA_MIN, HARP_THETA_MAX = 0.35, 2.15
+
+# HARP FORWARD spectrometer, p-Pb pi-, 8 GeV/c: arXiv:0907.3857 Table XXIII
+# (0.05-0.25 rad) plus the finest bin of Table XXXII (0.025-0.050 rad).
+# NOTE THE UNITS CHANGE: this table is d2sigma/dp dOmega in barn/(sr . GeV/c),
+# not d2sigma/dp dtheta. The solid-angle Jacobian dOmega = 2 pi (cos t1 - cos t2)
+# must be applied; treating it as the large-angle table would overstate the
+# forward contribution by more than an order of magnitude.
+HARP_PB_PIMINUS_8GEV_FWD = {
+    (0.025, 0.050): [((0.50, 0.75), 0.23), ((0.75, 1.00), 1.23), ((1.00, 1.25), 0.81),
+                     ((1.25, 1.50), 0.35), ((1.50, 2.00), 0.54), ((2.00, 2.50), 0.34),
+                     ((2.50, 3.00), 0.16), ((3.00, 3.50), 0.16), ((3.50, 4.00), 0.03),
+                     ((4.00, 5.00), 0.07)],
+    (0.050, 0.100): [((0.50, 1.00), 0.72), ((1.00, 1.50), 0.54), ((1.50, 2.00), 0.47),
+                     ((2.00, 2.50), 0.27), ((2.50, 3.00), 0.15), ((3.00, 3.50), 0.05),
+                     ((3.50, 4.00), 0.06), ((4.00, 5.00), 0.034)],
+    (0.100, 0.150): [((0.50, 1.00), 1.01), ((1.00, 1.50), 0.58), ((1.50, 2.00), 0.37),
+                     ((2.00, 2.50), 0.17), ((2.50, 3.00), 0.14), ((3.00, 3.50), 0.07),
+                     ((3.50, 4.00), 0.037), ((4.00, 5.00), 0.013), ((5.00, 6.50), 0.002)],
+    (0.150, 0.200): [((0.50, 1.00), 0.98), ((1.00, 1.50), 0.50), ((1.50, 2.00), 0.27),
+                     ((2.00, 2.50), 0.17), ((2.50, 3.00), 0.07), ((3.00, 3.50), 0.033),
+                     ((3.50, 4.00), 0.011)],
+    (0.200, 0.250): [((0.50, 1.00), 0.68), ((1.00, 1.50), 0.37), ((1.50, 2.00), 0.17),
+                     ((2.00, 2.50), 0.07), ((2.50, 3.00), 0.014)],
+}
 SIGMA_INEL_PB = 1.7                    # barn, p-Pb inelastic at few GeV
 
 
@@ -268,6 +293,28 @@ def harp_window_sigma(theta_min=HARP_THETA_MIN):
             continue
         tot += sum(v * (ph - pl) * (thi - tlo) for (pl, ph), v in bins.items())
     return tot
+
+
+def harp_forward_sigma():
+    """Integrated forward pi- cross section, barn. Applies the solid-angle
+    Jacobian, which the large-angle table does not need."""
+    tot = 0.0
+    for (tlo, thi), bins in HARP_PB_PIMINUS_8GEV_FWD.items():
+        dom = 2 * math.pi * (math.cos(tlo) - math.cos(thi))
+        tot += sum(v * (ph - pl) for (pl, ph), v in bins) * dom
+    return tot
+
+
+def harp_combined_sigma():
+    return harp_window_sigma() + harp_forward_sigma()
+
+
+def harp_combined_yield():
+    return harp_combined_sigma() / SIGMA_INEL_PB
+
+
+def cost_per_pion_produced():
+    return 8.0 / harp_combined_yield()
 
 
 def harp_window_yield(theta_min=HARP_THETA_MIN):
@@ -283,48 +330,49 @@ def nf_captured_per_interacting_proton(ep_gev=8.0):
 
 
 def report_production():
-    w = harp_window_yield()
-    back = harp_window_yield(1.15)
+    la, fw = harp_window_sigma(), harp_forward_sigma()
+    tot, y = harp_combined_sigma(), harp_combined_yield()
+    eb = cost_per_pion_produced()
     c = nf_captured_per_interacting_proton()
-    eb = 8.0 / w
     q = Q_FUS_MEV / 1000.0
     print("PRODUCTION, integrated from HARP measured cross sections")
-    print("  source: arXiv:0709.3458 Table 8, p-Pb, pi-, 8 GeV/c")
+    print("  large angle: arXiv:0709.3458 Table 8   0.35-2.15 rad, p 0.10-0.80")
+    print("  forward:     arXiv:0907.3857 Tab XXIII 0.025-0.25 rad, p 0.50-6.50")
+    print("  both p-Pb, pi-, 8 GeV/c, 5% interaction-length target")
     print()
-    print(f"  full measured acceptance  theta {HARP_THETA_MIN}-{HARP_THETA_MAX} rad,"
-          f" p 0.10-0.80 GeV/c")
-    print(f"    integrated cross section      {harp_window_sigma():8.4f} barn")
-    print(f"    backward sliver (theta>=1.15) {harp_window_sigma(1.15):8.4f} barn"
-          f"  = {100 * back / w:.0f}% of it")
-    print(f"    pi- per interacting proton    {w:8.4f}"
-          f"   (sigma_inel = {SIGMA_INEL_PB} b)")
-    print(f"    COST PER pi- PRODUCED         {eb:8.2f} GeV")
+    print(f"    large-angle integral   {la:8.4f} barn")
+    print(f"    forward integral       {fw:8.4f} barn   ({100 * fw / tot:.0f}% of the total)")
+    print(f"    COMBINED               {tot:8.4f} barn")
+    print(f"    pi- per interacting p  {y:8.4f}   (sigma_inel = {SIGMA_INEL_PB} b)")
+    print(f"    COST PER pi- PRODUCED  {eb:8.2f} GeV")
     print()
-    print("  This is still a LOWER BOUND on production: HARP's large-angle")
-    print("  spectrometer does not cover the forward cone theta < 0.35 rad,")
-    print("  where a further substantial fraction of an 8 GeV beam's pions go.")
-    print("  So the cost above is an UPPER bound, and the true figure is lower.")
+    print("  The forward cone contributes only ~15%: its differential cross")
+    print("  sections are large but its solid angle is small. Applying the")
+    print("  Jacobian matters -- treating the forward table as if it shared the")
+    print("  large-angle table's units would overstate it by over an order.")
     print()
-    print("  Against condition 8, at PERFECT collection (every produced pi-")
-    print("  becoming a stopped mu-, which no machine approaches):")
+    print("  AGAINST CONDITION 8, AT PERFECT COLLECTION -- every produced pi-")
+    print("  becoming a stopped mu-, which no machine approaches:")
     for f, lab in ((1.0, "heat"), (F_WORK, "work")):
         c8 = q * f / OMEGA_BOTH_LEVERS
-        verdict = "SATISFIED" if eb < c8 else f"short by {eb / c8:.2f}x"
-        print(f"    {lab:<5}: E_binder < {c8:5.2f} GeV;  {eb:5.2f} GeV  ->  {verdict}")
+        print(f"    {lab:<5}: E_binder < {c8:5.2f} GeV;  {eb:5.2f} GeV  ->  short by {eb / c8:.2f}x")
     print()
-    print(f"    FOM at this cost:  heat {q / (OMEGA_BOTH_LEVERS * eb):.3f}"
+    print(f"    FOM at perfect collection:  heat {q / (OMEGA_BOTH_LEVERS * eb):.3f}"
           f"   work {q * F_WORK / (OMEGA_BOTH_LEVERS * eb):.3f}")
     print()
-    print("  THE DISCARD, measured. Captured mu- per interacting proton at the")
-    print(f"  best studied front end: {c:.4f}. Produced pi- in the backward")
-    print(f"  sliver alone: {back:.4f}. Ratio {c / back:.2f} -- the entire captured")
-    print("  yield equals one backward angular window. Against the FULL measured")
-    print(f"  acceptance the ratio is {c / w:.2f}: the front end captures about")
-    print(f"  {100 * c / w:.0f}% of the pions HARP measures, discarding the rest.")
+    print("  => COLLECTION EFFICIENCY ALONE CANNOT SATISFY CONDITION 8.")
+    print("  Even a perfect collector leaves the heat form short by 1.48x and")
+    print("  the work form by 2.96x. Production is binding, not merely capture.")
     print()
-    print("  REFUSAL: the forward cone is not integrated here and no total")
-    print("  production figure is claimed. What is established is a bound and a")
-    print("  direction, not a verdict: condition 8 is not decided by this data.")
+    print(f"  The discard is still real and large: the best front end captures")
+    print(f"  {c:.4f} mu- per interacting proton against {y:.4f} pi- produced,")
+    print(f"  i.e. {100 * c / y:.0f}% -- but closing that gap entirely still falls short.")
+    print()
+    print("  REFUSAL: still a LOWER bound on production. The band 0.25-0.35 rad")
+    print("  is covered by neither spectrometer, forward p < 0.5 GeV/c and")
+    print("  large-angle p > 0.8 GeV/c are unmeasured. The residual 1.48x is")
+    print("  therefore an upper bound on the shortfall, not a closure -- and no")
+    print("  verdict on condition 8 is offered.")
 
 
 def cycles(ws, phi):

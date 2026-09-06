@@ -95,3 +95,16 @@ C93	FOM at production cost, work	0.287	dimensionless	DERIVED	C01 x C12 / (C10 x 
 C94	shortfall at production cost, heat	1.74	x	DERIVED	C83 / C25	fn:short_prod_heat
 C95	shortfall at production cost, work	3.48	x	DERIVED	C83 / C26	fn:short_prod_work
 C96	backward sliver boundary	1.15	rad	SOURCED	HARP angular bin edge, subset boundary	none
+C97	HARP forward acceptance, integrated pi- cross section	0.1838	barn	DERIVED	arXiv:0907.3857 Tab XXIII+XXXII, solid-angle Jacobian applied	fn:harp_fwd_sigma
+C98	combined measured pi- cross section	1.2220	barn	DERIVED	C78 + C97	fn:harp_comb_sigma
+C99	combined pi- per interacting proton	0.7188	pi-/p	DERIVED	C98 / C79; still a LOWER BOUND	fn:harp_comb_yield
+C100	cost per pi- produced, combined	11.13	GeV	DERIVED	8 GeV / C99	fn:cost_pion
+C101	forward share of combined production	15	percent	DERIVED	C97 / C98	fn:fwd_frac
+C102	shortfall at perfect collection, heat	1.48	x	DERIVED	C100 / C25	fn:short_perf_heat
+C103	shortfall at perfect collection, work	2.96	x	DERIVED	C100 / C26	fn:short_perf_work
+C104	FOM at perfect collection, heat	0.675	dimensionless	DERIVED	C01 / (C10 x C100)	fn:fom_perf_heat
+C105	FOM at perfect collection, work	0.338	dimensionless	DERIVED	C01 x C12 / (C10 x C100)	fn:fom_perf_work
+C106	front end capture as fraction of production	30	percent	DERIVED	C81 / C99	fn:capture_of_production
+C107	forward acceptance, angular lower limit	0.025	rad	SOURCED	arXiv:0907.3857 finest binning	none
+C108	forward acceptance, angular upper limit	0.25	rad	SOURCED	arXiv:0907.3857	none
+C109	uncovered angular band, lower	0.25	rad	DERIVED	between the two spectrometers	none
