@@ -275,7 +275,8 @@ both ways: `graph.json` was built at `1c33255e`, **83 commits back**, and the ho
 `graphify-out/` **for what a document argues**, and never quote one graph's totals as the other's.
 Neither is a census. **`docs/GRAPHIFY-MCP.md` is the routing guide** — which question goes to which
 tool, what the durable `recall`/`remember` memory holds and how it goes stale, and the Graphify PR
-review gate that files its verdict into memory rather than onto the PR. `docs/GRAPH-HOSTED.md`
+review gate, whose verdict has landed in **both** places and must be looked for in both: memory
+alone on PRs #13-#16, and a full posted review as `graphify-labs[bot]` from #19. `docs/GRAPH-HOSTED.md`
 carries the measurements, and its §6 records what an earlier revision of this paragraph claimed and
 why it was withdrawn.
 
