@@ -192,6 +192,42 @@ def cost_upper():
     return 8.0 / harp_yield()
 
 
+def harp_sigma_back():
+    return collector.harp_window_sigma(1.15)
+
+
+def harp_yield_back():
+    return collector.harp_window_yield(1.15)
+
+
+def back_ratio():
+    return nf_captured() / harp_yield_back()
+
+
+def back_frac():
+    return 100.0 * harp_sigma_back() / harp_sigma()
+
+
+def _fom_prod(f):
+    return (mucf.Q_FUS_MEV / 1000.0) * f / (mucf.STICKING["both"][0] * cost_upper())
+
+
+def fom_prod_heat():
+    return _fom_prod(1.0)
+
+
+def fom_prod_work():
+    return _fom_prod(collector.F_WORK)
+
+
+def short_prod_heat():
+    return cost_upper() / cond8_heat()
+
+
+def short_prod_work():
+    return cost_upper() / cond8_work()
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 

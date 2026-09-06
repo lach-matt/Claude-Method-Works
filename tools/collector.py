@@ -226,27 +226,55 @@ def report_budget(target_gev):
 # 0.20 rad from 1.15 to 2.15; columns are p bins of 0.05 GeV/c from 0.10 to 0.50.
 # Pb (A=207) stands in for Ta (A=181); the source states the two "yield the same
 # conclusions".
+# HARP Table 8 in full: p-Pb, pi-, 8 GeV/c, arXiv:0709.3458 Appendix A.
+# theta bin -> {(p_lo, p_hi): d2sigma/dpdtheta in barn/(GeV/c . rad)}
+# Momentum bins are 0.05 GeV/c wide to 0.50 and 0.10 wide above it; the widest
+# angular bins carry momentum out to 0.80, the backward ones stop at 0.50.
+_P8 = [(0.10, 0.15), (0.15, 0.20), (0.20, 0.25), (0.25, 0.30),
+       (0.30, 0.35), (0.35, 0.40), (0.40, 0.45), (0.45, 0.50)]
+_PW = [(0.50, 0.60), (0.60, 0.70), (0.70, 0.80)]
+
+
+def _row(v8, vw, skip_first=False):
+    d = dict(zip(_P8[1:] if skip_first else _P8, v8))
+    d.update(dict(zip(_PW, vw)))
+    return d
+
+
 HARP_PB_PIMINUS_8GEV = {
-    (1.15, 1.35): [2.40, 2.19, 1.70, 1.23, 0.92, 0.75, 0.59, 0.46],
-    (1.35, 1.55): [2.34, 2.06, 1.60, 1.04, 0.69, 0.52, 0.41, 0.29],
-    (1.55, 1.75): [2.09, 1.76, 1.29, 0.82, 0.48, 0.35, 0.26, 0.19],
-    (1.75, 1.95): [1.78, 1.44, 0.92, 0.56, 0.30, 0.23, 0.20, 0.14],
-    (1.95, 2.15): [1.52, 1.11, 0.68, 0.42, 0.24, 0.17, 0.12, 0.08],
+    (0.35, 0.55): _row([1.59, 2.00, 2.07, 1.99, 1.63, 1.63, 1.48],
+                       [1.38, 1.37, 1.06], skip_first=True),
+    (0.55, 0.75): _row([1.24, 2.09, 2.18, 2.19, 1.88, 1.51, 1.38, 1.26],
+                       [1.20, 0.95, 0.70]),
+    (0.75, 0.95): _row([1.71, 2.28, 2.04, 1.88, 1.54, 1.26, 1.11, 0.95],
+                       [0.78, 0.61]),
+    (0.95, 1.15): _row([2.17, 2.30, 1.85, 1.50, 1.15, 0.99, 0.80, 0.69], [0.52]),
+    (1.15, 1.35): _row([2.40, 2.19, 1.70, 1.23, 0.92, 0.75, 0.59, 0.46], []),
+    (1.35, 1.55): _row([2.34, 2.06, 1.60, 1.04, 0.69, 0.52, 0.41, 0.29], []),
+    (1.55, 1.75): _row([2.09, 1.76, 1.29, 0.82, 0.48, 0.35, 0.26, 0.19], []),
+    (1.75, 1.95): _row([1.78, 1.44, 0.92, 0.56, 0.30, 0.23, 0.20, 0.14], []),
+    (1.95, 2.15): _row([1.52, 1.11, 0.68, 0.42, 0.24, 0.17, 0.12, 0.08], []),
 }
-HARP_DP, HARP_DTHETA = 0.05, 0.20      # GeV/c, rad
+HARP_THETA_MIN, HARP_THETA_MAX = 0.35, 2.15
 SIGMA_INEL_PB = 1.7                    # barn, p-Pb inelastic at few GeV
 
 
-def harp_window_sigma():
-    """Integrated pi- cross section over the MEASURED window, barn."""
-    return sum(sum(v) for v in HARP_PB_PIMINUS_8GEV.values()) * HARP_DP * HARP_DTHETA
+def harp_window_sigma(theta_min=HARP_THETA_MIN):
+    """Integrated pi- cross section over the measured acceptance, barn.
+    theta_min selects a sub-region; the default is the whole table."""
+    tot = 0.0
+    for (tlo, thi), bins in HARP_PB_PIMINUS_8GEV.items():
+        if tlo < theta_min:
+            continue
+        tot += sum(v * (ph - pl) * (thi - tlo) for (pl, ph), v in bins.items())
+    return tot
 
 
-def harp_window_yield():
-    """pi- per interacting proton in the measured window. A LOWER BOUND on
-    total production: the window excludes theta < 1.15 rad, where the bulk of
-    production goes, and all p > 0.5 GeV/c."""
-    return harp_window_sigma() / SIGMA_INEL_PB
+def harp_window_yield(theta_min=HARP_THETA_MIN):
+    """pi- per interacting proton over the measured acceptance. A LOWER BOUND
+    on total production: HARP's large-angle spectrometer does not cover the
+    forward cone theta < 0.35 rad, where a further substantial fraction goes."""
+    return harp_window_sigma(theta_min) / SIGMA_INEL_PB
 
 
 def nf_captured_per_interacting_proton(ep_gev=8.0):
@@ -256,34 +284,47 @@ def nf_captured_per_interacting_proton(ep_gev=8.0):
 
 def report_production():
     w = harp_window_yield()
+    back = harp_window_yield(1.15)
     c = nf_captured_per_interacting_proton()
-    print("PRODUCTION, from measured cross sections -- the collector argument, priced")
+    eb = 8.0 / w
+    q = Q_FUS_MEV / 1000.0
+    print("PRODUCTION, integrated from HARP measured cross sections")
+    print("  source: arXiv:0709.3458 Table 8, p-Pb, pi-, 8 GeV/c")
     print()
-    print(f"  HARP p-Pb pi-, 8 GeV/c, integrated over the measured window")
-    print(f"    theta 1.15-2.15 rad, p 0.10-0.50 GeV/c:  {harp_window_sigma():.4f} barn")
-    print(f"    per interacting proton (sigma_inel = {SIGMA_INEL_PB} b): {w:.4f} pi-")
+    print(f"  full measured acceptance  theta {HARP_THETA_MIN}-{HARP_THETA_MAX} rad,"
+          f" p 0.10-0.80 GeV/c")
+    print(f"    integrated cross section      {harp_window_sigma():8.4f} barn")
+    print(f"    backward sliver (theta>=1.15) {harp_window_sigma(1.15):8.4f} barn"
+          f"  = {100 * back / w:.0f}% of it")
+    print(f"    pi- per interacting proton    {w:8.4f}"
+          f"   (sigma_inel = {SIGMA_INEL_PB} b)")
+    print(f"    COST PER pi- PRODUCED         {eb:8.2f} GeV")
     print()
-    print("  This is a LOWER BOUND on production. The window is a backward")
-    print("  sliver: it excludes theta < 1.15 rad, where most pions go, and")
-    print("  every pion above 0.5 GeV/c.")
+    print("  This is still a LOWER BOUND on production: HARP's large-angle")
+    print("  spectrometer does not cover the forward cone theta < 0.35 rad,")
+    print("  where a further substantial fraction of an 8 GeV beam's pions go.")
+    print("  So the cost above is an UPPER bound, and the true figure is lower.")
     print()
-    print(f"  NF front-end CAPTURED mu- per interacting proton at 8 GeV: {c:.4f}")
-    print(f"  HARP backward window alone, pi- produced:                  {w:.4f}")
-    print(f"  ratio: {c / w:.2f}")
+    print("  Against condition 8, at PERFECT collection (every produced pi-")
+    print("  becoming a stopped mu-, which no machine approaches):")
+    for f, lab in ((1.0, "heat"), (F_WORK, "work")):
+        c8 = q * f / OMEGA_BOTH_LEVERS
+        verdict = "SATISFIED" if eb < c8 else f"short by {eb / c8:.2f}x"
+        print(f"    {lab:<5}: E_binder < {c8:5.2f} GeV;  {eb:5.2f} GeV  ->  {verdict}")
     print()
-    print("  => THE ENTIRE CAPTURED YIELD OF THE BEST STUDIED FRONT END IS")
-    print("     NUMERICALLY EQUAL TO WHAT ONE BACKWARD ANGULAR WINDOW PRODUCES.")
-    print("  Everything produced outside that window is discarded. This is the")
-    print("  collector argument stated in measured numbers rather than asserted:")
-    print("  the recoverable headroom is the ratio of total production to this")
-    print("  window, and it is at least unity by construction.")
+    print(f"    FOM at this cost:  heat {q / (OMEGA_BOTH_LEVERS * eb):.3f}"
+          f"   work {q * F_WORK / (OMEGA_BOTH_LEVERS * eb):.3f}")
     print()
-    print("  REFUSAL: the multiplier from this window to TOTAL production is not")
-    print("  established here. It requires integrating the forward HARP data")
-    print("  (theta < 1.15 rad) and the momentum range above 0.5 GeV/c. Until")
-    print("  that is done the cost per pi- PRODUCED is bounded above by")
-    print(f"  {8.0 / w:.1f} GeV and below by nothing this instrument holds, and")
-    print("  condition 8 is not decided by production data alone.")
+    print("  THE DISCARD, measured. Captured mu- per interacting proton at the")
+    print(f"  best studied front end: {c:.4f}. Produced pi- in the backward")
+    print(f"  sliver alone: {back:.4f}. Ratio {c / back:.2f} -- the entire captured")
+    print("  yield equals one backward angular window. Against the FULL measured")
+    print(f"  acceptance the ratio is {c / w:.2f}: the front end captures about")
+    print(f"  {100 * c / w:.0f}% of the pions HARP measures, discarding the rest.")
+    print()
+    print("  REFUSAL: the forward cone is not integrated here and no total")
+    print("  production figure is claimed. What is established is a bound and a")
+    print("  direction, not a verdict: condition 8 is not decided by this data.")
 
 
 def cycles(ws, phi):

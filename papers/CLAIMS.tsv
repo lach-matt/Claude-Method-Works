@@ -76,13 +76,22 @@ C74	muon mass in MeV	105.7	MeV	MEASURED	PDG	none
 C75	binder window floor in MeV	60.8	MeV	DERIVED	C13 x electron mass	fn:window_floor_mev
 C76	blanket and resonance operating temperature	800	K	DERIVED	formation resonance peak and blanket hot end	none
 C77	ambient reference temperature	300	K	DEFINITION	Carnot cold end	none
-C78	HARP measured window, integrated pi- cross section	0.3634	barn	DERIVED	arXiv:0709.3458 App.A p-Pb pi- 8 GeV/c, integrated here	fn:harp_sigma
+C78	HARP full measured acceptance, integrated pi- cross section	1.0382	barn	DERIVED	arXiv:0709.3458 Table 8 p-Pb pi- 8 GeV/c, integrated here	fn:harp_sigma
 C79	p-Pb inelastic cross section	1.7	barn	MEASURED	standard, few-GeV protons	collector.SIGMA_INEL_PB
-C80	pi- per interacting proton in the measured window	0.2138	pi-/p	DERIVED	C78 / C79; a LOWER BOUND on total production	fn:harp_yield
+C80	pi- per interacting proton, full measured acceptance	0.6107	pi-/p	DERIVED	C78 / C79; a LOWER BOUND on total production	fn:harp_yield
 C81	NF front-end captured mu- per interacting proton	0.2160	mu-/p	DERIVED	C17 / 2 x 8 GeV	fn:nf_captured
-C82	ratio, captured to backward-window production	1.01	x	DERIVED	C81 / C80	fn:capture_ratio
-C83	upper bound on cost per pi- produced	37.4	GeV	DERIVED	8 GeV / C80; upper because the window is a subset	fn:cost_upper
-C84	HARP window angular range, lower	1.15	rad	SOURCED	arXiv:0709.3458 large-angle acceptance	none
-C85	HARP window angular range, upper	2.15	rad	SOURCED	arXiv:0709.3458 large-angle acceptance	none
-C86	HARP window momentum range, upper	0.50	GeV/c	SOURCED	arXiv:0709.3458, bins to 0.50	none
+C82	fraction of measured pions the front end captures	0.35	fraction	DERIVED	C81 / C80	fn:capture_ratio
+C83	cost per pi- produced, full measured acceptance	13.10	GeV	DERIVED	8 GeV / C80; upper bound, forward cone excluded	fn:cost_upper
+C84	HARP acceptance, angular lower limit	0.35	rad	SOURCED	arXiv:0709.3458 large-angle spectrometer	none
+C85	HARP acceptance, angular upper limit	2.15	rad	SOURCED	arXiv:0709.3458 large-angle spectrometer	none
+C86	HARP acceptance, momentum upper limit	0.80	GeV/c	SOURCED	arXiv:0709.3458	none
 C87	HARP beam momentum used	8	GeV/c	SOURCED	arXiv:0709.3458, one of six beam settings	none
+C88	backward sliver, integrated pi- cross section	0.3634	barn	DERIVED	theta >= 1.15 rad subset of C78	fn:harp_sigma_back
+C89	backward sliver, pi- per interacting proton	0.2138	pi-/p	DERIVED	C88 / C79	fn:harp_yield_back
+C90	ratio, captured to backward-sliver production	1.01	x	DERIVED	C81 / C89	fn:back_ratio
+C91	backward sliver as fraction of measured acceptance	35	percent	DERIVED	C88 / C78	fn:back_frac
+C92	FOM at production cost, heat	0.574	dimensionless	DERIVED	C01 / (C10 x C83)	fn:fom_prod_heat
+C93	FOM at production cost, work	0.287	dimensionless	DERIVED	C01 x C12 / (C10 x C83)	fn:fom_prod_work
+C94	shortfall at production cost, heat	1.74	x	DERIVED	C83 / C25	fn:short_prod_heat
+C95	shortfall at production cost, work	3.48	x	DERIVED	C83 / C26	fn:short_prod_work
+C96	backward sliver boundary	1.15	rad	SOURCED	HARP angular bin edge, subset boundary	none
