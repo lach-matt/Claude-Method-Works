@@ -1,0 +1,48 @@
+  THE EIGHTEEN RESETS, AND WHICH OF THEM MOVE `a`
+    walk.py's own run: 106 steps, 18 recalibrations
+    the rule, in walk.py's own words: keep `a` if it still lies in the new
+    bracket; if not, move it the minimum distance to re-enter.
+
+       Z el  fills   a before    a after        move   kind
+       3 Li  2s        0.0000     0.0000   +0.000001   initial placement, no value carried yet
+      19 K   4s        0.0000     0.5774   +0.577350   REAL MOVE
+      37 Rb  5s        0.5774     1.0000   +0.422650   REAL MOVE
+      42 Mo  4d        1.0000     1.0000   -0.000002   boundary touch, value unchanged
+      43 Tc  5s        1.0000     1.0000   +0.000002   boundary touch, value unchanged
+      45 Rh  4d        1.0000     1.0000   -0.000002   boundary touch, value unchanged
+      55 Cs  6s        1.0000     1.2168   +0.216763   REAL MOVE
+      58 Ce  4f        1.2168     0.7071   -0.509656   REAL MOVE
+      64 Gd  5d        0.7071     0.7071   +0.000002   boundary touch, value unchanged
+      65 Tb  4f        0.7071     0.7071   -0.000002   boundary touch, value unchanged
+      80 Hg  6s        0.7071     0.8090   +0.101912   REAL MOVE
+      81 Tl  6p        0.8090     1.0000   +0.190983   REAL MOVE
+      87 Fr  7s        1.0000     1.3938   +0.393847   REAL MOVE
+      91 Pa  5f        1.3938     1.3660   -0.027823   REAL MOVE
+      96 Cm  6d        1.3660     1.3660   +0.000002   boundary touch, value unchanged
+      97 Bk  5f        1.3660     1.3660   -0.000002   boundary touch, value unchanged
+     103 Lr  7p        1.3660     1.9841   +0.618036   REAL MOVE
+     104 Rf  6d        1.9841     1.9841   -0.000002   boundary touch, value unchanged
+
+    9 REAL MOVES · 8 boundary touches · 1 initial placement · 18 recalibrations in all
+
+  WHERE THE REAL MOVES LAND RELATIVE TO THE ENTERING SUBSHELL
+    8 of the 9 real moves are at the OPENING of the subshell entering:
+      K 19 (4s), Rb 37 (5s), Cs 55 (6s), Ce 58 (4f), Tl 81 (6p), Fr 87 (7s), Pa 91 (5f), Lr 103 (7p)
+    1 is not:
+      Hg 80, entrant 6s, which opened earlier -- section 34.6's 'return from an exception'
+
+  SECTION 34.6's SECOND CLAUSE: "each subshell fills at constant `a`"
+    scored on REAL MOVES only, since a boundary touch does not change the value:
+      5d  opens Z 57, full 79:  Ce 58 (1.2168 -> 0.7071, entrant 4f)
+      6d  opens Z 89, full never completes in the table:  Pa 91 (1.3938 -> 1.3660, entrant 5f), Lr 103 (1.3660 -> 1.9841, entrant 7p)
+
+  READ TOGETHER, AND THIS IS THE SHAPE OF IT
+    `a` never moves inside the filling of the subshell that is ENTERING: every
+    real move is at that subshell's own opening, or at the one return from an
+    exception.  So the first half of section 34.6's sentence is very nearly right.
+
+    What defeats the second half is that SUBSHELLS OVERLAP.  5d is open when 4f
+    enters, and 6d is open when 5f and 7p enter, so a move made at one subshell's
+    opening lands in the middle of another's filling.  That is why 5d and 6d do
+    not fill at constant `a` while every other subshell does, and it happens only
+    in the d block, because d straddles f.  Nothing is repaired here.

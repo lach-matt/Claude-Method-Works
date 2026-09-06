@@ -1,103 +1,161 @@
-# FINDING R4-06 — two universals in Chapter 34. One is false and the record understates it; the other has a false reason and a true conclusion. NOT REPAIRED.
+# FINDING R4-06 — Chapter 34's two universals. The reset rule is held and states itself; both universals are false; and the true reasons are derived. NOT REPAIRED.
 
-Measured 6 September 2026, candidate **D-21** of `CANDIDATES-R4-subject-matter.tsv`, from the
-seated member `LW1-ground.py` (register 1306, the observed NIST ASD 5.12 configurations).
-`method/proofs/universals.py` holds the test; its selftest asserts twelve of the corpus's own
-recorded numbers, `resets.py`'s *12 of 18* among them.
+Candidate **D-21** of `CANDIDATES-R4-subject-matter.tsv`. Measured from the seated member
+`LW1-ground.py` (register 1306, the observed NIST ASD 5.12 configurations) and from the corpus's own
+`walk.py`, imported by path.
 
-The record already carries both as findings **34re-03** and **34re-07**, and **both are correct as
-recorded**. Neither is new. What is new is the extent of the first and the disposition of the second:
-the first is false under three readings rather than one, and the second turns out to be a false
-premise under a true conclusion.
+Three instruments, each with a selftest over the corpus's own recorded numbers:
+`method/proofs/universals.py`, `method/proofs/walkresets.py`, `method/proofs/fdomain.py`.
+
+> **This file supersedes its own first version, written earlier the same day.** That version scored
+> §34.6's second clause over all eighteen recalibrations and reported *"four subshells carrying ten
+> resets between them."* **That was wrong.** Eight of the eighteen do not move `a` at all. The
+> corrected count is **two subshells and three moves**, and the correction favours the book. The
+> mistake is kept here rather than quietly replaced, which is the discipline the Register is built
+> on.
 
 ---
 
-## 1. "It never resets mid-subshell" — false under every reading, and the consequent is the clearest
+## 1. The reset rule was never missing. It is in the instrument, in its own first lines.
 
-**§34.6 (main L9640):** *"`a` is carried between elements and resets eighteen times. Every reset is
-a **subshell opening** (8), an **aufbau exception** (6), or the **return from one** (4) — Tc after
-Mo, Tb after Gd, Bk after Cm, Hg after Au. **It never resets mid-subshell**, which is why each
-subshell fills at constant `a`."*
+M asked whether the reasoning exists in the repository before anything is derived. For the reset
+rule it does, and it is not buried: `walk.py`, in the recovered estate at
+`extracted/archives/restore-point-2-13/`, opens by stating its own rule.
 
-*Mid-subshell* is not defined in the chapter, so it is tested three ways. **All three refute the
-sentence** and they differ only in how many counterexamples they name.
+> **"THE HANDSHAKE — `a` resets only when the previous atom's value fails.**
+> **walk Z upward. keep `a` if it still lies in the new bracket. if not, move it the MINIMUM
+> distance to re-enter."**
 
-**(a) The record's convention — an entrant equal to the previous step's entrant.** Named with
-READ-ch34re and applied to register 1401's fourteen forced resets, it gives **two**: Mo 42 and
-Rh 45. **That is finding 34re-03 and it is exactly right.** Reproduced here from the seated member.
+Run against the seated ground configurations it reproduces §34.6 exactly: **106 steps · 106
+satisfied · 18 recalibrations**, at the eighteen elements the chapter names.
 
-**(b) Not at an opening — the entrant was already occupied at the step before.** This gives **six**:
-Mo 42, Tc 43, Rh 45, Tb 65, Hg 80, Bk 97. It is the complement of the recovered instrument
-`resets.py`'s own reading, *"opens a subshell : 12 of 18"*, which this program reproduces exactly.
-The six are the two aufbau exceptions that are not also openings, plus all four returns.
+**And the rule says nothing about subshells.** It is a rule about a carried value and a moving
+corridor. So *"it never resets mid-subshell"* was never a consequence of the rule. It is an
+observation about where the rule happened to fire, and §34.6 presents it as a reason.
 
-**(c) The consequent's own test, and this is the one that settles it.** *"which is why each subshell
-fills at constant `a`"* fails for a subshell if any reset falls strictly between its opening and its
-completion. **Four subshells fail, carrying ten resets:**
+## 2. Eight of the eighteen do not move `a`
 
-| subshell | opens | full | resets inside |
+`walk.py` tests `lo < a < hi` strictly and then steps `a` past the endpoint by 10⁻⁶. When the
+carried value sits **exactly on** a corridor endpoint the test fails and a recalibration is
+recorded, but the value does not change.
+
+| | count | where |
+|---|---|---|
+| **real moves** | **9** | K 19, Rb 37, Cs 55, Ce 58, Hg 80, Tl 81, Fr 87, Pa 91, Lr 103 |
+| **boundary touches**, \|Δa\| = 2 × 10⁻⁶ | **8** | Mo 42, Tc 43, Rh 45, Gd 64, Tb 65, Cm 96, Bk 97, Rf 104 |
+| **initial placement**, no value carried yet | **1** | Li 3 |
+
+The nine values `a` takes are **0.5774 · 1.0000 · 1.2168 · 0.7071 · 0.8090 · 1.0000 · 1.3938 ·
+1.3660 · 1.9841**, and four of them are §34.5's own printed ns/(n−1)d crossings — 0.5773503,
+1.0000000, 1.2168450, 1.3938270 — arriving at K, Rb, Cs and Fr. That is a corroboration of §34.5 by
+a route it does not share.
+
+**The distinction is not pedantry.** *"Each subshell fills at constant `a`"* is a claim about a
+**value**. A boundary touch cannot falsify it; a real move can. Scoring all eighteen, as the first
+version of this finding did, counts eight non-events as counterexamples.
+
+## 3. The first clause is very nearly right
+
+**Eight of the nine real moves are at the opening of the subshell that is entering** — K 19 (4s),
+Rb 37 (5s), Cs 55 (6s), Ce 58 (4f), Tl 81 (6p), Fr 87 (7s), Pa 91 (5f), Lr 103 (7p).
+
+**One is not: Hg 80**, whose entrant is 6s, opened long before at caesium. That is §34.6's own
+*"return from an exception"* class — Au is 6s¹, Hg returns to 6s².
+
+**So `a` never moves inside the filling of the subshell that is entering.** Read that way §34.6's
+first clause is true, and its own three-way classification is what makes it true.
+
+## 4. The second clause is false, and the reason is that subshells overlap
+
+*"which is why each subshell fills at constant `a`"* does not follow, and it fails:
+
+| subshell | opens | full | the real move inside it |
 |---|---|---|---|
-| 4d | Z 39 | Z 46 | Mo 42, Tc 43, Rh 45 |
-| 5d | Z 57 | Z 79 | Ce 58, Gd 64, Tb 65 |
-| 4f | Z 58 | Z 70 | Gd 64, Tb 65 |
-| 5f | Z 91 | Z 102 | Cm 96, Bk 97 |
+| **5d** | Z 57 | Z 79 | **Ce 58**, 1.2168 → 0.7071, entrant **4f** |
+| **6d** | Z 89 | never completes in the table | **Pa 91**, 1.3938 → 1.3660, entrant **5f**; **Lr 103**, 1.3660 → 1.9841, entrant **7p** |
 
-**This reading needs no convention about the word at all.** It asks the question the sentence itself
-poses — does each subshell fill at one value of `a`? — and the answer is that four do not.
+**Every other subshell does fill at constant `a`.**
 
-**Register 1333's 8 / 6 / 4 partition is untouched and stands.** Finding R4-01 measured it disjoint
-and exact, and this rests on it rather than disputing it: the twelve openings of reading (b) are the
-eight plus the four exceptions that are also openings, and the six are the two exceptions that are
-not, plus the four returns. **One object, two readings, and they agree.**
+**And the mechanism is exact.** A move made at the opening of one subshell lands inside another's
+filling whenever two are partly filled at once. That happens only in the d block, because **d
+straddles f**: 5d is open when 4f enters, and 6d is open when 5f and then 7p enter. The clause fails
+for precisely the two subshells that overlap an f block, and for no others.
+
+**What is owed on §34.6, and it is M's.** The measured statement is available and is not weaker than
+the false one:
+
+> *`a` never moves inside the filling of the subshell that is entering — every recalibration is at
+> that subshell's opening, at an aufbau exception in it, or at the return from one. It moves inside
+> a subshell that is open but not entering, and that happens only where the d block straddles an f
+> block: 5d at cerium, 6d at protactinium and at lawrencium.*
 
 ---
 
-## 2. "At any f opening p = 0" — the premise is false at 5f, and the conclusion still holds
+## 5. The f domain. The premise is false at 5f, the conclusion is true, and the true reason proves more than §34.9 claims.
 
 **§34.9 (main L9702):** *"**f is outside the domain and the law says so.** At any f opening
 p = n−ℓ−1 = 0, the floor of the node count — no subshell has fewer nodes than none — **so no rival
 lies below and L = −∞.**"*
 
-**The premise is arithmetic and it is wrong at 5f.** There are two f openings in the observed order:
+**The premise is arithmetic and it is wrong at 5f**, which opens at protactinium with
+p = 5 − 3 − 1 = **1**. The record has this as 34re-07 and it is exact.
 
-| | opens at | p = n − ℓ − 1 |
+### The derivation, and it is three lines
+
+Write **ρ(r) = n_r − ℓ_r − 1** for a subshell's node count, so the law's own argument under the root
+is p_r = ρ(r) + q_r/2(2ℓ_r+1). Admissibility is the law's own, q_r < 2(2ℓ_r+1), so that fractional
+term lies in [0, 1). At an **opening** the entrant has q_g = 0, so p_g = ρ(g) exactly, an integer.
+
+> **CLAIM.** At an opening, an admissible rival lies below the entrant — p_r < p_g — **if and only
+> if its node count is strictly smaller**, ρ(r) < ρ(g).
+>
+> **PROOF.** If ρ(r) < ρ(g) then p_r < ρ(r) + 1 ≤ ρ(g) = p_g, since the fractional term is under one
+> and node counts are integers. If ρ(r) ≥ ρ(g) then p_r ≥ ρ(r) ≥ ρ(g) = p_g. No cases remain. ∎
+>
+> **COROLLARY.** L = −∞ at the opening of g exactly when **every subshell of smaller node count is
+> full**.
+
+**Two ways that happens, and §34.9 states only the first.** Either ρ(g) = 0 and the set below is
+empty — the node floor, which is the right reason at 4f — or ρ(g) > 0 and everything below is
+already complete. **5f is the second kind:** ρ = 1, and the four node-floor subshells 1s, 2p, 3d and
+4f are all full at thorium, so each fails the law's own admissibility test. **The floor is reached
+by exhaustion instead of by arithmetic.**
+
+Checked at all twenty-four openings of the observed order, the claim holds at every one.
+
+### And the measurement then proves something stronger than the book asserts
+
+**L = −∞ at exactly five of the twenty-four openings: 1s, 2p, 3d, 4f and 5f.** So *"no rival lies
+below"* is **not an f-only property** — it fires once for every ℓ, at that ℓ's node-floor member.
+
+| ℓ | openings with L = −∞ | |
 |---|---|---|
-| 4f | Z 58, Ce | **0** |
-| 5f | Z 91, Pa | **1** |
+| s | 1 of 8 | 1s |
+| p | 1 of 6 | 2p |
+| d | 1 of 8 | 3d |
+| **f** | **2 of 2** | **4f, 5f — every one** |
 
-5 − 3 − 1 = 1. The record has this as 34re-07 and it is exact.
+**f is the only ℓ every one of whose openings is outside the domain**, and that is what *"f is
+outside the domain"* is true of. s, p and d each lose their node-floor member and keep the rest. f
+loses both, 4f by the floor and 5f by exhaustion. **The reason f loses both is that f arrives late
+enough for every node-floor subshell to have closed before its second member opens.**
 
-**But the conclusion survives, and this is the part the record does not carry.** Tested directly —
-every candidate admissible under the law's own rule *q < 2(2ℓ+1)*, read at the step before, over the
-candidate set the record names — **neither f opening has an admissible rival below its entrant**:
+**What is owed on §34.9, and it is M's.** The conclusion stands. The reason must change, and the
+true reason covers both f openings in one clause and proves the stronger claim as well:
 
-- **At 4f the book's reason is the right one.** p = 0 is the node floor and nothing can be below it.
-- **At 5f the reason is different.** p = 1, and every subshell with a lower p — 1s, 2p, 3d and 4f,
-  the four with n = ℓ+1 — is **full at thorium** and therefore inadmissible. Nothing lies below 5f
-  because everything below it is closed, not because 5f is at the floor.
-
-**So L = −∞ at every f opening is true, and the sentence that justifies it is false.** Under M's
-test the false object is *"at any f opening p = n−ℓ−1 = 0"*; the object *"L = −∞ at every f
-opening"* is true and proven.
-
-**One dependency, stated because it is the only thing the result rests on that is a convention
-rather than a measurement.** The candidate set is ℓ ≤ 3, which the record names with READ-ch34re and
-which is the domain the law is stated over. 5g has p = 0, and were g subshells admitted it would lie
-below 5f and the conclusion would fail there. The book's law does not admit them.
+> *At an opening, the rivals below the entrant are exactly the admissible subshells of smaller node
+> count. At 4f there are none, because zero is the floor. At 5f there are none because every
+> subshell of smaller node count is full. f is the only ℓ of which that is true at every opening,
+> and that is what puts f outside the domain.*
 
 ---
 
-## What is owed, and it is M's
+## What is untouched
 
-1. **§34.6's sentence.** Both halves are false. The measured statement is available and is not
-   weaker: *twelve of the eighteen resets are at a subshell opening; the other six — two aufbau
-   exceptions and all four returns — fall inside a subshell already filling, and four subshells
-   therefore do not fill at one value of `a`.* That is a description of the walk rather than a
-   property of the law, which may be what §34.6 wants to say. The chapter's own next paragraph
-   already says the walk is not the object — *"eighteen is the cost of walking Z in order, not the
-   cost of the table"* — so the correction sits with an argument the chapter is already making.
-2. **§34.9's reason.** The conclusion stands and the reason must change. The measured reason covers
-   both cases in one clause: **at every f opening no admissible rival lies below the entrant** — at
-   4f because p = 0 is the node floor, at 5f because every subshell of lower p is full.
+**Register 1333's 8 / 6 / 4 partition stands**, measured exact by finding R4-01, and nothing here
+disputes it. **No placement policy is chosen here**: the eighteen belong to `walk.py`'s own minimum-
+distance rule, and register 1580's three-value piercing set is a different question with a different
+answer. **§34.8's figures 1.028 and 1.785 are not touched**; the record carries them as 34re-04
+UNREPRODUCIBLE and they stay there.
 
-**Nothing is repaired here**, and under `RULINGS-R4c.md` the prose is not touched until M rules.
+**Nothing is repaired.**
