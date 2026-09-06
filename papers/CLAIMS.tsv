@@ -240,3 +240,12 @@ C238	sustained intensity to match binder decay	2.21e13	W/cm2	DERIVED	C02 / C237 
 C239	sustained intensity to strip 95 percent	4.74e14	W/cm2	DERIVED	1e7 / C237 x C234	fn:intensity_95
 C240	XFEL peak intensity, low end	1e18	W/cm2	SOURCED	femtosecond pulses	none
 C241	XFEL duty cycle	1e-9	fraction	SOURCED	femtosecond pulses at typical repetition	none
+C242	published front-end clear bore	150	mm	SOURCED	20 T target solenoid, muon collider front end	none
+C243	published capture cap for that bore	225	MeV/c	SOURCED	stated for the 150 mm clear bore at 20 T	none
+C244	model prediction for that bore	225	MeV/c	DERIVED	0.3 x 20 T x 0.075 m / 2	fn:model_225
+C245	coil bore demanded by shielding	1	m	SOURCED	muon collider target and decay capture solenoids	none
+C246	assumed coil inner radius	0.50	m	RECONSTRUCTED	from a 1 m bore	none
+C247	fast-neutron attenuation length in tungsten	5.5	cm	RECONSTRUCTED	removal cross-section scale	none
+C248	shield thinning required by the specification	5.5	cm	DERIVED	C246 - C145 less C246 - 7.5 cm	fn:shield_thinning
+C249	coil heating penalty of the specification	2.7	x	DERIVED	exp(C248 / C247)	fn:heating_penalty
+C250	coil bore increase at fixed heating	11	percent	DERIVED	C248 / C246	fn:bore_increase

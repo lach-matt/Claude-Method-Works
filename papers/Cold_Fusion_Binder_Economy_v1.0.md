@@ -452,9 +452,10 @@ share.
 That is the collector specification: not a larger accelerator, not a stronger magnet, but a wider bore
 and no hemisphere cut.
 
-**The binding constraint is named and not modelled here.** Nuclear heating in the coils scales with
-aperture. MuSIC ran 0.6 W of deposited power against 4 W of cooling at a 400 W beam; at megawatt
-drivers that margin is the design problem, and nothing in this paper addresses it.
+**The binding constraint is named here and posed properly in §5.22.** It is not the magnet: coil bores
+for these solenoids already exceed a metre, set by shielding rather than by the beam. The
+specification is a shielding trade, and §5.22 prices it at about 2.7 in coil heating or 11 percent in
+coil bore.
 
 ### 5.10 The deciding experiment, stated as a protocol
 
@@ -888,6 +889,41 @@ not quantify the enhancement.**
 > brings that within reach of a real source, and **no published figure gives it.** This paper neither
 > credits the route nor dismisses it: it records what would have to be true.
 
+### 5.22 The collector's constraint, re-posed: it is shielding, not the magnet
+
+§5.9 named coil nuclear heating as the collector's binding constraint and declined to model it. It can
+now be posed properly, and it is a smaller ask than "heating scales with aperture" suggests.
+
+**The acceptance model is validated a third time.** A published front-end design states that a 20 T
+solenoid with a **150 mm clear bore** captures transverse momentum up to **225 MeV/c**. The model
+returns **225 MeV/c** exactly. (COMET's 5 T on a 150 mm bore, giving 112 against its stated 100, was
+the second; the first was its own derivation.)
+
+| | |
+|---|---|
+| existing design point | B·R = **1.50 T·m** (20 T, 7.5 cm clear radius) |
+| §5.9 specification | B·R = **2.60 T·m** (20 T, 13 cm) |
+
+**The magnet is not the constraint.** The same source records that these solenoids "demand a 20 T peak
+field in a bore larger than **1 m**" — and that demand comes from *shielding*, not from the beam. The
+coil bore is already an order of magnitude above the clear aperture. What sets the clear aperture is
+how much shielding sits between it and the coil, so the specification is a **shielding trade**, not a
+magnet problem.
+
+Taking a coil inner radius of 0.50 m and a fast-neutron attenuation length of 5.5 cm in tungsten, the
+specification thins the shield by **5.5 cm**, and therefore either:
+
+> **costs about 2.7 in coil heating**, or, at fixed heating, **costs about 11 percent in coil bore.**
+
+Both are ordinary engineering trades rather than a new machine — and a "20 T at 20 K" model coil for
+precisely this solenoid, in a bore above one metre, is under active development, with fusion
+applications named alongside the collider one.
+
+**Two cautions.** The coil radius and the attenuation length are reconstructed rather than sourced, so
+the factor of 2.7 is a scale and not a design figure; a real shield is layered and its attenuation is
+not a single exponential. And thinning the shield raises the *dose* as well as the heat, which governs
+insulation lifetime rather than cryogenic load and is not modelled here at all.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -997,9 +1033,10 @@ physics does not.
 
 What would change the answer, in the order this paper can rank them:
 
-1. **The collector of §5.9** — 20 T on a 13 cm bore with no hemisphere cut. Every balance in this
-   paper depends on it and nothing else depends on anything unbuilt. It is the single component that
-   moves the result furthest.
+1. **The collector of §5.9** — 20 T on a 13 cm clear bore with no hemisphere cut. Every balance in
+   this paper depends on it and nothing else depends on anything unbuilt. It is the single component
+   that moves the result furthest, and §5.22 shows its cost is a shielding trade of about 2.7 in coil
+   heating, not a new magnet.
 2. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
    bench experiment on an existing beam.
 3. **Effective sticking at the operating temperature.** No determination exists at 800 K, though
