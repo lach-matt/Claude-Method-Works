@@ -43,6 +43,18 @@ to; 188 MB of duplicate content became a pointer rather than a file. Regenerate 
 hand-edit it or `LEDGER.tsv`. `drive/` stays the mirror of record and is never written to by this
 pass. See `extracted/README.md` and `docs/CONSOLIDATE.md`.
 
+**`papers/` holds independent application papers prepared for publication**, and is the one tree
+here that is neither mirror nor generated: `method/` and `drive/` are resource material for it and it
+never writes to them. Its shape follows the author's own standing ruling (`PROSE-ONLY.tsv` PO-0233) —
+each paper carries its own abstract and its own references, states its relation to the lattice, and
+takes no part in the main paper's subject matter. It holds
+**`Muon_Catalysed_Fusion_v1.1.md`**, which supersedes the v1.0 held in `recovered/`, and
+**`Corrigendum_MuCF_v1_0.md`**, the seven corrections as a standalone formal corrigendum. v1.0 itself
+is a generated file, md5-pinned in `recovered/LEDGER.tsv`, and is **never hand-edited** — which is why
+v1.1 is a new document and not a revision in place. Six of the seven corrections are drawn from the
+chat export and were banked nowhere before `docs/MUCF-ENERGY-AXIS.md`. **Docket C-8 stays open**: it
+closes only by seating a member, which would write to `method/`. See `papers/README.md`.
+
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
 1,005 artefact names in the two live bundles: **813 held**, 15 held only under a figure's pre-rename
 source name, 162 reachable in the chat export, 11 with a body there, and **4 absent** — and those
