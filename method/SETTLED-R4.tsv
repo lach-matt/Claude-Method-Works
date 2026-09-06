@@ -45,4 +45,8 @@ D-21h	§34.9's three claims, under M's ruling	ALL THREE FAIL AT 5f, ALL THREE HO
 D-21i	§34.9's "f is outside the domain"	REPLACED BY A STRONGER THEOREM	the corridor has no floor exactly when the entrant is node-free -- 2p, 3d, 4f across the walk; t is defined at the other 73 of 106 steps	tools/slopeaxis.py	RULINGS-R4e
 T-01	§34.7 measures t = 1.028 at p and 1.785 at d; §34.9 defines t = (a-L)/(U-L)	THE TWO DEFINITIONS ARE INCOMPATIBLE	(a-L)/(U-L) lies in [0,1] at all 73 steps where it is defined, and §34.6 says a is inside its corridor at all 106; 1.028 and 1.785 cannot be that quantity	method/proofs/candidateset.py	owed
 F-01	out/slope-axis.html, the corridor figure	REGENERATED UNDER THE RULING	5g now a point at (0,5) and a hull vertex at 38 steps; L moves at 16; the page states its candidate set	tools/slopeaxis.py	RULINGS-R4e
+D-21j	§34.9's f paragraph	PROSE REPAIR AT 4f, M's RULING	every clause is true of the 4f opening; the word "any" generalised it to a block with two members	method/proofs/candidateset.py	RULINGS-R4e §3
+P-01	the law above Z = 108, carrying a = 1.9840594	PREDICTS, NO RESET	t runs 0.0492 to 0.6791 over seventeen elements; a never leaves its corridor	method/proofs/forward.py	RULINGS-R4e §4
+P-02	the blocks above the listing	12 OF 12 REPRODUCED	6d to 112, 7p to 118, 8s at 119 and 120, with the law fitted to none of them	method/proofs/forward.py	RULINGS-R4e §4
+P-03	the g block	DOES NOT OPEN THROUGH Z = 125	nu(5g) = 5 with a dropping out; 7d at a = 1.98 sits at 3.03; 5g needs a < 1 and a has risen since K	method/proofs/forward.py	RULINGS-R4e §4
 

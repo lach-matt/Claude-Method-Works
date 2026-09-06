@@ -1,0 +1,45 @@
+  ABOVE THE LISTING: WHERE THE FRACTION SITS, AND WHAT THE LAW PREDICTS
+
+    the walk ends at Z = 108, the last neutral ground configuration the listing holds.
+    `a` carries out of lawrencium at 1.9840594 and is not re-fitted above 108,
+    because there is no observed entrant above 108 to fit it to.
+    EVERY ROW BELOW IS A PREDICTION.
+
+       Z entrant        nu           L           U         t   accepted
+     109 6d         2.2355    0.527046    2.672422    0.6791   6d  agrees
+     110 6d         2.1836    0.519875    2.769266    0.6509   6d  agrees
+     111 6d         2.1324    0.512989    2.871944    0.6236   6d  agrees
+     112 6d         2.0818    0.506370    2.981028    0.5971   6d  agrees
+     113 7p         2.5635    1.216761    2.440910    0.6268   7p  agrees
+     114 7p         2.4902    1.164393    2.682972    0.5398   7p  agrees
+     115 7p         2.4180    1.117084    2.973091    0.4671   7p  agrees
+     116 7p         2.3470    1.074120    3.327306    0.4038   7p  agrees
+     117 7p         2.2770    1.034915    3.769671    0.3471   7p  agrees
+     118 7p         2.2080    0.998985    4.337984    0.2950   7p  agrees
+     119 8s         2.7507    1.623986        +inf undefined   8s  agrees
+     120 8s         2.5664    1.510119   11.134080    0.0492   8s  agrees
+     121 7d         3.0319    1.707107    2.224745    0.5350   
+     122 7d         2.9826    1.637647    2.354913    0.4830   
+     123 7d         2.9339    1.574365    2.499378    0.4429   
+     124 7d         2.8858    1.516460    2.649768    0.4126   
+     125 7d         2.8382    1.463263    2.736692    0.4090   
+
+  1. THE FRACTION STAYS INSIDE
+     resets above Z = 108: NONE
+     t runs 0.0492 to 0.6791 over the rows where it is defined.
+     One row has U = +infinity and no fraction: Z = 119, where 8s opens and nothing
+     bounds it from above.  Everywhere else `a` sits comfortably inside.
+
+  2. THE BLOCKS COME OUT RIGHT
+     12 of 12 rows the accepted table
+     assigns are reproduced, and the law was fitted to none of them:
+       6d through Z = 112 · 7p through Z = 118 · 8s at 119 and 120
+
+  3. THE g BLOCK DOES NOT OPEN
+     g entrants predicted through Z = 125: NONE
+     and the reason is exact.  A node-free subshell has p = 0, so nu = n with `a`
+     dropping out entirely: 5g sits at nu = 5 forever.  7d at a = 1.98 sits at 3.03.
+     For 5g to win, 7d would have to rise above 5, which needs a < 1 -- and `a` has
+     risen monotonically since potassium and stands at 1.98.
+     Chapter 35 says 'there is no g block below Z = 121'.  Under the carried value the
+     law says more than that: it does not open at 121 either, and it takes 7d.

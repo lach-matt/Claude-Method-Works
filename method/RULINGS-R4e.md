@@ -63,3 +63,73 @@ M, on finding R4-10's recommendation that the survey and the levels store be sea
 
 This does not change Ruling 46. A figure still carries no script names, build numbers or internal
 file references.
+
+---
+
+## 3. §34.9 is repaired at 4f. The generalisation to "any f opening" is the error.
+
+M, on the measurement that all three of §34.9's claims fail at 5f and hold at 4f:
+
+> **"if all the Löwdin work still holds true under 4f and 5f was disproven, then it was like that 5f
+> was a typo and requires an edit to 4f in prose."**
+
+**Ruled, and it is a prose repair under M's own object test.** Every clause of §34.9's f paragraph
+is TRUE when read of the 4f opening, and each is verified with g admitted:
+
+| the clause | at 4f, Ce 58 |
+|---|---|
+| *"at any f opening p = n−ℓ−1 = 0"* | 4 − 3 − 1 = **0**, true |
+| *"the floor of the node count — no subshell has fewer nodes than none"* | true, and 5g's ρ is 0 too, so it is not strictly below |
+| *"so no rival lies below and L = −∞"* | corridor **(−∞, 0.7071068)**, true |
+| *"the quantity t = (a−L)/(U−L) does not exist there"* | true |
+| *"the missing test is forbidden by the node count, not by missing data"* | true |
+
+**Strip the prose and the object is true.** What made it false was the word *any*, which generalised
+a fact about one opening to a block with two. **So the repair is the smallest kind: the paragraph is
+about the 4f opening and says so.**
+
+**One clause needs the same edit and is easy to miss.** The paragraph opens *"f is outside the domain
+and the law says so."* With the repair, **4f is outside the domain and 5f is not.** The sentence
+should say which, or take register 1414's form — *the corridor has no floor exactly when the entering
+subshell is node-free* — which names the class and covers 2p and 3d as well.
+
+**And one consequence follows that M should see before the prose pass.** With 5f inside the domain,
+§34.7's entry-point prediction **t(f) = √6 = 2.4495 acquires a referent at 5f**, where it had none.
+It is **not scored here**, because §34.7 and §34.9 define *t* incompatibly and that is an open item
+(`SETTLED-R4.tsv`, T-01): §34.9's *t* is a fraction of the corridor and cannot exceed 1, while §34.7
+measures 1.028 at p and 1.785 at d. **The prediction cannot be tested until the definition is
+settled**, and testing it against the wrong definition would manufacture a finding.
+
+---
+
+## 4. Above the listing, answering M's question about the fraction
+
+M: *"where does that fraction sit for everything above 106?"*
+
+The walk ends at Z = 108, the last neutral ground configuration the listing holds. Above it the law
+does not describe, **it predicts**. Carrying `a` = 1.9840594 out of lawrencium and re-fitting it
+nowhere, with g admitted, `method/proofs/forward.py` walks the law forward. **Every row is a
+prediction and is labelled one.**
+
+**The fraction stays inside, and there is no reset at all.** Across seventeen further elements `a` is
+never forced out of its corridor. **t runs from 0.0492 to 0.6791**, and exactly one row has no
+fraction: Z = 119, where 8s opens and nothing bounds it above.
+
+**The blocks come out right, and the law was fitted to none of them.**
+
+| Z | the law predicts | the accepted table |
+|---|---|---|
+| 109–112 | **6d** | 6d, meitnerium to copernicium |
+| 113–118 | **7p** | 7p, nihonium to oganesson |
+| 119–120 | **8s** | the standard predictions |
+
+**Twelve of twelve.**
+
+**And the g block does not open.** Through Z = 125 the law never makes a g subshell the entrant, and
+the reason is exact: **a node-free subshell has p = 0, so ν = n with `a` dropping out entirely.** 5g
+sits at ν = 5 forever; 7d at `a` = 1.98 sits at 3.03. For 5g to win, `a` would have to fall below 1,
+and `a` has risen monotonically since potassium. §35 says *"there is no g block below Z = 121"*;
+under the carried value the law says more — **it does not open at 121 either, and 7d takes it.**
+
+That is a falsifiable prediction the book does not currently make, and it is M's whether it belongs
+in a volume.
