@@ -220,3 +220,62 @@ polarisation.
 **The order of work in §5 is therefore discharged to its second item**, with one question standing back to M.
 Next is item 3: the R3 corrections rulings 2, 3, 9, 10, 11 and 12 authorise, by class, under
 `docs/R3-REPAIR-PLAN.md`'s mechanic.
+
+---
+
+## 10. Ruling 1 discharged — the two-body term is BUILT, and it relocates ruling 8(b)'s residual
+
+**M's ruling of 6 September, given on §8's question: *"1 - build it."*** It is built
+(`FINDING-R4-24`, `method/proofs/sooterm.py`, selftest 9 of 9).
+
+**Two things were derived before any code and they decided the build.** For a closed core the
+spin–other–orbit has **no direct part** — its Hartree average needs either Σ⟨**s**⟩ over the core or the
+core's net orbital current, and both vanish — so **the entire effect is exchange**, which vindicates
+`so94.py`'s own declaration that *"the nonlocal HF exchange has no dV/dr"*. And the direct spin–own–orbit
+is **exactly one Marvin integral per core shell**, −(α²/2)N_b M⁰(ab), which fixes the Marvin convention
+from the corpus's own forms with no appeal to memory.
+
+**The coefficients were found by M's route.** The primaries are paywalled; M: *"there is still another
+way. search for others who have referenced these papers."* The mean-field working equation is stated in
+the open, and its −3/2 exchange weight is confirmed three ways, one of them the Breit–Pauli operator's
+own 1 + 2×(½). **A discrepancy in one extracted form was refused rather than smoothed**: read literally it
+makes the two exchange terms coincide on the diagonal that carries ζ and cancel identically.
+
+**The angular reduction is derived, not looked up** — no stated closed-shell reduction is reachable — and
+validated at six independent levels: the three-term decomposition against brute-force numerical
+differentiation (1.4e-4, grid-limited), R_k against direct double integration (1e-15), Unsöld (3e-14),
+m_a-independence as Wigner–Eckart requires (5e-15), the Coulomb channel against the Marvin M⁰ sum
+(5e-15), and the hydrogenic ⟨1/r³⟩ limit (0.04–1.3 %). **Two real faults were caught by those checks**,
+both fixed by reading the corpus rather than guessing.
+
+**The term does not close the six intervals.** It is negative on every row, improving both d rows and
+worsening all four p rows: 0.829 / 0.885 / 0.937 / 1.063 at 3p–6p, 1.151 / 1.306 at 4d / 5d.
+
+**And that is the literature's own reported result.** M: *"seems like a calculation was truncated. or an
+error somewhere in the derivation. this gap/residual doesn't make sense considering everything else is
+true."* Every step was re-audited and none of it was wrong. Blume & Watson's paper II states it directly:
+for the **3p and 4p shell atoms** the coupling constants from the **exact theory** and from the
+⟨∂V/r∂r⟩ expression **both tend to lie below the experimental values**, explained by the **noded nature
+of the outer-electron radial wave functions**. ⟨(1/r)∂V/∂r⟩ is so94's form — the store's — 9 % and 8.6 %
+below; the exact theory takes them further below, to 17 % and 11 %. **Both below, the full theory worse
+than the approximate one, at exactly the shells named.** Nothing here was fitted to it.
+
+**So ruling 8(b)'s p-row half is no longer an unexplained residual.** It is a limitation named in 1963,
+and `FINDING-R4-21` measured its size independently from the other side, where the *correlated* orbital
+raises ζ by 7–9 % at exactly those rows. **Two routes, one cause.**
+
+**It changes nothing in the object.** `fieldresidue.py` keeps so94's ζ; the 5f figure moves **0.019 eV**
+across the entire range the six rows allow, against the ±0.11 eV the sibling ladder already carries.
+Recorded, not repaired.
+
+| | |
+|---|---|
+| **ruling 1** the two-body spin–other–orbit term | **BUILT, DERIVED, VALIDATED** (`FINDING-R4-24`) |
+| **8(b)** the p-row half | **EXPLAINED** — Blume & Watson's noded-orbital finding, corroborated by R4-21 |
+| **8(b)** the d-row half | **STILL OPEN** — Y and La remain 15 % and 31 % high with the full term |
+
+**Two things are owed and are not claimed as done.** The d rows are **not** explained by this: Blume &
+Watson's excellent agreement is for 2p and 3d **ions**, and whether the neutral d atoms are the same
+nodal cause with the opposite sign is not established here. And **`rad2` and `rad3·A3r` have no absolute
+anchor of their own** — the Coulomb anchor reaches only the k = 0 path; they are held by the brute-force
+decomposition test and by m_a-independence, which is strong but is not an independent physical anchor.
