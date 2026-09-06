@@ -107,3 +107,23 @@ settle subject matter whose wording waits for the prose pass. What moves to the 
    entries, under the R3 mechanic `docs/R3-REPAIR-PLAN.md` states.
 
 **Nothing in the 5f result is quoted as settled until ruling 4 is discharged.**
+
+---
+
+## 6. Ruling 13, added on the discharge of ruling 4
+
+**13 — The domain limit is subject matter for the volumes, and the question stays open.** M, on
+`FINDING-R4-16`: *"the domain limit is information that needs to be included in the volumes, but over all, it is
+still an open question. we are not finished."*
+
+**The volume-bound half.** The fact `FINDING-R4-16` §3 records is not an instrument note. It is a statement about
+the physics: **the correlation an electron loses on removal scales with how many siblings it actually has in its
+own shell, not with a closed shell's share of them.** That is why ytterbium's 4f¹⁴ carries thirteen pairs where
+protactinium's 5f² carries one, and it is why a residual measured on nearly-full f shells does not transfer to a
+nearly-empty one. **It enters the volumes**, held for the prose pass under `RULINGS-R4c` §3 like every other
+settled piece of subject matter, and its wording is M's.
+
+**The still-open half, and it governs.** Ruling 4 is not lifted by ruling 4's discharge. The 5f figure at
+protactinium is **not accepted**: `FINDING-R4-16`'s correction records the ion-relaxation subtraction — the other
+half of bridge 34's instruction — as never run, here or in the record, and it can only move the figure down.
+Testing continues until the residue is closed and verified, per ruling 4's own words.
