@@ -61,7 +61,17 @@ while *analysis* does not and is out. `CLAUDE.md` is explicit that the rosters s
 
 ## 4. BLOCKED ON A MEASUREMENT NOT YET MADE — A6 and A8
 
-**A6 · *"not a lattice"*, main L3380 and the three-body paper L157.** `FINDING-R4-02` measured this and
+**A6 · *"not a lattice"*, main L3380 and the three-body paper L157. THE BLOCKING MEASUREMENT WAS ATTEMPTED
+AT THIS PASS AND HALF OF IT SUCCEEDED** (`FINDING-R4-25`, `method/proofs/coupling.py`, selftest 13 of 13).
+**§12.11.2's second paragraph now reproduces six of six** — the four cap figures 2,862 · 12,489 · 40,887 ·
+110,229, the zero join failures at every cap, the 1,848 parity-variant failures, and the sentence *"the
+triangle's first meet failure manufactures J = ½ from S = L = 0"*, which the instrument returns as
+(0,1,1) ∧ (1,0,1) = (0,0,1). **The five presentation counts are still unreproduced**, the tower's own
+stages are meet- and join-closed at every level so the region is not a tower stage, and the closest any
+construction came was 7,314 against the printed 7,254. **31 divides four of the five** — 1,632 · 1,680 ·
+576 · 234 — and that is recorded as a lead, not as a finding. **A6 is therefore blocked on one thing and
+one thing only: the five presentations' definitions, which exist nowhere but the prose that states
+them.** `FINDING-R4-02` measured this and
 the result is not the plan's. **Appendix A's triangle regions ARE lattices** — every one of thousands of
 broken componentwise meets has a greatest lower bound inside the region, and C at cap 8 reproduces the
 book's own printed 12,654 exactly — so Appendix A's *"join-closed and meet-broken"* is right and needs no

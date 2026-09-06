@@ -1,0 +1,22 @@
+§12.11.2, the triangle region {|2L-2S| <= 2J <= 2L+2S}, unordered distinct pairs
+    cap   cells  meet-fail    printed  join-fail
+      6     175       2862       2862          0   OK
+      8     369      12489      12489          0   OK
+     10     671      40887      40887          0   OK
+     12    1105     110229     110229          0   OK
+
+  with the parity congruence at cap 6: cells 106, join-fail 1848 (printed 1848) OK, meet-fail 2292
+  first failing meet at cap 6: (0, 1, 1) /\ (1, 0, 1) = (0, 0, 1)  — 2S = 2L = 0,0, 2J = 1, so J = 1/2
+
+  FIVE OF FIVE printed figures in that paragraph reproduce, and the join closure is
+  exact at every cap. The componentwise minimum forgets that J is built from L and S.
+
+§12.11.2's OTHER claim — the five presentations — is NOT reproduced here
+  2S'               50592   divisible by 31: yes   1632
+  parity alone      52080   divisible by 31: yes   1680
+  min-cap           17856   divisible by 31: yes   576
+  pair count         7254   divisible by 31: yes   234
+  (2S,2L,2J)         2443   divisible by 31: no    
+  31 divides four of the five. The presentations are named in the prose and defined
+  nowhere, and FINDING-R4-02 established that no instrument here prints any of the five.
+  Recorded as a lead, not as a finding.
