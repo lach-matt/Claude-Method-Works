@@ -1623,36 +1623,44 @@ interpolation returns the wedge's own spectrum. **The balances in this paper are
 recorded as headroom rather than banked. What it does retire is the *bound*: the wedge is not worth
 1.10, and cannot be invoked as though it might be.
 
-### 5.30 The acceptance model, corroborated at a second field
+### 5.30 The acceptance model, and the limit of its scope
 
 §5.24 validates the acceptance model against the built front end's own MARS15 simulation, at 20 tesla
-on a 7.5 cm bore, to **0.982**. That was its only check, and a single check invites the reading that
-the model is that simulation restated. It is not, and a second published simulation at a quarter of
-the field says so.
+on a 7.5 cm bore, forward hemisphere, to **0.982**. That is its only check, and this section records
+an attempt to add a second that failed — and what the failure establishes instead.
 
-**Run the model at that machine's aperture rather than at this paper's.** A 5 T capture solenoid on a
-**0.15 m** bore is 0.75 T·m — the aperture whose p_T cap this paper already reproduces, 112.5 MeV/c
-against a stated 100. Evaluated there, in that machine's own units of captured π⁻ per interacting
-proton with no momentum window:
+**The attempt.** A 5 T capture solenoid on a **0.15 m** bore is an aperture this paper's p_T formula
+already reproduces (112.5 MeV/c against a stated 100). Evaluated there, the model returns **0.0843**
+captured π⁻ per interacting proton against that machine's published **0.061–0.144** — inside, and
+apparently a corroboration at a quarter of the field.
 
-> **0.0843**, against its published **0.061 to 0.144**.
+**It is not one, and the reason is the hemisphere.** That machine's transport solenoid takes
+*"backward-emitted secondary pions and muons"* [16] — the opposite of the front end §5.24 is validated
+against, which Strait et al. §II states captures forward. Run in the hemisphere it actually uses:
 
-**Inside.** The model is therefore corroborated by two independent simulations at fields differing by
-four times: **0.982** against one, **0.823** against the midpoint of the other. Neither is a
-measurement, and two simulations agreeing is not one; what the second does is remove the possibility
-that the model is a paraphrase of the first.
+> **0.0073** against a published **0.061–0.144**. The model is low by **14.1×** against the
+> midpoint of that range, not inside it.
 
-**And it corrects a statement the companion made.** The companion's §7 twice quoted a *span* on the
-acceptance — first 2131×, then 5.97× — by treating the 5 T machine's captured yield as a lower
-estimate of the 20 T machine's. **It is not a lower estimate of the same quantity; it is the same model
-at half the aperture.** The width of what is actually known about the acceptance is the width of its
-two corroborations, **1.19**, and both earlier figures are withdrawn. The superseded floor beneath them
-was a *measured* number, which is why it was attractive — but it measures what survives a beamline,
-and the configuration it was applied to has none.
+**And that is a scope limit rather than a disagreement.** A graded capture solenoid magnetically
+*mirrors* forward-going particles back into a backward channel — it is why such machines are graded —
+and this model has no mirror term at all, only a transverse momentum cap. **Against a graded field the
+model is a lower bound and not an estimate**, by a factor it cannot state.
 
-**What is open is not which of two numbers is right.** It is that no machine has been run end to end
-and weighed. Two simulations can agree and both omit the same loss. §10.1 measures it, and that is the
-whole of what remains.
+> **The acceptance model has one validation, at one configuration: 0.982, forward capture, 20 T on a
+> 7.5 cm bore — which is exactly the configuration §10 and the companion's §6 specify.** It may not be
+> quoted as validated anywhere else, and a backward-capture graded-field machine is the demonstration
+> that it may not.
+
+**Two statements are withdrawn here, both the companion's §7 and both this paper's to carry.** The
+first quoted a *span* on the acceptance — 2131×, then 5.97× — by treating that 5 T machine's output as
+a lower estimate of the 20 T machine's; it is a different machine, not a lower estimate, and the span
+was never an uncertainty. The second replaced it with a claimed second corroboration and used the
+wrong hemisphere to get it. **The width of what is known about the acceptance is the width of one
+agreement, 0.982 to 1.000**, at one configuration, with an unquantified conservative bias from the
+missing mirror term.
+
+**What is open is unchanged by any of it.** Nothing has been measured end to end. §10.1 measures it,
+and no calculation in this work stands in for that.
 
 ## 6. What the definition excludes
 
@@ -2074,3 +2082,5 @@ needed at all.
     processes in the dtμ molecule*, Phys. Rev. C **107**, 034607 (2023).
 15. M. Lach, *The Binder Economy Against the Recent Literature: Four Independent Results, and What
     They Correct*, v1.0 — the companion reconciliation paper.
+16. K. Oishi *et al.*, *Development of the Range Counter for the COMET Phase-α Experiment*,
+    arXiv:2505.07464 — §1, which states the backward-emission capture and the thin production target.

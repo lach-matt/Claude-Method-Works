@@ -1764,8 +1764,16 @@ def q_comet_model():
     return collector.comet_model_at_aperture()
 
 
-def q_comet_ratio():
-    return collector.comet_validation_ratio()
+def q_comet_scope_ratio():
+    return collector.comet_scope_ratio()
+
+
+def q_comet_model_fwd():
+    return collector.comet_model_at_aperture(hemisphere="fwd")
+
+
+def q_comet_shortfall():
+    return 1.0 / collector.comet_scope_ratio()
 
 
 def q_band_lo():

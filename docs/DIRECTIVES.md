@@ -92,7 +92,7 @@ that come off the cycle count.
 
 | | question | status |
 |---|---|---|
-| Q1 | the acceptance, never measured end to end | **narrowed** — there is no span: the model run at a 5 T machine's own aperture returns **0.0843**, inside that machine's published 0.061–0.144. Corroborated at two fields 4× apart, to **0.823** and **0.982**; the width is **1.19** |
+| Q1 | the acceptance, never measured end to end | **narrowed, twice corrected** — the *span* compared two machines, not two estimates; a claimed second corroboration used the wrong hemisphere. **One** validation, **0.982**, at the configuration actually used |
 | Q2 | which sticking branch is operative | **closed** — the witnessed 150 cycles, inverted, give **0.517–0.547 %**, inside the measured trio and below theory |
 | Q3 | the service-life model over-predicts by 2.24 | **closed** — at the corrected sticking it returns **150.5** against 150 |
 | Q4 | fuel purity bounded by no experiment | **closed** — the fuel behind the 150 carried at most **10.93 ppm**, under the **31.10 ppm** parity level |
@@ -113,17 +113,23 @@ cheaper. What survives is a normalisation — per beam particle against per inte
 reproduces the number rather than being bounded away from it, and is declined because it reproduces it
 for pions *produced* while a thick target also reabsorbs them.
 
-**Q1 was a mistake before it was a narrowing.** Two earlier passes quoted a *span* on the acceptance —
-2131×, then 5.97× — by treating a 5 T machine's captured yield as a lower estimate of a 20 T machine's.
-It is not one: it is the same model at half the aperture, and the model reproduces it. Both spans are
-withdrawn. What is known about the acceptance is the width of its two corroborations, **1.19**, and
-what is open is that no machine has been run end to end and weighed.
+**Q1 has been corrected twice, and both corrections are recorded rather than repaired.** Two passes
+quoted a *span* on the acceptance — 2131×, then 5.97× — by treating a 5 T machine's captured yield as a
+lower estimate of a 20 T machine's; that is two machines, not two estimates, and the span was never an
+uncertainty. A third pass replaced it with a "second corroboration" and got it by comparing the
+model's **forward** hemisphere against a machine that captures **backward**: in the right hemisphere
+the model returns 0.0073 against a published 0.061–0.144, low by **14.1×**, and the forward number
+lands inside by coincidence.
 
-**Seven closed, one narrowed to 1.19, one explained and declined.** The two that still move a number
-are measurements rather than calculations: whether an end-to-end machine loses more than any
-simulation models (Stage A) and whether the thick-target normalisation survives to capture (Stage C).
-The answer's magnitude is **9.88 % to 12.01 %** of the host beam, and the sign is open at no value of
-any of them: at the low end and one fusion per binder it still returns 0.06589 %.
+**What the failure establishes is worth more than the corroboration would have been.** A graded capture
+solenoid magnetically *mirrors* forward-going particles into a backward channel, and the model has no
+mirror term — so against a graded field it is a **lower bound**, not an estimate. The model has **one**
+validation, **0.982**, at exactly the configuration the specification uses.
+
+**Seven closed, one narrowed and twice corrected, one explained and declined.** The answer's magnitude
+is **11.80 % to 12.01 %** of the host beam on one validated simulation and no measurement, and the sign
+is open at no value of any of it: at the low end and one fusion per binder it still returns 0.07866 %.
+Nothing has been run end to end and weighed, and no calculation here stands in for that.
 
 ## Re-verify
 

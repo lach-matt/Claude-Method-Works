@@ -423,7 +423,7 @@ sorting them into categories was not the same as doing them. This section does t
 
 | | question | status | what it returned |
 |---|---|---|---|
-| Q1 | the acceptance has never been measured end to end | **narrowed** | there is no span: the model run at a 5 T machine's own aperture reproduces that machine. Corroborated at **two fields differing by 4×**, to **0.823** and **0.982**. What is open is that nothing has measured it end to end |
+| Q1 | the acceptance has never been measured end to end | **narrowed, and two claims withdrawn** | the *span* was never an uncertainty — it compared two machines. A claimed second corroboration is also withdrawn: it used the wrong hemisphere. The model has **one** validation, **0.982**, at exactly the configuration §6 uses |
 | Q2 | which sticking branch is operative | **closed** | inverting the witnessed 150 cycles gives **0.517–0.547 %**, inside the measured trio and below theory |
 | Q3 | the service-life model over-predicts by **2.24** | **closed** | at the corrected sticking it returns **150.5** cycles against 150 measured |
 | Q4 | fuel purity is bounded by no experiment here | **closed** | the fuel behind the 150 carried at most **10.93 ppm**, below the **31.10 ppm** parity level |
@@ -502,41 +502,52 @@ against a bound of 1.10. Production is therefore **10.385** GeV per π⁻ rather
 `RECONSTRUCTED`, not measured: the two tables cover different momentum ranges, so no interpolation
 returns the wedge's own spectrum.
 
-**Q1 is narrowed, and the narrowing is a correction rather than a refinement.** An earlier version of
-this section put a floor under the acceptance by taking a 5 T machine's captured yield as a lower
-*estimate* of a 20 T machine's, and reported the gap between them — first 2131×, then 5.97× — as
-uncertainty. **It is not uncertainty. It is two apertures.** Run [1] §5.24's model at that machine's
-own aperture, in its own units:
+**Q1 is narrowed, and what narrows it is two withdrawals rather than a new result.**
 
-> **0.0843** captured π⁻ per interacting proton, against its published **0.061–0.144**. Inside.
+**The first.** An earlier version of this section put a floor under the acceptance by taking a 5 T
+machine's captured yield as a lower *estimate* of a 20 T machine's, and reported the gap — first
+2131×, then 5.97× — as uncertainty. It is not uncertainty; it is two different machines. That span was
+never a statement about how well the acceptance is known, and it is withdrawn.
 
-So the two ends were never two estimates of one number; they are one model at two apertures, and the
-model predicts both. **The acceptance model is therefore corroborated by two independent published
-simulations at fields differing by four times** — 0.982 against the 20 T front end's, 0.823 against
-the 5 T capture solenoid's midpoint.
+**The second is this section's own, from the pass that made the first withdrawal.** Replacing the span
+with a "second corroboration at a quarter of the field" compared the model's **forward** hemisphere
+against a machine whose transport solenoid takes *"backward-emitted secondary pions and muons"* [6].
+In the hemisphere that machine actually uses, the model returns **0.0073** π⁻ per interacting proton
+against its published **0.061–0.144** — low by **14.1×**, not inside the range. The forward number
+lands inside by coincidence, which is exactly how the error was made.
+
+**What that failure establishes is a scope limit, and it is worth more than the corroboration would
+have been.** A graded capture solenoid magnetically *mirrors* forward-going particles into a backward
+channel — it is why such machines are graded — and [1] §5.24's model has no mirror term, only a
+transverse momentum cap. **Against a graded field the model is a lower bound, not an estimate**, by a
+factor it cannot state.
+
+> **The acceptance model has one validation, at one configuration: 0.982, forward capture, 20 T on a
+> 7.5 cm bore — which is the configuration §6 specifies.** It may not be quoted as validated anywhere
+> else.
+
+So the width of what is known is the width of one agreement:
 
 | | binders/s at 1 MW | fusion heat, fraction of host beam |
 |---|---|---|
 | at the specified aperture, modelled | **1.918e14** | **12.01 %** |
-| scaled by the weaker corroboration | 1.578e14 | **9.88 %** |
-| scaled by the stronger | 1.884e14 | 11.80 % |
+| scaled by the one validation | 1.884e14 | **11.80 %** |
 
-**The width is 1.19×, not 2131 and not 5.97.** The superseded floor was a *measured* figure, which is
-why it was attractive, but it measures what survives a beamline and §6 has none — a floor on a
-different quantity. Both earlier statements of this span are withdrawn.
+with an **unquantified conservative bias** from the missing mirror term, and nothing measured.
 
-**What survives of Q1 is one thing, and no simulation can settle it.** Two simulations agreeing is not
-a measurement, and neither models what an end-to-end machine loses that no one has thought to model.
-[1] §10.1 — Stage A — measures exactly that, and it is the whole of what remains here.
+**What is open is unchanged by any of this.** Nothing has been run end to end and weighed. Two
+withdrawn claims and one validated simulation do not add up to a measurement, and [1] §10.1 — Stage A
+— is the measurement. **No calculation in this work stands in for it, and this section stops trying.**
 
-> **Seven of nine closed, one narrowed to a width of 1.19, one explained and declined. The two that
+> **Seven of nine closed, one narrowed and twice corrected, one explained and declined. The two that
 > still move a number are measurements rather than calculations — whether an end-to-end machine loses
 > more than any simulation models, and whether the thick-target normalisation survives to capture —
 > and [1] §10 already runs both.**
 
-**The answer's magnitude is 9.88 to 12.01 percent of the host beam**, and the sign is open at no value
-of any of them: at the low end of that band and *one* fusion per binder — a case no measurement
-supports and every measurement exceeds — it still returns **0.06589 percent**. Positive.
+**The answer's magnitude is 11.80 to 12.01 percent of the host beam** at the specified aperture, on one
+validated simulation and no measurement. The sign is open at no value of any of it: at the low end and
+*one* fusion per binder — a case no measurement supports and every measurement exceeds — it still
+returns **0.07866 percent**. Positive.
 
 ---
 
@@ -548,3 +559,5 @@ supports and every measurement exceeds — it still returns **0.06589 percent**.
 3. M. Kamimura, Y. Kino and T. Yamashita, Phys. Rev. C **107**, 034607 (2023).
 4. E. Koukina *et al.* (MuFusE Collaboration), arXiv:2606.19304; J. D. Kalow *et al.*, arXiv:2606.05333.
 5. M. Lach, *The Method* v1.2-8 — *The Lach Cylinder: an index of transitions*.
+6. K. Oishi *et al.*, *Development of the Range Counter for the COMET Phase-α Experiment*,
+   arXiv:2505.07464 — §1, which states the backward-emission capture.

@@ -1527,11 +1527,12 @@ def insitu_from_comet(power_mw=1.0, ep_gev=8.0, p_stop_mev=265.0, hi=False):
 # (id, question, status, what it returned)
 OPEN = [
     ("Q1", "the acceptance has never been measured end to end", "NARROWED",
-     "there is no span. Run at COMET's own aperture the model returns 0.0843 "
-     "captured pi- per interacting proton, INSIDE COMET's published 0.061-0.144: "
-     "the two ends were one model at two apertures, not two estimates of one "
-     "number. Corroborated now at two fields differing by 4x, to 0.823 and "
-     "0.982. What is open is that nothing has measured it end to end"),
+     "the span was withdrawn -- it compared two machines, not two estimates. A "
+     "claimed second corroboration is ALSO withdrawn: it used the forward "
+     "hemisphere against a machine that captures backward. The model has one "
+     "validation, 0.982, at exactly the configuration sec.6 uses; against a "
+     "GRADED field it has no mirror term and is a lower bound by an unstated "
+     "factor. Nothing has measured it end to end"),
     ("Q2", "which sticking branch is operative", "CLOSED",
      "inverting the witnessed 150 cycles gives 0.517-0.547 percent, inside the "
      "measured trio and below theory: a third route using neither published "
@@ -1568,29 +1569,43 @@ COMET_BORE_M = 0.15          # the radius the pT formula is already validated on
                              # stated 100 MeV/c cap
 
 
-def comet_model_at_aperture(r_m=COMET_BORE_M, b_t=5.0):
-    """The sec.5.24 acceptance model evaluated at COMET's OWN aperture, in
-    COMET's own units: captured pi- per interacting proton, no stopping window,
-    which is what a capture solenoid at 3 m delivers."""
-    return delivered_fraction(b_t * r_m, "fwd") * harp_combined_yield()
+def comet_model_at_aperture(r_m=COMET_BORE_M, b_t=5.0, hemisphere="back"):
+    """The sec.5.24 acceptance model at COMET's own aperture, in COMET's own
+    units: captured pi- per interacting proton, no stopping window.
+
+    THE HEMISPHERE IS BACKWARD AND THAT IS NOT A DETAIL. COMET's transport
+    solenoid takes "backward-emitted secondary pions and muons" (arXiv:2505.07464
+    sec.1), the opposite of the NF front end sec.5.24 is validated against. An
+    earlier pass of this file compared COMET against the FORWARD number, got
+    0.0843 against a published 0.061-0.144, and reported the model as
+    corroborated at a second field. It is not. See comet_scope_ratio()."""
+    return delivered_fraction(b_t * r_m, hemisphere) * harp_combined_yield()
 
 
-def comet_validation_ratio():
-    """Model over the midpoint of COMET's published range. A SECOND independent
-    validation of the acceptance model, at a field four times below the one
-    MARS15 validates it at."""
+def comet_scope_ratio():
+    """Model over the midpoint of COMET's published range, in the hemisphere
+    COMET actually captures. It is 0.12, and it is a SCOPE LIMIT rather than a
+    disagreement: a graded capture solenoid magnetically MIRRORS forward-going
+    particles back into a backward channel, and this model has no mirror term at
+    all -- only a transverse momentum cap. Against a graded field the model is
+    therefore a LOWER bound and not an estimate, by a factor it cannot state."""
     return comet_model_at_aperture() / (0.5 * (COMET_CAPTURED_LO + COMET_CAPTURED_HI))
 
 
 def mars_validation_ratio():
+    """The one validation the model has, and it is at exactly the configuration
+    sec.6 specifies: forward capture, 20 T on 7.5 cm, the front end's own rf
+    window. Strait et al. sec.II states the forward hemisphere explicitly."""
     return (delivered_fraction(1.50, "fwd", NF_RF_WINDOW_MEV)
             / (nf_captured_per_interacting_proton() / harp_combined_yield()))
 
 
 def acceptance_corroboration():
-    """The two ratios the acceptance model has been checked against, low first.
-    They are the width of what is known about it short of measuring it."""
-    return tuple(sorted((comet_validation_ratio(), mars_validation_ratio())))
+    """WITHDRAWN as a two-sided band. The model has ONE validation, at the
+    configuration it is used for; the second comparison turned out to be a
+    hemisphere error. Returns (ratio, 1.0) -- the agreement and unity."""
+    r = mars_validation_ratio()
+    return tuple(sorted((r, 1.0)))
 
 
 def open_modelled_mu_per_s(power_mw=1.0, ep_gev=8.0, p_stop_mev=265.0):
@@ -1640,35 +1655,37 @@ def report_open():
             print(f"        {line}")
         print()
 
-    print("  Q1 -- THERE IS NO SPAN. THE TWO ENDS WERE TWO APERTURES.")
-    print("    The previous pass of this report put a floor under the acceptance")
-    print("    by taking a 5 T machine's captured yield as a lower ESTIMATE of a")
-    print("    20 T machine's. It is not one. It is the same model at half the")
-    print("    aperture, and the model predicts it:")
+    print("  Q1 -- TWO WITHDRAWALS, AND WHAT IS ACTUALLY KNOWN")
+    print("    First withdrawal. Two earlier passes quoted a SPAN on the acceptance")
+    print(f"    -- {open_ceiling_mu_per_s() / open_floor_transported():,.0f}x, then 5.97x -- by treating a 5 T machine's output as a")
+    print("    lower ESTIMATE of a 20 T machine's. It is not one, and both are gone.")
     print()
-    print(f"      the sec.5.24 model at COMET's own 5 T x {COMET_BORE_M:.2f} m:"
-          f" {comet_model_at_aperture():.4f} pi- per")
-    print(f"      interacting proton, against COMET's published"
-          f" {COMET_CAPTURED_LO:.3f}-{COMET_CAPTURED_HI:.3f}   INSIDE")
+    print("    Second withdrawal, and it is this report's own from one pass ago.")
+    print("    Replacing that span with a 'second corroboration' compared the model's")
+    print("    FORWARD hemisphere against a machine that captures BACKWARD. In the")
+    print("    hemisphere COMET actually takes:")
     print()
-    print("    So the acceptance model is corroborated by TWO independent published")
-    print("    simulations at fields differing by four times:")
-    print(f"      MARS15, 20 T front end with its rf window:  {mars_validation_ratio():.3f}")
-    print(f"      COMET,  5 T capture at 3 m, no window:      {comet_validation_ratio():.3f}")
+    print(f"      model at 5 T x {COMET_BORE_M:.2f} m, backward:"
+          f" {comet_model_at_aperture():.4f} pi- per interacting proton")
+    print(f"      COMET published:                  "
+          f" {COMET_CAPTURED_LO:.3f}-{COMET_CAPTURED_HI:.3f}")
+    print(f"      ratio {comet_scope_ratio():.3f} -- the model is low by"
+          f" {1 / comet_scope_ratio():.1f}x, not inside the range")
     print()
-    lo, hi = open_band_mu_per_s()
+    print("    That is a SCOPE LIMIT, not a disagreement. A graded capture solenoid")
+    print("    magnetically MIRRORS forward-going particles into a backward channel,")
+    print("    and this model has no mirror term -- only a transverse cap. Against a")
+    print("    graded field it is a LOWER bound by a factor it cannot state.")
+    print()
+    print(f"    WHAT IS KNOWN: one validation, {mars_validation_ratio():.3f}, against the front-end")
+    print("    simulation at exactly the configuration sec.6 specifies -- forward")
+    print("    capture, 20 T on 7.5 cm. One simulation, at one configuration.")
     v = open_modelled_mu_per_s()
-    print(f"    at the specified aperture the value is {v:.3e} binders/s and"
-          f" {open_heat_pct(v):.2f} %")
-    print(f"    of the host beam; scaled by the two corroborations it is"
-          f" {open_heat_pct(lo):.2f} to {open_heat_pct(hi):.2f} %,")
-    print(f"    a width of {hi / lo:.2f}x rather than the {open_ceiling_mu_per_s() / open_floor_transported():,.0f}x"
-          " this report previously carried.")
+    print(f"    The value is {v:.3e} binders/s and {open_heat_pct(v):.2f} % of the host beam,")
+    print("    with an unquantified conservative bias from the missing mirror term.")
     print()
-    print("    WHAT IS ACTUALLY OPEN. Not which of two numbers is right -- the")
-    print("    model reproduces both. What no simulation can settle is whether an")
-    print("    end-to-end machine loses more than any of them model. Stage A")
-    print("    measures that, and it is the only part of Q1 that survives.")
+    print("    WHAT IS OPEN: nothing has been measured. Stage A measures it, and no")
+    print("    calculation in this repository can stand in for that.")
     print()
     print("  Q2-Q4 -- THE STICKING, THE MODEL AND THE FUEL, FROM ONE MEASUREMENT")
     for phi in mucf.PHI_LOS_ALAMOS:
@@ -1948,21 +1965,22 @@ def selftest():
     lo, hi = open_band_mu_per_s()
     ceil = open_ceiling_mu_per_s()
     cm = comet_model_at_aperture()
-    ok = COMET_CAPTURED_LO <= cm <= COMET_CAPTURED_HI
+    ok = cm < COMET_CAPTURED_LO
     fail += 0 if ok else 1
-    print(f"    Q1 the model at COMET's own aperture returns {cm:.4f}, inside its")
-    print(f"       published {COMET_CAPTURED_LO:.3f}-{COMET_CAPTURED_HI:.3f}"
+    print(f"    Q1 REFUSAL: in the hemisphere COMET captures, the model returns")
+    print(f"       {cm:.4f} against its published {COMET_CAPTURED_LO:.3f}-{COMET_CAPTURED_HI:.3f}"
+          f" -- BELOW it, so COMET is")
+    print(f"       not a second validation and must never be quoted as one"
           f"   {'PASS' if ok else 'FAIL'}")
+    ok = comet_model_at_aperture(hemisphere="fwd") > COMET_CAPTURED_LO
+    fail += 0 if ok else 1
+    print(f"       and the forward number does land inside it, which is how the")
+    print(f"       error was made   {'PASS' if ok else 'FAIL'}")
     r1, r2 = acceptance_corroboration()
-    ok = 0.80 < r1 and r2 < 1.05 and r2 / r1 < 1.30
+    ok = r2 == 1.0 and 0.95 < r1 < 1.0
     fail += 0 if ok else 1
-    print(f"    Q1 two corroborations at fields 4x apart: {r1:.3f} and {r2:.3f},")
-    print(f"       a width of {r2 / r1:.2f}x   {'PASS' if ok else 'FAIL'}")
-    ok = (open_ceiling_mu_per_s() / open_floor_transported()) > 100 * (hi / lo)
-    fail += 0 if ok else 1
-    print(f"    Q1 REFUSAL: the superseded MuSIC floor is a floor on a different")
-    print(f"       quantity and its {open_ceiling_mu_per_s() / open_floor_transported():,.0f}x is not an uncertainty"
-          f"   {'PASS' if ok else 'FAIL'}")
+    print(f"    Q1 the model has ONE validation: {mars_validation_ratio():.3f} at the")
+    print(f"       configuration it is used for   {'PASS' if ok else 'FAIL'}")
     ok = all(min(_m.OMEGA_EFF_MEASURED) <= _m.omega_from_cycles(phi=p) <= _m.OMEGA_EFF_THEORY
              for p in _m.PHI_LOS_ALAMOS)
     fail += 0 if ok else 1
