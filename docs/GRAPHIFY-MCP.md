@@ -124,13 +124,19 @@ allowance already paid for and adds no bill, which is why the route came back: t
 `ANTHROPIC_API_KEY` it replaced needs a prepaid balance, and an empty one is what returned HTTP 400
 below.
 
-**The subscription route is here on a second attempt, after being abandoned on a bad inference.** It
-failed three times earlier the same day and was dropped on the reading that its token was "rejected
-instantly" — a reading taken from `is_error: true` with an empty `modelUsage` and nothing else,
-because the error text was suppressed. The identical signature on the API key later resolved to a
-billing error that says nothing about token validity, so that reading never had the evidence it
-claimed. The route was never fairly tested, and this attempt runs with `show_full_output: true` from
-the start rather than inferring from a signature again.
+**There is no credential that makes this free, and the retry settled it.** The subscription route was
+re-tried on PR #27 precisely because its earlier failures had never been diagnosed — they were judged
+on `is_error: true` with an empty `modelUsage` and nothing else. With the error text on, it returned
+exactly what the API key returned:
+
+| credential | result |
+|---|---|
+| `ANTHROPIC_API_KEY` | `400` — `Credit balance is too low` |
+| `CLAUDE_CODE_OAUTH_TOKEN` | `400` — `Credit balance is too low` |
+
+`claude-code-action` requires a **Console credit balance**, and **a Claude subscription does not fund
+it**. Switching credential type is not a way around that, and an earlier revision of this file
+claiming the subscription route "adds no bill" was wrong on the point that mattered.
 
 **The credential was never the problem, and an earlier revision of this file said it was.** Four
 runs died identically, each before any model call — `is_error: true`, `modelUsage: {}`, 206–2057 ms:
