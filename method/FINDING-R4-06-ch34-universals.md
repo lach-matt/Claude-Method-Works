@@ -135,6 +135,27 @@ by exhaustion instead of by arithmetic.**
 
 Checked at all twenty-four openings of the observed order, the claim holds at every one.
 
+> **AND THE RECORD ALREADY HAD THIS, which the first version of this file denied.** It said *"the
+> conclusion survives, and this is the part the record does not carry."* That is false. Deviation
+> **16z-05** carries it exactly, banked, in the conversation numbered 127:
+>
+> > *"MEASURED: 4f: 4 − 3 − 1 = 0. 5f: 5 − 3 − 1 = **1**. At Pa (Z = 91, entrant 5f) the corridor is
+> > one-sided because **every admissible rival has larger n (all smaller-n subshells full) —
+> > admissibility, not the node floor**; register 1403 calls Pa's floor 'degenerate at zero', not
+> > −∞. The conclusion (no two-sided f corridor, 1337) stands; the stated reason holds at one of the
+> > two f openings."*
+>
+> And it was computed earlier still, in the conversation "The Method 1.6" at message 1957, in the
+> session that wrote the chapter: *"and 5f: p = 5−3−1 = 1. one rival could be below it — 4f, p = 0.
+> **but 4f is FULL by the time 5f opens (Pa, Z=91), so it is not admissible.** the corridor is
+> one-sided there too."* **Twelve messages later the chapter summary drops the 5f clause and carries
+> only "at any f opening p = 0" — which is how the false premise reached §34.9 and register 1350.**
+>
+> **What survives as this file's own is narrower and should be stated as such:** the proof that the
+> equivalence is general (a rival lies below an opening iff its node count is smaller), the check of
+> it at all twenty-four openings, and the measurement below, which proves more than either the book
+> or the record claims. **The second time in this pass that a search-first rule was under-applied.**
+
 ### And the measurement then proves something stronger than the book asserts
 
 **L = −∞ at exactly five of the twenty-four openings: 1s, 2p, 3d, 4f and 5f.** So *"no rival lies
@@ -152,8 +173,9 @@ outside the domain"* is true of. s, p and d each lose their node-floor member an
 loses both, 4f by the floor and 5f by exhaustion. **The reason f loses both is that f arrives late
 enough for every node-floor subshell to have closed before its second member opens.**
 
-**What is owed on §34.9, and it is M's.** The conclusion stands. The reason must change, and the
-true reason covers both f openings in one clause and proves the stronger claim as well:
+**What is owed on §34.9, and it is M's.** The conclusion stands. The reason must change, and it was
+already known when the chapter was written. The true reason covers both f openings in one clause and
+proves the stronger claim as well:
 
 > *At an opening, the rivals below the entrant are exactly the admissible subshells of smaller node
 > count. At 4f there are none, because zero is the floor. At 5f there are none because every

@@ -88,6 +88,40 @@ implemented here give nine to seventy-five depending on whether corridor members
 or closed. **That is recorded as POLICY-NOT-DEFINED and is a refusal, not a finding.** 1402's claim
 is confirmed; its five numbers are not checkable as printed.
 
+---
+
+## The same search answered §34.9 as well, and the answer is older than the chapter
+
+The sweep was run for two questions. The second — *is the true reason for L = −∞ at an f opening
+stated anywhere?* — is answered twice, and both answers predate the chapter's false premise.
+
+**Computed in session, in "The Method 1.6" at message 1957**, in the run that produced the f-domain
+paragraph:
+
+> *"4f has p = 0. 0 is the FLOOR of the node count — no subshell can have fewer nodes than none. so
+> no rival is below it, and L = −∞ necessarily. … **and 5f: p = 5−3−1 = 1. one rival could be below
+> it — 4f, p = 0. but 4f is FULL by the time 5f opens (Pa, Z=91), so it is not admissible. the
+> corridor is one-sided there too.**"*
+
+**Twelve messages later, at message 1969, the chapter summary carries only *"at any f opening
+p = 0"* and the 5f clause is gone.** That is the whole history of the defect: it was right when
+computed and lost in the summary.
+
+**And banked afterwards as deviation 16z-05**, in the conversation numbered 127:
+
+> *"At Pa (Z = 91, entrant 5f) the corridor is one-sided because every admissible rival has larger n
+> (all smaller-n subshells full) — **admissibility, not the node floor**. … The conclusion (no
+> two-sided f corridor) stands; the stated reason holds at one of the two f openings."*
+
+**So neither half of Chapter 34's problem needed deriving.** Both reasons were in the corpus before
+the chapter was written, one of them in the very session that wrote it. What §34.6 and §34.9 lack is
+not knowledge; it is the carriage of knowledge already had. **That is the shape of this whole
+finding, and it is the argument for `RULINGS-R4c.md` §2** — subject matter in the sources that
+belongs in the main volumes is brought in.
+
+**Finding R4-06 is corrected accordingly**: its claim that the record does not carry the f-domain
+reason was wrong and is withdrawn in that file.
+
 ## What is owed, and it is M's
 
 **The derivation belongs in the volumes.** `RULINGS-R4c.md` §2 says subject matter in the sources
