@@ -133,16 +133,28 @@ Two credentials, two models, one signature. Neither varies with the failure, so 
 environmental** — which retires the reading that a subscription token was "rejected instantly". It
 was never shown to be rejected at all; nothing reached a model under either credential.
 
-The hypothesis now under test is **this repository's own `.mcp.json`**. The action restores it from
-the default branch and sets `enableAllProjectMcpServers: true`; it seats the Graphify MCP server,
-which a CI runner cannot authenticate. `claude-code-review.yml` therefore passes
-`--strict-mcp-config`, so Claude Code ignores project `.mcp.json` and uses only what the action
-supplies. `show_full_output: true` rides alongside it as a **diagnostic to be removed once the run
-is understood** — the suppressed error text is why four failures produced a signature and no cause.
+**The cause, printed at last on PR #24:**
+
+    "terminal_reason": "api_error",
+    "api_error_status": 400,
+    "result": "Credit balance is too low"
+
+The API key is valid and has **no credit**. A Console account starts empty, and its balance is
+separate from a Claude subscription — so `claude-review` cannot run until credit is added there, and
+every run costs against it thereafter.
+
+**Two hypotheses died here, and both are worth keeping.** The first was that a credential was being
+*rejected*; the second, that this repository's own `.mcp.json` — restored from the default branch
+with `enableAllProjectMcpServers: true`, seating a Graphify server CI cannot authenticate — was
+killing the run. `--strict-mcp-config` was added against that second theory and removed the same day:
+it fixed nothing, because nothing was broken there. Both stories were plausible, both fit the timing,
+and both were wrong. **The thing that resolved it was printing the error** (`show_full_output: true`,
+also since removed) rather than reasoning about the signature — four failures had produced a
+signature and no cause.
 
 **A caution for whoever reads the next result:** a workflow-editing PR is skipped by workflow
-validation, so neither the fix nor the diagnostic can be tested on the PR that introduces it. Only
-an ordinary PR after the merge tests either.
+validation, so neither a fix nor a diagnostic can be tested on the PR that introduces it. Only an
+ordinary PR after the merge tests either — which is why the loop above took five PRs.
 
 Switching back needs no new diagnosis, only the three-reference edit in
 `.github/CLAUDE_GITHUB_SETUP.md`: both action inputs and the `HAS_KEY` gate, all three or none.
