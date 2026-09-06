@@ -160,9 +160,31 @@ RESERVATION_J1 = ("the 0.31% J=1 figure is carried by the paper with the "
 
 
 # ---------------------------------------------------------------- the model
-def cycles(omega_s, phi, lambda_c=LAMBDA_C):
-    """N, catalytic cycles per muon. Paper sec.5.1."""
-    return phi * lambda_c / (LAMBDA_0 + omega_s * phi * lambda_c)
+# SOURCED, MuFusE / Acceleron arXiv:2606.19304: the muon transfer rate to
+# oxygen is about 1e10 s^-1 at one liquid-hydrogen density of OXYGEN number
+# density. A muon transferred to a high-Z contaminant is captured into the
+# nucleus and leaves the cycle, so this is a binder loss channel alongside
+# decay -- one no earlier section of the paper modelled.
+LAMBDA_TRANSFER_OXYGEN = 1.0e10   # s^-1 at 1 LHD of oxygen        SOURCED
+
+
+def impurity_rate(phi, contamination):
+    """Binder loss rate from a high-Z contaminant at fuel density phi (LHD)
+    and mole fraction `contamination`. Zero by default everywhere, so it
+    changes no figure this paper states; it exists to be priced."""
+    return LAMBDA_TRANSFER_OXYGEN * phi * contamination
+
+
+def purity_for_parity(phi):
+    """The contamination at which impurity loss equals binder decay."""
+    return LAMBDA_0 / (LAMBDA_TRANSFER_OXYGEN * phi)
+
+
+def cycles(omega_s, phi, lambda_c=LAMBDA_C, contamination=0.0):
+    """N, catalytic cycles per muon. Paper sec.5.1. `contamination` defaults
+    to zero: every figure in the paper is the perfectly pure case."""
+    return phi * lambda_c / (
+        LAMBDA_0 + impurity_rate(phi, contamination) + omega_s * phi * lambda_c)
 
 
 def gain(omega_s, phi, e_mu, lambda_c=LAMBDA_C):

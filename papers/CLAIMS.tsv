@@ -316,3 +316,15 @@ C314	collection factor omitted, at today's aperture both hemispheres	1.64	x	DERI
 C315	collection factor omitted, at today's front end	3.33	x	DERIVED	1 / C106	fn:collection_factor_fe
 C316	Yin et al. unpolarised Q with collection applied	0.32	dimensionless	DERIVED	0.52 x C142	fn:yin_unpol_q_at_nf
 C317	Yin et al. polarised-optimistic Q, recomputed and with collection	0.46	dimensionless	DERIVED	C311 x C142	fn:yin_polopt_q_corrected_at_nf
+C318	muon transfer rate to oxygen	1.0e10	s^-1 at 1 LHD of oxygen	SOURCED	MuFusE arXiv:2606.19304 citing FAMU/Nagamine	mucf.LAMBDA_TRANSFER_OXYGEN
+C319	contamination at which impurity loss equals decay, bound case	5.49	ppm	DERIVED	C02 / (C318 x C169)	fn:purity_parity_bound
+C320	contamination at which impurity loss equals decay, phi=3	15.6	ppm	DERIVED	C02 / (C318 x 3)	fn:purity_parity_phi3
+C321	service life at bound case, 1 ppm contamination	575.8	cycles	DERIVED	N with impurity term at 1e-6	fn:N_imp_1ppm
+C322	service life at bound case, 10 ppm contamination	480.1	cycles	DERIVED	N with impurity term at 1e-5	fn:N_imp_10ppm
+C323	service life at bound case, 100 ppm contamination	180.4	cycles	DERIVED	N with impurity term at 1e-4	fn:N_imp_100ppm
+C324	diamond anvil cell pressure achieved	933	MPa	SOURCED	MuFusE arXiv:2606.19304	collector.DAC_PRESSURE_MPA
+C325	diamond anvil cell temperature achieved	400	K	SOURCED	MuFusE arXiv:2606.19304	collector.DAC_TEMP_K
+C326	diamond anvil cell design temperature ceiling	500	K	SOURCED	MuFusE arXiv:2606.19304	collector.DAC_TEMP_CEILING_K
+C327	diamond anvil cell sample volume	19.2	mm3	SOURCED	MuFusE arXiv:2606.19304	collector.DAC_SAMPLE_MM3
+C328	molar volume at twice liquid density	14.2	cm3/mol	DERIVED	phi_to_molar_volume(2)	fn:molar_vol_2lhd
+C329	molar volume the bound case requires	3.33	cm3/mol	DERIVED	phi_to_molar_volume(C169)	fn:molar_vol_bound

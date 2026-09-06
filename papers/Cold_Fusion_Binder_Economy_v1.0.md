@@ -172,7 +172,10 @@ channel alone, and no choice of binder improves it.
 
 **Target.** Hydrogen isotopes only; elements above hydrogen capture the binder preferentially and
 terminate the chain, so purity is a requirement and not a refinement. The tritium fraction is not
-critical, the transfer step auto-optimising the population.
+critical, the transfer step auto-optimising the population. **§5.28 puts a number on the purity
+requirement**: transfer to oxygen runs at about 1 × 10¹⁰ s⁻¹ per liquid density of oxygen, so at the
+density §5.13 brackets, a contamination of **5.49 ppm** costs as much binder as decay does. Purity
+better than one part per million is the working requirement, and it tightens linearly with density.
 
 **Density and temperature are one bracket, not two settings.** The formation resonance rises by
 roughly two orders of magnitude toward 800 kelvin, so it pushes hot; density pushes cold. The bracket
@@ -1257,6 +1260,58 @@ hybrid concept is proposed as conceptual with neutronics and burnup calculations
 disagreement here is about one input, not about their method — and on the escape itself, the two
 papers agree.
 
+### 5.28 The deciding measurement is being made, and it exposes a channel this paper had not priced
+
+§5.10 states a protocol for the measurement that decides between the two published stickings, and §9
+ranks it third among the things that would change the answer. It is not hypothetical. A collaboration
+is running it [11]: a diamond anvil cell on the PSI muon beam, with deuterium–tritium campaigns
+completed and data in analysis. Three facts from that apparatus bear directly on this paper.
+
+**First, the disagreement §5.10 turns on is the field's own.** They give as their motivation that
+"theory and experiment do not fully agree on the kinetics and yield of the process in dense DT
+mixtures", which is §5.10's premise stated by an experiment rather than by an analysis. Their
+detectors are neutron and electron rather than the neutron-and-X-ray pair §3.5's refusal rule
+specifies, so what they measure bears on §5.10's question without being §5.10's protocol; a final
+sticking determined by two simultaneous independent routes remains unmade.
+
+**Second, §5.13's density bound survives contact with the best apparatus in the field, and that is
+worth more than agreement.** Their cell holds a stable sample at **933 MPa** and up to **400 K**,
+with a design ceiling of **500 K** and a sample volume of **19.2 mm³** — more than twice liquid
+density, which on this paper's own relation is a molar volume of **14.2 cm³/mol**. §5.13's
+bound-case density needs **3.33 cm³/mol**, which on hydrogen's equation of state is hundreds of
+gigapascals. So the purpose-built instrument reaches under one gigapascal where the bound case needs
+two to three orders more. **§5.13's bound is not a modelling artefact of this paper**; it is the
+distance between what the analysis requires and what the field's best cell delivers, now measured
+from both ends.
+
+**Third — and this is new to this paper — there is a binder-loss channel none of §§5.11–5.20 models.**
+A muon transferred from the fuel to a high-Z contaminant is captured into that nucleus and leaves the
+cycle permanently. The transfer rate to oxygen is about **1 × 10¹⁰ s⁻¹** per liquid-hydrogen density
+of oxygen, against a binder decay rate near 4.665 × 10⁵ s⁻¹. Scaling that to a contamination fraction
+at fuel density φ and setting it equal to decay:
+
+| density | contamination at which impurity loss equals decay |
+|---|---|
+| the bound case | **5.49 ppm** |
+| φ = 3 | **15.6 ppm** |
+
+and the service life at the bound case falls from **588.9** cycles pure to **575.8** at one part per
+million, **480.1** at ten, and **180.4** at a hundred.
+
+> **Fuel purity better than about one part per million is a condition on the procedure of §3, and it
+> tightens linearly with density.** Every balance in this paper is stated for perfectly pure fuel and
+> is therefore an overestimate by this factor, whatever it turns out to be.
+
+**And it supplies a rival explanation for something §5.15 asserts.** §5.15 argues that the residual
+sits on the temperature axis, which the analysis holds fixed. The experimenters note that the highest
+yields ever observed are in cryogenic *solid* DT, and offer as the likely reason that those data
+points had both the highest densities **and the best mixture purity**. Purity, density and temperature
+are confounded in the existing record: the coldest data are also the cleanest and the densest. §5.15's
+reading remains available, and so does the reading that some of what looks like a temperature effect
+is a purity effect. **This paper cannot separate them and does not claim to** — which is why §9 now
+carries purity as an item rather than a caution, and why the same DAC campaign, which varies
+temperature and density at controlled purity, is the instrument that separates them.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -1396,7 +1451,12 @@ What would change the answer, in the order this paper can rank them:
    and work routes need it; the bred-fuel route does not. §5.22 prices it as a shielding trade of
    about 2.7 in coil heating, not a new magnet.
 3. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
-   bench experiment on an existing beam. It bears on the heat route and not on the bred-fuel one.
+   bench experiment on an existing beam, and §5.28 records that a collaboration is already running
+   the adjacent measurement. It bears on the heat route and not on the bred-fuel one.
+3a. **Fuel purity, and its separation from temperature and density.** §5.28 prices the impurity
+   channel for the first time: at the bound-case density, a contamination of 5.49 ppm costs as much
+   binder as decay does, and every balance in this paper assumes perfect purity. The same measurement
+   separates §5.15's temperature reading from a purity reading, which the existing record confounds.
 4. **Effective sticking at the operating temperature.** No determination exists at 800 K, though
    §5.20 records the muon-loss dependence measured across 85 to 790 K in the d+d system, in the
    favourable direction.
@@ -1431,3 +1491,6 @@ binder's own decay rate (§5.20).
    use in muon catalyzed fusion*, J. Phys. Energy **3**, 035003.
 10. X. Yin, W. Kou and X. Chen, *Muon-Catalyzed Nuclear Fusion: Physical Mechanism, Bottleneck
     Breakthroughs, and an Engineering Pathway*, arXiv:2605.26432 — Table I and §IV.B.
+11. E. Koukina *et al.* (MuFusE Collaboration), *Design and Commissioning of a Deuterium-Tritium Gas
+    Delivery System for Muon Catalyzed Fusion in a Diamond Anvil Cell*, arXiv:2606.19304; and
+    J. D. Kalow *et al.*, arXiv:2606.05333.

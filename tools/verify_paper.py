@@ -711,6 +711,38 @@ def yin_polopt_q_corrected_at_nf():
     return yin_polopt_q_repro() * (cap_nf() / 100.0)
 
 
+def purity_parity_bound():
+    return 1e6 * mucf.purity_for_parity(trans_atoms())
+
+
+def purity_parity_phi3():
+    return 1e6 * mucf.purity_for_parity(3.0)
+
+
+def _N_imp(c):
+    return mucf.cycles(ws_sin() / 100.0, trans_atoms(), contamination=c)
+
+
+def N_imp_1ppm():
+    return _N_imp(1e-6)
+
+
+def N_imp_10ppm():
+    return _N_imp(1e-5)
+
+
+def N_imp_100ppm():
+    return _N_imp(1e-4)
+
+
+def molar_vol_2lhd():
+    return collector.phi_to_molar_volume(2.0)
+
+
+def molar_vol_bound():
+    return collector.phi_to_molar_volume(trans_atoms())
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 

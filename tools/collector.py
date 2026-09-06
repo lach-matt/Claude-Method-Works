@@ -537,6 +537,15 @@ def yin_sticking_for_stated(col):
     return 1.0 / X - lm / lc
 
 
+# SOURCED, MuFusE collaboration arXiv:2606.19304: a diamond-anvil-cell muCF
+# target running on the PSI muon beam, DD and DT campaigns in 2024 and 2025.
+# The best apparatus in the field for reaching density and temperature at once.
+DAC_PRESSURE_MPA = 933.0     # achieved, stable sample volume
+DAC_TEMP_K = 400.0           # achieved
+DAC_TEMP_CEILING_K = 500.0   # design ceiling
+DAC_SAMPLE_MM3 = 19.2
+
+
 PU239_FISSION_MEV = 200.0   # downstream yield of one bred 239Pu
 BREEDING_RATIO = 0.7        # bred nuclei per fusion after tritium self-sufficiency
 
