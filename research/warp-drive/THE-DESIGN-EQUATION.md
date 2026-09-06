@@ -291,3 +291,11 @@ python3 research/warp-drive/warpdrive.py               # full report
 
 The profile override is `octave/profile/compactSigmoid.m`; place it ahead of Warp Factory on the
 Octave path and re-run `octave/run_sweep.m`. Every figure in §3–§6 is a fixture.
+
+---
+
+**Correction note (added later).** The absolute figures in this paper are withdrawn: the null-energy
+minimum was taken over a slice whose minimum is grid-boundary truncation error outside the shell,
+and Warp Factory lowers frame indices with the coordinate metric. Corrected, the threshold is
+≈ 0.045 c against the 0.0218 c reported here. Ratios are unvalidated, not withdrawn. The
+null-vector objection raised in this series is itself withdrawn. See `NEC-CORRECTION.md`.

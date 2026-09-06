@@ -28,6 +28,9 @@ a report.
 | `warp-drive/SPHERICITY.md` | `warp-drive/warpdrive.py` + `octave/` | the sphericity cost measured, the oblate test attempted, and the control that invalidated it |
 | `warp-drive/THE-BORROWED-WELL.md` | `warp-drive/warpdrive.py` | register 1206 read backwards; a closed form for transport without a drive |
 | `warp-drive/THE-GR-FLYBY.md` | `warp-drive/grflyby.py` | the flyby in Schwarzschild geometry; the geometric bound dissolves and an IMBH is the minimum instrument |
+| `warp-drive/NEC-CORRECTION.md` | `warp-drive/octave/` | the measured ceiling was an artefact twice over; the series' absolute figures withdrawn |
+| **`warp-drive/THE-ENGINE.md`** | **`warp-drive/slingshot.py`** | **the redefinition: an engine is a coupler, not a source — 0.87 c in 11 minutes at 1 g, zero propellant** |
+| `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ## `warp-drive/`
 
@@ -79,3 +82,28 @@ The instrument copies the fifteen-letter closure rules verbatim from `recovered/
 provenance comment, per the standing rule that an instrument imports a seated form and never silently
 reimplements one. It reproduces `TRANSITIONS` §7.1's printed 18,888 / 18,072 / 816 before reporting
 anything.
+
+
+## The turn
+
+The first fourteen papers asked whether a **warp shell** can be built and answered by optimising the
+only object that satisfies all four energy conditions while carrying a shift. The answer was no, by
+10³¹ — and two papers later it became clear the ceiling those papers measured was an artefact of a
+bad slice and a mis-lowered index (`NEC-CORRECTION.md`). Correcting it doubles the ceiling and
+changes nothing: a 2× correction to a number 31 orders from useful is not a result.
+
+The assumption those papers never examined is that an engine **sources** the metric it uses. Both
+lethal facts — the 10³¹ gap and the ADM no-self-acceleration theorem — follow from it alone.
+`THE-ENGINE.md` drops it. An engine is a **coupler**: a device that modulates its coupling to a
+gradient it did not make. Built of ordinary matter, it satisfies every energy condition trivially,
+because there is nothing exotic in it to check.
+
+Two couplers are assessed. The **curvature swimmer** (Wisdom 2003) is a real effect and a dead
+engine, bounded by `Δs ≤ A·a_tide/c²` ≈ 10⁻¹⁵ m per cycle — recorded as a bound. The **binary
+slingshot** is live: a black hole binary is a flywheel already spinning, the fractional gain in γ per
+pass does not saturate, and a steered vehicle keeps the first-order law a random population loses.
+Worked point design: **0.87 c in 11 minutes at 1 g with zero propellant**, off two 27,900 M☉ holes.
+
+Its honest limit is not physics but **inventory** — the engine is a found object, and no
+intermediate-mass black hole binary is confirmed nearby. That reduces the question to an
+observational one, which LISA is built to answer.

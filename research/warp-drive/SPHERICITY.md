@@ -212,3 +212,11 @@ python3 research/warp-drive/warpdrive.py               # full report
 `octave/run_angular.m` produces §1; `octave/run_oblate.m` with `WF_ECC` produces §2, and
 `octave/profile/metricGet_OblateShell.m` is the deformed builder — kept, with its control failure
 recorded, because the next attempt should start by not repeating it.
+
+---
+
+**Correction note (added later).** The absolute figures in this paper are withdrawn: the null-energy
+minimum was taken over a slice whose minimum is grid-boundary truncation error outside the shell,
+and Warp Factory lowers frame indices with the coordinate metric. Corrected, the threshold is
+≈ 0.045 c against the 0.0218 c reported here. Ratios are unvalidated, not withdrawn. The
+null-vector objection raised in this series is itself withdrawn. See `NEC-CORRECTION.md`.

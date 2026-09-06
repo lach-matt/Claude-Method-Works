@@ -267,3 +267,11 @@ cat research/warp-drive/octave/README.md               # the Octave recipe
 `octave/run_fill.m` produces §1; `octave/run_locus.m` produces §2 and §3. Both tables are banked in
 `warpdrive.py` as `FILL_MEASURED` and `LOCUS`, with the mechanism, the design curve and the vector
 norms as fixtures.
+
+---
+
+**Correction note (added later).** The absolute figures in this paper are withdrawn: the null-energy
+minimum was taken over a slice whose minimum is grid-boundary truncation error outside the shell,
+and Warp Factory lowers frame indices with the coordinate metric. Corrected, the threshold is
+≈ 0.045 c against the 0.0218 c reported here. Ratios are unvalidated, not withdrawn. The
+null-vector objection raised in this series is itself withdrawn. See `NEC-CORRECTION.md`.

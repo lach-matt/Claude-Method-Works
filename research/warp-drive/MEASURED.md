@@ -266,3 +266,11 @@ cat research/warp-drive/octave/README.md               # the Octave recipe
 The measured tables are banked in `warpdrive.py` as `MEASURED`, with the threshold fit, the
 grid-independence checks and the linearity check as fixtures. Re-running the Octave sweep reproduces
 them; the fixtures assert them without needing Octave present.
+
+---
+
+**Correction note (added later).** The absolute figures in this paper are withdrawn: the null-energy
+minimum was taken over a slice whose minimum is grid-boundary truncation error outside the shell,
+and Warp Factory lowers frame indices with the coordinate metric. Corrected, the threshold is
+≈ 0.045 c against the 0.0218 c reported here. Ratios are unvalidated, not withdrawn. The
+null-vector objection raised in this series is itself withdrawn. See `NEC-CORRECTION.md`.

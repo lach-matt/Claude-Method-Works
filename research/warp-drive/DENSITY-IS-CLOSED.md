@@ -204,3 +204,11 @@ python3 research/warp-drive/warpdrive.py               # full report
 
 `octave/run_shaped.m` produces §2–§3 (set `WF_DELTA`), `octave/run_ratio.m` the diagnostic in §2.2.
 The builder is `octave/profile/metricGet_ShapedShell.m` with `octave/profile/tovShaped.m`.
+
+---
+
+**Correction note (added later).** The absolute figures in this paper are withdrawn: the null-energy
+minimum was taken over a slice whose minimum is grid-boundary truncation error outside the shell,
+and Warp Factory lowers frame indices with the coordinate metric. Corrected, the threshold is
+≈ 0.045 c against the 0.0218 c reported here. Ratios are unvalidated, not withdrawn. The
+null-vector objection raised in this series is itself withdrawn. See `NEC-CORRECTION.md`.

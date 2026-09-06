@@ -533,6 +533,8 @@ def flux_that_would_permit(beta_target, p_mid, beta_ref=0.02):
 # sigma = 0, smoothFactor = 4000, m = R2 c^2/(2G) * 1/3 = 4.4886e27 kg.  Two grids.
 # Columns: vWarp, rho_max [J/m^3], |f|/rho, |p|/rho, then the four condition minima.
 
+# WITHDRAWN as physics, retained as a record of what the flawed slice + shipped
+# diagnostic actually returned.  See NEC-CORRECTION.md; corrected threshold ~0.045 c.
 MEASURED = {
  1.0: [  # dx = 1.0 m, grid 60 x 60 x 5
   (0.000, 1.3616e40, 0.0000, 0.1935, -1.926e36, -3.212e36, -2.878e36, -2.554e36),
