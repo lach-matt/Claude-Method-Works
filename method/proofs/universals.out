@@ -1,0 +1,64 @@
+  TWO UNIVERSALS OF CHAPTER 34's LAW, TESTED ON THE OBSERVED ORDER
+    input: LW1-ground.py, register 1306, 108 elements, electron counts 108/108
+
+  (1) "a resets eighteen times, NEVER MID-SUBSHELL"
+      a mid-subshell reset = an entrant equal to the previous step's entrant
+      tested on register 1401's own fourteen forced resets:
+        Z  37  Rb   entrant 5s   previous step 4p
+        Z  42  Mo   entrant 4d   previous step 4d  <== MID-SUBSHELL
+        Z  43  Tc   entrant 5s   previous step 4d
+        Z  45  Rh   entrant 4d   previous step 4d  <== MID-SUBSHELL
+        Z  55  Cs   entrant 6s   previous step 5p
+        Z  58  Ce   entrant 4f   previous step 5d
+        Z  64  Gd   entrant 5d   previous step 4f
+        Z  65  Tb   entrant 4f   previous step 5d
+        Z  80  Hg   entrant 6s   previous step 5d
+        Z  91  Pa   entrant 5f   previous step 6d
+        Z  96  Cm   entrant 6d   previous step 5f
+        Z  97  Bk   entrant 5f   previous step 6d
+        Z 103  Lr   entrant 7p   previous step 5f
+        Z 104  Rf   entrant 6d   previous step 7p
+      REFUTED at 2 of the fourteen: Mo 42, Rh 45
+
+  (1a) the same universal read plainly: is each of the eighteen resets AT AN OPENING?
+       sec 34.6: "It never resets mid-subshell, which is why each subshell fills at
+       constant a."  A reset inside a subshell already filling refutes both halves.
+        Z  42  Mo   entrant 4d, occupied since Z 39  -- so this reset is inside a subshell already filling
+        Z  43  Tc   entrant 5s, occupied since Z 37  -- so this reset is inside a subshell already filling
+        Z  45  Rh   entrant 4d, occupied since Z 39  -- so this reset is inside a subshell already filling
+        Z  65  Tb   entrant 4f, occupied since Z 58  -- so this reset is inside a subshell already filling
+        Z  80  Hg   entrant 6s, occupied since Z 55  -- so this reset is inside a subshell already filling
+        Z  97  Bk   entrant 5f, occupied since Z 91  -- so this reset is inside a subshell already filling
+      6 of sec 34.6's 18 resets fall inside a subshell
+      already filling; 12 are at an opening.
+
+  (1b) the consequent, tested on its own terms:
+       "which is why EACH SUBSHELL FILLS AT CONSTANT a" -- a subshell fails this if
+       any reset falls strictly between its opening and its completion.
+        4d opens Z 39, full Z 46:  resets at Mo 42, Tc 43, Rh 45
+        5d opens Z 57, full Z 79:  resets at Ce 58, Gd 64, Tb 65
+        4f opens Z 58, full Z 70:  resets at Gd 64, Tb 65
+        5f opens Z 91, full Z 102:  resets at Cm 96, Bk 97
+      4 subshells do not fill at constant a, carrying 10 resets between them.
+
+  (2) "p = 0 is the node floor, so L = -inf at EVERY f opening"
+      p = n - l - 1 at an opening, where q = 0
+        4f opens at Z 58 (Ce)   p = n - l - 1 = 0
+        5f opens at Z 91 (Pa)   p = n - l - 1 = 1  <== p is NOT 0
+      the PREMISE is refuted at 1 of 2: 5f (p = 1)
+
+      but the CONCLUSION -- "no rival lies below, so L = -inf" -- is tested separately,
+      because a false reason does not make a false result:
+        4f at Z 58: NO admissible rival below the entrant, so L = -inf HOLDS
+        5f at Z 91: NO admissible rival below the entrant, so L = -inf HOLDS
+      At 4f it holds because p = 0 is the node floor.  At 5f it holds for a
+      different reason: p = 1, and every subshell with a lower p -- 1s, 2p, 3d,
+      4f -- is FULL and therefore inadmissible.  The conclusion survives; the
+      reason the book gives for it does not.
+      This depends on the candidate set l <= 3, which is the record's convention:
+      5g would have p = 0 and would lie below 5f if g subshells were admitted.
+
+  The record's findings 34re-03 and 34re-07 are reproduced from the seated member
+  rather than quoted, and both are widened: 34re-03 names two counterexamples and
+  there are six; 34re-07's p = 1 at 5f refutes a premise whose conclusion survives.
+  Nothing is repaired.

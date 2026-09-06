@@ -171,12 +171,26 @@ def audits_table(main_text):
     return rows, None
 
 
+AX3_NAME = {0: "nothing", 1: "claims individually true", 2: "also mutually consistent"}
+
+
+def frontier(cells, Rx):
+    """Split the admitted-and-absent cells into DOMINATED -- an occupied cell is at
+    least as large on every axis -- and FRONTIER, where the index stops."""
+    missing = sorted(Rx - cells)
+    dom = [c for c in missing
+           if any(all(o[i] >= c[i] for i in range(4)) for o in cells)]
+    return dom, [c for c in missing if c not in dom]
+
+
 def audits_index(rows):
     cells = [(AX0.index(r[2]), AX1.index(r[3]), AX2.index(r[4]), AX3[r[5]]) for r in rows]
     S = set(cells)
     Rx = R(S, 4)
     dup = [k for k, v in Counter(cells).items() if v > 1]
+    dom, fro = frontier(S, Rx)
     return dict(n=len(rows), cells=len(S), box=box_of(S, 4), R=len(Rx), E=len(Rx) - len(S),
+                dominated=len(dom), frontier=fro,
                 collisions=[[f"{r[0]} {r[1]}" for r in rows
                              if (AX0.index(r[2]), AX1.index(r[3]), AX2.index(r[4]), AX3[r[5]]) == k]
                             for k in dup])
@@ -367,6 +381,15 @@ def report(o):
         print("     audits sharing a cell:")
         for grp in sorted(a["collisions"]):
             print("       " + "  |  ".join(grp))
+        print(f"     of the {a['E']} admitted and absent cells, {a['dominated']} are dominated"
+              f" and {len(a['frontier'])} are on the frontier:")
+        for c in a["frontier"]:
+            print(f"       {AX0[c[0]]} · {AX1[c[1]]} · {AX2[c[2]]} · {AX3_NAME[c[3]]}")
+        print("     Main prints this object's E twice, at 16 and at 17, in one section.")
+        print("     16 is the value at twenty-two audits; 17 was the value at twenty.")
+        print("     The 17 row's gloss, 'fourteen cells with no audit in them', is the")
+        print("     count of the DOMINATED subset of the sixteen -- an old E beside a")
+        print("     current sub-count.")
     print()
     print("  2a. HOW THE AUDITS INDEX GREW, against what Secs 3.8 and 3.7.1 print")
     for tag, g in o["growth"]:
@@ -422,6 +445,8 @@ FIXTURES = """the corpus's own recorded numbers, and every one is printed in a v
   Sec 3.7     22 precedences                    -- 'The twenty-two', Sec 3.7
   Sec 3.8     20 audits at E = 17               -- Sec 3.8's growth table
   Sec 3.7.1   INPUT takes E from 17 to 16       -- Sec 3.7.1
+  Ch. 18    the sixteen missing cells are fourteen dominated and two on the frontier,
+              both 'outside . dishonest'   -- the Index of Indices' own entry
   Sec 3.7     362 comparisons, 8.5 million     -- Sec 3.7; the 362 decomposition is the
                                                   Working Register's, chat 69"""
 
@@ -454,6 +479,12 @@ def selftest(members):
     eq("Sec 3.7 'eight and a half million'", o["counts37"]["search"], 8567730)
     eq("Sec 3.7 '362 comparisons'", o["counts37"]["verify"], 362)
     eq("comparability components", o["components"], [1, 2, 9, 10])
+    eq("audits: dominated missing cells", a["dominated"], 14)
+    eq("audits: frontier cells", len(a["frontier"]), 2)
+    eq("audits: the frontier is outside/dishonest",
+       sorted((AX1[c[1]] for c in a["frontier"]))
+       if all(AX0[c[0]] == "outside" and AX2[c[2]] == "dishonest" for c in a["frontier"])
+       else None, ["a computation", "other places"])
     print(FIXTURES)
     print()
     bad = 0

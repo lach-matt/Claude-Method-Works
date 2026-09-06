@@ -19,6 +19,14 @@
      E(audits)        16
      audits sharing a cell:
        10 SCOPE  |  22 CENSUS
+     of the 16 admitted and absent cells, 14 are dominated and 2 are on the frontier:
+       outside · other places · dishonest · also mutually consistent
+       outside · a computation · dishonest · also mutually consistent
+     Main prints this object's E twice, at 16 and at 17, in one section.
+     16 is the value at twenty-two audits; 17 was the value at twenty.
+     The 17 row's gloss, 'fourteen cells with no audit in them', is the
+     count of the DOMINATED subset of the sixteen -- an old E beside a
+     current sub-count.
 
   2a. HOW THE AUDITS INDEX GREW, against what Secs 3.8 and 3.7.1 print
      20 audits, before INPUT            cells  20   collisions 0   E  17

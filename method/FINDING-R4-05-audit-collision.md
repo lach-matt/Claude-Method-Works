@@ -92,3 +92,38 @@ the finding is about the reconstruction.**
 relation at all, so the comparability order has **four** components — ten, nine, a pair, and CENSUS
 alone — against §3.7's *"falls into three components"*. Recorded in chat 69, held, not repaired. The
 dimension is unaffected: a singleton has dimension at most one.
+
+---
+
+## The same object again in Chapter 18, printed at two values twelve lines apart. Candidate E-061, settled.
+
+Measured while the instrument was open, and it closes the first clause of candidate **E-061**.
+
+**Chapter 18 prints E for the audits index twice, in one section, for the same four coordinates:**
+
+| main | the row | E |
+|---|---|---|
+| L5031 | *the audits, four coordinates · **16** · the certificate: drop DEPTH, the fourth coordinate · after: **0*** | **16** |
+| L5068 | *the audits, four coordinates · **17** · fourteen cells with no audit in them* | **17** |
+
+**16 is right.** It is the value at twenty-two audits, it is what §3.7.1's chain arrives at, and it
+is what the Index of Indices prints. **17 was the value at twenty audits**, before INPUT was added —
+§3.8's growth table prints it as that, correctly.
+
+**And the 17 row's gloss belongs to the 16.** *"Fourteen cells with no audit in them"* is not a
+count of seventeen anything. It is the count of the **dominated** cells among the sixteen: measured,
+of the sixteen admitted and absent, **fourteen are dominated** — some occupied cell is at least as
+large on every axis — **and two are on the frontier**, where the index stops. So L5068 carries a
+stale E beside a current sub-count of a different number.
+
+**The Index of Indices' entry on those two cells reproduces exactly, cell for cell.** It states the
+frontier pair as *outside · dishonest*, and measured they are:
+
+- **outside · other places · dishonest · also mutually consistent**
+- **outside · a computation · dishonest · also mutually consistent**
+
+which is the entry's claim and, as it says, the same pair §14.5.6 finds ℛ₄ refusing, reached by two
+computations sharing no code. **That is true and proven.**
+
+**What is owed:** L5068's *17* is stale and its gloss belongs to the other row. M rules; nothing is
+repaired here.
