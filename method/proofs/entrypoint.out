@@ -60,4 +60,40 @@
      above the p and d factor at every point.  For t to reach sqrt(6) exactly the
      ionisation energy would have to be 4.97 eV, far below any estimate.
 
+  5. THE OPEN QUESTION, AND ITS SHAPE -- t at q = 0
+     Register 1337 reads t at the opening, where the entrant already holds one
+     electron, and says t rises linearly with occupancy.  The law's p is the node
+     count, a q = 0 quantity.  Nowhere does the record carry t back to q = 0.
+
+     sub    a-slope    r^2            1335   t(q=1)  t(0) back  t(0) fit
+     3p     +0.1054  0.927 +0.1054 (0.927)   1.0925     1.0153    1.0674
+     4p     +0.0670  0.931 +0.0670 (0.931)   1.0331     0.9938    1.0199
+     5p     +0.0505  0.953 +0.0505 (0.953)   1.0124     0.9765    0.9976
+     6p     +0.0339  0.953 +0.0276 (0.953)   1.0237     0.9961    1.0043
+     4d     +0.1129  0.671 +0.1129 (0.671)   1.8453     1.7626        --
+     5d     +0.0427  0.344 +0.0427 (0.344)   1.7240     1.6813        --
+     5f     -0.0009  0.010              --   2.5476     2.5490    2.5670
+
+                      q = 1  q = 0, back  q = 0, fit  predicted
+     p median        1.0284       0.9949      1.0121     1.0000
+       excess        +2.84%       -0.51%      +1.21%
+     d mean          1.7846       1.7219          --     1.7321
+       excess        +3.04%       -0.58%
+     f               2.5476       2.5490      2.5670     2.4495
+       excess        +4.01%       +4.06%      +4.80%
+
+     Three of register 1335's four p slopes rebuild from the ionisation energies to
+     the fourth decimal; 6p rebuilds as the slope per corridor width, +0.0276, where
+     the register prints that figure as the slope in a.  Its r^2 is exact either way.
+
+     READ TOGETHER.  The 2.9% the record could not derive is mostly the occupancy
+     offset: one electron's worth of slope, at the opening.  Carried back to q = 0
+     the p and d excesses fall from about +3% to within a percent, and the sign is
+     no longer fixed.  f does NOT move: the actinide first ionisation energies are
+     flat across the 5f filling (slope near zero), because an actinide ionises from
+     7s and not from 5f, so a_meas at protactinium is reading the wrong electron.
+     The survey has no measured f channel above Z = 81; the actinide 5f rows are
+     computed and unwitnessed.  So the f point cannot be sharpened from the data
+     the corpus holds.  That is the question's shape, and it is OPEN.
+
   Nothing is repaired here.

@@ -100,6 +100,63 @@ def t_form(l):
     return math.sqrt(l * (l + 1) / 2)
 
 
+# ----------------------------------------------------------- the q = 0 question
+# Register 1337 reads t "at the subshell's OPENING", where the entrant already holds
+# one electron (q = 1), and says t rises linearly with occupancy.  The law's p is the
+# node count, which is the q = 0 quantity.  Nowhere in the record are the two put
+# together.  This section does, using register 1335's own slopes and, for the four p
+# fillings, slopes rebuilt from the ionisation energies below.
+IE_FILL = {
+    "3p": (3, 1, {13: 5.985769, 14: 8.15168, 15: 10.486686, 16: 10.36001, 17: 12.967632, 18: 15.7596112}),
+    "4p": (4, 1, {31: 5.999302, 32: 7.899435, 33: 9.78855, 34: 9.752392, 35: 11.81381, 36: 13.9996055}),
+    "5p": (5, 1, {49: 5.7863557, 50: 7.343918, 51: 8.608389, 52: 9.009808, 53: 10.45126, 54: 12.1298436}),
+    "6p": (6, 1, {81: 6.1082871, 82: 7.4166799, 83: 7.285516, 84: 8.414, 85: 9.31751, 86: 10.7485}),
+}
+# The 5f filling, protactinium to americium.  The entrant is 5f at every step; 6d and
+# 7s move but do not enter.  Pa's value is the estimate; the other four are measured.
+IE_5F = {91: (5.89, 2), 92: (6.19405, 3), 93: (6.26554, 4), 94: (6.02576, 6), 95: (5.97381, 7)}
+REG_1335 = {"3p": (0.1054, 0.927), "4p": (0.0670, 0.931), "5p": (0.0505, 0.953),
+            "6p": (0.0276, 0.953), "4d": (0.1129, 0.671), "5d": (0.0427, 0.344)}
+
+
+def fit(xs, ys):
+    mx, my = sum(xs) / len(xs), sum(ys) / len(ys)
+    sl = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / sum((x - mx) ** 2 for x in xs)
+    ic = my - sl * mx
+    ssr = sum((y - ic - sl * x) ** 2 for x, y in zip(xs, ys))
+    sst = sum((y - my) ** 2 for y in ys)
+    return sl, ic, 1 - ssr / sst
+
+
+def q0():
+    out = {}
+    for sub, (n, l, ies) in IE_FILL.items():
+        el, Z, _, _, lo, hi = CORRIDOR[sub]
+        W = hi - lo
+        q = list(range(1, 7))
+        a = [(n - math.sqrt(R_EV / ies[z])) / math.sqrt(n - l - 1) for z in sorted(ies)]
+        sl, ic, r2 = fit(q, a)
+        t1 = (a[0] - lo) / W
+        out[sub] = dict(slope=sl, r2=r2, tslope=sl / W, t1=t1,
+                        t0_back=t1 - sl / W,          # one electron's slope back from q = 1
+                        t0_fit=(ic - lo) / W)         # the fitted line's own intercept
+    for sub in ("4d", "5d"):
+        el, Z, n, l, lo, hi = CORRIDOR[sub]
+        W = hi - lo
+        sl = REG_1335[sub][0]
+        t1 = t_at(sub)[0]
+        out[sub] = dict(slope=sl, r2=REG_1335[sub][1], tslope=sl / W, t1=t1,
+                        t0_back=t1 - sl / W, t0_fit=None)
+    # 5f: the actinide first ionisation energies are flat across the filling
+    q = [v[1] for v in IE_5F.values()]
+    a = [5 - math.sqrt(R_EV / v[0]) for v in IE_5F.values()]
+    sl, ic, r2 = fit(q, a)
+    W = CORRIDOR["5f"][5] - CORRIDOR["5f"][4]
+    out["5f"] = dict(slope=sl, r2=r2, tslope=sl / W, t1=t_at("5f")[0],
+                     t0_back=t_at("5f")[0] - sl / W * 2, t0_fit=ic / W)
+    return out
+
+
 def measure():
     filling = {el: a_meas(3, 1, el) for el in REG_1334}
     ts = {k: t_at(k)[0] for k in CORRIDOR}
@@ -107,7 +164,7 @@ def measure():
     d = [ts[k] for k in ("4d", "5d")]
     medp, meand = statistics.median(p), statistics.mean(d)
     sens = [(ie, t_at("5f", ie)[0]) for ie in (5.69, 5.79, 5.89, 5.99, 6.09, 6.19)]
-    return dict(filling=filling, ts=ts, p=p, d=d, medp=medp, meand=meand,
+    return dict(filling=filling, ts=ts, p=p, d=d, medp=medp, meand=meand, q0=q0(),
                 ratio=meand / medp, sens=sens,
                 hi_p=medp / t_form(1) - 1, hi_d=meand / t_form(2) - 1,
                 hi_f=ts["5f"] / t_form(3) - 1,
@@ -172,6 +229,45 @@ def report(o):
     print("     above the p and d factor at every point.  For t to reach sqrt(6) exactly the")
     print("     ionisation energy would have to be 4.97 eV, far below any estimate.")
     print()
+    print("  5. THE OPEN QUESTION, AND ITS SHAPE -- t at q = 0")
+    print("     Register 1337 reads t at the opening, where the entrant already holds one")
+    print("     electron, and says t rises linearly with occupancy.  The law's p is the node")
+    print("     count, a q = 0 quantity.  Nowhere does the record carry t back to q = 0.")
+    print()
+    print(f"     {'sub':<5}{'a-slope':>9}{'r^2':>7}{'1335':>16}{'t(q=1)':>9}{'t(0) back':>11}{'t(0) fit':>10}")
+    for sub in ("3p", "4p", "5p", "6p", "4d", "5d", "5f"):
+        r = o["q0"][sub]
+        reg = f"{REG_1335[sub][0]:+.4f} ({REG_1335[sub][1]})" if sub in REG_1335 else "--"
+        fitv = "--" if r["t0_fit"] is None else f"{r['t0_fit']:.4f}"
+        print(f"     {sub:<5}{r['slope']:>+9.4f}{r['r2']:>7.3f}{reg:>16}{r['t1']:>9.4f}"
+              f"{r['t0_back']:>11.4f}{fitv:>10}")
+    pb = [o["q0"][k]["t0_back"] for k in ("3p", "4p", "5p", "6p")]
+    pf = [o["q0"][k]["t0_fit"] for k in ("3p", "4p", "5p", "6p")]
+    db = [o["q0"][k]["t0_back"] for k in ("4d", "5d")]
+    print()
+    print(f"     {'':<12}{'q = 1':>10}{'q = 0, back':>13}{'q = 0, fit':>12}{'predicted':>11}")
+    print(f"     {'p median':<12}{o['medp']:>10.4f}{statistics.median(pb):>13.4f}{statistics.median(pf):>12.4f}{1.0:>11.4f}")
+    print(f"     {'  excess':<12}{100*(o['medp']-1):>+9.2f}%{100*(statistics.median(pb)-1):>+12.2f}%{100*(statistics.median(pf)-1):>+11.2f}%")
+    print(f"     {'d mean':<12}{o['meand']:>10.4f}{statistics.mean(db):>13.4f}{'--':>12}{t_form(2):>11.4f}")
+    print(f"     {'  excess':<12}{100*(o['meand']/t_form(2)-1):>+9.2f}%{100*(statistics.mean(db)/t_form(2)-1):>+12.2f}%")
+    f = o["q0"]["5f"]
+    print(f"     {'f':<12}{f['t1']:>10.4f}{f['t0_back']:>13.4f}{f['t0_fit']:>12.4f}{t_form(3):>11.4f}")
+    print(f"     {'  excess':<12}{100*(f['t1']/t_form(3)-1):>+9.2f}%{100*(f['t0_back']/t_form(3)-1):>+12.2f}%{100*(f['t0_fit']/t_form(3)-1):>+11.2f}%")
+    print()
+    print("     Three of register 1335's four p slopes rebuild from the ionisation energies to")
+    print("     the fourth decimal; 6p rebuilds as the slope per corridor width, +0.0276, where")
+    print("     the register prints that figure as the slope in a.  Its r^2 is exact either way.")
+    print()
+    print("     READ TOGETHER.  The 2.9% the record could not derive is mostly the occupancy")
+    print("     offset: one electron's worth of slope, at the opening.  Carried back to q = 0")
+    print("     the p and d excesses fall from about +3% to within a percent, and the sign is")
+    print("     no longer fixed.  f does NOT move: the actinide first ionisation energies are")
+    print("     flat across the 5f filling (slope near zero), because an actinide ionises from")
+    print("     7s and not from 5f, so a_meas at protactinium is reading the wrong electron.")
+    print("     The survey has no measured f channel above Z = 81; the actinide 5f rows are")
+    print("     computed and unwitnessed.  So the f point cannot be sharpened from the data")
+    print("     the corpus holds.  That is the question's shape, and it is OPEN.")
+    print()
     print("  Nothing is repaired here.")
 
 
@@ -204,6 +300,15 @@ def selftest():
        o["hi_f"] > o["hi_p"] and o["hi_f"] > o["hi_d"], True)
     eq("f stays above the p/d factor across the estimate range",
        all(tv / t_form(3) - 1 > max(o["hi_p"], o["hi_d"]) for _, tv in o["sens"]), True)
+    q = o["q0"]
+    for sub in ("3p", "4p", "5p"):
+        eq(f"1335: {sub} slope rebuilds", round(q[sub]["slope"], 4), REG_1335[sub][0])
+        eq(f"1335: {sub} r^2 rebuilds", round(q[sub]["r2"], 3), REG_1335[sub][1])
+    eq("1335: 6p r^2 rebuilds", round(q["6p"]["r2"], 3), REG_1335["6p"][1])
+    eq("1335: 6p prints the slope per corridor width", round(q["6p"]["tslope"], 4), REG_1335["6p"][0])
+    pb = statistics.median([q[k]["t0_back"] for k in ("3p", "4p", "5p", "6p")])
+    eq("p at q = 0 is within a percent of 1", abs(pb - 1) < 0.01, True)
+    eq("5f slope is flat", abs(q["5f"]["slope"]) < 0.005, True)
     print(FIXTURES)
     print()
     bad = 0
