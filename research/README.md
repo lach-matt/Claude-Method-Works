@@ -30,6 +30,7 @@ a report.
 | `warp-drive/THE-GR-FLYBY.md` | `warp-drive/grflyby.py` | the flyby in Schwarzschild geometry; the geometric bound dissolves and an IMBH is the minimum instrument |
 | `warp-drive/NEC-CORRECTION.md` | `warp-drive/octave/` | the measured ceiling was an artefact twice over; the series' absolute figures withdrawn |
 | **`warp-drive/THE-ENGINE.md`** | **`warp-drive/slingshot.py`** | **the redefinition: an engine is a coupler, not a source — 0.87 c in 11 minutes at 1 g, zero propellant** |
+| **`warp-drive/THE-DRIVE.md`** | **`warp-drive/drivespec.py`** | **the drive specified: size was never varied — nuclear matter at 5 km, 1.11 M☉, 0.0476 c, flat interior** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ## `warp-drive/`
@@ -107,3 +108,12 @@ Worked point design: **0.87 c in 11 minutes at 1 g with zero propellant**, off t
 Its honest limit is not physics but **inventory** — the engine is a found object, and no
 intermediate-mass black hole binary is confirmed nearby. That reduces the question to an
 observational one, which LISA is built to answer.
+
+**A second scaling error, found later and larger than the first.** Every mass and density figure in
+the first fifteen papers was quoted at the published example's `R₁ = 10 m`, and the size was never
+varied. But `M ∝ R` while `ρ ∝ 1/R²`, so "666,000 × nuclear density" describes a 20 m ship and not
+warp shells. `THE-DRIVE.md` runs the trade: there is **no material that makes a small warp shell**,
+and **nuclear matter makes a 5 km one** — 1.11 M☉, 0.0476 c, flat interior, all four energy
+conditions satisfied, by internal circulation at 0.330 c geared 6.94:1. That is the original
+Architecture B topology at the right scale. The bill is ~10⁴⁶ J twice over and a neutron star: one
+stellar catastrophe, not 10³¹.
