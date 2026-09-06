@@ -110,7 +110,7 @@
   table lines 8: header 1 + DATA rows 7; columns per row: [2]
     | **the ordering law, 107/107** | the many-electron equation, one constant |
     | **the three exceptions** | the collapse condition, from the field |
-    | **no g block below 121** | the pinned channels, −1/(2n²) |
+    | **no g block through 125** | the pinned channels, −1/(2n²) |
     | **the correlation clause** | second order, complete, at the five close rows |
     | **the relativistic table** | the c → ∞ twin walk, eleven elements apart |
     | **twelve unwitnessed rows** | the same walk past the last measurement |
@@ -119,7 +119,7 @@
   "one constant" (row 1) — entries whose body carries 137.035999: [1701]; c = 137.035999 sites: main:1[9771] reg:1[6352] mc:2[3154,3216] pc:2[209,630] ioi:0 sc:0
   "the three exceptions" (row 2) — 1703 body names: La, Ac, Th → 3; "collapse" in 1703: True
   "no g block below 121" (row 3) — 1704 body: 'NO G BLOCK BELOW Z = 121, AND THE FIELD SAYS SO WITHOUT BEING ASKED. Measured across the walk: 5g at −0.020000 over 65 elements · 6g at −0.013889 over 70 · 7g at −0.010204 over 57 · 8g at −0.0078125 o'
-    1704 carries "121": True; "−1/(2n²)" / "1/(2n" in 1704: True; six-volume sites of "below 121|below Z = 121": main:2[9797,9898] reg:0 mc:1[3182] pc:0 ioi:0 sc:0
+    1704 carries "121": True; "−1/(2n²)" / "1/(2n" in 1704: True; six-volume sites of "below 121|below Z = 121": main:0 reg:0 mc:1[3182] pc:0 ioi:0 sc:0
   "the correlation clause … second order, complete, at the five close rows" (row 4) — 1705 body: 'THE CORRELATION CLAUSE, COMPLETE AT ALL FIVE CONTESTED ROWS — EVERY COMPETITION WIDENS. Z = 38, 56, 72, 89, 105; full second order (entrant pairs, core–core closed at all five, near-degenerate block resummed with the con'
     1705 "second order" True; Z values listed: ['38', '56', '72', '89', '105'] (count 5); "five" in 1705: True
   "the relativistic table … c → ∞ twin walk, eleven elements apart" (row 5) — 1706 body: 'ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL. The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese an'
@@ -169,7 +169,7 @@
   \bsealed copy\b              main:1[9856] reg:1[6356] mc:0 pc:0 ioi:0 sc:0
   \bnightly\b                  main:1[9859] reg:0 mc:0 pc:0 ioi:0 sc:0
   \bfault ledger\b             main:1[9880] reg:0 mc:0 pc:1[338] ioi:0 sc:0
-  \bg block\b                  main:4[9797,9874,9898,10839] reg:2[5350,6364] mc:1[3178] pc:1[219] ioi:0 sc:0
+  \bg block\b                  main:4[9797,9874,9898,10839] reg:3[5350,6364,6791] mc:1[3178] pc:1[219] ioi:0 sc:0
   \bunwitnessed\b              main:8[9814,9901,10380,10776,10780,10888…] reg:18[5931,5935,5947,5951,5999,6100…] mc:1[800] pc:2[200,214] ioi:6[318,322,1906,1910,1966,1971] sc:10[40,44,93,131,132,191…]
 
 END r2-ch17c

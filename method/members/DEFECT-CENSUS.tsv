@@ -703,8 +703,8 @@ id	class	member	line	item	detail
 702	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5987	22.1	other sites: main=20 reg=5 mc=1 pc=2 sc=1 | ### 22.1.1.1 Containment on level energies, recomputed under variation
 703	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	6284	23.5	other sites: main=6 reg=1 mc=3 pc=1 | ### 23.5.1 A withdrawn proposition
 704	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7589	15.3	other sites: main=4 | impossible and was the signal. The earlier version's Figure 15.3, since withdrawn, drew a line labelled
-705	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7609	112	other sites: main=5 reg=13 mc=1 ioi=2 sc=2 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
-706	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7609	118	other sites: main=12 reg=72 mc=9 pc=5 ioi=15 sc=5 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
+705	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7609	112	other sites: main=5 reg=14 mc=1 ioi=2 sc=2 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
+706	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7609	118	other sites: main=12 reg=73 mc=9 pc=5 ioi=15 sc=5 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
 707	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7609	71.8	other sites: reg=2 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher
 708	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7925	238	other sites: main=1 reg=5 ioi=1 sc=5 | withdrawn, not answered, and the book was built to permit exactly that. Register 238.
 709	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	8683	23.10	other sites: main=15 reg=2 mc=2 | sign, not a positive one (§23.10.1), so the channel stands and the word is corrected; recorded at register 178
@@ -1608,3 +1608,9 @@ id	class	member	line	item	detail
 1607	C13-HANDLE-LEAK	reg	6767	L.tree	**THE BOX COUNT'S CLOSED FORM WAS ASSERTED FROM THE TREE AND IS NOW PROVED, IN BOTH DIRECTIONS, WITH THE LEAF CONVENTION STATED.** *The L.box object carried a one-sentence statement ("factorises becau
 1608	C13-HANDLE-LEAK	reg	6771	BUILD59	**THE BINARY LANGUAGE'S CUT IS EXACT AS A SET, NOT ONLY AS A COUNT, AND "DEPTH FIVE" NAMES ONE OF THREE CIRCUITS.** *§11.1.1 states that the twenty cover-implications cut 131,072 words to exactly 976 
 1609	C13-HANDLE-LEAK	reg	6771	MC-12	**THE BINARY LANGUAGE'S CUT IS EXACT AS A SET, NOT ONLY AS A COUNT, AND "DEPTH FIVE" NAMES ONE OF THREE CIRCUITS.** *§11.1.1 states that the twenty cover-implications cut 131,072 words to exactly 976 
+1610	C6-NUMBERS-NOT-IN-SOURCE	mc	3178	The pinned-channel theorem (no g block)	1 of 3: 121 | sources §35 R1704
+1611	C8-NAMED-STATEMENT	all	0	absence as a bound	sites=1 in reg | bold/heading statement in main: NO
+1612	C8-NAMED-STATEMENT	all	0	wider bound	sites=1 in reg | bold/heading statement in main: NO
+1613	C8-NAMED-STATEMENT	all	0	mathematical compendium's pinned-channel theorem	sites=1 in reg | bold/heading statement in main: NO
+1614	C9-OVERGENERALISATION-WORD	reg	6791	never	**§35 SAID THERE IS NO G BLOCK BELOW Z = 121 BECAUSE THAT IS WHERE THE WALK STOPPED; CARRIED FORWARD AND RE-FITTED NOWHERE, IT SAYS 125.** *§35.2 and §35.5 print the absence as a bound at Z = 121, and
+1615	C9-OVERGENERALISATION-WORD	reg	6791	never	**§35 SAID THERE IS NO G BLOCK BELOW Z = 121 BECAUSE THAT IS WHERE THE WALK STOPPED; CARRIED FORWARD AND RE-FITTED NOWHERE, IT SAYS 125.** *§35.2 and §35.5 print the absence as a bound at Z = 121, and

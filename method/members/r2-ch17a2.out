@@ -90,7 +90,7 @@
   107 of 107                   main:1[9780] reg:0 mc:1[3154] pc:1[213] ioi:1[1915] sc:1[190]
   104 of 106                   main:0 reg:4[5006,6655,6659,6663] mc:0 pc:0 ioi:0 sc:0
   106 transitions              main:1[9781] reg:0 mc:0 pc:0 ioi:0 sc:0
-  below Z = 121|Z = 121        main:1[9797] reg:2[6204,6364] mc:1[3182] pc:0 ioi:0 sc:0
+  below Z = 121|Z = 121        main:0 reg:3[6204,6364,6791] mc:1[3182] pc:0 ioi:0 sc:0
   \b0\.083\b                   main:1[9813] reg:2[6352,6392] mc:1[3162] pc:0 ioi:0 sc:1[220]
   \b0\.058\b                   main:1[9812] reg:1[6392] mc:0 pc:0 ioi:0 sc:1[217]
   \b0\.264\b                   main:1[9812] reg:1[6392] mc:0 pc:0 ioi:0 sc:1[216]

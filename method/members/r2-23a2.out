@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 members and the unit (lettered headings; body = LAST hit; a `### D.x` unit ends at the next heading of any rank)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 9bb2f9c7  11904 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 cbe0af3f  6788 lines
+   main The_Method_1_6-2.md                                  md5 9d7d04ee  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 ff31624c  6792 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 ce104a99  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
@@ -45,7 +45,7 @@
    '3B.pot'             {'main': (2, [10847, 10860]), 'reg': (2, [6444, 6472]), 'mc': (1, [3538])}
    '650'                {'main': (2, [6022, 10864]), 'reg': (4, [2530, 6444, 6597, 6703]), 'mc': (1, [3254]), 'ioi': (1, [1030]), 'sc': (6, [417, 418, 459, 460, 461, 462])}
    'formula · analysis' {'main': (11, [10509, 10594, 10605, 10606, 10607, 10845]), 'reg': (1, [6444])}
-   Register lines naming *D.5.9*: [6444, 6460] ; lines with "E = 4": [3570, 6011, 6444]
+   Register lines naming *D.5.9*: [6444, 6460, 6791] ; lines with "E = 4": [3570, 6011, 6444]
 
 ====================================================================================================
 §2 census: every numeral printed in D.5.5 (fibration table) and D.5.9 (member line numbers)

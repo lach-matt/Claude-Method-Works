@@ -63,22 +63,22 @@ no longer on the read path.
 - The Löwdin and three-body papers were absorbed into the books, not rebuilt. **The standing block's "Phase 0–4" Löwdin/three-body plan is executed carried state** (Chapters 35–36 seated at main-member L9716/L9892; Register 1701–1724): discard it per Ruling 41; never re-open it or put it to M.
 - This project is for constructing the drafts. Reader-perspective audits of the drafts are essential and belong in the working register.
 
-## 3. Current state (live files as of W-240, MEASURED in the repo on 6 September 2026)
+## 3. Current state (live files as of W-242, MEASURED in the repo on 6 September 2026)
 
 - **This section was rewritten on M's order of 6 September 2026** (*"yes. reassess R3 in full"*) because it had
   gone sixteen main builds and thirty-eight compendia builds out of date and named instruments and gate steps the
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD111 main** (2,056,218 B ·
-  `3d31d58491643d1c6fdee82b18200ad2` · 18,695 lines · 2 members) and **BUILD233 compendia** (15,175,096 B ·
-  `9631d7128c43d6656e9027f9d1701168` · 123,738 lines · 665 members). **667 members in all.** **The Register runs
-  1 to 1836, 1,678 seated** (1,671 numbered + 7 grouped). **W-240 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD112 main** (2,058,530 B ·
+  `b4ba96c2693fda0fd97f08e79e6b4ad6` · 18,699 lines · 2 members) and **BUILD235 compendia** (15,183,872 B ·
+  `d59d82da23ccde3ec427560bd65d7048` · 123,766 lines · 665 members). **667 members in all.** **The Register runs
+  1 to 1837, 1,679 seated** (1,672 numbered + 7 grouped). **W-242 seated.**
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 6 September: `python3 method/verify.py`
   VERIFY OK (667 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
-  `gate.py manifest --main ../The_Method_1_6_BUILD111_main_and_register.md` **OK**, 666 listed / 668 extracted;
-  `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,609 rows, 2 carried retired, 1,607
-  regenerated exactly, 0 NEW, 0 GONE, md5 `4742c83a4dcf7d9eb1af0ee27e6b020d` equal to the seated member);
+  `gate.py manifest --main ../The_Method_1_6_BUILD112_main_and_register.md` **OK**, 666 listed / 668 extracted;
+  `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,615 rows, 2 carried retired, 1,613
+  regenerated exactly, 0 NEW, 0 GONE, md5 `61452429d1f88e6234abee34405e5ed7` equal to the seated member);
   `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL**.
 - **THE OLD "56 READINGS" ARE EIGHT HELD INSTRUMENTS, EACH WITH A STATED REASON**, and the sentence this section
   used to carry — *"KNOWN RED, and it is now 56, not three"* — is closed. Held: `r2-26b` (UNRUNNABLE, successor
@@ -101,10 +101,17 @@ no longer on the read path.
 - **THE CHAT-67 HOLD IS OFF ITS FIRST SITE, ONE RULING AT A TIME.** `RULINGS-R4f` §5 item 3 was specified before
   it was executed — `DRAFT-R4-R3-CORRECTIONS.md` measures every site of rulings 2, 3, 9, 10, 11 and 12 and sorts
   them into what is mechanical, what is blocked on M's prose and what touches no volume — and M was then asked one
-  question at a time. **Ruling 11 is executed** (*"yes, execute it"* / *"yes, seat it"*, 6 September): §34.4 takes
-  §34.8's *"in the form"*, register 1836 records it, the count classes are re-taken in the same build, and 33 of
-  the 86 live goldens moved and were re-banked by running. `r4-a1.py` is the build; W-240 is the close. **The
-  other five rulings stand where the draft leaves them**, each awaiting its own question.
+  question at a time. **Rulings 11 and 12 are executed** (6 September): §34.4 takes §34.8's *"in the form"*
+  (register 1836, `r4-a1.py`, W-240), and §35.2 and §35.5 take the wider bound **no g block through Z = 125**
+  (register 1837, `r4-a2.py`, W-241 and W-242). Each is one guarded build with the count classes re-taken in it
+  and the moved goldens re-banked by running — 33 then 34 of the 86.
+- **AND THE CENSUS FOUND WHAT THE SECOND REPAIR COSTS, UNPROMPTED.** Regenerated at W-241 it grew to 1,613 rows
+  with **6 NEW**, and the first is not an artefact: `C6-NUMBERS-NOT-IN-SOURCE` at Mathematical Compendium L3178,
+  whose *pinned-channel theorem* cites §35 and register 1704 and still prints the bound as Z = 121. **Four sites
+  outside §35 now disagree with the volume they cite** — that entry and `THE-LOWDIN-SOLUTION-2.md` L13, L47 and
+  L114 — and **the corpus stays inconsistent there until M rules whether ruling 12's generalising rule reaches
+  them.** Recorded in entry 1837, in W-241 and in the census; not repaired. **The remaining rulings — 2, 3, 5, 9
+  and 10 — stand where `DRAFT-R4-R3-CORRECTIONS.md` leaves them**, each awaiting its own question.
 - **The successor framework is `PLAN-R4-PUBLICATION.md`** — approved by M on 5 September and seated at W-239, with
   `PLAN-R4-ANNEX.tsv` (800 rows, 731 open at the survey) as its inventory and `RULINGS-R4.md` as its rulings.
   Eight phases; ten of the fifteen Phase 0 rulings given, **five outstanding and named rather than inferred**:

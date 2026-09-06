@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 IDENTITY AND BOUNDARIES
 ====================================================================================================
-  The_Method_1_6-2.md                                  md5 9bb2f9c7  11904 lines
-  The_Method_1_6___The_Register-2.md                   md5 cbe0af3f  6788 lines
+  The_Method_1_6-2.md                                  md5 9d7d04ee  11904 lines
+  The_Method_1_6___The_Register-2.md                   md5 ff31624c  6792 lines
   The_Method_1_6___Mathematical_Compendium-2.md        md5 ce104a99  3813 lines
   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
@@ -44,7 +44,7 @@
    L9781: 106 34
    L9793: 5 65
    L9794: 6 70, 7 57, 8 28 1 2
-   L9797: 121,
+   L9797: 125,
    L9801: 38, 56, 72, 89, 105
    L9802: 1.33 1.24 2.6 2.2
    L9803: 2.16
@@ -64,7 +64,7 @@
    L9868: 1969 1971
    L9892: 35.5
    L9896: 107 107
-   L9898: 121 1 2
+   L9898: 125 1 2
    L9902: 1969 1950
    L9906: 35.6
    L9908: 1969
@@ -198,8 +198,8 @@
   '2-108'                                    chapter L-              | in 1701-1712: -                    | other Register lines: 0
   '109–120'                                  chapter L9812           | in 1701-1712: 1712                 | other Register lines: 0
   '109-120'                                  chapter L-              | in 1701-1712: -                    | other Register lines: 0
-  '121'                                      chapter L9797,9898      | in 1701-1712: 1704                 | other Register lines: 11
-  '−1/(2n²)'                                 chapter L9794,9898      | in 1701-1712: 1704                 | other Register lines: 0
+  '121'                                      chapter L-              | in 1701-1712: 1704                 | other Register lines: 12
+  '−1/(2n²)'                                 chapter L9794,9898      | in 1701-1712: 1704                 | other Register lines: 1
   '-1/(2n²)'                                 chapter L-              | in 1701-1712: -                    | other Register lines: 0
   '65'                                       chapter L9793           | in 1701-1712: 1704                 | other Register lines: 24
   '70'                                       chapter L9794           | in 1701-1712: 1704                 | other Register lines: 31
@@ -228,6 +228,7 @@
   'nineteen years'                           chapter L9910           | in 1701-1712: 1708                 | other Register lines: 0
   Register entries after 1712 whose body names 1701-1712 or the range (the later statements):
      L6683 entry 1810: **§R.7's TWO LEAD-INS SAID THE CHAPTERS REST ON THE BLOCKS; THEY NOW SAY WHAT IS TRUE AS PRINTED.** *M's ruling on 28b-07 was (b). Under CONVENTION PROV the sentence on M
+     L6791 entry 1837: **§35 SAID THERE IS NO G BLOCK BELOW Z = 121 BECAUSE THAT IS WHERE THE WALK STOPPED; CARRIED FORWARD AND RE-FITTED NOWHERE, IT SAYS 125.** *§35.2 and §35.5 print the abse
   the range *1701–1712* / *1701-1712* by volume: The_Method_1_6-2.md:3 The_Method_1_6___The_R:1 The_Method_1_6___Mathe:1 The_Method_1_6___The_P:1 The_Method_1_6___The_I:1 The_Method_1_6___Spect:0
 
 ====================================================================================================

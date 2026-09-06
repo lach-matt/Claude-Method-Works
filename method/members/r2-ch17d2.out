@@ -113,7 +113,7 @@
   two-branch                     main:2[9833,9868] reg:0 mc:0 pc:0 ioi:0 sc:0
   non-orthogonality              main:2[9867,11857] reg:1[6380] mc:1[3194] pc:0 ioi:0 sc:0
   defending something else       main:2[59,9873] reg:0 mc:0 pc:0 ioi:0 sc:0
-  no g block                     main:4[9797,9874,9898,10839] reg:2[5350,6364] mc:1[3178] pc:1[219] ioi:0 sc:0
+  no g block                     main:4[9797,9874,9898,10839] reg:3[5350,6364,6791] mc:1[3178] pc:1[219] ioi:0 sc:0
   exactly quartic                main:1[9878] reg:1[6384] mc:1[3198] pc:0 ioi:0 sc:0
   five evaluations               main:1[9879] reg:1[6384] mc:1[3198] pc:0 ioi:0 sc:0
   fault ledger                   main:1[9880] reg:0 mc:0 pc:1[338] ioi:0 sc:0
