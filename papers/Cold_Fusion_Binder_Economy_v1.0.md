@@ -541,7 +541,9 @@ satisfaction reported in §5.5 is therefore an asymptotic statement, and this se
 The scanned experimental record ends at 1.5 times liquid density. **Reaching 90 percent of the cap
 needs about seven times beyond it**, at the high temperature §3.2 requires. §5.13 prices that in
 pressure and finds a structural bound rather than an engineering one. §5.5's margin does not survive
-without it.
+without it. **Note that ninety percent of the cap is not breakeven** — §5.29 solves for the density at
+which each balance equals one and finds **2.10** for the heat form and less than liquid density for
+the bred-fuel form, so this table states the ceiling rather than the requirement.
 
 Carrying the corrected thermal accounting of §5.8 through to a reachable density:
 
@@ -585,6 +587,12 @@ condition below, a degeneracy condition above.
 > to exist.** The cap in condition 8 is therefore not merely unattained; it may be unattainable in
 > principle, and §5.11's figures at three times liquid density are the ones that describe a physical
 > operating point.
+
+**Read §5.29 before taking this as a limit on the result.** What is bounded here is the *asymptotic*
+service life. Breakeven needs far less: **2.10** times liquid density for the heat form at perfect
+collection, and **0.730** or less for the bred-fuel form at every collection efficiency this paper
+considers — below liquid density, so no compression at all. The bound above is real and it constrains
+the ceiling; it does not constrain either route's breakeven.
 
 **And the two axes fight twice.** §3.2 already records that the resonance wants heat while density
 wants cold. There is a second opposition beneath it: the dissociation pressure of hydrogen *falls*
