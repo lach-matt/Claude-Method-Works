@@ -80,3 +80,56 @@ reordered or annotated. Nothing else depends on it.
 section pointers, since pointers are finalised last once nothing is moving. The analytical material now in Chapter 1 —
 the three-kinds taxonomy, the P19 mood table, the P2 and P9 derivations, the P22 argument — is not deleted by this
 draft; where you want it kept it belongs behind the list or in the chapter that uses it, and that is your call.
+
+---
+
+## The order of adoption, recovered from the chats (the optional layer, done)
+
+The chat corpus arrived with PR #12. **352 conversations, June to September, with message-level timestamps.** Every
+principle's moment of adoption is in it, and the result is clean:
+
+**The numbering IS the order of adoption. There are no exceptions.**
+
+| when | what M wrote | becomes |
+|---|---|---|
+| **2026-07-28 00:53** | *"before you do, I also want to lay out some basic principles that I need you to retain."* Then ten, in this order: a complete index will always be self referencing · will always be self defending · when a path forward from an established input to a desired output is not easily found, work the problem backwards · always audit results · always compute the results before assuming the results · when a question is confusing, reframe the question · all questions must close · any true answer or result, good or bad, positive or negative, strengthening or weakening, is a bound, limit, or constraint · if the first dimension is a single all-encompassing definition, then every other dimension is a perspective of that one definition · **allow for continued expansions of this list by me** | **P1–P10** |
+| 2026-07-28 01:23 | *"Update of basic principles — close all gaps before continuing. — all tests results must be tested against every cell of the multilattice structure."* | **P11, P12** |
+| 2026-07-28 01:31 | *"a claim of true, total, and complete coherence cannot be made [if] any of the following are present: caveat, gap, question, contradiction, assertion."* | **P13** |
+| 2026-07-28 01:53 | *"a structural problem suggests a structural solution"* | **P14** |
+| 2026-07-28 02:00 | *"pertaining to fetching — when obtained data from the Internet is hard to find and/or behind a paywall, consider multilattice structure indexing as an application for navigation and retrieval."* | **P15** |
+| 2026-07-28 03:12 | *"treat bounds, constraint, and limits as coordinate values in a multilattice index. Let the index show you the answers and the path to them."* | **P16** |
+| 2026-07-28 04:04 | *"the path is always through the bounds, constraints, and limits."* | **P17** |
+| 2026-07-28 19:42 | first stated by the assistant and kept | **P18** |
+| 2026-07-29 00:24 | *"Retain Law — an index is complete only when there are no more questions left to answer about its contents. (This is true for the book as well, being a representation of the lattice)"* | **P19** |
+| 2026-07-29 00:50 | first stated by the assistant and kept | **P20** |
+| 2026-07-29 01:50 | *"every expression of this whole thing is true only if they are all true in every mathematical language and their combinations"* | **P21** |
+| 2026-07-29 03:41 | first stated by the assistant and kept | **P22** |
+| 2026-07-29 22:23 | *"Retain Law — an object of any kind is only complete when two conditions are met: all of its definitions are identified and no question can ever be had about the definition of the object"* | **P23** |
+
+**Twenty of the twenty-three were assigned by M directly**, seventeen of them inside thirty-one hours on 28–29 July.
+Three — P18, P20, P22 — were first stated by the assistant and kept; each falls chronologically in exactly its own
+numbered slot, which is why the sequence has no exceptions. **The whole list was in place by 29 July**, before most
+of the work the book reports.
+
+**This also closes the count.** Every one of the twenty-three has a moment of adoption in the record. None is
+unassigned, and Part I's header is simply stale.
+
+## Where the book's wording has drifted from what was assigned
+
+Recorded from the same source, because M's direction is that the list carries *"their definition or how they are
+applied"*, and the definition ought to be the one assigned:
+
+- **P10 is the largest drift, and it changes the proposition.** M assigned *"allow for continued expansions of
+  **this list** by me"* — a standing reservation that he may add principles. The book prints *"allow continued
+  expansions"* with the expression *"§16.4-form constraints preserve closure"*, which is a mathematical claim about
+  constraint forms. **These are different statements**, and the second is not a formalisation of the first. Worth
+  M's decision: keep the original as the principle and move the constraint result to where it belongs, or state both.
+- **P13 was narrowed.** M assigned five blockers — *caveat, gap, question, contradiction, assertion*. The book prints
+  three: *"any caveat, gap or contradiction"*. Question and assertion were dropped.
+- **P16 lost its second sentence**, *"Let the index show you the answers and the path to them"*, which is the
+  operative half.
+- **P15 was generalised.** M's was specifically about data behind paywalls or hard to find; the book's *"data can be
+  retrieved in pieces"* is not in the original.
+- **P17 lost two of its three nouns**: M assigned *"bounds, constraints, and limits"*; the book prints *"the bounds"*.
+
+None of these is repaired here.
