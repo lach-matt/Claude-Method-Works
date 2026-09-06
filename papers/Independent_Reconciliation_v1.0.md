@@ -145,12 +145,17 @@ al. measure exactly this, per interacting proton, and going from **0.05** to 2 i
 buys **0.963** at 4.1 GeV and **1.186** at 11.1 GeV. Thickness is worth between 0.87 and 1.19 — never
 2.37 — and the earlier reading is withdrawn.
 
-**What survives is the beam species, which is the axis they optimised over.** Inverting Strait's
-tabulated captured-muon yield through the companion's §5.24 acceptance model recovers **0.375** π⁻ per
-interacting *proton* at 4.1 GeV. Against Kelly's **0.77** per beam *deuteron* at 3.61 GeV that is a
-ratio of **2.05** at comparable total beam energy — two nucleons rather than one, each carrying about
-half the energy. Nothing here settles whether that ratio is real, and it is a simulation on both
-sides; what has changed is that the question is now a **species** question and can be asked as one.
+**Nor does the beam species obviously carry it, and nor does phase-space coverage.** Inverting
+Strait's tabulated captured-muon yield through the companion's §5.24 acceptance model recovers
+**0.375** π⁻ per interacting *proton* at 4.1 GeV, against Kelly's **0.77** per beam *deuteron* at
+3.61 GeV — a ratio of **2.05**. But a deuteron at that energy is two nucleons each carrying about half
+of it, and the same source's own energy dependence does not have two nucleons at half the energy
+out-producing one at the full energy. And the companion's §5.1 bounds the phase space its own tables
+miss at **1.10**, which cannot carry the rest.
+
+> **Three candidate mechanisms, each examined and bounded, and none accounts for a factor of 2.37.**
+> This paper records the gap as a discrepancy between two calculations rather than resolving it, and
+> the companion continues to use its measured figure throughout.
 
 **And the same inversion corroborates the companion's own figure.** That 0.375 π⁻ per interacting
 proton implies **10.93 GeV** per π⁻ against the companion's HARP-integrated **11.13** — an agreement

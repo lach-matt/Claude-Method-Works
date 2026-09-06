@@ -895,6 +895,50 @@ def thickness_amplification(t_beam=4.1):
     return STRAIT_TABLE_II[t_beam][2]
 
 
+# ---- what the two HARP tables do NOT cover ---------------------------------
+HARP_GAP_RAD = (0.25, 0.35)      # between the forward and large-angle sets
+HARP_BACKWARD_EDGE_RAD = 2.15    # the large-angle table stops here
+
+
+def _solid_angle(a, b):
+    return 2 * math.pi * (math.cos(a) - math.cos(b))
+
+
+def _dsigma_domega_la(bin_key):
+    lo, hi = bin_key
+    sig = sum(v * (ph - pl) * (hi - lo)
+              for (pl, ph), v in HARP_PB_PIMINUS_8GEV[bin_key].items())
+    return sig / _solid_angle(lo, hi)
+
+
+def _dsigma_domega_fwd(bin_key):
+    return sum(v * (ph - pl) for (pl, ph), v in HARP_PB_PIMINUS_8GEV_FWD[bin_key])
+
+
+def harp_gap_bracket():
+    """The uncovered wedge between the two tables, bracketed by its neighbours.
+    Returns (low, high) additional pi- per interacting proton. The two neighbours
+    integrate different momentum ranges, so this is a bracket and not an estimate."""
+    lo = _dsigma_domega_la((0.35, 0.55))
+    hi = _dsigma_domega_fwd((0.2, 0.25))
+    lo, hi = min(lo, hi), max(lo, hi)
+    dom = _solid_angle(*HARP_GAP_RAD)
+    return lo * dom / SIGMA_INEL_PB, hi * dom / SIGMA_INEL_PB
+
+
+def harp_backward_ceiling():
+    """An OVER-estimate of the uncovered backward cone: the last measured bin's
+    differential yield held flat to 180 degrees, which it certainly is not."""
+    d = _dsigma_domega_la((1.95, 2.15))
+    return d * _solid_angle(HARP_BACKWARD_EDGE_RAD, math.pi) / SIGMA_INEL_PB
+
+
+def coverage_corrected_cost(which="low"):
+    """Cost per pi- with the gap bracket applied. RECONSTRUCTED, not measured."""
+    lo, hi = harp_gap_bracket()
+    return 8.0 / (harp_combined_yield() + (lo if which == "low" else hi))
+
+
 def gyroradius_cm(pt_gev, b_tesla):
     return 100.0 * pt_gev / (0.3 * b_tesla)
 

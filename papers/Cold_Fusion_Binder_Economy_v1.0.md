@@ -99,7 +99,9 @@ compression, and that widening the window from 265 to 400 MeV/c costs **1.93** i
 **1.11** in delivered muons. The route therefore needs one of two things, and both are already in this
 paper: the wider bore, which restores it to 1.343, or the optimised production target, which drops the
 requirement from 50.8 to 21.4 percent and is met by every configuration computed. The second is the
-cheaper, and it is what §10 now runs first.
+cheaper and §10 runs it first — but its figure is a **discrepancy this paper cannot explain**, three
+candidate mechanisms having been examined and bounded, so what §10 runs first is a test of whether
+that lever exists at all.
 
 One measurement remains genuinely unresolved: the two published final stickings straddle the
 break-point, and this paper's own protocol — neutron and X-ray routes run simultaneously on one
@@ -1271,8 +1273,14 @@ balance at a 265 MeV/c window:
 | today's aperture, at the optimised production target | 2.076 | 3.59 kg | **1.73 kg** |
 
 > **The production target is 6.0 times better than the bore in tritium per unit of balance**, and it
-> is also the cheaper measurement. Both facts point the same way, and §10.5 orders the programme on
-> them.
+> is also the cheaper measurement.
+
+**That comparison is contingent, and the contingency is named.** Its second row uses the optimised
+production figure, which §5.26 records as a **discrepancy this paper cannot explain** — thickness,
+phase-space coverage and beam species have each been examined and none accounts for it. If the
+optimised figure does not survive §10.3, the second row goes with it and the wider bore is the only
+route left, at 10.79 kg. **§10.5 runs the production stage first for that reason and not the
+opposite one**: it is the cheapest way to find out whether the cheapest lever exists at all.
 
 **Three things this does not establish.** The derivation assumes the stopping target sits in the
 capture field and that transport is adiabatic and lossless; a real channel is neither, and a target in
@@ -1320,11 +1328,22 @@ spine of the production argument is corroborated.**
 §5.26 attributed the difference to target thickness — a long rod letting secondaries produce pions
 that a thin target lets escape. The same source's own table refuses that: measured per interacting
 proton, going from 0.05 to 2 interaction lengths buys **0.963** at 4.1 GeV and **1.186** at 11.1 GeV.
-**Thickness is worth between 0.87 and 1.19, never 2.37.** What survives as the explanation is the
-beam: the optimised figure is **0.77** π⁻ per beam *deuteron* against the **0.375** per interacting
-*proton* inverted above, a ratio of **2.05** at comparable total beam energy — two nucleons instead of
-one, which is exactly the axis that study optimised over. **§10.3 is therefore a species comparison at
-matched beam power, not a thickness comparison**, and this paper's earlier reading of it is withdrawn.
+**Thickness is worth between 0.87 and 1.19, never 2.37.** **What survives is a discrepancy, not an explanation, and this paper now says so.** Three candidates
+have been examined. Target thickness is refuted by the source's own table, just above. The
+phase-space coverage of §5.1 is bounded at **1.10** and cannot carry a factor of 2.37 either. That
+leaves the beam species — the optimised figure is **0.77** π⁻ per beam *deuteron* against the
+**0.375** per interacting *proton* inverted above, a ratio of **2.05** — but a deuteron at that energy
+is two nucleons each carrying about half of it, and on the same source's own energy dependence two
+nucleons at half the energy do not out-produce one at the full energy. **None of the three accounts
+for the gap.**
+
+> **The 2.37 is unexplained.** It is recorded as a discrepancy between two calculations rather than as
+> a lever this paper can price, and every balance here continues to use the measured figure.
+
+**§10.3 changes accordingly.** It is a species comparison at matched beam power — the only candidate
+left standing — and its purpose is to *resolve a discrepancy*, not to confirm an expected gain. This
+paper's earlier reading of that stage, and its earlier confidence in the 4.69 figure, are both
+withdrawn.
 
 **One result the companion states and this paper should carry, because it is the mirror of §5.22.**
 Solving each balance for the *density* at which it equals one rather than for the collection
@@ -1528,8 +1547,11 @@ What would change the answer, in the order this paper can rank them:
 
 1. **The production target of §10.3.** At the companion's optimised figure the requirement falls from
    50.8 to **21.4 percent**, which every configuration §5.24 computes already meets — including
-   today's aperture through the tightest stopping window, at **2.076**. It is the cheapest of the four
-   measurements and it moves the result furthest. §5.25 is why it stands first rather than second.
+   today's aperture through the tightest stopping window, at **2.076**. **But that figure is a
+   discrepancy, not a result**: §5.26 examines thickness, phase-space coverage and beam species and
+   finds none of them accounts for it. This stands first because it is the cheapest measurement and
+   because everything else in the list is contingent on how it comes out — not because the gain is
+   expected.
 2. **The wider bore of §5.9** — 20 T on a 13 cm clear bore, 1.74 times the existing aperture. It
    restores the bred-fuel route through a 265 MeV/c stopping window at **1.039** and a 400 MeV/c one
    at **1.343**, and the heat and work routes need it outright. §5.21 prices it as a shielding trade
@@ -1706,9 +1728,11 @@ self-contained one.
 ### 10.5 The order, and what none of it requires
 
 **Stage C first.** It was written third because it was found third; §5.24 and §5.25 have since made it
-the stage that decides the route, it is the cheapest measurement, and §5.25 prices it at **1.73 kg**
-of tritium per unit of balance against the wider bore's **10.4 kg** — a factor of **6.0** on the axis
-that will govern licensing. Stage A next: it bounds every other
+the stage that decides the route. It is the cheapest measurement, it would price the route at
+**1.73 kg** of tritium per unit of balance against the wider bore's **10.4 kg** — a factor of **6.0**
+on the axis that will govern licensing — **and the figure that promises all of that is unexplained**
+(§5.26). Running it first is how the programme finds out whether its cheapest lever is real before
+spending anything on the others. Stage A next: it bounds every other
 result and needs no new hardware, and §5.24 has already computed what it should return. B is
 independent of both and can run in parallel. D follows all three.
 

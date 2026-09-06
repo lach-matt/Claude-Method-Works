@@ -124,9 +124,15 @@ corroborated independently**: running §5.24's acceptance model backwards over S
 captured-muon yield recovers 0.375 π⁻ per interacting proton and so **10.93 GeV per pion**, agreeing to
 **0.982** by a route that shares the cross sections and shares neither the integration nor the
 normalisation. That same table also **withdraws the paper's first explanation of the 2.37**: target
-thickness buys between **0.963 and 1.186** per interacting proton, never 2.37, so what survives is the
-**beam species** — 0.77 π⁻ per beam deuteron against 0.375 per interacting proton — and §10.3 is now a
-species comparison at matched beam power rather than a thickness scan.
+thickness buys between **0.963 and 1.186** per interacting proton, never 2.37. Nor does anything else:
+§5.1 now bounds the phase space its own HARP tables miss — an uncovered 0.186 sr wedge between the two
+datasets, worth at most **1.10** in cost — and the beam species, the last candidate, has a deuteron's
+two nucleons each carrying half the energy, which the same source's energy dependence does not have
+out-producing one nucleon at full energy. **Three mechanisms examined and bounded, none accounting for
+2.37, so the gap is recorded as an unexplained discrepancy** and every balance keeps the measured
+figure. §10.3 is a species comparison at matched beam power whose purpose is to resolve that
+discrepancy, and §10.5 runs it first because it is the cheapest way to learn whether the cheapest
+lever exists at all.
 
 **§10 is the laboratory programme**, four staged measurements on apparatus that exists — the
 acceptance measurement first, because it multiplies every balance identically and so bounds all of

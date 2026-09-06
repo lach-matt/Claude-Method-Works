@@ -424,3 +424,10 @@ C422	thickness amplification, 2 lambda over 0.05, at 4.1 GeV	0.963	x	SOURCED	Str
 C423	thickness amplification at 11.1 GeV	1.186	x	SOURCED	Strait et al. Table II	fn:thick_amp_111
 C424	Kelly's yield against the inverted figure at comparable beam energy	2.05	x	DERIVED	C287 / C421	fn:kelly_over_strait
 C425	HARP thin-target thickness	0.05	interaction lengths	SOURCED	Strait et al. sec.V; the thick target is 2	none
+C426	uncovered wedge between the two HARP tables, solid angle	0.186	sr	DERIVED	2 pi (cos 0.25 - cos 0.35)	fn:gap_solid_angle
+C427	wedge contribution, low bracket	0.040	pi-/interacting p	DERIVED	adjacent large-angle bin held across the wedge	fn:gap_low
+C428	wedge contribution, high bracket	0.071	pi-/interacting p	DERIVED	adjacent forward bin held across the wedge	fn:gap_high
+C429	cost per pi- with the wedge at its high bracket	10.13	GeV	DERIVED	8 GeV / (C99 + C428)	fn:cost_gap_low
+C430	cost per pi- with the wedge at its low bracket	10.54	GeV	DERIVED	8 GeV / (C99 + C427)	fn:cost_gap_high
+C431	uncovered backward cone, ceiling estimate	0.065	pi-/interacting p	DERIVED	last measured bin held flat to 180 degrees	fn:backward_ceiling
+C432	most the coverage gap can be worth	1.10	x	DERIVED	C100 / C429	fn:coverage_max_factor

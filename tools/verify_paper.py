@@ -1088,6 +1088,34 @@ def kelly_over_strait():
     return collector.KELLY_PIMINUS_PER_BEAM / strait_pions_41()
 
 
+def gap_solid_angle():
+    return 2 * math.pi * (math.cos(0.25) - math.cos(0.35))
+
+
+def gap_low():
+    return collector.harp_gap_bracket()[0]
+
+
+def gap_high():
+    return collector.harp_gap_bracket()[1]
+
+
+def cost_gap_low():
+    return collector.coverage_corrected_cost("high")
+
+
+def cost_gap_high():
+    return collector.coverage_corrected_cost("low")
+
+
+def backward_ceiling():
+    return collector.harp_backward_ceiling()
+
+
+def coverage_max_factor():
+    return cost_pion() / cost_gap_low()
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 
