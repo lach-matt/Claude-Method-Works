@@ -433,7 +433,10 @@ def _radials(np, PA, PB, PC, PD, r, dr, k):
     Rk = Ak / r ** (k + 1) + Bk * r ** k
     dRk = -(k + 1) * Ak / r ** (k + 2) + k * Bk * r ** (k - 1)          # surface terms cancel
     rad1 = float(np.sum(PA * PB * dRk / r * dr))
-    dPB_over_r = np.gradient(PB / r, r)
+    # d(P_B/r)/dr on the chain's LOG mesh: r = e^x with x uniform, so d/dr = (1/r) d/dx, and a uniform-grid
+    # derivative is far better conditioned than np.gradient against the non-uniform r.  Measured below.
+    x = np.log(r)
+    dPB_over_r = np.gradient(PB / r, x) / r
     rad2 = float(np.sum(PA * Rk * dPB_over_r * dr))
     rad3 = float(np.sum(PA * PB * Rk / r ** 2 * dr))
     return rad1, rad2, rad3
