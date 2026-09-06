@@ -460,3 +460,12 @@ C463	what temperature buys in cycle rate before it stops	3.6	x	SOURCED	same	mucf
 C464	ambient-branch screening ceiling	30	eV	SOURCED	this corpus, PO-0894; Thomas-Fermi 29, plasmon 9, Fermi 7	none
 C465	ambient-branch screening requirement	88	eV	SOURCED	same	none
 C466	ambient branch, shortfall in rate	27	orders	SOURCED	same	none
+C467	best balance anywhere in the structural binder window	0.807	dimensionless	DERIVED	C214 / (C434 x C100 x 119/207)	fn:qmax_window_floor
+C468	its shortfall	1.24	x	DERIVED	1 / C467	fn:qmax_window_shortfall
+C469	blanket multiplication that would reach breakeven	6.33	n per source n	DERIVED	solved from C446	fn:blanket_multiplication_needed
+C470	co-product gain at today's front-end capture	10.5	percent of beam	DERIVED	C99 x 0.30 x C44 x C214 / 8 GeV	fn:coproduct_gain_30
+C471	co-product gain at half capture	17.6	percent of beam	DERIVED	same at 0.50	fn:coproduct_gain_50
+C472	co-product gain at the sec.5.9 collector	31.6	percent of beam	DERIVED	same at 0.90	fn:coproduct_gain_90
+C473	binders per second in situ on a one-megawatt driver	2.80e14	s^-1	DERIVED	1 MW at 8 GeV x C99 x 0.50	fn:coproduct_binders_per_second_1mw
+C474	fusion heat from that	176	kW	DERIVED	C473 x C44 x C214	fn:coproduct_kw_1mw
+C475	in-situ capture against the best planned delivered beam	2.80e4	x	DERIVED	C473 / C459	fn:insitu_over_delivered

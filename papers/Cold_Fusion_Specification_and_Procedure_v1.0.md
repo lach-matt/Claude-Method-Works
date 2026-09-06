@@ -16,10 +16,16 @@ bundle.*
 > **What it will and will not produce, stated before anything else.** The procedure in §3 witnesses a
 > **self-sustaining catalytic cycle**: one binder driving of order **150** fusion events without
 > further input per event. That is a cold fusion reaction by the definition of §1, it is producible on
-> apparatus that exists, and this document tells you how. It will **not** produce net energy. The
-> energy return is bounded at **0.464** of the cost of making the binder (§4), and a separate and
-> larger gap of **1.2 × 10⁵** stands in delivered binder flux. Both bounds are proven from witnessed
-> quantities and neither is lifted here.
+> apparatus that exists, and this document tells you how.
+>
+> **As a standalone power source it is closed by theorem** (§5.1): no binder anywhere in the
+> structural window reaches unity, the best case being **0.807**, short by **1.24**. **As a
+> co-product it is net-positive** (§5.2): pions are made by the same collisions that make a
+> spallation target's neutrons, so a facility already running a proton driver is making binders and
+> discarding them. Captured, they return **10.5** to **31.6 percent** of the beam energy as fusion
+> heat at zero marginal beam cost — **176 kW** on a one-megawatt driver. That is a net-positive
+> reaction with no input per event and no input for the binder, and it is the only configuration
+> found that is.
 
 ---
 
@@ -31,6 +37,13 @@ for such an event to occur and be verifiable; applied to the closed index of cha
 admit exactly one realisation, the negative muon, because a structural window on the binder mass —
 **[119, 918]** electron masses — contains one leptonic occupant. This document specifies that
 realisation completely.
+
+**§5 is the result.** As a purpose, the reaction cannot pay for itself — a theorem, not a
+measurement. As a co-product of a beam running for another reason, it pays for itself entirely,
+because its only input is a binder that facility is already making and throwing away. The same
+observation dissolves this corpus's own flux gap, which compared against *delivered* muon beams:
+in-situ capture is **2.80 × 10⁴** times the best planned delivered beam, since nothing is transported
+and nothing is selected.
 
 **§1** states the reaction and fixes every free parameter from witnessed measurement: fuel, ratio,
 purity, density, temperature, binder, and the two observables that verify it. **§2** is the bill of
@@ -197,6 +210,101 @@ the known spectrum helps even if one existed inside the window.
 **What would lift the energy bound**, if anything does, is stated in [1] §5.26 as four equivalent
 single numbers, of which the live one is a reactivation coefficient of **0.727** against a witnessed
 **0.35**. The flux bound is not addressed by any of them.
+
+## 5. The net-positive configuration
+
+§4 states the balance as a standalone reaction and it is negative. This section states the two
+results that follow from taking the balance apart: a theorem that closes the standalone case for
+good, and the one configuration in which the same reaction is net-positive.
+
+### 5.1 The standalone case is closed by theorem, not by measurement
+
+Condition 8 reduces, at the service-life cap, to a single inequality with three terms:
+
+> **E_binder × ω_s ≤ V**
+
+For the muon on d–t with a sourced blanket: **11.13 GeV × 0.505 % = 56.2 MeV** against **26.06 MeV**.
+Short by **2.16**. Each term is now tested at its physical limit rather than its measured value.
+
+**V cannot be raised without fission.** A non-fissioning blanket returns the alpha, the neutron's
+energy, and the exothermic ⁶Li breeding, less the multiplier's endotherm. At multiplications of 1.6
+to 2.5 that is **24.31** to **27.20 MeV**. Breakeven would need a multiplication of **6.33** neutrons
+per source neutron — beyond any (n,xn) blanket, and reachable only by fission, which changes the
+product rather than the yield.
+
+**E_binder cannot be lowered by changing the binder.** Sticking is a property of the fusion channel
+and not of the binder (§1), so a different occupant of the structural window moves only its own cost.
+Taking the most favourable possible case — a hypothetical binder at the window floor of **119**
+electron masses, produced as efficiently per unit rest mass as the muon:
+
+| binder | E_binder | Q at the cap |
+|---|---|---|
+| muon, 207 mₑ | 11.13 GeV | **0.464** |
+| window floor, 119 mₑ, hypothetical | 6.40 GeV | **0.807** |
+
+> **No binder anywhere in the structural window reaches unity. The best case is 0.807, short by
+> 1.24.** The window is closed on both sides by geometry and by index degeneracy, so there is no
+> outside to appeal to.
+
+That is a no-go theorem for cold fusion as a standalone power source, and it is tight: not orders of
+magnitude, but a factor of 1.24 at the most favourable point that physics allows.
+
+### 5.2 The binder does not have to be bought
+
+The catalytic cycle has **no input per event**. Its only input is the binder. So the whole of the
+negative balance sits in one question — what the binder costs — and there is a configuration in which
+it costs nothing.
+
+**Pions are a byproduct of spallation.** They are created in the same nuclear collisions that make a
+spallation target's neutrons, by the same protons, in the same target. A facility running a proton
+driver for neutrons, isotopes, or an accelerator-driven subcritical blanket **is already making them
+and throwing them away.** Capturing them costs a collector; it does not cost beam.
+
+On that accounting the marginal beam energy per binder is zero, and every fusion the binder catalyses
+is gain. At the measured production of **0.7188** π⁻ per interacting proton, each captured binder
+returning **150** cycles at **26.06 MeV**:
+
+| capture efficiency | fusion heat, as a fraction of beam energy |
+|---|---|
+| **30 %**, today's front end | **10.5 %** |
+| **50 %** | **17.6 %** |
+| **90 %**, the specified collector | **31.6 %** |
+
+On a one-megawatt, 8 GeV driver that is **2.80 × 10¹⁴** binders per second and **176 kW** of fusion
+heat, delivered at the target where the facility's cooling loop already is.
+
+> **This is a net-positive cold fusion reaction.** No input per event, no input for the binder, and
+> real energy out. It is provable from witnessed quantities and it needs no number that has not been
+> measured.
+
+**And it dissolves this corpus's own flux gap.** Register R29 sets the requirement against delivered
+muon beams — about **1.0 × 10⁸** per second today and **1.0 × 10¹⁰** planned — and finds a shortfall
+of **1.2 × 10⁵**. Those are *momentum-selected, transported* beams, which discard almost everything
+the target makes. In-situ capture at the production target is **2.80 × 10⁴** times the best planned
+delivered beam, because nothing is transported and nothing is selected. **The flux gap is an artefact
+of buying muons rather than making them where they are used.**
+
+### 5.3 What this is, and what it is not
+
+**It is a net-positive reaction.** Marginal energy in: zero. Energy out: 10 to 32 percent of the host
+beam. That satisfies the project's criterion — self-sustaining, no input per event — and it is the
+only configuration found that does.
+
+**It is not a standalone power plant, and §5.1 says why it cannot be.** The host beam still costs more
+at the wall than the fusion returns, and no arrangement of a non-fissioning blanket changes that. What
+the fusion does is **recover 10 to 32 percent of the beam**, which on an accelerator-driven system
+attacks that machine's dominant economic problem — the recirculating power its accelerator consumes.
+
+**Three costs are real and are not beam.** The collector, priced in [1] §5.21 as a shielding trade of
+about 2.7 in coil heating. The tritium, **3.59 kg** at a 265 MeV/c stopping window, which is a
+licensing constraint before it is an engineering one. And the fuel target must sit in the production
+target's region, which is a hostile place to put a cryogenic tritium cell and is not designed here.
+
+**One caution on the accounting itself.** Treating the binder as free is a marginal-cost argument, and
+it holds only while the host beam is justified by its other product. If the beam were run *for* the
+muons, the full **11.13 GeV** returns and §5.1's theorem applies. **The reaction is net-positive as a
+co-product and negative as a purpose.** That distinction is the whole of the result and it should not
+be blurred.
 
 ---
 

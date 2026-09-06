@@ -1236,6 +1236,54 @@ def flux_gap_today():
     return mucf.FLUX_FOR_ONE_MW / mucf.FLUX_PSI_TODAY
 
 
+# ---- the no-go theorem, and the co-product configuration -------------------
+def qmax_window_floor():
+    """Best Q anywhere in the structural binder window, assuming production cost
+    scales with rest mass and nothing lighter than 119 m_e holds a molecular
+    index. This is the theorem's bound."""
+    e = cost_pion() * (119.0 / 207.0)
+    return (therm_sourced() / 1000.0) / (min(mucf.OMEGA_EFF_MEASURED) * e)
+
+
+def qmax_window_shortfall():
+    return 1.0 / qmax_window_floor()
+
+
+def blanket_multiplication_needed():
+    """(n,xn) multiplication that would carry V to breakeven. No blanket does."""
+    need = cost_pion() * min(mucf.OMEGA_EFF_MEASURED) * 1000.0
+    return (need - 3.5 - 14.1 + 1.57) / (4.78 + 1.57)
+
+
+def _coproduct_gev_per_p(eta):
+    return harp_comb_yield() * eta * 150.0 * (therm_sourced() / 1000.0)
+
+
+def coproduct_gain_30():
+    return 100.0 * _coproduct_gev_per_p(0.30) / 8.0
+
+
+def coproduct_gain_50():
+    return 100.0 * _coproduct_gev_per_p(0.50) / 8.0
+
+
+def coproduct_gain_90():
+    return 100.0 * _coproduct_gev_per_p(0.90) / 8.0
+
+
+def coproduct_binders_per_second_1mw():
+    return (1.0e6 / (8.0e9 * 1.602e-19)) * harp_comb_yield() * 0.50
+
+
+def coproduct_kw_1mw():
+    return coproduct_binders_per_second_1mw() * 150.0 * (therm_sourced() / 1000.0) \
+        * 1e9 * 1.602e-19 / 1e3
+
+
+def insitu_over_delivered():
+    return coproduct_binders_per_second_1mw() / mucf.FLUX_HIMB_PLANNED
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 
