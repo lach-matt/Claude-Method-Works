@@ -1,0 +1,32 @@
+  THE CANDIDATE SET, AND WHAT IT DECIDES
+
+  THE TWO F OPENINGS UNDER EACH GENERATOR
+                                 4f at Ce 58                  5f at Pa 91
+    seated r2-ch16y.py, l <= 3   (-inf, 0.7071068)            (-inf, 1.3660254)
+    walk.py, l <= 4 (g admitted) (-inf, 0.7071068)            (-0.0000000, 1.3660254)
+    The 4f corridor is the same under both.  The 5f corridor is not: without g
+    nothing lies below 5f; with g, 5g does, and the floor becomes zero.
+    The seated instrument's banked output prints (-inf, 1.3660254) at Pa.
+
+  REGISTER 1414, SEATED: 'the floor is minus infinity exactly when the entering
+  subshell is node-free -- 106 of 106, no exception, derivable rather than observed'
+    seated r2-ch16y.py, l <= 3
+      steps with L = -inf   37   entrant node-free   26   the iff holds: False
+      L = -inf but NOT node-free, 11 steps:
+        Pa 91 (5f, node count 1), U 92 (5f, node count 1), Np 93 (5f, node count 1), Pu 94 (5f, node count 1), Am 95 (5f, node count 1), Bk 97 (5f, node count 1), Cf 98 (5f, node count 1), Es 99 (5f, node count 1), Fm 100 (5f, node count 1), Md 101 (5f, node count 1), No 102 (5f, node count 1)
+    walk.py, l <= 4 (g admitted)
+      steps with L = -inf   26   entrant node-free   26   the iff holds: True
+
+  WHAT TURNS ON IT
+    register 1414        TRUE with g admitted, FALSE without it at eleven steps
+    section 34.9's       TRUE without g, FALSE at 5f with it
+      conclusion
+    register 1403's      'protactinium's L is degenerate at zero' is walk.py's
+      answer                answer, not the seated instrument's
+    section 34.9's       FALSE at 5f under BOTH -- 5 - 3 - 1 = 1 either way,
+      premise               so that much needs no ruling
+
+  NO OBSERVATION DISTINGUISHES THEM.  No g subshell is occupied in any neutral
+  atom in the table, so the two candidate sets agree on every measurement and
+  differ only in what the law may CONSIDER.  That is a ruling about the law's
+  domain.  This program does not make it.

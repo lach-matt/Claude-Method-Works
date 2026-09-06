@@ -9,9 +9,22 @@ rule and `RULINGS-R4d.md` §3: a concordance was built over all 352 conversation
 (875 windowed passages), and swept alongside the recovered Löwdin estate, the restore-point
 instruments, the delivery and the volumes.
 
-**The answer is in the conversation titled "The Method 1.7", staged there as registers 1401 to 1410,
-and it is in none of the six volumes.** `method/proofs/resetrule.py` tests it; the selftest asserts
-nine of the corpus's own recorded numbers.
+**The answer is registers 1401 to 1410, and they ARE SEATED** — in the main volume's Register at
+L17167 onward, not merely staged in a chat. `method/proofs/resetrule.py` tests them; the selftest
+asserts nine of the corpus's own recorded numbers.
+
+> **A correction to this file's own first version**, which said the registers were *"staged in the
+> conversation 'The Method 1.7' and never carried into the volumes."* **They are in the Register.**
+> What is true, and is the finding, is narrower and more precise: **Chapter 34 does not cite them.**
+> §34.6 states an undefended claim while the derivation sits two thousand lines away in the same
+> bundle, and the chapter's own pointer set does not reach it.
+>
+> **A second correction.** The seated member `r2-ch16y.py` already computes most of what
+> `resetrule.py` measures — its banked output prints *"running intersection empties at: 37 42 43 45
+> 55 58 64 65 80 91 96 97 103 104 → 14 times"*, and *"handshake walk … resets 10"* with *"reset
+> kinds: {'opening': 9, 'return': 1}"*, which is exactly `walkresets.py`'s nine real moves and one
+> return. **These are reproductions of a seated result, not new measurements**, and they are worth
+> more as corroboration than they would have been as findings.
 
 ---
 
@@ -131,11 +144,18 @@ while the chapter states an undefended claim in its place.
 
 M rules on three things:
 
-1. **Whether registers 1401–1404 are seated as Register entries** and cited from §34.6. They are
-   staged, not seated, and the Register is append-only.
+1. **Whether §34.6 cites registers 1401–1404.** They are seated; the chapter does not point at
+   them. That is a pointer question and pointers are finalised last, but the ruling on what §34.6
+   should SAY depends on whether the derivation is to be summarised there or cited.
 2. **§34.6's sentence.** The measured replacement is available and is stronger than what stands:
    *fourteen of the eighteen recalibrations are forced by the corridors alone, independent of where
    `a` sits; the other four are the placement rule's, at lithium, potassium, thallium and francium.*
-3. **1401's "first element of a new period"**, which is true of three of the four.
+3. **1401's "first element of a new period"**, which is true of three of the four — and which
+   **register 1470 has already caught and closed.** It reads: *"Register 1401 called the four 'every
+   one the first element of a new period'; flagged that thallium is not one; 'opens a subshell'
+   covers all four but also nineteen others, so it is necessary and not sufficient. Tested against
+   twelve candidate properties on all 106 steps … NO property separates them, because they are not
+   one thing."* **So this is settled in the record and needs no ruling.** It is recorded here only
+   because the finding reached it independently and the record got there first.
 
 **Nothing is repaired here.**

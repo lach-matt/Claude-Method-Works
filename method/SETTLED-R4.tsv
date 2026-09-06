@@ -30,4 +30,7 @@ D-21f	the reason `a` resets, asked for by M	FOUND IN THE CORPUS	registers 1401-1
 1403	"a is placed at an endpoint, never in the interior"	VERIFIED TRUE	all eighteen land exactly on a corridor endpoint, 11 at L and 7 at U, none interior	method/proofs/resetrule.py	FINDING-R4-08
 1404	"four pairs of resets are single events, the corridors meeting at a point"	VERIFIED TRUE	Mo/Tc at 1.000000, Gd/Tb at 0.707107, Cm/Bk at 1.366025, Lr/Rf at 1.984059	method/proofs/resetrule.py	FINDING-R4-08
 16z-05	the true reason L = -inf at 5f	IN THE RECORD, BANKED	"every admissible rival has larger n (all smaller-n subshells full) -- admissibility, not the node floor"; and computed in session at "The Method 1.6" message 1957 before the chapter was written	method/proofs/fdomain.py	FINDING-R4-08
+1414	register 1414 "the floor is -inf exactly when the entrant is node-free, 106 of 106"	CONVENTION-DEPENDENT, M TO RULE	true at 106/106 with g subshells admitted; false at eleven 5f steps without them	method/proofs/candidateset.py	FINDING-R4-09
+D-21g	§34.9's conclusion "L = -inf at every f opening"	CONVENTION-DEPENDENT, M TO RULE	true without g; false at 5f with g, where the floor is zero	method/proofs/candidateset.py	FINDING-R4-09
+1403	register 1403 "protactinium's L is degenerate at zero"	walk.py's ANSWER, NOT THE SEATED ONE	the seated r2-ch16y.out prints (-inf, 1.3660254) at Pa	method/proofs/candidateset.py	FINDING-R4-09
 
