@@ -241,26 +241,44 @@ def report():
     else:
         print("  (run --verify for the direct-channel identity)")
     print("""
-  THE EXCHANGE CHANNEL: ONE STEP OPEN, AND IT IS NO LONGER THE COEFFICIENTS
+  THE EXCHANGE CHANNEL IS BUILT, GATED -- AND IT DOES NOT CLOSE THE SIX ROWS
 
-  The mean-field working equation is now record-carried with its quote (see the docstring): Coulomb at +1, the
-  two exchange terms at -3/2 and +3/2, the 3/2 being the spin-own-orbit at weight 1 plus the spin-other-orbit at
-  weight 2.  M's direction found it -- "search for others who have referenced these papers" -- where stopping at
-  Blume & Watson themselves had not: arXiv:2404.04716 Eq. (15) states it in the open, and cites them for it.
+  The angular reduction was derived rather than looked up: the multipole expansion of 1/r12, the gradient split
+  of the docstring, and the three resulting angular integrals by Gauss-Legendre quadrature in cos(theta).  No
+  remembered angular formula enters anywhere.
 
-  What is still owed is the ANGULAR reduction of those two exchange terms over a spherical closed shell: the
-  weights on the exchange-shaped radial integrals N^k(ab) as functions of (l_a, l_b, k).  It is a derivation, not
-  a lookup, and it has an anchor no reading could give it:
+  WHAT IS PROVED ABOUT THE MACHINERY, and it is not the same as proving the answer:
+    - Unsold's theorem holds to 3e-14, so a closed shell's k > 0 multipoles vanish as they must.  Getting there
+      caught a real fault: converting a positive-order Legendre function to negative order BY HAND while also
+      normalising with |m| double-applies the factor, and Unsold came out 0.6347 where it must be 0.8463.
+    - THE COULOMB CHANNEL OF THE GENERAL REDUCTION REPRODUCES THE MARVIN M^0 SUM TO 5e-15 -- exact, at every
+      core shell of every opening, s p and d alike.  That is an independent derivation meeting a numerical one.
+    - zeta comes out INDEPENDENT OF m_a to 5e-15, which is what Wigner-Eckart requires and what a broken
+      angular reduction would not give.
 
-    the object      d_zeta_a = SUM_b [ -N_b M^0(ab)  +  SUM_k c_k(l_a,l_b) N^k(ab) ]
-    the Coulomb half PROVED here: -N_b M^0(ab), the two routes agreeing to 1.5e-5 at all six openings
-    the radial half  BUILT AND GATED here: marvin_M and marvin_N, in the chain's own quadrature convention
-    the angular half c_k, the one open piece
-    its gates       (a) the Coulomb half unchanged, which --verify already asserts and which any correct
-                    reduction must reproduce THROUGH THE SAME MACHINERY; (b) lever-dead as c -> inf;
-                    (c) identically zero for l_a = 0; (d) THE SIX MEASURED INTERVALS, which span 0.910 to 1.360
-                    today -- a wrong reduction does not collapse a 1.5x spread across p and d and across Z from
-                    13 to 81, so this is a test and not a fit
+  AND WHAT IS NOT: the Coulomb anchor exercises only the k = 0, q = 0 path, so of the three angular terms it
+  tests one.  rad2, rad3 and A3r are reached only by the exchange itself and by the m_a test.  **Stated because
+  it bears on how much weight the result below can carry.**
+
+  THE RESULT, measured (zeta in cm-1; "was" is nuclear + direct alone, which is what fieldresidue uses):
+
+      row  el      nuc      dir   exchange     total   measured    ratio     was
+      3p   Al     82.0    -14.1       -6.1      61.9       74.7    0.829    0.910
+      4p   Ga    549.0    -45.6      -15.8     487.6      550.8    0.885    0.914
+      5p   In   1484.8    -76.3      -26.0    1382.5     1475.1    0.937    0.955
+      6p   Tl   5748.5   -165.7      -58.1    5524.7     5195.1    1.063    1.075
+      4d   Y     366.8   -104.3      -18.2     244.2      212.1    1.151    1.237
+      5d   La    713.7   -140.9      -22.9     550.0      421.3    1.306    1.360
+
+  **GATE (d) FAILS.**  The two-electron term is negative on every row: it improves both d rows (1.237 -> 1.151,
+  1.360 -> 1.306) and worsens all four p rows, leaving the spread where it was -- 0.83 to 1.31 against 0.91 to
+  1.36.  It does not collapse the 1.5x spread, which is what the gate asked of it.
+
+  THIS IS RECORDED, NOT TUNED.  Nothing here is adjusted to make the gate pass, and the two exchange terms are
+  printed separately (they come out equal, which the sum over m_b makes expected rather than suspicious) so the
+  next reader can see the parts.  The finding is consistent with FINDING-R4-21's: the residual is at least TWO
+  faults of opposite sign, and this term addresses only the one that is negative at d.  What the p rows want is
+  positive, and the two-electron spin-orbit does not supply it.
 
   Nothing is repaired in any volume.  Every figure is MEASURED by this instrument or RECORD-CARRIED with its
   quote.""")
@@ -301,6 +319,36 @@ def selftest():
         worst = max(x["rel"] for x in R)
         check("so94's screening from dV/dr equals the Marvin M^0 sum at every one, to 1e-4 relative",
               worst < 1e-4, f"worst {worst:.2e}")
+    # --- the angular machinery: Unsold's theorem, which a wrong negative-m normalisation breaks
+    x, w = _gauss(np)
+    worstU = 0.0
+    for l in (1, 2, 3):
+        for k in (0, 2, 4):
+            tot = 0.0
+            for mm in range(-l, l + 1):
+                Pl, _ = _plm(np, l, mm, x); Pk, _ = _plm(np, k, 0, x)
+                tot += _norm(l, mm) ** 2 * _norm(k, 0) * 2 * math.pi * float(np.sum(w * Pl * Pk * Pl))
+            exp = (2 * l + 1) / math.sqrt(4 * math.pi) if k == 0 else 0.0
+            worstU = max(worstU, abs(tot - exp))
+    check("Unsold: sum_m |Y_lm|^2 is spherical, so the k > 0 multipoles of a closed shell vanish",
+          worstU < 1e-12, f"worst {worstU:.1e}")
+    ex = os.path.join(HERE, "sooterm-exchange.json")
+    if not os.path.exists(ex):
+        print("  SKIP the SOMF gates (run --exchange)")
+    else:
+        E = json.load(open(ex))["rows"]
+        check("the SOMF run covers all six anchored openings", len(E) == 6, f"{len(E)} rows")
+        w2 = max(x["m_indep"] for x in E)
+        check("zeta is independent of m_a, as Wigner-Eckart requires (the angular reduction's own test)",
+              w2 < 1e-12, f"worst {w2:.1e}")
+        if os.path.exists(OUT_JSON):
+            byl = {x["lab"]: x for x in json.load(open(OUT_JSON))["rows"]}
+            worstD = 0.0
+            for x in E:
+                o = byl.get(x["lab"])
+                if o: worstD = max(worstD, abs(x["z_dir"] / o["z_marv"] - 1))
+            check("THE ANCHOR THROUGH THE GENERAL MACHINERY: the Coulomb channel of the two-electron reduction"
+                  " equals the Marvin M^0 sum", worstD < 1e-6, f"worst {worstD:.1e}")
     print(f"\n  {ok} passed, {bad} failed")
     return bad == 0
 
@@ -309,11 +357,175 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--verify", action="store_true")
+    ap.add_argument("--exchange", action="store_true")
     a = ap.parse_args()
     if a.selftest: sys.exit(0 if selftest() else 1)
     if a.verify: cmd_verify(); return
+    if a.exchange: cmd_exchange(); return
     report()
 
+
+
+# ================================================================== the angular reduction, done numerically
+# Everything below implements the reduction derived in the docstring, with NO remembered angular formula: the
+# multipole expansion of 1/r12, the gradient split into radial and angular parts, and the three resulting
+# angular integrals evaluated by Gauss-Legendre quadrature in cos(theta) -- exact for these integrands, which
+# are polynomials in cos(theta) times powers of sin(theta).  The phi integral is done analytically by the
+# selection it imposes, q = m_B - m_A = m_C - m_D.
+#
+#   T^z(A,B;C,D) = - SUM_k SUM_q (4pi/(2k+1)) G2 [ G1 (rad1 m_B + rad2 q) + rad3 A3r ]
+#
+#   G1  = INT Y*_A Y*_kq Y_B dOmega
+#   G2  = INT Y*_C Y_kq  Y_D dOmega
+#   A3r = -INT_-1^1 P_A x [ m_B P'_kq P_B + q P_kq P'_B ] dx   (times the same normalisations and 2 pi)
+#   rad1 = INT P_A P_B R'_k / r dr,  rad2 = INT P_A R_k (P_B/r)' dr,  rad3 = INT P_A P_B R_k / r^2 dr
+#
+# with R_k(r) = INT P_C P_D f_k dr2 and R'_k analytic (the surface terms cancel identically):
+#   R_k  = A_k/r^(k+1) + B_k r^k,   R'_k = -(k+1) A_k/r^(k+2) + k B_k r^(k-1)
+# A_k = INT_0^r P_C P_D r2^k dr2 and B_k = INT_r^inf P_C P_D r2^-(k+1) dr2, both in the chain's own convention.
+
+_GL = {}
+
+
+def _gauss(np, n=200):
+    if n not in _GL: _GL[n] = np.polynomial.legendre.leggauss(n)
+    return _GL[n]
+
+
+def _plm(np, l, m, x):
+    """P_l^m(x) with the Condon-Shortley phase, and its x-derivative, for SIGNED m -- scipy's lpmv takes a
+    signed order directly, and the derivative recurrence (x^2-1) dP/dx = l x P_l^m - (l+m) P_{l-1}^m holds for
+    signed m too.  Converting a positive-order P to negative order BY HAND while also normalising with |m| in
+    _norm double-applies the factor: measured, that breaks Unsold's theorem (sum_m |Y_lm|^2 came out 0.6347
+    where (2l+1)/sqrt(4pi) is 0.8463, and the k > 0 sums that must vanish did not)."""
+    from scipy.special import lpmv
+    if abs(m) > l: return np.zeros_like(x), np.zeros_like(x)
+    P = lpmv(m, l, x)
+    Pm1 = lpmv(m, l - 1, x) if l - 1 >= abs(m) else np.zeros_like(x)
+    dP = (l * x * P - (l + m) * Pm1) / (x * x - 1.0)
+    return P, dP
+
+
+def _norm(l, m):
+    """The spherical-harmonic normalisation for SIGNED m, matching _plm's signed order."""
+    return math.sqrt((2 * l + 1) / (4 * math.pi) * math.factorial(l - m) / math.factorial(l + m))
+
+
+def _ang(np, lA, mA, k, q, lB, mB, n=200):
+    """(G1, A3r) for one (k, q), by quadrature.  Returns 0 when the phi selection fails."""
+    if mB - mA != q: return 0.0, 0.0
+    if abs(q) > k: return 0.0, 0.0
+    x, w = _gauss(np, n)
+    PA, _ = _plm(np, lA, mA, x)
+    PB, dPB = _plm(np, lB, mB, x)
+    PK, dPK = _plm(np, k, q, x)
+    N = _norm(lA, mA) * _norm(k, q) * _norm(lB, mB) * 2 * math.pi
+    G1 = N * float(np.sum(w * PA * PK * PB))
+    A3r = -N * float(np.sum(w * PA * x * (mB * dPK * PB + q * PK * dPB)))
+    return G1, A3r
+
+
+def _radials(np, PA, PB, PC, PD, r, dr, k):
+    """rad1, rad2, rad3 and the R_k they use, in the chain's own quadrature convention."""
+    wCD = PC * PD * dr
+    Ak = np.cumsum(wCD * r ** k) - 0.5 * wCD * r ** k                  # INT_0^r P_C P_D r2^k
+    Bk = np.cumsum((wCD / r ** (k + 1))[::-1])[::-1] - 0.5 * wCD / r ** (k + 1)
+    Rk = Ak / r ** (k + 1) + Bk * r ** k
+    dRk = -(k + 1) * Ak / r ** (k + 2) + k * Bk * r ** (k - 1)          # surface terms cancel
+    rad1 = float(np.sum(PA * PB * dRk / r * dr))
+    dPB_over_r = np.gradient(PB / r, r)
+    rad2 = float(np.sum(PA * Rk * dPB_over_r * dr))
+    rad3 = float(np.sum(PA * PB * Rk / r ** 2 * dr))
+    return rad1, rad2, rad3
+
+
+def T_z(np, A, B, C, D, P, r, dr, kmax=8):
+    """T^z(A,B;C,D) = <phi_A(1) phi_C(2)| g^z(1,2) |phi_B(1) phi_D(2)>, in the units this module fixes by its
+    own Coulomb anchor.  Each of A..D is (l, m, key) with key indexing the radial function in P."""
+    (lA, mA, kA), (lB, mB, kB), (lC, mC, kC), (lD, mD, kD) = A, B, C, D
+    q = mB - mA
+    if mC - mD != q: return 0.0
+    tot = 0.0
+    for k in range(0, kmax + 1):
+        if abs(q) > k: continue
+        if (lC + k + lD) % 2 or not (abs(lC - lD) <= k <= lC + lD): continue    # G2's strict selection
+        x, w = _gauss(np)
+        PC_, _ = _plm(np, lC, mC, x); PD_, _ = _plm(np, lD, mD, x); PK_, _ = _plm(np, k, q, x)
+        G2 = _norm(lC, mC) * _norm(k, q) * _norm(lD, mD) * 2 * math.pi * float(np.sum(w * PC_ * PK_ * PD_))
+        if abs(G2) < 1e-14: continue
+        G1, A3r = _ang(np, lA, mA, k, q, lB, mB)
+        if abs(G1) < 1e-14 and abs(A3r) < 1e-14: continue
+        rad1, rad2, rad3 = _radials(np, P[kA], P[kB], P[kC], P[kD], r, dr, k)
+        tot += (4 * math.pi / (2 * k + 1)) * G2 * (G1 * (rad1 * mB + rad2 * q) + rad3 * A3r)
+    return -tot
+
+
+# ================================================================== --exchange: the whole SOMF zeta
+def somf_zeta(np, ch, h, Z, n, l, occ, ma=None):
+    """zeta_a from the mean-field spin-orbit operator, all three channels through ONE machinery.
+
+        h^SOC_pq = (p|h1e|q) + SUM_rs P_rs [ (pq|g|rs) - (3/2)(pr|g|sq) - (3/2)(sq|g|pr) ]     (ORCA 6.1)
+
+    In the T notation of this module, with p = q = a (the entrant, magnetic number m_a) and r = s = b (a core
+    spatial orbital, m_b), and P_rs = 2 for a doubly occupied spatial orbital:
+
+        Coulomb   T(a,a;b,b)        -- PROVED equal to -N_b M^0(ab), and re-proved through this machinery
+        exchange  T(a,b;b,a) and T(b,a;a,b), each at -3/2
+
+    zeta = -(1/m_a) x 2 x SUM_b SUM_mb [ ... ], all of it divided by 2c^2 to reach Hartree."""
+    r, dr, P, C0 = h.r, h.dr, h.P, ch.C0
+    a = (n, l)
+    if ma is None: ma = l
+    u = {}
+    for (nn, ll, q) in occ:
+        u[(nn, ll)] = P[(nn, ll)] / np.sqrt(float(np.sum(P[(nn, ll)] ** 2 * dr)))
+    z_nuc = Z * float(np.sum(u[a] ** 2 / r ** 3 * dr))
+    dir_sum = exc_sum = exc1 = exc2 = 0.0
+    per = {}
+    for (nb, lb, qb) in occ:
+        b = (nb, lb)
+        if b == a: continue
+        d = e1 = e2 = 0.0
+        for mb in range(-lb, lb + 1):
+            d += T_z(np, (l, ma, a), (l, ma, a), (lb, mb, b), (lb, mb, b), u, r, dr)
+            e1 += -1.5 * T_z(np, (l, ma, a), (lb, mb, b), (lb, mb, b), (l, ma, a), u, r, dr)
+            e2 += -1.5 * T_z(np, (lb, mb, b), (l, ma, a), (l, ma, a), (lb, mb, b), u, r, dr)
+        d *= -2.0 / ma; e1 *= -2.0 / ma; e2 *= -2.0 / ma; e = e1 + e2
+        exc1 += e1; exc2 += e2
+        per[f"{nb}{'spdfg'[lb]}"] = (d, e)
+        dir_sum += d; exc_sum += e
+    f = 1.0 / (2 * C0 * C0)
+    return dict(z_nuc=z_nuc * f, z_dir=dir_sum * f, z_exc=exc_sum * f,
+                z_exc1=exc1 * f, z_exc2=exc2 * f,
+                z_tot=(z_nuc + dir_sum + exc_sum) * f, per={k: (v[0] * f, v[1] * f) for k, v in per.items()})
+
+
+def cmd_exchange(log=sys.stderr):
+    import numpy as np
+    fe = _load("fieldentry", os.path.join(HERE, "fieldentry.py"))
+    fr = _load("fieldresidue", os.path.join(HERE, "fieldresidue.py"))
+    ch = fe.Chain(log=log)
+    rows = []
+    try:
+        H, T, C0 = ch.hfc2, ch.t5_scf, ch.C0
+        H.CORR = False
+        for lab in ("3p", "4p", "5p", "6p", "4d", "5d"):
+            m = fr.MEAS[lab]; Z, n, l = m["Z"], m["n"], m["l"]
+            occ = T.ground_occ(Z)
+            print(f"  {lab} {m['el']} Z={Z} ...", file=log, flush=True)
+            h = H.HFC(Z, occ, c=C0); h.run2()
+            out = somf_zeta(np, ch, h, Z, n, l, occ)
+            chk = somf_zeta(np, ch, h, Z, n, l, occ, ma=1) if l > 1 else out
+            zm = 2.0 * (m["split"] / HA_CM) / (2 * l + 1)
+            rows.append(dict(lab=lab, el=m["el"], Z=Z, zeta_meas=zm, m_indep=abs(chk["z_tot"] / out["z_tot"] - 1), **out))
+            print(f"    nuc {out['z_nuc']*HA_CM:9.1f}  dir {out['z_dir']*HA_CM:9.1f}  exc {out['z_exc']*HA_CM:9.1f}"
+                  f"  tot {out['z_tot']*HA_CM:9.1f}  meas {zm*HA_CM:9.1f}  ratio {out['z_tot']/zm:.4f}",
+                  file=log, flush=True)
+        json.dump(dict(rows=rows), open(os.path.join(HERE, "sooterm-exchange.json"), "w"), indent=1)
+        print("wrote sooterm-exchange.json", file=log)
+    finally:
+        ch.close()
+    return rows
 
 if __name__ == "__main__":
     main()

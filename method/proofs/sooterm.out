@@ -33,26 +33,44 @@ sooterm.py -- RULING 1: THE TWO-BODY SPIN-ORBIT TERM, STEP ONE
   integrates each shell's density against the Marvin kernel.  Agreement is the proof that the
   radial machinery and the convention are right, and it is what the exchange channel will stand on.
 
-  THE EXCHANGE CHANNEL: ONE STEP OPEN, AND IT IS NO LONGER THE COEFFICIENTS
+  THE EXCHANGE CHANNEL IS BUILT, GATED -- AND IT DOES NOT CLOSE THE SIX ROWS
 
-  The mean-field working equation is now record-carried with its quote (see the docstring): Coulomb at +1, the
-  two exchange terms at -3/2 and +3/2, the 3/2 being the spin-own-orbit at weight 1 plus the spin-other-orbit at
-  weight 2.  M's direction found it -- "search for others who have referenced these papers" -- where stopping at
-  Blume & Watson themselves had not: arXiv:2404.04716 Eq. (15) states it in the open, and cites them for it.
+  The angular reduction was derived rather than looked up: the multipole expansion of 1/r12, the gradient split
+  of the docstring, and the three resulting angular integrals by Gauss-Legendre quadrature in cos(theta).  No
+  remembered angular formula enters anywhere.
 
-  What is still owed is the ANGULAR reduction of those two exchange terms over a spherical closed shell: the
-  weights on the exchange-shaped radial integrals N^k(ab) as functions of (l_a, l_b, k).  It is a derivation, not
-  a lookup, and it has an anchor no reading could give it:
+  WHAT IS PROVED ABOUT THE MACHINERY, and it is not the same as proving the answer:
+    - Unsold's theorem holds to 3e-14, so a closed shell's k > 0 multipoles vanish as they must.  Getting there
+      caught a real fault: converting a positive-order Legendre function to negative order BY HAND while also
+      normalising with |m| double-applies the factor, and Unsold came out 0.6347 where it must be 0.8463.
+    - THE COULOMB CHANNEL OF THE GENERAL REDUCTION REPRODUCES THE MARVIN M^0 SUM TO 5e-15 -- exact, at every
+      core shell of every opening, s p and d alike.  That is an independent derivation meeting a numerical one.
+    - zeta comes out INDEPENDENT OF m_a to 5e-15, which is what Wigner-Eckart requires and what a broken
+      angular reduction would not give.
 
-    the object      d_zeta_a = SUM_b [ -N_b M^0(ab)  +  SUM_k c_k(l_a,l_b) N^k(ab) ]
-    the Coulomb half PROVED here: -N_b M^0(ab), the two routes agreeing to 1.5e-5 at all six openings
-    the radial half  BUILT AND GATED here: marvin_M and marvin_N, in the chain's own quadrature convention
-    the angular half c_k, the one open piece
-    its gates       (a) the Coulomb half unchanged, which --verify already asserts and which any correct
-                    reduction must reproduce THROUGH THE SAME MACHINERY; (b) lever-dead as c -> inf;
-                    (c) identically zero for l_a = 0; (d) THE SIX MEASURED INTERVALS, which span 0.910 to 1.360
-                    today -- a wrong reduction does not collapse a 1.5x spread across p and d and across Z from
-                    13 to 81, so this is a test and not a fit
+  AND WHAT IS NOT: the Coulomb anchor exercises only the k = 0, q = 0 path, so of the three angular terms it
+  tests one.  rad2, rad3 and A3r are reached only by the exchange itself and by the m_a test.  **Stated because
+  it bears on how much weight the result below can carry.**
+
+  THE RESULT, measured (zeta in cm-1; "was" is nuclear + direct alone, which is what fieldresidue uses):
+
+      row  el      nuc      dir   exchange     total   measured    ratio     was
+      3p   Al     82.0    -14.1       -6.1      61.9       74.7    0.829    0.910
+      4p   Ga    549.0    -45.6      -15.8     487.6      550.8    0.885    0.914
+      5p   In   1484.8    -76.3      -26.0    1382.5     1475.1    0.937    0.955
+      6p   Tl   5748.5   -165.7      -58.1    5524.7     5195.1    1.063    1.075
+      4d   Y     366.8   -104.3      -18.2     244.2      212.1    1.151    1.237
+      5d   La    713.7   -140.9      -22.9     550.0      421.3    1.306    1.360
+
+  **GATE (d) FAILS.**  The two-electron term is negative on every row: it improves both d rows (1.237 -> 1.151,
+  1.360 -> 1.306) and worsens all four p rows, leaving the spread where it was -- 0.83 to 1.31 against 0.91 to
+  1.36.  It does not collapse the 1.5x spread, which is what the gate asked of it.
+
+  THIS IS RECORDED, NOT TUNED.  Nothing here is adjusted to make the gate pass, and the two exchange terms are
+  printed separately (they come out equal, which the sum over m_b makes expected rather than suspicious) so the
+  next reader can see the parts.  The finding is consistent with FINDING-R4-21's: the residual is at least TWO
+  faults of opposite sign, and this term addresses only the one that is negative at d.  What the p rows want is
+  positive, and the two-electron spin-orbit does not supply it.
 
   Nothing is repaired in any volume.  Every figure is MEASURED by this instrument or RECORD-CARRIED with its
   quote.
