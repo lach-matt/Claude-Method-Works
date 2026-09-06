@@ -254,6 +254,21 @@ newly extracted by 22 subagents). Cost: **3.45M combined subagent tokens**. Stil
 treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`, `extracted/LEDGER.tsv`,
 `recovered/LEDGER.tsv` or `HANDOFF-GAP.tsv` instead.
 
+**There is a second graph, and it is not that one.** `.mcp.json` seats the `Graphify` MCP server at
+`https://api.graphify.com/mcp` (no credential is committed — the endpoint authorises on first use).
+It serves a hosted index of this repository built by Graphify's own pipeline: **15,901 nodes, 17,626
+edges, 3,439 communities**, against `graphify-out/`'s 26,364 / 36,150 / 2,929. The gap is **not
+scope** — both cover the same 4,090 files, and the hosted build honours `.graphifyignore` (asked for
+the BUILD snapshots it returns BUILD174 alone, out of the 146 git tracks). It is layer depth: the
+AST pass agrees within a node or two and the hosted one is marginally **richer** (7,919 callable
+labels against 7,405), while the document layer is roughly an order of magnitude thinner and carries
+filenames where the local graph carries claims — `CLAUDE.md` 2 nodes against 14, `docs/GRAPH-FINDINGS.md`
+**0 against 14**. The direction of staleness is the other surprise: `graph.json` was built at
+`1c33255e`, **70 commits behind HEAD**, and the hosted index is at HEAD. So **query the hosted index
+for code** — symbols, callers, imports, blast radius — and `graphify-out/` **for what a document
+argues**, and never quote one graph's totals as the other's. Neither is a census. See
+`docs/GRAPH-HOSTED.md`.
+
 **Do not run `/graphify --update` here, and do not `--force` past its shrink guard.** It was tried on
 2026-09-04 over six changed documents and **stopped before the write** — extraction was clean, but
 `build_merge` runs a repository-wide dedup as a side effect and would have dropped **353 nodes
