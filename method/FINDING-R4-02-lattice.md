@@ -109,3 +109,47 @@ functions rather than invented. What is not recoverable is **which** constructio
 can be re-derived from `method_tower.terms`, and the test of whether the construction is the right one is whether it
 reproduces one of the five counts. That re-derivation is the next step and it needs M's word, since it is a
 reconstruction and the standing rule is that the repository is searched first — which has now been done.
+
+---
+
+## RESOLVED by reading the chapter, 6 September. It is a prose error, not a false claim.
+
+M: *"the context of their presentation tells you if they are questionable results."* Done, and the context reverses
+the reading. §12.11.2 does not stand alone: it is the evidence for §12.11.3, **The dichotomy**, which is the chapter's
+result.
+
+**What the chapter is arguing.** *"Counting coordinates close exactly. Coupling coordinates close as envelopes. There
+is no third kind in this object."* And the reason: *"Vector coupling gives envelopes, provably and permanently,
+**because its exact form is made of the three excluded shapes**"* — the reflection, the congruence, the triangle of
+§12.11.2. The law that follows: *"every coupling coordinate's exact physical bound requires either two parents or a
+congruence, and the tree carries only one."*
+
+**So the property the argument needs is sublattice-hood, and that is exactly what the counts measure.** The
+construction can carry a constraint only if it is a monotone single-parent bound — that is, only if the region is cut
+out as a **sublattice of a product of chains** (the cylinder paper's §3.1: *"Λ is a sublattice of a product of chains,
+and every such sublattice is distributive"*, which is what admits Birkhoff). A region that is not closed under the
+componentwise meet cannot be carried exactly, whatever else is true of it. **Being a lattice under its own induced
+order would not help the construction at all**, because the construction cannot reach an operation that is not the
+componentwise one.
+
+**Therefore the mathematics is sound and the word is loose.** The five presentations are five attempts to present the
+exact coupling region so the machinery could carry it; each failed on the meet; the conclusion drawn — that coupling
+coordinates close only as envelopes — follows from precisely that. Strip the prose and the object is *"the exact
+coupling region is not closed under componentwise meet in any of five presentations"*, which is true and is what the
+argument uses. **Under M's test this is a prose error: true before the prose, wrong when the prose is applied.**
+
+**The repair is one word, and it is M's, at the prose pass:** *not a lattice* → *not a sublattice*, in §12.11.2 and in
+the three-body paper's Law 3 row, matching Appendix A.15 and A.18, which already say it correctly. No number moves.
+
+**What R4-02's measurement is worth after all.** It establishes that the two words differ **in fact** for this object
+and not merely in principle: the triangle region really is a lattice under its induced order, so *not a lattice* is
+not a harmless shorthand for *meet-broken* — it is false of the object while the argument's real premise is true.
+That is why the word is worth changing rather than leaving.
+
+**What remains unproven, and it is separate.** The five counts — 50,592 · 52,080 · 17,856 · 7,254 · 2,443 — have no
+surviving instrument anywhere in the repository, and the five presentations are named in the prose but nowhere
+defined. The claim they support is sound; the numbers themselves are not yet reproduced. Under *"true and proven so"*
+they are owed a re-derivation from `method_tower.terms`, and that is Phase 1 work on this chapter, not a defect.
+
+**Second time in two findings that context has overturned a reconstruction.** R4-01 was a misread clause; this was a
+number judged out of its argument. The rule earned: read the chapter before scoring the figure.
