@@ -461,6 +461,30 @@ def trans_molecules():
     return collector.transition_phi(False)
 
 
+def carnot1200():
+    return collector.carnot(1200.0)
+
+
+def work_bound():
+    return therm_mult() * carnot1200()
+
+
+def N_diss():
+    return _N(ws_sin() / 100.0, trans_atoms())
+
+
+def tq_bound():
+    return N_diss() * (therm_mult() / 1000.0) / cost_pion()
+
+
+def wq_bound():
+    return N_diss() * (work_bound() / 1000.0) / cost_pion()
+
+
+def wshort_bound():
+    return 1.0 / wq_bound()
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 

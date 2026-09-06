@@ -171,3 +171,11 @@ C169	transition density if counted as atoms	8.5	LHD	DERIVED	C168 x N_A / C164	fn
 C170	transition density if counted as molecules	17.0	LHD	DERIVED	2 x C168 x N_A / C164	fn:trans_molecules
 C171	reported semimetallic onset pressure	315	GPa	SOURCED	molecular hydrogen, measured	none
 C172	pressure to which hydrogen remains molecular	440	GPa	SOURCED	Raman, measured to 480 GPa	none
+C173	advanced blanket temperature	1200	K	SOURCED	proposed high-temperature blanket concepts	none
+C174	Carnot at the advanced blanket temperature	0.750	fraction	DERIVED	1 - C77 / C173	fn:carnot1200
+C175	work per fusion, all levers at bound	18.23	MeV	DERIVED	C160 x C174	fn:work_bound
+C176	service life at the lower dissociation reading	588.9	cycles	DERIVED	N(C113, C169)	fn:N_diss
+C177	thermal gain, all levers at bound	1.286	dimensionless	DERIVED	C176 x C160 / C100	fn:tq_bound
+C178	work gain, all levers at bound	0.965	dimensionless	DERIVED	C176 x C175 / C100	fn:wq_bound
+C179	work shortfall, all levers at bound	1.04	x	DERIVED	1 / C178	fn:wshort_bound
+C180	conventional blanket temperature, low end	700	K	SOURCED	He-cooled ceramic and PbLi designs	none

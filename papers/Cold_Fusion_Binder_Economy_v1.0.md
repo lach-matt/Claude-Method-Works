@@ -561,6 +561,45 @@ second is an estimate about an engineering choice.
 tenth of its optimum across 4 to 11 gigaelectronvolts, with an optimum near 7. Any driver energy in
 that band is equivalent for this purpose.
 
+### 5.14 The terminal balance
+
+One lever remains unexamined, and it is legitimate. **The blanket is thermally decoupled from the
+fuel** — the neutron escapes into it — so it may sit at any temperature the materials allow. §5.8
+assumed 800 K; fusion blanket designs run 700 to 900 K, and high-temperature concepts are proposed to
+1200 K, where the Carnot factor is **0.750** rather than 0.625.
+
+Setting every lever to a defensible bound at once, and granting *perfect* collection:
+
+| | |
+|---|---|
+| density | 8.5 times liquid — the lower dissociation reading, so the densest defensibly molecular point |
+| service life | 588.9 cycles |
+| blanket | multiplied at 1.6 neutrons per source, 24.31 MeV thermal |
+| blanket temperature | 1200 K, Carnot 0.750 |
+| work per fusion | **18.23 MeV** |
+| collection | perfect |
+| sticking | the favourable of the two published readings |
+
+> **Thermal gain 1.286. Work gain 0.965.**
+
+**The thermal balance passes. The electrical balance falls short by 1.04** — by four percent, with
+every input at its favourable bound.
+
+**That figure is an upper bound and not an estimate**, and six separate optimisms are stacked inside
+it: collection is perfect where the best studied machine reaches 0.30; the density sits at hundreds of
+gigapascals and at the lower reading of a transition this paper could not resolve; the blanket
+multiplication is a design estimate §5.12 explicitly declined to adopt; the blanket temperature is a
+proposed concept rather than an operating one; the sticking is the favourable branch of a
+disagreement §5.6 says must be resolved before it is read; and Carnot is a ceiling on conversion, not
+an efficiency. **Every effect this paper has not modelled runs the other way** — real conversion below
+Carnot, coil heating at the aperture §5.9 requires, tritium inventory and handling, and the
+recirculating power of the driver itself.
+
+> **On published numbers the reaction reaches thermal breakeven and does not reach electrical
+> breakeven.** The margin of failure is smaller than the uncertainty on several of its inputs, so the
+> *sign* is not established by this paper — but every unmodelled effect is unfavourable, and the
+> honest reading of 0.965 is that it is optimistic.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -640,7 +679,7 @@ conclusion required assuming the muon's ratio of production cost to rest mass ge
 binder, which is unsupported. §5 states the position that survives: the set is not empty, and the
 requirement lies inside the headroom.
 
-## 9. Limits
+## 9. Limits and the state of the question
 
 The captured-yield figure is a simulation convolved with measured cross sections, not an end-to-end
 measurement, and its front-end acceptance embeds a selective requirement a reactor does not share —
@@ -650,6 +689,22 @@ result is an agreement of two calculations sharing an input, not an independent 
 velocity-ratio expression reproduces two measured sticking values and is used for no third. And this
 paper computes no absolute rate: it prices a binder and compares that price to a bound, which is the
 whole of its claim.
+
+**The state of the question, plainly.** The reaction is defined, unique, demonstrated, and its
+procedure is stated. Condition 8 is a bound on the cost of a binder, and the binder is not the
+variable: sticking is mass-independent and the known spectrum holds no alternative. Against measured
+production of 11.13 GeV per pion, collection alone cannot satisfy it; the corrected convertible
+fraction and the blanket accounting move it a long way; the service-life cap is asymptotic in a
+density bounded above by molecular survival. With every lever at a defensible bound and collection
+perfect, **the thermal balance passes at 1.286 and the electrical balance reaches 0.965.** The
+remaining four percent is inside the uncertainty of several inputs, and every effect not modelled here
+runs against it.
+
+What would change the answer, in the order this paper can rank them: the sticking measurement of
+§5.10, which decides a branch; the collector of §5.9, which decides how much of the discard is
+recoverable; and a resolution of where molecular hydrogen ceases to be molecular at 800 K, which
+decides whether the density §5.13 requires exists at all. None of the three is settled here, and the
+first two need no new machine.
 
 ## References
 

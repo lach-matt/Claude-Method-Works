@@ -383,8 +383,8 @@ T_BLANKET, T_AMBIENT = 800.0, 300.0
 ALPHA_MEV, NEUTRON_MEV = 3.5, 14.1
 
 
-def carnot():
-    return 1.0 - T_AMBIENT / T_BLANKET
+def carnot(t_blanket=None):
+    return 1.0 - T_AMBIENT / (T_BLANKET if t_blanket is None else t_blanket)
 
 
 def pt_max(br_tesla_metre):
