@@ -159,3 +159,32 @@ inference. One attribution in `R4-19` §4 is corrected: mercury, not gallium, is
 0.018 Ha bound it quoted was mercury's number and is unchanged.
 
 **Ruling 8(b) and 8(c) remain the standing work**, in §5's order: the spin–orbit ζ, and `t7c_cuaudit.py`.
+
+---
+
+## 8. Ruling 8(b), worked and bounded — and a question put back to M
+
+**The spin–orbit term is not repaired, and the reason is measured, not asserted** (`FINDING-R4-21`,
+`method/proofs/soterm.py`).
+
+Every form the corpus holds is scored against the store's six measured intervals for the first time: so94's
+primary, so94's own declared exchange sensitivity, and so97's Koelling–Harmon form — with the two ways so97
+differs from so94 separated, which no record separates. **The potential is immaterial (0.2 %); the exchange
+projection moves 1–2 % the wrong way; the Koelling–Harmon factor is the whole difference and it leaves the d rows
+at 1.22–1.33 while destroying p.** Taking ζ on the correlated orbital raises it 3–11 %, nearly fixes 3p and 4p,
+and worsens both d rows. **So the fault is not the operator and not the orbital alone: it is at least two faults
+of opposite sign.**
+
+**And it costs nothing.** With the store's *measured* ζ substituted at all six anchored rows the object still
+closes to 0.0042 Ha, inside the record's 0.009 single-entrant class bound; protactinium moves **0.019 eV** across
+the entire error range those rows allow, against the ±0.11 eV the sibling ladder already carries; and ruling 1's
+floor holds at every scaling.
+
+**THE QUESTION FOR M.** The named candidate for the d-row half is a **two-body spin–other–orbit term**
+(Blume–Watson), which no form in this corpus contains. Adding one is a **build**, not a repair — a new physical
+operator — and every subject-matter decision is M's. **Is it to be built, or is ruling 8(b) discharged as worked
+and bounded?** Nothing further is done on it until M rules.
+
+**Ruling 8(c) is the remaining item**, and one obstacle to it is already recorded: the record's route
+(`t7c_cuaudit.py = t7c_corrz.py` verbatim plus an environment switch) leads to a second absent file, since
+`recovered/` holds only `t7c_corrz_run.py`.

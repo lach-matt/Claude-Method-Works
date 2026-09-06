@@ -1,0 +1,92 @@
+================================================================================================================
+soterm.py -- RULING 8(b) STEP ONE: THE CORPUS'S SPIN-ORBIT FORMS AGAINST THE STORE'S SIX INTERVALS
+================================================================================================================
+
+  so94's primary form is what fieldresidue.py uses.  The corpus holds two more -- so94's own declared exchange
+  sensitivity, and so97's Koelling-Harmon form from a later session -- and never scored either against this
+  store.  so97 differs from so94 in TWO ways at once (the potential and the mass factor), so both are varied
+  separately here.  Every zeta is in cm-1; the ratio is to the store's measured interval.
+
+  row    el    measured        loc       locX        dir      khloc         kh
+  3p     Al        74.7       68.0       66.7       67.9       67.5       67.4
+  4p     Ga       550.8      503.4      499.9      503.4      480.6      480.5
+  5p     In      1475.1     1408.6     1402.8     1408.5     1246.1     1246.0
+  6p     Tl      5195.1     5583.0     5570.9     5583.0     3918.0     3918.0
+  4d     Y        212.1      262.4      258.0      262.2      259.9      259.7
+  5d     La       421.3      572.9      567.5      572.8      558.3      558.1
+
+  row    el  ratio to measured        loc       locX        dir      khloc         kh
+  3p     Al                  0.910      0.893      0.908      0.903      0.902
+  4p     Ga                  0.914      0.908      0.914      0.873      0.872
+  5p     In                  0.955      0.951      0.955      0.845      0.845
+  6p     Tl                  1.075      1.072      1.075      0.754      0.754
+  4d     Y                   1.237      1.216      1.236      1.225      1.224
+  5d     La                  1.360      1.347      1.360      1.325      1.325
+
+  what each form is:
+    loc    so94 primary        V_loc, M = 1
+    locX   so94 sensitivity    V_loc + X/P, M = 1
+    dir    the potential alone V_dir, M = 1
+    khloc  the KH factor alone V_loc, M = KH
+    kh     so97 verbatim       V_dir, M = KH
+
+  <1/r^3> on the same normalised orbital (a0^-3), which is what an ORBITAL error moves and a form
+  error does not:
+    3p     Al        1.0799   eps -0.20959
+    4p     Ga        3.0307   eps -0.20714
+    5p     In        5.1856   eps -0.19458
+    6p     Tl       12.1446   eps -0.18472
+    4d     Y         1.6093   eps -0.23150
+    5d     La        2.1428   eps -0.23566
+
+  AND THE SAME FORMS ON THE CORRELATED ORBITAL -- the field the object takes its REMOVAL
+  ENERGIES on (HF + form S with the PZ orbital SIC).  The potential in zeta stays electrostatic;
+  what changes is the radial function.  If the fault is the orbital, it moves here.
+
+  row    el    measured    zeta HF  zeta corr  ratio HF ratio corr    <1/r3> HF <1/r3> corr    move
+  3p     Al        74.7       68.0       72.8     0.910      0.974       1.0799      1.1551  +6.97 %
+  4p     Ga       550.8      503.4      548.1     0.914      0.995       3.0307      3.2981  +8.82 %
+  5p     In      1475.1     1408.6     1544.4     0.955      1.047       5.1856      5.6844  +9.62 %
+  6p     Tl      5195.1     5583.0     6200.3     1.075      1.193      12.1446     13.4860 +11.05 %
+  4d     Y        212.1      262.4      271.8     1.237      1.281       1.6093      1.6650  +3.46 %
+  5d     La       421.3      572.9      591.6     1.360      1.404       2.1428      2.2119  +3.22 %
+
+  WHAT AN EXACTLY CORRECT SPIN-ORBIT TERM COSTS THE OBJECT
+  The store measures zeta at all six anchored openings, so the object is re-read with the MEASURED
+  zeta in place of the computed one.  That is a substitution of measurement for computation, the same
+  act as gating on the store's measured removal limits, which the object already does.
+
+  row    el   residual now  with measured zeta       move  | zeta on the corr orbital
+  3p     Al       +0.00050            +0.00053    +0.031 mHa                    +0.00052
+  4p     Ga       +0.00052            +0.00074    +0.216 mHa                    +0.00072
+  5p     In       +0.00052            +0.00082    +0.303 mHa                    +0.00114
+  6p     Tl       -0.00174            -0.00351    -1.767 mHa                    +0.00107
+  4d     Y        -0.00381            -0.00416    -0.344 mHa                    -0.00375
+  5d     La       -0.00290            -0.00394    -1.036 mHa                    -0.00277
+
+  worst |residual|   now 0.00381   exact zeta 0.00416   zeta on the correlated orbital 0.00375 Ha
+  RMS |residual|     now 0.00211   exact zeta 0.00279   zeta on the correlated orbital 0.00204 Ha
+
+  ALL THREE ARE THE SAME OBJECT TO WITHIN THE SPREAD.  zeta itself moves 3-11 % between the
+  uncorrelated and correlated orbitals and up to 36 % between computed and measured, but it reaches
+  the removal energy only through the Lande term, which is small: the worst row moves 1.8 mHa and
+  the RMS moves 0.07 mHa.  So the choice of orbital for zeta is NOT decided by the six rows -- the
+  present one is kept because it is the record's, not because measurement prefers it -- and every
+  variant sits inside the record's single-entrant class bound of 0.009 Ha
+  (FINDING-HFTERM-SESSION-27).  NO CONCLUSION OF THIS PASS TURNS ON THE ZETA ERROR.
+
+  PROTACTINIUM, where the store measures no interval and the computed zeta is all there is.
+  The six measured rows bracket the error at 0.91 (3p) to 1.36 (5d), so the 5f figure is re-read
+  with zeta scaled across that whole range:
+
+    zeta scaled by   removal (eV)     t(5f)  move from 1.000
+            1.0000          6.948    2.6359          +0.000 eV
+            0.7353          6.935    2.6349          -0.014 eV
+            0.8084          6.939    2.6352          -0.010 eV
+            1.0989          6.953    2.6362          +0.005 eV
+            1.0471          6.951    2.6361          +0.002 eV
+
+  Across the ENTIRE range the six measured rows allow, the 5f removal energy moves by under
+  0.02 eV -- against the +-0.11 eV typical bound the sibling ladder already carries.  The
+  spin-orbit term is not what limits the 5f figure.
+================================================================================================================

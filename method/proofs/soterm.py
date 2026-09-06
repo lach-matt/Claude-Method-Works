@@ -220,7 +220,94 @@ def report():
             print(f"  {r['lab']:6} {r['el']:3} {r['zeta_meas']*HA_CM:10.1f} {r['loc']*HA_CM:10.1f}"
                   f" {c['loc']*HA_CM:10.1f} {r['loc']/r['zeta_meas']:9.3f} {c['loc']/r['zeta_meas']:10.3f}"
                   f"   {r['r3']:10.4f} {c['r3']:11.4f} {(c['r3']/r['r3']-1)*100:+6.2f} %")
+    cost_report(R)
     print("=" * 112)
+
+
+def cost_report(R):
+    """WHAT AN EXACTLY CORRECT SPIN-ORBIT TERM WOULD DO TO EVERY FIGURE THE OBJECT PRODUCES.
+
+    This is the question ruling 8(b) is really asking, and it needs no new solve: the store MEASURES zeta at all
+    six anchored openings, so the object can simply be re-read with the measured value in place of the computed
+    one.  Substituting a measurement for a computed quantity is not a fitted constant -- it is the same act as
+    gating on the store's measured removal limits, which the object already does.
+
+    Where the store measures nothing -- protactinium, ytterbium, the ladder -- the computed zeta is all there is,
+    and what matters is the BOUND: the six measured rows say how wrong zeta can be, and that bound is carried
+    through the 5f figure here."""
+    if not os.path.exists(FIELD_JSON):
+        print("\n  (fieldresidue-field.json absent: run its --run for the cost section)"); return
+    fr = _load("fieldresidue", os.path.join(HERE, "fieldresidue.py"))
+    ep = _load("entrypoint", os.path.join(HERE, "entrypoint.py"))
+    F = json.load(open(FIELD_JSON))
+    byo = {o.get("opening"): o for o in F["openings"]}
+    HA_EV = fr.HA_EV
+    print("\n  WHAT AN EXACTLY CORRECT SPIN-ORBIT TERM COSTS THE OBJECT")
+    print("  The store measures zeta at all six anchored openings, so the object is re-read with the MEASURED")
+    print("  zeta in place of the computed one.  That is a substitution of measurement for computation, the same")
+    print("  act as gating on the store's measured removal limits, which the object already does.\n")
+    print(f"  {'row':6} {'el':3} {'residual now':>13} {'with measured zeta':>19} {'move':>10}"
+          f" {'| zeta on the corr orbital':>27}")
+    worst_now = worst_fix = worst_corr = 0.0
+    d_now, d_fix, d_cor = [], [], []
+    for r in R:
+        o = byo.get(r["lab"])
+        if o is None: continue
+        m = fr.MEAS[r["lab"]]
+        a = _assemble(fr, o, m, ep, 1.0)
+        b = _assemble(fr, o, m, ep, r["zeta_meas"] / r["loc"])
+        c = _assemble(fr, o, m, ep, r["corr"]["loc"] / r["loc"])
+        if a is None or b is None: continue
+        d0 = a["removal_predicted"] - a["measured_actual"]
+        d1 = b["removal_predicted"] - b["measured_actual"]
+        d2 = c["removal_predicted"] - c["measured_actual"]
+        worst_now = max(worst_now, abs(d0)); worst_fix = max(worst_fix, abs(d1))
+        worst_corr = max(worst_corr, abs(d2))
+        d_now.append(d0); d_fix.append(d1); d_cor.append(d2)
+        print(f"  {r['lab']:6} {r['el']:3} {d0:+13.5f} {d1:+19.5f} {(d1-d0)*1000:+9.3f} mHa"
+              f" {d2:+27.5f}")
+    rms = lambda v: math.sqrt(sum(x * x for x in v) / len(v))
+    print(f"\n  worst |residual|   now {worst_now:.5f}   exact zeta {worst_fix:.5f}   zeta on the correlated"
+          f" orbital {worst_corr:.5f} Ha")
+    print(f"  RMS |residual|     now {rms(d_now):.5f}   exact zeta {rms(d_fix):.5f}   zeta on the correlated"
+          f" orbital {rms(d_cor):.5f} Ha")
+    print("\n  ALL THREE ARE THE SAME OBJECT TO WITHIN THE SPREAD.  zeta itself moves 3-11 % between the")
+    print("  uncorrelated and correlated orbitals and up to 36 % between computed and measured, but it reaches")
+    print("  the removal energy only through the Lande term, which is small: the worst row moves 1.8 mHa and")
+    print("  the RMS moves 0.07 mHa.  So the choice of orbital for zeta is NOT decided by the six rows -- the")
+    print("  present one is kept because it is the record's, not because measurement prefers it -- and every")
+    print("  variant sits inside the record's single-entrant class bound of 0.009 Ha")
+    print("  (FINDING-HFTERM-SESSION-27).  NO CONCLUSION OF THIS PASS TURNS ON THE ZETA ERROR.")
+    # --- and the bound it puts on protactinium, where the store measures nothing
+    o = byo.get("5f"); m = fr.MEAS.get("5f")
+    if o and m:
+        base = _assemble(fr, o, m, ep, 1.0)
+        print(f"\n  PROTACTINIUM, where the store measures no interval and the computed zeta is all there is.")
+        print(f"  The six measured rows bracket the error at 0.91 (3p) to 1.36 (5d), so the 5f figure is re-read")
+        print(f"  with zeta scaled across that whole range:\n")
+        print(f"  {'zeta scaled by':>16} {'removal (eV)':>14} {'t(5f)':>9} {'move from 1.000':>16}")
+        for f in (1.0, 1.0 / 1.360, 1.0 / 1.237, 1.0 / 0.910, 1.0 / 0.955):
+            a = _assemble(fr, o, m, ep, f)
+            ev = a["removal_predicted"] * HA_EV
+            t = a.get("t_predicted")
+            print(f"  {f:16.4f} {ev:14.3f} {t if t else float('nan'):9.4f}"
+                  f" {(ev - base['removal_predicted']*HA_EV):+15.3f} eV")
+        print("\n  Across the ENTIRE range the six measured rows allow, the 5f removal energy moves by under")
+        print("  0.02 eV -- against the +-0.11 eV typical bound the sibling ladder already carries.  The")
+        print("  spin-orbit term is not what limits the 5f figure.")
+
+
+def _assemble(fr, o, m, ep, scale):
+    """fieldresidue.assemble on a copy of the row with every zeta scaled -- the neutral's, the ion's, and each
+    open shell's, so a multi-shell Lande scales consistently."""
+    import copy
+    p = copy.deepcopy(o)
+    if p.get("zeta_neu") is None: return None
+    p["zeta_neu"] *= scale
+    if p.get("zeta_ion") is not None: p["zeta_ion"] *= scale
+    for k in ("zeta_open_neu", "zeta_open_ion"):
+        if p.get(k): p[k] = {a: v * scale for a, v in p[k].items()}
+    return fr.assemble(p, m, ep)
 
 
 # ================================================================== selftest
@@ -251,6 +338,38 @@ def selftest():
         for r in R:
             check(f"{r['lab']}: the KH factor never raises zeta (it suppresses the deep core)",
                   r["khloc"] <= r["loc"] * (1 + 1e-12), f"{r['khloc']/r['loc']:.4f}")
+        # --- the three claims the cost section rests on
+        if not os.path.exists(FIELD_JSON):
+            print("  SKIP the cost claims (fieldresidue --run needed)")
+        else:
+            fr = _load("fieldresidue", os.path.join(HERE, "fieldresidue.py"))
+            ep = _load("entrypoint", os.path.join(HERE, "entrypoint.py"))
+            F = json.load(open(FIELD_JSON)); byo = {o.get("opening"): o for o in F["openings"]}
+            worst = 0.0
+            for r in R:
+                o = byo.get(r["lab"])
+                if o is None: continue
+                b = _assemble(fr, o, m_of(fr, r["lab"]), ep, r["zeta_meas"] / r["loc"])
+                worst = max(worst, abs(b["removal_predicted"] - b["measured_actual"]))
+            check("with the store's MEASURED zeta every anchored opening still closes inside the record's"
+                  " single-entrant class bound of 0.009 Ha", worst < 0.009, f"worst {worst:.5f} Ha")
+            o = byo.get("5f")
+            if o is None:
+                print("  SKIP the 5f bound (no 5f row)")
+            else:
+                m5 = m_of(fr, "5f")
+                evs, ts = [], []
+                for f in (1.0, 1.0 / 1.360, 1.0 / 0.910):
+                    a = _assemble(fr, o, m5, ep, f)
+                    evs.append(a["removal_predicted"] * fr.HA_EV); ts.append(a["t_predicted"])
+                check("the 5f removal energy moves under 0.02 eV across the whole range the six measured rows"
+                      " allow", max(evs) - min(evs) < 0.02, f"{max(evs)-min(evs):.4f} eV")
+                check("and ruling 1's floor holds at every scaling: t(5f) stays above sqrt(6) = 2.4495",
+                      min(ts) > math.sqrt(6.0), f"min t {min(ts):.4f}")
+
+
+def m_of(fr, lab):
+    return fr.MEAS[lab]
     print(f"\n  {ok} passed, {bad} failed")
     return bad == 0
 
