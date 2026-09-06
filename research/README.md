@@ -16,6 +16,7 @@ a report.
 |---|---|---|
 | `warp-drive/WARP-DRIVE.md` | `warp-drive/warpdrive.py` | where a warp drive sits in the fifteen-letter violation index, what warp energy is, and which engine can be built |
 | `warp-drive/ENGINE-ASSESSMENT.md` | `warp-drive/warpdrive.py` | *Warp Drive Theory* (the Drive design deliverable) checked against the physics it invokes |
+| `warp-drive/ROTATING-SHELL.md` | `warp-drive/warpdrive.py` | whether counter-rotation can be carried onto a positive-energy warp shell, and what it costs |
 
 ## `warp-drive/`
 
@@ -24,7 +25,7 @@ object threshold in that paper's own index, and computes its energy budget and e
 against the primary literature.
 
 ```
-python3 research/warp-drive/warpdrive.py --selftest   # 28 fixtures
+python3 research/warp-drive/warpdrive.py --selftest   # 33 fixtures
 python3 research/warp-drive/warpdrive.py              # the full report
 ```
 
@@ -38,6 +39,8 @@ written because this container has neither poppler nor `pypdf`, and because the 
 puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte hex through
 `/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never inserts a space
 heuristically.
+
+The three papers run in order: `WARP-DRIVE.md` places the object and gives the buildable specification, `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it, and `ROTATING-SHELL.md` takes the one idea in that deliverable which survived review and carries it onto the buildable solution.
 
 The instrument copies the fifteen-letter closure rules verbatim from `recovered/objects15.py` with a
 provenance comment, per the standing rule that an instrument imports a seated form and never silently

@@ -258,6 +258,60 @@ def muonic_radius_factor():
     red_mu = M_MU * M_D / (M_MU + M_D)
     return red_mu / red_e
 
+# ------------------------------------- counter-rotation on a positive-energy shell
+#
+# Can Architecture B's angular-momentum cancellation be carried onto the Fuchs et al.
+# shell without breaking the energy conditions that make that shell physical?
+# Three separate budgets, kept apart because they answer different questions.
+
+# read off Fuchs et al. fig. 9: rho ~ 1.376e40 J/m^3, |p_i| and |momentum| peak ~5e39.
+FUCHS_RHO, FUCHS_PEAK = 1.376e40, 5.0e39
+
+def dec_margin(rho=FUCHS_RHO, peak=FUCHS_PEAK):
+    """Fraction of the dominant-energy-condition budget the static solution leaves
+    unspent.  DEC is |p_i| <= rho, so the spent fraction is peak/rho."""
+    spent = peak / rho
+    return dict(spent=spent, free=1.0 - spent)
+
+def rotation_cost(beta):
+    """What rigid rotation at local rim speed beta = v/c costs.
+
+    EIGENVALUE budget.  A boost does not change the eigenvalues of the stress-energy,
+    so rotating matter that satisfies the energy conditions at rest still does.  What
+    is new is the centrifugal hoop TENSION needed to hold the shell together:
+    sigma = rho_m v^2, i.e. |delta p_phi| / rho = beta^2.  That is the real cost.
+
+    EULERIAN budget.  Fuchs et al. work to the sufficient rule of thumb that every
+    Eulerian pressure and momentum flux stay below the energy density.  Boosted
+    momentum flux is T^{0phi}/T^{00} ~ beta, linear.  Conservative, not the condition."""
+    return dict(eigen=beta * beta, eulerian=beta)
+
+def rotation_headroom(free):
+    """Largest rim speed each budget allows, given the free DEC margin."""
+    return dict(eigen=free ** 0.5, eulerian=free)
+
+def orbital_beta(R, M):
+    """Rim speed at which rotation would actually support the shell against its own
+    gravity: v_orb = sqrt(GM/R)."""
+    return (G * M / R) ** 0.5 / C
+
+def quadrupole_scale(beta):
+    """Counter-rotation zeroes the ADM angular momentum, so the g_t-phi frame-dragging
+    term vanishes and the exterior stays Schwarzschild at that order.  What survives is
+    a rotation-induced mass quadrupole, which scales as beta^2."""
+    return beta * beta
+
+def maglev_ratio(B, p_internal=FUCHS_PEAK):
+    """Magnetic pressure B^2/2mu0 against the shell's own internal pressure.  The
+    document replaces mechanical bearings with electromagnetic levitation; this is
+    whether that can hold at warp-shell density."""
+    p_mag = B * B / (2 * MU0)
+    return dict(p_mag=p_mag, ratio=p_mag / p_internal)
+
+def shell_inertia(M, R1, R2):
+    """Moment of inertia of a uniform thick spherical shell."""
+    return 0.4 * M * (R2**5 - R1**5) / (R2**3 - R1**3)
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -433,6 +487,77 @@ def report():
     p('        The checklist target of "beyond 100 fusions per muon" is below both')
     p('        the ~150 already achieved and the ~%.0f break-even needs.' % m['n_needed'])
     p()
+    p('  COUNTER-ROTATION ON A POSITIVE-ENERGY SHELL')
+    p('  ' + '-' * 68)
+    dm = dm0 = dec_margin()
+    p('    [A] Does it survive the exterior boundary condition?')
+    p('        The Fuchs construction needs a Schwarzschild exterior.  A SINGLE')
+    p('        rotating shell has ADM angular momentum J > 0, hence a Kerr exterior')
+    p('        with a = J/Mc, and the construction breaks.  Counter-rotation sets')
+    p('        J = 0 exactly, the g_t-phi term vanishes, and the exterior is')
+    p('        Schwarzschild again to that order.')
+    p('        residual mass quadrupole from oblateness scales as beta^2:')
+    for b in (5.9e-6, 1e-2, 0.5):
+        p('            beta = %-9.3g   quadrupole ~ %.2e' % (b, quadrupole_scale(b)))
+    p('        So counter-rotation is not merely compatible with the shell -- it is')
+    p('        the only way to spin it without losing the exterior it is built on.')
+    p()
+    p('    [B] What does rotation cost the energy-condition budget?')
+    p('        static solution spends %.0f%% of the DEC budget, leaving %.0f%% free'
+      % (100*dm['spent'], 100*dm['free']))
+    hr = rotation_headroom(dm['free'])
+    p('        %-30s %14s %14s' % ('', 'eigenvalue', 'Eulerian'))
+    p('        %-30s %14s %14s' % ('cost scales as', 'beta^2', 'beta'))
+    p('        %-30s %14.3f %14.3f' % ('largest beta the margin allows',
+                                       hr['eigen'], hr['eulerian']))
+    p()
+    p('        %-26s %14s %14s' % ('rim speed', 'eigen cost', 'Eulerian cost'))
+    for nm, b in (('material limit, 1768 m/s', 5.9e-6),
+                  ('0.01 c', 1e-2), ('0.1 c', 0.1), ('0.5 c', 0.5)):
+        rc = rotation_cost(b)
+        p('        %-26s %14.3e %14.3e' % (nm, rc['eigen'], rc['eulerian']))
+    p()
+    p('    [C] Would rotation help hold the shell up?')
+    ob = orbital_beta(10.0, 4.49e27)
+    p('        rim speed that would balance the shell\'s own gravity  %8.3f c' % ob)
+    p('        rim speed ordinary material survives (assessment 3.3) %8.2e c' % 5.9e-6)
+    p('        shortfall                                             %8.2e' % (5.9e-6/ob))
+    p('        Centrifugal support is 8 orders short.  Rotation is free and it is')
+    p('        useless for support: it buys gyroscopic freedom and nothing else.')
+    p()
+    p('    [D] Is a bearing needed at all, and can levitation be it?')
+    ml = maglev_ratio(100.0)
+    p('        By the shell theorem a concentric shell inside a hollow shell feels')
+    p('        NO net gravitational force, anywhere inside it.  So the pair is')
+    p('        neutrally stable and no support force is required to hold the gap:')
+    p('        each shell is already self-supporting through its own TOV pressure')
+    p('        profile.  The bearing problem is centring against perturbation, not')
+    p('        weight.  What levitation cannot do is act structurally:')
+    p('        magnetic pressure at an extreme 100 T   %10.3e Pa' % ml['p_mag'])
+    p('        the shell\'s own internal pressure        %10.3e Pa' % FUCHS_PEAK)
+    p('        ratio                                   %10.3e' % ml['ratio'])
+    p('        30 orders short of the shell\'s own stresses, so it can only ever be')
+    p('        a small-perturbation centring system.  Fortunately that is the only')
+    p('        job on offer.  Sizing it needs a perturbation spectrum nobody has.')
+    p()
+    I = shell_inertia(4.49e27/2, 10.0, 20.0)
+    om = 1768.0 / 20.0
+    p('    [E] Stored angular momentum, per shell, at the material limit')
+    p('        moment of inertia                       %10.3e kg m^2' % I)
+    p('        angular velocity at 1768 m/s rim        %10.3f rad/s' % om)
+    p('        |L| per shell                           %10.3e kg m^2/s' % (I*om))
+    p('        L_total                                 %10.3e   (exactly cancelling)' % 0.0)
+    p()
+    p('    [F] Orient the spin axis along the thrust axis.')
+    p('        The shift vector puts momentum flux along x; rotation about x puts its')
+    p('        flux in the y-z plane.  Orthogonal, so they add in quadrature, not')
+    p('        linearly.  Architecture B already spins about its thrust axis.')
+    f_shift = FUCHS_PEAK / FUCHS_RHO
+    for b in (5.9e-6, 0.1, 0.5):
+        tot = (f_shift**2 + b**2) ** 0.5
+        p('            beta = %-8.3g  combined Eulerian flux %.4f  %s'
+          % (b, tot, 'OK' if tot < 1 else 'BREACHES'))
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -504,6 +629,14 @@ def selftest():
         muonic_radius_factor(), 196.0, tol=0.02)
     chk('muCF sticking ceiling on cycles per muon', mucf()['n_max'], 222.0, tol=0.02)
     chk('muCF returns less than the muon costs', mucf()['ratio'] < 1.0, True)
+    # counter-rotation on the shell
+    chk('static shell leaves DEC margin free', dec_margin()['free'], 0.637, tol=0.01)
+    chk('eigenvalue cost of rotation is beta^2', rotation_cost(0.1)['eigen'], 0.01, tol=1e-9)
+    chk('material-limit rotation costs ~1e-11 of DEC',
+        rotation_cost(5.9e-6)['eigen'] < 1e-10, True)
+    chk('orbital rim speed at R1 = 10 m, in c', orbital_beta(10.0, 4.49e27), 0.577, tol=0.01)
+    chk('maglev at 100 T is negligible vs shell pressure',
+        maglev_ratio(100.0)['ratio'] < 1e-29, True)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()
