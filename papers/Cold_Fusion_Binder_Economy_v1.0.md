@@ -1481,11 +1481,13 @@ perfect, **the thermal balance passes at 1.286 and the electrical balance reache
 remaining four percent is inside the uncertainty of several inputs, and every effect not modelled here
 runs against it.
 
-**And the production figure itself is conservative by a factor the literature has already measured.**
-The companion's §2.2 records that an optimised thick target is calculated to cost **4.69 GeV** per pion against this
-paper's thin-target measured **11.13** — a ratio of **2.37** by which every balance above may be
-multiplied by a reader who prefers the simulation. This paper keeps the measured figure as its spine
-because a status is never flattened, not because the simulated one is doubted.
+**The production figure is corroborated, and the case for improving on it has narrowed.** Inverting an
+independent published captured-muon yield through §5.24's validated acceptance model returns
+**10.93 GeV** per π⁻ against this paper's HARP-integrated **11.13**, an agreement of **0.982** between
+routes sharing no integration and no normalisation. Against that, an optimised target is *calculated*
+at **4.69 GeV**, a ratio of **2.37** by which a reader who prefers the simulation may multiply every
+balance above. §5.25 withdraws this paper's first explanation of that ratio — target thickness, which
+the same source measures at between 0.87 and 1.19 — and leaves the beam species as what survives.
 
 **The shortfall inverts into a specification**, which is what a bound is for. Work breakeven at the
 bound case needs an effective sticking of 0.1427 percent against 0.1487 — a reduction of 4.0 percent
