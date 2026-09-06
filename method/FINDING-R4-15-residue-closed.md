@@ -186,3 +186,28 @@ On configuration centroids rather than ground levels the statement weakens: 6p f
    S-form potential rebuilt here from `corr_ring.py`'s interface.
 
 Nothing is repaired in any volume. Every figure is MEASURED by the instrument or RECORD-CARRIED with its quote.
+
+---
+
+## §5's BRACKET IS SUPERSEDED, same day, by FINDING-R4-16 — and its reasoning is withdrawn
+
+§5 bracketed protactinium's 5f removal at **5.849–6.949 eV**, the width being whether the Hund term correction is
+applied, on the reasoning that the term is *"the one piece no anchored opening tests."* **That reasoning is
+withdrawn**, on the record's own measurements, which I had not read when I wrote it:
+
+- **The term is not the open piece.** `FINDING-HFTERM-SESSION-27` measured the 4f residual as **term-independent**
+  — ytterbium has no term correction at all and carries the same +0.093 as the three rows that do.
+- **What is open is a class**, and §4's six anchored openings could never have spoken for it: every one of them is
+  a *single* entrant electron, which the record measured closes to ≤ 0.009 Ha, and protactinium's 5f² is a
+  compact multi-electron shell, which it measured does not.
+
+R4-16 runs the record's own instrument for that class — `mp2_ent.py`, the second-order sibling pair correlation
+PN-4 names as the mechanism — reproduces its four banked rows, and measures protactinium. **The 4f class residual
+does not transfer**, on both of the record's readings: by sibling count (one pair against ytterbium's thirteen)
+and by compactness (⟨r⟩ 1.421 a₀ against 0.760). The corrected figure is **7.04–7.18 eV**, a bracket 0.14 eV wide
+where this one was 1.10, and **t(5f) = 2.643–2.652, +7.9 to +8.3 % above √6**.
+
+**What survives here, and it is the whole of the rest.** The residue closes at the six anchored openings to
++0.50, +0.52, +0.52 mHa at 3p, 4p, 5p and to a few mHa at 6p, 4d, 5d; the correlation form is rebuilt and
+certified on five sealed rows; the predicted t reproduces the measured t opening by opening; the excess is real,
+grows with ℓ, and is one-signed. §6's withdrawal of R4-14 stands. Only §5's bracket and its reasoning fall.

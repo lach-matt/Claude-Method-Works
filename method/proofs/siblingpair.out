@@ -1,0 +1,37 @@
+  THE COMPACT-SHELL RESIDUAL AT PROTACTINIUM, ON THE RECORD'S OWN SECOND-ORDER INSTRUMENT
+
+  E2_ent = second-order pair correlation of the entrant, on the chain's own local orbitals;
+  E2_ent_sib is the SAME-SHELL (sibling) part, which a removal destroys and which HF cannot carry.
+
+   Z  el  sh   Na/Nfull    E2_ent    banked    diff  |    core    sib(file)  sib(general)  banked | eps_box  eps_scf  <r>
+    2  He  1s    2/2     -0.0490       --         --   |    0.0000   -0.0490     -0.04903        -- | -0.73807 -0.74266  1.053
+   21  Sc  3d    1/10    -0.0652    -0.0652  -0.0000 |   -0.0652    0.0000      0.00000        -- | -0.13966 -0.13964  2.006
+   55  Cs  6s    1/2     -0.0239    -0.0240  +0.0001 |   -0.0239    0.0000      0.00000        -- | -0.12015 -0.12033  6.478
+   70  Yb  4f   14/14    -0.1762    -0.1786  +0.0024 |   -0.0664   -0.1098     -0.10981 * -0.1119 | -0.27339 -0.27434  0.760
+   91  Pa  5f    2/14    -0.3589       --         --   |   -0.0510   -0.3078     -0.00338 *      -- | -0.30576 -0.30854  1.421
+     * sib(file) and sib(general) differ only where the entrant shell is partly filled -- see sib_general.
+
+  The record's PN-4, reproduced: Yb's sibling term is 0.1098 of 0.1762 = 62 % (record: 0.112 of 0.179, 63 %),
+  against the 4f class residual of +0.09..+0.1 Ha the term-resolved object leaves.
+
+  PROTACTINIUM, AND WHETHER THE 4f CLASS RESIDUAL TRANSFERS TO IT.  It does not, on either of the
+  record's own readings of that residual:
+
+    by SIBLING COUNT -- the mechanism PN-4 names.  Ytterbium's 4f14 -> 4f13 loses 13 sibling pairs,
+    0.10981 Ha, or 0.00845 Ha each.  Protactinium's 5f2 -> 5f1 loses ONE:
+    0.00338 Ha = 0.092 eV on its own orbital, 0.230 eV if a 5f pair
+    correlated like an Yb 4f pair.  Against the class residual of +0.09..+0.10 Ha (2.45..2.72 eV), that is smaller by a factor of twenty to thirty.
+
+    by COMPACTNESS -- the variable of the Janak class law.  <r> is 0.760 a0 for Yb's 4f
+    and 1.421 a0 for Pa's 5f: protactinium's entrant is nearly twice as diffuse, and sits
+    with the 5d rows the record measured at -0.008..-0.012 Ha, not with the 4f rows.
+
+    the core part, which does not depend on how many siblings there are: -0.05104 Ha,
+    so E2_ent = -0.05442 Ha under the general scaling.
+
+  WHAT THIS IS AND IS NOT.  The record's own reading governs: frozen second order on local orbitals
+  OVERESTIMATES (He x1.3), and the ion's own correlation relaxation, which reduces the removal
+  correlation, is ABSENT here.  So this is a lower-bound-shaped estimate of what the removal energy is
+  missing, not a correction to add.  The record tested it at Yb -- 0.11 against a 0.09 residual -- and
+  left the object open through bridge 34.  Nothing is closed here and nothing enters a volume.
+
