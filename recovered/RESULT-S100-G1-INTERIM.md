@@ -1,0 +1,8 @@
+# RESULT S100 -- G1 INTERIM (scored; F95.4 NOT yet closed). Predictions 88b7b4af + 2d20505e, both hashed pre-run. No sealed file touched.
+## SEVERITY LINE: value-exact measurements; hypothesis retirements; one prediction fault (premise), caught by own gate, no downstream effect.
+## SCORES:
+H1 PASS: dE(4000) = +1.8351e-4 reproduces s99 +1.835e-4. CF-A PASS (shift exactly -1e-4). CF-B PASS (ii vs eigvalsh 3.3e-12).
+PR1 HELD: sign + at all three grids. PR3 FIRED: dE = +1.8351e-4 / +1.8351e-4 / +1.8353e-4 at npts 4000/5657/8000, SCF re-solved per grid; h-independent to 2e-8 while eps itself moves 3.5e-5. DISCRETISATION HYPOTHESIS RETIRED BY MEASUREMENT (order-exact: no order fits a flat sequence). PR2 moot.
+PR-L1 FALSIFIED ON PREMISE: sealed runtime has CORR=False (Vc identically 0); premise "CORR default True" read the code default, not the environment. F100.2 SEVERITY prediction (premise from label not runtime; caught by own assert BEFORE any attribution was filed; zero downstream reads).
+PR-L2 RETIRED: same-shell-treatment-matched build (ceff direct, self excluded from S) moves dE by 5.1e-6 only (ratio 0.972 vs 0.2 threshold).
+## F95.4 STANDING: OPEN. Retired by measurement: quadrature weight (s99) · M-symmetrisation (s99) · h-discretisation (s100) · Vc content (s100) · same-shell treatment (s100). SIGNATURE: exactly h-independent operator-content difference, +1.84e-4 at 7s/row-89-core. NEXT: term-by-term identity of the dense Dref/M structure against the shooting kernel's q(x) (R-A rule), with a c-bisection to split SR-term vs non-rel content.

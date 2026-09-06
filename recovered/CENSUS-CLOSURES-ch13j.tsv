@@ -1,0 +1,20 @@
+id	verdict	reason
+1078	defect	§14.5.12 L4012-4016 "219 of 219 covers" — Λ₈ has 24,585 minimum covers; the four appear in 14,492 / 6,826 / 24,585 / 3,370, all four together in 519 (2.1 %). READ-ch13j 13j-01.
+1079	defect	§14.5.13 L4034 "every one of the 219 covers" — three cells match (3,0,1,1,*,0,1,1), not two; 247 of 519 completions carry one; e = 2 (28 completions) omitted. READ-ch13j 13j-02.
+1080	defect	§14.5.12 L4022 "an s → s transition 100%" — measured 475 of 519. The other five conditions are 519 of 519. READ-ch13j 13j-03.
+1081	defect	§14.5.8 L3912 "the two-parent sets are still ℛ-closed" — measured E = 26 and E = 5 on the section's own two constructions. READ-ch13j 13j-04.
+1082	defect	§14.5.8 L3831 / L3826-3829 "Λ₉ and Λ₁₀ seed identically" — exact seeds 7, 8, 9, witnesses verified. READ-ch13j 13j-05.
+1083	defect	§14.5.9 L3937 "a full box at d + c − 2, confirmed by branch and bound" — fails at 3⁵ (measured 5, law 6); §14.5.8's box rows measure 3 4 5 5 and 4 5 6 against the printed 2d and 3d. READ-ch13j 13j-06.
+1084	defect	§14.5.9 L3928-3944 the heuristic columns and the spread 33 — EXACT reproduces (7 7 4 5); cover, reverse, LB and prune do not, and the section defines none of them. READ-ch13j 13j-07.
+1085	defect	§14.6.6 L4256 "§10.1's table reports V6 CLOSED at 14 cells in a box of 24" — §10.1 is L2026-L2031, six lines, no V6, no table; the V6 box 24 is at L5917. READ-ch13j 13j-08.
+1086	defect	§14.6.6 L4254 / L4257 / L4259 bare "§8.4" — main §8.4 is "Sperner, and not symmetric"; the qualified form at L4246 / L4250 is "T §8.4 (Appendix G)", and Appendix G prints one table row, not the arity table cited. READ-ch13j 13j-09.
+1087	defect	§14.5.8 L3858 "where §28.9 gives 33 and 6" — §28.9 (L7772) has zero body lines; the 13i-01 class at a second site. READ-ch13j 13j-10.
+1088	defect	§14.6.3-§14.6.6 the running self-counts — 265 against 197 as the live count twelve lines apart; 12 % and 3 % neither derived from 248/246/2; 179 − 170 = 9 against "twelve unfinished"; the headline unchanged after two closures. READ-ch13j 13j-11.
+1089	defect	§14.5.10 L3987-3988 "the only place the Pauli principle enters" — §7.1 L1755 and L1758 give two constraints the Pauli origin. With 13f-01. READ-ch13j 13j-12.
+1090	defect	§14.6 / §14.6.5 attribution — Brunetti, Fredenhagen, Verch, Reeh, Takesaki and Sorce carry no References entry (R-ATTR). READ-ch13j 13j-13.
+1091	defect	§14.6.3 L4169 "the filling script is gone" and §14.6.6 L4260-4261 "the reconstruction was begun here before the reading caught it" — session and process remarks in a reader-facing volume (Ruling 45). READ-ch13j 13j-14.
+1092	not a defect	§14.5.10 L3981-3985 the 102 elements, 87 covered, and the fifteen missed by target coordinate — reproduce exactly, including the g 4 · n 3 · 2S 2 · e 1 · k 1 · q 1 breakdown. READ-ch13j B.
+1093	not a defect	§14.5.11 L3992-3993 the 519 completions, 66 cells, min 3 median 12 max 157, ratio 13.08 — every figure exact. READ-ch13j B.
+1094	not a defect	§14.5.14 L4058-4071 the binary table — all five rows, both 3-of-3 complementary pairs, 11001100 as the only fully specified row, and every column two-sided. READ-ch13j B.
+1095	not a defect	§14.6 L4092-4137 the two Cl(U) tables, ℛ(Cl) = 2^U at all seven ambients, ∩ 100 %, the separating pairs 12/12, 56/56, 72/72, and every envelope constant 1. READ-ch13j B.
+1096	not a defect	§14.5.11 L4006 "§4.6, a test that could not fail" — resolves to Chapter 4's protocol row L1447 and uses it as stated; r2-tools reports it UNRESOLVED because Chapter 4's rows are not headings. READ-ch13j B.

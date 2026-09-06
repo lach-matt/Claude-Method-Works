@@ -1,0 +1,1006 @@
+artefact	family	status	held_as
+1.6.md	other	IN-CHAT-BODY	2026-08/3851d6dc-a805-49de-a922-d81e36fba67c.json
+12b.md	other	IN-CHAT	2026-08/508943f9-bc50-4c80-86c3-f3e8f062596a.json
+12b.py	instrument	IN-CHAT	2026-08/508943f9-bc50-4c80-86c3-f3e8f062596a.json
+12b.tsv	data	IN-CHAT	2026-08/508943f9-bc50-4c80-86c3-f3e8f062596a.json
+12e.md	other	IN-CHAT	2026-08/600e636e-2152-4573-8400-dcb6dd11d843.json
+12e.py	instrument	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+12e.tsv	data	IN-CHAT	2026-08/600e636e-2152-4573-8400-dcb6dd11d843.json
+5e655873-HANDOFF100.md	other	ABSENT	
+AME2020-A9.tsv	data	HELD	
+ARCHIVE-MANIFEST.tsv	data	IN-CHAT	2026-09/284f1a46-01f0-411d-b832-478876eaf96e.json
+ArII_asd.tsv	data	HELD	
+ArII_highl.tsv	data	HELD	
+BOARD.md	other	HELD	
+BOOK.md	other	IN-CHAT	2026-07/35d529f0-6057-4dc0-bbe6-fdf7a3f7e7eb.json
+BRIDGE-1_7_3-to-next.md	other	HELD	
+BaIII_ryd12.tsv	data	HELD	
+BaIII_ryd32.tsv	data	HELD	
+BiIII_asd.tsv	data	HELD	
+CENSUS-CLOSURES-21a.tsv	data	HELD	
+CENSUS-CLOSURES-23a.tsv	data	HELD	
+CENSUS-CLOSURES-24a.tsv	data	HELD	
+CENSUS-CLOSURES-25b.tsv	data	HELD	
+CENSUS-CLOSURES-26b.tsv	data	HELD	
+CENSUS-CLOSURES-A.tsv	data	HELD	
+CENSUS-CLOSURES-B.tsv	data	HELD	
+CENSUS-CLOSURES-ch10.tsv	data	HELD	
+CENSUS-CLOSURES-ch11.tsv	data	HELD	
+CENSUS-CLOSURES-ch12a.tsv	data	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+CENSUS-CLOSURES-ch12b.tsv	data	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+CENSUS-CLOSURES-ch12c.tsv	data	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+CENSUS-CLOSURES-ch12d.tsv	data	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+CENSUS-CLOSURES-ch12e.tsv	data	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+CENSUS-CLOSURES-ch12f.tsv	data	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+CENSUS-CLOSURES-ch12g.tsv	data	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+CENSUS-CLOSURES-ch12h.tsv	data	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+CENSUS-CLOSURES-ch12i.tsv	data	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+CENSUS-CLOSURES-ch12j.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+CENSUS-CLOSURES-ch12k.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+CENSUS-CLOSURES-ch12l.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+CENSUS-CLOSURES-ch12m.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+CENSUS-CLOSURES-ch12n.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+CENSUS-CLOSURES-ch12o.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+CENSUS-CLOSURES-ch12p.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+CENSUS-CLOSURES-ch12q.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+CENSUS-CLOSURES-ch12r.tsv	data	IN-CHAT	2026-08/a27c6e46-cadb-4d50-8d19-041611e52393.json
+CENSUS-CLOSURES-ch12s.tsv	data	IN-CHAT	2026-08/a27c6e46-cadb-4d50-8d19-041611e52393.json
+CENSUS-CLOSURES-ch12t.tsv	data	IN-CHAT	2026-08/a27c6e46-cadb-4d50-8d19-041611e52393.json
+CENSUS-CLOSURES-ch12u.tsv	data	IN-CHAT	2026-08/a27c6e46-cadb-4d50-8d19-041611e52393.json
+CENSUS-CLOSURES-ch12v.tsv	data	IN-CHAT	2026-08/a27c6e46-cadb-4d50-8d19-041611e52393.json
+CENSUS-CLOSURES-ch12w.tsv	data	IN-CHAT	2026-08/a27c6e46-cadb-4d50-8d19-041611e52393.json
+CENSUS-CLOSURES-ch12x.tsv	data	IN-CHAT	2026-08/a27c6e46-cadb-4d50-8d19-041611e52393.json
+CENSUS-CLOSURES-ch12y.tsv	data	IN-CHAT	2026-08/a27c6e46-cadb-4d50-8d19-041611e52393.json
+CENSUS-CLOSURES-ch12z.tsv	data	IN-CHAT	2026-08/b3c4f5c3-3aad-464b-9da1-cc15c4850645.json
+CENSUS-CLOSURES-ch13a.tsv	data	IN-CHAT	2026-08/b3c4f5c3-3aad-464b-9da1-cc15c4850645.json
+CENSUS-CLOSURES-ch13b.tsv	data	HELD	
+CENSUS-CLOSURES-ch13c.tsv	data	HELD	
+CENSUS-CLOSURES-ch13d.tsv	data	IN-CHAT	2026-08/c3cdb6ed-a163-45ca-b7a4-a00b771b7b44.json
+CENSUS-CLOSURES-ch13e.tsv	data	HELD	
+CENSUS-CLOSURES-ch13f.tsv	data	HELD	
+CENSUS-CLOSURES-ch13g.tsv	data	HELD	
+CENSUS-CLOSURES-ch13h.tsv	data	HELD	
+CENSUS-CLOSURES-ch13i.tsv	data	IN-CHAT	2026-08/8eea2e7b-041a-4b21-83cb-d68a798e80f7.json
+CENSUS-CLOSURES-ch13j.tsv	data	HELD	
+CENSUS-CLOSURES-ch13l.tsv	data	HELD	
+CENSUS-CLOSURES-ch13n.tsv	data	HELD	
+CENSUS-CLOSURES-ch13p.tsv	data	HELD	
+CENSUS-CLOSURES-ch13r.tsv	data	HELD	
+CENSUS-CLOSURES-ch13t.tsv	data	HELD	
+CENSUS-CLOSURES-ch13v.tsv	data	HELD	
+CENSUS-CLOSURES-ch13x.tsv	data	HELD	
+CENSUS-CLOSURES-ch13z.tsv	data	HELD	
+CENSUS-CLOSURES-ch14b.tsv	data	HELD	
+CENSUS-CLOSURES-ch14d.tsv	data	HELD	
+CENSUS-CLOSURES-ch14f.tsv	data	HELD	
+CENSUS-CLOSURES-ch14h.tsv	data	HELD	
+CENSUS-CLOSURES-ch14j.tsv	data	HELD	
+CENSUS-CLOSURES-ch14l.tsv	data	HELD	
+CENSUS-CLOSURES-ch14n.tsv	data	HELD	
+CENSUS-CLOSURES-ch14p.tsv	data	HELD	
+CENSUS-CLOSURES-ch14r.tsv	data	HELD	
+CENSUS-CLOSURES-ch14t.tsv	data	HELD	
+CENSUS-CLOSURES-ch14v.tsv	data	IN-CHAT	2026-08/9c9a7394-cf0f-4bd4-b663-c4c2e4c15f95.json
+CENSUS-CLOSURES-ch14x.tsv	data	HELD	
+CENSUS-CLOSURES-ch14z.tsv	data	IN-CHAT	2026-08/22f6f4ec-c68d-4f24-b253-7e50b899118d.json
+CENSUS-CLOSURES-ch15b.tsv	data	IN-CHAT	2026-08/22f6f4ec-c68d-4f24-b253-7e50b899118d.json
+CENSUS-CLOSURES-ch15d.tsv	data	HELD	
+CENSUS-CLOSURES-ch15f.tsv	data	IN-CHAT	2026-08/b7f6af31-e1d4-4dee-a7ff-df24102b0fb6.json
+CENSUS-CLOSURES-ch15g.tsv	data	IN-CHAT	2026-08/0d01b07f-63f3-49a7-9bc7-d310656689ee.json
+CENSUS-CLOSURES-ch15h.tsv	data	IN-CHAT	2026-08/0d01b07f-63f3-49a7-9bc7-d310656689ee.json
+CENSUS-CLOSURES-ch15i.tsv	data	HELD	
+CENSUS-CLOSURES-ch15j.tsv	data	HELD	
+CENSUS-CLOSURES-ch15k.tsv	data	IN-CHAT	2026-09/5abbd543-33fe-4e92-9fd1-42de6bca9f45.json
+CENSUS-CLOSURES-ch15l.tsv	data	IN-CHAT	2026-09/15546118-a6b0-4290-a583-08bca893bdfe.json
+CENSUS-CLOSURES-ch15m.tsv	data	IN-CHAT	2026-09/15546118-a6b0-4290-a583-08bca893bdfe.json
+CENSUS-CLOSURES-ch15n.tsv	data	IN-CHAT	2026-09/82d760b2-28c2-4ed2-90b3-0b234e23ace6.json
+CENSUS-CLOSURES-ch15o.tsv	data	IN-CHAT	2026-09/7a495fd1-93f1-4bfe-acdf-f0a8c13ebb46.json
+CENSUS-CLOSURES-ch16b.tsv	data	HELD	
+CENSUS-CLOSURES-ch16d.tsv	data	HELD	
+CENSUS-CLOSURES-ch16g.tsv	data	HELD	
+CENSUS-CLOSURES-ch16j.tsv	data	HELD	
+CENSUS-CLOSURES-ch16m.tsv	data	HELD	
+CENSUS-CLOSURES-ch16o.tsv	data	HELD	
+CENSUS-CLOSURES-ch16q.tsv	data	HELD	
+CENSUS-CLOSURES-ch16r.tsv	data	HELD	
+CENSUS-CLOSURES-ch16t.tsv	data	HELD	
+CENSUS-CLOSURES-ch16v.tsv	data	HELD	
+CENSUS-CLOSURES-ch16x.tsv	data	HELD	
+CENSUS-CLOSURES-ch16z.tsv	data	HELD	
+CENSUS-CLOSURES-ch17a.tsv	data	HELD	
+CENSUS-CLOSURES-ch17c.tsv	data	HELD	
+CENSUS-CLOSURES-ch17e.tsv	data	HELD	
+CENSUS-CLOSURES-ch18a.tsv	data	HELD	
+CENSUS-CLOSURES-ch19a.tsv	data	HELD	
+CENSUS-CLOSURES-ch20a.tsv	data	HELD	
+CENSUS-CLOSURES-ch21a.tsv	data	HELD	
+CENSUS-CLOSURES-ch22a.tsv	data	HELD	
+CENSUS-CLOSURES-ch23a.tsv	data	HELD	
+CENSUS-CLOSURES-ch24a.tsv	data	HELD	
+CENSUS-CLOSURES-ch25a.tsv	data	HELD	
+CENSUS-CLOSURES-ch26a.tsv	data	HELD	
+CENSUS-CLOSURES-ch27a.tsv	data	HELD	
+CENSUS-CLOSURES-ch28.tsv	data	HELD	
+CENSUS-CLOSURES-ch3.tsv	data	HELD	
+CENSUS-CLOSURES-ch34re.tsv	data	HELD	
+CENSUS-CLOSURES-ch4.tsv	data	HELD	
+CENSUS-CLOSURES-ch5.tsv	data	HELD	
+CENSUS-CLOSURES-ch6.tsv	data	HELD	
+CENSUS-CLOSURES-ch7.tsv	data	HELD	
+CENSUS-CLOSURES-ch8.tsv	data	HELD	
+CENSUS-CLOSURES-ch9.tsv	data	HELD	
+CENSUS-CLOSURES-chNN.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+CENSUS-CLOSURES-scf.tsv	data	HELD	
+CENSUS-CLOSURES-warn.tsv	data	HELD	
+CENSUS-CLOSURES.tsv	data	HELD	
+CHANNELS-NEW.tsv	data	HELD	
+CHAPTER-LOWDIN.md	other	HELD	
+CHAPTER-THREEBODY.md	other	HELD	
+CI_full.tsv	data	HELD	
+CLAUDE.md	other	HELD	
+CODE-LOWDIN-2_13.txt	other	HELD	
+COMPENDIUM-TAIL.md	other	HELD	
+COMPENDIUM.md	other	IN-CHAT-BODY	2026-08/2f6e0568-b5bc-4709-8eca-7c64aeea87bb.json
+COORDINATES-2.13.csv	data	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+COORDINATES-2_13.csv	data	HELD	
+COORDINATES-jK.tsv	data	HELD	
+COORDINATES.tsv	data	HELD	
+CaII_full.tsv	data	HELD	
+CaI_full.tsv	data	HELD	
+CdII_full.tsv	data	HELD	
+Chapter_36_Three_Bodies_RENUMBERED.md	other	IN-CHAT	2026-08/04a06ea9-2cb4-4cb1-a309-78d91951af60.json
+Compendium-2.md	other	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+Compendium_Additions_Three_Body_RENUMBERED.md	other	IN-CHAT	2026-08/04a06ea9-2cb4-4cb1-a309-78d91951af60.json
+D-E-FINDINGS-RAW.txt	other	HELD	
+D59_DRAFT.md	other	HELD	
+DEF-107.md	DEF	HELD	
+DEF-115.md	DEF	HELD	
+DEF-125.md	DEF	HELD	
+DEFECT-CENSUS.tsv	data	HELD	
+DEFERRED.md	other	HELD	
+DIGEST.md	other	HELD	
+DOCKET.md	other	HELD	
+EXCISE-LIST.json	data	HELD	
+EXCISE-LIST.md	other	HELD	
+EXCISE-SITES-BUILD14.json	data	HELD	
+FABRICATED.tsv	data	IN-CHAT	2026-08/2d4574ce-0f68-46af-9461-45c9290135ad.json
+FETCH-BATCHED.txt	other	HELD	
+FETCH-PATHS.tsv	data	HELD	
+FETCH-QUEUE.tsv	data	HELD	
+FIG1fillingindex2120.png	figure	HELD	
+FIG2spectraindex2120.png	figure	HELD	
+FIG3j120window.png	figure	HELD	
+FIG4dm2widening.png	figure	HELD	
+FIG5spectraindex3D.png	figure	HELD	
+FIG6relativisticvsnonrelativistic.png	figure	HELD	
+FIGURE_ASSETS.md	other	HELD	
+FIGURE_MAP.md	other	HELD	
+GATE-ch100.txt	other	IN-CHAT	2026-08/c8759945-d887-4a31-9ddd-a83e85634018.json
+GATE-ch102.txt	other	IN-CHAT	2026-08/9c9a7394-cf0f-4bd4-b663-c4c2e4c15f95.json
+GATE-ch103.txt	other	IN-CHAT	2026-08/22f6f4ec-c68d-4f24-b253-7e50b899118d.json
+GATE-ch104.txt	other	IN-CHAT	2026-08/22f6f4ec-c68d-4f24-b253-7e50b899118d.json
+GATE-ch105.txt	other	IN-CHAT	2026-08/aae9604f-db73-4f73-955d-31a5bd961d7d.json
+GATE-ch106.txt	other	IN-CHAT	2026-08/b7f6af31-e1d4-4dee-a7ff-df24102b0fb6.json
+GATE-ch107.txt	other	IN-CHAT	2026-08/0d01b07f-63f3-49a7-9bc7-d310656689ee.json
+GATE-ch110.txt	other	IN-CHAT	2026-09/249f66b1-7661-4dd9-b807-965cfba3fbc6.json
+GATE-ch111.txt	other	IN-CHAT	2026-09/5abbd543-33fe-4e92-9fd1-42de6bca9f45.json
+GATE-ch114.txt	other	IN-CHAT	2026-09/82d760b2-28c2-4ed2-90b3-0b234e23ace6.json
+GATE-ch117.txt	other	IN-CHAT	2026-09/84ffea7c-877d-4f8d-83b4-99e203bd9f51.json
+GATE-ch120.txt	other	IN-CHAT	2026-09/88d37d5d-ba85-47a9-b754-3d2e5d1778ab.json
+GATE-ch121.txt	other	IN-CHAT	2026-09/88d37d5d-ba85-47a9-b754-3d2e5d1778ab.json
+GATE-ch123.txt	other	IN-CHAT	2026-09/2034979f-67df-45d4-935e-6ebe17e5f02d.json
+GATE-ch125.txt	other	IN-CHAT	2026-09/4d288374-7972-4e3b-886c-ebe7ba0ea4ca.json
+GATE-ch126.txt	other	IN-CHAT	2026-09/51056a13-4411-403a-9b37-f2efad598d95.json
+GATE-ch127.txt	other	IN-CHAT	2026-09/90788a14-6357-4b6b-abe5-80231c46548f.json
+GATE-ch131.txt	other	IN-CHAT	2026-09/284f1a46-01f0-411d-b832-478876eaf96e.json
+GATE-ch132.txt	other	IN-CHAT	2026-09/4299d074-4bd3-4a20-b963-c8de70fb6ebc.json
+GATE-ch133.txt	other	IN-CHAT	2026-09/4299d074-4bd3-4a20-b963-c8de70fb6ebc.json
+GATE-ch134.txt	other	IN-CHAT	2026-09/46083acb-ccf9-4e45-b7a5-a406f9b37286.json
+GATE-ch74.txt	other	IN-CHAT	2026-08/1fe1b3d0-bd71-44c2-ba89-7b6645773a74.json
+GATE-ch79.txt	other	IN-CHAT	2026-08/b3c4f5c3-3aad-464b-9da1-cc15c4850645.json
+GATE-ch80.txt	other	IN-CHAT	2026-08/a9c8af26-522f-4685-a146-6a2d82d6e4cb.json
+GATE-ch81.txt	other	IN-CHAT	2026-08/8eea2e7b-041a-4b21-83cb-d68a798e80f7.json
+GATE-ch90.txt	other	IN-CHAT	2026-08/09a19323-28c3-4caf-ba93-3271eed7a7ac.json
+GATE-ch95.txt	other	IN-CHAT	2026-08/c3b3f697-4f4a-4f4d-a429-ef78856cc94c.json
+GATE-ch96.txt	other	IN-CHAT	2026-08/8e854e1e-3792-46a2-9163-1ea1661d4ffe.json
+GATE-ch97.txt	other	IN-CHAT	2026-08/2642ac6b-c6ca-4414-bb52-81347610b659.json
+GATE-ch98.txt	other	IN-CHAT	2026-08/2642ac6b-c6ca-4414-bb52-81347610b659.json
+GATE-ch99.txt	other	IN-CHAT	2026-08/2642ac6b-c6ca-4414-bb52-81347610b659.json
+GATE-chCHAT.txt	other	IN-CHAT	2026-08/09a19323-28c3-4caf-ba93-3271eed7a7ac.json
+GEMINI-UNVERIFIED.tsv	data	HELD	
+GENESIS-REGISTER-1-to-94.md	other	HELD	
+HANDOFF-10.md	HANDOFF	HELD	
+HANDOFF-11.md	HANDOFF	HELD	
+HANDOFF-14.md	HANDOFF	HELD	
+HANDOFF-15.md	HANDOFF	HELD	
+HANDOFF-16.md	HANDOFF	HELD	
+HANDOFF-17.md	HANDOFF	HELD	
+HANDOFF-18-1.md	HANDOFF	IN-CHAT	2026-08/7cca3364-13e5-4025-a38b-aad61ae8ca51.json
+HANDOFF-18.md	HANDOFF	HELD	
+HANDOFF-19-1.md	HANDOFF	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+HANDOFF-19-A.md	HANDOFF	IN-CHAT	2026-08/146fd7b1-4171-42ff-a76c-b9536152405d.json
+HANDOFF-19.md	HANDOFF	HELD	
+HANDOFF-2.md	HANDOFF	IN-CHAT	2026-08/01318618-b019-4f12-9719-c63040f506bd.json
+HANDOFF-20.md	HANDOFF	HELD	
+HANDOFF-21.md	HANDOFF	HELD	
+HANDOFF-22.md	HANDOFF	HELD	
+HANDOFF-23.md	HANDOFF	HELD	
+HANDOFF-24.md	HANDOFF	HELD	
+HANDOFF-25.md	HANDOFF	HELD	
+HANDOFF-26.md	HANDOFF	HELD	
+HANDOFF-27.md	HANDOFF	HELD	
+HANDOFF-28.md	HANDOFF	HELD	
+HANDOFF-29.md	HANDOFF	HELD	
+HANDOFF-30.md	HANDOFF	HELD	
+HANDOFF-31.md	HANDOFF	HELD	
+HANDOFF-32.md	HANDOFF	HELD	
+HANDOFF-34.md	HANDOFF	HELD	
+HANDOFF-35.md	HANDOFF	HELD	
+HANDOFF-36.md	HANDOFF	HELD	
+HANDOFF-37.md	HANDOFF	HELD	
+HANDOFF-38.md	HANDOFF	HELD	
+HANDOFF-39.md	HANDOFF	HELD	
+HANDOFF-4.md	HANDOFF	HELD	
+HANDOFF-40.md	HANDOFF	HELD	
+HANDOFF-41.md	HANDOFF	HELD	
+HANDOFF-42.md	HANDOFF	HELD	
+HANDOFF-43.md	HANDOFF	HELD	
+HANDOFF-44.md	HANDOFF	HELD	
+HANDOFF-45.md	HANDOFF	HELD	
+HANDOFF-46.md	HANDOFF	HELD	
+HANDOFF-47.md	HANDOFF	HELD	
+HANDOFF-48.md	HANDOFF	HELD	
+HANDOFF-49.md	HANDOFF	HELD	
+HANDOFF-5.md	HANDOFF	HELD	
+HANDOFF-50.md	HANDOFF	HELD	
+HANDOFF-51.md	HANDOFF	HELD	
+HANDOFF-52.md	HANDOFF	HELD	
+HANDOFF-53.md	HANDOFF	HELD	
+HANDOFF-6.md	HANDOFF	HELD	
+HANDOFF-7.md	HANDOFF	HELD	
+HANDOFF-74.md	HANDOFF	HELD	
+HANDOFF-75.md	HANDOFF	HELD	
+HANDOFF-76.md	HANDOFF	HELD	
+HANDOFF-77.md	HANDOFF	HELD	
+HANDOFF-78.md	HANDOFF	HELD	
+HANDOFF-8.md	HANDOFF	HELD	
+HANDOFF-9.md	HANDOFF	HELD	
+HANDOFF-PROTOCOL.md	HANDOFF	HELD	
+HANDOFF.md	HANDOFF	HELD	
+HANDOFF96.md	other	ABSENT	
+HANDOFF98.md	other	ABSENT	
+HgII_full.tsv	data	HELD	
+IE-neutral-all.tsv	data	HELD	
+INDICES-TAIL.md	other	HELD	
+INDICES.md	other	IN-CHAT	2026-08/01318618-b019-4f12-9719-c63040f506bd.json
+INPUTS-GEMINI.md	other	HELD	
+INTAKE.md	other	HELD	
+INTEGRATION-transitions.md	other	HELD	
+IOI_SPEC_AUDIT.md	other	HELD	
+Index_of_Indices-2.md	other	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+LADDER-H-Ar-I-III.tsv	data	HELD	
+LADDER-K-Kr.tsv	data	HELD	
+LESSONS.md	other	HELD	
+LEVELS-Fe-I.tsv	data	HELD	
+LEVELS-K-I.tsv	data	HELD	
+LEVELS-Kr-I.tsv	data	HELD	
+LIMITS-B.tsv	data	HELD	
+LITERATURE.md	other	HELD	
+LOWDIN-LITERATURE.md	other	HELD	
+LW1-MANIFEST.tsv	data	HELD	
+LW1-README.md	other	HELD	
+LW1-ground.py	instrument	HELD	
+Lach.md	other	IN-CHAT-BODY	2026-06/f5fb44a9-a6b3-4c15-ab61-64a7115fcfbb.json
+LiIII.tsv	data	HELD	
+LuI.FABRICATED.tsv	data	HELD	
+LuI.tsv	data	HELD	
+MAIN_AUDIT.md	other	HELD	
+MANIFEST.md	other	HELD	
+MANIFEST.tsv	data	HELD	
+MATH_AUDIT.md	other	HELD	
+MEASUREMENTS-DERIVED.tsv	data	HELD	
+MEASUREMENTS-DERIVED.v1.bak.tsv	data	HELD	
+MEASUREMENTS-DERIVED.v2.bak.tsv	data	HELD	
+MEASUREMENTS.tsv	data	HELD	
+MECHANISMS.md	other	HELD	
+MEMBERS-126-concatenated.tsv	data	HELD	
+MEMBERS-126.tsv	data	HELD	
+NAME.py	instrument	IN-CHAT	2026-08/09a19323-28c3-4caf-ba93-3271eed7a7ac.json
+NEUTRALS-STAGING.tsv	data	HELD	
+NI_full.tsv	data	HELD	
+NOTE-to-book-project.md	other	HELD	
+NU-AND-DELTA.md	other	HELD	
+NU-DEACTIVATED.md	other	HELD	
+NeII_1D.tsv	data	HELD	
+NeII_fg.tsv	data	HELD	
+NeII_np.tsv	data	HELD	
+NeII_ryd.tsv	data	HELD	
+NeI_2s.tsv	data	HELD	
+NeI_p12.tsv	data	HELD	
+OPEN-PINNED.md	other	HELD	
+ORIGINAL-3B-TEXT.txt	other	HELD	
+PAGEMAP.tsv	data	HELD	
+PHYSICS-TAIL.md	other	HELD	
+PHYSICS.md	other	IN-CHAT-BODY	2026-08/d94389c8-4d13-4ad0-9eb8-fdad834567ba.json
+PHYS_AUDIT.md	other	HELD	
+PINNED-NEXT-BUILD.md	other	HELD	
+POINTERS-BUILD14.json	data	HELD	
+PP_The_Method_1_6.md	other	IN-CHAT	2026-08/0d01b07f-63f3-49a7-9bc7-d310656689ee.json
+PROVENANCE.md	other	HELD	
+QD-CHECK.tsv	data	HELD	
+QDEFECT-TOPbase.tsv	data	HELD	
+QDEFECT-Theodosiou-1986.tsv	data	HELD	
+QUEUE.md	other	HELD	
+QUEUE2-INVENTORY.tsv	data	HELD	
+R3-CLASS-WL.md	other	HELD	
+RADII-Bk-Cf-PREDICTED.tsv	data	HELD	
+RADII-actinide.tsv	data	HELD	
+READ-21a.md	READ	HELD	
+READ-23a.md	READ	HELD	
+READ-24a.md	READ	HELD	
+READ-25b.md	READ	HELD	
+READ-26b.md	READ	HELD	
+READ-ch1-A.md	READ	HELD	
+READ-ch1-B.md	READ	HELD	
+READ-ch10.md	READ	HELD	
+READ-ch11.md	READ	HELD	
+READ-ch12a.md	READ	IN-CHAT-BODY	2026-08/8811d491-280c-4187-a909-9183d6d46026.json
+READ-ch12b.md	READ	IN-CHAT-BODY	2026-08/8811d491-280c-4187-a909-9183d6d46026.json
+READ-ch12c.md	READ	HELD	
+READ-ch12d.md	READ	HELD	
+READ-ch12e.md	READ	HELD	
+READ-ch12f.md	READ	HELD	
+READ-ch12g.md	READ	HELD	
+READ-ch12h.md	READ	HELD	
+READ-ch12i.md	READ	HELD	
+READ-ch12j.md	READ	HELD	
+READ-ch12k.md	READ	HELD	
+READ-ch12l.md	READ	HELD	
+READ-ch12m.md	READ	HELD	
+READ-ch12n.md	READ	HELD	
+READ-ch12o.md	READ	HELD	
+READ-ch12p.md	READ	HELD	
+READ-ch12q.md	READ	HELD	
+READ-ch12r.md	READ	HELD	
+READ-ch12s.md	READ	HELD	
+READ-ch12t.md	READ	HELD	
+READ-ch12u.md	READ	HELD	
+READ-ch12v.md	READ	HELD	
+READ-ch12w.md	READ	HELD	
+READ-ch12x.md	READ	HELD	
+READ-ch12y.md	READ	HELD	
+READ-ch12z.md	READ	HELD	
+READ-ch13a.md	READ	HELD	
+READ-ch13b.md	READ	HELD	
+READ-ch13c.md	READ	HELD	
+READ-ch13d.md	READ	HELD	
+READ-ch13e.md	READ	HELD	
+READ-ch13f.md	READ	HELD	
+READ-ch13g.md	READ	HELD	
+READ-ch13h.md	READ	HELD	
+READ-ch13i.md	READ	HELD	
+READ-ch13j.md	READ	HELD	
+READ-ch13l.md	READ	HELD	
+READ-ch13n.md	READ	HELD	
+READ-ch13p.md	READ	HELD	
+READ-ch13r.md	READ	HELD	
+READ-ch13t.md	READ	HELD	
+READ-ch13v.md	READ	HELD	
+READ-ch13x.md	READ	HELD	
+READ-ch13z.md	READ	HELD	
+READ-ch14b.md	READ	HELD	
+READ-ch14d.md	READ	HELD	
+READ-ch14f.md	READ	HELD	
+READ-ch14h.md	READ	HELD	
+READ-ch14j.md	READ	HELD	
+READ-ch14l.md	READ	HELD	
+READ-ch14n.md	READ	HELD	
+READ-ch14p.md	READ	HELD	
+READ-ch14r.md	READ	HELD	
+READ-ch14t.md	READ	HELD	
+READ-ch14v.md	READ	HELD	
+READ-ch14x.md	READ	HELD	
+READ-ch14z.md	READ	HELD	
+READ-ch15b.md	READ	HELD	
+READ-ch15d.md	READ	HELD	
+READ-ch15f.md	READ	HELD	
+READ-ch15g.md	READ	HELD	
+READ-ch15h.md	READ	HELD	
+READ-ch15i.md	READ	HELD	
+READ-ch15j.md	READ	HELD	
+READ-ch15k.md	READ	IN-CHAT-BODY	2026-09/81ce11d3-3572-43bb-b601-083c48bdeb41.json
+READ-ch15l.md	READ	HELD	
+READ-ch15m.md	READ	HELD	
+READ-ch15n.md	READ	IN-CHAT	2026-09/7a495fd1-93f1-4bfe-acdf-f0a8c13ebb46.json
+READ-ch15o.md	READ	HELD	
+READ-ch16b.md	READ	HELD	
+READ-ch16d.md	READ	HELD	
+READ-ch16g.md	READ	HELD	
+READ-ch16j.md	READ	HELD	
+READ-ch16m.md	READ	HELD	
+READ-ch16o.md	READ	HELD	
+READ-ch16q.md	READ	HELD	
+READ-ch16r.md	READ	HELD	
+READ-ch16t.md	READ	HELD	
+READ-ch16v.md	READ	HELD	
+READ-ch16x.md	READ	HELD	
+READ-ch16z.md	READ	HELD	
+READ-ch17a.md	READ	HELD	
+READ-ch17c.md	READ	HELD	
+READ-ch17e.md	READ	HELD	
+READ-ch18a.md	READ	HELD	
+READ-ch19a.md	READ	HELD	
+READ-ch2-A.md	READ	HELD	
+READ-ch2-B.md	READ	HELD	
+READ-ch2.md	READ	HELD	
+READ-ch20a.md	READ	HELD	
+READ-ch21a.md	READ	HELD	
+READ-ch22a.md	READ	HELD	
+READ-ch23a.md	READ	HELD	
+READ-ch24a.md	READ	HELD	
+READ-ch25a.md	READ	HELD	
+READ-ch26a.md	READ	HELD	
+READ-ch27a.md	READ	HELD	
+READ-ch28a.md	READ	HELD	
+READ-ch3.md	READ	HELD	
+READ-ch34re.md	READ	HELD	
+READ-ch4.md	READ	HELD	
+READ-ch5.md	READ	HELD	
+READ-ch6.md	READ	HELD	
+READ-ch7.md	READ	HELD	
+READ-ch8.md	READ	HELD	
+READ-ch9.md	READ	HELD	
+READ-chNN.md	READ	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+READ-intake1.md	READ	HELD	
+READ-scf.md	READ	HELD	
+READ-warn.md	READ	HELD	
+READING-LIST-CENSUS.txt	other	HELD	
+READING-LIST-STAGING.tsv	data	HELD	
+READING-LIST.tsv	data	HELD	
+README.md	other	HELD	
+REGISTER-DATA.md	REGISTER	HELD	
+REGISTER.md	other	HELD	
+REGISTER_AUDIT.md	other	HELD	
+REQUEST-LOWDIN.md	other	HELD	
+REQUEST-SPECTRA-DATA.md	other	HELD	
+REQUEST-THREEBODY.md	other	HELD	
+RESPONSE-TO-METHOD-1_6.md	other	HELD	
+RESTORE-PACKS.md	other	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+RUL-127.md	other	HELD	
+RULING-TOLERANCE-489.md	RULING	HELD	
+RULINGS-R2.md	other	HELD	
+SPECTRA-DATA.tsv	data	HELD	
+SPECTRA-REMAINING.md	other	HELD	
+SPECTRA.md	other	IN-CHAT-BODY	2026-08/3851d6dc-a805-49de-a922-d81e36fba67c.json
+STRINGPF-CONVEXITY-RESOLVED.md	other	HELD	
+SWEEP-B-C-chat67.md	other	HELD	
+ScIII_asd.tsv	data	HELD	
+SiI.tsv	data	HELD	
+SiI_LS.tsv	data	HELD	
+SiI_nd12b.tsv	data	HELD	
+SiI_nd32low.tsv	data	HELD	
+SiI_nf.tsv	data	HELD	
+SiI_ns.tsv	data	HELD	
+SiI_ns12.tsv	data	HELD	
+SiI_ryd.tsv	data	HELD	
+T8-CENSUS.txt	other	HELD	
+T8-D1-RECORD.txt	other	HELD	
+T9-CENSUS.tsv	data	HELD	
+T9-RESIDUE.tsv	data	HELD	
+T9-TERMS.tsv	data	HELD	
+TASKS.md	other	HELD	
+TB1-MANIFEST.tsv	data	HELD	
+TB1-README.md	other	HELD	
+TB1-audit.py	instrument	HELD	
+TB1-audit_state1_failing.py	instrument	HELD	
+TB1-caps_table.py	instrument	HELD	
+TB1-figs.py	instrument	HELD	
+TB1-figs2.py	instrument	HELD	
+TB1-n8_check.py	instrument	HELD	
+TB1-routh_check.py	instrument	HELD	
+THE-LOWDIN-SOLUTION-2.md	other	HELD	
+THE-LOWDIN-SOLUTION.md	other	IN-CHAT	2026-08/04a06ea9-2cb4-4cb1-a309-78d91951af60.json
+The_Method_1_6-1.md	other	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+The_Method_1_6-2.md	other	HELD	
+The_Method_1_6.md	other	IN-CHAT	2026-08/b778e075-7807-4392-8a24-2dfc864468bc.json
+The_Method_1_6_ARCHIVE1_legacy_handoffs_ch12-15.md	other	HELD	
+The_Method_1_6_BUILD124_compendia_papers_audits.md	other	HELD	
+The_Method_1_6_BUILD135_compendia_papers_audits.md	other	HELD	
+The_Method_1_6_BUILD159_compendia_papers_audits.md	other	IN-CHAT	2026-09/7fc71c15-0413-476a-b38d-fa5bc5a668a2.json
+The_Method_1_6_BUILD90_main_and_register.md	other	HELD	
+The_Method_1_6_BUILD91_main_and_register.md	other	IN-CHAT	2026-09/30e87b6f-5001-4643-86c5-e3b5fce8373a.json
+The_Method_1_6___Mathematical_Compendium-2.md	other	HELD	
+The_Method_1_6___Spectra_Compendium-2.md	other	HELD	
+The_Method_1_6___The_Index_of_Indices-2.md	other	HELD	
+The_Method_1_6___The_Physics_Compendium-2.md	other	HELD	
+The_Method_1_6___The_Register-1.md	other	IN-CHAT	2026-08/04a06ea9-2cb4-4cb1-a309-78d91951af60.json
+The_Method_1_6___The_Register-2.md	other	HELD	
+The_Method_1_6_audits.py	instrument	HELD	
+The_Register-2.md	other	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	other	HELD	
+Transitions-1.md	other	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+Transitions.md	other	HELD	
+URLS-SUPPLIED.md	other	HELD	
+W-NNN.md	other	IN-CHAT-BODY	2026-08/09a19323-28c3-4caf-ba93-3271eed7a7ac.json
+WORKING-REGISTER.md	other	HELD	
+XRAY-KL3.tsv	data	HELD	
+XRAY-L1N2.tsv	data	HELD	
+XRAY-L1N3.tsv	data	HELD	
+XRAY-L2M1.tsv	data	HELD	
+XRAY-L2M4.tsv	data	HELD	
+XRAY-L3M1.tsv	data	HELD	
+XRAY-L3M4.tsv	data	HELD	
+XRAY-L3M5.tsv	data	HELD	
+ZnI_ryd.tsv	data	HELD	
+a4dd0e54-HANDOFF99.md	other	ABSENT	
+a5c.py	instrument	HELD	
+allcons.py	instrument	HELD	
+amd2_mech.py	instrument	HELD	
+amd2_write.py	instrument	HELD	
+appendix_audit.py	instrument	HELD	
+appf.py	instrument	HELD	
+archive-split.py	instrument	HELD	
+archive_store_gen_v1.py	instrument	IN-CHAT	2026-08/01318618-b019-4f12-9719-c63040f506bd.json
+audit.py	instrument	HELD	
+audit_out.txt	other	HELD	
+audit_state1_failing.py	instrument	HELD	
+audits.py	instrument	HELD	
+aufbau.py	instrument	HELD	
+balance.py	instrument	HELD	
+belokolos_spectrum.py	instrument	HELD	
+bookindex.py	instrument	HELD	
+brack.py	instrument	HELD	
+bracket.py	instrument	HELD	
+build.py	instrument	HELD	
+build126.py	instrument	HELD	
+bundle.py	instrument	HELD	
+caps_table.py	instrument	HELD	
+census.py	instrument	HELD	
+cgraph.py	instrument	HELD	
+channel_verify.py	instrument	HELD	
+channels.py	instrument	HELD	
+channels_LIMB.py	instrument	HELD	
+check_audit.py	instrument	HELD	
+chem_index.py	instrument	HELD	
+classify.json	data	HELD	
+close.py	instrument	HELD	
+close_L.py	instrument	HELD	
+compendium.py	instrument	HELD	
+compendium_audit.py	instrument	HELD	
+contingency.py	instrument	HELD	
+converge_selfsame.py	instrument	HELD	
+convert.py	instrument	HELD	
+coords.csv	data	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+coords.py	instrument	HELD	
+coreblind_fill.py	instrument	HELD	
+covers8.json	data	HELD	
+crop_titles.py	instrument	HELD	
+ctra_Compendium-2.md	other	IN-CHAT	2026-09/35701547-47d4-4d07-b2ab-ea2e8edc7678.json
+d120_spectral_index_and_action.txt	other	HELD	
+dclose.py	instrument	HELD	
+densities.py	instrument	IN-CHAT	2026-07/5f7147b4-49d3-4c64-8846-a2b19510f635.json
+depoint.py	instrument	HELD	
+domain_protocol.py	instrument	HELD	
+excise.py	instrument	HELD	
+excise_plan.json	data	HELD	
+excision_result.json	data	HELD	
+f1_1.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f1_2.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f1_3.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f2_1.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f2_2.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f2_3.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f2_4.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f2_5.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f3_1.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f3_2.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f3_3.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f3_4.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f3_5.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f4_1.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f4_2.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f4_3.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f4_4.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f4_5.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f4_6.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f4_7.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f5_1.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f5_2.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f5_3.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f6_1.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+f6_2.png	figure	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+factor.py	instrument	HELD	
+fig-channel-map.png	figure	HELD	
+fig-constraints.png	figure	HELD	
+fig-i1-tower.png	figure	HELD	
+fig-i2-landscape.png	figure	HELD	
+fig-i3-lambda8.png	figure	HELD	
+fig-i4-crossing.png	figure	HELD	
+fig-index-final.png	figure	HELD	
+fig-pareto-1.png	figure	HELD	
+fig-sections.png	figure	HELD	
+fig-silhouette.png	figure	HELD	
+fig-spectra-grid.png	figure	HELD	
+fig-spectra-lattice.png	figure	HELD	
+fig-supply.png	figure	HELD	
+fig-tree-1.png	figure	HELD	
+fig00.png	figure	HELD	
+fig01.png	figure	HELD	
+fig02.png	figure	HELD	
+fig03.png	figure	HELD	
+fig04.png	figure	HELD	
+fig05.png	figure	HELD	
+fig06.png	figure	HELD	
+fig07.png	figure	HELD	
+fig08.png	figure	HELD	
+fig09.png	figure	HELD	
+fig10.png	figure	HELD	
+fig11.png	figure	HELD	
+fig12.png	figure	HELD	
+fig13.png	figure	HELD	
+fig14.png	figure	HELD	
+fig15.png	figure	HELD	
+fig16.png	figure	HELD	
+fig17.png	figure	HELD	
+fig18.png	figure	HELD	
+fig19.png	figure	HELD	
+fig1_shape_sphere.png	figure	HELD	
+fig20.png	figure	HELD	
+fig21.png	figure	HELD	
+fig22.png	figure	HELD	
+fig23.png	figure	HELD	
+fig24.png	figure	HELD	
+fig241_data.json	data	HELD	
+fig25.png	figure	HELD	
+fig26.png	figure	HELD	
+fig27.png	figure	HELD	
+fig2_closure_defect.png	figure	HELD	
+fig3_tower.png	figure	HELD	
+fig4_equator_potential.png	figure	HELD	
+fig5_constraint_graphs.png	figure	HELD	
+fig_constraints.py	instrument	HELD	
+fig_indices.py	instrument	HELD	
+fig_rerender.py	instrument	HELD	
+figaddioichain.png	figure	HELD	
+figaddioiprovenance.png	figure	HELD	
+figaddscgpin.png	figure	HELD	
+figaddscmargin.png	figure	HELD	
+figs.py	instrument	HELD	
+figs2.py	instrument	HELD	
+figure-10.1.png	figure	HELD	
+figure-11.1.png	figure	HELD-VIA-ALIAS	fig07.png
+figure-11.2.png	figure	HELD-VIA-ALIAS	fig08.png
+figure-12.1.png	figure	HELD-VIA-ALIAS	fig09.png
+figure-12.2.png	figure	HELD-VIA-ALIAS	fig-sections.png
+figure-12.3.png	figure	HELD	
+figure-12.4.png	figure	HELD-VIA-ALIAS	fig-tree-1.png
+figure-12.5.png	figure	HELD-VIA-ALIAS	fig-silhouette.png
+figure-15.1.png	figure	HELD	
+figure-16.1.png	figure	HELD	
+figure-16.2.png	figure	HELD-VIA-ALIAS	fig12.png
+figure-19.1.png	figure	HELD	
+figure-21.1.png	figure	HELD-VIA-ALIAS	fig-constraints.png
+figure-23.1.png	figure	HELD	
+figure-23.2.png	figure	HELD	
+figure-23.3.png	figure	HELD-VIA-ALIAS	fig16.png
+figure-23.4.png	figure	HELD-VIA-ALIAS	fig17.png
+figure-24.1.png	figure	HELD	
+figure-24.2.png	figure	HELD	
+figure-24.3.png	figure	HELD	
+figure-25.1.png	figure	HELD	
+figure-25.2.png	figure	HELD	
+figure-26.1.png	figure	HELD	
+figure-27.1.png	figure	HELD-VIA-ALIAS	fig24.png
+figure-30.1.png	figure	HELD-VIA-ALIAS	fig25.png
+figure-30.2.png	figure	HELD-VIA-ALIAS	fig26.png
+figure-6.1.png	figure	HELD	
+figure-6.2.png	figure	HELD	
+figure-7.1.png	figure	HELD	
+figure-8.1.png	figure	HELD-VIA-ALIAS	fig03.png
+figure-8.2.png	figure	HELD	
+figure-9.1.png	figure	HELD-VIA-ALIAS	fig05.png
+figure-D.1-prior-32-elements.png	figure	IN-CHAT	2026-08/2f6e0568-b5bc-4709-8eca-7c64aeea87bb.json
+figure-D.1.png	figure	HELD	
+file.png	figure	IN-CHAT	2026-08/01318618-b019-4f12-9719-c63040f506bd.json
+gate-log.tsv	data	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+gate.py	instrument	HELD	
+ground.py	instrument	HELD	
+guard.py	instrument	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+handoff_cert.py	instrument	HELD	
+heii.py	instrument	HELD	
+heii_levels.txt	other	HELD	
+heii_series.json	data	HELD	
+index_gen.py	instrument	HELD	
+index_locs.json	data	IN-CHAT	2026-08/0c039705-28b6-450b-b7f6-646e1da3ce25.json
+index_pages.py	instrument	HELD	
+index_prior.txt	other	IN-CHAT	2026-08/46d15e47-bc24-45e7-8ed1-e3028bef9638.json
+indices.py	instrument	HELD	
+isoelectronic.py	instrument	HELD	
+kinds.py	instrument	HELD	
+l-ch1.py	instrument	HELD	
+l-ch2.py	instrument	HELD	
+l42.py	instrument	HELD	
+ladder_index.py	instrument	HELD	
+ladder_index2.py	instrument	HELD	
+lowdin_dich.py	instrument	HELD	
+lowdin_gate.py	instrument	HELD	
+lowdin_outer.py	instrument	HELD	
+lowdin_rule.py	instrument	HELD	
+lowdin_tight.py	instrument	HELD	
+madelung.py	instrument	HELD	
+madelung2.py	instrument	HELD	
+main_pre_seg1.md	other	IN-CHAT	2026-08/04a06ea9-2cb4-4cb1-a309-78d91951af60.json
+main_pre_seg6.md	other	IN-CHAT	2026-08/46d15e47-bc24-45e7-8ed1-e3028bef9638.json
+main_pre_v39.md	other	IN-CHAT	2026-08/46d15e47-bc24-45e7-8ed1-e3028bef9638.json
+main_source_backup_pre_appf.md	other	IN-CHAT	2026-08/182637ad-bb08-42e0-ae6e-58708afa667a.json
+mas20.txt	other	IN-CHAT	2026-08/2d4574ce-0f68-46af-9461-45c9290135ad.json
+mass_1.mas20.txt	other	IN-CHAT	2026-07/35d529f0-6057-4dc0-bbe6-fdf7a3f7e7eb.json
+massround.mas20.txt	other	IN-CHAT	2026-08/35853492-c129-4d04-ba78-60c8eec18326.json
+mathreg.py	instrument	HELD	
+mathverify.py	instrument	HELD	
+mc11.py	instrument	HELD	
+mc11b.py	instrument	HELD	
+mc12.py	instrument	HELD	
+mech_audit.py	instrument	HELD	
+merged_triples.py	instrument	HELD	
+minmax.py	instrument	HELD	
+mkref.py	instrument	HELD	
+n8_check.py	instrument	HELD	
+ncoords.py	instrument	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+nuclear_corridor.py	instrument	HELD	
+null_madelung.py	instrument	HELD	
+numbers-index.py	instrument	IN-CHAT	2026-07/5f7147b4-49d3-4c64-8846-a2b19510f635.json
+numcheck.py	instrument	HELD	
+objs.json	data	IN-CHAT	2026-08/0b97c9bf-708c-4c84-aff3-2db90f872699.json
+out.md	other	IN-CHAT	2026-08/0c039705-28b6-450b-b7f6-646e1da3ce25.json
+pagemap.py	instrument	HELD	
+pageproof.py	instrument	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+pages.md	other	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+phase4.py	instrument	HELD	
+physics.py	instrument	HELD	
+pjj.py	instrument	HELD	
+power.py	instrument	HELD	
+press.py	instrument	IN-CHAT	2026-07/5f7147b4-49d3-4c64-8846-a2b19510f635.json
+press_all.py	instrument	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+press_compendia.py	instrument	HELD	
+protindex.py	instrument	HELD	
+pverify.py	instrument	HELD	
+qgraph.py	instrument	HELD	
+r2-21a.py	instrument	HELD	
+r2-23a.py	instrument	HELD	
+r2-24a.py	instrument	HELD	
+r2-25b.py	instrument	HELD	
+r2-26b.py	instrument	HELD	
+r2-ch1.py	instrument	HELD	
+r2-ch10.py	instrument	HELD	
+r2-ch11.py	instrument	HELD	
+r2-ch12a.py	instrument	HELD	
+r2-ch12b.py	instrument	HELD	
+r2-ch12c.py	instrument	HELD	
+r2-ch12d.py	instrument	HELD	
+r2-ch12e.py	instrument	HELD	
+r2-ch12f.py	instrument	HELD	
+r2-ch12g.py	instrument	HELD	
+r2-ch12h.py	instrument	HELD	
+r2-ch12i.py	instrument	HELD	
+r2-ch12j.py	instrument	HELD	
+r2-ch12k.py	instrument	HELD	
+r2-ch12l.py	instrument	HELD	
+r2-ch12m.py	instrument	HELD	
+r2-ch12n.py	instrument	HELD	
+r2-ch12o.py	instrument	HELD	
+r2-ch12p.py	instrument	HELD	
+r2-ch12q.py	instrument	HELD	
+r2-ch12r.py	instrument	HELD	
+r2-ch12s.py	instrument	HELD	
+r2-ch12t.py	instrument	HELD	
+r2-ch12u.py	instrument	HELD	
+r2-ch12v.py	instrument	HELD	
+r2-ch12w.py	instrument	HELD	
+r2-ch12x.py	instrument	HELD	
+r2-ch12y.py	instrument	HELD	
+r2-ch12z.py	instrument	HELD	
+r2-ch13a.py	instrument	HELD	
+r2-ch13b.py	instrument	HELD	
+r2-ch13c.py	instrument	HELD	
+r2-ch13d.py	instrument	HELD	
+r2-ch13e.py	instrument	HELD	
+r2-ch13f.py	instrument	HELD	
+r2-ch13g.py	instrument	HELD	
+r2-ch13h.py	instrument	HELD	
+r2-ch13i.py	instrument	HELD	
+r2-ch13j.py	instrument	HELD	
+r2-ch13k.py	instrument	HELD	
+r2-ch13l.py	instrument	HELD	
+r2-ch13m.py	instrument	HELD	
+r2-ch13n.py	instrument	HELD	
+r2-ch13o.py	instrument	HELD	
+r2-ch13p.py	instrument	HELD	
+r2-ch13q.py	instrument	HELD	
+r2-ch13r.py	instrument	HELD	
+r2-ch13s.py	instrument	HELD	
+r2-ch13t.py	instrument	HELD	
+r2-ch13u.py	instrument	HELD	
+r2-ch13v.py	instrument	HELD	
+r2-ch13w.py	instrument	HELD	
+r2-ch13x.py	instrument	HELD	
+r2-ch13y.py	instrument	HELD	
+r2-ch13z.py	instrument	HELD	
+r2-ch14a.py	instrument	HELD	
+r2-ch14b.py	instrument	HELD	
+r2-ch14c.py	instrument	HELD	
+r2-ch14d.py	instrument	HELD	
+r2-ch14e.py	instrument	HELD	
+r2-ch14f.py	instrument	HELD	
+r2-ch14g.py	instrument	HELD	
+r2-ch14h.py	instrument	HELD	
+r2-ch14i.py	instrument	HELD	
+r2-ch14j.py	instrument	HELD	
+r2-ch14k.py	instrument	HELD	
+r2-ch14l.py	instrument	HELD	
+r2-ch14m.py	instrument	HELD	
+r2-ch14n.py	instrument	HELD	
+r2-ch14o.py	instrument	HELD	
+r2-ch14p.py	instrument	HELD	
+r2-ch14q.py	instrument	HELD	
+r2-ch14r.py	instrument	HELD	
+r2-ch14s.py	instrument	HELD	
+r2-ch14t.py	instrument	HELD	
+r2-ch14u.py	instrument	HELD	
+r2-ch14v.py	instrument	HELD	
+r2-ch14w.py	instrument	HELD	
+r2-ch14x.py	instrument	HELD	
+r2-ch14y.py	instrument	HELD	
+r2-ch14z.py	instrument	HELD	
+r2-ch15a.py	instrument	HELD	
+r2-ch15b.py	instrument	HELD	
+r2-ch15c.py	instrument	HELD	
+r2-ch15d.py	instrument	HELD	
+r2-ch15e.py	instrument	HELD	
+r2-ch15f.py	instrument	HELD	
+r2-ch15g.py	instrument	HELD	
+r2-ch15h.py	instrument	HELD	
+r2-ch15i.py	instrument	HELD	
+r2-ch15j.py	instrument	HELD	
+r2-ch15k.py	instrument	HELD	
+r2-ch15l.py	instrument	HELD	
+r2-ch15m.py	instrument	HELD	
+r2-ch15n.py	instrument	HELD	
+r2-ch15o.py	instrument	HELD	
+r2-ch15p.py	instrument	HELD	
+r2-ch15q.py	instrument	HELD	
+r2-ch15r.py	instrument	HELD	
+r2-ch15s.py	instrument	HELD	
+r2-ch15t.py	instrument	HELD	
+r2-ch15u.py	instrument	HELD	
+r2-ch15v.py	instrument	HELD	
+r2-ch15w.py	instrument	HELD	
+r2-ch15x.py	instrument	HELD	
+r2-ch15y.py	instrument	HELD	
+r2-ch15z.py	instrument	HELD	
+r2-ch16a.py	instrument	HELD	
+r2-ch16b.py	instrument	HELD	
+r2-ch16c.py	instrument	HELD	
+r2-ch16e.py	instrument	HELD	
+r2-ch16f.py	instrument	HELD	
+r2-ch16h.py	instrument	HELD	
+r2-ch16i.py	instrument	HELD	
+r2-ch16k.py	instrument	HELD	
+r2-ch16l.py	instrument	HELD	
+r2-ch16m.py	instrument	HELD	
+r2-ch16n.py	instrument	HELD	
+r2-ch16o.py	instrument	HELD	
+r2-ch16p.py	instrument	HELD	
+r2-ch16q.py	instrument	HELD	
+r2-ch16r.py	instrument	HELD	
+r2-ch16s.py	instrument	HELD	
+r2-ch16t.py	instrument	HELD	
+r2-ch16u.py	instrument	HELD	
+r2-ch16v.py	instrument	HELD	
+r2-ch16w.py	instrument	HELD	
+r2-ch16x.py	instrument	HELD	
+r2-ch16y.py	instrument	HELD	
+r2-ch16z.py	instrument	HELD	
+r2-ch17a.py	instrument	HELD	
+r2-ch17b.py	instrument	HELD	
+r2-ch17c.py	instrument	HELD	
+r2-ch17d.py	instrument	HELD	
+r2-ch17e.py	instrument	HELD	
+r2-ch17f.py	instrument	HELD	
+r2-ch18a.py	instrument	HELD	
+r2-ch18b.py	instrument	HELD	
+r2-ch19a.py	instrument	HELD	
+r2-ch19b.py	instrument	HELD	
+r2-ch2.py	instrument	HELD	
+r2-ch20a.py	instrument	HELD	
+r2-ch20b.py	instrument	HELD	
+r2-ch21a.py	instrument	HELD	
+r2-ch21b.py	instrument	HELD	
+r2-ch22a.py	instrument	HELD	
+r2-ch22b.py	instrument	HELD	
+r2-ch23a.py	instrument	HELD	
+r2-ch23b.py	instrument	HELD	
+r2-ch24a.py	instrument	HELD	
+r2-ch24b.py	instrument	HELD	
+r2-ch25a.py	instrument	HELD	
+r2-ch25b.py	instrument	HELD	
+r2-ch26a.py	instrument	HELD	
+r2-ch26b.py	instrument	HELD	
+r2-ch27a.py	instrument	HELD	
+r2-ch27b.py	instrument	HELD	
+r2-ch28a.py	instrument	HELD	
+r2-ch28b.py	instrument	HELD	
+r2-ch3.py	instrument	HELD	
+r2-ch34re.py	instrument	HELD	
+r2-ch6.py	instrument	HELD	
+r2-ch7.py	instrument	HELD	
+r2-ch8.py	instrument	HELD	
+r2-ch9.py	instrument	HELD	
+r2-chN.py	instrument	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+r2-lw1.py	instrument	HELD	
+r2-scf.py	instrument	HELD	
+r2-tb1.py	instrument	HELD	
+r2-tools.py	instrument	HELD	
+r2-warn.py	instrument	HELD	
+r2lib.py	instrument	HELD	
+r3-wl.py	instrument	HELD	
+r62_subs.py	instrument	HELD	
+ratios.py	instrument	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+rclose.py	instrument	HELD	
+register_cites.py	instrument	HELD	
+register_gen.py	instrument	HELD	
+register_review.py	instrument	HELD	
+regsize.py	instrument	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+rop.py	instrument	HELD	
+rop16.py	instrument	HELD	
+rop_fam.py	instrument	HELD	
+roundtrip.py	instrument	HELD	
+routh_check.py	instrument	HELD	
+ruled_bracket.py	instrument	HELD	
+run489.py	instrument	HELD	
+run489_45.json	data	HELD	
+run489_anomalies.json	data	HELD	
+run489_final.json	data	HELD	
+run489_results.json	data	IN-CHAT	2026-08/19f0d9d5-fc9b-49ba-ae18-4d247ca50c83.json
+scorer.py	instrument	HELD	
+seedcensus.py	instrument	HELD	
+seedenum3.py	instrument	HELD	
+series_gen.py	instrument	HELD	
+shape.py	instrument	HELD	
+sixpair_screen.py	instrument	HELD	
+spectra.md	other	IN-CHAT-BODY	2026-08/21fd1134-011f-4a2d-afa0-8ccc66780c91.json
+spectra.py	instrument	HELD	
+spectra_F.py	instrument	HELD	
+spectra_count.py	instrument	HELD	
+split.py	instrument	HELD	
+src.md	other	IN-CHAT-BODY	2026-08/3851d6dc-a805-49de-a922-d81e36fba67c.json
+standing.py	instrument	HELD	
+stat_lang.py	instrument	HELD	
+statlang.py	instrument	HELD	
+status.py	instrument	HELD	
+store_gen.py	instrument	HELD	
+subclose.py	instrument	HELD	
+sudoku3.py	instrument	HELD	
+sudoku_index.py	instrument	HELD	
+tb_audit.py	instrument	HELD	
+termaxis.py	instrument	HELD	
+termsmod.py	instrument	HELD	
+tmp.md	other	IN-CHAT	2026-08/0015184d-d9fb-4917-9ad2-2ebafb232a9f.json
+tower-2.py	instrument	HELD	
+tower.py	instrument	HELD	
+tower3.py	instrument	HELD	
+tower_2.py	instrument	IN-CHAT	2026-08/03358ff8-a853-49c0-b5d1-4aa02c7f9bd2.json
+traj_index.py	instrument	HELD	
+trajectory.py	instrument	HELD	
+transitions_intake.py	instrument	HELD	
+trueres.py	instrument	HELD	
+twoheur.py	instrument	HELD	
+v2.bak.tsv	data	IN-CHAT	2026-08/56f46bcd-0731-453d-a01b-e0d535a4c7da.json
+vi_best.json	data	HELD	
+vi_best2.json	data	HELD	
+vi_decorrelate.py	instrument	HELD	
+vi_final.py	instrument	HELD	
+w104.py	instrument	HELD	
+walk.py	instrument	HELD	
+xray_index.py	instrument	HELD	
+zeno.py	instrument	HELD	

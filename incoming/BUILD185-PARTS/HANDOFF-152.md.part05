@@ -1,0 +1,26 @@
+  `gate.py manifest` needs `--comp <bundle>`. `gate.py cert` PREPENDS `GATE-ch` — pass `152close`, not
+  `ch152close`.
+
+## Drive state
+
+- Materials holds **BUILD185-PARTS** (`1NCo4Xx3bMPz5nWvoxySAh8EeEZHAbPeY`) — eighteen parts and `REBUILD-BUILD185.md`,
+  from which BUILD185 rebuilds from BUILD184 + these parts with **no upload by M**. BUILD184 is in Materials whole
+  (`1GcPBhK-zhPxC24K4HGxHhvMzq8DntdC2`), so **no REBUILD chain is needed** — the 180→184 chain is now only a fallback.
+- Materials also holds **DOCKET-152** (`1evwdFccRKHlhrb0KUfNWMCrvQEydsUQH`) — the four-part ruling docket M ruled on.
+- **Verification level of those uploads, stated honestly:** every returned `fileSize` matches the local byte count —
+  the check that caught both wrong uploads in BUILD183 — but **no md5 read-back was performed**, which is weaker
+  than BUILD184's `verify184.py`. A Claude Code session with credentials should re-verify the folder.
+- **BUILD185 itself is not in Drive as a single file.** If M wants it there, it must be uploaded by M or written by
+  a session with a credentialed Drive route.
+
+## The prompt for R3
+
+> You are R3, resuming The Method 1.6 in Claude Code. The repository is the store of record. Read
+> `method/HANDOFF-152.md` first, then `members/RULINGS-R2.md`, `members/DOCKET.md`, `members/DEFERRED.md` and
+> `members/WORKING-REGISTER.md`, last blocks first. Run `method/bin/stage-gate`, then the §0 gate against
+> BUILD90 + BUILD185 and assert both md5s; `python3 method/verify.py` must print VERIFY OK before anything else.
+> DEF-143 item 11's order is empty and no re-derivation is owed. Your work is DEF-152 items 1–9 in the order
+> HANDOFF-152 gives them: the four Register entries M's rulings require, then 32a-03's docket-38 qualification on
+> the §2.21 readout class, then the two open census bodies (mc 387–672, mc 293). Every ruling becomes a NEW Register
+> entry citing the entry it corrects; the volume follows the entry, never the other way round (RUL-128 item 1).
+> Nothing is patched into agreement, and the append-only rule is absolute.

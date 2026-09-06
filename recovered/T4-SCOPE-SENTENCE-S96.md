@@ -1,0 +1,3 @@
+# T4 SCOPE SENTENCE -- s96 amendment to the s95 draft (for M's approval). Only the V5 clause changes:
+"... and the second-order estimate in the field's own orbitals (V5) is an estimate with a 10-40% literature envelope, not a bound: at the five rows 38, 56, 72, 89, 105 the entrant-pair correlation differential widens the decided margin by +0.04 to +0.11 Ha (1.2-2.0 times the margin) and flips none; the core-core differential at the s->d collapse rows contains the near-degenerate s^2->d^2 term and is not a perturbative quantity -- it is named, not estimated. ..."
+## Rest of the s95 wording unchanged (Law B domain Z<=112; above 112 by attribution pending the item-5 Dirac ruling).

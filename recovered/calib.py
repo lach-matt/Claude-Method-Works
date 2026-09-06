@@ -1,0 +1,42 @@
+import math, statistics as st, json
+import numpy as np
+src=open("/tmp/xlim2.py",encoding="utf-8").read()
+src=src[:src.index('print("  x AT EVERY ELECTRON COUNT')]
+g={}; exec(src,g)
+cfg=g["cfg"]; cp_=g["cp_"]; L="spdfg"
+print("  CALIBRATION FROM THE ATOMIC INDEX, NOT FROM THE FIT\n")
+print("  1 · M — THE CEILING.  The Pauli bound is EXACT: ⌊δ⌋ ≤ p.\n")
+print("      so δ < p+1, and δ/√p < (p+1)/√p.")
+print("      that bound is minimised over p, and the minimum is the CEILING\n")
+print(f"      {'p':>3}{'(p+1)/√p':>12}")
+best=None
+for p in range(1,9):
+    v=(p+1)/math.sqrt(p)
+    print(f"      {p:>3}{v:>12.4f}")
+    if best is None or v<best[0]: best=(v,p)
+print(f"\n      minimum {best[0]:.4f} at p = {best[1]}   ·   fitted M = 1.5451")
+print(f"      ratio {1.5451/best[0]:.4f}\n")
+print("      → the Pauli bound gives 2 as the ceiling on δ/√p; M = 1.545 sits")
+print("        BELOW it, so M is not the Pauli bound. It is a real maximum.\n")
+print("  2 · u₀ — WHERE IS THE PEAK, IN THE INDEX'S OWN TERMS?\n")
+print("      u₀ = 3.985 ⇒ Nₑ/c^(2/3) = 53.8.  For a NEUTRAL that is Nₑ = 54.\n")
+print("      Nₑ = 54 is XENON — the last noble gas before the 4f block opens.")
+print("      and the next shell to fill after Xe is 6s, then 4f.\n")
+for ne in (36,54,86,18,10,2):
+    cf=cfg(ne,1)
+    print(f"      Nₑ = {ne:>3} : " + " ".join(f"{n}{L[l]}{o}" for n,l,o in cf if o>0))
+print()
+print("  3 · σ — THE WIDTH.  What sets it in the index?\n")
+print("      the amplitude falls to 1/e of M at u = u₀ ± σ√2 = 3.985 ± 2.434")
+print(f"      that is Nₑ/c^(2/3) from {math.exp(3.985-2.434):.1f} to {math.exp(3.985+2.434):.1f}")
+print(f"      for neutrals: Nₑ from {math.exp(3.985-2.434):.0f} to {math.exp(3.985+2.434):.0f}\n")
+print(f"      Nₑ = {math.exp(3.985-2.434):.1f} is between B (5) and C (6)")
+print(f"      Nₑ = {math.exp(3.985+2.434):.0f} is beyond the table\n")
+print("  4 · THE EXACT NUMBERS THE INDEX SUPPLIES\n")
+print("      noble gas closures : 2, 10, 18, 36, 54, 86")
+print("      their logs         : " + " ".join(f"{math.log(z):.3f}" for z in (2,10,18,36,54,86)))
+print(f"      u₀ = 3.985  ·  ln 54 = {math.log(54):.4f}  ·  ratio {3.985/math.log(54):.4f}")
+print(f"      ln 36 = {math.log(36):.4f}   ln 86 = {math.log(86):.4f}")
+print()
+print("      → u₀ = ln 54 to 0.1%.  the peak of penetration sits at the")
+print("        XENON closure — the last full shell before the f block.")

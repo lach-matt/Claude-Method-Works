@@ -1,0 +1,3 @@
+RUN LOG session 24. Gates 1-18 PASSED (values as README-18..23). Item (1): t7c_cuaudit_run FENT 0.5 (Cu Cs Sc gate) and 1.0; zeta_3d via t7c_so.zeta.
+Item (2): t7c_ownshell_run C (Sc Fe), D on Sc Fe Ti Cr Ni La Cu Cs Y Gd Lu Dy Tm Yb Er (f grid 0.001..1.0; Sc also 0.02 0.1); janak_table.py; exent.py on 15 rows.
+All runs foreground, timeout 200, jsonl append/resumable. Faults: F24.1 (Cu residual limit cycle; E stable). Runner fault (Cs/Y meas) repaired before reading.

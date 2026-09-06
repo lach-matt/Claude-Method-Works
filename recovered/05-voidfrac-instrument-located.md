@@ -1,0 +1,11 @@
+SOURCE: working chat, Request 5 (MC-10 / L.voidfrac population, M directing), 2026-08-28
+ARTEFACT: TRANSCRIPT-ONLY (retrieval from session 3851d6dc)
+TITLE: THE 776-MILLION-PAIR INSTRUMENT IS method_tower.py, NAMED IN THE 1.6 SESSION AND ABSENT FROM RESTORE-PACK A — AND L.voidfrac IS REGISTERED WITH check=None, THE UNWIRED ENTRY THAT LET THE FIGURE SURVIVE UNREPRODUCED.
+BODY:
+The instrument named. *Session 3851d6dc's verification table states six objects are recomputable from method_tower.py and were not run, listing L.voidfrac's 776 million pairs by name beside K.cat's 41,682 composable pairs and K.clock's 739 steps.* **The 776M run and Figure 10.1 belong to method_tower.py's driver. Chat 57's search of restore-pack A (340 files) found mathreg.py, which states the figures without computing them, so the instrument lies in method16_rp_B or method16_rp_C — the unsearched thirds of the 1.6 split restore point in the Drive project folder, unindexable inside tar.gz, requiring local extraction with the filename now known.**
+
+The register finding. *Retrieved verbatim from the 1.6 transcript: R("L.voidfrac", "void-free fraction 27.7–30.1% across 776M pairs; joint 30.13% vs product 20.19%, factor 1.49", "at stated caps", ["L.void"], "M §10.2", "COMPUTED", check=None).* **The entry exists and is unwired: every neighbouring entry in view carries a check hook and L.voidfrac alone carries check=None, which is how a load-bearing figure passed every gate unreproduced. Its condition field reads "at stated caps" while the cited §10.2 states no caps — the condition points at a statement that does not exist.**
+
+What this session could not do, named rather than glossed: **extraction of packs B and C was not attempted — the session reached its context ceiling; the cap list, pair convention, per-constraint rates and Figure 10.1's points remain inside the driver. Until reopened, MC-10's honest form is chat 57's fallback: the base-cap instance 1.4081 at 976 cells exhaustive, with 1.49 cited as a measurement at a population named method_tower.py but not yet reopened. The seventeenfold-versus-hundredfold caption question also waits on the driver's plot data.**
+
+Next session, first segment: pull method16_rp_B and method16_rp_C, extract locally, locate method_tower.py and its driver, run the caps, close A through C.

@@ -1,0 +1,6 @@
+id	verdict	reason
+1085	not a defect	L4377. "a quantity the method never uses" is exact scope, not overgeneralisation: the containment bracket depends only on monotonicity of T, so V is never consumed by the method. Verified against L4363 and L4370.
+1086	not a defect	L4380. "the tripwire has never run on anyone else's data" is a quoted referee flag, restated in order to be answered; the reply concedes it and answers with full specification instead of a run.
+1087	not a defect	L4461. "The computation never ran" is factual for the worked case at L4459: every channel had T = I - E <= 0 and was refused at entry, so no computation followed.
+1088	not a defect	L4463. "almost never reorderable" is quoted as the false conclusion the guard bug produced, and is presented as the error, not asserted.
+1089	not a defect	L4468. "data that was never measured" is exact: the silent discard removed the cells, so the relations checked out on what remained. This is the point of the D3 argument.

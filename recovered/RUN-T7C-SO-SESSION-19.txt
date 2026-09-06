@@ -1,0 +1,9 @@
+RUN T7C-SO session 19 -- FIRST-ORDER spin-orbit level term on the SR-pol TS object. zeta_nl=(alpha^2/2)<P|r^-1 dV/dr|P>, c=137.035999. Ha. No constant, no measured input.
+Gate: hydrogenic zeta_2p ratio 1.00007 (Z=1), 1.0065 (Z=10; SR contraction). 5d E_ts regenerates banked t7c_pol rows exactly.
+Lr I 7p-6d (TS on Lr core 102, tail 1): E7p -0.13279 E6d -0.14310 d0 +0.01031 | zeta_7p 0.0350 zeta_6d 0.01122 | 7p1/2 -0.0350, 6d3/2 -0.01683 | d1 = -0.00786.
+  PL1 HOLDS: 7p1/2 < 6d3/2 reached; delta d -0.018 in [-0.030,-0.005]. The Eliav 1995 / Sato 2015 order is derived. 7p fine-structure 1.5*zeta = 0.0525 Ha (unverified vs literature; no network).
+5d edge (neutral TS, chan u):  el  zeta_5d  shift_5d32   t7c_pol   corr    meas    dev0->dev1
+                                La 0.00308  -0.00463    -0.2079  -0.2125  -0.2386  +12.9 -> +10.9
+                                Gd 0.00490  -0.00735    -0.2097  -0.2170  -0.2417  +13.2 -> +10.2
+                                Lu 0.00554  -0.00831    -0.1693  -0.1776  -0.1994  +15.1 -> +10.9
+  PL2 HOLDS on direction and La->Lu growth; magnitude: Gd, Lu in [0.005,0.015], La 0.0046 BORDERLINE under the stated floor. Edge not closed, as predicted; ~0.025 Ha remains, same sign, series-wide.

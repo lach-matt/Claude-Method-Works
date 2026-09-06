@@ -1,0 +1,15 @@
+# Al IV — NIST ASD 5.12, ref L4714 · Z=13, 10 electrons, Ne-like
+# limit NOT printed; DERIVED by the lowest-rms rule (register 1064)
+# the 2p5.(2P*3/2).nl series; n=3 members carry LS labels, n>=4 jK labels, same series
+config	term	J	level_cm1
+3s	2[3/2]*	2	616644.2
+4s	2[3/2]*	2	801882.3
+5s	2[3/2]*	2	870991.9
+3d	2[1/2]*	0	759193.4
+4d	2[1/2]*	0	851722.1
+4f	2[3/2]	1	857409.6
+5f	2[3/2]	1	897197.1
+4f	2[9/2]	5	857642.7
+5f	2[9/2]	5	897324.7
+4f	2[5/2]	3	857810.5
+5f	2[5/2]	3	897416.8

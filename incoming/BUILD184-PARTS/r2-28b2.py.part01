@@ -1,0 +1,71 @@
+check('both sentences sit inside R.7 L11806-L11840 and OUTSIDE both chapters',
+      all(11806 <= x <= 11840 and not (C35[0] <= x <= C36[1]) for x in S35 + S36), True)
+LB = (11807, 11816); TB = (11818, 11840)
+def bullets(lo, hi): return [i for i in range(lo, hi + 1) if M[i - 1].strip().startswith('·')]
+BL, BT = bullets(*LB), bullets(*TB)
+check('Löwdin block L11807–L11816: bullet works', len(BL), 8)
+check('three-body block L11818–L11840: bullet works', len(BT), 21)
+
+# ------------------------------------------------------------------------------ §2
+hr('§2 REGISTER 1721, READ FIRST AND IN FULL — what DEFERRED asked for before any decision')
+IDX = {}
+for i, l in enumerate(R, 1):
+    m = re.match(r'^###\s+(\d+)\s*$', l)
+    if m: IDX[int(m.group(1))] = i
+KS = sorted(IDX)
+def span(n):
+    s = IDX[n]; return s, next((IDX[k] for k in KS if IDX[k] > s), len(R) + 1) - 1
+def rbody(n):
+    s, e = span(n); return norm(' '.join(x for x in R[s:e] if x.strip()))
+s21, e21 = span(1721)
+print('   register 1721 L%d–L%d:' % (s21, e21))
+for ln in [x for x in R[s21:e21] if x.strip()]: print('     %s' % norm(ln))
+B21 = rbody(1721)
+check('1721 states eight questions and seven closed to named owners',
+      ('EIGHT ATTRIBUTION QUESTIONS' in B21) and ('seven closed to named owners' in B21), True)
+check('1721 says the questions were formed from residue BEFORE deriving, citing §E.5',
+      ('formed from residue before deriving' in B21) and ('§E.5' in B21), True)
+GRP = re.search(r'named owners: (.*?)\.\*?', B21).group(1).split(', ')
+print('   1721 lists %d owner-groups: %s' % (len(GRP), GRP))
+print('   THE READING: 1721 records the ATTRIBUTION ACT — questions formed, owners named — and cites §E.5 as')
+print('   the method. It is a Register act, and the chapter states the same act in its own words (§3 below).')
+
+# ------------------------------------------------------------------------------ §3
+hr('§3 THE THREE-BODY BLOCK — every bullet\'s names and years, read out of the block itself')
+Y = r'(?:1[6-9]\d\d|20[0-2]\d)'
+NM = re.compile(r"(?<![A-Za-zÀ-ÿ'’\-])([A-ZÀ-Þ][A-Za-zà-ÿ'’\-]{2,})")
+STOP = set('''The Novi Comm Acad Sci Petrop Prix Roy Paris Mem Mém Berlin Ann École Norm Sup Trans AMS Arch Ration
+Mech Anal Invent Math Nonlinearity Nature CMDA MNRAS Celest Vorlesungen Dynamik Leçons Sbornik USSR Moscow Soc
+Amer Monthly Diff Eq Phys Rev Lett Inf Artif Intell Three-Body Problem Unknown Masses Solution Some Die
+Mathematischen Hilfsmittel Physikers Springer Chem Int Mol Quantum Handbook'''.split())
+def work(i):
+    t = re.split(r'\s—\s', re.sub(r'[*_`]', '', M[i - 1]))[0]
+    nms = [n for n in NM.findall(t) if n not in STOP]
+    yrs = sorted({int(y) for y in re.findall(Y, t)})
+    return nms, yrs
+BLOCKY = {}
+for i in BT:
+    nms, yrs = work(i)
+    for n in nms:
+        if yrs: BLOCKY[n] = max(BLOCKY.get(n, 0), max(yrs))
+    print('   L%-6d %-44s %s' % (i, ','.join(nms[:6]), yrs))
+MGY = BLOCKY.get('Montgomery', 0)
+check("Montgomery's latest year in the block", MGY, 2015)
+check('the block carries 2026 works (the companion paper)', max(BLOCKY.values()), 2026)
+
+# ------------------------------------------------------------------------------ §4
+hr('§4 WHERE EACH NAME LIVES — Chapter 36, registers 1713–1724, 1721 alone, or nowhere')
+def blk(a, b): return norm(' '.join(R[span(a)[0]:span(b)[1]]))
+TBREG = blk(1713, 1724); ELSE = blk(1713, 1720) + ' ' + blk(1722, 1724)
+def has(txt, nm): return bool(re.search(r'(?<![A-Za-zÀ-ÿ])' + re.escape(nm), txt))
+NAMES = sorted(BLOCKY)
+inch = [n for n in NAMES if has(J36, n)]
+nowhere = [n for n in NAMES if not has(J36, n) and not has(TBREG, n) and n != 'Lach']
+only21 = [n for n in NAMES if not has(J36, n) and has(B21, n) and not has(ELSE, n)]
+for n in NAMES:
+    print('   %-12s ch36 %-4s 1713–24 %-4s 1721 %-4s  block year %d' %
+          (n, 'YES' if has(J36, n) else '.', 'YES' if has(TBREG, n) else '.', 'YES' if has(B21, n) else '.', BLOCKY[n]))
+check('block names PRESENT in Chapter 36', inch,
+      ['Brudno', 'Chenciner', 'Euler', 'Jacobi', 'Lagrange', 'Maupertuis', 'Montgomery', 'Moore', 'Painlevé', 'Saari'])
+check('block names in NEITHER Chapter 36 nor 1713–1724 (READ-ch28b measured nine)', nowhere,
+      ['Arnold', 'Chazy', 'Fleischer', 'Hsiang', 'Knauf', 'Kolmogorov', 'McGehee', 'Nash', 'Straume'])

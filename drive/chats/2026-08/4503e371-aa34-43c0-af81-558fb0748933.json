@@ -1,0 +1,122 @@
+{
+  "uuid": "4503e371-aa34-43c0-af81-558fb0748933",
+  "name": "",
+  "summary": "",
+  "created_at": "2026-08-24T19:17:10.083499Z",
+  "updated_at": "2026-08-24T19:39:40.334870Z",
+  "account": {
+    "uuid": "b44b80ef-cbad-492a-8346-4f16631749fd"
+  },
+  "chat_messages": [
+    {
+      "uuid": "01a03534-889d-76dc-be74-04ff60065fda",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-24T19:17:11.099183Z",
+      "updated_at": "2026-08-24T19:17:11.099183Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "01a03534-889d-7700-9ec1-06d3574f03d3",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-24T19:17:43.794061Z",
+      "updated_at": "2026-08-24T19:17:43.794061Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03534-889d-76dc-be74-04ff60065fda"
+    },
+    {
+      "uuid": "01a03535-2ffc-7d5a-98c6-d8778ebc1bc1",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-24T19:17:54.738825Z",
+      "updated_at": "2026-08-24T19:17:54.738825Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03534-889d-7700-9ec1-06d3574f03d3"
+    },
+    {
+      "uuid": "01a03535-2ffc-7d70-af11-7a347498d20b",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-24T19:25:45.198203Z",
+      "updated_at": "2026-08-24T19:25:45.198203Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03535-2ffc-7d5a-98c6-d8778ebc1bc1"
+    },
+    {
+      "uuid": "01a0353d-7cac-7174-86ae-a8b9af6681cd",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-24T19:26:59.127398Z",
+      "updated_at": "2026-08-24T19:26:59.127398Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03535-2ffc-7d70-af11-7a347498d20b"
+    },
+    {
+      "uuid": "01a0353d-7cac-7189-9b55-eb49c6fe7381",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-24T19:32:33.298704Z",
+      "updated_at": "2026-08-24T19:32:33.298704Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0353d-7cac-7174-86ae-a8b9af6681cd"
+    },
+    {
+      "uuid": "01a03542-a3eb-7563-974a-99d8c29f8273",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-24T19:32:36.555126Z",
+      "updated_at": "2026-08-24T19:32:36.555126Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0353d-7cac-7189-9b55-eb49c6fe7381"
+    },
+    {
+      "uuid": "01a03542-a3eb-7573-a21f-e3a53e67d093",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-24T19:34:16.381785Z",
+      "updated_at": "2026-08-24T19:34:16.381785Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03542-a3eb-7563-974a-99d8c29f8273"
+    },
+    {
+      "uuid": "01a03545-9bf8-7dbd-a9df-dc9b2195c4b7",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-24T19:35:50.853722Z",
+      "updated_at": "2026-08-24T19:35:50.853722Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03542-a3eb-7573-a21f-e3a53e67d093"
+    },
+    {
+      "uuid": "01a03545-9bf8-7dd5-919b-09b9a04f0813",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-24T19:36:01.321590Z",
+      "updated_at": "2026-08-24T19:36:01.321590Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03545-9bf8-7dbd-a9df-dc9b2195c4b7"
+    }
+  ]
+}

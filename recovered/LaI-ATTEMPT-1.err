@@ -1,0 +1,14 @@
+# La I — ATTEMPT 1, ERROR PAGE. Recorded as received, R 1639.
+# sent:        https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=La+I&submit=Retrieve+Data
+# destination: https://physics.nist.gov/cgi-bin/ASD/energy1.pl?spectra=La+I&submit=Retrieve+Data
+# MATCH — the request reached NIST unaltered.
+#
+# NIST ASD : Input Error
+# Error Message: Unknown parameter
+#
+# WHAT THIS RULES OUT: the RANGE syntax. `La I` is the form's own example
+# format, a single spectrum, and it fails identically to `K-Co`. Six fetches
+# were spent on the range hypothesis and it was never the fault.
+#
+# WHAT REMAINS: two parameters were sent. `spectra` is certainly valid — it is
+# named in the form. So `submit=Retrieve+Data` is the unknown one.

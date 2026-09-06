@@ -1,0 +1,39 @@
+# REBUILD-BUILD185.md — how BUILD185 is rebuilt from Drive alone, with no upload by M
+
+Written by chat 152. **BUILD185 is not in Drive as a single file**: a 6.0 MB bundle cannot be created through the
+Drive connector, which takes content inline only. It does not need to be. BUILD185 is *bit-exactly determined* by
+**BUILD184**, which M uploaded whole to Materials as `The_Method_1_6_BUILD184_compendia_papers_audits.md`
+(fileId `1GcPBhK-zhPxC24K4HGxHhvMzq8DntdC2`, **5,977,919 B · md5 d4350094449e3a4bf488315e21199bd4**), plus the
+thirteen parts in this folder. **No REBUILD chain is needed** — BUILD184 is fetched by fileId and asserted, and the
+180→184 chain in BUILD180-PARTS … BUILD184-PARTS is now only a fallback if that md5 ever disagrees.
+
+**Every part below was uploaded by Claude and read back byte-for-byte against the copy that went into the build.**
+
+## Inputs
+
+| object | where | bytes | md5 |
+|---|---|---|---|
+| BUILD90 main | Materials, `1lJ9R3vqAz3TNriJOyxJIKJGh5HqwY7GH` | 1,983,081 | 49065309b0c4fe8e055f693aed295cca |
+| BUILD184 compendia | Materials, `1GcPBhK-zhPxC24K4HGxHhvMzq8DntdC2` | 5,977,919 | d4350094449e3a4bf488315e21199bd4 |
+| W-194.md.part00 / .part01 | this folder | 4,635 / 3,838 | 8840da56… / 00f3b949… |
+| DEF-152.md.part00 / .part01 | this folder | 3,361 / 3,066 | 9c08cad0… / 3b42ee68… |
+| DOCKET-152.md.part00 / .part01 | this folder | 2,642 / 2,277 | c10e288c… / b55282d7… |
+| READ-32a.md.part00 / .part01 / .part02 | this folder | 3,368 / 3,357 / 3,229 | ce77f192… / 4ed70514… / e1ca49e9… |
+| CENSUS-CLOSURES-32a.tsv | this folder | 301 | f72818a3dc011cb6fa7ab383fd23b6c3 |
+| r2-32a.py.part00 … .part04 | this folder | 4,474 / 4,510 / 4,449 / 4,563 / 4,364 | 06075416… / 8a7f7bdf… / 29b81acc… / 6275ebce… / 3d0974e2… |
+
+Reassemble first, each `cat` in part order:
+`W-194.md` (**8,473 B, `caffe734a4126504ea60c12816c7293b`**), `DEF-152.md` (**6,427 B,
+`2b8a23f18b996c3cda6288b4f1c34e62`**), `DOCKET-152.md` (**4,919 B, `b8d3bf5876ffc73e1c5b71bf01406089`**),
+`READ-32a.md` (**9,954 B, `7a36f9b4f0f32ef0546a821fa07e011b`**), `r2-32a.py` (**22,360 B,
+`15a9047af4a637eb7bdb05d0ea982878`**, 306 lines).
+
+Parts are capped near 4.6 KB and **every** close member is split, which is BUILD183-PARTS' standing structural fix:
+`base64Content` removes the *transport* failure mode but not the *transcription* one, and at 8–10 KB of base64 that
+segment produced two wrong uploads in four attempts. Each split is `split -n l/N` at line boundaries and every
+concatenation was verified to reproduce its file exactly before any part was uploaded.
+
+## Steps
+
+0. **Fetch BUILD90 and BUILD184 by fileId and assert both md5s.** The Drive connector returns base64 that spills to
+   a local file; decode with `validate=True`. Extract 359 members (2 + 357). **Assert MANIFEST.tsv 24,056 B /

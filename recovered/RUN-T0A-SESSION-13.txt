@@ -1,0 +1,9 @@
+tfdw4 region-split lam(s) probe (probe13a.py; core N stated; probe electron eigenvalue via eigen_fix). Ha. d = E(second)-E(first).
+Probe gate: TFD baseline tfd.potential(Z,charge) regenerates RUN-12 (Ca II 4s -0.4206 3d -0.3753; Sr II -0.4161/-0.4183; Ce IV -0.9790/-0.8157);
+            probe13.py at lam=1/9 regenerates RUN-12 Ca II (mu -0.893, 4s -0.4611, 3d -0.4109). PASSED before any (a) number read.
+Ca II  Z20 N18 R10  mu -1.106 r_switch 1.635  4s=-0.5092 3d=-0.4819 d=+0.0272   [hold]        HOLDS
+Sr II  Z38 N36 R8   mu -0.985 r_switch 1.972  5s=-0.5055 4d=-0.5193 d=-0.0138   [meas 5s .07] WRONG WAY (repair of lam=1/9 lost)
+Ra II  Z88 N86 R8   mu -0.885 r_switch 2.339  7s=-0.3759 6d=-0.3924 d=-0.0166   [meas 7s .055] wrong way (as TFD/lam=1)
+Ce IV  Z58 N54 R8   mu -2.033 r_switch 1.789  5d=-1.1070 4f=-0.9945 d=+0.1125   [meas 4f .227] toward, does not close (=lam=1's .1106)
+Pr V   Z59 N54 R8   mu -2.690 r_switch 1.655  5d=-1.5537 4f=-1.6252 d=-0.0716   [meas 4f .524] flips to measured order (as lam=1)
+Th IV  Z90 N86 R8   mu -1.884 r_switch 1.979  6d=-1.0686 5f=-1.1603 d=-0.0918   [hold]        HOLDS

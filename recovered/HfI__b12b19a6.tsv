@@ -1,0 +1,305 @@
+# Hf I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Hf+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Hf+I confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Hf II (5d.6s2 2D<3/2>)  55047.9 cm-1
+#
+# 5d2.6s2 ground. NO Rydberg series at all — the whole table is
+# configuration mixing among 5d/6s/6p/7s. Zero one-electron-outside
+# structure, so R 1597's keyability bound refuses the species entirely.
+# Captured regardless; the refusal is the index's, not the data's.
+#
+# ** A TERM NOTATION NO OTHER SPECIES USES: FOUR-DIGIT NUMBERS.
+#    "3499", "3512", "4384*", "4426*", "4514*", "4546*", ... "5812*".
+#    Each equals the level's own energy in cm-1 rounded to the nearest
+#    ten — 3499 sits at 34991.659, 5812* at 58115.295. NIST is naming
+#    the level BY ITS ENERGY because no term could be assigned. **
+#
+#    ** THAT IS THE END POINT OF THE NOTATION SEQUENCE THIS FETCH HAS
+#       BEEN TRACKING. Letters distinguish terms sharing a symbol;
+#       digits distinguish them further; angle brackets and query marks
+#       mark uncertainty; and here the term collapses entirely and the
+#       level is labelled by the only thing known about it — where it
+#       is. FIFTY-SEVEN such rows. **
+#
+# Also present: DOUBLE-LETTERED PARENTS in the configuration, deeper
+# than Zr I's — "5d2.(a 3F).6s.(a 4F).6p" carries TWO lettered parents
+# in one configuration string.
+# One J written "1 or 2". Query marks on terms (5P?, 5F?, 3F?) and
+# configurations (6s2.6p2?). Two levels above the limit.
+#
+# The LS-termed block is transcribed. The 57 energy-labelled rows are
+# NOT — they carry no L, no S, no channel.
+#
+# config	term	J	level_cm1
+5d2.6s2	a 3F	2	0.0000
+5d2.6s2	a 3F	3	2356.6756
+5d2.6s2	a 3F	4	4567.6413
+5d2.6s2	a 3P	0	5521.7776
+5d2.6s2	a 3P	1	6572.5498
+5d2.6s2	a 3P	2	8983.7652
+5d2.6s2	a 1D	2	5638.6151
+5d2.6s2	a 1G	4	10532.5690
+5d2.6s2	1S	0	20328.402
+5d3.(b 4F).6s	a 5F	1	14092.2938
+5d3.(b 4F).6s	a 5F	2	14740.6924
+5d3.(b 4F).6s	a 5F	3	15673.341
+5d3.(b 4F).6s	a 5F	4	16766.637
+5d3.(b 4F).6s	a 5F	5	17901.320
+5d3.(b 4F).6s	b 3F	2	23327.739
+5d3.(b 4F).6s	b 3F	3	25281.843
+5d3.(b 4F).6s	b 3F	4	27074.542
+5d3.(b 4P).6s	a 5P	1	20784.857
+5d3.(b 4P).6s	a 5P	2	20908.462
+5d3.(b 4P).6s	a 5P	3	22199.110
+5d3.(b 4P).6s	b 3P	1	28527.998
+5d3.(b 4P).6s	b 3P	2	30146.412
+5d3.(b 4P).6s	b 3P	0	30298.763
+5d3.(b 2G).6s	a 3G	3	22880.262
+5d3.(b 2G).6s	a 3G	4	23252.852
+5d3.(b 2G).6s	a 3G	5	24085.183
+5d3.(b 2G).6s	a 1G	4	30501.127
+5d3.(c 2D).6s	a 3D	1	23641.389
+5d3.(c 2D).6s	a 3D	2	25084.172
+5d3.(c 2D).6s	a 3D	3	26715.403
+5d3.(c 2D).6s	b 1D	2	31119.208
+5d3.(b 2P).6s	c 3P	0	25444.379
+5d3.(b 2P).6s	c 3P	1	26918.146
+5d3.(b 2P).6s	c 3P	2	28200.544
+5d3.(b 2P).6s	a 1P	1	32091.617
+5d3.(2H).6s	a 3H	4	25678.643
+5d3.(2H).6s	a 3H	6	26943.983
+5d3.(2H).6s	a 3H	5	27018.812
+5d3.(b 2F).6s	c 3F	3	31054.653
+5d3.(b 2F).6s	c 3F	4	31575.687
+5d3.(b 2F).6s	c 3F	2	31619.988
+5d3.(b 2F).6s	a 1F	3	34274.227
+5d3.(2D).6s	b 3D	3	36523.852
+5d3.(2D).6s	b 3D	2	37038.868
+5d3.(2D).6s	b 3D	1	37336.222
+5d3.(2D).6s	c 1D	2	38289.406
+5d.6s2.(a 2D).6p	z 1D*	2	10508.904
+5d.6s2.(a 2D).6p	z 3D*	1	14017.827
+5d.6s2.(a 2D).6p	z 3D*	2	16163.3602
+5d.6s2.(a 2D).6p	z 3D*	3	18381.5234
+5d.6s2.(a 2D).6p	z 3F*	2	14435.138
+5d.6s2.(a 2D).6p	z 3F*	3	14541.677
+5d.6s2.(a 2D).6p	z 3F*	4	18224.981
+5d.6s2.(a 2D).6p	z 3P*	1	18143.4034
+5d.6s2.(a 2D).6p	z 3P*	0	18270.133
+5d.6s2.(a 2D).6p	z 3P*	2	19791.3040
+5d.6s2.(a 2D).6p	z 1F*	3	23644.7563
+5d.6s2.(a 2D).6p	z 1P*	1	26463.9649
+5d.6s2.(a 2D).7s	d 3D	1	39546.371
+5d.6s2.(a 2D).7s	d 3D	2	40513.560
+5d.6s2.(a 2D).7s	d 3D	3	42061.620
+5d.6s2.(a 2D).7s	e 1D	2	46183.110
+5d.6s2.6d	3G	5	45448.119
+5d4	a 5D	0	39843.886
+5d4	a 5D	1	40618.647
+5d4	a 5D	2	41211.057
+5d4	a 5D	3	41739.415
+5d4	a 5D	4	42175.652
+5d4	b 3H	4	48022.230
+5d4	b 3H	5	49180.692
+5d4	h 3F	4	48220.762
+5d4	h 3F	3	48869.483
+5d4	h 3F	2	48991.455
+5d4	c 3G	4	48356.954
+5d4	c 3G	3	48599.011
+5d4	c 3G	5	49540.685
+5d4	h 3D	3	48809.787
+5d4	h 3D	2	48906.452
+5d4	h 3D	1	48982.191
+5d4	1G	4	51201.490
+5d4	5F	4	51390.770
+# --- DOUBLE-LETTERED PARENTS
+5d2.(a 3F).6s.(a 4F).6p	z 5G*	2	18011.0647
+5d2.(a 3F).6s.(a 4F).6p	z 5G*	3	19292.6984
+5d2.(a 3F).6s.(a 4F).6p	z 5G*	4	20960.1223
+5d2.(a 3F).6s.(a 4F).6p	z 5G*	5	22901.3837
+5d2.(a 3F).6s.(a 4F).6p	z 5G*	6	25462.114
+5d2.(a 3F).6s.(a 4F).6p	z 5F*	1	21738.7225
+5d2.(a 3F).6s.(a 4F).6p	z 5F*	2	22450.5521
+5d2.(a 3F).6s.(a 4F).6p	z 5F*	3	23448.6227
+5d2.(a 3F).6s.(a 4F).6p	z 5F*	4	24785.2649
+5d2.(a 3F).6s.(a 4F).6p	z 5F*	5	26202.5501
+5d2.(a 3F).6s.(a 4F).6p	z 5D*	0	24966.809
+5d2.(a 3F).6s.(a 4F).6p	z 5D*	1	25194.5090
+5d2.(a 3F).6s.(a 4F).6p	z 5D*	2	25634.2234
+5d2.(a 3F).6s.(a 4F).6p	z 5D*	3	26305.8081
+5d2.(a 3F).6s.(a 4F).6p	z 5D*	4	27516.4201
+5d2.(a 3F).6s.(a 4F).6p	y 3F*	2	27149.6642
+5d2.(a 3F).6s.(a 4F).6p	y 3F*	3	27654.3580
+5d2.(a 3F).6s.(a 4F).6p	y 3F*	4	30733.2723
+5d2.(a 3F).6s.(a 4F).6p	y 3D*	2	28267.4366
+5d2.(a 3F).6s.(a 4F).6p	y 3D*	1	28790.2720
+5d2.(a 3F).6s.(a 4F).6p	y 3D*	3	29996.8513
+5d2.(a 3F).6s.(a 4F).6p	z 3G*	3	28583.7248
+5d2.(a 3F).6s.(a 4F).6p	z 3G*	4	29246.6760
+5d2.(a 3F).6s.(a 4F).6p	z 3G*	5	30977.0338
+5d2.(a 3P).6s.(a 4P).6p	y 5D*	0	27231.770
+5d2.(a 3P).6s.(a 4P).6p	y 5D*	1	27533.7873
+5d2.(a 3P).6s.(a 4P).6p	y 5D*	2	29752.8870
+5d2.(a 3P).6s.(a 4P).6p	y 5D*	3	31342.5275
+5d2.(a 3P).6s.(a 4P).6p	y 5D*	4	31943.3435
+5d2.(a 3P).6s.(a 4P).6p	z 3S*	1	28047.9411
+5d2.(a 3P).6s.(a 4P).6p	y 3P*	0	28526.2274
+5d2.(a 3P).6s.(a 4P).6p	y 3P*	2	29401.4784
+5d2.(a 3P).6s.(a 4P).6p	z 5S*	2	31943.8516
+5d2.(a 3P).6s.(a 4P).6p	z 5P*	1	31952.2928
+5d2.(a 3P).6s.(a 4P).6p	z 5P*	2	33121.5094
+5d2.(a 3P).6s.(a 4P).6p	z 5P*	3	33139.1776
+5d2.(a 3P).6s.(a 4P).6p	x 3D*	1	33137.904
+5d2.(a 3P).6s.(a 4P).6p	x 3D*	2	34947.9749
+5d2.(a 3P).6s.(a 4P).6p	x 3D*	3	36609.883
+5d2.(a 3F).6s.(a 2F).6p	y 1D*	2	31610.8213
+5d2.(a 3F).6s.(a 2F).6p	y 3G*	3	32533.3746
+5d2.(a 3F).6s.(a 2F).6p	y 3G*	4	33994.7455
+5d2.(a 3F).6s.(a 2F).6p	y 3G*	5	35993.7702
+5d2.(a 3F).6s.(a 2F).6p	x 3F*	2	33538.1620
+5d2.(a 3F).6s.(a 2F).6p	x 3F*	3	33949.313
+5d2.(a 3F).6s.(a 2F).6p	x 3F*	4	36075.0722
+5d2.(a 3F).6s.(a 2F).6p	w 3D*	1	34596.5038
+5d2.(a 3F).6s.(a 2F).6p	w 3D*	2	36772.8864
+5d2.(a 3F).6s.(a 2F).6p	w 3D*	3	38407.849
+5d2.(a 3F).6s.(a 2F).6p	y 1F*	3	34877.0813
+5d2.(a 3F).6s.(a 2F).6p	z 1G*	4	38987.9197
+5d2.(a 1G).6s.(a 2G).6p	w 3F*	2	33994.8879
+5d2.(a 1G).6s.(a 2G).6p	w 3F*	3	35453.8381
+5d2.(a 1G).6s.(a 2G).6p	w 3F*	4	37269.8860
+5d2.(a 1G).6s.(a 2G).6p	z 3H*	4	34805.9335
+5d2.(a 1G).6s.(a 2G).6p	z 3H*	5	36419.298
+5d2.(a 1G).6s.(a 2G).6p	z 3H*	6	37301.637
+5d2.(a 1G).6s.(a 2G).6p	x 3G*	4	36850.091
+5d2.(a 1G).6s.(a 2G).6p	x 3G*	5	38845.497
+5d2.(a 1G).6s.(a 2G).6p	w 1F*	3	42395.693
+5d2.(a 1G).6s.(a 2G).6p	y 1G*	4	42453.760
+5d2.(b 1D).6s.(b 2D).6p	y 1P*	1	35284.327
+5d2.(b 1D).6s.(b 2D).6p	x 1F*	3	36237.353
+5d2.(b 1D).6s.(b 2D).6p	v 3D*	1	36949.271
+5d2.(b 1D).6s.(b 2D).6p	v 3D*	2	38325.477
+5d2.(b 1D).6s.(b 2D).6p	v 3D*	3	39193.9390
+5d2.(b 1D).6s.(b 2D).6p	x 3P*	0	37843.707
+5d2.(b 1D).6s.(b 2D).6p	x 3P*	1	38151.761
+5d2.(b 1D).6s.(b 2D).6p	x 3P*	2	39435.2034
+5d2.(b 1D).6s.(b 2D).6p	v 3F*	2	40194.4590
+5d2.(b 1D).6s.(b 2D).6p	v 3F*	3	43104.728
+5d2.(b 1D).6s.(b 2D).6p	v 3F*	4	45321.503
+5d2.(b 1D).6s.(b 2D).6p	x 1D*	2	41768.700
+5d2.(a 3P).6s.(a 2P).6p	u 3D*	1	39704.402
+5d2.(a 3P).6s.(a 2P).6p	u 3D*	2	40267.341
+5d2.(a 3P).6s.(a 2P).6p	u 3D*	3	40767.466
+5d2.(a 3P).6s.(a 2P).6p	x 1P*	1	40704.203
+5d2.(a 3P).6s.(a 2P).6p	w 3P*	0	41133.82
+5d2.(a 3P).6s.(a 2P).6p	w 3P*	1	41193.944
+5d2.(a 3P).6s.(a 2P).6p	w 3P*	2	42075.820
+5d2.(a 3P).6s.(a 2P).6p	w 1D*	2	43517.838
+5d2.(3F).6s.(a 4F).7s	b 5F	1	39286.213
+5d2.(3F).6s.(a 4F).7s	b 5F	2	39788.926
+5d2.(3F).6s.(a 4F).7s	b 5F	3	40882.107
+5d2.(3F).6s.(a 4F).7s	b 5F	4	42283.573
+5d2.(3F).6s.(a 4F).7s	b 5F	5	44132.048
+5d2.(3F).6s.(a 4F).7s	d 3F	2	41298.383
+5d2.(3F).6s.(a 4F).7s	d 3F	3	43489.327
+5d2.(3F).6s.(a 4F).7s	d 3F	4	44777.562
+5d2.(3P).6s.(a 4P).7s	e 3P	1	45270.151
+5d2.(3P).6s.(a 4P).7s	e 3P	2	45728.640
+5d2.(3P).6s.(a 4P).7s	c 5P	2	46860.761
+5d2.(3P).6s.(a 4P).7s	c 5P	1	46937.955
+5d2.(3P).6s.(a 4P).7s	c 5P	3	47938.463
+5d2.(3F).6s.(a 2F).7s	d 1F	3	48049.468
+5d2.(3F).6s.(a 2F).7s	i 3F	2	48459.099
+5d2.(3F).6s.(a 2F).7s	i 3F	3	48746.542
+5d2.(3F).6s.(a 2F).7s	i 3F	4	49005.416
+5d3.(b 4F).6p	y 5G*	2	40957.550
+5d3.(b 4F).6p	y 5G*	3	41422.491
+5d3.(b 4F).6p	y 5G*	4	42871.036
+5d3.(b 4F).6p	y 5G*	5	44537.517
+5d3.(b 4F).6p	y 5F*	1	43786.623
+5d3.(b 4F).6p	y 5F*	2	44503.737
+5d3.(b 4F).6p	y 5F*	3	45112.263
+5d3.(b 4F).6p	y 5F*	4	46289.706
+5d3.(b 4F).6p	y 5F*	5	47366.899
+5d3.(b 4F).6p	x 5D*	0	45533.42
+5d3.(b 4F).6p	x 5D*	1	45799.531
+5d3.(b 4F).6p	x 5D*	2	46170.176
+5d3.(b 4F).6p	x 5D*	3	47070.716
+5d3.(b 4F).6p	x 5D*	4	48047.920
+5d3.(b 4F).6p	w 3G*	3	46775.978
+5d3.(b 4F).6p	w 3G*	4	48236.200
+5d3.(b 4F).6p	w 3G*	5	49389.483
+5d3.(b 4F).6p	s 3D*	1	49204.119
+5d3.(b 4F).6p	t 3F*	2	50084.585
+5d3.(b 4F).6p	t 3F*	3	50354.571
+5d3.(b 4F).6p	t 3F*	4	52581.287
+5d3.(b 2G).6p	u 3F*	4	41175.411
+5d3.(b 2G).6p	u 3F*	3	41824.611
+5d3.(b 2G).6p	u 3F*	2	42302.129
+5d3.(b 2G).6p	x 1G*	4	43794.647
+5d3.(b 2G).6p	v 1F*	3	44049.269
+5d3.(b 2G).6p	v 3G*	3	47931.884
+5d3.(b 2G).6p	y 3H*	4	49268.290
+5d3.(b 2G).6p	y 3H*	6	51641.888
+5d3.(b 4P).6p	v 3P*	1	42036.433
+5d3.(b 4P).6p	t 3D*	1	42485.481
+5d3.(b 4P).6p	t 3D*	3	44463.504
+5d3.(b 4P).6p	y 5P*	1	47876.636
+5d3.(b 4P).6p	y 5P*	3	48647.541
+5d3.(b 4P).6p	y 5P*	2	48952.008
+5d3.(b 4P).6p	w 5D*	1	48259.189
+5d3.(b 4P).6p	w 5D*	0	48985.407
+5d3.(b 4P).6p	w 5D*	2	50364.656
+5d3.(b 4P).6p	w 5D*	3	50857.946
+5d3.(b 4P).6p	w 5D*	4	51968.618
+5d3.6p	5G*	6	46487.71
+5d.6s.6p2	5D	0	43131.468
+6p2.(3P).5d.(2D).6s	c 3D	3	39127.652
+6p2.(3P).5d.(2D).6s	d 1D	2	40130.254
+6p2.(3P).5d.(4F).6s	c 5F	1	39790.707
+6p2.(3P).5d.(4F).6s	c 5F	2	40636.304
+6p2.(3P).5d.(4F).6s	c 5F	3	41475.864
+6p2.(3P).5d.(4F).6s	c 5F	4	42670.846
+6p2.(3P).5d.(4F).6s	e 3F	4	45387.560
+6p2.(3P).5d.(4F).6s	e 3F	2	45666.181
+6p2.(3P).5d.(4F).6s	e 3F	3	45994.631
+6p2.(3P).5d.(4D).6s	e 3D	1	42111.736
+6p2.(3P).5d.(4D).6s	e 3D	3	42360.915
+6p2.(3P).5d.(4D).6s	e 3D	2	42719.599
+6p2.(3P).5d.(4D).6s	b 5D	1	42782.551
+6p2.(3P).5d.(4D).6s	b 5D	2	43016.488
+6p2.(3P).5d.(4D).6s	b 5D	4	43838.365
+6p2.(3P).5d.(2P).6s	d 3P	1	43561.796
+6p2.(3P).5d.(2P).6s	d 3P	2	44375.472
+6p2.(3P).5d.(2P).6s	b 1P	1	46782.803
+6p2.(3P).5d.(2F).6s	b 1F	3	45083.320
+6p2.(3P).5d.(2F).6s	f 3F	3	45649.372
+6p2.(3P).5d.(2F).6s	f 3F	2	46056.211
+6p2.(3P).5d.(2F).6s	f 3F	4	46282.397
+6p2.(3P).5d.(4P).6s	b 5P	2	45254.947
+6p2.(3P).5d.(4P).6s	b 5P	3	45364.860
+6p2.(3P).5d.(4P).6s	b 5P	1	46100.815
+6p2.(3P).5d.(4P).6s	f 3P	1	45474.645
+6p2.(3P).5d.(4P).6s	f 3P	2	46437.767
+6p2.(1D).5d.(2F).6s	g 3F	3	46280.325
+6p2.(1D).5d.(2F).6s	g 3F	4	46678.167
+6p2.(1D).5d.(2F).6s	g 3F	2	46961.989
+6p2.(1D).5d.(2F).6s	c 1F	3	46966.632
+6p2.(1D).5d.(2G).6s	b 3G	4	46992.423
+6p2.(1D).5d.(2G).6s	b 3G	3	47345.946
+6p2.(1D).5d.(2G).6s	b 3G	5	47768.679
+6p2.(1D).5d.(2G).6s	b 1G	4	47606.258
+6p2.(1D).5d.(2D).6s	f 3D	3	47112.405
+6p2.(1D).5d.(2D).6s	f 3D	2	47305.024
+6p2.(1D).5d.(2D).6s	f 3D	1	47874.451
+6p2.(1D).5d.(2D).6s	f 1D	2	47702.436
+6p2.(1D).5d.(2P).6s	g 3P	1	47309.327
+6p2.(1D).5d.(2P).6s	g 3P	0	47751.233
+6p2.(1D).5d.(2P).6s	g 3P	2	47867.670
+6p2.(1D).5d.(2P).6s	c 1P	1	48129.626
+6p2.(1S).5d.(2D).6s	g 3D	3	47896.924
+6p2.(1S).5d.(2D).6s	g 3D	2	47955.206
+6p2.(1S).5d.(2D).6s	g 3D	1	48309.906
+6p2.(1S).5d.(2D).6s	g 1D	2	48407.265

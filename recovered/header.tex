@@ -1,0 +1,31 @@
+\usepackage{fontspec}
+\setmainfont{FreeSerif}
+\setsansfont{FreeSans}
+\setmonofont{FreeMono}[Scale=0.86]
+\usepackage[a4paper,top=24mm,bottom=24mm,left=26mm,right=26mm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\footnotesize\itshape The Clock in the Constraint}
+\fancyhead[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\usepackage{etoolbox}
+% tables: shrink and allow wrapping
+\AtBeginEnvironment{longtable}{\footnotesize}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+% quote blocks as the book sets them
+\usepackage{mdframed}
+\surroundwithmdframed[linewidth=0pt,leftline=true,linecolor=black!55,
+  innerleftmargin=10pt,innerrightmargin=0pt,innertopmargin=2pt,
+  innerbottommargin=2pt,skipabove=8pt,skipbelow=8pt]{quote}
+\usepackage[hidelinks,bookmarks=true,bookmarksnumbered=false]{hyperref}

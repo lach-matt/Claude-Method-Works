@@ -1,0 +1,15 @@
+# Ca II — NIST Handbook calciumtable6_a.htm, ref SC85/L99 · limit Ca III (1S0) 95751.88
+# note: Ca II 4p 2P° uncertainty 0.002 cm-1 (calciumtable7)
+config	term	J	level_cm1	ref
+4s	2S	1/2	0.000	L99
+3d	2D	3/2	13650.20	SC85
+3d	2D	5/2	13710.89	SC85
+4p	2P°	1/2	25191.518	L99
+4p	2P°	3/2	25414.414	L99
+5s	2S	1/2	52166.94	SC85
+4d	2D	3/2	56839.26	SC85
+4d	2D	5/2	56858.47	SC85
+5p	2P°	1/2	60533.03	SC85
+5p	2P°	3/2	60611.29	SC85
+4f	2F°	5/2,7/2	68056.92	SC85
+6s	2S	1/2	70677.63	SC85

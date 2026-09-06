@@ -1,0 +1,1281 @@
+% =====================================================================
+%  Indexing Without Prediction
+%  Maximality and Empirical Boundary of the Lach Elemental Lattice
+%  Matthew Lach
+%
+%  Compile:  pdflatex indexing-without-prediction.tex   (x2 for refs)
+%  Requires: figs/fig01.png ... figs/fig10.png
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+
+\definecolor{ink}{HTML}{1A1A1A}
+\definecolor{acc}{HTML}{8C2D19}
+\definecolor{acctwo}{HTML}{2F5D7C}
+\definecolor{mut}{HTML}{6B6B6B}
+
+\captionsetup{font=small,labelfont=bf,labelsep=period,justification=raggedright,
+              singlelinecheck=false}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\footnotesize\color{mut}Indexing Without Prediction --- Lach Elemental Lattice}
+\fancyfoot[C]{\footnotesize\color{mut}\thepage}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\footnotesize\color{mut}\thepage}}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{ink}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalfont\bfseries\color{ink}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalfont\bfseries\color{acctwo}}{\thesubsubsection}{0.6em}{}
+
+\newcommand{\parttitle}[1]{%
+  \vspace{1.2\baselineskip}%
+  {\noindent\LARGE\bfseries\color{acc} #1\par}%
+  \vspace{0.4\baselineskip}\noindent\textcolor{acc}{\rule{\linewidth}{0.8pt}}%
+  \vspace{0.6\baselineskip}\par}
+
+\theoremstyle{definition}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{corollary}[proposition]{Corollary}
+
+\newcommand{\Lm}{\ensuremath{\Lambda}}
+\newcommand{\Le}{\ensuremath{\Lambda_{8}}}
+\newcommand{\Zeff}{\ensuremath{Z_{\mathrm{eff}}}}
+\newcommand{\cmi}{\,\ensuremath{\mathrm{cm}^{-1}}}
+\newcommand{\Jc}{\ensuremath{J_{\mathrm{c}}}}
+
+\title{\vspace{-12mm}\textbf{\Huge Indexing Without Prediction}\\[3mm]
+       {\large\color{acctwo} Maximality and Empirical Boundary of the
+        Lach Elemental Lattice}}
+\author{\textbf{Matthew Lach}\\[1mm]{\small\itshape Independent researcher}}
+\date{}
+
+\begin{document}
+
+% =====================================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{28mm}
+{\noindent\Huge\bfseries Indexing Without Prediction\par}
+\vspace{3mm}
+{\noindent\large\color{acctwo} Maximality and Empirical Boundary of the Lach
+ Elemental Lattice\par}
+\vspace{4mm}
+\noindent\textcolor{acc}{\rule{\linewidth}{1pt}}
+\vspace{10mm}
+
+{\noindent\large\textbf{Matthew Lach}\par}
+{\noindent\small\color{mut} Independent researcher\par}
+\vspace{10mm}
+
+\noindent\textbf{An order-theoretic study of atomic configuration space, and a
+certified-bound method for Rydberg energies.}
+\vspace{3mm}
+
+{\noindent\small\color{mut}
+We construct a closed distributive lattice of order dimension exactly eight over
+atomic electron configurations; prove that no quantity derived from its
+coordinates can raise that dimension; show it extends by one dimension per
+independent quantum number, reaching injectivity at eleven; and establish that
+none of this yields predictive uplift. What does survive is a bracketing method
+for Rydberg binding energies, derived entirely from the Rydberg formula, whose
+deductive containment holds in 295 of 295 interior cells across six species,
+three effective charges and six values of orbital angular momentum.\par}
+\vspace{12mm}
+
+\noindent\begin{tabular}{@{}p{58mm}p{95mm}@{}}
+\toprule
+Object & \Lm$_{8}$, extended to \Lm$_{11}$\\
+Central negative result & order structure supplies indexing, not prediction\\
+Central positive result & deductive containment, 295 / 295, no exceptions\\
+Verified forward prediction & Kr\,\textsc{ii} $^2$P$^{\circ}_{1/2}$ splitting:
+  $5591\pm500$ predicted, $5370.10$ measured\\
+Claims withdrawn from earlier work & nine, listed in \S\ref{sec:withdrawn}\\
+Errors found and corrected & seven, listed in Appendix~\ref{app:errors}\\
+\bottomrule
+\end{tabular}
+\vspace{14mm}
+
+{\noindent\small\color{mut}
+\textbf{Status.} Prepared for independent review. Every numerical claim is
+reproducible from the sources in Appendix~\ref{app:data}. Readers checking this
+work are asked to attack \S\ref{sec:offset} first and \S\ref{sec:lemmas}
+second; those are the two places where the argument is thinnest and the author
+knows it.\par
+\vspace{2mm}
+\textbf{Data.} All levels are drawn from published critical compilations; no new
+measurements are reported. Full provenance in Appendix~\ref{app:data}, full
+bibliography in the References.\par}
+\end{titlepage}
+
+% =====================================================================
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+\small
+We construct a lattice \Le{} over atomic electron configurations, prove that no
+quantity derived from its coordinates can raise its order dimension, and
+establish empirically that its order structure supplies no predictive
+information beyond the coordinates from which it is built.
+
+\Le{} is a closed distributive lattice of order dimension exactly eight,
+generated by an admissibility condition requiring every constraint to take the
+form $x \le \varphi(y)$ with $\varphi$ non-decreasing in a single coordinate and
+a constant floor. We prove that adjoining any function of the cell leaves the
+dimension unchanged, because the graph of a monotone function is
+order-isomorphic to its domain. The lattice is nonetheless extensible by
+\emph{independent} physical quantities --- the parent ion's angular momentum,
+the total angular momentum, the jK label, nuclear spin --- each contributing
+exactly one dimension. \Lm$_{11}$ so constructed is injective on every test case
+assembled here.
+
+Against this we set a result of the opposite sign. A bracketing method for
+Rydberg binding energies, derived entirely from $T=\Zeff^{2}R/\nu^{2}$ and using
+none of the lattice's order structure, produces containment intervals holding in
+295 of 295 interior cells across hydrogen, four alkaline earths, three
+alkali-like ions and a noble gas --- spanning $\Zeff = 1$--3, $\ell = 0$--5,
+single-, two- and multi-limit systems, bound and autoionising. Its uncertainty
+estimate is derived rather than calibrated and returns $\pm1\sigma$ coverage of
+68.3\% pooled over 293 cells, against a Gaussian expectation of 68.3\%.
+
+Six independent attempts to extract predictive uplift from the lattice's order
+all failed, each by a distinct mechanism. We show these reduce to one theorem:
+on a product order, join, meet and comparability are definable from the
+coordinates, so lattice quantities restate the coordinates but cannot exceed
+them. The theorem is indifferent to dimension and to how faithfully the lattice
+represents the physics. Over the course of this work the index was improved to
+exactness; the predictive boundary did not move.
+
+The one construction that escapes the theorem is deductive containment, because
+a bracket is not a function of the coordinates but an entailment of the order
+relation given monotonicity. That is the sense in which an ordinal structure
+over configuration space is useful, and the only sense we have verified.
+\normalsize
+
+% =====================================================================
+\parttitle{Part 0 --- Origin and Orientation}
+
+\section{Introduction}
+
+\subsection{Where this began}
+This framework began as a three-dimensional recoding of the periodic table. Each
+element was assigned a triple $(n,\ell,k)$: the principal quantum number of the
+subshell being filled, its orbital angular momentum, and the occupancy of that
+subshell. Under the componentwise partial order these triples form a lattice,
+and the periodic table becomes a path through it.
+
+The recoding is exact and it is not new physics --- it is a bijective
+relabelling of information already present in the Madelung filling
+order~\cite{madelung,klechkowski}. Its interest was structural: periodicity
+appears as a projection of a three-dimensional object, and chemically analogous
+elements are close in the lattice for a structural reason rather than by
+convention~\cite{scerri,ostrovsky}.
+
+Three additions produced the object studied here. Excited configurations require
+distinguishing the subshell an electron leaves from the one it enters, giving a
+second triple $(e,f,g)$. Ionisation requires a count $q$ of electrons removed.
+Spin multiplicity requires a coordinate $S$. The result is \Le{}, whose cells
+index electron configurations relative to a reference state.
+
+The framework's earlier claims concerned prediction: that the lattice's order,
+closure and dimension would constrain atomic properties in ways the coordinates
+alone did not. This paper reports that those claims are false, establishes why
+in a form we believe is a theorem rather than a limitation of effort, and
+reports what survives.
+
+\subsection{What this paper claims}
+\textbf{Structural (Part I).} \Le{} is closed under join and meet and has order
+dimension exactly eight. No derived quantity raises that dimension. It extends
+by one dimension per independent physical degree of freedom. As an index it
+achieves 86\% coverage and, at eleven dimensions, injectivity on every test
+case. The physical subset is \emph{not} a sublattice, and no choice of
+coordinates makes it one.
+
+\textbf{Empirical (Part II).} A four-rule bracketing method, each rule derived
+from $T=\Zeff^{2}R/\nu^{2}$, produces deductive containment verified on 295
+interior cells with no exceptions, and an uncertainty estimate requiring no
+calibration and returning 68.3\% coverage at $\pm1\sigma$. Its domain is bounded
+by four exclusions, each with an identified mechanism.
+
+\textbf{Thesis (Part III).} The lattice's order contributes nothing to the
+method. Six tests establish this and a theorem about product orders explains
+why. The theorem does not depend on dimension or on faithfulness, so improving
+the index --- which Part I does --- leaves the predictive boundary where it was.
+
+\subsection{What this paper does not claim}
+We do not claim novel physics. Every quantitative result in Part II follows from
+the Rydberg formula~\cite{rydberg} and the quantum defect~\cite{ritz,seaton};
+the lattice's role is to make ``interior on some axis'' and ``same channel''
+well defined. We do not claim the method extends beyond energies;
+\S\ref{sec:domain} reports two attempts and both failed, for reasons we
+characterise.
+
+An earlier line of this work concerned applications to condensed-matter nuclear
+phenomena. That material is removed entirely. It rested on extensions whose
+structural status we now know to be defective (Appendix~\ref{app:multi}), and
+revisiting it requires first solving the multi-target representation problem.
+
+% =====================================================================
+\parttitle{Part I --- Structure}
+
+\section{Construction}
+
+\subsection{The admissibility condition}
+Let $\Lm \subseteq \mathbb{N}^{d}$ be defined by a family of constraints. The
+family is \textbf{admissible} --- the condition previously designated \S9.4 ---
+if every constraint has the form
+\begin{equation}
+x_{i} \;\le\; \varphi(x_{j}), \qquad \varphi \text{ non-decreasing},
+\qquad\text{together with a constant floor } x_{i}\ge c .
+\label{eq:admis}
+\end{equation}
+
+\begin{proposition}
+An admissible constraint family defines a set closed under componentwise join
+and meet.
+\end{proposition}
+\begin{proof}
+Let $a,b\in\Lm$. For the join, $\max(a_i,b_i)$ equals one of them, say $a_i$;
+then $a_i \le \varphi(a_j) \le \varphi(\max(a_j,b_j))$ since $\varphi$ is
+non-decreasing. For the meet, choose the index $m\in\{a,b\}$ minimising $x_j$;
+then $\min(a_i,b_i)\le m_i \le \varphi(m_j)=\varphi(\min(a_j,b_j))$. A constant
+floor is preserved trivially.
+\end{proof}
+
+Two consequences shape everything following. A bound on a \textbf{sum} of two
+coordinates is not admissible and generally breaks closure --- this defeats the
+multi-target extension of Appendix~\ref{app:multi}. A \textbf{varying floor} is
+likewise inadmissible, which places the physical selection rules outside the
+language (\S\ref{sec:notsub}).
+
+\subsection{The eight axes}
+\begin{center}\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+axis & meaning & bound & form\\
+\midrule
+$n$    & source shell          & $1\le n\le N$              & free root\\
+$\ell$ & source subshell       & $\ell \le n-1$             & non-decr.\ in $n$\\
+$k$    & source occupancy      & $1\le k\le 2(2\ell+1)$     & non-decr.\ in $\ell$\\
+$q$    & electrons removed     & $0\le q\le k$              & non-decr.\ in $k$\\
+$e$    & target shell          & $1\le e\le E$              & free root\\
+$f$    & target subshell       & $f\le e-1$                 & non-decr.\ in $e$\\
+$g$    & electrons transferred & $g\le\min(q,2(2f+1))$      & min of two admissible\\
+$2S$   & spin multiplicity     & $0\le 2S\le k$             & non-decr.\ in $k$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{2mm}
+
+Derived quantities include net charge $c=q-g$, electron count $N$, and target
+occupancy $G$. \textbf{These are derived precisely because they cannot be
+coordinates}: each is a difference or sum of two axes, hence inadmissible.
+\S\ref{sec:rejected} makes this exact.
+
+\subsection{Closure and dimension}
+Closure follows from Proposition~2.1 and was verified additionally on
+$8\times10^{6}$ sampled pairs at caps covering the observed data, with zero
+failures.
+
+\textbf{Order dimension is exactly eight.} The upper bound is immediate. The
+lower bound follows from an explicit 8-box at
+$(n,\ell,k,q,e,f,g,2S)=(3,1,2,1,2,0,0,0)$, all $2^{8}=256$ corners of which are
+admissible. The box is \textbf{cap-independent}, remaining valid at cap settings
+$(4,2,4,2)$, $(6,3,8,3)$ and $(8,4,12,4)$. Order dimension is used throughout in
+the sense of Dushnik and Miller~\cite{dushnik}; see Trotter~\cite{trotter} for
+the standard results invoked.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.86\linewidth]{figs/fig01.png}
+\caption{The admissibility constraint graph. Circles are axes; an arrow
+$y\to x$ indicates $x$ is bounded by $\varphi(y)$. Two roots ($n$ and $e$) make
+the graph a forest with a single cross-link at $g$.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{figs/fig02.png}
+\caption{The 8-box projected onto four coordinate pairs. Every one of the 256
+corners is admissible; labels give the number of corners mapping to each
+projected point.}
+\end{figure}
+
+\subsection{A note on cell counts}
+Earlier versions reported $|\Le| = 61\,453$ as a structural invariant. It is
+not. That is the cell count at one choice of caps, and it changes with them.
+Every quantity derived from it --- the fraction of cells representing inward
+transitions, the fraction ``realisable'' --- is a truncation artefact and is
+withdrawn. The invariants of \Le{} are its closure, its order dimension and its
+behaviour under extension; its cardinality is not among them.
+
+\section{Algebra and geometry, axis by axis}
+Each axis has an \emph{algebra} --- the bound defining it and its admissible
+form --- and a \emph{geometry} --- the shape of the region it occupies. This
+section also reports where each is exercised, which varies enormously.
+
+\subsubsection*{$n$, the source shell}
+Algebra: a free root; every electronic bound descends from it. Geometry: a
+chain. Exercised: distinguishes species but is \textbf{constant within any one
+atom}. Removing it from a single species' index costs zero collisions.
+
+\subsubsection*{$\ell$, the source subshell}
+Algebra: $\ell\le n-1$, non-decreasing in $n$. Geometry: a right triangle in the
+$(n,\ell)$ plane. Exercised: distinguishes species and blocks; constant within
+an atom.
+
+\subsubsection*{$k$, the source occupancy}
+Algebra: $1\le k\le 2(2\ell+1)$. Geometry: a staircase widening with $\ell$ ---
+2, 6, 10, 14. Exercised: constant within an atom. $k$ bounds $q$, $2S$ and the
+angular-momentum axes, so it is structurally central while empirically inert
+within a species.
+
+\subsubsection*{$q$, electrons removed}
+Algebra: $0\le q\le k$, a triangle nested inside $k$. Exercised: separates
+neutral from ionised species; constant ($q=1$) across all singly-excited states
+of one atom.
+
+\subsubsection*{$e$, the target shell}
+Algebra: a second free root. \textbf{This is the workhorse.} Removing $e$ from
+the Ca\,\textsc{i} index costs 13 collisions in 27 levels; from
+Kr\,\textsc{i}, 22 in 46. It is the axis the method of Part II interpolates
+along, and the only axis load-bearing both across and within species.
+
+\subsubsection*{$f$, the target subshell}
+Algebra: $f\le e-1$, a second right triangle independent of the $(n,\ell)$ one.
+Geometry: \Le{} is therefore a product of two triangles, not a simplex --- the
+clearest sense in which it is not a relabelled periodic table. Exercised: 7
+collisions for Ca\,\textsc{i}, 22 for Kr\,\textsc{i}.
+
+\subsubsection*{$g$, electrons transferred}
+Algebra: $g\le\min(q,2(2f+1))$ --- the intersection of two triangles, a wedge,
+and the only axis bounded by two others. Exercised: \textbf{zero collisions on
+removal.} For singly-excited states $g=q=1$ universally, so the axis is
+exercised only by doubly-excited configurations, of which the record holds few.
+
+\subsubsection*{$2S$, spin}
+Algebra: $0\le 2S\le k$, a chain over $k$. Exercised: 5 collisions for
+Ca\,\textsc{i}. Load-bearing where LS coupling holds; \textbf{undefined} for
+jK-coupled systems such as Kr\,\textsc{i}, where the parent's $J$ must
+substitute.
+
+\subsection{The collective whole}
+\Le{} is a product of two triangular regions --- $(n,\ell)$ and $(e,f)$ ---
+with occupancy chains hung from each and a wedge ($g$) linking them. It is not a
+simplex, not a hypercube and not a chain product; two roots make the constraint
+graph a forest with a single cross-link.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.92\linewidth]{figs/fig03.png}
+\caption{The collective whole. Two triangular blocks, two chains descending from
+$k$, and one cross-link where $g$ is bounded by both $q$ and $f$.}
+\end{figure}
+
+\subsection{Axis ablation}
+Removing each axis in turn from the index and counting collisions measures
+directly what each contributes.
+
+\begin{center}\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+axis & Ca\,\textsc{i} (27 levels) & Kr\,\textsc{i} (46 levels)\\
+\midrule
+$n,\ell,k,q,g$ & 0 & 0\\
+$e$            & 13 & 22\\
+$f$            & 7  & 22\\
+$2S$           & 5  & undefined (jK)\\
+$2\Jc$ (core)  & 0 (fixed) & 20\\
+$2J$ (total)   & 12 & 35\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{2mm}
+
+Six of ten coordinates are constant within a species and discriminate only
+\emph{across} species. Only $e$ and $f$ appear in both roles --- which is
+exactly why the method of Part II interpolates in $e$ at fixed $f$ and uses no
+other axis.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.92\linewidth]{figs/fig04.png}
+\caption{Axis ablation for an LS-coupled species (Ca\,\textsc{i}) and a
+jK-coupled one (Kr\,\textsc{i}). Six of ten coordinates are inert within a
+species.}
+\end{figure}
+
+\section{What cannot be added, and what can}
+\label{sec:lemmas}
+
+\subsection{Two lemmas and a corollary}
+The result is best stated as two facts, because they carry unequal weight and
+the combined form disguises which is which.
+
+\begin{lemma}[the substantive half]
+Let $L$ be a finite lattice and $h:L\to\mathbb{Z}$ a function whose graph
+$G=\{(x,h(x))\}$ is closed under componentwise join and meet. Then $h$ is
+monotone.
+\end{lemma}
+\begin{proof}
+Closure means that for any $x,y\in L$ the pair $(x\vee y,\max(h(x),h(y)))$ lies
+in $G$. Since $G$ is the graph of a function its second component must equal $h$
+of its first, so $h(x\vee y)=\max(h(x),h(y))$. If $x\le y$ then $x\vee y=y$,
+giving $h(y)=\max(h(x),h(y))\ge h(x)$.
+\end{proof}
+
+\begin{lemma}[bookkeeping]
+If $h:L\to\mathbb{Z}$ is monotone then $x\mapsto(x,h(x))$ is an order
+isomorphism of $L$ onto $G$, and hence $\dim(G)=\dim(L)$.
+\end{lemma}
+\begin{proof}
+The map is a bijection onto $G$. Monotonicity makes it order-preserving;
+projection onto the first coordinate makes it order-reflecting.
+\end{proof}
+
+\begin{theorem}
+Adjoining to $L$ any function of its cells whose graph is closed leaves the
+order dimension unchanged.
+\end{theorem}
+\begin{proof}
+Immediate from Lemmas 4.1 and 4.2.
+\end{proof}
+
+The division of labour is worth stating plainly. Lemma~4.2 requires only
+monotonicity and would hold for any monotone function whatever; it is a remark
+about graphs, not a result about lattices. All the content sits in Lemma~4.1 ---
+that closure is strong enough to force monotonicity in the first place.
+Presenting the two as a single theorem, as an earlier version of this paper did,
+makes the conclusion look deeper than it is. Neither lemma needs an
+admissibility hypothesis, and neither assumes $L$ is a product of chains.
+
+\begin{corollary}
+No quantity computed from the eight electronic coordinates can raise \Le{}'s
+order dimension.
+\end{corollary}
+
+\paragraph{Independent verification.} Four checks were run against this
+argument.
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item The $d$-box test used throughout the paper is validated: exact order
+dimension computed from minimum realizers returns 2 for $2^{2}$ and 3 for
+$2^{3}$, and since a $d$-box is an induced copy of $2^{d}$ while order dimension
+is monotone under induced subposets~\cite{trotter}, containing one forces
+$\dim\ge d$.
+\item Exhaustively over all $19\,683$ functions from a $3\times3$ grid into a
+three-value codomain, \textbf{no} non-monotone function has a closed graph ---
+confirming Lemma~4.1.
+\item Across 175 monotone functions there are zero mismatches between the order
+on $L$ and the order on its graph --- confirming Lemma~4.2.
+\item On a lattice carrying the $\ell\le n-1$ constraint that breaks
+interval-closure, exact realizer-based dimension is 2 for the base and 2 for all
+ten distinct closure-preserving extensions, confirmed against true dimension
+rather than the box lower bound. Exact dimension is computed only for small
+lattices, the problem being NP-hard in general~\cite{yannakakis}.
+\end{enumerate}
+
+\paragraph{A stronger claim that is false.} An earlier version of this work
+asserted that any closure-preserving $h$ must be a monotone function of a
+\emph{single} coordinate. That holds for products of chains but not for \Lm{},
+which is a sublattice of one: the constraint $\ell\le n-1$ means \Lm{} is not
+interval-closed, since $(1,2)$ lies componentwise between $(1,0)$ and $(3,2)$
+yet is not a cell. On the test lattice, 148 of 335 closure-preserving functions
+depend on more than one coordinate --- for instance the one generated by the
+chain $(1,0,2)\le(3,0,2)$, which varies with both $n$ and $\ell$. Those
+functions are nonetheless redundant, not because they depend on one axis but
+because they add no dimension.
+
+\subsection{Rejected candidates}
+\label{sec:rejected}
+Each of the following was proposed as a ninth axis in earlier work; each fails,
+and the failure is now attributable to Theorem~4.3 rather than to case-by-case
+testing.
+
+\begin{center}\small
+\begin{tabular}{@{}llrrl@{}}
+\toprule
+candidate & form & join fail & meet fail & verdict\\
+\midrule
+$h=n$                  & projection      & 0       & 0       & closed, no 9-box\\
+$h=2n$                 & monotone in $n$ & 0       & 0       & closed, redundant\\
+$h=n+\ell$             & two coordinates & 42\,492 & 42\,492 & breaks closure\\
+$h=q-g$ (net charge)   & difference      & 284\,858& 284\,858& breaks closure\\
+$h=k-q$                & difference      & 406\,400& 406\,400& breaks closure\\
+$h=e-f$                & difference      & 266\,440& 266\,440& breaks closure\\
+$h=\lfloor C/e^{2}\rfloor$ & anti-monotone & 503\,404 & 503\,404 & breaks closure\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{2mm}
+
+The energy proxy deserves separate comment, being the original motivation for a
+ninth ``output'' axis. It fails for a sharper reason than inadmissibility:
+energy \emph{decreases} with $e$ while the order increases, so an energy-valued
+coordinate is anti-monotone and pairs of cells acquire no upper bound at all.
+\textbf{A metric quantity increasing with the coordinates might well be
+admissible.} The obstruction is the sign, not the metricity.
+
+\section{Extension by independent quantities}
+
+\subsection{Three classes}
+Theorem~4.3 constrains only functions of the existing coordinates. Physically
+independent quantities escape it, and fall into three classes.
+\begin{enumerate}[label=(\alph*),leftmargin=*,itemsep=1pt]
+\item \textbf{Functions of the cell.} Graph order-isomorphic to \Lm{}; dimension
+unchanged. Always.
+\item \textbf{Independent, bounded by an existing coordinate.} Admissible if and
+only if the bound has form~\eqref{eq:admis}. Contributes exactly one dimension.
+\item \textbf{Independent, bounded by a constant.} The set is a direct product;
+closure automatic; one dimension.
+\end{enumerate}
+
+\subsection{$\Lambda_{9}$, $\Lambda_{10}$, $\Lambda_{11}$}
+\textbf{Parent-ion angular momentum (class b).} The same electronic cell can
+leave the residual ion in different $J$ states, so \Jc{} is not a function of
+the eight. With $2\Jc\le k$ --- non-decreasing in a single coordinate --- the
+enlarged set is \textbf{closed exactly}: 6989 cells, all $24\,419\,566$ pairs
+tested, zero failures, with a 9-box at $(3,1,5,4,3,1,3,2,1)$. Order dimension 9.
+
+\textbf{Total angular momentum (class b).} With $2J\le2k$, closure holds on
+$2\,041\,470$ cells with zero failures and a 10-box at
+$(3,1,2,1,2,0,0,0,0,0)$. Order dimension 10.
+
+\textbf{jK label (class b)}, required for jK-coupled
+systems~\cite{cowan,condonshortley}, and \textbf{nuclear spin (class c)},
+bounded by a constant, follow the same pattern.
+
+\subsection{What extension buys and costs}
+\begin{center}\small
+\begin{tabular}{@{}lccl@{}}
+\toprule
+lattice & Kr\,\textsc{i} cells & collisions & Ca\,\textsc{i} fine structure\\
+\midrule
+$\Lambda_{8}$  & 7  & 39 & 1 collision\\
+$\Lambda_{9}$  & 11 & 35 & 1 collision\\
+$\Lambda_{10}$ & 34 & 12 & resolved\\
+$\Lambda_{11}$ & 46 & 0  & resolved\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{2mm}
+
+The cost is looseness. Each class-(b) bound admits more than the physics
+permits: the true range for total $J$ is the triangle rule
+$|\Jc-j|\le J\le \Jc+j$, whose \textbf{lower bound varies with the cell}, and
+\eqref{eq:admis} permits only constant floors. On a bounded enumeration the
+physically realisable fraction is 23.3\% at eight dimensions, 9.0\% at nine,
+1.7\% at ten.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.86\linewidth]{figs/fig05.png}
+\caption{Extension clears collisions (left axis) while admitting unphysical
+cells (right axis). The two curves crossing is the trade.}
+\end{figure}
+
+\section{The lattice as an index}
+
+\subsection{Coverage}
+\begin{center}\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+species & mapped & coverage\\
+\midrule
+Kr\,\textsc{i}   & 9 / 9   & 100\%\\
+Sc\,\textsc{iii} & 8 / 8   & 100\%\\
+Ba\,\textsc{ii}  & 10 / 10 & 100\%\\
+Sr\,\textsc{i}   & 9 / 10  & 90\%\\
+Ca\,\textsc{i}   & 12 / 15 & 80\%\\
+Ti\,\textsc{i}   & 6 / 11  & 55\%\\
+\midrule
+total            & 54 / 63 & 86\%\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{2mm}
+
+Every failure is a \textbf{multi-subshell configuration} --- two occupied
+non-source subshells, which a single $(e,f,g)$ triple cannot name. Coverage is a
+representational limit and \textbf{no additional coordinate repairs it}; the
+natural repair, a second target triple, breaks the lattice
+(Appendix~\ref{app:multi}).
+
+\subsection{Injectivity}
+\begin{center}\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+collision type & example & resolved by & at\\
+\midrule
+core $J$       & Kr\,\textsc{i} $(^2$P$^{\circ}_{3/2})5s$ vs
+                 $(^2$P$^{\circ}_{1/2})5s$ & $2\Jc$ & $\Lambda_{9}$\\
+fine structure & Ca\,\textsc{i} $4s4d\ ^3$D, $J=1,2,3$ & $2J$ & $\Lambda_{10}$\\
+jK label       & Kr\,\textsc{i} $5p\ ^2[1/2]$ vs $^2[3/2]$, same $J$
+               & $K$ & $\Lambda_{11}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{2mm}
+
+The first is consequential beyond bookkeeping. The two Kr\,\textsc{i} channels
+converge on limits \textbf{5370\cmi{} apart}, and the method of Part II requires
+knowing which. \textbf{\Le{} cannot supply that assignment}; in the work
+reported here it was read from the ASD configuration string~\cite{nistasd}.
+$\Lambda_{9}$ supplies it.
+
+\subsection{The physical set is not a sublattice}
+\label{sec:notsub}
+The physically realisable cells satisfy the spin selection
+rules~\cite{condonshortley}: $2S\equiv k \pmod 2$ and
+$2S\le\min(k,2(2\ell+1)-k)$. \textbf{This set is not closed.} In the $(k,2S)$
+plane, $(1,1)$ and $(2,0)$ are both physical; their join $(2,1)$ is not, since
+$2S$ must be even when $k$ is even. Failures: 1 at $\ell=0$, 15 at $\ell=1$, 70
+at $\ell=2$.
+
+The obstruction is structural. A \textbf{congruence is not an inequality}, and
+\eqref{eq:admis} admits only inequalities with constant floors. The selection
+rules of atomic physics --- spin parity, hole symmetry, the triangle rule ---
+are none of them of that form.
+
+\subsection{Offset coordinates: faithful but not closed}
+\label{sec:offset}
+\emph{This section reports a negative result obtained late in the work and
+corrects an intermediate claim. It is the place a reviewer should attack first.}
+
+One may attempt to bring the selection rules inside the language by
+reparameterisation. Replace $2S$ by the paired-unit count $m=(k-2S)/2$, so that
+$2S=k-2m$ carries the parity of $k$ automatically; replace $2J$ by the triangle
+offset $t=(2J-|2\Jc-2j|)/2$, so the triangle rule holds by construction. Each
+transformation is bijective, so the dimension is unchanged and Lemma~4.2 is
+untouched.
+
+Tested \textbf{in isolation}, each works: the $(k,m)$ plane is closed at every
+$\ell$, and the $(\Jc,j,t)$ block is closed with 140 cells and zero failures.
+
+\textbf{Assembled into one lattice, they do not.} Exhaustive test on 1431 cells
+and all $1\,023\,165$ pairs: \textbf{$222\,075$ join failures and $11\,696$ meet
+failures}. The cause is visible in the bounds --- $m$ has a floor varying with
+$k$, and $2\Jc\le k-q$ is decreasing in $q$. Isolated closure does not imply
+joint closure.
+
+What the offset coordinates do achieve is worth recording: all 1431 cells decode
+to genuine physical states, zero violations, and the encoding is injective ---
+1903 distinct states, no duplicates. \textbf{Offset coordinates are a faithful
+and injective parameterisation of the physical set that is not a lattice.}
+
+The section's result is therefore: \textbf{one may have closure or faithfulness,
+not both.} The lattice properly contains the physics; the physics is not a
+sublattice; and no relabelling repairs this, because the obstruction is the
+varying floor and not the choice of origin.
+
+% =====================================================================
+\parttitle{Part II --- A Bracketing Method for Rydberg Energies}
+
+\section{Derivation}
+Every rule below follows from one expression,
+\begin{equation}
+T \;=\; \frac{\Zeff^{2}R}{\nu^{2}}, \qquad \nu \;=\; n-\delta(n,\ell,\text{core}),
+\label{eq:rydberg}
+\end{equation}
+where $T$ is the binding energy relative to the series limit and $\delta$ the
+quantum defect~\cite{rydberg,ritz,seaton}. The method uses the lattice only to
+make two notions well defined: which cells belong to the same \textbf{channel},
+and which cells are \textbf{interior} on an axis.
+
+\section{The four rules}
+\begin{quote}\small
+\textbf{Rule 1 --- Interiority.} Predict only cells with measured neighbours on
+both sides along some axis, and only cells belonging to the same Rydberg
+sequence as those neighbours.
+
+\textbf{Rule 2 --- Variable.} Read the interpolation variable off
+\eqref{eq:rydberg} for the axis in question: $E$ along $n$ within a series;
+interval ratios along $J$; geometric in $T$ along the core shell.
+
+\textbf{Rule 3 --- Separation.} Report the deductive bracket separately from the
+inferential point estimate. Given monotonicity the true value cannot lie outside
+$[\max\text{ below},\ \min\text{ above}]$.
+
+\textbf{Rule 4 --- Uncertainty.} Fit $\delta$ locally by a Ritz
+expansion~\cite{ritz} $\delta=\delta_{0}+\delta_{2}/n^{2}$ and take
+$\sigma = 2R\,\Zeff^{2}\,\mathrm{SE}_{\mathrm{pred}}/\nu^{3}$.
+\end{quote}
+
+\textbf{Rule 1's second clause is not redundant.} Sc\,\textsc{iii} $3d$ is
+interior in $n$ within $\ell=2$, yet including it inflates the median error by
+$3.2\times$ because it is the collapsed ground state rather than a sequence
+member. The operational test is that its defect departs from its neighbours' by
+0.14 where they depart from each other by 0.008 --- a factor of 17.
+
+Each rule is justified by the cost of violating it:
+
+\begin{center}\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+rule violated & cost\\
+\midrule
+extrapolate rather than interpolate & rms $248\to928$\cmi{} ($3.7\times$), $n=91$\\
+wrong interpolation variable        & rms $248\to589$\cmi{} ($2.4\times$)\\
+pooled $\sigma$ instead of per-cell & $\pm1\sigma$ coverage 96.2\% instead of 68\%\\
+include collapsed orbital           & median error $12.8\to41.3$\cmi{} ($3.2\times$)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Verification}
+\textbf{295 interior cells, bracket exact in every one.} Two counts are reported
+throughout and they differ by two: a bracket requires one measured neighbour on
+each side, so 295 cells have one; the local Ritz fit has two free parameters and
+so requires three neighbours, giving 293 cells with a derived $\sigma$. Pooled
+over all 293, $\pm1\sigma$ coverage is \textbf{68.3\%} and $\pm2\sigma$ is
+91.8\%, against Gaussian expectations of 68.3\% and 95.4\%.
+
+\begin{center}\small
+\begin{tabular}{@{}lcccr@{}}
+\toprule
+regime & cells & bracket & $\pm1\sigma$ & median error\\
+\midrule
+H\,\textsc{i} ($\Zeff=1$)                  & 5   & 5 / 5     & ---    & 0.96\cmi\\
+Mg/Ca/Sr/Ba\,\textsc{i} (neutral)          & 189 & 189 / 189 & 67.7\% & 0.69\\
+Ca/Sr/Ba\,\textsc{ii} (alkali-like)        & 37  & 37 / 37   & 70.3\% & 11.5\\
+Ca\,\textsc{i} $3d$ channel (autoionising) & 22  & 22 / 22   & 68.2\% & 9.37\\
+Kr\,\textsc{i} (multi-limit p-block)       & 31  & 31 / 31   & 76.7\% & 0.96\\
+Sc\,\textsc{iii} ($\Zeff=3$)               & 11  & 11 / 11   & 54.5\% & 12.8\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{2mm}
+
+\textbf{On independence.} These 295 cells are drawn from approximately
+\textbf{22 channels}. Cells within a channel share neighbours, so successive
+brackets are correlated and 295 should not be read as 295 independent tests.
+
+\textbf{On the bracket's robustness.} Perturbing the series limit by
+$\pm5$\cmi{} leaves coverage unchanged at 15/15, because the bracket uses only
+measured neighbours. The point estimate and $\sigma$ require the limit;
+\textbf{the bracket does not}. Similarly, ``interior'' requires that neighbours
+exist, not that they be adjacent: with $n=8$--16 removed from a Ba\,\textsc{i}
+series, cell 17 still brackets correctly, at width 2012\cmi{} instead of 400.
+
+\textbf{On the neighbour count.} The Ritz fit uses the $k$ nearest members.
+Sensitivity: rms 14.0 / 17.1 / 15.8 / 15.5 / 15.5\cmi{} for $k=3,4,6,8,10$. No
+strong preference; $k=6$ was chosen arbitrarily and the sensitivity is reported
+rather than the choice being presented as derived.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.88\linewidth]{figs/fig06.png}
+\caption{Quantum-defect sequences across four species, two charge states and
+$\ell=2,3$. The smooth Ritz behaviour is what Rule 4 fits and what the bracket
+exploits.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.70\linewidth]{figs/fig07.png}
+\caption{Derived $\sigma$ against realised error for all 293 cells carrying a
+$\sigma$. The calibration is not fitted: $\sigma$ comes from the prediction
+standard error of the local Ritz fit, and 68.3\% of cells fall within $1\sigma$
+against a Gaussian expectation of 68.3\%.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.88\linewidth]{figs/fig08.png}
+\caption{The bracket construction. One cell is withheld; the interval formed by
+its measured neighbours must contain it, given monotonicity in $n$.}
+\end{figure}
+
+\section{Domain and exclusions}
+\label{sec:domain}
+\textbf{Verified domain.} Binding energies of Rydberg series: one electron
+outside a core in a definite state, channel by channel, with the channel's limit
+supplied by the configuration label. Interior cells only, excluding collapsed
+orbitals.
+
+\paragraph{(i) Sign-changing quantities.} Any property built from a matrix
+element passing through zero cannot be monotone. Sr\,\textsc{i}
+$5s^{2}\,^1$S$_0\to5snp\,^1$P$_1$ reduced transition probabilities collapse by a
+\textbf{factor of 60} at $n=6$ and recover --- a Cooper-type
+node~\cite{cooper}. Bracket coverage across the node: 79\%. Away from it: 100\%
+on 11 cells.
+
+\paragraph{(ii) Asymptotically constant quantities.} Fine-structure splittings
+reduced by $\nu^{3}$ are constant to ${\sim}0.5\%$ across a series, and the
+adjacent steps fall below measurement noise (1.6\%). Bracket coverage:
+\textbf{35.3\%}; zero of 17 adjacent steps are resolvable. A constant is not
+monotone.
+
+\paragraph{(iii) Systems without interior cells.} Ti\,\textsc{i}: 23 channels,
+26 members, \textbf{zero interior cells}. No channel reaches three members,
+because the ionisation limit near $55\,000$\cmi{} lies below the onset of severe
+level density, and above ${\sim}42\,000$\cmi{} the levels are 40--50\%
+configuration-mixed with no assignable parent. The method declines rather than
+errs.
+
+\paragraph{(iv) Collapsed orbitals}, excluded by the defect-departure test of
+Rule 1.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{figs/fig09.png}
+\caption{The three exclusion mechanisms, each measured: a sign change in the
+matrix element; a quantity too flat to bracket; a system whose series are too
+short to contain an interior cell.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.86\linewidth]{figs/fig10.png}
+\caption{The verified domain. Cell counts by effective charge and orbital
+angular momentum; the excluded region is marked with its mechanism.}
+\end{figure}
+
+\section{Predictions}
+
+\subsection{Verified}
+\textbf{Kr\,\textsc{ii} $^2$P$^{\circ}_{1/2}$ fine-structure splitting.} Derived
+from three $\ell$ channels of the Kr\,\textsc{i} $(^2$P$^{\circ}_{1/2})$ series
+and committed \emph{before} the measurement entered the analysis:
+\textbf{$5591\pm500$\cmi}. Measured: \textbf{$5370.10$\cmi}~\cite{nistasd}.
+Error $+221$\cmi, 4.1\%, within the stated interval.
+
+\emph{Full disclosure on the interval.} The three channel estimates were 6061,
+5679 and 5031, giving $\mathrm{sd}=521$. The quoted $\pm500$ is therefore
+approximately $1\sigma$, not the conventional $2\sigma$ (which would be
+$\pm1030$). The measured value lies $0.4\sigma$ from the mean. The prediction is
+correct; the interval was tighter than convention and this should have been
+stated at the time.
+
+\subsection{Open}
+\textbf{Ba\,\textsc{i} $5d^{2}\,^1$G$_4$.} Deductive bracket from the term
+ordering $^3$F $<\ ^1$D $<\ ^3$P $<\ ^1$G $<\ ^1$S~\cite{racah}:
+\textbf{$[23\,694,\ 26\,757]$\cmi}. No point estimate is offered; see
+\S\ref{sec:withdrawn}.
+
+\begin{center}\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Ba\,\textsc{i} level & bracket (\cmi) & Ritz estimate\\
+\midrule
+$6s8f$  & $[39\,678,\ 40\,614]$ & $40\,238$\\
+$6s13f$ & $[41\,251,\ 41\,648]$ & $41\,367$\\
+$6s14f$ & $[41\,251,\ 41\,648]$ & $41\,461$\\
+$6s15f$ & $[41\,251,\ 41\,648]$ & $41\,536$\\
+$6s16f$ & $[41\,251,\ 41\,648]$ & $41\,597$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{2mm}
+
+Leave-one-out validation on the same series: 15/15 bracket coverage, rms
+20.5\cmi, with sub-wavenumber accuracy for $n\ge17$.
+
+\textbf{Ti\,\textsc{ii} $a\,^4$F intervals}, derived from the Ti\,\textsc{i}
+$4f$ and $5g$ manifolds resolved by core $J$, which agree to 0.7\cmi:
+\textbf{94.3, 131.9, 167.3\cmi} for $J=3/2\to5/2\to7/2\to9/2$. Corresponding
+limits: $55\,044.3$ / $55\,138.5$ / $55\,270.0$ / $55\,437.4$\cmi. Internal
+check: taking $\delta(5g)=0$ gives $\delta(4f)=0.0508$, 0.0508, 0.0506, 0.0506
+across four independent channels.
+
+% =====================================================================
+\parttitle{Part III --- Indexing Without Prediction}
+
+\section{The theorem}
+\begin{theorem}
+On a product order, join, meet and comparability are definable from the
+coordinates: $(a\vee b)_i=\max(a_i,b_i)$, $(a\wedge b)_i=\min(a_i,b_i)$, and
+$a\le b \iff a_i\le b_i$ for all $i$.
+\end{theorem}
+
+Every lattice-theoretic quantity is therefore a function of the coordinates, and
+can restate them but cannot exceed them. Two properties of this theorem drive
+Part III. It is \textbf{indifferent to dimension}: $\Lambda_{11}$ is as
+constrained as \Le{}. And it is \textbf{indifferent to faithfulness}: perfecting
+the index moves nothing.
+
+\section{Six mechanisms}
+
+\subsubsection*{Rank aggregation}
+Using $\mathrm{rank}(a\wedge b)$ and $\mathrm{rank}(a\vee b)$ as predictors of
+configuration mixing: leave-one-out rmse 1.643 against 0.812 for a linear model
+in $\Delta q,\Delta f$ --- worse than predicting the mean (data sd 0.940).
+\emph{Mechanism:} rank is a \textbf{sum over axes}, and summing discards which
+axis moved. Mixing depends on which subshell is involved; rank cannot see it.
+This holds at any faithfulness.
+
+\subsubsection*{Comparability}
+Comparable cells order energies correctly in 65 of 65 Ca\,\textsc{i} pairs, and
+select a 52.1\% subset with 100\% accuracy using no training data.
+\emph{Mechanism:} energy is separately monotone in every coordinate --- 49
+single-coordinate pairs, zero violations --- so $a\le b \Rightarrow E(a)\le E(b)$
+is a \textbf{theorem given monotonicity}, not an empirical finding. Monotonicity
+is a coordinate property that a positive-weight linear model encodes directly,
+which is why the control reached 99.9\%.
+
+\subsubsection*{Zero-shot subset selection}
+The lattice selects a reliable subset with no labels; a fitted linear model
+needs 40 labels to approach it. \emph{Mechanism:} a \textbf{naive
+positive-weight sum}, all weights $+1$ and no fitting, matches it exactly ---
+100\% at identical coverage, zero labels.
+
+\subsubsection*{Closure as existence}
+Observed configurations are closed under meet more than chance allows ---
+Mg\,\textsc{i} $p=0.006$, Ca\,\textsc{i} 0.031, Sr\,\textsc{i} and
+Ba\,\textsc{i} $<0.0001$ against a marginal-matched null. \emph{Mechanism:}
+spectroscopists measure \textbf{downward-closed regions}. Every Rydberg series
+is followed from its lowest member upward, so the observed set is a lower set by
+construction.
+
+\subsubsection*{Join-based configuration mixing}
+For divalent atoms roughly 62\% of pairs have \textbf{no upper bound at all}, at
+every valence count tested ($k=2,3,4$). \emph{Mechanism:} joining two
+doubly-excited configurations requires transferring the union of their target
+electrons, but $q\le k$. The join is not ambiguous; it does not exist.
+
+\subsubsection*{A derived ordinal coordinate}
+Collapsing four verified monotonicities into
+$\kappa=(q,n_{\mathrm{core}},-n,-\ell)$ gives 2163/2163 monotone, 31.2\% of
+pairs comparable, and containment across species and charge simultaneously.
+\emph{Mechanism:} every component is a coordinate; the construction restates
+Theorem~12.1 rather than escaping it. Its one apparent violation traced to a
+transcription error in the input data (Appendix~\ref{app:errors}).
+
+\section{What escapes}
+Deductive containment escapes Theorem~12.1, and it is the only thing we have
+found that does.
+
+A bracket is not a function of the coordinates. It is an \textbf{entailment}:
+given that the property is monotone in the order, the true value at an
+unmeasured cell \emph{cannot} lie outside the interval formed by its measured
+neighbours. A regression returns a point and a confidence interval that fails
+some fraction of the time; the order returns containment that holds by
+construction. That is why the bracket never failed in 295 cells while every
+point-estimate claim in this work required qualification.
+
+This also explains an asymmetry in compositional prediction. Propagating
+\textbf{point values} through the chain $n\to I\to\delta\to E$ amplifies a
+334\cmi{} input error by a factor of $1.3\times10^{6}$, because
+$dI/d\delta\approx75\,000$\cmi. Propagating \textbf{intervals} through the same
+chain does not amplify at all: each level's width is set by the spacing of its
+own measured neighbours, not inherited from below. Monotone maps compose exactly
+on intervals and catastrophically on points.
+
+\section{Discussion}
+
+\subsection{The thesis against the strongest premise}
+We began expecting the lattice's order to constrain physics. It does not, and
+the reason is not that the index was too coarse. Over the course of this work
+the index was \textbf{improved to exactness} --- injective at eleven dimensions,
+resolving core $J$, fine structure and the jK label --- and the predictive
+boundary did not move by one cell.
+
+The useful formulation is therefore: \textbf{an ordinal structure over
+configuration space supplies indexing, and indexing is not prediction.} What the
+lattice contributes to Part II is the well-definedness of ``same channel'' and
+``interior on some axis'' --- real contributions, since without them the method
+could not be stated --- and nothing further.
+
+\subsection{Why energies and nothing else}
+$T=\Zeff^{2}R/\nu^{2}$ is strictly monotone in every coordinate, has no zeros or
+stationary points, varies by orders of magnitude across a series, and is
+measured to $10^{-3}$\cmi. The bracket requires all four properties. We tested
+the two nearest alternatives and each fails on a different one: dipole matrix
+elements have zeros; fine-structure splittings are asymptotically constant. We
+know of no other atomic observable with all four.
+
+\subsection{Claims withdrawn}
+\label{sec:withdrawn}
+Stated explicitly so readers of earlier versions are not misled.
+\begin{enumerate}[leftmargin=*,itemsep=1.5pt]
+\item \textbf{$|\Le|=61\,453$ as an invariant.} A truncation artefact; all
+derived region fractions likewise.
+\item \textbf{``Zero invention'' as a substantive property.} The set measured at
+0\% completion cost was defined by admissible chain constraints, and such a set
+is closed by construction. The measurement was tautological. The genuinely
+physical set has nonzero completion cost at every dimension.
+\item \textbf{The physical set as a sublattice.} False; spin parity breaks join.
+\item \textbf{Offset coordinates as a repair.} Faithful and injective but not a
+lattice.
+\item \textbf{Any closure-preserving $h$ depends on one coordinate.} True for
+products of chains, false for \Lm{}: 148 of 335 counterexamples on a test
+lattice. Lemmas 4.1--4.2 replace it and are what the argument needs.
+\item \textbf{Ca\,\textsc{i} $3d^{2}\,^1$D$_2$ at $48\,800$--$49\,000$\cmi.}
+Wrong by ${\approx}1000$\cmi; it places $^1$D above $^3$P, which for $d^{2}$
+requires $C/B>5$~\cite{racah}. Revised unperturbed position
+$47\,539$--$48\,213$\cmi.
+\item \textbf{A point estimate for Ba\,\textsc{i} $5d^{2}\,^1$G$_4$.} Three
+methods gave $24\,163$, $23\,852$ and $22\,094$\cmi, the last outside its own
+bracket. Withheld-term validation fails by 1330\cmi. Only the bracket survives.
+\item \textbf{Maximality without qualification.} No derived quantity raises the
+dimension; independent quantities do.
+\item \textbf{The $h$-axis impossibility as a general result.} It is an instance
+of Theorem~4.3 --- $h$ was defined as a function of outputs.
+\end{enumerate}
+
+\subsection{Open questions}
+Whether any atomic observable other than energy satisfies the four conditions of
+\S15.2. Whether the multi-subshell coverage gap admits a representation
+preserving closure --- Appendix~\ref{app:multi} shows the obvious route does
+not. And whether the bracketing method transfers to non-atomic ordered systems,
+which we have not attempted.
+
+% =====================================================================
+\appendix
+\parttitle{Appendices}
+
+\section{The multi-target extension and why it fails}
+\label{app:multi}
+The 86\% coverage ceiling is caused by configurations with two occupied
+non-source subshells. The natural repair is a second target triple
+$(e_2,f_2,g_2)$. It fails, instructively.
+
+\textbf{Ordering the targets is free.} The canonicalisation $e_1\le e_2$ is
+admissible --- $\varphi$ is the identity --- with zero failures.
+
+\textbf{Conservation is not.} The requirement $g_1+g_2\le q$ is a bound on a
+\textbf{sum}, hence outside \eqref{eq:admis}, and it breaks closure: $89\,864$
+join failures in $979\,300$ sampled pairs, meets unaffected. The counterexample
+is two lines --- $a=(g_1{=}1,g_2{=}0,q{=}1)$ and $b=(g_1{=}0,g_2{=}1,q{=}1)$
+each conserve, and their join transfers two electrons having removed one.
+
+\textbf{Dropping conservation restores closure} ($45\,690$ cells, zero failures)
+and produces a lattice describing configurations that cannot exist.
+
+\textbf{The conserving set is not a sublattice but is almost a lattice.} With
+sufficient headroom, $133\,542$ of $133\,542$ interior pairs have a unique least
+upper bound --- the join exists but is not componentwise max: $q$ rises to admit
+both transfers.
+
+\textbf{With two sources uniqueness fails too.} Conservation becomes
+$g_1+g_2\le q_1+q_2$, a sum on both sides; 2.1\% of pairs acquire multiple
+minimal upper bounds. The result is a graded bounded poset, neither a join- nor
+a meet-semilattice.
+
+\textbf{And the slot representation is not faithful.} Sorted pairs and multisets
+are in bijection but the bijection is \textbf{not a lattice homomorphism}: for
+$3d^{1}$ and $4p^{2}$, multiset union gives three transferred electrons and the
+sorted-pair join gives two.
+
+\section{Computational methods}
+All computations in Python 3 with NumPy~\cite{numpy} and SciPy~\cite{scipy};
+figures with Matplotlib~\cite{matplotlib}. Closure tests either exhaustive over
+all pairs (stated where so) or on uniform random samples of 900--8\,000\,000
+pairs with the sample size reported. Box searches enumerate all $2^{d}$ corners
+of candidate base cells. Null models for the closure-as-existence tests are of
+two kinds: uniform random subsets of the physical envelope matched in size, and
+marginal-matched subsets drawn with probability proportional to the observed
+frequency of each coordinate value, the latter constructed specifically to
+absorb observational-completeness effects. Ritz fits use ordinary least squares
+of $\delta$ against $1/n^{2}$, with $\sigma$ from the standard prediction error
+including the leverage term
+$s\sqrt{1+1/k+(x_0-\bar{x})^{2}/S_{xx}}$.
+
+\section{Data provenance}
+\label{app:data}
+\begin{center}\small
+\begin{tabular}{@{}p{62mm}p{78mm}@{}}
+\toprule
+source & used for\\
+\midrule
+NIST ASD ver.\ 5.12~\cite{nistasd} & Ca\,\textsc{i/ii}, Sr\,\textsc{ii},
+  Kr\,\textsc{i/ii}, Sc\,\textsc{iii}, Ti\,\textsc{i} levels\\
+Sansonetti \& Nave~\cite{sansonetti} & Sr\,\textsc{i} levels and transition
+  probabilities\\
+Curry~\cite{curry} & Ba\,\textsc{i/ii} levels, Land\'e factors\\
+Martin \emph{et al.}~\cite{srd111} & ground configurations, ionisation energies\\
+NIST Handbook~\cite{handbook} & H\,\textsc{i}, Mg\,\textsc{i} levels\\
+Rafiq \emph{et al.}~\cite{rafiq} & Mg\,\textsc{i} $3snd\,^1$D$_2$ series\\
+Cowley~\cite{cowley} & successive ionisation energies\\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{2mm}
+Levels are quoted as published; centres of gravity are $(2J+1)$-weighted.
+
+\section{Errors found and corrected during this work}
+\label{app:errors}
+Recorded because the method by which they were caught is part of the result.
+\begin{itemize}[leftmargin=*,itemsep=1.5pt]
+\item \textbf{Ba\,\textsc{i} $6s11f$ mis-keyed as $6s8f$.} Detected by the
+derived ordinal coordinate producing four order violations, all involving one
+cell. The datum implies $\delta=-2.84$ as $n=8$, impossible, and $\delta=+0.16$
+as $n=11$, correct for an $f$ orbital.
+\item \textbf{Ca\,\textsc{i} $3d^{2}\,^1$D$_2$ position.} Detected by the
+$d^{2}$ term-ordering constraint, which three fitted analyses had not applied.
+\item \textbf{Regex parsing failure.} An early configuration parser read
+\texttt{3d4s} as $3d^{4}$, silently dropping the second subshell.
+\item \textbf{Bracket direction for decreasing sequences.} For a decreasing
+property the tightest bracket takes the maximum over cells above in $n$ and the
+minimum over cells below; the reverse returns the global extremes. The error
+inflated a reported width from 11\% to 114\%.
+\item \textbf{Pooled $\sigma$.} Quoting a single $\sigma$ across series with
+genuinely different defect scatter (a $370\times$ range) produced 96.2\%
+coverage at nominal $\pm1\sigma$ and was misread as heavy tails.
+\item \textbf{Anchoring on a published estimate.} A point prediction for
+Ba\,\textsc{i} $5d^{2}\,^1$G$_4$ was developed with a literature value visible
+from the first computation; the reported range was 38\% narrower than the inputs
+supported. This is why \S11.2 reports a bracket and no estimate, and why the
+Kr\,\textsc{ii} prediction was committed in writing before the measurement was
+requested.
+\item \textbf{Isolated closure mistaken for joint closure.} The offset
+coordinates of \S\ref{sec:offset} were each verified closed in their own plane
+and asserted to be jointly closed. Exhaustive testing showed $222\,075$ join
+failures.
+\end{itemize}
+
+% =====================================================================
+\section*{Acknowledgement of computational assistance}
+\addcontentsline{toc}{section}{Acknowledgement}
+Substantial parts of the analysis --- the closure and dimension tests, the
+ablation studies, the 295-cell verification, the failure diagnostics of Part
+III, and several of the corrections in Appendix~\ref{app:errors} --- were
+carried out in dialogue with an AI system (Claude, Anthropic), which executed
+the computations and served as an adversarial check on intermediate conclusions.
+The system does not hold authorship: authorship entails accountability it cannot
+bear, since it will not persist to answer for the work. Its errors, several
+recorded in Appendix~\ref{app:errors}, were caught by the same process that
+caught the human ones. What can be said precisely is that no numerical claim in
+this paper rests on unexamined output: each was recomputed, attacked, and in a
+number of cases withdrawn.
+
+% =====================================================================
+\begin{thebibliography}{99}
+\small
+
+\bibitem{nistasd} A.~Kramida, Yu.~Ralchenko, J.~Reader and NIST ASD Team,
+\emph{NIST Atomic Spectra Database}, version 5.12, National Institute of
+Standards and Technology, Gaithersburg MD (2024).
+\url{https://physics.nist.gov/asd}
+
+\bibitem{sansonetti} J.~E. Sansonetti and G.~Nave, Wavelengths, transition
+probabilities, and energy levels for the spectrum of neutral strontium (Sr\,I),
+\emph{J. Phys. Chem. Ref. Data} \textbf{39}, 033103 (2010).
+
+\bibitem{curry} J.~J. Curry, Compilation of wavelengths, energy levels, and
+transition probabilities for Ba\,I and Ba\,II, \emph{J. Phys. Chem. Ref. Data}
+\textbf{33}, 725 (2004).
+
+\bibitem{srd111} W.~C. Martin, A.~Musgrove, S.~Kotochigova and J.~E.
+Sansonetti, \emph{Ground Levels and Ionization Energies for the Neutral Atoms},
+NIST Standard Reference Database 111.
+
+\bibitem{handbook} J.~E. Sansonetti, W.~C. Martin and S.~L. Young,
+\emph{Handbook of Basic Atomic Spectroscopic Data}, NIST Standard Reference
+Database 108.
+
+\bibitem{salomankr} E.~B. Saloman, Energy levels and observed spectral lines of
+krypton, Kr\,I through Kr\,XXXVI, \emph{J. Phys. Chem. Ref. Data} \textbf{36},
+215 (2007).
+
+\bibitem{salomanti} E.~B. Saloman, Energy levels and observed spectral lines of
+neutral and singly ionized titanium, Ti\,I and Ti\,II, \emph{J. Phys. Chem. Ref.
+Data} \textbf{41}, 013101 (2012).
+
+\bibitem{cowley} C.~R. Cowley, Successive ionization energies of the elements
+$Z=1$--100, University of Michigan compilation.
+
+\bibitem{rydberg} J.~R. Rydberg, Recherches sur la constitution des spectres
+d'\'emission des \'el\'ements chimiques, \emph{Kongliga Svenska
+Vetenskaps-Akademiens Handlingar} \textbf{23}, 1 (1889).
+
+\bibitem{ritz} W.~Ritz, \"Uber die Spektren der Alkalien, \emph{Ann. Phys.}
+\textbf{317}, 264 (1903).
+
+\bibitem{seaton} M.~J. Seaton, Quantum defect theory, \emph{Rep. Prog. Phys.}
+\textbf{46}, 167 (1983).
+
+\bibitem{fano} U.~Fano, Quantum defect theory of $l$ uncoupling in H$_2$ as an
+example of channel-interaction treatment, \emph{Phys. Rev. A} \textbf{2}, 353
+(1970).
+
+\bibitem{lufano} K.~T. Lu and U.~Fano, Graphic analysis of perturbed Rydberg
+series, \emph{Phys. Rev. A} \textbf{2}, 81 (1970).
+
+\bibitem{cookecromer} W.~E. Cooke and C.~L. Cromer, Multichannel quantum-defect
+theory and an equivalent $N$-level system, \emph{Phys. Rev. A} \textbf{32}, 2725
+(1985).
+
+\bibitem{rafiq} M.~Rafiq, M.~A. Kalyar and M.~A. Baig, Measurement of
+photoionization cross sections from the $3s\,nd\ ^1$D$_2$ Rydberg states of
+magnesium, \emph{J. Phys. B} \textbf{40}, 3181 (2007).
+
+\bibitem{racah} G.~Racah, Theory of complex spectra, I--IV, \emph{Phys. Rev.}
+\textbf{61}, 186 (1942); \textbf{62}, 438 (1942); \textbf{63}, 367 (1943);
+\textbf{76}, 1352 (1949).
+
+\bibitem{cooper} J.~W. Cooper, Photoionization from outer atomic subshells: a
+model study, \emph{Phys. Rev.} \textbf{128}, 681 (1962).
+
+\bibitem{condonshortley} E.~U. Condon and G.~H. Shortley, \emph{The Theory of
+Atomic Spectra}, Cambridge University Press (1935).
+
+\bibitem{cowan} R.~D. Cowan, \emph{The Theory of Atomic Structure and Spectra},
+University of California Press (1981).
+
+\bibitem{birkhoff} G.~Birkhoff, \emph{Lattice Theory}, 3rd ed., American
+Mathematical Society Colloquium Publications 25 (1967).
+
+\bibitem{daveypriestley} B.~A. Davey and H.~A. Priestley, \emph{Introduction to
+Lattices and Order}, 2nd ed., Cambridge University Press (2002).
+
+\bibitem{dushnik} B.~Dushnik and E.~W. Miller, Partially ordered sets,
+\emph{Amer. J. Math.} \textbf{63}, 600 (1941).
+
+\bibitem{trotter} W.~T. Trotter, \emph{Combinatorics and Partially Ordered Sets:
+Dimension Theory}, Johns Hopkins University Press (1992).
+
+\bibitem{gratzer} G.~Gr\"atzer, \emph{Lattice Theory: Foundation},
+Birkh\"auser (2011).
+
+\bibitem{yannakakis} M.~Yannakakis, The complexity of the partial order
+dimension problem, \emph{SIAM J. Alg. Disc. Meth.} \textbf{3}, 351 (1982).
+
+\bibitem{ganterwille} B.~Ganter and R.~Wille, \emph{Formal Concept Analysis:
+Mathematical Foundations}, Springer (1999).
+
+\bibitem{madelung} E.~Madelung, \emph{Die mathematischen Hilfsmittel des
+Physikers}, 3rd ed., Springer (1936).
+
+\bibitem{klechkowski} V.~M. Klechkowski, \emph{The Distribution of Atomic
+Electrons and the Rule of Successive Filling of $(n+l)$ Groups}, Atomizdat,
+Moscow (1962).
+
+\bibitem{scerri} E.~R. Scerri, \emph{The Periodic Table: Its Story and Its
+Significance}, Oxford University Press (2007).
+
+\bibitem{slater} J.~C. Slater, Atomic shielding constants, \emph{Phys. Rev.}
+\textbf{36}, 57 (1930).
+
+\bibitem{ostrovsky} V.~N. Ostrovsky, What and how physics contributes to
+understanding the periodic law, \emph{Found. Chem.} \textbf{3}, 145 (2001).
+
+\bibitem{numpy} C.~R. Harris \emph{et al.}, Array programming with NumPy,
+\emph{Nature} \textbf{585}, 357 (2020).
+
+\bibitem{scipy} P.~Virtanen \emph{et al.}, SciPy 1.0: fundamental algorithms for
+scientific computing in Python, \emph{Nature Methods} \textbf{17}, 261 (2020).
+
+\bibitem{matplotlib} J.~D. Hunter, Matplotlib: a 2D graphics environment,
+\emph{Comput. Sci. Eng.} \textbf{9}, 90 (2007).
+
+\end{thebibliography}
+
+\vspace{4mm}
+\noindent{\small\color{mut}\textbf{Note on citation practice.} Sources are cited
+for data and for standard results used in the argument. Where a result is
+standard and attributable to a textbook rather than a paper --- the dimension of
+the Boolean lattice, the closure of a product of chains --- the textbook is
+cited and no priority is claimed. No source is cited in support of a claim it
+does not make; in particular the order-theoretic construction of \S2 is not, so
+far as the author is aware, present in the literature, and the negative result
+of Part III is offered as new.\par}
+
+\end{document}

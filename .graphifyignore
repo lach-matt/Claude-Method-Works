@@ -101,3 +101,49 @@ drive/The Method Materials/THREEBODY-DELIVERY-1/caps_table__1EBiH5rPlw6WiIV7SZzn
 drive/The Method Materials/THREEBODY-DELIVERY-1/routh_check__1paQDhyTU_KaZTNlOC1Z7r2Miqdg68iyO.py
 drive/The Method Materials/THREEBODY-DELIVERY-1/audit_state1_failing__1aHjZg2vIHlQjtV1OBR4kFbwx6EdArniN.py
 drive/The Method Materials/Everything we can see, touch, or detect using elec...__1NloPG2l-coCpoAyBjAwvBBCZmtTRNTDwvkkGwYaKx0U.md
+
+# ---------------------------------------------------------------------------
+# Trees added 2026-09-04. Everything below is a scope decision, not a size one:
+# the question each rule answers is "would a node here tell a reader something
+# about the corpus", not "is this file big".
+
+# The sharded chat export: 352 conversations, 393 MB of raw JSON, one shard
+# alone 38.5 MB. These are a transcript store, not source. Their inventory is
+# drive/chats/INDEX.tsv and every artefact they wrote is already extracted into
+# recovered/, which IS indexed -- so graphing the JSON would add no reachable
+# fact while swamping the graph with dialogue.
+drive/chats/
+
+# Split pieces staged from Drive. The assembled whole file sits beside them and
+# is what carries meaning; the parts are byte-exact transfer records.
+incoming/**/*.part[0-9][0-9]
+
+# Bulk data blobs from the 2_13 restore point: coordinate tables and channel
+# maps, megabytes of numbers with no structure a graph can traverse. The
+# instruments that read them are indexed; the tables are not.
+extracted/archives/method16-rp-b-data/COORDINATES.tsv
+extracted/archives/method16-rp-b-data/channels_map.json
+extracted/archives/method16-rp-b-data/index_final.json
+extracted/archives/method16-rp-b-data/survey.json
+extracted/archives/spectra-levels-store/
+
+# extracted/ and recovered/ are deliberately NOT excluded. recovered/ holds
+# 1,134 .py instruments and 593 .md notes lifted out of the chats, and
+# extracted/ another 384 instruments from the archives -- between them the
+# largest body of real code in the repository, and the part a graph is most
+# useful over.
+
+# Containers in the mirror whose CONTENTS are already indexed via extracted/.
+# extracted/LEDGER.tsv accounts for all 2,500 archive-member occurrences, so
+# graphing the archive itself would add an opaque node and nothing reachable.
+drive/**/*.zip
+drive/**/*.gz
+drive/**/*.tar.gz
+
+# Print artefacts and bulk data in the mirror. The PDFs restate the Markdown
+# bundles that are already indexed; the large .json/.csv are measurement tables
+# with no structure a graph traverses.
+drive/**/*.pdf
+drive/**/*.png
+drive/The Method Materials/COORDINATES-2_13.csv
+drive/**/conversations*.json

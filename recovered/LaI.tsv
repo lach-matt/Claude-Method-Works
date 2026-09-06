@@ -1,0 +1,39 @@
+# La I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=La+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent: parameter order differs, names and
+# values identical. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per M's instruction (R 1638): no limit
+# read, no defect computed, no cell entered, until all 61 are in.
+#
+# THE LIMITS ARE IN THE TABLE ITSELF, which removes the step that produced
+# four wrong limits at register 1627:
+#   La II (5s2.5p6.5d2 3F<2>)  Limit  44981 cm-1
+#   La II (5s2.5p6.6s2 1S<0>)  Limit  52376 cm-1
+#
+# THE 6s2.np SERIES RUNS n = 8 TO 23 against the 52376 limit — sixteen
+# members in one channel. Noted, not used.
+#
+# config	term	J	level_cm1
+5d.6s2	2D	3/2	0.000
+5d.6s2	2D	5/2	1053.164
+5d2.(3F).6s	4F	3/2	2668.188
+5d2.(3F).6s	4F	5/2	3010.002
+5d2.(3F).6s	4F	7/2	3494.526
+5d2.(3F).6s	4F	9/2	4121.572
+5d2.(3F).6s	2F	5/2	7011.909
+5d2.(3F).6s	2F	7/2	8052.162
+4f.6s2	2F*	5/2	15196.83
+4f.6s2	2F*	7/2	16538.39
+6s2.8p	2P*	3/2	44978.6
+6s2.8p	2P*	1/2	44978.9
+6s2.9p	2P*	3/2	47675
+6s2.10p	2P*	3/2	49176.5
+6s2.11p	2P*	3/2	50030.3
+6s2.12p	2P*	3/2	50591.4
+6s2.13p	2P*	3/2	50968.3
+6s2.14p	2P*	3/2	51242.2
+6s2.15p	2P*	3/2	51441.6
+6s2.17p	2P*	3/2	51708.5
+6s2.18p	2P*	3/2	51800.3
+6s2.23p	2P*	3/2	52069.8

@@ -1,0 +1,6 @@
+# pack78/RETIRE.txt -- s78. DECLARED ADDITION, NO REMOVALS.
+# S78-RECORD.md added after the first seal of s78: the five s78 records concatenated
+# verbatim into one file at M's instruction. The five originals are RETAINED and
+# unaltered; this is a duplicate presentation, not a replacement. Root hash therefore
+# changes from 8c3a94e4...870c (first seal) to the value recorded in LINEAGE.txt below.
+# Nothing was removed. Nothing sealed was edited.

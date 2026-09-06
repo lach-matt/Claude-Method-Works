@@ -1,0 +1,14 @@
+# Si I — NIST Handbook silicontable5, ref MKMD94 · limit Si II (2P°1/2) 65747.76
+# PARTIAL: the snippet showed only head and tail
+config	term	J	level_cm1
+3s23p2	3P	0	0.000
+3s23p2	3P	1	77.112
+3s23p2	3P	2	223.157
+3s23p2	1D	2	6298.847
+3s23p2	1S	0	15394.362
+3s3p3	5S°	2	33326.040
+3s23p4s	3P°	0	39683.158
+3s23p4s	3P°	1	39760.285
+3s23p4s	3P°	2	39955.051
+3s23p(2P°3/2)4f	2[3/2]	1	59190.444
+3s23p(2P°3/2)4f	2[3/2]	2	59191.066

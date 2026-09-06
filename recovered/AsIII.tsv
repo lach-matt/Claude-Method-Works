@@ -1,0 +1,29 @@
+# As III — NIST ASD levels, fetched live 2026-08-14 (session 1.8, batch 2 fetch 4).
+# destination_url VERIFIED: energy1.pl?...spectrum=As+III...format=2&units=0 (cm-1)
+# Ga-like keyable species (one e- outside 4s2). SPARSE: 20 levels only,
+# nearly all energies integer-valued with trailing dots (kept as printed) —
+# a low-precision table. Kink: 5g present but no 6p/6d/nf beyond 4f.
+# Limit: As IV (4s2 1S<0>) 228650.
+Configuration	Term	J	Level_cm-1
+4s2.4p	2P*	1/2	0.
+4s2.4p	2P*	3/2	2940.
+4s.4p2	2D	3/2	85310.
+4s.4p2	2D	5/2	85633.
+4s2.5s	2S	1/2	106694.
+4s.4p2	2S	1/2	107808.
+4s.4p2	2P	1/2	113936.
+4s.4p2	2P	3/2	115424.
+4s2.4d	2D	3/2	117651.
+4s2.4d	2D	5/2	117744.
+4s2.5p	2P*	1/2	131458.
+4s2.5p	2P*	3/2	132182.
+4p3	2P*	3/2	161885.
+4p3	2P*	1/2	162048.
+4s2.6s	2S	1/2	162889.5
+4s2.4f	2F*	7/2	164107.
+4s2.4f	2F*	5/2	164115.
+4s2.5d	2D	3/2	165623.
+4s2.5d	2D	5/2	165708.
+4s2.5g	2G	7/2	188907.
+4s2.5g	2G	9/2	188907.
+As_IV_(4s2_1S<0>)	Limit	---	228650

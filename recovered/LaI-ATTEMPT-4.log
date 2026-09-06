@@ -1,0 +1,20 @@
+# La I — ATTEMPT 4. DATA RETURNED, BUT INCOMPLETE. Register 1639.
+# sent:        ...?spectrum=La+I&units=1&format=2&level_out=on&j_out=on&submit=Retrieve+Data
+# destination: ...?format=2&j_out=on&level_out=on&spectrum=La+I&submit=Retrieve+Data&units=1
+# MATCH. mime text/plain. ~320 rows of CSV.
+#
+# COLUMNS RETURNED:  J, Prefix, Level (eV), Suffix
+# COLUMNS MISSING:   CONFIGURATION and TERM
+#
+# NOT SAVED AS A CAPTURE. Without configuration there is no n and no l;
+# without term there is no 2S+1. Every row is an energy that cannot be
+# assigned to a channel, so the file would be unusable and its presence
+# would imply La I had been captured when it had not.
+#
+# TWO FIXES NEEDED:
+#   conf_out=on and term_out=on   — the columns that carry n, l and 2S+1
+#   units=0                       — cm-1; units=1 returned eV
+#
+# ONE CONFIRMATION WORTH KEEPING: the table's last rows carry 5.5769 eV,
+# which is La I's known first ionisation energy. The limit is IN the
+# output, so it need not be sourced separately.

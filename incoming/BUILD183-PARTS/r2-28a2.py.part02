@@ -1,0 +1,60 @@
+      sorted({bool(re.search(r'[&,]', c[1])) for c in old_hit}), [True])
+check('rows from which that extractor gets NO surname at all', len(old_none), 123)
+print('   The MC table prints a BARE surname ("| 1669 | Newton |"); that extractor requires a following')
+print('   initial, bracket, ampersand, comma or dash, so it reads nothing from %d of %d rows. Its "16" counts' % (len(old_none), len(ROWS)))
+print('   MULTI-AUTHOR ROWS, not overlap. Properly extracted the surname-only overlap is %d of %d.' % (len(SNM), len(ROWS)))
+score('"16 of 162" is a bound on the surname overlap', len(SNM), 16, '28a-08')
+
+# ------------------------------------------------------------------------------ §6
+hr('§6 "THE REST … THIS VOLUME NEVER LISTED" — census 1463\'s C9 word, taken directly')
+CONF = [c for c in SNM if c not in MATCH]
+check('rows whose author is on BOTH lists under a different year', len(CONF), 18)
+for c in CONF:
+    for n in sorted(cn(c[1]) & UNS):
+        print('   MC %s %-34s References years for %s: %s' % (c[0], c[1][:34], n, sorted({y for a, y in AY if a == n})[:8]))
+jan = [c for c in CONF if 'Janet' in cn(c[1])]
+jl = [i + 1 for i, l in enumerate(M) if i + 1 >= S and re.search(r'^\s*Janet, C\. \(1928\)', l)]
+check('the compendium carries exactly one Janet row, at 1929', [c[0] for c in jan], ['1929'])
+check('the References carry Janet at 1928, one site', jl, [11777])
+check('both name the same work (the left-step periodic table)',
+      ('left-step' in M[jl[0] - 1]) and ('E.layout' in [c for c in jan][0][2] or 'E.table' in [c for c in jan][0][2]), True)
+score('1736\'s "the rest … this volume never listed" holds of every unmatched row', len(jan), 0, '28a-09')
+print('   ONE row is decidable and it falsifies the word: the left-step periodic table is listed at L11777 as')
+print('   Janet 1928 and carried in the compendium as 1929 — the year disagreement 28a-07 / 16x-06 already')
+print('   records. The other %d are consistent with DIFFERENT WORKS by the same author and the reading does' % (len(CONF) - len(jan)))
+print('   not decide them; they are carried as NEAR (SUBJ, chat 148), an upper bound, never assigned.')
+
+# ------------------------------------------------------------------------------ §7
+hr('§7 CENSUS — rows in the ranges this reading engaged')
+print('   engaged: main L%d–L%d (References entire), mc L%d–L%d (the bibliography block), reg L%d–L%d (entry 1736)'
+      % (S, len(M), B0, B1 - 1, s1736, e1736))
+print('   main 718 / 719  C7 at L11600 — closed in the ch28a unit, not a defect; the earlier line governs (G0b)')
+print('   reg 1463        C9 "never" at L6459 — CLOSED HERE as a defect on the Janet row (28a-09)')
+print('   mc 387–672      C13-HANDLE-LEAK, 286 rows, the bibliography table\'s `objects` column — ENGAGED and')
+print('                   NOT CLOSED: this reading took the year and work columns only. The class is ruled')
+print('                   elsewhere (26b-10, ruling 46, docket 28); a row is not closed on a reading that did')
+print('                   not take it.')
+
+# ------------------------------------------------------------------------------ verdict
+hr('VERDICT')
+print('   28a-06 STANDS AND IS SHARPENED. The author-and-year match on the 162 rows the volumes now carry is')
+print('   **%d**, not the printed fifty-nine, and no year tolerance up to ±5 reaches 59 (%d / %d / %d / %d / %d).' % (len(MATCH), tol(0), tol(1), tol(2), tol(3), tol(5)))
+print('   Fifty-nine is reachable only by dropping the year, where the count OVERSHOOTS to %d. Register 1736 is' % len(SNM))
+print('   the source and says in terms that it matched "172 works"; its figure is a 172-row datum and is not')
+print('   withdrawn here. What the main volume does at L11848–L11853 is print that datum inside a sentence whose')
+print('   other number, 162, is the post-removal count. R3: the figure is re-taken on the list it is printed')
+print('   beside, or the sentence names the list it belongs to. Docket 17 / 37.')
+print('   28a-08 NEW. r2-ch28a §4\'s "16 of 162" is not a bound on the overlap. Its surname extractor returns NO')
+print('   surname at all from %d of the %d rows, because the MC table prints a bare surname and the extractor' % (len(old_none), len(ROWS)))
+print('   requires a following initial, bracket, ampersand, comma or dash; every one of the 16 it caught is a')
+print('   multi-author row. The surname-only overlap, properly extracted, is %d of %d. The instrument is banked' % (len(SNM), len(ROWS)))
+print('   and its golden reproduces: this is recorded, not repaired (chat-67 hold).')
+print('   28a-09 NEW. Register 1736\'s "the rest classical attributions this volume never listed" is falsified at')
+print('   one measured site. The compendium\'s 1929 Janet row and the References\' Janet 1928 at L11777 are the')
+print('   same work — the left-step periodic table — under two years, which 28a-07 / 16x-06 already records.')
+print('   Census 1463\'s C9 word closes on it. Seventeen further authors sit on both lists at other years and')
+print('   are carried as NEAR, undecided: different works by one author is consistent with every one.')
+print('\nDEVIATIONS RECORDED (findings, not instrument faults):')
+for t, tag, got, exp in DEV: print('   %-8s %-58s measured %s against printed %s' % (t, tag, repr(got), repr(exp)))
+print('\n%s' % ('FAIL: ' + '; '.join(FAIL) if FAIL else 'ALL INSTRUMENT CHECKS OK — %d deviations recorded' % len(DEV)))
+sys.exit(1 if FAIL else 0)

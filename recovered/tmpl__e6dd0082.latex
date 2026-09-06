@@ -1,0 +1,35 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{FreeSerif}\setsansfont{FreeSans}\setmonofont{FreeMono}
+\usepackage{unicode-math}
+\setmathfont{DejaVuMathTeXGyre.ttf}[Path=/usr/share/fonts/truetype/dejavu/]
+\usepackage[margin=2.6cm]{geometry}
+\usepackage{graphicx,longtable,booktabs,array,xcolor,caption,microtype}
+\usepackage{amsmath}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
+\usepackage{setspace}\setstretch{1.06}
+\captionsetup{font=small,labelfont=bf,width=.94\textwidth}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.7em}{}
+\usepackage{fancyhdr}\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small The Genome Is Not a Closed Index}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\emergencystretch}{3em}
+\hypersetup{pdftitle={The Genome Is Not a Closed Index},pdfauthor={Matthew Lach}}
+\title{$title$$if(subtitle)$\\[0.35em]\large\mdseries $subtitle$$endif$}
+\author{$for(author)$$author$$endfor$}
+\date{$date$}
+\begin{document}
+\maketitle
+$if(abstract)$
+\begin{abstract}\noindent\small $abstract$\end{abstract}
+$endif$
+$if(toc)$
+{\hypersetup{linkcolor=black}\setcounter{tocdepth}{2}\tableofcontents}
+\newpage
+$endif$
+$body$
+\end{document}

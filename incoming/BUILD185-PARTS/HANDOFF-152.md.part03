@@ -1,0 +1,31 @@
+   `appendix_audit.py`, `mathreg.py`, `compendium.py`, `register_gen.py` and `guard.py` are **not members**, and
+   register 435 records the first two as having been **absent and rebuilt from the printed rules**. So all seven
+   §2.21 build readouts are figures **no member of the artefact can recompute**. `build.py` IS a member and computes
+   none of them. **R3: either those scripts become members, or every §2.21 readout carries the docket-38
+   qualification that its instrument is not held.** This is not a defect in any figure; it is the honest standing of
+   all seven.
+7. **28b-08** (twelve block names live only in register 1721, not the eight recorded — Baker, Dechter, Montanari and
+   Pixley are the four missed) and the two open census bodies of item 6 above.
+
+**No re-derivation is owed.** DEF-143 item 11's order is empty and stays empty.
+
+## This tree
+
+```
+method/
+  The_Method_1_6_BUILD90_main_and_register.md          1,983,081 B  49065309b0c4fe8e055f693aed295cca
+  The_Method_1_6_BUILD185_compendia_papers_audits.md   6,047,434 B  1a822dfe3dad7d87956275b90892e514
+  members/                                             363 files, byte-exact, bare canonical names
+  MEMBER-INDEX.tsv                                     member, bundle, ext, bytes, md5, bundle_offset
+  verify.py                                            proves the tree rebuilds BOTH bundles bit-exactly
+  bin/stage-gate                                       stages the tree where the seated instruments expect it
+  HANDOFF-152.md                                       this file
+../.gitattributes                                      `* -text` — without it git normalises EOLs and every md5 fails
+```
+
+`method/CLAUDE.md` is **deliberately absent from this tree**: the repo already carries the rewritten gate from the
+Claude Code session of 2026-09-02, and this chat could not read it to merge. **Do not let this tree overwrite it.**
+
+**`python3 verify.py` prints VERIFY OK here**: both bundle md5s assert, all 363 member bodies match the tree
+byte-for-byte, every md5 matches MEMBER-INDEX.tsv, and **both bundles rebuild from the tree at the recorded offsets
+and re-assert their md5s**. That is the guarantee that a checkout reproduces what the §0 gate extracts.

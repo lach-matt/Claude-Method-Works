@@ -1,0 +1,28 @@
+# HANDOFF-152 — The Method 1.6 — chat 152 (Cowork) → R3 (Claude Code)
+
+Slim form (RULINGS-R2.md chat-127 item 5). **The repair docket, the standing method and the conventions live in
+`members/DOCKET.md` (index + chat-128 … chat-152 deltas); the findings in the `READ-*.md` members and
+`members/WORKING-REGISTER.md`; the deferred items in `members/DEFERRED.md`; the rulings in `members/RULINGS-R2.md`.**
+Read all four at open, last blocks first.
+
+## Identity
+
+- Written from **chat 152** (Cowork) for **R3 in Claude Code**. Live files: **BUILD90 main** (unchanged since chat 62)
+  and **BUILD185 compendia**. Register **1 to 1792**. **W-194 IS seated**; the next chat seats nothing at open.
+- **BUILD90 main** `The_Method_1_6_BUILD90_main_and_register.md` — **1,983,081 B · md5
+  `49065309b0c4fe8e055f693aed295cca` · 18,470 lines · 2 members** (MEASURED this chat).
+- **BUILD185 compendia** `The_Method_1_6_BUILD185_compendia_papers_audits.md` — **6,047,434 B · md5
+  `1a822dfe3dad7d87956275b90892e514` · 68,222 lines · 361 members** (MEASURED). `close.py`'s reverse guard recovers
+  BUILD184 `d4350094449e3a4bf488315e21199bd4` exactly.
+- Inside: MANIFEST.tsv **24,320 B / `f52043245cdb8ae8e79a34205243fb33` / 363 lines** (362 listed);
+  WORKING-REGISTER.md **940,713 B / `40afefa312c24f834828368f3a002b2b` / 8,031 lines**, ending W-194;
+  DEFERRED.md **424,204 B / `9dfd12100fe3e6add5fb4b6dd9526929` / 3,475 lines**;
+  DOCKET.md **69,857 B / `053be5575f4311cf305f459dbb1f3731` / 433 lines**;
+  RULINGS-R2.md **17,684 B / `d42790bbadf9707bb831d21d710aeedb`** (unchanged).
+- Prints & Proofs **738,550 B / `49900cf41f818ab789bb90fc596ac977` / 11,371 lines** (MEASURED). ARCHIVE1 is NOT
+  fetched at the gate.
+- **Governing state** unchanged: RUL-128 items 1–4, the chat-81 cadence, the chat-95 bar (*a finding is not a
+  question*), Register append-only, no silent change, the **chat-67 hold** (findings are recorded, never repaired;
+  R3 executes). **W-190's loop ruling stands for Cowork sessions**: open from Drive, work through Graphify, close by
+  writing small parts back to Drive. **For a Claude Code session the repository is the store of record** (M's ruling,
+  2026-09-02) — the two are not in conflict; W-190 suspends the repo route only where GitHub is unreachable, and it

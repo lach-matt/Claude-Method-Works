@@ -1,0 +1,211 @@
+# Ga I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Ga+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Ga+I confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# FIVE LIMITS:
+#   Ga II (4s2       1S<0>)    48387.634   <- the 4s2.nl series
+#   Ga II (4s.4p   3P*<0>)     95755.14
+#   Ga II (4s.4p   3P*<1>)     96201.68
+#   Ga II (4s.4p   3P*<2>)     97137.37
+#   Ga II (4s.4p   1P*<1>)    119088.90
+#
+# 4s2.4p ground — the n=4 member of the one-outside family, completing
+# it at FIVE shells alongside In I (5) and Tl I (6):
+#   B I (2) · V V etc (3) · Ga I, Ge II, As III, Se IV, Br V (4)
+#   In I, Cs I (5) · Tl I (6)
+#
+# ** THE np SERIES RUNS TO n = 70 — the deepest p-series in clean LS in
+#    the whole fetch, past Ge I's 70 in d (which was jj). From n = 41
+#    upward EVERY p-pair carries ONE value for both J: 41p both at
+#    48314.64, 70p both at 48363.88. THIRTY CONSECUTIVE n where two
+#    rows record one measurement. **
+#
+# ** AND THE d SERIES SHOWS THE SAME COLLAPSE INTERMITTENTLY: 10d, 11d,
+#    18d, 22d, 24d all carry one value for both J while their
+#    neighbours are resolved. NOT monotone in n — as In I showed for f.
+#    Flagged degenerate throughout. **
+#
+# The f series is degenerate at EVERY member captured (4f..8f) — both
+# J at one value, always.
+#
+# The 4s.4p.(3P*<J>).np block above 78000 is Racah 2[K] on FOUR
+# J-resolved parents and runs to n=17; refused by R 1576, kept separate.
+# A 3d-hole block sits at 152000+ on no printed limit.
+#
+# config	term	J	level_cm1	note
+3d10.4s2.4p	2P*	1/2	0.000	
+3d10.4s2.4p	2P*	3/2	826.190	
+4s2.5s	2S	1/2	24788.530	
+4s2.6s	2S	1/2	37584.77	
+4s2.7s	2S	1/2	42158.77	
+4s2.8s	2S	1/2	44332.27	
+4s2.9s	2S	1/2	45536.67	
+4s2.10s	2S	1/2	46274.4	
+4s2.11s	2S	1/2	46758.6	
+4s2.12s	2S	1/2	47093.3	
+4s2.13s	2S	1/2	47334.4	
+4s2.14s	2S	1/2	47514.0	
+4s2.15s	2S	1/2	47651.4	
+4s2.16s	2S	1/2	47758.6	
+4s2.17s	2S	1/2	47844.1	
+4s2.18s	2S	1/2	47913.0	
+4s2.19s	2S	1/2	47970.0	
+4s2.20s	2S	1/2	48017.0	
+4s2.21s	2S	1/2	48056.4	
+4s2.22s	2S	1/2	48090.2	
+4s2.23s	2S	1/2	48118.5	
+4s2.24s	2S	1/2	48143.4	
+4s2.25s	2S	1/2	48164.6	
+4s2.26s	2S	1/2	48183.7	
+4s2.27s	2S	1/2	48199.9	
+4s2.28s	2S	1/2	48214.6	
+4s2.5p	2P*	1/2	33044.05	
+4s2.5p	2P*	3/2	33155.07	
+4s2.6p	2P*	1/2	40376.45	
+4s2.6p	2P*	3/2	40417.62	
+4s2.7p	2P*	1/2	43442.83	
+4s2.7p	2P*	3/2	43462.74	
+4s2.20p	2P*	1/2	48038.305	
+4s2.20p	2P*	3/2	48038.680	
+4s2.22p	2P*	1/2	48105.564	
+4s2.22p	2P*	3/2	48105.838	
+4s2.24p	2P*	1/2	48155.116	
+4s2.24p	2P*	3/2	48155.314	
+4s2.26p	2P*	1/2	48192.664	
+4s2.26p	2P*	3/2	48192.820	
+4s2.28p	2P*	1/2	48221.808	
+4s2.28p	2P*	3/2	48221.925	
+4s2.35p	2P*	1/2	48285.164	
+4s2.35p	2P*	3/2	48285.221	
+4s2.4d	2D	3/2	34781.66	
+4s2.4d	2D	5/2	34787.85	
+4s2.5d	2D	3/2	40802.86	
+4s2.5d	2D	5/2	40811.41	
+4s2.6d	2D	3/2	43575.11	
+4s2.6d	2D	5/2	43580.44	
+4s2.7d	2D	3/2	45071.75	
+4s2.7d	2D	5/2	45075.73	
+4s2.8d	2D	3/2	45969.2	
+4s2.8d	2D	5/2	45972.0	
+4s2.9d	2D	3/2	46547.9	
+4s2.9d	2D	5/2	46549.0	
+4s2.12d	2D	3/2	47428.7	
+4s2.13d	2D	3/2	47585.1	
+4s2.13d	2D	5/2	47585.9	
+4s2.14d	2D	3/2	47706.2	
+4s2.14d	2D	5/2	47707.1	
+4s2.15d	2D	3/2	47802.0	
+4s2.15d	2D	5/2	47802.5	
+4s2.16d	2D	3/2	47878.7	
+4s2.16d	2D	5/2	47879.0	
+4s2.17d	2D	3/2	47941.3	
+4s2.17d	2D	5/2	47941.5	
+4s2.19d	2D	3/2	48036.400	
+4s2.19d	2D	5/2	48036.706	
+4s2.20d	2D	3/2	48072.962	
+4s2.20d	2D	5/2	48073.225	
+4s2.21d	2D	3/2	48104.096	
+4s2.21d	2D	5/2	48104.327	
+4s2.23d	2D	3/2	48153.970	
+4s2.23d	2D	5/2	48154.145	
+4s2.25d	2D	3/2	48191.759	
+4s2.25d	2D	5/2	48191.895	
+4s2.26d	2D	5/2	48207.2	
+4s2.27d	2D	3/2	48221.079	
+4s2.27d	2D	5/2	48221.186	
+4s2.30d	2D	3/2	48254.091	
+4s2.30d	2D	5/2	48254.176	
+4s2.34d	2D	3/2	48284.786	
+4s2.34d	2D	5/2	48284.842	
+# --- ONE VALUE FOR BOTH J: two rows, one measurement
+4s2.4f	2F*	5/2	41454.18	degenerate
+4s2.4f	2F*	7/2	41454.18	degenerate
+4s2.5f	2F*	5/2	43955.06	degenerate
+4s2.5f	2F*	7/2	43955.06	degenerate
+4s2.6f	2F*	5/2	45312.94	degenerate
+4s2.6f	2F*	7/2	45312.94	degenerate
+4s2.7f	2F*	5/2	46130.89	degenerate
+4s2.7f	2F*	7/2	46130.89	degenerate
+4s2.8f	2F*	5/2	46661.21	degenerate
+4s2.8f	2F*	7/2	46661.21	degenerate
+4s2.10d	2D	3/2	46943.6	degenerate
+4s2.10d	2D	5/2	46943.6	degenerate
+4s2.11d	2D	3/2	47222.1	degenerate
+4s2.11d	2D	5/2	47222.1	degenerate
+4s2.18d	2D	3/2	47993.2	degenerate
+4s2.18d	2D	5/2	47993.2	degenerate
+4s2.22d	2D	3/2	48130.8	degenerate
+4s2.22d	2D	5/2	48130.8	degenerate
+4s2.24d	2D	3/2	48173.7	degenerate
+4s2.24d	2D	5/2	48173.7	degenerate
+4s2.41p	2P*	1/2	48314.64	degenerate
+4s2.41p	2P*	3/2	48314.64	degenerate
+4s2.42p	2P*	1/2	48318.28	degenerate
+4s2.42p	2P*	3/2	48318.28	degenerate
+4s2.43p	2P*	1/2	48321.60	degenerate
+4s2.43p	2P*	3/2	48321.60	degenerate
+4s2.44p	2P*	1/2	48324.78	degenerate
+4s2.44p	2P*	3/2	48324.78	degenerate
+4s2.45p	2P*	1/2	48327.68	degenerate
+4s2.45p	2P*	3/2	48327.68	degenerate
+4s2.46p	2P*	1/2	48330.36	degenerate
+4s2.46p	2P*	3/2	48330.36	degenerate
+4s2.47p	2P*	1/2	48332.86	degenerate
+4s2.47p	2P*	3/2	48332.86	degenerate
+4s2.48p	2P*	1/2	48335.28	degenerate
+4s2.48p	2P*	3/2	48335.28	degenerate
+4s2.49p	2P*	1/2	48337.58	degenerate
+4s2.49p	2P*	3/2	48337.58	degenerate
+4s2.50p	2P*	1/2	48339.66	degenerate
+4s2.50p	2P*	3/2	48339.66	degenerate
+4s2.51p	2P*	1/2	48341.63	degenerate
+4s2.51p	2P*	3/2	48341.63	degenerate
+4s2.52p	2P*	1/2	48343.44	degenerate
+4s2.52p	2P*	3/2	48343.44	degenerate
+4s2.53p	2P*	1/2	48345.20	degenerate
+4s2.53p	2P*	3/2	48345.20	degenerate
+4s2.54p	2P*	1/2	48346.630	degenerate
+4s2.54p	2P*	3/2	48346.630	degenerate
+4s2.55p	2P*	1/2	48348.173	degenerate
+4s2.55p	2P*	3/2	48348.173	degenerate
+4s2.56p	2P*	1/2	48349.627	degenerate
+4s2.56p	2P*	3/2	48349.627	degenerate
+4s2.57p	2P*	1/2	48351.09	degenerate
+4s2.57p	2P*	3/2	48351.09	degenerate
+4s2.58p	2P*	1/2	48352.45	degenerate
+4s2.58p	2P*	3/2	48352.45	degenerate
+4s2.59p	2P*	1/2	48353.64	degenerate
+4s2.59p	2P*	3/2	48353.64	degenerate
+4s2.60p	2P*	1/2	48354.81	degenerate
+4s2.60p	2P*	3/2	48354.81	degenerate
+4s2.61p	2P*	1/2	48355.97	degenerate
+4s2.61p	2P*	3/2	48355.97	degenerate
+4s2.62p	2P*	1/2	48357.01	degenerate
+4s2.62p	2P*	3/2	48357.01	degenerate
+4s2.63p	2P*	1/2	48357.97	degenerate
+4s2.63p	2P*	3/2	48357.97	degenerate
+4s2.64p	2P*	1/2	48358.98	degenerate
+4s2.64p	2P*	3/2	48358.98	degenerate
+4s2.65p	2P*	1/2	48359.81	degenerate
+4s2.65p	2P*	3/2	48359.81	degenerate
+4s2.66p	2P*	1/2	48360.69	degenerate
+4s2.66p	2P*	3/2	48360.69	degenerate
+4s2.67p	2P*	1/2	48361.66	degenerate
+4s2.67p	2P*	3/2	48361.66	degenerate
+4s2.68p	2P*	1/2	48362.35	degenerate
+4s2.68p	2P*	3/2	48362.35	degenerate
+4s2.69p	2P*	1/2	48363.18	degenerate
+4s2.69p	2P*	3/2	48363.18	degenerate
+4s2.70p	2P*	1/2	48363.88	degenerate
+4s2.70p	2P*	3/2	48363.88	degenerate
+# --- TWO electrons outside. R 1597 keyability: refused.
+4s.4p2	4P	1/2	37975.768	two-outside
+4s.4p2	4P	3/2	38341.722	two-outside
+4s.4p2	4P	5/2	38914.786	two-outside
+4s.4p2	2D	5/2	53800	two-outside degenerate
+4s.4p2	2D	3/2	53800	two-outside degenerate
+4s.4p2	2S	1/2	62108	two-outside
+4s.4p2	2P	1/2	65805	two-outside
+4s.4p2	2P	3/2	66426	two-outside

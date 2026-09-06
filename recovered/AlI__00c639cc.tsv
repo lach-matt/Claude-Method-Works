@@ -1,0 +1,155 @@
+# Al I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Al+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Al+I confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# FIVE LIMITS:
+#   Al II (3s2      1S<0>)     48278.480   <- the 3s2.nl series
+#   Al II (3s.3p  3P*<0>)      85671.40
+#   Al II (3s.3p  3P*<1>)      85732.28
+#   Al II (3s.3p  3P*<2>)      85856.16
+#   Al II (3s.3p  1P*<1>)     108130.39
+#
+# 3s2.3p ground. THE READING LIST WANTS g FOR Al I — it is here at
+# n = 5, 6, 7, and an h channel at n = 7 as well.
+#   s  n = 4..16   p  n = 4..7    d  n = 3..34
+#   f  n = 4..10   g  n = 5,6,7   h  n = 7
+#
+# ** ONE ROW HAS A CONFIGURATION THAT IS NOT A CONFIGURATION:
+#    "3s2.nd" — the letter n LITERALLY, not a number. Term "y 2D",
+#    two J, at 38929.413 and 38933.968. NIST is recording a level
+#    whose PRINCIPAL QUANTUM NUMBER IS UNDETERMINED while its l and
+#    term are known. Kept verbatim; n cannot be parsed. **
+#
+#    ** THAT IS THE COMPLEMENT OF Hf I's ENERGY-LABELLED TERMS: there
+#       the term was unknown and the energy stood in for it; here the
+#       n is unknown and the letter n stands in for itself. Both are
+#       NIST recording exactly what is known and no more. **
+#
+# The 3s.3p.(3P*).np block above 69000 carries QUERY MARKS ON THE J
+# ITSELF — "1/2?", "3/2?", "5/2?" — and often an empty term with them.
+# Above n=8 the configuration is queried too: "3s.3p.(3P*).8p?" with
+# term "2D?" and J "3/2?" — THREE queries in one row.
+#
+# config	term	J	level_cm1	note
+3s2.3p	2P*	1/2	0.000	
+3s2.3p	2P*	3/2	112.061	
+3s2.4s	2S	1/2	25347.756	
+3s2.5s	2S	1/2	37689.407	
+3s2.6s	2S	1/2	42144.411	
+3s2.7s	2S	1/2	44273.133	
+3s2.8s	2S	1/2	45457.244	
+3s2.9s	2S	1/2	46183.895	
+3s2.10s	2S	1/2	46661.93	interpolated
+3s2.11s	2S	1/2	46993.11	interpolated
+3s2.12s	2S	1/2	47232.00	interpolated
+3s2.13s	2S	1/2	47409.97	interpolated
+3s2.14s	2S	1/2	47546.12	interpolated
+3s2.15s	2S	1/2	47652.58	interpolated
+3s2.16s	2S	1/2	47737.41	interpolated
+3s2.4p	2P*	1/2	32949.807	
+3s2.4p	2P*	3/2	32965.639	
+3s2.5p	2P*	1/2	40271.978	
+3s2.5p	2P*	3/2	40277.883	
+3s2.6p	2P*	1/2	43335.024	
+3s2.6p	2P*	3/2	43337.889	
+3s2.7p	2P*	1/2	44919.666	
+3s2.7p	2P*	3/2	44921.287	
+3s2.3d	2D	3/2	32435.453	
+3s2.3d	2D	5/2	32436.796	
+3s2.4d	2D	3/2	42233.742	
+3s2.4d	2D	5/2	42237.783	
+3s2.5d	2D	3/2	44166.398	
+3s2.5d	2D	5/2	44168.847	
+3s2.6d	2D	3/2	45344.165	
+3s2.6d	2D	5/2	45345.594	
+3s2.7d	2D	3/2	46093.424	
+3s2.7d	2D	5/2	46094.312	
+3s2.8d	2D	3/2	46593.32	
+3s2.8d	2D	5/2	46593.95	
+3s2.9d	2D	3/2	46940.97	
+3s2.9d	2D	5/2	46941.55	
+3s2.10d	2D	3/2	47192.38	degenerate
+3s2.10d	2D	5/2	47192.38	degenerate
+3s2.11d	2D	3/2	47379.7	degenerate
+3s2.11d	2D	5/2	47379.7	degenerate
+3s2.12d	2D	3/2	47521.1	degenerate
+3s2.12d	2D	5/2	47521.1	degenerate
+3s2.13d	2D	3/2	47632.6	degenerate
+3s2.13d	2D	5/2	47632.6	degenerate
+3s2.14d	2D	3/2	47721.3	degenerate
+3s2.14d	2D	5/2	47721.3	degenerate
+3s2.15d	2D	3/2	47793.0	degenerate
+3s2.15d	2D	5/2	47793.0	degenerate
+3s2.16d	2D	3/2	47850.9	degenerate
+3s2.16d	2D	5/2	47850.9	degenerate
+3s2.17d	2D	3/2	47900.1	degenerate
+3s2.17d	2D	5/2	47900.1	degenerate
+3s2.18d	2D	3/2	47940.7	degenerate
+3s2.18d	2D	5/2	47940.7	degenerate
+3s2.19d	2D	3/2	47975.1	degenerate
+3s2.19d	2D	5/2	47975.1	degenerate
+3s2.20d	2D	3/2	48004.7	degenerate
+3s2.20d	2D	5/2	48004.7	degenerate
+3s2.21d	2D	3/2	48031.1	degenerate
+3s2.21d	2D	5/2	48031.1	degenerate
+3s2.22d	2D	3/2	48051	degenerate
+3s2.22d	2D	5/2	48051	degenerate
+3s2.23d	2D	3/2	48070	degenerate
+3s2.23d	2D	5/2	48070	degenerate
+3s2.24d	2D	3/2	48087	degenerate
+3s2.24d	2D	5/2	48087	degenerate
+3s2.25d	2D	3/2	48102	degenerate
+3s2.25d	2D	5/2	48102	degenerate
+3s2.26d	2D	3/2	48115	degenerate
+3s2.26d	2D	5/2	48115	degenerate
+3s2.27d	2D	3/2	48127	degenerate
+3s2.27d	2D	5/2	48127	degenerate
+3s2.28d	2D	3/2	48137	degenerate
+3s2.28d	2D	5/2	48137	degenerate
+3s2.29d	2D	3/2	48147	degenerate
+3s2.29d	2D	5/2	48147	degenerate
+3s2.30d	2D	3/2	48155	degenerate
+3s2.30d	2D	5/2	48155	degenerate
+3s2.31d	2D	3/2	48163	degenerate
+3s2.31d	2D	5/2	48163	degenerate
+3s2.32d	2D	3/2	48170	degenerate
+3s2.32d	2D	5/2	48170	degenerate
+3s2.33d	2D	3/2	48177	degenerate
+3s2.33d	2D	5/2	48177	degenerate
+3s2.34d	2D	3/2	48182	degenerate
+3s2.34d	2D	5/2	48182	degenerate
+3s2.4f	2F*	5/2	41319.390	
+3s2.4f	2F*	7/2	41319.398	
+3s2.5f	2F*	5/2	43831.101	
+3s2.5f	2F*	7/2	43831.105	
+3s2.6f	2F*	5/2	45194.681	degenerate
+3s2.6f	2F*	7/2	45194.681	degenerate
+3s2.7f	2F*	5/2	46015.774	degenerate
+3s2.7f	2F*	7/2	46015.774	degenerate
+3s2.8f	2F*	5/2	46547.942	degenerate
+3s2.8f	2F*	7/2	46547.942	degenerate
+3s2.9f	2F*	5/2	46912.38	interpolated degenerate
+3s2.9f	2F*	7/2	46912.38	interpolated degenerate
+3s2.10f	2F*	5/2	47172.77	interpolated degenerate
+3s2.10f	2F*	7/2	47172.77	interpolated degenerate
+3s2.5g	2G	7/2	43875.749	degenerate
+3s2.5g	2G	9/2	43875.749	degenerate
+3s2.6g	2G	7/2	45221.718	degenerate
+3s2.6g	2G	9/2	45221.718	degenerate
+3s2.7g	2G	7/2	46033.271	degenerate
+3s2.7g	2G	9/2	46033.271	degenerate
+# --- l = 5, the h channel
+3s2.7h	2H*	9/2	46037.093	degenerate
+3s2.7h	2H*	11/2	46037.093	degenerate
+# --- CONFIGURATION WITH THE LETTER n, NOT A NUMBER
+3s2.nd	y 2D	3/2	38929.413	n-undetermined
+3s2.nd	y 2D	5/2	38933.968	n-undetermined
+# --- TWO electrons outside. R 1597 keyability: refused.
+3s.3p2	4P	1/2	29020.41	two-outside
+3s.3p2	4P	3/2	29066.96	two-outside
+3s.3p2	4P	5/2	29142.78	two-outside
+3s.3p2	2S	1/2	51752.7	two-outside
+3s.3p2	2P	1/2	56636.933	two-outside
+3s.3p2	2P	3/2	56724.980	two-outside

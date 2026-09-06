@@ -1,0 +1,193 @@
+{
+  "uuid": "6ff53c1e-3a49-481b-ae59-e718a9d9ca95",
+  "name": "",
+  "summary": "",
+  "created_at": "2026-08-25T21:47:57.984116Z",
+  "updated_at": "2026-08-25T22:57:04.948097Z",
+  "account": {
+    "uuid": "b44b80ef-cbad-492a-8346-4f16631749fd"
+  },
+  "chat_messages": [
+    {
+      "uuid": "01a03ae4-f3f4-72a2-a805-6ddeafa2f839",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-25T21:47:58.974765Z",
+      "updated_at": "2026-08-25T21:47:58.974765Z",
+      "attachments": [],
+      "files": [
+        {
+          "file_uuid": "aee0b72f-c48d-4ec6-9a4a-5a33b8140dfa",
+          "file_name": null
+        }
+      ],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "01a03ae4-f3f4-72b8-89f4-2a37a2e02dec",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-25T21:52:08.553906Z",
+      "updated_at": "2026-08-25T21:52:08.553906Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03ae4-f3f4-72a2-a805-6ddeafa2f839"
+    },
+    {
+      "uuid": "01a03aee-fbde-79a4-a1f5-ade8ba249cef",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-25T21:58:56.806666Z",
+      "updated_at": "2026-08-25T21:58:56.806666Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03ae4-f3f4-72b8-89f4-2a37a2e02dec"
+    },
+    {
+      "uuid": "01a03aee-fbde-79b5-a03a-2abdb424cf7b",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-25T22:09:26.472916Z",
+      "updated_at": "2026-08-25T22:09:26.472916Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03aee-fbde-79a4-a1f5-ade8ba249cef"
+    },
+    {
+      "uuid": "01a03afa-ca08-7ceb-bb48-74380682048e",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-25T22:11:52.852849Z",
+      "updated_at": "2026-08-25T22:11:52.852849Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03aee-fbde-79b5-a03a-2abdb424cf7b"
+    },
+    {
+      "uuid": "01a03afa-ca08-7cff-8f9f-ffa5ce7af384",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-25T22:12:17.677421Z",
+      "updated_at": "2026-08-25T22:12:17.677421Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03afa-ca08-7ceb-bb48-74380682048e"
+    },
+    {
+      "uuid": "01a03afb-ee2c-74b1-b0a2-22dee89ff896",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-25T22:13:05.617000Z",
+      "updated_at": "2026-08-25T22:13:05.617000Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03afa-ca08-7cff-8f9f-ffa5ce7af384"
+    },
+    {
+      "uuid": "01a03afb-ee2c-74be-9e85-7466d20e03b1",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-25T22:13:11.193130Z",
+      "updated_at": "2026-08-25T22:13:11.193130Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03afb-ee2c-74b1-b0a2-22dee89ff896"
+    },
+    {
+      "uuid": "01a03afd-9f5d-7ea2-8ba8-eafdd6661e0c",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-25T22:14:56.418281Z",
+      "updated_at": "2026-08-25T22:14:56.418281Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03afb-ee2c-74be-9e85-7466d20e03b1"
+    },
+    {
+      "uuid": "01a03afd-9f5d-7ebb-8923-d3999dd2f5fa",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-25T22:16:31.944735Z",
+      "updated_at": "2026-08-25T22:16:31.944735Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03afd-9f5d-7ea2-8ba8-eafdd6661e0c"
+    },
+    {
+      "uuid": "01a03b00-2acb-74b7-b897-cbacb65c550c",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-25T22:17:43.172314Z",
+      "updated_at": "2026-08-25T22:17:43.172314Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03afd-9f5d-7ebb-8923-d3999dd2f5fa"
+    },
+    {
+      "uuid": "01a03b00-2acb-74c2-aaa0-defd037622ba",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-25T22:18:06.171864Z",
+      "updated_at": "2026-08-25T22:18:06.171864Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03b00-2acb-74b7-b897-cbacb65c550c"
+    },
+    {
+      "uuid": "01a03b00-de29-7458-8015-581344814aea",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-25T22:18:28.944435Z",
+      "updated_at": "2026-08-25T22:18:28.944435Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03b00-2acb-74c2-aaa0-defd037622ba"
+    },
+    {
+      "uuid": "01a03b00-de29-7469-98de-4d444e60f492",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-25T22:18:35.937905Z",
+      "updated_at": "2026-08-25T22:18:35.937905Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03b00-de29-7458-8015-581344814aea"
+    },
+    {
+      "uuid": "01a03b01-7793-7211-97e7-c2795ceb068f",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-25T22:19:08.443553Z",
+      "updated_at": "2026-08-25T22:19:08.443553Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03b00-de29-7469-98de-4d444e60f492"
+    },
+    {
+      "uuid": "01a03b01-7793-7224-ad38-67dccda1b3f3",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-25T22:20:08.141446Z",
+      "updated_at": "2026-08-25T22:20:08.141446Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03b01-7793-7211-97e7-c2795ceb068f"
+    }
+  ]
+}

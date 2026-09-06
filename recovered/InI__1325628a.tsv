@@ -1,0 +1,152 @@
+# In I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=In+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=In+I confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  In II (5s2 1S<0>)  46670.107 cm-1
+#
+# 5s2.5p ground — one electron outside a closed 5s2, all DOUBLETS, one
+# limit, entirely LS. The n=5 shell member of the one-outside family,
+# alongside Cs I.
+#   s   n =  6..24      p   n =  5..11
+#   d   n =  5..30      f   n =  4..12
+#
+# ** In I AND Tl I ARE THE SAME STRUCTURE ONE PERIOD APART — 5s2.5p and
+#    6s2.6p — AND THEY DIFFER SHARPLY IN ONE RESPECT: **
+#
+#      Tl I  f channel   UNRESOLVED from its first member (n=5)
+#      In I  f channel   RESOLVED at n=4,7,8,9,10,11,12
+#                        unresolved only at n=5 and n=6
+#
+#    ** The resolution does NOT degrade monotonically with n here: 5f
+#       and 6f are unresolved while 7f through 12f are resolved. That
+#       is not a limit of the method; it is a fact about which
+#       measurements exist. R 1578's witness axis again. **
+#
+#    In I's d channel is resolved to n=30 where Tl I's collapsed at 12.
+#
+# ** AND A DEGENERACY PATTERN: several f pairs carry the SAME value for
+#    both J — 4f both at 39707.59, 7f both at 44406.31, 8f both at
+#    44938.81, 12f both at 45902.92. Four rows are two measurements
+#    written twice, as in Ba I's g series but without any flag. **
+#
+# One 11p 1/2 value is square-bracketed (interpolated). Two 4P* rows
+# have blank levels. One configuration reads "5d.5p.(3P*).7p" where the
+# series context implies 5s.5p — kept verbatim.
+#
+# config	term	J	level_cm1	note
+5s2.5p	2P*	1/2	0.000	
+5s2.5p	2P*	3/2	2212.599	
+5s2.6s	2S	1/2	24372.957	
+5s2.7s	2S	1/2	36301.864	
+5s2.8s	2S	1/2	40636.98	
+5s2.9s	2S	1/2	42719.02	
+5s2.10s	2S	1/2	43881.26	
+5s2.11s	2S	1/2	44595.86	
+5s2.12s	2S	1/2	45067.19	
+5s2.13s	2S	1/2	45394.13	
+5s2.14s	2S	1/2	45630.44	
+5s2.15s	2S	1/2	45806.88	
+5s2.16s	2S	1/2	45941.9	
+5s2.17s	2S	1/2	46047.4	
+5s2.18s	2S	1/2	46131.6	
+5s2.19s	2S	1/2	46200.0	
+5s2.20s	2S	1/2	46255.6	
+5s2.21s	2S	1/2	46302.1	
+5s2.22s	2S	1/2	46342.2	
+5s2.23s	2S	1/2	46374.9	
+5s2.24s	2S	1/2	46402.6	
+5s2.6p	2P*	1/2	31816.982	
+5s2.6p	2P*	3/2	32115.251	
+5s2.7p	2P*	1/2	38861.43	
+5s2.7p	2P*	3/2	38972.90	
+5s2.8p	2P*	1/2	41827.10	
+5s2.8p	2P*	3/2	41881.44	
+5s2.9p	2P*	1/2	43369.09	
+5s2.9p	2P*	3/2	43399.53	
+5s2.10p	2P*	1/2	44275.17	
+5s2.10p	2P*	3/2	44294.13	
+5s2.11p	2P*	1/2	44853.23	interpolated
+5s2.11p	2P*	3/2	44865.79	
+5s2.5d	2D	3/2	32892.230	
+5s2.5d	2D	5/2	32915.539	
+5s2.6d	2D	3/2	39048.53	
+5s2.6d	2D	5/2	39098.38	
+5s2.7d	2D	3/2	41836.41	
+5s2.7d	2D	5/2	41861.96	
+5s2.8d	2D	3/2	43335.93	
+5s2.8d	2D	5/2	43355.08	
+5s2.9d	2D	3/2	44234.70	
+5s2.9d	2D	5/2	44249.77	
+5s2.10d	2D	3/2	44815.06	
+5s2.10d	2D	5/2	44827.02	
+5s2.11d	2D	3/2	45211.51	
+5s2.11d	2D	5/2	45221.08	
+5s2.12d	2D	3/2	45493.98	
+5s2.12d	2D	5/2	45502.04	
+5s2.13d	2D	3/2	45702.08	
+5s2.13d	2D	5/2	45709.02	
+5s2.14d	2D	3/2	45859.30	
+5s2.14d	2D	5/2	45865.32	
+5s2.15d	2D	3/2	45977.352	
+5s2.15d	2D	5/2	45982.725	
+5s2.16d	2D	3/2	46075.560	
+5s2.16d	2D	5/2	46079.853	
+5s2.17d	2D	3/2	46158.803	
+5s2.17d	2D	5/2	46161.205	
+5s2.18d	2D	3/2	46221.416	
+5s2.18d	2D	5/2	46223.291	
+5s2.19d	2D	3/2	46271.436	
+5s2.19d	2D	5/2	46273.898	
+5s2.20d	2D	3/2	46315.325	
+5s2.20d	2D	5/2	46317.408	
+5s2.21d	2D	3/2	46352.450	
+5s2.21d	2D	5/2	46354.276	
+5s2.22d	2D	3/2	46384.125	
+5s2.22d	2D	5/2	46385.691	
+5s2.23d	2D	3/2	46411.084	
+5s2.23d	2D	5/2	46412.419	
+5s2.24d	2D	3/2	46434.514	
+5s2.24d	2D	5/2	46435.665	
+5s2.25d	2D	3/2	46455.164	
+5s2.25d	2D	5/2	46456.062	
+5s2.26d	2D	3/2	46472.980	
+5s2.26d	2D	5/2	46473.783	
+5s2.27d	2D	3/2	46488.649	
+5s2.27d	2D	5/2	46489.359	
+5s2.28d	2D	3/2	46502.539	
+5s2.28d	2D	5/2	46503.158	
+5s2.29d	2D	3/2	46514.872	
+5s2.29d	2D	5/2	46515.440	
+5s2.30d	2D	3/2	46525.901	
+5s2.30d	2D	5/2	46526.415	
+5s2.9f	2F*	7/2	45303.31	
+5s2.9f	2F*	5/2	45303.39	
+5s2.10f	2F*	7/2	45563.89	
+5s2.10f	2F*	5/2	45564.04	
+5s2.11f	2F*	5/2	45756.50	
+5s2.11f	2F*	7/2	45756.56	
+# --- f PAIRS SHARING ONE VALUE: two rows, one measurement
+5s2.4f	2F*	7/2	39707.59	degenerate
+5s2.4f	2F*	5/2	39707.59	degenerate
+5s2.7f	2F*	7/2	44406.31	degenerate
+5s2.7f	2F*	5/2	44406.31	degenerate
+5s2.8f	2F*	5/2	44938.81	degenerate
+5s2.8f	2F*	7/2	44938.81	degenerate
+5s2.12f	2F*	7/2	45902.92	degenerate
+5s2.12f	2F*	5/2	45902.92	degenerate
+# --- UNRESOLVED J, only at n=5 and n=6
+5s2.5f	2F*	5/2,7/2	42220.25	unresolved-J
+5s2.6f	2F*	5/2,7/2	43584.66	unresolved-J
+# --- TWO electrons outside. R 1597 keyability: refused.
+5s.5p2	4P	1/2	34977.678	two-outside
+5s.5p2	4P	3/2	36020.780	two-outside
+5s.5p2	4P	5/2	37451.962	two-outside
+5s.5p2	2S	1/2	56906	two-outside
+5s.5p2	2P	1/2	59657	two-outside
+5s.5p2	2P	3/2	60652	two-outside
+5s.5p.(3P*).6s	4P*	5/2	68821.7	two-outside
+5s.5p.(3P*).6p	2S	1/2	77997	two-outside
+5s.5p.(3P*).8p	2S	1/2	87700	two-outside
+5d.5p.(3P*).7p	2S	1/2	84651	two-outside, config as printed

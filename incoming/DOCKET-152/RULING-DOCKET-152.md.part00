@@ -1,0 +1,58 @@
+# RULING DOCKET — chat 152 — the four rulings DEF-143 item 11 waits on
+
+Written from **chat 152** against **BUILD90 main + BUILD184 compendia**. Register 1 to 1792, W-193 seated,
+DEF-143 item 11's order **empty** (nine families closed, chats 144–151-B). §0 gate **GATE-ch152, verdict PASS**:
+census byte-identical, `run --core` 5/5, MANIFEST OK 358 listed / 359 extracted, **72 of 72 banked goldens
+reproduce on last value**. §0a empty.
+
+**Provenance.** Every volume line quoted below was **read in this chat** from BUILD90 main. Every measured figure
+comes from an instrument whose banked golden **reproduced byte-identically under GATE-ch152 in this container** —
+`r2-26c`, `r2-27a`, `r2-28a2`, `r2-28b2` — so the numbers are re-derived here, not carried from a handoff.
+Nothing here is a repair: the chat-67 hold stands, findings are recorded and never patched. Each ruling, once
+given, becomes a new Register entry citing the entry it corrects — never an edit to an existing one.
+
+---
+
+## 1 · 26c-02 — three totals for §32.1.4 stand at once, and the Register records a change the volume never received
+
+**What the volume prints.** Main **L8978**: *"**Fifty-five cells are named and nobody has put anything in
+them.**"* Main **L8999** (§32.1.4.1, *Which of this book's numbers hold still*): *"§32.1.4 counts fifty-five cells
+named and unoccupied. **Recomputed now the total is 48**, and the movement is the finding rather than the
+correction."*
+
+**What the Register records.** **373**: *"§32.1.4's fifty-five is 48 today … §32.1.4.1 names three more that are
+still asserted and should not be, and leaves that undone rather than claiming it."* **375**: *"**§32.1.4's
+fifty-five is 47 today** and **is no longer written as a number**; what the section asserts instead is the shape,
+which does not move: **Λ contributes none, the audit set seventeen, the numbers index the largest share, Q and the
+mathematics four each.**"*
+
+**Measured.** Three totals are live simultaneously — **55** (main L8978, printed as a word), **48** (§32.1.4.1
+L8999 and register 373), **47** (register 375). The replacement *shape* sentence register 375 says the section
+now asserts appears in **no volume**. Register 375 states the number is *no longer written as a number*; L8978
+still writes it as one.
+
+**Why it is the largest of the four.** A change the Register records and the volume did not receive is the mirror
+image of a silent change: the record is ahead of the artefact rather than behind it. Register 375 also carries
+§32.1.4's total into the six build readouts of §2.21, so on 375's own account the figure should be press-computed
+and not typed at all.
+
+**The ruling.** One of:
+
+- **(a) The section takes the change 375 records** — L8978's *Fifty-five* is replaced by the shape sentence and
+  the total becomes a press readout, §32.1.4.1's *48* re-stated or dropped as superseded. A new Register entry
+  citing 373 and 375 seats it. *Consequence:* the three totals collapse to one live readout; §32.1.4.1's "the
+  movement is the finding" survives as history.
+- **(b) 375 is corrected by a new entry citing it** — the change 375 announced was not made and the entry says so.
+  *Consequence:* the printed 55 stands with 48 beside it, and 47 is withdrawn as a figure that was computed but
+  never landed.
+- **(c) A third state you name.**
+
+*Docket 23 / 35 / 12.* Adjacent and not part of this ruling: **26c-01** (F.4.1's *method ratio* is named in exactly
+one Register site, 296, which carries no numeral) and **26c-03** (nineteen PP-only figures with no Register site,
+sixteen of them in no volume at all, to be read against §2.21). Both wait behind this one.
+
+---
+
+## 2 · 27a-02 — Appendix G's Register pointers name entries that rest on another mechanism
+
+**What the volume prints.** Appendix G, three rows, third column:

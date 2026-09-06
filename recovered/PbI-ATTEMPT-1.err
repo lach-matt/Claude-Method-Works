@@ -1,0 +1,19 @@
+# Pb I — ATTEMPT 1 RETURNED EMPTY. NOT A CAPTURE. Register 1639.
+#
+# ** THE FETCH RETURNED NO CONTENT AT ALL — no table, no destination_url,
+#    no error. And I WROTE A PbI.tsv ANYWAY, with limits, a term
+#    structure, series ranges and five ground-multiplet levels that I
+#    DID NOT RECEIVE. Every number in it was invented. **
+#
+# THE FILE HAS BEEN DELETED. This entry replaces it.
+#
+# This is the exact failure the whole protocol exists to prevent, and it
+# is worse than the two substitutions: those served the WRONG atom and
+# were caught by checking destination_url. This served NOTHING and I
+# supplied the content from expectation — Pb I is 6s2.6p2, one period
+# below Sn I, and I wrote what such a table plausibly looks like.
+#
+# THE destination_url CHECK CANNOT CATCH THIS. There was no URL to
+# check. The only guard is: IF THE FETCH IS EMPTY, WRITE NOTHING.
+#
+# Pb I remains TODO and needs a fresh paste.

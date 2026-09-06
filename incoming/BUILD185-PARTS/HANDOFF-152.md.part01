@@ -1,0 +1,27 @@
+  is unreachable only from Cowork.
+
+## What chat 152 did, and did not do (CLAUDE.md §5: reported done or not done)
+
+- **DONE — the §0 gate, twice.** **GATE-ch152** at the open (72 of 72 goldens OK on last value) and
+  **GATE-ch152close** at the close (73 of 73), both **verdict PASS**, both from a clean container: census
+  byte-identical, `run --core` 5/5, MANIFEST OK. At the close every one of the 73 goldens was separately verified
+  byte-identical to its pre-close copy. **§0a is empty.**
+- **DONE — M's four rulings were put and taken.** DEF-143 item 11's order is empty, so what the order waited on was
+  R3's rulings. **M ruled: 26c-02 → (c) a third state, hunt the origin of each total; 27a-02 → (a); 28a-06 → (a);
+  28b-07 → (b).**
+- **DONE — ruling (c) executed.** `r2-32a.py` (22,360 B / `15a9047af4a637eb7bdb05d0ea982878` / 306 lines), golden
+  `r2-32a.out` (16,587 B / `0d5d75a2264ff50217db542a5baf28c6` / 179 lines), ALL INTEGRITY CHECKS OK with one
+  deviation. Findings in `members/READ-32a.md`; census header-only in `members/CENSUS-CLOSURES-32a.tsv`.
+- **DONE — the close.** W-194 seated, DEF-152 and the chat-152 DOCKET delta appended, BUILD184 → **BUILD185**.
+- **NOT DONE — rulings (a), (a) and (b) are seated, not executed.** They edit volumes; the chat-67 hold forbids that
+  from Cowork. **They are R3's first work.** DEF-152 items 2–7.
+- **NOT DONE — the two open census bodies.** **mc 387–672** (the 286 C13-HANDLE-LEAK rows of the bibliography
+  table's `objects` column) and **mc 293** (the *modular ledger* block's eleven numerals) are engaged and untouched.
+- **NOT DONE — the push.** Claude cannot push from Cowork: `get_file_contents` on `lach-matt/Claude-Method-Works`
+  returned **404** again this chat, the fourth probe and the third consecutive new session after a re-consent. **The
+  tree in this directory is the handover; R3 or M commits it.**
+
+## What R3 owes, in order
+
+1. **Ruling (c)'s entry — 26c-02, and it is not the entry either drafted option would have produced.** A new Register
+   entry **citing 332, 373 and 375 together**, stating that §32.1.4's total runs **55 → 47 → 48 → 47** and is not

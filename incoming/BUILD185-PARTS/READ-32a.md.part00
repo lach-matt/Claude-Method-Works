@@ -1,0 +1,43 @@
+# READ-32a.md — chat 152 (Cowork) — the origin of §32.1.4's three totals, under M's ruling (c)
+
+Instrument `r2-32a.py` (22,360 B, md5 `15a9047af4a637eb7bdb05d0ea982878`, 306 lines), golden `r2-32a.out`
+(16,587 B, md5 `0d5d75a2264ff50217db542a5baf28c6`, 179 lines). ALL INTEGRITY CHECKS OK, one deviation
+recorded. Reads the six volumes and Prints & Proofs as members. Deterministic.
+
+**WHAT WAS OWED.** 26c-02 recorded that three totals for §32.1.4 stand at once — the printed *fifty-five*,
+§32.1.4.1's 48 with register 373, and register 375's 47 — and put to R3 the choice between the section
+taking 375's change and 375 being corrected. **M ruled (c), a third state: find where each of the three
+numbers came from.** This is that reading. It also corrects the finding that recorded it.
+
+**CONVENTION ORIG, stated before anything was scored.** A total's ORIGIN is the object that computed it —
+a printed component set whose sum reaches it, or an entry that states it as a readout. A total is
+REPRODUCIBLE only if some assignment of PRINTED values to the four components §32.1.4's own table names
+sums to it; a component value appearing nowhere in the six volumes or Prints & Proofs may not be supplied
+to close an arithmetic. Where no printed assignment reaches a total, the entry stating it is its only
+provenance — a fact about the record, not a defect in the arithmetic.
+
+## The origins
+
+**55 — §32.1.4's own table, and the only one of the three a reader can reconstruct.** The section's table
+carries seven rows, four of them E-bearing (a *cells named and unoccupied* entry that is not an em dash):
+Appendix D unfibred **4** (*four*), Appendix E (Q) unfibred **1** (*one*), Appendix F the numbers **33**
+(*thirty-three*), the audit set at four coordinates **17** (*seventeen*). 4 + 1 + 33 + 17 = **55**, exact,
+against L8978's *Fifty-five cells are named and nobody has put anything in them* — the only site, and the
+total is printed as a word. **Measured: (4, 1, 33, 17) is the ONLY assignment of printed values reaching 55.**
+
+**48 — §32.1.4.1 / register 373, and two of the four components are not restated.** The three-state table
+moves two: E over the numbers index 33 → 21 → 23, E(Q) unfibred 1 → 1 → 4. Appendix D unfibred and the
+audit set are carried at their §32.1.4 values and are not restated anywhere on the page. 4 + 4 + 23 + 17 =
+**48**, exact, against L8998's *Recomputed now the total is 48*. Every figure about Λ (E(Λ), |Λ|, |J(Λ)|,
+the surplus) is identical in all three states; every figure about the book moves — which is register 373's
+own headline and reproduces here.
+
+**47 — register 332's press readout, and 375 restates it rather than originating it.** §32.1.4's own
+citation is *Register 332*, and it is missed by a line-wise pointer sweep because *Register* and *332.*
+sit on either side of a line break: the line-wise sweep returns [278, 285, 294] and the
+whitespace-normalised join returns [278, 285, 294, **332**]. Register 332 (Register L1231) states in terms:
+*THE TOTAL IS A READOUT THE PRESS PRINTS AT EVERY BUILD — **47 AT THE TIME OF WRITING**, HAVING BEEN **55**
+WHEN THIS SECTION WAS FIRST COMPUTED*, and carries the shape sentence. **So the 47 does not enter the
+record at 375. It is there at 332, before 373 printed 48.**
+
+## The chronology, and why three totals stand at once

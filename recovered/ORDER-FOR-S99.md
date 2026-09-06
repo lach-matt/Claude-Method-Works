@@ -1,0 +1,6 @@
+# ORDER FOR SESSION 99 -- drafted at s98. Open with `bash pack58/open58.sh` on LOWDIN-HANDOFF-98.tgz. Read pack98/RESULT-S98-ROWS-38-105.md first.
+## STATE: Item 1 CLOSED at all five V5 rows (38 56 72 89 105), all widening; partition filed as pack98/cc98.py. Item 5 decided (Dirac non-gating). F98.1-F98.4 registered (F98.2, F98.4 remedied).
+## ITEM 1 (M to rule): accept rows 38 and 105; accept cc98.py as the filed partition and the 5 mHa row-72 residual as declared (or order a re-read of the run-side V^2 at 72 with gap97-style isolation, ~3 min).
+## ITEM 2 (cheap, optional): row 89 through cc98.py (needs v5d-89 e2w checkpoints for all pairs; band already filed) -- only if M wants one rule over all five rows.
+## ITEM 3 (hygiene, non-gating): F95.4 exchange-quadrature residual ~8e-4 relative.
+## ITEM 4 (LAST, M's s97 ruling): T4 scope sentence -> amend V5 clause to "complete second-order estimate at all five V5 rows (38 56 72 89 105), entrant pairs + core-core, s^2->d^2 block resummed with the configuration gap" -> Rule A check -> T4 begins.

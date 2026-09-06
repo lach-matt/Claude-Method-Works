@@ -1,0 +1,46 @@
+
+ D.5.10 The re-closure owed for the mathematics of the Löwdin challenge
+ §D.5.9 closed with a question: the mathematics of Chapter 34 (registers 1249–1357) is indexed in the
+ Mathematical Compendium under THE MATHEMATICS OF THE LÖWDIN WORK, which ends by naming twelve things
+ the work introduces, and none had been entered here. §D.5.3 says what an element is, and each of the
+ twelve is a stated mathematical object with a stated verification; so they are elements, and this is
+ the re-closure. The sixty-five of §D.5.9 were rebuilt from §D.5.2–§D.5.9 and closed under §D.3's two
+ constraints before anything was added: E = 0 in all twenty-two fibres. Every fibre and coordinate
+ below is read from the compendium's own entry — what it calls standard, what it calls this work's,
+ and how it says the thing was checked.
+
+  new element                                            fibre                        coordinates
+  the corridor, 106 consistent inequalities              theorem · analysis           verified · exhaustive · none found
+  the nineteen surds, the complete endpoint set          measurement · analysis       measured · exhaustive · none found
+  a_cross = (√(n−1) + √(n−4))/3                          formula · analysis           proved · exhaustive · none found
+  the staircase algebra, ⌊s/2⌋ ≤ d ≤ s + ⌊s/3⌋           formula · order              verified · exhaustive · found
+  the sequence-index fix, rank parity not free           mechanism · physics          verified · exhaustive · found
+  the selection-rule falsification, 200 of 200 seeds     measurement · analysis       measured · sampled · none found
+  the necessity of state, 104 of 106 steps               theorem · physics            verified · exhaustive · none found
+  the observability boundary, tested once                law · physics                conjectured · sampled · none found
+  the singleton-output rule                              definition · order           proved · exhaustive · none found
+  the domain prohibition                                 law · physics                verified · exhaustive · none found
+  the limit — Λ_spectra closes at the last species, E = 11  measurement · combinatorics  measured · exhaustive · none found
+  rival = donor iff the donor is not full, 12 of 12      law · physics                verified · exhaustive · none found
+
+ **Sixty-five elements become seventy-seven over twenty-four fibres, and E = 0 — after the index named
+ one cell and the cell was filled by reading one entry honestly.** Two fibres open for the first time,
+ measurement · analysis and formula · order, and each closes trivially. The first run gave **E = 1** in
+ theorem · analysis, at *verified · exhaustive · none found*: the corridor had been entered with
+ precedent *found*, because the compendium names Fourier 1826 and Motzkin 1936 for the solution of a
+ linear system in one variable. But that is not the element. The compendium's own division puts the
+ method under *standard* and puts under *this work* the two things the list names — that the
+ coefficients are node counts, so the endpoints lie in ℚ(√ℕ) and take nineteen values, and that all
+ 106 intervals are non-empty. A precedent for the method is not a precedent for the consistency, and
+ the search found none. Entered on what it is, the corridor occupies the cell the structure had
+ named, and the fibre closes. That is the third time this appendix has closed by correcting a
+ coordinate of its own — §D.5.6 by proving a thing that was sampled, §D.5.8 by admitting a thing was
+ sampled, here by attributing a thing to the work that did it.
+
+ The observability boundary is the second element to enter as *conjectured* (§D.5.7's slack = kernel
+ was the first): one confirming instance, falsifiable, tested once — the compendium says so in those
+ words, and *conjectured · sampled* is what those words are. Law · physics now holds four elements over
+ three cells and closes; the box it spans admits *conjectured · exhaustive* and *proved · sampled*, and
+ §6.1's bounds exclude both, which is the closure doing its work rather than the count.
+
+ Register 1734.

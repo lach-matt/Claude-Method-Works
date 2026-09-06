@@ -1,0 +1,2 @@
+id	verdict	reason
+1137	not a defect	C9-OVERGENERALISATION-WORD flagged "never" at main L6531. The token sits in the section's own rule — "the discriminating question is asked of the whole structure, never of one cell" — and is scoped by that sentence, which states a method rule rather than a universal about the world. C9 regex artefact, precedents 678, 680-687, 1067, 1069. MEASURED: one main-member census row in L6434-L6548.

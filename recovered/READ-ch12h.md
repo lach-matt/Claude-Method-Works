@@ -1,0 +1,28 @@
+# READ-ch12h — Phase R2, main volume §12.11.0.3 "Every second bridge, priced" (chat 73)
+
+Member The_Method_1_6-2.md (BUILD90 main, md5 4aef772b…), L2676–L2724 (49 lines; §12.11.0.4 opens at L2725), read in full against each cited section (§12.11.5 L3462, §14.4 L3729, §17.4 L4873, §18.4.1 L4999–5247), the Register (333, 353), the rebuilt tower (tower-2.py, c0bce27a…), the segment instrument r2-ch12h.py (beside tower-2.py; all 24 source–target coordinate bounds imposed on Λ₈, closure tested on every pair of every cut set, the factorisation defect Σ_q|A_q||B_q| − |X| per bridge) and r2-tools.py. Rulings applied as in READ-ch7. Census rows in range: 1061 (closed, not a defect; CENSUS-CLOSURES-ch12h.tsv).
+
+## A. Deviations (both texts)
+
+**12h-01 · L2708 — "as §14.4 guarantees" points to a section with no body.** PRINTED L2708: `**Closure survives all twenty**, as §14.4 guarantees for monotone single-coordinate bounds.` SOURCE: §14.4 "The three consequences" is L3729–3731 — the heading and one line, `Closure yields three properties, developed in the next three chapters:` — and §14.5 opens at L3732; no guarantee is stated in it (grep of L3729–3760 for monotone / single-coordinate / bound: none). The guarantee lives at Theorem 14.1, §14.1 L3683–3690 (`X is closed iff X = ℛ(X), where ℛ reconstructs value sets and pairwise monotone [bounds] … a sublattice of a product of two chains is exactly a staircase cut by monotone [bounds]`) and as "§16.4 form" (L7740, `one coordinate bounded by a monotone function of one other … closed, E = 0`). MEASURED (r2-ch12h.py): closure does survive all twenty — 0 join and 0 meet defects on every pair of every cut set. READING: the claim is true and its pointer is wrong (class of 11's self-pointer; §14.4's stub is a separate matter for the Chapter 14 segment). Pointer, lower. For R3: "as Theorem 14.1 guarantees" (or "§16.4's form").
+
+**12h-02 · provenance, lower.** The twenty rows' figures (953 … 48 cells; defects 23 … 354) and the cut-vertex claim have no site outside this section: Register 353 carries the finding (`Closure survives all twenty and the factorisation does not … q is the unique cut vertex`) without the numbers; no MC or IoI entry carries the table (the other '953' sites are Register heading 953 and an IoI coordinate row). Class of 12c-05.
+
+**12h-03 · layout.** L2685–2706 twenty-two-row column-dump; L2711–2712 four-space lines render as code. Production.
+
+## B. Verified (all MEASURED unless marked; r2-ch12h.py)
+
+- L2677 §12.11.5 L3476 reads `first bridge between the cylinder's two ends other than q` — verbatim.
+- L2678–2679 the cut vertex: on tower-2.py's constraint graph (8 nodes, 7 edges: n–ℓ, ℓ–k, k–q, k–2S, q–g, e–f, f–g), q is the unique vertex outside both signatures, and removing it separates {n, ℓ, k, 2S} from {e, f, g}. On the plain graph reading, k and g also disconnect the remaining source coordinates from the remaining target coordinates (every internal vertex of the path n–ℓ–k–q–g–f–e is a cut vertex); the sentence holds on the standard reading that a separator lies outside the two sets it separates — where q is the only candidate. True, and by construction rather than computation (C below).
+- L2682–2706 the table: 24 candidate bounds x ≤ y between a source and a target coordinate; four hold on every cell (ℓ ≤ e, f ≤ n, f ≤ k, g ≤ k — the ones the table omits) and twenty are admissible; every printed row reproduces — cells 953 / 872 / 846 / 832 / 769 / 708 / 686 / 685 / 676 / 662 / 636 / 616 / 526 / 449 / 303 / 141 / 141 / 120 / 60 / 48, join and meet defects 0 on every pair (976² for each cut set), factorisation defects 23 / 104 / 130 / 144 / 207 / 268 / 160 / 120 / 300 / 165 / 316 / 288 / 225 / 189 / 354 / 70 / 0 / 0 / 0 / 0 with the defect defined as Σ_q |A_q(X)|·|B_q(X)| − |X| over the transfer fibres (the global |A||B| − |X| does not reproduce any row).
+- L2708–2709 closure survives all twenty; sixteen destroy the factorisation, defects 23 to 354; L2714–2715 the four survivors (k ≤ g 141, e ≤ ℓ 120, k ≤ f 60, n ≤ f 48) are four of the five smallest cut sets (48, 60, 120, 141, 141).
+- L2715–2717 Register 333 (R L1235) resolves — `THE EMPTY INDEX SATISFIES EVERY CRITERION HERE, SO E(X) = 0 IS NECESSARY FOR COMPLETENESS AND NOT SUFFICIENT FOR CONTENT` — the point the text applies.
+- L2719 eight nodes, seven edges, a tree (r2-ch12c); L2720–2721 `P16` is L355's `treat bounds, constraints and limits as coordinate values`, and §17.4 L4912 prices it as the repair procedure; L2721–2723 "§18.4.1's three-body reading" resolves inside §18.4.1 (L5151–5152: `bodies give a triangle, treewidth 2`; L5180–5183).
+- L2723 Register 353 (R L1291) resolves and carries the section; its note `its table shows four defect-zero bridges where its prose says five` matches the main's "four survivors".
+- Census row 1061 (C9 "never", L2678 `The structural content of q was never stated`): 'cut vertex' has no site in the main outside L2678–2679 (grep) — literal, not a defect.
+
+## C. Incidental
+
+- The cut-vertex sentence presents as computed what the signature split makes definitional: q is the only coordinate in neither signature, so it is the unique separator outside both ends by construction; the computation would show instead that k, q and g are the three cut vertices between the ends. Not a defect; a reader may weigh the sentence as a finding.
+- The four "implied" bounds fail to cut only at these caps (ℓ ≤ 1 ≤ e, f ≤ 1 ≤ n, f ≤ 1 ≤ k, g ≤ q ≤ k); the last is structural, the first three are cap-dependent (INFERRED from the bounds).
+- r2-ch12h.py's `price()` reports the per-q and the global factorisation defect for any coordinate condition on Λ₈ — reusable if R3 restates the table.

@@ -1,0 +1,16 @@
+# Zr I — ATTEMPT 1, SUBSTITUTED. NOT A CAPTURE. Register 1639.
+# sent:        ...energy1.pl?spectrum=Zr+I&units=0&format=2&conf_out=on...
+# destination: ...energy1.pl?...&spectrum=Y+I&...
+#
+# ** MISMATCH. I asked for Zr I and was served Y I's body — the fetch
+#    from the immediately preceding turn. **
+#
+# SECOND OCCURRENCE in this capture run; the first was Fe VI served
+# Se III at the 32nd fetch. Both times the substituted body was the
+# PREVIOUS fetch, both times caught by the destination_url check.
+#
+# NOTHING WRITTEN. Y I's 180 levels would otherwise now sit in the tree
+# as ZrI.tsv — and Y I and Zr I are ADJACENT in Z with similar 4d/5s
+# structure, so the wrong data would have looked entirely plausible.
+#
+# Zr I remains TODO and needs a fresh paste.

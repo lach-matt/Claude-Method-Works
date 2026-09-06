@@ -1,0 +1,20 @@
+# Sc II — NIST ASD 5.12 / Handbook, ref L7185, SC85 · Z=21, 20 electrons
+# limit Sc III (3d 2D3/2) = 103,237.1 cm-1  — PUBLISHED
+# the 3d.nl series; two members each, admissible under the two-member gate (R 727)
+config	term	J	level_cm1
+4s	3D	1	0.00
+5s	3D	1	57551.88
+4s	1D	2	2540.95
+5s	1D	2	58252.09
+4p	3D*	1	27917.78
+5p	3D*	1	66389.74
+4p	1D*	2	26081.34
+5p	1D*	2	66048.39
+4p	3F*	2	27443.71
+5p	3F*	2	66459.64
+4p	3P*	0	29736.27
+5p	3P*	0	67236.7
+4p	1P*	1	30815.70
+5p	1P*	1	68498.06
+4p	1F*	3	32349.98
+5p	1F*	3	67743.72

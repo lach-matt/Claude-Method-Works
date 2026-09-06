@@ -1,0 +1,4 @@
+RETIRE (s72): LOWDIN-HANDOFF-71.tar.gz -- the previous session's own archive, staged into
+the working root at open for extraction. Never part of any sealed manifest before s72 and
+never referenced by any instrument. Removed so the s72 seal matches the s72 tar.
+Same declaration as pack71/RETIRE.txt made for the s70 tar. Standing pattern.

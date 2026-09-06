@@ -1,0 +1,38 @@
+# Br V — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Br+V&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent — spectrum=Br+V confirmed.
+# Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Br VI (4s2 1S<0>)  480670 cm-1
+#
+# ** THE SMALLEST TABLE IN THE QUEUE: 9 levels. **
+#
+# 4s2.4p ground — the FOURTH one-electron-outside species at an n=4
+# core, after Ge II, As III and Se IV. The isoelectronic run is now
+# four consecutive Z at four consecutive charges:
+#      Ge II (32,2) · As III (33,3) · Se IV (34,4) · Br V (35,5)
+#
+# AND THE DEPTH COLLAPSES ALONG IT, which is the same shape the K-like
+# run showed at n=3:
+#      Ge II    charge 2   s,p,d,f,g   n to 11
+#      As III   charge 3   s,p,d,f,g   n to 6
+#      Se IV    charge 4   s,p,d,f,g   n to 7
+#      Br V     charge 5   s,d         n to 5
+#
+# Recorded, NOT tested. Whether the higher members cease to EXIST or
+# cease to have been MEASURED is R 1578's witness question, and four
+# points do not settle it.
+#
+# config	term	J	level_cm1	note
+4s2.4p	2P*	1/2	0	
+4s2.4p	2P*	3/2	6090.	
+4s2.4d	2D	3/2	187970.	
+4s2.4d	2D	5/2	188592.	
+4s2.5s	2S	1/2	213510.	
+# --- TWO electrons outside the closed 4s2. R 1597 keyability: refused.
+4s.4p2	2D	3/2	122941.	two-outside
+4s.4p2	2D	5/2	123628.	two-outside
+4s.4p2	2P	1/2	158158.	two-outside
+4s.4p2	2P	3/2	161011.	two-outside

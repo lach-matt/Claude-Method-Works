@@ -1,0 +1,2 @@
+id	verdict	reason
+1134	not a defect	C9-OVERGENERALISATION-WORD on "never" at main L6163. The token sits in "the energy bound is never better than the limit is known", a bound statement rather than a generalisation over cases: it is exactly what H13 verifies numerically, the printed "+ limit σ" column being the via-δ width plus 2σ at both n, with the limit dominating by 699× at n = 40. Regex artefact of the C9 class, on the precedent of rows 678, 680–687, 1067, 1069 and chat 93's 702, 1132, 1133.

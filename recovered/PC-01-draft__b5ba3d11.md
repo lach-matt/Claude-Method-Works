@@ -1,0 +1,9 @@
+### The multipole is fixed by the orbital jump and the parity
+
+**The multipole of a transition is fixed by two quantities Λ carries — the change in orbital angular momentum and the parity of the jump. The rule assigns the lowest multipole whose parity matches: Δℓ = 0 gives M1, Δℓ = 1 gives E1, Δℓ = 2 gives E2, Δℓ = 3 gives E3. It is a one-electron jump read off the source and target subshells, and it assigns no multipole when |Δℓ| exceeds 3. The change in total J is not available: Λ builds J on the target side only and carries no source J, so the |ΔJ| ≤ multipole-order part of the electric-dipole rule, which needs both endpoints' J, cannot be expressed. The map states the part the coordinates support. It was validated against nine textbook classifications and shown able to refuse. On the base index only M1 and E1 occur, 814 and 840 cells, because the caps hold |Δℓ| ≤ 1; E2, E3 and the refusal appear at wider caps.**
+
+*the multipole assignment Δℓ → {0: M1, 1: E1, 2: E2, 3: E3}, lowest matching parity, read from Δℓ = f − ℓ on Λ₉; on the base build only M1 (814) and E1 (840) occur, E2/E3 and the |Δℓ| > 3 refusal exercised at wider caps; the nine-classification validation carried from the record, at the caps of §7.4, (n, e, ℓ, k, f) = (3, 3, 1, 3, 1).*
+
+Computed — M §12.11.8, §4.6; Laporte 1924; Condon & Shortley 1935.
+
+> **Prior art: the multipole order of a radiative transition is fixed by the change in orbital angular momentum and the parity — Laporte, Z. Phys. 23 (1924) 135; the full classification is Condon & Shortley, The Theory of Atomic Spectra (1935), ch. IV. That Λ fixes the multipole from Δℓ and parity alone, |ΔJ| being inexpressible for want of a source J, is this book's reading of the rule.**

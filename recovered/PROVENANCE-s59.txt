@@ -1,0 +1,17 @@
+PROVENANCE — pack59, session 59.
+
+ctrl137b.jsonl   5 rows, Z=42,43,45,46,79. Sealed nlchain.py, restart mode, DEFAULT c.
+                 Computed foreground, one row per call, 2026-08-20 16:29:20Z-16:37:15Z.
+                 THESE ROWS ARE NOT A c-CONTROL. F59.3 proves pack53/cinf.jsonl ran at
+                 the SAME c, so this file REPRODUCES it rather than controlling it.
+                 Retained as the empirical half of F59.3's proof: bit-for-bit agreement
+                 with a walk labelled c=1e6 is impossible unless c never varied.
+
+row42.txt        Raw 2-line stdout tail of the Z=42 run, retained deliberately because
+                 it carries a field the JSON rows DO NOT: "42  6g -0.01389 rung 0".
+                 This RESOLVES NR1-4, which the prediction filed against a non-existent
+                 key 'rung' (F59.4). The rung IS 0; it is printed, not serialised.
+                 A prediction must name a field that exists in the artefact it scores.
+
+cinf2.py         F59.3 remedy. Can-failed 16:43Z: sites=4, HFSR.self.c 137.035999 ->
+                 1000000.0, Z=79 1s shift -314.0830 Ha. NOT YET USED FOR A WALK.

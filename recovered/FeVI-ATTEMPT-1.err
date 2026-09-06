@@ -1,0 +1,21 @@
+# Fe VI — ATTEMPT 1, SUBSTITUTED. NOT A CAPTURE. Register 1639.
+# sent:        ...energy1.pl?spectrum=Fe+VI&units=0&format=2&conf_out=on...
+# destination: ...energy1.pl?conf_out=on&format=2&j_out=on&level_out=on
+#              &spectrum=Se+III&submit=Retrieve+Data&units=0
+#
+# ** MISMATCH. I asked for Fe VI and was served Se III's body. **
+#
+# This is register 1629's mechanism exactly: the permission layer serves
+# a URL it already holds rather than the one requested. Se III was
+# fetched in the immediately preceding turn, so its URL was the nearest
+# permitted match.
+#
+# NOTHING WRITTEN. Had the destination_url not been checked, Se III's
+# 51 levels would now be sitting in the tree under the name FeVI.tsv —
+# a whole species of plausible, correctly-formatted, entirely wrong data.
+#
+# THE CHECK THAT CAUGHT IT is the one R 1638 made a rule before the
+# first fetch: verify destination_url against what was sent BEFORE
+# anything is written.
+#
+# Fe VI remains TODO. It needs a fresh paste from M.

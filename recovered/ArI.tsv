@@ -1,0 +1,37 @@
+# Ar I — NIST ASD 5.12, ref L2131 · Z=18, neutral
+# limit NOT printed in the capture. DERIVED at 127,198.60 from a joint fit across the
+# ns and np series (5 series, 20 points), which agree with each other to 5 cm-1.
+# The nd series is EXCLUDED from the fit: alone it gives 126,951.55, disagreeing by 250,
+# and Ar I's nd is perturbed — the two cores 2P*3/2 and 2P*1/2 lie 1431.6 cm-1 apart and
+# their series interleave. Register 1043.
+# All series below are built on the 2P*3/2 core.
+config	term	J	level_cm1
+4s	2[3/2]*	2	93143.7600
+5s	2[3/2]*	2	113468.473
+6s	2[3/2]*	2	119683.0821
+7s	2[3/2]*	2	122440.0672
+4s	2[3/2]*	1	93750.5978
+5s	2[3/2]*	1	113643.260
+6s	2[3/2]*	1	119760.1725
+7s	2[3/2]*	1	122479.3820
+4p	2[1/2]	1	104102.0990
+5p	2[1/2]	1	116659.9934
+6p	2[1/2]	1	121068.736
+7p	2[1/2]	1	123171.920
+4p	2[5/2]	3	105462.7596
+5p	2[5/2]	3	116942.7542
+6p	2[5/2]	3	121165.367
+7p	2[5/2]	3	123205.780
+4p	2[3/2]	1	106087.2598
+5p	2[3/2]	1	117151.3264
+6p	2[3/2]	1	121257.161
+7p	2[3/2]	1	123254.91
+3d	2[7/2]*	4	112750.153
+4d	2[7/2]*	4	119023.648
+5d	2[7/2]*	4	122036.0704
+6d	2[7/2]*	4	123653.177
+4f	2[3/2]	1	120188.232
+5f	2[3/2]	1	122686.065
+4f	2[9/2]	5	120207.134
+5f	2[9/2]	5	122695.636
+5g	2[5/2]*	2	122709.45

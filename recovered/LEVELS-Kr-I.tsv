@@ -1,0 +1,27 @@
+# NIST ASD energy levels, Kr I (neutral krypton). Supplied by M 2026-08-11.
+# VERIFIED: 11 of 11 rows pass the cm^-1 <-> eV conversion at better than
+# 6e-4 eV. All ten excited levels satisfy J1l pair coupling: K = J1 (x) l and
+# J = K +- 1/2. The 4p5(2P3/2)5p manifold is COMPLETE at all six levels.
+# The ionisation potential 112914.434 cm^-1 agrees with LADDER-K-Kr.tsv to
+# 9e-8 eV. The 123.58 nm resonance wavelength reproduces exactly.
+#
+# WITHHELD — the 5s(1/2) pair. The table says the J=0 level is at 85846.709
+# and is METASTABLE (J=0 -> J=0 forbidden), AND that a resonance line lies at
+# 116.49 nm. But 116.49 nm IS 85844 cm^-1, i.e. that same level. A forbidden
+# level cannot carry a resonance line; the three claims are inconsistent.
+# Either the last two J values are swapped, or 85846.709 is J=1 and the J=0
+# level is absent. NOT DISTINGUISHABLE from this table, so both rows are
+# marked 'disputed' and neither should be used until resolved.
+# config	term	J	E_cm-1	E_eV	status
+4p6	1S	0	0.000	0.0000	ok
+4p5(3/2).5s	2[3/2]o	2	79971.743	9.9152	ok
+4p5(3/2).5s	2[3/2]o	1	80916.768	10.0324	ok
+4p5(1/2).5s	2[1/2]o	0	85846.709	10.6439	DISPUTED
+4p5(1/2).5s	2[1/2]o	1	86583.760	10.7352	DISPUTED
+4p5(3/2).5p	2[1/2]	1	91170.010	11.3037	ok
+4p5(3/2).5p	2[5/2]	3	92307.420	11.4446	ok
+4p5(3/2).5p	2[5/2]	2	93123.328	11.5457	ok
+4p5(3/2).5p	2[3/2]	1	93752.023	11.6237	ok
+4p5(3/2).5p	2[3/2]	2	94093.076	11.6660	ok
+4p5(3/2).5p	2[1/2]	0	94387.652	11.7025	ok
+# ionisation potential	112914.434 cm-1	13.999606 eV	verified

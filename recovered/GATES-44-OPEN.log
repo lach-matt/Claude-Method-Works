@@ -1,0 +1,26 @@
+### GATE PT8
+PT8 l=2 N=2 lowest=3F dsum=2.78e-17 ; l=3 N=2 lowest=3H dsum=0.00e+00 ; l=3 N=3 lowest=4I dsum=0.00e+00
+### rc=0
+### GATE 72
+SKIP 21
+### rc=0
+### GATE 73
+SKIP 21
+### rc=0
+### GATE 77
+steps scored 37 ; steps with a drop 20 ; steps UNSAFE for n+l 0 ; F39.2 REPAIR REQUIRED NO
+### rc=0
+### GATE 78
+chained score 35/37 ; FIRST DIVERGENCE 25 ; last row Z=38 5s/5s True D=-0.17457 margin=0.05639 OBSERVED
+### rc=0
+### GATE 79 (PP-0)  [invocation corrected, see F44.1]
+PP-0b log(nrm) at parent e = -2.825e-09   (bound 1e-6)
+PP-0a probe root = -0.3808072846  parent solve_one = -0.3808072853  |de| = 6.67e-10  (bound 1e-8)  nd=0
+### rc=0
+### GATE 80  [invocation corrected, see F44.1]
+80a HFCN D=-0.266643 it=[30,35] eps_ent=-0.335639 ; HFC D=-0.266643 it=[30,35] eps_ent=-0.335639  IDENTICAL
+80b run(HFCN, CFG_CA+4d, 21) -> ok=False  NodeCountMismatch: Z=21 4d nodes 0 (target 1) at e=-0.083340
+### rc=0
+### GATE 81 (manifest completeness)
+HANDOFF-43: ok=923 bad=0 extra=0 ; can-fail: planted file -> extra=1, exit 1
+### rc=0

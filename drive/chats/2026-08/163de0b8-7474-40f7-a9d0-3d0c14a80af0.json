@@ -1,0 +1,142 @@
+{
+  "uuid": "163de0b8-7474-40f7-a9d0-3d0c14a80af0",
+  "name": "",
+  "summary": "",
+  "created_at": "2026-08-20T18:26:46.974645Z",
+  "updated_at": "2026-08-20T19:05:52.666472Z",
+  "account": {
+    "uuid": "b44b80ef-cbad-492a-8346-4f16631749fd"
+  },
+  "chat_messages": [
+    {
+      "uuid": "01a0206c-f782-734a-8d38-e4a48419bf9a",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-20T18:26:49.553604Z",
+      "updated_at": "2026-08-20T18:26:49.553604Z",
+      "attachments": [],
+      "files": [
+        {
+          "file_uuid": "b2bb11e6-51e7-4d20-9f11-a288b38c735c",
+          "file_name": null
+        },
+        {
+          "file_uuid": "e11cc4c2-6a98-4b7a-a1a0-05d2936640cb",
+          "file_name": null
+        }
+      ],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "01a0206c-f782-7367-be65-22adddad0fef",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-20T18:29:31.419864Z",
+      "updated_at": "2026-08-20T18:29:31.419864Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0206c-f782-734a-8d38-e4a48419bf9a"
+    },
+    {
+      "uuid": "01a0207d-096e-7946-946d-e05d3c3a4573",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-20T18:44:25.641441Z",
+      "updated_at": "2026-08-20T18:44:25.641441Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0206c-f782-7367-be65-22adddad0fef"
+    },
+    {
+      "uuid": "01a0208a-5bef-7ae5-8add-f7066279e5e6",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-20T18:58:53.565655Z",
+      "updated_at": "2026-08-20T18:58:53.565655Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0206c-f782-7367-be65-22adddad0fef"
+    },
+    {
+      "uuid": "01a0207d-096e-795e-ae0e-3a90d888a6ce",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-20T18:58:54.097133Z",
+      "updated_at": "2026-08-20T18:58:54.097133Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0207d-096e-7946-946d-e05d3c3a4573"
+    },
+    {
+      "uuid": "01a0208a-65c9-7486-b270-ee646e3c729a",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-20T18:58:58.971948Z",
+      "updated_at": "2026-08-20T18:58:58.971948Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0206c-f782-7367-be65-22adddad0fef"
+    },
+    {
+      "uuid": "01a0208a-65c9-7492-a092-b899f99d1657",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-20T19:01:41.362266Z",
+      "updated_at": "2026-08-20T19:01:41.362266Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0208a-65c9-7486-b270-ee646e3c729a"
+    },
+    {
+      "uuid": "01a0208d-b426-7316-8206-ca4408f61541",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-20T19:02:33.607550Z",
+      "updated_at": "2026-08-20T19:02:33.607550Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0208a-65c9-7492-a092-b899f99d1657"
+    },
+    {
+      "uuid": "01a0208d-b426-7328-93c5-604f4141d129",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-20T19:03:01.159952Z",
+      "updated_at": "2026-08-20T19:03:01.159952Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0208d-b426-7316-8206-ca4408f61541"
+    },
+    {
+      "uuid": "01a0208e-4801-720b-9406-c6b84557b29b",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-20T19:03:11.785177Z",
+      "updated_at": "2026-08-20T19:03:11.785177Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0208d-b426-7328-93c5-604f4141d129"
+    },
+    {
+      "uuid": "01a0208e-4801-7219-a491-1b55c66398d6",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-20T19:03:13.387684Z",
+      "updated_at": "2026-08-20T19:03:13.387684Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a0208e-4801-720b-9406-c6b84557b29b"
+    }
+  ]
+}

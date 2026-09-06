@@ -1,0 +1,15 @@
+# Ca IX — NIST ASD 5.12, ref L7185 · Mg-like calcium, Z=20, 12 electrons
+# limit Ca X (3s 2S1/2) = [1,520,640] +/- 500 cm-1  (bracketed: extrapolated)
+config	term	J	level_cm1	unc
+4s	1S	0	774480	500
+5s	1S	0	1076110	500
+4s	3S	1	760538	500
+5s	3S	1	1068804	500
+4p	1P*	1	832314	500
+5p	1P*	1	1097570	500
+6p	1P*	1	1235830	500
+4d	1D	2	921921	500
+5d	1D	2	1139810	500
+6d	1D	2	1260390	500
+4f	1F*	3	963050	500
+5f	1F*	3	1162610	500

@@ -1,0 +1,4 @@
+id	verdict	reason
+1166	not a defect	C9 token "never" sits inside a mechanism NAME, not a claim: "a reading the source never made" is §4.8's own label (main L1449) and the Register's (reg L2425). Regex artefact, precedent 678/680-687/1067/1069.
+1167	not a defect	C9 token "never" sits inside the section's own corroborated claim about §32.6.1: "a sum that never closed" (L7702) is stated by §32.6.1 itself at L9273, "The second never closed: its own five terms summed to". Live claim, verified true.
+1168	not a defect	C9 "already recorded and never connected to either" (L7711) is a measured negative and it holds: "a derivation written before the output" has one site in six volumes, and the only pairing statements ("the same act at two depths", main L1457 and L7708, reg L2136) connect §4.5 to §4.10 and never reach §4.6.

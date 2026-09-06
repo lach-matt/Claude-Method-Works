@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Lach Cylinder — Λ₈ → Λ₁₃</title>
+<style>
+  :root{
+    --ink:#e8e4da; --dim:#8f8a7e; --line:#2a2d33; --bg:#0f1114;
+    --a-side:#d8b36a; --b-side:#6fb3c9; --accent:#c9723d;
+  }
+  *{box-sizing:border-box;margin:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font:14px/1.45 Georgia,'Times New Roman',serif;overflow:hidden}
+  #view{position:fixed;inset:0;cursor:grab}
+  #view:active{cursor:grabbing}
+  .hud{position:fixed;left:18px;top:16px;max-width:340px;pointer-events:none}
+  .hud h1{font-size:19px;font-weight:normal;letter-spacing:.02em}
+  .hud h1 em{font-style:normal;color:var(--accent)}
+  .hud p.sub{color:var(--dim);font-size:12.5px;margin-top:4px}
+  .panel{position:fixed;right:16px;top:16px;background:rgba(15,17,20,.82);border:1px solid var(--line);
+         padding:12px 14px;backdrop-filter:blur(4px)}
+  .panel .row{display:flex;gap:6px;margin-bottom:10px}
+  button{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--dim);background:none;
+         border:1px solid var(--line);padding:5px 10px;cursor:pointer}
+  button.on{color:var(--ink);border-color:var(--accent)}
+  button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  table{border-collapse:collapse;font:11.5px ui-monospace,Menlo,Consolas,monospace;color:var(--dim)}
+  th,td{padding:2px 8px 2px 0;text-align:right;font-weight:normal}
+  th{color:var(--ink);border-bottom:1px solid var(--line)}
+  td:first-child,th:first-child{text-align:left}
+  .a{color:var(--a-side)} .b{color:var(--b-side)}
+  .foot{position:fixed;left:18px;bottom:14px;color:var(--dim);font-size:12px;max-width:520px}
+  .foot b{color:var(--ink);font-weight:normal}
+  .axislab{position:fixed;pointer-events:none;font:11px ui-monospace,Menlo,Consolas,monospace;color:var(--dim)}
+  @media (max-width:640px){ .hud{max-width:230px} .panel{right:10px;top:10px;padding:9px} .foot{font-size:11px;max-width:75vw} }
+</style>
+</head>
+<body>
+<div id="view"></div>
+
+<div class="hud">
+  <h1>The Lach Cylinder <em>Λ₈ → Λ₁₃</em></h1>
+  <p class="sub">A solid over the transfer q. Each cross-section is the product
+  <span class="a">A(q)</span> × <span class="b">B(q)</span> — parent side by target side —
+  drawn at √cells on one common scale. Drag to rotate, scroll or pinch to zoom.</p>
+</div>
+
+<div class="panel">
+  <div class="row">
+    <button id="b8">Λ₈</button>
+    <button id="b11">Λ₁₁</button>
+    <button id="b13" class="on">Λ₁₃</button>
+    <button id="ghost" class="on">Λ₈ ghost</button>
+  </div>
+  <table id="tbl"></table>
+</div>
+
+<div class="foot" id="foot"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ---- exact computed profiles (book caps) ----
+// per q: [ |A(q)| , |B(q)| ]
+const STAGES = {
+  L8 : {name:'Λ₈',  A:[33,33,23,8],       B:[5,10,15,17], total:976,
+        note:'the book’s object — sections 165 · 330 · 345 · 136'},
+  L11: {name:'Λ₁₁', A:[163,163,123,48],   B:[5,20,50,70], total:13585,
+        note:'+ target spin, seniority, core fine structure — sections 815 · 3,260 · 6,150 · 3,360'},
+  L13: {name:'Λ₁₃', A:[2294,2294,1794,744],B:[5,20,50,70], total:199130,
+        note:'+ K and total J on the tree path — sections 11,470 · 45,880 · 89,700 · 52,080'}
+};
+const SCALE_REF = Math.sqrt(2294);          // one common √-scale across stages
+const WORLD_A = 1.9, AXIS_LEN = 4.4;
+
+const view = document.getElementById('view');
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0f1114);
+const camera = new THREE.PerspectiveCamera(38, innerWidth/innerHeight, .05, 100);
+camera.position.set(4.6, 2.6, 5.4);
+camera.lookAt(0,0,0);
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth, innerHeight);
+view.appendChild(renderer.domElement);
+
+scene.add(new THREE.AmbientLight(0xffffff, .38));
+const key = new THREE.DirectionalLight(0xfff3e0, .95); key.position.set(3,4,5); scene.add(key);
+const rim = new THREE.DirectionalLight(0x9fc9dd, .35); rim.position.set(-4,-2,-3); scene.add(rim);
+
+// ---- lofted superellipse solid: q along x, half-width a (A side, y), half-depth b (B side, z) ----
+function smooth(vals, t){                    // cosine interpolation across stations 0..3
+  const s = Math.min(Math.max(t,0), 3), i = Math.min(Math.floor(s), 2), u = s - i;
+  const w = (1 - Math.cos(Math.PI*u)) / 2;
+  return vals[i]*(1-w) + vals[i+1]*w;
+}
+function buildSolid(stage, opts){
+  const NS = 96, NA = 72, m = 4;             // slices, angular steps, superellipse exponent
+  const pos = [], idx = [];
+  const aOf = q => WORLD_A * Math.sqrt(smooth(stage.A,q)) / SCALE_REF;
+  const bOf = q => WORLD_A * Math.sqrt(smooth(stage.B,q)) / SCALE_REF;
+  for(let i=0;i<=NS;i++){
+    const q = 3*i/NS, x = (q/3 - .5)*AXIS_LEN;
+    const a = aOf(q), b = bOf(q);
+    for(let j=0;j<=NA;j++){
+      const th = 2*Math.PI*j/NA, c = Math.cos(th), s = Math.sin(th);
+      pos.push(x, a*Math.sign(c)*Math.pow(Math.abs(c),2/m),
+                  b*Math.sign(s)*Math.pow(Math.abs(s),2/m));
+    }
+  }
+  for(let i=0;i<NS;i++) for(let j=0;j<NA;j++){
+    const p = i*(NA+1)+j;
+    idx.push(p, p+NA+1, p+1,  p+1, p+NA+1, p+NA+2);
+  }
+  // end caps (triangle fans)
+  const capCenter = (q)=>{ pos.push((q/3-.5)*AXIS_LEN, 0, 0); return pos.length/3 - 1; };
+  const c0 = capCenter(0), ring0 = 0;
+  for(let j=0;j<NA;j++) idx.push(c0, ring0+j+1, ring0+j);
+  const c1 = capCenter(3), ring1 = NS*(NA+1);
+  for(let j=0;j<NA;j++) idx.push(c1, ring1+j, ring1+j+1);
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
+  g.setIndex(idx); g.computeVertexNormals();
+  const mat = opts.ghost
+    ? new THREE.MeshStandardMaterial({color:0x4e5a63, wireframe:true, transparent:true, opacity:.4})
+    : new THREE.MeshStandardMaterial({color:0xded6c4, roughness:.62, metalness:.08,
+        transparent:true, opacity:.96, side:THREE.DoubleSide});
+  return new THREE.Mesh(g, mat);
+}
+
+// station rings at q = 0..3 — the profile, drawn where it lives
+function stationRings(stage){
+  const grp = new THREE.Group(), m = 4;
+  for(let q=0;q<=3;q++){
+    const a = WORLD_A*Math.sqrt(stage.A[q])/SCALE_REF * 1.005;
+    const b = WORLD_A*Math.sqrt(stage.B[q])/SCALE_REF * 1.005;
+    const pts = [];
+    for(let j=0;j<=140;j++){
+      const th = 2*Math.PI*j/140, c = Math.cos(th), s = Math.sin(th);
+      pts.push(new THREE.Vector3((q/3-.5)*AXIS_LEN,
+        a*Math.sign(c)*Math.pow(Math.abs(c),2/m),
+        b*Math.sign(s)*Math.pow(Math.abs(s),2/m)));
+    }
+    grp.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
+      new THREE.LineBasicMaterial({color:0xc9723d, transparent:true, opacity:.85})));
+  }
+  return grp;
+}
+// transfer axis
+(function(){
+  const g = new THREE.BufferGeometry().setFromPoints(
+    [new THREE.Vector3(-AXIS_LEN/2-.35,0,0), new THREE.Vector3(AXIS_LEN/2+.35,0,0)]);
+  scene.add(new THREE.Line(g, new THREE.LineBasicMaterial({color:0x3a3f47})));
+})();
+
+const root = new THREE.Group(); scene.add(root);
+let solid=null, rings=null, ghost=null, current='L13', showGhost=true;
+
+function rebuild(){
+  if(solid){root.remove(solid); solid.geometry.dispose();}
+  if(rings) root.remove(rings);
+  if(ghost){root.remove(ghost); ghost.geometry.dispose(); ghost=null;}
+  const st = STAGES[current];
+  solid = buildSolid(st,{ghost:false}); root.add(solid);
+  rings = stationRings(st); root.add(rings);
+  if(showGhost && current!=='L8'){ ghost = buildSolid(STAGES.L8,{ghost:true}); root.add(ghost); }
+  // table
+  const t = document.getElementById('tbl');
+  let h = `<tr><th>q</th><th class="a">|A(q)|</th><th class="b">|B(q)|</th><th>A×B</th></tr>`;
+  for(let q=0;q<4;q++) h += `<tr><td>${q}</td><td class="a">${st.A[q].toLocaleString()}</td>`+
+    `<td class="b">${st.B[q].toLocaleString()}</td><td>${(st.A[q]*st.B[q]).toLocaleString()}</td></tr>`;
+  h += `<tr><td>Σ</td><td></td><td></td><td>${st.total.toLocaleString()}</td></tr>`;
+  t.innerHTML = h;
+  document.getElementById('foot').innerHTML =
+    `<b>${st.name}</b> — ${st.note}. Every section factorises exactly: the fibration holds, the shape is a cylinder. `+
+    `Wide axis = <span class="a">parent side A</span>, deep axis = <span class="b">target side B</span>: `+
+    `A falls as B rises — the Pareto trade of §7.8.1, rendered. The tight two-parent K would bridge the two sides `+
+    `and break this factorisation by 2,475 cells (3.5%): that solid cannot be drawn as sections over q.`;
+}
+['b8','b11','b13'].forEach((id,i)=>{
+  document.getElementById(id).onclick = e=>{
+    current = ['L8','L11','L13'][i];
+    ['b8','b11','b13'].forEach(x=>document.getElementById(x).classList.toggle('on', x===id));
+    rebuild();
+  };
+});
+document.getElementById('ghost').onclick = e=>{
+  showGhost = !showGhost; e.target.classList.toggle('on', showGhost); rebuild();
+};
+
+// ---- drag rotate + wheel/pinch zoom (no external controls) ----
+let dragging=false, px=0, py=0, rotY=.6, rotX=.28, dist=7.6, spun=false;
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function setCam(){
+  camera.position.set(dist*Math.sin(rotY)*Math.cos(rotX), dist*Math.sin(rotX), dist*Math.cos(rotY)*Math.cos(rotX));
+  camera.lookAt(0,0,0);
+}
+view.addEventListener('pointerdown', e=>{dragging=true; spun=true; px=e.clientX; py=e.clientY; view.setPointerCapture(e.pointerId);});
+view.addEventListener('pointermove', e=>{
+  if(!dragging) return;
+  rotY += (e.clientX-px)*.006; rotX += (e.clientY-py)*.005;
+  rotX = Math.max(-1.35, Math.min(1.35, rotX)); px=e.clientX; py=e.clientY;
+});
+view.addEventListener('pointerup', ()=>dragging=false);
+view.addEventListener('wheel', e=>{e.preventDefault(); dist=Math.max(3.2,Math.min(16,dist*(1+e.deltaY*.001)));},{passive:false});
+let pinch=null;
+view.addEventListener('touchmove', e=>{
+  if(e.touches.length===2){
+    const d = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+    if(pinch) dist = Math.max(3.2, Math.min(16, dist*pinch/d));
+    pinch = d; e.preventDefault();
+  }
+},{passive:false});
+view.addEventListener('touchend', ()=>pinch=null);
+
+addEventListener('resize', ()=>{
+  camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+rebuild();
+(function loop(){
+  requestAnimationFrame(loop);
+  if(!spun && !reduced) rotY += .0022;
+  setCam();
+  renderer.render(scene, camera);
+})();
+</script>
+</body>
+</html>
