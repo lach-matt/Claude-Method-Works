@@ -33,29 +33,26 @@ sooterm.py -- RULING 1: THE TWO-BODY SPIN-ORBIT TERM, STEP ONE
   integrates each shell's density against the Marvin kernel.  Agreement is the proof that the
   radial machinery and the convention are right, and it is what the exchange channel will stand on.
 
-  THE EXCHANGE CHANNEL: DESIGNED, NOT RUN, AND NOT GUESSED
+  THE EXCHANGE CHANNEL: ONE STEP OPEN, AND IT IS NO LONGER THE COEFFICIENTS
 
-  What it needs is the angular reduction's coefficients -- the weights on M^k(ab) and on the exchange integrals
-  N^k(ab) as functions of (l_a, l_b, k).  Those are Blume & Watson's, Proc. R. Soc. A 270 (1962) 127 and A 271
-  (1963) 565.  MEASURED, not assumed: both are paywalled, and every accessible paper reached from this container
-  CITES them rather than restating them -- arXiv 2311.05294 (which does give the Breit operator itself, Eqs. 6-7,
-  and is what fixes the 1:2 own-to-other weight above), 2503.15462, 2601.18898, and 2607.03814, which cites
-  Blume-Watson twice and states no formula.
+  The mean-field working equation is now record-carried with its quote (see the docstring): Coulomb at +1, the
+  two exchange terms at -3/2 and +3/2, the 3/2 being the spin-own-orbit at weight 1 plus the spin-other-orbit at
+  weight 2.  M's direction found it -- "search for others who have referenced these papers" -- where stopping at
+  Blume & Watson themselves had not: arXiv:2404.04716 Eq. (15) states it in the open, and cites them for it.
 
-  **Writing those coefficients from memory would be a fitted constant wearing a citation.**  The corpus's rule is
-  that a form is derived or it is record-carried with its quote, and neither is available for them yet.  So the
-  channel is specified and left:
+  What is still owed is the ANGULAR reduction of those two exchange terms over a spherical closed shell: the
+  weights on the exchange-shaped radial integrals N^k(ab) as functions of (l_a, l_b, k).  It is a derivation, not
+  a lookup, and it has an anchor no reading could give it:
 
-    the object      d_zeta_a = SUM_b [ c_M(l_a,l_b,k) M^k(ab) + c_N(l_a,l_b,k) N^k(ab) ], summed over core
-                    shells b and over k, with the 1:2 own-to-other weight already fixed by the operator
-    the radial half BUILT AND GATED here -- marvin_M and marvin_N, the convention proved by the identity above
-    the angular half the open piece: c_M and c_N
-    its gates       (a) the direct channel unchanged, which --verify already asserts; (b) lever-dead as c -> inf;
-                    (c) identically zero for l_a = 0; (d) THE SIX MEASURED INTERVALS, which today span 0.910 to
-                    1.360 -- a wrong operator does not collapse a 1.5x spread across p and d and across Z from
-                    13 to 81, so this is a real test and not a fit
-    the two routes  either the primary sources, or a first-principles reduction of the operator above with
-                    Wigner algebra, verified by reproducing the direct channel THROUGH THE SAME MACHINERY
+    the object      d_zeta_a = SUM_b [ -N_b M^0(ab)  +  SUM_k c_k(l_a,l_b) N^k(ab) ]
+    the Coulomb half PROVED here: -N_b M^0(ab), the two routes agreeing to 1.5e-5 at all six openings
+    the radial half  BUILT AND GATED here: marvin_M and marvin_N, in the chain's own quadrature convention
+    the angular half c_k, the one open piece
+    its gates       (a) the Coulomb half unchanged, which --verify already asserts and which any correct
+                    reduction must reproduce THROUGH THE SAME MACHINERY; (b) lever-dead as c -> inf;
+                    (c) identically zero for l_a = 0; (d) THE SIX MEASURED INTERVALS, which span 0.910 to 1.360
+                    today -- a wrong reduction does not collapse a 1.5x spread across p and d and across Z from
+                    13 to 81, so this is a test and not a fit
 
   Nothing is repaired in any volume.  Every figure is MEASURED by this instrument or RECORD-CARRIED with its
   quote.

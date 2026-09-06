@@ -41,15 +41,33 @@
       `np.cumsum(w) - 0.5*w`, and matching that convention -- read from its source, not guessed -- closes the
       gap by a factor of 250.  It is the strongest check available for the direct channel and it is --verify.
 
-  WHAT IS NOT BUILT HERE, AND WHY IT IS NOT GUESSED.  The exchange channel needs the angular coefficients of the
-  reduction -- the weights on M^k(ab) and on the exchange integrals N^k(ab) as functions of l_a, l_b and k.  They
-  are Blume & Watson's (Proc. R. Soc. A 270 (1962) 127; A 271 (1963) 565).  Both papers are paywalled; every
-  accessible paper reached from here CITES them rather than restating them (checked: arXiv 2311.05294,
-  2503.15462, 2601.18898, 2607.03814 -- the last cites Blume-Watson twice and states no formula).  **Writing
-  those coefficients from memory into an instrument would be a fitted constant wearing a citation**, and the
-  corpus's own rule is that a form is derived or it is record-carried with its quote.  So the exchange channel is
-  DESIGNED here and not run: §THE EXCHANGE CHANNEL below states the object, the gates it must pass, and the two
-  routes to its coefficients.  Nothing about it is claimed.
+  THE MEAN-FIELD COEFFICIENTS, FOUND AND RECORD-CARRIED WITH THEIR QUOTE.  Blume & Watson's own papers are
+  paywalled, but the working equation they stand behind is stated in the open literature, and M's direction was
+  to look for who cites them rather than stop at them.  Kotaru, Pokhilko, Sokolov, arXiv:2404.04716 Eq. (15),
+  in the spin-orbit mean-field (SOMF) approximation:
+
+      F^{BP,xi}_pq = h^xi_pq + SUM_rs P_rs [ g^xi_pqrs - (3/2) g^xi_sqpr + (3/2) g^xi_spqr ]
+
+  with P_rs the spin-free one-particle density matrix, and (their Eqs. 16-20)
+
+      h^xi(i)      = SUM_A Z_A [ r_iA x p(i) ]_xi / r_iA^3                 the nuclear term
+      g^xi,sso(i,j) = - [ r_ji x p(i) ]_xi / r_ij^3                        the two-electron spin-SAME-orbit
+      h^xi_pq      = -i <phi_p(1)| h^xi(1) |phi_q(1)>
+      g^xi_pqrs    = -i <phi_p(1) phi_r(2)| g^xi,sso(1,2) |phi_q(1) phi_s(2)>
+      H_SO         = i (alpha^2/4) SUM_xi SUM_pq F^xi_pq D^xi_pq
+
+  and their own sentence for why the exchange coefficient is 3/2 and not 1: **"The two-electron term of F^{BP,xi}_pq
+  in Eq. (15) also contains contributions from the spin-other orbit operator, which matrix elements can be fully
+  expressed in terms of g^xi_pqrs."**  The 3/2 is 1 + 2 x (1/2): the spin-own-orbit at weight 1 and the
+  spin-other-orbit at weight 2, exactly the ratio the Breit-Pauli operator at the top of this docstring fixes.
+
+  So the COULOMB coefficient is +1 -- and that is the term §(2) above proves equals -N_b M^0(ab), which is the
+  anchor the exchange channel is built against.
+
+  WHAT REMAINS, AND IT IS ONE STEP: the ANGULAR reduction of the two exchange terms over a spherical closed
+  shell, which turns them into sums over k of the exchange-shaped radial integrals N^k(ab) with 3j weights.  The
+  operator and its coefficients are no longer the open piece; the reduction is.  §THE EXCHANGE CHANNEL below
+  states it with its gates.
 
   usage:  python3 sooterm.py --verify     the direct-channel identity at every core shell of the six openings
           python3 sooterm.py --selftest
@@ -186,29 +204,26 @@ def report():
     else:
         print("  (run --verify for the direct-channel identity)")
     print("""
-  THE EXCHANGE CHANNEL: DESIGNED, NOT RUN, AND NOT GUESSED
+  THE EXCHANGE CHANNEL: ONE STEP OPEN, AND IT IS NO LONGER THE COEFFICIENTS
 
-  What it needs is the angular reduction's coefficients -- the weights on M^k(ab) and on the exchange integrals
-  N^k(ab) as functions of (l_a, l_b, k).  Those are Blume & Watson's, Proc. R. Soc. A 270 (1962) 127 and A 271
-  (1963) 565.  MEASURED, not assumed: both are paywalled, and every accessible paper reached from this container
-  CITES them rather than restating them -- arXiv 2311.05294 (which does give the Breit operator itself, Eqs. 6-7,
-  and is what fixes the 1:2 own-to-other weight above), 2503.15462, 2601.18898, and 2607.03814, which cites
-  Blume-Watson twice and states no formula.
+  The mean-field working equation is now record-carried with its quote (see the docstring): Coulomb at +1, the
+  two exchange terms at -3/2 and +3/2, the 3/2 being the spin-own-orbit at weight 1 plus the spin-other-orbit at
+  weight 2.  M's direction found it -- "search for others who have referenced these papers" -- where stopping at
+  Blume & Watson themselves had not: arXiv:2404.04716 Eq. (15) states it in the open, and cites them for it.
 
-  **Writing those coefficients from memory would be a fitted constant wearing a citation.**  The corpus's rule is
-  that a form is derived or it is record-carried with its quote, and neither is available for them yet.  So the
-  channel is specified and left:
+  What is still owed is the ANGULAR reduction of those two exchange terms over a spherical closed shell: the
+  weights on the exchange-shaped radial integrals N^k(ab) as functions of (l_a, l_b, k).  It is a derivation, not
+  a lookup, and it has an anchor no reading could give it:
 
-    the object      d_zeta_a = SUM_b [ c_M(l_a,l_b,k) M^k(ab) + c_N(l_a,l_b,k) N^k(ab) ], summed over core
-                    shells b and over k, with the 1:2 own-to-other weight already fixed by the operator
-    the radial half BUILT AND GATED here -- marvin_M and marvin_N, the convention proved by the identity above
-    the angular half the open piece: c_M and c_N
-    its gates       (a) the direct channel unchanged, which --verify already asserts; (b) lever-dead as c -> inf;
-                    (c) identically zero for l_a = 0; (d) THE SIX MEASURED INTERVALS, which today span 0.910 to
-                    1.360 -- a wrong operator does not collapse a 1.5x spread across p and d and across Z from
-                    13 to 81, so this is a real test and not a fit
-    the two routes  either the primary sources, or a first-principles reduction of the operator above with
-                    Wigner algebra, verified by reproducing the direct channel THROUGH THE SAME MACHINERY
+    the object      d_zeta_a = SUM_b [ -N_b M^0(ab)  +  SUM_k c_k(l_a,l_b) N^k(ab) ]
+    the Coulomb half PROVED here: -N_b M^0(ab), the two routes agreeing to 1.5e-5 at all six openings
+    the radial half  BUILT AND GATED here: marvin_M and marvin_N, in the chain's own quadrature convention
+    the angular half c_k, the one open piece
+    its gates       (a) the Coulomb half unchanged, which --verify already asserts and which any correct
+                    reduction must reproduce THROUGH THE SAME MACHINERY; (b) lever-dead as c -> inf;
+                    (c) identically zero for l_a = 0; (d) THE SIX MEASURED INTERVALS, which span 0.910 to 1.360
+                    today -- a wrong reduction does not collapse a 1.5x spread across p and d and across Z from
+                    13 to 81, so this is a test and not a fit
 
   Nothing is repaired in any volume.  Every figure is MEASURED by this instrument or RECORD-CARRIED with its
   quote.""")
