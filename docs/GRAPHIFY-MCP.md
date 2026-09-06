@@ -119,12 +119,30 @@ read `HAS_KEY: false`, and the check reported a green-looking `skipped`. Nothing
 nothing was being reviewed, and the two are indistinguishable from outside.
 
 **Both workflows authenticate with `ANTHROPIC_API_KEY`** — a metered key from platform.claude.com,
-stored as a repository secret — and all three references agree. The subscription route
-(`claude setup-token` → `CLAUDE_CODE_OAUTH_TOKEN`) was tried first and abandoned: three attempts
-across two separately minted tokens were each rejected instantly, the run initialising and then
-returning `is_error: true` with an empty `modelUsage` in 206–2057 ms. The cause was never
-established, because the action suppresses the error text (`show_full_output: true` would surface
-it). Recorded, not resolved.
+stored as a repository secret — and all three references agree.
+
+**The credential was never the problem, and an earlier revision of this file said it was.** Four
+runs died identically, each before any model call — `is_error: true`, `modelUsage: {}`, 206–2057 ms:
+
+| PR | credential | model selected |
+|---|---|---|
+| #19, #19 re-run, #20 | `CLAUDE_CODE_OAUTH_TOKEN` | `claude-sonnet-5` |
+| #22 | `ANTHROPIC_API_KEY` | `claude-opus-5[1m]` |
+
+Two credentials, two models, one signature. Neither varies with the failure, so **the cause is
+environmental** — which retires the reading that a subscription token was "rejected instantly". It
+was never shown to be rejected at all; nothing reached a model under either credential.
+
+The hypothesis now under test is **this repository's own `.mcp.json`**. The action restores it from
+the default branch and sets `enableAllProjectMcpServers: true`; it seats the Graphify MCP server,
+which a CI runner cannot authenticate. `claude-code-review.yml` therefore passes
+`--strict-mcp-config`, so Claude Code ignores project `.mcp.json` and uses only what the action
+supplies. `show_full_output: true` rides alongside it as a **diagnostic to be removed once the run
+is understood** — the suppressed error text is why four failures produced a signature and no cause.
+
+**A caution for whoever reads the next result:** a workflow-editing PR is skipped by workflow
+validation, so neither the fix nor the diagnostic can be tested on the PR that introduces it. Only
+an ordinary PR after the merge tests either.
 
 Switching back needs no new diagnosis, only the three-reference edit in
 `.github/CLAUDE_GITHUB_SETUP.md`: both action inputs and the `HAS_KEY` gate, all three or none.
