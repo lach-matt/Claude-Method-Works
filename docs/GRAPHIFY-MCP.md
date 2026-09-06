@@ -118,17 +118,18 @@ skipped on every PR from #13 to #18: its third gate tested a secret that did not
 read `HAS_KEY: false`, and the check reported a green-looking `skipped`. Nothing was wrong and
 nothing was being reviewed, and the two are indistinguishable from outside.
 
-**The wiring is fixed; the credential is deliberately absent.** Both workflows now authenticate
-with `CLAUDE_CODE_OAUTH_TOKEN` — a Claude subscription token from `claude setup-token` — and all
-three references agree. But **no secret is set, by decision**: every review run draws on the
-owner's subscription allowance, and that cost was judged not worth paying for automated review
-here. So `claude-review` reports `skipped`, all PRs stay green, and Graphify's own gate remains the
-only automated review running. Nothing is broken; this is the chosen state.
+**Both workflows authenticate with `ANTHROPIC_API_KEY`** — a metered key from platform.claude.com,
+stored as a repository secret — and all three references agree. The subscription route
+(`claude setup-token` → `CLAUDE_CODE_OAUTH_TOKEN`) was tried first and abandoned: three attempts
+across two separately minted tokens were each rejected instantly, the run initialising and then
+returning `is_error: true` with an empty `modelUsage` in 206–2057 ms. The cause was never
+established, because the action suppresses the error text (`show_full_output: true` would surface
+it). Recorded, not resolved.
 
-Turning it on later is one step and no repo change: mint a token with `claude setup-token` and store
-it as the `CLAUDE_CODE_OAUTH_TOKEN` repository secret. It adds no bill — the token draws on an
-existing subscription rather than a metered API account — but it does consume that subscription's
-allowance on every PR, which is the cost that was declined.
+Switching back needs no new diagnosis, only the three-reference edit in
+`.github/CLAUDE_GITHUB_SETUP.md`: both action inputs and the `HAS_KEY` gate, all three or none.
+Note the cost difference — the API key bills separately from a Claude subscription, so reviews here
+are a metered expense rather than allowance consumption.
 
 **The confirmation is the job log, never the check's colour** — `changed-files` prints
 `HAS_KEY: true` when a credential is present. If you are ever unsure whether a review actually
