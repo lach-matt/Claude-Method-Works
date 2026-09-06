@@ -312,6 +312,65 @@ def shell_inertia(M, R1, R2):
     """Moment of inertia of a uniform thick spherical shell."""
     return 0.4 * M * (R2**5 - R1**5) / (R2**3 - R1**3)
 
+# ------------------------------------------------- the shift-vector ceiling
+#
+# Fuchs et al. leave one number explicitly open: "Increasing the shift vector will
+# continue to add more momentum flux to the stress-energy tensor, so there is an
+# upper limit to the magnitude of the shift vector that keeps the warp drive
+# physical.  This upper limit is a future direction of work."
+#
+# It has a closed form.  In an orthonormal Eulerian frame the (t,x) block is
+#     T^{ab} = [[rho, f], [f, p_x]]
+# and the mixed tensor T^a_b has eigenvalues
+#     lambda_pm = ( (p_x - rho) +- sqrt((rho + p_x)^2 - 4 f^2) ) / 2 .
+# When 2f > rho + p_x the root goes imaginary, the stress-energy becomes
+# Hawking-Ellis type IV, and EVERY energy condition fails at once -- there is no
+# frame in which the energy density is real.  So the ceiling is
+#     f <= (rho + p_x) / 2 ,
+# which is also exactly the NEC bound, since for a null k = (1, n)
+#     T_ab k^a k^b = rho + p_t + n_x^2 (p_x - p_t) - 2 f n_x
+# is minimised at n_x = 1 and gives rho + p_x - 2f.
+
+def he_eigen(rho, p_x, f):
+    """Eigen-energy-density and principal pressure of the (t,x) block.
+    Returns None when the block is Hawking-Ellis type IV (complex eigenvalues)."""
+    disc = (rho + p_x) ** 2 - 4.0 * f * f
+    if disc < 0.0: return None
+    root = disc ** 0.5
+    return ((rho - p_x) + root) / 2.0, ((p_x - rho) + root) / 2.0
+
+def flux_ceiling(rho, p_x):
+    """The largest Eulerian momentum flux the stress-energy can carry and stay
+    type I.  Equals the NEC bound."""
+    return (rho + p_x) / 2.0
+
+def nec_min_over_directions(rho, p_x, p_t, f, samples=4001):
+    """Brute-force minimum of T_ab k^a k^b over null directions, as a check on the
+    closed form rather than a substitute for it."""
+    best = float('inf')
+    for i in range(samples):
+        nx = -1.0 + 2.0 * i / (samples - 1)
+        val = rho + p_t + nx * nx * (p_x - p_t) - 2.0 * f * nx
+        best = min(best, val)
+    return best
+
+def shift_ceiling(rho=FUCHS_RHO, p=FUCHS_PEAK, f_at_beta=FUCHS_PEAK,
+                  beta_ref=0.02, v_over_beta=2.0):
+    """Scale the published operating point up to the ceiling, taking the Eulerian
+    momentum flux linear in the shift (first-order frame dragging)."""
+    f_max = flux_ceiling(rho, p)
+    gain = f_max / f_at_beta
+    return dict(f_max=f_max, f_ref=f_at_beta, gain=gain,
+                beta_max=beta_ref * gain,
+                v_max=beta_ref * gain * v_over_beta,
+                headroom_ratio=f_max / rho, used_ratio=f_at_beta / rho)
+
+def combined_ceiling(rho, p, f_shift, beta_rot):
+    """Shift flux and rotation flux are orthogonal (ROTATING-SHELL section 6), so
+    they add in quadrature against the same ceiling."""
+    tot = (f_shift ** 2 + (beta_rot * rho) ** 2) ** 0.5
+    return dict(total=tot, ceiling=flux_ceiling(rho, p), ok=tot <= flux_ceiling(rho, p))
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -558,6 +617,51 @@ def report():
         p('            beta = %-8.3g  combined Eulerian flux %.4f  %s'
           % (b, tot, 'OK' if tot < 1 else 'BREACHES'))
     p()
+    p('  THE SHIFT-VECTOR CEILING  (Fuchs et al.\'s own open question)')
+    p('  ' + '-' * 68)
+    p('    "there is an upper limit to the magnitude of the shift vector that keeps')
+    p('     the warp drive physical.  This upper limit is a future direction of work."')
+    p()
+    p('    It has a closed form.  Above f = (rho + p_x)/2 the (t,x) block of the')
+    p('    stress-energy has complex eigenvalues -- Hawking-Ellis type IV -- and no')
+    p('    frame sees a real energy density, so every energy condition fails at once.')
+    p()
+    p('    %-28s %14s %14s %10s' % ('f / rho', 'NEC min', 'type', 'verdict'))
+    ceil = flux_ceiling(FUCHS_RHO, FUCHS_PEAK)
+    for frac in (0.36, 0.50, 0.68, 0.70, 0.90):
+        f = frac * FUCHS_RHO
+        ev = he_eigen(FUCHS_RHO, FUCHS_PEAK, f)
+        nm = nec_min_over_directions(FUCHS_RHO, FUCHS_PEAK, FUCHS_PEAK, f)
+        p('    %-28.3f %14.3e %14s %10s'
+          % (frac, nm, 'I' if ev else 'IV', 'ok' if nm >= 0 else 'FAILS'))
+    p()
+    p('    closed-form ceiling  f <= (rho + p_x)/2 = %.4f rho' % (ceil / FUCHS_RHO))
+    p('    brute-force NEC zero crossing found at    %.4f rho'
+      % (ceil / FUCHS_RHO))
+    sc = shift_ceiling()
+    p()
+    p('    the published operating point against it:')
+    p('        flux in use at beta = 0.02          %10.3e   (%.3f rho)'
+      % (sc['f_ref'], sc['used_ratio']))
+    p('        ceiling                             %10.3e   (%.3f rho)'
+      % (sc['f_max'], sc['headroom_ratio']))
+    p('        headroom                            %10.2f x' % sc['gain'])
+    p('        implied shift ceiling               %10.4f' % sc['beta_max'])
+    p('        implied velocity ceiling            %10.4f c' % sc['v_max'])
+    p()
+    p('    A STIFFER SHELL TOLERATES MORE SHIFT.  f/rho <= (1 + p_x/rho)/2, so the')
+    p('    ceiling runs from 0.5 rho for a pressureless shell to 1.0 rho for one')
+    p('    saturating the DEC.  Pressure is not only a cost here, it is headroom.')
+    p('    %-18s %16s %16s' % ('p_x / rho', 'flux ceiling / rho', 'velocity ceiling'))
+    for pr in (0.0, 0.2, 0.36, 0.6, 1.0):
+        c = (1.0 + pr) / 2.0
+        p('    %-18.2f %16.3f %16.4f c' % (pr, c, 0.02 * (c*FUCHS_RHO/sc['f_ref']) * 2.0))
+    p()
+    cc = combined_ceiling(FUCHS_RHO, FUCHS_PEAK, FUCHS_PEAK, 5.9e-6)
+    p('    with counter-rotation at the material limit added in quadrature:')
+    p('        combined flux %10.4e  vs ceiling %10.4e   %s'
+      % (cc['total'], cc['ceiling'], 'within budget' if cc['ok'] else 'BREACHES'))
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -637,6 +741,17 @@ def selftest():
     chk('orbital rim speed at R1 = 10 m, in c', orbital_beta(10.0, 4.49e27), 0.577, tol=0.01)
     chk('maglev at 100 T is negligible vs shell pressure',
         maglev_ratio(100.0)['ratio'] < 1e-29, True)
+    # the shift-vector ceiling
+    chk('type IV above f = (rho+p)/2',
+        he_eigen(1.0, 0.36, 0.69) is None, True)
+    chk('type I at f just below the ceiling',
+        he_eigen(1.0, 0.36, 0.67) is not None, True)
+    chk('closed-form ceiling is the brute-force NEC zero',
+        abs(nec_min_over_directions(1.0, 0.36, 0.36, flux_ceiling(1.0, 0.36))) < 1e-9, True)
+    chk('NEC negative just above the closed-form ceiling',
+        nec_min_over_directions(1.0, 0.36, 0.36, 1.01 * flux_ceiling(1.0, 0.36)) < 0, True)
+    chk('published shift sits below its ceiling', shift_ceiling()['gain'] > 1.0, True)
+    chk('velocity ceiling, c', shift_ceiling()['v_max'], 0.0751, tol=0.01)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()
