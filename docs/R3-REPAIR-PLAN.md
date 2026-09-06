@@ -1,6 +1,19 @@
 # R3-REPAIR-PLAN — the 25 live-superseded findings, as items to approve or refuse
 
-**This is a proposal. Nothing here has been done.** The chat-67 full hold governs: a finding is
+**STATE, RE-MEASURED 6 SEPTEMBER 2026 AGAINST BUILD113 / BUILD239 — this document no longer knew its own
+state, and the sentence below was written before seven of its items were overtaken by other work.**
+**Seven of the twenty-one real items are DONE**, and none of them was done by this plan: A1 and A2 (both
+2,475 sites now carry *"(the figure §12.11.5 withdraws; register 1819)"*, the pointer form Phase 0 ruling 9
+blesses), A3 (all four sites carry *"One-sided as stated; the operator is two-sided"* and a new Register entry
+records it), A4 (the origin-count cause is gone from main L2054), A7 (registers 603 and 605 corrected at
+entries 1833 and 1835), B5 (602 corrected at 1820, 1833, 1835) and B6 (646 corrected at 1821). **B7 must not
+be worked at all**: it is dockets 20x-04 / 20x-09, an outstanding Phase 0 ruling, and `tools/cypher.py`'s
+seated measurement puts statistics *in* the operator-bearing set — the correction B7 proposes is contradicted
+by the corpus's own instrument. **A5 still waits on the ruling this document asks for.** The rest — A6, A8,
+B1, B2, B3, B8, B9, B10, B11, B12, B13, and B4 as a record — stand exactly as written below.
+`method/R3-COMPLETION.md` is the working ledger.
+
+**This was a proposal, and until 6 September nothing here had been done.** The chat-67 full hold governs: a finding is
 recorded, never repaired. `RETRACTION-AUDIT.tsv` is the finding; this is what repairing it would
 *mean*, item by item, so the decision is yours and is made once per item rather than once for the
 list.
