@@ -68,6 +68,17 @@ FINDINGS = [
   "curvature swimmer bounded by A*a_tide/c^2 ~ 1e-15 m per cycle: a dead engine"),
  ("EM-GAP",      -1, -1, -1, "ENGINE-ASSESSMENT.md",
   "the electromagnetic architectures fail as sources by ~10^31"),
+ # --- The three cells the closure predicted at E(X) = 4.  Each existed in
+ # substance inside an entangled finding and had never been isolated, exactly
+ # as CM-THEOREM had not.  Seating them is bookkeeping, not new physics -- and
+ # that they all had to be dug out is itself the finding: this project produces
+ # entangled results, and the index keeps demanding the disentangled ones.
+ ("NO-EXOTIC",   +1,  0,  0, "TARGET-1-RESULT.md",
+  "the warp source is ordinary matter: there is no distinct species of warp energy"),
+ ("FREE-FALL",    0, +1,  0, "COUPLING.md",
+  "a body in free fall is transported with no thrust, any material, any design"),
+ ("PROFILE",      0,  0, +1, "THE-DESIGN-EQUATION.md",
+  "max|S''| >= 4/d^2 and gamma_opt = 1+sqrt(3): closed-form optima, pure geometry"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -92,6 +103,29 @@ def join(a, b):
 
 def meet(a, b):
     return tuple(min(p, q) for p, q in zip(a, b))
+
+NULL = (0, 0, 0)   # silent on all three directives: the index's zero, not a finding
+
+def closure(cells):
+    """R(X): closure under meet and join, iterated to a fixed point."""
+    R = set(cells)
+    while True:
+        new = {c for a, b in itertools.combinations(sorted(R), 2)
+                 for c in (join(a, b), meet(a, b)) if c not in R}
+        if not new:
+            return R
+        R |= new
+
+def defect(cells):
+    """E(X) = |R(X)| - |X|, and the cells the closure demands.
+
+    Section 25.6: the number of predictions an index can make is E(X), and a
+    COMPLETE index (E = 0) makes none.  NULL is excluded by declaration: a cell
+    silent on every directive is the lattice bottom, not a claim about anything.
+    """
+    X = set(cells)
+    pred = sorted(closure(X) - X - {NULL})
+    return len(pred), pred
 
 def closure_failures(cells):
     """Count pairs whose join / meet is not itself an occupied cell.
@@ -133,8 +167,8 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 14)
-    chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 8)
+    chk("number of findings indexed", len(FINDINGS), 17)
+    chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 11)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
@@ -155,6 +189,15 @@ def selftest():
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
+
+    print("\nCompleteness (2.25.6)")
+    cells = {coords(f) for f in FINDINGS}
+    E, pred = defect(cells)
+    chk("cells the closure demands, excluding the null", pred, [])
+    chk("E(X) = 0 -- the index is complete", E, 0)
+    chk("null cell is demanded (lattice bottom, declared not a finding)",
+        NULL in closure(cells), True)
+    chk("a complete index makes no predictions", E == 0, True)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1
@@ -198,6 +241,19 @@ def report():
    would look like, and never once occupied the middle axis.  T2-ADM then fills
    that hole with -1.  The shell family reads: we know what it is, we know what
    it would be made of, and it cannot be a drive.""")
+
+    cells = {coords(f) for f in FINDINGS}
+    E, pred = defect(cells)
+    print("\n-- Completeness -------------------------------------------------------------")
+    print("   |X| = %d occupied   |R(X)| = %d   E(X) = %d   (null cell declared, not a finding)"
+          % (len(cells), len(closure(cells)), E))
+    print("""   2.25.6: the number of predictions an index can make is E(X), and a complete
+   index makes none.  E = 0 here, so THE INDEX DEMANDS NO FURTHER FINDING.  It
+   got there by demanding four and having each one turn out to exist already,
+   buried inside an entangled result: CM-THEOREM, NO-EXOTIC, FREE-FALL, PROFILE.
+   Every one was real and none was new physics.  That is the finding about the
+   METHOD of this project -- it produces entangled results, and the index keeps
+   asking for them disentangled.""")
 
     jf, mf = closure_failures({coords(f) for f in FINDINGS})
     print("\n-- Closure ------------------------------------------------------------------")
