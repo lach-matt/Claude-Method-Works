@@ -1,0 +1,175 @@
+id	verdict	provable	claim_or_why
+E-041	BOTH	DATA-NEEDED	That the arity-2/3/4 defect figures §14.6.6 credits to T §8.2 (Appendix G)'s own table are in that table.
+E-078	BOTH	DATA-NEEDED	That the single run §22.1.1.1 claims to improve on exists and is printed at some site.
+E-081	BOTH	DATA-NEEDED	That each of the ≥16 derived figures printed beside absent inputs — δ = 0.35, M, δ₂ = 0.06, §23.1's h/x regime, §23.9.3's V-on-T and V-on-ν columns — reproduces from inputs the store holds.
+E-108	BOTH	DATA-NEEDED	That 'Bracket 66 of 66' has a population — §26.5's nine points give C(9,2) = 36 or 9 × 9 = 81 — and that the absent Rb row is not load-bearing.
+C-39	BOTH	INSTRUMENT-EXISTS	Sec 14.5.13's 219-cover sample figures (the 157 against 62 fork) and sec 14.5.14's closing sentence, which register 1835 names superseded.
+D-03	BOTH	INSTRUMENT-EXISTS	Thm 11.1, cited at reg L6299 but printed in none of the six volumes, must exist and carry what cites it.
+D-36	BOTH	INSTRUMENT-EXISTS	The figures that reproduce under no convention — 0.058 < 0.083, 0.25 % against 0.19 %, 1.028, 15 of 19 against 17, 1779's electron count one short, 34re-02's 8/6/4 split, and the 1,748 against 1,738 denominators.
+D-50	BOTH	INSTRUMENT-EXISTS	Register 1176's 'without exception', against the counterexample tools/audit_math.py prints by design (census row 1321).
+E-007	BOTH	INSTRUMENT-EXISTS	Sec 11.1's 'depth of five' against the Register 331 segment.
+E-018	BOTH	INSTRUMENT-EXISTS	That the residue 2,475, withdrawn by the Register, is not still asserted at L914, L2533, L3067 and L3434.
+E-019	BOTH	INSTRUMENT-EXISTS	That main L3439's statement of the largest 2J_c is correct, where MC L1264 states it correctly and main slips.
+E-054	BOTH	INSTRUMENT-EXISTS	That the periodic table's cell count at E = 36 is one number — 90, 118 or 120 — and that '118 elements' names the same object the 90-cell table names.
+E-060	BOTH	INSTRUMENT-EXISTS	That Theorems 11.1 and 11.2 exist somewhere in the six volumes, and that §18's '86 violations' reproduces under a stated reading, where fifteen readings fail.
+E-061	BOTH	INSTRUMENT-EXISTS	That the audits row measures E = 16 (four sites) and not 17 (L5062), that the conserving poset's witness exists, and that the printed ratio has a population.
+F-106	BOTH	INSTRUMENT-EXISTS	E(Q), which is asserted with no number, and E(Appendix D), which disagrees with §32.1.4's own table.
+D-17	BOTH	INSTRUMENT-NEEDED	The sites printing a retired basis as live — the 735,091/735,092 delta-bar row, 'previous index 57/139/44' against 51/129/40, sec 34.6 live against sec 34.10's withdrawal, and the quoted '5s at 696,400' sentence that exists nowhere.
+D-26	BOTH	INSTRUMENT-NEEDED	The Spectra Compendium's malformed L562 cell 'n 41-5' and SC L126's restatement of 1779's 'Z minus charge alone' against SC L90.
+E-002	BOTH	INSTRUMENT-NEEDED	The D = 5 declines, and L7804/L7820 read against sec 4.4 — a computed value and a statement each carried in two incompatible forms.
+E-071	BOTH	INSTRUMENT-NEEDED	That L5785's orientation cost is the largest anywhere in the book, when two counterexamples stand and L5786 is unmeasured.
+E-080	BOTH	INSTRUMENT-NEEDED	That ν, δ and V all require the ionisation limit, when V taken as w/e does not.
+E-087	BOTH	INSTRUMENT-NEEDED	That Proposition 23.1 holds without the hypotheses L6206 and L6208 drop, and that the second degenerate exponent behaves as claimed at p = 0.
+E-093	BOTH	INSTRUMENT-NEEDED	That §23.11's matched-order figures recompute, and that the Li I row's returned verdict ('repeated structure') is one of the table's own verdicts.
+E-097	BOTH	INSTRUMENT-NEEDED	That §24.3's monotone-with-ℓ claim holds over the nine channels it is stated of, where only seven means are printed.
+F-063	BOTH	INSTRUMENT-NEEDED	That 19 canonical forms reduce to 12 — the reduction has no printed inputs and no witness anywhere.
+C-03	BOTH	RULING-NEEDED	Register 1176's 'without exception' must survive the agreement theorem's 'only if' counterexample that audit_math.py prints by design.
+C-30	BOTH	RULING-NEEDED	The measured statements held only in chat — 'the null was 96, not 28', dim(Lambda-8) = 8 being false, register 695's Ca I values, P19-P23 as Laws — must be settled against the volumes before any is homed.
+E-026	BOTH	RULING-NEEDED	That L3614's 2.17-fold spread and its four cell counts reproduce, and that the privileged route L3618 asserts to exist does exist.
+E-083	BOTH	RULING-NEEDED	That the ablation table's row-4 ±1σ coverage is 96.2 % or 69.6 % against the nominal 68.3 %.
+C-05	OBJECT	DATA-NEEDED	Register 1177's geometry percentages must follow from the Lambda_spectra cells they were taken on.
+C-06	OBJECT	DATA-NEEDED	The violation index's recorded 2,370 cells at E = 30 must follow from the arity-3 constraint the volumes print as its definition.
+C-28	OBJECT	DATA-NEEDED	Priority for the result register 1450 attributes — Kitagawara and Barut 1983 against Belokolos — and the four names 1450 cites, none of which the References carry.
+D-18	OBJECT	DATA-NEEDED	The year each cited work carries — Edlen 1960/1964, Janet 1928/1929, Montgomery 2014/2015, Ritz 1903/1908 — and the seventeen further authors NEAR on both lists.
+D-38	OBJECT	DATA-NEEDED	The thirty-three cited-and-unbibliographed names (and Madelung's home, and the five LS objects' prior art) must have a referent, and the four bibliographed-and-uncited a citing site.
+E-004	OBJECT	DATA-NEEDED	The References entries for Janet and helium-at-2, and the source of the ionization table.
+E-030	OBJECT	DATA-NEEDED	That the four-scheme J-multiset claim holds over a printed witness population rather than the three chains and fifteen configurations that appear in no member.
+E-034	OBJECT	DATA-NEEDED	That every result and quotation attributed in the six volumes has a References entry naming its true owner — Bergman with year and venue, Brunetti–Fredenhagen–Verch, Reeh, Takesaki, Sorce, Chandrasekaran & Flanagan.
+E-038	OBJECT	DATA-NEEDED	That §14.5.9's 'ten to thirteen for twelve cycles' band, and its reverse = 40 and spread = 33, are figures a rerun reproduces rather than a record of past sessions.
+E-047	OBJECT	DATA-NEEDED	That each bare count — '0 of 12', 42 %, 25 %, '120 sets', '274 of 274', '36 cells at E = 0' — is the measured value over a stated population.
+E-074	OBJECT	DATA-NEEDED	That §21.6's envelope-step count, the five items §21.6.2's heading names (Registers 547/548 say four and five), the V3 geometry row and the 26-cell set each rest on a printed population.
+E-075	OBJECT	DATA-NEEDED	That the companion-side and single-run figures — half-sided modular inclusion, §8.1's five chargers, §10.1's six, the Muon-Catalysed Fusion figures — are reproducible from a seated member.
+E-076	OBJECT	DATA-NEEDED	That F.3's four-column standard is met where §22.1.1.1 claims it on three columns, and that the unprinted δ = 0.35 and M are the inputs the derived figures were computed from.
+E-084	OBJECT	DATA-NEEDED	That Al I fails at n = 51 and Ga I at n = 53, when §23.15 gives Al I nf failing at n = 48, 51, 53 and 54 and no volume gives the Ga I cells at all.
+E-090	OBJECT	DATA-NEEDED	That Nesterov alone owns the result L8052 credits to him, and that the two unattributed quotations have identified sources.
+E-100	OBJECT	DATA-NEEDED	That per-level provenance (observed vs derived) supports L6753's Al I comparison, the three-way split of 1,442 and L6818's 'two independent sources'.
+E-103	OBJECT	DATA-NEEDED	That the figures depending on C IV, Sr I and the sulphur-like sequence rest on channels actually seated in the Spectra Compendium.
+E-109	OBJECT	DATA-NEEDED	That the Aitken table is exact at the book's own Rydberg constant and window, and that σ₁ = 9.49×10¹ reproduces from printed inputs, where 120 bases fail.
+F-017	OBJECT	DATA-NEEDED	The publication year of the Edlén work the volumes cite: 1960 at four sites and 1964 at twenty-five cannot both be the same work's date.
+F-018	OBJECT	DATA-NEEDED	Whether App F.4.3's two entries name one Edlén work or two — as printed one work carries two titles and two dates, so at least one entry misdescribes its source.
+F-025	OBJECT	DATA-NEEDED	That §29.7 reported 7 of 7 on the controls — the figure has no witness anywhere but the sentence that cites it.
+F-049	OBJECT	DATA-NEEDED	The log–log fit's slope and R² — 2.29 with R² 0.37–0.42 as printed against 2.33 and 1.00 on the four printed points.
+F-056	OBJECT	DATA-NEEDED	The orientation of Rival's bound — as printed |K| ≤ (3/2)|L| is vacuous, so the theorem as cited bounds nothing.
+F-071	OBJECT	DATA-NEEDED	The Hill and Roche values 47.9 and 17.9 — the section's own grid gives 17.6 and 8.9.
+F-074	OBJECT	DATA-NEEDED	The bracket widths 6.9e−4 at L1 and 3.6e−9 at L3.
+F-080	OBJECT	DATA-NEEDED	The authorship of the paper cited at L8732 — the body's four names against a bibliography entry with a different author list, so no entry supports the citation.
+F-103	OBJECT	DATA-NEEDED	The register's share of the work — 'a quarter' against 35.8 % by lines and 60.8 % by bytes, with the page basis unmeasured.
+A-F4	OBJECT	INSTRUMENT-EXISTS	Register 1580's corridor census — 73 bounded / 7 below-only / 26 above-only, Lr103's upper bound closed at 2.4409, and max pairwise-disjoint corridors 3 — must reproduce from the seated occupation data.
+B-L1	OBJECT	INSTRUMENT-EXISTS	Sec D.5.5's governing sentence at L10720 — 'E falls as the fibration is refined, and reaches zero by refinement alone' — must hold over the refinement sequence it names.
+B-L2	OBJECT	INSTRUMENT-EXISTS	That the kind x language fibration is the 'weak form' that can only hide defects, when the single-fibre form gives E = 4 against the printed E = 5.
+C-11	OBJECT	INSTRUMENT-EXISTS	Register 1736's 'never listed' must hold at every site, where the compendium lists Janet 1929 while the References carry Janet 1928.
+C-36	OBJECT	INSTRUMENT-EXISTS	That a counting axis costs about one cell and a coupling axis more — register 504 withdrew it and 511's set-cover seeds contradict it.
+D-04	OBJECT	INSTRUMENT-EXISTS	The Register correction sec 23.10.2 cites must exist.
+D-05	OBJECT	INSTRUMENT-EXISTS	Rule 4 at L6047 and sec 22.5 at L6168 must give the same sigma, where as printed they collide and r = 100.000000 at four nu.
+D-09	OBJECT	INSTRUMENT-EXISTS	Each cited target must carry the claim made of it — sec 14.4 as the admissibility theorem at seven sites, sec 32.2's Q, the Newton decrement at sec 29.7, and F.4.1 cited at sec 32.1.3 and sec 32.1.4.1 for withdrawn content.
+D-10	OBJECT	INSTRUMENT-EXISTS	The cited Register numbers must exist — 571 at L7719 and L9274, 344, 1257, 1710's six range sites, 1725, and 1756 at L9902 (ABSENT).
+D-13	OBJECT	INSTRUMENT-EXISTS	Which of 32/11 (2.909) and 4nu/3 governs at each of the thirty-two sites across six volumes.
+D-14	OBJECT	INSTRUMENT-EXISTS	Every equality-printed truncation must equal what it is printed equal to; 16z-04 is confirmed wrong at the fifth decimal against its own formula at three sites (main L9620 and register 1330).
+D-21	OBJECT	INSTRUMENT-EXISTS	Each universal must hold where it is measured — 'never resets mid-subshell' fails at Mo 42 and Rh 45 of register 1401's own list, and p = 0 at any f opening fails at 5f.
+D-23	OBJECT	INSTRUMENT-EXISTS	Sec 24.13's 'the ends always must' at L6879 must hold at both ends, where its own table gives 1.8 % and 2.5 % at the upper end — 6.2x and 9.4x better than the neutral end.
+D-27	OBJECT	INSTRUMENT-EXISTS	L7050's 7s bracket [784,128, 785,209], whose lower edge solves to delta = 0.967887 against the estimated delta(6s) = 0.967891, where the last measured defect gives 783,646.
+D-37	OBJECT	INSTRUMENT-EXISTS	Every figure the Register withdrew and a volume re-asserts — Appendix E's counts, 21a-03/04/05/07, A.5's 'proved, sampled' against 222/248, sec 29.8's Grobner basis of eight, F.4.1's withdrawn content.
+D-43	OBJECT	INSTRUMENT-EXISTS	Register 375's claim that sec 32.1.4's total is computed by the press at every build.
+D-53	OBJECT	INSTRUMENT-EXISTS	The same withdrawn cost relation as C-36 — that a counting axis costs about one cell and a coupling axis more — which register 504 withdrew and 511's seeds contradict.
+D-57	OBJECT	INSTRUMENT-EXISTS	F.4.1's assertion that the entries establishing its two ratios stand in the Register (the 'method ratio' has only register 296, with no numeral), and the 19 of 38 removed figures with no Register home, 16 in no volume at all.
+D-61	OBJECT	INSTRUMENT-EXISTS	The printed 1,585-fold against 1,582.93 at printed precision, at two sites.
+E-003	OBJECT	INSTRUMENT-EXISTS	The Mathematical Compendium entries inheriting 12k-01/02, 12l-01/02 and 12m-01: a decay theorem marked Proved whose step (iii) does not follow and whose 'a tree' hypothesis the (g, G) index fails; MC L1314/L1318/L1330's 'exactness implies not-a-triangle' theorem, whose premise fails at Lambda-9' (treewidth 2 at E = 0); 'two independent sources' that measure dependent at MI 0.109 bits; and MC L1334's sign extension with no population.
+E-005	OBJECT	INSTRUMENT-EXISTS	The '0.3 %' at L1965/L1982 and the 11.3 %, which reproduce only against n(n-1) while the text names 'pairs', and composition's 24.7 % against sec 12.11.0's relation.
+E-006	OBJECT	INSTRUMENT-EXISTS	The Lambda count at the '975' and '977' variant sites, and the 27,873 setting.
+E-008	OBJECT	INSTRUMENT-EXISTS	Main L1673's 'seventeen-bit word', which is Lambda-8's figure where J(Lambda-9) = 20, and L1674's '0.4 % of what either carries', where 9,720 is 0.36 % of all pairs, 3.1 % of the comparable pairs and 1.4 % of paths — with the sec 7.2 and sec 8.5 sites carrying 12i-01/02, closed as a defect at L5150.
+E-011	OBJECT	INSTRUMENT-EXISTS	MC L1736's axis-density figures, which hold only under the unstated parity v = g mod 2 and the conjugation ceiling v <= 4f+2-g, and MC L1244's six axes if it names the tree.
+E-012	OBJECT	INSTRUMENT-EXISTS	That Register 434's 12.7 % and 31.4 % are shares of one population, that §12.11.1 actually states the ⅔ Register 241 calls nominal, and that Register 1790's edge count is the measured one.
+E-015	OBJECT	INSTRUMENT-EXISTS	That the d shell is present at the 37.1 % row, that 'less than a point across fiftyfold growth' holds over one range rather than two joined, that Register 620's 64 % is exact, and that the withdrawn 50.3 % Register 625 attributes to 623 is in 623, whose body says 0 %.
+E-028	OBJECT	INSTRUMENT-EXISTS	That E = 3,900 for adjoining the electromagnetic coordinates to Λ₉ reproduces under some stated reading, where ten readings give a nearest 3,812.
+E-031	OBJECT	INSTRUMENT-EXISTS	That the coupling is the most active constraint, when measurement gives q ≤ k binding 34.1 % against g ≤ q's 32.6 %, and that the printed 35.6/33.0/4.9 are the measured shares.
+E-033	OBJECT	INSTRUMENT-EXISTS	That §14.3's 80/80 agreement reproduces, where 26 of 28 folded coordinate pairs measure E > 0 and the 80 sets appear in no member.
+E-035	OBJECT	INSTRUMENT-EXISTS	That §14.5's 'a compression of 139 to 1, exactly' is exact (976/7 = 139.4286) and that the per-cell figure is 1.25 rather than 1.5 or 1.556.
+E-042	OBJECT	INSTRUMENT-EXISTS	That Register 497's claim stands or falls once — it is cited affirmatively at L3915 and withdrawn at L3946 — and that the 18,288 tests Register 487 rests on are printed in a member.
+E-043	OBJECT	INSTRUMENT-EXISTS	That the d = 2 criterion is true as printed — it is false under the literal 'total order' reading and exact only under total preorder, and 'that order is the relabelling' fails on ties.
+E-052	OBJECT	INSTRUMENT-EXISTS	That §16.8.4's amplification floor is 59, where the population minimum measures 15, and that its medians are 340/352, where the sweep measures 309.
+E-055	OBJECT	INSTRUMENT-EXISTS	That the coordinate §16.6.2 names is the first below the ⅅ ≥ 1 floor, when ⅅ = 0 already occurs at L1589, L4442, L4558 and L4562.
+E-057	OBJECT	INSTRUMENT-EXISTS	That §17.4's '979,300 sampled pairs' is consistent with the bijection onto 1,040 cells, which gives 540,280, and that 45,690 / 1,040 rebuilds under some reading.
+E-058	OBJECT	INSTRUMENT-EXISTS	That the conjugation ceiling and seniority do not both occupy axis 10 (L4857 places it at 12), that §7.1 excludes what L4894 says it excludes, and that there are two constraint forms and not three.
+E-068	OBJECT	INSTRUMENT-EXISTS	That the seed for Λ at 976 is seven cells — main prints ten, thirteen, 'near fifteen', 'nearer twenty' and 'near twenty-five' — and that the column figure is 757, not 763.
+E-070	OBJECT	INSTRUMENT-EXISTS	That Λ₁₃'s constraint graph is the one Register 1790 measured — 2S′ present and v's parents as measured — at L5745, L5765 and in Figure 21.1's artwork.
+E-072	OBJECT	INSTRUMENT-EXISTS	That Λ has seven constraints, as §21.5.2 and tower-2.py measure, and not the eight Register 487 prints.
+E-077	OBJECT	INSTRUMENT-EXISTS	That the one-dimensional refinement of §18.4.1's criterion, and the correction §23.10.2 cites, are carried by Register entries that exist.
+E-089	OBJECT	INSTRUMENT-EXISTS	That every display equation printed with '=' is an equality — §23.6's two asymptotic forms and V = 4ν/3, whose exact form is 4r³/(3r²−1), are not.
+E-102	OBJECT	INSTRUMENT-EXISTS	That every sequence enters through its neutral or first ion — six enter above, Fe at XV — and that every verified cell has Z_eff between 1 and 3.
+E-110	OBJECT	INSTRUMENT-EXISTS	That T(20)/3 is 91.4477, where it is 91.4478, and that §27.2's log column entry is 0.337, where ln(126/90) = 0.336 — which decides §27.6's 'every number in §27.2' universal.
+E-115	OBJECT	INSTRUMENT-EXISTS	That the per-cell ±1σ coverage actually measured is 69.6 % or 68.1 %, and that the expected figure is 68.3 % and not the 68.1 % §28.4 calls expected.
+E-125	OBJECT	INSTRUMENT-EXISTS	That Register entries 571, 344, 1002, 1149, 1223 and 1257 exist to support the citations at L7719 and §32.6.1 L9274.
+F-022	OBJECT	INSTRUMENT-EXISTS	That ρ ≤ 2 for each document and every route closed — §19.5.1 measured ρ = 3, 3, 2, 0 with Edlén and Ritz UNKNOWN, and register 568 restates the withdrawal.
+F-024	OBJECT	INSTRUMENT-EXISTS	The universal that every literature sharing this book's mathematics also supplied new derivations — the volume's own table exhibits a counterexample.
+F-032	OBJECT	INSTRUMENT-EXISTS	How many spectroscopic designations were actually parsed — 103 as printed against the partition 10 + 92 = 102 and four later figures.
+F-033	OBJECT	INSTRUMENT-EXISTS	The factor is 5.4, not five and a half.
+F-037	OBJECT	INSTRUMENT-EXISTS	The live channel denominator for §29.11.2 — 153 as cited against Appendix B's own record of that total as overtaken at 596 rows.
+F-038	OBJECT	INSTRUMENT-EXISTS	A value and a base for E(search) — six sites increment a quantity that is never valued anywhere.
+F-043	OBJECT	INSTRUMENT-EXISTS	The rise is 22.29-fold; 23 is the magnitude 23.40, not the ratio.
+F-044	OBJECT	INSTRUMENT-EXISTS	The earlier figure the correction repairs — 139 is printed as that count at no site, so the correction has no antecedent.
+F-051	OBJECT	INSTRUMENT-EXISTS	The arity-4 population behind '114 of 141' — no measurable population (256, 254, 164, 80) yields either number.
+F-057	OBJECT	INSTRUMENT-EXISTS	The subset count and its rounding — the table gives 266,496, which rounds to 266,000, never 267,000.
+F-058	OBJECT	INSTRUMENT-EXISTS	That the chain decomposition of J(Λ) is the axis system — Dilworth yields 7 chains against 8 axes, so the identity fails.
+F-062	OBJECT	INSTRUMENT-EXISTS	The count of recovered extra edges — nine as printed against a tree that measures 7 — and the nine rounds and three reduction attempts no body enumerates.
+F-065	OBJECT	INSTRUMENT-EXISTS	That e/T = 3(h/ν)² follows from §30.4's stated relations — it does not without w = V·e, so the derivation as printed does not close.
+F-069	OBJECT	INSTRUMENT-EXISTS	L3's sign pattern is −, +, +, +, not the alternating −, +, −, + printed at L8646.
+F-070	OBJECT	INSTRUMENT-EXISTS	The planet at which Titius–Bode fails worst — Neptune at 29.04 % is the maximum, not the planet named.
+F-077	OBJECT	INSTRUMENT-EXISTS	How many values were excluded — 24 at L8783 against twelve listed and 'less twelve exclusions' at L11070.
+F-086	OBJECT	INSTRUMENT-EXISTS	The thin-tip row's threshold — the minimum attainable sum is 26 against a stated 22, so the test cannot fail.
+F-087	OBJECT	INSTRUMENT-EXISTS	The provenance of §31.3.1's counts, which Appendix F says are Huang & Taylor's and which the section attributes to nobody.
+F-090	OBJECT	INSTRUMENT-EXISTS	The two percentages under one convention — 162/400 is 40.5 % and 58/138 is 42.03 %, so 40 % and 42 % cannot both stand.
+F-092	OBJECT	INSTRUMENT-EXISTS	That the ordering-and-inheritance form exists anywhere in the volumes — §16.4 does not carry it and no home is named.
+F-100	OBJECT	INSTRUMENT-EXISTS	The S3 multiple — 6.5× computed over 25 chapters against a volume that carries 36, which gives 9.53×.
+F-101	OBJECT	INSTRUMENT-EXISTS	§32.1.3's three column values — three rounded percentages of a partition cannot sum to 98, so at least one is wrong.
+F-105	OBJECT	INSTRUMENT-EXISTS	That the closing result about language exists at all — §22.4 does not carry it and 'no language for' has a single site.
+F-108	OBJECT	INSTRUMENT-EXISTS	The number of cap coordinates (four in §7.4 against five in the enlargement table) and the enlargement span (28-fold cited against §32.1.2's 511-fold).
+F-119	OBJECT	INSTRUMENT-EXISTS	What 1,061 counts and against which denominator — App B carries 1,105 and 1,577 of 1,738 — and whether there are four indices or five terms.
+F-120	OBJECT	INSTRUMENT-EXISTS	The live channel figure for §32.5 — 'all 153 channels' re-asserts Appendix B's headline that B.2's own figures overtook.
+F-127	OBJECT	INSTRUMENT-EXISTS	The fifth worked case, '22 of 60' — it appears at no other site, so the claim that all five come from the book's own record fails.
+C-20	OBJECT	INSTRUMENT-NEEDED	Each of the fourteen flagged universal words must hold over the population it quantifies (main L9652/L9655, registers 1332, 1803, 1804, 1814 twice, 1815, 1827, 1833, mc L3650, pc L283/L296/L300).
+C-40	OBJECT	INSTRUMENT-NEEDED	That the seed at the d-shell cap (3,3,2,6,2) is exactly 10 with no 9-cover, and that p-to-p is forced at exact minimum only.
+D-12	OBJECT	INSTRUMENT-NEEDED	Each of the sixty figures must follow from an actual input — 91.338 eV from the point value 736,688, the eleven-state's M and N rows, 14z-15's eight bases, L7550's 129x.
+D-15	OBJECT	INSTRUMENT-NEEDED	L6517's '619 refusals' and '1,061 order-1 bounds' must follow from the collection they count, whose own table gives 19 + 101 + 145 = 265 and 499 admitted at order 1.
+D-16	OBJECT	INSTRUMENT-NEEDED	Each contested figure must have one value across the volumes — K I nd 45.7, Ne I 16/131, K I 4/105, edge 102 against 108, 763 against 1,442 = 1,105 + 337, 1,061, forty-eight against fifty-six, 518 against 499.
+D-19	OBJECT	INSTRUMENT-NEEDED	Each single-witness figure must reproduce independently — 2,873, '24 of 24' at L10887, 'B_1 at axis 13', 0.06-4.4 % and +0.35, the muon figures, and registers 150-164 whose only witness is Chapter 28.
+D-22	OBJECT	INSTRUMENT-NEEDED	The members named as present — C IV, Sr, the sulphur-like sequence, Rb, Kurucz, VALD, BRASS, Hasse, QSAR — must be in the population the volumes claim covers them.
+D-39	OBJECT	INSTRUMENT-NEEDED	The Chapter 34 walk figures — the memoryless '104 of 106' (62 under a third convention), 34re-02's 8/6/4 split, and E.1.4's '18 cells to 24 and E from 4 to 10'.
+D-40	OBJECT	INSTRUMENT-NEEDED	Every walk figure of registers 1701-1712 and the three-body objects of 1713-1724, currently UNREPRODUCIBLE, NOT HELD, or held by reading only.
+D-44	OBJECT	INSTRUMENT-NEEDED	Register 396 and sec 32.6.1's 'E(Q) = 5 unfibred' (its ten printed rows give 3), register 212's fifteen, sec 32.2's seven, E.4.1's eight, and sec 28.7.5's 'thirty-one of the forty' at twenty-five readable entries.
+D-45	OBJECT	INSTRUMENT-NEEDED	The muon figures printed once in the References unit.
+D-60	OBJECT	INSTRUMENT-NEEDED	The sec 10.2 factor — 'hundredfold' in the caption at L2053 against 'seventeenfold' in the prose at L2033.
+E-014	OBJECT	INSTRUMENT-NEEDED	That Appendix F's F.3 carries the fourth 'recomputed under variation' column doing the refutation work the citing sites credit it with.
+E-032	OBJECT	INSTRUMENT-NEEDED	That Kreuzer–Skarke closes at the measured E, where §31.3.4 measures E = 540 and §32 calls it unverified, and that the §13 table row's |A_q|/|B_q| are the measured values.
+E-039	OBJECT	INSTRUMENT-NEEDED	That §14.5.12's '219 of 219' holds over the 24,585-seed population its heading claims, and that §14.6.3–§14.6.6's five running object counts come from one population.
+E-063	OBJECT	INSTRUMENT-NEEDED	That Figure 19.1's caption carries §19.5.1's measured ρ = 0, 2, 3, 3, that the Edlén Handbuch pair names one document, and that Chapter 19's bare counts have printed populations.
+E-066	OBJECT	INSTRUMENT-NEEDED	That a non-trivial endpoint restoration of the parity rule exists at Λ₁₀ or above, as L5594–5595 claims.
+E-094	OBJECT	INSTRUMENT-NEEDED	That §23.15's 'ν reached' column and the Spectra Compendium give one value per channel — Na I ns 20.0 or 18.7, K I nd 45.7 or 12.7.
+E-095	OBJECT	INSTRUMENT-NEEDED	That Chapter 24's headline total is 1,442 at the current basis, and that 1,105, 869 and 930 follow from that same basis.
+E-096	OBJECT	INSTRUMENT-NEEDED	That Ar II and Si I are each tabulated once, so that 68 interior cells are not counted twice, and that Ga I's range is n 41–55.
+E-099	OBJECT	INSTRUMENT-NEEDED	That the He I cells §24.8 still calls 'genuine tests' are tests, after L6760–6767 withdrew them.
+E-101	OBJECT	INSTRUMENT-NEEDED	That §24.7's 'H I gives 5 cells' holds against L6781 and Register 437, and that the collection is 'worse than scattered' when both available computations say otherwise.
+E-104	OBJECT	INSTRUMENT-NEEDED	That the sodium-like column's 0.1–1.2 offset from ns measurement follows from a stated δ basis and residual convention, and that §24.11's 'cells' column has a base for Si I's 4 and Bi II's entry.
+E-105	OBJECT	INSTRUMENT-NEEDED	That Figure 25.1's population is 1,061 as Register 1751 rules, and not the 1,442 §25.5's body prints twice.
+E-106	OBJECT	INSTRUMENT-NEEDED	That Hg II's half spacing is 24,634 cm⁻¹, where measurement gives 5,896.8, and which side of the unreconciled factor of two the 1,442-dependent bound stands on.
+E-107	OBJECT	INSTRUMENT-NEEDED	That the 7s bracket is [784,128, 785,209] rather than the 783,646 edge that measured δ(5s) gives, since the printed bracket inherits an estimated δ(6s).
+E-112	OBJECT	INSTRUMENT-NEEDED	That §27.2 contains the proof L7301 and Register 446's headline credit it with.
+F-073	OBJECT	INSTRUMENT-NEEDED	The eight polynomial relations, the size of their Gröbner basis (18 claimed; lex on eight variables gives 6) and the 18 of 18 containments.
+E-049	OBJECT	NOT-APPLICABLE	That ⅅ = 0, and not merely ⅅ ≥ 0, follows when dim q = dim p — which requires the full-Jacobian-rank hypothesis the argument does not supply.
+C-04	OBJECT	RULING-NEEDED	Register 1173's membership of the operator-bearing languages must match the set that actually returns a cell decision on Lambda.
+C-25	OBJECT	RULING-NEEDED	Register entries 230, 314, 599, 807, 1148, 1395, 1450, 1461, 1595 and 1628, and the figures 0.922 and 1.732, must be true as they stand, given a chat withdrew what they assert.
+C-26	OBJECT	RULING-NEEDED	Main sec 14's and the three-body paper's Law 3 refutation of lattice-hood must actually follow, where componentwise meet/join failure refutes only sublattice-hood.
+C-27	OBJECT	RULING-NEEDED	The property main L5756/L5778 asserts of 'the whole tower', where register 1790's own stage table gives cycle rank 0 at Lambda-8 and Lambda-9.
+D-48	OBJECT	RULING-NEEDED	The form cited as register 1725, which has no seated statement anywhere.
+D-59	OBJECT	RULING-NEEDED	Appendix B.3's stated population of four, whose Si II 0.272 row is absent from the table and whose flag register 1774 leaves open (SC L1005 the twin site).
+E-017	OBJECT	RULING-NEEDED	That the 4,325-cell population and E = 972,862 / 28,503 reproduce from data seated in a member rather than only from the session record.
+E-062	OBJECT	RULING-NEEDED	That §18.6.1 and §19.5.3 index one object or two, and that 'twenty-seven of the forty-nine cells in the table above' names a table with forty-nine cells, where the table above has twenty.
+E-067	OBJECT	RULING-NEEDED	That the operator-bearing languages number five, giving C(5,2) = 10, or six, giving C(6,2) = 15, and that logic's status and the six names are one doctrine across main, Register and MC.
+E-082	OBJECT	RULING-NEEDED	That §25.6's bracket is a deduction, which Registers 801–803 rule it is not while the body calls its result one.
+E-085	OBJECT	RULING-NEEDED	That the 32/11 floor holds over the scope asserted at six main sites and two MC sites, and that the 4ν/3 asymptote is this work's original result.
+E-088	OBJECT	RULING-NEEDED	That the invariance §23.8.3 names is the one that actually makes the Z/R cancellation go through, and that the field did abandon what L6319's clause says it did.
+F-072	OBJECT	RULING-NEEDED	Which reading of the p = 1 pole stands: §18.5's 'the method has no domain at p = 1' or §31's 'the pole is where a bracket becomes unnecessary, not worthless'.
+F-078	OBJECT	RULING-NEEDED	That the inference at L8716–17 follows from §16.7.1's criterion, which tests re-coordinatisation and not the re-construction the inference performs.
+F-102	OBJECT	RULING-NEEDED	How many indices there are (six in prose, five in the table) and how many are closed under a stated closure rule (three fibred, one under the honest-number rule).
+F-109	OBJECT	RULING-NEEDED	How many identities move and hold — 'nine of nine' and 'six of six' against seven- and five-row tables, with Register 394's headline carrying the same figures.
+F-131	OBJECT	RULING-NEEDED	The population of indexes and how many are closed — nine of eleven at three sites against Register 1347's twelve.
+F-132	OBJECT	RULING-NEEDED	The operative roster of languages and the number of pairs that hold — §20.2's six against §33.1's roster, with 'ten of their combinations hold' against C(6,2) = 15 and the measured C(5,2) = 10 all agreeing.
