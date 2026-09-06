@@ -1070,9 +1070,19 @@ STRUCTURAL = re.compile(
 
 def main():
     if len(sys.argv) < 2:
-        print("usage: verify_paper.py papers/<paper>.md")
+        print("usage: verify_paper.py papers/<paper>.md [papers/<paper2>.md ...]")
         return 2
-    paper = sys.argv[1]
+    if len(sys.argv) > 2:
+        # One ledger governs both current papers; each must pass on its own.
+        rc = 0
+        for pth in sys.argv[1:]:
+            rc |= _one(pth)
+            print()
+        return rc
+    return _one(sys.argv[1])
+
+
+def _one(paper):
     rows = load()
     fails = 0
 

@@ -82,14 +82,21 @@ stated, and a reader who prefers a source's figure can apply the stated factor.
 
 ## 2. The four results
 
+**§2.1 is not one of the four.** It is the companion's own estimate of the stripping route, moved here
+because §2.6 is the independent calculation of the same thing and the two belong side by side. It is
+stated first so that the comparison in §2.6 is against something the reader has already seen, rather
+than against a figure quoted from elsewhere.
+
 ### 2.1 Pricing the stripping route — the companion's own estimate
 
-§5.20 opened a route to the reactivation term and left it unquantified. This prices what it must beat.
+The companion's §5.20 opened a route to the reactivation term and left it unquantified. This prices
+what it must beat.
 
 **The geometry is more favourable than it first appears.** The window is not the ash's slowing time.
 Once the ash has stopped, the bound binder–ash ion persists until the binder decays, so an irradiating
 field has of order **2.14 microseconds** rather than picoseconds. Whatever defeats this route, it is
-not the space–time overlap that defeats a focused beam — which is the second reason §5.20's no-go and
+not the space–time overlap that defeats a focused beam — which is the second reason the
+companion's §5.20 no-go and
 this proposal are not the same claim.
 
 **Direct photoionisation sets the scale.** The bound state's binding is 10.9 keV, so the threshold is

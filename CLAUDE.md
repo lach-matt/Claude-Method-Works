@@ -51,7 +51,8 @@ takes no part in the main paper's subject matter.
 
 **`Cold_Fusion_Binder_Economy_v1.0.md` is the current paper**, with
 **`Independent_Reconciliation_v1.0.md`** as its companion — the two were split for readability and
-share one ledger, so **`verify_paper.py` must be run over both**. It supersedes and retires three
+share one ledger, so **`verify_paper.py` must be run over both** — it takes several paths and checks
+each on its own. It supersedes and retires three
 others held beside it under banners: `Muon_Catalysed_Fusion_v1.1.md`, `Corrigendum_MuCF_v1_0.md` and
 `Muon_Collection_Budget_v1.0.md`. The v1.0 those descend from lives in `recovered/`, is md5-pinned in
 `recovered/LEDGER.tsv`, and is **never hand-edited** — which is why each successor is a new document

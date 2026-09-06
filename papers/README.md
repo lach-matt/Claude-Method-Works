@@ -72,8 +72,8 @@ markdown table rows as "structure" — and since most of the paper's quantities 
 left the standard's main pass checking the sentences around the numbers rather than the numbers.
 Five figures had been standing unbacked when the exemption was removed; all five now carry rows.
 
-    python3 tools/verify_paper.py papers/Cold_Fusion_Binder_Economy_v1.0.md
-    python3 tools/verify_paper.py papers/Independent_Reconciliation_v1.0.md
+    python3 tools/verify_paper.py papers/Cold_Fusion_Binder_Economy_v1.0.md \
+                                 papers/Independent_Reconciliation_v1.0.md
 
 **One ledger governs both current papers.** They were split for readability, not into separate
 evidence bases: `CLAIMS.tsv` carries every quantity either states, and each paper must pass all three
