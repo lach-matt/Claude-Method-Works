@@ -172,8 +172,19 @@ def build_tables(raw=None, log=sys.stderr):
             print(f"  ring z={z:.1f} done", file=log, flush=True)
     RS = np.array(tab["rs"]); ZS = np.array(tab["z"])
     assert len(RS) == 41 and len(ZS) == 11
-    # ---- g_2b(q)
-    if raw and os.path.exists(os.path.join(raw, "sox_qres.jsonl")):
+    # ---- g_2b(q).  RULING 8(a), discharged by soxquad.py: the recovered sox_qres.py is the snapshot from BEFORE
+    # the record's own numerical fix (FINDING-SOSEX-SESSION-32: "a uniform P_perp^2 grid leaves 1/|q+P|^2
+    # unresolved near P_par -> -q; a per-column grid uniform in ln(w_q^2 + v) absorbs it exactly (was 1 % low)"),
+    # so its own g2b runs -0.725 % at the record's sealed golden.  soxquad.py implements that fix over the same
+    # rho_q and lands on the golden to one part in 3e5; its banked table is preferred here when it exists.
+    sqt = os.path.join(HERE, "soxquad-table.json")
+    quad = "recovered sox_qres.py (pre-fix uniform P_perp^2 grid)"
+    if os.path.exists(sqt):
+        T0 = json.load(open(sqt))
+        rows = [dict(q=q, g2b_Ry=g) for q, g in zip(T0["q"], T0["g2b_Ry"])]
+        quad = f"soxquad.py, converged, ln(w_q^2 + v) grid at mesh {tuple(T0['mesh'])}"
+        print(f"  g_2b taken from soxquad-table.json ({len(rows)} q; {quad})", file=log, flush=True)
+    elif raw and os.path.exists(os.path.join(raw, "sox_qres.jsonl")):
         rows = [json.loads(l) for l in open(os.path.join(raw, "sox_qres.jsonl"))]
         print("  sox_qres.jsonl taken from", raw, f"({len(rows)} q)", file=log, flush=True)
     else:
@@ -217,7 +228,7 @@ def build_tables(raw=None, log=sys.stderr):
     out = dict(rs=RS.tolist(), z=ZS.tolist(), eps_ring_Ry=[tab["eps"][str(j)] for j in range(len(ZS))],
                eps_2x_scr=e2x, eps_S=epsS, c0=c0, lam0={str(round(float(z), 2)): cL_Ry(z) / 2.0 for z in ZS},
                eps_2x_scr_at_rs2={str(round(float(z), 2)): float(scr.eps_2x_scr(2.0, z)) for z in ZS},
-               E0B=E0B, e0b_bare_from_table=e0b_bare, int_g2b_Ry=int_g, q=Q.tolist(), g2b_Ry=G.tolist(),
+               E0B=E0B, e0b_bare_from_table=e0b_bare, int_g2b_Ry=int_g, q=Q.tolist(), g2b_Ry=G.tolist(), quad=quad,
                note="eps_S = eps_ring/2 + eps_2x^scr [Ha] on the record's grid; c0 read as eps_r/2 - lam0 ln r_s at r_s = 0.005")
     json.dump(out, open(TABLES_JSON, "w"))
     shutil.rmtree(work, ignore_errors=True)
@@ -545,8 +556,9 @@ def report():
         print(f"     ring constants c0(zeta) at r_s = 0.005, here vs GB-ZETA-RING-23:")
         for z, v in RING_C0.items():
             print(f"       zeta {z:.1f}: {T['c0'][str(z)]:+.5f}  record {v:+.5f}  diff {T['c0'][str(z)]-v:+.5f}")
-        print(f"     second-order exchange: integral of g_2b = {T['int_g2b_Ry']/2:.7f} Ha (record G-S1 {GS1}; bare E0B {E0B});"
-              f" from the S(q) table {T['e0b_bare_from_table']:.7f}")
+        print(f"     second-order exchange quadrature: {T.get('quad', 'recovered sox_qres.py (pre-fix)')}")
+        print(f"     integral of g_2b = {T['int_g2b_Ry']/2:.7f} Ha ({(T['int_g2b_Ry']/2/E0B-1)*100:+.3f} % of the exact"
+              f" E0B {E0B}; record G-S1 {GS1}, {(GS1/E0B-1)*100:+.3f} %); from the S(q) table {T['e0b_bare_from_table']:.7f}")
         i2 = min(range(len(T['rs'])), key=lambda i: abs(T['rs'][i] - 2.0))
         e2 = T.get("eps_2x_scr_at_rs2", {}).get("0.0")
         print(f"     at r_s = 2, zeta = 0: eps_2x^scr {e2:+.6f}, ratio to E0B {e2/E0B:.4f} (record PS-1 0.6747)"
