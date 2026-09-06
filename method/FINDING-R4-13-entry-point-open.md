@@ -77,3 +77,44 @@ energy exists in the corpus.
 **Nothing is repaired here.** Register 1337's *"not derived"* stands; what has changed is that it now
 stands over three ℓ values instead of two, with most of the p and d excess accounted for and the f
 excess explained as a limit of the measurement rather than of the law.
+
+---
+
+## CORRECTION, later on 6 September: the record already carries the occupancy answer, at register 1353, and it goes the other way
+
+The section above headed *"A candidate closure for p and d … made nowhere in the record"* is
+**withdrawn**. It was made in the record, at register **1353**, and I had not read it:
+
+> *AND T IS A CONSTANT OF THE SUBSHELL, NOT AN ENTRY POINT. With the Pauli fraction in the radicand,
+> t barely moves across a subshell: 6p gives 1.0237, 1.0417, 1.0009, 1.0036, 0.9946, 0.9940 across
+> all six occupancies — spread 0.048. The occupancy dependence measured at register 1335, sd 0.19,
+> is entirely absorbed.*
+
+Two things follow, and both undo the extrapolation above.
+
+**The opening is q = 0 in the record's own convention, not q = 1.** The finished form's radicand is
+p + q/2(2ℓ+1) with q the electrons *already present*: the first value in 1353's 6p row, 1.0237, is
+register 1337's opening value unchanged, which it can only be if q = 0 there. So *"where the entrant
+already holds one electron"* misread the convention, and carrying the opening back by one slope
+step moved the reading to q = −1, a point that does not exist. The p and d figures headed *"t at
+q = 0"* above are withdrawn; register 1337's opening values are the q = 0 reading.
+
+**The occupancy dependence is not an offset to subtract; it is absorbed by the form.** Under the
+finished form the fill of 6p sits at 1.00 to within a percent at every occupancy *except the
+opening*, which stands 2.4 % above — the opposite of the picture above, where the opening was the
+point to be corrected toward the others. The +2.9 % at the openings is therefore not *"mostly the
+occupancy offset"*; it is what the openings read, on either form.
+
+**What §34.7 actually claims was also read past.** The chapter does not claim t = √(ℓ(ℓ+1)/2) at
+each opening. It prints register 1354's Λ_t row — *"a limit approached along n, not a constant:
+the p row of Λ_t reads 1.120, 1.049, 1.022, 1.002 at n = 3, 4, 5, 6 — 6p sits 0.2 % above the
+centrifugal value"* — so the book's statement is a **limit along n**, whose first term at p sits
+12 % above it and whose first term at d (4d, 1.845) sits 6.5 % above. Against that statement an
+f row consisting of its first term alone, at +4 % or more, is not a discrepancy of any kind.
+
+The f-point analysis above stands on its own facts — the actinide ionisation energies are flat and
+read the 7s electron — but its closing sentence, that no 5f binding energy exists in the corpus,
+is corrected in **FINDING-R4-14**, which finds it in the derived field and rebuilds the field's
+producer to regenerate it. Third time this pass that the record held what I called absent; the
+standing rule is restated because it was not applied: **read the Register entries around a figure
+before measuring past it.**
