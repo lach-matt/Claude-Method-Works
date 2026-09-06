@@ -121,6 +121,11 @@ G1_HE = -0.91796            # t7c_hfsr G1: He 1s at c = 1e6 (Fischer 1977, the T
 DIRAC_H1S = -0.5000067      # t7c_kernel gate (ii)
 DIRAC_Z70 = -2634.8465      # t7c_kernel's own Z = 70 hydrogenic check
 
+# Thallium's 6p fine structure and series limit, from the corpus's own spectra store (NIST ASD, fetched by the
+# spectra work): extracted/archives/spectra-levels-store/deliver/queue2/TlI.tsv lines 13-14 (6s2.6p 2P* 1/2 at 0.0,
+# 3/2 at 7792.7 cm^-1) and deliver/MEASUREMENTS.tsv (Z=81 limit 49266.66 cm^-1, Tl II 6s2 1S0).
+TL_LIMIT_CM = 49266.66; TL_6P32_CM = 7792.7; CM_PER_EV = 8065.543937
+
 
 def t_form(l):
     return math.sqrt(l * (l + 1) / 2)
@@ -372,6 +377,17 @@ def field():
     return json.load(open(FIELD_JSON))
 
 
+def comparable(r):
+    """A delta-SCF row from the observed ground is the chain's row only when the entrant shell holds one electron
+    there, so that ground(Z) = config(Z-1) + channel.  True at every opening but protactinium (5f2)."""
+    import re
+    # cfg is the concatenation of n-letter-q tokens with no separator ("...4d15s2" is 4d1 then 5s2): a token's
+    # occupancy ends where the next token's digit-and-letter begins, or at the end of the string.
+    occ = {(int(a), "spdfg".index(b)): int(q) for a, b, q in re.findall(r"(\d)([spdfg])(\d{1,2})(?=\d[spdfg]|$)", r["cfg"])}
+    n, l = int(r["nl"][0]), "spdfg".index(r["nl"][1])
+    return occ.get((n, l)) == 1
+
+
 def sealed_at(Z, nl):
     for z, c, D, q in SEALED:
         if z == Z and c == nl:
@@ -404,8 +420,15 @@ def report():
             if "err" in r:
                 print(f"    {r['Z']:>2}   {r['el']:<2}  {r['nl']}   FAILED: {r['err']}"); continue
             s = sealed_at(r["Z"], r["nl"])
-            sd = f"{s:9.5f}  {r['D']-s:+8.5f}" if s is not None else "  not quoted        "
+            if s is not None and not comparable(r):
+                sd = f"{s:9.5f}  (other config)"
+            elif s is not None:
+                sd = f"{s:9.5f}  {r['D']-s:+8.5f}"
+            else:
+                sd = "  not quoted        "
             print(f"    {r['Z']:>2}   {r['el']:<2}  {r['nl']}   {r['cfg']:<24} {r['D']:9.5f}  {sd}  {r['eps']:10.6f}")
+        print("     (other config): the sealed row is the chain's step, config(Z-1) + channel; protactinium's observed ground is")
+        print("     5f2 6d1 7s2, not the chain's 5f1 6d2 7s2, so the two 5f numbers at Z = 91 are different quantities -- see 3.")
         print("\n     the chain's own step, every admissible channel (reference = cation of Z with the observed config(Z-1)):")
         for s in F["steps"]:
             if "err" in s:
@@ -464,6 +487,14 @@ def report():
                     if q["Z"] == 91 and q["nl"] == "5f" and "D" in q:
                         nug = nu_from_D(q["D"]); ag = 5 - nug; tg = (ag - ep.CORRIDOR["5f"][4]) / (ep.CORRIDOR["5f"][5] - ep.CORRIDOR["5f"][4])
                         print(f"     the 5f removal from protactinium's OBSERVED ground {q['cfg'][-12:]}: D = {q['D']} Ha, t = {tg:.4f} ({(tg/t_form(3)-1)*100:+.1f} %)")
+                        tq = (ag / math.sqrt(1 + 1 / 14) - ep.CORRIDOR["5f"][4]) / (ep.CORRIDOR["5f"][5] - ep.CORRIDOR["5f"][4])
+                        print(f"       the same removal under the finished form (one 5f already present, radicand 1 + 1/14): t = {tq:.4f} ({(tq/t_form(3)-1)*100:+.1f} %)")
+        # the spin-orbit share of the field's shortfall at 6p, from the corpus's own thallium levels
+        jav_cm = TL_LIMIT_CM - (2.0 / 3.0) * TL_6P32_CM; jav_ev = jav_cm / CM_PER_EV
+        nuj = math.sqrt(ep.R_EV / jav_ev); aj = (6 - nuj) / 2.0; tj = (aj - ep.CORRIDOR["6p"][4]) / (ep.CORRIDOR["6p"][5] - ep.CORRIDOR["6p"][4])
+        print(f"\n     6p at Tl, the spin-orbit share: the corpus's own Tl I levels put 6p 2P3/2 at {TL_6P32_CM} cm^-1 above 2P1/2 and the")
+        print(f"     limit at {TL_LIMIT_CM} cm^-1; the j-averaged 6p removal energy is {jav_cm:.1f} cm^-1 = {jav_ev:.4f} eV, t = {tj:.4f};")
+        print(f"     first IE 1.0237 -> j-average {tj:.4f} is spin-orbit, j-average -> field 0.9513 is what the field lacks besides.")
     print()
 
 
@@ -484,6 +515,9 @@ def selftest():
     check("first IE f point (R4-13)", abs(ep.t_at("5f")[0] - 2.5476) < 5e-5, f"{ep.t_at('5f')[0]:.4f}")
     # the sealed rows are consistent with one another where two quotes overlap
     check("Z=91 margin 81.95 mHa = 5f - 6d", abs((-0.22340 - -0.30535) - 0.08195) < 1e-9)
+    jav_ev = (TL_LIMIT_CM - (2.0 / 3.0) * TL_6P32_CM) / CM_PER_EV
+    tj = ((6 - math.sqrt(ep.R_EV / jav_ev)) / 2.0 - ep.CORRIDOR["6p"][4]) / (ep.CORRIDOR["6p"][5] - ep.CORRIDOR["6p"][4])
+    check("Tl 6p j-averaged reading from the corpus's own levels", abs(tj - 0.9888) < 5e-5, f"{tj:.4f}")
     # the field file, if present
     F = field()
     if F is None:
@@ -493,8 +527,16 @@ def selftest():
             if "err" in r:
                 check(f"regenerated {r['Z']} {r['nl']} ran", False, r["err"]); continue
             s = sealed_at(r["Z"], r["nl"])
-            if s is not None:
+            if s is not None and comparable(r):
                 check(f"regenerated {r['Z']} {r['nl']} vs sealed", abs(r["D"] - s) <= 1.5e-5, f"{r['D']} vs {s}")
+            elif s is not None:
+                print(f"  SKIP regenerated {r['Z']} {r['nl']} is the observed-ground removal ({r['cfg'][-12:]}), not the chain's row; the chain's row is checked below")
+            if r["Z"] == 91 and r["nl"] == "5f":
+                tg = (5 - nu_from_D(r["D"]) - ep.CORRIDOR["5f"][4]) / (ep.CORRIDOR["5f"][5] - ep.CORRIDOR["5f"][4])
+                check("Pa observed-ground 5f removal reads t = 2.4420", abs(tg - 2.4420) < 5e-5, f"D {r['D']} t {tg:.4f} form {t_form(3):.4f}")
+        for lab, Z in (("3p", 13), ("6p", 81)):
+            got = [r for r in F["dscf"] if r["Z"] == Z and "D" in r]
+            check(f"{lab} at Z={Z} measured (quoted nowhere in the record)", bool(got), f"D {got[0]['D'] if got else None}")
         for s in F["steps"]:
             if "err" in s:
                 check(f"chain step {s['Z']} ran", False, s["err"]); continue

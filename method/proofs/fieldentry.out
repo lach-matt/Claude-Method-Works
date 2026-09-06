@@ -1,0 +1,78 @@
+  THE ENTRY POINT READ WITH THE ENTRANT'S OWN ELECTRON, ON THE CORPUS'S OWN FIELD
+
+  a_meas = (n - nu)/sqrt(p),  nu = sqrt(R/IE) = 1/sqrt(-2D),  t = (a - L)/(U - L),  form sqrt(l(l+1)/2)
+
+  1. THE SEALED FIELD ROWS THE RECORD QUOTES  (scalar-relativistic HF, cation reference; D in Ha)
+     Z   ch         D        eV      n*    quoted at
+    31   4p    -0.20007    5.444  1.5809  recovered/FINDING-CHAIN-4p.md:6, :20
+    49   5p    -0.18833    5.125  1.6294  recovered/FINDING-CHAIN-5p.md:6
+    39   4d    -0.19561    5.323  1.5988  recovered/BRIDGE-LOWDIN-SESSION-42.md:38; FINDING-CHAIN-4d.md:43; PREDICTION-CHAIN-4d.md:6
+    57   5d    -0.20585    5.601  1.5585  recovered/PREDICTION-4fBLOCK-61-71.md:20, :33; DELIVERABLE-4-THE-TRANSIT-WIDTH.md:18, :35
+    57   4f    -0.10556    2.872  2.1764  recovered/DELIVERABLE-4-THE-TRANSIT-WIDTH.md:35; DELIVERABLE-3-COLLAPSE-CONDITION.md s3
+    58   4f    -0.36700    9.987  1.1672  recovered/PREDICTION-4fBLOCK-61-71.md:23, :34; DELIVERABLE-4:36; SCORE-TIEBREAK-CONTROLS.md:26
+    89   6d    -0.15762    4.289  1.7811  recovered/DELIVERABLE-4-THE-TRANSIT-WIDTH.md:37; PREDICTION-Z90CONFIRM.md:9
+    89   5f    -0.03146    0.856  3.9866  recovered/DELIVERABLE-4-THE-TRANSIT-WIDTH.md:37; DELIVERABLE-3 s3
+    90   6d    -0.19094    5.196  1.6182  recovered/PREDICTION-S81-ITEM1-Z90FIXED.md:6; DELIVERABLE-4:38; fixed81.py docstring
+    90   5f    -0.13689    3.725  1.9112  recovered/PREDICTION-S81-ITEM1-Z90FIXED.md:6; DELIVERABLE-4:38; BRIDGE-LOWDIN-SESSION-49.md:34
+    91   5f    -0.30535    8.309  1.2796  recovered/BRIDGE-LOWDIN-SESSION-55.md:71; SCORE-TIEBREAK-CONTROLS.md:28; PREDICTION-Z90CONFIRM.md:9; DELIVERABLE-4:39; DELIVERABLE-3-COLLAPSE-CONDITION.md:49; BRIDGE-LOWDIN-SESSION-49.md:34
+    91   6d    -0.22340    6.079  1.4960  recovered/DELIVERABLE-4-THE-TRANSIT-WIDTH.md:39; BRIDGE-LOWDIN-SESSION-55.md:71
+
+     DELIVERABLE-3 s3 at Z = 91: n* = 1.2796, delta = 3.7204; the record prints 1.2796, 3.7204.  delta IS a_meas for 5f (p = 1).
+     Non-relativistic (c = 1e6) at Z = 91: 5f -0.59532, 6d -0.29923.
+     3p at Z = 13 and 6p at Z = 81: NOT QUOTED anywhere in the record.
+
+  2. THE FIELD REGENERATED HERE  (MEASURED by --field from recovered/ by path; LW1-ground.py configurations)
+     Z   el  ch   configuration              D here      sealed     diff      eps(entrant)
+    13   Al  3p   1s22s22p63s23p1           -0.20171    not quoted           -0.209591
+    31   Ga  4p   1s22s22p63s23p63d104s24p1  -0.20007   -0.20007  +0.00000   -0.207141
+    49   In  5p   1s22s22p63s23p63d104s24p64d105s25p1  -0.18833   -0.18833  +0.00000   -0.194579
+    81   Tl  6p   1s22s22p63s23p63d104s24p64d105s25p64f145d106s26p1  -0.17934    not quoted           -0.184724
+    39   Y   4d   1s22s22p63s23p63d104s24p64d15s2  -0.19561   -0.19561  +0.00000   -0.231503
+    57   La  5d   1s22s22p63s23p63d104s24p64d105s25p65d16s2  -0.20585   -0.20585  +0.00000   -0.235658
+    91   Pa  5f   1s22s22p63s23p63d104s24p64d105s25p64f145d106s26p65f26d17s2  -0.18054   -0.30535  (other config)   -0.286505
+    58   Ce  4f   1s22s22p63s23p63d104s24p64d105s25p64f15d16s2  -0.36700   -0.36700  +0.00000   -0.536518
+     (other config): the sealed row is the chain's step, config(Z-1) + channel; protactinium's observed ground is
+     5f2 6d1 7s2, not the chain's 5f1 6d2 7s2, so the two 5f numbers at Z = 91 are different quantities -- see 3.
+
+     the chain's own step, every admissible channel (reference = cation of Z with the observed config(Z-1)):
+    Z=11  ref 1s22s22p6  entrant 3s D -0.18217  margin 0.1265  |  3s -0.18217  3d -0.05567
+          PC-0 gate 11 3s: here -0.18217  record -0.18217  diff +0.00000
+    Z=19  ref 1s22s22p63s23p6  entrant 4s D -0.14774  margin 0.05411  |  4s -0.14774  4p -0.09363  3d -0.05807  4d -0.03282  4f -0.03125
+          PC-0 gate 19 4s: here -0.14774  record -0.14774  diff +0.00000
+          PC-0 gate 19 4p: here -0.09363  record -0.09363  diff +0.00000
+          PC-0 gate 19 3d: here -0.05807  record -0.05807  diff +0.00000
+    Z=91  ref 1s22s22p63s23p63d104s24p64d105s25p64f145d106s26p66d27s2  entrant 5f D -0.30535  margin 0.08195  |  5f -0.30535  6d -0.22340  7p -0.13748  8s -0.07563  8p -0.05189
+          sealed    91 5f: here -0.30535  record -0.30535  diff +0.00000
+          sealed    91 6d: here -0.22340  record -0.22340  diff +0.00000
+
+  3. THE ENTRY POINT, TWO READINGS AT EVERY TWO-SIDED OPENING
+     first IE = register 1337's reading (the atom's first ionisation energy, whatever electron leaves);
+     entrant  = the entrant's own removal energy on the field, sealed where the record quotes it, here otherwise.
+     op  el   Z  p     L        U    |  first IE    nu    a_meas      t    t/form |  D entrant   nu    a_meas      t    t/form
+     3p  Al  13  1  0.0000  1.3660  |   5.9858  1.5076   1.4924  1.0925  1.0925 |   -0.20171  1.5744   1.4256  1.0436  1.0436  (here)
+     4p  Ga  31  2  0.0000  1.7071  |   5.9993  1.5059   1.7636  1.0331  1.0331 |   -0.20007  1.5809   1.7106  1.0020  1.0020  (sealed)
+     5p  In  49  3  0.5774  1.9841  |   5.7864  1.5334   2.0014  1.0124  1.0124 |   -0.18833  1.6294   1.9460  0.9730  0.9730  (sealed)
+     6p  Tl  81  4  1.0000  2.2247  |   6.1083  1.4925   2.2538  1.0237  1.0237 |   -0.17934  1.6697   2.1651  0.9513  0.9513  (here)
+     4d  Y   39  1  0.0000  1.3660  |   6.2173  1.4793   2.5207  1.8453  1.0654 |   -0.19561  1.5988   2.4012  1.7578  1.0149  (sealed)
+     5d  La  57  2  0.7071  1.7071  |   5.5769  1.5619   2.4311  1.7240  0.9953 |   -0.20585  1.5585   2.4335  1.7264  0.9967  (sealed)
+     5f  Pa  91  1  0.0000  1.3660  |   5.8900  1.5199   3.4801  2.5476  1.0401 |   -0.30535  1.2796   3.7204  2.7235  1.1119  (sealed)
+
+     by l, the mean of t/form:
+       p: first IE 1.0404 (+4.04 %)   entrant 0.9925 (-0.75 %)   on 4 opening(s)
+       d: first IE 1.0304 (+3.04 %)   entrant 1.0058 (+0.58 %)   on 2 opening(s)
+       f: first IE 1.0401 (+4.01 %)   entrant 1.1119 (+11.19 %)   on 1 opening(s)
+
+     the p row along n (s34.7 reads t as a limit approached along n):
+       3p  first IE 1.0925   entrant 1.0436
+       4p  first IE 1.0331   entrant 1.0020
+       5p  first IE 1.0124   entrant 0.9730
+       6p  first IE 1.0237   entrant 0.9513
+
+     the f point: first IE t = 2.5476 (+4.0 %); the 5f electron's own binding t = 2.7235 (+11.2 %); non-relativistic field t = 2.9894 (+22.0 %); form sqrt(6) = 2.4495
+     the 5f removal from protactinium's OBSERVED ground 6p65f26d17s2: D = -0.18054 Ha, t = 2.4420 (-0.3 %)
+       the same removal under the finished form (one 5f already present, radicand 1 + 1/14): t = 2.3592 (-3.7 %)
+
+     6p at Tl, the spin-orbit share: the corpus's own Tl I levels put 6p 2P3/2 at 7792.7 cm^-1 above 2P1/2 and the
+     limit at 49266.66 cm^-1; the j-averaged 6p removal energy is 44071.5 cm^-1 = 5.4642 eV, t = 0.9888;
+     first IE 1.0237 -> j-average 0.9888 is spin-orbit, j-average -> field 0.9513 is what the field lacks besides.
+
