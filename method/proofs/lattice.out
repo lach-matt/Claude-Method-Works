@@ -1,0 +1,26 @@
+T two-sided |a-b|<=j<=a+b cap 4: |X|=65  componentwise meet fails 411  join fails 0
+    pairs with NO greatest lower bound in the region: 0
+    pairs with NO least upper bound in the region   : 0
+    => a LATTICE under the induced order: True
+T two-sided |a-b|<=j<=a+b cap 6: |X|=175  componentwise meet fails 2,862  join fails 0
+    pairs with NO greatest lower bound in the region: 0
+    pairs with NO least upper bound in the region   : 0
+    => a LATTICE under the induced order: True
+T two-sided |a-b|<=j<=a+b cap 8: |X|=369  componentwise meet fails 12,489  join fails 0
+    pairs with NO greatest lower bound in the region: 0
+    pairs with NO least upper bound in the region   : 0
+    => a LATTICE under the induced order: True
+C one-sided |a-b|<=c     cap 4: |X|=85  componentwise meet fails 390  join fails 0
+    pairs with NO greatest lower bound in the region: 0
+    pairs with NO least upper bound in the region   : 0
+    => a LATTICE under the induced order: True
+C one-sided |a-b|<=c     cap 6: |X|=231  componentwise meet fails 2,842  join fails 0
+    pairs with NO greatest lower bound in the region: 0
+    pairs with NO least upper bound in the region   : 0
+    => a LATTICE under the induced order: True
+C one-sided |a-b|<=c     cap 8: |X|=489  componentwise meet fails 12,654  join fails 0
+    pairs with NO greatest lower bound in the region: 0
+    pairs with NO least upper bound in the region   : 0
+    => a LATTICE under the induced order: True
+
+Appendix A.15 prints 12,654 meet failures for C at cap 8; reproduced above.
