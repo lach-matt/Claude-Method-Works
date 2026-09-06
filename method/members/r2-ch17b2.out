@@ -48,7 +48,7 @@
     1709  A HYPOTHESIS FALSIFIED BY THE CLAUSE THAT SCORED HIT — KEPT, AS HONESTY REQUIRES. The residual a
     1711  ZERO RESIDUE — THE AUDIT OF THE INSTRUMENT CLOSES AT NOTHING LEFT UNEXPLAINED. chord = rot + per
     1712  OPEN — TWELVE ROWS UNWITNESSED, AND WHAT WOULD WITNESS THEM. Z = 109–120: entrants 6d (109–112),
-  sites of a bare "1710" in the six volumes: main:0 reg:0 mc:0 pc:0 ioi:0 sc:0 ; sites of "1701–1712": main:3[9757,11854,11902] reg:1[6683] mc:1[3150] pc:1[194] ioi:1[1900] sc:0
+  sites of a bare "1710" in the six volumes: main:0 reg:0 mc:0 pc:0 ioi:0 sc:0 ; sites of "1701–1712": main:3[9757,11854,11902] reg:1[6684] mc:1[3150] pc:1[194] ioi:1[1900] sc:0
   entries whose headline is on the Löwdin subject: 10 of 11 present
   1703 body (the collapse condition; L9797 "two coexisting solutions"): PRIOR ART — THE OPERATOR ASYMMETRY IS LÖWDIN'S OWN 1950 IDENTITY, AND IT CLOSES THE LAST GAP. For eigenstates of different self-consistent operators, the two eigen-relation evaluations of ⟨u|T|v⟩ differ by (ε_v−ε_u)⟨u|v⟩ − ⟨u|(V_v−V_u)|v⟩ + ΔX — the non-orthogonality problem of Löwdin, J. Chem. Phys. 18, 365 (1950). Verified to machine precision, 4/4 (worst 2.6e-15); SCF-tolerance-independent, being a residual of ±5e
 
@@ -105,13 +105,13 @@
 8  SINGLE-WITNESS CHECK (docket 17) — the unit's figures with one site in six volumes, and the Register's phrasing
 ================================================================================================
   two coexisting solutions       main:1[9831] reg:0 mc:0 pc:0 ioi:0 sc:0
-  coexist                        main:4[6957,9831,10392,10792] reg:2[3074,3086] mc:1[816] pc:1[24] ioi:0 sc:0
-  two (?:solutions|branches|stationary points) main:2[6409,6421] reg:1[5759] mc:0 pc:0 ioi:0 sc:0
+  coexist                        main:4[6957,9831,10392,10792] reg:2[3075,3087] mc:1[816] pc:1[24] ioi:0 sc:0
+  two (?:solutions|branches|stationary points) main:2[6409,6421] reg:1[5760] mc:0 pc:0 ioi:0 sc:0
   106 transitions                main:1[9781] reg:0 mc:0 pc:0 ioi:0 sc:0
-  106 steps                      main:6[9617,9620,9657,9666,9697,10894] reg:13[4990,5006,5266,5294,5298,5446…] mc:1[3664] pc:2[286,293] ioi:0 sc:0
+  106 steps                      main:6[9617,9620,9657,9666,9697,10894] reg:13[4991,5007,5267,5295,5299,5447…] mc:1[3664] pc:2[286,293] ioi:0 sc:0
   three elements wide            main:1[9791] reg:0 mc:0 pc:0 ioi:0 sc:0
-  collapse condition             main:6[9787,9827,9897,9920,10838,11859] reg:2[6360,6699] mc:2[3162,3168] pc:2[309,391] ioi:0 sc:1[228]
-  double-well                    main:1[9787] reg:1[6360] mc:1[3170] pc:0 ioi:0 sc:0
+  collapse condition             main:6[9787,9827,9897,9920,10838,11859] reg:2[6361,6700] mc:2[3162,3168] pc:2[309,391] ioi:0 sc:1[228]
+  double-well                    main:1[9787] reg:1[6361] mc:1[3170] pc:0 ioi:0 sc:0
   "unwitnessed" as the book's own vocabulary: first Index-of-Indices site: ['**This is not the coordinate index, and the two were once both called Λ_spectra.** Λ_spectra proper is the four-coordina']
 
 END r2-ch17b

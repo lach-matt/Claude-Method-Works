@@ -5,10 +5,10 @@
   70,905 |Λ12|    sites   19 {'main': 8, 'reg': 6, 'mc': 3, 'ioi': 2}
  199,130 |Λ13|    sites   32 {'main': 14, 'reg': 4, 'mc': 12, 'ioi': 2}
  475,800 C(976,2) sites   22 {'main': 10, 'reg': 4, 'mc': 7, 'ioi': 1}
-VARIANT '975': 3 sites [('reg', 1734), ('reg', 3632), ('ioi', 1355)]
-VARIANT '977': 2 sites [('reg', 3640), ('reg', 3890)]
-VARIANT '1654 ': 5 sites [('reg', 5254), ('reg', 6206), ('reg', 6600), ('mc', 1820)]
-VARIANT '2535 ': 4 sites [('reg', 5254), ('reg', 6600), ('mc', 1820), ('ioi', 1434)]
-VARIANT '13585': 4 sites [('reg', 5254), ('reg', 6600), ('mc', 1820), ('ioi', 1434)]
-VARIANT '70905': 3 sites [('reg', 5254), ('mc', 1820), ('ioi', 1434)]
-VARIANT '199130': 3 sites [('reg', 5254), ('mc', 1820), ('ioi', 1434)]
+VARIANT '975': 3 sites [('reg', 1735), ('reg', 3633), ('ioi', 1355)]
+VARIANT '977': 2 sites [('reg', 3641), ('reg', 3891)]
+VARIANT '1654 ': 5 sites [('reg', 5255), ('reg', 6207), ('reg', 6601), ('mc', 1820)]
+VARIANT '2535 ': 4 sites [('reg', 5255), ('reg', 6601), ('mc', 1820), ('ioi', 1434)]
+VARIANT '13585': 4 sites [('reg', 5255), ('reg', 6601), ('mc', 1820), ('ioi', 1434)]
+VARIANT '70905': 3 sites [('reg', 5255), ('mc', 1820), ('ioi', 1434)]
+VARIANT '199130': 3 sites [('reg', 5255), ('mc', 1820), ('ioi', 1434)]

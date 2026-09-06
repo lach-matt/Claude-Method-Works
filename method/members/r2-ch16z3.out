@@ -23,7 +23,7 @@
 ================================================================================================
   L9734  mine   roman-numeral context: False  ::  the trajectory was mine.*
   first-person sites in the unit: 1
-  "mine" across the six volumes (word-bounded, case-sensitive): main [25, 5870, 9734, 10809] | reg [28, 31, 1510, 1770, 1978, 2106, 4182, 5150, 5218, 5322] | mc [] | pc [] | ioi [] | sc []
+  "mine" across the six volumes (word-bounded, case-sensitive): main [25, 5870, 9734, 10809] | reg [28, 31, 1511, 1771, 1979, 2107, 4183, 5151, 5219, 5323] | mc [] | pc [] | ioi [] | sc []
   "was mine" / "were mine" in main: [9734]
 
 ================================================================================================
@@ -137,7 +137,7 @@
   L9702-L9705 "four separate times ... fifth and sixth ... One object, six appearances": 4 + 2 = 6;
     register 1340 L5033 keeps ℓ(ℓ+1) [gate, collapse, barrier, Seaton, t(ℓ)] and 2ℓ+1 [1/(2ℓ+1), h₀√(2ℓ+1)] as TWO objects: ['1/(2ℓ+1) from the angular algebra and h₀√(2ℓ+1) from the collapse data', 'ℓ(ℓ+1) a new discovery in t(ℓ) when it is the same quantity that gives the gate']
   L9663 "106 elements, Z = 3 to 108": 108 − 3 + 1 = 106
-  L9629 "104 of 106": other sites main [] | reg [5006, 6655, 6659, 6663] | mc [] | pc [] | ioi [] | sc []
+  L9629 "104 of 106": other sites main [] | reg [5007, 6656, 6660, 6664] | mc [] | pc [] | ioi [] | sc []
 
 ================================================================================================
 8  FALSE-UNIVERSAL AND SUPERLATIVE SWEEP (docket 19) -- each with the entry that tests it
@@ -227,22 +227,22 @@
 ================================================================================================
 13  NUMERAL SITES of the unit across six volumes (thousands separator and word form aware)
 ================================================================================================
-  0.5773503  main [9634] | reg [4998] | mc [3595] | pc [] | ioi [] | sc []
-  1.2168450  main [9634] | reg [4998] | mc [3595] | pc [] | ioi [] | sc []
-  1.3938270  main [9634] | reg [4998] | mc [3595] | pc [] | ioi [] | sc []
-  1.028      main [9675] | reg [4550, 5078] | mc [] | pc [] | ioi [] | sc []
-  1.785      main [9675] | reg [5078] | mc [] | pc [] | ioi [] | sc []
-  0.19%      main [2054, 9676] | reg [5026, 5078, 6763] | mc [1664] | pc [] | ioi [] | sc []
-  1.120      main [9680] | reg [5094] | mc [] | pc [] | ioi [1759] | sc []
-  1.049      main [9680] | reg [4010, 5094] | mc [] | pc [] | ioi [1759] | sc []
-  1.022      main [9680] | reg [4010, 5086, 5094] | mc [] | pc [] | ioi [1759] | sc []
-  1.002      main [9680] | reg [5094] | mc [] | pc [] | ioi [1759] | sc []
-  0.2%       main [2899, 4371, 7401, 9680] | reg [3038, 5094] | mc [] | pc [] | ioi [1763] | sc []
-  1.029      main [9726, 9729] | reg [4766, 5026] | mc [] | pc [701, 770, 777] | ioi [] | sc []
-  106/106    main [9733] | reg [5002] | mc [3634] | pc [] | ioi [] | sc []
-  200 of 200 main [4672, 4679, 7574, 9733, 10893] | reg [5002] | mc [3634] | pc [] | ioi [] | sc []
-  104 of 106 main [] | reg [5006, 6655, 6659, 6663] | mc [] | pc [] | ioi [] | sc []
-  eighteen   main [1530, 1561, 3056, 4156, 4755, 4844, 5828, 9638, 9643, 10590] | reg [1674, 1966, 2530, 3914, 4918, 4990, 5002, 5078, 5266, 5270] | mc [30, 1224, 1230, 3638] | pc [] | ioi [345, 2034, 2070] | sc [152, 1080, 1122, 1126, 1138]
+  0.5773503  main [9634] | reg [4999] | mc [3595] | pc [] | ioi [] | sc []
+  1.2168450  main [9634] | reg [4999] | mc [3595] | pc [] | ioi [] | sc []
+  1.3938270  main [9634] | reg [4999] | mc [3595] | pc [] | ioi [] | sc []
+  1.028      main [9675] | reg [4551, 5079] | mc [] | pc [] | ioi [] | sc []
+  1.785      main [9675] | reg [5079] | mc [] | pc [] | ioi [] | sc []
+  0.19%      main [2054, 9676] | reg [5027, 5079, 6764] | mc [1664] | pc [] | ioi [] | sc []
+  1.120      main [9680] | reg [5095] | mc [] | pc [] | ioi [1759] | sc []
+  1.049      main [9680] | reg [4011, 5095] | mc [] | pc [] | ioi [1759] | sc []
+  1.022      main [9680] | reg [4011, 5087, 5095] | mc [] | pc [] | ioi [1759] | sc []
+  1.002      main [9680] | reg [5095] | mc [] | pc [] | ioi [1759] | sc []
+  0.2%       main [2899, 4371, 7401, 9680] | reg [3039, 5095] | mc [] | pc [] | ioi [1763] | sc []
+  1.029      main [9726, 9729] | reg [4767, 5027] | mc [] | pc [701, 770, 777] | ioi [] | sc []
+  106/106    main [9733] | reg [5003] | mc [3634] | pc [] | ioi [] | sc []
+  200 of 200 main [4672, 4679, 7574, 9733, 10893] | reg [5003] | mc [3634] | pc [] | ioi [] | sc []
+  104 of 106 main [] | reg [5007, 6656, 6660, 6664] | mc [] | pc [] | ioi [] | sc []
+  eighteen   main [1530, 1561, 3056, 4156, 4755, 4844, 5828, 9638, 9643, 10590] | reg [1675, 1967, 2531, 3915, 4919, 4991, 5003, 5079, 5267, 5271] | mc [30, 1224, 1230, 3638] | pc [] | ioi [345, 2034, 2070] | sc [152, 1080, 1122, 1126, 1138]
 
 ================================================================================================
 14  DEFECT-CENSUS rows in range (member main AND all, line 9623-9749)

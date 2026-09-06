@@ -56,20 +56,20 @@ r2-ch24a — Appendix E part 1 (lead, E.1–E.1.5, E.2), computable claims; conv
    §23.10 *1,585* sites in the volume: [6519, 11084] ; *25.96*: [6514, 11084] ; *0.0164*: [6516, 6522, 11085]
    §26.6 body L7177–L7198 (22 lines) — printed for r2-ch24b to read the operator; the identity is scored only against the section's own definition
 §6 Register entries cited by the unit (heading line, WARNING lines, grouped heading if none):
-   211: heading 872; WARNING []; grouped -; numeral sites -
-   239: heading None; WARNING []; grouped []; numeral sites [5194, 5871, 6508]
-   256: heading None; WARNING []; grouped []; numeral sites [1340, 6452, 6512, 6516, 6520, 6524]
-   307: heading 1152; WARNING []; grouped -; numeral sites -
-   332: heading 1236; WARNING []; grouped -; numeral sites -
-   371: heading 1376; WARNING []; grouped -; numeral sites -
-   372: heading 1380; WARNING []; grouped -; numeral sites -
-   382: heading 1420; WARNING []; grouped -; numeral sites -
-   461: heading 1712; WARNING []; grouped -; numeral sites -
-   465: heading 1728; WARNING []; grouped -; numeral sites -
-   562: heading 2108; WARNING []; grouped -; numeral sites -
-   563: heading 2112; WARNING []; grouped -; numeral sites -
-   564: heading 2116; WARNING []; grouped -; numeral sites -
-   1729: heading 6450; WARNING []; grouped -; numeral sites -
+   211: heading 873; WARNING []; grouped -; numeral sites -
+   239: heading None; WARNING []; grouped []; numeral sites [5195, 5872, 6509]
+   256: heading None; WARNING []; grouped []; numeral sites [1341, 6453, 6513, 6517, 6521, 6525]
+   307: heading 1153; WARNING []; grouped -; numeral sites -
+   332: heading 1237; WARNING []; grouped -; numeral sites -
+   371: heading 1377; WARNING []; grouped -; numeral sites -
+   372: heading 1381; WARNING []; grouped -; numeral sites -
+   382: heading 1421; WARNING []; grouped -; numeral sites -
+   461: heading 1713; WARNING []; grouped -; numeral sites -
+   465: heading 1729; WARNING []; grouped -; numeral sites -
+   562: heading 2109; WARNING []; grouped -; numeral sites -
+   563: heading 2113; WARNING []; grouped -; numeral sites -
+   564: heading 2117; WARNING []; grouped -; numeral sites -
+   1729: heading 6451; WARNING []; grouped -; numeral sites -
    register-citation sites in the unit (lowercase and capitalised, by hand): [(10978, ['register 211']), (10981, ['register 461']), (10984, ['Register 307']), (10990, ['register 239']), (11003, ['Registers 562–564']), (11009, ['Register 256']), (11016, ['register 371']), (11031, ['Register 372']), (11056, ['register 332']), (11058, ['Register 382']), (11061, ['register 256']), (11065, ['register 256']), (11076, ['Register 465']), (11078, ['Register 465']), (11081, ['Register 1729'])]
 §7 lead L10951–L10953: *nine items; eight closed at E(Q) = 0 with four entered by §12.11.7; thirteen* vs lineage column [7, 8, 15, 12, 13, 14]: 9 present False, 8 True, 13 True; *four by the tower* row: ['four by the tower, L and M by Appendices']
    E.1.3 *has held at seven, eight, twelve, thirteen and eleven items*: 7/8/12/13 in column True; eleven is the post-K/O state (13 − 2) not a lineage row: 11 in column False

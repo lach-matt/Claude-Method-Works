@@ -48,7 +48,7 @@ r2-ch25b — Appendix E part 2 (E.3–E.8), prose / pointers / PP diff; conventi
    lettered E.4 heading hits [] — NO HEADING (E.4: unmarked line L11152)
    lettered E.5 heading hits [11190]
    lettered E.2 heading hits [11083]
-   *audit 15* (L11057; docket 33 numbering): sites main [(970, '2.19.1'), (11104, 'E.3')] ; Register [1430]
+   *audit 15* (L11057; docket 33 numbering): sites main [(970, '2.19.1'), (11104, 'E.3')] ; Register [1431]
 §2 `## References` body from L11550: {'Paschen': 1, 'Götze': 1, 'Runge': 1, 'Kreuzer': 1, 'Skarke': 1, 'Dilworth': 2, 'Larson': 1, 'Rival': 1, 'Siggers': 1, 'Birkhoff': 2, 'Chen': 1, 'Koh': 1, 'Tan': 1, 'Sharp': 1, 'Stephen': 1, 'Tucker': 1, 'Booth': 1, 'Lueker': 1, 'Fulkerson': 1, 'Gross': 1, 'Schaefer': 1, 'Ryter': 1, 'Schmid': 2, 'Adams': 1, 'Dwinger': 1, 'Ritz': 3}
    absent from the References body: []
    *Springer Book Archives* / *Encyklopädie* / *Order 11* / *Algebra Universalis* in References: {'Springer Book Archives': 1, 'Encyklopädie': 1, 'Order 11': 1, 'Algebra Universalis': 2}
@@ -171,5 +171,5 @@ r2-ch25b — Appendix E part 2 (E.3–E.8), prose / pointers / PP diff; conventi
    excess width             volume sites [(6379, '23.8.4'), (8059, '29.7'), (11113, 'E.3'), (11691, 'Appendix G')]
    zero-error capacity      volume sites [(7501, '28.7'), (7897, '29.2'), (8069, '29.7'), (11114, 'E.3'), (11695, 'Appendix G')]
    Register 368 (PP's removed paragraph cites it) body: **ITEM M ANSWERED, AND THE ANSWER IS ABOUT E(X) RATHER THAN ABOUT THE NUMBERS.** *After register 367's constraint and one paragraph written to standar
-   Register lines (volume-wide) naming 208 / 540 / 21,528 — Register 1437 among their entries: [850, 854, 868, 1442, 2024, 3730, 3878, 3942, 4422, 5959]
+   Register lines (volume-wide) naming 208 / 540 / 21,528 — Register 1437 among their entries: [851, 855, 869, 1443, 2025, 3731, 3879, 3943, 4423, 5960]
 END r2-ch25b
