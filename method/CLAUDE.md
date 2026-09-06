@@ -63,7 +63,7 @@ no longer on the read path.
 - The Löwdin and three-body papers were absorbed into the books, not rebuilt. **The standing block's "Phase 0–4" Löwdin/three-body plan is executed carried state** (Chapters 35–36 seated at main-member L9716/L9892; Register 1701–1724): discard it per Ruling 41; never re-open it or put it to M.
 - This project is for constructing the drafts. Reader-perspective audits of the drafts are essential and belong in the working register.
 
-## 3. Current state (live files as of W-244, MEASURED in the repo on 6 September 2026)
+## 3. Current state (live files as of W-245, MEASURED in the repo on 6 September 2026)
 
 - **This section was rewritten on M's order of 6 September 2026** (*"yes. reassess R3 in full"*) because it had
   gone sixteen main builds and thirty-eight compendia builds out of date and named instruments and gate steps the
@@ -71,9 +71,15 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD113 main** (2,060,926 B ·
-  `9877ce8af55cc842e561f3febb9d1bf2` · 18,704 lines · 2 members) and **BUILD238 compendia** (15,193,016 B ·
-  `7d9d0af1ff0b2a0a473cce2eeb26cd6b` · 123,804 lines · 665 members). **667 members in all.** **The Register runs
-  1 to 1838, 1,680 seated** (1,673 numbered + 7 grouped). **W-244 seated.**
+  `9877ce8af55cc842e561f3febb9d1bf2` · 18,704 lines · 2 members) and **BUILD239 compendia** (15,198,131 B ·
+  `99fe7ccd7c1215d14c1a2f59a3fbca9c` · 123,842 lines · 665 members). **667 members in all.** **The Register runs
+  1 to 1838, 1,680 seated** (1,673 numbered + 7 grouped). **W-245 seated.**
+- **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
+  BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
+  the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
+  was thrown away and rebuilt, and the figures came from the discarded run's report. The seated BUILD238 was
+  15,193,022 B / `4ff7ccaa…`, and W-245's close supersedes it. **The stale figure was caught by the next close
+  asserting its predecessor's md5** — which is what the reverse guard is for.
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 6 September: `python3 method/verify.py`
   VERIFY OK (667 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
   `gate.py manifest --main ../The_Method_1_6_BUILD113_main_and_register.md` **OK**, 666 listed / 668 extracted;

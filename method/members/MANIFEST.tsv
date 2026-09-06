@@ -73,7 +73,7 @@ compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	248693	df4c55b875b25f9e9b22e41c2afe712a	1619
-compendia	DEFERRED.md	442840	80584b86ba08d016df4530acd9c84844	3527
+compendia	DEFERRED.md	445264	2b46ec0747c8c1923ecfbdf3bb06936f	3556
 compendia	DOCKET.md	82784	123594d2918d8c02727b8a6d065c0c0d	488
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
@@ -209,7 +209,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1114854	93fe6b7e055440242105248c4ba99161	8434
+compendia	WORKING-REGISTER.md	1117539	62676897c45be5432ed4131bec8a9d61	8443
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140

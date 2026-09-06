@@ -23427,6 +23427,15 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **Re-banked by running, never copied**, all sixty-seven: `extent`, `kinds`, `r2-21a2`, `r2-23a2`, `r2-24a`, `r2-25b`, `r2-26c2`, `r2-27a3`, `r2-28a4`, `r2-28b4`, `r2-32a`, `r2-bib2`, `r2-ch16a2`, `r2-ch16b2`, `r2-ch16c2`, `r2-ch16f2`, `r2-ch16i2`, `r2-ch16k2`, `r2-ch16l3`, `r2-ch16m2`, `r2-ch16p3`, `r2-ch16q2`, `r2-ch16r2`, `r2-ch16s2`, `r2-ch16t3`, `r2-ch16u4`, `r2-ch16v4`, `r2-ch16w2`, `r2-ch16x2`, `r2-ch16y`, `r2-ch16z3`, `r2-ch17a2`, `r2-ch17b2`, `r2-ch17c2`, `r2-ch17d2`, `r2-ch18a2`, `r2-ch19a3`, `r2-ch19b2`, `r2-ch20a3`, `r2-ch20b`, `r2-ch21a`, `r2-ch21b2`, `r2-ch22a2`, `r2-ch24a`, `r2-ch24b3`, `r2-ch25a2`, `r2-ch25b2`, `r2-ch26a`, `r2-ch27a4`, `r2-ch28a4`, `r2-ch28b3`, `r2-ch34re2`, `r2-reg10a2`, `r2-reg1a3`, `r2-reg2a2`, `r2-reg3a2`, `r2-reg4a2`, `r2-reg5a2`, `r2-reg6a2`, `r2-reg7a2`, `r2-reg8a2`, `r2-reg9a2`, `r2-regsweep2`, `r2-scf`, `r2-tools-constants`, `r2-warn`, `r3-em`.
 - **Batch A of `RULINGS-R4f` §5 item 3 is discharged with this close.** Rulings 11 and 12 are executed and their sites are consistent across the six volumes and the companion. **What remains of item 3 is rulings 2, 3, 5, 9 and 10**, standing where `DRAFT-R4-R3-CORRECTIONS.md` leaves them.
 
+### W-245 — R4 — Phase 0: rulings 9 and 10 executed as work matter, not subject matter — 34re-04 and D-61 withdrawn to the docket, no volume touched, and a question that should not have been asked
+
+- **M's correction, and it is the reason this close is shaped as it is:** *"if it is work matter, it does not belong in the volumes. if it is subject, it must be included. why must you have me repeat rulings?"* `CLAUDE.md` §2 already settles it — **the Register records subject matter only; every finding and every editorial entry goes to the working register and is forbidden from the books.** A withdrawn finding about a volume is work matter. It goes here and to `DEFERRED.md`, and no Register entry is written for it. The question was already answered by a standing ruling and should not have been put.
+- **34re-04 is withdrawn** (ruling 9, *"yes."*), and both halves of it fall. *"1.028 at p across four subshells is no mean or median of any printed row — UNREPRODUCIBLE"* is wrong: it is the **median of register 1337's own four p values**, and all six of 1337's values and all six of 1334's reproduce exactly from the ionisation energies. *"1.785 / 1.028 is 0.25 % from √3, not 0.19 %"* is a rounding artefact: **1.736381 from the printed values, 1.735267 from the unrounded — 0.19 %, which is the book's own figure.** The budget the row carried, *"the per-element a values — REQUEST-LOWDIN"*, is spent; nothing is owed from outside.
+- **D-61 is withdrawn** (ruling 10, *"yes."*). **The interval the printed inputs allow is [1577.81, 1588.07) and 1,585 lies inside it**; 1582.9268 is what two rounded medians give when treated as exact. Both withdrawals are the same class, and `method/proofs/precision.py` is the instrument that decides it.
+- **Two annex rows are answered rather than edited.** `PLAN-R4-ANNEX.tsv` is a seated member: row **F-151** cites 34re-04 and row **D-61** carries status `OPEN`. A defect line and its disposition are different objects and the later line governs (G0b), so the disposition is recorded here and in `DEFERRED.md` and the annex is left exactly as seated.
+- **No volume changed at this close.** The change set is `WORKING-REGISTER.md`, `DEFERRED.md` and `MANIFEST.tsv`; `python3 method/verify.py` VERIFY OK before and after.
+- **`RULINGS-R4f` §5 item 3 now stands at three of its six rulings executed** — 9, 10, 11 and 12 done, with 11 and 12 the only ones that moved a volume. **Rulings 2, 3 and 5 remain**, and they are one site: §34.7 and register 1337, whose repair is a rewritten passage carrying two readings, a floor statement, an f row and a changed ratio. That is prose, and prose is M's under `RULINGS-R4c` §3.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -35810,6 +35819,35 @@ All of HANDOFF-24's list stands (none closed this chat): L8794/L11107 "eight ite
 5. **32a-03 EXECUTED at entry 1813 on the qualification route.** Six of seven readout sites carry it; the seventh, the register's span, is the Register's front matter and waits with reg1-04 under Ruling A. The restore-point's scripts are stale against the volumes and were not seated as members: a generator that does not reproduce what it generated would be a second record-carried figure.
 6. **Census mc 293 CLOSED not a defect; mc 387–672 CLOSED as one class defect** (`r2-bib`, READ-bib, CENSUS-CLOSURES-d152.tsv). **NEW and the largest thing this unit found:** the Mathematical Compendium never states its own handle vocabulary — 265 handles printed in one column, none defined in the volume, 137 resolving nowhere in any volume. The repair is the generator's and the generator is not held (docket 38 / 28).
 7. **Chat 152's own DOCKET delta is appended below this session's**, verbatim, with the chat number as M ruled it. Its container conventions (Python 3.12 shim, PP at /home/claude, COORDINATES at /mnt/project) are the ones this repository's `stage-gate` now implements.
+
+## Chat 153-R (the repository session), R4 Phase 0 — two docket findings withdrawn on M's rulings 9 and 10 of 6 September 2026
+
+Neither touches a volume and neither is subject matter: a finding about a book is work matter and belongs
+here and in the working register, never in the Register (`CLAUDE.md` §2). Both were re-measured before the
+rulings were asked for, and both fall to `method/proofs/precision.py`'s class — a figure computed from
+rounded inputs disagreeing with the same figure computed from the unrounded ones.
+
+1. **Docket 34 / 17: 34re-04 is WITHDRAWN** (M: *"yes."*; `FINDING-R4-11`, `method/proofs/entrypoint.py`,
+   nineteen checks). It was raised as two claims and neither survives. **(a) *"1.028 at p across four
+   subshells is no mean or median of any printed row — UNREPRODUCIBLE"*: it is the median of register
+   1337's own four p values, 1.0925 · 1.0331 · 1.0124 · 1.0237, and every one of those six values
+   reproduces exactly from the ionisation energies — six of six, as do register 1334's six.** **(b)
+   *"1.785 / 1.028 is 0.25 % from √3, not 0.19 %"*: from the printed values the ratio is 1.736381, which is
+   0.25 %; from the unrounded ones it is 1.735267, which is **0.19 %, the book's own figure**.** The budget
+   the row carried — *"the per-element a values — REQUEST-LOWDIN"* — is spent: they were rebuilt here and
+   no delivery is owed. `PLAN-R4-ANNEX.tsv` row **F-151** cites 34re-04 and is answered by this
+   disposition; the annex is a seated member and is not edited, and a defect line and its disposition are
+   different objects with the later line governing (G0b).
+
+2. **Docket 12: D-61 is WITHDRAWN** (M: *"yes."*; `FINDING-R4-07`, `method/proofs/precision.py`). It was
+   raised as *"1,585-fold printed vs 1,582.93 at printed precision (two sites) unscored"*. The quotient
+   1582.9268 is what two rounded medians give when treated as exact; **the interval the printed inputs
+   allow is [1577.81, 1588.07), and 1,585 lies inside it**, so the book's figure is what the unrounded
+   medians give and the disagreement is the rounding, not the book. `PLAN-R4-ANNEX.tsv` row **D-61**
+   carries status `OPEN` and is answered here on the same footing as F-151 above.
+
+**Neither withdrawal changes a volume, and neither is executed as a repair.** What they withdraw is a
+finding about a volume, and the volume already prints what the measurement returns.
 <<<END FILE: DEFERRED.md>>>
 
 <<<FILE: tower-2.out>>>
@@ -35938,7 +35976,7 @@ compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
 compendia	DEFECT-CENSUS.tsv	248693	df4c55b875b25f9e9b22e41c2afe712a	1619
-compendia	DEFERRED.md	442840	80584b86ba08d016df4530acd9c84844	3527
+compendia	DEFERRED.md	445264	2b46ec0747c8c1923ecfbdf3bb06936f	3556
 compendia	DOCKET.md	82784	123594d2918d8c02727b8a6d065c0c0d	488
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
 compendia	EXCISE-LIST.md	13159	71070341d32642c8d596fee5b2735d8f	120
@@ -36074,7 +36112,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23022	f2adca041b5d95d941b40a6e7dfae64c	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1114854	93fe6b7e055440242105248c4ba99161	8434
+compendia	WORKING-REGISTER.md	1117539	62676897c45be5432ed4131bec8a9d61	8443
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
