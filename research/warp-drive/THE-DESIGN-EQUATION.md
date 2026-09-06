@@ -7,6 +7,13 @@ Tenth of ten. Applies **P8** (§2.15) and **§2.17.3** to the bounds of the prec
 
 > **Scope.** Writes nothing into `method/` or `drive/`.
 
+> **§6(a) is REFUTED, 2026-09-06.** Shaped density was priced at "up to 1.57x". `DENSITY-IS-CLOSED.md`
+> builds it and measures **1.019x** for symmetric shaping and **0.663x / 0.398x** for inner-weighted.
+> The reason narrows this paper's own §5.1: `Φ` is independent of the **shift profile** (1.3 %, as
+> tested here) but **not** of the **density profile** (657 %), because concentrating mass raises local
+> compactness and `Φ` falls with it. **The 1.599x profile gain and the class bound stand**; only the
+> §6(a) estimate falls, and escape route (a) with it.
+
 ---
 
 ## Abstract

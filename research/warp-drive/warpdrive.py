@@ -720,6 +720,46 @@ def class_bound():
         out.append((f, design_v_max(f, k_cos), design_v_max(f, k_cos) * G_gamma(2.0)/G_MIN))
     return out
 
+# ------------------------------- density shaping: a closed lever, with a mechanism
+#
+# THE-DESIGN-EQUATION.md section 6 named two assumptions left to break, and put
+# shaped density at "up to 1.57x".  Built and measured, it is worth nothing, and
+# the reason refines the design equation rather than merely refuting the estimate.
+#
+# All four runs: same total mass, same raised-cosine shift, same grid; only rho(r).
+#   delta >= 0 : rho ~ delta + (1-delta)|cos(pi t)|      symmetric, both edges
+#   delta <  0 : rho ~ (1-t)^|delta|                     inner-weighted
+DENSITY_SHAPED = {
+ 'uniform  (delta=1)':  dict(rho_max=1.3616e40, k=9.542,  v_crit=0.03487),
+ '|cos|    (delta=0)':  dict(rho_max=1.1331e40, k=11.169, v_crit=0.03552),
+ '(1-t)^1  (delta=-1)': dict(rho_max=2.1712e40, k=5.409,  v_crit=0.02311),
+ '(1-t)^2  (delta=-2)': dict(rho_max=2.8178e40, k=3.771,  v_crit=0.01389),
+}
+
+# the measured radial profile that says WHY: rho peaks outward of where |f| does,
+# because four passes of a 3.6 m moving average on a 10 m shell turn the box into
+# a bump.  Along +y (transverse), uniform shell, raised cosine, vWarp = 0.035.
+RATIO_PROFILE = [   # r [m], rho, |f|, |f|/rho, null
+ ( 9.50, 5.6554e39, 1.4784e39, 0.2614,  8.996e38),
+ (10.50, 8.1667e39, 3.6481e39, 0.4467,  2.626e38),
+ (11.50, 1.0434e40, 4.5566e39, 0.4367, -1.011e38),   # <- the binding radius
+ (12.50, 1.2102e40, 3.8601e39, 0.3190,  3.831e38),
+ (14.50, 1.3520e40, 1.1150e39, 0.0825,  2.277e39),
+ (15.50, 1.3522e40, 3.4122e38, 0.0252,  2.542e39),   # <- rho peaks HERE
+ (17.50, 1.2077e40, 2.5971e39, 0.2150,  8.957e38),
+ (19.50, 8.1044e39, 2.4223e39, 0.2989,  1.550e38),
+]
+
+def density_phi(entry):
+    return entry['k'] * entry['v_crit']
+
+def factorisation_domain():
+    """Phi is independent of the SHIFT profile and not of the DENSITY profile.
+    Returns (profile spread, density spread) as fractional ranges of Phi."""
+    prof = [phi_from(v) for v in PROFILE_MEASURED.values()]
+    dens = [density_phi(v) for v in DENSITY_SHAPED.values()]
+    return (max(prof)/min(prof) - 1.0, max(dens)/min(dens) - 1.0)
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -1335,6 +1375,52 @@ def report():
     p('          (b) sphericity -- the binding locus is on the TRANSVERSE axis, so an')
     p('              oblate shell attacks it head-on.  Unquantified here.')
     p()
+    p('  DENSITY SHAPING: BUILT, MEASURED, AND CLOSED')
+    p('  ' + '-' * 68)
+    p('    The section above priced shaped density at "up to 1.57 x".  Built with a')
+    p('    TOV integrator for arbitrary rho(r) -- Warp Factory has only the uniform-')
+    p('    sphere closed form -- and measured, it is worth nothing.')
+    p()
+    p('    %-24s %11s %8s %8s %9s %8s'
+      % ('shape', 'rho_max', 'k', 'Phi', 'v_crit', 'vs unif'))
+    base = DENSITY_SHAPED['uniform  (delta=1)']['v_crit']
+    for nm, e in DENSITY_SHAPED.items():
+        p('    %-24s %11.4e %8.3f %8.4f %9.5f %7.3f x'
+          % (nm, e['rho_max'], e['k'], density_phi(e), e['v_crit'], e['v_crit']/base))
+    p()
+    p('    [1] WHY the symmetric shape does nothing.  The measured radial profile:')
+    p('        %-8s %12s %12s %10s' % ('r [m]', 'rho', '|f|', '|f|/rho'))
+    for r_, rho_, f_, ra_, nu_ in RATIO_PROFILE:
+        mark = '  <- binds' if nu_ < 0 else ('  <- rho peak' if ra_ < 0.03 else '')
+        p('        %-8.2f %12.4e %12.4e %10.4f%s' % (r_, rho_, f_, ra_, mark))
+    p('        rho peaks at r = 15.5 and the flux at r = 11.5.  The "uniform" shell')
+    p('        is not uniform: four passes of a 3.6 m average on a 10 m wall make it')
+    p('        a bump.  |cos| adds mass at BOTH edges and the binding is at ONE.')
+    p()
+    p('    [2] WHY inner-weighting is worse, which is the real finding.')
+    u = DENSITY_SHAPED['uniform  (delta=1)']
+    for nm in ('(1-t)^1  (delta=-1)', '(1-t)^2  (delta=-2)'):
+        e = DENSITY_SHAPED[nm]
+        p('        %-18s k cut %.2f x   but Phi cut %.2f x   net %.2f x worse'
+          % (nm, u['k']/e['k'], density_phi(u)/density_phi(e),
+             (density_phi(u)/density_phi(e))/(u['k']/e['k'])))
+    p('        Concentrating mass raises the LOCAL compactness, and Phi falls with')
+    p('        compactness -- the same Phi(fill) curve measured earlier.  The two')
+    p('        effects move together and the density one loses.')
+    p()
+    pr, de = factorisation_domain()
+    p('    [3] SO THE FACTORISATION HAS A DOMAIN.')
+    p('        Phi spread across SHIFT PROFILES    %6.1f %%   -> independent'
+      % (100*pr))
+    p('        Phi spread across DENSITY PROFILES  %6.0f %%   -> NOT independent'
+      % (100*de))
+    p('        v_max = Phi/k factorises over the shift profile and not over the')
+    p('        density.  Uniform density is at or near its own optimum, which is')
+    p('        presumably why the published solution uses it.')
+    p()
+    p('    [4] One of the two escape routes is therefore CLOSED.  The class bound of')
+    p('        ~0.047 c stands, and only SPHERICITY remains to break.')
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -1511,6 +1597,24 @@ def selftest():
             phi_from(PROFILE_MEASURED['Warp Factory compactSigmoid']) - 1) < 0.03, True)
     chk('class bound exceeds the as-built ceiling',
         max(v for _, _, v in class_bound()) > 0.0218, True)
+    # density shaping
+    chk('symmetric |cos| shaping gains nothing (<5 %)',
+        abs(DENSITY_SHAPED['|cos|    (delta=0)']['v_crit'] /
+            DENSITY_SHAPED['uniform  (delta=1)']['v_crit'] - 1) < 0.05, True)
+    chk('inner-weighting is strictly worse',
+        DENSITY_SHAPED['(1-t)^1  (delta=-1)']['v_crit'] <
+        DENSITY_SHAPED['uniform  (delta=1)']['v_crit'], True)
+    chk('and worse still at higher power',
+        DENSITY_SHAPED['(1-t)^2  (delta=-2)']['v_crit'] <
+        DENSITY_SHAPED['(1-t)^1  (delta=-1)']['v_crit'], True)
+    chk('Phi collapses when density is concentrated',
+        density_phi(DENSITY_SHAPED['uniform  (delta=1)']) /
+        density_phi(DENSITY_SHAPED['(1-t)^2  (delta=-2)']) > 5.0, True)
+    chk('Phi is profile-independent but density-dependent',
+        (factorisation_domain()[0] < 0.05, factorisation_domain()[1] > 1.0),
+        (True, True))
+    chk('the flux binds inward of where the density peaks',
+        [r for r, _, _, _, n in RATIO_PROFILE if n < 0][0] < 15.5, True)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()
