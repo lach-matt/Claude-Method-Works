@@ -64,6 +64,27 @@
         Bi III    delta =  +0.03805   captured levels
      and one measured h channel (l = 5): Na I, delta = 0.00013
 
+  3b. THE LEVELS STORE BEHIND IT, which carries the DEPTH of each channel
+     61 species level tables, 9,200 level lines, neutrals and ions to core charge 10
+     34 of the 61 carry a g term in their levels
+     MEASUREMENTS.tsv: 554 channels, of which 12 are g and 1 is h
+       species   term         members   n range     delta
+       Ba I      3G                29      8-25   0.05145
+       Cs I      2G                28      5-25   0.00667
+       Ba I      1G                18      8-25   0.05072
+       Na I      2G                18      5-20   0.00042
+       Hg I      3G                 9      5-11   0.00379
+       Ge I      (1/2,7/2)*         8      6-15   0.00683
+       Hg I      1G                 7      5-11   0.00352
+       Sr I      2[3/2]             7      5-10   0.02844
+       Pb I      2[7/2]*            6      5-10   0.01073
+       Sr I      2[5/2]             6      5-10   0.03533
+       Sr I      2[5/2]             4       5-9   0.03587
+       Al I      2G                 3       5-7   0.00841
+     4 of the 12 g channels carry ten or more members;
+     the deepest runs n = 8 to 25 over twenty-nine of them.  A twenty-nine-member
+     series with a defect of 0.05 is not a channel sitting at hydrogenic depth.
+
   4. CHAPTER 35's CRITERION, TESTED ON THE SURVEY
      'every g channel ... sits at its hydrogenic depth to the storage precision
       ... a channel that does not respond to the nucleus is not in the field.'

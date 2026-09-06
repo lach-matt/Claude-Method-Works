@@ -38,6 +38,7 @@ chapter's central claim.
 | \|δ\| range | **0.00000 to 0.04010** |
 | exceeding 0.001 | **24 of 36** |
 | measured h channels (ℓ = 5) | **1** — Na I, δ = 0.00013 |
+| species whose level tables carry a g term | **34 of 61** in the levels store |
 
 The ions run from Li II to Bi III and up to core charge 6 (S VI), sourced as *captured levels* and,
 for four of them, as NIST ASD fetched 2026-08-14.
@@ -45,6 +46,33 @@ for four of them, as NIST ASD fetched 2026-08-14.
 **So my statement in R4-09 — that no observation distinguishes the two candidate sets — was wrong,
 and M caught it.** The observation exists, it was built deliberately, and it covers exactly the
 charge states the neutral table cannot reach.
+
+## And the levels store behind it, which carries the depth of each channel
+
+The flat survey gives a defect per channel. **`extracted/archives/spectra-levels-store/deliver/`
+gives the levels it was read from**, and with them the member count and the n range that the survey
+drops.
+
+| | |
+|---|---|
+| species level tables | **61**, neutrals and ions to core charge 10 (Co IX, Ni X) |
+| level lines | **9,200** |
+| species carrying a g term in their levels | **34 of 61** |
+| channels in `MEASUREMENTS.tsv` | 554, of which **12 are g** and **one is h** |
+
+And the g channels are not thin:
+
+| species | term | members | n range | δ |
+|---|---|---|---|---|
+| **Ba I** | 3G | **29** | **8–25** | **0.05145** |
+| Cs I | 2G | 28 | 5–25 | 0.00667 |
+| Ba I | 1G | 18 | 8–25 | 0.05072 |
+| Na I | 2G | 18 | 5–20 | 0.00042 |
+| Hg I | 3G | 9 | 5–11 | 0.00379 |
+| Sr I | 2[5/2] | 6 | 5–10 | 0.03533 |
+
+**A twenty-nine-member series running from n = 8 to n = 25 with a defect of 0.05 is not a channel
+sitting at hydrogenic depth.** Four of the twelve carry ten or more members.
 
 ## And it tests Chapter 35's criterion, which is the ground R4-09 rested on
 
@@ -112,9 +140,12 @@ between two defensible readings rather than between a convention and an absence 
 
 ## What is owed beyond the ruling
 
-**The survey should be seated.** It is the evidence for Chapter 34's corridor and Chapter 35's
-g-channel claim, it covers Z = 1 to 120 and every charge state, and it is held only in a generated
-tree. Under Ruling 46 a reader cannot be pointed at it as it stands.
+**The survey and its levels store should be seated.** Together they are the evidence for Chapter
+34's corridor and Chapter 35's g-channel claim: 104,832 survey rows over Z = 1 to 120 and every
+charge state, and 9,200 level lines over 61 species with their sources named. **Both are held only
+in generated trees** — `extracted/archives/method16-rp-b-data/` and
+`extracted/archives/spectra-levels-store/` — and neither is a seated member. The seated tree holds
+four per-species tables. Under Ruling 46 a reader cannot be pointed at any of it as it stands.
 
 **And §35's g-channel claim is owed a re-test against it.** *"Sits at its hydrogenic depth to the
 storage precision"* is a statement about the derived field; the survey measures defects up to 0.04

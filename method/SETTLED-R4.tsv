@@ -38,4 +38,6 @@ S-01	the spectroscopic survey over all Z and every charge state	FOUND, NOT SEATE
 S-02	P.lcollapse, the defect falling with l	VERIFIED ON THE SURVEY	median |delta| 1.0398 s, 0.6991 p, 0.1109 d, 0.0248 f, 0.00505 g, 0.00013 h -- monotone over six orders	method/proofs/gchannel.py	none needed
 S-03	§35 "every g channel sits at its hydrogenic depth ... does not respond to the nucleus"	CONTRADICTED BY THE SURVEY	24 of 36 measured g defects exceed 0.001, to 0.04010, and r(Z,|delta|) = +0.330	method/proofs/gchannel.py	FINDING-R4-10
 S-04	admitting g to the candidate set	COSTS NOTHING TO THE LAW	g never wins a step, corridors stay 106/106 non-empty either way; only the floor moves, at 16 steps, 11 of them to a > 0	method/proofs/gchannel.py	FINDING-R4-10
+S-05	the levels store behind the survey	FOUND, NOT SEATED	61 species level tables, 9,200 level lines, neutrals and ions to core charge 10; 34 of 61 carry a g term	method/proofs/gchannel.py	FINDING-R4-10
+S-06	the depth of the measured g channels	MEASURED	Ba I 3G runs n = 8 to 25 over 29 members at delta 0.05145; four of twelve carry ten or more members	method/proofs/gchannel.py	FINDING-R4-10
 

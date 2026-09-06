@@ -192,6 +192,33 @@ def corridors_nonempty(ground, lmax):
     return n, tot
 
 
+# --------------------------------------------- 3b. the levels store behind the survey
+STORE = os.path.join(ROOT, "extracted", "archives", "spectra-levels-store", "deliver")
+MEAS = os.path.join(STORE, "MEASUREMENTS.tsv")
+QUEUE = os.path.join(STORE, "queue2")
+
+
+def levels_store():
+    """The channel measurements and the per-species level tables they were read from.
+    MEASUREMENTS.tsv carries a member count and an n range per channel, which the
+    flat survey does not, so a g channel's DEPTH is visible here and not there."""
+    out = dict(meas=[], species=[], gspecies=[], lines=0)
+    if os.path.exists(MEAS):
+        out["meas"] = list(csv.DictReader(open(MEAS, encoding="utf-8"), delimiter="\t"))
+    if os.path.isdir(QUEUE):
+        import re
+        for fn in sorted(os.listdir(QUEUE)):
+            if not fn.endswith(".tsv"):
+                continue
+            txt = open(os.path.join(QUEUE, fn), errors="replace").read()
+            body = [l for l in txt.split("\n") if l and not l.startswith("#")]
+            out["lines"] += len(body)
+            out["species"].append(fn[:-4])
+            if re.search(r"\b\d+g\b|\(\d+G|\bG\b", txt):
+                out["gspecies"].append(fn[:-4])
+    return out
+
+
 # --------------------------------------------------------------- 3. the survey
 def survey():
     rows = list(csv.DictReader(open(COORD, encoding="utf-8"), delimiter="\t"))
@@ -223,7 +250,10 @@ def measure(members):
     gm = [r for r in rows if int(r["l"]) == 4 and r["grade"] == "measured"]
     gb = g_bounds(ground, walk)
     binding = [b for b in gb if b["binds"]]
-    return dict(ground=ground, walk=walk, rows=rows, el=el, gmeas=gm,
+    st = levels_store()
+    st["gchan"] = [r for r in st["meas"] if int(r["l"]) == 4]
+    st["hchan"] = [r for r in st["meas"] if int(r["l"]) == 5]
+    return dict(ground=ground, walk=walk, rows=rows, el=el, gmeas=gm, store=st,
                 bounds=gb, binding=binding,
                 trivial=[b for b in binding if b["trivial"]],
                 real=[b for b in binding if not b["trivial"]],
@@ -284,6 +314,23 @@ def report(o):
               f"{sym(int(r['Z']))} {ROMAN.get(int(r['charge']), r['charge'])}, "
               f"delta = {float(r['delta'])}")
     print()
+    print("  3b. THE LEVELS STORE BEHIND IT, which carries the DEPTH of each channel")
+    st = o["store"]
+    print(f"     {len(st['species'])} species level tables, {st['lines']:,} level lines,"
+          f" neutrals and ions to core charge 10")
+    print(f"     {len(st['gspecies'])} of the {len(st['species'])} carry a g term in their levels")
+    print(f"     MEASUREMENTS.tsv: {len(st['meas'])} channels, of which {len(st['gchan'])} are g"
+          f" and {len(st['hchan'])} is h")
+    print(f"       {'species':<10}{'term':<12}{'members':>8}{'n range':>10}{'delta':>10}")
+    for r in sorted(st["gchan"], key=lambda r: -int(r["members"])):
+        z = int(r["Z"])
+        print(f"       {sym(z) + ' I':<10}{r['term']:<12}{r['members']:>8}"
+              f"{r['n_lo'] + '-' + r['n_hi']:>10}{float(r['delta']):>10.5f}")
+    deep = [r for r in st["gchan"] if int(r["members"]) >= 10]
+    print(f"     {len(deep)} of the {len(st['gchan'])} g channels carry ten or more members;")
+    print("     the deepest runs n = 8 to 25 over twenty-nine of them.  A twenty-nine-member")
+    print("     series with a defect of 0.05 is not a channel sitting at hydrogenic depth.")
+    print()
     print("  4. CHAPTER 35's CRITERION, TESTED ON THE SURVEY")
     print("     'every g channel ... sits at its hydrogenic depth to the storage precision")
     print("      ... a channel that does not respond to the nucleus is not in the field.'")
@@ -326,6 +373,9 @@ FIXTURES = """the survey's own figures and the law's arithmetic:
                     358 measured and witnessed, 929 exact
   measured g        36 channels, 32 of them ions, |delta| up to 0.04010
   measured h        1 channel
+  levels store      61 species tables, 9,200 level lines, neutrals and ions to charge 10;
+                    34 species carry a g term; MEASUREMENTS.tsv has 554 channels of which
+                    12 are g and one is h, the deepest g running n = 8 to 25 over 29 members
   the l-collapse    median |delta| falls s > p > d > f > g > h, monotone
   the law           5g binds at 16 of the 106 steps: 11 at exactly a > 0 and 5 at
                     a > 1/sqrt(3) = 0.5773503
@@ -359,6 +409,17 @@ def selftest(members):
     eq("g never wins the step", o["wins"], [])
     eq("corridors non-empty without g", o["ne3"], (106, 106))
     eq("corridors non-empty with g", o["ne4"], (106, 106))
+    st = o["store"]
+    eq("levels-store species", len(st["species"]), 61)
+    eq("level lines in the store", st["lines"], 9200)
+    eq("species carrying a g term", len(st["gspecies"]), 34)
+    eq("MEASUREMENTS channels", len(st["meas"]), 554)
+    eq("of them, g channels", len(st["gchan"]), 12)
+    eq("of them, h channels", len(st["hchan"]), 1)
+    eq("g channels with >= 10 members",
+       len([r for r in st["gchan"] if int(r["members"]) >= 10]), 4)
+    eq("the deepest g channel's members",
+       max(int(r["members"]) for r in st["gchan"]), 29)
     print(FIXTURES)
     print()
     bad = 0
