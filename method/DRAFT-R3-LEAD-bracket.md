@@ -1,5 +1,12 @@
 # DRAFT for M's review — R3 lead (item 2a of 5 September): the Request-3 bracket result as a Register entry. NOTHING SEATED.
 
+> **NUMBER COLLISION, measured 6 September 2026 and recorded rather than silently renumbered.** This draft
+> carries `### 1836` and `RULINGS-R4.md` ruling 5 seats it there, but 1836 was taken on 6 September by the
+> §34.4 qualifier entry (`r4-a1.py`, W-240) — the build read "the Register runs 1 to 1835, so the next free
+> number is 1836" and did not check for a reserved draft. **Nothing seated is wrong: a Register number is
+> assigned at seating, and this entry takes the next free number when Phase 2 opens.** The Register now runs
+> to 1838. The fault was the build's, not the draft's.
+
 Source: `03-1D-lands-inside-14D.md` (mirror, 3,647 B; the original-works return of 2026-08-28 to Request 3, M directing),
 with `02-1D-14D-transitional-connection.md` (the lemma named) and `OWED-REGISTER-EXPANSIONS.md`'s "RESPONSE TO REQUEST 3"
 block, which routes the result to prose (MC-55, the time chapter) and to the Mathematical Compendium and drafts no
