@@ -284,3 +284,18 @@ C282	heat balance, phi=3, today's aperture both hemispheres	0.686	dimensionless	
 C283	work balance, bound case, today's aperture both hemispheres	0.632	dimensionless	DERIVED	C176 x C217 / (C100 / C142)	fn:q_work_bound_nf
 C284	breeding balance, demonstrated cycles, today's aperture both hemispheres	1.203	dimensionless	DERIVED	C44 x C220 / (C100 / C142)	fn:q_bred_demo_nf
 C285	breeding balance, bound case, today's aperture both hemispheres	4.72	dimensionless	DERIVED	C176 x C220 / (C100 / C142)	fn:q_bred_bound_nf
+C286	Kelly et al. optimised beam energy	3.61	GeV	SOURCED	Kelly Hart Rose J Phys Energy 3 035003 (2021), deuteron on W	collector.KELLY_BEAM_GEV
+C287	Kelly et al. pi- per beam particle	0.77	pi-/beam particle	SOURCED	same, G4Beamline, W rod 652 mm x 5.1 mm	collector.KELLY_PIMINUS_PER_BEAM
+C288	Kelly et al. target length	652	mm	SOURCED	same	collector.KELLY_TARGET_LEN_MM
+C289	Kelly et al. target diameter	5.1	mm	SOURCED	same	collector.KELLY_TARGET_DIA_MM
+C290	Kelly et al. cost per pi- produced	4.69	GeV	DERIVED	C286 / C287	fn:kelly_cost
+C291	ratio, this paper's thin-target cost to Kelly's	2.37	x	DERIVED	C100 / C290	fn:kelly_ratio
+C292	Kelly et al. heat per muon at 150 fusions	3.9	GeV	SOURCED	same	collector.KELLY_HEAT_GEV_150
+C293	Kelly et al. reported Q, low	0.65	dimensionless	SOURCED	same	collector.KELLY_Q_LO
+C294	Kelly et al. reported Q, high	0.78	dimensionless	SOURCED	same	collector.KELLY_Q_HI
+C295	heat balance, demonstrated cycles, at Kelly's cost	0.834	dimensionless	DERIVED	C44 x C214 / C290	fn:qk_heat_demo
+C296	heat balance, bound case, at Kelly's cost	3.27	dimensionless	DERIVED	C176 x C214 / C290	fn:qk_heat_bound
+C297	work balance, demonstrated cycles, at Kelly's cost	0.625	dimensionless	DERIVED	C44 x C217 / C290	fn:qk_work_demo
+C298	work balance, bound case, at Kelly's cost	2.46	dimensionless	DERIVED	C176 x C217 / C290	fn:qk_work_bound
+C299	breeding balance, demonstrated cycles, at Kelly's cost	4.67	dimensionless	DERIVED	C44 x C220 / C290	fn:qk_bred_demo
+C300	breeding balance, bound case, at Kelly's cost	18.3	dimensionless	DERIVED	C176 x C220 / C290	fn:qk_bred_bound

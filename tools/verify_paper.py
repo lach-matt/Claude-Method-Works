@@ -675,6 +675,44 @@ def flux_95():
     return 1e7 / sigma_muhe()
 
 
+def kelly_cost():
+    return collector.kelly_cost_per_pion()
+
+
+def kelly_ratio():
+    return cost_pion() / kelly_cost()
+
+
+def _qk(N, value_mev):
+    """The balance at the Kelly production cost, perfect collection -- the
+    status their figure is stated at."""
+    return N * (value_mev / 1000.0) / kelly_cost()
+
+
+def qk_heat_demo():
+    return _qk(150.0, therm_sourced())
+
+
+def qk_heat_bound():
+    return _qk(N_diss(), therm_sourced())
+
+
+def qk_work_demo():
+    return _qk(150.0, work_sourced())
+
+
+def qk_work_bound():
+    return _qk(N_diss(), work_sourced())
+
+
+def qk_bred_demo():
+    return _qk(150.0, total_sourced())
+
+
+def qk_bred_bound():
+    return _qk(N_diss(), total_sourced())
+
+
 def _qbal(N, value_mev, eta):
     """The balance at an explicit collection efficiency: service life times
     value, against the production floor divided by that efficiency."""

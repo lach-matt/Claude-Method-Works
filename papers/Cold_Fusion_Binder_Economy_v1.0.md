@@ -1150,6 +1150,60 @@ measurement this paper would put first. What §5.25 establishes is narrower and 
 **the aperture is not what stands in the way of the bred-fuel route, and the hemisphere cut is not a
 physical constraint at all.**
 
+### 5.26 The production target was never optimised here, and someone has optimised it
+
+§5.1 integrated the HARP-measured pion cross sections and obtained **11.13 GeV of beam energy per
+π⁻ produced**, which every balance in this paper divides by. That figure carries a caveat §5.1 stated
+and this paper has not until now acted on: HARP measured a **5 percent interaction-length** target,
+so its yield is *per interacting proton*, and the beam's remaining energy leaves the target with the
+beam. The measurement is a measurement of production, not of a production **target**.
+
+An independent study optimised the target. Kelly, Hart and Rose [9] ran a G4Beamline optimisation over beam species, beam energy, target material and target
+geometry, and report their best configuration as a **3.61 GeV** deuteron beam on a tungsten rod
+**652 mm** long and **5.1 mm** across, giving **0.77 π⁻ per beam particle**. Dividing:
+
+> **4.69 GeV of beam energy per π⁻ produced — a factor of 2.37 below this paper's own figure.**
+
+**The two are not in conflict, and the reconciliation is the physics.** A 652 mm tungsten rod is many
+interaction lengths. The primary interacts, and so do its secondaries, and each interaction produces
+pions from beam energy that a thin target lets escape. HARP's 0.7188 π⁻ per *interacting* proton and
+Kelly's 0.77 π⁻ per *beam* particle are nearly the same number for a different denominator — which is
+the whole of the difference, and it is a target-design result rather than a disagreement about cross
+sections. Kelly et al. also assume every π⁻ becomes a usable μ⁻, so their figure is a
+**perfect-collection** cost, comparable like-for-like with §5.1's.
+
+**What it does to the balances**, at perfect collection and on this paper's own accounting:
+
+| balance at 4.69 GeV per π⁻ | |
+|---|---|
+| bred fuel, bound-case service life | **18.3** |
+| bred fuel, demonstrated 150 cycles | **4.67** |
+| heat, bound-case service life | **3.27** |
+| work, bound-case service life | **2.46** |
+| heat, demonstrated 150 cycles | 0.834 |
+| work, demonstrated 150 cycles | 0.625 |
+
+Every margin in this paper multiplies by 2.37, and the qualitative structure of §5.24 survives
+unchanged: the heat form at demonstrated cycle counts is still short — 0.834 — and still needs either
+the service life or the breeding credit. What changes is the size of the residual everywhere else.
+
+**This paper does not adopt 4.69 as its figure, and the reason is a status distinction, not caution
+for its own sake.** §5.1's 11.13 GeV is integrated from *measured* cross sections; 4.69 GeV is a
+*simulated* target optimisation. The corpus's own rule is that a status is never flattened. So both
+are carried: **11.13 GeV is this paper's spine and the conservative number, 4.69 GeV is what an
+optimised target is calculated to give**, and every balance stated in §5.14 through §5.25 is a floor
+in this respect as well as the others. A reader who prefers the simulated target may multiply.
+
+**One check on the simulation, and it is a partial disagreement.** Kelly et al. report their own
+energy gain as **0.65 to 0.78**, using 150 fusions and **3.9 GeV** of heat per muon. That heat figure
+is 26.0 MeV per fusion — which agrees with this paper's independently derived thermal value of
+26.06 MeV per fusion to better than a quarter of a percent, an agreement of two blanket accountings
+that share no input. Their Q is below unity where the table above puts the same case at 0.834 and
+0.625, so the disagreement is small and in the expected direction: their Q counts beam energy per
+*beam particle delivered*, and this paper's counts it per pion, which are the same only if every
+beam particle is used. **Their conclusion and this paper's agree: at demonstrated cycle counts, heat
+alone does not close the balance.**
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -1320,3 +1374,5 @@ binder's own decay rate (§5.20).
 6. Variational three-body calculation of muon-alpha sticking, Phys. Rev. A **34**, 2536.
 7. S. E. Koonin and M. Nauenberg, *Nature* **339**, 690.
 8. M. Lach, *The Method* v1.2-8 — *The Lach Cylinder: an index of transitions*.
+9. R. Spencer Kelly, L. J. F. Hart and S. J. Rose, *An investigation of efficient muon production for
+   use in muon catalyzed fusion*, J. Phys. Energy **3**, 035003.

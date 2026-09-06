@@ -479,6 +479,30 @@ BLANKET_MULT_SOURCED = 1.6      # x the neutron's energy, deposited in blanket
 FISSILE_PER_FUSION = 0.6        # sourced, against 0.7 reconstructed
 TBR_SOURCED = 1.15
 
+# SOURCED, Kelly, Hart & Rose, J. Phys. Energy 3 035003 (2021): a G4Beamline
+# optimisation of the production target itself. Their best configuration is a
+# 3.61 GeV deuteron beam on a tungsten rod 652 mm long and 5.1 mm across,
+# giving 0.77 pi- per BEAM PARTICLE -- not per interacting particle. That is
+# the difference from this paper's own figure: HARP measured a 5 percent
+# interaction-length target, where the beam's remaining energy leaves with it,
+# and sec.5.1 labelled its yield a lower bound for exactly this reason. A long
+# target lets the primary and its secondaries interact repeatedly.
+# They assume every pi- becomes a usable mu-, so their cost is a
+# perfect-collection figure, comparable like-for-like with cost_per_pion_produced().
+KELLY_BEAM_GEV = 3.61
+KELLY_PIMINUS_PER_BEAM = 0.77
+KELLY_TARGET_LEN_MM = 652.0
+KELLY_TARGET_DIA_MM = 5.1
+KELLY_HEAT_GEV_150 = 3.9     # their heat per muon at 150 fusions
+KELLY_Q_LO = 0.65
+KELLY_Q_HI = 0.78
+
+
+def kelly_cost_per_pion():
+    """Beam kinetic energy per pi- produced in an optimised thick target."""
+    return KELLY_BEAM_GEV / KELLY_PIMINUS_PER_BEAM
+
+
 PU239_FISSION_MEV = 200.0   # downstream yield of one bred 239Pu
 BREEDING_RATIO = 0.7        # bred nuclei per fusion after tritium self-sufficiency
 
