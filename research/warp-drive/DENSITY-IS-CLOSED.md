@@ -8,6 +8,12 @@ factorisation**; that paper is preserved unaltered.
 
 > **Scope.** Writes nothing into `method/` or `drive/`.
 
+> **§5(8) is qualified, 2026-09-06.** This paper says the class bound of ≈ 0.047 c "stands" with only
+> sphericity left. `SPHERICITY.md` measures the sphericity cost at **≥ 1.197×**, attempts to break it,
+> and has the attempt fail its own control — so that lever is **untested, not closed**, and **the class
+> bound is not final**. Everything else here stands: density shaping really is closed, and for the
+> reason given.
+
 ---
 
 ## Abstract

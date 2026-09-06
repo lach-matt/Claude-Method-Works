@@ -760,6 +760,46 @@ def factorisation_domain():
     dens = [density_phi(v) for v in DENSITY_SHAPED.values()]
     return (max(prof)/min(prof) - 1.0, max(dens)/min(dens) - 1.0)
 
+# ---------------------------------- sphericity: the cost measured, the test invalid
+#
+# Angular map of the binding ratio, uniform spherical shell + raised cosine,
+# vWarp = 0.035, theta measured from +x (the direction of motion).
+ANGULAR = [  # theta [deg], max |f|/rho, radius of that max, min null
+ ( 0, 0.1363, 14.00,  4.041e38),
+ (15, 0.1516, 11.75,  3.115e38),
+ (30, 0.2389, 10.50,  3.175e38),
+ (45, 0.3236, 10.00,  2.947e38),
+ (60, 0.4033, 10.50,  2.815e38),
+ (75, 0.4508, 10.50,  1.540e37),
+ (90, 0.4467, 10.00, -1.011e38),
+]
+
+# Attempted oblate test: R2eff = R2(1 + ecc sin^2 alpha), spherical radial
+# functions evaluated at the rescaled shell coordinate.  ecc, rho_max, floor
+# at vWarp = 0, and the null minimum at vWarp = 0.055.
+OBLATE = [
+ (0.0, 1.3616e40, -1.926e36, None),
+ (0.3, 1.8135e40, -2.386e39, -2.386e39),
+ (0.6, 2.2000e40, -4.577e39, -4.577e39),
+]
+
+def angular_load():
+    """Peak, solid-angle-weighted mean and polar value of the binding ratio."""
+    import math
+    num = den = 0.0
+    for t, r, _, _ in ANGULAR:
+        w = math.sin(math.radians(t)); num += r*w; den += w
+    peak = max(r for _, r, _, _ in ANGULAR)
+    pole = ANGULAR[0][1]
+    return dict(peak=peak, mean=num/den, pole=pole,
+                peak_over_mean=peak/(num/den), peak_over_pole=peak/pole)
+
+def oblate_control_failed():
+    """The v=0 floor must stay at the spherical value.  If the deformation alone
+    violates, the test says nothing about oblate shells."""
+    base = abs(OBLATE[0][2])
+    return [(e, abs(fl)/base, abs(fl)/base > 10.0) for e, _, fl, _ in OBLATE]
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -1421,6 +1461,51 @@ def report():
     p('    [4] One of the two escape routes is therefore CLOSED.  The class bound of')
     p('        ~0.047 c stands, and only SPHERICITY remains to break.')
     p()
+    p('  SPHERICITY: THE COST MEASURED, THE TEST INVALID')
+    p('  ' + '-' * 68)
+    al = angular_load()
+    p('    [1] The load is NOT spread over the shell.  Binding ratio by angle from')
+    p('        the direction of motion, uniform sphere + raised cosine, v = 0.035:')
+    p('        %-10s %11s %10s %13s' % ('theta[deg]', '|f|/rho', 'vs pole', 'min null'))
+    for t, r, _, nu in ANGULAR:
+        p('        %-10d %11.4f %9.2f x %13.3e%s'
+          % (t, r, r/al['pole'], nu, '   <- fails' if nu < 0 else ''))
+    p()
+    p('        peak                             %10.4f' % al['peak'])
+    p('        solid-angle-weighted mean        %10.4f' % al['mean'])
+    p('        polar                            %10.4f' % al['pole'])
+    p('        PEAK / MEAN                      %10.3f x' % al['peak_over_mean'])
+    p('        PEAK / POLE                      %10.3f x   (unreachable ceiling)'
+      % al['peak_over_pole'])
+    p()
+    p('        The design is limited by an equatorial belt while the polar caps')
+    p('        carry a third of the load.  That is the sphericity cost, measured.')
+    p()
+    p('    [2] The oblate test, and its control.  R2eff = R2(1 + ecc sin^2 alpha),')
+    p('        spherical radial functions at the rescaled shell coordinate.')
+    p('        %-8s %12s %14s %10s' % ('ecc', 'rho_max', 'floor at v=0', 'vs sphere'))
+    for (e, rm, fl, _), (_, ratio, bad) in zip(OBLATE, oblate_control_failed()):
+        p('        %-8.2f %12.4e %14.3e %9.1f x%s'
+          % (e, rm, fl, ratio, '   CONTROL FAILS' if bad else '   ok'))
+    p()
+    p('        At ecc > 0 the vWarp = 0 floor is ALREADY violating, by 1200x and')
+    p('        2400x, and the violation is IDENTICAL at every vWarp -- so all of it')
+    p('        is the deformation and none of it is the warp.')
+    p()
+    p('    [3] SO THE TEST IS INVALID, AND THE LEVER IS UNTESTED -- NOT CLOSED.')
+    p('        Evaluating spherical metric functions at a deformed coordinate does')
+    p('        not produce a valid matter distribution.  It is not a solution of')
+    p('        anything, and the control is what caught that.  Reporting "oblate')
+    p('        shells fail" from this run would be reporting an artefact.')
+    p()
+    p('        A valid test means solving the Hamiltonian and momentum constraints')
+    p('        for an oblate matter distribution -- numerical-relativity initial')
+    p('        data, not a deformed metric.  That is the open item.')
+    p()
+    p('    [4] So the class bound of ~0.047 c is NOT final.  Density is closed;')
+    p('        sphericity is measured to be worth at least %.2f x and remains open.'
+      % al['peak_over_mean'])
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -1615,6 +1700,17 @@ def selftest():
         (True, True))
     chk('the flux binds inward of where the density peaks',
         [r for r, _, _, _, n in RATIO_PROFILE if n < 0][0] < 15.5, True)
+    # sphericity
+    chk('the load is concentrated in the equatorial belt',
+        angular_load()['peak_over_pole'] > 3.0, True)
+    chk('peak over solid-angle mean', angular_load()['peak_over_mean'], 1.197, tol=0.02)
+    chk('only the transverse ray actually fails',
+        [t for t, _, _, n in ANGULAR if n < 0], [90])
+    chk('oblate control passes at ecc = 0', oblate_control_failed()[0][2], False)
+    chk('oblate control FAILS at ecc > 0',
+        [bad for _, _, bad in oblate_control_failed()[1:]], [True, True])
+    chk('the ecc>0 violation is independent of vWarp (so it is the deformation)',
+        OBLATE[1][2], OBLATE[1][3], tol=1e-9)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()
