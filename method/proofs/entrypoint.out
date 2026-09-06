@@ -1,0 +1,63 @@
+  THE ENTRY POINT, REBUILT FROM THE IONISATION ENERGIES
+
+  a_meas = (n - nu) / sqrt(p),  nu = sqrt(R / IE),  p = n - l - 1
+
+  1. REGISTER 1334, the 3p filling at constant n, l and p
+     el     IE (eV)       nu   a_meas   printed
+     Al      5.9858   1.5076   1.4924   1.49   agrees
+     Si      8.1517   1.2919   1.7081   1.71   agrees
+     P      10.4867   1.1390   1.8610   1.86   agrees
+     S      10.3600   1.1460   1.8540   1.85   agrees
+     Cl     12.9676   1.0243   1.9757   1.98   agrees
+     Ar     15.7596   0.9292   2.0708   2.07   agrees
+     Six of six.  a_meas rises as the subshell fills, which is register 1334's
+     point: nu depends on OCCUPANCY and the law has no coordinate for it.
+
+  2. REGISTER 1337, t at the opening
+     sub  el     a_meas          L          U        t   printed
+     3p   Al     1.4924  0.0000000  1.3660254   1.0925   1.0925   agrees
+     4p   Ga     1.7636  0.0000000  1.7071068   1.0331   1.0331   agrees
+     5p   In     2.0014  0.5773503  1.9840594   1.0124   1.0124   agrees
+     6p   Tl     2.2538  1.0000000  2.2247449   1.0237   1.0237   agrees
+     4d   Y      2.5207  0.0000000  1.3660254   1.8453   1.8453   agrees
+     5d   La     2.4311  0.7071068  1.7071068   1.7240   1.724   agrees
+     Six of six.  Every t exceeds 1 because a_meas sits ABOVE the corridor --
+     register 1334 counts it: 18 of 51 inside, 33 outside, systematically large.
+
+     median p = 1.0284  (printed 1.028)   against t(p) = 1
+     mean   d = 1.7846  (printed 1.785)   against t(d) = sqrt(3) = 1.7321
+     ratio    = 1.7354   +0.19% from sqrt(3)
+     the record's 34re-04 reports 0.25%, from 1.785/1.028 = 1.736381,
+     which divides two ROUNDED printed numbers.  The book's 0.19% is right.
+
+  3. THE f TEST, which register 1337 calls 'predicted and unmeasured'
+     It could not be run because no f opening had a two-sided corridor.  Under
+     M's ruling g is in the candidate set, 5g gives the 5f opening a floor, and
+     the corridor at protactinium is two-sided.  So the test runs.
+     Pa 5f: IE = 5.89 eV (AN ESTIMATE), nu = 1.519857, a_meas = 3.480143
+     corridor (0.0000000, 1.3660254)   t = 2.5476   against sqrt(6) = 2.4495
+
+     l    measured      t(l)   high by
+     p      1.0284    1.0000    +2.84%
+     d      1.7846    1.7321    +3.04%
+     f      2.5476    2.4495    +4.01%
+
+     Register 1337 records 'a common factor of 1.029, both p and d 2.9% high,
+     WHICH TWO l VALUES CANNOT ADJUDICATE'.  There are three now, and the factor
+     is NOT common: it drifts with l.
+
+  4. AND THE f RESULT IS ROBUST TO THE ESTIMATE
+     Protactinium's ionisation energy is an estimate, so the test is reported
+     across the plausible range rather than as one number:
+       IE (eV)        t  vs sqrt(6)
+          5.69   2.5283      +3.22%
+          5.79   2.5381      +3.62%
+          5.89   2.5476      +4.01%
+          5.99   2.5570      +4.39%
+          6.09   2.5661      +4.76%
+          6.19   2.5749      +5.12%
+     Over the whole range t runs 2.5283 to 2.5749, so f is high by +3.2% to +5.1%,
+     above the p and d factor at every point.  For t to reach sqrt(6) exactly the
+     ionisation energy would have to be 4.97 eV, far below any estimate.
+
+  Nothing is repaired here.
