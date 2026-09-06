@@ -118,8 +118,19 @@ skipped on every PR from #13 to #18: its third gate tested a secret that did not
 read `HAS_KEY: false`, and the check reported a green-looking `skipped`. Nothing was wrong and
 nothing was being reviewed, and the two are indistinguishable from outside.
 
-**Both workflows authenticate with `ANTHROPIC_API_KEY`** — a metered key from platform.claude.com,
-stored as a repository secret — and all three references agree.
+**Both workflows authenticate with `CLAUDE_CODE_OAUTH_TOKEN`** — a subscription token from
+`claude setup-token`, stored as a repository secret — and all three references agree. It draws on an
+allowance already paid for and adds no bill, which is why the route came back: the metered
+`ANTHROPIC_API_KEY` it replaced needs a prepaid balance, and an empty one is what returned HTTP 400
+below.
+
+**The subscription route is here on a second attempt, after being abandoned on a bad inference.** It
+failed three times earlier the same day and was dropped on the reading that its token was "rejected
+instantly" — a reading taken from `is_error: true` with an empty `modelUsage` and nothing else,
+because the error text was suppressed. The identical signature on the API key later resolved to a
+billing error that says nothing about token validity, so that reading never had the evidence it
+claimed. The route was never fairly tested, and this attempt runs with `show_full_output: true` from
+the start rather than inferring from a signature again.
 
 **The credential was never the problem, and an earlier revision of this file said it was.** Four
 runs died identically, each before any model call — `is_error: true`, `modelUsage: {}`, 206–2057 ms:
