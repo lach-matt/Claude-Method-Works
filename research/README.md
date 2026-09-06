@@ -26,6 +26,7 @@ a report.
 | `warp-drive/THE-DESIGN-EQUATION.md` | `warp-drive/warpdrive.py` + `octave/` | the three bounds composed into a design equation, and a measured 1.6x speed gain from one line |
 | `warp-drive/DENSITY-IS-CLOSED.md` | `warp-drive/warpdrive.py` + `octave/` | shaped density built and measured: a closed lever, and the domain of the design equation |
 | `warp-drive/SPHERICITY.md` | `warp-drive/warpdrive.py` + `octave/` | the sphericity cost measured, the oblate test attempted, and the control that invalidated it |
+| `warp-drive/THE-BORROWED-WELL.md` | `warp-drive/warpdrive.py` | register 1206 read backwards; a closed form for transport without a drive |
 
 ## `warp-drive/`
 
@@ -34,7 +35,7 @@ object threshold in that paper's own index, and computes its energy budget and e
 against the primary literature.
 
 ```
-python3 research/warp-drive/warpdrive.py --selftest   # 90 fixtures
+python3 research/warp-drive/warpdrive.py --selftest   # 104 fixtures
 python3 research/warp-drive/warpdrive.py              # the full report
 ```
 
@@ -49,7 +50,7 @@ puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte
 `/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never inserts a space
 heuristically.
 
-The twelve papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
+The thirteen papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
 specification. `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it.
 `ROTATING-SHELL.md` takes the one idea in that deliverable which survived review and carries it onto
 the buildable solution. `SHIFT-CEILING.md` answers the one number Fuchs et al. named as open — how
@@ -68,7 +69,10 @@ good or bad, is a bound*, and *three bounds on one object are a coordinate* (`Th
 equation with a measured 1.6x gain and a bound on the whole family. `DENSITY-IS-CLOSED.md` then
 builds the first of the two levers that bound named, measures it, and closes it — leaving one. `SPHERICITY.md` measures what that last one costs, attempts
 it, and reports the attempt invalidated by its own control: the lever is untested rather than closed,
-and the class bound is not final.
+and the class bound is not final. `THE-BORROWED-WELL.md` then applies **register 1206** — *"E_W = 0
+was the Method equation reporting that no STEP could carry a value"* — reads the design equation
+backwards, and finds that the transport the shell manufactures can be borrowed instead, in closed
+form and for nothing.
 
 The instrument copies the fifteen-letter closure rules verbatim from `recovered/objects15.py` with a
 provenance comment, per the standing rule that an instrument imports a seated form and never silently

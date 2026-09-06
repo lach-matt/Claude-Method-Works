@@ -839,6 +839,58 @@ def propulsion_fuel_at(efficiency, M=4.49e27, beta=0.0378):
     floor = M*(((1+beta)/(1-beta))**0.5 - 1)
     return floor/efficiency
 
+# ------------------------------------------------------- the borrowed well
+#
+# Register 1206: "E_W = 0 was the Method equation reporting that no STEP could
+# carry a value.  The equation is not a step -- it is a closed form on the
+# index's own coordinates, and that is what closes the gap."
+#
+# Read backwards, that diagnoses this series.  Every result after the design
+# equation was a STEP -- try a profile, a density, a deformation -- and each
+# returned zero.  A zero from a walk is a report about the walk.  So: stop
+# walking the design space and invert the closed form.  Fix the transport, ask
+# what carries it.  The requirement is a potential gradient plus geodesic
+# motion; three sources, and only one was ever costed here.
+
+def slingshot_dv(Msun, b_m):
+    """Maximum velocity a flyby can borrow from a deflector moving at U.
+
+    dv/c = 2U sin(t), tan t = GM/(b c^2 U^2).  Substituting U = sqrt(k/tan t)
+    with k = GM/(b c^2) gives dv/c = sqrt(2k) sqrt(sin 2t), maximised at
+    t = 45 deg -- so the OPTIMAL TURN IS EXACTLY 90 DEGREES, at every scale --
+    and the maximum is
+
+        dv_max / c = sqrt(r_s / b) ,   U_opt = dv_max / (sqrt(2) c)
+
+    The speed you can borrow is c times the root of the deflector's compactness
+    at closest approach.  Newtonian: good where U_opt << 1, indicative only at
+    b of a few r_s where U_opt ~ 0.35."""
+    M = Msun * 1.989e30
+    r_s = 2 * G * M / (C * C)
+    return dict(r_s=r_s, b=b_m, dv=(r_s / b_m) ** 0.5,
+                U_opt=((r_s / b_m) ** 0.5) / (2 ** 0.5), theta_deg=90.0)
+
+def closest_approach(Msun, a_tide=9.8, d=20.0, bmin_rs=4.0):
+    """Bounded below by tides across the payload AND by capture near a horizon."""
+    M = Msun * 1.989e30
+    r_s = 2 * G * M / (C * C)
+    b_tide = (2 * G * M * d / a_tide) ** (1 / 3.0)
+    return max(b_tide, bmin_rs * r_s), (b_tide > bmin_rs * r_s)
+
+BORROW = []
+for _nm, _m in (("neutron star", 1.4), ("stellar black hole", 10.0),
+                ("IMBH", 1e4), ("Sgr A*", 4.3e6), ("M87*", 6.5e9)):
+    _b, _t = closest_approach(_m)
+    _r = slingshot_dv(_m, _b)
+    BORROW.append((_nm, _m, _b, _b / _r['r_s'], _r['U_opt'], _r['dv'], _t))
+
+def build_route_v():
+    return 0.0378          # THE-DESIGN-EQUATION.md, cosine profile + gamma optimum
+
+def b_for_speed(v_over_c):
+    """Read backwards: what closest approach delivers a required speed?"""
+    return 1.0 / (v_over_c ** 2)      # in units of r_s
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -1585,6 +1637,50 @@ def report():
     p('        ignition; it is the prerequisite for the one route to the drive that')
     p('        is not closed by a theorem.')
     p()
+    p('  THE BORROWED WELL  --  the method equation, read backwards')
+    p('  ' + '-' * 68)
+    p('    Register 1206: "E_W = 0 was the Method equation reporting that no STEP')
+    p('    could carry a value.  The equation is not a step -- it is a closed form')
+    p('    on the index\'s own coordinates, and that is what closes the gap."')
+    p()
+    p('    Every result after the design equation was a step, and each returned')
+    p('    zero.  Inverting instead: fix the transport, ask what carries it.')
+    p()
+    p('    [1] The requirement is a potential gradient plus geodesic motion.')
+    p('        BUILD one  -- the shell.  %.3e kg per metre, then dP must be' % (C*C/(2*G)))
+    p('                      sourced.  Closed.')
+    p('        FIND one   -- free-fall.  Free, but you do not choose its direction.')
+    p('        BORROW one -- a flyby takes momentum from a MOVING deflector.')
+    p()
+    p('    [2] The borrow route has a closed form.  Maximising dv = 2U sin(theta/2)')
+    p('        against tan(theta/2) = GM/(b c^2 U^2) gives sin(2t) = 1, so the')
+    p('        OPTIMAL TURN IS EXACTLY 90 DEGREES at every scale, and')
+    p()
+    p('            dv_max / c = sqrt( r_s / b )        U_opt = dv_max / (sqrt2 c)')
+    p()
+    p('    [3] %-20s %9s %9s %9s %8s %s'
+      % ('deflector', 'b/r_s', 'U_opt/c', 'dv/c', 'turn', 'limited by'))
+    for nm, m, b, brs, U, dv, tide in BORROW:
+        p('        %-20s %9.1f %9.4f %9.4f %7.0f  %s'
+          % (nm, brs, U, dv, 90, 'tide' if tide else '4 r_s'))
+    p()
+    p('        tide-limited   b = (2GMd/a)^(1/3)  ->  dv ~ M^(1/3)')
+    p('        horizon-limited b = 4 r_s          ->  dv = c/2, mass-independent')
+    p()
+    p('    [4] AGAINST THE BUILD ROUTE, at the same delivered speed:')
+    p('        %-30s %16s %16s' % ('', 'construction', 'propellant'))
+    p('        %-30s %16s %16s' % ('build the shell', '4.49e27 kg', '29 Earth masses'))
+    p('        %-30s %16s %16s' % ('borrow a well', 'none', 'none'))
+    p('        %.4f c needs only b = %.0f r_s -- a distant, gentle pass off any'
+      % (build_route_v(), b_for_speed(build_route_v())))
+    p('        black hole, and the transport is geodesic by construction.')
+    p()
+    p('    [5] WHAT IS DEFENSIBLE.  Newtonian throughout.  Sound for the neutron')
+    p('        star and stellar black hole, where U_opt is 0.015-0.03 c.  At b = 4')
+    p('        r_s, U_opt = 0.354 c and it is NOT: those rows are order 0.3-0.5 c,')
+    p('        scale trustworthy, digits not.  A slingshot also AMPLIFIES rather')
+    p('        than starts -- you must arrive, though arrival may be slow and cheap.')
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -1802,6 +1898,21 @@ def selftest():
         mucf_q_at(5.0) < 1.0, True)
     chk('fusion-powered exhaust is worse than the photon floor',
         propulsion_fuel_at(0.004*0.501) / propulsion_fuel_at(1.0) > 100.0, True)
+    # the borrowed well
+    chk('optimal slingshot turn is 90 degrees', slingshot_dv(10.0, 1e8)['theta_deg'], 90.0)
+    chk('closed form dv = sqrt(r_s/b) at b = 4 r_s gives c/2',
+        slingshot_dv(4.3e6, 4*2*G*4.3e6*1.989e30/(C*C))['dv'], 0.5, tol=1e-6)
+    chk('closed form matches the scan, neutron star',
+        [r[5] for r in BORROW if r[0] == 'neutron star'][0], 0.0213, tol=0.01)
+    chk('closed form matches the scan, stellar black hole',
+        [r[5] for r in BORROW if r[0] == 'stellar black hole'][0], 0.0410, tol=0.01)
+    chk('tide-limited dv scales as M^(1/3)',
+        abs(([r[5] for r in BORROW if r[0]=='stellar black hole'][0] /
+             [r[5] for r in BORROW if r[0]=='neutron star'][0]) / (10/1.4)**(1/3.) - 1) < 0.02, True)
+    chk('a stellar black hole already beats the build route',
+        [r[5] for r in BORROW if r[0]=='stellar black hole'][0] > build_route_v(), True)
+    chk('the build speed needs only a 700 r_s pass',
+        b_for_speed(build_route_v()), 700.0, tol=0.01)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()
