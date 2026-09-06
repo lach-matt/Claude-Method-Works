@@ -388,6 +388,63 @@ def comet_cap():
     return 1000.0 * collector.pt_max(5.0 * 0.15)
 
 
+def _N(ws, phi):
+    return mucf.cycles(ws, phi)
+
+
+def asym_sin():
+    return 100.0 / ws_sin()
+
+
+def asym_psi():
+    return 100.0 / ws_psi()
+
+
+def phi90_sin():
+    w = ws_sin() / 100.0
+    return 9.0 * mucf.LAMBDA_0 / (w * mucf.LAMBDA_C)
+
+
+def N3_sin():
+    return _N(ws_sin() / 100.0, 3.0)
+
+
+def frac3_sin():
+    return 100.0 * N3_sin() / asym_sin()
+
+
+def tq3_sin():
+    return N3_sin() * (total_thermal() / 1000.0) / cost_pion()
+
+
+def tq_asym_sin():
+    return asym_sin() * (total_thermal() / 1000.0) / cost_pion()
+
+
+def wq3_sin():
+    return N3_sin() * (work_new() / 1000.0) / cost_pion()
+
+
+def tshort3_sin():
+    return 1.0 / tq3_sin()
+
+
+def net_extra_n():
+    return collector.net_per_extra_neutron()
+
+
+def therm_mult():
+    return collector.thermal_with_multiplier(1.6)
+
+
+def mult_16():
+    return therm_mult() / mucf.Q_FUS_MEV
+
+
+def wshort3_psi():
+    return 1.0 / (_N(ws_psi() / 100.0, 3.0) * (work_new() / 1000.0) / cost_pion())
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 

@@ -147,3 +147,18 @@ C145	bore at 20 T for 90 percent capture	13	cm	DERIVED	C144 / 20 T	fn:bore_90
 C146	aperture increase over the NF front end	1.74	x	DERIVED	C144 / C141	fn:br_ratio
 C147	COMET solenoid cap from the model	112	MeV/c	DERIVED	0.3 x 5 T x 0.15 m / 2, against its stated 100	fn:comet_cap
 C148	MuSIC demonstrator beam power	400	W	MEASURED	Cook et al. arXiv:1610.07850, maximum	none
+C149	service-life asymptote, SIN reading	672	cycles	DERIVED	1 / C113	fn:asym_sin
+C150	service-life asymptote, PSI reading	540	cycles	DERIVED	1 / C114	fn:asym_psi
+C151	density for 90 percent of the asymptote, SIN	10.9	LHD	DERIVED	9 lambda_0 / (omega_s lambda_c)	fn:phi90_sin
+C152	service life at phi=3, SIN reading	479.6	cycles	DERIVED	N(C113, 3)	fn:N3_sin
+C153	service life at phi=3 as fraction of asymptote	71.3	percent	DERIVED	C152 / C149	fn:frac3_sin
+C154	thermal gain at phi=3, SIN reading	0.964	dimensionless	DERIVED	C152 x C133 / C100	fn:tq3_sin
+C155	thermal gain at the asymptote, SIN reading	1.352	dimensionless	DERIVED	C149 x C133 / C100	fn:tq_asym_sin
+C156	work gain at phi=3, SIN reading	0.603	dimensionless	DERIVED	C152 x C136 / C100	fn:wq3_sin
+C157	thermal shortfall at phi=3, SIN reading	1.04	x	DERIVED	1 / C154	fn:tshort3_sin
+C158	Be neutron-multiplication endotherm	1.57	MeV	MEASURED	9Be(n,2n)2alpha	collector.BE_N2N_COST_MEV
+C159	net return per multiplied neutron	3.21	MeV	DERIVED	C131 - C158	fn:net_extra_n
+C160	thermal per fusion at 1.6 neutrons per source	24.31	MeV	DERIVED	blanket with a Be multiplier	fn:therm_mult
+C161	energy multiplication at 1.6 neutrons per source	1.382	x	DERIVED	C160 / C01	fn:mult_16
+C162	work shortfall at phi=3, PSI reading	1.95	x	DERIVED	1 / (N(C114,3) x C136 / C100)	fn:wshort3_psi
+C163	published blanket multiplication, low end	1.1	x	SOURCED	fusion blanket design range	none

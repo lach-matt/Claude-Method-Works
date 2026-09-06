@@ -47,31 +47,39 @@ pass. See `extracted/README.md` and `docs/CONSOLIDATE.md`.
 here that is neither mirror nor generated: `method/` and `drive/` are resource material for it and it
 never writes to them. Its shape follows the author's own standing ruling (`PROSE-ONLY.tsv` PO-0233) —
 each paper carries its own abstract and its own references, states its relation to the lattice, and
-takes no part in the main paper's subject matter. It holds
-**`Cold_Fusion_Binder_Economy_v1.0.md`** — the current paper, which supersedes and retires the
-other three — plus **`CLAIMS.tsv`**, the ledger of every quantity it states, and
-**`tools/verify_paper.py`**, which enforces the author's publication standard mechanically: it
-recomputes each `DERIVED` row from the instruments, binds each cited constant to the instrument
-holding it, and **fails on any number in the prose that no ledger row carries**. Run it after any edit
-to the paper or the ledger. The current paper adds the **eighth condition** — `E_binder < Q_fus ·
-f_work / ω_s`, i.e. 7.52 GeV as heat and 3.77 as work — against a sourced production-and-capture cost
-of **37.0 GeV per captured μ⁻** (HARP × MARS15, 20 T front end, thick Ta), giving a figure of merit of
-0.203 / 0.102 and a shortfall of 4.9 / 9.8. **The admissible set is not empty**: the requirement sits
-inside the 123× headroom to the kinematic floor, with a margin of 25.1 / 12.6. The retired
-**`Muon_Catalysed_Fusion_v1.1.md`**, which superseded the v1.0 held in `recovered/`,
-**`Corrigendum_MuCF_v1_0.md`**, the seven corrections as a standalone formal corrigendum, and
-**`Muon_Collection_Budget_v1.0.md`**, the per-stage collection budget v1.1's §5.5 names as its
-deciding open item — built with **`tools/collector.py`** from published MuSIC, Mu2e, COMET and PSI
-figures, and returning the correction that **the 5 GeV per muon at which the energy balance prices
-its binder is aspirational, not achieved**: the best published stopped-μ⁻ figure is 5 TeV, a factor
-of 1,000 higher. The algebra is unaffected and the headroom grows with the reference point — 16,667×
-to the kinematic floor against 2,551× required — and the deciding quantity reduces to one number,
-**15.3 %** of the front-end loss, which the capture term cancels out of and which no published figure
-resolves into cross-section versus acceptance. v1.0 itself
-is a generated file, md5-pinned in `recovered/LEDGER.tsv`, and is **never hand-edited** — which is why
-v1.1 is a new document and not a revision in place. Six of the seven corrections are drawn from the
-chat export and were banked nowhere before `docs/MUCF-ENERGY-AXIS.md`. **Docket C-8 stays open**: it
-closes only by seating a member, which would write to `method/`. See `papers/README.md`.
+takes no part in the main paper's subject matter.
+
+**`Cold_Fusion_Binder_Economy_v1.0.md` is the current paper**, and it supersedes and retires three
+others held beside it under banners: `Muon_Catalysed_Fusion_v1.1.md`, `Corrigendum_MuCF_v1_0.md` and
+`Muon_Collection_Budget_v1.0.md`. The v1.0 those descend from lives in `recovered/`, is md5-pinned in
+`recovered/LEDGER.tsv`, and is **never hand-edited** — which is why each successor is a new document
+rather than a revision in place. Six of the corrections it carries were drawn from the chat export and
+were banked nowhere before `docs/MUCF-ENERGY-AXIS.md`.
+
+**The publication standard is enforced mechanically, not by care.** `papers/CLAIMS.tsv` is the ledger
+of every quantity the paper states — value, unit, status, provenance, verifying computation — and
+**`tools/verify_paper.py`** runs three passes over it: it **recomputes** every `DERIVED` row from the
+instruments, **binds** every cited constant to the instrument holding it, and **fails on any number in
+the prose that no ledger row carries**. That third pass is the one that does the work: a sentence
+cannot acquire a figure the mathematics does not produce. **Run it after any edit to the paper or the
+ledger.** It governs the current paper only — the retired ones carry withdrawn figures by design and
+fail pass 3, which is correct and not a regression.
+
+The paper's spine is an **eighth condition** on the binder, added to the seven that admit the muon:
+`E_binder < Q_fus · f_work / ω_s`. Against a sourced production-and-capture cost of **37.0 GeV per
+captured μ⁻** it gives a figure of merit of 0.203 / 0.102 and a shortfall of 4.9 / 9.8, inside a 123×
+headroom to the kinematic floor. Integrating HARP's measured cross sections — large-angle and forward,
+with the solid-angle Jacobian, `tools/collector.py --production` — puts **production alone at
+11.13 GeV per pion**, so **collection efficiency cannot satisfy condition 8 on its own**: a perfect
+collector still leaves the heat form short by 1.48. Three results then move it. Sticking is
+**binder-mass-independent** (the mass cancels from the overlap that defines it), so condition 8 is a
+specification and not a search, and **no other particle in the known spectrum helps**. The convertible
+fraction is **0.795, not 0.501**, once the alpha is counted at the hot operating point §3.2 already
+requires and the exothermic ⁶Li breeding a d–t cycle must run anyway is included. And the residual
+localises to **one unresolved measurement**: the two published final stickings straddle the
+break-point, so the paper's own §3.5 protocol — neutron and X-ray routes run simultaneously on one
+target, a disagreement being a refusal rather than an average — now decides it. **Docket C-8 stays
+open**: it closes only by seating a member, which would write to `method/`. See `papers/README.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
 1,005 artefact names in the two live bundles: **813 held**, 15 held only under a figure's pre-rename
@@ -155,7 +163,11 @@ production cost `E_μ` that `recovered/Muon_Catalysed_Fusion_v1.0.md` §5.1 hold
 file here, only in the chat export, which `docs/MUCF-ENERGY-AXIS.md` banks — including that the
 energy gap is accelerator-dominated rather than sticking-dominated, that §5.1's Q counts heat
 against work, and that the two gaps §5 calls independent are **one collection chain read at two
-thresholds**. It refuses to choose between those two readings: both are the corpus's own)
+thresholds**. It refuses to choose between those two readings: both are the corpus's own),
+**`tools/collector.py`** (the collection budget and the production floor, built from published MuSIC,
+Mu2e, COMET, PSI and HARP figures; `--production` integrates the HARP cross sections, `--floor` prices
+the binder, `--collector` states the two gaps as one chain), **`tools/verify_paper.py`** (the
+publication-standard harness described under `papers/` above)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 59 pinned figures, ~3 s, exits 1 on drift. The

@@ -474,6 +474,57 @@ protocol, it is a bench measurement on an existing beam:
    perfect collection. Above it, it is not, and the residual is 1.17. Either way the work form is
    settled by §5.8 to within 1.18 to 1.47.
 
+### 5.11 The service-life cap is asymptotic, and reaching it costs density
+
+Condition 8 uses N ≤ 1/ω_s. **That cap is a limit as density grows without bound**, not a value
+attained at any operating point, because at finite density the binder's own decay takes a share. The
+satisfaction reported in §5.5 is therefore an asymptotic statement, and this section prices it.
+
+| | SIN reading | PSI reading |
+|---|---|---|
+| asymptote | 672 cycles | 540 cycles |
+| density for 90 percent of it | **10.9 LHD** | 8.7 LHD |
+| service life at three times liquid density | **479.6** | 408.3 |
+| that as a fraction of the asymptote | **71.3 percent** | 75.6 percent |
+
+The scanned experimental record ends at 1.5 times liquid density. **Reaching 90 percent of the cap
+needs about seven times beyond it**, at the high temperature §3.2 requires, which means pressure of
+order kilobars. That is a real and unaddressed engineering condition, and §5.5's margin does not
+survive without it.
+
+Carrying the corrected thermal accounting of §5.8 through to a reachable density:
+
+| reading | density | service life | thermal gain | work gain |
+|---|---|---|---|---|
+| SIN | 3 | 479.6 | **0.964** | 0.603 |
+| SIN | asymptote | 672 | **1.352** | 0.845 |
+| PSI | 3 | 408.3 | 0.821 | 0.513 |
+| PSI | asymptote | 540 | 1.086 | 0.679 |
+
+So on the favourable reading of the sticking, with the corrected blanket accounting, **the thermal
+balance passes at the asymptote by 1.352 and falls short at three times liquid density by 1.04.** The
+work balance is short everywhere, between 1.18 and 1.95.
+
+**This tightens §5.5 rather than overturning it.** The heat form is satisfiable, but only at a density
+seven times beyond anything run, and the shortfall at a merely extrapolated density is 1.04 — near
+enough that the density axis, not the sticking axis, may be what decides it.
+
+### 5.12 A neutron multiplier, bounded rather than adopted
+
+The blanket accounting of §5.8 assumes one neutron captured per fusion. Real designs add beryllium or
+lead to multiply neutrons through (n,2n), which tritium self-sufficiency requires anyway. The
+multiplication is endothermic — 1.57 MeV for beryllium — but each extra neutron then returns the
+breeding reaction's 4.78, a **net 3.21 MeV per multiplied neutron**.
+
+At 1.6 neutrons per source neutron the thermal yield reaches **24.31 MeV per fusion**, an energy
+multiplication of **1.382** against the 1.272 of §5.8.
+
+**This paper does not adopt that figure.** Published blanket multiplications span roughly 1.1 to 1.4
+and depend on a design this paper does not specify, so 1.272 — computed from a single reaction with a
+measured Q value and full capture — is what §5.8 carries, and 1.382 is recorded as the head of the
+band rather than as a result. The distinction matters: the first is arithmetic on a nuclear datum, the
+second is an estimate about an engineering choice.
+
 **Proton energy is not a lever.** The same source finds the beam-power-normalised yield flat within a
 tenth of its optimum across 4 to 11 gigaelectronvolts, with an optimum near 7. Any driver energy in
 that band is equivalent for this purpose.

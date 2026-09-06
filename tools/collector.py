@@ -447,6 +447,21 @@ def f_work_corrected():
     return work_per_fusion_mev() / Q_FUS_MEV
 
 
+BE_N2N_COST_MEV = 1.57     # 9Be(n,2n): endothermic, per multiplication
+
+
+def net_per_extra_neutron():
+    """A multiplied neutron costs the (n,2n) endotherm and returns 6Li's Q."""
+    return LI6_Q_MEV - BE_N2N_COST_MEV
+
+
+def thermal_with_multiplier(neutrons_per_source):
+    """Blanket thermal per fusion at a stated neutron multiplication."""
+    extra = neutrons_per_source - 1.0
+    return (ALPHA_MEV + NEUTRON_MEV - extra * BE_N2N_COST_MEV
+            + neutrons_per_source * LI6_Q_MEV)
+
+
 def cycles(ws, phi):
     return phi * LAMBDA_C / (LAMBDA_0 + ws * phi * LAMBDA_C)
 
