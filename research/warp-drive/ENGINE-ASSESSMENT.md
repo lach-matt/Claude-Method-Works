@@ -5,6 +5,17 @@
 **Prepared under the protocols of The Method v1.6.** Draft v1.0.
 Companion to `WARP-DRIVE.md`, which should be read first.
 
+> **§3.5 IS WITHDRAWN, 2026-09-06.** It prices muon-catalysed fusion with the production cost `E_µ`
+> **frozen at 5 GeV** and concludes break-even is unreachable. The cycle arithmetic stands; the
+> conclusion does not. A parallel session — branch `claude/cold-fusion-project-scope-jfitkc`,
+> `docs/MUCF-ENERGY-AXIS.md` — names freezing `E_µ` as the artefact, and it is right: `E_µ` sits
+> **16.7× above its 0.30 GeV kinematic floor**, and at *measured* sticking `Q = 1` crosses at
+> **2.93–3.90 GeV** (work-breakeven **1.96 GeV**), a 1.28–2.55× accelerator ask. Reproduced
+> independently here to 0.7 %. **Break-even does not need more cycles; it needs cheaper muons.** The
+> real blocker is the collector, not sticking. Everything else in this paper stands, including the
+> LENR/µCF conflation of §3.7(b) — which that branch's work makes sharper, not softer, since µCF is
+> the member with a route and LENR is not.
+
 > **Scope.** Reviews `drive/The Method Materials/warp drive theory.pdf`. Writes nothing into
 > `method/`, and nothing into `drive/` beyond seating the reviewed file itself in the mirror.
 > Findings are **recorded, never repaired**.

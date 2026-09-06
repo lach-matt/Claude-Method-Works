@@ -800,6 +800,45 @@ def oblate_control_failed():
     base = abs(OBLATE[0][2])
     return [(e, abs(fl)/base, abs(fl)/base > 10.0) for e, _, fl, _ in OBLATE]
 
+# -------------------------------- muCF, corrected from the cold-fusion branch
+#
+# ENGINE-ASSESSMENT.md section 3.5 priced muon-catalysed fusion with the muon
+# production cost E_mu FROZEN at 5 GeV, and concluded that break-even needs more
+# cycles than alpha-sticking allows.  The cycle arithmetic is right; the
+# conclusion is wrong, and the error is named exactly by a parallel session:
+#
+#   branch claude/cold-fusion-project-scope-jfitkc, docs/MUCF-ENERGY-AXIS.md
+#   "The two sections never meet, and 5.1's conclusion is an artefact of freezing
+#    the parameter 4 nominates as most movable."
+#
+# Break-even does not need more cycles.  It needs cheaper muons, and E_mu sits
+# 16.7x above its 0.30 GeV kinematic floor.  Reproduced here independently.
+
+MU_LAMBDA_C = 2.6e8      # s^-1, dtmu formation, saturation value
+MU_LAMBDA_0 = 1/2.197e-6 # s^-1, free muon decay
+MU_STICK    = 0.0045     # measured d-t alpha-sticking, SIN
+MU_EFUS_MEV = 17.59
+MU_WORK_FRAC = 0.501     # only this much of the fusion HEAT is convertible to work
+
+def mucf_cycles(phi, ws=MU_STICK):
+    """Decay-corrected cycles per muon:  N = phi*lam_c / (lam_0 + ws*phi*lam_c)."""
+    return phi*MU_LAMBDA_C / (MU_LAMBDA_0 + ws*phi*MU_LAMBDA_C)
+
+def mucf_crossover_gev(phi=None, work=False, ws=MU_STICK):
+    """Muon production cost at which Q = 1.  phi=None uses the sticking asymptote."""
+    n = 1.0/ws if phi is None else mucf_cycles(phi, ws)
+    e = n * MU_EFUS_MEV * (MU_WORK_FRAC if work else 1.0)
+    return e/1000.0
+
+def mucf_q_at(e_gev, phi=3.0, work=False):
+    return mucf_cycles(phi)*MU_EFUS_MEV*(MU_WORK_FRAC if work else 1.0)/(e_gev*1000.0)
+
+def propulsion_fuel_at(efficiency, M=4.49e27, beta=0.0378):
+    """Reaction mass needed if the exhaust energy comes from a source converting
+    `efficiency` of rest mass.  The photon-rocket floor is efficiency = 1."""
+    floor = M*(((1+beta)/(1-beta))**0.5 - 1)
+    return floor/efficiency
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -1506,6 +1545,46 @@ def report():
     p('        sphericity is measured to be worth at least %.2f x and remains open.'
       % al['peak_over_mean'])
     p()
+    p('  muCF: A CORRECTION FROM THE COLD-FUSION BRANCH, AND WHAT IT DOES NOT BUY')
+    p('  ' + '-' * 68)
+    p('    ENGINE-ASSESSMENT.md 3.5 froze the muon production cost at 5 GeV and')
+    p('    concluded muCF cannot break even.  A parallel session names that as the')
+    p('    artefact:  claude/cold-fusion-project-scope-jfitkc, docs/MUCF-ENERGY-AXIS.md')
+    p('    Reproduced here independently:')
+    p()
+    p('        %-34s %10s %12s' % ('', 'cycles N', 'Q=1 at E_mu'))
+    for phi, lab in ((1.2, 'phi = 1.2  (within record)'),
+                     (3.0, 'phi = 3.0  (extrapolated)')):
+        p('        %-34s %10.1f %10.2f GeV' % (lab, mucf_cycles(phi), mucf_crossover_gev(phi)))
+    p('        %-34s %10.1f %10.2f GeV'
+      % ('sticking asymptote N = 1/w_s', 1/MU_STICK, mucf_crossover_gev()))
+    p('        %-34s %10s %10.2f GeV'
+      % ('work-breakeven (50.1 % convertible)', '-', mucf_crossover_gev(work=True)))
+    p()
+    p('        Break-even does not need more CYCLES.  It needs cheaper MUONS, and')
+    p('        E_mu sits 16.7x above its 0.30 GeV kinematic floor.  My 3.5 conclusion')
+    p('        is withdrawn; its cycle arithmetic stands.')
+    p()
+    p('    AND YET IT DOES NOT UNLOCK THE DRIVE, because the blocker is momentum:')
+    p('        %-40s %14s' % ('exhaust source', 'Earth masses'))
+    for nm, eff in (('photon rocket, 100 % (the floor)', 1.0),
+                    ('D-T fusion heat, 0.4 %', 0.004),
+                    ('...times 50.1 % convertible', 0.004*0.501)):
+        p('        %-40s %14.1f' % (nm, propulsion_fuel_at(eff)/M_EARTH))
+    p()
+    p('        muCF is %.0f x WORSE than the floor, because the floor already assumes'
+      % (1/(0.004*0.501)))
+    p('        100 %% mass-to-radiation and fusion gives 0.2 %%.  p = E/c is not improved')
+    p('        by a better way to make E.  An energy source does not supply momentum.')
+    p()
+    p('    WHERE IT DOES CONNECT, and this is not a consolation:')
+    p('        ACCELERATION.md 4 names assembly-at-speed as the ONLY route a')
+    p('        conservation law does not close -- build the shell in the moving frame')
+    p('        from material sourced there.  That is an enormous ENERGY problem, and')
+    p('        a working fusion economy is its prerequisite.  muCF is not the drive\'s')
+    p('        ignition; it is the prerequisite for the one route to the drive that')
+    p('        is not closed by a theorem.')
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -1711,6 +1790,18 @@ def selftest():
         [bad for _, _, bad in oblate_control_failed()[1:]], [True, True])
     chk('the ecc>0 violation is independent of vWarp (so it is the deformation)',
         OBLATE[1][2], OBLATE[1][3], tol=1e-9)
+    # muCF, reproduced against the cold-fusion branch's figures
+    chk('muCF crossover at phi = 1.2, GeV', mucf_crossover_gev(1.2), 2.93, tol=0.02)
+    chk('muCF crossover at phi = 3.0, GeV', mucf_crossover_gev(3.0), 3.45, tol=0.02)
+    chk('muCF crossover at the sticking asymptote, GeV',
+        mucf_crossover_gev(), 3.90, tol=0.02)
+    chk('muCF work-breakeven, GeV', mucf_crossover_gev(work=True), 1.96, tol=0.02)
+    chk('at the 0.30 GeV kinematic floor Q is well above 1',
+        mucf_q_at(0.30) > 10.0, True)
+    chk('at 5 GeV it is below 1 -- which is what 3.5 measured',
+        mucf_q_at(5.0) < 1.0, True)
+    chk('fusion-powered exhaust is worse than the photon floor',
+        propulsion_fuel_at(0.004*0.501) / propulsion_fuel_at(1.0) > 100.0, True)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()
