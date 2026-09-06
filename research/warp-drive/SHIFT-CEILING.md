@@ -8,6 +8,10 @@ companions rather than prerequisites.
 
 > **Scope.** Writes nothing into `method/` or `drive/`. Findings recorded, never repaired.
 
+> **Superseded three times, 2026-09-06.** The ceiling was finally *measured* by running Warp
+> Factory: **0.0218 c**, against the 0.075 c below. See `MEASURED.md`. This paper over-estimated
+> by 3.46x.
+
 > **Superseded twice, 2026-09-06.** `SHELL-PROFILE.md` replaces the eyeballed pressure with a
 > TOV-integrated one; `SOURCE-CODE.md` then reads Warp Factory and finds that `v_warp` and
 > `β_warp` are **one parameter**, not a factor of two apart as §3 assumed. The velocity ceiling is

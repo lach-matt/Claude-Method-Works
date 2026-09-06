@@ -21,6 +21,7 @@ a report.
 | `warp-drive/SHELL-PROFILE.md` | `warp-drive/warpdrive.py` | the shell reconstructed by TOV integration; corrects the ceiling and gives the fill-fraction design rule |
 | `warp-drive/ACCELERATION.md` | `warp-drive/warpdrive.py` | why a positive-ADM-mass drive cannot self-accelerate, and what starting one costs |
 | `warp-drive/SOURCE-CODE.md` | `warp-drive/warpdrive.py` | what reading Warp Factory changed, including a factor of two against this series |
+| `warp-drive/MEASURED.md` | `warp-drive/warpdrive.py` + `octave/` | Warp Factory actually run; the ceiling measured at 0.0218 c and the prediction confirmed |
 
 ## `warp-drive/`
 
@@ -29,7 +30,7 @@ object threshold in that paper's own index, and computes its energy budget and e
 against the primary literature.
 
 ```
-python3 research/warp-drive/warpdrive.py --selftest   # 51 fixtures
+python3 research/warp-drive/warpdrive.py --selftest   # 59 fixtures
 python3 research/warp-drive/warpdrive.py              # the full report
 ```
 
@@ -44,7 +45,7 @@ puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte
 `/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never inserts a space
 heuristically.
 
-The seven papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
+The eight papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
 specification. `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it.
 `ROTATING-SHELL.md` takes the one idea in that deliverable which survived review and carries it onto
 the buildable solution. `SHIFT-CEILING.md` answers the one number Fuchs et al. named as open — how
@@ -54,7 +55,8 @@ downward, and `ACCELERATION.md` prices the problem all five defer. A paper is ne
 later finding: `SHIFT-CEILING.md` and `SHELL-PROFILE.md` carry notes naming what superseded them, and
 every state stands. `SOURCE-CODE.md` is where the series corrects itself — it reads the authors'
 published toolkit and finds two of this series' own inferences wrong, both in the flattering
-direction.
+direction. `MEASURED.md` then runs that toolkit under GNU Octave and replaces every inferred number
+with a measured one.
 
 The instrument copies the fifteen-letter closure rules verbatim from `recovered/objects15.py` with a
 provenance comment, per the standing rule that an instrument imports a seated form and never silently

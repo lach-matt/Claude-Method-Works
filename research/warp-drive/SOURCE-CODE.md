@@ -6,6 +6,11 @@
 Seventh of seven. **Supersedes numeric results in `SHIFT-CEILING.md` §3 and
 `SHELL-PROFILE.md` §4**, both preserved unaltered.
 
+> **Superseded in one number, and vindicated in its prediction, 2026-09-06.** `MEASURED.md` runs
+> Warp Factory under Octave: the ceiling is **0.0218 c**, so §4's 0.0289 c over-estimates by 1.33x —
+> the closest of the three. **§5's prediction held**: at `vWarp = 0.04` the NEC is violated by
+> 2.4e39 J/m^3. And §7 lists MATLAB as the blocker; it was not one.
+
 > **Scope.** Writes nothing into `method/` or `drive/`. Warp Factory is MIT-licensed and is **read,
 > never copied**: the functions in `warpdrive.py` marked *restated* are Python statements of what the
 > MATLAB computes, written for comparison, and the toolkit is cited.

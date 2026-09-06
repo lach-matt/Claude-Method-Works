@@ -8,6 +8,10 @@ unaltered; both states stand.
 
 > **Scope.** Writes nothing into `method/` or `drive/`.
 
+> **Superseded again, 2026-09-06.** `MEASURED.md` runs Warp Factory and measures the ceiling at
+> **0.0218 c**; this paper's 0.0579 c over-estimates by 2.67x. Its pressure reconstruction is
+> independently confirmed there ($\rho_{max} = 1.36\times10^{40}$ measured against 1.376 computed).
+
 > **Superseded in one number, 2026-09-06.** §4 carries `v/β = 2`, inferred from Fuchs *et al.*'s
 > Table 1 caption. `SOURCE-CODE.md` reads their implementation and finds `g_tx = −S·vWarp`, so
 > `vWarp` **is** the velocity: `v = β`. The velocity ceiling is **0.029 c**, not the 0.0579 c below.

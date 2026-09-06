@@ -526,6 +526,55 @@ def flux_that_would_permit(beta_target, p_mid, beta_ref=0.02):
     still inside the NEC ceiling.  Turns the eyeballed input into a prediction."""
     return beta_ref * (1.0 + p_mid) / 2.0 / beta_target
 
+# ------------------------------------------- measured, by running Warp Factory
+#
+# Warp Factory run under GNU Octave 8.4 (see research/warp-drive/octave/).  Published
+# parameters from Examples/4 Warp Shell/W1_Warp_Shell.mlx: R1 = 10, R2 = 20, Rbuff = 0,
+# sigma = 0, smoothFactor = 4000, m = R2 c^2/(2G) * 1/3 = 4.4886e27 kg.  Two grids.
+# Columns: vWarp, rho_max [J/m^3], |f|/rho, |p|/rho, then the four condition minima.
+
+MEASURED = {
+ 1.0: [  # dx = 1.0 m, grid 60 x 60 x 5
+  (0.000, 1.3616e40, 0.0000, 0.1935, -1.926e36, -3.212e36, -2.878e36, -2.554e36),
+  (0.010, 1.3615e40, 0.1506, 0.1933, -1.926e36, -3.212e36, -2.878e36, -2.554e36),
+  (0.020, 1.3618e40, 0.3011, 0.1927, -1.926e36, -3.212e36, -2.878e36, -2.554e36),
+  (0.022, 1.3619e40, 0.3312, 0.1926, -5.076e37, -5.076e37, -2.878e36, -2.554e36),
+  (0.024, 1.3620e40, 0.3613, 0.1924, -3.072e38, -3.072e38, -2.878e36, -2.554e36),
+  (0.026, 1.3621e40, 0.3914, 0.1922, -5.657e38, -5.657e38, -2.878e36, -2.554e36),
+  (0.028, 1.3622e40, 0.4214, 0.1920, -8.263e38, -8.263e38, -2.878e36, -2.554e36),
+  (0.030, 1.3623e40, 0.4514, 0.1918, -1.089e39, -1.089e39, -2.878e36, -2.554e36),
+  (0.035, 1.3626e40, 0.5265, 0.1911, -1.754e39, -1.754e39, -8.683e38, -3.237e39),
+  (0.038, 1.3628e40, 0.5715, 0.1909, -2.159e39, -2.159e39, -1.533e39, -4.297e39),
+  (0.040, 1.3629e40, 0.6014, 0.1907, -2.432e39, -2.432e39, -1.979e39, -4.888e39),
+  (0.045, 1.3633e40, 0.6763, 0.1903, -3.121e39, -3.121e39, -3.101e39, -6.158e39),
+ ],
+ 2.0: [  # dx = 0.5 m, grid 120 x 120 x 5
+  (0.000, 1.3593e40, 0.0000, 0.1944, -2.317e35, -2.317e35, -1.273e35, -2.213e35),
+  (0.020, 1.3597e40, 0.3013, 0.1940, -2.317e35, -2.317e35, -1.273e35, -2.213e35),
+  (0.025, 1.3600e40, 0.3765, 0.1938, -4.347e38, -4.347e38, -1.273e35, -2.213e35),
+  (0.030, 1.3603e40, 0.4516, 0.1935, -1.089e39, -1.089e39, -1.273e35, -2.213e35),
+  (0.040, 1.3611e40, 0.6015, 0.1930, -2.435e39, -2.435e39, -2.085e39, -4.914e39),
+ ],
+}
+
+def noise_floor(scale):
+    """The vWarp = 0 minimum: the bare shell carries no shift, so whatever it shows
+    is pure truncation error."""
+    return MEASURED[scale][0][4]
+
+def measured_threshold(scale):
+    """Least-squares zero of the null minimum in its linear regime above the floor."""
+    pts = [(v, m) for v, _, _, _, m, *_ in MEASURED[scale] if abs(m) > 10 * abs(noise_floor(scale))]
+    n = len(pts)
+    sx = sum(v for v, _ in pts); sy = sum(m for _, m in pts)
+    sxx = sum(v*v for v, _ in pts); sxy = sum(v*m for v, m in pts)
+    b = (n*sxy - sx*sy) / (n*sxx - sx*sx)
+    return -((sy - b*sx)/n) / b
+
+def flux_per_shift(scale=1.0):
+    """|f|/rho divided by vWarp -- constant if the shift enters linearly."""
+    return [(v, r/v) for v, _, r, *_ in MEASURED[scale] if v > 0]
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -943,6 +992,52 @@ def report():
     p('        plot here.  If that flux is below %.3f rho, 0.04 is safe and this' % thresh)
     p('        prediction is wrong; the eyeballed value was %.3f rho.' % 0.363)
     p()
+    p('  MEASURED -- WARP FACTORY, RUN')
+    p('  ' + '-' * 68)
+    p('    GNU Octave 8.4, published parameters, two grids.  The prediction above is')
+    p('    no longer a prediction.')
+    p()
+    p('    [1] The noise floor is identified exactly.  At vWarp = 0, 0.01 and 0.02 the')
+    p('        minima are bit-for-bit identical, so all of it is bare-shell truncation')
+    p('        error and none of it comes from the shift.')
+    p('        %-16s %14s %10s' % ('grid', 'floor [J/m^3]', 'ratio'))
+    f1, f2 = noise_floor(1.0), noise_floor(2.0)
+    p('        %-16s %14.3e %10s' % ('dx = 1.0 m', f1, '1.00'))
+    p('        %-16s %14.3e %10.2f' % ('dx = 0.5 m', f2, f1/f2))
+    p('        It falls under refinement.  Numerical, confirmed.')
+    p()
+    p('    [2] The violations do not.  Same vWarp, two grids:')
+    for v in (0.030, 0.040):
+        a = [r[4] for r in MEASURED[1.0] if abs(r[0]-v) < 1e-9][0]
+        b = [r[4] for r in MEASURED[2.0] if abs(r[0]-v) < 1e-9][0]
+        p('        vWarp %.3f   %11.4e   %11.4e   ratio %.4f' % (v, a, b, a/b))
+    p('        Grid-independent.  Physical, confirmed.')
+    p()
+    p('    [3] The shift enters exactly linearly, as the source said it would:')
+    p('        %-10s %12s' % ('vWarp', '(|f|/rho)/vWarp'))
+    for v, k in flux_per_shift(1.0)[:4]:
+        p('        %-10.3f %12.3f' % (v, k))
+    p()
+    t1, t2 = measured_threshold(1.0), measured_threshold(2.0)
+    p('    [4] THE CEILING, MEASURED.')
+    p('        threshold at dx = 1.0 m                 %10.5f' % t1)
+    p('        threshold at dx = 0.5 m                 %10.5f' % t2)
+    p('        agreement                                %9.4f %%' % (100*abs(t1-t2)/t2))
+    p()
+    p('        published operating point                %10.4f' % 0.020)
+    p('        headroom it actually has                 %10.3f x' % (t2/0.020))
+    p('        table 1 operating point                  %10.4f' % 0.040)
+    p('        over the ceiling by                      %9.0f %%' % (100*(0.040/t2 - 1)))
+    p()
+    p('    [5] Every closed form in this series was an over-estimate, as an upper')
+    p('        bound should be, and the last one by only a third:')
+    p('        %-40s %10s %8s' % ('', 'predicted', 'over by'))
+    for nm, pred in (('SHIFT-CEILING.md (eyeball p, v = 2b)', 0.0750),
+                     ('SHELL-PROFILE.md (TOV p, v = 2b)', 0.0579),
+                     ('SOURCE-CODE.md   (TOV p, v = b)', 0.0289)):
+        p('        %-40s %10.4f %7.2f x' % (nm, pred, pred/t2))
+    p('        %-40s %10.4f %8s' % ('MEASURED', t2, '-'))
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -1062,6 +1157,22 @@ def selftest():
         corrected_ceiling(tov_shell(10.,20.,4.49e27)['mid'])['v_max'], 0.0289, tol=0.02)
     chk('table 1 operating point exceeds that ceiling',
         0.04 > corrected_ceiling(tov_shell(10.,20.,4.49e27)['mid'])['v_max'], True)
+    # measured against Warp Factory
+    chk('noise floor falls under grid refinement',
+        noise_floor(1.0)/noise_floor(2.0) > 4.0, True)
+    chk('violation at vWarp = 0.03 is grid-independent',
+        [r[4] for r in MEASURED[1.0] if r[0]==0.030][0] /
+        [r[4] for r in MEASURED[2.0] if r[0]==0.030][0], 1.0, tol=0.01)
+    chk('vWarp = 0.02 sits exactly on the floor, both grids',
+        ([r[4] for r in MEASURED[1.0] if r[0]==0.020][0] == noise_floor(1.0),
+         [r[4] for r in MEASURED[2.0] if r[0]==0.020][0] == noise_floor(2.0)), (True, True))
+    chk('flux is linear in the shift', max(abs(k-15.06) for _, k in flux_per_shift(1.0)) < 0.2, True)
+    chk('measured threshold, dx = 0.5 m', measured_threshold(2.0), 0.0218, tol=0.02)
+    chk('two grids agree on the threshold to 1 %',
+        abs(measured_threshold(1.0)/measured_threshold(2.0) - 1) < 0.01, True)
+    chk('published 0.02 is inside the measured ceiling',
+        0.020 < measured_threshold(2.0), True)
+    chk('table 1 0.04 is outside it', 0.040 > measured_threshold(2.0), True)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()
