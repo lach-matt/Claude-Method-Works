@@ -33,4 +33,9 @@ D-21f	the reason `a` resets, asked for by M	FOUND IN THE CORPUS	registers 1401-1
 1414	register 1414 "the floor is -inf exactly when the entrant is node-free, 106 of 106"	CONVENTION-DEPENDENT, M TO RULE	true at 106/106 with g subshells admitted; false at eleven 5f steps without them	method/proofs/candidateset.py	FINDING-R4-09
 D-21g	§34.9's conclusion "L = -inf at every f opening"	CONVENTION-DEPENDENT, M TO RULE	true without g; false at 5f with g, where the floor is zero	method/proofs/candidateset.py	FINDING-R4-09
 1403	register 1403 "protactinium's L is degenerate at zero"	walk.py's ANSWER, NOT THE SEATED ONE	the seated r2-ch16y.out prints (-inf, 1.3660254) at Pa	method/proofs/candidateset.py	FINDING-R4-09
+R4-09a	"no observation distinguishes the two candidate sets"	WRONG, WITHDRAWN	COORDINATES.tsv holds 36 measured g channels, 32 of them ions, delta to 0.04010 rising with Z	method/proofs/gchannel.py	FINDING-R4-10
+S-01	the spectroscopic survey over all Z and every charge state	FOUND, NOT SEATED	104,832 rows, Z 1-120, charge 1-120, l 0-7, 358 measured and witnessed; held only in extracted/	method/proofs/gchannel.py	FINDING-R4-10
+S-02	P.lcollapse, the defect falling with l	VERIFIED ON THE SURVEY	median |delta| 1.0398 s, 0.6991 p, 0.1109 d, 0.0248 f, 0.00505 g, 0.00013 h -- monotone over six orders	method/proofs/gchannel.py	none needed
+S-03	§35 "every g channel sits at its hydrogenic depth ... does not respond to the nucleus"	CONTRADICTED BY THE SURVEY	24 of 36 measured g defects exceed 0.001, to 0.04010, and r(Z,|delta|) = +0.330	method/proofs/gchannel.py	FINDING-R4-10
+S-04	admitting g to the candidate set	COSTS NOTHING TO THE LAW	g never wins a step, corridors stay 106/106 non-empty either way; only the floor moves, at 16 steps, 11 of them to a > 0	method/proofs/gchannel.py	FINDING-R4-10
 

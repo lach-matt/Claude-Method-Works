@@ -55,9 +55,20 @@ false at 5f under both, because 5 − 3 − 1 = 1 either way. That is finding R4
 
 ## Why the data cannot settle it
 
-**No g subshell is occupied in any neutral atom in the table.** The two candidate sets therefore
-agree on every observation and differ only in what the law is permitted to **consider**. That is a
-statement about the law's domain, not about the elements, and no measurement reaches it.
+> **WITHDRAWN, and M withdrew it.** This section said no observation distinguishes the two candidate
+> sets. **It was wrong.** The claim was true only of GROUND configurations of NEUTRAL atoms, and M's
+> reply named what it missed: *"what about non neutrals? … I am supposed to have the entire
+> spectroscopic data for all 120 and their ions."* The survey exists —
+> `extracted/archives/method16-rp-b-data/COORDINATES.tsv`, 104,832 rows over Z = 1 to 120, every
+> charge state, ℓ = 0 to 7 — and it carries **thirty-six measured g channels, thirty-two of them in
+> ions**, with defects up to 0.04 that rise with Z. **Finding R4-10 supersedes this section.** What
+> survives of the finding below is the measurement of what the two candidate sets do to the law,
+> which R4-10 extends: admitting g moves a floor at sixteen steps and changes no prediction.
+
+**No g subshell is occupied in any neutral atom's GROUND configuration.** The two candidate sets
+therefore agree on every ground-state observation and differ only in what the law is permitted to
+**consider**. **They do not agree on the spectroscopic record**, which measures g channels in
+thirty-six species — see finding R4-10.
 
 **The seated instrument knows this and says so.** Its own comment reads:
 

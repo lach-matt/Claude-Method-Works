@@ -1,0 +1,100 @@
+  IS g IN THE CANDIDATE SET?  ASKED OF THE LAW AND OF THE SURVEY
+
+  1. WHAT THE LAW ITSELF ADMITS
+     The admissibility test is q < 2(2l+1).  An empty 5g has q = 0 and passes it.
+     Nothing in the law's statement mentions l, so excluding g is an extra clause
+     that has to come from somewhere other than the law.
+
+  2. WHAT ADMITTING g COSTS, over the 106 steps
+     g candidates offered:        80 step-pairs
+     of those, BINDING:           16
+       giving exactly a > 0:      11  -- the parameter's own domain, no information
+       giving a real bound:       5
+          Rf  104  entrant 6d  vs 5g   a > 0.5773503   (= 1/sqrt(3))
+          Db  105  entrant 6d  vs 5g   a > 0.5773503   (= 1/sqrt(3))
+          Sg  106  entrant 6d  vs 5g   a > 0.5773503   (= 1/sqrt(3))
+          Bh  107  entrant 6d  vs 5g   a > 0.5773503   (= 1/sqrt(3))
+          Hs  108  entrant 6d  vs 5g   a > 0.5773503   (= 1/sqrt(3))
+     corridors non-empty, l <= 3: 106 of 106
+     corridors non-empty, l <= 4: 106 of 106
+     a g subshell wins the step:  NEVER
+     So admitting g never changes which subshell the law selects and never
+     empties a corridor.  It moves the FLOOR at sixteen steps and nothing else.
+
+  3. WHAT THE SURVEY HOLDS
+     COORDINATES.tsv: 104,832 rows, Z = 1 to 120, core charge 1 to 120, l = 0 to 7
+     358 measured and witnessed; 929 exact; the rest computed
+
+     MEASURED g CHANNELS: 36  -- 32 in IONS, 4 in neutrals
+        He I      delta =  -0.00140   captured levels
+        Li II     delta =  +0.00000   captured levels
+        Li III    delta =  +0.00030   captured levels
+        Be II     delta =  -0.00010   captured levels
+        Be III    delta =  +0.00020   captured levels
+        Be IV     delta =  +0.00010   captured levels
+        B II      delta =  -0.04010   captured levels
+        B III     delta =  +0.00010   captured levels
+        B IV      delta =  +0.00020   captured levels
+        B V       delta =  +0.00030   captured levels
+        C II      delta =  +0.00540   captured levels
+        C III     delta =  +0.01260   captured levels
+        C V       delta =  +0.01520   captured levels
+        C V       delta =  +0.01530   captured levels
+        N III     delta =  +0.00220   captured levels
+        O IV      delta =  -0.00280   captured levels
+        Na I      delta =  +0.00042   NIST ASD fetched 2026-08-14 (session 1.8 que
+        Mg II     delta =  +0.00070   captured levels
+        Al I      delta =  +0.00841   NIST ASD fetched 2026-08-14 (session 1.8 que
+        Al III    delta =  +0.00100   captured levels
+        Si II     delta =  +0.01740   captured levels
+        Si III    delta =  +0.02660   captured levels
+        Si III    delta =  +0.02807   captured levels
+        Si IV     delta =  +0.00110   captured levels
+        P III     delta =  +0.01970   captured levels
+        S VI      delta =  +0.00100   captured levels
+        Ca II     delta =  +0.00480   captured levels
+        Sc III    delta =  +0.00730   captured levels
+        Zn II     delta =  +0.00380   captured levels
+        Ge III    delta =  +0.01810   captured levels
+        Sr II     delta =  +0.00980   captured levels
+        Cd II     delta =  +0.00760   captured levels
+        Cs I      delta =  +0.00667   NIST ASD fetched 2026-08-14 (session 1.8 que
+        Ba II     delta =  +0.01850   captured levels
+        Hg II     delta =  +0.00530   captured levels
+        Bi III    delta =  +0.03805   captured levels
+     and one measured h channel (l = 5): Na I, delta = 0.00013
+
+  4. CHAPTER 35's CRITERION, TESTED ON THE SURVEY
+     'every g channel ... sits at its hydrogenic depth to the storage precision
+      ... a channel that does not respond to the nucleus is not in the field.'
+     A quantum defect of zero IS hydrogenic depth.  Measured, by l:
+         l  measured  |delta| min  |delta| max     median
+         s        92      0.00030      5.07221    1.03980
+         p        81      0.00020      4.59521    0.69910
+         d        89      0.00020      3.11838    0.11090
+         f        59      0.00000      1.12064    0.02480
+         g        36      0.00000      0.04010    0.00505
+         h         1      0.00013      0.00013    0.00013
+         i         0
+         ?         0
+     g defects run to 0.04010, and 24 of 36 exceed 0.001.  They are small and they are NOT zero.
+     r(Z, |delta|) over the measured g channels = +0.330, so they
+     rise with the nucleus -- which is the corpus's own high-l mechanism, the
+     defect following core polarisability beyond l = 3.
+     The l-collapse ladder above is the corpus's own law reproduced: the median
+     defect falls monotonically from s to h across six orders of magnitude.
+
+  5. WHAT THIS SETTLES
+     g channels EXIST and are MEASURED, in thirty-six species, thirty-two of them
+     ions.  So 'no observation distinguishes the two candidate sets' was wrong,
+     and 'g does not respond to the nucleus' is not what the survey shows.
+     Neither ground for excluding g survives the data.
+
+  6. WHAT IS STILL M's, and it is narrower than it was
+     A measured g channel is a RYDBERG channel.  No element below Z = 121 has a g
+     electron in its GROUND configuration, and the law is about ground occupancy.
+     So the question is no longer 'does g exist' -- it does -- but 'may the law
+     consider a channel that exists and is never the ground entrant'.
+     The law's own test admits it; the ground data never exercises it; and the
+     cost of admitting it is one moved floor at sixteen steps, eleven of which
+     move it only to a > 0.  Nothing is repaired here.
