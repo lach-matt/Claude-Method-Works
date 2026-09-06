@@ -187,7 +187,7 @@ channel alone, and no choice of binder improves it.
 
 **Target.** Hydrogen isotopes only; elements above hydrogen capture the binder preferentially and
 terminate the chain, so purity is a requirement and not a refinement. The tritium fraction is not
-critical, the transfer step auto-optimising the population. **the companion paper's §2.4 puts a number on the purity
+critical, the transfer step auto-optimising the population. **The companion's §2.4 puts a number on the purity
 requirement**: transfer to oxygen runs at about 1 × 10¹⁰ s⁻¹ per liquid density of oxygen, so at the
 density §5.13 brackets, a contamination of **5.49 ppm** costs as much binder as decay does. Purity
 better than one part per million is the working requirement, and it tightens linearly with density.
@@ -546,7 +546,7 @@ satisfaction reported in §5.5 is therefore an asymptotic statement, and this se
 The scanned experimental record ends at 1.5 times liquid density. **Reaching 90 percent of the cap
 needs about seven times beyond it**, at the high temperature §3.2 requires. §5.13 prices that in
 pressure and finds a structural bound rather than an engineering one. §5.5's margin does not survive
-without it. **Note that ninety percent of the cap is not breakeven** — the companion paper's §2.5 solves for the density at
+without it. **Note that ninety percent of the cap is not breakeven** — the companion's §2.5 solves for the density at
 which each balance equals one and finds **2.10** for the heat form and less than liquid density for
 the bred-fuel form, so this table states the ceiling rather than the requirement.
 
@@ -613,7 +613,7 @@ condition below, a degeneracy condition above.
 > principle, and §5.11's figures at three times liquid density are the ones that describe a physical
 > operating point.
 
-**Read the companion paper's §2.5 before taking this as a limit on the result.** What is bounded here is the *asymptotic*
+**Read the companion's §2.5 before taking this as a limit on the result.** What is bounded here is the *asymptotic*
 service life. Breakeven needs far less: **2.10** times liquid density for the heat form at perfect
 collection, and **0.730** or less for the bred-fuel form at every collection efficiency this paper
 considers — below liquid density, so no compression at all. The bound above is real and it constrains
@@ -909,7 +909,9 @@ that external-field stripping is defeated by a space–time overlap factor by ab
 finding concerns a *focused beam* attempting collisional stripping. The proposal here is *resonant
 photo-ionisation* at the bound binder's own eigenfrequency, exploiting its chaotic instability —
 a different mechanism, not a better beam. **Whether the no-go extends to it is not settled**, and per
-§3.5 this paper records both rather than averaging them or choosing.
+§3.5 this paper records both rather than averaging them or choosing. **The route is priced and capped
+in the companion's §2.1 and §2.6**, which put the gain at 1.39 in cycles and find it limited by
+transport of the freed binder rather than by the field.
 
 **One further confirmation for §5.15.** The temperature dependence of muon loss has been measured not
 only over the five-to-sixteen-kelvin range §5.15 cites but across **85 to 790 K** in the d+d system,
@@ -1235,12 +1237,12 @@ cycle energy and its historical anchors at 124 and 150 fusions, from [12]; the e
 network, its 7.2 × 10⁷ J/cm² reference fluence and its 112.6 to 156.5 yield gain, from [13]; and the
 coupled-channel initial sticking 8.57 × 10⁻³ with intramolecular fusion rate 1.15 × 10¹² s⁻¹ from [14].
 **None of these is adopted in place of a figure this paper derives**; each is carried beside it, and
-the companion paper's §§2.2–2.6 state what each does to the balances if a reader prefers it.
+The companion's §§2.2–2.6 state what each does to the balances if a reader prefers it.
 
 **Bounds, never targets:** the kinematic floor at 0.30 GeV, and the sticking asymptote 1/ω_s.
 
 **Known to be wrong in a stated direction:** the service-life model, which over-predicts its one
-checkable point by **2.24** (the companion paper's §2.5). Every figure computed at the "bound case" inherits that; no
+checkable point by **2.24** (the companion's §2.5). Every figure computed at the "bound case" inherits that; no
 figure computed at the measured 150 cycles does.
 
 ## 8. What this paper retires
@@ -1272,7 +1274,7 @@ binder, which is unsupported. §5 states the position that survives: the set is 
 requirement lies inside the headroom.
 
 **Found late and not repaired, because repairing it would be a choice this paper has no grounds to
-make.** the companion paper's §2.5 shows the service-life model over-predicts the one measurement it can be checked against
+make.** The companion's §2.5 shows the service-life model over-predicts the one measurement it can be checked against
 by a factor of **2.24**. The paper carries the finding rather than adjusting the model, states which of
 its figures depend on the model and which do not, and names the measurement that would decide it
 (§10.2). A model that fits its only checkable point by construction would be worth less than one that
@@ -1290,17 +1292,17 @@ paper computes no absolute rate: it prices a binder and compares that price to a
 whole of its claim.
 
 **The service-life model over-predicts its one checkable point by 2.24**, returning 335.3 cycles at
-Los Alamos conditions where 150 were measured (the companion paper's §2.5). Every "bound case" figure in §§5.11–5.25 rests
+Los Alamos conditions where 150 were measured (the companion's §2.5). Every "bound case" figure in §§5.11–5.25 rests
 on that model; the bred-fuel headline figures do not, using the measured 150 and the sourced blanket
 instead. Whether the discrepancy is a density-dependent reactivation term or an unrealised reduction
 is not settled here, and §10's Stage B is what settles it.
 
 **Three limits added late, and each runs against the result rather than for it.** Every balance here
-assumes **perfectly pure fuel**, and the companion paper's §2.4 shows a contamination of **5.49 ppm** costs as much binder
+assumes **perfectly pure fuel**, and the companion's §2.4 shows a contamination of **5.49 ppm** costs as much binder
 as decay does at the bracketed density — so all of them are overestimates by a factor no experiment
 here bounds. Every collection figure is an **acceptance** and not a delivered-to-target efficiency
 (§5.25), which is necessary and not sufficient. And the temperature dependence §5.15 relies on is
-**confounded with purity and density** in the existing record (the companion paper's §2.4), so the axis it inverts the
+**confounded with purity and density** in the existing record (the companion's §2.4), so the axis it inverts the
 shortfall onto is not cleanly separated from two others.
 
 **The state of the question, plainly.** The reaction is defined, unique, demonstrated, and its
@@ -1314,7 +1316,7 @@ remaining four percent is inside the uncertainty of several inputs, and every ef
 runs against it.
 
 **And the production figure itself is conservative by a factor the literature has already measured.**
-the companion paper's §2.2 records that an optimised thick target is calculated to cost **4.69 GeV** per pion against this
+The companion's §2.2 records that an optimised thick target is calculated to cost **4.69 GeV** per pion against this
 paper's thin-target measured **11.13** — a ratio of **2.37** by which every balance above may be
 multiplied by a reader who prefers the simulation. This paper keeps the measured figure as its spine
 because a status is never flattened, not because the simulated one is doubted.
@@ -1358,9 +1360,9 @@ What would change the answer, in the order this paper can rank them:
    and work routes need it; the bred-fuel route does not. §5.22 prices it as a shielding trade of
    about 2.7 in coil heating, not a new magnet.
 3. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
-   bench experiment on an existing beam, and the companion paper's §2.4 records that a collaboration is already running
+   bench experiment on an existing beam, and the companion's §2.4 records that a collaboration is already running
    the adjacent measurement. It bears on the heat route and not on the bred-fuel one.
-3a. **Fuel purity, and its separation from temperature and density.** the companion paper's §2.4 prices the impurity
+3a. **Fuel purity, and its separation from temperature and density.** The companion's §2.4 prices the impurity
    channel for the first time: at the bound-case density, a contamination of 5.49 ppm costs as much
    binder as decay does, and every balance in this paper assumes perfect purity. The same measurement
    separates §5.15's temperature reading from a purity reading, which the existing record confounds.
@@ -1368,11 +1370,11 @@ What would change the answer, in the order this paper can rank them:
    §5.20 records the muon-loss dependence measured across 85 to 790 K in the d+d system, in the
    favourable direction.
 5. **Where molecular hydrogen ceases to be molecular at 800 K** — much less important than it looked.
-   the companion paper's §2.5 shows the heat route breaks even at **2.10** times liquid density rather than at the bound
+   The companion's §2.5 shows the heat route breaks even at **2.10** times liquid density rather than at the bound
    case's 8.5, and the bred-fuel route at **0.730** or less, which is below liquid density. §5.13's
    structural bound therefore constrains only the asymptotic service life, not breakeven on either
    route.
-6. **The resonant stripping enhancement of the companion paper's §2.1** — no longer unquantified, and the companion paper's §2.6 is why it stays
+6. **The resonant stripping enhancement** (the companion's §2.1) — no longer unquantified, and its §2.6 is why it stays
    last. An independent rate network puts the gain at **1.39** in cycles against a collection factor
    of 1.64 to 3.33 and a production factor of 2.37, and finds the route limited by post-stripping
    transport rather than by the field. It is the smallest of the three levers and the only one that
@@ -1442,7 +1444,7 @@ instrument this stage needs.
 binder. The muonic helium K-alpha line at **8.2 keV** counts stuck binders directly. They share no
 instrument and no calibration, which is what makes them two routes rather than one.
 
-**Purity is a variable of the experiment, not a precondition of it.** the companion paper's §2.4 prices transfer to a
+**Purity is a variable of the experiment, not a precondition of it.** The companion's §2.4 prices transfer to a
 high-Z contaminant at about **1 × 10¹⁰ s⁻¹** per liquid density of oxygen, so at the bracketed density
 a contamination of **5.49 ppm** costs as much binder as decay does. The existing record confounds
 purity with density and temperature — its cleanest data are also its coldest and densest — so a purity
@@ -1457,7 +1459,7 @@ final values, **0.45** and **0.56 percent**, carry into the excited-state channe
 perfect collection; above it the residual is **1.17**. If the two routes disagree, §3.5 governs:
 report a bound, not a mean.
 
-**And this stage settles the companion paper's §2.5's over-prediction, which is the larger question.** The service-life
+**And this stage settles the companion's §2.5 over-prediction, which is the larger question.** The service-life
 model returns **335.3** cycles at Los Alamos conditions where **150** were measured — a factor of
 **2.24** — and returns **166.8** if the excited-state reduction is not applied. A determination of
 effective sticking *as a function of density* decides between those two readings, and with it whether
