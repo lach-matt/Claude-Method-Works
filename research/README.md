@@ -17,6 +17,7 @@ a report.
 | `warp-drive/WARP-DRIVE.md` | `warp-drive/warpdrive.py` | where a warp drive sits in the fifteen-letter violation index, what warp energy is, and which engine can be built |
 | `warp-drive/ENGINE-ASSESSMENT.md` | `warp-drive/warpdrive.py` | *Warp Drive Theory* (the Drive design deliverable) checked against the physics it invokes |
 | `warp-drive/ROTATING-SHELL.md` | `warp-drive/warpdrive.py` | whether counter-rotation can be carried onto a positive-energy warp shell, and what it costs |
+| `warp-drive/SHIFT-CEILING.md` | `warp-drive/warpdrive.py` | a closed form for the shift-vector limit Fuchs et al. left open, and the top speed it implies |
 
 ## `warp-drive/`
 
@@ -25,7 +26,7 @@ object threshold in that paper's own index, and computes its energy budget and e
 against the primary literature.
 
 ```
-python3 research/warp-drive/warpdrive.py --selftest   # 33 fixtures
+python3 research/warp-drive/warpdrive.py --selftest   # 39 fixtures
 python3 research/warp-drive/warpdrive.py              # the full report
 ```
 
@@ -40,7 +41,11 @@ puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte
 `/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never inserts a space
 heuristically.
 
-The three papers run in order: `WARP-DRIVE.md` places the object and gives the buildable specification, `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it, and `ROTATING-SHELL.md` takes the one idea in that deliverable which survived review and carries it onto the buildable solution.
+The four papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
+specification. `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it.
+`ROTATING-SHELL.md` takes the one idea in that deliverable which survived review and carries it onto
+the buildable solution. `SHIFT-CEILING.md` answers the one number Fuchs et al. named as open — how
+far the shift vector can be pushed before the drive stops being physical — and finds a closed form.
 
 The instrument copies the fifteen-letter closure rules verbatim from `recovered/objects15.py` with a
 provenance comment, per the standing rule that an instrument imports a seated form and never silently
