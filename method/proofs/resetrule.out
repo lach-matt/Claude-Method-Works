@@ -1,0 +1,70 @@
+  THE RESET RULE, FOUND IN THE CORPUS AND TESTED
+  Registers 1401-1410, staged in the conversation 'The Method 1.7' and never
+  carried into the volumes.
+
+  1. REGISTER 1401 -- `a` moves exactly when the running intersection of
+     corridors empties.  Arithmetic on intervals alone; no subshell enters it.
+     1401 prints fourteen forced moves: 37 42 43 45 55 58 64 65 80 91 96 97 103 104
+     measured:                          37 42 43 45 55 58 64 65 80 91 96 97 103 104
+     identical: True
+     false positives (forced but not a recorded reset): none
+     recorded resets NOT forced this way: Li 3, K 19, Tl 81, Fr 87
+
+  2. THE FOUR THE RULE DOES NOT FORCE
+     1401 says: 'every one the first element of a new period'.
+     Li    3  first element of a period
+     K    19  first element of a period
+     Tl   81  NOT a period start -- it opens the 6p block, period 6 begins at Cs 55
+     Fr   87  first element of a period
+     3 of 4 are period openings; 1 is a block opening. 1401's wording covers three of four.
+
+  3. REGISTER 1403 -- `a` lands on an endpoint, never in the interior
+        Z el          a           lo           hi   at
+        3 Li     0.0000    -0.000000         +inf   L
+       19 K      0.5774     0.577350         +inf   L
+       37 Rb     1.0000     1.000000         +inf   L
+       42 Mo     1.0000    -0.000000     1.000000   U
+       43 Tc     1.0000     1.000000     4.236068   L
+       45 Rh     1.0000    -0.000000     1.000000   U
+       55 Cs     1.2168     1.216761         +inf   L
+       58 Ce     0.7071         -inf     0.707107   U
+       64 Gd     0.7071     0.707107     1.707107   L
+       65 Tb     0.7071         -inf     0.707107   U
+       80 Hg     0.8090     0.809017     4.685558   L
+       81 Tl     1.0000     1.000000     2.224745   L
+       87 Fr     1.3938     1.393847         +inf   L
+       91 Pa     1.3660    -0.000000     1.366025   U
+       96 Cm     1.3660     1.366025     1.984059   L
+       97 Bk     1.3660    -0.000000     1.366025   U
+      103 Lr     1.9841     1.984059     2.440910   L
+      104 Rf     1.9841     0.577350     1.984059   U
+     11 at L · 7 at U · 0 in the interior.  1403's placement rule holds at every one.
+
+  4. REGISTER 1404 -- four pairs whose corridors meet at a single point
+     Mo  (-0.0000, 1.0000)      and Tc  (1.0000, 4.2361)       meet at 1.000000   a single point
+     Gd  (0.7071, 1.7071)       and Tb  (-inf, 0.7071)         meet at 0.707107   a single point
+     Cm  (1.3660, 1.9841)       and Bk  (-0.0000, 1.3660)      meet at 1.366025   a single point
+     Lr  (1.9841, 2.4409)       and Rf  (0.5774, 1.9841)       meet at 1.984059   a single point
+     Empty as an open interval, so the second reset is forced and the two are
+     one event.  This is the derived form of what walkresets.py measures as a
+     boundary touch: `a` does not move, the strict test simply fails.
+
+  5. REGISTER 1402 -- the count belongs to the policy, not to the corridor
+     1402 prints: nearest 10 · always-lower 12 · always-upper 17 · midpoint 21
+                  · farther 22 · 200 random interior, 18 to 33, median 26
+     POLICY-NOT-DEFINED: 1402 does not define its policies precisely enough to
+     reproduce those five counts, and the random figure needs its seed. What
+     reproduces is the CLAIM, which is that the count varies widely:
+       policy                  closed test   open test
+       nearest endpoint                  9          61
+       always the lower                 10          69
+       always the upper                 10          69
+       the midpoint                     20          21
+       the farther endpoint             12          75
+     9 to 75 recalibrations over the same 106 steps and the same corridors.
+     So membership cannot be the derived condition and emptiness can, which is
+     1402's point and is confirmed.
+
+  WHAT THIS ANSWERS
+     Section 34.6 gives no reason for its reset claims. The corpus has one, it is
+     exact, and it is about intervals rather than subshells. Nothing is repaired.

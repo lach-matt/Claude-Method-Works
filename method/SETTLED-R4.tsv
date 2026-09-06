@@ -23,3 +23,10 @@ D-61	main §23.10.4 and App E.2 "1,585-fold"	NOT A DEFECT, WITHDRAWN	the printed
 E-035	main §14.5 "a compression of 139 to 1, exactly"	STANDS, PROSE	976/7 = 139.428571 with both inputs exact counts; the figure is a fair rounding, the word "exactly" is not	method/proofs/precision.py	FINDING-R4-07
 F-033	main L8206 "a factor of five and a half"	STANDS	54/10 = 5.4 with both inputs exact counts; no precision defence	method/proofs/precision.py	FINDING-R4-07
 E-110	main §26.6 Aitken table, T/3 at n = 20	STANDS, ONE PLACE	274.3433/3 = 91.447767 against a printed 91.4477; the other three rows agree exactly	method/proofs/precision.py	FINDING-R4-07
+D-21f	the reason `a` resets, asked for by M	FOUND IN THE CORPUS	registers 1401-1410, staged in the conversation "The Method 1.7", never carried into the volumes	method/proofs/resetrule.py	FINDING-R4-08
+1401	"a moves exactly when the running intersection of corridors empties"	VERIFIED TRUE	forces exactly the fourteen, zero false positives, missing exactly Li 3, K 19, Tl 81, Fr 87	method/proofs/resetrule.py	FINDING-R4-08
+1401b	"every one the first element of a new period"	TRUE OF THREE OF FOUR	Li, K and Fr are period openings; Tl 81 opens the 6p block, period 6 begins at Cs 55	method/proofs/resetrule.py	FINDING-R4-08
+1402	"the eighteen are a property of one trajectory, not of the corridor"	CLAIM VERIFIED, FIGURES NOT CHECKABLE	the count runs 9 to 75 across five placement policies; 1402's own five counts are POLICY-NOT-DEFINED	method/proofs/resetrule.py	FINDING-R4-08
+1403	"a is placed at an endpoint, never in the interior"	VERIFIED TRUE	all eighteen land exactly on a corridor endpoint, 11 at L and 7 at U, none interior	method/proofs/resetrule.py	FINDING-R4-08
+1404	"four pairs of resets are single events, the corridors meeting at a point"	VERIFIED TRUE	Mo/Tc at 1.000000, Gd/Tb at 0.707107, Cm/Bk at 1.366025, Lr/Rf at 1.984059	method/proofs/resetrule.py	FINDING-R4-08
+
