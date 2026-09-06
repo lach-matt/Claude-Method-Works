@@ -417,3 +417,10 @@ C415	inventory cost of the wider bore	3.01	x	DERIVED	C413 / C411	fn:bore_trit_co
 C416	tritium per unit balance, wider bore at measured production	10.4	kg	DERIVED	C413 / C390	fn:kg_per_gain_bore
 C417	tritium per unit balance, today's aperture at the optimised target	1.73	kg	DERIVED	C411 / C391	fn:kg_per_gain_target
 C418	the production target's advantage in tritium per unit balance	6.0	x	DERIVED	C416 / C417	fn:lever_ratio
+C419	production cost inverted from an independent published yield	10.93	GeV	DERIVED	Strait Table II at 4.1 GeV, through the validated model	fn:strait_cost_41
+C420	its agreement with this paper's own figure	0.982	x	DERIVED	C419 / C100	fn:strait_agreement
+C421	pi- per interacting proton, inverted at 4.1 GeV	0.375	pi-/p	DERIVED	Strait Table II through the model	fn:strait_pions_41
+C422	thickness amplification, 2 lambda over 0.05, at 4.1 GeV	0.963	x	SOURCED	Strait et al. Table II	fn:thick_amp_41
+C423	thickness amplification at 11.1 GeV	1.186	x	SOURCED	Strait et al. Table II	fn:thick_amp_111
+C424	Kelly's yield against the inverted figure at comparable beam energy	2.05	x	DERIVED	C287 / C421	fn:kelly_over_strait
+C425	HARP thin-target thickness	0.05	interaction lengths	SOURCED	Strait et al. sec.V; the thick target is 2	none

@@ -138,13 +138,27 @@ geometry, and report their best configuration as a **3.61 GeV** deuteron beam on
 
 > **4.69 GeV of beam energy per π⁻ produced — a factor of 2.37 below this paper's own figure.**
 
-**The two are not in conflict, and the reconciliation is the physics.** A 652 mm tungsten rod is many
-interaction lengths. The primary interacts, and so do its secondaries, and each interaction produces
-pions from beam energy that a thin target lets escape. HARP's 0.7188 π⁻ per *interacting* proton and
-Kelly's 0.77 π⁻ per *beam* particle are nearly the same number for a different denominator — which is
-the whole of the difference, and it is a target-design result rather than a disagreement about cross
-sections. Kelly et al. also assume every π⁻ becomes a usable μ⁻, so their figure is a
-**perfect-collection** cost, comparable like-for-like with §5.1's.
+**This paper first attributed the difference to target thickness, and that was wrong.** The reading was
+that a 652 mm tungsten rod is many interaction lengths, so secondaries produce pions from beam energy a
+thin target lets escape. **The source of the companion's own production figure refuses it.** Strait et
+al. measure exactly this, per interacting proton, and going from **0.05** to 2 interaction lengths
+buys **0.963** at 4.1 GeV and **1.186** at 11.1 GeV. Thickness is worth between 0.87 and 1.19 — never
+2.37 — and the earlier reading is withdrawn.
+
+**What survives is the beam species, which is the axis they optimised over.** Inverting Strait's
+tabulated captured-muon yield through the companion's §5.24 acceptance model recovers **0.375** π⁻ per
+interacting *proton* at 4.1 GeV. Against Kelly's **0.77** per beam *deuteron* at 3.61 GeV that is a
+ratio of **2.05** at comparable total beam energy — two nucleons rather than one, each carrying about
+half the energy. Nothing here settles whether that ratio is real, and it is a simulation on both
+sides; what has changed is that the question is now a **species** question and can be asked as one.
+
+**And the same inversion corroborates the companion's own figure.** That 0.375 π⁻ per interacting
+proton implies **10.93 GeV** per π⁻ against the companion's HARP-integrated **11.13** — an agreement
+of **0.982** between two routes that share the cross sections and share neither the integration, the
+acceptance convolution, nor the normalisation.
+
+Kelly et al. also assume every π⁻ becomes a usable μ⁻, so their figure is a **perfect-collection**
+cost, comparable like-for-like with §5.1's.
 
 **What it does to the balances**, at perfect collection and on this paper's own accounting:
 

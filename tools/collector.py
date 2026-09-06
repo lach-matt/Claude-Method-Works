@@ -862,6 +862,39 @@ def tritium_inventory_kg(p_mev, beam_radius_cm):
     return areal * math.pi * beam_radius_cm ** 2 * T_MASS_FRAC_DT / 1000.0
 
 
+# SOURCED, Strait et al. PRSTAB 13 111001 Table II. Y_P is captured muons, BOTH
+# charges, per INTERACTING proton per GeV -- the same normalisation throughout, so
+# the thin/thick ratio R_t isolates hadronic showering in the target and nothing
+# else. (The published 2.2 GeV thick entry reads "0.50"; it is 0.050, which its own
+# stated R_t of 0.874 confirms.)
+#   T_beam GeV: (Y_P at 0.05 lambda_I, Y_P at 2 lambda_I, R_t)
+STRAIT_TABLE_II = {
+    2.2: (0.057, 0.050, 0.874),
+    4.1: (0.056, 0.054, 0.963),
+    7.1: (0.053, 0.057, 1.079),
+    11.1: (0.042, 0.050, 1.186),
+}
+
+
+def strait_pions_per_interacting_proton(t_beam=4.1):
+    """Invert a published captured-muon yield through the validated acceptance
+    model to recover the PION production that must have fed it. Independent of
+    this paper's own HARP integration -- it shares the cross sections but not the
+    integration, the acceptance convolution, or the normalisation."""
+    y_p = STRAIT_TABLE_II[t_beam][1]
+    mu_minus_per_interacting = y_p * t_beam / 2.0
+    return mu_minus_per_interacting / delivered_fraction(1.50, "fwd", NF_RF_WINDOW_MEV)
+
+
+def strait_cost_per_pion(t_beam=4.1):
+    return t_beam / strait_pions_per_interacting_proton(t_beam)
+
+
+def thickness_amplification(t_beam=4.1):
+    """What two interaction lengths buy over 0.05, per interacting proton."""
+    return STRAIT_TABLE_II[t_beam][2]
+
+
 def gyroradius_cm(pt_gev, b_tesla):
     return 100.0 * pt_gev / (0.3 * b_tesla)
 

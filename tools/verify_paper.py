@@ -1064,6 +1064,30 @@ def lever_ratio():
     return kg_per_gain_bore() / kg_per_gain_target()
 
 
+def strait_cost_41():
+    return collector.strait_cost_per_pion(4.1)
+
+
+def strait_agreement():
+    return strait_cost_41() / cost_pion()
+
+
+def strait_pions_41():
+    return collector.strait_pions_per_interacting_proton(4.1)
+
+
+def thick_amp_41():
+    return collector.thickness_amplification(4.1)
+
+
+def thick_amp_111():
+    return collector.thickness_amplification(11.1)
+
+
+def kelly_over_strait():
+    return collector.KELLY_PIMINUS_PER_BEAM / strait_pions_41()
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 

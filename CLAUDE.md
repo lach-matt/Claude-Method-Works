@@ -119,7 +119,14 @@ every balance assumes perfectly pure fuel, where 5.49 ppm costs as much binder a
 collection figure is an acceptance rather than a delivered efficiency; and the temperature axis §5.15
 inverts the shortfall onto is confounded with purity and density in the existing record. Against that,
 §5.26 records an optimised production target calculated at **4.69 GeV per pion** rather than 11.13, a
-factor of 2.37 the paper declines to adopt because a status is never flattened.
+factor of 2.37 the paper declines to adopt because a status is never flattened. **The 11.13 is now
+corroborated independently**: running §5.24's acceptance model backwards over Strait's own tabulated
+captured-muon yield recovers 0.375 π⁻ per interacting proton and so **10.93 GeV per pion**, agreeing to
+**0.982** by a route that shares the cross sections and shares neither the integration nor the
+normalisation. That same table also **withdraws the paper's first explanation of the 2.37**: target
+thickness buys between **0.963 and 1.186** per interacting proton, never 2.37, so what survives is the
+**beam species** — 0.77 π⁻ per beam deuteron against 0.375 per interacting proton — and §10.3 is now a
+species comparison at matched beam power rather than a thickness scan.
 
 **§10 is the laboratory programme**, four staged measurements on apparatus that exists — the
 acceptance measurement first, because it multiplies every balance identically and so bounds all of

@@ -1300,13 +1300,31 @@ stripping route demands. And an independent blanket accounting gives 26.0 MeV pe
 
 | correction | what it does |
 |---|---|
-| the production figure is a *thin-target* measurement; an optimised thick target is calculated at **4.69 GeV** per pion against **11.13** | multiplies every balance above by **2.37** for a reader who prefers the simulation. This paper keeps the measured figure, because a status is never flattened. |
+| an optimised target is calculated at **4.69 GeV** per pion against this paper's **11.13** | multiplies every balance above by **2.37** for a reader who prefers the simulation. This paper keeps the measured figure, because a status is never flattened — and §5.26 below shows the difference is **not** target thickness, which was this paper's first explanation of it. |
 | transfer to a high-Z contaminant is a binder-loss channel neither analysis modelled: **5.49 ppm** costs as much binder as decay at the bracketed density | every balance above assumes perfect purity and is an overestimate by an unquantified factor. §3 now carries the requirement. |
 | the service-life model returns **335.3** cycles at the conditions of the one measurement it can be checked against, where **150** were measured | **2.24** over-prediction. Every figure above computed at the "bound case" inherits it; §5.18's and §5.23's bred-fuel figures, computed at the measured cycle count and a sourced blanket, do not. |
 
 **And one result closes an axis this paper left open.** The stripping route of §5.20 is now quantified
 and capped: at near-perfect post-stripping recycling it buys **1.39** in cycles, against a collection
 factor of 1.64 to 3.33, and it is limited by transport of the freed binder rather than by the field.
+
+**And the production figure is now confirmed independently, by inverting a published yield.** §5.24's
+acceptance model can be run backwards: a captured-muon yield divided by the delivered fraction is the
+pion production that must have fed it. Applied to the front-end simulation's own tabulated yield at
+4.1 GeV, that returns **0.375** π⁻ per interacting proton and therefore **10.93 GeV** per π⁻ —
+against this paper's HARP-integrated **11.13**, an agreement of **0.982**. The two share the cross
+sections but share neither the integration, the acceptance convolution, nor the normalisation. **The
+spine of the production argument is corroborated.**
+
+**Which means this paper's explanation of the 4.69 GeV figure was wrong, and it is corrected here.**
+§5.26 attributed the difference to target thickness — a long rod letting secondaries produce pions
+that a thin target lets escape. The same source's own table refuses that: measured per interacting
+proton, going from 0.05 to 2 interaction lengths buys **0.963** at 4.1 GeV and **1.186** at 11.1 GeV.
+**Thickness is worth between 0.87 and 1.19, never 2.37.** What survives as the explanation is the
+beam: the optimised figure is **0.77** π⁻ per beam *deuteron* against the **0.375** per interacting
+*proton* inverted above, a ratio of **2.05** at comparable total beam energy — two nucleons instead of
+one, which is exactly the axis that study optimised over. **§10.3 is therefore a species comparison at
+matched beam power, not a thickness comparison**, and this paper's earlier reading of it is withdrawn.
 
 **One result the companion states and this paper should carry, because it is the mirror of §5.22.**
 Solving each balance for the *density* at which it equals one rather than for the collection
@@ -1636,11 +1654,16 @@ what this adds is that it must be run at more than one density.
 **Apparatus.** A proton or deuteron beam of a few GeV and a thick high-Z target. The configuration to
 test first is [9]'s: **3.61 GeV** deuterons on a tungsten rod **652 mm** long and **5.1 mm** across.
 
-**Measure.** π⁻ per **beam** particle — not per interacting particle, which is the quantity the
-existing measured record supplies and the reason this paper's own figure is conservative.
+**Measure, and measure it as a species comparison.** π⁻ per beam particle for a proton beam and a
+deuteron beam **at matched beam power**, on the same target. §5.25 shows target thickness is not the
+variable — per interacting proton it is worth between **0.963** and **1.186** — so a thickness scan is
+not what decides this. The species is.
 
-**Committed prediction.** **0.77** π⁻ per beam particle, giving **4.69 GeV** per π⁻ against this
-paper's thin-target measured **11.13 GeV**, a ratio of **2.37**.
+**Committed prediction.** For the deuteron, **0.77** π⁻ per beam particle, giving **4.69 GeV** per π⁻.
+For the proton at comparable beam energy, **0.375** π⁻ per interacting proton — the figure this paper
+recovers by inverting a published yield, which agrees with its own HARP integration to **0.982**. The
+prediction under test is therefore the ratio **2.05** between them, and this paper does not predict
+that it holds.
 
 **What it settles.** It decides which figure a reactor target should be priced at, and it multiplies
 every balance in this paper by the ratio it returns. It is the only stage that can improve the result
