@@ -142,7 +142,7 @@ def checks():
     return [
         ("CLAUDE.md", "members extracted from the bundles", 343,
          len(_rows("method/MEMBER-INDEX.tsv"))),
-        ("CLAUDE.md", "drive/ MANIFEST rows", 819, len(man)),
+        ("CLAUDE.md", "drive/ MANIFEST rows", 820, len(man)),
         ("CLAUDE.md", "drive/ manifest-tree bijection (orphans, both ways)", 0,
          len(disk ^ set(man))),
         ("CLAUDE.md", "drive/ rows with status ok", 819,

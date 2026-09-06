@@ -13,7 +13,7 @@ already tracked. This writes **779**.
 ## The contract
 
 Read `drive/` (and `method/`, `tools/`, `docs/` as the "already have" index). Write only
-`extracted/`. Never modify `drive/` — the 819-row `MANIFEST.tsv` ↔ 819-file bijection is
+`extracted/`. Never modify `drive/` — the 820-row `MANIFEST.tsv` ↔ 820-file bijection is
 load-bearing, and `drive_sync.py --prune` deletes anything under `drive/` without a manifest row.
 
 Every source occurrence gets exactly one row in `extracted/LEDGER.tsv` with one of four

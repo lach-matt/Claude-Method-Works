@@ -4,9 +4,11 @@ Byte-exact copies of the Google Drive folders **The Method Materials** (with its
 LOWDIN-DELIVERY-1, THREEBODY-DELIVERY-1, CORPUS, BUILD175-PARTS, Claude Memories, Claude Metadata,
 Claude Projects and Claude Chats) and **The Method Prints & Proofs**.
 
-**819 of the 823 Drive files in scope are mirrored here, and every one of them has been verified by
-md5 against the copy Drive served.** The four still outstanding are listed in `PENDING.tsv` with the
-reason for each.
+**820 of the 824 Drive files in scope are mirrored here.** 819 were verified by md5 against the copy
+Drive served; one, `The Method Materials/warp drive theory.pdf`, was seated by `drive_sync.py
+--adopt` and carries status `ok-adopted` because the route that fetched it returned no Drive md5 to
+compare — its byte count was checked and nothing more. The four still outstanding are listed in
+`PENDING.tsv` with the reason for each.
 
 * `MANIFEST.tsv` inventories every mirrored file: repo path, Drive file id, title, mime type, size,
   modified time, md5, and status. One row per Drive file, no two rows sharing a path. The

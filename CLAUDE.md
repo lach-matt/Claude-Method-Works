@@ -10,7 +10,7 @@ chat opens by reading this tree — `python3 method/verify.py` asserts every mem
 both bundles. Start here. See `method/README.md`.
 
 **`drive/` is a read-only mirror** of two Google Drive folders — the archive and the original-input
-witness, not the read path. **819 files, ~842 MB**, and `drive/MANIFEST.tsv` inventories every one of
+witness, not the read path. **820 files, ~842 MB**, and `drive/MANIFEST.tsv` inventories every one of
 them (repo path, Drive id, title, mime type, size, modified time, md5, status), all with status `ok`
 — or **`ok-adopted`** for a file recorded by `drive_sync.py --adopt`, which takes a copy fetched by
 another route and cannot compare Drive's own md5, so it never claims `ok`.
