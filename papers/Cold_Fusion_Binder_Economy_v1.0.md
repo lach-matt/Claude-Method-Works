@@ -57,6 +57,27 @@ orbital velocity, an expression free of the binder's mass, reproducing the measu
 1.66 for the d+d channel that ends in helium-3, with d+t already optimal; and the fusion yield goes
 with that same channel choice. The live lever is E_binder, and condition 8 is a bound on it alone.
 
+**The bound is then worked, and it resolves.** Integrating the HARP-measured cross sections over the
+full angular range puts production alone at 11.13 GeV per pion, so collection efficiency cannot
+satisfy condition 8 on its own: a perfect collector still leaves the heat form short by 1.48. Three
+results move it. The convertible fraction is 0.795 rather than 0.501, once the alpha is counted at the
+hot operating point the procedure already requires and the exothermic lithium-6 breeding a d–t cycle
+must run anyway is included. The service-life cap is asymptotic in a density bounded above by
+molecular survival, and the in-flight route that would lift that bound is below the binder's own decay
+rate. And the fusion neutron, priced as bred fuel rather than as heat, is worth 146.06 MeV per fusion
+against 26.06 — which closes the balance at **1.77** on sourced fission-suppressed breeder figures at
+the 150 cycles per binder demonstrated in 1987.
+
+**Stated as a specification, the residual is one number.** Solving each balance for the collection
+efficiency at which it breaks even separates the products sharply: electricity requires 96.7 percent
+collection together with the bound-case density and the favourable sticking branch, while bred fuel
+requires 50.8 percent at demonstrated cycle counts and asks nothing of the other axes. Against the
+30 percent the best studied front end captures, that is a factor of 1.69 in collection efficiency —
+an acceptance specification whose cost is a shielding trade, not a new magnet. One measurement remains
+genuinely unresolved: the two published final stickings straddle the break-point, and this paper's own
+protocol — neutron and X-ray routes run simultaneously on one target, a disagreement being a refusal
+rather than an average — is what decides it.
+
 ---
 
 ## 1. The definition and the conditions
@@ -924,6 +945,66 @@ the factor of 2.7 is a scale and not a design figure; a real shield is layered a
 not a single exponential. And thinning the shield raises the *dose* as well as the heat, which governs
 insulation lifetime rather than cryogenic load and is not modelled here at all.
 
+### 5.23 What each product asks of the collector
+
+Every balance in this paper has been stated at one of two collector assumptions — the §5.9
+specification at 90 percent, or the 11.13 GeV production floor with collection perfect. Neither is a
+measurement. The honest question is the inverse one, and it has a single-line answer: **at what
+collection efficiency does each product break even?** Setting the balance to 1 and solving,
+
+> **η = 11.13 GeV / (N · V)**
+
+for a service life N and a value per fusion V. Nothing else enters. The table below runs it over the
+three products of §5.14, §5.18 and §5.19 and the three service lives the paper has established.
+
+| product | V per fusion | N | collection needed |
+|---|---|---|---|
+| electricity, bound case | 19.55 MeV | 588.9 | **96.7 %** |
+| electricity, φ = 3 | 19.55 MeV | 479.6 | **118.7 %** — unreachable |
+| heat, bound case | 26.06 MeV | 588.9 | **72.5 %** |
+| heat, φ = 3 | 26.06 MeV | 479.6 | **89.1 %** |
+| bred fuel, bound case | 146.06 MeV | 588.9 | **12.9 %** |
+| bred fuel, φ = 3 | 146.06 MeV | 479.6 | **15.9 %** |
+| bred fuel, demonstrated cycles | 146.06 MeV | 150 | **50.8 %** |
+
+Two reference points sit against that column. The best front end studied in the literature captures
+**30 percent** of the pions its target produces (§5.1, C106). The collector specified in §5.9 targets
+**90 percent**, and §5.22 priced the difference as a shielding trade rather than a new magnet.
+
+**The result is a separation, not a margin.** Read against those two points the table divides cleanly:
+
+- **Electricity is the demanding product and is not robust.** It needs 96.7 percent collection *and*
+  the bound-case density *and* the favourable sticking branch, all three together; lose any one of
+  them and it fails. At φ = 3 it asks for 118.7 percent, which is not a hard specification but an
+  impossibility — no collector satisfies it, because the requirement exceeds the production itself.
+  This is the same conclusion §5.19 reached from the other side, where the work form passed at 1.034:
+  a balance that close to unity is a statement that the axis is exhausted, not that it is safe.
+- **Heat sits between**, needing 72.5 percent at the bound case and 89.1 percent at φ = 3 — the
+  latter essentially the §5.9 collector with nothing left over.
+- **Bred fuel is the robust product.** It needs 12.9 percent at the bound case — below what today's
+  front end already achieves — and **50.8 percent at the demonstrated 150 cycles**, which asks
+  nothing of the density axis, nothing of the sticking measurement of §5.10, and nothing of the
+  reactivation of §5.15. It is a collector specification alone.
+
+**The product choice is worth 7.5 in collector specification** — the ratio of the two bound-case
+requirements. That is the largest single lever this paper has found, and it is not a physical
+improvement at all: the same reaction, the same binder, the same cycle, priced against what its
+neutron is actually worth rather than against the heat it deposits.
+
+**What remains, stated without a hedge.** The bred-fuel case at demonstrated cycle counts is
+**1.69 above today's measured front end** and comfortably inside the §5.9 collector. That factor —
+1.69 in collection efficiency — is the whole of what stands between the corpus's own eighth condition
+and a satisfied one, on the product the definition permits and at a cycle count already demonstrated
+in a laboratory. It is an engineering figure with a named trade behind it (§5.22), not an open
+physical question.
+
+**The caution this table does not remove.** η here is *collection*, and collection is only one factor
+of a real front end: the model of §5.9 is an acceptance calculation, and a machine must also transport,
+cool and stop what it accepts. The 30 percent reference is likewise a capture fraction, not a
+delivered-to-target fraction. Every row above therefore states a *necessary* efficiency, never a
+sufficient one, and the distinction is the same one §5.5 draws about a shortfall: a bound that has
+been localised is not a bound that has been cleared.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -1031,6 +1112,21 @@ to move by 26 percent over eleven kelvin. The paper's operating point is 800 K a
 exists there. The last four percent therefore lies on an axis this analysis holds fixed and the
 physics does not.
 
+**Where the balance actually closes, and on which product.** The paragraph above prices the neutron
+at its heat, which is what the analysis did until §5.18. Counted as bred fuel — the fissile nucleus a
+fusion-breeder blanket makes, on sourced fission-suppressed figures — the value per fusion is
+146.06 MeV rather than 26.06, and those same sourced figures lift the electrical balance from 0.965 to
+**1.034**. The breeding balance at the demonstrated 150 cycles with the §5.9 collector is **1.77**.
+
+**§5.23 states that as a specification on the collector alone**, which is the sharpest form the result
+takes. Electricity breaks even at **96.7 percent** collection and needs the bound-case density and the
+favourable sticking branch besides; bred fuel breaks even at **12.9 percent** at that same bound case
+and at **50.8 percent** at cycle counts already demonstrated in a laboratory, asking nothing of the
+density axis, the sticking measurement or the reactivation term. The product choice is therefore worth
+**7.5** in collector specification, and what stands between the eighth condition and a satisfied one,
+on the product the definition permits, is **1.69** in collection efficiency above today's measured
+front end — inside the §5.9 collector, whose cost §5.22 prices as a shielding trade.
+
 What would change the answer, in the order this paper can rank them:
 
 1. **The collector of §5.9** — 20 T on a 13 cm clear bore with no hemisphere cut. Every balance in
@@ -1053,12 +1149,6 @@ None is settled here. The first three need no new machine.
 (§5.7). The conversion ceiling descends from condition 1 (§5.16). Density is bounded above by
 molecular survival (§5.13). And the in-flight route, which would have lifted that bound, is below the
 binder's own decay rate (§5.20).
-
-**And two doors are shut, which is worth as much as an open one.** The binder is not the variable
-(§5.7): sticking is mass-independent and the known spectrum holds no alternative. The conversion
-ceiling is not an engineering choice (§5.16): it descends from condition 1 through the confinement of
-the fuel to charge one, and closes direct conversion for as long as the binder is one that transfers
-to higher charge.
 
 ## References
 

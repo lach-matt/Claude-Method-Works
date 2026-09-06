@@ -616,6 +616,49 @@ def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 
 
+def _eta(N, value_mev):
+    """Collection efficiency at which the balance is exactly 1, for a service
+    life N and a value per fusion. Above 1 the product is unreachable at any
+    collector."""
+    return 100.0 * cost_pion() / (N * (value_mev / 1000.0))
+
+
+def eta_elec_bound():
+    return _eta(N_diss(), work_sourced())
+
+
+def eta_elec_phi3():
+    return _eta(N3_sin(), work_sourced())
+
+
+def eta_heat_bound():
+    return _eta(N_diss(), therm_sourced())
+
+
+def eta_heat_phi3():
+    return _eta(N3_sin(), therm_sourced())
+
+
+def eta_bred_bound():
+    return _eta(N_diss(), total_sourced())
+
+
+def eta_bred_phi3():
+    return _eta(N3_sin(), total_sourced())
+
+
+def eta_bred_demo():
+    return _eta(150.0, total_sourced())
+
+
+def product_ratio():
+    return eta_elec_bound() / eta_bred_bound()
+
+
+def demo_vs_frontend():
+    return eta_bred_demo() / capture_of_production()
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

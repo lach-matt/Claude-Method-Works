@@ -249,3 +249,12 @@ C247	fast-neutron attenuation length in tungsten	5.5	cm	RECONSTRUCTED	removal cr
 C248	shield thinning required by the specification	5.5	cm	DERIVED	C246 - C145 less C246 - 7.5 cm	fn:shield_thinning
 C249	coil heating penalty of the specification	2.7	x	DERIVED	exp(C248 / C247)	fn:heating_penalty
 C250	coil bore increase at fixed heating	11	percent	DERIVED	C248 / C246	fn:bore_increase
+C251	collection needed, electricity, bound case	96.7	percent	DERIVED	C100 / (C176 x C217)	fn:eta_elec_bound
+C252	collection needed, electricity, phi=3	118.7	percent	DERIVED	C100 / (C152 x C217)	fn:eta_elec_phi3
+C253	collection needed, heat, bound case	72.5	percent	DERIVED	C100 / (C176 x C214)	fn:eta_heat_bound
+C254	collection needed, heat, phi=3	89.1	percent	DERIVED	C100 / (C152 x C214)	fn:eta_heat_phi3
+C255	collection needed, bred fuel, bound case	12.9	percent	DERIVED	C100 / (C176 x C220)	fn:eta_bred_bound
+C256	collection needed, bred fuel, phi=3	15.9	percent	DERIVED	C100 / (C152 x C220)	fn:eta_bred_phi3
+C257	collection needed, bred fuel, demonstrated cycles	50.8	percent	DERIVED	C100 / (C44 x C220)	fn:eta_bred_demo
+C258	product choice, in collector specification	7.5	x	DERIVED	C251 / C255	fn:product_ratio
+C259	bred fuel at demonstrated cycles against today's front end	1.69	x	DERIVED	C257 / C106	fn:demo_vs_frontend
