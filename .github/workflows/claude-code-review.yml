@@ -5,7 +5,7 @@ name: Claude Code Review
 #
 # Prerequisites that CANNOT be done from this file (repo admin must do them):
 #   1. Install the Claude GitHub App: https://github.com/apps/claude
-#   2. Add a repo secret: ANTHROPIC_API_KEY (or CLAUDE_CODE_OAUTH_TOKEN — see below)
+#   2. Add a repo secret: CLAUDE_CODE_OAUTH_TOKEN (or ANTHROPIC_API_KEY — see below)
 #   3. Merge this file to the default branch (`main`).
 
 on:
@@ -79,9 +79,14 @@ jobs:
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           # The `secrets` context is not available in a job-level `if:`, so the
-          # presence of the key is resolved here and passed on as an output.
+          # presence of the credential is resolved here and passed on as an output.
           # Compared against the empty string only — the value is never printed.
-          HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+          #
+          # THIS MUST NAME THE SAME SECRET THE ACTION CONSUMES BELOW. They are two
+          # separate references to one credential, and nothing fails loudly if they
+          # disagree: the gate reads false, claude-review reports "skipped", and the
+          # PR looks reviewed-and-clean forever. Change both or neither.
+          HAS_KEY: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
         run: |
           echo "has_key=${HAS_KEY}" >> "$GITHUB_OUTPUT"
           # No `|| true`: if the API call fails we want this job to fail
@@ -102,7 +107,7 @@ jobs:
     #      the checkout, only to fail red on every external contribution.
     #      Skip them cleanly instead.
     #   2. Skip PRs that only touch the drive/ mirror (see the job above).
-    #   3. Skip when ANTHROPIC_API_KEY is not configured. Without it the action
+    #   3. Skip when CLAUDE_CODE_OAUTH_TOKEN is not configured. Without it the action
     #      cannot authenticate and the job fails red on every PR — a missing
     #      one-time setup step (.github/CLAUDE_GITHUB_SETUP.md) reported as if
     #      the PR were broken. Same reasoning as gate 1: skip cleanly rather
@@ -153,12 +158,13 @@ jobs:
       - name: Run Claude Code Review
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          # Using a Claude Pro/Max/Team/Enterprise subscription instead of an
-          # API key? Delete the line above and uncomment the one below, then
-          # store the output of `claude setup-token` as CLAUDE_CODE_OAUTH_TOKEN.
-          # claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Authenticating with a Claude Pro/Max/Team/Enterprise subscription:
+          # the token is the output of `claude setup-token`, stored as the
+          # CLAUDE_CODE_OAUTH_TOKEN repository secret. To go back to a metered
+          # API key, swap the line above for:
+          # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
           # Deliberately NOT passing `github_token`: omitting it lets the
           # action authenticate as the Claude GitHub App.

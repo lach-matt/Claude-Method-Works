@@ -79,12 +79,12 @@ jobs:
         id: claude
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          # Using a Claude subscription (Pro/Max/Team/Enterprise) instead of an API key? Delete the
-          # line above, store the output of `claude setup-token` as the CLAUDE_CODE_OAUTH_TOKEN
-          # repository secret, and uncomment this one:
-          # claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Authenticating with a Claude subscription (Pro/Max/Team/Enterprise): the token is the
+          # output of `claude setup-token`, stored as the CLAUDE_CODE_OAUTH_TOKEN repository secret.
+          # To go back to a metered API key instead, swap the line above for:
+          # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
           # NOTE: `github_token` is intentionally NOT passed. Omitting it lets the action
           # authenticate as the Claude GitHub App (https://github.com/apps/claude, which must be
