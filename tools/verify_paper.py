@@ -485,6 +485,30 @@ def wshort_bound():
     return 1.0 / wq_bound()
 
 
+def N_needed():
+    return cost_pion() / (work_bound() / 1000.0)
+
+
+def ws_needed():
+    lo, hi = 1e-5, 0.01
+    phi = trans_atoms()
+    for _ in range(200):
+        m = (lo + hi) / 2
+        if _N(m, phi) > N_needed():
+            lo = m
+        else:
+            hi = m
+    return 100.0 * lo
+
+
+def ws_reduction():
+    return 100.0 * (1.0 - ws_needed() / ws_sin())
+
+
+def ws_excursion():
+    return 100.0 * (1.0 - 0.64 / 0.86)
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 

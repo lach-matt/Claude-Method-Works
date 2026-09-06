@@ -600,6 +600,76 @@ recirculating power of the driver itself.
 > *sign* is not established by this paper — but every unmodelled effect is unfavourable, and the
 > honest reading of 0.965 is that it is optimistic.
 
+### 5.15 Inverting the bound: the last four percent sits on an axis held constant
+
+A null is a bound, and a bound is a specification of what must be true to cross it. §5.14's shortfall
+is 1.04, so:
+
+> Work breakeven at the bound case requires a service life of **610.5 cycles** against 588.9, which
+> requires an effective sticking of **0.1427 percent** against the 0.1487 assumed — **a reduction of
+> 4.0 percent.**
+
+**Effective sticking is not a constant.** It is ω_s^eff = ω_s⁰(1 − R), where ω_s⁰ is a fixed quantum
+overlap — §5.7 shows it is even independent of the binder's mass — and **R is the reactivation
+coefficient**: the probability the binder is shaken off the ash during its slowing down from 3.5 MeV.
+R is a collisional transport quantity, and it depends on the medium.
+
+It has been measured to move. Effective sticking varies from **0.86 percent at 5 K to 0.64 at 16 K**,
+a change of **26 percent** over eleven kelvin, attributed to a change in R.
+
+> **Required: 4.0 percent. One measured excursion: 26 percent, in the favourable direction.**
+
+And the paper's operating point is **800 K**. Neither of the two determinations §5.6 relies on was
+made there, and no measurement of effective sticking exists at the temperature §3.2 requires. **The
+last four percent therefore sits on an axis this paper holds constant, where the quantity is in fact a
+function, where the operating point lies far outside the measured range, and where the one measured
+excursion is more than five times what is needed.**
+
+**The caution is not small, and it is stated rather than absorbed.** The five-to-sixteen-kelvin
+excursion spans a phase change of the fuel, so it may be a phase or density effect rather than a
+smooth dependence on temperature, and a survey that looked specifically for density dependence
+reported none that was strong. **Extrapolating that excursion to 800 K is not warranted and is not
+done here.** What is established is a sign and a sensitivity, not a value — and that treating ω_s as a
+constant is a limit of this analysis rather than a property of the physics.
+
+### 5.16 Why the conversion ceiling is a consequence of condition 1
+
+The obvious way to find four percent is to stop converting through a thermal cycle. Direct
+electrostatic conversion of charged fusion products is credited with **60 to 90 percent**, against
+Carnot's 62 to 75. It would more than cover the gap. **It is structurally unavailable**, and the
+reason is one this paper already states in another place.
+
+Condition 1 requires the binder not be captured, and §3.2 gives the consequence: elements above
+hydrogen capture it preferentially and terminate the chain, which is why purity is a requirement
+rather than a refinement. **The fuel is therefore confined to charge one.** Censusing what that leaves:
+
+| admissible fuel, charge one | yield | |
+|---|---|---|
+| d + t → ⁴He + n | 17.59 MeV | the neutron carries 80.2 percent |
+| t + t → ⁴He + 2n | 11.33 MeV | two neutrons |
+| p + d → ³He + γ | 5.49 MeV | aneutronic, but an electromagnetic exit, and slow |
+| d + d → t + p | 4.03 MeV | aneutronic, and the yield is small |
+| d + d → ³He + n | 3.27 MeV | neutronic and small |
+
+| forbidden fuel | yield | fuel charge |
+|---|---|---|
+| d + ³He → ⁴He + p | 18.35 MeV | 2 |
+| ³He + ³He | 12.86 MeV | 2 |
+| p + ¹¹B → 3 ⁴He | 8.70 MeV | 5 |
+
+**Every aneutronic channel with a competitive yield carries a fuel above charge one, and a fuel above
+charge one eats the binder.** The two requirements are exclusive.
+
+> condition 1 → fuel confined to charge one → the only high-yield channel is d + t → 80.2 percent of
+> the yield leaves as a neutron → a neutron cannot be converted directly → **conversion is bounded by
+> Carnot.**
+
+So the conversion ceiling in condition 8's convertible fraction is **not an engineering choice**. It
+descends from the first of the seven conditions, and it cannot be designed around while the binder is
+one that transfers to higher charge. That is a bound of the same kind as the binder-mass window and
+the density bound of §5.13 — and, like them, it is stated here as a bound rather than as a defeat: it
+says precisely which door is shut, and therefore which are not.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -700,11 +770,30 @@ perfect, **the thermal balance passes at 1.286 and the electrical balance reache
 remaining four percent is inside the uncertainty of several inputs, and every effect not modelled here
 runs against it.
 
-What would change the answer, in the order this paper can rank them: the sticking measurement of
-§5.10, which decides a branch; the collector of §5.9, which decides how much of the discard is
-recoverable; and a resolution of where molecular hydrogen ceases to be molecular at 800 K, which
-decides whether the density §5.13 requires exists at all. None of the three is settled here, and the
-first two need no new machine.
+**The shortfall inverts into a specification**, which is what a bound is for. Work breakeven at the
+bound case needs an effective sticking of 0.1427 percent against 0.1487 — a reduction of 4.0 percent
+— and effective sticking is not a constant but ω_s⁰(1 − R), whose reactivation term has been measured
+to move by 26 percent over eleven kelvin. The paper's operating point is 800 K and no determination
+exists there. The last four percent therefore lies on an axis this analysis holds fixed and the
+physics does not.
+
+What would change the answer, in the order this paper can rank them:
+
+1. **The sticking measurement of §5.10** — decides a branch, and now also bears on §5.15's four
+   percent. A bench experiment on an existing beam.
+2. **Effective sticking at the operating temperature.** No measurement exists at 800 K. §5.15 shows
+   the required change is five times smaller than one already observed, in the same direction.
+3. **The collector of §5.9** — decides how much of the measured discard is recoverable.
+4. **Where molecular hydrogen ceases to be molecular at 800 K** — decides whether the density §5.13
+   requires exists at all.
+
+None is settled here. The first three need no new machine.
+
+**And two doors are shut, which is worth as much as an open one.** The binder is not the variable
+(§5.7): sticking is mass-independent and the known spectrum holds no alternative. The conversion
+ceiling is not an engineering choice (§5.16): it descends from condition 1 through the confinement of
+the fuel to charge one, and closes direct conversion for as long as the binder is one that transfers
+to higher charge.
 
 ## References
 

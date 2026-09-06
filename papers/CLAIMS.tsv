@@ -179,3 +179,18 @@ C177	thermal gain, all levers at bound	1.286	dimensionless	DERIVED	C176 x C160 /
 C178	work gain, all levers at bound	0.965	dimensionless	DERIVED	C176 x C175 / C100	fn:wq_bound
 C179	work shortfall, all levers at bound	1.04	x	DERIVED	1 / C178	fn:wshort_bound
 C180	conventional blanket temperature, low end	700	K	SOURCED	He-cooled ceramic and PbLi designs	none
+C181	service life needed for work breakeven	610.5	cycles	DERIVED	C100 / C175	fn:N_needed
+C182	effective sticking needed for work breakeven	0.1427	percent	DERIVED	solved from C181 at C169	fn:ws_needed
+C183	reduction in effective sticking required	4.0	percent	DERIVED	1 - C182 / C113	fn:ws_reduction
+C184	measured effective sticking at 5 K	0.86	percent	SOURCED	temperature study, attributed to R	none
+C185	measured effective sticking at 16 K	0.64	percent	SOURCED	temperature study, attributed to R	none
+C186	measured excursion in effective sticking	26	percent	DERIVED	1 - C185 / C184	fn:ws_excursion
+C187	d+d to t+p yield	4.03	MeV	MEASURED	standard nuclear data	none
+C188	d+d to 3He+n yield	3.27	MeV	MEASURED	standard nuclear data	none
+C189	t+t yield	11.33	MeV	MEASURED	standard nuclear data	none
+C190	p+d yield	5.49	MeV	MEASURED	standard nuclear data	none
+C191	d+3He yield	18.35	MeV	MEASURED	standard nuclear data	none
+C192	3He+3He yield	12.86	MeV	MEASURED	standard nuclear data	none
+C193	p+11B yield	8.70	MeV	MEASURED	standard nuclear data	none
+C194	direct conversion efficiency, low end	60	percent	SOURCED	electrostatic direct conversion of charged products	none
+C195	direct conversion efficiency, high end	90	percent	SOURCED	electrostatic direct conversion of charged products	none
