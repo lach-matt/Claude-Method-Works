@@ -1394,6 +1394,56 @@ above anything measured. That is the density axis stated as they state it, and i
 how far the bound case is from the record — which is the second reason §10 puts the bred-fuel route,
 which needs none of it, first.
 
+### 5.30 The stripping route, priced independently, and a newer sticking calculation
+
+§5.21 priced the resonant-stripping route and §9 ranks it last. Both judgements can now be checked
+against an independent rate-network calculation of the same route [13], and the check is unusually
+clean because the two analyses were built for different purposes.
+
+**The intensity requirement agrees within a factor of one and a half.** §5.21 derived a sustained
+**2.21 × 10¹³ W/cm²** from a hydrogenic photoionisation cross-section and the binder decay rate. Their
+reference field — **15 keV** photons at an energy fluence of **7.2 × 10⁷ J/cm²** — is
+**3.28 × 10¹³ W/cm²** if spread over one binder lifetime, a ratio of **1.48** to §5.21's figure. Two
+derivations that share no method and no input agree on the scale of what this route demands. §5.21's
+conclusion — that a sustained hard-X-ray field of that order over a reactor fuel volume does not
+exist — is therefore not an artefact of its own crude cross-section estimate.
+
+**But §5.21 priced the wrong bottleneck, and this is the correction.** §5.21 asked only what it costs
+to *strip* the bound binder. Their rate network follows the freed binder afterwards, and finds that
+stripping is not the constraint: the liberated μ⁻ must slow, be captured into a muonic atom, form
+dtμ and fuse **before it escapes or decays**, and in their escape-dominated benchmark about two
+thirds of stripped binders are lost before re-entering the cycle. **The route is transport-limited,
+not field-limited**, and a resonant enhancement that made the stripping free would not by itself
+change that.
+
+**And it caps the prize.** Even in their optimistic benchmark, where nearly every stripped binder is
+recycled, the cycle yield rises from **112.6** to **156.5** — a gain of **1.39**. Set that against
+the collection factor of §5.27, which is **1.64** to **3.33**, and against §5.26's production factor
+of **2.37**:
+
+> **The stripping route is the smallest of the three available levers, and it is the only one that
+> needs a machine that does not exist.** §9 ranks it last on that basis rather than on judgement.
+
+**A newer calculation of the initial sticking, recorded and not adopted.** A coupled-channel few-body
+solution of the (dtμ) fusion reaction [14] gives an initial sticking of **8.57 × 10⁻³** against the
+0.938 percent this paper's chain is built on — a ratio of **0.914** — together with an intramolecular
+fusion rate of **1.15 × 10¹² s⁻¹**. This paper does not rebuild its sticking chain on it, because that
+chain runs through a measured final sticking and an excited-state channel and rebuilding it is a
+separate exercise. The first-order effect, rescaling the effective sticking by that ratio, is stated
+instead:
+
+| | this paper | rescaled |
+|---|---|---|
+| effective sticking | 0.1487 % | **0.1359 %** |
+| service life, bound case | 588.9 | **637.0** |
+| heat balance, bound case, perfect collection | 1.379 | **1.492** |
+| heat balance, bound case at today's aperture | 0.842 | **0.911** |
+
+The direction is favourable and the size is modest — about nine percent in sticking, eight in service
+life — and it does not change any conclusion in §5.24 or §5.29. It is recorded because a paper that
+prices a binder should say when the field's best number for that binder has moved, and because it runs
+the opposite way from §5.29's over-prediction, which is larger.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -1574,9 +1624,11 @@ What would change the answer, in the order this paper can rank them:
    case's 8.5, and the bred-fuel route at **0.730** or less, which is below liquid density. §5.13's
    structural bound therefore constrains only the asymptotic service life, not breakeven on either
    route.
-6. **The resonant stripping enhancement of §5.21** — unquantified, against a direct-photoionisation
-   requirement of 2.21 × 10¹³ W/cm² sustained. It is last because it would lift a bound the other
-   items work within.
+6. **The resonant stripping enhancement of §5.21** — no longer unquantified, and §5.30 is why it stays
+   last. An independent rate network puts the gain at **1.39** in cycles against a collection factor
+   of 1.64 to 3.33 and a production factor of 2.37, and finds the route limited by post-stripping
+   transport rather than by the field. It is the smallest of the three levers and the only one that
+   needs a machine that does not exist.
 
 None is settled here. The first three need no new machine, and items 3 to 6 bear on the service-life
 axis alone — which is the axis §5.24 shows the bred-fuel route can do without.
@@ -1731,3 +1783,7 @@ needed at all.
     J. D. Kalow *et al.*, arXiv:2606.05333.
 12. W. Kou and X. Chen, *A Lawson-inspired Cycle-Closure Criterion for Deuterium--Tritium
     Muon-Catalyzed Fusion*, arXiv:2607.10989 — Eqs. (11)–(13) and Table I.
+13. W. Kou and X. Chen, *External-Field-Assisted Muon Reactivation in Muon-Catalyzed Fusion: A
+    Rate-Network Criterion for Reducing Alpha Sticking*, arXiv:2606.07077.
+14. M. Kamimura, Y. Kino and T. Yamashita, *Comprehensive study of muon-catalyzed nuclear reaction
+    processes in the dtμ molecule*, Phys. Rev. C **107**, 034607 (2023).

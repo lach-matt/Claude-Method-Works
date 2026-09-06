@@ -837,6 +837,39 @@ def L_mu_bound():
     return trans_atoms() * mucf.LAMBDA_C / mucf.LAMBDA_0
 
 
+def modern_ws_ratio():
+    return mucf.OMEGA_INITIAL_MODERN / mucf.OMEGA_INITIAL
+
+
+def ws_sin_modern():
+    return ws_sin() * modern_ws_ratio()
+
+
+def N_bound_modern():
+    return mucf.cycles(ws_sin_modern() / 100.0, trans_atoms())
+
+
+def q_heat_bound_modern():
+    return N_bound_modern() * (therm_sourced() / 1000.0) / cost_pion()
+
+
+def q_heat_bound_nf_modern():
+    return N_bound_modern() * (therm_sourced() / 1000.0) / (cost_pion() / (cap_nf() / 100.0))
+
+
+def kc_sustained():
+    """Their reference energy fluence spread over one binder lifetime."""
+    return 7.2e7 / 2.197e-6
+
+
+def kc_over_5_21():
+    return kc_sustained() / intensity_match()
+
+
+def stripping_gain():
+    return 156.5 / 112.6
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 

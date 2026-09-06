@@ -165,6 +165,15 @@ RESERVATION_J1 = ("the 0.31% J=1 figure is carried by the paper with the "
 # density. A muon transferred to a high-Z contaminant is captured into the
 # nucleus and leaves the cycle, so this is a binder loss channel alongside
 # decay -- one no earlier section of the paper modelled.
+# SOURCED, Kamimura, Kino & Yamashita, Phys. Rev. C 107, 034607 (2023): a
+# coupled-channel few-body solution of the (dtmu) fusion reaction, giving the
+# current best microscopic initial sticking and intramolecular fusion rate.
+# RECORDED, NOT ADOPTED. This paper's chain is built on OMEGA_INITIAL and
+# rebuilding it on a newer value is a separate exercise; sec.5.30 states the
+# first-order effect instead.
+OMEGA_INITIAL_MODERN = 8.57e-3
+LAMBDA_FUSION_INTRAMOLECULAR = 1.15e12   # s^-1
+
 LAMBDA_TRANSFER_OXYGEN = 1.0e10   # s^-1 at 1 LHD of oxygen        SOURCED
 
 

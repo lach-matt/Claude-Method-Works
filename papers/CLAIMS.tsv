@@ -350,3 +350,19 @@ C348	Kou and Chen SIN/Crowe anchor yield	124	fusions	SOURCED	arXiv:2607.10989 Ta
 C349	their SIN/Crowe effective sticking	0.57	percent	SOURCED	arXiv:2607.10989 Table I	none
 C350	their SIN/Crowe cycle strength	424	dimensionless	DERIVED	1.93e8 x 2.197 microseconds	fn:L_mu_kc_sin
 C351	this paper's cycle strength at the bound-case density	4738	dimensionless	DERIVED	C169 x C03 / C02	fn:L_mu_bound
+C352	modern initial sticking, coupled-channel few-body	8.57e-3	fraction	SOURCED	Kamimura Kino Yamashita Phys Rev C 107 034607 (2023)	mucf.OMEGA_INITIAL_MODERN
+C353	intramolecular fusion rate, same source	1.15e12	s^-1	SOURCED	Kamimura Kino Yamashita Phys Rev C 107 034607 (2023)	mucf.LAMBDA_FUSION_INTRAMOLECULAR
+C354	ratio, modern initial sticking to this paper's	0.914	x	DERIVED	C352 / C05	fn:modern_ws_ratio
+C355	effective sticking rescaled to the modern value	0.1359	percent	DERIVED	C113 x C354	fn:ws_sin_modern
+C356	service life at the bound case, modern value	637.0	cycles	DERIVED	N(C355, C169)	fn:N_bound_modern
+C357	heat balance, bound case, perfect collection, modern value	1.492	dimensionless	DERIVED	C356 x C214 / C100	fn:q_heat_bound_modern
+C358	heat balance, bound case at today's aperture, modern value	0.911	dimensionless	DERIVED	C356 x C214 x C142 / C100	fn:q_heat_bound_nf_modern
+C359	Kou and Chen stripping reference photon energy	15	keV	SOURCED	arXiv:2606.07077 eq 36	none
+C360	their reference energy fluence	7.2e7	J/cm2	SOURCED	arXiv:2606.07077 eq 38	none
+C361	that fluence sustained over one binder lifetime	3.28e13	W/cm2	DERIVED	C360 / 2.197 microseconds	fn:kc_sustained
+C362	ratio to sec.5.21's independent requirement	1.48	x	DERIVED	C361 / C238	fn:kc_over_5_21
+C363	their collision-only cycle yield	112.6	cycles	SOURCED	arXiv:2606.07077 eq 46, phi=1.25	none
+C364	their best-case cycle yield with external stripping	156.5	cycles	SOURCED	arXiv:2606.07077, optimistic transport benchmark	none
+C365	cycle gain from external-field stripping	1.39	x	DERIVED	C364 / C363	fn:stripping_gain
+C366	their collision-only effective sticking	0.557	percent	SOURCED	arXiv:2606.07077 eq 46	none
+C367	their collisional reactivation probability	0.35	fraction	SOURCED	arXiv:2606.07077 eq 33	none
