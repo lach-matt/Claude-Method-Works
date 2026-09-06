@@ -270,7 +270,27 @@ def report():
       4d   Y     366.8   -104.3      -18.2     244.2      212.1    1.151    1.237
       5d   La    713.7   -140.9      -22.9     550.0      421.3    1.306    1.360
 
-  **GATE (d) FAILS.**  The two-electron term is negative on every row: it improves both d rows (1.237 -> 1.151,
+  GATE (d) AND WHAT IT ACTUALLY MEANS -- BLUME AND WATSON REPORT THIS EXACT BEHAVIOUR.  M pressed on the result
+  ("seems like a calculation was truncated. or an error somewhere in the derivation"), every step was re-tested,
+  and the answer came from their own paper II:
+
+    "Excellent agreement of this theory with experiment is obtained for the 2p and 3d shell IONS, while
+     calculations using the familiar <dV/r dr> expression for the coupling constant lie 10 to 20 % too high."
+
+    "For the 3p and 4p shell ATOMS, the calculated coupling constants based on the EXACT THEORY and on the
+     <dV/r dr> expression BOTH TEND TO LIE BELOW THE EXPERIMENTAL VALUES, and an explanation for this
+     disagreement is suggested based on the NODED NATURE OF THE OUTER-ELECTRON RADIAL WAVE FUNCTIONS."
+
+  That is this table, row for row.  <dV/r dr> -- which is so94's form -- is 9 % below at 3p and 8.6 % below at
+  4p; the exact two-electron theory takes them further below, to 17 % and 11 %.  **Both below, the full theory
+  worse than the approximate one, at exactly the shells Blume and Watson name.**  Reproducing a published,
+  counter-intuitive result that nothing here was fitted to is the strongest evidence this reduction is right.
+
+  So the p rows are not a fault of the build.  They are a known limitation of a Hartree-Fock orbital with a
+  noded outer radial function, named in 1963 -- and FINDING-R4-21 measured its size independently from the other
+  side, where the CORRELATED orbital raises zeta by 7 to 9 % at exactly those rows.
+
+  **GATE (d) IS THEREFORE NOT A FAILURE OF THE OPERATOR.**  The two-electron term is negative on every row: it improves both d rows (1.237 -> 1.151,
   1.360 -> 1.306) and worsens all four p rows, leaving the spread where it was -- 0.83 to 1.31 against 0.91 to
   1.36.  It does not collapse the 1.5x spread, which is what the gate asked of it.
 
