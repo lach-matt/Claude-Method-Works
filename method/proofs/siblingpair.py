@@ -110,6 +110,19 @@ def load_mp2(chain, lmax=3, npts=700, rmax=60.0):
     if src.count(old) != 1:
         raise RuntimeError("mp2_ent.py: expected exactly one r_min site")
     src = src.replace(old, new_)
+    # INSTRUMENTATION, not arithmetic: record each (L, S) channel's contribution as it is already computed, so the
+    # closed-shell intra-shell sum can be read term by term.  The seven allowed terms of f^2 carry statistical
+    # weights summing to 91, which IS the pair count of a closed f14 shell, so E2closed(a,a) is literally a sum
+    # over terms and the per-pair energy in term (L,S) is its contribution divided by (2L+1)(2S+1).  Nothing in
+    # the computation changes; one dictionary is written.
+    tot_old = "                        tot+=c\n"
+    tot_new = ("                        tot+=c\n"
+               "                        LS_PARTS.setdefault(same,{})[(L,S)]="
+               "LS_PARTS.setdefault(same,{}).get((L,S),0.0)+c\n")
+    if src.count(tot_old) != 1:
+        raise RuntimeError("mp2_ent.py: expected exactly one accumulation site")
+    src = src.replace(tot_old, tot_new)
+    src = src.replace("OUT=\"mp2_ent.jsonl\"", "OUT=\"mp2_ent.jsonl\"\nLS_PARTS={}", 1)
     mod = types.ModuleType("mp2_ent"); mod.__file__ = os.path.join(RECOVERED, "mp2_ent.py")
     sys.modules["mp2_ent"] = mod
     argv = sys.argv
@@ -155,22 +168,25 @@ def save(d):
     json.dump(d, open(OUT_JSON, "w"), indent=1)
 
 
-def run_rows(Zs, log=sys.stderr):
+def run_rows(Zs, log=sys.stderr, lmax=3):
     fe = _load_fieldentry()
     ch = fe.Chain(log=log)
     d = rows()
     try:
-        mp2 = load_mp2(ch)
+        mp2 = load_mp2(ch, lmax=lmax)
         for Z in Zs:
             print(f"  mp2_ent Z={Z} ...", file=log, flush=True)
             try:
                 buf = io.StringIO()
+                mp2.LS_PARTS.clear()
                 with __import__("contextlib").redirect_stdout(buf):
                     mp2.run(Z)
                 o = json.loads(open(mp2.OUT).read().strip().split("\n")[-1])
+                o["LS_intrashell"] = {f"{L},{S}": round(v, 6) for (L, S), v in sorted(mp2.LS_PARTS.get(True, {}).items())}
             except Exception as ex:
                 o = dict(Z=Z, err=f"{type(ex).__name__}: {str(ex)[:200]}")
-            d["rows"] = [r for r in d["rows"] if r.get("Z") != Z] + [o]
+            o["LMAX"] = lmax
+            d["rows"] = [r for r in d["rows"] if not (r.get("Z") == Z and r.get("LMAX") == lmax)] + [o]
             save(d)
             print(f"    {o.get('el','?')} {o.get('sh','')} E2_ent {o.get('E2_ent', o.get('err'))}"
                   f"  core {o.get('E2_ent_core')}  sib {o.get('E2_ent_sib')}", file=log, flush=True)
@@ -181,7 +197,7 @@ def run_rows(Zs, log=sys.stderr):
 
 def report():
     d = rows()
-    R = {r["Z"]: r for r in d["rows"] if "err" not in r}
+    R = {r["Z"]: r for r in d["rows"] if "err" not in r and r.get("LMAX", 3) == 3}
     print("  THE COMPACT-SHELL RESIDUAL AT PROTACTINIUM, ON THE RECORD'S OWN SECOND-ORDER INSTRUMENT\n")
     print("  E2_ent = second-order pair correlation of the entrant, on the chain's own local orbitals;")
     print("  E2_ent_sib is the SAME-SHELL (sibling) part, which a removal destroys and which HF cannot carry.\n")
@@ -221,6 +237,51 @@ def report():
         print(f"    the core part, which does not depend on how many siblings there are: {p['E2_ent_core']:.5f} Ha,")
         print(f"    so E2_ent = {p['E2_ent_core']+g:.5f} Ha under the general scaling.")
         print()
+    # ---- the LMAX convergence bridge 34 ordered, and the term decomposition
+    allr = [r for r in json.load(open(OUT_JSON))["rows"] if "err" not in r]
+    def at(Z, L):
+        m = [r for r in allr if r["Z"] == Z and r.get("LMAX", 3) == L]
+        return m[0] if m else None
+    have = sorted({r.get("LMAX", 3) for r in allr})
+    if len(have) > 1 and at(91, 5) and at(70, 5):
+        print("  THE LMAX CONVERGENCE BRIDGE 34 ORDERED AND NEVER RAN  (\"run LMAX=4/5 convergence ... before reading\")\n")
+        print("   LMAX |  Pa E2closed   Yb E2closed |  Pa 3H/pair  Yb 3H/pair  per-pair Pa/Yb |  Pa's ONE pair  Yb's 13   ratio")
+        for L in have:
+            pz, yz = at(91, L), at(70, L)
+            if not (pz and yz and pz.get("LS_intrashell") and yz.get("LS_intrashell")): continue
+            pt, yt = pz["LS_intrashell"], yz["LS_intrashell"]
+            pp, yp = pt["5,1"] / 33, yt["5,1"] / 33
+            pav, yav = sum(pt.values()) / 91, sum(yt.values()) / 91
+            ys = abs(yz["E2_ent_sib"])
+            print(f"    {L}   | {sum(pt.values()):11.5f}  {sum(yt.values()):11.5f} | {pp:11.6f} {yp:11.6f} {pav/yav:16.3f} |"
+                  f" {abs(pp):13.6f} {ys:9.5f} {ys/abs(pp):7.1f}")
+        print()
+        print("   The ABSOLUTE sums are badly unconverged at the record's LMAX = 3: ytterbium's sibling term runs")
+        print("   0.110 -> 0.159 -> 0.167 and protactinium's closed-shell sum 0.308 -> 0.766 -> 0.830.  The record")
+        print("   banked LMAX = 3 and read PN-4 off it as \"0.09 vs 0.11\"; at convergence it is 0.09 against 0.167,")
+        print("   so the frozen second-order estimate overshoots the residual it was tested against by 85 %, not by")
+        print("   22 %.  The record's own two cautions -- frozen second order overestimates (He x1.3) and the ion's")
+        print("   relaxation is absent -- must therefore carry about HALF the value, not a fifth of it.\n")
+        print("   The PER-PAIR ratio moves the other way and corrects this instrument's first reading: Pa/Yb runs")
+        print("   0.400 -> 0.689 -> 0.712, so at convergence protactinium's 5f pair correlates within 30 % of an")
+        print("   ytterbium 4f pair, NOT at two-fifths of it.  The compactness half of FINDING-R4-16 s4 was read off")
+        print("   an unconverged number and is corrected there.  What survives, and it is exact arithmetic rather")
+        print("   than a computed quantity, is the SIBLING COUNT: protactinium loses ONE pair where ytterbium loses")
+        print("   THIRTEEN, and the ratio of the two totals is 33.7 at convergence.\n")
+    pz = at(91, 5)
+    if pz and pz.get("LS_intrashell"):
+        LET = "SPDFGHIKL"; t = pz["LS_intrashell"]; tot = sum(t.values())
+        print("  THE TERM DECOMPOSITION, AND WHY PROTACTINIUM'S OWN PAIR IS THE WEAKEST ONE  (Pa, LMAX = 5)\n")
+        print("    term  weight   contribution   per pair    per pair / average")
+        for k in sorted(t, key=lambda x: int(x.split(",")[0])):
+            L, Sp = (int(x) for x in k.split(",")); w = (2 * L + 1) * (2 * Sp + 1)
+            print(f"    {int(2*Sp+1)}{LET[L]:<2} {w:>6}  {t[k]:>13.5f} {t[k]/w:>11.6f} {(t[k]/w)/(tot/91):>18.3f}"
+                  + ("   <-- Pa I's 4K11/2 is 5f2(3H) + 6d" if (L, Sp) == (5, 1) else ""))
+        print(f"\n    The seven allowed terms of f^2 carry weights summing to {sum((2*int(k.split(',')[0])+1)*(2*int(k.split(',')[1])+1) for k in t)}, which IS the pair count of a closed")
+        print("    f14 shell, so the closed-shell sum is literally a sum over terms.  Protactinium's two 5f electrons")
+        print("    sit in 3H -- maximum multiplicity and maximum L, where Hund's rules hold them furthest apart -- and")
+        print(f"    it is the weakest-correlating term of the seven, at {(t['5,1']/33)/(tot/91):.2f} of the average, against {(t['0,0']/1)/(tot/91):.1f} for the 1S singlet.")
+        print("    So the average pair is the wrong quantity for protactinium and the term-resolved one is right.\n")
     print("  WHAT THIS IS AND IS NOT.  The record's own reading governs: frozen second order on local orbitals")
     print("  OVERESTIMATES (He x1.3), and the ion's own correlation relaxation, which reduces the removal")
     print("  correlation, is ABSENT here.  So this is a lower-bound-shaped estimate of what the removal energy is")
@@ -234,7 +295,7 @@ def selftest():
         nonlocal ok, bad
         ok += bool(cond); bad += (not cond)
         print(f"  {'OK  ' if cond else 'FAIL'} {name}  {detail}")
-    d = rows(); R = {r["Z"]: r for r in d["rows"] if "err" not in r}
+    d = rows(); R = {r["Z"]: r for r in d["rows"] if "err" not in r and r.get("LMAX", 3) == 3}
     check("the record's single-entrant bound is the one FINDING-R4-15's six openings sit inside",
           SINGLE_ENTRANT_BOUND == 0.009 and max(abs(x) for x in (0.0005, 0.0005, 0.0005, 0.0017, 0.0038, 0.0029)) < SINGLE_ENTRANT_BOUND,
           "worst 0.0038 Ha at 4d against 0.009")
@@ -282,13 +343,14 @@ def main():
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--gate", action="store_true")
     ap.add_argument("--run", nargs="*", type=int)
+    ap.add_argument("--lmax", type=int, default=3)
     a = ap.parse_args()
     if a.selftest:
         sys.exit(0 if selftest() else 1)
     if a.gate:
-        run_rows([2, 55, 21, 70]); return
+        run_rows([2, 55, 21, 70], lmax=a.lmax); return
     if a.run:
-        run_rows(a.run); return
+        run_rows(a.run, lmax=a.lmax); return
     report()
 
 

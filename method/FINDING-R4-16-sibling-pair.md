@@ -135,3 +135,71 @@ of two quantities from the same run.
    numbers and is not a repair to any seated file.
 
 Nothing is repaired in any volume. Every figure is MEASURED by the instrument or RECORD-CARRIED with its quote.
+
+---
+
+## §4's COMPACTNESS ARGUMENT IS CORRECTED, and the record's own second-order numbers are found unconverged
+
+M, on this file: *"the domain limit is information that needs to be included in the volumes, but over all, it is
+still an open question. we are not finished."* Bridge 34's other instruction — *"run LMAX=4/5 convergence and the
+ion-relaxation subtraction before reading"* — was never run by the record. **Half of it is now run**, and it
+changes two things.
+
+### The record's banked second-order values are unconverged in ℓ
+
+| LMAX | Pa E2closed(aa) | Yb E2closed(aa) | Yb sibling term |
+|---|---|---|---|
+| **3** (the record's) | −0.30782 | −0.76866 | **0.10981** |
+| 4 | −0.76551 | −1.11060 | 0.15866 |
+| **5** | **−0.83041** | **−1.16650** | **0.16664** |
+
+**Ytterbium's sibling term runs 0.110 → 0.159 → 0.167**, and protactinium's closed-shell sum nearly triples. The
+record banked LMAX = 3 and read PN-4 off it as *"0.09 vs 0.11 lower-bound frozen second order"*. **At convergence
+it is 0.09 against 0.167** — the frozen second-order estimate overshoots the residual it was tested against by
+**85 %, not 22 %.** So the record's own two cautions — frozen second order overestimates (He ×1.3) and the ion's
+relaxation is absent — must carry about **half** the value rather than a fifth of it. This does not refute PN-4;
+it makes its own caveats load-bearing, which is why bridge 34 ordered the convergence before reading.
+
+### §4's compactness half was read off an unconverged number and is withdrawn
+
+The per-pair ratio Pa/Yb runs **0.400 → 0.689 → 0.712**. At convergence protactinium's 5f pair correlates
+**within 30 %** of an ytterbium 4f pair, not at two-fifths of it. The ⟨r⟩ measurement (1.421 a₀ against 0.760)
+stands as a measurement, but its consequence for the pair energy is far weaker than §4 claimed, and the claim
+that Pa "sits with the 5d rows" on the Janak law is not supported by this object.
+
+**What survives is the sibling count, and it survives because it is exact arithmetic rather than a computed
+quantity: protactinium loses ONE pair where ytterbium loses THIRTEEN.** The ratio of the two totals is **33.7**
+at convergence and was 50.4 at LMAX = 3 — the conclusion is the same at every ℓ and does not depend on the
+convergence at all. §4's finding therefore stands on one leg instead of two, and it is the stronger leg.
+
+### And the term decomposition, which is new and makes the average the wrong quantity
+
+The seven allowed terms of f² carry statistical weights summing to **91** — which is exactly the pair count of a
+closed f¹⁴ shell — so the closed-shell sum is literally a sum over terms, and the per-pair energy in a term is its
+contribution divided by its weight. At Pa, LMAX = 5:
+
+| term | ¹S | ³P | ¹D | ³F | ¹G | **³H** | ¹I |
+|---|---|---|---|---|---|---|---|
+| per pair / average | 5.00 | 1.86 | 1.74 | 0.89 | 1.02 | **0.54** | 1.14 |
+
+**Protactinium's two 5f electrons sit in ³H** — Pa I's ground is ⁴K11/2 = 5f²(³H) + 6d — which is maximum
+multiplicity and maximum L, where Hund's rules hold the two electrons furthest apart, and **it is the
+weakest-correlating of the seven terms**, at 0.54 of the average against 5.0 for the ¹S singlet. The same shape
+appears at ytterbium (³H at 0.60), so it is a property of the f² term structure and not of the element. **The
+closed-shell average is therefore the wrong quantity for protactinium and the term-resolved one is right.**
+
+### Where the figure stands, and it is not closed
+
+Protactinium's actual ³H sibling pair, converged: **0.00494 Ha = 0.135 eV**; with the record's own ×1.3 frozen
+overestimate removed, 0.00380 Ha = 0.103 eV.
+
+| | Ha | eV | t(5f) |
+|---|---|---|---|
+| unrelaxed | 0.26030 | **7.083** | 2.6457 (+8.0 %) |
+| ÷1.3 | 0.25916 | **7.052** | 2.6434 (+7.9 %) |
+
+So the figure has settled at **7.05–7.08 eV**, inside but at the bottom of §5's 7.04–7.18, with t(5f) = 2.643–2.646.
+
+**It is not closed, and the reason is named: the ion-relaxation subtraction — the other half of bridge 34's
+instruction — is still not run**, here or in the record. It can only move the figure down. Until it is run the
+7.05–7.08 eV is a one-sided estimate, and the single-entrant class scatter of ±0.1 eV sits on top of it.

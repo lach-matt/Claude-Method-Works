@@ -29,6 +29,44 @@
     the core part, which does not depend on how many siblings there are: -0.05104 Ha,
     so E2_ent = -0.05442 Ha under the general scaling.
 
+  THE LMAX CONVERGENCE BRIDGE 34 ORDERED AND NEVER RAN  ("run LMAX=4/5 convergence ... before reading")
+
+   LMAX |  Pa E2closed   Yb E2closed |  Pa 3H/pair  Yb 3H/pair  per-pair Pa/Yb |  Pa's ONE pair  Yb's 13   ratio
+    3   |    -0.30782     -0.76866 |   -0.002178   -0.005591            0.400 |      0.002178   0.10981    50.4
+    4   |    -0.76551     -1.11060 |   -0.004699   -0.007440            0.689 |      0.004699   0.15866    33.8
+    5   |    -0.83041     -1.16650 |   -0.004944   -0.007675            0.712 |      0.004944   0.16664    33.7
+
+   The ABSOLUTE sums are badly unconverged at the record's LMAX = 3: ytterbium's sibling term runs
+   0.110 -> 0.159 -> 0.167 and protactinium's closed-shell sum 0.308 -> 0.766 -> 0.830.  The record
+   banked LMAX = 3 and read PN-4 off it as "0.09 vs 0.11"; at convergence it is 0.09 against 0.167,
+   so the frozen second-order estimate overshoots the residual it was tested against by 85 %, not by
+   22 %.  The record's own two cautions -- frozen second order overestimates (He x1.3) and the ion's
+   relaxation is absent -- must therefore carry about HALF the value, not a fifth of it.
+
+   The PER-PAIR ratio moves the other way and corrects this instrument's first reading: Pa/Yb runs
+   0.400 -> 0.689 -> 0.712, so at convergence protactinium's 5f pair correlates within 30 % of an
+   ytterbium 4f pair, NOT at two-fifths of it.  The compactness half of FINDING-R4-16 s4 was read off
+   an unconverged number and is corrected there.  What survives, and it is exact arithmetic rather
+   than a computed quantity, is the SIBLING COUNT: protactinium loses ONE pair where ytterbium loses
+   THIRTEEN, and the ratio of the two totals is 33.7 at convergence.
+
+  THE TERM DECOMPOSITION, AND WHY PROTACTINIUM'S OWN PAIR IS THE WEAKEST ONE  (Pa, LMAX = 5)
+
+    term  weight   contribution   per pair    per pair / average
+    1S       1       -0.04559   -0.045589              4.996
+    3P       9       -0.15232   -0.016925              1.855
+    1D       5       -0.07928   -0.015855              1.738
+    3F      21       -0.17102   -0.008144              0.892
+    1G       9       -0.08332   -0.009258              1.015
+    3H      33       -0.16315   -0.004944              0.542   <-- Pa I's 4K11/2 is 5f2(3H) + 6d
+    1I      13       -0.13573   -0.010441              1.144
+
+    The seven allowed terms of f^2 carry weights summing to 91, which IS the pair count of a closed
+    f14 shell, so the closed-shell sum is literally a sum over terms.  Protactinium's two 5f electrons
+    sit in 3H -- maximum multiplicity and maximum L, where Hund's rules hold them furthest apart -- and
+    it is the weakest-correlating term of the seven, at 0.54 of the average, against 5.0 for the 1S singlet.
+    So the average pair is the wrong quantity for protactinium and the term-resolved one is right.
+
   WHAT THIS IS AND IS NOT.  The record's own reading governs: frozen second order on local orbitals
   OVERESTIMATES (He x1.3), and the ion's own correlation relaxation, which reduces the removal
   correlation, is ABSENT here.  So this is a lower-bound-shaped estimate of what the removal energy is
