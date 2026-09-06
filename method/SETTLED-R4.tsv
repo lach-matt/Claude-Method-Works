@@ -14,3 +14,8 @@ E-061b	Index of Indices "the sixteen missing cells are two"	VERIFIED TRUE	14 dom
 --	main Part I / §1 "indexed and closed at E = 0"	FALSE, STRUCK BY M	E(protocols) = 105; no principles index exists; RULINGS-R4d.md §1	method/proofs/part1index.py	FINDING-R4-04
 --	main §3.7 dimension certificate	VERIFIED TRUE	22 precedences, both extensions valid, intersections exactly the orders, 792 and 4,140	method/proofs/part1index.py	none needed
 --	main Part I "twenty-four protocols"	VERIFIED TRUE	the headings §2.1-§2.24, protindex.py's table, the Register's kind table	method/proofs/part1index.py	FINDING-R4-03
+E-072	Λ has seven constraints, not the eight one Register entry prints	SEVEN, VERIFIED	the seven printed constraints rebuild Λ₈ at exactly 976 cells, identical to tower-2.py cell for cell, and no constraint is redundant	method/proofs/lambda8.py	none needed
+E-072b	main §21.5.2's constraint graph: 8 nodes, 7 edges, a tree	VERIFIED TRUE	built from the seven printed pairs; connected, acyclic, 7 = 8 - 1	method/proofs/lambda8.py	none needed
+E-072c	main §21.5.2's triple census 0 / 7 / 20 / 8 over thirty-five	VERIFIED TRUE	all C(7,3) = 35 triples of constraints scored by the nodes they span; zero 3-bodies	method/proofs/lambda8.py	none needed
+E-072d	main §21.5.2 "one edge away in exactly seven places", and the seven named	VERIFIED TRUE	seven non-edges at tree distance 2, and each names the same triple the book names	method/proofs/lambda8.py	none needed
+

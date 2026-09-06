@@ -1,0 +1,42 @@
+  LAMBDA-8 REBUILT FROM THE SEVEN CONSTRAINTS THE BOOK PRINTS
+
+  1. DO THE SEVEN GENERATE THE OBJECT?
+       l <= n-1    relates n and l
+       k <= 4l+2   relates l and k
+       q <= k      relates k and q
+       f <= e-1    relates e and f
+       g <= 4f+2   relates f and g
+       g <= q      relates q and g
+       2S <= k     relates k and 2S
+     seated tower-2.py L8()   976 cells
+     rebuilt from the seven   976 cells
+     identical cell for cell  True
+     redundant constraints    none -- every one is needed
+     So the constraint set is exactly seven: seven generate it, and no six do.
+
+  2. THE CONSTRAINT GRAPH
+     8 nodes, 7 edges: l-n · k-l · k-q · e-f · f-g · g-q · 2S-k
+     a tree? True   (1 component(s), 7 edges over 8 nodes)
+
+  3. THE TRIPLE CENSUS, over all C(7,3) = 35 triples of constraints
+     triples spanning 4 nodes: 7
+     triples spanning 5 nodes: 20
+     triples spanning 6 nodes: 8
+     total 35;  3-bodies 0
+
+  4. ONE EDGE FROM A 3-BODY
+     add 2S - l   -> a 3-body on {2S, k, l}
+     add 2S - q   -> a 3-body on {2S, k, q}
+     add e - g   -> a 3-body on {e, f, g}
+     add f - q   -> a 3-body on {f, g, q}
+     add g - k   -> a 3-body on {g, k, q}
+     add k - n   -> a 3-body on {k, l, n}
+     add l - q   -> a 3-body on {k, l, q}
+     7 places, one per existing edge, which is what adding an edge
+     to a tree gives.
+
+  VERDICT ON CANDIDATE E-072
+     SEVEN. The seven printed constraints generate Lambda-8 exactly and none is
+     redundant. Every claim section 21.5.2 makes about their graph reproduces.
+     The Register entry printing 'Lambda's eight constraints' is the outlier.
+     Nothing is repaired here.
