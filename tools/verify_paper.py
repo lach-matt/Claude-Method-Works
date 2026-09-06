@@ -445,6 +445,22 @@ def wshort3_psi():
     return 1.0 / (_N(ws_psi() / 100.0, 3.0) * (work_new() / 1000.0) / cost_pion())
 
 
+def molar_vol_phi90():
+    return collector.phi_to_molar_volume(phi90_sin())
+
+
+def compression():
+    return 23.0 / molar_vol_phi90()
+
+
+def trans_atoms():
+    return collector.transition_phi(True)
+
+
+def trans_molecules():
+    return collector.transition_phi(False)
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 
@@ -502,9 +518,12 @@ def scale_variants(v, unit):
 
 
 # Consume scientific notation whole: "2.7e8" is one number, not 2.7 and 8.
+SUP = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")
 NUM = re.compile(
     r"(?<![\w.])(\d+(?:,\d{3})*(?:\.\d+)?)"
-    r"(?:[eE]([+-]?\d+)|\s*[x×]\s*10\s*\^?\s*([+-]?\d+))?")
+    r"(?:[eE]([+-]?\d+)"
+    r"|\s*[x×]\s*10\s*\^?\s*([+-]?\d+)"
+    r"|\s*[x×]\s*10\s*([⁻]?[⁰¹²³⁴⁵⁶⁷⁸⁹]+))?")
 STRUCTURAL = re.compile(
     r"(?:§|section|sec\.|condition|table|figure|fig\.|item|ref\.|\[)\s*\d+", re.I)
 
@@ -589,9 +608,9 @@ def main():
         v = norm(m.group(1))
         if v is None:
             continue
-        exp = m.group(2) or m.group(3)
+        exp = m.group(2) or m.group(3) or m.group(4)
         if exp is not None:
-            v *= 10.0 ** int(exp)
+            v *= 10.0 ** int(exp.translate(SUP))
         if 1900 <= v <= 2100 and "." not in m.group(1):
             continue                                             # a year
         if v <= 20 and float(v).is_integer():

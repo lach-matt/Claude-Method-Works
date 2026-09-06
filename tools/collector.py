@@ -447,6 +447,26 @@ def f_work_corrected():
     return work_per_fusion_mev() / Q_FUS_MEV
 
 
+LHD_ATOMS_PER_CM3 = 4.25e22   # liquid hydrogen density, the paper's own figure
+AVOGADRO = 6.022e23
+# Reported metallization / dissociation of molecular hydrogen: ~0.6 mol/cm3 at
+# >= ~400 GPa (predicted), semimetallic behaviour from ~315-360 GPa, and Raman
+# evidence that hydrogen is STILL MOLECULAR to 440 GPa. Whether "0.6 mol/cm3"
+# counts atoms or H2 molecules is not resolved by the sources read here, and
+# the two readings bracket the density muCF needs -- so both are carried.
+H2_TRANSITION_MOL_PER_CM3 = 0.6
+
+
+def phi_to_molar_volume(phi):
+    """cm3 per mole of H2 at a stated density in units of LHD."""
+    return 2.0 * AVOGADRO / (phi * LHD_ATOMS_PER_CM3)
+
+
+def transition_phi(counts_atoms=True):
+    n = H2_TRANSITION_MOL_PER_CM3 * AVOGADRO * (1.0 if counts_atoms else 2.0)
+    return n / LHD_ATOMS_PER_CM3
+
+
 BE_N2N_COST_MEV = 1.57     # 9Be(n,2n): endothermic, per multiplication
 
 

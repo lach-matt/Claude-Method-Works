@@ -162,3 +162,12 @@ C160	thermal per fusion at 1.6 neutrons per source	24.31	MeV	DERIVED	blanket wit
 C161	energy multiplication at 1.6 neutrons per source	1.382	x	DERIVED	C160 / C01	fn:mult_16
 C162	work shortfall at phi=3, PSI reading	1.95	x	DERIVED	1 / (N(C114,3) x C136 / C100)	fn:wshort3_psi
 C163	published blanket multiplication, low end	1.1	x	SOURCED	fusion blanket design range	none
+C164	liquid hydrogen density	4.25e22	atoms/cm3	MEASURED	the paper's own figure, sec.3.2	collector.LHD_ATOMS_PER_CM3
+C165	molar volume at the required density	2.60	cm3/mol	DERIVED	2 N_A / (C151 x C164)	fn:molar_vol_phi90
+C166	molar volume of zero-pressure solid hydrogen	23	cm3/mol	MEASURED	standard	none
+C167	compression required over solid hydrogen	8.8	x	DERIVED	C166 / C165	fn:compression
+C168	reported transition density	0.6	mol/cm3	SOURCED	molecular hydrogen metallization, predicted	collector.H2_TRANSITION_MOL_PER_CM3
+C169	transition density if counted as atoms	8.5	LHD	DERIVED	C168 x N_A / C164	fn:trans_atoms
+C170	transition density if counted as molecules	17.0	LHD	DERIVED	2 x C168 x N_A / C164	fn:trans_molecules
+C171	reported semimetallic onset pressure	315	GPa	SOURCED	molecular hydrogen, measured	none
+C172	pressure to which hydrogen remains molecular	440	GPa	SOURCED	Raman, measured to 480 GPa	none

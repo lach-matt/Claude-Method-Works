@@ -488,9 +488,9 @@ satisfaction reported in §5.5 is therefore an asymptotic statement, and this se
 | that as a fraction of the asymptote | **71.3 percent** | 75.6 percent |
 
 The scanned experimental record ends at 1.5 times liquid density. **Reaching 90 percent of the cap
-needs about seven times beyond it**, at the high temperature §3.2 requires, which means pressure of
-order kilobars. That is a real and unaddressed engineering condition, and §5.5's margin does not
-survive without it.
+needs about seven times beyond it**, at the high temperature §3.2 requires. §5.13 prices that in
+pressure and finds a structural bound rather than an engineering one. §5.5's margin does not survive
+without it.
 
 Carrying the corrected thermal accounting of §5.8 through to a reachable density:
 
@@ -508,6 +508,38 @@ work balance is short everywhere, between 1.18 and 1.95.
 **This tightens §5.5 rather than overturning it.** The heat form is satisfiable, but only at a density
 seven times beyond anything run, and the shortfall at a merely extrapolated density is 1.04 — near
 enough that the density axis, not the sticking axis, may be what decides it.
+
+### 5.13 Density is bounded above, and the bound is structural
+
+The density §5.11 requires can be priced, and it is not an engineering inconvenience. At 10.9 times
+liquid hydrogen density — 4.25 × 10²² atoms per cubic centimetre — the molar volume of the fuel is
+**2.60 cm³ per mole of hydrogen molecules**, against **23** for solid hydrogen at zero pressure: a
+compression of **8.8**. That is not the kilobar regime; it is hundreds of gigapascals, and hydrogen
+compressed that far is at or approaching the transition where it stops being molecular. Reported
+figures put semimetallic behaviour from about **315 GPa**, with Raman evidence that hydrogen remains
+**molecular to 440 GPa**, and a predicted transition density near **0.6 mol per cubic centimetre**.
+
+**That transition density brackets what is needed.** Whether the reported 0.6 counts atoms or
+molecules is not resolved by the sources read here, and the two readings give **8.5** and **17.0**
+times liquid density. The requirement of 10.9 falls between them.
+
+**Why this is a structural bound and not merely a hard one.** Vesman formation works by transferring
+the loosely bound molecular state's 0.66 eV into the *rovibrational states of a host molecule*.
+Atomic or metallic hydrogen has no such states. Dissociation therefore does not make formation
+slower — **it removes the mechanism**. Density is bounded above by molecular survival, and the bound
+has the same shape as the binder-mass window of §2 and the temperature bracket of §3.2: a rate
+condition below, a degeneracy condition above.
+
+> **The service-life asymptote sits at or beyond the density at which the formation mechanism ceases
+> to exist.** The cap in condition 8 is therefore not merely unattained; it may be unattainable in
+> principle, and §5.11's figures at three times liquid density are the ones that describe a physical
+> operating point.
+
+**And the two axes fight twice.** §3.2 already records that the resonance wants heat while density
+wants cold. There is a second opposition beneath it: the dissociation pressure of hydrogen *falls*
+with temperature, so operating at the 800 K the resonance demands tightens this bound relative to the
+room-temperature figures quoted above. By how much, this paper does not establish, and the figures
+here should be read as the loosest form of the constraint rather than the operative one.
 
 ### 5.12 A neutron multiplier, bounded rather than adopted
 
