@@ -122,8 +122,8 @@
   the pinned channels            main:1[9898] reg:0 mc:0 pc:0 ioi:0 sc:0
   twin walk                      main:1[9900] reg:0 mc:0 pc:0 ioi:0 sc:0
   unexplained residue            main:1[9902] reg:1[6288] mc:1[3206] pc:0 ioi:0 sc:0
-  No parameter is fitted         main:3[9602,9693,9904] reg:1[5078] mc:0 pc:0 ioi:0 sc:0
-  upstream of the score          main:1[9904] reg:0 mc:0 pc:0 ioi:0 sc:0
+  No parameter is fitted         main:3[9602,9693,9904] reg:2[5078,6787] mc:0 pc:0 ioi:0 sc:0
+  upstream of the score          main:1[9904] reg:1[6787] mc:0 pc:0 ioi:0 sc:0
   nineteen years                 main:1[9910] reg:1[6380] mc:0 pc:0 ioi:0 sc:0
   reached from both ends         main:1[9922] reg:0 mc:0 pc:0 ioi:0 sc:0
   Register bodies 1707–1711 (the audit and the residues), first 120 chars each:

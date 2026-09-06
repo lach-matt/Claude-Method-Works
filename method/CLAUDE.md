@@ -63,20 +63,20 @@ no longer on the read path.
 - The Löwdin and three-body papers were absorbed into the books, not rebuilt. **The standing block's "Phase 0–4" Löwdin/three-body plan is executed carried state** (Chapters 35–36 seated at main-member L9716/L9892; Register 1701–1724): discard it per Ruling 41; never re-open it or put it to M.
 - This project is for constructing the drafts. Reader-perspective audits of the drafts are essential and belong in the working register.
 
-## 3. Current state (live files as of W-239, MEASURED in the repo on 6 September 2026)
+## 3. Current state (live files as of W-240, MEASURED in the repo on 6 September 2026)
 
 - **This section was rewritten on M's order of 6 September 2026** (*"yes. reassess R3 in full"*) because it had
   gone sixteen main builds and thirty-eight compendia builds out of date and named instruments and gate steps the
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD110 main** (2,054,674 B ·
-  `e1264def2a04df9ac010db3f0ea90953` · 18,692 lines · 2 members) and **BUILD232 compendia** (15,170,136 B ·
-  `199df6336b30801dfe6567c39cd98485` · 123,726 lines · 665 members). **667 members in all.** **The Register runs
-  1 to 1835, 1,677 seated** (1,670 numbered + 7 grouped). **W-239 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD111 main** (2,056,218 B ·
+  `3d31d58491643d1c6fdee82b18200ad2` · 18,695 lines · 2 members) and **BUILD233 compendia** (15,175,096 B ·
+  `9631d7128c43d6656e9027f9d1701168` · 123,738 lines · 665 members). **667 members in all.** **The Register runs
+  1 to 1836, 1,678 seated** (1,671 numbered + 7 grouped). **W-240 seated.**
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 6 September: `python3 method/verify.py`
   VERIFY OK (667 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
-  `gate.py manifest --main ../The_Method_1_6_BUILD110_main_and_register.md` **OK**, 666 listed / 668 extracted;
+  `gate.py manifest --main ../The_Method_1_6_BUILD111_main_and_register.md` **OK**, 666 listed / 668 extracted;
   `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,609 rows, 2 carried retired, 1,607
   regenerated exactly, 0 NEW, 0 GONE, md5 `4742c83a4dcf7d9eb1af0ee27e6b020d` equal to the seated member);
   `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL**.
@@ -98,6 +98,13 @@ no longer on the read path.
   re-derived by a standard-library instrument before its entry was written), the census made content-keyed
   (`census2.py`, `close_census2.py`), and every tool in the repository seated as a member (W-236). The running
   account is `DEF-153O-PENDING.md`.
+- **THE CHAT-67 HOLD IS OFF ITS FIRST SITE, ONE RULING AT A TIME.** `RULINGS-R4f` §5 item 3 was specified before
+  it was executed — `DRAFT-R4-R3-CORRECTIONS.md` measures every site of rulings 2, 3, 9, 10, 11 and 12 and sorts
+  them into what is mechanical, what is blocked on M's prose and what touches no volume — and M was then asked one
+  question at a time. **Ruling 11 is executed** (*"yes, execute it"* / *"yes, seat it"*, 6 September): §34.4 takes
+  §34.8's *"in the form"*, register 1836 records it, the count classes are re-taken in the same build, and 33 of
+  the 86 live goldens moved and were re-banked by running. `r4-a1.py` is the build; W-240 is the close. **The
+  other five rulings stand where the draft leaves them**, each awaiting its own question.
 - **The successor framework is `PLAN-R4-PUBLICATION.md`** — approved by M on 5 September and seated at W-239, with
   `PLAN-R4-ANNEX.tsv` (800 rows, 731 open at the survey) as its inventory and `RULINGS-R4.md` as its rulings.
   Eight phases; ten of the fifteen Phase 0 rulings given, **five outstanding and named rather than inferred**:

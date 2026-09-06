@@ -129,7 +129,7 @@
     1446 headline: 'AND THE OBSERVATIONAL EDGE IS 102, NOT 108 — THERE ARE FOUR EDGES, NOT TWO. NIST ASD returns five rows for Rf–Og: it holds no neutral ground configurations past Z = 108, and `ground.py` matches all five exactly, so our table is fa'
   "zero unexplained residue" (row 7) — entries whose body carries "residue": [1707, 1711]; six-volume sites of "unexplained residue": main:1[9902] reg:1[6288] mc:1[3206] pc:0 ioi:0 sc:0
     "Pulay" in 1707–1712 bodies: [1707]; "quartic" in 1701–1712: [1709, 1711]; six-volume sites of "quartic": main:2[9878,10841] reg:2[6384,6388] mc:3[2034,3196,3198] pc:0 ioi:0 sc:0
-  "No parameter is fitted. No observation enters upstream of the score." (L9870) — the derivation's own claim (DEF-128 item 8): six-volume sites of "No parameter is fitted": main:3[9602,9693,9904] reg:1[5078] mc:0 pc:0 ioi:0 sc:0; "upstream of the score": main:1[9904] reg:0 mc:0 pc:0 ioi:0 sc:0
+  "No parameter is fitted. No observation enters upstream of the score." (L9870) — the derivation's own claim (DEF-128 item 8): six-volume sites of "No parameter is fitted": main:3[9602,9693,9904] reg:2[5078,6787] mc:0 pc:0 ioi:0 sc:0; "upstream of the score": main:1[9904] reg:1[6787] mc:0 pc:0 ioi:0 sc:0
 
 ================================================================================================
 7  CODA L9884–L9888 — "Chapter 34 read the order out of the table's own coordinates"; the corridor's silence at f; the collapse condition's address

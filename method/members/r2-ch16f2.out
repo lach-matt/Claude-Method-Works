@@ -269,11 +269,11 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
    0.03       six-volume sites 8      main outside unit [7964]   other volumes {'reg': [2714, 2718, 3950, 4766, 5799]}
    15,        six-volume sites 33     main outside unit [2283, 2393, 2403, 2429, 11717, 11763]   other volumes {'reg': [266, 374, 1794, 1950, 3462], 'mc': [1044, 1204, 1214, 1554, 1604], 'pc': [391], 'ioi': [324, 1365, 1366, 1367, 1368]}
    147        six-volume sites 12     main outside unit [4099, 4133]   other volumes {'reg': [664, 1906, 2946, 6344, 6597], 'mc': [838, 2512], 'ioi': [527]}
-   14         six-volume sites 110    main outside unit [130, 219, 291, 353, 1016, 1133, 3122, 3684]   other volumes {'reg': [40, 94, 126, 132, 266], 'mc': [322, 620, 778, 900, 1024], 'pc': [737], 'ioi': [245, 345, 394, 1365, 1366], 'sc': [136, 147, 402, 406, 419]}
+   14         six-volume sites 109    main outside unit [130, 219, 291, 353, 1016, 1133, 3122, 3684]   other volumes {'reg': [94, 126, 132, 266, 374], 'mc': [322, 620, 778, 900, 1024], 'pc': [737], 'ioi': [245, 345, 394, 1365, 1366], 'sc': [136, 147, 402, 406, 419]}
    23.10      six-volume sites 7      main outside unit [6439, 7587, 11085, 11089, 11091, 11473, 11475]   other volumes {}
    1787       six-volume sites 2      main outside unit []   other volumes {'reg': [6596]}
    24         six-volume sites 108    main outside unit [144, 564, 2240, 2333, 3377, 4262, 4727, 5784]   other volumes {'reg': [26, 64, 172, 1366, 1370], 'mc': [384, 718, 750, 752, 754], 'pc': [554], 'ioi': [33, 242, 245, 404], 'sc': [247, 267, 560, 581, 813]}
-   11         six-volume sites 234    main outside unit [125, 291, 352, 858, 1130, 1374, 1388, 1566]   other volumes {'reg': [94, 120, 254, 266, 374], 'mc': [966, 1016, 1224, 1344, 1444], 'pc': [365, 391, 600, 646, 740], 'ioi': [47, 324, 391, 1367, 1368], 'sc': [146, 151, 303, 305, 307]}
+   11         six-volume sites 235    main outside unit [125, 291, 352, 858, 1130, 1374, 1388, 1566]   other volumes {'reg': [94, 120, 254, 266, 374], 'mc': [966, 1016, 1224, 1344, 1444], 'pc': [365, 391, 600, 646, 740], 'ioi': [47, 324, 391, 1367, 1368], 'sc': [146, 151, 303, 305, 307]}
    11.7       six-volume sites 8      main outside unit [414, 2256, 2265, 10474, 10493]   other volumes {'mc': [1498], 'sc': [306]}
    26         six-volume sites 54     main outside unit [146, 4131, 5475, 5888, 6199, 6915, 7122, 7969]   other volumes {'reg': [70, 180, 946, 1442, 1670], 'mc': [1100, 1876, 2128], 'pc': [424, 741], 'ioi': [234, 406], 'sc': [297, 890, 980, 994]}
    122        six-volume sites 17     main outside unit [1881, 2173, 2175, 2479, 2510, 7619, 9136, 11867]   other volumes {'reg': [564, 6619, 6755], 'mc': [1224, 1444, 1574, 1604], 'ioi': [502]}

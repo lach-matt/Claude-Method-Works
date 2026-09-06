@@ -3,7 +3,7 @@
    archive: BUILD10 main_and_register, 2022827 B
    the archive holds a register                             True                       OK
    BUILD10 register: 1547 numbers, 165..1764
-   live    register: 1702 numbers, 1..1835
+   live    register: 1703 numbers, 1..1836
 
 == 1  THE FOUR PROVENANCE POINTERS WERE WRITTEN, SEATED, AND REMOVED
    1725  archive True  live False  **THE RECORD NORMALISED TO ITS OWN SETTLED FORM — 1,517 ENTRIES, ONE HEADLINE AND ONE BODY EACH,
