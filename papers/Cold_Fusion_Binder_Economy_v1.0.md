@@ -73,10 +73,26 @@ efficiency at which it breaks even separates the products sharply: electricity r
 collection together with the bound-case density and the favourable sticking branch, while bred fuel
 requires 50.8 percent at demonstrated cycle counts and asks nothing of the other axes. Against the
 30 percent the best studied front end captures, that is a factor of 1.69 in collection efficiency —
-an acceptance specification whose cost is a shielding trade, not a new magnet. One measurement remains
-genuinely unresolved: the two published final stickings straddle the break-point, and this paper's own
-protocol — neutron and X-ray routes run simultaneously on one target, a disagreement being a refusal
-rather than an average — is what decides it.
+an acceptance specification whose cost is a shielding trade, not a new magnet.
+
+**Two routes reach a positive balance and they share exactly one dependency.** Stated at the two
+collection efficiencies that exist rather than at perfect collection, the heat form passes at 1.241
+with the specified collector, taking no fissile credit at all, so the self-sustaining criterion is met
+without leaving the device; but it requires the service life as well, and fails at 0.316 without it.
+The bred-fuel form requires either the collector or the service life and not both. The aperture then
+turns out not to be what stands in the way of that route: the collector specification separates into
+dropping the front end's hemisphere cut — a choice made for a background a reactor does not have, and
+free in aperture, field and shielding — and widening the bore, and **the first half alone, at the
+existing 20 T magnet, gives a bred-fuel balance of 1.203 at the cycle count demonstrated in 1987**,
+on an acceptance model that is conservative by a factor of 2.92 at the one point where it can be
+checked against a full simulation.
+
+One measurement remains genuinely unresolved: the two published final stickings straddle the
+break-point, and this paper's own protocol — neutron and X-ray routes run simultaneously on one
+target, a disagreement being a refusal rather than an average — is what decides it. It bears on the
+heat route and not on the bred-fuel one. What the bred-fuel route awaits is not a physical question
+at all but a measurement of what a front end built for a reactor's requirement, rather than a
+collider's, delivers to a dense target.
 
 ---
 
@@ -1065,6 +1081,64 @@ price the blanket's own capital or the fissile handling §5.18 flags as prolifer
 the 30 percent column is a capture fraction, not a delivered-to-target fraction, so every entry in it
 is an upper bound on what today's hardware would actually return.
 
+### 5.25 What today's magnet already accepts
+
+§5.24 concentrates the risk in one component. This section splits that component and finds that
+**one of its two parts is free**.
+
+The collector specification of §5.9 has two independent halves, and they were stated together there
+because they arrive together in a design. They are not coupled physically:
+
+1. **Drop the hemisphere cut.** Physics front ends capture backward-going pions only, to escape the
+   forward neutron and proton flux. A reactor's target *is* its detector. This costs no aperture, no
+   field and no shielding — it is the removal of a choice made for a background a reactor does not
+   have.
+2. **Widen the bore**, from 1.50 to 2.60 T·m, a factor of 1.74. This is the half §5.22 prices as a
+   shielding trade of about 2.7 in coil heating.
+
+**Half one alone, at today's aperture, is already enough for the bred-fuel route.** The acceptance
+model at the existing 1.50 T·m over both hemispheres gives **61 percent** of measured production
+(§5.9), against the **50.8 percent** §5.23 shows bred fuel needs at demonstrated cycle counts.
+Carrying that through:
+
+| balance at today's aperture, both hemispheres | |
+|---|---|
+| bred fuel, demonstrated 150 cycles | **1.203** |
+| bred fuel, bound-case service life | **4.72** |
+| heat, bound-case service life | 0.842 |
+| heat, φ = 3 | 0.686 |
+| heat, demonstrated 150 cycles | 0.215 |
+| work, bound-case service life | 0.632 |
+
+> **At the existing 20 T front-end magnet, with the forward hemisphere no longer discarded and nothing
+> else changed, the bred-fuel balance at the demonstrated cycle count is 1.203.** No wider bore, no
+> shielding trade, no density beyond the scanned record, no resolution of the sticking measurement.
+
+**The heat route does not clear the same bar**: 0.842 at its best, and it needs the wider bore. So the
+two halves of the collector specification map onto the two routes of §5.24 exactly — the bred-fuel
+route needs the hemisphere change, the heat route needs the hemisphere change *and* the aperture
+*and* the service life.
+
+**Two things must be said about the 1.203, and one of them is unusual.**
+
+The margin is thin — 20 percent above unity on a chain of estimates — and this paper does not present
+a thin margin as a result. What makes it worth stating is the **direction of the model's error, which
+is known**. The acceptance model can be checked against the full MARS15 front-end simulation at one
+point: backward hemisphere, existing aperture, where the model returns 10.3 percent and the simulation
+reports 30 percent of production. **The model is conservative there by a factor of 2.92.** It is a crude
+transverse-momentum cap and it does not represent decay-in-channel, phase rotation, or the length of a
+real solenoid, all of which add capture. So the 61 percent is a floor of the same kind as §5.1's
+production figure, and the 1.203 inherits that.
+
+**And the caution, which is the same one §5.23 and §5.24 carry and is not weakened by repetition.**
+Acceptance is necessary and not sufficient: a front end must transport, cool and stop what it accepts,
+and none of that is modelled here. The MARS15 30 percent is a capture fraction reached through a
+channel built to deliver a narrow momentum band to a storage ring; how much of a both-hemisphere
+acceptance a *reactor* front end would actually deliver to a dense target is unmeasured, and it is the
+measurement this paper would put first. What §5.25 establishes is narrower and still worth having:
+**the aperture is not what stands in the way of the bred-fuel route, and the hemisphere cut is not a
+physical constraint at all.**
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -1187,23 +1261,35 @@ density axis, the sticking measurement or the reactivation term. The product cho
 on the product the definition permits, is **1.69** in collection efficiency above today's measured
 front end — inside the §5.9 collector, whose cost §5.22 prices as a shielding trade.
 
+**And §5.25 splits the collector, which changes the ranking below.** The specification has two halves —
+drop the hemisphere cut, and widen the bore by 1.74 — and they are not physically coupled. The first
+costs no aperture, no field and no shielding, because it is the removal of a choice made for a
+background a reactor does not have. At today's aperture with that cut alone dropped, the bred-fuel
+balance at demonstrated cycle counts is **1.203**.
+
 What would change the answer, in the order this paper can rank them:
 
-1. **The collector of §5.9** — 20 T on a 13 cm clear bore with no hemisphere cut. Every balance in
-   this paper depends on it and nothing else depends on anything unbuilt. It is the single component
-   that moves the result furthest, and §5.22 shows its cost is a shielding trade of about 2.7 in coil
-   heating, not a new magnet.
-2. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
-   bench experiment on an existing beam.
-3. **Effective sticking at the operating temperature.** No determination exists at 800 K, though
+1. **A front end measured as an acceptance rather than as a collider channel.** The hemisphere cut is
+   not a physical constraint, and dropping it at the existing aperture is enough for the bred-fuel
+   route at demonstrated cycle counts. What is unmeasured is how much of a both-hemisphere acceptance
+   a reactor front end delivers to a dense target — the model here computes acceptance and no more.
+   **This is the measurement this paper would put first**, and it needs no new machine.
+2. **The wider bore of §5.9** — 20 T on a 13 cm clear bore, 1.74 times the existing aperture. The heat
+   and work routes need it; the bred-fuel route does not. §5.22 prices it as a shielding trade of
+   about 2.7 in coil heating, not a new magnet.
+3. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
+   bench experiment on an existing beam. It bears on the heat route and not on the bred-fuel one.
+4. **Effective sticking at the operating temperature.** No determination exists at 800 K, though
    §5.20 records the muon-loss dependence measured across 85 to 790 K in the d+d system, in the
    favourable direction.
-4. **The resonant stripping enhancement of §5.21** — unquantified, against a direct-photoionisation
-   requirement of 2.21 × 10¹³ W/cm² sustained.
 5. **Where molecular hydrogen ceases to be molecular at 800 K** — decides whether the density §5.13
-   requires exists at all.
+   requires exists at all, and therefore whether the heat route's service life is available.
+6. **The resonant stripping enhancement of §5.21** — unquantified, against a direct-photoionisation
+   requirement of 2.21 × 10¹³ W/cm² sustained. It is last because it would lift a bound the other
+   items work within.
 
-None is settled here. The first three need no new machine.
+None is settled here. The first three need no new machine, and items 3 to 6 bear on the service-life
+axis alone — which is the axis §5.24 shows the bred-fuel route can do without.
 
 **And four doors are now shut, which is worth as much as an open one.** The binder is not the variable
 (§5.7). The conversion ceiling descends from condition 1 (§5.16). Density is bounded above by

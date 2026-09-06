@@ -713,6 +713,40 @@ def q_bred_bound_fe():
     return _qbal(N_diss(), total_sourced(), capture_of_production() / 100.0)
 
 
+def _eta_nf():
+    """Today's aperture, hemisphere cut dropped: the acceptance model at the
+    existing 1.50 T.m, over both hemispheres."""
+    return cap_nf() / 100.0
+
+
+def model_conservatism():
+    return capture_of_production() / cap_nf_back()
+
+
+def q_heat_demo_nf():
+    return _qbal(150.0, therm_sourced(), _eta_nf())
+
+
+def q_heat_bound_nf():
+    return _qbal(N_diss(), therm_sourced(), _eta_nf())
+
+
+def q_heat_phi3_nf():
+    return _qbal(N3_sin(), therm_sourced(), _eta_nf())
+
+
+def q_work_bound_nf():
+    return _qbal(N_diss(), work_sourced(), _eta_nf())
+
+
+def q_bred_demo_nf():
+    return _qbal(150.0, total_sourced(), _eta_nf())
+
+
+def q_bred_bound_nf():
+    return _qbal(N_diss(), total_sourced(), _eta_nf())
+
+
 def q_heat_demo_fe():
     return _qbal(150.0, therm_sourced(), capture_of_production() / 100.0)
 
