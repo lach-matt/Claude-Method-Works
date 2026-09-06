@@ -170,15 +170,17 @@ jobs:
           # none:
           # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
-          # DIAGNOSTIC, REMOVE ONCE THIS ATTEMPT IS UNDERSTOOD. The subscription
-          # route failed three times earlier on 2026-09-06 and was abandoned
-          # WITHOUT its error ever being read, because this input was off: all
-          # that was visible was is_error:true with an empty modelUsage, and
-          # "the token is being rejected" was inferred from it. That inference
-          # is now doubtful -- the identical signature on the API key turned out
-          # to mean "Credit balance is too low". So this attempt keeps the error
-          # text on from the start rather than inferring from a signature again.
-          show_full_output: true
+          # NOTE FOR ANYONE ENABLING THIS: the action needs a CONSOLE CREDIT
+          # BALANCE, and a Claude subscription does not fund it. Measured
+          # 2026-09-06 -- both credential types return the same thing:
+          #
+          #   ANTHROPIC_API_KEY       -> 400 "Credit balance is too low"
+          #   CLAUDE_CODE_OAUTH_TOKEN -> 400 "Credit balance is too low"
+          #
+          # So switching credential type is not a way around it. Add credit at
+          # platform.claude.com, or leave the secret unset and let the gate skip
+          # the job cleanly, which is the state this repository ran in from #13
+          # to #18 with nobody noticing.
 
           # Deliberately NOT passing `github_token`: omitting it lets the
           # action authenticate as the Claude GitHub App.
