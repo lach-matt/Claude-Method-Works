@@ -720,6 +720,11 @@ def _eta_nf():
 
 
 def model_conservatism():
+    """NOT a like-for-like ratio, and that is the point: the numerator is
+    captured muons per produced pion (MARS15), the denominator is the pion
+    transverse acceptance this model computes for the same machine. Their
+    ratio is captured muons per model-accepted pion -- above one because a
+    long solenoid captures muons from pions the p_T cap rejects."""
     return capture_of_production() / cap_nf_back()
 
 

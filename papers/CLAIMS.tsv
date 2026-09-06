@@ -277,7 +277,7 @@ C275	heat balance, demonstrated cycles, at today's front end	0.105	dimensionless
 C276	heat balance, phi=3, at today's front end	0.337	dimensionless	DERIVED	C152 x C214 / (C100 / C106)	fn:q_heat_phi3_fe
 C277	work balance, bound case, at today's front end	0.310	dimensionless	DERIVED	C176 x C217 / (C100 / C106)	fn:q_work_bound_fe
 C278	work balance, demonstrated cycles, at today's front end	0.079	dimensionless	DERIVED	C44 x C217 / (C100 / C106)	fn:q_work_demo_fe
-C279	acceptance model's conservatism against the full simulation	2.92	x	DERIVED	C106 / C143, the one comparable point	fn:model_conservatism
+C279	captured muons per model-accepted pion, MARS15 front end	2.92	x	DERIVED	C106 / C143; different quantities, and that is the finding	fn:model_conservatism
 C280	heat balance, demonstrated cycles, today's aperture both hemispheres	0.215	dimensionless	DERIVED	C44 x C214 / (C100 / C142)	fn:q_heat_demo_nf
 C281	heat balance, bound case, today's aperture both hemispheres	0.842	dimensionless	DERIVED	C176 x C214 / (C100 / C142)	fn:q_heat_bound_nf
 C282	heat balance, phi=3, today's aperture both hemispheres	0.686	dimensionless	DERIVED	C152 x C214 / (C100 / C142)	fn:q_heat_phi3_nf

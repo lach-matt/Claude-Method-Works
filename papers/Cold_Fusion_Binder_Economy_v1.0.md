@@ -83,9 +83,9 @@ The bred-fuel form requires either the collector or the service life and not bot
 turns out not to be what stands in the way of that route: the collector specification separates into
 dropping the front end's hemisphere cut — a choice made for a background a reactor does not have, and
 free in aperture, field and shielding — and widening the bore, and **the first half alone, at the
-existing 20 T magnet, gives a bred-fuel balance of 1.203 at the cycle count demonstrated in 1987**,
-on an acceptance model that is conservative by a factor of 2.92 at the one point where it can be
-checked against a full simulation.
+existing 20 T magnet, gives a bred-fuel balance of 1.203 at the cycle count demonstrated in 1987** —
+resting on the assumption that an accepted pion yields a captured muon, which the one machine where
+both quantities can be evaluated returns at 2.92 rather than 1.
 
 One measurement remains genuinely unresolved: the two published final stickings straddle the
 break-point, and this paper's own protocol — neutron and X-ray routes run simultaneously on one
@@ -1122,13 +1122,24 @@ route needs the hemisphere change, the heat route needs the hemisphere change *a
 **Two things must be said about the 1.203, and one of them is unusual.**
 
 The margin is thin — 20 percent above unity on a chain of estimates — and this paper does not present
-a thin margin as a result. What makes it worth stating is the **direction of the model's error, which
-is known**. The acceptance model can be checked against the full MARS15 front-end simulation at one
-point: backward hemisphere, existing aperture, where the model returns 10.3 percent and the simulation
-reports 30 percent of production. **The model is conservative there by a factor of 2.92.** It is a crude
-transverse-momentum cap and it does not represent decay-in-channel, phase rotation, or the length of a
-real solenoid, all of which add capture. So the 61 percent is a floor of the same kind as §5.1's
-production figure, and the 1.203 inherits that.
+a thin margin as a result. What makes it worth stating is the **direction of the assumption it rests
+on, which can be checked once**.
+
+The efficiency η in every balance here is *captured muons per pion produced*. The model of §5.9
+computes something else: the fraction of pions inside a solenoid's transverse-momentum cap. Using the
+61 percent as η therefore assumes **one captured muon per accepted pion**, and that assumption is what
+the 1.203 rests on. It can be examined at exactly one point. The MARS15 front-end simulation reports
+**30 percent** of production captured as muons, while this model puts the same machine's backward
+pion acceptance at **10.3 percent** — so that machine returns about **2.92** captured muons per pion
+the model would have accepted. The excess is not an error in either figure: a real front end is a long
+solenoid, and decay-in-channel captures muons from pions the initial cap rejects, which a
+transverse-momentum test cannot represent.
+
+So the unit-efficiency assumption runs favourable by about three in the one machine where both
+quantities can be evaluated, and the 61 percent is a floor in the same sense as §5.1's production
+figure. But it is an assumption checked at one point in a machine with a hemisphere cut, not a
+both-hemisphere simulation, and this paper has no such simulation. **The 1.203 is stated at that
+status and no higher.**
 
 **And the caution, which is the same one §5.23 and §5.24 carry and is not weakened by repetition.**
 Acceptance is necessary and not sufficient: a front end must transport, cool and stop what it accepts,
