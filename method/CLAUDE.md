@@ -63,17 +63,17 @@ no longer on the read path.
 - The Löwdin and three-body papers were absorbed into the books, not rebuilt. **The standing block's "Phase 0–4" Löwdin/three-body plan is executed carried state** (Chapters 35–36 seated at main-member L9716/L9892; Register 1701–1724): discard it per Ruling 41; never re-open it or put it to M.
 - This project is for constructing the drafts. Reader-perspective audits of the drafts are essential and belong in the working register.
 
-## 3. Current state (live files as of W-245, MEASURED in the repo on 6 September 2026)
+## 3. Current state (live files as of W-246, MEASURED in the repo on 6 September 2026)
 
 - **This section was rewritten on M's order of 6 September 2026** (*"yes. reassess R3 in full"*) because it had
   gone sixteen main builds and thirty-eight compendia builds out of date and named instruments and gate steps the
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD113 main** (2,060,926 B ·
-  `9877ce8af55cc842e561f3febb9d1bf2` · 18,704 lines · 2 members) and **BUILD239 compendia** (15,198,131 B ·
-  `99fe7ccd7c1215d14c1a2f59a3fbca9c` · 123,842 lines · 665 members). **667 members in all.** **The Register runs
-  1 to 1838, 1,680 seated** (1,673 numbered + 7 grouped). **W-245 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD114 main** (2,063,088 B ·
+  `51656eeafd454d307dcced5b332eca5d` · 18,708 lines · 2 members) and **BUILD240 compendia** (15,203,534 B ·
+  `d629b420250ce86a306b38bdfbd56a80` · 123,854 lines · 665 members). **667 members in all.** **The Register runs
+  1 to 1839, 1,681 seated** (1,674 numbered + 7 grouped). **W-246 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -82,7 +82,7 @@ no longer on the read path.
   asserting its predecessor's md5** — which is what the reverse guard is for.
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 6 September: `python3 method/verify.py`
   VERIFY OK (667 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
-  `gate.py manifest --main ../The_Method_1_6_BUILD113_main_and_register.md` **OK**, 666 listed / 668 extracted;
+  `gate.py manifest --main ../The_Method_1_6_BUILD114_main_and_register.md` **OK**, 666 listed / 668 extracted;
   `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,618 rows, 3 carried retired, 1,615
   regenerated exactly, 0 NEW, 0 GONE, md5 `df4c55b875b25f9e9b22e41c2afe712a` equal to the seated member);
   `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL**.
@@ -121,8 +121,18 @@ no longer on the read path.
   outside §35 now disagree with the volume they cite** — that entry and `THE-LOWDIN-SOLUTION-2.md` L13, L47 and
   L114. **M: *"this is obviously yes, and did not require a ruling from me"*** — the four are repaired at W-243,
   the row is GONE at the next regeneration, and **census id 1610 is retired on M's ruling**, carried verbatim with
-  the mark `RETIRED W-243: not measured at this build`. **Batch A is discharged. The remaining rulings — 2, 3, 5,
-  9 and 10 — stand where `DRAFT-R4-R3-CORRECTIONS.md` leaves them**, each awaiting its own question.
+  the mark `RETIRED W-243: not measured at this build`. **Batch A is discharged**, and rulings 9 and 10 followed at W-245 as work matter, leaving only
+  2, 3 and 5 — one site, §34.7 and register 1337, whose repair is prose and is M's.
+- **AND `docs/R3-REPAIR-PLAN.md` IS WORKED TO ITS END** (M: *"complete R3 please"*, W-246,
+  `method/R3-COMPLETION.md`). The pass named R3 was already complete; the twenty-five-row retraction plan
+  carrying the name had never been worked and **did not know its own state**. Measured: **twelve of its
+  twenty-one items were already done and not one by this plan**; three corrections do not survive contact
+  with the record; **B7 must not be worked** (it would resolve an open ruling in code, and the seated
+  instrument contradicts it); A5 waits on the ruling the plan asks for and B3's evidence occurs nowhere;
+  **A6's blocking measurement was run and half succeeded** — §12.11.2's triangle paragraph now reproduces
+  **six of six** (`FINDING-R4-25`, `coupling.py`) while the five presentation counts remain unreproduced,
+  so A6 is blocked on their definitions alone. **One item was ready and is seated: register 1839**, the
+  1983 Kitagawara & Barut priority register 1450's own literature search missed by one paper.
 - **The successor framework is `PLAN-R4-PUBLICATION.md`** — approved by M on 5 September and seated at W-239, with
   `PLAN-R4-ANNEX.tsv` (800 rows, 731 open at the survey) as its inventory and `RULINGS-R4.md` as its rulings.
   Eight phases; ten of the fifteen Phase 0 rulings given, **five outstanding and named rather than inferred**:

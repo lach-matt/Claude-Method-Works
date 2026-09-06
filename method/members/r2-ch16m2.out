@@ -100,13 +100,13 @@
   register  373: reg L1385 "### 373" -> **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls
 
 == E. figures the unit states about the BOOK, re-measured against the book as it stands ==
-  Register: 1673 bare-number entry headings, 7 grouped headings (comma- AND dash-grouped; a dash-only pattern sees none of them) spanning 32 numbers; distinct entry numbers 1705
+  Register: 1674 bare-number entry headings, 7 grouped headings (comma- AND dash-grouped; a dash-only pattern sees none of them) spanning 32 numbers; distinct entry numbers 1706
   L8918 "one thousand six hundred and thirty-five" --- word-form sites in the main volume:
       15 sites: [20, 89, 104, 202, 523, 646, 3519, 7372, 7905, 8923, 9060, 9370, 9382, 9387, 10330]   (L8918 in the set: True)
       digit-form 1,635 in main at []
   L8957 "the register is a quarter of it":
-      main member 11,904 lines / 769,428 B;  Register member 6,797 lines / 1,257,075 B
-      Register as a share of main+Register: lines 36.3 %, bytes 62.0 % (half-up);  as a share of main alone: lines 57.1 %, bytes 163.4 %
+      main member 11,904 lines / 769,428 B;  Register member 6,801 lines / 1,259,202 B
+      Register as a share of main+Register: lines 36.4 %, bytes 62.1 % (half-up);  as a share of main alone: lines 57.1 %, bytes 163.7 %
   audit counts across the main volume (docket 33):
       "twenty-two audits": 4 sites [79, 1004, 1402, 9858]
       "twenty audits": 1 sites [8954]

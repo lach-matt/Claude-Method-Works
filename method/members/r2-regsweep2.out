@@ -1,12 +1,12 @@
 
 == 0  THE POPULATION
-   entries (heading lines) = the front matter's printed total 1680                       OK
-   bare / grouped                                             (1673, 7)                  OK
-   distinct numbers = headings + the 25 extra numbers the seven grouped headings carry 1705                       OK
+   entries (heading lines) = the front matter's printed total 1681                       OK
+   bare / grouped                                             (1674, 7)                  OK
+   distinct numbers = headings + the 25 extra numbers the seven grouped headings carry 1706                       OK
    no entry number printed twice                              []                         OK
 
 == 1  THE ENTRY FORM, OVER EVERY ENTRY
-   entries with a body            : 1680
+   entries with a body            : 1681
    entries whose body is empty    : 0
    every non-empty body opens on a bold headline              []                         OK
    entries whose first line carries an ODD number of asterisks: 22
@@ -46,7 +46,7 @@
 
 == 3  ABSENT NUMBERS, AND WHETHER ANYTHING CITES THEM
    numbers absent in 1..1792 (the predecessor's measurement, unchanged) 132                        OK
-   numbers absent above 1792, in 1..1838: [1797] (staged, not seated — register 1797 is queued in REGISTER-QUEUE-APPEND-cypher-audit.md)
+   numbers absent above 1792, in 1..1839: [1797] (staged, not seated — register 1797 is queued in REGISTER-QUEUE-APPEND-cypher-audit.md)
    absent AND cited   : 2 [344, 571]
    absent and uncited : 131
    L6574 enumerates eleven "in no group at all", scoped between 203 and 354: [204, 206, 210, 260, 264, 269, 272, 287, 324, 341, 344]
