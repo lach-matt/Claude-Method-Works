@@ -360,7 +360,7 @@ C358	heat balance, bound case at today's aperture, modern value	0.911	dimensionl
 C359	Kou and Chen stripping reference photon energy	15	keV	SOURCED	arXiv:2606.07077 eq 36	none
 C360	their reference energy fluence	7.2e7	J/cm2	SOURCED	arXiv:2606.07077 eq 38	none
 C361	that fluence sustained over one binder lifetime	3.28e13	W/cm2	DERIVED	C360 / 2.197 microseconds	fn:kc_sustained
-C362	ratio to sec.5.21's independent requirement	1.48	x	DERIVED	C361 / C238	fn:kc_over_5_21
+C362	ratio to the companion sec.2.1's independent requirement	1.48	x	DERIVED	C361 / C238	fn:kc_over_5_21
 C363	their collision-only cycle yield	112.6	cycles	SOURCED	arXiv:2606.07077 eq 46, phi=1.25	none
 C364	their best-case cycle yield with external stripping	156.5	cycles	SOURCED	arXiv:2606.07077, optimistic transport benchmark	none
 C365	cycle gain from external-field stripping	1.39	x	DERIVED	C364 / C363	fn:stripping_gain

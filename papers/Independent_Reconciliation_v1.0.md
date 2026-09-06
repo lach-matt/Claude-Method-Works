@@ -150,7 +150,7 @@ sections. Kelly et al. also assume every π⁻ becomes a usable μ⁻, so their 
 | heat, demonstrated 150 cycles | 0.834 |
 | work, demonstrated 150 cycles | 0.625 |
 
-Every margin in this paper multiplies by 2.37, and the qualitative structure of §5.24 survives
+Every margin in this paper multiplies by 2.37, and the qualitative structure of §5.23 survives
 unchanged: the heat form at demonstrated cycle counts is still short — 0.834 — and still needs either
 the service life or the breeding credit. What changes is the size of the residual everywhere else.
 
@@ -158,7 +158,7 @@ the service life or the breeding credit. What changes is the size of the residua
 for its own sake.** §5.1's 11.13 GeV is integrated from *measured* cross sections; 4.69 GeV is a
 *simulated* target optimisation. The corpus's own rule is that a status is never flattened. So both
 are carried: **11.13 GeV is this paper's spine and the conservative number, 4.69 GeV is what an
-optimised target is calculated to give**, and every balance stated in §5.14 through §5.25 is a floor
+optimised target is calculated to give**, and every balance stated in §5.14 through §5.24 is a floor
 in this respect as well as the others. A reader who prefers the simulated target may multiply.
 
 **One check on the simulation, and it is a partial disagreement.** Kelly et al. report their own
@@ -173,7 +173,7 @@ alone does not close the balance.**
 
 ### 2.3 An independent review reaches the same escape, and omits the axis this paper measures
 
-§5.18 changed the question — pricing the fusion neutron as bred fuel rather than as heat — and §5.24
+§5.18 changed the question — pricing the fusion neutron as bred fuel rather than as heat — and §5.23
 showed that change is what makes the balance robust. An independent review [2] proposes the same
 thing: a decoupled μCF fission-breeding hybrid, with the μCF vessel as a neutron source and a
 ²³⁸U blanket bred for ²³⁹Pu, on the grounds that this "avoids the stringent physical requirements of
@@ -200,7 +200,7 @@ the balance.
 negative muon as **5 GeV**, stating that this "includes systematic losses from pion production,
 transport, decay, and muon collection". §2.2 shows an optimised production target is calculated to
 cost **4.69 GeV per pion produced**, *before any collection at all*. A figure of 5 GeV cannot be a
-production cost and also carry the collection loss on top of it. Applying §5.25's acceptance instead:
+production cost and also carry the collection loss on top of it. Applying §5.24's acceptance instead:
 
 | | |
 |---|---|
@@ -286,7 +286,7 @@ inequality with the same three factors, arrived at from a Lawson analogy rather 
 count. **The spine of this paper is not idiosyncratic**, and their formulation is the better one for
 diagnosis because it separates rate-limited, sticking-limited and cost-limited regimes explicitly.
 
-**Evaluated on this paper's numbers, their boundary reproduces §5.24's conclusion.** Their reference
+**Evaluated on this paper's numbers, their boundary reproduces §5.23's conclusion.** Their reference
 case uses a useful cycle energy of **20.4 MeV** against a **5 GeV** binder, giving a boundary at
 **0.408 percent** effective sticking, and their historical anchors at 0.45 to 0.57 percent sit on the
 forbidden side of it. Substituting this paper's own accounting:
@@ -301,10 +301,10 @@ forbidden side of it. Substituting this paper's own accounting:
 
 This paper's effective sticking is 0.1487 percent. It clears the heat and work boundaries at perfect
 collection, clears the bred-fuel boundary by an order of magnitude, and **fails the heat boundary once
-a real collection efficiency is applied** — which is §5.24's finding restated in someone else's
+a real collection efficiency is applied** — which is §5.23's finding restated in someone else's
 coordinates.
 
-**The same criterion inverts into a density specification, which is §5.23's mirror and is new here.**
+**The same criterion inverts into a density specification, which is §5.22's mirror and is new here.**
 Solving the balance for the density at which it equals one, rather than for the collection efficiency:
 
 | product | perfect collection | §5.9 collector | today's aperture, both hemispheres | today's front end |
@@ -344,14 +344,14 @@ Two readings are available and this paper does not choose between them: either t
 reduction is density-dependent through the reactivation term and appears only at densities Los Alamos
 did not reach — in which case the bound case is self-consistent and the historical point is not a
 counter-example — or the reduction is not realised at all, in which case **every "bound case" figure in
-§§5.11 to §5.25 is optimistic by about this factor.** Nothing in the corpus or the literature settles
+§§5.11 to §5.24 is optimistic by about this factor.** Nothing in the corpus or the literature settles
 it, and the companion's §10.2 is what would.
 
 **This does not touch the bred-fuel result, and the asymmetry is the point.** The bred-fuel
 headline figures — **1.203** at today's magnet, **1.772** with the §5.9 collector — are computed at the
 **measured** 150 cycles and the sourced blanket, and use the service-life model nowhere. Every heat and
 work figure at the "bound case" uses it. So the over-prediction found here weakens exactly the routes
-§5.24 already identified as the fragile ones, and leaves untouched the one it identified as robust.
+§5.23 already identified as the fragile ones, and leaves untouched the one it identified as robust.
 
 **One further note on where this paper sits in their coordinates.** Their cycle-strength parameter for
 the SIN anchor is **424**; this paper's bound case corresponds to **4,738**, an order of magnitude
@@ -406,7 +406,7 @@ instead:
 | heat balance, bound case at today's aperture | 0.842 | **0.911** |
 
 The direction is favourable and the size is modest — about nine percent in sticking, eight in service
-life — and it does not change any conclusion in §5.24 or §2.5. It is recorded because a paper that
+life — and it does not change any conclusion in §5.23 or §2.5. It is recorded because a paper that
 prices a binder should say when the field's best number for that binder has moved, and because it runs
 the opposite way from §2.5's over-prediction, which is larger.
 

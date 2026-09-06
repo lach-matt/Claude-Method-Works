@@ -507,9 +507,9 @@ share.
 That is the collector specification: not a larger accelerator, not a stronger magnet, but a wider bore
 and no hemisphere cut.
 
-**The binding constraint is named here and posed properly in §5.22.** It is not the magnet: coil bores
+**The binding constraint is named here and posed properly in §5.21.** It is not the magnet: coil bores
 for these solenoids already exceed a metre, set by shielding rather than by the beam. The
-specification is a shielding trade, and §5.22 prices it at about 2.7 in coil heating or 11 percent in
+specification is a shielding trade, and §5.21 prices it at about 2.7 in coil heating or 11 percent in
 coil bore.
 
 ### 5.10 The deciding experiment, stated as a protocol
@@ -920,7 +920,7 @@ with muon loss *increasing* as temperature *decreases*. That range brackets the 
 spanned a phase change and might not be a temperature effect — is substantially relieved by a
 measurement over seven hundred kelvin in the same direction.
 
-### 5.22 The collector's constraint, re-posed: it is shielding, not the magnet
+### 5.21 The collector's constraint, re-posed: it is shielding, not the magnet
 
 §5.9 named coil nuclear heating as the collector's binding constraint and declined to model it. It can
 now be posed properly, and it is a smaller ask than "heating scales with aperture" suggests.
@@ -955,7 +955,7 @@ the factor of 2.7 is a scale and not a design figure; a real shield is layered a
 not a single exponential. And thinning the shield raises the *dose* as well as the heat, which governs
 insulation lifetime rather than cryogenic load and is not modelled here at all.
 
-### 5.23 What each product asks of the collector
+### 5.22 What each product asks of the collector
 
 Every balance in this paper has been stated at one of two collector assumptions — the §5.9
 specification at 90 percent, or the 11.13 GeV production floor with collection perfect. Neither is a
@@ -979,7 +979,7 @@ three products of §5.14, §5.18 and §5.19 and the three service lives the pape
 
 Two reference points sit against that column. The best front end studied in the literature captures
 **30 percent** of the pions its target produces (§5.1, C106). The collector specified in §5.9 targets
-**90 percent**, and §5.22 priced the difference as a shielding trade rather than a new magnet.
+**90 percent**, and §5.21 priced the difference as a shielding trade rather than a new magnet.
 
 **The result is a separation, not a margin.** Read against those two points the table divides cleanly:
 
@@ -1005,7 +1005,7 @@ neutron is actually worth rather than against the heat it deposits.
 **1.69 above today's measured front end** and comfortably inside the §5.9 collector. That factor —
 1.69 in collection efficiency — is the whole of what stands between the corpus's own eighth condition
 and a satisfied one, on the product the definition permits and at a cycle count already demonstrated
-in a laboratory. It is an engineering figure with a named trade behind it (§5.22), not an open
+in a laboratory. It is an engineering figure with a named trade behind it (§5.21), not an open
 physical question.
 
 **The caution this table does not remove.** η here is *collection*, and collection is only one factor
@@ -1015,9 +1015,9 @@ delivered-to-target fraction. Every row above therefore states a *necessary* eff
 sufficient one, and the distinction is the same one §5.5 draws about a shortfall: a bound that has
 been localised is not a bound that has been cleared.
 
-### 5.24 Two routes, one shared dependency
+### 5.23 Two routes, one shared dependency
 
-§5.23 solved each balance for the collection efficiency it needs. The direct form of the same
+§5.22 solved each balance for the collection efficiency it needs. The direct form of the same
 computation is more useful to a builder: **state every balance at the two collection efficiencies that
 actually exist** — the 30 percent the best studied front end captures, and the 90 percent the §5.9
 collector targets — instead of at the perfect collection every earlier table assumed.
@@ -1040,7 +1040,7 @@ neutron at its heat and taking no fissile credit at all. §5.18's change of ques
 the shortfall, not the only one; the device-internal form clears unity too, and the paper's scope —
 a *self-sustaining* reaction — is therefore met without leaving the device. The work form does not:
 **0.931** at the collector, which is §5.19's 1.034 with the collection loss put back in, and is a
-statement that electricity remains the demanding product exactly as §5.23 found.
+statement that electricity remains the demanding product exactly as §5.22 found.
 
 **Second: nothing passes on today's front end at demonstrated cycle counts.** The best row in that
 column at 150 cycles is **0.591**. The collector of §5.9 is therefore not one improvement among
@@ -1075,9 +1075,9 @@ price the blanket's own capital or the fissile handling §5.18 flags as prolifer
 the 30 percent column is a capture fraction, not a delivered-to-target fraction, so every entry in it
 is an upper bound on what today's hardware would actually return.
 
-### 5.25 What today's magnet already accepts
+### 5.24 What today's magnet already accepts
 
-§5.24 concentrates the risk in one component. This section splits that component and finds that
+§5.23 concentrates the risk in one component. This section splits that component and finds that
 **one of its two parts is free**.
 
 The collector specification of §5.9 has two independent halves, and they were stated together there
@@ -1087,12 +1087,12 @@ because they arrive together in a design. They are not coupled physically:
    forward neutron and proton flux. A reactor's target *is* its detector. This costs no aperture, no
    field and no shielding — it is the removal of a choice made for a background a reactor does not
    have.
-2. **Widen the bore**, from 1.50 to 2.60 T·m, a factor of 1.74. This is the half §5.22 prices as a
+2. **Widen the bore**, from 1.50 to 2.60 T·m, a factor of 1.74. This is the half §5.21 prices as a
    shielding trade of about 2.7 in coil heating.
 
 **Half one alone, at today's aperture, is already enough for the bred-fuel route.** The acceptance
 model at the existing 1.50 T·m over both hemispheres gives **61 percent** of measured production
-(§5.9), against the **50.8 percent** §5.23 shows bred fuel needs at demonstrated cycle counts.
+(§5.9), against the **50.8 percent** §5.22 shows bred fuel needs at demonstrated cycle counts.
 Carrying that through:
 
 | balance at today's aperture, both hemispheres | |
@@ -1109,7 +1109,7 @@ Carrying that through:
 > shielding trade, no density beyond the scanned record, no resolution of the sticking measurement.
 
 **The heat route does not clear the same bar**: 0.842 at its best, and it needs the wider bore. So the
-two halves of the collector specification map onto the two routes of §5.24 exactly — the bred-fuel
+two halves of the collector specification map onto the two routes of §5.23 exactly — the bred-fuel
 route needs the hemisphere change, the heat route needs the hemisphere change *and* the aperture
 *and* the service life.
 
@@ -1135,16 +1135,16 @@ figure. But it is an assumption checked at one point in a machine with a hemisph
 both-hemisphere simulation, and this paper has no such simulation. **The 1.203 is stated at that
 status and no higher.**
 
-**And the caution, which is the same one §5.23 and §5.24 carry and is not weakened by repetition.**
+**And the caution, which is the same one §5.22 and §5.23 carry and is not weakened by repetition.**
 Acceptance is necessary and not sufficient: a front end must transport, cool and stop what it accepts,
 and none of that is modelled here. The MARS15 30 percent is a capture fraction reached through a
 channel built to deliver a narrow momentum band to a storage ring; how much of a both-hemisphere
 acceptance a *reactor* front end would actually deliver to a dense target is unmeasured, and it is the
-measurement this paper would put first. What §5.25 establishes is narrower and still worth having:
+measurement this paper would put first. What §5.24 establishes is narrower and still worth having:
 **the aperture is not what stands in the way of the bred-fuel route, and the hemisphere cut is not a
 physical constraint at all.**
 
-### 5.26 What the independent literature does to these figures
+### 5.25 What the independent literature does to these figures
 
 Four independent results were published while this analysis was being done, and the reconciliation is
 a paper of its own [15] rather than a section here, because it is a different kind of work: this
@@ -1163,20 +1163,20 @@ stripping route demands. And an independent blanket accounting gives 26.0 MeV pe
 |---|---|
 | the production figure is a *thin-target* measurement; an optimised thick target is calculated at **4.69 GeV** per pion against **11.13** | multiplies every balance above by **2.37** for a reader who prefers the simulation. This paper keeps the measured figure, because a status is never flattened. |
 | transfer to a high-Z contaminant is a binder-loss channel neither analysis modelled: **5.49 ppm** costs as much binder as decay at the bracketed density | every balance above assumes perfect purity and is an overestimate by an unquantified factor. §3 now carries the requirement. |
-| the service-life model returns **335.3** cycles at the conditions of the one measurement it can be checked against, where **150** were measured | **2.24** over-prediction. Every figure above computed at the "bound case" inherits it; §5.18's and §5.24's bred-fuel figures, computed at the measured cycle count and a sourced blanket, do not. |
+| the service-life model returns **335.3** cycles at the conditions of the one measurement it can be checked against, where **150** were measured | **2.24** over-prediction. Every figure above computed at the "bound case" inherits it; §5.18's and §5.23's bred-fuel figures, computed at the measured cycle count and a sourced blanket, do not. |
 
 **And one result closes an axis this paper left open.** The stripping route of §5.20 is now quantified
 and capped: at near-perfect post-stripping recycling it buys **1.39** in cycles, against a collection
 factor of 1.64 to 3.33, and it is limited by transport of the freed binder rather than by the field.
 
-**One result the companion states and this paper should carry, because it is the mirror of §5.23.**
+**One result the companion states and this paper should carry, because it is the mirror of §5.22.**
 Solving each balance for the *density* at which it equals one rather than for the collection
 efficiency, the bred-fuel route breaks even at **0.730** times liquid density or less at every
 collection efficiency considered here — below liquid density, so it needs no compression at all — and
 the heat route at **2.10**, rather than the bound case's 8.5. §5.13's structural bound constrains the
 asymptotic service life and neither route's breakeven.
 
-**The asymmetry across all of it is the same one §5.24 found.** Every correction weakens the routes
+**The asymmetry across all of it is the same one §5.23 found.** Every correction weakens the routes
 that depend on a modelled service life and a compressed target; none of them touches the bred-fuel
 route at demonstrated cycle counts, which uses neither.
 
@@ -1292,7 +1292,7 @@ paper computes no absolute rate: it prices a binder and compares that price to a
 whole of its claim.
 
 **The service-life model over-predicts its one checkable point by 2.24**, returning 335.3 cycles at
-Los Alamos conditions where 150 were measured (the companion's §2.5). Every "bound case" figure in §§5.11–5.25 rests
+Los Alamos conditions where 150 were measured (the companion's §2.5). Every "bound case" figure in §§5.11–5.24 rests
 on that model; the bred-fuel headline figures do not, using the measured 150 and the sourced blanket
 instead. Whether the discrepancy is a density-dependent reactivation term or an unrealised reduction
 is not settled here, and §10's Stage B is what settles it.
@@ -1301,7 +1301,7 @@ is not settled here, and §10's Stage B is what settles it.
 assumes **perfectly pure fuel**, and the companion's §2.4 shows a contamination of **5.49 ppm** costs as much binder
 as decay does at the bracketed density — so all of them are overestimates by a factor no experiment
 here bounds. Every collection figure is an **acceptance** and not a delivered-to-target efficiency
-(§5.25), which is necessary and not sufficient. And the temperature dependence §5.15 relies on is
+(§5.24), which is necessary and not sufficient. And the temperature dependence §5.15 relies on is
 **confounded with purity and density** in the existing record (the companion's §2.4), so the axis it inverts the
 shortfall onto is not cleanly separated from two others.
 
@@ -1334,16 +1334,16 @@ fusion-breeder blanket makes, on sourced fission-suppressed figures — the valu
 146.06 MeV rather than 26.06, and those same sourced figures lift the electrical balance from 0.965 to
 **1.034**. The breeding balance at the demonstrated 150 cycles with the §5.9 collector is **1.77**.
 
-**§5.23 states that as a specification on the collector alone**, which is the sharpest form the result
+**§5.22 states that as a specification on the collector alone**, which is the sharpest form the result
 takes. Electricity breaks even at **96.7 percent** collection and needs the bound-case density and the
 favourable sticking branch besides; bred fuel breaks even at **12.9 percent** at that same bound case
 and at **50.8 percent** at cycle counts already demonstrated in a laboratory, asking nothing of the
 density axis, the sticking measurement or the reactivation term. The product choice is therefore worth
 **7.5** in collector specification, and what stands between the eighth condition and a satisfied one,
 on the product the definition permits, is **1.69** in collection efficiency above today's measured
-front end — inside the §5.9 collector, whose cost §5.22 prices as a shielding trade.
+front end — inside the §5.9 collector, whose cost §5.21 prices as a shielding trade.
 
-**And §5.25 splits the collector, which changes the ranking below.** The specification has two halves —
+**And §5.24 splits the collector, which changes the ranking below.** The specification has two halves —
 drop the hemisphere cut, and widen the bore by 1.74 — and they are not physically coupled. The first
 costs no aperture, no field and no shielding, because it is the removal of a choice made for a
 background a reactor does not have. At today's aperture with that cut alone dropped, the bred-fuel
@@ -1357,7 +1357,7 @@ What would change the answer, in the order this paper can rank them:
    a reactor front end delivers to a dense target — the model here computes acceptance and no more.
    **This is the measurement this paper would put first**, and it needs no new machine.
 2. **The wider bore of §5.9** — 20 T on a 13 cm clear bore, 1.74 times the existing aperture. The heat
-   and work routes need it; the bred-fuel route does not. §5.22 prices it as a shielding trade of
+   and work routes need it; the bred-fuel route does not. §5.21 prices it as a shielding trade of
    about 2.7 in coil heating, not a new magnet.
 3. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
    bench experiment on an existing beam, and the companion's §2.4 records that a collaboration is already running
@@ -1381,7 +1381,7 @@ What would change the answer, in the order this paper can rank them:
    needs a machine that does not exist.
 
 None is settled here. The first three need no new machine, and items 3 to 6 bear on the service-life
-axis alone — which is the axis §5.24 shows the bred-fuel route can do without.
+axis alone — which is the axis §5.23 shows the bred-fuel route can do without.
 
 **And four doors are now shut, which is worth as much as an open one.** The binder is not the variable
 (§5.7). The conversion ceiling descends from condition 1 (§5.16). Density is bounded above by
@@ -1410,14 +1410,14 @@ product of 1.50 T·m. No new magnet.
 
 **The change.** Instrument both hemispheres of pion emission rather than the backward one alone. The
 hemisphere cut exists to escape the forward neutron and proton flux of a physics target; a reactor's
-target is its detector and has no such background (§5.9, §5.25).
+target is its detector and has no such background (§5.9, §5.24).
 
 **Measure one number.** η, the negative muons delivered to and stopped in a dense target per negative
 pion produced in the production target. Not the transverse acceptance, and not the capture fraction
 of a momentum-selected channel — the delivered figure, end to end.
 
 **Committed prediction.** The acceptance model puts pions inside the transverse cap at **61 percent**
-of measured production over both hemispheres. §5.25 assumes one stopped muon per accepted pion.
+of measured production over both hemispheres. §5.24 assumes one stopped muon per accepted pion.
 The two corrections to that assumption run opposite ways: transport, cooling and stopping lose,
 decay-in-channel gains, and the one machine where both quantities can be evaluated returns **2.92**
 captured muons per model-accepted pion. This paper predicts η above **50.8 percent** and does not
@@ -1428,7 +1428,7 @@ predict a value.
 | η returns | consequence |
 |---|---|
 | ≥ **50.8 percent** | The bred-fuel route closes at the demonstrated **150** cycles per binder with no other change to anything: no wider bore, no density beyond the scanned record, no resolution of the sticking branch. |
-| **30** to 50.8 percent | The wider bore of §5.9 becomes necessary — **2.60 T·m**, 20 T on a **13 cm** clear bore — and §5.22 prices it at about **2.7** in coil heating or **11 percent** in coil bore. |
+| **30** to 50.8 percent | The wider bore of §5.9 becomes necessary — **2.60 T·m**, 20 T on a **13 cm** clear bore — and §5.21 prices it at about **2.7** in coil heating or **11 percent** in coil bore. |
 | below **30 percent** | The acceptance model of §5.9 is wrong in the unfavourable direction, and every balance in this paper falls with it proportionally. |
 
 η multiplies every balance in this paper identically, so **whatever it returns is a bound on all of
@@ -1498,7 +1498,7 @@ blanket and fission cycle, so the demonstration measures the neutron rate and th
 is *applied* to it, not measured by it. **This is the demonstration's limit and it should be stated in
 its own report**: it can establish the neutron source and cannot, by itself, establish the credit.
 A demonstration of the heat form instead — measuring **26.06 MeV** per fusion as deposited energy —
-is a device-internal measurement with no downstream credit, and §5.24 puts it at **1.241** with the
+is a device-internal measurement with no downstream credit, and §5.23 puts it at **1.241** with the
 §5.9 collector and the bound-case service life, so it is the more demanding demonstration and the more
 self-contained one.
 

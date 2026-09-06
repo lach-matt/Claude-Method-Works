@@ -97,7 +97,7 @@ the front end's forward-hemisphere discard, which costs no aperture, no field an
 every balance assumes perfectly pure fuel, where 5.49 ppm costs as much binder as decay does; every
 collection figure is an acceptance rather than a delivered efficiency; and the temperature axis §5.15
 inverts the shortfall onto is confounded with purity and density in the existing record. Against that,
-§5.26 records an optimised production target calculated at **4.69 GeV per pion** rather than 11.13, a
+§5.25 records an optimised production target calculated at **4.69 GeV per pion** rather than 11.13, a
 factor of 2.37 the paper declines to adopt because a status is never flattened.
 
 **§10 is the laboratory programme**, four staged measurements on apparatus that exists — the
