@@ -41,14 +41,34 @@
       `np.cumsum(w) - 0.5*w`, and matching that convention -- read from its source, not guessed -- closes the
       gap by a factor of 250.  It is the strongest check available for the direct channel and it is --verify.
 
-  THE MEAN-FIELD COEFFICIENTS, FOUND AND RECORD-CARRIED WITH THEIR QUOTE.  Blume & Watson's own papers are
-  paywalled, but the working equation they stand behind is stated in the open literature, and M's direction was
-  to look for who cites them rather than stop at them.  Kotaru, Pokhilko, Sokolov, arXiv:2404.04716 Eq. (15),
-  in the spin-orbit mean-field (SOMF) approximation:
+  A DISCREPANCY BETWEEN TWO STATEMENTS OF THE MEAN-FIELD EQUATION, CAUGHT BY A CONSISTENCY TEST AND RESOLVED.
+  arXiv:2404.04716 Eq. (15) as extracted reads
 
       F^{BP,xi}_pq = h^xi_pq + SUM_rs P_rs [ g^xi_pqrs - (3/2) g^xi_sqpr + (3/2) g^xi_spqr ]
 
-  with P_rs the spin-free one-particle density matrix, and (their Eqs. 16-20)
+  with the two exchange terms at OPPOSITE signs.  Read literally with that paper's own index convention
+  (g_pqrs = <phi_p(1) phi_r(2)| g |phi_q(1) phi_s(2)>, its Eq. 17), those two terms become IDENTICAL when p = q
+  -- and p = q is exactly the diagonal element that carries zeta, since F^z_{a m, a m} = zeta_a m by
+  Wigner-Eckart.  So the exchange contribution to zeta would cancel identically, which cannot be right: it is
+  the whole of what Blume-Watson exists to compute.  **The form was refused on that test, not adopted.**
+
+  The ORCA 6.1 manual states the same object independently, and it does not cancel:
+
+      h^SOC_pq = (p| h^1e |q) + SUM_rs P_rs [ (pq| g |rs) - (3/2)(pr| g |sq) - (3/2)(sq| g |pr) ]
+
+  BOTH exchange terms at -3/2, and their index patterns are genuinely different -- electron 1 carries the
+  a -> b transition in one and electron 2 in the other, and the operator acts on electron 1 only, so the two
+  are not the same integral.  At p = q they do not coincide and the diagonal survives.  ORCA's own sentence
+  for what they are: "The exchange term has contributions from both the spin-own-orbit and spin-other-orbit
+  interaction."  **This is the form carried here**, and the discrepancy with the extracted equation is
+  recorded rather than smoothed: it is either a sign convention this reconstruction does not share or an
+  extraction fault, and nothing here depends on deciding which.
+
+  THE COEFFICIENT ITSELF IS CROSS-CHECKED THREE WAYS: it is 3/2 in both statements above, and 3/2 = 1 + 2 x (1/2)
+  is exactly the spin-own-orbit-to-spin-other-orbit weight the Breit-Pauli operator at the top of this docstring
+  fixes independently.  Two literature statements and one derivation agree on it.
+
+  The operator definitions are Kotaru, Pokhilko and Sokolov's (their Eqs. 16-20)
 
       h^xi(i)      = SUM_A Z_A [ r_iA x p(i) ]_xi / r_iA^3                 the nuclear term
       g^xi,sso(i,j) = - [ r_ji x p(i) ]_xi / r_ij^3                        the two-electron spin-SAME-orbit
