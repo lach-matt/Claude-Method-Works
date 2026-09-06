@@ -412,6 +412,114 @@ def captured_fraction(br, both_hemispheres=True):
     return cap / tot
 
 
+# ---- pion -> muon: the decay step the p_T cap alone does not model ---------
+# captured_fraction() above tests the PION against the solenoid's transverse cap.
+# What a target receives is the MUON from that pion's decay, and pi -> mu nu is a
+# two-body decay that redistributes momentum: the muon takes between (m_mu/m_pi)^2
+# and 1 of the pion's energy and picks up a transverse kick of at most p*. Neither
+# effect is in the p_T cap. This models both, deterministically -- the decay is
+# isotropic in the pion rest frame (the pion is spin 0), so the rest-frame solid
+# angle is integrated on a fixed grid rather than sampled.
+M_PI_MEV = 139.570
+M_MU_MEV = 105.658
+P_STAR_MEV = (M_PI_MEV ** 2 - M_MU_MEV ** 2) / (2 * M_PI_MEV)   # 29.79 MeV/c
+E_STAR_MEV = (M_PI_MEV ** 2 + M_MU_MEV ** 2) / (2 * M_PI_MEV)   # 109.78 MeV
+
+# SOURCED, Strait et al. PRSTAB 13 111001 sec.II. The NF/MC front end captures the
+# FORWARD hemisphere -- "to efficiently capture pions exiting the target in the
+# forward hemisphere" -- and its acceptance is dominated NOT by the solenoid but by
+# the rf-capture window it must deliver into: "The drop in acceptance at high
+# momenta comes primarily from the requirement that T < 180 MeV (265 MeV/c), and
+# secondarily from the transverse momentum p_T < 225 MeV/c". That window is a
+# collider requirement. A stopping target has a different one.
+NF_RF_WINDOW_MEV = (100.0, 265.0)    # 40 < T_mu < 180 MeV
+NF_PT_CAP_MEV = 225.0                # 20 T on a 7.5 cm radius
+NF_CHANNEL_M = 50.0
+
+
+def _production_bins():
+    """(p_pi GeV/c, theta rad, weight) over both HARP tables, with the forward
+    set's solid-angle Jacobian applied exactly as captured_fraction() applies it."""
+    for (tlo, thi), b in HARP_PB_PIMINUS_8GEV.items():
+        th, dth = 0.5 * (tlo + thi), thi - tlo
+        for (pl, ph), v in b.items():
+            yield 0.5 * (pl + ph), th, v * (ph - pl) * dth
+    for (tlo, thi), b in HARP_PB_PIMINUS_8GEV_FWD.items():
+        th = 0.5 * (tlo + thi)
+        dom = 2 * math.pi * (math.cos(tlo) - math.cos(thi))
+        for (pl, ph), v in b:
+            yield 0.5 * (pl + ph), th, v * (ph - pl) * dom
+
+
+def muon_spectrum(br, hemisphere="both", ncos=160, nphi=96):
+    """Momentum spectrum of the muons a solenoid of aperture `br` delivers, as
+    (p_mu MeV/c, weight) pairs, with the total production weight for normalising.
+    A pion outside the transverse cap is lost before it decays -- its decay length
+    is metres and the absorber is centimetres away -- so only captured pions
+    contribute, and each contributes the fraction of its decay sphere that leaves
+    the muon inside the same cap."""
+    ptm = pt_max(br) * 1000.0
+    out, total = [], 0.0
+    for p_gev, th, w in _production_bins():
+        total += w
+        if hemisphere == "fwd" and th > math.pi / 2:
+            continue
+        if hemisphere == "back" and th <= math.pi / 2:
+            continue
+        if p_gev * math.sin(th) >= ptm / 1000.0:
+            continue
+        p = p_gev * 1000.0
+        beta = p / math.hypot(p, M_PI_MEV)
+        gam = math.hypot(p, M_PI_MEV) / M_PI_MEV
+        st, ct = math.sin(th), math.cos(th)
+        for i in range(ncos):
+            cs = -1.0 + (2.0 * i + 1.0) / ncos
+            ss = math.sqrt(max(0.0, 1.0 - cs * cs))
+            ppar = gam * (P_STAR_MEV * cs + beta * E_STAR_MEV)
+            pperp = P_STAR_MEV * ss
+            for j in range(nphi):
+                phi = 2 * math.pi * (j + 0.5) / nphi
+                cf = math.cos(phi)
+                px = ppar * st + pperp * cf * ct
+                py = pperp * math.sin(phi)
+                pz = ppar * ct - pperp * cf * st
+                if math.hypot(px, py) >= ptm:
+                    continue
+                out.append((math.sqrt(px * px + py * py + pz * pz), w / (ncos * nphi)))
+    return out, total
+
+
+def delivered_fraction(br, hemisphere="both", window=None, ncos=160, nphi=96):
+    """Captured mu- per pi- PRODUCED. `window` is a (p_lo, p_hi) MeV/c momentum
+    requirement -- the rf bucket for a collider, the stopping range for a target.
+    None applies no momentum requirement at all and is therefore an upper bound."""
+    spec, total = muon_spectrum(br, hemisphere, ncos, nphi)
+    if window is None:
+        kept = sum(w for _, w in spec)
+    else:
+        lo, hi = window
+        kept = sum(w for pm, w in spec if lo <= pm <= hi)
+    return kept / total
+
+
+def decay_survival(br, hemisphere="both"):
+    """Captured muons per captured PION -- the decay step alone, with no momentum
+    requirement. Near unity, which is the finding: the decay kick is small against
+    the cap, so the pion acceptance is a good proxy for the muon acceptance."""
+    pi_cap = captured_fraction(br, hemisphere != "back") if hemisphere != "fwd" else None
+    if hemisphere == "fwd":
+        ptm = pt_max(br)
+        tot = cap = 0.0
+        for p, th, w in _production_bins():
+            tot += w
+            if th <= math.pi / 2 and p * math.sin(th) < ptm:
+                cap += w
+        pi_cap = cap / tot
+    elif hemisphere == "back":
+        pi_cap = captured_fraction(br, False)
+    return delivered_fraction(br, hemisphere) / pi_cap
+
+
 def br_for_capture(target, both_hemispheres=True):
     lo, hi = 0.1, 20.0
     for _ in range(80):
@@ -689,6 +797,48 @@ def report_floor():
     print("  reopen it.")
 
 
+def report_acceptance():
+    """What a solenoid actually delivers, decomposed. The p_T cap is only one of
+    three cuts, and it is not the dominant one in the machine that has been built."""
+    mars = 100.0 * nf_captured_per_interacting_proton() / harp_combined_yield()
+    print("ACCEPTANCE, pi- produced -> mu- delivered")
+    print("  the model: HARP production, solenoid p_T cap, two-body decay integrated")
+    print("  over the pion rest frame, then a momentum requirement on the muon.")
+    print()
+    print("  VALIDATION against the full MARS15 front-end simulation")
+    got = 100.0 * delivered_fraction(1.50, "fwd", NF_RF_WINDOW_MEV)
+    print(f"    forward hemisphere, 1.50 T.m, rf window {NF_RF_WINDOW_MEV[0]:.0f}-"
+          f"{NF_RF_WINDOW_MEV[1]:.0f} MeV/c")
+    print(f"      model {got:5.2f}%   MARS15 {mars:5.2f}%   "
+          f"ratio {got / mars:.3f}   {'PASS' if abs(got / mars - 1) < 0.05 else 'FAIL'}")
+    print()
+    print("  DECOMPOSITION at the existing 1.50 T.m aperture")
+    fwd = 100.0 * delivered_fraction(1.50, "fwd")
+    both = 100.0 * delivered_fraction(1.50, "both")
+    print(f"    forward hemisphere, no momentum requirement   {fwd:6.2f}%")
+    print(f"    both hemispheres,   no momentum requirement   {both:6.2f}%")
+    print(f"    the rf window costs                           {fwd / got:6.2f}x")
+    print(f"    the backward hemisphere adds                  {both / fwd:6.2f}x")
+    print(f"    decay survival, captured mu- per captured pi- {decay_survival(1.50):6.4f}")
+    print()
+    print("  A STOPPING TARGET HAS ITS OWN WINDOW, and the model states the")
+    print("  sensitivity rather than choosing one:")
+    print(f"    {'aperture':>9s} {'hemi':>5s} " +
+          " ".join(f"{'p<' + str(c):>8s}" for c in (200, 265, 400, 500)) + f"{'no cut':>9s}")
+    for br, lab in ((1.50, "1.50 T.m"), (2.60, "2.60 T.m")):
+        for hemi in ("fwd", "both"):
+            row = [f"{100 * delivered_fraction(br, hemi, (0.0, c)):7.2f}%"
+                   for c in (200, 265, 400, 500)]
+            row.append(f"{100 * delivered_fraction(br, hemi):8.2f}%")
+            print(f"    {lab:>9s} {hemi:>5s} " + " ".join(row))
+    print()
+    print("  REFUSAL: this is an acceptance and a decay, not a front end. Transport,")
+    print("  cooling and stopping are not modelled, so every figure is an upper bound")
+    print("  on what a machine delivers -- which is why the MARS15 row, the one that")
+    print("  includes 50 m of transport, is the validation and not the prediction.")
+    return 0
+
+
 def selftest():
     fail = 0
     print("collector.py --selftest   fixtures: published figures, cited in the paper")
@@ -730,6 +880,24 @@ def selftest():
               f"  vs total {ideal / MU2E_STOPPED_PER_P:,.0f}x   {'PASS' if ok else 'FAIL'}")
 
     print()
+    print("  acceptance model, validated against MARS15 (Strait et al. Table II)")
+    mars = nf_captured_per_interacting_proton() / harp_combined_yield()
+    got = delivered_fraction(1.50, "fwd", NF_RF_WINDOW_MEV)
+    ok = abs(got / mars - 1.0) < 0.05
+    fail += 0 if ok else 1
+    print(f"    fwd hemisphere + rf window: model {100 * got:.2f}%"
+          f" vs MARS15 {100 * mars:.2f}%   {'PASS' if ok else 'FAIL'}")
+    ok = 0.99 < decay_survival(1.50) < 1.0
+    fail += 0 if ok else 1
+    print(f"    decay survival is just below unity: {decay_survival(1.50):.4f}"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = delivered_fraction(1.50, "fwd") > delivered_fraction(1.50, "back")
+    fail += 0 if ok else 1
+    print(f"    the forward hemisphere is the large one, and the front end takes it:"
+          f" {100 * delivered_fraction(1.50, 'fwd'):.1f}%"
+          f" vs {100 * delivered_fraction(1.50, 'back'):.1f}%   {'PASS' if ok else 'FAIL'}")
+
+    print()
     print("  refusal: mu- and all-mu yields are never interchanged")
     ok = MUSIC_ALL_MU_PER_W / MUSIC_MU_MINUS_PER_W > 10
     fail += 0 if ok else 1
@@ -747,6 +915,8 @@ def main():
     ap.add_argument("--machines", action="store_true", help="what machines deliver")
     ap.add_argument("--production", action="store_true",
                     help="integrate the HARP cross sections; price the collector argument")
+    ap.add_argument("--acceptance", action="store_true",
+                    help="pi- produced -> mu- delivered, validated against MARS15")
     ap.add_argument("--floor", action="store_true",
                     help="the production floor and the resulting energy shortfall")
     ap.add_argument("--target", type=float, default=WORK_BREAKEVEN_GEV,
@@ -761,6 +931,8 @@ def main():
     if a.production:
         report_production()
         return 0
+    if a.acceptance:
+        return report_acceptance()
     if a.floor:
         report_floor()
         return 0

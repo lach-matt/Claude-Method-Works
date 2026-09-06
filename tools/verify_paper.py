@@ -699,6 +699,10 @@ def collection_factor_nf():
     return 100.0 / cap_nf()
 
 
+def collection_factor_stop265():
+    return 100.0 / deliv_both_nf_265()
+
+
 def collection_factor_fe():
     return 100.0 / capture_of_production()
 
@@ -868,6 +872,104 @@ def kc_over_5_21():
 
 def stripping_gain():
     return 156.5 / 112.6
+
+
+# ---- the acceptance model: pi- produced -> mu- delivered -------------------
+def mars_ratio():
+    """The paper's own MARS15-derived figure: captured mu- per pi- produced."""
+    return capture_of_production()
+
+
+def model_vs_mars():
+    return 100.0 * collector.delivered_fraction(1.50, "fwd", collector.NF_RF_WINDOW_MEV)
+
+
+def model_mars_agreement():
+    return model_vs_mars() / mars_ratio()
+
+
+def decay_survival_nf():
+    return collector.decay_survival(1.50)
+
+
+def deliv_fwd_nf():
+    return 100.0 * collector.delivered_fraction(1.50, "fwd")
+
+
+def deliv_both_nf():
+    return 100.0 * collector.delivered_fraction(1.50, "both")
+
+
+def deliv_back_nf():
+    return 100.0 * collector.delivered_fraction(1.50, "back")
+
+
+def rf_window_cost():
+    return deliv_fwd_nf() / model_vs_mars()
+
+
+def hemisphere_gain():
+    return deliv_both_nf() / deliv_fwd_nf()
+
+
+def _dl(br, hemi, cut):
+    return 100.0 * collector.delivered_fraction(br, hemi, (0.0, cut))
+
+
+def deliv_both_nf_400():
+    return _dl(1.50, "both", 400)
+
+
+def deliv_both_nf_265():
+    return _dl(1.50, "both", 265)
+
+
+def deliv_both_nf_200():
+    return _dl(1.50, "both", 200)
+
+
+def deliv_both_90_200():
+    return _dl(2.60, "both", 200)
+
+
+def deliv_both_90_400():
+    return _dl(2.60, "both", 400)
+
+
+def deliv_both_90_265():
+    return _dl(2.60, "both", 265)
+
+
+def _qb150(eta_pct, cost=None):
+    return 150.0 * (total_sourced() / 1000.0) / ((cost or cost_pion()) / (eta_pct / 100.0))
+
+
+def qb_deliv_both_nf():
+    return _qb150(deliv_both_nf())
+
+
+def qb_deliv_both_nf_400():
+    return _qb150(deliv_both_nf_400())
+
+
+def qb_deliv_both_nf_265():
+    return _qb150(deliv_both_nf_265())
+
+
+def qb_deliv_both_90_400():
+    return _qb150(deliv_both_90_400())
+
+
+def qb_deliv_both_90_265():
+    return _qb150(deliv_both_90_265())
+
+
+def qb_deliv_kelly_265():
+    return _qb150(deliv_both_nf_265(), kelly_cost())
+
+
+def eta_bred_demo_kelly():
+    return 100.0 * kelly_cost() / (150.0 * (total_sourced() / 1000.0))
 
 
 def kelly_cost():

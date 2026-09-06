@@ -207,12 +207,18 @@ the balance.
 negative muon as **5 GeV**, stating that this "includes systematic losses from pion production,
 transport, decay, and muon collection". §2.2 shows an optimised production target is calculated to
 cost **4.69 GeV per pion produced**, *before any collection at all*. A figure of 5 GeV cannot be a
-production cost and also carry the collection loss on top of it. Applying §5.24's acceptance instead:
+production cost and also carry the collection loss on top of it. Applying the companion's §5.24
+calculation instead — which reproduces the built front end's own simulation to **0.982**, so it is a
+computed figure and not an estimate:
 
 | | |
 |---|---|
-| their Q at today's aperture, both hemispheres | divide by **1.64** |
+| their Q at today's aperture, both hemispheres, no stopping window | divide by **1.64** |
+| their Q at today's aperture through a 265 MeV/c stopping window | divide by **2.25** |
 | their Q at today's front end as built | divide by **3.33** |
+
+The middle row is the one a reactor would actually meet, and the companion's §5.24 shows the stopping
+window is the largest term in the spread.
 
 So their unpolarised **0.52** becomes **0.32**, and their polarised-optimistic column — recomputed at
 0.754 as above — becomes **0.46**.

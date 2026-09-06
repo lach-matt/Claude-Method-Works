@@ -92,9 +92,17 @@ else. Stated at the two collection efficiencies that exist rather than at perfec
 form still passes at **1.241** with the specified collector taking no fissile credit at all — so the
 self-sustaining criterion is met without leaving the device — while the bred-fuel form needs **either**
 the collector **or** the service life, not both. The collector specification then splits into two
-physically independent halves, and **the free half is the one the bred-fuel route needs**: dropping
-the front end's forward-hemisphere discard, which costs no aperture, no field and no shielding, gives
-**1.203** at the existing 20 T magnet. **Three findings run the other way** and are recorded in §9:
+physically independent halves. **§5.24 then closes the acceptance number as a calculation rather than
+an assumption** — production, transverse cap, the two-body decay integrated over the pion rest frame,
+then a momentum requirement — and it **reproduces the built front end's own MARS15 simulation to
+0.982**, which costs the paper two earlier claims. The front end captures the **forward** hemisphere,
+not the backward one, so dropping the cut is worth **1.20** and not a factor of six; and **the 2.92
+"favourable margin" is withdrawn entirely** as a comparison of two different quantities. What replaces
+them: the dominant cut in the built machine is the **rf-capture window**, worth 1.72 and a genuine
+collider requirement — but a reactor substitutes a **stopping window**, and that is the term that
+decides the route. At today's aperture the balance is **1.199** with no momentum requirement and
+**0.968** through a 400 MeV/c one, so the bred-fuel route now needs either the wider bore (1.343) or
+the optimised production target, which drops the requirement from 50.8 % to **21.4 %**. **Three findings run the other way** and are recorded in §9:
 every balance assumes perfectly pure fuel, where 5.49 ppm costs as much binder as decay does; every
 collection figure is an acceptance rather than a delivered efficiency; and the temperature axis §5.15
 inverts the shortfall onto is confounded with purity and density in the existing record. Against that,
@@ -197,7 +205,11 @@ against work, and that the two gaps §5 calls independent are **one collection c
 thresholds**. It refuses to choose between those two readings: both are the corpus's own),
 **`tools/collector.py`** (the collection budget and the production floor, built from published MuSIC,
 Mu2e, COMET, PSI and HARP figures; `--production` integrates the HARP cross sections, `--floor` prices
-the binder, `--collector` states the two gaps as one chain), **`tools/verify_paper.py`** (the
+the binder, `--collector` states the two gaps as one chain, and **`--acceptance`** runs the
+pion-to-muon model — transverse cap, two-body decay integrated over the pion rest frame, then a
+momentum requirement — which **reproduces the MARS15 front-end simulation to 0.982** and is the one
+place in this repository where a model of this paper's is validated against a published simulation
+rather than against the corpus), **`tools/verify_paper.py`** (the
 publication-standard harness described under `papers/` above)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.

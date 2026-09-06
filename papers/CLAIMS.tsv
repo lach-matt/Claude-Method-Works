@@ -366,3 +366,30 @@ C364	their best-case cycle yield with external stripping	156.5	cycles	SOURCED	ar
 C365	cycle gain from external-field stripping	1.39	x	DERIVED	C364 / C363	fn:stripping_gain
 C366	their collision-only effective sticking	0.557	percent	SOURCED	arXiv:2606.07077 eq 46	none
 C367	their collisional reactivation probability	0.35	fraction	SOURCED	arXiv:2606.07077 eq 33	none
+C368	muon momentum in the pion rest frame	29.79	MeV/c	DERIVED	(m_pi^2 - m_mu^2) / 2 m_pi	collector.P_STAR_MEV
+C369	muon energy in the pion rest frame	109.78	MeV	DERIVED	(m_pi^2 + m_mu^2) / 2 m_pi	collector.E_STAR_MEV
+C370	NF/MC rf-capture window, lower edge	100	MeV/c	SOURCED	Strait et al. sec.II, 40 < T_mu < 180 MeV	none
+C371	NF/MC rf-capture window, upper edge	265	MeV/c	SOURCED	Strait et al. sec.II	none
+C372	NF/MC front-end channel length	50	m	SOURCED	Strait et al. sec.II	collector.NF_CHANNEL_M
+C373	acceptance model reproducing MARS15	29.51	percent	DERIVED	forward hemisphere, 1.50 T.m, rf window	fn:model_vs_mars
+C374	ratio, model to the full simulation	0.982	x	DERIVED	C373 / C106	fn:model_mars_agreement
+C375	decay survival, captured mu- per captured pi-	0.997	fraction	DERIVED	two-body decay integrated over the rest frame	fn:decay_survival_nf
+C376	delivered, forward hemisphere, no momentum requirement	50.69	percent	DERIVED	1.50 T.m	fn:deliv_fwd_nf
+C377	delivered, both hemispheres, no momentum requirement	60.92	percent	DERIVED	1.50 T.m	fn:deliv_both_nf
+C378	delivered, backward hemisphere, no momentum requirement	10.23	percent	DERIVED	1.50 T.m	fn:deliv_back_nf
+C379	cost of the rf-capture window	1.72	x	DERIVED	C376 / C373	fn:rf_window_cost
+C380	gain from adding the backward hemisphere	1.20	x	DERIVED	C377 / C376	fn:hemisphere_gain
+C381	delivered, both hemispheres, p below 400 MeV/c	49.16	percent	DERIVED	1.50 T.m	fn:deliv_both_nf_400
+C382	delivered, both hemispheres, p below 265 MeV/c	44.43	percent	DERIVED	1.50 T.m	fn:deliv_both_nf_265
+C383	delivered, both hemispheres, p below 200 MeV/c	36.48	percent	DERIVED	1.50 T.m	fn:deliv_both_nf_200
+C384	delivered, wider bore, both hemispheres, p below 400 MeV/c	68.20	percent	DERIVED	2.60 T.m	fn:deliv_both_90_400
+C385	delivered, wider bore, both hemispheres, p below 265 MeV/c	52.79	percent	DERIVED	2.60 T.m	fn:deliv_both_90_265
+C386	breeding balance at 150 cycles, today's aperture, no momentum cut	1.199	dimensionless	DERIVED	C44 x C220 / (C100 / C377)	fn:qb_deliv_both_nf
+C387	breeding balance at 150 cycles, today's aperture, p below 400	0.968	dimensionless	DERIVED	C44 x C220 / (C100 / C381)	fn:qb_deliv_both_nf_400
+C388	breeding balance at 150 cycles, today's aperture, p below 265	0.875	dimensionless	DERIVED	C44 x C220 / (C100 / C382)	fn:qb_deliv_both_nf_265
+C389	breeding balance at 150 cycles, wider bore, p below 400	1.343	dimensionless	DERIVED	C44 x C220 / (C100 / C384)	fn:qb_deliv_both_90_400
+C390	breeding balance at 150 cycles, wider bore, p below 265	1.039	dimensionless	DERIVED	C44 x C220 / (C100 / C385)	fn:qb_deliv_both_90_265
+C391	breeding balance at 150 cycles, today's aperture p below 265, Kelly cost	2.076	dimensionless	DERIVED	C44 x C220 / (C290 / C382)	fn:qb_deliv_kelly_265
+C392	collection needed, bred fuel at 150 cycles, Kelly cost	21.4	percent	DERIVED	C290 / (C44 x C220)	fn:eta_bred_demo_kelly
+C393	delivered, wider bore, both hemispheres, p below 200 MeV/c	38.68	percent	DERIVED	2.60 T.m	fn:deliv_both_90_200
+C394	collection factor omitted, today's aperture through a 265 MeV/c stopping window	2.25	x	DERIVED	1 / C382	fn:collection_factor_stop265

@@ -87,9 +87,15 @@ The bred-fuel form requires either the collector or the service life and not bot
 turns out not to be what stands in the way of that route: the collector specification separates into
 dropping the front end's hemisphere cut — a choice made for a background a reactor does not have, and
 free in aperture, field and shielding — and widening the bore, and **the first half alone, at the
-existing 20 T magnet, gives a bred-fuel balance of 1.203 at the cycle count demonstrated in 1987** —
-resting on the assumption that an accepted pion yields a captured muon, which the one machine where
-both quantities can be evaluated returns at 2.92 rather than 1.
+existing 20 T magnet, gives a bred-fuel balance of 1.199 at the cycle count demonstrated in 1987** —
+now computed rather than assumed, from a model that reproduces the built front end's own simulation to
+0.982. That same calculation costs this paper two earlier claims, withdrawn at §5.24: the front end
+captures the forward hemisphere and not the backward one, so dropping the cut is worth 1.20 and not a
+factor of six; and the 1.199 survives only while the target imposes no momentum requirement of its own.
+A stopping window of 400 MeV/c takes it to 0.968. The route therefore needs one of two things, and both
+are already in this paper: the wider bore, which restores it to 1.343, or the optimised production
+target, which drops the requirement from 50.8 to 21.4 percent and is met by every configuration
+computed.
 
 One measurement remains genuinely unresolved: the two published final stickings straddle the
 break-point, and this paper's own protocol — neutron and X-ray routes run simultaneously on one
@@ -492,11 +498,13 @@ stated cap of 100.
 Applying that cap to the measured production of §5.1 gives a design curve. Two discards appear, and a
 reactor need make neither:
 
-**Hemisphere.** Physics front ends capture backward-going pions only, to escape the forward neutron
-and proton flux. A reactor's target *is* its detector; it has no backgrounds to escape and may capture
-both hemispheres. At the existing aperture that alone takes capture from **10.3 percent to 61 percent**
-of measured production — a factor of about six, from a discard made for reasons a reactor does not
-share.
+**Hemisphere — and this paragraph carried an error, corrected here and worked out at §5.24.** It
+stated that physics front ends capture backward-going pions only, to escape the forward neutron and
+proton flux. The source says the opposite: the channel's function is to capture pions leaving the
+target in the **forward** hemisphere, which is also the large one. A reactor may still take both, but
+the gain is **1.20** rather than the factor of about six claimed here. At the existing aperture,
+forward alone delivers **50.69 percent** of measured production and both hemispheres **60.92 percent**;
+the backward hemisphere by itself is **10.23 percent**.
 
 **Aperture.** The cap scales as field times bore radius. The best studied front end runs 20 T on a
 7.5 cm bore, a product of **1.50 T·m**.
@@ -1075,74 +1083,104 @@ price the blanket's own capital or the fissile handling §5.18 flags as prolifer
 the 30 percent column is a capture fraction, not a delivered-to-target fraction, so every entry in it
 is an upper bound on what today's hardware would actually return.
 
-### 5.24 What today's magnet already accepts
+### 5.24 What today's magnet delivers, against a model validated on the built machine
 
-§5.23 concentrates the risk in one component. This section splits that component and finds that
-**one of its two parts is free**.
+§5.23 concentrates the risk in one component, and this section works that component's number out
+rather than assuming it. Doing so **overturns two claims made earlier in this paper**, and both
+withdrawals are stated before the result that replaces them.
 
-The collector specification of §5.9 has two independent halves, and they were stated together there
-because they arrive together in a design. They are not coupled physically:
+**The model.** The transverse cap of §5.9 tests the *pion*. What a target receives is the *muon* from
+that pion's decay, and π → μν is a two-body decay that redistributes momentum: the muon takes between
+(m_μ/m_π)² and all of the pion's energy and picks up a transverse kick of at most **29.79 MeV/c**, the
+muon's momentum in the pion rest frame, where its energy is **109.78 MeV**. The decay is isotropic
+there — the pion is spin zero — so the rest-frame sphere is integrated on a fixed grid rather than
+sampled. A pion outside the cap is not modelled as decaying: its decay length is metres and the
+channel absorber is centimetres away. Then a **momentum requirement** is applied to the muon, because
+a channel must deliver into something.
 
-1. **Drop the hemisphere cut.** Physics front ends capture backward-going pions only, to escape the
-   forward neutron and proton flux. A reactor's target *is* its detector. This costs no aperture, no
-   field and no shielding — it is the removal of a choice made for a background a reactor does not
-   have.
-2. **Widen the bore**, from 1.50 to 2.60 T·m, a factor of 1.74. This is the half §5.21 prices as a
-   shielding trade of about 2.7 in coil heating.
+**It reproduces the built machine.** The front end whose simulation this paper has been quoting
+delivers into an rf-capture bucket requiring **100** to **265 MeV/c**. Applying that window, over the
+hemisphere the front end actually takes:
 
-**Half one alone, at today's aperture, is already enough for the bred-fuel route.** The acceptance
-model at the existing 1.50 T·m over both hemispheres gives **61 percent** of measured production
-(§5.9), against the **50.8 percent** §5.22 shows bred fuel needs at demonstrated cycle counts.
-Carrying that through:
+> model **29.51 %** against the MARS15 figure of **30 %** — a ratio of **0.982**.
 
-| balance at today's aperture, both hemispheres | |
+That is a validation, and it changes the epistemic status of every collection figure in this paper
+from *assumed* to *computed*.
+
+**Withdrawal 1 — the hemisphere, and §5.9 has it backwards.** §5.9 states that physics front ends
+capture backward-going pions only, to escape the forward flux. The source says the opposite in its own
+words: the channel's function is "to efficiently capture pions exiting the target in the **forward**
+hemisphere". Forward is also the *large* hemisphere — **50.69 %** of production against the backward
+hemisphere's **10.23 %**. So the front end already takes the big half, and adding the other one is
+worth **1.20**, not the factor of about six §5.9 claims. **That sentence in §5.9 is withdrawn.**
+
+**Withdrawal 2 — the 2.92 was never a margin.** §5.24 previously reported that the model was
+conservative by 2.92 at "the one comparable point". That comparison set a *backward* model acceptance
+of 10.3 % against a simulation of a machine that captures *forward*, with no momentum requirement on
+one side and the rf bucket on the other. It compared two different things. **The 2.92 is withdrawn
+entirely**, and nothing replaces it: the model needs no margin, because it now reproduces the
+simulation directly.
+
+**What the real lever is, and it is not the aperture or the hemisphere.** The source is explicit that
+its acceptance falls off at high momentum "primarily from the requirement that T < 180 MeV (265 MeV/c),
+and secondarily from the transverse momentum p_T < 225 MeV/c that is captured by the target solenoid".
+The dominant cut is the **rf-capture window**, and it costs **1.72**:
+
+| at the existing 1.50 T·m | delivered, per π⁻ produced |
 |---|---|
-| bred fuel, demonstrated 150 cycles | **1.203** |
-| bred fuel, bound-case service life | **4.72** |
-| heat, bound-case service life | 0.842 |
-| heat, φ = 3 | 0.686 |
-| heat, demonstrated 150 cycles | 0.215 |
-| work, bound-case service life | 0.632 |
+| forward hemisphere, rf window — *the built machine* | **29.51 %** |
+| forward hemisphere, no momentum requirement | **50.69 %** |
+| both hemispheres, no momentum requirement | **60.92 %** |
+| decay survival, captured μ⁻ per captured π⁻ | **0.997** |
 
-> **At the existing 20 T front-end magnet, with the forward hemisphere no longer discarded and nothing
-> else changed, the bred-fuel balance at the demonstrated cycle count is 1.203.** No wider bore, no
-> shielding trade, no density beyond the scanned record, no resolution of the sticking measurement.
+The rf window is a collider requirement: it exists so that the muons fit a downstream accelerating
+bucket. **A reactor does not have that bucket.** This is the "selective requirement a reactor does not
+share" of §9, now identified and priced instead of asserted.
 
-**The heat route does not clear the same bar**: 0.842 at its best, and it needs the wider bore. So the
-two halves of the collector specification map onto the two routes of §5.23 exactly — the bred-fuel
-route needs the hemisphere change, the heat route needs the hemisphere change *and* the aperture
-*and* the service life.
+**But a stopping target has a requirement of its own, and this is where the result turns.** A muon
+must stop in the fuel, so a reactor front end substitutes a *range* window for the rf one. The model
+does not choose that window — it is a design variable of the target's areal density — so it states the
+sensitivity:
 
-**Two things must be said about the 1.203, and one of them is unusual.**
+| delivered, per π⁻ produced | p < 200 | p < 265 | p < 400 | no cut |
+|---|---|---|---|---|
+| 1.50 T·m, both hemispheres | 36.48 % | **44.43 %** | **49.16 %** | **60.92 %** |
+| 2.60 T·m, both hemispheres | 38.68 % | **52.79 %** | **68.20 %** | **89.88 %** |
 
-The margin is thin — 20 percent above unity on a chain of estimates — and this paper does not present
-a thin margin as a result. What makes it worth stating is the **direction of the assumption it rests
-on, which can be checked once**.
+against the **50.8 %** §5.22 shows bred fuel needs at demonstrated cycle counts. Carried into the
+balance:
 
-The efficiency η in every balance here is *captured muons per pion produced*. The model of §5.9
-computes something else: the fraction of pions inside a solenoid's transverse-momentum cap. Using the
-61 percent as η therefore assumes **one captured muon per accepted pion**, and that assumption is what
-the 1.203 rests on. It can be examined at exactly one point. The MARS15 front-end simulation reports
-**30 percent** of production captured as muons, while this model puts the same machine's backward
-pion acceptance at **10.3 percent** — so that machine returns about **2.92** captured muons per pion
-the model would have accepted. The excess is not an error in either figure: a real front end is a long
-solenoid, and decay-in-channel captures muons from pions the initial cap rejects, which a
-transverse-momentum test cannot represent.
+| bred fuel at 150 cycles | balance |
+|---|---|
+| today's aperture, both hemispheres, no momentum requirement | **1.199** |
+| today's aperture, both hemispheres, p < 400 MeV/c | **0.968** |
+| today's aperture, both hemispheres, p < 265 MeV/c | **0.875** |
+| wider bore, both hemispheres, p < 400 MeV/c | **1.343** |
+| wider bore, both hemispheres, p < 265 MeV/c | **1.039** |
 
-So the unit-efficiency assumption runs favourable by about three in the one machine where both
-quantities can be evaluated, and the 61 percent is a floor in the same sense as §5.1's production
-figure. But it is an assumption checked at one point in a machine with a hemisphere cut, not a
-both-hemisphere simulation, and this paper has no such simulation. **The 1.203 is stated at that
-status and no higher.**
+> **The number closes, and it does not close favourably at today's aperture.** With no momentum
+> requirement at all the balance is 1.199 — which is the 1.203 this section previously reported, now
+> computed rather than assumed. Impose any realistic stopping window and it falls below unity.
 
-**And the caution, which is the same one §5.22 and §5.23 carry and is not weakened by repetition.**
-Acceptance is necessary and not sufficient: a front end must transport, cool and stop what it accepts,
-and none of that is modelled here. The MARS15 30 percent is a capture fraction reached through a
-channel built to deliver a narrow momentum band to a storage ring; how much of a both-hemisphere
-acceptance a *reactor* front end would actually deliver to a dense target is unmeasured, and it is the
-measurement this paper would put first. What §5.24 establishes is narrower and still worth having:
-**the aperture is not what stands in the way of the bred-fuel route, and the hemisphere cut is not a
-physical constraint at all.**
+**So the route needs one of two things it did not need an hour ago**, and both were already in this
+paper:
+
+1. **The wider bore of §5.9.** At 2.60 T·m the balance holds through a 265 MeV/c stopping window at
+   **1.039** and through a 400 MeV/c one at **1.343**. §5.21 prices that bore as a shielding trade.
+2. **The optimised production target.** At the companion's **4.69 GeV** per pion rather than this
+   paper's measured 11.13, the requirement falls from 50.8 % to **21.4 %** — met by *every* row of the
+   table above, including today's aperture at the tightest stopping window, which then gives **2.076**.
+
+**Neither is a new machine, and they are independent.** That is the honest state of the acceptance
+question: it is closed as a computation, it costs this paper the free-hemisphere argument and the
+2.92, and it leaves the bred-fuel route needing either a shielding trade or a target-design
+measurement — with §10's Stage C, the cheapest of the four, now the one that moves it furthest.
+
+**What the model still does not include.** Transport, cooling, and stopping. Every figure above is an
+acceptance-and-decay calculation, so each is an upper bound on what a machine delivers — which is
+precisely why the MARS15 row, the one that carries 50 m of real transport, is the validation and not
+the prediction. A reactor front end will lose something to transport that this model does not charge
+it for.
 
 ### 5.25 What the independent literature does to these figures
 
@@ -1273,6 +1311,14 @@ conclusion required assuming the muon's ratio of production cost to rest mass ge
 binder, which is unsupported. §5 states the position that survives: the set is not empty, and the
 requirement lies inside the headroom.
 
+**Withdrawn at §5.24, by working a number this paper had assumed.** Two claims fall together. First,
+that physics front ends capture the backward hemisphere only: they capture the **forward** one, which
+is also the larger, so dropping the cut is worth **1.20** and not a factor of about six. Second, the
+**2.92** this paper reported as the model's favourable margin: it set a backward model acceptance
+against a simulation of a forward-capturing machine, with no momentum requirement on one side and an
+rf bucket on the other. It compared two different quantities and nothing replaces it — the model now
+reproduces the simulation directly, to **0.982**, and needs no margin.
+
 **Found late and not repaired, because repairing it would be a choice this paper has no grounds to
 make.** The companion's §2.5 shows the service-life model over-predicts the one measurement it can be checked against
 by a factor of **2.24**. The paper carries the finding rather than adjusting the model, states which of
@@ -1300,8 +1346,9 @@ is not settled here, and §10's Stage B is what settles it.
 **Three limits added late, and each runs against the result rather than for it.** Every balance here
 assumes **perfectly pure fuel**, and the companion's §2.4 shows a contamination of **5.49 ppm** costs as much binder
 as decay does at the bracketed density — so all of them are overestimates by a factor no experiment
-here bounds. Every collection figure is an **acceptance** and not a delivered-to-target efficiency
-(§5.24), which is necessary and not sufficient. And the temperature dependence §5.15 relies on is
+here bounds. Every collection figure is an **acceptance and a decay** and not a
+delivered-to-target efficiency (§5.24) — transport, cooling and stopping are unmodelled and all three
+lose, so every such figure is an upper bound. And the temperature dependence §5.15 relies on is
 **confounded with purity and density** in the existing record (the companion's §2.4), so the axis it inverts the
 shortfall onto is not cleanly separated from two others.
 
@@ -1351,36 +1398,41 @@ balance at demonstrated cycle counts is **1.203**.
 
 What would change the answer, in the order this paper can rank them:
 
-1. **A front end measured as an acceptance rather than as a collider channel.** The hemisphere cut is
-   not a physical constraint, and dropping it at the existing aperture is enough for the bred-fuel
-   route at demonstrated cycle counts. What is unmeasured is how much of a both-hemisphere acceptance
-   a reactor front end delivers to a dense target — the model here computes acceptance and no more.
-   **This is the measurement this paper would put first**, and it needs no new machine.
-2. **The wider bore of §5.9** — 20 T on a 13 cm clear bore, 1.74 times the existing aperture. The heat
-   and work routes need it; the bred-fuel route does not. §5.21 prices it as a shielding trade of
-   about 2.7 in coil heating, not a new magnet.
-3. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
+1. **The stopping window of the fuel target.** §5.24 closes the acceptance question as a calculation
+   and finds the answer turns on a term this paper had not carried: a reactor substitutes a *range*
+   window for the collider's rf bucket, and the delivered fraction runs from **60.92 percent** with no
+   window to **44.43 percent** at 265 MeV/c. That spread straddles the requirement, so it decides the
+   bred-fuel route at demonstrated cycle counts. It is a target-design question — areal density and
+   moderator — not a physical unknown, and **it is what this paper would settle first.**
+2. **The production target of §10.3.** At the companion's optimised figure the requirement falls from
+   50.8 to **21.4 percent**, which every configuration §5.24 computes already meets. It is the
+   cheapest of the measurements and it now moves the result furthest.
+3. **The wider bore of §5.9** — 20 T on a 13 cm clear bore, 1.74 times the existing aperture. It
+   restores the bred-fuel route through a 265 MeV/c stopping window at **1.039** and a 400 MeV/c one
+   at **1.343**, and the heat and work routes need it outright. §5.21 prices it as a shielding trade
+   of about 2.7 in coil heating, not a new magnet.
+4. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
    bench experiment on an existing beam, and the companion's §2.4 records that a collaboration is already running
    the adjacent measurement. It bears on the heat route and not on the bred-fuel one.
-3a. **Fuel purity, and its separation from temperature and density.** The companion's §2.4 prices the impurity
+5. **Fuel purity, and its separation from temperature and density.** The companion's §2.4 prices the impurity
    channel for the first time: at the bound-case density, a contamination of 5.49 ppm costs as much
    binder as decay does, and every balance in this paper assumes perfect purity. The same measurement
    separates §5.15's temperature reading from a purity reading, which the existing record confounds.
-4. **Effective sticking at the operating temperature.** No determination exists at 800 K, though
+6. **Effective sticking at the operating temperature.** No determination exists at 800 K, though
    §5.20 records the muon-loss dependence measured across 85 to 790 K in the d+d system, in the
    favourable direction.
-5. **Where molecular hydrogen ceases to be molecular at 800 K** — much less important than it looked.
+7. **Where molecular hydrogen ceases to be molecular at 800 K** — much less important than it looked.
    The companion's §2.5 shows the heat route breaks even at **2.10** times liquid density rather than at the bound
    case's 8.5, and the bred-fuel route at **0.730** or less, which is below liquid density. §5.13's
    structural bound therefore constrains only the asymptotic service life, not breakeven on either
    route.
-6. **The resonant stripping enhancement** (the companion's §2.1) — no longer unquantified, and its §2.6 is why it stays
+8. **The resonant stripping enhancement** (the companion's §2.1) — no longer unquantified, and its §2.6 is why it stays
    last. An independent rate network puts the gain at **1.39** in cycles against a collection factor
    of 1.64 to 3.33 and a production factor of 2.37, and finds the route limited by post-stripping
    transport rather than by the field. It is the smallest of the three levers and the only one that
    needs a machine that does not exist.
 
-None is settled here. The first three need no new machine, and items 3 to 6 bear on the service-life
+None is settled here. The first three need no new machine, and items 4 to 8 bear on the service-life
 axis alone — which is the axis §5.23 shows the bred-fuel route can do without.
 
 **And four doors are now shut, which is worth as much as an open one.** The binder is not the variable
@@ -1416,20 +1468,22 @@ target is its detector and has no such background (§5.9, §5.24).
 pion produced in the production target. Not the transverse acceptance, and not the capture fraction
 of a momentum-selected channel — the delivered figure, end to end.
 
-**Committed prediction.** The acceptance model puts pions inside the transverse cap at **61 percent**
-of measured production over both hemispheres. §5.24 assumes one stopped muon per accepted pion.
-The two corrections to that assumption run opposite ways: transport, cooling and stopping lose,
-decay-in-channel gains, and the one machine where both quantities can be evaluated returns **2.92**
-captured muons per model-accepted pion. This paper predicts η above **50.8 percent** and does not
-predict a value.
+**Committed prediction.** §5.24's model — production, transverse cap, two-body decay integrated over
+the pion rest frame, then a momentum requirement — reproduces the built machine to **0.982** of its
+simulated figure, so the prediction here is a calculation and not an estimate. With no momentum
+requirement it gives **60.92 percent** over both hemispheres; with a 400 MeV/c stopping window,
+**49.16 percent**; with a 265 MeV/c one, **44.43 percent**. **This paper predicts that η falls in that
+band and below 60.92 percent**, because transport, cooling and stopping are not modelled and every one
+of them loses. It does not predict a point value, and the window the target imposes is the largest
+term in the spread.
 
 **What each outcome settles.**
 
 | η returns | consequence |
 |---|---|
-| ≥ **50.8 percent** | The bred-fuel route closes at the demonstrated **150** cycles per binder with no other change to anything: no wider bore, no density beyond the scanned record, no resolution of the sticking branch. |
-| **30** to 50.8 percent | The wider bore of §5.9 becomes necessary — **2.60 T·m**, 20 T on a **13 cm** clear bore — and §5.21 prices it at about **2.7** in coil heating or **11 percent** in coil bore. |
-| below **30 percent** | The acceptance model of §5.9 is wrong in the unfavourable direction, and every balance in this paper falls with it proportionally. |
+| ≥ **50.8 percent** | The bred-fuel route closes at the demonstrated **150** cycles per binder with no other change: no wider bore, no density beyond the scanned record, no resolution of the sticking branch. §5.24 puts this at the top of its computed band and only without a stopping window. |
+| **44.43** to 50.8 percent | The band §5.24 computes for realistic stopping windows. The wider bore of §5.9 becomes necessary — **2.60 T·m**, 20 T on a **13 cm** clear bore, which §5.21 prices at about **2.7** in coil heating — *or* the production target of §10.3, which lowers the requirement to **21.4 percent** instead. |
+| below **29.51 percent** | Below what the built machine already delivers through a *collider's* momentum window. That would falsify §5.24's model, which reproduces that machine to **0.982**, and every balance in this paper would fall with it. |
 
 η multiplies every balance in this paper identically, so **whatever it returns is a bound on all of
 them at once.** This is why Stage A runs first.
