@@ -49,7 +49,9 @@ never writes to them. Its shape follows the author's own standing ruling (`PROSE
 each paper carries its own abstract and its own references, states its relation to the lattice, and
 takes no part in the main paper's subject matter.
 
-**`Cold_Fusion_Binder_Economy_v1.0.md` is the current paper**, and it supersedes and retires three
+**`Cold_Fusion_Binder_Economy_v1.0.md` is the current paper**, with
+**`Independent_Reconciliation_v1.0.md`** as its companion — the two were split for readability and
+share one ledger, so **`verify_paper.py` must be run over both**. It supersedes and retires three
 others held beside it under banners: `Muon_Catalysed_Fusion_v1.1.md`, `Corrigendum_MuCF_v1_0.md` and
 `Muon_Collection_Budget_v1.0.md`. The v1.0 those descend from lives in `recovered/`, is md5-pinned in
 `recovered/LEDGER.tsv`, and is **never hand-edited** — which is why each successor is a new document
@@ -100,7 +102,13 @@ factor of 2.37 the paper declines to adopt because a status is never flattened.
 
 **§10 is the laboratory programme**, four staged measurements on apparatus that exists — the
 acceptance measurement first, because it multiplies every balance identically and so bounds all of
-them at once. **Docket C-8 stays open**: it closes only by seating a member, which would write to
+them at once. **The companion paper sets all of it beside four independent results** published while
+the analysis was running: condition 8 has been **derived independently** as a Lawson-inspired
+cycle-closure criterion, a second group proposes the same fission-breeding escape, a third prices the
+stripping route within 1.48 of §5.20's figure and caps its gain at 1.39, and a fourth costs an
+optimised production target at 4.69 GeV per pion. It also carries the correction that matters most:
+**the service-life model over-predicts its one checkable point by 2.24**, returning 335.3 cycles where
+150 were measured — which every bound-case figure inherits and no bred-fuel figure does. **Docket C-8 stays open**: it closes only by seating a member, which would write to
 `method/`. See `papers/README.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**

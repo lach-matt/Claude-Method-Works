@@ -11,6 +11,10 @@ bundle.*
 > *Corrigendum* to v1.0, and *The Muon Collection Budget* v1.0. Where any of those disagrees with
 > this paper, this paper stands. Their withdrawn claims are listed at §8.
 
+> **Companion.** *The Binder Economy Against the Recent Literature* [15] is this paper's
+> reconciliation half: it sets the work below beside four independent results published while it was
+> being done, and reports what each confirms and what each corrects. The two share one claims ledger.
+
 > **Verification.** Every quantity below is carried by `papers/CLAIMS.tsv` and checked by
 > `python3 tools/verify_paper.py papers/Cold_Fusion_Binder_Economy_v1.0.md`, which recomputes each
 > derived row from the instruments, binds each cited constant to the instrument that holds it, and
@@ -94,15 +98,16 @@ heat route and not on the bred-fuel one. What the bred-fuel route awaits is not 
 at all but a measurement of what a front end built for a reactor's requirement, rather than a
 collider's, delivers to a dense target.
 
-**The eighth condition is not this paper's alone**, and the corroboration comes with a correction. An
-independent group states the same inequality as a cycle-closure criterion, reaching it from a Lawson
-analogy; a second independent analysis proposes the same fission-breeding escape; a third agrees to
-within a factor of one and a half on the field this paper prices for the stripping route. Evaluated in
-those coordinates the results here stand, with one exception that is stated rather than repaired: the
-service-life model over-predicts the one measurement it can be checked against by a factor of **2.24**.
-Every figure here computed at a modelled service life inherits that; the bred-fuel figures, computed
-at the measured cycle count and a sourced blanket, do not — so the correction weakens the routes this
-paper already identifies as fragile and leaves untouched the one it identifies as robust.
+**The eighth condition is not this paper's alone**, and the corroboration comes with a correction. A
+companion paper [15] sets this work beside four independent results published while it was being
+done: an independent derivation of the same inequality as a cycle-closure criterion, an independent
+proposal of the same fission-breeding escape, an independent pricing of the stripping route agreeing
+within a factor of one and a half, and an optimised production target costing 2.37 less per pion.
+Evaluated in those coordinates the results here stand, with one exception stated rather than repaired:
+the service-life model over-predicts the one measurement it can be checked against by a factor of
+**2.24**. Every figure here computed at a modelled service life inherits that; the bred-fuel figures,
+computed at the measured cycle count and a sourced blanket, do not — so the correction weakens the
+routes this paper already identifies as fragile and leaves untouched the one it identifies as robust.
 
 ---
 
@@ -182,7 +187,7 @@ channel alone, and no choice of binder improves it.
 
 **Target.** Hydrogen isotopes only; elements above hydrogen capture the binder preferentially and
 terminate the chain, so purity is a requirement and not a refinement. The tritium fraction is not
-critical, the transfer step auto-optimising the population. **§5.28 puts a number on the purity
+critical, the transfer step auto-optimising the population. **the companion paper's §2.4 puts a number on the purity
 requirement**: transfer to oxygen runs at about 1 × 10¹⁰ s⁻¹ per liquid density of oxygen, so at the
 density §5.13 brackets, a contamination of **5.49 ppm** costs as much binder as decay does. Purity
 better than one part per million is the working requirement, and it tightens linearly with density.
@@ -541,7 +546,7 @@ satisfaction reported in §5.5 is therefore an asymptotic statement, and this se
 The scanned experimental record ends at 1.5 times liquid density. **Reaching 90 percent of the cap
 needs about seven times beyond it**, at the high temperature §3.2 requires. §5.13 prices that in
 pressure and finds a structural bound rather than an engineering one. §5.5's margin does not survive
-without it. **Note that ninety percent of the cap is not breakeven** — §5.29 solves for the density at
+without it. **Note that ninety percent of the cap is not breakeven** — the companion paper's §2.5 solves for the density at
 which each balance equals one and finds **2.10** for the heat form and less than liquid density for
 the bred-fuel form, so this table states the ceiling rather than the requirement.
 
@@ -561,6 +566,26 @@ work balance is short everywhere, between 1.18 and 1.95.
 **This tightens §5.5 rather than overturning it.** The heat form is satisfiable, but only at a density
 seven times beyond anything run, and the shortfall at a merely extrapolated density is 1.04 — near
 enough that the density axis, not the sticking axis, may be what decides it.
+
+### 5.12 A neutron multiplier, bounded rather than adopted
+
+The blanket accounting of §5.8 assumes one neutron captured per fusion. Real designs add beryllium or
+lead to multiply neutrons through (n,2n), which tritium self-sufficiency requires anyway. The
+multiplication is endothermic — 1.57 MeV for beryllium — but each extra neutron then returns the
+breeding reaction's 4.78, a **net 3.21 MeV per multiplied neutron**.
+
+At 1.6 neutrons per source neutron the thermal yield reaches **24.31 MeV per fusion**, an energy
+multiplication of **1.382** against the 1.272 of §5.8.
+
+**This paper does not adopt that figure.** Published blanket multiplications span roughly 1.1 to 1.4
+and depend on a design this paper does not specify, so 1.272 — computed from a single reaction with a
+measured Q value and full capture — is what §5.8 carries, and 1.382 is recorded as the head of the
+band rather than as a result. The distinction matters: the first is arithmetic on a nuclear datum, the
+second is an estimate about an engineering choice.
+
+**Proton energy is not a lever.** The same source finds the beam-power-normalised yield flat within a
+tenth of its optimum across 4 to 11 gigaelectronvolts, with an optimum near 7. Any driver energy in
+that band is equivalent for this purpose.
 
 ### 5.13 Density is bounded above, and the bound is structural
 
@@ -588,7 +613,7 @@ condition below, a degeneracy condition above.
 > principle, and §5.11's figures at three times liquid density are the ones that describe a physical
 > operating point.
 
-**Read §5.29 before taking this as a limit on the result.** What is bounded here is the *asymptotic*
+**Read the companion paper's §2.5 before taking this as a limit on the result.** What is bounded here is the *asymptotic*
 service life. Breakeven needs far less: **2.10** times liquid density for the heat form at perfect
 collection, and **0.730** or less for the bred-fuel form at every collection efficiency this paper
 considers — below liquid density, so no compression at all. The bound above is real and it constrains
@@ -599,26 +624,6 @@ wants cold. There is a second opposition beneath it: the dissociation pressure o
 with temperature, so operating at the 800 K the resonance demands tightens this bound relative to the
 room-temperature figures quoted above. By how much, this paper does not establish, and the figures
 here should be read as the loosest form of the constraint rather than the operative one.
-
-### 5.12 A neutron multiplier, bounded rather than adopted
-
-The blanket accounting of §5.8 assumes one neutron captured per fusion. Real designs add beryllium or
-lead to multiply neutrons through (n,2n), which tritium self-sufficiency requires anyway. The
-multiplication is endothermic — 1.57 MeV for beryllium — but each extra neutron then returns the
-breeding reaction's 4.78, a **net 3.21 MeV per multiplied neutron**.
-
-At 1.6 neutrons per source neutron the thermal yield reaches **24.31 MeV per fusion**, an energy
-multiplication of **1.382** against the 1.272 of §5.8.
-
-**This paper does not adopt that figure.** Published blanket multiplications span roughly 1.1 to 1.4
-and depend on a design this paper does not specify, so 1.272 — computed from a single reaction with a
-measured Q value and full capture — is what §5.8 carries, and 1.382 is recorded as the head of the
-band rather than as a result. The distinction matters: the first is arithmetic on a nuclear datum, the
-second is an estimate about an engineering choice.
-
-**Proton energy is not a lever.** The same source finds the beam-power-normalised yield flat within a
-tenth of its optimum across 4 to 11 gigaelectronvolts, with an optimum near 7. Any driver energy in
-that band is equivalent for this purpose.
 
 ### 5.14 The terminal balance
 
@@ -913,40 +918,6 @@ with muon loss *increasing* as temperature *decreases*. That range brackets the 
 spanned a phase change and might not be a temperature effect — is substantially relieved by a
 measurement over seven hundred kelvin in the same direction.
 
-### 5.21 Pricing the stripping route
-
-§5.20 opened a route to the reactivation term and left it unquantified. This prices what it must beat.
-
-**The geometry is more favourable than it first appears.** The window is not the ash's slowing time.
-Once the ash has stopped, the bound binder–ash ion persists until the binder decays, so an irradiating
-field has of order **2.14 microseconds** rather than picoseconds. Whatever defeats this route, it is
-not the space–time overlap that defeats a focused beam — which is the second reason §5.20's no-go and
-this proposal are not the same claim.
-
-**Direct photoionisation sets the scale.** The bound state's binding is 10.9 keV, so the threshold is
-**0.1137 nm**, agreeing with the 0.11 the source states. A hydrogenic photoionisation cross-section
-scales as the orbital area, giving **3.68 × 10⁻²³ cm²** for this system. Then:
-
-| to achieve | required flux | **sustained intensity** |
-|---|---|---|
-| a stripping rate merely matching binder decay | 1.27 × 10²⁸ /cm²/s | **2.21 × 10¹³ W/cm²** |
-| stripping of 95 percent of stuck binders | 2.72 × 10²⁹ /cm²/s | 4.74 × 10¹⁴ W/cm² |
-
-**Against what exists**: free-electron lasers reach 10¹⁸ W/cm² and beyond, but in femtosecond pulses
-at duty cycles near 10⁻⁹, so the time-averaged intensity is orders lower; synchrotron beamlines are
-lower still. **A sustained hard-X-ray field of 10¹³ W/cm² over a reactor fuel volume does not exist.**
-
-**But the proposal does not rest on direct photoionisation, and that is the point of it.** Its
-mechanism is resonant: driving at twice the bound binder's own eigenfrequency to excite a chaotic
-instability — the analogue of microwave ionisation of a Rydberg atom — whose effective cross-section
-can exceed the direct one by orders. The source demonstrates that behaviour in simulation and **does
-not quantify the enhancement.**
-
-> **So the route is unquantified, and this section states the gap it must close.** Direct
-> photoionisation would need 2.21 × 10¹³ W/cm² sustained. The required resonant enhancement is whatever
-> brings that within reach of a real source, and **no published figure gives it.** This paper neither
-> credits the route nor dismisses it: it records what would have to be true.
-
 ### 5.22 The collector's constraint, re-posed: it is shielding, not the magnet
 
 §5.9 named coil nuclear heating as the collector's binding constraint and declined to model it. It can
@@ -1171,296 +1142,41 @@ measurement this paper would put first. What §5.25 establishes is narrower and 
 **the aperture is not what stands in the way of the bred-fuel route, and the hemisphere cut is not a
 physical constraint at all.**
 
-### 5.26 The production target was never optimised here, and someone has optimised it
+### 5.26 What the independent literature does to these figures
 
-§5.1 integrated the HARP-measured pion cross sections and obtained **11.13 GeV of beam energy per
-π⁻ produced**, which every balance in this paper divides by. That figure carries a caveat §5.1 stated
-and this paper has not until now acted on: HARP measured a **5 percent interaction-length** target,
-so its yield is *per interacting proton*, and the beam's remaining energy leaves the target with the
-beam. The measurement is a measurement of production, not of a production **target**.
+Four independent results were published while this analysis was being done, and the reconciliation is
+a paper of its own [15] rather than a section here, because it is a different kind of work: this
+section states what it establishes and what each result does to the figures above.
 
-An independent study optimised the target. Kelly, Hart and Rose [9] ran a G4Beamline optimisation over beam species, beam energy, target material and target
-geometry, and report their best configuration as a **3.61 GeV** deuteron beam on a tungsten rod
-**652 mm** long and **5.1 mm** across, giving **0.77 π⁻ per beam particle**. Dividing:
+**Corroborated from outside, and none of it this paper's own.** Condition 8 has been derived
+independently as a Lawson-inspired cycle-closure criterion, whose conditional sticking no-go
+rearranges term for term into it. A second independent analysis proposes the same fission-breeding
+escape as §5.18, for the same reason. A third arrives within a factor of **1.48** on the field the
+stripping route demands. And an independent blanket accounting gives 26.0 MeV per fusion against
+§5.19's **26.06** — two calculations sharing no input, agreeing to better than a quarter of a percent.
 
-> **4.69 GeV of beam energy per π⁻ produced — a factor of 2.37 below this paper's own figure.**
+**Three corrections, and they are stated rather than absorbed.**
 
-**The two are not in conflict, and the reconciliation is the physics.** A 652 mm tungsten rod is many
-interaction lengths. The primary interacts, and so do its secondaries, and each interaction produces
-pions from beam energy that a thin target lets escape. HARP's 0.7188 π⁻ per *interacting* proton and
-Kelly's 0.77 π⁻ per *beam* particle are nearly the same number for a different denominator — which is
-the whole of the difference, and it is a target-design result rather than a disagreement about cross
-sections. Kelly et al. also assume every π⁻ becomes a usable μ⁻, so their figure is a
-**perfect-collection** cost, comparable like-for-like with §5.1's.
-
-**What it does to the balances**, at perfect collection and on this paper's own accounting:
-
-| balance at 4.69 GeV per π⁻ | |
+| correction | what it does |
 |---|---|
-| bred fuel, bound-case service life | **18.3** |
-| bred fuel, demonstrated 150 cycles | **4.67** |
-| heat, bound-case service life | **3.27** |
-| work, bound-case service life | **2.46** |
-| heat, demonstrated 150 cycles | 0.834 |
-| work, demonstrated 150 cycles | 0.625 |
+| the production figure is a *thin-target* measurement; an optimised thick target is calculated at **4.69 GeV** per pion against **11.13** | multiplies every balance above by **2.37** for a reader who prefers the simulation. This paper keeps the measured figure, because a status is never flattened. |
+| transfer to a high-Z contaminant is a binder-loss channel neither analysis modelled: **5.49 ppm** costs as much binder as decay at the bracketed density | every balance above assumes perfect purity and is an overestimate by an unquantified factor. §3 now carries the requirement. |
+| the service-life model returns **335.3** cycles at the conditions of the one measurement it can be checked against, where **150** were measured | **2.24** over-prediction. Every figure above computed at the "bound case" inherits it; §5.18's and §5.24's bred-fuel figures, computed at the measured cycle count and a sourced blanket, do not. |
 
-Every margin in this paper multiplies by 2.37, and the qualitative structure of §5.24 survives
-unchanged: the heat form at demonstrated cycle counts is still short — 0.834 — and still needs either
-the service life or the breeding credit. What changes is the size of the residual everywhere else.
+**And one result closes an axis this paper left open.** The stripping route of §5.20 is now quantified
+and capped: at near-perfect post-stripping recycling it buys **1.39** in cycles, against a collection
+factor of 1.64 to 3.33, and it is limited by transport of the freed binder rather than by the field.
 
-**This paper does not adopt 4.69 as its figure, and the reason is a status distinction, not caution
-for its own sake.** §5.1's 11.13 GeV is integrated from *measured* cross sections; 4.69 GeV is a
-*simulated* target optimisation. The corpus's own rule is that a status is never flattened. So both
-are carried: **11.13 GeV is this paper's spine and the conservative number, 4.69 GeV is what an
-optimised target is calculated to give**, and every balance stated in §5.14 through §5.25 is a floor
-in this respect as well as the others. A reader who prefers the simulated target may multiply.
+**One result the companion states and this paper should carry, because it is the mirror of §5.23.**
+Solving each balance for the *density* at which it equals one rather than for the collection
+efficiency, the bred-fuel route breaks even at **0.730** times liquid density or less at every
+collection efficiency considered here — below liquid density, so it needs no compression at all — and
+the heat route at **2.10**, rather than the bound case's 8.5. §5.13's structural bound constrains the
+asymptotic service life and neither route's breakeven.
 
-**One check on the simulation, and it is a partial disagreement.** Kelly et al. report their own
-energy gain as **0.65 to 0.78**, using 150 fusions and **3.9 GeV** of heat per muon. That heat figure
-is 26.0 MeV per fusion — which agrees with this paper's independently derived thermal value of
-26.06 MeV per fusion to better than a quarter of a percent, an agreement of two blanket accountings
-that share no input. Their Q is below unity where the table above puts the same case at 0.834 and
-0.625, so the disagreement is small and in the expected direction: their Q counts beam energy per
-*beam particle delivered*, and this paper's counts it per pion, which are the same only if every
-beam particle is used. **Their conclusion and this paper's agree: at demonstrated cycle counts, heat
-alone does not close the balance.**
-
-### 5.27 An independent review reaches the same escape, and omits the axis this paper measures
-
-§5.18 changed the question — pricing the fusion neutron as bred fuel rather than as heat — and §5.24
-showed that change is what makes the balance robust. An independent review [10] proposes the same
-thing: a decoupled μCF fission-breeding hybrid, with the μCF vessel as a neutron source and a
-²³⁸U blanket bred for ²³⁹Pu, on the grounds that this "avoids the stringent physical requirements of
-direct μCF power generation". Two analyses that share no inputs reach the same escape from the same
-constraint. **That is the strongest corroboration §5.18 has, and it is not this paper's own.**
-
-**They also state this paper's service-life law**, at unit density: cycles per binder as
-1/(λ_μ/λ_c + ω_s), which is §2's N(ω_s, φ) at φ = 1. Their unpolarised row reproduces exactly from
-their own parameters — sticking **0.0045**, cycle rate **2.0 × 10⁸ s⁻¹**, giving **147.6** against
-the **148** they print.
-
-**One row does not reproduce, and it is the row that matters.** Their "fully polarised optimistic"
-column prints a sticking of **0.00315** and a cycle rate of **3.0 × 10⁸ s⁻¹**, and states **292**
-cycles and an energy gain of **1.03**. Their own equation on those two parameters gives **214.3**
-cycles and **0.754**. The sticking that *would* give 292 at that cycle rate is **0.00191** — which is
-the value in the next column, not this one. This is recorded and not repaired, and it may be that the
-row's parameters and its result come from different calculations rather than that either is wrong.
-But the consequence is worth stating, because that column is where their ladder first crosses unity:
-**on the equation printed beside it, full polarisation alone reaches 0.754 and not 1.03.** It is the
-same conclusion §5.7 and §5.15 reach by a different route — sticking improvement alone does not carry
-the balance.
-
-**The larger difference is an axis their analysis does not contain.** They take the cost of a
-negative muon as **5 GeV**, stating that this "includes systematic losses from pion production,
-transport, decay, and muon collection". §5.26 shows an optimised production target is calculated to
-cost **4.69 GeV per pion produced**, *before any collection at all*. A figure of 5 GeV cannot be a
-production cost and also carry the collection loss on top of it. Applying §5.25's acceptance instead:
-
-| | |
-|---|---|
-| their Q at today's aperture, both hemispheres | divide by **1.64** |
-| their Q at today's front end as built | divide by **3.33** |
-
-So their unpolarised **0.52** becomes **0.32**, and their polarised-optimistic column — recomputed at
-0.754 as above — becomes **0.46**.
-
-**And this is the point the two analyses most differ on.** Their entire improvement programme — dual
-polarisation, high-density confinement, field-assisted binder recovery, resonant enhancement — buys a
-factor of **5.9** in cycles per binder, from 148 to 873, and the last of those columns is explicitly
-extrapolative. **The collection factor their accounting omits costs between 1.64 and 3.33.** That is
-the same order as their whole programme, it applies to every column of their table at once, and no
-item on their list addresses it. §5.9 specified the collector against this paper's own numbers; §5.27
-is the same specification arrived at against someone else's.
-
-**In fairness to the review, and it matters:** their table is offered as model-based projection and
-says so, they name the polarisation measurement as the central experimental challenge, and their
-hybrid concept is proposed as conceptual with neutronics and burnup calculations outstanding. The
-disagreement here is about one input, not about their method — and on the escape itself, the two
-papers agree.
-
-### 5.28 The deciding measurement is being made, and it exposes a channel this paper had not priced
-
-§5.10 states a protocol for the measurement that decides between the two published stickings, and §9
-ranks it third among the things that would change the answer. It is not hypothetical. A collaboration
-is running it [11]: a diamond anvil cell on the PSI muon beam, with deuterium–tritium campaigns
-completed and data in analysis. Three facts from that apparatus bear directly on this paper.
-
-**First, the disagreement §5.10 turns on is the field's own.** They give as their motivation that
-"theory and experiment do not fully agree on the kinetics and yield of the process in dense DT
-mixtures", which is §5.10's premise stated by an experiment rather than by an analysis. Their
-detectors are neutron and electron rather than the neutron-and-X-ray pair §3.5's refusal rule
-specifies, so what they measure bears on §5.10's question without being §5.10's protocol; a final
-sticking determined by two simultaneous independent routes remains unmade.
-
-**Second, §5.13's density bound survives contact with the best apparatus in the field, and that is
-worth more than agreement.** Their cell holds a stable sample at **933 MPa** and up to **400 K**,
-with a design ceiling of **500 K** and a sample volume of **19.2 mm³** — more than twice liquid
-density, which on this paper's own relation is a molar volume of **14.2 cm³/mol**. §5.13's
-bound-case density needs **3.33 cm³/mol**, which on hydrogen's equation of state is hundreds of
-gigapascals. So the purpose-built instrument reaches under one gigapascal where the bound case needs
-two to three orders more. **§5.13's bound is not a modelling artefact of this paper**; it is the
-distance between what the analysis requires and what the field's best cell delivers, now measured
-from both ends.
-
-**Third — and this is new to this paper — there is a binder-loss channel none of §§5.11–5.20 models.**
-A muon transferred from the fuel to a high-Z contaminant is captured into that nucleus and leaves the
-cycle permanently. The transfer rate to oxygen is about **1 × 10¹⁰ s⁻¹** per liquid-hydrogen density
-of oxygen, against a binder decay rate near 4.665 × 10⁵ s⁻¹. Scaling that to a contamination fraction
-at fuel density φ and setting it equal to decay:
-
-| density | contamination at which impurity loss equals decay |
-|---|---|
-| the bound case | **5.49 ppm** |
-| φ = 3 | **15.6 ppm** |
-
-and the service life at the bound case falls from **588.9** cycles pure to **575.8** at one part per
-million, **480.1** at ten, and **180.4** at a hundred.
-
-> **Fuel purity better than about one part per million is a condition on the procedure of §3, and it
-> tightens linearly with density.** Every balance in this paper is stated for perfectly pure fuel and
-> is therefore an overestimate by this factor, whatever it turns out to be.
-
-**And it supplies a rival explanation for something §5.15 asserts.** §5.15 argues that the residual
-sits on the temperature axis, which the analysis holds fixed. The experimenters note that the highest
-yields ever observed are in cryogenic *solid* DT, and offer as the likely reason that those data
-points had both the highest densities **and the best mixture purity**. Purity, density and temperature
-are confounded in the existing record: the coldest data are also the cleanest and the densest. §5.15's
-reading remains available, and so does the reading that some of what looks like a temperature effect
-is a purity effect. **This paper cannot separate them and does not claim to** — which is why §9 now
-carries purity as an item rather than a caution, and why the same DAC campaign, which varies
-temperature and density at controlled purity, is the instrument that separates them.
-
-### 5.29 Condition 8 has been derived independently, and it exposes an over-prediction here
-
-Condition 8 was introduced in this paper as an addition to the seven: `E_binder < Q_fus · f_work / ω_s`.
-An independent group states the same inequality [12]. Their "conditional sticking no-go condition" is
-ω_eff < 1/(G·N) with N = E_cost/(η·E_use) — which rearranged is E_cost < η·E_use/ω_eff, the same
-inequality with the same three factors, arrived at from a Lawson analogy rather than from a condition
-count. **The spine of this paper is not idiosyncratic**, and their formulation is the better one for
-diagnosis because it separates rate-limited, sticking-limited and cost-limited regimes explicitly.
-
-**Evaluated on this paper's numbers, their boundary reproduces §5.24's conclusion.** Their reference
-case uses a useful cycle energy of **20.4 MeV** against a **5 GeV** binder, giving a boundary at
-**0.408 percent** effective sticking, and their historical anchors at 0.45 to 0.57 percent sit on the
-forbidden side of it. Substituting this paper's own accounting:
-
-| product, at the measured production cost | boundary on effective sticking |
-|---|---|
-| bred fuel | **1.31 %** |
-| heat | **0.234 %** |
-| work | **0.176 %** |
-| heat, at today's aperture over both hemispheres | **0.143 %** |
-| bred fuel, at today's front end as built | **0.394 %** |
-
-This paper's effective sticking is 0.1487 percent. It clears the heat and work boundaries at perfect
-collection, clears the bred-fuel boundary by an order of magnitude, and **fails the heat boundary once
-a real collection efficiency is applied** — which is §5.24's finding restated in someone else's
-coordinates.
-
-**The same criterion inverts into a density specification, which is §5.23's mirror and is new here.**
-Solving the balance for the density at which it equals one, rather than for the collection efficiency:
-
-| product | perfect collection | §5.9 collector | today's aperture, both hemispheres | today's front end |
-|---|---|---|---|---|
-| bred fuel | **0.154 LHD** | **0.174** | **0.275** | **0.730** |
-| heat | **2.10 LHD** | **2.89** | no density suffices | no density suffices |
-| work | **6.67 LHD** | **19.2** | no density suffices | no density suffices |
-
-Two readings, and both are sharper than anything §5.11 to §5.13 states.
-
-**The bred-fuel route needs no compression at all.** At every collection efficiency considered —
-including the 30 percent a front end achieves today — the density it requires is **below liquid
-density**. §5.13's structural bound on density, and the hundreds of gigapascals behind it, do not
-bear on this route in any way. **And the heat route needs 2.10 rather than the bound case's 8.5**: the
-bound case was chosen as ninety percent of the sticking asymptote, not as breakeven, and breakeven is
-a much weaker requirement — one that the diamond anvil cell of §5.28 already reaches at 933 MPa.
-
-**Where "no density suffices" appears, that is their no-go and not a rounding.** The service life
-saturates at 1/ω_eff = 672 cycles however dense the fuel, and the heat route at 61 percent collection
-needs 700. Compression cannot buy it; only sticking or collection can.
-
----
-
-**And the criterion exposes something in this paper that has to be said plainly.** Their table anchors
-the historical record as **124** fusions at an effective sticking of **0.57 percent** (SIN/Crowe) and
-**150** at **0.45 percent** (LAMPF/Jones). Run this paper's service-life model at Los Alamos
-conditions — the same equation, at 1.2 times liquid density, with the effective sticking of
-0.1487 percent this paper derives through the excited-state channel — and it returns **335.3** cycles
-where **150** were measured.
-
-> **The model over-predicts its one checkable point by a factor of 2.24.**
-
-Run instead with the *final* sticking of 0.45 percent, without the excited-state reduction, and it
-returns **166.8** — consistent with the measurement. So the reduction to 0.1487 percent is not
-realised at Los Alamos conditions, and the paper has not established that it is realised anywhere.
-Two readings are available and this paper does not choose between them: either the excited-state
-reduction is density-dependent through the reactivation term and appears only at densities Los Alamos
-did not reach — in which case the bound case is self-consistent and the historical point is not a
-counter-example — or the reduction is not realised at all, in which case **every "bound case" figure in
-§§5.11 to §5.25 is optimistic by about this factor.** Nothing in the corpus or the literature settles
-it, and §10's Stage B is what would.
-
-**This does not touch the bred-fuel result, and the asymmetry is the point.** The bred-fuel
-headline figures — **1.203** at today's magnet, **1.772** with the §5.9 collector — are computed at the
-**measured** 150 cycles and the sourced blanket, and use the service-life model nowhere. Every heat and
-work figure at the "bound case" uses it. So the over-prediction found here weakens exactly the routes
-§5.24 already identified as the fragile ones, and leaves untouched the one it identified as robust.
-
-**One further note on where this paper sits in their coordinates.** Their cycle-strength parameter for
-the SIN anchor is **424**; this paper's bound case corresponds to **4,738**, an order of magnitude
-above anything measured. That is the density axis stated as they state it, and it is a fair measure of
-how far the bound case is from the record — which is the second reason §10 puts the bred-fuel route,
-which needs none of it, first.
-
-### 5.30 The stripping route, priced independently, and a newer sticking calculation
-
-§5.21 priced the resonant-stripping route and §9 ranks it last. Both judgements can now be checked
-against an independent rate-network calculation of the same route [13], and the check is unusually
-clean because the two analyses were built for different purposes.
-
-**The intensity requirement agrees within a factor of one and a half.** §5.21 derived a sustained
-**2.21 × 10¹³ W/cm²** from a hydrogenic photoionisation cross-section and the binder decay rate. Their
-reference field — **15 keV** photons at an energy fluence of **7.2 × 10⁷ J/cm²** — is
-**3.28 × 10¹³ W/cm²** if spread over one binder lifetime, a ratio of **1.48** to §5.21's figure. Two
-derivations that share no method and no input agree on the scale of what this route demands. §5.21's
-conclusion — that a sustained hard-X-ray field of that order over a reactor fuel volume does not
-exist — is therefore not an artefact of its own crude cross-section estimate.
-
-**But §5.21 priced the wrong bottleneck, and this is the correction.** §5.21 asked only what it costs
-to *strip* the bound binder. Their rate network follows the freed binder afterwards, and finds that
-stripping is not the constraint: the liberated μ⁻ must slow, be captured into a muonic atom, form
-dtμ and fuse **before it escapes or decays**, and in their escape-dominated benchmark about two
-thirds of stripped binders are lost before re-entering the cycle. **The route is transport-limited,
-not field-limited**, and a resonant enhancement that made the stripping free would not by itself
-change that.
-
-**And it caps the prize.** Even in their optimistic benchmark, where nearly every stripped binder is
-recycled, the cycle yield rises from **112.6** to **156.5** — a gain of **1.39**. Set that against
-the collection factor of §5.27, which is **1.64** to **3.33**, and against §5.26's production factor
-of **2.37**:
-
-> **The stripping route is the smallest of the three available levers, and it is the only one that
-> needs a machine that does not exist.** §9 ranks it last on that basis rather than on judgement.
-
-**A newer calculation of the initial sticking, recorded and not adopted.** A coupled-channel few-body
-solution of the (dtμ) fusion reaction [14] gives an initial sticking of **8.57 × 10⁻³** against the
-0.938 percent this paper's chain is built on — a ratio of **0.914** — together with an intramolecular
-fusion rate of **1.15 × 10¹² s⁻¹**. This paper does not rebuild its sticking chain on it, because that
-chain runs through a measured final sticking and an excited-state channel and rebuilding it is a
-separate exercise. The first-order effect, rescaling the effective sticking by that ratio, is stated
-instead:
-
-| | this paper | rescaled |
-|---|---|---|
-| effective sticking | 0.1487 % | **0.1359 %** |
-| service life, bound case | 588.9 | **637.0** |
-| heat balance, bound case, perfect collection | 1.379 | **1.492** |
-| heat balance, bound case at today's aperture | 0.842 | **0.911** |
-
-The direction is favourable and the size is modest — about nine percent in sticking, eight in service
-life — and it does not change any conclusion in §5.24 or §5.29. It is recorded because a paper that
-prices a binder should say when the field's best number for that binder has moved, and because it runs
-the opposite way from §5.29's over-prediction, which is larger.
+**The asymmetry across all of it is the same one §5.24 found.** Every correction weakens the routes
+that depend on a modelled service life and a compressed target; none of them touches the bred-fuel
+route at demonstrated cycle counts, which uses neither.
 
 ## 6. What the definition excludes
 
@@ -1519,12 +1235,12 @@ cycle energy and its historical anchors at 124 and 150 fusions, from [12]; the e
 network, its 7.2 × 10⁷ J/cm² reference fluence and its 112.6 to 156.5 yield gain, from [13]; and the
 coupled-channel initial sticking 8.57 × 10⁻³ with intramolecular fusion rate 1.15 × 10¹² s⁻¹ from [14].
 **None of these is adopted in place of a figure this paper derives**; each is carried beside it, and
-§§5.26–5.30 state what each does to the balances if a reader prefers it.
+the companion paper's §§2.2–2.6 state what each does to the balances if a reader prefers it.
 
 **Bounds, never targets:** the kinematic floor at 0.30 GeV, and the sticking asymptote 1/ω_s.
 
 **Known to be wrong in a stated direction:** the service-life model, which over-predicts its one
-checkable point by **2.24** (§5.29). Every figure computed at the "bound case" inherits that; no
+checkable point by **2.24** (the companion paper's §2.5). Every figure computed at the "bound case" inherits that; no
 figure computed at the measured 150 cycles does.
 
 ## 8. What this paper retires
@@ -1556,7 +1272,7 @@ binder, which is unsupported. §5 states the position that survives: the set is 
 requirement lies inside the headroom.
 
 **Found late and not repaired, because repairing it would be a choice this paper has no grounds to
-make.** §5.29 shows the service-life model over-predicts the one measurement it can be checked against
+make.** the companion paper's §2.5 shows the service-life model over-predicts the one measurement it can be checked against
 by a factor of **2.24**. The paper carries the finding rather than adjusting the model, states which of
 its figures depend on the model and which do not, and names the measurement that would decide it
 (§10.2). A model that fits its only checkable point by construction would be worth less than one that
@@ -1574,17 +1290,17 @@ paper computes no absolute rate: it prices a binder and compares that price to a
 whole of its claim.
 
 **The service-life model over-predicts its one checkable point by 2.24**, returning 335.3 cycles at
-Los Alamos conditions where 150 were measured (§5.29). Every "bound case" figure in §§5.11–5.25 rests
+Los Alamos conditions where 150 were measured (the companion paper's §2.5). Every "bound case" figure in §§5.11–5.25 rests
 on that model; the bred-fuel headline figures do not, using the measured 150 and the sourced blanket
 instead. Whether the discrepancy is a density-dependent reactivation term or an unrealised reduction
 is not settled here, and §10's Stage B is what settles it.
 
 **Three limits added late, and each runs against the result rather than for it.** Every balance here
-assumes **perfectly pure fuel**, and §5.28 shows a contamination of **5.49 ppm** costs as much binder
+assumes **perfectly pure fuel**, and the companion paper's §2.4 shows a contamination of **5.49 ppm** costs as much binder
 as decay does at the bracketed density — so all of them are overestimates by a factor no experiment
 here bounds. Every collection figure is an **acceptance** and not a delivered-to-target efficiency
 (§5.25), which is necessary and not sufficient. And the temperature dependence §5.15 relies on is
-**confounded with purity and density** in the existing record (§5.28), so the axis it inverts the
+**confounded with purity and density** in the existing record (the companion paper's §2.4), so the axis it inverts the
 shortfall onto is not cleanly separated from two others.
 
 **The state of the question, plainly.** The reaction is defined, unique, demonstrated, and its
@@ -1598,7 +1314,7 @@ remaining four percent is inside the uncertainty of several inputs, and every ef
 runs against it.
 
 **And the production figure itself is conservative by a factor the literature has already measured.**
-§5.26 records that an optimised thick target is calculated to cost **4.69 GeV** per pion against this
+the companion paper's §2.2 records that an optimised thick target is calculated to cost **4.69 GeV** per pion against this
 paper's thin-target measured **11.13** — a ratio of **2.37** by which every balance above may be
 multiplied by a reader who prefers the simulation. This paper keeps the measured figure as its spine
 because a status is never flattened, not because the simulated one is doubted.
@@ -1642,9 +1358,9 @@ What would change the answer, in the order this paper can rank them:
    and work routes need it; the bred-fuel route does not. §5.22 prices it as a shielding trade of
    about 2.7 in coil heating, not a new magnet.
 3. **The sticking measurement of §5.10** — decides a branch, and bears on §5.15's four percent. A
-   bench experiment on an existing beam, and §5.28 records that a collaboration is already running
+   bench experiment on an existing beam, and the companion paper's §2.4 records that a collaboration is already running
    the adjacent measurement. It bears on the heat route and not on the bred-fuel one.
-3a. **Fuel purity, and its separation from temperature and density.** §5.28 prices the impurity
+3a. **Fuel purity, and its separation from temperature and density.** the companion paper's §2.4 prices the impurity
    channel for the first time: at the bound-case density, a contamination of 5.49 ppm costs as much
    binder as decay does, and every balance in this paper assumes perfect purity. The same measurement
    separates §5.15's temperature reading from a purity reading, which the existing record confounds.
@@ -1652,11 +1368,11 @@ What would change the answer, in the order this paper can rank them:
    §5.20 records the muon-loss dependence measured across 85 to 790 K in the d+d system, in the
    favourable direction.
 5. **Where molecular hydrogen ceases to be molecular at 800 K** — much less important than it looked.
-   §5.29 shows the heat route breaks even at **2.10** times liquid density rather than at the bound
+   the companion paper's §2.5 shows the heat route breaks even at **2.10** times liquid density rather than at the bound
    case's 8.5, and the bred-fuel route at **0.730** or less, which is below liquid density. §5.13's
    structural bound therefore constrains only the asymptotic service life, not breakeven on either
    route.
-6. **The resonant stripping enhancement of §5.21** — no longer unquantified, and §5.30 is why it stays
+6. **The resonant stripping enhancement of the companion paper's §2.1** — no longer unquantified, and the companion paper's §2.6 is why it stays
    last. An independent rate network puts the gain at **1.39** in cycles against a collection factor
    of 1.64 to 3.33 and a production factor of 2.37, and finds the route limited by post-stripping
    transport rather than by the field. It is the smallest of the three levers and the only one that
@@ -1726,7 +1442,7 @@ instrument this stage needs.
 binder. The muonic helium K-alpha line at **8.2 keV** counts stuck binders directly. They share no
 instrument and no calibration, which is what makes them two routes rather than one.
 
-**Purity is a variable of the experiment, not a precondition of it.** §5.28 prices transfer to a
+**Purity is a variable of the experiment, not a precondition of it.** the companion paper's §2.4 prices transfer to a
 high-Z contaminant at about **1 × 10¹⁰ s⁻¹** per liquid density of oxygen, so at the bracketed density
 a contamination of **5.49 ppm** costs as much binder as decay does. The existing record confounds
 purity with density and temperature — its cleanest data are also its coldest and densest — so a purity
@@ -1741,7 +1457,7 @@ final values, **0.45** and **0.56 percent**, carry into the excited-state channe
 perfect collection; above it the residual is **1.17**. If the two routes disagree, §3.5 governs:
 report a bound, not a mean.
 
-**And this stage settles §5.29's over-prediction, which is the larger question.** The service-life
+**And this stage settles the companion paper's §2.5's over-prediction, which is the larger question.** The service-life
 model returns **335.3** cycles at Los Alamos conditions where **150** were measured — a factor of
 **2.24** — and returns **166.8** if the excited-state reduction is not applied. A determination of
 effective sticking *as a function of density* decides between those two readings, and with it whether
@@ -1819,3 +1535,5 @@ needed at all.
     Rate-Network Criterion for Reducing Alpha Sticking*, arXiv:2606.07077.
 14. M. Kamimura, Y. Kino and T. Yamashita, *Comprehensive study of muon-catalyzed nuclear reaction
     processes in the dtμ molecule*, Phys. Rev. C **107**, 034607 (2023).
+15. M. Lach, *The Binder Economy Against the Recent Literature: Four Independent Results, and What
+    They Correct*, v1.0 — the companion reconciliation paper.

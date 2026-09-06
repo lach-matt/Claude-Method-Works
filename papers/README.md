@@ -16,7 +16,8 @@ lattice, and asserts nothing about the main paper's subject matter.
 
 | file | what it is |
 |---|---|
-| **`Cold_Fusion_Binder_Economy_v1.0.md`** | **The current paper.** Supersedes and retires the three below. Definition, the seven conditions, the unique realisation, the eighth condition that decides net energy, and §10 — the laboratory programme, four staged measurements on apparatus that exists. |
+| **`Cold_Fusion_Binder_Economy_v1.0.md`** | **The current paper.** Supersedes and retires the three retired below. Definition, the seven conditions, the unique realisation, the eighth condition that decides net energy, the two routes to a positive balance, and §10 — the laboratory programme, four staged measurements on apparatus that exists. |
+| **`Independent_Reconciliation_v1.0.md`** | **Its companion**, and a paper in its own right. Sets the work above beside four independent results published while it was being done: an independent derivation of condition 8, an independent proposal of the same fission-breeding escape, an independent pricing of the stripping route, and an optimised production target. Reports three corrections, one of them to the companion's own service-life model. |
 | `CLAIMS.tsv` | The claims ledger: every quantity the current paper states, with status, provenance and its verifying computation. |
 | `Muon_Catalysed_Fusion_v1.1.md` *(retired)* | The muon-catalysed fusion paper. Supersedes `recovered/Muon_Catalysed_Fusion_v1.0.md` (1 Aug 2026). Revises §3.2, §4 and §5; §§1–2, 3.1, 3.3–3.6 and 6 stand. |
 | `Corrigendum_MuCF_v1_0.md` *(retired)* | The seven corrections to v1.0, as a standalone formal corrigendum. |
@@ -72,9 +73,12 @@ left the standard's main pass checking the sentences around the numbers rather t
 Five figures had been standing unbacked when the exemption was removed; all five now carry rows.
 
     python3 tools/verify_paper.py papers/Cold_Fusion_Binder_Economy_v1.0.md
+    python3 tools/verify_paper.py papers/Independent_Reconciliation_v1.0.md
 
-It governs the current paper only. The retired documents carry withdrawn figures by design and will
-fail pass 3; that is the correct result, not a regression.
+**One ledger governs both current papers.** They were split for readability, not into separate
+evidence bases: `CLAIMS.tsv` carries every quantity either states, and each paper must pass all three
+passes on its own. The retired documents carry withdrawn figures by design and will fail pass 3; that
+is the correct result, not a regression.
 
 What it does **not** do: check that a `MEASURED` or `SOURCED` value is true in the world — that is the
 citation's job — and it does not read English. Its guarantee is narrower and worth having: every
