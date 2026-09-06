@@ -118,11 +118,24 @@ skipped on every PR from #13 to #18: its third gate tested a secret that did not
 read `HAS_KEY: false`, and the check reported a green-looking `skipped`. Nothing was wrong and
 nothing was being reviewed, and the two are indistinguishable from outside.
 
-That is fixed. Both workflows now authenticate with `CLAUDE_CODE_OAUTH_TOKEN` (a Claude
-subscription, via `claude setup-token`) and the secret is set, so `claude-review` runs. **The
-confirmation is the job log, never the check's colour** — `changed-files` should print
-`HAS_KEY: true`. If you are ever unsure whether a review actually happened, read that line; a
-skip and a pass look the same on the PR page.
+**The wiring is fixed; the credential is deliberately absent.** Both workflows now authenticate
+with `CLAUDE_CODE_OAUTH_TOKEN` — a Claude subscription token from `claude setup-token` — and all
+three references agree. But **no secret is set, by decision**: every review run draws on the
+owner's subscription allowance, and that cost was judged not worth paying for automated review
+here. So `claude-review` reports `skipped`, all PRs stay green, and Graphify's own gate remains the
+only automated review running. Nothing is broken; this is the chosen state.
+
+Turning it on later is one step and no repo change: mint a token with `claude setup-token` and store
+it as the `CLAUDE_CODE_OAUTH_TOKEN` repository secret. It adds no bill — the token draws on an
+existing subscription rather than a metered API account — but it does consume that subscription's
+allowance on every PR, which is the cost that was declined.
+
+**The confirmation is the job log, never the check's colour** — `changed-files` prints
+`HAS_KEY: true` when a credential is present. If you are ever unsure whether a review actually
+happened, read that line; a skip and a pass look the same on the PR page. This was measured once:
+with a credential present the review ran and then failed on the credential itself (initialises,
+then `is_error: true` with an empty `modelUsage` after ~2 s), which is a third state the PR page
+also renders indistinguishably from the outside.
 
 One thing the fix turned up, recorded in `.github/CLAUDE_GITHUB_SETUP.md`: the credential is named
 in **three** places, not the two the setup doc used to name. The third is the `HAS_KEY` gate, and
