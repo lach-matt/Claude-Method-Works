@@ -76,3 +76,13 @@ C74	muon mass in MeV	105.7	MeV	MEASURED	PDG	none
 C75	binder window floor in MeV	60.8	MeV	DERIVED	C13 x electron mass	fn:window_floor_mev
 C76	blanket and resonance operating temperature	800	K	DERIVED	formation resonance peak and blanket hot end	none
 C77	ambient reference temperature	300	K	DEFINITION	Carnot cold end	none
+C78	HARP measured window, integrated pi- cross section	0.3634	barn	DERIVED	arXiv:0709.3458 App.A p-Pb pi- 8 GeV/c, integrated here	fn:harp_sigma
+C79	p-Pb inelastic cross section	1.7	barn	MEASURED	standard, few-GeV protons	collector.SIGMA_INEL_PB
+C80	pi- per interacting proton in the measured window	0.2138	pi-/p	DERIVED	C78 / C79; a LOWER BOUND on total production	fn:harp_yield
+C81	NF front-end captured mu- per interacting proton	0.2160	mu-/p	DERIVED	C17 / 2 x 8 GeV	fn:nf_captured
+C82	ratio, captured to backward-window production	1.01	x	DERIVED	C81 / C80	fn:capture_ratio
+C83	upper bound on cost per pi- produced	37.4	GeV	DERIVED	8 GeV / C80; upper because the window is a subset	fn:cost_upper
+C84	HARP window angular range, lower	1.15	rad	SOURCED	arXiv:0709.3458 large-angle acceptance	none
+C85	HARP window angular range, upper	2.15	rad	SOURCED	arXiv:0709.3458 large-angle acceptance	none
+C86	HARP window momentum range, upper	0.50	GeV/c	SOURCED	arXiv:0709.3458, bins to 0.50	none
+C87	HARP beam momentum used	8	GeV/c	SOURCED	arXiv:0709.3458, one of six beam settings	none

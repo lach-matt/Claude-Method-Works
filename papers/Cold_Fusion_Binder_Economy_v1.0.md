@@ -230,6 +230,30 @@ reactor does not share. **The gap between production and capture is where the re
 come from**, and how much of it is recoverable acceptance rather than irreducible cross-section is not
 settled by any figure in this paper.
 
+### 5.1 The discard, measured
+
+The claim that the live lever is capture rather than production can be checked against measured cross
+sections rather than asserted. HARP's large-angle double-differential cross sections for negative pion
+production on lead at 8 GeV/c, integrated over the window the experiment covers — polar angle 1.15 to
+2.15 radians, momentum 0.10 to 0.50 GeV/c — give 0.3634 barn, or **0.2138 negative pions per
+interacting proton** against an inelastic cross section of 1.7 barn.
+
+That window is a backward sliver. It excludes everything forward of 1.15 radians, where the bulk of
+production goes, and every pion above 0.50 GeV/c. It is therefore a **lower bound** on production, and
+the corresponding cost per pion produced, 37.4 GeV, is an **upper bound**.
+
+Set beside it the captured yield of the best studied front end, which at the same beam energy is
+**0.2160 captured negative muons per interacting proton**. The ratio is 1.01.
+
+> **The entire captured yield of the best studied front end equals what a single backward angular
+> window produces.** Everything produced outside that window is discarded.
+
+This is the collector argument in measured numbers rather than in assertion, and it establishes the
+direction of the remaining headroom without settling its size. What it does not establish is the
+multiplier from this window to total production, which requires integrating the forward data and the
+momentum range above 0.50 GeV/c. **Condition 8 is therefore not decided by production data alone**,
+and this paper does not decide it.
+
 **Proton energy is not a lever.** The same source finds the beam-power-normalised yield flat within a
 tenth of its optimum across 4 to 11 gigaelectronvolts, with an optimum near 7. Any driver energy in
 that band is equivalent for this purpose.

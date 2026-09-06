@@ -172,6 +172,26 @@ def window_floor_mev():
     return 119 * 0.511
 
 
+def harp_sigma():
+    return collector.harp_window_sigma()
+
+
+def harp_yield():
+    return collector.harp_window_yield()
+
+
+def nf_captured():
+    return collector.nf_captured_per_interacting_proton()
+
+
+def capture_ratio():
+    return nf_captured() / harp_yield()
+
+
+def cost_upper():
+    return 8.0 / harp_yield()
+
+
 def losalamos_recost():
     return 150 * (mucf.Q_FUS_MEV / 1000.0) / e_binder_captured()
 

@@ -221,6 +221,71 @@ def report_budget(target_gev):
     print("  measurement that converts this lump into a budget.")
 
 
+# HARP large-angle double-differential cross sections, p-Pb, pi-, 8 GeV/c beam,
+# in barn/(GeV/c . rad). arXiv:0709.3458 Appendix A. Rows are theta bins of
+# 0.20 rad from 1.15 to 2.15; columns are p bins of 0.05 GeV/c from 0.10 to 0.50.
+# Pb (A=207) stands in for Ta (A=181); the source states the two "yield the same
+# conclusions".
+HARP_PB_PIMINUS_8GEV = {
+    (1.15, 1.35): [2.40, 2.19, 1.70, 1.23, 0.92, 0.75, 0.59, 0.46],
+    (1.35, 1.55): [2.34, 2.06, 1.60, 1.04, 0.69, 0.52, 0.41, 0.29],
+    (1.55, 1.75): [2.09, 1.76, 1.29, 0.82, 0.48, 0.35, 0.26, 0.19],
+    (1.75, 1.95): [1.78, 1.44, 0.92, 0.56, 0.30, 0.23, 0.20, 0.14],
+    (1.95, 2.15): [1.52, 1.11, 0.68, 0.42, 0.24, 0.17, 0.12, 0.08],
+}
+HARP_DP, HARP_DTHETA = 0.05, 0.20      # GeV/c, rad
+SIGMA_INEL_PB = 1.7                    # barn, p-Pb inelastic at few GeV
+
+
+def harp_window_sigma():
+    """Integrated pi- cross section over the MEASURED window, barn."""
+    return sum(sum(v) for v in HARP_PB_PIMINUS_8GEV.values()) * HARP_DP * HARP_DTHETA
+
+
+def harp_window_yield():
+    """pi- per interacting proton in the measured window. A LOWER BOUND on
+    total production: the window excludes theta < 1.15 rad, where the bulk of
+    production goes, and all p > 0.5 GeV/c."""
+    return harp_window_sigma() / SIGMA_INEL_PB
+
+
+def nf_captured_per_interacting_proton(ep_gev=8.0):
+    """Captured mu- per interacting proton at a stated beam energy."""
+    return (YP_BOTH_CHARGES_PER_GEV / 2.0) * ep_gev
+
+
+def report_production():
+    w = harp_window_yield()
+    c = nf_captured_per_interacting_proton()
+    print("PRODUCTION, from measured cross sections -- the collector argument, priced")
+    print()
+    print(f"  HARP p-Pb pi-, 8 GeV/c, integrated over the measured window")
+    print(f"    theta 1.15-2.15 rad, p 0.10-0.50 GeV/c:  {harp_window_sigma():.4f} barn")
+    print(f"    per interacting proton (sigma_inel = {SIGMA_INEL_PB} b): {w:.4f} pi-")
+    print()
+    print("  This is a LOWER BOUND on production. The window is a backward")
+    print("  sliver: it excludes theta < 1.15 rad, where most pions go, and")
+    print("  every pion above 0.5 GeV/c.")
+    print()
+    print(f"  NF front-end CAPTURED mu- per interacting proton at 8 GeV: {c:.4f}")
+    print(f"  HARP backward window alone, pi- produced:                  {w:.4f}")
+    print(f"  ratio: {c / w:.2f}")
+    print()
+    print("  => THE ENTIRE CAPTURED YIELD OF THE BEST STUDIED FRONT END IS")
+    print("     NUMERICALLY EQUAL TO WHAT ONE BACKWARD ANGULAR WINDOW PRODUCES.")
+    print("  Everything produced outside that window is discarded. This is the")
+    print("  collector argument stated in measured numbers rather than asserted:")
+    print("  the recoverable headroom is the ratio of total production to this")
+    print("  window, and it is at least unity by construction.")
+    print()
+    print("  REFUSAL: the multiplier from this window to TOTAL production is not")
+    print("  established here. It requires integrating the forward HARP data")
+    print("  (theta < 1.15 rad) and the momentum range above 0.5 GeV/c. Until")
+    print("  that is done the cost per pi- PRODUCED is bounded above by")
+    print(f"  {8.0 / w:.1f} GeV and below by nothing this instrument holds, and")
+    print("  condition 8 is not decided by production data alone.")
+
+
 def cycles(ws, phi):
     return phi * LAMBDA_C / (LAMBDA_0 + ws * phi * LAMBDA_C)
 
@@ -380,6 +445,8 @@ def main():
     ap = argparse.ArgumentParser(description="the muon collection budget, stage by stage")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--machines", action="store_true", help="what machines deliver")
+    ap.add_argument("--production", action="store_true",
+                    help="integrate the HARP cross sections; price the collector argument")
     ap.add_argument("--floor", action="store_true",
                     help="the production floor and the resulting energy shortfall")
     ap.add_argument("--target", type=float, default=WORK_BREAKEVEN_GEV,
@@ -390,6 +457,9 @@ def main():
         return selftest()
     if a.machines:
         report_machines()
+        return 0
+    if a.production:
+        report_production()
         return 0
     if a.floor:
         report_floor()
