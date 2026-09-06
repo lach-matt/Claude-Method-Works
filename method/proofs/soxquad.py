@@ -260,10 +260,18 @@ def report():
         print("     and it is the same reduction -- only the quadrature moved.")
         import numpy as np
         Q = np.array(T["q"]); G = np.array(T["g2b_Ry"])
-        for q in (8.0, 16.0, 32.0):
-            i = int(np.argmin(abs(Q - q)))
-            print(f"     tail: q = {Q[i]:7.3f}  g_2b q^4 = {G[i]*Q[i]**4:.6f}  vs 4/(3 pi^2) = {TAIL:.6f}"
-                  f"   ratio {G[i]*Q[i]**4/TAIL:.4f}")
+        print(f"\n     the analytic tail, and where the recovered w_q grid runs out of the support:")
+        print(f"     {'q':>9}  {'g q^4 / (4/3pi^2)':>18}  {'w_q points in support':>22}")
+        for q in (5.0, 13.0, 30.0, 60.0, 85.0, 120.0):
+            i = int(np.argmin(abs(Q - q))); qq = float(Q[i])
+            pts = (1 - math.sqrt(max(0.0, (qq - 2) / (qq + 2)))) * T["mesh"][2]
+            print(f"     {qq:9.3f}  {G[i]*qq**4/TAIL:18.4f}  {pts:22.1f}")
+        print("     Below q ~ 13 the departure is PHYSICAL -- the subleading O(1/q^2) term, +6.7 % at q = 5.")
+        print("     Above q ~ 80 it is the grid: for q > 2 the support is w_q in (q-2, q+2), a window at the TOP")
+        print("     of the (0, 2+q) range, while the recovered u^2 stretching puts the points at the bottom, so a")
+        print("     row carries about 2/sqrt(q(2+q)) of NPP -- under 3 points above q = 80.  RECORDED, NOT")
+        print("     REPAIRED: fixing it would be a second departure from the recovered text, and dropping every")
+        print("     unresolved row moves G-S1 by 2e-7 of itself.")
     else:
         print("\n  (run --table for the converged table)")
     print("\n  Nothing is repaired in any volume; nothing in recovered/ is touched.")
@@ -310,8 +318,24 @@ def selftest():
         Q = np.array(T["q"]); G = np.array(T["g2b_Ry"])
         check("the table is on the pre-fix table's own q grid, so the quadrature is the only change",
               len(Q) == 130 and abs(Q[0] - 0.002) < 1e-9 and abs(Q[-1] - 120.0) < 1e-9, f"{len(Q)} q, {Q[0]}..{Q[-1]}")
-        check("the table's own large-q tail carries the analytic coefficient",
-              abs(G[-1] * Q[-1] ** 4 / TAIL - 1) < 0.05, f"ratio {G[-1]*Q[-1]**4/TAIL:.4f}")
+        # THE TABLE'S LAST FOUR ROWS ARE UNRESOLVED, AND THE CAUSE IS THE RECOVERED w_q GRID, MEASURED.  For q > 2
+        # the lens is the whole ball, so rho_q is nonzero only for |P| <= 2, i.e. w_q in (q-2, q+2) -- a window at
+        # the TOP of the (0, 2+q) range, while the recovered u^2 stretching puts the points at the bottom.  The
+        # fraction of NPP inside the support falls as 1 - sqrt((q-2)/(q+2)), so the row carries about 2/sqrt(q(2+q))
+        # of the grid: 40 points at q = 4, 6 at q = 30, and under 3 above q = 80.  The coefficient holds while it
+        # has points and breaks when it does not.  This is RECORDED, NOT REPAIRED -- repairing it would mean a
+        # second departure from the recovered text, and it is measured to cost nothing (below).
+        # Below q ~ 13 the departure from the asymptote is PHYSICAL -- the subleading O(1/q^2) term, +6.7 % at
+        # q = 5 -- so the coefficient is checked only where the limit is actually reached.
+        lo = [(q, g) for q, g in zip(Q, G) if 13.0 <= q <= 71.5]
+        worst = max(abs(g * q ** 4 / TAIL - 1) for q, g in lo)
+        check("the analytic tail coefficient holds to 1 % over 13 <= q <= 71, where the limit is reached and the"
+              " grid still resolves the support", worst < 0.01, f"{len(lo)} rows, worst {worst*100:.2f} %")
+        keep = [(q, g) for q, g in zip(Q, G) if q <= 71.5]
+        trunc = int_g2b([q for q, _ in keep], [g for _, g in keep])   # the same tails, applied one row earlier
+        frac = (T["int_g2b_Ry"] - trunc) / T["int_g2b_Ry"]
+        check("and dropping every unresolved row moves G-S1 by under one part in a million",
+              abs(frac) < 1e-6, f"{frac:+.1e} of the integral")
     if os.path.exists(CONV_JSON):
         print("\n  the banked convergence study")
         C = json.load(open(CONV_JSON))
