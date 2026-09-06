@@ -1,0 +1,53 @@
+  PART I'S TWO INDEXES, AND WHAT THEY MEASURE
+
+  1. THE PROTOCOL INDEX   (cells from the corpus's own protindex.py, imported)
+     protocols        24
+     distinct cells   19   collisions 5
+     box              192   |R(X)|  124
+     E(protocols)     105
+     protocols sharing a cell:
+       2.1  channel construction  |  2.16 the grid
+       2.18 computable or decided  |  2.23 stated by its expression
+       2.4  dilution  |  2.17 triangulation
+       2.5  census before search  |  2.10 retrieval
+       2.8  two independent routes  |  2.24 never one heuristic
+
+  2. THE AUDITS INDEX     (cells parsed from Sec 2.21's own printed table)
+     audits           22
+     distinct cells   21   collisions 1
+     box              144   |R(X)|  37
+     E(audits)        16
+     audits sharing a cell:
+       10 SCOPE  |  22 CENSUS
+
+  2a. HOW THE AUDITS INDEX GREW, against what Secs 3.8 and 3.7.1 print
+     20 audits, before INPUT            cells  20   collisions 0   E  17
+     21 audits, INPUT added             cells  21   collisions 0   E  16
+     22 audits, CENSUS added            cells  21   collisions 1   E  16
+     Sec 3.8's table prints 20 audits at E = 17; Sec 3.7.1 prints INPUT taking it to 16;
+     the Index of Indices prints 21 cells and E = 16 at twenty-two.  All three reproduce.
+     E stays 16 when CENSUS joins ONLY because CENSUS shares SCOPE's cell.
+
+  3. SEC 3.7'S DIMENSION CERTIFICATE
+     precedences stated        22
+     order pairs (transitive)  39
+     comparability components  [1, 2, 9, 10]
+       isolated: CENSUS -- in no stated precedence
+     component of nine: relations 19   both lists are extensions True   intersection == order True   linear extensions 792
+     component of ten: relations 19   both lists are extensions True   intersection == order True   linear extensions 4140
+     dim = 2 CERTIFIED
+     Sec 3.7's two rhetorical counts:
+       'eight and a half million' = C(4140,2) = 8,567,730
+       '362 comparisons'          = 4*81 + 2*19 = 362   (the decomposition is chat 69's, in the Working Register, not re-derived here)
+
+  4. THE PRINCIPLES INDEX
+     ABSENT: no E is computed over the principles anywhere in the main volume.
+     Nothing is reported for it.  An ABSENT is not a finding.
+
+  AGAINST WHAT PART I CLAIMS
+     Part I: "... indexed and closed at E = 0."
+     Ch. 1:  "Part I indexes the principles and the protocols ...
+              and each closes with E = 0."
+     measured E(protocols) = 105, not 0.
+     measured E(principles): no such index exists in the book.
+     Sec 28.8's process index, the third the sentence names, does close: 36 cells, E = 0.

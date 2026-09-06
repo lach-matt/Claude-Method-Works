@@ -63,3 +63,29 @@ prose that states the count is not touched until the subject matter is settled.
 
 **Not yet checked, and next in this chapter:** whether the twenty-four protocols count holds, and whether the
 principles index is in fact closed at E = 0 over twenty-three members.
+
+---
+
+## The protocols count, closed 6 September. Twenty-four holds, by three independent routes.
+
+This was the item left open at the foot of this finding. It is settled and there is no defect.
+
+1. **The headings.** §2.1 through §2.24 exist, all twenty-four, none unassigned. Four of them —
+   §2.21 to §2.24 — are printed out of place, inside Chapter 3 between §3.0 and §3.1, which is why a
+   reader counting by eye stops at twenty. That placement is recorded in the working register
+   (chat 69, finding 2-01 and Chapter 3's read) and is held for the pointer pass.
+2. **The instrument.** `protindex.py`, recovered from the restore point, carries a twenty-four-row
+   table of protocols with their coordinates. It is the book's own assignment, not a reconstruction.
+3. **The Register's own kind table.** The row *"a new protocol | 24"*.
+
+**So Part I's "twenty-four protocols" is right and this finding does not touch it.** What is wrong
+in the same sentence is the count of principles — twenty against the twenty-three the tables assign —
+and the closure claim, which finding R4-04 measures.
+
+## The other half of the item: the E = 0 claim over the principles
+
+Also settled, and it is finding **R4-04**. There is no index over the principles anywhere in the
+book, so *"indexed and closed at E = 0"* has no object for that half of its subject; and for the
+other half the protocol index measures **E = 105**, printed by the book's own Index of Indices. The
+question this finding asked — *whether the principles index is in fact closed at E = 0 over
+twenty-three members* — has the answer that no such index exists to be closed.
