@@ -191,6 +191,73 @@ def radius_for_density(rho, ratio=2.0):
     s = design_trade(1.0, ratio)          # rho scales as 1/R1^2
     return (s['rho'] / rho) ** 0.5
 
+# --------------------------------------------- the design document's own claims
+#
+# "Warp Drive Theory -- Project Deliverable: Integrated Solid-State Electromagnetic
+# & Muon-Catalyzed Metric Propulsion Drives", 5 pp,
+# drive/The Method Materials/warp drive theory.pdf  (manifest row: ok-adopted).
+# Every claim below that is computable is computed here rather than assessed in prose.
+
+import random
+
+MU0, EPS0 = 4e-7 * 3.141592653589793, 8.8541878128e-12
+RHO_CU = 1.68e-8            # ohm m, OFHC copper at 293 K
+M_E, M_MU, M_D = 9.1093837015e-31, 1.883531627e-28, 3.3435837768e-27
+MEV = 1.602176634e-13       # J
+
+def em_nec(samples=200000, seed=17):
+    """Classical electromagnetic stress-energy against the null energy condition.
+
+    T^00 = (eps0 E^2 + B^2/mu0)/2 ,  T^0i = (ExB)_i/mu0c ,
+    T^ij = -(eps0 E_iE_j + B_iB_j/mu0) + delta_ij T^00 .
+    With k^a = (1, n) and signature (-+++),
+        T_ab k^a k^b = (E^2+B^2) - 2(ExB).n - (E.n)^2 - (B.n)^2   (c = eps0 = mu0 = 1).
+    Returns the minimum over random fields and random null directions."""
+    rnd = random.Random(seed)
+    worst = float('inf')
+    def unit():
+        while True:
+            v = [rnd.gauss(0,1) for _ in range(3)]
+            n = sum(c*c for c in v) ** 0.5
+            if n > 1e-9: return [c/n for c in v]
+    for _ in range(samples):
+        E = [rnd.gauss(0,1) for _ in range(3)]
+        B = [rnd.gauss(0,1) for _ in range(3)]
+        n = unit()
+        cross = [E[1]*B[2]-E[2]*B[1], E[2]*B[0]-E[0]*B[2], E[0]*B[1]-E[1]*B[0]]
+        E2 = sum(c*c for c in E); B2 = sum(c*c for c in B)
+        En = sum(a*b for a, b in zip(E, n)); Bn = sum(a*b for a, b in zip(B, n))
+        val = (E2 + B2) - 2*sum(a*b for a, b in zip(cross, n)) - En*En - Bn*Bn
+        worst = min(worst, val)
+    return worst
+
+def hoop_speed(sigma, rho):
+    """Burst surface speed of a thin spinning cylinder: hoop stress = rho v^2."""
+    return (sigma / rho) ** 0.5
+
+def skin_depth(f, rho=RHO_CU, mu=MU0):
+    """Classical skin depth delta = sqrt(2 rho / omega mu), and the surface
+    resistance R_s = rho / delta it implies."""
+    omega = 2 * 3.141592653589793 * f
+    d = (2 * rho / (omega * mu)) ** 0.5
+    return d, rho / d
+
+def mucf(sticking=0.0045, per_fusion_mev=17.6, muon_cost_gev=5.0):
+    """Muon-catalysed fusion energy balance.  The sticking probability caps the
+    cycles per muon at 1/omega_s; break-even needs the muon's production cost back."""
+    n_max = 1.0 / sticking
+    yield_gev = n_max * per_fusion_mev / 1000.0
+    n_needed = muon_cost_gev * 1000.0 / per_fusion_mev
+    return dict(n_max=n_max, yield_gev=yield_gev, n_needed=n_needed,
+                ratio=yield_gev / muon_cost_gev,
+                sticking_needed=per_fusion_mev / (muon_cost_gev * 1000.0))
+
+def muonic_radius_factor():
+    """Orbital radius shrinks as the reduced mass grows.  The document says 200."""
+    red_e = M_E * M_D / (M_E + M_D)
+    red_mu = M_MU * M_D / (M_MU + M_D)
+    return red_mu / red_e
+
 # ----------------------------------------------------------------- report
 
 def report():
@@ -321,6 +388,51 @@ def report():
     p('    masses at %.1e times nuclear density, cruising at %.2f c, and nobody' % (s['nuclear'], 0.04))
     p('    knows how to accelerate it.  That last is the open problem, not the mass.')
     p()
+    p('  THE DESIGN DOCUMENT, CHECKED')
+    p('  ' + '-' * 68)
+    p('    drive/The Method Materials/warp drive theory.pdf, 5 pp, status ok-adopted')
+    p()
+    w = em_nec()
+    p('    [1] Can a classical electromagnetic field supply the exotic matter?')
+    p('        min over 200,000 random (E, B, null n) of T_ab k^a k^b : %+.3e' % w)
+    p('        The electromagnetic stress-energy satisfies the NEC identically.')
+    p('        Neither topology can source NEC_pt > 0 by classical fields alone.')
+    p()
+    p('    [2] "Relativistic surface velocities" for a spinning cylinder')
+    p('        %-34s %12s %10s' % ('material', 'v_burst [m/s]', 'v/c'))
+    for nm, sig, rho in (('OFHC copper, annealed', 2.0e8, 8960.0),
+                         ('copper, cold-worked', 4.0e8, 8960.0),
+                         ('carbon-fibre overwrap', 5.0e9, 1600.0)):
+        v = hoop_speed(sig, rho)
+        p('        %-34s %12.4g %10.2e' % (nm, v, v / C))
+    p('        Even the best overwrap is 5 orders of magnitude short of relativistic.')
+    p()
+    p('    [3] Skin depth and surface resistance in copper at the stated 1-10 GHz')
+    p('        %-10s %16s %18s' % ('f', 'delta [m]', 'R_s [ohm/square]'))
+    for f in (1e9, 1e10):
+        d, rs = skin_depth(f)
+        p('        %-10.0e %16.3e %18.3e' % (f, d, rs))
+    p('        Cryogenic operation does NOT divide R_s by the RRR: below ~30 K the')
+    p('        mean free path exceeds delta and the anomalous skin effect saturates')
+    p('        R_s, which improves as RRR^(1/3) at best.  The document asks copper to')
+    p('        be a 4-77 K thermal sink AND an RF conductor at 10^5 A/cm^2; those two')
+    p('        duties load the same cryostat from opposite ends.')
+    p()
+    m = mucf()
+    p('    [4] Muon-catalysed fusion, the energy balance the document omits')
+    p('        muonic radius reduction factor        %10.1f   (document says 200)'
+      % muonic_radius_factor())
+    p('        cycles per muon, sticking-capped      %10.1f' % m['n_max'])
+    p('        energy returned per muon              %10.2f GeV' % m['yield_gev'])
+    p('        cost to make one muon                 %10.2f GeV' % 5.0)
+    p('        return / cost                         %10.2f' % m['ratio'])
+    p('        cycles needed to break even           %10.1f' % m['n_needed'])
+    p('        sticking needed to reach that         %10.3f %%'
+      % (100 * m['sticking_needed']))
+    p('        Break-even needs MORE cycles than the sticking ceiling allows.')
+    p('        The checklist target of "beyond 100 fusions per muon" is below both')
+    p('        the ~150 already achieved and the ~%.0f break-even needs.' % m['n_needed'])
+    p()
 
 # ---------------------------------------------------------------- selftest
 
@@ -383,6 +495,15 @@ def selftest():
     chk('fill fraction of the horizon ceiling', FILL, 0.667, tol=0.01)
     chk('scaling reproduces the published shell at R1 = 10 m',
         design_trade(10.0)['rho'], 1.531e23, tol=0.01)
+    # the design document's checkable claims
+    chk('classical EM stress-energy never violates the NEC', em_nec(20000) >= -1e-9, True)
+    chk('copper burst speed is non-relativistic',
+        hoop_speed(4.0e8, 8960.0) / C < 1e-4, True)
+    chk('skin depth in copper at 1 GHz, metres', skin_depth(1e9)[0], 2.06e-6, tol=0.02)
+    chk('muonic radius reduction factor (document: 200)',
+        muonic_radius_factor(), 196.0, tol=0.02)
+    chk('muCF sticking ceiling on cycles per muon', mucf()['n_max'], 222.0, tol=0.02)
+    chk('muCF returns less than the muon costs', mucf()['ratio'] < 1.0, True)
     print()
     print('  SELFTEST %s' % ('OK' if ok else 'FAIL'))
     print()

@@ -14,8 +14,11 @@ The full walkthrough is [Route 2](#route-2--toolsdrive_syncpy-run-locally-recomm
 
 ## 1. What is already mirrored
 
-**819 of the 823 Drive files across the two mirrored folders are in `drive/`, each verified by md5
-against the copy Drive served.** Four remain outstanding.
+**820 of the 824 Drive files across the two mirrored folders are in `drive/`.** 819 were downloaded
+by this tool and verified by md5 against the copy Drive served; **one — `The Method Materials/warp
+drive theory.pdf` — was seated by `--adopt`** on 2026-09-06, fetched through the Drive connector,
+byte count checked against Drive's metadata and no Drive md5 available to compare, so its row reads
+`ok-adopted`. Four remain outstanding.
 
 Getting there took two passes, and the difference between them is the whole lesson of this document:
 
