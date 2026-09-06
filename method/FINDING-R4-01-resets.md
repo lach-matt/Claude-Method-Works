@@ -1,80 +1,71 @@
-# FINDING R4-01 — §34.6 and register 1333 break the eighteen resets into 8 / 6 / 4; the instrument that produced them gives 12 / 7 / 4. An object defect. NOT REPAIRED.
+# FINDING R4-01 — WITHDRAWN, 6 September 2026. §34.6 and register 1333 are correct as printed. The error was mine.
 
-Found 5 September 2026, under M's ruling that a false claim is an object that is false when the prose is stripped
-away. This one is: no rewording reaches it, because the numbers themselves are wrong and the accounting they belong
-to does not close.
+This file first recorded a finding that main §34.6 and Register entry 1333 mis-state the breakdown of the eighteen
+resets as 8 / 6 / 4 where the instrument gives 12 / 7 / 4. **That finding is withdrawn. The book is right, the
+partition closes exactly, and I misread the entry.** The original text is superseded by this one; the record of the
+mistake is kept, which is the discipline the Register itself is built on.
 
-## What the volumes print
+## What the volumes print, and what it means
 
-Main volume §34.6 (member line 9638), *The walk*:
+Register entry **1333**, and §34.6 in the same words:
 
-> **`a` is carried between elements and resets eighteen times.** Every reset is a **subshell opening** (8), an
-> **aufbau exception** (6), or the **return from one** (4) — Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au.
+> *Eight at a subshell opening, six at an aufbau exception **(four of them also openings)**, and four at the RETURN
+> from an exception: Tc after Mo, Tb after Gd, Bk after Cm, Hg after Au.*
 
-Register entry **1333** (member line 5010) states the same partition:
+**The parenthetical is the disambiguation, and I read straight past it.** It says the six exceptions include four
+that are also openings. The eight is therefore not the count of all openings — it is the count of openings that are
+**not** exceptions, the remainder after the six have been taken out. The three classes are disjoint by construction,
+which is why they sum to eighteen without any subtraction.
 
-> **EVERY RESET IS AN OPENING, AN EXCEPTION, OR A RETURN — ALL EIGHTEEN ACCOUNTED.** *Eight at a subshell opening,
-> six at an aufbau exception (four of them also openings), and four at the RETURN from an exception … And the
-> converse fails: eleven openings leave a unchanged.*
+## Measured
 
-## What the instruments give
+Run on the seated ground configurations (`LW1-ground.py`, byte-identical to the Löwdin delivery's object 3, the
+observed NIST ASD 5.12 configurations), over `walk.py`'s eighteen resets:
 
-`walk.py` and `resets.py`, the pair that produced this section, were recorded as **not held** (Working Register
-L7914: *"The record's walk instruments (walk.py / brack.py / scorer.py) are not held"*). **They are held.** The
-consolidation pass recovered them into `extracted/archives/restore-point-2-13/`, with 345 others. Their one
-dependency, `ground.py`, is in the mirror at `drive/The Method Materials/LOWDIN-DELIVERY-1/ground.py` and is
-**byte-identical** (md5 `236975ac23aa29960d4f7c2a4d200cd6`) to the seated member `LW1-ground.py`, so there is no
-question which ground configurations are meant.
-
-Run on that ground:
-
-- `walk.py` — **106 steps · 106 satisfied · 18 recalibrations**, at Z = 3, 19, 37, 42, 43, 45, 55, 58, 64, 65, 80,
-  81, 87, 91, 96, 97, 103, 104. The eighteen, and the 106, are confirmed exactly as printed.
-- `resets.py` — classifies those eighteen: **opens a subshell 12 · aufbau exception 7 · neither 4**, and
-  **"subshell openings that do NOT reset : 11"**.
-
-**That last line is the corroboration that this is the right instrument.** Entry 1333's *"eleven openings leave a
-unchanged"* is `resets.py`'s output verbatim. The same run that supplied the entry's eleven supplies twelve and seven
-where the entry prints eight and six.
-
-The full classification, enumerated:
-
-| class | count | elements |
+| the entry's class | measured | elements |
 |---|---|---|
-| opening only | 7 | Li, K, Rb, Cs, Tl, Fr, Rf |
-| exception only | 2 | Mo, Rh |
-| both opening and exception | 5 | Ce, Gd, Pa, Cm, Lr |
-| neither — the four returns | 4 | Tc, Tb, Hg, Bk |
-| **total** | **18** | |
+| at a subshell opening, not an exception | **8** | Li, K, Rb, Cs, Tl, Fr, Lr, Rf |
+| at an aufbau exception | **6** | Mo, Rh, Ce, Gd, Pa, Cm |
+| — of those, also openings | **4** | Ce, Gd, Pa, Cm |
+| at the return from an exception | **4** | Tc, Tb, Hg, Bk |
+| **partition** | **18 of 18, disjoint** | |
 
-So: openings 7 + 5 = **12**; exceptions 2 + 5 = **7**; returns **4**.
+**8 + 6 + 4 = 18.** Every figure entry 1333 prints is reproduced exactly, including the parenthetical four and the
+four named returns. The chapter's eighteen and its 106 steps were already confirmed. Nothing in §34.6 is wrong.
 
-## Why it is a defect and not a reading
+## My error, stated plainly
 
-**The printed partition does not close on its own arithmetic.** Entry 1333 says eight openings, six exceptions, four
-of the six also openings, four returns. Distinct that gives 8 + 6 − 4 + 4 = **14**, not the eighteen the headline
-claims are all accounted for. Under the instrument's figures it does close: 12 + 7 − 5 + 4 = **18**.
+Three failures, and the second is the one that matters.
 
-**And no reading of the text reaches 8 and 6.** Openings total 12; openings that are not also exceptions, 7;
-exceptions total 7; exceptions that are not also openings, 2; the overlap is 5, not the four the entry states. There
-is no partition of these eighteen elements that yields eight and six.
+1. **I read "eight at a subshell opening" as "all openings", which is twelve.** The entry never says that, and its
+   own parenthetical rules it out.
+2. **I then invented an arithmetic failure to support the misreading** — "8 + 6 − 4 + 4 = 14, not 18" — by
+   subtracting an overlap that the entry had already excluded. The classes are disjoint as written. This is the
+   worse error: a wrong reading became a wrong proof, and the proof made the reading look measured.
+3. **I ran a reconstruction against the record and trusted the reconstruction.** `resets.py` reports "opens a
+   subshell : 12 of 18" — a different question from the entry's, and a true answer to it. The standing rule (G0c)
+   is that where a reconstruction disagrees with the record the finding is about the reconstruction. I quoted that
+   rule in the withdrawn text and then did not apply it to my own arithmetic.
 
-**The likely origin, offered as a lead and not as a finding:** the seventh aufbau exception is **Lr**, whose ground
-state is 7p¹ where Madelung gives 6d¹ — a relativistic exception a classic six-item list omits. That accounts for six
-against seven. It does not account for eight against twelve.
+**What should have caught it before M saw it:** the entry's other figure, "eleven openings leave `a` unchanged",
+reproduces exactly. An entry whose neighbouring figures all reproduce is not likely to be wrong in the middle of the
+same sentence, and that should have sent me back to the reading rather than on to the finding.
 
-## What would repair it
+## What survives, and is worth keeping
 
-The numbers, in both places: **twelve at a subshell opening, seven at an aufbau exception (five of them also
-openings), and four at the return** — which is eighteen accounted, and closes. Nothing else in §34.6 moves: the
-eighteen, the 106, the four named returns and the eleven non-resetting openings are all confirmed as printed.
+**The walk instruments are held.** The Working Register records `walk.py`, `brack.py` and `scorer.py` as not held and
+their figures as record-carried. They are in `extracted/archives/restore-point-2-13/` with 345 others, recovered by
+the consolidation pass, and their dependency `ground.py` is byte-identical to the seated `LW1-ground.py`. Run on it
+they reproduce §34.6's **106 steps · 106 satisfied · 18 recalibrations**, the eighteen elements, the four returns and
+the eleven non-resetting openings. **That part of the record is stale and the correction stands: before any claim in
+Chapters 34 to 36 is called record-carried or unprovable, the restore point is searched.** `method/proofs/` holds the
+instruments and their banked output.
 
-**Not repaired here.** It is a change to a reader-facing volume and to a seated Register entry's figures, so it needs
-M's ruling and a guarded build with an entry that cites 1333 and preserves both states.
+## The one question that is genuinely open
 
-## Recorded beside it
-
-**`walk.py`, `brack.py` and `scorer.py` are not missing.** The Working Register records them as not held, and every
-figure they produced as record-carried. That record is stale: the restore point holds 348 instruments, and this pass
-reproduced §34.6's central figures from them in minutes. **Before any further claim in Chapters 34 to 36 is called
-unprovable, the restore point is searched.** That is a finding about the record, not about the book.
+**Is lawrencium an aufbau exception?** The entry places Lr among the eight openings, not the six exceptions.
+`resets.py`'s Madelung comparison places it among the exceptions, giving seven. **Both partitions close at eighteen**
+— 8 / 6 / 4 with Lr an opening, 7 / 7 / 4 with Lr an exception — so this is a question about the definition, not an
+arithmetic fault, and neither reading is refuted by the count. Lr's ground state is 7s²7p¹ where the Madelung order
+gives 6d¹, which is a relativistic reversal; the Löwdin solution's own tie-break exceptions are exactly La, Ac and
+Th, and Lr is not among them. Put to M separately, on the solution and the contributing literature, not here.

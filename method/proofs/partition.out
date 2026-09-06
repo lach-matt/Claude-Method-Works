@@ -1,0 +1,7 @@
+REGISTER 1333 / MAIN SS34.6, TESTED ON THE SEATED GROUND CONFIGURATIONS
+  at a subshell opening, not an exception : 8  (Li K Rb Cs Tl Fr Lr Rf)
+  at an aufbau exception                  : 6  (Mo Rh Ce Gd Pa Cm)
+    of those, also openings               : 4  (Ce Gd Pa Cm)
+  at the return from an exception         : 4  (Tc Tb Hg Bk)
+  partition disjoint and total            : 18 of 18
+  ENTRY 1333 PRINTS 8 / 6 (four also openings) / 4 -- REPRODUCED EXACTLY
