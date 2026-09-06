@@ -1,0 +1,78 @@
+id	claim	value	unit	status	provenance	verify
+C01	d+t fusion energy release	17.59	MeV	MEASURED	PDG / standard nuclear data	mucf.Q_FUS_MEV
+C02	bound-muon disappearance rate	4.665e5	s^-1	MEASURED	muCF literature, carried by v1.0 sec.3.4	mucf.LAMBDA_0
+C03	cycle-rate saturation	2.6e8	s^-1	DERIVED	harmonic sum of the cycle, v1.0 sec.3.3	mucf.LAMBDA_C
+C04	mu-d to mu-t transfer rate, the cap	2.7e8	s^-1	MEASURED	v1.0 sec.3.3, +/- 0.9e8	mucf.TRANSFER[0]
+C05	transfer rate uncertainty	0.9e8	s^-1	MEASURED	v1.0 sec.3.3	mucf.TRANSFER[1]
+C06	final sticking, SIN, measured	0.45	percent	MEASURED	SIN, direct observation, +/- 0.05	mucf.STICKING.sin
+C07	final sticking, PSI, measured	0.56	percent	MEASURED	PSI, direct observation, +/- 0.04	mucf.STICKING.psi
+C08	sticking, dual polarisation	0.34	percent	PROJECTED	2026 muCF review estimate	mucf.STICKING.pol
+C09	sticking, J=1 v=0 variational	0.31	percent	PROJECTED	Phys. Rev. A 34, 2536 (1986)	mucf.STICKING.j1
+C10	sticking, both levers composed	0.234	percent	PROJECTED	0.34 x 0.31/0.45, composed	mucf.STICKING.both
+C11	composed lever arithmetic	0.2342	percent	DERIVED	0.34 * 0.31 / 0.45	fn:composed_lever
+C12	convertible fraction of fusion yield	0.501	fraction	DERIVED	alpha 19.9pc in fuel + neutron 80.2pc to blanket at 62pc Carnot	mucf.F_WORK
+C13	structural binder-mass window, lower	119	m_e	DERIVED	fusion must outrun the cycle, v1.0 sec.2	none
+C14	structural binder-mass window, upper	918	m_e	DERIVED	molecular index survival, N_states >= 2, v1.0 sec.2	none
+C15	muon mass	207	m_e	MEASURED	PDG	none
+C16	pion mass	273	m_e	MEASURED	PDG	none
+C17	captured muon yield, both charges	0.054	mu/interacting-p/GeV	SOURCED	Strait Mokhov Striganov PRSTAB 13 111001 (2010) Table II, thick Ta	collector.YP_BOTH_CHARGES_PER_GEV
+C18	beam energy per captured mu-	37.0	GeV	DERIVED	1 / (C17 / 2)	fn:e_binder_captured
+C19	pion-threshold kinematic floor	0.30	GeV	BOUND	300 MeV pion threshold at perfect collection	collector.PION_THRESHOLD_GEV
+C20	headroom, achieved to threshold floor	123	x	DERIVED	C18 / C19	fn:headroom
+C21	FOM at best design, heat convention	0.203	dimensionless	DERIVED	C01 / (C10 x C18)	fn:fom_heat
+C22	FOM at best design, work convention	0.102	dimensionless	DERIVED	C01 x C12 / (C10 x C18)	fn:fom_work
+C23	shortfall, heat	4.9	x	DERIVED	1 / C21	fn:short_heat
+C24	shortfall, work	9.8	x	DERIVED	1 / C22	fn:short_work
+C25	condition 8 bound, heat	7.52	GeV	DERIVED	C01 / C10	fn:cond8_heat
+C26	condition 8 bound, work	3.77	GeV	DERIVED	C01 x C12 / C10	fn:cond8_work
+C27	margin under condition 8, heat	25.1	x	DERIVED	C20 / C23	fn:margin_heat
+C28	margin under condition 8, work	12.6	x	DERIVED	C20 / C24	fn:margin_work
+C29	sticking ceiling on service life, measured	222	cycles	DERIVED	1 / C06	fn:ceiling_measured
+C30	sticking ceiling on service life, both levers	427	cycles	DERIVED	1 / C10	fn:ceiling_levers
+C31	service life at phi=3, measured sticking	196	cycles	DERIVED	N(0.0045, 3.0)	fn:N_measured_phi3
+C32	service life at phi=3, both levers	340	cycles	DERIVED	N(0.00234, 3.0)	fn:N_levers_phi3
+C33	recoil/orbital velocity ratio, d+t	2.97	dimensionless	MEASURED	v1.0 sec.2, reproduced by fn:vratio(3.5,4,2)	fn:vratio_dt
+C34	recoil/orbital velocity ratio, d+d to 3He+n	1.66	dimensionless	MEASURED	v1.0 sec.2, reproduced by fn:vratio(0.82,3,2)	fn:vratio_dd
+C35	MuSIC mu- yield per watt	9.0e4	mu-/s/W	MEASURED	Cook et al. arXiv:1610.07850, +/- 1.0e4	collector.MUSIC_MU_MINUS_PER_W
+C36	MuSIC all-charge yield per watt	10.4e5	mu/s/W	MEASURED	Cook et al. arXiv:1610.07850, +/- 2.7e5	collector.MUSIC_ALL_MU_PER_W
+C37	PSI muE4 yield per watt, as stated	3.5e2	mu/s/W	MEASURED	Cook et al., citing Prokscha et al. NIM A 595 317	collector.PSI_MUE4_PER_W
+C38	MuSIC gain over a conventional beamline	257	x	DERIVED	C35 / C37	fn:music_gain
+C39	Mu2e stopped mu- per proton	0.0016	mu-/proton	DESIGN	Mu2e CDR and technical documentation, 8 GeV	collector.MU2E_STOPPED_PER_P
+C40	Mu2e stopping fraction at the target	40	percent	DESIGN	Mu2e, of muons exiting the beamline	collector.MU2E_STOPPING_FRAC
+C41	proton driver optimum energy	7	GeV	SOURCED	Strait et al. PRSTAB 13 111001, flat within 10pc over 4-11 GeV	none
+C42	ambient static screening ceiling	30	eV	DERIVED	complete site electronic inventory, v1.0 sec.6.1	none
+C43	ambient screening requirement	88	eV	DERIVED	for a detectable p+d rate, v1.0 sec.6.1	none
+C44	Los Alamos cycles per muon	150	cycles	MEASURED	v1.0 sec.7, historical	none
+C45	Los Alamos Q recosted at C18	0.071	dimensionless	DERIVED	C44 x C01 / C18	fn:losalamos_recost
+C46	internuclear separation, muonic dt	280	fm	MEASURED	muCF literature, v1.0 sec.2	none
+C47	internuclear separation, electronic	74100	fm	DERIVED	electronic molecular scale, v1.0 sec.2	none
+C48	orders of magnitude bought by geometry	91	orders	DERIVED	tunnelling rate ratio across C46 vs C47, v1.0 sec.2	none
+C49	orders available from potential perturbation	33	orders	DERIVED	at fixed geometry, v1.0 sec.2	none
+C50	dtmu J=1 v=1 binding energy	0.66	eV	MEASURED	muCF literature, the Vesman resonance edge cell	none
+C51	D2 vibrational quantum	0.365	eV	MEASURED	molecular spectroscopy	none
+C52	dtmu ground state depth	319	eV	MEASURED	muonic molecule, unreachable by the host	none
+C53	loose state below muonic ground state	483	x	DERIVED	C52 / C50	fn:loose_ratio
+C54	muon released per fusion	99.14	percent	MEASURED	v1.0 sec.3.4	none
+C55	muon stuck per fusion	0.86	percent	MEASURED	v1.0 sec.3.4	none
+C56	net sticking loss after stripping	0.45	percent	DERIVED	roughly half of C55 collisionally stripped	none
+C57	free muon lifetime	2.197	microseconds	MEASURED	PDG	none
+C58	neutron energy, d+t	14.1	MeV	MEASURED	standard nuclear data	none
+C59	alpha energy, d+t	3.5	MeV	MEASURED	standard nuclear data	none
+C60	alpha share of fusion yield	19.9	percent	DERIVED	C59 / C01	fn:alpha_share
+C61	neutron share of fusion yield	80.2	percent	DERIVED	C58 / C01	fn:neutron_share
+C62	blanket Carnot efficiency at 800 K	62	percent	DERIVED	1 - 300/800	fn:carnot800
+C63	muonic helium K-alpha line	8.2	keV	MEASURED	v1.0 sec.3.5, the sticking observable	none
+C64	PSI proton driver power	1.4	MW	MEASURED	PSI facility	none
+C65	PSI beamline delivered muon rate	1e10	mu/s	MEASURED	best planned, HIMB class	none
+C66	energy per delivered muon, PSI beamline	874	TeV	DERIVED	C64 / C65	fn:delivered_per_muon
+C67	Mu2e energy per stopped muon	5	TeV	DERIVED	8 GeV / C39	fn:mu2e_per_muon
+C68	ambient screening shortfall factor	2.9	x	DERIVED	C43 / C42	fn:ambient_factor
+C69	ambient screening shortfall in rate	27	orders	DERIVED	exponential in the barrier, v1.0 sec.6.1	none
+C70	capture solenoid field, NF/MC front end	20	T	SOURCED	Strait et al. PRSTAB 13 111001, MARS15 model	none
+C71	target thickness, NF/MC front end	2	interaction-lengths	SOURCED	Strait et al. PRSTAB 13 111001, Table II	none
+C72	proton driver flat band, lower	4	GeV	SOURCED	Strait et al., yield within 10pc of optimum	none
+C73	proton driver flat band, upper	11	GeV	SOURCED	Strait et al., yield within 10pc of optimum	none
+C74	muon mass in MeV	105.7	MeV	MEASURED	PDG	none
+C75	binder window floor in MeV	60.8	MeV	DERIVED	C13 x electron mass	fn:window_floor_mev
+C76	blanket and resonance operating temperature	800	K	DERIVED	formation resonance peak and blanket hot end	none
+C77	ambient reference temperature	300	K	DEFINITION	Carnot cold end	none

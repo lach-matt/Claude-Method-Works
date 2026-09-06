@@ -1,5 +1,10 @@
 # Corrigendum to *Muon-Catalysed Fusion: Definition, Procedure, and Two Gaps* (v1.0, 1 August 2026)
 
+> **RETIRED — superseded by `papers/Cold_Fusion_Binder_Economy_v1.0.md` (6 September 2026).**
+> Retained for provenance. Claims withdrawn from this document are listed at §8 of the
+> superseding paper; where the two disagree, the superseding paper stands. This document
+> is **not** governed by `papers/CLAIMS.tsv` and will not pass `tools/verify_paper.py`.
+
 **Matthew Lach** — Independent researcher
 *6 September 2026. Prepared with a computing collaborator under the protocols of* The Method *v1.2-8.*
 

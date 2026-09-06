@@ -16,9 +16,11 @@ lattice, and asserts nothing about the main paper's subject matter.
 
 | file | what it is |
 |---|---|
-| `Muon_Catalysed_Fusion_v1.1.md` | The muon-catalysed fusion paper. Supersedes `recovered/Muon_Catalysed_Fusion_v1.0.md` (1 Aug 2026). Revises §3.2, §4 and §5; §§1–2, 3.1, 3.3–3.6 and 6 stand. |
-| `Corrigendum_MuCF_v1_0.md` | The seven corrections to v1.0, as a standalone formal corrigendum. |
-| `Muon_Collection_Budget_v1.0.md` | The per-stage collection budget the companion's §5.5 names as its deciding open item. Built from published MuSIC, Mu2e, COMET and PSI figures. |
+| **`Cold_Fusion_Binder_Economy_v1.0.md`** | **The current paper.** Supersedes and retires the three below. Definition, the seven conditions, the unique realisation, and the eighth condition that decides net energy. |
+| `CLAIMS.tsv` | The claims ledger: every quantity the current paper states, with status, provenance and its verifying computation. |
+| `Muon_Catalysed_Fusion_v1.1.md` *(retired)* | The muon-catalysed fusion paper. Supersedes `recovered/Muon_Catalysed_Fusion_v1.0.md` (1 Aug 2026). Revises §3.2, §4 and §5; §§1–2, 3.1, 3.3–3.6 and 6 stand. |
+| `Corrigendum_MuCF_v1_0.md` *(retired)* | The seven corrections to v1.0, as a standalone formal corrigendum. |
+| `Muon_Collection_Budget_v1.0.md` *(retired)* | The per-stage collection budget the companion's §5.5 names as its deciding open item. Built from published MuSIC, Mu2e, COMET and PSI figures. |
 
 ## Provenance and status
 
@@ -52,3 +54,25 @@ which the energy balance prices its binder is aspirational, not achieved, and th
 figure is 5 TeV per stopped μ⁻. v1.1 carries that correction at §4.2, in its abstract, in its
 provenance and as item 7 of its correction list. The algebra of the balance is unaffected; its
 reference point is not.
+
+## The publication standard, and how it is enforced
+
+> Stripped of the prose, all underlying math, claims and subject matter must be true and proved. The
+> prose is a translation of the underlying subject matter. It must not state anything that
+> contradicts the underlying math or claims. It must itself be true, and verifiable by the math we
+> provide in the paper.
+
+`tools/verify_paper.py` enforces that mechanically, in three passes: it **recomputes** every `DERIVED`
+row of `CLAIMS.tsv` from the instruments; it **binds** every row naming an instrument constant to that
+constant as the source actually holds it; and it **scans the prose**, failing on any number no ledger
+row carries. The third pass is the one that does the work — a sentence cannot quietly acquire a figure
+the mathematics does not produce.
+
+    python3 tools/verify_paper.py papers/Cold_Fusion_Binder_Economy_v1.0.md
+
+It governs the current paper only. The retired documents carry withdrawn figures by design and will
+fail pass 3; that is the correct result, not a regression.
+
+What it does **not** do: check that a `MEASURED` or `SOURCED` value is true in the world — that is the
+citation's job — and it does not read English. Its guarantee is narrower and worth having: every
+quantity in the prose is one the mathematics produces, at the value it produces.

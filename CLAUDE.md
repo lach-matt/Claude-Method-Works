@@ -48,7 +48,17 @@ here that is neither mirror nor generated: `method/` and `drive/` are resource m
 never writes to them. Its shape follows the author's own standing ruling (`PROSE-ONLY.tsv` PO-0233) —
 each paper carries its own abstract and its own references, states its relation to the lattice, and
 takes no part in the main paper's subject matter. It holds
-**`Muon_Catalysed_Fusion_v1.1.md`**, which supersedes the v1.0 held in `recovered/`,
+**`Cold_Fusion_Binder_Economy_v1.0.md`** — the current paper, which supersedes and retires the
+other three — plus **`CLAIMS.tsv`**, the ledger of every quantity it states, and
+**`tools/verify_paper.py`**, which enforces the author's publication standard mechanically: it
+recomputes each `DERIVED` row from the instruments, binds each cited constant to the instrument
+holding it, and **fails on any number in the prose that no ledger row carries**. Run it after any edit
+to the paper or the ledger. The current paper adds the **eighth condition** — `E_binder < Q_fus ·
+f_work / ω_s`, i.e. 7.52 GeV as heat and 3.77 as work — against a sourced production-and-capture cost
+of **37.0 GeV per captured μ⁻** (HARP × MARS15, 20 T front end, thick Ta), giving a figure of merit of
+0.203 / 0.102 and a shortfall of 4.9 / 9.8. **The admissible set is not empty**: the requirement sits
+inside the 123× headroom to the kinematic floor, with a margin of 25.1 / 12.6. The retired
+**`Muon_Catalysed_Fusion_v1.1.md`**, which superseded the v1.0 held in `recovered/`,
 **`Corrigendum_MuCF_v1_0.md`**, the seven corrections as a standalone formal corrigendum, and
 **`Muon_Collection_Budget_v1.0.md`**, the per-stage collection budget v1.1's §5.5 names as its
 deciding open item — built with **`tools/collector.py`** from published MuSIC, Mu2e, COMET and PSI
