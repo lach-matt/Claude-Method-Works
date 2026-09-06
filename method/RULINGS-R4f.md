@@ -188,3 +188,35 @@ and bounded?** Nothing further is done on it until M rules.
 **Ruling 8(c) is the remaining item**, and one obstacle to it is already recorded: the record's route
 (`t7c_cuaudit.py = t7c_corrz.py` verbatim plus an environment switch) leads to a second absent file, since
 `recovered/` holds only `t7c_corrz_run.py`.
+
+---
+
+## 9. Ruling 8(c), settled — and ruling 8 in full
+
+**`t7c_cuaudit.py` is absent and will not be recovered** (`FINDING-R4-22`, `method/proofs/cuaudit.py`). The
+absence is explained rather than observed: the record's own route to it is a second absent file
+(`t7c_corrz.py`), and **neither name appears anywhere in `COVERAGE.tsv`**, so no wanted-set run of `recover.py`
+can reach either, however often it is repeated.
+
+**But the module's whole interface is eight names**, censused from the three held importers and asserted by the
+selftest so a new consumer cannot widen it silently. **Seven are pinned by a held file** — E0B by the exactly
+known 1966 constant, λ₀ and c₀ by `ring_zeta.py` gated on GB-ZETA-RING-23's six recorded values, `LAM1` by
+`hfc2.py`'s own guard, `_frac_neg` by `cellcut.py` loaded by path. **And the eighth — `v_gbz`, the piece carried
+all along as RECONSTRUCTED — is pinned by a held implementation of itself**: `corr_ring.py` declares *"same
+interface as `t7c_cuaudit.v_gbz` … so it can be patched in"*, and run unmodified against the reconstruction it
+reproduces `fieldresidue.FormS` **bit-identically**, both the energy density and the potential, at every spin
+polarisation.
+
+**The status stays RECONSTRUCTED and is never flattened.** What is no longer true is that its shape was inferred.
+
+**Ruling 8 stands as follows:**
+
+| | |
+|---|---|
+| **8(a)** the g_2b quadrature | **REPAIRED, CONVERGED, PROVEN** (`FINDING-R4-20`) |
+| **8(b)** the spin–orbit ζ | **WORKED AND BOUNDED, NOT REPAIRED** — §8's question is open and awaits M |
+| **8(c)** `t7c_cuaudit.py` | **SETTLED** (`FINDING-R4-22`) |
+
+**The order of work in §5 is therefore discharged to its second item**, with one question standing back to M.
+Next is item 3: the R3 corrections rulings 2, 3, 9, 10, 11 and 12 authorise, by class, under
+`docs/R3-REPAIR-PLAN.md`'s mechanic.

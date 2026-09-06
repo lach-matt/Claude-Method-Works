@@ -1,0 +1,37 @@
+==============================================================================================================
+cuaudit.py -- RULING 8(c): t7c_cuaudit.py IS ABSENT, AND ITS WHOLE INTERFACE IS PINNED
+==============================================================================================================
+
+  The file is absent and will not be recovered by asking again: recovered/ does not hold it, and NEITHER
+  t7c_cuaudit.py NOR t7c_corrz.py appears anywhere in COVERAGE.tsv -- the bundles never cite either in
+  filename shape, which is the reach limit docs/RECOVER.md records for recover.py's wanted-set.  The record's
+  own route ("t7c_cuaudit.py = t7c_corrz.py VERBATIM + env FENT") leads to a second absent file.
+
+  But the interface is not unknown.  Reading the three held importers, the module is used through EIGHT names
+  and no others -- and seven are pinned by a held file rather than reconstructed:
+
+  name        pinned by                                        
+  E0B         sox_table.py:7 = 0.0241792 Ha                  the exactly known Onsager-Mittag-Stephen 1966 constant
+  _lam0(z)    ring_zeta.cL(z)/2                              the RPA ring integral's log coefficient, session 23
+  _e0a(z)     ring_zeta.eps_r(0.005,z)/2 - lam0 ln(0.005)    gated on GB-ZETA-RING-23's six c0 values
+  LAM1        hfc2.py's own guard `if T.LAM1`                the branch is dead in every run the record reports
+  _lam1(z)    reached only through LAM1                      never evaluated
+  _SUBCELL    env SUBCELL=1, session 28                      the setting every S-form row was run at
+  _frac_neg   cellcut.py, HELD                               loaded by path, never copied
+  v_gbz       corr_ring.py, HELD                             declares itself "same interface ... so it can be patched in"
+
+  THE EIGHTH IS THE ONE THAT WAS CALLED RECONSTRUCTED, AND IT IS PINNED TOO.  corr_ring.py is a complete,
+  held, runnable implementation of v_gbz for form R, and fieldresidue.FormS is that implementation with the
+  S table in place of the R table -- the one declared substitution, and what "form S" means.
+
+  The gate (--selftest) imports the HELD corr_ring.py against this reconstruction, unmodified, and compares it
+  point by point against FormS built on the SAME ring table.  Agreement to machine precision means FormS is
+  corr_ring's function with the table swapped, so what was reconstructed is a re-tabulation of a held shape,
+  not a guessed one.
+
+  WHAT REMAINS UNPINNED, so it is not lost: the module's own private text -- its docstring, its argument
+  parsing, the FENT and FOCC switches that made it "t7c_corrz.py VERBATIM + env FENT", and anything else it
+  held beyond the eight names.  None of it is reachable and none of it is used by the object.  THE STATUS
+  STAYS RECONSTRUCTED AND IS NEVER FLATTENED.
+
+==============================================================================================================
