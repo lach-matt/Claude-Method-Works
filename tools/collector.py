@@ -1348,6 +1348,114 @@ def report_insitu():
     return 0
 
 
+# ---- what is still open, and what each open thing can actually change ------
+# An open question is not a defect unless it can move the answer. This reduces
+# the list: each entry is tested against the ONE configuration this corpus finds
+# net-positive -- the co-product of sec.5.2 and sec.6 -- rather than against the
+# paper as a whole. Most of them act on configurations that configuration does
+# not use, and two of them can only move it upward.
+#
+# (id, question, where, what it multiplies, low, high, verdict)
+OPEN = [
+    ("Q1", "the acceptance has never been measured end to end",
+     "BE sec.9, sec.5.24; BE sec.10.1 Stage A measures it",
+     "capture", None, None, "LOAD-BEARING ON THE MAGNITUDE"),
+    ("Q2", "the two published final stickings straddle the break point",
+     "BE sec.5.5, sec.3.5; BE sec.10.2 Stage B decides it",
+     "the CAP on cycles, 198 or 188", 1.0, 1.0,
+     "not load-bearing: the co-product uses the witnessed 150, below both caps"),
+    ("Q3", "the service-life model over-predicts its one checkable point by 2.24",
+     "BE sec.9, IR sec.2.5",
+     "modelled cycles only", 1.0, 1.0,
+     "not load-bearing: the co-product uses the measured 150, not the model"),
+    ("Q4", "fuel purity is unbounded by any experiment here; 5.49 ppm costs as much as decay",
+     "BE sec.9, IR sec.2.4",
+     "cycles, if the fuel is dirtier than the fuel that returned 150", 1.0, 1.0,
+     "not load-bearing: 150 was measured on real fuel, so it already carries its own purity"),
+    ("Q5", "the temperature axis is confounded with purity and density",
+     "BE sec.9, sec.5.15, IR sec.2.4",
+     "cycles ABOVE 150", 1.0, 1.0,
+     "not load-bearing: the co-product claims no cycle count above the witnessed one"),
+    ("Q6", "the 2.37 between measured and optimised production is unexplained",
+     "BE sec.5.26, sec.5.27",
+     "pi- per proton", 1.0, 2.37, "ONE-SIDED UPWARD: it can only help"),
+    ("Q7", "HARP's two datasets leave a 0.186 sr wedge uncovered",
+     "BE sec.5.1",
+     "pi- per proton", 1.0, 1.10, "ONE-SIDED UPWARD: it can only help"),
+    ("Q8", "transport, cooling and stopping are unmodelled losses",
+     "BE sec.9",
+     "capture", None, None,
+     "RETIRED for this configuration: in-situ has no transport, and sec.6 models the stopping"),
+    ("Q9", "the composed sticking 0.234 inherits an unresolved figure",
+     "BE sec.7",
+     "a projection the co-product does not use", 1.0, 1.0,
+     "not load-bearing: no projected sticking enters the co-product balance"),
+]
+
+
+def open_floor_mu_per_s(power_mw=1.0):
+    """A MEASURED floor on binders per second: what a built capture solenoid
+    delivers per watt of proton beam. In-situ capture cannot do worse, because
+    MuSIC's figure is what survives a transport line and in-situ has none."""
+    return MUSIC_MU_MINUS_PER_W * power_mw * 1e6
+
+
+def open_ceiling_mu_per_s(power_mw=1.0, ep_gev=8.0, p_stop_mev=265.0):
+    return (protons_per_s(power_mw, ep_gev) * harp_combined_yield()
+            * stopping_capture(p_stop_mev))
+
+
+def open_heat_pct(mu_per_s, cycles=150.0, power_mw=1.0):
+    return 100.0 * mu_per_s * cycles * MEV_PER_FUSION_HEAT * 1.602176634e-13 / (power_mw * 1e6)
+
+
+def report_open():
+    print("WHAT IS STILL OPEN, AND WHAT IT CAN CHANGE")
+    print()
+    print("  Tested against the one configuration this corpus finds net-positive:")
+    print("  the co-product of the specification's sec.5.2 and sec.6. A question")
+    print("  that cannot move that configuration is open and not load-bearing, and")
+    print("  saying so is not closing it.")
+    print()
+    for q in OPEN:
+        qid, text, where, mult, lo, hi, verdict = q
+        print(f"  {qid}  {text}")
+        print(f"      where: {where}")
+        print(f"      acts on: {mult}")
+        if lo is not None:
+            print(f"      range it can move the answer: x{lo:.2f} to x{hi:.2f}")
+        print(f"      -> {verdict}")
+        print()
+    load = [q for q in OPEN if "LOAD-BEARING" in q[6]]
+    up = [q for q in OPEN if "ONE-SIDED" in q[6]]
+    none = [q for q in OPEN if q[6].startswith("not load-bearing")]
+    ret = [q for q in OPEN if q[6].startswith("RETIRED")]
+    print(f"  {len(OPEN)} open questions.")
+    print(f"    {len(load)} load-bearing on the magnitude")
+    print(f"    {len(up)} one-sided upward -- they can only improve the answer")
+    print(f"    {len(none)} act on configurations the answer does not use")
+    print(f"    {len(ret)} retired by sec.6 itself")
+    print()
+    print("  THE ONE THAT MATTERS, BOUNDED AT BOTH ENDS.")
+    lo_n, hi_n = open_floor_mu_per_s(), open_ceiling_mu_per_s()
+    print(f"    floor, MEASURED   MuSIC's built capture solenoid, scaled to 1 MW:")
+    print(f"                      {lo_n:.3e} binders/s ->"
+          f" {open_heat_pct(lo_n):8.5f} % of the host beam")
+    print(f"    ceiling, MODELLED in-situ at the 3.59 kg stopping window:")
+    print(f"                      {hi_n:.3e} binders/s ->"
+          f" {open_heat_pct(hi_n):8.5f} % of the host beam")
+    print(f"    the span is a factor of {hi_n / lo_n:,.0f}, and Stage A is what closes it.")
+    print()
+    print("  AND THE SIGN IS NOT OPEN AT ANY VALUE OF ANY OF THEM.")
+    print("    The co-product balance has zero marginal beam cost per binder, and")
+    print("    every remaining term is a positive multiplier. At one fusion per")
+    print(f"    binder and the measured floor it returns"
+          f" {open_heat_pct(lo_n, cycles=1.0):.7f} % of the beam --")
+    print("    small, and positive. No open question above can make it negative;")
+    print("    they set how large it is, not whether it exists.")
+    return 0
+
+
 def report_species():
     """Which pion the reactor is actually buying, and what that requires of the
     target. Only mu- catalyses; mu- comes only from pi-; so every yield here is
@@ -1537,6 +1645,31 @@ def selftest():
           f"   {'PASS' if ok else 'FAIL'}")
 
     print()
+    print("  the open questions, reduced against the co-product configuration")
+    lo_n, hi_n = open_floor_mu_per_s(), open_ceiling_mu_per_s()
+    ok = lo_n < hi_n
+    fail += 0 if ok else 1
+    print(f"    the measured floor is below the modelled ceiling:"
+          f" {hi_n / lo_n:,.0f}x   {'PASS' if ok else 'FAIL'}")
+    ok = open_heat_pct(lo_n, cycles=1.0) > 0.0
+    fail += 0 if ok else 1
+    print(f"    the sign survives the worst case -- measured floor, ONE fusion per")
+    print(f"    binder: {open_heat_pct(lo_n, cycles=1.0):.7f} percent, positive"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = abs(open_heat_pct(hi_n) / 12.01 - 1) < 0.01
+    fail += 0 if ok else 1
+    print(f"    the ceiling reproduces the specification's corrected row:"
+          f" {open_heat_pct(hi_n):.2f} percent   {'PASS' if ok else 'FAIL'}")
+    ok = len([q for q in OPEN if "LOAD-BEARING" in q[6]]) == 1
+    fail += 0 if ok else 1
+    print(f"    exactly one of {len(OPEN)} open questions is load-bearing on the")
+    print(f"    magnitude   {'PASS' if ok else 'FAIL'}")
+    ok = all(q[4] is None or q[4] >= 1.0 for q in OPEN)
+    fail += 0 if ok else 1
+    print(f"    no open question carries a range that can reduce the answer:")
+    print(f"    every bounded one runs from 1.00 upward   {'PASS' if ok else 'FAIL'}")
+
+    print()
     print("  the species, measured off the pi+ tables")
     fp, fa = charge_fraction_produced(), charge_fraction_accepted(1.50, "fwd",
                                                                  NF_RF_WINDOW_MEV)
@@ -1585,6 +1718,8 @@ def main():
                     help="integrate the HARP cross sections; price the collector argument")
     ap.add_argument("--acceptance", action="store_true",
                     help="pi- produced -> mu- delivered, validated against MARS15")
+    ap.add_argument("--open", action="store_true",
+                    help="every open question, and whether it can move the answer")
     ap.add_argument("--insitu", action="store_true",
                     help="the co-product configuration as an apparatus, and its ceiling")
     ap.add_argument("--species", action="store_true",
@@ -1607,6 +1742,8 @@ def main():
         return 0
     if a.acceptance:
         return report_acceptance()
+    if getattr(a, "open"):
+        return report_open()
     if a.insitu:
         return report_insitu()
     if a.species:

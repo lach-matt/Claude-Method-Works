@@ -512,3 +512,11 @@ C515	in-situ bench cell, fraction of the beam intercepted	4.55e-6	fraction	DERIV
 C516	in-situ bench cell, binders stopped	1.80e8	s^-1	DERIVED	1 MW at 8 GeV, thick target, through C512-C515	fn:insitu_binders_per_s
 C517	in-situ bench cell, 14.1 MeV neutrons	2.70e10	s^-1	DERIVED	C516 x 150 witnessed cycles	fn:insitu_neutrons_per_s
 C518	in-situ bench cell, fusion heat	76	mW	DERIVED	C517 x 17.59 MeV	fn:insitu_cell_heat_mw
+C519	open questions carried, reduced against the co-product	9	count	DERIVED	collector.OPEN, one row per open question	fn:open_count
+C520	of them load-bearing on the answer's magnitude	1	count	DERIVED	the acceptance, and nothing else	fn:open_count_load_bearing
+C521	binders/s at 1 MW, measured floor	9.00e10	s^-1	DERIVED	MuSIC's built capture solenoid at 9.0e4 mu-/s/W	fn:open_floor_mu
+C522	binders/s at 1 MW, modelled ceiling	1.918e14	s^-1	DERIVED	in-situ at the 3.59 kg stopping window	fn:open_ceiling_mu
+C523	fusion heat at the measured floor	0.00564	percent	DERIVED	C521 x 150 x 26.06 MeV / 1 MW	fn:open_floor_pct
+C524	fusion heat at the modelled ceiling	12.01	percent	DERIVED	C522 x 150 x 26.06 MeV / 1 MW	fn:open_ceiling_pct
+C525	the span the one open question covers	2131	ratio	DERIVED	C522 / C521	fn:open_span
+C526	the sign at the floor and one fusion per binder	0.0000376	percent	DERIVED	the worst case no measurement supports; still positive	fn:open_worst_case_pct

@@ -15,7 +15,7 @@ The project has three directives and they are not one question:
 | **Z** | lay out the laboratory **procedure** that would witness it |
 
 Prose can answer one of those while sounding like it answered three, and for most of this project's
-life it did. An index cannot. Each of the 63 rows carries a grade 0–3 on each axis, so a result that
+life it did. An index cannot. Each of the 64 rows carries a grade 0–3 on each axis, so a result that
 settles the balance but names no apparatus is visibly a one-axis result, and the cell where all three
 meet is a computation rather than a claim.
 
@@ -39,7 +39,7 @@ that *would* decide and has not.
 
 The grade is a judgement. Three things are not:
 
-1. **Every row names a section that exists.** `--selftest` matches all 63 rows against the headings of
+1. **Every row names a section that exists.** `--selftest` matches all 64 rows against the headings of
    the three papers as they are on disk. A row cannot cite a section that is not there.
 2. **The sign discipline.** A sign is carried only at grade ≥ 2 — nothing that merely bears on the
    balance is allowed a direction.
@@ -83,11 +83,32 @@ programme, and both are sign 0. They sit at the top of all three axes because th
 balance, not because they have. **A cell filled by undecided measurements is not an answered
 directive**, and the instrument says so in those words.
 
+## The open questions, reduced
+
+An index that finds a point on all three axes still leaves a corpus full of open questions, and a long
+list is not the same as an uncertain answer. `python3 tools/collector.py --open` tests each open
+question against the *one* configuration the index finds net-positive, rather than against the papers
+as a whole.
+
+**Nine open questions. One moves a number the answer states.** Five act on configurations §6 does not
+use — each is a question about *exceeding* the witnessed 150 cycles, and §6 does not try to. Two are
+one-sided upward and can only help. One is retired by §6 itself.
+
+The one that matters — the acceptance, never measured end to end — is bounded at both ends by numbers
+rather than caveats: a **measured** floor of 0.00564 % of the host beam (MuSIC's built capture
+solenoid, which in-situ cannot do worse than, having no transport line to lose in) and a **modelled**
+ceiling of 12.01 %. A span of **2131**, closed by Stage A.
+
+**The sign is not open at any value of any of them.** Marginal beam cost per binder is zero, so every
+remaining term is a positive multiplier: at the measured floor and one fusion per binder it still
+returns 0.0000376 % of the beam. The open questions set how large the result is, not whether it exists.
+
 ## Re-verify
 
 ```
-python3 tools/directives.py --selftest     # 63 rows against the papers on disk
+python3 tools/directives.py --selftest     # 64 rows against the papers on disk
 python3 tools/directives.py                # the whole reading
 python3 tools/collector.py --insitu        # the apparatus and its ceiling
+python3 tools/collector.py --open          # every open question, and what it can move
 python3 tools/verify_paper.py papers/Cold_Fusion_Specification_and_Procedure_v1.0.md
 ```

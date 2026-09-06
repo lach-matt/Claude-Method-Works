@@ -1593,6 +1593,39 @@ def insitu_cell_heat_mw():
     return collector.insitu_neutrons_per_s() * 17.59 * 1.602176634e-13 * 1000.0
 
 
+# ---- spec sec.7, the reduction of the open questions ----------------------
+def open_floor_mu():
+    return collector.open_floor_mu_per_s()
+
+
+def open_ceiling_mu():
+    return collector.open_ceiling_mu_per_s()
+
+
+def open_floor_pct():
+    return collector.open_heat_pct(collector.open_floor_mu_per_s())
+
+
+def open_ceiling_pct():
+    return collector.open_heat_pct(collector.open_ceiling_mu_per_s())
+
+
+def open_span():
+    return collector.open_ceiling_mu_per_s() / collector.open_floor_mu_per_s()
+
+
+def open_worst_case_pct():
+    return collector.open_heat_pct(collector.open_floor_mu_per_s(), cycles=1.0)
+
+
+def open_count():
+    return float(len(collector.OPEN))
+
+
+def open_count_load_bearing():
+    return float(len([q for q in collector.OPEN if "LOAD-BEARING" in q[6]]))
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

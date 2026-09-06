@@ -415,6 +415,47 @@ measurement of the acceptance by a second route.
 **This is the section the index said was missing**, and its absence was the only thing standing
 between this corpus's one proved-positive configuration and a laboratory.
 
+## 7. What is still open, and what it can change
+
+This corpus carries a long list of open questions, and a long list is not the same as an uncertain
+answer. Each one is tested here against the *one* configuration §5.2 and §6 find net-positive, rather
+than against the papers as a whole. `python3 tools/collector.py --open` runs the test.
+
+| | open question | what it acts on | verdict |
+|---|---|---|---|
+| Q1 | the acceptance has never been measured end to end | the capture efficiency | **load-bearing on the magnitude** |
+| Q2 | the two published final stickings straddle the break point | the *cap* on cycles | not load-bearing: §6 uses the witnessed **150**, below both caps |
+| Q3 | the service-life model over-predicts its one checkable point by **2.24** | modelled cycles | not load-bearing: §6 uses the measurement, not the model |
+| Q4 | fuel purity is bounded by no experiment here | cycles, if the fuel is dirtier than the fuel that returned 150 | not load-bearing: 150 was measured on real fuel and carries its own purity |
+| Q5 | the temperature axis is confounded with purity and density | cycles *above* 150 | not load-bearing: §6 claims no cycle count above the witnessed one |
+| Q6 | the **2.37** between measured and optimised production is unexplained | π⁻ per proton | **one-sided upward**: ×1.00 to ×2.37, it can only help |
+| Q7 | HARP's two datasets leave a **0.186** sr wedge uncovered | π⁻ per proton | **one-sided upward**: ×1.00 to ×1.10 |
+| Q8 | transport, cooling and stopping are unmodelled losses | the capture efficiency | **retired here**: in-situ has no transport, and §6 models the stopping |
+| Q9 | the composed sticking **0.234** inherits an unresolved figure | a projection | not load-bearing: no projected sticking enters this balance |
+
+**Nine open questions, and one of them moves a number this answer states.** Five act on
+configurations §6 does not use — every one of those five is a question about *exceeding* the witnessed
+cycle count, and §6 does not try to. Two can only move the answer upward. One is retired by §6 itself.
+
+**The one that matters is bounded at both ends, and neither end is a guess.**
+
+| | binders/s at 1 MW | fusion heat, fraction of the host beam |
+|---|---|---|
+| floor, **measured** — MuSIC's built capture solenoid, scaled | **9.00e10** | **0.00564 %** |
+| ceiling, **modelled** — in-situ at the 3.59 kg stopping window | **1.918e14** | **12.01 %** |
+
+The floor is a *measurement on a machine that exists*, and in-situ capture cannot do worse than it,
+because MuSIC's figure is what survives a transport line and §6 has none. The span between the two is
+a factor of **2131**, and [1] §10.1 — Stage A — is the measurement that closes it. **That is the whole
+of the open question, stated as a number rather than as a caveat.**
+
+**And the sign is not open at any value of any of them.** The co-product balance has zero marginal
+beam cost per binder, so every remaining term is a positive multiplier. Run it at the measured floor
+*and* at one fusion per binder — a case no measurement supports and every measurement exceeds — and it
+returns **0.0000376 percent** of the host beam. Small, and positive.
+
+> **The open questions set how large this is. They do not set whether it exists.**
+
 ---
 
 ## References
