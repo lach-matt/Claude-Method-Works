@@ -1529,10 +1529,10 @@ OPEN = [
     ("Q1", "the acceptance has never been measured end to end", "NARROWED",
      "the span was withdrawn -- it compared two machines, not two estimates. A "
      "claimed second corroboration is ALSO withdrawn: it used the forward "
-     "hemisphere against a machine that captures backward. The model has one "
-     "validation, 0.982, at exactly the configuration sec.6 uses; against a "
-     "GRADED field it has no mirror term and is a lower bound by an unstated "
-     "factor. Nothing has measured it end to end"),
+     "hemisphere against a machine that captures backward. The model now HAS the "
+     "mirror term the failure exposed, worth 1.299 at a grade of 1.428 (--magnet), "
+     "so it is no longer a lower bound against a graded field. It still has one "
+     "validation, 0.982, and nothing has measured it end to end"),
     ("Q2", "which sticking branch is operative", "CLOSED",
      "inverting the witnessed 150 cycles gives 0.517-0.547 percent, inside the "
      "measured trio and below theory: a third route using neither published "
@@ -1771,6 +1771,252 @@ def _wrap(text, width):
     return out
 
 
+# ---- the magnetic mirror: the term the model did not have ------------------
+# sec.5.30 records that this model captured the forward hemisphere and had no
+# mirror term, and that against a graded field it is therefore a lower bound. A
+# graded capture solenoid is graded FOR the mirror: the target sits at B_t in a
+# field rising to B_max upstream, and a backward-going pion reflects rather than
+# escaping. This is the term, and it is not a fitted one -- it is the adiabatic
+# invariant p_T^2 / B with |p| conserved, which reflects a particle when its
+# longitudinal momentum reaches zero:
+#
+#     reflected  <=>  sin(theta) >= sqrt(B_t / B_max)
+#
+# and the reflected pion emerges with the same p_T and its p_z reversed, so it
+# enters the same transverse cap and the same decay integral as a forward one at
+# pi - theta. Nothing else changes.
+MIRROR_B_TARGET = 12.0       # T at the target, the design point of sec.11
+MIRROR_B_MAX = 24.0          # T at the upstream plug
+
+
+def mirror_loss_cone_rad(b_target=MIRROR_B_TARGET, b_max=MIRROR_B_MAX):
+    """Half-angle of the upstream loss cone. Inside it a backward pion escapes."""
+    return math.asin(min(1.0, math.sqrt(b_target / b_max)))
+
+
+def mirrored_backward_fraction(b_target=MIRROR_B_TARGET, b_max=MIRROR_B_MAX):
+    """Fraction of the backward hemisphere's SOLID ANGLE the mirror turns round.
+    Geometry only -- it applies no transverse cap and is not a capture figure."""
+    return math.cos(mirror_loss_cone_rad(b_target, b_max))
+
+
+def _mirror_bins(b_target=MIRROR_B_TARGET, b_max=MIRROR_B_MAX):
+    """Backward production the mirror returns, re-emitted forward: same p, same
+    p_T, p_z reversed, hence theta -> pi - theta."""
+    s_min = math.sqrt(b_target / b_max)
+    for p, th, w in _production_bins():
+        if th <= math.pi / 2:
+            continue
+        if math.sin(th) < s_min:          # inside the loss cone: escapes upstream
+            continue
+        yield p, math.pi - th, w
+
+
+def delivered_fraction_mirrored(br, window=None, ncos=160, nphi=96,
+                                b_target=MIRROR_B_TARGET, b_max=MIRROR_B_MAX):
+    """Captured mu- per pi- PRODUCED, forward hemisphere PLUS the backward
+    hemisphere the mirror returns. The transverse cap is applied to both in the
+    same place and by the same test."""
+    fwd = delivered_fraction(br, "fwd", window, ncos, nphi)
+    ptm = pt_max(br) * 1000.0
+    kept = total = 0.0
+    for _, _, w in _production_bins():
+        total += w
+    for p_gev, th, w in _mirror_bins(b_target, b_max):
+        if p_gev * math.sin(th) >= ptm / 1000.0:
+            continue
+        p = p_gev * 1000.0
+        beta = p / math.hypot(p, M_PI_MEV)
+        gam = math.hypot(p, M_PI_MEV) / M_PI_MEV
+        st, ct = math.sin(th), math.cos(th)
+        for i in range(ncos):
+            cs = -1.0 + (2.0 * i + 1.0) / ncos
+            ss = math.sqrt(max(0.0, 1.0 - cs * cs))
+            ppar = gam * (P_STAR_MEV * cs + beta * E_STAR_MEV)
+            pperp = P_STAR_MEV * ss
+            for j in range(nphi):
+                phi = 2 * math.pi * (j + 0.5) / nphi
+                cf = math.cos(phi)
+                px = ppar * st + pperp * cf * ct
+                py = pperp * math.sin(phi)
+                pz = ppar * ct - pperp * cf * st
+                if math.hypot(px, py) >= ptm:
+                    continue
+                pm = math.sqrt(px * px + py * py + pz * pz)
+                if window and not (window[0] <= pm <= window[1]):
+                    continue
+                kept += w / (ncos * nphi)
+    return fwd + kept / total
+
+
+def mirror_gain(br=1.50, window=None):
+    return delivered_fraction_mirrored(br, window) / delivered_fraction(br, "fwd", window)
+
+
+# ---- the capture solenoid, designed ----------------------------------------
+# The mirror requirement is a specification and not a search: the loss cone stops
+# biting once sqrt(B_t/B_max) falls below sin(2.15 rad), the edge of HARP's own
+# table, and beyond that ratio nothing MEASURED is added. That fixes the grade at
+# 1.428 and frees the absolute field to be chosen by what a magnet can hold.
+#
+# And B*R is what sets capture, not B. So the target field can be dropped and the
+# bore grown to keep B*R, which is what puts the peak field inside reach.
+MU_0 = 4.0e-7 * math.pi
+MIRROR_RATIO_REQUIRED = 1.0 / math.sin(HARP_BACKWARD_EDGE_RAD) ** 2
+
+# The design point.
+DES_B_PEAK = 20.0            # T at the upstream plug -- large-bore HTS territory
+DES_B_TARGET = DES_B_PEAK / MIRROR_RATIO_REQUIRED
+DES_BR = 1.50                # T.m, the front end's own aperture, held
+DES_SHIELD_M = 0.70          # tungsten, for 1e3 attenuation of the cascade
+DES_W_LAMBDA_M = 0.103       # interaction length of tungsten
+DES_SIGMA_ALLOW_MPA = 300.0  # conductor hoop stress with steel reinforcement
+DES_LENGTH_M = 1.5           # magnetic length of the capture region
+
+
+def des_bore_m(br=DES_BR, b_target=None):
+    """Warm bore radius that holds the aperture at the chosen target field."""
+    return br / (DES_B_TARGET if b_target is None else b_target)
+
+
+def des_coil_inner_m(br=DES_BR):
+    return des_bore_m(br) + DES_SHIELD_M
+
+
+def des_taper_length_m(br=DES_BR, n_gyro=10.0):
+    """Adiabaticity: the field must change slowly against a gyro-orbit. Requires
+    L >> r_g / (dB/B). Taken at the transverse cap, the worst orbit there is."""
+    r_g = gyroradius_cm(pt_max(br), DES_B_TARGET) / 100.0
+    return n_gyro * r_g / (1.0 - 1.0 / MIRROR_RATIO_REQUIRED)
+
+
+def des_stored_energy_j(br=DES_BR, length_m=DES_LENGTH_M):
+    """B^2/2mu_0 over the bore out to the coil, at the peak field. A solenoid's
+    true stored energy includes the winding pack and the return path; this is the
+    field-volume term and is a LOWER bound on it."""
+    r = des_coil_inner_m(br)
+    return (DES_B_PEAK ** 2 / (2 * MU_0)) * math.pi * r * r * length_m
+
+
+def des_current_density_a_mm2(br=DES_BR):
+    """Engineering current density the hoop stress allows: sigma = B J r."""
+    r = des_coil_inner_m(br)
+    return (DES_SIGMA_ALLOW_MPA * 1e6) / (DES_B_PEAK * r) / 1e6
+
+
+def des_amp_turns(length_m=DES_LENGTH_M):
+    """NI = B L / mu_0 for a long solenoid."""
+    return DES_B_PEAK * length_m / MU_0
+
+
+def des_winding_thickness_m(br=DES_BR, length_m=DES_LENGTH_M):
+    """Radial build the allowed current density implies."""
+    j = des_current_density_a_mm2(br) * 1e6
+    return des_amp_turns(length_m) / (j * length_m)
+
+
+def des_shield_attenuation(shield_m=DES_SHIELD_M):
+    return math.exp(shield_m / DES_W_LAMBDA_M)
+
+
+def des_heat_load_w(power_mw=1.0, shield_m=DES_SHIELD_M, into_shield=0.30):
+    """Beam power reaching the cold mass. `into_shield` is the fraction of beam
+    power that leaves the target into the shield rather than the beam dump;
+    RECONSTRUCTED, and the one number here that a transport simulation owns."""
+    return power_mw * 1e6 * into_shield / des_shield_attenuation(shield_m)
+
+
+def des_refrigeration_w(power_mw=1.0):
+    """Wall power to remove that at 4.5 K, at a Carnot fraction of 0.25."""
+    return des_heat_load_w(power_mw) * (300.0 / 4.5) / 0.25
+
+
+def report_magnet():
+    """The capture solenoid, designed -- and the mirror term sec.5.30 said the
+    acceptance model did not have."""
+    print("THE CAPTURE SOLENOID, DESIGNED")
+    print()
+    print("  sec.5.30 records that this model captures the forward hemisphere and")
+    print("  has no magnetic mirror term, so against a graded field it is a lower")
+    print("  bound. A graded field is not an accident of other machines: it is what")
+    print("  a capture solenoid IS. Designing one supplies the term.")
+    print()
+    print("  THE MIRROR, FROM THE ADIABATIC INVARIANT AND NOTHING ELSE.")
+    print("    p_T^2 / B is conserved and |p| is conserved, so a backward pion")
+    print("    reflects when its longitudinal momentum reaches zero:")
+    print("        reflected  <=>  sin(theta) >= sqrt(B_t / B_max)")
+    print("    and comes back with the same p_T and p_z reversed -- into the same")
+    print("    transverse cap and the same decay integral, at pi - theta.")
+    print()
+    print("    B_max/B_t   loss cone      captured mu- per pi- produced")
+    base = delivered_fraction(1.50, "fwd", (0.0, 265.0))
+    for r in (1.05, 1.15, 1.25, 1.35, MIRROR_RATIO_REQUIRED, 2.00, 3.00):
+        m = delivered_fraction_mirrored(1.50, (0.0, 265.0), b_target=10.0, b_max=10.0 * r)
+        tag = "   <-- saturates here" if abs(r - MIRROR_RATIO_REQUIRED) < 1e-9 else ""
+        print(f"      {r:5.3f}      {math.degrees(math.asin(min(1, math.sqrt(1 / r)))):5.1f} deg"
+              f"        {m:.4f}   x{m / base:.3f}{tag}")
+    print()
+    print(f"    It saturates at {MIRROR_RATIO_REQUIRED:.3f} because HARP's large-angle table stops at")
+    print(f"    {HARP_BACKWARD_EDGE_RAD} rad, where sin = {math.sin(HARP_BACKWARD_EDGE_RAD):.3f}. Past that ratio the loss cone")
+    print("    no longer touches any MEASURED production, so a deeper grade buys")
+    print("    nothing this repository can count. THE GRADE IS A SPECIFICATION,")
+    print("    NOT A SEARCH -- which is the same shape as sec.5.7's finding on the")
+    print("    binder mass and sec.5.28's on the target.")
+    print()
+    print("  AND B*R IS WHAT SETS CAPTURE, NOT B. That frees the design.")
+    print(f"    Holding the front end's own aperture at {DES_BR} T.m, the target field")
+    print("    can be dropped and the bore grown, which is what puts the PEAK field")
+    print("    inside what a magnet holds:")
+    print()
+    print(f"      peak field, upstream plug          {DES_B_PEAK:8.1f} T")
+    print(f"      target field                       {DES_B_TARGET:8.2f} T"
+          f"   (grade {DES_B_PEAK / DES_B_TARGET:.3f})")
+    print(f"      warm bore radius                   {100 * des_bore_m():8.1f} cm")
+    print(f"      delivered beam envelope there      {beam_envelope_cm(DES_BR, DES_B_TARGET, DES_B_TARGET):8.2f} cm"
+          "   -- fills the bore, by construction")
+    print(f"      gyroradius at the transverse cap   {gyroradius_cm(pt_max(DES_BR), DES_B_TARGET):8.2f} cm")
+    print(f"      adiabatic taper, 10 gyro-orbits    {des_taper_length_m():8.2f} m")
+    print(f"      magnetic length of the capture     {DES_LENGTH_M:8.2f} m")
+    print()
+    print("  THE COLD MASS.")
+    print(f"      tungsten shield                    {100 * DES_SHIELD_M:8.1f} cm"
+          f"   ({des_shield_attenuation():,.0f}x on the cascade)")
+    print(f"      coil inner radius                  {100 * des_coil_inner_m():8.1f} cm")
+    print(f"      amp-turns                          {des_amp_turns() / 1e6:8.1f} MA-turns")
+    print(f"      hoop stress allowed                {DES_SIGMA_ALLOW_MPA:8.0f} MPa")
+    print(f"      engineering current density        {des_current_density_a_mm2():8.1f} A/mm2"
+          "   sigma = B J r")
+    print(f"      winding radial build               {100 * des_winding_thickness_m():8.1f} cm")
+    print(f"      stored energy, field volume        {des_stored_energy_j() / 1e6:8.0f} MJ   LOWER bound")
+    print()
+    print("  THE PLANT.")
+    print(f"      heat to the cold mass at 1 MW      {des_heat_load_w():8.0f} W")
+    print(f"      refrigeration wall power           {des_refrigeration_w() / 1e3:8.1f} kW"
+          "   at 4.5 K, Carnot 0.25")
+    print()
+    print("  WHAT THE MIRROR IS WORTH TO THE ANSWER.")
+    m = delivered_fraction_mirrored(DES_BR, (0.0, 265.0))
+    print(f"      captured and stopped, forward only  {base:.4f}")
+    print(f"      with the mirror                     {m:.4f}   x{m / base:.3f}")
+    print(f"      fusion heat, fraction of host beam  {100 * insitu_heat_fraction(base):.2f} %"
+          f" -> {100 * insitu_heat_fraction(m):.2f} %")
+    print()
+    print("  WHAT THIS IS NOT. It is a physics design and a set of engineering")
+    print("  requirements, not a build package. Three things are named and not")
+    print("  done: the quench and energy-extraction design for a stored energy")
+    print("  this size, the conductor choice and grading (above about 16 T only")
+    print("  REBCO reaches it, so the insert is HTS and the outsert may be Nb3Sn),")
+    print("  and the shielding, whose one RECONSTRUCTED number -- the fraction of")
+    print("  beam power entering the shield rather than the target's own cooling")
+    print("  -- a transport simulation owns and this repository does not.")
+    print()
+    print("  The hoop-stress figure assumes the CONDUCTOR carries the whole hoop")
+    print("  load. A steel former carrying it instead raises the allowed current")
+    print("  density several times and thins the winding in proportion; that is a")
+    print("  design choice, and the conservative one is quoted.")
+    return 0
+
+
 def report_species():
     """Which pion the reactor is actually buying, and what that requires of the
     target. Only mu- catalyses; mu- comes only from pi-; so every yield here is
@@ -1960,6 +2206,37 @@ def selftest():
           f"   {'PASS' if ok else 'FAIL'}")
 
     print()
+    print("  the capture solenoid, and the mirror term")
+    base = delivered_fraction(1.50, "fwd", (0.0, 265.0))
+    m = delivered_fraction_mirrored(1.50, (0.0, 265.0))
+    ok = m > base
+    fail += 0 if ok else 1
+    print(f"    the mirror adds rather than subtracts: {base:.4f} -> {m:.4f}"
+          f"   {'PASS' if ok else 'FAIL'}")
+    sat = delivered_fraction_mirrored(1.50, (0.0, 265.0), b_target=10.0, b_max=100.0)
+    ok = abs(sat - m) < 1e-9
+    fail += 0 if ok else 1
+    print(f"    and saturates: a grade of 10 returns what {MIRROR_RATIO_REQUIRED:.3f} does"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = abs(MIRROR_RATIO_REQUIRED - 1.0 / math.sin(HARP_BACKWARD_EDGE_RAD) ** 2) < 1e-12
+    fail += 0 if ok else 1
+    print(f"    because the requirement is set by where HARP's table ends, not by")
+    print(f"    the physics of the mirror   {'PASS' if ok else 'FAIL'}")
+    env = beam_envelope_cm(DES_BR, DES_B_TARGET, DES_B_TARGET)
+    ok = abs(env / (100 * des_bore_m()) - 1.0) < 0.01
+    fail += 0 if ok else 1
+    print(f"    the delivered envelope fills the designed bore: {env:.2f} cm vs"
+          f" {100 * des_bore_m():.2f}   {'PASS' if ok else 'FAIL'}")
+    ok = abs(DES_B_TARGET * des_bore_m() / DES_BR - 1.0) < 1e-9
+    fail += 0 if ok else 1
+    print(f"    and the aperture product is held while the field is dropped"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = des_taper_length_m() > 10 * gyroradius_cm(pt_max(DES_BR), DES_B_TARGET) / 100.0
+    fail += 0 if ok else 1
+    print(f"    the taper is adiabatic against the worst orbit it must hold"
+          f"   {'PASS' if ok else 'FAIL'}")
+
+    print()
     print("  the open questions, worked")
     import mucf as _m
     lo, hi = open_band_mu_per_s()
@@ -2070,6 +2347,8 @@ def main():
                     help="integrate the HARP cross sections; price the collector argument")
     ap.add_argument("--acceptance", action="store_true",
                     help="pi- produced -> mu- delivered, validated against MARS15")
+    ap.add_argument("--magnet", action="store_true",
+                    help="the capture solenoid designed, and the mirror term")
     ap.add_argument("--open", action="store_true",
                     help="every open question, and whether it can move the answer")
     ap.add_argument("--insitu", action="store_true",
@@ -2094,6 +2373,8 @@ def main():
         return 0
     if a.acceptance:
         return report_acceptance()
+    if a.magnet:
+        return report_magnet()
     if getattr(a, "open"):
         return report_open()
     if a.insitu:

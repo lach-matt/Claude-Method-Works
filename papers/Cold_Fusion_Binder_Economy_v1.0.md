@@ -1659,6 +1659,14 @@ wrong hemisphere to get it. **The width of what is known about the acceptance is
 agreement, 0.982 to 1.000**, at one configuration, with an unquantified conservative bias from the
 missing mirror term.
 
+**And the scope limit has since been removed rather than lived with.** The companion's §8 designs the
+capture solenoid, which supplies the mirror term this model lacked: reflection when
+sin θ ≥ √(B_t/B_max), the reflected pion re-entering the same transverse cap and the same decay
+integral at π − θ. It is worth **1.299**, and it saturates at a grade of **1.428** because that is where
+HARP's table ends. **The model is therefore no longer a lower bound against a graded field** — it now
+models one — and this section's finding stands as the reason the term exists rather than as a
+standing limitation.
+
 **What is open is unchanged by any of it.** Nothing has been measured end to end. §10.1 measures it,
 and no calculation in this work stands in for that.
 

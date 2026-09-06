@@ -15,7 +15,7 @@ The project has three directives and they are not one question:
 | **Z** | lay out the laboratory **procedure** that would witness it |
 
 Prose can answer one of those while sounding like it answered three, and for most of this project's
-life it did. An index cannot. Each of the 66 rows carries a grade 0–3 on each axis, so a result that
+life it did. An index cannot. Each of the 67 rows carries a grade 0–3 on each axis, so a result that
 settles the balance but names no apparatus is visibly a one-axis result, and the cell where all three
 meet is a computation rather than a claim.
 
@@ -39,7 +39,7 @@ that *would* decide and has not.
 
 The grade is a judgement. Three things are not:
 
-1. **Every row names a section that exists.** `--selftest` matches all 66 rows against the headings of
+1. **Every row names a section that exists.** `--selftest` matches all 67 rows against the headings of
    the three papers as they are on disk. A row cannot cite a section that is not there.
 2. **The sign discipline.** A sign is carried only at grade ≥ 2 — nothing that merely bears on the
    balance is allowed a direction.
@@ -122,9 +122,14 @@ the model returns 0.0073 against a published 0.061–0.144, low by **14.1×**, a
 lands inside by coincidence.
 
 **What the failure establishes is worth more than the corroboration would have been.** A graded capture
-solenoid magnetically *mirrors* forward-going particles into a backward channel, and the model has no
-mirror term — so against a graded field it is a **lower bound**, not an estimate. The model has **one**
-validation, **0.982**, at exactly the configuration the specification uses.
+solenoid magnetically *mirrors* forward-going particles into a backward channel, and the model had no
+mirror term — so against a graded field it was a **lower bound**, not an estimate.
+
+**That term has since been supplied by designing the magnet** (`--magnet`, specification §8): reflection
+when sin θ ≥ √(B_t/B_max), worth **1.299**, saturating at a grade of **1.428** because that is where
+HARP's table ends — a specification, not a search. The model is no longer a lower bound against a
+graded field. It still has **one** validation, **0.982**, at the configuration the specification uses,
+and nothing has measured it end to end.
 
 **Seven closed, one narrowed and twice corrected, one explained and declined.** The answer's magnitude
 is **11.80 % to 12.01 %** of the host beam on one validated simulation and no measurement, and the sign
@@ -134,9 +139,10 @@ Nothing has been run end to end and weighed, and no calculation here stands in f
 ## Re-verify
 
 ```
-python3 tools/directives.py --selftest     # 66 rows against the papers on disk
+python3 tools/directives.py --selftest     # 67 rows against the papers on disk
 python3 tools/directives.py                # the whole reading
 python3 tools/collector.py --insitu        # the apparatus and its ceiling
 python3 tools/collector.py --open          # every open question, and what it can move
+python3 tools/collector.py --magnet        # the capture solenoid, and the mirror term
 python3 tools/verify_paper.py papers/Cold_Fusion_Specification_and_Procedure_v1.0.md
 ```

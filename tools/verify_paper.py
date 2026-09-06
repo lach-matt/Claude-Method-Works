@@ -1805,6 +1805,116 @@ def q_comet_bore():
     return collector.COMET_BORE_M
 
 
+# ---- spec sec.8, the capture solenoid designed ----------------------------
+def mag_ratio_required():
+    return collector.MIRROR_RATIO_REQUIRED
+
+
+def mag_loss_cone_deg():
+    import math
+    return math.degrees(collector.mirror_loss_cone_rad(1.0, collector.MIRROR_RATIO_REQUIRED))
+
+
+def mag_sin_edge():
+    import math
+    return math.sin(collector.HARP_BACKWARD_EDGE_RAD)
+
+
+def mag_captured_mirrored():
+    return collector.delivered_fraction_mirrored(collector.DES_BR, (0.0, 265.0))
+
+
+def mag_gain():
+    return (collector.delivered_fraction_mirrored(collector.DES_BR, (0.0, 265.0))
+            / collector.delivered_fraction(collector.DES_BR, "fwd", (0.0, 265.0)))
+
+
+def _mg(r):
+    return collector.delivered_fraction_mirrored(1.50, (0.0, 265.0),
+                                                 b_target=10.0, b_max=10.0 * r)
+
+
+def mag_at_105():
+    return _mg(1.05)
+
+
+def mag_at_115():
+    return _mg(1.15)
+
+
+def mag_gain_105():
+    return _mg(1.05) / collector.delivered_fraction(1.50, "fwd", (0.0, 265.0))
+
+
+def mag_gain_115():
+    return _mg(1.15) / collector.delivered_fraction(1.50, "fwd", (0.0, 265.0))
+
+
+def mag_b_target():
+    return collector.DES_B_TARGET
+
+
+def mag_bore_cm():
+    return 100.0 * collector.des_bore_m()
+
+
+def mag_envelope_cm():
+    return collector.beam_envelope_cm(collector.DES_BR, collector.DES_B_TARGET,
+                                      collector.DES_B_TARGET)
+
+
+def mag_gyroradius_cm():
+    return collector.gyroradius_cm(collector.pt_max(collector.DES_BR), collector.DES_B_TARGET)
+
+
+def mag_taper_m():
+    return collector.des_taper_length_m()
+
+
+def mag_coil_inner_cm():
+    return 100.0 * collector.des_coil_inner_m()
+
+
+def mag_amp_turns_ma():
+    return collector.des_amp_turns() / 1e6
+
+
+def mag_current_density():
+    return collector.des_current_density_a_mm2()
+
+
+def mag_winding_cm():
+    return 100.0 * collector.des_winding_thickness_m()
+
+
+def mag_stored_mj():
+    return collector.des_stored_energy_j() / 1e6
+
+
+def mag_shield_cm():
+    return 100.0 * collector.DES_SHIELD_M
+
+
+def mag_cold_k():
+    return 4.5
+
+
+def mag_attenuation():
+    return collector.des_shield_attenuation()
+
+
+def mag_heat_w():
+    return collector.des_heat_load_w()
+
+
+def mag_fridge_kw():
+    return collector.des_refrigeration_w() / 1e3
+
+
+def mag_heat_pct_mirrored():
+    return 100.0 * collector.insitu_heat_fraction(mag_captured_mirrored())
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

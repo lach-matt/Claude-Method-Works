@@ -564,3 +564,28 @@ C567	the sign at the low end and one fusion per binder	0.07866	percent	DERIVED	t
 C568	COMET's published captured yield, lower figure	0.061	per-proton	SOURCED	COMET Phase-I TDR, (pi-+mu-) per 8 GeV proton at 3 m, 5 T	fn:q_comet_published_lo
 C569	the model in the hemisphere a backward-capture machine uses	0.0073	per-interaction	DERIVED	5 T x 0.15 m, backward, against a published 0.061-0.144	fn:q_comet_model
 C570	by how much the model falls short of a graded backward-capture machine	14.1	ratio	DERIVED	1 / C561 -- the missing magnetic mirror term	fn:q_comet_shortfall
+C571	mirror grade required, and sufficient	1.428	ratio	DERIVED	1 / sin^2(2.15 rad): set by where HARP's table ends	fn:mag_ratio_required
+C572	the loss cone at that grade	56.8	degrees	DERIVED	arcsin(sqrt(B_t/B_max))	fn:mag_loss_cone_deg
+C573	sine at the edge of HARP's large-angle table	0.837	ratio	DERIVED	sin(2.15 rad)	fn:mag_sin_edge
+C574	captured and stopped with the mirror	0.4443	per-pion	DERIVED	forward plus the mirrored backward hemisphere	fn:mag_captured_mirrored
+C575	what the mirror is worth	1.299	ratio	DERIVED	C574 / 0.3420	fn:mag_gain
+C576	captured with the mirror at a grade of 1.05	0.3833	per-pion	DERIVED	the grade scan	fn:mag_at_105
+C577	the same as a gain	1.121	ratio	DERIVED	C576 / 0.3420	fn:mag_gain_105
+C578	captured with the mirror at a grade of 1.15	0.4172	per-pion	DERIVED	the grade scan	fn:mag_at_115
+C579	the same as a gain	1.220	ratio	DERIVED	C578 / 0.3420	fn:mag_gain_115
+C580	target field at the design point	14.01	T	DERIVED	peak 20 T divided by the required grade	fn:mag_b_target
+C581	warm bore radius	10.7	cm	DERIVED	B.R held at 1.50 T.m while the field is dropped	fn:mag_bore_cm
+C582	delivered beam envelope at the target	10.71	cm	DERIVED	twice the gyroradius at the transverse cap	fn:mag_envelope_cm
+C583	gyroradius at the transverse cap	5.35	cm	DERIVED	p_T / 0.3 B at the target field	fn:mag_gyroradius_cm
+C584	adiabatic taper length	1.79	m	DERIVED	ten gyro-orbits over the fractional field change	fn:mag_taper_m
+C585	coil inner radius	80.7	cm	DERIVED	bore plus the shield	fn:mag_coil_inner_cm
+C586	amp-turns	23.9	MA-turns	DERIVED	B L / mu_0	fn:mag_amp_turns_ma
+C587	engineering current density	18.6	A/mm^2	DERIVED	sigma = B J r at 300 MPa; conductor carries the hoop load	fn:mag_current_density
+C588	winding radial build	85.6	cm	DERIVED	amp-turns over current density and length	fn:mag_winding_cm
+C589	stored energy, field volume	489	MJ	DERIVED	B^2/2mu_0 over the bore; a LOWER bound on the total	fn:mag_stored_mj
+C590	shield attenuation on the hadronic cascade	894	ratio	DERIVED	exp(0.70 m / 0.103 m)	fn:mag_attenuation
+C591	heat to the cold mass at 1 MW	335	W	DERIVED	30 percent of beam power into the shield, attenuated	fn:mag_heat_w
+C592	refrigeration wall power	89.4	kW	DERIVED	C591 at 4.5 K, Carnot fraction 0.25	fn:mag_fridge_kw
+C593	fusion heat with the mirror, fraction of host beam	15.61	percent	DERIVED	C574 x 0.7188 x 150 x 26.06 MeV / 8 GeV	fn:mag_heat_pct_mirrored
+C594	tungsten shield thickness	70.0	cm	DERIVED	chosen for ~10^3 attenuation at 0.103 m per interaction length	fn:mag_shield_cm
+C595	cold-mass operating temperature	4.5	K	PINNED	standard 4.5 K liquid-helium plant	fn:mag_cold_k

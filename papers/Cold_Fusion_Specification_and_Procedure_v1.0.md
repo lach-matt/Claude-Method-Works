@@ -549,6 +549,110 @@ validated simulation and no measurement. The sign is open at no value of any of 
 *one* fusion per binder — a case no measurement supports and every measurement exceeds — it still
 returns **0.07866 percent**. Positive.
 
+## 8. The capture solenoid, designed
+
+[1] §5.30 records that the acceptance model captures the forward hemisphere and carries no magnetic
+mirror term, so against a graded field it is a lower bound by a factor it cannot state. **A graded
+field is not an accident of other people's machines. It is what a capture solenoid is.** This section
+designs one, which supplies the term, and the term is worth **1.299**.
+
+`python3 tools/collector.py --magnet` reproduces every figure here.
+
+### 8.1 The mirror, from the adiabatic invariant and nothing else
+
+A pion's transverse momentum obeys p_T²/B = constant while |p| is conserved, so a pion travelling into
+a rising field loses longitudinal momentum and reflects when it reaches zero:
+
+> **reflected ⟺ sin θ ≥ √(B_t / B_max)**
+
+and it returns with the same p_T and its p_z reversed — into the same transverse cap and the same
+two-body decay integral as a forward pion at π − θ. Nothing is fitted and nothing is added to the
+model but this one test.
+
+| B_max/B_t | loss cone | captured μ⁻ per π⁻ produced | |
+|---|---|---|---|
+| 1.05 | 77.4° | 0.3833 | ×1.121 |
+| 1.15 | 68.8° | 0.4172 | ×1.220 |
+| 1.35 | 59.4° | **0.4443** | ×1.299 |
+| **1.428** | 56.8° | **0.4443** | **×1.299** — saturates |
+| 3.00 | 35.3° | 0.4443 | ×1.299 |
+
+**It saturates, and the reason is a fact about the data rather than about magnets.** HARP's large-angle
+table stops at **2.15 rad**, where sin θ = **0.837**. Once √(B_t/B_max) falls below that, the loss cone
+no longer touches any *measured* production, and a deeper grade buys nothing this work can count.
+
+> **The grade is a specification, not a search: 1.428, and no more.** That is the same shape as [1]
+> §5.7's finding that sticking is binder-mass-independent and §5.28's that the target is fixed by the
+> charge — a parameter that looked like a lever and turns out to be a requirement with a number on it.
+
+### 8.2 What frees the design: B·R sets capture, not B
+
+The transverse cap is 0.15·B·R. **The field and the bore trade against each other at fixed capture**, so
+the target field can be dropped and the bore grown — which is what brings the *peak* field, 1.428×
+higher, inside what a magnet holds. Holding the front end's own **1.50 T·m**:
+
+| | |
+|---|---|
+| peak field, upstream plug | **20.0 T** |
+| target field | **14.01 T** (grade 1.428) |
+| warm bore radius | **10.7 cm** |
+| delivered beam envelope there | **10.71 cm** — fills the bore, by construction |
+| gyroradius at the transverse cap | 5.35 cm |
+| adiabatic taper, 10 gyro-orbits | **1.79 m** |
+| magnetic length of the capture region | 1.50 m |
+
+The envelope matching the bore is not a coincidence: a particle born on axis reaches twice its
+gyroradius, and the cap was set so that it does.
+
+### 8.3 The cold mass
+
+| | |
+|---|---|
+| tungsten shield | **70.0 cm** — 894× on the hadronic cascade |
+| coil inner radius | 80.7 cm |
+| amp-turns | **23.9 MA-turns** |
+| hoop stress allowed | 300 MPa |
+| engineering current density | **18.6 A/mm²**, from σ = B·J·r |
+| winding radial build | 85.6 cm |
+| stored energy, field volume | **489 MJ** — a lower bound |
+
+The current density assumes **the conductor carries the whole hoop load**. A steel former carrying it
+instead raises the allowed density several times and thins the winding in proportion; the conservative
+choice is quoted. Above about 16 T only REBCO reaches these fields, so the insert is HTS and the
+outsert may be Nb₃Sn.
+
+### 8.4 The plant
+
+| | |
+|---|---|
+| heat to the cold mass at 1 MW | **335 W** |
+| refrigeration wall power | **89.4 kW** at 4.5 K, Carnot fraction 0.25 |
+
+### 8.5 What the mirror is worth to the answer
+
+| | captured and stopped, per π⁻ produced | fusion heat, fraction of host beam |
+|---|---|---|
+| forward capture only, as §6 and §7 compute it | 0.3420 | **12.01 %** |
+| **with the mirror** | **0.4443** | **15.61 %** |
+
+**§6 and §7 are not restated at 15.61 percent.** They describe a machine with no mirror, which is not a
+machine anyone builds — so their figures are an *under-specification of the apparatus*, and this
+section is where the apparatus is specified. Both numbers stand, and which one applies is a fact about
+which magnet is built.
+
+### 8.6 What this is not
+
+It is a physics design and a set of engineering requirements. It is not a build package, and three
+things are named here and not done:
+
+1. **Quench and energy extraction** at 489 MJ. That is a serious design item in its own right and it
+   is not attempted.
+2. **Conductor grading** between an HTS insert and an LTS outsert, with the field margin and the
+   stability analysis that goes with it.
+3. **The shielding**, whose one `RECONSTRUCTED` input — the fraction of beam power entering the shield
+   rather than the target's own cooling loop — belongs to a transport simulation this work does not
+   run. Every other number above follows from conserved quantities and published cross sections.
+
 ---
 
 ## References
