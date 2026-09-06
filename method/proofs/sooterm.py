@@ -64,10 +64,27 @@
   So the COULOMB coefficient is +1 -- and that is the term §(2) above proves equals -N_b M^0(ab), which is the
   anchor the exchange channel is built against.
 
-  WHAT REMAINS, AND IT IS ONE STEP: the ANGULAR reduction of the two exchange terms over a spherical closed
-  shell, which turns them into sums over k of the exchange-shaped radial integrals N^k(ab) with 3j weights.  The
-  operator and its coefficients are no longer the open piece; the reduction is.  §THE EXCHANGE CHANNEL below
-  states it with its gates.
+  WHAT REMAINS IS THE ANGULAR REDUCTION, AND ITS FIRST STEP IS TAKEN AND SELF-CONSISTENT.  Write the two-electron
+  operator with F = 1/r_12 and split the gradient into its radial and angular parts, using r-hat x grad =
+  (i/r) L-hat:
+
+      g^xi(1,2) = -[ grad_1 F x p_1 ]_xi
+                = i [ (dF/dr_1) (i/r_1) L_1  +  (1/r_1) ( grad_Omega1 F  x  grad_1 ) ]_xi
+
+  TWO THINGS FOLLOW, AND THE FIRST IS A CLOSED LOOP ON WHAT IS ALREADY PROVED:
+
+    (i) In the DIRECT term, F's angular dependence averages over the closed shell and the second piece vanishes,
+        leaving (dV/dr)(1/r) L -- which is exactly the screening §(2) derives and --verify measures to 1.5e-5.
+        **The decomposition reproduces the proved anchor**, so it is the right decomposition.
+
+   (ii) In the EXCHANGE term the first piece carries <l_b m_b| L_xi |l_a m_a>, which VANISHES UNLESS l_b = l_a.
+        So for a core shell of different l, only the angular-gradient piece contributes; for a core shell of the
+        SAME l as the entrant -- 2p under Al's 3p, 3d and 4d under La's 5d -- both do.  That is a structural
+        prediction of the reduction, and it is testable before any number is read.
+
+  What is still owed is the angular-gradient piece's reduction into 3j weights on N^k(ab).  The operator and its
+  coefficients are no longer the open piece; this one step is.  §THE EXCHANGE CHANNEL below states it with its
+  gates.
 
   usage:  python3 sooterm.py --verify     the direct-channel identity at every core shell of the six openings
           python3 sooterm.py --selftest
