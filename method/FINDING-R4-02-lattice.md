@@ -73,3 +73,39 @@ counts as proof the right object has been built, then run the same glb test on i
 from the repository, that is the question to put to M.
 
 `method/proofs/lattice.py` and `lattice.out` hold the test and its output.
+
+---
+
+## Provenance, searched rather than reconstructed (6 September, on M's instruction)
+
+**The passage is not new to this book.** It appears verbatim in `drive/The Method Materials/The_Method.pdf`, page 34,
+headed *"The Method — The Lach Cylinder"* — the same sentence, the same five presentations, the same five counts. Only
+the pointers differ: that book says §3, §9.4, §2.4 and Chapter 12 where this one says §8.4, §14.4, §7.4 and Chapter 17.
+**M's caution is confirmed in the object: the tools and the older texts carry section numbers this book has outgrown,
+so a pointer is never evidence of what a claim is about.** `The Method 1.2-1.pdf` carries it too.
+
+**The three-body paper does not contain this material at all.** Searched for *coupling region*, *meet-broken*, all five
+counts, *seniority*, *2S,2L,2J*, *not a lattice* and *strong 3-consistency*: `The_Three_Body_Problem_for_Unknown_Masses_Lach.pdf`
+matches **none of them**. Law 3's clause is imported from §12.11.2 by citation. **M's caution holds exactly: the paper
+is about unknown masses, and the lattice clause is not its own result.**
+
+**A false lead, recorded so it is not chased again.** `On_the_Matter_of_Time_Travel.pdf` contains the string *52,080*,
+which is one of §12.11.2's five counts. It is a different quantity: there it is a section size in the Λ₁₃ factorisation
+(*"sections 11,470 · 45,880 · 89,700 · 52,080 reproducing §12.11.5's printed table to the cell"*). Coincidence of value.
+
+**The computation behind the five counts is not in the repository.** Searched `drive/`, `extracted/` and `method/` for
+each count with and without its comma: **the numbers occur only in book texts** — this volume, `The_Method.pdf`,
+`The Method 1.2-1.pdf`, `BUILD12`, and PDF extractions of the same. No instrument prints them, and the restore point's
+348 files contain none of them.
+
+**The machinery to compute them IS in the repository.** `extracted/archives/restore-point-2-13/method_tower.py`
+carries `terms(l, k)` — the full LS decomposition of a shell — with `exact_2J`, `max2J` and `phihat`, and
+`schemes.py` uses them for the four coupling schemes. So the exact coupling region can be built from the book's own
+functions rather than invented. What is not recoverable is **which** construction produced 50,592 · 52,080 · 17,856 ·
+7,254 · 2,443, and the five presentations are named in the prose but not defined there.
+
+**Where that leaves the question.** Appendix A's regions are lattices, measured, and Appendix A's wording is right.
+§12.11.2's exact coupling region is a different and larger object whose five counts have no surviving instrument. It
+can be re-derived from `method_tower.terms`, and the test of whether the construction is the right one is whether it
+reproduces one of the five counts. That re-derivation is the next step and it needs M's word, since it is a
+reconstruction and the standing rule is that the repository is searched first — which has now been done.
