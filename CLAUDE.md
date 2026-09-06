@@ -65,7 +65,7 @@ of every quantity the paper states — value, unit, status, provenance, verifyin
 instruments, **binds** every cited constant to the instrument holding it, and **fails on any number in
 the prose that no ledger row carries**. That third pass is the one that does the work: a sentence
 cannot acquire a figure the mathematics does not produce. **Run it after any edit to the paper or the
-ledger.** It governs the current paper only — the retired ones carry withdrawn figures by design and
+ledger.** It governs the two current papers only — the retired ones carry withdrawn figures by design and
 fail pass 3, which is correct and not a regression.
 
 The paper's spine is an **eighth condition** on the binder, added to the seven that admit the muon:
