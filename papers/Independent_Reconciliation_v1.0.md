@@ -106,7 +106,7 @@ scales as the orbital area, giving **3.68 × 10⁻²³ cm²** for this system. T
 | to achieve | required flux | **sustained intensity** |
 |---|---|---|
 | a stripping rate merely matching binder decay | 1.27 × 10²⁸ /cm²/s | **2.21 × 10¹³ W/cm²** |
-| stripping of 95 percent of stuck binders | 2.72 × 10²⁹ /cm²/s | 4.74 × 10¹⁴ W/cm² |
+| stripping of nearly all stuck binders | 2.72 × 10²⁹ /cm²/s | 4.74 × 10¹⁴ W/cm² |
 
 **Against what exists**: free-electron lasers reach 10¹⁸ W/cm² and beyond, but in femtosecond pulses
 at duty cycles near 10⁻⁹, so the time-averaged intensity is orders lower; synchrotron beamlines are
@@ -292,7 +292,7 @@ at fuel density φ and setting it equal to decay:
 | the bound case | **5.49 ppm** |
 | φ = 3 | **15.6 ppm** |
 
-and the service life at the bound case falls from **588.9** cycles pure to **575.8** at one part per
+and the service life at the bound case falls from **190.1** cycles pure to **188.7** at one part per
 million, **480.1** at ten, and **180.4** at a hundred.
 
 > **Fuel purity better than about one part per million is a condition on the companion's procedure §3, and it
@@ -341,7 +341,7 @@ Solving the balance for the density at which it equals one, rather than for the 
 
 | product | perfect collection | §5.9 collector | today's aperture, both hemispheres | today's front end |
 |---|---|---|---|---|
-| bred fuel | **0.154 LHD** | **0.174** | **0.275** | **0.730** |
+| bred fuel | **0.222 LHD** | **0.265** | **0.604** | no density suffices |
 | heat | **2.10 LHD** | **2.89** | no density suffices | no density suffices |
 | work | **6.67 LHD** | **19.2** | no density suffices | no density suffices |
 
@@ -355,7 +355,7 @@ bound case was chosen as ninety percent of the sticking asymptote, not as breake
 a much weaker requirement — one that the diamond anvil cell of §2.4 already reaches at 933 MPa.
 
 **Where "no density suffices" appears, that is their no-go and not a rounding.** The service life
-saturates at 1/ω_eff = 672 cycles however dense the fuel, and the heat route at 61 percent collection
+saturates at 1/ω_eff = 198 cycles however dense the fuel, and the heat route at 61 percent collection
 needs 700. Compression cannot buy it; only sticking or collection can.
 
 ---
@@ -433,7 +433,7 @@ instead:
 | | this paper | rescaled |
 |---|---|---|
 | effective sticking | 0.1487 % | **0.1359 %** |
-| service life, bound case | 588.9 | **637.0** |
+| service life, bound case | 190.1 | **637.0** |
 | heat balance, bound case, perfect collection | 1.379 | **1.492** |
 | heat balance, bound case at today's aperture | 0.842 | **0.911** |
 

@@ -277,10 +277,23 @@ def react_psi():
 
 
 def ws_sin():
-    return 100.0 * mucf.STICKING["j1"][0] * react_sin()
+    """CORRECTED, sec.5.26. This returned the J=1,v=0 excited-state initial
+    sticking times a ground-state survival fraction -- two different states,
+    giving 0.1487%. Fusion occurs from (dtmu)_{J=v=0}, so the operative value is
+    the witnessed effective sticking. The two 'readings' survive as the two
+    extremes of the three 2001 measurements."""
+    return 100.0 * min(mucf.OMEGA_EFF_MEASURED)
 
 
 def ws_psi():
+    return 100.0 * max(mucf.OMEGA_EFF_MEASURED)
+
+
+def ws_sin_superseded():
+    return 100.0 * mucf.STICKING["j1"][0] * react_sin()
+
+
+def ws_psi_superseded():
     return 100.0 * mucf.STICKING["j1"][0] * react_psi()
 
 
@@ -846,7 +859,7 @@ def modern_ws_ratio():
 
 
 def ws_sin_modern():
-    return ws_sin() * modern_ws_ratio()
+    return ws_sin_superseded() * modern_ws_ratio()
 
 
 def N_bound_modern():
@@ -1126,7 +1139,7 @@ def ws_witnessed_best():
 
 
 def ws_chain_ratio():
-    return ws_operative() / ws_sin()
+    return ws_operative() / ws_sin_superseded()
 
 
 def n_cap_theory():
@@ -1410,6 +1423,11 @@ def _one(paper):
         got, want = fn(), norm(r["value"])
         ok = close(got, want)
         fails += 0 if ok else 1
+        if got is None:
+            print(f"  {r['id']} {r['claim'][:44]:<44} "
+                  f"{'NO SOLUTION':>12s} vs {want:<12,.4g}   FAIL")
+            fails += 1
+            continue
         print(f"  {r['id']} {r['claim'][:44]:<44} {got:>12,.4g} vs {want:<12,.4g} "
               f"{'PASS' if ok else 'FAIL'}")
     print(f"  {n} derived rows recomputed")

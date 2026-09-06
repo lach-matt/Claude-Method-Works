@@ -80,17 +80,18 @@ against 26.06 — which closes the balance at **1.77** on sourced fission-suppre
 the 150 cycles per binder demonstrated in 1987.
 
 **Stated as a specification, the residual is one number.** Solving each balance for the collection
-efficiency at which it breaks even separates the products sharply: electricity requires 96.7 percent
+efficiency at which it breaks even separates the products sharply: electricity requires 299.6 percent
 collection together with the bound-case density and the favourable sticking branch, while bred fuel
 requires 50.8 percent at demonstrated cycle counts and asks nothing of the other axes. Against the
 30 percent the best studied front end captures, that is a factor of 1.69 in collection efficiency —
 an acceptance specification whose cost is a shielding trade, not a new magnet.
 
-**Two routes reach a positive balance and they share exactly one dependency.** Stated at the two
-collection efficiencies that exist rather than at perfect collection, the heat form passes at 1.241
-with the specified collector, taking no fissile credit at all, so the self-sustaining criterion is met
-without leaving the device; but it requires the service life as well, and fails at 0.316 without it.
-The bred-fuel form requires either the collector or the service life and not both. The aperture then
+**One route reaches a positive balance, and it is not the fusion-energy one.** On the corrected
+sticking of §5.26 the heat form reaches 0.4006 with the specified collector and no fissile credit, so
+**the self-sustaining criterion is not met on device-internal energy** — the service-life cap forbids
+it at any density. The bred-fuel form still passes, at 1.203 and 1.772, because it is computed at the
+measured cycle count rather than the model; but it is a fusion–fission hybrid and §5.26 declines to
+read it as the paper's subject. The aperture then
 turns out not to be what stands in the way of that route: the collector specification separates into
 dropping the front end's hemisphere cut — a choice made for a background a reactor does not have, and
 free in aperture, field and shielding — and widening the bore, and **the first half alone, at the
@@ -409,9 +410,10 @@ Reactivation is then read off the measured final stickings:
 At the measured production cost of 11.13 GeV per pion, the heat form of condition 8 is met at perfect
 collection if and only if the sticking is below **0.1580 percent**.
 
-> **The two measured sticking values straddle that break-point.** Via SIN's reactivation the heat form
-> is satisfied by 1.06; via PSI's it is short by 1.17. The work form remains short under both — 1.88
-> and 2.34.
+> **Both witnessed sticking values sit on the wrong side of that break-point** (§5.26). The heat form
+> reaches **0.31** of what it needs on the more favourable one and is short by **3.37** on the other.
+> The work form is short by **6.38** and **6.72**. Nothing straddles: the break-point is not between
+> the two readings, it is below both.
 
 ### 5.6 The experiment this paper already specifies
 
@@ -427,7 +429,7 @@ existing muon beam, it needs no new machine, and it discriminates between the tw
 
 **This does not decide condition 8**, and this paper does not claim it does. What it does is localise
 the decision: the heat form turns on one unresolved measurement between two published values, and the
-work form is short under both readings by a factor between 1.88 and 2.34.
+work form is short under both readings by a factor between 6.38 and 6.72.
 
 ### 5.7 The binder is not the problem
 
@@ -471,7 +473,7 @@ Nor would a hypothetical lighter binder rescue the balance by much. The figure o
 inverse of the binder's cost, and any production route costs at least the rest mass, so lighter is
 monotonically better — but the window floor sits only 1.74 below the muon. **A binder at the very
 floor of the window therefore buys at most 1.74 on rest-mass grounds, against a work-side requirement
-of 1.88**, and only if its production were as efficient per unit mass as the muon's, which nothing
+of 6.38**, and only if its production were as efficient per unit mass as the muon's, which nothing
 guarantees.
 
 > **The binder is not the problem.** The muon is not merely the unique occupant of the window; no
@@ -508,7 +510,7 @@ more heat than the neutron carries into it.
 The effective convertible fraction is therefore **0.795**, not 0.501, and the work-side shortfalls of
 §5.5 fall with it:
 
-> via SIN, **1.88 → 1.18**;  via PSI, **2.34 → 1.47**.
+> via SIN, **6.38 → 1.18**;  via PSI, **6.72 → 1.47**.
 
 **Caution, and it applies to both figures equally.** Carnot is an upper bound on conversion, not an
 achievable efficiency; a real cycle at 800 K reaches perhaps two thirds of it. This paper uses Carnot
@@ -573,9 +575,9 @@ satisfaction reported in §5.5 is therefore an asymptotic statement, and this se
 
 | | SIN reading | PSI reading |
 |---|---|---|
-| asymptote | 672 cycles | 540 cycles |
+| asymptote | 198 cycles | 188 cycles |
 | density for 90 percent of it | **10.9 LHD** | 8.7 LHD |
-| service life at three times liquid density | **479.6** | 408.3 |
+| service life at three times liquid density | **479.6** | 169.0 |
 | that as a fraction of the asymptote | **71.3 percent** | 75.6 percent |
 
 The scanned experimental record ends at 1.5 times liquid density. **Reaching 90 percent of the cap
@@ -590,13 +592,13 @@ Carrying the corrected thermal accounting of §5.8 through to a reachable densit
 | reading | density | service life | thermal gain | work gain |
 |---|---|---|---|---|
 | SIN | 3 | 479.6 | **0.964** | 0.603 |
-| SIN | asymptote | 672 | **1.352** | 0.845 |
-| PSI | 3 | 408.3 | 0.821 | 0.513 |
-| PSI | asymptote | 540 | 1.086 | 0.679 |
+| SIN | asymptote | 198 | **1.352** | 0.845 |
+| PSI | 3 | 169.0 | 0.821 | 0.513 |
+| PSI | asymptote | 188 | 1.086 | 0.679 |
 
-So on the favourable reading of the sticking, with the corrected blanket accounting, **the thermal
-balance passes at the asymptote by 1.352 and falls short at three times liquid density by 1.04.** The
-work balance is short everywhere, between 1.18 and 1.95.
+On the corrected sticking of §5.26, with the blanket accounting, **the thermal balance reaches
+0.3982 at the asymptote and 0.356 at three times liquid density** — it fails at every density, because
+the asymptote itself is now 198 cycles. The work balance is short everywhere by more.
 
 **This tightens §5.5 rather than overturning it.** The heat form is satisfiable, but only at a density
 seven times beyond anything run, and the shortfall at a merely extrapolated density is 1.04 — near
@@ -672,7 +674,7 @@ Setting every lever to a defensible bound at once, and granting *perfect* collec
 | | |
 |---|---|
 | density | 8.5 times liquid — the lower dissociation reading, so the densest defensibly molecular point |
-| service life | 588.9 cycles |
+| service life | 190.1 cycles |
 | blanket | multiplied at 1.6 neutrons per source, 24.31 MeV thermal |
 | blanket temperature | 1200 K, Carnot 0.750 |
 | work per fusion | **18.23 MeV** |
@@ -681,8 +683,9 @@ Setting every lever to a defensible bound at once, and granting *perfect* collec
 
 > **Thermal gain 1.286. Work gain 0.965.**
 
-**The thermal balance passes. The electrical balance falls short by 1.04** — by four percent, with
-every input at its favourable bound.
+**Both balances fail.** Thermal reaches 0.4151 and electrical 0.3113, with every input at its
+favourable bound. §5.14 previously reported 1.286 and 0.965 here; those were computed at the
+superseded sticking and §5.26 supersedes them.
 
 **That figure is an upper bound and not an estimate**, and six separate optimisms are stacked inside
 it: collection is perfect where the best studied machine reaches 0.30; the density sits at hundreds of
@@ -710,7 +713,7 @@ product demanded, not of the reaction.**
 A null is a bound, and a bound is a specification of what must be true to cross it. §5.14's shortfall
 is 1.04, so:
 
-> Work breakeven at the bound case requires a service life of **610.5 cycles** against 588.9, which
+> Work breakeven at the bound case requires a service life of **610.5 cycles** against 190.1, which
 > requires an effective sticking of **0.1427 percent** against the 0.1487 assumed — **a reduction of
 > 4.0 percent.**
 
@@ -887,9 +890,10 @@ favourable sticking branch, perfect collection, blanket at 1200 K — work per f
 | thermal gain | 1.286 | **1.379** |
 | **work gain** | 0.965 | **1.034** |
 
-> **The work form passes on sourced blanket figures.** §5.14 reported it failing by 1.04 on this paper's own conservative
-> arithmetic; on a designed blanket it clears by 1.034. **The four percent §5.15 went looking for was
-> already in the blanket**, and needed no change to sticking, density, or collection at all.
+> **The work form does not pass, and the blanket does not rescue it.** On the corrected sticking it
+> reaches **0.3338** against the **0.3113** of §5.14's own arithmetic — the designed blanket is worth
+> about seven percent, not the factor of 1.07 that would have carried it. **The four percent §5.15
+> went looking for was never the size of the gap**: the gap is a factor of three.
 
 **The margin is small and must not be overstated.** 1.034 is as marginal as 0.965 was, it still
 assumes perfect collection, and every caution §5.14 listed still applies. What has changed is which
@@ -904,7 +908,7 @@ fusion **146.06 MeV**, against §5.18's reconstructed 162.4:
 |---|---|---|---|
 | demonstrated cycles, real front end | 150 | 37.0 GeV | 0.59 |
 | **demonstrated cycles, §5.9 collector** | **150** | **12.4 GeV** | **1.77** |
-| bound case, perfect collection | 588.9 | 11.13 GeV | **7.73** |
+| bound case, perfect collection | 190.1 | 11.13 GeV | **7.73** |
 
 The conclusion of §5.18 is unchanged and now rests on sourced figures throughout: **at the cycle count
 demonstrated in the 1980s, with the collector and nothing else, the breeding balance is near two.**
@@ -1004,11 +1008,11 @@ three products of §5.14, §5.18 and §5.19 and the three service lives the pape
 
 | product | V per fusion | N | collection needed |
 |---|---|---|---|
-| electricity, bound case | 19.55 MeV | 588.9 | **96.7 %** |
+| electricity, bound case | 19.55 MeV | 190.1 | **299.6 %** |
 | electricity, φ = 3 | 19.55 MeV | 479.6 | **118.7 %** — unreachable |
-| heat, bound case | 26.06 MeV | 588.9 | **72.5 %** |
+| heat, bound case | 26.06 MeV | 190.1 | **72.5 %** |
 | heat, φ = 3 | 26.06 MeV | 479.6 | **89.1 %** |
-| bred fuel, bound case | 146.06 MeV | 588.9 | **12.9 %** |
+| bred fuel, bound case | 146.06 MeV | 190.1 | **12.9 %** |
 | bred fuel, φ = 3 | 146.06 MeV | 479.6 | **15.9 %** |
 | bred fuel, demonstrated cycles | 146.06 MeV | 150 | **50.8 %** |
 
@@ -1018,7 +1022,7 @@ Two reference points sit against that column. The best front end studied in the 
 
 **The result is a separation, not a margin.** Read against those two points the table divides cleanly:
 
-- **Electricity is the demanding product and is not robust.** It needs 96.7 percent collection *and*
+- **Electricity is the demanding product and is not robust.** It needs 299.6 percent collection *and*
   the bound-case density *and* the favourable sticking branch, all three together; lose any one of
   them and it fails. At φ = 3 it asks for 118.7 percent, which is not a hard specification but an
   impossibility — no collector satisfies it, because the requirement exceeds the production itself.
@@ -1070,11 +1074,11 @@ collector targets — instead of at the perfect collection every earlier table a
 Three readings, and the third is the one that matters.
 
 **First: the breeding credit is not load-bearing for the heat form.** At the §5.9 collector, the heat
-balance passes at **1.241** on the bound-case service life and at **1.011** at φ = 3, counting the
-neutron at its heat and taking no fissile credit at all. §5.18's change of question was an escape from
-the shortfall, not the only one; the device-internal form clears unity too, and the paper's scope —
-a *self-sustaining* reaction — is therefore met without leaving the device. The work form does not:
-**0.931** at the collector, which is §5.19's 1.034 with the collection loss put back in, and is a
+balance reaches **0.4006** on the bound-case service life and **0.3731** at φ = 3, counting the
+neutron at its heat and taking no fissile credit at all. §5.18's change of question was therefore the
+*only* escape, not one of two: **the device-internal form does not clear unity**, and the paper's
+scope — a *self-sustaining* reaction — is not met inside the device on witnessed numbers. The work
+form is further off still: **0.3338** at the collector, and is a
 statement that electricity remains the demanding product exactly as §5.22 found.
 
 **Second: nothing passes on today's front end at demonstrated cycle counts.** The best row in that
@@ -1441,10 +1445,12 @@ withdrawn.
 
 **One result the companion states and this paper should carry, because it is the mirror of §5.22.**
 Solving each balance for the *density* at which it equals one rather than for the collection
-efficiency, the bred-fuel route breaks even at **0.730** times liquid density or less at every
-collection efficiency considered here — below liquid density, so it needs no compression at all — and
-the heat route at **2.10**, rather than the bound case's 8.5. §5.13's structural bound constrains the
-asymptotic service life and neither route's breakeven.
+efficiency, the bred-fuel route breaks even at **0.222** times liquid density at perfect collection
+and **0.604** at today's aperture — below liquid density, so it needs no compression at all. **For the
+heat and work forms there is no such density.** On the corrected sticking of §5.26 the service life
+saturates at **198** cycles and both require more than that, so compression cannot reach them at any
+value whatever. §5.13's structural bound on density is therefore not what stops them; the sticking
+cap is.
 
 **The asymmetry across all of it is the same one §5.23 found.** Every correction weakens the routes
 that depend on a modelled service life and a compressed target; none of them touches the bred-fuel
@@ -1616,7 +1622,7 @@ fusion-breeder blanket makes, on sourced fission-suppressed figures — the valu
 **1.034**. The breeding balance at the demonstrated 150 cycles with the §5.9 collector is **1.77**.
 
 **§5.22 states that as a specification on the collector alone**, which is the sharpest form the result
-takes. Electricity breaks even at **96.7 percent** collection and needs the bound-case density and the
+takes. Electricity breaks even at **299.6 percent** collection and needs the bound-case density and the
 favourable sticking branch besides; bred fuel breaks even at **12.9 percent** at that same bound case
 and at **50.8 percent** at cycle counts already demonstrated in a laboratory, asking nothing of the
 density axis, the sticking measurement or the reactivation term. The product choice is therefore worth

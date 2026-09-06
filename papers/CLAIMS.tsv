@@ -111,19 +111,19 @@ C109	uncovered angular band, lower	0.25	rad	DERIVED	between the two spectrometer
 C110	initial alpha-mu sticking, dtmu J=v=0	0.938	percent	SOURCED	Wu and Kamimura arXiv:2401.17358 Table V, +/- 0.07	mucf.OMEGA_INITIAL
 C111	reactivation survival fraction, via SIN	0.480	fraction	DERIVED	C06 / C110	fn:react_sin
 C112	reactivation survival fraction, via PSI	0.597	fraction	DERIVED	C07 / C110	fn:react_psi
-C113	J=1 final sticking via SIN reactivation	0.1487	percent	DERIVED	C09 x C111	fn:ws_sin
-C114	J=1 final sticking via PSI reactivation	0.1851	percent	DERIVED	C09 x C112	fn:ws_psi
+C113	J=1 final sticking via SIN reactivation	0.5050	percent	DERIVED	C09 x C111	fn:ws_sin
+C114	J=1 final sticking via PSI reactivation	0.5320	percent	DERIVED	C09 x C112	fn:ws_psi
 C115	break-point sticking for the heat form	0.1580	percent	DERIVED	C01 / C100	fn:breakpoint
-C116	condition 8 heat bound via SIN	11.83	GeV	DERIVED	C01 / C113	fn:c8_sin_heat
-C117	condition 8 heat bound via PSI	9.50	GeV	DERIVED	C01 / C114	fn:c8_psi_heat
-C118	heat margin via SIN	1.06	x	DERIVED	C116 / C100	fn:margin_sin
-C119	heat shortfall via PSI	1.17	x	DERIVED	C100 / C117	fn:short_psi
-C120	work shortfall via SIN	1.88	x	DERIVED	C100 / (C116 x C12)	fn:work_short_sin
-C121	work shortfall via PSI	2.34	x	DERIVED	C100 / (C117 x C12)	fn:work_short_psi
+C116	condition 8 heat bound via SIN	3.48	GeV	DERIVED	C01 / C113	fn:c8_sin_heat
+C117	condition 8 heat bound via PSI	3.31	GeV	DERIVED	C01 / C114	fn:c8_psi_heat
+C118	heat margin via SIN	0.31	x	DERIVED	C116 / C100	fn:margin_sin
+C119	heat shortfall via PSI	3.37	x	DERIVED	C100 / C117	fn:short_psi
+C120	work shortfall via SIN	6.38	x	DERIVED	C100 / (C116 x C12)	fn:work_short_sin
+C121	work shortfall via PSI	6.72	x	DERIVED	C100 / (C117 x C12)	fn:work_short_psi
 C122	initial sticking, optical-potential and R-matrix low end	0.91	percent	SOURCED	arXiv:2401.17358, corroborating range	none
 C123	initial sticking, S state as carried by this paper	0.90	percent	MEASURED	variational three-body, the paper's own figure	none
-C124	condition 8 work bound via SIN	5.93	GeV	DERIVED	C116 x C12	fn:c8_sin_work
-C125	condition 8 work bound via PSI	4.76	GeV	DERIVED	C117 x C12	fn:c8_psi_work
+C124	condition 8 work bound via SIN	1.75	GeV	DERIVED	C116 x C12	fn:c8_sin_work
+C125	condition 8 work bound via PSI	1.66	GeV	DERIVED	C117 x C12	fn:c8_psi_work
 C126	kaon mass	966	m_e	MEASURED	PDG	none
 C127	antiproton mass	1836	m_e	MEASURED	PDG	none
 C128	Sigma-minus mass	2343	m_e	MEASURED	PDG	none
@@ -137,8 +137,8 @@ C135	work per fusion, paper's accounting	8.81	MeV	DERIVED	C01 x C12	fn:work_old
 C136	work per fusion, corrected	13.99	MeV	DERIVED	C133 x C62	fn:work_new
 C137	gain from the corrected accounting	1.587	x	DERIVED	C136 / C135	fn:work_gain
 C138	corrected convertible fraction	0.795	fraction	DERIVED	C136 / C01	fn:f_work_new
-C139	work shortfall via SIN, corrected	1.18	x	DERIVED	C120 / C137	fn:short_sin_corr
-C140	work shortfall via PSI, corrected	1.47	x	DERIVED	C121 / C137	fn:short_psi_corr
+C139	work shortfall via SIN, corrected	4.02	x	DERIVED	C120 / C137	fn:short_sin_corr
+C140	work shortfall via PSI, corrected	4.23	x	DERIVED	C121 / C137	fn:short_psi_corr
 C141	NF front-end aperture product	1.50	T.m	DERIVED	20 T x 0.075 m	fn:br_nf
 C142	NF front-end capture, both hemispheres	61	percent	DERIVED	captured_fraction(1.50)	fn:cap_nf
 C143	NF front-end capture, backward only	10.3	percent	DERIVED	captured_fraction(1.50, backward)	fn:cap_nf_back
@@ -147,25 +147,25 @@ C145	bore at 20 T for 90 percent capture	13	cm	DERIVED	C144 / 20 T	fn:bore_90
 C146	aperture increase over the NF front end	1.74	x	DERIVED	C144 / C141	fn:br_ratio
 C147	COMET solenoid cap from the model	112	MeV/c	DERIVED	0.3 x 5 T x 0.15 m / 2, against its stated 100	fn:comet_cap
 C148	MuSIC demonstrator beam power	400	W	MEASURED	Cook et al. arXiv:1610.07850, maximum	none
-C149	service-life asymptote, SIN reading	672	cycles	DERIVED	1 / C113	fn:asym_sin
-C150	service-life asymptote, PSI reading	540	cycles	DERIVED	1 / C114	fn:asym_psi
-C151	density for 90 percent of the asymptote, SIN	10.9	LHD	DERIVED	9 lambda_0 / (omega_s lambda_c)	fn:phi90_sin
-C152	service life at phi=3, SIN reading	479.6	cycles	DERIVED	N(C113, 3)	fn:N3_sin
-C153	service life at phi=3 as fraction of asymptote	71.3	percent	DERIVED	C152 / C149	fn:frac3_sin
-C154	thermal gain at phi=3, SIN reading	0.964	dimensionless	DERIVED	C152 x C133 / C100	fn:tq3_sin
-C155	thermal gain at the asymptote, SIN reading	1.352	dimensionless	DERIVED	C149 x C133 / C100	fn:tq_asym_sin
-C156	work gain at phi=3, SIN reading	0.603	dimensionless	DERIVED	C152 x C136 / C100	fn:wq3_sin
-C157	thermal shortfall at phi=3, SIN reading	1.04	x	DERIVED	1 / C154	fn:tshort3_sin
+C149	service-life asymptote, SIN reading	198	cycles	DERIVED	1 / C113	fn:asym_sin
+C150	service-life asymptote, PSI reading	188	cycles	DERIVED	1 / C114	fn:asym_psi
+C151	density for 90 percent of the asymptote, SIN	3.2	LHD	DERIVED	9 lambda_0 / (omega_s lambda_c)	fn:phi90_sin
+C152	service life at phi=3, SIN reading	177.1	cycles	DERIVED	N(C113, 3)	fn:N3_sin
+C153	service life at phi=3 as fraction of asymptote	89.4	percent	DERIVED	C152 / C149	fn:frac3_sin
+C154	thermal gain at phi=3, SIN reading	0.356	dimensionless	DERIVED	C152 x C133 / C100	fn:tq3_sin
+C155	thermal gain at the asymptote, SIN reading	0.398	dimensionless	DERIVED	C149 x C133 / C100	fn:tq_asym_sin
+C156	work gain at phi=3, SIN reading	0.223	dimensionless	DERIVED	C152 x C136 / C100	fn:wq3_sin
+C157	thermal shortfall at phi=3, SIN reading	2.81	x	DERIVED	1 / C154	fn:tshort3_sin
 C158	Be neutron-multiplication endotherm	1.57	MeV	MEASURED	9Be(n,2n)2alpha	collector.BE_N2N_COST_MEV
 C159	net return per multiplied neutron	3.21	MeV	DERIVED	C131 - C158	fn:net_extra_n
 C160	thermal per fusion at 1.6 neutrons per source	24.31	MeV	DERIVED	blanket with a Be multiplier	fn:therm_mult
 C161	energy multiplication at 1.6 neutrons per source	1.382	x	DERIVED	C160 / C01	fn:mult_16
-C162	work shortfall at phi=3, PSI reading	1.95	x	DERIVED	1 / (N(C114,3) x C136 / C100)	fn:wshort3_psi
+C162	work shortfall at phi=3, PSI reading	4.71	x	DERIVED	1 / (N(C114,3) x C136 / C100)	fn:wshort3_psi
 C163	published blanket multiplication, low end	1.1	x	SOURCED	fusion blanket design range	none
 C164	liquid hydrogen density	4.25e22	atoms/cm3	MEASURED	the paper's own figure, sec.3.2	collector.LHD_ATOMS_PER_CM3
-C165	molar volume at the required density	2.60	cm3/mol	DERIVED	2 N_A / (C151 x C164)	fn:molar_vol_phi90
+C165	molar volume at the required density	8.86	cm3/mol	DERIVED	2 N_A / (C151 x C164)	fn:molar_vol_phi90
 C166	molar volume of zero-pressure solid hydrogen	23	cm3/mol	MEASURED	standard	none
-C167	compression required over solid hydrogen	8.8	x	DERIVED	C166 / C165	fn:compression
+C167	compression required over solid hydrogen	2.6	x	DERIVED	C166 / C165	fn:compression
 C168	reported transition density	0.6	mol/cm3	SOURCED	molecular hydrogen metallization, predicted	collector.H2_TRANSITION_MOL_PER_CM3
 C169	transition density if counted as atoms	8.5	LHD	DERIVED	C168 x N_A / C164	fn:trans_atoms
 C170	transition density if counted as molecules	17.0	LHD	DERIVED	2 x C168 x N_A / C164	fn:trans_molecules
@@ -174,14 +174,14 @@ C172	pressure to which hydrogen remains molecular	440	GPa	SOURCED	Raman, measure
 C173	advanced blanket temperature	1200	K	SOURCED	proposed high-temperature blanket concepts	none
 C174	Carnot at the advanced blanket temperature	0.750	fraction	DERIVED	1 - C77 / C173	fn:carnot1200
 C175	work per fusion, all levers at bound	18.23	MeV	DERIVED	C160 x C174	fn:work_bound
-C176	service life at the lower dissociation reading	588.9	cycles	DERIVED	N(C113, C169)	fn:N_diss
-C177	thermal gain, all levers at bound	1.286	dimensionless	DERIVED	C176 x C160 / C100	fn:tq_bound
-C178	work gain, all levers at bound	0.965	dimensionless	DERIVED	C176 x C175 / C100	fn:wq_bound
-C179	work shortfall, all levers at bound	1.04	x	DERIVED	1 / C178	fn:wshort_bound
+C176	service life at the lower dissociation reading	190.1	cycles	DERIVED	N(C113, C169)	fn:N_diss
+C177	thermal gain, all levers at bound	0.415	dimensionless	DERIVED	C176 x C160 / C100	fn:tq_bound
+C178	work gain, all levers at bound	0.311	dimensionless	DERIVED	C176 x C175 / C100	fn:wq_bound
+C179	work shortfall, all levers at bound	3.21	x	DERIVED	1 / C178	fn:wshort_bound
 C180	conventional blanket temperature, low end	700	K	SOURCED	He-cooled ceramic and PbLi designs	none
 C181	service life needed for work breakeven	610.5	cycles	DERIVED	C100 / C175	fn:N_needed
 C182	effective sticking needed for work breakeven	0.1427	percent	DERIVED	solved from C181 at C169	fn:ws_needed
-C183	reduction in effective sticking required	4.0	percent	DERIVED	1 - C182 / C113	fn:ws_reduction
+C183	reduction in effective sticking required	71.7	percent	DERIVED	1 - C182 / C113	fn:ws_reduction
 C184	measured effective sticking at 5 K	0.86	percent	SOURCED	temperature study, attributed to R	none
 C185	measured effective sticking at 16 K	0.64	percent	SOURCED	temperature study, attributed to R	none
 C186	measured excursion in effective sticking	26	percent	DERIVED	1 - C185 / C184	fn:ws_excursion
@@ -201,7 +201,7 @@ C199	total value per fusion, with breeding	162.4	MeV	DERIVED	C133 + C198	fn:tota
 C200	factor by which breeding exceeds the neutron's heat	9.9	x	DERIVED	C198 / C58	fn:bred_over_heat
 C201	balance at demonstrated cycles and a real front end	0.66	dimensionless	DERIVED	C44 x C199 / C18	fn:q_demo_real
 C202	balance at demonstrated cycles with the sec.5.9 collector	1.97	dimensionless	DERIVED	C44 x C199 / (C100 / 0.9)	fn:q_demo_collector
-C203	balance at phi=3 with the sec.5.9 collector	6.30	dimensionless	DERIVED	C152 x C199 / (C100 / 0.9)	fn:q_phi3_collector
+C203	balance at phi=3 with the sec.5.9 collector	2.32	dimensionless	DERIVED	C152 x C199 / (C100 / 0.9)	fn:q_phi3_collector
 C204	review's cycle count, unpolarized	148	cycles	SOURCED	arXiv:2605.26432 Table I	none
 C205	review's cycle count, ultimate theoretical	873	cycles	SOURCED	arXiv:2605.26432 Table I	none
 C206	review's cycle rate, ultimate theoretical	5.5e8	s^-1	SOURCED	arXiv:2605.26432 Table I	none
@@ -216,11 +216,11 @@ C214	thermal per fusion, sourced blanket	26.06	MeV	DERIVED	C59 + C211 x C58	fn:t
 C215	overall energy multiplication, sourced	1.482	x	DERIVED	C214 / C01	fn:mult_sourced
 C216	conservatism of the paper's own arithmetic	1.164	x	DERIVED	C214 / C133	fn:conservatism
 C217	work per fusion, sourced blanket at 1200 K	19.55	MeV	DERIVED	C214 x C174	fn:work_sourced
-C218	thermal gain at the bound case, sourced	1.379	dimensionless	DERIVED	C176 x C214 / C100	fn:tq_sourced
-C219	work gain at the bound case, sourced	1.034	dimensionless	DERIVED	C176 x C217 / C100	fn:wq_sourced
+C218	thermal gain at the bound case, sourced	0.445	dimensionless	DERIVED	C176 x C214 / C100	fn:tq_sourced
+C219	work gain at the bound case, sourced	0.334	dimensionless	DERIVED	C176 x C217 / C100	fn:wq_sourced
 C220	total value per fusion, sourced with breeding	146.06	MeV	DERIVED	C214 + C212 x C196	fn:total_sourced
 C221	breeding balance, demonstrated cycles with collector	1.77	dimensionless	DERIVED	C44 x C220 / (C100 / 0.9)	fn:qb_demo
-C222	breeding balance at the bound case	7.73	dimensionless	DERIVED	C176 x C220 / C100	fn:qb_bound
+C222	breeding balance at the bound case	2.49	dimensionless	DERIVED	C176 x C220 / C100	fn:qb_bound
 C223	in-flight d-t rate at liquid density	2.8e4	s^-1	SOURCED	CoMD, arXiv:physics/0605206; independent approach 0.5e5	collector.LAMBDA_INFLIGHT
 C224	in-flight route slower than the molecular one	9286	x	DERIVED	C03 / C223	fn:inflight_ratio
 C225	cycles per binder in flight at phi=8.5	0.510	cycles	DERIVED	N(C223, C113, C169)	fn:N_inflight
@@ -249,41 +249,41 @@ C247	fast-neutron attenuation length in tungsten	5.5	cm	RECONSTRUCTED	removal cr
 C248	shield thinning required by the specification	5.5	cm	DERIVED	C246 - C145 less C246 - 7.5 cm	fn:shield_thinning
 C249	coil heating penalty of the specification	2.7	x	DERIVED	exp(C248 / C247)	fn:heating_penalty
 C250	coil bore increase at fixed heating	11	percent	DERIVED	C248 / C246	fn:bore_increase
-C251	collection needed, electricity, bound case	96.7	percent	DERIVED	C100 / (C176 x C217)	fn:eta_elec_bound
-C252	collection needed, electricity, phi=3	118.7	percent	DERIVED	C100 / (C152 x C217)	fn:eta_elec_phi3
-C253	collection needed, heat, bound case	72.5	percent	DERIVED	C100 / (C176 x C214)	fn:eta_heat_bound
-C254	collection needed, heat, phi=3	89.1	percent	DERIVED	C100 / (C152 x C214)	fn:eta_heat_phi3
-C255	collection needed, bred fuel, bound case	12.9	percent	DERIVED	C100 / (C176 x C220)	fn:eta_bred_bound
-C256	collection needed, bred fuel, phi=3	15.9	percent	DERIVED	C100 / (C152 x C220)	fn:eta_bred_phi3
+C251	collection needed, electricity, bound case	299.6	percent	DERIVED	C100 / (C176 x C217)	fn:eta_elec_bound
+C252	collection needed, electricity, phi=3	321.6	percent	DERIVED	C100 / (C152 x C217)	fn:eta_elec_phi3
+C253	collection needed, heat, bound case	224.7	percent	DERIVED	C100 / (C176 x C214)	fn:eta_heat_bound
+C254	collection needed, heat, phi=3	241.2	percent	DERIVED	C100 / (C152 x C214)	fn:eta_heat_phi3
+C255	collection needed, bred fuel, bound case	40.1	percent	DERIVED	C100 / (C176 x C220)	fn:eta_bred_bound
+C256	collection needed, bred fuel, phi=3	43.0	percent	DERIVED	C100 / (C152 x C220)	fn:eta_bred_phi3
 C257	collection needed, bred fuel, demonstrated cycles	50.8	percent	DERIVED	C100 / (C44 x C220)	fn:eta_bred_demo
 C258	product choice, in collector specification	7.5	x	DERIVED	C251 / C255	fn:product_ratio
 C259	bred fuel at demonstrated cycles against today's front end	1.69	x	DERIVED	C257 / C106	fn:demo_vs_frontend
 C260	collection efficiency the sec.5.9 collector targets	90	percent	DESIGN	sec.5.9, acceptance of 20 T on a 13 cm clear bore	none
-C261	heat balance, bound case, at the sec.5.9 collector	1.241	dimensionless	DERIVED	C176 x C214 / (C100 / 0.9)	fn:q_heat_bound_c90
-C262	heat balance, phi=3, at the sec.5.9 collector	1.011	dimensionless	DERIVED	C152 x C214 / (C100 / 0.9)	fn:q_heat_phi3_c90
+C261	heat balance, bound case, at the sec.5.9 collector	0.401	dimensionless	DERIVED	C176 x C214 / (C100 / 0.9)	fn:q_heat_bound_c90
+C262	heat balance, phi=3, at the sec.5.9 collector	0.373	dimensionless	DERIVED	C152 x C214 / (C100 / 0.9)	fn:q_heat_phi3_c90
 C263	heat balance, demonstrated cycles, at the sec.5.9 collector	0.316	dimensionless	DERIVED	C44 x C214 / (C100 / 0.9)	fn:q_heat_demo_c90
-C264	work balance, bound case, at the sec.5.9 collector	0.931	dimensionless	DERIVED	C176 x C217 / (C100 / 0.9)	fn:q_work_bound_c90
+C264	work balance, bound case, at the sec.5.9 collector	0.300	dimensionless	DERIVED	C176 x C217 / (C100 / 0.9)	fn:q_work_bound_c90
 C265	work balance, demonstrated cycles, at the sec.5.9 collector	0.237	dimensionless	DERIVED	C44 x C217 / (C100 / 0.9)	fn:q_work_demo_c90
-C266	breeding balance, bound case, at the sec.5.9 collector	6.96	dimensionless	DERIVED	C176 x C220 / (C100 / 0.9)	fn:q_bred_bound_c90
-C267	heat balance, bound case, at today's front end	0.414	dimensionless	DERIVED	C176 x C214 / (C100 / C106)	fn:q_heat_bound_fe
-C268	breeding balance, bound case, at today's front end	2.32	dimensionless	DERIVED	C176 x C220 / (C100 / C106)	fn:q_bred_bound_fe
+C266	breeding balance, bound case, at the sec.5.9 collector	2.25	dimensionless	DERIVED	C176 x C220 / (C100 / 0.9)	fn:q_bred_bound_c90
+C267	heat balance, bound case, at today's front end	0.134	dimensionless	DERIVED	C176 x C214 / (C100 / C106)	fn:q_heat_bound_fe
+C268	breeding balance, bound case, at today's front end	0.75	dimensionless	DERIVED	C176 x C220 / (C100 / C106)	fn:q_bred_bound_fe
 C269	breeding balance, demonstrated cycles, at today's front end	0.591	dimensionless	DERIVED	C44 x C220 / (C100 / C106)	fn:q_bred_demo_fe
 C270	HARP forward band, upper momentum edge	6.50	GeV/c	SOURCED	HARP forward pi- production tables	none
-C271	service life at phi=3, PSI reading	408.3	cycles	DERIVED	N(C08, 3)	fn:N3_psi
-C272	thermal gain at phi=3, PSI reading	0.821	dimensionless	DERIVED	C271 x C133 / C100	fn:tq3_psi
+C271	service life at phi=3, PSI reading	169.0	cycles	DERIVED	N(C08, 3)	fn:N3_psi
+C272	thermal gain at phi=3, PSI reading	0.340	dimensionless	DERIVED	C271 x C133 / C100	fn:tq3_psi
 C273	photon flux matching binder decay	1.27e28	/cm2/s	DERIVED	C02 / C237	fn:flux_match
 C274	photon flux stripping 95 percent	2.72e29	/cm2/s	DERIVED	1e7 / C237	fn:flux_95
 C275	heat balance, demonstrated cycles, at today's front end	0.105	dimensionless	DERIVED	C44 x C214 / (C100 / C106)	fn:q_heat_demo_fe
-C276	heat balance, phi=3, at today's front end	0.337	dimensionless	DERIVED	C152 x C214 / (C100 / C106)	fn:q_heat_phi3_fe
-C277	work balance, bound case, at today's front end	0.310	dimensionless	DERIVED	C176 x C217 / (C100 / C106)	fn:q_work_bound_fe
+C276	heat balance, phi=3, at today's front end	0.125	dimensionless	DERIVED	C152 x C214 / (C100 / C106)	fn:q_heat_phi3_fe
+C277	work balance, bound case, at today's front end	0.100	dimensionless	DERIVED	C176 x C217 / (C100 / C106)	fn:q_work_bound_fe
 C278	work balance, demonstrated cycles, at today's front end	0.079	dimensionless	DERIVED	C44 x C217 / (C100 / C106)	fn:q_work_demo_fe
 C279	captured muons per model-accepted pion, MARS15 front end	2.92	x	DERIVED	C106 / C143; different quantities, and that is the finding	fn:model_conservatism
 C280	heat balance, demonstrated cycles, today's aperture both hemispheres	0.215	dimensionless	DERIVED	C44 x C214 / (C100 / C142)	fn:q_heat_demo_nf
-C281	heat balance, bound case, today's aperture both hemispheres	0.842	dimensionless	DERIVED	C176 x C214 / (C100 / C142)	fn:q_heat_bound_nf
-C282	heat balance, phi=3, today's aperture both hemispheres	0.686	dimensionless	DERIVED	C152 x C214 / (C100 / C142)	fn:q_heat_phi3_nf
-C283	work balance, bound case, today's aperture both hemispheres	0.632	dimensionless	DERIVED	C176 x C217 / (C100 / C142)	fn:q_work_bound_nf
+C281	heat balance, bound case, today's aperture both hemispheres	0.272	dimensionless	DERIVED	C176 x C214 / (C100 / C142)	fn:q_heat_bound_nf
+C282	heat balance, phi=3, today's aperture both hemispheres	0.253	dimensionless	DERIVED	C152 x C214 / (C100 / C142)	fn:q_heat_phi3_nf
+C283	work balance, bound case, today's aperture both hemispheres	0.204	dimensionless	DERIVED	C176 x C217 / (C100 / C142)	fn:q_work_bound_nf
 C284	breeding balance, demonstrated cycles, today's aperture both hemispheres	1.203	dimensionless	DERIVED	C44 x C220 / (C100 / C142)	fn:q_bred_demo_nf
-C285	breeding balance, bound case, today's aperture both hemispheres	4.72	dimensionless	DERIVED	C176 x C220 / (C100 / C142)	fn:q_bred_bound_nf
+C285	breeding balance, bound case, today's aperture both hemispheres	1.52	dimensionless	DERIVED	C176 x C220 / (C100 / C142)	fn:q_bred_bound_nf
 C286	Kelly et al. optimised beam energy	3.61	GeV	SOURCED	Kelly Hart Rose J Phys Energy 3 035003 (2021), deuteron on W	collector.KELLY_BEAM_GEV
 C287	Kelly et al. pi- per beam particle	0.77	pi-/beam particle	SOURCED	same, G4Beamline, W rod 652 mm x 5.1 mm	collector.KELLY_PIMINUS_PER_BEAM
 C288	Kelly et al. target length	652	mm	SOURCED	same	collector.KELLY_TARGET_LEN_MM
@@ -294,11 +294,11 @@ C292	Kelly et al. heat per muon at 150 fusions	3.9	GeV	SOURCED	same	collector.KE
 C293	Kelly et al. reported Q, low	0.65	dimensionless	SOURCED	same	collector.KELLY_Q_LO
 C294	Kelly et al. reported Q, high	0.78	dimensionless	SOURCED	same	collector.KELLY_Q_HI
 C295	heat balance, demonstrated cycles, at Kelly's cost	0.834	dimensionless	DERIVED	C44 x C214 / C290	fn:qk_heat_demo
-C296	heat balance, bound case, at Kelly's cost	3.27	dimensionless	DERIVED	C176 x C214 / C290	fn:qk_heat_bound
+C296	heat balance, bound case, at Kelly's cost	1.06	dimensionless	DERIVED	C176 x C214 / C290	fn:qk_heat_bound
 C297	work balance, demonstrated cycles, at Kelly's cost	0.625	dimensionless	DERIVED	C44 x C217 / C290	fn:qk_work_demo
-C298	work balance, bound case, at Kelly's cost	2.46	dimensionless	DERIVED	C176 x C217 / C290	fn:qk_work_bound
+C298	work balance, bound case, at Kelly's cost	0.79	dimensionless	DERIVED	C176 x C217 / C290	fn:qk_work_bound
 C299	breeding balance, demonstrated cycles, at Kelly's cost	4.67	dimensionless	DERIVED	C44 x C220 / C290	fn:qk_bred_demo
-C300	breeding balance, bound case, at Kelly's cost	18.3	dimensionless	DERIVED	C176 x C220 / C290	fn:qk_bred_bound
+C300	breeding balance, bound case, at Kelly's cost	5.9	dimensionless	DERIVED	C176 x C220 / C290	fn:qk_bred_bound
 C301	Yin et al. assumed cost per mu-	5	GeV	SOURCED	arXiv:2605.26432 eq 7, said to include collection	collector.YIN_E_MU_GEV
 C302	Yin et al. unpolarised sticking	0.0045	fraction	SOURCED	arXiv:2605.26432 Table I	none
 C303	Yin et al. unpolarised cycle rate	2.0e8	s^-1	SOURCED	arXiv:2605.26432 Table I	none
@@ -319,9 +319,9 @@ C317	Yin et al. polarised-optimistic Q, recomputed and with collection	0.46	dime
 C318	muon transfer rate to oxygen	1.0e10	s^-1 at 1 LHD of oxygen	SOURCED	MuFusE arXiv:2606.19304 citing FAMU/Nagamine	mucf.LAMBDA_TRANSFER_OXYGEN
 C319	contamination at which impurity loss equals decay, bound case	5.49	ppm	DERIVED	C02 / (C318 x C169)	fn:purity_parity_bound
 C320	contamination at which impurity loss equals decay, phi=3	15.6	ppm	DERIVED	C02 / (C318 x 3)	fn:purity_parity_phi3
-C321	service life at bound case, 1 ppm contamination	575.8	cycles	DERIVED	N with impurity term at 1e-6	fn:N_imp_1ppm
-C322	service life at bound case, 10 ppm contamination	480.1	cycles	DERIVED	N with impurity term at 1e-5	fn:N_imp_10ppm
-C323	service life at bound case, 100 ppm contamination	180.4	cycles	DERIVED	N with impurity term at 1e-4	fn:N_imp_100ppm
+C321	service life at bound case, 1 ppm contamination	188.7	cycles	DERIVED	N with impurity term at 1e-6	fn:N_imp_1ppm
+C322	service life at bound case, 10 ppm contamination	177.1	cycles	DERIVED	N with impurity term at 1e-5	fn:N_imp_10ppm
+C323	service life at bound case, 100 ppm contamination	109.8	cycles	DERIVED	N with impurity term at 1e-4	fn:N_imp_100ppm
 C324	diamond anvil cell pressure achieved	933	MPa	SOURCED	MuFusE arXiv:2606.19304	collector.DAC_PRESSURE_MPA
 C325	diamond anvil cell temperature achieved	400	K	SOURCED	MuFusE arXiv:2606.19304	collector.DAC_TEMP_K
 C326	diamond anvil cell design temperature ceiling	500	K	SOURCED	MuFusE arXiv:2606.19304	collector.DAC_TEMP_CEILING_K
@@ -335,16 +335,11 @@ C333	sticking boundary, work, this paper's cost	0.176	percent	DERIVED	C217 / C10
 C334	sticking boundary, bred fuel, this paper's cost	1.31	percent	DERIVED	C220 / C100	fn:omega_crit_bred
 C335	sticking boundary, heat, at today's aperture both hemispheres	0.143	percent	DERIVED	C214 x C142 / C100	fn:omega_crit_heat_nf
 C336	sticking boundary, bred fuel, at today's front end	0.394	percent	DERIVED	C220 x C106 / C100	fn:omega_crit_bred_fe
-C337	density required, heat, perfect collection	2.10	LHD	DERIVED	solved from N(C113, phi) = C100 / C214	fn:phi_heat_perfect
-C338	density required, heat, at the sec.5.9 collector	2.89	LHD	DERIVED	same at 0.9	fn:phi_heat_c90
-C339	density required, work, perfect collection	6.67	LHD	DERIVED	solved from N(C113, phi) = C100 / C217	fn:phi_work_perfect
-C340	density required, work, at the sec.5.9 collector	19.2	LHD	DERIVED	same at 0.9	fn:phi_work_c90
-C341	density required, bred fuel, perfect collection	0.154	LHD	DERIVED	solved from N(C113, phi) = C100 / C220	fn:phi_bred_perfect
-C342	density required, bred fuel, at the sec.5.9 collector	0.174	LHD	DERIVED	same at 0.9	fn:phi_bred_c90
-C343	density required, bred fuel, at today's aperture both hemispheres	0.28	LHD	DERIVED	same at C142	fn:phi_bred_nf
-C344	density required, bred fuel, at today's front end	0.73	LHD	DERIVED	same at C106	fn:phi_bred_fe
-C345	service life the model gives at Los Alamos conditions	335.3	cycles	DERIVED	N(C113, 1.2)	fn:N_model_at_la
-C346	model over-prediction against the one measured point	2.24	x	DERIVED	C345 / C44	fn:model_over_measured
+C341	density required, bred fuel, perfect collection	0.222	LHD	DERIVED	solved from N(C113, phi) = C100 / C220	fn:phi_bred_perfect
+C342	density required, bred fuel, at the sec.5.9 collector	0.265	LHD	DERIVED	same at 0.9	fn:phi_bred_c90
+C343	density required, bred fuel, at today's aperture both hemispheres	0.60	LHD	DERIVED	same at C142	fn:phi_bred_nf
+C345	service life the model gives at Los Alamos conditions	152.8	cycles	DERIVED	N(C113, 1.2)	fn:N_model_at_la
+C346	model over-prediction against the one measured point	1.02	x	DERIVED	C345 / C44	fn:model_over_measured
 C347	service life at Los Alamos conditions on the final sticking	166.8	cycles	DERIVED	N(C07, 1.2)	fn:N_at_la_final_sticking
 C348	Kou and Chen SIN/Crowe anchor yield	124	fusions	SOURCED	arXiv:2607.10989 Table I, citing Crowe LBL-23816	none
 C349	their SIN/Crowe effective sticking	0.57	percent	SOURCED	arXiv:2607.10989 Table I	none
@@ -446,3 +441,4 @@ C444	reactivation the heat form requires	0.727	fraction	DERIVED	1 - C443 / C352	
 C445	factor by which reactivation must rise	2.08	x	DERIVED	C444 / C435	fn:r_shortfall
 C446	convertible yield per fusion the heat form requires	56.2	MeV	DERIVED	C100 x C434	fn:v_required_heat
 C447	binder cost the heat form requires	5.16	GeV	DERIVED	C214 / C434	fn:ebinder_required_heat
+C448	high-Z admixture: transfer rate against the cycle rate	11.6	x	DERIVED	at the concentration that would double the stripping	none
