@@ -118,11 +118,25 @@ skipped on every PR from #13 to #18: its third gate tested a secret that did not
 read `HAS_KEY: false`, and the check reported a green-looking `skipped`. Nothing was wrong and
 nothing was being reviewed, and the two are indistinguishable from outside.
 
-That is fixed. Both workflows now authenticate with `CLAUDE_CODE_OAUTH_TOKEN` (a Claude
-subscription, via `claude setup-token`) and the secret is set, so `claude-review` runs. **The
-confirmation is the job log, never the check's colour** — `changed-files` should print
-`HAS_KEY: true`. If you are ever unsure whether a review actually happened, read that line; a
-skip and a pass look the same on the PR page.
+**Both workflows authenticate with `ANTHROPIC_API_KEY`** — a metered key from platform.claude.com,
+stored as a repository secret — and all three references agree. The subscription route
+(`claude setup-token` → `CLAUDE_CODE_OAUTH_TOKEN`) was tried first and abandoned: three attempts
+across two separately minted tokens were each rejected instantly, the run initialising and then
+returning `is_error: true` with an empty `modelUsage` in 206–2057 ms. The cause was never
+established, because the action suppresses the error text (`show_full_output: true` would surface
+it). Recorded, not resolved.
+
+Switching back needs no new diagnosis, only the three-reference edit in
+`.github/CLAUDE_GITHUB_SETUP.md`: both action inputs and the `HAS_KEY` gate, all three or none.
+Note the cost difference — the API key bills separately from a Claude subscription, so reviews here
+are a metered expense rather than allowance consumption.
+
+**The confirmation is the job log, never the check's colour** — `changed-files` prints
+`HAS_KEY: true` when a credential is present. If you are ever unsure whether a review actually
+happened, read that line; a skip and a pass look the same on the PR page. This was measured once:
+with a credential present the review ran and then failed on the credential itself (initialises,
+then `is_error: true` with an empty `modelUsage` after ~2 s), which is a third state the PR page
+also renders indistinguishably from the outside.
 
 One thing the fix turned up, recorded in `.github/CLAUDE_GITHUB_SETUP.md`: the credential is named
 in **three** places, not the two the setup doc used to name. The third is the `HAS_KEY` gate, and

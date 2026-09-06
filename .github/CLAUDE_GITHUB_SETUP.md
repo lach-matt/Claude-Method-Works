@@ -43,17 +43,17 @@ Add it here:
 
 Name the secret exactly as spelled in the table, paste the value, save.
 
-**The workflows are currently wired for `CLAUDE_CODE_OAUTH_TOKEN`** — the subscription route. If
-that is what you added, there is nothing to edit; add the secret and you are done.
+**The workflows are currently wired for `ANTHROPIC_API_KEY`** — the metered API-key route. If that
+is what you added, there is nothing to edit; add the secret and you are done.
 
-**If you chose `ANTHROPIC_API_KEY` instead,** the credential is named in **three** places, not two,
+**If you choose `CLAUDE_CODE_OAUTH_TOKEN` instead,** the credential is named in **three** places, not two,
 and all three must agree. Both files carry the alternative commented out just below the live line,
 so each is a delete-one-line, uncomment-one-line edit:
 
 | file | line | what it does |
 | --- | --- | --- |
-| `.github/workflows/claude.yml` | `claude_code_oauth_token:` | what the action authenticates with |
-| `.github/workflows/claude-code-review.yml` | `claude_code_oauth_token:` | the same, for the review job |
+| `.github/workflows/claude.yml` | `anthropic_api_key:` | what the action authenticates with |
+| `.github/workflows/claude-code-review.yml` | `anthropic_api_key:` | the same, for the review job |
 | `.github/workflows/claude-code-review.yml` | `HAS_KEY: ${{ secrets.… != '' }}` | **the gate** |
 
 > **The gate is the one that bites.** An earlier revision of this page said "one line has to change
