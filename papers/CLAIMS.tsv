@@ -450,3 +450,13 @@ C453	the remaining gap in the external branch	1.30	x	DERIVED	C451 / C452	fn:rx_g
 C454	photon fluence required	2.37e22	/cm2	DERIVED	P_X inverted through C449	fn:fluence_required
 C455	sustained intensity required, on the computed cross section	2.59e13	W/cm2	DERIVED	C454 x 15 keV / a binder lifetime	fn:intensity_required
 C456	its agreement with sec.5.20's independent derivation	1.17	x	DERIVED	C455 / C238	fn:intensity_agreement
+C457	stopped binders per second for one megawatt of fusion	1.2e15	s^-1	SOURCED	this corpus, PROSE-ONLY PO-0898 / register R29	mucf.FLUX_FOR_ONE_MW
+C458	best delivered binder flux today	1.0e8	s^-1	SOURCED	PSI, same source	mucf.FLUX_PSI_TODAY
+C459	best planned binder flux	1.0e10	s^-1	SOURCED	HIMB, same source	mucf.FLUX_HIMB_PLANNED
+C460	flux gap against the best planned source	1.2e5	x	DERIVED	C457 / C459	fn:flux_gap_planned
+C461	flux gap against the best source today	1.2e7	x	DERIVED	C457 / C458	fn:flux_gap_today
+C462	cycle-rate ceiling set by the transfer step	2.6e8	s^-1	SOURCED	this corpus, PO-0897 / register R28	mucf.LAMBDA_C_CEILING
+C463	what temperature buys in cycle rate before it stops	3.6	x	SOURCED	same	mucf.TEMP_GAIN_CEILING
+C464	ambient-branch screening ceiling	30	eV	SOURCED	this corpus, PO-0894; Thomas-Fermi 29, plasmon 9, Fermi 7	none
+C465	ambient-branch screening requirement	88	eV	SOURCED	same	none
+C466	ambient branch, shortfall in rate	27	orders	SOURCED	same	none

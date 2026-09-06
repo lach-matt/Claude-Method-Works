@@ -1228,6 +1228,14 @@ def intensity_agreement():
     return intensity_required() / intensity_match()
 
 
+def flux_gap_planned():
+    return mucf.FLUX_FOR_ONE_MW / mucf.FLUX_HIMB_PLANNED
+
+
+def flux_gap_today():
+    return mucf.FLUX_FOR_ONE_MW / mucf.FLUX_PSI_TODAY
+
+
 def kelly_cost():
     return collector.kelly_cost_per_pion()
 

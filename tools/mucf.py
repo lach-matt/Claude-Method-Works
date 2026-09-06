@@ -180,6 +180,19 @@ RESERVATION_J1 = ("the 0.31% J=1 figure is carried by the paper with the "
 # throughout: fusion occurs from the GROUND state. The excited-state initial
 # sticking is therefore not the operative number, and the chain above mixes two
 # states. WITNESSED, three independent high-density measurements in 2001:
+# SOURCED, this corpus's own prior work (PROSE-ONLY PO-0898, register R29): a
+# SECOND gap, independent of and larger than the energy gap. One megawatt of
+# fusion needs 1.2e15 stopped mu-/s against ~1e8 at PSI today and ~1e10 planned
+# for HIMB -- roughly 1e5 times the best planned source. Q > 1 is necessary and
+# not sufficient.
+FLUX_FOR_ONE_MW = 1.2e15         # stopped mu- per second
+FLUX_PSI_TODAY = 1.0e8
+FLUX_HIMB_PLANNED = 1.0e10
+# SOURCED, PO-0897 (register R28): the cycle is a harmonic sum, so driving the
+# formation resonance moves the bottleneck to TRANSFER, verified at 2.7e8.
+# lambda_c therefore saturates at 2.6e8; temperature buys 3.6x and then stops.
+LAMBDA_C_CEILING = 2.6e8
+TEMP_GAIN_CEILING = 3.6
 OMEGA_EFF_MEASURED = (0.00532, 0.00515, 0.00505)   # liquid, solid, liquid
 OMEGA_EFF_THEORY = 0.00557       # = OMEGA_INITIAL_MODERN x (1 - R_REACTIVATION)
 R_REACTIVATION = 0.35            # phi = 1.2-1.5; density dependence very small

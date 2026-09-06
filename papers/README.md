@@ -17,6 +17,7 @@ lattice, and asserts nothing about the main paper's subject matter.
 | file | what it is |
 |---|---|
 | **`Cold_Fusion_Binder_Economy_v1.0.md`** | **The current paper.** Supersedes and retires the three retired below. Definition, the seven conditions, the unique realisation, the eighth condition that decides net energy, the two routes to a positive balance, and §10 — the laboratory programme, four staged measurements on apparatus that exists. |
+| **`Cold_Fusion_Specification_and_Procedure_v1.0.md`** | **The executable half.** The reaction specified to the last free parameter, a bill of materials in two columns (a bench demonstration and a reactor-scale target), and the laboratory procedure that witnesses it — with what it returns and what it cannot stated before anything else. |
 | **`Independent_Reconciliation_v1.0.md`** | **Its companion**, and a paper in its own right. Sets the work above beside four independent results published while it was being done: an independent derivation of condition 8, an independent proposal of the same fission-breeding escape, an independent pricing of the stripping route, and an optimised production target. Reports three corrections, one of them to the companion's own service-life model. |
 | `CLAIMS.tsv` | The claims ledger: every quantity the current paper states, with status, provenance and its verifying computation. |
 | `Muon_Catalysed_Fusion_v1.1.md` *(retired)* | The muon-catalysed fusion paper. Supersedes `recovered/Muon_Catalysed_Fusion_v1.0.md` (1 Aug 2026). Revises §3.2, §4 and §5; §§1–2, 3.1, 3.3–3.6 and 6 stand. |
@@ -73,6 +74,7 @@ left the standard's main pass checking the sentences around the numbers rather t
 Five figures had been standing unbacked when the exemption was removed; all five now carry rows.
 
     python3 tools/verify_paper.py papers/Cold_Fusion_Binder_Economy_v1.0.md \
+                                 papers/Cold_Fusion_Specification_and_Procedure_v1.0.md \
                                  papers/Independent_Reconciliation_v1.0.md
 
 **One ledger governs both current papers.** They were split for readability, not into separate
