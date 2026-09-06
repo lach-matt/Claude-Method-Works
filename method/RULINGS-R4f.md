@@ -123,7 +123,14 @@ protactinium's 5f² carries one, and it is why a residual measured on nearly-ful
 nearly-empty one. **It enters the volumes**, held for the prose pass under `RULINGS-R4c` §3 like every other
 settled piece of subject matter, and its wording is M's.
 
-**The still-open half, and it governs.** Ruling 4 is not lifted by ruling 4's discharge. The 5f figure at
-protactinium is **not accepted**: `FINDING-R4-16`'s correction records the ion-relaxation subtraction — the other
-half of bridge 34's instruction — as never run, here or in the record, and it can only move the figure down.
-Testing continues until the residue is closed and verified, per ruling 4's own words.
+**The still-open half, and it governed until it was discharged.** Ruling 4 was not lifted by its own first
+discharge: the ion-relaxation subtraction, the other half of bridge 34's instruction, had never been run by
+anyone. **M then ordered it — *"do it. let's close this question"* — and it is run in `FINDING-R4-17`.** It is the
+sibling-count law a third time: +2.7 % at protactinium with one sibling, converging, against +59 % at ytterbium
+with thirteen, so the frozen second-order route is controlled at protactinium and is not at ytterbium.
+
+**Ruling 4 is discharged in full.** The 5f removal energy at protactinium is **6.95 eV, range 6.94–7.05**, and
+t(5f) = 2.636 — the object's prediction carrying the single-entrant class residual measured at six openings, with
+`FINDING-R4-16`'s 7.05–7.08 withdrawn as double-counting a term form S already approximates. What remains open is
+a different object and was never protactinium's: the compact-shell corridor at ytterbium, which the record left
+open and which this pass has sharpened rather than solved.

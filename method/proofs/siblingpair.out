@@ -67,6 +67,31 @@
     it is the weakest-correlating term of the seven, at 0.54 of the average, against 5.0 for the 1S singlet.
     So the average pair is the wrong quantity for protactinium and the term-resolved one is right.
 
+  THE ION-RELAXATION SUBTRACTION  (bridge 34's other instruction, never run by the record)
+
+   Each system in its OWN field.  frozen = one entrant electron's pairs in the neutral's orbitals,
+   which is what mp2_ent reports; true = the two systems differenced, which is what a removal costs.
+   With no relaxation the two are identically equal, so every departure IS the relaxation.
+
+    Z  el   LMAX    c_neutral   c_ion      frozen      true    relaxation   true/frozen
+    91 Pa    3     -0.05104  -0.04547    -0.05442  -0.05999    -0.00557        1.102
+    91 Pa    4     -0.11152  -0.10686    -0.11993  -0.12459    -0.00466        1.039
+    91 Pa    5     -0.13041  -0.12660    -0.13954  -0.14335    -0.00381        1.027
+    70 Yb    3     -0.06638  -0.06166    -0.17619  -0.35795    -0.18176        2.032
+    70 Yb    4     -0.11077  -0.10602    -0.26943  -0.44776    -0.17833        1.662
+    70 Yb    5     -0.12588  -0.12148    -0.29252  -0.46557    -0.17305        1.592
+
+   AND IT IS THE SIBLING COUNT AGAIN, MEASURED A THIRD WAY.  At protactinium, with ONE sibling, the
+   relaxation is 2.7 % of the frozen value and CONVERGING -- 10.2, 3.9, 2.7 % at LMAX 3, 4, 5.
+   At ytterbium, with THIRTEEN, it is 59 %: thirteen electrons' environments change where
+   protactinium's one does.  So the frozen second-order route is CONTROLLED at protactinium and
+   is not at ytterbium -- which is why the record could not close the 4f object, and why it ordered
+   this subtraction before any reading of it.
+
+   And the sibling pair is a small part of what protactinium loses: 0.00494 Ha of 0.14335,
+   which is 3.4 %.  The other 96.6 % is core correlation -- the same kind, in the same
+   proportion, that the six anchored openings of FINDING-R4-15 measure against NIST and certify.
+
   WHAT THIS IS AND IS NOT.  The record's own reading governs: frozen second order on local orbitals
   OVERESTIMATES (He x1.3), and the ion's own correlation relaxation, which reduces the removal
   correlation, is ABSENT here.  So this is a lower-bound-shaped estimate of what the removal energy is

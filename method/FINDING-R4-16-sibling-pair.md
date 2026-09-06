@@ -203,3 +203,24 @@ So the figure has settled at **7.05–7.08 eV**, inside but at the bottom of §5
 **It is not closed, and the reason is named: the ion-relaxation subtraction — the other half of bridge 34's
 instruction — is still not run**, here or in the record. It can only move the figure down. Until it is run the
 7.05–7.08 eV is a one-sided estimate, and the single-entrant class scatter of ±0.1 eV sits on top of it.
+
+---
+
+## §5's FIGURE IS SUPERSEDED by FINDING-R4-17, and its addition was double-counting
+
+The ion-relaxation subtraction — bridge 34's other instruction, which this file recorded as never run — **is now
+run**, in `FINDING-R4-17`. It closes the question, and it corrects this file twice over.
+
+**The 7.05–7.08 eV is withdrawn.** It added the sibling pair energy on top of a prediction that already contained
+form S's estimate of it. ε_c^S is a density functional with a per-orbital self-interaction correction: it sees the
+total spin density and cannot distinguish a sibling electron from a core one, so both of protactinium's 5f
+electrons are already in ΔEc^S = −0.0327 Ha. **The sibling was approximated, not omitted, and adding it counted it
+twice.** The figure is **6.95 eV, range 6.94–7.05**, which is the object's prediction carrying the measured
+single-entrant class residual and nothing else.
+
+**And the sibling-count law is confirmed a third time, which is what this file got right.** The relaxation is
+**+2.7 %** of the frozen value at protactinium with its one sibling, converging over LMAX 3→5, against **+59 %**
+at ytterbium with its thirteen. The frozen second-order route is controlled at protactinium and is not at
+ytterbium — the same separation §4 established by sibling count, now measured a third independent way.
+
+**§4's conclusion therefore stands and is stronger; §5's arithmetic falls.**

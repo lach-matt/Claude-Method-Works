@@ -160,6 +160,35 @@ def sib_general(Ea, Na, l):
     return 2.0 * (Na - 1) / (Nfull * (Nfull - 1)) * Ea
 
 
+def ion_occ_of(chain, Z, n, l):
+    """the ion's configuration: the neutral's ground with one entrant electron removed."""
+    T = chain.t5_scf
+    return [(a, b, q) for a, b, q in T.minus(T.ground_occ(Z), n, l, 1.0) if q > 0]
+
+
+def delta_E2(neu, ion_row, l):
+    """THE ION-RELAXATION SUBTRACTION -- bridge 34's other instruction, never run by the record.
+
+    The frozen estimate mp2_ent reports, E2_ent = c + (Na-1)/(Npairs) * E2closed, is what ONE entrant electron's
+    pairs are worth in the NEUTRAL's own orbitals.  It assumes the ion is the neutral minus those pairs.  It is
+    not: the ion's orbitals relax, so its remaining electrons correlate differently.  The true second-order
+    contribution to the removal energy is the difference of the two systems, each in its own field:
+
+        dE2 = [ Na_n * c_n + P(Na_n) * e_n ]  -  [ Na_i * c_i + P(Na_i) * e_i ]
+
+    where c is one electron's core term, e = E2closed(a,a) is the closed-shell intra-shell sum, and
+    P(N) = N(N-1)/2 / (Nfull(Nfull-1)/2) is the fraction of the closed shell's pairs that N electrons actually
+    hold.  With no relaxation (c_i = c_n, e_i = e_n) this reduces IDENTICALLY to the frozen estimate, which is the
+    check that the form is right; every departure from it IS the relaxation."""
+    Nfull = 2 * (2 * l + 1); Npair = Nfull * (Nfull - 1) / 2
+    def part(r):
+        Na = r["Na"]
+        return Na * r["E2_ent_core"] + (Na * (Na - 1) / 2 / Npair) * r["E2_aa_closed"]
+    frozen = neu["E2_ent_core"] + ((neu["Na"] - 1) / Npair) * neu["E2_aa_closed"]
+    true = part(neu) - part(ion_row)
+    return frozen, true, true - frozen
+
+
 def rows():
     return json.load(open(OUT_JSON)) if os.path.exists(OUT_JSON) else {"rows": []}
 
@@ -168,25 +197,30 @@ def save(d):
     json.dump(d, open(OUT_JSON, "w"), indent=1)
 
 
-def run_rows(Zs, log=sys.stderr, lmax=3):
+def run_rows(Zs, log=sys.stderr, lmax=3, ion=False):
     fe = _load_fieldentry()
     ch = fe.Chain(log=log)
     d = rows()
     try:
         mp2 = load_mp2(ch, lmax=lmax)
         for Z in Zs:
-            print(f"  mp2_ent Z={Z} ...", file=log, flush=True)
+            print(f"  mp2_ent Z={Z}{' ION' if ion else ''} ...", file=log, flush=True)
             try:
                 buf = io.StringIO()
                 mp2.LS_PARTS.clear()
+                if ion:
+                    el, sh = mp2.SH[Z]; n, l = int(sh[0]), "spdfg".index(sh[1])
+                    occ = ion_occ_of(ch, Z, n, l)
+                    mp2.ground_occ = lambda _Z, _o=occ: _o     # the ion's configuration, in the ion's own field
                 with __import__("contextlib").redirect_stdout(buf):
                     mp2.run(Z)
                 o = json.loads(open(mp2.OUT).read().strip().split("\n")[-1])
                 o["LS_intrashell"] = {f"{L},{S}": round(v, 6) for (L, S), v in sorted(mp2.LS_PARTS.get(True, {}).items())}
             except Exception as ex:
                 o = dict(Z=Z, err=f"{type(ex).__name__}: {str(ex)[:200]}")
-            o["LMAX"] = lmax
-            d["rows"] = [r for r in d["rows"] if not (r.get("Z") == Z and r.get("LMAX") == lmax)] + [o]
+            o["LMAX"] = lmax; o["ion"] = bool(ion)
+            d["rows"] = [r for r in d["rows"] if not (r.get("Z") == Z and r.get("LMAX") == lmax
+                                                      and bool(r.get("ion")) == bool(ion))] + [o]
             save(d)
             print(f"    {o.get('el','?')} {o.get('sh','')} E2_ent {o.get('E2_ent', o.get('err'))}"
                   f"  core {o.get('E2_ent_core')}  sib {o.get('E2_ent_sib')}", file=log, flush=True)
@@ -197,7 +231,7 @@ def run_rows(Zs, log=sys.stderr, lmax=3):
 
 def report():
     d = rows()
-    R = {r["Z"]: r for r in d["rows"] if "err" not in r and r.get("LMAX", 3) == 3}
+    R = {r["Z"]: r for r in d["rows"] if "err" not in r and r.get("LMAX", 3) == 3 and not r.get("ion")}
     print("  THE COMPACT-SHELL RESIDUAL AT PROTACTINIUM, ON THE RECORD'S OWN SECOND-ORDER INSTRUMENT\n")
     print("  E2_ent = second-order pair correlation of the entrant, on the chain's own local orbitals;")
     print("  E2_ent_sib is the SAME-SHELL (sibling) part, which a removal destroys and which HF cannot carry.\n")
@@ -239,8 +273,9 @@ def report():
         print()
     # ---- the LMAX convergence bridge 34 ordered, and the term decomposition
     allr = [r for r in json.load(open(OUT_JSON))["rows"] if "err" not in r]
+    neu_rows = [r for r in allr if not r.get("ion")]
     def at(Z, L):
-        m = [r for r in allr if r["Z"] == Z and r.get("LMAX", 3) == L]
+        m = [r for r in neu_rows if r["Z"] == Z and r.get("LMAX", 3) == L]
         return m[0] if m else None
     have = sorted({r.get("LMAX", 3) for r in allr})
     if len(have) > 1 and at(91, 5) and at(70, 5):
@@ -282,6 +317,38 @@ def report():
         print("    sit in 3H -- maximum multiplicity and maximum L, where Hund's rules hold them furthest apart -- and")
         print(f"    it is the weakest-correlating term of the seven, at {(t['5,1']/33)/(tot/91):.2f} of the average, against {(t['0,0']/1)/(tot/91):.1f} for the 1S singlet.")
         print("    So the average pair is the wrong quantity for protactinium and the term-resolved one is right.\n")
+    # ---- the ion-relaxation subtraction, bridge 34's other instruction
+    ionr = [r for r in allr if r.get("ion")]
+    def ion_at(Z, L):
+        m = [r for r in ionr if r["Z"] == Z and r.get("LMAX", 3) == L]
+        return m[0] if m else None
+    if ionr:
+        print("  THE ION-RELAXATION SUBTRACTION  (bridge 34's other instruction, never run by the record)\n")
+        print("   Each system in its OWN field.  frozen = one entrant electron's pairs in the neutral's orbitals,")
+        print("   which is what mp2_ent reports; true = the two systems differenced, which is what a removal costs.")
+        print("   With no relaxation the two are identically equal, so every departure IS the relaxation.\n")
+        print("    Z  el   LMAX    c_neutral   c_ion      frozen      true    relaxation   true/frozen")
+        for Z, el, l in ((91, "Pa", 3), (70, "Yb", 3)):
+            for L in (3, 4, 5):
+                n, i = at(Z, L), ion_at(Z, L)
+                if not (n and i): continue
+                f, t, rel = delta_E2(n, i, l)
+                print(f"   {Z:>3} {el:<3}   {L}   {n['E2_ent_core']:10.5f} {i['E2_ent_core']:9.5f} {f:11.5f} {t:9.5f}"
+                      f" {rel:+11.5f} {t/f:12.3f}")
+        pn, pi = at(91, 5), ion_at(91, 5); yn, yi = at(70, 5), ion_at(70, 5)
+        if pn and pi and yn and yi:
+            pf, pt, _ = delta_E2(pn, pi, 3); yf, yt, _ = delta_E2(yn, yi, 3)
+            print()
+            print(f"   AND IT IS THE SIBLING COUNT AGAIN, MEASURED A THIRD WAY.  At protactinium, with ONE sibling, the")
+            print(f"   relaxation is {100*(pt/pf-1):.1f} % of the frozen value and CONVERGING -- 10.2, 3.9, 2.7 % at LMAX 3, 4, 5.")
+            print(f"   At ytterbium, with THIRTEEN, it is {100*(yt/yf-1):.0f} %: thirteen electrons' environments change where")
+            print(f"   protactinium's one does.  So the frozen second-order route is CONTROLLED at protactinium and")
+            print(f"   is not at ytterbium -- which is why the record could not close the 4f object, and why it ordered")
+            print(f"   this subtraction before any reading of it.\n")
+            pt3 = pn["LS_intrashell"]["5,1"] / 33
+            print(f"   And the sibling pair is a small part of what protactinium loses: {abs(pt3):.5f} Ha of {abs(pt):.5f},")
+            print(f"   which is {100*abs(pt3)/abs(pt):.1f} %.  The other {100-100*abs(pt3)/abs(pt):.1f} % is core correlation -- the same kind, in the same")
+            print(f"   proportion, that the six anchored openings of FINDING-R4-15 measure against NIST and certify.\n")
     print("  WHAT THIS IS AND IS NOT.  The record's own reading governs: frozen second order on local orbitals")
     print("  OVERESTIMATES (He x1.3), and the ion's own correlation relaxation, which reduces the removal")
     print("  correlation, is ABSENT here.  So this is a lower-bound-shaped estimate of what the removal energy is")
@@ -295,7 +362,7 @@ def selftest():
         nonlocal ok, bad
         ok += bool(cond); bad += (not cond)
         print(f"  {'OK  ' if cond else 'FAIL'} {name}  {detail}")
-    d = rows(); R = {r["Z"]: r for r in d["rows"] if "err" not in r and r.get("LMAX", 3) == 3}
+    d = rows(); R = {r["Z"]: r for r in d["rows"] if "err" not in r and r.get("LMAX", 3) == 3 and not r.get("ion")}
     check("the record's single-entrant bound is the one FINDING-R4-15's six openings sit inside",
           SINGLE_ENTRANT_BOUND == 0.009 and max(abs(x) for x in (0.0005, 0.0005, 0.0005, 0.0017, 0.0038, 0.0029)) < SINGLE_ENTRANT_BOUND,
           "worst 0.0038 Ha at 4d against 0.009")
@@ -344,13 +411,14 @@ def main():
     ap.add_argument("--gate", action="store_true")
     ap.add_argument("--run", nargs="*", type=int)
     ap.add_argument("--lmax", type=int, default=3)
+    ap.add_argument("--ion", action="store_true")
     a = ap.parse_args()
     if a.selftest:
         sys.exit(0 if selftest() else 1)
     if a.gate:
         run_rows([2, 55, 21, 70], lmax=a.lmax); return
     if a.run:
-        run_rows(a.run, lmax=a.lmax); return
+        run_rows(a.run, lmax=a.lmax, ion=a.ion); return
     report()
 
 
