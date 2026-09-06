@@ -1,0 +1,18 @@
+# Br VI — NIST ASD levels, fetched live 2026-08-14 (session 1.8, batch 2 fetch 10).
+# destination_url VERIFIED: energy1.pl?...spectrum=Br+VI...format=2&units=0 (cm-1)
+# Zn-like two-electron. ELEVEN LEVELS: 4s2, 4s4p, 4p2 (3P only, no 1D/1S),
+# 4s4d 3D — the singlet ladder above 1P* is absent. Limit: Br VII
+# (4s 2S<1/2>) 704850.
+Configuration	Term	J	Level_cm-1
+3d10.4s2	1S	0	0
+3d10.4s.4p	3P*	0	104316.
+3d10.4s.4p	3P*	1	106431.
+3d10.4s.4p	3P*	2	111336.
+3d10.4s.4p	1P*	1	151274.
+3d10.4p2	3P	0	244136.
+3d10.4p2	3P	1	247406.
+3d10.4p2	3P	2	253892.
+3d10.4s.4d	3D	1	304648.
+3d10.4s.4d	3D	2	304967.
+3d10.4s.4d	3D	3	305451.
+Br_VII_(4s_2S<1/2>)	Limit	---	704850

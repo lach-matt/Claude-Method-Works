@@ -1,0 +1,2 @@
+id	verdict	reason
+1128	defect	C9-OVERGENERALISATION-WORD, main L5699, token "never": "the one place in this work where ℛ has never been the right operator." Not a regex artefact. Register 1790 (reg L6603) measures a K₃ of treewidth 2 inside the tower itself from Λ₁₀ onward — "one level short, now inside the tower itself and not only in the bracket" — so the bracket is not the one place. The overgeneralisation is the claim, not the word. Same class as 14b-05; repaired with it or not at all.

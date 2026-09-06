@@ -1,0 +1,286 @@
+# Zr I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Zr+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Zr+I confirmed. Levels in cm-1.
+# ** SECOND ATTEMPT; the first was served Y I's body (ZrI-ATTEMPT-1.err). **
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Zr II (4d2.5s 4F<3/2>)  53507.832 cm-1
+#
+# 4d2.5s2 ground. LETTER PREFIXES REACH THEIR MAXIMUM HERE: the even
+# side runs a,b,c,e,f and the odd side z,y,x,w,v,u,t,s,r,q,p,o —
+# SEVENTEEN letters, past V II's fourteen. The odd alphabet is run from
+# z down to o without a break.
+#
+# ** A NOTATION NOT SEEN BEFORE: A PARENT TERM CARRYING ITS OWN LETTER —
+#    "4d3.(b 2D).5s" and "4d2.5s.(a 4F).5p". The letter that
+#    disambiguates a term is applied INSIDE the parent designation, so
+#    the parent itself needs the same disambiguation the daughter does. **
+#
+# THREE MORE SOURCE CONDITIONS, all kept verbatim:
+#   - SQUARE-BRACKET PREFIX/SUFFIX marking an INTERPOLATED level:
+#     1S* J=0 at [21600], w 3P* J=0 at [34995], 3P* J=1 at [38140]
+#   - THREE ROWS WITH A BLANK LEVEL: e 5H J=3, f 5F J=1, f 5F J=2.
+#     Named here so their absence is a record, not a gap.
+#   - QUERY MARKS IN THE CONFIGURATION: 4d2.5s.6p?, 4d2.5s.5p?,
+#     4d2.5s.7p? — the assignment itself uncertain, as in Y I.
+#
+# config	term	J	level_cm1	note
+4d2.5s2	a 3F	2	0.00	
+4d2.5s2	a 3F	3	570.41	
+4d2.5s2	a 3F	4	1240.84	
+4d2.5s2	a 3P	2	4186.11	
+4d2.5s2	a 3P	0	4196.85	
+4d2.5s2	a 3P	1	4376.28	
+4d2.5s2	a 1D	2	5101.68	
+4d2.5s2	a 1G	4	8057.30	
+4d3.(4F).5s	a 5F	1	4870.53	
+4d3.(4F).5s	a 5F	2	5023.41	
+4d3.(4F).5s	a 5F	3	5249.07	
+4d3.(4F).5s	a 5F	4	5540.54	
+4d3.(4F).5s	a 5F	5	5888.93	
+4d3.(4F).5s	b 3F	2	11640.72	
+4d3.(4F).5s	b 3F	3	11956.33	
+4d3.(4F).5s	b 3F	4	12342.37	
+4d3.(4P).5s	a 5P	1	10885.36	
+4d3.(4P).5s	a 5P	2	11016.65	
+4d3.(4P).5s	a 5P	3	11258.38	
+4d3.(4P).5s	b 3P	0	15624.34	
+4d3.(4P).5s	b 3P	1	15932.10	
+4d3.(4P).5s	b 3P	2	16522.23	
+4d3.(2G).5s	a 3G	3	12503.44	
+4d3.(2G).5s	a 3G	4	12760.66	
+4d3.(2G).5s	a 3G	5	12772.78	
+4d3.(2G).5s	b 1G	4	17752.73	
+4d3.(2H).5s	a 3H	4	14791.28	
+4d3.(2H).5s	a 3H	5	14988.51	
+4d3.(2H).5s	a 3H	6	15119.66	
+4d3.(2H).5s	a 1H	5	18738.94	
+4d3.(2P).5s	c 3P	1	17059.82	
+4d3.(2P).5s	c 3P	2	17142.72	
+4d3.(2P).5s	c 3P	0	17321.52	
+4d4	a 5D	0	21726.28	
+4d4	a 5D	1	21801.21	
+4d4	a 5D	2	21943.74	
+4d4	a 5D	3	22145.31	
+4d4	a 5D	4	22398.00	
+4d2.5s.(4F).6s	e 5F	1	35046.95	
+4d2.5s.(4F).6s	e 5F	2	35210.30	
+4d2.5s.(4F).6s	e 5F	3	35476.07	
+4d2.5s.(4F).6s	e 5F	4	35860.83	
+4d2.5s.(4F).6s	e 5F	5	36360.20	
+4d2.5s.(4F).6s	e 3F	2	37459.60	
+4d2.5s.(4F).6s	e 3F	3	37701.08	
+4d2.5s.(4F).6s	e 3F	4	38101.09	
+4d3.(4F).6s	f 5F	3	40653.41	
+4d3.(4F).6s	f 5F	4	40849.70	
+4d3.(4F).6s	f 5F	5	41068.00	
+4d2.5s.(4F).5d	e 5H	4	39936.70	
+4d2.5s.(4F).5d	e 5H	5	40637.05	
+4d2.5s.(4F).5d	e 5H	6	41443.53	
+4d2.5s.(4F).5d	e 5H	7	42086.82	
+4d2.5s.(4F).5d	e 5G	2	40660.65	
+4d2.5s.(4F).5d	e 5G	3	40887.61	
+4d2.5s.(4F).5d	e 5G	4	41179.30	
+4d2.5s.(4F).5d	e 5G	5	41538.23	
+4d2.5s.(4F).5d	e 5G	6	41940.86	
+4d2.5p2	f 5G	2	45798.48	
+4d2.5p2	f 5G	3	46195.15	
+4d2.5p2	f 5G	4	46641.42	
+4d2.5p2	f 5G	5	47134.50	
+4d2.5p2	f 5G	6	47698.29	
+4d.5s2.5p	z 1D*	2	17511.78	
+4d.5s2.5p	x 1F*	3	26226.97	
+4d.5s2.5p	w 3F*	2	27876.16	
+4d.5s2.5p	w 3F*	3	28157.42	
+4d.5s2.5p	y 1P*	1	32722.80	
+4d2.5s.5p	z 5G*	2	14783.54	
+4d2.5s.5p	z 5G*	3	15201.26	
+4d2.5s.5p	z 5G*	4	15720.36	
+4d2.5s.5p	z 5G*	5	16316.96	
+4d2.5s.5p	z 5G*	6	16978.29	
+4d2.5s.5p	z 3F*	2	16296.51	
+4d2.5s.5p	z 3F*	3	16843.93	
+4d2.5s.5p	z 5F*	1	16786.93	
+4d2.5s.5p	z 5F*	2	17059.61	
+4d2.5s.5p	z 5F*	3	17422.17	
+4d2.5s.5p	z 5F*	4	17832.73	
+4d2.5s.5p	z 3D*	1	17429.86	
+4d2.5s.5p	z 3D*	2	17813.64	
+4d2.5s.5p	z 3D*	3	18243.56	
+4d2.5s.5p	z 5D*	0	18976.36	
+4d2.5s.5p	z 5D*	1	19096.53	
+4d2.5s.5p	z 5D*	2	19323.84	
+4d2.5s.5p	z 3P*	0	20233.97	
+4d2.5s.5p	z 3P*	2	20466.83	
+4d2.5s.5p	z 3P*	1	20519.20	
+4d2.5s.5p	z 3G*	3	21849.33	
+4d2.5s.5p	z 3G*	4	22144.08	
+4d2.5s.5p	z 3G*	5	22563.89	
+4d2.5s.5p	z 3S*	1	21974.18	
+4d2.5s.5p	y 1D*	2	22750.53	
+4d2.5s.5p	y 3D*	1	23018.92	
+4d2.5s.5p	y 3D*	2	23319.86	
+4d2.5s.5p	y 3D*	3	23660.97	
+4d2.5s.5p	z 5S*	2	23085.06	
+4d2.5s.5p	y 5D*	0	23122.29	
+4d2.5s.5p	y 5D*	1	23246.33	
+4d2.5s.5p	y 5D*	2	23489.43	
+4d2.5s.5p	y 5D*	3	23889.03	
+4d2.5s.5p	y 5D*	4	24376.37	
+4d2.5s.5p	y 3F*	3	23567.12	
+4d2.5s.5p	y 3F*	2	23597.47	
+4d2.5s.5p	y 3F*	4	24006.30	
+4d2.5s.5p	y 1F*	3	24387.52	
+4d2.5s.5p	z 5P*	1	25489.87	
+4d2.5s.5p	z 5P*	2	25645.97	
+4d2.5s.5p	z 5P*	3	25898.16	
+4d2.5s.5p	y 3G*	3	25729.96	
+4d2.5s.5p	y 3G*	4	26011.55	
+4d2.5s.5p	y 3G*	5	26433.72	
+4d2.5s.5p	x 3D*	1	26154.13	
+4d2.5s.5p	x 3D*	2	26557.21	
+4d2.5s.5p	x 3D*	3	27111.16	
+4d2.5s.5p	y 3P*	1	27572.52	
+4d2.5s.5p	y 3P*	0	27600.24	
+4d2.5s.5p	y 3P*	2	27673.35	
+4d2.5s.5p	z 3H*	4	27908.28	
+4d2.5s.5p	z 3H*	5	28211.82	
+4d2.5s.5p	z 3H*	6	28608.62	
+4d2.5s.5p	x 3P*	0	28632.75	
+4d2.5s.5p	x 3P*	1	28709.88	
+4d2.5s.5p	x 3P*	2	28909.57	
+4d2.5s.5p	v 3D*	1	28800.51	
+4d2.5s.5p	v 3D*	2	29057.84	
+4d2.5s.5p	v 3D*	3	29274.82	
+4d2.5s.5p	z 1P*	1	28999.46	
+4d2.5s.5p	1D*	2	32972.30	
+4d2.5s.5p	x 3S*	1	33113.80	
+4d2.5s.5p	1F*	3	33191.86	
+4d2.5s.5p	t 3F*	2	35514.53	
+4d2.5s.5p	t 3F*	3	35805.63	
+4d2.5s.5p	t 3F*	4	36001.35	
+4d2.5s.5p	t 3D*	1	36125.16	
+4d2.5s.5p	t 3D*	3	36220.45	
+4d2.5s.5p	t 3D*	2	36294.87	
+4d2.5s.5p	t 3P*	0	40536.38	
+4d2.5s.5p	t 3P*	1	40973.94	
+4d2.5s.5p	t 3P*	2	41787.62	
+4d3.5p	y 5G*	2	25630.48	
+4d3.5p	y 5G*	3	25971.71	
+4d3.5p	y 5G*	4	26342.53	
+4d3.5p	w 3D*	1	26902.45	
+4d3.5p	w 3D*	2	27121.96	
+4d3.5p	w 3D*	3	27482.26	
+4d3.5p	y 5F*	1	28446.92	
+4d3.5p	y 5F*	2	28595.03	
+4d3.5p	y 5F*	3	28818.02	
+4d3.5p	x 5D*	0	29588.07	
+4d3.5p	x 5D*	1	29677.14	
+4d3.5p	x 5D*	2	29847.49	
+4d3.5p	w 3G*	3	31326.81	
+4d3.5p	w 3G*	4	31694.52	
+4d3.5p	w 3G*	5	32152.16	
+4d3.5p	u 3F*	2	33163.98	
+4d3.5p	u 3F*	3	33420.47	
+4d3.5p	u 3F*	4	33559.34	
+4d3.5p	w 5D*	0	33349.56	
+4d3.5p	w 5D*	1	33444.87	
+4d3.5p	w 5D*	2	33632.48	
+4d3.5p	w 5D*	3	33912.09	
+4d3.5p	w 5D*	4	34287.49	
+4d3.5p	u 3D*	1	33486.82	
+4d3.5p	u 3D*	2	33764.12	
+4d3.5p	u 3D*	3	34239.82	
+4d3.5p	y 3H*	4	34450.60	
+4d3.5p	y 3H*	5	34705.90	
+4d3.5p	y 3H*	6	35135.07	
+4d3.5p	y 5P*	1	34617.00	
+4d3.5p	y 5P*	2	34761.52	
+4d3.5p	y 5P*	3	35090.90	
+4d3.5p	w 3P*	1	35205.52	
+4d3.5p	w 3P*	2	35456.25	
+4d3.5p	z 3I*	5	35781.67	
+4d3.5p	z 3I*	7	36152.85	
+4d3.5p	z 3I*	6	36173.03	
+4d3.5p	y 5S*	2	35990.21	
+4d3.5p	x 1G*	4	36336.48	
+4d3.5p	x 3H*	5	36597.48	
+4d3.5p	x 3H*	4	36608.41	
+4d3.5p	x 3H*	6	36840.59	
+4d3.5p	w 1F*	3	36759.90	
+4d3.5p	v 3G*	3	36941.65	
+4d3.5p	v 3G*	4	37229.54	
+4d3.5p	v 3G*	5	37422.36	
+4d3.5p	1P*	1	36970.65	
+4d3.5p	s 3F*	2	37123.42	
+4d3.5p	s 3F*	3	37468.87	
+4d3.5p	s 3F*	4	37920.96	
+4d3.5p	s 3D*	1	38270.81	
+4d3.5p	s 3D*	2	38326.72	
+4d3.5p	s 3D*	3	38435.88	
+4d3.5p	z 1I*	6	38475.82	
+4d3.5p	r 3F*	2	38566.00	
+4d3.5p	r 3F*	3	38881.80	
+4d3.5p	r 3F*	4	39174.44	
+4d3.5p	x 1P*	1	39704.10	
+4d3.5p	r 3D*	2	39766.47	
+4d3.5p	r 3D*	3	40346.35	
+4d3.5p	v 1F*	3	39803.73	
+4d3.5p	y 1H*	5	39855.22	
+4d3.5p	3S*	1	40931.60	
+4d3.5p	q 3D*	1	42296.80	
+4d3.5p	q 3D*	2	42433.65	
+4d3.5p	q 3D*	3	42799.20	
+4d3.(4F).5p	y 5G*	5	26765.66	
+4d3.(4F).5p	y 5G*	6	27214.89	
+4d3.(4F).5p	y 5F*	4	29122.71	
+4d3.(4F).5p	y 5F*	5	29535.48	
+4d3.(4F).5p	x 5D*	3	30087.33	
+4d3.(4F).5p	x 5D*	4	30384.50	
+4d3.(2F).5p	v 1D*	2	40557.65	
+4d3.(2H).5p	w 1G*	4	41319.96	
+4d2.5s.6p	u 3G*	3	39389.29	
+4d2.5s.6p	u 3G*	4	39934.14	
+4d2.5s.6p	u 3G*	5	40178.44	
+4d2.5s.6p	q 3F*	2	42706.00	
+4d2.5s.6p	q 3F*	3	43268.24	
+4d2.5s.6p	q 3F*	4	43276.00	
+4d2.5s.6p	s 3P*	1	44882.30	
+4d2.5s.6p	s 3P*	2	45017.13	
+4d2.5s.6p	p 3D*	1	45405.30	
+4d2.5s.6p	p 3D*	2	45587.62	
+4d2.5s.6p	p 3D*	3	45710.29	
+# --- PARENT TERM CARRYING ITS OWN LETTER
+4d3.(b 2D).5s	a 3D	1	14123.01	lettered-parent
+4d3.(b 2D).5s	a 3D	2	14348.78	lettered-parent
+4d3.(b 2D).5s	a 3D	3	14697.03	lettered-parent
+4d3.(b 2D).5s	b 1D	2	17228.42	lettered-parent
+4d2.5s.(a 4F).5p	z 3F*	4	17556.26	lettered-parent
+4d2.5s.(a 4F).5p	z 5F*	5	18276.92	lettered-parent
+4d2.5s.(a 4F).5p	z 5D*	3	19625.58	lettered-parent
+4d2.5s.(a 4F).5p	z 5D*	4	19833.78	lettered-parent
+4d2.5s.(a 2D).5p	x 3F*	2	26061.70	lettered-parent
+4d2.5s.(a 2D).5p	x 3F*	3	26443.88	lettered-parent
+4d2.5s.(a 2D).5p	x 3F*	4	26938.42	lettered-parent
+4d2.5s.(a 2F).5p	z 5G*	4	26931.35	lettered-parent
+4d2.5s.(a 2F).5p	x 3G*	3	28404.26	lettered-parent
+4d2.5s.(a 2F).5p	x 3G*	4	28749.80	lettered-parent
+4d2.5s.(a 2F).5p	x 3G*	5	29001.65	lettered-parent
+4d2.5s.(a 2F).5p	w 3F*	4	28528.36	lettered-parent
+# --- SQUARE BRACKETS: INTERPOLATED, not measured
+4d2.5s.5p	1S*	0	21600	interpolated
+4d3.5p	w 3P*	0	34995	interpolated
+4d3.5p	3P*	1	38140	interpolated
+# --- QUERY MARK IN THE CONFIGURATION
+4d2.5s.6p?	t 3G*	3	42102.56	config-uncertain
+4d2.5s.6p?	t 3G*	4	42272.41	config-uncertain
+4d2.5s.6p?	t 3G*	5	43834.96	config-uncertain
+4d2.5s.5p?	u 1F*	3	46328.16	config-uncertain
+4d2.5s.7p?	o 3D*	1	47765.56	config-uncertain
+4d2.5s.7p?	o 3D*	2	48133.64	config-uncertain
+4d2.5s.7p?	o 3D*	3	48713.44	config-uncertain
+# --- EMPTY CONFIGURATION
+	x 1H*	5	42309.29	no-config
+	w 3S*	1	43182.96	no-config
+	v 1P*	1	51899.40	no-config

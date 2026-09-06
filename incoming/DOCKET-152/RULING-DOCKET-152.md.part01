@@ -1,0 +1,58 @@
+
+| row | Register pointers as printed |
+|---|---|
+| **8.2** (main L11397) | `W.jur`; Chapter 12; **Register 1375, 1519, 1523, 1535, 1551** |
+| **8.4** (main L11398) | `W.rel`; Chapter 12; **Register 1375** |
+| **10.4c** (main L11401) | `M.C1`; **Register 1399, 1403** |
+
+Appendix G is the volume that calls itself *the address*, and the column asserts **dependence** — what rests on the
+section — not vocabulary.
+
+**Measured, under CONVENTION DEP** (stated before scoring: an entry rests on section S if it **names** the source —
+*Transitions*, `T <n>`, `App. G`, or the section number — **DEP-N**; or its own deciding sentence is an instance or a
+consequence of the **mechanism** S establishes — **DEP-M**; an entry the reading cannot decide is carried as **NEAR**,
+an upper bound, never assigned):
+
+**Of the eight (row, entry) pairs the column asserts, 0 are DEP-N and 0 are DEP-M.**
+
+- **Six are another mechanism entirely** — 1375 under 8.2 and again under 8.4 (the dual of `A.define`: a rung-1
+  coordinate and its injective counterpart; no vocabulary, functor or partition of any size); 1535 (a parity check
+  on a supplied Nilsson nuclear table); 1551 (K I's quantum defects, a spectra capture); 1399 (*the sequence as
+  printed was not one measurement* — two tower conventions); 1403 (where *a* sits in the Λ_T corridor).
+- **Two are carried as an upper bound and never assigned** — 1519, whose treewidth-one result is the same arity
+  mechanism read from the low side but credited to *Freuder's classical result* and derived from register **507**,
+  not §8.2; and 1523, whose conflict-graph measure is arity again and which names **`M.C2`**, an object of
+  **§10.4d**, not §8.2.
+
+**Two findings ride with it.** **27a-07**: the Mathematical Compendium's *modular ledger* block (mc L2406–L2417)
+names **T 10.4e (App. G)** as its source and rests on registers **1019, 1020, 1022, 1035, 1483, 1484**, while G row
+10.4c names **1399 and 1403** — the two sets are **disjoint**. **27a-08**: register **1403** is the only one of the
+seven carrying a WARNING (*the eight a values are RECONSTRUCTIONS held in HANDOFF.md … not measurements*), and row
+10.4c prints it as an object resting on a *computed* result — §10.4c is titled *C1, computed* — with the
+qualification absent.
+
+**The ruling.** One of:
+
+- **(a) The column names entries that rest on the section** — the pointers are re-taken by reading, and rows 8.2,
+  8.4 and 10.4c carry whatever the reading finds (for 10.4c, whether **1019 / 1020 / 1022 / 1035 / 1483 / 1484** —
+  the compendium's set — should be the row's set is **yours to rule**; naming a better candidate was not the
+  reading's to do).
+- **(b) The Register pointers are dropped from these three rows** — the rows keep `W.jur` / `W.rel` / `M.C1` and the
+  Chapter 12 pointer, and the address stops asserting a dependence it cannot carry.
+- **(c) Row 10.4c additionally restates 1403's WARNING, or drops the 1403 citation** (27a-08 — this is separable and
+  can be ruled either way independently of (a)/(b)).
+
+*Docket 9(b) / 35.* Census row **mc 293** (the *modular ledger* block's eleven numerals) is **engaged and not
+closed** — the reading took the block's citation list, not its numerals, and a row is not closed on a reading that
+did not take it.
+
+---
+
+## 3 · 28a-06 — *Fifty-nine* is a 172-row datum printed beside a 162-row count
+
+**What the volume prints.** Main **L11848–L11853**: *"The Mathematical Compendium names a work for every one of its
+objects — **162 works, 1669 to 2026** … **Fifty-nine of them are the works listed above**; the remainder are the
+attributions of standard results — Newton 1669, Leibniz 1682, Euler 1748, Gauss 1809, Moore 1910, Birkhoff 1940 and
+their kind … (register 1736)."*
+
+**What the Register records. 1736 is the source and is NOT withdrawn.** It states its own basis in terms:

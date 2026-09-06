@@ -1,0 +1,35 @@
+  `mkdir -p ~/bin; printf '#!/bin/sh\nexec /usr/bin/python3.12 "$@"\n' > ~/bin/python3; chmod +x ~/bin/python3`,
+  then `export PATH=~/bin:$PATH` in **every** bash call — the environment does not persist between calls.
+- **numpy, sympy, scipy and mpmath must be installed for 3.12** (`pip --break-system-packages`). `minmax` needs
+  numpy; `r2-tb1` needs sympy.
+- **`r2-ch20a` and `r2-ch26a` need `COORDINATES-2_13.csv` at `/mnt/project/`** (create the directory). It comes
+  from the claude.ai Project's doc list via `project_read` — 10,912,381 B / `906d08be19630b6f824ec0164de11773` /
+  104,833 lines; the Drive connector refuses it at its cap.
+- **Bash calls time out at two minutes by default.** A batch containing `r2-ch23b` (214–249 s) or `r2-ch16b` (72–85
+  s) needs an explicit longer timeout, and `gate.py run --all` is still not to be used (chat 151-B's silent kill).
+- **`gate.py cert` exits 2 when any ERROR row is in the log, while still writing the file with `verdict PASS`.**
+  The exit code is not the verdict; tally last-value-wins from the file.
+
+## The gate at this build
+
+**GATE-ch152close, 15:53 UTC, verdict PASS**, run against a fresh re-extract of BUILD185 — census byte-identical,
+`run --core` 5/5, MANIFEST OK 362 listed / 363 extracted, **73 of 73 banked goldens OK on last value**, and every
+one of the 73 verified byte-identical to its pre-close copy (the only difference being `r2-32a.out`, banked this
+chat). §0a remains empty. The chat's opening gate was **GATE-ch152**, also PASS, at 72 of 72.
+
+## Standing
+
+**W-190's loop ruling governs and is unchanged:** a chat opens from Drive, works with Graphify as the substrate for
+state and cross-check, and closes by writing only these small parts and the handoff back to Drive. Chat 152 re-ran
+the GitHub probe the chat-151 handoff asked for; the private repo returned **404** again, the third consecutive new
+session to do so after a re-consent. **The repository store-of-record ruling is not executable from Cowork and no
+further session time goes to it.**
+
+## What this build closes
+
+**M's four rulings on the questions DEF-143 item 11's empty order was waiting on.** 26c-02 → **(c)**, a third state:
+the origin of each of §32.1.4's three totals, executed here as `r2-32a.py`. 27a-02 → **(a)**. 28a-06 → **(a)**.
+28b-07 → **(b)**. Rulings (a), (a) and (b) are seated for R3 in DEF-152 items 2–7 and are not executed here; the
+chat-67 hold stands and no volume was edited. **No re-derivation is owed.** What remains is R3's execution of those
+three rulings, the Register entries owed by DEF-152 items 1, 3, 5, 7, 8 and 9, and the two census bodies left
+engaged and open — **mc 387–672 and mc 293**, untouched by this chat.

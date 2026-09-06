@@ -1,0 +1,31 @@
+
+**The extraction regex, carried from the Claude Code session and re-confirmed here.** The body group MUST include its
+trailing newline:
+
+```python
+re.compile(r'(?:\A|\n)<<<FILE: (.*?)>>>\n(.*?)<<<END FILE: \1>>>', re.S)
+```
+
+Ending the group at `\n<<<END FILE:` truncates **every** member by exactly one byte and every md5 fails. Chat 152
+used a line-based extractor instead and **cross-checked it against this regex on all 363 members: zero
+disagreements**, so both routes are byte-exact and either may be used.
+
+## The environment, measured in the chat-152 container
+
+- **Default `python3` is 3.11**, under which `gate.py` and `r2-tools.py` do not parse (f-string backslash, legal only
+  from 3.12). `gate.py` spawns children as the literal string `python3`, so **a 3.12 shim must be on PATH**, not
+  merely used to launch `gate.py`. `bin/stage-gate` writes it.
+- **numpy, sympy, scipy and mpmath** must be installed for 3.12. `minmax` needs numpy; `r2-tb1` needs sympy.
+- **`r2-ch20a` / `r2-ch26a`** need `COORDINATES-2_13.csv` at `/mnt/project/` — 10,912,381 B /
+  `906d08be19630b6f824ec0164de11773` / 104,833 lines, from the claude.ai Project's doc list via `project_read`.
+- **`r2-26c` / `r2-32a`** need Prints & Proofs at `$HOME/PP_The_Method_1_6.md` — in Drive that file is titled
+  **The Method 1.6.md** in *The Method Prints & Proofs* (folder `1vYctzLppUZ2vFPJDCZ6wvkgSdj3v_f6n`, fileId
+  `1vsWwRT9BmUNeMrqokuo4jI4DJnoADubH`). It is **not** named PP_*, which is why a title search for `PP_The_Method`
+  finds nothing.
+- **`gate.py run --all` is still not to be used** (chat 151-B's silent kill). Run named batches. `r2-ch23b` takes
+  214–249 s and `r2-ch16b` 72–85 s, so a Cowork bash call needs an explicit timeout above its two-minute default.
+- **`gate.py cert` exits 2 whenever any ERROR row is in the log, while still writing the file with `verdict PASS`.**
+  The exit code is not the verdict; tally last-value-wins from the file.
+- **`close.py` asserts the W text begins `### W-` AND ENDS WITH A BLANK LINE** — a single trailing newline is not
+  enough.
+- `gate.py census` refuses while `$HOME/DEFECT-CENSUS.tsv` or `members/__pycache__` exists; delete both first.

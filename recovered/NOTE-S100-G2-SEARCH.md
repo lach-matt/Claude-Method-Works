@@ -1,0 +1,8 @@
+# NOTE S100 -- G2 ARCHIVE SEARCH VERDICT (Standing 6 discharged). Filed BEFORE any G2 arithmetic.
+## Searched: pack94..pack99 all .md, content terms {F93.2, P-dZ', non-addit, responder, transition-state, ts9x, Hellmann, HF-in-q, D_half, swing91, Janak, rows 90/91}.
+## FOUND: (i) s95 §7 SR6 note on F93.6 -- "not chased", explicitly NOT closure (per M's G5 ruling). (ii) pack94 LEDGER-H Law C names the law behind F93.6 (BLLS PRL 72:2981) -- attribution lead for G5(b), not closure. (iii) Fault-species citations only (F93.2 in s94/s95 order files).
+## NOT FOUND: any run of s93 item 3 at rows 90/91 (no ts93-90/91 json anywhere); any L3/L5 across-read at rows 90/91 (chain90-out.json covers 36,37,38,54,55,56 only); any discharge of item-2 residues (a),(b).
+## VERDICT: NOT CLOSED -> COMPUTE (per ORDER-FOR-S100 Item 1).
+## COMPUTE OBJECTS: ts93.py rows 90, 91 (sealed instrument, unedited; sealed prediction pack93/PREDICTION-S93-ITEM3-TS.md sha 79d5b4ca re-verified MATCH this session; its T1 clause states the 15/15 count that includes these rows). Discharge clause (sealed prediction, verbatim class): "If T1 holds ... the named residues (a),(b) of item 2 are the q-curvature of g, not separate objects."
+## RULE B LINE (from the sealed prediction, cited not restated): T1 VALUE-exact |quad - D| < 3e-5 Ha per system (3/row); T2 direction g(1/2) < eps(1/2), |diff| > 1e-3; T3 VALUE |g(1/2) - D| < 5e-4; T4 VALUE rho_TS within 0.010 of rho_sealed; T5 hygiene rung 0.
+## OUTPUT DECLARATION: ts93.py writes ts93-90.json / ts93-91.json into pack93/ by its sealed code path. These are NEW files (additions, no sealed file edited), declared here for the s100 seal.

@@ -38,6 +38,14 @@ It is a generated tree: regenerate with `python3 tools/consolidate.py`, check wi
 record and is not written to. See [`extracted/README.md`](extracted/README.md) and
 [`docs/CONSOLIDATE.md`](docs/CONSOLIDATE.md).
 
+What is *not* here is now written down too. [`tools/coverage.py`](tools/coverage.py) resolves every
+artefact the books name against the whole repo: **1,005 names — 559 held, 15 held under a figure's
+pre-rename source name, 431 absent.** All 33 main-volume figures are present, and `method/verify.py`
+still passes on 343 members, so the corpus itself is complete; what is missing is working material —
+68 of the 88 handoffs the books refer to, 71 reading slips, and the papers' 25-file `f<N>_<M>.png`
+figure set. Nearly all of it would be in the two 388 MB chat exports still listed in
+`drive/PENDING.tsv`. See [`docs/COVERAGE.md`](docs/COVERAGE.md).
+
 ## Getting the rest — and keeping it in sync
 
 * [`docs/DRIVE-SYNC.md`](docs/DRIVE-SYNC.md) — how to get Drive content into this repo: the four
@@ -54,6 +62,12 @@ record and is not written to. See [`extracted/README.md`](extracted/README.md) a
 * [`tools/consolidate.py`](tools/consolidate.py) — unpacks the archives and project exports in
   `drive/` into `extracted/`, deduplicated against the repo and against itself, with a full
   provenance ledger. See [`docs/CONSOLIDATE.md`](docs/CONSOLIDATE.md).
+* [`tools/coverage.py`](tools/coverage.py) — the other half of the question: for every artefact the
+  books name, is it here? Writes [`COVERAGE.tsv`](COVERAGE.tsv). See
+  [`docs/COVERAGE.md`](docs/COVERAGE.md).
+* [`tools/recover.py`](tools/recover.py) — extracts the artefacts the chats wrote into
+  [`recovered/`](recovered/): 2,337 files, 71 handoffs, 68 reading slips. See
+  [`docs/RECOVER.md`](docs/RECOVER.md).
 
 The mirror is one-way: Drive → repo. Edits made under `drive/` are not pushed back to Drive and will
 be overwritten by the next sync.

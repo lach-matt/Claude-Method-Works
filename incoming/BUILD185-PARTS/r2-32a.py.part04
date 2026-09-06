@@ -1,0 +1,54 @@
+check('435 names the numbers-index script', 'numbers-index.py' in t435, True)
+check('435 names the densities script', 'densities.py' in t435, True)
+NAMED = ['numbers-index.py', 'densities.py', 'indices.py', 'appendix_audit.py', 'mathreg.py', 'compendium.py',
+         'register_gen.py', 'guard.py', 'register_cites.py', 'kinds.py', 'build.py', 'close.py']
+present = {n: os.path.exists(os.path.join(H, n)) for n in NAMED}
+for n, p in present.items(): print('   %-22s %s' % (n, 'MEMBER' if p else 'NOT A MEMBER OF THIS BUILD'))
+check('numbers-index.py is a member', present['numbers-index.py'], False)
+check('densities.py is a member', present['densities.py'], False)
+check('build.py IS a member', present['build.py'], True)
+# build.py computes nothing numeric: it is a prose-substitution press
+bp = open(os.path.join(H, 'build.py'), encoding='utf-8').read()
+check('build.py names numbers-index.py only inside a prose substitution', "numbers-index.py" in bp, True)
+check('build.py contains no arithmetic on the four components',
+      any(t in bp for t in ('E(audits)', 'E_num', 'numbers_index(', 'def readout')), False)
+print('   32a-03 NEW. The four components of §32.1.4\'s total are computed by `numbers-index.py` and its')
+print('   companions, and register 435 records that those scripts WERE ABSENT and were REBUILT FROM THE')
+print('   PRINTED RULES. Neither is a member of this build. `build.py`, which IS a member, is a')
+print('   prose-substitution press and computes none of them — it only strips the script names from')
+print('   reader-facing prose. So the origin of the 47 is a reconstruction of an absent instrument, and')
+print('   the total cannot be re-derived from the artefact as delivered. Docket 38, not docket 12.')
+
+# ------------------------------------------------------------------ §8
+hr('§8 REGISTER 332\'s OWN TEXT — read entire, as docket 9(b) asks')
+print('   ' + norm(t332))
+check('332\'s body carries a joined word where a sentence was lost', 'indicessince' in t332, True)
+print('   32a-04 NEW. Register 332 reads *Across its six indicessince been confirmed by occupants arriving.*')
+print('   — two sentences collapsed with text lost between *indices* and *since*. The entry §32.1.4 cites')
+print('   for its total is itself damaged at the point where it would say how many of the cells have since')
+print('   been filled. Append-only: a new entry citing 332 restores the sentence; 332 is not edited.')
+
+# ------------------------------------------------------------------ §9
+hr('§9 CENSUS ROWS IN RANGE — DEFECT-CENSUS.tsv rows whose main line lies in §32.1.4–§32.1.4.1')
+cen = [l.split('\t') for l in rd('DEFECT-CENSUS.tsv') if l.strip()]
+hdr = cen[0]; li = hdr.index('line') if 'line' in hdr else 2
+inr = [r for r in cen[1:] if r[1] == 'main' and r[li].isdigit() and s4 <= int(r[li]) < e41]
+for r in inr: print('   id %-6s main L%-6s %s' % (r[0], r[li], ' '.join(r[3:])[:100]))
+print('   rows in range: %d' % len(inr))
+
+# ------------------------------------------------------------------ verdict
+hr('VERDICT')
+print('   integrity checks: %s' % ('ALL OK' if not FAIL else 'FAILED: ' + '; '.join(FAIL)))
+print('   deviations recorded: %d' % len(DEV))
+for tagno, tag, got, exp in DEV: print('      %s  %s — measured %r, printed %r' % (tagno, tag, got, exp))
+print('   ORIGINS, the ruling\'s answer:')
+print('      55  §32.1.4\'s own table, 4 + 1 + 33 + 17, exact — the state when the section was first computed')
+print('      48  §32.1.4.1 / register 373, 4 + 4 + 23 + 17 — two components moved, two carried unrestated')
+print('      47  register 332\'s press readout — the entry §32.1.4 itself cites, on a wrapped pointer;')
+print('          restated at 375, which does not originate it. Reached by two printed assignments, and the')
+print('          only one agreeing with 332\'s and 375\'s own shape sentence is (4, 5, 21, 17), which mixes')
+print('          two states of the book. Computed by `numbers-index.py`, which register 435 records as')
+print('          having been absent and rebuilt from the printed rules and which is not a member.')
+print('   AND THE SHAPE OF THE ANSWER: 55 is the only one of the three a reader can reconstruct. The section')
+print('   prints the one total that is reproducible and cites the entry that says it is no longer the number.')
+sys.exit(1 if FAIL else 0)

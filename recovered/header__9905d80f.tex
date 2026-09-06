@@ -1,0 +1,22 @@
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\definecolor{rule}{HTML}{1A1A1A}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.15}
+% keep wide tables inside the text block
+\AtBeginEnvironment{longtable}{\small}
+\usepackage{etoolbox}
+\AtBeginEnvironment{tabular}{\small}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.6em}{0.7em}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\itshape Indexing Electromagnetism}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}

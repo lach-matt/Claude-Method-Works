@@ -1,0 +1,219 @@
+# Y I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Y+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Y+I confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Y II (5s2 1S<0>)  50145.6 cm-1
+#
+# 4d.5s2 ground. Letter prefixes throughout — a,b,e,f,g,h on the even
+# side and z,y,x,w,v on the odd — TWELVE letters. V II needed fourteen.
+#
+# ** TWO NOTATIONS HERE THAT NO EARLIER SPECIES HAS USED: **
+#
+#   1. CONFIGURATION SUFFIXES IN ANGLE BRACKETS: "4d3 <1>" and
+#      "4d3 <2>", both carrying term 2D. The bracket distinguishes two
+#      DIFFERENT 4d3 states that share a term. A ninth orthography for
+#      the same problem — Ti II used letter prefixes, Cr III trailing
+#      digits, As II digit pairs, and Y I uses BOTH letters AND angle
+#      brackets, on different rows of the same table.
+#
+#   2. DECIMAL TERMS: "1.1", "1.2", "1.3", "1.4", "1.5*" on rows with
+#      an EMPTY configuration. Not an LS term, not Racah, not jj — a
+#      numbered placeholder. Kept verbatim; R 1576 refuses them.
+#
+#   Also present: a bare "2" with J "1/2,3/2" (unresolved, as in B I),
+#   a bare "3", and "5p2.(3P).4d?" — a configuration with a QUERY MARK
+#   IN IT, meaning the assignment itself is uncertain.
+#
+# ONE LEVEL LIES ABOVE THE LIMIT: 4d2.(3P).6s g 4P 5/2 at 50254.0,
+# against a limit of 50145.6. Flagged.
+#
+# config	term	J	level_cm1	note
+4d.5s2	a 2D	3/2	0.000	
+4d.5s2	a 2D	5/2	530.351	
+5s2.5p	z 2P*	1/2	10529.169	
+5s2.5p	z 2P*	3/2	11359.757	
+4d2.(3F).5s	a 4F	3/2	10937.390	
+4d2.(3F).5s	a 4F	5/2	11078.614	
+4d2.(3F).5s	a 4F	7/2	11277.928	
+4d2.(3F).5s	a 4F	9/2	11532.096	
+4d2.(3F).5s	a 2F	5/2	15326.741	
+4d2.(3F).5s	a 2F	7/2	15864.481	
+4d2.(3P).5s	a 4P	1/2	15221.633	
+4d2.(3P).5s	a 4P	3/2	15328.865	
+4d2.(3P).5s	a 4P	5/2	15476.533	
+4d2.(3P).5s	a 2P	1/2	19237.608	
+4d2.(3P).5s	a 2P	3/2	19406.146	
+4d2.(1D).5s	b 2D	3/2	15994.045	
+4d2.(1D).5s	b 2D	5/2	16158.865	
+4d2.(1G).5s	a 2G	9/2	18499.315	
+4d2.(1G).5s	a 2G	7/2	18512.402	
+4d2.(1S).5s	2S	1/2	23465.093	
+4d2.(3F).6s	4F	3/2	42106.775	
+4d2.(3F).6s	4F	5/2	42253.630	
+4d2.(3F).6s	4F	7/2	42487.974	
+4d2.(3F).6s	4F	9/2	42807.326	
+5s2.6s	e 2S	1/2	31671.539	
+5s2.7s	g 2S	1/2	43643.601	
+5s2.(1S).6p	2P*	1/2	37105.723	
+5s2.(1S).6p	2P*	3/2	37283.886	
+5s2.(2D).5d	e 2D	3/2	34231.544	
+5s2.(2D).5d	e 2D	5/2	34257.447	
+4d.5s.(3D).5p	z 4F*	3/2	14948.994	
+4d.5s.(3D).5p	z 4F*	5/2	15245.803	
+4d.5s.(3D).5p	z 4F*	7/2	15712.522	
+4d.5s.(3D).5p	z 4F*	9/2	16234.382	
+4d.5s.(3D).5p	z 2D*	5/2	16066.064	
+4d.5s.(3D).5p	z 2D*	3/2	16146.138	
+4d.5s.(3D).5p	z 4D*	1/2	16435.907	
+4d.5s.(3D).5p	z 4D*	3/2	16597.304	
+4d.5s.(3D).5p	z 4D*	5/2	16816.641	
+4d.5s.(3D).5p	z 4D*	7/2	17116.156	
+4d.5s.(3D).5p	z 4P*	1/2	18976.366	
+4d.5s.(3D).5p	z 4P*	3/2	19027.593	
+4d.5s.(3D).5p	z 4P*	5/2	19147.983	
+4d.5s.(3D).5p	z 2F*	5/2	21528.579	
+4d.5s.(3D).5p	z 2F*	7/2	21915.432	
+4d.5s.(3D).5p	y 2P*	3/2	24480.666	
+4d.5s.(3D).5p	y 2P*	1/2	24698.850	
+4d.5s.(1D).5p	y 2D*	3/2	24131.250	
+4d.5s.(1D).5p	y 2D*	5/2	24746.573	
+4d.5s.(1D).5p	y 2F*	5/2	24518.751	
+4d.5s.(1D).5p	y 2F*	7/2	24899.632	
+4d.5s.(1D).5p	x 2P*	1/2	27824.647	
+4d.5s.(1D).5p	x 2P*	3/2	28139.645	
+4d2.(3F).5p	z 4G*	5/2	28694.040	
+4d2.(3F).5p	z 4G*	7/2	28988.786	
+4d2.(3F).5p	z 4G*	9/2	29364.111	
+4d2.(3F).5p	z 4G*	11/2	29820.374	
+4d2.(3F).5p	y 4F*	3/2	31508.441	
+4d2.(3F).5p	y 4F*	5/2	31680.043	
+4d2.(3F).5p	y 4F*	7/2	31909.164	
+4d2.(3F).5p	y 4F*	9/2	32188.075	
+4d2.(3F).5p	y 4D*	1/2	33215.444	
+4d2.(3F).5p	y 4D*	3/2	33265.298	
+4d2.(3F).5p	y 4D*	5/2	33357.608	
+4d2.(3F).5p	y 4D*	7/2	33614.445	
+4d2.(3F).5p	z 2G*	7/2	33432.092	
+4d2.(3F).5p	z 2G*	9/2	33788.956	
+4d2.(3F).5p	x 2F*	5/2	33608.312	
+4d2.(3F).5p	x 2F*	7/2	34029.802	
+4d2.(3F).5p	x 2D*	3/2	33906.761	
+4d2.(3F).5p	x 2D*	5/2	34247.727	
+4d2.(3P).5p	z 2S*	1/2	34438.228	
+4d2.(3P).5p	x 4D*	1/2	35681.338	
+4d2.(3P).5p	x 4D*	3/2	35816.407	
+4d2.(3P).5p	x 4D*	5/2	36060.842	
+4d2.(3P).5p	x 4D*	7/2	36361.145	
+4d2.(3P).5p	z 4S*	3/2	36135.567	
+4d2.(3P).5p	y 4P*	1/2	37039.285	
+4d2.(3P).5p	y 4P*	3/2	37148.377	
+4d2.(3P).5p	y 4P*	5/2	37475.922	
+4d2.(3P).5p	v 2D*	3/2	40636.545	
+4d2.(3P).5p	v 2D*	5/2	40672.369	
+4d2.(1D).5p	w 2D*	3/2	36452.295	
+4d2.(1D).5p	w 2D*	5/2	36750.621	
+4d2.(1D).5p	w 2P*	3/2	37243.782	
+4d2.(1D).5p	w 2F*	5/2	37279.183	
+4d2.(1D).5p	w 2F*	7/2	37619.829	
+4d2.(1G).5p	z 2H*	9/2	37588.148	
+4d2.(1G).5p	z 2H*	11/2	37967.332	
+4d2.(1G).5p	y 2G*	7/2	38479.017	
+4d2.(1G).5p	y 2G*	9/2	38597.024	
+4d2.(1G).5p	v 2F*	5/2	42857.855	
+4d2.(1G).5p	v 2F*	7/2	42995.085	
+4d3	b 4F	3/2	29271.979	
+4d3	b 4F	5/2	29420.385	
+4d3	b 4F	7/2	29613.726	
+4d3	b 4F	9/2	29842.640	
+4d3	b 4P	1/2	31977.584	
+4d3	b 4P	3/2	32091.016	
+4d3	b 4P	5/2	32366.409	
+4d3	2P	1/2	33613.250	
+4d3	2P	3/2	33842.417	
+4d3	2F	5/2	38156.627	
+4d3	2F	7/2	38411.771	
+4d.5s.(3D).6s	e 4D	1/2	33148.432	
+4d.5s.(3D).6s	e 4D	3/2	33238.011	
+4d.5s.(3D).6s	e 4D	5/2	33411.566	
+4d.5s.(3D).6s	e 4D	7/2	33752.743	
+4d.5s.(3D).6s	f 2D	3/2	36420.611	
+4d.5s.(3D).6s	f 2D	5/2	36431.165	
+4d.5s.(1D).6s	f 2D	3/2	36860.385	
+4d.5s.(1D).6s	f 2D	5/2	37074.190	
+4d.5s.(3D).5d	f 4D	1/2	38469.954	
+4d.5s.(3D).5d	f 4D	3/2	38543.685	
+4d.5s.(3D).5d	f 4D	5/2	38675.424	
+4d.5s.(3D).5d	f 4D	7/2	38865.618	
+4d.5s.(3D).5d	e 4G	5/2	38635.481	
+4d.5s.(3D).5d	e 4G	7/2	38761.956	
+4d.5s.(3D).5d	e 4G	9/2	38949.421	
+4d.5s.(3D).5d	e 4G	11/2	39222.861	
+4d.5s.(3D).5d	4S	3/2	39001.465	
+4d.5s.(3D).5d	2P	1/2	39087.277	
+4d.5s.(3D).5d	2P	3/2	39209.422	
+4d.5s.(3D).5d	2F	5/2	39441.591	
+4d.5s.(3D).5d	2F	7/2	39963.658	
+4d.5s.(3D).5d	e 4F	3/2	39446.322	
+4d.5s.(3D).5d	e 4F	5/2	39565.085	
+4d.5s.(3D).5d	e 4F	7/2	39757.942	
+4d.5s.(3D).5d	e 4F	9/2	39900.541	
+4d.5s.(3D).5d	f 4P	1/2	40287.757	
+4d.5s.(3D).5d	f 4P	3/2	40455.071	
+4d.5s.(3D).5d	f 4P	5/2	40517.030	
+4d.5s.(3D).5d	2D	3/2	41422.889	
+4d.5s.(3D).5d	2D	5/2	41503.538	
+4d.5s.(1D).5d	2D	3/2	41660.521	
+4d.5s.(1D).5d	2D	5/2	41669.657	
+4d.5s.(1D).5d	2P	1/2	42655.628	
+4d.5s.(1D).5d	2P	3/2	42685.870	
+4d.5s.(1D).5d	2F	5/2	43879.744	
+4d.5s.(1D).5d	2F	7/2	44186.256	
+4d.5s.(3D).6p	4D*	1/2	38473.277	
+4d.5s.(3D).6p	4D*	3/2	38627.009	
+4d.5s.(3D).6p	4D*	5/2	38798.054	
+4d.5s.(3D).6p	4D*	7/2	39167.224	
+4d.5s.(3D).6p	4F*	5/2	38699.599	
+4d.5s.(3D).6p	4F*	7/2	38795.241	
+4d.5s.(3D).6p	4F*	9/2	39206.717	
+4d.5s.(3D).6p	2F*	5/2	38888.592	
+4d.5s.(3D).6p	2F*	7/2	39056.581	
+4d.5s.(3D).6p	2D*	3/2	39241.468	
+4d.5s.(3D).6p	2D*	5/2	39288.253	
+4d.5s.(3D).6p	4P*	1/2	39271.423	
+4d.5s.(3D).6p	4P*	3/2	39418.175	
+4d.5s.(3D).6p	4P*	5/2	39727.351	
+4d.5s.(3D).7s	g 4D	5/2	44654.8	
+4d.5s.(3D).7s	g 4D	7/2	44922	
+5p2.(3P).5s	e 4P	1/2	33911.692	
+5p2.(3P).5s	e 4P	3/2	34155.912	
+5p2.(3P).5s	e 4P	5/2	34521.221	
+5p2.(1D).5s	2D	3/2	42048.969	
+5p2.(1D).5s	2D	5/2	42098.717	
+5p2.(3P).4d	4F	3/2	43095.780	
+5p2.(3P).4d	4F	5/2	43337.601	
+5p2.(3P).4d	4F	7/2	43704.511	
+5p2.(3P).4d	4F	9/2	44190.205	
+5p2.(3P).4d	h 4D	1/2	44660.036	
+5p2.(3P).4d	h 4D	3/2	44748.195	
+5p2.(3P).4d	h 4D	5/2	45008.460	
+5p2.(3P).4d	h 4D	7/2	45203.695	
+# --- ANGLE-BRACKET CONFIGURATION SUFFIX: two 4d3 states sharing 2D
+4d3 <1>	2D	3/2	32431.765	bracket-suffix
+4d3 <1>	2D	5/2	32821.391	bracket-suffix
+4d3 <2>	2D	5/2	37524.441	bracket-suffix
+4d3 <2>	2D	3/2	37549.522	bracket-suffix
+# --- QUERY MARK IN THE CONFIGURATION ITSELF
+5p2.(3P).4d?	f 2P	1/2	45947.505	config-uncertain
+5p2.(3P).4d?	f 2P	3/2	45994.176	config-uncertain
+# --- DECIMAL TERMS, empty configuration. R 1576 refuses.
+	1.1	3/2	39313.287	decimal-term
+	1.2	3/2	39553.048	decimal-term
+	1.3	3/2	39686.040	decimal-term
+	1.4	3/2	41853.349	decimal-term
+	1.5*		42113.271	decimal-term, no J
+	2	1/2,3/2	44984.1	unresolved-J
+	3	7/2	45663.408	bare-integer-term
+# --- ABOVE THE LIMIT of 50145.6
+4d2.(3P).6s	g 4P	5/2	50254.0	above-limit

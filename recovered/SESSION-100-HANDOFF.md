@@ -1,0 +1,11 @@
+# SESSION 100 -- COMBINED. Open s101 with `bash pack58/open58.sh` on LOWDIN-HANDOFF-100.tgz. NO SEALED FILE EDITED. c the only number. 107 rows.
+## §0 OPEN: tgz sha256 357670b4 MATCH; open58.sh PASS; s99 seal 1786/1786 root MATCH; state card CLEAN; canary CLEAN.
+## §R RULINGS (M): "Continue" -- G2 -> G1 -> G5 -> G3 -> G4 -> seal executed as declared; T4 untouched.
+## §1 G2 CLOSED AS COMPUTED: ts93 rows 90/91 run vs sealed pred 79d5b4ca -- T1 FALSIFIED both (sys A -5.90e-5 / -4.10e-5, 5-pt identical) = the 58-B HF-in-q object; L3-at-90/91 already sealed (pack89, 18/18); (a),(b) consumed at s rows, d-row members MERGED with F93.6 -> G5(b).
+## §2 G1 (F95.4) CLOSED: dE h-FLAT (1.8351/1.8351/1.8353e-4) -> discretisation retired; DERIVED locus = dense exchange block omits row-side sqrt(M) (P = r^{1/2}M^{1/2}y; 98.5% first-order 1.807e-4); + Vloc-slot content -> full term-match dE = -1.16e-7 (7e-7 rel). Preds 88b7b4af/2d20505e/1b2e4c19/a1e2a542 all pre-hashed; all can-fails PASS. Consumer flag named; margins >= 250x.
+## §3 G5: (a) 0.47 CLOSED BY CITATION (s96 7s^2->6d^2 eps-gap double denominator; consumers superseded s99). (b) ONE object (F93.6 + d-row a,b), mechanism term-matched to G1 stack, ONE specified run remains (S101 Item 1, Rule B filed). Law C fetch blocked (no network).
+## §4 G3: SCOPE-T4-S100-BROAD.md filed (table + bracket convention + attribution/domain clauses).
+## §5 G4: FULL GATE REPLAY 71/71, DIFF_LINES=0 (receipt pack100/GATES-REPLAY-S100.log). s95-debt discharged.
+## §6 FAULTS S100: F100.1 hygiene (order wording) · F100.2 prediction (CORR premise; own assert caught) · F100.3 prediction (sign; magnitude 1.5%) · F100.4 process (early condense; re-sealed, first root superseded). Retired: F95.4, F99.5. Carried: F95.1-3, F95.5-6, F96.2, F96.4, F97.2-3, F98.3.
+## §7 RESIDUE COUNT: ONE (G5b). T4 distance = S101 Item 1 (+ Law C ruling) + refined scope + Rule A.
+# LOWDIN-HANDOFF-100.tgz sha256: 13373e33860bd01b320884bcb841338737094ba72228775e126bffed39e21c5e  (seal root 9c11ca80, 1816 files; fresh-extract open58.sh CLEAN)

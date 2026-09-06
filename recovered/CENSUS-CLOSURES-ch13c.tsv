@@ -1,0 +1,2 @@
+id	verdict	reason
+1074	not a defect	C9-OVERGENERALISATION-WORD, main L3484, token "at every cap". The printed phrase is "at every cap tested", which bounds itself to the caps actually run; it is not an unqualified universal. MEASURED (r2-ch13c, the E1 index on (2J, 2J') with the J = 0 to 0 cell removed) at caps N = 4, 6, 8, 10, 12 and 20: exactly four failing meets at every one, all four with value (0,0), and E = 1 at every one. The claim holds at every cap tested and the sentence claims no more.

@@ -1,0 +1,7 @@
+# T3b bracket test — SERVED values, NIST Handbook of Basic Atomic Spectroscopic Data (table1_a = IP, table6_a = ion levels), fetched 2026-08-16
+# E_bind = IP + E(hole state). Ha = cm-1 / 219474.63
+Z	el	shell	IP_cm1	IP_ref	hole_config	hole_term	hole_cm1	hole_ref	note
+21	Sc	3d	52922.0	SC85	4s2	1S0	11736.36	SC85	session-11 served
+22	Ti	3d	55072.5	SZK90	3d4s2	c2D3/2	24961.03	SC85	served
+23	V	3d	54411.7	JKLC94	3d2 4s2	-	NULL	-	hole state NOT LISTED in Handbook V II table -> gap
+24	Cr	3d	54575.6	SC85	3d4 4s	a6D1/2	11961.81	SC85	Cr I ground 3d5 4s -> hole 3d4 4s

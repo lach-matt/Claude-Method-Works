@@ -1,0 +1,16 @@
+# RULINGS-R2.md — rulings and standing discipline in force during Phase R2 (append-only)
+
+This member replaces the rulings paragraph of the handoff (chat 74, ruling 3). A chat appends a dated block when M rules; nothing here is edited or removed. The Register is a different object (subject matter only); this is process.
+
+## As restated in HANDOFF-25 (chat 74), verbatim
+
+**Rulings in force** (unchanged from HANDOFF-24): chat 67 — every volume read in full, no editing until the review closes; chat 68 — instruments travel as bundle members, the gate fetches the two bundles by title, Drive is the store; chat 69 — handoff at **90–95 %** of context or on a closed segment, never earlier, never mid-segment; chat 70 R1 — CENSUS-CLOSURES-A governs its 21 shared rows, A vocabulary (*defect / not a defect*) in every closure file, an unreferenced prior-art row is a defect, co-located stale text counts against its census row; chat 72's rule, followed by chats 73 and 74 — begin the close when the remaining context would not fit a segment plus the build, and record the estimate in W-NNN; M's priorities — the computational audits are paramount, every stated value recomputed; stale self-description and production classes are noted, not a concern. Standing discipline: measure from files, never recite (grep every line number before it is written); label MEASURED / INFERRED / record-carried; no silent change; list a directory before copying, never copy over an existing file; a message with a question ends at the question mark; never announce a next action with a question; `timeout 280` on every call; /bin/sh is dash — write text via python heredocs or create_file; remove `__pycache__` before any member census or build; import tower-2.py by path (importlib, as r2-ch12i/j/k do), never by copying it to tower_2.py; C7 census rows whose flagged token is a live figure or label are regex artefacts (precedent 678, 680, 681–687).
+
+## Chat 74 (30 August 2026) — session-throughput rulings
+
+1. **Declined:** direct upload of the bundles as an archive (M: not enough internal storage). The gate keeps fetching both bundles from Drive by title; Drive remains the store.
+2. **Approved:** the gate and the close as instruments — gate.py (MANIFEST.tsv verification of both bundles, golden-output runs printing only mismatches, census, extent sites, certificate), close.py (guarded build with manifest and reverse recovery), r2lib.py (shared functions lifted verbatim from the instruments), banked NAME.out goldens for every deterministic instrument. Instrument design remains Claude's.
+3. **Approved:** the handoff carries identity (chat, build, Register range, md5s), the bootstrap, the gate run list, next work, Drive actions and the prompt; rulings live here and deferred items in DEFERRED.md, both append-only.
+4. **Approved:** built in chat 74 itself (BUILD101 + HANDOFF-26; HANDOFF-25 and BUILD100 retired unused).
+
+Measured basis (chat 74 transcript, byte shares): gate 32 %, close 10 %, reading 57 %; each Drive fetch leaves a ~65 KB base64 preview in context (13 % of the chat for the two). Rulings 2–4 remove the by-eye comparison and the handoff growth; ruling 1 leaves the fetch cost as it is.

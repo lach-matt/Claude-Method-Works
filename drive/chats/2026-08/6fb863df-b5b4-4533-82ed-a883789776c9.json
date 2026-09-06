@@ -1,0 +1,34 @@
+{
+  "uuid": "6fb863df-b5b4-4533-82ed-a883789776c9",
+  "name": "",
+  "summary": "",
+  "created_at": "2026-08-23T21:12:46.901264Z",
+  "updated_at": "2026-08-23T21:14:50.322535Z",
+  "account": {
+    "uuid": "b44b80ef-cbad-492a-8346-4f16631749fd"
+  },
+  "chat_messages": [
+    {
+      "uuid": "01a03078-0580-76bf-9ec7-3c1a9ea0f89b",
+      "text": "",
+      "content": [],
+      "sender": "human",
+      "created_at": "2026-08-23T21:12:48.573667Z",
+      "updated_at": "2026-08-23T21:12:48.573667Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "01a03078-0580-76de-86fc-cfe167a06873",
+      "text": "",
+      "content": [],
+      "sender": "assistant",
+      "created_at": "2026-08-23T21:13:15.524581Z",
+      "updated_at": "2026-08-23T21:13:15.524581Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "01a03078-0580-76bf-9ec7-3c1a9ea0f89b"
+    }
+  ]
+}

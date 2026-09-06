@@ -1,0 +1,4 @@
+(1) SIC_NOCLAMP=1 python3 t7c_regen.py <Z...>  (4 calls)
+(2i) python3 ring_zeta.py <zeta> 0.02 0.01 0.005 ; python3 eps0a_table.py
+(2ii) SIC_NOCLAMP=1 python3 t7c_corrz_run.py <Z...> (3 calls); LAM1=1 SIC_NOCLAMP=1 python3 t7c_corrz_run.py <Z...> (2 calls)
+Gates s23: SIC_NOCLAMP=1 corr=Z H 1s half -> -0.5 (both LAM1=0/1); ring_zeta zeta=0 rs=0.005 -> -0.07115 Ha; lam1(0) 0.0092292

@@ -1,0 +1,9 @@
+### `L.spin` — the detachable leaf
+
+**2S is a leaf of the constraint tree — it appears in exactly one bound, 2S ≤ k — so it detaches cleanly: its sum over the cells closes as a geometric series, [Σ_{S=0}^{k} z₈^S] = (1 − z₈^{k+1})/(1 − z₈), and it multiplies the rank polynomial by that factor and nothing else. Spin multiplicity is algebraically inert — it scales every seven-coordinate cell's count by (k+1) and changes no structure, which is why deleting it leaves the closure defect at zero, proved and verified at the caps of §7.4. Removing 2S projects Λ onto the seven-coordinate lattice on (n, ℓ, k, q, e, f, g); that projection has 319 cells and is itself closed, its polytope's integer points equal to its cells exactly, so E = 0 both before the leaf is removed and after; every one of the 319 seven-coordinate cells carries exactly k+1 spin values, and Σ (k+1) = 976 recovers the full count. The factorisation is exact — the full rank polynomial F(z) equals Σ over the 319 seven-cells of z^{n+ℓ+k+q+e+f+g} · (1 − z^{k+1})/(1 − z), checked against direct enumeration at z = 2, 3, ½ and −1, where it also reproduces F(−1) = 2. Spin is the one coordinate the index can shed without cost**
+
+*2S the eighth coordinate, its only bound 2S ≤ k, hence a leaf of the caterpillar of `L.tree`; the seven-coordinate projection onto (n, ℓ, k, q, e, f, g); counts at the caps of §7.4, (n, e, ℓ, k, f) = (3, 3, 1, 3, 1)*
+
+grade **PROVED**· source *M §11.6; Euler 1748; Lauritzen 1996*· depends on `L.tree`, `L.rankpoly`, `L.chi`· depth 5
+
+> **PRIOR ART: the geometric-series closed form is Euler; a leaf coordinate summing out of a tree factorisation is Lauritzen, Graphical Models (1996), the same elimination `L.box` performs. That 2S is that leaf, that spin multiplicity is therefore algebraically inert, and that its removal leaves E = 0 on a 319-cell closed index, are this book's.**

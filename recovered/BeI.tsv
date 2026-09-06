@@ -1,0 +1,19 @@
+# Be I — NIST Handbook, berylliumtable5.htm, ref KM97
+# limit Be II (2S1/2) 75192.64 cm-1;  ionization 75192.64 cm-1 = 9.32270 eV
+config	term	J	level_cm1
+2s2	1S	0	0.000
+2s2p	3P°	0	21978.28
+2s2p	3P°	1	21978.925
+2s2p	3P°	2	21981.27
+2s2p	1P°	1	42565.35
+2s3s	3S	1	52080.94
+2s3s	1S	0	54677.26
+2p2	1D	2	56882.43
+2s3p	3P°	0,1	58907.45
+2s3p	3P°	2	58907.83
+2p2	3P	0	59693.65
+2p2	3P	1	59695.07
+2p2	3P	2	59697.08
+2s3p	1P°	1	60187.34
+2s3d	3D	1,2,3	62053.72
+2s3d	1D	2	64428.31

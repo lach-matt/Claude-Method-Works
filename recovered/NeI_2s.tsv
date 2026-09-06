@@ -1,0 +1,13 @@
+# Ne I — the 2s.2p6.np 1P* run, an INNER-SHELL excited series, ref L8826
+# converges on Ne II (2s.2p6 2S1/2) = 217047.598 cm-1, not on the 2p5 ground core
+config	term	J	level_cm1
+3p	1P*	1	367360
+4p	1P*	1	380070
+5p	1P*	1	384670
+6p	1P*	1	386880
+7p	1P*	1	388080
+8p	1P*	1	388820
+9p	1P*	1	389330
+10p	1P*	1	389670
+11p	1P*	1	389920
+12p	1P*	1	390090

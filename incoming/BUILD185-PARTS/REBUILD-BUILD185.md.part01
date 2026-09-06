@@ -1,0 +1,43 @@
+   `11e2e43e938a21176e2c3bdfaed24902` / 359 lines and WORKING-REGISTER.md 932,240 B /
+   `84fc75211fb075369651ef5f3284fc4d` / 8,013 lines** — if those two match, the extractor is byte-exact.
+1. `cat r2-32a.py.part00 … .part04 > members/r2-32a.py` — **assert 22,360 B, md5
+   `15a9047af4a637eb7bdb05d0ea982878`.** Stop if it differs.
+2. Regenerate the golden: `gate.py bank r2-32a` — **assert 16,587 B, md5
+   `0d5d75a2264ff50217db542a5baf28c6`, 179 lines.** The instrument is deterministic (no wall clock, no randomness)
+   and `gate.py run r2-32a` reproduced this golden exactly in chat 152 both before and after the close, so the
+   output is carried as a derivation rather than as a transcription. Stop if it differs.
+   **`r2-32a.py` needs Prints & Proofs at `/home/claude/PP_The_Method_1_6.md`** — in Drive that file is titled
+   **The Method 1.6.md** in *The Method Prints & Proofs* (folder `1vYctzLppUZ2vFPJDCZ6wvkgSdj3v_f6n`, fileId
+   `1vsWwRT9BmUNeMrqokuo4jI4DJnoADubH`, 738,550 B / `49900cf41f818ab789bb90fc596ac977` / 11,371 lines). It is not
+   named PP_*, which is why a title search for `PP_The_Method` finds nothing.
+3. Put the reassembled `READ-32a.md` and `CENSUS-CLOSURES-32a.tsv` in `members/` unchanged.
+4. Run the close, `--append` before `--members`:
+
+```
+python3 members/close.py \
+  --old The_Method_1_6_BUILD184_compendia_papers_audits.md \
+  --new The_Method_1_6_BUILD185_compendia_papers_audits.md \
+  --w W-194.md \
+  --append DEFERRED.md DEF-152.md \
+  --append DOCKET.md DOCKET-152.md \
+  --members members/r2-32a.py members/r2-32a.out members/READ-32a.md members/CENSUS-CLOSURES-32a.tsv
+```
+
+`close.py` asserts that the W text begins `### W-` **and ends with a blank line** — a single trailing newline is
+not enough.
+
+5. **Assert the result: 6,047,434 B, md5 `1a822dfe3dad7d87956275b90892e514`, 68,222 lines, 361 members.**
+   `close.py`'s own reverse guard must also report that stripping the appended text recovers
+   `d4350094449e3a4bf488315e21199bd4`. Any mismatch stops the chat with a report; nothing here is to be patched
+   into agreement.
+
+Expected inside the rebuilt bundle: MANIFEST.tsv 24,320 B / `f52043245cdb8ae8e79a34205243fb33` / 363 lines (362
+listed); WORKING-REGISTER.md 940,713 B / `40afefa312c24f834828368f3a002b2b` / 8,031 lines, ending W-194;
+DEFERRED.md 424,204 B / `9dfd12100fe3e6add5fb4b6dd9526929` / 3,475 lines; DOCKET.md 69,857 B /
+`053be5575f4311cf305f459dbb1f3731` / 433 lines.
+
+## The container this was built in, which is NOT the one earlier chats ran in
+
+- **Default `python3` is 3.11**, under which `gate.py` and `r2-tools.py` do not parse (f-string backslash, legal
+  only from 3.12). `/usr/bin/python3.12` and `3.13` exist. `gate.py` spawns children as the literal string
+  `python3`, so running `gate.py` itself under 3.12 is not enough. **The fix touches no member:**

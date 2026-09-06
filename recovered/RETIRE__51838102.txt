@@ -1,0 +1,7 @@
+# RETIRE.txt -- paths sealed at s57 and deliberately not sealed at s58.
+# Format: <path>  <reason>
+# An undeclared removal HALTS condense.py. Silence is not a retirement.
+#
+# s58 retires nothing from the physics chain. Scaffolding (MANIFEST-HANDOFF-*,
+# verify*.sh, README-HANDOFF-*) is FOLDED to attic/ by condense.py --seal, not
+# retired: it stays on disk and its root hashes stay checkable via LINEAGE.txt.

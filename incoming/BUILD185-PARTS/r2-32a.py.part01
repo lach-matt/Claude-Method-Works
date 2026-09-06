@@ -1,0 +1,64 @@
+s41 = head_body(M, '32.1.4.1'); e41 = sec_end(M, s41)
+print('   §32.1.4   body L%d–L%d   %s' % (s4, e4 - 1, norm(M[s4 - 1])))
+print('   §32.1.4.1 body L%d–L%d   %s' % (s41, e41 - 1, norm(M[s41 - 1])))
+check('§32.1.4 encloses §32.1.4.1 (the subsection follows the section)', s41 > s4 and s41 <= e4, True)
+
+# the table rows: an aligned display line whose last two fields are an integer E and a word
+ROWS = []
+for i in range(s4, e4):
+    l = M[i - 1]
+    if not l.startswith('  ') or l.startswith('   **'): continue
+    mm = re.match(r'^\s{2}(\S.*?)\s{2,}(\d+)\s+(\d+)\s+(\S.*)$', l)
+    if mm: ROWS.append((i, norm(mm.group(1)), int(mm.group(2)), int(mm.group(3)), norm(mm.group(4))))
+for i, name, coords, Eval, cells in ROWS:
+    print('   L%-5d %-42s coords %-3d E %-3d cells named and unoccupied: %s' % (i, name, coords, Eval, cells))
+check('table rows located', len(ROWS), 7)
+BEAR = [(n, E, c) for _, n, _, E, c in ROWS if c != '—']
+check('E-bearing rows (a cells-named entry that is not an em dash)', len(BEAR), 4)
+check('their E values, in printed order', [E for _, E, _ in BEAR], [4, 1, 33, 17])
+check('their words, in printed order', [c for _, _, c in BEAR], ['four', 'one', 'thirty-three', 'seventeen'])
+check('SUM of the four printed E values', sum(E for _, E, _ in BEAR), 55)
+w55 = [i for i in range(s4, e4) if 'Fifty-five cells are named' in M[i - 1]]
+check('§32.1.4 prints the total as a WORD, and once', len(w55), 1)
+print('   L%d %s' % (w55[0], norm(M[w55[0] - 1])[:96]))
+check('the four rows the total is built from are exactly the four §32.1.4 names',
+      [n for n, _, _ in BEAR],
+      ['Appendix D, unfibred', 'Appendix E (Q), unfibred', 'Appendix F, the numbers', 'the audit set, at four coordinates'])
+print('   ORIGIN OF 55: §32.1.4\'s own table. 4 + 1 + 33 + 17 = 55, exact, from values printed on the page.')
+
+# ------------------------------------------------------------------ §2
+hr('§2 §32.1.4.1\'s THREE-STATE TABLE — the 48 and which components moved')
+T3 = {}
+for i in range(s41, e41):
+    mm = re.match(r'^\s{2}(\S.*?)\s{2,}(\S+)\s+(\S+)\s+(\S+)\s*$', M[i - 1])
+    if mm and not M[i - 1].startswith('   **'):
+        T3[norm(mm.group(1))] = (mm.group(2), mm.group(3), mm.group(4))
+HDRK = next(k for k in T3 if k.startswith('figure'))
+for k, v in T3.items():
+    if k == HDRK: print('   %-38s %-14s %-20s %s' % ('(header)', v[0], v[1], v[2])); continue
+    print('   %-38s before intake %-12s before compression %-12s now %s' % (k, v[0], v[1], v[2]))
+check('the three-state table has a header row and seven figures', len(T3), 8)
+check('E over the numbers index, three states', T3.get('E over the numbers index'), ('33', '21', '23'))
+check('E(Q), unfibred, three states', T3.get('E(Q), unfibred'), ('1', '1', '4'))
+check('every figure about Λ is identical across the three states',
+      [T3[k][0] == T3[k][1] == T3[k][2] for k in ('E(Λ)', '|Λ|', 'generators |J(Λ)|', 'surplus, bits per cell')],
+      [True, True, True, True])
+w48 = [i for i in range(s41, e41) if 'Recomputed now the total is' in M[i - 1]]
+check('§32.1.4.1 states the recomputed total, once', len(w48), 1)
+print('   L%d %s' % (w48[0], norm(M[w48[0] - 1])[:110]))
+check('the recomputed total as printed', re.search(r'total is (\d+)', M[w48[0] - 1]).group(1), '48')
+# the 48 reconstructed: the table moves TWO of the four components and is silent on the other two
+NOW = {'Appendix D, unfibred': 4, 'Appendix E (Q), unfibred': int(T3['E(Q), unfibred'][2]),
+       'Appendix F, the numbers': int(T3['E over the numbers index'][2]), 'the audit set, at four coordinates': 17}
+check('48 reconstructed from the "now" column, D unfibred and the audits carried unmoved',
+      sum(NOW.values()), 48)
+check('the two components §32.1.4.1 does NOT restate',
+      sorted(k for k in NOW if k not in ('Appendix E (Q), unfibred', 'Appendix F, the numbers')),
+      ['Appendix D, unfibred', 'the audit set, at four coordinates'])
+print('   ORIGIN OF 48: §32.1.4.1 / register 373. Two of the four components move (Q 1→4, numbers 33→23);')
+print('   the other two are carried at their §32.1.4 values and are not restated. 4 + 4 + 23 + 17 = 48, exact.')
+
+# ------------------------------------------------------------------ §3
+hr('§3 THE ENTRY §32.1.4 CITES — register 332, and it is where the 47 comes from')
+JOIN = norm(' '.join(M[s4 - 1:e4 - 1]))   # fault 4: *Register* and *332.* sit on either side of a line break
+cited = sorted({int(x) for x in re.findall(r'[Rr]egisters?\s+(\d+)', JOIN)})

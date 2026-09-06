@@ -1,0 +1,80 @@
+# Se III — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Se+III&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Se IV (4p 2P*<1/2>)  255650 cm-1
+#
+# The pair to As II — same 4s2.4p2 ground, Z one higher. So the n=4
+# block now holds TWO isoelectronic pairs:
+#      4s2.4p   one outside :  As III, Se IV
+#      4s2.4p2  two outside :  As II,  Se III
+#
+# ** SE III USES LS TERMS WHERE As II USED BARE DIGIT PAIRS, on the
+#    SAME 4s2.4p.(2P*).nl configurations. NIST writes the same physical
+#    structure in two orthographies one Z apart. That is the fifth
+#    instance in this fetch of the notation varying independently of the
+#    physics — and it is the strongest argument yet that the index must
+#    key on STRUCTURE and not on the printed symbol. **
+#
+# TWO ANOMALIES, both kept verbatim:
+#   - one row has an EMPTY configuration and the term "x*" at 147820
+#   - the 1S ground-multiplet level at 28430 carries suffix "+k", an
+#     additive-constant flag like Ca VIII's "+x"; it cannot yield a
+#     defect and is marked
+#
+# config	term	J	level_cm1	note
+4s2.4p2	3P	0	0	
+4s2.4p2	3P	1	1741	
+4s2.4p2	3P	2	3937	
+4s2.4p2	1D	2	13032.	
+4s2.4p2	1S	0	28430.	+k
+4s2.4p.(2P*).4d	3F*	2	124051.9	
+4s2.4p.(2P*).4d	3F*	3	125309.8	
+4s2.4p.(2P*).4d	3F*	4	127409.5	
+4s2.4p.(2P*).4d	1P*	1	136946.5	
+4s2.4p.(2P*).4d	1D*	2	139203.7	
+4s2.4p.(2P*).4d	3D*	2	139409.7	
+4s2.4p.(2P*).4d	3D*	1	140639.7	
+4s2.4p.(2P*).4d	3D*	3	142014.6	
+4s2.4p.(2P*).4d	3P*	0	142315.8	
+4s2.4p.(2P*).4d	3P*	2	142706.1	
+4s2.4p.(2P*).4d	3P*	1	142758.2	
+4s2.4p.(2P*).4d	1F*	3	148675.	
+4s2.4p.(2P*).5s	3P*	0	126276.9	
+4s2.4p.(2P*).5s	3P*	1	126781.4	
+4s2.4p.(2P*).5s	3P*	2	130391.0	
+4s2.4p.(2P*).5s	1P*	1	131655.9	
+4s2.4p.(2P*).5p	1P	1	150761.1	
+4s2.4p.(2P*).5p	3D	1	153211.4	
+4s2.4p.(2P*).5p	3D	2	153520.9	
+4s2.4p.(2P*).5p	3D	3	156692.9	
+4s2.4p.(2P*).5p	3P	0	154783.0	
+4s2.4p.(2P*).5p	3P	1	156360.4	
+4s2.4p.(2P*).5p	3P	2	157874.2	
+4s2.4p.(2P*).5p	3S	1	159302.9	
+4s2.4p.(2P*).5p	1D	2	161170.2	
+4s2.4p.(2P*).6s	3P*	0	187168.7	
+4s2.4p.(2P*).6s	3P*	1	187426.5	
+4s2.4p.(2P*).6s	3P*	2	191523.0	
+4s2.4p.(2P*).6s	1P*	1	192161.8	
+4s2.4p.(2P*).5d	3F*	2	188429.2	
+4s2.4p.(2P*).5d	3F*	3	189647.9	
+4s2.4p.(2P*).5d	3F*	4	191593.6	
+4s2.4p.(2P*).5d	3D*	2	190020.2	
+4s2.4p.(2P*).5d	3D*	1	190841.2	
+4s2.4p.(2P*).5d	3D*	3	193915.0	
+4s2.4p.(2P*).5d	1D*	2	193304.4	
+4s2.4p.(2P*).5d	3P*	2	194727.0	
+4s2.4p.(2P*).5d	3P*	1	194950.5	
+4s2.4p.(2P*).5d	1F*	3	196845.4	
+4s.4p3	3D*	1	91091.	two-outside
+4s.4p3	3D*	2	92723.	two-outside
+4s.4p3	3D*	3	96548.	two-outside
+4s.4p3	3P*	0	106482.	two-outside
+4s.4p3	3P*	2	106515.	two-outside
+4s.4p3	3P*	1	106591.	two-outside
+4s.4p3	1D*	2	112565.	two-outside
+# --- EMPTY configuration, term "x*" — kept verbatim, R 1576 refuses
+	x*	1	147820.	malformed

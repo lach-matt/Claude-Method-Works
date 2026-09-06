@@ -1,0 +1,62 @@
+cited_lw = sorted({int(x) for i in range(s4, e4) for x in re.findall(r'[Rr]egisters?\s+(\d+)', M[i - 1])})
+print('   line-wise sweep (WRONG — misses a wrapped pointer):', cited_lw)
+print('   registers cited inside §32.1.4:', cited)
+check('§32.1.4 cites register 332', 332 in cited, True)
+def entry(n, lines=None):
+    L = lines if lines is not None else R
+    i = next((i for i, l in enumerate(L, 1) if l.strip() == '### %d' % n), None)
+    if i is None: return (None, '')
+    e = next((j for j in range(i + 1, len(L) + 1) if re.match(r'^#{1,4} ', L[j - 1])), len(L) + 1)
+    return (i, '\n'.join(L[i:e - 1]).strip())
+for n in (332, 373, 375, 435):
+    i, t = entry(n)
+    print('   register %-4d Register L%-6s %s' % (n, i, norm(t)[:120]))
+i332, t332 = entry(332)
+check('332 states the total is a press readout', 'READOUT THE PRESS PRINTS AT EVERY BUILD' in t332, True)
+check('332 states the current figure', re.search(r'BUILD — (\d+) AT THE TIME OF WRITING', t332).group(1), '47')
+check('332 states the figure it replaced', re.search(r'HAVING BEEN (\d+) WHEN THIS SECTION WAS FIRST COMPUTED', t332).group(1), '55')
+check('332 carries the shape sentence', 'the audit set seventeen' in t332, True)
+print('   ORIGIN OF 47: register 332 — the entry §32.1.4 itself cites. It is a PRESS READOUT, and 332 is')
+print('   its only statement of provenance. Register 375 restates it; it does not originate it.')
+
+# ------------------------------------------------------------------ §4
+hr('§4 THE CHRONOLOGY OF THE TOTAL — append-only entry order, so the sequence is the record\'s own')
+seq = [('§32.1.4 as first computed (332\'s own words)', 55, i332),
+       ('register 332, a press readout', 47, i332),
+       ('register 373 / §32.1.4.1', 48, entry(373)[0]),
+       ('register 375, discharging §2.21', 47, entry(375)[0])]
+for lab, v, ln in seq: print('   %-46s %3d   Register L%s' % (lab, v, ln))
+check('entry order 332 < 373 < 375', [entry(332)[0] < entry(373)[0], entry(373)[0] < entry(375)[0]], [True, True])
+check('the total is NOT monotone across the record', [v for _, v, _ in seq], [55, 47, 48, 47])
+print('   The record has the total at 47 BEFORE it has it at 48. 375\'s 47 is not a further movement from 48;')
+print('   it is 332\'s figure restated after 373 printed a higher one. THAT is why three totals stand at once.')
+
+# ------------------------------------------------------------------ §5
+hr('§5 THE SHAPE SENTENCE — 26c-02 said it appears in no volume. Swept over all six volumes and PP')
+SHAPE = 'the audit set seventeen'
+sites = []
+for v in VOLS:
+    L = rd(v)
+    for i, l in enumerate(L, 1):
+        if SHAPE.lower() in l.lower(): sites.append((nvol(v), i))
+for i, l in enumerate(P, 1):
+    if SHAPE.lower() in l.lower(): sites.append(('PP', i))
+for vn, i in sites: print('   %-12s L%-6d %s' % (vn, i, norm((rd([v for v in VOLS if nvol(v) == vn][0])[i - 1] if vn != 'PP' else P[i - 1]))[:104]))
+check('sites of the shape sentence across six volumes and PP', len(sites), 2)
+check('the volumes carrying it', sorted({vn for vn, _ in sites}), ['The_Register'])
+check('sites in the main volume\'s chapters', len([1 for vn, _ in sites if vn == 'main']), 0)
+check('sites in Prints & Proofs', len([1 for vn, _ in sites if vn == 'PP']), 0)
+check('the two Register sites are entries 332 and 375',
+      sorted({n for n in (332, 373, 375, 435) if SHAPE in entry(n)[1]}), [332, 375])
+score('26c-02 as recorded: the shape sentence appears in NO VOLUME', len(sites) == 0, True, '32a-01')
+print('   32a-01 CORRECTS 26c-02. The sentence has TWO sites, both in the Register (332 and 375). What is')
+print('   true, and is what the finding meant, is that §32.1.4 does not carry it: 0 sites in any chapter,')
+print('   0 in the other four compendia, 0 in Prints & Proofs. A claim about a volume is not a claim about')
+print('   a section, and the recorded wording scored the wrong object.')
+
+# ------------------------------------------------------------------ §6
+hr('§6 IS 47 REPRODUCIBLE? Every PRINTED value of each of the four components, and every sum they reach')
+COMP = {'Appendix D, unfibred': r'E\(D\) = (\d+) unfibred|Appendix D, unfibred\s+(\d+)',
+        'Appendix E (Q), unfibred': r'E\(Q\) = (\d+) unfibred|E\(Q\), unfibred\s+(\d+)',
+        'Appendix F, the numbers': r'E over the numbers index\s+(\d+)\s+(\d+)\s+(\d+)',
+        'the audit set, at four coordinates': r'E\(audits\)\s*(?:=|read|at|,\s*then)\s*(\d+)'}

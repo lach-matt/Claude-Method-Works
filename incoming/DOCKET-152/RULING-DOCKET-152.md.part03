@@ -1,0 +1,49 @@
+
+**Measured, under CONVENTION PROV** (stated before scoring: a provenance claim printed **inside** a block but
+addressed **to** a chapter is a claim about the **chapter**, and is scored over the objects **the chapter names**,
+each dated by the year the block gives it — never over the block's own contents. A sentence about a chapter is not
+an inventory of the list it sits in):
+
+**The sentence at L11821 is TRUE.** Chapter 36 names **ten** of the three-body block's works — Brudno, Chenciner,
+Euler, Jacobi, Lagrange, Maupertuis, Montgomery, Moore, Painlevé, Saari — and the newest year among them is
+**2015, Montgomery's own**. The **six** block works that post-date him — **Fleischer, Knauf, Stone, Leigh, Kol** and
+**this work's own companion paper** — appear in **no part of Chapter 36**. The chapter's only other dated outsider is
+**Xia 1992**, at L9930 inside §36.5's list of what the chapter does *not* claim, and Xia appears in no part of the
+block.
+
+**So what over-reaches is the BLOCK's scope, not the sentence and not the chapter.** L11808 and L11854 both assert
+the blocks *are the works the chapters rest on*; six three-body works are in the block and in no part of Chapter 36,
+and on the Löwdin side **Madelung is in neither Chapter 35 nor registers 1701–1712** — the one work of either block
+with no home anywhere in the record. Of the Löwdin block's **seven** prior-art works (the eighth bullet is the
+companion paper), only **four** are named in Chapter 35 — Löwdin 1950 and 1969, Griffin–Andrew–Cowan, Pulay 1969.
+
+**The ruling.** The sentence at L11821 stands as written. For the block, one of:
+
+- **(a) The block narrows** to the works the chapters actually name — six bullets leave the three-body block and
+  Madelung leaves the Löwdin block, or move to a labelled second tier.
+- **(b) The block's lead-ins stop saying the chapters rest on it** — L11808 and L11854 are re-worded to *the works
+  entered with the chapters at registers 1701–1712 / 1713–1724*, which is true as printed and asserts no dependence.
+- **(c) A stated two-tier form** — *rests on* and *entered alongside* as marked groups within each block.
+
+*Docket 9(b) / 17.* **28b-08** rides with it, unruled: block names living **only** in register 1721 within 1713–1724
+number **twelve**, not the eight recorded — **Baker, Dechter, Montanari and Pixley** (L11839's constraint-consistency
+line) sit in 1721's tenth owner-group, in no other entry of the run, and in no part of Chapter 36.
+
+**Engaged and NOT scored, recorded for you.** Register 1721 prints **ten** owner-groups against its stated **seven**
+closures. A question may close to more than one group, and the audit-7 ledger mapping question to owner is **not a
+member of this build**, so the reading cannot decide it. What *does* reconcile: §36.2's *eight closed* and §36.3's
+*seven belonged to others; the eighth* agree — the eighth is the withdrawn degree-8 polynomial (register 1719),
+given to Lagrange's resolvent method 1770 at register 1720, which is why 1721's owner list names neither Lagrange
+nor Euler.
+
+---
+
+## What is not in this docket
+
+- **Census rows left engaged and open:** **mc 387–672** (the 286 C13-HANDLE-LEAK rows of the bibliography table's
+  `objects` column) and **mc 293**. Computable work; no ruling needed to start it.
+- **The other R3 items already standing in DEFERRED** — warn-02…warn-06, scf-A-01/-04, 34re-01…-06, 21a-03,
+  23a-03 (ii), 26b-11, 26c-01, 26c-03, 28a-02…-05, 28a-07/-09, 28b-01/-02/-08. These four were named as what
+  DEF-143 item 11's order now waits on; the rest wait behind them.
+- **Nothing is repaired here.** Each ruling given becomes a new Register entry citing the entry it corrects; the
+  volume follows the entry, never the other way round (RUL-128 item 1).

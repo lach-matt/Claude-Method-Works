@@ -1,0 +1,49 @@
+# Kr I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Kr+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Kr+I confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Kr II (4p5 2P*<3/2>)  112914.433 cm-1
+#         (a second, higher 2P*<1/2> limit is implied by the
+#          4s2.4p5.(2P*<1/2>).nl block but is NOT printed in this table)
+#
+# ** BOARD ROW 7 IS ANSWERED BY THIS TABLE. The Kr I "1s3" level of
+#    Paschen notation is 4s2.4p5.(2P*<1/2>).5s 2[1/2]* J=0.
+#
+#      the board's bracket   80917 - 85847 cm-1
+#      the board's estimate  ~85343
+#      THE MEASURED VALUE    85191.6166
+#
+#    INSIDE THE BRACKET, and 151 cm-1 below the estimate. Recorded, not
+#    acted on — the board row is M's to close. **
+#
+#    Its three companions, the full 4p5.5s manifold:
+#      2[3/2]* J=2   79971.7417   (1s5)
+#      2[3/2]* J=1   80916.7680   (1s4)
+#      2[1/2]* J=0   85191.6166   (1s3)  <- the one wanted
+#      2[1/2]* J=1   85846.7046   (1s2)
+#
+# ** THE WHOLE TABLE IS RACAH 2[K] EXCEPT THE GROUND 1S. Register 1576
+#    refuses all of it — no single 2S+1 anywhere. Kr I is therefore a
+#    ~450-row table yielding ZERO keyable channels under the present
+#    index, and register 1602's jK instrument is what would read it. **
+#
+# Series depth, recorded for the reading pass: on the 2P*<3/2> parent
+# ns to n=20, np to n=20, nd to n=20, nf to n=20, ng at n=5.
+# On the 2P*<1/2> parent: ns to n=20, nd to n=20, nf to n=18 — and the
+# nf and np rows there carry EMPTY term and EMPTY J.
+# Two further blocks: 4s.4p6.np (a 4s hole, n=5..19) and 3d9.4s2.4p6.np
+# (a 3d hole, n=5..8), both on unprinted higher limits.
+#
+# THE FOUR ROWS BELOW ARE THE ONLY ONES TRANSCRIBED: the ground state
+# and the 5s manifold that answers board row 7. The remaining ~450 rows
+# are Racah and cannot enter a 2S+1-keyed index; transcribing them would
+# put unusable data in the tree.
+#
+# config	term	J	level_cm1	note
+4s2.4p6	1S	0	0.0000	ground
+4s2.4p5.(2P*<3/2>).5s	2[3/2]*	2	79971.7417	1s5, Racah
+4s2.4p5.(2P*<3/2>).5s	2[3/2]*	1	80916.7680	1s4, Racah
+4s2.4p5.(2P*<1/2>).5s	2[1/2]*	0	85191.6166	1s3 — BOARD ROW 7
+4s2.4p5.(2P*<1/2>).5s	2[1/2]*	1	85846.7046	1s2, Racah

@@ -1,0 +1,4 @@
+# FAULTS S99 (registered before cc99 output is read)
+F99.1 SEVERITY prediction -- PR2 falsified: den(core,72) = -0.06814 (6s BELOW 5d on the core side), outside the predicted [+0.05,+0.25]. The bracket was reverse-engineered from the s97 declared V^2(core)=1.2e-3, which the eps re-read does not support.
+F99.2 SEVERITY inherited-declaration (s97) -- V^2(core,72)=1.2e-3 declared at s97 as "isolated" is NOT sign-consistent under the filed extraction V^2 = piece x den: (+0.00861)(-0.06814) = -5.9e-4 < 0. Core side is the same non-isolable species as the run side. Timing flag: caught only after the eps solve; the s97 provenance of 1.2e-3 is unlocated in the archive.
+NOTE: core-side block value CANCELS EXACTLY in dcc (60-60 is a shared pair of both remainder sums) -- F99.2 therefore does not gate dcc; it gates only the per-side block bookkeeping.

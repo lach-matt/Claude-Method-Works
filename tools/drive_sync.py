@@ -40,8 +40,10 @@ import concurrent.futures
 import dataclasses
 import hashlib
 import http.client
+import json
 import logging
 import os
+import shutil
 import socket
 import ssl
 import sys
@@ -115,6 +117,16 @@ PROTECTED_DEST_FILES = frozenset({MANIFEST_NAME, "README.md"})
 TEMP_PREFIX = ".drive-sync-"
 
 STATUS_OK = "ok"
+#: A file put into the mirror from a copy fetched by some other route -- a Drive
+#: connector, a mount, a hand download -- rather than by this tool's own
+#: authenticated GET.  It is NOT ``ok``: the download path verifies the byte
+#: count AND Drive's own md5Checksum before it writes a row, and an adopted file
+#: has had only the byte count checked, because the routes that can reach a
+#: same-titled duplicate return no checksum.  Flattening the two would claim a
+#: verification that was never performed.
+STATUS_ADOPTED = "ok-adopted"
+
+PENDING_NAME = "PENDING.tsv"
 
 LOGGER = logging.getLogger("drive_sync")
 
@@ -1258,6 +1270,256 @@ def prune_extras(dest_root: Path, extras: Sequence[Path]) -> Tuple[int, int]:
 # --------------------------------------------------------------------------- #
 
 
+def pending_rows(dest_root: Path) -> Dict[str, Dict[str, str]]:
+    """PENDING.tsv keyed by drive_id.  Missing file -> {}.
+
+    NOTE: this tool does not WRITE PENDING.tsv -- nothing here ever has.  It is
+    read here only so that ``--adopt`` can find the repo path a pending row
+    already assigns to a Drive id, and it is left untouched.
+    """
+    path = dest_root / PENDING_NAME
+    out: Dict[str, Dict[str, str]] = {}
+    if not path.is_file():
+        return out
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        header: List[str] = []
+        for line in handle:
+            fields = line.rstrip("\n").rstrip("\r").split("\t")
+            if not header:
+                header = fields
+                continue
+            if len(fields) != len(header):
+                continue
+            row = dict(zip(header, fields))
+            if row.get("drive_id"):
+                out[row["drive_id"]] = row
+    return out
+
+
+def adopt_metadata(meta_path: Path) -> Dict[str, str]:
+    """Read a Drive metadata document as a connector returns it.
+
+    Accepts the field spellings the Drive v3 API and its connectors use --
+    ``id``/``fileId``, ``title``/``name``, ``fileSize``/``size``,
+    ``modifiedTime``, ``mimeType`` -- and requires the four that a manifest row
+    cannot be honest without.
+    """
+    with meta_path.open("r", encoding="utf-8") as handle:
+        raw = json.load(handle)
+    if not isinstance(raw, dict):
+        raise ValueError("{}: expected a JSON object".format(meta_path))
+
+    def pick(*names: str) -> str:
+        for name in names:
+            value = raw.get(name)
+            if value not in (None, ""):
+                return str(value)
+        return ""
+
+    meta = {
+        "drive_id": pick("id", "fileId", "drive_id"),
+        "title": pick("title", "name", "drive_title"),
+        "mime_type": pick("mimeType", "mime_type"),
+        "size": pick("fileSize", "size", "drive_size_bytes"),
+        "modified": pick("modifiedTime", "modified_time", "drive_modified"),
+        "md5": pick("md5Checksum", "md5"),
+    }
+    missing = [k for k in ("drive_id", "title", "size") if not meta[k]]
+    if missing:
+        raise ValueError(
+            "{}: metadata is missing {}".format(meta_path, ", ".join(missing))
+        )
+    if not meta["size"].isdigit():
+        raise ValueError("{}: fileSize {!r} is not a number".format(meta_path, meta["size"]))
+    return meta
+
+
+def run_adopt(
+    dest_root: Path,
+    local_path: Path,
+    meta_path: Path,
+    repo_path_override: Optional[str],
+    dry_run: bool,
+) -> int:
+    """Record a file fetched by another route, without contacting Drive.
+
+    This exists because the two routes that can see a SAME-TITLED DUPLICATE --
+    a Drive connector called with a bare file id, or a hand download -- are not
+    this tool's authenticated GET, and a mount cannot see such a duplicate at
+    all.  Without it a file can be obtained and still not be mirrorable, because
+    MANIFEST.tsv is generated here and is never hand-edited.
+
+    It loads no Google module and needs no token.  What it refuses is as much
+    of the contract as what it does:
+
+      * it refuses a size that disagrees with the metadata, byte for byte;
+      * it refuses to overwrite a mirrored file whose content differs, since
+        that is a conflict and not an adoption;
+      * it refuses to reuse a repo path already held under a different Drive id;
+      * it never claims ``ok``.  The row is written ``ok-adopted`` because
+        Drive's own md5 was not compared -- see STATUS_ADOPTED.
+    """
+    if not local_path.is_file():
+        LOGGER.error("--adopt: %s is not a file", local_path)
+        return 2
+    try:
+        meta = adopt_metadata(meta_path)
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        LOGGER.error("--adopt-meta: %s", exc)
+        return 2
+
+    local_size = local_path.stat().st_size
+    stated = int(meta["size"])
+    if local_size != stated:
+        LOGGER.error(
+            "--adopt: %s is %d bytes, metadata says %d - refusing",
+            local_path, local_size, stated,
+        )
+        return 2
+
+    manifest_path = dest_root / MANIFEST_NAME
+    rows = read_manifest(manifest_path)
+
+    repo_path = repo_path_override or ""
+    if not repo_path:
+        pending = pending_rows(dest_root)
+        row = pending.get(meta["drive_id"])
+        if row and row.get("repo_path"):
+            repo_path = row["repo_path"]
+            LOGGER.info("--adopt: repo path taken from %s: %s", PENDING_NAME, repo_path)
+    if not repo_path:
+        LOGGER.error(
+            "--adopt: no repo path. Pass --adopt-path, or add the file to %s "
+            "with its drive_id so the path is already decided.", PENDING_NAME,
+        )
+        return 2
+
+    existing = rows.get(repo_path)
+    if existing and existing.drive_id and existing.drive_id != meta["drive_id"]:
+        LOGGER.error(
+            "--adopt: %s is already held under drive id %s, not %s - refusing",
+            repo_path, existing.drive_id, meta["drive_id"],
+        )
+        return 2
+
+    digest = md5_of_file(local_path)
+    if meta["md5"] and digest != meta["md5"]:
+        LOGGER.error(
+            "--adopt: md5 %s does not match the metadata's %s - refusing",
+            digest, meta["md5"],
+        )
+        return 2
+
+    target = local_path_for(dest_root, repo_path)
+    if target.is_file() and md5_of_file(target) != digest:
+        LOGGER.error(
+            "--adopt: %s already holds different content (md5 %s vs %s) - refusing",
+            repo_path, md5_of_file(target), digest,
+        )
+        return 2
+
+    new_row = ManifestRow(
+        repo_path=repo_path,
+        drive_id=meta["drive_id"],
+        drive_title=meta["title"],
+        mime_type=meta["mime_type"],
+        drive_size_bytes=str(stated),
+        drive_modified=meta["modified"],
+        md5=digest,
+        status=STATUS_ADOPTED,
+    )
+
+    if dry_run:
+        print("would adopt  {}".format(repo_path))
+        print("  drive id   {}".format(new_row.drive_id))
+        print("  bytes      {}  (matches the metadata)".format(stated))
+        print("  md5        {}  (computed here; Drive's own was {})".format(
+            digest, meta["md5"] or "not supplied"))
+        print("  status     {}".format(STATUS_ADOPTED))
+        print("nothing written.")
+        return 0
+
+    target.parent.mkdir(parents=True, exist_ok=True)
+    if not target.is_file():
+        shutil.copyfile(str(local_path), str(target))
+    rows[repo_path] = new_row
+    write_manifest(manifest_path, rows.values())
+
+    print("adopted {}".format(repo_path))
+    print("  drive id {}  bytes {}  md5 {}".format(new_row.drive_id, stated, digest))
+    print("  status   {} - Drive's own md5 was not compared".format(STATUS_ADOPTED))
+    print("  manifest {} rows".format(len(rows)))
+    print("{} is NOT updated by this tool and never has been; edit it as the "
+          "record it is.".format(PENDING_NAME))
+    return 0
+
+
+def selftest() -> int:
+    """Fixtures for the pure functions.  No network, no token, no Drive."""
+    ok = True
+
+    def check(label: str, got: object, want: object) -> None:
+        nonlocal ok
+        good = got == want
+        ok = ok and good
+        print("  %-54s = %-9s expected %-9s %s" % (label, got, want, "ok" if good else "FAIL"))
+
+    check("an adopted row is not ok", STATUS_ADOPTED == STATUS_OK, False)
+    check("manifest still has eight columns", len(MANIFEST_COLUMNS), 8)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        body = b"# a mirrored file\n" * 64
+        src = root / "src.md"
+        src.write_bytes(body)
+        digest = hashlib.md5(body).hexdigest()
+        check("md5_of_file matches hashlib", md5_of_file(src), digest)
+
+        meta = root / "meta.json"
+        meta.write_text(json.dumps({
+            "id": "DRIVEID1", "title": "src.md", "mimeType": "text/markdown",
+            "fileSize": str(len(body)), "modifiedTime": "2026-09-04T00:00:00.000Z",
+        }), encoding="utf-8")
+        parsed = adopt_metadata(meta)
+        check("metadata reads the connector's spelling", parsed["drive_id"], "DRIVEID1")
+
+        dest = root / "mirror"
+        rc = run_adopt(dest, src, meta, "Folder/src.md", dry_run=False)
+        check("adopt succeeds", rc, 0)
+        rows = read_manifest(dest / MANIFEST_NAME)
+        check("the row is written", "Folder/src.md" in rows, True)
+        check("the row is ok-adopted", rows["Folder/src.md"].status, STATUS_ADOPTED)
+        check("the file is mirrored", (dest / "Folder/src.md").is_file(), True)
+
+        # a size that disagrees is refused
+        bad = root / "bad.json"
+        bad.write_text(json.dumps({
+            "id": "DRIVEID2", "title": "src.md", "fileSize": str(len(body) + 1),
+        }), encoding="utf-8")
+        check("a size mismatch is refused", run_adopt(dest, src, bad, "Folder/other.md", False), 2)
+
+        # the same path under a different id is refused
+        other = root / "other.json"
+        other.write_text(json.dumps({
+            "id": "DRIVEID9", "title": "src.md", "fileSize": str(len(body)),
+        }), encoding="utf-8")
+        check("a path held under another id is refused",
+              run_adopt(dest, src, other, "Folder/src.md", False), 2)
+
+        # different content at the same path is a conflict, not an adoption
+        (dest / "Folder" / "conflict.md").write_bytes(b"different\n")
+        check("differing content at the path is refused",
+              run_adopt(dest, src, meta, "Folder/conflict.md", False), 2)
+
+        # re-adopting the identical file is idempotent
+        check("re-adopting the same bytes succeeds",
+              run_adopt(dest, src, meta, "Folder/src.md", False), 0)
+        check("no row was duplicated", len(read_manifest(dest / MANIFEST_NAME)), 1)
+
+    print("\n%s" % ("SELFTEST OK" if ok else "SELFTEST FAILED"))
+    return 0 if ok else 1
+
+
 def repo_root() -> Path:
     _h = Path(__file__).resolve().parent
     return _h.parent.parent if _h.name == 'members' else _h.parent   # the repo root, from tools/ or from a seated copy in method/members/
@@ -1355,6 +1617,33 @@ def build_parser() -> argparse.ArgumentParser:
         help="delete local files that are no longer in Drive (default: report only).",
     )
     parser.add_argument("--verbose", "-v", action="store_true", help="debug logging")
+
+    adopt = parser.add_argument_group(
+        "adopt a file fetched by another route (no Drive call, no token)",
+        "A same-titled duplicate is invisible to a Drive mount and reachable only "
+        "by file id. When it is obtained some other way -- a connector, a hand "
+        "download -- this records it in MANIFEST.tsv, which is generated here and "
+        "must never be hand-edited. The row is written ok-adopted, not ok, because "
+        "Drive's own md5 is not compared.",
+    )
+    adopt.add_argument(
+        "--adopt", metavar="PATH",
+        help="local copy of the file to record in the mirror",
+    )
+    adopt.add_argument(
+        "--adopt-meta", metavar="PATH",
+        help="JSON metadata for it, as a Drive metadata call returns "
+             "(id, title, mimeType, fileSize, modifiedTime)",
+    )
+    adopt.add_argument(
+        "--adopt-path", metavar="REPO_PATH",
+        help="where it belongs inside the mirror; defaults to the repo_path "
+             "PENDING.tsv already assigns to this drive id",
+    )
+    parser.add_argument(
+        "--selftest", action="store_true",
+        help="assert the pure functions and the adopt refusals; no network",
+    )
     return parser
 
 
@@ -1486,6 +1775,21 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     folder_names: Sequence[str] = args.folder or (
         [] if args.folder_id else list(DEFAULT_FOLDER_NAMES)
     )
+
+    # Both of these run BEFORE any Google module is imported, which is the point
+    # of them: this container has no token and is not meant to have one.
+    if args.selftest:
+        return selftest()
+    if args.adopt or args.adopt_meta:
+        if not (args.adopt and args.adopt_meta):
+            raise SystemExit("--adopt and --adopt-meta are used together")
+        return run_adopt(
+            dest_root,
+            Path(args.adopt).expanduser(),
+            Path(args.adopt_meta).expanduser(),
+            args.adopt_path,
+            args.dry_run,
+        )
 
     # Everything above this line is argument handling only: no network, no auth.
     modules = load_google_modules()

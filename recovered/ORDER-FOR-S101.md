@@ -1,0 +1,6 @@
+# ORDER FOR SESSION 101. Open with `bash pack58/open58.sh` on LOWDIN-HANDOFF-100.tgz. Read pack100/SESSION-100-COMBINED.md first. Residue count after s100: ONE (G5b).
+## ITEM 1 (G5b, the last residue): build Efun's variational (Euler-Lagrange) operator at 58-B; evaluate the non-stationarity projection <dP/dq|(A_shoot - A_Efun)|P> along the fractional-q path. RULE B: VALUE, 30 percent window, SIGN-exact vs the measured +8.0e-5; direction: defect sign follows the sign of the projected G1 content terms. If HELD at 58-B, score 90-A (-5.90e-5) and 91-A (-4.10e-5) with the same rule. If held 3/3: F93.6 + d-row (a),(b) CLOSE into the s100 G1 attribution -- ZERO RESIDUE.
+## ITEM 2: Law C fetch (BLLS PRL 72:2981) -- corroboration class if Item 1 holds, load-bearing if not. Requires a network-enabled session; if unavailable, M rules on sufficiency.
+## ITEM 3: G4 consumer bound, per-row statement: file the v5a operator-content offset bound per V5 row against its margin (receipts exist; one table).
+## ITEM 4 (G3 refined): REFINED pre-T4 scope sentence from pack100/SCOPE-T4-S100-BROAD.md -- written ONLY when Items 1-3 close and Rule A passes.
+## ITEM LAST (standing): T4 at zero residue only.

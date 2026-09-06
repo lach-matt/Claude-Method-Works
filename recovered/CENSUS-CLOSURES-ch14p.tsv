@@ -1,0 +1,2 @@
+id	verdict	reason
+1138	not a defect	C9-OVERGENERALISATION-WORD on "never" at main L6566, "Better data raises k. It never creates an interior peak." The flagged word is the section's own scoped rule, not a claim about the world: §23.12 states it of the order axis, and §23.10.2's V table — measured monotone in k across every row in chat 97 — is the evidence it rests on. r2-ch14p 14p-04 re-tested the restatement and found the direction exact. Same shape as the C9 artefacts closed at rows 678, 680-687, 1067, 1069, 1136 and 1137.

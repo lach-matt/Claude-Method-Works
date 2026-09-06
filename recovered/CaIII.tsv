@@ -1,0 +1,59 @@
+# Ca III — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Ca+III&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT, from the table:  Ca IV (3p5 2P*<3/2>)  410642.3 cm-1
+#
+# TWO THINGS FOR THE READING PASS, recorded not acted on:
+#
+# 1. SIX LEVELS LIE ABOVE THE LIMIT — the 3s.3p6.np series, n = 4 to 9,
+#    at 431100 to 546000 cm-1. These are 3s-hole states converging on a
+#    HIGHER limit than the one printed. They are NOT errors and they
+#    cannot be used against the 410642.3 limit.
+#
+# 2. Same mixed notation as K II: LS terms below ~322000, Racah 2[K]
+#    above. Register 1576 refuses the Racah block.
+#
+# Square brackets in the source mark ESTIMATED values, flagged e here.
+#
+# config	term	J	level_cm1	flag
+3s2.3p6	1S	0	0.0	
+3s2.3p5.3d	3P*	0	203373.22	
+3s2.3p5.3d	3P*	1	203851.95	
+3s2.3p5.3d	3P*	2	204842.64	
+3s2.3p5.3d	3F*	4	212310.0	
+3s2.3p5.3d	3F*	3	213379.40	
+3s2.3p5.3d	3F*	2	214334.06	
+3s2.3p5.3d	1D*	2	225826.22	
+3s2.3p5.3d	3D*	3	226333.56	
+3s2.3p5.3d	3D*	2	227388.56	
+3s2.3p5.3d	3D*	1	227432.11	
+3s2.3p5.3d	1F*	3	228413.95	
+3s2.3p5.4s	3P*	2	242547.19	
+3s2.3p5.4s	3P*	1	243930.44	
+3s2.3p5.4s	3P*	0	245611.88	
+3s2.3p5.4s	1P*	1	247696.39	
+3s2.3p5.4p	3S	1	272188.70	
+3s2.3p5.4p	3D	3	277022.40	
+3s2.3p5.4p	3D	2	277380.86	
+3s2.3p5.4p	3D	1	278621.01	
+3s2.3p5.3d	1P*	1	279353.64	
+3s2.3p5.4p	1D	2	279741.80	
+3s2.3p5.4p	1P	1	281139.55	
+3s2.3p5.4p	3P	2	281882.24	
+3s2.3p5.4p	3P	0	282075.15	
+3s2.3p5.4p	3P	1	282571.43	
+3s2.3p5.4p	1S	0	290934.30	
+3s.3p6.3d	3D	1	366778.85	
+3s.3p6.3d	3D	2	366926.33	
+3s.3p6.3d	3D	3	367472.91	
+3s.3p6.3d	1D	2	377168.1	
+# ABOVE THE PRINTED LIMIT — 3s-hole series, a DIFFERENT convergence
+3s.3p6.4p	1P*	1	431100	above-limit
+3s.3p6.5p	1P*	1	492850	above-limit
+3s.3p6.6p	1P*	1	519750	above-limit
+3s.3p6.7p	1P*	1	533530	above-limit
+3s.3p6.8p	1P*	1	541360	above-limit
+3s.3p6.9p	1P*	1	546000	above-limit

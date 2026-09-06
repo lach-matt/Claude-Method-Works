@@ -1,0 +1,181 @@
+# Na I — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Na+I&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Na+I confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# ** EIGHT LIMITS — the most of any species in the fetch: **
+#   Na II (2p6           1S<0>)      41449.451   <- the 2p6.nl series
+#   Na II (2p5.3s      3P*<2>)      306373.77
+#   Na II (2p5.3s      3P*<1>)      307139.07
+#   Na II (2p5.3s      3P*<0>)      307731.07
+#   Na II (2p5.3s      1P*<1>)      310212.41
+#   Na II (2s.2p6.3s    3S<1>)      572350
+#   Na II (2s.2p6.3s    1S<0>)      575750
+#   (a 2p5.3p block sits above with no printed convergence)
+#
+# THE READING LIST WANTS g FOR Na I, AND IT IS HERE:
+#   2p6.ng  n = 5..20, all 2G — plus 2p6.nh n = 6..10, all 2H*
+#
+# ** AND h IS A CHANNEL THE INDEX HAS NEVER HELD. l = 5. Only V V's k
+#    (l=7) went higher, and that was in one species at one n. Na I has
+#    SIX consecutive n in h. **
+#
+# 2p6.3s ground, one electron outside a closed 2p6 — the n=2-core
+# member of the one-outside family, with B I.
+#   s  n = 3..20   p  n = 3..20   d  n = 3..20
+#   f  n = 4..20   g  n = 5..20   h  n = 6..10
+#
+# SQUARE BRACKETS mark INTERPOLATED values and dominate above n=11:
+# essentially every level from 11d upward is bracketed. Flagged.
+# UNRESOLVED J appears on g from the first member and on h throughout;
+# on f from n=12 up. The 3d pair is resolved but differs by 0.05 cm-1.
+#
+# The 2p5 and 2s blocks above 248000 are CORE-HOLE series (2p and 2s
+# vacancies) on the higher limits; entirely refused by R 1576 where
+# they carry no single 2S+1, and kept separate.
+#
+# config	term	J	level_cm1	note
+2p6.3s	2S	1/2	0.00000	
+2p6.4s	2S	1/2	25739.999	
+2p6.5s	2S	1/2	33200.673	
+2p6.6s	2S	1/2	36372.618	
+2p6.7s	2S	1/2	38012.042	
+2p6.8s	2S	1/2	38968.51	
+2p6.9s	2S	1/2	39574.85	
+2p6.10s	2S	1/2	39983.27	
+2p6.11s	2S	1/2	40271.396	
+2p6.12s	2S	1/2	40482.236	
+2p6.13s	2S	1/2	40641.148	interpolated
+2p6.14s	2S	1/2	40763.884	interpolated
+2p6.15s	2S	1/2	40860.648	interpolated
+2p6.16s	2S	1/2	40938.281	interpolated
+2p6.17s	2S	1/2	41001.515	interpolated
+2p6.18s	2S	1/2	41053.701	interpolated
+2p6.19s	2S	1/2	41097.271	interpolated
+2p6.20s	2S	1/2	41134.023	interpolated
+2p6.3p	2P*	1/2	16956.17025	
+2p6.3p	2P*	3/2	16973.36619	
+2p6.4p	2P*	1/2	30266.99	
+2p6.4p	2P*	3/2	30272.58	
+2p6.5p	2P*	1/2	35040.38	
+2p6.5p	2P*	3/2	35042.85	
+2p6.6p	2P*	1/2	37296.32	
+2p6.6p	2P*	3/2	37297.61	
+2p6.7p	2P*	1/2	38540.18	
+2p6.7p	2P*	3/2	38540.93	
+2p6.8p	2P*	1/2	39298.35	
+2p6.8p	2P*	3/2	39298.84	
+2p6.9p	2P*	1/2	39794.479	interpolated
+2p6.9p	2P*	3/2	39794.810	interpolated
+2p6.10p	2P*	1/2	40136.810	
+2p6.10p	2P*	3/2	40137.043	
+2p6.11p	2P*	1/2	40382.925	
+2p6.11p	2P*	3/2	40383.097	
+2p6.12p	2P*	1/2	40565.783	interpolated
+2p6.12p	2P*	3/2	40565.913	interpolated
+2p6.13p	2P*	1/2	40705.344	interpolated
+2p6.13p	2P*	3/2	40705.444	interpolated
+2p6.14p	2P*	1/2	40814.273	interpolated
+2p6.14p	2P*	3/2	40814.352	interpolated
+2p6.15p	2P*	1/2	40900.922	interpolated
+2p6.15p	2P*	3/2	40900.985	interpolated
+2p6.16p	2P*	1/2	40970.976	interpolated
+2p6.16p	2P*	3/2	40971.028	interpolated
+2p6.17p	2P*	1/2	41028.419	interpolated
+2p6.17p	2P*	3/2	41028.462	interpolated
+2p6.18p	2P*	1/2	41076.106	interpolated
+2p6.18p	2P*	3/2	41076.141	interpolated
+2p6.19p	2P*	1/2	41116.126	interpolated
+2p6.19p	2P*	3/2	41116.156	interpolated
+2p6.20p	2P*	1/2	41150.040	interpolated
+2p6.20p	2P*	3/2	41150.066	interpolated
+2p6.3d	2D	5/2	29172.837	
+2p6.3d	2D	3/2	29172.887	
+2p6.4d	2D	5/2	34548.729	
+2p6.4d	2D	3/2	34548.764	
+2p6.5d	2D	5/2	37036.752	
+2p6.5d	2D	3/2	37036.772	
+2p6.6d	2D	5/2	38387.255	
+2p6.6d	2D	3/2	38387.268	
+2p6.7d	2D	5/2	39200.93	degenerate
+2p6.7d	2D	3/2	39200.93	degenerate
+2p6.8d	2D	5/2	39728.70	degenerate
+2p6.8d	2D	3/2	39728.70	degenerate
+2p6.9d	2D	5/2	40090.31	degenerate
+2p6.9d	2D	3/2	40090.31	degenerate
+2p6.10d	2D	5/2	40348.915	
+2p6.10d	2D	3/2	40348.918	
+2p6.11d	2D	5/2	40540.093	interpolated
+2p6.11d	2D	3/2	40540.095	interpolated
+2p6.12d	2D	3/2	40685.509	interpolated degenerate
+2p6.12d	2D	5/2	40685.509	interpolated degenerate
+2p6.13d	2D	5/2	40798.642	interpolated
+2p6.13d	2D	3/2	40798.644	interpolated
+2p6.14d	2D	5/2	40888.386	interpolated
+2p6.14d	2D	3/2	40888.387	interpolated
+2p6.15d	2D	3/2	40960.771	interpolated degenerate
+2p6.15d	2D	5/2	40960.771	interpolated degenerate
+2p6.16d	2D	5/2	41020.000	interpolated
+2p6.16d	2D	3/2	41020.001	interpolated
+2p6.17d	2D	5/2	41069.079	interpolated
+2p6.17d	2D	3/2	41069.080	interpolated
+2p6.18d	2D	3/2	41110.202	interpolated degenerate
+2p6.18d	2D	5/2	41110.202	interpolated degenerate
+2p6.19d	2D	5/2	41144.999	interpolated
+2p6.19d	2D	3/2	41145.000	interpolated
+2p6.20d	2D	3/2	41174.705	interpolated degenerate
+2p6.20d	2D	5/2	41174.705	interpolated degenerate
+2p6.4f	2F*	7/2	34586.92	degenerate
+2p6.4f	2F*	5/2	34586.92	degenerate
+2p6.5f	2F*	7/2	37057.65	degenerate
+2p6.5f	2F*	5/2	37057.65	degenerate
+2p6.6f	2F*	7/2	38399.79	degenerate
+2p6.6f	2F*	5/2	38399.79	degenerate
+2p6.7f	2F*	7/2	39208.98	degenerate
+2p6.7f	2F*	5/2	39208.98	degenerate
+2p6.8f	2F*	7/2	39734.16	degenerate
+2p6.8f	2F*	5/2	39734.16	degenerate
+2p6.9f	2F*	7/2	40094.19	degenerate
+2p6.9f	2F*	5/2	40094.19	degenerate
+2p6.10f	2F*	7/2	40351.761	interpolated degenerate
+2p6.10f	2F*	5/2	40351.761	interpolated degenerate
+2p6.11f	2F*	5/2	40542.293	interpolated degenerate
+2p6.11f	2F*	7/2	40542.293	interpolated degenerate
+2p6.12f	2F*	5/2,7/2	40687.203	interpolated unresolved-J
+2p6.13f	2F*	5/2,7/2	40799.974	interpolated unresolved-J
+2p6.14f	2F*	5/2,7/2	40889.452	interpolated unresolved-J
+2p6.15f	2F*	5/2,7/2	40961.637	interpolated unresolved-J
+2p6.16f	2F*	5/2,7/2	41020.714	interpolated unresolved-J
+2p6.17f	2F*	5/2,7/2	41069.674	interpolated unresolved-J
+2p6.18f	2F*	5/2,7/2	41110.703	interpolated unresolved-J
+2p6.19f	2F*	5/2,7/2	41145.425	interpolated unresolved-J
+2p6.20f	2F*	5/2,7/2	41175.070	interpolated unresolved-J
+2p6.5g	2G	7/2,9/2	37059.54	unresolved-J
+2p6.6g	2G	7/2	38400.900	interpolated
+2p6.6g	2G	9/2	38400.904	interpolated
+2p6.7g	2G	7/2,9/2	39209.725	interpolated unresolved-J
+2p6.8g	2G	7/2,9/2	39734.678	interpolated unresolved-J
+2p6.9g	2G	7/2,9/2	40094.581	interpolated unresolved-J
+2p6.10g	2G	7/2,9/2	40352.015	interpolated unresolved-J
+2p6.11g	2G	7/2,9/2	40542.484	interpolated unresolved-J
+2p6.12g	2G	7/2,9/2	40687.352	interpolated unresolved-J
+2p6.13g	2G	7/2,9/2	40800.091	interpolated unresolved-J
+2p6.14g	2G	7/2,9/2	40889.546	interpolated unresolved-J
+2p6.15g	2G	7/2,9/2	40961.714	interpolated unresolved-J
+2p6.16g	2G	7/2,9/2	41020.777	interpolated unresolved-J
+2p6.17g	2G	7/2,9/2	41069.727	interpolated unresolved-J
+2p6.18g	2G	7/2	41110.747	interpolated
+2p6.18g	2G	9/2	41110.748	interpolated
+2p6.19g	2G	7/2,9/2	41145.463	interpolated unresolved-J
+2p6.20g	2G	7/2,9/2	41175.102	interpolated unresolved-J
+# --- l = 5. THE h CHANNEL, NOT PREVIOUSLY IN THE INDEX
+2p6.6h	2H*	11/2	38401.147	interpolated
+2p6.6h	2H*	9/2	38401.153	interpolated
+2p6.7h	2H*	9/2,11/2	39209.887	interpolated unresolved-J
+2p6.8h	2H*	9/2,11/2	39734.790	interpolated unresolved-J
+2p6.9h	2H*	9/2,11/2	40094.660	interpolated unresolved-J
+2p6.10h	2H*	9/2,11/2	40352.073	interpolated unresolved-J
+# --- 2p-HOLE states, on the 2p5.3s limits
+2p5.3s2	2P*	3/2	248170	2p-hole
+2p5.3s2	2P*	1/2	249489	2p-hole

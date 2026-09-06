@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+# r2-28a2.py — chat 151-B (Cowork) — 28a-06 (DEF-143 item 11's EIGHTH family; docket 17 / 37):
+# main L11849 "Fifty-nine of them are the works listed above" sits in the same sentence as "162 works, 1669 to 2026".
+# READ-ch28a recorded 28a-06 on a SURNAME-OVERLAP BOUND of 16 of 162 and said so; DEFERRED owed R3 the
+# AUTHOR-AND-YEAR match on the 162 rows before the figure is kept. This instrument is that match.
+# Register 1736 is the source of the figure and says so in terms: it matched the compendium at "172 works",
+# by author and year, found fifty-nine shared, and removed ten rows afterwards. **1736's fifty-nine is a
+# 172-ROW DATUM.** It is a recorded finding and is NOT withdrawn here. What is measured here is the present
+# text: the match on the 162 rows the volumes now carry.
+# CONVENTION AY (new, this chat). "The works listed above" is the References unit from its heading down to the
+# line before the paragraph that makes the claim — a sentence about a list is not an entry in it. An MC row
+# MATCHES if any surname in its `work` cell appears in that region paired with the row's own year, where the
+# pairing is read POSITIONALLY: each parenthesised year takes the author surnames of the window before it, and
+# a window with no surname CARRIES the previous window's authors, which is the citation form this list uses
+# ("Saari, D. G. (1971). Trans. AMS 162, 267; (1973) 181, 351; (1984) J. Diff. Eq. 55, 300"). A surname is a
+# capitalised token followed by a comma-and-capital, an ampersand, "and", or a parenthesised year — journal
+# abbreviations ("Arch. Ration. Mech. Anal.") are followed by a period and are excluded by construction.
+# The extractor is ASSERTED on fourteen named citations BEFORE any verdict is printed, and asserted to admit
+# no journal token as an author. Rows the reading cannot decide are carried as NEAR (SUBJ, chat 148).
+# Book-versus-record deviations go through score() and never through the integrity checker check().
+# Reads MEMBERS by name (never a bundle path). Deterministic: no wall clock, no randomness.
+import os, re, sys, hashlib, importlib.util
+H = os.path.dirname(os.path.abspath(__file__))
+def load(name):
+    s = importlib.util.spec_from_file_location(name.replace('-', '_'), os.path.join(H, name + '.py'))
+    m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
+r2lib = load('r2lib')
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+
+MAIN, REG = 'The_Method_1_6-2.md', 'The_Method_1_6___The_Register-2.md'
+MCF = 'The_Method_1_6___Mathematical_Compendium-2.md'
+M, R, C = rd(MAIN), rd(REG), rd(MCF)
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-66s %-24s %s' % (tag, repr(got), 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-66s %-24s %s' % (tag, repr(got), 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+
+print('r2-28a2.py — 28a-06: does the author-and-year match on the 162 rows give fifty-nine?')
+print('members: %s %s | %s %s | %s %s' % (MAIN, md5(MAIN), REG, md5(REG), MCF, md5(MCF)))
+
+# ------------------------------------------------------------------------------ §1
+hr('§1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about')
+rf = [i + 1 for i, l in enumerate(M) if re.match(r'^#{1,3} References\b', l)]
+S = rf[-1]
+CLAIM = [i + 1 for i, l in enumerate(M) if "The companions' own bibliographies" in l][0]
+check('main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it)', rf, [173, 11503])
+check('the claim paragraph "The companions\' own bibliographies" begins at', CLAIM, 11848)
+print('   entry region L%d–L%d (%d lines); the claim paragraph L%d–L%d is read, never matched' % (S, CLAIM - 1, CLAIM - S, CLAIM, len(M)))
+for i in range(CLAIM, min(CLAIM + 7, len(M) + 1)): print('   %6d %s' % (i, M[i - 1].strip()))
+check('the sentence prints "162 works"', '162 works' in ' '.join(M[CLAIM - 1:CLAIM + 6]), True)
+check('the sentence prints "Fifty-nine of them"', 'Fifty-nine of them' in ' '.join(M[CLAIM - 1:CLAIM + 6]), True)
+check('the sentence names register 1736 as its source', 'register 1736' in ' '.join(M[CLAIM - 1:CLAIM + 6]), True)
+
+bh = [i + 1 for i, l in enumerate(C) if re.match(r'^#{1,3}\s.*Bibliograph', l, re.I)]
+B0 = bh[-1]; B1 = next((j + 1 for j in range(B0, len(C)) if re.match(r'^#{1,2}\s', C[j])), len(C) + 1)
+check('MC bibliography heading hits', bh, [3376])
+YEARONLY = re.compile(r'^(1[6-9]\d\d|20[0-2]\d)$')
+cells = [[c.strip() for c in re.split(r'(?<!\\)\|', l)[1:-1]] for l in C[B0 - 1:B1 - 1] if l.lstrip().startswith('|')]
+ROWS = [c for c in cells if c and YEARONLY.match(c[0])]
+check('MC bibliography L%d–L%d: DATA rows (year | work | objects)' % (B0, B1 - 1), len(ROWS), 162)
+check('every DATA row has exactly three cells', sorted({len(c) for c in ROWS}), [3])
+check('MC year range as the block prints it (1669–2026)', (min(int(c[0]) for c in ROWS), max(int(c[0]) for c in ROWS)), (1669, 2026))
+check('the block states its own count and the prior one', ('162 works' in C[B0 + 3]) and ('172' in C[B0 + 3]), True)
+
+# ------------------------------------------------------------------------------ §2
+hr('§2 REGISTER 1736 — the source of the figure, read in full; its fifty-nine is a 172-ROW datum')

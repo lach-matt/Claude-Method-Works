@@ -9,7 +9,10 @@ md5 against the copy Drive served.** The four still outstanding are listed in `P
 reason for each.
 
 * `MANIFEST.tsv` inventories every mirrored file: repo path, Drive file id, title, mime type, size,
-  modified time, md5, and status. One row per Drive file, no two rows sharing a path.
+  modified time, md5, and status. One row per Drive file, no two rows sharing a path. The
+  row-to-file bijection is asserted **across the two mirrored root folders only**. `chats/` is not
+  mirrored Drive content — it is the sharded chat export, inventoried by its own `chats/INDEX.tsv`
+  — so it has no manifest rows and `--prune`, which walks only the mirrored roots, leaves it alone.
 * `PENDING.tsv` inventories what is still missing and why, in the same one-row-per-file form.
 * Drive allows several files with the same title in one folder. The most recently modified copy keeps
   the plain name; every other copy carries a `__<driveFileId>` suffix before the extension. Three

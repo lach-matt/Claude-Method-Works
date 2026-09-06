@@ -1,0 +1,9 @@
+### The most active constraint is the coupling itself
+
+**Of the seven bounds that cut Λ from its box, g ≤ q removes the most. Ranked by marginal exclusion — the cells that satisfy all six other bounds and fail only this one — g ≤ q leads at 673, then q ≤ k at 575, k ≤ 4ℓ+2 at 564, ℓ ≤ n−1 at 308, 2S ≤ k at 300, f ≤ e−1 at 200, and the two that barely bind, k ≥ 1 at 25 and g ≤ 4f+2 at 24. And the bound that binds hardest is the only one relating a target coordinate to a source coordinate: g ≤ q reads placed ≤ removed, the electrons arriving cannot outnumber those the source gave up. Remove it and the two ends of the tree separate into an index of source configurations beside an index of target configurations — a product of states; keep it and each cell is a move that conserves what it transfers. The most active constraint and the coupling are one bound, and it is the bound that makes Λ a cylinder over the transfer rather than a rectangle of states.**
+
+*the seven constraints ranked by marginal exclusion over the value box of Λ₈ — g ≤ q first at 673, then q ≤ k 575, k ≤ 4ℓ+2 564, ℓ ≤ n−1 308, 2S ≤ k 300, f ≤ e−1 200, k ≥ 1 25, g ≤ 4f+2 24 — measured on the rebuilt Λ₈ at the caps of §7.4, (n, e, ℓ, k, f) = (3, 3, 1, 3, 1); that g ≤ q alone binds a target to a source is read from the constraint graph.*
+
+Proved — M §13.3; Birkhoff 1940.
+
+> **Prior art: the count of cells an inequality removes from a product of chains is a direct enumeration, and that a graded lattice is a cylinder over a base exactly when one relation binds its two ends is Birkhoff (1940). That g ≤ q is the most active of Λ's seven constraints — 673 otherwise-admissible cells, more than any other — and is the coupling, the sole target-to-source bound whose removal collapses the index of transitions into a product of states, is this book's.**

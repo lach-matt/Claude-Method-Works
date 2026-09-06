@@ -1,0 +1,68 @@
+# Ti V — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Ti+V&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# ** TWO LIMITS, and the second RESOLVES the Ca III / Sc IV puzzle: **
+#      Ti VI (3p5    2P*<3/2>)   800900   the 3p-hole parent
+#      Ti VI (3s.3p6 2S<1/2>)    997500   the 3s-hole parent
+#
+# In Ca III and Sc IV the 3s.3p6.np levels sat ABOVE the single printed
+# limit and I flagged them "above-limit" without a parent. Ti V PRINTS
+# BOTH PARENTS, which confirms the reading: those series converge on the
+# 3s-hole threshold, not the 3p-hole one. Ca III's and Sc IV's flags
+# should be revisited against this when the reading pass runs.
+#
+# Ar-like — the FOURTH of that sequence here, after K II, Ca III, Sc IV.
+# The 3s.3p6.np series runs n = 4..11 against the 997500 limit, in BOTH
+# 3P* and 1P*, which is a rare two-multiplicity series.
+#
+# config	term	J	level_cm1	limit_cm1
+3s2.3p6	1S	0	0	800900
+3s2.3p5.3d	3P*	0	274439.7	800900
+3s2.3p5.3d	3P*	1	275371.9	800900
+3s2.3p5.3d	3P*	2	277310.6	800900
+3s2.3p5.3d	3F*	4	287276.5	800900
+3s2.3p5.3d	3F*	3	289050.2	800900
+3s2.3p5.3d	3F*	2	290778.7	800900
+3s2.3p5.3d	1D*	2	306874.5	800900
+3s2.3p5.3d	3D*	3	307429.2	800900
+3s2.3p5.3d	3D*	1	309252.1	800900
+3s2.3p5.3d	3D*	2	309433.1	800900
+3s2.3p5.3d	1F*	3	311433.8	800900
+3s2.3p5.3d	1P*	1	395320.9	800900
+3s2.3p5.4s	3P*	2	434339.4	800900
+3s2.3p5.4s	3P*	1	436849.8	800900
+3s2.3p5.4s	3P*	0	440065.2	800900
+3s2.3p5.4s	1P*	1	443752.7	800900
+3s2.3p5.4p	3S	1	481987.7	800900
+3s2.3p5.4p	3D	3	487974.6	800900
+3s2.3p5.4p	3D	2	488225.7	800900
+3s2.3p5.4p	3D	1	493300.5	800900
+3s2.3p5.4p	1D	2	494035.7	800900
+3s2.3p5.4p	1P	1	496890.7	800900
+3s2.3p5.4p	3P	2	498057.2	800900
+3s2.3p5.4p	3P	0	498176.4	800900
+3s2.3p5.4p	3P	1	499336.2	800900
+3s2.3p5.4p	1S	0	514608.7	800900
+# --- 3s-hole states, against the 997500 limit ---
+3s.3p6.3d	3D	1	488928.7	997500
+3s.3p6.3d	3D	2	491558.7	997500
+3s.3p6.3d	3D	3	492567.1	997500
+3s.3p6.3d	1D	2	506224.7	997500
+3s.3p6.4p	3P*	1	687980	997500
+3s.3p6.4p	1P*	1	691797	997500
+3s.3p6.5p	3P*	1	825500	997500
+3s.3p6.5p	1P*	1	827650	997500
+3s.3p6.6p	3P*	1	885770	997500
+3s.3p6.6p	1P*	1	888930	997500
+3s.3p6.7p	3P*	1	920720	997500
+3s.3p6.7p	1P*	1	922140	997500
+3s.3p6.8p	3P*	1	940660	997500
+3s.3p6.8p	1P*	1	942030	997500
+3s.3p6.9p	3P*	1	954820	997500
+3s.3p6.9p	1P*	1	955010	997500
+3s.3p6.10p	3P*	1	963820	997500
+3s.3p6.10p	1P*	1	964010	997500
+3s.3p6.11p	1P*	1	970320	997500

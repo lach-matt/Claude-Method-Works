@@ -1,0 +1,33 @@
+# Br VI — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Br+VI&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED — spectrum=Br+VI confirmed. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Br VII (4s 2S<1/2>)  704850 cm-1
+#
+# 11 levels — the second-smallest table in the queue after Br V's 9.
+#
+# Zn-like: 3d10.4s2 ground, the SAME structure as As IV. Both have TWO
+# electrons outside the closed 3d10, so R 1597's keyability bound
+# refuses the species. Captured in full regardless — the refusal is the
+# index's, not the data's (R 1638).
+#
+# ** THE Br SEQUENCE IS NOW FOUR DEEP AND THE THINNING IS STARK:
+#      Br IV  charge 4   41 levels
+#      Br V   charge 5    9 levels
+#      Br VI  charge 6   11 levels
+#    Recorded, NOT tested. **
+#
+# config	term	J	level_cm1	note
+3d10.4s2	1S	0	0	
+3d10.4s.4p	3P*	0	104316.	
+3d10.4s.4p	3P*	1	106431.	
+3d10.4s.4p	3P*	2	111336.	
+3d10.4s.4p	1P*	1	151274.	
+3d10.4s.4d	3D	1	304648.	
+3d10.4s.4d	3D	2	304967.	
+3d10.4s.4d	3D	3	305451.	
+3d10.4p2	3P	0	244136.	two-outside
+3d10.4p2	3P	1	247406.	two-outside
+3d10.4p2	3P	2	253892.	two-outside

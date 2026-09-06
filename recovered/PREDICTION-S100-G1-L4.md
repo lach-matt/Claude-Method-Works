@@ -1,0 +1,9 @@
+# PREDICTION S100 -- G1 LOCUS 4 (exchange M-weighting). Filed and hashed BEFORE the measurement. Source basis (read this session, R-A term match):
+# t7c_hfsr.solve_one: exchange enters the shooting as inhomogeneous source s = -2*M*r^1.5*X (srcM=True) -- row-side M factor.
+# Dense build (v5a class): C = Bi*A*Bi - X with X = sqrt(r)*S*sqrt(r)*h added OUTSIDE the Bi = 1/sqrt(2 r^2 M) normalisation
+# => effective exchange weight 1/sqrt(M_i M_j) relative to the M-weighted shooting source. Mismatch ~ (M-1)*<K> ~ 1e-4, h-independent: matches the F95.4 signature.
+## Rule B: inequality, direction, exactness.
+PR-L4 VALUE: rebuilding the dense exchange block with the shooting's M-weighting (symmetrised row-M: X' = sm*X*sm with sm=sqrt(M), and cross-checked by unsymmetrised M-row form under general eig) reduces |dE| at npts=4000/7s to < 0.15 * |dE_baseline| (baseline +1.8351e-4). Direction: M>1 in the core => M-weighted exchange is STRONGER binding-side => lin moves DOWN toward eps => dE decreases from +.
+PR-L5 DERIVED-SIZE (if PR-L4 holds): first-order perturbation <P_a| dK |P_a> with dK = (1 - 1/sqrt(M_i M_j))-class weight on the exchange kernel reproduces the baseline dE to 30% (value-derived attribution, closing F95.4 as fully attributed operator-content: the linearised instrument's exchange omits the SR mass weight carried by the sealed kernel).
+PR-L6 falsification arm: if PR-L4 fails, remaining declared locus = the inhomogeneous-matching definition of eps vs strict eigenvalue; test by residual of (T+Vloc-eps)P_a + K P_a norm. 
+CF-L4 lever: setting M==1 identically in the reweighted build must reproduce the baseline dE to 1e-9 (plumbing).

@@ -1,0 +1,31 @@
+# NIST ASD energy levels, Fe I (neutral iron). Supplied by M 2026-08-11.
+# VERIFIED: 19 of 19 rows pass the cm^-1 <-> eV conversion at better than
+# 6e-4 eV. All five terms satisfy J in |L-S|..L+S. All five multiplets are
+# INVERTED, as Hund's third rule requires for 3d more than half filled.
+# NOT held: the supplied ionisation potential of 63700.8 cm^-1. It converts to
+# 7.89789 eV against LADDER-K-Kr.tsv's 7.90246810, and the table's own eV claim
+# of 7.9024 converts to 63737.7 cm^-1. The cm^-1 figure is low by 36.9.
+# FLAGGED: a5P's Lande constant runs 58.94 then 100.20, a factor of 1.70,
+# against 6-19% drift in the other four terms. Perturbation or transcription
+# fault; not distinguishable from this table alone.
+# config	term	J	E_cm-1	E_eV
+3d6.4s2	a5D	4	0.000	0.0000
+3d6.4s2	a5D	3	415.933	0.0516
+3d6.4s2	a5D	2	704.007	0.0873
+3d6.4s2	a5D	1	888.132	0.1101
+3d6.4s2	a5D	0	978.074	0.1213
+3d7(4F).4s	a5F	5	6928.268	0.8590
+3d7(4F).4s	a5F	4	7376.764	0.9146
+3d7(4F).4s	a5F	3	7728.059	0.9582
+3d7(4F).4s	a5F	2	7985.784	0.9901
+3d7(4F).4s	a5F	1	8154.713	1.0110
+3d7(4F).4s	a3F	4	11976.238	1.4849
+3d7(4F).4s	a3F	3	12560.933	1.5574
+3d7(4F).4s	a3F	2	12968.553	1.6080
+3d7(4P).4s	a5P	3	17550.180	2.1760
+3d7(4P).4s	a5P	2	17726.987	2.1979
+3d7(4P).4s	a5P	1	17927.381	2.2227
+3d6.4s2	a3P	2	18378.185	2.2786
+3d6.4s2	a3P	1	19552.477	2.4242
+3d6.4s2	a3P	0	20037.815	2.4844
+# ionisation potential: use 7.90246810 eV = 63737.7 cm-1 from LADDER-K-Kr.tsv

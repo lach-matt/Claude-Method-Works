@@ -1,0 +1,89 @@
+IDX = {}
+for i, l in enumerate(R, 1):
+    m = re.match(r'^###\s+(\d+)\s*$', l)
+    if m: IDX[int(m.group(1))] = i
+KS = sorted(IDX)
+def span(n):
+    s = IDX[n]; return s, next((IDX[k] for k in KS if IDX[k] > s), len(R) + 1) - 1
+s1736, e1736 = span(1736)
+body = norm(' '.join(x for x in R[s1736:e1736] if x.strip()))
+print('   register 1736 L%d–L%d: %s' % (s1736, e1736, body[:260]))
+check('1736 says the match was made against "172 works"', '172 works' in body, True)
+check('1736 says the match was by author and year', 'by author and year' in body, True)
+check('1736 states the shared count as fifty-nine', 'fifty-nine shared' in body, True)
+check('1736 records the ten removals and the restated count 162', ('All ten removed' in body) and ('restated at 162' in body), True)
+print('   1736 is a RECORDED FINDING about a 172-row list and is not withdrawn here (chat-67 hold).')
+
+# ------------------------------------------------------------------------------ §3
+hr('§3 CONVENTION AY — the extractor, ASSERTED on fourteen named citations before any verdict is printed')
+Y = r'(?:1[6-9]\d\d|20[0-2]\d)'
+PAR = re.compile(r'\((%s)([a-z]?)((?:\s*[,–—-]\s*(?:%s[a-z]?|\d{2}|[a-z]))*)\)' % (Y, Y))
+AUT = re.compile(r"(?<![A-Za-zÀ-ÿ'’\-])([A-ZÀ-Þ][A-Za-zà-ÿ'’\-]{2,})(?=\s*(?:,\s*[A-ZÀ-Þ]|\s*&|\s+and\b|\s*\(%s))" % Y)
+NM = re.compile(r"(?<![A-Za-zÀ-ÿ'’\-])([A-ZÀ-Þ][A-Za-zà-ÿ'’\-]{2,})")
+STOP = {'The', 'Problem', 'Solution', 'Unknown', 'Masses'}
+def yrs(m): return [int(m.group(1))] + [int(t) for t in re.findall(Y, m.group(3) or '')]
+def pairs(lo, hi):
+    P = set()
+    for j in range(lo, hi):
+        l = M[j - 1]
+        if not l.strip() or l.startswith('#'): continue
+        l = re.split(r'\s—\s|\s--\s', re.sub(r'^\s*[·•]\s*', '', re.sub(r'[*_`]', '', l)))[0]
+        prev = 0; last = set()
+        for m in PAR.finditer(l):
+            nms = {a.group(1) for a in AUT.finditer(l[prev:m.start()] + ' (%d)' % yrs(m)[0])}
+            use = nms or last
+            if nms: last = nms
+            for n in use:
+                for y in yrs(m): P.add((n, y))
+            prev = m.end()
+    return P
+AY = pairs(S, CLAIM)
+print('   (surname, year) pairs in the entry region: %d over %d distinct surnames' % (len(AY), len({n for n, _ in AY})))
+ASSERT = [('Saari', [1971, 1973, 1984]), ('Montgomery', [1998, 2000, 2002, 2014, 2015]), ('Kol', [2021, 2023]),
+          ('Monaghan', [1976, 1978]), ('Moser', [1962, 1973]), ('Jacobi', [1837, 1842]), ('Lagrange', [1770, 1772]),
+          ('Griffin', [1969, 1971]), ('Cowan', [1969, 1971]), ('Alekseev', [1968]), ('Löwdin', [1950, 1969]),
+          ('Candelas', [2007]), ('Huang', [2019]), ('Euler', [1767])]
+miss = []
+for n, exp in ASSERT:
+    got = sorted({y for a, y in AY if a == n})
+    if not set(exp) <= set(got): miss.append((n, exp, got))
+    print('   %-12s %s' % (n, got))
+check('every asserted citation is read with all of its years', miss, [])
+JUNK = ('Arch', 'Anal', 'Mech', 'Ration', 'Trans', 'Phys', 'Chem', 'Math', 'Sci', 'Acad', 'Rev', 'Invent',
+        'Celest', 'Novi', 'Comm', 'Prix', 'Roy', 'Paris', 'Petrop', 'Ann', 'Norm', 'Sup', 'Nonlinearity', 'JHEP')
+check('no journal abbreviation is admitted as an author', sorted({n for n, _ in AY if n in JUNK}), [])
+def cn(w): return {n for n in NM.findall(re.sub(r'\*[^*]*\*', ' ', w)) if n not in STOP}
+check('every MC row yields at least one surname', [c[1] for c in ROWS if not cn(c[1])], [])
+
+# ------------------------------------------------------------------------------ §4
+hr('§4 THE MATCH — author AND year on the 162 rows, against the printed "Fifty-nine"')
+UNS = {n for n, _ in AY}
+MATCH = [c for c in ROWS if any((n, int(c[0])) in AY for n in cn(c[1]))]
+SNM = [c for c in ROWS if cn(c[1]) & UNS]
+for c in MATCH: print('   MATCH  %s  %s' % (c[0], c[1][:56]))
+def tol(k):
+    T = {(n, y + d) for n, y in AY for d in range(-k, k + 1)}
+    return sum(1 for c in ROWS if any((n, int(c[0])) in T for n in cn(c[1])))
+print('\n   author AND year (exact) %d | ±1 %d | ±2 %d | ±3 %d | ±5 %d | surname only %d | of %d rows'
+      % (len(MATCH), tol(1), tol(2), tol(3), tol(5), len(SNM), len(ROWS)))
+check('no year tolerance up to ±5 reaches the printed fifty-nine', [k for k in (0, 1, 2, 3, 5) if tol(k) == 59], [])
+check('dropping the year entirely OVERSHOOTS fifty-nine', len(SNM) > 59, True)
+score('"Fifty-nine of them are the works listed above" on the 162 rows', len(MATCH), 59, '28a-06')
+print('   The printed figure is bracketed by this reading: %d (author and year) < 59 < %d (surname alone).' % (len(MATCH), len(SNM)))
+print('   It is reachable only by dropping the year, which is not the match 1736 says it made.')
+
+# ------------------------------------------------------------------------------ §5
+hr('§5 THE PRIOR PROBE REPRODUCED — what "16 of 162" was a bound on')
+def old_surnames(lines):
+    s = set()
+    for l in lines:
+        for m in re.finditer(r"(?<![A-Za-z'’\-])([A-Z][a-zäöüéèçøÅ'’\-]{2,})(?=\s*(?:,\s*[A-Z]\.|\(|&|and\b|,|–|—|\s+\d{4}))",
+                             re.sub(r'[*_`]', '', l)): s.add(m.group(1))
+    return s
+U = M[S - 1:]
+OLDU = old_surnames([l for l in U if not l.startswith('#')])
+RAW = ['| %s | %s | %s |' % tuple(c) for c in ROWS]
+old_hit = [c for c, l in zip(ROWS, RAW) if old_surnames([l]) & OLDU]
+old_none = [c for c, l in zip(ROWS, RAW) if not old_surnames([l])]
+check('r2-ch28a §4\'s surname bound reproduces exactly', len(old_hit), 16)
+check('every row it caught carries an ampersand or a comma in its `work` cell',

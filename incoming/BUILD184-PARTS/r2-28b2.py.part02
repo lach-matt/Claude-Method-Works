@@ -1,0 +1,53 @@
+print('   names living ONLY in 1721 within 1713–1724: %d — %s' % (len(only21), only21))
+score('the block names living only in Register 1721 number as the record lists them', len(only21), 8, '28b-08')
+print('   The record\'s list is Marchal, Bozis, Monaghan, Stone, Leigh, Kol, Moser, Alekseev. Measured it is a')
+print('   SUPERSET: Baker, Dechter, Montanari and Pixley — the constraint-consistency line L11839 — are in')
+print('   1721\'s tenth owner-group and in no other entry of 1713–1724 and not in Chapter 36.')
+
+# ------------------------------------------------------------------------------ §5
+hr('§5 CONVENTION PROV — sentence B scored over the objects CHAPTER 36 NAMES, not over the block it sits in')
+newer_in = sorted(n for n in inch if BLOCKY[n] > MGY)
+newer_blk = sorted(n for n in NAMES if n not in inch and BLOCKY[n] > MGY)
+print('   Chapter 36 names %d of the block\'s works. Newest year among them: %d (Montgomery\'s own).'
+      % (len(inch), max(BLOCKY[n] for n in inch)))
+print('   Works in the block NEWER than Montgomery: %s' % newer_blk)
+check('every one of those newer works is ABSENT from Chapter 36', [n for n in newer_blk if has(J36, n)], [])
+score('"every structural object of Chapter 36 is his or older", scored on Chapter 36', len(newer_in), 0, '28b-07')
+print('   MEASURED TRUE OF THE CHAPTER. Not one object Chapter 36 names post-dates Montgomery; the six works')
+print('   that do — %s — live in the block and in no part of the chapter.' % ', '.join(newer_blk))
+xia = [i + 1 for i, l in enumerate(M) if C36[0] <= i + 1 <= C36[1] and 'Xia' in l]
+check('Chapter 36\'s only other dated outsider is Xia 1992, in §36.5\'s disclaimer', xia, [9930])
+check('Xia appears nowhere in the three-body block', 'Xia' in norm(' '.join(M[TB[0] - 1:TB[1]])), False)
+
+# ------------------------------------------------------------------------------ §6
+hr('§6 SENTENCE A — the Löwdin block against Chapter 35 and registers 1701–1712')
+LWREG = blk(1701, 1712)
+PRIOR = [i for i in BL if 'Lach' not in work(i)[0]]
+inC35 = 0
+for i in BL:
+    nms, yrs = work(i)
+    own = 'Lach' in nms
+    c = (not own) and any(has(J35, n) for n in nms)
+    if c: inC35 += 1
+    print('   L%-6d %-30s Chapter 35 %-4s 1701–12 %-4s%s'
+          % (i, ','.join(nms[:4]), 'YES' if c else '.', 'YES' if any(has(LWREG, n) for n in nms) else '.',
+             '   (this work\'s own companion paper, not prior art)' if own else ''))
+check('the block carries one non-prior-art bullet, the companion paper', len(BL) - len(PRIOR), 1)
+check('Madelung is in NEITHER Chapter 35 nor registers 1701–1712',
+      (not has(J35, 'Madelung')) and (not has(LWREG, 'Madelung')), True)
+check('Koelling, Harmon, Gerratt and Mills are absent from Chapter 35 but present in 1701–1712',
+      [n for n in ('Koelling', 'Harmon', 'Gerratt', 'Mills') if has(J35, n) or not has(LWREG, n)], [])
+check('the chapter names the companion paper by title', 'The Löwdin Solution' in J35, True)
+score('"these are the works Chapter 35 rests on" — prior-art bullets the chapter names', inC35, len(PRIOR), '28b-06')
+print('   Four of the seven prior-art works. The chapter rests on Löwdin 1950 and 1969, Griffin–Andrew–Cowan and')
+print('   Pulay 1969, and names the companion by title; Koelling & Harmon, Gerratt & Mills and Madelung it')
+print('   never names — and Madelung is in no Register entry of the run either.')
+
+# ------------------------------------------------------------------------------ §7
+hr('§7 THE EIGHT AND THE SEVEN — read across §36.2, §36.3, 1719 / 1720 and 1721; ENGAGED, NOT SCORED')
+p362 = [i + 1 for i, l in enumerate(M) if 'Eight attribution questions, eight closed' in l]
+p363 = [i + 1 for i, l in enumerate(M) if 'Eight residues were formed into questions' in l]
+check('§36.2 states "Eight attribution questions, eight closed"', p362, [9902])
+check('§36.3 states "Seven belonged to others; the eighth"', bool(p363) and 'Seven belonged to others' in M[p363[0] - 1], True)
+check('1719 records the eighth as a WITHDRAWAL and 1720 gives it to Lagrange 1770 as prior art',
+      ('withdrawn' in rbody(1719)) and ("Lagrange's resolvent method (1770)" in rbody(1720)), True)

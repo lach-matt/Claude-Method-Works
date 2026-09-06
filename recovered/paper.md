@@ -1,0 +1,55 @@
+# The Lach Cylinder Applied: Reconstruction and Complete Definition of Λ, Electromagnetic Mode Indices, a Lattice Bracket for Rydberg Spectra, and the Sharpening of the Law of Realised Closure
+
+**M. Lach** (framework, data collection, direction) · **Claude (Anthropic)** (computation, verification, drafting)
+
+*Draft compiled 31 July 2026. All numerical claims in this paper were recomputed in the compilation session unless marked otherwise. Provenance classes: **[R]** recomputed here from the construction; **[V]** verified here against supplied values; **[S]** supplied from the session record or by the author and internally checked; **[B]** stated in* The Method *v1.2 (revision −3) and read directly this session.*
+
+---
+
+## Abstract
+
+The Method (Lach, v1.2) defines a formal discipline for constructing and interrogating discrete index objects: finite coordinate lattices whose cells are cut out by single-variable monotone bounds, governed by explicit working protocols — prediction before computation, refusal over silent default, census before search, two independent routes, and the recording of every failure as a bound. Its central object is Λ, a 976-cell lattice of electronic transitions. This paper reports an extended application of the method in four movements. First, Λ is reconstructed from its stated constraints and verified against nineteen independent invariants, in the course of which two load-bearing definitional defects in the source text are located and corrected: the stated cap tuple (3,3,2,3) does not reproduce the object, and a required condition k ≥ 1 is nowhere stated. Second, the complete shape of Λ is computed — a cylinder over the transfer coordinate with cross-section profile 165·330·345·136, treewidth-1 constraint graph, Birkhoff representation by seventeen generators, order dimension eight, and a resolved duality convention σ(x) = max − x with exactly eight even-rank survivors — and every cell is given its complete internal definition, producing the full Hasse structure of 3,749 covers. Third, the method is applied to electromagnetism: Maxwell's equations are exhibited as the cleanest known instance of an open index closing itself through an internal identity; a rectangular cavity mode index is shown to fail meet-closure for a stated, predicted-in-advance structural reason; a spherical cavity index is predicted to succeed by a cap-arity criterion and does, on 114,960 pairs without exception; and the spherical cap m′ ≤ 2ℓ′ + 2 is found to be Λ's own angular-momentum cap without its factor of two, yielding the observation that the connectivity of the constraint graph encodes exchange statistics. These results sharpen the book's second named law — an open index does not close itself except where the closure operator is realised in the object's own structure — by distinguishing order-realisation from identity-realisation and conjecturing that identity-realisation leaves slack equal to the kernel of the realising identity. Fourth, a lattice bracket — bracketing a level by all lattice covers rather than along one channel — is defined and tested on measured Rydberg spectra of Na I, Mg II, Al I, He I and Be II, tightening deductive intervals roughly twofold at ℓ ≤ 2 and two orders of magnitude at ℓ ≥ 3, with a perfect separation between admissible cells (55 tested, 0 violations) and cells excluded by admissibility tests (12 tested, 12 violations). A falsification campaign on Be II failed to produce a violation and, in failing, corrected the framework: the admissibility condition is not sign constancy of the quantum defect but strict monotonicity — a positive-to-negative crossing preserves order and is harmless; only a negative-to-positive crossing inverts it — collapsing three admissibility tests to two. The same campaign produced the first observed exit of the separation bound r_ℓ on real data under the source compilation's own uncertainties. The extension's own definition cost is then computed by the book's grid method — E(X) = 5 before the campaign, 3 after, with the prediction budget spent cell for cell — demonstrating the book's law that E(X) is the prediction budget on the book's own extension. The paper closes with the open set Q(X), the cheapest closure of each remaining cell, and a statement of limits.
+
+---
+
+## 1. Introduction
+
+A recurring failure mode in the use of scientific tables is the silent import of structure: a table is treated as closed — as admitting nothing its layout does not show — when its closure is in fact being performed by information held outside it. The Method's opening example **[B]** is the periodic table, whose familiar layout costs exactly 36 externally-defined cells to state; its constructive response is Λ, an index of electronic transitions built so that its closure is carried entirely by its own coordinates and bounds.
+
+The Method is simultaneously three things, and this paper uses all three. It is an *object* — Λ and its verified structure. It is a *law* — a set of twenty-three principles about what an index is, of which ten admit exact mathematical statement **[B]**. And it is a *procedure* — eighteen working protocols governing how results are produced, committed, verified, withdrawn and recorded **[B]**. The present work applies all three reflexively: the session that produced this paper was itself run under the protocols it reports, its own failures were logged as bounds under protocol B.2.15, and its own definition cost was computed by the book's grid method B.2.16.
+
+Section 2 states the background from the book: the construction of Λ, the principle and protocol sets, and the deductive bracket. Section 3 reports the reconstruction and verification of Λ, including the two definitional corrections. Section 4 computes the complete shape and gives the complete per-cell definition. Section 5 applies the method to electromagnetism. Section 6 states the sharpened law of realised closure. Section 7 defines and tests the lattice bracket on measured spectra. Section 8 computes the extension's own definition cost and demonstrates the prediction-budget law on it. Section 9 collects withdrawals as bounds. Section 10 states the open set and its cheapest closures. Section 11 states limits.
+
+---
+
+## 2. Background: the Method as stated in the book
+
+### 2.1 The construction of Λ
+
+A cell of Λ is an eight-tuple (n, ℓ, k, q, e, f, g, 2S): source shell, source subshell, source occupancy, electrons removed, target shell, target subshell, target occupancy, and multiplicity coordinate. Λ is the subset of the eight-fold product satisfying seven constraints, each with a stated physical origin **[B]**:
+
+| constraint | origin |
+|---|---|
+| ℓ ≤ n − 1 | hydrogenic radial solution |
+| k ≤ 2(2ℓ+1) | Pauli exclusion |
+| q ≤ k | counting — cannot remove more than are present |
+| f ≤ e − 1 | hydrogenic radial solution |
+| g ≤ 2(2f+1) | Pauli exclusion |
+| g ≤ q | counting — cannot place more than were removed |
+| 2S ≤ k | vector coupling |
+
+Every constraint is of the form xᵢ ≤ φ(xⱼ) with φ monotone — one coordinate bounded by a single-variable monotone function of one other. None is a sum. The graph whose nodes are coordinates and whose edges are constraints is therefore a tree, and three of the book's central results follow from that fact alone **[B]**. Closure under coordinatewise meet and join follows in three lines from monotonicity **[B]**; the book's E(X) — the count of cells the structure admits but the set lacks — is zero for Λ, verified exactly at four cap settings.
+
+Λ is infinite; every count is stated at explicit caps (§2.4 of the book). The canonical setting, at which the object is named and every invariant below is stated, yields 976 cells.
+
+### 2.2 The principles
+
+The book's Appendix B.1 states twenty-three principles, ten formalised. Those load-bearing for this paper: **P1**, a complete index is self-referencing, ℛ(Λ) = Λ. **P8**, any true answer, good or bad, is a bound. **P18**, if the index is complete, a work that comprehends it completely is itself an index, itself self-referencing and self-defending. **P19**, an index is complete only when no questions remain about its contents, COMPLETE(X) ⟺ Q(X) = ∅ — strictly stronger than closure, since E(X) = 0 says no admitted cell is absent while Q(X) = ∅ says no admitted question is unanswered. **P20**, the language in which a question is posed bounds whether it can close and at what cost: monotone two-variable bounds close always in one pass; full arithmetic never closes, by Gödel; the documentary language has no closure mechanism at all, which is why novelty claims are structurally unclosable. **P21**, every definition in the lattice must be true in every mathematical language and their combinations — used in the book as an instrument: when a property holds in five languages and fails in a sixth, the sixth expression is wrong, not the property **[B]**.
+
+### 2.3 The protocols
+
+The working protocols used throughout this paper, stated in the book's Appendix B.2 **[B]**: **B.2.2** admissibility, r = 2Z²R/(ν³σ) ≥ 5 — levels must be separated by more than five times their uncertainty, and since r falls as ν⁻³ every channel eventually leaves the domain, at a point stated in advance. **B.2.5** census before search. **B.2.6** declines are recorded with cause. **B.2.7** exhaustive verification where possible — universally quantified claims over finite lattices are checked on every cell. **B.2.8** two independent routes for every quantity that matters; an identity computed along one path is vacuous. **B.2.9** refuse rather than coerce — no silent defaults, no third state. **B.2.10** enumerate targets before searching, and re-enumerate whenever the set grows. **B.2.11** provenance to compilation, table and page. **B.2.12** every retracted claim logged with its replacement. **B.2.13** commit before you look — predictions written before measurements are requested. **B.2.14** compute, then write — the protocol the book itself records as the one most often violated in its own production. **B.2.15** apply P8 to every failure: record what each failure excludes and read the collection. **B.2.16** the grid — lay every open question as requirements against dimensions and read the empty cells rather than hunting.
+
+### 2.4 The deductive bracket
+
+For a Rydberg channel — fixed parent term, fixed ℓ, varying n — the binding energies T = I − E are monotone in n, so any interior member satisfies T(n) ∈ [min, max] of its measured neighbours **[B]**. This is a deduction, not a prediction: a fit says where a level probably is; the bracket says where it cannot fail to be. It is applied under four rules (interiority; the interpolation variable read off T = Z²R/ν²; deductive bracket reported separately from any inferential point estimate; uncertainty from a locally fitted Ritz expansion, with an admissibility clause 4a restricting the constant-defect form) **[B]**. The book's Appendix C carries the collection this machinery was run on: 153 channels, 1,105 interior cells, bracket successful on 1,105 of 1,105 **[B]**.

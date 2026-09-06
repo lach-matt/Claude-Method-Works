@@ -1,0 +1,7 @@
+# PREDICTION S99 -- row-72 run-side V^2 re-read with gap97-style isolation (Item 1 branch, M ruling s99: proceed in order). Hashed BEFORE any solve.
+# RULE B: dm2(72) = dD2 + dcc > 0 (NO FLIP) -- direction SIGN-EXACT. dcc VALUE = ESTIMATE (V^2 value-exact from sealed checkpoint pieces x HF eps dens; two-state exact).
+PR1 ent side: 5d sits BELOW 6s (s97 pinned degeneracy); den(ent) = 2(eps_6s - eps_5d) > 0 and |den(ent)| <= 0.01 Ha; reproduces s97 +0.0032 within a factor of 2.
+PR2 core side: den(core) in [+0.05, +0.25] Ha (bracket implied by the s97 declared V^2(core)=1.2e-3 over piece +0.00861).
+PR3 run side: piece(run) = -0.00702 (sealed checkpoint). If den(run) > 0 then V^2(run) = piece x den < 0: NOT a block coupling on the run side; the block on the run side reverts to E2excl + two-state with V^2(run)=0 (lower bracket) vs declared 1.1e-3 (upper bracket). If den(run) < 0, V^2(run) > 0 is isolated and DECLARED numbers retire.
+PR4 dcc(72) re-read lands in [+0.028, +0.045] Ha at every bracket end; dm2(72) = 0.08295 + dcc > 0 at both ends (NO FLIP at 1.8x margin minimum).
+# Instrument: pack99/gap99a.py -- three HF reference solves (core 71 / ent 72 / run 72), eps ONLY (Delta_cfg already filed s97: 0.2182/0.1979/0.1429 -- not re-solved). Then pack99/cc99.py = cc98 rule with row-72 V^2 computed, not declared.

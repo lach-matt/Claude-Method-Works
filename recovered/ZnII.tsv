@@ -1,0 +1,12 @@
+# Zn II — DERIVED from zinctable4 (persistent lines), not from the level table
+# limit Zn III 144892.6 cm-1 = 17.96439 eV, ref SM95
+# PARTIAL and second-hand: these are the levels the LINE table names, not a level list
+config	term	J	level_cm1
+3d104s	2S	1/2	0.000
+3d104p	2P°	1/2	48481.077
+3d104p	2P°	3/2	49355.003
+3d105s	2S	1/2	88437.149
+3d104d	2D	3/2	96909.893
+3d104d	2D	5/2	96960.588
+3d104f	2F°	7/2	117263.558
+3d104f	2F°	5/2	117264.063

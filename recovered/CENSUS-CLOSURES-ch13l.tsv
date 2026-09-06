@@ -1,0 +1,3 @@
+id	verdict	reason
+1083	not a defect	main L4287 "the expression is always already present in what it prints" — the flagged token is the section's own claim, and it is MEASURED true: E(X) = 0 and R(X) = X at 216, 976, 1,654 and 2,535 cells, so the envelope expression is recoverable from the cells of every closed index tested (r2-ch13l block 2). C9 regex artefact, precedents 678, 680-687, 1067, 1069.
+1084	not a defect	main L4315 "Cost sum|A_i|!, never the product prod|A_i|!" — the flagged token is a live figure and MEASURED true: sum|A_i|! = 94 against prod|A_i|! = 11,943,936 at 976 cells, and the recovery search visited 75 nodes, below the sum (r2-ch13l block 7). C9 regex artefact, same precedents.

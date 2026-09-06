@@ -1,0 +1,19 @@
+\usepackage{fontspec}
+\usepackage{newunicodechar}
+\setmainfont{FreeSerif}[Scale=1.0]
+\setsansfont{DejaVu Sans}[Scale=0.90]
+\setmonofont{DejaVu Sans Mono}[Scale=0.80]
+\newfontfamily\fallbackfont{DejaVu Sans}[Scale=0.92]
+\newunicodechar{ℓ}{{\fallbackfont ℓ}}
+\newunicodechar{⋖}{{\fallbackfont ⋖}}
+\newunicodechar{∅}{{\fallbackfont ∅}}
+\usepackage{longtable,booktabs,array}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\footnotesize\textsc{Indexing Electromagnetism}}
+\fancyhead[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\emergencystretch}{3em}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,keepaspectratio}

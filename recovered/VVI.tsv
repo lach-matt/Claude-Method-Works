@@ -1,0 +1,58 @@
+# V VI — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=V+VI&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  V VII (3p5 2P*<3/2>)  1033400 cm-1
+#
+# Ar-like — the FIFTH of that sequence in the queue, after K II, Ca III,
+# Sc IV and Ti V. Five members of ONE isoelectronic sequence at charges
+# 2, 3, 4, 5 and 6.
+#
+# Same mixed notation: LS below ~546000, Racah 2[K] above. LS block
+# transcribed; Racah refused by R 1576.
+#
+# ** THE 3s-HOLE SERIES AGAIN, and the pattern Ti V established holds:
+#    3s.3p6.np runs n = 4..8, and FOUR of its five members lie ABOVE the
+#    printed 3p-hole limit. Ti V printed both parents and showed these
+#    converge on the 3s-hole threshold. V VI prints only one, so the
+#    second limit is INFERRED FROM Ti V, not from this table — flagged
+#    accordingly and not to be used as if measured here. **
+#
+# config	term	J	level_cm1	note
+3s2.3p6	1S	0	0.0	
+3s2.3p5.(2P*).3d	3P*	0	308149.8	
+3s2.3p5.(2P*).3d	3P*	1	309394.8	
+3s2.3p5.(2P*).3d	3P*	2	311977.9	
+3s2.3p5.(2P*).3d	3F*	4	322773.6	
+3s2.3p5.(2P*).3d	3F*	3	324958.0	
+3s2.3p5.(2P*).3d	3F*	2	327214.9	
+3s2.3p5.(2P*).3d	1D*	2	345139.4	
+3s2.3p5.(2P*).3d	3D*	3	345516.5	
+3s2.3p5.(2P*).3d	3D*	1	347899.9	
+3s2.3p5.(2P*).3d	3D*	2	348325.3	
+3s2.3p5.(2P*).3d	1F*	3	350644.5	
+3s2.3p5.(2P*).3d	1P*	1	445435.6	
+3s2.3p5.4p	3S	1	602974.3	
+3s2.3p5.4p	3D	3	612289.7	
+3s2.3p5.4p	3D	2	612392.8	
+3s2.3p5.4p	3D	1	615177.8	
+3s2.3p5.4p	3P	2	617490.0	
+3s2.3p5.4p	3P	0	621757.1	
+3s2.3p5.4p	3P	1	623594.5	
+3s2.3p5.4p	1P	1	620509.2	
+3s2.3p5.4p	1D	2	622724.5	
+3s2.3p5.4p	1S	0	641800.3	
+# --- 3s-hole states. Ti V's second parent applies; INFERRED, not printed here
+3s.3p6.3d	3D	1	549538.0	3s-hole
+3s.3p6.3d	3D	2	549863.6	3s-hole
+3s.3p6.3d	3D	3	550384.6	3s-hole
+3s.3p6.3d	1D	2	566433.0	3s-hole
+3s.3p6.4p	3P*	1	841980	3s-hole
+3s.3p6.4p	1P*	1	849170	3s-hole
+3s.3p6.5p	3P*	1	1017100	3s-hole
+3s.3p6.5p	1P*	1	1021120	3s-hole
+3s.3p6.6p	1P*	1	1102540	3s-hole, above printed limit
+3s.3p6.7p	1P*	1	1148030	3s-hole, above printed limit
+3s.3p6.8p	1P*	1	1175490	3s-hole, above printed limit

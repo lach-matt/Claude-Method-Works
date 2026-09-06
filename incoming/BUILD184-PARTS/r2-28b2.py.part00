@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+# r2-28b2.py — chat 151-B (Cowork) — 28b-06 (DEF-143 item 11's NINTH and LAST family; docket 9(b) / 17):
+# R.7 prints two blocks of works under "What is not cited, and why", and attaches two sentences to them —
+#   L11807  "The companion paper carries the full list; these are the works Chapter 35 rests on."
+#   L11820  "every structural object of Chapter 36 is his or older."  (on Montgomery's line)
+# READ-ch28b measured that many of the blocks' names have 0 sites in the chapters and marked both sentences
+# INFERRED unsupported at the chapter. DEFERRED recorded what is owed in terms: **R3 READS 1721 FIRST, THEN
+# DECIDES WHETHER THE BLOCK OR THE CHAPTER CARRIES THE ATTRIBUTION.** This instrument is that reading.
+# CONVENTION PROV (new, this chat). A provenance claim PRINTED INSIDE a block but ADDRESSED TO a chapter is a
+# claim about the CHAPTER, and is scored over the objects THE CHAPTER NAMES, each dated by the year the block
+# gives it — never over the block's own contents. A sentence about a chapter is not an inventory of the list it
+# sits in. (The same distinction AY drew for "the works listed above" and DEP for "what rests on it".)
+# Chapter bounds follow the CHAT-130 convention r2-ch28b §3 uses and this instrument re-asserts: a chapter runs
+# from its heading to the LAST `# APPENDICES` line, never to the member's end.
+# Book-versus-record deviations go through score() and never through the integrity checker check().
+# Reads MEMBERS by name (never a bundle path). Deterministic: no wall clock, no randomness.
+import os, re, sys, hashlib, importlib.util
+H = os.path.dirname(os.path.abspath(__file__))
+def load(name):
+    s = importlib.util.spec_from_file_location(name.replace('-', '_'), os.path.join(H, name + '.py'))
+    m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
+r2lib = load('r2lib')
+def rd(n): return open(os.path.join(H, n), encoding='utf-8').read().split('\n')
+def md5(n): return hashlib.md5(open(os.path.join(H, n), 'rb').read()).hexdigest()[:8]
+def hr(t): print('\n== ' + t)
+def norm(s): return re.sub(r'\s+', ' ', s).strip()
+
+MAIN, REG = 'The_Method_1_6-2.md', 'The_Method_1_6___The_Register-2.md'
+M, R = rd(MAIN), rd(REG)
+FAIL = []; DEV = []
+def check(tag, got, exp):
+    ok = got == exp
+    print('   %-68s %-22s %s' % (tag, repr(got), 'OK' if ok else 'EXPECTED ' + repr(exp)))
+    if not ok: FAIL.append(tag)
+def score(tag, got, exp, tagno):
+    ok = got == exp
+    print('   %-68s %-22s %s' % (tag, repr(got), 'as printed' if ok else 'DEVIATION (%s) — printed %s' % (tagno, repr(exp))))
+    if not ok: DEV.append((tagno, tag, got, exp))
+
+print('r2-28b2.py — 28b-06: read Register 1721 first, then decide whether R.7\'s block or the chapter carries the attribution')
+print('members: %s %s | %s %s' % (MAIN, md5(MAIN), REG, md5(REG)))
+
+# ------------------------------------------------------------------------------ §1
+hr('§1 THE TWO SENTENCES, THE TWO BLOCKS AND THE TWO CHAPTERS — bounds by scan, chapters under the chat-130 convention')
+R7 = [i + 1 for i, l in enumerate(M) if l.strip() == '### R.7 What is not cited, and why']
+AP = [i + 1 for i, l in enumerate(M) if l.startswith('# APPENDICES')]
+check('`### R.7 What is not cited, and why` heading hits', R7, [11806])
+check('`# APPENDICES` hits (the chapter bound is the LAST)', AP, [161, 9937])
+def head(tag):
+    hits = [i + 1 for i, l in enumerate(M) if re.match(r'^##\s+%s\.\s' % re.escape(tag), l)]
+    return hits
+h35, h36 = head('35'), head('36')
+check('Chapter 35 heading hits', h35, [158, 9716])
+check('Chapter 36 heading hits', h36, [159, 9892])
+C35 = (h35[-1], h36[-1] - 1); C36 = (h36[-1], AP[-1] - 1)
+print('   Chapter 35 L%d–L%d (%d lines) | Chapter 36 L%d–L%d (%d lines)' % (C35[0], C35[1], C35[1] - C35[0] + 1, C36[0], C36[1], C36[1] - C36[0] + 1))
+J35 = norm(' '.join(M[C35[0] - 1:C35[1]])); J36 = norm(' '.join(M[C36[0] - 1:C36[1]]))
+S35 = [i + 1 for i, l in enumerate(M) if 'these are the works Chapter 35 rests on' in l]
+S36 = [i + 1 for i, l in enumerate(M) if 'every structural object of Chapter 36 is his or older' in l]
+check('sentence A "these are the works Chapter 35 rests on" sits at', S35, [11807])
+check('sentence B "every structural object of Chapter 36 is his or older" sits at', S36, [11820])

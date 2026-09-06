@@ -1,0 +1,71 @@
+# Mn VII — NIST ASD, captured 2026-08-14, register 1639.
+# URL: energy1.pl?spectrum=Mn+VII&units=0&format=2&conf_out=on&term_out=on&level_out=on&j_out=on&submit=Retrieve+Data
+# destination_url VERIFIED against sent. Levels in cm-1.
+#
+# CAPTURE ONLY. Nothing extracted per R 1638.
+#
+# LIMIT:  Mn VIII (3p6 1S<0>)  961440 cm-1
+#
+# ** K-LIKE — THE THIRD OF THAT SEQUENCE: V V (charge 5), Cr VI (6),
+#    Mn VII (7). THREE members, consecutive charges, identical structure:
+#    closed 3p6 core, one electron outside, every level a doublet. **
+#
+# ITS f SERIES IS THE LONGEST UNBROKEN RUN IN THE QUEUE:
+#      3p6.nf   n = 4,5,6,7,8,9   SIX consecutive n, both J at each
+#
+# But the OTHER l are sparse where V V and Cr VI were full: only 4p and
+# the f run. No ns beyond the ground 3d, no nd, no ng, no nh. The
+# sequence GAINS depth in f and LOSES breadth in l as charge rises —
+# recorded as an observation, NOT tested, and the three-member
+# comparison is exactly what board row 17 wants.
+#
+# The 3p5.(2P*).3d2 and 3p5.3d.4s blocks carry a 3p HOLE and converge
+# elsewhere. Kept separate, NOT for 961440.
+#
+# config	term	J	level_cm1
+3p6.3d	2D	3/2	0
+3p6.3d	2D	5/2	1338
+3p6.4p	2P*	1/2	395633
+3p6.4p	2P*	3/2	399795
+3p6.4f	2F*	5/2	616007
+3p6.4f	2F*	7/2	616132
+3p6.5f	2F*	5/2	738765
+3p6.5f	2F*	7/2	739482
+3p6.6f	2F*	5/2	807820
+3p6.6f	2F*	7/2	807835
+3p6.7f	2F*	5/2	848947
+3p6.7f	2F*	7/2	848954
+3p6.8f	2F*	5/2	875620
+3p6.8f	2F*	7/2	875620
+3p6.9f	2F*	7/2	893730
+3p6.9f	2F*	5/2	893730
+# --- CORE-EXCITED, 3p hole, DIFFERENT unprinted limit. Not for 961440
+3p5.(2P*).3d2.(1G)	2F*	5/2	394238
+3p5.(2P*).3d2.(1G)	2F*	7/2	396618
+3p5.(2P*).3d2.(1D)	2P*	1/2	404085
+3p5.(2P*).3d2.(1D)	2P*	3/2	408273
+3p5.(2P*).3d2.(1D)	2F*	7/2	409891
+3p5.(2P*).3d2.(1D)	2F*	5/2	419081
+3p5.(2P*).3d2.(3F)	2F*	5/2	489916
+3p5.(2P*).3d2.(3F)	2F*	7/2	494337
+3p5.(2P*).3d2.(3P)	2P*	1/2	541894
+3p5.(2P*).3d2.(3P)	2P*	3/2	544342
+3p5.(2P*).3d2.(3F)	2D*	5/2	547367
+3p5.(2P*).3d2.(3F)	2D*	3/2	547949
+3p5.3d.(3P*).4s	2P*	1/2	701189
+3p5.3d.(3P*).4s	2P*	3/2	705425
+3p5.3d.(3F*).4s	4F*	7/2	710337
+3p5.3d.(3F*).4s	4F*	5/2	712642
+3p5.3d.(3F*).4s	4F*	3/2	714990
+3p5.3d.(3F*).4s	2F*	7/2	717696
+3p5.3d.(3F*).4s	2F*	5/2	722331
+3p5.3d.(3D*).4s	4D*	7/2	735676
+3p5.3d.(3D*).4s	4D*	5/2	737173
+3p5.3d.(3D*).4s	4D*	3/2	737833
+3p5.3d.(3D*).4s	4D*	1/2	738585
+3p5.3d.(1F*).4s	2F*	5/2	739930
+3p5.3d.(1F*).4s	2F*	7/2	746550
+3p5.3d.(1D*).4s	2D*	3/2	740894
+3p5.3d.(1D*).4s	2D*	5/2	744126
+3p5.3d.(3D*).4s	2D*	3/2	748302
+3p5.3d.(3D*).4s	2D*	5/2	749532

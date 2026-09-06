@@ -1,0 +1,1 @@
+**the non-composable cells are defined exhaustively: at Λ₁₀ all 485 have g = 0 and every g = 0 cell is non-composable; at Λ₁₃, 35,630 at g = 0, 13,750 with 2J in {6,7,8} which no 2J_c can start, and 22,680 failing only in combination**
