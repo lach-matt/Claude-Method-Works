@@ -23,6 +23,7 @@ a report.
 | `warp-drive/SOURCE-CODE.md` | `warp-drive/warpdrive.py` | what reading Warp Factory changed, including a factor of two against this series |
 | `warp-drive/MEASURED.md` | `warp-drive/warpdrive.py` + `octave/` | Warp Factory actually run; the ceiling measured at 0.0218 c and the prediction confirmed |
 | `warp-drive/WHAT-BINDS.md` | `warp-drive/warpdrive.py` + `octave/` | the fill curve measured — overturning a design rule — and where the NEC actually fails |
+| `warp-drive/THE-DESIGN-EQUATION.md` | `warp-drive/warpdrive.py` + `octave/` | the three bounds composed into a design equation, and a measured 1.6x speed gain from one line |
 
 ## `warp-drive/`
 
@@ -31,7 +32,7 @@ object threshold in that paper's own index, and computes its energy budget and e
 against the primary literature.
 
 ```
-python3 research/warp-drive/warpdrive.py --selftest   # 70 fixtures
+python3 research/warp-drive/warpdrive.py --selftest   # 78 fixtures
 python3 research/warp-drive/warpdrive.py              # the full report
 ```
 
@@ -46,7 +47,7 @@ puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte
 `/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never inserts a space
 heuristically.
 
-The nine papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
+The ten papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
 specification. `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it.
 `ROTATING-SHELL.md` takes the one idea in that deliverable which survived review and carries it onto
 the buildable solution. `SHIFT-CEILING.md` answers the one number Fuchs et al. named as open — how
@@ -59,7 +60,10 @@ published toolkit and finds two of this series' own inferences wrong, both in th
 direction. `MEASURED.md` then runs that toolkit under GNU Octave and replaces every inferred number
 with a measured one, and `WHAT-BINDS.md` measures the two things that paper left open — overturning
 a design rule this series had published, and raising one careful question about the instrument
-everything downstream depends on.
+everything downstream depends on. `THE-DESIGN-EQUATION.md` then applies **P8** — *any true answer,
+good or bad, is a bound*, and *three bounds on one object are a coordinate* (`The_Method_1_6-2.md`
+§2.15, §2.17.3) — to the bounds the first nine established, and turns them from a limit into a design
+equation with a measured 1.6x gain and a bound on the whole family.
 
 The instrument copies the fifteen-letter closure rules verbatim from `recovered/objects15.py` with a
 provenance comment, per the standing rule that an instrument imports a seated form and never silently
