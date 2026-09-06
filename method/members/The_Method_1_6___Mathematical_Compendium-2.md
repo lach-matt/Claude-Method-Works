@@ -3179,7 +3179,7 @@ Computed — M §35; register 1703; Griffin–Andrew–Cowan 1969, 1971.
 
 **Every g channel offered by the walk sits at −1/(2n²) to storage precision: 5g over 65 elements, 6g over 70, 7g over 57, 8g over 28. dn*/dZ = 0 across a hundred protons**
 
-*the absence of collapse, not its slow approach; a relation the data cannot violate is defending something — here, the nonexistence of a g period below Z = 121*
+*the absence of collapse, not its slow approach; a relation the data cannot violate is defending something — here, the nonexistence of a g period through Z = 125*
 
 Measured — M §35; register 1704.
 
