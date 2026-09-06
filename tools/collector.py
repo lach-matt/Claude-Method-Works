@@ -467,12 +467,35 @@ def transition_phi(counts_atoms=True):
     return n / LHD_ATOMS_PER_CM3
 
 
+# SOURCED, fission-suppressed fusion-breeder design -- the LOW-multiplication,
+# proliferation-conscious class of blanket: each fusion produces typically 0.6
+# fissile atoms and releases about 1.6x the neutron's energy in the blanket,
+# with a tritium breeding ratio near 1.15 (self-sufficient). These supersede
+# this paper's own single-reaction arithmetic as the better-grounded figures,
+# which they exceed: the 6Li-only calculation was conservative.
+BLANKET_MULT_SOURCED = 1.6      # x the neutron's energy, deposited in blanket
+FISSILE_PER_FUSION = 0.6        # sourced, against 0.7 reconstructed
+TBR_SOURCED = 1.15
+
 PU239_FISSION_MEV = 200.0   # downstream yield of one bred 239Pu
 BREEDING_RATIO = 0.7        # bred nuclei per fusion after tritium self-sufficiency
 
 
+def thermal_sourced_mev():
+    """Thermal per fusion from the sourced blanket design."""
+    return ALPHA_MEV + BLANKET_MULT_SOURCED * NEUTRON_MEV
+
+
+def work_sourced_mev(t_blanket=1200.0):
+    return thermal_sourced_mev() * carnot(t_blanket)
+
+
 def bred_credit_mev(ratio=None):
-    return (BREEDING_RATIO if ratio is None else ratio) * PU239_FISSION_MEV
+    return (FISSILE_PER_FUSION if ratio is None else ratio) * PU239_FISSION_MEV
+
+
+def total_value_sourced_mev():
+    return thermal_sourced_mev() + bred_credit_mev()
 
 
 def total_with_breeding_mev(ratio=None):

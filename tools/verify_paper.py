@@ -510,11 +510,11 @@ def ws_excursion():
 
 
 def bred_credit():
-    return collector.bred_credit_mev()
+    return collector.bred_credit_mev(collector.BREEDING_RATIO)
 
 
 def total_bred():
-    return collector.total_with_breeding_mev()
+    return collector.total_with_breeding_mev(collector.BREEDING_RATIO)
 
 
 def bred_over_heat():
@@ -531,6 +531,42 @@ def q_demo_collector():
 
 def q_phi3_collector():
     return N3_sin() * (total_bred() / 1000.0) / (cost_pion() / 0.9)
+
+
+def therm_sourced():
+    return collector.thermal_sourced_mev()
+
+
+def mult_sourced():
+    return therm_sourced() / mucf.Q_FUS_MEV
+
+
+def conservatism():
+    return therm_sourced() / total_thermal()
+
+
+def work_sourced():
+    return collector.work_sourced_mev()
+
+
+def tq_sourced():
+    return N_diss() * (therm_sourced() / 1000.0) / cost_pion()
+
+
+def wq_sourced():
+    return N_diss() * (work_sourced() / 1000.0) / cost_pion()
+
+
+def total_sourced():
+    return collector.total_value_sourced_mev()
+
+
+def qb_demo():
+    return 150.0 * (total_sourced() / 1000.0) / (cost_pion() / 0.9)
+
+
+def qb_bound():
+    return N_diss() * (total_sourced() / 1000.0) / cost_pion()
 
 
 def losalamos_recost():

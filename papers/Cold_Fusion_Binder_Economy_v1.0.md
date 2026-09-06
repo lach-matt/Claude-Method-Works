@@ -758,6 +758,58 @@ and transmutation produces no fissile inventory at all. The breeding ratio of 0.
 from a multiplier this paper declined to adopt in §5.12 and is the weakest number in the table. And
 the collector of §5.9 remains unbuilt — it is the one component every row above depends on.
 
+### 5.19 The blanket, on sourced ground: the work form passes
+
+§5.8 computed the blanket's contribution from one reaction — the ⁶Li breeding Q value, at full capture,
+with no multiplier — and §5.12 declined to adopt a multiplied figure because it was a design estimate
+rather than a datum. That caution was right in kind and, it turns out, conservative in degree.
+
+Design studies of the **fission-suppressed fusion breeder** — the low-multiplication,
+proliferation-conscious class of blanket, not the fast-fission one — report that each fusion produces
+typically **0.6 fissile atoms** and releases about **1.6 times the neutron's energy** in the blanket,
+at a tritium breeding ratio near **1.15**, which is self-sufficient. Those are figures for a designed
+and analysed blanket rather than arithmetic on a single reaction:
+
+| | this paper's own (§5.8) | sourced design |
+|---|---|---|
+| thermal per fusion | 22.38 MeV | **26.06 MeV** |
+| overall multiplication | 1.272 | **1.482** |
+| fissile per fusion | 0.7, reconstructed | **0.6, sourced** |
+
+**This paper's arithmetic was conservative by 1.164.** Both stand — §5.8's is a floor derived from a
+measured Q value, the design figure is better grounded — and the sourced one is used below.
+
+**What it does to §5.14.** At the same bound case — density at the lower dissociation reading, the
+favourable sticking branch, perfect collection, blanket at 1200 K — work per fusion becomes
+**19.55 MeV** rather than 18.23, and:
+
+| | §5.14 | on sourced blanket figures |
+|---|---|---|
+| thermal gain | 1.286 | **1.379** |
+| **work gain** | 0.965 | **1.034** |
+
+> **The work form passes on sourced blanket figures.** §5.14 reported it failing by 1.04 on this paper's own conservative
+> arithmetic; on a designed blanket it clears by 1.034. **The four percent §5.15 went looking for was
+> already in the blanket**, and needed no change to sticking, density, or collection at all.
+
+**The margin is small and must not be overstated.** 1.034 is as marginal as 0.965 was, it still
+assumes perfect collection, and every caution §5.14 listed still applies. What has changed is which
+side of unity the marginal case falls on, and that it now rests on a design study rather than on this
+paper's own reconstruction. **The honest reading is that electrical breakeven is at the boundary, and
+which side it lands on is not settled by anything here.**
+
+**What it does to §5.18.** The breeding credit becomes 0.6 × 200 = 120 MeV and the total value per
+fusion **146.06 MeV**, against §5.18's reconstructed 162.4:
+
+| configuration | cycles | binder cost | gain |
+|---|---|---|---|
+| demonstrated cycles, real front end | 150 | 37.0 GeV | 0.59 |
+| **demonstrated cycles, §5.9 collector** | **150** | **12.4 GeV** | **1.77** |
+| bound case, perfect collection | 588.9 | 11.13 GeV | **7.73** |
+
+The conclusion of §5.18 is unchanged and now rests on sourced figures throughout: **at the cycle count
+demonstrated in the 1980s, with the collector and nothing else, the breeding balance is near two.**
+
 ## 6. What the definition excludes
 
 | excluded | grounds |

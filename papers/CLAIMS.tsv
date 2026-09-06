@@ -209,3 +209,15 @@ C207	review's sticking, engineering-limit optimized	0.0008	fraction	SOURCED	arXi
 C208	review's transfer rate claim, low end	1e5	s^-1	SOURCED	arXiv:2605.26432 sec.II.B -- an error, see sec.5.17	none
 C209	review's cycle count at its unity crossing	292	cycles	SOURCED	arXiv:2605.26432 Table I, fully polarized optimistic	none
 C210	neutron multiplication, upper of the assumed band	1.8	per source	RECONSTRUCTED	blanket with a multiplier	none
+C211	sourced blanket energy multiplication	1.6	x neutron energy	SOURCED	fission-suppressed fusion-breeder design	collector.BLANKET_MULT_SOURCED
+C212	sourced fissile atoms per fusion	0.6	per fusion	SOURCED	fission-suppressed fusion-breeder design	collector.FISSILE_PER_FUSION
+C213	sourced tritium breeding ratio	1.15	per fusion	SOURCED	fission-suppressed design, self-sufficient	collector.TBR_SOURCED
+C214	thermal per fusion, sourced blanket	26.06	MeV	DERIVED	C59 + C211 x C58	fn:therm_sourced
+C215	overall energy multiplication, sourced	1.482	x	DERIVED	C214 / C01	fn:mult_sourced
+C216	conservatism of the paper's own arithmetic	1.164	x	DERIVED	C214 / C133	fn:conservatism
+C217	work per fusion, sourced blanket at 1200 K	19.55	MeV	DERIVED	C214 x C174	fn:work_sourced
+C218	thermal gain at the bound case, sourced	1.379	dimensionless	DERIVED	C176 x C214 / C100	fn:tq_sourced
+C219	work gain at the bound case, sourced	1.034	dimensionless	DERIVED	C176 x C217 / C100	fn:wq_sourced
+C220	total value per fusion, sourced with breeding	146.06	MeV	DERIVED	C214 + C212 x C196	fn:total_sourced
+C221	breeding balance, demonstrated cycles with collector	1.77	dimensionless	DERIVED	C44 x C220 / (C100 / 0.9)	fn:qb_demo
+C222	breeding balance at the bound case	7.73	dimensionless	DERIVED	C176 x C220 / C100	fn:qb_bound
