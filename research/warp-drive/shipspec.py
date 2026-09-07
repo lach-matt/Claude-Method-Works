@@ -75,6 +75,9 @@ _A, _T, ORBITS = PZ.unequal_binary(DEFLECTOR, Q_RATIO, BETA_A)
 MARGIN_1  = SK.margin(2.0, BETA_A, K_PASS, 1)         # steered: 14.7x
 MARGIN_2  = SK.margin(2.0, BETA_A, K_PASS, 2)         # unsteered: 0.44 -- fails
 PASSES_2  = SK.passes_to(2.0, SK.gain_second_order(BETA_A, K_PASS))
+BETA_GEO  = SK.beta_A_geometric_max(K_PASS)           # two deflectors only below this
+_G_MEAS   = SK.empirical_ceiling(BETA_GEO, K_PASS)    # A&R: one encounter's worth
+V_MEAS    = math.sqrt(1.0 - 1.0/_G_MEAS**2)           # 0.0393 c
 
 def passes_to(gamma_t, gain=GAIN):
     return math.log(gamma_t)/math.log(1.0+gain)
@@ -88,7 +91,9 @@ SPEC = [
  ("ROUTE","deflector type","Kerr binary","","DERIVED","kerr.py: spin buys approach"),
  ("ROUTE","deflector mass",DEFLECTOR/MSUN,"Msun","DERIVED","person.py: set by k, not by beta"),
  ("ROUTE","pass distance k = r_p/r_s",K_PASS,"","DERIVED","person.py: (chi/tau_s)^(2/3)"),
- ("ROUTE","light-component speed",BETA_A,"c","DERIVED","person.py: below the 0.0587 ceiling"),
+ ("ROUTE","light-component speed",BETA_A,"c","DERIVED","below both the merger and geometric limits"),
+ ("ROUTE","beta_A geometric limit",BETA_GEO,"c","DERIVED",
+  "a > 2 k r_s or the pair is one deflector; at k=3 this IS the ISCO"),
  ("ROUTE","mass ratio m1:m2",1.0/Q_RATIO,"","ASSUMED","the FORK -- see the flagged item"),
  ("ROUTE","companion mass",DEFLECTOR/Q_RATIO/MSUN,"Msun","DERIVED","Routh, not tides"),
  ("ROUTE","orbits to merger",ORBITS,"","DERIVED","person.py: unequal_binary at this q"),
@@ -103,7 +108,10 @@ SPEC = [
  ("PERFORMANCE","Kerr dv enhancement",dv_gain(0.998),"x","DERIVED","b_crit 5.196 -> 2.111"),
  ("PERFORMANCE","passes to gamma = 2",PASSES,"","DERIVED","geometric, non-saturating"),
  ("PERFORMANCE","mission time",PASSES*_T/86400.0,"d","DERIVED","one pass per orbit, ASSUMED cadence"),
- ("PERFORMANCE","terminal speed",0.866,"c","DERIVED","gamma = 2; the ladder stands, N is unbounded"),
+ ("PERFORMANCE","terminal speed, if the ladder runs",0.866,"c","ASSUMED",
+  "requires 1090 consecutive optimised encounters -- a conjecture, never simulated"),
+ ("PERFORMANCE","terminal speed, as MEASURED",V_MEAS,"c","DERIVED",
+  "A&R Monte Carlo: one encounter's worth at the geometric beta_A limit"),
  ("PERFORMANCE","passes if UNSTEERED",PASSES_2,"","DERIVED",
   "Fermi second order: 33x, and it misses the merger clock"),
  ("PERFORMANCE","proper acceleration felt",0.0,"g","DERIVED","geodesic throughout"),
@@ -180,7 +188,25 @@ FLAG = """
   That is the whole remaining question, and it is a guidance problem with a
   chaotic stratum underneath it.  Not a fuel problem, and not an inventory one:
   the deflector is in the LIGO catalogue.
-""" % (PASSES_2, PASSES, ORBITS, MARGIN_2, PASSES)
+
+  AND THEN SOMEBODY HAD ALREADY RUN THE SIMULATION.  Acevedo & Ritz 2026
+  (arXiv:2603.08781) evolve an ensemble of three-body systems to ejection or
+  capture over exactly this process.  This tree reproduces their three printed
+  Sgr A* figures to 0.2%% -- and their simulation then delivers 0.72x ONE
+  encounter's worth, not a ladder.  For equal-mass compact binaries they report
+  exceeding the single-encounter estimate "by an order unity factor".
+
+  So the 0.866 c row above is now marked ASSUMED, and beside it sits %.4f c:
+  one encounter at this sheet's geometric beta_A limit, which is what the only
+  end-to-end simulation of the mechanism measures.  The 1090-pass ladder is a
+  CONJECTURE this project inherited and never tested, and the one test that
+  exists does not see it.
+
+  A conservation law says the same thing more weakly and more certainly: the
+  binary's helical Killing vector conserves epsilon - Omega*ell, so
+  gamma <= (1+beta_co)/(1-beta_co) with no N in it.  True, and 9x too loose to
+  bind.  Recorded because it is certain.
+""" % (PASSES_2, PASSES, ORBITS, MARGIN_2, PASSES, V_MEAS)
 
 def selftest():
     ok = True
@@ -220,6 +246,8 @@ def selftest():
     chk("sheet's q is exactly Routh's ceiling", Q_RATIO, PZ.routh_q_max(), tol=1e-12)
     chk("merger margin at the sheet's q", ORBITS/PASSES, 2603.083, tol=1e-5)
     chk("unsteered margin is below 1 (steering is required)", MARGIN_2 < 1.0, True)
+    chk("measured terminal speed (c)", V_MEAS, 0.039262286, tol=1e-6)
+    chk("the sheet's beta_A is inside the geometric limit", BETA_A < BETA_GEO, True)
     chk("unsteered pass count is 1/beta_A times the steered", PASSES_2/PASSES,
         SK.selection_ratio(BETA_A), tol=1e-3)
     chk("companion mass (Msun)", DEFLECTOR/Q_RATIO/MSUN, 1247.9968, tol=1e-5)

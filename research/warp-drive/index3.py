@@ -173,10 +173,10 @@ FINDINGS = [
  # difference between a proton and a person, and it enters through one group.
  ("FRAGILITY",    0,  0, +1, "person.py",
   "chi/tau_s is the only argument: k = (chi/tau_s)^(2/3), extent and tolerance never separate"),
- # The narrowing stationkeep.py applied here is WITHDRAWN with the theorem that
- # motivated it.  The identity was never in question; the mission is back.
+ # NARROWED, and this time by a measurement rather than by a theorem of mine:
+ # A&R's Monte Carlo puts one encounter's worth at 0.039 c off this deflector.
  ("CATALOGUE",   +1, +1, +1, "person.py",
-  "a person at 50 Msun and a proton at 1.2e9 kg are the SAME mission: the deflector is catalogued"),
+  "a person at 50 Msun and a proton at 1.2e9 kg are the SAME mission -- one encounter, 0.039 c"),
  # A bound, and it is the clock rather than the mass that sets it.
  ("MERGER-CEIL",  0, -1, +1, "person.py",
   "beta <= 0.0587 or the flywheel merges mid-mission; Zhang's headline 0.2 misses by 132x"),
@@ -195,6 +195,13 @@ FINDINGS = [
   "steering is the mechanism, not an optimisation: it is what holds Zhang's optimum over Fermi's average"),
  ("NU-OPEN",      0,  0, +1, "stationkeep.py",
   "OPEN: the per-pass vanquish probability must be held near zero for 1090 passes; nobody has computed it"),
+ # The ladder was a conjecture, and somebody had already run the simulation.
+ ("NO-COMPOUND",  0, -1, +1, "stationkeep.py",
+  "Acevedo & Ritz's Monte Carlo delivers 0.72x ONE encounter, not a ladder: order unity, not 1e9"),
+ ("JACOBI",       0, -1, +1, "stationkeep.py",
+  "the helical Killing vector caps gamma at (1+b_co)/(1-b_co) with no N in it -- true, and 9x too loose"),
+ ("TWO-BODIES",   0,  0, +1, "stationkeep.py",
+  "a > 2 k r_s or there is only one deflector; at k = 3 that IS the ISCO limit, identically"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -207,6 +214,7 @@ SUPPORT = [
  ("LOOP",      "kerr.py",           "the index looped because 9 papers were never seated; guard added"),
  ("BETA3-FIX", "person.py",         "the beta^3 mass floor passed at a/3, where the bend is 1.2 deg; gain overstated 116x"),
  ("LIT-FIX",   "stationkeep.py",    "the bound-return theorem assumed a static field; Zhang Sec 3.3 and Shipley-Dolan refute it"),
+ ("AR-VALID",  "stationkeep.py",    "this tree's kinematics reproduce A&R's three printed Sgr A* figures to 0.2%"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -287,7 +295,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 57)
+    chk("number of findings indexed", len(FINDINGS), 60)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 

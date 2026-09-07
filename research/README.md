@@ -48,7 +48,7 @@ a report.
 | **`warp-drive/VEHICLE 1`** | **`warp-drive/shipspec.py`** | **the surviving architecture specified: 41 fields, 11 open — the sheet now flies the k-lever, and its one unevidenced object is the companion, not the deflector** |
 | **`warp-drive/GRADIENTS`** | **`warp-drive/gradients.py`** | **the gradient space is closed by classification — five types, one pumps, and the engine already runs on protons** |
 | **`warp-drive/PERSON`** | **`warp-drive/person.py`** | **from a proton to a person: χ/τ_s is the only argument, and pulling the pass out to 94 r_s buys the deflector down into the LIGO catalogue** |
-| **`warp-drive/STATION-KEEPING`** | **`warp-drive/stationkeep.py`** | **the Δv is zero — the binary returns the payload for free. What the ladder costs is *selection*: unsteered it is second order and misses the merger clock** |
+| **`warp-drive/STATION-KEEPING`** | **`warp-drive/stationkeep.py`** | **the Δv is zero — but the ladder is a conjecture, and the one Monte Carlo of it delivers 0.72× *one* encounter, not 1,090** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ## `warp-drive/`
@@ -215,6 +215,59 @@ amount"*, which is precisely the optimised branch. Mikkola & Valtonen (1990) put
 ejection speed for *black hole pairs* at ~10,000 km/s = 0.0334 c, an empirical ceiling from
 galactic-nucleus mergers where GW inspiral caps how hard the binary gets — the same merger clock,
 seen from the other end.
+
+**And then it turned out somebody had already run the simulation.** The 1,090-pass ladder is a
+*conjecture* this project inherited. Zhang derives `N_min = 50…1000` as a **requirement**, not an
+outcome — and notes those values are *"already larger than the number of deflection events seen for
+the arbitrary (generic) trajectories"* in his own Fig. 1. **Acevedo & Ritz (2026, arXiv:2603.08781)**
+evolve an ensemble of three-body systems to ejection or capture, first-principles Monte Carlo, over
+exactly this process.
+
+This tree reproduces their published Sgr A* system to 0.2%:
+
+| | this tree | their printed value |
+|---|---|---|
+| companion orbital speed | 4,843 km/s | 4,850 |
+| primary escape at R_orb | 6,849 km/s | 6,860 |
+| single-encounter maximum | 11,518 km/s | 11,500 |
+
+**And their simulation then delivers 8,300 km/s — 0.72× *one* encounter.** It does not compound; it
+falls short. For equal-mass compact binaries, where the spheres of influence overlap, they report
+ejections exceeding the single-encounter estimate *"by an order unity factor"*. Order unity. Not 10⁹.
+
+> **The ladder is a conjecture. The only end-to-end simulation of it does not see it.**
+
+That is not a refutation of Zhang — his per-encounter law is derived and stands, and A&R's Eq. 2.10
+is its Newtonian limit. It refutes the **architecture** this project built on top of it, which needed
+1,090 consecutive optimised encounters and treated them as merely improbable rather than unobserved.
+
+**A conservation law says the same thing, more weakly and far more certainly.** A circular binary is
+invariant along its helical Killing vector, so a geodesic conserves the relativistic Jacobi constant
+`𝒥 = ε − Ω·ℓ` (in numerical relativity, the first law `δM = Ω δJ`). Energy grows only if angular
+momentum grows with it, and `ℓ` is set at the encounters where `|ℓ| ≤ γ r_enc`. With
+`β_co = Ω r_enc/c`:
+
+> **γ_f ≤ γ_i (1 + β_co)/(1 − β_co)** — and **N does not appear**.
+
+It is true and it is useless: in A&R's system it permits 75,000 km/s where they measure 8,300 — 9×
+too loose. Recorded anyway, because a loose bound that is certainly true outranks a tight one that is
+not, and because this is the law the withdrawn theorem mistook for a binding-energy budget.
+
+**One more constraint, and it is pure geometry.** The two holes are two scattering centres only while
+`a > 2 k r_s`, i.e. `β_A < 1/(2√(2k))`. At Zhang's deep pass `k = 3` that is **0.2041 — identically
+the ISCO limit**, because `a > 6 r_s` per component *is* `a ≥ 3 r_s` of the pair. Two constraints,
+one constraint.
+
+| k (r_s) | deflector | β_A max | measured ceiling |
+|---|---|---|---|
+| 2.0 | 16,209 M☉ | 0.250 | 0.598 c |
+| 3.0 | 8,823 M☉ | 0.204 | 0.475 c |
+| 30 | 279 M☉ | 0.065 | 0.093 c |
+| **94.4** | **50 M☉ — catalogued** | **0.036** | **0.039 c** |
+
+A 2 m body at 1 g reaches **0.039 c** off the catalogued pair and **0.475 c** off an 8,823 M☉ one —
+the IMBH is worth 12× the terminal speed. `shipspec.py` now carries 0.866 c as **ASSUMED** with the
+measured figure beside it.
 
 **A recorded fault, kept executable.** A first pass at this fixed the pass distance at a constant
 fraction of the binary *separation* (`r_p = a/3`) and read off `M ∝ β³` — a person at 51 M☉ and

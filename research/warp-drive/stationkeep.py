@@ -162,6 +162,95 @@ MIKKOLA_VALTONEN = 1.0e7 / c   # PINNED: ~10,000 km/s limiting ejection speed fo
                                # empirical ceiling from galactic-nucleus mergers
                                # where GW merger caps how hard the binary gets.
 
+# ------------------------------------- does the ladder compound?  Two answers --
+# The withdrawn theorem asked the right question with the wrong mechanism.  The
+# right mechanism is a conservation law, and the right answer is a measurement.
+
+def jacobi_ceiling(beta_corotation, gamma_i=1.0):
+    """DERIVED, TRUE, AND NOT BINDING.  The N-independent bound from the
+    binary's helical Killing vector.
+
+    A circular binary spacetime is invariant along K = d_t + Omega d_phi (the
+    helical Killing vector; in numerical relativity its conserved charge is the
+    first law dM = Omega dJ).  A geodesic therefore conserves
+
+        J = epsilon - Omega * ell                (the relativistic Jacobi constant)
+
+    -- exactly the Newtonian statement that E - w.L is conserved in the
+    restricted three-body problem.  Energy can grow without limit only if the
+    angular momentum grows with it.  But ell is changed only at encounters, and
+    there |ell| <= gamma v r <= gamma r_enc, so with beta_co = Omega r_enc / c:
+
+        gamma_f - gamma_i = Omega (ell_f - ell_i) <= beta_co (gamma_f + gamma_i)
+        gamma_f <= gamma_i (1 + beta_co) / (1 - beta_co)
+
+    N does not appear.  The divergence at beta_co = 1 is the light cylinder of
+    the binary: an encounter outside it would be unbounded, and none is.
+
+    THIS BOUND IS TRUE AND USELESS.  Checked against Acevedo & Ritz's simulated
+    Sgr A* system it permits 75,000 km/s where they measure 8,300.  Something
+    else binds first, and `empirical_ceiling` is it.  Recorded because a loose
+    bound that is certainly true is worth more than a tight one that is not --
+    and because this one is what the withdrawn theorem was groping for.
+    """
+    return gamma_i * (1.0 + beta_corotation) / (1.0 - beta_corotation)
+
+def single_encounter_max(u_companion, v_incoming):
+    """PINNED (Acevedo & Ritz 2026, arXiv:2603.08781 Eq. 2.10).  The energy gain
+    from one deflection, per unit mass, is
+
+        d_eps = u_M2 v_i (cos beta - cos(beta + chi))
+
+    maximised at 2 u_M2 v_i, "which occurs when beta = 0 and chi = 180" -- an
+    incoming particle oppositely aligned to the companion's motion, maximally
+    deflected into alignment with it.  Newtonian; returns specific energy."""
+    return 2.0 * u_companion * v_incoming
+
+# PINNED-MEASURED.  A&R run a first-principles Monte Carlo of exactly this
+# process -- an ensemble of three-body systems evolved to ejection or capture --
+# and report what the ladder actually delivers.  Two calibration points:
+#
+#   extreme mass ratio (Sgr A* + 4000 Msun, 1 yr), where Eq. 2.10 is valid:
+#     measured 8,300 km/s against a theoretical maximum of 11,500.  The ladder
+#     does not even reach the single-encounter bound -- ratio 0.72.
+#   equal-mass compact BBH, where the spheres of influence overlap and Eq. 2.10
+#     is misapplied: "we have numerically observed ejections that exceed this
+#     estimate by an ORDER UNITY FACTOR".
+#
+# Either way the answer is order unity.  Not 10^9.  This is the number Zhang's
+# ladder needed and never had: his N_min = 50..1000 is a requirement he derives,
+# not an outcome he simulates, and he notes those values are "already larger than
+# the number of deflection events seen for the arbitrary (generic) trajectories"
+# in his own Fig. 1.
+AR_SGRA_MEASURED  = 8.30e6    # m/s, PINNED
+AR_SGRA_THEORY    = 1.15e7    # m/s, PINNED
+LADDER_ENHANCEMENT = AR_SGRA_THEORY / AR_SGRA_MEASURED  # 1.386 in SPEED, and it
+                                                        # is a SHORTFALL, not a gain
+
+def empirical_ceiling(beta_A, k, enhancement=1.0):
+    """DERIVED from the PINNED-MEASURED result above.  Terminal gamma of a
+    multi-encounter mission: the single-encounter gain times an order-unity
+    ladder factor.  `enhancement` is that factor in ENERGY and defaults to 1 --
+    i.e. one encounter's worth -- because that is what A&R measure where their
+    formula is valid.  Pass a larger value to price the equal-mass overlap case,
+    and label it ASSUMED when you do."""
+    return 1.0 + enhancement * gain_first_order(beta_A, k)
+
+def separate_deflectors(beta_A, k):
+    """DERIVED.  The two holes act as separate scattering centres only while the
+    separation exceeds twice the pass distance: a > 2 k r_s.  With
+    a/r_s = 1/(4 beta_A^2) per component, that is beta_A < 1/(2 sqrt(2k)).
+
+    At k = 3 this returns 0.2041 -- numerically identical to the ISCO limit
+    a >= 3 r_s(total), because a > 6 r_s(component) IS that condition.  The two
+    constraints are one constraint, and they meet exactly at Zhang's deep pass."""
+    return beta_A < 1.0 / (2.0 * math.sqrt(2.0 * k))
+
+def beta_A_geometric_max(k):
+    """DERIVED.  1/(2 sqrt(2k)) -- the fastest binary whose holes are still two
+    objects at this pass distance."""
+    return 1.0 / (2.0 * math.sqrt(2.0 * k))
+
 # ------------------------------------------------------- recorded fault ------
 def withdrawn_bound_return(k, beta_A):
     """WITHDRAWN.  The false theorem, kept executable.
@@ -236,6 +325,49 @@ def selftest():
     chk("selection widens the usable band", b1 > b2, True)
     chk("margin at each ceiling is 1", margin(2.0, b2, k50, 2), 1.0, tol=1e-6)
 
+    print("\nDoes the ladder compound?  Reproducing Acevedo & Ritz's simulated system")
+    # A&R Appendix D: Sgr A* (4.297e6 Msun) plus a 4000 Msun hole on a 1-yr circular
+    # orbit.  Three figures are PRINTED there.  Reproducing all three validates this
+    # tree's whole kinematic setup against a published first-principles Monte Carlo.
+    M1, Tyr = 4.297e6 * MSUN, 3.15576e7
+    a_sgr = (G * M1 * Tyr**2 / (4.0 * math.pi**2))**(1.0 / 3.0)
+    u_M2  = 2.0 * math.pi * a_sgr / Tyr
+    v_esc = math.sqrt(2.0 * G * M1 / a_sgr)
+    chk("companion orbital speed (km/s) -- paper prints 4850", u_M2 / 1e3, 4850.0, tol=2e-3)
+    chk("primary escape speed at R_orb (km/s) -- paper prints 6860",
+        v_esc / 1e3, 6860.0, tol=2e-3)
+    chk("Eq. 2.10 maximum as a speed (km/s) -- paper prints 11500",
+        math.sqrt(2.0 * single_encounter_max(u_M2, v_esc)) / 1e3, 11500.0, tol=2e-3)
+    # And what the simulation actually delivers, against both bounds.
+    chk("measured / single-encounter maximum", AR_SGRA_MEASURED / AR_SGRA_THEORY,
+        0.7217391, tol=1e-6)
+    chk("the ladder falls SHORT of one encounter, it does not compound",
+        AR_SGRA_MEASURED < AR_SGRA_THEORY, True)
+    jc = jacobi_ceiling(u_M2 / c)
+    v_jc = math.sqrt(1.0 - 1.0 / jc**2) * c
+    chk("Jacobi ceiling there (km/s)", v_jc / 1e3, 74994.0, tol=1e-4)
+    chk("Jacobi is true but ~9x too loose to bind", v_jc / AR_SGRA_MEASURED, 9.03544, tol=1e-4)
+
+    print("\nThe geometry: when are there two deflectors at all?")
+    chk("beta_A geometric max at k = 94.4", beta_A_geometric_max(k50), 0.036392174, tol=1e-8)
+    # IDENTITY: at Zhang's deep pass the separate-deflector condition IS the ISCO.
+    chk("at k = 3 it equals the ISCO limit 1/sqrt(24)",
+        beta_A_geometric_max(3.0), 1.0 / math.sqrt(24.0))
+    chk("the design point beta_A = 0.03 has two deflectors",
+        separate_deflectors(0.03, k50), True)
+    chk("the steered merger ceiling 0.0587 does NOT",
+        separate_deflectors(beta_ceiling(2.0, k50, 1), k50), False)
+
+    print("\nWhat that leaves for VEHICLE 1")
+    for kk, want in ((k50, 0.039262286), (3.0, 0.47509702)):
+        b = beta_A_geometric_max(kk)
+        g = empirical_ceiling(b, kk)
+        chk("ceiling at k = %.1f  (c)" % kk, math.sqrt(1.0 - 1.0 / g**2), want, tol=1e-6)
+    chk("the IMBH is worth 12x the terminal speed",
+        math.sqrt(1 - 1 / empirical_ceiling(beta_A_geometric_max(3.0), 3.0)**2) /
+        math.sqrt(1 - 1 / empirical_ceiling(beta_A_geometric_max(k50), k50)**2),
+        12.100595, tol=1e-6)
+
     print("\nThe withdrawn theorem, kept executable")
     chk("the ceiling it claimed at the tightest binary (c)",
         withdrawn_bound_return(k50, BETA_A_TIGHTEST)[0], 0.09369394, tol=1e-7)
@@ -251,6 +383,12 @@ def selftest():
 def report():
     chi, M50 = PZ.fragility(2.0, 9.8), 50.0 * MSUN
     k50 = PZ.pass_distance(M50, chi)
+    M1, Tyr = 4.297e6 * MSUN, 3.15576e7
+    a_sgr = (G * M1 * Tyr**2 / (4.0 * math.pi**2))**(1.0 / 3.0)
+    u_M2  = 2.0 * math.pi * a_sgr / Tyr
+    v_esc = math.sqrt(2.0 * G * M1 / a_sgr)
+    _jc   = jacobi_ceiling(u_M2 / c)
+    v_jc  = math.sqrt(1.0 - 1.0 / _jc**2) * c
     cb = withdrawn_bound_return(k50, BETA_A_TIGHTEST)[0]
     dv = withdrawn_bound_return(k50, 0.03)[1]
 
@@ -339,6 +477,73 @@ stationkeep.py -- what the ladder costs, after the literature was read
   mergers, where GW inspiral caps how hard the binary can get before it merges.
   That is the same merger clock this file measures, seen from the other end.
 
+-- DOES THE LADDER COMPOUND?  SOMEBODY SIMULATED IT ----------------------------
+  Zhang's N_min = 50..1000 is a REQUIREMENT he derives, not an outcome he
+  simulates -- and he notes those values are "already larger than the number of
+  deflection events seen for the arbitrary (generic) trajectories" in his own
+  Fig. 1.  Acevedo & Ritz 2026 (arXiv:2603.08781) ran the ensemble: a
+  first-principles Monte Carlo of three-body systems evolved to ejection or
+  capture, over exactly this process.  Reproducing their Sgr A* case validates
+  this tree's kinematics against theirs --
+
+    companion orbital speed    %7.0f km/s     their printed value  4850
+    primary escape at R_orb    %7.0f km/s     their printed value  6860
+    single-encounter maximum   %7.0f km/s     their printed value 11500
+
+  -- and then their simulation delivers %.0f km/s.  It does not compound past
+  one encounter.  It falls SHORT of it, by 28%%.  For equal-mass compact binaries
+  where the spheres of influence overlap they report ejections exceeding the
+  estimate "by an ORDER UNITY FACTOR".  Order unity.  Not 10^9.
+
+-- AND THE CONSERVATION LAW THE WITHDRAWN THEOREM WAS GROPING FOR --------------
+  A circular binary is invariant along its helical Killing vector, so a geodesic
+  conserves the relativistic Jacobi constant
+
+      J = epsilon - Omega * ell          (in numerical relativity: dM = Omega dJ)
+
+  Energy grows only if angular momentum grows with it, and ell is set at the
+  encounters where |ell| <= gamma r_enc.  With beta_co = Omega r_enc / c:
+
+      gamma_f <= gamma_i (1 + beta_co) / (1 - beta_co)     -- and N does not appear.
+
+  It is TRUE and it is USELESS: in A&R's system it permits %.0f km/s where they
+  measure %.0f -- %.1fx too loose.  Recorded anyway, because a loose bound that is
+  certainly true outranks a tight one that is not, and because this is the law
+  the withdrawn theorem mistook for a binding-energy budget.
+
+-- WHERE THAT LEAVES VEHICLE 1 ------------------------------------------------
+  One more constraint, and it is pure geometry: the two holes are two scattering
+  centres only while a > 2 k r_s, i.e. beta_A < 1/(2 sqrt(2k)).  At Zhang's deep
+  pass k = 3 that is 0.2041 -- IDENTICALLY the ISCO limit, because a > 6 r_s per
+  component IS a >= 3 r_s of the pair.  Two constraints, one constraint.
+""" % (b1, b2, 1.0 / margin(2.0, 0.03, k50, 2), aarseth_vf(0.2041241), MIKKOLA_VALTONEN,
+       u_M2 / 1e3, v_esc / 1e3, math.sqrt(2 * single_encounter_max(u_M2, v_esc)) / 1e3,
+       AR_SGRA_MEASURED / 1e3, v_jc / 1e3, AR_SGRA_MEASURED / 1e3,
+       v_jc / AR_SGRA_MEASURED))
+    print("  %10s %14s %12s %12s %12s"
+          % ("k (r_s)", "deflector", "beta_A max", "ceiling", "vs 0.87c"))
+    for kk in (2.0, 3.0, 10.0, 30.0, k50, 300.0):
+        b = beta_A_geometric_max(kk)
+        g = empirical_ceiling(b, kk)
+        v = math.sqrt(1.0 - 1.0 / g**2)
+        print("  %10.1f %9.4g Msun %12.4f %11.4f c %11s"
+              % (kk, PZ.deflector_mass(chi, kk) / MSUN, b, v,
+                 "reaches" if v >= 0.866 else "%.0f%% short" % (100 * (1 - v / 0.866))))
+    print("""
+  A 2 m body at 1 g reaches 0.039 c off the catalogued 50 Msun pair and 0.475 c
+  off an 8823 Msun one -- the IMBH is worth 12x the terminal speed.  These are
+  ONE encounter's worth, which is what the only end-to-end simulation of the
+  mechanism measures.  An order-unity ladder factor moves them by an order-unity
+  factor and by nothing more.
+
+    THE LADDER IS A CONJECTURE.  THE ONLY SIMULATION OF IT DOES NOT SEE IT.
+
+  That is not a refutation of Zhang -- his per-encounter law is derived and
+  stands, and A&R's Eq. 2.10 is the Newtonian limit of it.  It is a refutation
+  of the ARCHITECTURE this project built on top of it, which needed N = 1090
+  consecutive optimised encounters and assumed they were merely improbable
+  rather than unobserved.
+
 -- THE OPEN ITEM, AND IT IS NOT A DELTA-V --------------------------------------
   Zhang's nu: the per-pass probability of being vanquished -- swallowed by a
   hole, or leaving early with too little energy.  A random population reaching
@@ -351,7 +556,7 @@ stationkeep.py -- what the ladder costs, after the literature was read
   read so far, which is about populations rather than vehicles.  It is a
   guidance problem with a chaotic stratum underneath it, and it is now the whole
   question.  Recorded as OPEN.  A finding is not a repair.
-""" % (b1, b2, 1.0 / margin(2.0, 0.03, k50, 2), aarseth_vf(0.2041241), MIKKOLA_VALTONEN))
+""")
     return 0
 
 
