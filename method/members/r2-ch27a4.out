@@ -24,7 +24,7 @@
   numerals tested 16 over 30 rows (convention: digit-bounded both sides, a trailing non-thousands comma admitted — fault 3 self-caught: `(?![\d,])` dropped `816,` at L11395 — bare single digits excluded); found in the Transitions section: 16; NOT found: 0
   22,275: Transitions 1 lines; main 1, reg 6, mc 2, pc 0, ioi 1, sc 0 — main sites [11432]
   35,570: Transitions 3 lines; main 1, reg 2, mc 2, pc 0, ioi 1, sc 0 — main sites [11432]
-  1,169: Transitions 1 lines; main 7, reg 7, mc 3, pc 0, ioi 3, sc 0 — main sites [2891, 3213, 3222, 3246, 3281, 3596, 11433]
+  1,169: Transitions 1 lines; main 7, reg 8, mc 3, pc 0, ioi 3, sc 0 — main sites [2891, 3213, 3222, 3246, 3281, 3596, 11433]
   27,027: Transitions 1 lines; main 1, reg 0, mc 1, pc 0, ioi 1, sc 0 — main sites [11434]
   6,658: Transitions 1 lines; main 1, reg 0, mc 1, pc 0, ioi 1, sc 0 — main sites [11435]
   2.51: Transitions 1 lines; main 1, reg 0, mc 0, pc 0, ioi 1, sc 0 — main sites [11436]

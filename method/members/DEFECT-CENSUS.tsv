@@ -686,7 +686,7 @@ id	class	member	line	item	detail
 685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=115 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=143 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3210	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
+688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3210	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
 689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	2,475	other sites: main=2 reg=4 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 690	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	21.4	other sites: main=1 reg=1 mc=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 691	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	22.8	other sites: reg=3 mc=1 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
@@ -1557,13 +1557,13 @@ id	class	member	line	item	detail
 1556	C13-HANDLE-LEAK	reg	6513	BUILD-10	**RULING 26: THE 489 UNTESTED SPECTRA ROWS ARE RUN UNDER M'S SEALED-TEST RULING — STRICT MEMBERSHIP, THE QUOTATION FLOOR AS THE ONLY ε, §22.5 ADMISSIBILITY — AND 318 ROWS CLOSE: 658 OF 813 CELLS PASS,
 1557	C13-HANDLE-LEAK	reg	6632	BUILD180	**THE REGISTER'S FRONT MATTER GIVES ITS MATURE RECORD AS "165 TO 1791, 1,470 ENTRIES" WHERE THE BACK MATTER GIVES 165–1792; THE BACK MATTER IS CURRENT, THE FIGURE IS 1,471, AND UNDER THE PRINTED 1,470
 1558	C1-SECTION-POINTER-UNRESOLVED	reg	6716	§1.8	**THE CLOSURE RULE IS PRINTED ONE-SIDED AT FOUR SITES REGISTER 402 CORRECTS, AND EACH NOW POINTS AT THE CORRECTION.** *Register 402: the closure rule was one-sided and the operator is two-sided, the c
-1559	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	914	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | 2,475 cells (the figure §12.11.5 withdraws; register 1819). A two-parent *decision* is the same shape: **no ea
+1559	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	914	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | 2,475 cells (the figure §12.11.5 withdraws; register 1819). A two-parent *decision* is the same shape: **no ea
 1560	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	914	2,475	other sites: main=2 reg=4 | 2,475 cells (the figure §12.11.5 withdraws; register 1819). A two-parent *decision* is the same shape: **no ea
-1561	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
+1561	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
 1562	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	3.5	other sites: main=10 reg=7 mc=1 sc=2 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
-1563	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
+1563	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
 1564	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	3.5	other sites: main=10 reg=7 mc=1 sc=2 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
-1565	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3439	12.11	other sites: main=158 reg=42 mc=87 pc=1 ioi=7 sc=1 | it costs, 2,475 cells of the cylinder (the figure §12.11.5 withdraws; register 1819). The book substitutes f_m
+1565	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3439	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | it costs, 2,475 cells of the cylinder (the figure §12.11.5 withdraws; register 1819). The book substitutes f_m
 1566	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3439	2,475	other sites: main=2 reg=4 | it costs, 2,475 cells of the cylinder (the figure §12.11.5 withdraws; register 1819). The book substitutes f_m
 1567	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	4019	24,585	other sites: reg=9 mc=5 pc=1 | in every one.** *(A sample: exact enumeration gives 24,585 minimum covers with one cell common to all — Mathem
 1568	C8-NAMED-STATEMENT	all	0	witness rule	sites=1 in reg | bold/heading statement in main: NO
@@ -1617,3 +1617,4 @@ id	class	member	line	item	detail
 1616	C8-NAMED-STATEMENT	all	0	governing rule	sites=1 in reg | bold/heading statement in main: NO
 1617	C8-NAMED-STATEMENT	all	0	superseded bound	sites=1 in reg | bold/heading statement in main: NO
 1618	C9-OVERGENERALISATION-WORD	reg	6796	never	**THE BOUND WAS WIDENED IN §35 AND THE COMPANION AND THE COMPENDIUM STILL PRINTED THE OLD ONE; THE CENSUS FOUND THAT BEFORE ANYONE ASKED.** *Register 1837 widened §35's g-block absence from* **below Z
+1619	C9-OVERGENERALISATION-WORD	reg	6804	at every cap	**"NOT A LATTICE" IS THE WRONG PHRASE FOR A COMPONENTWISE MEET FAILURE, AND THE CHAPTER PROVES IT ON ITS OWN NEXT PARAGRAPH.** *§12.11.2 prints* **"The exact coupling region is not a lattice in any pr

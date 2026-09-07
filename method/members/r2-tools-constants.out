@@ -1,8 +1,8 @@
-     976 |Λ8|     sites  181 {'main': 86, 'reg': 44, 'mc': 36, 'pc': 2, 'ioi': 13}
-   1,654 |Λ9|     sites   43 {'main': 24, 'reg': 7, 'mc': 9, 'ioi': 3}
-   2,535 |Λ10|    sites   16 {'main': 8, 'reg': 3, 'mc': 3, 'ioi': 2}
+     976 |Λ8|     sites  182 {'main': 86, 'reg': 45, 'mc': 36, 'pc': 2, 'ioi': 13}
+   1,654 |Λ9|     sites   44 {'main': 24, 'reg': 8, 'mc': 9, 'ioi': 3}
+   2,535 |Λ10|    sites   17 {'main': 8, 'reg': 4, 'mc': 3, 'ioi': 2}
   13,585 |Λ11|    sites   13 {'main': 8, 'reg': 2, 'mc': 2, 'ioi': 1}
-  70,905 |Λ12|    sites   19 {'main': 8, 'reg': 6, 'mc': 3, 'ioi': 2}
+  70,905 |Λ12|    sites   20 {'main': 8, 'reg': 7, 'mc': 3, 'ioi': 2}
  199,130 |Λ13|    sites   32 {'main': 14, 'reg': 4, 'mc': 12, 'ioi': 2}
  475,800 C(976,2) sites   22 {'main': 10, 'reg': 4, 'mc': 7, 'ioi': 1}
 VARIANT '975': 3 sites [('reg', 1735), ('reg', 3633), ('ioi', 1355)]

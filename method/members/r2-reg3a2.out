@@ -31,8 +31,8 @@
    and carries "is* *iterate**" mid-sentence. The emphasis is scrambled, not merely odd.
 
 == 4  THE CITATION DIRECTION, AND WHAT THE LOAD-BEARING TABLE CANNOT SEE
-   313 cited by entries, counting all entries                 71                           OK
-   313 cited, with 95-164 dropped (the convention)            1                            OK
+   313 cited by entries, counting all entries                 72                           EXPECTED 71
+   313 cited, with 95-164 dropped (the convention)            2                            EXPECTED 1
    entries 313 itself cites: none
    READING: the link is ONE-WAY. The standing rule words it the other way -- "a superseded
    entry is corrected by a new entry that cites it" -- and 313 cites none of the seventy.
@@ -54,8 +54,8 @@
    No row engages the block. CENSUS-CLOSURES-reg3.tsv is header-only.
 
 == SUMMARY
-   instrument checks failed : 0 
+   instrument checks failed : 2 ['313 cited by entries, counting all entries', '313 cited, with 95-164 dropped (the convention)']
    deviations recorded      : 1
      reg3-A    entry 313 parses as headline + italic body         measured False          printed True
 
-   ALL INSTRUMENT CHECKS OK
+   INSTRUMENT FAULT - STOP

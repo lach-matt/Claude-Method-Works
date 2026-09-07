@@ -1,0 +1,31 @@
+The tower's constraint graph, built from the axis bounds tower-2.py implements
+
+   stage  nodes  edges  cycle rank  triangles  girth  treewidth   shortfall?
+  Λ8          8      7           0          0      -          1   none — R is exact
+  Λ9          9      8           0          0      -          1   none — R is exact
+  Λ10        10     10           1          1      3          2   ONE LEVEL
+  Λ11        11     11           1          1      3          2   ONE LEVEL
+  Λ12        12     13           2          1      3          2   ONE LEVEL
+  Λ13        13     14           2          1      3          2   ONE LEVEL
+
+  cycle rank by stage (0, 0, 1, 1, 2, 2) — register 1790 prints (0, 0, 1, 1, 2, 2)
+  triangles by stage  (0, 0, 1, 1, 1, 1) — register 1790 prints (0, 0, 1, 1, 1, 1)
+  the triangle, first at Λ10: ("2S'", 'g', 'v')  — register 1790 names 2S'-g-v
+  at Λ13: 13 nodes, 14 edges, girth 3, treewidth 2 — register 1790 prints 13, 14, 3, 2
+
+WHAT THIS DECIDES ABOUT FIGURE 21.1's CAPTION
+  The caption prints: 'Twelve nodes, thirteen edges, cycle rank 2, girth 5, treewidth 2,
+  and no triangle at any stage' and then '- the shortfall of one level holds for the whole
+  tower and not only for a K3.'
+  MEASURED: 13 nodes, 14 edges, cycle rank 2, girth 3, treewidth 2, 1 triangles at Λ13.
+  AND: treewidth is 1 at Λ8, Λ9, so R closes those stages
+  exactly and there is no shortfall there. The caption's own cycle-rank sequence says so
+  two lines above the sentence: the first cycle, and so the first K3, arrives at Λ10.
+  'The whole tower' is false at Λ8 and Λ9; from Λ10 the sentence is right.
+
+  A FIFTH CAPTION ERROR, measured here and not in register 1790, which was measuring Λ13:
+  the caption says 'the base Λ8 is a caterpillar with k as its hub at degree 4'.
+  At Λ8 k has degree 3 — l, q and 2S. It reaches 4 only at Λ11, when 2Jc arrives.
+
+  Register 1790 scopes Figure 21.1 and §21.5.3's table to the prose pass. This is the
+  measurement that pass needs; nothing is repaired here.

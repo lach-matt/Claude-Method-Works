@@ -232,7 +232,7 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
    distinct numerals printed in the unit: 56
    30.4       six-volume sites 5      main outside unit [630, 7638, 7640]   other volumes {}
    18         six-volume sites 137    main outside unit [134, 220, 233, 1017, 1137, 1378, 1379, 1381]   other volumes {'reg': [123, 149, 251, 279, 287], 'mc': [4, 6, 1566, 1740, 1876], 'pc': [24, 87, 391, 401, 402], 'ioi': [213, 223, 398, 1364, 1365], 'sc': [20, 147, 406, 586, 604]}
-   6,         six-volume sites 73     main outside unit [291, 317, 3195, 3196, 3197, 3223, 3224, 3225]   other volumes {'reg': [131, 267, 375, 1455, 1959], 'mc': [750, 870, 900, 950, 1024], 'pc': [773], 'ioi': [209, 324, 1367, 1368, 1369], 'sc': [20, 1136, 1144]}
+   6,         six-volume sites 74     main outside unit [291, 317, 3195, 3196, 3197, 3223, 3224, 3225]   other volumes {'reg': [131, 267, 375, 1455, 1959], 'mc': [750, 870, 900, 950, 1024], 'pc': [773], 'ioi': [209, 324, 1367, 1368, 1369], 'sc': [20, 1136, 1144]}
    16         six-volume sites 190    main outside unit [36, 47, 60, 132, 189, 292, 315, 355]   other volumes {'reg': [20, 28, 31, 141, 375], 'mc': [750, 840, 858, 1254, 1564], 'pc': [176, 391, 403, 504, 520], 'ioi': [223, 271, 324, 396, 1365], 'sc': [53, 269, 303, 305, 406]}
    2,         six-volume sites 242    main outside unit [212, 477, 494, 585, 816, 1307, 1335, 1394]   other volumes {'reg': [163, 251, 267, 279, 287], 'mc': [374, 594, 614, 772, 900], 'pc': [135, 391, 773, 811, 906], 'ioi': [209, 234, 324, 345, 1358], 'sc': [20, 1114, 1136]}
    30.2       six-volume sites 7      main outside unit [631, 8334, 8352, 8498, 8500]   other volumes {'reg': [3039]}
@@ -240,9 +240,9 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
    31.2       six-volume sites 8      main outside unit [631, 7642, 11491, 11494]   other volumes {'reg': [6457, 6598]}
    31.3       six-volume sites 6      main outside unit [631, 7643, 8705, 11506]   other volumes {'ioi': [227]}
    2.10       six-volume sites 9      main outside unit [622, 1484, 11256, 11515, 11517]   other volumes {'reg': [1931, 4163, 6595]}
-   31         six-volume sites 52     main outside unit [153, 1233, 1238, 1868, 4169, 4197, 4239, 4272]   other volumes {'reg': [183, 201, 1247, 1943, 1975], 'mc': [986, 1110, 1732, 2546, 3042], 'pc': [83, 414], 'ioi': [411, 1394, 1395, 1396, 1397], 'sc': [811, 839]}
+   31         six-volume sites 53     main outside unit [153, 1233, 1238, 1868, 4169, 4197, 4239, 4272]   other volumes {'reg': [183, 201, 1247, 1943, 1975], 'mc': [986, 1110, 1732, 2546, 3042], 'pc': [83, 414], 'ioi': [411, 1394, 1395, 1396, 1397], 'sc': [811, 839]}
    6.9        six-volume sites 15     main outside unit []   other volumes {'sc': [372, 464, 490, 514, 515]}
-   10         six-volume sites 375    main outside unit [124, 233, 262, 325, 1014, 1129, 1564, 1565]   other volumes {'reg': [41, 42, 117, 171, 203], 'mc': [404, 416, 488, 620, 806], 'pc': [112, 391, 444, 556, 855], 'ioi': [46, 128, 223, 390, 1367], 'sc': [93, 201, 205, 259, 283]}
+   10         six-volume sites 376    main outside unit [124, 233, 262, 325, 1014, 1129, 1564, 1565]   other volumes {'reg': [41, 42, 117, 171, 203], 'mc': [404, 416, 488, 620, 806], 'pc': [112, 391, 444, 556, 855], 'ioi': [46, 128, 223, 390, 1367], 'sc': [93, 201, 205, 259, 283]}
    3.6        six-volume sites 12     main outside unit [1285, 1421]   other volumes {'reg': [6032], 'sc': [493, 494, 533, 759, 880]}
    100        six-volume sites 97     main outside unit [3744, 3745, 3746, 3754, 4010, 4027, 4028, 4029]   other volumes {'reg': [183, 477, 775, 1715, 1907], 'mc': [838, 1084, 1405, 1604, 2330], 'pc': [64, 170, 454], 'ioi': [345, 480], 'sc': [1017]}
    47.9       six-volume sites 1      main outside unit []   other volumes {}
@@ -260,7 +260,7 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
    36         six-volume sites 127    main outside unit [159, 431, 730, 1526, 1550, 1576, 1588, 1594]   other volumes {'reg': [221, 451, 799, 1643, 1671], 'mc': [124, 1453, 1455, 1494, 1876], 'pc': [344, 356, 391, 668], 'ioi': [65, 202, 264, 416, 1372], 'sc': [105, 910, 920, 1070, 1101]}
    1,         six-volume sites 259    main outside unit [444, 475, 504, 693, 816, 1396, 1501, 1528]   other volumes {'reg': [111, 139, 159, 267, 307], 'mc': [604, 808, 1012, 1020, 1024], 'pc': [58, 61, 749, 780, 810], 'ioi': [165, 234, 242, 320, 324], 'sc': [151, 942]}
    0,         six-volume sites 168    main outside unit [337, 475, 489, 769, 1041, 1388, 1621, 1791]   other volumes {'reg': [143, 159, 307, 927, 1243], 'mc': [930, 960, 1024, 1084, 1214], 'pc': [824, 863], 'ioi': [83, 127, 165, 183, 234], 'sc': [151, 1114]}
-   8,         six-volume sites 74     main outside unit [1630, 1696, 1796, 1923, 1959, 2290, 3391, 3792]   other volumes {'reg': [251, 267, 279, 287, 375], 'mc': [840, 950, 1024, 1254, 1256], 'pc': [391], 'ioi': [223, 1367, 1368, 1369, 1370]}
+   8,         six-volume sites 75     main outside unit [1630, 1696, 1796, 1923, 1959, 2290, 3391, 3792]   other volumes {'reg': [251, 267, 279, 287, 375], 'mc': [840, 950, 1024, 1254, 1256], 'pc': [391], 'ioi': [223, 1367, 1368, 1369, 1370]}
    20,        six-volume sites 30     main outside unit [2290, 2393, 4317, 5564, 6257, 6393, 10196, 10210]   other volumes {'reg': [195, 1951, 4955, 4983, 5119], 'mc': [1870], 'sc': [147, 978]}
    28,        six-volume sites 12     main outside unit [203]   other volumes {'reg': [2923, 5119, 5123, 5127, 5135], 'sc': [995]}
    50,        six-volume sites 14     main outside unit [2393]   other volumes {'reg': [251, 279, 5119, 5123, 5127], 'mc': [1870]}

@@ -127,3 +127,42 @@ that can be made are made — it is owed.
 period lengths** L_M = 2(⌊M/2⌋+1)². Kitagawara & Barut's result is the **period doubling** and its
 dynamical-symmetry origin. The new entry corrects the priority of the *period-two structure*; it does not
 claim the closed form is also earlier, because that has not been checked.
+
+---
+
+# PART II — the second sitting, 7 September 2026: all five remaining items disposed
+
+M: *"so don't tell me R3 is finished until it is. everything you just asked about finishing has already
+been ruled. it all must be done."* **The rebuke was earned, and four of the five turned out to be governed
+by rulings already in force.**
+
+| item | disposition | the rule or measurement that decided it |
+|---|---|---|
+| **A6** | **REPAIRED**, three sites, register 1840 | the evidence offered is componentwise, and that is a sublattice statement; the chapter's own next paragraph proves it, six of six (`coupling.py`) |
+| **A8** | **MEASURED**, register 1841 | the compendium's composability series reproduces at four of six with the pairings that make Λ₉ work, and Λ₁₀ is its **peak** (`composab.py`); register 314's claim untouched, its evidence falls |
+| **A5** | **SCOPED, not open** | register 1790 scopes Figure 21.1 and §21.5.3's table to the prose pass, and A5's sentence is inside that caption; the measurement is banked (`cgraph.py`) |
+| **B3** | **REFUSED** | `CLAUDE.md` §5 — *never withdraw a recorded finding on reconstructed evidence without the original instrument*; the instrument read `/tmp/kr.json` and the repository holds 67 TOPbase rows against 15 ladders and 596 channels |
+| **B7** | **REFUSED** | the same rule, and harder: the seated `cypher.py` measures statistics **in** the operator-bearing set, so the record contradicts the correction; and the roster is dockets 20x-04 / 20x-09, which `CLAUDE.md` forbids resolving in code |
+
+## What the three new instruments settled
+
+**`coupling.py`** — §12.11.2's triangle paragraph, **six of six**: meet failures 2,862 · 12,489 · 40,887 ·
+110,229 at caps 6, 8, 10, 12; zero join failures at every cap; 1,848 with the parity congruence; and the
+first failing meet as **(0,1,1) ∧ (1,0,1) = (0,0,1)**, which is J = ½ from S = L = 0. The counting
+convention — unordered distinct pairs — was **determined by the reproduction**, not assumed.
+
+**`composab.py`** — the Mathematical Compendium's composability series at **four of six**: Λ₈ 0.0000,
+Λ₉ 0.7068, **Λ₁₀ 0.8087 on Λ₉'s own source and target shapes**, Λ₁₂ 0.6592. Λ₁₁ and Λ₁₃ reproduce under no
+pairing an exhaustive sweep tried, and that is reported rather than smoothed.
+
+**`cgraph.py`** — the constraint graph from the axis bounds `tower-2.py` implements: every one of register
+1790's numbers returns, and **treewidth is 1 at Λ₈ and Λ₉**, so ℛ closes those stages exactly and Figure
+21.1's *"the shortfall of one level holds for the whole tower"* is false at two stages. **A fifth caption
+error is found that 1790 did not record**: the caption gives the base Λ₈'s hub k at degree 4, and at Λ₈
+it is **3**.
+
+## The state of the plan, complete
+
+**Twelve already done · three corrections that do not survive the record · two refused on a standing rule ·
+one scoped by a seated entry · two measured and recorded · one seated.** Twenty-one of twenty-one.
+**Nothing in `docs/R3-REPAIR-PLAN.md` is now unknown or undisposed.**

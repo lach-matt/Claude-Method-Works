@@ -76,7 +76,7 @@ The constant term factors as ∏(u₁ ± u₂ ± u₃)², which exhibits the eig
 
 **Reading the three forms.** §12.11.2 identifies three constraint forms that no closed index can carry exactly: a **sum**, a **difference**, and a **symmetric function**. All three are present here: the superposition U = Σ c~ij~/d~ij~ is a sum; the Jacobi vectors are differences of positions; and the variety is a polynomial in the power sums of (u₁,u₂,u₃), hence symmetric under their permutation. The three-body potential is the maximal case of what §18 forbids.
 
-**Law 3 (Envelope).** *Every coupling coordinate's exact physical bound requires either two parents or a congruence, and a tree carries only one* (§12.11.2). *Three bodies form K₃, treewidth 2, requiring strong 3-consistency (Freuder 1982) where the closure operator ℛ delivers 2 (§21.5.1). Therefore the exact three-body region is not a lattice, and its closure is the monotone envelope.*
+**Law 3 (Envelope).** *Every coupling coordinate's exact physical bound requires either two parents or a congruence, and a tree carries only one* (§12.11.2). *Three bodies form K₃, treewidth 2, requiring strong 3-consistency (Freuder 1982) where the closure operator ℛ delivers 2 (§21.5.1). Therefore the exact three-body region is not a sublattice of the product, and its closure is the monotone envelope.*
 
 **Proof by computation.** The triangle form {|a−b| ≤ c ≤ a+b} on a cap-8 grid has 344 cells, 0 join failures and 8,385 meet failures; the two-body chain closes with 0. Across caps 3–12 the meet failures grow as 12, 111, 477, 1488, 3780, 8385, 16812, 31227, 54555, 90705 while the join failures stay at 0 (Fig. 2). Certainty survives upward and dies downward — §8.4's skew as an inequality. The masses do not enter the triangle inequality, so the envelope is a property of three-ness and not of any mass ratio.
 
@@ -154,7 +154,7 @@ Steps 1–4 are the fetch/read/encode segment; 5–8 the computation; 9 the down
 |---|---|---|
 | 1 Reduction | the shape map realises closure of the configuration space | Montgomery; §18.4.1 |
 | 2 Time elimination | no time column when cells are not moves; t is a quadrature | Maupertuis, Jacobi; §12.11.1.3 |
-| 3 Envelope | K₃ needs strong 3-consistency; ℛ gives 2; the exact region is not a lattice | Freuder, Dechter; §12.11.2, §21.5.1 |
+| 3 Envelope | K₃ needs strong 3-consistency; ℛ gives 2; the exact region is not a sublattice of the product | Freuder, Dechter; §12.11.2, §21.5.1 |
 | 4 Completeness–prediction | E(Λ₃) = 0 ⇒ zero predictions; Brudno's rate on the chaotic stratum | Saari, Painlevé, Brudno; §25.6 |
 | 5 Mass-uniformity | masses enter only through c~ij~, b~ij~; structure is mass-free | this work; Index of Indices |
 | 6 Threshold silence | L4/L5 stability is a number, not a family | §31.1.1 |

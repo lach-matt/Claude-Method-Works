@@ -1,0 +1,24 @@
+§12.11's composability, measured on the seated tower
+
+   stage    cells  composable  fraction   printed  source -> target
+  Λ8          976           0    0.0000    0.0000  (n,l,k,2S) -> (e,f,g)  OK
+  Λ9         1654        1169    0.7068    0.7068  (n,l,k,2S) -> (e,f,g,2S')  OK
+  Λ10        2535        2050    0.8087    0.8087  (n,l,k,2S) -> (e,f,g,2S')  OK
+  Λ12       70905       46740    0.6592    0.6592  (n,l,k,2S,2Jc) -> (e,f,g,2S',2K)  OK
+
+  Λ11 and Λ13 are not reproduced by any pairing an exhaustive same-size sweep over the
+  plausible coordinate pools tried. Reported, not smoothed.
+
+WHAT THIS DECIDES ABOUT §12.11's TABLE
+  The table gives Λ10 as 'no — no source seniority exists' and the prose concludes
+  'Λ9 is the only stage of the tower that composes' and 'Λ9 sits alone'.
+  MEASURED: Λ10 composes at 0.8087 — 2050 of 2535 cells —
+  USING THE SAME SOURCE AND TARGET SHAPES THAT MAKE Λ9 WORK, and that is its PEAK.
+  Λ12 composes at 0.6592 on the shapes one axis wider. So the compendium's series and the
+  main volume's table are two different predicates wearing one word.
+
+  REGISTER 314's CLAIM IS UNTOUCHED: 'an axis can be exact and not composable; none is
+  composable and not exact' does not depend on which stages compose. What falls is the
+  supporting evidence — 'Λ10 was never structurally barred' and 'Λ9 is not alone' — and
+  that is the correction the retraction audit recorded. The claim survives; the evidence
+  does not. Nothing is repaired here.
