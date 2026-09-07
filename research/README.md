@@ -1939,3 +1939,93 @@ rather than excluded.** No theorem covers it; no construction exhibits it.
 **Not touched:** the Unruh result is a **test field** on a fixed background — precisely the case MMV
 distinguish from back-reaction, and that distinction is the whole content of their paper. And **ANEC is
 independent and still violated.** Its element-independent escape (achronality) has not been examined.
+
+---
+
+## Pass 12 — `selfconsistent.py`: the sharp question, answered at first order
+
+The previous pass closed with exactly one open item: **does a Type IV stress-energy ever source its
+own geometry, rather than riding a fixed background?** That is the whole of the distinction MMV draw,
+and their own closing sentence — *"This list is not necessarily exhaustive"* — is why it was unsettled
+rather than excluded.
+
+### The answer, and it has a name
+
+**Yes, at first order in ℏ, and the solution is an evaporating black hole.**
+
+Abdolrahimi, Page & Tzounis (*Phys. Rev. D* **100**, 124038; arXiv:1607.05280) put the Unruh-state
+`⟨T_μν⟩` on the right-hand side of the semiclassical Einstein equation and solve for the metric — an
+approximate time-dependent metric in ingoing Eddington–Finkelstein coordinates for an evaporating
+non-rotating hole, as a first-order perturbation of Schwarzschild. Their result:
+
+> *"We believe that we are the first to show that a conformally coupled massless scalar field in the
+> Unruh state has a stress-energy tensor that is Hawking–Ellis Type IV everywhere outside the horizon
+> of a slowly evaporating Schwarzschild black hole, so that there are no observers anywhere outside
+> that see zero energy flux."*
+
+So the standing rebuttal to H3 — *nothing known is Type IV, and back-reaction forces Type I anyway* —
+**is false as stated.** Something known is Type IV, it sources a metric, and if Hawking radiation is
+real the configuration occurs in nature around every evaporating hole there is.
+
+### Why MMV's theorems do not forbid it, and it is the same reason as the bubble's
+
+| MMV's Type-I-forced case | evaporating hole |
+|---|---|
+| static | **no** — the mass depends on retarded time, `μ′ = −α/μ²` |
+| Killing horizon | **no** — an evaporating horizon is dynamical |
+| circular axisymmetric, on axis | **no** — the outgoing flux breaks circularity |
+| Bianchi homogeneous | **no** |
+
+`universal.py` established the bubble is non-circular because `g_tx` flips under `(t,φ)→(−t,−φ)` while
+`x` does not. The hole's flux breaks it the same way. **A time-dependent flux is not
+block-diagonalisable** — one structural fact, two escapes.
+
+### The magnitude, which is now the live question
+
+APT's scaling is exact: at fixed `z = 2m/r` the orthonormal components go as `μ⁻⁴`, and the flux
+component is closed form, `f(z) = αz²/(16π(1−z))` with `α = 3.7474×10⁻⁵`. Against `warpenergy.py`'s
+requirement `ρ = β²/(144πD²)` in Planck units at the flatness-limited wall `D = R/3`:
+
+| bubble | matching BH | `r_s` | `T_H` |
+|---|---|---|---|
+| R = 1 m, β = 0.001 | 1.126×10¹⁰ kg | 1.67×10⁻¹⁷ m | 1.09×10¹³ K |
+| R = 1 m, β = 0.01 | 3.562×10⁹ kg | 5.29×10⁻¹⁸ m | 3.45×10¹³ K |
+| **R = 1 m, β = 0.1** | **1.126×10⁹ kg** | 1.67×10⁻¹⁸ m | 1.09×10¹⁴ K |
+| R = 10 m, β = 0.1 | 3.562×10⁹ kg | 5.29×10⁻¹⁸ m | 3.45×10¹³ K |
+| R = 100 m, β = 0.1 | 1.126×10¹⁰ kg | 1.67×10⁻¹⁷ m | 1.09×10¹³ K |
+
+**Primordial-black-hole masses, not absurd ones.** A billion kilogrammes is a mountain, and the
+required Type IV strength is what such an object carries in its Hawking flux as a matter of course.
+The match scales only as `R^{1/2}` — a hundredfold bigger ship costs a tenfold heavier equivalent.
+
+### The scope, drawn deliberately tight
+
+Encoded as `selfconsistent.SCOPE` and asserted by its selftest, so it cannot drift:
+
+1. **First order in ℏ, not exact.** APT compute `⟨T⟩` on the *unperturbed* background and use it to
+   source the perturbation; they never iterate to a fixed point where `⟨T⟩[g] = G[g]/8π`. MMV's
+   theorems are statements about **exact** solutions. There is no contradiction in either direction —
+   APT do not refute MMV, MMV do not exclude APT. **Answered at first order. Open at exact order.**
+2. **Conformally coupled massless scalar.** For spin 1 APT are explicit that they are *"not certain"*:
+   Type IV only for `z < 0.044`, and possibly nowhere if the disputed `k₃` term vanishes.
+3. **Configuration is not matched.** The hole's Type IV is a spherically symmetric **radial** flux; the
+   bubble needs a **twisted** one. Same type, same strength, different shape, and nothing here arranges
+   one into the other. **A magnitude match is not a construction.**
+4. **ANEC is untouched**, independent, and still violated on every ray.
+
+### Why this is not the `nullbound` episode again
+
+That headline was withdrawn because it rested on my own inference from a scan I had not run. This
+rests on a published, peer-reviewed, back-reacting calculation with an explicit metric, and the claim
+being made is **narrower than the paper's own**. Different epistemic position — and the scope list
+above is drawn tight for exactly the same reason.
+
+### Seated
+
+- `index3.py` — 144 findings, still 15 cells. `SOURCES-ITSELF` (+1,+1,0), `MAGNITUDE-MATCH` (+1,0,+1),
+  `CONFIG-UNMATCHED` (0,−1,−1), `EXACT-ORDER-OPEN` (0,−1,0). `SELF-CONSISTENT-OPEN` **stays as it was
+  asked** — a status is never flattened.
+- `obstruct.py` — 15 rows. New row `TYPEIV-SOURCES`, **CONDITIONAL**: false at first order, open at
+  exact, with the boundary named. `TYPE-IV` itself stays **OPEN**: what survives is the configuration.
+  The verdict block is now computed from the ledger rather than transcribed.
+- `paper/CLAIMS.md` — **H4**, flagged for the abstract, with its four-item scope.

@@ -109,6 +109,59 @@ budget.)*
 
 ---
 
+## ★ HEADLINE — flagged for the abstract
+
+**H4. Type IV matter is not hypothetical: it sources a metric, and the solution is an evaporating
+black hole.**
+
+> H3's objection has a standing rebuttal in the literature — *"nothing known is Type IV, and in any
+> case Martín-Moruno & Visser show back-reaction forces Type I."* **That rebuttal is false as stated.**
+> Abdolrahimi, Page & Tzounis (*Phys. Rev. D* **100**, 124038; arXiv:1607.05280) put the Unruh-state
+> `⟨T_μν⟩` on the right-hand side of `G_μν = 8π⟨T_μν⟩`, solve for the metric, and find the result is
+> **Hawking–Ellis Type IV everywhere outside the horizon** of a slowly evaporating Schwarzschild hole.
+> Their words: *"there are no observers anywhere outside that see zero energy flux."*
+>
+> MMV's four Type-I-forced cases do not apply, and they fail for the **same structural reason** the
+> warp bubble escapes them: an evaporating hole is not static, its horizon is not Killing, the outgoing
+> flux breaks circularity, and it is not homogeneous. `universal.py` already established that the
+> bubble is non-circular because `g_tx` flips under `(t,φ)→(−t,−φ)` while `x` does not; the hole's flux
+> breaks it the same way.
+>
+> **The magnitude is available.** APT's scaling is exact — at fixed `z = 2m/r` the orthonormal
+> components go as `μ⁻⁴`, with the flux component in closed form `f(z) = αz²/(16π(1−z))`,
+> `α = 3.7474×10⁻⁵`. Against `warpenergy.py`'s requirement `ρ = β²/(144πD²)` at the flatness-limited
+> wall `D = R/3`:
+>
+> | bubble | needs the Type IV strength of |
+> |---|---|
+> | R = 1 m, β = 0.1 | a **1.126×10⁹ kg** black hole |
+> | R = 1 m, β = 0.01 | a 3.562×10⁹ kg black hole |
+> | R = 100 m, β = 0.1 | a 1.126×10¹⁰ kg black hole |
+>
+> Those are **primordial-black-hole masses**, and the match scales only as `R^{1/2}`. If Hawking
+> radiation is real, matter of this type and this strength occurs in nature as a matter of course.
+
+| | `selfconsistent.py` |
+|---|---|
+| status | **PROVEN at first order in ℏ** — every figure computed from APT's own closed forms |
+| new? | the *juxtaposition* is: APT classify, `warpenergy.py` prices, and nobody has put the two side by side |
+| falsified by | an exact self-consistent calculation that turns out Type I; or the disputed `k₃` term settling the spin-1 case negative |
+| **not** claimed | four things, and the list is the point — see below |
+
+**The scope, drawn deliberately tight** (encoded as `selfconsistent.SCOPE`, asserted by its selftest):
+
+1. **First order in ℏ, not exact.** APT compute `⟨T⟩` on the *unperturbed* Schwarzschild background and
+   use it to source the perturbation; they do not iterate to a fixed point. MMV's theorems are about
+   **exact** solutions. Neither refutes the other. **Answered at first order; open at exact order.**
+2. **Conformally coupled massless scalar.** For spin 1 APT are explicit that they are *"not certain"* —
+   Type IV only for `z < 0.044`, and possibly nowhere if the disputed `k₃` term vanishes.
+3. **Configuration is not matched.** The hole's Type IV is a spherically symmetric **radial** flux; the
+   bubble needs a **twisted**, non-circular one. Same type, same strength, different shape. **A
+   magnitude match is not a construction**, and nothing here arranges one into the other.
+4. **ANEC is untouched.** It is the second obstruction and it is independent.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -154,7 +207,11 @@ budget.)*
 
 - That a warp drive can be built. H1 removes a stated impossibility; it does not supply negative energy,
   and **H3 supplies a new impossibility-shaped objection in its place.**
-- That Type IV is forbidden. It is unknown. No theorem excludes it.
+- That Type IV is forbidden. It is unknown. No theorem excludes it, and **H4 exhibits one** — at
+  first order in ℏ.
+- **That H4 builds anything.** It removes the *existence* objection to Type IV matter and supplies a
+  magnitude. It does not supply the configuration, does not reach exact order, does not cover spin 1,
+  and does not touch ANEC.
 - **That `shape.py`'s pattern has any evidence behind it.** Its first tested prediction *failed*: the
   dynamical form of the energy condition turned out **stricter**, not looser. `evidence_available()` is
   back to **0**, with one strike against. A pattern that only ever gets credit is not an instrument.

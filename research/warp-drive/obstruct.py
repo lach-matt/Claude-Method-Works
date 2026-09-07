@@ -14,10 +14,12 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of eleven obstructions, TWO dissolved, three relocated, three closed
-negative, one is conditional, and TWO HAVE NEVER BEEN TESTED.  A build is ready
-when the untested rows are either tested or accepted with eyes open, and this file
-exists to make that a decision rather than an oversight.
+THE HEADLINE: of fifteen obstructions, three dissolved, three relocated, four
+closed negative, three are conditional, two are OPEN, and NONE is untested.  A
+build is ready when the untested rows are either tested or accepted with eyes
+open, and this file exists to make that a decision rather than an oversight.
+The counts here are asserted by the selftest against the ledger, so a row that
+moves fails this paragraph rather than quietly outliving it.
 
 -- WHAT ACTUALLY DISSOLVED ----------------------------------------------------
 Only two, and one of them by leaving the architecture rather than beating it.
@@ -133,7 +135,20 @@ LEDGER = [
   "measured, 7/7 wall points, |Im|/||T|| 0.14-0.69, stable to six figures in h "
   "and validated against BBV Eq (3.48) to 1e-6. Untouched by every energy "
   "condition, which bound contractions where this is about eigenvectors. THE "
-  "OBJECTION THAT REPLACES the energy one. Not forbidden -- unknown", "typefour.py"),
+  "OBJECTION THAT REPLACES the energy one. Not forbidden -- unknown. The "
+  "sub-objection 'nothing known is Type IV' is now FALSE (see TYPEIV-SOURCES); "
+  "what stays open is the CONFIGURATION, radial flux against twisted",
+  "typefour.py"),
+ ("TYPEIV-SOURCES", "Type IV occurs only as a test field, never as a source",
+  "CONDITIONAL",
+  "FALSE at first order in hbar: Abdolrahimi-Page-Tzounis solve G = 8 pi <T> "
+  "with the Unruh state and get Type IV everywhere outside an evaporating "
+  "horizon, escaping all four of MMV's Type-I-forced cases for the same "
+  "structural reason the bubble does. The boundary is the ORDER: answered at "
+  "first, open at exact, since APT do not iterate to a fixed point and MMV's "
+  "theorems are about exact solutions. Magnitude available -- <T> ~ mu^-4 puts "
+  "a 1 m 0.1c bubble at the strength of a 1.126e9 kg hole -- but a magnitude "
+  "match is not a construction", "selfconsistent.py"),
  ("STATIC-BOUND", "BHS applies at a working frequency", "CLOSED-NEGATIVE",
   "IT DOES NOT. A Polder ferrite above resonance has |kappa| > |mu-1|, violating "
   "BHS by factors up to 5, and above-resonance ferrites are ordinary passive "
@@ -197,6 +212,13 @@ def check_nonradial_conditional():
     return (wall.efoldings(1.0e6, 10.0, 0.2, 9.80665) > 100.0
             and wall.efoldings(1.0e6, 5000.0, 0.2, 9.80665) < 0.1)
 
+def check_typeiv_sources_conditional():
+    import selfconsistent
+    # conditional means: yes in one regime, open in the other, with the boundary
+    return (selfconsistent.SCOPE["first order in hbar"]
+            and not selfconsistent.SCOPE["exact self-consistent"]
+            and not selfconsistent.SCOPE["configuration matched"])
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -213,11 +235,11 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 14)
+    chk("obstructions tracked", len(LEDGER), 15)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 3)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 4)
-    chk("CONDITIONAL", len(h["CONDITIONAL"]), 2)
+    chk("CONDITIONAL", len(h["CONDITIONAL"]), 3)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
         sorted(set(r[2] for r in LEDGER)),
@@ -235,6 +257,8 @@ def selftest():
         check_nonradial_conditional(), True)
     chk("MAPPING-2D: mapping stands, static bound does not",
         check_mapping_dissolved(), True)
+    chk("TYPEIV-SOURCES: yes at first order, open at exact",
+        check_typeiv_sources_conditional(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",
@@ -262,10 +286,14 @@ def report():
             print("  %-18s   -> %s  [%s]" % ("", r[3], r[4]))
     print("\n" + "=" * 79)
     print("VERDICT")
-    print("  Two dissolved, three relocated, three closed negative, one conditional,")
-    print("  and TWO NEVER TESTED.  The obstructions did not dissolve; most of them")
+    # counted from the ledger, never transcribed -- the same rule as every row
+    print("  %d dissolved, %d relocated, %d closed negative, %d conditional, %d open"
+          % (len(h["DISSOLVED"]), len(h["RELOCATED"]), len(h["CLOSED-NEGATIVE"]),
+             len(h["CONDITIONAL"]), len(h["OPEN"])))
+    print("  and %d NEVER TESTED.  The obstructions did not dissolve; most of them"
+          % len(h["UNTESTED"]))
     print("  became bills or conditions, which is progress of a different kind.")
-    print("  Before the next build: %s" % ", ".join(build_ready()))
+    print("  Before the next build: %s" % (", ".join(build_ready()) or "nothing untested"))
     return 0
 
 if __name__ == "__main__":

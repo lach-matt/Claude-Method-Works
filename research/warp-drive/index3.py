@@ -393,8 +393,18 @@ FINDINGS = [
   "one reason for all four: twist = 0 gives Minkowski (BBV) and Type I (MMV), so Type IV is forced by the same property that makes it transport"),
  ("SELF-CONSISTENT-OPEN", 0, -1,  0, "universal.py",
   "whether a Type IV solution can SOURCE its own geometry is unsettled: MMV's list is explicitly not exhaustive, and no construction exhibits one"),
+ # ANSWERED, at first order, and the status is not flattened: the row above
+ # stays as it was asked, and these four say what came back.
+ ("SOURCES-ITSELF", +1, +1,  0, "selfconsistent.py",
+  "Abdolrahimi-Page-Tzounis solve G = 8 pi <T> with the Unruh state and get Type IV everywhere outside an evaporating horizon: a Type IV stress-energy DOES source a metric"),
+ ("MAGNITUDE-MATCH",+1,  0, +1, "selfconsistent.py",
+  "<T> goes as mu^-4, so a 1 m 0.1c bubble needs the Type IV strength of a 1.126e9 kg hole: a primordial-BH mass, not an absurd one"),
+ ("CONFIG-UNMATCHED", 0, -1, -1, "selfconsistent.py",
+  "the hole's Type IV is a spherically symmetric RADIAL flux and the bubble needs a twisted one: same type, same strength, different shape, and a magnitude match is not a construction"),
+ ("EXACT-ORDER-OPEN", 0, -1,  0, "selfconsistent.py",
+  "APT compute <T> on the UNPERTURBED background and do not iterate to a fixed point; MMV's theorems are about exact solutions, so neither refutes the other and exact order stays open"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twelve obstructions three dissolved, three relocated, four closed negative, two conditional and none untested"),
+  "of fifteen obstructions three dissolved, three relocated, four closed negative, three conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -511,7 +521,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 140)
+    chk("number of findings indexed", len(FINDINGS), 144)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
