@@ -426,17 +426,18 @@ machine of §§8–10 and not from a hypothetical one**:
 
 | quantity | committed value |
 |---|---|
-| binders stopped in the cell | **1.685e8** per second |
-| 14.1 MeV neutrons | **2.528e10** per second |
-| fusion heat in the cell | **71.2 mW** |
+| binders stopped in the cell | **1.334e8** per second |
+| 14.1 MeV neutrons | **2.002e10** per second |
+| fusion heat in the cell | **56.4 mW** |
 | ratio of the two observables | fixed by the witnessed sticking, **0.505** to **0.557 percent** |
 
-**Three corrections took it there and they very nearly cancel:** interception ×**0.700** because the
-machine's beam is wider than §6 assumed; the mirror ×**1.488** because the machine has one and §6 did
-not; and ×**0.900** because only that fraction of pions decays in a 34.1 m channel. **Net ×0.938.**
+**Three corrections took it there:** interception ×**0.700** because the machine's beam is wider than
+§6 assumed; the mirror ×**1.488** because the machine has one and §6 did not; and the **end-to-end loss
+budget** of §11 at ×**0.7127**, which replaces the bare decay factor this section first used. **Net
+×0.743.**
 
-> **The prediction survives being pointed at the real machine and moves by 6 percent. That it survives
-> is not the point — that it was never checked until §§8–10 existed is.**
+> **The prediction survives being pointed at the real machine, and it falls by a quarter doing it.**
+> The first two corrections nearly cancelled; the third does not, and §11 is where it comes from.
 
 **And it still scales linearly with one number that has not been measured.** The acceptance is
 [1] §5.24's model, which reproduces the built front end's own MARS15 simulation to **0.982** and has
@@ -458,18 +459,19 @@ between this corpus's one proved-positive configuration and a laboratory.
 
 ## 7. The open questions, worked
 
-Nine open questions were carried. Six of them were calculations this work could already do, and
-sorting them into categories was not the same as doing them. This section does them.
+Nine open questions were carried. **Seven of them were calculations this work could already do**, and
+sorting them into categories was not the same as doing them. This section does six; §11 does the
+seventh and narrows the last but one to a number. **One remains, and it is a measurement.**
 `python3 tools/collector.py --open` and `python3 tools/mucf.py --selftest` reproduce every figure.
 
 | | question | status | what it returned |
 |---|---|---|---|
-| Q1 | the acceptance has never been measured end to end | **narrowed, and two claims withdrawn** | the *span* was never an uncertainty — it compared two machines. A claimed second corroboration is also withdrawn: it used the wrong hemisphere. The model has **one** validation, **0.982**, at exactly the configuration §6 uses |
+| Q1 | the acceptance has never been measured end to end | **narrowed to a budget** | §11 computes every loss term between a produced π⁻ and a stopped binder: product **0.7127**, end-to-end **31.66 %**. What remains is the measurement itself, now committed to a number **1.073×** above its own falsification floor |
 | Q2 | which sticking branch is operative | **closed** | inverting the witnessed 150 cycles gives **0.517–0.547 %**, inside the measured trio and below theory |
 | Q3 | the service-life model over-predicts by **2.24** | **closed** | at the corrected sticking it returns **150.5** cycles against 150 measured |
 | Q4 | fuel purity is bounded by no experiment here | **closed** | the fuel behind the 150 carried at most **10.93 ppm**, below the **31.10 ppm** parity level |
 | Q5 | the temperature axis is confounded | **closed** | every balance already runs the cycle rate *at* its ceiling, so deconfounding can raise nothing |
-| Q6 | the **2.37** is unexplained | **explained, not adopted** | a normalisation, not a physics gain: **2.389** interacting nucleons reproduce it to 0.8 % |
+| Q6 | the **2.37** is unexplained | **closed** | a normalisation, not a physics gain: **2.389** interacting nucleons reproduce it to 0.8 %, and §11.1 shows the gain survives to capture at **0.8961** because a narrow target is transparent sideways |
 | Q7 | a **0.186 sr** wedge is uncovered | **closed** | interpolation puts it at **1.072** against a bound of 1.10 |
 | Q8 | transport, cooling and stopping unmodelled | **closed** | retired by §6 |
 | Q9 | the composed sticking **0.234** is unresolved | **closed** | superseded by [1] §5.26 |
@@ -580,10 +582,9 @@ with an **unquantified conservative bias** from the missing mirror term, and not
 withdrawn claims and one validated simulation do not add up to a measurement, and [1] §10.1 — Stage A
 — is the measurement. **No calculation in this work stands in for it, and this section stops trying.**
 
-> **Seven of nine closed, one narrowed and twice corrected, one explained and declined. The two that
-> still move a number are measurements rather than calculations — whether an end-to-end machine loses
-> more than any simulation models, and whether the thick-target normalisation survives to capture —
-> and [1] §10 already runs both.**
+> **Eight of nine closed, one narrowed to a budget. The one that still moves a number is the
+> measurement itself** — η, end to end — **and §11 computes every loss it is asked to find, so [1]
+> §10.1 now tests a stated number rather than an unknown factor.**
 
 **The answer's magnitude is 11.80 to 12.01 percent of the host beam** at the specified aperture, on one
 validated simulation and no measurement. The sign is open at no value of any of it: at the low end and
@@ -985,6 +986,82 @@ on a hot-spot integral.
 
 **That is engineering-office work on a design that exists, which is a different thing from a design
 that does not.**
+
+## 11. The end-to-end loss budget, and the two questions it couples
+
+§7 left two questions open and called both measurements rather than calculations. **One of them was a
+calculation.** This section does it, and doing it sharpens the other rather than softening it.
+`python3 tools/machine.py --budget` reproduces every figure.
+
+### 11.1 Q6 closes on geometry
+
+Whether a thick target's multiplicity gain survives to *captured* muons was the open half of §7's Q6.
+It does, and the argument is geometric rather than simulated.
+
+The pion absorption length is **15.9 cm** in mercury and **10.8 cm** in tungsten. But **the collector
+takes large-angle pions** — **85.0 percent** of production, [1] §5.1 — **and a large-angle pion leaves
+the target sideways.** Its escape path is the target's *radius*, not its length:
+
+| target | sideways | forward | weighted escape |
+|---|---|---|---|
+| the published jet, 30 cm × 8 mm | 0.9751 | 0.4495 | **0.8961** |
+| the optimised rod, 652 × 5.1 mm | 0.9767 | 0.1654 | **0.8547** |
+| a 20.6 cm rod, 2 cm across | 0.9116 | 0.4467 | 0.8417 |
+| a 10 cm-radius block | 0.3964 | 0.4467 | **0.4040** |
+
+> **A narrow target is transparent however long it is.** The multiplicity that explains the 2.37
+> survives to capture at **0.8961**, and the condition is that the target be long and *thin*. The
+> published geometries already are — 652 mm by 5.1 mm, 30 cm by 8 mm — which is not a coincidence but
+> the same argument, arrived at by whoever designed them.
+
+### 11.2 The budget
+
+| term | factor | what it is |
+|---|---|---|
+| target escape | **0.8961** | §11.1 |
+| pion decay completeness | 0.9000 | the channel is cut at 90 % by choice, §10.1 |
+| muon survival in the channel | 0.9796 | 34.1 m against a 1652 m decay length |
+| scattering out of the transverse cap | **0.9021** | conservative: the whole kick taken off the cap |
+| adiabatic transport | 1.0000 | unity **by design**, conditional on the bore schedule |
+| **product** | **0.7127** | |
+
+The scattering term is a 4 mm path through mercury — **0.84** radiation lengths, giving a **12.39
+MeV/c** transverse kick against a 225 MeV/c cap. The kick is random in direction and so broadens
+rather than shifts; taking the whole of it off the cap is the conservative reading and the one quoted.
+
+**Not modelled, and named rather than omitted:** the beryllium window's **1.18 MeV** and **1.20 MeV/c**,
+both carried as negligible; field errors and non-adiabatic transitions, which are a magnet calculation;
+the jet's magnetohydrodynamic distortion, which is what MERIT was built to measure; and collimation,
+which is a layout this design does not fix.
+
+### 11.3 It sharpens Stage A rather than softening it
+
+[1] §10.1 measures η — the **delivered** figure, end to end — and committed to the model's band. The
+budget is what stands between the two:
+
+| window | model | end to end |
+|---|---|---|
+| no window | 60.92 % | **43.42 %** |
+| 400 MeV/c | 49.16 % | 35.03 % |
+| 265 MeV/c | **44.43 %** | **31.66 %** |
+| *falsification floor* | | *29.51 %* |
+
+**The margin over the number that would falsify the model falls from 1.51× to 1.073×.** A prediction
+that close to its own falsification is a far sharper commitment, and that is the budget working as it
+should: **it did not make the answer better.**
+
+### 11.4 And the two questions were coupled
+
+At **31.66 percent** the bred-fuel route does **not** close at the **50.8 percent** its
+demonstrated-cycle balance needs. It closes at the **21.4 percent** the *optimised* production target
+needs — and whether that target's gain is real was Q6, answered in §11.1 at 0.8961.
+
+> **The budget would have closed the route, and Q6 re-opens it.** Neither question could be answered
+> alone and leave the result standing. Answering both together is what leaves it standing, and that
+> coupling was invisible while both were called "measurements" and set aside.
+
+The co-product balance of §5.2 moves with it: fusion heat falls from **15.61** to **11.12 percent** of
+the host beam. The sign does not move, and cannot: the marginal beam cost is still zero.
 
 ---
 

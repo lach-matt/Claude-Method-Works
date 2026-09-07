@@ -129,11 +129,12 @@ ROWS = [
     # Added after the first reading of this index, which found D54 short on Z and
     # nothing else short at all. The proof is D54's and is carried by reference;
     # what this row adds is the apparatus, the gating and the committed rate.
+    ("D71", "SP", "11", "the end-to-end loss budget: Q6 closed on geometry, Q1 narrowed to a number, and the two coupled", 3, 0, 2, 2),
     ("D70", "SP", "6", "the procedure repointed at the designed machine; the prediction moves by 6 percent", 3, 1, 3, 3),
     ("D69", "SP", "10", "the fuel cell designed: the decay channel, recompression, and one loop for two requirements", 2, 1, 3, 3),
     ("D68", "SP", "9", "the build package: circuit, conductor, target, lifetime, plant, failure, integration", 2, 1, 3, 3),
     ("D67", "SP", "8", "the capture solenoid designed: the mirror term supplied, worth 1.299, grade fixed at 1.428", 2, 1, 3, 2),
-    ("D64", "SP", "7", "the nine open questions worked: seven closed, one narrowed to 1.19, one explained", 3, 1, 1, 2),
+    ("D64", "SP", "7", "the nine open questions worked: eight closed, one narrowed to a budget", 3, 1, 1, 2),
     ("D65", "BE", "5.29", "one measurement settles four: the sticking inverted, the 2.24, the purity bound, the wedge", 3, 0, 2, 1),
     ("D66", "BE", "5.30", "the acceptance model's scope limit: one validation, two withdrawn claims, no mirror term", 2, 0, 2, 2),
     ("D63", "SP", "6", "the procedure for the net-positive configuration: 2.41 mg, 2.528e10 n/s committed", 3, 1, 3, 3),

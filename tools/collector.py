@@ -1527,12 +1527,14 @@ def insitu_from_comet(power_mw=1.0, ep_gev=8.0, p_stop_mev=265.0, hi=False):
 # (id, question, status, what it returned)
 OPEN = [
     ("Q1", "the acceptance has never been measured end to end", "NARROWED",
-     "the span was withdrawn -- it compared two machines, not two estimates. A "
-     "claimed second corroboration is ALSO withdrawn: it used the forward "
-     "hemisphere against a machine that captures backward. The model now HAS the "
-     "mirror term the failure exposed, worth 1.299 at a grade of 1.428 (--magnet), "
-     "so it is no longer a lower bound against a graded field. It still has one "
-     "validation, 0.982, and nothing has measured it end to end"),
+     "NARROWED TO A BUDGET. Two spans were withdrawn (they compared machines, "
+     "not estimates) and a claimed second corroboration with them (wrong "
+     "hemisphere). The model then gained the mirror term that failure exposed. "
+     "machine.py --budget now computes every loss between a produced pi- and a "
+     "stopped binder -- target escape, decay completeness, muon survival, "
+     "scattering -- at a product of 0.7127, so the end-to-end figure is 31.66 "
+     "percent and the commitment sits 1.073x above its own falsification floor. "
+     "What remains is the measurement itself, and it is now sharp"),
     ("Q2", "which sticking branch is operative", "CLOSED",
      "inverting the witnessed 150 cycles gives 0.517-0.547 percent, inside the "
      "measured trio and below theory: a third route using neither published "
@@ -1547,11 +1549,15 @@ OPEN = [
      "every balance already runs the cycle rate AT its ceiling, so deconfounding "
      "cannot raise any figure; and the co-product uses a measured cycle count, "
      "which carries whatever temperature produced it"),
-    ("Q6", "the 2.37 between measured and optimised production is unexplained", "EXPLAINED",
+    ("Q6", "the 2.37 between measured and optimised production is unexplained", "CLOSED",
      "it is a normalisation: per-interaction against per-beam-particle. 2.389 "
      "interacting nucleons reproduce the optimised figure to 0.8 percent, the "
      "value required is bracketed by HARP's own energy dependence, and a "
-     "deuteron on 6.3 interaction lengths guarantees the lower end"),
+     "deuteron on 6.3 interaction lengths guarantees the lower end. The "
+     "reabsorption doubt is settled by geometry: the collector takes LARGE-ANGLE "
+     "pions, which leave sideways, so the escape path is the target's RADIUS -- "
+     "a narrow target is transparent however long it is, and the published "
+     "geometries escape at 0.8961. THE GAIN SURVIVES TO CAPTURE"),
     ("Q7", "HARP's two datasets leave a 0.186 sr wedge uncovered", "CLOSED",
      "log-interpolating the two tables where their momentum coverage overlaps "
      "puts the wedge at 1.072, against a bound of 1.10 -- production 10.39 GeV "
@@ -1748,9 +1754,12 @@ def report_open():
     print(f"    {len([q for q in OPEN if q[2] == 'CLOSED'])} closed,"
           f" {len([q for q in OPEN if q[2] == 'NARROWED'])} narrowed,"
           f" {len([q for q in OPEN if q[2] == 'EXPLAINED'])} explained and not adopted.")
-    print(f"    {n_open} still move a number, and both are measurements rather than")
-    print("    calculations: the acceptance (Stage A) and whether the thick-target")
-    print("    normalisation survives to capture (Stage C).")
+    print(f"    {n_open} still moves a number, and it is the measurement itself: eta,")
+    print("    end to end. Every loss between a produced pi- and a stopped binder is")
+    print("    now computed (machine.py --budget, product 0.7127), so what Stage A")
+    print("    is asked to find is a stated number rather than an unknown factor.")
+    print("    Q6's other half closed with it, and the two were coupled: the budget")
+    print("    would have closed the bred-fuel route and Q6's closure re-opens it.")
     print()
     print("  AND THE SIGN IS STILL OPEN AT NO VALUE OF ANY OF THEM.")
     print(f"    At the low end of the corroboration band and ONE fusion per binder:"
@@ -2310,11 +2319,12 @@ def selftest():
     fail += 0 if ok else 1
     print(f"    and the sign survives the floor at ONE fusion per binder:"
           f" {open_heat_pct(lo, cycles=1.0):.5f} %   {'PASS' if ok else 'FAIL'}")
-    ok = len([q for q in OPEN if q[2] != "CLOSED"]) == 2
+    left = [q for q in OPEN if q[2] != "CLOSED"]
+    ok = len(left) == 1 and left[0][0] == "Q1"
     fail += 0 if ok else 1
-    print(f"    {len([q for q in OPEN if q[2] == 'CLOSED'])} of {len(OPEN)} closed;"
-          f" the {len([q for q in OPEN if q[2] != 'CLOSED'])} that remain are measurements,")
-    print(f"    not calculations   {'PASS' if ok else 'FAIL'}")
+    print(f"    {len(OPEN) - len(left)} of {len(OPEN)} closed; the {len(left)} that remains is Q1,")
+    print(f"    which is the measurement itself and not a calculation left undone"
+          f"   {'PASS' if ok else 'FAIL'}")
 
     print()
     print("  the species, measured off the pi+ tables")

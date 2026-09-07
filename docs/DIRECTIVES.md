@@ -15,7 +15,7 @@ The project has three directives and they are not one question:
 | **Z** | lay out the laboratory **procedure** that would witness it |
 
 Prose can answer one of those while sounding like it answered three, and for most of this project's
-life it did. An index cannot. Each of the 70 rows carries a grade 0–3 on each axis, so a result that
+life it did. An index cannot. Each of the 71 rows carries a grade 0–3 on each axis, so a result that
 settles the balance but names no apparatus is visibly a one-axis result, and the cell where all three
 meet is a computation rather than a claim.
 
@@ -39,7 +39,7 @@ that *would* decide and has not.
 
 The grade is a judgement. Three things are not:
 
-1. **Every row names a section that exists.** `--selftest` matches all 70 rows against the headings of
+1. **Every row names a section that exists.** `--selftest` matches all 71 rows against the headings of
    the three papers as they are on disk. A row cannot cite a section that is not there.
 2. **The sign discipline.** A sign is carried only at grade ≥ 2 — nothing that merely bears on the
    balance is allowed a direction.
@@ -92,12 +92,12 @@ that come off the cycle count.
 
 | | question | status |
 |---|---|---|
-| Q1 | the acceptance, never measured end to end | **narrowed, twice corrected** — the *span* compared two machines, not two estimates; a claimed second corroboration used the wrong hemisphere. **One** validation, **0.982**, at the configuration actually used |
+| Q1 | the acceptance, never measured end to end | **narrowed to a budget** — every loss term computed, product **0.7127**, end-to-end **31.66 %**, committed **1.073×** above its own falsification floor |
 | Q2 | which sticking branch is operative | **closed** — the witnessed 150 cycles, inverted, give **0.517–0.547 %**, inside the measured trio and below theory |
 | Q3 | the service-life model over-predicts by 2.24 | **closed** — at the corrected sticking it returns **150.5** against 150 |
 | Q4 | fuel purity bounded by no experiment | **closed** — the fuel behind the 150 carried at most **10.93 ppm**, under the **31.10 ppm** parity level |
 | Q5 | the temperature axis is confounded | **closed** — every balance already runs the cycle rate *at* its ceiling |
-| Q6 | the 2.37 is unexplained | **explained, not adopted** — a normalisation; **2.389** interacting nucleons reproduce it to 0.8 % |
+| Q6 | the 2.37 is unexplained | **closed** — a normalisation (**2.389** nucleons, to 0.8 %), and the gain survives to capture at **0.8961** because a narrow target is transparent sideways |
 | Q7 | a 0.186 sr wedge is uncovered | **closed** — interpolation puts it at **1.072** against a bound of 1.10 |
 | Q8 | transport, cooling, stopping unmodelled | **closed** — retired by §6 |
 | Q9 | the composed sticking 0.234 unresolved | **closed** — superseded |
@@ -131,15 +131,21 @@ HARP's table ends — a specification, not a search. The model is no longer a lo
 graded field. It still has **one** validation, **0.982**, at the configuration the specification uses,
 and nothing has measured it end to end.
 
-**Seven closed, one narrowed and twice corrected, one explained and declined.** The answer's magnitude
-is **11.80 % to 12.01 %** of the host beam on one validated simulation and no measurement, and the sign
-is open at no value of any of it: at the low end and one fusion per binder it still returns 0.07866 %.
-Nothing has been run end to end and weighed, and no calculation here stands in for that.
+**Eight closed, one narrowed to a budget.** The one that remains is the measurement itself, and it is
+now sharp: `machine.py --budget` computes every loss between a produced π⁻ and a stopped binder at
+**0.7127**, so Stage A is asked to find a stated number rather than an unknown factor.
+
+**And the last two were coupled.** At the budgeted 31.66 % the bred-fuel route does not close at the
+50.8 % its demonstrated-cycle balance needs; it closes at the 21.4 % the optimised target needs, and
+whether that gain is real was Q6. **The budget would have closed the route and Q6's closure re-opens
+it.** Neither could be answered alone and leave the result standing. Co-product heat falls from 15.61
+to **11.12 %** of the host beam; the sign moves at no value of anything, the marginal beam cost being
+zero.
 
 ## Re-verify
 
 ```
-python3 tools/directives.py --selftest     # 70 rows against the papers on disk
+python3 tools/directives.py --selftest     # 71 rows against the papers on disk
 python3 tools/directives.py                # the whole reading
 python3 tools/collector.py --insitu        # the apparatus and its ceiling
 python3 tools/collector.py --open          # every open question, and what it can move

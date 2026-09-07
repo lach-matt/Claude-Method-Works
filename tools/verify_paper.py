@@ -2450,6 +2450,137 @@ def pr_corr_net():
     return pr_corr_interception() * pr_corr_mirror() * pr_corr_decay()
 
 
+# ---- spec sec.11, the end-to-end loss budget ------------------------------
+def bd_lam_hg():
+    return _mach.pion_absorption_length_cm("Hg")
+
+
+def bd_lam_w():
+    return _mach.pion_absorption_length_cm("W")
+
+
+def bd_large_angle_pct():
+    return 100.0 * _mach.large_angle_fraction()
+
+
+def bd_escape_jet():
+    return _mach.target_escape("Hg", 30.0, 0.40)
+
+
+def bd_escape_rod():
+    return _mach.target_escape("W", 65.2, 0.255)
+
+
+def bd_escape_thick_rod():
+    return _mach.target_escape("W", 20.6, 1.0)
+
+
+def bd_escape_block():
+    return _mach.target_escape("W", 20.6, 10.0)
+
+
+def bd_side_jet():
+    import math
+    return math.exp(-0.40 / _mach.pion_absorption_length_cm("Hg"))
+
+
+def bd_side_rod():
+    import math
+    return math.exp(-0.255 / _mach.pion_absorption_length_cm("W"))
+
+
+def bd_side_thick():
+    import math
+    return math.exp(-1.0 / _mach.pion_absorption_length_cm("W"))
+
+
+def bd_side_block():
+    import math
+    return math.exp(-10.0 / _mach.pion_absorption_length_cm("W"))
+
+
+def _fwd(mat, L):
+    import math
+    lam = _mach.pion_absorption_length_cm(mat)
+    return (lam / L) * (1.0 - math.exp(-L / lam))
+
+
+def bd_fwd_jet():
+    return _fwd("Hg", 30.0)
+
+
+def bd_fwd_rod():
+    return _fwd("W", 65.2)
+
+
+def bd_fwd_thick():
+    return _fwd("W", 20.6)
+
+
+def bd_decay_term():
+    return _mach.DECAY_FRACTION_WANTED
+
+
+def bd_muon_survival():
+    return _mach.muon_survival()
+
+
+def bd_scatter_term():
+    return _mach.scatter_acceptance()
+
+
+def bd_product():
+    return _mach.budget_product()
+
+
+def bd_kick_mev():
+    return _mach.scatter_kick_mev()
+
+
+def bd_radiation_lengths():
+    return _mach.JET_RADIUS_CM / _mach.X0_HG_CM
+
+
+def bd_window_mev():
+    return _mach.window_energy_loss_mev()
+
+
+def bd_window_kick():
+    return _mach.window_scatter_mev()
+
+
+def _e2e(w):
+    return 100.0 * collector.delivered_fraction_mirrored(1.50, w) * _mach.budget_product()
+
+
+def bd_e2e_nowindow():
+    return _e2e(None)
+
+
+def bd_e2e_400():
+    return _e2e((0.0, 400.0))
+
+
+def bd_e2e_265():
+    return _e2e((0.0, 265.0))
+
+
+def bd_margin():
+    return _e2e((0.0, 265.0)) / 29.51
+
+
+def bd_heat_pct():
+    return 100.0 * collector.insitu_heat_fraction(
+        collector.delivered_fraction_mirrored(1.50, (0.0, 265.0)) * _mach.budget_product())
+
+
+def bd_net_correction():
+    return (_mach.proc_interception() / (_mach.PROC_CELL_RADIUS_CM / 7.5) ** 2
+            * (_mach.proc_acceptance() / collector.delivered_fraction(
+                1.50, "fwd", (0.0, _mach.PROC_CELL_P_STOP)))
+            * _mach.budget_product())
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

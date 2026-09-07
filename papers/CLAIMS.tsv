@@ -512,8 +512,8 @@ C515	in-situ bench cell, fraction of the beam intercepted	4.55e-6	fraction	DERIV
 C516	in-situ bench cell, binders stopped	1.80e8	s^-1	DERIVED	1 MW at 8 GeV, thick target, through C512-C515	fn:insitu_binders_per_s
 C517	in-situ bench cell, 14.1 MeV neutrons	2.70e10	s^-1	DERIVED	C516 x 150 witnessed cycles	fn:insitu_neutrons_per_s
 C518	in-situ bench cell, fusion heat	76	mW	DERIVED	C517 x 17.59 MeV	fn:insitu_cell_heat_mw
-C519	open questions carried, reduced against the co-product	9	count	DERIVED	collector.OPEN, one row per open question	fn:open_count
-C520	of the nine that still move a number	2	count	DERIVED	the acceptance, and nothing else	fn:open_count_load_bearing
+C519	open questions carried, reduced against the co-product	9	count	DERIVED	collector.OPEN, one row per open question; eight now CLOSED	fn:open_count
+C520	of the nine that still moves a number	1	count	DERIVED	Q1 alone, and it is the measurement itself	fn:open_count_load_bearing
 C521	binders/s at 1 MW, measured floor	9.00e10	s^-1	DERIVED	MuSIC's built capture solenoid at 9.0e4 mu-/s/W	fn:open_floor_mu
 C522	binders/s at 1 MW, modelled ceiling	1.918e14	s^-1	DERIVED	in-situ at the 3.59 kg stopping window	fn:open_ceiling_mu
 C523	fusion heat at the measured floor	0.00564	percent	DERIVED	C521 x 150 x 26.06 MeV / 1 MW	fn:open_floor_pct
@@ -709,12 +709,40 @@ C712	what the wider bore buys in capture	1.19	ratio	DERIVED	machine.py --coheren
 C713	what it costs in tritium	3.00	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_bore_cost
 C714	beam radius at the cell	8.96	cm	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_beam_at_cell
 C715	fraction of the beam the demonstration cell intercepts	3.188e-06	fraction	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_interception
-C716	binders stopped, computed from the designed machine	1.685e+08	1/s	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_binders
-C717	14.1 MeV neutrons, the same	2.528e+10	1/s	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_neutrons
-C718	fusion heat in the demonstration cell	71.2	mW	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_heat_mw
+C716	binders stopped, computed from the designed machine	1.334e+08	1/s	DERIVED	machine.py --coherence, through the sec.11 loss budget	fn:pr_binders
+C717	14.1 MeV neutrons, the same	2.002e+10	1/s	DERIVED	machine.py --coherence, through the sec.11 loss budget	fn:pr_neutrons
+C718	fusion heat in the demonstration cell	56.4	mW	DERIVED	machine.py --coherence, through the sec.11 loss budget	fn:pr_heat_mw
 C719	demonstration cell tritium	2.41	mg	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_cell_mg
 C720	the same as activity	23.2	Ci	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_cell_ci
 C721	interception correction against sec.6 as written	0.7004	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_corr_interception
 C722	mirror correction	1.49	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_corr_mirror
 C723	finite decay channel correction	0.9000	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_corr_decay
 C724	net of the three	0.9379	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_corr_net
+C725	pion absorption length in mercury	15.89	cm	DERIVED	machine.py --budget	fn:bd_lam_hg
+C726	pion absorption length in tungsten	10.81	cm	DERIVED	machine.py --budget	fn:bd_lam_w
+C727	large-angle share of production	84.96	percent	DERIVED	machine.py --budget	fn:bd_large_angle_pct
+C728	sideways escape, the published jet	0.9751	fraction	DERIVED	machine.py --budget	fn:bd_side_jet
+C729	forward escape, the published jet	0.4495	fraction	DERIVED	machine.py --budget	fn:bd_fwd_jet
+C730	weighted escape, the published jet	0.8961	fraction	DERIVED	machine.py --budget	fn:bd_escape_jet
+C731	sideways escape, the optimised rod	0.9767	fraction	DERIVED	machine.py --budget	fn:bd_side_rod
+C732	forward escape, the optimised rod	0.1654	fraction	DERIVED	machine.py --budget	fn:bd_fwd_rod
+C733	weighted escape, the optimised rod	0.8547	fraction	DERIVED	machine.py --budget	fn:bd_escape_rod
+C734	sideways escape, a 2 cm-wide rod	0.9116	fraction	DERIVED	machine.py --budget	fn:bd_side_thick
+C735	forward escape, a 2 cm-wide rod	0.4467	fraction	DERIVED	machine.py --budget	fn:bd_fwd_thick
+C736	weighted escape, a 2 cm-wide rod	0.8417	fraction	DERIVED	machine.py --budget	fn:bd_escape_thick_rod
+C737	sideways escape, a 10 cm-radius block	0.3964	fraction	DERIVED	machine.py --budget	fn:bd_side_block
+C738	weighted escape, a 10 cm-radius block	0.4040	fraction	DERIVED	machine.py --budget	fn:bd_escape_block
+C739	pion decay completeness term	0.9000	fraction	DERIVED	machine.py --budget	fn:bd_decay_term
+C740	muon survival in the channel	0.9796	fraction	DERIVED	machine.py --budget	fn:bd_muon_survival
+C741	scattering term, conservative	0.9021	fraction	DERIVED	machine.py --budget	fn:bd_scatter_term
+C742	the loss budget's product	0.7127	fraction	DERIVED	machine.py --budget	fn:bd_product
+C743	transverse kick leaving the jet	12.39	MeV/c	DERIVED	machine.py --budget	fn:bd_kick_mev
+C744	that escape path in radiation lengths	0.8414	ratio	DERIVED	machine.py --budget	fn:bd_radiation_lengths
+C745	beryllium window energy loss	1.184	MeV	DERIVED	machine.py --budget	fn:bd_window_mev
+C746	beryllium window transverse kick	1.202	MeV/c	DERIVED	machine.py --budget	fn:bd_window_kick
+C747	end-to-end acceptance, no window	43.42	percent	DERIVED	machine.py --budget	fn:bd_e2e_nowindow
+C748	end-to-end acceptance, 400 MeV/c	35.03	percent	DERIVED	machine.py --budget	fn:bd_e2e_400
+C749	end-to-end acceptance, 265 MeV/c	31.66	percent	DERIVED	machine.py --budget	fn:bd_e2e_265
+C750	margin over the falsification floor	1.073	ratio	DERIVED	machine.py --budget	fn:bd_margin
+C751	co-product heat through the budget	11.12	percent	DERIVED	machine.py --budget	fn:bd_heat_pct
+C752	net correction to the committed prediction	0.7427	ratio	DERIVED	machine.py --budget	fn:bd_net_correction

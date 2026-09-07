@@ -106,6 +106,38 @@ no mechanism. Because the required grade puts the loss cone outside every angle 
 **mirroring the backward hemisphere and accepting both are the same number**, reproduced to four
 figures. That stage asserted a capability; this design is the magnet that supplies it.
 
+## The end-to-end loss budget — `--budget`
+
+**Q1 and Q6 were the last two open, both called "measurements". One was a calculation.**
+
+**Q6 closes on geometry.** The pion absorption length is 15.9 cm in mercury and 10.8 cm in tungsten,
+but the collector takes **large-angle** pions — 85.0 % of production — and a large-angle pion leaves
+the target **sideways**. Its escape path is the target's *radius*, not its length. **A narrow target is
+transparent however long it is**: 0.8961 for the published 30 cm × 8 mm jet, 0.8547 for a
+652 × 5.1 mm rod, and 0.4040 for a 10 cm-radius block. The thick-target multiplicity that explains the
+2.37 **survives to capture**, and the condition is that the target be long and thin — which the
+published geometries already are.
+
+**Q1 narrows to a budget.** Every loss between a produced π⁻ and a stopped binder:
+
+| term | factor |
+|---|---|
+| target escape | 0.8961 |
+| pion decay completeness | 0.9000 |
+| muon survival in the channel | 0.9796 |
+| scattering out of the transverse cap | 0.9021 (conservative) |
+| adiabatic transport | 1.0000, by design |
+| **product** | **0.7127** |
+
+**It sharpens the prediction rather than softening it.** Stage A's committed η falls from 44.43 % to
+**31.66 %** at the stopping window, and the margin over the 29.51 % that would falsify the model falls
+from 1.51× to **1.073×**.
+
+**And the two questions were coupled.** At 31.66 % the bred-fuel route does *not* close at the 50.8 %
+its demonstrated-cycle balance needs; it closes at the 21.4 % the optimised production target needs —
+and whether that gain is real was Q6. **The budget would have closed the route and Q6 re-opens it.**
+Neither could be answered alone and leave the result standing.
+
 ## What is not done
 
 Nothing in the physics. What is not here is a **fabrication package**: drawings, tolerances, weld and
@@ -126,6 +158,7 @@ test.** Recorded in §9.9 and not repaired: binding prose to claim ids is a chan
 python3 tools/machine.py --selftest
 python3 tools/machine.py --channel --cell
 python3 tools/machine.py --coherence      # the spec sheet the procedure must quote
+python3 tools/machine.py --budget         # every loss term, and the two questions it couples
 python3 tools/machine.py
 python3 tools/collector.py --magnet
 python3 tools/verify_paper.py papers/Cold_Fusion_Specification_and_Procedure_v1.0.md

@@ -1477,11 +1477,14 @@ deuteron at 5 GeV/c and **4.68** at 3 GeV/c — and a deuteron carries **2** nuc
 secondary interacts. Re-normalising this paper's own figure, **2.389** interacting nucleons per beam
 particle return **4.688** GeV per π⁻ — the optimised figure to **0.8 percent**.
 
-> **The 2.37 is the number of interacting nucleons per beam particle.** It is explained and it is
-> **not adopted**: the mechanism reproduces the figure for pions *produced*, and a thick target also
-> reabsorbs them. The same source's thick/thin ratio for *captured* muons is 0.874–1.186 per
-> interacting proton, which is evidence the gain may not survive to capture. Every balance here
-> continues to use the measured per-interaction figure.
+> **The 2.37 is the number of interacting nucleons per beam particle.** It is explained — and the
+> reabsorption doubt that kept it from being adopted is now settled. The collector takes *large-angle*
+> pions, which leave the target **sideways**, so their escape path is the target's radius and not its
+> length: a narrow target is transparent however long it is. The companion's §11.1 puts the escape at
+> **0.8961** for the published geometries, which are long and thin for exactly this reason. **The gain
+> survives to capture.** Every balance here still uses the measured per-interaction figure, because a
+> status is not flattened by an argument — but the reason for withholding it is gone, and §10.3 now
+> measures a quantity whose sign is predicted rather than unknown.
 
 **§10.3 changes accordingly, and changes to something sharper.** It is no longer a species comparison
 looking for an unknown mechanism. It is a **normalisation measurement**: pions per *beam particle*
@@ -1947,10 +1950,23 @@ of a momentum-selected channel — the delivered figure, end to end.
 the pion rest frame, then a momentum requirement — reproduces the built machine to **0.982** of its
 simulated figure, so the prediction here is a calculation and not an estimate. With no momentum
 requirement it gives **60.92 percent** over both hemispheres; with a 400 MeV/c stopping window,
-**49.16 percent**; with a 265 MeV/c one, **44.43 percent**. **This paper predicts that η falls in that
-band and below 60.92 percent**, because transport, cooling and stopping are not modelled and every one
-of them loses. It does not predict a point value, and the window the target imposes is the largest
-term in the spread.
+**49.16 percent**; with a 265 MeV/c one, **44.43 percent**.
+
+**And those are the model's figures, not η.** This stage measures the *delivered* number, and the
+companion's §11 now computes what stands between the two — target escape, decay completeness, muon
+survival, scattering out of the transverse cap — as a product of **0.7127**. Through it:
+
+| window | model | **committed η** |
+|---|---|---|
+| no window | 60.92 % | **43.42 %** |
+| 400 MeV/c | 49.16 % | **35.03 %** |
+| 265 MeV/c | 44.43 % | **31.66 %** |
+
+**This paper predicts that η falls in that lower band.** What was "transport, cooling and stopping are
+not modelled and every one of them loses" is now four terms with numbers on them, and the loss they
+carry is **a quarter of the modelled figure**. The margin over the falsification floor below therefore
+falls from 1.51× to **1.073×** — a far sharper commitment, and one this paper had not made until the
+losses were counted.
 
 **What each outcome settles.**
 
@@ -1958,7 +1974,7 @@ term in the spread.
 |---|---|
 | ≥ **50.8 percent** | The bred-fuel route closes at the demonstrated **150** cycles per binder with no other change: no wider bore, no density beyond the scanned record, no resolution of the sticking branch. §5.24 puts this at the top of its computed band and only without a stopping window. |
 | **44.43** to 50.8 percent | The band §5.24 computes for realistic stopping windows. The wider bore of §5.9 becomes necessary — **2.60 T·m**, 20 T on a **13 cm** clear bore, which §5.21 prices at about **2.7** in coil heating — *or* the production target of §10.3, which lowers the requirement to **21.4 percent** instead. |
-| below **29.51 percent** | Below what the built machine already delivers through a *collider's* momentum window. That would falsify §5.24's model, which reproduces that machine to **0.982**, and every balance in this paper would fall with it. |
+| below **29.51 percent** | Below what the built machine already delivers through a *collider's* momentum window. That would falsify §5.24's model, which reproduces that machine to **0.982**, and every balance in this paper would fall with it. **The committed η of 31.66 percent sits 1.073× above this line**, so the stage is now a sharp test rather than a comfortable one. |
 
 η multiplies every balance in this paper identically, so **whatever it returns is a bound on all of
 them at once.** This is why Stage A runs first.
