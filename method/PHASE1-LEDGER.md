@@ -211,3 +211,37 @@ opens *"Everything §14.5.7 and §14.5.8 report about seed SIZES came from one h
 carries 23 citations, eight of them from the Register** — and Register entries are append-only, so that
 section has to be written to what those eight already say, not the other way round. That is chat 95B's
 order-of-work point and it still holds.
+
+
+### And M's second reading overturns the first answer's conclusion
+
+M, on being told they were never written: *"this is because the citations moved but the pointers did
+not."* **That is right, and it changes the repair from authoring to re-pointing.**
+
+Being never-written is true and is measured above. It is not the whole answer, and by itself it produced
+chat 95B's conclusion — *"the repair is authoring six sections, and it is R3's largest single item."*
+**The material those fifty-one citations want is in the book, under other numbers.**
+
+| what a citation says the empty section contains | where it actually is |
+|---|---|
+| *"§14.5.7 says G is a seed iff φ̂(G) = φ̂(X)"* — quoted by §14.5.9 itself | **§14.5.9** |
+| *"§14.5.7 records that zero cells are forced"* | **§14.5.10, §14.5.11, §14.5.12** |
+| the seed as a covering problem | **§14.5.8, §14.5.9, §21.5.4** |
+| Λ's seed is seven cells for 976 | **§14.5.1, §14.5.9, §14.5.13, §14.6.1, §21.5.4** |
+| §14.5.5's ℛ₄ and its four orientations | **§14.6.3, §21.5.3, §21.5.5** |
+| §14.5.4's *"what E measures, exactly"* | **§9.2, §18.4.1, §21.2, §21.5.2** |
+
+**§28.9 is not a gap at all** — it is a parent heading with a child, §28.9.1. **And §28.7.6's material was
+moved by a repair the volume describes in its own words**: its eighty-six entries were prepended into it
+over time, the repair sent them to §28.7.7, and the volume says §28.7.6 *"is now four — the tower's three,
+which repairs their numbering"*. **It is zero.** The move happened; the four were never put back.
+
+**Two attributions have no home in the main volume, and that is the exception that has to be said.**
+*"anti-exchange"* and *"NP-hard"* occur **nowhere** in it, and both are cited to §14.5.7 from the
+Mathematical Compendium. The NP-hardness is seated at register 2071.
+
+**So Phase 0 ruling 3 is not the item only M can do.** Fifty-one citations name a heading with nothing
+under it while the material they want sits in the book under other numbers — which is Phase 3's pointer
+class, and the plan already names it exactly: *"targets that say nothing of the claim"*. **Chat 95B
+measured the emptiness correctly and drew the wrong conclusion, because it asked where the TEXT was and
+not where the MATERIAL was.** `emptysections.py`, selftest 17 of 17.

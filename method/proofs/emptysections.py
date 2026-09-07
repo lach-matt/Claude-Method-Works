@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
-"""emptysections.py — the nine heading-only sections: why they are empty, measured against the
-original-input witness. Phase 0 ruling 3's evidence.
+"""emptysections.py — the nine heading-only sections: why they are empty, and where their material
+went. Phase 0 ruling 3's evidence, and it does not say what chat 95B concluded.
 
-M, 7 September 2026: "why are they empty?"
+M, 7 September 2026: "why are they empty?" and then, on the first answer:
+"this is because the citations moved but the pointers did not."
+
+M IS RIGHT, AND IT CHANGES THE REPAIR. The first answer -- they were never written -- is true and is
+measured below against the original-input witness. It is not the whole answer, and by itself it
+produced chat 95B's conclusion that "the repair is authoring six sections, and it is R3's largest
+single item." The second pass here tests M's reading instead, and the material is in the book:
 
 THE ANSWER IS NOT PRODUCTION LOSS, AND IT IS ALREADY IN THE RECORD FOR SIX OF THE NINE.
 `recovered/DEF-95B.md` (chat 95B) measured §14.5.2-§14.5.7 against the Prints & Proofs original
@@ -25,7 +31,29 @@ heuristic". §14.5.7 alone carries 23 citations, EIGHT OF THEM FROM THE REGISTER
 entries are append-only, so whoever writes that section writes it to what those eight already say,
 not the other way round. That is chat 95B's order-of-work point and it still holds.
 
-stdlib only.  --selftest asserts the witness reading and the citation load.
+  §14.5.7  The volume's own §14.5.9 QUOTES it -- "§14.5.7 says G is a seed iff phi-hat(G) =
+           phi-hat(X)" -- and that definition is in §14.5.9. "Zero cells are forced" is in §14.5.10,
+           §14.5.11 and §14.5.12. The seed as a covering problem is in §14.5.8 through §14.5.14 and
+           §21.5.4. Seven cells for 976 is in §14.5.1, §14.5.9, §14.5.13 and §21.5.4.
+  §14.5.5  R4 and its four orientations are developed at main L4162 and L5785-L5851.
+  §14.5.4  "E measures ..." is stated at main L193, L299, L1583 and L1994.
+  §2.22    its principle is register 1551's finding, stated there in full.
+  §28.7.6  the volume DESCRIBES the move: its eighty-six entries were prepended into it over time and
+           the repair sent them to §28.7.7, leaving -- in the volume's own words -- "now four, the
+           tower's three, which repairs their numbering". It has ZERO.
+  §28.9    is a parent heading with a child, §28.9.1, and is not an authoring gap at all.
+
+TWO ATTRIBUTIONS HAVE NO HOME IN THE MAIN VOLUME, and they are the exception that has to be said:
+"anti-exchange" and "NP-hard" occur NOWHERE in it, and both are cited to §14.5.7 from the
+Mathematical Compendium. The NP-hardness is seated at register 2071.
+
+SO THE REPAIR IS RE-POINTING, NOT AUTHORING. Fifty-one citations name a heading with nothing under
+it while the material they want is in the book under other numbers. That is Phase 3's pointer class,
+which the plan already names -- "targets that say nothing of the claim" -- and not the one item the
+plan says only M can do. Chat 95B measured the emptiness correctly and drew the wrong conclusion
+from it, because it asked where the text was and not where the material was.
+
+stdlib only.  --selftest asserts the witness reading, the citation load, and the material's location.
 """
 import argparse, os, re, sys
 
@@ -102,6 +130,49 @@ def report():
     print(f"  §14.5.7 alone carries {seven['total']}, {seven['cites'].get('reg', 0)} of them from the Register — and Register")
     print("  entries are append-only, so that section must be written to what those entries")
     print("  already say, not the other way round.")
+    print("\n\nAND THE MATERIAL IS IN THE BOOK, WHICH IS WHY THE REPAIR IS RE-POINTING\n")
+    for name, pat in MATERIAL.items():
+        w = [x for x in where(pat) if x not in SECTIONS and x.startswith(SCOPE)]
+        print(f"  {name:34} in §{', §'.join(w[:6]) if w else 'NOWHERE in these families'}")
+    print(f"\n  (scope: the §{', §'.join(SCOPE)} families the citations themselves name — a bare word")
+    print("   like 'forced' matches half the book, and half the book is not a measurement.)")
+    print("\n  Two attributions have no home in the main volume at all — 'anti-exchange' and")
+    print("  'NP-hard', both cited to §14.5.7 from the Mathematical Compendium; the NP-hardness is")
+    print("  seated at register 2071.")
+    print("\n  §28.9 is a parent heading with one child, §28.9.1, and is not a gap. §28.7.6's")
+    print("  eighty-six entries were moved to §28.7.7 by a repair the volume describes, which says")
+    print("  §28.7.6 'is now four' — and it is zero.")
+
+
+# what the citing lines say the empty sections contain, and where to look for it. The scope is the
+# families the citations themselves name -- §14.5.x, §14.6.x and §21.5.x -- because a bare word like
+# "forced" or "cover" matches half the book and a list of half the book is not a measurement.
+MATERIAL = {
+    "the seed definition ℛ(G) = X": r"φ̂\(G\)\s*=\s*φ̂\(X\)|ℛ\(G\)\s*=\s*X",
+    "zero cells are forced": r"\bforced\b",
+    "the seed as a covering problem": r"covering problem|set cover",
+    "seven cells for 976": r"seven cells",
+    "ℛ₄ and its four orientations": r"ℛ₄",
+    "what E measures, exactly": r"E measures",
+}
+SCOPE = ("14.5", "14.6", "21.5")
+
+
+def spans():
+    L = load(os.path.join(MEM, VOLUMES["main"]))
+    hd = [(i, re.match(r"^#{2,6}\s+(\S+)", l).group(1))
+          for i, l in enumerate(L) if re.match(r"^#{2,6}\s+\S+", l)]
+    out = {}
+    for k, (i, name) in enumerate(hd):
+        j = hd[k + 1][0] if k + 1 < len(hd) else len(L)
+        out.setdefault(name, (i + 1, j))
+    return L, out
+
+
+def where(pat):
+    """every section of the main volume whose body matches pat."""
+    L, sp = spans()
+    return [n for n, (a, b) in sp.items() if re.search(pat, "\n".join(L[a:b]))]
 
 
 def selftest():
@@ -125,6 +196,16 @@ def selftest():
     eq("the nine carry 51 citations in all", sum(r["total"] for r in rows), 51)
     eq("every one of the nine is cited at least once",
        min(r["total"] for r in rows) >= 1, True)
+    eq("the seed definition §14.5.9 attributes to §14.5.7 is in §14.5.9",
+       "14.5.9" in where(MATERIAL["the seed definition ℛ(G) = X"][0]), True)
+    eq("'zero cells are forced' is in §14.5.10", "14.5.10" in where(r"forced"), True)
+    eq("ℛ₄ is developed outside §14.5.5", [x for x in where(r"ℛ₄") if x != "14.5.5"] != [], True)
+    eq("'E measures' is stated outside §14.5.4", [x for x in where(r"E measures") if x != "14.5.4"] != [], True)
+    eq("'anti-exchange' occurs nowhere in the main volume", where(r"anti-exchange"), [])
+    eq("'NP-hard' occurs nowhere in the main volume", where(r"NP-hard"), [])
+    L, sp = spans()
+    eq("§28.9 has a child, §28.9.1", "28.9.1" in sp, True)
+    eq("§28.7.6 has none", [n for n in sp if n.startswith("28.7.6.")], [])
     print(f"\nOK: {ok}  FAIL: {fail}")
     return 1 if fail else 0
 

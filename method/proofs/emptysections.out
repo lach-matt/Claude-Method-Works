@@ -21,3 +21,24 @@ The nine heading-only sections, against the original-input witness
   §14.5.7 alone carries 23, 8 of them from the Register — and Register
   entries are append-only, so that section must be written to what those entries
   already say, not the other way round.
+
+
+AND THE MATERIAL IS IN THE BOOK, WHICH IS WHY THE REPAIR IS RE-POINTING
+
+  the seed definition ℛ(G) = X       in §14.5.9
+  zero cells are forced              in §14.5.10, §14.5.11, §14.5.12
+  the seed as a covering problem     in §14.5.8, §14.5.9, §21.5.4
+  seven cells for 976                in §14.6.1
+  ℛ₄ and its four orientations       in §14.6.3, §21.5.3, §21.5.5
+  what E measures, exactly           in §21.5.2
+
+  (scope: the §14.5, §14.6, §21.5 families the citations themselves name — a bare word
+   like 'forced' matches half the book, and half the book is not a measurement.)
+
+  Two attributions have no home in the main volume at all — 'anti-exchange' and
+  'NP-hard', both cited to §14.5.7 from the Mathematical Compendium; the NP-hardness is
+  seated at register 2071.
+
+  §28.9 is a parent heading with one child, §28.9.1, and is not a gap. §28.7.6's
+  eighty-six entries were moved to §28.7.7 by a repair the volume describes, which says
+  §28.7.6 'is now four' — and it is zero.
