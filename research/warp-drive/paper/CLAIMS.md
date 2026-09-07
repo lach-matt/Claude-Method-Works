@@ -213,6 +213,53 @@ corpus, applied to this project's own bookkeeping.**
 
 ---
 
+## ★ HEADLINE — flagged for the abstract
+
+**H6. Transition has three parts — *travel → turn → seat* — and formalizing them excludes two things
+at once.**
+
+> Posed as a structure rather than a metaphor: **part 1** sets the conditions and must declare *both*
+> endpoints at onset; **part 2** is the turning mechanism, a condition requirement that initializes
+> only from a complete part 1 and **fails** when the conditions cannot reach part 3; **part 3** is the
+> seating and closure. In the mathematics `achronal.py` already established, this is exactly the
+> Jacobi field's two-point problem: `u″ = −q·u`, `q = 4πT_kk`, with `u(0) = 0` at departure and
+> `u(L) = 0` at arrival, the **turn** being the conjugate point. Part 2's failure mode is not an added
+> guard — it is what the equation does when the focusing is insufficient.
+>
+> **Theorem (reversal invariance of the turn).** If `u″ + qu = 0` with `u(0) = u(L) = 0`, then
+> `v(x) := u(L−x)` solves `v″ + q̃v = 0` for `q̃(x) = q(L−x)` with `v(0) = v(L) = 0`. **The same pair is
+> conjugate read from either end.** ∎ The operator is self-adjoint — the `θ²` absorption leaves no
+> first-derivative term — so departure and arrival are interchangeable.
+>
+> **Measured**, by bisecting the conjugate length on true rays of the bubble: `|L_{A→B} − L_{B→A}|` of
+> `1.1e-14` to `1.2e-13` on five rays, and **`0.00e+00` exactly** on a deliberately asymmetric control
+> potential. The four-binary chain — turn / seats / achronal / ANEC sign — is identical at both ends on
+> every ray.
+
+**The two exclusions, which are the contribution:**
+
+> **E1 — the turn lives in the energy-condition-*satisfying* sector.** `u″ = −4πT_kk·u` turns `u` back
+> only where `T_kk > 0`; negative `T_kk` is convex and convex never returns. So part 2 succeeds only on
+> rays that **satisfy** ANEC — `achronal.py`'s `DEFOCUS-PROTECTS` read the other way round. **The
+> exotic sector cannot seat.** This is general: it is the sign of the Jacobi equation.
+>
+> **E2 — and that sector arrives late.** Coordinate time to the conjugate point against the flat light
+> time between the same endpoints: `+8.9e-1`, `+7.7e-2`, `+1.3e-2`, `+2.6e-3`, `+7.1e-4` — every
+> turning ray carries a **positive Shapiro delay**, which is what positive energy always gives. The
+> only early rays (`−1.2e-4` at `y = 1.5`, converged to five figures across an 8× refinement) are far
+> grazing rays that **never turn**.
+>
+> **TURN ⟹ LATE. EARLY ⟹ NO TURN.** On this metric no configuration has both.
+
+| | `transit.py` |
+|---|---|
+| status | **PROVEN** (reversal theorem) + **MEASURED** (both-ends, 5/5; exclusions) |
+| new? | the structure, its gating, and the both-ends measurement, yes |
+| falsified by | a metric whose `T_kk` distribution gives a turn with negative delay — **E2 is measured on the Alcubierre bubble at `v_s = 0.5 c` only**; another distribution is `NOT-RUN`, never absent |
+| **not** claimed | that a conjugate point transports anything. It is a **light focus** — a null congruence leaving A and reconverging at B. It carries no payload and this is not claimed. |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -272,5 +319,7 @@ corpus, applied to this project's own bookkeeping.**
 - Any figure carrying the SNEC's four O(1) exposures as if it were exact.
 - **That H5 escapes ANEC.** It does the opposite: it closes the one escape and shows the closure is
   structural. What it buys is precision about where the prohibition actually rests.
+- **That H6's three-part structure delivers transport.** It delivers a *frame* that is coherent,
+  gated and computable, plus two exclusions. A conjugate point is a light focus, not a payload.
 - That the achronality scan is exhaustive. It covers impact parameter for `+x` rays at three speeds.
   A ray family it does not contain is reported `NOT-RUN`, never as absent.

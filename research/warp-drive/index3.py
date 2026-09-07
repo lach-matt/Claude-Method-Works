@@ -415,8 +415,18 @@ FINDINGS = [
   "with no configurational dodge left, the prohibition rests ENTIRELY on the achronal ANEC in 4D CURVED spacetime -- unproven for nineteen years, and now load-bearing rather than a footnote"),
  ("LANGUAGE-BOUNDARY",0, -1, 0, "achronal.py",
   "register 1173: analysis returns a magnitude, the prohibition is a binary. anec.py's verdict crossed a language boundary with the ORDER half NOT-RUN -- a sixth instance of register 1172's fault, in our own tree"),
+ # M's three-part structure -- travel > turn > seat -- made runnable, and
+ # M's both-ends prediction tested rather than admired.
+ ("BOTH-ENDS",      +1,  0, +1, "transit.py",
+  "M PREDICTED IT AND IT HOLDS: the conjugate length is identical read from departure or arrival, 1e-14 on five rays and 0.00e+00 on an asymmetric control, because the Jacobi operator is self-adjoint"),
+ ("GATED-STRUCTURE", 0,  0, +1, "transit.py",
+  "travel > turn > seat is coherent and correctly gated: part 2 refuses to initialize without both endpoints declared at onset, and FAILS rather than defaults when the conditions cannot reach part 3"),
+ ("TURN-NEEDS-ORDINARY",+1,+1, 0, "transit.py",
+  "u'' = -4 pi T_kk u turns back only where T_kk > 0, so the turn succeeds ONLY on ANEC-SATISFYING rays: whatever seats a transition lives in the ordinary-matter half, not the exotic one"),
+ ("TURN-IS-LATE",    0, -1, -1, "transit.py",
+  "and that half arrives late: every turning ray carries a positive Shapiro delay, every early ray fails to turn. TURN => LATE, EARLY => NO TURN, no configuration on this metric has both"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of sixteen obstructions three dissolved, three relocated, five closed negative, three conditional, two open and none untested"),
+  "of seventeen obstructions three dissolved, three relocated, six closed negative, three conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -533,7 +543,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 149)
+    chk("number of findings indexed", len(FINDINGS), 153)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on

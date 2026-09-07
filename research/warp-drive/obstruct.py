@@ -14,7 +14,7 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of sixteen obstructions, three dissolved, three relocated, five
+THE HEADLINE: of seventeen obstructions, three dissolved, three relocated, six
 closed negative, three are conditional, two are OPEN, and NONE is untested.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -173,6 +173,14 @@ LEDGER = [
   "achronality. PROVED where T_kk <= 0 throughout, measured where the signs "
   "mix. The prohibition now rests entirely on the achronal ANEC in 4D CURVED "
   "spacetime -- unproven for nineteen years, and load-bearing", "achronal.py"),
+ ("TURN-ADVANTAGE", "the focusing turn that seats a transition might also "
+  "shorten it", "CLOSED-NEGATIVE",
+  "IT DOES NOT, and the two exclusions are one fact seen twice. The Jacobi "
+  "equation turns u back only where T_kk > 0, so part 2 succeeds ONLY on "
+  "ANEC-SATISFYING rays -- and every one of those carries a POSITIVE Shapiro "
+  "delay. TURN => LATE. EARLY => NO TURN. Measured on the bubble at v_s = 0.5 "
+  "c; exclusion 1 is general (the sign of the Jacobi equation), exclusion 2 is "
+  "this metric's and another T_kk distribution is NOT-RUN", "transit.py"),
 ]
 
 def by_status():
@@ -238,6 +246,18 @@ def check_achronality_closed():
     return (len(viol) > 0 and achronal.escapes(rows) == []
             and rows[0]["proved"])          # and the axial case is proved, not fitted
 
+def check_turn_advantage_closed():
+    import transit
+    rows = []
+    for y0 in (0.8, 1.0, 1.2, 1.5):
+        c = transit.Conditions(y0, arrival_length=None)
+        L = transit.turn_length(c.sampler())
+        rows.append((L is not None, transit.shapiro(c, L)))
+    # closed negative: every turn is late, and every early ray failed to turn
+    return (all(d > 0 for t, d in rows if t)
+            and all(not t for t, d in rows if d < 0)
+            and any(t for t, d in rows))
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -254,10 +274,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 16)
+    chk("obstructions tracked", len(LEDGER), 17)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 3)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 5)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 6)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 3)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
@@ -280,6 +300,8 @@ def selftest():
         check_typeiv_sources_conditional(), True)
     chk("ACHRONALITY: the escape was looked for and is not there",
         check_achronality_closed(), True)
+    chk("TURN-ADVANTAGE: turn => late, early => no turn",
+        check_turn_advantage_closed(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",

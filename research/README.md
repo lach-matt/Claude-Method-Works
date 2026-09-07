@@ -2116,3 +2116,99 @@ geodesics. A ray family the scan does not contain is `NOT-RUN`, never absent.
 - `obstruct.py` — 16 rows. New `ACHRONALITY`, **CLOSED-NEGATIVE**: the escape was looked for and is
   not there. The `ANEC` row is amended to say it **hardened**, not softened.
 - `paper/CLAIMS.md` — **H5** and **H5′**, flagged for the abstract, plus the methodological finding.
+
+---
+
+## Pass 14 — `transit.py`: travel → turn → seat, and M's both-ends prediction
+
+M proposed a three-part structure and predicted something falsifiable about it. Both are tested here.
+
+> **PART 1 TRAVEL** — set the optimal conditions for transition. First principles, including
+> observability. **PART 2 TURN** — the turning mechanism that allows seating; a condition requirement,
+> met iff part 1 is fully defined and stated for input. **PART 3 SEAT** — seating and closure.
+> Both sets of coordinates must be known at the onset of part 1 so part 2 can initialize, and part 2
+> fails if the input data doesn't provide enough for part 3.
+>
+> And: **the mathematical expression is visible at both ends with the same binary chain.**
+
+### The structure is not a metaphor here
+
+`achronal.py` had already reduced the causal question to a Sturm–Liouville problem, and it has exactly
+this shape:
+
+| part | the mathematics |
+|---|---|
+| **1 travel** | `u(0) = 0`, `u′(0) = 1` at departure **plus a declared arrival**. A two-point problem in initial-value clothing — which is *why* the far endpoint cannot be discovered later: without it there is nothing for part 2 to test against. |
+| **2 turn** | does `u` turn and return to zero? The **conjugate point** is that turn. It fails — returns no length at all — when part 1's conditions do not focus enough to reach one. |
+| **3 seat** | the turn lands **on** the declared arrival: `u(L_declared) = 0`. Closure. |
+
+Observability is met the way parts 1 and 3 demand: a conjugate **length** is an affine invariant of the
+congruence, not a coordinate separation. Two observers disagree about where B is and agree about `L`.
+
+### The prediction — proved, then measured
+
+> **Theorem.** If `u″ + qu = 0` with `u(0) = u(L) = 0`, then `v(x) := u(L−x)` solves `v″ + q̃v = 0` for
+> the path read from the far end, `q̃(x) = q(L−x)`, with `v(0) = v(L) = 0`. **The same pair is
+> conjugate.** ∎
+
+The Jacobi operator is self-adjoint — absorbing `θ²` leaves no first-derivative term — so departure and
+arrival are interchangeable and the turn is one object seen from two ends.
+
+| `y0` | `L` (A→B) | `L` (B→A) | \|diff\| |
+|---|---|---|---|
+| 0.8 | 9.9975835361 | 9.9975835361 | 1.1e-14 |
+| 0.9 | 5.3760386939 | 5.3760386939 | 5.3e-14 |
+| 1.0 | 5.2600374222 | 5.2600374222 | 5.2e-14 |
+| 1.1 | 5.5028056987 | 5.5028056987 | 5.7e-14 |
+| 1.2 | 6.4050733902 | 6.4050733902 | 9.1e-14 |
+
+and **0.00e+00 exactly** on a deliberately asymmetric control potential with no geometry in it. The
+four-binary chain — turn / seats / achronal / ANEC sign — is identical at both ends on every ray.
+**The prediction holds.**
+
+*A note on how it was nearly missed.* The first attempt marched the Jacobi field backward from the
+detected zero — **a step**, accumulating — and gave answers off by 0.09 to 0.285. Bisection on the
+conjugate length — a closed form on the boundary condition, no walking — gave 1e-14. That is register
+1206's own sentence happening again: *"The equation is not a step — it is a closed form on the index's
+own coordinates, and that is what closes the gap."*
+
+### And the structure then excludes two things
+
+**Exclusion 1 — the turn lives in the energy-condition-*satisfying* sector.** `u″ = −4πT_kk·u` turns
+`u` back only where `T_kk > 0`. Negative `T_kk` is convex, and convex never returns. So part 2
+succeeds only on rays that **satisfy** ANEC and fails on every ray that violates it — `DEFOCUS-PROTECTS`
+read the other way round. **The exotic sector cannot seat.** General: it is the sign of the equation.
+
+**Exclusion 2 — and that sector arrives late.**
+
+| `y0` | turn | `t − |dx|` | |
+|---|---|---|---|
+| 0.8 | 9.990 | +8.931e-01 | **LATE** |
+| 1.0 | 5.250 | +1.320e-02 | **LATE** |
+| 1.2 | 6.390 | +7.066e-04 | **LATE** |
+| 1.5 | none | −1.243e-04 | early — **but it does not turn** |
+| 2.0 | none | −5.044e-08 | early — **but it does not turn** |
+
+Positive Shapiro delay, which is what positive energy always gives. The early leads are real and
+converged to five figures across an 8× refinement, and they belong to rays that never turn.
+
+**TURN ⟹ LATE. EARLY ⟹ NO TURN.** On this metric no configuration has both.
+
+### What it is and is not
+
+**Is:** a coherent, correctly gated, computable frame whose both-ends prediction is exactly true, and
+which produced two exclusions the previous frame could not see.
+
+**Is not:** a transport mechanism. A conjugate point is a **light focus** — a null congruence leaving A
+and reconverging at B. It says B sits on a degenerate boundary of A's causal future. It carries no
+payload, and nothing here claims it does.
+
+**And not** a result about all metrics. Exclusion 1 is general; **exclusion 2 is measured on the
+Alcubierre bubble at `v_s = 0.5 c`**, and another `T_kk` distribution is `NOT-RUN`, never absent.
+
+### Seated
+
+- `index3.py` — 153 findings, still 15 cells: `BOTH-ENDS`, `GATED-STRUCTURE`, `TURN-NEEDS-ORDINARY`,
+  `TURN-IS-LATE`.
+- `obstruct.py` — 17 rows. New `TURN-ADVANTAGE`, **CLOSED-NEGATIVE**.
+- `paper/CLAIMS.md` — **H6** with both exclusions.
