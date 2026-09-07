@@ -243,7 +243,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23058	07487abe7350880412c0cb0dfcade421	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1200769	4549547b9e91e703ea20d9490f81e8b0	8657
+compendia	WORKING-REGISTER.md	1204026	70c11d75d12677f6501bcbb73b953303	8668
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
@@ -701,6 +701,7 @@ compendia	reanchor.py	6657	856ede33010c655cc176281de1e2c80d	97
 compendia	recover.py	13785	ea852b7ee397f0c832366dbd55705157	342
 compendia	register_cites.py	2403	c38ad7ee009b9df571c143261b43e9d9	46
 compendia	register_counts.py	9691	6152fd7146e4159128eaae0fb71af598	209
+compendia	regreads.py	11325	b828ebf86b94071dc4887a1ad32acfa2	210
 compendia	req4.py	1015	8a9a2b33237e988375fcafd56cbe2c9f	18
 compendia	resetrule.py	13956	0afc994de4377f104f78fa2c79093076	307
 compendia	resets.py	2473	ae647580d095b44459bcbd18dba9fa36	62

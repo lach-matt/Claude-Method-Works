@@ -4,7 +4,7 @@
 
 Two things, and they are not the same kind of thing.
 
-**`method/` is the store of record for The Method 1.6.** Both live bundles, all **738 members**
+**`method/` is the store of record for The Method 1.6.** Both live bundles, all **739 members**
 extracted from them byte-exact, `MEMBER-INDEX.tsv`, and the §0 gate in `method/CLAUDE.md`. Every
 chat opens by reading this tree — `python3 method/verify.py` asserts every member md5 and recovers
 both bundles. Start here. See `method/README.md`. **The live pair is named in `method/CLAUDE.md` §3
