@@ -1,5 +1,15 @@
 # The gate is closed — both architectures fail
 
+> ## ⚠ NARROWED by `kerr.py`
+>
+> The measurement below stands exactly as recorded. The **generalisation drawn from
+> it did not**: I wrote "a shift cannot terminate in vacuum", and Kerr refutes that —
+> `g_tφ ≠ 0` and `T_µν = 0` everywhere outside the horizon, dragging the local frame
+> at 0.5 c. The tested bump was **tanh-tapered, i.e. compactly supported**. Correct
+> statement: *a shift cannot be **compactly supported** in vacuum; it **can** decay
+> asymptotically.* The gate still fails — its bore needs a bounded boosted region —
+> but the theorem is narrower than claimed. See `kerr.py`.
+
 Measurement record. Drivers: `octave/run_axial.m`, `octave/run_torus.m`, `octave/tsolve.py`.
 
 ## The pincer

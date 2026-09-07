@@ -114,8 +114,14 @@ FINDINGS = [
   "5 of 8 bounds assume asymptotic flatness; in FLRW they are not even statable"),
  ("FLRW-OBS",    +1, +1,  0, "cosmo.py",
   "superluminal geodesic metric transport is OBSERVED, dust satisfies all four"),
+ # NARROWED by kerr.py.  The measurement stands; the generalisation did not.
+ # Kerr has g_tphi != 0 and T = 0 everywhere outside the horizon.
  ("NO-TAPER",     0, -1, -1, "GATE-CLOSED.md",
-  "a shift cannot terminate in vacuum: Type IV in every cell, at every speed"),
+  "a COMPACTLY SUPPORTED shift needs Type IV in vacuum: measured, every cell"),
+ ("KERR-SHIFT",  +1, +1,  0, "kerr.py",
+  "a vacuum shift CAN decay asymptotically: Kerr drags at 0.5c with T = 0"),
+ ("J-NOT-P",      0, +1,  0, "kerr.py",
+  "CM-THEOREM forbids manufacturing P and says nothing about J"),
  ("NO-EXOTIC",   +1,  0,  0, "TARGET-1-RESULT.md",
   "the warp source is ordinary matter: there is no distinct species of warp energy"),
  ("FREE-FALL",    0, +1,  0, "COUPLING.md",
@@ -210,7 +216,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 30)
+    chk("number of findings indexed", len(FINDINGS), 32)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
