@@ -31,7 +31,7 @@ tested here rather than assumed.
 
 stdlib only.
 """
-import itertools, os, sys
+import glob, itertools, os, sys
 
 # (id, x, y, z, source file, one-line claim)
 FINDINGS = [
@@ -86,6 +86,29 @@ FINDINGS = [
   "braking priced: magsail 810 AU at 0.048c; M0/M1 = 3.73 at 0.87c; reverse pass free"),
  ("SWIMMER",      0, -1, -1, "THE-ENGINE.md",
   "curvature swimmer bounded by A*a_tide/c^2 ~ 1e-15 m per cycle: a dead engine"),
+ # --- Seated late, and their absence is why this project LOOPED. The index only
+ # holds what is seated, so E(X)=0 was measuring the completeness of the
+ # BOOKKEEPING, not of the knowledge. ROTATING-SHELL in particular already held
+ # the J result twelve exchanges before it was "discovered" again.
+ ("ROT-SHELL",    0, -1, +1, "ROTATING-SHELL.md",
+  "counter-rotation is REQUIRED: J != 0 gives a Kerr exterior and breaks the construction"),
+ ("SHIFT-CEIL",  +1,  0, +1, "SHIFT-CEILING.md",
+  "closed form for the shift ceiling: v_max = Phi f / k_hat"),
+ ("SHELL-PROF",  +1,  0, +1, "SHELL-PROFILE.md",
+  "the shell reconstructed by TOV integration"),
+ ("MEASURED",    +1,  0, +1, "MEASURED.md",
+  "the ceiling measured under Warp Factory (absolute figures later withdrawn)"),
+ ("WHAT-BINDS",  +1,  0, +1, "WHAT-BINDS.md",
+  "the fill curve measured, overturning this series' own design rule"),
+ ("DENSITY",     +1,  0, +1, "DENSITY-IS-CLOSED.md",
+  "density shaping built and measured: a closed lever with its mechanism"),
+ ("SPHERICITY",   0,  0, +1, "SPHERICITY.md",
+  "sphericity cost measured; the oblate test failed its own control"),
+ ("ACCEL",        0, -1,  0, "ACCELERATION.md",
+  "the first ADM argument against self-acceleration, later narrowed by COUPLING"),
+ # The theorem the loop produced, which neither visit gave alone.
+ ("SHIFT-CHARGE", 0, -1,  0, "THE-LOOP.md",
+  "every route to a shift is closed by one accounting: the charge that sources it"),
  ("EM-GAP",      -1, -1, -1, "ENGINE-ASSESSMENT.md",
   "the electromagnetic architectures fail as sources by ~10^31"),
  # --- The three cells the closure predicted at E(X) = 4.  Each existed in
@@ -136,6 +159,8 @@ SUPPORT = [
  ("NEC-FIX",   "NEC-CORRECTION.md", "index lowered with the wrong metric; ceiling was an artefact"),
  ("SCALE-FIX", "THE-DRIVE.md",      "the 10^31 gap was a 20 m artefact; size was never varied"),
  ("ADM-FIX",   "COUPLING.md",       "ADM was over-applied to coupling mechanisms; withdrawn"),
+ ("SRC-READ",  "SOURCE-CODE.md",    "reading Warp Factory found two of this series' inferences wrong"),
+ ("LOOP",      "kerr.py",           "the index looped because 9 papers were never seated; guard added"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -216,7 +241,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 32)
+    chk("number of findings indexed", len(FINDINGS), 41)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -239,6 +264,19 @@ def selftest():
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
+
+    print("\nCoverage -- the guard against looping")
+    here = os.path.dirname(os.path.abspath(__file__))
+    cited = {f[4] for f in FINDINGS} | {s[1] for s in SUPPORT}
+    papers = sorted(os.path.basename(q) for q in glob.glob(os.path.join(here, "*.md")))
+    uncited = [d for d in papers if d not in cited]
+    ok &= (uncited == [])
+    print("  %-58s %14s" % ("papers with no cell (must be empty)", uncited if uncited else "[]"))
+    print("  %-58s %14s %14s  %s" % ("every paper is indexed", not uncited, True,
+                                     "ok" if not uncited else "FAIL"))
+    print("""  A finding the index does not hold cannot be predicted by its own closure.
+  E(X) = 0 over an incomplete X measures the bookkeeping, not the knowledge --
+  which is exactly how ROTATING-SHELL's J result was walked past and rederived.""")
 
     print("\nCompleteness (2.25.6)")
     cells = {coords(f) for f in FINDINGS}
