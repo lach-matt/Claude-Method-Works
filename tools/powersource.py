@@ -1034,6 +1034,13 @@ STATION_HOUSEHOLDS = 1.0e6
 LINAC_BEAM_MW = 20.0          # ASSUMED: 4x ESS, and four of them, because one
                               # linac of the whole station's power is not a
                               # machine anyone has proposed
+# DRY COOLING IS ADOPTED IN THE DESIGN, not offered as an option, because
+# environment.py cannot drive the cooling-water row below MODERATE any other
+# way: once-through cooling entrains and plumes, and a tower evaporates. Air
+# cooling consumes NO water and costs a share of gross output, and the module
+# count absorbs the cost. This is what a mitigation looks like when it is real:
+# it changes the plant, not the prose.
+DRY_COOLING_PENALTY = 0.05    # SOURCED band 0.02-0.05; the conservative end
 
 
 def station_beam_mw(households=STATION_HOUSEHOLDS,
@@ -1049,7 +1056,8 @@ def station_beam_mw(households=STATION_HOUSEHOLDS,
     want_kw = households * HOUSEHOLD_KW
     if n_linac is None:
         n_linac = 1.0
-    denom = g * eta_thermal() - 1.0 / eta_acc
+    denom = (g * eta_thermal() * (1.0 - DRY_COOLING_PENALTY)
+             - 1.0 / eta_acc)
     if denom <= 0:
         return float("inf")
     return ((want_kw + n_linac * REF_STANDBY_KW / eta_acc) / denom) / 1000.0
@@ -1065,13 +1073,17 @@ def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
     n_mod = math.ceil(need / module_mw)
     beam = n_mod * module_mw
     n_lin = math.ceil(beam / LINAC_BEAM_MW)
+    gross_kw = beam * 1000.0 * g * eta_thermal()
     net_kw = (beam * 1000.0 * (g * eta_thermal() - 1.0 / eta_acc)
-              - n_lin * REF_STANDBY_KW / eta_acc)
+              - n_lin * REF_STANDBY_KW / eta_acc
+              - DRY_COOLING_PENALTY * gross_kw)
     return {
         "window": window, "module_mw": module_mw, "modules": n_mod,
         "beam_mw": beam, "linacs": n_lin, "gain": g, "y_fus": y_f,
         "y_spall": y_s, "k": k_eff,
         "thermal_mw": beam * g, "net_mw": net_kw / 1000.0,
+        "gross_mw": gross_kw / 1000.0,
+        "dry_cooling_mw": DRY_COOLING_PENALTY * gross_kw / 1000.0,
         "households": net_kw / HOUSEHOLD_KW,
         "tritium_per_module_kg": tritium_inventory_kg(window, None),
         "tritium_total_kg": n_mod * tritium_inventory_kg(window, None),
@@ -1169,6 +1181,13 @@ def report_station():
     print("    THE STATION")
     print(f"      modules                        {st['modules']:8.0f}"
           f"   of {st['module_mw']:.0f} MW each")
+    print(f"      gross electric                 {st['gross_mw']:8.0f} MW")
+    print(f"      dry-cooling penalty            {st['dry_cooling_mw']:8.0f} MW"
+          f"   {100*DRY_COOLING_PENALTY:.0f} %, and it is ADOPTED:")
+    print("                                                 zero water, and the"
+          " module")
+    print("                                                 count absorbs the"
+          " cost")
     print(f"      total beam                     {st['beam_mw']:8.1f} MW")
     print(f"      driver linacs                  {st['linacs']:8.0f}"
           f"   at {LINAC_BEAM_MW:.0f} MW, ASSUMED")
@@ -1248,6 +1267,213 @@ def report_station():
     print("    worth, and buying a smaller accelerator with it would be buying")
     print("    the one property the device is for. The trade is stated so that")
     print("    a reader can see what is being declined, not so it can be taken.")
+
+
+# ---- STARTING ONE: THREE PROBLEMS WITH THREE DIFFERENT ANSWERS ------------
+# "Ignition" names nothing here. The device has no threshold to cross and no
+# burning state to reach; it starts when the beam starts. What a station
+# actually needs before it runs is three separate things, and they are usually
+# run together under one word because in a tokamak they would be one thing.
+#
+#   1. ELECTRICITY to run the driver before the plant makes any. Ordinary,
+#      hours long, and a neighbouring station supplies it easily.
+#   2. TRITIUM for the cells. Bred, and a neighbour supplies it -- slowly.
+#   3. FISSILE for the blanket. THIS IS THE ONE THAT BINDS, and it is the one
+#      the design cannot solve from its own output, because f_b = k/(nu-k) is
+#      a BREAK-EVEN condition: it was chosen to hold k, not to make surplus.
+#
+# The neutron budget does leave something over -- what is not spent on fission,
+# on break-even breeding, on leakage and on Li-6 can go to EXTRA fertile
+# capture, which is surplus fissile. But the resulting doubling time is decades
+# to more than a century, against 15 years on tritium, so a fleet does not grow
+# on its own fissile. It grows on a stockpile, and there is one.
+WORLD_CIVIL_PU_T = 560.0     # SOURCED band: separated civil plutonium, IPFM order
+SPENT_FUEL_PU_T = 4000.0     # SOURCED order: Pu in world spent fuel, unseparated
+FISSILE_FRACTION = (0.12, 0.20)   # ASSUMED band: fissile share of heavy metal
+                                  # for a fast chloride at k = 0.95. A transport
+                                  # result this work does not compute, so the
+                                  # charge and the doubling are stated as a BAND
+ETA_ACC_START = 0.30         # wall plug to beam, the same figure the loop uses
+
+
+def start_wall_power_mw(eta_acc=ETA_ACC_START, **kw):
+    """What must come from outside to run the drivers before the plant runs."""
+    return station(**kw)["beam_mw"] / eta_acc
+
+
+def stations_startable(eta_acc=ETA_ACC_START, **kw):
+    """How many neighbours one running station could start at once."""
+    return station(**kw)["net_mw"] / start_wall_power_mw(eta_acc, **kw)
+
+
+def tritium_per_source_neutron(**kw):
+    """The station's tritium demand expressed in the blanket's own currency."""
+    st = station(**kw)
+    d, b = tritium_demand_per_second(st["window"], st["module_mw"])
+    src = ((st["y_spall"] + st["y_fus"])
+           * protons_per_second(st["module_mw"]))
+    return (d + b) / src / F_LI_DESIGN
+
+
+def breeding_ratio_available(leak=LEAK_PARASITIC_HI, k_eff=K_SAFE, **kw):
+    """Fissile bred per fissile fissioned, once tritium is paid for.
+
+    Break-even is 1.000 by construction -- f_b = k/(nu-k) was chosen to hold k.
+    Anything above it is surplus, and it is what a fleet would have to grow on.
+    """
+    f = fissions_per_source(k_eff)
+    extra = free_neutrons_per_source(k_eff, leak) - tritium_per_source_neutron(**kw)
+    return (f + extra) / f
+
+
+def fissile_surplus_kg_per_year(burnup_kg_yr, leak=LEAK_PARASITIC_HI, **kw):
+    return (breeding_ratio_available(leak, **kw) - 1.0) * burnup_kg_yr
+
+
+def fissile_charge_t(hm_holding_t, fraction):
+    return hm_holding_t * fraction
+
+
+def fissile_doubling_years(hm_holding_t, burnup_kg_yr, fraction,
+                           leak=LEAK_PARASITIC_HI, **kw):
+    sur = fissile_surplus_kg_per_year(burnup_kg_yr, leak, **kw)
+    if sur <= 0.0:
+        return float("inf")
+    return fissile_charge_t(hm_holding_t, fraction) * 1000.0 / sur
+
+
+def stations_from_stock(hm_holding_t, fraction, stock_t=WORLD_CIVIL_PU_T):
+    return stock_t / fissile_charge_t(hm_holding_t, fraction)
+
+
+def min_k_for_loop(eta_acc=ETA_ACC_START, **kw):
+    """The lowest multiplication at which the loop still closes.
+
+    A station could be lit at a smaller charge and bred up -- this says how
+    much smaller it could be before it stops being a power source at all.
+    """
+    st = station(**kw)
+    req = loop_requirement(eta_acc)
+    lo, hi = 0.05, K_SAFE
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if plant_gain(mid, st["y_spall"], st["y_fus"]) < req:
+            lo = mid
+        else:
+            hi = mid
+    return hi
+
+
+def report_ignition():
+    """Starting one: electricity, tritium and fissile, and which one binds."""
+    st = station()
+    sys.path.insert(0, HERE)
+    import materials as X
+    hm_t = X.heavy_metal_inventory_kg() / 1000.0
+    burn = X.burnup_kg_per_year()
+    print("  STARTING A STATION")
+    print()
+    print("    'IGNITION' NAMES NOTHING HERE. The device has no threshold to")
+    print("    cross and no burning state to reach; it starts when the beam")
+    print("    starts and stops when the beam stops, which is the same fact")
+    print("    that makes it stable. What a station needs before it runs is")
+    print("    THREE separate things, and they have three different answers.")
+    print("    They get run together under one word because in a tokamak they")
+    print("    would be one thing. Here they are not.")
+    print()
+    print("    1. ELECTRICITY -- SOLVED, AND A NEIGHBOUR SUPPLIES IT")
+    print(f"       drivers need           {start_wall_power_mw():8.0f} MW at the wall")
+    print(f"       station sells          {st['net_mw']:8.0f} MW")
+    print(f"       so one station starts  {stations_startable():8.2f} others at once")
+    print()
+    print("       This is ordinary. Every thermal station takes house power to")
+    print("       start and this one takes more of it, for hours, until the")
+    print("       blanket is at power. A grid connection does it; a neighbouring")
+    print("       station does it with a fifth of its output; and after that the")
+    print("       station takes no electricity at all, for ever.")
+    print()
+    print("    2. TRITIUM -- SOLVED, AND A NEIGHBOUR SUPPLIES IT SLOWLY")
+    n0, yrs = staged_charge()
+    print(f"       station's cells need   {st['tritium_total_kg']:8.1f} kg")
+    print(f"       world civil stock      {WORLD_CIVIL_TRITIUM_KG:8.1f} kg"
+          "    SOURCED band")
+    print(f"       staged: {n0:.0f} modules from stock, the rest bred, full power")
+    print(f"       in year {yrs:.1f}. A finished station breeds a successor's")
+    print(f"       whole charge in {station_doubling_years():.1f} years.")
+    print()
+    print("    3. FISSILE -- NOT SOLVED FROM THE PLANT'S OWN OUTPUT, AND THIS")
+    print("       IS THE ONE THAT BINDS.")
+    print()
+    print("       f_b = k/(nu-k) is a BREAK-EVEN condition. It was chosen to")
+    print("       HOLD k, not to make surplus, so on the design point a station")
+    print("       breeds exactly what it burns and no more. What the budget has")
+    print("       left over after fission, break-even breeding, leakage and")
+    print("       Li-6 CAN go to extra fertile capture -- but not much of it:")
+    print()
+    print("         leak    free for Li-6   tritium takes   left for surplus"
+          "   BR")
+    for L in (LEAK_PARASITIC_LO, LEAK_PARASITIC_HI):
+        free = free_neutrons_per_source(K_SAFE, L)
+        t = tritium_per_source_neutron()
+        print(f"         {L:.2f} {free:14.3f} {t:15.3f} {free-t:18.3f}"
+              f" {breeding_ratio_available(L):6.3f}")
+    print()
+    print(f"       At {burn/1000.0:.3f} t/yr fissioned that is a fissile surplus of")
+    print(f"       {fissile_surplus_kg_per_year(burn, LEAK_PARASITIC_HI):.0f}"
+          f" to {fissile_surplus_kg_per_year(burn, LEAK_PARASITIC_LO):.0f}"
+          " kg a year, against a first charge of:")
+    print()
+    print("         fissile share   charge      doubling, high leak   low leak")
+    for ff in (FISSILE_FRACTION[0], 0.16, FISSILE_FRACTION[1]):
+        print(f"         {100*ff:11.0f} % {fissile_charge_t(hm_t, ff):9.1f} t"
+              f" {fissile_doubling_years(hm_t, burn, ff, LEAK_PARASITIC_HI):19.1f} yr"
+              f" {fissile_doubling_years(hm_t, burn, ff, LEAK_PARASITIC_LO):10.1f} yr")
+    print()
+    print("       (the fissile share is an ASSUMED band -- a transport result")
+    print("        this work does not compute -- so the charge and the doubling")
+    print("        are a band and not a number.)")
+    print()
+    print("       AGAINST 15.0 YEARS ON TRITIUM, THAT IS THE FLEET'S REAL LIMIT.")
+    print("       A station cannot light its successor's fissile charge inside")
+    print("       its own life on the high-leak budget, and only barely on the")
+    print("       low one. So a fleet does not grow on its own fissile.")
+    print()
+    print("    IT GROWS ON A STOCKPILE, AND THERE IS ONE -- THE SAME SHAPE OF")
+    print("    ANSWER AS THE FUEL. Separated civil plutonium is a material the")
+    print("    world has already made, already paid for, and is paying to guard.")
+    print()
+    print(f"      separated civil Pu, world  {WORLD_CIVIL_PU_T:8.0f} t"
+          "    SOURCED band")
+    print(f"      stations it charges        "
+          f"{stations_from_stock(hm_t, FISSILE_FRACTION[1]):8.0f} to"
+          f" {stations_from_stock(hm_t, FISSILE_FRACTION[0]):.0f}")
+    print(f"      Pu in world spent fuel     {SPENT_FUEL_PU_T:8.0f} t"
+          "    SOURCED order, unseparated")
+    print(f"      stations that would charge "
+          f"{stations_from_stock(hm_t, FISSILE_FRACTION[1], SPENT_FUEL_PU_T):8.0f} to"
+          f" {stations_from_stock(hm_t, FISSILE_FRACTION[0], SPENT_FUEL_PU_T):.0f}")
+    print()
+    print("      So the first charge is a SAFEGUARDED ACQUISITION and stays one.")
+    print("      What changes is what it is FOR: separated civil plutonium has")
+    print("      no use anyone is willing to pay for, is a proliferation")
+    print("      liability by simply existing, and is consumed permanently by")
+    print("      this station rather than stored. The fleet's growth rate is")
+    print("      then set by reprocessing capacity and by policy, not by")
+    print("      physics -- which is a different kind of limit and should not")
+    print("      be reported as the same one.")
+    print()
+    print("    COULD A STATION START SMALLER AND BREED UP? A little, and it is")
+    print("    recorded rather than used.")
+    kmin = min_k_for_loop()
+    print(f"      the loop still closes down to k = {kmin:.3f}")
+    print(f"        (G there is {plant_gain(kmin, st['y_spall'], st['y_fus']):.2f}"
+          f" against G_req {loop_requirement(ETA_ACC_START):.2f})")
+    print(f"      at first order the charge goes with k, so that saves"
+          f" {100*(1-kmin/K_SAFE):.0f} %")
+    print(f"      and costs {plant_gain(K_SAFE, st['y_spall'], st['y_fus'])/plant_gain(kmin, st['y_spall'], st['y_fus']):.1f}x"
+          " in output while it breeds up.")
+    print("      A fifth off the charge for four fifths off the power is not a")
+    print("      lever. The charge is what it is.")
 
 
 def report_tritium():
@@ -1779,6 +2005,42 @@ def selftest():
     check("the fleet doubles at the same rate one module does",
           abs(station_doubling_years()
               - tritium_doubling_years(st["module_mw"], st["window"])) < 1e-9)
+    print()
+    print("  starting one: three problems, and the selftest says which binds")
+    sys.path.insert(0, HERE)
+    import materials as _X
+    hm_t = _X.heavy_metal_inventory_kg() / 1000.0
+    burn = _X.burnup_kg_per_year()
+    check("a running station can start several neighbours' drivers at once",
+          stations_startable() > 1.0)
+    check("break-even breeding is exactly break-even, by construction",
+          abs(fissions_per_source(K_SAFE)
+              / (fertile_capture_required(K_SAFE)
+                 * (neutrons_per_source(K_SAFE)
+                    - fissions_per_source(K_SAFE))) - 1.0) < 1e-12)
+    check("  -- so any fissile surplus is what the budget has LEFT, not design",
+          breeding_ratio_available(LEAK_PARASITIC_HI) > 1.0)
+    check("  -- and a tighter leakage allowance leaves more of it",
+          breeding_ratio_available(LEAK_PARASITIC_LO)
+          > breeding_ratio_available(LEAK_PARASITIC_HI))
+    check("fissile doubling is slower than tritium doubling, at every point",
+          all(fissile_doubling_years(hm_t, burn, f, LEAK_PARASITIC_HI)
+              > station_doubling_years()
+              for f in (FISSILE_FRACTION[0], FISSILE_FRACTION[1])))
+    check("  -- so FISSILE binds the fleet and tritium does not",
+          min(fissile_doubling_years(hm_t, burn, f, L)
+              for f in FISSILE_FRACTION
+              for L in (LEAK_PARASITIC_LO, LEAK_PARASITIC_HI))
+          > station_doubling_years())
+    check("the stockpile route lights more than one station",
+          stations_from_stock(hm_t, FISSILE_FRACTION[1]) > 1.0)
+    check("the loop still closes below the design k, so 'start small' is real",
+          min_k_for_loop() < K_SAFE)
+    check("  -- and it is declined, because the output cost exceeds the saving",
+          (plant_gain(K_SAFE, station()["y_spall"], station()["y_fus"])
+           / plant_gain(min_k_for_loop(), station()["y_spall"],
+                        station()["y_fus"]))
+          > 1.0 / (min_k_for_loop() / K_SAFE))
     check("driver standby has stopped mattering at station scale",
           st["linacs"] * REF_STANDBY_KW / 0.30
           < 0.02 * st["net_mw"] * 1000.0)
@@ -1807,6 +2069,8 @@ def main():
                     help=report_tritium.__doc__)
     ap.add_argument("--station", action="store_true",
                     help=report_station.__doc__)
+    ap.add_argument("--ignition", action="store_true",
+                    help=report_ignition.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -1826,6 +2090,8 @@ def main():
         return report_tritium()
     if a.station:
         return report_station()
+    if a.ignition:
+        return report_ignition()
     return report()
 
 

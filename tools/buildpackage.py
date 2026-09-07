@@ -550,11 +550,15 @@ def report_envelope():
         print(f"      - {name}")
         _w(why, indent=9)
     print()
-    _w("BEAM TRIPS ARE NAMED AND UNBOUNDED. A high-power proton linac trips "
-       "often; the salt has thermal inertia and the blanket has none of its "
-       "own. How often the plant may be interrupted before thermal cycling "
-       "limits the life of the intermediate loop is NOT COMPUTED HERE and it "
-       "is a genuine open item, not an oversight.")
+    _w(f"BEAM TRIPS: THE THERMAL HALF IS NOW CLOSED AND THE COMMERCIAL HALF "
+       f"IS NOT. A high-power linac trips often, and MIT-8 answers the "
+       f"thermal question -- a {X.thermal_buffer_kg()/1000.0:,.0f} t "
+       f"nitrate-salt store on the secondary rides a "
+       f"{X.BUFFER_TRIP_S:.0f} s trip within {X.BUFFER_DT_K:.0f} K, so the "
+       f"intermediate loop sees a ramp and not a step. What is still NOT "
+       "COMPUTED here is AVAILABILITY: how much output a trip rate costs is "
+       "a commercial question this work does not price, and it is a genuine "
+       "open item rather than an oversight.")
 
 
 # ---- 6. ACCEPTANCE ---------------------------------------------------------
@@ -685,6 +689,125 @@ def report_gaps():
        "engineering removes it.")
 
 
+# ---- 8. MITIGATIONS THAT ARE BUILD ITEMS -----------------------------------
+# environment.py grades every impact twice -- before mitigation and after --
+# and names the carrier that takes each mitigation into the build. THESE ARE
+# THOSE CARRIERS. A mitigation that lives only in an impact register is prose;
+# these are line items with a requirement, an owner subsystem and an acceptance
+# criterion, and environment.py's selftest fails if one of its carriers is not
+# found here.
+MITIGATIONS = [
+    ("MIT-1 modular cells", "fuel cell",
+     "The station is built as N separate cells and is never consolidated. "
+     "The bounding tritium release is ONE cell's inventory, and that is the "
+     "safety case, not a construction convenience.",
+     "Demonstrate isolation of any single cell without affecting the rest, "
+     "at power."),
+    ("MIT-2 tritium containment", "fuel cell",
+     "Double-walled all-metal primary; secondary containment held BELOW "
+     "atmospheric so a breach vents inward; getter bed on every sweep; "
+     "hydride-bed storage holding tritium as a solid at atmospheric pressure.",
+     "Measured annual release below the site's licensed figure, with the "
+     "accountancy instrument commissioned before tritium arrives."),
+    ("MIT-3 lead target", "target",
+     "The target is MOLTEN LEAD, not the sourced study's mercury. Trace "
+     "heating that never fails is a SAFETY system. No beryllium vapour "
+     "window: lead has no vapour to stop.",
+     "Loop holds above the freezing point through a full station trip with "
+     "no external power for the trace heating's design hold time."),
+    ("MIT-4 krypton capture", "blanket",
+     "Delay beds for short-lived noble gases; cryogenic charcoal capture and "
+     "bottling for Kr-85, which will not wait.",
+     "Kr-85 capture fraction measured on the sparge stream, not inferred."),
+    ("MIT-5 biological shield", "shielding",
+     "Concrete sized as an ATTENUATION FACTOR, separately from the coil "
+     "shield, which answers an insulation dose limit and not a personnel one.",
+     "Measured attenuation on the built shield against the design factor, "
+     "before first full-power beam."),
+    ("MIT-6 subcritical by construction", "blanket",
+     "k is held below the design value at all times and there is no "
+     "reactivity device that could raise it. Continuous source-multiplication "
+     "measurement is the one reactivity instrument the plant cannot omit.",
+     "k measured continuously; the interlock trips the beam on any excursion "
+     "toward the limit."),
+    ("MIT-7 freeze-plug drain and bunded vault", "blanket",
+     "Passive freeze-plug drain to a subcritical, passively cooled tank "
+     "needing no power and no operator; guard vessel around the primary; "
+     "lined and bunded vault sized for the WHOLE inventory. The same "
+     "philosophy covers the Pb-Li breeder loop.",
+     "Drain demonstrated from full temperature with all power removed."),
+    ("MIT-8 thermal buffer", "conversion",
+     "Nitrate-salt store on the SECONDARY side, sized to ride out a beam "
+     "trip within the loop's temperature band. It also gives the station "
+     "load-following, which it wants anyway.",
+     "Ride-through demonstrated on a real trip, with the intermediate loop "
+     "inside its band."),
+    ("MIT-9 partition and transmute", "blanket",
+     "The flowsheet returns ACTINIDES to the salt to be burnt; partitions "
+     "Cs-137 and Sr-90 to engineered decay storage; and routes Tc-99 and "
+     "I-129 back into the fast flux to be transmuted.",
+     "Actinide return fraction and Cs/Sr partition fraction measured on the "
+     "processing stream."),
+    ("MIT-10 reduced-activation steel", "capture, shielding",
+     "EUROFER- or F82H-class steel for everything inside the shield: Cr and "
+     "W in place of Mo, Nb and Ni; cobalt below 100 ppm. THIS IS A "
+     "PROCUREMENT DECISION AND SETS THE DECOMMISSIONING WASTE CLASS A "
+     "CENTURY LATER.",
+     "Certified heat analysis on every heat, before the steel is cut."),
+    ("MIT-11 dry cooling", "conversion",
+     "Air-cooled condensers. ZERO water consumed. The penalty is in the "
+     "design's own output figure and the module count was raised to absorb "
+     "it -- reverting to wet cooling recovers output and returns the "
+     "receiving-water impact.",
+     "Rated heat rejection at the site's design ambient, which is the "
+     "condition dry cooling is worst at."),
+    ("MIT-12 underground tunnel", "driver",
+     "The linacs go underground, as every machine of this class does. It "
+     "returns the surface and it is also the cheapest shielding available.",
+     "Surface dose rate above the tunnel, measured."),
+    ("MIT-13 tails as feed", "blanket",
+     "The fertile feed is enrichment tails. No ore is mined, no mill "
+     "tailings are made, no enrichment is run for this station.",
+     "Feed provenance documented; it is a procurement record, not a "
+     "measurement."),
+    ("MIT-14 fissile from civil stock", "blanket",
+     "The first fissile charge is separated civil plutonium, which the "
+     "station FISSIONS and does not return. A safeguarded acquisition whose "
+     "effect is to destroy a proliferation liability permanently.",
+     "Material balance closed over the charge, under safeguards."),
+    ("MIT-15 no-separation flowsheet", "blanket",
+     "There is no separated-plutonium stream anywhere in the processing "
+     "plant, by architecture. Continuous assay of a FLUID fuel, which is "
+     "easier to account for than any solid one.",
+     "Demonstrated material accountancy closure on the salt loop; and the "
+     "equilibrium isotopic vector MEASURED, because the denaturing argument "
+     "is a requirement in this work and not a result."),
+]
+
+
+def report_mitigations():
+    """The environmental mitigations, as build items with acceptance."""
+    P, M, C, X = _mods()
+    _h("8. MITIGATIONS AS BUILD ITEMS")
+    _w("environment.py grades every impact twice -- before mitigation and "
+       "after -- and names the carrier that takes each mitigation into the "
+       "build. These are those carriers. Each is a line item with a "
+       "requirement and an acceptance criterion, because a mitigation that "
+       "lives only in an impact register is prose.")
+    for name, owner, req, acc in MITIGATIONS:
+        print()
+        print(f"      {name}   [{owner}]")
+        _w(req, indent=9)
+        print(f"         accept:  {acc}")
+    print()
+    _w("FIVE OF THESE CHANGED THE PLANT RATHER THAN DESCRIBING IT: the target "
+       "material, dry cooling, the thermal buffer, the biological shield's "
+       "sizing and the reduced-activation steel. Two of them cost output or "
+       "schedule and were taken anyway. That is the test of whether a "
+       "mitigation is real.")
+
+
+
 def report():
     P, M, C, X = _mods()
     r = X.ref()
@@ -698,8 +821,15 @@ def report():
        f" electric, {r['households']:,.0f} households.", indent=2)
     for fn in (report_spec, report_sequence, report_commissioning,
                report_interfaces, report_envelope, report_acceptance,
-               report_gaps):
+               report_gaps, report_mitigations):
         fn()
+
+
+def _capture(fn):
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        fn()
+    return buf.getvalue()
 
 
 def selftest():
@@ -770,6 +900,22 @@ def selftest():
     check("  -- and precedes power ascension and the breeding proof",
           text.index("C5.") < text.index("C6.") < text.index("C7."))
     print()
+    print("  every environmental mitigation lands here as a build item")
+    import environment as E
+    names = {n for n, _o, _r, _a in MITIGATIONS}
+    carriers = {row[10] for row in E.register()}
+    check("every carrier environment.py names exists in this package",
+          carriers <= names)
+    check("  -- and no build item is orphaned from the register",
+          names <= carriers)
+    check("every mitigation item names an owner subsystem",
+          all(len(o) > 2 for _n, o, _r, _a in MITIGATIONS))
+    check("every mitigation item names an acceptance criterion",
+          all(len(a) > 30 for _n, _o, _r, a in MITIGATIONS))
+    check("the thermal-buffer item closes the envelope's open thermal row",
+          "MIT-8" in _capture(report_envelope) or
+          "thermal buffer" in _capture(report_envelope).lower())
+    print()
     print("  the package refuses to draw")
     imports = [ln.strip() for ln in
                open(os.path.join(HERE, "buildpackage.py")).read().splitlines()
@@ -781,7 +927,8 @@ def selftest():
     check("  -- and the package is stdlib plus this repository only",
           all(any(t in ln for t in ("argparse", "contextlib", "functools",
                                     "io", "os", "sys", "collector", "machine",
-                                    "materials", "powersource"))
+                                    "materials", "powersource",
+                                    "environment"))
               for ln in imports))
     print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
@@ -796,7 +943,8 @@ def main():
                      ("interfaces", report_interfaces),
                      ("envelope", report_envelope),
                      ("acceptance", report_acceptance),
-                     ("gaps", report_gaps)):
+                     ("gaps", report_gaps),
+                     ("mitigations", report_mitigations)):
         ap.add_argument(f"--{name}", action="store_true", help=fn.__doc__)
     a = ap.parse_args()
     if a.selftest:
@@ -806,7 +954,8 @@ def main():
                      ("interfaces", report_interfaces),
                      ("envelope", report_envelope),
                      ("acceptance", report_acceptance),
-                     ("gaps", report_gaps)):
+                     ("gaps", report_gaps),
+                     ("mitigations", report_mitigations)):
         if getattr(a, name):
             return fn()
     return report()

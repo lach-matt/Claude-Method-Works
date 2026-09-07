@@ -219,3 +219,38 @@ extra margin and a power sensitivity lower by 1.12. That is what it is worth her
 **Unbounded: beam trips.** An ADS's characteristic problem is interruption rather than runaway. Every
 trip is a thermal cycle through the assembly, and trip *rate* limits component life. No figure here
 bounds it; it is a driver requirement, not a physics one.
+
+## `--ignition` — three problems one word was hiding
+
+There is no ignition. The device has no threshold to cross and no burning state to reach; it starts
+when the beam starts. What a station needs *before* it runs is three separate things, and they are
+usually run together under one word because in a tokamak they would be one thing.
+
+**1. Electricity — solved, and a neighbour supplies it.** The drivers need 267 MW at the wall before
+the plant makes any. A running station sells 1,141 MW, so **one station starts 4.36 neighbours at
+once**. Ordinary: every thermal station takes house power to start. After that this one takes none at
+all, for ever.
+
+**2. Tritium — solved, and a neighbour supplies it slowly.** The station's cells need more than the
+world's civil stock, so the modules are charged in stages — most from stock, the rest bred by those
+already running, full power in year 3.9. A finished station breeds a successor's whole charge in
+**15.0 years**.
+
+**3. Fissile — not solved from the plant's own output, and this is the one that binds.**
+`f_b = k/(ν−k)` is a **break-even** condition: it was chosen to *hold* k, not to make surplus. What
+the neutron budget has left over after fission, break-even breeding, leakage and ⁶Li can go to extra
+fertile capture, giving a breeding ratio of **1.233** (high leakage) to **1.538** (low) — a fissile
+doubling of **35 to 136 years**, against 15 on tritium. **A fleet does not grow on its own fissile.**
+
+It grows on a stockpile, and there is one — the same shape of answer as the fuel. **Separated civil
+plutonium**: about 560 t exists, nobody has a use for it, everybody is paying to guard it, and it is
+a proliferation liability by simply existing. It charges **15 to 24 stations**; the ~4,000 t in world
+spent fuel would charge **104 to 173**. The first charge stays a safeguarded acquisition — what
+changes is that the station *fissions* it and does not give it back, so the fleet's growth rate is
+set by reprocessing capacity and by policy rather than by physics. That is a different kind of limit
+and is not reported as the same one.
+
+**Could a station start smaller and breed up?** A little, and it is recorded rather than used: the
+loop still closes down to **k = 0.756**, which at first order saves 20 % of the charge and costs
+**5.4×** in output while it breeds. A fifth off the charge for four fifths off the power is not a
+lever.

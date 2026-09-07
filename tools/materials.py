@@ -104,8 +104,35 @@ PLANT_LIFE_Y = 40.0
 
 # the breeding zone's geometry, from the fuel zone's
 BREEDER_THICK_M = 0.50       # ASSUMED: about one fast mean free path in Pb
-HG_RHO = 13534.0             # kg/m3                                 SOURCED
-HG_RESIDENCE_S = 20.0        # target loop transit                   ASSUMED
+# ---- THE TARGET IS MOLTEN LEAD, NOT MERCURY, AND THE SUBSTITUTION IS THIS
+# ---- WORK'S -----------------------------------------------------------------
+# machine.py's target model is SOURCED from a neutrino-factory study whose
+# target is a mercury jet, and that is where the 4 MW design point and the
+# 319 kW deposition come from. The MATERIAL is not forced by any of it, and
+# environment.py could not drive the mercury rows below MODERATE:
+#
+#   - Mercury's vapour pressure at its operating temperature is about eight
+#     orders of magnitude above lead's, which is the whole reason the sourced
+#     design carries a beryllium window six metres downstream. A mercury loop
+#     breach is a RELEASE; a lead loop breach is a spill.
+#   - The pion production this design actually integrates is HARP's, measured
+#     on a LEAD target. Using lead makes the machine and its own source data
+#     the same material, which mercury never was.
+#   - Pure lead, not lead-bismuth: LBE is the reactor industry's eutectic and
+#     it breeds Po-210 from Bi-209. Pure lead makes far less of it.
+#
+# What it costs: lead melts at 327 C, so the loop is trace-heated and must
+# never freeze -- a routine problem for the lead-cooled reactor industry and a
+# new one for this design; and lead's interaction length is longer, so the
+# target is longer at the same number of interaction lengths.
+PB_RHO = 10660.0             # kg/m3, liquid lead at 450 C            SOURCED
+PB_CP = 147.0                # J/kg/K, liquid lead                    SOURCED
+PB_LAMBDA_I_GCM2 = 199.6     # PDG nuclear interaction length         SOURCED
+PB_MELT_C = 327.0            # SOURCED -- the cost of the substitution
+PB_OPERATING_C = 450.0       # ASSUMED, comfortably above the freeze
+HG_RHO = 13534.0             # kg/m3, the sourced study's material    SOURCED
+HG_LAMBDA_I_GCM2 = 199.0     # SOURCED
+TARGET_RESIDENCE_S = 20.0    # target loop transit                    ASSUMED
 STEEL_RHO = 7900.0
 CONCRETE_RHO = 2350.0
 
@@ -270,15 +297,30 @@ def helium4_kg_per_year():
     return (y_f + li) * SEC_PER_YEAR * HE_AMU / N_A / 1000.0
 
 
-@functools.lru_cache(maxsize=None)
-def mercury_flow_kg_s():
-    """ONE module's jet. The station runs N of them."""
+def target_length_cm(rho=PB_RHO, lam=PB_LAMBDA_I_GCM2, lengths=None):
+    """Interaction lengths into centimetres, for whichever material."""
     m = _mach()
-    return m.jet_mass_flow_kg_s() * ref()["module_mw"]
+    n = m.TARGET_LENGTHS if lengths is None else lengths
+    return n * lam / (rho / 1000.0)
 
 
-def mercury_inventory_kg(residence_s=HG_RESIDENCE_S):
-    return mercury_flow_kg_s() * residence_s
+def target_length_ratio():
+    """What the lead substitution costs in target length."""
+    return (target_length_cm(PB_RHO, PB_LAMBDA_I_GCM2)
+            / target_length_cm(HG_RHO, HG_LAMBDA_I_GCM2))
+
+
+@functools.lru_cache(maxsize=None)
+def lead_flow_kg_s():
+    """ONE module's jet, IMPORTED from machine.py's flow model with lead's
+    own properties passed in -- the model is parameterised in rho and cp and
+    is not re-derived here."""
+    m = _mach()
+    return m.jet_mass_flow_kg_s(rho=PB_RHO) * ref()["module_mw"]
+
+
+def lead_inventory_kg(residence_s=TARGET_RESIDENCE_S):
+    return lead_flow_kg_s() * residence_s
 
 
 @functools.lru_cache(maxsize=None)
@@ -320,6 +362,44 @@ def shield_mass_kg(thick_m=None, rho=CONCRETE_RHO):
     r = C.des_coil_inner_m() + C.des_winding_thickness_m()
     h = C.DES_LENGTH_M
     return rho * math.pi * ((r + t) ** 2 * (h + 2 * t) - r ** 2 * h)
+
+
+# ---- THE THERMAL BUFFER, WHICH IS A MITIGATION AND ALSO A PLANT ITEM ------
+# A high-power linac trips often, and buildpackage.py's envelope carried that
+# as an open item. It closes with a store: a nitrate-salt thermal buffer on the
+# SECONDARY side, which concentrating-solar plants build at exactly this
+# tonnage as a matter of routine. It rides a trip out, and it lets the station
+# load-follow, which a gigawatt station wants anyway.
+BUFFER_TRIP_S = 60.0         # ASSUMED: ride out a trip of this length
+BUFFER_DT_K = 50.0           # ASSUMED: and hold the loop within this
+BUFFER_CP = 1500.0           # J/kg/K, solar nitrate salt            SOURCED
+
+
+def thermal_buffer_kg(trip_s=BUFFER_TRIP_S, dt_k=BUFFER_DT_K, cp=BUFFER_CP):
+    return ref()["thermal_mw"] * 1e6 * trip_s / (cp * dt_k)
+
+
+# ---- THE BIOLOGICAL SHIELD, SIZED AS AN ATTENUATION AND NOT AS A DOSE -----
+# buildpackage.py carried this as "not sized here", which environment.py could
+# not grade below MODERATE. It is sized now -- as an ATTENUATION FACTOR, which
+# is computable, rather than as a dose, which needs a site.
+CONCRETE_REMOVAL_CM = 12.0   # fast-neutron removal length, ordinary concrete
+BIO_ATTENUATION = 1.0e10     # REQUIREMENT: the factor a spallation source of
+                             # this power needs at a personnel boundary
+
+
+def bio_shield_m(attenuation=BIO_ATTENUATION, lam_cm=CONCRETE_REMOVAL_CM):
+    return lam_cm * math.log(attenuation) / 100.0
+
+
+def bio_shield_mass_kg(attenuation=BIO_ATTENUATION):
+    """A shell of that thickness around each module's target-and-capture
+    volume, on the solenoid's outer envelope."""
+    C = _coll()
+    t = bio_shield_m(attenuation)
+    r = C.des_coil_inner_m() + C.des_winding_thickness_m() + shield_thickness_m()
+    h = C.DES_LENGTH_M + 2.0 * shield_thickness_m()
+    return CONCRETE_RHO * math.pi * ((r + t) ** 2 * (h + 2 * t) - r ** 2 * h)
 
 
 def mass_converted_kg():
@@ -488,14 +568,22 @@ def bill():
        "2 t/m of cryomodule, vessel and warm structure; ordinary plant "
        "storage, and the figure is a scoping one"))
 
-    A(("target", "mercury", N * mercury_inventory_kg() / 1000.0, "t",
+    A(("target", "molten lead", N * lead_inventory_kg() / 1000.0, "t",
        "DERIVED", "CIRCULATING",
-       f"{N:.0f} sealed loops at {mercury_flow_kg_s():.0f} kg/s each; double containment, "
-       "vapour capture, activated (Hg-203, Au-198) so the loop is a hot cell"))
-    A(("target", "beryllium window", N * 0.5, "kg/yr", "SOURCED", "REPLACED",
-       f"one per module per year; replaced on {m.SRC_BE_WINDOW_Z_M:.0f} m stand-off at "
-       f"{m.SRC_BE_WINDOW_DPA_YR:.1f} dpa/yr -- annually; Be dust is the "
-       "hazard, handled in a glovebox, and the spent window is waste"))
+       f"{N:.0f} sealed loops at {lead_flow_kg_s():.0f} kg/s each, held above "
+       f"{PB_MELT_C:.0f} C by trace heating that must never fail. NOT MERCURY: "
+       f"the sourced study's material has a vapour pressure eight orders "
+       f"higher, so a mercury breach is a release and a lead breach is a "
+       f"spill. Costs {target_length_ratio():.3f}x in target length. Activated, "
+       "so the loop is still a hot cell -- but a hot cell containing a solid "
+       "when cold"))
+    A(("target", "beryllium window", 0.0, "-", "DERIVED", "FIRST-CHARGE",
+       "NONE. The sourced design carries a beryllium window six metres "
+       "downstream for one reason -- to stop mercury vapour reaching the "
+       "channel. Lead has no vapour to stop, so the window, its annual "
+       "replacement, its beryllium dust and its waste stream all leave the "
+       "design with the mercury. A mitigation that deletes a component rather "
+       "than managing it"))
 
     A(("capture", "solenoid cold mass, steel and conductor",
        N * solenoid_cold_mass_kg() / 1000.0, "t", "IMPORTED", "FIRST-CHARGE",
@@ -569,6 +657,13 @@ def bill():
        "extracted. THIS IS WHAT BUYS L = 0.20 FOR FORTY YEARS and it is the "
        "single most demanding unbuilt item in the plant"))
 
+    A(("shielding", "biological shield, concrete",
+       N * bio_shield_mass_kg() / 1000.0, "t", "REQUIREMENT", "FIRST-CHARGE",
+       f"{bio_shield_m():.2f} m, sized as an ATTENUATION of "
+       f"{BIO_ATTENUATION:.0e} at "
+       f"{CONCRETE_REMOVAL_CM:.0f} cm removal length -- computable without a "
+       "site, where a dose is not. The attenuation FACTOR is the requirement; "
+       "what dose it produces at a boundary is the site's licence to test"))
     A(("shielding", "coil shield, tungsten-loaded",
        N * shield_mass_kg() / 1000.0, "t", "DERIVED", "FIRST-CHARGE",
        f"{shield_thickness_m():.2f} m, sized for a {PLANT_LIFE_Y:.0f} year "
@@ -576,18 +671,43 @@ def bill():
        f"biological one. It carries "
        f"{r['beam_mw']*1e6*m.F_INTO_SHIELDING/1e3:.0f} kW of beam power and "
        "must be actively cooled, not passive"))
-    A(("shielding", "biological shield, concrete", 0.0, "-", "REQUIREMENT",
+    A(("shielding", "reduced-activation steel, inside the shield",
+       N * solenoid_cold_mass_kg() / 1000.0, "t", "REQUIREMENT",
        "FIRST-CHARGE",
-       "SEPARATE FROM THE ABOVE AND NOT SIZED HERE. The coil shield answers a "
-       "dose limit on organic insulation at 0.75 m; a personnel boundary "
-       f"around a {r['beam_mw']:.0f} MW spallation source is metres of "
-       "concrete and thousands of tonnes, and sizing it needs a shielding "
-       "calculation this work does not do"))
+       "EUROFER- or F82H-class: chromium and tungsten in place of the "
+       "molybdenum, niobium and nickel that make Nb-94 and Ni-63, and cobalt "
+       "held below 100 ppm. It is the fusion programme's own material and its "
+       "point is that activation decays to hands-on levels in about a "
+       "century instead of needing a deep repository. THIS IS A PROCUREMENT "
+       "DECISION THAT SETS THE DECOMMISSIONING WASTE CLASS AND CANNOT BE MADE "
+       "AFTERWARDS"))
 
     A(("conversion", "supercritical CO2 or steam plant", r["thermal_mw"],
        "MW-th", "IMPORTED", "CIRCULATING",
-       f"{r['net_mw']:.1f} MW net electric after the driver is fed; "
-       "ordinary power-plant storage and inventory"))
+       f"{r['gross_mw']:.0f} MW gross, {r['net_mw']:.0f} MW net after the "
+       f"driver and after the {r['dry_cooling_mw']:.0f} MW dry-cooling "
+       "penalty; ordinary power-plant storage and inventory"))
+    A(("conversion", "dry cooling, air-cooled condensers", r["gross_mw"],
+       "MW gross", "DERIVED", "CIRCULATING",
+       f"ZERO WATER CONSUMED, at {100*_ps().DRY_COOLING_PENALTY:.0f} % of "
+       "gross output. Adopted in the design rather than offered as an option, "
+       "because the cooling-water impact cannot be graded below MODERATE any "
+       "other way; the module count absorbs the cost"))
+    A(("conversion", "nitrate-salt thermal buffer",
+       thermal_buffer_kg() / 1000.0, "t", "DERIVED", "CIRCULATING",
+       f"rides out a {BUFFER_TRIP_S:.0f} s beam trip within "
+       f"{BUFFER_DT_K:.0f} K on the SECONDARY side. Concentrating-solar "
+       "plants build stores at this tonnage routinely, so the tonnage is not "
+       "the difficulty. It closes the thermal-cycling item buildpackage.py "
+       "carried open, and it lets the station load-follow, which a gigawatt "
+       "station wants anyway"))
+    A(("conversion", "krypton-85 capture, cryogenic charcoal", 0.0, "-",
+       "REQUIREMENT", "REPLACED",
+       "The salt sparge sends noble gases to delay beds; the short-lived "
+       "decay there and Kr-85 at 10.8 y does not, so it is captured on "
+       "cryogenic charcoal and bottled rather than released. Routine at "
+       "reprocessing plants. It moves an atmospheric release into the waste "
+       "inventory, which is the trade and is stated as one"))
 
     A(("products", "helium-4, fusion and Li-6 ash", helium4_kg_per_year(),
        "kg/yr", "DERIVED", "PRODUCED",
@@ -679,11 +799,14 @@ def report_storage():
     print("      safe, the CELL is the hazard, and the cell is the smallest")
     print("      the physics allows.")
     print()
-    print(f"      MERCURY. {mercury_inventory_kg()/1000.0:.2f} t per module,"
-          f" {n*mercury_inventory_kg()/1000.0:.1f} t in all, in loops")
-    print("      activated the moment the")
-    print("      beam is on. It is not a chemical hazard with a radiological")
-    print("      footnote; it is a hot cell that happens to contain mercury.")
+    print(f"      MOLTEN LEAD. {lead_inventory_kg()/1000.0:.2f} t per module,"
+          f" {n*lead_inventory_kg()/1000.0:.1f} t in all, in loops")
+    print("      activated the moment the beam is on -- so still a hot cell,")
+    print(f"      but one holding a SOLID below {PB_MELT_C:.0f} C. That is the")
+    print("      whole of why the substitution was made: mercury's failure mode")
+    print("      is a vapour release and lead's is a puddle. The cost is that")
+    print("      the loop must never be allowed to freeze, and trace heating")
+    print("      is now a safety system rather than a convenience.")
     print()
     print(f"      FUEL SALT. {salt_inventory_kg()/1000.0:.1f} t holding "
           f"{heavy_metal_inventory_kg()/1000.0:.1f} t of heavy metal, molten,")
@@ -788,6 +911,25 @@ def selftest():
           tritium_holding_kg() == P.tritium_inventory_kg(window(), None))
     check("the cold mass is machine's, to the last digit",
           solenoid_cold_mass_kg() == m.cold_mass_kg())
+    print()
+    print("  the mitigations that changed the plant, not the prose")
+    check("the target is lead and no mercury row survives the bill",
+          not any("mercury" in mat.lower()
+                  for _s, mat, _q, _u, _st, _sup, _n in bill()))
+    check("  -- and the beryllium window left with it",
+          [q for _s, mat, q, _u, _st, _sup, _n in bill()
+           if "beryllium" in mat] == [0.0])
+    check("  -- the substitution costs target length and that is stated",
+          target_length_ratio() > 1.0)
+    check("dry cooling is in the station, not offered beside it",
+          ref()["dry_cooling_mw"] > 0.0
+          and ref()["net_mw"] < ref()["gross_mw"])
+    check("  -- and the station still meets its households after paying it",
+          ref()["households"] >= _ps().STATION_HOUSEHOLDS)
+    check("the biological shield is sized as an attenuation, not a dose",
+          bio_shield_m() > shield_thickness_m())
+    check("the thermal buffer rides a trip the envelope had left open",
+          thermal_buffer_kg() > 0.0)
     check("the conductor bands are machine's grading, unregraded",
           [n for n, _ in conductor_bands()]
           == [b[0] for b in m.grade_bands()])

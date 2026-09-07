@@ -388,10 +388,11 @@ to breed a successor's first charge inside a forty-year life, against a **71.8 y
 module left open.** A module is not a plant: the cell's geometry does not scale and the production
 target has a *sourced* power its own study designed it at, so a station is **20 modules of 4 MW**,
 four linacs, **80 MW** of 8 GeV beam, **3,203 MW thermal**, **1,162 MW net electric**, **1,018,884
-households**. At that sourced 4 MW target the **265 MeV/c window returns 0.733 and does not close**;
-the **150 MeV/c window holds 1.605 kg** against 5.126 and closes at **2.110**, costing 1.884× in the
-fusion channel's own yield and 1.066× in the plant. **A choice that was optional at one module is
-decided at twenty.** The balance is **scale-invariant under replication**, so twenty modules is
+households**, after a **5 % dry-cooling penalty that is adopted in the design rather than offered
+beside it** — zero water consumed, and the module count absorbs the cost. At that sourced 4 MW target
+the **265 MeV/c window returns 0.733 and does not close**; the **150 MeV/c window holds 1.605 kg**
+against 5.126 and closes at **2.110**, costing 1.884× in the fusion channel's own yield and 1.066× in
+the plant. **A choice that was optional at one module is decided at twenty.** The balance is **scale-invariant under replication**, so twenty modules is
 twenty times a solved problem — but the **blanket is not split**: leakage goes as surface over
 volume, so splitting it twenty ways multiplies L by **2.71** and leaves the free neutrons per source
 at **−3.961**. The station's **32.1 kg** first charge exceeds the world's civil tritium stock of
@@ -399,7 +400,18 @@ about 25 kg and is built anyway, **by staging**: 15 modules charged from stock, 
 those running, **full power in year 3.9**, and a finished station breeds a successor's whole charge
 in **15.0 years**. Relaxing k to 0.98 would shrink the driver from 77.85 to 26.97 MW and is
 **declined**, because stability is one of the four criteria and the margin at 0.95 is a whole fast
-core's control worth. See `docs/POWERSOURCE.md`),
+core's control worth. **`--ignition` then separates three things one word had been hiding.** There is
+no ignition: the device has no threshold and starts when the beam starts. What a station needs first
+is **electricity** (267 MW at the wall for the drivers, ordinary, and one running station starts
+**4.36** neighbours at once), **tritium** (bred, staged, 15.0 years to a successor's charge), and
+**fissile** — and the third is the one that binds. `f_b = k/(ν−k)` is a **break-even** condition
+chosen to hold k, not to make surplus; what the budget has left after fission, break-even breeding,
+leakage and ⁶Li gives a breeding ratio of **1.233 to 1.538** and a fissile doubling of **35 to 136
+years** against 15 on tritium. **A fleet does not grow on its own fissile.** It grows on a stockpile,
+and there is one: **separated civil plutonium**, ~560 t, which nobody has a use for and everybody is
+paying to guard — enough for **15 to 24** stations, and the ~4,000 t in spent fuel for **104 to 173**.
+Starting at a smaller charge and breeding up is real (the loop still closes to **k = 0.756**) and
+declined: a fifth off the charge costs 5.4× in output. See `docs/POWERSOURCE.md`),
 **`tools/materials.py`** (**phase 2: the bill of materials**, and the column that decides criterion
 4. Every quantity is imported from the instrument that owns it or derived from those; each row
 carries a status and a **supply class**, and the selftest fails a row carrying neither. The
@@ -442,20 +454,26 @@ bought and was not chosen for. See `docs/BUILDPACKAGE.md`),
 refusal: **it computes no dose**. A dose needs site meteorology, a stack, a population and a pathway
 model, and a station with no site has none — so every radiological row is a **source term** and a
 **requirement on release**, and the selftest enforces that against the *rendered output* rather than
-the source, on word boundaries, so the check does not trip over its own text. Twenty-two rows, each
-graded with a **sign** — 3 BENEFIT, 1 NEGLIGIBLE, 4 MINOR, 9 MODERATE, 4 MAJOR, 1 DOMINANT — and
-each mitigation carrying `PRACTICE`, `DESIGNED` or `REQUIREMENT`. The selftest refuses a
-self-congratulatory register: more adverse rows than beneficial ones, the DOMINANT row the design's
-own doing, and **proliferation graded MAJOR with its mitigation status left at REQUIREMENT**,
-because a flowsheet described is not a flowsheet built. The one DOMINANT row is **tritium
-inventory**, set by the muon range and not the power. The one NEGLIGIBLE row is worth more than the
-rest: **there is no criticality accident to mitigate**, which is the one place this design is
-*categorically* safer than a reactor rather than incrementally. The waste result is the
-**actinides** — online processing returns them to the salt and burns them, so what leaves is fission
-products, three hundred years rather than three hundred thousand, and that follows from the
-chemistry the neutron budget already forced. Construction CO₂ comes out **305× below the sourced
-PWR figure**, which the report prints as a **warning rather than a result**: it is a measure of how
-little of a life-cycle assessment is structural steel. See `docs/ENVIRONMENT.md`),
+the source, on word boundaries, so the check does not trip over its own text. **Twenty-three rows,
+each graded TWICE** — before mitigation and after — because a mitigation that does not move the grade
+is not a mitigation, and each naming the **carrier** in `buildpackage.py` that takes it into the
+build; the selftest fails a carrier that exists in neither file, so **a mitigation that lives only in
+the register is prose**. The pass moved the register from **4 BENEFIT / 1 NEGLIGIBLE / 4 MINOR / 9
+MODERATE / 4 MAJOR / 1 DOMINANT** to **4 / 9 / 8 / 1 / 1 / 0**, and it moved it by changing the plant
+rather than the prose: **the target became molten lead** (mercury's vapour pressure is eight orders
+higher, so a mercury breach is a release and a lead breach is a puddle — and HARP's production data,
+which this design integrates, was measured on *lead*), **which deletes the beryllium window with it**;
+**dry cooling** was adopted at 5 % of gross output for zero water; a **2,691 t nitrate-salt thermal
+buffer** closes the beam-trip item the envelope had carried open; the **biological shield is sized as
+an attenuation factor**, which is computable where a dose is not; and **reduced-activation steel** is
+specified inside the shield, which sets the decommissioning waste class a century later and cannot be
+chosen afterwards. **Two rows do not clear and the file says why.** Tritium inventory stays **MAJOR**
+because it is the fusion channel's fuel — and **`--tradeoff` prices the only thing that would clear
+it**: deleting the muon channel costs **8 %** more beam and **1,540 pcm** of subcritical margin, and
+takes the tritium, the ⁶Li, the cells and the capture solenoids with it. *That file does not decide
+it.* Proliferation stays **MODERATE** because the denaturing argument rests on an equilibrium isotopic
+vector this work does not compute — read beside the **BENEFIT** row that the station *fissions*
+separated civil plutonium permanently. See `docs/ENVIRONMENT.md`),
 **`tools/window.py`** (the binder admissibility scan behind the paper's Theorem 1 — four tests over
 the charged spectrum, run in the order that constrains. Its point is *which* set the theorem closes
 on: the lifetime cut is a published number against a fixed threshold, so the **five** charged
