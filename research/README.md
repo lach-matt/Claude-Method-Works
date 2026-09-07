@@ -2212,3 +2212,94 @@ Alcubierre bubble at `v_s = 0.5 c`**, and another `T_kk` distribution is `NOT-RU
   `TURN-IS-LATE`.
 - `obstruct.py` — 17 rows. New `TURN-ADVANTAGE`, **CLOSED-NEGATIVE**.
 - `paper/CLAIMS.md` — **H6** with both exclusions.
+
+---
+
+## Pass 15 — `seatindex.py`: the conjugate point as an index, and what seats universally
+
+> *"The whole focus is now the conjugate point. We must identify what conditions/parameters do and do
+> not allow for universal transport. This is again an index, and we are looking for the conditions
+> that maximize universal transport."*
+
+`transit.py` reduced seating to one equation — `u″ = −qu`, `q = 4πT_kk`, `u(0) = 0`, the turn being
+the next zero. So "what conditions seat" is a question about `q` alone, and it has **two sharp
+classical bounds that bracket it from either side.**
+
+| | condition | force |
+|---|---|---|
+| **Sturm** (sufficient) | `q ≥ m` on a contiguous `ℓ ≥ π/√m`, i.e. **`m·ℓ² ≥ π²`** | seats **universally** |
+| **Lyapunov** (necessary) | `L·∫q⁺ > 4` | below it **nothing** seats, whatever the shape |
+
+### "Universal" is doing real work
+
+Sturm's condition is universal in the strict sense: **the zero occurs inside the focusing stretch**,
+so nothing outside can prevent it. Measured at exactly `m·ℓ² = π²`, over five approach distances
+crossed with surrounding potentials of `0`, `−5` and `−20` — **15/15 seat.**
+
+Below the frontier it breaks: **Sturm 0.49 → 1 failure, Sturm 0.25 → 7**, and the failures are always
+*short approach plus hostile outside*. That combination is exactly what a fixed approach hides, and
+it is why the first version of this test was wrong — I held `c = 1.0` and got "universal" for a
+sub-Sturm slab. A favourable approach carries a small `u` into the slab and needs less focusing.
+Sufficiency is a theorem; **the exact frontier of universality is `NOT-RUN`**, not absent.
+
+### Register 1206's three populations, run rather than assumed
+
+The resemblance was flagged `NOT-RUN` two passes ago. Run:
+
+| population | cells | seat |
+|---|---|---|
+| **interior capture** (`m·ℓ² ≥ π²`) | 64 | **64** |
+| **working overlap** | 84 | 75 — *and 9 do not, which is what makes it the overlap* |
+| **exterior** (Lyapunov-excluded) | 12 | **0** |
+
+Exact, not suggestive.
+
+### Which coordinates the index needs
+
+The information language's test, run on four candidates:
+
+| coordinate | verdict |
+|---|---|
+| `m` strength | **axis** — keeps cells |
+| `ℓ` extent | **axis** — and it enters as `ℓ²`, not `ℓ` |
+| `L` total length | **axis** — it is the Lyapunov denominator |
+| `c` position | **FOLDS** about the midpoint — `c` and `L−ℓ−c` are the same cell |
+
+The fold is `transit.py`'s reversal theorem **spent as a coordinate saving**: self-adjointness halves
+the index rather than shrinking it. M's both-ends prediction paying a second dividend.
+
+### What maximizes it
+
+On the frontier the focusing budget is `∫q = m·ℓ = π²/ℓ`, so **the cost of a universal seat falls as
+`1/ℓ` without limit.** Long and weak beats short and strong. With total length `L` the cheapest
+universal seat uses all of it: `ℓ = L`, `m = π²/L²`, budget `π²/L`.
+
+### And the matter that meets it is ordinary
+
+`q = (4πG/c⁴)T_kk`, so the universal condition in SI is
+
+**`T_kk ≥ πc⁴/(4Gℓ²) = 9.5053×10⁴³ / ℓ² Pa`**
+
+| `ℓ` | `T_kk` needed | vs nuclear (~10³⁵ Pa) |
+|---|---|---|
+| 1 m | 9.51×10⁴³ Pa | 9.5×10⁸ × |
+| 1 km | 9.51×10³⁷ Pa | 951 × |
+| **100 km** | **9.51×10³³ Pa** | **0.095 ×** |
+| 1000 km | 9.51×10³¹ Pa | 0.00095 × |
+
+**Positive, energy-condition-satisfying, and below nuclear density beyond about 100 km.** This is the
+sector `transit.py`'s exclusion 1 forced us into, and it turns out to be **inhabited** — matter that
+seats a conjugate point exists in nature.
+
+### The gap, stated plainly
+
+**Universal seating is not universal transport.** A seat is a light focus: a null congruence leaves A
+and reconverges at B. It carries no payload. And exclusion 2 stands — every turning ray arrives late.
+This pass answers *"what conditions seat, universally"* exactly, and *"what conditions transport"* not
+at all. The index is the right index; it is not yet the index of transport.
+
+### Seated
+
+- `index3.py` — 159 findings, still 15 cells: `UNIVERSAL-SEAT`, `NOTHING-BELOW`, `THREE-POPULATIONS`,
+  `LONG-AND-WEAK`, `ORDINARY-MATTER`, `C-FOLDS`.
+- `paper/CLAIMS.md` — **H7**.

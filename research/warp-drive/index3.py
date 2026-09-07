@@ -425,6 +425,19 @@ FINDINGS = [
   "u'' = -4 pi T_kk u turns back only where T_kk > 0, so the turn succeeds ONLY on ANEC-SATISFYING rays: whatever seats a transition lives in the ordinary-matter half, not the exotic one"),
  ("TURN-IS-LATE",    0, -1, -1, "transit.py",
   "and that half arrives late: every turning ray carries a positive Shapiro delay, every early ray fails to turn. TURN => LATE, EARLY => NO TURN, no configuration on this metric has both"),
+ # The conjugate point as an index: what does and does not seat, universally.
+ ("UNIVERSAL-SEAT", +1, +1, +1, "seatindex.py",
+  "Sturm: q >= m over a contiguous l >= pi/sqrt(m), i.e. m l^2 >= pi^2, seats UNIVERSALLY -- the turn happens INSIDE the stretch, so nothing outside can prevent it, measured against hostile surroundings at every approach"),
+ ("NOTHING-BELOW",   0, -1, +1, "seatindex.py",
+  "Lyapunov: L INT q+ <= 4 excludes seating for ANY shape. 12 cells excluded, 0 seat. The bound is universal in the other direction"),
+ ("THREE-POPULATIONS",+1, 0, +1, "seatindex.py",
+  "register 1206's partition, run and not assumed: 64 interior captures all seat, 12 exterior none seat, and the 84-cell working overlap does both -- which is what makes it the overlap"),
+ ("LONG-AND-WEAK",  +1, +1, +1, "seatindex.py",
+  "the frontier costs INT q = pi^2/l, so universal seating gets CHEAPER without limit as the focusing region lengthens: long and weak beats short and strong"),
+ ("ORDINARY-MATTER",+1, +1, +1, "seatindex.py",
+  "T_kk >= pi c^4/(4 G l^2) = 9.5053e43/l^2 Pa -- positive, energy-condition-satisfying, and BELOW nuclear density beyond ~100 km. Matter that seats a conjugate point exists in nature"),
+ ("C-FOLDS",         0,  0, +1, "seatindex.py",
+  "the position coordinate FOLDS about the midpoint rather than being removed: transit.py's reversal theorem spent as a coordinate saving, self-adjointness halving the index"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of seventeen obstructions three dissolved, three relocated, six closed negative, three conditional, two open and none untested"),
 ]
@@ -543,7 +556,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 153)
+    chk("number of findings indexed", len(FINDINGS), 159)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -573,13 +586,15 @@ def selftest():
                 "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE",
                 "AREA-OVER-THICK","NO-NULL-QI","D-CANCELS",
                 "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE","ANEC-VIOLATED","ACHRONAL",
+                "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
                 "THE-DOOR","EC-TAKEN","NO-EXOTIC","STIFF-WALL","LOOP-OBSERVABLE",
                 "NO-NULL-QI","D-CANCELS","DESIGN-EQUATION","CHANGE-OF-KIND",
-                "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
+                "STATE-NOT-ELEMENT","ESCAPES-TYPE-I",
+                "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

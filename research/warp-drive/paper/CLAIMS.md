@@ -260,6 +260,61 @@ at once.**
 
 ---
 
+## ★ HEADLINE — flagged for the abstract
+
+**H7. Universal seating has a closed-form condition, and the matter that meets it is ordinary.**
+
+> With the conjugate point as the object, "what conditions seat" is a question about `q = 4πT_kk`
+> alone, and two classical bounds bracket it from either side:
+>
+> | | condition | force |
+> |---|---|---|
+> | **Sturm** (sufficient) | `q ≥ m` on a contiguous length `ℓ ≥ π/√m`, i.e. **`m·ℓ² ≥ π²`** | seats **universally** |
+> | **Lyapunov** (necessary) | `L·∫q⁺ > 4` | below it **nothing** seats, whatever the shape |
+>
+> **Sturm's condition is universal in the strict sense**: the zero occurs *inside* the focusing
+> stretch, so nothing outside it can prevent the seat. Measured at exactly `m·ℓ² = π²` over five
+> approach distances crossed with surrounding potentials of `0`, `−5` and `−20` — **15/15 seat**. Drop
+> below and universality breaks: at Sturm `0.49` one case fails, at `0.25` seven do, and the failures
+> are always **short approach plus hostile outside**.
+>
+> **Register 1206's three populations, run rather than assumed.** *"The Method equation partitions an
+> index into three populations: interior captures, the working overlap, and exterior predictions."*
+>
+> | population | cells | seat |
+> |---|---|---|
+> | **interior capture** (`m·ℓ² ≥ π²`) | 64 | **64** |
+> | **working overlap** | 84 | 75 — *and 9 do not, which is what makes it the overlap* |
+> | **exterior** (Lyapunov-excluded) | 12 | **0** |
+>
+> **What maximizes it.** On the frontier the focusing budget is `∫q = m·ℓ = π²/ℓ`, so **the cost of a
+> universal seat falls as `1/ℓ` without limit**. Long and weak beats short and strong. Same shape as
+> this project's other design equations: area over thickness, and now strength over length.
+>
+> **And the threshold is ordinary matter.** `q = (4πG/c⁴)T_kk` gives
+>
+> **`T_kk ≥ πc⁴/(4Gℓ²) = 9.5053×10⁴³ / ℓ² Pa`**
+>
+> | `ℓ` | `T_kk` needed | vs nuclear (~10³⁵ Pa) |
+> |---|---|---|
+> | 1 m | 9.51×10⁴³ Pa | 9.5×10⁸ × |
+> | 1 km | 9.51×10³⁷ Pa | 951 × |
+> | **100 km** | **9.51×10³³ Pa** | **0.095 ×** |
+> | 1000 km | 9.51×10³¹ Pa | 0.00095 × |
+>
+> **Positive, energy-condition-satisfying, and below nuclear density beyond ~100 km.** Matter that
+> seats a conjugate point exists in nature. This is the sector `transit.py`'s exclusion 1 forced, and
+> it turns out to be inhabited.
+
+| | `seatindex.py` |
+|---|---|
+| status | **PROVEN** (Sturm, Lyapunov — classical) + **MEASURED** (the index, the populations, the universality scan) |
+| new? | the application and the trichotomy, yes; both bounds are classical and are cited as such |
+| falsified by | a Sturm-satisfying configuration that fails to seat (would contradict Sturm), or an exact universality frontier below `m·ℓ² = π²` |
+| **not** claimed | **that universal seating is universal transport.** A seat is a light focus and carries no payload; and `transit.py`'s exclusion 2 stands — every turning ray arrives late. The exact frontier of universality is **`NOT-RUN`**, not absent. |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -319,6 +374,9 @@ at once.**
 - Any figure carrying the SNEC's four O(1) exposures as if it were exact.
 - **That H5 escapes ANEC.** It does the opposite: it closes the one escape and shows the closure is
   structural. What it buys is precision about where the prohibition actually rests.
+- **That H7's universal seating is universal transport.** It is universal *seating*: the conjugate
+  point is guaranteed regardless of the surroundings. It carries no payload, and turning rays arrive
+  late. The index is the right index; it is not yet the index of transport.
 - **That H6's three-part structure delivers transport.** It delivers a *frame* that is coherent,
   gated and computable, plus two exclusions. A conjugate point is a light focus, not a payload.
 - That the achronality scan is exhaustive. It covers impact parameter for `+x` rays at three speeds.
