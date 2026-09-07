@@ -862,6 +862,7 @@ NUMERAL_EXEMPT = (
     r"[Pp]ass(?:es)?\s+\d+(\s*[-–]\s*\d+)?",  # a verifier pass by number
     r"[Ss]tage[s]?\s+[A-D]",          # a stage by letter
     r"\bC\d+\b",                    # a claim id
+    r"\[\d+\]",                      # a reference marker: it addresses a source
     r"[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]",                # a superscript already set
     r"\b(19|20)\d{2}s?\b",           # a year or a decade
     r"\b[46]Li\b", r"\bD₂\b", r"\bd\+t\b", r"\b⁴He\b",   # a nuclide
@@ -955,6 +956,64 @@ def a25_ungrounded(P):
                   f"{len(debt)} without a definition near it", debt)
 
 
+# ---- workshop matter, and why this is not one of the twenty-five ------------
+# The Method's volumes are ABOUT their own construction: the register, the
+# audits, the corrections and the process that produced them are the subject.
+# So no audit of theirs separates workshop from subject matter -- there is
+# nothing to separate. A PAPER is not like that. Its reader is owed the subject
+# and owes nothing to the process, so the separation is a requirement of this
+# document and not of the corpus, and it is run BESIDE the twenty-five for
+# exactly the reason TERM MATCH is: it is not one of them.
+WORKSHOP_TERMS = (
+    ("ledger", "the claims file is apparatus, not subject matter"),
+    ("CLAIMS.tsv", "a filename"),
+    ("render_paper", "a program"),
+    ("audit_paper", "a program"),
+    ("verify_paper", "a program"),
+    ("docfigures", "a program"),
+    ("selftest", "how the apparatus checks itself"),
+    ("claim id", "how a quantity is addressed internally"),
+    ("citation into", "the binding mechanism"),
+    ("this repository", "where the work is kept"),
+    ("the corpus", "the source material's own name for itself"),
+    ("earlier draft", "the drafting history"),
+    ("this paper's own earlier", "the drafting history"),
+    ("workshop", "the word itself"),
+    ("the renderer", "the apparatus"),
+    ("stdlib", "an implementation detail"),
+    ("re-render", "an implementation detail"),
+    ("hand-edit", "an implementation detail"),
+    ("python3 ", "a command"),
+    ("--selftest", "a command"),
+)
+# a word that is subject matter here despite looking like apparatus
+WORKSHOP_EXEMPT = (
+    "instrument",        # a detector is an instrument
+    "measurement",
+)
+
+
+def a_workshop(P):
+    """Workshop matter in a reader-facing document.
+
+    Matter about the PROCESS of making the paper -- the ledger, the programs,
+    the drafting history -- is owed to the record and not to the reader. It is
+    kept in `docs/PAPER-WORKSHOP.md`, and a paper that has taken any of it back
+    fails here."""
+    hits = []
+    for kind, payload in P.src_blocks:
+        text = payload if isinstance(payload, str) else " ".join(
+            " ".join(r) for r in payload if r != "SEP")
+        for term, why in WORKSHOP_TERMS:
+            for m in re.finditer(re.escape(term), text, re.I):
+                frag = text[max(0, m.start() - 40):m.start() + 50].strip()
+                hits.append(f"'{term}' ({why}) in: ...{frag}...")
+    v = "FAIL" if hits else "PASS"
+    return Result(0, "WORKSHOP SEPARATION", v,
+                  f"{len(P.src_blocks)} blocks read for matter about the making of "
+                  f"the paper rather than its subject", hits[:10])
+
+
 def a_termmatch(P):
     """Audit 22 in the intake's numbering: EXTERNAL by construction.
 
@@ -1002,6 +1061,7 @@ def run(src_path, verbose=False):
         except Exception as e:                      # an audit that dies is a FAIL
             r = Result(0, fn.__name__, "FAIL", f"the audit itself raised: {e}", [])
         results.append(r)
+    results.append(a_workshop(P))
     results.append(a_termmatch(P))
 
     print(f"  {'no':>3}  {'audit':<24} {'reads':<9} {'against':<14} "
@@ -1086,14 +1146,27 @@ def selftest():
     check("PROJECTION catches a claim of predictive power",
           a20_projection(Q).verdict == "FAIL")
     # 24 UNBACKED: a numeral typed into the source
+    # inject BEFORE the References heading: everything after it is bibliographic
+    # and correctly exempt, so a fault planted there proves nothing.
+    def _before_refs(P_, block):
+        cut = len(P_.src_blocks)
+        for i, (k, v) in enumerate(P_.src_blocks):
+            if k.startswith("h") and re.search(r"references", str(v), re.I):
+                cut = i
+                break
+        return P_.src_blocks[:cut] + [block] + P_.src_blocks[cut:]
+
     Q = Paper(src)
-    Q.src = Q.src + "\n\nThe balance is 1.480 on any reading.\n"
-    Q.src_blocks = RP.parse(Q.src)[1]      # the audit reads the blocks, not the text
+    Q.src_blocks = _before_refs(Q, ("p", "The balance is 1.480 on any reading."))
     check("UNBACKED CLAIMS catches a numeral typed into the source",
           a24_unbacked(Q).verdict == "FAIL")
     Q = Paper(src)
-    Q.src_blocks = Q.src_blocks + [("table", [["x", "y"], "SEP", ["a", "1.480"]])]
+    Q.src_blocks = _before_refs(Q, ("table", [["x", "y"], "SEP", ["a", "1.480"]]))
     check("and one typed into a table cell, which it was once blind to",
+          a24_unbacked(Q).verdict == "FAIL")
+    Q = Paper(src)
+    Q.src_blocks = _before_refs(Q, ("p", "See Phys. Rev. C 77, 055207 for that."))
+    check("and a bibliographic number OUTSIDE the References is still caught",
           a24_unbacked(Q).verdict == "FAIL")
     # 3 CONSISTENCY: one quantity at two values
     Q = Paper(src)
@@ -1120,6 +1193,13 @@ def selftest():
                [b for b in Paper(src).blocks if not b[0].startswith("h")][:1]
     check("ANTECEDENT runs over the abstract's figures",
           a11_antecedent(Q).verdict in ("PASS", "FAIL"))
+    Q = Paper(src)
+    Q.src_blocks = Q.src_blocks + [
+        ("p", "Every quantity is a ledger row, resolved by render_paper.py.")]
+    check("WORKSHOP SEPARATION catches matter about the making of the paper",
+          a_workshop(Q).verdict == "FAIL")
+    check("and the clean paper carries none of it",
+          a_workshop(Paper(src)).verdict == "PASS")
 
     print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")

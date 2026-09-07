@@ -1,7 +1,7 @@
 TITLE: Cold Fusion by Muonic Binding
 SUBTITLE: A proof from witnessed quantities, the materials it requires, and the procedure that would witness it
 AUTHOR: M. Lach
-DATE: Version 1.0 · Prepared under The Method 1.6 · Every quantity in this paper is a citation into its claims ledger; the prose states no number of its own
+DATE: Version 1.0
 RUNNING: Cold Fusion by Muonic Binding
 
 ## Abstract
@@ -32,7 +32,7 @@ every loss between a produced pion and a stopped binder gives a budget of [[C742
 solenoid's own stopping ceiling is [[C506]]; the delivered acceptance is therefore [[C753]] and not
 the [[C260!]] the balances were read at. **At the delivered figure, and with the machine as
 built, nothing clears unity** — every heat form, every work form, and bred fuel at the demonstrated
-cycle count fall below it. **This paper says so where earlier drafts of it did not.**
+cycle count fall below it.
 
 **The machine is not required to be left as built, and §5.4 prices the alterations against every
 balance rather than against one.** The optimised production target this paper specifies is worth
@@ -53,8 +53,6 @@ because it was never a ratio against unity.
 The materials are specified to the last free parameter, the machine that supplies the binders is
 designed as a build package, and the laboratory programme is four staged measurements on apparatus
 that exists — the acceptance measurement first, because it multiplies every balance identically.
-Every quantity is carried by a ledger row with a verifying computation, and the prose is bound to
-that ledger by construction: it cites values, it cannot state them.
 
 ---
 
@@ -225,9 +223,9 @@ the two-body pion decay integrated over the pion rest frame, and finally a momen
 over the built machine's own configuration, the model returns [[C373]] against that machine's
 published simulation, agreeing to [[C374]].
 
-> **This is the one place in this work where a model of ours is validated against a published
-> simulation rather than against our own corpus**, and it is what licenses the acceptance figures
-> below.
+> **The acceptance model is therefore validated against an independent simulation of a machine that
+> was built**, rather than against the assumptions that produced it, and that is what licenses the
+> acceptance figures below.
 
 Run over a reactor's configuration, at today's aperture and accepting both hemispheres, the model
 gives [[C377]] with no momentum requirement and [[C382]] through a stopping window of [[C371]].
@@ -235,10 +233,8 @@ gives [[C377]] with no momentum requirement and [[C382]] through a stopping wind
 ### 5.2 An acceptance is not a delivered efficiency
 
 **Every balance stated so far is stated at some collection efficiency, and none of those efficiencies
-is a delivered one.** This is the correction that governs the rest of the paper, and it runs against
-its own earlier conclusions.
-
-Two results stand between an acceptance and a stopped binder.
+is a delivered one.** Two results stand between an acceptance and a stopped binder, and every balance
+above must be read through them.
 
 **A muon the solenoid accepts but the fuel does not stop is not a binder.** A stopping target is one
 muon range deep, so it stops only the part of the accepted spectrum below its range. The ceiling on
@@ -274,20 +270,19 @@ The balance is **linear** in collection, so the restatement is exact rather than
 | bred fuel, bound-case service life | [[C819]] | **[[C769]]** | [[C770]] |
 
 > **At the delivered acceptance, and with the machine left as it is, nothing clears unity.** Every
-> heat form, every work form and bred fuel at the demonstrated cycle count fall below it. An earlier
-> reading of this work said otherwise, and that reading is withdrawn here.
+> heat form, every work form and bred fuel at the demonstrated cycle count fall below it. **The
+> figures reported at ninety percent collection in the preprints at [18] are withdrawn as end-to-end
+> results**; they stand as the conditionals they were stated at.
 
-**But the machine is not required to be left as it is**, and §5.4 asks what the alterations this
-paper specifies do to the same table. That question was put to the bred-fuel route and to nothing
-else, which was an omission rather than a finding.
+**But the machine is not required to be left as it is**, and §5.4 states what the alterations
+specified here do to the same table.
 
 ### 5.4 What the specified alterations do to every balance
 
-§5.3 states the balances for the machine as built. This paper specifies two alterations to it — an
-**optimised production target**, and a **wider bore** — and prices the first of them against the
-bred-fuel route only. **It multiplies every balance by the same factor**, because a balance is
-`N · V · η / E_binder` and the target moves `E_binder` alone: from [[C100]] to [[C290]], worth
-[[C829]].
+§5.3 states the balances for the machine as built. Two alterations to it are specified here — an
+**optimised production target**, and a **wider bore**. **The target multiplies every balance by the
+same factor**, because a balance is `N · V · η / E_binder` and the target moves `E_binder` alone:
+from [[C100]] to [[C290]], worth [[C829]].
 
 > **The factor checks against the requirement it moves.** §4.2 puts bred fuel at demonstrated cycles
 > at [[C257]] collection; through the optimised target that requirement is [[C392]], and
@@ -309,21 +304,21 @@ bred-fuel route only. **It multiplies every balance by the same factor**, becaus
 > wider bore, and the φ = 3 case reaches **[[C835]]** with both. **Those clear unity, and they are not
 > bred fuel** — nothing leaves the device to earn them.
 
-**Three conditions travel with that, and every one of them is this paper's own.**
+**Three conditions travel with that result, and each is stated in full below.**
 
 **First, it is the bound-case service life and not the demonstrated one.** At [[C44]] per binder,
 which is what has actually been measured, the optimised target takes heat only to [[C830]] and work to
 [[C836]]. **Nothing device-internal clears at a witnessed cycle count under any alteration specified
 here.**
 
-**Second, the bound case rests on a service-life model this work says over-predicts.** §11 records
-that the model returns more cycles than were measured at the one point where a comparison is possible.
+**Second, the bound case rests on a service-life model that over-predicts.** It returns more cycles
+than were measured at the one point where a comparison is possible (§11).
 Every figure in the two bound-case rows inherits that; the bred-fuel row at demonstrated cycles does
 not.
 
-**Third, the factor itself is unmeasured.** [[C290]] is a published optimisation §11 declines to adopt
-and §10 Stage C measures. **The whole of this section is conditional on that stage**, which is the
-second reason it runs early.
+**Third, the factor itself is unmeasured here.** [[C290]] is a published optimisation this paper does
+not adopt, and §10 Stage C is the measurement that would settle it. **The whole of this section is
+conditional on that stage**, which is the second reason it runs early.
 
 > **And "inside the device" has two readings that do not agree.** The heat forms above count the
 > blanket's multiplication and its fissile heat, which is heat recovered on site. Counting the neutron
@@ -464,7 +459,7 @@ measurement ends.
 > excluded by the aperture, and the target must be a **free liquid-metal jet**.
 
 **The beam power the target must survive is [[C637]] at [[C822]]**, which is [[C638]] of the
-driver — a sourced figure, and one an earlier reconstruction of this work had wrong by nearly seven.
+driver, and it is a sourced figure rather than a reconstruction.
 
 ### 7.4 The fuel cell, and where it can sit
 
@@ -566,9 +561,9 @@ catalyses is gain.**
 | one half | [[C471]] | only at about [[C511]] of tritium |
 | [[C260!]], the specified collector | [[C472]] | **no — above the ceiling at any target depth** |
 
-**That last row is withdrawn, and the correction is this section's own.** A capture efficiency here
-means a muon that *stops in the fuel*, and a stopping target is one muon range deep, so it stops only
-the part of the accepted spectrum below its range. The bound is not the collector's: it is the
+**That last row is withdrawn.** A capture efficiency here means a muon that *stops in the fuel*, and a
+stopping target is one muon range deep, so it stops only the part of the accepted spectrum below its
+range. The bound is not the collector's: it is the
 solenoid's acceptance, [[C506]], which no target depth exceeds. **That row compared a collector's
 acceptance with a fuel target's stopping fraction, which are different quantities.**
 
@@ -579,7 +574,7 @@ acceptance with a fuel target's stopping fraction, which are different quantitie
 | capture | binders per second | fusion heat |
 |---|---|---|
 | one half, as first computed | [[C473]] | [[C474]] |
-| [[C503]], this section's own ceiling | [[C807]] | [[C809]] |
+| [[C503]], the stopping ceiling above | [[C807]] | [[C809]] |
 | **[[C804]]**, that ceiling through the loss budget | **[[C808]]** | **[[C810]]** |
 
 > **The conclusion is untouched and only the magnitude moves, and that asymmetry is the whole point of
@@ -587,8 +582,8 @@ acceptance with a fuel target's stopping fraction, which are different quantitie
 > [[C742]] decides it. This one is not a ratio at all: the marginal beam energy per binder is
 > **zero**, so any positive heat is gain and no loss factor can take it below unity. [[C810]] of
 > fusion heat at zero marginal beam cost is the same result as [[C474]], reached by the same argument
-> and arriving at a smaller number. **It is the one figure in this work that the acceptance census
-> rescales without deciding**, because it was never conditional on an acceptance clearing a threshold.
+> and arriving at a smaller number. **It is the one figure here that a collection factor rescales
+> without deciding**, because it was never conditional on an acceptance clearing a threshold.
 
 > **This is a net-positive cold fusion reaction.** No input per event, no input for the binder, and
 > real energy out. It is provable from witnessed quantities and needs no number that has not been
@@ -661,13 +656,13 @@ driver already running, against the committed predictions of §9.5.
 
 ## 11. Limits, and what this paper does not claim
 
-**A finding is recorded, never repaired.** The items below are stated as limits rather than resolved,
-because resolving them by argument is what this paper's method forbids.
+**Each item below is a limit on what the foregoing establishes, and none of them is resolved by
+argument here.** Where a measurement would settle one, that measurement is named.
 
 **The deciding measurement is unmade.** The two published final stickings, [[C06]] and [[C07]],
 straddle the break-point at [[C115]]. §8's protocol settles it, and nothing here stands in for that.
 
-**Every collection figure in this paper is an acceptance, not a delivered efficiency**, until Stage A
+**Every collection figure here is an acceptance rather than a delivered efficiency** until Stage A
 runs. §5.2 computes the losses between the two and §5.3 restates every balance through them, but a
 computed budget is not a measurement, and the margin over the falsification floor is [[C750]].
 
@@ -683,59 +678,25 @@ model returns more cycles than were measured at the single point where a compari
 **every bound-case figure inherits that** while no bred-fuel figure at demonstrated cycles does. The
 asymmetry is why §5 leans on the demonstrated count.
 
-**The optimised production target is a discrepancy this paper cannot close by argument.** A published
-optimisation costs [[C290]] per pion against this paper's [[C100]]. Three candidate mechanisms were
-examined and bounded; what survives is a **normalisation** — pions per beam particle against pions per
-interaction — needing [[C538]] interacting nucleons, which reproduces the optimised figure closely and
-which a deuteron on a long target supplies. **Stage C measures it rather than settling it here.**
+**The optimised production target is a discrepancy that cannot be closed by argument.** A published
+optimisation costs [[C290]] per pion against the [[C100]] integrated in §4.1. Three candidate
+mechanisms were examined and bounded; what survives is a **normalisation** — pions per beam particle
+against pions per interaction — needing [[C538]] interacting nucleons, which reproduces the optimised
+figure closely and which a deuteron on a long target supplies. **Stage C measures it.**
 
-**And the standalone configuration is closed, not open.** §9.1 is a theorem, and no measurement in
-§10 can overturn it. What §10 can do is decide the co-product configuration and the bred-fuel route,
+**And the standalone configuration is closed rather than open.** §9.1 is a theorem, and no measurement
+in §10 can overturn it. What §10 can decide is the co-product configuration and the bred-fuel route,
 which are the two that survive.
 
 ---
 
-## 12. How this paper is verified
-
-**The publication standard here is enforced mechanically rather than by care**, and this section
-states the mechanism so that a reader can run it.
-
-**Every quantity is a ledger row.** `papers/CLAIMS.tsv` carries one row per stated quantity: value,
-unit, status, provenance, and the computation that verifies it. `tools/verify_paper.py` runs three
-passes over that ledger — it **recomputes** every `DERIVED` row from the instruments, **binds** every
-cited constant to the instrument holding it, and fails on any number in the prose that no ledger row
-carries.
-
-> **The prose of this paper states no number of its own.** It carries citations, which
-> `tools/render_paper.py` resolves against the ledger at render time. A sentence therefore cannot
-> acquire a figure the mathematics does not produce, because a sentence cannot hold a figure at all.
-> This closes a weakness the earlier working papers recorded and did not repair: a value test is not
-> a binding test, and two wrong figures had passed one.
-
-**A status is never flattened.** A row's status travels with its value. Where this paper cites a
-figure that is `WITHDRAWN`, `RECONSTRUCTED`, `PROJECTED`, `ASSUMED` or a `DESIGN` target, the renderer
-**requires** the status to be printed beside it, and refuses to render the citation otherwise. Every
-bracketed status in this document is there because the mechanism would not let it be omitted.
-
-**The instruments are stdlib-only and each takes a `--selftest`** whose fixtures are recorded
-measurements rather than the instrument's own output. The collection model, the energy balance, the
-machine, the loss budget and the acceptance census each have one, and each refuses to report certain
-things — the refusals being the point rather than a limitation.
-
-**And this paper is audited.** The twenty-five audits the underlying method applies to its own volumes
-are run over this document: the ten that test the index, the twelve that test whether it is a usable
-artefact, and the three that test what it owes. `tools/audit_paper.py` runs them, and its report is
-the last word on whether this document is fit to be read.
-
----
-
-## 13. What this paper claims, in order
+## 12. What this paper claims, in order
 
 1. **A cold fusion reaction exists and is witnessed.** Its definition is structural, its seven
    conditions admit exactly one binder, and its cycle has been measured for seventy years.
 2. **An eighth condition decides whether it is worth running**, and every term in it is measured.
-3. **No configuration of it is self-sustaining inside the device**, at the collection efficiency the
-   machine actually delivers. That is stated here against this paper's own earlier readings.
+3. **No configuration of it is self-sustaining inside the device** at the collection efficiency the
+   machine actually delivers, with the machine left as built.
 4. **One configuration is net-positive on witnessed numbers alone** — as a co-product of a beam
    already running, where the marginal energy per binder is zero — and it returns [[C810]] on a
    one-megawatt driver.
@@ -754,11 +715,11 @@ the last word on whether this document is fit to be read.
 
 > **The reaction is proved from what has been witnessed. The net-positive configuration is specified
 > and unwitnessed. The instructions for witnessing it are §8 and §10.** That is the whole of the
-> claim, and no part of it is larger than the ledger behind it.
+> claim, and no part of it is larger than the measurements behind it.
 
 ---
 
-## 14. References
+## 13. References
 
 1. M. G. Catanesi *et al.* (HARP Collaboration), Phys. Rev. C **77**, 055207; A. Bolshakova *et al.*,
    *Large-angle production of charged pions by 3 GeV/c–12.9 GeV/c protons on beryllium, aluminium and
@@ -797,39 +758,9 @@ the last word on whether this document is fit to be read.
 16. E. Koukina *et al.* (MuFusE Collaboration), *Design and Commissioning of a Deuterium-Tritium Gas
     Delivery System for Muon Catalyzed Fusion in a Diamond Anvil Cell*, arXiv:2606.19304; and
     J. D. Kalow *et al.*, arXiv:2606.05333. **The diamond-anvil cell and gas system of §6.3 column A.**
-17. M. Lach, *The Method* v1.2–8 — *The Lach Cylinder: an index of transitions*. **The corpus this
-    paper's method and audit suite are drawn from; this paper writes nothing back to it.**
+17. M. Lach, *The Method* v1.2–8 — *The Lach Cylinder: an index of transitions*.
 18. M. Lach, *Cold Fusion and the Binder Economy*, v1.0; *The Binder Economy Against the Recent
-    Literature*, v1.0; *Cold Fusion: Specification and Procedure*, v1.0. **The three working papers
-    this document consolidates. Where they and this paper differ, this paper governs.**
+    Literature*, v1.0; *Cold Fusion: Specification and Procedure*, v1.0. **Superseded by this paper
+    wherever the two differ.**
 
 ---
-
-## 15. The verification record
-
-**This paper is issued with its own audit report.** The twenty-five audits the underlying method runs
-over its own volumes are run over this document by `tools/audit_paper.py`, and they are ordered by
-what a failure costs. The first two check the paper against the world and a failure makes it **wrong**.
-The next two check it against itself and a failure makes it **unreadable as an argument**. The next
-two check it against what a reader receives and a failure makes it **unusable as an object**. The
-seventh checks it against what it owes, and a failure there makes it **dishonest** — which is a worse
-failure and a quieter one, and it is the only audit of the seven that cannot be run by reading the
-paper. The remainder are the index and artefact suites §12 describes.
-
-**Two of the twenty-five return a debt rather than a verdict, and that is their designed output.**
-Audit 25, UNGROUNDED COORDINATES, identifies terms used without a referent; and TERM MATCH — external
-by construction, and carried *beside* the twenty-five rather than inside them because the corpus gives
-it and CENSUS the same number in two different places — asks what the cited literature means by a term
-against what this paper means by it. **That numbering collision is recorded and not resolved**, which
-is why one of the two is run unnumbered. **No self-audit can catch a word that means something else elsewhere**, so its output is a debt
-this document records and does not discharge.
-
-**Reproducing this paper from source:**
-
-- `python3 tools/render_paper.py papers/Cold_Fusion_v1.0.src.md --all` — resolves every citation
-  against the ledger and writes the Markdown, HTML, Word and PDF forms from that one source.
-- `python3 tools/audit_paper.py` — the twenty-five audits.
-- `python3 tools/verify_paper.py papers/out/Cold_Fusion_v1.0.md` — the three ledger passes, run
-  over the *rendered* document, where pass 3 is true by construction and is checked anyway.
-- `python3 tools/machine.py --selftest`, `tools/collector.py --selftest`, `tools/mucf.py --selftest`
-  — the instruments the ledger's `DERIVED` rows are recomputed from.

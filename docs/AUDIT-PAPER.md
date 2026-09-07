@@ -79,7 +79,23 @@ reproduce exactly that failure.
 | 23 | PUBLISHED VALUES | external reproductions hold, and the published rows cited are carried verbatim |
 | 24 | UNBACKED CLAIMS | **any numeral typed into the source prose** |
 | 25 | UNGROUNDED COORDINATES | a term used with no referent. Returns `DEBT` by construction |
+| — | WORKSHOP SEPARATION | matter about the **making** of the paper — the ledger, the programs, the drafting history — in a document whose reader is owed only its subject. Beside the suite, not inside it: see below |
 | — | TERM MATCH | what the cited literature means by a term against what this paper means. `DEBT`, external, never automatable |
+
+## Why WORKSHOP SEPARATION is beside the twenty-five and not one of them
+
+**The Method's volumes are *about* their own construction.** The register, the audits, the corrections
+and the process that produced them are the subject matter, so no audit of theirs separates workshop
+from subject: in that object there is nothing to separate, and an audit for it would have no work to
+do.
+
+**A paper is not like that.** Its reader is owed the subject and owes nothing to the production, so
+the separation is a requirement of *this* document and not of the corpus. That is the same reason
+TERM MATCH sits beside the suite — and the reason neither is given a number.
+
+The removed matter is in `docs/PAPER-WORKSHOP.md`, which also records the one residual the citation
+mechanism does not close: it makes a number with **no** ledger row impossible, and cannot make a
+citation of the **wrong** row impossible.
 
 ## Audit 24 is the one whose PASS is structural
 

@@ -298,7 +298,13 @@ COORDINATES from the compendia intake. A `DEBT` is never reported as a `PASS` an
 `FAIL`, which is how audit 25 and the external TERM MATCH return. **The 22 CENSUS / 22 TERM MATCH
 numbering collision is recorded and not resolved** — the live table's CENSUS is run as 22 and TERM
 MATCH beside it, unnumbered. Its `--selftest` breaks the paper on purpose, once per audit, because an
-audit that passes on clean text proves nothing — see `docs/AUDIT-PAPER.md`)
+audit that passes on clean text proves nothing. **It also runs a WORKSHOP SEPARATION check beside the
+twenty-five**: matter about the *making* of a paper — the ledger, the programs, the drafting history —
+is owed to the record and not to the reader, and it lives in `docs/PAPER-WORKSHOP.md` rather than in
+the paper. That check is beside the suite and not inside it for the same reason TERM MATCH is: The
+Method's volumes are *about* their own construction, so no audit of theirs separates workshop from
+subject — in that object there is nothing to separate. See `docs/AUDIT-PAPER.md` and
+`docs/PAPER-WORKSHOP.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 68 pinned figures, ~5 s, exits 1 on drift. Fourteen
