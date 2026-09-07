@@ -2758,6 +2758,26 @@ def cen_agreement():
     return _cen("0.875") / _mach.balance_at_delivered(5)
 
 
+def cen_div_nocut():
+    return _cen("1.64")
+
+
+def cen_div_265():
+    return _cen("2.25")
+
+
+def cen_div_frontend():
+    return _cen("3.33")
+
+
+def cen_525():
+    return _cen("2.076")
+
+
+def cen_residue():
+    return float(len(_mach.census_residue()))
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

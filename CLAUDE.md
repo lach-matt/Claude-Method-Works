@@ -95,13 +95,16 @@ which the heat form is **0.437**. **The self-sustaining criterion is _not_ met w
 device.** At the delivered figure every heat form, every work form and bred fuel at demonstrated
 cycles fall below unity; **what survives is bred fuel through an optimised production target, at
 1.480**, which is the route the specification builds for. **§5.33 then applies that restatement to
-every figure rather than to the one table §5.31 caught**: `machine.py --census` grades **38 sites**
-across both live papers — 8 CONDITIONAL (the site states its own assumption and stands), **23
-RESTATED**, 3 REQUIREMENT, 3 NOT-LINEAR and **1 WITHDRAWN**, that last being §5.21's *"comfortably
+every figure rather than to the one table §5.31 caught**: `machine.py --census` grades **46 sites**
+across both live papers — 9 CONDITIONAL (the site states its own assumption and stands), **29
+RESTATED**, 3 REQUIREMENT, 4 NOT-LINEAR and **1 WITHDRAWN**, that last being §5.21's *"comfortably
 inside the §5.9 collector … not an open physical question"*, which the stopping ceiling makes
-unreachable rather than merely unreached. Two routes with no shared arithmetic — an acceptance over a
-requirement, and a balance at an assumed efficiency — reach the same bred-fuel figure, **0.6236
-against 0.6234**. The census also found this file stating **96.7 %** where §5.22 prints **299.6**;
+unreachable rather than merely unreached. Three routes with no shared arithmetic reach the same two
+numbers — **0.6236 against 0.6234**, and **1.4795 against 1.480**. **Completeness is measured rather
+than claimed**: the instrument reads every acceptance-bearing line in both papers and requires every
+number on it to be censused, computed or exempt for a stated reason, and that **residue of 0** is
+pinned in `docfigures.py` too — it was not 0 when written, and it is what added the last eight rows
+and caught a rounding. The census also found this file stating **96.7 %** where §5.22 prints **299.6**;
 both are corrected, and the six grades are now pinned in `docfigures.py`. The collector specification
 then splits into two physically independent halves. **§5.24 then closes the acceptance number as a calculation rather than
 an assumption** — production, transverse cap, the two-body decay integrated over the pion rest frame,
@@ -270,9 +273,9 @@ that forbids self-sustaining operation is never counted as progress toward it, a
 matches all 74 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
-**Run it after any pass that changes a count** — 65 pinned figures, ~5 s, exits 1 on drift. Fourteen
-are the totals `pointers.py` and `arith.py` report, and the last six the grades `machine.py --census`
-reports, all of which their own selftests do not
+**Run it after any pass that changes a count** — 66 pinned figures, ~5 s, exits 1 on drift. Fourteen
+are the totals `pointers.py` and `arith.py` report, and the last seven the grades and residue
+`machine.py --census` reports, all of which their own selftests do not
 cover: those pin individual sites, so a change in a corpus-wide total passes them silently. It exists
 because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true figures were 702 and
 4; four other figures had gone stale the same way. A `STALE` row means the tree is right and the

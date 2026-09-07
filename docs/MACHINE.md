@@ -164,26 +164,39 @@ else falls below unity.
 
 `--balances` restated **one** table. The same question belongs to every figure the two live papers
 state at an assumed collection, and asking it by eye is not a method, so `--census` asks it against
-the files. **38 sites**, each carrying the figure the paper prints, the acceptance it prints it at,
-and a grade — and `--selftest` asserts that every one of the 38 still occurs in the file that prints
+the files. **46 sites**, each carrying the figure the paper prints, the acceptance it prints it at,
+and a grade — and `--selftest` asserts that every one of the 46 still occurs in the file that prints
 it and that every section named is still a heading there. The census cannot drift away from what it
 censuses without failing.
 
 | grade | rows | what it means |
 |---|---|---|
-| CONDITIONAL | 8 | the site states its assumption in the same sentence — it stands as printed |
-| RESTATED | 23 | a reader would carry it away as end-to-end; every one falls |
+| CONDITIONAL | 9 | the site states its assumption in the same sentence — it stands as printed |
+| RESTATED | 29 | a reader would carry it away as end-to-end; every one falls |
 | REQUIREMENT | 3 | [1] §5.22's inverse question — a requirement does not move |
-| NOT-LINEAR | 3 | a break-even density or a sticking boundary; restating is not a multiplication |
+| NOT-LINEAR | 4 | a break-even density or a sticking boundary; restating is not a multiplication |
 | WITHDRAWN | 1 | a sentence rather than a number |
+
+**Three of the RESTATED rows are divisors and grow.** The companion's §2.2 converts another group's
+figure of merit into this paper's coordinates by *dividing* — 1.64, 2.25, 3.33 — and a lower delivered
+acceptance makes those **2.30, 3.16, 4.67**. A restatement running the other way is exactly what a
+hand pass gets wrong, which is why the kind exists.
+
+**Completeness is measured, not claimed.** A hand-built census has one failure mode: the site nobody
+noticed. So `--census` reads every line in either paper naming a collection assumption, takes every
+number on it, and requires each to be censused, computed by the census, or exempt for a stated reason.
+**Residue 0** — and it was not 0 when the check was written. It added the last eight rows (§5.9's
+50.69 and 10.23, the three divisors, §5.25's 2.076) and caught a rounding: 0.854, not the 0.855 first
+printed.
 
 **The census does not find that the papers are wrong.** Most rows are conditionals stated as
 conditionals, and those stand. What it finds is the reading.
 
-**Two routes reach the same number and that is the check.** §5.24's 0.875 is an *acceptance over a
-requirement* and takes the loss budget as a factor of 0.7127; §5.19's 1.772 is a *balance at an
+**Three routes reach the same two numbers and that is the check.** §5.24's 0.875 is an *acceptance
+over a requirement* and takes the loss budget as a factor of 0.7127; §5.19's 1.772 is a *balance at an
 assumed efficiency* and takes delivered ÷ 0.90. Different arithmetic, different rows, different
-sections — **0.6236** against **0.6234**, agreeing to **1.0003**, and neither built from the other.
+sections — **0.6236** against **0.6234**, agreeing to **1.0003**. Separately §5.25's 2.076 restates to
+**1.4795** against the 1.480 reached from the requirement side. Neither pair was built from the other.
 
 **The one row graded WITHDRAWN** is [1] §5.21's *"comfortably inside the §5.9 collector … not an open
 physical question"*. The stopping ceiling is 0.5069, so the §5.9 collector is not a shielding trade
@@ -196,7 +209,7 @@ an earlier draft, and so had `directives.py`'s D27. The papers were right and th
 stale — which is the case for censusing files rather than memory, and the reason `docfigures.py`
 exists.
 
-**What the census refuses.** Three rows are a break-even density and a boundary on sticking. The
+**What the census refuses.** Four rows are a break-even density and two boundaries on sticking. The
 balance is not linear in either, so the census names them rather than scaling them. **An un-restated
 row is a finding, not an omission.**
 

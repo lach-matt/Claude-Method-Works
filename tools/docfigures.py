@@ -27,7 +27,7 @@ fast enough to run at the top of a session. `coverage.py --chats` owns that.
 Fourteen rows come from `pointers.py --json` and `arith.py --json`. Their
 own selftests pin individual SITES -- 53 and 42 fixtures -- so a change in a
 corpus-wide TOTAL passes them without a word. These rows are that missing check.
-The last six pin `machine.py --census`'s grades, for the same reason: that
+The last seven pin `machine.py --census`'s grades and its residue, for the same reason: that
 instrument's selftest asserts each SITE against the paper printing it, so a
 change in the totals CLAUDE.md and MACHINE.md quote would pass it silently.
 
@@ -353,6 +353,7 @@ def _census_counts():
         return None
     c = dict(_m.census_counts())
     c["sites"] = len(_m.ACCEPTANCE_SITES)
+    c["residue"] = len(_m.census_residue())
     return c
 
 
@@ -388,12 +389,13 @@ def _census_rows():
     if c is None:
         return [("docs/MACHINE.md", "machine.py could not be imported (rows skipped)", 0, 1)]
     return [
-        ("docs/MACHINE.md", "acceptance census, sites", 38, c["sites"]),
-        ("docs/MACHINE.md", "census CONDITIONAL", 8, c.get("CONDITIONAL", 0)),
-        ("docs/MACHINE.md", "census RESTATED", 23, c.get("RESTATED", 0)),
+        ("docs/MACHINE.md", "acceptance census, sites", 46, c["sites"]),
+        ("docs/MACHINE.md", "census CONDITIONAL", 9, c.get("CONDITIONAL", 0)),
+        ("docs/MACHINE.md", "census RESTATED", 29, c.get("RESTATED", 0)),
         ("docs/MACHINE.md", "census REQUIREMENT", 3, c.get("REQUIREMENT", 0)),
-        ("docs/MACHINE.md", "census NOT-LINEAR", 3, c.get("NOT-LINEAR", 0)),
+        ("docs/MACHINE.md", "census NOT-LINEAR", 4, c.get("NOT-LINEAR", 0)),
         ("docs/MACHINE.md", "census WITHDRAWN", 1, c.get("WITHDRAWN", 0)),
+        ("docs/MACHINE.md", "census residue (must be 0)", 0, c["residue"]),
     ]
 
 

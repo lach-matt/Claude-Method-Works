@@ -110,7 +110,7 @@ compression, and that widening the window from 265 to 400 MeV/c costs **1.93** i
 paper: the wider bore, which restores it to 1.343, or the optimised production target, which drops the
 requirement from 50.8 to 21.4 percent and is met by every configuration computed. **Every figure in that
 sequence is an aperture-model acceptance**, and §5.33 restates all of them at what the machine
-delivers: 1.199 becomes **0.855**, 0.968 becomes **0.690**, 1.343 becomes **0.957**, and the optimised
+delivers: 1.199 becomes **0.854**, 0.968 becomes **0.690**, 1.343 becomes **0.957**, and the optimised
 production target is the only one of them that still clears unity, at **1.480**. The second is the
 cheaper and §10 runs it first — but its figure is a **discrepancy this paper cannot explain**, three
 candidate mechanisms having been examined and bounded, so what §10 runs first is a test of whether
@@ -1206,7 +1206,7 @@ balance:
 
 | bred fuel at 150 cycles | at model acceptance | through the loss budget |
 |---|---|---|
-| today's aperture, both hemispheres, no momentum requirement | **1.199** | **0.855** |
+| today's aperture, both hemispheres, no momentum requirement | **1.199** | **0.854** |
 | today's aperture, both hemispheres, p < 400 MeV/c | **0.968** | **0.690** |
 | today's aperture, both hemispheres, p < 265 MeV/c | **0.875** | **0.623** |
 | wider bore, both hemispheres, p < 400 MeV/c | **1.343** | **0.957** |
@@ -1757,19 +1757,19 @@ implies.
 
 §5.31 restated one table. The question it asks belongs to **every** figure this paper states at an
 assumed collection, and asking it by eye is not a method. `python3 tools/machine.py --census` asks it
-mechanically: **38** sites across this paper and the companion, each named with the figure it prints,
+mechanically: **46** sites across this paper and the companion, each named with the figure it prints,
 the acceptance it prints it at, and a grade. That instrument's `--selftest` asserts every one of the
-38 still occurs in the file that prints it and that every section named is still a heading there, so
-the census cannot quietly drift away from the papers it censuses.
+46 still occurs in the file that prints it and that every section named is still a heading there, so
+the census cannot drift away from the papers it censuses.
 
 **The census does not find that the papers are wrong**, and the grades are what say so.
 
 | grade | rows | what it means |
 |---|---|---|
-| CONDITIONAL | **8** | the site states its assumption in the same sentence as the number — it stands as printed |
-| RESTATED | **23** | a reader would carry it away as end-to-end; restated below, and every one falls |
+| CONDITIONAL | **9** | the site states its assumption in the same sentence as the number — it stands as printed |
+| RESTATED | **29** | a reader would carry it away as end-to-end; restated below, and every one falls |
 | REQUIREMENT | **3** | §5.22's inverse question — a requirement does not move when the acceptance does |
-| NOT-LINEAR | **3** | a break-even density or a sticking boundary, where restating is not a multiplication |
+| NOT-LINEAR | **4** | a break-even density or a sticking boundary, where restating is not a multiplication |
 | WITHDRAWN | **1** | a sentence rather than a number |
 
 **The restatements, at the delivered 31.66 percent.**
@@ -1781,18 +1781,26 @@ the census cannot quietly drift away from the papers it censuses.
 | §5.23, heat on the bound-case service life | 0.4006 | **0.1409** |
 | §5.23, heat at φ = 3 | 0.3731 | **0.1313** |
 | §5.23, work at the same collector | 0.3338 | **0.1174** |
-| §5.24, bred fuel, no momentum requirement | 1.199 | **0.855** |
+| §5.24, bred fuel, no momentum requirement | 1.199 | **0.854** |
 | §5.24, through a 400 MeV/c window | 0.968 | **0.690** |
 | §5.24, through 265 MeV/c | 0.875 | **0.623** |
 | §5.24, wider bore at 400 MeV/c | 1.343 | **0.957** |
 | §5.24, wider bore at 265 MeV/c | 1.039 | **0.740** |
 | companion §2.6, heat at today's aperture | 0.842 | **0.600** |
 
-**Two routes reach the same bred-fuel figure, and that agreement is the check on both.** §5.24's
+**Three rows run the other way, and they are the reason the census has a `divisor` kind at all.** The
+companion's §2.2 converts another group's figure of merit into this paper's coordinates by *dividing*
+— by 1.64, 2.25 and 3.33 at three collection assumptions. A lower delivered acceptance makes those
+divisors **larger**, not smaller: **2.30**, **3.16** and **4.67**. A restatement that is not a
+multiplication in the same direction as the others is exactly the kind of row a hand pass gets wrong.
+
+**Three routes reach the same two numbers, and that agreement is the check on all of them.** §5.24's
 0.875 is an *acceptance over a requirement*, and the loss budget enters it as a factor of 0.7127.
 §5.19's 1.772 is a *balance at an assumed efficiency*, and the budget enters it as delivered ÷ 0.90.
 Different arithmetic, different rows, different sections — and they land at **0.6236** and **0.6234**,
-agreeing to **1.0003**. Neither was constructed from the other.
+agreeing to **1.0003**. Separately, §5.25's **2.076** — bred fuel at today's aperture through the
+tightest window *with* the optimised production target — restates to **1.4795** against the **1.480**
+§5.32 reaches from the requirement side. Neither pair was constructed from the other.
 
 > **The one sentence graded WITHDRAWN.** §5.21 says the bred-fuel case is *"comfortably inside the
 > §5.9 collector"* and calls the remaining factor of 1.69 *"an engineering figure with a named trade
@@ -1801,17 +1809,27 @@ agreeing to **1.0003**. Neither was constructed from the other.
 > unreachable**, and no shielding trade reaches it. That sentence is withdrawn. What survives of the
 > route it describes is the optimised production target, at **1.480**.
 
+**Is the census complete? Measured, not claimed.** A hand-built census has one failure mode, and it
+is the site nobody noticed. So the instrument reads every line in either paper that names a
+collection assumption, takes every number on it, and requires each to be censused, produced by the
+census itself, or exempt for a stated reason — an acceptance being *named* rather than read off, a
+service life, a tritium inventory in kilograms. **The residue is 0**, and it was not 0 when the check
+was written: it is what added the last eight rows, among them §5.9's forward-hemisphere **50.69** and
+backward **10.23**, the companion's three divisors, and §5.25's 2.076. It also caught a rounding: the
+no-momentum-requirement row is **0.854**, not the 0.855 first printed here.
+
 **One row the census corrected outside the papers.** Asked for §5.22's electricity requirement, the
 file it censuses prints **299.6 percent**; this repository's own `CLAUDE.md` had carried **96.7**
 since an earlier draft of that table. The papers were right and the summary was stale. That is what a
 census over files rather than over memory is for, and it is the second time in this work that a
 figure quoted about the corpus outran the corpus.
 
-**What the census refuses to do, and the refusal is the point.** Three rows are a break-even density
-(0.222 times liquid, at perfect collection) and a boundary on sticking (0.143 percent, at today's
-aperture). The balance is not linear in either, so restating them is not a multiplication, and the
-census names them rather than scaling them. **An un-restated row is a finding, not an omission** — it
-says which instrument owns the question, and neither of those is this one.
+**What the census refuses to do, and the refusal is the point.** Four rows are a break-even density
+(0.222 times liquid, at perfect collection) and boundaries on sticking (0.143 percent at today's
+aperture, 0.394 at the front end as built). The balance is not linear in any of them, so restating
+them is not a multiplication, and the census names them rather than scaling them. **An un-restated
+row is a finding, not an omission** — it says which instrument owns the question, and none of those
+is this one.
 
 ## 6. What the definition excludes
 

@@ -27,6 +27,7 @@ import argparse
 import functools
 import math
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -1272,10 +1273,30 @@ ACCEPTANCE_SITES = (
      "the same rescaled to the moved sticking datum"),
     (PAPER_RECONCILIATION, "2.6", "1.379", 1.379, "labelled", ETA_PERFECT,
      "the row's own label is 'perfect collection'"),
+    (PAPER_RECONCILIATION, "2.6", "1.492", 1.492, "labelled", ETA_PERFECT,
+     "the same row rescaled to the moved sticking datum, same label"),
+    (PAPER_RECONCILIATION, "2.5", "0.394", 0.394, "nonlinear", None,
+     "a sticking boundary at today's front end as built; not a multiplication"),
+    (PAPER_RECONCILIATION, "2.2", "1.64", 1.64, "divisor", ETA_TODAY_APERTURE,
+     "a DIVISOR converting their Q to this paper's acceptance -- so the loss "
+     "budget DIVIDES it rather than multiplying, and the divisor grows"),
+    (PAPER_RECONCILIATION, "2.2", "2.25", 2.25, "divisor", ETA_TODAY_APERTURE,
+     "the same through a 265 MeV/c stopping window"),
+    (PAPER_RECONCILIATION, "2.2", "3.33", 3.33, "divisor", ETA_TODAY_APERTURE,
+     "the same at today's front end as built"),
+    (PAPER_ECONOMY, "5.9", "50.69", 50.69, "acceptance", None,
+     "the forward hemisphere alone at today's aperture"),
+    (PAPER_ECONOMY, "5.9", "10.23", 10.23, "acceptance", None,
+     "the backward hemisphere alone"),
+    (PAPER_ECONOMY, "5.25", "2.076", 2.076, "ratio", ETA_TODAY_APERTURE,
+     "bred fuel at today's aperture through the tightest window WITH the "
+     "optimised production target -- and its restatement is 1.480, which is "
+     "the optimised-target balance reached by a third route"),
 )
 
 GRADE_OF_KIND = {
     "balance": "RESTATED", "acceptance": "RESTATED", "ratio": "RESTATED",
+    "divisor": "RESTATED",
     "labelled": "CONDITIONAL", "requirement": "REQUIREMENT",
     "claim": "WITHDRAWN", "nonlinear": "NOT-LINEAR",
 }
@@ -1287,6 +1308,8 @@ def restate(value, kind, at, br=1.50):
         return value * delivered_eta(br) / at
     if kind in ("acceptance", "ratio"):
         return value * budget_product()
+    if kind == "divisor":
+        return value / budget_product()
     return None
 
 
@@ -1314,6 +1337,101 @@ def _paper_text(name, _cache={}):
             _cache[name] = fh.read()
     return _cache[name]
 
+
+# ---- is the census complete? ------------------------------------------------
+# A census is a claim of completeness, and a claim is not a measurement. This
+# measures it: every line in either paper that names a collection assumption is
+# read, every number on it taken, and each one must be accounted for -- censused
+# above, produced by the census itself, or exempt for a stated reason. The
+# residue is what is left, and it must be empty. A non-empty residue is a site
+# the census missed, which is the one failure mode a hand-built census has.
+ACCEPTANCE_PHRASES = (
+    "perfect collection", "collection perfect", "the §5.9 collector",
+    "§5.9 collector", "at 90 percent", "90 percent collection",
+    "today's aperture", "at the collection efficiencies", "both hemispheres",
+    "with the specified collector", "today's measured front end",
+    "today's front end", "at the two collection",
+)
+
+# A number on such a line that is NOT a figure stated at an acceptance. Each
+# carries the reason it is not, because "exempt" without a reason is a hole.
+CENSUS_EXEMPT = {
+    # the acceptance itself, or a parameter of it -- these are the x-axis, not
+    # a reading off it
+    "90": "the assumed efficiency being named", "30": "the same",
+    "200": "a momentum window, MeV/c", "265": "the same", "400": "the same",
+    "1.50": "the aperture product, T.m", "2.60": "the same",
+    "2.6": "the same, written short", "7.5": "the bore radius, cm",
+    "0.5069": "the stopping ceiling, which is what makes 90 unreachable",
+    "31.66": "the delivered acceptance -- the census's own x-axis",
+    "0.7127": "the loss budget itself",
+    # a service life, a cost or a value per fusion -- the OTHER factor in a
+    # balance, and not the one the census moves
+    "150": "the demonstrated cycle count", "190.1": "the bound-case service life",
+    "479.6": "the phi = 3 service life", "198": "the sec.5.26 cycle cap",
+    "12.4": "a binder cost, GeV", "11.13": "the production floor, GeV",
+    "37.0": "the sourced binder cost, GeV", "1200": "a blanket temperature, K",
+    "146.06": "a value per fusion, MeV", "26.06": "the same", "19.55": "the same",
+    # a tritium inventory: a cost of the aperture, not a balance at one
+    "3.59": "a tritium inventory, kg", "6.93": "the same", "1.73": "the same",
+    "10.4": "the same", "2.41": "a fuel mass, mg",
+    # a factor the papers state about the aperture rather than at it
+    "1.20": "the gain from dropping the hemisphere cut",
+    "1.69": "the collection factor sec.5.21 names -- censused as the WITHDRAWN row",
+    "0.982": "the agreement with the MARS15 simulation",
+    "8": "a hemisphere count in a table rule", "3": "the same",
+    "0.222": "censused under its printed form '0.222 LHD'",
+    "0.143": "censused under its printed form '0.143 %'",
+}
+_SECTION_RE = re.compile(r"[§§]|sec\.|section ")
+
+
+def _numbers_on(line):
+    """Every number on a line, minus the ones that are section references."""
+    out = []
+    for m in re.finditer(r"\d+(?:,\d{3})*(?:\.\d+)?", line):
+        before = line[max(0, m.start() - 2):m.start()]
+        if "§" in before or before.endswith("c."):
+            continue                      # a cross-reference, not a quantity
+        out.append(m.group(0))
+    return out
+
+
+def _census_accounted():
+    """Every number the census already owns: what it cites, and what it makes."""
+    owned = set()
+    # both bores: sec.5.31 and sec.5.32 state the wider one beside the delivered
+    for br in (1.50, 2.60):
+        for _, _, printed, _, _, _, _, new, _ in census_rows(br):
+            owned.add(_numbers_on(printed)[0])
+            if new is None:
+                continue
+            for dp in (2, 3, 4):
+                owned.add(f"{new:.{dp}f}")
+                owned.add(f"{new:.{dp}f}".rstrip("0").rstrip("."))
+            owned.add(f"{100 * new:.2f}")
+    # and the sec.5.19 table restated, which --balances owns rather than the census
+    for i in range(len(BALANCES_AT_90)):
+        for br in (1.50, 2.60):
+            owned.add(f"{balance_at_delivered(i, br):.3f}")
+    # and the census's own agreement ratios, which are its output and not a site
+    owned.add(f"{restate(0.875, 'ratio', None) / balance_at_delivered(5):.4f}")
+    owned.add(f"{optimised_target_balance():.3f}")
+    return owned
+
+
+def census_residue():
+    """Numbers on acceptance-bearing lines that the census does not account for."""
+    owned = _census_accounted() | set(CENSUS_EXEMPT)
+    out = []
+    for paper in (PAPER_ECONOMY, PAPER_RECONCILIATION):
+        for n, line in enumerate(_paper_text(paper).split("\n"), 1):
+            if not any(ph in line for ph in ACCEPTANCE_PHRASES):
+                continue
+            for v in _numbers_on(line):
+                if v not in owned:
+                    out.append((paper, n, v, line.strip()[:90]))
+    return out
 
 def report_census():
     """Every figure in the two live papers stated at an assumed acceptance."""
@@ -1351,7 +1469,7 @@ def report_census():
     print("    stated as one stands. The RESTATED rows are the ones a reader")
     print("    would carry away as end-to-end, and every one of them falls.")
     print()
-    print("    TWO ROUTES REACH THE SAME BRED-FUEL FIGURE, AND THAT IS THE CHECK.")
+    print("    THREE ROUTES REACH THE SAME TWO FIGURES, AND THAT IS THE CHECK.")
     a = restate(0.875, "ratio", ETA_TODAY_APERTURE)
     b = balance_at_delivered(5)
     print(f"      sec.5.24's 0.875 through the loss budget      {a:.4f}")
@@ -1360,6 +1478,13 @@ def report_census():
     print("      -- an acceptance over a requirement and a balance over an")
     print("      assumed efficiency are different arithmetic on different rows,")
     print("      and they land on the same number.")
+    print()
+    c = restate(2.076, "ratio", ETA_TODAY_APERTURE)
+    print(f"      sec.5.25's 2.076 through the loss budget      {c:.4f}")
+    print(f"      the optimised-target balance from the")
+    print(f"      requirement side                             {optimised_target_balance():.4f}")
+    print(f"      agreeing to                                  {c / optimised_target_balance():.5f}")
+    print("      -- and that pair shares no arithmetic with the pair above.")
     print()
     print("    THE ONE ROW GRADED WITHDRAWN.")
     print("      sec.5.21 says the bred-fuel case is 'comfortably inside the")
@@ -1370,6 +1495,18 @@ def report_census():
     print("      unreached, it is unreachable. The sentence is withdrawn; the")
     print("      route it was describing survives only through the optimised")
     print(f"      production target, at {optimised_target_balance():.3f}.")
+    print()
+    print("    IS THE CENSUS COMPLETE? MEASURED, NOT CLAIMED.")
+    res = census_residue()
+    print(f"      Every line in either paper naming a collection assumption, every")
+    print(f"      number on it, each one censused above or exempt for a stated")
+    print(f"      reason. Residue: {len(res)}.")
+    for paper, n, v, line in res[:10]:
+        print(f"        {paper[:26]}:{n}  {v}")
+    if not res:
+        print("      A hand-built census's one failure mode is the site nobody")
+        print("      noticed. This is the check that would catch it, and it is")
+        print("      the check that added the last eight rows.")
     print()
     print("    WHAT THE CENSUS REFUSES TO DO.")
     print("      The NOT-LINEAR rows are a break-even density and a sticking")
@@ -1655,11 +1792,13 @@ def selftest():
     if nosec:
         print("      not found: " + ", ".join(nosec))
     over = [p for _, _, p, v, k, _, g, new, _ in census_rows()
-            if new is not None and new > v + 1e-9]
+            if k != "divisor" and new is not None and new > v + 1e-9]
     ok = not over
     fail += 0 if ok else 1
     print(f"    no restatement is LARGER than the figure it restates -- the loss")
-    print(f"    budget only ever costs   {'PASS' if ok else 'FAIL'}")
+    print(f"    budget only ever costs, and the three DIVISOR rows are excluded")
+    print(f"    because a divisor grows for exactly that reason"
+          f"   {'PASS' if ok else 'FAIL'}")
     a = restate(0.875, "ratio", ETA_TODAY_APERTURE)
     b = balance_at_delivered(5)
     ok = abs(a / b - 1.0) < 0.005
@@ -1672,6 +1811,15 @@ def selftest():
     fail += 0 if ok else 1
     print(f"    and sec.5.24's 44.43 restates to {restate(44.43, 'acceptance', None):.2f} percent, which is the")
     print(f"    delivered figure sec.5.31 uses   {'PASS' if ok else 'FAIL'}")
+    res = census_residue()
+    ok = not res
+    fail += 0 if ok else 1
+    print(f"    and the census is COMPLETE rather than merely long: every number")
+    print(f"    on every acceptance-bearing line in either paper is censused,")
+    print(f"    computed by the census, or exempt for a stated reason --")
+    print(f"    residue {len(res)}   {'PASS' if ok else 'FAIL'}")
+    for paper, n, v, line in res[:8]:
+        print(f"      {paper[:24]}:{n}  {v}  {line[:56]}")
     ok = census_counts().get("WITHDRAWN", 0) == 1
     fail += 0 if ok else 1
     print(f"    exactly one row is graded WITHDRAWN, and it is a sentence rather")
