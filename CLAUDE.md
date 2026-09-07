@@ -373,7 +373,45 @@ and it stops, with **7,609 pcm** of margin at the plant point against a fast cor
 worth of 5,000 — while **the loop is not**, its gain at the operating point being *exactly one* and so
 marginally stable, which means it must be regulated against a measured power rather than fed a fixed
 share. Doppler supplies the restoring term, worth one percent of gain in **112 K**. Beam trips are
-named and unbounded. See `docs/POWERSOURCE.md`),
+named and unbounded. **`--tritium` then finds the constraint that actually sizes the plant**, and
+finds it by correcting an accounting error first: priced the way a *fusion* reactor prices it — a
+breeding ratio times the fusion neutron yield — the tritium balance fails, and that convention does
+not apply here, because the blanket is driven by every neutron the target makes and the fusion
+channel is **13.4 %** of the source. Against the blanket's own economy the supply is **18.8×**
+larger and the balance closes. It closes as a *condition*, though: the cell is one muon range deep,
+so its holding is areal density times beam area and **does not fall with power**, while a fixed
+holding decays 5.47 % a year. Per source neutron the assembly makes 20 neutrons, 6.552 fission,
+6.552 must breed fissile, and **2.897 are free for ⁶Li**; the base window then needs **5.58 MW** of
+beam to hold its own inventory. And self-sufficient is not self-replicating: **8.11 MW** is needed
+to breed a successor's first charge inside a forty-year life, against a **71.8 year** doubling at
+7 MW. **The fleet constraint, not the plant constraint, is what puts the reference at 10 MW** —
+427.0 MW thermal, 169.1 MW net electric. See `docs/POWERSOURCE.md`),
+**`tools/materials.py`** (**phase 2: the bill of materials**, and the column that decides criterion
+4. Every quantity is imported from the instrument that owns it or derived from those; each row
+carries a status and a **supply class**, and the selftest fails a row carrying neither. The
+blanket's chemistry is forced rather than chosen — ν = 2.9 is Pu-239 *fast* so no thermal spectrum,
+L = 0.20 must cover fission products for forty years so the fuel must be *liquid*, and a liquid
+fast salt is a chloride — giving NaCl–UCl₃ with a Pb–15.7Li breeding and reflecting zone at 90 %
+⁶Li. One distinction the inventory hides and the selftest pins: the first charge outlasts the plant
+**on mass**, so breeding looks optional, but what depletes is **reactivity** — k falls from 0.950
+to 0.710 and the gain from 42.70 to 6.4. **Breeding holds k, not the inventory.** Criterion 4 then
+resolves: fissile and tritium are both bred by independent arguments, **⁶Li is the only material
+genuinely consumed** at about two percent of its holding over the life, and what arrives at the
+gate for ever is nitrogen, one beryllium window and the salt-processing reagents. **The criterion
+holds on fuel and fails on consumables and parts**, and that is stated rather than flattened. See
+`docs/MATERIALS.md`)
+and **`tools/buildpackage.py`** (**phase 3: everything but the drawings** — specification,
+sequence, commissioning, interfaces, envelope, acceptance and gaps. It computes almost nothing of
+its own and its selftest asserts the refusal: **no drawing library may be imported and the file may
+define no design constant**. Three findings came out of writing it. **The critical path is not the
+magnet**: four of the five long-lead items are *isotopes* and two of them have no industrial
+production line anywhere. **There is no ignition** — the device has no threshold to cross, it
+starts when the beam starts, and what the fourth criterion calls ignition is a *charging*
+operation, which is why the eight commissioning steps are ordered so everything reversible precedes
+the one after which the building is a tritium facility for life. And **the coil is life-limiting
+exactly at the plant's life**: inverting the coil life for the shield thickness that produced it
+returns 0.790 m at every beam power, and at the reference power the insulation reaches its dose
+limit at 39.9 years against 40. See `docs/BUILDPACKAGE.md`),
 **`tools/window.py`** (the binder admissibility scan behind the paper's Theorem 1 — four tests over
 the charged spectrum, run in the order that constrains. Its point is *which* set the theorem closes
 on: the lifetime cut is a published number against a fixed threshold, so the **five** charged
@@ -419,7 +457,8 @@ because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true 
 sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real contract — see
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
-`docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md` and `docs/DOCFIGURES.md`.
+`docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md`, `docs/MATERIALS.md`,
+`docs/BUILDPACKAGE.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
