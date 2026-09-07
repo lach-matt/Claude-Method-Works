@@ -837,6 +837,107 @@ harness.
 > claim id would require marking up the prose, which is a change to the standard and not a fix to a
 > paper. The three figures are corrected above.
 
+## 10. The fuel cell, and where it can sit
+
+§9 named one item it did not do: the D–T cell's mechanical and thermal design beside a liquid-metal
+target in a high field. This section does it. `python3 tools/machine.py --channel --cell` reproduces
+every figure, and two of the results change things §9 and the specification had already said.
+
+### 10.1 The cell cannot sit in the capture region
+
+A pion must decay before its muon can stop, and at the stopping window a pion's decay length is
+**14.82 m**. The capture region is 1.5 m long.
+
+| π momentum | decay length | 90 % decayed by |
+|---|---|---|
+| 100 MeV/c | 5.59 m | **12.9 m** |
+| 200 MeV/c | 11.18 m | 25.8 m |
+| 265 MeV/c | 14.82 m | **34.1 m** |
+
+**A decay channel of 34.1 m is required**, and the muons survive it easily — their own decay length
+there is **1652 m**.
+
+**And the beam expands through it, which is the expensive part.** Adiabatic invariance grows the
+envelope as 1/√B and the tritium inventory as its square:
+
+| channel field | beam envelope | tritium *if the cell sat there* |
+|---|---|---|
+| 1 T | 40.08 cm | **102.5 kg** |
+| 2 T | 28.34 cm | 51.3 kg |
+| 5 T | 17.92 cm | 20.5 kg |
+
+> **Recompression at the cell is not an optimisation, it is a requirement** — and it is free, because
+> adiabatic compression conserves \|p\| and therefore leaves the stopping range and the momentum
+> window exactly where they were.
+
+### 10.2 Recompression is a lever on tritium, and it prices §8.2
+
+| cell field | beam envelope | tritium at a 265 MeV/c window |
+|---|---|---|
+| 10 T | 12.67 cm | 10.25 kg |
+| 14.01 T (the capture field) | 10.71 cm | 7.32 kg |
+| **20 T** | **8.96 cm** | **5.13 kg** |
+| 30 T | 7.32 cm | 3.42 kg |
+
+**§8.2 dropped the target field to 14.01 T to bring the peak inside reach.** That widened the beam, and
+a wider beam is more tritium — **7.32 kg** at the capture field against **5.13 kg** recompressed to
+20 T. **The field reduction had a cost, and recompression pays it back.** Neither was visible until the
+cell was designed, which is the argument for designing it.
+
+### 10.3 The density should be low, which inverts the specification
+
+Pressure falls linearly with density; cell length grows as its inverse. **Length is cheap and pressure
+is not.**
+
+| φ | pressure at 800 K | cell depth | monobloc vessel at 300 MPa |
+|---|---|---|---|
+| 0.222 | 52.1 MPa | 864.4 cm | r_o/r_i = 1.19 |
+| 0.400 | 93.9 MPa | 479.8 cm | 1.38 |
+| **0.600** | **140.8 MPa** | **319.8 cm** | **1.66** |
+| 1.000 | 234.7 MPa | 191.9 cm | 2.86 |
+
+§2 says "density: as high as the cell reaches". **On the demonstrated cycle count the bred-fuel balance
+breaks even at 0.222 of liquid density** ([1] §5.27), so the cell need not reach high at all — and the
+reason to avoid it is hard rather than economic:
+
+> At **500 MPa a 300 MPa steel is excluded however thick it is made.** A monobloc cylinder cannot hold
+> a pressure equal to its own allowable stress at any wall thickness; the Lamé ratio diverges. **Run
+> the cell as low as the balance allows**, and §2's instruction is corrected to that.
+
+The pressures quoted are ideal-gas and are therefore a **lower bound** — real D–T at these densities is
+strongly non-ideal — which is why the design point is 0.6 with margin rather than at a limit.
+
+### 10.4 The heat, and a second requirement that turns out to be the same one
+
+| | |
+|---|---|
+| muons stopping per second | 1.918e14 |
+| kinetic energy each brings | **179.6 MeV** |
+| stopping power into the fuel | **5.52 kW** |
+| alpha heating, 150 cycles × 3.5 MeV | **16.13 kW** — the alpha stays in the fuel |
+| **total into the fuel** | **21.65 kW** |
+| neutrons leaving to the blanket | 65 kW |
+| **flow to remove it** | **0.0372 kg/s** at ΔT = 100 K |
+
+**The fuel must flow. And helium-3 says so independently.** Tritium decays at **1.824e18** per second
+in a 5.13 kg inventory, so **³He reaches 1 ppm every 18.8 minutes** — against the 1 ppm high-Z purity
+§2 requires, in a fuel that is its own contaminant source.
+
+> **Two requirements arrived from different directions and one loop meets both.** The flow that carries
+> 21.65 kW out carries the fuel through the purifier, and the rate the heat sets — 0.0372 kg/s, a
+> 230-second turnover — holds ³He at **0.204 ppm**, already below what the specification demands. The
+> cell's design closes on itself.
+
+### 10.5 What is now undone
+
+Nothing in the physics. The package is complete to the level of a physics design with engineering
+requirements. What is **not** here is a fabrication package: drawings, tolerances, weld and joint
+design, the tritium plant's own licensing case, and a quench analysis run in a magnet code rather than
+on a hot-spot integral.
+
+**That is engineering-office work on a design that exists, which is a different thing from a design
+that does not.**
+
 ---
 
 ## References

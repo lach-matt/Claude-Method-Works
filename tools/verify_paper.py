@@ -2191,6 +2191,179 @@ def bp_deposition_error():
     return 0.55 / _mach.F_DEPOSITED_IN_TARGET
 
 
+# ---- spec sec.10, the fuel cell -------------------------------------------
+def cl_pi_len_100():
+    return _mach.pion_decay_length_m(100.0)
+
+
+def cl_pi_len_200():
+    return _mach.pion_decay_length_m(200.0)
+
+
+def cl_pi_len_265():
+    return _mach.pion_decay_length_m(265.0)
+
+
+def cl_chan_100():
+    return _mach.channel_length_m(100.0)
+
+
+def cl_chan_200():
+    return _mach.channel_length_m(200.0)
+
+
+def cl_chan_265():
+    return _mach.channel_length_m(265.0)
+
+
+def cl_mu_len():
+    return _mach.muon_decay_length_m()
+
+
+def cl_env_1t():
+    return _mach.channel_beam_radius_cm(1.0)
+
+
+def cl_env_2t():
+    return _mach.channel_beam_radius_cm(2.0)
+
+
+def cl_env_5t():
+    return _mach.channel_beam_radius_cm(5.0)
+
+
+def cl_trit_1t():
+    return _mach.channel_tritium_kg(1.0)
+
+
+def cl_trit_2t():
+    return _mach.channel_tritium_kg(2.0)
+
+
+def cl_trit_5t():
+    return _mach.channel_tritium_kg(5.0)
+
+
+def cl_env_10t():
+    return _mach.cell_radius_cm(10.0)
+
+
+def cl_env_14t():
+    return _mach.cell_radius_cm(collector.DES_B_TARGET)
+
+
+def cl_env_20t():
+    return _mach.cell_radius_cm(20.0)
+
+
+def cl_env_30t():
+    return _mach.cell_radius_cm(30.0)
+
+
+def cl_trit_10t():
+    return _mach.cell_tritium_kg(10.0)
+
+
+def cl_trit_14t():
+    return _mach.cell_tritium_kg(collector.DES_B_TARGET)
+
+
+def cl_trit_20t():
+    return _mach.cell_tritium_kg(20.0)
+
+
+def cl_trit_30t():
+    return _mach.cell_tritium_kg(30.0)
+
+
+def cl_p_222():
+    return _mach.cell_pressure_mpa(0.222)
+
+
+def cl_p_400():
+    return _mach.cell_pressure_mpa(0.4)
+
+
+def cl_p_600():
+    return _mach.cell_pressure_mpa(0.6)
+
+
+def cl_p_1000():
+    return _mach.cell_pressure_mpa(1.0)
+
+
+def cl_d_222():
+    return _mach.cell_depth_cm(0.222)
+
+
+def cl_d_400():
+    return _mach.cell_depth_cm(0.4)
+
+
+def cl_d_600():
+    return _mach.cell_depth_cm(0.6)
+
+
+def cl_d_1000():
+    return _mach.cell_depth_cm(1.0)
+
+
+def cl_lame_222():
+    return _mach.lame_ratio(_mach.cell_pressure_mpa(0.222))
+
+
+def cl_lame_400():
+    return _mach.lame_ratio(_mach.cell_pressure_mpa(0.4))
+
+
+def cl_lame_600():
+    return _mach.lame_ratio(_mach.cell_pressure_mpa(0.6))
+
+
+def cl_lame_1000():
+    return _mach.lame_ratio(_mach.cell_pressure_mpa(1.0))
+
+
+def cl_mu_kinetic():
+    return _mach.muon_kinetic_mev()
+
+
+def cl_stopping_kw():
+    return _mach.cell_stopping_w() / 1e3
+
+
+def cl_alpha_kw():
+    return _mach.cell_alpha_w() / 1e3
+
+
+def cl_heat_kw():
+    return _mach.cell_heat_w() / 1e3
+
+
+def cl_neutron_kw():
+    return _mach.cell_neutron_w() / 1e3
+
+
+def cl_flow():
+    return _mach.cell_flow_kg_s()
+
+
+def cl_decays():
+    return _mach.he3_decays_per_s()
+
+
+def cl_he3_minutes():
+    return _mach.he3_ppm_doubling_minutes()
+
+
+def cl_he3_ppm():
+    return _mach.he3_steady_ppm()
+
+
+def cl_turnover_s():
+    return (_mach.cell_tritium_kg() / collector.T_MASS_FRAC_DT) / _mach.cell_flow_kg_s()
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

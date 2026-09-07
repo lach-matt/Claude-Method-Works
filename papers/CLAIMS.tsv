@@ -654,3 +654,46 @@ C657	the target deposition this work had assumed, withdrawn	55	percent	WITHDRAWN
 C658	ITER limit on superconductor power density	0.17	mW/g	SOURCED	Back arXiv:1104.2742, citing the ITER design overview	fn:bp_iter_limit
 C659	displacements per atom in the coils	3.0e-4	DPA/yr	SOURCED	against a critical 1.9e-3 for Nb3Sn	fn:bp_dpa_yr
 C660	bore vacuum	1e-4	Pa	PINNED	set by target outgassing, not by muon scattering	fn:bp_vacuum_pa
+C661	pion decay length at 100 MeV/c	5.59	m	DERIVED	the fuel cell design, machine.py --cell	fn:cl_pi_len_100
+C662	pion decay length at 200 MeV/c	11.2	m	DERIVED	the fuel cell design, machine.py --cell	fn:cl_pi_len_200
+C663	pion decay length at the stopping window	14.8	m	DERIVED	the fuel cell design, machine.py --cell	fn:cl_pi_len_265
+C664	channel for 90 percent decay at 100 MeV/c	12.9	m	DERIVED	the fuel cell design, machine.py --cell	fn:cl_chan_100
+C665	the same at 200 MeV/c	25.8	m	DERIVED	the fuel cell design, machine.py --cell	fn:cl_chan_200
+C666	the same at the stopping window	34.1	m	DERIVED	the fuel cell design, machine.py --cell	fn:cl_chan_265
+C667	muon decay length there	1652	m	DERIVED	the fuel cell design, machine.py --cell	fn:cl_mu_len
+C668	beam envelope in a 1 T channel	40.1	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_env_1t
+C669	beam envelope in a 2 T channel	28.3	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_env_2t
+C670	beam envelope in a 5 T channel	17.9	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_env_5t
+C671	tritium if the cell sat in a 1 T channel	103	kg	DERIVED	the fuel cell design, machine.py --cell	fn:cl_trit_1t
+C672	the same at 2 T	51.3	kg	DERIVED	the fuel cell design, machine.py --cell	fn:cl_trit_2t
+C673	the same at 5 T	20.5	kg	DERIVED	the fuel cell design, machine.py --cell	fn:cl_trit_5t
+C674	beam envelope recompressed to 10 T	12.7	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_env_10t
+C675	the same at the capture field	10.7	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_env_14t
+C676	the same at 20 T	8.96	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_env_20t
+C677	the same at 30 T	7.32	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_env_30t
+C678	tritium recompressed to 10 T	10.3	kg	DERIVED	the fuel cell design, machine.py --cell	fn:cl_trit_10t
+C679	tritium at the capture field	7.32	kg	DERIVED	the fuel cell design, machine.py --cell	fn:cl_trit_14t
+C680	tritium recompressed to 20 T	5.13	kg	DERIVED	the fuel cell design, machine.py --cell	fn:cl_trit_20t
+C681	tritium recompressed to 30 T	3.42	kg	DERIVED	the fuel cell design, machine.py --cell	fn:cl_trit_30t
+C682	cell pressure at phi 0.222	52.1	MPa	DERIVED	the fuel cell design, machine.py --cell	fn:cl_p_222
+C683	cell pressure at phi 0.4	93.9	MPa	DERIVED	the fuel cell design, machine.py --cell	fn:cl_p_400
+C684	cell pressure at phi 0.6	141	MPa	DERIVED	the fuel cell design, machine.py --cell	fn:cl_p_600
+C685	cell pressure at phi 1.0	235	MPa	DERIVED	the fuel cell design, machine.py --cell	fn:cl_p_1000
+C686	cell depth at phi 0.222	864	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_d_222
+C687	cell depth at phi 0.4	480	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_d_400
+C688	cell depth at phi 0.6	320	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_d_600
+C689	cell depth at phi 1.0	192	cm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_d_1000
+C690	Lame ratio at phi 0.222	1.19	ratio	DERIVED	the fuel cell design, machine.py --cell	fn:cl_lame_222
+C691	Lame ratio at phi 0.4	1.38	ratio	DERIVED	the fuel cell design, machine.py --cell	fn:cl_lame_400
+C692	Lame ratio at phi 0.6	1.66	ratio	DERIVED	the fuel cell design, machine.py --cell	fn:cl_lame_600
+C693	Lame ratio at phi 1.0	2.86	ratio	DERIVED	the fuel cell design, machine.py --cell	fn:cl_lame_1000
+C694	muon kinetic energy at the window	180	MeV	DERIVED	the fuel cell design, machine.py --cell	fn:cl_mu_kinetic
+C695	stopping power into the fuel	5.52	kW	DERIVED	the fuel cell design, machine.py --cell	fn:cl_stopping_kw
+C696	alpha heating in the fuel	16.1	kW	DERIVED	the fuel cell design, machine.py --cell	fn:cl_alpha_kw
+C697	total heat into the fuel	21.7	kW	DERIVED	the fuel cell design, machine.py --cell	fn:cl_heat_kw
+C698	neutron power leaving to the blanket	65.0	kW	DERIVED	the fuel cell design, machine.py --cell	fn:cl_neutron_kw
+C699	fuel flow to remove it	0.0372	kg/s	DERIVED	the fuel cell design, machine.py --cell	fn:cl_flow
+C700	tritium decays in the cell inventory	1.824e+18	1/s	DERIVED	the fuel cell design, machine.py --cell	fn:cl_decays
+C701	minutes for 3He to reach 1 ppm	18.8	minutes	DERIVED	the fuel cell design, machine.py --cell	fn:cl_he3_minutes
+C702	steady 3He on the cooling loop	0.2036	ppm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_he3_ppm
+C703	inventory turnover on that loop	230	s	DERIVED	the fuel cell design, machine.py --cell	fn:cl_turnover_s

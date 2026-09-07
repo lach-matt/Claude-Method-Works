@@ -55,12 +55,36 @@ than doubled.
   consequence for the build is that each must trip the beam and the shielding must be a *rated dump*.
 - **Plant** — 144 W at 4.5 K, 38.4 kW of wall power, 16.3 days of cooldown.
 
-## What is not done, and it is one thing
+## The fuel cell — `--channel` and `--cell`
 
-**The D–T cell's mechanical and thermal design beside a liquid-metal target in a 14 T field.** The
-specification's §5.3 already said the cell "must sit in the production target's region, which is a
-hostile place to put a cryogenic tritium cell and is not designed here." That is still true. It is
-named rather than absorbed, and it is the fourth item for the laboratory programme.
+That item is now done, and doing it changed two things the rest of the work had said.
+
+**The cell cannot sit in the capture region.** A pion at the stopping window has a decay length of
+14.82 m and the capture region is 1.5 m, so a **34.1 m decay channel** is required. The beam expands
+adiabatically through it as 1/√B, and tritium as the square: a cell sitting in a 2 T channel would need
+**51.3 kg** against 5.13 recompressed. **Recompression at the cell is a requirement, not an
+optimisation**, and it is free — adiabatic compression conserves |p| and leaves the stopping range and
+the momentum window untouched.
+
+**And recompression prices a choice §8.2 made.** Dropping the target field to 14.01 T to bring the peak
+inside reach widened the beam, which is more tritium: **7.32 kg** at the capture field against **5.13**
+recompressed to 20 T. Neither cost was visible until the cell was designed.
+
+**The density should be run low, which inverts the specification.** Pressure falls linearly with
+density and length grows as its inverse; length is cheap. At 500 MPa a 300 MPa steel is **excluded
+however thick it is made** — a monobloc cylinder cannot hold a pressure at its own allowable stress.
+The design point is φ = 0.6: 140.8 MPa, a 3.2 m cell, r_o/r_i = 1.66.
+
+**Two requirements turn out to be one loop.** The fuel takes **21.65 kW** (5.52 from stopping muons,
+16.13 from alphas that stay), needing **0.0372 kg/s** at ΔT = 100 K. Independently, tritium decay puts
+**³He at 1 ppm every 18.8 minutes** against a 1 ppm purity spec. The flow the heat sets gives a
+230-second turnover and holds ³He at **0.204 ppm** — already below what the specification demands.
+
+## What is not done
+
+Nothing in the physics. What is not here is a **fabrication package**: drawings, tolerances, weld and
+joint design, the tritium plant's licensing case, and a quench analysis run in a magnet code rather
+than on a hot-spot integral. That is engineering-office work on a design that exists.
 
 ## A limit of the publication standard, found here
 
@@ -74,6 +98,7 @@ test.** Recorded in §9.9 and not repaired: binding prose to claim ids is a chan
 
 ```
 python3 tools/machine.py --selftest
+python3 tools/machine.py --channel --cell
 python3 tools/machine.py
 python3 tools/collector.py --magnet
 python3 tools/verify_paper.py papers/Cold_Fusion_Specification_and_Procedure_v1.0.md

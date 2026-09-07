@@ -506,6 +506,228 @@ def report_integration():
     print("    rather than absorbed, and it is the fourth item for sec.10.")
 
 
+# ---- the decay channel: where the cell can physically sit -------------------
+# A pion must decay before its muon can stop, and a pion at the stopping window
+# has a decay length of metres. The capture region is 1.5 m long. The cell
+# therefore cannot sit in it, and this is not a detail of layout: the beam
+# expands adiabatically through any lower-field channel, and a cell sitting in
+# the expanded beam would need tens of kilogrammes of tritium.
+TAU_PI_S, TAU_MU_S = 2.6033e-8, 2.1970e-6
+C_M_S = 2.99792458e8
+DECAY_FRACTION_WANTED = 0.90
+
+
+def decay_length_m(p_mev, m_mev, tau_s):
+    return (p_mev / m_mev) * C_M_S * tau_s
+
+
+def pion_decay_length_m(p_mev=265.0):
+    return decay_length_m(p_mev, C.M_PI_MEV, TAU_PI_S)
+
+
+def muon_decay_length_m(p_mev=265.0):
+    return decay_length_m(p_mev, C.M_MU_MEV, TAU_MU_S)
+
+
+def channel_length_m(p_mev=265.0, fraction=DECAY_FRACTION_WANTED):
+    return -math.log(1.0 - fraction) * pion_decay_length_m(p_mev)
+
+
+def channel_beam_radius_cm(b_channel):
+    """Adiabatic expansion: the envelope grows as 1/sqrt(B)."""
+    return C.beam_envelope_cm(C.DES_BR, b_channel, C.DES_B_TARGET)
+
+
+def channel_tritium_kg(b_channel, p_mev=265.0):
+    return C.tritium_inventory_kg(p_mev, channel_beam_radius_cm(b_channel))
+
+
+# ---- the fuel cell ---------------------------------------------------------
+CELL_B_T = 20.0                 # recompression field at the cell
+CELL_T_K = 800.0                # the Vesman operating point
+CELL_PHI = 0.6                  # design density, and it is chosen LOW -- see below
+CELL_SIGMA_ALLOW_MPA = 300.0
+K_B = 1.380649e-23
+N_A = 6.02214076e23
+CP_DT_J_KG_K = 5820.0           # 7/2 R / M for a D-T mixture
+CELL_DT_K = 100.0               # coolant temperature rise budget
+T_HALFLIFE_S = 12.32 * 3.156e7
+
+
+def cell_radius_cm(b_cell=CELL_B_T):
+    return channel_beam_radius_cm(b_cell)
+
+
+def cell_tritium_kg(b_cell=CELL_B_T, p_mev=265.0):
+    return C.tritium_inventory_kg(p_mev, cell_radius_cm(b_cell))
+
+
+def cell_depth_cm(phi=CELL_PHI, p_mev=265.0):
+    return C.target_length_cm(p_mev, phi)
+
+
+def cell_pressure_mpa(phi=CELL_PHI, t_k=CELL_T_K):
+    """Ideal-gas pressure at that number density. Real D-T at these densities is
+    strongly non-ideal and the true figure is higher; this is a LOWER bound and
+    the direction it errs in is the dangerous one, which is why the design point
+    is chosen with margin rather than at the limit."""
+    n_molecules = C.LHD_ATOMS_PER_CM3 * phi * 1e6 / 2.0
+    return n_molecules * K_B * t_k / 1e6
+
+
+def lame_ratio(p_mpa, sigma_mpa=CELL_SIGMA_ALLOW_MPA):
+    """Outer over inner radius for a monobloc cylinder. None when no thickness
+    suffices -- which happens whenever the pressure reaches the allowable
+    stress, however much steel is wrapped round it."""
+    if sigma_mpa <= p_mpa:
+        return None
+    return math.sqrt((sigma_mpa + p_mpa) / (sigma_mpa - p_mpa))
+
+
+def muon_kinetic_mev(p_mev=265.0):
+    return math.hypot(p_mev, C.M_MU_MEV) - C.M_MU_MEV
+
+
+def cell_stopping_w(power_mw=1.0, p_mev=265.0):
+    return (C.open_modelled_mu_per_s(power_mw) * muon_kinetic_mev(p_mev)
+            * 1.602176634e-13)
+
+
+def cell_alpha_w(power_mw=1.0, cycles=150.0):
+    return (C.open_modelled_mu_per_s(power_mw) * cycles * C.ALPHA_MEV
+            * 1.602176634e-13)
+
+
+def cell_heat_w(power_mw=1.0, cycles=150.0, p_mev=265.0):
+    """Into the FUEL: the stopping muons' kinetic energy plus the alpha, which
+    stays. The 14.1 MeV neutron leaves and is the blanket's."""
+    n = C.open_modelled_mu_per_s(power_mw)
+    return (n * muon_kinetic_mev(p_mev) + n * cycles * C.ALPHA_MEV) * 1.602176634e-13
+
+
+def cell_neutron_w(power_mw=1.0, cycles=150.0):
+    n = C.open_modelled_mu_per_s(power_mw)
+    return n * cycles * C.NEUTRON_MEV * 1.602176634e-13
+
+
+def cell_flow_kg_s(power_mw=1.0, dt_k=CELL_DT_K):
+    return cell_heat_w(power_mw) / (CP_DT_J_KG_K * dt_k)
+
+
+def he3_decays_per_s(trit_kg=None, b_cell=CELL_B_T):
+    t = cell_tritium_kg(b_cell) if trit_kg is None else trit_kg
+    return (t * 1000.0 / 3.016) * N_A * math.log(2.0) / T_HALFLIFE_S
+
+
+def fuel_atoms(b_cell=CELL_B_T):
+    total_kg = cell_tritium_kg(b_cell) / C.T_MASS_FRAC_DT
+    return total_kg * 1000.0 / 2.5 * N_A
+
+
+def he3_ppm_doubling_minutes(b_cell=CELL_B_T):
+    return 1e-6 * fuel_atoms(b_cell) / he3_decays_per_s(b_cell=b_cell) / 60.0
+
+
+def he3_steady_ppm(power_mw=1.0, dt_k=CELL_DT_K, b_cell=CELL_B_T):
+    """With the loop that removes the heat also removing helium each pass."""
+    turnover = (cell_tritium_kg(b_cell) / C.T_MASS_FRAC_DT) / cell_flow_kg_s(power_mw, dt_k)
+    return 1e6 * he3_decays_per_s(b_cell=b_cell) * turnover / fuel_atoms(b_cell)
+
+
+def report_channel():
+    """Where the cell can sit, and what it costs to sit in the wrong place."""
+    print("  THE DECAY CHANNEL: WHERE THE CELL CAN PHYSICALLY SIT")
+    print("    A pion must decay before its muon can stop. At the stopping window")
+    print("    the pion's decay length is metres and the capture region is 1.5 m,")
+    print("    so the cell cannot sit in it.")
+    print()
+    print("      p (MeV/c)   pion decay length   90 percent decayed by")
+    for p in (100.0, 150.0, 200.0, 265.0):
+        print(f"      {p:9.0f}   {pion_decay_length_m(p):13.2f} m   {channel_length_m(p):17.1f} m")
+    print()
+    _line("channel length required", f"{channel_length_m():.1f}", "m",
+          f"{100 * DECAY_FRACTION_WANTED:.0f}% of pions decayed at the window")
+    _line("muon decay length there", f"{muon_decay_length_m():.0f}", "m",
+          "so the muons survive the channel")
+    print()
+    print("    AND THE BEAM EXPANDS THROUGH IT. Adiabatic invariance grows the")
+    print("    envelope as 1/sqrt(B), and tritium as its square:")
+    print()
+    print("      channel field   beam envelope   tritium IF the cell sat there")
+    for b in (1.0, 2.0, 3.0, 5.0):
+        print(f"      {b:11.1f} T   {channel_beam_radius_cm(b):11.2f} cm   "
+              f"{channel_tritium_kg(b):20.1f} kg")
+    print()
+    print("    Tens of kilogrammes. RECOMPRESSION AT THE CELL IS NOT AN")
+    print("    OPTIMISATION, IT IS A REQUIREMENT -- and it is free, because")
+    print("    adiabatic compression conserves |p| and therefore leaves the")
+    print("    stopping range and the momentum window exactly where they were.")
+
+
+def report_cell():
+    """The fuel cell: the one item the build package previously left undone."""
+    print("  THE FUEL CELL")
+    print("    The build package named this as its one undone item. It is done")
+    print("    here, and two of its requirements turn out to be one.")
+    print()
+    print("    RECOMPRESSION IS A LEVER ON TRITIUM, AND A STRONG ONE.")
+    print("      cell field   beam envelope   tritium at a 265 MeV/c window")
+    for b in (10.0, C.DES_B_TARGET, 20.0, 30.0):
+        tag = "   <-- design point" if abs(b - CELL_B_T) < 1e-9 else ""
+        print(f"      {b:8.2f} T   {cell_radius_cm(b):11.2f} cm   "
+              f"{cell_tritium_kg(b):17.2f} kg{tag}")
+    print()
+    print("    The capture design of sec.8.2 dropped the target field to 14.01 T to")
+    print("    bring the peak inside reach. That widened the beam, and a wider beam")
+    print(f"    is more tritium: {cell_tritium_kg(C.DES_B_TARGET):.2f} kg at the capture field against")
+    print(f"    {cell_tritium_kg(20.0):.2f} recompressed to 20 T. THE FIELD REDUCTION HAD A COST")
+    print("    AND RECOMPRESSION PAYS IT BACK. Neither was noticed until the cell")
+    print("    was designed, which is the argument for designing it.")
+    print()
+    print("    AND THE DENSITY SHOULD BE LOW, WHICH INVERTS THE SPECIFICATION.")
+    print("    Pressure falls linearly with density and cell length grows as its")
+    print("    inverse. Length is cheap; pressure is not:")
+    print()
+    print("      phi     pressure    depth      monobloc vessel at 300 MPa")
+    for phi in (0.222, 0.4, CELL_PHI, 1.0):
+        r = lame_ratio(cell_pressure_mpa(phi))
+        v = "EXCLUDED at any thickness" if r is None else f"r_o/r_i = {r:.2f}"
+        tag = "   <-- design point" if abs(phi - CELL_PHI) < 1e-9 else ""
+        print(f"      {phi:5.3f}  {cell_pressure_mpa(phi):8.1f} MPa  "
+              f"{cell_depth_cm(phi):7.1f} cm   {v}{tag}")
+    print()
+    print("    The specification says 'density as high as the cell reaches'. On the")
+    print("    demonstrated cycle count the bred-fuel balance breaks even at 0.222")
+    print("    of liquid density, so the cell need not reach high at all -- and at")
+    print("    500 MPa a 300 MPa steel is excluded HOWEVER THICK IT IS MADE, because")
+    print("    a monobloc cylinder cannot hold a pressure at its own allowable")
+    print("    stress. RUN IT AS LOW AS THE BALANCE ALLOWS.")
+    print()
+    print("    THE HEAT, AND THE SECOND REQUIREMENT THAT TURNS OUT TO BE THE SAME.")
+    _line("muons stopping per second", f"{C.open_modelled_mu_per_s():.3e}", "1/s")
+    _line("kinetic energy each brings", f"{muon_kinetic_mev():.1f}", "MeV")
+    _line("stopping power into the fuel", f"{cell_stopping_w() / 1e3:.2f}", "kW")
+    _line("alpha heating, 150 cycles", f"{cell_alpha_w() / 1e3:.2f}", "kW",
+          "the alpha stays in the fuel")
+    _line("TOTAL into the fuel", f"{cell_heat_w() / 1e3:.2f}", "kW")
+    _line("neutrons leaving to the blanket", f"{cell_neutron_w() / 1e3:.0f}", "kW")
+    _line("flow to remove it", f"{cell_flow_kg_s():.4f}", "kg/s", f"at dT = {CELL_DT_K:.0f} K")
+    print()
+    print("    THE FUEL MUST FLOW, AND HELIUM-3 SAYS SO INDEPENDENTLY.")
+    _line("tritium decays", f"{he3_decays_per_s():.3e}", "1/s")
+    _line("1 ppm of 3He accumulates every", f"{he3_ppm_doubling_minutes():.0f}", "minutes")
+    _line("steady 3He on the cooling loop", f"{he3_steady_ppm():.3f}", "ppm",
+          "against a 1 ppm purity spec")
+    print()
+    print(f"    Two requirements arrived from different directions -- remove"
+          f" {cell_heat_w() / 1e3:.2f} kW,")
+    print("    and hold a helium-3 ingrowth that reaches 1 ppm every twenty minutes")
+    print("    -- and ONE LOOP MEETS BOTH. The flow that carries the heat out")
+    print("    carries the fuel through the purifier, and the flow rate the heat")
+    print("    sets is already fast enough to hold helium below the purity the")
+    print("    specification demands. That is the cell's design closing on itself.")
+
+
 def report_all():
     print("THE CAPTURE SOLENOID: BUILD PACKAGE")
     print()
@@ -514,14 +736,18 @@ def report_all():
     print("  make a machine: the target, the lifetime, the plant, the integration.")
     print()
     for r in (report_circuit, report_mechanics, report_conductor, report_target,
-              report_radiation, report_failure, report_plant, report_integration):
+              report_radiation, report_failure, report_plant, report_channel,
+              report_cell, report_integration):
         r()
         print()
-    print("  WHAT REMAINS UNDONE, AND IT IS ONE THING.")
-    print("    The D-T cell's mechanical and thermal design beside a liquid-metal")
-    print("    target in a 14 T field. Everything else above is either computed")
-    print("    from a conserved quantity or referred to a machine that has been")
-    print("    built and run.")
+    print("  WHAT REMAINS UNDONE.")
+    print("    The cell is designed above and the package is complete to the level")
+    print("    of a physics design with engineering requirements. What is NOT here")
+    print("    is a fabrication package: drawings, tolerances, weld and joint")
+    print("    design, the tritium plant's own licensing case, and a quench")
+    print("    analysis run in a magnet code rather than on a hot-spot integral.")
+    print("    Those are engineering-office work on a design that now exists,")
+    print("    which is a different thing from a design that does not.")
     return 0
 
 
@@ -585,6 +811,55 @@ def selftest():
     print("       quietly enjoyed: the earlier velocity floor is withdrawn.")
 
     print()
+    print("  the cell can only sit where the pions have decayed")
+    ok = channel_length_m() > 10 * C.DES_LENGTH_M
+    fail += 0 if ok else 1
+    print(f"    the channel is {channel_length_m():.1f} m against a capture region of"
+          f" {C.DES_LENGTH_M:.1f} m   {'PASS' if ok else 'FAIL'}")
+    ok = muon_decay_length_m() > 10 * channel_length_m()
+    fail += 0 if ok else 1
+    print(f"    and the muons survive it: {muon_decay_length_m():.0f} m decay length"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = channel_tritium_kg(2.0) > 5 * cell_tritium_kg()
+    fail += 0 if ok else 1
+    print(f"    a cell in the expanded beam would need {channel_tritium_kg(2.0):.0f} kg against")
+    print(f"    {cell_tritium_kg():.2f} recompressed: recompression is a REQUIREMENT"
+          f"   {'PASS' if ok else 'FAIL'}")
+
+    print()
+    print("  the cell's two requirements are met by one loop")
+    ok = he3_steady_ppm() < 1.0
+    fail += 0 if ok else 1
+    print(f"    the flow the heat sets holds 3He at {he3_steady_ppm():.3f} ppm, below the")
+    print(f"    1 ppm the specification demands   {'PASS' if ok else 'FAIL'}")
+    ok = he3_ppm_doubling_minutes() < 60.0
+    fail += 0 if ok else 1
+    print(f"    and it is needed: 1 ppm accumulates every"
+          f" {he3_ppm_doubling_minutes():.0f} minutes   {'PASS' if ok else 'FAIL'}")
+    ok = abs((cell_stopping_w() + cell_alpha_w()) / cell_heat_w() - 1.0) < 1e-9
+    fail += 0 if ok else 1
+    print(f"    and the heat is the two terms and no third"
+          f"   {'PASS' if ok else 'FAIL'}")
+
+    print()
+    print("  THE REFUSAL ON PRESSURE")
+    ok = lame_ratio(500.0, 300.0) is None
+    fail += 0 if ok else 1
+    print(f"    a monobloc vessel cannot hold a pressure at its own allowable")
+    print(f"    stress, at any thickness   {'PASS' if ok else 'FAIL'}")
+    ok = cell_pressure_mpa(0.222) < cell_pressure_mpa(1.0)
+    fail += 0 if ok else 1
+    print(f"    so the density is run LOW: {cell_pressure_mpa(0.222):.0f} MPa at phi 0.222"
+          f" against {cell_pressure_mpa(1.0):.0f} at 1.0")
+    print(f"    -- which inverts the specification's instinct"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = cell_depth_cm(0.222) > cell_depth_cm(1.0)
+    fail += 0 if ok else 1
+    print(f"    and it is paid for in length, which is cheap:"
+          f" {cell_depth_cm(0.222):.0f} vs {cell_depth_cm(1.0):.0f} cm"
+          f"   {'PASS' if ok else 'FAIL'}")
+
+    print()
     print("  the sourced figures corroborate what this design computed for itself")
     e = C.des_stored_energy_j() / 1e9
     ok = 0.8 < e < 1.3
@@ -630,7 +905,8 @@ def main():
     for name, fn in (("circuit", report_circuit), ("mechanics", report_mechanics),
                      ("conductor", report_conductor), ("target", report_target),
                      ("radiation", report_radiation), ("failure", report_failure),
-                     ("plant", report_plant), ("integration", report_integration)):
+                     ("plant", report_plant), ("channel", report_channel),
+                     ("cell", report_cell), ("integration", report_integration)):
         ap.add_argument("--" + name, action="store_true", help=fn.__doc__ or name)
     a = ap.parse_args()
     if a.selftest:
@@ -638,7 +914,8 @@ def main():
     for name, fn in (("circuit", report_circuit), ("mechanics", report_mechanics),
                      ("conductor", report_conductor), ("target", report_target),
                      ("radiation", report_radiation), ("failure", report_failure),
-                     ("plant", report_plant), ("integration", report_integration)):
+                     ("plant", report_plant), ("channel", report_channel),
+                     ("cell", report_cell), ("integration", report_integration)):
         if getattr(a, name):
             fn()
             return 0
