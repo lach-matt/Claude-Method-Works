@@ -1525,3 +1525,71 @@ cheap to check and all three are wrong in the literature as it stands.
 
 > **That is the practical output of this project: one bench experiment, three corrections, and a
 > catalogue of things not to spend money on.**
+
+## `warpenergy.py` — DIRECTIVE 1, CLOSED
+
+The first of the three things this project set out to do was **identify warp energy**. The answer was
+produced in `twist.py` and not recognised as the answer, because it arrived as an identity about
+vorticity rather than as a quantity. It is both.
+
+### What it is
+
+> **E = −Ω²/(8πG)**
+
+The Eulerian energy density of an Alcubierre warp drive and the coordinate vorticity of its shift are
+**the same object** — not proportional, equal, with Ω squared and a minus sign.
+
+> **Warp energy is not a new kind of energy and it is not a property of any matter. It is the negative
+> of the squared twist of the shift, fixed by geometry alone.**
+
+Nothing about a material enters. Give the shape function and the velocity, and the energy is determined
+exactly, before any question of what the drive is made of. That is why every *"which exotic matter"*
+question in this literature is the wrong question: **the geometry has already spent the energy.**
+
+### How much
+
+With `(y²+z²)/r_s² = sin²θ` and `∫₀^π sin³θ dθ = 4/3`, the angular part collapses:
+
+> **M_warp = −(v_s²/12G) ∫₀^∞ f′(r)² r² dr** kg, exact
+
+checked against a direct three-dimensional integration of the density itself at three (R, σ) to
+**5×10⁻¹²** relative. For a thin wall the radial integral → `R²σ/3` — confirmed to five figures at
+σR = 20, 100, 400 — so with wall thickness D:
+
+> **M_warp ≈ −v_s²R² / (36 G D)**
+
+**The energy is a surface effect, not a volume one: area over thickness.** Doubling the bubble costs
+four times; halving the wall costs twice. The wall is the whole bill, and R is not the lever.
+
+| R | D | v_s/c | M_warp (kg) | M_warp (M☉) |
+|---|---|---|---|---|
+| 100 m | 1 m | 1 | −3.74×10²⁹ | −0.188 |
+| 100 m | 1 mm | 1 | −3.74×10³² | −188 |
+| 100 m | 10² ℓ_P | 1 | −2.31×10⁶² | −1.16×10³² |
+| 100 m | ℓ_P | 1 | −2.31×10⁶⁴ | −1.16×10³⁴ |
+| 100 m | 1 m | 0.1 | −3.74×10²⁷ | −0.0019 |
+
+**The famous 10⁶²–10⁶⁵ kg is a statement about the wall, not about warp drives.** At a metre-thick wall
+and a tenth of light speed the bill is a thousandth of a solar mass — still absurd, and **thirty-five
+orders below the number usually quoted**. What drives it to 10⁶² is the Planck-scale wall that Pfenning
+and Ford's quantum inequality demands.
+
+### And that is where directive 1 hands off
+
+D is set by a **quantum inequality**, and the state-dependent successor to quantum inequalities is the
+**QNEC**, `⟨T_kk⟩ ≥ (ℏ/2π)S″_out`, which licenses negative energy wherever the outward entanglement
+entropy is concave. That is exactly `shape.py`'s **prediction 2**, recorded before this file was
+written. So directive 1's answer does not merely close directive 1 — it names which of the three
+outstanding predictions is load-bearing, and it is the one the corpus has a standing decision about.
+
+### Where the three directives now stand
+
+| | axis | affirmative | bounded | verdict |
+|---|---|---|---|---|
+| **1** | identify warp energy | 44 | 4 | **MET** — closed form, verified, and it is geometric |
+| **2** | can a warp drive be built | 33 | 53 | **not met** — the one positive-energy construction is ℓ≥2 unstable while self-gravitating |
+| **3** | engineer the specs | 82 | 11 | **not met** — no surviving engine; a bench instrument, not a drive |
+
+Directive 1 is met. Two remain, and directive 1's own answer says where to push: the wall thickness is
+the entire cost, the wall thickness is fixed by a static quantum inequality, and that inequality has a
+dynamical form nobody here has asked.

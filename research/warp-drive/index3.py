@@ -349,6 +349,13 @@ FINDINGS = [
   "measure the loop, not the line: the closed-loop phase 2k_0 INT w.dl is gauge-invariant exactly where the twist is nonzero"),
  ("HARD-NULL",       0, +1, +1, "bench.py",
   "the control is a dimension theorem, not a small number: a longitudinally graded sample gives exactly zero, and a uniform w does too"),
+ # DIRECTIVE 1, CLOSED.
+ ("WARP-ENERGY-IS", +1,  0, +1, "warpenergy.py",
+  "warp energy is the squared twist of the shift, negative, and fixed by geometry alone: no matter model enters it"),
+ ("WARP-ENERGY-HOW",+1,  0, +1, "warpenergy.py",
+  "M = -(v_s^2/12G) INT f'^2 r^2 dr exactly, verified against direct 3-D integration to 5e-12"),
+ ("AREA-OVER-THICK",+1, -1, +1, "warpenergy.py",
+  "M ~ -v_s^2 R^2/(36 G D): the bill is area over thickness, so the wall is the whole cost and R is not the lever"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twelve obstructions three dissolved, three relocated, four closed negative, two conditional and none untested"),
 ]
@@ -465,7 +472,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 121)
+    chk("number of findings indexed", len(FINDINGS), 124)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -483,7 +490,8 @@ def selftest():
     chk("cells sitting on all three axes", sorted(triple),
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
                 "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
-                "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE"]))
+                "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE",
+                "AREA-OVER-THICK"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
