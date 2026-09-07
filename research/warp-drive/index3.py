@@ -109,6 +109,14 @@ FINDINGS = [
  # The theorem the loop produced, which neither visit gave alone.
  # The object is what is shifted, so the object's measured density decides the
  # magnitude -- and f <= 1 caps the whole sourcing branch at 7.1% of light.
+ ("GRAD-CLOSED",  0, -1,  0, "gradients.py",
+  "the gradient space is a classification, not a survey: 5 types, only one pumps"),
+ ("NO-MANUFACTURE",0, -1,  0, "gradients.py",
+  "a made hole cannot survive: a century needs 3.3e8 kg inside 5e-19 m"),
+ ("GW-MEMORY",     0, -1, -1, "gradients.py",
+  "radiation gives displacement without velocity: 2.5 cm at 10 r_s, then it stops"),
+ ("OBSERVED-ENGINE",+1,+1, +1, "gradients.py",
+  "the engine runs today on protons: UHECRs ARE the proof of concept"),
  ("KERR-FLYBY",  +1, +1, +1, "shipspec.py",
   "spin buys 1.612x in dv (b_crit 5.196 -> 2) at 27x tides, i.e. 5.2x deflector mass"),
  ("VEHICLE-SPEC", 0, -1, +1, "shipspec.py",
@@ -251,7 +259,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 45)
+    chk("number of findings indexed", len(FINDINGS), 49)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -267,10 +275,11 @@ def selftest():
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
-        sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY"]))
+        sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
+                "OBSERVED-ENGINE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
-        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY"]))
+        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
