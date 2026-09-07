@@ -86,7 +86,7 @@ There are two conventions in use for `f_work`, and this paper carries both rathe
 
 The loss term `ω_s` is dominated by **sticking**: the probability that the muon leaves the fusion bound to the alpha particle and is lost from the cycle. It is the term that most attempts at improvement have aimed at.
 
-It cannot, however, be improved by changing the binder, and the reason is that the binder's mass cancels out of the overlap integral that defines sticking. The orbit the binder occupies and the recoil it must escape both scale with that mass in the same way, so their ratio — which is what sticking depends on — does not change. Theorem 2 in §13.4 gives the proof.
+It cannot, however, be improved by changing the binder, and the reason is that the binder's mass cancels out of the overlap integral that defines sticking. A heavier binder sits in a tighter orbit, but the momentum scale of that orbit rises in exact compensation, and the two changes cancel in the one combination the capture depends on. The recoil the binder must escape is set by the fusion kinematics and does not involve the binder at all. Theorem 2 in §13.4 gives the proof.
 
 The consequence is larger than the calculation. Since no admissible binder does better, condition 8 cannot be satisfied by looking for a different particle; it is a specification on the *machine* rather than a search over the *spectrum*. And §2's window has already shown that there is no other occupant to search for in any case.
 
