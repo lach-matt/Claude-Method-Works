@@ -245,3 +245,43 @@ under it while the material they want sits in the book under other numbers — w
 class, and the plan already names it exactly: *"targets that say nothing of the claim"*. **Chat 95B
 measured the emptiness correctly and drew the wrong conclusion, because it asked where the TEXT was and
 not where the MATERIAL was.** `emptysections.py`, selftest 17 of 17.
+
+### D-23 · §24.13's end rule against its own table — `endrule.py`, selftest 11 of 11
+
+§24.13 measures both ends of two isoelectronic sequences by holding each member out, and prints:
+
+| held out | lithium-like | sodium-like |
+|---|---|---|
+| **neutral, Z = 1** | **11.1 %** | **23.4 %** |
+| Z = 2 | 1.4 % | 2.4 % |
+| Z = 3 | 0.8 % | 1.3 % |
+| **Z = 4** — the other end | **1.8 %** | **2.5 %** |
+
+Its prose is exact — *"Extrapolation **to the neutral** does not"* — and Figure 24.3's caption is
+exact — *"**The neutral** is not."* **Its summary row and its closing blockquote are not**:
+*"within a sequence, **at an end** | δ not determined"* and *"**The ends always must** [be fetched]"*.
+
+**A sequence has two ends, the table measures both, and only one fails.** The neutral end is
+**6.2× and 9.4×** worse than the upper end; the upper end sits **inside the interior's own worst
+case** on the sodium-like sequence (1.04×) and within a quarter of it on the lithium-like (1.29×).
+The correct statement and the overstatement sit on one page, neither superseding the other, and the
+two that must not be touched are named.
+
+### D-16 · "K I nd 45.7" — `nreached.py`, selftest 10 of 10
+
+Docket 14's own instruction is *"Resolve K I nd 45.7 first"*, and the collection resolves it.
+
+| channel | printed *"ν reached"* | Spectra Compendium n range | Spectra Compendium ν range |
+|---|---|---|---|
+| **K I nd** | **45.7** | 3–13 | 2.9–12.7 |
+| Na I ns | 20.0 | 3–**20** | 1.6–18.7 |
+| Al I nf | 55.0 | 4–**55** | 4.0–**55.0** |
+
+**The other two rows fix the reading.** Al I nf matches both; **Na I ns matches the n range and not
+the ν range**, so the column is the top of the principal-quantum-number range. **K I nd's own row
+runs n = 3 to 13**, so the entry should be 13 — or 12.7 under the other reading. **Neither is 45.7,
+which is 3.5× the larger of them.**
+
+**And the claim the table supports survives, strengthened.** *"Curvature washes out before separation,
+in every channel in this work"*: a channel reaching 13 is **further** from its ν_V of 160 than one
+reaching 45.7. The figure is wrong, not the thesis.

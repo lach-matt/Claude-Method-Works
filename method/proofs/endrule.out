@@ -1,0 +1,21 @@
+§24.13's end rule, against §24.13's own table
+
+            held out   lithium-like   sodium-like
+      neutral, Z = 1          11.1%         23.4%  <- the end the rule is right about
+               Z = 2           1.4%          2.4%
+               Z = 3           0.8%          1.3%
+               Z = 4           1.8%          2.5%  <- the OTHER end
+
+  the neutral end against the upper end: 6.2× worse on lithium-like, 9.4× on sodium-like
+  the upper end against the interior:     1.29× and 2.25× on lithium-like, 1.04× and 1.92× on sodium-like
+
+  RIGHT, and not to be touched — the prose and the caption say 'the neutral':
+    1×  "Extrapolation to the neutral does not"
+    1×  "The interior is recovered to about one percent. The neutral is not"
+
+  OVERSTATED — the summary row and the blockquote say 'an end' and 'the ends':
+    1×  "within a sequence, at an end | δ **not** determined"
+    1×  "The ends always must"
+
+  A sequence has two ends, the table measures both, and only one of them fails.
+  The section states the correct version twice on the same page. RECORDED, NOT REPAIRED.
