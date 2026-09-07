@@ -1931,6 +1931,14 @@ product of 1.50 T·m. No new magnet.
 hemisphere cut exists to escape the forward neutron and proton flux of a physics target; a reactor's
 target is its detector and has no such background (§5.9, §5.24).
 
+> **And the mechanism that achieves it is now designed rather than assumed.** The companion's §8 grades
+> the capture field so that a backward pion is magnetically *mirrored* forward — reflection when
+> sin θ ≥ √(B_t/B_max), at a grade of **1.428**. Because that grade puts the loss cone outside every
+> angle HARP measured, **mirroring the backward hemisphere and accepting both hemispheres are the same
+> number**: the band below is reproduced to four figures by the mirror, and it is reproduced by a
+> magnet rather than by an instrumentation choice. This stage asserted a capability; that section
+> builds the thing that supplies it.
+
 **Measure one number.** η, the negative muons delivered to and stopped in a dense target per negative
 pion produced in the production target. Not the transverse acceptance, and not the capture fraction
 of a momentum-selected channel — the delivered figure, end to end.
@@ -2029,7 +2037,9 @@ scanned experimental record, or any improvement in sticking.
 deep at the top of its momentum window, so the demonstration's inventory is set by the window it
 accepts and by the beam's area, not by its density — and the beam's area is itself derived, not
 chosen. At today's aperture that is **3.59 kg** at a 265 MeV/c window and **6.93 kg** at 400 MeV/c;
-at the wider bore, **10.79 kg** and **20.82 kg**. That is the demonstration's leading cost and its leading licensing
+at the wider bore, **10.79 kg** and **20.82 kg**. **On the machine the companion's §§8–10 design it is
+5.13 kg**, because that design trades target field for bore and then recompresses at the cell; the
+figure is a consequence of the magnet and is computed there rather than assumed here. That is the demonstration's leading cost and its leading licensing
 constraint, and it should be designed against first: a narrower window is cheaper in tritium than a
 wider one is valuable in muons, by 1.93 against 1.11.
 

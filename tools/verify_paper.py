@@ -2364,6 +2364,92 @@ def cl_turnover_s():
     return (_mach.cell_tritium_kg() / collector.T_MASS_FRAC_DT) / _mach.cell_flow_kg_s()
 
 
+# ---- spec sec.6, bound to the machine of sec.8-10 --------------------------
+def pr_bore_150():
+    return _mach.aperture_bore_cm(1.50)
+
+
+def pr_bore_260():
+    return _mach.aperture_bore_cm(2.60)
+
+
+def pr_shield_150():
+    return _mach.aperture_shield_cm(1.50)
+
+
+def pr_shield_260():
+    return _mach.aperture_shield_cm(2.60)
+
+
+def pr_capture_150():
+    return _mach.aperture_capture(1.50)
+
+
+def pr_capture_260():
+    return _mach.aperture_capture(2.60)
+
+
+def pr_trit_150():
+    return _mach.aperture_tritium_kg(1.50)
+
+
+def pr_trit_260():
+    return _mach.aperture_tritium_kg(2.60)
+
+
+def pr_bore_gain():
+    return _mach.bore_capture_gain()
+
+
+def pr_bore_cost():
+    return _mach.bore_tritium_cost()
+
+
+def pr_beam_at_cell():
+    return _mach.proc_beam_radius_cm()
+
+
+def pr_interception():
+    return _mach.proc_interception()
+
+
+def pr_binders():
+    return _mach.proc_binders_per_s()
+
+
+def pr_neutrons():
+    return _mach.proc_neutrons_per_s()
+
+
+def pr_heat_mw():
+    return _mach.proc_heat_mw()
+
+
+def pr_cell_mg():
+    return _mach.proc_cell_tritium_mg()
+
+
+def pr_cell_ci():
+    return collector.tritium_curies(_mach.proc_cell_tritium_mg() / 1000.0)
+
+
+def pr_corr_interception():
+    return _mach.proc_interception() / (_mach.PROC_CELL_RADIUS_CM / 7.5) ** 2
+
+
+def pr_corr_mirror():
+    return _mach.proc_acceptance() / collector.delivered_fraction(
+        1.50, "fwd", (0.0, _mach.PROC_CELL_P_STOP))
+
+
+def pr_corr_decay():
+    return _mach.DECAY_FRACTION_WANTED
+
+
+def pr_corr_net():
+    return pr_corr_interception() * pr_corr_mirror() * pr_corr_decay()
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

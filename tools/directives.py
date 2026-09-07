@@ -109,7 +109,7 @@ ROWS = [
     ("D43", "BE", "10.5", "the order, and what none of it requires", 1, 0, 1, 3),
     ("D44", "SP", "1", "the reaction specified, every free parameter fixed", 2, 0, 3, 1),
     ("D45", "SP", "2", "bill of materials, bench column and reactor column", 0, 0, 3, 1),
-    ("D46", "SP", "3", "the laboratory procedure", 1, 0, 3, 3),
+    ("D46", "SP", "3", "the laboratory procedure, bench scale", 1, 0, 3, 3),
     ("D47", "SP", "3.1", "assembly", 0, 0, 3, 3),
     ("D48", "SP", "3.2", "loading", 0, 0, 3, 3),
     ("D49", "SP", "3.3", "the measurement: two observables, simultaneous, on one target", 2, 0, 2, 3),
@@ -129,6 +129,7 @@ ROWS = [
     # Added after the first reading of this index, which found D54 short on Z and
     # nothing else short at all. The proof is D54's and is carried by reference;
     # what this row adds is the apparatus, the gating and the committed rate.
+    ("D70", "SP", "6", "the procedure repointed at the designed machine; the prediction moves by 6 percent", 3, 1, 3, 3),
     ("D69", "SP", "10", "the fuel cell designed: the decay channel, recompression, and one loop for two requirements", 2, 1, 3, 3),
     ("D68", "SP", "9", "the build package: circuit, conductor, target, lifetime, plant, failure, integration", 2, 1, 3, 3),
     ("D67", "SP", "8", "the capture solenoid designed: the mirror term supplied, worth 1.299, grade fixed at 1.428", 2, 1, 3, 2),

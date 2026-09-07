@@ -119,15 +119,16 @@ are not confused.
 | item | A — bench | B — reactor scale |
 |---|---|---|
 | fuel | D–T, 50/50, **4 mg** | D–T, 50/50 |
-| tritium inventory | ~**23.1 Ci** (≈2.4 mg) | **3.59 kg** at a 265 MeV/c stopping window |
+| tritium inventory | ~**23.1 Ci** (≈2.4 mg) | **5.13 kg** at a 265 MeV/c window and the designed bore — §10.2 |
 | target vessel | diamond anvil cell, **19.2 mm³** sample volume | one muon range deep: **33.9 g/cm²** areal density |
 | pressure | to **933 MPa** | as required for density; inventory does not fall with compression |
 | temperature | cryogenic to **500 K** design ceiling, **400 K** demonstrated | 800 K |
 | gas handling | uranium storage beds, palladium permeator, helium glovebox at negative pressure | same class, scaled |
 | purity control | permeator plus in-situ Raman; assay to better than **1 ppm** | same |
 | binder source | existing beam, ~**1.0e8** μ⁻/s | **1.2e15** μ⁻/s for one megawatt |
-| capture solenoid | none — use the facility's beamline | **20 T**, field–radius product **2.60 T·m**, a **13 cm** clear bore |
-| **production target** | none | tungsten or tantalum, thick — **high-Z is a requirement, not a convention** |
+| capture solenoid | none — use the facility's beamline | **20 T** peak, **14.01 T** at the target, aperture **1.50** or **2.60 T·m** — §8 designs it |
+| decay channel and recompression | none | **34.1 m**, then back to **20 T** at the cell — §10.1 shows both are required |
+| **production target** | none | high-Z, and a **free liquid-metal jet**: §9.4 shows the bore excludes every solid target |
 | neutron detection | array calibrated at 14.1 MeV | — |
 | X-ray detection | resolving **8.2 keV**, viewing the same sample volume | — |
 | blanket | none | ⁶Li-bearing, **1.6×** neutron energy multiplication |
@@ -141,8 +142,15 @@ tungsten of column B already satisfies this. It is recorded here because the req
 previously met without being stated, and a specification that does not state it could be met by a
 target that fails it.
 
+**Column B is now designed rather than listed.** §§8–10 build it: the magnet, the circuit, the
+conductor, the target, the lifetime, the plant, the decay channel and the fuel cell. Where this table
+and those sections differ, **those sections govern** — and the one figure that moved is the tritium,
+from the **3.59 kg** [1] computes at a 7.5 cm beam to **5.13 kg** at the designed bore recompressed to
+20 T at the cell. §10.2 is why, and it is a cost of the design's own field choice rather than a new
+requirement.
+
 **The two columns differ by six orders of magnitude in binder flux and three in tritium, and that
-difference is the subject of §4.** Column A is buildable now. Column B is not.
+difference is the subject of §4.** Column A is buildable now. Column B is designed and not built.
 
 ## 3. The laboratory procedure
 
@@ -348,27 +356,49 @@ about where the cell sits.
 
 ### 6.1 Apparatus
 
-| item | specification |
-|---|---|
-| host machine | a proton driver of ~**8 GeV** running for another product — spallation neutrons, isotopes, or a subcritical blanket |
-| production target | tungsten or tantalum, thick; **high-Z is required for the charge** (§2) |
-| capture solenoid | around the production target, field–radius product **2.60 T·m**. This is the one thing §5.2 does not get for free, and [1] §5.21 prices it as a shielding trade rather than a magnet problem |
-| fuel cell | D–T, 50/50, areal density **5.00 g/cm²** along the beam, radius **0.16 mm** |
-| tritium inventory | **2.42 mg**, i.e. **23.2 Ci** |
-| cell position | inside the solenoid bore, downstream of the target, **before any momentum selection** |
-| neutron detection | array calibrated at 14.1 MeV, gated on the machine's pulse structure |
-| X-ray detection | resolving **8.2 keV**, viewing the same sample volume |
+**This table was rewritten after §§8–10 designed the machine, and it named four things the machine
+does not have.** What follows is the machine. `python3 tools/machine.py --coherence` prints it, and
+every apparatus figure here is computed there rather than asserted.
 
-**The cell is small on purpose, and the reason is the whole of §5.25.** A stopping cell's tritium is
-areal density times area, so it goes as the square of its radius — and so does the fraction of the
+| item | specification | where |
+|---|---|---|
+| host machine | a proton driver of ~**8 GeV** running for another product | §5.2 |
+| production target | a free **liquid-metal jet**, 8 mm across at 27 mrad — *not* a rod or a wheel, which the bore excludes | §9.4 |
+| capture solenoid | **20.0 T** peak, **14.01 T** at the target, grade **1.428**, aperture **1.50 T·m**, bore **10.71 cm** | §8 |
+| shielding and coil | tungsten to a coil inner radius of **120.0 cm**; **1080 MJ** stored | §8.3, §9 |
+| **decay channel** | **34.1 m**, without which no pion has decayed and no muon can stop | §10.1 |
+| **recompression** | to **20 T** at the cell, which is a requirement and not an option | §10.1 |
+| beryllium window | at **6 m**, stopping mercury vapour; a consumable | §9.4 |
+| fuel cell | D–T 50/50, areal density **5.00 g/cm²**, radius **0.16 mm** | below |
+| tritium inventory | **2.41 mg**, i.e. **23.2 Ci** | below |
+| cell position | **after** the decay channel, in the recompression section — **not** in the capture bore | §10.1 |
+| purification loop | continuous, removing ³He | §10.4 |
+| neutron detection | array calibrated at 14.1 MeV, gated on the machine's pulse structure | §6.3 |
+| X-ray detection | resolving **8.2 keV**, viewing the same sample volume | §6.3 |
+
+**The four corrections.** §6 as first written named a **2.60 T·m** collector where the design is
+**1.50 T·m** — the aperture at which the acceptance model is validated to 0.982; stood the cell in a
+**7.50 cm** beam where the machine's is **8.96 cm** at the cell; put the cell "inside the solenoid
+bore", which §10.1 shows is impossible; and used a forward-only acceptance for a machine that has a
+mirror.
+
+**Both bores are the same machine.** The coil radius is sourced at 120 cm and both apertures fit
+inside it, so the cold mass, the stored energy and the conductor are identical — only the shield
+thins, from 109.3 to 101.4 cm. The wider bore buys **1.188** in capture for **3.00** in tritium.
+[1] §5.25 found that trade at **3.01** from the beam-envelope argument alone; **this package
+reproduces it from the magnet**, and the two share no step — one is a gyroradius, the other a shield
+and a coil.
+
+**The cell is small on purpose, and the reason is the whole of [1] §5.25.** A stopping cell's tritium
+is areal density times area, so it goes as the square of its radius — and so does the fraction of the
 beam it intercepts. Rate and inventory fall together and their ratio is fixed. A cell of 0.16 mm
-radius standing in a **7.5 cm** beam intercepts **4.55e-6** of it and holds **2.42 mg** of D–T. That
-is the inventory an existing collaboration already holds, licenses and has commissioned a delivery
-system for. **No new tritium authorisation is required to run this.**
+radius standing in the machine's **8.96 cm** beam intercepts **3.188e-6** of it and holds **2.41 mg**
+of D–T. That is the inventory an existing collaboration already holds, licenses and has commissioned a
+delivery system for. **No new tritium authorisation is required to run this.**
 
 ### 6.2 What it is not
 
-**It is not a power demonstration.** At that interception the cell returns **76 mW**. The experiment
+**It is not a power demonstration.** At that interception the cell returns **71.2 mW**. The experiment
 measures a *rate*, and the rate is what the accounting turns on; the power follows from the geometry
 by a factor this section states rather than hides.
 
@@ -378,26 +408,37 @@ by a factor this section states rather than hides.
    flash is prompt and enormous; everything here depends on separating a delayed signal from it.
 2. **Fill with pure deuterium** to the same areal density. d–d fusion runs at a rate some four orders
    below d–t under the same catalysis, so this is a second null, not a signal.
-3. **Fill with D–T at 50/50**, assayed to better than **1 ppm** high-Z, per §2. Purity is not a
-   refinement here: at the operating density **5.49 ppm** costs as much binder as decay does.
+3. **Fill with D–T at 50/50**, assayed to better than **1 ppm** high-Z, per §2 — and keep the
+   purification loop running, because §10.4 shows the fuel is its own contaminant source and reaches
+   1 ppm of ³He every **18.8 minutes** unpurified.
 4. **Count both observables simultaneously, on one cell, gated from 1 μs to 10 μs after each proton
    pulse.** The muon lifetime is 2.2 μs and the catalytic cycle runs within it, so the fusion signal
    is delayed against a prompt spallation background by a window the machine's own pulse structure
    provides. §3.3's rule governs the two observables here exactly as it does there: they share no
    instrument and no calibration, and **a disagreement between them is a refusal, not an average.**
+5. **Trip the beam on loss of either the jet or the field.** §9.6 is why: losing the field puts a large
+   dose on the downstream coils, and losing the jet dumps 80 percent of beam power into the shielding.
 
 ### 6.4 Committed predictions
 
-Stated before the run, at 1 MW on target and the witnessed cycle count of **150**:
+Stated before the run, at 1 MW on target and the witnessed cycle count of **150**, **computed from the
+machine of §§8–10 and not from a hypothetical one**:
 
 | quantity | committed value |
 |---|---|
-| binders stopped in the cell | **1.80e8** per second |
-| 14.1 MeV neutrons | **2.70e10** per second |
-| fusion heat in the cell | **76 mW** |
+| binders stopped in the cell | **1.685e8** per second |
+| 14.1 MeV neutrons | **2.528e10** per second |
+| fusion heat in the cell | **71.2 mW** |
 | ratio of the two observables | fixed by the witnessed sticking, **0.505** to **0.557 percent** |
 
-**And the prediction scales linearly with one number that has not been measured.** The acceptance is
+**Three corrections took it there and they very nearly cancel:** interception ×**0.700** because the
+machine's beam is wider than §6 assumed; the mirror ×**1.488** because the machine has one and §6 did
+not; and ×**0.900** because only that fraction of pions decays in a 34.1 m channel. **Net ×0.938.**
+
+> **The prediction survives being pointed at the real machine and moves by 6 percent. That it survives
+> is not the point — that it was never checked until §§8–10 existed is.**
+
+**And it still scales linearly with one number that has not been measured.** The acceptance is
 [1] §5.24's model, which reproduces the built front end's own MARS15 simulation to **0.982** and has
 never been measured end to end. [1] §10.1 is that measurement. **If Stage A returns half the modelled
 acceptance, every figure in this section halves**, and the experiment still runs — it becomes a
@@ -584,6 +625,13 @@ no longer touches any *measured* production, and a deeper grade buys nothing thi
 > **The grade is a specification, not a search: 1.428, and no more.** That is the same shape as [1]
 > §5.7's finding that sticking is binder-mass-independent and §5.28's that the target is fixed by the
 > charge — a parameter that looked like a lever and turns out to be a requirement with a number on it.
+
+**And it closes a loop with [1] §10.1.** That stage's committed band — **60.92**, **49.16** and
+**44.43 percent**, at no window, 400 MeV/c and 265 MeV/c — was computed by accepting *both hemispheres*
+of pion emission, an instrumentation choice with no mechanism attached. Because the required grade puts
+the loss cone outside every angle HARP measured, **mirroring the backward hemisphere and accepting both
+hemispheres are the same number**, and the mirror reproduces that band **to four figures**. The
+laboratory programme asserted a capability; this section is the magnet that supplies it.
 
 ### 8.2 What frees the design: B·R sets capture, not B
 

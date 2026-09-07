@@ -80,6 +80,32 @@ The design point is φ = 0.6: 140.8 MPa, a 3.2 m cell, r_o/r_i = 1.66.
 **³He at 1 ppm every 18.8 minutes** against a 1 ppm purity spec. The flow the heat sets gives a
 230-second turnover and holds ³He at **0.204 ppm** — already below what the specification demands.
 
+## Coherence — `--coherence`
+
+**A procedure that does not point at the machine is not a procedure.** The specification's §6 was
+written before this design existed and named four things the machine does not have: a 2.60 T·m
+collector where the design is 1.50, a 7.50 cm beam where the machine's is **8.96 cm** at the cell, a
+cell "inside the solenoid bore" which §10.1 shows is impossible, and a forward-only acceptance for a
+machine that has a mirror. Every apparatus figure §6 states is now computed here, so the two cannot
+drift apart again.
+
+**The three corrections very nearly cancel** — interception ×0.700, the mirror ×1.488, a finite decay
+channel ×0.900, **net ×0.938** — and the committed prediction moves from 2.695e10 to **2.528e10**
+neutrons per second. That it survives is not the point; that it was never checked until the machine
+existed is.
+
+**One machine, two bores.** The coil radius is sourced at 120 cm and both apertures fit inside it, so
+the cold mass, the stored energy and the conductor are identical and only the shield thins. The wider
+bore buys **1.188** in capture for **3.00** in tritium — and [1] §5.25 found that same trade at
+**3.01** from a gyroradius argument alone. **This package reproduces it from a shield and a coil**,
+sharing no step with it.
+
+**And the mirror closes a loop with the laboratory programme.** [1] §10.1's committed band — 60.92,
+49.16 and 44.43 percent — was computed by accepting *both hemispheres*, an instrumentation choice with
+no mechanism. Because the required grade puts the loss cone outside every angle HARP measured,
+**mirroring the backward hemisphere and accepting both are the same number**, reproduced to four
+figures. That stage asserted a capability; this design is the magnet that supplies it.
+
 ## What is not done
 
 Nothing in the physics. What is not here is a **fabrication package**: drawings, tolerances, weld and
@@ -99,6 +125,7 @@ test.** Recorded in §9.9 and not repaired: binding prose to claim ids is a chan
 ```
 python3 tools/machine.py --selftest
 python3 tools/machine.py --channel --cell
+python3 tools/machine.py --coherence      # the spec sheet the procedure must quote
 python3 tools/machine.py
 python3 tools/collector.py --magnet
 python3 tools/verify_paper.py papers/Cold_Fusion_Specification_and_Procedure_v1.0.md

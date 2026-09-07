@@ -697,3 +697,24 @@ C700	tritium decays in the cell inventory	1.824e+18	1/s	DERIVED	the fuel cell de
 C701	minutes for 3He to reach 1 ppm	18.8	minutes	DERIVED	the fuel cell design, machine.py --cell	fn:cl_he3_minutes
 C702	steady 3He on the cooling loop	0.2036	ppm	DERIVED	the fuel cell design, machine.py --cell	fn:cl_he3_ppm
 C703	inventory turnover on that loop	230	s	DERIVED	the fuel cell design, machine.py --cell	fn:cl_turnover_s
+C704	bore at the 1.50 T.m aperture	10.7	cm	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_bore_150
+C705	bore at the 2.60 T.m aperture	18.6	cm	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_bore_260
+C706	shield at the 1.50 T.m aperture	109	cm	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_shield_150
+C707	shield at the 2.60 T.m aperture	101	cm	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_shield_260
+C708	mirrored capture at 1.50 T.m	0.4443	per-pion	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_capture_150
+C709	mirrored capture at 2.60 T.m	0.5279	per-pion	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_capture_260
+C710	cell tritium at 1.50 T.m	5.13	kg	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_trit_150
+C711	cell tritium at 2.60 T.m	15.4	kg	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_trit_260
+C712	what the wider bore buys in capture	1.19	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_bore_gain
+C713	what it costs in tritium	3.00	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_bore_cost
+C714	beam radius at the cell	8.96	cm	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_beam_at_cell
+C715	fraction of the beam the demonstration cell intercepts	3.188e-06	fraction	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_interception
+C716	binders stopped, computed from the designed machine	1.685e+08	1/s	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_binders
+C717	14.1 MeV neutrons, the same	2.528e+10	1/s	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_neutrons
+C718	fusion heat in the demonstration cell	71.2	mW	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_heat_mw
+C719	demonstration cell tritium	2.41	mg	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_cell_mg
+C720	the same as activity	23.2	Ci	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_cell_ci
+C721	interception correction against sec.6 as written	0.7004	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_corr_interception
+C722	mirror correction	1.49	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_corr_mirror
+C723	finite decay channel correction	0.9000	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_corr_decay
+C724	net of the three	0.9379	ratio	DERIVED	machine.py --coherence: sec.6 bound to the design	fn:pr_corr_net

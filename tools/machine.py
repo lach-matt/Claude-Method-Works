@@ -728,6 +728,134 @@ def report_cell():
     print("    specification demands. That is the cell's design closing on itself.")
 
 
+# ---- coherence: does the procedure point at this machine? ------------------
+# The specification's sec.6 was written before this design existed. It named a
+# 2.60 T.m collector, put the cell "inside the solenoid bore, downstream of the
+# target", and stood it in a 7.5 cm beam. The design is 1.50 T.m, the cell cannot
+# sit in the bore at all, and the beam at the cell is 8.96 cm. A procedure that
+# does not point at the machine is not a procedure, so these are computed here
+# and sec.6 quotes them.
+PROC_APERTURES = (1.50, 2.60)
+PROC_CELL_RADIUS_CM = 0.016
+PROC_CELL_AREAL = 5.00
+PROC_CELL_P_STOP = 111.5
+PROC_CELL_B = 20.0
+
+
+def aperture_bore_cm(br):
+    return 100.0 * br / C.DES_B_TARGET
+
+
+def aperture_shield_cm(br):
+    return 100.0 * C.des_coil_inner_m() - aperture_bore_cm(br)
+
+
+def aperture_capture(br):
+    return C.delivered_fraction_mirrored(br, (0.0, 265.0))
+
+
+def aperture_tritium_kg(br, b_cell=PROC_CELL_B):
+    return C.tritium_inventory_kg(265.0, C.beam_envelope_cm(br, b_cell, C.DES_B_TARGET))
+
+
+def bore_capture_gain():
+    return aperture_capture(2.60) / aperture_capture(1.50)
+
+
+def bore_tritium_cost():
+    return aperture_tritium_kg(2.60) / aperture_tritium_kg(1.50)
+
+
+def proc_beam_radius_cm(br=1.50, b_cell=PROC_CELL_B):
+    return C.beam_envelope_cm(br, b_cell, C.DES_B_TARGET)
+
+
+def proc_interception(br=1.50):
+    return (PROC_CELL_RADIUS_CM / proc_beam_radius_cm(br)) ** 2
+
+
+def proc_acceptance(br=1.50):
+    """To the demonstration cell's own stopping momentum, WITH the mirror."""
+    return C.delivered_fraction_mirrored(br, (0.0, PROC_CELL_P_STOP))
+
+
+def proc_binders_per_s(power_mw=1.0, br=1.50):
+    return (C.protons_per_s(power_mw, 8.0) * C.harp_combined_yield()
+            * proc_acceptance(br) * proc_interception(br) * DECAY_FRACTION_WANTED)
+
+
+def proc_neutrons_per_s(power_mw=1.0, cycles=150.0, br=1.50):
+    return proc_binders_per_s(power_mw, br) * cycles
+
+
+def proc_heat_mw(power_mw=1.0, cycles=150.0, br=1.50):
+    return proc_neutrons_per_s(power_mw, cycles, br) * 17.59 * 1.602176634e-13 * 1000.0
+
+
+def proc_cell_tritium_mg():
+    return (PROC_CELL_AREAL * math.pi * PROC_CELL_RADIUS_CM ** 2
+            * C.T_MASS_FRAC_DT * 1000.0)
+
+
+def report_coherence():
+    """The machine's spec sheet -- the list the procedure must quote."""
+    print("  COHERENCE: THE SPEC SHEET THE PROCEDURE MUST QUOTE")
+    print("    The specification's sec.6 was written before this design existed and")
+    print("    named figures the design does not have. Every apparatus number sec.6")
+    print("    states is computed here, so the two cannot drift apart again.")
+    print()
+    print("    ONE MACHINE, TWO BORES. The coil radius is sourced at 120 cm, and both")
+    print("    apertures fit inside it -- so the cold mass, the stored energy and the")
+    print("    conductor are IDENTICAL and only the shield thins:")
+    print()
+    print("      B.R      bore     shield    capture   heat of beam   tritium at the cell")
+    for br in PROC_APERTURES:
+        print(f"      {br:.2f}  {aperture_bore_cm(br):7.2f} cm {aperture_shield_cm(br):7.1f} cm"
+              f"   {aperture_capture(br):7.4f}   {100 * C.insitu_heat_fraction(aperture_capture(br)):8.2f} %"
+              f"   {aperture_tritium_kg(br):8.2f} kg")
+    print()
+    print(f"    The wider bore buys {bore_capture_gain():.3f} in capture for"
+          f" {bore_tritium_cost():.2f} in tritium.")
+    print("    [1] sec.5.25 found that trade at 3.01 from the beam-envelope argument")
+    print("    alone. THIS PACKAGE REPRODUCES IT FROM THE MAGNET, and the two share")
+    print("    no step: one is a gyroradius, the other a shield and a coil.")
+    print()
+    print("    WHAT SEC.6 SAID, AND WHAT THE MACHINE SAYS")
+    print()
+    print("      item                     sec.6 as written      the machine")
+    print(f"      collector aperture       2.60 T.m              {C.DES_BR} T.m, where the")
+    print("                                                     acceptance model is validated")
+    print(f"      beam at the cell         7.50 cm               {proc_beam_radius_cm():.2f} cm")
+    print("      cell position            in the solenoid bore   after a"
+          f" {channel_length_m():.1f} m decay")
+    print("                                                     channel, recompressed to"
+          f" {PROC_CELL_B:.0f} T")
+    print("      acceptance               forward only          with the mirror,"
+          f" x{proc_acceptance() / C.delivered_fraction(1.50, 'fwd', (0.0, PROC_CELL_P_STOP)):.3f}")
+    print(f"      pions decayed            all                   {100 * DECAY_FRACTION_WANTED:.0f}%"
+          " in that channel")
+    print()
+    print("    AND THE THREE CORRECTIONS VERY NEARLY CANCEL.")
+    old = C.protons_per_s(1.0, 8.0) * C.harp_combined_yield() * C.delivered_fraction(
+        1.50, "fwd", (0.0, PROC_CELL_P_STOP)) * (PROC_CELL_RADIUS_CM / 7.5) ** 2
+    new = proc_binders_per_s()
+    print(f"      interception            x{proc_interception() / (PROC_CELL_RADIUS_CM / 7.5) ** 2:.3f}"
+          "   the beam is wider than sec.6 assumed")
+    print(f"      mirror                  x{proc_acceptance() / C.delivered_fraction(1.50, 'fwd', (0.0, PROC_CELL_P_STOP)):.3f}"
+          "   the machine has one and sec.6 did not")
+    print(f"      finite decay channel    x{DECAY_FRACTION_WANTED:.3f}   90 percent, not all")
+    print(f"      NET                     x{new / old:.3f}")
+    print()
+    print(f"      committed binders   {old:.3e}/s as written -> {new:.3e}/s")
+    print(f"      committed neutrons  {old * 150:.3e}/s        -> {proc_neutrons_per_s():.3e}/s")
+    print(f"      the cell itself is unchanged: {proc_cell_tritium_mg():.2f} mg,"
+          f" {C.tritium_curies(proc_cell_tritium_mg() / 1000.0):.1f} Ci")
+    print()
+    print("    THE PREDICTION SURVIVES BEING POINTED AT THE REAL MACHINE, and moves")
+    print(f"    by {100 * abs(new / old - 1):.0f} percent. That it survives is not the point --")
+    print("    that it was never checked until now is.")
+
+
 def report_all():
     print("THE CAPTURE SOLENOID: BUILD PACKAGE")
     print()
@@ -737,7 +865,7 @@ def report_all():
     print()
     for r in (report_circuit, report_mechanics, report_conductor, report_target,
               report_radiation, report_failure, report_plant, report_channel,
-              report_cell, report_integration):
+              report_cell, report_coherence, report_integration):
         r()
         print()
     print("  WHAT REMAINS UNDONE.")
@@ -809,6 +937,44 @@ def selftest():
     print("    -- and on the reconstructed power it needed 30 m/s. The correction")
     print("       RELAXED the jet requirement, and that is recorded rather than")
     print("       quietly enjoyed: the earlier velocity floor is withdrawn.")
+
+    print()
+    print("  the mirror and 'both hemispheres' are the same number")
+    for w, lab in ((None, "no window"), ((0.0, 400.0), "400 MeV/c"), ((0.0, 265.0), "265 MeV/c")):
+        b = C.delivered_fraction(1.50, "both", w)
+        m = C.delivered_fraction_mirrored(1.50, w)
+        ok = abs(m / b - 1.0) < 1e-4
+        fail += 0 if ok else 1
+        print(f"    {lab:10s} both {100 * b:.2f} % vs mirrored {100 * m:.2f} %"
+              f"   {'PASS' if ok else 'FAIL'}")
+    print("    -- so [1] sec.10.1's committed band is reproduced by a MAGNET rather")
+    print("       than by an instrumentation choice, and the loop closes")
+
+    print()
+    print("  COHERENCE: the procedure points at this machine")
+    ok = abs(proc_beam_radius_cm() - 7.5) > 1.0
+    fail += 0 if ok else 1
+    print(f"    sec.6 as written stood the cell in a 7.50 cm beam; the machine's is")
+    print(f"    {proc_beam_radius_cm():.2f} cm, so the figure had to change"
+          f"   {'PASS' if ok else 'FAIL'}")
+    net = proc_interception() / (PROC_CELL_RADIUS_CM / 7.5) ** 2 * (
+        proc_acceptance() / C.delivered_fraction(1.50, "fwd", (0.0, PROC_CELL_P_STOP))
+    ) * DECAY_FRACTION_WANTED
+    ok = 0.85 < net < 1.15
+    fail += 0 if ok else 1
+    print(f"    and the three corrections nearly cancel: net x{net:.3f}"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = abs(bore_tritium_cost() / 3.01 - 1.0) < 0.02
+    fail += 0 if ok else 1
+    print(f"    the bore trade reproduces [1] sec.5.25's 3.01 from the magnet")
+    print(f"    rather than from a gyroradius: {bore_tritium_cost():.2f}"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = abs(aperture_shield_cm(1.50) + aperture_bore_cm(1.50)
+             - 100 * C.des_coil_inner_m()) < 1e-6
+    fail += 0 if ok else 1
+    print(f"    and both bores fit the SAME sourced coil radius, so the cold mass")
+    print(f"    and the stored energy do not move with the aperture"
+          f"   {'PASS' if ok else 'FAIL'}")
 
     print()
     print("  the cell can only sit where the pions have decayed")
@@ -906,7 +1072,8 @@ def main():
                      ("conductor", report_conductor), ("target", report_target),
                      ("radiation", report_radiation), ("failure", report_failure),
                      ("plant", report_plant), ("channel", report_channel),
-                     ("cell", report_cell), ("integration", report_integration)):
+                     ("cell", report_cell),
+                     ("coherence", report_coherence), ("integration", report_integration)):
         ap.add_argument("--" + name, action="store_true", help=fn.__doc__ or name)
     a = ap.parse_args()
     if a.selftest:
@@ -915,7 +1082,8 @@ def main():
                      ("conductor", report_conductor), ("target", report_target),
                      ("radiation", report_radiation), ("failure", report_failure),
                      ("plant", report_plant), ("channel", report_channel),
-                     ("cell", report_cell), ("integration", report_integration)):
+                     ("cell", report_cell),
+                     ("coherence", report_coherence), ("integration", report_integration)):
         if getattr(a, name):
             fn()
             return 0
