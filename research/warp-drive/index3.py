@@ -47,6 +47,8 @@ FINDINGS = [
   "no frame-independent Hawking-Ellis certification: Eulerian is not sufficient"),
  ("TRANSITION",   +1,  0, +1, "TARGET-1-RESULT.md",
   "the source-vacuum transition band is clean and converged; outer negatives fall 8x"),
+ ("OPEN-GATE",   +1, +1, +1, "torus.py",
+  "hoop tension holds the bore open inside DEC: margin 5.89x at gate scale"),
  ("RELAX-OK",     0, +1, +1, "residue.py",
   "relaxation permits the flow and the switching: launch is 0.256 dynamical times"),
  ("NO-BORE",       0, -1, -1, "residue.py",
@@ -186,7 +188,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 23)
+    chk("number of findings indexed", len(FINDINGS), 24)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 11)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -202,10 +204,10 @@ def selftest():
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
-        sorted(["EM-GAP", "FLYBY", "SLINGSHOT", "LAUNCHER"]))
+        sorted(["EM-GAP", "FLYBY", "SLINGSHOT", "LAUNCHER", "OPEN-GATE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
-        sorted(["FLYBY","SLINGSHOT","LAUNCHER"]))
+        sorted(["FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
