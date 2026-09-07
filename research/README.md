@@ -50,6 +50,7 @@ a report.
 | **`warp-drive/PERSON`** | **`warp-drive/person.py`** | **from a proton to a person: χ/τ_s is the only argument, and pulling the pass out to 94 r_s buys the deflector down into the LIGO catalogue** |
 | **`warp-drive/STATION-KEEPING`** | **`warp-drive/stationkeep.py`** | **the Δv is zero — but the ladder is a conjecture, and the one Monte Carlo of it delivers 0.72× *one* encounter, not 1,090** |
 | **`warp-drive/NEC-LADDER`** | **`warp-drive/necladder.py`** | **the NEC is not a boolean: five rungs, the world measured at rung 1 (Casimir), the index's core at rung 3 — and every no-go here was graded at rung 0** |
+| **`warp-drive/BEAMED`** | **`warp-drive/beamed.py`** | **the coupling source is *built*, not found: 1000 t to 0.700 c is a published point design, and the roadblock is a bill (208 world-years) not a bound** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ### The rung this project has been standing on
@@ -121,6 +122,71 @@ how much, over what scale*, and nobody here has computed that number.
 One measurement would settle it: integrate `ρ + p_r` over the violating region of the GATE-CLOSED
 shift configurations and place them on the ladder. Land at rung 1 or 2 and the corpus's own index does
 not forbid them — the core is at 3.
+
+### The engineering, and what it reverses
+
+M's ruling: the math is not where this project is weak — the **engineering** is. Two fields named,
+both read, and the result reverses the session's conclusion.
+
+**The coupling family's inventory problem was self-inflicted.** Its architecture — no propellant,
+momentum from an external source, owes no charge — *is beamed propulsion*, a costed discipline with
+hardware already in fabrication. This project spent a session hunting the momentum source in the sky.
+The engineering literature **builds** it:
+
+| momentum source | terminal | payload |
+|---|---|---|
+| FOUND: catalogued 50 M☉ binary | 0.039 c | 2 m body |
+| FOUND: unconfirmed 8,823 M☉ IMBH | 0.475 c | 2 m body |
+| **BUILT: Starshot — $8.0B, in fabrication** | **0.200 c** | 1 g |
+| **BUILT: Lubin DEEP-IN, crewed scale** | **0.700 c** | **1000 t** |
+
+A thousand tonnes to 0.7 c is a *published point design* — 36 km reflector, 10 PW, 100 km array. The
+heaviest thing this project ever costed on the found-object route was a 2 m body at 0.039 c.
+
+**Mass is far cheaper than it looks.** At fixed sail areal density the sail grows with the payload, so
+the beam stays inside it further, so the acceleration run grows too: **`v ∝ m^(−1/4)`**. A factor 10⁵
+in payload mass costs **17.8×** in speed, not 10⁵. That exponent is Lubin's *"mild function of payload
+mass"*, and it is the most encouraging number in the discipline.
+
+**The invariant of the whole field:** `D_array × d_sail = λ × range` — acceleration ends where the
+diffracted spot outgrows the sail. 0.026 AU for Starshot; 22,702 AU for the crewed design.
+
+`beamed.py` reproduces **both** published point designs from one relativistic integrator (Starshot's
+0.2 c, Lubin's 0.7 c in 144 days), which is what validates it. And it prices the roadblock:
+
+| case | β | days | run (AU) | beam (J) | world-years |
+|---|---|---|---|---|---|
+| Starshot 1 g | 0.200 | 0.001 | 0.02 | 1.13e13 | — |
+| 100 t to 0.2 c | 0.200 | 13.1 | 245 | 1.13e21 | 1.9 |
+| 100 t to 0.5 c | 0.500 | 55.4 | 3,002 | 4.79e21 | 8.0 |
+| **1000 t to 0.7 c** | **0.700** | **144** | **12,526** | **1.25e23** | **208** |
+
+Not physics. Not materials. **Energy at planetary scale, delivered coherently through an aperture, for
+months.** Sail efficiency runs 16–29%: most of the beam leaves with the reflected photons, and that
+shortfall *is* the Doppler factor — it cannot be engineered away, only outrun by going faster.
+
+> **The roadblock has the shape of a bill, not a bound.**
+
+**Particle communication engineering closes a branch.** Hippke (2017) benchmarks every carrier against
+photons, and one law decides it:
+
+> particle beam `θ = 1/γ` — **no aperture term at all** — against photon `θ = 1.22λ/D`
+
+At a 1 m aperture these meet at 82 nm, so focusing TeV particles costs **7×10¹⁰** times the energy of
+a mirror. Neutrinos are worse: 10¹⁰ times a photon's beam width, and the only demonstrated link runs
+at **0.1 bit/s** through 240 m of rock (Stancil 2012). Hippke covers the hypotheticals too — nothing
+known or speculated exceeds keV photons *"by more than a factor of a few"*. **So any architecture
+needing two coordinated ends pays the full light-travel time, and no carrier shortens it.** Settled,
+and not by this tree.
+
+The one place matter beats light is **bulk, not speed**: inscribed matter carries ~10¹¹ bits/J at
+0.1 c against a photon channel needing kilometre apertures to match. *If something must be moved
+rather than said, move it* — which is the same sentence as beamed propulsion, reached from the
+communication side.
+
+**A recorded fault.** The sail integrated in *distance* is singular at β = 0 and returned efficiencies
+above 100%. Caught by an identity check (beam energy must exceed kinetic energy), fixed by integrating
+in time. The identity is now in the selftest.
 
 ## `warp-drive/`
 

@@ -212,6 +212,18 @@ FINDINGS = [
   "<T_kk> >= (h/2pi) S''_out: entanglement entropy is the budget, and it is in no alphabet here"),
  ("IC-GUARD",     0, -1,  0, "necladder.py",
   "NEC>=3 forces IC v U v X: macroscopic exotic matter is guarded by a CORRELATION principle"),
+ # beamed.py -- the engineering read at M's ruling.  The coupling family's
+ # inventory problem was self-inflicted: the source is built, not found.
+ ("BUILT-SOURCE",+1, +1, +1, "beamed.py",
+  "1000 t to 0.700 c is a published point design; the found-object route gave 0.039 c for 2 m"),
+ ("MASS-QUARTER", 0,  0, +1, "beamed.py",
+  "v ~ m^(-1/4): the sail grows with the payload, so 10^5 in mass costs 17.8x in speed"),
+ ("APERTURE",     0,  0, +1, "beamed.py",
+  "D_array x d_sail = lambda x range: acceleration ends where the spot outgrows the sail"),
+ ("ENERGY-BILL",  0, -1, +1, "beamed.py",
+  "the crewed design wants 1.25e23 J -- 208 world-years at 10 PW for 144 days: a bill, not a bound"),
+ ("NO-CARRIER",   0, -1,  0, "beamed.py",
+  "theta = 1/gamma has no aperture term: no particle beats photons, so two ends pay light-time"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -226,6 +238,7 @@ SUPPORT = [
  ("LIT-FIX",   "stationkeep.py",    "the bound-return theorem assumed a static field; Zhang Sec 3.3 and Shipley-Dolan refute it"),
  ("AR-VALID",  "stationkeep.py",    "this tree's kinematics reproduce A&R's three printed Sgr A* figures to 0.2%"),
  ("EDGE-LIST", "necladder.py",      "the edge list the compendium says is printed nowhere is in extracted/; it gives 2,370"),
+ ("SAIL-FIX",  "beamed.py",         "the sail integrated in distance is singular at beta=0 and gave efficiency > 100%; time-domain"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -306,7 +319,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 64)
+    chk("number of findings indexed", len(FINDINGS), 69)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -323,10 +336,10 @@ def selftest():
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
-                "OBSERVED-ENGINE","CATALOGUE"]))
+                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
-        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE"]))
+        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
