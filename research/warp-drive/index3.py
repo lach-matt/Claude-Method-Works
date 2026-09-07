@@ -363,6 +363,13 @@ FINDINGS = [
   "required and allowed both go as 1/(G D^2), so thickness and G cancel: the ratio is v_s^2/(288 pi B), constant over 32 orders in D"),
  ("V-IS-BOUNDED",    0, +1, +1, "nullbound.py",
   "what the null condition bounds is velocity, not thickness: saturation at v_s = 3c, with 900x margin at 0.1c"),
+ # USING the breakthrough: directive 3 gets a design equation.
+ ("DESIGN-EQUATION",+1, +1, +1, "designpoint.py",
+  "M = -beta^2 c^2 R/(12 G) at the thickest admissible wall: one line, two variables, and no D in it"),
+ ("CHANGE-OF-KIND", +1, +1, +1, "designpoint.py",
+  "1.5e9 observable universes -> 18.8 Earth masses at R=100 m, 0.1c: a factor 2e36 and a change of category"),
+ ("GAP-NOT-BOUND",   0, +1, +1, "designpoint.py",
+  "the remaining 2.3e42 to a Casimir source is a gap in capability with no theorem in it, which is a different situation"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twelve obstructions three dissolved, three relocated, four closed negative, two conditional and none untested"),
 ]
@@ -479,7 +486,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 127)
+    chk("number of findings indexed", len(FINDINGS), 130)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -498,12 +505,13 @@ def selftest():
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
                 "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
                 "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE",
-                "AREA-OVER-THICK","NO-NULL-QI","D-CANCELS"]))
+                "AREA-OVER-THICK","NO-NULL-QI","D-CANCELS",
+                "DESIGN-EQUATION","CHANGE-OF-KIND"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
                 "THE-DOOR","EC-TAKEN","NO-EXOTIC","STIFF-WALL","LOOP-OBSERVABLE",
-                "NO-NULL-QI","D-CANCELS"]))
+                "NO-NULL-QI","D-CANCELS","DESIGN-EQUATION","CHANGE-OF-KIND"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

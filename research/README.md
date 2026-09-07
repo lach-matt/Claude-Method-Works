@@ -1664,3 +1664,66 @@ static bound would loosen, and named QNEC as the counterpart. The move that land
 state-dependent and **still unasked**. `evidence_available()` goes 0 → **0.5**, and the row is scored
 `PARTIAL` rather than `MOVED` — because scoring it whole would be exactly the fitting error the file
 exists to avoid.
+
+## `designpoint.py` — spending the breakthrough, and `paper/CLAIMS.md`
+
+`nullbound.py` removed the wall-thickness bound. This is what that buys.
+
+### The design equation
+
+`M = −v_s²R²/(36GD)` is exact, and with D free the only remaining ceiling is that the cavity must
+actually be flat — a shape function needs σR ≳ 3, so D ≲ R/3. Substituting:
+
+> **M = −β²c²R/(12G) = −1.1222×10²⁶ · β² · R kg**
+
+**Linear in R, quadratic in β, and with no D in it at all.** The wall thickness enters through 1/D and
+leaves through the flatness ceiling, and what survives is a one-line spec — the first `directive 3` has
+ever had. The compactness at the floor is `x = β²/6`, so 0.0017 at a tenth of light speed: nowhere near
+compact, and none of `wall.py`'s shell bounds bind on it.
+
+| R | β | M | | x |
+|---|---|---|---|---|
+| 1 m | 0.01 | −1.12×10²² kg | ≈ Pluto | 0.00002 |
+| 1 m | 0.1 | −1.12×10²⁴ kg | 0.19 M⊕ | 0.0017 |
+| 100 m | 0.1 | −1.12×10²⁶ kg | **18.8 M⊕** | 0.0017 |
+| 100 m | 0.5 | −2.81×10²⁷ kg | 470 M⊕ | 0.042 |
+
+### The change of category
+
+| | mass | vs observable universe |
+|---|---|---|
+| Pfenning–Ford wall, R = 100 m, v_s = c | 2.31×10⁶² kg | **1.5 × 10⁹ universes** |
+| D free, R = 100 m, β = 0.1 | 1.12×10²⁶ kg | 7.5 × 10⁻²⁸ |
+
+A factor of **2 × 10³⁶** — and more importantly a change of *kind*. The standing objection to warp
+drives is not that they are expensive. It is that they require more mass-energy than the universe
+contains, which is not an engineering problem but an impossibility. **That objection is gone.** What
+replaces it is planetary, and planetary is an engineering problem.
+
+### The gap that remains, and it is not a bound
+
+Nobody can make 10²² kg of negative energy. The best laboratory source is Casimir: 1 m² at 10 nm gives
+−4.334×10⁻⁴ J, a mass equivalent of 4.82×10⁻²¹ kg. The remaining gap is **2.3×10⁴²**.
+
+> **That is a gap in capability, not a gap against a law.** Every previous statement of the warp-drive
+> problem put a *theorem* between the design and the build. There is no theorem there now — there is a
+> number, and the number is large. Those are different situations, and this project has not been in the
+> second one before.
+
+**What must be said with it:** the energy is still *negative*, and planetary-scale negative energy has
+no known source. This is the Alcubierre class — metric-first, pointwise NEC-violating — **not** the
+warpshell, whose ℓ≥2 obstruction is untouched. The SNEC's four O(1) exposures all still apply. And a
+horizon still forbids control above β = 1, so the space this opens is the **subluminal** one — which is
+also where the SNEC has its largest margin. Those two agree, which is worth noticing.
+
+### `paper/CLAIMS.md`
+
+The paper register now exists: every claim the project would defend in print, each naming its
+instrument, whether it is new, what it corrects, and **what would falsify it**. H1 (the timelike/null
+misapplication) and H2 (the change of category) are flagged for the abstract. It also carries an
+explicit *not claimed* section — that no warp drive is being asserted, that the warpshell remains
+blocked, and that QNEC proper is still unasked and scored 0.5 rather than 1.
+
+**Directive scorecard:** 1 **MET**. 2 moved from *no* to *the standing objection does not hold*. 3 has
+a design equation for the first time. None of that is a warp drive, and the register says so in its own
+section.
