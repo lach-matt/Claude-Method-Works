@@ -140,7 +140,7 @@ def checks():
     gaps = [n for n in range(min(R), max(R) + 1) if n not in R]
 
     return [
-        ("CLAUDE.md", "members extracted from the bundles", 748,
+        ("CLAUDE.md", "members extracted from the bundles", 749,
          len(_rows("method/MEMBER-INDEX.tsv"))),
         ("CLAUDE.md", "drive/ MANIFEST rows", 819, len(man)),
         ("CLAUDE.md", "drive/ manifest-tree bijection (orphans, both ways)", 0,

@@ -1,0 +1,80 @@
+PHASE 4 CENSUS — THE NINE CLASSES OVER THE FOUR COMPENDIA
+
+  volume                          lines   WARNING  handles  scripts  stamps  interface
+  MC   Mathematical_Compendium-2.  3812       0      326       14       3          0
+  PC   The_Physics_Compendium-2.m   913       0        0        2       2          1
+  IoI  The_Index_of_Indices-2.md   2093       0        0        2       2          1
+  SC   Spectra_Compendium-2.md     1159       0        0        5       0          4
+  TOTAL                            7977       0      326       23       7          6
+
+1  WARNING SWEEP
+   unresolved WARNING markers in the four volumes: 0
+
+2  CITATIONS AND POINTERS — deferred to tools/pointers.py, not re-done here.
+
+3  ATTRIBUTIONS — no volume prints a References heading of its own;
+   the Physics Compendium carries a bibliography as a bullet list. The
+   attribution class is the prose pass's and is not measured further here.
+
+4  HANDLES — workshop object ids printed to a reader
+   sites: 326    distinct: 221    all of them in: MC
+   most cited: Q.final x6, Q.delta x4, A.staircls x4, L.def x3, S.ground x3, T.tower x3
+   a printed key that resolves them: NONE FOUND
+   So a reader meets 221 distinct ids and can resolve none of them.
+
+5  COUNTS AGAINST THE REGISTER
+   1724 numbered headings + 7 grouped = 1731 entries, 1 to 1889
+   the grouped ones cover 32 numbers; a bare heading read would miss all
+   32 of them and invent that many gaps, which is the store's own caution.
+   places a compendium states an extent or a count of it: 1
+     SC   L1126  1 to 108
+
+6  DATA ROWS — duplicated keys in the Spectra Compendium's data table
+   data rows: 597, each eleven cells, keyed on (species, series)
+   duplicated keys: 9
+     Ba III   nd 2[3/2]* J=2             at lines [417, 419]
+     Ca II    ns 2S J=1/2                at lines [524, 530]
+     Si I     nd (1/2,3/2)* J=1          at lines [836, 837]
+     Si I     nd (3/2,3/2)* J=0          at lines [838, 842]
+     Si I     nd (3/2,3/2)* J=1          at lines [811, 839]
+     Si I     nd (3/2,5/2)* J=1          at lines [840, 843]
+     Si I     nd (3/2,5/2)* J=3          at lines [812, 841]
+     Si I     ns (1/2,1/2)* J=0          at lines [832, 834]
+     Si I     ns (1/2,1/2)* J=1          at lines [833, 835]
+   The plan says nine and nine is what measures. A first draft of this
+   check scanned every table's first column and returned 571, which was a
+   count of its own wrong premise: those columns are categories, not keys.
+
+7  FRONT MATTER AND RULING 46 — script names, rebuild commands, stamps
+   MC   14 script names, 3 stamps
+        L4     `mathreg.py`
+        L6     `mathverify.py`
+        L6     `check_audit.py`
+        L8     compendium.py
+        L728   twoheur.py
+        L874   allcons.py
+   PC   2 script names, 2 stamps
+        L4     `mathreg.py`
+        L186   `channels.py`
+   IoI  2 script names, 2 stamps
+        L4     `indices.py`
+        L1682  `domain_protocol.py`
+   SC   5 script names, 0 stamps
+        L115   `coords.py`
+        L994   `spectra_count.py`
+        L995   `spectra.py`
+        L995   `spectra.py`
+        L995   `spectra_count.py`
+   distinct scripts named to a reader: 18 -- allcons.py, channels.py, check_audit.py, compendium.py, coords.py, domain_protocol.py, factor.py, ground.py, indices.py, mathreg.py, mathverify.py, protindex.py, spectra.py, spectra_count.py, stat_lang.py, tower.py, tower3.py, twoheur.py
+
+8  WITHDRAWN STATEMENTS — deferred to RETRACTION-AUDIT.tsv, not re-done here.
+
+9  INTERFACE DISCLOSURES — the machinery named to a reader
+   PC   L8     'Four faults in a single session were transitions performed without their rule written down: regi'
+   IoI  L187   '**What Λ lacks is not a clock but a denominator** — claims per session — which §12.11.1.1 now'
+   SC   L20    "**DECLARATION — the stored δ is the MEDIAN over a cell's members (T2, closed).** This was measur"
+   SC   L129   '| `source` | six provenances, 32 strings | the rule that computed the value, or the compilation '
+   SC   L139   'twenty-five of them are the same NIST retrieval, each carrying the session that fetched it and t'
+   SC   L147   'source=NIST ASD fetched 2026-08-14 (session 1.8 queue); NaI 2S n=3-20, 18 members; median defect'
+
+RECORDED, NOT REPAIRED.
