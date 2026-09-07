@@ -169,6 +169,18 @@ FINDINGS = [
   "a body in free fall is transported with no thrust, any material, any design"),
  ("PROFILE",      0,  0, +1, "THE-DESIGN-EQUATION.md",
   "max|S''| >= 4/d^2 and gamma_opt = 1+sqrt(3): closed-form optima, pure geometry"),
+ # person.py.  Zhang's law is a law about test particles; extent is the whole
+ # difference between a proton and a person, and it enters through one group.
+ ("FRAGILITY",    0,  0, +1, "person.py",
+  "chi/tau_s is the only argument: k = (chi/tau_s)^(2/3), extent and tolerance never separate"),
+ ("CATALOGUE",   +1, +1, +1, "person.py",
+  "a person at 50 Msun and a proton at 1.2e9 kg are the SAME mission: the deflector is catalogued"),
+ # A bound, and it is the clock rather than the mass that sets it.
+ ("MERGER-CEIL",  0, -1, +1, "person.py",
+  "beta <= 0.0587 or the flywheel merges mid-mission; Zhang's headline 0.2 misses by 132x"),
+ # The one unevidenced object left in VEHICLE 1, and it is not where it was.
+ ("ROUTH-FORK",   0,  0, +1, "person.py",
+  "the IMBH is a PARKING requirement, not a tidal one: L4/L5 needs a 1248 Msun companion"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -179,6 +191,7 @@ SUPPORT = [
  ("ADM-FIX",   "COUPLING.md",       "ADM was over-applied to coupling mechanisms; withdrawn"),
  ("SRC-READ",  "SOURCE-CODE.md",    "reading Warp Factory found two of this series' inferences wrong"),
  ("LOOP",      "kerr.py",           "the index looped because 9 papers were never seated; guard added"),
+ ("BETA3-FIX", "person.py",         "the beta^3 mass floor passed at a/3, where the bend is 1.2 deg; gain overstated 116x"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -259,7 +272,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 49)
+    chk("number of findings indexed", len(FINDINGS), 53)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -276,10 +289,10 @@ def selftest():
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
-                "OBSERVED-ENGINE"]))
+                "OBSERVED-ENGINE","CATALOGUE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
-        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE"]))
+        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

@@ -45,8 +45,9 @@ a report.
 | **`warp-drive/KERR`** | **`warp-drive/kerr.py`** | **NO-TAPER narrowed: a vacuum shift CAN decay asymptotically — Kerr drags at 0.5 c with T = 0, and J is the charge CM-THEOREM never forbade** |
 | **`warp-drive/THE-LOOP.md`** | **`warp-drive/index3.py`** | **the project looped on angular momentum; the two visits together give the trichotomy, and the index now guards against it** |
 | **`warp-drive/ELEMENTS`** | **`warp-drive/elements.py`** | **the object is what is shifted: the element sets the density, and f ≤ 1 caps every possible object at 0.0713 c** |
-| **`warp-drive/VEHICLE 1`** | **`warp-drive/shipspec.py`** | **the surviving architecture specified: 35 fields, 11 open — Kerr deflectors buy 1.61× at 27× tides, and the engine is a found object nobody has found** |
+| **`warp-drive/VEHICLE 1`** | **`warp-drive/shipspec.py`** | **the surviving architecture specified: 41 fields, 11 open — the sheet now flies the k-lever, and its one unevidenced object is the companion, not the deflector** |
 | **`warp-drive/GRADIENTS`** | **`warp-drive/gradients.py`** | **the gradient space is closed by classification — five types, one pumps, and the engine already runs on protons** |
+| **`warp-drive/PERSON`** | **`warp-drive/person.py`** | **from a proton to a person: χ/τ_s is the only argument, and pulling the pass out to 94 r_s buys the deflector down into the LIGO catalogue** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ## `warp-drive/`
@@ -124,6 +125,36 @@ Worked point design: **0.87 c in 11 minutes at 1 g with zero propellant**, off t
 Its honest limit is not physics but **inventory** — the engine is a found object, and no
 intermediate-mass black hole binary is confirmed nearby. That reduces the question to an
 observational one, which LISA is built to answer.
+
+**And then most of the inventory problem dissolved.** Zhang's law is a law about *test particles*;
+a person differs from a proton by having extent, and `person.py` finds that the extent enters
+through exactly one group — the **fragility** `χ = √(extent / survivable tide)` against the
+deflector's `τ_s = r_s/c`. The closest survivable pass is `k = (χ/τ_s)^(2/3)` r_s and nothing else
+about either body enters. The consequence is a scaling identity: **a 2 m person at a 50 M☉ binary
+and a proton at a 1.2 × 10⁹ kg one are the same mission** — same `k`, same gain, same 1,090 passes —
+because `χ` rises by 8.2 × 10²² between them and so does the mass. The mission clock is the only
+thing that differs, and it differs as `M`.
+
+That turns the deep pass into a *choice*. Deflector mass falls as `k^{-3/2}` while passes rise only
+as `k`, so trading gain for distance is a **3:2 exchange in your favour**: pulling the pass from
+3 r_s out to 94.4 takes the deflector from 8,823 M☉ down to **50 M☉ — GW150914 was 36 + 29**. The
+worked case is a person to 0.87 c in **4.3 hours at 1 g**, 1,090 passes off two catalogued holes,
+zero propellant.
+
+Two bounds came with it. The binary must *survive* the mission: orbits-to-merger goes as `β⁻⁵` and
+passes as `1/β`, so the margin goes as `β⁻⁴` and **β ≤ 0.0587** — Zhang's headline `β = 0.2` misses
+by 132×, and it is the clock that forbids it, not the mass. And the IMBH did not vanish, it *moved*:
+Routh's `μ < (9−√69)/18` means a 50 M☉ deflector with a stable L4/L5 parking point needs a
+**1,248 M☉** companion. The intermediate-mass hole is a **parking requirement, not a tidal one** —
+which puts the whole remaining question on the station-keeping Δv, a number this tree has never
+computed.
+
+**A recorded fault, kept executable.** A first pass at this fixed the pass distance at a constant
+fraction of the binary *separation* (`r_p = a/3`) and read off `M ∝ β³` — a person at 51 M☉ and
+β = 0.03. The mass was very nearly right and the reasoning was wrong: `a/3` is 92.6 r_s out, where
+an ultrarelativistic particle bends by 1.24°, and the gain there is 6.5 × 10⁻⁴ per pass rather than
+the 0.075 the saturated law asserts — **overstated 115.7×**. `person.retracted_beta3_gain()`
+recomputes the refutation so it cannot be quietly re-derived.
 
 **A second scaling error, found later and larger than the first.** Every mass and density figure in
 the first fifteen papers was quoted at the published example's `R₁ = 10 m`, and the size was never

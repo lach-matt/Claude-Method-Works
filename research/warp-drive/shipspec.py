@@ -17,7 +17,10 @@ rows are the diagnostic.  Regenerate as findings land.
 
 stdlib only.
 """
-import math, sys
+import math, os, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import person as PZ
 
 G, c, MSUN = 6.67430e-11, 299792458.0, 1.98892e30
 YR = 3.15576e7
@@ -55,10 +58,19 @@ def mass_floor(a_max_g, d, r_over_M):
     return math.sqrt(2.0*c**6*d/(a_max*r_over_M**3*G**2))
 
 # ---- the route (NAVIGATION.md, slingshot.py) --------------------------------
-BETA_A   = 0.10          # light component's orbital speed
-Q_RATIO  = 0.04          # m2/m1, just inside Routh
-GAIN     = 0.25          # fractional gamma gain per pass at beta_A = 0.10
-ORBITS   = 6909.0        # to merger at this mass ratio
+# SUPERSEDED by person.py.  The earlier sheet flew beta_A = 0.10 at a deep pass
+# (k ~ 3 r_s) and needed an 8823 Msun deflector.  person.py shows k is the lever:
+# M ~ k^-3/2 while passes ~ k, so trading gain for distance buys the deflector
+# down into the LIGO catalogue -- and shows beta_A = 0.10 fails the merger budget
+# outright (margin 0.119).  Both numbers below now come from that instrument.
+BETA_A    = 0.03                                  # below person.beta_ceiling
+Q_RATIO   = PZ.routh_q_max()                      # largest q with stable L4/L5
+CHI       = PZ.fragility(2.0, 9.8)                # 2 m payload at 1 g
+DEFLECTOR = 50.0 * MSUN                           # the fast component
+K_PASS    = PZ.pass_distance(DEFLECTOR, CHI)      # 94.4 r_s
+GAIN      = PZ.gain_per_pass(BETA_A, K_PASS)      # 6.36e-4, not 0.25
+PASSES    = PZ.passes_to(2.0, BETA_A, K_PASS)     # 1090
+_A, _T, ORBITS = PZ.unequal_binary(DEFLECTOR, Q_RATIO, BETA_A)
 
 def passes_to(gamma_t, gain=GAIN):
     return math.log(gamma_t)/math.log(1.0+gain)
@@ -70,25 +82,32 @@ SPEC = [
  ("IDENTITY","shift manufactured","none","","DERIVED","so SSV, Type IV, OBJ-CEILING are silent"),
 
  ("ROUTE","deflector type","Kerr binary","","DERIVED","kerr.py: spin buys approach"),
- ("ROUTE","mass ratio m1:m2",1.0/Q_RATIO,"","DERIVED","NAVIGATION.md, just inside Routh"),
- ("ROUTE","light-component speed",BETA_A,"c","ASSUMED","sets the gain per pass"),
- ("ROUTE","orbits to merger",ORBITS,"","DERIVED","scale-invariant, navigate.py"),
+ ("ROUTE","deflector mass",DEFLECTOR/MSUN,"Msun","DERIVED","person.py: set by k, not by beta"),
+ ("ROUTE","pass distance k = r_p/r_s",K_PASS,"","DERIVED","person.py: (chi/tau_s)^(2/3)"),
+ ("ROUTE","light-component speed",BETA_A,"c","DERIVED","person.py: below the 0.0587 ceiling"),
+ ("ROUTE","mass ratio m1:m2",1.0/Q_RATIO,"","ASSUMED","the FORK -- see the flagged item"),
+ ("ROUTE","companion mass",DEFLECTOR/Q_RATIO/MSUN,"Msun","DERIVED","Routh, not tides"),
+ ("ROUTE","orbits to merger",ORBITS,"","DERIVED","person.py: unequal_binary at this q"),
+ ("ROUTE","merger margin",ORBITS/PASSES,"x","DERIVED","orbits left / passes needed"),
  ("ROUTE","L4/L5 stability","STABLE","","DERIVED","mu < (9-sqrt69)/18"),
  ("ROUTE","component spin a/M",None,"","OPEN",
   "no measured spin distribution for IMBH binaries; assumed high, never sourced"),
  ("ROUTE","a known binary meeting spec",None,"","OPEN",
-  "CRITICAL -- see the flagged item. Nothing in any catalogue is confirmed to fit"),
+  "NARROWED, not closed -- the 50 Msun DEFLECTOR is catalogued; the companion is not"),
 
- ("PERFORMANCE","gain per pass",GAIN,"","PINNED","Zhang 2020, near-linear in |v_A|"),
+ ("PERFORMANCE","gain per pass",GAIN,"","DERIVED","person.py: 2 beta gamma sin(1/k)"),
  ("PERFORMANCE","Kerr dv enhancement",dv_gain(0.998),"x","DERIVED","b_crit 5.196 -> 2.111"),
- ("PERFORMANCE","passes to gamma = 2",passes_to(2.0),"","DERIVED","geometric, non-saturating"),
+ ("PERFORMANCE","passes to gamma = 2",PASSES,"","DERIVED","geometric, non-saturating"),
+ ("PERFORMANCE","mission time",PASSES*_T/86400.0,"d","DERIVED","one pass per orbit, ASSUMED cadence"),
  ("PERFORMANCE","terminal speed",0.866,"c","DERIVED","gamma = 2"),
  ("PERFORMANCE","proper acceleration felt",0.0,"g","DERIVED","geodesic throughout"),
  ("PERFORMANCE","propellant for transport",0.0,"kg","DERIVED","borrowed gradient"),
 
  ("STRUCTURE","tidal penalty at Kerr r_ph",tide_penalty(0.998),"x","DERIVED","vs Schwarzschild 3M"),
- ("STRUCTURE","deflector mass floor, 1 g / 20 m",
-   mass_floor(1.0,20.0,r_photon(0.998))/MSUN,"Msun","DERIVED","tides fall as 1/M^2"),
+ ("STRUCTURE","deflector floor at a DEEP pass, 1 g / 20 m",
+   mass_floor(1.0,20.0,r_photon(0.998))/MSUN,"Msun","DERIVED","the wall k was found to go round"),
+ ("STRUCTURE","tide on a 2 m body at k",PZ.S.tidal_accel(DEFLECTOR,K_PASS,2.0)/9.80665,"g",
+   "DERIVED","the constraint that DEFINES k"),
  ("STRUCTURE","hull design",None,"","OPEN","no structural spec attempted"),
  ("STRUCTURE","radiation environment",None,"","OPEN",
   "accretion flow and Blandford-Znajek fields at r_ph are unmodelled"),
@@ -113,31 +132,39 @@ SPEC = [
 ]
 
 FLAG = """
-  THE ONE THE SHEET CATCHES -- ROUTE / a known binary meeting spec.
+  THE ONE THE SHEET CATCHES -- ROUTE / mass ratio, and it has MOVED.
 
-  Every performance number here is conditional on an object that has not been
-  shown to exist.  The specification calls for an IMBH binary, mass ratio near
-  25:1, near-extremal spin, at a separation giving |v_A| ~ 0.1 c.  Each clause
-  is individually plausible and the CONJUNCTION is unevidenced:
+  The earlier sheet flagged inventory: the design called for an IMBH binary at
+  25:1 and near-extremal spin, and no such object is confirmed.  person.py
+  removed half of that.  The tide sets only the PASS DISTANCE k, and k trades
+  against deflector mass as M ~ k^-3/2 while costing only N ~ k passes.  Pull k
+  from 3 r_s out to 94.4 and the deflector falls from 8823 Msun to 50 -- which
+  is a LIGO-catalogue object (GW150914 was 36 + 29).  The deflector is found.
 
-    IMBH binaries      no confirmed detection; LISA is built to find them
-    mass ratio ~25:1   not measured for any IMBH pair
-    near-extremal spin assumed here purely because kerr.py showed spin helps
-    separation         a ~46 r_s is wide, so not a merger LIGO would have seen
+  What is NOT found is the companion, and the reason is now precise.  L4/L5 is
+  linearly stable only below Routh's mu = (9-sqrt69)/18, so a 50 Msun deflector
+  with a stable co-orbital parking point needs a companion of 1248 Msun.  The
+  IMBH is no longer a TIDAL requirement.  It is a PARKING requirement, and it is
+  the only clause of the old conjunction still standing.
 
-  This is the same shape as the gate's failure, one level up.  There the design
-  was fully specified and unbuildable; here it is fully specified and the
-  ENGINE IS A FOUND OBJECT NOBODY HAS FOUND.  The project has moved the
-  impossibility from physics into inventory, which is progress, and it is not
-  the same as having an engine.
+  So the sheet forks, and both branches are priced:
 
-  SECOND, AND CHEAPER TO FIX -- NAVIGATION / station-keeping delta-v.
-  It has never been computed, and it decides the whole character of the
-  vehicle.  If it is small, VEHICLE 1 is a passive payload with thrusters and
-  the "no propulsion" claim holds.  If it is large, the ship needs a real
-  engine to stay in the accelerating family, and the propellant this
-  architecture saves on transport it spends on steering.  Nothing in the
-  project has looked, and it is computable.
+    q = 1       2 x 50 Msun, catalogued, 4.3 h mission, merger margin 14.7x.
+                No stable L4/L5.  Station-keeping must be ACTIVE.
+    q = 0.0401  50 + 1248 Msun, NOT catalogued, 16.7 d mission, margin 2603x.
+                Free parking.  The ship can sit there and owe nothing.
+
+  THE ONE NUMBER THAT DECIDES IT -- NAVIGATION / station-keeping delta-v.
+  It has never been computed, and it now decides two things rather than one.
+  If it is small, the q = 1 branch works: VEHICLE 1 is a passive payload with
+  thrusters, the "no propulsion" claim holds, and THE ENGINE IS AN OBJECT THAT
+  HAS ALREADY BEEN OBSERVED.  If it is large, the ship needs a real engine to
+  hold the accelerating family, the propellant saved on transport is spent on
+  steering, and the design falls back to the q = 0.0401 branch -- where the
+  parking is free and the object is once again one nobody has found.
+
+  The project has not run out of physics.  It has run out of arithmetic it
+  declined to do.  Nothing here has looked, and it is computable.
 """
 
 def selftest():
@@ -167,6 +194,17 @@ def selftest():
         mass_floor(4.0,20.0,3.0)/mass_floor(1.0,20.0,3.0), 0.5, tol=1e-12)
     chk("passes: gamma=4 is twice gamma=2 (identity)",
         passes_to(4.0)/passes_to(2.0), 2.0, tol=1e-12)
+
+    print("\nAgainst person.py -- the sheet must not drift from the instrument")
+    chk("deflector mass floor at k reproduces 50 Msun",
+        PZ.deflector_mass(CHI, K_PASS)/MSUN, 50.0, tol=1e-9)
+    chk("tide at the sheet's k is exactly 1 g",
+        PZ.S.tidal_accel(DEFLECTOR, K_PASS, 2.0), 9.8, tol=1e-9)
+    chk("sheet's beta is under person.beta_ceiling",
+        BETA_A < PZ.beta_ceiling(2.0, K_PASS), True)
+    chk("sheet's q is exactly Routh's ceiling", Q_RATIO, PZ.routh_q_max(), tol=1e-12)
+    chk("merger margin at the sheet's q", ORBITS/PASSES, 2603.083, tol=1e-5)
+    chk("companion mass (Msun)", DEFLECTOR/Q_RATIO/MSUN, 1247.9968, tol=1e-5)
 
     print("\nSheet integrity")
     stat = {}
