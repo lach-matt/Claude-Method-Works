@@ -692,7 +692,7 @@ id	class	member	line	item	detail
 691	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	22.8	other sites: reg=3 mc=1 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 692	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	45,450	other sites: reg=1 mc=3 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=8 ioi=2 | mis-citation is corrected here and recorded at register 400.
-694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=31 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
+694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=33 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	7,	other sites: main=16 reg=30 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 696	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	497	other sites: main=3 reg=3 ioi=1 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
 697	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	9,	other sites: main=5 reg=24 mc=5 pc=4 ioi=7 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*

@@ -161,6 +161,7 @@ unit L10088–L10198, 111 lines (own scan: `### A.15` = last hit, `## Appendix B
     1621: **P2 CLOSED: DEMKOV-OSTROVSKY DERIVE MADELUNG AT E = 0, WHICH IS SEATON'S OWN LIMIT — AND THE CORRIDOR TEST REFUTES THE CONNECTION.** *Board row 11, closed by reading and then by computing. Demkov and Ostrovskii, Zh. Eksp. Teor. F
     1652: **THE d120 FAILS ON GEOMETRY AND THE JANET GRADING IS ALREADY INSIDE THE INDEX — AS A FIBRATION, NOT A COORDINATE.** *M stopped the index write to have the 120-sided uniperiodic material looked at properly first. Built the solid r
     1848: **§14.3's BUNDLING CLAIM IS TRUE AND THE EXPERIMENT IT CITES DOES NOT SHOW IT; HERE IS ONE THAT DOES.** *§14.3 argues:* **"What fails is bundling. ℛ reconstructs coordinate by coordinate, so folding two chains into one non-chain c
+    1853: **REGISTER 1848'S DEFECT IS ℛ₄'S AND IT IS PRINTED UNDER THE SYMBOL E, WHICH IS THE CONFUSION §14.5.3 NAMES IN ITS OWN TITLE AND NEVER EXPLAINS; REGISTER 1852 IS SUPERSEDED WITH IT.** *§14.3's claim survives all of this and is sta
   "the ledger" in main (every site with section): [(9956, '36.3'), (10103, 'App A.15'), (10569, 'App D.5.1'), (11192, 'App E.5')]
   "join-closed" every volume: {'main': [8294, 9944, 10090, 10103, 10107, 10742], 'reg': [6409, 6804], 'mc': [1254, 1260, 1494, 3278]}
 

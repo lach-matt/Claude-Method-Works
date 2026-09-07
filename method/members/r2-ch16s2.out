@@ -76,14 +76,14 @@
       L9382 Its register of one thousand six hundred and thirty-five withdrawn claims is offered as the primary
       L9387 all one thousand six hundred and thirty-five failures and naming the four results that exist because a conclus
   digit-form 1,635 sites main: []
-  Register: 1694 bare-numeral headings, 1719 distinct entry numbers, max 1852
+  Register: 1695 bare-numeral headings, 1720 distinct entry numbers, max 1853
   Register lines carrying a withdraw* token: 61
-  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1719: False
+  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1720: False
 
 ================================================================================================
 6  E = 36, AND THE NUMERALS THE UNIT PRINTS (SITES, comma-aware, both forms)
 ================================================================================================
-  "E = 36" sites: {'main': [3263, 4489, 9356, 10274], 'reg': [1675, 2331, 3735], 'mc': [1453, 1455], 'ioi': [1372, 1454, 2034]}
+  "E = 36" sites: {'main': [3263, 4489, 9356, 10274], 'reg': [1675, 2331, 3735, 6856], 'mc': [1453, 1455], 'ioi': [1372, 1454, 2034]}
   "periodic table" sites in main: [120, 208, 209, 431, 730, 1516, 1517, 1530, 1535, 1549, 1594, 1618, 1641, 3248]
    4,000 -> 6 sites; in unit [9315]
    1,061 -> 8 sites; in unit [9360]

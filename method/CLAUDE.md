@@ -70,10 +70,10 @@ no longer on the read path.
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD117 main** (2,082,493 B ·
-  `c0a35567749e531873c46f7c9eb544c1` · 18,760 lines · 2 members) and **BUILD248 compendia** (16,142,043 B ·
-  `cb1a0f2b7ad7fb3adebfccd0da2d53a2` · 139,168 lines · 736 members). **738 members in all.** **The Register runs
-  1 to 1852, 1,694 seated** (1,687 numbered + 7 grouped). **W-253 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD118 main** (2,085,053 B ·
+  `a49042af3ed417c2d772acc623ff2199` · 18,764 lines · 2 members) and **BUILD250 compendia** (16,149,485 B ·
+  `b6402b160925f6cce1475ffb4494bb18` · 139,199 lines · 736 members). **738 members in all.** **The Register runs
+  1 to 1853, 1,695 seated** (1,688 numbered + 7 grouped). **W-255 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -82,11 +82,12 @@ no longer on the read path.
   asserting its predecessor's md5** — which is what the reverse guard is for.
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 7 September: `python3 method/verify.py`
   VERIFY OK (738 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
-  `gate.py manifest --main ../The_Method_1_6_BUILD117_main_and_register.md` **OK**, 737 listed / 739 extracted;
+  `gate.py manifest --main ../The_Method_1_6_BUILD118_main_and_register.md` **OK**, 737 listed / 739 extracted;
   `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,621 rows, 3 carried retired, 1,618
   regenerated exactly, 0 NEW, 0 GONE, md5 `31c462f3d47f9e02e289598c28604ae1` equal to the seated member);
-  `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL** at BUILD117/BUILD248 (87 OK counting the
-  census step). At BUILD117/BUILD247, before this leg's second re-bank, it read **56 OK, 30 FAIL**, and the 30
+  `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL** at BUILD118/BUILD250 (87 OK counting the
+  census step), register 1853's 33 moved goldens having been censused and then re-banked by running (W-255).
+  At BUILD117/BUILD247, before this leg's second re-bank, it read **56 OK, 30 FAIL**, and the 30
   were exactly the set the diff census had already traced to registers 1849-1852 — every one of them, with the
   new entries' own site tallies landing only at Register lines 6844 and 6848, which are 1851 and 1852
   themselves; all 30 were re-banked at BUILD248 by RUNNING their instruments, change set proved to be

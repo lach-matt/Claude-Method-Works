@@ -22,7 +22,7 @@ r2-ch16b  COMPUTABLE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
      3,751    unit 2 site(s) | six volumes {'main': 2}
      20,000   unit 2 site(s) | six volumes {'main': 2}
      2,354    unit 2 site(s) | six volumes {'main': 3}
-     1,098    unit 1 site(s) | six volumes {'main': 1}
+     1,098    unit 1 site(s) | six volumes {'main': 1, 'reg': 1}
      247      unit 1 site(s) | six volumes {'main': 1, 'reg': 7, 'mc': 3, 'pc': 2, 'ioi': 1}
   "Four lemmas, three verified independently" -- figures printed for the three: 3
   the fourth is discharged in the unit itself at L8462-L8471: PROVED and MEASURED here
