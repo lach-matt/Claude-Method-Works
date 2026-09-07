@@ -228,6 +228,13 @@ A = 1 + beta^2 and K = p_0 - beta^2 sigma_0, so V(R) is elementary and every
 analytic result below is checked against a finite difference of it -- and the
 oscillation period against a direct integration of R_ddot = -V'/2.
 
+The closed-form sigma(R) is itself confirmed against an RK4 integration of the
+conservation ODE, run separately: the two give the same oscillation period to
+2e-5 at (x, beta^2) = (0.3, 0.5), (0.5, 0.5) and (0.3, 0.2), and both agree with
+2 pi/sqrt(V''/2).  Three routes to V'' -- analytic, finite-difference of the
+closed-form potential, and a direct RK4 orbit -- and they agree.  That matters
+because beta^2_crit is load-bearing for typefour.py's trade statement.
+
 stdlib only.
 """
 import math, sys
