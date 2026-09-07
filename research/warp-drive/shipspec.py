@@ -21,6 +21,7 @@ import math, os, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import person as PZ
+import stationkeep as SK
 
 G, c, MSUN = 6.67430e-11, 299792458.0, 1.98892e30
 YR = 3.15576e7
@@ -71,6 +72,8 @@ K_PASS    = PZ.pass_distance(DEFLECTOR, CHI)      # 94.4 r_s
 GAIN      = PZ.gain_per_pass(BETA_A, K_PASS)      # 6.36e-4, not 0.25
 PASSES    = PZ.passes_to(2.0, BETA_A, K_PASS)     # 1090
 _A, _T, ORBITS = PZ.unequal_binary(DEFLECTOR, Q_RATIO, BETA_A)
+DV_TOTAL  = SK.treadmill_dv(K_PASS, BETA_A, PASSES)   # 6.711 c -- the open row, closed
+CEILING   = SK.ceiling_beta(K_PASS)                   # 0.0937 c, whatever N is
 
 def passes_to(gamma_t, gain=GAIN):
     return math.log(gamma_t)/math.log(1.0+gain)
@@ -99,9 +102,13 @@ SPEC = [
  ("PERFORMANCE","Kerr dv enhancement",dv_gain(0.998),"x","DERIVED","b_crit 5.196 -> 2.111"),
  ("PERFORMANCE","passes to gamma = 2",PASSES,"","DERIVED","geometric, non-saturating"),
  ("PERFORMANCE","mission time",PASSES*_T/86400.0,"d","DERIVED","one pass per orbit, ASSUMED cadence"),
- ("PERFORMANCE","terminal speed",0.866,"c","DERIVED","gamma = 2"),
+ ("PERFORMANCE","terminal speed, as specified",0.866,"c","INVALID",
+  "unreachable -- stationkeep.py: gamma_final <= 1 + one pass, and N does not appear"),
+ ("PERFORMANCE","terminal speed, achievable",CEILING,"c","DERIVED","the bound-return ceiling at this k"),
  ("PERFORMANCE","proper acceleration felt",0.0,"g","DERIVED","geodesic throughout"),
  ("PERFORMANCE","propellant for transport",0.0,"kg","DERIVED","borrowed gradient"),
+ ("PERFORMANCE","free passes before escape",SK.free_passes(K_PASS,BETA_A),"","DERIVED",
+  "the binding budget is the whole free ride, and it is 4 passes"),
 
  ("STRUCTURE","tidal penalty at Kerr r_ph",tide_penalty(0.998),"x","DERIVED","vs Schwarzschild 3M"),
  ("STRUCTURE","deflector floor at a DEEP pass, 1 g / 20 m",
@@ -116,8 +123,8 @@ SPEC = [
  ("NAVIGATION","guidance law","bracket propagator","","DERIVED","join closes, meet fails"),
  ("NAVIGATION","masses need not be known","yes","","DERIVED","Law 5, mass-uniformity"),
  ("NAVIGATION","which braid word",None,"","OPEN","unselected; must drift with the inspiral"),
- ("NAVIGATION","station-keeping delta-v",None,"m/s","OPEN",
-  "NEVER COMPUTED. The one number that decides whether the ship needs an engine"),
+ ("NAVIGATION","station-keeping delta-v",DV_TOTAL,"c","DERIVED",
+  "COMPUTED -- 1086 paid re-binds at Oberth cost. It decided against the ladder"),
  ("NAVIGATION","timing precision required",None,"s","OPEN","chaotic stratum, unquantified"),
 
  ("ARRIVAL","with a deflector present","free","","DERIVED","time-symmetric reverse pass"),
@@ -126,46 +133,60 @@ SPEC = [
  ("ARRIVAL","destination has a deflector",None,"","OPEN","routing constraint, unsurveyed"),
 
  ("ONBOARD","power for transport",0.0,"W","DERIVED","none required"),
- ("ONBOARD","power for steering",None,"W","OPEN","follows from station-keeping delta-v"),
+ ("ONBOARD","power for steering",None,"W","OPEN",
+  "moot for the ladder; live again only for the billiard branch"),
  ("ONBOARD","life support envelope",None,"","OPEN","not attempted"),
  ("ONBOARD","mission duration",None,"yr","OPEN","depends on route, unselected"),
 ]
 
 FLAG = """
-  THE ONE THE SHEET CATCHES -- ROUTE / mass ratio, and it has MOVED.
+  THE FLAGGED ITEM IS NO LONGER A GAP.  IT IS A VERDICT.
 
-  The earlier sheet flagged inventory: the design called for an IMBH binary at
-  25:1 and near-extremal spin, and no such object is confirmed.  person.py
-  removed half of that.  The tide sets only the PASS DISTANCE k, and k trades
-  against deflector mass as M ~ k^-3/2 while costing only N ~ k passes.  Pull k
-  from 3 r_s out to 94.4 and the deflector falls from 8823 Msun to 50 -- which
-  is a LIGO-catalogue object (GW150914 was 36 + 29).  The deflector is found.
+  Every version of this sheet has carried one OPEN row marked "the number that
+  decides whether the ship needs an engine": the station-keeping delta-v.
+  stationkeep.py computed it, and it answered a larger question than it was
+  asked.
 
-  What is NOT found is the companion, and the reason is now precise.  L4/L5 is
-  linearly stable only below Routh's mu = (9-sqrt69)/18, so a 50 Msun deflector
-  with a stable co-orbital parking point needs a companion of 1248 Msun.  The
-  IMBH is no longer a TIDAL requirement.  It is a PARKING requirement, and it is
-  the only clause of the old conjunction still standing.
+  THE NUMBER.  A payload only returns for another pass if it is BOUND, and the
+  binding budget at k = 94.4 is 1 - E/m = 2.64e-3 -- four passes.  The other
+  1086 must each be bought back: braked at periapsis, 6.18e-3 c apiece,
+  6.711 c of proper delta-v in total, to deliver 0.87 c.  The architecture's
+  one claim was ZERO PROPELLANT.
 
-  So the sheet forks, and both branches are priced:
+  THE THEOREM, which is worse.  Bound means E/m < 1, and E/m IS the gamma the
+  payload would show at infinity.  So before the final pass gamma_inf <= 1, and
+  one pass adds at most dgamma:
 
-    q = 1       2 x 50 Msun, catalogued, 4.3 h mission, merger margin 14.7x.
-                No stable L4/L5.  Station-keeping must be ACTIVE.
-    q = 0.0401  50 + 1248 Msun, NOT catalogued, 16.7 d mission, margin 2603x.
-                Free parking.  The ship can sit there and owe nothing.
+      gamma_final  <=  1 + 2 beta_A gamma_A sin(delta/2)
 
-  THE ONE NUMBER THAT DECIDES IT -- NAVIGATION / station-keeping delta-v.
-  It has never been computed, and it now decides two things rather than one.
-  If it is small, the q = 1 branch works: VEHICLE 1 is a passive payload with
-  thrusters, the "no propulsion" claim holds, and THE ENGINE IS AN OBJECT THAT
-  HAS ALREADY BEEN OBSERVED.  If it is large, the ship needs a real engine to
-  hold the accelerating family, the propellant saved on transport is spent on
-  steering, and the design falls back to the q = 0.0401 branch -- where the
-  parking is free and the object is once again one nobody has found.
+  N DOES NOT APPEAR.  The 6.711 c buys nothing -- the rungs of the ladder are
+  spent climbing back to escape and only the last one goes anywhere.  Reaching
+  gamma = 2 in one pass needs beta_A >= 0.4472, a binary at 0.625 r_s, inside
+  its own horizon.  No flywheel spins that fast because none can.
 
-  The project has not run out of physics.  It has run out of arithmetic it
-  declined to do.  Nothing here has looked, and it is computable.
-"""
+  WHAT THE SHEET NOW SPECIFIES.  Not 0.87 c.  The bound-return ceiling at this
+  deflector, %.4f c -- reached in ONE pass, in 14 seconds, with no station-
+  keeping at all, off an object in the LIGO catalogue.  That is a real vehicle
+  and it is 89%% short of the target.
+
+  AND THE TRADE IS NOW EXPLICIT.  The ceiling is a function of k, the same k
+  that made the deflector catalogued:
+
+      k = 94.4    50 Msun   catalogued        0.0937 c
+      k =  3.0  8823 Msun   IMBH              0.4751 c
+      k =  1.5 24956 Msun   IMBH              0.6066 c
+      absolute ceiling, a = 3 r_s, delta = pi 0.7085 c
+
+  YOU CAN HAVE THE CATALOGUED OBJECT OR YOU CAN HAVE THE SPEED.  324x the
+  deflector buys 5.9x the speed, and even paying it in full stops at 0.71 c.
+
+  THE ONE THING STILL OPEN, and it is not on this sheet -- stationkeep.billiard.
+  The theorem assumes the payload turns around by falling back.  A backscatter
+  turns it around with no binding, so gamma compounds: 1.99 bounces to gamma = 2
+  rather than 1090 passes.  Whether a rotating dumbbell can present a LEADING
+  FACE twice per cycle is three-body geometry nobody here has asked, and it is
+  the only route left to 0.87 c that does not carry propellant.
+""" % CEILING
 
 def selftest():
     ok = True

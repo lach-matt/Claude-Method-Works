@@ -173,14 +173,26 @@ FINDINGS = [
  # difference between a proton and a person, and it enters through one group.
  ("FRAGILITY",    0,  0, +1, "person.py",
   "chi/tau_s is the only argument: k = (chi/tau_s)^(2/3), extent and tolerance never separate"),
+ # NARROWED by stationkeep.py.  The identity stands untouched; the 1090-pass
+ # mission built on it does not, and the ceiling on this deflector is 0.0937 c.
  ("CATALOGUE",   +1, +1, +1, "person.py",
-  "a person at 50 Msun and a proton at 1.2e9 kg are the SAME mission: the deflector is catalogued"),
+  "a person at 50 Msun and a proton at 1.2e9 kg are the SAME mission, and it tops out at 0.0937 c"),
  # A bound, and it is the clock rather than the mass that sets it.
  ("MERGER-CEIL",  0, -1, +1, "person.py",
   "beta <= 0.0587 or the flywheel merges mid-mission; Zhang's headline 0.2 misses by 132x"),
  # The one unevidenced object left in VEHICLE 1, and it is not where it was.
  ("ROUTH-FORK",   0,  0, +1, "person.py",
   "the IMBH is a PARKING requirement, not a tidal one: L4/L5 needs a 1248 Msun companion"),
+ # stationkeep.py -- the OPEN row every sheet carried, closed with a number and
+ # then with a theorem that makes the number irrelevant.
+ ("DV-TREADMILL", 0, -1, +1, "stationkeep.py",
+  "1086 paid re-binds at 6.18e-3 c each: 6.711 c of proper delta-v to deliver 0.87 c"),
+ ("BOUND-RETURN", 0, -1, +1, "stationkeep.py",
+  "gamma_final <= 1 + one pass: N does not appear, so the ladder buys nothing at any length"),
+ ("ARCH-CEILING", 0, +1, +1, "stationkeep.py",
+  "0.7085 c is reachable on ordinary matter with zero propellant -- at a = 3 r_s and delta = pi"),
+ ("BILLIARD",     0,  0, +1, "stationkeep.py",
+  "OPEN: backscatter needs no binding and compounds -- 1.99 bounces, and the leading face decides"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -272,7 +284,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 53)
+    chk("number of findings indexed", len(FINDINGS), 57)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 

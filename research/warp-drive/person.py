@@ -373,7 +373,11 @@ Zhang's law is a law about test particles.  What extent costs, and what pays it.
   fast.  Zhang's headline beta = 0.2 misses by a factor of 132 -- it is not the
   mass that forbids it, it is the clock.
 
--- WORKED CASE: a person to 0.87c ----------------------------------------------""" % bmax)
+-- WORKED CASE ----------------------------------------------------------------
+  SUPERSEDED BY stationkeep.py: the 1090 passes below cost 6.711 c of delta-v
+  and buy nothing, because gamma_final <= 1 + ONE pass whatever N is.  Every
+  scaling above is untouched; what falls is the ladder built on them.  The
+  achievable terminal speed at this k is 0.0937 c, in one pass, in 14 seconds.""" % bmax)
     beta = 0.03
     N = passes_to(2.0, beta, k50)
     T = S.orbital_period(beta, 2 * M50)
@@ -384,7 +388,7 @@ Zhang's law is a law about test particles.  What extent costs, and what pays it.
   tide on a 2 m body  %.3f m/s^2 = %.3f g
   deflection/pass   %.4f deg
   gain per pass     %.4e
-  passes to gamma=2 %.0f            (0.87 c)
+  passes to gamma=2 %.0f            (0.87 c -- UNREACHABLE, see above)
   binary period     %.3f s
   mission time      %.4g s = %.2f h
   orbits to merger  %.4g            margin %.1fx

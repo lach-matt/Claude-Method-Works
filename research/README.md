@@ -48,6 +48,7 @@ a report.
 | **`warp-drive/VEHICLE 1`** | **`warp-drive/shipspec.py`** | **the surviving architecture specified: 41 fields, 11 open — the sheet now flies the k-lever, and its one unevidenced object is the companion, not the deflector** |
 | **`warp-drive/GRADIENTS`** | **`warp-drive/gradients.py`** | **the gradient space is closed by classification — five types, one pumps, and the engine already runs on protons** |
 | **`warp-drive/PERSON`** | **`warp-drive/person.py`** | **from a proton to a person: χ/τ_s is the only argument, and pulling the pass out to 94 r_s buys the deflector down into the LIGO catalogue** |
+| **`warp-drive/STATION-KEEPING`** | **`warp-drive/stationkeep.py`** | **the open row closed, and a theorem behind it: γ ≤ 1 + one pass, so the ladder buys nothing at any length — 0.7085 c is the architecture's ceiling** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ## `warp-drive/`
@@ -148,6 +149,50 @@ Routh's `μ < (9−√69)/18` means a 50 M☉ deflector with a stable L4/L5 park
 **1,248 M☉** companion. The intermediate-mass hole is a **parking requirement, not a tidal one** —
 which puts the whole remaining question on the station-keeping Δv, a number this tree has never
 computed.
+
+**Then the bill arrived, and it came as a theorem.** Every sheet in this tree carried one OPEN row
+— the station-keeping Δv across N passes, "the number that decides whether the ship needs an
+engine". `stationkeep.py` computes it, and it answered a larger question than it was asked.
+
+The number first. A payload only comes back for another pass if it is gravitationally **bound**, and
+the binding budget at `k = 94.4` is `1 − E/m = 2.64 × 10⁻³` — **four passes**. The other 1,086 must
+each be bought back: braked at periapsis (Oberth, 5.8× cheaper than braking at infinity),
+6.18 × 10⁻³ c apiece, **6.711 c of proper Δv** to deliver 0.87 c. The architecture's one claim was
+zero propellant.
+
+The theorem is worse, and it makes the number moot. Bound means `E/m < 1`, and `E/m` **is** the γ the
+payload would show at infinity. So before the final pass `γ_∞ ≤ 1`, and one pass adds at most `Δγ`:
+
+> **γ_final ≤ 1 + 2 β_A γ_A sin(δ/2)** — and **N does not appear.**
+
+The rungs of the ladder are spent climbing back to escape; only the last one goes anywhere. Reaching
+γ = 2 in a single pass needs `β_A ≥ 0.4472`, which is a binary at `a = 0.625 r_s` — **inside its own
+horizon**. No flywheel spins that fast because none can.
+
+What survives is not small. At the tightest binary that can exist (`a = 3 r_s`, `β_A = 0.2041`) and a
+full backscatter, a bound-return slingshot reaches **0.7085 c on ordinary matter with zero
+propellant**. But the ceiling is a function of the same `k` that made the deflector catalogued:
+
+| k (r_s) | deflector | bend | ceiling |
+|---|---|---|---|
+| 94.4 | 50 M☉ — catalogued | 1.2° | **0.0937 c** |
+| 3.0 | 8,823 M☉ | 38.2° | 0.4751 c |
+| 1.5 | 24,956 M☉ | 76.4° | 0.6066 c |
+| — | absolute, a = 3 r_s, δ = π | 180° | **0.7085 c** |
+
+324× the deflector buys 5.9× the speed. **You can have the catalogued object or you can have the
+speed.** Nothing in `person.py` is withdrawn — every scaling holds and the proton/person identity is
+untouched. What falls is the ladder built on them, and VEHICLE 1 now specifies 0.0937 c reached in
+**one pass, in 14 seconds, with no station-keeping at all**.
+
+**One route is left and it is open.** The theorem assumes the payload turns around by *falling
+back*. A **backscatter** (δ ~ π, periapsis at the photon sphere) turns it around with no binding at
+all, so γ *compounds* instead of resetting — **1.99 bounces to γ = 2**, not 1,090 passes. The
+question that decides it, and it is asked nowhere in this tree: a slingshot gains only off a hole
+whose motion has a component along the payload's momentum change — the **leading face**. In a
+circular binary the components move oppositely at constant separation, so a payload bouncing along
+the A–B axis meets both faces broadside and gains nothing. Whether a rotating dumbbell admits a
+converging-mirror geometry is three-body geometry, and it is the next thing to ask.
 
 **A recorded fault, kept executable.** A first pass at this fixed the pass distance at a constant
 fraction of the binary *separation* (`r_p = a/3`) and read off `M ∝ β³` — a person at 51 M☉ and

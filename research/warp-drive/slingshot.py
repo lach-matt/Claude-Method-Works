@@ -13,6 +13,15 @@ Primary source for the gain law:
 Every fixture below is a figure PRINTED in that paper; none is a number this
 instrument invented.  Run --selftest before trusting a report.
 
+SUPERSEDED IN PART -- read stationkeep.py first.  The gain law and the flywheel
+arithmetic below all stand.  The MULTI-PASS LADDER they are used to build does
+not: a payload only returns for another pass if it is bound, bound means E/m < 1
+which IS its gamma at infinity, so before the last pass gamma <= 1 and the
+terminal speed is set by ONE pass regardless of N.  The worked case's "0.87 c"
+is therefore not reachable this way; the ceiling is 1 + 2 beta_A gamma_A
+sin(delta/2), which is 0.7085 c at best and 0.0937 c off a catalogued binary.
+Nothing here is withdrawn -- it is bounded, and stationkeep.py holds the bound.
+
 Status vocabulary, per the repo's standing rule:
   PINNED        stated in the source
   DERIVED       closed form derived here from PINNED inputs
@@ -187,7 +196,10 @@ conditions are satisfied with nothing to prove.
         M = mass_floor_for_tide(amax, 3.0, d)
         print("  %-14s %14s %16.0f Msun" % (lbl, "%.0f m/s^2" % amax, M / MSUN))
     print("""
--- A worked engine -------------------------------------------------------------""")
+-- A worked engine ------------------------------------------------------------
+  SUPERSEDED: the pass count below is unreachable -- stationkeep.py's
+  bound-return theorem caps this at ONE pass.  Kept as the flywheel arithmetic,
+  which is unaffected, and because a bound is a coordinate (P8).""")
     beta = 0.10
     M_A  = mass_floor_for_tide(9.8, 3.0, 20.0)      # per hole, 1 g across 20 m
     M_t  = 2.0 * M_A
