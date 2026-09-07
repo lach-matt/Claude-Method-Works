@@ -285,3 +285,24 @@ which is 3.5× the larger of them.**
 **And the claim the table supports survives, strengthened.** *"Curvature washes out before separation,
 in every channel in this work"*: a channel reaching 13 is **further** from its ν_V of 160 than one
 reaching 45.7. The figure is wrong, not the thesis.
+
+### I-021 · §11.7 and §11.8's biconditional — `palindromic.py`, selftest 11 of 11
+
+**Chapters 8–11 carry six biconditional claims.** Five are definitions, metric axioms or
+characterisations the volume proves. **One is false in one direction, and it is stated twice** — in
+Figure 11.2's caption and again as §11.8's opening line:
+
+> *"A rank polynomial is palindromic **if and only if** the poset is self-dual."*
+
+**Self-dual ⟹ palindromic is true** and immediate: an anti-automorphism sends rank r to rank M − r.
+**Palindromic ⟹ self-dual is false**, and the counterexample is six elements, found by exhaustive
+search over strictly graded posets and printed so it can be checked by hand: relations
+0 < 1, 0 < 2, 0 < 3, 4 < 1, 5 < 2, level sizes **(3, 3)** — palindromic — and **not self-dual**,
+because element 0 has three above it and nothing in the poset has three below it.
+
+**And the book's argument is sound**, which is why this is a wording defect and not a result defect.
+§11.8 uses the claim one way only: the rank sequence is asymmetric — 1, 5, 15, 34, 59, 87 forwards
+against 1, 4, 10, 21, 37, 57 backwards — **therefore not self-dual**, which is the *contrapositive of
+the direction that holds*. **What does not stand is "if and only if", and with it §11.8's "they are
+the same statement"**: an asymmetric rank sequence *implies* non-self-duality and is not equivalent
+to it.

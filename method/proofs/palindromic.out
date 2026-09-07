@@ -1,0 +1,29 @@
+§11.7 and §11.8's biconditional, and the six in Chapters 8–11
+
+  the claim, stated twice: "A rank polynomial is palindromic if and only if the poset is self-dual"
+
+  self-dual ⟹ palindromic:  TRUE — an anti-automorphism sends rank r to rank M − r.
+  palindromic ⟹ self-dual:  FALSE, and here is a six-element counterexample:
+
+    elements 0–5; relations 0 < 1, 0 < 2, 0 < 3, 4 < 1, 5 < 2
+    ranks [0, 1, 1, 1, 0, 0], level sizes [3, 3] — palindromic
+    strictly graded: True   self-dual: False
+    element 0 has three above it and nothing in the poset has three below it,
+    so no anti-automorphism exists.
+
+  AND THE BOOK'S ARGUMENT IS SOUND. §11.8 uses it one way only:
+    forwards  [1, 5, 15, 34, 59, 87]
+    backwards [1, 4, 10, 21, 37, 57]   — asymmetric, therefore not self-dual,
+    which is the CONTRAPOSITIVE of the direction that holds.
+
+  What does not stand is 'if and only if', and with it §11.8's 'they are the SAME
+  statement': an asymmetric rank sequence IMPLIES non-self-duality, and is not
+  equivalent to it. A wording defect, not a result defect.
+
+  the biconditional census of Chapters 8–11: 6 claims, of which this is the one
+    §9.2       L2008   Properties. Symmetric · d ≥ 1 with equality iff x = y · multiplicative triangle inequality d(x,z) ≤
+    §9.3       L2024   **And a transfer condition to the arithmetic side:** μ_Λ = μ_arith **iff** the interval is a void-free unit hy
+    §10.3      L2062   A box is entirely inside Λ iff hi_i ≤ φ(lo_j) for each of the seven constraints. O(1), verified against
+    §11.1.1    L2122   **A bit is a generator.** Bit *i* is set in a cell's word exactly when generator *i* of A.19 lies
+    §11.7      L2276   rank 1 — 5 against 4 — and never rejoin. A rank polynomial is palindromic if and only if the poset is self-dua  <-- FALSE ONE WAY
+    §11.8      L2281   A rank polynomial is palindromic if and only if the poset is self-dual.  <-- FALSE ONE WAY
