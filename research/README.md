@@ -475,8 +475,52 @@ Premium YIG spheres (ΔH ≤ 0.2 Oe) are catalogue parts. With those and a short
 | **geometry** | **bar, 9.8 × 8.2 × 8.2 cm** — graded along x only |
 | loss across the stack | **5.8%** |
 
-> **Across two passes: one part replaced twice, one derating, one safety factor, four "chosen"
-> dimensions that turned out to be determined, one geometry withdrawn, and one loss model replaced.**
+### And then the test that decides whether it proves anything
+
+**The observable is enormous.** For propagation along the shift a bi-anisotropic medium gives
+`n± = √(εμ) ± g_x` = 3.342 and 1.124 — forward 0.299 c, backward 0.890 c. Over the 9.8 cm bar that is
+a **0.725 ns non-reciprocal delay, 2,146° of phase** at 8.221 GHz. A VNA resolves 0.01°, so it is
+unmissable by five orders of magnitude. And no graded-index bar can do it: Lorentz reciprocity forces
+`S21 = S12` in any reciprocal medium.
+
+**But it is a relabel.** `n± = ε ± g_x` is bi-anisotropic Maxwell. It confirms you built the medium
+you designed. Under `door.py`'s test that is not a measurement of the metric.
+
+**So what would be? A horizon. And a horizon is forbidden.** A horizon at normal incidence needs the
+shift to reach the medium's own light speed, `v₀ ≥ c/n`. Smolyaninov's stability bound caps it at
+`v₀ ≤ c(n−1)/n²`. So a horizon requires
+
+> `(n−1)/n² ≥ 1/n` ⟺ `n−1 ≥ n` ⟺ **`−1 ≥ 0`**
+
+**False for every n.** The thermodynamic stability condition that makes the analogue buildable is the
+same condition that forbids it a horizon. The closest approach is `(n−1)/n`, which reaches 1 only as
+`n → ∞`, and the ferrite caps `n ≤ ε_r = 15` — **93.3%, never 100%.**
+
+| n | v₀ max | v₀/(c/n) | θ_c | ferrite fill |
+|---|---|---|---|---|
+| 2 | 0.250 c | 0.500 | 60.0° | 0.07 |
+| 10 | 0.090 c | 0.900 | 25.8° | 0.64 |
+| **15** | 0.062 c | **0.933** | 21.0° | 1.00 (pure ferrite) |
+| 20 | — | 0.950 | — | impossible (fill > 1) |
+
+What survives is the **one-way angular horizon** at `θ_c = arccos(v₀n/c) = 60.22°` — genuinely
+metric-like, because total internal reflection is reciprocal and this is not.
+
+**And the quantum measurement is too cold.** Analogue Hawking temperature at the design point is
+`T_H = ℏκ/2πk_B` = **4.96 mK**, below a dilution refrigerator's routine 10 mK base. `T_H ∝ β·f`, so
+moving to ~100 GHz in an 8 mm device would give **60 mK** — measurable, but that is a superconducting
+magnet at 3.6 T, microfabricated rings, and a different experiment.
+
+> **Verdict: the hardware closes. The epistemics do not.** The device is buildable from catalogue
+> parts and would work. It would confirm that we built the medium we designed. It would not prove the
+> metric, and the bound that makes it stable is the bound that stops it.
+
+`THE-DEVICE` is regraded in the index from (+1,+1,+1) to **(0,+1,+1)** — buildable, yields numbers,
+identifies no warp energy — and `ANALOGUE` is narrowed to match.
+
+> **Across three passes: one part replaced twice, one derating, one safety factor, four "chosen"
+> dimensions that were determined, one geometry withdrawn, one loss model replaced, and one claim of
+> proof withdrawn.**
 
 `device.py --figure` emits `figures/device-scale.svg` from `design()`, so the drawing cannot drift
 from the sheet — it now draws the stack.

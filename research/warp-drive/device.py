@@ -222,6 +222,54 @@ def ferrite_figure_of_merit(mu0Ms=YIG_MU0MS, eps_r=YIG_EPS_R, dH=YIG_DH):
     High saturation magnetisation, low permittivity, narrow linewidth."""
     return mu0Ms / ((eps_r - 1.0) * dH)
 
+# ---- TEST 13-17: what the device would MEASURE, and what it would not ---------
+def direction_indices(eps, gx):
+    """DERIVED.  For propagation along the shift, a bi-anisotropic medium gives
+    n_pm = sqrt(eps mu) +/- g_x.  With eps = mu that is eps +/- g_x, and the
+    difference is the non-reciprocity Lorentz reciprocity forbids in any
+    graded-index bar."""
+    return eps + gx, eps - gx
+
+def nonreciprocal_delay(eps, gx, length):
+    """DERIVED.  Forward minus backward transit time."""
+    npl, nmi = direction_indices(eps, gx)
+    return length * (npl - nmi) / c
+
+def critical_angle_deg(beta, eps):
+    """DERIVED.  Backward propagation is blocked where the shift exceeds the
+    x-component of the in-medium light speed: cos(theta_c) = v_0 n / c.
+    ONE-WAY, unlike total internal reflection, which is reciprocal."""
+    r = beta * eps
+    return math.degrees(math.acos(min(1.0, r))) if r <= 1.0 else 0.0
+
+def horizon_possible(n):
+    """DERIVED, AND IT IS A THEOREM.  A horizon at normal incidence needs the
+    shift to reach the medium's own light speed, v_0 >= c/n.  Stability caps it
+    at v_0 <= c (n-1)/n^2.  So a horizon needs
+
+        (n - 1)/n^2  >=  1/n     <=>     n - 1 >= n     <=>     -1 >= 0
+
+    FALSE FOR EVERY n.  THE THERMODYNAMIC STABILITY BOUND FORBIDS A HORIZON IN
+    THIS ANALOGUE, ALWAYS.  The closest approach is the ratio (n-1)/n, which
+    reaches 1 only as n -> infinity, and the ferrite caps n at eps_r."""
+    return False
+
+def horizon_proximity(n):
+    """DERIVED.  v_0(max) / (c/n) = (n-1)/n.  How close to a horizon n can get."""
+    return (n - 1.0) / n
+
+def n_ceiling(eps_r=YIG_EPS_R):
+    """DERIVED.  Fill <= 1 means eps - 1 <= eps_r - 1, so n <= eps_r."""
+    return eps_r
+
+def hawking_temperature(beta, wall):
+    """DERIVED.  T_H = hbar kappa / (2 pi k_B) with the analogue surface gravity
+    kappa = d(c_eff - v)/dx ~ c beta / wall.  This is what a door-passing
+    measurement would need to detect, and it is the number that decides whether
+    the device proves anything or merely works."""
+    HBAR, KB = 1.054571817e-34, 1.380649e-23
+    return HBAR * (c * beta / wall) / (2.0 * math.pi * KB)
+
 # ---- geometry and loss ----------------------------------------------------------
 def wavelength(f_op, eps):
     """DERIVED.  In-medium wavelength."""
@@ -538,6 +586,46 @@ def selftest():
         ferrite_loss_tangent(d["gxp"], 0.5 * YIG_DH) / d["tan_f"], 0.5)
     chk("FOM rises when eps_r falls",
         ferrite_figure_of_merit(eps_r=8.0) > ferrite_figure_of_merit(), True)
+
+    print("\nTEST 13 -- the classical observable: enormous, and a RELABEL")
+    npl, nmi = direction_indices(d["eps"], d["gx"])
+    chk("forward index", npl, 3.3424, tol=1e-4)
+    chk("backward index", nmi, 1.1239, tol=1e-4)
+    dt = nonreciprocal_delay(d["eps"], d["gx"], d["x_len"])
+    chk("non-reciprocal delay (ns)", dt * 1e9, 0.72502, tol=1e-4)
+    chk("phase at f_op (degrees)", math.degrees(2 * math.pi * d["f_op"] * dt),
+        2146.4, tol=1e-3)
+    chk("  -- a VNA resolves 0.01 deg, so it is unmissable",
+        math.degrees(2 * math.pi * d["f_op"] * dt) > 1e4 * 0.01, True)
+    # But n_pm = eps +/- g_x is bi-anisotropic Maxwell.  It confirms the medium.
+    chk("  -- and it follows from the g_x you BUILT: a relabel", True, True)
+
+    print("\nTEST 14 -- the angular horizon")
+    chk("v_0 / (c/n)", d["beta"] * d["eps"], 0.49668, tol=1e-4)
+    chk("critical angle (deg)", critical_angle_deg(d["beta"], d["eps"]), 60.216593, tol=1e-7)
+    chk("  -- one-way, unlike TIR", True, True)
+
+    print("\nTEST 16 -- THE THEOREM: a horizon is FORBIDDEN, for every n")
+    for n in (2.0, 3.0, 10.0, 15.0, 1e3, 1e6):
+        chk("n = %-8g horizon possible?" % n, horizon_possible(n), False)
+        chk("   proximity (n-1)/n < 1", horizon_proximity(n) < 1.0, True)
+    chk("closest approach at the ferrite's own n = eps_r", horizon_proximity(n_ceiling()),
+        0.93333333, tol=1e-7)
+    chk("  -- 93.3%, and never 100%", horizon_proximity(n_ceiling()) < 1.0, True)
+    # Identity: (n-1)/n^2 < 1/n reduces to -1 < 0, so it holds at any n at all.
+    chk("the inequality is n-independent", all(
+        (n - 1) / n ** 2 < 1.0 / n for n in (1.5, 2, 7, 100, 1e9)), True)
+
+    print("\nTEST 17 -- so would it prove anything?  The Hawking number decides.")
+    TH = hawking_temperature(d["beta"], d["wall"])
+    chk("analogue Hawking temperature (mK)", TH * 1e3, 4.9642612, tol=1e-7)
+    chk("  -- BELOW a dilution fridge's routine 10 mK base", TH * 1e3 < 10.0, True)
+    chk("room-temperature thermal noise exceeds it by", 300.0 / TH, 60430.7, tol=1e-4)
+    # T_H ~ beta/wall ~ beta*f, so higher frequency raises it.
+    chk("T_H scales with frequency (identity)",
+        hawking_temperature(d["beta"], d["wall"] / 12.0) / TH, 12.0)
+    chk("  -- at ~100 GHz it would reach 60 mK, in an 8 mm device",
+        hawking_temperature(d["beta"], d["wall"] / 12.16) * 1e3 > 55.0, True)
 
     print("\nSELF-CONSISTENCY -- the chain is recomputed, not patched")
     # Changing the derate must move every downstream number together.

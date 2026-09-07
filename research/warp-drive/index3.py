@@ -229,8 +229,10 @@ FINDINGS = [
   "of six closures this project reasoned to itself, ZERO are MEASURED and five are hypothesis or cost"),
  ("KAPPA-DEAD",   0, -1,  0, "restatus.py",
   "Rodal 2025 closes kappa(x) by MEASUREMENT -- Bianchi, MICROSCOPE, Cassini, PSR J0337: no escape"),
+ # NARROWED by device.py TEST 16: the bound that makes it stable also forbids
+ # the horizon, so the bench article confirms the medium and not the metric.
  ("ANALOGUE",    +1,  0, +1, "restatus.py",
-  "the Alcubierre metric maps onto eps, mu, g_x with g_x^2 <= (eps-1)(mu-1): a bench proof at v <= c/4"),
+  "the Alcubierre metric maps onto eps, mu, g_x -- buildable at v <= c/4, but no horizon at any n"),
  # door.py -- M's correction.  "Does not couple to real spacetime" is withdrawn.
  ("THE-DOOR",    +1, +1, +1, "door.py",
   "Sec 17.1: a construction is closed from OUTSIDE by measurement -- 5 of 7 analogue claims pass, 4 are done"),
@@ -244,8 +246,10 @@ FINDINGS = [
  ("C4-CORRECTED", 0, -1, +1, "neclab.py",
   "c/4 is the leading-order bound; the full Eqs (6),(7) saturate at 0.245826 and are unstable at 0.25"),
  # device.py -- the parts list, every field tested as it was written.
- ("THE-DEVICE",  +1, +1, +1, "device.py",
-  "a 23 cm YIG-and-copper block at 5.78 GHz emulating v_0 = 0.222 c: nothing exotic in the parts list"),
+ # The HARDWARE closes; what it proves does not.  Y stays +1 (it is buildable),
+ # X drops to 0 (it identifies no warp energy), Z stays +1 (it yields numbers).
+ ("THE-DEVICE",   0, +1, +1, "device.py",
+  "a 9.8 cm YIG bar at 8.22 GHz emulating v_0 = 0.222 c: buildable, and it proves the medium not the metric"),
  ("SRR-FAILED",   0, -1, +1, "device.py",
   "a single-gap ring of the required size resonates at 118 GHz, 16x too high: broadside coupling or nothing"),
  ("REGISTRATION", 0, -1, +1, "device.py",
@@ -262,6 +266,13 @@ FINDINGS = [
   "Polder gives mu-1 = g_x, so one inclusion carries 90% of eps, mu and g_x -- the rings are the margin"),
  ("FERRITE-FOM",  0, -1, +1, "device.py",
   "loss is invariant under n by exact cancellation; the only knob is Ms/((eps_r-1) dH)"),
+ # The verdict.  The hardware works; the epistemics do not, and the reason is a theorem.
+ ("NO-HORIZON",   0, -1, +1, "device.py",
+  "stability caps v_0 at c(n-1)/n^2 and a horizon needs c/n: (n-1)/n^2 < 1/n for EVERY n"),
+ ("RELABEL-ONLY", 0, -1,  0, "device.py",
+  "the 2146-degree non-reciprocity is enormous and follows from the g_x built: it confirms the medium"),
+ ("T-H-TOO-COLD", 0, -1, +1, "device.py",
+  "analogue Hawking is 4.96 mK, below a fridge's 10 mK base; ~100 GHz in 8 mm would give 60 mK"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -284,6 +295,7 @@ SUPPORT = [
  ("CASCADE",   "device.py",         "TEST 4 failed AGAIN when the cell shrank; ring radius and substrate are now derived, not assumed"),
  ("SPHERE-FIX","device.py",         "the figure drew a spherical bubble; the mapping is 1+1D and the geometry is a stack"),
  ("LOSS-FIX",  "device.py",         "a single Q for the whole block was the wrong model; the ferrite carries 90% and dominates the loss"),
+ ("PROVES-FIX","device.py",         "the analogue was seated as a bench PROOF; TEST 16 shows it confirms the medium, not the metric"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -364,7 +376,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 85)
+    chk("number of findings indexed", len(FINDINGS), 88)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -381,11 +393,11 @@ def selftest():
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
-                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN","THE-DEVICE"]))
+                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
-                "THE-DOOR","EC-TAKEN","THE-DEVICE"]))
+                "THE-DOOR","EC-TAKEN"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
