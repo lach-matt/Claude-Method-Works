@@ -181,8 +181,19 @@ against the requirement it moves: 50.8 percent through it is 21.41, which is §5
 | bred fuel, demonstrated cycles | 0.623 | **1.479** | **1.758** |
 | bred fuel, bound-case service life | 2.449 | **5.811** | **6.904** |
 
-**The answer is conditional and it is not no.** A **device-internal** form clears unity: heat on the
-bound-case service life, at 1.036, and 1.231 at the wider bore. Nothing leaves the device to earn it.
+**The answer is no, and `--corrected` is why.** The device-internal figures of 1.036 and 1.231 that
+`--alteration` prints are computed from `BALANCES_AT_90`, and reading that table backwards through the
+balance shows what it was computed at: **588.9 cycles**, which is the model run at the **0.1487 %**
+sticking [1] §5.26 retires. At the corrected value the same density gives **190.1**, so **every printed
+bound-case row is high by 3.10**. `--corrected` recomputes every balance from `G = N·V·η/E_π` instead
+of scaling a printed one, and the result is flat: **no heat form and no work form clears unity in any
+configuration**, the largest being **0.513** with the optimised target, the wider bore, the wider
+stopping window and an unreached density granted simultaneously.
+
+**What survives is bred fuel at the measured cycle count**, which uses the model nowhere: **0.623** as
+built, **0.957** with both collector alterations, **1.479** through the optimised target and **2.271**
+with all three. The 0.957 is short by **1.045**, and the only term in it never measured is the loss
+budget itself.
 
 **Three conditions travel with it, and each is the corpus's own.** It is the bound case and not the
 demonstrated one — at 150 cycles the same alteration reaches only 0.264. The bound case rests on a

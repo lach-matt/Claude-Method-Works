@@ -2866,6 +2866,90 @@ def win_long_lived():
     return len(_win().long_lived())
 
 
+def bal_c871():
+    return _mach.balance("heat", 150.0, 2.6, 400.0, target=False)
+
+
+def bal_c872():
+    return _mach.balance("heat", _mach.service_life(8.5), 2.6, 400.0, target=False)
+
+
+def bal_c873():
+    return _mach.balance("heat", _mach.service_life(3.0), 2.6, 400.0, target=False)
+
+
+def bal_c874():
+    return _mach.balance("work", 150.0, 2.6, 400.0, target=False)
+
+
+def bal_c875():
+    return _mach.balance("work", _mach.service_life(8.5), 2.6, 400.0, target=False)
+
+
+def bal_c876():
+    return _mach.balance("bred", _mach.service_life(8.5), 1.5, 265.0, target=False)
+
+
+def bal_c877():
+    return _mach.balance("work", 150.0, 2.6, 400.0, target=True)
+
+
+def bal_c878():
+    return _mach.balance("work", _mach.service_life(8.5), 1.5, 265.0, target=True)
+
+
+def bal_c879():
+    return _mach.balance("work", _mach.service_life(8.5), 2.6, 400.0, target=True)
+
+
+def bal_c880():
+    return _mach.balance("bred", _mach.service_life(8.5), 1.5, 265.0, target=True)
+
+
+def bal_c881():
+    return _mach.balance("bred", _mach.service_life(8.5), 2.6, 400.0, target=True)
+
+def life_superseded():
+    return _mach.LIFE_SUPERSEDED
+
+
+def bound_case_inflation():
+    return _mach.LIFE_SUPERSEDED / _mach.service_life(_mach.DENSITY_BOUND_CASE)
+
+
+def best_device_internal():
+    return _mach.best_device_internal()
+
+
+def bred_meas_wb400_target():
+    return _mach.balance("bred", 150.0, 2.60, 400.0, target=True)
+
+
+def bred_meas_shortfall():
+    return 1.0 / _mach.best_witnessed_bred()
+
+
+def bred_bound_wb400():
+    return _mach.balance("bred", _mach.service_life(8.5), 2.60, 400.0)
+
+
+def eta_wb400():
+    return 100.0 * _mach.delivered_eta_window(2.60, 400.0)
+
+
+def heat_meas_wb400_target():
+    return _mach.balance("heat", 150.0, 2.60, 400.0, target=True)
+
+
+def heat_bound_target():
+    return _mach.balance("heat", _mach.service_life(8.5), 1.50, 265.0,
+                         target=True)
+
+
+def bred_reached():
+    return _mach.balance("bred", _mach.service_life(1.2), 1.50, 265.0)
+
+
 def win_resid_muon():
     w = _win()
     return w.reduced_mass_residual(w.admitted()[0][1])

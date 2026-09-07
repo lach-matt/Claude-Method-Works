@@ -177,3 +177,45 @@ a prose number against the ledger to within 2 percent, so a number can in princi
 unrelated row of similar value. That looseness governs the older preprints, whose prose holds literal
 numerals. It cannot reach the consolidated paper: its source holds **no numerals at all**, so every
 quantity is bound to a named row by id rather than matched by value.
+
+## The correction that changed the answer
+
+The rebuild's four corrections were all real, and one of them turned out to be the wrong correction to
+a real problem. This is what was actually wrong.
+
+**Every "bound case" balance in the record was computed at a retired sticking.** The balance has one
+form, `G = N·V·η/E_π`, and running that expression backwards over the printed 90 % table recovers the
+service life each cell used. The measured rows give 150, as they should. The bound-case rows give
+**588.9** — and 588.9 is `N(0.1487 %, 8.5 LHD)`, the sticking `Cold_Fusion_Binder_Economy` §5.26
+retires as an excited-state initial value multiplied by a ground-state survival fraction. At the
+corrected value the same density returns **190.1**. Every bound-case figure in the record is therefore
+high by **3.10**.
+
+What that costs: the device-internal result. Recomputed rather than scaled, no heat form and no work
+form clears unity in any configuration the paper can construct — the largest is **0.513**, reached
+only by granting the optimised production target, the wider bore, the wider stopping window and an
+unreached fuel density simultaneously. The 1.036 and 1.231 were the retired sticking and nothing else.
+
+What it does not cost: anything computed at the measured cycle count, because those rows never used
+the model. That asymmetry is the whole result — the surviving route is the one that asks for the
+least.
+
+**The previous pass's density correction was the wrong axis.** It carried bound-case figures back by
+`N(0.505 %, 1.2) / N(0.505 %, 8.5)` — a ratio of corrected-sticking lives — applied to figures
+computed at the retired one. The two corrections were being mixed. Once the sticking is right the
+density buys very little on its own: 190.1 cycles against 150 measured, and only at a density nobody
+has held.
+
+**Two further faults fell out of the same reading.** `Cold_Fusion_Binder_Economy` §5.23 prints the
+work balance as "0.3338 at the collector", but 0.3338 is that balance at **perfect** collection — it is
+§5.19's own C219 with no efficiency applied, and the 90 % figure would be 0.3005. The acceptance
+census restated it faithfully to the label rather than to the number, so C783 read 0.1174 where it
+should read **0.1057**. And C840 was labelled "the neutron at its bare heat" when it is the
+corrected-sticking heat balance through the optimised target, which is a different quantity.
+
+**The instrument now computes rather than inherits.** `machine.py --corrected` evaluates
+`G = N·V·η/E_π` directly over three products, four service lives and four collector configurations,
+and its selftest asserts three things: that the expression reproduces every cell of the printed table,
+that it does so at the retired sticking rather than the corrected one, and that no heat or work form
+clears unity anywhere. `BALANCES_AT_90` stays in the file as the printed record the correction is
+against — a status is never flattened, and neither is a table.

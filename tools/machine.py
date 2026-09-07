@@ -1092,6 +1092,137 @@ BALANCES_AT_90 = (
 OPTIMISED_TARGET_REQUIREMENT = 21.4     # percent, [1] sec.5.24
 
 
+# ---- THE BALANCE, COMPUTED RATHER THAN INHERITED ---------------------------
+# Every balance in this work has one form,
+#
+#     G = N . V . eta / E_pi
+#
+# with N the service life, V the value recovered per fusion, eta the collection
+# efficiency and E_pi the cost of producing one pion. `balance()` below is that
+# expression and nothing else, and `--selftest` checks it reproduces every cell
+# of the printed 90 % table above.
+#
+# IT REPRODUCES THEM AT N = 588.9, AND THAT IS THE FINDING. 588.9 cycles is
+# N(0.1487 %, 8.5 LHD) -- the excited-state sticking that [1] sec.5.26 RETIRED,
+# having formed it from a J=1 initial sticking times a ground-state survival
+# fraction, two different states. At the corrected value the same density gives
+# 190.1. So every "bound case" row printed anywhere in this work is high by
+# 588.9 / 190.1 = 3.10, and the rows computed at the MEASURED 150 cycles are
+# untouched, because they never used the model.
+V_PER_FUSION_GEV = {           # what one fusion is worth, by product
+    "heat": 0.02606,           # C214, sourced blanket, thermal
+    "work": 0.01955,           # C217, the same at 1200 K
+    "bred": 0.14606,           # C220, priced as bred fuel
+}
+LIFE_SUPERSEDED = 588.9        # N(0.001487, 8.5) -- what the printed table used
+
+
+def delivered_eta_window(br=1.50, pmax=265.0):
+    """Collection delivered at aperture product `br` through a stopping window."""
+    return C.delivered_fraction_mirrored(br, (0.0, pmax)) * budget_product()
+
+
+def service_lives():
+    """The service lives any balance here may be stated at, corrected.
+
+    The measured one needs no model at all. The others are the model run at the
+    CORRECTED sticking, and each names the density it assumes -- 8.5 times
+    liquid is the lower dissociation reading and has not been reached, 1.2 is
+    the bracket of the measurement itself.
+    """
+    return (
+        ("measured, 150 cycles", 150.0, "MEASURED, no model"),
+        ("model at 8.5 x liquid", service_life(DENSITY_BOUND_CASE),
+         "a density not reached"),
+        ("model at 3.0 x liquid", _mucf().cycles(STICKING_CORRECTED, 3.0),
+         "a density not reached"),
+        ("model at the 1.2 reached", service_life(DENSITY_DEMONSTRATED),
+         "the density of the measurement"),
+    )
+
+
+def balance(product, life, br=1.50, pmax=265.0, target=False):
+    """G = N V eta / E_pi, with nothing inherited from a printed table."""
+    e = E_PION_OPTIMISED_GEV if target else E_PION_MEASURED_GEV
+    return life * V_PER_FUSION_GEV[product] * delivered_eta_window(br, pmax) / e
+
+
+CONFIGURATIONS = (
+    ("today's aperture, 265 MeV/c", 1.50, 265.0),
+    ("today's aperture, 400 MeV/c", 1.50, 400.0),
+    ("wider bore, 265 MeV/c", 2.60, 265.0),
+    ("wider bore, 400 MeV/c", 2.60, 400.0),
+)
+
+
+def best_device_internal():
+    """The largest heat or work balance ANY configuration here reaches.
+
+    Every alteration granted at once -- the unreached density, the optimised
+    production target, the wider bore and the wider stopping window.
+    """
+    return max(balance(p, life, br, pmax, target=True)
+               for p in ("heat", "work")
+               for _, life, _ in service_lives()
+               for _, br, pmax in CONFIGURATIONS)
+
+
+def best_witnessed_bred():
+    """Bred fuel at the MEASURED cycle count, best configuration, no target."""
+    return max(balance("bred", 150.0, br, pmax)
+               for _, br, pmax in CONFIGURATIONS)
+
+
+def report_corrected():
+    """Every balance recomputed at the sticking sec.5.26 corrected to."""
+    print("  EVERY BALANCE AT THE CORRECTED STICKING")
+    print("    The printed 90 % table is reproduced exactly by G = N V eta/E_pi")
+    print(f"    at N = {LIFE_SUPERSEDED}, which is the service life the RETIRED")
+    print("    sticking of 0.1487 % gives at 8.5 x liquid. sec.5.26 corrects that")
+    print(f"    sticking to {100 * STICKING_CORRECTED:.3f} %, where the same density gives")
+    print(f"    {service_life(DENSITY_BOUND_CASE):.1f}. Every 'bound case' row is therefore high by")
+    print(f"    {LIFE_SUPERSEDED / service_life(DENSITY_BOUND_CASE):.2f}, and every row at the MEASURED 150 is untouched.")
+    print()
+    print("    delivered collection, by configuration:")
+    for lab, br, pmax in CONFIGURATIONS:
+        print(f"      {lab:30s} {100 * delivered_eta_window(br, pmax):6.2f} %")
+    print()
+    for product in ("heat", "work", "bred"):
+        print(f"    {product.upper()}  (second block through the optimised target)")
+        print(f"      {'service life':30s}"
+              + "".join(f"{l.split(',')[0][:11]:>12s}" for l, _, _ in CONFIGURATIONS))
+        for name, life, _note in service_lives():
+            print(f"      {name:30s}"
+                  + "".join(f"{balance(product, life, br, p):12.3f}"
+                            for _, br, p in CONFIGURATIONS))
+        for name, life, _note in service_lives():
+            row = [balance(product, life, br, p, target=True)
+                   for _, br, p in CONFIGURATIONS]
+            mark = "  <-- clears" if max(row) > 1.0 else ""
+            print(f"      x target {name:21s}"
+                  + "".join(f"{g:12.3f}" for g in row) + mark)
+        print()
+    print("    WHAT THIS SETTLES.")
+    print(f"      NO heat or work form clears unity in ANY configuration here.")
+    print(f"      The largest is {best_device_internal():.3f}, and it is reached only by")
+    print("      granting the unreached density, the optimised target, the wider")
+    print("      bore and the wider stopping window ALL AT ONCE. The device-")
+    print("      internal figure of 1.036 this work reported is withdrawn: it")
+    print("      was the retired sticking, and nothing else.")
+    print()
+    print("      WHAT SURVIVES IS BRED FUEL AT THE MEASURED CYCLE COUNT, which")
+    print("      uses no service-life model, no density above the one reached,")
+    print("      and no sticking branch:")
+    for lab, br, pmax in CONFIGURATIONS:
+        g = balance("bred", 150.0, br, pmax)
+        t = balance("bred", 150.0, br, pmax, target=True)
+        print(f"        {lab:30s} {g:7.3f}   x target {t:7.3f}")
+    print(f"      Without the target factor the best is {best_witnessed_bred():.3f}, short by")
+    print(f"      {1.0 / best_witnessed_bred():.3f} -- and the only term in it that has never been")
+    print(f"      measured is the loss budget itself, at {budget_product():.4f}.")
+
+
+
 @functools.lru_cache(maxsize=None)
 def delivered_eta(br=1.50):
     return C.delivered_fraction_mirrored(br, (0.0, 265.0)) * budget_product()
@@ -1352,8 +1483,15 @@ ACCEPTANCE_SITES = (
      "heat on the bound-case service life; the abstract quotes it"),
     (PAPER_ECONOMY, "5.23", "0.3731", 0.3731, "balance", ETA_COLLECTOR_59,
      "heat at phi = 3"),
-    (PAPER_ECONOMY, "5.23", "0.3338", 0.3338, "balance", ETA_COLLECTOR_59,
-     "work at the same collector"),
+    # A FINDING, and the one arithmetic fault the census has turned up in a
+    # site rather than in a restatement. [1] sec.5.23 prints 0.3338 as "at the
+    # collector", but 0.3338 is the work balance at PERFECT collection -- it is
+    # sec.5.19's own C219 = N(0.505 %, 8.5) x 19.55 MeV / 11.13 GeV, with no
+    # efficiency applied. The 90 % figure would be 0.3005. Graded at the
+    # efficiency it was actually computed at, not the one the sentence claims.
+    (PAPER_ECONOMY, "5.23", "0.3338", 0.3338, "balance", ETA_PERFECT,
+     "work; the site says 'at the collector' but the number is at PERFECT "
+     "collection -- restated at what it was computed at"),
     (PAPER_ECONOMY, "5.24", "36.48", 36.48, "acceptance", None,
      "1.50 T.m, p < 200 MeV/c"),
     (PAPER_ECONOMY, "5.24", "44.43", 44.43, "acceptance", None,
@@ -1539,6 +1677,11 @@ CENSUS_EXEMPT = {
     # balance, and not the one the census moves
     "150": "the demonstrated cycle count", "190.1": "the bound-case service life",
     "479.6": "the phi = 3 service life", "198": "the sec.5.26 cycle cap",
+    "588.9": "the service life the printed bound case was computed at",
+    "3.10": "the factor the sticking correction moves a service life by -- a "
+            "correction to N, not a reading at an acceptance",
+    "1.241": "the printed bound-case heat balance the later note withdraws; it "
+             "is censused at its own site in sec.5.19/5.23",
     "12.4": "a binder cost, GeV", "11.13": "the production floor, GeV",
     "37.0": "the sourced binder cost, GeV", "1200": "a blanket temperature, K",
     "146.06": "a value per fusion, MeV", "26.06": "the same", "19.55": "the same",
@@ -1719,6 +1862,46 @@ def selftest():
     ok = abs(C.DES_B_TARGET * C.des_bore_m() / C.DES_BR - 1.0) < 1e-9
     fail += 0 if ok else 1
     print(f"    aperture product still {C.DES_BR} T.m   {'PASS' if ok else 'FAIL'}")
+
+    print()
+    print("  the balance is one expression, and the printed table names its sticking")
+    checks = ((0, 150.0, "heat"), (1, LIFE_SUPERSEDED, "heat"),
+              (3, 150.0, "work"), (4, LIFE_SUPERSEDED, "work"),
+              (5, 150.0, "bred"), (6, LIFE_SUPERSEDED, "bred"))
+    bad = 0
+    for i, life, product in checks:
+        want = BALANCES_AT_90[i][2]
+        got = life * V_PER_FUSION_GEV[product] * 0.90 / E_PION_MEASURED_GEV
+        if abs(got - want) > 0.005:
+            bad += 1
+    fail += 0 if bad == 0 else 1
+    print(f"    G = N.V.eta/E_pi reproduces all {len(checks)} printed cells   "
+          f"{'PASS' if bad == 0 else 'FAIL'}")
+    ok = abs(_mucf().cycles(0.001487, DENSITY_BOUND_CASE) - LIFE_SUPERSEDED) < 0.5
+    fail += 0 if ok else 1
+    print(f"    and it reproduces them at the RETIRED sticking, not the corrected one"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ratio = LIFE_SUPERSEDED / service_life(DENSITY_BOUND_CASE)
+    ok = 3.0 < ratio < 3.2
+    fail += 0 if ok else 1
+    print(f"    so every printed bound-case row is high by {ratio:.2f}"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = best_device_internal() < 1.0
+    fail += 0 if ok else 1
+    print(f"    NO heat or work form clears unity anywhere: best {best_device_internal():.3f}"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = balance("bred", 150.0, 1.50, 265.0, target=True) > 1.0
+    fail += 0 if ok else 1
+    print(f"    bred fuel at the MEASURED 150 does, through the target: "
+          f"{balance('bred', 150.0, 1.50, 265.0, target=True):.3f}"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = 0.94 < best_witnessed_bred() < 0.97
+    fail += 0 if ok else 1
+    print(f"    and without it reaches {best_witnessed_bred():.3f}, short by "
+          f"{1.0 / best_witnessed_bred():.3f}   {'PASS' if ok else 'FAIL'}")
+    print("      -- the measured rows are untouched by the correction because")
+    print("         they never used the model: that is the asymmetry that decides")
+    print("         which route survives")
 
     print()
     print("  quench protection closes")
@@ -2017,6 +2200,7 @@ def main():
                      ("budget", report_budget),
                      ("balances", report_balances), ("census", report_census),
                      ("alteration", report_alteration),
+                     ("corrected", report_corrected),
                      ("coherence", report_coherence),
                      ("integration", report_integration)):
         ap.add_argument("--" + name, action="store_true", help=fn.__doc__ or name)
@@ -2031,6 +2215,7 @@ def main():
                      ("budget", report_budget),
                      ("balances", report_balances), ("census", report_census),
                      ("alteration", report_alteration),
+                     ("corrected", report_corrected),
                      ("coherence", report_coherence),
                      ("integration", report_integration)):
         if getattr(a, name):

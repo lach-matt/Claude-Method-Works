@@ -21,7 +21,11 @@ The first question is then whether a better collector could close the gap, and t
 
 The paper then applies to its own figures the same test it applies to the literature's. Every balance it states is stated *at* some assumed collection efficiency, and an acceptance is not the same thing as a delivered efficiency. Computing each loss that lies between a produced pion and a binder actually stopped in the fuel gives a budget of 0.7127, and the solenoid's own stopping ceiling is 0.5069, so the acceptance the machine delivers is 31.66 percent rather than the 90 percent [DESIGN] the balances had been read at. **At the delivered figure, and with the machine as built, nothing clears unity** — every heat form, every work form and bred fuel at the demonstrated cycle count fall below it.
 
-The machine is not obliged to stay as built, however, and this paper prices the alterations it proposes against every balance rather than against one. An optimised production target is worth 2.373 on any of them. It takes bred fuel at the demonstrated cycle count to 1.480, which is the route the laboratory programme measures first, and it takes the **heat** form, on the bound-case service life, to 1.036 — or 1.231 with a wider bore as well. **A device-internal route therefore clears unity, though conditionally**, and the conditions are worth naming at once: a measurement that confirms the target, a fuel density of 8.5 times liquid where 1.2 has been reached, and the reading of "inside the device" that counts the blanket. At the density actually reached the same alteration gives 0.990 at the wider bore and 0.833 at today's aperture — close, and under. Counting the neutron at its bare heat instead, it reaches only 0.3344. **On the strictest reading of every condition, nothing in this paper clears unity inside the device**; on the reading each of them states, one specified machine does.
+A second correction goes with it, and it is larger. Every balance previously reported at a modelled "bound case" service life was computed at an effective sticking of 0.1487 percent [WITHDRAWN] — a value formed from two different states of the mesomolecule, and superseded by the record's own measurements. At the corrected value the same conditions return 190.1 cycles rather than 588.9, so **every bound-case figure ever reported here is high by 3.10**. The figures computed at the **measured** 150 cycles are untouched, because they never used the model, and that asymmetry decides the result.
+
+**What it decides is that no heat form and no work form is self-sustaining.** The largest either reaches is 0.513, and only by granting the optimised production target, a wider bore, a wider stopping window and a fuel density never held, all at once. **Every device-internal figure above unity in the record is withdrawn**: each was the superseded sticking and nothing else.
+
+**What survives is one configuration, and it asks for less than anything else here.** Priced as bred fuel, at the measured 150 cycles per binder, with no service-life model, no density above the one already reached and no choice between the two sticking measurements, the balance is 0.623 with the machine as built, **0.957** with both collector alterations, and **1.480** through an optimised production target. Every quantity in it is a measurement or is integrated from measurements, except two: the loss budget, which is computed and which §10 Stage A measures, and the production target's factor, which is published and which Stage C measures. **That configuration is the self-sustaining one this paper offers.** It has never been assembled, and §6 to §8 say how.
 
 One configuration is net-positive on witnessed numbers alone, and it is not the standalone one. Pions are a byproduct of spallation, made in the same collisions that produce a spallation target's neutrons, so a facility already running a proton driver for neutrons or isotopes is making binders and discarding them. The marginal beam energy per binder is then **zero**, and any positive heat is gain. At the reachable capture of 0.2438, that comes to 85.6 kW of fusion heat on a one-megawatt driver. It is the one result here that a loss factor rescales without deciding, because it was never a ratio against unity in the first place.
 
@@ -167,66 +171,57 @@ The second is that each loss lying between a produced pion and a stopped binder 
 **Figure 5.** What becomes of a hundred pions made in the target. Each step is a loss that can be computed rather than assumed, and the product of them is the difference between what the magnet accepts and what the fuel actually stops.
 
 
-### 5.3 Every balance at the acceptance actually delivered
+### 5.3 Every balance, at the acceptance delivered and the sticking the record supports
 
-Because the balance is linear in collection — Proposition 6 in §13.5 — restating the table at a different efficiency is exact rather than approximate, and the paper's own two-column table provides the check.
+Two corrections stand between the figures the preprints at [18] printed and the ones below, and it is worth taking them in order because the second is the larger.
 
-| balance | as stated at 90 percent [DESIGN] | delivered, 31.66 percent | wider bore, 37.62 percent |
-|---|---|---|---|
-| heat, demonstrated cycles | 0.316 | 0.111 | 0.132 |
-| heat, bound-case service life | **1.241** | **0.437** | 0.519 |
-| heat, φ = 3 | 1.011 | 0.356 | 0.423 |
-| work, demonstrated cycles | 0.237 | 0.083 | 0.099 |
-| work, bound-case service life | 0.931 | 0.328 | 0.389 |
-| bred fuel, demonstrated cycles | 1.772 | 0.623 | 0.741 |
-| bred fuel, bound-case service life | 6.96 | **2.449** | 2.909 |
+**The first is the acceptance**, and §5.2 has just made it. The second is the **service life**, and it comes from the preprints' own later sections rather than from anything new here. Every balance printed there was computed at one of two service lives: the **measured** 150 cycles per binder, and a modelled "bound case". Reading the printed table backwards through the balance — Proposition 1 in §13.2 fixes its form, and the table's own columns check it — the bound case is 588.9 cycles. That is the model run at an effective sticking of 0.1487 percent [WITHDRAWN], a value formed by multiplying an excited-state initial sticking by a survival fraction measured on the **ground** state — two different states. Fusion occurs from the ground state, and the record's own measured values are 0.5050 percent and 0.5320 percent; at the favourable one the same density returns 190.1 cycles instead of 588.9. **Every bound-case figure in the record is therefore high by 3.10.**
 
-> **At the delivered acceptance, and with the machine left as it is, nothing clears unity.** Every heat form, every work form and bred fuel at the demonstrated cycle count fall below it. **The figures reported at ninety percent collection in the preprints at [18] are withdrawn as end-to-end results**; they stand as the conditionals they were stated at.
+> **The rows computed at the measured cycle count are untouched by that**, because they never used the model at all — and that asymmetry, more than any other single fact in this paper, decides which route survives.
 
-**But the machine is not required to be left as it is**, and §5.4 states what the alterations specified here do to the same table.
+Restating is exact rather than approximate: the balance is linear in collection (Proposition 6 in §13.5) and proportional to the service life, so each cell below is one multiplication. The left column is the machine as built; the right is the same machine with both collector alterations of §5.4 — the wider bore and the wider stopping window — which together deliver 48.61 percent.
+
+| balance | delivered, as built, 31.66 percent | with both collector alterations, 48.61 percent |
+|---|---|---|
+| heat, at the measured 150 cycles | 0.111 | 0.171 |
+| heat, the model at 8.5 × liquid | 0.141 | 0.216 |
+| heat, the model at φ = 3 | 0.131 | 0.201 |
+| work, at the measured 150 cycles | 0.083 | 0.128 |
+| work, the model at 8.5 × liquid | 0.106 | 0.162 |
+| **bred fuel, at the measured 150 cycles** | 0.623 | **0.957** |
+| bred fuel, the model at 8.5 × liquid | 0.790 | 1.212 |
+
+> **Nothing clears unity with the machine as built**, and the closest is bred fuel at the measured cycle count, at 0.623. **With both collector alterations that route reaches 0.957** — short of unity by 1.045, and short of it by no other term than the loss budget, which is the one quantity in the whole column that has never been measured. The figures reported at ninety percent collection in the preprints at [18] are withdrawn as end-to-end results, and so are the bound-case figures that rest on the superseded sticking. Each stands as the conditional it was stated at.
+
+![Figure 5](papers/figures/fig5-budget.png)
+
+**Figure 5.** What becomes of a hundred pions made in the target. Each step is a loss that can be computed rather than assumed, and the product of them is the difference between what the magnet accepts and what the fuel actually stops.
 
 
 ### 5.4 What the specified alterations do to every balance
 
-§5.3 states the balances for the machine as built. Two alterations to that machine are specified in this paper — an **optimised production target** and a **wider bore** — and it is worth asking what each does to the whole table rather than to one row of it. The target multiplies every balance by the same factor, because a balance has the form `N · V · η / E_binder` and the target moves `E_binder` alone: from 11.13 GeV to 4.69 GeV, which is worth 2.373. Corollary 6.1 in §13.5 makes this explicit.
+§5.3 states the balances at the production cost §4.1 measures. A third alteration is specified in this paper — an **optimised production target** — and unlike the two collector alterations it does not change the collection at all. It moves `E_binder`, and because a balance has the form `N · V · η / E_binder` it therefore multiplies **every** balance by the same factor: from 11.13 GeV to 4.69 GeV, which is worth 2.373. Corollary 6.1 in §13.5 makes this explicit.
 
-> **The factor checks against the requirement it moves.** §4.2 puts bred fuel at demonstrated cycles at 50.8 percent collection; through the optimised target that requirement is 21.4 percent, and 50.8 ÷ 2.373 returns it. The same factor applied to that route's delivered balance of 0.623 gives 1.480, which is §5.3's own figure reached from the other side.
+> **The factor checks against the requirement it moves.** §4.2 puts bred fuel at the measured cycle count at 50.8 percent collection; through the optimised target that requirement is 21.4 percent, and 50.8 ÷ 2.373 returns it.
 
-| balance | delivered | + optimised target | + target and wider bore |
-|---|---|---|---|
-| heat, demonstrated cycles | 0.111 | 0.264 | 0.313 |
-| **heat, bound-case service life** | 0.437 | **1.036** | **1.231** |
-| heat, φ = 3 | 0.356 | 0.844 | **1.003** |
-| work, demonstrated cycles | 0.083 | 0.198 | 0.235 |
-| work, bound-case service life | 0.328 | 0.777 | 0.924 |
-| bred fuel, demonstrated cycles | 0.623 | **1.480** | **1.758** |
-| bred fuel, bound-case service life | 2.449 | **5.811** | — |
+| balance, through the optimised target | delivered, as built | with both collector alterations |
+|---|---|---|
+| heat, at the measured 150 cycles | 0.264 | 0.405 |
+| heat, the model at 8.5 × liquid | 0.334 | **0.513** |
+| work, at the measured 150 cycles | 0.198 | 0.304 |
+| work, the model at 8.5 × liquid | 0.251 | 0.385 |
+| **bred fuel, at the measured 150 cycles** | **1.480** | **2.271** |
+| bred fuel, the model at 8.5 × liquid | 1.874 | 2.877 |
 
 ![Figure 4](papers/figures/fig4-range.png)
 
-**Figure 4.** The range the reaction is expected to fall in. Each row is one way of pricing the same reaction; the bar runs from what the machine as built delivers to what it delivers with the optimised production target and the wider bore. Anything reaching the line at unity pays for itself.
+**Figure 4.** The range the reaction is expected to fall in. Each row is one way of pricing the same reaction; the bar runs from what the machine as built delivers to what it delivers with all three alterations. Anything reaching the line at unity pays for itself. Only bred fuel does, and the rows at the measured cycle count use no service-life model at all.
 
-> **The answer is conditional, and it is not no.** With the optimised production target in, the heat form on the bound-case service life reaches **1.036** at today's aperture and **1.231** at the wider bore, and the φ = 3 case reaches **1.003** with both. **Those clear unity, and they are not bred fuel** — nothing leaves the device to earn them.
+**Two things fall out of that table, and they point in opposite directions.**
 
-**Three conditions travel with that result, and each is stated in full below.**
+> **No heat form and no work form clears unity anywhere in this paper.** The largest either reaches is **0.513**, and it is reached only by granting, simultaneously, the optimised production target, the wider bore, the wider stopping window *and* a fuel density of 8.5 × liquid that no experiment has held. **A device that returns its energy as heat or as work is not self-sustaining on anything this paper can construct**, and that is a closed statement rather than an open question: §9.1 shows the same thing from the other direction, as a theorem. **Bred fuel at the measured cycle count clears unity, and it asks for the least of anything here.** At 1.480 with the target alone and **2.271** with all three alterations, it uses **no service-life model, no density above the one already reached, and no choice between the two sticking measurements**. Its inputs are the 150 cycles measured at Los Alamos, the sourced blanket of §4.2, the production cost integrated from measured cross sections in §4.1, and the collection the machine of §7 delivers. **That is the configuration this paper offers as self-sustaining and unwitnessed**, and §12 states exactly which of its terms have been measured and which have not.
 
-**First, it is the bound-case service life and not the demonstrated one.** At 150 cycles per binder, which is what has actually been measured, the optimised target takes heat only to 0.264 and work to 0.198. **Nothing device-internal clears at a witnessed cycle count under any alteration specified here.**
-
-**Second, the bound case is a density assumption, and the density has not been reached.** It is worth being precise about what that assumption is, because it is easy to mistake for a modelling error. Run at the density that *has* been reached — 1.2 times liquid, the bracket of the 150-cycle result — the service-life model returns 152.8 cycles against the 150 cycles measured, a ratio of 1.019. The model is not over-predicting. What the bound-case rows assume instead is a fuel density of 8.5 times liquid: the lower of the two readings of the published dissociation measurement, counted as atoms rather than as molecules, at which the same model returns 190.1 cycles. Carrying a bound-case balance back to the density reached therefore multiplies it by 0.8038, and that is what the second column below does.
-
-| balance, with the optimised target | at 8.5 × liquid | at 1.2 × liquid |
-|---|---|---|
-| heat, bound-case service life | 1.036 | 0.833 |
-| the same, at the wider bore | 1.231 | **0.990** |
-| heat, φ = 3, wider bore | 1.003 | 0.806 |
-| work, bound case, wider bore | 0.924 | 0.742 |
-| bred fuel, bound case | 5.811 | **4.671** |
-
-> **At the density that has been reached, nothing device-internal clears**, and the closest of them — the heat form at the wider bore — reaches 0.990, which is just under. The device-internal result above is therefore conditional on the density as well as on the target: it needs the fuel to be held at 8.5 times liquid, which no experiment has yet done. **Bred fuel is the exception**, and it stays 4.671 at the density reached, because what carries it is the neutron rather than the cycle count. It also leaves the device.
-
-**Third, the factor itself is unmeasured here.** 4.69 GeV is a published optimisation, and this paper prices what it would be worth without adopting it as a figure of its own — those are different acts, and only the first is done here. §10 Stage C is the measurement that would settle it. **The whole of this section is conditional on that stage**, which is the second reason it runs early.
-
-> **And "inside the device" has two readings that do not agree.** The heat forms above count the blanket's multiplication and its fissile heat, which is heat recovered on site. Counting the neutron at its **bare** heat instead — no blanket, no fissile credit — the delivered figure is 0.1409, and the optimised target takes it only to 0.3344. **On the narrow reading the criterion is not met by anything in this paper.** On the wider one it is met by a specified machine, conditionally, and §10 is what decides between them.
+**One condition travels with it and is not yet discharged.** 4.69 GeV is a published optimisation of the production target. This paper prices what it is worth without adopting it as a figure of its own, and §10 Stage C is the measurement that would settle it. Without it the same route reaches 0.957 — which is 1.045 short, and short by less than the uncertainty on the one term in it nobody has measured.
 
 
 ---
@@ -412,7 +407,9 @@ This section answers the third directive. **Standing conventions**, and they are
 
 ### 9.1 The standalone case is closed by theorem, not by measurement
 
-Considered as a purpose in itself, the reaction cannot pay for its own binders, and this is a theorem rather than an empirical result. Taking the most favourable admissible value of every term at once, the best balance available to the binder the window admits is 0.807 — short of unity. And because sticking does not depend on the binder's mass (§3.1), a different occupant of the window would not improve on it: there is no particle left to look for and no collector that can be built to change it. Theorem 3 in §13.4 gives the proof. §5.3 has already shown, separately, that even the routes which clear unity at an assumed collection efficiency do not clear it at the delivered one.
+Considered as a purpose in itself, the reaction cannot pay for its own binders, and this is a theorem rather than an empirical result. Taking the most favourable admissible value of every term at once, the best balance available to the binder the window admits is 0.807 — short of unity. And because sticking does not depend on the binder's mass (§3.1), a different occupant of the window would not improve on it: there is no particle left to look for and no collector that can be built to change it. Theorem 3 in §13.4 gives the proof.
+
+**That theorem is about the binder paying for itself as a power source**, and §5.3 has shown the same thing from the arithmetic: no heat form and no work form reaches unity at the delivered acceptance under any alteration specified here. What §5.3 also shows is where the closure stops — priced as bred fuel rather than as heat, the same reaction on the same measured cycle count does clear it. §9.2 gives the other configuration the theorem does not close, and for the same structural reason: it does not buy its binders at all.
 
 
 ### 9.2 But the binder does not have to be bought
@@ -508,11 +505,13 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 
 **The temperature axis is confounded in the existing record.** The cleanest published data are also the coldest and densest, so temperature, purity and density cannot be separated from what exists. That is a fault in the record rather than in the reaction, and §8.3 is written to separate them.
 
-**The bound case rests on a density no experiment has reached.** The service-life model itself is in good order: at the density that has been reached it returns 152.8 cycles against the 150 cycles measured, a ratio of 1.019. What the bound-case rows assume is a fuel density of 8.5 times liquid rather than 1.2, and carrying them back to the density reached multiplies each by 0.8038 — which takes the best device-internal figure from 1.231 to 0.990, just under unity. **Every bound-case figure inherits that assumption** while no bred-fuel figure at demonstrated cycles does. The asymmetry is why §5 leans on the demonstrated count, and holding fuel at 8.5 times liquid is a stated experimental requirement rather than a claim.
+**Every modelled service life here rests on a density no experiment has reached**, and after §5.3's correction it buys very little. The model itself is in good order — at the density that *has* been reached it returns 152.8 cycles against the 150 cycles measured, a ratio of 1.019 — but the rows that use it assume 8.5 times liquid where 1.2 has been held, and even granted that they return only 190.1 cycles against 150 cycles measured. **The model is worth a factor of about a quarter and an unreached density to obtain it**, which is why every result this paper offers is stated at the measured count, and why §5.3's surviving route uses the model nowhere.
 
-**The optimised production target is a discrepancy that cannot be closed by argument.** A published optimisation costs 4.69 GeV per pion against the 11.13 GeV integrated in §4.1. Three candidate mechanisms were examined and bounded; what survives is a **normalisation** — pions per beam particle against pions per interaction — needing 2.389 interacting nucleons, which reproduces the optimised figure closely and which a deuteron on a long target supplies. **Stage C measures it.**
+**The bred-fuel balance is net-positive against beam energy, and this paper does not compare it against the alternative use of that beam.** The same protons make spallation neutrons in the same target, and those breed too. Whether the muon channel repays its own capture solenoid, its fuel cell and its tritium *at the margin* — against simply running the spallation target and breeding from it — is a comparison this paper has not made and does not claim. It is measurable on one apparatus, because it is the same beam and the same blanket with the fuel cell in and out, and §10 Stage D is where a specific design would settle it. **What is claimed is the balance itself**: the configuration returns more energy than the beam it consumes. **What is not claimed is that it is the best use of that beam.**
 
 **The tritium inventory a plant would hold is very large, and this paper does not price holding it.** Because the target must be one muon range deep, and because Proposition 9 shows that compression does not reduce the requirement, the standing inventory is 5.13 kg at the designed bore, 10.79 kg at the wider one, and about 45 kg to approach the acceptance ceiling. Those are kilogrammes of tritium in one target, against 2.41 mg in the demonstration cell of §6.3 — a step of six orders of magnitude between the experiment this paper specifies and the plant its balances describe. An inventory at that scale is a licensing, supply and containment problem of a different kind from anything in §7, and one this paper neither solves nor costs. It bears asymmetrically on the routes: the bred-fuel configuration breeds its own tritium once running and so needs the inventory only to start, while the heat and work forms need it throughout and earn nothing back. **Nothing in §10 measures it**, because §10 runs at the milligramme scale, and it should be read as a condition on any plant built from these results rather than as a term in any balance stated here.
+
+**The optimised production target is a discrepancy that cannot be closed by argument.** A published optimisation costs 4.69 GeV per pion against the 11.13 GeV integrated in §4.1. Three candidate mechanisms were examined and bounded; what survives is a **normalisation** — pions per beam particle against pions per interaction — needing 2.389 interacting nucleons, which reproduces the optimised figure closely and which a deuteron on a long target supplies. **Stage C measures it.**
 
 **And the standalone configuration is closed rather than open.** §9.1 is a theorem, and no measurement in §10 can overturn it. What §10 can decide is the co-product configuration and the bred-fuel route, which are the two that survive.
 
@@ -520,17 +519,62 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 ---
 
 
-## 12. What this paper claims, in order
+## 12. What is proved, and what is unwitnessed
 
-1. **A cold fusion reaction exists and is witnessed.** Its definition is structural, its seven conditions admit exactly one binder, and its cycle has been measured for seventy years.
-1. **An eighth condition decides whether it is worth running**, and every term in it is measured.
-1. **No configuration of it is self-sustaining inside the device** at the collection efficiency the machine actually delivers, with the machine left as built.
-1. **One configuration is net-positive on witnessed numbers alone** — as a co-product of a beam already running, where the marginal energy per binder is zero — and it returns 85.6 kW on a one-megawatt driver.
-1. **One route clears unity at a witnessed cycle count for a device built for the purpose**, and it is bred fuel through an optimised production target, at 1.480. Whether that target's gain is real is Stage C.
-1. **A device-internal route clears unity too, and only conditionally.** With the same optimised target, the heat form on the bound-case service life reaches 1.036, and 1.231 at the wider bore. It is conditional on Stage C, on a fuel density of 8.5 times liquid — at the 1.2 reached it is 0.990 instead — and on the reading of "inside the device" that counts the blanket. On the reading that counts the neutron at its bare heat, nothing here clears.
-1. **The materials are specified and the machine is designed**, to a bill of materials and a build package rather than to a sketch.
-1. **The procedure that would witness the unwitnessed configuration is stated**, with its predictions committed in advance and a rule that a disagreement is a refusal rather than an average.
-> **The reaction is proved from what has been witnessed. The net-positive configuration is specified and unwitnessed. The instructions for witnessing it are §8 and §10.** That is the whole of the claim, and no part of it is larger than the measurements behind it.
+The two are different, and the difference is the whole shape of this paper. A quantity that has been measured and a quantity that has been computed are not the same kind of thing; nor are a proof with no free parameter and a configuration nobody has assembled. This section sorts every result in the paper into those categories, so that a reader may check the claim against the evidence for it without reconstructing the argument.
+
+
+### 12.1 Proved, with no free parameter
+
+Each of these is a theorem or a derivation from measured inputs, and no measurement in §10 can overturn any of them.
+
+1. **A cold fusion reaction exists and has been witnessed.** The definition of §1 is structural, its seven conditions admit exactly one binder (Theorem 1), and the cycle it names has been measured in laboratories since the 1950s.
+1. **An eighth condition decides whether it is worth running**, and it contains no free parameter (Proposition 1). Every term in it has been measured.
+1. **Sticking does not depend on the binder's mass** (Theorem 2), so condition 8 is a specification on the machine and not a search over the spectrum.
+1. **The standalone configuration is closed** (Theorem 3): no admissible binder pays for itself as a power source, at any collector.
+1. **Where the binder is a byproduct of a beam already running, the configuration returns net energy** (Theorem 4), and no loss factor can take it below unity, because it was never a ratio against one.
+1. **No heat form and no work form is self-sustaining** in any configuration this paper can construct. The largest either reaches is 0.513, granting the optimised production target, the wider bore, the wider stopping window and an unreached fuel density all at once.
+
+### 12.2 Proved above unity, and unwitnessed
+
+**One configuration returns more energy than it costs, and it is bred fuel at the measured cycle count.** Its balance is 1.480 through an optimised production target, 2.271 with the two collector alterations as well, and 0.957 with no target factor at all. Every term in it is set out below, with what is known about each.
+
+| term | value | how it is known |
+|---|---|---|
+| service life | 150 cycles per binder | **measured**, Los Alamos; no model is used |
+| value per fusion | 146.06 MeV | **sourced**, a fission-suppressed breeder blanket |
+| production cost | 11.13 GeV per pion | **derived**, integrating measured cross sections (§4.1) |
+| collection, as built | 44.43 percent | **computed** by a model reproducing an independent simulation to 0.982 |
+| loss budget | 0.7127 | **computed**, never measured — §10 Stage A |
+| production target factor | 2.373 | **published**, mechanism explained in §4.2 — §10 Stage C |
+
+> **Two terms in that table have not been measured, and both are named with the measurement that settles them.** Neither is a gap in the mathematics: the balance is an identity, and every quantity entering it either has a measurement behind it or has an experiment specified that would supply one. **What has never happened is that anyone has assembled the configuration and run it.** That is the sense in which this result is unwitnessed, and it is the only sense.
+
+Two things about that sentence need saying precisely, because both are easy to read as more than they are.
+
+> **What "self-sustaining" means here, stated exactly.** The account closes: the configuration returns more energy than the beam spent to make its binders. It does **not** mean the device powers itself from its own output — the product is fissile material and tritium bred in the blanket, which leaves the device as fuel and yields its energy in a reactor that burns it. A device whose product is energy in the form of heat or of work is **not** self-sustaining on anything in this paper, and §12.1 states that as a closed result rather than an open one. The two claims are different and neither stands in for the other.
+
+And the second is the size of what is left open.
+
+> **The residual, if both unmeasured terms were to go the wrong way, is small.** Set the production target aside entirely — take the measured production cost of §4.1 and nothing better — and the same route reaches 0.957, short of unity by 1.045. The whole of that shortfall lies inside the loss budget, which is the one term in the column that has never been measured at all.
+
+
+### 12.3 Specified, and buildable now
+
+1. **The materials are fixed to the last free parameter** — fuel, density, temperature, purity, geometry, binder species — as a bill of materials rather than a sketch (§6).
+1. **The machine that supplies the binders is designed as a build package**, to a circuit, a cold mass, a conductor grading, a target and a failure analysis (§7).
+1. **The procedure that would witness the unwitnessed configuration is stated** (§8), with its predictions committed in advance and a rule that a disagreement between two routes is a refusal rather than an average.
+1. **The programme that would close the two unmeasured terms is four staged measurements on apparatus that already exists** (§10), the acceptance first, because it multiplies every balance identically and so bounds all of them at once.
+
+### 12.4 Not claimed
+
+**That the bred-fuel configuration is the best use of the beam.** It returns more than it consumes; whether it beats spending the same protons on spallation breeding alone is a marginal comparison §11 records as unmade.
+
+**That a plant follows from the demonstration.** The step from the cell of §6.3 to the inventory of §11 is six orders of magnitude in tritium, and this paper prices none of it.
+
+**That the reaction is cold in the everyday sense.** §1 says what the term is used to mean here and what it is not.
+
+> **The reaction is proved from what has been witnessed. One configuration of it returns more energy than it costs, and every term in that balance is measured, sourced, or has a stated experiment that would measure it. The instructions for witnessing it are §6 to §8, and the measurements that would close its two open terms are §10.** That is the whole of the claim, and no part of it is larger than the evidence behind it.
 
 
 ---
@@ -706,7 +750,11 @@ Over the large-angle acceptance this gives 1.0382 barn, or 0.6107 π⁻ per prot
 
 >
 
-> **The balance is therefore not a ratio against unity**, and this is what distinguishes it from every other configuration in the paper. A loss factor $f \in (0,1]$ applied to $\eta_{stop}$ rescales $H$ to $fH$, which is smaller and still positive. Applying §5.2's budget takes the returned fraction from 12.0 percent to 8.56 percent of the driver's beam energy, and 85.6 kW on a 1 MW driver — **a different number and the same conclusion.** ∎ **The premise is about beam, and there is a second cost the theorem does not carry.** Capturing the pions means putting a capture solenoid and a free liquid-metal jet around the host's production target, and a host running that target for **neutrons** may get fewer of them, or get them with a different spectrum, than it would from the target it would otherwise have chosen. That is a real cost and **this paper does not price it**, because it depends on a host design this paper does not specify.
+> **The balance is therefore not a ratio against unity**, and this is what distinguishes it from every other configuration in the paper. A loss factor $f \in (0,1]$ applied to $\eta_{stop}$ rescales $H$ to $fH$, which is smaller and still positive. Applying §5.2's budget takes the returned fraction from 12.0 percent to 8.56 percent of the driver's beam energy, and 85.6 kW on a 1 MW driver — **a different number and the same conclusion.** ∎
+
+The premise of that theorem is about **beam**, and a reader is owed what it does not cover.
+
+> **The premise is about beam, and there is a second cost the theorem does not carry.** Capturing the pions means putting a capture solenoid and a free liquid-metal jet around the host's production target, and a host running that target for **neutrons** may get fewer of them, or get them with a different spectrum, than it would from the target it would otherwise have chosen. That is a real cost and **this paper does not price it**, because it depends on a host design this paper does not specify.
 
 >
 

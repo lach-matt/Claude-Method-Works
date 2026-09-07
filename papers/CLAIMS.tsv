@@ -774,9 +774,9 @@ C777	census rows graded NOT-LINEAR	4	count	DERIVED	machine.py --census; a densit
 C778	census rows graded WITHDRAWN	1	count	DERIVED	machine.py --census; a sentence rather than a number	fn:cen_withdrawn
 C779	sec.5.18's 1.97 at the delivered acceptance	0.693	ratio	DERIVED	machine.py --census; 1.97 x delivered / 0.90	fn:cen_518
 C780	sec.5.18's 6.30 at the delivered acceptance	2.217	ratio	DERIVED	machine.py --census; 6.30 x delivered / 0.90	fn:cen_518_dens
-C781	sec.5.23's heat balance delivered	0.1409	ratio	DERIVED	machine.py --census; 0.4006 x delivered / 0.90	fn:cen_523_heat
-C782	sec.5.23's heat balance at phi = 3, delivered	0.1313	ratio	DERIVED	machine.py --census; 0.3731 x delivered / 0.90	fn:cen_523_phi3
-C783	sec.5.23's work balance delivered	0.1174	ratio	DERIVED	machine.py --census; 0.3338 x delivered / 0.90	fn:cen_523_work
+C781	sec.5.23's heat balance delivered	0.141	ratio	DERIVED	machine.py --census; 0.4006 x delivered / 0.90	fn:cen_523_heat
+C782	sec.5.23's heat balance at phi = 3, delivered	0.131	ratio	DERIVED	machine.py --census; 0.3731 x delivered / 0.90	fn:cen_523_phi3
+C783	sec.5.23's work balance delivered	0.106	ratio	DERIVED	machine.py --census; 0.3338 is at PERFECT collection, not at the collector the site names	fn:cen_523_work
 C784	sec.5.24 bred fuel, no momentum requirement, through the budget	0.854	ratio	DERIVED	machine.py --census; 1.199 x the sec.11 loss budget	fn:cen_524_nocut
 C785	the same through a 400 MeV/c window	0.690	ratio	DERIVED	machine.py --census; 0.968 x the sec.11 loss budget	fn:cen_524_400
 C786	the same through a 265 MeV/c window	0.6236	ratio	DERIVED	machine.py --census; 0.875 x the sec.11 loss budget	fn:cen_524_265
@@ -833,7 +833,7 @@ C836	work at demonstrated cycles, delivered, with the optimised target	0.198	rat
 C837	work on the bound-case service life, delivered, with the optimised target	0.777	ratio	DERIVED	machine.py --alteration	fn:opt_workbound
 C838	the same at the wider bore	0.924	ratio	DERIVED	machine.py --alteration	fn:opt_workbound_w
 C839	bred fuel on the bound-case service life, with the optimised target	5.811	ratio	DERIVED	machine.py --alteration	fn:opt_bredbound
-C840	the strictly device-internal heat form with the optimised target	0.3344	ratio	DERIVED	machine.py --alteration; the neutron at its bare heat, no blanket credit	fn:opt_internal_heat
+C840	the heat form at the corrected sticking through the optimised target	0.3344	ratio	DERIVED	machine.py --alteration; the neutron at its bare heat, no blanket credit	fn:opt_internal_heat
 C841	work at demonstrated cycles, wider bore, with the optimised target	0.235	ratio	DERIVED	machine.py --alteration	fn:opt_work150_w
 C842	service life at the density that has been reached	152.8	cycles	DERIVED	the model at the corrected sticking and 1.2 times liquid	fn:sl_demonstrated
 C844	the model against the one point it can be checked at	1.019	ratio	DERIVED	C842 / C44; the model reproduces the measured cycle count	fn:sl_model_vs_measured
@@ -853,3 +853,25 @@ C857	density at which the measured cycle count was reached	1.2	LHD	SOURCED	mucf.
 C858	charged particles that outlive the mesomolecular formation time	5	count	DERIVED	window.py long_lived(); the closed cut the theorem runs on	fn:win_long_lived
 C859	reduced-mass residual in the sticking overlap, at the muon	0.02835	ratio	DERIVED	window.py; m_mu / m_alpha	fn:win_resid_muon
 C860	the same residual at the structural window's ceiling	0.1259	ratio	DERIVED	window.py; 918 m_e / m_alpha	fn:win_resid_ceiling
+C861	the service life the printed balance table implies	588.9	cycles	DERIVED	machine.py LIFE_SUPERSEDED; N(0.1487 percent, 8.5 LHD)	fn:life_superseded
+C862	the factor every printed bound-case row is high by	3.10	x	DERIVED	C861 / C176	fn:bound_case_inflation
+C863	the largest heat or work balance any configuration here reaches	0.513	ratio	DERIVED	machine.py --corrected; every alteration granted at once	fn:best_device_internal
+C864	bred fuel at the measured cycles, wider bore and the wider window, through the target	2.271	ratio	DERIVED	machine.py --corrected	fn:bred_meas_wb400_target
+C865	the shortfall of the best route needing no unmeasured multiplier	1.045	x	DERIVED	1 / C787	fn:bred_meas_shortfall
+C866	bred fuel on the model at 8.5 LHD, wider bore and wider window, no target	1.212	ratio	DERIVED	machine.py --corrected	fn:bred_bound_wb400
+C867	delivered collection at the wider bore through the wider window	48.61	percent	DERIVED	machine.py delivered_eta_window(2.60, 400)	fn:eta_wb400
+C868	heat at the measured cycles, wider bore and wider window, through the target	0.405	ratio	DERIVED	machine.py --corrected	fn:heat_meas_wb400_target
+C869	heat on the model at 8.5 LHD, delivered, through the target	0.334	ratio	DERIVED	machine.py --corrected; C781 x C829	fn:heat_bound_target
+C870	bred fuel at the measured cycles, model at the density reached, delivered	0.635	ratio	DERIVED	machine.py --corrected	fn:bred_reached
+C871	heat at the measured cycles, both collector alterations	0.171	ratio	DERIVED	machine.py --corrected	fn:bal_c871
+C872	heat on the model at 8.5 LHD, both collector alterations	0.216	ratio	DERIVED	machine.py --corrected	fn:bal_c872
+C873	heat on the model at 3.0 LHD, both collector alterations	0.201	ratio	DERIVED	machine.py --corrected	fn:bal_c873
+C874	work at the measured cycles, both collector alterations	0.128	ratio	DERIVED	machine.py --corrected	fn:bal_c874
+C875	work on the model at 8.5 LHD, both collector alterations	0.162	ratio	DERIVED	machine.py --corrected	fn:bal_c875
+C876	bred fuel on the model at 8.5 LHD, delivered as built	0.790	ratio	DERIVED	machine.py --corrected	fn:bal_c876
+C877	work at the measured cycles, both alterations, through the target	0.304	ratio	DERIVED	machine.py --corrected	fn:bal_c877
+C878	work on the model at 8.5 LHD, delivered, through the target	0.251	ratio	DERIVED	machine.py --corrected	fn:bal_c878
+C879	work on the model at 8.5 LHD, both alterations, through the target	0.385	ratio	DERIVED	machine.py --corrected	fn:bal_c879
+C880	bred fuel on the model at 8.5 LHD, delivered, through the target	1.874	ratio	DERIVED	machine.py --corrected	fn:bal_c880
+C881	bred fuel on the model at 8.5 LHD, both alterations, through the target	2.877	ratio	DERIVED	machine.py --corrected	fn:bal_c881
+C882	the effective sticking the printed balances were computed at	0.1487	percent	WITHDRAWN	superseded: an excited-state initial sticking times a ground-state survival fraction	none

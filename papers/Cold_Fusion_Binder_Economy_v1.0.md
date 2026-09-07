@@ -1748,6 +1748,15 @@ closed this route and opened it are the same pair**, and §11.4 of the companion
 model §5.29 corrected, and §5.26 caps cycles at **198**. It is read against that cap and not offered
 as an independent route.
 
+> **A later note, and it applies to every bound-case row in the table above rather than to this one
+> alone.** Reading that table backwards through the balance shows the bound case was computed at
+> **588.9** cycles, which is the model run at the **0.1487 percent** §5.26 retires. At the corrected
+> value the same density gives **190.1**, so **every bound-case figure in this paper is high by
+> 3.10** — the heat form's 0.437 becomes **0.141**, and its 1.241 at the §5.9 collector was never
+> reachable on any reading. The rows computed at the **measured 150 cycles** are untouched, because
+> they never used the model. The correction is recorded here and applied in the consolidated paper;
+> the figures above stand as what this paper printed.
+
 **Everything else falls below unity at the acceptance this machine delivers** — every heat form, every
 work form, and bred fuel at the demonstrated cycle count without the optimised target. That is the
 honest end-to-end state of the balance, and it is narrower than any earlier section of this paper

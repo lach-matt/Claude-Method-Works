@@ -321,21 +321,21 @@ def fig_target():
 # ---- 4. the reaction range ---------------------------------------------------
 @figure(4, "range", "The range the reaction is expected to fall in. Each row is "
         "one way of pricing the same reaction; the bar runs from what the "
-        "machine as built delivers to what it delivers with the optimised "
-        "production target and the wider bore. Anything reaching the line at "
-        "unity pays for itself.",
-        ["C757", "C830", "C831", "C759", "C832", "C833", "C761", "C834", "C835",
-         "C763", "C836", "C841", "C765", "C837", "C838", "C767", "C771", "C772",
-         "C769", "C839"])
+        "machine as built delivers to what it delivers with all three "
+        "alterations. Anything reaching the line at unity pays for itself. "
+        "Only bred fuel does, and the rows at the measured cycle count use no "
+        "service-life model at all.",
+        ["C757", "C830", "C868", "C781", "C869", "C863", "C763", "C836", "C877",
+         "C783", "C878", "C879", "C767", "C771", "C864", "C876", "C880",
+         "C881"])
 def fig_range():
     rows = [
-        ("bred fuel, bound-case life", "C769", "C839", None),
-        ("bred fuel, demonstrated cycles", "C767", "C771", "C772"),
-        ("heat, bound-case life", "C759", "C832", "C833"),
-        ("heat at $\\varphi=3$", "C761", "C834", "C835"),
-        ("work, bound-case life", "C765", "C837", "C838"),
-        ("heat, demonstrated cycles", "C757", "C830", "C831"),
-        ("work, demonstrated cycles", "C763", "C836", "C841"),
+        ("bred fuel, the model at $8.5\\times$", "C876", "C880", "C881"),
+        ("bred fuel, the measured count", "C767", "C771", "C864"),
+        ("heat, the model at $8.5\\times$", "C781", "C869", "C863"),
+        ("work, the model at $8.5\\times$", "C783", "C878", "C879"),
+        ("heat, the measured count", "C757", "C830", "C868"),
+        ("work, the measured count", "C763", "C836", "C877"),
     ]
     fig, ax = plt.subplots(figsize=(6.9, 3.4))
     ys = list(range(len(rows)))
@@ -373,7 +373,7 @@ def fig_range():
                plt.Line2D([], [], marker="o", ls="", ms=5, color=ACC,
                           label="with the optimised target"),
                plt.Line2D([], [], marker="o", ls="", ms=5, color=GOOD,
-                          label="and with the wider bore")]
+                          label="and with both collector alterations")]
     ax.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, -0.20),
               ncol=3, frameon=False, fontsize=7.6, handletextpad=0.4,
               columnspacing=1.8)

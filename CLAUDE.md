@@ -101,21 +101,27 @@ together, heat needs 72.5 %, and bred fuel needs **50.8 %** at the demonstrated 
 else. Stated at the two collection efficiencies §5.19 used, the heat form reaches **1.241** at 90 percent
 collection — **and §5.31 withdraws that as an end-to-end result.** 90 percent is above the stopping
 ceiling of 0.5069, and through §11's loss budget the delivered acceptance is **31.66 percent**, at
-which the heat form is **0.437**. **The self-sustaining criterion is _not_ met without leaving the
+which the heat form is **0.437** — a figure the sticking correction below then takes to **0.141**,
+because 1.241 and 0.437 are both bound-case rows and both carry the retired 0.1487 %. **The self-sustaining criterion is _not_ met without leaving the
 device.** At the delivered figure every heat form, every work form and bred fuel at demonstrated
 cycles fall below unity; **what survives is bred fuel through an optimised production target, at
 1.480**, which is the route the specification builds for. **`machine.py --alteration` then asks the
 question §5.24 had put to the bred-fuel route alone**: the optimised production target moves
 `E_binder` and so multiplies *every* balance by **2.373**, and through it the **heat** form on the
-bound-case service life reaches **1.036** delivered and **1.231** at the wider bore. **A
-device-internal route therefore clears unity** — conditionally on Stage C, on a fuel **density of
-8.5 × liquid where 1.2 has been reached**, and on the reading of "inside the device" that counts the
-blanket; counting the neutron at its bare heat the same alteration reaches only **0.3344**. **That
-density condition replaces the service-life caveat the companion states**, and is narrower: the 2.24
-over-prediction was computed at a superseded sticking, and at the corrected value the model returns
-**152.8** cycles against the 150 measured. Carrying the bound case back to the density actually
-reached multiplies it by **0.8038**, so the heat form is **0.833** delivered and **0.990** at the
-wider bore — under unity on both, with bred fuel at **4.671** the exception that survives. **§5.33 then applies that restatement to
+bound-case service life reaches **1.036** delivered and **1.231** at the wider bore. **That device-internal
+reading is now withdrawn, and `machine.py --corrected` is the instrument that withdraws it.** Reading
+the printed 90 % balance table backwards through `G = N·V·η/E_π` recovers the service life it was
+computed at: **588.9 cycles**, which is the model at the **0.1487 %** sticking §5.26 retired — an
+excited-state initial sticking times a ground-state survival fraction, two different states. At the
+corrected value the same density gives **190.1**, so **every bound-case figure anywhere in this work is
+high by 3.10**, and the 1.036 and 1.231 were that factor and nothing else. Recomputed rather than
+scaled, **no heat form and no work form clears unity in any configuration** — the largest is **0.513**,
+with the optimised target, the wider bore, the wider stopping window and an unreached density granted
+at once. **The rows computed at the measured 150 cycles are untouched, because they never used the
+model, and that asymmetry decides which route survives**: bred fuel at the measured count reaches
+**0.623** as built, **0.957** with both collector alterations — short by **1.045**, with the loss
+budget the only never-measured term in it — **1.479** through the optimised target and **2.271** with
+all three. That is the configuration the consolidated paper offers as self-sustaining and unwitnessed. **§5.33 then applies that restatement to
 every figure rather than to the one table §5.31 caught**: `machine.py --census` grades **57 sites**
 across all three live papers — 10 CONDITIONAL (the site states its own assumption and stands), **38
 RESTATED**, 3 REQUIREMENT, 4 NOT-LINEAR, **1 WITHDRAWN** and 1 SELF-WITHDRAWN, that last being §5.21's *"comfortably

@@ -667,6 +667,10 @@ def a14_arithmetic(P):
         ("C859", "<", "C860", "the reduced-mass residual grows with binder mass"),
         ("C853", "<", "C852", "fewer are admitted than lie in the window"),
         ("C852", "<", "C858", "and fewer lie in the window than outlive formation"),
+        ("C176", "<", "C861", "the corrected service life is below the printed one"),
+        ("C767", "<", "C787", "both collector alterations raise the bred-fuel balance"),
+        ("C787", "<", "C771", "and the target raises it further still"),
+        ("C863", "<", "C787", "no heat or work form beats the bred-fuel route"),
     ]
     for a, op, b, why in ORDER:
         if a not in C or b not in C:
@@ -678,9 +682,11 @@ def a14_arithmetic(P):
         if not (va < vb if op == "<" else va > vb):
             bad.append(f"{a} {op} {b} is FALSE ({va} vs {vb}): {why}")
     # ONE-SIDED THRESHOLDS the prose states as clearing or not clearing unity.
-    for cid, side in (("C832", ">"), ("C833", ">"), ("C835", ">"),
-                      ("C846", "<"), ("C847", "<"), ("C848", "<"),
-                      ("C849", "<"), ("C771", ">"), ("C467", "<")):
+    for cid, side in (("C771", ">"), ("C864", ">"), ("C880", ">"), ("C881", ">"),
+                      ("C863", "<"), ("C787", "<"), ("C767", "<"), ("C757", "<"),
+                      ("C763", "<"), ("C781", "<"), ("C783", "<"), ("C868", "<"),
+                      ("C869", "<"), ("C877", "<"), ("C878", "<"), ("C879", "<"),
+                      ("C467", "<")):
         if cid not in C:
             continue
         v_ = _num(C[cid]["value"])
@@ -1303,8 +1309,8 @@ def selftest():
               a14_arithmetic(Q).verdict == "FAIL")
     Q = Paper(src)
     Q.claims = {k: dict(v) for k, v in Q.claims.items()}
-    if "C847" in Q.claims:
-        Q.claims["C847"]["value"] = "1.400"
+    if "C863" in Q.claims:
+        Q.claims["C863"]["value"] = "1.400"
         check("and a figure stated as under unity that is not",
               a14_arithmetic(Q).verdict == "FAIL")
     Q = Paper(src)
