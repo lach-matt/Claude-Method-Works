@@ -384,8 +384,22 @@ holding decays 5.47 % a year. Per source neutron the assembly makes 20 neutrons,
 6.552 must breed fissile, and **2.897 are free for ⁶Li**; the base window then needs **5.58 MW** of
 beam to hold its own inventory. And self-sufficient is not self-replicating: **8.11 MW** is needed
 to breed a successor's first charge inside a forty-year life, against a **71.8 year** doubling at
-7 MW. **The fleet constraint, not the plant constraint, is what puts the reference at 10 MW** —
-427.0 MW thermal, 169.1 MW net electric. See `docs/POWERSOURCE.md`),
+7 MW. **`--station` then scales it to a million households, and the scale-up decides what one
+module left open.** A module is not a plant: the cell's geometry does not scale and the production
+target has a *sourced* power its own study designed it at, so a station is **20 modules of 4 MW**,
+four linacs, **80 MW** of 8 GeV beam, **3,203 MW thermal**, **1,162 MW net electric**, **1,018,884
+households**. At that sourced 4 MW target the **265 MeV/c window returns 0.733 and does not close**;
+the **150 MeV/c window holds 1.605 kg** against 5.126 and closes at **2.110**, costing 1.884× in the
+fusion channel's own yield and 1.066× in the plant. **A choice that was optional at one module is
+decided at twenty.** The balance is **scale-invariant under replication**, so twenty modules is
+twenty times a solved problem — but the **blanket is not split**: leakage goes as surface over
+volume, so splitting it twenty ways multiplies L by **2.71** and leaves the free neutrons per source
+at **−3.961**. The station's **32.1 kg** first charge exceeds the world's civil tritium stock of
+about 25 kg and is built anyway, **by staging**: 15 modules charged from stock, the rest bred by
+those running, **full power in year 3.9**, and a finished station breeds a successor's whole charge
+in **15.0 years**. Relaxing k to 0.98 would shrink the driver from 77.85 to 26.97 MW and is
+**declined**, because stability is one of the four criteria and the margin at 0.95 is a whole fast
+core's control worth. See `docs/POWERSOURCE.md`),
 **`tools/materials.py`** (**phase 2: the bill of materials**, and the column that decides criterion
 4. Every quantity is imported from the instrument that owns it or derived from those; each row
 carries a status and a **supply class**, and the selftest fails a row carrying neither. The
@@ -395,11 +409,22 @@ fast salt is a chloride — giving NaCl–UCl₃ with a Pb–15.7Li breeding and
 ⁶Li. One distinction the inventory hides and the selftest pins: the first charge outlasts the plant
 **on mass**, so breeding looks optional, but what depletes is **reactivity** — k falls from 0.950
 to 0.710 and the gain from 42.70 to 6.4. **Breeding holds k, not the inventory.** Criterion 4 then
-resolves: fissile and tritium are both bred by independent arguments, **⁶Li is the only material
-genuinely consumed** at about two percent of its holding over the life, and what arrives at the
-gate for ever is nitrogen, one beryllium window and the salt-processing reagents. **The criterion
-holds on fuel and fails on consumables and parts**, and that is stated rather than flattened. See
-`docs/MATERIALS.md`)
+resolves: tritium is bred, **⁶Li is consumed** at about two percent of its holding over the life,
+and what arrives at the gate for ever is nitrogen, one beryllium window per module and the
+salt-processing reagents. **The criterion holds on fuel and fails on consumables and parts**, and
+that is stated rather than flattened. **`--uranium` then corrects an error this file's own earlier
+pass made**: the heavy metal was filed as `BRED`, *"breeds the same back, a holding not a feed"*,
+and that is wrong — breeding converts U-238 to Pu-239 and the Pu-239 **fissions**, so every fission
+destroys a heavy atom permanently. **Breeding holds the fissile fraction, which is what holds k;
+the total heavy metal falls at the fission rate.** The plant needs no fissile feed and it **does**
+need a fertile one, at **1.215 t/yr** against a 192.2 t first charge — a **48.6 t** life charge, so
+a first charge and not a delivery. That feed is **enrichment tails**: already mined, already paid
+for, carried as a liability. The DOE holding alone is **9,777 station-lifetimes** and the world
+tails **32,933**, an upper bound of **559 years of world electricity**. What tails cannot do is
+**start** the plant — U-238 is fertile and reaching k = 0.95 needs separated fissile. The
+mass-energy bookkeeping then closes independently: the mass converted over the life is **0.00093**
+of the uranium consumed, which is the fission mass defect, and the selftest pins it as such rather
+than as a magnitude. See `docs/MATERIALS.md`)
 and **`tools/buildpackage.py`** (**phase 3: everything but the drawings** — specification,
 sequence, commissioning, interfaces, envelope, acceptance and gaps. It computes almost nothing of
 its own and its selftest asserts the refusal: **no drawing library may be imported and the file may
@@ -410,8 +435,27 @@ starts when the beam starts, and what the fourth criterion calls ignition is a *
 operation, which is why the eight commissioning steps are ordered so everything reversible precedes
 the one after which the building is a tritium facility for life. And **the coil is life-limiting
 exactly at the plant's life**: inverting the coil life for the shield thickness that produced it
-returns 0.790 m at every beam power, and at the reference power the insulation reaches its dose
-limit at 39.9 years against 40. See `docs/BUILDPACKAGE.md`),
+returns 0.790 m at every beam power, and at 10 MW the insulation reached its dose limit at 39.9
+years against 40 — **modularising to 4 MW lifted it clear at 99.8 years**, which the module count
+bought and was not chosen for. See `docs/BUILDPACKAGE.md`),
+**`tools/environment.py`** (**impacts, assessed and mitigated**, and the file is shaped by one
+refusal: **it computes no dose**. A dose needs site meteorology, a stack, a population and a pathway
+model, and a station with no site has none — so every radiological row is a **source term** and a
+**requirement on release**, and the selftest enforces that against the *rendered output* rather than
+the source, on word boundaries, so the check does not trip over its own text. Twenty-two rows, each
+graded with a **sign** — 3 BENEFIT, 1 NEGLIGIBLE, 4 MINOR, 9 MODERATE, 4 MAJOR, 1 DOMINANT — and
+each mitigation carrying `PRACTICE`, `DESIGNED` or `REQUIREMENT`. The selftest refuses a
+self-congratulatory register: more adverse rows than beneficial ones, the DOMINANT row the design's
+own doing, and **proliferation graded MAJOR with its mitigation status left at REQUIREMENT**,
+because a flowsheet described is not a flowsheet built. The one DOMINANT row is **tritium
+inventory**, set by the muon range and not the power. The one NEGLIGIBLE row is worth more than the
+rest: **there is no criticality accident to mitigate**, which is the one place this design is
+*categorically* safer than a reactor rather than incrementally. The waste result is the
+**actinides** — online processing returns them to the salt and burns them, so what leaves is fission
+products, three hundred years rather than three hundred thousand, and that follows from the
+chemistry the neutron budget already forced. Construction CO₂ comes out **305× below the sourced
+PWR figure**, which the report prints as a **warning rather than a result**: it is a measure of how
+little of a life-cycle assessment is structural steel. See `docs/ENVIRONMENT.md`),
 **`tools/window.py`** (the binder admissibility scan behind the paper's Theorem 1 — four tests over
 the charged spectrum, run in the order that constrains. Its point is *which* set the theorem closes
 on: the lifetime cut is a published number against a fixed threshold, so the **five** charged
@@ -458,7 +502,7 @@ sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real c
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
 `docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md`, `docs/MATERIALS.md`,
-`docs/BUILDPACKAGE.md` and `docs/DOCFIGURES.md`.
+`docs/BUILDPACKAGE.md`, `docs/ENVIRONMENT.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
