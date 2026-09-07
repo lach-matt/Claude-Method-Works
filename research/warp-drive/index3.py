@@ -107,6 +107,12 @@ FINDINGS = [
  ("ACCEL",        0, -1,  0, "ACCELERATION.md",
   "the first ADM argument against self-acceleration, later narrowed by COUPLING"),
  # The theorem the loop produced, which neither visit gave alone.
+ # The object is what is shifted, so the object's measured density decides the
+ # magnitude -- and f <= 1 caps the whole sourcing branch at 7.1% of light.
+ ("OBJ-CEILING", +1, -1, +1, "elements.py",
+  "v_warp <= Phi/k_hat = 0.0713 c for ANY object: f = r_s/R and f <= 1"),
+ ("PERIODIC",    +1,  0, +1, "elements.py",
+  "the element sets the density, density sets compactness, compactness IS the shift"),
  ("SHIFT-CHARGE", 0, -1,  0, "THE-LOOP.md",
   "every route to a shift is closed by one accounting: the charge that sources it"),
  ("EM-GAP",      -1, -1, -1, "ENGINE-ASSESSMENT.md",
@@ -241,7 +247,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 41)
+    chk("number of findings indexed", len(FINDINGS), 43)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -257,7 +263,7 @@ def selftest():
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
-        sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE"]))
+        sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT"]))
