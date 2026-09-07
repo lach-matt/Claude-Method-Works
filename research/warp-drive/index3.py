@@ -47,6 +47,8 @@ FINDINGS = [
   "no frame-independent Hawking-Ellis certification: Eulerian is not sufficient"),
  ("TRANSITION",   +1,  0, +1, "TARGET-1-RESULT.md",
   "the source-vacuum transition band is clean and converged; outer negatives fall 8x"),
+ ("AXIAL-TERM",   0, -1,  0, "gatespec.py",
+  "the shift must taper to zero along the bore axis, in vacuum: unchecked"),
  ("OPEN-GATE",   +1, +1, +1, "torus.py",
   "hoop tension holds the bore open inside DEC: margin 5.89x at gate scale"),
  ("RELAX-OK",     0, +1, +1, "residue.py",
@@ -188,7 +190,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 24)
+    chk("number of findings indexed", len(FINDINGS), 25)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 11)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
