@@ -114,19 +114,24 @@ def report_spec():
     print()
     print("    PRODUCTION TARGET AND CAPTURE   (one module; built"
           f" {r['modules']:.0f} times)")
-    _row("target", "mercury jet", "", "machine: a solid rotating target")
+    _row("target", "molten lead jet", "", "MIT-3, and not the sourced")
+    _row("", "", "", "  study's mercury -- see 8. A solid")
+    _row("", "", "", "  rotating target")
     _row("", "", "", "  does not fit the bore, by 3.3x")
     _row("jet radius", f"{M.SRC_JET_RADIUS_MM:.1f}", "mm", "machine, SOURCED")
     _row("jet angle to beam", f"{M.SRC_JET_ANGLE_MRAD:.0f}", "mrad",
          "machine, SOURCED")
-    _row("target length", f"{M.target_length_cm():.1f}", "cm",
-         f"{M.TARGET_LENGTHS:.0f} interaction lengths")
+    _row("interaction lengths", f"{M.TARGET_LENGTHS:.0f}", "", "machine")
     _row("power into the target",
          f"{M.target_power_w(r['module_mw'])/1e3:.0f}", "kW",
          "machine -- and the SOURCED study")
     _row("", "", "", "  is 319 kW at 4 MW, so the")
     _row("", "", "", "  module IS that study's machine")
-    _row("jet mass flow", f"{X.mercury_flow_kg_s():.0f}", "kg/s", "materials")
+    _row("jet mass flow", f"{X.lead_flow_kg_s():.0f}", "kg/s",
+         "materials, lead properties")
+    _row("target length", f"{X.target_length_cm():.1f}", "cm",
+         f"{X.target_length_ratio():.3f}x the mercury")
+    _row("", "", "", "  design, which is what lead costs")
     _row("capture field at target", f"{C.DES_B_TARGET:.2f}", "T", "collector")
     _row("solenoid bore radius", f"{C.des_coil_inner_m():.2f}", "m",
          "collector")
@@ -259,10 +264,13 @@ SEQUENCE = [
      "A magnet that trains in the target hall trains inside its own "
      "shielding, and the first quench is the one that teaches."),
     ("year -1", "TARGET AND CHANNEL",
-     "Mercury loop, jet nozzle, beryllium window, decay channel solenoids. "
-     "The loop commissions cold and inactive on water first, then on mercury "
-     "without beam, then with beam -- three stages, because after the third "
-     "the loop is a hot cell and cannot be opened."),
+     "Lead loop, jet nozzle, trace heating, decay channel solenoids -- and "
+     "NO beryllium window, which left the design with the mercury (MIT-3). "
+     "The loop commissions cold on a surrogate first, then on lead without "
+     "beam, then with beam -- three stages, because after the third the loop "
+     "is a hot cell and cannot be opened. Trace heating is commissioned as a "
+     "SAFETY system, not a utility: lead that freezes in the loop ends the "
+     "module."),
     ("year 0", "BLANKET AND SALT LOOP",
      "Vessel, pumps, heat exchangers, freeze-plug drain and drain tank, "
      "and the chemical processing plant. The processing plant is the "
@@ -330,7 +338,7 @@ def report_commissioning():
          "and it is solved in the linac's own terms. The target halls stay "
          "cold."),
         ("C3", "TARGET AND CHANNEL, LOW POWER",
-         "Beam on the mercury jet at a percent of power. Measure the muon "
+         "Beam on the lead jet at a percent of power. Measure the muon "
          f"yield against the acceptance model's "
          f"{M.delivered_eta_window(1.50, r['window']):.4f}. THIS IS THE FIRST "
          "PLACE THE PLANT CAN REFUSE: if the acceptance is low the balance "
@@ -899,6 +907,21 @@ def selftest():
           and text.index("C5.") > text.index("C3."))
     check("  -- and precedes power ascension and the breeding proof",
           text.index("C5.") < text.index("C6.") < text.index("C7."))
+    print()
+    print("  every section renders -- which is how a stale call is caught")
+    for name, fn in (("spec", report_spec), ("sequence", report_sequence),
+                     ("commissioning", report_commissioning),
+                     ("interfaces", report_interfaces),
+                     ("envelope", report_envelope),
+                     ("acceptance", report_acceptance), ("gaps", report_gaps),
+                     ("mitigations", report_mitigations)):
+        try:
+            out = _capture(fn)
+            ok = len(out) > 200
+        except Exception as exc:                      # noqa: BLE001
+            ok = False
+            print(f"      {name}: {type(exc).__name__}: {exc}")
+        check(f"section {name!r} renders", ok)
     print()
     print("  every environmental mitigation lands here as a build item")
     import environment as E

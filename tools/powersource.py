@@ -2050,6 +2050,25 @@ def selftest():
     check("  -- so the plant's size is a statement about the half-life",
           abs(_beam_for_halflife(123.2) * 10.0
               / beam_mw_for_tritium(265.0) - 1.0) < 0.05)
+    print()
+    print("  every section renders -- which is how a stale call is caught")
+    import contextlib as _c, io as _io
+    for _name, _fn in (("report", report), ("spallation", report_spallation),
+                       ("target", report_target), ("plant", report_plant),
+                       ("stability", report_stability), ("fuel", report_fuel),
+                       ("scale", report_scale), ("tritium", report_tritium),
+                       ("station", report_station),
+                       ("ignition", report_ignition)):
+        try:
+            _b = _io.StringIO()
+            with _c.redirect_stdout(_b):
+                _fn()
+            _ok = len(_b.getvalue()) > 200
+        except Exception as _e:                        # noqa: BLE001
+            _ok = False
+            print(f"      {_name}: {type(_e).__name__}: {_e}")
+        check(f"section {_name!r} renders", _ok)
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 

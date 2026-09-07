@@ -1011,6 +1011,20 @@ def selftest():
           mass_converted_kg() > 0.0
           and mass_converted_kg() < uranium_life_charge_t() * 1000.0)
     print()
+    print("  every section renders -- which is how a stale call is caught")
+    import contextlib as _c, io as _io
+    for _name, _fn in (("bill", report), ("storage", report_storage),
+                       ("supply", report_supply), ("uranium", report_uranium)):
+        try:
+            _b = _io.StringIO()
+            with _c.redirect_stdout(_b):
+                _fn()
+            _ok = len(_b.getvalue()) > 200
+        except Exception as _e:                        # noqa: BLE001
+            _ok = False
+            print(f"      {_name}: {type(_e).__name__}: {_e}")
+        check(f"section {_name!r} renders", _ok)
+    print()
     print("  no row is silently unclassified")
     stats = {"DERIVED", "IMPORTED", "SOURCED", "SCALED", "ASSUMED",
              "REQUIREMENT"}
