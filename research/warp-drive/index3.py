@@ -323,8 +323,15 @@ FINDINGS = [
   "device.py paired room-temperature Ms with cryogenic linewidth; corrected, the ferrite merit rises 42.9% and loss falls 30.4%"),
  ("F7-CEILING",      0, -1, +1, "materials.py",
   "EuO's Ms is 9.5x YIG's cold value, so the f7 ceiling is 5.8x -- behind a crystal-growth problem, not a physics one"),
+ # MAPPING-2D taken: the mapping was never missing, the medium is.
+ ("PLEBANSKI",      +1,  0, +1, "plebanski.py",
+  "Plebanski 1960 maps any metric to a medium in full 3+1D, and Alcubierre's gives eps_xx=1, eps_yy=1/(1-v^2), w=-v/(1-v^2)"),
+ ("ANISOTROPIC",    +1,  0, +1, "plebanski.py",
+  "the exact medium is anisotropic wherever the shift is nonzero: the transverse structure twist.py demanded, present by construction"),
+ ("BHS-3D",          0, -1, -1, "plebanski.py",
+  "w^2 <= (eps_yy-1)^2 requires v^2 <= v^4: the exact 3+1D medium is forbidden at EVERY subluminal shift, and conformal freedom is invariant"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of eleven obstructions two dissolved, three relocated, three closed negative, two conditional and one never tested"),
+  "of eleven obstructions two dissolved, three relocated, four closed negative, two conditional and none now untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -436,7 +443,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 110)
+    chk("number of findings indexed", len(FINDINGS), 113)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 

@@ -120,10 +120,12 @@ LEDGER = [
   "is self-gravitational, ~0.6 sqrt(GM/R^3), so N < 1 is a ceiling on MEAN "
   "DENSITY: 2.66e-4 kg/m^3 for a 1 g burn to delta_eta = 0.2. Corner is BIG AND "
   "DIFFUSE -- 1,000 tonnes at R > 965 m, comfortably at R > 4.48 km", "wall.py"),
- ("MAPPING-2D", "a 2+1D analogue mapping exists", "UNTESTED",
-  "Smolyaninov derives 1+1D; no 2+1D version is published, and the BHS bound "
-  "constrains one magnetoelectric component where a graded medium has more",
-  "twist.py"),
+ ("MAPPING-2D", "a 2+1D analogue mapping exists", "CLOSED-NEGATIVE",
+  "IT ALWAYS DID -- Plebanski 1960 gives it in full 3+1D and returns exactly the "
+  "transverse anisotropy twist.py demanded. What is forbidden is the MEDIUM: "
+  "eps_xx = 1 exactly, so BHS admits it only for |v| >= c. Conformal freedom is "
+  "no escape (eps and w are conformally invariant). Smolyaninov's admissible "
+  "1+1D medium is an index-n substitution, not this mapping", "plebanski.py"),
 ]
 
 def by_status():
@@ -161,6 +163,13 @@ def check_analogue_closed():
             and twist.energy_density_bbv(0.9, 0.0) == 0.0
             and abs(twist.wedge_txy_closed(0.9, 0.3)) > 1e-3)
 
+def check_mapping_closed():
+    import plebanski
+    # the mapping exists and is anisotropic; the medium is forbidden subluminally
+    return (plebanski.anisotropy(0.5) > 1.0
+            and not plebanski.bhs_admissible(0.5)
+            and plebanski.bhs_admissible(1.5))
+
 def check_nonradial_conditional():
     import wall
     # fatal at ship scale, survivable when diffuse -- that is what CONDITIONAL means
@@ -186,11 +195,12 @@ def selftest():
     chk("obstructions tracked", len(LEDGER), 11)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 2)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 3)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 4)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 2)
-    chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 1)
-    chk("every status is populated", sorted(set(r[2] for r in LEDGER)),
-        sorted(STATUSES))
+    chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
+    chk("UNTESTED is now EMPTY -- every row has been asked",
+        sorted(set(r[2] for r in LEDGER)),
+        sorted(set(STATUSES) - {"UNTESTED"}))
     chk("no row is DISSOLVED without an owning instrument",
         all(r[4] for r in h["DISSOLVED"]), True)
 
@@ -202,15 +212,16 @@ def selftest():
     chk("SHIFT-SHORTENS is closed negative", check_shift_costs(), True)
     chk("NONRADIAL is fatal at 10 m and survivable at 5 km",
         check_nonradial_conditional(), True)
+    chk("MAPPING-2D: mapping exists, medium forbidden", check_mapping_closed(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",
-        sorted(build_ready()), ["MAPPING-2D"])
-    chk("is a build blocked on an untested row?", len(untested()) > 0, True)
-    print("""      NONRADIAL was untested; it is now tested and it very nearly closed the
-      warpshell.  What saved it is that the growth rate is self-gravitational,
-      so the constraint is a mean-density ceiling and not a no-go.  MAPPING-2D
-      is load-bearing for the analogue and is a derivation, not a fabrication.""")
+        sorted(build_ready()), [])
+    chk("is a build blocked on an untested row?", len(untested()) > 0, False)
+    print("""      Both are now asked.  NONRADIAL nearly closed the warpshell and left a
+      mean-density corner.  MAPPING-2D closed the analogue outright: the
+      mapping was never missing, the medium is.  Nothing is left UNTESTED --
+      which does not mean everything is open, it means nothing is unexamined.""")
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1

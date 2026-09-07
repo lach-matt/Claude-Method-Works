@@ -1213,3 +1213,68 @@ though Gd³⁺ and Eu²⁺ are the exception that proves it, being the only rare
 
 That is a genuine engineering finding of a kind this project has not had before: **a target with a
 number on it and a named discipline that owns it.**
+
+## `plebanski.py` — the last untested row, and the mapping was never the problem
+
+`obstruct.py` had one row left as UNTESTED: `MAPPING-2D`, described as "a derivation awaiting a
+derivation" on the grounds that `twist.py` requires ≥2+1D, Smolyaninov derives only 1+1D, and no 2+1D
+version is published. **That framing was wrong in a useful way.** The general mapping has existed
+since 1960 — Plebanski's constitutive relations, the foundation of transformation optics:
+
+> **ε^ij = μ^ij = −√(−g) g^ij / g₀₀   ·   w_i = −g₀ᵢ / g₀₀**
+
+with `D = εE + w×H`, `B = μH − w×E`. Any metric is a medium, in full 3+1D. Applied to Alcubierre and
+computed from the numerical inverse and determinant rather than by hand:
+
+> **ε_xx = 1 exactly · ε_yy = ε_zz = 1/(1−v²) · w_x = −v/(1−v²)**
+
+**The medium is anisotropic wherever the shift is nonzero.** That is precisely the transverse
+structure `twist.py` said a 2+1D analogue must carry — present by construction in the honest mapping,
+and absent from Smolyaninov's isotropic `ε = μ`. So the 1+1D reduction is the thing that needed
+arguing for, not the 3+1D version.
+
+### And Brown–Hornreich–Shtrikman forbids it, except beyond the horizon
+
+`w` lies along x, so it couples (E_y, H_z) and (E_z, H_y), and the anisotropic BHS condition is
+`w_x² ≤ (ε_yy−1)(μ_zz−1)`. Substituting the exact values:
+
+> `w² = v²/(1−v²)²` against a bound of `v⁴/(1−v²)²` — admissible iff **v² ≤ v⁴, i.e. |v| ≥ c**
+
+| v | w² | bound | |
+|---|---|---|---|
+| 0.10 | 0.0102 | 0.000102 | FORBIDDEN |
+| 0.50 | 0.4444 | 0.1111 | FORBIDDEN |
+| 0.99 | 2474.9 | 2425.7 | FORBIDDEN |
+| 1.50 | 1.44 | 3.24 | admissible |
+
+**The exact 3+1D Alcubierre medium is thermodynamically forbidden everywhere it is subluminal, and
+admissible only at or beyond the horizon** — the exact inverse of the 1+1D case, where `device.py`'s
+TEST 16 found stability capping v *below* the horizon. Both routes are closed, for opposite reasons:
+
+| | what BHS allows | what the metric holds |
+|---|---|---|
+| **1+1D** | v < c(n−1)/n², horizon forbidden | pure gauge — nothing to emulate |
+| **3+1D** | only \|v\| ≥ c, the unsteerable regime | real content, medium forbidden |
+
+**The obvious escape is closed too.** A conformal rescaling `g → Ω²g` leaves null geodesics alone, so
+it is where one looks for headroom. It gives none: ε and w are **conformally invariant**, verified at
+Ω = 0.5, 1, 2, 7.3, 100 to twelve digits, because the `Ω⁴` from `√(−g)` and the `Ω⁻²` from `g^ij`
+cancel the `Ω²` from `g₀₀`. `ε_xx = 1` is not a choice of units; it is the mapping's answer.
+
+### So where does Smolyaninov's admissible medium come from?
+
+Not from this mapping. Run Plebanski on his own 1+1D metric and it returns `ε = 1`, `w = −v/(1−v²)`,
+BHS-forbidden exactly as above — **not** his `ε = μ = n/√(1−(nβf)²)`. The square root is the tell: his
+medium emulates the metric whose light speed is `c/n` rather than `c`, and the background index is
+where the `(ε−1)` headroom comes from. That is legitimate — an analogue may emulate a rescaled metric
+— but it is a *substitution*, not the mapping, and it has never been shown to survive in 3+1D where ε
+must also become anisotropic.
+
+> `MAPPING-2D` is therefore no longer untested. It closed negative, and left behind a sharp question
+> in place of a vague one: **does the index-n embedding that rescues 1+1D also rescue the anisotropic
+> 3+1D medium, given that the exact mapping is forbidden at every subluminal v and conformal freedom
+> buys nothing?**
+
+**The ledger now has no UNTESTED row.** Of eleven obstructions: two dissolved, three relocated, **four
+closed negative**, two conditional, none unexamined. That is not the same as everything being open —
+it means nothing is left where a build could be surprised from behind.
