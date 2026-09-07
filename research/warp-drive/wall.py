@@ -54,6 +54,12 @@ oscillates instead, at omega = sqrt(V''/2), so the burn must merely not RESONATE
 with it: tau_burn >> 1/omega, i.e. W delta_eta / lambda >> 1 with
 W = sqrt(V'' R^2 / 2).  The same ratio, upside down.
 
+    *** WITHDRAWN IN PART, see THE SHAPE HAS MASS below: the diffuse corner
+        this table opens escapes the l >= 2 instability by making the shell's
+        self-gravity negligible, which is the property that made it a warp
+        drive.  The table is arithmetically right and its conclusion was
+        over-read. ***
+
     design                     marginal wall        stiff wall (x=0.3, b^2=0.5)
     Le App. K worked burn      fails by 2.0         adiabatic by only 2.4
     1 g, 10 m cavity           fails by 1.8e14      ADIABATIC BY 2.2e14
@@ -145,6 +151,44 @@ et al. assume VACUUM on both sides, where Le's exterior is outgoing null dust;
 and they treat an INFINITESIMALLY THIN shell, where Le's realized wall has finite
 thickness.  Their own conclusion is phrased about objects "that feature a thin
 shell at its surface".  Whether either escape works is not settled by this file.
+
+-- THE SHAPE HAS MASS, AND THAT CLOSES THE CORNER I THOUGHT I HAD FOUND -------
+The l >= 2 ceiling was written above as a bound on MEAN DENSITY, and read as
+"the corner is big and diffuse".  That reading treats M and R as independent.
+They are not: the same mass sets the density AND the compactness,
+
+        x = 2GM/(Rc^2)          rho = M/((4/3) pi R^3)
+        =>  x = (8 pi G/3) rho R^2/c^2
+
+so holding rho at the ceiling makes x a function of R alone.  Tabulated:
+
+        x        R (m)        M (kg)        M (Msun)     binding fraction
+        1e-24    7.78e+02     5.24e+05      2.6e-25      0
+        1e-06    7.78e+11     5.24e+32      2.6e+02      5e-7
+        0.0396   1.55e+14     4.13e+39      2.1e+09      0.01
+        0.3      4.26e+14     8.60e+40      4.3e+10      0.082
+
+    TO BE BOTH STABLE AGAINST l >= 2 AND MEANINGFULLY SELF-GRAVITATING -- say a
+    one per cent gravitational binding fraction -- THE OBJECT MUST BE TWO
+    BILLION SOLAR MASSES SPREAD OVER A THOUSAND AU.  Le's own operating point
+    x = 0.3 needs 4.3e10 Msun at 2,850 AU.
+
+And the 1,000-tonne, 4.48 km design that passed the density ceiling sits at
+x = 3.3e-25, a binding fraction of 8e-26, a wall of 3.97 g/m^2 -- half the
+areal density of kitchen foil -- under 1.5e-11 N/m of tension.  It is a Mylar
+balloon nine kilometres across.  Its cavity is exactly flat, but a spherical
+shell's interior is exactly flat by BIRKHOFF at any compactness whatever, so
+that property is shared with every balloon and is not a warp feature.
+
+    THE ESCAPE CORRIDOR EXITS THE CATEGORY.  Le's own line is that "a
+    sufficiently idealized hulled rocket ... lies outside the exact class W",
+    and the diffuse limit walks the warpshell into exactly that.  The l >= 2
+    instability is not escapable while the object remains self-gravitating,
+    which is what "warpshell" means.
+
+Recorded as a correction to this file's own earlier reading, not to the
+arithmetic, which stands.  What it costs is the claim that a habitable design
+survives: it survives as a balloon.
 
 -- WHAT THIS STILL DOES NOT SHOW, STATED PLAINLY ------------------------------
 1. Not that EVERY admissible matter model clears it.  One model is worked, and
@@ -417,6 +461,36 @@ def min_radius(M_kg, delta_eta, a_ms2, k=PSP_K, n=1.0):
     """DERIVED.  Smallest cavity for which the burn takes fewer than n e-foldings."""
     return (G_SI * M_kg * (k * C * delta_eta / (n * a_ms2)) ** 2) ** (1.0 / 3.0)
 
+# -- the shape has mass: self-gravity against the density ceiling ------------
+
+def radius_at_ceiling(x, delta_eta=0.2, a_ms2=9.80665):
+    """DERIVED.  Holding rho at the l >= 2 ceiling, x fixes R:
+    x = (8 pi G/3) rho R^2/c^2."""
+    rho = max_mean_density(delta_eta, a_ms2)
+    return C * math.sqrt(3.0 * x / (8.0 * math.pi * G_SI * rho))
+
+def mass_at_ceiling(x, delta_eta=0.2, a_ms2=9.80665):
+    R = radius_at_ceiling(x, delta_eta, a_ms2)
+    return x * R * C * C / (2.0 * G_SI)
+
+def binding_fraction(x):
+    """(m_s - M)/m_s = (1-s)/2 for a Schwarzschild-Minkowski thin shell."""
+    return one_minus_s(x) / 2.0
+
+def x_for_binding(frac):
+    """DERIVED.  (1-s)/2 = frac  =>  s = 1-2frac  =>  x = 1-(1-2frac)^2."""
+    s = 1.0 - 2.0 * frac
+    return 1.0 - s * s
+
+def surface_density(x, R_m):
+    """kg/m^2 of the wall.  sigma = (1-s) c^2/(4 pi G R)."""
+    return one_minus_s(x) * C * C / (4.0 * math.pi * G_SI * R_m)
+
+def surface_tension(x, R_m):
+    """N/m carried by the wall: p_0 converted out of geometric units."""
+    p = one_minus_s(x) ** 2 / (16.0 * math.pi * R_m * math.sqrt(1.0 - x))
+    return p * C ** 4 / G_SI
+
 # -- selftest ----------------------------------------------------------------
 
 def selftest():
@@ -558,6 +632,31 @@ def selftest():
         vlasov_stable(2.0 * G_SI * 1.0e6 / (r10 * C * C)), True)
     chk("  ...and the burn is still adiabatic there",
         adiabatic_margin(0.2, 9.80665, r10, 0.3, 0.5) > 1e9, True)
+
+    print("\nTHE SHAPE HAS MASS: self-gravity traded against the l>=2 ceiling")
+    print("      %-10s %12s %12s %12s" % ("x", "R (m)", "M (Msun)", "binding"))
+    for x in (1e-24, 1e-6, 0.0396, 0.3):
+        R = radius_at_ceiling(x)
+        print("      %-10.4g %12.4e %12.4e %12.3e"
+              % (x, R, mass_at_ceiling(x) / 1.98847e30, binding_fraction(x)))
+    chk("x for a 1% binding fraction", x_for_binding(0.01), 0.0396, 1e-12)
+    chk("  needs a radius (AU)", radius_at_ceiling(0.0396) / 1.495978707e11,
+        1034.4, 1.0)
+    chk("  and a mass (Msun)", mass_at_ceiling(0.0396) / 1.98847e30, 2.075e9, 1e6)
+    chk("Le's x = 0.3 needs (Msun)", mass_at_ceiling(0.3) / 1.98847e30, 4.327e10, 1e7)
+    x_ship = 2.0 * G_SI * 1.0e6 / (4478.0 * C * C)
+    chk("the 1,000-t 4.48 km design's compactness", x_ship, 3.3167e-25, 1e-29)
+    chk("  its binding fraction is nil", binding_fraction(x_ship) < 1e-25, True)
+    chk("  its wall is thinner than kitchen foil (7 g/m^2)",
+        surface_density(x_ship, 4478.0) * 1000.0 < 7.0, True)
+    chk("    at (g/m^2)", surface_density(x_ship, 4478.0) * 1000.0, 3.968, 1e-3)
+    chk("  under negligible tension (N/m)", surface_tension(x_ship, 4478.0),
+        1.4787e-11, 1e-15)
+    chk("  and the mass closes", surface_density(x_ship, 4478.0)
+        * 4.0 * math.pi * 4478.0 ** 2, 1.0e6, 1.0)
+    print("""      A spherical shell's interior is exactly flat by BIRKHOFF at any
+      compactness, so the diffuse limit's "warp feature" is shared with every
+      balloon.  The escape corridor exits the category.""")
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1

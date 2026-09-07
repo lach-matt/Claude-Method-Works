@@ -118,8 +118,11 @@ LEDGER = [
   "all l >= 2, all compactness, all Gamma -- on Le's anchor exactly, and beta^2 "
   "does not appear in it, so the structural fix does not reach it. But the rate "
   "is self-gravitational, ~0.6 sqrt(GM/R^3), so N < 1 is a ceiling on MEAN "
-  "DENSITY: 2.66e-4 kg/m^3 for a 1 g burn to delta_eta = 0.2. Corner is BIG AND "
-  "DIFFUSE -- 1,000 tonnes at R > 965 m, comfortably at R > 4.48 km", "wall.py"),
+  "DENSITY. THE CORNER IS WITHDRAWN: the same mass sets density and compactness, "
+  "so escaping the instability means x -> 0, and the survivor at x = 3e-25 is a "
+  "3.97 g/m^2 balloon whose flat cavity is Birkhoff, not a warp feature. Both "
+  "stable AND self-gravitating (1% binding) needs 2e9 Msun over 1,000 AU",
+  "wall.py"),
  ("MAPPING-2D", "a 2+1D analogue mapping exists", "DISSOLVED",
   "Plebanski 1960 gives it in full 3+1D and returns exactly the transverse "
   "anisotropy twist.py demanded. Briefly closed on BHS -- eps_xx = 1 exactly, so "

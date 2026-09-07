@@ -16,6 +16,30 @@ can be checked against every closure at once without buying anything.  This file
 does that -- and then does the part that makes it an instrument rather than an
 aphorism, which is to state what it PREDICTS.
 
+-- THE HALF THAT WAS MISSING, AND IT CHANGED AN ANSWER ------------------------
+The shape as first written is incomplete.  "Static positivity loosens under
+dynamics" is a statement about the FORM of a bound, and it says nothing about
+the object the bound is on.  But the object has mass, and its mass gravitates,
+so relaxing a bound by changing the object can change what the object IS.
+
+That is not an abstract worry.  It had already happened in this tree, unnoticed.
+wall.py escaped the l >= 2 shell instability by reading its constraint as a
+ceiling on MEAN DENSITY and going "big and diffuse".  But the same mass sets the
+density and the compactness -- x = (8 pi G/3) rho R^2/c^2 -- so at the ceiling,
+holding rho fixed, self-gravity is a function of radius alone.  Escaping the
+instability MEANT making the self-gravity vanish, and self-gravity is what
+distinguishes a warpshell from a hulled rocket.  The surviving design is a
+3.97 g/m^2 Mylar balloon nine kilometres across at x = 3e-25, whose flat cavity
+is Birkhoff's theorem rather than a warp feature.
+
+    SO THE SHAPE HAS A SECOND CLAUSE: A BOUND RELAXED BY CHANGING THE OBJECT
+    MUST BE CHECKED AGAINST WHAT THE OBJECT WAS FOR.  The escape can exit the
+    category, and an escape that exits the category is not an escape.
+
+The four fitted cases survive this test -- radiating does not stop the warpshell
+being a warpshell, and dispersing does not stop the ferrite being a ferrite --
+but WALL-RADIAL's neighbour did not, and it was the file's own claim.
+
 -- THE HONEST CAVEAT, FIRST ---------------------------------------------------
 The pattern was induced from the cases that moved.  So the four hits below are
 NOT evidence for it; they are the sample it was fitted to, and quoting them as
@@ -79,7 +103,7 @@ stdlib only.  Every row's status is recomputed from the instrument that owns it.
 import sys
 
 KINDS = ("POSITIVITY", "CONSERVATION", "MEASURED", "KINEMATIC", "GEOMETRIC")
-STATES = ("MOVED", "PREDICTED", "CONTROL")
+STATES = ("MOVED", "PREDICTED", "CONTROL", "EXITED")
 
 # (id, the bound, kind, static form, dynamical counterpart, state, owner)
 ROWS = [
@@ -113,6 +137,9 @@ ROWS = [
  ("HORIZON", "a warp drive needs a horizon",
   "GEOMETRIC", "-- no positivity condition --", "none: dissolved by geometry",
   "CONTROL", "twist.py"),
+ ("WALL-NONRADIAL", "the shell is stable to l >= 2",
+  "POSITIVITY", "self-gravitating thin shell", "diffuse limit -- EXITS THE CATEGORY",
+  "EXITED", "wall.py"),
 ]
 
 def by_state():
@@ -131,6 +158,17 @@ def fitted_sample():
 
 def controls():
     return [r for r in ROWS if r[5] == "CONTROL"]
+
+def exited():
+    """Bounds relaxed by changing the object so far that the object stopped
+    being the thing the bound was about.  Not escapes."""
+    return [r for r in ROWS if r[5] == "EXITED"]
+
+def category_preserved(row_id):
+    """The second clause, applied.  Radiating keeps a warpshell a warpshell;
+    dispersing keeps a ferrite a ferrite; going diffuse does not keep a
+    self-gravitating shell self-gravitating."""
+    return row_id != "WALL-NONRADIAL"
 
 def predicts_a_control():
     """The falsification check: the shape must NOT claim a control will move."""
@@ -175,7 +213,8 @@ def selftest():
     st = by_state()
     for s in STATES:
         print("    %-10s %d   %s" % (s, len(st[s]), ", ".join(r[0] for r in st[s])))
-    chk("closures classified", len(ROWS), 10)
+    chk("closures classified", len(ROWS), 11)
+    chk("escapes that EXITED the category", len(st["EXITED"]), 1)
     chk("the fitted sample", len(st["MOVED"]), 4)
     chk("the predictions", len(st["PREDICTED"]), 3)
     chk("the controls", len(st["CONTROL"]), 3)
@@ -189,6 +228,17 @@ def selftest():
         [r[2] for r in ROWS if r[0] == "KAPPA"], ["MEASURED"])
     chk("  SWIMMER is KINEMATIC", [r[2] for r in ROWS if r[0] == "SWIMMER"], ["KINEMATIC"])
     chk("  HORIZON is GEOMETRIC", [r[2] for r in ROWS if r[0] == "HORIZON"], ["GEOMETRIC"])
+
+    print("\nThe second clause: does the escape keep the object?")
+    for r in fitted_sample():
+        chk("  %s keeps its category" % r[0], category_preserved(r[0]), True)
+    chk("WALL-NONRADIAL's diffuse escape does NOT",
+        category_preserved("WALL-NONRADIAL"), False)
+    import wall
+    xs = 2.0 * 6.67430e-11 * 1.0e6 / (4478.0 * 299792458.0 ** 2)
+    chk("  its compactness at the ceiling", xs < 1e-24, True)
+    chk("  its wall, in g/m^2", round(wall.surface_density(xs, 4478.0) * 1000.0, 3), 3.968)
+    print("      a balloon.  Birkhoff gives its cavity flatness for free.")
 
     print("\nThe fitted sample, re-checked from its owners")
     chk("CM-THEOREM is paid, exactly 8/27", check_cm(), True)

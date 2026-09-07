@@ -314,8 +314,12 @@ FINDINGS = [
   "beta^2 is DETERMINED by the matter, not chosen: counter-rotating matter clears the threshold only below x = 0.46898"),
  ("NONRADIAL",       0, -1, +1, "wall.py",
   "Pitre-Schneider-Poisson: unstable for all l>=2, all compactness, all Gamma, on Le's anchor -- and beta^2 is absent from that branch"),
- ("DENSITY-CEILING", 0, +1, +1, "wall.py",
-  "the l>=2 rate is self-gravitational, so N<1 is a mean-density ceiling: 2.66e-4 kg/m^3, met by 1,000 t at R > 965 m"),
+ ("DENSITY-CEILING", 0, -1, +1, "wall.py",
+  "the l>=2 rate is self-gravitational, so N<1 is a mean-density ceiling of 2.66e-4 kg/m^3 -- but density and compactness share a mass"),
+ ("CORNER-EXITS",    0, -1, -1, "wall.py",
+  "escaping l>=2 means x -> 0: the survivor is a 3.97 g/m^2 balloon whose flat cavity is Birkhoff; stable AND self-gravitating needs 2e9 Msun over 1,000 AU"),
+ ("SECOND-CLAUSE",  +1, +1,  0, "shape.py",
+  "a bound relaxed by changing the object must be checked against what the object was for: an escape that exits the category is not an escape"),
  # The spectral index used as a materials screen.
  ("S-STATE",         0,  0, +1, "materials.py",
   "exactly four S-state shells exist -- s1, p3, d5, f7 -- so Fe3+ is optimal in its shell and f7 is the only way up"),
@@ -456,7 +460,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 117)
+    chk("number of findings indexed", len(FINDINGS), 119)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 

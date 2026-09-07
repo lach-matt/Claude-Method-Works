@@ -1407,3 +1407,58 @@ measurement is not a letter — and the tension is recorded here rather than res
 finding**, being the lattice bottom. It answers no directive, so it belongs in SUPPORT. The index
 caught a bookkeeping error about the epistemics of its own newest instrument, which is the closest
 thing to a self-test this tree has.
+
+## The shape has mass — and that withdraws the corner
+
+The shape as first written was incomplete. *"Static positivity loosens under dynamics"* is a statement
+about the **form** of a bound and says nothing about the object the bound is on. But the object has
+mass, its mass gravitates, and relaxing a bound by changing the object can change what the object **is**.
+
+That had already happened here, unnoticed, in this session's own work.
+
+### The corner, withdrawn
+
+`wall.py` escaped the ℓ ≥ 2 shell instability by reading its constraint as a ceiling on **mean density**
+and going "big and diffuse". That reading treats M and R as independent. They are not — the same mass
+sets the density *and* the compactness:
+
+> `x = 2GM/(Rc²)` and `ρ̄ = M/((4/3)πR³)` ⟹ **`x = (8πG/3)ρ̄R²/c²`**
+
+so holding ρ̄ at the ceiling makes self-gravity a function of radius alone. Tabulated:
+
+| x = 2m/R | R (m) | M (M☉) | binding fraction |
+|---|---|---|---|
+| 10⁻²⁴ | 7.8×10² | 2.6×10⁻²⁵ | 0 |
+| 10⁻⁶ | 7.8×10¹¹ | 2.6×10² | 5×10⁻⁷ |
+| **0.0396** | 1.5×10¹⁴ | **2.1×10⁹** | **0.01** |
+| 0.3 (Le's point) | 4.3×10¹⁴ | 4.3×10¹⁰ | 0.082 |
+
+> **To be both stable against ℓ ≥ 2 and meaningfully self-gravitating — a one per cent binding
+> fraction — the object must be two billion solar masses spread over a thousand AU.**
+
+And the 1,000-tonne, 4.48 km design that passed the density ceiling sits at **x = 3.3×10⁻²⁵**, binding
+fraction 8×10⁻²⁶, with a wall of **3.97 g/m²** — *half the areal density of kitchen foil* — under
+1.5×10⁻¹¹ N/m of tension. It is a Mylar balloon nine kilometres across. Its cavity is exactly flat, but
+**a spherical shell's interior is exactly flat by Birkhoff at any compactness whatever**, so that
+property is shared with every balloon and is not a warp feature.
+
+> **The escape corridor exits the category.** Le's own line is that *"a sufficiently idealized hulled
+> rocket … lies outside the exact class W"*, and the diffuse limit walks the warpshell straight into it.
+> The ℓ ≥ 2 instability is not escapable while the object remains self-gravitating — which is what
+> "warpshell" means.
+
+The arithmetic of the density ceiling stands. What is withdrawn is the reading that a habitable design
+survives it. It survives as a balloon.
+
+### The shape gains a second clause
+
+> **A bound relaxed by changing the object must be checked against what the object was for. An escape
+> that exits the category is not an escape.**
+
+`shape.py` now carries `EXITED` as a fourth state and `category_preserved()` as the test. The four
+fitted cases pass it — radiating does not stop a warpshell being a warpshell, dispersing does not stop
+a ferrite being a ferrite — but `WALL-NONRADIAL` fails, and it was this session's own claim.
+
+That is the first thing the shape has actually caught rather than been fitted to: not a prediction
+landing, but a false escape found. `index3.py` regrades `DENSITY-CEILING` from (0,+1,+1) to (0,−1,+1)
+and seats `CORNER-EXITS` at (−1,−1,−1) beside `EM-GAP` and `ONE-AXIS-FLAT`.
