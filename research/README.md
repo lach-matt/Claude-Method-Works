@@ -1798,3 +1798,69 @@ touched. It is the cell for *warp energy identified, and its algebraic kind is t
 negative answers.* `E(X) = 0` still holds, so the closure demanded nothing new. And `pathmetric.py`'s
 mismatch count moved 204 → 252 with the cell count 14 → 15, because it measures the corpus's lattice
 condition over **this project's** cells — a fixture that tracks the index by design.
+
+## `anec.py` — QNEC asked properly, and it withdraws this session's headline
+
+Taking the three open items in order, the first is QNEC. Its first act is to overturn my own claim.
+
+### The error, precisely
+
+SNEC is `∫⟨T_kk⟩g²dλ ≥ −(4B/G)∫(g′)²dλ`, and it must hold for **every** sampling function.
+`nullbound.py` evaluated it at **one** width — the wall thickness D — noticed both sides go as 1/D²,
+and concluded the thickness cancels into permission. The arithmetic was right; the reasoning was not.
+**D is the width at which the bound is loosest.** The right-hand side falls as 1/w² while the left
+falls only as 1/w once w exceeds the wall:
+
+| w | ∫T_kk g² | bound | |
+|---|---|---|---|
+| 0.10 | −9.29×10⁻⁵ | −1.760 | ok |
+| 0.50 | −5.93×10⁻³ | −7.92×10⁻² | ok |
+| **1.00** | −2.43×10⁻² | −1.99×10⁻² | **VIOLATED** |
+| 20.0 | −8.11×10⁻³ | −2.84×10⁻⁶ | **VIOLATED** |
+
+Crossover at **w = 0.927** — of order the *bubble radius*, against a wall of ~0.125. One width is not a
+scan, and I chose the flattering one.
+
+### And QNEC settles it, because it is a theorem
+
+`⟨T_kk⟩ ≥ (ℏ/2π)S″` integrates along a complete generator to `∫⟨T_kk⟩dλ ≥ 0` — **ANEC** — since the
+boundary entropy variation vanishes for a localised, asymptotically vacuum bubble. Measured on
+`typefour.py`'s validated stress tensor, contracted with the null `k^μ = (1, v+1, 0, 0)`:
+
+| y | 0.0 | 0.2 | 0.3 | 0.5 | 0.8 |
+|---|---|---|---|---|---|
+| ∫T_kk dx | −0.081 | −0.087 | −0.095 | −0.129 | −0.344 |
+
+**Negative on every ray. ANEC is violated, so QNEC forbids the configuration.** And QNEC is a *theorem*
+in QFT (Bousso–Fisher–Leichenauer–Wall; Balakrishnan–Faulkner–Khandker–Wang; Ceyhan–Faulkner) where
+SNEC is a conjecture — the instrument that closes this is stronger than the one that appeared to open it.
+
+### What survives, and it is not nothing
+
+Fewster & Roman stands: **no null quantum inequalities in 4D**. Pfenning & Ford's bound really is a
+**timelike** instrument, and its bound on the wall thickness really is an artefact of that. The 1/D²
+cancellation is real arithmetic.
+
+> **So the thickness genuinely does drop out — into prohibition, not permission.** ANEC is violated at
+> *every* thickness, so D was never the obstruction and removing its bound buys nothing. The 10⁶² kg was
+> the wrong statement of the problem. The right statement is worse, and does not involve D at all.
+
+Which is the same shape as `typefour.py`: **both surviving obstructions are D-independent and both are
+about the kind of matter, not the amount.** Two independent objections, neither touched by any argument
+about energy budgets. In `index3.py` they share a cell — `ANEC-VIOLATED` joins `TYPE-IV` at
+**(+1, −1, −1)**: *warp energy identified, and what identifies it is what forbids the build and the spec.*
+
+### `shape.py`'s first tested prediction failed
+
+The shape said a static positivity condition loosens when the dynamics is restored. Applied to the
+energy conditions, the dynamical form is QNEC — and QNEC is locally looser (it permits `⟨T_kk⟩ < 0`
+where `S″ < 0`) and **globally no looser at all**, because it integrates to ANEC. On the case it was
+applied to, the prediction points the wrong way.
+
+`evidence_available()` returns to **0** and `NEC-LADDER` is scored **FAILED**, not PARTIAL. That is the
+first real test the shape has had and it did not pass it — recorded that way, because a pattern that
+only ever gets credit is not an instrument.
+
+`nullbound.py` and `designpoint.py` are kept executable with their conclusions struck, per this tree's
+practice; `paper/CLAIMS.md` strikes H1 and H2 in place rather than deleting them, and **H3 — the
+two kind-not-amount objections — becomes the headline.**

@@ -56,7 +56,15 @@ wall that Pfenning and Ford's quantum inequality demands: their bound is of
 order 10^2 Planck lengths at v_s ~ c, and every order of magnitude taken off
 the wall costs an order of magnitude of negative mass, linearly.
 
--- AND THAT IS WHERE DIRECTIVE 1 HANDS OFF ------------------------------------
+-- WHERE DIRECTIVE 1 HANDED OFF, AND WHAT CAME BACK ---------------------------
+*** The handoff below was taken, and the answer was NEGATIVE.  D really is set
+    by the wrong instrument, and freeing it buys nothing: anec.py measures ANEC
+    violated on every ray, and QNEC integrates to ANEC.  The wall was never the
+    obstruction.  This file's directive-1 content is unaffected -- the identity,
+    the closed form and the scaling all stand -- but the optimism of the handoff
+    does not. ***
+
+
 The bill is set by D, and D is set by a QUANTUM INEQUALITY.  Quantum inequalities
 are pointwise-in-time bounds on smeared negative energy, and their state-dependent
 successor is the QNEC, <T_kk> >= (hbar/2 pi) S''_out, which licenses negative
@@ -204,20 +212,20 @@ def selftest():
 
     print("\nWhere directive 1 handed off, and what happened next")
     import shape
-    chk("the handoff row is now scored PARTIAL, not PREDICTED",
-        [r[5] for r in shape.ROWS if r[0] == "NEC-LADDER"], ["PARTIAL"])
-    import nullbound
-    chk("  because nullbound.py took it: the thickness cancels",
+    chk("the handoff row is scored FAILED", 
+        [r[5] for r in shape.ROWS if r[0] == "NEC-LADDER"], ["FAILED"])
+    import anec, nullbound
+    chk("  nullbound.py's thickness cancellation is real arithmetic",
         abs(nullbound.ratio(0.1, 1e-3) / nullbound.ratio(0.1, 1e-30) - 1.0) < 1e-12, True)
-    chk("  so D is no longer what is bounded -- v_s is",
-        nullbound.max_velocity(), 3.0, 1e-12)
-    chk("and the wall this file priced at 10^62 kg was the timelike artefact",
-        thin_wall_mass(0.1 * C, 100.0, nullbound.thickness_for_budget(1.98847e30, 100.0, 0.1))
-        / 1.98847e30, -1.0, 1e-9)
+    chk("  but anec.py withdrew its conclusion: ANEC is violated",
+        anec.anec_integral(0.3) < 0.0, True)
+    chk("  so D drops out into PROHIBITION, not permission",
+        anec.anec_integral(0.5) < 0.0, True)
     print("""      This file said the bill was the wall and the wall was set by a
-      quantum inequality.  nullbound.py then found the inequality was the
-      timelike one, in a dimension where the null one does not exist -- and on
-      the null-smeared condition the thickness cancels exactly.""")
+      quantum inequality.  That much stands: Pfenning-Ford IS a timelike
+      instrument and D IS an artefact of it.  What does not stand is the
+      inference that removing it helps -- ANEC is violated at every thickness,
+      so the wall was never the obstruction.  See anec.py.""")
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1

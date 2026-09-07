@@ -16,6 +16,14 @@ can be checked against every closure at once without buying anything.  This file
 does that -- and then does the part that makes it an instrument rather than an
 aphorism, which is to state what it PREDICTS.
 
+-- THE SHAPE HAS BEEN WRONG ONCE, AND THIS IS WHERE IT SAYS SO ----------------
+Its first testable prediction was that the energy-condition closure would loosen
+under its dynamical form.  anec.py asked the named form, QNEC, and the answer is
+the other way: QNEC integrates to ANEC, ANEC is violated on every ray of the
+Alcubierre bubble, and the dynamical condition is therefore no looser than the
+static one where it matters.  evidence_available() is back to 0 and NEC-LADDER
+is scored FAILED.  Read that before reading anything else here.
+
 -- THE HALF THAT WAS MISSING, AND IT CHANGED AN ANSWER ------------------------
 The shape as first written is incomplete.  "Static positivity loosens under
 dynamics" is a statement about the FORM of a bound, and it says nothing about
@@ -103,7 +111,7 @@ stdlib only.  Every row's status is recomputed from the instrument that owns it.
 import sys
 
 KINDS = ("POSITIVITY", "CONSERVATION", "MEASURED", "KINEMATIC", "GEOMETRIC")
-STATES = ("MOVED", "PREDICTED", "CONTROL", "EXITED", "PARTIAL")
+STATES = ("MOVED", "PREDICTED", "CONTROL", "EXITED", "PARTIAL", "FAILED")
 
 # (id, the bound, kind, static form, dynamical counterpart, state, owner)
 ROWS = [
@@ -124,7 +132,7 @@ ROWS = [
   "PREDICTED", "gatespec.py"),
  ("NEC-LADDER", "the project graded against the pointwise NEC",
   "POSITIVITY", "pointwise NEC", "QNEC, <T_kk> >= (hbar/2pi) S''_out",
-  "PARTIAL", "necladder.py"),
+  "FAILED", "anec.py"),
  ("WALL-RADIAL", "beta^2 > beta^2_crit(x)",
   "POSITIVITY", "frozen-background linearisation", "flux-coupled radiating shell",
   "PREDICTED", "wall.py"),
@@ -175,12 +183,17 @@ def predicts_a_control():
     return [r for r in controls() if in_domain(r)]
 
 def evidence_available():
-    """DERIVED.  One prediction has now been examined and it loosened -- but by
-    a different member of the family than was named, so it scores as a half.
-    nullbound.py: the energy-condition closure was predicted to loosen, and did,
-    via timelike-QI -> null-SNEC rather than the named NEC -> QNEC.  QNEC proper
-    is still unasked, so the other half is unearned."""
-    return 0.5
+    """DERIVED, and it is BACK TO ZERO.  The one prediction that has been tested
+    FAILED.  nullbound.py appeared to land it via timelike-QI -> null-SNEC and
+    was scored a half; anec.py then asked the named member, QNEC, and QNEC
+    integrates to ANEC, which the configuration violates on every ray.  The
+    dynamical form is locally looser and globally no looser at all, so on the
+    case it was applied to the shape predicted the wrong direction.
+
+    A pattern that only ever gets credit is not an instrument.  This one has now
+    been wrong once, on its first real test, and that is recorded rather than
+    softened."""
+    return 0.0
 
 # -- each MOVED row re-checked from its owner, so the sample cannot go stale --
 
@@ -219,13 +232,14 @@ def selftest():
     chk("escapes that EXITED the category", len(st["EXITED"]), 1)
     chk("the fitted sample", len(st["MOVED"]), 4)
     chk("the predictions still open", len(st["PREDICTED"]), 2)
-    chk("and one PARTIAL hit", len(st["PARTIAL"]), 1)
+    chk("and one that has been TESTED, and failed", len(st["FAILED"]), 1)
+    chk("  no PARTIAL survives the retest", len(st["PARTIAL"]), 0)
     chk("the controls", len(st["CONTROL"]), 3)
 
     print("\nThe domain, and the falsification check")
     chk("every MOVED row is in the domain", all(in_domain(r) for r in fitted_sample()), True)
     chk("every PREDICTED row is in the domain", all(in_domain(r) for r in predictions()), True)
-    chk("the PARTIAL row is too", all(in_domain(r) for r in ROWS if r[5] == "PARTIAL"), True)
+    chk("the FAILED row is too", all(in_domain(r) for r in ROWS if r[5] == "FAILED"), True)
     chk("NO control is in the domain -- the shape does not claim them",
         predicts_a_control(), [])
     chk("  KAPPA is MEASURED, not a positivity condition",
@@ -251,26 +265,27 @@ def selftest():
     chk("WALL-RADIAL's criterion really is static", check_wall_is_frozen(), True)
 
     print("\nWhat the shape has earned")
-    chk("evidence earned, and it is half a prediction", evidence_available(), 0.5)
-    import nullbound
-    chk("  the half that landed: the thickness bound cancels",
-        abs(nullbound.ratio(0.1, 1e-3) / nullbound.ratio(0.1, 1e-30) - 1.0) < 1e-12, True)
-    chk("  the half that did not: QNEC proper is still unasked",
-        "NEC-LADDER" in [r[0] for r in ROWS if r[5] == "PARTIAL"], True)
+    chk("evidence earned, back to zero", evidence_available(), 0.0)
+    import anec
+    chk("  because the tested prediction FAILED: ANEC is violated",
+        anec.anec_integral(0.3) < 0.0, True)
+    chk("  and QNEC integrates to it", anec.qnec_implies_anec(), True)
+    chk("  so the dynamical form was STRICTER, not looser",
+        "NEC-LADDER" in [r[0] for r in ROWS if r[5] == "FAILED"], True)
     print("""      A pattern induced from four cases is not supported by those four.  Its
-      only test is a prediction that lands.  ONE HAS, HALFWAY: nullbound.py
-      loosened the energy-condition closure, but via timelike-QI -> null-SNEC
-      rather than the NEC -> QNEC this file named.  Right family, wrong
-      member, scored as a half rather than a hit -- because scoring it whole
-      would be the fitting error this file exists to avoid.""")
+      only test is a prediction that lands, and THE ONE THAT HAS BEEN TESTED
+      FAILED.  nullbound.py appeared to land it and was scored a half; anec.py
+      then asked the named member and found the dynamical form STRICTER, not
+      looser -- QNEC integrates to ANEC, which is violated on every ray.  Back
+      to zero, and one strike against.""")
 
     print("\nThe predictions, in order")
-    for i, r in enumerate(predictions() + [r for r in ROWS if r[5] == "PARTIAL"], 1):
+    for i, r in enumerate(predictions() + [r for r in ROWS if r[5] == "FAILED"], 1):
         print("      %d. %-14s %s" % (i, r[0], r[1]))
         print("         %-14s static: %s" % ("", r[3]))
         print("         %-14s dynamic: %s   [%s]" % ("", r[4], r[6]))
-    chk("and the PARTIAL one has a standing decision against its other half",
-        any(r[0] == "NEC-LADDER" for r in ROWS if r[5] == "PARTIAL"), True)
+    chk("and the FAILED one is the row the corpus had a decision about",
+        any(r[0] == "NEC-LADDER" for r in ROWS if r[5] == "FAILED"), True)
     print("""      The corpus records QNEC in Appendix D5 and deliberately does NOT
       make it a letter of the violation index.  The shape says ask; the corpus
       has answered "not as a letter".  Those are compatible -- a measurement is

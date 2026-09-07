@@ -377,6 +377,13 @@ FINDINGS = [
   "every energy condition bounds a CONTRACTION of T; Type IV is about its eigenvectors, so no energy-condition result reaches it"),
  ("THE-TRADE",      +1, -1, +1, "typefour.py",
   "Alcubierre has a tractable budget and Type IV matter; the warpshell has Type I matter and the l>=2 instability. Neither has both"),
+ # QNEC asked properly, and it withdraws this session's headline.
+ ("ANEC-VIOLATED",  +1, -1, -1, "anec.py",
+  "INT T_kk dx is negative on every ray, -0.081 to -0.344: ANEC is violated and QNEC, a theorem, integrates to it"),
+ ("SNEC-RETRACTED",  0, -1,  0, "anec.py",
+  "SNEC must hold for EVERY sampling function; nullbound.py used one, the loosest, and it fails above w ~ 0.93 bubble radii"),
+ ("D-IRRELEVANT",   +1, -1,  0, "anec.py",
+  "the thickness really does drop out -- into prohibition, not permission: ANEC is violated at every D, so the 10^62 kg was the wrong statement"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twelve obstructions three dissolved, three relocated, four closed negative, two conditional and none untested"),
 ]
@@ -412,6 +419,8 @@ SUPPORT = [
  ("SUBSTRATE",  "materials.py",     "a linewidth table alone picks the wrong substrate: YSGG beats GGG on dB and loses on merit, because Ms is halved"),
  ("GAIN-MOOT",  "dispersive.py",    "the gain exemption was not needed: passivity was never the problem, staticity was, and passive dispersion is free"),
  ("NO-EVIDENCE","shape.py",         "the shape has earned nothing yet: the four hits are the sample it was fitted to, and its only test is a prediction that lands"),
+ ("SHAPE-WRONG","shape.py",         "and its first tested prediction FAILED: the dynamical form of the energy condition is stricter, not looser; evidence back to 0"),
+ ("HEADLINE-OUT","nullbound.py",    "this session's headline is withdrawn -- one sampling width is not a scan, and the loosest one was chosen"),
  ("NULL-CAUGHT","shape.py",         "NO-EVIDENCE was first seated as a finding at (0,0,0); the index refused it, because the null cell is declared not a finding"),
 ]
 
@@ -493,13 +502,17 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 133)
+    chk("number of findings indexed", len(FINDINGS), 136)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
     # X that is the reason for the negative answers on Y and Z.
-    chk("the newest cell has one occupant, and it is TYPE-IV",
-        [f[0] for f in FINDINGS if coords(f) == (1, -1, -1)], ["TYPE-IV"])
+    # TYPE-IV opened (+1,-1,-1) and ANEC-VIOLATED joined it.  Both surviving
+    # objections share a coordinate, and it is the right one: warp energy is
+    # identified, and what identifies it is what forbids the build and the spec.
+    chk("the cell TYPE-IV opened now holds both surviving objections",
+        sorted(f[0] for f in FINDINGS if coords(f) == (1, -1, -1)),
+        ["ANEC-VIOLATED", "TYPE-IV"])
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
@@ -518,7 +531,7 @@ def selftest():
                 "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
                 "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE",
                 "AREA-OVER-THICK","NO-NULL-QI","D-CANCELS",
-                "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE"]))
+                "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE","ANEC-VIOLATED"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",

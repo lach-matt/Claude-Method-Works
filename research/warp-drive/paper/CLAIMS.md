@@ -10,9 +10,41 @@ or a design, not a result).
 
 ---
 
-## ★ HEADLINE — flagged for the abstract
+## ⚠ WITHDRAWN — H1 and H2, and the withdrawal is itself a claim
 
-**H1. The standing objection to warp drives is an artefact of the wrong instrument.**
+**H1 and H2 below were flagged for the abstract and are now WITHDRAWN.** `anec.py` asked the
+prediction's named instrument, QNEC, and the answer runs the other way. They are kept in place, struck
+through, because a register that quietly deletes its errors is not a register.
+
+> **The error, precisely.** SNEC must hold for **every** sampling function. `nullbound.py` evaluated it
+> at **one** width — the wall thickness — which is the width at which the bound is loosest. The
+> right-hand side falls as 1/w² while the left falls only as 1/w once w exceeds the wall, so SNEC is
+> **violated for every sampling width above ≈ 0.93 bubble radii**. One width is not a scan, and I chose
+> the flattering one.
+>
+> **And QNEC settles it.** `⟨T_kk⟩ ≥ (ℏ/2π)S″` integrates along a complete generator to
+> `∫⟨T_kk⟩dλ ≥ 0` — ANEC — because the boundary entropy variation vanishes for a localised bubble.
+> Measured: `∫T_kk dx` is **negative on every ray**, −0.081 to −0.344. **ANEC is violated, so QNEC
+> forbids the configuration.** And QNEC is a *theorem* in QFT, where SNEC is a conjecture — the
+> instrument that closes this is stronger than the one that appeared to open it.
+
+**H1′ (what survives, and it is worth stating).** Fewster & Roman stands: there are **no** quantum
+inequalities along null geodesics in 4D. Pfenning & Ford's bound really is a **timelike** instrument,
+and its bound on the *wall thickness* really is an artefact of that. The 1/D² cancellation is real
+arithmetic. **So the thickness genuinely does drop out — into prohibition rather than permission.** The
+10⁶² kg figure was the wrong statement of the problem; the right statement does not involve D at all.
+
+| | `anec.py` |
+|---|---|
+| status | **PROVEN** (numerically, on typefour.py's validated stress tensor) |
+| new? | the withdrawal and H1′, yes |
+| falsified by | an error in the Einstein-tensor pipeline, which is validated against a closed form to 10⁻⁶ |
+
+---
+
+## ~~★ HEADLINE — flagged for the abstract~~ *(WITHDRAWN, see above)*
+
+**~~H1. The standing objection to warp drives is an artefact of the wrong instrument.~~**
 
 > The 10⁶²–10⁶⁵ kg figure comes from bounding the bubble wall thickness with a **timelike** quantum
 > inequality (Pfenning & Ford 1997). The quantity being bounded is **null**. In four dimensions there
@@ -30,7 +62,9 @@ or a design, not a result).
 | verification | ratio constant to 12 figures across D from 1 mm to ℓ_Planck — 32 orders |
 | falsified by | a valid null QI in 4D; or a demonstration that E and T_kk differ parametrically rather than by O(1) |
 
-**H2. The consequence: the requirement changes category, not merely magnitude.**
+**~~H2. The consequence: the requirement changes category, not merely magnitude.~~** *(WITHDRAWN —
+the design equation is correct arithmetic and is not a licence; the configuration is forbidden at any
+budget.)*
 
 > `M = −β²c²R/(12G)` at the thickest admissible wall. R = 100 m at 0.1 c costs **18.8 Earth masses**
 > against Pfenning–Ford's **1.5 × 10⁹ observable universes** — a factor 2 × 10³⁶. The remaining gap to
@@ -42,7 +76,9 @@ or a design, not a result).
 | new? | the design equation, yes |
 | falsified by | H1 failing; or a flatness requirement stricter than σR ≈ 3 |
 
-**H3. And the objection that replaces it is *kind*, not *amount*.**
+## ★ HEADLINE — flagged for the abstract
+
+**H3. The objection to warp drives is *kind*, not *amount* — and there are two of them.**
 
 > The Alcubierre stress-energy is **Hawking–Ellis Type IV** throughout the wall — a complex eigenvalue
 > pair, meaning **no observer anywhere has a rest frame for it**. Measured at 7/7 points with
@@ -50,6 +86,10 @@ or a design, not a result).
 > validated twice (vacuum → 10⁻⁶ noise floor; reproduces BBV Eq (3.48) to 10⁻⁶). **Every energy
 > condition — NEC, WEC, DEC, ANEC, QI, SNEC, QNEC — bounds a *contraction* of T_μν. Type IV is a
 > statement about its *eigenvectors*. H1 cannot touch it, and neither can any successor to H1.**
+>
+> **And it is not alone.** `anec.py` adds a second obstruction of exactly the same character: ANEC is
+> violated on every ray, and both objections are **independent of the wall thickness and of the energy
+> budget entirely.** Neither is a statement about how much.
 >
 > This splits the field cleanly and it is the paper's real contribution to the state of the question:
 >
@@ -115,6 +155,9 @@ or a design, not a result).
 - That a warp drive can be built. H1 removes a stated impossibility; it does not supply negative energy,
   and **H3 supplies a new impossibility-shaped objection in its place.**
 - That Type IV is forbidden. It is unknown. No theorem excludes it.
+- **That `shape.py`'s pattern has any evidence behind it.** Its first tested prediction *failed*: the
+  dynamical form of the energy condition turned out **stricter**, not looser. `evidence_available()` is
+  back to **0**, with one strike against. A pattern that only ever gets credit is not an instrument.
 - That the warpshell is viable — the ℓ≥2 instability stands (**S5**).
 - That QNEC has been applied. `shape.py` predicted the energy-condition family would loosen and named
   QNEC; what landed was timelike-QI → null-SNEC. **Right family, wrong member — scored 0.5, not 1.**

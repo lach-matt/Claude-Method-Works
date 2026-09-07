@@ -1,4 +1,14 @@
 """
+designpoint.py -- *** PREMISE WITHDRAWN by anec.py.  READ THAT FIRST. ***
+
+    This file spends nullbound.py's conclusion, and that conclusion is
+    withdrawn: ANEC is violated at EVERY wall thickness, so freeing D buys
+    nothing.  The design equation M = -beta^2 c^2 R/(12 G) is correct
+    ARITHMETIC -- it is warpenergy.py's exact form at D = R/3 -- and it is not a
+    licence, because the configuration it describes is forbidden by QNEC
+    independently of D.  Kept executable, and the "change of category" section
+    below is withdrawn in full.
+
 designpoint.py -- USING the breakthrough.  What the drive looks like once the
 wall thickness is a design variable instead of a Planck-scale sentence.
 
@@ -36,6 +46,11 @@ compact and none of wall.py's shell bounds bind on it.
         D free,             R = 100 m, beta = 0.1  1.12e26 kg
                                                   = 7.5e-28 of the universe
                                                   = 18.8 Earth masses
+
+    *** WITHDRAWN: there is no change of category.  The old objection was the
+        wrong statement of the problem, and the right one (ANEC, QNEC, Type IV)
+        forbids the configuration at any budget.  What follows is kept as the
+        record of the claim. ***
 
     A FACTOR OF 2e36, AND MORE IMPORTANTLY A CHANGE OF KIND.  The standing
     objection to warp drives is not that they are expensive.  It is that they

@@ -1,4 +1,20 @@
 """
+nullbound.py -- *** CONCLUSION WITHDRAWN by anec.py.  READ THAT FIRST. ***
+
+    The error: SNEC must hold for EVERY sampling function, and this file
+    evaluated it at ONE width -- the wall thickness -- which is the width at
+    which the bound is loosest.  The right-hand side falls as 1/w^2 while the
+    left falls only as 1/w once w exceeds the wall, so the bound is VIOLATED for
+    every sampling width above ~0.93 in units of the bubble radius.  One width
+    is not a scan.  And QNEC, which integrates to ANEC, forbids the
+    configuration outright: INT T_kk dx is negative on every ray measured.
+
+    WHAT STANDS: Fewster & Roman (no null QIs in 4D); that Pfenning-Ford is a
+    timelike instrument; and the 1/D^2 cancellation, which is real arithmetic.
+    The wall thickness genuinely does drop out -- into PROHIBITION rather than
+    permission.  Everything below is kept executable so the mistake cannot be
+    re-derived, per this tree's practice.
+
 nullbound.py -- DIRECTIVE 2's obstacle, and it is the wrong instrument.
 
 warpenergy.py closed directive 1 and handed off one sentence: the entire cost of
@@ -60,6 +76,9 @@ Two 1/D^2 laws meet, and both of them also carry 1/G.
     null-smeared condition there is no preferred thickness at all: a metre-thick
     wall and a Planck-thick wall are equally admissible, and what is bounded is
     the VELOCITY.
+    *** WITHDRAWN.  "Equally admissible" is wrong; they are equally INadmissible.
+        The thickness-independence is real and the sign of the conclusion is
+        not.  See anec.py. ***
 
 -- WHAT THIS IS AND IS NOT ----------------------------------------------------
 It is a scaling comparison with four O(1) exposures, every one of them named:
@@ -82,6 +101,10 @@ This does NOT say a warp drive can be built.  It says the specific reason
 everybody gives for why it cannot -- 10^62 kg, forced by a Planck-thin wall --
 rests on applying a timelike bound to a null quantity, in a dimension where the
 null bound provably does not exist.
+*** AND THE REPLACEMENT REASON IS WORSE, NOT ABSENT.  anec.py measures ANEC
+    violated on every ray, and QNEC integrates to ANEC.  The 10^62 kg was the
+    wrong statement of the problem; the right statement is a prohibition that
+    does not depend on D at all. ***
 
 -- AND IT LANDS shape.py's PREDICTION 2, PARTLY -------------------------------
 shape.py predicted, before this file existed, that the energy-condition family

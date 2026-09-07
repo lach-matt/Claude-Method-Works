@@ -141,6 +141,12 @@ LEDGER = [
   "saturating only at resonance. Cost of the error: beta capped at c/4 when the "
   "real ceiling is the analogue horizon -- 0.825 c at 0.95% ferrite loss",
   "dispersive.py"),
+ ("ANEC", "the averaged null energy condition", "OPEN",
+  "VIOLATED on every ray of the Alcubierre bubble, INT T_kk dx from -0.081 to "
+  "-0.344, and QNEC -- a THEOREM, not a conjecture -- integrates to it. "
+  "D-independent, so freeing the wall thickness buys nothing. WITHDRAWS this "
+  "session's headline: nullbound.py evaluated SNEC at one sampling width, the "
+  "loosest, and SNEC fails above w ~ 0.93 bubble radii", "anec.py"),
 ]
 
 def by_status():
@@ -207,7 +213,7 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 13)
+    chk("obstructions tracked", len(LEDGER), 14)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 3)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 4)
