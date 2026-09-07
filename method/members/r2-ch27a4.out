@@ -68,7 +68,7 @@
   handles resolving elsewhere (each handle grepped raw, backticked or bare, in main / mc / pc / ioi / sc / reg / Transitions):
     A.clos       {'main': 1, 'reg': 1, 'mc': 2}
     A.dens       {'main': 1, 'mc': 1}
-    A.derived    {'main': 1, 'reg': 3, 'mc': 1}
+    A.derived    {'main': 1, 'reg': 4, 'mc': 1}
     A.ext        {'main': 1, 'reg': 1, 'mc': 1}
     A.freuder    {'main': 1, 'mc': 1}
     A.gc         {'main': 1, 'reg': 1, 'mc': 2}

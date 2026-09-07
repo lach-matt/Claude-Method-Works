@@ -72,7 +72,7 @@
   witness: the 20a-01 / 21a-04 / 16z-01 figures and Chapter 34's are printed nowhere in the unit; the WARNING lines 1309 / 1350 / 1401 / 1403 / 1461 are not engaged by any figure here
 
 == §4 Register entries the unit cites or that name it — heading present, first body line, WARNING lines in the entry
-  Register entries naming Appendix F / F.n: {296: [1116], 367: [1368], 371: [1380], 372: [1384], 388: [1448], 390: [1456], 392: [1464], 1729: [6454], 1734: [6462], 1755: [6498], 1762: [6510], 1780: [6574], 1781: [6577], 1786: [6596], 1818: [6717], 1854: [6861], 1859: [6881]}
+  Register entries naming Appendix F / F.n: {296: [1116], 367: [1368], 371: [1380], 372: [1384], 388: [1448], 390: [1456], 392: [1464], 1729: [6454], 1734: [6462], 1755: [6498], 1762: [6510], 1780: [6574], 1781: [6577], 1786: [6596], 1818: [6717], 1854: [6861], 1859: [6881], 1868: [6916]}
   296: heading R1114; WARNING lines none; body: **TWO MEASUREMENTS OF THE BOOK'S OWN SHAPE NAMED AT F.4.1 — THE WITHDRAWAL RATIO AND THE METHOD RATIO.** *Appendix F indexes every number this book pr
   297: heading R1118; WARNING lines none; body: **THE IDEAL WITHDRAWAL RATIO DERIVED AS 1 : 1 — AT PARITY A CLAIM'S SURVIVAL CARRIES EXACTLY ONE BIT — AND FOUND UNMEASURABLE: THE DENOMINATOR SPANS A
   320: heading R1194; WARNING lines none; body: **THE BOOK IS PROCEDURAL RATHER THAN EXPLORATORY, AND THE CHANGE IS MEASURABLE** *: defects found by hand fall 88% to 55% while defects found by instr
@@ -94,7 +94,8 @@
   1818: heading R6715; WARNING lines none; body: **THE CLOSURE RULE IS PRINTED ONE-SIDED AT FOUR SITES REGISTER 402 CORRECTS, AND EACH NOW POINTS AT THE CORRECTION.** *Register 402: the closure rule 
   1854: heading R6859; WARNING lines none; body: **THE UNPRINTED-INPUT CLASS IS NOT "SIXTY MEMBERS, UNCHANGED": TWO OF ITS NAMED SEVEN ARE REPAIRED, AND WHERE IT STILL HOLDS IN §22 THE TABLE IS RIGHT
   1859: heading R6879; WARNING lines none; body: **REGISTER 1786 SAYS THERE WAS NEVER AN F.3.1 OR AN F.3.2 AND THE ORIGINAL INPUT CARRIES BOTH, AS HEADINGS.** *1786 renumbers Appendix F and states it
-  entries later than 1780 (the rebuild) naming the appendix: [1781, 1786, 1818, 1854, 1859]
+  1868: heading R6914; WARNING lines none; body: **§F.4.1 NAMES TWO RATIOS AND SAYS ENTRIES ESTABLISHED BOTH; ONE HAS AN ENTRY WITH A VALUE AND THE OTHER IS NAMED ONCE IN THE WHOLE CORPUS AND GIVEN N
+  entries later than 1780 (the rebuild) naming the appendix: [1781, 1786, 1818, 1854, 1859, 1868]
 
 == §5 F.3's rule in the Register ("refuted by its own extent" — "several of the corrections the Register carries are exactly this rule firing")
   Register entries matching: 0 {}

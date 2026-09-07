@@ -219,9 +219,9 @@ before any pass that spans more than one file.
 
 **Thirty `tools/` programs are also seated members, and the two copies are NOT in lockstep.** The
 member is the **snapshot at its seating build**; the `tools/` copy is what a chat actually runs, so a
-pass that improves an instrument moves the working copy and leaves the member where it was. **Four are
+pass that improves an instrument moves the working copy and leaves the member where it was. **Five are
 ahead of their member right now** — `docfigures.py`, `drive_sync.py` (304 diff lines), `shiftcheck.py`
-(70) and `slopeaxis.py` (80) — and until 2026-09-07 **nothing in the store reported it**: `verify.py`
+(70), `slopeaxis.py` (80) and `gate_live.py`, whose `HELD` gained `r2-26c2` — and until 2026-09-07 **nothing in the store reported it**: `verify.py`
 checks members against the bundles and never against `tools/`, and none of the four is in the live
 golden set, so `gate_live.py` does not run the seated copy either. A seated instrument could answer
 with logic a leg out of date and no step would say so. `tools/docfigures.py` now carries the row that

@@ -67,8 +67,8 @@
   12.11.2 body_range (3368, 3399)  section_span (3368, 3399)  (coincide)
     L3374 half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances.
 === J. withdrawals in the Register against "three hundred and sixty-eight" ===
-  register entry headings 1699 ; entries whose body contains a withdrawal word 63
-  occurrences of the stem anywhere in the Register: 98
+  register entry headings 1705 ; entries whose body contains a withdrawal word 64
+  occurrences of the stem anywhere in the Register: 101
   368 sites, six volumes: {'reg': [1370, 1372, 2420, 6322], 'mc': [1520], 'ioi': [748]}
   37 sites in main: [2283, 3232, 6242, 6855, 10216, 10218, 11622, 11624, 11714]
   printed: 368 withdrawals, ~37 from a single late session
@@ -84,4 +84,4 @@
   1,442   35 sites  {'main': [28, 200, 564, 5659, 6637, 6747, 6749, 6751, 6755, 6772, 6791, 6804, 6807, 6809, 6810, 6815, 6816, 6892, 6975, 6991, 7373, 7459, 8855, 10284, 10296, 10587, 10625, 11005, 11149, 11168], 'reg': [980, 1824, 2008, 2872, 6190]}
   368      6 sites  {'reg': [1370, 1372, 2420, 6322], 'mc': [1520], 'ioi': [748]}
   540     28 sites  {'main': [2891, 3496, 8733, 8741, 8743, 8745, 8752, 8766, 8767, 8768, 8769, 8770, 8786, 8793, 8890, 10588, 10626, 11116, 11117, 11120], 'reg': [852, 856, 1444, 2026], 'mc': [1274, 1314], 'ioi': [234, 920]}
-  25      75 sites  {'main': [92, 145, 200, 228, 1253, 1564], 'reg': [178, 836, 1672, 2976, 3320, 3472], 'mc': [186, 1100, 1183, 1185, 1254, 1876], 'pc': [44, 391, 424], 'ioi': [405, 1510], 'sc': [132, 136, 402, 578, 579, 580]}
+  25      76 sites  {'main': [92, 145, 200, 228, 1253, 1564], 'reg': [178, 836, 1672, 2976, 3320, 3472], 'mc': [186, 1100, 1183, 1185, 1254, 1876], 'pc': [44, 391, 424], 'ioi': [405, 1510], 'sc': [132, 136, 402, 578, 579, 580]}

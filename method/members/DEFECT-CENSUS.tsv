@@ -684,7 +684,7 @@ id	class	member	line	item	detail
 683	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.199	other sites: reg=2 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 684	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.227	other sites: main=1 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=126 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=127 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=150 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3210	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
 689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	2,475	other sites: main=2 reg=4 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
@@ -1624,3 +1624,6 @@ id	class	member	line	item	detail
 1623	C8-NAMED-STATEMENT	all	0	resolver's own rule	sites=1 in reg | bold/heading statement in main: NO
 1624	C9-OVERGENERALISATION-WORD	reg	6877	never	**REGISTER 1779 CALLS Z − charge THE ELECTRON COUNT AND THE SPECTRA COMPENDIUM PRINTS THE FORMULA TWO HUNDRED LINES AWAY: Nₑ = Z − charge + 1.** *Register 1779's strongest result is stated as* **"the 
 1625	C9-OVERGENERALISATION-WORD	reg	6881	never	**REGISTER 1786 SAYS THERE WAS NEVER AN F.3.1 OR AN F.3.2 AND THE ORIGINAL INPUT CARRIES BOTH, AS HEADINGS.** *1786 renumbers Appendix F and states its history:* **"The appendix ran F.1, F.2, F.3, F.3
+1626	C8-NAMED-STATEMENT	all	0	store's own rule	sites=1 in reg | bold/heading statement in main: NO
+1627	C9-OVERGENERALISATION-WORD	reg	6916	never	**§F.4.1 NAMES TWO RATIOS AND SAYS ENTRIES ESTABLISHED BOTH; ONE HAS AN ENTRY WITH A VALUE AND THE OTHER IS NAMED ONCE IN THE WHOLE CORPUS AND GIVEN NO FIGURE ANYWHERE.** *§F.4.1 is titled* **"Two rat
+1628	C9-OVERGENERALISATION-WORD	reg	6916	never	**§F.4.1 NAMES TWO RATIOS AND SAYS ENTRIES ESTABLISHED BOTH; ONE HAS AN ENTRY WITH A VALUE AND THE OTHER IS NAMED ONCE IN THE WHOLE CORPUS AND GIVEN NO FIGURE ANYWHERE.** *§F.4.1 is titled* **"Two rat

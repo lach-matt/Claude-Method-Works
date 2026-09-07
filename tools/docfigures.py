@@ -190,7 +190,7 @@ def checks():
         ("docs/RETRACTION-AUDIT.md", "LIVE-SUPERSEDED", 25,
          sum(1 for r in _rows("RETRACTION-AUDIT.tsv")
              if r["verdict"] == "LIVE-SUPERSEDED")),
-        ("docs/REGISTER-GAPS.md", "The Register entries", 1731, len(R)),
+        ("docs/REGISTER-GAPS.md", "The Register entries", 1737, len(R)),
         ("docs/REGISTER-GAPS.md", "Working Register entries", 119, len(W)),
         ("docs/REGISTER-GAPS.md", "registers seated in both (must be 0)", 0, len(R & W)),
         ("docs/REGISTER-GAPS.md", "numbering gaps", 133, len(gaps)),
@@ -221,7 +221,7 @@ def checks():
          _members_needing_312()),
         ("CLAUDE.md", ".py files that parse under NO available interpreter", 6,
          _unparseable_anywhere()),
-        ("CLAUDE.md", "tools/ instruments ahead of their seated member", 4,
+        ("CLAUDE.md", "tools/ instruments ahead of their seated member", 5,
          len(_tools_ahead_of_their_members())),
     ] + _instrument_rows()
 
@@ -374,9 +374,9 @@ def _instrument_rows():
     pv = lambda v: sum(1 for s in sites if s["verdict"] == v)
     av = lambda v: sum(1 for c in claims if c["verdict"] == v)
     return [
-        ("docs/POINTERS.md", "pointer tokens, --roster with-companion", 2110, len(sites)),
+        ("docs/POINTERS.md", "pointer tokens, --roster with-companion", 2120, len(sites)),
         ("docs/POINTERS.md", "findings", 44, sum(1 for s in sites if _is_finding(s))),
-        ("docs/POINTERS.md", "RESOLVED", 1563, pv("RESOLVED")),
+        ("docs/POINTERS.md", "RESOLVED", 1573, pv("RESOLVED")),
         ("docs/POINTERS.md", "RESOLVED-HERE", 438, pv("RESOLVED-HERE")),
         ("docs/POINTERS.md", "AMBIGUOUS", 65, pv("AMBIGUOUS")),
         ("docs/POINTERS.md", "PARTIAL", 19, pv("PARTIAL")),
