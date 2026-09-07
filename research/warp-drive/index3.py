@@ -243,6 +243,13 @@ FINDINGS = [
   "m depends on f~ alone and decreases, so margin-min sits at max f~ and NEC-peak strictly inside: disjoint"),
  ("C4-CORRECTED", 0, -1, +1, "neclab.py",
   "c/4 is the leading-order bound; the full Eqs (6),(7) saturate at 0.245826 and are unstable at 0.25"),
+ # device.py -- the parts list, every field tested as it was written.
+ ("THE-DEVICE",  +1, +1, +1, "device.py",
+  "a 23 cm YIG-and-copper block at 5.78 GHz emulating v_0 = 0.222 c: nothing exotic in the parts list"),
+ ("SRR-FAILED",   0, -1, +1, "device.py",
+  "a single-gap ring of the required size resonates at 118 GHz, 16x too high: broadside coupling or nothing"),
+ ("REGISTRATION", 0, -1, +1, "device.py",
+  "one cell of layer mis-registration gives margin -0.355 at the outer wall; derate 9.5% or co-locate"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -261,6 +268,7 @@ SUPPORT = [
  ("CARVE-OUT", "restatus.py",       "Rodal's own Sec 3.3 excludes analogue models from his no-go; the one hard closure carves it out"),
  ("COUPLE-FIX","door.py",           "'does not couple to real spacetime' withdrawn: it is h ~ 4.5e-24, and Sec 17.1 was written past"),
  ("SMOL-GAP",  "neclab.py",         "Smolyaninov asserts energy conditions are not a problem and never computes it; neclab.py does"),
+ ("BOUNDARY",  "device.py",         "safe_beta bisects to ZERO margin; a bisected boundary is not a design point, so a 5% safety factor"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -341,7 +349,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 77)
+    chk("number of findings indexed", len(FINDINGS), 80)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -358,11 +366,11 @@ def selftest():
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
-                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN"]))
+                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN","THE-DEVICE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
-                "THE-DOOR","EC-TAKEN"]))
+                "THE-DOOR","EC-TAKEN","THE-DEVICE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

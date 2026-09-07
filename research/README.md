@@ -54,6 +54,7 @@ a report.
 | **`warp-drive/RESTATUS`** | **`warp-drive/restatus.py`** | **every architecture regraded by *how* it closed — of six this project reasoned to itself, zero are closed by measurement** |
 | **`warp-drive/THE-DOOR`** | **`warp-drive/door.py`** | **"does not couple to real spacetime" withdrawn: it is h ≈ 4.5×10⁻²⁴, and §17.1's door — a construction is closed from *outside*, by measurement** |
 | **`warp-drive/NEC-LAB`** | **`warp-drive/neclab.py`** | **the measurement, taken: the medium *can* carry the analogue NEC violation, at 3.15% of its stability margin — and the reason is structural** |
+| **`warp-drive/DEVICE`** | **`warp-drive/device.py`** | **the parts list, every field tested as written: a 23 cm YIG-and-copper block at 5.78 GHz, v₀ = 0.222 c — and two tests failed and changed the design** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ### The rung this project has been standing on
@@ -352,6 +353,60 @@ analogue: it does not gravitate the emulated shift.
 Under `door.py`'s test this is a **measurement, not a relabel** — the requirement came from the
 geometry and was not designed into the material, which is exactly why it could have come out the
 other way, and did not.
+
+### The parts list, tested as it was written
+
+Not a spec sheet with a test appendix — every row carries its own test and verdict. **Two failed on
+the first pass and changed the design.** They are the argument for the discipline.
+
+**The design point.** A benchtop microwave block. Nothing in it is an "advanced material".
+
+| | |
+|---|---|
+| emulated warp speed v₀ | **0.2224 c** — derated 9.5% (4.8% registration + 5% safety) |
+| background index n | 2.0 — argmax of (n−1)/n² |
+| ε = μ at the wall | 2.2331 |
+| magnetoelectric g_x | 1.1093 |
+| operating frequency | **5.784 GHz** — set by the ferrite, not chosen |
+| unit cell / wall / radius | 2.32 mm / 2.32 cm (10 cells) / 9.28 cm |
+| **device span** | **23.2 cm** |
+
+**Tests that passed.** *YIG ferrite*: 4πM_s = 1750 G at 0.30 T bias gives FMR at 8.40 GHz; the
+required g_x = 1.109 is reached at 5.784 GHz — **1,869 YIG linewidths off resonance**, which is why
+the loss stays low. *Split rings*: ε = μ = 2.23 is modest, needing rings resonant at 6.83 GHz, 18%
+above operating. *Loss*: 6.1% across the whole block at Q = 10³, 0.6% at Q = 10⁴; Q = 10² (47%) needs
+the gain-medium compensation Smolyaninov cites.
+
+**TEST 4 FAILED AND CHANGED A PART.** The ferrite *fixes* the operating frequency, so the rings aren't
+free to be any size. A conventional **single-gap** split ring of the required 2 mm diameter:
+`L = 1.47 nH`, `C_gap = 1.24 fF` → **f₀ = 118 GHz. Sixteen times too high.** The gap capacitance of a
+single split is femtofarads and nowhere near enough. The fix is a **broadside-coupled** ring — two
+rings facing across a thin high-permittivity substrate, so the capacitance is the ring-to-ring overlap:
+`ε_r = 20, h = 0.5 mm → C = 356 fF → f₀ = 6.95 GHz`. In range. *Found by pricing the part; a layout
+drawn from the required f₀ alone would have been fabricated before anyone noticed.*
+
+**TEST 5 FAILED AND ADDED A DESIGN RULE.** The wall is only ten unit cells, so the profile is
+quantised. If the split-ring layer and the ferrite layer are **mis-registered by one cell** — g_x one
+step ahead of ε — the stability bound is violated at the outermost step: **margin −0.355**. Fatal
+there and nowhere else, because that cell sits at *zero margin by construction* at the design limit.
+Two fixes, and the design takes both: co-locate the ferrite inside the ring (Smolyaninov's own Fig. 2
+geometry, which now has a reason rather than a convenience), and **derate**:
+
+| cells across wall | safe v₀/c | derate | wall |
+|---|---|---|---|
+| 5 | 0.2244 | 8.7% | 1.0 cm |
+| **10** | **0.2341** | **4.8%** | **2.1 cm** |
+| 20 | 0.2397 | 2.5% | 4.2 cm |
+
+*A built device that skipped this would have shown an unexplained instability at its outer boundary,
+and a one-cell offset between two lithography layers is close to undiagnosable after the fact.*
+
+**And a third, from the selftest itself.** `safe_beta()` bisects to *zero* margin — it finds where the
+mis-registered cell just touches the bound. The selftest refused to call zero positive, which is the
+discipline working: **a bisected boundary is not a design point.** The design now sits 5% inside it.
+
+> **What testing parts during the design bought: one part replaced, one derating, and one safety
+> factor — all before anything was drawn.**
 
 ## `warp-drive/`
 
