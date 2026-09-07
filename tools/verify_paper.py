@@ -2909,6 +2909,33 @@ def bal_c880():
 def bal_c881():
     return _mach.balance("bred", _mach.service_life(8.5), 2.6, 400.0, target=True)
 
+def _fuel_ks():
+    ps = _ps()
+    ys, yf = _yfs()
+    g = ps.loop_requirement(0.30)
+    return ps.k_for_plant_gain(g, ys, yf), ps.k_for_plant_gain(g / 0.25, ys, yf)
+
+
+def fuel_F_loop():
+    return _ps().fissions_per_source(_fuel_ks()[0])
+
+
+def fuel_N_loop():
+    return _ps().neutrons_per_source(_fuel_ks()[0])
+
+
+def fuel_fb_loop():
+    return _ps().fertile_capture_required(_fuel_ks()[0])
+
+
+def fuel_fb_plant():
+    return _ps().fertile_capture_required(_fuel_ks()[1])
+
+
+def fuel_fb_ads():
+    return _ps().fertile_capture_required(0.95)
+
+
 def doppler_lo():
     return _ps().DOPPLER_K_LO
 

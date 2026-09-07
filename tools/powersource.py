@@ -587,6 +587,113 @@ def report_stability():
     return 0
 
 
+# ---- THE FUEL, WHICH MUST BE PRICED RATHER THAN NAMED --------------------
+# "Fertile feed, not free, and not priced here" is a dodge. If the fuel costs
+# more than the reaction returns, there is no power source, so the fuel has to
+# be priced -- and the honest way to price it is to ask whether the device
+# needs any after it is lit.
+#
+# It does not, IF it breeds what it burns. That is a neutron-balance statement
+# and it closes in one line. Per source neutron a subcritical assembly makes
+# 1/(1-k) neutrons in all and F = k/(nu(1-k)) of them cause fission, so the
+# absorptions NOT spent on fission are 1/(1-k) - F. Breeding one fissile atom
+# for every atom fissioned needs a fraction f_b of those to land in fertile
+# material, and
+#
+#     f_b  >=  F / (1/(1-k) - F)  =  k / (nu - k)
+#
+# with everything else -- structure, coolant, fission products, leakage --
+# sharing what is left.
+def fissions_per_source(k_eff, nu=NU_FAST):
+    return k_eff / (nu * (1.0 - k_eff))
+
+
+def neutrons_per_source(k_eff):
+    return 1.0 / (1.0 - k_eff)
+
+
+def fertile_capture_required(k_eff, nu=NU_FAST):
+    """The share of non-fission absorptions that must breed, for self-supply.
+
+    Below this the assembly eats its own inventory and the fuel has a price.
+    At or above it the device breeds what it burns and the fuel, after the
+    first charge, costs nothing.
+    """
+    return k_eff / (nu - k_eff)
+
+
+def breeding_ratio(k_eff, f_b, nu=NU_FAST):
+    """Fissile atoms bred per atom fissioned, at a given fertile capture share."""
+    f = fissions_per_source(k_eff, nu)
+    return f_b * (neutrons_per_source(k_eff) - f) / f
+
+
+def report_fuel():
+    """The fuel, priced: what the device must breed to need none."""
+    m = _mach()
+    eta_w = m.delivered_eta_window(2.60, 400.0)
+    y_f = fusion_neutrons_per_proton(eta_w)
+    y_s = 0.5 * sum(spallation_yield())
+    k_loop = k_for_plant_gain(loop_requirement(0.30), y_s, y_f)
+    k_plant = k_for_plant_gain(loop_requirement(0.30) / 0.25, y_s, y_f)
+    print("  THE FUEL, PRICED")
+    print("    Naming the fertile feed and declining to price it is a dodge. If")
+    print("    the fuel costs more than the reaction returns there is no power")
+    print("    source. The honest way to price it is to ask whether the device")
+    print("    needs any AFTER it is lit -- and that is a neutron balance.")
+    print()
+    print("    Per source neutron the assembly makes 1/(1-k) neutrons in all,")
+    print(f"    and F = k/(nu(1-k)) of them cause fission at nu = {NU_FAST}. The")
+    print("    absorptions NOT spent on fission are the difference. Breeding one")
+    print("    fissile atom for each one fissioned therefore needs a fraction")
+    print()
+    print("      f_b  >=  F / (1/(1-k) - F)  =  k / (nu - k)")
+    print()
+    print("    of those absorptions to land in FERTILE material, with structure,")
+    print("    coolant, fission products and leakage sharing the rest.")
+    print()
+    print(f"      {'k':>8}{'fissions':>11}{'neutrons':>11}{'spare abs':>12}{'f_b needed':>13}")
+    for k in (k_loop, k_plant, 0.95):
+        f = fissions_per_source(k)
+        n = neutrons_per_source(k)
+        print(f"      {k:8.3f}{f:11.4f}{n:11.3f}{n - f:12.4f}"
+              f"{fertile_capture_required(k):13.3f}")
+    print()
+    print("    THE REQUIREMENT IS MET BY A BLANKET THAT IS MOSTLY FERTILE, which")
+    print("    is what a fertile-loaded blanket is. Between a quarter and a half")
+    print("    of the spare absorptions have to breed; the remainder is the")
+    print("    parasitic budget, and it is a large one.")
+    print()
+    print("    IT IS ALSO EASIER THE FURTHER FROM CRITICALITY THE DEVICE SITS:")
+    print(f"      at k = {k_loop:.3f} the requirement is {fertile_capture_required(k_loop):.3f}")
+    print(f"      at k = {k_plant:.3f} it is {fertile_capture_required(k_plant):.3f}")
+    print("    so the margin the muon channel buys is worth something here too.")
+    print()
+    print("    WHAT THE DEVICE THEREFORE CONSUMES AFTER IGNITION")
+    print("      electricity   none -- the loop is closed")
+    print("      tritium       none -- bred at 1.15 per fusion, above replacement")
+    print(f"      fissile       none -- bred at 1.00 or above when f_b >= {fertile_capture_required(k_loop):.3f}")
+    print("      fertile       yes -- and this is the one real feed. It is the")
+    print("                    material the breeding consumes, and it is the")
+    print("                    cheapest and most abundant input in the whole")
+    print("                    device.")
+    print()
+    print("    SO THE IGNITION COST IS A ONE-TIME CHARGE, AND IT IS THREE THINGS:")
+    print("      an initial FISSILE loading, enough to bring the assembly to its")
+    print("      operating k; an initial TRITIUM charge, enough to start the")
+    print("      fusion cycle; and the ELECTRICITY to run the driver until the")
+    print("      loop closes. After that the device buys nothing but fertile")
+    print("      feed, and returns more energy than it takes.")
+    print()
+    print("    WHAT THIS DOES NOT SETTLE. The size of that initial charge, which")
+    print("    is a blanket-design figure and not a physics one; the fuel-cycle")
+    print("    plant that separates bred fissile from fission products; and")
+    print("    whether f_b is reached in a specific geometry, which is a")
+    print("    transport calculation. The requirement is stated in the form a")
+    print("    blanket designer checks, and no further.")
+    return 0
+
+
 def report():
     m = _mach()
     print("WHAT A SELF-SUSTAINING POWER SOURCE REQUIRES")
@@ -821,6 +928,25 @@ def selftest():
     print("       closed by feeding back a fixed share and must be regulated")
 
     print()
+    print("  the fuel, priced rather than named")
+    ys3, yf3 = 0.5 * sum(spallation_yield()), fusion_neutrons_per_proton(eta_best)
+    kL = k_for_plant_gain(loop_requirement(0.30), ys3, yf3)
+    kP = k_for_plant_gain(loop_requirement(0.30) / 0.25, ys3, yf3)
+    check("the fertile capture required is a fraction, not a demand for all of it",
+          0.0 < fertile_capture_required(kL) < 0.5)
+    check("and it is easier the further from criticality the device sits",
+          fertile_capture_required(kL) < fertile_capture_required(kP)
+          < fertile_capture_required(0.95))
+    check("breeding exactly at the requirement returns a ratio of one",
+          abs(breeding_ratio(kL, fertile_capture_required(kL)) - 1.0) < 1e-9)
+    check("breeding above it returns more than one",
+          breeding_ratio(kL, 2 * fertile_capture_required(kL)) > 1.0)
+    check("and below it, less -- so the device would eat its own inventory",
+          breeding_ratio(kL, 0.5 * fertile_capture_required(kL)) < 1.0)
+    print("    -- the requirement is what makes the fuel free AFTER ignition;")
+    print("       below it the fuel has a price and the claim fails")
+
+    print()
     print("  the instrument can fail: a blanket that could not supply the")
     print("  requirement would have to need k >= 1, so that case is constructed")
     check("a requirement of 100 GeV per fusion would need k >= 1",
@@ -842,6 +968,7 @@ def main():
     ap.add_argument("--plant", action="store_true", help=report_plant.__doc__)
     ap.add_argument("--stability", action="store_true",
                     help=report_stability.__doc__)
+    ap.add_argument("--fuel", action="store_true", help=report_fuel.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -853,6 +980,8 @@ def main():
         return report_plant()
     if a.stability:
         return report_stability()
+    if a.fuel:
+        return report_fuel()
     return report()
 
 

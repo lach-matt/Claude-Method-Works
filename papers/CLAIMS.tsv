@@ -940,3 +940,8 @@ C944	temperature rise restoring one percent of loop gain	112	K	DERIVED	0.01 / (|
 C945	extra margin to criticality the muon channel buys	4339	pcm	DERIVED	1e5 (C930 - C929)	fn:margin_gain
 C946	and the factor it lowers the power sensitivity by	1.12	x	DERIVED	sensitivity at C930 over C929	fn:psens_gain
 C947	wall plug to beam, the mid-range accelerator the loop is stated at	0.30	fraction	ASSUMED	between C924 and C925; the figure the tables are read at	fn:eta_acc_mid
+C948	fissions per source neutron at the loop point	0.9239	per source n	DERIVED	k/(nu(1-k)) at C929	fn:fuel_F_loop
+C949	neutrons per source neutron at the loop point	3.679	per source n	DERIVED	1/(1-k) at C929	fn:fuel_N_loop
+C950	fertile capture share the fuel must reach, loop point	0.335	fraction	DERIVED	k/(nu - k) at C929	fn:fuel_fb_loop
+C951	the same at the plant point	0.468	fraction	DERIVED	k/(nu - k) at C934	fn:fuel_fb_plant
+C952	the same at the accelerator-driven design point	0.487	fraction	DERIVED	k/(nu - k) at C901	fn:fuel_fb_ads
