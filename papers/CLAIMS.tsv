@@ -945,3 +945,22 @@ C949	neutrons per source neutron at the loop point	3.679	per source n	DERIVED	1/
 C950	fertile capture share the fuel must reach, loop point	0.335	fraction	DERIVED	k/(nu - k) at C929	fn:fuel_fb_loop
 C951	the same at the plant point	0.468	fraction	DERIVED	k/(nu - k) at C934	fn:fuel_fb_plant
 C952	the same at the accelerator-driven design point	0.487	fraction	DERIVED	k/(nu - k) at C901	fn:fuel_fb_ads
+C953	subcritical k on fusion-driven fission alone, design-target accelerator	0.881	k_eff	DERIVED	powersource.py; spallation excluded from the claim	fn:kfus_hi
+C954	the same at the mid-range accelerator	0.933	k_eff	DERIVED	the same	fn:kfus_mid
+C955	the same at the low accelerator	0.957	k_eff	DERIVED	the same	fn:kfus_lo
+C956	household average electric demand	1.14	kW	ASSUMED	10,000 kWh a year; the per-share design point	fn:household_kw
+C957	the k the safety margin holds the plant at	0.95	k_eff	DESIGN	margin equals a fast core's whole control worth	fn:k_safe
+C958	plant gain at that k	45.7	ratio	DERIVED	powersource.py --scale	fn:gain_safe
+C959	driver fixed standby load, low	200	kW	SOURCED	superconducting proton linac cryogenics and rf	fn:standby_lo
+C960	the same, high	2000	kW	SOURCED	the same	fn:standby_hi
+C961	minimum beam power at the low standby	39	kW	DERIVED	S / (eta_th eta_acc G - 1)	fn:pmin_lo
+C962	the same at the high standby	387	kW	DERIVED	the same	fn:pmin_hi
+C963	net electric at three times the minimum, mid standby	3333	kW	DERIVED	powersource.py --scale	fn:net_mid
+C964	households that serves	2924	count	DERIVED	C963 / C956	fn:homes_mid
+C965	the k a household-scale beam would need	0.9908	k_eff	DERIVED	30 kW of beam against a 1 MW standby	fn:k_household
+C966	the margin that leaves	919	pcm	DERIVED	1e5 (1 - C965); below C939, so NOT SAFE	fn:margin_household
+C967	energy in a kilogramme of fertile, fully burned	22517	MWh thermal	DERIVED	2.53e24 atoms x C196	fn:kg_thermal
+C968	the same as electricity	10133	MWh	DERIVED	C967 x C923	fn:kg_electric
+C969	fertile a household burns in a year	0.99	g	DERIVED	powersource.py --scale	fn:grams_home_year
+C970	years one kilogramme runs one household	1013	years	DERIVED	C968 / 10,000 kWh	fn:home_years_kg
+C971	aluminium's pion yield against lead's, per interaction	0.752	x	DERIVED	HARP large-angle, same spectrometer; sigma_inel by A^2/3 from lead	fn:al_over_pb

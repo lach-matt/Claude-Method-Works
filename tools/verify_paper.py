@@ -2909,6 +2909,103 @@ def bal_c880():
 def bal_c881():
     return _mach.balance("bred", _mach.service_life(8.5), 2.6, 400.0, target=True)
 
+def _kfus(ea):
+    ps = _ps()
+    ys, yf = _yfs()
+    g = ps.loop_requirement(ea)
+    need = (g * 8000.0 - 8000.0 - yf * 17.59) / yf
+    return ps.k_for_energy(need)
+
+
+def kfus_hi():
+    return _kfus(0.50)
+
+
+def kfus_mid():
+    return _kfus(0.30)
+
+
+def kfus_lo():
+    return _kfus(0.20)
+
+
+def household_kw():
+    return _ps().HOUSEHOLD_KW
+
+
+def k_safe():
+    return _ps().K_SAFE
+
+
+def gain_safe():
+    return _ps().gain_at_k(_ps().K_SAFE)
+
+
+def standby_lo():
+    return _ps().STANDBY_LO_KW
+
+
+def standby_hi():
+    return _ps().STANDBY_HI_KW
+
+
+def pmin_lo():
+    return _ps().minimum_beam_kw(_ps().STANDBY_LO_KW)
+
+
+def pmin_hi():
+    return _ps().minimum_beam_kw(_ps().STANDBY_HI_KW)
+
+
+def net_mid():
+    ps = _ps()
+    return ps.net_electric_kw(3 * ps.minimum_beam_kw(500.0), 500.0)
+
+
+def homes_mid():
+    return _ps().homes(net_mid())
+
+
+def _k_household():
+    ps = _ps()
+    ys, yf = _yfs()
+    return ps.k_for_plant_gain(
+        1.0 / (ps.eta_thermal() * ps.eta_effective(30.0, 1000.0)), ys, yf)
+
+
+def k_household():
+    return _k_household()
+
+
+def margin_household():
+    return 1e5 * (1.0 - _k_household())
+
+
+def kg_thermal():
+    return _ps().joules_per_kg_fertile() / 3.6e9
+
+
+def kg_electric():
+    return _ps().joules_per_kg_fertile() * _ps().eta_thermal() / 3.6e9
+
+
+def grams_home_year():
+    return _ps().fertile_grams_per_home_year()
+
+
+def home_years_kg():
+    return _ps().home_years_per_kg()
+
+
+def al_over_pb():
+    import importlib
+    C = importlib.import_module("collector")
+    la_pb = C._la_sigma(C.HARP_PB_PIMINUS_8GEV)
+    la_al = C._la_sigma(C.HARP_AL_PIMINUS_8GEV)
+    s0 = C.SIGMA_INEL_PB / 207 ** (2 / 3)
+    return (la_al / (s0 * 27 ** (2 / 3))) / (la_pb / C.SIGMA_INEL_PB)
+
+
 def _fuel_ks():
     ps = _ps()
     ys, yf = _yfs()

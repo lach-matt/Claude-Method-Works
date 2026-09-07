@@ -694,6 +694,131 @@ def report_fuel():
     return 0
 
 
+# ---- SCALE: the smallest unit that closes, and why it is a plant -----------
+# The reaction scales down linearly and without complaint. The DRIVER does not.
+# eta_acc is an at-design-current figure: a superconducting proton linac draws a
+# fixed cryogenic and rf standby load whatever the beam current, so
+#
+#     eta_eff(P) = eta_acc . P / (P + S)
+#
+# and below some beam power the wall-plug efficiency collapses, the loop
+# requirement runs away, and the k it would need crosses the safety margin. The
+# floor on the device's SIZE is therefore set by the driver's overhead and not
+# by any part of the reaction -- which is why the answer is a plant a
+# municipality adopts rather than an appliance a household buys.
+HOUSEHOLD_KW = 1.14          # 10,000 kWh/yr average electric; ASSUMED design point
+K_SAFE = 0.95                # the margin equals a fast core's whole control worth
+STANDBY_LO_KW = 200.0        # driver fixed load, low; SOURCED band
+STANDBY_HI_KW = 2000.0       # the same, high
+
+
+def gain_at_k(k_eff, y_spall=None, y_fus=None):
+    if y_spall is None or y_fus is None:
+        m = _mach()
+        y_fus = fusion_neutrons_per_proton(m.delivered_eta_window(2.60, 400.0))
+        y_spall = 0.5 * sum(spallation_yield())
+    return plant_gain(k_eff, y_spall, y_fus)
+
+
+def eta_effective(p_beam_kw, standby_kw, eta_acc=0.30):
+    """Wall plug to beam, with the driver's fixed load carried."""
+    return eta_acc * p_beam_kw / (p_beam_kw + standby_kw)
+
+
+def minimum_beam_kw(standby_kw, k_eff=K_SAFE, eta_acc=0.30):
+    """Beam power below which the loop cannot close at a safe k.
+
+    Setting G_req(P) = G(k) and solving: P (eta_th eta_acc G - 1) = S.
+    """
+    g = gain_at_k(k_eff)
+    denom = eta_thermal() * eta_acc * g - 1.0
+    return standby_kw / denom if denom > 0 else float("inf")
+
+
+def net_electric_kw(p_beam_kw, standby_kw, k_eff=K_SAFE, eta_acc=0.30):
+    """What the plant sells, after its own driver is fed."""
+    g = gain_at_k(k_eff)
+    g_req = 1.0 / (eta_thermal() * eta_effective(p_beam_kw, standby_kw, eta_acc))
+    return p_beam_kw * g * eta_thermal() * (1.0 - g_req / g)
+
+
+def homes(net_kw):
+    return net_kw / HOUSEHOLD_KW
+
+
+# ---- the fuel, in the units a municipality buys it in ----------------------
+FISSION_MEV = 200.0
+ATOMS_PER_KG = 2.53e24       # heavy-actinide atoms in a kilogramme
+J_PER_MEV = 1.602e-13
+
+
+def joules_per_kg_fertile():
+    return ATOMS_PER_KG * FISSION_MEV * J_PER_MEV
+
+
+def fertile_grams_per_home_year(kwh=10000.0):
+    return 1000.0 * (kwh * 3.6e6 / eta_thermal()) / joules_per_kg_fertile()
+
+
+def home_years_per_kg():
+    return joules_per_kg_fertile() * eta_thermal() / (10000.0 * 3.6e6)
+
+
+def report_scale():
+    """The smallest unit that closes, and what a municipality gets."""
+    print("  SCALE: WHY THE ANSWER IS A PLANT AND NOT AN APPLIANCE")
+    print()
+    print("    The reaction scales down linearly and without complaint. The")
+    print("    DRIVER does not. eta_acc is an at-design-current figure: a")
+    print("    superconducting proton linac draws a fixed cryogenic and rf")
+    print("    standby load S whatever the beam current, so")
+    print()
+    print("      eta_eff(P) = eta_acc . P / (P + S)")
+    print()
+    print("    and below some beam power the wall-plug efficiency collapses, the")
+    print("    loop requirement runs away, and the k it would need crosses the")
+    print("    safety margin.")
+    print()
+    g = gain_at_k(K_SAFE)
+    print(f"    Holding k at {K_SAFE} -- a margin of {1e5 * (1 - K_SAFE):.0f} pcm, which is a fast core's")
+    print(f"    whole control worth -- the plant gain is G = {g:.1f}.")
+    print()
+    print(f"      {'standby':>9}{'min beam':>11}{'at 3x min: net':>17}{'homes':>10}")
+    for sb in (STANDBY_LO_KW, 500.0, 1000.0, STANDBY_HI_KW):
+        pmin = minimum_beam_kw(sb)
+        net = net_electric_kw(3 * pmin, sb)
+        print(f"      {sb / 1000:6.1f} MW{pmin:9.0f} kW{net:14,.0f} kW{homes(net):10,.0f}")
+    print()
+    print("    WHAT IT COSTS TO TRY TO GO SMALLER. At 30 kW of beam against a")
+    sb = 1000.0
+    eff = eta_effective(30.0, sb)
+    greq = 1.0 / (eta_thermal() * eff)
+    m = _mach()
+    yf = fusion_neutrons_per_proton(m.delivered_eta_window(2.60, 400.0))
+    ys = 0.5 * sum(spallation_yield())
+    k_need = k_for_plant_gain(greq, ys, yf)
+    print(f"    1 MW standby the effective efficiency is {eff:.4f}, the loop needs")
+    print(f"    G = {greq:.0f}, and that needs k = {k_need:.4f} -- a margin of {1e5 * (1 - k_need):.0f} pcm")
+    print(f"    against a control worth of {CONTROL_WORTH_PCM:.0f}. NOT SAFE.")
+    print()
+    print("    THE MARGIN THAT MAKES THIS REACTOR SAFE IS THE SAME MARGIN THAT")
+    print("    FORBIDS SHRINKING IT. That is the finding, and it decides the")
+    print("    product: a plant a municipality adopts, not an appliance a")
+    print("    household buys.")
+    print()
+    print("  WHAT A MUNICIPALITY GETS, AND WHAT IT FEEDS IT")
+    print(f"    one kilogramme of fertile, fully burned: {joules_per_kg_fertile() / 3.6e9:,.0f} MWh thermal,")
+    print(f"    {joules_per_kg_fertile() * eta_thermal() / 3.6e9:,.0f} MWh electric at eta_th = {eta_thermal():.3f}")
+    print(f"    a household at 10,000 kWh a year burns {fertile_grams_per_home_year():.2f} GRAMS of it")
+    print(f"    one kilogramme therefore runs one household for {home_years_per_kg():,.0f} years")
+    print()
+    print("    The feedstock is depleted uranium -- an existing waste stockpile --")
+    print("    or thorium, which is commoner in the crust than tin. The fuel is")
+    print("    not free, because nothing is; it is negligible, which is the")
+    print("    strongest thing that can honestly be said of a fuel.")
+    return 0
+
+
 def report():
     m = _mach()
     print("WHAT A SELF-SUSTAINING POWER SOURCE REQUIRES")
@@ -947,6 +1072,26 @@ def selftest():
     print("       below it the fuel has a price and the claim fails")
 
     print()
+    print("  scale: why the answer is a plant and not an appliance")
+    check("the minimum beam power rises with the driver's standby load",
+          minimum_beam_kw(2000.0) > minimum_beam_kw(200.0))
+    check("at three times the minimum the plant sells a useful surplus",
+          net_electric_kw(3 * minimum_beam_kw(500.0), 500.0) > 1000.0)
+    check("and that surplus is thousands of households, not one",
+          homes(net_electric_kw(3 * minimum_beam_kw(500.0), 500.0)) > 1000.0)
+    check("a household-scale beam cannot close the loop at a safe k",
+          net_electric_kw(30.0, 1000.0) < 0.0)
+    check("the effective efficiency collapses as the beam falls",
+          eta_effective(30.0, 1000.0) < eta_effective(3000.0, 1000.0))
+    check("a kilogramme of fertile runs a household for centuries",
+          home_years_per_kg() > 500.0)
+    check("and a household's year is grams rather than kilogrammes",
+          fertile_grams_per_home_year() < 10.0)
+    print("    -- the floor is the DRIVER's fixed overhead, not the reaction:")
+    print("       the margin that makes the reactor safe is the same margin")
+    print("       that forbids shrinking it")
+
+    print()
     print("  the instrument can fail: a blanket that could not supply the")
     print("  requirement would have to need k >= 1, so that case is constructed")
     check("a requirement of 100 GeV per fusion would need k >= 1",
@@ -969,6 +1114,7 @@ def main():
     ap.add_argument("--stability", action="store_true",
                     help=report_stability.__doc__)
     ap.add_argument("--fuel", action="store_true", help=report_fuel.__doc__)
+    ap.add_argument("--scale", action="store_true", help=report_scale.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -982,6 +1128,8 @@ def main():
         return report_stability()
     if a.fuel:
         return report_fuel()
+    if a.scale:
+        return report_scale()
     return report()
 
 
