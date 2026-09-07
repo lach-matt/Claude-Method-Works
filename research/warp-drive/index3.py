@@ -202,6 +202,16 @@ FINDINGS = [
   "the helical Killing vector caps gamma at (1+b_co)/(1-b_co) with no N in it -- true, and 9x too loose"),
  ("TWO-BODIES",   0,  0, +1, "stationkeep.py",
   "a > 2 k r_s or there is only one deflector; at k = 3 that IS the ISCO limit, identically"),
+ # necladder.py -- read out of the volumes at M's prompting.  The NEC is not a
+ # boolean, and this project has been standing on the strictest of its five rungs.
+ ("RUNG-1",      +1, +1,  0, "necladder.py",
+  "the world is MEASURED at NEC rung 1: Casimir violates the NEC pointwise, and that is free"),
+ ("RUNG-0-NOGO",  0, -1, +1, "necladder.py",
+  "every no-go this project obeyed was graded at rung 0; the index's core is at rung 3"),
+ ("QNEC-GAP",    +1,  0,  0, "necladder.py",
+  "<T_kk> >= (h/2pi) S''_out: entanglement entropy is the budget, and it is in no alphabet here"),
+ ("IC-GUARD",     0, -1,  0, "necladder.py",
+  "NEC>=3 forces IC v U v X: macroscopic exotic matter is guarded by a CORRELATION principle"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -215,6 +225,7 @@ SUPPORT = [
  ("BETA3-FIX", "person.py",         "the beta^3 mass floor passed at a/3, where the bend is 1.2 deg; gain overstated 116x"),
  ("LIT-FIX",   "stationkeep.py",    "the bound-return theorem assumed a static field; Zhang Sec 3.3 and Shipley-Dolan refute it"),
  ("AR-VALID",  "stationkeep.py",    "this tree's kinematics reproduce A&R's three printed Sgr A* figures to 0.2%"),
+ ("EDGE-LIST", "necladder.py",      "the edge list the compendium says is printed nowhere is in extracted/; it gives 2,370"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -295,7 +306,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 60)
+    chk("number of findings indexed", len(FINDINGS), 64)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 

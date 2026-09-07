@@ -49,7 +49,78 @@ a report.
 | **`warp-drive/GRADIENTS`** | **`warp-drive/gradients.py`** | **the gradient space is closed by classification — five types, one pumps, and the engine already runs on protons** |
 | **`warp-drive/PERSON`** | **`warp-drive/person.py`** | **from a proton to a person: χ/τ_s is the only argument, and pulling the pass out to 94 r_s buys the deflector down into the LIGO catalogue** |
 | **`warp-drive/STATION-KEEPING`** | **`warp-drive/stationkeep.py`** | **the Δv is zero — but the ladder is a conjecture, and the one Monte Carlo of it delivers 0.72× *one* encounter, not 1,090** |
+| **`warp-drive/NEC-LADDER`** | **`warp-drive/necladder.py`** | **the NEC is not a boolean: five rungs, the world measured at rung 1 (Casimir), the index's core at rung 3 — and every no-go here was graded at rung 0** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
+
+### The rung this project has been standing on
+
+M asked whether there is an aspect of quantum entanglement the warp work is not accounting for. There
+is, and the corpus already carries it. **The null energy condition is not a boolean.** The Method's
+violation index grades it on five rungs (BUILD180, Part V §5.1):
+
+> NEC null energy | intact / **pointwise** / ANEC arbitrarily small / macroscopic QI-bounded / QI-violating
+
+and names our own place on it:
+
+> *"Our position is (0, 1, 0, 0, 1, 0, 0, 0, 0), with two components fixed by **measurement**:
+> S_corr = 1 because quantum mechanics violates Bell locality while respecting microcausality, and
+> **NEC = 1 because Casimir energy is measured and violates the null energy condition pointwise**."*
+
+**The world is measured at rung 1.** This project has spent its life at **rung 0** — TARGET-1's
+achievement was "all four pointwise energy conditions positive everywhere", which is *stricter than
+the universe*. GATE-CLOSED's fatal finding was that a compactly supported shift needs Type IV in
+vacuum: that is rung ≥ 1, and rung 1 is laboratory equipment. **The index's own infeasible core is at
+rung 3** — core `(X_exp=0, U_ghost=0, NEC_pt=3, EOM=2nd)`, one cell, E = 30 at nine letters and 816 at
+fifteen. **Two free rungs between the measured world and the point where the index breaks, and this
+project has used neither.**
+
+Rung 2 is named and costed: Visser, Kar & Dadhich (PRL 90 201102), traversable wormholes with
+*arbitrarily small* energy condition violations, quantified by `I_V = ∮(ρ + p_r) dV` over the
+violating region — and the corpus's own status line, *"I_V can be made arbitrarily small by shrinking
+that region, **which is why the NEC axis is graded by scale and not by violation-or-not**."*
+
+**The entanglement enters in three places, and the corpus files all three.**
+
+1. **Rung 1 *is* an entanglement effect.** Casimir energy is vacuum entanglement between boundaries.
+   The rung the world stands on is bought with it.
+2. **The quantum condition is an entropy bound, and the index has no letter for it.** Appendix D5:
+   `⟨T_kk⟩ ≥ (ℏ/2π) S″_out`, the QNEC, with `S_out` the entanglement entropy outside a cut of a null
+   surface. Classical NEC forbids negative `⟨T_kk⟩`; **QNEC permits it, budgeted by −S″_out**.
+   Entanglement entropy is what pays for negative energy. The corpus's reason for filing it in an
+   appendix: *"it does not enter the index as a charge, which is why it appears in the appendix and
+   not in the edge list."*
+3. **The top of the ladder is guarded by a correlation principle, not a gravitational one.** Two of
+   the nine coordinates are quantum-correlation axes — `Sc` (CHSH: local ≤2 / quantum ≤2√2 /
+   post-quantum ≤4) and `IC` (information causality) — and the constraint-language defect is the
+   arity-4 rule **`NEC ≥ 3 → IC ∨ U ∨ X`**. Macroscopic exotic matter is not forbidden by gravity
+   alone. And Audit 22 records that of IC's six term-sharing pairs, *"IC has never been checked once,
+   and IC is load-bearing: it is the unique principle forbidding post-quantum correlations."*
+
+**The edge list the compendium says is printed nowhere is in the repository.** Part V: *"the edge list
+itself is not printed anywhere in this paper, and until it is, those five conditions are what stands
+in its place."* It sits in `extracted/archives/method16-rp-b-data/vi_best.json`, seated by
+`tools/consolidate.py` out of `method16_rp_B_data.tar.gz` — 17 rules, which Part V's own recompute note
+names by filename. Loaded (never transcribed), it reproduces the printed figures exactly: **19,440-cell
+box, 2,370 closed cells**. Five readings of the rule format were tried and exactly one gives 2,370.
+
+**And a finding, recorded and not repaired.** That edge list *forbids the cell the paper names as our
+own position*, by one rule: **`Sc ≥ 1 → L ≥ 1 ∨ DNd ≥ 2`** — quantum correlation at the Tsirelson rung
+forcing nonlinear evolution or super-quantum discrimination. The world has `Sc = 1` with `L = 0` and
+`DNd = 0`. This is *not* offered as physics: the corpus itself rules (V-table) that the violation
+index's numbers *"enter as an instance of the operator, never as physics"*, computed *"over a
+coordinate set that is demonstrably incomplete"*. The rungs are physics; the cell counts are the
+operator; this row is a defect in a fitted rule set.
+
+**What it costs this project.** Three of five measured results sit at rung 0. Two are **unplaced** —
+GATE-CLOSED and the torus — for one reason: **`I_V` was never integrated**. GATE-CLOSED counted Type IV
+cells and declared the branch dead. Counting cells answers *is the NEC violated*; the ladder asks *by
+how much, over what scale*, and nobody here has computed that number.
+
+> **The no-go this project has been obeying is a rung-0 no-go.**
+
+One measurement would settle it: integrate `ρ + p_r` over the violating region of the GATE-CLOSED
+shift configurations and place them on the ladder. Land at rung 1 or 2 and the corpus's own index does
+not forbid them — the core is at 3.
 
 ## `warp-drive/`
 
