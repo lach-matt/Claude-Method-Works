@@ -1349,3 +1349,61 @@ Both live routes were closed by a **static positivity condition**, and both loos
 put in. The warpshell: the centre-of-mass theorem forbids self-acceleration for an *isolated* system,
 and the escape is to radiate. The analogue: BHS forbids the coupling for an *equilibrium* medium, and
 the escape is to disperse. Same shape, different physics — **and neither one is a material.**
+
+## `shape.py` — the pattern as an instrument, and the honest accounting of it
+
+A shape is cheaper than a material: it is a property of the mathematics, so it can be checked against
+every closure at once without buying anything. Two closures fell to the same move, and the move was not
+a material — the centre-of-mass theorem forbids self-acceleration for an **isolated** system and the
+escape is to radiate; BHS forbids the coupling for an **equilibrium** medium and the escape is to
+disperse. Same shape:
+
+> **A no-go built on a static positivity condition loosens when the dynamics is put back in.** The
+> static form is a special case, and a project that measures the special case reports a bound the
+> general case does not have.
+
+### The caveat comes first, because it is the whole point
+
+The pattern was **induced from the cases that moved**. So the four hits are not evidence for it — they
+are the sample it was fitted to, and quoting them as confirmation is the error of fitting a curve and
+then citing the points. `evidence_available()` returns **0**, deliberately. The only evidence a shape
+like this can earn is a prediction that lands, and the predictions are written down so a later pass
+cannot re-derive one and quietly count it as a hit.
+
+### The domain is narrower than "every closure", and there are controls
+
+The shape applies only to no-goes whose content is a **positivity or conservation condition**. Three
+closures are carried as controls, and the file checks that the shape does *not* claim them:
+
+| control | how it closed | should it move? |
+|---|---|---|
+| KAPPA | **measured** — MICROSCOPE, Cassini, PSR J0337, Eöt-Wash | no — the experiments were done |
+| SWIMMER | **kinematic** — Δs ≤ A·a_tide/c² | no — c² is a constant of nature |
+| HORIZON | **geometric** — f* = 1 − c/v_s ∈ [0,1) iff v_s ≥ c | already gone, and not by this route |
+
+`predicts_a_control()` returns `[]`. A pattern that predicted those would be wrong.
+
+### The fitted sample (four), and the predictions (three)
+
+| | static form | dynamical counterpart | |
+|---|---|---|---|
+| CM-THEOREM | isolated | Bondi flux balance at null infinity | MOVED |
+| ADM | static slice, spatial infinity | Bondi four-momentum | MOVED |
+| BHS | equilibrium free energy | Brillouin `d(ωε)/dω` | MOVED |
+| SSV | pointwise NEC, vacuum exterior | non-vacuum exterior | MOVED |
+| **GATE-CLOSED** | pointwise, 165/165 + 210/210 + 154/154 | ANEC/AWEC, and the untaken `I_V` | **PREDICTED** |
+| **NEC-LADDER** | pointwise NEC | QNEC, `⟨T_kk⟩ ≥ (ℏ/2π)S″_out` | **PREDICTED** |
+| **WALL-RADIAL** | frozen-background linearisation | flux-coupled radiating shell | **PREDICTED** |
+
+**Prediction 2 has a standing decision against it, and that is the finding rather than an oversight.**
+The corpus records QNEC in Appendix D5 and *deliberately* does not make it a letter of the violation
+index. The shape says ask; the corpus has already answered "not as a letter". Those are compatible — a
+measurement is not a letter — and the tension is recorded here rather than resolved.
+
+### The index refused a row, correctly
+
+`NO-EVIDENCE` — the statement that the shape has earned nothing yet — was first seated as a finding at
+`(0,0,0)`. `index3.py` rejected it: distinct cells went 14 → 15, and the null cell is declared **not a
+finding**, being the lattice bottom. It answers no directive, so it belongs in SUPPORT. The index
+caught a bookkeeping error about the epistemics of its own newest instrument, which is the closest
+thing to a self-test this tree has.

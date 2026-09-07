@@ -337,6 +337,9 @@ FINDINGS = [
   "the dispersive condition is d(w kappa)/dw <= d(w mu)/dw - 1, whose ratio is 2 w w0/(w0^2+w^2) <= 1 identically, saturating at resonance"),
  ("C4-WITHDRAWN",    0, +1, +1, "dispersive.py",
   "the c/4 ceiling was a static bound on a dispersive device: beta reaches 0.825 at 0.95% ferrite loss, a 3.7x gain for 4.3x the loss"),
+ # The shape as an instrument: cheap, because it is math and not a material.
+ ("THE-SHAPE",      +1, +1,  0, "shape.py",
+  "a no-go built on a static positivity condition loosens when the dynamics is restored: four closures moved by that one move"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twelve obstructions three dissolved, three relocated, four closed negative, two conditional and none untested"),
 ]
@@ -371,6 +374,8 @@ SUPPORT = [
  ("HUND-CHECK", "materials.py",     "Hund's rules against the 108 seated NIST ground terms: 74/78 term symbols, 78/78 on J -- the four differ in notation only"),
  ("SUBSTRATE",  "materials.py",     "a linewidth table alone picks the wrong substrate: YSGG beats GGG on dB and loses on merit, because Ms is halved"),
  ("GAIN-MOOT",  "dispersive.py",    "the gain exemption was not needed: passivity was never the problem, staticity was, and passive dispersion is free"),
+ ("NO-EVIDENCE","shape.py",         "the shape has earned nothing yet: the four hits are the sample it was fitted to, and its only test is a prediction that lands"),
+ ("NULL-CAUGHT","shape.py",         "NO-EVIDENCE was first seated as a finding at (0,0,0); the index refused it, because the null cell is declared not a finding"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -451,7 +456,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 116)
+    chk("number of findings indexed", len(FINDINGS), 117)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
