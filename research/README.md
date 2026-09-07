@@ -2303,3 +2303,108 @@ at all. The index is the right index; it is not yet the index of transport.
 - `index3.py` — 159 findings, still 15 cells: `UNIVERSAL-SEAT`, `NOTHING-BELOW`, `THREE-POPULATIONS`,
   `LONG-AND-WEAK`, `ORDINARY-MATTER`, `C-FOLDS`.
 - `paper/CLAIMS.md` — **H7**.
+
+---
+
+## Pass 16 — `composite.py`: the intersection is not empty, and I had dropped the term that finds it
+
+M asked whether one device should transition both space and time. The answer I gave was "it must be
+two subsystems, because seating needs `R_kk > 0` and advance needs `R_kk < 0`." **That reasoning was
+wrong, and this pass says why.**
+
+### The dropped term
+
+`achronal.py`, `transit.py` and `seatindex.py` all wrote focusing as `u″ = −(R_kk/2)u`, dropping shear
+because `σ² ≥ 0` only helps focusing, so ignoring it is conservative. **Conservative for an existence
+claim about one ray. Fatal for a search.** The full statement (Gao & Wald 2000, eq. 13):
+
+`G″/G = −½[σ_ab σ^ab + R_ab k^a k^b]`
+
+| term | order in the source | needs positive energy? |
+|---|---|---|
+| **Ricci** `R_kk = 8πT_kk` | **linear** | **yes** |
+| **Weyl** `σ²` | **quadratic** | **no** |
+
+**Ricci focusing needs positive energy. Weyl focusing is sign-blind.** A negative mass shears a
+congruence exactly as hard as a positive mass of the same magnitude — while the Shapiro delay, being
+linear, flips sign with it.
+
+### Measured
+
+Linearised static metric `Φ = −M/r`, either sign. Christoffels, Riemann and the optical tidal matrix
+all by finite difference from the metric. Full Jacobi **matrix** `A″ = −T·A`, `A(0)=0`, `A′(0)=I` on a
+parallel-propagated screen; conjugate point at `det A = 0`, which includes shear by construction.
+
+| `M` | conjugate point | `t − \|dx\|` | |
+|---|---|---|---|
+| +2.0×10⁻³ | λ = 55.17 | +5.12×10⁻² | seats, late |
+| **−2.0×10⁻³** | **λ = 56.50** | **−3.76×10⁻²** | **SEATS AND EARLY** |
+
+Both signs seat within 2.4% of the same λ — the focusing is quadratic. Only the arrival flips.
+Converged to four figures over a 4× refinement.
+
+**Validations**, each against a number this pipeline did not produce:
+
+| | check | result |
+|---|---|---|
+| 1 | light deflection vs `4M/b` | **0.03%** at `b = 0.2` |
+| 2 | tidal matrix traceless (vacuum ⟹ pure Weyl) | `1.6×10⁻⁴`, **`h`-independent** — the metric's own `O(Φ²)`, not the difference |
+| 3 | antisymmetric delay vs analytic Shapiro | **0.6%** |
+
+### The window
+
+`t − |dx| = (Shapiro, ∝M, flips) + (path lengthening, ∝M², never flips)`. Seating wants `|M|` large,
+advance wants it small.
+
+| `\|M\|` (negative) | conjugate | `t − \|dx\|` | |
+|---|---|---|---|
+| 2.0×10⁻⁴ | none | −4.35×10⁻³ | early, no seat |
+| 1.0×10⁻³ | none | −2.04×10⁻² | early, no seat |
+| **2.0×10⁻³** | **56.50** | **−3.76×10⁻²** | **SEATS + EARLY** |
+| **5.0×10⁻³** | **45.58** | **−7.18×10⁻²** | **SEATS + EARLY** |
+| **1.0×10⁻²** | **42.83** | **−7.97×10⁻²** | **SEATS + EARLY** |
+| 2.0×10⁻² | 41.50 | +4.11×10⁻² | seats, LATE |
+| 4.0×10⁻² | 40.83 | +6.16×10⁻¹ | seats, LATE |
+
+**About a decade wide**, advance largest just under the upper edge. The answer to "where do they meet"
+is not a point — it's a band.
+
+### Why the earlier passes found nothing
+
+Not only the dropped shear. **The Alcubierre bubble's focusing is Ricci-dominated** — the rays that
+turn are the rays crossing positive `T_kk`. So `achronal.py`'s 25-ray result and `transit.py`'s
+**TURN ⟹ LATE** are correct *for that object* and say nothing about this one. A compact source focuses
+through **Weyl, in vacuum**, under a different sign rule. The results don't conflict; they're about
+different terms of the same equation.
+
+### The causal bookkeeping closes
+
+The early ray travels **entirely through vacuum** — `T_kk = 0` on the whole path, ANEC violated
+nowhere along it — and **past its conjugate point it is not achronal**, so Graham–Olum's hypothesis
+fails. **That is exactly the escape `achronal.py` searched for and did not find.** It wasn't in the
+Alcubierre family. Consistent with Olum (PRL 81, 3567): advance requires negative energy, and this
+configuration supplies it — **off the payload's path**.
+
+### Two process notes worth keeping
+
+**The error that cost two runs, now a test:** a source *inside* the focal length `b²/4M` forms no real
+image. My first runs put the source at 5 with a focal length of 11 and reported "no seat." Nothing
+about the physics changed when I moved it to 40.
+
+**And the citation correction:** Gao–Wald is the wrong authority for "no time advance" — their
+Theorem 1 explicitly declines that interpretation (*"it is difficult to make a strong argument for
+this interpretation"*). The right one is **Olum, PRL 81, 3567 (1998)**, which they cite.
+
+### Not claimed — five things, and the list is the point
+
+1. **Negative mass is assumed, not derived.** Self-consistency is only what `selfconsistent.py` gives, at first order in ℏ.
+2. **Linearised weak field.** The window's upper edge is where the quadratic term bites, which is also where linearisation gets questionable. Its location is **indicative**.
+3. **The focus is astigmatic.** Traceless tidal matrix ⟹ `det A = 0` is a *line* focus. Enough to break achronality; not a point-to-point image.
+4. **No payload.** Null-geodesic optics. The timelike channel the conjugate point opens has not been integrated.
+5. **One geometry.** The two-region concentric device is **`NOT-RUN`**. This establishes its enabling mechanism is real, not that the device closes.
+
+### Seated
+
+- `index3.py` — 164 findings: `WEYL-IS-SIGNBLIND`, `SEATS-AND-EARLY`, `THE-WINDOW`, `DROPPED-TERM`, `VACUUM-PATH`.
+- `obstruct.py` — 18 rows. New `SEAT-MEETS-TRANSPORT`, **DISSOLVED** — the fourth dissolution, and the first since `EXOTIC-MATTER`. `TURN-ADVANTAGE` amended: reopened and answered.
+- `paper/CLAIMS.md` — **H8**, the paper's central result.

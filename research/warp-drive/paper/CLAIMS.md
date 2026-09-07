@@ -315,6 +315,80 @@ at once.**
 
 ---
 
+## ★★ HEADLINE — the paper's central result
+
+**H8. Seating and time advance can coexist. Weyl focusing is quadratic in the source and therefore
+sign-blind; the Shapiro delay is linear and therefore flips.**
+
+> Every earlier pass in this project wrote focusing as `u″ = −(R_kk/2)u`, dropping shear on the
+> grounds that `σ² ≥ 0` only helps focusing so ignoring it is conservative. **Conservative for an
+> existence claim about one ray; fatal for a search.** The full statement (Gao & Wald 2000, eq. 13) is
+>
+> `G″/G = −½[σ_ab σ^ab + R_ab k^a k^b]`
+>
+> and the two terms have entirely different sign structure in the source:
+>
+> | term | order in source | needs positive energy? |
+> |---|---|---|
+> | **Ricci** `R_kk = 8πT_kk` | **linear** | **yes** |
+> | **Weyl** `σ²` | **quadratic** | **no** |
+>
+> **Measured**, on a linearised static metric `Φ = −M/r` with the full Jacobi *matrix*
+> `A″ = −T·A`, `A(0)=0`, `A′(0)=I` on a parallel-propagated screen, conjugate point at `det A = 0`:
+>
+> | `M` | conjugate point | `t − \|dx\|` | |
+> |---|---|---|---|
+> | +2.0×10⁻³ | λ = 55.17 | +5.12×10⁻² | seats, late |
+> | **−2.0×10⁻³** | **λ = 56.50** | **−3.76×10⁻²** | **SEATS AND EARLY** |
+>
+> Both signs seat, within 2.4% of the same λ — because the focusing is quadratic. Only the arrival
+> flips. Converged to four figures over a 4× refinement in step count.
+>
+> **And it is a window, bounded on both sides.** The arrival time is `(Shapiro, ∝M, flips)` +
+> `(path lengthening, ∝M², never flips)`. Seating needs `|M|` large enough to focus inside the
+> available length; advance needs it small enough that the linear term still wins. At `b = 0.3`,
+> `L = 75`: no seat below ~1.5×10⁻³, late above ~1.5×10⁻², **about a decade of window between**, with
+> the advance largest just under the upper edge.
+
+**Three validations, each against a number not produced by this pipeline:**
+
+| | check | result |
+|---|---|---|
+| 1 | light deflection vs `4M/b` | **0.03%** at `b = 0.2` |
+| 2 | tidal matrix traceless (vacuum ⟹ pure Weyl) | `1.6×10⁻⁴`, **`h`-independent** — the metric's own `O(Φ²)` |
+| 3 | antisymmetric delay vs analytic Shapiro `2M ln[(x₁+r₁)/(x₀+r₀)]` | **0.6%** |
+
+**Why the earlier passes found nothing.** Not only the dropped shear. **The Alcubierre bubble's
+focusing is Ricci-dominated** — the rays that turn are the rays crossing positive `T_kk`. So
+`achronal.py`'s 25-ray result and `transit.py`'s **TURN ⟹ LATE** are correct *for that object* and say
+nothing about this one. A compact source focuses through **Weyl, in vacuum**, under a different sign
+rule. The results do not conflict; they concern different terms of the same equation.
+
+**And the causal bookkeeping closes.** The early ray travels **entirely through vacuum** — `T_kk = 0`
+along the whole path, so it violates ANEC nowhere — and **past its conjugate point it is not
+achronal**, so Graham–Olum's hypothesis fails and the achronal ANEC does not reach it. That is exactly
+the escape `achronal.py` searched for and did not find. It was not in the Alcubierre family.
+Consistent with Olum (PRL **81**, 3567): advance *requires* negative energy, and this configuration
+supplies it — off the payload's path.
+
+| | `composite.py` |
+|---|---|
+| status | **MEASURED**, converged, three independent validations |
+| new? | the sign-structure argument and the window, yes. Both focusing terms are classical. |
+| falsified by | a sign error in the tidal matrix (checked traceless), or the window closing under a non-linearised metric |
+| **not** claimed | five things, below — the list is long on purpose |
+
+**Not claimed:** (1) **negative mass is assumed, not derived** — `Φ = −M/r` with `M < 0` is prescribed,
+and self-consistency is only what `selfconsistent.py` establishes at first order in ℏ; (2) the field is
+**linearised**, and the window's upper edge sits where the quadratic term bites, which is also where
+linearisation gets questionable — its location is **indicative**; (3) the focus is **astigmatic** — the
+tidal matrix is traceless, so `det A = 0` is a *line* focus, enough to break achronality but not a
+point-to-point image; (4) **no payload** — this is null-geodesic optics and the timelike channel the
+conjugate point opens has not been integrated; (5) **one geometry** — the two-region concentric device
+is **`NOT-RUN`**; this establishes that its enabling mechanism is real, not that the device closes.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -374,6 +448,8 @@ at once.**
 - Any figure carrying the SNEC's four O(1) exposures as if it were exact.
 - **That H5 escapes ANEC.** It does the opposite: it closes the one escape and shows the closure is
   structural. What it buys is precision about where the prohibition actually rests.
+- **That H8 builds a drive.** It exhibits the mechanism by which seating and advance can coexist,
+  in a window, under five stated idealisations. The device is not built and the payload is not carried.
 - **That H7's universal seating is universal transport.** It is universal *seating*: the conjugate
   point is guaranteed regardless of the surroundings. It carries no payload, and turning rays arrive
   late. The index is the right index; it is not yet the index of transport.

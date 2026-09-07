@@ -438,8 +438,20 @@ FINDINGS = [
   "T_kk >= pi c^4/(4 G l^2) = 9.5053e43/l^2 Pa -- positive, energy-condition-satisfying, and BELOW nuclear density beyond ~100 km. Matter that seats a conjugate point exists in nature"),
  ("C-FOLDS",         0,  0, +1, "seatindex.py",
   "the position coordinate FOLDS about the midpoint rather than being removed: transit.py's reversal theorem spent as a coordinate saving, self-adjointness halving the index"),
+ # Where universal seating meets universal transport.  It is not empty, and
+ # every earlier pass missed it by dropping shear from the Jacobi equation.
+ ("WEYL-IS-SIGNBLIND",+1,+1, +1, "composite.py",
+  "Ricci focusing is LINEAR in the source and needs positive energy; WEYL focusing is QUADRATIC and does not. A negative mass shears a congruence exactly as hard as a positive one"),
+ ("SEATS-AND-EARLY", +1, +1, +1, "composite.py",
+  "MEASURED: M = -2e-3 gives a conjugate point at lambda 56.5 AND arrives early (-3.76e-2), while +2e-3 seats at 55.2 and arrives late. Both signs seat; only the arrival flips"),
+ ("THE-WINDOW",      +1, +1, +1, "composite.py",
+  "bounded on both sides: below, the focal length exceeds the run and it does not seat; above, the M^2 path lengthening beats the linear Shapiro. About a decade wide at b=0.3, L=75"),
+ ("DROPPED-TERM",     0, -1, +1, "composite.py",
+  "achronal.py, transit.py and seatindex.py all wrote u'' = -(R_kk/2)u, dropping shear as conservative. Conservative for an EXISTENCE claim about one ray; FATAL FOR A SEARCH"),
+ ("VACUUM-PATH",     +1, +1, +1, "composite.py",
+  "the early ray travels entirely through vacuum -- T_kk = 0 on the whole path, ANEC not violated along it -- and past its conjugate point it is not achronal, so Graham-Olum does not reach it"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of seventeen obstructions three dissolved, three relocated, six closed negative, three conditional, two open and none untested"),
+  "of eighteen obstructions four dissolved, three relocated, six closed negative, three conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -556,7 +568,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 159)
+    chk("number of findings indexed", len(FINDINGS), 164)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -587,6 +599,7 @@ def selftest():
                 "AREA-OVER-THICK","NO-NULL-QI","D-CANCELS",
                 "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE","ANEC-VIOLATED","ACHRONAL",
                 "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
+                "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -594,7 +607,8 @@ def selftest():
                 "THE-DOOR","EC-TAKEN","NO-EXOTIC","STIFF-WALL","LOOP-OBSERVABLE",
                 "NO-NULL-QI","D-CANCELS","DESIGN-EQUATION","CHANGE-OF-KIND",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I",
-                "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER"]))
+                "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
+                "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

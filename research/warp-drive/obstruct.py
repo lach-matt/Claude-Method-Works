@@ -14,7 +14,7 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of seventeen obstructions, three dissolved, three relocated, six
+THE HEADLINE: of eighteen obstructions, FOUR dissolved, three relocated, six
 closed negative, three are conditional, two are OPEN, and NONE is untested.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -180,7 +180,17 @@ LEDGER = [
   "ANEC-SATISFYING rays -- and every one of those carries a POSITIVE Shapiro "
   "delay. TURN => LATE. EARLY => NO TURN. Measured on the bubble at v_s = 0.5 "
   "c; exclusion 1 is general (the sign of the Jacobi equation), exclusion 2 is "
-  "this metric's and another T_kk distribution is NOT-RUN", "transit.py"),
+  "this metric's and another T_kk distribution is NOT-RUN. REOPENED AND "
+  "ANSWERED by composite.py: it was measured with SHEAR DROPPED, and Weyl "
+  "focusing is sign-blind", "transit.py"),
+ ("SEAT-MEETS-TRANSPORT", "seating and time advance can never coexist",
+  "DISSOLVED",
+  "THEY CAN. Ricci focusing is linear in the source and needs positive energy; "
+  "Weyl focusing is QUADRATIC and is sign-blind, while the Shapiro delay stays "
+  "linear and flips. Measured: M = -2e-3 seats at lambda 56.5 and arrives EARLY. "
+  "Bounded above by the M^2 path-lengthening penalty, below by the focal length "
+  "-- a window about a decade wide. Negative mass ASSUMED, field LINEARISED, "
+  "focus ASTIGMATIC, no payload", "composite.py"),
 ]
 
 def by_status():
@@ -258,6 +268,11 @@ def check_turn_advantage_closed():
             and all(not t for t, d in rows if d < 0)
             and any(t for t, d in rows))
 
+def check_seat_meets_transport():
+    import composite
+    # dissolved means: the thing said impossible was exhibited
+    return composite.both(-2.0e-3) and not composite.survey(2.0e-3)["early"]
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -274,8 +289,8 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 17)
-    chk("actually DISSOLVED", len(h["DISSOLVED"]), 3)
+    chk("obstructions tracked", len(LEDGER), 18)
+    chk("actually DISSOLVED", len(h["DISSOLVED"]), 4)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 6)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 3)
@@ -302,6 +317,8 @@ def selftest():
         check_achronality_closed(), True)
     chk("TURN-ADVANTAGE: turn => late, early => no turn",
         check_turn_advantage_closed(), True)
+    chk("SEAT-MEETS-TRANSPORT: a negative mass seats AND arrives early",
+        check_seat_meets_transport(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",
