@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 members and the unit (lettered headings; body = LAST hit; a `### D.x` unit ends at the next heading of any rank)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 3d998e8c  11904 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 34c9bfa9  6941 lines
+   main The_Method_1_6-2.md                                  md5 ebead6cc  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 6d14de38  6944 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 9426a6b6  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
@@ -37,15 +37,15 @@
     1726 heading L6444 body L6444–L6447 WARNING lines [] :: **APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, D
     1734 heading L6460 body L6460–L6463 WARNING lines [] :: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPT
    register pointers inside D.5.9: [1718, 1249, 1726]
-   'E = 4'              {'main': (2, [10861, 10863]), 'reg': (4, [3152, 3572, 6013, 6446]), 'pc': (1, [61])}
-   'E = 2'              {'main': (2, [5758, 10865]), 'reg': (8, [1292, 1904, 1992, 5184, 5845, 6665]), 'mc': (2, [870, 1870])}
-   'sixty-five'         {'main': (4, [6688, 9276, 10854, 10882]), 'reg': (6, [2228, 5344, 5348, 6446, 6462, 6470])}
-   'twenty-two fibres'  {'main': (2, [10854, 10883]), 'reg': (3, [6462, 6470, 6665])}
-   '3B.five'            {'main': (2, [10849, 10860]), 'reg': (1, [6446]), 'mc': (3, [3391, 3393, 3534])}
-   '3B.pot'             {'main': (2, [10847, 10860]), 'reg': (2, [6446, 6474]), 'mc': (1, [3538])}
+   'E = 4'              {'main': (2, [10861, 10863]), 'reg': (5, [3152, 3572, 6013, 6446, 6942]), 'pc': (1, [61])}
+   'E = 2'              {'main': (2, [5758, 10865]), 'reg': (9, [1292, 1904, 1992, 5184, 5845, 6665]), 'mc': (2, [870, 1870])}
+   'sixty-five'         {'main': (4, [6688, 9276, 10854, 10882]), 'reg': (7, [2228, 5344, 5348, 6446, 6462, 6470])}
+   'twenty-two fibres'  {'main': (2, [10854, 10883]), 'reg': (4, [6462, 6470, 6665, 6942])}
+   '3B.five'            {'main': (2, [10849, 10860]), 'reg': (2, [6446, 6942]), 'mc': (3, [3391, 3393, 3534])}
+   '3B.pot'             {'main': (2, [10847, 10860]), 'reg': (3, [6446, 6474, 6942]), 'mc': (1, [3538])}
    '650'                {'main': (2, [6022, 10864]), 'reg': (4, [2532, 6446, 6599, 6705]), 'mc': (1, [3254]), 'ioi': (1, [1030]), 'sc': (6, [417, 418, 459, 460, 461, 462])}
    'formula · analysis' {'main': (11, [10509, 10594, 10605, 10606, 10607, 10845]), 'reg': (1, [6446])}
-   Register lines naming *D.5.9*: [6446, 6462, 6793] ; lines with "E = 4": [3572, 6013, 6446]
+   Register lines naming *D.5.9*: [6446, 6462, 6793, 6942] ; lines with "E = 4": [3572, 6013, 6446, 6942]
 
 ====================================================================================================
 §2 census: every numeral printed in D.5.5 (fibration table) and D.5.9 (member line numbers)

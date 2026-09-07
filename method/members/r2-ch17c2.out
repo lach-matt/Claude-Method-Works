@@ -57,7 +57,7 @@
   §3 "audit" token lines: 7; count words with "audits" in §3: ['ten', 'twenty-two']
   §3 DATA: ten-list rows 10 (L[1010, 1019]); twelve named 12 (CONSISTENCY REDUNDANCY ARTEFACT COHERENCE ATTRIBUTION ANTECEDENT MARKUP ENUMERATION FIDELITY MEASURE SEQUENCE CENSUS); 10 + 12 = 22 (Decimal); audits described in the body 7 (docket 33 / 15i-08: seven of twenty-two) at L[1040, 1045, 1049, 1053, 1058, 1063, 1069]
   L79 (front matter) says "world outside the book"; L9824 says "world outside the work": True / True
-  six-volume sites of "twenty-two audits": main:5[79,1004,1143,1402,9858] reg:1[4600] mc:0 pc:0 ioi:1[271] sc:0 ; of "twenty-two": main:19[79,116,526,732,751,1003…] reg:25[1264,1416,1976,2088,2224,2380…] mc:0 pc:0 ioi:1[271] sc:0
+  six-volume sites of "twenty-two audits": main:5[79,1004,1143,1402,9858] reg:1[4600] mc:0 pc:0 ioi:1[271] sc:0 ; of "twenty-two": main:19[79,116,526,732,751,1003…] reg:26[1264,1416,1976,2088,2224,2380…] mc:0 pc:0 ioi:1[271] sc:0
     reg L4600 **AND 22 CENSUS CAUGHT THE CHANGE THAT ADDED THE THREE AUDITS.** *Promoting GRAPH, CYCLE and NOMENCLATURE to prime status meant the book said twenty-f
   "The audit reads the object, the source, the artefact and the world outside the work" — a four-object list: 4
   six-volume sites of "world outside the work": main:1[9858] reg:0 mc:0 pc:0 ioi:0 sc:0
@@ -157,7 +157,7 @@
   \b1969\b                     main:11[9495,9502,9606,9756,9866,9868…] reg:7[4576,4580,4680,6362,6378,6506…] mc:12[2858,2862,3066,3070,3106,3174…] pc:2[484,594] ioi:1[1508] sc:0
   \b1950\b                     main:7[9348,9867,9902,11208,11598,11708…] reg:3[4584,6382,6749] mc:21[644,648,696,698,1228,1230…] pc:1[912] ioi:1[1500] sc:0
   \b1971\b                     main:4[9868,9940,11859,11875] reg:2[5500,6362] mc:17[1228,1230,1238,1240,2148,2150…] pc:0 ioi:1[1534] sc:0
-  \btwenty-two\b               main:19[79,116,526,732,751,1003…] reg:25[1264,1416,1976,2088,2224,2380…] mc:0 pc:0 ioi:1[271] sc:0
+  \btwenty-two\b               main:19[79,116,526,732,751,1003…] reg:26[1264,1416,1976,2088,2224,2380…] mc:0 pc:0 ioi:1[271] sc:0
   \bnine things\b              main:3[68,4056,9861] reg:0 mc:0 pc:0 ioi:0 sc:0
   \bfive evaluations\b         main:1[9879] reg:1[6386] mc:1[3198] pc:0 ioi:0 sc:0
   \bexactly quartic\b          main:1[9878] reg:1[6386] mc:1[3198] pc:0 ioi:0 sc:0

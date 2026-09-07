@@ -117,10 +117,10 @@ for lowercase `register NNN` is no longer owed. Both are bundle members and neit
 
 ## What it reports
 
-Over `--roster with-companion`, 2,124 pointer tokens:
+Over `--roster with-companion`, 2,126 pointer tokens:
 
 ```
-RESOLVED-HERE 438  RESOLVED 1577  AMBIGUOUS 65  PARTIAL 19
+RESOLVED-HERE 438  RESOLVED 1579  AMBIGUOUS 65  PARTIAL 19
 PREFIX-ONLY 3  UNRESOLVED 21  KIND-MISMATCH 1
 44 findings  (APPSEC 2, FIGURE 2, REGISTER 4, REGISTER-RANGE 19, SECTION 8, THEOREM 9)
 ```
@@ -163,7 +163,7 @@ hypothesis until read and measured* — and this measures them.
 
 ## `--extent`
 
-The Register's extent is stated as 1 to 1874; 1,741 of those numbers carry a `###` entry and 133 do
+The Register's extent is stated as 1 to 1875; 1,742 of those numbers carry a `###` entry and 133 do
 not. **An uncited absence is not a pointer failure**, so `--extent` lists only the absences
 something cites:
 

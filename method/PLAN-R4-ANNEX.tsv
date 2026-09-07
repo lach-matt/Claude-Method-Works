@@ -491,7 +491,7 @@ F-214	6	OPEN	S	no	yes	Drive housekeeping: BUILD174 duplicated in Materials (two 
 F-215	2	DONE - register 1867	M	yes	yes	Committed Sc VI prediction of §25.6 / E.3 (736,688 in [735,860, 737,380]; 7s; δ₂/δ∞/δ(6s)) has no Register entry	DEFERRED.md L3359–3360 (Chat 145 item 3)
 F-216	3	OPEN	S	yes	yes	± 1,398 / ± 1,594 / ± 2,169 (L7066, L7105, L7106) match no base; L7115 → §24.6 carries no family figure	DEFERRED.md L3362–3363 (Chat 145 item 5)
 F-217	1	CLOSED — unverifiable here (E-075; CLAUDE.md §5)	M	yes	yes	14x-05/06 percentages and Ti I 23/26, Sc VI 6/10 inventories UNREPRODUCIBLE without ASD captures; L7550 '129×' unsourced	DEFERRED.md L3364 (Chat 145 item 6)
-F-218	2	OPEN	S	yes	yes	D.5.9 E figures reproduce only with the 3B.five / 3B.pot precedent and a first-run verification unstated on page and in 1726	DEFERRED.md L3371 (Chat 146 item 2, 23a-03 (ii))
+F-218	2	DONE - register 1875: the increments reproduce exactly and the base does not; D.5.2 titled the twenty-seven prints 24 rows and D.5.4 the five prints 1, and 3 + 4 is the gap of 7	S	yes	yes	D.5.9 E figures reproduce only with the 3B.five / 3B.pot precedent and a first-run verification unstated on page and in 1726	DEFERRED.md L3371 (Chat 146 item 2, 23a-03 (ii))
 F-219	3	OPEN	S	yes	yes	E.1.4 'takes E from 4 to 10' — a +6 convention no reading of ℛ yields; record 382 carries it	DEFERRED.md L3379 (Chat 147 item 1, 24a-05 narrowed)
 F-220	3	OPEN	S	yes	yes	Four closed-item coordinates fixed only by reproduction and the eleven-state's M/N rows are unprinted conventions	DEFERRED.md L3380 (Chat 147 item 2)
 F-221	3	OPEN	S	yes	yes	§32.6.1 L9270 'E(Q) = 5 unfibred' readout stale; ten printed open rows give 3	DEFERRED.md L3381 (Chat 147 item 3)

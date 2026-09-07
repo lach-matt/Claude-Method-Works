@@ -693,7 +693,7 @@ id	class	member	line	item	detail
 692	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	45,450	other sites: reg=1 mc=3 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=8 ioi=2 | mis-citation is corrected here and recorded at register 400.
 694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=34 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
-695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	7,	other sites: main=16 reg=32 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
+695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	7,	other sites: main=16 reg=33 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 696	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	497	other sites: main=3 reg=3 ioi=1 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
 697	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	9,	other sites: main=5 reg=24 mc=5 pc=4 ioi=7 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
 698	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3951	497	other sites: main=3 reg=3 ioi=1 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
@@ -1630,3 +1630,5 @@ id	class	member	line	item	detail
 1629	C9-OVERGENERALISATION-WORD	reg	6931	never	**§34.6 SAYS EACH SUBSHELL FILLS AT CONSTANT `a` AND THREE SUBSHELLS DO NOT; THE DOCKET'S OWN INSTANCE OF THE FAULT IS AT AN ELEMENT WHERE NOTHING MOVES.** *§34.6 states both halves in one breath:* **
 1630	C9-OVERGENERALISATION-WORD	reg	6931	never	**§34.6 SAYS EACH SUBSHELL FILLS AT CONSTANT `a` AND THREE SUBSHELLS DO NOT; THE DOCKET'S OWN INSTANCE OF THE FAULT IS AT AN ELEMENT WHERE NOTHING MOVES.** *§34.6 states both halves in one breath:* **
 1631	C9-OVERGENERALISATION-WORD	reg	6935	without exception	**THE ORDERING LAW NAMES THREE EXCEPTIONS AND THE SEATED CONFIGURATIONS GIVE TWO.** *The law is printed as* **"A channel of smaller n+ℓ opens before a channel of larger n+ℓ without exception; at equal
+1632	C13-HANDLE-LEAK	reg	6942	3B.five	**APPENDIX D's RE-CLOSURE ARITHMETIC IS EXACT ON EVERYTHING IT ADDS AND UNCHECKABLE ON WHAT IT ADDS TO, AND THE SEVEN MISSING ELEMENTS ARE THE TWO TITLES THAT PROMISE MORE THAN THEIR TABLES PRINT.** *
+1633	C13-HANDLE-LEAK	reg	6942	3B.pot	**APPENDIX D's RE-CLOSURE ARITHMETIC IS EXACT ON EVERYTHING IT ADDS AND UNCHECKABLE ON WHAT IT ADDS TO, AND THE SEVEN MISSING ELEMENTS ARE THE TWO TITLES THAT PROMISE MORE THAN THEIR TABLES PRINT.** *

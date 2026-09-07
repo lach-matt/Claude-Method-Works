@@ -190,7 +190,7 @@ def checks():
         ("docs/RETRACTION-AUDIT.md", "LIVE-SUPERSEDED", 25,
          sum(1 for r in _rows("RETRACTION-AUDIT.tsv")
              if r["verdict"] == "LIVE-SUPERSEDED")),
-        ("docs/REGISTER-GAPS.md", "The Register entries", 1741, len(R)),
+        ("docs/REGISTER-GAPS.md", "The Register entries", 1742, len(R)),
         ("docs/REGISTER-GAPS.md", "Working Register entries", 119, len(W)),
         ("docs/REGISTER-GAPS.md", "registers seated in both (must be 0)", 0, len(R & W)),
         ("docs/REGISTER-GAPS.md", "numbering gaps", 133, len(gaps)),
@@ -374,17 +374,17 @@ def _instrument_rows():
     pv = lambda v: sum(1 for s in sites if s["verdict"] == v)
     av = lambda v: sum(1 for c in claims if c["verdict"] == v)
     return [
-        ("docs/POINTERS.md", "pointer tokens, --roster with-companion", 2124, len(sites)),
+        ("docs/POINTERS.md", "pointer tokens, --roster with-companion", 2126, len(sites)),
         ("docs/POINTERS.md", "findings", 44, sum(1 for s in sites if _is_finding(s))),
-        ("docs/POINTERS.md", "RESOLVED", 1577, pv("RESOLVED")),
+        ("docs/POINTERS.md", "RESOLVED", 1579, pv("RESOLVED")),
         ("docs/POINTERS.md", "RESOLVED-HERE", 438, pv("RESOLVED-HERE")),
         ("docs/POINTERS.md", "AMBIGUOUS", 65, pv("AMBIGUOUS")),
         ("docs/POINTERS.md", "PARTIAL", 19, pv("PARTIAL")),
         ("docs/POINTERS.md", "PREFIX-ONLY", 3, pv("PREFIX-ONLY")),
         ("docs/POINTERS.md", "UNRESOLVED", 21, pv("UNRESOLVED")),
         ("docs/POINTERS.md", "KIND-MISMATCH", 1, pv("KIND-MISMATCH")),
-        ("docs/ARITH.md", "claims checked, --roster reader-facing", 280, len(claims)),
-        ("docs/ARITH.md", "AGREE", 64, av("AGREE")),
+        ("docs/ARITH.md", "claims checked, --roster reader-facing", 282, len(claims)),
+        ("docs/ARITH.md", "AGREE", 66, av("AGREE")),
         ("docs/ARITH.md", "WITHIN-INPUT-PRECISION", 2, av("WITHIN-INPUT-PRECISION")),
         ("docs/ARITH.md", "DISAGREE (the findings)", 2, av("DISAGREE")),
         ("docs/ARITH.md", "NOT-BOUND", 212, av("NOT-BOUND")),
