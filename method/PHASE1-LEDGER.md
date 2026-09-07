@@ -151,3 +151,28 @@ wording is prose).
 
 **So Phase 1's shape is now known rather than counted**: nine rows want an instrument each, ten are closed
 by a rule already in force, eleven are prose the pass ahead will carry, and eleven are done.
+
+---
+
+## Class A, first item worked
+
+### D-14 · E-089 · V = 4ν/3 printed as an equality — `vprice.py`, selftest 11 of 11
+
+**`4ν/3` occurs 24 times on 22 lines of the main volume and once in the Mathematical Compendium**, in
+tables, summary rows, the chapter's thesis sentence and a section title — almost always with an equals sign.
+**One site says otherwise**, §23: *"The exact V is rational at every ν — 32/11, 54/13, 256/47, 250/37,
+4000/299 — and 4ν/3 + 4/(9ν) is its **asymptotic** form, low by 0.69% at ν = 2."*
+
+| ν | exact V = 4ν³/(3ν²−1) | printed | 4ν/3 + 4/(9ν) | low by | bare 4ν/3 | low by |
+|---|---|---|---|---|---|---|
+| 2 | 32/11 | 32/11 | 2.888889 | **0.69 %** | 2.666667 | **8.33 %** |
+| 3 | 54/13 | 54/13 | 4.148148 | 0.14 % | 4.000000 | 3.70 % |
+| 4 | 256/47 | 256/47 | 5.444444 | 0.04 % | 5.333333 | 2.08 % |
+| 5 | 250/37 | 250/37 | 6.755556 | 0.02 % | 6.666667 | 1.33 % |
+| 10 | 4000/299 | 4000/299 | 13.377778 | 0.00 % | 13.333333 | 0.33 % |
+
+**All five printed rationals reproduce exactly** from the closed form, so the object is identified beyond
+doubt; the two-term asymptotic is low by **0.69 %** at ν = 2, which is the volume's own figure; and the
+**bare form is low by 8.33 %**, twelve times that. **One site states the approximation and its error;
+twenty-two state an identity**, and a reader who meets any of the twenty-two first has no way to know.
+The defect is not that 4ν/3 is wrong — it is the equals sign. Which sites take a qualifier is prose.

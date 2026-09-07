@@ -1,0 +1,19 @@
+V = 4ν/3, printed as an equality
+
+  occurrences of the string '4ν/3': main volume 24 on 22 lines, Mathematical Compendium 1
+
+     ν   exact V = 4ν³/(3ν²−1)     printed   4ν/3 + 4/(9ν)   low by   bare 4ν/3   low by
+     2                   32/11       32/11        2.888889    0.69%    2.666667    8.33%
+     3                   54/13       54/13        4.148148    0.14%    4.000000    3.70%
+     4                  256/47      256/47        5.444444    0.04%    5.333333    2.08%
+     5                  250/37      250/37        6.755556    0.02%    6.666667    1.33%
+    10                4000/299    4000/299       13.377778    0.00%   13.333333    0.33%
+
+  All five printed rationals reproduce exactly from the closed form, so the object is
+  identified. The two-term asymptotic is low by 0.69% at ν = 2,
+  which is the volume's own 0.69%. The BARE form is low by
+  8.33% there — twelve times the error of the form the volume itself
+  calls asymptotic, and it is the bare form that twenty-two sites print with an equals sign.
+
+  One site states the approximation and its error; twenty-two state an identity. RECORDED,
+  NOT REPAIRED — which sites take a qualifier is prose.
