@@ -1593,3 +1593,74 @@ outstanding predictions is load-bearing, and it is the one the corpus has a stan
 Directive 1 is met. Two remain, and directive 1's own answer says where to push: the wall thickness is
 the entire cost, the wall thickness is fixed by a static quantum inequality, and that inequality has a
 dynamical form nobody here has asked.
+
+## `nullbound.py` — the reason warp drives are "impossible" is the wrong instrument
+
+`warpenergy.py` closed directive 1 and handed off one sentence: the entire cost is the wall, and the
+wall thickness is set by a quantum inequality. Pfenning and Ford's is the one everybody quotes, and it
+bounds D at about 10² Planck lengths — which is what turns 0.19 solar masses into 10⁶² kg.
+
+> **That bound comes from a *timelike* quantum inequality, and the quantity being bounded is *null*.**
+
+### The corpus had already banked why that matters
+
+Not this file's finding — the Register's, at **5537**, reached independently there:
+
+> Fewster & Roman, Phys. Rev. D 67 (2003) 044003: for the massless minimally coupled scalar in
+> **four-dimensional** Minkowski space, weighted averages of the null-contracted stress tensor along a
+> null geodesic are **unbounded from below** on Hadamard states. **There are no quantum inequalities
+> along null geodesics in 4D.** In two dimensions they exist.
+
+Register 5541 then prices every finite replacement: Wall 2010 spends *completeness*, Kontou & Olum
+spend *timelike smearing*, and the Smeared NEC of Freivogel & Krommydas spends a *UV cutoff*, making
+the bound finite and explicitly computable. **The SNEC is the instrument this comparison needs.**
+
+### And then the thickness cancels, exactly
+
+Two 1/D² laws meet, and both also carry 1/G.
+
+| | |
+|---|---|
+| **required** | `ρ = −v_s²/(144πG D²)` — R cancels, checked at R = 10, 100, 1000 m |
+| **allowed** (SNEC) | `\|⟨T_kk⟩\| ≤ 2B/(G D²)` — Gaussian of width D gives `∫(g′)² = 1/(2D²)` |
+| **ratio** | **`v_s²/(288πB) = v_s²/9`** at Freivogel–Krommydas's `B = 1/(32π)` |
+
+**D² cancels. G cancels. What is left is a pure number in v_s.** Verified constant to twelve figures
+across D from 1 mm to the Planck length — **thirty-two orders of magnitude, one ratio.**
+
+| v_s | ratio | |
+|---|---|---|
+| 0.1 c | 0.0011 | admissible, **900× margin** |
+| 1.0 c | 0.111 | admissible, 9× margin |
+| 3.0 c | 1.000 | saturated |
+| 4.0 c | 1.778 | forbidden |
+
+> **The wall-thickness bound is an artefact of the timelike instrument.** On the null-smeared condition
+> a metre-thick wall and a Planck-thick wall are equally admissible, and what is bounded is the
+> **velocity**. Pfenning–Ford demand D ≲ 1.6×10⁻³³ m; a one-solar-mass budget at R = 100 m and 0.1 c
+> wants D ≈ 1.9 mm — a gap of 1.2×10³⁰ that the null condition simply does not impose.
+
+### Four O(1) exposures, all named, none of them structural
+
+1. **E vs T_kk** — the required figure is the Eulerian density, the bound is on the null component. Both
+   ∝ v_s²f′², so the 1/D² structure is untouched, but their ratio is an O(1) not computed here.
+2. **B is not a theorem** — Freivogel & Krommydas argue B ≤ 1/(32π) holographically.
+3. **The SNEC itself is a conjecture** with holographic support.
+4. **The Gaussian** gives 1/(2D²); another sampling function gives another O(1).
+
+So `v_s²/9` carries perhaps an order either way — and at 0.1 c there are nearly three orders of margin.
+Even with B ten times smaller, saturation is still at 0.95 c. **The structural claim survives all four:
+both sides go as 1/(GD²), so the thickness cancels whatever the O(1)s are, and a bound on D cannot be
+what a null condition says.**
+
+**This does not build a warp drive.** It removes the specific reason everybody gives for why one
+cannot be built.
+
+### shape.py scores it as a half, not a hit
+
+`shape.py` predicted — before `nullbound.py` existed — that the energy-condition family was where a
+static bound would loosen, and named QNEC as the counterpart. The move that landed is
+**timelike-QI → null-SNEC**: same family, *different member*. SNEC is state-independent; QNEC is
+state-dependent and **still unasked**. `evidence_available()` goes 0 → **0.5**, and the row is scored
+`PARTIAL` rather than `MOVED` — because scoring it whole would be exactly the fitting error the file
+exists to avoid.

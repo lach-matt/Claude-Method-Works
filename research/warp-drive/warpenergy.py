@@ -202,13 +202,22 @@ def selftest():
         round(math.log10(abs(thin_wall_mass(C, 100.0, L_PLANCK))
                          / abs(thin_wall_mass(C, 100.0, 1.0)))), 35)
 
-    print("\nWhere directive 1 hands off")
+    print("\nWhere directive 1 handed off, and what happened next")
     import shape
-    preds = [r[0] for r in shape.predictions()]
-    chk("shape.py's prediction 2 is the NEC ladder / QNEC", "NEC-LADDER" in preds, True)
-    print("""      D is set by a quantum inequality; the QNEC is its state-dependent
-      successor and licenses negative energy where S''_out < 0.  Directive 1's
-      answer names which outstanding prediction is load-bearing.""")
+    chk("the handoff row is now scored PARTIAL, not PREDICTED",
+        [r[5] for r in shape.ROWS if r[0] == "NEC-LADDER"], ["PARTIAL"])
+    import nullbound
+    chk("  because nullbound.py took it: the thickness cancels",
+        abs(nullbound.ratio(0.1, 1e-3) / nullbound.ratio(0.1, 1e-30) - 1.0) < 1e-12, True)
+    chk("  so D is no longer what is bounded -- v_s is",
+        nullbound.max_velocity(), 3.0, 1e-12)
+    chk("and the wall this file priced at 10^62 kg was the timelike artefact",
+        thin_wall_mass(0.1 * C, 100.0, nullbound.thickness_for_budget(1.98847e30, 100.0, 0.1))
+        / 1.98847e30, -1.0, 1e-9)
+    print("""      This file said the bill was the wall and the wall was set by a
+      quantum inequality.  nullbound.py then found the inequality was the
+      timelike one, in a dimension where the null one does not exist -- and on
+      the null-smeared condition the thickness cancels exactly.""")
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1
