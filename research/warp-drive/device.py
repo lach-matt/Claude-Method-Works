@@ -60,7 +60,12 @@ N_BG = 2.0                       # background index; neclab: argmax of (n-1)/n^2
 
 # ---- PINNED material constants ------------------------------------------------
 GAMMA_G   = 2.0 * math.pi * 28.0e9   # rad/s/T, gyromagnetic ratio at g = 2
-YIG_MU0MS = 0.175                    # T, 4 pi Ms = 1750 G for YIG
+# CORRECTED by materials.py.  This was 0.175 T -- the ROOM-TEMPERATURE value,
+# 4 pi Ms = 1750 G, 140 kA/m -- while YIG_DH below is the T -> 0 linewidth.  The
+# device runs in a dilution refrigerator (its own analogue Hawking temperature is
+# 4.96 mK), so both must be the cold values.  Serha, Dubs & Chumak
+# arXiv:2510.09331 Tab. II: bulk YIG Ms @ RT | -> 0 K = 140 | 200 kA/m.
+YIG_MU0MS = 4.0e-7 * math.pi * 200e3  # T, 200 kA/m at T -> 0.  = 0.251327 T
 YIG_DH    = 0.2e-4                   # T, 0.2 Oe -- PREMIUM single-crystal YIG sphere,
                                      # a catalogue part.  TEST 12 shows the loss is
                                      # ferrite-dominated and linear in this number.
@@ -461,11 +466,11 @@ def selftest():
     d = design()
     print("TEST 1 -- the ferrite delivers the required g_x, off resonance")
     chk("YIG FMR at 0.30 T (GHz)", fmr() / 2e9 / math.pi, 8.40)
-    chk("omega_m as a frequency (GHz)", omega_m() / 2e9 / math.pi, 4.90)
-    chk("g_x far below resonance is wm/w0", omega_m() / fmr(), 0.5833333, tol=1e-6)
+    chk("omega_m as a frequency (GHz)", omega_m() / 2e9 / math.pi, 7.037168)
+    chk("g_x far below resonance is wm/w0", omega_m() / fmr(), 0.837758, tol=1e-6)
     chk("required g_x is above that, so detuning is needed", d["gx"] > omega_m() / fmr(), True)
-    chk("operating frequency (GHz)", d["f_op"] / 1e9, 8.2210576, tol=1e-7)
-    chk("detuning in YIG linewidths", d["detune_lw"], 319.53999, tol=1e-6)
+    chk("operating frequency (GHz)", d["f_op"] / 1e9, 8.141779, tol=1e-7)
+    chk("detuning in YIG linewidths", d["detune_lw"], 461.1089, tol=1e-6)
     chk("  -- over 100 linewidths clear, so PASS", d["detune_lw"] > 100.0, True)
     # Identity: at the FMR the required detuning vanishes, so g_x diverges.
     chk("g_x -> inf as w -> w0 (identity)",
@@ -475,14 +480,14 @@ def selftest():
     chk("eps = mu required at the wall's outside", d["eps"], 2.2331443, tol=1e-7)
     chk("  -- under 2.5, so no extreme metamaterial", d["eps"] < 2.5, True)
     chk("SRR must resonate above f_op (GHz)",
-        srr_resonance_required(d["f_op"], SRR_F, d["eps"]) / 1e9, 9.7144632, tol=1e-7)
+        srr_resonance_required(d["f_op"], SRR_F, d["eps"]) / 1e9, 9.620783, tol=1e-7)
 
     print("\nTEST 3 -- geometry: does it fit, and does light get through?")
-    chk("in-medium wavelength (cm)", d["lam"] * 100.0, 1.6329626, tol=1e-7)
-    chk("unit cell (mm)", d["cell"] * 1000.0, 1.6329626, tol=1e-7)
-    chk("wall = %d cells (cm)" % CELLS, d["wall"] * 100.0, 1.6329626, tol=1e-7)
-    chk("bubble radius (cm)", d["R"] * 100.0, 3.2659251, tol=1e-7)
-    chk("device span (cm)", d["span"] * 100.0, 9.7977753, tol=1e-7)
+    chk("in-medium wavelength (cm)", d["lam"] * 100.0, 1.648863, tol=1e-7)
+    chk("unit cell (mm)", d["cell"] * 1000.0, 1.648863, tol=1e-7)
+    chk("wall = %d cells (cm)" % CELLS, d["wall"] * 100.0, 1.648863, tol=1e-7)
+    chk("bubble radius (cm)", d["R"] * 100.0, 3.297726, tol=1e-7)
+    chk("device span (cm)", d["span"] * 100.0, 9.893179, tol=1e-7)
     chk("  -- benchtop", d["span"] < 0.5, True)
     # A single Q for the whole block was the WRONG MODEL -- see TEST 12, which
     # weights the ferrite and the rings by their actual share of the response.
@@ -492,16 +497,16 @@ def selftest():
     r, wt, th = d["ring_r"], TRACE_W, CU_THICK
     Li = srr_inductance(r, wt)
     f_single = srr_f0(Li, cap_single_gap(wt, th, d["gap"]))
-    chk("single-gap SRR resonance (GHz)", f_single / 1e9, 149.00683, tol=1e-6)
+    chk("single-gap SRR resonance (GHz)", f_single / 1e9, 148.3779, tol=1e-6)
     chk("  -- FAILS against the %.2f GHz needed" % (d["srr_f0"] / 1e9),
         f_single > 5.0 * d["srr_f0"], True)
-    chk("its gap capacitance (fF)", cap_single_gap(wt, th, d["gap"]) * 1e15, 1.4878023, tol=1e-6)
+    chk("its gap capacitance (fF)", cap_single_gap(wt, th, d["gap"]) * 1e15, 1.464279, tol=1e-6)
     f_bc = srr_f0(Li, cap_broadside(r, wt, d["sub_h"], SUB_EPS_R))
     chk("broadside-coupled on the SOLVED substrate (GHz)", f_bc / 1e9,
         d["srr_f0"] / 1e9, tol=1e-9)
     chk("  -- it hits the target exactly, because h was solved for", True, True)
-    chk("solved substrate thickness (mm)", d["sub_h"] * 1e3, 0.35272075, tol=1e-6)
-    chk("ring radius, derived from the cell (mm)", d["ring_r"] * 1e3, 0.55483315, tol=1e-6)
+    chk("solved substrate thickness (mm)", d["sub_h"] * 1e3, 0.3590665, tol=1e-6)
+    chk("ring radius, derived from the cell (mm)", d["ring_r"] * 1e3, 0.5619884, tol=1e-6)
     chk("ring outer diameter fits the cell", 2.0 * (r + wt) < d["cell"], True)
     chk("  -- with %d%% margin" % int(100 * (1 - 2 * (r + wt) / d["cell"])),
         2.0 * (r + wt) / d["cell"] < 0.95, True)
@@ -525,7 +530,7 @@ def selftest():
 
     print("\nTEST 6 -- eps = mu is a CONSTRAINT on the ring gap, not a free choice")
     chk("required gap = S w / c at the design frequency (mm)",
-        d["gap"] * 1e3, 0.16663320, tol=1e-6)
+        d["gap"] * 1e3, 0.1693102, tol=1e-6)
     chk("  -- so the gap is DERIVED, not chosen: it tracks f_op and r^2",
         abs(d["gap"] - gap_for_eps_equals_mu(d["f_op"], d["ring_r"])) < 1e-15, True)
     # Identity: the gap must scale linearly with frequency and as r^2.
@@ -543,16 +548,16 @@ def selftest():
     chk("bulk g_x the ferrite must supply", d["gxp"], 13.838960, tol=1e-6)
     chk("  -- 12x the effective value, because fill is 8%",
         abs(d["gxp"] * d["fill"] - d["gx"]) < 1e-12, True)
-    chk("which pulls the operating point in to (linewidths)", d["detune_lw"], 319.53999, tol=1e-6)
+    chk("which pulls the operating point in to (linewidths)", d["detune_lw"], 461.1089, tol=1e-6)
     chk("  -- tighter than before the ferrite eps was priced, and still safe",
         200.0 < d["detune_lw"] < 500.0, True)
 
     print("\nTEST 8 -- is the geometry a SPHERE?  It is not.")
     # Smolyaninov Eq (2) is 1+1 DIMENSIONAL: y and z are flat spectators and the
     # shift is carried by x alone.  The device is a STACK graded along one axis.
-    chk("length along the graded axis (cm)", d["x_len"] * 100.0, 9.7977753, tol=1e-6)
+    chk("length along the graded axis (cm)", d["x_len"] * 100.0, 9.893179, tol=1e-6)
     chk("transverse aperture, free, set at 5 lambda (cm)", d["aperture"] * 100.0,
-        8.1648128, tol=1e-6)
+        8.244316, tol=1e-6)
     chk("  -- a bar, not a bubble", abs(d["x_len"] - 2 * (INTERIOR_WALLS + 1) * d["wall"]) < 1e-15, True)
 
     print("\nTEST 9 -- the ferrite carries mu as well, and dominates")
@@ -570,16 +575,16 @@ def selftest():
         L.margin(N_BG, d["beta"], 1.0) > 10.0 * (de * dm - dg ** 2), True)
 
     print("\nTEST 12 -- the loss budget, and the only knob that moves it")
-    chk("ferrite loss tangent", d["tan_f"], 0.0031631909, tol=1e-8)
+    chk("ferrite loss tangent", d["tan_f"], 0.0022025389414, tol=1e-8)
     chk("SRR loss tangent at Q = 1000", d["tan_s"], 0.0029816368, tol=1e-8)
     w = d["ferrite_share"]
     tot = w * d["tan_f"] + (1 - w) * d["tan_s"]
-    chk("weighted total", tot, 0.0031449506, tol=1e-8)
+    chk("weighted total", tot, 0.002280813, tol=1e-8)
     chk("loss across the device", 1 - math.exp(-2 * math.pi * tot / (2 * d["lam"]) * d["x_len"]),
-        0.0575580213, tol=1e-8)
+        0.0420812459346, tol=1e-8)
     chk("  -- under 10%, so PASS",
         1 - math.exp(-2 * math.pi * tot / (2 * d["lam"]) * d["x_len"]) < 0.10, True)
-    chk("ferrite figure of merit Ms/((eps_r-1) dH)", ferrite_figure_of_merit(), 625.0)
+    chk("ferrite figure of merit Ms/((eps_r-1) dH)", ferrite_figure_of_merit(), 897.5979)
     # Identity: the loss is LINEAR in linewidth and INDEPENDENT of the rings' Q
     # once the ferrite dominates.
     chk("halving the linewidth halves the ferrite loss",
@@ -592,7 +597,7 @@ def selftest():
     chk("forward index", npl, 3.3424, tol=1e-4)
     chk("backward index", nmi, 1.1239, tol=1e-4)
     dt = nonreciprocal_delay(d["eps"], d["gx"], d["x_len"])
-    chk("non-reciprocal delay (ns)", dt * 1e9, 0.72502, tol=1e-4)
+    chk("non-reciprocal delay (ns)", dt * 1e9, 0.7321092, tol=1e-4)
     chk("phase at f_op (degrees)", math.degrees(2 * math.pi * d["f_op"] * dt),
         2146.4, tol=1e-3)
     chk("  -- a VNA resolves 0.01 deg, so it is unmissable",
@@ -618,9 +623,9 @@ def selftest():
 
     print("\nTEST 17 -- so would it prove anything?  The Hawking number decides.")
     TH = hawking_temperature(d["beta"], d["wall"])
-    chk("analogue Hawking temperature (mK)", TH * 1e3, 4.9642612, tol=1e-7)
+    chk("analogue Hawking temperature (mK)", TH * 1e3, 4.916389, tol=1e-7)
     chk("  -- BELOW a dilution fridge's routine 10 mK base", TH * 1e3 < 10.0, True)
-    chk("room-temperature thermal noise exceeds it by", 300.0 / TH, 60430.7, tol=1e-4)
+    chk("room-temperature thermal noise exceeds it by", 300.0 / TH, 61020.39, tol=1e-4)
     # T_H ~ beta/wall ~ beta*f, so higher frequency raises it.
     chk("T_H scales with frequency (identity)",
         hawking_temperature(d["beta"], d["wall"] / 12.0) / TH, 12.0)

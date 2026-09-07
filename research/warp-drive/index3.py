@@ -316,6 +316,13 @@ FINDINGS = [
   "Pitre-Schneider-Poisson: unstable for all l>=2, all compactness, all Gamma, on Le's anchor -- and beta^2 is absent from that branch"),
  ("DENSITY-CEILING", 0, +1, +1, "wall.py",
   "the l>=2 rate is self-gravitational, so N<1 is a mean-density ceiling: 2.66e-4 kg/m^3, met by 1,000 t at R > 965 m"),
+ # The spectral index used as a materials screen.
+ ("S-STATE",         0,  0, +1, "materials.py",
+  "exactly four S-state shells exist -- s1, p3, d5, f7 -- so Fe3+ is optimal in its shell and f7 is the only way up"),
+ ("COLD-MS",         0,  0, +1, "materials.py",
+  "device.py paired room-temperature Ms with cryogenic linewidth; corrected, the ferrite merit rises 42.9% and loss falls 30.4%"),
+ ("F7-CEILING",      0, -1, +1, "materials.py",
+  "EuO's Ms is 9.5x YIG's cold value, so the f7 ceiling is 5.8x -- behind a crystal-growth problem, not a physics one"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of eleven obstructions two dissolved, three relocated, three closed negative, two conditional and one never tested"),
 ]
@@ -347,6 +354,8 @@ SUPPORT = [
  ("GEODESIC-VERTEX","pathmetric.py",  "M's lattice metric misglosses st=0 as betweenness; the geodesic set is the box's VERTICES, up to 6,561x smaller"),
  ("NOT-LENGTH-SPACE","pathmetric.py", "log(|D|+1) is concave, so an index penalises subdivision and its first step costs log 2: not a length space"),
  ("RADIAL-CONFIRMED","wall.py",       "this tree's beta^2_crit converts to LeMaitre-Poisson's Gamma_1 to 1e-15 at every x: independent derivation, same answer"),
+ ("HUND-CHECK", "materials.py",     "Hund's rules against the 108 seated NIST ground terms: 74/78 term symbols, 78/78 on J -- the four differ in notation only"),
+ ("SUBSTRATE",  "materials.py",     "a linewidth table alone picks the wrong substrate: YSGG beats GGG on dB and loses on merit, because Ms is halved"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -427,7 +436,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 107)
+    chk("number of findings indexed", len(FINDINGS), 110)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 

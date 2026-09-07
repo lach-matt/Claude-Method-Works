@@ -1122,3 +1122,94 @@ analogue must be at least 2+1D, Smolyaninov derives only 1+1D, and the Brown–H
 bound the whole design rests on constrains *one* magnetoelectric component where a transversely graded
 medium has more. It may tighten, loosen, or not apply. **ANALOGUE-2D is not a design awaiting
 fabrication; it is a derivation awaiting a derivation.**
+
+## The hardware is a materials question, and the corpus has a spectral index to screen against
+
+`device.py`'s ferrite figure of merit is `Ms/((ε_r−1)ΔH)`, and two of those three are atomic-spectra
+quantities before they are engineering ones. `Ms` is set by the magnetic ion's spin. `ΔH` — the FMR
+linewidth — is set by spin–lattice relaxation, which needs spin–orbit coupling to connect the spin to
+the lattice at all. So the screen writes itself:
+
+> **Maximise S. And kill L, because first-order spin–orbit dies with it.**
+
+That is a query on the ground *term*, which is exactly what `LW1-ground.py` holds — register 1306,
+NIST ASD 5.12, `READ` not computed, imported by path and never transcribed.
+
+### The screen, validated before it is used
+
+Hund's rules are checked against the seated terms first. Of the 108 neutrals, 78 have exactly one open
+shell, and the rules reproduce the observed NIST term symbol for **74**. The four that differ are not
+disagreements — NIST writes Pb in *jj*-coupling as `(1/2,1/2)₀` and gives Sg, Bh and Hs by J alone,
+and Hund returns J = 0, 0, 5/2, 4 for those four, matching every one. **Agreement on J is 78 of 78.**
+
+Run over every open shell in the table, exactly four are S-states, and that is the complete list for
+every element there is:
+
+| shell | S | term | |
+|---|---|---|---|
+| s¹ | 1/2 | ²S₁/₂ | |
+| p³ | 3/2 | ⁴S₃/₂ | |
+| **d⁵** | **5/2** | ⁶S₅/₂ | **YIG's Fe³⁺** |
+| **f⁷** | **7/2** | ⁸S₇/₂ | **Eu²⁺, Gd³⁺ — the only way up** |
+
+> **The incumbent is optimal in its shell and there is exactly one way past it.** Fe³⁺ is the d-shell
+> S-state, which is why YIG has the narrowest linewidth of any magnetic material and why sixty years
+> of microwave engineering never left it. The only ions with more spin *and* no orbital moment are the
+> f⁷ pair, at S = 7/2 — beating d⁵ by exactly 7/5. Nothing else exists.
+
+### What the screen then found in `device.py`
+
+Serha, Dubs & Chumak, *Magnetic Materials for Quantum Magnonics*
+([arXiv:2510.09331](https://arxiv.org/abs/2510.09331)), Table II gives bulk YIG at 8 GHz:
+`Ms @ RT | →0 K = 140 | 200 kA/m` and `ΔB @ RT | →0 K = 0.03 | 0.02 mT`.
+
+**`device.py` carried the room-temperature Ms (0.175 T ↔ 140 kA/m) beside the cryogenic linewidth.**
+The device runs in a dilution refrigerator — its own analogue Hawking temperature is 4.96 mK — so both
+must be the cold values. Corrected and propagated:
+
+| | was | now | |
+|---|---|---|---|
+| ferrite figure of merit | 625.0 | **897.6** | +42.9% |
+| ferrite loss tangent | 0.003163 | **0.002203** | −30.4% |
+| detuning | 319.5 | **461.1** linewidths | further from resonance |
+| operating point | 8.221 GHz | 8.142 GHz | cell 1.633 → 1.649 mm |
+
+Twenty-eight of `device.py`'s pinned fixtures moved with it. **β, ε, g_x and the fill did not** —
+those are set by the Smolyaninov mapping and the stability bound rather than by the material, which is
+exactly the right thing to have been invariant. A mismatched pair of table lookups, worth nearly half
+the ferrite.
+
+### And a design decision that was right for a reason it never gave
+
+The same table shows the failure mode that dominates thin-film magnonics at millikelvin, and it is not
+the ferrite. GGG is paramagnetic; it orders at low temperature and couples to the YIG spin system:
+
+| | ΔB → 0 K | cost vs bulk sphere |
+|---|---|---|
+| bulk YIG sphere | 0.02 mT | — |
+| YIG on GGG | 0.85 mT | 41.5× |
+| YIG on YSGG | 0.75 mT | **78.9×** |
+| YIG on YSGAG | 0.25 mT | 13.6× |
+
+`device.py` specifies a YIG *sphere*, so it sits on the top row and the problem never arises — but it
+never said that was why. **And the middle rows carry a trap**: YSGG has the better linewidth of the two
+and the worse figure of merit, because the merit divides by ΔH and multiplies by Ms, and YSGG's Ms is
+95 kA/m against GGG's 205. *A linewidth table alone would have picked the wrong substrate.*
+
+### The prize behind f⁷, priced and not claimed
+
+EuO is the f⁷ material: Eu²⁺, 4f⁷, ⁸S₇/₂, `Ms ≈ 1900 kA/m` — **9.5× YIG's cold value** — with
+`T_c = 69 K`, which is irrelevant to a device already at millikelvin. If its linewidth could be brought
+to YIG's, the figure of merit would be 5214 against 897.6:
+
+> **a ceiling of 5.8×, and it is a crystal-growth problem rather than a physics one.**
+
+It cannot be reached today and this is not claimed. YIG's 0.02 mT is sixty years of crystal growth, not
+a property of Fe³⁺; the europium-chalcogenide FMR literature is Dillon & Olsen 1964 and Eastman 1968;
+and the 2026 review that supplies every number above surveys europium chalcogenides and still puts only
+YIG in its benchmark table. Worse, the classic result that **rare-earth impurities broaden YIG's line**
+(Dillon & Nielsen 1959; Spencer, LeCraw & Clogston 1959) is a warning aimed squarely at this idea —
+though Gd³⁺ and Eu²⁺ are the exception that proves it, being the only rare earths with L = 0.
+
+That is a genuine engineering finding of a kind this project has not had before: **a target with a
+number on it and a named discipline that owns it.**
