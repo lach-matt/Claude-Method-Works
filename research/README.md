@@ -758,3 +758,147 @@ and **nuclear matter makes a 5 km one** — 1.11 M☉, 0.0476 c, flat interior, 
 conditions satisfied, by internal circulation at 0.330 c geared 6.94:1. That is the original
 Architecture B topology at the right scale. The bill is ~10⁴⁶ J twice over and a neutron star: one
 stellar catastrophe, not 10³¹.
+
+## The 1+1D reduction was flat all along
+
+Two 2026 papers, read this pass, moved the project further than the previous fifteen instruments
+combined. One closes the metamaterial route; the other opens the first route with no exotic matter
+anywhere in it.
+
+### `twist.py` — `E = −Ω²/(8πG)`
+
+`device.py` had produced a complete parts list for a Smolyaninov analogue: 8.221 GHz, a 9.80 cm
+graded YIG stack, 5.756% loss, 107 selftest checks, and one hard negative — TEST 16, that
+Brown–Hornreich–Shtrikman stability forbids an analogue horizon for **every** background index,
+since a horizon needs `v₀ ≥ c/n` and stability caps `v₀ ≤ c(n−1)/n²`, and `(n−1)/n² ≥ 1/n ⟺ −1 ≥ 0`.
+That was read as the wall the design hit. **It was the wrong wall, twice over.**
+
+**First: a horizon was never required.** A forward-directed null ray in bubble-comoving coordinates
+has `dx′/dt = v_s(f−1) + c`, which vanishes at `f* = 1 − c/v_s`. Since `f ∈ [0,1]`, that locus exists
+**iff `v_s ≥ c`**. The horizon is the signature of the superluminal case, and it is a pathology, not
+a feature — Krasnikov, and Everett and Roman, show the crew cannot create, steer or stop the bubble
+from inside precisely because of it. A subluminal warp drive has no horizon and needs none. TEST 16
+was arithmetically right: the analogue simply declines to emulate the uncontrollable regime.
+
+**Second, and this is the finding.** For the Alcubierre metric the Eulerian energy density and the
+coordinate vorticity of the shift are the same object:
+
+> **E = −Ω²/(8πG)**
+
+Negative energy is not a price paid alongside the transport. It **is** the twist, squared. Barzegar,
+Buchert and Vigneron (arXiv:2602.16495) prove the consequence as their **Theorem III.15**:
+*a coordinate vorticity-free Alcubierre warp drive is Minkowski.*
+
+And `Ω² = (y²+z²)/(4r_s²)·V_s²·f′²` vanishes identically at `y = z = 0`.
+
+> **Smolyaninov's 1+1D reduction is the on-axis line of the bubble, and on that line the Alcubierre
+> warp drive is flat spacetime.**
+
+He reduces to one spatial dimension, in his own words, "to avoid unnecessary mathematical
+complications." The reduction retains precisely the locus where there was nothing. The device is not
+wrong — the 2,146° of non-reciprocity it produces is a real material property, faithfully measured.
+The claim that it measures **metric** content is what falls. This supersedes `RELABEL-ONLY`, which
+said the observable was a relabel; this says the *target* was flat.
+
+Three independent routes, all executed in the file:
+
+| route | statement | check |
+|---|---|---|
+| gauge | `dT = dt + v dx/(c²−v²)` diagonalises the 1+1D metric globally | coefficient residual exactly 0 at five `v` |
+| dimension | `ξ ∧ dξ` is a 3-form, identically zero on a 2-manifold | closed form vs. finite differences, 6.1×10⁻¹¹ |
+| literature | the wedge **is** BBV's Ω | ratio 1.000000000 at five off-axis points |
+
+The tortoise time `T = t + ∫v dx/(c²−v²)` is global iff there is no horizon; where `v` crosses `c`
+transversally it diverges logarithmically, and the file **measures the rate** — 0.5975, 0.5997,
+0.5995 per decade against the predicted `1/(2u′(x₀)) = 0.6`. So in 1+1D the only non-gauge content
+of the metric is a horizon, and stability forbids that. Gauge or forbidden: there is no third case.
+
+**What would fix it, stated so it can be costed.** An analogue must be at least **2+1D**, with the
+shift graded *transversely* (`∂_y f ≠ 0`). One encouraging number: the twist peaks at `f = 0.6226`,
+where `neclab.py`'s stability margin is **+0.7555**, against **+0.0000** at `f → 1` where the medium
+is worst off. The two extrema are disjoint — exactly the structure `neclab.py` found for the NEC
+violation. `ANALOGUE-2D` is now the only OPEN row on the architecture sheet with a stated experiment
+attached.
+
+### `warpshell.py` — the first architecture with no negative energy in it
+
+An T. Le, *Steering a warp drive without exotic matter* (arXiv:2606.22531), exhibits an exact
+solution that is simultaneously an exactly Riemann-flat passenger cavity, **accelerating** by a
+covariant matter-derived proper acceleration, and dominant-energy admissible **observer-robustly in
+bulk and shell** — not merely for the comoving Eulerian observer, the failure mode
+Santiago–Schuster–Visser exposed. The exterior is the exact Kinnersley photon rocket; the cavity is
+vacuum; the shell is what the field equations return. Bulk energy conditions collapse to `n₂ ≥ 0`.
+
+**This project's `CM-THEOREM` is not refuted. It is paid.** Le's Theorem 1 is its exact GR form: an
+asymptotically flat, dominant-energy drive with a confined source changes its Bondi four-momentum
+*only* by radiating to null infinity. The escape from "no isolated system moves its own centre of
+mass" is to stop being isolated.
+
+The control law is closed form, `−ṁ ≥ 3m|a|`, integrating to `m_f/m₀ = e^{−3Δη}` with a universal
+Tsiolkovsky constant 3. An ideal photon rocket — the best any rocket can be — has the same law with
+constant 1. So the warpshell's mass ratio is the **cube** of an ideal photon rocket's. And since
+`e^{−Δη}` is the square root of the relativistic Doppler factor, the budget has an exact closed form
+in β, derived in the file rather than quoted:
+
+> **flyby:** `m_f/m₀ = [(1−β)/(1+β)]^{3/2}`  **cruise and stop:** `m_f/m₀ = [(1−β)/(1+β)]³`
+
+— the same Doppler factor `beamed.py` already uses for the sail, cubed. At β = 0.2, out and stop,
+that is exactly **8/27**: the ship radiates 70.4% of its rest mass. At β = 0.5 it is exactly **1/27**.
+Le's own worked burn is Δη = 0.24, and `1 − e^{−0.72} = 51.32%`, reproducing his "about half".
+
+| β | Δη total | m_f/m₀ | radiated | ideal photon rocket | penalty |
+|---|---|---|---|---|---|
+| 0.05 | 0.10008 | 0.740633 | 25.94% | 0.904762 | 1.22× |
+| 0.10 | 0.20067 | 0.547708 | 45.23% | 0.818182 | 1.49× |
+| 0.20 | 0.40546 | **0.296296** | 70.37% | 0.666667 | 2.25× |
+| 0.50 | 1.09861 | **0.037037** | 96.30% | 0.333333 | 9.00× |
+
+**What it does not buy, stated first.** Not superluminal. Not reactionless. And **no free fall** —
+"passengers feel proper acceleration, not the zero-g free fall of an idealized Alcubierre interior."
+What vanishes is the *tidal* tensor: the cavity is exactly flat, so there is no differential
+stretching. That is the entire warp feature, and it is not the popular one.
+
+**And the real wall is not the budget.** The realized tangential-pressure wall sits exactly on the
+Poisson–Visser marginal curve `V″(R) = 0` — a radial displacement is a neutral zero mode with
+e-folding time of order a light-crossing time. Taking `τ_efold ≈ R/c` and `τ_burn = cΔη/a`, the
+burn-outruns-instability criterion reduces to
+
+> **Δη ≤ aR/c² = λ ≤ g(x)**
+
+Le's own worked burn (Δη = 0.24, λ_max = 0.12) misses this by a factor 2 — consistent with his
+statement that the safe corner is "restricted". A **habitable** design misses it by rather more:
+
+| design | shortfall | verdict |
+|---|---|---|
+| Le App. K worked burn | 2.0 | fails |
+| 1 g, 1 km cavity | 1.8×10¹² | fails |
+| 1 g, 10 m cavity | **1.8×10¹⁴** | fails |
+| 10⁶ g, 10 m cavity | 1.8×10⁸ | fails |
+
+To pass at 1 g with Δη = 0.2 the cavity must be 1.83×10¹⁵ m — **12,253 AU, a fifth of a light-year**
+across. At R = 10 m the ship must pull 1.83×10¹⁴ g. `τ_efold ≈ R/c` is Le's order of magnitude and
+not a coefficient, but a fourteen-order shortfall is not an O(1) problem. The escape he names is a
+slightly stiffer wall, strictly stable at no cost in dominant-energy margin — and he is explicit
+that it is "a nearby model, not the realized one."
+
+**The dispute is recorded and not adjudicated.** BBV catalogue 37 errors across the physical-warp-
+drive literature and are severe about Lentz, Bobrick–Martire, Fell–Heisenberg and Fuchs et al.;
+their hypotheses are the metric-first, prescribed-shift class. Le's construction is worldtube-first
+and built explicitly to answer their covariance and interpretable-matter demands. What is executable
+in `warpshell.py` is the arithmetic of the budget and the windows, not the standing of the
+construction. Worth noting since this project cites SSV as a closure: BBV report minor errors in
+Santiago–Schuster–Visser itself, at their Errors 9 and 29.
+
+### Where the three directives now stand
+
+`index3.py` holds **96 findings** over 14 distinct cells, `E(X) = 0` still, and the new cells changed
+no coordinate that was already occupied. `NO-EXOTIC` is the ninth cell affirmative on all three axes
+and the first that carries no negative energy at any point. `ONE-AXIS-FLAT` is `(−1,−1,−1)`, joining
+`EM-GAP` at the bottom of the lattice.
+
+> **Directive Y has an affirmative answer with a real spec.** An accelerating, positive-energy,
+> dominant-energy-admissible warp drive exists as an exact solution of general relativity. It is
+> subluminal, it is a rocket, it costs the cube of an ideal photon rocket's mass ratio, and what it
+> buys is an exactly tidally flat cabin. Its open problem is marginal linear stability of the
+> realized wall — which, on the light-crossing criterion, excludes the habitable regime by fourteen
+> orders of magnitude. That is the wall now, and it is a stability problem, not an energy problem.

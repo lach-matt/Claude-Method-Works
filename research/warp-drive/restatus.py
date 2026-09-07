@@ -115,12 +115,36 @@ ARCH = [
   "ONLY architecture on this sheet closed by measurement."),
 
  ("ANALOGUE",
-  "analogue Alcubierre in an engineered medium", "v_0 <= c/4",
-  "OPEN", "Smolyaninov PRB 84 113103 (2011): g_x^2 <= (eps-1)(mu-1)",
-  "a MATERIAL bound from thermodynamic stability, not a no-go.  Rodal's "
-  "measured closure explicitly does not reach analogue models.  Transports "
-  "nothing; measures.  See door.py: four of its claims have ALREADY passed "
-  "Sec. 17.1's door in a BEC, and one that passes is untaken."),
+  "analogue Alcubierre in a 1+1D engineered medium", "emulates Minkowski",
+  "STRUCTURAL", "twist.py: E = -Omega^2/(8 pi G), and both vanish on the axis",
+  "no hypothesis to escape, and the closure is a DIMENSION theorem.  BBV "
+  "(arXiv:2602.16495) Thm III.15: a coordinate vorticity-free Alcubierre warp "
+  "drive IS Minkowski.  Smolyaninov reduces to 1+1D, which is the on-axis line, "
+  "where Omega = 0 exactly -- so the target geometry is flat and the medium is "
+  "emulating a graded index, faithfully.  The device is not wrong; the claim "
+  "that it measures metric content is.  Supersedes the earlier OPEN grading, "
+  "whose bound (v_0 <= c/4) was a material limit on the wrong quantity."),
+
+ ("ANALOGUE-2D",
+  "analogue with a TRANSVERSE gradient, 2+1D or better", "never attempted",
+  "OPEN", "nothing closes it -- it has not been tried",
+  "the twist is a 3-form, identically zero on a 2-manifold, so >= 2+1D is "
+  "necessary before any metric content survives.  neclab.py's stability margin "
+  "is a function of f alone, worst at f -> 1, and twist.py measures the twist "
+  "peaking at f = 0.623 where the margin is +0.756: the two extrema are "
+  "disjoint, exactly as the NEC violation and the margin were.  This is the "
+  "only OPEN row on this sheet with a stated experiment attached."),
+
+ ("WARPSHELL",
+  "radiative momentum warpshell (Le 2026)", "tidally flat cabin, subluminal",
+  "COSTED", "warpshell.py: m_f/m_0 = e^{-3 delta_eta}, the Doppler factor cubed",
+  "a bill, not a bound, and the FIRST architecture here with no negative energy "
+  "anywhere: dominant energy holds observer-robustly in bulk and shell.  "
+  "CM-THEOREM is not refuted but PAID -- Le's Theorem 1 is its exact GR form.  "
+  "It is a rocket: three times the rapidity exponent of an ideal photon rocket, "
+  "70.4% of rest mass to reach 0.2 c and stop.  The real wall is not the budget "
+  "but MARGINAL LINEAR STABILITY of the realized wall: on the light-crossing "
+  "criterion a habitable 1 g, 10 m design misses by 1.8e14.")
 ]
 
 KINDS = ("MEASURED", "STRUCTURAL", "HYPOTHETICAL", "COSTED", "OPEN")
@@ -136,7 +160,8 @@ def reopened_this_session():
 def self_made():
     """DERIVED.  Architectures this project closed on its own reasoning, as
     opposed to importing a closure from the literature."""
-    return [a for a in ARCH if a[0] not in ("KAPPA", "SWIMMER", "ANALOGUE")]
+    return [a for a in ARCH if a[0] not in ("KAPPA", "SWIMMER", "ANALOGUE", "ANALOGUE-2D",
+                                        "WARPSHELL")]
 
 # ---------------------------------------------------------------- analogue ---
 # PINNED, Smolyaninov 2011 via Rodal 2025 Sec. 3.3.
@@ -164,12 +189,12 @@ def selftest():
     h = by_kind()
     for k in KINDS:
         print("    %-14s %d   %s" % (k, len(h[k]), ", ".join(a[0] for a in h[k])))
-    chk("architectures graded", len(ARCH), 9)
+    chk("architectures graded", len(ARCH), 11)
     chk("closed by MEASUREMENT", len(h["MEASURED"]), 1)
     chk("and it is the one this project never proposed", h["MEASURED"][0][0], "KAPPA")
-    chk("closed STRUCTURALLY", len(h["STRUCTURAL"]), 1)
+    chk("closed STRUCTURALLY", len(h["STRUCTURAL"]), 2)
     chk("closed on an unmet HYPOTHESIS", len(h["HYPOTHETICAL"]), 3)
-    chk("COSTED rather than closed", len(h["COSTED"]), 2)
+    chk("COSTED rather than closed", len(h["COSTED"]), 3)
     chk("every kind is populated", sorted(set(a[3] for a in ARCH)), sorted(KINDS))
 
     print("\nThe finding")

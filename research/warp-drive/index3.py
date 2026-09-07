@@ -273,6 +273,26 @@ FINDINGS = [
   "the 2146-degree non-reciprocity is enormous and follows from the g_x built: it confirms the medium"),
  ("T-H-TOO-COLD", 0, -1, +1, "device.py",
   "analogue Hawking is 4.96 mK, below a fridge's 10 mK base; ~100 GHz in 8 mm would give 60 mK"),
+ # The deeper reading of TEST 16.  A horizon was never the requirement, and the
+ # 1+1D reduction the whole device rests on emulates flat spacetime.
+ ("NO-HORIZON-NEEDED", 0, +1,  0, "twist.py",
+  "a horizon exists iff v_s >= c, at f* = 1 - c/v_s: it is the superluminal pathology, not a requirement"),
+ ("TWIST-IS-3FORM",   0, -1, +1, "twist.py",
+  "xi ^ dxi is a 3-form, identically zero on a 2-manifold: >= 2+1D is necessary before a shift is irremovable"),
+ # The identity.  Exotic matter and the twist are the same object.
+ ("E-IS-TWIST",      +1,  0,  0, "twist.py",
+  "E = -Omega^2/(8 pi G): the Alcubierre negative energy IS the coordinate vorticity, squared"),
+ ("ONE-AXIS-FLAT",   -1, -1, -1, "twist.py",
+  "the 1+1D reduction is the on-axis line, where Omega = 0 and E = 0: the emulated geometry is Minkowski"),
+ # Le arXiv:2606.22531.  The first architecture with no negative energy in it.
+ ("BONDI-PAYS",       0, +1, +1, "warpshell.py",
+  "CM-THEOREM is paid, not evaded: Bondi four-momentum changes only by radiating, and a positive-energy drive saturates it"),
+ ("NO-EXOTIC",       +1, +1, +1, "warpshell.py",
+  "an accelerating warp drive exists with dominant energy observer-robust in bulk AND shell: no exotic matter at any point"),
+ ("DOPPLER-CUBED",    0,  0, +1, "warpshell.py",
+  "m_f/m_0 = e^{-3 eta} = the relativistic Doppler factor cubed; 8/27 to reach 0.2 c and stop"),
+ ("MARGINAL-WALL",    0, -1, -1, "warpshell.py",
+  "the realized wall sits on the Poisson-Visser marginal curve; a habitable 1 g, 10 m design misses the burn criterion by 1.8e14"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -296,6 +316,9 @@ SUPPORT = [
  ("SPHERE-FIX","device.py",         "the figure drew a spherical bubble; the mapping is 1+1D and the geometry is a stack"),
  ("LOSS-FIX",  "device.py",         "a single Q for the whole block was the wrong model; the ferrite carries 90% and dominates the loss"),
  ("PROVES-FIX","device.py",         "the analogue was seated as a bench PROOF; TEST 16 shows it confirms the medium, not the metric"),
+ ("HORIZON-FIX","twist.py",         "TEST 16 was read as the wall; the horizon was never required, and the real wall is that 1+1D is flat"),
+ ("BBV-CHECK",  "twist.py",         "this tree's twist reproduces BBV Eq (3.47c) to ten digits and their Thm III.15 independently"),
+ ("SSV-ERRATA", "warpshell.py",     "BBV report minor errors in Santiago-Schuster-Visser itself, at their Errors 9 and 29"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -376,7 +399,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 88)
+    chk("number of findings indexed", len(FINDINGS), 96)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -393,11 +416,12 @@ def selftest():
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
-                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN"]))
+                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
+                "NO-EXOTIC","ONE-AXIS-FLAT"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
-                "THE-DOOR","EC-TAKEN"]))
+                "THE-DOOR","EC-TAKEN","NO-EXOTIC"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
