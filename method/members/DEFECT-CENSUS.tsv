@@ -678,21 +678,21 @@ id	class	member	line	item	detail
 677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=8 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 678	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	2.21	other sites: main=3 reg=9 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 679	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	374	other sites: main=3 reg=2 ioi=2 sc=5 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
-680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1686	6.2	other sites: main=13 reg=12 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
+680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1686	6.2	other sites: main=13 reg=13 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
 681	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.070	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 682	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.094	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 683	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.199	other sites: reg=2 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 684	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.227	other sites: main=1 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=120 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=145 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=121 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=147 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3210	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
 689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	2,475	other sites: main=2 reg=4 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 690	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	21.4	other sites: main=1 reg=1 mc=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 691	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	22.8	other sites: reg=3 mc=1 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 692	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	45,450	other sites: reg=1 mc=3 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=8 ioi=2 | mis-citation is corrected here and recorded at register 400.
-694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=30 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
+694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=31 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	7,	other sites: main=16 reg=30 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 696	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	497	other sites: main=3 reg=3 ioi=1 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
 697	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	9,	other sites: main=5 reg=24 mc=5 pc=4 ioi=7 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*

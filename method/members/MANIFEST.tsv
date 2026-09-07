@@ -1,6 +1,6 @@
 bundle	name	bytes	md5	lines
-main	The_Method_1_6-2.md	784466	75db2c30fffef1dd53b96c6050d48ed4	11903
-main	The_Method_1_6___The_Register-2.md	1292993	6fde168224bf553c2ae2327ea2c20578	6836
+main	The_Method_1_6-2.md	784466	315a07c2664bc7c293f8bc679bc4ff89	11903
+main	The_Method_1_6___The_Register-2.md	1297860	fe39bb72bf4fe4beee90fbe1ed16016f	6852
 compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -72,7 +72,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
-compendia	DEFECT-CENSUS.tsv	249449	31c462f3d47f9e02e289598c28604ae1	1622
+compendia	DEFECT-CENSUS.tsv	249449	42e8b8e9ec9167cc562425a6e5b9f394	1622
 compendia	DEFERRED.md	445264	2b46ec0747c8c1923ecfbdf3bb06936f	3556
 compendia	DOCKET.md	82784	123594d2918d8c02727b8a6d065c0c0d	488
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
@@ -243,7 +243,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23058	07487abe7350880412c0cb0dfcade421	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1150977	fefefb46f0c8b711c4e2a944048ba7f6	8513
+compendia	WORKING-REGISTER.md	1157583	7a2c3fc5f5d50685b3875930c1bb80a1	8525
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
