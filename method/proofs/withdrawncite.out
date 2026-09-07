@@ -1,0 +1,17 @@
+Registers the main volume withdraws in prose, and what it does with them afterwards
+
+  registers named on a withdrawing line: 3
+   register    withdrawn at         also cited at   WARNING?  seated?
+        238          [7925]                     —      False     True
+        497          [3883]          [3920, 3951]      False     True
+       1819[914, 2538, 3072, 3439]                     —      False     True
+
+  withdrawn AND re-cited as authority: 1
+  of those, with no WARNING in the entry: 1
+
+  Register 497: the volume withdraws it at L3883 and rests
+  a conclusion on it at L3920, L3951, and the entry
+  says neither thing. RECORDED, NOT REPAIRED — which reading survives is subject matter.
+
+  This is the complement of r2-warn, which censuses the entries that DO carry a marker
+  and cannot see one that does not.

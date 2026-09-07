@@ -1,0 +1,15 @@
+The Physics Compendium's 'N objects rest on it', against the graph it names
+
+  the Mathematical Compendium has 299 objects; the natural title-naming graph over them
+  has 208 edges, and no object carries a dependency field of any kind.
+
+  parameter                      seeds found  closure  printed
+  subshell capacity                        5        7       66
+  angular momentum bound                   4        6       72
+
+  27 rows in the Physics Compendium end 'objects rest on it'.
+  The reconstruction is an order of magnitude short on both parameters it can be run on,
+  so it is not the graph the volume used — and no other edge rule is printed anywhere.
+
+  What stands: the counts, as the record's. What does not: 'AT THIS BUILD', which tells
+  a reader they can re-derive a number no printed structure supports. RECORDED, NOT REPAIRED.

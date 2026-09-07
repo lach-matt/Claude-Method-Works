@@ -73,3 +73,81 @@ returns. **The book is right and the error was mine.** No instrument is owed.
 
 Ruling 10, executed as work matter: the interval the printed inputs allow is [1577.81, 1588.07) and 1,585
 lies inside it. `method/proofs/precision.py`.
+
+### E-033 · §14.3's bundling claim — `bundling.py`, selftest 7 of 7
+
+§14.3: *"What fails is bundling … In tests, the same sets presented bundled and presented decomposed both
+gave **80/80 agreement** — the theorem survives, but only when the presentation respects it."* **The
+evidence cited is a test in which bundling changed nothing**, offered in support of a conclusion that
+requires a case in which it changes something.
+
+**The claim is true and the demonstration is three cells.** On the 2×2×2 box,
+{(0,0,0), (0,1,1), (1,0,1)} has **E = 1 decomposed and E = 0 bundled**: the cell (0,0,1) that the
+three-coordinate closure adds is invisible once two coordinates are folded. **And the reason is general** —
+with two coordinates the only pairwise projection is the set itself, so ℛ(X) = X for every X, verified on
+3,000 random sets. **The chapter is right about the mechanism and cites the wrong experiment for it**, and
+the right one is now printed.
+
+### J-12 · the Physics Compendium's 27 "objects rest on it" — `pcrest.py`, selftest 8 of 8
+
+The volume states the rule (register 1740) and says the counts are *"counted from the Mathematical
+Compendium **at this build**"*. **The compendium's 299 objects carry no dependency field** — title,
+statement, construction, *Proved —*, *Prior art*, and no edge. Built the most natural way, an object
+depending on another when its body names that object's title, the graph has **208 edges** and the closures
+from the volume's own listed seeds come out **7 and 6 against the printed 66 and 72** — short by an order
+of magnitude, so it is not the graph the volume used, and no other edge rule is printed anywhere.
+**The counts stand as the record's; what cannot stand is "at this build"**, which tells a reader they can
+re-derive a number no printed structure supports.
+
+### E-042 · register 497 withdrawn and then cited — `withdrawncite.py`, selftest 8 of 8
+
+The complement of `r2-warn`, which censuses the entries that **carry** a `WARNING:` and cannot see one that
+does not. Every main-volume line that both uses a withdrawal word and names a register is collected: **three
+registers**, and **exactly one is withdrawn and then re-cited as authority**.
+
+**Register 497.** Withdrawn at main **L3883** — *"the counting/coupling split they were read as showing is
+withdrawn with register 497"* — and rested on at **L3920** and **L3951**: *"the exact triangle costs cells,
+it costs E, and it costs seed. Register 497."* **The entry carries no `WARNING`.** So the volume withdraws
+an entry and then rests a conclusion on it, in one section, and nothing in the Register tells a reader
+either thing. Which reading survives is subject matter.
+
+---
+
+## The triage of the rest, so that no row is unknown
+
+`PLAN-R4-ANNEX.tsv` holds 41 open Phase 1 rows. **Eleven are disposed above** — J-20, D-60, F-191, H-23,
+D-05, G-01, F-147, D-61, E-033, J-12, E-042. The remaining thirty are classified here by **what blocks
+them**, which is the thing Phase 1 needs to know before it can be worked, and E-075 is the annex's own
+ruling for one of the three classes: *"companion-side and single-witness figures … must be declared
+unverifiable, not left open-looking."*
+
+**A · COMPUTABLE FROM THE VOLUMES, and each is a census instrument still to be built (9 rows).**
+D-12 and E-081 (the unprinted-input class: sixty-plus derived figures printed without the inputs that
+reproduce them — a census of sites, not a re-derivation), D-14 and E-089 (truncation printed as equality:
+V = 4ν/3 at twelve sites and §23.6's asymptotic `=` forms), D-16 (main-volume against compendium
+contradictions), D-21 (the false-universal and superlative class, grown by fourteen new C9 rows), D-23
+(end-rule overstatement at twenty-three sites), D-36 (some thirty printed counts with unnamed
+conventions), I-021 (the iff/equivalence/exactly claims of Chapters 8–11 that hold one way).
+
+**B · NEEDS DATA THE REPOSITORY DOES NOT HOLD, and the standing rule closes them (10 rows).**
+`CLAUDE.md` §5: *never withdraw a recorded finding on reconstructed evidence without the original
+instrument.* F-217 says so in its own words — *"UNREPRODUCIBLE without ASD captures"* — and the same holds
+of E-094 (K I nd 45.7 against 12.7 and the collection-side claims), E-110 (rounded-table truncations from
+the collection), F-196 (the muon paper's figures, one site and no instrument), F-238 (*"thirty-seven
+objects"* record-carried), I-048 (the 153 / 1,105 / 1,442 / 763 collection family), I-089 (the Löwdin
+deliveries, ten items never received), E-014 (12t-03's further sites, which need the variation runs),
+D-27 (the inherited-estimate class, never swept and with no held estimates), D-39 (Chapter 34's walk
+figures under no named convention — the convention is what is missing, not the arithmetic).
+**Under E-075 these are declared unverifiable here rather than left open-looking**, and a figure so
+declared is not a defect: it is a figure whose witness did not survive the chat era.
+
+**C · SINGLE-WITNESS AND POINTER WORK THAT IS PROSE-CLASS (11 rows).**
+D-19 and E-075 (the single-witness class itself), D-37 (withdrawn-figure-re-asserted — `r2-warn` is its
+live instrument and `withdrawncite.py` is now its complement, so what remains is reading, not measuring),
+F-175, F-176, F-179, F-251 (Appendix A and E's wording, single-witness counts and vocabulary), I-020
+(Chapters 7–8 promise settings and do not print them), I-061 and I-063 (Appendix E item-state drift and
+pointer defects), F-258 (the 1,585-fold's two sites, whose arithmetic ruling 10 already settled and whose
+wording is prose).
+
+**So Phase 1's shape is now known rather than counted**: nine rows want an instrument each, ten are closed
+by a rule already in force, eleven are prose the pass ahead will carry, and eleven are done.
