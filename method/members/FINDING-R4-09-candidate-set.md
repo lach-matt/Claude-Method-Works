@@ -1,0 +1,117 @@
+# FINDING R4-09 — RESOLVED 6 September 2026. M ruled that the candidate set includes g. Kept for its measurement of what the choice does.
+
+> **THE RULING (`RULINGS-R4e.md` §1).** M, asked whether the law may consider a channel that exists,
+> is measured in thirty-six species, and is never a ground entrant: ***"absolutely, especially since
+> it strengthens the claim."*** **g is in.**
+>
+> **What it settles.** Register 1414 stands as printed and is verified at 106 of 106 — the ruling is
+> what makes it true, since it fails at eleven steps without g. Register 1403's *"protactinium's L
+> is degenerate at zero"* stands. **All three of §34.9's claims fail at 5f and hold at 4f**: the
+> premise p = 0, the conclusion L = −∞, and *"the quantity t = (a−L)/(U−L) does not exist there"*,
+> where t = 1 exactly. And *"f is outside the domain"* is replaced by the sharper theorem: **the
+> corridor has no floor exactly when the entering subshell is node-free**, which across the walk is
+> 2p, 3d and 4f, with t defined at the other 73 of the 106 steps.
+>
+> The finding below is kept because its measurement of what the two candidate sets do is what the
+> ruling was made on.
+
+## The question, as it stood
+
+Found 6 September 2026, from M's instruction on finding R4-06 to search the repository exhaustively
+before deriving. The search found more than the answer: it found that **two instruments in this
+repository compute the same corridor and disagree**, and that a seated Register entry's universal is
+true under one and false under the other.
+
+`method/proofs/candidateset.py` measures both; its selftest asserts the seated instrument's own
+banked corridor values.
+
+## The two generators
+
+| | candidate set |
+|---|---|
+| **`r2-ch16y.py`** — a **seated member** | every (n, ℓ) with n ≤ 7, **ℓ ≤ 3**, not at capacity. **No g subshells.** |
+| **`walk.py`** — recovered, and the instrument that produced §34.6's eighteen | ℓ = **0 to 4**, **g included**: every partly-filled subshell of each ℓ, plus the first empty one. |
+
+## They disagree at exactly one place, and it is one subshell
+
+At protactinium the entrant is 5f, whose node count n − ℓ − 1 is **1**. A rival lies below it exactly
+when its node count is smaller, which is zero. The node-count-zero subshells are 1s, 2p, 3d and 4f —
+**all full at thorium** — **and 5g, which is empty**.
+
+| | 4f at Ce 58 | **5f at Pa 91** |
+|---|---|---|
+| seated `r2-ch16y.py`, ℓ ≤ 3 | (−∞, 0.7071068) | **(−∞, 1.3660254)** |
+| `walk.py`, ℓ ≤ 4 | (−∞, 0.7071068) | **(0, 1.3660254)** |
+
+The 4f corridor is identical under both. **The 5f corridor is not.** Without g nothing lies below 5f
+and the floor is −∞; with g, 5g lies below it and the floor is zero.
+
+## What that one subshell decides
+
+**1. Register 1414, and it is seated.**
+
+> *"**THE FLOOR EXISTS EXACTLY WHEN THE ENTRANT HAS NODES: 106 OF 106, DERIVED.** … the floor is
+> minus infinity exactly when the entering subshell is node-free, that is when n minus ℓ minus one
+> is zero, because no rival can have a negative node count. **One hundred and six of one hundred and
+> six, no exception, and derivable rather than observed.**"*
+
+| | |
+|---|---|
+| with g admitted (`walk.py`) | the iff holds at **106 of 106**. The entry is **true as printed.** |
+| without g (the seated instrument) | the iff **fails at eleven steps** — every 5f step from **Pa 91 to No 102**, each with L = −∞ and a node count of one. |
+
+**2. §34.9's conclusion,** *"no rival lies below and L = −∞"* at every f opening. **True without g;
+false at 5f with it**, where the floor is zero.
+
+**3. Register 1403's** *"protactinium's L is degenerate at zero"*. That is `walk.py`'s answer. The
+seated instrument's banked output prints **(−∞, 1.3660254)** at the same step.
+
+**And one thing needs no ruling.** §34.9's *premise* — *"at any f opening p = n − ℓ − 1 = 0"* — is
+false at 5f under both, because 5 − 3 − 1 = 1 either way. That is finding R4-06 and deviation
+16z-05, and it stands whatever M decides here.
+
+## Why the data cannot settle it
+
+> **WITHDRAWN, and M withdrew it.** This section said no observation distinguishes the two candidate
+> sets. **It was wrong.** The claim was true only of GROUND configurations of NEUTRAL atoms, and M's
+> reply named what it missed: *"what about non neutrals? … I am supposed to have the entire
+> spectroscopic data for all 120 and their ions."* The survey exists —
+> `extracted/archives/method16-rp-b-data/COORDINATES.tsv`, 104,832 rows over Z = 1 to 120, every
+> charge state, ℓ = 0 to 7 — and it carries **thirty-six measured g channels, thirty-two of them in
+> ions**, with defects up to 0.04 that rise with Z. **Finding R4-10 supersedes this section.** What
+> survives of the finding below is the measurement of what the two candidate sets do to the law,
+> which R4-10 extends: admitting g moves a floor at sixteen steps and changes no prediction.
+
+**No g subshell is occupied in any neutral atom's GROUND configuration.** The two candidate sets
+therefore agree on every ground-state observation and differ only in what the law is permitted to
+**consider**. **They do not agree on the spectroscopic record**, which measures g channels in
+thirty-six species — see finding R4-10.
+
+**The seated instrument knows this and says so.** Its own comment reads:
+
+> *"FAULT 3, self-caught: one generator convention is not a count. Sweep (NMAX, LMAX) and say
+> which."*
+
+It does sweep — n ≤ 7 and 8, ℓ ≤ 3 and 4 — and reports the endpoint counts under each. **But it
+prints its one-sided corridors under ℓ ≤ 3 alone**, so the disagreement never surfaces in its
+output.
+
+## What is owed, and it is M's alone
+
+**One ruling: does the law's candidate set include g subshells?**
+
+Two considerations, stated without a recommendation because this is a subject-matter decision:
+
+- **For ℓ ≤ 3.** It is the seated instrument's convention, it is the record's stated convention
+  (READ-ch34re), and it matches the domain the chapter discusses. §34.9's conclusion then stands and
+  only its reason changes, which is the smaller repair.
+- **For ℓ ≤ 4.** The law's own admissibility test is *q < 2(2ℓ+1)*, and an empty 5g satisfies it
+  with nothing said about ℓ. Excluding g is then an extra clause the law does not state. Register
+  1414 stands as printed under this reading, and §34.9's conclusion needs correcting at 5f as well
+  as its premise.
+
+**Whichever way it goes, one printed statement has to change**, and the two are different
+statements. That is why this cannot be deferred to the prose pass: the ruling decides which sentence
+is repaired.
+
+**Nothing is repaired here.**

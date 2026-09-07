@@ -63,7 +63,7 @@ no longer on the read path.
 - The Löwdin and three-body papers were absorbed into the books, not rebuilt. **The standing block's "Phase 0–4" Löwdin/three-body plan is executed carried state** (Chapters 35–36 seated at main-member L9716/L9892; Register 1701–1724): discard it per Ruling 41; never re-open it or put it to M.
 - This project is for constructing the drafts. Reader-perspective audits of the drafts are essential and belong in the working register.
 
-## 3. Current state (live files as of W-248, MEASURED in the repo on 7 September 2026)
+## 3. Current state (live files as of W-249, MEASURED in the repo on 7 September 2026)
 
 - **This section was rewritten on M's order of 6 September 2026** (*"yes. reassess R3 in full"*) because it had
   gone sixteen main builds and thirty-eight compendia builds out of date and named instruments and gate steps the
@@ -71,9 +71,9 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD115 main** (2,067,798 B ·
-  `1fab5b05f6c9c09f075013eefac4de1f` · 18,716 lines · 2 members) and **BUILD243 compendia** (15,213,581 B ·
-  `ce30f2d82060c177e3408fe343e35d22` · 123,877 lines · 665 members). **667 members in all.** **The Register runs
-  1 to 1841, 1,683 seated** (1,676 numbered + 7 grouped). **W-248 seated.**
+  `1fab5b05f6c9c09f075013eefac4de1f` · 18,716 lines · 2 members) and **BUILD244 compendia** (16,116,252 B ·
+  `434ae075308f667f3ef030d64ac4e6ae` · 139,116 lines · 736 members). **738 members in all.** **The Register runs
+  1 to 1841, 1,683 seated** (1,676 numbered + 7 grouped). **W-249 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -81,8 +81,8 @@ no longer on the read path.
   15,193,022 B / `4ff7ccaa…`, and W-245's close supersedes it. **The stale figure was caught by the next close
   asserting its predecessor's md5** — which is what the reverse guard is for.
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 6 September: `python3 method/verify.py`
-  VERIFY OK (667 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
-  `gate.py manifest --main ../The_Method_1_6_BUILD115_main_and_register.md` **OK**, 666 listed / 668 extracted;
+  VERIFY OK (738 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
+  `gate.py manifest --main ../The_Method_1_6_BUILD115_main_and_register.md` **OK**, 737 listed / 739 extracted;
   `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,619 rows, 3 carried retired, 1,616
   regenerated exactly, 0 NEW, 0 GONE, md5 `7e04e6f8135799a587f9890a10e018c5` equal to the seated member);
   `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL**.
@@ -138,6 +138,20 @@ no longer on the read path.
   six), `composab.py` (the compendium's composability series, four of six), `cgraph.py` (the constraint
   graph, every one of register 1790's numbers) — and each carries a selftest against the corpus's own
   recorded figures.
+- **THE STORE CARRIES ITS OWN GOVERNANCE, AND THAT WAS OWED BEFORE ANY OF THE WORK DONE UNDER IT** (W-249,
+  M: *"everything you just asked about finishing has already been ruled. it all must be done."*).
+  **Seventy-one members seated**: `RULINGS-R4b.md` … `RULINGS-R4f.md`, `SETTLED-R4.tsv`,
+  **`FINDING-R4-01` … `FINDING-R4-25`** — M's ruling answers the question this section used to leave open,
+  and the withdrawn findings are seated with the standing ones because a withdrawal that leaves no trace is
+  not a record — `R3-REASSESSED.md`, `R4-READINESS.md`, `R3-COMPLETION.md`, the five `r4-a*.py` build
+  instruments, twenty-six `method/proofs/` measurement instruments, and the six `tools/` instruments still
+  unseated under W-236. **A chat opening by the §0 gate could not see the rulings nine builds were made
+  under**, and the store's own precedent is that a governing document the store does not carry does not hold
+  (reg13-01, entry 1617). **The proofs' goldens are deliberately not seated**: `gate_live.py` enrols every
+  `NAME.out` in `members/` and `gate.py` runs it from there under a 270-second ceiling, and these are
+  written to run from `method/proofs/`; each is checked by its own `--selftest` instead. `CLAUDE.md`,
+  `README.md`, `MEMBER-INDEX.tsv`, `verify.py`, the `W-*.md` files and R3's `DEF-153*` / `DRAFT-*` notes to
+  M stay outside the bundles, as the store already had them.
 - **Drive stands at BUILD184 + BUILD90 and is reconciled once at the end**, not per build (Phase 0 ruling 15).
   `RECONCILE-153-STORE-STATE.md` in Materials states the store head and forbids opening a chat from Drive's pair.
 ## 4. Rulings in force
