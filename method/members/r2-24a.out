@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 members and the units (lettered E.x headings, body = LAST hit; a `### E.x` unit ends at the next heading of any rank; E.4 has no heading line)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 4458d38c  11904 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 cc138778  6857 lines
+   main The_Method_1_6-2.md                                  md5 9f801dbc  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 d841e00b  6873 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 9426a6b6  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
@@ -58,7 +58,7 @@
    family figures in six volumes (digit-bounded / token probes):
    'E(Q)'             {'main': (19, [858, 1099, 1103, 1110, 7915, 8866, 8914, 9016, 9276, 10947, 10953, 11008]), 'reg': (14, [879, 939, 951, 1383, 1387, 1391, 1395, 1479, 1483, 1731, 2227, 6453])}
    'unfibred'         {'main': (20, [890, 1103, 1111, 5066, 5531, 8867, 8914, 8976, 8978, 9016, 9276, 10628]), 'reg': (6, [879, 1383, 1391, 1731, 6453, 6696])}
-   'from 4 to'        {'main': (2, [5994, 11046]), 'reg': (1, [1423])}
+   'from 4 to'        {'main': (2, [5994, 11046]), 'reg': (2, [1423, 6860])}
    '4 to 3'           {'main': (1, [11079]), 'reg': (1, [1731])}
    '18 cells'         {'main': (1, [11046]), 'reg': (4, [343, 351, 1423, 6193]), 'ioi': (2, [1388, 1450])}
    'one nonexistent'  {'main': (1, [11036])}

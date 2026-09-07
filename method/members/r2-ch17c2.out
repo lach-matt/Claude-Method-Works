@@ -161,7 +161,7 @@
   \bnine things\b              main:3[68,4056,9861] reg:0 mc:0 pc:0 ioi:0 sc:0
   \bfive evaluations\b         main:1[9879] reg:1[6385] mc:1[3198] pc:0 ioi:0 sc:0
   \bexactly quartic\b          main:1[9878] reg:1[6385] mc:1[3198] pc:0 ioi:0 sc:0
-  \bfourth\b|\bthe fifth\b     main:38[794,802,815,820,827,828…] reg:60[95,419,767,983,1063,1355…] mc:2[1214,1334] pc:1[719] ioi:2[1824,1828] sc:0
+  \bfourth\b|\bthe fifth\b     main:38[794,802,815,820,827,828…] reg:62[95,419,767,983,1063,1355…] mc:2[1214,1334] pc:1[719] ioi:2[1824,1828] sc:0
   \bnineteen years\b           main:1[9910] reg:1[6381] mc:0 pc:0 ioi:0 sc:0
   \bcryptographic\b            main:1[9844] reg:0 mc:0 pc:0 ioi:0 sc:0
   \bprediction file\b          main:0 reg:2[5888,5896] mc:0 pc:0 ioi:0 sc:0

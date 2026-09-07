@@ -72,7 +72,7 @@
   witness: the 20a-01 / 21a-04 / 16z-01 figures and Chapter 34's are printed nowhere in the unit; the WARNING lines 1309 / 1350 / 1401 / 1403 / 1461 are not engaged by any figure here
 
 == §4 Register entries the unit cites or that name it — heading present, first body line, WARNING lines in the entry
-  Register entries naming Appendix F / F.n: {296: [1115], 367: [1367], 371: [1379], 372: [1383], 388: [1447], 390: [1455], 392: [1463], 1729: [6453], 1734: [6461], 1755: [6497], 1762: [6509], 1780: [6573], 1781: [6576], 1786: [6595], 1818: [6716]}
+  Register entries naming Appendix F / F.n: {296: [1115], 367: [1367], 371: [1379], 372: [1383], 388: [1447], 390: [1455], 392: [1463], 1729: [6453], 1734: [6461], 1755: [6497], 1762: [6509], 1780: [6573], 1781: [6576], 1786: [6595], 1818: [6716], 1854: [6860]}
   296: heading R1113; WARNING lines none; body: **TWO MEASUREMENTS OF THE BOOK'S OWN SHAPE NAMED AT F.4.1 — THE WITHDRAWAL RATIO AND THE METHOD RATIO.** *Appendix F indexes every number this book pr
   297: heading R1117; WARNING lines none; body: **THE IDEAL WITHDRAWAL RATIO DERIVED AS 1 : 1 — AT PARITY A CLAIM'S SURVIVAL CARRIES EXACTLY ONE BIT — AND FOUND UNMEASURABLE: THE DENOMINATOR SPANS A
   320: heading R1193; WARNING lines none; body: **THE BOOK IS PROCEDURAL RATHER THAN EXPLORATORY, AND THE CHANGE IS MEASURABLE** *: defects found by hand fall 88% to 55% while defects found by instr
@@ -92,7 +92,8 @@
   1781: heading R6575; WARNING lines none; body: **THE FOUR CITATION FIGURES ARE DRIVEN TO THEIR FIXED POINT, AND THE FRONT MATTER'S OWN SHAPE WITH THEM.** *Register 1780 cites register 1779, and App
   1786: heading R6594; WARNING lines none; body: **APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. 
   1818: heading R6714; WARNING lines none; body: **THE CLOSURE RULE IS PRINTED ONE-SIDED AT FOUR SITES REGISTER 402 CORRECTS, AND EACH NOW POINTS AT THE CORRECTION.** *Register 402: the closure rule 
-  entries later than 1780 (the rebuild) naming the appendix: [1781, 1786, 1818]
+  1854: heading R6858; WARNING lines none; body: **THE UNPRINTED-INPUT CLASS IS NOT "SIXTY MEMBERS, UNCHANGED": TWO OF ITS NAMED SEVEN ARE REPAIRED, AND WHERE IT STILL HOLDS IN §22 THE TABLE IS RIGHT
+  entries later than 1780 (the rebuild) naming the appendix: [1781, 1786, 1818, 1854]
 
 == §5 F.3's rule in the Register ("refuted by its own extent" — "several of the corrections the Register carries are exactly this rule firing")
   Register entries matching: 0 {}

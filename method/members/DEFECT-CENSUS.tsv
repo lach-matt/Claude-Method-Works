@@ -684,7 +684,7 @@ id	class	member	line	item	detail
 683	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.199	other sites: reg=2 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 684	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.227	other sites: main=1 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=121 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=122 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=147 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3210	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
 689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	2,475	other sites: main=2 reg=4 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
@@ -700,7 +700,7 @@ id	class	member	line	item	detail
 699	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3951	500	other sites: main=2 reg=6 ioi=2 sc=4 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
 700	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3951	502	other sites: main=4 reg=3 mc=2 ioi=2 | **What this withdraws.** Registers 497 through 500 and 502 — that parent count drives seed cost at
 701	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5244	308	other sites: main=4 reg=3 mc=4 ioi=1 | corrected criterion rather than an observation about chemistry. Register 308. A multi-argument cap is a hypere
-702	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5987	22.1	other sites: main=20 reg=5 mc=1 pc=2 sc=1 | ### 22.1.1.1 Containment on level energies, recomputed under variation
+702	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	5987	22.1	other sites: main=20 reg=7 mc=1 pc=2 sc=1 | ### 22.1.1.1 Containment on level energies, recomputed under variation
 703	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	6284	23.5	other sites: main=6 reg=1 mc=3 pc=1 | ### 23.5.1 A withdrawn proposition
 704	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7589	15.3	other sites: main=4 | impossible and was the signal. The earlier version's Figure 15.3, since withdrawn, drew a line labelled
 705	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	7609	112	other sites: main=5 reg=14 mc=1 ioi=2 sc=2 | **112–118. Seven from the transfer work.** "The one coupling has no gravitational analogue" — **the Hill spher

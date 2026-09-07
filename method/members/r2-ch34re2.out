@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 IDENTITY AND BOUNDARIES
 ====================================================================================================
-  The_Method_1_6-2.md                              md5 4458d38c  11904 lines
-  The_Method_1_6___The_Register-2.md               md5 cc138778  6857 lines
+  The_Method_1_6-2.md                              md5 9f801dbc  11904 lines
+  The_Method_1_6___The_Register-2.md               md5 d841e00b  6873 lines
   LW1-ground.py                                    md5 236975ac  130 lines
   r2lib.py                                         md5 580d2ea2  454 lines
   tower-2.py                                       md5 c0bce27a  31 lines
@@ -249,8 +249,8 @@
   'subshell opening'       -> entries ['529', '530', '1333']
   'mid-subshell'           -> entries ['1350']
   '0.19%'                  -> entries ['1337', '1350', '1830']
-  '1.2168450'              -> entries ['1330']
-  '1.3938270'              -> entries ['1330']
+  '1.2168450'              -> entries ['1330', '1856']
+  '1.3938270'              -> entries ['1330', '1856']
   'Seventeen of nineteen'  -> entries []
   '17 of 19'               -> entries []
   'ten resets'             -> entries ['1402', '1403']
