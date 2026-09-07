@@ -1868,7 +1868,13 @@ MIRROR_RATIO_REQUIRED = 1.0 / math.sin(HARP_BACKWARD_EDGE_RAD) ** 2
 DES_B_PEAK = 20.0            # T at the upstream plug -- large-bore HTS territory
 DES_B_TARGET = DES_B_PEAK / MIRROR_RATIO_REQUIRED
 DES_BR = 1.50                # T.m, the front end's own aperture, held
-DES_SHIELD_M = 0.70          # tungsten, for 1e3 attenuation of the cascade
+# SOURCED, and it supersedes a shield thickness this file chose for itself.
+# Back, arXiv:1104.2742 (JINST), FLUKA and MARS over the Neutrino Factory target
+# station -- a 4 MW, 8 GeV proton beam on a mercury jet in a 20 T solenoid, which
+# is this machine. That study found a coil inner radius of 63 cm INADEQUATE and
+# doubled it to 120 cm to bring the coil heat load below 1 kW. The shield is
+# therefore not a free parameter here and the earlier 70 cm is withdrawn.
+DES_COIL_INNER_SOURCED_M = 1.20
 DES_W_LAMBDA_M = 0.103       # interaction length of tungsten
 DES_SIGMA_ALLOW_MPA = 300.0  # conductor hoop stress with steel reinforcement
 DES_LENGTH_M = 1.5           # magnetic length of the capture region
@@ -1880,7 +1886,13 @@ def des_bore_m(br=DES_BR, b_target=None):
 
 
 def des_coil_inner_m(br=DES_BR):
-    return des_bore_m(br) + DES_SHIELD_M
+    """SOURCED. Not bore plus a shield of this file's choosing: the published
+    simulation of this machine sets it, having found a smaller radius unusable."""
+    return DES_COIL_INNER_SOURCED_M
+
+
+def des_shield_m(br=DES_BR):
+    return des_coil_inner_m(br) - des_bore_m(br)
 
 
 def des_taper_length_m(br=DES_BR, n_gyro=10.0):
@@ -1915,15 +1927,20 @@ def des_winding_thickness_m(br=DES_BR, length_m=DES_LENGTH_M):
     return des_amp_turns(length_m) / (j * length_m)
 
 
-def des_shield_attenuation(shield_m=DES_SHIELD_M):
-    return math.exp(shield_m / DES_W_LAMBDA_M)
+def des_shield_attenuation(shield_m=None):
+    return math.exp((des_shield_m() if shield_m is None else shield_m) / DES_W_LAMBDA_M)
 
 
-def des_heat_load_w(power_mw=1.0, shield_m=DES_SHIELD_M, into_shield=0.30):
-    """Beam power reaching the cold mass. `into_shield` is the fraction of beam
-    power that leaves the target into the shield rather than the beam dump;
-    RECONSTRUCTED, and the one number here that a transport simulation owns."""
-    return power_mw * 1e6 * into_shield / des_shield_attenuation(shield_m)
+# SOURCED, Back arXiv:1104.2742 table 3: 0.56 kW into all nineteen coils at 4 MW
+# with the 120 cm shielding. This REPLACES a reconstructed figure of 335 W that
+# this file computed from an assumed 30 percent of beam power into the shield.
+DES_COIL_LOAD_KW_AT_4MW = 0.56
+
+
+def des_heat_load_w(power_mw=1.0):
+    """Beam power reaching the cold mass. No longer reconstructed: it is the
+    published simulation's own figure for this machine, scaled by beam power."""
+    return DES_COIL_LOAD_KW_AT_4MW * 1e3 * power_mw / 4.0
 
 
 def des_refrigeration_w(power_mw=1.0):
@@ -1979,7 +1996,7 @@ def report_magnet():
     print(f"      magnetic length of the capture     {DES_LENGTH_M:8.2f} m")
     print()
     print("  THE COLD MASS.")
-    print(f"      tungsten shield                    {100 * DES_SHIELD_M:8.1f} cm"
+    print(f"      tungsten shield                    {100 * des_shield_m():8.1f} cm"
           f"   ({des_shield_attenuation():,.0f}x on the cascade)")
     print(f"      coil inner radius                  {100 * des_coil_inner_m():8.1f} cm")
     print(f"      amp-turns                          {des_amp_turns() / 1e6:8.1f} MA-turns")

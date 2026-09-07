@@ -237,11 +237,17 @@ momentum requirement — which **reproduces the MARS15 front-end simulation to 0
 place in this repository where a model of this paper's is validated against a published simulation
 rather than against the corpus), **`tools/verify_paper.py`** (the
 publication-standard harness described under `papers/` above)
+**`tools/machine.py`** (the capture solenoid as a build package — circuit and quench, mechanics,
+graded conductor, the production target, radiation lifetime, failure modes, plant and integration. It
+*imports* the design from `collector.py` and never restates it, and its `--selftest` asserts the
+aperture product before computing anything from it. One finding is why it exists: the target must sit
+inside a 10.7 cm bore, which excludes the rotating solid target every megawatt-class facility uses, by
+3.3× — see `docs/MACHINE.md`),
 **`tools/directives.py`** (the project's three
 directives as three index axes — every substantive result in the three papers graded on each, and the
 cell where all three coincide computed rather than claimed; the X axis carries a *sign*, so a result
 that forbids self-sustaining operation is never counted as progress toward it, and `--selftest`
-matches all 67 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
+matches all 68 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 59 pinned figures, ~3 s, exits 1 on drift. The

@@ -129,6 +129,7 @@ ROWS = [
     # Added after the first reading of this index, which found D54 short on Z and
     # nothing else short at all. The proof is D54's and is carried by reference;
     # what this row adds is the apparatus, the gating and the committed rate.
+    ("D68", "SP", "9", "the build package: circuit, conductor, target, lifetime, plant, failure, integration", 2, 1, 3, 3),
     ("D67", "SP", "8", "the capture solenoid designed: the mirror term supplied, worth 1.299, grade fixed at 1.428", 2, 1, 3, 2),
     ("D64", "SP", "7", "the nine open questions worked: seven closed, one narrowed to 1.19, one explained", 3, 1, 1, 2),
     ("D65", "BE", "5.29", "one measurement settles four: the sticking inverted, the 2.24, the purity bound, the wedge", 3, 0, 2, 1),

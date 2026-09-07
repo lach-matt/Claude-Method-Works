@@ -608,25 +608,35 @@ gyroradius, and the cap was set so that it does.
 
 | | |
 |---|---|
-| tungsten shield | **70.0 cm** — 894× on the hadronic cascade |
-| coil inner radius | 80.7 cm |
+| coil inner radius | **120.0 cm** — `SOURCED`, see below |
+| tungsten shield | 109.3 cm |
 | amp-turns | **23.9 MA-turns** |
 | hoop stress allowed | 300 MPa |
-| engineering current density | **18.6 A/mm²**, from σ = B·J·r |
-| winding radial build | 85.6 cm |
-| stored energy, field volume | **489 MJ** — a lower bound |
+| engineering current density | **12.5 A/mm²**, from σ = B·J·r |
+| winding radial build | 127.3 cm |
+| stored energy, field volume | **1080 MJ** — a lower bound |
 
-The current density assumes **the conductor carries the whole hoop load**. A steel former carrying it
-instead raises the allowed density several times and thins the winding in proportion; the conservative
-choice is quoted. Above about 16 T only REBCO reaches these fields, so the insert is HTS and the
-outsert may be Nb₃Sn.
+**The coil radius is not this work's choice, and an earlier version of this section made it one.** That
+version put a 70 cm shield around the bore, reaching an 80.7 cm coil radius and 489 MJ. A published
+FLUKA and MARS study of this same target station — a 4 MW, 8 GeV beam on a mercury jet in a 20 T
+solenoid [7] — found a 63 cm coil radius **inadequate** and doubled it to **120 cm** to bring the coil
+heat load below a kilowatt. **The 70 cm shield is withdrawn.** At 120 cm the stored energy is
+**1080 MJ**, and that study's own figure for the same geometry is *"approaching 1 GJ"* — which is the
+first independent check on any number in this design.
+
+The current density assumes **the conductor carries the whole hoop load**; a steel former raises it and
+thins the winding in proportion. The conservative choice is quoted, and at **12.5 A/mm²** it sits below
+the **23.2** that study's superconducting coils run at.
 
 ### 8.4 The plant
 
 | | |
 |---|---|
-| heat to the cold mass at 1 MW | **335 W** |
-| refrigeration wall power | **89.4 kW** at 4.5 K, Carnot fraction 0.25 |
+| heat to the cold mass at 1 MW | **140 W** — `SOURCED` [7], 0.56 kW at 4 MW over nineteen coils |
+| refrigeration wall power | **37.3 kW** at 4.5 K, Carnot fraction 0.25 |
+
+That heat load also replaces a reconstruction: this work had assumed 30 percent of beam power entering
+the shield and computed 335 W. The measured-by-simulation figure is 140 W, and it is quoted instead.
 
 ### 8.5 What the mirror is worth to the answer
 
@@ -649,9 +659,183 @@ things are named here and not done:
    is not attempted.
 2. **Conductor grading** between an HTS insert and an LTS outsert, with the field margin and the
    stability analysis that goes with it.
-3. **The shielding**, whose one `RECONSTRUCTED` input — the fraction of beam power entering the shield
-   rather than the target's own cooling loop — belongs to a transport simulation this work does not
-   run. Every other number above follows from conserved quantities and published cross sections.
+3. **The shielding.** ~~Whose one `RECONSTRUCTED` input belongs to a transport simulation this work
+   does not run.~~ **Done, and by that simulation rather than by this work**: [7] is it, and §9 carries
+   what it returns. The shield is 109.3 cm and the coil radius 120 cm because that study says so.
+
+## 9. The build package
+
+§8 designs the field and the cold mass. A field is not a machine. This section is what the magnet
+alone does not supply: the circuit, the conductor, the target, the lifetime, the plant, the failure
+modes and the integration. `python3 tools/machine.py` reproduces all of it.
+
+**One finding here overturns a choice the magnet design implied, and it is the reason this is a
+section rather than a paragraph:** the production target must sit **inside** the capture bore, the bore
+is **10.7 cm** in radius, and that excludes the rotating solid target every megawatt-class facility
+uses.
+
+### 9.1 Circuit, quench and energy extraction
+
+Stored energy is **1080 MJ**. The operating current is the choice that governs everything after it,
+because inductance falls as 1/I²:
+
+| I_op | L | dump at 10 kV | MIITs | hot-spot margin |
+|---|---|---|---|---|
+| 10 kA | 21.6 H | τ = 21.6 s | 1080 | 2.96× |
+| **20 kA** | **5.40 H** | **τ = 10.8 s** | **2160** | **5.93×** |
+| 30 kA | 2.40 H | τ = 7.20 s | 3240 | 8.89× |
+
+At 20 kA: dump resistance **0.500 Ω**, peak dump power **200 MW** transiently into the resistor, copper
+current density **25.0 A/mm²** at 50 percent copper, hot-spot allowance **64.0 s** against a dump of
+10.8 s. Ramp in four hours needs **7.50 V** and a **150 kW** supply.
+
+**The margin is a consequence of the conservative current density, and the two are one decision.**
+§8.3's 12.5 A/mm² came from a hoop-stress limit with the conductor carrying the whole load. That same
+choice puts the copper current density low, and the hot-spot allowance goes as its inverse square.
+Raising J with a steel former would thin the winding **and** spend this margin.
+
+### 9.2 Mechanics
+
+| | |
+|---|---|
+| magnetic pressure at 20 T | 159.2 MPa |
+| axial compression at the midplane | **720 MN** (73 kilotonnes) |
+| winding cross-section | 14.72 m² |
+| axial stress in the winding | **48.9 MPa**, against 300 MPa hoop |
+| cold mass | **177 t** (winding only) |
+| cooldown enthalpy | 14.1 GJ, 300 → 4.5 K |
+
+The axial load is large and the axial *stress* is not: it spreads over fourteen square metres. It is an
+end-plate and tie-rod problem, not a conductor problem — and [7] reports inter-coil forces of 1 to 10
+kilotonnes for the same geometry, which is the same problem decomposed differently.
+
+### 9.3 Conductor, graded
+
+Field falls through the winding, so each superconductor is used only where it can carry current:
+
+| band | r_in | r_out | conductor |
+|---|---|---|---|
+| REBCO | 1.200 m | 1.455 m | **1.99 km** |
+| Nb₃Sn | 1.455 m | 1.965 m | 5.13 km |
+| NbTi | 1.965 m | 2.473 m | 6.66 km |
+
+**13.8 km** total at **1194 turns**. REBCO is needed for the innermost fifth only — 1.99 km, which is
+procurable; fusion magnets order hundreds of kilometres.
+
+**And there is a sourced alternative that uses no HTS at all.** [7]'s design of this same station
+reaches 20 T as a **resistive copper insert of about 6 T inside a superconducting outsert of about
+14 T**, Nb₃Sn for the inner nine coils and NbTi beyond, at 16.6 A/mm² in the copper and 23–40 in the
+superconductor. It buys away the HTS procurement and pays in resistive power and in the **405 kW**
+those copper coils absorb from the cascade. Both routes are real; this work computes the
+all-superconducting one and names the other rather than choosing.
+
+### 9.4 The target, and the constraint that decides it
+
+**The power split is sourced, and it replaces a reconstruction this work made that was wrong by a
+factor of 6.9.** [7] puts **319 kW of 4 MW** into the jet — **8.0 percent**, not the 55 percent assumed
+— with **53.7 percent** into the shielding and **10.1 percent** into the resistive coils.
+
+| | |
+|---|---|
+| into the jet | **80 kW** at 1 MW |
+| target length | 20.6 cm, two interaction lengths |
+| **available bore radius** | **10.7 cm** |
+
+**A static rod is excluded, and so is the rotating wheel.** A 1 cm rod runs at **64 kW/kg** against a
+demonstrated 0.45. A wheel reaching that demonstrated figure needs a radius of **0.355 m** — **3.3×
+the bore.** The capture solenoid's aperture is the whole reason the pions are captured at all, so the
+bore cannot be opened to admit a wheel without losing the capture the machine exists for.
+
+> **This is a hard geometric exclusion, and it survives the factor-of-6.9 correction** — the margin was
+> 23× on the wrong deposition figure and is 3.3× on the sourced one. That it survives is the only
+> reason it may still be stated.
+
+**What fits is a free liquid-metal jet, and it has been run.** [7]'s jet is **8 mm** across at **27
+mrad** to a beam of 1.2 mm rms, the angle chosen to optimise *low-momentum* pions — which is this
+work's own requirement, arrived at independently in §8.1.
+
+| mercury jet, 8 mm | 10 m/s | 20 m/s | 30 m/s |
+|---|---|---|---|
+| mass flow | 6.8 kg/s | 13.6 kg/s | 20.4 kg/s |
+| temperature rise | **84 K** | 42 K | 28 K |
+
+Mercury boils at 357 °C, so every velocity above about 10 m/s clears it. **The correction relaxed this
+requirement**: on the wrong deposition figure the jet needed 30 m/s, and that velocity floor is
+withdrawn. The configuration — a free mercury jet crossing a high-field solenoid bore under a pulsed
+proton beam — is not a novelty of this design: it was built and run at CERN as **MERIT**, in a 15 T
+solenoid, for this application [8]. [7] adds that a solid or **powdered tungsten** jet gives similar
+radiation levels, so the jet need not be mercury; **it must be a jet**.
+
+The jet brings one item the magnet does not: a **beryllium window at 6 m** to stop mercury vapour
+reaching the channel, taking **0.9 DPA/yr** and replaced on schedule. It is a consumable, and the
+build must carry it.
+
+### 9.5 Radiation lifetime
+
+| | |
+|---|---|
+| heat to the cold mass | **140 W** at 1 MW, nineteen coils |
+| peak power density | **0.05 mW/g**, against ITER's 0.17 |
+| peak dose | **0.39 MGy/yr** at 1 MW |
+| allowed integrated dose | **100 MGy** |
+| **coil life** | **253 years** at full duty |
+| displacements per atom | 3.0e-4 /yr against a critical 1.9e-3 |
+
+All sourced from [7], and all far better than this work first reconstructed — because those coils
+carry **ceramic** insulation rather than organic, and the limit is an order of magnitude higher than
+the epoxy figure assumed. This work's own reconstruction, from the heat load and an assumed
+peak-to-mean of 10, returns **0.64** of the published dose; the published figure is the one quoted.
+
+### 9.6 Failure modes
+
+[7] simulated both that matter. **Loss of field**: jet-and-pool deposition rises ~2.5× and the
+downstream coils take a large dose, mitigated by a conic shielding extension from 3 to 6 m. **Loss of
+jet**: ~80 percent of beam power dumps into the tungsten-carbide shielding and beam-pipe casing.
+**Both at once**: nearly half the beam power thermally shocks the mercury pool, with splash velocities
+approaching 50 m/s.
+
+> The consequence for the build is the useful part: **the jet and the field must each trip the beam,
+> and the shielding must be a rated dump and not only a shield.**
+
+### 9.7 The plant
+
+Steady load at 4.5 K is **144 W** — 140 radiation plus 4 in HTS current leads — for **38.4 kW** of wall
+power. Cooldown is 14.1 GJ, **16.3 days** on a 10 kW 80 K circuit. Bore vacuum **1e-4 Pa**, set by
+target outgassing rather than by muon scattering. HTS leads at 0.1 W/kA cost 4 W where conventional
+leads would cost forty times that: the cheapest decision in the package.
+
+### 9.8 Integration, and the one thing still undone
+
+Three things share a bore of 10.7 cm radius, in this order along the axis:
+
+1. **the liquid-metal jet**, its nozzle and its catcher, crossing at 27 mrad so the jet does not run
+   down the muon channel;
+2. **the field taper**, 1.79 m of it, where the mirrored pions turn round and where nothing may
+   obstruct them;
+3. **the D–T cell**, one muon range deep, at 800 K, in a radiation field, with tritium containment —
+   beside a mercury loop.
+
+> **The fuel cell beside the jet is the one item in this package that is neither computed nor referred
+> to a machine that exists.** §5.3 already said the cell "must sit in the production target's region,
+> which is a hostile place to put a cryogenic tritium cell and is not designed here." That is still
+> true. It is named rather than absorbed, and it is the fourth item for [1] §10.
+
+Everything else above is either computed from a conserved quantity or taken from a published
+simulation or experiment of this same machine.
+
+### 9.9 A weakness in this work's own verifier, found while writing this section
+
+`verify_paper.py` pass 3 requires that every number in the prose appear in the ledger. **It matches a
+value against *any* row carrying it, not against the row that ought to carry it.** Three figures in an
+early draft of §9.3 and §9.7 — a conductor length, a total, and a wall power — were wrong by 1 to 5
+percent and *passed*, because unrelated rows elsewhere in a 660-row ledger happened to carry those
+values. They were caught by recomputing each figure against its own named function, not by the
+harness.
+
+> **A value test is not a binding test**, and the publication standard of §7 of [1] should be read
+> with that limit in view. It is recorded here rather than repaired: binding each prose figure to a
+> claim id would require marking up the prose, which is a change to the standard and not a fix to a
+> paper. The three figures are corrected above.
 
 ---
 
@@ -665,3 +849,8 @@ things are named here and not done:
 5. M. Lach, *The Method* v1.2-8 — *The Lach Cylinder: an index of transitions*.
 6. K. Oishi *et al.*, *Development of the Range Counter for the COMET Phase-α Experiment*,
    arXiv:2505.07464 — §1, which states the backward-emission capture.
+7. J. J. Back, *Energy deposition studies for the Neutrino Factory target station*, JINST,
+   arXiv:1104.2742 — FLUKA and MARS over a 4 MW, 8 GeV proton beam on a free mercury jet in a 20 T
+   solenoid: tables 1–4, the increased-shielding geometry, and the radiation-damage estimates.
+8. K. T. McDonald *et al.*, *The MERIT high-power target experiment at the CERN PS*, IPAC 2010,
+   p. 3527 — the free mercury jet run in a 15 T solenoid.

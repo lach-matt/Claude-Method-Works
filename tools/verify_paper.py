@@ -1915,6 +1915,282 @@ def mag_heat_pct_mirrored():
     return 100.0 * collector.insitu_heat_fraction(mag_captured_mirrored())
 
 
+# ---- spec sec.9, the build package ----------------------------------------
+import machine as _mach
+
+
+def bp_stored_mj():
+    return collector.des_stored_energy_j() / 1e6
+
+
+def bp_coil_inner_cm():
+    return 100.0 * collector.des_coil_inner_m()
+
+
+def bp_shield_cm():
+    return 100.0 * collector.des_shield_m()
+
+
+def bp_current_density():
+    return collector.des_current_density_a_mm2()
+
+
+def bp_winding_cm():
+    return 100.0 * collector.des_winding_thickness_m()
+
+
+def bp_heat_w():
+    return collector.des_heat_load_w()
+
+
+def bp_fridge_kw():
+    return collector.des_refrigeration_w() / 1e3
+
+
+def bp_L_20ka():
+    return _mach.inductance_h()
+
+
+def bp_L_10ka():
+    return _mach.inductance_h(10e3)
+
+
+def bp_L_30ka():
+    return _mach.inductance_h(30e3)
+
+
+def bp_tau_20ka():
+    return _mach.dump_time_s()
+
+
+def bp_tau_10ka():
+    return _mach.dump_time_s(10e3)
+
+
+def bp_tau_30ka():
+    return _mach.dump_time_s(30e3)
+
+
+def bp_miits_20ka():
+    return _mach.miits()
+
+
+def bp_miits_10ka():
+    return _mach.miits(10e3)
+
+
+def bp_miits_30ka():
+    return _mach.miits(30e3)
+
+
+def bp_margin_20ka():
+    return _mach.hotspot_margin()
+
+
+def bp_margin_10ka():
+    return _mach.hotspot_margin(10e3)
+
+
+def bp_margin_30ka():
+    return _mach.hotspot_margin(30e3)
+
+
+def bp_dump_r():
+    return _mach.dump_resistance_ohm()
+
+
+def bp_dump_mw():
+    return _mach.dump_peak_power_w() / 1e6
+
+
+def bp_jcu():
+    return _mach.j_copper_a_m2() / 1e6
+
+
+def bp_hotspot_s():
+    return _mach.hotspot_allowed_s()
+
+
+def bp_ramp_v():
+    return _mach.ramp_voltage_v()
+
+
+def bp_supply_kw():
+    return _mach.I_OP * _mach.ramp_voltage_v() / 1e3
+
+
+def bp_mag_pressure():
+    return _mach.magnetic_pressure_pa() / 1e6
+
+
+def bp_axial_mn():
+    return _mach.axial_force_n() / 1e6
+
+
+def bp_axial_kt():
+    return _mach.axial_force_n() / 9.81 / 1e6
+
+
+def bp_winding_area():
+    return _mach.winding_area_m2()
+
+
+def bp_axial_stress():
+    return _mach.axial_stress_pa() / 1e6
+
+
+def bp_cold_t():
+    return _mach.cold_mass_kg() / 1000.0
+
+
+def bp_cooldown_gj():
+    return _mach.cooldown_energy_j() / 1e9
+
+
+def bp_cooldown_d():
+    return _mach.cooldown_days()
+
+
+def bp_turns():
+    return _mach.turns()
+
+
+def bp_cond_km():
+    return _mach.conductor_length_m() / 1000.0
+
+
+def _band(i, j):
+    return _mach.grade_bands()[i][j]
+
+
+def bp_rebco_km():
+    return _band(0, 4) / 1000.0
+
+
+def bp_nb3sn_km():
+    return _band(1, 4) / 1000.0
+
+
+def bp_nbti_km():
+    return _band(2, 4) / 1000.0
+
+
+def bp_r_rebco_out():
+    return _band(0, 2)
+
+
+def bp_r_nb3sn_out():
+    return _band(1, 2)
+
+
+def bp_r_nbti_out():
+    return _band(2, 2)
+
+
+def bp_target_kw():
+    return _mach.target_power_w() / 1e3
+
+
+def bp_f_target_pct():
+    return 100.0 * _mach.F_DEPOSITED_IN_TARGET
+
+
+def bp_f_shield_pct():
+    return 100.0 * _mach.F_INTO_SHIELDING
+
+
+def bp_f_nc_pct():
+    return 100.0 * _mach.F_INTO_NC_MAGNETS
+
+
+def bp_rod_kw_kg():
+    return _mach.static_rod_specific_kw_kg()
+
+
+def bp_wheel_m():
+    return _mach.rotating_wheel_radius_m()
+
+
+def bp_wheel_over_bore():
+    return _mach.rotating_wheel_radius_m() / collector.des_bore_m()
+
+
+def _jet(v):
+    return _mach.jet_delta_t_k(d_m=2 * _mach.SRC_JET_RADIUS_MM / 1000.0, v_m_s=v)
+
+
+def bp_jet_dt_10():
+    return _jet(10.0)
+
+
+def bp_jet_dt_20():
+    return _jet(20.0)
+
+
+def bp_jet_dt_30():
+    return _jet(30.0)
+
+
+def _jetm(v):
+    return _mach.jet_mass_flow_kg_s(d_m=2 * _mach.SRC_JET_RADIUS_MM / 1000.0, v_m_s=v)
+
+
+def bp_jet_m_10():
+    return _jetm(10.0)
+
+
+def bp_jet_m_20():
+    return _jetm(20.0)
+
+
+def bp_jet_m_30():
+    return _jetm(30.0)
+
+
+def bp_dose_mgy():
+    return _mach.sourced_dose_gy_yr() / 1e6
+
+
+def bp_coil_life():
+    return _mach.sourced_coil_life_years()
+
+
+def bp_dose_agreement():
+    return _mach.dose_agreement()
+
+
+def bp_steady_w():
+    return _mach.steady_load_w()
+
+
+def bp_wall_kw():
+    return _mach.wall_power_kw()
+
+
+def bp_lead_w():
+    return _mach.current_lead_load_w()
+
+
+def bp_assumed_deposition_pct():
+    return 55.0
+
+
+def bp_iter_limit():
+    return _mach.SRC_ITER_LIMIT_MW_PER_G
+
+
+def bp_dpa_yr():
+    return _mach.SRC_DPA_PER_YEAR
+
+
+def bp_vacuum_pa():
+    return 1.0e-4
+
+
+def bp_deposition_error():
+    return 0.55 / _mach.F_DEPOSITED_IN_TARGET
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

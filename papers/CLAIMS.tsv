@@ -578,14 +578,79 @@ C581	warm bore radius	10.7	cm	DERIVED	B.R held at 1.50 T.m while the field is dr
 C582	delivered beam envelope at the target	10.71	cm	DERIVED	twice the gyroradius at the transverse cap	fn:mag_envelope_cm
 C583	gyroradius at the transverse cap	5.35	cm	DERIVED	p_T / 0.3 B at the target field	fn:mag_gyroradius_cm
 C584	adiabatic taper length	1.79	m	DERIVED	ten gyro-orbits over the fractional field change	fn:mag_taper_m
-C585	coil inner radius	80.7	cm	DERIVED	bore plus the shield	fn:mag_coil_inner_cm
+C585	coil inner radius	80.7	cm	WITHDRAWN	superseded by C597: the coil radius is sourced, not a shield of this work's choosing	none
 C586	amp-turns	23.9	MA-turns	DERIVED	B L / mu_0	fn:mag_amp_turns_ma
-C587	engineering current density	18.6	A/mm^2	DERIVED	sigma = B J r at 300 MPa; conductor carries the hoop load	fn:mag_current_density
-C588	winding radial build	85.6	cm	DERIVED	amp-turns over current density and length	fn:mag_winding_cm
-C589	stored energy, field volume	489	MJ	DERIVED	B^2/2mu_0 over the bore; a LOWER bound on the total	fn:mag_stored_mj
-C590	shield attenuation on the hadronic cascade	894	ratio	DERIVED	exp(0.70 m / 0.103 m)	fn:mag_attenuation
-C591	heat to the cold mass at 1 MW	335	W	DERIVED	30 percent of beam power into the shield, attenuated	fn:mag_heat_w
-C592	refrigeration wall power	89.4	kW	DERIVED	C591 at 4.5 K, Carnot fraction 0.25	fn:mag_fridge_kw
+C587	engineering current density	18.6	A/mm^2	WITHDRAWN	superseded by C599: the coil radius is sourced, not a shield of this work's choosing	none
+C588	winding radial build	85.6	cm	WITHDRAWN	superseded by C600: the coil radius is sourced, not a shield of this work's choosing	none
+C589	stored energy, field volume	489	MJ	WITHDRAWN	superseded by C596: the coil radius is sourced, not a shield of this work's choosing	none
+C590	shield attenuation on the hadronic cascade	894	ratio	WITHDRAWN	superseded by none: the coil radius is sourced, not a shield of this work's choosing	none
+C591	heat to the cold mass at 1 MW	335	W	WITHDRAWN	superseded by C601: the coil radius is sourced, not a shield of this work's choosing	none
+C592	refrigeration wall power	89.4	kW	WITHDRAWN	superseded by C602: the coil radius is sourced, not a shield of this work's choosing	none
 C593	fusion heat with the mirror, fraction of host beam	15.61	percent	DERIVED	C574 x 0.7188 x 150 x 26.06 MeV / 8 GeV	fn:mag_heat_pct_mirrored
-C594	tungsten shield thickness	70.0	cm	DERIVED	chosen for ~10^3 attenuation at 0.103 m per interaction length	fn:mag_shield_cm
+C594	tungsten shield thickness	70.0	cm	WITHDRAWN	superseded by C598: the coil radius is sourced, not a shield of this work's choosing	none
 C595	cold-mass operating temperature	4.5	K	PINNED	standard 4.5 K liquid-helium plant	fn:mag_cold_k
+C596	stored energy at the sourced coil radius	1080	MJ	DERIVED	1080 rather than the 489 an assumed shield gave	fn:bp_stored_mj
+C597	coil inner radius, sourced	120	cm	DERIVED	Back arXiv:1104.2742: 63 cm found inadequate, doubled to 120	fn:bp_coil_inner_cm
+C598	tungsten shield at that radius	109	cm	DERIVED	coil inner radius less the bore	fn:bp_shield_cm
+C599	engineering current density	12.5	A/mm^2	DERIVED	sigma = B J r at 300 MPa and the sourced radius	fn:bp_current_density
+C600	winding radial build	127	cm	DERIVED	amp-turns over current density and length	fn:bp_winding_cm
+C601	heat to the cold mass at 1 MW, sourced	140	W	DERIVED	0.56 kW at 4 MW over nineteen coils	fn:bp_heat_w
+C602	refrigeration wall power, magnet alone	37.3	kW	DERIVED	at 4.5 K, Carnot fraction 0.25	fn:bp_fridge_kw
+C603	inductance at 20 kA	5.40	H	DERIVED	2E/I^2	fn:bp_L_20ka
+C604	inductance at 10 kA	21.6	H	DERIVED	2E/I^2	fn:bp_L_10ka
+C605	inductance at 30 kA	2.40	H	DERIVED	2E/I^2	fn:bp_L_30ka
+C606	dump time constant at 20 kA	10.8	s	DERIVED	L/R at a 10 kV terminal	fn:bp_tau_20ka
+C607	dump time constant at 10 kA	21.6	s	DERIVED	the same	fn:bp_tau_10ka
+C608	dump time constant at 30 kA	7.20	s	DERIVED	the same	fn:bp_tau_30ka
+C609	MIITs at 20 kA	2160	10^6 A^2 s	DERIVED	I^2 tau / 2	fn:bp_miits_20ka
+C610	MIITs at 10 kA	1080	10^6 A^2 s	DERIVED	the same	fn:bp_miits_10ka
+C611	MIITs at 30 kA	3240	10^6 A^2 s	DERIVED	the same	fn:bp_miits_30ka
+C612	hot-spot margin at 20 kA	5.93	ratio	DERIVED	allowance over dump time	fn:bp_margin_20ka
+C613	hot-spot margin at 10 kA	2.96	ratio	DERIVED	the same	fn:bp_margin_10ka
+C614	hot-spot margin at 30 kA	8.89	ratio	DERIVED	the same	fn:bp_margin_30ka
+C615	dump resistance	0.500	ohm	DERIVED	10 kV over 20 kA	fn:bp_dump_r
+C616	peak dump power	200	MW	DERIVED	transient, into the resistor	fn:bp_dump_mw
+C617	copper current density	25.0	A/mm^2	DERIVED	at 50 percent copper	fn:bp_jcu
+C618	hot-spot allowance	64.0	s	DERIVED	copper 20 to 200 K	fn:bp_hotspot_s
+C619	ramp voltage over four hours	7.50	V	DERIVED	L dI/dt	fn:bp_ramp_v
+C620	supply rating	150	kW	DERIVED	I times ramp voltage	fn:bp_supply_kw
+C621	magnetic pressure at 20 T	159	MPa	DERIVED	B^2 / 2 mu_0	fn:bp_mag_pressure
+C622	axial compression at the midplane	720	MN	DERIVED	magnetic pressure over the bore area	fn:bp_axial_mn
+C623	the same in kilotonnes	73.4	kilotonnes	DERIVED	against 1 to 10 between coils in the source	fn:bp_axial_kt
+C624	winding cross-section	14.7	m^2	DERIVED	annulus of the radial build	fn:bp_winding_area
+C625	axial stress in the winding	49.0	MPa	DERIVED	force over cross-section	fn:bp_axial_stress
+C626	cold mass, winding only	176	t	DERIVED	at 8000 kg per cubic metre	fn:bp_cold_t
+C627	cooldown enthalpy	14.1	GJ	DERIVED	300 to 4.5 K at 80 kJ/kg	fn:bp_cooldown_gj
+C628	cooldown time	16.3	days	DERIVED	on a 10 kW 80 K circuit	fn:bp_cooldown_d
+C629	turns	1194	count	DERIVED	amp-turns over operating current	fn:bp_turns
+C630	total conductor	13.8	km	DERIVED	summed over the three grades	fn:bp_cond_km
+C631	REBCO required	1.99	km	DERIVED	the innermost band only	fn:bp_rebco_km
+C632	Nb3Sn required	5.13	km	DERIVED	the middle band	fn:bp_nb3sn_km
+C633	NbTi required	6.66	km	DERIVED	the outer band	fn:bp_nbti_km
+C634	radius where the field falls to 16 T	1.45	m	DERIVED	end of the REBCO band	fn:bp_r_rebco_out
+C635	radius where the field falls to 8 T	1.96	m	DERIVED	end of the Nb3Sn band	fn:bp_r_nb3sn_out
+C636	outer radius of the winding	2.47	m	DERIVED	end of the NbTi band	fn:bp_r_nbti_out
+C637	beam power into the jet at 1 MW	79.8	kW	DERIVED	8.0 percent, SOURCED	fn:bp_target_kw
+C638	fraction of beam power into the jet	7.98	percent	DERIVED	319 kW of 4 MW, SOURCED	fn:bp_f_target_pct
+C639	fraction into the shielding	53.7	percent	DERIVED	2149 kW of 4 MW, SOURCED	fn:bp_f_shield_pct
+C640	fraction into the resistive coils	10.1	percent	DERIVED	405 kW of 4 MW, SOURCED	fn:bp_f_nc_pct
+C641	a static rod's specific power	63.8	kW/kg	DERIVED	against a demonstrated 0.45	fn:bp_rod_kw_kg
+C642	wheel radius to reach the demonstrated figure	0.355	m	DERIVED	and the bore is 0.107 m	fn:bp_wheel_m
+C643	that radius over the bore	3.31	ratio	DERIVED	the geometric exclusion, on the corrected power	fn:bp_wheel_over_bore
+C644	jet temperature rise at 10 m/s	83.7	K	DERIVED	8 mm jet, 80 kW	fn:bp_jet_dt_10
+C645	jet temperature rise at 20 m/s	41.8	K	DERIVED	the same	fn:bp_jet_dt_20
+C646	jet temperature rise at 30 m/s	27.9	K	DERIVED	the same	fn:bp_jet_dt_30
+C647	jet mass flow at 10 m/s	6.81	kg/s	DERIVED	8 mm mercury jet	fn:bp_jet_m_10
+C648	jet mass flow at 20 m/s	13.6	kg/s	DERIVED	the same	fn:bp_jet_m_20
+C649	jet mass flow at 30 m/s	20.4	kg/s	DERIVED	the same	fn:bp_jet_m_30
+C650	peak coil dose at 1 MW, sourced	0.395	MGy/yr	DERIVED	scaled from 1e6 Gy/yr at 4 MW	fn:bp_dose_mgy
+C651	coil life at full duty	253	years	DERIVED	100 MGy allowed over the peak dose	fn:bp_coil_life
+C652	this work's dose reconstruction against the published	0.635	ratio	DERIVED	the check on an assumed peak-to-mean of 10	fn:bp_dose_agreement
+C653	steady load at 4.5 K	144	W	DERIVED	radiation plus current leads	fn:bp_steady_w
+C654	wall power including leads	38.4	kW	DERIVED	at 4.5 K, Carnot fraction 0.25	fn:bp_wall_kw
+C655	current lead load	4.00	W	DERIVED	HTS leads at 0.1 W/kA	fn:bp_lead_w
+C656	by how much the assumed target deposition was wrong	6.90	ratio	DERIVED	0.55 assumed over 0.080 sourced	fn:bp_deposition_error
+C657	the target deposition this work had assumed, withdrawn	55	percent	WITHDRAWN	replaced by C638 at 8.0 percent, SOURCED	fn:bp_assumed_deposition_pct
+C658	ITER limit on superconductor power density	0.17	mW/g	SOURCED	Back arXiv:1104.2742, citing the ITER design overview	fn:bp_iter_limit
+C659	displacements per atom in the coils	3.0e-4	DPA/yr	SOURCED	against a critical 1.9e-3 for Nb3Sn	fn:bp_dpa_yr
+C660	bore vacuum	1e-4	Pa	PINNED	set by target outgassing, not by muon scattering	fn:bp_vacuum_pa
