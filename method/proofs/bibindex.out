@@ -1,0 +1,112 @@
+bibindex -- the objects column, derived from the volume's own attributions
+==============================================================================
+
+1  WHAT THE OBJECTS THEMSELVES NAME
+   objects                                   299
+   objects carrying a grade line             298
+   objects naming at least one work          287
+   distinct (work, year) they name           186
+   objects naming NO work at all             12
+        A    The statistics operator
+        S    The alphabet law
+        K    The tower's two ends joined
+        M    Half-sided modular inclusion on a non-expanding horizon
+        P    The isoelectronic ladder
+        Q    The exchange factor
+        LS   The entrant operator
+        LS   The ordering law, five clauses
+        LS   The pinned-channel theorem (no g block)
+        LS   The exact-quartic decomposition
+        LS   The twin operator, c → ∞
+        3B   The triangle form on K₃
+
+2  A FINDING OF MINE CORRECTED, AND THE MEASUREMENT THAT STANDS
+   objects carrying no HANDLE in the bibliography   34   <- W-281's 34, and it stands
+   objects naming no WORK in their own entry        12   <- what the sentence is about
+   'Every object of this compendium names a work' is FALSE BY 12, not by 34.
+   The number was right; the label on it was mine and it was wrong.
+
+3  THE 162 SEATED ROWS, CLASSIFIED
+   DERIVED           127
+   YEAR-DIFFERS       12
+   NAME-FORM           7
+   NOT-ATTRIBUTED     16
+   and they sum to 162
+
+   -- YEAR-DIFFERS
+      1842  Jacobi                              objects cite [1837]
+      1913  Pauli                               objects cite [1925]
+      1937  Shannon                             objects cite [1938, 1948]
+      1954  Kolmogorov                          objects cite [1965]
+      1958  Pauli                               objects cite [1925]
+      1969  Andrew & Cowan                      objects cite [1965]
+      1970  Fano                                objects cite [1961]
+      1971  Griffin, Andrew & Cowan             objects cite [1969]
+      1973  Saari                               objects cite [1971]
+      1982  Racah                               objects cite [1942, 1943]
+      1998  Montgomery                          objects cite [2014]
+      2002  Montgomery                          objects cite [2014]
+
+   -- NAME-FORM
+      1975  Marchal & Saari                   
+      1983  Maier & Yannakakis                
+      1986  Inokuti & Manson                  
+      1991  Kay-Wald                          
+      1995  Beek & Dechter                    
+      2000  Chenciner & Montgomery            
+      2003  Fredenhagen & Verch               
+
+   -- NOT-ATTRIBUTED
+      1878  Hill                              
+      1890  Poincaré                          
+      1963  Arnold                            
+      1964  Moebius                           
+      1968  Ireland and Kullback              
+      1968  Alekseev                          
+      1974  McGehee                           
+      1976  Monaghan                          
+      1982  Marchal & Bozis                   
+      1989  Nouguier & Vilarem                
+      2006  Hsiang & Straume                  
+      2019  Fleischer & Knauf                 
+      2021  Kol                               
+      2023  Kol                               
+      2026  Lach, *The Löwdin Solution*       
+      2026  Lach, *The Three-Body Problem for 
+
+3b THE WIDER SCAN, REPORTED AND NOT MERGED
+   rows an ATTRIBUTION derives                    127
+   rows any MENTION anywhere in an entry reaches  129
+   the difference is 2, and it stays a difference: the grade line and the
+   prior-art quote are where an object says what it RESTS ON; its body is
+   discussion, and a work discussed is not a work the object names.
+   works named NOWHERE in any object entry, on the widest scan: 15
+        1878  Hill
+        1890  Poincaré
+        1963  Arnold
+        1964  Moebius
+        1968  Alekseev
+        1974  McGehee
+        1976  Monaghan
+        1982  Marchal & Bozis
+        1989  Nouguier & Vilarem
+        2006  Hsiang & Straume
+        2019  Fleischer & Knauf
+        2021  Kol
+        2023  Kol
+        2026  Lach, *The Löwdin Solution*
+        2026  Lach, *The Three-Body Problem for Unknown Masses*
+
+4  THE CROSS-CHECK: THE HANDLES AGAINST THE DERIVATION
+   legible handle titles on derivable rows   145
+   landing on an object the derivation gives 134
+   landing on one it does not                11
+   rows wholly agreeing / partly not         76 / 11
+   and on every one of the 11, the derived answer is the object the work is
+   named for.  That is the ruling's own point: the handle column is stale.
+      1925 Hund                     handle The exchange factor                    derived The ground-state derivation
+      1935 Condon & Shortley        handle The channel curve                      derived Core angular structure
+      1940 Birkhoff                 handle The convexity criterion                derived Adjunction never repairs (M Thm 10
+      1940 Deming & Stephan         handle The statistics operator                derived Statistics as a language
+      1943 Racah                    handle The tower                              derived Law versus extent, and what E meas
+      1958 Seaton                   handle The polarisability index               derived Core penetration

@@ -1,0 +1,163 @@
+year	work	class	objects_derived	handles_seated
+1669	Newton	DERIVED	Newton decrement, Nesterov–Nemirovskii 1994	B.newton
+1682	Leibniz	DERIVED	Monotone interpolation bracket	B.brk
+1687	Newton	DERIVED	The ordered bracket | The two-body separation	B.ordbr
+1715	Taylor	DERIVED	The fractional widths | The linear pole	B.frac B.pole
+1736	Euler	DERIVED	The constraint graph	G.graph
+1744	Maupertuis	DERIVED	The Jacobi–Maupertuis metric	3B.JM
+1748	Euler	DERIVED	The alternating specialisation | The box generating function | The cardinality | The detachable leaf | The fibres, in closed form | The first factor | The generating function | The product rule for the defect | The second factor	A.prodE C.Aq C.Bq C.box L.F L.F1 L.Fm1
+1767	Euler	DERIVED	The five fixed points	3B.five
+1770	Lagrange	DERIVED	The algebraic variety	3B.norm
+1772	Lagrange	DERIVED	The five fixed points	3B.five
+1797	Lagrange	DERIVED	The optimal step	B.hstar
+1809	Gauss	DERIVED	The anchor | The five-sigma admissibility threshold — where the bracket may be applied at all | The rank skew | The transfer distribution	A.anchor B.adm C.qmean L.skew
+1837	Jacobi	DERIVED	The Jacobi–Maupertuis metric	3B.JM
+1842	Jacobi	YEAR-DIFFERS	The Jacobi–Maupertuis metric	3B.JM
+1854	Boole	DERIVED	The logic level	A.logic
+1869	Mendeleev	DERIVED	The refusal map | The thirty-six decomposed	E.ioniz E.table
+1878	Hill	NOT-ATTRIBUTED		3B.index
+1890	Rydberg	DERIVED	Self-determined limit | The Rydberg floor | The exact price | The four-thirds law | The precision lens | The value-one crossing — where the bracket's price V passes unity | What silence implies | When the bracket fails	B.V43 B.Vexact B.fail B.floor32 B.nuV B.silence P.converge P.lens
+1890	Poincaré	NOT-ATTRIBUTED		3B.index
+1893	Heaviside	DERIVED	The language combinations | The membership function	L.chi
+1896	Pareto	DERIVED	Four numbers, five facts | The bridge equation | The fibre trade | The width-price front	B.pareto C.pareto Q.bridge
+1900	Dedekind	DERIVED	Four numbers, five facts | Modularity (equality, not submodularity) | Two indices, and the one that does not exist	L.modular
+1903	Ritz	DERIVED	Self-determined limit | Series self-consistency | The channel curve | The monotonicity of the defect | The regime coordinate	P.converge P.mono P.selfsame S.regime S.ritz
+1904	Spearman	DERIVED	The bridge equation	Q.bridge
+1906	Jensen	DERIVED	The Rydberg floor | The floor at two	B.floor2 B.floor32
+1907	Fubini	DERIVED	The fibred count	C.fib
+1910	Moore	DERIVED	A seed | An index whose one prediction is false | Bergman double-projection; Baker–Pixley 1975 (majority term) | Closure defect | Closure operator (Moore family) | Extensivity | Law versus extent, and what E measures | The bounds are recoverable | The closure theorem | The defect bounds | The expression always exists | The family of closed sets | The family's defect, exactly | The open-index form, seed + E | The recovery operator	A.E A.R A.bound A.clos A.expr A.ext A.fix F.exact F.moore L.E0 S.bounds S.open S.seed
+1911	Caratheodory	DERIVED	The Carathéodory lower bound	S.car
+1913	Bohr	DERIVED	Node counting, f ≤ e − 1 | Node counting, ℓ ≤ n − 1 | The assembly rule — a composite observable's scaling exponent is 2a + 3b | The definition of Λ	B.coll L.c1 L.c4 L.def
+1913	Pauli	YEAR-DIFFERS	Pauli, g ≤ 4f + 2 | Pauli, k ≤ 4ℓ + 2 | The Pauli bound | The admissible Pauli cut | The arrow is a property of the assumption | The channel equation, final form | The channel equation, first form | The definition of Λ | The occupancy floor | The second transfer bound | The transfer bound | Three excluded forms | Vector coupling	L.def
+1916	Sommerfeld	DERIVED	The j-splitting	P.jsplit
+1918	Noether	DERIVED	The electromagnetic index is a quotient, not an extension | The electromagnetic quotient	EM.quotient
+1922	Chazy	DERIVED	The index Λ₃	3B.index
+1923	Helly	DERIVED	Helly number	K.helly
+1924	Born & Heisenberg	DERIVED	Core polarisation | Seaton's term | The polarisability index	P.polar Q.alpha Q.pol
+1924	Laporte	DERIVED	Electric/magnetic multipole selection rules | The multipole is fixed by the orbital jump and the parity | The parity hole | The selection-rule crossing | Which selection rules a closed index will accept	EM.cross EM.map EM.parity
+1924	Stoner	DERIVED	Pauli, g ≤ 4f + 2 | Pauli, k ≤ 4ℓ + 2	L.c2 L.c5
+1925	Hund	DERIVED	The ground-state derivation | Vector coupling	L.c7 Q.exch S.ground
+1925	Pauli	DERIVED	Pauli, g ≤ 4f + 2 | Pauli, k ≤ 4ℓ + 2 | The Pauli bound | The admissible Pauli cut | The arrow is a property of the assumption | The channel equation, final form | The channel equation, first form | The definition of Λ | The occupancy floor | The second transfer bound | The transfer bound | Three excluded forms | Vector coupling	L.c2 L.c3 L.c5 L.c6 L.c7 L.c8 L.def Q.bound Q.delta Q.final T.a9p
+1925	Russell & Saunders	DERIVED	Intercombination lines: the index admits what LS coupling forbids | The spin diagonal | Which selection rules a closed index will accept	EM.spin
+1926	Aitken	DERIVED	Aitken Δ² / Seki Kōwa	B.aitken
+1926	Schroedinger	DERIVED	Node counting, ℓ ≤ n − 1	L.c1
+1927	Wigner	DERIVED	An index whose one prediction is false | The complete rectangle | The electromagnetic index is a quotient, not an extension | The parity hole | Three excluded forms | Which selection rules a closed index will accept	EM.image EM.parity
+1928	Dirac	DERIVED	The j-splitting	P.jsplit
+1928	Fermi	DERIVED	The channel equation, final form | The channel equation, first form | The deficit term	Q.delta Q.final Q.pen
+1928	Hartree	DERIVED	The channel curve | The deficit term | The l-collapse	P.lcollapse Q.pen S.ritz
+1928	Sperner	DERIVED	Every other shape the lattice contains | The Sperner property	L.sperner
+1929	Janet	DERIVED	The Pauli bound | The channel equation, final form | The ground-state derivation | The price of a layout | The thirty-six decomposed	E.layout E.table Q.bound Q.final S.ground
+1931	Wigner	DERIVED	Basis independence of the level set | The axis density | The four coupling schemes as physical recoupling chains | The recoupling bound | The spin diagonal | The three excluded forms	EM.spin T.a12 T.dens T.excl T.invariant
+1931	Hopf	DERIVED	Shape space and the shape sphere	3B.shape
+1933	Mayer & Mayer	DERIVED	The polarisability index	Q.alpha
+1933	Milne-Thomson	DERIVED	Monotone interpolation bracket | The admissible order | The linear pole | The ordered bracket | The price V — the bracket's width against its error	B.V B.brk B.ordbr B.ordk B.pole
+1935	Condon & Shortley	DERIVED	Core angular structure | Electric/magnetic multipole selection rules | Intercombination lines: the index admits what LS coupling forbids | The bounds against real terms | The coupling-scheme marker | The envelope-step law | The four coupling schemes | The fourteenth axis, and the tower's last stage | The multipole is fixed by the orbital jump and the parity | The parent bound | The parent-term wall | The six axes of the tower | The spin-half bound | The tower	EM.map P.jj P.termsplit S.channel S.parent T.a11 T.a13 T.real T.scheme T.tower
+1936	Eckart & Young	DERIVED	The rank-one factorisation	B.rank1
+1936	Madelung	DERIVED	The ground-state derivation | The index against the real subshells	L.real S.ground
+1936	Tarski	DERIVED	The comparison audit | The logic level	A.logic C.compare
+1936	Murray & von Neumann	DERIVED	Semifinite carries a trace	M.semi
+1937	Birkhoff	DERIVED	A seed | Birkhoff / product of chains | Distinct-prime-counting function | Divisor lattice embedding | E is coordinate-relative | Every other shape the lattice contains | Four numbers, five facts | How Λ enters a larger index | Join-prime and meet-prime | The Birkhoff representation | The Boolean representation | The arrow index | The box seed law, d + c − 2 | The convexity criterion | The defining letter | The fourteenth axis, and the tower's last stage | The implication circuit | The interval-removal step | The join-irreducible count | The language combinations | The occupancy clock, and definability is not reachability | The production rule	A.define A.erel I.convex K.arrow K.produce L.alpha L.arith L.birk L.bits L.dist L.omega L.pushback L.step S.box S.seed
+1937	Shannon	YEAR-DIFFERS	Description length | Every stage of the tower in one table | How Λ enters a larger index | Selection and composition are unrelated | Slack | The Boolean representation | The axis test | The electromagnetic index is a quotient, not an extension | The fourteenth axis, and the tower's last stage | The implication circuit | The language combinations | The one-hot partition | The projection ladder | The register as an index | The seed as binary, corrected | The three blindnesses | The transit profile	L.bits
+1938	Shannon	DERIVED	The Boolean representation | The implication circuit | The language combinations | The one-hot partition | The seed as binary, corrected	L.circuit S.bits W.onehot
+1939	Inglis & Teller	DERIVED	Truncation loss	P.trunc
+1940	Birkhoff	DERIVED	Adjunction never repairs (M Thm 10.1) | Adjunction never repairs a closed index | E is coordinate-relative | Every stage of the tower in one table | Modularity (equality, not submodularity) | Sublattice of a product | The arrow is a property of the assumption | The cap as a morphism | The fourteenth axis, and the tower's last stage | The interval map | The languages are one statement, and E is what translation costs | The membership function is total | The most active constraint is the coupling itself | The product rule for closure | The shape of an interval | The six axes of the tower | Two indices, and the one that does not exist	A.derived A.erel A.morph A.prod I.convex I.interval I.shape L.arith L.closed L.total
+1940	Deming & Stephan	DERIVED	Statistics as a language	A.stat2 G.stat
+1941	Dushnik & Miller	DERIVED	E is coordinate-relative | Order dimension (Dushnik–Miller) | The axis test	A.erel K.axis L.dim
+1941	Goeppert-Mayer	DERIVED	Orbital collapse | The Janet collapse	P.dcollapse Q.collapse
+1942	Racah	DERIVED	Basis independence of the level set | Four coupling schemes price four routes to one object | The axis density | The counting-coupling dichotomy | The four coupling schemes | The four coupling schemes as physical recoupling chains | The parent bound | The recoupling bound | The tower | The tree or the tightness | Three excluded forms	T.a11 T.a12 T.dens T.dich T.invariant T.scheme T.tower
+1942	Ward	DERIVED	Closure operator (Moore family) | The family of closed sets | The family theorem	A.clos F.moore F.open
+1943	Racah	DERIVED	Law versus extent, and what E measures | Racah 1943 seniority | The admissible Pauli cut | The parent-term wall | The seniority floor | The six axes of the tower | The three excluded forms	S.parent T.a10 T.a9 T.a9p T.excl T.tower
+1945	Segre	DERIVED	The nuclide chart's defect	E.nuclide
+1948	Coxeter	DERIVED	The null surface is a face	W.face
+1948	Shannon	DERIVED	Description length | Every stage of the tower in one table | How Λ enters a larger index | Selection and composition are unrelated | Slack | The axis test | The electromagnetic index is a quotient, not an extension | The fourteenth axis, and the tower's last stage | The projection ladder | The register as an index | The three blindnesses | The transit profile	A.blind A.ebits A.slack EM.notcomp G.reg K.axis K.redun K.transit
+1950	Dilworth	DERIVED	Every other shape the lattice contains | How Λ enters a larger index | Order dimension (Dushnik–Miller) | The Sperner property | The box seed law, d + c − 2 | The down-set seed law, d + c − 1	S.box S.down
+1950	Hamming	DERIVED	The frontier metric — distance and status on the fifteen-letter alphabet	W.frontier
+1950	Pais & Uhlenbeck	DERIVED	The core at nine letters	W.core9
+1950	Löwdin	DERIVED	The state-dependent multiplier identity	LS.asym
+1953	Green	DERIVED	Parastatistics	T.para
+1954	Kolmogorov	YEAR-DIFFERS	The unstatable family	3B.index
+1955	Tarski	DERIVED	The certificate condition | The family theorem	A.cert F.open
+1957	Bethe & Salpeter	DERIVED	The assembly rule — a composite observable's scaling exponent is 2a + 3b	B.coll
+1958	Pauli	YEAR-DIFFERS	Pauli, g ≤ 4f + 2 | Pauli, k ≤ 4ℓ + 2 | The Pauli bound | The admissible Pauli cut | The arrow is a property of the assumption | The channel equation, final form | The channel equation, first form | The definition of Λ | The occupancy floor | The second transfer bound | The transfer bound | Three excluded forms | Vector coupling	Q.delta
+1958	Seaton	DERIVED	Core penetration | Core polarisation | Parent-term independence | Seaton's term | The channel equation, final form | The channel equation, first form | The l-collapse | The polarisation formula	A.seaton P.coreblind P.lcollapse P.polar P.qdt Q.delta Q.final Q.pol
+1959	Dijkstra	DERIVED	Interior and exterior | The metric defect | The three populations | The walk	A.EW A.W A.intext A.three
+1960	Erdos & Renyi	DERIVED	Density and informativeness	A.dens
+1961	Fano	DERIVED	Series perturbation	P.perturb
+1961	Reeh & Schlieder	DERIVED	Reeh–Schlieder	M.rs
+1962	Berge	DERIVED	The composability peak | The cycle rank of the tower | The girth is four | The seven near-misses	G.near G.tower K.girth K.peak
+1963	Arnold	NOT-ATTRIBUTED		3B.index
+1964	Edlen	DERIVED	Constructed limit | The channel equation, final form | The periodic table as a coordinate | The same-element ladder | The step operator	A.S K.zcross P.buildlimit P.charge P.iso Q.final
+1964	Moebius	NOT-ATTRIBUTED		G.book
+1964	Rota	DERIVED	Local closure is not implied | Möbius function of a distributive lattice | The amplification | The book as an index | The box factorises | The void | The void-free fraction | Why a closed expression exists	C.local G.book L.amp L.box L.mobius L.void L.voidfrac
+1965	Kolmogorov	DERIVED	The unstatable family	F.unstatable
+1965	Penrose	DERIVED	The core at nine letters	W.core9
+1967	Floyd	DERIVED	The clock that does not tick | The composition clock	K.clock K.clockfail
+1967	Tomita	DERIVED	Tomita–Takesaki	M.tt
+1968	Ireland and Kullback	NOT-ATTRIBUTED		A.stat2
+1968	Alekseev	NOT-ATTRIBUTED		3B.index
+1968	Gerratt & Mills	DERIVED	The defect closed: chord = rot + perp	LS.chord
+1969	Andrew & Cowan	YEAR-DIFFERS	Four coupling schemes price four routes to one object | The four coupling schemes as physical recoupling chains	P.dcollapse Q.collapse Q.final
+1969	Griffin, Andrew & Cowan	DERIVED	Orbital collapse | The Janet collapse | The channel equation, final form | The collapse condition	LS.coll
+1969	Pulay	DERIVED	The defect closed: chord = rot + perp	LS.chord
+1970	Codd	DERIVED	Projection onto coordinate i	A.alph
+1970	Fano	YEAR-DIFFERS	Series perturbation	P.perturb
+1970	Takesaki	DERIVED	Tomita–Takesaki	M.tt
+1971	Lane	DERIVED	Composition | Space is what an index holds, time is what it composes | The categorial jump | The dead ends, defined | The tower is a category | Transitions compose	K.cat K.comp K.deadend K.jump K.twocol
+1971	Griffin, Andrew & Cowan	YEAR-DIFFERS	Orbital collapse | The Janet collapse | The channel equation, final form | The collapse condition	LS.coll
+1971	Saari	DERIVED	The index Λ₃	3B.index
+1972	Gabriel	DERIVED	The composition quiver	K.quiver
+1972	Karp	DERIVED	The seed is a set cover | The seed is an erasure structure | The seed's forced set, corrected | Λ's seed — seven cells	S.core S.cover S.erasure S.lam S.unit
+1973	Takesaki	DERIVED	Takesaki duality 1973	M.takesaki
+1973	Saari	YEAR-DIFFERS	The index Λ₃	3B.index
+1974	Curtis & Reid	DERIVED	The optimal step	B.hstar
+1974	Johnson	DERIVED	The seed is a set cover | Λ's seed — seven cells	S.cover S.lam
+1974	Montanari	DERIVED	Montanari 1974	A.montanari
+1974	McGehee	NOT-ATTRIBUTED		3B.index
+1975	Baker & Pixley	DERIVED	Bergman double-projection; Baker–Pixley 1975 (majority term) | The binary-projection criterion | The fourteenth axis, and the tower's last stage	A.fix A.two
+1975	Csiszar	DERIVED	Statistics as a language	G.stat
+1975	Marchal & Saari	NAME-FORM	The index Λ₃	3B.index
+1976	Monaghan	NOT-ATTRIBUTED		3B.index
+1978	Freuder	DERIVED	Corners and faces | Failure mode A — ordering | Failure mode B — arity | Global consistency (CSP) | Jurisdiction does not change the defect | The index of all constraints | The protocol index | The three blindnesses | The three populations	A.blind A.gc A.modeA A.modeB A.three G.allcons G.prot K.corner W.jur
+1978	Gratzer	DERIVED	Join-prime and meet-prime | The interval-removal step	L.pushback L.step
+1978	Rissanen	DERIVED	Description length	A.ebits
+1979	Chvatal	DERIVED	The seed's forced set, corrected | The unit template, corrected	S.core S.unit
+1979	Dawid	DERIVED	Independence is a triple property	G.trip
+1980	Stanley	DERIVED	The Sperner property	L.sperner
+1981	Monjardet	DERIVED	The interval measure | The lattice metric | The shape of an interval	I.shape L.metric L.occ
+1982	Freuder	DERIVED	Every cut closes | Every other shape the lattice contains | Exactness proves the three parts are not a triangle | Freuder 1982 | Shape decides the seed | The arrow is a property of the assumption | The arrows decay with distance | The box factorises | The closure theorem | The constraint index | The constraint tree | The deficit | The reference index | The six axes of the tower | The surface is a cylinder | The tree or the tightness | Why a closed expression exists	A.freuder C.cut G.cons G.ref G.shape L.E0 L.box L.tree T.trad 3B.def
+1982	Racah	YEAR-DIFFERS	Basis independence of the level set | Four coupling schemes price four routes to one object | Law versus extent, and what E measures | Racah 1943 seniority | The admissible Pauli cut | The axis density | The counting-coupling dichotomy | The four coupling schemes | The four coupling schemes as physical recoupling chains | The parent bound | The parent-term wall | The recoupling bound | The seniority floor | The six axes of the tower | The three excluded forms | The tower | The tree or the tightness | Three excluded forms	T.trad
+1982	Marchal & Bozis	NOT-ATTRIBUTED		3B.index
+1983	Beeri, Fagin, Maier & Yannakakis	DERIVED	Closure as agreement | Interior and exterior | The comparison audit | The composable window | The three-coordinate rule | ℛ as a relaxation	A.intext C.compare K.three
+1983	Maier & Yannakakis	NAME-FORM	Closure as agreement | Interior and exterior | The comparison audit | The composable window | The three-coordinate rule | ℛ as a relaxation	A.intext A.relax C.compare K.langclose K.three K.window
+1986	Inokuti & Manson	NAME-FORM	The existence partition | The two-ended anchor | The validated domain	Q.anchor Q.region S.status
+1986	Stanley	DERIVED	Every other shape the lattice contains | Palindromic rank polynomial ⟺ self-dual | The alternating specialisation | The cardinality | The fibres, in closed form | The first factor | The generating function | The language combinations | The rank polynomial | The second factor	C.Aq C.Bq L.F L.F1 L.Fm1 L.chains L.pal L.rankpoly
+1988	Pearl	DERIVED	Data-processing inequality + Pinsker | Independence is a triple property | The Markov property	G.trip K.decay K.markov
+1989	Cooper	DERIVED	Binary path consistency / 2-decomposability (Kimura et al. 2024)	A.bpc
+1989	Dechter & Pearl	DERIVED	Exactness proves the three parts are not a triangle | Shape decides the seed | The constraint index | The refuted conjecture	G.cons G.shape K.coupling
+1989	Nouguier & Vilarem	NOT-ATTRIBUTED		A.bpc
+1991	Chinneck & Dravnieks	DERIVED	The core at fifteen letters | The core at nine letters | The core is minimal | The defect does not scale	W.core15 W.core9 W.scale W.supp
+1991	Cover & Thomas	DERIVED	The arrows decay with distance	K.decay
+1991	Drake & Swainson	DERIVED	The polarisation formula	A.seaton
+1991	Kay-Wald	NAME-FORM	The presymplectic potential	M.C2
+1992	Borchers	DERIVED	Borchers 1992 / Wiesbrock 1993 | The modular ledger	M.C2 M.hsmi M.ledger
+1992	Dechter	DERIVED	Dechter 1992 | Global consistency (CSP)	A.dechter A.gc
+1993	Wiesbrock	DERIVED	Borchers 1992 / Wiesbrock 1993 | The modular ledger	M.C2 M.hsmi M.ledger
+1994	Nesterov & Nemirovskii	DERIVED	Newton decrement, Nesterov–Nemirovskii 1994 | Self-concordance	B.newton B.selfconc
+1995	Beek & Dechter	NAME-FORM	Dechter 1992 | Exactness proves the three parts are not a triangle | Global consistency (CSP) | Shape decides the seed | The constraint index | The one-corner characterisation | The refuted conjecture | The tightening rule	A.rule A.staircls
+1996	Lauritzen	DERIVED	Data-processing inequality + Pinsker | Past, present and future | The Markov property | The arrows decay with distance | The box factorises | The detachable leaf | The fibres, in closed form | The two-body separation | The void-free fraction | Why a closed expression exists	K.decay K.markov L.box L.voidfrac
+1998	Montgomery	YEAR-DIFFERS	Shape space and the shape sphere | The potential on shape space | The shape metric	3B.shape
+1999	Deville	DERIVED	Constraint tightness as a count | Monotone upper envelope / staircase bound | Orientation cost | The four-orientation operator | The recovery operator | The tightening rule	A.env A.orient A.r4 T.tight
+1999	Hentenryck	DERIVED	Constraint tightness as a count | Monotone upper envelope / staircase bound | Orientation cost | Staircase / connected row-convex | The four-orientation operator | The generation criterion | The one-corner characterisation | The tightening rule	A.orient A.rule A.stair A.staircls T.tight
+2000	Wald & Zoupas	DERIVED	The presymplectic potential	M.C1
+2000	Chenciner & Montgomery	NAME-FORM	Shape space and the shape sphere | The potential on shape space | The shape metric	3B.five
+2002	Montgomery	YEAR-DIFFERS	Shape space and the shape sphere | The potential on shape space | The shape metric	3B.metric
+2003	Fredenhagen & Verch	NAME-FORM	Brunetti–Fredenhagen–Verch 2003	W.rel
+2006	Hsiang & Straume	NOT-ATTRIBUTED		3B.shape
+2014	Montgomery	DERIVED	Shape space and the shape sphere | The potential on shape space | The shape metric	3B.shape 3B.metric 3B.pot
+2017	Diestel	DERIVED	The constraint graph	G.graph
+2019	Fleischer & Knauf	NOT-ATTRIBUTED		3B.index
+2021	Kol	NOT-ATTRIBUTED		3B.index
+2023	Kol	NOT-ATTRIBUTED		3B.index
+2024	Sorce	DERIVED	Sorce 2024	M.sorce
+2026	Lach, *The Löwdin Solution*	NOT-ATTRIBUTED		LS.ent LS.law LS.coll LS.pin LS.asym LS.quart LS.chord LS.twin
+2026	Lach, *The Three-Body Problem for Unknown Masses*	NOT-ATTRIBUTED		3B.tri 3B.def 3B.index
