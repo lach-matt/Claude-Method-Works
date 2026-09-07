@@ -835,3 +835,21 @@ C838	the same at the wider bore	0.924	ratio	DERIVED	machine.py --alteration	fn:o
 C839	bred fuel on the bound-case service life, with the optimised target	5.811	ratio	DERIVED	machine.py --alteration	fn:opt_bredbound
 C840	the strictly device-internal heat form with the optimised target	0.3344	ratio	DERIVED	machine.py --alteration; the neutron at its bare heat, no blanket credit	fn:opt_internal_heat
 C841	work at demonstrated cycles, wider bore, with the optimised target	0.235	ratio	DERIVED	machine.py --alteration	fn:opt_work150_w
+C842	service life at the density that has been reached	152.8	cycles	DERIVED	the model at the corrected sticking and 1.2 times liquid	fn:sl_demonstrated
+C844	the model against the one point it can be checked at	1.019	ratio	DERIVED	C842 / C44; the model reproduces the measured cycle count	fn:sl_model_vs_measured
+C845	the bound case carried back to the demonstrated density	0.8038	ratio	DERIVED	C842 / C176	fn:sl_density_scale
+C846	heat with the optimised target, at the demonstrated density	0.833	ratio	DERIVED	machine.py --alteration; C832 x C845	fn:dens_heatbound
+C847	the same at the wider bore	0.990	ratio	DERIVED	machine.py --alteration; C833 x C845	fn:dens_heatbound_w
+C848	heat at phi = 3, wider bore, at the demonstrated density	0.806	ratio	DERIVED	machine.py --alteration	fn:dens_heatphi3_w
+C849	work, wider bore, at the demonstrated density	0.742	ratio	DERIVED	machine.py --alteration	fn:dens_workbound_w
+C850	bred fuel on the bound case, at the demonstrated density	4.671	ratio	DERIVED	machine.py --alteration	fn:dens_bredbound
+C851	charged particles scanned against the admissibility test	13	count	DERIVED	window.py; every charged particle with a lifetime above 1e-12 s	fn:win_scanned
+C852	of those, inside the structural window	2	count	DERIVED	window.py; the muon and the pion	fn:win_in_window
+C853	and admitted by all four tests	1	count	DERIVED	window.py; the muon alone	fn:win_admitted
+C854	the mesomolecular formation time a binder must outlive	1e-9	s	DERIVED	the formation rate at liquid density	fn:win_formation_s
+C855	how far the window's lower bound may move, unchanged	207	x	DERIVED	window.py; the electron to the muon	fn:win_lo_span
+C856	how far its upper bound may move, unchanged	3.54	x	DERIVED	window.py; the pion to the kaon	fn:win_hi_span
+C857	density at which the measured cycle count was reached	1.2	LHD	SOURCED	mucf.py PHI_LOS_ALAMOS; the density bracket of the 150-cycle result	fn:phi_los_alamos
+C858	charged particles that outlive the mesomolecular formation time	5	count	DERIVED	window.py long_lived(); the closed cut the theorem runs on	fn:win_long_lived
+C859	reduced-mass residual in the sticking overlap, at the muon	0.02835	ratio	DERIVED	window.py; m_mu / m_alpha	fn:win_resid_muon
+C860	the same residual at the structural window's ceiling	0.1259	ratio	DERIVED	window.py; 918 m_e / m_alpha	fn:win_resid_ceiling

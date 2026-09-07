@@ -144,3 +144,32 @@ An audit has to be right before its verdict means anything, and three of these w
 the corpus's own rule applies to the instrument as much as to the object: *a finding is recorded,
 never repaired* — and an instrument that reports its own limitation as the object's fault is the
 failure mode these three share.
+
+## The fault the suite could not see, and what audit 14 grew to catch it
+
+Every check in this suite reads a number: does the citation resolve, does the product recompute, does
+the prose carry a numeral the ledger does not. None of them reads a **relation**.
+
+The paper said, in three separate sections, that the two published final stickings *straddle* the
+break-point — the reading under which a single bench measurement would decide whether the reaction
+pays for itself as heat. Both citations resolved to the right rows. The arithmetic recomputed. Pass 3
+found nothing unbacked. And the claim was false: the break-point is 0.1580 percent, the two effective
+values are 0.505 and 0.532, and it lies below both. The heat form fails at perfect collection on
+either reading. The main preprint's own §5.5 had said so outright, in the sentence *"Nothing
+straddles: the break-point is not between the two readings, it is below both."*
+
+**A sentence can cite two rows accurately and assert a false relation between them.** That is the gap,
+and it is not closed by more careful reading — it is closed by declaring the relations.
+
+Audit 14 therefore carries two lists beside its table recomputations:
+
+- **ORDER** — ten orderings the prose depends on, each an inequality between two ledger rows: the
+  break-point below each of the four sticking values; each density-carried figure below the figure it
+  is carried from; the reduced-mass residual rising with binder mass; the admitted count below the
+  in-window count below the long-lived count.
+- **thresholds** — nine figures the paper states as clearing or not clearing unity, each checked
+  against unity on the side the prose claims.
+
+Both run on every invocation, and the selftest breaks one of each on purpose — moving the break-point
+above a sticking value, and moving a figure stated as under unity above it. An audit that passes on
+clean text proves nothing; these two are no exception.

@@ -122,3 +122,58 @@ before it found any in the paper.
 of a figure published in a cited preprint is a scholarly notice a reader is owed. And a **limit** on
 what the paper establishes — §11 — is about the subject, not about the process, however much the two
 resemble each other in tone.
+
+## Corrections made during the rebuild, and what they cost
+
+Four went into the paper and two into the instruments.
+
+**The service-life caveat was wrong, and the correct one is narrower.** The draft carried the
+companion's finding that the service-life model over-predicts its one checkable point by 2.24. That
+figure was computed at a **superseded** sticking — 0.1487 percent through the excited-state channel —
+and the main preprint's own §5.29 had already closed it by inverting the measured 150 cycles. At the
+corrected sticking the model returns 152.8 cycles against 150, a ratio of 1.019. What the bound-case
+rows actually assume is a fuel **density** of 8.5 × liquid where 1.2 has been reached, and carrying
+them back multiplies each by 0.8038 — which takes the paper's headline device-internal result from
+1.036 to **0.833**, and its best case from 1.231 to **0.990**. The correction makes the claim weaker
+and more defensible at once: an unreached density is a stated experimental requirement, where a
+mis-fitting model is a fault. `machine.py --alteration` now prints both columns, and the two stale
+sites in the older preprints were annotated rather than overwritten.
+
+**Theorem 1 closed on the wrong set.** The proof scanned every charged particle with a lifetime above
+10⁻¹² s and called that list complete. It is not: Λc⁺, Ξc⁺ and Bc⁺ all sit above that threshold and
+were absent. Running the lifetime test **first** repairs it, because that cut is closed — exactly five
+charged particles outlive the mesomolecular formation time, and the set can be checked against the
+Review of Particle Physics without judgement. Two of the five lie in the window; one survives the
+hadron test. `window.py long_lived()` is the cut, and the selftest asserts it.
+
+**Two numerals had been typed into the source**, both in the repaired Theorem 1 — the thresholds
+10⁻¹² s and 10⁻²⁰ s. Audit 24 caught them, which is the audit's whole purpose: the source is supposed
+to carry no numerals at all. The repair removed the need for either.
+
+**The paper drew the wrong relation between two rows it cited correctly, at three sites.** §3, §11 and
+§13.9 all said the two published final stickings *straddle* the break-point, so that measuring the
+sticking would decide whether the heat form of condition 8 is met. It does not: the break-point is
+0.1580 percent and the two effective values are 0.505 and 0.532, so it lies **below both**, and the
+main preprint's own §5.5 had already said so in those words — *"Nothing straddles: the break-point is
+not between the two readings, it is below both."* The heat form reaches 0.31 of what it needs on the
+more favourable reading and is short by 3.37 on the other, and no choice between them repairs it. The
+straddling reading was true of the *superseded* J=1 stickings, 0.1487 and 0.1851, which §5.26 retired.
+
+**That one is the important entry in this list, because no audit caught it.** Every citation resolved
+the right row; every arithmetic relation recomputed correctly; pass 3 found no unbacked number. A
+sentence can cite two rows accurately and assert a false relation between them, and nothing in the
+harness read the relation. Audit 14 now does: it carries a declared list of the **orderings the prose
+depends on** — the break-point below each of the four sticking values, each density-carried figure
+below the one it is carried from, each figure the paper states as clearing or not clearing unity —
+and its selftest breaks one ordering on purpose. Ten orderings and nine thresholds, checked against
+the ledger on every run.
+
+**One ledger row duplicated another.** C843 and C176 were the same quantity — the service life at the
+lower dissociation reading — computed by two hooks. C843 was dropped and C845's provenance rewritten
+to name C176.
+
+**What did not need fixing, and why it looked as though it did.** Pass 3 of `verify_paper.py` matches
+a prose number against the ledger to within 2 percent, so a number can in principle be "carried" by an
+unrelated row of similar value. That looseness governs the older preprints, whose prose holds literal
+numerals. It cannot reach the consolidated paper: its source holds **no numerals at all**, so every
+quantity is bound to a named row by id rather than matched by value.

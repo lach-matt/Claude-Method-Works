@@ -2792,6 +2792,97 @@ def opt_bredbound():
     return _ob(6)
 
 
+# ---- the binder-window scan, tools/window.py --------------------------------
+def _win():
+    import window
+    return window
+
+
+def win_admitted():
+    return float(len(_win().admitted()))
+
+
+def win_in_window():
+    return float(len(_win().in_window()))
+
+
+def win_scanned():
+    return float(len(_win().SPECTRUM))
+
+
+def win_lo_span():
+    w = _win()
+    below, _above = w.robustness()
+    return min(r[1] for r in w.admitted()) / below
+
+
+def win_hi_span():
+    w = _win()
+    _below, above = w.robustness()
+    return above / max(r[1] for r in w.in_window())
+
+
+def win_formation_s():
+    return _win().FORMATION_S
+
+
+def sl_demonstrated():
+    return _mach.service_life(_mach.DENSITY_DEMONSTRATED)
+
+
+def sl_bound():
+    return _mach.service_life(_mach.DENSITY_BOUND_CASE)
+
+
+def sl_model_vs_measured():
+    return _mach.service_life(_mach.DENSITY_DEMONSTRATED) / 150.0
+
+
+def sl_density_scale():
+    return _mach.density_scale()
+
+
+def dens_heatbound():
+    return _mach.balance_at_demonstrated_density(1)
+
+
+def dens_heatbound_w():
+    return _mach.balance_at_demonstrated_density(1, 2.60)
+
+
+def dens_heatphi3_w():
+    return _mach.balance_at_demonstrated_density(2, 2.60)
+
+
+def dens_workbound_w():
+    return _mach.balance_at_demonstrated_density(4, 2.60)
+
+
+def dens_bredbound():
+    return _mach.balance_at_demonstrated_density(6)
+
+
+def win_long_lived():
+    return len(_win().long_lived())
+
+
+def win_resid_muon():
+    w = _win()
+    return w.reduced_mass_residual(w.admitted()[0][1])
+
+
+def win_resid_ceiling():
+    w = _win()
+    return w.reduced_mass_residual(w.WINDOW_HI)
+
+
+def phi_los_alamos():
+    """The density at which the 150-cycle result was measured."""
+    import importlib, sys, os
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
+    return importlib.import_module("mucf").PHI_LOS_ALAMOS[0]
+
+
 def opt_internal_heat():
     """The strictly device-internal heat form, with the optimised target."""
     return cen_523_heat() * opt_factor()

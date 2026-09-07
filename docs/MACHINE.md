@@ -185,9 +185,19 @@ against the requirement it moves: 50.8 percent through it is 21.41, which is §5
 bound-case service life, at 1.036, and 1.231 at the wider bore. Nothing leaves the device to earn it.
 
 **Three conditions travel with it, and each is the corpus's own.** It is the bound case and not the
-demonstrated one — at 150 cycles the same alteration reaches only 0.264. The bound case rests on the
-service-life model the companion says over-predicts its one checkable point by 2.24. And the factor
-itself is the figure §5.26 declines to adopt and §10 Stage C measures.
+demonstrated one — at 150 cycles the same alteration reaches only 0.264. The bound case rests on a
+**density that has not been reached**, which is a different caveat from the one the companion states
+and a narrower one: the companion's 2.24 over-prediction was computed at the superseded sticking, and
+at the corrected value the model returns **152.8** cycles against the 150 measured, a ratio of
+**1.019**. What the bound-case rows assume is a fuel density of **8.5 × liquid** — the lower reading
+of the dissociation measurement — where the model returns **190.1**. Carrying a bound-case balance
+back to the **1.2 × liquid** actually reached multiplies it by **0.8038**, which takes the heat form
+from 1.036 to **0.833** and the wider-bore case from 1.231 to **0.990** — just under. Bred fuel on the
+bound case survives at **4.671**, and it leaves the device. And the factor itself is the figure §5.26
+declines to adopt and §10 Stage C measures.
+
+> **`--alteration` prints that second column**, so the conditional is stated where the result is,
+> rather than in a footnote somewhere else.
 
 **And "inside the device" has two readings that do not agree.** The heat rows above count the
 blanket's multiplication and its fissile heat. Counting the neutron at its **bare** heat instead, the

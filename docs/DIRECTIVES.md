@@ -94,7 +94,7 @@ that come off the cycle count.
 |---|---|---|
 | Q1 | the acceptance, never measured end to end | **narrowed to a budget** — every loss term computed, product **0.7127**, end-to-end **31.66 %**, committed **1.073×** above its own falsification floor |
 | Q2 | which sticking branch is operative | **closed** — the witnessed 150 cycles, inverted, give **0.517–0.547 %**, inside the measured trio and below theory |
-| Q3 | the service-life model over-predicts by 2.24 | **closed** — at the corrected sticking it returns **150.5** against 150 |
+| Q3 | the service-life model over-predicts by 2.24 | **closed** — an artefact of the superseded sticking. At the corrected value and the density actually reached it returns **152.8** against 150, a ratio of **1.019**. What the bound case rests on is a **density** of 8.5 × liquid, not a modelling error |
 | Q4 | fuel purity bounded by no experiment | **closed** — the fuel behind the 150 carried at most **10.93 ppm**, under the **31.10 ppm** parity level |
 | Q5 | the temperature axis is confounded | **closed** — every balance already runs the cycle rate *at* its ceiling |
 | Q6 | the 2.37 is unexplained | **closed** — a normalisation (**2.389** nucleons, to 0.8 %), and the gain survives to capture at **0.8961** because a narrow target is transparent sideways |

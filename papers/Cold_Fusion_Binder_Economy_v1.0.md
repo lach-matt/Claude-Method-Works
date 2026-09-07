@@ -1905,9 +1905,13 @@ The companion's §§2.2–2.6 state what each does to the balances if a reader p
 
 **Bounds, never targets:** the kinematic floor at 0.30 GeV, and the sticking asymptote 1/ω_s.
 
-**Known to be wrong in a stated direction:** the service-life model, which over-predicts its one
-checkable point by **2.24** (the companion's §2.5). Every figure computed at the "bound case" inherits that; no
-figure computed at the measured 150 cycles does.
+**Known to be wrong in a stated direction:** the service-life model, which over-predicted its one
+checkable point by **2.24** (the companion's §2.5). **§5.29 closes that**: inverting the measured 150
+cycles returns a sticking of 0.517 to 0.547 percent, and at a corrected value in that band the model
+returns **150.5** cycles. The over-prediction was the superseded sticking rather than the model. What
+the "bound case" figures assume, once that is removed, is a **density** of 8.5 times liquid against
+the 1.2 reached — a stated experimental requirement rather than a modelling error. Every figure
+computed at the "bound case" inherits *that*; no figure computed at the measured 150 cycles does.
 
 ## 8. What this paper retires
 
@@ -1945,12 +1949,14 @@ against a simulation of a forward-capturing machine, with no momentum requiremen
 rf bucket on the other. It compared two different quantities and nothing replaces it — the model now
 reproduces the simulation directly, to **0.982**, and needs no margin.
 
-**Found late and not repaired, because repairing it would be a choice this paper has no grounds to
-make.** The companion's §2.5 shows the service-life model over-predicts the one measurement it can be checked against
-by a factor of **2.24**. The paper carries the finding rather than adjusting the model, states which of
-its figures depend on the model and which do not, and names the measurement that would decide it
-(§10.2). A model that fits its only checkable point by construction would be worth less than one that
-records where it does not.
+**Found late, carried rather than repaired, and then closed by a measurement already in hand.** The
+companion's §2.5 showed the service-life model over-predicting the one measurement it can be checked
+against by a factor of **2.24**. The paper carried the finding rather than adjusting the model, and
+stated which of its figures depend on the model and which do not. **§5.29 then closed it** by
+inverting the 150 cycles for the sticking that produces them — the cause was the superseded
+excited-state value and nothing in the model. The finding stands as recorded; a model that fits its
+only checkable point by construction would be worth less than one that records where it does not, and
+this one was corrected by a measurement rather than by a fit.
 
 ## 9. Limits and the state of the question
 

@@ -446,7 +446,11 @@ def emit_md(front, blocks):
             out += ["", "$$" + payload + "$$", ""]
         elif kind == "table":
             for row in payload:
-                out.append("|---|" if row == "SEP" else "| " + " | ".join(row) + " |")
+                if row == "SEP":
+                    ncol = max((len(r) for r in payload if r != "SEP"), default=1)
+                    out.append("|" + "---|" * ncol)
+                else:
+                    out.append("| " + " | ".join(row) + " |")
             out.append("")
     return "\n".join(out) + "\n"
 

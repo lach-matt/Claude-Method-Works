@@ -1121,6 +1121,39 @@ def optimised_target_factor():
     return E_PION_MEASURED_GEV / E_PION_OPTIMISED_GEV
 
 
+# ---- what the bound case actually assumes ----------------------------------
+# The "bound case" service life is the model run at the LOWER DISSOCIATION
+# density -- 8.5 times liquid -- and NOT at any density that has been reached.
+# At the demonstrated density the same model, at the same corrected sticking,
+# returns the measured cycle count to 1.02. So the bound case rests on a DENSITY
+# assumption, not on a modelling error, and the correction that belongs on it is
+# the ratio of the two service lives rather than any over-prediction factor.
+STICKING_CORRECTED = 0.00505      # [1] sec.5.26, the J=1 final sticking via SIN
+DENSITY_DEMONSTRATED = 1.2        # Los Alamos, the one checkable point
+DENSITY_BOUND_CASE = 8.5          # the lower dissociation reading
+
+
+def _mucf():
+    import mucf
+    return mucf
+
+
+def service_life(density):
+    return _mucf().cycles(STICKING_CORRECTED, density)
+
+
+def density_scale():
+    """Bound-case service life down to the demonstrated density."""
+    return service_life(DENSITY_DEMONSTRATED) / service_life(DENSITY_BOUND_CASE)
+
+
+def balance_at_demonstrated_density(index, br=1.50, with_target=True):
+    """A bound-case balance carried back to the density that has been reached."""
+    g = (balance_with_optimised_target(index, br) if with_target
+         else balance_at_delivered(index, br))
+    return g * density_scale()
+
+
 def balance_with_optimised_target(index, br=1.50):
     return balance_at_delivered(index, br) * optimised_target_factor()
 
@@ -1153,10 +1186,37 @@ def report_alteration():
           f"{balance_with_optimised_target(3):.3f}. On the BOUND-CASE service life the heat")
     print(f"      form clears at {balance_with_optimised_target(1):.3f}, and "
           f"{balance_with_optimised_target(1, 2.60):.3f} at the wider bore.")
-    print("      That case rests on the service-life model the companion says")
-    print("      over-predicts its one checkable point by 2.24, and the factor")
-    print("      itself is the one sec.5.26 declines to adopt and sec.10 Stage C")
-    print("      measures. Both conditions are the paper's own, and both hold.")
+    print()
+    print("    AND THE BOUND CASE IS A DENSITY ASSUMPTION, NOT A MODELLING ERROR.")
+    print(f"      The service-life model returns {service_life(DENSITY_DEMONSTRATED):.1f}"
+          f" cycles at the density that has")
+    print(f"      been reached ({DENSITY_DEMONSTRATED} x liquid) against 150 measured -- a ratio of")
+    print(f"      {service_life(DENSITY_DEMONSTRATED) / 150.0:.3f}. What the bound case assumes is a"
+          f" density of {DENSITY_BOUND_CASE} x")
+    print(f"      liquid, the lower dissociation reading, where the model returns")
+    print(f"      {service_life(DENSITY_BOUND_CASE):.1f}. Carrying a bound-case balance back to the")
+    print(f"      density reached multiplies it by {density_scale():.4f}.")
+    print()
+    print(f"      {'balance, with the optimised target':<34}"
+          f"{'at ' + str(DENSITY_BOUND_CASE):>11}{'at ' + str(DENSITY_DEMONSTRATED):>17}")
+    for i, br, lab in ((1, 1.50, "heat, bound-case service life"),
+                       (1, 2.60, "the same, wider bore"),
+                       (2, 2.60, "heat, phi = 3, wider bore"),
+                       (4, 2.60, "work, bound case, wider bore"),
+                       (6, 1.50, "bred fuel, bound case")):
+        hi = balance_with_optimised_target(i, br)
+        lo = hi * density_scale()
+        mark = "  <-- clears" if lo > 1.0 else ""
+        print(f"      {lab:<34}{hi:11.3f}{lo:17.3f}{mark}")
+    print()
+    print("      At the density that has been reached NOTHING device-internal")
+    print("      clears, and the closest is the wider bore at"
+          f" {balance_with_optimised_target(1, 2.60) * density_scale():.3f}. Bred fuel on")
+    print(f"      the bound case still stands at"
+          f" {balance_with_optimised_target(6) * density_scale():.3f}, and it leaves the device.")
+    print()
+    print("      The factor itself is the one sec.5.26 declines to adopt and")
+    print("      sec.10 Stage C measures. Both conditions are the paper's own.")
     print()
     print("    AND THE STRICTLY DEVICE-INTERNAL FORM DOES NOT CLEAR ON ANY OF IT.")
     print("      Counting the neutron at its bare heat, with no blanket")

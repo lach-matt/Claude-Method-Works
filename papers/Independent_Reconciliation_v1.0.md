@@ -43,6 +43,9 @@ contaminant — makes fuel purity better than about one part per million a condi
 tightening linearly with density. And the companion's service-life model, run at the conditions of the
 one measurement it can be checked against, returns **335.3** cycles where **150** were measured: an
 over-prediction of **2.24** that every "bound case" figure inherits and no bred-fuel figure does.
+§2.5 records where that leads: the companion's §5.29 traces it to a superseded sticking, and what
+survives as a condition on the bound case is a fuel density of **8.5** times liquid against the
+**1.2** reached.
 
 **One correction runs the other way.** The stripping route the companion leaves open is now
 quantified and capped: even at near-perfect post-stripping recycling it buys **1.39** in cycles,
@@ -378,6 +381,16 @@ did not reach — in which case the bound case is self-consistent and the histor
 counter-example — or the reduction is not realised at all, in which case **every "bound case" figure in
 §§5.11 to §5.24 is optimistic by about this factor.** Nothing in the corpus or the literature settles
 it, and the companion's §10.2 is what would.
+
+> **Since this section was written the companion's §5.29 has settled it, and by neither reading.**
+> Inverting the measured 150 cycles for the sticking that produces them returns 0.517 to
+> 0.547 percent, inside the measured trio and below theory; at a corrected value in that band the
+> model returns **150.5** cycles. **The over-prediction was the excited-state reduction to
+> 0.1487 percent and nothing else** — not a density-dependent reactivation term, and not a fault in
+> the model. The finding stands as recorded, and what it exposed was a superseded input. What the
+> bound case actually assumes, once that is removed, is a fuel **density** of 8.5 times liquid
+> against the 1.2 reached, which is a narrower caveat and a stated experimental requirement rather
+> than a modelling error.
 
 **This does not touch the bred-fuel result, and the asymmetry is the point.** The bred-fuel
 headline figures — **1.203** at today's magnet, **1.772** with the §5.9 collector — are computed at the

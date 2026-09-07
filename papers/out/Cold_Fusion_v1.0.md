@@ -21,7 +21,7 @@ The first question is then whether a better collector could close the gap, and t
 
 The paper then applies to its own figures the same test it applies to the literature's. Every balance it states is stated *at* some assumed collection efficiency, and an acceptance is not the same thing as a delivered efficiency. Computing each loss that lies between a produced pion and a binder actually stopped in the fuel gives a budget of 0.7127, and the solenoid's own stopping ceiling is 0.5069, so the acceptance the machine delivers is 31.66 percent rather than the 90 percent [DESIGN] the balances had been read at. **At the delivered figure, and with the machine as built, nothing clears unity** — every heat form, every work form and bred fuel at the demonstrated cycle count fall below it.
 
-The machine is not obliged to stay as built, however, and this paper prices the alterations it proposes against every balance rather than against one. An optimised production target is worth 2.373 on any of them. It takes bred fuel at the demonstrated cycle count to 1.480, which is the route the laboratory programme measures first, and it takes the **heat** form, on the bound-case service life, to 1.036 — or 1.231 with a wider bore as well. **A device-internal route therefore clears unity, though conditionally**: it depends on a measurement that confirms the target, on a service-life model the paper notes over-predicts, and on the reading of "inside the device" that counts the blanket. Counting the neutron at its bare heat instead, the same alteration reaches only 0.3344, and on that reading nothing here clears.
+The machine is not obliged to stay as built, however, and this paper prices the alterations it proposes against every balance rather than against one. An optimised production target is worth 2.373 on any of them. It takes bred fuel at the demonstrated cycle count to 1.480, which is the route the laboratory programme measures first, and it takes the **heat** form, on the bound-case service life, to 1.036 — or 1.231 with a wider bore as well. **A device-internal route therefore clears unity, though conditionally**, and the conditions are worth naming at once: a measurement that confirms the target, a fuel density of 8.5 times liquid where 1.2 has been reached, and the reading of "inside the device" that counts the blanket. At the density actually reached the same alteration gives 0.990 at the wider bore and 0.833 at today's aperture — close, and under. Counting the neutron at its bare heat instead, it reaches only 0.3344. **On the strictest reading of every condition, nothing in this paper clears unity inside the device**; on the reading each of them states, one specified machine does.
 
 One configuration is net-positive on witnessed numbers alone, and it is not the standalone one. Pions are a byproduct of spallation, made in the same collisions that produce a spallation target's neutrons, so a facility already running a proton driver for neutrons or isotopes is making binders and discarding them. The marginal beam energy per binder is then **zero**, and any positive heat is gain. At the reachable capture of 0.2438, that comes to 85.6 kW of fusion heat on a one-megawatt driver. It is the one result here that a loss factor rescales without deciding, because it was never a ratio against unity in the first place.
 
@@ -56,7 +56,7 @@ Applied to the closed index of charged particles, the seven conditions admit exa
 Exactly one particle in the known spectrum sits inside that window: the muon, at 207 electron masses, which is 1.74 above the floor. The other candidates are excluded, and none of the exclusions is a near thing.
 
 | excluded | grounds |
-|---|
+|---|---|
 | electron-bound systems | geometry: 74100 fm against 280 fm, some ninety-one orders short |
 | tau and heavier binders | nuclear absorption preempts catalysis; no cell survives condition 3 |
 | hadronic binders | the same, at a shorter timescale still |
@@ -90,7 +90,9 @@ It cannot, however, be improved by changing the binder, and the reason is that t
 
 The consequence is larger than the calculation. Since no admissible binder does better, condition 8 cannot be satisfied by looking for a different particle; it is a specification on the *machine* rather than a search over the *spectrum*. And §2's window has already shown that there is no other occupant to search for in any case.
 
-The measured values unfortunately straddle the decision. Two published final stickings — 0.45 percent from SIN and 0.56 percent from PSI — sit on either side of the break-point this paper computes at 0.1580 percent. Which of them is right determines whether the heat form of condition 8 is satisfied even at perfect collection, and no calculation offered here can stand in for that measurement. §8 sets out the protocol that would settle it.
+**The measured values then decide the heat form, and they decide it against.** At the production cost §4.1 measures, the heat form of condition 8 would be met at perfect collection only if the sticking were below 0.1580 percent. The two published final stickings — 0.45 percent from SIN and 0.56 percent from PSI — are both well above that, and so are the two effective values, 0.5050 percent and 0.5320 percent, that the measured reactivation returns. **The break-point does not lie between the two readings; it lies below both.** The heat form reaches 0.31 of what it needs on the more favourable of them and is short by a factor of 3.37 on the other, and no choice between them repairs it.
+
+The consequence is worth drawing out, because it redirects the whole enquiry. If the two readings had straddled the break-point, a single bench measurement would have decided whether the reaction can pay for itself as heat. They do not, so it cannot. What the two readings differ about is a few percent of the service life; what decides the balance is the cost of the binder and the fraction of them collected — which is where §4 and §5 go, and why §10 measures the acceptance first. §8's protocol still runs, because the two routes to sticking disagreed historically and the operative value is worth pinning, but it settles a term rather than the question.
 
 
 ## 4. What the binder costs, measured rather than assumed
@@ -116,7 +118,7 @@ The second is that the neutron is worth considerably more than the heat it depos
 The third is a change in how the question is posed. Rather than assuming a collector and computing the gain that follows, it is more useful to set each balance to unity and solve for the collection efficiency at which that product would break even. Asked that way, the three products separate cleanly:
 
 | product | service life | value per fusion | collection needed |
-|---|
+|---|---|---|---|
 | electricity, bound case | 190.1 cycles | 19.55 MeV | 299.6 percent |
 | heat, bound case | 190.1 cycles | 26.06 MeV | 224.7 percent |
 | bred fuel, bound case | 190.1 cycles | 146.06 MeV | 40.1 percent |
@@ -148,7 +150,7 @@ The first is that a muon the solenoid accepts but the fuel does not stop is not 
 The second is that each loss lying between a produced pion and a stopped binder can be computed rather than assumed. They are as follows.
 
 | term | factor | what it is |
-|---|
+|---|---|---|
 | escape from the production target | 0.8961 | large-angle pions leave sideways, so the escape path is the target's radius |
 | pion decay completeness | 0.9000 | the fraction of accepted pions decaying inside the channel |
 | muon survival in the channel | 0.9796 | against the muon decay length |
@@ -168,7 +170,7 @@ The second is that each loss lying between a produced pion and a stopped binder 
 Because the balance is linear in collection — Proposition 6 in §13.5 — restating the table at a different efficiency is exact rather than approximate, and the paper's own two-column table provides the check.
 
 | balance | as stated at 90 percent [DESIGN] | delivered, 31.66 percent | wider bore, 37.62 percent |
-|---|
+|---|---|---|---|
 | heat, demonstrated cycles | 0.316 | 0.111 | 0.132 |
 | heat, bound-case service life | **1.241** | **0.437** | 0.519 |
 | heat, φ = 3 | 1.011 | 0.356 | 0.423 |
@@ -189,7 +191,7 @@ Because the balance is linear in collection — Proposition 6 in §13.5 — rest
 > **The factor checks against the requirement it moves.** §4.2 puts bred fuel at demonstrated cycles at 50.8 percent collection; through the optimised target that requirement is 21.4 percent, and 50.8 ÷ 2.373 returns it. The same factor applied to that route's delivered balance of 0.623 gives 1.480, which is §5.3's own figure reached from the other side.
 
 | balance | delivered | + optimised target | + target and wider bore |
-|---|
+|---|---|---|---|
 | heat, demonstrated cycles | 0.111 | 0.264 | 0.313 |
 | **heat, bound-case service life** | 0.437 | **1.036** | **1.231** |
 | heat, φ = 3 | 0.356 | 0.844 | **1.003** |
@@ -208,9 +210,19 @@ Because the balance is linear in collection — Proposition 6 in §13.5 — rest
 
 **First, it is the bound-case service life and not the demonstrated one.** At 150 cycles per binder, which is what has actually been measured, the optimised target takes heat only to 0.264 and work to 0.198. **Nothing device-internal clears at a witnessed cycle count under any alteration specified here.**
 
-**Second, the bound case rests on a service-life model that over-predicts.** It returns more cycles than were measured at the one point where a comparison is possible (§11). Every figure in the two bound-case rows inherits that; the bred-fuel row at demonstrated cycles does not.
+**Second, the bound case is a density assumption, and the density has not been reached.** It is worth being precise about what that assumption is, because it is easy to mistake for a modelling error. Run at the density that *has* been reached — 1.2 times liquid, the bracket of the 150-cycle result — the service-life model returns 152.8 cycles against the 150 cycles measured, a ratio of 1.019. The model is not over-predicting. What the bound-case rows assume instead is a fuel density of 8.5 times liquid: the lower of the two readings of the published dissociation measurement, counted as atoms rather than as molecules, at which the same model returns 190.1 cycles. Carrying a bound-case balance back to the density reached therefore multiplies it by 0.8038, and that is what the second column below does.
 
-**Third, the factor itself is unmeasured here.** 4.69 GeV is a published optimisation this paper does not adopt, and §10 Stage C is the measurement that would settle it. **The whole of this section is conditional on that stage**, which is the second reason it runs early.
+| balance, with the optimised target | at 8.5 × liquid | at 1.2 × liquid |
+|---|---|---|
+| heat, bound-case service life | 1.036 | 0.833 |
+| the same, at the wider bore | 1.231 | **0.990** |
+| heat, φ = 3, wider bore | 1.003 | 0.806 |
+| work, bound case, wider bore | 0.924 | 0.742 |
+| bred fuel, bound case | 5.811 | **4.671** |
+
+> **At the density that has been reached, nothing device-internal clears**, and the closest of them — the heat form at the wider bore — reaches 0.990, which is just under. The device-internal result above is therefore conditional on the density as well as on the target: it needs the fuel to be held at 8.5 times liquid, which no experiment has yet done. **Bred fuel is the exception**, and it stays 4.671 at the density reached, because what carries it is the neutron rather than the cycle count. It also leaves the device.
+
+**Third, the factor itself is unmeasured here.** 4.69 GeV is a published optimisation, and this paper prices what it would be worth without adopting it as a figure of its own — those are different acts, and only the first is done here. §10 Stage C is the measurement that would settle it. **The whole of this section is conditional on that stage**, which is the second reason it runs early.
 
 > **And "inside the device" has two readings that do not agree.** The heat forms above count the blanket's multiplication and its fissile heat, which is heat recovered on site. Counting the neutron at its **bare** heat instead — no blanket, no fissile credit — the delivered figure is 0.1409, and the optimised target takes it only to 0.3344. **On the narrow reading the criterion is not met by anything in this paper.** On the wider one it is met by a specified machine, conditionally, and §10 is what decides between them.
 
@@ -236,7 +248,7 @@ The binder is not consumed. It is released and forms the next muonic molecule, a
 ### 6.1 Every free parameter, fixed
 
 | parameter | value | why it is fixed there |
-|---|
+|---|---|---|
 | fuel | deuterium–tritium | the *d*+*t* channel has the highest yield per unit sticking of any muonic channel |
 | ratio | 50/50 by number | not critical; the transfer step auto-optimises the population |
 | **purity** | better than 1 ppm [DESIGN] high-Z | transfer to a contaminant runs at 1.0 × 10^10 s^-1 at 1 LHD of oxygen; at the bracketed density 5.49 ppm costs as much binder as decay does |
@@ -252,7 +264,7 @@ The binder is not consumed. It is released and forms the next muonic molecule, a
 ### 6.2 The two observables, and they must be simultaneous
 
 | observable | what it counts |
-|---|
+|---|---|
 | neutrons at 14.1 MeV | fusion events, hence cycles per binder |
 | the muonic-helium K-alpha at 8.2 keV | binders stuck to the alpha, hence the sticking directly |
 
@@ -268,7 +280,7 @@ The binder is not consumed. It is released and forms the next muonic molecule, a
 Column A witnesses the reaction. Column B is the reactor-scale target the balance is computed against, given so the two are never confused.
 
 | item | A — bench demonstration | B — reactor scale |
-|---|
+|---|---|---|
 | fuel | D–T, 50/50, 4 mg | D–T, 50/50 |
 | tritium inventory | 23.2 Ci (≈ 2.41 mg) | 5.13 kg at a 265 MeV/c window and the designed bore |
 | target vessel | diamond anvil cell, 19.2 mm3 sample volume | one muon range deep, 33.9 g/cm^2 areal density |
@@ -323,7 +335,7 @@ A magnetic mirror will reflect a pion emitted into the backward hemisphere provi
 ### 7.3 The circuit, the cold mass, and the constraint that decides the target
 
 | quantity | value | note |
-|---|
+|---|---|---|
 | inductance at 20 kA [DESIGN] | 5.40 H | and 21.6 H at 10 kA [DESIGN], 2.40 H at 30 kA [DESIGN] |
 | dump time constant | 10.8 s | the energy-extraction requirement |
 | hot-spot margin | 5.93 | against an allowance of 64.0 s |
@@ -380,7 +392,7 @@ This section answers the third directive. **Standing conventions**, and they are
 ### 8.4 What each outcome settles, committed in advance
 
 | quantity | what this paper predicts | what it settles |
-|---|
+|---|---|---|
 | cycles per binder | of order 150 cycles, ceiling 198 cycles | the service life, and whether the sticking cap is real |
 | effective sticking, X-ray route | 0.5050 percent to 0.5320 percent | the operative loss term |
 | effective sticking, neutron route | the same, within error | **if the two disagree, report a bound — do not average** |
@@ -398,7 +410,7 @@ This section answers the third directive. **Standing conventions**, and they are
 
 ### 9.1 The standalone case is closed by theorem, not by measurement
 
-Considered as a purpose in itself, the reaction cannot pay for its own binders, and this is a theorem rather than an empirical result. Because sticking does not depend on the binder's mass (§3.1), the best balance available *anywhere* in the structural window of §2 is 0.807 — short of unity, and short of it for every occupant the window admits. There is no particle left to look for and no collector that can be built to change it. Theorem 3 in §13.4 gives the proof. §5.3 has already shown, separately, that even the routes which clear unity at an assumed collection efficiency do not clear it at the delivered one.
+Considered as a purpose in itself, the reaction cannot pay for its own binders, and this is a theorem rather than an empirical result. Taking the most favourable admissible value of every term at once, the best balance available to the binder the window admits is 0.807 — short of unity. And because sticking does not depend on the binder's mass (§3.1), a different occupant of the window would not improve on it: there is no particle left to look for and no collector that can be built to change it. Theorem 3 in §13.4 gives the proof. §5.3 has already shown, separately, that even the routes which clear unity at an assumed collection efficiency do not clear it at the delivered one.
 
 
 ### 9.2 But the binder does not have to be bought
@@ -410,7 +422,7 @@ Pions are a byproduct of spallation. They are created in the same nuclear collis
 On that accounting the marginal beam energy attributable to one binder is zero, and every fusion the binder catalyses is gain. Theorem 4 in §13.8 states this formally, together with the reason a loss factor cannot overturn it.
 
 | capture efficiency | fusion heat, as a fraction of beam energy | reachable? |
-|---|
+|---|---|---|
 | 30 percent, today's front end | 10.5 percent | yes |
 | 0.3420, the ceiling at the specified inventory | 12.0 percent | yes |
 | one half | 17.6 percent of beam | only at about 45 kg of tritium |
@@ -424,7 +436,7 @@ On that accounting the marginal beam energy attributable to one binder is zero, 
 **And the headline figures must carry the same correction, plus §5.2's loss budget.** Both, applied:
 
 | capture | binders per second | fusion heat |
-|---|
+|---|---|---|
 | one half, as first computed | 2.80 × 10^14 s^-1 | 176 kW |
 | 0.3420, the stopping ceiling above | 1.918 × 10^14 s^-1 | 120.1 kW |
 | **0.2438**, that ceiling through the loss budget | **1.367 × 10^14 s^-1** | **85.6 kW** |
@@ -448,7 +460,7 @@ The requirement has always been stated against **delivered** muon beams — abou
 Stated before the run, at 1 MW on target and the witnessed cycle count of 150 cycles, **computed from the machine of §7 and not from a hypothetical one:**
 
 | quantity | committed value |
-|---|
+|---|---|
 | binders stopped in the cell | 1.334 × 10^8 1/s |
 | neutrons at 14.1 MeV | 2.002 × 10^10 1/s |
 | fusion heat in the cell | 56.4 mW |
@@ -486,7 +498,7 @@ The programme is four staged measurements, all on apparatus that already exists.
 
 Each item below is a limit on what the foregoing establishes. None of them is resolved by argument in this paper, and where a measurement would settle one, that measurement is named. §13.9 lists the three that bear most directly on the results.
 
-**The deciding measurement is unmade.** The two published final stickings, 0.45 percent and 0.56 percent, straddle the break-point at 0.1580 percent. §8's protocol settles it, and nothing here stands in for that.
+**The operative sticking is unresolved between two measurements**, though not in a way that changes the heat form's verdict. 0.5050 percent and 0.5320 percent are the two effective values the measured reactivation returns, and both lie above the break-point at 0.1580 percent, so the heat form fails at perfect collection on either. What the disagreement leaves open is the service life, and with it every balance that depends on it. §8's protocol settles it, and nothing here stands in for that.
 
 **Every collection figure here is an acceptance rather than a delivered efficiency** until Stage A runs. §5.2 computes the losses between the two and §5.3 restates every balance through them, but a computed budget is not a measurement, and the margin over the falsification floor is 1.073.
 
@@ -494,7 +506,7 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 
 **The temperature axis is confounded in the existing record.** The cleanest published data are also the coldest and densest, so temperature, purity and density cannot be separated from what exists. That is a fault in the record rather than in the reaction, and §8.3 is written to separate them.
 
-**The bound case rests on a service-life model that over-predicts its one checkable point.** The model returns more cycles than were measured at the single point where a comparison is possible, and **every bound-case figure inherits that** while no bred-fuel figure at demonstrated cycles does. The asymmetry is why §5 leans on the demonstrated count.
+**The bound case rests on a density no experiment has reached.** The service-life model itself is in good order: at the density that has been reached it returns 152.8 cycles against the 150 cycles measured, a ratio of 1.019. What the bound-case rows assume is a fuel density of 8.5 times liquid rather than 1.2, and carrying them back to the density reached multiplies each by 0.8038 — which takes the best device-internal figure from 1.231 to 0.990, just under unity. **Every bound-case figure inherits that assumption** while no bred-fuel figure at demonstrated cycles does. The asymmetry is why §5 leans on the demonstrated count, and holding fuel at 8.5 times liquid is a stated experimental requirement rather than a claim.
 
 **The optimised production target is a discrepancy that cannot be closed by argument.** A published optimisation costs 4.69 GeV per pion against the 11.13 GeV integrated in §4.1. Three candidate mechanisms were examined and bounded; what survives is a **normalisation** — pions per beam particle against pions per interaction — needing 2.389 interacting nucleons, which reproduces the optimised figure closely and which a deuteron on a long target supplies. **Stage C measures it.**
 
@@ -511,7 +523,7 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 1. **No configuration of it is self-sustaining inside the device** at the collection efficiency the machine actually delivers, with the machine left as built.
 1. **One configuration is net-positive on witnessed numbers alone** — as a co-product of a beam already running, where the marginal energy per binder is zero — and it returns 85.6 kW on a one-megawatt driver.
 1. **One route clears unity at a witnessed cycle count for a device built for the purpose**, and it is bred fuel through an optimised production target, at 1.480. Whether that target's gain is real is Stage C.
-1. **A device-internal route clears unity too, and only conditionally.** With the same optimised target, the heat form on the bound-case service life reaches 1.036, and 1.231 at the wider bore. It is conditional on Stage C and on a service-life model §11 says over-predicts, and it is met on the reading of "inside the device" that counts the blanket. On the reading that counts the neutron at its bare heat, nothing here clears.
+1. **A device-internal route clears unity too, and only conditionally.** With the same optimised target, the heat form on the bound-case service life reaches 1.036, and 1.231 at the wider bore. It is conditional on Stage C, on a fuel density of 8.5 times liquid — at the 1.2 reached it is 0.990 instead — and on the reading of "inside the device" that counts the blanket. On the reading that counts the neutron at its bare heat, nothing here clears.
 1. **The materials are specified and the machine is designed**, to a bill of materials and a build package rather than to a sketch.
 1. **The procedure that would witness the unwitnessed configuration is stated**, with its predictions committed in advance and a rule that a disagreement is a refusal rather than an average.
 > **The reaction is proved from what has been witnessed. The net-positive configuration is specified and unwitnessed. The instructions for witnessing it are §8 and §10.** That is the whole of the claim, and no part of it is larger than the measurements behind it.
@@ -528,7 +540,7 @@ The body of the paper states results and points at where they come from. This se
 ### 13.1 Notation
 
 | symbol | meaning |
-|---|
+|---|---|
 | $m_b$ | the mass of the binding particle, in electron masses |
 | $a_b$ | the radius of the binder's orbit about a nucleus |
 | $R_{dt}$ | the internuclear separation in the bound state |
@@ -559,30 +571,50 @@ For the bound: let $p$ be the probability that the binder survives one complete 
 
 ### 13.3 The structural window on the binder mass
 
-**Proposition 2 (the lower bound).** *Condition 2 — that the tunnelling rate exceed the decay rate of the state producing it — places a lower bound on $m_b$.*
+**Proposition 2 (the lower bound exists, and its direction).** *Condition 2 — that the tunnelling rate exceed the decay rate of the state producing it — places a lower bound on $m_b$, and that bound rises as the binder is made lighter.*
 
-*Derivation.* In a hydrogenic bound state the orbit radius scales inversely with the reduced mass, $a_b \propto 1/m_b$, and the internuclear separation of the mesomolecule follows it, $R_{dt} \propto 1/m_b$. The barrier penetration factor is exponential in $\sqrt{R_{dt}}$, so $\lambda_f$ rises steeply with $m_b$ while $\lambda_0$ does not. Condition 2 requires $\lambda_f > \lambda_0$, and the crossing defines the floor. Evaluated on the measured constants the floor is 119 electron masses, or 60.8 MeV expressed as an energy. ∎
+*Derivation.* In a hydrogenic bound state the orbit radius scales inversely with the reduced mass, $a_b \propto 1/m_b$, and the internuclear separation of the mesomolecule follows it, $R_{dt} \propto 1/m_b$. The barrier penetration factor is exponential in $\sqrt{R_{dt}}$, so $\lambda_f$ rises steeply with $m_b$ while $\lambda_0$ does not. Condition 2 requires $\lambda_f > \lambda_0$, and because one side of that inequality is monotone in $m_b$ and the other is not, there is exactly one crossing. That crossing is the floor. ∎
 
-**Proposition 3 (the upper bound).** *Conditions 3 and 4 place an upper bound on $m_b$.*
+> **What this establishes and what it does not.** The argument establishes that a floor exists, that it is unique, and that it lies above the electron. **The numerical value 119 electron masses — or 60.8 MeV as an energy — is carried from the earlier treatment and is not recomputed here**, and this paper does not claim otherwise. Corollary 1.0 is why that is tolerable: Theorem 1's conclusion survives this floor being wrong by a factor of 207.
 
-*Derivation.* A binder heavy enough to be absorbed by a nucleus before the cycle completes catalyses nothing, failing condition 3; and it produces ash the branching ratios do not predict, failing condition 4. Nuclear absorption rates rise with the binder's mass through the overlap of its orbit with the nuclear volume, and the ceiling is where the absorption rate overtakes $\lambda_f$. That is 918 electron masses. ∎
+**Proposition 3 (the upper bound exists, and its direction).** *Conditions 3 and 4 place an upper bound on $m_b$, and that bound falls as the binder is made heavier.*
 
-> **Theorem 1 (uniqueness of the binder).** *The seven conditions admit exactly one realisation in the closed index of charged particles: the negative muon.*
+*Derivation.* A binder heavy enough to be absorbed by a nucleus before the cycle completes catalyses nothing, failing condition 3; and it produces ash the branching ratios do not predict, failing condition 4. Nuclear absorption rates rise with the binder's mass through the overlap of its orbit with the nuclear volume — the orbit shrinking as $1/m_b$ while the nucleus does not — so the two rates cross once. That crossing is the ceiling. ∎
+
+> **Again, existence and direction rather than value.** The numerical ceiling 918 electron masses is carried from the earlier treatment. Theorem 1's conclusion survives this ceiling being wrong by a factor of 3.54.
+
+**The admissibility test, stated before it is applied.** A particle may serve as a binder only if all four of the following hold. It must be **negatively charged**, so that it binds to a nucleus rather than to an electron. Its **mass** must lie in the structural window. Its **lifetime** must exceed the mesomolecular formation time, which at liquid density is of order 1 × 10^-9 s — a particle that decays before the molecule forms never enters the cycle at all. And it must **not be strongly interacting**, because a hadron in a mesomolecule is absorbed by the nucleus long before the cycle completes, which fails conditions 3 and 4 together.
+
+> **Theorem 1 (uniqueness of the binder).** *Exactly one particle in the charged spectrum satisfies all four tests: the negative muon.*
 
 >
 
-> *Proof.* Propositions 2 and 3 confine any admissible binder to $m_b \in [\,$119$,\,$918$\,]$ electron masses. The index of charged particles with lifetimes long enough to form a bound state is closed and short, and it is enumerated: the electron at $1$ lies below the window; the muon at 207 electron masses lies inside it; the pion at 273 electron masses lies inside it but is hadronic and is absorbed before catalysing, failing condition 3; the kaon at 966 electron masses and the tau at 3477 electron masses lie above it. **No other charged particle has both a mass in the window and a lifetime sufficient to form a molecule.** The window therefore contains exactly one admissible occupant.
+> *Proof.* The lifetime test is applied first, because it is the one whose set can be closed. A binder must outlive the mesomolecular formation time, which at liquid density is 1 × 10^-9 s. **Exactly 5 charged particles in the Review of Particle Physics do**: the electron and the antiproton, which are stable, and the muon, the pion and the kaon. That cut is a published lifetime against a fixed threshold, so it can be checked for completeness without judgement. Every other charged particle decays before the molecule forms — the charged hyperons by roughly an order of magnitude, the tau, the charmed and bottom hadrons and every resonance by more — and so is excluded before its mass is ever consulted.
+
+>
+
+> Of those 5, **2 lie inside the window**: the muon at 207 electron masses and the pion at 273 electron masses. The electron lies below it; the kaon at 966 electron masses and the antiproton lie above it. Of the two inside, the pion is a hadron and is absorbed before the cycle completes. **1 therefore survives all four tests.**
 
 >
 
 > The sign is fixed separately and not by mass. A $\mu^+$ binds an electron into muonium and is repelled by every nucleus in the fuel; it forms no mesomolecule at any density or temperature. Hence the binder is the **negative** muon, and it has exactly one parent, $\pi^-$ decay. ∎
+
+A reader may reasonably ask how much of that rests on the two numbers the window is drawn at, since neither is recomputed here. The answer is that it rests on them hardly at all.
+
+> **Corollary 1.0 (the result does not depend on the window's exact bounds).** *Any window whose lower bound lies between the electron and the muon, and whose upper bound lies between the pion and the kaon, admits exactly the same set.*
+
+>
+
+> *Proof.* The admitted set is decided by the **gaps** in the spectrum rather than by the bounds. The nearest particle below the muon is the electron, and the nearest above the pion is the kaon; no charged particle with a usable lifetime lies between. The lower bound may therefore move by a factor of 207 and the upper by 3.54 without changing the answer. ∎
+
+**This matters for what §13.3 does and does not establish.** The bounds themselves are carried from the earlier treatment and are not recomputed here; Propositions 2 and 3 give the scaling arguments that produce them but not the numerical crossing. Corollary 1.0 is what makes that acceptable: the theorem's conclusion survives an error of two hundred in the lower bound and three and a half in the upper.
 
 **Corollary 1.1.** *Every yield in this paper is a $\pi^-$ yield*, and the production target's material is constrained by the charge ratio it returns and not only by its total yield — which §6.3 states as a specification.
 
 
 ### 13.4 Sticking does not depend on the binder's mass
 
-> **Theorem 2 (mass-independence of sticking).** *The probability $\omega_s$ that the binder is lost to the fusion product is independent of $m_b$.*
+> **Theorem 2 (mass-independence of sticking).** *In the sudden approximation, and to leading order in the binder's mass over the alpha's, the probability $\omega_s$ that the binder is lost to the fusion product is independent of $m_b$.*
 
 >
 
@@ -597,13 +629,19 @@ $$\omega_s \;=\; \sum_{n\ell} \left| \int \psi^{*}_{n\ell}(\mathbf{r})\, e^{\,i 
 
 > Both $\psi_i$ and $\psi_{n\ell}$ are hydrogenic with the same reduced mass, so the natural length in the integral is $a_b \propto 1/m_b$. Rescaling $\mathbf{r} = a_b \mathbf{u}$ makes the wavefunctions mass-independent functions of $\mathbf{u}$, and the exponent becomes $i\,m_b v_R a_b\, \hat{v}\cdot\mathbf{u}$. Since $a_b \propto 1/m_b$, the product $m_b a_b$ is a constant, and the exponent depends on $v_R$ alone. **Every dependence on $m_b$ has cancelled**, and $\omega_s$ is a function of the recoil velocity over the orbital velocity only. That ratio is measured at 2.97 for $d+t$. ∎
 
+**One step in that proof is an approximation, and it is worth pricing rather than passing over.** The rescaling uses $a_b \propto 1/m_b$, which is exact for the reduced mass $\mu = m_b m_\alpha/(m_b + m_\alpha)$ only when $m_b \ll m_\alpha$. Restoring it, the exponent carries a factor $m_b/\mu = 1 + m_b/m_\alpha$, so **the whole of the residual mass dependence enters through that one ratio and nothing else**. At the muon the ratio is 0.02835; at the ceiling of the structural window it is 0.1259, and nowhere in between is it larger. Its direction is worth noting too: a larger exponent oscillates faster and reduces the overlap, so the residual makes a *heavier* binder stick *less* — which is the direction that would help. **Theorem 1 leaves no heavier admissible binder to exploit it**, and the theorem below is stated over the occupant the window actually has rather than over a hypothetical one.
+
 **Corollary 2.1 (condition 8 is a specification, not a search).** Since $\omega_s$ does not depend on $m_b$, no admissible binder returns a smaller loss per cycle than the muon. Combined with Theorem 1, which leaves no other occupant of the window, **condition 8 cannot be satisfied by looking for a better particle.** It is a constraint on the machine.
 
-> **Theorem 3 (closure of the standalone configuration).** *No binder anywhere in the structural window satisfies condition 8 as a standalone power source.*
+> **Theorem 3 (closure of the standalone configuration).** *The admissible binder does not satisfy condition 8 as a standalone power source, and no other particle is available to.*
 
 >
 
-> *Proof.* By Theorem 2, $\omega_s$ is the same for every occupant of the window, so $N \le 1/\omega_s$ is a bound common to all of them. $Q_{fus}$ and $f_{work}$ are properties of the fuel and the plant, not of the binder. Hence the right-hand side of Proposition 1 is a constant across the window. The left-hand side, $E_b$, is bounded **below** by the cost of producing the parent particle, which §13.6 puts at 11.13 GeV per pion and which no collector can reduce. Taking the most favourable admissible values of every term simultaneously, the best balance available anywhere in the window is 0.807 — less than unity. **The configuration is therefore closed by the structure of the window rather than by any measurement**, and no experiment in §10 can overturn it. ∎
+> *Proof.* By Theorem 1 the structural window has exactly one admissible occupant, so $\omega_s$ is the muonic value and $N \le 1/\omega_s$ is the bound it sets. $Q_{fus}$ and $f_{work}$ are properties of the fuel and the plant, not of the binder, so the right-hand side of Proposition 1 is fixed. The left-hand side, $E_b$, is bounded **below** by the cost of producing the parent particle, which §13.6 puts at 11.13 GeV per pion and which no collector can reduce. Taking the most favourable admissible values of every term simultaneously, the best balance available is 0.807 — less than unity.
+
+>
+
+> That closes the configuration for the muon. It closes the *search* as well, and this is where Theorem 2 does its work: to leading order $\omega_s$ carries no dependence on the binder's mass at all, so a hypothetical occupant elsewhere in the window would inherit the same bound rather than improve on it. The residual priced above runs toward less sticking only for a **heavier** binder, and the window's one heavier candidate is a hadron, excluded by conditions 3 and 4 before its sticking is ever consulted. **The configuration is therefore closed by the structure of the window rather than by any measurement**, and no experiment in §10 can overturn it. ∎
 
 **Remark.** Theorem 3 is what makes the co-product configuration of §9 the interesting one: it does not contradict the theorem, because it does not pay for the binder at all.
 
@@ -656,7 +694,7 @@ Over the large-angle acceptance this gives 1.0382 barn, or 0.6107 π⁻ per prot
 
 >
 
-> *Proof.* Let the driver deliver power $P$ for a purpose that does not depend on the pions, and let $\mu$ be the marginal energy attributable to one binder. Pions are produced in the same nuclear collisions that make the target's neutrons, by the same protons, in the same target; capturing them requires a collector but no additional beam. Hence $\mu = 0$.
+> *Proof.* Let the driver deliver power $P$ for a purpose that does not depend on the pions, and let $\mu$ be the marginal **beam** energy attributable to one binder. Pions are produced in the same nuclear collisions that make the target's neutrons, by the same protons, in the same target; capturing them requires a collector but no additional beam. Hence $\mu = 0$.
 
 >
 
@@ -664,7 +702,11 @@ Over the large-angle acceptance this gives 1.0382 barn, or 0.6107 π⁻ per prot
 
 >
 
-> **The balance is therefore not a ratio against unity**, and this is what distinguishes it from every other configuration in the paper. A loss factor $f \in (0,1]$ applied to $\eta_{stop}$ rescales $H$ to $fH$, which is smaller and still positive. Applying §5.2's budget takes the returned fraction from 12.0 percent to 8.56 percent of the driver's beam energy, and 85.6 kW on a 1 MW driver — **a different number and the same conclusion.** ∎
+> **The balance is therefore not a ratio against unity**, and this is what distinguishes it from every other configuration in the paper. A loss factor $f \in (0,1]$ applied to $\eta_{stop}$ rescales $H$ to $fH$, which is smaller and still positive. Applying §5.2's budget takes the returned fraction from 12.0 percent to 8.56 percent of the driver's beam energy, and 85.6 kW on a 1 MW driver — **a different number and the same conclusion.** ∎ **The premise is about beam, and there is a second cost the theorem does not carry.** Capturing the pions means putting a capture solenoid and a free liquid-metal jet around the host's production target, and a host running that target for **neutrons** may get fewer of them, or get them with a different spectrum, than it would from the target it would otherwise have chosen. That is a real cost and **this paper does not price it**, because it depends on a host design this paper does not specify.
+
+>
+
+> What can be said is the condition under which it does not matter. Writing $L$ for the fraction of the host's own product lost to the change and $V_{host}$ for the value of that product, the configuration is net-positive whenever $H > L\,V_{host}$. With $H$ at 8.56 percent of the beam energy, **a host losing less than that fraction of its own output is ahead**, and one losing more is not. §10 Stage D is where a specific host would measure $L$; until then the co-product result should be read as *net-positive on beam*, which is what is proved, rather than *net-positive for the facility*, which is not.
 
 **Remark.** Theorem 4 does not contradict Theorem 3. Theorem 3 forbids a configuration that must buy its own binders from paying for itself; Theorem 4 describes one that does not buy them.
 
@@ -677,7 +719,7 @@ Three things in this paper are **not** theorems, and are marked as such wherever
 
 **The optimised production target's factor is taken from the literature, not reproduced here.** The 4.69 GeV of §5.4 is a published optimisation. Three candidate mechanisms for the discrepancy against this paper's 11.13 GeV were examined and bounded, and what survives is a normalisation requiring 2.389 interacting nucleons. §10 Stage C measures it.
 
-**The sticking value is unresolved between two published measurements.** 0.45 percent and 0.56 percent straddle the break-point at 0.1580 percent, and no argument here chooses between them. §8's protocol does, and §8.4 commits in advance to reporting a bound rather than an average if the two routes disagree.
+**The operative sticking is unresolved between two published measurements.** 0.5050 percent and 0.5320 percent are the two effective values in the record, and no argument here chooses between them; both lie above the break-point at 0.1580 percent, so the choice moves the service life rather than the heat form's verdict. §8's protocol chooses, and §8.4 commits in advance to reporting a bound rather than an average if the two routes disagree.
 
 
 ## 14. References

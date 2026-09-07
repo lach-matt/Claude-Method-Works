@@ -81,10 +81,17 @@ collector still leaves the heat form short by 1.48. Three results then move it. 
 **binder-mass-independent** (the mass cancels from the overlap that defines it), so condition 8 is a
 specification and not a search, and **no other particle in the known spectrum helps**. The convertible
 fraction is **0.795, not 0.501**, once the alpha is counted at the hot operating point §3.2 already
-requires and the exothermic ⁶Li breeding a d–t cycle must run anyway is included. And the residual
-localises to **one unresolved measurement**: the two published final stickings straddle the
-break-point, so the paper's own §3.5 protocol — neutron and X-ray routes run simultaneously on one
-target, a disagreement being a refusal rather than an average — now decides it.
+requires and the exothermic ⁶Li breeding a d–t cycle must run anyway is included. And the sticking axis, which
+looked for a while as though it might decide the heat form, does not: `Cold_Fusion_Binder_Economy`
+§5.5 states it outright — **"Nothing straddles: the break-point is not between the two readings, it is
+below both"**. At **0.1580 %** the break-point lies under the two effective values of **0.505** and
+**0.532 %** alike, so the heat form fails at perfect collection on either, reaching **0.31** of what it
+needs on the more favourable and short by **3.37** on the other. The paper's own §3.5 protocol —
+neutron and X-ray routes run simultaneously on one target, a disagreement being a refusal rather than
+an average — still runs, and settles the service life rather than the question. **The consolidated
+paper carried the superseded "straddle" reading at three sites before this pass and now states the
+correction**; an audit suite that checks arithmetic and citation cannot catch a sentence that cites
+the right rows and draws the wrong relation between them, which is what that one was.
 
 **The balance then closes, and on one product rather than on all of them.** Priced as bred fuel rather
 than as heat, the fusion neutron is worth **146.06 MeV** per fusion against 26.06, and solving each
@@ -101,9 +108,14 @@ cycles fall below unity; **what survives is bred fuel through an optimised produ
 question §5.24 had put to the bred-fuel route alone**: the optimised production target moves
 `E_binder` and so multiplies *every* balance by **2.373**, and through it the **heat** form on the
 bound-case service life reaches **1.036** delivered and **1.231** at the wider bore. **A
-device-internal route therefore clears unity** — conditionally on Stage C, on a service-life model
-the companion says over-predicts, and on the reading of "inside the device" that counts the blanket;
-counting the neutron at its bare heat the same alteration reaches only **0.3344**. **§5.33 then applies that restatement to
+device-internal route therefore clears unity** — conditionally on Stage C, on a fuel **density of
+8.5 × liquid where 1.2 has been reached**, and on the reading of "inside the device" that counts the
+blanket; counting the neutron at its bare heat the same alteration reaches only **0.3344**. **That
+density condition replaces the service-life caveat the companion states**, and is narrower: the 2.24
+over-prediction was computed at a superseded sticking, and at the corrected value the model returns
+**152.8** cycles against the 150 measured. Carrying the bound case back to the density actually
+reached multiplies it by **0.8038**, so the heat form is **0.833** delivered and **0.990** at the
+wider bore — under unity on both, with bred fuel at **4.671** the exception that survives. **§5.33 then applies that restatement to
 every figure rather than to the one table §5.31 caught**: `machine.py --census` grades **57 sites**
 across all three live papers — 10 CONDITIONAL (the site states its own assumption and stands), **38
 RESTATED**, 3 REQUIREMENT, 4 NOT-LINEAR, **1 WITHDRAWN** and 1 SELF-WITHDRAWN, that last being §5.21's *"comfortably
@@ -170,7 +182,11 @@ cycle-closure criterion, a second group proposes the same fission-breeding escap
 stripping route within 1.48 of §5.20's figure and caps its gain at 1.39, and a fourth costs an
 optimised production target at 4.69 GeV per pion. It also carries the correction that matters most:
 **the service-life model over-predicts its one checkable point by 2.24**, returning 335.3 cycles where
-150 were measured — which every bound-case figure inherits and no bred-fuel figure does. **Docket C-8 stays open**: it closes only by seating a member, which would write to
+150 were measured — which every bound-case figure inherits and no bred-fuel figure does. **That
+finding is now closed by the main paper's own §5.29**, which inverts the measured cycle count for the
+sticking that produces it: the cause was the superseded 0.1487 percent and nothing in the model. Both
+papers carry the closure beside the finding rather than in place of it, and what survives as a
+condition on the bound case is the **density**. **Docket C-8 stays open**: it closes only by seating a member, which would write to
 `method/`. See `papers/README.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
@@ -291,6 +307,15 @@ figure cannot print a number it did not read from the ledger. Seven figures — 
 with its three proposed alterations called out, the bore that excludes a rotating target, the range
 every balance falls in, the loss budget as a waterfall, the co-product line, and the measurement with
 both observables on one sample volume),
+**`tools/window.py`** (the binder admissibility scan behind the paper's Theorem 1 — four tests over
+the charged spectrum, run in the order that constrains. Its point is *which* set the theorem closes
+on: the lifetime cut is a published number against a fixed threshold, so the **five** charged
+particles that outlive the mesomolecular formation time can be checked for completeness against the
+Review of Particle Physics without judgement, and everything else is excluded before its mass is
+consulted. Two of the five lie in the structural window, one survives the hadron test, and
+`robustness()` prices how far the window's endpoints may move without changing that — **×207** at the
+lower bound, **×3.54** at the upper. Its `--selftest` also constructs the particle that *would* break
+uniqueness, so the theorem's content is a fact about the spectrum rather than a tautology),
 **`tools/render_paper.py`** (the publication renderer, and the repair of the
 §9.9 weakness `verify_paper.py` records: **the paper's source carries no numerals at all** — it
 carries `[[C044]]` citations, which this program resolves against `CLAIMS.tsv` at render time, so a

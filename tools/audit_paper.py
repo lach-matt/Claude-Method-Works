@@ -629,6 +629,66 @@ def a14_arithmetic(P):
                 if not _close(want_w, _num(C[withbore]["value"]), 0.015):
                     bad.append(f"{delivered}->{withbore} at the wider bore: "
                                f"{want_w:.4f} against {C[withbore]['value']}")
+    # sec.5.4's density column: each bound-case cell carried back to the density
+    # that has been reached, which is one multiplication by the service-life
+    # ratio. Same defect, same check.
+    if "C845" in C:
+        d = _num(C["C845"]["value"])
+        dens = [("C832", "C846"), ("C833", "C847"), ("C835", "C848"),
+                ("C838", "C849"), ("C839", "C850")]
+        for hi, lo in dens:
+            if hi not in C or lo not in C:
+                continue
+            ran.append(f"{hi} x {d:.4f} -> {lo}")
+            want = _num(C[hi]["value"]) * d
+            if not _close(want, _num(C[lo]["value"]), 0.01):
+                bad.append(f"{hi}->{lo}: {want:.4f} against {C[lo]['value']}")
+        for a, b, q in (("C842", "C44", "C844"), ("C842", "C176", "C845")):
+            if all(k in C for k in (a, b, q)):
+                ran.append(f"{a} / {b} -> {q}")
+                want = _num(C[a]["value"]) / _num(C[b]["value"])
+                if not _close(want, _num(C[q]["value"]), 0.01):
+                    bad.append(f"{a}/{b}->{q}: {want:.4f} against "
+                               f"{C[q]['value']}")
+    # ORDERINGS THE PROSE ASSERTS. A citation resolves the right number and an
+    # arithmetic check recomputes the right product; NEITHER catches a sentence
+    # that draws the wrong RELATION between two rows it cites correctly. The
+    # paper carried "the two stickings straddle the break-point" through three
+    # sections while the break-point lay below both. Each ordering the prose
+    # depends on is therefore asserted here, once.
+    ORDER = [
+        ("C115", "<", "C06", "the break-point is BELOW the SIN final sticking"),
+        ("C115", "<", "C07", "and below the PSI one"),
+        ("C115", "<", "C113", "and below the SIN effective value"),
+        ("C115", "<", "C114", "and below the PSI effective value"),
+        ("C847", "<", "C833", "the density carry-back lowers the wider-bore case"),
+        ("C846", "<", "C832", "and the same at today's aperture"),
+        ("C845", "<", "C844", "the density ratio is a reduction, the model check is not"),
+        ("C859", "<", "C860", "the reduced-mass residual grows with binder mass"),
+        ("C853", "<", "C852", "fewer are admitted than lie in the window"),
+        ("C852", "<", "C858", "and fewer lie in the window than outlive formation"),
+    ]
+    for a, op, b, why in ORDER:
+        if a not in C or b not in C:
+            continue
+        ran.append(f"{a} {op} {b}")
+        va, vb = _num(C[a]["value"]), _num(C[b]["value"])
+        if va is None or vb is None:
+            continue
+        if not (va < vb if op == "<" else va > vb):
+            bad.append(f"{a} {op} {b} is FALSE ({va} vs {vb}): {why}")
+    # ONE-SIDED THRESHOLDS the prose states as clearing or not clearing unity.
+    for cid, side in (("C832", ">"), ("C833", ">"), ("C835", ">"),
+                      ("C846", "<"), ("C847", "<"), ("C848", "<"),
+                      ("C849", "<"), ("C771", ">"), ("C467", "<")):
+        if cid not in C:
+            continue
+        v_ = _num(C[cid]["value"])
+        if v_ is None:
+            continue
+        ran.append(f"{cid} {side} 1")
+        if not (v_ > 1.0 if side == ">" else v_ < 1.0):
+            bad.append(f"{cid} is stated as {side} unity and is {v_}")
     # the co-product table: two corrections, applied in order
     if all(k in C for k in ("C474", "C503", "C809", "C804", "C810")):
         ran.append("the co-product heat at its two corrections")
@@ -1231,6 +1291,22 @@ def selftest():
                [b for b in Paper(src).blocks if not b[0].startswith("h")][:1]
     check("ANTECEDENT runs over the abstract's figures",
           a11_antecedent(Q).verdict in ("PASS", "FAIL"))
+    # 14 ARITHMETIC: the ORDERING check, which exists because the paper once
+    # said two stickings straddled a break-point that lay below both. A
+    # citation resolves each number correctly and the arithmetic recomputes
+    # each product correctly; only the ordering catches the relation.
+    Q = Paper(src)
+    Q.claims = {k: dict(v) for k, v in Q.claims.items()}
+    if "C115" in Q.claims and "C06" in Q.claims:
+        Q.claims["C115"]["value"] = str(_num(Q.claims["C06"]["value"]) + 1.0)
+        check("ARITHMETIC catches an ordering the prose depends on being false",
+              a14_arithmetic(Q).verdict == "FAIL")
+    Q = Paper(src)
+    Q.claims = {k: dict(v) for k, v in Q.claims.items()}
+    if "C847" in Q.claims:
+        Q.claims["C847"]["value"] = "1.400"
+        check("and a figure stated as under unity that is not",
+              a14_arithmetic(Q).verdict == "FAIL")
     Q = Paper(src)
     Q.src_blocks = Q.src_blocks + [
         ("p", "Every quantity is a ledger row, resolved by render_paper.py.")]
