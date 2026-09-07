@@ -53,6 +53,7 @@ a report.
 | **`warp-drive/BEAMED`** | **`warp-drive/beamed.py`** | **the coupling source is *built*, not found: 1000 t to 0.700 c is a published point design, and the roadblock is a bill (208 world-years) not a bound** |
 | **`warp-drive/RESTATUS`** | **`warp-drive/restatus.py`** | **every architecture regraded by *how* it closed — of six this project reasoned to itself, zero are closed by measurement** |
 | **`warp-drive/THE-DOOR`** | **`warp-drive/door.py`** | **"does not couple to real spacetime" withdrawn: it is h ≈ 4.5×10⁻²⁴, and §17.1's door — a construction is closed from *outside*, by measurement** |
+| **`warp-drive/NEC-LAB`** | **`warp-drive/neclab.py`** | **the measurement, taken: the medium *can* carry the analogue NEC violation, at 3.15% of its stability margin — and the reason is structural** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ### The rung this project has been standing on
@@ -295,6 +296,62 @@ a horizon.
 
 What stays true, narrowly: an analogue does not *gravitate* the emulated shift, so claiming propulsion
 from one is the error Rodal killed. It measures.
+
+### The measurement, taken
+
+**Q: can the medium carry the analogue NEC violation, and at what cost?** Smolyaninov's own paper is
+where the gap sits — *"Since energy conditions violations do not appear to be a problem in this case,
+metamaterial realization of the warp drive is possible."* Asserted, never computed.
+
+**A: yes, and it costs 3.15% of the stability margin. The reason is structural.**
+
+First, **c/4 re-derived rather than quoted.** Eq (10) is `βf̃ ≤ (n−1)/n²`; its derivative in `n` is
+`(2−n)/n³`, zero at **n = 2**, giving exactly **1/4**. But that is the *leading-order* figure. Carried
+through the full Eqs (6) and (7), the margin at `f̃ = 1` goes negative before β reaches 0.25:
+
+| | |
+|---|---|
+| exact saturation | **β = 0.245826** |
+| margin at exactly c/4 | **−0.063247** — unstable |
+
+A 1.7% correction, recorded because a bound quoted to two figures should hold at two figures.
+
+**Then the answer, and it is a theorem, not a number.** The stability margin
+`m = (ε−1)(μ−1) − g_x²` is a function of **f̃ alone** — no derivative of f̃ appears in it — and it is
+strictly monotone decreasing. So:
+
+> **The margin minimum is always at max f̃ — outside, where the profile is flat.**
+> **The NEC violation goes as (df̃/dx̃)², so its peak is always strictly inside the wall.**
+> **For any monotone shape function the two cannot coincide.**
+
+Checked on three:
+
+| shape | NEC peak at f̃ | margin min at f̃ | coincide |
+|---|---|---|---|
+| Lorentzian | 0.2500 (at x = a/√3, analytic) | 0.9994 | no |
+| tanh | 0.5000 | 1.0000 | no |
+| quartic | 0.3750 | 1.0000 | no |
+
+**The material is stressed by the shift. The geometry violates the NEC with the shift's *gradient*.
+They live in different places.** At the design limit, on Smolyaninov's own profile: margin **+1.000**
+with no shift, **+0.9685** where the geometry asks most, **0.000** where the material is worst off.
+Just inside saturation the ratio between those two is **27**.
+
+> **The medium can carry the analogue NEC violation. It is not what costs. What costs is the
+> asymptotic shift — and that is what c/4 already prices.**
+
+**What it settles:** the energy-condition objection does not transfer to the analogue, now for a
+computed reason. Smolyaninov was right and did not show it.
+
+**What it does not:** the remaining cost is materials, and it is the one he *did* quantify — classical
+magnetoelectrics (Cr₂O₃, multiferroics) sit two orders of magnitude below the Eq (9) limit, so the
+build needs the engineered split-ring-plus-magnetised-ferrite design, non-reciprocal and
+bi-anisotropic, with loss compensation. An inventory of parts, not a bound. And it remains an
+analogue: it does not gravitate the emulated shift.
+
+Under `door.py`'s test this is a **measurement, not a relabel** — the requirement came from the
+geometry and was not designed into the material, which is exactly why it could have come out the
+other way, and did not.
 
 ## `warp-drive/`
 
