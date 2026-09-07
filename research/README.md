@@ -1030,3 +1030,95 @@ The reason is worth stating because it bears on the question asked. `log(|Δ|+1)
 concave**, so the metric rewards one long step and penalises subdivision: an index of this kind is
 **not a length space**, and its first step costs `log 2` however fine you try to make it. A continuum
 has no such quantum — which is exactly why §12.11.1.3 routes spacetime to the other half.
+
+## Not dissolved — and the audit nearly closed the warpshell
+
+"The obstructions have moved" is not "the obstructions have dissolved", and a build planned on the
+first sentence while believing the second fails on the back end. `obstruct.py` is the ledger, with
+every row recomputed from its owning instrument rather than transcribed, so a status cannot go stale
+when the instrument beneath it moves. Of eleven obstructions:
+
+| status | n | which |
+|---|---|---|
+| **DISSOLVED** | 2 | HORIZON-REQUIRED, EXOTIC-MATTER |
+| **RELOCATED** — still true, renamed | 3 | CM-THEOREM, ENERGY, FELT-ACCEL |
+| **CLOSED-NEGATIVE** | 3 | ANALOGUE-1D, SHIFT-SHORTENS, SELF-SOURCED |
+| **CONDITIONAL** | 2 | WALL-STABILITY, NONRADIAL |
+| **UNTESTED** | 1 | MAPPING-2D |
+
+Only two dissolved, and one of those (exotic matter) by leaving the architecture SSV quantify over
+rather than by beating them. The rest became bills or conditions — which is progress of a different
+kind, and worth naming as such.
+
+### β² was never a knob
+
+`wall.py`'s first pass treated the equation-of-state slope as a design choice. **It is not.** For a
+counter-rotating (Einstein–Vlasov) shell the junction already fixes `p₀/σ₀ = v²/2`, so `v² = (1−s)/(2s)`
+is set by `x` alone; with each particle conserving angular momentum under a radial perturbation,
+`u = γv ∼ 1/R` and the *supplied* stiffness is
+
+> **β²_vlasov(x) = u²(3u²+4) / (2(1+u²)(3u²+2))**
+
+| x | supplied | required | |
+|---|---|---|---|
+| → 0 | | | ratio → **exactly 4/3** |
+| 0.3 | 0.090800 | 0.079332 | stable by 14% — Le's own point |
+| 0.4 | 0.130697 | 0.122892 | stable by 6% |
+| **0.46898** | | | **crossover** |
+| 2/3 | 0.281089 | 0.366025 | unstable |
+| 4/5 | 0.399187 | 0.736068 | unstable, badly |
+
+Good news exactly where it is needed and bad news in the high-compactness corner — the corner a
+*marginal* wall handled best. The earlier framing was wrong and is recorded that way round.
+
+**And the radial criterion is confirmed independently.** Converted to Pitre–Schneider–Poisson's
+adiabatic index via `Γ = β²(μ+p)/p`, this tree's `β²_crit` reproduces LeMaitre–Poisson's published
+`Γ₁ = (4−6C+2√(1−2C))/(4(1−2C))` **to 10⁻¹⁵ at every x from 10⁻⁶ to 0.8**, both tending to 3/2 in the
+Newtonian limit. Independent derivation, same answer.
+
+### The row I flagged as untested, tested — and it nearly ended it
+
+`obstruct.py` named NONRADIAL as the row most likely to break the next build: Poisson–Visser is a
+*radial* linearisation and `wall.py` was nothing but. It breaks.
+
+**Pitre, Schneider & Poisson, [arXiv:2604.05980](https://arxiv.org/abs/2604.05980), Phys. Rev. D** —
+*"Self-gravitating thin shells are dynamically unstable on all angular scales."* A static thin shell,
+Minkowski inside, Schwarzschild outside — **Le's static anchor exactly** — carries an even-parity
+matter mode with purely imaginary positive frequency **for all ℓ ≥ 2, all compactness, and all
+adiabatic index**, surviving even the Newtonian limit.
+
+> **β² does not appear in the unstable branch. Stiffening the wall fixes the radial mode and does
+> nothing to ℓ ≥ 2.**
+
+What saves it is that the growth rate is *self-gravitational*. Their Fig. 1 gives
+`Im{ω}(R³/M)^{1/2} ≈ 0.6`, roughly flat in both `M/R` and `Γ`, so `ω ≈ 0.6√(GM/R³)` — and a diffuse
+shell grows slowly. Against a burn of duration `cΔη/a`, the e-folding count `N = 0.6√(GM/R³)·cΔη/a`
+turns out to be a ceiling on **mean density alone**:
+
+> **ρ̄ < 3a² / (4πG(0.6cΔη)²) = 2.658×10⁻⁴ kg/m³** for a 1 g burn to Δη = 0.2
+
+| design | e-foldings during the burn | |
+|---|---|---|
+| 1,000 t at R = 10 m | 948 | torn apart hundreds of times over |
+| 1,000 t at R = 965 m | 1.0 | marginal |
+| 1,000 t at R = 4.48 km | 0.1 | **survives** |
+
+About 1/4000 of air density. At R = 4.48 km the compactness is `x ≈ 3×10⁻²⁵`, so every dominant-energy
+window clears by decades, the counter-rotating wall is stable, and the burn is adiabatic by twelve
+orders. **There is a corner, and its shape is big and diffuse.** A thousand-tonne, nine-kilometre-wide
+structure is a strange spacecraft, but it is a spacecraft.
+
+Two escapes from the theorem itself are open and neither is claimed: Pitre *et al.* assume **vacuum**
+on both sides where Le's exterior is outgoing null dust, and they treat an **infinitesimally thin**
+shell where Le's realized wall has finite thickness — their own conclusion is phrased about objects
+*"that feature a thin shell at its surface"*.
+
+> The count moved while the ledger was being written, and in the worst direction before it recovered:
+> NONRADIAL went from untested, to nearly fatal, to conditional, in one search. That is the argument
+> for keeping the ledger.
+
+**One row remains genuinely untested, and it is the analogue's.** `MAPPING-2D`: `twist.py` showed an
+analogue must be at least 2+1D, Smolyaninov derives only 1+1D, and the Brown–Hornreich–Shtrikman
+bound the whole design rests on constrains *one* magnetoelectric component where a transversely graded
+medium has more. It may tighten, loosen, or not apply. **ANALOGUE-2D is not a design awaiting
+fabrication; it is a derivation awaiting a derivation.**

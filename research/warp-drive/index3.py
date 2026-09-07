@@ -309,6 +309,15 @@ FINDINGS = [
   "the horizon is V=0, where the optical metric blows up; V=E/m is Hill's 1878 zero-velocity surface: classical degeneracies, not warp pathologies"),
  ("SHIFT-COSTS",      0, -1, -1, "pathmetric.py",
   "round trip = INTEGRAL 2c dx/(c^2-v^2), longer by 2v^2/(c(c^2-v^2)) > 0: any 1+1D shift strictly increases the invariant distance"),
+ # The obstruction ledger, and the one test that nearly closed the warpshell.
+ ("BETA-NOT-FREE",   0, -1, +1, "wall.py",
+  "beta^2 is DETERMINED by the matter, not chosen: counter-rotating matter clears the threshold only below x = 0.46898"),
+ ("NONRADIAL",       0, -1, +1, "wall.py",
+  "Pitre-Schneider-Poisson: unstable for all l>=2, all compactness, all Gamma, on Le's anchor -- and beta^2 is absent from that branch"),
+ ("DENSITY-CEILING", 0, +1, +1, "wall.py",
+  "the l>=2 rate is self-gravitational, so N<1 is a mean-density ceiling: 2.66e-4 kg/m^3, met by 1,000 t at R > 965 m"),
+ ("LEDGER",          0, -1,  0, "obstruct.py",
+  "of eleven obstructions two dissolved, three relocated, three closed negative, two conditional and one never tested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -337,6 +346,7 @@ SUPPORT = [
  ("SSV-ERRATA", "warpshell.py",     "BBV report minor errors in Santiago-Schuster-Visser itself, at their Errors 9 and 29"),
  ("GEODESIC-VERTEX","pathmetric.py",  "M's lattice metric misglosses st=0 as betweenness; the geodesic set is the box's VERTICES, up to 6,561x smaller"),
  ("NOT-LENGTH-SPACE","pathmetric.py", "log(|D|+1) is concave, so an index penalises subdivision and its first step costs log 2: not a length space"),
+ ("RADIAL-CONFIRMED","wall.py",       "this tree's beta^2_crit converts to LeMaitre-Poisson's Gamma_1 to 1e-15 at every x: independent derivation, same answer"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -417,7 +427,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 103)
+    chk("number of findings indexed", len(FINDINGS), 107)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
