@@ -1,0 +1,37 @@
+THE GLOSS UNDER TEST (Mathematical Compendium, the metric entry)
+  Equality holds on an axis iff st = 0, i.e. y lies between x and z there, so global equality iff y ∈ [x∧z, x∨z] — y on a geodesic
+
+1. THE PER-AXIS ARITHMETIC, FROM THE COMPENDIUM'S OWN TERMS
+   right side (|a-b|+1)(|b-c|+1) = st + s + t + 1 ; left side |a-c|+1 <= s + t + 1
+   so equality forces st = 0, i.e. b = a or b = c.  Betweenness does not force it.
+   triples in [0,3] that are BETWEEN and not EQUAL: 8
+   the smallest: a=0 b=1 c=2 -- st=1, b is between, |a-c|+1 = 3 against (2)(2) = 4
+
+2. BETWEEN AGAINST EQUAL, COUNTED ON ONE AXIS
+   range [0,3]: between    32   equality    24   equality is a subset of between: True
+   range [0,5]: between   100   equality    60   equality is a subset of between: True
+   range [0,9]: between   420   equality   180   equality is a subset of between: True
+
+3. THE SETS THE TWO READINGS NAME, OVER LAMBDA_8
+   976 cells; the interval [x/\z, x\/z] has prod(Delta_i + 1) points,
+   the equality set has 2^k, k the number of axes on which x and z differ.
+   over all 475,800 unordered pairs of cells:
+     largest interval-to-vertex ratio : 27
+     at interval 6,912 against 256 vertices
+     x = (1, 0, 1, 0, 1, 0, 0, 0)
+     z = (3, 1, 3, 3, 3, 1, 3, 3)
+
+4. AND INSIDE LAMBDA_8, WHICH IS WHAT A READER COULD EXHIBIT
+   the interval is a box in Z^8 and Lambda_8 is a proper subset of its box,
+   so the ambient ratio above is an upper bound on the ratio among real cells.
+   over 78 pairs sampled evenly across the cell list:
+     cells of Lambda_8 in the intervals   : 5,683
+     cells of Lambda_8 giving equality    : 2,151
+     largest ratio on a single pair       : 24 (435 in the interval, 18 equal)
+
+5. WHERE THE TWO READINGS AGREE
+   pairs whose interval IS its vertex set (every Delta_i is 0 or 1): 149,535 of 475,800
+   For those the gloss and the arithmetic name the same set, which is why a
+   reader checking small examples would not meet the fault.
+
+RECORDED, NOT REPAIRED.

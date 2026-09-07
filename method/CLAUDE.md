@@ -70,10 +70,10 @@ no longer on the read path.
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD123 main** (2,113,721 B ·
-  `aa94b9557bbbd93653e7f5a0d2f2f026` · 18,851 lines · 2 members) and **BUILD262 compendia** (16,208,585 B ·
-  `ee76c84fb18d209c28ff6aa90c7a82ed` · 139,561 lines · 737 members). **739 members in all.** **The Register runs
-  1 to 1875, 1,717 seated** (1,710 numbered + 7 grouped). **W-267 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD124 main** (2,120,971 B ·
+  `0790075ae2a72859809e9ec3486ad9d2` · 18,868 lines · 2 members) and **BUILD265 compendia** (16,263,849 B ·
+  `15f386f2fc8785a818e82f2427f09438` · 140,535 lines · 740 members). **742 members in all.** **The Register runs
+  1 to 1879, 1,721 seated** (1,714 numbered + 7 grouped). **W-270 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -81,15 +81,22 @@ no longer on the read path.
   15,193,022 B / `4ff7ccaa…`, and W-245's close supersedes it. **The stale figure was caught by the next close
   asserting its predecessor's md5** — which is what the reverse guard is for.
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 7 September: `python3 method/verify.py`
-  VERIFY OK (738 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
-  `gate.py manifest --main ../The_Method_1_6_BUILD123_main_and_register.md` **OK**, 737 listed / 739 extracted;
-  `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,621 rows, 3 carried retired, 1,618
-  regenerated exactly, 0 NEW, 0 GONE, md5 `31c462f3d47f9e02e289598c28604ae1` equal to the seated member);
+  VERIFY OK (742 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
+  `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,634 rows, 3 carried retired, 1,631
+  regenerated exactly, 0 NEW, 0 GONE, md5 `f5e30751d4b32f37a0852af98d52abdc` equal to the seated member);
   **The live set is 85 from BUILD121**: `r2-26c2` is held with successor `r2-26c3` owed, because register 1868
   names the method ratio and so joins 296 in that instrument's pinned list — a record outgrowing a pin, which is
   `r2-26b`'s shape and takes a successor rather than an edit (W-260).
-  `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL** at BUILD118/BUILD250 (87 OK counting the
-  census step), register 1853's 33 moved goldens having been censused and then re-banked by running (W-255).
+  `gate.py manifest --main … --comp …` **OK**, 741 listed / 743 extracted;
+  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD124/BUILD265 counting the census
+  step, register 1876-1879's **64** moved goldens having been censused and then re-banked by running (W-270).
+  **That census is the largest of this leg and every one of its thirty residues was read**, because the ≥ 7
+  table grew by two rows at L47 and shifted every Register line below it by two. One residue is worth keeping:
+  `r2-ch16f2`'s six-volume count for the token `18` FELL, 140 → 139, with nothing deleted from any volume — the
+  lost site is the front matter's own *"the **18** cited seven times or more"*, now *"the 20"*. **A count that
+  fell because the sentence naming the table's size was itself one of the sites counted.**
+  The earlier verdict: **86 OK, 0 FAIL** at BUILD118/BUILD250,
+  register 1853's 33 moved goldens having been censused and then re-banked by running (W-255).
   At BUILD117/BUILD247, before this leg's second re-bank, it read **56 OK, 30 FAIL**, and the 30
   were exactly the set the diff census had already traced to registers 1849-1852 — every one of them, with the
   new entries' own site tallies landing only at Register lines 6844 and 6848, which are 1851 and 1852
@@ -177,6 +184,18 @@ no longer on the read path.
   written to run from `method/proofs/`; each is checked by its own `--selftest` instead. `CLAUDE.md`,
   `README.md`, `MEMBER-INDEX.tsv`, `verify.py`, the `W-*.md` files and R3's `DEF-153*` / `DRAFT-*` notes to
   M stay outside the bundles, as the store already had them.
+- **PHASE 2 OF THE PUBLICATION PLAN IS COMPLETE TO THE LIMIT OF WHAT MAY BE DECIDED WITHOUT M: 36 DONE, 1
+  REFUTED, 1 PART, 8 OPEN, and every one of the eight reduces to a ruling that has not been given** — register
+  1836's bracket result, register 1797's seating, and Phase 0 ruling 7 over the chat-witnessed retractions and
+  the spent intake drafts 1795–1798. **No measurable row remains.** BUILD124 seats **1876–1879** (`r4-b9.py`,
+  W-268): the Compendium's equality-case gloss, register 1517's corridor census with its two wrong citations,
+  §12.11.1.2's three faults, and registers 623/625 read as one fault. Three measurement instruments were built
+  for it and are seated as members — `geodesic.py` (17/17), `corridors.py` (32/32), `consshare.py` (36/36) —
+  each with a selftest against the corpus's own numbers, and each refusing something it could have guessed at.
+  **`corridors.py` meets the "tools ahead of their member" condition head-on**: it imports the working
+  `slopeaxis.py` because the seated member is eighty lines behind M's ruling of 6 September, and it ASSERTS
+  that the two agree at the seated member's own convention, endpoint for endpoint, before measuring anything
+  through it.
 - **Drive stands at BUILD184 + BUILD90 and is reconciled once at the end**, not per build (Phase 0 ruling 15).
   `RECONCILE-153-STORE-STATE.md` in Materials states the store head and forbids opening a chat from Drive's pair.
 ## 4. Rulings in force

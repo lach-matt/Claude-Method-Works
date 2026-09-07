@@ -8,7 +8,7 @@ A-E3	6	OPEN	S	no	yes	No instrument counts Appendix D's coordinates column per st
 A-F1	6	OPEN	L	no	yes	Compendium generator chain stale; regeneration would drop guarded-build work	/home/user/Claude-Method-Works/method/DEF-153F-PENDING.md, §F-1 (lines 5-28); also DEF-153G-PENDING.md lines 69-74
 A-F2	-	DONE	M	no	yes	qgraph.py successor for the compendium's `### Title` form	/home/user/Claude-Method-Works/method/DEF-153F-PENDING.md, §F-2 (lines 30-42)
 A-F3	6	OPEN	S	no	yes	Guarded-build docstrings overstate the reverse-md5 guard	/home/user/Claude-Method-Works/method/DEF-153F-PENDING.md, §F-3 (lines 44-53)
-A-F4	2	OPEN	M	yes	yes	Register 1580's corridor census does not reproduce against slopeaxis.py	/home/user/Claude-Method-Works/method/DEF-153F-PENDING.md, §F-4 (lines 55-69)
+A-F4	2	DONE - register 1877: the census is 1517’s, not 1580’s, and 1580 is cited for it twice; headline, witnesses and Gallai reproduce in the node-only form under both candidate sets, 26 above-only and 80 lower-bounded exact at l<=4, but 7 open above measures 3 in every cell and Lr closes at 2.4409 where it is open	M	yes	yes	Register 1580's corridor census does not reproduce against slopeaxis.py	/home/user/Claude-Method-Works/method/DEF-153F-PENDING.md, §F-4 (lines 55-69)
 A-G1	0	OPEN	S	yes	yes	Rule the Appendix D row split (theorem · order / corridor law · physics): structural or content	/home/user/Claude-Method-Works/method/DEF-153G-PENDING.md, §G-1 (lines 3-30); DEF-153I-PENDING.md lines 61-67
 A-G2	-	DONE	M	yes	yes	Seat the corridor-law entry in the Physics Compendium by guarded build	/home/user/Claude-Method-Works/method/DEF-153G-PENDING.md, §G-2 and closing section (lines 32-53, 69-74)
 A-G3	-	DONE	S	yes	yes	Corridor law's '⟨N⟩ objects rest on it' waits on a qgraph successor	/home/user/Claude-Method-Works/method/DEF-153G-PENDING.md, §G-2 (lines 54-67)
@@ -159,7 +159,7 @@ E-011	4	OPEN	S	yes	yes	MC L1736 'The axis density' inherits 12q-01/12r-01; MC L1
 E-012	2	PART - register 1874 seats 12s-02; 12q-03 and 12q-04/12s-04 remain	S	yes	yes	Successor entries for Registers 434 (12q-03), 241 (12s-02), 1790/L3152 (12q-04, 12s-04)	DEFERRED.md L26 (chat 76)
 E-013	3	OPEN	S	yes	yes	Three sites misdirect the four-cap sweep to §12.11.2/§12.11.5 (it is §12.11.1 L3121–3124)	DEFERRED.md L27, L57 (chat 76 §32.1.1; chat 79 13c-02)
 E-014	1	CLOSED — unverifiable here (E-075; CLAUDE.md §5)	M	yes	yes	12t-03 ('recomputed under variation') further sites §6.2.1, §22.1.1.1, L9150; Registers 388/389	DEFERRED.md L33 (chat 77)
-E-015	2	OPEN	S	yes	yes	Successor entries for Registers 392/393 (12u-01..03) and 625's broken chain to 623 (12v-02)	DEFERRED.md L34–35 (chat 77)
+E-015	2	DONE - registers 1878 and 1879: the four-row table reproduces in all sixteen numbers, the d shell is absent at the 37.1% row, the fiftyfold growth belongs to the 25.3-point range, reversibility is 33.3/11.0/11.2/11.3 and not the conservative series; 623 and 625 are one fault, and 70.7 - 50.3 = 20.4 is the headline’s twenty	S	yes	yes	Successor entries for Registers 392/393 (12u-01..03) and 625's broken chain to 623 (12v-02)	DEFERRED.md L34–35 (chat 77)
 E-016	-	DONE	M	yes	yes	12w cluster (Λ₁₂/Λ₁₃ fractions, 627's split) corrected at registers 1821–1825	DEFERRED.md L36 (chat 77)
 E-017	0	OPEN	M	yes	yes	12x-01: 4,325-cell population and E = 972,862 / 28,503 printed in no member, awaiting M	DEFERRED.md L37 (chat 77)
 E-018	3	OPEN	M	yes	yes	12z-02 exact/envelope vocabulary at five site groups (13a-01's 2,475 residue already pointered at 1819)	DEFERRED.md L43–44 (chat 78)

@@ -1,0 +1,94 @@
+REGISTER 1517's CORRIDOR CENSUS, RE-MEASURED
+
+(1) WHOSE CENSUS IT IS
+    the phrase 'PAIRWISE DISJOINT corridors' occurs in entry     : [1517, 1877]
+    the phrase '73 fully bounded' occurs in entry                : [1517, 1877]
+    an entry citing "Register 1580's certified three"            : [1804]
+    register 1580's own body carries a corridor census           : False
+    register 1580's own body carries the held-out walk scores    : True
+    => the census is 1517's; 1580 is cited for it and does not state it.
+    That is a pointer that RESOLVES and whose target says something else --
+    the class recorded at registers 1861, 1871 and 1874 this pass.
+
+(2) WHETHER IT REPRODUCES
+    1517 prints: 73 fully bounded / 7 below-only / 26 above-only / 0 unbounded;
+                 max pairwise disjoint 3, min stabbing points 3, Gallai exact;
+                 B (-inf, 0.7071) . La (0.7071, 1.7071) . Lr (1.9841, 2.4409)
+
+  CANDIDATE SET l <= 4  (M's ruling, g admitted)
+    node-only   nu = n - a*sqrt(p)
+      corridors measured                : 106
+      77 fully bounded / 3 below-only / 26 above-only / 0 unbounded   DIFFERS
+      max pairwise disjoint             : 3   MATCHES
+        witnesses                       : B 5, La 57, Lr 103
+          B     5  (-inf, 0.7071068)
+          La   57  (0.7071068, 1.7071068)
+          Lr  103  (1.9840594, +inf)
+        every corridor met by 3 points  : 106 of 106
+        Gallai: max disjoint == min stab : True
+        La  corridor                     : (0.7071068, 1.7071068)
+        Lr  corridor                     : (1.9840594, +inf)
+        B   corridor                     : (-inf, 0.7071068)
+
+    finished    nu = n - a*sqrt(p + q/cap)
+      corridors measured                : 106
+      100 fully bounded / 3 below-only / 3 above-only / 0 unbounded   DIFFERS
+      max pairwise disjoint             : 4   DIFFERS
+        witnesses                       : Ce 58, La 57, Cm 96, Lr 103
+          Ce   58  (-inf, 0.6900656)
+          La   57  (0.7071068, 1.7071068)
+          Cm   96  (1.9711971, 1.9840594)
+          Lr  103  (1.9840594, +inf)
+        every corridor met by 4 points  : 105 of 106
+        Gallai: max disjoint == min stab : True
+        La  corridor                     : (0.7071068, 1.7071068)
+        Lr  corridor                     : (1.9840594, +inf)
+        B   corridor                     : (-inf, 0.7071068)
+
+  CANDIDATE SET l <= 3  (the seated member's convention)
+    node-only   nu = n - a*sqrt(p)
+      corridors measured                : 106
+      66 fully bounded / 3 below-only / 37 above-only / 0 unbounded   DIFFERS
+      max pairwise disjoint             : 3   MATCHES
+        witnesses                       : B 5, La 57, Lr 103
+          B     5  (-inf, 0.7071068)
+          La   57  (0.7071068, 1.7071068)
+          Lr  103  (1.9840594, +inf)
+        every corridor met by 3 points  : 106 of 106
+        Gallai: max disjoint == min stab : True
+        La  corridor                     : (0.7071068, 1.7071068)
+        Lr  corridor                     : (1.9840594, +inf)
+        B   corridor                     : (-inf, 0.7071068)
+
+    finished    nu = n - a*sqrt(p + q/cap)
+      corridors measured                : 106
+      78 fully bounded / 3 below-only / 25 above-only / 0 unbounded   DIFFERS
+      max pairwise disjoint             : 4   DIFFERS
+        witnesses                       : Ce 58, La 57, Cm 96, Lr 103
+          Ce   58  (-inf, 0.6900656)
+          La   57  (0.7071068, 1.7071068)
+          Cm   96  (1.9711971, 1.9840594)
+          Lr  103  (1.9840594, +inf)
+        every corridor met by 4 points  : 105 of 106
+        Gallai: max disjoint == min stab : True
+        La  corridor                     : (0.7071068, 1.7071068)
+        Lr  corridor                     : (1.9840594, +inf)
+        B   corridor                     : (-inf, 0.7071068)
+
+WHAT STANDS AND WHAT DOES NOT
+  STANDS.  The headline -- three, forced by boron, lanthanum and lawrencium,
+    with Gallai duality exact -- reproduces in the node-only form under BOTH
+    candidate sets, witnesses and all.  La's endpoints reproduce to the digit
+    in all four cells.  And 1517's split of the 106 is right on two of its
+    three numbers at l <= 4 node-only: 26 above-only exactly, and 80 carrying
+    a lower bound exactly.
+  DOES NOT.  1517 leaves SEVEN of those eighty open above; measured, three --
+    in every one of the four cells.  And it closes lawrencium's corridor at
+    2.4409, where it is open above in every cell; that value is not an endpoint
+    anywhere in the family.  The finished form gives four disjoint corridors,
+    not three, and the entry named no form.
+  NOT ATTEMPTED.  No search was made for a fifth convention under which
+    73 / 7 / 26 / 0 would fall out.  Six were tried -- two forms by two
+    candidate sets, and the Z window shifted -- and below-only is 3 in all six.
+    A convention reverse-engineered to fit a figure is not a reproduction.
+RECORDED, NOT REPAIRED.

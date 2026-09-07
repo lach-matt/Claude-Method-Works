@@ -117,10 +117,10 @@ for lowercase `register NNN` is no longer owed. Both are bundle members and neit
 
 ## What it reports
 
-Over `--roster with-companion`, 2,126 pointer tokens:
+Over `--roster with-companion`, 2,132 pointer tokens:
 
 ```
-RESOLVED-HERE 438  RESOLVED 1579  AMBIGUOUS 65  PARTIAL 19
+RESOLVED-HERE 438  RESOLVED 1585  AMBIGUOUS 65  PARTIAL 19
 PREFIX-ONLY 3  UNRESOLVED 21  KIND-MISMATCH 1
 44 findings  (APPSEC 2, FIGURE 2, REGISTER 4, REGISTER-RANGE 19, SECTION 8, THEOREM 9)
 ```
@@ -131,6 +131,16 @@ and 1874 are three measured instances — A.15's "Register 230", §23.10.2's "re
 citing itself for a nominal value it never states. All three score RESOLVED and all three are correct to.
 Where a citation names WHAT its target establishes, that description is checkable against the target's own
 words, so a successor could score the claim as well as the address. Not built; named so it is a decision.*
+
+*Two further instances at BUILD124, and they are the cheapest kind to check because the wrong target is a
+NUMBER. §34.6 and register 1804 both cite **register 1580** for the corridor census — "73 fully bounded ...
+the maximum set of PAIRWISE DISJOINT corridors is THREE" and "1580's certified three". **That census is
+register 1517's.** 1580 states no census at all: it prints the held-out walk's scores, floor 87, midpoint 83,
+ceiling 82 and STAY 92. Both citations score `RESOLVED` because 1580 exists, and both send a reader to an
+entry that does not carry what it was cited for. Register 1877 records them; `method/proofs/corridors.py`
+locates the strings so the attribution is measured rather than argued. **This is the first instance of the
+class in which the citing text and the target could have been compared MECHANICALLY** — the census's own
+figures do not occur in 1580 — which is what a successor to `pointers.py` would look for first.*
 
 *Re-measured again at BUILD117, where registers 1849–1852 added **six pointer tokens, all six RESOLVED** —
 findings stayed at 44, every class of them unmoved, and `PARTIAL` stayed at 19. Four entries that correct
@@ -163,7 +173,7 @@ hypothesis until read and measured* — and this measures them.
 
 ## `--extent`
 
-The Register's extent is stated as 1 to 1875; 1,742 of those numbers carry a `###` entry and 133 do
+The Register's extent is stated as 1 to 1879; 1,746 of those numbers carry a `###` entry and 133 do
 not. **An uncited absence is not a pointer failure**, so `--extent` lists only the absences
 something cites:
 

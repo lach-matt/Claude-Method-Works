@@ -53,8 +53,8 @@
   560/560            {'main': [7424, 9330]}
   "3 of 85"          {'main': [7409, 9331]}
   22 of 60           {'main': [9332]}
-  coerce/coerced     {'main': [617, 620, 1483, 4468, 4484, 4491, 4499, 7408, 9331], 'reg': [6286, 6294, 6322, 6334]}
-  prefix loop        {'main': [7424, 9330], 'reg': [1328, 5769, 6158, 6334]}
+  coerce/coerced     {'main': [617, 620, 1483, 4468, 4484, 4491, 4499, 7408, 9331], 'reg': [6288, 6296, 6324, 6336]}
+  prefix loop        {'main': [7424, 9330], 'reg': [1330, 5771, 6160, 6336]}
   proper projection  {'main': [4988, 4992, 8350, 9330]}
 
   32.3 account (the two traced audit failures) vs 32.7 rows 1-2:
@@ -76,14 +76,14 @@
       L9382 Its register of one thousand six hundred and thirty-five withdrawn claims is offered as the primary
       L9387 all one thousand six hundred and thirty-five failures and naming the four results that exist because a conclus
   digit-form 1,635 sites main: []
-  Register: 1717 bare-numeral headings, 1742 distinct entry numbers, max 1875
-  Register lines carrying a withdraw* token: 63
-  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1742: False
+  Register: 1721 bare-numeral headings, 1746 distinct entry numbers, max 1879
+  Register lines carrying a withdraw* token: 64
+  L9376 calls it a "register of one thousand six hundred and thirty-five withdrawn claims"; 1,635 == distinct entries 1746: False
 
 ================================================================================================
 6  E = 36, AND THE NUMERALS THE UNIT PRINTS (SITES, comma-aware, both forms)
 ================================================================================================
-  "E = 36" sites: {'main': [3263, 4489, 9356, 10274], 'reg': [1676, 2332, 3736, 6857], 'mc': [1453, 1455], 'ioi': [1372, 1454, 2034]}
+  "E = 36" sites: {'main': [3263, 4489, 9356, 10274], 'reg': [1678, 2334, 3738, 6859], 'mc': [1453, 1455], 'ioi': [1372, 1454, 2034]}
   "periodic table" sites in main: [120, 208, 209, 431, 730, 1516, 1517, 1530, 1535, 1549, 1594, 1618, 1641, 3248]
    4,000 -> 6 sites; in unit [9315]
    1,061 -> 8 sites; in unit [9360]
@@ -122,15 +122,15 @@
 ================================================================================================
 8  THE DATES AND THE EXTERNAL FACTS L9342 STATES
 ================================================================================================
-  Birkhoff       {'main': [853, 1822, 1853, 2108, 3726, 3787, 7342, 8126, '...'], 'reg': [304, 312, 360, 380, 392, 1740, 4608, 6466, '...'], 'mc': [61, 290, 310, 340, 344, 456, 458, 478, '...']}
-  Dilworth       {'main': [1880, 1926, 8522, 9348, 11129, 11208, 11598, 11708], 'reg': [256, 392, 6749, 6757], 'mc': [644, 648, 696, 698, 822, 1224, 1228, 1230, '...'], 'pc': [911, 912]}
-  Sperner        {'main': [122, 1801, 1878, 1879, 1883, 1903, 8702, 9348, '...'], 'reg': [256, 392, 6625, 6757], 'mc': [1224, 1228, 1230, 1602, 1608, 1610, 3430]}
-  1937           {'main': [9348, 11208, 11704], 'reg': [4608, 6773], 'mc': [290, 340, 344, 644, 648, 788, 1038, 1058, '...']}
-  1950           {'main': [9348, 9867, 9902, 11208, 11598, 11708, 11857], 'reg': [4584, 6382, 6749], 'mc': [644, 648, 696, 698, 1228, 1230, 1368, 1370, '...'], 'pc': [912], 'ioi': [1500]}
-  1928           {'main': [9348, 11770, 11824], 'reg': [452, 3400, 4576, 4640], 'mc': [776, 780, 1228, 1230, 1608, 1610, 2896, 2904, '...'], 'pc': [474, 484, 554, 574, 584], 'ioi': [83, 1452, 1508]}
+  Birkhoff       {'main': [853, 1822, 1853, 2108, 3726, 3787, 7342, 8126, '...'], 'reg': [306, 314, 362, 382, 394, 1742, 4610, 6468, '...'], 'mc': [61, 290, 310, 340, 344, 456, 458, 478, '...']}
+  Dilworth       {'main': [1880, 1926, 8522, 9348, 11129, 11208, 11598, 11708], 'reg': [258, 394, 6751, 6759], 'mc': [644, 648, 696, 698, 822, 1224, 1228, 1230, '...'], 'pc': [911, 912]}
+  Sperner        {'main': [122, 1801, 1878, 1879, 1883, 1903, 8702, 9348, '...'], 'reg': [258, 394, 6627, 6759], 'mc': [1224, 1228, 1230, 1602, 1608, 1610, 3430]}
+  1937           {'main': [9348, 11208, 11704], 'reg': [4610, 6775], 'mc': [290, 340, 344, 644, 648, 788, 1038, 1058, '...']}
+  1950           {'main': [9348, 9867, 9902, 11208, 11598, 11708, 11857], 'reg': [4586, 6384, 6751], 'mc': [644, 648, 696, 698, 1228, 1230, 1368, 1370, '...'], 'pc': [912], 'ioi': [1500]}
+  1928           {'main': [9348, 11770, 11824], 'reg': [454, 3402, 4578, 4642], 'mc': [776, 780, 1228, 1230, 1608, 1610, 2896, 2904, '...'], 'pc': [474, 484, 554, 574, 584], 'ioi': [83, 1452, 1508]}
   1920s          {'main': [1656, 9348]}
-  2004           {'main': [7415, 8101, 9348, 11807], 'reg': [5865, 5869], 'mc': [2400]}
-  1922           {'main': [4555, 5439, 5456, 5483, 5488, 8041, 9397, 11673, '...'], 'reg': [2128], 'mc': [3306, 3416], 'ioi': [1534]}
+  2004           {'main': [7415, 8101, 9348, 11807], 'reg': [5867, 5871], 'mc': [2400]}
+  1922           {'main': [4555, 5439, 5456, 5483, 5488, 8041, 9397, 11673, '...'], 'reg': [2130], 'mc': [3306, 3416], 'ioi': [1534]}
   Stahl & Wille  {'main': [7893, 8101, 8416, 11818]}
 
   L9342 five-failed-attempts / reorderability survey, and the 2004 site texts:
@@ -138,8 +138,8 @@
    main L8101 **And the reorderability material claims nothing.** The problem is known: Stahl & Wille proved 2-dimension NP-complete
    main L9348 **Not new.** The lattice is a bijective recoding of quantum numbers that have been in place since the 1920s. Closure o
    main L11807 is the correct treatment rather than a concession. **[S]** · **Kuznetsov, S. O.** (2004). On the
-   reg L5865 **A1's LITERATURE IS NAMED AND IT DOES NOT REACH TWO OF THE SIX ANCHORS.** *Running the literature check for A1 rather
-   reg L5869 **BOTH CANONICAL CHARGE-RADIUS TABLES STOP AT Z = 96, SO A1 IS BOUNDED BY MEASUREMENT RATHER THAN ACCESS.** *Following
+   reg L5867 **A1's LITERATURE IS NAMED AND IT DOES NOT REACH TWO OF THE SIX ANCHORS.** *Running the literature check for A1 rather
+   reg L5871 **BOTH CANONICAL CHARGE-RADIUS TABLES STOP AT Z = 96, SO A1 IS BOUNDED BY MEASUREMENT RATHER THAN ACCESS.** *Following
    mc L2400 *common cyclic separating vector; extended to weights by Araki–Zsidó 2004*
 
 ================================================================================================

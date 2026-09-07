@@ -65,8 +65,8 @@ main member lines: 11904
 7. "Across the indexes of §36, nine of eleven ... are expectation values" (L9451-L9453)
 ================================================================================================
   main L9458: could not fix are expectation values; the one exception is the one index with no
-  reg L4988: **AND EVERY UNFIXABLE CELL IS AN EXPECTATION VALUE — EXCEPT ONE.** *Across eleven closed indexes, nine of the quantities the closure cannot fix are ⟨Ψ
-  reg L5176: **THE ISOTOPIC NULL, COMPUTED RATHER THAN COLLECTED.** *L.total says membership is decided for every ambient point, so a null is computable by the sam
+  reg L4990: **AND EVERY UNFIXABLE CELL IS AN EXPECTATION VALUE — EXCEPT ONE.** *Across eleven closed indexes, nine of the quantities the closure cannot fix are ⟨Ψ
+  reg L5178: **THE ISOTOPIC NULL, COMPUTED RATHER THAN COLLECTED.** *L.total says membership is decided for every ambient point, so a null is computable by the sam
   mc L1956: > **Prior art: the scaling of hydrogenic expectation values, <r^a> ~ nu^{2a} and Delta E ~ nu^{-3}, is Bohr's correspondence scaling (1913) in its qua
   mc L3670: was identified. **Nine of eleven are expectation values ⟨Ψ|Ô|Ψ⟩.** The exception is
   ioi L1657: expectation values ⟨Ψ|Ô|Ψ⟩; Λ_cross is the exception, and it is the only index
@@ -77,8 +77,8 @@ main member lines: 11904
     "eleven" inside §36: 0 sites
     "index" inside §36: 6 sites
     "closure" inside §36: 1 sites
-  registers stating the population: 1327 (reg L4988) "eleven closed indexes"; 1347 (reg L5068) "TWELVE CLOSED INDEXES"
-  reg L5068: **TWELVE CLOSED INDEXES.** *Λ · Λ_law · Λ_const · Λ_var · Λ_ryd · Λ_charge · Λ_cross · Λ_descent · Λ_phys · Λ_amp · Λ_PCA · Λ_chem.* **Λ_spectra alone
+  registers stating the population: 1327 (reg L4990) "eleven closed indexes"; 1347 (reg L5070) "TWELVE CLOSED INDEXES"
+  reg L5070: **TWELVE CLOSED INDEXES.** *Λ · Λ_law · Λ_const · Λ_var · Λ_ryd · Λ_charge · Λ_cross · Λ_descent · Λ_phys · Λ_amp · Λ_PCA · Λ_chem.* **Λ_spectra alone
   ioi "## Λ" headings: 24 (22 distinct)
 
 ================================================================================================
@@ -92,25 +92,25 @@ main member lines: 11904
   where the sentence DOES live:
     main L9456: when its cells are enumerable, and what it cannot supply is exactly what requires
     main L9764: what that costs:** *what a closure cannot supply is exactly what requires an
-    reg L4988: **AND EVERY UNFIXABLE CELL IS AN EXPECTATION VALUE — EXCEPT ONE.** *Across eleven closed indexes, nine of the quantities
-    reg L6498: **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: wha
+    reg L4990: **AND EVERY UNFIXABLE CELL IS AN EXPECTATION VALUE — EXCEPT ONE.** *Across eleven closed indexes, nine of the quantities
+    reg L6500: **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: wha
     mc L3674: > **An index closes when its cells are enumerable. What it cannot supply is exactly
   §35.1 (the sibling site, repaired):
     main L9763: **Chapter 6 proved the periodic table is not a closed index, and Chapter 33 said
-  register 1755 (reg L6498) diagnosis, first 300 chars:
+  register 1755 (reg L6500) diagnosis, first 300 chars:
     **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: what a closure cannot supply is exactly what requires an operator" (§35.1). The sentence has a verbatim home: it is register 1327's line, and in the current numbering it is printed in
 
 ================================================================================================
 9. "the fourth question of the domain protocol" (L9486) read at its target
 ================================================================================================
-  register 1336 (reg L5024), the protocol entire:
+  register 1336 (reg L5026), the protocol entire:
     **THE DOMAIN PROTOCOL, WRITTEN BECAUSE I KEPT VIOLATING IT.** *Four questions before any fit: which single cell of Λ_phys · which carrier does Λ_law assign · points ≥ 3× parameters IN THIS CELL · am I pooling.* **Replayed against today: law 2 on six species BLOCKED (wrong carrier, pooling); the Gaussian across the table BLOCKED (spans three domain cells); six slopes pooled for one scaling BLOCKED. Law 2 in the right 
     question 1: which single cell of Λ_phys
     question 2: which carrier does Λ_law assign
     question 3: points ≥ 3× parameters IN THIS CELL
     question 4: am I pooling
   the unit calls "Never fit across a language boundary" the FOURTH question; register 1336's fourth is: am I pooling
-  reg L6282: **T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge name
+  reg L6284: **T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge name
   pc L887: | the amplitude a | across a language boundary | six placement rules dead; a seventh **prohibited** |
 
 ================================================================================================
@@ -118,11 +118,11 @@ main member lines: 11904
 ================================================================================================
   main L9469: > **An index is closed when its output class is a singleton.** Two outputs mean
   main L10896: the singleton-output rule definition · order proved · exhaustive · none found
-  reg L4880: **THE SINGLETON-OUTPUT CRITERION, AND IT IS NOT ENFORCED BY ℛ.** *Λ_var gives E = 0 with δ alone AND with n∗ added, because both land in the same cell.* **An index is clo
-  reg L6462: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPTHS AND DEPENDENCE CO
+  reg L4882: **THE SINGLETON-OUTPUT CRITERION, AND IT IS NOT ENFORCED BY ℛ.** *Λ_var gives E = 0 with δ alone AND with n∗ added, because both land in the same cell.* **An index is clo
+  reg L6464: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPTHS AND DEPENDENCE CO
   mc L3763: | **the singleton-output rule** | an index is closed when its reading is unique |
   ioi L1611: when its output class is a singleton; two outputs mean the observer is still
-  register 1300 (reg L4880) entire, first 400 chars:
+  register 1300 (reg L4882) entire, first 400 chars:
     **THE SINGLETON-OUTPUT CRITERION, AND IT IS NOT ENFORCED BY ℛ.** *Λ_var gives E = 0 with δ alone AND with n∗ added, because both land in the same cell.* **An index is closed when its output class is a singleton: two outputs mean the observer is still choosing which to read, and the choice is not in the object.** **n∗ = n₀ − δ carries nothing δ does not. Λ_ryd closes at 5 cells, E = 0, once δ₂ is r
 
 ================================================================================================
@@ -130,28 +130,28 @@ main member lines: 11904
 ================================================================================================
   --- Λ_var ---
     main: 2 sites [9465, 9543]
-    reg: 7 sites [4880, 4932, 5068, 5084, 5112, 5933, 5965]
+    reg: 7 sites [4882, 4934, 5070, 5086, 5114, 5935, 5967]
     mc: 1 sites [3811]
     pc: 0 sites []
     ioi: 4 sites [1589, 1596, 1609, 1869]
     sc: 0 sites []
   --- Λ_ryd ---
     main: 1 sites [9479]
-    reg: 3 sites [4880, 5068, 5084]
+    reg: 3 sites [4882, 5070, 5086]
     mc: 0 sites []
     pc: 0 sites []
     ioi: 3 sites [1614, 1621, 1870]
     sc: 0 sites []
   --- δ₂ ---
     main: 10 sites [6053, 6147, 6153, 6156, 7015, 7027, 7093, 7505]
-    reg: 21 sites [3172, 3176, 3520, 3680, 4296, 4300, 4304, 4308]
+    reg: 21 sites [3174, 3178, 3522, 3682, 4298, 4302, 4306, 4310]
     mc: 3 sites [36, 528, 3743]
     pc: 6 sites [174, 176, 526, 684, 843, 863]
     ioi: 3 sites [1616, 1622, 1624]
     sc: 3 sites [957, 959, 961]
   --- non-penetrating ---
     main: 1 sites [9476]
-    reg: 10 sites [2700, 3924, 4116, 4548, 4692, 4708, 6045, 6049]
+    reg: 10 sites [2702, 3926, 4118, 4550, 4694, 4710, 6047, 6051]
     mc: 3 sites [36, 528, 3124]
     pc: 4 sites [506, 522, 847, 857]
     ioi: 0 sites []

@@ -1,0 +1,52 @@
+SECTION 12.11.1.2's TABLE, REBUILT
+  caps                    |L9|   composable  conservative   share    printed
+  (3,3,1,3,1)           1,654       1,169           739    63.2%   exact
+  (4,4,1,6,1)          19,433      16,150         5,986    37.1%   exact
+  (4,4,2,6,2)          44,153      37,430        14,114    37.7%   exact
+  (5,5,2,6,2)          83,543      71,087        26,921    37.9%   exact
+
+12u-01  THE d SHELL AT THE 37.1% ROW
+  (3,3,1,3,1)        l_max = 1   n_max - 1 = 2   admits l = 2 (a d subshell): False
+  (4,4,1,6,1)        l_max = 1   n_max - 1 = 3   admits l = 2 (a d subshell): False
+  (4,4,2,6,2)        l_max = 2   n_max - 1 = 3   admits l = 2 (a d subshell): True
+  (5,5,2,6,2)        l_max = 2   n_max - 1 = 4   admits l = 2 (a d subshell): True
+  The section reads: "Once the d shell is open the share sits at 37-38%".
+  The first row admitting l = 2 is (4,4,2,6,2), at 37.7%.
+  The 37.1% row is (4,4,1,6,1) -- l_max = 1, the SAME cap as the 63.2% row it is
+  contrasted with.  What changes between those two rows is n, e and k, not l.
+  CONFIRMED: the d shell is absent at the 37.1% row.
+
+12u-02  THE TWO RANGES THE SENTENCE JOINS
+  "moves by less than a point across a fiftyfold growth in cells"
+  the fiftyfold growth is 1,654 -> 83,543 cells = 50.5x,
+    and across it the share moves 25.3 points (63.2% -> 37.9%).
+  the range over which it moves less than a point is 19,433 -> 83,543 = 4.3x,
+    over which it moves 0.8 points (37.1% -> 37.9%).
+  CONFIRMED: one clause's growth belongs to the other clause's range.
+
+12u-03  THE WORD AND THE NUMBER
+  the quantity in the table is g = q -- the transfer total and nothing
+  left behind, which is CONSERVATION.  The reverse-edge share, on the
+  reading that the move T -> S is itself a cell, is a different series:
+  caps                  conservative     reverse
+  (3,3,1,3,1)              63.2%       33.3%
+  (4,4,1,6,1)              37.1%       11.0%
+  (4,4,2,6,2)              37.7%       11.2%
+  (5,5,2,6,2)              37.9%       11.3%
+  CONFIRMED: "reversibility settles near three cells in eight" names the
+  conservative series; on this reading reversibility is a different one.
+
+12v-02  THE CORRECTION CHAIN AS PRINTED
+  625 says of 623                : 50.3%
+  623's body prints for Lambda_8 : 0%
+  623's headline                 : **AND THE AXIS THAT MAKES THE TOWER A CATEGORY IS WORTH TWENTY POINTS.** *Λ₈ i
+  623's own Lambda_9 figure      : 70.7%
+  the jump its body describes    : 70.7 - 0 = 70.7 points
+  the jump 625's attribution gives: 70.7 - 50.3 = 20.4 points
+  and the headline says          : TWENTY points
+  CONFIRMED: 625 attributes to 623 a figure 623 does not print; and the
+  headline's twenty is the jump that attribution would give, not the one
+  the body gives.  The two halves of the entry are on different sides of
+  the correction.
+
+RECORDED, NOT REPAIRED.

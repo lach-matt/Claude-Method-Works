@@ -1,7 +1,7 @@
 
 == 0  THE UNIT, BOUNDED BY ITS OWN SCAN
-   unit opens at entry 165                                  738                            OK
-   unit = L738-L857, 120 lines, entries 165..198, 30 headings
+   unit opens at entry 165                                  740                            OK
+   unit = L740-L859, 120 lines, entries 165..198, 30 headings
 
 == 1  THE GAPS IN THE SEQUENCE
    gaps in 165..198                                         [176, 177, 190, 196, 199]      OK

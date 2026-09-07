@@ -238,8 +238,8 @@ r2-ch24b — Appendix E part 1 (lead, E.1–E.1.5, E.2), prose and pointers
    L4725 
    L4726     A ≈ fibre × (0.972 − 0.154 · descendants of the bounded variable) corr(descendants,
    L4727     A/fibre) = −0.942, median error 7%, worst 24%.
-   Register L1800: **THE SEED IS CONSTRUCTIBLE AND NEED NEVER BE SEARCHED FOR.** *ℛ(X) is determined by φ̂ alone, so the cells witnessing each envelope step — plus one per alphabet value — have the same envelopes and therefore the same clo
-   Register L1938: ### 518
+   Register L1802: **THE SEED IS CONSTRUCTIBLE AND NEED NEVER BE SEARCHED FOR.** *ℛ(X) is determined by φ̂ alone, so the cells witnessing each envelope step — plus one per alphabet value — have the same envelopes and therefore the same clo
+   Register L1940: ### 518
    --- §20.1 (Gröbner) L5568–L5571
    L5568 
    L5569  Chapter 1's table gives five languages with their closure mechanisms and their measured costs — tree
@@ -296,7 +296,7 @@ r2-ch24b — Appendix E part 1 (lead, E.1–E.1.5, E.2), prose and pointers
    `### F.3.n` headings: [(11325, '### F.3 The index, built'), (11348, '### F.3.1 The closure, represented as it must be')]
    *E.4* cited in the unit (bare, not E.4.1/E.4.2): [(10970, 'replacing it, so this appendix carried **three live item counts** — eight at E.4, fifteen '), (10983, '**E.1.2 is the open set.** E.3 gives each item in full, E.4 and E.4.1 record how the grid ')]
    PP P10618 *E.4 The grid, read on the current set* in main (any form): [(11152, 'E.4 The grid, read on the current set')] ; PP lines P10617–P10619: ['Q is a list of what would be added, not of what is missing. That held when Q sto', 'at thirteen — the only column whose value has never changed.', '']
-   *518* anywhere in six volumes: {'The_Method_1_6-2.md': [11089], 'The_Method_1_6___The_Register-2.md': [1800, 1938], 'The_Method_1_6___Mathematical_Compendium-2.md': [], 'The_Method_1_6___The_Physics_Compendium-2.md': [524], 'The_Method_1_6___The_Index_of_Indices-2.md': [898], 'The_Method_1_6___Spectra_Compendium-2.md': []}
+   *518* anywhere in six volumes: {'The_Method_1_6-2.md': [11089], 'The_Method_1_6___The_Register-2.md': [1802, 1940], 'The_Method_1_6___Mathematical_Compendium-2.md': [], 'The_Method_1_6___The_Physics_Compendium-2.md': [524], 'The_Method_1_6___The_Index_of_Indices-2.md': [898], 'The_Method_1_6___Spectra_Compendium-2.md': []}
    *cells at order 1|order 1* in §23.10 span: [(6455, ' **And the widths fall fast** — at ν = 40 from 0.362 cm⁻¹ at order 1 to **8.9 × 10⁻⁶ at order 5.**'), (6494, '| | order 1 | order 5 |'), (6501, '      collection assembled from real, perturbed, coarsely quoted spectra is exactly where order 1 belongs')]
 §5 first-person sites: [(11000, 'I     the spectroscopic v-check per channel                       one claim    retrievable   days   physical')]
    R45 candidates: [(10987, ['this session'], '### E.1.2 The open set as this session leaves it — ten open of 14, listed')]

@@ -93,7 +93,7 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
         L8416   §30.3's original citations — Stahl & Wille, Yannakakis — were correct; a draft withdrew them  <-- IN UNIT
         L11821  Yannakakis, M. (1982). SIAM J. Alg. Disc. Meth. 3, 351. — the complexity of order-dimension 
   Yannakakis       reg   1 site(s)
-        L6466   **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE M
+        L6468   **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE M
   Yannakakis       mc    8 site(s)
         L402    Measured — R 1196-1199; Beeri, Fagin, Maier & Yannakakis 1983; Dijkstra 1959.
         L510    Proved — M §14.5.4; Beeri, Fagin, Maier & Yannakakis 1983.
@@ -110,13 +110,13 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
         L513    register records what was added and withdrawn. Enumeration is finite work and this book does
         L643    ### 2.12 Withdrawal
         L720    A register of withdrawals is a list of bounds. Read it that way and it stops being a
-  withdraw         reg   65 site(s)
+  withdraw         reg   66 site(s)
         L27     | **a withdrawal** | 34 | 61 | a claim removed, with the reason |
         L31     *The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cit
-        L74     Every correction, withdrawal and finding in the order it happened. **The book cites entries 
-        L104    **THE FOUNDING CONCLUSION: THE RESERVED CELLS TRANSFORM ELEMENTAL DISCOVERY INTO A BOUNDED S
-        L128    **THE RESERVED-CELL RECOUNT CORRECTS 78 → 92.** *The founding draft quoted 78 reserved cells
-        L212    **THE RESERVED-CELL ANALYSIS CONSTRAINS VALENCE CONFIGURATION ONLY — THE BOUNDED-SEARCH CLAI
+        L76     Every correction, withdrawal and finding in the order it happened. **The book cites entries 
+        L106    **THE FOUNDING CONCLUSION: THE RESERVED CELLS TRANSFORM ELEMENTAL DISCOVERY INTO A BOUNDED S
+        L130    **THE RESERVED-CELL RECOUNT CORRECTS 78 → 92.** *The founding draft quoted 78 reserved cells
+        L214    **THE RESERVED-CELL ANALYSIS CONSTRAINS VALENCE CONFIGURATION ONLY — THE BOUNDED-SEARCH CLAI
   withdraw         mc    5 site(s)
         L3090   Asserted — R 987, withdrawn R 1168.
         L3092   WITHDRAWN (R 1168). The claim was that the fitted s recovers register 987's sign and size. I
@@ -229,11 +229,11 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
 
   WHERE THE LANDSCAPE READING DOES LIVE — six-volume sweep
   basin          {'main': [8338, 8401]}
-  landscape      {'main': [693, 805, 8399], 'reg': [3756], 'ioi': [76]}
-  potential      {'main': [8400, 9787, 9944, 9956, 10847, 10864, 10868, 11447], 'reg': [2572, 2616, 4680, 4720, 5044, 5232, 5456, 5460], 'mc': [73, 1024, 2376, 2378, 2384, 2394, 3250], 'pc': [72, 95, 106, 358, 365, 391, 502, 674], 'ioi': [2074], 'sc': [1130]}
-  descent        {'main': [392, 686, 693, 8401, 8546, 9712], 'reg': [4532, 4948, 4952, 4956, 4960, 5068, 5084, 5108], 'ioi': [1660, 1667, 1873]}
-  transposition  {'main': [693, 3709, 8400], 'reg': [5276, 5817]}
-  stall          {'main': [686, 8401], 'reg': [5620]}
+  landscape      {'main': [693, 805, 8399], 'reg': [3758], 'ioi': [76]}
+  potential      {'main': [8400, 9787, 9944, 9956, 10847, 10864, 10868, 11447], 'reg': [2574, 2618, 4682, 4722, 5046, 5234, 5458, 5462], 'mc': [73, 1024, 2376, 2378, 2384, 2394, 3250], 'pc': [72, 95, 106, 358, 365, 391, 502, 674], 'ioi': [2074], 'sc': [1130]}
+  descent        {'main': [392, 686, 693, 8401, 8546, 9712], 'reg': [4534, 4950, 4954, 4958, 4962, 5070, 5086, 5110], 'ioi': [1660, 1667, 1873]}
+  transposition  {'main': [693, 3709, 8400], 'reg': [5278, 5819]}
+  stall          {'main': [686, 8401], 'reg': [5622]}
 
 ## 14  FIGURE REFERENCES vs FIGURE MEMBERS (production, not authoring)
   main-volume inline figure references: 33

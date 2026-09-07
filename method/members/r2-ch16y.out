@@ -53,24 +53,24 @@
 ================================================================================================
 2  THE REGISTER AT EACH FIGURE OF THE UNIT -- earlier statement, and the LATER entry that moved it
 ================================================================================================
-  106 of 106 / 106 non-empty           14 sites: R1309 L4916, R1328 L4992, R1331 L5004, R1350 L5080, R1356 L5104, R1366 L5140, R1367 L5144, R1402 L5268, R1412 L5308, R1445 L5436, R1461 L5500, R1463 L5508, R1515 L5708, R1798 L6637
-  99 of 106                            6 sites: R1350 L5080, R1437 L5408, R1438 L5412, R1440 L5420, R1445 L5436, R1836 L6789
-  90 of 106                            2 sites: R1309 L4916, R1445 L5436
-  eighteen resets/recalibrations       5 sites: R1328 L4992, R1331 L5004, R1407 L5288, R1435 L5400, R1804 L6661
-  "ten resets" / "ten moves"           4 sites: R1402 L5268, R1403 L5272, R1411 L5304, R1413 L5312
-  fifteen moves                        2 sites: R1409 L5296, R1438 L5412
-  104 of 106                           4 sites: R1332 L5008, R1803 L6657, R1804 L6661, R1805 L6665
-  nineteen surds / distinct values     14 sites: R514 L1928, R1309 L4916, R1318 L4952, R1328 L4992, R1350 L5080, R1403 L5272, R1425 L5360, R1460 L5496, R1466 L5520, R1468 L5528, R1734 L6462, R1799 L6641, R1801 L6649, R1856 L6869
-  DEACTIVATED                          2 sites: R1309 L4916, R1460 L5496
-  No parameter is fitted               2 sites: R1350 L5080, R1836 L6789
-  Exceptionless on 106                 1 sites: R1350 L5080
+  106 of 106 / 106 non-empty           14 sites: R1309 L4918, R1328 L4994, R1331 L5006, R1350 L5082, R1356 L5106, R1366 L5142, R1367 L5146, R1402 L5270, R1412 L5310, R1445 L5438, R1461 L5502, R1463 L5510, R1515 L5710, R1798 L6639
+  99 of 106                            6 sites: R1350 L5082, R1437 L5410, R1438 L5414, R1440 L5422, R1445 L5438, R1836 L6791
+  90 of 106                            2 sites: R1309 L4918, R1445 L5438
+  eighteen resets/recalibrations       5 sites: R1328 L4994, R1331 L5006, R1407 L5290, R1435 L5402, R1804 L6663
+  "ten resets" / "ten moves"           4 sites: R1402 L5270, R1403 L5274, R1411 L5306, R1413 L5314
+  fifteen moves                        2 sites: R1409 L5298, R1438 L5414
+  104 of 106                           4 sites: R1332 L5010, R1803 L6659, R1804 L6663, R1805 L6667
+  nineteen surds / distinct values     14 sites: R514 L1930, R1309 L4918, R1318 L4954, R1328 L4994, R1350 L5082, R1403 L5274, R1425 L5362, R1460 L5498, R1466 L5522, R1468 L5530, R1734 L6464, R1799 L6643, R1801 L6651, R1856 L6871
+  DEACTIVATED                          2 sites: R1309 L4918, R1460 L5498
+  No parameter is fitted               2 sites: R1350 L5082, R1836 L6791
+  Exceptionless on 106                 1 sites: R1350 L5082
   blocked four fits                    0 sites: 
-  BLOCKED (protocol replay)            13 sites: R243 L968, R244 L972, R1336 L5024, R1355 L5100, R1474 L5552, R1489 L5604, R1524 L5745, R1530 L5769, R1549 L5841, R1556 L5869, R1562 L5893, R1598 L6009, R1644 L6174
-  1.028                                2 sites: R1214 L4552, R1350 L5080
-  1.785                                1 sites: R1350 L5080
-  1.029                                2 sites: R1272 L4768, R1337 L5028
-  every f opening / any f opening      1 sites: R1350 L5080
-  Lr 7p configuration                  1 sites: R1306 L4904
+  BLOCKED (protocol replay)            13 sites: R243 L970, R244 L974, R1336 L5026, R1355 L5102, R1474 L5554, R1489 L5606, R1524 L5747, R1530 L5771, R1549 L5843, R1556 L5871, R1562 L5895, R1598 L6011, R1644 L6176
+  1.028                                2 sites: R1214 L4554, R1350 L5082
+  1.785                                1 sites: R1350 L5082
+  1.029                                2 sites: R1272 L4770, R1337 L5030
+  every f opening / any f opening      1 sites: R1350 L5082
+  Lr 7p configuration                  1 sites: R1306 L4906
 
 ================================================================================================
 3  RECONSTRUCTION INPUT -- NIST neutral ground configurations Z = 1..108 (instrument data), VALIDATED

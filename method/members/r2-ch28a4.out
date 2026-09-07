@@ -80,55 +80,55 @@
 
 == §2 every Register entry the unit cites: heading located by `^#{1,4}\s*N\s*$`, body (first non-blank line), WARNING lines in the entry
   cited numbers (41): [301, 302, 303, 319, 344, 345, 346, 355, 400, 401, 409, 433, 436, 557, 1701, 1702, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1710, 1711, 1712, 1713, 1714, 1715, 1716, 1717, 1718, 1719, 1720, 1721, 1722, 1723, 1724, 1736, 1809, 1810]
-   301 heading L1134     WARNING none       body: **THE CAPS PRINTED IN §8.3 DO NOT REPRODUCE Λ** *, and the construction is short an eighth cond
-   302 heading L1138     WARNING none       body: **THE LAW OF REALISED CLOSURE SHARPENED INTO TWO MODES — ORDER-REALISATION, WHICH CLOSES TOTALL
-   303 heading L1142     WARNING none       body: **A CRITERION THE BOOK HAD USED WITHOUT STATING: AN OCCUPANCY COORDINATE IS ADMISSIBLE IFF ITS 
-   319 heading L1190     WARNING none       body: **A SECOND COMPANION PAPER, ON MUON-CATALYSED FUSION.** *Its structural window is a* **bracket 
+   301 heading L1136     WARNING none       body: **THE CAPS PRINTED IN §8.3 DO NOT REPRODUCE Λ** *, and the construction is short an eighth cond
+   302 heading L1140     WARNING none       body: **THE LAW OF REALISED CLOSURE SHARPENED INTO TWO MODES — ORDER-REALISATION, WHICH CLOSES TOTALL
+   303 heading L1144     WARNING none       body: **A CRITERION THE BOOK HAD USED WITHOUT STATING: AN OCCUPANCY COORDINATE IS ADMISSIBLE IFF ITS 
+   319 heading L1192     WARNING none       body: **A SECOND COMPANION PAPER, ON MUON-CATALYSED FUSION.** *Its structural window is a* **bracket 
    344 heading ABSENT    WARNING —          body: 
-   345 heading L1270     WARNING none       body: **THE OCCUPANCY CLOCK FROM THE THIRD COMPANION PAPER, RECOMPUTED IN FULL.** **Zero of 739 compo
-   346 heading L1274     WARNING none       body: **ONE CORRECTION TO THE THIRD COMPANION PAPER: *IDENTITIES EXIST AT 8 OF 33 OBJECTS* AGAINST *A
-   355 heading L1302     WARNING none       body: **THE N-BODY CONFIGURATION SPACE INDEXED AND CLOSED — AND FOUND ALREADY IN print. THE EXACT SET
-   400 heading L1494     WARNING none       body: **FREUDER WAS CITED FOR DECHTER'S THEOREM.** *Freuder 1982 gives backtrack-free search at stron
-   401 heading L1498     WARNING none       body: **DEVILLE, Barták AND VAN HENTENRYCK 1999 NAME THE OPERATOR'S CONSTRAINT CLASS** *: a (α,β)-mon
-   409 heading L1530     WARNING none       body: **dim(Λ₈) = 8 WAS ASSERTED AND IS DILWORTH'S** *, being the width of J(Λ). Found by building th
-   433 heading L1614     WARNING none       body: **COUPLING SCHEMES ARE BASIS CHANGES AND THE COUNTS PRICE ROUTES.** *The exact J multiset is id
-   436 heading L1626     WARNING none       body: **He I HAS NO OBSERVED LEVEL VALUES IN THE ASD.** *Every level is bracketed, and NIST's note sa
-   557 heading L2094     WARNING none       body: **THE COMPANION'S READING OF Chandrasekaran–Flanagan IS VERIFIED AGAINST THEIR EQUATIONS.** *ar
-  1701 heading L6352     WARNING none       body: **THE LÖWDIN CHALLENGE IS CLOSED — THE ORDERING LAW DERIVED FROM THE EQUATION AT 107 OF 107, TH
-  1702 heading L6356     WARNING none       body: **THE CHAIN, MEASURED.** *119 rows, Z = 2–120; 107 SCORED, 12 UNWITNESSED. Every row records en
-  1703 heading L6360     WARNING none       body: **THE SILENCE OF CHAPTER 34 HAS AN OCCUPANT — THE COLLAPSE CONDITION DECIDES EXACTLY WHERE THE 
-  1704 heading L6364     WARNING none       body: **NO G BLOCK BELOW Z = 121, AND THE FIELD SAYS SO WITHOUT BEING ASKED.** *Measured across the w
-  1705 heading L6368     WARNING none       body: **THE CORRELATION CLAUSE, COMPLETE AT ALL FIVE CONTESTED ROWS — EVERY COMPETITION WIDENS.** *Z 
-  1706 heading L6372     WARNING none       body: **ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical
-  1707 heading L6376     WARNING none       body: **PRIOR ART — THE WALK'S ONE SYSTEMATIC DEFECT IS A PULAY TERM, PUBLISHED THE YEAR THE CHALLENG
-  1708 heading L6380     WARNING none       body: **PRIOR ART — THE OPERATOR ASYMMETRY IS LÖWDIN'S OWN 1950 IDENTITY, AND IT CLOSES THE LAST GAP.
-  1709 heading L6384     WARNING none       body: **A HYPOTHESIS FALSIFIED BY THE CLAUSE THAT SCORED HIT — KEPT, AS HONESTY REQUIRES.** *The resi
+   345 heading L1272     WARNING none       body: **THE OCCUPANCY CLOCK FROM THE THIRD COMPANION PAPER, RECOMPUTED IN FULL.** **Zero of 739 compo
+   346 heading L1276     WARNING none       body: **ONE CORRECTION TO THE THIRD COMPANION PAPER: *IDENTITIES EXIST AT 8 OF 33 OBJECTS* AGAINST *A
+   355 heading L1304     WARNING none       body: **THE N-BODY CONFIGURATION SPACE INDEXED AND CLOSED — AND FOUND ALREADY IN print. THE EXACT SET
+   400 heading L1496     WARNING none       body: **FREUDER WAS CITED FOR DECHTER'S THEOREM.** *Freuder 1982 gives backtrack-free search at stron
+   401 heading L1500     WARNING none       body: **DEVILLE, Barták AND VAN HENTENRYCK 1999 NAME THE OPERATOR'S CONSTRAINT CLASS** *: a (α,β)-mon
+   409 heading L1532     WARNING none       body: **dim(Λ₈) = 8 WAS ASSERTED AND IS DILWORTH'S** *, being the width of J(Λ). Found by building th
+   433 heading L1616     WARNING none       body: **COUPLING SCHEMES ARE BASIS CHANGES AND THE COUNTS PRICE ROUTES.** *The exact J multiset is id
+   436 heading L1628     WARNING none       body: **He I HAS NO OBSERVED LEVEL VALUES IN THE ASD.** *Every level is bracketed, and NIST's note sa
+   557 heading L2096     WARNING none       body: **THE COMPANION'S READING OF Chandrasekaran–Flanagan IS VERIFIED AGAINST THEIR EQUATIONS.** *ar
+  1701 heading L6354     WARNING none       body: **THE LÖWDIN CHALLENGE IS CLOSED — THE ORDERING LAW DERIVED FROM THE EQUATION AT 107 OF 107, TH
+  1702 heading L6358     WARNING none       body: **THE CHAIN, MEASURED.** *119 rows, Z = 2–120; 107 SCORED, 12 UNWITNESSED. Every row records en
+  1703 heading L6362     WARNING none       body: **THE SILENCE OF CHAPTER 34 HAS AN OCCUPANT — THE COLLAPSE CONDITION DECIDES EXACTLY WHERE THE 
+  1704 heading L6366     WARNING none       body: **NO G BLOCK BELOW Z = 121, AND THE FIELD SAYS SO WITHOUT BEING ASKED.** *Measured across the w
+  1705 heading L6370     WARNING none       body: **THE CORRELATION CLAUSE, COMPLETE AT ALL FIVE CONTESTED ROWS — EVERY COMPETITION WIDENS.** *Z 
+  1706 heading L6374     WARNING none       body: **ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical
+  1707 heading L6378     WARNING none       body: **PRIOR ART — THE WALK'S ONE SYSTEMATIC DEFECT IS A PULAY TERM, PUBLISHED THE YEAR THE CHALLENG
+  1708 heading L6382     WARNING none       body: **PRIOR ART — THE OPERATOR ASYMMETRY IS LÖWDIN'S OWN 1950 IDENTITY, AND IT CLOSES THE LAST GAP.
+  1709 heading L6386     WARNING none       body: **A HYPOTHESIS FALSIFIED BY THE CLAUSE THAT SCORED HIT — KEPT, AS HONESTY REQUIRES.** *The resi
   1710 heading ABSENT    WARNING —          body: 
-  1711 heading L6388     WARNING none       body: **ZERO RESIDUE — THE AUDIT OF THE INSTRUMENT CLOSES AT NOTHING LEFT UNEXPLAINED.** *chord = rot
-  1712 heading L6392     WARNING none       body: **OPEN — TWELVE ROWS UNWITNESSED, AND WHAT WOULD WITNESS THEM.** *Z = 109–120: entrants 6d (109
-  1713 heading L6396     WARNING none       body: **THE THREE-BODY STRATIFICATION IS AN INDEX WITH E = 0 — FIVE ASYMPTOTIC CLASSES.** *The strati
-  1714 heading L6400     WARNING none       body: **E(𝔉) = 0 AND §25.6 TOGETHER GIVE ZERO PREDICTIONS — BRUDNO ON THE CHAOTIC STRATUM.** *E(Λ₃) =
-  1715 heading L6404     WARNING none       body: **THE THREE-BODY POTENTIAL CARRIES §12.11.2'S THREE EXCLUDED FORMS TERM BY TERM.** *The three-b
-  1716 heading L6408     WARNING none       body: **TRIANGLE FORM AT CAP 8 — 344 CELLS, 0 JOIN FAILURES, 8,385 MEET FAILURES.** *Triangle form at
-  1717 heading L6412     WARNING none       body: **THIRTEEN MASS ORDER-TYPES × SIX CHECKS — 78 OF 78.** *13 mass order-types × 6 checks = 78/78.
-  1718 heading L6416     WARNING none       body: **FIRST AUDIT FAILED 13/13 — THE SHAPE POTENTIAL WAS DIVIDED BY R ONCE TOO OFTEN.** *First audi
-  1719 heading L6420     WARNING none       body: **THE DEGREE-8 POLYNOMIAL WITHDRAWN — REPLACED BY THE NORM N.** *The degree-8 polynomial "U⁸ − 
-  1720 heading L6424     WARNING none       body: **N IS LAGRANGE'S RESOLVENT NORM (1770) — PRIOR ART.** *N₈ is the norm over (ℤ/2)³ — Lagrange's
-  1721 heading L6428     WARNING none       body: **EIGHT ATTRIBUTION QUESTIONS — SEVEN CLOSED TO NAMED OWNERS.** *Eight attribution questions fo
-  1722 heading L6432     WARNING none       body: **NEW PROTOCOL — UNIFORM FAILURE IS A FAULT IN THE INSTRUMENT.** **Uniform failure is a fault i
-  1723 heading L6436     WARNING none       body: **A FAULT OF MINE — A CONVENTION CARRIED INTO A VERIFIED FORMULA UNCHECKED.** *Carried a conven
-  1724 heading L6440     WARNING none       body: **OPEN QUESTION CLOSED — THE MAXIMAL FORBIDDEN CASE IS THE SOLVED CASE.** *Whether the three-bo
-  1736 heading L6464     WARNING none       body: **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN
-  1809 heading L6679     WARNING none       body: **FIFTY-NINE WAS A 172-ROW DATUM PRINTED BESIDE A 162-ROW COUNT; RE-TAKEN ON THE LIST IT SITS B
-  1810 heading L6683     WARNING none       body: **§R.7's TWO LEAD-INS SAID THE CHAPTERS REST ON THE BLOCKS; THEY NOW SAY WHAT IS TRUE AS PRINTE
-  `Register 344` / `344` sites in the six volumes: main [7244, 9936, 11656] reg [5020, 6410, 6581, 6897] mc [3278]
+  1711 heading L6390     WARNING none       body: **ZERO RESIDUE — THE AUDIT OF THE INSTRUMENT CLOSES AT NOTHING LEFT UNEXPLAINED.** *chord = rot
+  1712 heading L6394     WARNING none       body: **OPEN — TWELVE ROWS UNWITNESSED, AND WHAT WOULD WITNESS THEM.** *Z = 109–120: entrants 6d (109
+  1713 heading L6398     WARNING none       body: **THE THREE-BODY STRATIFICATION IS AN INDEX WITH E = 0 — FIVE ASYMPTOTIC CLASSES.** *The strati
+  1714 heading L6402     WARNING none       body: **E(𝔉) = 0 AND §25.6 TOGETHER GIVE ZERO PREDICTIONS — BRUDNO ON THE CHAOTIC STRATUM.** *E(Λ₃) =
+  1715 heading L6406     WARNING none       body: **THE THREE-BODY POTENTIAL CARRIES §12.11.2'S THREE EXCLUDED FORMS TERM BY TERM.** *The three-b
+  1716 heading L6410     WARNING none       body: **TRIANGLE FORM AT CAP 8 — 344 CELLS, 0 JOIN FAILURES, 8,385 MEET FAILURES.** *Triangle form at
+  1717 heading L6414     WARNING none       body: **THIRTEEN MASS ORDER-TYPES × SIX CHECKS — 78 OF 78.** *13 mass order-types × 6 checks = 78/78.
+  1718 heading L6418     WARNING none       body: **FIRST AUDIT FAILED 13/13 — THE SHAPE POTENTIAL WAS DIVIDED BY R ONCE TOO OFTEN.** *First audi
+  1719 heading L6422     WARNING none       body: **THE DEGREE-8 POLYNOMIAL WITHDRAWN — REPLACED BY THE NORM N.** *The degree-8 polynomial "U⁸ − 
+  1720 heading L6426     WARNING none       body: **N IS LAGRANGE'S RESOLVENT NORM (1770) — PRIOR ART.** *N₈ is the norm over (ℤ/2)³ — Lagrange's
+  1721 heading L6430     WARNING none       body: **EIGHT ATTRIBUTION QUESTIONS — SEVEN CLOSED TO NAMED OWNERS.** *Eight attribution questions fo
+  1722 heading L6434     WARNING none       body: **NEW PROTOCOL — UNIFORM FAILURE IS A FAULT IN THE INSTRUMENT.** **Uniform failure is a fault i
+  1723 heading L6438     WARNING none       body: **A FAULT OF MINE — A CONVENTION CARRIED INTO A VERIFIED FORMULA UNCHECKED.** *Carried a conven
+  1724 heading L6442     WARNING none       body: **OPEN QUESTION CLOSED — THE MAXIMAL FORBIDDEN CASE IS THE SOLVED CASE.** *Whether the three-bo
+  1736 heading L6466     WARNING none       body: **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN
+  1809 heading L6681     WARNING none       body: **FIFTY-NINE WAS A 172-ROW DATUM PRINTED BESIDE A 162-ROW COUNT; RE-TAKEN ON THE LIST IT SITS B
+  1810 heading L6685     WARNING none       body: **§R.7's TWO LEAD-INS SAID THE CHAPTERS REST ON THE BLOCKS; THEY NOW SAY WHAT IS TRUE AS PRINTE
+  `Register 344` / `344` sites in the six volumes: main [7244, 9936, 11656] reg [5022, 6412, 6583, 6899] mc [3278]
 
 == §3 computable figures: recomputed where the data is in the bundle; otherwise located at their source (a location is not a re-derivation)
   L11607 "739 of 1,089 joined pairs" with "33 objects": 33² = 1089 (ordered pairs incl. diagonal); C(33,2) = 528; 739/1089 = 67.9 %
   L11608 "904 conservative cells at 54.7%" and "675,606 of 2,735,716 cell pairs": Λ₉ = 1654 cells; 1654² = 2735716 (ORDERED pairs with diagonal — the printed denominator); C(1654,2) = 1367031; 904/1654 = 54.7 % (ROUND_HALF_UP, 1 dp)
-    739        main sites [1669, 2587, 2599, 3213, 3222, 4156, 4748, 11654]; Register entries [345, 393, 621, 739, 778, 1190, 1739]
+    739        main sites [1669, 2587, 2599, 3213, 3222, 4156, 4748, 11654]; Register entries [345, 393, 621, 739, 778, 1190, 1739, 1878]
     1,089      main sites [2587, 11654]; Register entries []
-    389        main sites [2612, 2891, 2914, 2920, 3236, 11655]; Register entries [350, 389, 770]
+    389        main sites [2612, 2891, 2914, 2920, 3236, 11655]; Register entries [350, 389, 770, 1878]
     904        main sites [1671, 2599, 2612, 3211, 11655]; Register entries [393, 765, 839, 892, 904]
     54.7       main sites [2599, 2606, 2612, 3211, 3228, 11655]; Register entries [393]
     675,606    main sites [2622, 11655]; Register entries []

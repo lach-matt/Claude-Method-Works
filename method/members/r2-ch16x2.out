@@ -95,7 +95,7 @@
 
   "has never been traced" (L9576) -- corroboration sweep on "isotopic" across six volumes:
     main  [9579]
-    reg   [5104, 5168, 5176, 5196, 5216, 5372]
+    reg   [5106, 5170, 5178, 5198, 5218, 5374]
     mc    []
     pc    [536]
     ioi   [1788, 1801, 1823]
@@ -126,7 +126,7 @@
 10  "the paper" / "companion paper" -- absorbed-companion reference class
 ================================================================================================
   main  [1164, 1341, 4521, 5192, 5973, 6029, 9006, 9611, 9756, 9928, 9936, 10532, 10762, 10787, 10795, 11413]
-  reg   [96, 104, 124, 176, 336, 456, 1300, 2044, 3208, 3548, 3816, 3836, 5785, 5817, 5849, 5853]
+  reg   [98, 106, 126, 178, 338, 458, 1302, 2046, 3210, 3550, 3818, 3838, 5787, 5819, 5851, 5855]
   mc    [3150, 3164, 3224]
   pc    []
   ioi   [90, 1498, 2000, 2019]
@@ -136,7 +136,7 @@
 ================================================================================================
 11  ELEMENT NAMES OF THE UNIT (docket 20, notation-tolerant) across six volumes
 ================================================================================================
-  lanthanum     main name 2 sym 1 | reg name 14 sym 21 | mc name 1 sym 2 | pc name 0 sym 3 | ioi name 0 sym 0 | sc name 0 sym 6
+  lanthanum     main name 2 sym 1 | reg name 15 sym 22 | mc name 1 sym 2 | pc name 0 sym 3 | ioi name 0 sym 0 | sc name 0 sym 6
   cerium        main name 1 sym 0 | reg name 7 sym 17 | mc name 0 sym 1 | pc name 0 sym 1 | ioi name 0 sym 0 | sc name 0 sym 4
   actinium      main name 1 sym 1 | reg name 8 sym 14 | mc name 0 sym 3 | pc name 0 sym 3 | ioi name 0 sym 0 | sc name 0 sym 2
   protactinium  main name 1 sym 0 | reg name 6 sym 11 | mc name 0 sym 1 | pc name 0 sym 1 | ioi name 0 sym 0 | sc name 0 sym 0

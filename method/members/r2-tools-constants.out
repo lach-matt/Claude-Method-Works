@@ -1,14 +1,14 @@
      976 |Λ8|     sites  184 {'main': 86, 'reg': 47, 'mc': 36, 'pc': 2, 'ioi': 13}
-   1,654 |Λ9|     sites   44 {'main': 24, 'reg': 8, 'mc': 9, 'ioi': 3}
+   1,654 |Λ9|     sites   45 {'main': 24, 'reg': 9, 'mc': 9, 'ioi': 3}
    2,535 |Λ10|    sites   17 {'main': 8, 'reg': 4, 'mc': 3, 'ioi': 2}
   13,585 |Λ11|    sites   13 {'main': 8, 'reg': 2, 'mc': 2, 'ioi': 1}
   70,905 |Λ12|    sites   20 {'main': 8, 'reg': 7, 'mc': 3, 'ioi': 2}
  199,130 |Λ13|    sites   32 {'main': 14, 'reg': 4, 'mc': 12, 'ioi': 2}
- 475,800 C(976,2) sites   22 {'main': 10, 'reg': 4, 'mc': 7, 'ioi': 1}
-VARIANT '975': 3 sites [('reg', 1736), ('reg', 3634), ('ioi', 1355)]
-VARIANT '977': 2 sites [('reg', 3642), ('reg', 3892)]
-VARIANT '1654 ': 5 sites [('reg', 5256), ('reg', 6208), ('reg', 6602), ('mc', 1820)]
-VARIANT '2535 ': 4 sites [('reg', 5256), ('reg', 6602), ('mc', 1820), ('ioi', 1434)]
-VARIANT '13585': 4 sites [('reg', 5256), ('reg', 6602), ('mc', 1820), ('ioi', 1434)]
-VARIANT '70905': 3 sites [('reg', 5256), ('mc', 1820), ('ioi', 1434)]
-VARIANT '199130': 3 sites [('reg', 5256), ('mc', 1820), ('ioi', 1434)]
+ 475,800 C(976,2) sites   23 {'main': 10, 'reg': 5, 'mc': 7, 'ioi': 1}
+VARIANT '975': 3 sites [('reg', 1738), ('reg', 3636), ('ioi', 1355)]
+VARIANT '977': 2 sites [('reg', 3644), ('reg', 3894)]
+VARIANT '1654 ': 5 sites [('reg', 5258), ('reg', 6210), ('reg', 6604), ('mc', 1820)]
+VARIANT '2535 ': 4 sites [('reg', 5258), ('reg', 6604), ('mc', 1820), ('ioi', 1434)]
+VARIANT '13585': 4 sites [('reg', 5258), ('reg', 6604), ('mc', 1820), ('ioi', 1434)]
+VARIANT '70905': 3 sites [('reg', 5258), ('mc', 1820), ('ioi', 1434)]
+VARIANT '199130': 3 sites [('reg', 5258), ('mc', 1820), ('ioi', 1434)]

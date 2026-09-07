@@ -138,7 +138,7 @@
   Register 255: **EVERY CELL OF Λ IS FULLY DEFINED AND THE GENERATING SET WAS NEVER PRINTED.** *All 976 carry all eight coordinates, χ decides every one of the 6,912 ambient points, and the seventeen generators are n
      WARNING in body: False
   Register 230 next lines: ["**APPENDIX D'S *KIND* COORDINATE DISAGREES WITH PART III'S TITLE — THE PART IS CALLED THE LAW AND ITS CONTENTS ARE THEOR", '### 232', "**THE LAW-PROMOTION OF 230, TESTED AND DECLINED.** *Both readings close at E = 0, so the book's own measure cannot decid"] — A.15's Remark cites 230 for "the ledger, which called C a join-closed sublattice"; 230's subject is Appendix D's kind coordinate (docket 9(b) candidate: target says nothing of the claim)
-  Register lines with "sublattice": [304, 308, 312, 316, 320, 392, 1644, 1648, 1676, 1756, 6805, 6889] entries [56, 57, 58, 59, 60, 78, 440, 441, 449, 471, 1840, 1861]
+  Register lines with "sublattice": [306, 310, 314, 318, 322, 394, 1646, 1650, 1678, 1758, 6807, 6891] entries [56, 57, 58, 59, 60, 78, 440, 441, 449, 471, 1840, 1861]
      56: **THE CLOSURE OF Λ IS EXPLAINED BY A STANDARD SUBLATTICE ARGUMENT.** *A subset of a product of chains closed under componentwise join and meet is a sublattice, 
      57: **Λ IS BUILT AS AN INTERSECTION OF SUBLATTICES, SO CLOSURE IS INHERITED NOT COINCIDENTAL.** *Starting from the box n ≤ 7, ℓ ≤ 4, k ≤ 18 (630 cells, trivially a 
      58: **PRIOR ART: BIRKHOFF'S LATTICE THEORY.** *That a subset of a product of chains closed under componentwise join and meet is a sublattice, and that finite inters
@@ -151,8 +151,8 @@
      471: **THE IDENTIFICATION E(X) = 0 = 2-decomposability IS ONE-DIRECTIONAL, AND THE WITNESS IS 840 CELLS.** *The parity rule |Δℓ| = 1 is* **exactly determined by its 
      1840: **"NOT A LATTICE" IS THE WRONG PHRASE FOR A COMPONENTWISE MEET FAILURE, AND THE CHAPTER PROVES IT ON ITS OWN NEXT PARAGRAPH.** *§12.11.2 prints* **"The exact co
      1861: **APPENDIX A.15's REMARK CITES REGISTER 230 FOR A LEDGER CORRECTION THAT 230 DOES NOT CARRY.** *A.15's Remark reads* **"This corrects the ledger, which called C
-  Register lines with "join-closed": [(6410, 1716), (6805, 1840), (6889, 1861)]
-  "the ledger" — where C is called a join-closed sublattice: main sites [10103] ; every volume: {'main': [10103], 'reg': [6889]} ; "the ledger" in the unit: [10103]
+  Register lines with "join-closed": [(6412, 1716), (6807, 1840), (6891, 1861)]
+  "the ledger" — where C is called a join-closed sublattice: main sites [10103] ; every volume: {'main': [10103], 'reg': [6891]} ; "the ledger" in the unit: [10103]
   Register 268 names A.19.0's content (closed size 17) — its entry number in the unit L[10185]; Register 255 names A.19 ("seventeen generators are now listed at A.19"); Register 208 names the 8 and max − x
-  Register lines naming A.15/A.18/A.19: [(1008, 255, '**EVERY CELL OF Λ IS FULLY DEFINED AND THE GENERATING SET WAS NEVER PRINTED.** *All 976 carry all ei'), (1016, 258, "**A SEVENTH LANGUAGE ADMITTED: BINARY.** *Λ is the 976 words in {0,1}¹⁷ that are down-sets of A.19's"), (6721, 1819, '**THE WITHDRAWN 2,475 STANDS AT FOUR SITES THE WITHDRAWAL DID NOT REACH, TWICE AS A FIGURE AND TWICE'), (6889, 1861, "**APPENDIX A.15's REMARK CITES REGISTER 230 FOR A LEDGER CORRECTION THAT 230 DOES NOT CARRY.** *A.15")]
+  Register lines naming A.15/A.18/A.19: [(1010, 255, '**EVERY CELL OF Λ IS FULLY DEFINED AND THE GENERATING SET WAS NEVER PRINTED.** *All 976 carry all ei'), (1018, 258, "**A SEVENTH LANGUAGE ADMITTED: BINARY.** *Λ is the 976 words in {0,1}¹⁷ that are down-sets of A.19's"), (6723, 1819, '**THE WITHDRAWN 2,475 STANDS AT FOUR SITES THE WITHDRAWAL DID NOT REACH, TWICE AS A FIGURE AND TWICE'), (6891, 1861, "**APPENDIX A.15's REMARK CITES REGISTER 230 FOR A LEDGER CORRECTION THAT 230 DOES NOT CARRY.** *A.15")]
   unit lines with register/Register: [10105, 10185, 10189, 10197] (G0i: lowercase "register 208" names; "Register 230/268/255" cite)

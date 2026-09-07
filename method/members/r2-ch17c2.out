@@ -15,7 +15,7 @@
   §2.14 heading L657: '### 2.14 Compute, then write'; body_range (657, 662); section_span (657, 662)
   number before the interpretation     in §2.14 body: 0 L[]; six-volume sites: main:3[7673,9934,9954] reg:0 mc:0 pc:0 ioi:0 sc:0
   \bState the number\b                 in §2.14 body: 0 L[]; six-volume sites: main:3[29,7673,9844] reg:0 mc:0 pc:0 ioi:0 sc:0
-  \binterpretation\b                   in §2.14 body: 0 L[]; six-volume sites: main:11[30,3485,3493,3629,6730,6744…] reg:5[372,404,5736,5845,6386] mc:2[1274,1393] pc:0 ioi:0 sc:0
+  \binterpretation\b                   in §2.14 body: 0 L[]; six-volume sites: main:11[30,3485,3493,3629,6730,6744…] reg:5[374,406,5738,5847,6388] mc:2[1274,1393] pc:0 ioi:0 sc:0
   the italic phrase at L9810–L9811 (join): '*State the number before the interpretation*'
 
 ================================================================================================
@@ -46,7 +46,7 @@
     L11194 what was derived what already had it
   count words in §E.5 body: ['Nine', 'four', 'nine']
   "already in print" / "in print" in §E.5 body: [11191]
-  six-volume sites of "nine things": main:3[68,4056,9861] reg:0 mc:0 pc:0 ioi:0 sc:0 ; of "§E\.5": main:6[70,1291,8507,9861,9956,11254] reg:2[6378,6430] mc:0 pc:0 ioi:0 sc:0
+  six-volume sites of "nine things": main:3[68,4056,9861] reg:0 mc:0 pc:0 ioi:0 sc:0 ; of "§E\.5": main:6[70,1291,8507,9861,9956,11254] reg:2[6380,6432] mc:0 pc:0 ioi:0 sc:0
 
 ================================================================================================
 3  "the twenty-two audits' principle" (L9824) — counted at §3's DATA (sub-headings, rows, list items); docket 33
@@ -57,8 +57,8 @@
   §3 "audit" token lines: 7; count words with "audits" in §3: ['ten', 'twenty-two']
   §3 DATA: ten-list rows 10 (L[1010, 1019]); twelve named 12 (CONSISTENCY REDUNDANCY ARTEFACT COHERENCE ATTRIBUTION ANTECEDENT MARKUP ENUMERATION FIDELITY MEASURE SEQUENCE CENSUS); 10 + 12 = 22 (Decimal); audits described in the body 7 (docket 33 / 15i-08: seven of twenty-two) at L[1040, 1045, 1049, 1053, 1058, 1063, 1069]
   L79 (front matter) says "world outside the book"; L9824 says "world outside the work": True / True
-  six-volume sites of "twenty-two audits": main:5[79,1004,1143,1402,9858] reg:1[4600] mc:0 pc:0 ioi:1[271] sc:0 ; of "twenty-two": main:19[79,116,526,732,751,1003…] reg:26[1264,1416,1976,2088,2224,2380…] mc:0 pc:0 ioi:1[271] sc:0
-    reg L4600 **AND 22 CENSUS CAUGHT THE CHANGE THAT ADDED THE THREE AUDITS.** *Promoting GRAPH, CYCLE and NOMENCLATURE to prime status meant the book said twenty-f
+  six-volume sites of "twenty-two audits": main:5[79,1004,1143,1402,9858] reg:1[4602] mc:0 pc:0 ioi:1[271] sc:0 ; of "twenty-two": main:19[79,116,526,732,751,1003…] reg:26[1266,1418,1978,2090,2226,2382…] mc:0 pc:0 ioi:1[271] sc:0
+    reg L4602 **AND 22 CENSUS CAUGHT THE CHANGE THAT ADDED THE THREE AUDITS.** *Promoting GRAPH, CYCLE and NOMENCLATURE to prime status meant the book said twenty-f
   "The audit reads the object, the source, the artefact and the world outside the work" — a four-object list: 4
   six-volume sites of "world outside the work": main:1[9858] reg:0 mc:0 pc:0 ioi:0 sc:0
 
@@ -83,7 +83,7 @@
   "three numerical discrepancies … All three" — items enumerated at L9831–L9834: 3 (force-versus-gradient, operator asymmetry, two-branch f physics)
   "A nothing was defined … twice" / "Two entries … reclassified": items at L9839–L9846: 2
   "exactly quartic … five evaluations determine every coefficient" (L9844–L9846): degree 4 ⇒ 5 coefficients; 5 exact evaluations recover them: True (Vandermonde, Fractions, no truncation)
-  "Four of this book's results exist because a conclusion was refused; … the fifth" (L9855–L9856): six-volume sites of refus*: main:44[4,50,51,618,1654,1657…] reg:63[45,1256,1504,1512,1704,1792…] mc:8[92,112,404,1374,1842,2643…] pc:1[391] ioi:5[281,360,361,1564,1912] sc:1[994]
+  "Four of this book's results exist because a conclusion was refused; … the fifth" (L9855–L9856): six-volume sites of refus*: main:44[4,50,51,618,1654,1657…] reg:63[45,1258,1506,1514,1706,1794…] mc:8[92,112,404,1374,1842,2643…] pc:1[391] ioi:5[281,360,361,1564,1912] sc:1[994]
     main L4 |∏ᵢ Aᵢ| = |X| + E(X) + refused ··· 6,912 = 976 + 0 + 5,936
     main L50 **Four of this book's results exist because a conclusion was refused and reasoning resumed from the
     main L51 refusal.** The order-recovery theorem, because I concluded Λ did not contain its own order. The ⅅ_def
@@ -96,9 +96,9 @@
     main L3753 is worth stating here because the asymmetry is ℛ's own, one level up.** ℛ carries meets and refuses
     main L4464 **Worked case.** A species was misidentified — Na II read as neutral neon, and the wrong ionisation limit applied. Every
     main L4480 Index (step, visible, alternatives, committed) under **visible ≤ committed** — that nothing of an answer may be visible 
-  Register sites naming a count with refus*: [(45, "| **1581** | 9× | Six candidate axes tested: five are determined, Z is refused at 2.1%, and H1's re-coordinati"), (1512, '**THE REFERENCE INDEX REFUSED FOUR CELLS THE BOOK OCCUPIES** *— the four blocked pre-digital sources — and the'), (1864, '**EIGHTEEN POINTS GIVE AN EXPRESSION, AND IT IS ADDITIVE.** *Sweeping parent count against alphabet on one bas'), (1984, '**EXTENDED TO EVERY ELEMENT: 18,288 TESTS, ZERO FAILURES.** *Register 487 reported 3,964 tests across 57 eleme'), (1988, '**Λ DOES NOT INDEX ATOMIC NUMBER, MASS OR IONISATION ENERGY — THE METHOD DOES, AND REGISTER 529 SAID OTHERWISE'), (2396, '**AND ITS FIFTH SECTION IS THE ONE THAT MATTERS.** **Sound** *is indexable and would index a material rather t')]
+  Register sites naming a count with refus*: [(45, "| **1581** | 9× | Six candidate axes tested: five are determined, Z is refused at 2.1%, and H1's re-coordinati"), (1514, '**THE REFERENCE INDEX REFUSED FOUR CELLS THE BOOK OCCUPIES** *— the four blocked pre-digital sources — and the'), (1866, '**EIGHTEEN POINTS GIVE AN EXPRESSION, AND IT IS ADDITIVE.** *Sweeping parent count against alphabet on one bas'), (1986, '**EXTENDED TO EVERY ELEMENT: 18,288 TESTS, ZERO FAILURES.** *Register 487 reported 3,964 tests across 57 eleme'), (1990, '**Λ DOES NOT INDEX ATOMIC NUMBER, MASS OR IONISATION ENERGY — THE METHOD DOES, AND REGISTER 529 SAID OTHERWISE'), (2398, '**AND ITS FIFTH SECTION IS THE ONE THAT MATTERS.** **Sound** *is indexable and would index a material rather t')]
   the four at L50–L55 (front matter): 4 items — order-recovery theorem | ⅅ_def and ⅅ_phys split | perturbation bounds of §12 | reframing of §25.6
-  "reasoning sound, destination wrong" (L9851) in its printed order at L54: True; six-volume sites of "destination wrong": main:2[54,9885] reg:0 mc:0 pc:0 ioi:0 sc:0; "collaborator" sites: main:10[17,18,42,90,108,7474…] reg:5[976,1232,5600,5745,5865] mc:0 pc:0 ioi:0 sc:0
+  "reasoning sound, destination wrong" (L9851) in its printed order at L54: True; six-volume sites of "destination wrong": main:2[54,9885] reg:0 mc:0 pc:0 ioi:0 sc:0; "collaborator" sites: main:10[17,18,42,90,108,7474…] reg:5[978,1234,5602,5747,5867] mc:0 pc:0 ioi:0 sc:0
   contents L108: 'Nothing is something definable — a note from the collaborator'
   "this book paid for that sentence twice" (L9819): six-volume sites of "wrong artefact": main:3[75,81,1257] reg:0 mc:0 pc:0 ioi:0 sc:0
     L75 'And twice an audit passed something it should have caught, because it read the wrong artefact:'
@@ -115,11 +115,11 @@
     | **the relativistic table** | the c → ∞ twin walk, eleven elements apart |
     | **twelve unwitnessed rows** | the same walk past the last measurement |
     | **zero unexplained residue** | Pulay 1969 · Löwdin 1950 · exact quartics |
-  "107/107" (row 1) — entries whose BODY carries "107 of 107|107/107": [1701, 1706]; six-volume sites of "107/107": main:1[9896] reg:2[6354,6374] mc:2[3162,3216] pc:1[237] ioi:0 sc:0; of "107 of 107": main:1[9780] reg:0 mc:1[3154] pc:1[213] ioi:1[1915] sc:1[190]
-  "one constant" (row 1) — entries whose body carries 137.035999: [1701]; c = 137.035999 sites: main:1[9771] reg:1[6354] mc:2[3154,3216] pc:2[209,630] ioi:0 sc:0
+  "107/107" (row 1) — entries whose BODY carries "107 of 107|107/107": [1701, 1706]; six-volume sites of "107/107": main:1[9896] reg:2[6356,6376] mc:2[3162,3216] pc:1[237] ioi:0 sc:0; of "107 of 107": main:1[9780] reg:0 mc:1[3154] pc:1[213] ioi:1[1915] sc:1[190]
+  "one constant" (row 1) — entries whose body carries 137.035999: [1701]; c = 137.035999 sites: main:1[9771] reg:1[6356] mc:2[3154,3216] pc:2[209,630] ioi:0 sc:0
   "the three exceptions" (row 2) — 1703 body names: La, Ac, Th → 3; "collapse" in 1703: True
   "no g block below 121" (row 3) — 1704 body: 'NO G BLOCK BELOW Z = 121, AND THE FIELD SAYS SO WITHOUT BEING ASKED. Measured across the walk: 5g at −0.020000 over 65 elements · 6g at −0.013889 over 70 · 7g at −0.010204 over 57 · 8g at −0.0078125 o'
-    1704 carries "121": True; "−1/(2n²)" / "1/(2n" in 1704: True; six-volume sites of "below 121|below Z = 121": main:0 reg:2[51,6797] mc:0 pc:0 ioi:0 sc:0
+    1704 carries "121": True; "−1/(2n²)" / "1/(2n" in 1704: True; six-volume sites of "below 121|below Z = 121": main:0 reg:2[52,6799] mc:0 pc:0 ioi:0 sc:0
   "the correlation clause … second order, complete, at the five close rows" (row 4) — 1705 body: 'THE CORRELATION CLAUSE, COMPLETE AT ALL FIVE CONTESTED ROWS — EVERY COMPETITION WIDENS. Z = 38, 56, 72, 89, 105; full second order (entrant pairs, core–core closed at all five, near-degenerate block resummed with the con'
     1705 "second order" True; Z values listed: ['38', '56', '72', '89', '105'] (count 5); "five" in 1705: True
   "the relativistic table … c → ∞ twin walk, eleven elements apart" (row 5) — 1706 body: 'ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL. The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese an'
@@ -127,9 +127,9 @@
   "twelve unwitnessed rows … past the last measurement" (row 6) — 1712 body: 'OPEN — TWELVE ROWS UNWITNESSED, AND WHAT WOULD WITNESS THEM. Z = 109–120: entrants 6d (109–112), 7p (113–118), 8s (119–120); margins 0.058–0.264 Ha; spin-orbit worst case 0.083 Ha cleared by all. No g'
     convention A (1712: rows 109–120 past Z = 108): 12 rows; convention B (1446: the observational edge is 102; rows past it to 120): 18 rows — 17a-02's class, second site
     1446 headline: 'AND THE OBSERVATIONAL EDGE IS 102, NOT 108 — THERE ARE FOUR EDGES, NOT TWO. NIST ASD returns five rows for Rf–Og: it holds no neutral ground configurations past Z = 108, and `ground.py` matches all five exactly, so our table is fa'
-  "zero unexplained residue" (row 7) — entries whose body carries "residue": [1707, 1711]; six-volume sites of "unexplained residue": main:1[9902] reg:1[6290] mc:1[3206] pc:0 ioi:0 sc:0
-    "Pulay" in 1707–1712 bodies: [1707]; "quartic" in 1701–1712: [1709, 1711]; six-volume sites of "quartic": main:2[9878,10841] reg:2[6386,6390] mc:3[2034,3196,3198] pc:0 ioi:0 sc:0
-  "No parameter is fitted. No observation enters upstream of the score." (L9870) — the derivation's own claim (DEF-128 item 8): six-volume sites of "No parameter is fitted": main:3[9602,9693,9904] reg:2[5080,6789] mc:0 pc:0 ioi:0 sc:0; "upstream of the score": main:1[9904] reg:1[6789] mc:0 pc:0 ioi:0 sc:0
+  "zero unexplained residue" (row 7) — entries whose body carries "residue": [1707, 1711]; six-volume sites of "unexplained residue": main:1[9902] reg:1[6292] mc:1[3206] pc:0 ioi:0 sc:0
+    "Pulay" in 1707–1712 bodies: [1707]; "quartic" in 1701–1712: [1709, 1711]; six-volume sites of "quartic": main:2[9878,10841] reg:2[6388,6392] mc:3[2034,3196,3198] pc:0 ioi:0 sc:0
+  "No parameter is fitted. No observation enters upstream of the score." (L9870) — the derivation's own claim (DEF-128 item 8): six-volume sites of "No parameter is fitted": main:3[9602,9693,9904] reg:2[5082,6791] mc:0 pc:0 ioi:0 sc:0; "upstream of the score": main:1[9904] reg:1[6791] mc:0 pc:0 ioi:0 sc:0
 
 ================================================================================================
 7  CODA L9884–L9888 — "Chapter 34 read the order out of the table's own coordinates"; the corridor's silence at f; the collapse condition's address
@@ -153,23 +153,23 @@
 ================================================================================================
 9  NUMERALS AND PHRASES — sites across the six volumes
 ================================================================================================
-  \b107/107\b                  main:1[9896] reg:2[6354,6374] mc:2[3162,3216] pc:1[237] ioi:0 sc:0
-  \b1969\b                     main:11[9495,9502,9606,9756,9866,9868…] reg:7[4576,4580,4680,6362,6378,6506…] mc:12[2858,2862,3066,3070,3106,3174…] pc:2[484,594] ioi:1[1508] sc:0
-  \b1950\b                     main:7[9348,9867,9902,11208,11598,11708…] reg:3[4584,6382,6749] mc:21[644,648,696,698,1228,1230…] pc:1[912] ioi:1[1500] sc:0
-  \b1971\b                     main:4[9868,9940,11859,11875] reg:2[5500,6362] mc:17[1228,1230,1238,1240,2148,2150…] pc:0 ioi:1[1534] sc:0
-  \btwenty-two\b               main:19[79,116,526,732,751,1003…] reg:26[1264,1416,1976,2088,2224,2380…] mc:0 pc:0 ioi:1[271] sc:0
+  \b107/107\b                  main:1[9896] reg:2[6356,6376] mc:2[3162,3216] pc:1[237] ioi:0 sc:0
+  \b1969\b                     main:11[9495,9502,9606,9756,9866,9868…] reg:7[4578,4582,4682,6364,6380,6508…] mc:12[2858,2862,3066,3070,3106,3174…] pc:2[484,594] ioi:1[1508] sc:0
+  \b1950\b                     main:7[9348,9867,9902,11208,11598,11708…] reg:3[4586,6384,6751] mc:21[644,648,696,698,1228,1230…] pc:1[912] ioi:1[1500] sc:0
+  \b1971\b                     main:4[9868,9940,11859,11875] reg:2[5502,6364] mc:17[1228,1230,1238,1240,2148,2150…] pc:0 ioi:1[1534] sc:0
+  \btwenty-two\b               main:19[79,116,526,732,751,1003…] reg:26[1266,1418,1978,2090,2226,2382…] mc:0 pc:0 ioi:1[271] sc:0
   \bnine things\b              main:3[68,4056,9861] reg:0 mc:0 pc:0 ioi:0 sc:0
-  \bfive evaluations\b         main:1[9879] reg:1[6386] mc:1[3198] pc:0 ioi:0 sc:0
-  \bexactly quartic\b          main:1[9878] reg:1[6386] mc:1[3198] pc:0 ioi:0 sc:0
-  \bfourth\b|\bthe fifth\b     main:38[794,802,815,820,827,828…] reg:62[96,420,768,984,1064,1356…] mc:2[1214,1334] pc:1[719] ioi:2[1824,1828] sc:0
-  \bnineteen years\b           main:1[9910] reg:1[6382] mc:0 pc:0 ioi:0 sc:0
+  \bfive evaluations\b         main:1[9879] reg:1[6388] mc:1[3198] pc:0 ioi:0 sc:0
+  \bexactly quartic\b          main:1[9878] reg:1[6388] mc:1[3198] pc:0 ioi:0 sc:0
+  \bfourth\b|\bthe fifth\b     main:38[794,802,815,820,827,828…] reg:62[98,422,770,986,1066,1358…] mc:2[1214,1334] pc:1[719] ioi:2[1824,1828] sc:0
+  \bnineteen years\b           main:1[9910] reg:1[6384] mc:0 pc:0 ioi:0 sc:0
   \bcryptographic\b            main:1[9844] reg:0 mc:0 pc:0 ioi:0 sc:0
-  \bprediction file\b          main:0 reg:2[5889,5897] mc:0 pc:0 ioi:0 sc:0
-  \bhash\b                     main:2[9847,10234] reg:2[6358,6522] mc:0 pc:0 ioi:0 sc:2[994,1096]
-  \bsealed copy\b              main:1[9856] reg:1[6358] mc:0 pc:0 ioi:0 sc:0
+  \bprediction file\b          main:0 reg:2[5891,5899] mc:0 pc:0 ioi:0 sc:0
+  \bhash\b                     main:2[9847,10234] reg:2[6360,6524] mc:0 pc:0 ioi:0 sc:2[994,1096]
+  \bsealed copy\b              main:1[9856] reg:1[6360] mc:0 pc:0 ioi:0 sc:0
   \bnightly\b                  main:1[9859] reg:0 mc:0 pc:0 ioi:0 sc:0
   \bfault ledger\b             main:1[9880] reg:0 mc:0 pc:1[338] ioi:0 sc:0
-  \bg block\b                  main:4[9797,9874,9898,10839] reg:5[51,5352,6366,6793,6797] mc:1[3178] pc:1[219] ioi:0 sc:0
-  \bunwitnessed\b              main:8[9814,9901,10380,10776,10780,10888…] reg:18[5933,5937,5949,5953,6001,6102…] mc:1[800] pc:2[200,214] ioi:6[318,322,1906,1910,1966,1971] sc:10[40,44,93,131,132,191…]
+  \bg block\b                  main:4[9797,9874,9898,10839] reg:5[52,5354,6368,6795,6799] mc:1[3178] pc:1[219] ioi:0 sc:0
+  \bunwitnessed\b              main:8[9814,9901,10380,10776,10780,10888…] reg:18[5935,5939,5951,5955,6003,6104…] mc:1[800] pc:2[200,214] ioi:6[318,322,1906,1910,1966,1971] sc:10[40,44,93,131,132,191…]
 
 END r2-ch17c
