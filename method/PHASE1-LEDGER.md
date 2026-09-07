@@ -181,7 +181,7 @@ The defect is not that 4ν/3 is wrong — it is the equals sign. Which sites tak
 
 ## Phase 0 ruling 3's evidence — why the nine sections are empty
 
-M, 7 September 2026: *"why are they empty?"* — `emptysections.py`, selftest 9 of 9.
+M, 7 September 2026: *"why are they empty?"* — `emptysections.py`, selftest 20 of 20.
 
 **They were never written.** Measured against `PP_The_Method_1_6.md`, md5 `49900cf41f818ab789bb90fc596ac977`
 — the Prints & Proofs original-input witness under Ruling 56 — **all nine are empty there too**, and empty in
@@ -238,13 +238,17 @@ which repairs their numbering"*. **It is zero.** The move happened; the four wer
 
 **Two attributions have no home in the main volume, and that is the exception that has to be said.**
 *"anti-exchange"* and *"NP-hard"* occur **nowhere** in it, and both are cited to §14.5.7 from the
-Mathematical Compendium. The NP-hardness is seated at register 2071.
+Mathematical Compendium. **Neither is lost, and an earlier draft of this ledger said otherwise from a
+number that does not exist**: it read *"seated at register 2071"*, and 2071 is a **line** of the Register,
+not an entry of it — the highest entry is **1848** and 2071 is seated nowhere. Measured: the Register seats
+the NP-hardness at **551**, corrected by **565**, which closes Q item G on the wrong problem while leaving
+the seed result standing; anti-exchange is at **483**, **643** and **1835**.
 
 **So Phase 0 ruling 3 is not the item only M can do.** Fifty-one citations name a heading with nothing
 under it while the material they want sits in the book under other numbers — which is Phase 3's pointer
 class, and the plan already names it exactly: *"targets that say nothing of the claim"*. **Chat 95B
 measured the emptiness correctly and drew the wrong conclusion, because it asked where the TEXT was and
-not where the MATERIAL was.** `emptysections.py`, selftest 17 of 17.
+not where the MATERIAL was.** `emptysections.py`, selftest 20 of 20.
 
 ### D-23 · §24.13's end rule against its own table — `endrule.py`, selftest 11 of 11
 

@@ -88,7 +88,7 @@
 ================================================================================================
 7  DEFECT-CENSUS ROWS IN RANGE -- classes main AND all, keyed on the column named member
 ================================================================================================
-  census rows 1619; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+  census rows 1621; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows in L9313-L9398: 0
 
 ================================================================================================
@@ -156,12 +156,12 @@
 13  4ν/3 SITE COUNT RE-MEASURED, EMPHASIS-NORMALISED, ALL SIX VOLUMES (docket 11 carries 24)
 ================================================================================================
    main   22 [1979, 4354, 4371, 6188, 6237, 6242, 6386, 6502, 7313, 7516, 7954, 7958, 8090, 8582]
-   reg     0 []
+   reg     1 [6824]
    mc      1 [1898]
    pc      0 []
    ioi     0 []
    sc      1 [997]
-   TOTAL 24   (docket 11 carries 24 -- state which population before scoring)
+   TOTAL 25   (docket 11 carries 24 -- state which population before scoring)
 
 ================================================================================================
 14  THE PRINCIPLES LIST READ AT ITS TARGET, AND THE TWO PP-ABSENT WITNESSES

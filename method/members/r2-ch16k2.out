@@ -67,15 +67,15 @@
   12.11.2 body_range (3368, 3399)  section_span (3368, 3399)  (coincide)
     L3374 half filling, 25 at f⁷, zero at closure, for the core's J. One reflection, three appearances.
 === J. withdrawals in the Register against "three hundred and sixty-eight" ===
-  register entry headings 1676 ; entries whose body contains a withdrawal word 63
+  register entry headings 1683 ; entries whose body contains a withdrawal word 63
   occurrences of the stem anywhere in the Register: 98
   368 sites, six volumes: {'reg': [1369, 1371, 2419, 6321], 'mc': [1520], 'ioi': [748]}
   37 sites in main: [2283, 3232, 6242, 6855, 10216, 10218, 11622, 11624, 11714]
   printed: 368 withdrawals, ~37 from a single late session
 === K. numeral SITES for the unit's figures, six volumes ===
-  1,021    1 sites  {'main': [8822]}
-  400     14 sites  {'main': [3705, 5113, 5156, 6919, 7024, 8822], 'reg': [1493, 3479, 5916], 'ioi': [780]}
-  1,681    1 sites  {'main': [8825]}
+  1,021    2 sites  {'main': [8822], 'reg': [6812]}
+  400     15 sites  {'main': [3705, 5113, 5156, 6919, 7024, 8822], 'reg': [1493, 3479, 5916, 6812], 'ioi': [780]}
+  1,681    2 sites  {'main': [8825], 'reg': [6812]}
   861      3 sites  {'main': [8826], 'reg': [3181], 'ioi': [1241]}
   354      8 sites  {'main': [2706, 2714, 8820], 'reg': [16, 1345, 2783, 6580], 'ioi': [734]}
   138      8 sites  {'main': [8820, 8825, 8847], 'reg': [629, 2203, 5123, 6497], 'ioi': [518]}

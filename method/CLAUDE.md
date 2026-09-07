@@ -70,22 +70,34 @@ no longer on the read path.
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD115 main** (2,067,798 B ·
-  `1fab5b05f6c9c09f075013eefac4de1f` · 18,716 lines · 2 members) and **BUILD244 compendia** (16,116,252 B ·
-  `434ae075308f667f3ef030d64ac4e6ae` · 139,116 lines · 736 members). **738 members in all.** **The Register runs
-  1 to 1841, 1,683 seated** (1,676 numbered + 7 grouped). **W-249 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD116 main** (2,077,626 B ·
+  `dc67f10fee116d39f8fe2336f8b1a6af` · 18,744 lines · 2 members) and **BUILD246 compendia** (16,131,870 B ·
+  `5f2137c4e675c921a5897f50aee70c24` · 139,146 lines · 736 members). **738 members in all.** **The Register runs
+  1 to 1848, 1,690 seated** (1,683 numbered + 7 grouped). **W-251 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
   was thrown away and rebuilt, and the figures came from the discarded run's report. The seated BUILD238 was
   15,193,022 B / `4ff7ccaa…`, and W-245's close supersedes it. **The stale figure was caught by the next close
   asserting its predecessor's md5** — which is what the reverse guard is for.
-- **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 6 September: `python3 method/verify.py`
+- **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 7 September: `python3 method/verify.py`
   VERIFY OK (738 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
-  `gate.py manifest --main ../The_Method_1_6_BUILD115_main_and_register.md` **OK**, 737 listed / 739 extracted;
-  `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,619 rows, 3 carried retired, 1,616
-  regenerated exactly, 0 NEW, 0 GONE, md5 `7e04e6f8135799a587f9890a10e018c5` equal to the seated member);
-  `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL**.
+  `gate.py manifest --main ../The_Method_1_6_BUILD116_main_and_register.md` **OK**, 737 listed / 739 extracted;
+  `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,621 rows, 3 carried retired, 1,618
+  regenerated exactly, 0 NEW, 0 GONE, md5 `31c462f3d47f9e02e289598c28604ae1` equal to the seated member);
+  `tools/gate_live.py` over the 86 live goldens at BUILD116/BUILD245 **49 OK, 37 FAIL**, and the 37 are exactly
+  the set the diff census had already traced to registers 1842-1848; all 37 were then re-banked at BUILD246 by
+  RUNNING their instruments, under `close_rebank.py`'s guards — change set proved to be
+  `{MANIFEST.tsv, WORKING-REGISTER.md, the 37 goldens}` and nothing else, reverse guard recovering BUILD245's
+  own md5 (W-251). **The confirming full walk at BUILD246 is not pinned here until it has been run**, which is
+  the rule this section exists to keep.
+- **RUN THE GATE WITH `method/bin` ON PATH, and this is not advice.** `gate.py` runs every instrument as
+  **`python3 NAME.py`, hard-coded**, and ten seated members do not parse before 3.12. Without the shim four
+  goldens — `archive-split`, `r2-ch16n3`, `r2-ch16u4`, `r2-tools-constants` — differ from their banked output
+  **by a `SyntaxError` traceback and are reported FAIL**, which is how a gate run at BUILD116 read 41 failures
+  where the true count is 37. `close_rebank.py` regenerates by RUNNING, so a re-bank of those four **would have
+  banked the tracebacks as the goldens**, and `verify.py` and the census would both have passed afterwards. The
+  diff census W-200 requires before any re-bank is what caught it.
 - **THE OLD "56 READINGS" ARE EIGHT HELD INSTRUMENTS, EACH WITH A STATED REASON**, and the sentence this section
   used to carry — *"KNOWN RED, and it is now 56, not three"* — is closed. Held: `r2-26b` (UNRUNNABLE, successor
   `r2-26b2` owed), `r2-ch18b` · `r2-ch23a` · `r2-ch23b` · `r2-ch28a` (readings, not re-banks, DEF-153B),

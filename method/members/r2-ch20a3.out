@@ -71,7 +71,7 @@
   flagged-by-threshold rows NOT among the printed five: 0 [] — "Every flag in this collection has an identified cause; none is unexplained": the printed table names causes for 5; the population is 4
   the `fits` column values: {'1': 146, '2': 213, '3': 146, '4': 42, '5': 27, '9': 4, '15': 4, '16': 4, '6': 6, '11': 4} — rows with fits==1: 146, species 18; B.1's sources species among them: ['Al I', 'Ar I', 'Be I', 'Bi I', 'C I', 'Ca I', 'Cd I', 'F I', 'Ga I', 'He I', 'K I', 'Li I', 'Mg I', 'N I', 'Na I', 'Ne I', 'Si I', 'Zn I']
   Li I np row(s): [609, 612, 613] — "39 cells to n = 42": interior ['39', '1', '1'], n-range ['2–42', '2–4', '2–4']
-  σ(δ) column = "δ spread" of B.3 (the column heads at S299); 4ν/3 across the six volumes (docket 11): {'main': 22, 'reg': 0, 'mc': 1, 'pc': 0, 'ioi': 0, 'sc': 1}
+  σ(δ) column = "δ spread" of B.3 (the column heads at S299); 4ν/3 across the six volumes (docket 11): {'main': 22, 'reg': 1, 'mc': 1, 'pc': 0, 'ioi': 0, 'sc': 1}
 
 ================================================================================================
 §5 B.1 SOURCES — the species the appendix lists, and whether each has rows in the Part II table; B.1 against SC Part IV B.1 line by line

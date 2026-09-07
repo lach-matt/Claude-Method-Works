@@ -1,5 +1,5 @@
 r2-27a3.py — 27a-02 under ruling (a): the Register pointers of Appendix G rows 8.2, 8.4, 10.4c re-taken under CONVENTION DEP
-members: The_Method_1_6-2.md f00f24ff | The_Method_1_6___The_Register-2.md d71b78d3 | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md 9426a6b6
+members: The_Method_1_6-2.md 75db2c30 | The_Method_1_6___The_Register-2.md 6fde1682 | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md 9426a6b6
 
 == §1 THE ROWS, located by scan — pointers are read OUT of the rows, never carried in
    Appendix G body L11408–L11453 (46 lines)
@@ -28,14 +28,14 @@ members: The_Method_1_6-2.md f00f24ff | The_Method_1_6___The_Register-2.md d71b7
    main volume has no §10.4c and no §10.4e                            []                           OK
 
 == §3 THE REGISTER, indexed; the DEP-N sweep — every entry naming one of the four locators, over all entries
-   entries indexed: 1676 (1 to 1841)
+   entries indexed: 1683 (1 to 1848)
    entries that RECORD this reading name every locator and rest on nothing; excluded from the sweep: [1812]
    the excluded entries are the record of the re-take and no other    [1812]                       OK
    §8.2    T-locator (DEP-N): [543, 584, 585, 588, 592]    bare §-locator (candidate): []
    §8.4    T-locator (DEP-N): [543]                        bare §-locator (candidate): [544]
    §10.4c  T-locator (DEP-N): [549, 550]                   bare §-locator (candidate): []
    §10.4e  T-locator (DEP-N): []                           bare §-locator (candidate): []
-   entries naming the paper or the appendix without a section locator: [1769, 1770, 1778, 1818]
+   entries naming the paper or the appendix without a section locator: [1769, 1770, 1778, 1818, 1842]
    T-locator hits, §8.2                                               [543, 584, 585, 588, 592]    OK
    T-locator hits, §8.4                                               [543]                        OK
    T-locator hits, §10.4c                                             [549, 550]                   OK
@@ -47,6 +47,7 @@ members: The_Method_1_6-2.md f00f24ff | The_Method_1_6___The_Register-2.md d71b7
    1770  **T IS ABSORBED: ITS THIRTY CITED SECTIONS ENTER AS APPENDIX G AND THIRTY-FOUR CITATIONS RE-SOURCE I
    1778  **THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK 
    1818  **THE CLOSURE RULE IS PRINTED ONE-SIDED AT FOUR SITES REGISTER 402 CORRECTS, AND EACH NOW POINTS AT 
+   1842  **§32.1.1'S SELF-INDEX NAMES AN EXTENT THE BOOK HAS OUTGROWN, AND THE INSTRUMENT THAT COMPUTED IT CA
    Those name the source and no section: 1769 counts its citations, 1770 absorbs the paper as Appendix G,
    1778 enters its full table in the Index of Indices. None rests on 8.2, 8.4, 10.4c or 10.4e.
 
