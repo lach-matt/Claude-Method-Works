@@ -802,14 +802,14 @@ channel is a net gain whenever
 
 $f \;<\; \dfrac{w\,Y_{fus}}{Y}, \qquad Y_{fus} \;=\; Y_{\pi}\,\eta\,N$
 
-and the left-hand side is what §4.1's pion yield, §5.3's collection and the measured cycle count
-already fix: **[[C903]]** with both collector alterations, [[C902]] with the machine as built.
+and the numerator on the right is what §4.1's pion yield, §5.3's collection and the measured cycle
+count already fix: **[[C903]]** with both collector alterations, [[C902]] with the machine as built.
 
 | what a spallation-optimised target returns | transparency may cost up to |
 |---|---|
-| 100 neutrons per proton | [[C904]] |
-| 150 neutrons per proton | [[C905]] |
-| 250 neutrons per proton | [[C906]] |
+| [[C908!]] | [[C904]] |
+| [[C909!]] | [[C905]] |
+| [[C910!]] | [[C906]] |
 
 > **Read that as a requirement on the target, because that is what it is.** The muon channel adds
 > neutrons unless making the target transparent to pions costs more than the figure beside the yield
@@ -818,8 +818,8 @@ already fix: **[[C903]]** with both collector alterations, [[C902]] with the mac
 
 **The estimate is conservative in three places, and each runs the same way.** It counts a [[C58]]
 neutron as worth exactly one spallation neutron, where in a fast blanket it is worth more, because
-14.1 MeV drives fast fission in fertile material and (n,2n) that a spallation spectrum reaches less
-of. It does not count the alpha, which the muon route returns as heat directly. And it treats the
+that energy drives fast fission in fertile material, and (n,2n), that a spallation spectrum reaches
+less of. It does not count the alpha, which the muon route returns as heat directly. And it treats the
 transparency penalty as a straightforward loss, which in a **blanket-coupled** system it is not: a
 neutron or a secondary that escapes a narrow target is not lost, it enters the blanket. A narrow
 target costs a *neutron source* its yield because the neutrons must reach moderators; it costs a

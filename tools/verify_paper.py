@@ -2909,6 +2909,18 @@ def bal_c880():
 def bal_c881():
     return _mach.balance("bred", _mach.service_life(8.5), 2.6, 400.0, target=True)
 
+def sp_scan_lo():
+    return 100.0
+
+
+def sp_scan_mid():
+    return 150.0
+
+
+def sp_scan_hi():
+    return 250.0
+
+
 def beam_gev():
     return _ps().BEAM_GEV
 

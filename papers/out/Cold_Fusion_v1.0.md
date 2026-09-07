@@ -491,17 +491,17 @@ Set the two side by side. A spallation-optimised target returns `Y` neutrons per
 
 $$f \;<\; \dfrac{w\,Y_{fus}}{Y}, \qquad Y_{fus} \;=\; Y_{\pi}\,\eta\,N$$
 
-and the left-hand side is what §4.1's pion yield, §5.3's collection and the measured cycle count already fix: **52.41 per proton** with both collector alterations, 34.14 per proton with the machine as built.
+and the numerator on the right is what §4.1's pion yield, §5.3's collection and the measured cycle count already fix: **52.41 per proton** with both collector alterations, 34.14 per proton with the machine as built.
 
 | what a spallation-optimised target returns | transparency may cost up to |
 |---|---|
-| 100 neutrons per proton | 52.4 percent |
-| 150 neutrons per proton | 34.9 percent |
-| 250 neutrons per proton | 21.0 percent |
+| 100 per proton [ASSUMED] | 52.4 percent |
+| 150 per proton [ASSUMED] | 34.9 percent |
+| 250 per proton [ASSUMED] | 21.0 percent |
 
 > **Read that as a requirement on the target, because that is what it is.** The muon channel adds neutrons unless making the target transparent to pions costs more than the figure beside the yield — and even against a very productive spallation target the requirement is only that transparency stay under 21.0 percent.
 
-**The estimate is conservative in three places, and each runs the same way.** It counts a 14.1 MeV neutron as worth exactly one spallation neutron, where in a fast blanket it is worth more, because 14.1 MeV drives fast fission in fertile material and (n,2n) that a spallation spectrum reaches less of. It does not count the alpha, which the muon route returns as heat directly. And it treats the transparency penalty as a straightforward loss, which in a **blanket-coupled** system it is not: a neutron or a secondary that escapes a narrow target is not lost, it enters the blanket. A narrow target costs a *neutron source* its yield because the neutrons must reach moderators; it costs a blanket-coupled system much less, because the blanket is what surrounds the target in the first place.
+**The estimate is conservative in three places, and each runs the same way.** It counts a 14.1 MeV neutron as worth exactly one spallation neutron, where in a fast blanket it is worth more, because that energy drives fast fission in fertile material, and (n,2n), that a spallation spectrum reaches less of. It does not count the alpha, which the muon route returns as heat directly. And it treats the transparency penalty as a straightforward loss, which in a **blanket-coupled** system it is not: a neutron or a secondary that escapes a narrow target is not lost, it enters the blanket. A narrow target costs a *neutron source* its yield because the neutrons must reach moderators; it costs a blanket-coupled system much less, because the blanket is what surrounds the target in the first place.
 
 > **So the comparison that §11 recorded as unmade is now made, and it does not go against the muon channel.** What remains open is narrower and is stated as such: **what a spallation-optimised target at 8 GeV actually yields, and what transparency actually costs it.** Neither figure is derived in this paper, both are ordinary target-design calculations, and §10 Stage D measures the pair on one apparatus — the same beam and the same blanket, with the fuel cell in and out.
 

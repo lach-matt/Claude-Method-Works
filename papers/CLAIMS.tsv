@@ -900,3 +900,6 @@ C904	transparency penalty the target may take, at 100 spallation n per proton	52
 C905	the same at 150	34.9	percent	DERIVED	powersource.py; C903 / 150	fn:sp_be_150
 C906	the same at 250	21.0	percent	DERIVED	powersource.py; C903 / 250	fn:sp_be_250
 C907	the beam energy the production integral is taken at	8	GeV	SOURCED	the HARP column sec.4.1 integrates	fn:beam_gev
+C908	spallation yield scanned against, low	100	per proton	ASSUMED	an input the reader supplies; this paper derives no spallation yield	fn:sp_scan_lo
+C909	the same, middle	150	per proton	ASSUMED	the same	fn:sp_scan_mid
+C910	the same, high	250	per proton	ASSUMED	the same	fn:sp_scan_hi
