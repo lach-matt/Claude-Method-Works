@@ -71,9 +71,9 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD122 main** (2,111,740 B ·
-  `e9235afc3d26b23b49a2bc64aa23cab0` · 18,848 lines · 2 members) and **BUILD258 compendia** (16,183,858 B ·
-  `3ca7aa0b6992ffcf88a4e633bc2bfe1b` · 139,305 lines · 736 members). **738 members in all.** **The Register runs
-  1 to 1874, 1,716 seated** (1,709 numbered + 7 grouped). **W-263 seated.**
+  `e9235afc3d26b23b49a2bc64aa23cab0` · 18,848 lines · 2 members) and **BUILD259 compendia** (16,187,081 B ·
+  `f2dc74c34fb1ffbee58cf17c8d2e3d73` · 139,315 lines · 736 members). **738 members in all.** **The Register runs
+  1 to 1874, 1,716 seated** (1,709 numbered + 7 grouped). **W-264 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
