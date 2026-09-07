@@ -88,10 +88,13 @@ than as heat, the fusion neutron is worth **146.06 MeV** per fusion against 26.0
 balance for the collection efficiency at which it breaks even separates the products: electricity
 needs **96.7 %** collection *and* the bound-case density *and* the favourable sticking branch
 together, heat needs 72.5 %, and bred fuel needs **50.8 %** at the demonstrated 150 cycles and nothing
-else. Stated at the two collection efficiencies that exist rather than at perfect collection, the heat
-form still passes at **1.241** with the specified collector taking no fissile credit at all — so the
-self-sustaining criterion is met without leaving the device — while the bred-fuel form needs **either**
-the collector **or** the service life, not both. The collector specification then splits into two
+else. Stated at the two collection efficiencies §5.19 used, the heat form reaches **1.241** at 90 percent
+collection — **and §5.31 withdraws that as an end-to-end result.** 90 percent is above the stopping
+ceiling of 0.5069, and through §11's loss budget the delivered acceptance is **31.66 percent**, at
+which the heat form is **0.437**. **The self-sustaining criterion is _not_ met without leaving the
+device.** At the delivered figure every heat form, every work form and bred fuel at demonstrated
+cycles fall below unity; **what survives is bred fuel through an optimised production target, at
+1.480**, which is the route the specification builds for. The collector specification then splits into two
 physically independent halves. **§5.24 then closes the acceptance number as a calculation rather than
 an assumption** — production, transverse cap, the two-body decay integrated over the pion rest frame,
 then a momentum requirement — and it **reproduces the built front end's own MARS15 simulation to
@@ -128,11 +131,16 @@ thickness buys between **0.963 and 1.186** per interacting proton, never 2.37. N
 §5.1 now bounds the phase space its own HARP tables miss — an uncovered 0.186 sr wedge between the two
 datasets, worth at most **1.10** in cost — and the beam species, the last candidate, has a deuteron's
 two nucleons each carrying half the energy, which the same source's energy dependence does not have
-out-producing one nucleon at full energy. **Three mechanisms examined and bounded, none accounting for
-2.37, so the gap is recorded as an unexplained discrepancy** and every balance keeps the measured
-figure. §10.3 is a species comparison at matched beam power whose purpose is to resolve that
-discrepancy, and §10.5 runs it first because it is the cheapest way to learn whether the cheapest
-lever exists at all.
+out-producing one nucleon at full energy. **The 2.37 is now explained and its explanation is closed.** Beam energy is refuted in the
+opposite direction — HARP's own 3/5/8/12 GeV columns cost **18.231**, 12.604, **11.202** and 11.634 GeV
+per π⁻, so dropping to 3.61 GeV makes production 1.63× *dearer*. What survives is a **normalisation**:
+0.77 π⁻ per *beam deuteron* against a per-*interaction* figure needs **2.389** interacting nucleons,
+which reproduces the optimised figure to 0.8 percent and which a deuteron on 6.3 interaction lengths
+supplies. The reabsorption doubt is settled on geometry — the collector takes **large-angle** pions,
+which leave the target *sideways*, so the escape path is its **radius** and a narrow target is
+transparent however long it is (**0.8961** for the published geometries). **The gain survives to
+capture.** §10.3 is now a *normalisation* measurement — pions per beam particle against pions per
+interaction, on one target — rather than a species comparison.
 
 **§10 is the laboratory programme**, four staged measurements on apparatus that exists — the
 acceptance measurement first, because it multiplies every balance identically and so bounds all of
@@ -247,7 +255,7 @@ inside a 10.7 cm bore, which excludes the rotating solid target every megawatt-c
 directives as three index axes — every substantive result in the three papers graded on each, and the
 cell where all three coincide computed rather than claimed; the X axis carries a *sign*, so a result
 that forbids self-sustaining operation is never counted as progress toward it, and `--selftest`
-matches all 71 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
+matches all 73 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 59 pinned figures, ~3 s, exits 1 on drift. The

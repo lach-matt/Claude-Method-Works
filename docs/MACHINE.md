@@ -138,6 +138,28 @@ its demonstrated-cycle balance needs; it closes at the 21.4 % the optimised prod
 and whether that gain is real was Q6. **The budget would have closed the route and Q6 re-opens it.**
 Neither could be answered alone and leave the result standing.
 
+## Every balance at what is delivered — `--balances`
+
+**The budget has a consequence upstream, and it withdraws a headline claim.** [1] §5.19 states each
+balance at 30 and 90 percent collection. **The 90 is unreachable** — the stopping ceiling is 0.5069 and
+the budget delivers 0.3166 — so the table must be restated. The restatement is *exact*: the balance is
+linear in collection, and §5.19's own two columns check it at 2.998–3.010 against 90/30 = 3.000.
+
+| balance | as printed at 90 % | delivered 31.66 % | wider bore 37.62 % |
+|---|---|---|---|
+| heat, bound-case service life | **1.241** | **0.437** | 0.519 |
+| bred fuel, demonstrated 150 cycles | 1.772 | 0.623 | 0.741 |
+| bred fuel, bound-case service life | 6.96 | **2.449** | 2.909 |
+
+**"The heat form passes at 1.241, so the self-sustaining criterion is met without leaving the device"
+is withdrawn.** The figure was never wrong — it was stated *at 90 percent collection* and stands as
+that conditional. Reading it end to end does not.
+
+**What survives is one route:** bred fuel through an optimised production target, requirement 21.4 %
+against 31.66 delivered — a balance of **1.480**, and 1.758 at the wider bore. That route depended on
+whether the optimised target's gain is real, which is what `--budget` answers on geometry. Everything
+else falls below unity.
+
 ## What is not done
 
 Nothing in the physics. What is not here is a **fabrication package**: drawings, tolerances, weld and
@@ -159,6 +181,7 @@ python3 tools/machine.py --selftest
 python3 tools/machine.py --channel --cell
 python3 tools/machine.py --coherence      # the spec sheet the procedure must quote
 python3 tools/machine.py --budget         # every loss term, and the two questions it couples
+python3 tools/machine.py --balances       # the balances at the acceptance actually delivered
 python3 tools/machine.py
 python3 tools/collector.py --magnet
 python3 tools/verify_paper.py papers/Cold_Fusion_Specification_and_Procedure_v1.0.md

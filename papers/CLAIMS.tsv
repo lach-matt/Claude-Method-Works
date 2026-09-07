@@ -746,3 +746,23 @@ C749	end-to-end acceptance, 265 MeV/c	31.66	percent	DERIVED	machine.py --budget	
 C750	margin over the falsification floor	1.073	ratio	DERIVED	machine.py --budget	fn:bd_margin
 C751	co-product heat through the budget	11.12	percent	DERIVED	machine.py --budget	fn:bd_heat_pct
 C752	net correction to the committed prediction	0.7427	ratio	DERIVED	machine.py --budget	fn:bd_net_correction
+C753	delivered acceptance at 1.50 T.m	31.66	percent	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_eta_150
+C754	delivered acceptance at 2.60 T.m	37.62	percent	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_eta_260
+C755	balance linearity check, low	2.998	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_lin_lo
+C756	balance linearity check, high	3.010	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_lin_hi
+C757	heat at 150 cycles, delivered	0.111	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_heat150
+C758	the same at the wider bore	0.132	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_heat150_w
+C759	heat bound case, delivered	0.437	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_heatbound
+C760	the same at the wider bore	0.519	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_heatbound_w
+C761	heat at phi 3, delivered	0.356	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_heatphi3
+C762	the same at the wider bore	0.423	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_heatphi3_w
+C763	work at 150 cycles, delivered	0.083	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_work150
+C764	the same at the wider bore	0.099	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_work150_w
+C765	work bound case, delivered	0.328	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_workbound
+C766	the same at the wider bore	0.389	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_workbound_w
+C767	bred fuel at 150 cycles, delivered	0.623	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_bred150
+C768	the same at the wider bore	0.741	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_bred150_w
+C769	bred fuel bound case, delivered	2.449	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_bredbound
+C770	the same at the wider bore	2.909	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_bredbound_w
+C771	bred fuel through an optimised target, delivered	1.480	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_optimised
+C772	the same at the wider bore	1.758	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_optimised_w

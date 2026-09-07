@@ -2581,6 +2581,91 @@ def bd_net_correction():
             * _mach.budget_product())
 
 
+# ---- sec.5.31, every balance at the delivered acceptance ------------------
+def bal_eta_150():
+    return 100.0 * _mach.delivered_eta(1.50)
+
+
+def bal_eta_260():
+    return 100.0 * _mach.delivered_eta(2.60)
+
+
+def bal_lin_lo():
+    return min(_mach.balance_linearity())
+
+
+def bal_lin_hi():
+    return max(_mach.balance_linearity())
+
+
+def _b(i, br=1.50):
+    return _mach.balance_at_delivered(i, br)
+
+
+def bal_heat150():
+    return _b(0)
+
+
+def bal_heat150_w():
+    return _b(0, 2.60)
+
+
+def bal_heatbound():
+    return _b(1)
+
+
+def bal_heatbound_w():
+    return _b(1, 2.60)
+
+
+def bal_heatphi3():
+    return _b(2)
+
+
+def bal_heatphi3_w():
+    return _b(2, 2.60)
+
+
+def bal_work150():
+    return _b(3)
+
+
+def bal_work150_w():
+    return _b(3, 2.60)
+
+
+def bal_workbound():
+    return _b(4)
+
+
+def bal_workbound_w():
+    return _b(4, 2.60)
+
+
+def bal_bred150():
+    return _b(5)
+
+
+def bal_bred150_w():
+    return _b(5, 2.60)
+
+
+def bal_bredbound():
+    return _b(6)
+
+
+def bal_bredbound_w():
+    return _b(6, 2.60)
+
+
+def bal_optimised():
+    return _mach.optimised_target_balance()
+
+
+def bal_optimised_w():
+    return _mach.optimised_target_balance(2.60)
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

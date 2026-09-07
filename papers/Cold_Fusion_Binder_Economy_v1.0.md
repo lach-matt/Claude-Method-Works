@@ -89,9 +89,11 @@ an acceptance specification whose cost is a shielding trade, not a new magnet.
 **One route reaches a positive balance, and it is not the fusion-energy one.** On the corrected
 sticking of §5.26 the heat form reaches 0.4006 with the specified collector and no fissile credit, so
 **the self-sustaining criterion is not met on device-internal energy** — the service-life cap forbids
-it at any density. The bred-fuel form still passes, at 1.203 and 1.772, because it is computed at the
-measured cycle count rather than the model; but it is a fusion–fission hybrid and §5.26 declines to
-read it as the paper's subject. The aperture then
+it at any density. The bred-fuel form passes at 1.203 and 1.772 **at the collection efficiencies §5.19
+assumes**, because it is computed at the measured cycle count rather than the model; **§5.31 restates
+it at the acceptance actually delivered, where it is 0.623 and closes only through an optimised
+production target, at 1.480.** It is in any case a fusion–fission hybrid and §5.26 declines to read it
+as the paper's subject. The aperture then
 turns out not to be what stands in the way of that route: the collector specification separates into
 dropping the front end's hemisphere cut — a choice made for a background a reactor does not have, and
 free in aperture, field and shielding — and widening the bore, and **the first half alone, at the
@@ -1673,6 +1675,57 @@ standing limitation.
 **What is open is unchanged by any of it.** Nothing has been measured end to end. §10.1 measures it,
 and no calculation in this work stands in for that.
 
+### 5.31 Every balance at the acceptance actually delivered
+
+§5.19 states each balance at **30** and **90** percent collection, and §5.19 was right to prefer that
+to perfect collection. **The 90 percent is nevertheless unreachable**, and this section restates the
+table at what is delivered instead. `python3 tools/machine.py --balances` reproduces it.
+
+**Two results stand between §5.19 and this one.** The companion's §7 shows the *stopping* ceiling is
+**0.5069** at any target depth — a muon the solenoid accepts but the fuel does not stop is not a
+binder — so 90 percent was never available. And its §11 computes every loss between a produced π⁻ and
+a stopped binder at **0.7127**, putting the delivered figure at **31.66 percent**, or **37.62** at the
+wider bore.
+
+**The restatement is exact rather than approximate.** The balance is linear in collection, and §5.19's
+own two columns check it: every row's ratio is **2.998 to 3.010** against 90/30 = 3.000.
+
+| balance | as printed at 90 % | delivered, 31.66 % | wider bore, 37.62 % |
+|---|---|---|---|
+| heat, demonstrated 150 cycles | 0.316 | 0.111 | 0.132 |
+| heat, bound-case service life | **1.241** | **0.437** | **0.519** |
+| heat, φ = 3 | 1.011 | 0.356 | 0.423 |
+| work, demonstrated 150 cycles | 0.237 | 0.083 | 0.099 |
+| work, bound-case service life | 0.931 | 0.328 | 0.389 |
+| bred fuel, demonstrated 150 cycles | 1.772 | 0.623 | 0.741 |
+| bred fuel, bound-case service life | 6.96 | **2.449** | **2.909** |
+
+### 5.32 What this withdraws, and what survives
+
+> **The heat form's 1.241 does not survive.** At the delivered acceptance it is **0.437**, and at the
+> wider bore **0.519**. The figure was never wrong — it was stated *at 90 percent collection* and it
+> stands as that conditional. **What is withdrawn is reading it as an end-to-end result**, which this
+> paper's own abstract did: *"the heat form still passes at 1.241 … so the self-sustaining criterion
+> is met without leaving the device."* **It is not met without leaving the device.** That sentence is
+> withdrawn.
+
+**What survives is one route, and it is the one the companion already builds for.**
+
+**Bred fuel through an optimised production target.** §5.24 puts its requirement at **21.4 percent**
+against **31.66** delivered — a balance of **1.480**, and **1.758** at the wider bore. That route
+depended on whether the optimised target's gain is real, which was the open half of the 2.37; §11.1
+of the companion answers it on geometry, at **0.8961**. **The two results that would separately have
+closed this route and opened it are the same pair**, and §11.4 of the companion states the coupling.
+
+**And bred fuel on the bound-case service life**, at **2.449**. That case rests on the service-life
+model §5.29 corrected, and §5.26 caps cycles at **198**. It is read against that cap and not offered
+as an independent route.
+
+**Everything else falls below unity at the acceptance this machine delivers** — every heat form, every
+work form, and bred fuel at the demonstrated cycle count without the optimised target. That is the
+honest end-to-end state of the balance, and it is narrower than any earlier section of this paper
+implies.
+
 ## 6. What the definition excludes
 
 | excluded | grounds |
@@ -2065,9 +2118,11 @@ blanket and fission cycle, so the demonstration measures the neutron rate and th
 is *applied* to it, not measured by it. **This is the demonstration's limit and it should be stated in
 its own report**: it can establish the neutron source and cannot, by itself, establish the credit.
 A demonstration of the heat form instead — measuring **26.06 MeV** per fusion as deposited energy —
-is a device-internal measurement with no downstream credit, and §5.23 puts it at **1.241** with the
-§5.9 collector and the bound-case service life, so it is the more demanding demonstration and the more
-self-contained one.
+is a device-internal measurement with no downstream credit. §5.23 puts it at **1.241** with the §5.9
+collector and the bound-case service life, **but §5.31 shows that figure is stated at a collection
+efficiency the machine cannot reach: at the delivered acceptance it is 0.437.** The heat form is
+therefore the more self-contained demonstration and **the one that does not close**. Stage D measures
+the neutron rate either way; what it cannot do is make the heat form pass.
 
 ### 10.5 The order, and what none of it requires
 

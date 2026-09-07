@@ -1069,6 +1069,89 @@ def report_budget():
         print(f"        at {b:5.2f} T the bore must be at least {transport_bore_cm(b):6.2f} cm")
 
 
+# ---- every balance at the acceptance actually delivered --------------------
+# [1] sec.5.19 states each balance at 30 and 90 percent collection. The 90 is
+# unreachable: sec.7's stopping ceiling is 0.5069 and sec.11's budget puts the
+# delivered figure at 0.3166. The balance is LINEAR in collection -- that table's
+# own two columns differ by 3.000, which is 90/30 -- so restating it at the
+# delivered figure is exact rather than approximate.
+#
+# (label, at 30 percent, at 90 percent) -- read from [1] sec.5.19 as printed.
+BALANCES_AT_90 = (
+    ("heat, demonstrated 150 cycles", 0.105, 0.316),
+    ("heat, bound-case service life", 0.414, 1.241),
+    ("heat, phi = 3", 0.337, 1.011),
+    ("work, demonstrated 150 cycles", 0.079, 0.237),
+    ("work, bound-case service life", 0.310, 0.931),
+    ("bred fuel, demonstrated 150 cycles", 0.591, 1.772),
+    ("bred fuel, bound-case service life", 2.32, 6.96),
+)
+OPTIMISED_TARGET_REQUIREMENT = 21.4     # percent, [1] sec.5.24
+
+
+def delivered_eta(br=1.50):
+    return C.delivered_fraction_mirrored(br, (0.0, 265.0)) * budget_product()
+
+
+def balance_linearity():
+    """The table's own check that the balance is linear in collection."""
+    return tuple(hi / lo for _, lo, hi in BALANCES_AT_90)
+
+
+def balance_at_delivered(index, br=1.50):
+    return BALANCES_AT_90[index][2] * delivered_eta(br) / 0.90
+
+
+def optimised_target_balance(br=1.50):
+    return 100.0 * delivered_eta(br) / OPTIMISED_TARGET_REQUIREMENT
+
+
+def report_balances():
+    """Every balance restated at the acceptance the budget actually delivers."""
+    print("  EVERY BALANCE AT THE ACCEPTANCE ACTUALLY DELIVERED")
+    print("    [1] sec.5.19 states each balance at 30 and 90 percent collection.")
+    print("    The 90 is unreachable -- sec.7's stopping ceiling is 0.5069 and")
+    print("    sec.11's budget delivers 0.3166 -- so the table has to be restated.")
+    print()
+    lin = balance_linearity()
+    print(f"    The restatement is EXACT, not approximate: the balance is linear in")
+    print(f"    collection, and that table's own columns check it at"
+          f" {min(lin):.3f}-{max(lin):.3f}")
+    print(f"    against 90/30 = 3.000.")
+    print()
+    print(f"    delivered eta: {100 * delivered_eta(1.50):.2f} % at 1.50 T.m,"
+          f" {100 * delivered_eta(2.60):.2f} % at 2.60 T.m")
+    print()
+    print("      balance                              as printed    delivered    wider bore")
+    for i, (lab, _, hi) in enumerate(BALANCES_AT_90):
+        a, b = balance_at_delivered(i, 1.50), balance_at_delivered(i, 2.60)
+        mark = "  <-- passes" if b > 1.0 else ""
+        print(f"      {lab:<36} {hi:8.3f} {a:12.3f} {b:12.3f}{mark}")
+    print()
+    print("    THE HEAT FORM'S 1.241 DOES NOT SURVIVE.")
+    print(f"    At the delivered acceptance it is {balance_at_delivered(1):.3f}, and at the wider")
+    print(f"    bore {balance_at_delivered(1, 2.60):.3f}. It was never wrong -- it was stated AT 90")
+    print("    percent collection, and it stands as that conditional. What is")
+    print("    withdrawn is reading it as an end-to-end result, which [1]'s own")
+    print("    abstract did. THE SELF-SUSTAINING CRITERION IS NOT MET WITHOUT")
+    print("    LEAVING THE DEVICE.")
+    print()
+    print("    WHAT SURVIVES, AND IT IS ONE ROUTE.")
+    print(f"      bred fuel with the optimised production target: a requirement of")
+    print(f"      {OPTIMISED_TARGET_REQUIREMENT} percent against {100 * delivered_eta():.2f} delivered --"
+          f" a balance of {optimised_target_balance():.3f}")
+    print(f"      and {optimised_target_balance(2.60):.3f} at the wider bore.")
+    print()
+    print("      and bred fuel on the BOUND-CASE service life, at"
+          f" {balance_at_delivered(6):.3f} -- but that")
+    print("      case rests on the model sec.5.29 corrected, and sec.5.26 caps cycles")
+    print("      at 198. Read it against that cap, not as an independent route.")
+    print()
+    print("    So the co-product configuration of the specification's sec.5.2 and the")
+    print("    bred-fuel route through an optimised target are what is left, and they")
+    print("    are the two the specification already builds for. Nothing else passes.")
+
+
 def report_all():
     print("THE CAPTURE SOLENOID: BUILD PACKAGE")
     print()
@@ -1078,7 +1161,8 @@ def report_all():
     print()
     for r in (report_circuit, report_mechanics, report_conductor, report_target,
               report_radiation, report_failure, report_plant, report_channel,
-              report_cell, report_budget, report_coherence, report_integration):
+              report_cell, report_budget, report_balances, report_coherence,
+              report_integration):
         r()
         print()
     print("  WHAT REMAINS UNDONE.")
@@ -1162,6 +1246,28 @@ def selftest():
               f"   {'PASS' if ok else 'FAIL'}")
     print("    -- so [1] sec.10.1's committed band is reproduced by a MAGNET rather")
     print("       than by an instrumentation choice, and the loop closes")
+
+    print()
+    print("  the balances restated at what is delivered")
+    lin = balance_linearity()
+    ok = all(abs(r - 3.0) < 0.02 for r in lin)
+    fail += 0 if ok else 1
+    print(f"    the balance is linear in collection, so restating is exact:")
+    print(f"    ratios {min(lin):.3f}-{max(lin):.3f} against 3.000   {'PASS' if ok else 'FAIL'}")
+    ok = balance_at_delivered(1) < 1.0 < BALANCES_AT_90[1][2]
+    fail += 0 if ok else 1
+    print(f"    THE HEAT FORM'S 1.241 DOES NOT SURVIVE: {balance_at_delivered(1):.3f} delivered.")
+    print(f"    It was stated at a collection efficiency above the stopping ceiling"
+          f"   {'PASS' if ok else 'FAIL'}")
+    passes = [i for i in range(len(BALANCES_AT_90)) if balance_at_delivered(i) > 1.0]
+    ok = passes == [6]
+    fail += 0 if ok else 1
+    print(f"    and only the bound-case bred fuel clears unity on the printed table"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = optimised_target_balance() > 1.0
+    fail += 0 if ok else 1
+    print(f"    the route that survives is bred fuel through an optimised target,")
+    print(f"    at {optimised_target_balance():.3f}   {'PASS' if ok else 'FAIL'}")
 
     print()
     print("  the end-to-end budget, and the two questions it couples")
@@ -1315,7 +1421,8 @@ def main():
                      ("plant", report_plant), ("channel", report_channel),
                      ("cell", report_cell),
                      ("budget", report_budget),
-                     ("coherence", report_coherence), ("integration", report_integration)):
+                     ("balances", report_balances), ("coherence", report_coherence),
+                     ("integration", report_integration)):
         ap.add_argument("--" + name, action="store_true", help=fn.__doc__ or name)
     a = ap.parse_args()
     if a.selftest:
@@ -1326,7 +1433,8 @@ def main():
                      ("plant", report_plant), ("channel", report_channel),
                      ("cell", report_cell),
                      ("budget", report_budget),
-                     ("coherence", report_coherence), ("integration", report_integration)):
+                     ("balances", report_balances), ("coherence", report_coherence),
+                     ("integration", report_integration)):
         if getattr(a, name):
             fn()
             return 0
