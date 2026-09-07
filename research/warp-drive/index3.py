@@ -224,6 +224,13 @@ FINDINGS = [
   "the crewed design wants 1.25e23 J -- 208 world-years at 10 PW for 144 days: a bill, not a bound"),
  ("NO-CARRIER",   0, -1,  0, "beamed.py",
   "theta = 1/gamma has no aperture term: no particle beats photons, so two ends pay light-time"),
+ # restatus.py -- every architecture regraded by HOW it closed, at M's ruling.
+ ("CLOSURE-KIND", 0, -1, +1, "restatus.py",
+  "of six closures this project reasoned to itself, ZERO are MEASURED and five are hypothesis or cost"),
+ ("KAPPA-DEAD",   0, -1,  0, "restatus.py",
+  "Rodal 2025 closes kappa(x) by MEASUREMENT -- Bianchi, MICROSCOPE, Cassini, PSR J0337: no escape"),
+ ("ANALOGUE",    +1,  0, +1, "restatus.py",
+  "the Alcubierre metric maps onto eps, mu, g_x with g_x^2 <= (eps-1)(mu-1): a bench proof at v <= c/4"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -239,6 +246,7 @@ SUPPORT = [
  ("AR-VALID",  "stationkeep.py",    "this tree's kinematics reproduce A&R's three printed Sgr A* figures to 0.2%"),
  ("EDGE-LIST", "necladder.py",      "the edge list the compendium says is printed nowhere is in extracted/; it gives 2,370"),
  ("SAIL-FIX",  "beamed.py",         "the sail integrated in distance is singular at beta=0 and gave efficiency > 100%; time-domain"),
+ ("CARVE-OUT", "restatus.py",       "Rodal's own Sec 3.3 excludes analogue models from his no-go; the one hard closure carves it out"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -319,7 +327,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 69)
+    chk("number of findings indexed", len(FINDINGS), 72)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 

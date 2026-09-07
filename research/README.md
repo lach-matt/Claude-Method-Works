@@ -51,6 +51,7 @@ a report.
 | **`warp-drive/STATION-KEEPING`** | **`warp-drive/stationkeep.py`** | **the Δv is zero — but the ladder is a conjecture, and the one Monte Carlo of it delivers 0.72× *one* encounter, not 1,090** |
 | **`warp-drive/NEC-LADDER`** | **`warp-drive/necladder.py`** | **the NEC is not a boolean: five rungs, the world measured at rung 1 (Casimir), the index's core at rung 3 — and every no-go here was graded at rung 0** |
 | **`warp-drive/BEAMED`** | **`warp-drive/beamed.py`** | **the coupling source is *built*, not found: 1000 t to 0.700 c is a published point design, and the roadblock is a bill (208 world-years) not a bound** |
+| **`warp-drive/RESTATUS`** | **`warp-drive/restatus.py`** | **every architecture regraded by *how* it closed — of six this project reasoned to itself, zero are closed by measurement** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ### The rung this project has been standing on
@@ -187,6 +188,60 @@ communication side.
 **A recorded fault.** The sail integrated in *distance* is singular at β = 0 and returned efficiencies
 above 100%. Caught by an identity check (beam energy must exceed kinetic energy), fixed by integrating
 in time. The identity is now in the selftest.
+
+### Every architecture, regraded by how it closed
+
+Not re-arguing any of them. One question of each closure: **what kind of thing closed it?**
+
+| kind | meaning | count | which |
+|---|---|---|---|
+| **MEASURED** | an experiment says no; only a better experiment reopens it | **1** | κ(x) |
+| **STRUCTURAL** | a theorem with no hypothesis the world fails | 1 | swimmer |
+| **HYPOTHETICAL** | a theorem whose hypothesis is *not satisfied here* | **3** | translate, gate, Kerr |
+| **COSTED** | not closed — priced | 2 | slingshot, beamed |
+| **OPEN** | not closed, not priced | 2 | shell, analogue |
+
+**Six of the nine came from this project's own reasoning. Of those, zero are closed by measurement,
+five are hypothetical or costed, and three were reopened this session** by reading the hypothesis
+instead of the conclusion — TRANSLATE (isolation), GATE (rung 0), SLINGSHOT (binding).
+
+The single MEASURED closure came from outside and kills a concept this tree never held: **Rodal 2025
+(arXiv:2507.09724)** closes material-dependent gravitational coupling `κ(x)` on the contracted Bianchi
+identity plus MICROSCOPE (`η ≤ 1.1×10⁻¹⁵`), Cassini (`|γ−1| ≤ 2.3×10⁻⁵`), PSR J0337+1715
+(`η_N ≤ 2×10⁻⁶`) and Eöt-Wash. There is no hypothesis to escape there — the experiments were done.
+
+> **The obstruction is not a wall. It is a habit of banking the strict answer to a stricter question
+> than the one asked.**
+
+### The concept that proves its own math
+
+*"A good engineering concept proves the underlying math used to engineer it."* That concept exists,
+and it is **analogue gravity**.
+
+**Smolyaninov** (Phys. Rev. B **84**, 113103, 2011) maps the Alcubierre line element one-to-one onto a
+medium's electromagnetic response — permittivity ε, permeability μ, and a magnetoelectric coupling
+`g_x` under the thermodynamic stability bound
+
+> **g_x² ≤ (ε − 1)(μ − 1)**  →  **v₀ ≤ c/4**
+
+Light in that medium follows geodesics of the emulated metric. Build it and the geometry's kinematics
+— the wall, the boosted interior, the horizon structure — stop being solver output and become bench
+measurement.
+
+Three things make it the next move rather than a curiosity:
+
+1. **Rodal's measured no-go explicitly does not reach it.** His own §3.3: *"Analog models do not alter
+   the Einstein–Hilbert action or violate the Bianchi identity."* The one hard closure on the sheet
+   carves it out.
+2. **Its ceiling is c/4** — six times the found-object route's 0.039 c — and it is a *material* bound.
+   ε, μ and `g_x` are engineering parameters; the bound moves when the materials do.
+3. **It transports nothing, and that is the point.** This project has asserted the warp state exists
+   *from a solver*. An analogue makes the assertion a measurement — the one thing directive 1 has
+   never had.
+
+What it does **not** do is couple to real spacetime. The analogue proves the *kinematics*, not the
+gravitation; saying otherwise is precisely the error Rodal killed. Recorded OPEN, with that boundary
+drawn.
 
 ## `warp-drive/`
 
