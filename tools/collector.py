@@ -1753,8 +1753,9 @@ def report_open():
     print("    normalisation survives to capture (Stage C).")
     print()
     print("  AND THE SIGN IS STILL OPEN AT NO VALUE OF ANY OF THEM.")
-    print(f"    At the floor and ONE fusion per binder:"
-          f" {open_heat_pct(lo, cycles=1.0):.5f} % of the host beam. Positive.")
+    print(f"    At the low end of the corroboration band and ONE fusion per binder:"
+          f" {open_heat_pct(open_band_mu_per_s()[0], cycles=1.0):.5f} %")
+    print("    of the host beam. Positive.")
     return 0
 
 

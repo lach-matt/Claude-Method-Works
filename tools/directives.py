@@ -136,7 +136,7 @@ ROWS = [
     ("D64", "SP", "7", "the nine open questions worked: seven closed, one narrowed to 1.19, one explained", 3, 1, 1, 2),
     ("D65", "BE", "5.29", "one measurement settles four: the sticking inverted, the 2.24, the purity bound, the wedge", 3, 0, 2, 1),
     ("D66", "BE", "5.30", "the acceptance model's scope limit: one validation, two withdrawn claims, no mirror term", 2, 0, 2, 2),
-    ("D63", "SP", "6", "the procedure for the net-positive configuration: 2.42 mg, 2.70e10 n/s committed", 3, 1, 3, 3),
+    ("D63", "SP", "6", "the procedure for the net-positive configuration: 2.41 mg, 2.528e10 n/s committed", 3, 1, 3, 3),
 ]
 
 ON_AXIS = 2          # a datum "sits on" an axis at this grade or better
