@@ -42,6 +42,31 @@ or a design, not a result).
 | new? | the design equation, yes |
 | falsified by | H1 failing; or a flatness requirement stricter than σR ≈ 3 |
 
+**H3. And the objection that replaces it is *kind*, not *amount*.**
+
+> The Alcubierre stress-energy is **Hawking–Ellis Type IV** throughout the wall — a complex eigenvalue
+> pair, meaning **no observer anywhere has a rest frame for it**. Measured at 7/7 points with
+> `|Im|/‖T‖` from 0.14 to 0.69, stable to six figures across a 4× change in step size, on a pipeline
+> validated twice (vacuum → 10⁻⁶ noise floor; reproduces BBV Eq (3.48) to 10⁻⁶). **Every energy
+> condition — NEC, WEC, DEC, ANEC, QI, SNEC, QNEC — bounds a *contraction* of T_μν. Type IV is a
+> statement about its *eigenvectors*. H1 cannot touch it, and neither can any successor to H1.**
+>
+> This splits the field cleanly and it is the paper's real contribution to the state of the question:
+>
+> | | budget | matter |
+> |---|---|---|
+> | **Alcubierre class** | tractable (18.8 M⊕) | **Type IV — unknown to physics** |
+> | **warpshell** | tractable | Type I, dominant-energy | *but ℓ≥2 unstable while self-gravitating* |
+>
+> **Neither architecture has both, and the two obstructions are unrelated.**
+
+| | `typefour.py` |
+|---|---|
+| status | **PROVEN** (numerically, doubly validated) |
+| new? | the independent computation, yes; the classification agrees with Le's Table 1 |
+| falsified by | a Type IV matter model; or an error in the Einstein-tensor pipeline, which is checked against a closed form |
+| **not** claimed | that Type IV is *impossible*. It is **unknown** — a weaker and honest statement. Hawking–Ellis is a taxonomy, not a law. |
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**
@@ -87,7 +112,9 @@ or a design, not a result).
 
 ## Explicitly **not** claimed
 
-- That a warp drive can be built. H1 removes a stated impossibility; it does not supply negative energy.
+- That a warp drive can be built. H1 removes a stated impossibility; it does not supply negative energy,
+  and **H3 supplies a new impossibility-shaped objection in its place.**
+- That Type IV is forbidden. It is unknown. No theorem excludes it.
 - That the warpshell is viable — the ℓ≥2 instability stands (**S5**).
 - That QNEC has been applied. `shape.py` predicted the energy-condition family would loosen and named
   QNEC; what landed was timelike-QI → null-SNEC. **Right family, wrong member — scored 0.5, not 1.**

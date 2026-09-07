@@ -84,7 +84,7 @@ never transcribed -- so a row cannot silently go stale when its instrument moves
 """
 import math, sys
 
-STATUSES = ("DISSOLVED", "RELOCATED", "CLOSED-NEGATIVE", "CONDITIONAL", "UNTESTED")
+STATUSES = ("DISSOLVED", "RELOCATED", "CLOSED-NEGATIVE", "CONDITIONAL", "UNTESTED", "OPEN")
 
 # (id, obstruction, status, where it went / what decides it, owning instrument)
 LEDGER = [
@@ -129,6 +129,11 @@ LEDGER = [
   "the static bound admitted it only for |v| >= c -- and REOPENED by "
   "dispersive.py: BHS is a static bound and this is a dispersive device. The "
   "mapping stands; only its BHS verdict fell", "plebanski.py"),
+ ("TYPE-IV", "the Alcubierre wall needs matter with no rest frame", "OPEN",
+  "measured, 7/7 wall points, |Im|/||T|| 0.14-0.69, stable to six figures in h "
+  "and validated against BBV Eq (3.48) to 1e-6. Untouched by every energy "
+  "condition, which bound contractions where this is about eigenvectors. THE "
+  "OBJECTION THAT REPLACES the energy one. Not forbidden -- unknown", "typefour.py"),
  ("STATIC-BOUND", "BHS applies at a working frequency", "CLOSED-NEGATIVE",
   "IT DOES NOT. A Polder ferrite above resonance has |kappa| > |mu-1|, violating "
   "BHS by factors up to 5, and above-resonance ferrites are ordinary passive "
@@ -202,15 +207,15 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 12)
+    chk("obstructions tracked", len(LEDGER), 13)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 3)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 4)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 2)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
-    chk("UNTESTED is now EMPTY -- every row has been asked",
+    chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
         sorted(set(r[2] for r in LEDGER)),
-        sorted(set(STATUSES) - {"UNTESTED"}))
+        sorted((set(STATUSES) - {"UNTESTED"}) | {"OPEN"}))
     chk("no row is DISSOLVED without an owning instrument",
         all(r[4] for r in h["DISSOLVED"]), True)
 

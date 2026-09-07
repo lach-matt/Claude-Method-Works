@@ -1727,3 +1727,74 @@ blocked, and that QNEC proper is still unasked and scored 0.5 rather than 1.
 **Directive scorecard:** 1 **MET**. 2 moved from *no* to *the standing objection does not hold*. 3 has
 a design equation for the first time. None of that is a warp drive, and the register says so in its own
 section.
+
+## `typefour.py` — the objection that replaces it, and it is harder
+
+If the standing objection no longer holds, what does? The answer is not about how much.
+
+> **Hawking–Ellis Type IV.** A stress-energy is classified by the eigenvalue structure of `T^μ_ν`.
+> **Type I** is diagonalisable with a timelike eigenvector — it has a *rest frame*, and every substance
+> anyone has handled is Type I, the Casimir vacuum included. **Type II** is the defective null case:
+> radiation, null dust, Le's photon-rocket exterior. **Type IV has a complex eigenvalue pair**, which
+> means there is **no observer, anywhere, for whom it has a rest frame.** Nothing known is Type IV.
+
+### The measurement, validated twice before it is believed
+
+The stress-energy is computed from scratch — metric on a grid, finite-differenced to Christoffels,
+differenced again to Riemann, contracted to Ricci and Einstein, divided by 8π; then Faddeev–LeVerrier
+for the characteristic polynomial and Durand–Kerner for its roots, in complex arithmetic. A
+doubly-differenced metric is exactly the pipeline that returns confident nonsense, so:
+
+- **Vacuum.** ‖T‖ = 2.2×10⁻⁶ at the bubble centre, 2.5×10⁻⁸ at r = 2, and **exactly 0** at r = 3. That
+  is the noise floor, six orders below every signal.
+- **The closed form.** `T⁰⁰` for the Eulerian observer must equal BBV Eq (3.48), which `twist.py` holds
+  independently as `−Ω²/(8πG)`. It does, **to 10⁻⁶** at five off-axis points, returning 5×10⁻⁹ on the
+  axis where the closed form is exactly zero.
+
+| (x, y) | ‖T‖ | \|Im\|/‖T‖ | type |
+|---|---|---|---|
+| (0.60, 0.00) | 0.00612 | 0.1435 | **IV** |
+| (0.90, 0.30) | 0.15909 | 0.6425 | **IV** |
+| (1.00, 0.20) | 0.28861 | 0.2585 | **IV** |
+| (1.20, 0.30) | 0.01897 | 0.6937 | **IV** |
+
+Seven of seven. The imaginary parts are 14–69% of the tensor's own norm and **stable to six figures**
+as h changes by 4×, which noise is not. This reproduces the classification in Le's Table 1 by an
+independent route.
+
+### Why no energy-condition result can reach it
+
+Every energy condition — NEC, WEC, DEC, ANEC, the quantum inequalities, SNEC, QNEC — is an inequality
+on a **contraction** of `T_μν` with some vector. Type IV is a statement about its **eigenvectors**. You
+can make the contractions as small as you like and the eigenvalues stay complex.
+
+> The old objection was *"you need more energy than exists."* That is gone. The objection that replaces
+> it is *"the thing you need has no rest frame"* — and it is the harder of the two.
+
+### And it exposes the real shape of the problem, which is a trade
+
+| | budget | matter |
+|---|---|---|
+| **Alcubierre class** | tractable — 18.8 M⊕ | **Type IV**, unknown to physics |
+| **warpshell** | tractable | **Type I**, dominant-energy, observer-robust |
+
+…and the warpshell is ℓ≥2 unstable while self-gravitating. **Neither architecture has both, and the two
+obstructions are unrelated.** That is a cleaner statement of where warp drive stands than "it needs
+10⁶² kg," and it is the first time this project has been able to say what the actual choice is.
+
+The route out of Type IV is known and not free: **stop prescribing the metric.** Le's worldtube-first
+construction installs interpretable matter region by region and gets Type I — and lands squarely on the
+other obstruction. BBV make the same point as methodology: reading off whatever stress-energy a chosen
+metric returns *"can manufacture sources with no interpretation as physical matter."* **Type IV is what
+that sentence looks like when it is measured.**
+
+**Not claimed:** that Type IV is *impossible*. It is **unknown**, which is weaker and honest — no
+theorem forbids it, and Hawking–Ellis is a taxonomy rather than a law.
+
+### The index gained a cell
+
+`TYPE-IV` is the sole occupant of **(+1, −1, −1)** — a coordinate none of the previous 130 findings had
+touched. It is the cell for *warp energy identified, and its algebraic kind is the reason for both
+negative answers.* `E(X) = 0` still holds, so the closure demanded nothing new. And `pathmetric.py`'s
+mismatch count moved 204 → 252 with the cell count 14 → 15, because it measures the corpus's lattice
+condition over **this project's** cells — a fixture that tracks the index by design.

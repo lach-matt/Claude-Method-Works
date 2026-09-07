@@ -370,6 +370,13 @@ FINDINGS = [
   "1.5e9 observable universes -> 18.8 Earth masses at R=100 m, 0.1c: a factor 2e36 and a change of category"),
  ("GAP-NOT-BOUND",   0, +1, +1, "designpoint.py",
   "the remaining 2.3e42 to a Casimir source is a gap in capability with no theorem in it, which is a different situation"),
+ # The objection that replaces the one nullbound.py removed.
+ ("TYPE-IV",        +1, -1, -1, "typefour.py",
+  "the Alcubierre wall is Hawking-Ellis Type IV at 7/7 points, |Im|/||T|| from 0.14 to 0.69, stable to six figures in h"),
+ ("KIND-NOT-SIZE",  +1, -1,  0, "typefour.py",
+  "every energy condition bounds a CONTRACTION of T; Type IV is about its eigenvectors, so no energy-condition result reaches it"),
+ ("THE-TRADE",      +1, -1, +1, "typefour.py",
+  "Alcubierre has a tractable budget and Type IV matter; the warpshell has Type I matter and the l>=2 instability. Neither has both"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twelve obstructions three dissolved, three relocated, four closed negative, two conditional and none untested"),
 ]
@@ -486,8 +493,13 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 130)
-    chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
+    chk("number of findings indexed", len(FINDINGS), 133)
+    chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
+    # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
+    # 130 findings had never occupied it; it is the cell for a positive answer on
+    # X that is the reason for the negative answers on Y and Z.
+    chk("the newest cell has one occupant, and it is TYPE-IV",
+        [f[0] for f in FINDINGS if coords(f) == (1, -1, -1)], ["TYPE-IV"])
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
@@ -506,7 +518,7 @@ def selftest():
                 "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
                 "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE",
                 "AREA-OVER-THICK","NO-NULL-QI","D-CANCELS",
-                "DESIGN-EQUATION","CHANGE-OF-KIND"]))
+                "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",

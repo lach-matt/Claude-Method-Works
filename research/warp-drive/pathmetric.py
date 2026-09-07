@@ -261,7 +261,11 @@ def selftest():
     chk("  and y is not a vertex", is_vertex((1,), (0,), (2,)), False)
     printed = sum(1 for x, y, z in trip if in_interval(y, x, z) != saturates(x, y, z))
     correct = sum(1 for x, y, z in trip if is_vertex(y, x, z) != saturates(x, y, z))
-    chk("printed condition mismatches on index3's cells", printed, 204)
+    # NOTE: this count tracks index3's live cells, which grew 14 -> 15 when
+    # TYPE-IV opened (+1,-1,-1).  14^3 = 2,744 triples became 15^3 = 3,375, and
+    # the mismatches went 204 -> 252.  The fixture moves with the index by
+    # design: it is measuring the corpus's condition over THIS project's cells.
+    chk("printed condition mismatches on index3's cells", printed, 252)
     chk("VERTEX condition mismatches", correct, 0)
     pr = sum(1 for x, y, z in rnd if in_interval(y, x, z) != saturates(x, y, z))
     cr = sum(1 for x, y, z in rnd if is_vertex(y, x, z) != saturates(x, y, z))
