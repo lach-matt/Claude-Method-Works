@@ -159,6 +159,13 @@ ROWS = [
     ("D84", "CF", "11", "the plant tritium inventory is unpriced: 5.13 kg against the 2.41 mg demonstrated", 2, -1, 3, 1),
     ("D85", "CF", "6", "the reaction specified to the last free parameter, as a bill of materials", 1, 0, 3, 2),
     ("D86", "CF", "8", "the procedure, with predictions committed in advance and a disagreement read as a refusal", 1, 0, 2, 3),
+    # THE ROW THE PROJECT ASKED FOR. The balance run backwards rather than
+    # forwards: two of its four terms are closed above by physics, so a
+    # self-sustaining POWER source is a statement about the blanket alone, and
+    # a subcritical one supplies the requirement between k = 0.469 and 0.770.
+    ("D87", "CF", "9.2", "the self-sustaining POWER source specified: k between 0.469 and 0.770, heat on site, nothing leaving the device", 3, 1, 3, 2),
+    ("D88", "CF", "9.3", "and how k is measured: pulsed neutron, source jerk and Rossi-alpha, two of which must agree", 3, 0, 2, 3),
+    ("D89", "CF", "9.2", "what it costs to say it: the fusion supplies 7.5 to 27.4 percent, so it is a fusion-driven subcritical fission reactor", 3, -1, 2, 1),
 ]
 
 ON_AXIS = 2          # a datum "sits on" an axis at this grade or better

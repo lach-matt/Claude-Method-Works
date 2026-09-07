@@ -2909,6 +2909,92 @@ def bal_c880():
 def bal_c881():
     return _mach.balance("bred", _mach.service_life(8.5), 2.6, 400.0, target=True)
 
+def _ps():
+    import importlib
+    return importlib.import_module("powersource")
+
+
+def _ps_cfg(i):
+    return _ps().configurations()[i][1:]
+
+
+def nu_fast():
+    return _ps().NU_FAST
+
+
+def ps_n_required():
+    return _ps().required("N", eta=_mach.delivered_eta_window(2.60, 400.0),
+                          e_pi=_ps().E_PI_MEASURED)
+
+
+def ps_life_cap():
+    return _ps().service_life_cap()
+
+
+def ps_n_forbidden():
+    return ps_n_required() / ps_life_cap()
+
+
+def ps_eta_required():
+    return 100.0 * _ps().required("eta", e_pi=_ps().E_PI_MEASURED)
+
+
+def ps_epi_required():
+    return _ps().required("E_pi", eta=_mach.delivered_eta_window(2.60, 400.0))
+
+
+def ps_v_asbuilt():
+    return _ps().required_k(*_ps_cfg(0))[1]
+
+
+def ps_v_bore():
+    return _ps().required_k(*_ps_cfg(1))[1]
+
+
+def ps_v_target():
+    return _ps().required_k(*_ps_cfg(2))[1]
+
+
+def ps_v_all3():
+    return _ps().required_k(*_ps_cfg(3))[1]
+
+
+def ps_k_asbuilt():
+    return _ps().required_k(*_ps_cfg(0))[0]
+
+
+def ps_k_bore():
+    return _ps().required_k(*_ps_cfg(1))[0]
+
+
+def ps_k_target():
+    return _ps().required_k(*_ps_cfg(2))[0]
+
+
+def ps_k_all3():
+    return _ps().required_k(*_ps_cfg(3))[0]
+
+
+def ps_k_suppressed():
+    return _ps().k_of_sourced_blanket()
+
+
+def ps_share_asbuilt():
+    return 100.0 * _ps().fusion_share(ps_v_asbuilt())
+
+
+def ps_share_all3():
+    return 100.0 * _ps().fusion_share(ps_v_all3())
+
+
+def ps_e_ads():
+    return _ps().energy_per_source_neutron(0.95)
+
+
+def ps_k_ads():
+    return 0.95
+
+
 def life_superseded():
     return _mach.LIFE_SUPERSEDED
 

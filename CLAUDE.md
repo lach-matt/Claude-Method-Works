@@ -313,6 +313,29 @@ figure cannot print a number it did not read from the ledger. Seven figures — 
 with its three proposed alterations called out, the bore that excludes a rotating target, the range
 every balance falls in, the loss budget as a waterfall, the co-product line, and the measurement with
 both observables on one sample volume),
+**`tools/powersource.py`** (**the inverse problem, and the instrument that found the answer the papers
+argued away**. Every other tool here takes a configuration and returns its balance; this one sets the
+balance to unity and returns the configuration. Solving `G = N·V·η/E_π = 1` for each term shows that
+**two of the four are closed above by physics rather than engineering** — the service life at **198**
+cycles by the sticking, against a requirement of 878.7, and the collection at unity because it is a
+fraction, against a requirement of **284.7 %** — so a self-sustaining power source is a statement
+about what one fusion is worth and about nothing else. The production cost cannot carry it alone
+either: the **1.900 GeV** it would need is below even the published optimisation. **The whole question
+is the blanket**, and `Cold_Fusion_Specification_and_Procedure` §5.1 had reached that point and turned
+away from it in half a sentence — *"reachable only by fission, which changes the product rather than
+the yield"*. **That clause is withdrawn**: fission in a **subcritical** blanket releases its energy as
+heat, on site, inside the device, which is the product rather than a change of it. Inverting
+`F = k/(ν(1−k))` — a geometric sum over generations, two sourced inputs, no fitted parameter — puts
+the requirement at **k between 0.469 and 0.770**, against **0.95** for an accelerator-driven system
+and unity for a power reactor. The relation is checked before it is trusted: the sourced
+fission-suppressed blanket's 1.6× sits at **k ≤ 0.246**, where a design built to suppress fission
+belongs. What it costs to say is stated with it — the fusion then supplies **7.5 to 27.4 %** of the
+recovered energy and all of the neutrons, so the device is a **fusion-driven subcritical fission
+reactor and not a fusion power plant**. Its `--selftest` asserts that solving for a term and
+substituting it back returns exactly unity, that the two closed axes are closed, and constructs the
+requirement that *would* need k ≥ 1, so the result is a fact about the numbers rather than a
+tautology. **The deciding comparison it refuses to make** — against a spallation-driven subcritical
+system on the same beam — is now the largest open item in the paper. See `docs/POWERSOURCE.md`),
 **`tools/window.py`** (the binder admissibility scan behind the paper's Theorem 1 — four tests over
 the charged spectrum, run in the order that constrains. Its point is *which* set the theorem closes
 on: the lifetime cut is a published number against a fixed threshold, so the **five** charged

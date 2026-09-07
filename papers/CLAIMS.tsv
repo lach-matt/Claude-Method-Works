@@ -875,3 +875,22 @@ C879	work on the model at 8.5 LHD, both alterations, through the target	0.385	ra
 C880	bred fuel on the model at 8.5 LHD, delivered, through the target	1.874	ratio	DERIVED	machine.py --corrected	fn:bal_c880
 C881	bred fuel on the model at 8.5 LHD, both alterations, through the target	2.877	ratio	DERIVED	machine.py --corrected	fn:bal_c881
 C882	the effective sticking the printed balances were computed at	0.1487	percent	WITHDRAWN	superseded: an excited-state initial sticking times a ground-state survival fraction	none
+C883	neutrons per fast fission	2.9	per fission	SOURCED	Pu-239 fast fission, standard nuclear data	fn:nu_fast
+C884	service life a self-sustaining power source requires	878.7	cycles	DERIVED	powersource.py; C100 / (C214 x eta)	fn:ps_n_required
+C885	the cap on service life the sticking imposes	198	cycles	DERIVED	1 / C113	fn:ps_life_cap
+C886	the factor by which that requirement is forbidden	4.44	x	DERIVED	C884 / C885	fn:ps_n_forbidden
+C887	collection a self-sustaining power source requires	284.7	percent	DERIVED	powersource.py; exceeds unity, so forbidden	fn:ps_eta_required
+C888	production cost a self-sustaining power source requires	1.900	GeV	DERIVED	powersource.py; C44 x C214 x eta	fn:ps_epi_required
+C889	value per fusion a power source requires, as built	234.3	MeV	DERIVED	powersource.py; C100 / (C44 x eta)	fn:ps_v_asbuilt
+C890	value per fusion a power source requires, both collector alterations	152.7	MeV	DERIVED	powersource.py; C100 / (C44 x eta)	fn:ps_v_bore
+C891	value per fusion a power source requires, with the optimised target	98.7	MeV	DERIVED	powersource.py; C100 / (C44 x eta)	fn:ps_v_target
+C892	value per fusion a power source requires, with all three alterations	64.3	MeV	DERIVED	powersource.py; C100 / (C44 x eta)	fn:ps_v_all3
+C893	subcritical k_eff a power source requires, as built	0.770	k_eff	DERIVED	powersource.py; k = r/(1+r), r = E nu / E_f	fn:ps_k_asbuilt
+C894	subcritical k_eff a power source requires, both collector alterations	0.684	k_eff	DERIVED	powersource.py; k = r/(1+r), r = E nu / E_f	fn:ps_k_bore
+C895	subcritical k_eff a power source requires, with the optimised target	0.580	k_eff	DERIVED	powersource.py; k = r/(1+r), r = E nu / E_f	fn:ps_k_target
+C896	subcritical k_eff a power source requires, with all three alterations	0.469	k_eff	DERIVED	powersource.py; k = r/(1+r), r = E nu / E_f	fn:ps_k_all3
+C897	the k_eff the sourced fission-suppressed blanket sits at	0.246	k_eff	DERIVED	powersource.py; an upper bound, its whole multiplication attributed to fission	fn:ps_k_suppressed
+C898	the fusion's share of the recovered energy, as built	7.5	percent	DERIVED	powersource.py; (C58 + C59) / C889	fn:ps_share_asbuilt
+C899	the same with all three alterations	27.4	percent	DERIVED	powersource.py; (C58 + C59) / C892	fn:ps_share_all3
+C900	energy per source neutron at the ADS design point	1310.3	MeV	DERIVED	powersource.py; F = k/(nu(1-k)) fissions per source neutron	fn:ps_e_ads
+C901	the k_eff an accelerator-driven subcritical system is designed around	0.95	k_eff	SOURCED	MYRRHA and comparable ADS designs	fn:ps_k_ads

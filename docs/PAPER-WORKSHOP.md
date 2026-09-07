@@ -219,3 +219,47 @@ and its selftest asserts three things: that the expression reproduces every cell
 that it does so at the retired sticking rather than the corrected one, and that no heat or work form
 clears unity anywhere. `BALANCES_AT_90` stays in the file as the printed record the correction is
 against — a status is never flattened, and neither is a table.
+
+## The clause that hid the answer
+
+The paper reported that no heat form and no work form clears unity, and stopped there. That is a
+verdict, and the project asked for a specification. Running the balance backwards instead of forwards
+found the answer sitting inside the paper's own arithmetic.
+
+`G = N·V·η/E_π = 1`, solved for each term with the others held at the best configuration:
+
+| term | requires | against | |
+|---|---|---|---|
+| service life `N` | 878.7 cycles | a cap of 198 | forbidden by 4.44 |
+| collection `η` | 284.7 % | a fraction | forbidden |
+| production cost `E_π` | 1.900 GeV | 11.13 measured, 4.69 optimised | open |
+| value per fusion `V` | 152.7 MeV | 26.06 sourced | open |
+
+Two of the four are closed by physics rather than by engineering. So a self-sustaining power source is
+a statement about what a fusion is worth, and about nothing else — and `E_π` cannot carry it alone,
+because 1.900 GeV is below even the optimised figure. The whole question is the blanket.
+
+**`Cold_Fusion_Specification_and_Procedure` §5.1 had already reached that point and turned away from
+it in half a sentence:** *"Breakeven would need a multiplication of 6.33 neutrons per source neutron —
+beyond any (n,xn) blanket, and reachable only by fission, **which changes the product rather than the
+yield**."* The first half is right. The second half is wrong, and it is the reason the answer was not
+in the paper: fission in a **subcritical** blanket releases its energy as heat, on site, inside the
+device. That is the product, not a change of it.
+
+Inverting the subcritical relation `F = k/(ν(1−k))` — two sourced inputs, one geometric sum, no fitted
+parameter — puts the requirement at **k between 0.469 and 0.770**, against 0.95 for an
+accelerator-driven system and unity for a power reactor. The relation checks against a blanket the
+paper already uses: the sourced fission-suppressed design's 1.6× multiplication sits at k ≤ 0.246,
+which is where a design built to suppress fission belongs.
+
+What it costs to say: the fusion then supplies 7.5–27.4 % of the recovered energy and all of the
+neutrons, so the device is a fusion-driven subcritical fission reactor and not a fusion power plant.
+Both halves are in §9.2 because neither stands alone. And the deciding comparison for a builder —
+against a spallation-driven subcritical system on the same beam — is still unmade, and is now the
+largest open item in the paper.
+
+`tools/powersource.py` is the instrument. It runs the inverse rather than the forward balance, and its
+selftest asserts that solving for a term and substituting it back returns exactly unity, that the two
+closed axes are closed, that the relation reproduces the sourced blanket's regime, and that the
+requirement lands deeply subcritical — plus the constructed case where it would not, so the result is
+a fact about the numbers rather than a tautology.

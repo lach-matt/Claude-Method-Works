@@ -260,6 +260,17 @@ to 2.5 that is **24.31** to **27.20 MeV**. Breakeven would need a multiplication
 per source neutron — beyond any (n,xn) blanket, and reachable only by fission, which changes the
 product rather than the yield.
 
+> **The second half of that sentence is withdrawn.** Fission in a **subcritical** blanket driven by
+> these neutrons releases its energy as **heat, on site, inside the device**, which is the product
+> rather than a change of it. Solving the balance for what a blanket must return, and inverting the
+> subcritical relation *F = k/(ν(1−k))*, puts the requirement at a multiplication factor between
+> **0.469** and **0.770** — deeply subcritical, against **0.95** for an accelerator-driven system and
+> unity for a power reactor. **A self-sustaining power source therefore exists in these numbers**, at
+> the cost of the device being a fusion-driven subcritical fission reactor in which the fusion
+> supplies between **7.5** and **27.4 percent** of the recovered energy and all of the neutrons. The
+> consolidated paper's §9.2 carries the derivation and §9.3 the measurement; what stands here is the
+> first half — no non-fissioning blanket reaches the requirement.
+
 **E_binder cannot be lowered by changing the binder.** Sticking is a property of the fusion channel
 and not of the binder (§1), so a different occupant of the structural window moves only its own cost.
 Taking the most favourable possible case — a hypothetical binder at the window floor of **119**

@@ -25,7 +25,9 @@ A second correction goes with it, and it is larger. Every balance previously rep
 
 **What it decides is that no heat form and no work form is self-sustaining.** The largest either reaches is 0.513, and only by granting the optimised production target, a wider bore, a wider stopping window and a fuel density never held, all at once. **Every device-internal figure above unity in the record is withdrawn**: each was the superseded sticking and nothing else.
 
-**What survives is one configuration, and it asks for less than anything else here.** Priced as bred fuel, at the measured 150 cycles per binder, with no service-life model, no density above the one already reached and no choice between the two sticking measurements, the balance is 0.623 with the machine as built, **0.957** with both collector alterations, and **1.480** through an optimised production target. Every quantity in it is a measurement or is integrated from measurements, except two: the loss budget, which is computed and which §10 Stage A measures, and the production target's factor, which is published and which Stage C measures. **That configuration is the self-sustaining one this paper offers.** It has never been assembled, and §6 to §8 say how.
+**Two configurations survive, and they are different claims.** Priced as **bred fuel**, at the measured 150 cycles per binder — with no service-life model, no density above the one already reached and no choice between the two sticking measurements — the balance is 0.623 with the machine as built, **0.957** with both collector alterations and **1.480** through an optimised production target. It asks for less than anything else here, and its product leaves the device as fuel.
+
+**And a self-sustaining power source is specified rather than merely sought.** Setting the balance to unity and solving for each term shows that two of the four are closed above by physics rather than by engineering — the service life at 198 cycles by the sticking, the collection at unity because it is a fraction — so the question reduces entirely to what one fusion is worth. It must be worth 152.7 MeV, or 64.3 MeV with the optimised target. No non-fissioning blanket supplies that; a **subcritical** blanket driven by the same neutrons supplies it at a multiplication factor between 0.469 and 0.770, against 0.95 for an accelerator-driven system and unity for a power reactor. **The energy is then heat, recovered on site, with nothing leaving the device** — the fusion supplying 27.4 percent of it and every one of the neutrons. That is a fusion-driven subcritical fission reactor and not a fusion power plant, and the paper says so where it says the rest. **Neither configuration has been assembled**; §6 to §9 specify them and §10 measures what is still open.
 
 One configuration is net-positive on witnessed numbers alone, and it is not the standalone one. Pions are a byproduct of spallation, made in the same collisions that produce a spallation target's neutrons, so a facility already running a proton driver for neutrons or isotopes is making binders and discarding them. The marginal beam energy per binder is then **zero**, and any positive heat is gain. At the reachable capture of 0.2438, that comes to 85.6 kW of fusion heat on a one-megawatt driver. It is the one result here that a loss factor rescales without deciding, because it was never a ratio against unity in the first place.
 
@@ -269,7 +271,7 @@ The binder is not consumed. It is released and forms the next muonic molecule, a
 
 **Figure 7.** The step the existing experiments do not take. Both observables watch the same fuel at the same time, on one fill, so the cycle count and the loss are measured together rather than inferred from separate runs.
 
-**They share no instrument and no calibration**, which is what makes them two routes rather than one. §9.3 commits in advance to treating a disagreement between them as a **refusal** rather than as an average.
+**They share no instrument and no calibration**, which is what makes them two routes rather than one. §8.4 commits in advance to treating a disagreement between them as a **refusal** rather than as an average, and §9.3 applies the same rule to the two routes that read a subcritical `k`.
 
 
 ### 6.3 Bill of materials
@@ -291,7 +293,9 @@ Column A witnesses the reaction. Column B is the reactor-scale target the balanc
 | **production target** | none | high-Z, and a **free liquid-metal jet** — §7.3 |
 | neutron detection | array calibrated at 14.1 MeV | — |
 | X-ray detection | resolving 8.2 keV, viewing the same sample volume | — |
-| blanket | none | ⁶Li-bearing, 1.6 x neutron energy neutron energy multiplication |
+| blanket, as a **breeder** | none | ⁶Li-bearing, 1.6 neutron energy multiplication, fission-suppressed |
+| blanket, as a **power source** | none | the same, **fission-permitting**: fissile or fertile loading to `k` = 0.469 – 0.770 — §9.2 |
+| reactivity instrumentation | none | pulsed neutron source, source-jerk drive and a correlation channel, per §9.3 |
 
 **The production target's material is set by the charge, not only by the yield.** Measured off the production tables for both signs, a lead target returns a π⁻/π⁺ ratio of 0.973 against aluminium's 0.732 — a factor of 1.329. At equal *total* charged-pion yield a low-Z target therefore delivers less of the sign that can catalyse, and the low-momentum π⁻ excess a collector's window sits in appears in the heavy targets and not in the light ones at all. **The requirement was previously met without being stated**, and a specification that does not state it could be met by a target that fails it.
 
@@ -412,7 +416,69 @@ Considered as a purpose in itself, the reaction cannot pay for its own binders, 
 **That theorem is about the binder paying for itself as a power source**, and §5.3 has shown the same thing from the arithmetic: no heat form and no work form reaches unity at the delivered acceptance under any alteration specified here. What §5.3 also shows is where the closure stops — priced as bred fuel rather than as heat, the same reaction on the same measured cycle count does clear it. §9.2 gives the other configuration the theorem does not close, and for the same structural reason: it does not buy its binders at all.
 
 
-### 9.2 But the binder does not have to be bought
+### 9.2 The self-sustaining power source, solved rather than reported
+
+§5 states what each configuration returns. It does not state what a **self-sustaining power source** would have to be, and those are different questions: the first has an answer of the form *this one fails*, and the second has an answer of the form *this is what one looks like*. The project asked for the second. This section sets the balance to unity and solves it.
+
+The balance has four terms — `G = N · V · η / E_binder` — and they are not alike. **Two of them are bounded above by something no engineering moves.** The service life is capped at 198 cycles by the sticking (Proposition 1 in §13.2), and the collection is a fraction, so it cannot exceed one. **The other two are bounded by nothing proved anywhere in this paper.** Solving for each in turn, with the others held at the best configuration §5.3 reaches:
+
+| term | what unity requires | against | verdict |
+|---|---|---|---|
+| service life `N` | 878.7 cycles | a cap of 198 cycles | **forbidden**, by 4.44 |
+| collection `η` | 284.7 percent | a fraction cannot exceed unity | **forbidden** |
+| production cost `E_binder` | 1.900 GeV per pion | 11.13 GeV measured, 4.69 GeV optimised | open |
+| **value per fusion `V`** | **152.7 MeV** | 26.06 MeV from the sourced blanket | **open** |
+
+> **So a self-sustaining power source is a statement about what a fusion is worth, and about nothing else.** Two of the four axes are closed by the physics, and of the two that remain the production cost cannot carry the requirement alone — 1.900 GeV is below even the optimised 4.69 GeV. The question is therefore entirely: **can a blanket return 152.7 MeV per fusion?**
+
+**A non-fissioning blanket cannot, and this paper has said so.** Returning the alpha, the neutron's energy and the exothermic ⁶Li breeding, less the multiplier's endotherm, gives the 26.06 MeV of §4.2. No arrangement of (n,2n) multipliers approaches the requirement. That much of the preprint at [20] §5.1 stands.
+
+**What does not stand is the clause that follows it**, which reads that the requirement is *"reachable only by fission, which changes the product rather than the yield."* **It does not change the product.** Fission in a **subcritical** blanket driven by the fusion neutrons releases its energy as **heat, on site, inside the device** — which is exactly the product the whole exercise is for. A blanket that fissions is not a different machine selling something else; it is the same machine recovering more of what its own neutrons are worth.
+
+
+#### What a subcritical blanket returns, derived
+
+A source neutron entering a subcritical assembly of multiplication factor `k` is multiplied to `1/(1 − k)` neutrons in circulation. One of those is the source neutron itself, so `1/(1 − k) − 1` were born in fission, and each fission makes `ν` of them. Hence the fissions per source neutron and the energy they release are
+
+
+$$F \;=\; \frac{1}{\nu}\left(\frac{1}{1-k}-1\right) \;=\; \frac{k}{\nu\,(1-k)}, \qquad E \;=\; F\,E_f$$
+
+with `ν` = 2.9 per fission and `E_f` = 200 MeV. Two sourced inputs, one identity, and no fitted parameter. Proposition 10 in §13.9 gives it in full.
+
+**The relation checks against a blanket this paper already uses.** The sourced fission-suppressed design multiplies the neutron's energy by 1.6, and attributing the whole of that to fission — an overstatement, since some is ⁶Li exotherm — puts it at `k` ≤ 0.246. A design built to *suppress* fission sits deeply subcritical, which is where it should sit, and which is the check that the relation is in the right regime before it is asked anything.
+
+
+#### The specification
+
+| configuration | value per fusion required | subcritical `k` required | the fusion's share |
+|---|---|---|---|
+| the machine as built | 234.3 MeV | 0.770 | 7.5 percent |
+| with both collector alterations | 152.7 MeV | 0.684 | — |
+| with the optimised production target | 98.7 MeV | 0.580 | — |
+| **with all three alterations** | **64.3 MeV** | **0.469** | **27.4 percent** |
+
+> **Every one of those is deeply subcritical, and that is the result.** For scale, an accelerator-driven subcritical system is designed around `k` = 0.95, where the same relation returns 1310.3 MeV per source neutron, and a power reactor runs at unity. **The requirement is met at a `k` between 0.469 and 0.770** — far below the ADS design point and further below criticality, which is a safety margin as well as an engineering one. **A self-sustaining power source exists in these numbers, it returns its energy as heat with nothing leaving the device, and it does not require an advance on anything.**
+
+**Two things travel with that, and both are said here rather than left to a reader.**
+
+**The fusion supplies a minority of the energy.** At the least demanding configuration it is 27.4 percent; at the most demanding, 7.5 percent. What the fusion supplies in full is the **neutrons** — every one of them, at 14.1 MeV, which is the energy at which they drive fast fission in fertile material that a fission spectrum does not reach. **The device is a fusion-driven subcritical fission reactor**, and calling it a fusion power plant would be false. It is a self-sustaining power source on this paper's own criterion, which is the criterion that was asked for: it returns more energy than the beam that drives it, as heat, on site.
+
+**And the deciding comparison for a builder is not made here.** The same beam spent on a **spallation**-driven subcritical system would also multiply, and this paper does not compare the two. §11 records that as unmade and §10 Stage D is where it would be settled, on one apparatus, because it is the same beam and the same blanket with the fuel cell in and out.
+
+
+### 9.3 How the specification is measured
+
+**The quantity the specification names is `k`, and `k` is measured rather than computed.** It is one of the oldest measurements in reactor physics and it is made on subcritical assemblies as a matter of routine, by at least three methods that share no instrument:
+
+1. **Pulsed-neutron, by the Sjöstrand area method.** Pulse the assembly and separate the prompt decay from the delayed background in the detector's time spectrum; their area ratio gives reactivity in dollars directly, with no calibration of detector efficiency.
+1. **Source jerk.** Withdraw the source from a steady subcritical state and read the prompt drop against the delayed-neutron plateau.
+1. **Noise, by Rossi-α or Feynman-α.** Read the prompt decay constant from the correlation in the detector counts alone, with no perturbation of the assembly at all.
+**Two of those must agree.** The rule §8.4 applies to sticking applies here for the same reason: a disagreement between two methods that share no calibration is a refusal, not an average.
+
+**The prediction is committed in advance.** For a blanket built to the specification above, the measured `k` must lie between 0.469 and 0.770 according to which alterations the machine carries, and the energy multiplication read from the assembly's own heat balance must agree with `F = k/(ν(1 − k))` at the `ν` of its fuel. **A measured `k` below 0.469 falsifies the power-source configuration** and leaves the bred-fuel route of §5.4 standing, which needs no fission at all.
+
+
+### 9.4 But the binder does not have to be bought
 
 There is, however, a configuration in which the binder costs nothing, and it turns on a fact about the cycle that has been in view since §3. The catalytic cycle has no input per event: the binder is not consumed, and no energy is supplied to bring the nuclei together. Its only input is the binder itself, so the whole of the negative balance sits in a single question — what the binder costs.
 
@@ -430,7 +496,7 @@ On that accounting the marginal beam energy attributable to one binder is zero, 
 **That last row is withdrawn.** A capture efficiency here means a muon that *stops in the fuel*, and a stopping target is one muon range deep, so it stops only the part of the accepted spectrum below its range. The bound is not the collector's: it is the solenoid's acceptance, 0.5069, which no target depth exceeds. **That row compared a collector's acceptance with a fuel target's stopping fraction, which are different quantities.**
 
 
-### 9.3 What that returns, at the capture actually reachable
+### 9.5 What that returns, at the capture actually reachable
 
 **And the headline figures must carry the same correction, plus §5.2's loss budget.** Both, applied:
 
@@ -449,12 +515,12 @@ On that accounting the marginal beam energy attributable to one binder is zero, 
 > **This is a net-positive cold fusion reaction.** No input per event, no input for the binder, and real energy out. It is provable from witnessed quantities and needs no number that has not been measured.
 
 
-### 9.4 And it dissolves the flux gap
+### 9.6 And it dissolves the flux gap
 
 The requirement has always been stated against **delivered** muon beams — about 1.0 × 10^8 s^-1 today and 1.0 × 10^10 s^-1 planned — which gives a shortfall of five orders of magnitude. Those are *momentum-selected, transported* beams, which discard almost everything the target makes. In-situ capture at the production target is 2.80 × 10^4 times the best planned delivered beam, or 1.37 × 10^4 at the delivered capture above, **because nothing is transported and nothing is selected.** The flux gap is an artefact of buying muons rather than making them where they are used.
 
 
-### 9.5 Committed predictions for the net-positive run
+### 9.7 Committed predictions for the net-positive run
 
 Stated before the run, at 1 MW on target and the witnessed cycle count of 150 cycles, **computed from the machine of §7 and not from a hypothetical one:**
 
@@ -485,7 +551,7 @@ The programme is four staged measurements, all on apparatus that already exists.
 
 **Stage C — the production target, measured rather than simulated.** A normalisation measurement: pions per beam particle against pions per interaction, on one target. This is the open half of the factor between 11.13 GeV and the optimised figure of 4.69 GeV, and it decides whether the one route that survives §5.3 exists.
 
-**Stage D — the integrated demonstration.** The net-positive configuration of §9, on a spallation driver already running, against the committed predictions of §9.5.
+**Stage D — the integrated demonstration.** The net-positive configuration of §9, on a spallation driver already running, against the committed predictions of §9.7.
 
 > The order is not arbitrary, and each stage earns its place. Stage A multiplies everything downstream of it. Stage C decides whether the route that clears unity at the delivered acceptance exists at all. Stage B decides a factor *within* a route rather than whether the route is there. And Stage D is the demonstration itself, which cannot be interpreted before Stage A has run.
 
@@ -495,7 +561,7 @@ The programme is four staged measurements, all on apparatus that already exists.
 
 ## 11. Limits, and what this paper does not claim
 
-Each item below is a limit on what the foregoing establishes. None of them is resolved by argument in this paper, and where a measurement would settle one, that measurement is named. §13.9 lists the three that bear most directly on the results.
+Each item below is a limit on what the foregoing establishes. None of them is resolved by argument in this paper, and where a measurement would settle one, that measurement is named. §13.10 lists the three that bear most directly on the results.
 
 **The operative sticking is unresolved between two measurements**, though not in a way that changes the heat form's verdict. 0.5050 percent and 0.5320 percent are the two effective values the measured reactivation returns, and both lie above the break-point at 0.1580 percent, so the heat form fails at perfect collection on either. What the disagreement leaves open is the service life, and with it every balance that depends on it. §8's protocol settles it, and nothing here stands in for that.
 
@@ -533,11 +599,16 @@ Each of these is a theorem or a derivation from measured inputs, and no measurem
 1. **Sticking does not depend on the binder's mass** (Theorem 2), so condition 8 is a specification on the machine and not a search over the spectrum.
 1. **The standalone configuration is closed** (Theorem 3): no admissible binder pays for itself as a power source, at any collector.
 1. **Where the binder is a byproduct of a beam already running, the configuration returns net energy** (Theorem 4), and no loss factor can take it below unity, because it was never a ratio against one.
-1. **No heat form and no work form is self-sustaining** in any configuration this paper can construct. The largest either reaches is 0.513, granting the optimised production target, the wider bore, the wider stopping window and an unreached fuel density all at once.
+1. **No heat form and no work form is self-sustaining on a non-fissioning blanket**, in any configuration this paper can construct. The largest either reaches is 0.513, granting the optimised production target, the wider bore, the wider stopping window and an unreached fuel density all at once.
+1. **Two of the balance's four terms are closed above by physics rather than by engineering** — the service life at 198 cycles by the sticking, and the collection at unity because it is a fraction — so a self-sustaining power source is a statement about what a fusion is worth, and about nothing else. §9.2 solves it.
 
 ### 12.2 Proved above unity, and unwitnessed
 
-**One configuration returns more energy than it costs, and it is bred fuel at the measured cycle count.** Its balance is 1.480 through an optimised production target, 2.271 with the two collector alterations as well, and 0.957 with no target factor at all. Every term in it is set out below, with what is known about each.
+**Two configurations return more energy than they cost. The first is a power source and the second is a breeder, and they are not the same claim.**
+
+**The power source.** Setting the balance to unity and solving, the value recovered per fusion must reach 152.7 MeV with both collector alterations, or 64.3 MeV with the optimised production target as well. A non-fissioning blanket cannot supply that. A **subcritical** blanket driven by the same fusion neutrons supplies it at a multiplication factor between 0.469 and 0.770 — deeply subcritical, against 0.95 for an accelerator-driven system and unity for a power reactor. **The energy is heat, recovered on site, with nothing leaving the device.** The fusion supplies between 7.5 percent and 27.4 percent of it and all of the neutrons, so the device is a fusion-driven subcritical fission reactor rather than a fusion power plant, and §9.2 says so in those words. What is unwitnessed is the assembly; the quantity it turns on is `k`, which §9.3 measures by three routes that share no instrument.
+
+**The breeder, which needs no fission at all.** Its balance is 1.480 through an optimised production target, 2.271 with the two collector alterations as well, and 0.957 with no target factor at all. Every term in it is set out below, with what is known about each.
 
 | term | value | how it is known |
 |---|---|---|
@@ -763,7 +834,23 @@ The premise of that theorem is about **beam**, and a reader is owed what it does
 **Remark.** Theorem 4 does not contradict Theorem 3. Theorem 3 forbids a configuration that must buy its own binders from paying for itself; Theorem 4 describes one that does not buy them.
 
 
-### 13.9 What is not proved
+### 13.9 The subcritical blanket
+
+**Proposition 10 (the energy a subcritical assembly returns per source neutron).** *In an assembly of multiplication factor* $k < 1$ *driven by an external neutron source, the fissions per source neutron and the energy they release are*
+
+
+$$F \;=\; \dfrac{k}{\nu\,(1-k)}, \qquad E \;=\; F\,E_f$$
+
+*with* $\nu$ *the neutrons released per fission and* $E_f$ *the energy released per fission.*
+
+*Derivation.* Let one source neutron enter the assembly. Each generation of neutrons produces `k` times as many as the one before it, so the total number in circulation over all generations is the geometric sum $\sum_{i \ge 0} k^i = 1/(1-k)$, which converges precisely because the assembly is subcritical. One of those is the source neutron itself, so $1/(1-k) - 1 = k/(1-k)$ were born in fission. Each fission releases $\nu$ neutrons, so the number of fissions is that count divided by $\nu$, which is $F$; and each releases $E_f$. ∎
+
+**Corollary 10.1 (the inversion).** *The multiplication factor required to return a given energy per source neutron is* $k = r/(1+r)$ *with* $r = E\,\nu/E_f$, *and it is below unity for every finite* $E$. This is what §9.2 solves, and the fact that it is below unity for any finite requirement is why the question is how far below rather than whether.
+
+> **What Proposition 10 does not carry.** It is a point-kinetics statement: it assumes one multiplication factor for the whole assembly and takes no account of where the source sits in it, of leakage, or of the spectrum. A real blanket's source is central and its neutrons enter at 14.1 MeV rather than at a fission spectrum's mean, both of which raise the yield above this estimate for the same `k`. **The proposition is therefore used here as a requirement and not as a prediction**, and §9.3 states the measurement that would replace it.
+
+
+### 13.10 What is not proved
 
 Three things in this paper are **not** theorems, and are marked as such wherever they appear.
 
