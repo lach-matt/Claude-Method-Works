@@ -459,6 +459,15 @@ FINDINGS = [
   "crossover mu = 4 sqrt(alpha) = 5.3293e-10 kg, half a nanogram, against a 1.1263e9 kg design point: the classical vacuum corridor is right by 18.3 orders of magnitude"),
  ("QUANTUM-DEFOCUSES", 0, -1,  0, "corridor.py",
   "where the quantum corridor does apply its Unruh T_kk is NEGATIVE throughout, growing toward the horizon, so it DEFOCUSES: it would hurt the seat and help the lead. Recorded, not pursued"),
+ # M found the scope error: the Unruh dismissal needs a horizon.
+ ("UNRUH-NEEDS-HORIZON", 0, -1, +1, "corridor.py",
+  "the 18-order dismissal used APT's Hawking flux, which requires a HORIZON; a two-region concentric device is horizonless and has no Unruh state, so the number does not transfer to it"),
+ ("CASIMIR-ROUTE",   +1, +1, +1, "corridor.py",
+  "the right term for a horizonless device is boundary-induced, rho = -pi^2 hbar c/720 d^4, and it meets the seating threshold only at 0.132 PLANCK LENGTHS -- sub-Planckian, still 57x short at l_P itself"),
+ ("TWO-ROUTES-AGREE",+1, +1, +1, "corridor.py",
+  "Casimir mass-equivalent at l_P is 2.9834e-10 kg against the Unruh crossover 5.3293e-10 kg -- two unrelated quantum estimates within a factor of 1.79, so the Planck-scale verdict is robust to which vacuum you invoke"),
+ ("DEVICE-IS-CLASSICAL",+1,+1,+1, "corridor.py",
+  "consequence: the two-region concentric device is a purely classical problem at any engineering scale, and composite.py's validated pipeline handles it with no quantum term added"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of eighteen obstructions four dissolved, three relocated, six closed negative, three conditional, two open and none untested"),
 ]
@@ -577,7 +586,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 168)
+    chk("number of findings indexed", len(FINDINGS), 172)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -610,6 +619,7 @@ def selftest():
                 "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
                 "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH",
                 "VACUUM-FORCES-WEYL","CLASSICAL-WINS",
+                "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -619,7 +629,8 @@ def selftest():
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I",
                 "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
                 "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH",
-                "VACUUM-FORCES-WEYL","CLASSICAL-WINS"]))
+                "VACUUM-FORCES-WEYL","CLASSICAL-WINS",
+                "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

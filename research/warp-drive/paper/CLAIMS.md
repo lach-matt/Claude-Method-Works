@@ -436,6 +436,21 @@ any device by eighteen orders of magnitude.**
 | falsified by | an error in APT's `f(z)`, or a corridor geometry where the Weyl tidal scale `μ/r³` is wrong by 18 orders |
 | **not** claimed | that the quantum window was re-run (it was not); the Weyl estimate is a **scale**, not an integrated focusing — good to an order of magnitude, which is all an 18-order gap needs |
 
+**H9′ — a scope correction, and it strengthens the result.** The Unruh crossover above requires a
+**horizon**: APT's `f(z)` is the Hawking flux of an evaporating black hole. A **two-region concentric
+device is horizonless**, so it has no Unruh state and the 18-order number does not transfer to it. The
+correct term there is boundary-induced — `ρ_cas(d) = −π²ℏc/720d⁴`, negative, scaling with the **gap**
+rather than the mass. Against `seatindex.py`'s threshold the two curves go as `d⁻⁴` and `d⁻²` and cross
+exactly once, at
+
+**`d = 2.1352×10⁻³⁶ m = 0.132 Planck lengths`** — sub-Planckian, and still **57× short at `ℓ_P` itself**.
+
+Its mass-equivalent at `ℓ_P` is `2.9834×10⁻¹⁰ kg` against the Unruh crossover's `5.3293×10⁻¹⁰ kg`:
+**two unrelated quantum routes, one with a horizon and one without, agreeing within a factor of 1.79.**
+The Planck-scale verdict is robust to which vacuum you invoke — a stronger statement than either
+estimate alone. **Consequence: the two-region concentric device is a purely classical problem at any
+engineering scale**, and `composite.py`'s validated pipeline handles it with no quantum term added.
+
 **A normalisation caution, enforced in the file:** the *sign* of the Unruh term comes from
 `universal.py` and the *magnitude* ratio from `selfconsistent.py`. Those are different normalisations;
 no mixed quantity is reported.

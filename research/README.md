@@ -2489,3 +2489,39 @@ indicated, not established.
 
 - `index3.py` — 168 findings: `VACUUM-FORCES-WEYL`, `CORRIDOR-CLOSED-FORM`, `CLASSICAL-WINS`, `QUANTUM-DEFOCUSES`.
 - `paper/CLAIMS.md` — **H9**, plus an explicit "not claimed" entry retiring "near instantaneous".
+
+### Pass 17b — the scope error M found, and the route that replaces it
+
+M: *"I have a feeling we are going to need to run this to explore a two-region concentric device."*
+That instinct found a real error in the dismissal above, and running it **strengthened** the result
+rather than reversing it.
+
+**The error.** The Unruh crossover requires a **horizon** — APT's `f(z)` is the Hawking flux of an
+evaporating black hole. **A two-region concentric device is horizonless**, so it has no Unruh state
+at all, and the 18-order dismissal **does not transfer to it.** The `corridor.py` claim is correct and
+narrower than it looked; it is kept, and the new section cites it rather than rewriting it.
+
+**The route that does apply.** For a horizonless device the vacuum contribution is boundary-induced —
+Casimir-like, **scaling with the gap rather than the mass**:
+
+`ρ_cas(d) = −π²ℏc / (720 d⁴)` — negative, which is the sign the lead wants.
+
+Against `seatindex.py`'s universal threshold `T_kk ≥ πc⁴/4Gℓ²` at `ℓ = d`, the two go as `d⁻⁴` and
+`d⁻²` and cross exactly once:
+
+**`d_cross = 2.1352×10⁻³⁶ m = 0.132 Planck lengths`**
+
+**Sub-Planckian.** Casimir never reaches the seating threshold anywhere the framework is defined —
+even *at* the Planck length it is short by a factor of **57**.
+
+**And the two routes agree.** Casimir's mass-equivalent at `ℓ_P` is `2.9834×10⁻¹⁰ kg`; the Unruh
+crossover is `5.3293×10⁻¹⁰ kg`. **A factor of 1.79 apart, from two unrelated calculations — one with
+a horizon, one without.** The quantum corridor is a Planck-scale phenomenon whichever vacuum you
+invoke, and the agreement of two independent estimates is worth more than either alone.
+
+**Consequence, and it unblocks the next pass:** the two-region concentric device is a **purely
+classical** problem at any engineering scale. `composite.py`'s validated pipeline handles it with no
+quantum term added.
+
+Seated: `index3.py` 172 findings — `UNRUH-NEEDS-HORIZON`, `CASIMIR-ROUTE`, `TWO-ROUTES-AGREE`,
+`DEVICE-IS-CLASSICAL`. `paper/CLAIMS.md` — **H9′**.

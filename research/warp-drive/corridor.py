@@ -77,6 +77,45 @@ selfconsistent.py's APT closed form.  Those are different normalisations and
 this file never multiplies one by the other.  Sign from one, magnitude from the
 other, and no mixed quantity is reported.
 
+-- A SCOPE ERROR IN THE ABOVE, FOUND BY M, AND THE ROUTE THAT REPLACES IT ------
+The crossover above is CORRECT AND NARROWER THAN IT LOOKED, and the narrowing
+matters for the device this project is heading towards.  It is kept rather than
+rewritten, and this section cites it.
+
+    THE UNRUH STATE REQUIRES A HORIZON.  APT's f(z) is the Hawking flux of an
+    EVAPORATING BLACK HOLE.  A TWO-REGION CONCENTRIC DEVICE IS HORIZONLESS, so
+    it has no Unruh state at all, and the 18-order dismissal above does not
+    transfer to it.
+
+M's instinct -- "I have a feeling we are going to need to run this to explore a
+two-region concentric device" -- is what surfaced that.  The right quantum
+contribution for a horizonless device is BOUNDARY-INDUCED, Casimir-like, and it
+scales with the GAP rather than with the mass:
+
+        rho_cas(d)  =  - pi^2 hbar c / (720 d^4)      NEGATIVE, as required
+
+Run against seatindex.py's universal seating threshold T_kk >= pi c^4/(4 G l^2)
+at l = d, the two curves go as d^-4 and d^-2, so they cross exactly once:
+
+        d_cross = sqrt( (pi^2 hbar c/720) / (pi c^4/4G) )  =  2.1352e-36 m
+                =  0.132 PLANCK LENGTHS
+
+    SUB-PLANCKIAN.  Casimir never reaches the seating threshold anywhere the
+    framework is defined: even AT the Planck length it is still a factor 57
+    short (ratio 1.745e-2).
+
+And the mass-equivalent it could offer the LEAD, at the Planck length, is
+2.9834e-10 kg -- against the Unruh crossover of 5.3293e-10 kg.
+
+    TWO INDEPENDENT QUANTUM ROUTES, ONE WITH A HORIZON AND ONE WITHOUT, LAND
+    WITHIN A FACTOR OF 1.8 OF EACH OTHER.  The quantum corridor is a Planck-
+    scale phenomenon whichever vacuum you invoke, and the agreement of two
+    unrelated estimates is worth more than either alone.
+
+    CONSEQUENCE FOR THE NEXT PASS: the two-region concentric device is a purely
+    CLASSICAL problem at any scale of engineering interest, and composite.py's
+    validated pipeline handles it with no quantum term added.
+
 -- WHAT THIS DOES NOT SETTLE --------------------------------------------------
   1. It compares MAGNITUDES of two focusing terms.  It does not re-run
      composite.py's window with a quantum term added -- that is the NOT-RUN
@@ -130,6 +169,29 @@ def kg_crossover(z=0.5):
 def dominant(mu, z=0.5):
     """Which corridor description governs at this mass."""
     return QUANTUM if ratio_closed_form(z) / (mu * mu) > 1.0 else CLASSICAL
+
+
+HBAR_C = 1.054571817e-34 * 299792458.0
+C_SI = 299792458.0
+L_PLANCK = 1.616255e-35
+
+
+def casimir_rho(d):
+    """Boundary-induced vacuum density at gap d, in Pa.  Negative.  This is the
+    right quantum term for a HORIZONLESS device, where there is no Unruh state."""
+    return -(math.pi ** 2) * HBAR_C / (720.0 * d ** 4)
+
+
+def casimir_seat_crossing():
+    """The gap at which Casimir would meet seatindex.py's universal threshold.
+    Casimir goes as d^-4 and the threshold as d^-2, so they cross exactly once."""
+    import seatindex
+    return math.sqrt((math.pi ** 2) * HBAR_C / 720.0 / seatindex.T_COEFF)
+
+
+def casimir_mass_equivalent(d):
+    """|rho| d^3 / c^2 -- what the lead could draw on, in kg."""
+    return abs(casimir_rho(d)) * d ** 3 / (C_SI * C_SI)
 
 
 def unruh_tkk_sign(z):
@@ -201,6 +263,27 @@ def selftest():
     print("       Negative Ricci DEFOCUSES: it would hurt the seat and help the")
     print("       lead -- composite.py's window pushed both ways at once.  Whether")
     print("       it survives is NOT-RUN, and not worth running sub-nanogram.")
+
+    print("\nTHE SCOPE ERROR: the Unruh state needs a HORIZON")
+    import seatindex
+    dx = casimir_seat_crossing()
+    near("Casimir meets the seating threshold at d (m)", dx, 2.1352e-36, 1e-40)
+    near("which is this many Planck lengths", dx / L_PLANCK, 0.13210, 1e-4)
+    chk("SUB-PLANCKIAN, so it never reaches it where the framework holds",
+        dx < L_PLANCK, True)
+    ratio = abs(casimir_rho(L_PLANCK)) / seatindex.tkk_required(L_PLANCK)
+    near("and AT the Planck length it is still short by this factor",
+         1.0 / ratio, 57.3, 0.5)
+    meq = casimir_mass_equivalent(L_PLANCK)
+    near("Casimir mass-equivalent at l_P (kg)", meq / 2.9834e-10, 1.0, 1e-3)
+    near("against the Unruh crossover, agreeing within a factor",
+         kg_crossover(0.5) / meq, 1.786, 1e-2)
+    chk("two unrelated quantum routes agree inside a factor of 2",
+        kg_crossover(0.5) / meq < 2.0, True)
+    print("       The Unruh crossover above is right for a HORIZON-BEARING source")
+    print("       and does not transfer to a horizonless two-region device.  The")
+    print("       Casimir route is the one that does, and it agrees.  So the")
+    print("       device is a purely CLASSICAL problem at any engineering scale.")
 
     print("\nThe normalisation caution, enforced")
     chk("sign comes from universal.py", unruh_tkk_sign(0.5) < 0, True)
