@@ -107,6 +107,13 @@ FINDINGS = [
   "the gate is fully specified and unbuildable: 44 fields, 9 open, 3 invalidated"),
  ("SOURCING-DEAD",+1, -1,  0, "GATE-CLOSED.md",
   "the verdict on the manufactured branch: energy known, device impossible, nothing to draw"),
+ # The audit that reads the bounds as a direction instead of an obituary: five
+ # of eight carry ASYMPTOTIC FLATNESS, and the universe does not.  Same shape as
+ # CM-THEOREM, where every failure shared the word ISOLATED.
+ ("FLAT-HYP",     0, +1,  0, "cosmo.py",
+  "5 of 8 bounds assume asymptotic flatness; in FLRW they are not even statable"),
+ ("FLRW-OBS",    +1, +1,  0, "cosmo.py",
+  "superluminal geodesic metric transport is OBSERVED, dust satisfies all four"),
  ("NO-TAPER",     0, -1, -1, "GATE-CLOSED.md",
   "a shift cannot terminate in vacuum: Type IV in every cell, at every speed"),
  ("NO-EXOTIC",   +1,  0,  0, "TARGET-1-RESULT.md",
@@ -203,7 +210,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 28)
+    chk("number of findings indexed", len(FINDINGS), 30)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
