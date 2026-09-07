@@ -35,6 +35,8 @@ Finally, the materials are specified to the last free parameter, the machine tha
 
 We take a cold fusion reaction to be **a nuclear fusion event in which the approach to nuclear separation is supplied by molecular binding geometry rather than by kinetic energy.** The definition is structural rather than thermal. It makes no claim that the reaction runs near room temperature; it says only that the work of bringing two nuclei within tunnelling range is done by a bound state instead of by a collision, and that distinction is what the rest of the paper turns on.
 
+**Two things the term is not being used to mean.** It is not being used for the electrochemical claims of the late nineteen-eighties, which asserted an unexplained nuclear yield from a metal lattice and which nothing here bears on, supports or revisits. And it is not a new name for a new effect: the reaction the definition picks out is muon-catalysed fusion, a laboratory phenomenon since the nineteen-fifties, and §2 shows that the definition picks out that and nothing else. The word is used because the definition is a structural one and the reaction satisfies it — the approach really is done by binding rather than by heat — and a reader who prefers the field's own name for it will lose nothing by substituting it throughout.
+
 Seven conditions are necessary for such an event to occur and to be checkable. They are stated here in the order in which they constrain the problem, and each is used later.
 
 1. **Approach by binding.** The internuclear separation must be set by the geometry of a bound state.
@@ -425,7 +427,7 @@ On that accounting the marginal beam energy attributable to one binder is zero, 
 |---|---|---|
 | 30 percent, today's front end | 10.5 percent | yes |
 | 0.3420, the ceiling at the specified inventory | 12.0 percent | yes |
-| one half | 17.6 percent of beam | only at about 45 kg of tritium |
+| one half | 17.6 percent of beam | on the physics, yes — but at about 45 kg of tritium, which §11 records as an unpriced condition |
 | 90 percent [DESIGN], the specified collector | 31.6 percent of beam | **no — above the ceiling at any target depth** |
 
 **That last row is withdrawn.** A capture efficiency here means a muon that *stops in the fuel*, and a stopping target is one muon range deep, so it stops only the part of the accepted spectrum below its range. The bound is not the collector's: it is the solenoid's acceptance, 0.5069, which no target depth exceeds. **That row compared a collector's acceptance with a fuel target's stopping fraction, which are different quantities.**
@@ -509,6 +511,8 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 **The bound case rests on a density no experiment has reached.** The service-life model itself is in good order: at the density that has been reached it returns 152.8 cycles against the 150 cycles measured, a ratio of 1.019. What the bound-case rows assume is a fuel density of 8.5 times liquid rather than 1.2, and carrying them back to the density reached multiplies each by 0.8038 — which takes the best device-internal figure from 1.231 to 0.990, just under unity. **Every bound-case figure inherits that assumption** while no bred-fuel figure at demonstrated cycles does. The asymmetry is why §5 leans on the demonstrated count, and holding fuel at 8.5 times liquid is a stated experimental requirement rather than a claim.
 
 **The optimised production target is a discrepancy that cannot be closed by argument.** A published optimisation costs 4.69 GeV per pion against the 11.13 GeV integrated in §4.1. Three candidate mechanisms were examined and bounded; what survives is a **normalisation** — pions per beam particle against pions per interaction — needing 2.389 interacting nucleons, which reproduces the optimised figure closely and which a deuteron on a long target supplies. **Stage C measures it.**
+
+**The tritium inventory a plant would hold is very large, and this paper does not price holding it.** Because the target must be one muon range deep, and because Proposition 9 shows that compression does not reduce the requirement, the standing inventory is 5.13 kg at the designed bore, 10.79 kg at the wider one, and about 45 kg to approach the acceptance ceiling. Those are kilogrammes of tritium in one target, against 2.41 mg in the demonstration cell of §6.3 — a step of six orders of magnitude between the experiment this paper specifies and the plant its balances describe. An inventory at that scale is a licensing, supply and containment problem of a different kind from anything in §7, and one this paper neither solves nor costs. It bears asymmetrically on the routes: the bred-fuel configuration breeds its own tritium once running and so needs the inventory only to start, while the heat and work forms need it throughout and earn nothing back. **Nothing in §10 measures it**, because §10 runs at the milligramme scale, and it should be read as a condition on any plant built from these results rather than as a term in any balance stated here.
 
 **And the standalone configuration is closed rather than open.** §9.1 is a theorem, and no measurement in §10 can overturn it. What §10 can decide is the co-product configuration and the bred-fuel route, which are the two that survive.
 

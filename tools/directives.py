@@ -123,7 +123,7 @@ ROWS = [
     ("D57", "IR", "2.2", "an optimised production target at 4.69 GeV per pion", 2, 1, 3, 2),
     ("D58", "IR", "2.3", "an independent review reaches the same escape", 2, 1, 1, 0),
     ("D59", "IR", "2.4", "the deciding measurement is being made, and exposes an unpriced channel", 2, 0, 2, 3),
-    ("D60", "IR", "2.5", "condition 8 derived independently; the service-life model over-predicts by 2.24", 3, -1, 0, 1),
+    ("D60", "IR", "2.5", "condition 8 derived independently; the 2.24 over-prediction, closed at BE:5.29", 3, -1, 0, 1),
     ("D61", "IR", "2.6", "the stripping route priced independently, and a newer sticking calculation", 2, 0, 1, 1),
     ("D62", "IR", "3", "what the four results leave standing", 3, 0, 1, 1),
     # Added after the first reading of this index, which found D54 short on Z and

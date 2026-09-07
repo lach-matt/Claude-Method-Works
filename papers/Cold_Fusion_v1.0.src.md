@@ -82,6 +82,15 @@ is structural rather than thermal. It makes no claim that the reaction runs near
 says only that the work of bringing two nuclei within tunnelling range is done by a bound state
 instead of by a collision, and that distinction is what the rest of the paper turns on.
 
+**Two things the term is not being used to mean.** It is not being used for the electrochemical
+claims of the late nineteen-eighties, which asserted an unexplained nuclear yield from a metal lattice
+and which nothing here bears on, supports or revisits. And it is not a new name for a new effect: the
+reaction the definition picks out is muon-catalysed fusion, a laboratory phenomenon since the
+nineteen-fifties, and §2 shows that the definition picks out that and nothing else. The word is used
+because the definition is a structural one and the reaction satisfies it — the approach really is done
+by binding rather than by heat — and a reader who prefers the field's own name for it will lose
+nothing by substituting it throughout.
+
 Seven conditions are necessary for such an event to occur and to be checkable. They are stated here in
 the order in which they constrain the problem, and each is used later.
 
@@ -662,7 +671,7 @@ factor cannot overturn it.
 |---|---|---|
 | [[C106]], today's front end | [[C507]] | yes |
 | [[C503]], the ceiling at the specified inventory | [[C508]] | yes |
-| one half | [[C471]] | only at about [[C511]] of tritium |
+| one half | [[C471]] | on the physics, yes — but at about [[C511]] of tritium, which §11 records as an unpriced condition |
 | [[C260!]], the specified collector | [[C472]] | **no — above the ceiling at any target depth** |
 
 **That last row is withdrawn.** A capture efficiency here means a muon that *stops in the fuel*, and a
@@ -799,6 +808,19 @@ optimisation costs [[C290]] per pion against the [[C100]] integrated in §4.1. T
 mechanisms were examined and bounded; what survives is a **normalisation** — pions per beam particle
 against pions per interaction — needing [[C538]] interacting nucleons, which reproduces the optimised
 figure closely and which a deuteron on a long target supplies. **Stage C measures it.**
+
+**The tritium inventory a plant would hold is very large, and this paper does not price holding it.**
+Because the target must be one muon range deep, and because Proposition 9 shows that compression does
+not reduce the requirement, the standing inventory is [[C710]] at the designed bore, [[C413]] at the
+wider one, and about [[C511]] to approach the acceptance ceiling. Those are kilogrammes of tritium in
+one target, against [[C719]] in the demonstration cell of §6.3 — a step of six orders of magnitude
+between the experiment this paper specifies and the plant its balances describe. An inventory at that
+scale is a licensing, supply and containment problem of a different kind from anything in §7, and one
+this paper neither solves nor costs. It bears asymmetrically on the routes: the bred-fuel
+configuration breeds its own tritium once running and so needs the inventory only to start, while the
+heat and work forms need it throughout and earn nothing back. **Nothing in §10 measures it**, because
+§10 runs at the milligramme scale, and it should be read as a condition on any plant built from these
+results rather than as a term in any balance stated here.
 
 **And the standalone configuration is closed rather than open.** §9.1 is a theorem, and no measurement
 in §10 can overturn it. What §10 can decide is the co-product configuration and the bred-fuel route,
