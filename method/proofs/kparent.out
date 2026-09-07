@@ -1,0 +1,39 @@
+E-012's TWO REMAINING ITEMS
+
+12q-03  REGISTER 434 PAIRS TWO POPULATIONS
+   434 prints        : 12.7% against 31.4%
+   the volume prints : main L3056, 12.7% against 30.8%, 'an eighteen-point gap'
+   and 31.4% is       : main L3052, the value over the stage below -- the STATED value
+   30.8 - 12.7 = 18.1, which is the eighteen points the volume names.
+   31.4 - 12.7 = 18.7, which is what 434's pairing gives.
+   The numerator is the double-charged figure over one population; 31.4 %% is the
+   density over another. The volume pairs like with like and 434 does not.
+
+12q-04 / 12s-04  K's PARENTS
+   the definition    : main L3070 -- f_max is the cap, NOT the cell's own f
+   and it says       : main L3071 -- the bound 'has one parent'
+   the other reading : main L3157 -- "K's parents are J_c and f"  (12s-04)
+   register 1790     : second cycle 2Jc-2K-f-g-q-k present: True  (12q-04)
+
+   THE GRAPH UNDER BOTH READINGS
+   stage   two parents (as 1790 counts)      one parent (as the volume defines)
+   L8      8 nodes  7 edges rank 0 tri 0    8 nodes  7 edges rank 0 tri 0
+   L9      9 nodes  8 edges rank 0 tri 0    9 nodes  8 edges rank 0 tri 0
+   L10    10 nodes 10 edges rank 1 tri 1   10 nodes 10 edges rank 1 tri 1
+   L11    11 nodes 11 edges rank 1 tri 1   11 nodes 11 edges rank 1 tri 1
+   L12    12 nodes 13 edges rank 2 tri 1   12 nodes 12 edges rank 1 tri 1
+   L13    13 nodes 14 edges rank 2 tri 1   13 nodes 13 edges rank 1 tri 1
+
+   register 1790 prints 13 nodes, 14 edges, cycle rank (0, 0, 1, 1, 2, 2)
+   -- which is the TWO-parent column exactly.
+
+   WHAT THE CORRECTION COSTS AND WHAT IT DOES NOT
+   edges at L13                  : 14 -> 13
+   cycle rank by stage           : (0, 0, 1, 1, 2, 2) -> (0, 0, 1, 1, 1, 1)
+   triangles by stage            : (0, 0, 1, 1, 1, 1) -> (0, 0, 1, 1, 1, 1)   UNCHANGED
+   hub k / g degree              : 4, 4 -> 4, 4   UNCHANGED
+   degrees that move at all      : {'2K': (3, 2), 'f': (3, 2)}
+   So the SECOND CYCLE falls and nothing else does: the triangle 2S'-g-v,
+   the treewidth of 2 and section 21.5.1's one-level shortfall all stand.
+
+RECORDED, NOT REPAIRED.

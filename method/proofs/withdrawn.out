@@ -1,0 +1,50 @@
+THE TWELVE ENTRIES SAID TO ASSERT WHAT A CHAT WITHDREW
+
+THE TEST THAT BUILT THE CLASS looked for a withdrawal marker INSIDE each
+entry.  The store's rule is that an entry is never edited and the repair
+is a new appended entry, so a correctly repaired entry carries no marker.
+Measured the other way -- is there a later entry that cites it and carries
+the correction's own figure?
+
+  entry   PROSE-ONLY      repaired by      the figure looked for
+  230     PO-0019         1819             2,475
+  314     PO-0190         1841             0.8087
+  500     PO-0087         NONE             (no figure pinned)
+  502     PO-0087         NONE             (no figure pinned)
+  599     PO-0094         601              Marginals cannot see a hole
+  602     PO-0015/0026    1820, 1833       24,585
+  807     PO-0820         823              44 of 49
+  1148    PO-0107         NONE             (no figure pinned)
+  1395    PO-0128         1426             thirty-eight and twenty
+  1450    PO-0051         1839             Kitagawara
+  1461    PO-0136         1463             empties fourteen times
+  1595    PO-0145         1628, 1629       no cache
+  1628    PO-0145         1629             no cache
+
+  repaired already : 10 of 13
+  unrepaired       : 500, 502, 1148
+
+AND THE KAPPA WITHDRAWAL IS WIDER THAN THE LIST
+  The chat message that withdraws 500 and 502 withdraws 497, 498 and 499 in
+  the same table, and marks 501 as surviving.  All five are seated and none
+  is corrected anywhere in the Register:
+    register 497  seated True   corrected by NONE
+    register 498  seated True   corrected by NONE
+    register 499  seated True   corrected by NONE
+    register 500  seated True   corrected by NONE
+    register 502  seated True   corrected by NONE
+    register 501  seated True   -- the one the chat says SURVIVES
+
+THE ARITHMETIC THE UNREPAIRED CORRECTIONS REST ON
+  1148  Sr I nd: delta = 2.38, B = 2
+        delta > B          : True   <- what 1148 called a structural flaw
+        floor(delta) > B   : False   <- the bound is on the integer part
+        floor(2.38) = 2 = B, so the bound is SATISFIED and the flaw is not there.
+  1395  Lambda_spectra: the split of 58
+        as printed         : 47 beyond / 11 within
+        corrected          : 38 beyond / 20 within
+        the 9 added       : 6d7, 6d8, 6d9, 6d10, 7p2, 7p3, 7p4, 7p5, 7p6
+        each needs Z = 109..118, synthesised and in the table; 1395 took
+        the ground table's own edge (Z = 108) for the subject's edge.
+        11 + 9 = 20 and 58 - 20 = 38, so the accounting closes.
+

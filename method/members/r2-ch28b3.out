@@ -27,11 +27,11 @@
   Klemm         References body 0; outside {'main': 1} ← OWED (cited, unbibliographed)
   Knaster       References body 0; outside {'main': 1, 'reg': 1} ← OWED (cited, unbibliographed)
   Tarski        References body 0; outside {'main': 1, 'reg': 2, 'mc': 11} ← OWED (cited, unbibliographed)
-  Schrödinger   References body 0; outside {'main': 5, 'reg': 8, 'pc': 2, 'ioi': 1} ← OWED (cited, unbibliographed)
+  Schrödinger   References body 0; outside {'main': 5, 'reg': 9, 'pc': 2, 'ioi': 1} ← OWED (cited, unbibliographed)
   Demkov        References body 0; outside {'main': 1, 'reg': 11} ← OWED (cited, unbibliographed)
   Ostrovsky     References body 0; outside {'main': 1, 'reg': 11} ← OWED (cited, unbibliographed)
   Klechkovskii  References body 0; outside {'main': 1, 'reg': 1} ← OWED (cited, unbibliographed)
-  Pauli         References body 0; outside {'main': 22, 'reg': 34, 'mc': 59, 'pc': 6, 'ioi': 10, 'sc': 5} ← OWED (cited, unbibliographed)
+  Pauli         References body 0; outside {'main': 22, 'reg': 35, 'mc': 59, 'pc': 6, 'ioi': 10, 'sc': 5} ← OWED (cited, unbibliographed)
   Seaton        References body 0; outside {'main': 1, 'reg': 38, 'mc': 28, 'pc': 17, 'ioi': 5, 'sc': 2} ← OWED (cited, unbibliographed)
   Pulay         References body 1; outside {'main': 4, 'reg': 1, 'mc': 4} present
   Griffin       References body 2; outside {'main': 1, 'reg': 3, 'mc': 9, 'pc': 2, 'ioi': 1} present

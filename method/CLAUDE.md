@@ -70,10 +70,10 @@ no longer on the read path.
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD125 main** (2,128,800 B ·
-  `9c03bd27fa8c8f6d384d5341260d1874` · 18,891 lines · 2 members) and **BUILD269 compendia** (16,317,908 B ·
-  `5d415b7e9228c33f28ac2f2ea8255f76` · 141,371 lines · 744 members). **746 members in all.** **The Register runs
-  1 to 1885, 1,727 seated** (1,720 numbered + 7 grouped). **W-274 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD127 main** (2,136,245 B ·
+  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD274 compendia** (16,353,993 B ·
+  `814459facc579ca9f9e3a690fad39e01` · 141,914 lines · 746 members). **748 members in all.** **The Register runs
+  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-279 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -88,8 +88,16 @@ no longer on the read path.
   names the method ratio and so joins 296 in that instrument's pinned list — a record outgrowing a pin, which is
   `r2-26b`'s shape and takes a successor rather than an edit (W-260).
   `gate.py manifest --main … --comp …` **OK**;
-  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD125/BUILD268 counting the census
-  step, register 1880-1885's **36** moved goldens having been censused and then re-banked by running (W-272).
+  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD274 counting the census
+  step, registers 1886-1889's **33** moved goldens having been censused and then re-banked by running (W-279).
+  **Two builds were seated before one re-bank**, which is the cheaper order when neither moves a line reference:
+  BUILD126 and BUILD127 both append only, so of the Register's 6,984 lines exactly eight differ in the common
+  range and **the shift class is ruled out structurally for the second build running**. One residue is `reg8-B`
+  recurring for the reason it recurred before — **657 left the withdrawn-numbers-in-front-matter list and 1731
+  entered**, and neither is a fact about a withdrawn entry: 657 was inside "1,657 entry headings" and 1731 is
+  inside "1,731 entries". A third confirmation of the digit-coincidence class.
+  The previous verdict: **86 OK, 0 FAIL** at BUILD125/BUILD268,
+  registers 1880-1885's 36 moved goldens censused and re-banked by running (W-272).
   **That census needed no shift window at all** — the first of this leg for which the shift class was ruled
   out STRUCTURALLY rather than checked: of 6,961 Register lines exactly nine differ in the common range, all
   of them front-matter counts, and nothing before the append moved. **One residue fell and is the same
@@ -216,12 +224,23 @@ no longer on the read path.
   prose work, so the main volume pointers can be fixed during the prose phase."* The compendia close **before**
   Phase 3 opens; the main volume's pointers into them are repaired inside the prose pass rather than ahead of
   it. `RULINGS-R4g.md` §1(c) carries it.
-- **THE ONE ROW LEFT IS A PASS, NOT A SEATING, AND NONE OF IT IS DONE.** M ruled that **a chat transcript IS a
-  source a repair may be made from** — *"but the chat must be reviewed exhaustively because context frames the
-  object in question; and usually they are also a lead with an attached instrument for verification"* — and
-  that **findings are recorded AND repaired**. Twelve entries (230, 314, 500, 502, 599, 602, 807, 1148, 1450,
-  1461, 1595, 1628) assert what a chat withdrew with no withdrawal marker; 1395 carries `WARNING`. Each repair
-  is a new appended entry citing the superseded one, and each is owed that exhaustive review first. BUILD124 seats **1876–1879** (`r4-b9.py`,
+- **PHASE 2 IS NOW COMPLETE: 45 DONE, 1 REFUTED, 0 OPEN, 0 PART.** Ruling 3(b) is worked (BUILD126, registers
+  **1886–1887**, W-275) and E-012's last two items with it (BUILD127, registers **1888–1889**, W-277).
+- **AND THE CHAT-WITHDRAWAL CLASS WAS BUILT ON THE WRONG TEST.** DEF-153P filed twelve entries on the ground
+  that each carries no withdrawal marker *in its own first 1,500 characters*. **The store repairs by a NEW
+  APPENDED entry citing the superseded one, so a correctly repaired entry carries no marker** — the test finds
+  nothing exactly when the repair is right. Read the other way, by looking for a later entry that cites it AND
+  carries the correction's own figure, **ten of the twelve were already repaired**: 230 by 1819, 314 by 1841,
+  599 by 601, 602 by 1820, 807 by 823, 1395 by 1426, 1450 by 1839, 1461 by 1463, 1595 and 1628 by 1629. **One
+  was not a withdrawal at all** — 807's chat row is a MEASUREMENT that extended its evidence, and 823 says so.
+  **Three were genuinely unrepaired, and the κ withdrawal is wider than the list**: the message that withdraws
+  500 and 502 withdraws 497, 498 and 499 in the same table and marks 501 as surviving. `withdrawn.py` (32/32)
+  is that census; `kparent.py` (20/20) is E-012's.
+- **THE ONE FINDING WORTH CARRYING OUT OF E-012**: §12.11.1 **defines** f_max as the cap on f, *"not the cell's
+  own f"*, and says the bound has **one parent** — and the same chapter then writes *"K's parents are J_c and
+  f"*, which is the reading register 1790's edge count is built on. Corrected, fourteen edges become thirteen
+  and the cycle rank falls to (0, 0, 1, 1, 1, 1). **The triangle, the hub degree and §21.5.1's one-level
+  shortfall are untouched, so 1790's finding survives its own arithmetic** (register 1889). BUILD124 seats **1876–1879** (`r4-b9.py`,
   W-268): the Compendium's equality-case gloss, register 1517's corridor census with its two wrong citations,
   §12.11.1.2's three faults, and registers 623/625 read as one fault. Three measurement instruments were built
   for it and are seated as members — `geodesic.py` (17/17), `corridors.py` (32/32), `consshare.py` (36/36) —
