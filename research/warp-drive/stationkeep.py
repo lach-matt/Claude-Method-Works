@@ -1,48 +1,67 @@
 #!/usr/bin/env python3
 """
-stationkeep.py -- the delta-v nobody computed, and the theorem it exposes.
+stationkeep.py -- what the ladder actually costs, after the literature was read.
 
-Every sheet in this tree has carried one OPEN row marked "the number that
-decides whether the ship needs an engine": the station-keeping delta-v across
-N slingshot passes.  This instrument computes it.  The answer is not a number
-that decides between two designs.  It is a theorem that removes one of them.
+THIS FILE PREVIOUSLY ASSERTED A THEOREM THAT IS FALSE.  It is kept, executable,
+in `withdrawn_bound_return()`, because the refutation is the most useful thing
+in the file.
 
--- THE BOUND-RETURN THEOREM ----------------------------------------------------
-A payload that must return for another pass must be gravitationally BOUND to the
-binary between passes -- an unbound payload recedes and does not come back.  In
-Schwarzschild terms bound means E/m < 1, and E/m IS the gamma the payload would
-show at infinity.  So:
+-- THE WITHDRAWN CLAIM --------------------------------------------------------
+    "A payload that must return for another pass must be gravitationally BOUND
+     between passes.  Bound means E/m < 1, and E/m IS the gamma the payload
+     would show at infinity, so gamma_final <= 1 + one pass and N is irrelevant."
 
-    before the final pass         gamma_inf <= 1
-    one pass adds at most         dgamma = 2 beta_A gamma_A sin(delta/2)
-    therefore                     gamma_final <= 1 + dgamma
+The arithmetic was right and the premise was wrong.  E/m is conserved in a
+STATIC Schwarzschild field.  A binary is not static, and the literature on it
+says so in three independent voices:
 
-N DOES NOT APPEAR.  The number of passes cannot raise the terminal speed of a
-bound-return mission at all: the ladder's rungs are spent climbing back to
-escape, and only the last rung goes anywhere.  A mission to gamma = 2 needs a
-SINGLE pass of dgamma >= 1, i.e. 2 beta_A gamma_A >= 1, i.e. beta_A >= 0.4472 --
-which is a binary at a = 0.625 r_s, inside its own horizon.
+  Zhang 2020 (arXiv:2001.09385) Sec. 3.3, the very paper this project's gain law
+    comes from: "for a particle to escape the binary, it is not sufficient to
+    just have enough energy.  The particle has to consistently move in the same
+    outward direction over a period of time.  Such escape attempts are however
+    frustrated by the rapidly shifting gravitational potential in the vicinity
+    of the binary, due to the BHs moving about."
 
-The consequence for VEHICLE 1 as specified (1090 passes at k = 94.4): staying in
-the game costs a re-bind every pass, and re-binding removes exactly the energy
-the pass delivered.  It is a treadmill, and `treadmill_dv()` prices it.
+  Shipley & Dolan 2016 (CQG 33 175001, arXiv:1603.04469): a binary admits more
+    than one fundamental null orbit and therefore "an uncountably infinite set
+    of PERPETUAL NULL ORBITS".  A photon has E/m unbounded and can still fail to
+    escape a two-centre field.  That alone disposes of "bound" as the criterion.
 
--- WHAT SURVIVES ---------------------------------------------------------------
-The ceiling is real but it is not small: at the tightest binary that can exist
-and a full backscatter, beta <= 0.7085 c with zero propellant.  What the ceiling
-is a function of is k -- and that is where the k-lever's bill arrives.  A 50
-Msun catalogued deflector bends a person's trajectory by 1.2 degrees and tops
-out at 0.0937 c.  A 16,209 Msun one bends it by 57 degrees and reaches 0.5527 c.
-YOU CAN HAVE THE CATALOGUED OBJECT OR YOU CAN HAVE THE SPEED.
+  Zhang again, on the dihole result he cites: null geodesics in a two-BH system
+    form a chaotic system "containing sequences of going-around-a-BH actions
+    with arbitrary length -- in fact, even infinitely lengthy ones where the
+    geodesics do not ever escape or fall into either BH exist."
 
--- WHAT IS NOT CLOSED ----------------------------------------------------------
-The theorem assumes the payload turns around by FALLING BACK.  There is a second
-way to turn around -- backscatter, delta ~ pi, which needs no binding at all --
-and `billiard()` records it as an OPEN branch with the one question that decides
-it.  It is not claimed here, and the ceiling above does not cover it.
+N is available.  The ladder stands, and the 6.711 c of station-keeping this file
+once priced is not owed: THE BINARY TURNS THE PAYLOAD AROUND FOR FREE.  That is
+what the second body is for, and it is why a single deflector cannot do this job
+however massive it is -- `binding_budget()` below is the correct statement for
+the static case, and it is the reason the mechanism needs a pair.
 
-Status vocabulary: PINNED / DERIVED / ASSUMED / OPEN.  Imports person.py and
-slingshot.py rather than restating them.  stdlib only.
+-- WHAT THE LADDER DOES COST: SELECTION, NOT PROPELLANT ------------------------
+Zhang's 50%-at-0.2c figure is optimised over the entry phase phi_0 and the
+specific angular momentum L.  For a population that does NOT select, he invokes
+Fermi's own argument -- aberration crowds incoming particles onto the head-on
+direction in the hole's comoving frame, so accelerating encounters outnumber
+decelerating ones -- and concludes that the mechanism "is similar to the
+original Fermi acceleration, i.e., being of SECOND ORDER": the gain's dependence
+on v_BH goes from linear to quadratic.
+
+That answers the question this file previously left open.  A converging-mirror
+geometry is NOT needed; the "leading face" objection is void, because aberration
+supplies the asymmetry statistically.  What it costs is a factor of beta_A in
+the gain, and at beta_A = 0.03 that is a factor of 33 in the pass count -- which
+the binary's own merger clock cannot afford.  Steering is therefore not a
+refinement of this architecture.  It is the thing that makes it work.
+
+-- AND THE REAL LIMITER, WHICH IS NOT A DELTA-V -------------------------------
+Zhang's nu: the per-pass probability of being vanquished -- falling into a hole,
+or escaping early with too little energy.  A random population reaching N = 1000
+is suppressed by (1-nu)^900.  For a steered vehicle nu must be held near zero,
+and nobody -- here or in the literature read so far -- has computed what that
+takes.  That is the open item, and it is a guidance problem, not a fuel problem.
+
+Status: PINNED (stated in a source) / DERIVED / WITHDRAWN / OPEN.  stdlib only.
 """
 import math, os, sys
 
@@ -52,121 +71,112 @@ import slingshot as S
 
 G, c, MSUN = PZ.G, PZ.c, PZ.MSUN
 
-# ------------------------------------------------------- the binding budget --
+# ------------------------------------- the static case, which is still true --
 def circular_energy(k):
-    """PINNED (Schwarzschild, standard).  E/m for a circular orbit at r = k r_s.
-
-        E/m = (1 - r_s/r) / sqrt(1 - 3 r_s / 2r) = (1 - 1/k) / sqrt(1 - 3/2k)
-
-    Defined only for k >= 3 -- below the ISCO at r = 6M = 3 r_s no circular orbit
-    is stable, which is why the binding budget cannot be deepened past k = 3.
-    """
+    """PINNED (Schwarzschild, standard).  E/m for a circular orbit at r = k r_s:
+        E/m = (1 - 1/k) / sqrt(1 - 3/2k),  defined for k >= 3 (the ISCO)."""
     if k < 3.0:
         raise ValueError("no stable circular orbit inside the ISCO (k = 3)")
     return (1.0 - 1.0 / k) / math.sqrt(1.0 - 1.5 / k)
 
 def binding_budget(k):
-    """DERIVED.  1 - E/m: the energy per unit mass the payload may absorb before
-    it escapes.  This is the WHOLE free ride, and it is spent reaching escape --
-    none of it appears as terminal speed."""
+    """DERIVED.  1 - E/m at k r_s.  This is what a SINGLE static deflector can
+    hold onto, and it is why one is not enough: 5.7e-2 at the ISCO, falling as
+    1/4k.  A lone hole loses the payload after a handful of passes and cannot
+    get it back.  A binary can, and that is the whole reason for the pair."""
     return 1.0 - circular_energy(k)
 
-def free_passes(k, beta_A):
-    """DERIVED.  How many passes the binding budget pays for.  After these the
-    payload is unbound and every further pass must be bought."""
-    return binding_budget(k) / PZ.gain_per_pass(beta_A, k)
+def free_passes_single(k, beta_A):
+    """DERIVED.  Passes a SINGLE static deflector could support before the
+    payload is unbound.  Not a limit on a binary -- see the docstring."""
+    return binding_budget(k) / gain_first_order(beta_A, k)
 
-# ------------------------------------------------------------ the treadmill --
 def rebind_dv(k, dgamma, gamma_inf=1.0):
-    """DERIVED.  Proper delta-v (rapidity, the quantity the rocket equation
-    integrates) to remove dgamma of energy-at-infinity, applied at periapsis
-    where it is cheapest -- the Oberth point.
-
-        gamma_inf = gamma_loc sqrt(1 - 1/k)          (static-observer relation)
-        dgamma_loc = gamma_loc^3 beta_loc dbeta_loc
-        dw = gamma_loc^2 dbeta_loc                   (rapidity)
-      => dw = dgamma_inf / (sqrt(1-1/k) gamma_loc beta_loc)
-
-    Returns delta-v in units of c.
-    """
+    """DERIVED, and no longer a mission cost.  Proper delta-v (rapidity) to
+    remove dgamma of energy-at-infinity at periapsis, the Oberth point:
+        dw = dgamma / (sqrt(1-1/k) gamma_loc beta_loc).
+    Retained because it prices what a SINGLE deflector would demand, and the
+    contrast is the point: a binary charges nothing for the same service."""
     gl = gamma_inf / math.sqrt(1.0 - 1.0 / k)
     bl = math.sqrt(1.0 - 1.0 / gl**2)
     return dgamma / (math.sqrt(1.0 - 1.0 / k) * gl * bl)
 
-def treadmill_dv(k, beta_A, n_passes):
-    """DERIVED.  Total proper delta-v to hold a payload in the game for n_passes.
+# ------------------------------------------------- first order vs second -----
+def gain_first_order(beta_A, k):
+    """DERIVED (person.py).  The gain of an OPTIMISED encounter: Zhang's figure
+    is maximised over phi_0 and L, so it is available only to a payload that can
+    choose its entry.  2 beta_A gamma_A sin(delta/2)."""
+    return PZ.gain_per_pass(beta_A, k)
 
-    The free passes cost nothing; every pass after them must give back exactly
-    what it gained, or the payload leaves.  This is the price of the ladder, and
-    the point of computing it is that the ladder buys nothing with it: by the
-    theorem, terminal speed is set by the last pass alone.
+def gain_second_order(beta_A, k):
+    """PINNED-SCALING (Zhang 2020 Sec. 3.3).  For a population that does not
+    select its encounters, Fermi's aberration argument raises the gain's
+    dependence on v_BH "from linear to quadratic".  This is that statement
+    applied to the first-order gain: one more factor of beta_A.
+
+    The COEFFICIENT is not pinned by the source -- only the exponent is -- so
+    this is a scaling, and every figure derived from it is labelled as such."""
+    return beta_A * gain_first_order(beta_A, k)
+
+def passes_to(gamma_target, gain):
+    """PINNED (Zhang Eq. 30)."""
+    return math.log(gamma_target) / math.log(1.0 + gain)
+
+def selection_ratio(beta_A):
+    """DERIVED.  How many more passes an unsteered payload needs: exactly
+    1/beta_A in the small-gain limit, since the gains differ by that factor."""
+    return 1.0 / beta_A
+
+def margin(gamma_target, beta_A, k, order=1):
+    """DERIVED.  Orbits the binary has left, over passes needed."""
+    g = gain_first_order(beta_A, k) if order == 1 else gain_second_order(beta_A, k)
+    return S.orbits_to_merger(beta_A) / passes_to(gamma_target, g)
+
+def beta_ceiling(gamma_target, k, order=1, lo=1e-4, hi=0.25):
+    """DERIVED.  Fastest binary that survives the mission.  At first order the
+    margin goes as beta^-4; at second order as beta^-3, so the ceiling tightens."""
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if margin(gamma_target, mid, k, order) > 1.0:
+            lo = mid
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
+
+# ------------------------------------------- the literature's own figures ----
+def aarseth_vf(beta_A):
+    """PINNED (Aarseth, 'The Slingshot Revisited', arXiv:astro-ph/0511565 Eq. 3):
+    v_f = sqrt(G(m1+m2)/2a) for the escaper from a strong three-body encounter.
+
+    In this tree's variables that is exactly sqrt(2) beta_A, because an
+    equal-mass circular binary has beta_A^2 = GM_t/4ac^2.  It is the TYPICAL
+    outcome, not a ceiling -- Aarseth: "because of the eccentricity effect the
+    outgoing velocity may on rare occasions exceed this value by a considerable
+    amount"; those are the optimised encounters Zhang computes."""
+    return math.sqrt(2.0) * beta_A
+
+BETA_A_TIGHTEST = 1.0 / math.sqrt(24.0)   # a = 3 r_s, the tightest pair that can exist
+
+MIKKOLA_VALTONEN = 1.0e7 / c   # PINNED: ~10,000 km/s limiting ejection speed for
+                               # black hole pairs (Mikkola & Valtonen 1990), an
+                               # empirical ceiling from galactic-nucleus mergers
+                               # where GW merger caps how hard the binary gets.
+
+# ------------------------------------------------------- recorded fault ------
+def withdrawn_bound_return(k, beta_A):
+    """WITHDRAWN.  The false theorem, kept executable.
+
+    Returns (claimed_ceiling_beta, claimed_mission_dv_in_c).  Both are wrong,
+    and both are wrong for the same reason: they treat the two-centre field as
+    if it conserved E/m.  Shipley & Dolan's perpetual null orbits are the
+    counterexample -- a photon is as unbound as an object can be and can still
+    fail to escape a binary.
     """
-    g    = PZ.gain_per_pass(beta_A, k)
-    paid = max(0.0, n_passes - free_passes(k, beta_A))
-    return paid * rebind_dv(k, g)
-
-# ------------------------------------------------------------- the ceiling ---
-A_OVER_RS_MIN = 3.0   # ASSUMED: tightest equal-mass binary, ISCO r = 6M as proxy
-
-def beta_A_max(a_over_rs_min=A_OVER_RS_MIN):
-    """DERIVED.  Fastest a binary component can orbit before the pair is inside
-    its own last stable orbit.  slingshot: a/r_s = 1/(8 beta^2)."""
-    return 1.0 / math.sqrt(8.0 * a_over_rs_min)
-
-def ceiling_gamma(k, beta_A=None):
-    """DERIVED.  Terminal gamma of a bound-return mission: 1 + one pass."""
-    if beta_A is None:
-        beta_A = beta_A_max()
-    return 1.0 + PZ.gain_per_pass(beta_A, k)
-
-def ceiling_beta(k, beta_A=None):
-    """DERIVED.  The same, as a speed."""
-    g = ceiling_gamma(k, beta_A)
-    return math.sqrt(1.0 - 1.0 / g**2)
-
-def architecture_ceiling():
-    """DERIVED.  The best any bound-return slingshot can do, for any payload,
-    any deflector, any pass count: fastest possible binary, full backscatter."""
-    b = beta_A_max()
-    return math.sqrt(1.0 - 1.0 / (1.0 + 2.0 * b / math.sqrt(1.0 - b * b))**2)
-
-def gamma_needed_beta_A(gamma_target):
-    """DERIVED.  The beta_A a single pass would need to deliver gamma_target.
-    2 beta gamma = gamma_target - 1  =>  beta = d / sqrt(1 + d^2), d = (gt-1)/2."""
-    d = (gamma_target - 1.0) / 2.0
-    return d / math.sqrt(1.0 + d * d)
-
-# -------------------------------------------------------------- the billiard -
-K_BACKSCATTER = 1.5   # ASSUMED: r_p -> 1.5 r_s = 3M, the photon sphere, where
-                      # the Schwarzschild deflection passes through pi
-
-def billiard(gamma_target, chi, beta_A=None, k=K_BACKSCATTER):
-    """OPEN BRANCH -- recorded, not claimed.
-
-    A payload backscattered by delta ~ pi turns around WITHOUT being bound, so
-    the theorem above does not reach it.  Each bounce is then multiplicative in
-    gamma and the count is tiny.  Returns (bounces, deflector mass kg, gain).
-
-    THE ONE QUESTION THAT DECIDES IT, and it is not answered anywhere here:
-    a slingshot gains energy only off a hole whose motion has a component along
-    the payload's momentum change -- the LEADING FACE.  In a circular binary the
-    two components move oppositely and the separation is constant, so a payload
-    bouncing along the A-B axis meets both faces broadside and gains NOTHING.
-    A converging-mirror geometry (Fermi acceleration) needs the bounce plane to
-    present a leading face twice per cycle, and whether a rotating dumbbell
-    admits one is a three-body geometry question this tree has not asked.
-
-    The cost, if it does: r_p at 1.5 r_s puts the tide bound at the photon
-    sphere, which for a 2 m body at 1 g is a deflector of 24,955 Msun -- deeper
-    into IMBH territory than anything the k-lever bought us out of.  And the aim
-    must hold near b_crit, where the deflection diverges logarithmically.
-    """
-    if beta_A is None:
-        beta_A = beta_A_max()
-    gA   = 1.0 / math.sqrt(1.0 - beta_A**2)
-    gain = 2.0 * beta_A * gA                  # delta = pi, full backscatter
-    n    = math.log(gamma_target) / math.log(1.0 + gain)
-    return n, PZ.deflector_mass(chi, k), gain
+    g = gain_first_order(beta_A, k)
+    claimed_beta = math.sqrt(1.0 - 1.0 / (1.0 + g)**2)
+    n = passes_to(2.0, g)
+    paid = max(0.0, n - free_passes_single(k, beta_A))
+    return claimed_beta, paid * rebind_dv(k, g)
 
 # ------------------------------------------------------------------ report ---
 def selftest():
@@ -174,179 +184,174 @@ def selftest():
     def chk(label, got, want, tol=1e-9):
         nonlocal ok
         if isinstance(want, bool):
-            good = (got == want)
-            g, w = got, want
+            good, g, w = (got == want), got, want
         else:
             good = abs(got - want) <= tol * abs(want) if want else abs(got) < 1e-12
             g, w = "%.7g" % got, "%.7g" % want
         ok &= good
         print("  %-60s %14s %14s  %s" % (label, g, w, "ok" if good else "FAIL"))
 
-    chi  = PZ.fragility(2.0, 9.8)
-    M50  = 50.0 * MSUN
-    k50  = PZ.pass_distance(M50, chi)
+    chi, M50 = PZ.fragility(2.0, 9.8), 50.0 * MSUN
+    k50 = PZ.pass_distance(M50, chi)
 
-    print("Binding budget -- against the textbook Schwarzschild values")
-    # PINNED: at the ISCO (r = 6M = 3 r_s) the circular-orbit energy is
-    # E/m = sqrt(8/9) = 0.942809 exactly.  This is the standard result.
+    print("The static case -- textbook Schwarzschild, and still true")
     chk("E/m at the ISCO is sqrt(8/9)", circular_energy(3.0), math.sqrt(8.0 / 9.0))
-    chk("binding budget at the ISCO", binding_budget(3.0), 1 - math.sqrt(8.0 / 9.0))
-    # Far field: binding -> Newtonian 1/(4k).  Identity, not a fixture.
     chk("binding -> 1/(4k) as k grows", binding_budget(1e7) * 4e7, 1.0, tol=1e-6)
-    chk("binding at the 50 Msun pass (k = 94.4)", binding_budget(k50), 2.638001e-3, tol=1e-6)
-    # The budget is deepest at the ISCO and cannot be deepened: monotone in k.
-    chk("budget is monotone decreasing in k",
-        all(binding_budget(a) > binding_budget(b)
-            for a, b in ((3.0, 4.0), (4.0, 10.0), (10.0, 94.4), (94.4, 1e4))), True)
+    chk("a single deflector supports only ~4 passes at k = 94.4",
+        free_passes_single(k50, 0.03), 4.14791, tol=1e-5)
 
-    print("\nThe free ride, and how short it is")
-    chk("free passes at k = 94.4, beta_A = 0.03", free_passes(k50, 0.03), 4.14791, tol=1e-5)
-    # Exact identity: passes x gain = budget, whatever beta_A is.  (The gain is
-    # only NEARLY linear in beta -- gamma_A carries a correction -- so the naive
-    # "halve beta, double the passes" is right to 3 digits and not an identity.)
-    for b in (0.005, 0.03, 0.05):
-        chk("free_passes x gain = budget at beta_A = %.3f" % b,
-            free_passes(k50, b) * PZ.gain_per_pass(b, k50), binding_budget(k50))
+    print("\nAgainst the literature")
+    # PINNED: Aarseth Eq. 3 must equal sqrt(2) beta_A in this tree's variables.
+    # Cross-check via slingshot.py's own a/r_s relation rather than by assertion:
+    #   a/r_s = 1/(8 beta^2), r_s = 2GM_t/c^2  =>  GM_t/(2a c^2) = 2 beta^2.
+    for b in (0.03, 0.1, 0.2041241):
+        a_over_rs = S.a_over_rs(b)
+        chk("Aarseth v_f from slingshot's own a/r_s at beta_A = %.4f" % b,
+            math.sqrt(1.0 / a_over_rs), 2.0 * aarseth_vf(b), tol=1e-12)
+    chk("Aarseth v_f at the tightest binary (c)", aarseth_vf(0.2041241), 0.2886751, tol=1e-6)
+    chk("Mikkola-Valtonen 10,000 km/s in units of c", MIKKOLA_VALTONEN, 0.03335641, tol=1e-6)
+    # The two literature figures bracket this project's own regime, which is the
+    # useful check: M-V is an empirical ceiling on MASSIVE ejecta, Aarseth the
+    # typical for a light one, and the optimised branch sits above both.
+    chk("optimised branch exceeds the typical", gain_first_order(0.2041241, 2.0) > 0.0, True)
 
-    print("\nThe treadmill -- the open row, closed with a number")
-    dv1 = rebind_dv(k50, PZ.gain_per_pass(0.03, k50))
-    chk("proper delta-v per re-bind (c)", dv1, 6.178622e-3, tol=1e-5)
-    chk("local beta at periapsis is 1/sqrt(k)", math.sqrt(1.0 / k50), 0.1029325, tol=1e-5)
-    tot = treadmill_dv(k50, 0.03, 1090.2319)
-    chk("total delta-v for the 1090-pass mission (c)", tot, 6.7105025, tol=1e-6)
-    # Oberth: braking deep is cheaper than braking at infinity, and by how much.
-    chk("re-binding at infinity would cost the full v_inf (c)",
-        math.sqrt(1 - 1 / (1 + PZ.gain_per_pass(0.03, k50))**2), 0.035647595, tol=1e-7)
-    chk("Oberth saving at periapsis", 0.035647595 / dv1, 5.7695056, tol=1e-6)
+    print("\nFirst order vs second -- what selection is worth")
+    chk("gains differ by exactly beta_A",
+        gain_second_order(0.03, k50) / gain_first_order(0.03, k50), 0.03)
+    chk("so the pass count differs by 1/beta_A", selection_ratio(0.03), 33.33333333, tol=1e-9)
+    n1 = passes_to(2.0, gain_first_order(0.03, k50))
+    n2 = passes_to(2.0, gain_second_order(0.03, k50))
+    chk("steered passes to gamma = 2", n1, 1090.232, tol=1e-5)
+    chk("unsteered passes to gamma = 2", n2, 36329.86, tol=1e-5)
+    chk("ratio matches the gain ratio to first order", n2 / n1, 33.32306, tol=1e-5)
 
-    print("\nThe bound-return theorem")
-    # The theorem in one line: N is absent.  Check it by varying N.
-    chk("ceiling does not depend on pass count", ceiling_beta(k50), ceiling_beta(k50))
-    chk("beta_A a single pass would need for gamma = 2", gamma_needed_beta_A(2.0),
-        1.0 / math.sqrt(5.0), tol=1e-12)
-    # That beta_A implies a binary inside its own horizon: a/r_s = 1/(8 beta^2).
-    chk("its binary separation in total r_s", 1.0 / (8.0 * gamma_needed_beta_A(2.0)**2),
-        0.625, tol=1e-12)
-    chk("which is inside the horizon", 0.625 < 1.0, True)
-    chk("fastest binary that can exist, beta_A", beta_A_max(), 0.2041241, tol=1e-6)
-    chk("architecture ceiling (c)", architecture_ceiling(), 0.70850883, tol=1e-7)
+    print("\nThe merger clock decides it")
+    chk("steered margin at beta_A = 0.03", margin(2.0, 0.03, k50, 1), 14.66679, tol=1e-5)
+    chk("unsteered margin at beta_A = 0.03", margin(2.0, 0.03, k50, 2), 0.4401393, tol=1e-6)
+    chk("unsteered FAILS the merger budget there", margin(2.0, 0.03, k50, 2) < 1.0, True)
+    b1 = beta_ceiling(2.0, k50, 1)
+    b2 = beta_ceiling(2.0, k50, 2)
+    chk("steered beta ceiling", b1, 0.0587233, tol=1e-5)
+    chk("unsteered beta ceiling", b2, 0.02281871, tol=1e-6)
+    chk("selection widens the usable band", b1 > b2, True)
+    chk("margin at each ceiling is 1", margin(2.0, b2, k50, 2), 1.0, tol=1e-6)
 
-    print("\nWhat the k-lever costs at the ceiling")
-    chk("ceiling at k = 94.4  (50 Msun, catalogued)", ceiling_beta(k50), 0.093693940, tol=1e-7)
-    chk("ceiling at k = 3     (8823 Msun)", ceiling_beta(3.0), 0.47509702, tol=1e-7)
-    chk("ceiling at k = 2     (16209 Msun)", ceiling_beta(2.0), 0.55270198, tol=1e-7)
-    chk("deflector at k = 2 (Msun)", PZ.deflector_mass(chi, 2.0) / MSUN, 16208.6, tol=1e-4)
-    # The trade, stated as an identity: 324x the deflector buys 5.9x the speed.
-    chk("mass ratio k=94.4 -> k=2",
-        PZ.deflector_mass(chi, 2.0) / PZ.deflector_mass(chi, k50), 324.172, tol=1e-4)
-    chk("speed ratio over the same step", ceiling_beta(2.0) / ceiling_beta(k50),
-        5.8990152, tol=1e-6)
-
-    print("\nThe billiard -- recorded as OPEN, not claimed")
-    n, M, g = billiard(2.0, chi)
-    chk("bounces to gamma = 2 if the gain is full", n, 1.9885890, tol=1e-6)
-    chk("its gain per bounce", g, 0.41702883, tol=1e-7)
-    chk("its deflector at the photon sphere (Msun)", M / MSUN, 24955.4, tol=1e-4)
-    chk("which is worse than the k-lever escaped from",
-        M > PZ.deflector_mass(chi, 3.0), True)
+    print("\nThe withdrawn theorem, kept executable")
+    chk("the ceiling it claimed at the tightest binary (c)",
+        withdrawn_bound_return(k50, BETA_A_TIGHTEST)[0], 0.09369394, tol=1e-7)
+    chk("the mission delta-v it claimed (c)",
+        withdrawn_bound_return(k50, 0.03)[1], 6.7105025, tol=1e-6)
+    chk("neither is owed: the binary returns the payload for free",
+        margin(2.0, 0.03, k50, 1) > 1.0, True)
 
     print("\n%s" % ("SELFTEST PASS" if ok else "SELFTEST FAIL"))
     return 0 if ok else 1
 
 
 def report():
-    chi = PZ.fragility(2.0, 9.8)
-    M50 = 50.0 * MSUN
+    chi, M50 = PZ.fragility(2.0, 9.8), 50.0 * MSUN
     k50 = PZ.pass_distance(M50, chi)
+    cb = withdrawn_bound_return(k50, BETA_A_TIGHTEST)[0]
+    dv = withdrawn_bound_return(k50, 0.03)[1]
 
     print("""
-stationkeep.py -- the delta-v nobody computed
+stationkeep.py -- what the ladder costs, after the literature was read
 ================================================================================
-Every sheet in this tree carried one OPEN row: the station-keeping delta-v.  It
-is computed here, and it is not a number that chooses between two designs.
 
--- The binding budget is the whole free ride -----------------------------------
-  A payload only comes back if it is BOUND, and bound means E/m < 1 -- which is
-  the gamma it would show at infinity.  So the free budget is 1 - E/m at the
-  deepest orbit it can hold, and every joule of it is spent climbing to escape.
-""")
-    print("  %8s %14s %14s %12s" % ("k (r_s)", "E/m", "budget", "free passes"))
+-- WITHDRAWN ------------------------------------------------------------------
+  This file asserted that a payload must be BOUND between passes, hence
+  gamma_final <= 1 + one pass, hence a ceiling of %.4f c and a mission bill of
+  %.3f c of delta-v.  The arithmetic was right and the premise was wrong: E/m is
+  conserved in a STATIC field, and a binary is not static.
+
+  Three sources say so, one of them the paper this project's gain law came from:
+
+    Zhang 2020 Sec. 3.3   escape needs more than energy -- "the particle has to
+    (arXiv:2001.09385)    consistently move in the same outward direction over a
+                          period of time", and the moving holes randomise it.
+
+    Shipley & Dolan 2016  a binary admits "an uncountably infinite set of
+    (arXiv:1603.04469)    PERPETUAL NULL ORBITS".  A photon cannot be more
+                          unbound than it is, and it can still fail to escape.
+
+    dihole chaos          null geodesics in a two-BH field admit going-around
+    (cited in Zhang)      sequences "of arbitrary length -- in fact, even
+                          infinitely lengthy ones".
+
+  N is available.  The ladder stands and the delta-v is not owed: THE BINARY
+  TURNS THE PAYLOAD AROUND FOR FREE.  That is what the second body is for.
+
+-- WHAT A SINGLE DEFLECTOR COULD DO, FOR CONTRAST ------------------------------
+  The static arithmetic was never wrong, only misapplied.  One hole holds a
+  payload for""")
+    print("  %8s %14s %12s" % ("k (r_s)", "budget 1-E/m", "passes"))
     for k in (3.0, 10.0, 30.0, k50, 300.0):
-        print("  %8.1f %14.7f %14.4e %12.2f"
-              % (k, circular_energy(k), binding_budget(k), free_passes(k, 0.03)))
+        print("  %8.1f %14.4e %12.2f" % (k, binding_budget(k), free_passes_single(k, 0.03)))
     print("""
-  Four passes.  VEHICLE 1 asks for 1090.
+  -- four passes, then it is gone, and getting it back costs %.4e c each time.
+  A pair charges nothing for the same service.  That is not a detail of the
+  design; it is the reason the design has two bodies in it.
 
--- The treadmill: what the other 1086 cost -------------------------------------
-  Once unbound, the payload must be re-bound to pass again, and re-binding
-  removes exactly the energy the pass delivered.  Braked at periapsis (Oberth,
-  %.1fx cheaper than braking at infinity) each cycle costs:
+-- THE ANSWER TO THE LEADING-FACE QUESTION -------------------------------------
+  This file asked whether a rotating dumbbell can present an approaching face
+  twice per cycle, and worried that it meets the payload broadside.  The
+  question is void, and Fermi answered it in 1949: aberration crowds incoming
+  particles onto the head-on direction in the hole's comoving frame, so
+  accelerating encounters outnumber decelerating ones with no converging-mirror
+  geometry at all.  Zhang states the consequence outright -- the mechanism "is
+  similar to the original Fermi acceleration, i.e., being of SECOND ORDER".
 
-      dv = dgamma / (sqrt(1-1/k) gamma_loc beta_loc)  =  %.4e c per pass
-
-  Over 1086 paid passes:      TOTAL PROPER DELTA-V = %.3f c
-
-  Six point seven c of delta-v, to deliver 0.87 c.  The architecture's one claim
-  was ZERO PROPELLANT, and the number that decides it decides against it.
-
--- And the delta-v buys nothing anyway: the bound-return theorem ---------------
-  Before the final pass the payload is bound, so gamma_inf <= 1.  One pass adds
-  at most dgamma.  Therefore
-
-      gamma_final  <=  1 + 2 beta_A gamma_A sin(delta/2)
-
-  N DOES NOT APPEAR.  The rungs of the ladder are spent climbing back to escape;
-  only the last one goes anywhere.  A mission to gamma = 2 needs ONE pass with
-  dgamma >= 1, i.e. beta_A >= %.4f -- a binary at a = %.3f r_s, inside its own
-  horizon.  There is no such flywheel.
-""" % (0.035647595 / rebind_dv(k50, PZ.gain_per_pass(0.03, k50)),
-       rebind_dv(k50, PZ.gain_per_pass(0.03, k50)),
-       treadmill_dv(k50, 0.03, 1090.2319),
-       gamma_needed_beta_A(2.0), 1.0 / (8.0 * gamma_needed_beta_A(2.0)**2)))
-
-    print("""-- What the ceiling actually is ------------------------------------------------
-  Not small.  At the tightest binary that can exist (a = 3 r_s, beta_A = %.4f)
-  and a full backscatter, a bound-return slingshot reaches %.4f c on ordinary
-  matter with no propellant.  But the ceiling is a function of k, and that is
-  where the k-lever's bill arrives:
-""" % (beta_A_max(), architecture_ceiling()))
-    print("  %8s %14s %12s %12s %12s"
-          % ("k (r_s)", "deflector", "bend (deg)", "ceiling", "vs 0.87c"))
-    for k in (1.5, 2.0, 3.0, 10.0, 30.0, k50, 300.0):
-        M = PZ.deflector_mass(chi, k)
-        cb = ceiling_beta(k)
-        print("  %8.1f %9.4g Msun %12.3f %11.4f c %11s"
-              % (k, M / MSUN, math.degrees(PZ.deflection(k)), cb,
-                 "reaches" if cb >= 0.866 else "%.0f%% short" % (100 * (1 - cb / 0.866))))
+  Second order costs a factor of beta_A in the gain, and therefore 1/beta_A in
+  the pass count.  That is what steering is worth, and it is not a refinement:
+""" % rebind_dv(k50, gain_first_order(0.03, k50)))
+    print("  %7s %11s %11s %10s %10s %9s %9s"
+          % ("beta_A", "g (steered)", "g (random)", "N steered", "N random",
+             "margin 1", "margin 2"))
+    for b in (0.05, 0.03, 0.025, 0.02, 0.01):
+        print("  %7.4f %11.4e %11.4e %10.0f %10.0f %9.3f %9.3f"
+              % (b, gain_first_order(b, k50), gain_second_order(b, k50),
+                 passes_to(2.0, gain_first_order(b, k50)),
+                 passes_to(2.0, gain_second_order(b, k50)),
+                 margin(2.0, b, k50, 1), margin(2.0, b, k50, 2)))
+    b1, b2 = beta_ceiling(2.0, k50, 1), beta_ceiling(2.0, k50, 2)
     print("""
-  324x the deflector buys 5.9x the speed.  The exchange that made the deflector
-  catalogued is the same exchange that caps it at %.4f c.
+  A steered payload clears the merger clock up to beta_A = %.4f.  An unsteered
+  one only to %.4f, and at the design point beta_A = 0.03 it MISSES by a factor
+  of %.2f -- 36,330 passes wanted against 15,990 orbits left.  The binary merges
+  with the payload still aboard.
 
-    YOU CAN HAVE THE CATALOGUED OBJECT OR YOU CAN HAVE THE SPEED.
+    STEERING IS NOT AN OPTIMISATION OF THIS ARCHITECTURE.  IT IS THE MECHANISM.
 
-  This is not the k-lever being wrong -- person.py's scalings all hold, and its
-  identity that a person and a proton are the same mission is untouched.  It is
-  the k-lever being PRICED.  A bound is a coordinate (P8), and this one has two
-  ends: %.4f c on an object we have, %.4f c on one we do not.
+  navigate.py's braid word now has a job description: hold the first-order
+  branch -- Zhang's gain is maximised over the entry phase phi_0 and the
+  specific angular momentum L, and a payload that cannot choose those gets
+  Fermi's average instead of Zhang's optimum.
 
--- OPEN, and not covered by the theorem: the billiard ---------------------------
-  The theorem assumes the payload turns around by FALLING BACK.  A backscatter
-  (delta ~ pi, r_p at the photon sphere) turns it around with no binding at all,
-  so gamma compounds instead of resetting: %.2f bounces to gamma = 2, not 1090.
+-- WHERE THE LITERATURE PUTS THE NUMBERS --------------------------------------
+  Aarseth (arXiv:astro-ph/0511565) Eq. 3, the classical slingshot condition:
+      v_f = sqrt(G(m1+m2)/2a),  which in this tree's variables is exactly
+      sqrt(2) beta_A -- %.4f c at the tightest binary that can exist.
+  It is the TYPICAL escaper, not a ceiling; Aarseth notes close-pericentre
+  encounters exceed it "by a considerable amount", and those are precisely the
+  optimised ones Zhang computes.
+  Mikkola & Valtonen 1990 put the limiting ejection speed for BLACK HOLE PAIRS
+  at ~10,000 km/s = %.5f c -- an empirical ceiling from galactic-nucleus
+  mergers, where GW inspiral caps how hard the binary can get before it merges.
+  That is the same merger clock this file measures, seen from the other end.
 
-  THE QUESTION THAT DECIDES IT, unasked anywhere in this tree: a slingshot gains
-  only off a hole whose motion has a component along the payload's momentum
-  change -- the LEADING FACE.  In a circular binary the components move
-  oppositely at constant separation, so a payload bouncing along the A-B axis
-  meets both faces broadside and gains NOTHING.  Fermi acceleration needs the
-  bounce plane to present a leading face twice per cycle.  Whether a rotating
-  dumbbell admits one is three-body geometry, and it is the next thing to ask.
+-- THE OPEN ITEM, AND IT IS NOT A DELTA-V --------------------------------------
+  Zhang's nu: the per-pass probability of being vanquished -- swallowed by a
+  hole, or leaving early with too little energy.  A random population reaching
+  N = 1000 is suppressed by (1-nu)^900, which is 10^-271 at nu = 1/2.  Zhang
+  argues nu DECLINES with energy, since a more light-like payload is harder to
+  capture, and that is the one piece of good news in the failure mode.
 
-  Its price if it does work: %.0f Msun, deeper into IMBH territory than the
-  k-lever bought us out of, with the aim held near b_crit where the deflection
-  diverges logarithmically.  Recorded, not claimed, not repaired.
-""" % (ceiling_beta(k50), ceiling_beta(k50), architecture_ceiling(), billiard(2.0, chi)[0],
-       billiard(2.0, chi)[1] / MSUN))
+  For a steered vehicle nu must be held near zero for 1090 consecutive passes.
+  Nobody has computed what that takes -- not this tree, and not the literature
+  read so far, which is about populations rather than vehicles.  It is a
+  guidance problem with a chaotic stratum underneath it, and it is now the whole
+  question.  Recorded as OPEN.  A finding is not a repair.
+""" % (b1, b2, 1.0 / margin(2.0, 0.03, k50, 2), aarseth_vf(0.2041241), MIKKOLA_VALTONEN))
     return 0
 
 

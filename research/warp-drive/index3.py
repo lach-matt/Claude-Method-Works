@@ -173,26 +173,28 @@ FINDINGS = [
  # difference between a proton and a person, and it enters through one group.
  ("FRAGILITY",    0,  0, +1, "person.py",
   "chi/tau_s is the only argument: k = (chi/tau_s)^(2/3), extent and tolerance never separate"),
- # NARROWED by stationkeep.py.  The identity stands untouched; the 1090-pass
- # mission built on it does not, and the ceiling on this deflector is 0.0937 c.
+ # The narrowing stationkeep.py applied here is WITHDRAWN with the theorem that
+ # motivated it.  The identity was never in question; the mission is back.
  ("CATALOGUE",   +1, +1, +1, "person.py",
-  "a person at 50 Msun and a proton at 1.2e9 kg are the SAME mission, and it tops out at 0.0937 c"),
+  "a person at 50 Msun and a proton at 1.2e9 kg are the SAME mission: the deflector is catalogued"),
  # A bound, and it is the clock rather than the mass that sets it.
  ("MERGER-CEIL",  0, -1, +1, "person.py",
   "beta <= 0.0587 or the flywheel merges mid-mission; Zhang's headline 0.2 misses by 132x"),
  # The one unevidenced object left in VEHICLE 1, and it is not where it was.
  ("ROUTH-FORK",   0,  0, +1, "person.py",
   "the IMBH is a PARKING requirement, not a tidal one: L4/L5 needs a 1248 Msun companion"),
- # stationkeep.py -- the OPEN row every sheet carried, closed with a number and
- # then with a theorem that makes the number irrelevant.
- ("DV-TREADMILL", 0, -1, +1, "stationkeep.py",
-  "1086 paid re-binds at 6.18e-3 c each: 6.711 c of proper delta-v to deliver 0.87 c"),
- ("BOUND-RETURN", 0, -1, +1, "stationkeep.py",
-  "gamma_final <= 1 + one pass: N does not appear, so the ladder buys nothing at any length"),
- ("ARCH-CEILING", 0, +1, +1, "stationkeep.py",
-  "0.7085 c is reachable on ordinary matter with zero propellant -- at a = 3 r_s and delta = pi"),
- ("BILLIARD",     0,  0, +1, "stationkeep.py",
-  "OPEN: backscatter needs no binding and compounds -- 1.99 bounces, and the leading face decides"),
+ # stationkeep.py.  The OPEN row every sheet carried, and then the literature.
+ # BOUND-RETURN, DV-TREADMILL and ARCH-CEILING were seated here and are WITHDRAWN:
+ # they assumed E/m is conserved in a binary, which it is not.  BILLIARD's open
+ # question is ANSWERED -- by Fermi, in 1949.  What replaces them:
+ ("PAIR-TRAPS",   0, +1, +1, "stationkeep.py",
+  "a binary returns the payload for free: perpetual null orbits exist, so N is not bounded"),
+ ("SECOND-ORDER", 0, -1, +1, "stationkeep.py",
+  "unsteered the mechanism is second order in beta_A: 33x the passes, and it misses the merger clock"),
+ ("STEER-IS-ALL", 0, +1, +1, "stationkeep.py",
+  "steering is the mechanism, not an optimisation: it is what holds Zhang's optimum over Fermi's average"),
+ ("NU-OPEN",      0,  0, +1, "stationkeep.py",
+  "OPEN: the per-pass vanquish probability must be held near zero for 1090 passes; nobody has computed it"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -204,6 +206,7 @@ SUPPORT = [
  ("SRC-READ",  "SOURCE-CODE.md",    "reading Warp Factory found two of this series' inferences wrong"),
  ("LOOP",      "kerr.py",           "the index looped because 9 papers were never seated; guard added"),
  ("BETA3-FIX", "person.py",         "the beta^3 mass floor passed at a/3, where the bend is 1.2 deg; gain overstated 116x"),
+ ("LIT-FIX",   "stationkeep.py",    "the bound-return theorem assumed a static field; Zhang Sec 3.3 and Shipley-Dolan refute it"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")

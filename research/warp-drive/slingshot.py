@@ -13,14 +13,15 @@ Primary source for the gain law:
 Every fixture below is a figure PRINTED in that paper; none is a number this
 instrument invented.  Run --selftest before trusting a report.
 
-SUPERSEDED IN PART -- read stationkeep.py first.  The gain law and the flywheel
-arithmetic below all stand.  The MULTI-PASS LADDER they are used to build does
-not: a payload only returns for another pass if it is bound, bound means E/m < 1
-which IS its gamma at infinity, so before the last pass gamma <= 1 and the
-terminal speed is set by ONE pass regardless of N.  The worked case's "0.87 c"
-is therefore not reachable this way; the ceiling is 1 + 2 beta_A gamma_A
-sin(delta/2), which is 0.7085 c at best and 0.0937 c off a catalogued binary.
-Nothing here is withdrawn -- it is bounded, and stationkeep.py holds the bound.
+A CAUTION, not a supersession -- read stationkeep.py alongside this.  The N-pass
+ladder below is real: Zhang Sec. 3.3 and Shipley & Dolan 2016 establish that a
+binary can hold a payload for arbitrarily many encounters, so N is not bounded
+by any binding-energy budget (an earlier revision of stationkeep.py claimed it
+was, and that claim is withdrawn there).  What IS conditional is the GAIN: the
+50%-at-0.2c figure is optimised over the entry phase and the angular momentum.
+An unsteered payload gets Fermi's second-order average instead -- one more
+factor of beta_A, hence 1/beta_A times the passes -- and at the design point
+that misses the merger clock.  The ladder works; the steering is what works it.
 
 Status vocabulary, per the repo's standing rule:
   PINNED        stated in the source
@@ -197,9 +198,8 @@ conditions are satisfied with nothing to prove.
         print("  %-14s %14s %16.0f Msun" % (lbl, "%.0f m/s^2" % amax, M / MSUN))
     print("""
 -- A worked engine ------------------------------------------------------------
-  SUPERSEDED: the pass count below is unreachable -- stationkeep.py's
-  bound-return theorem caps this at ONE pass.  Kept as the flywheel arithmetic,
-  which is unaffected, and because a bound is a coordinate (P8).""")
+  The pass count below assumes the payload holds Zhang's OPTIMISED branch every
+  pass.  Unsteered it is 1/|v_A| times longer -- see stationkeep.py.""")
     beta = 0.10
     M_A  = mass_floor_for_tide(9.8, 3.0, 20.0)      # per hole, 1 g across 20 m
     M_t  = 2.0 * M_A

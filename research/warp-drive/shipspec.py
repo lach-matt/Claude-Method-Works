@@ -72,8 +72,9 @@ K_PASS    = PZ.pass_distance(DEFLECTOR, CHI)      # 94.4 r_s
 GAIN      = PZ.gain_per_pass(BETA_A, K_PASS)      # 6.36e-4, not 0.25
 PASSES    = PZ.passes_to(2.0, BETA_A, K_PASS)     # 1090
 _A, _T, ORBITS = PZ.unequal_binary(DEFLECTOR, Q_RATIO, BETA_A)
-DV_TOTAL  = SK.treadmill_dv(K_PASS, BETA_A, PASSES)   # 6.711 c -- the open row, closed
-CEILING   = SK.ceiling_beta(K_PASS)                   # 0.0937 c, whatever N is
+MARGIN_1  = SK.margin(2.0, BETA_A, K_PASS, 1)         # steered: 14.7x
+MARGIN_2  = SK.margin(2.0, BETA_A, K_PASS, 2)         # unsteered: 0.44 -- fails
+PASSES_2  = SK.passes_to(2.0, SK.gain_second_order(BETA_A, K_PASS))
 
 def passes_to(gamma_t, gain=GAIN):
     return math.log(gamma_t)/math.log(1.0+gain)
@@ -102,13 +103,13 @@ SPEC = [
  ("PERFORMANCE","Kerr dv enhancement",dv_gain(0.998),"x","DERIVED","b_crit 5.196 -> 2.111"),
  ("PERFORMANCE","passes to gamma = 2",PASSES,"","DERIVED","geometric, non-saturating"),
  ("PERFORMANCE","mission time",PASSES*_T/86400.0,"d","DERIVED","one pass per orbit, ASSUMED cadence"),
- ("PERFORMANCE","terminal speed, as specified",0.866,"c","INVALID",
-  "unreachable -- stationkeep.py: gamma_final <= 1 + one pass, and N does not appear"),
- ("PERFORMANCE","terminal speed, achievable",CEILING,"c","DERIVED","the bound-return ceiling at this k"),
+ ("PERFORMANCE","terminal speed",0.866,"c","DERIVED","gamma = 2; the ladder stands, N is unbounded"),
+ ("PERFORMANCE","passes if UNSTEERED",PASSES_2,"","DERIVED",
+  "Fermi second order: 33x, and it misses the merger clock"),
  ("PERFORMANCE","proper acceleration felt",0.0,"g","DERIVED","geodesic throughout"),
  ("PERFORMANCE","propellant for transport",0.0,"kg","DERIVED","borrowed gradient"),
- ("PERFORMANCE","free passes before escape",SK.free_passes(K_PASS,BETA_A),"","DERIVED",
-  "the binding budget is the whole free ride, and it is 4 passes"),
+ ("PERFORMANCE","merger margin, steered",MARGIN_1,"x","DERIVED","orbits left / passes needed"),
+ ("PERFORMANCE","merger margin, unsteered",MARGIN_2,"x","DERIVED","below 1: the binary merges first"),
 
  ("STRUCTURE","tidal penalty at Kerr r_ph",tide_penalty(0.998),"x","DERIVED","vs Schwarzschild 3M"),
  ("STRUCTURE","deflector floor at a DEEP pass, 1 g / 20 m",
@@ -123,8 +124,10 @@ SPEC = [
  ("NAVIGATION","guidance law","bracket propagator","","DERIVED","join closes, meet fails"),
  ("NAVIGATION","masses need not be known","yes","","DERIVED","Law 5, mass-uniformity"),
  ("NAVIGATION","which braid word",None,"","OPEN","unselected; must drift with the inspiral"),
- ("NAVIGATION","station-keeping delta-v",DV_TOTAL,"c","DERIVED",
-  "COMPUTED -- 1086 paid re-binds at Oberth cost. It decided against the ladder"),
+ ("NAVIGATION","station-keeping delta-v",0.0,"c","DERIVED",
+  "NOT OWED -- the binary returns the payload for free (perpetual orbits exist)"),
+ ("NAVIGATION","per-pass vanquish probability",None,"","OPEN",
+  "CRITICAL -- must be ~0 for 1090 passes. Zhang's nu; never computed for a VEHICLE"),
  ("NAVIGATION","timing precision required",None,"s","OPEN","chaotic stratum, unquantified"),
 
  ("ARRIVAL","with a deflector present","free","","DERIVED","time-symmetric reverse pass"),
@@ -134,59 +137,50 @@ SPEC = [
 
  ("ONBOARD","power for transport",0.0,"W","DERIVED","none required"),
  ("ONBOARD","power for steering",None,"W","OPEN",
-  "moot for the ladder; live again only for the billiard branch"),
+  "follows from holding the first-order branch; steering IS the mechanism"),
  ("ONBOARD","life support envelope",None,"","OPEN","not attempted"),
  ("ONBOARD","mission duration",None,"yr","OPEN","depends on route, unselected"),
 ]
 
 FLAG = """
-  THE FLAGGED ITEM IS NO LONGER A GAP.  IT IS A VERDICT.
+  THE VERDICT THIS SHEET CARRIED IS WITHDRAWN, AND THE GAP HAS MOVED AGAIN.
 
-  Every version of this sheet has carried one OPEN row marked "the number that
-  decides whether the ship needs an engine": the station-keeping delta-v.
-  stationkeep.py computed it, and it answered a larger question than it was
-  asked.
+  The previous revision declared the mission dead: a payload must be BOUND
+  between passes, so gamma <= 1 + one pass, so 0.87 c was unreachable and the
+  station-keeping bill was 6.711 c.  The premise was false.  E/m is conserved in
+  a STATIC field; a binary is not static, and the literature says so plainly --
+  Zhang 2020 Sec. 3.3 (the source of this project's own gain law), and Shipley &
+  Dolan 2016, whose binary spacetime admits "an uncountably infinite set of
+  PERPETUAL NULL ORBITS".  A photon cannot be more unbound than it is, and it
+  can still fail to escape a pair.
 
-  THE NUMBER.  A payload only returns for another pass if it is BOUND, and the
-  binding budget at k = 94.4 is 1 - E/m = 2.64e-3 -- four passes.  The other
-  1086 must each be bought back: braked at periapsis, 6.18e-3 c apiece,
-  6.711 c of proper delta-v in total, to deliver 0.87 c.  The architecture's
-  one claim was ZERO PROPELLANT.
+  N IS UNBOUNDED.  The ladder stands, the delta-v is not owed, and 0.87 c off
+  two catalogued 50 Msun holes is back on this sheet.
 
-  THE THEOREM, which is worse.  Bound means E/m < 1, and E/m IS the gamma the
-  payload would show at infinity.  So before the final pass gamma_inf <= 1, and
-  one pass adds at most dgamma:
+  WHAT REPLACES IT -- NAVIGATION, and it is now load-bearing.  Zhang's gain is
+  optimised over the entry phase and the specific angular momentum.  A payload
+  that cannot choose those gets Fermi's average instead, which is SECOND ORDER
+  in beta_A: %.0f passes rather than %.0f, against %.0f orbits before merger.
+  Margin %.3f.  The binary merges with the payload still aboard.
 
-      gamma_final  <=  1 + 2 beta_A gamma_A sin(delta/2)
+    STEERING IS NOT AN OPTIMISATION OF THIS ARCHITECTURE.  IT IS THE MECHANISM.
 
-  N DOES NOT APPEAR.  The 6.711 c buys nothing -- the rungs of the ladder are
-  spent climbing back to escape and only the last one goes anywhere.  Reaching
-  gamma = 2 in one pass needs beta_A >= 0.4472, a binary at 0.625 r_s, inside
-  its own horizon.  No flywheel spins that fast because none can.
+  navigate.py's braid word finally has a job description, and the two OPEN rows
+  under NAVIGATION are no longer housekeeping:
 
-  WHAT THE SHEET NOW SPECIFIES.  Not 0.87 c.  The bound-return ceiling at this
-  deflector, %.4f c -- reached in ONE pass, in 14 seconds, with no station-
-  keeping at all, off an object in the LIGO catalogue.  That is a real vehicle
-  and it is 89%% short of the target.
+    which braid word         unselected, and it must hold the first-order branch
+    vanquish probability nu  must be ~0 for %.0f consecutive passes
 
-  AND THE TRADE IS NOW EXPLICIT.  The ceiling is a function of k, the same k
-  that made the deflector catalogued:
+  Zhang's nu is the per-pass chance of being swallowed or leaving early.  For a
+  POPULATION he estimates trajectories reaching N = 1000 are suppressed by
+  (1-nu)^900 -- 10^-271 at nu = 1/2 -- and argues nu declines as the payload
+  becomes more light-like.  For a VEHICLE nobody has computed it, here or in the
+  literature read so far, which is about cosmic rays rather than crews.
 
-      k = 94.4    50 Msun   catalogued        0.0937 c
-      k =  3.0  8823 Msun   IMBH              0.4751 c
-      k =  1.5 24956 Msun   IMBH              0.6066 c
-      absolute ceiling, a = 3 r_s, delta = pi 0.7085 c
-
-  YOU CAN HAVE THE CATALOGUED OBJECT OR YOU CAN HAVE THE SPEED.  324x the
-  deflector buys 5.9x the speed, and even paying it in full stops at 0.71 c.
-
-  THE ONE THING STILL OPEN, and it is not on this sheet -- stationkeep.billiard.
-  The theorem assumes the payload turns around by falling back.  A backscatter
-  turns it around with no binding, so gamma compounds: 1.99 bounces to gamma = 2
-  rather than 1090 passes.  Whether a rotating dumbbell can present a LEADING
-  FACE twice per cycle is three-body geometry nobody here has asked, and it is
-  the only route left to 0.87 c that does not carry propellant.
-""" % CEILING
+  That is the whole remaining question, and it is a guidance problem with a
+  chaotic stratum underneath it.  Not a fuel problem, and not an inventory one:
+  the deflector is in the LIGO catalogue.
+""" % (PASSES_2, PASSES, ORBITS, MARGIN_2, PASSES)
 
 def selftest():
     ok = True
@@ -225,6 +219,9 @@ def selftest():
         BETA_A < PZ.beta_ceiling(2.0, K_PASS), True)
     chk("sheet's q is exactly Routh's ceiling", Q_RATIO, PZ.routh_q_max(), tol=1e-12)
     chk("merger margin at the sheet's q", ORBITS/PASSES, 2603.083, tol=1e-5)
+    chk("unsteered margin is below 1 (steering is required)", MARGIN_2 < 1.0, True)
+    chk("unsteered pass count is 1/beta_A times the steered", PASSES_2/PASSES,
+        SK.selection_ratio(BETA_A), tol=1e-3)
     chk("companion mass (Msun)", DEFLECTOR/Q_RATIO/MSUN, 1247.9968, tol=1e-5)
 
     print("\nSheet integrity")

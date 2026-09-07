@@ -48,7 +48,7 @@ a report.
 | **`warp-drive/VEHICLE 1`** | **`warp-drive/shipspec.py`** | **the surviving architecture specified: 41 fields, 11 open — the sheet now flies the k-lever, and its one unevidenced object is the companion, not the deflector** |
 | **`warp-drive/GRADIENTS`** | **`warp-drive/gradients.py`** | **the gradient space is closed by classification — five types, one pumps, and the engine already runs on protons** |
 | **`warp-drive/PERSON`** | **`warp-drive/person.py`** | **from a proton to a person: χ/τ_s is the only argument, and pulling the pass out to 94 r_s buys the deflector down into the LIGO catalogue** |
-| **`warp-drive/STATION-KEEPING`** | **`warp-drive/stationkeep.py`** | **the open row closed, and a theorem behind it: γ ≤ 1 + one pass, so the ladder buys nothing at any length — 0.7085 c is the architecture's ceiling** |
+| **`warp-drive/STATION-KEEPING`** | **`warp-drive/stationkeep.py`** | **the Δv is zero — the binary returns the payload for free. What the ladder costs is *selection*: unsteered it is second order and misses the merger clock** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ## `warp-drive/`
@@ -150,49 +150,71 @@ Routh's `μ < (9−√69)/18` means a 50 M☉ deflector with a stable L4/L5 park
 which puts the whole remaining question on the station-keeping Δv, a number this tree has never
 computed.
 
-**Then the bill arrived, and it came as a theorem.** Every sheet in this tree carried one OPEN row
-— the station-keeping Δv across N passes, "the number that decides whether the ship needs an
-engine". `stationkeep.py` computes it, and it answered a larger question than it was asked.
+**Then a bill arrived that turned out not to be owed.** Every sheet in this tree carried one OPEN
+row — the station-keeping Δv across N passes, "the number that decides whether the ship needs an
+engine". `stationkeep.py` computed it and produced a theorem: a payload only returns for another
+pass if it is gravitationally **bound**, bound means `E/m < 1` which *is* its γ at infinity, so
+before the last pass `γ ≤ 1` and the terminal speed is set by **one** pass regardless of N. The
+ladder was dead, 0.87 c was unreachable, and holding the payload for 1,090 passes cost **6.711 c**
+of Δv.
 
-The number first. A payload only comes back for another pass if it is gravitationally **bound**, and
-the binding budget at `k = 94.4` is `1 − E/m = 2.64 × 10⁻³` — **four passes**. The other 1,086 must
-each be bought back: braked at periapsis (Oberth, 5.8× cheaper than braking at infinity),
-6.18 × 10⁻³ c apiece, **6.711 c of proper Δv** to deliver 0.87 c. The architecture's one claim was
-zero propellant.
+**The arithmetic was right and the premise was wrong, and the literature says so — including the
+paper this project's own gain law came from.** `E/m` is conserved in a *static* field. A binary is
+not static:
 
-The theorem is worse, and it makes the number moot. Bound means `E/m < 1`, and `E/m` **is** the γ the
-payload would show at infinity. So before the final pass `γ_∞ ≤ 1`, and one pass adds at most `Δγ`:
+- **Zhang 2020 §3.3** (arXiv:2001.09385): *"for a particle to escape the binary, it is not sufficient
+  to just have enough energy. The particle has to consistently move in the same outward direction
+  over a period of time. Such escape attempts are however frustrated by the rapidly shifting
+  gravitational potential in the vicinity of the binary, due to the BHs moving about."*
+- **Shipley & Dolan 2016** (CQG 33 175001, arXiv:1603.04469): a binary spacetime admits more than one
+  fundamental null orbit and therefore **"an uncountably infinite set of perpetual null orbits"**. A
+  photon cannot be more unbound than it is, and it can still fail to escape a pair. That alone
+  disposes of "bound" as the return criterion.
+- The dihole chaos Zhang cites: null geodesics in a two-black-hole field admit going-around sequences
+  *"of arbitrary length — in fact, even infinitely lengthy ones where the geodesics do not ever escape
+  or fall into either BH exist."*
 
-> **γ_final ≤ 1 + 2 β_A γ_A sin(δ/2)** — and **N does not appear.**
+**N is unbounded. The ladder stands and no Δv is owed: the binary turns the payload around for
+free.** That is what the second body is for — and `stationkeep.py`'s static arithmetic, which was
+never wrong, is exactly why one deflector cannot do the job: a single hole holds a payload for
+**four passes** and then charges 6.18 × 10⁻³ c to get it back.
 
-The rungs of the ladder are spent climbing back to escape; only the last one goes anywhere. Reaching
-γ = 2 in a single pass needs `β_A ≥ 0.4472`, which is a binary at `a = 0.625 r_s` — **inside its own
-horizon**. No flywheel spins that fast because none can.
+**The leading-face question is answered too, and Fermi answered it in 1949.** No converging-mirror
+geometry is needed: aberration crowds incoming particles onto the head-on direction in the hole's
+comoving frame, so accelerating encounters outnumber decelerating ones. Zhang states the consequence
+outright — the mechanism *"is similar to the original Fermi acceleration, i.e., being of **second
+order**"*.
 
-What survives is not small. At the tightest binary that can exist (`a = 3 r_s`, `β_A = 0.2041`) and a
-full backscatter, a bound-return slingshot reaches **0.7085 c on ordinary matter with zero
-propellant**. But the ceiling is a function of the same `k` that made the deflector catalogued:
+**And that is the real bill.** Zhang's 50%-at-0.2 c is optimised over the entry phase φ₀ and the
+angular momentum L. A payload that cannot choose those takes Fermi's average instead: one more
+factor of β_A in the gain, hence **1/β_A times the passes**.
 
-| k (r_s) | deflector | bend | ceiling |
-|---|---|---|---|
-| 94.4 | 50 M☉ — catalogued | 1.2° | **0.0937 c** |
-| 3.0 | 8,823 M☉ | 38.2° | 0.4751 c |
-| 1.5 | 24,956 M☉ | 76.4° | 0.6066 c |
-| — | absolute, a = 3 r_s, δ = π | 180° | **0.7085 c** |
+| β_A | N steered | N random | margin steered | margin random |
+|---|---|---|---|---|
+| 0.050 | 654 | 13,068 | 1.90 | 0.10 |
+| **0.030** | **1,090** | **36,330** | **14.67** | **0.44** |
+| 0.020 | 1,636 | 81,762 | 74.24 | 1.49 |
 
-324× the deflector buys 5.9× the speed. **You can have the catalogued object or you can have the
-speed.** Nothing in `person.py` is withdrawn — every scaling holds and the proton/person identity is
-untouched. What falls is the ladder built on them, and VEHICLE 1 now specifies 0.0937 c reached in
-**one pass, in 14 seconds, with no station-keeping at all**.
+At the design point the unsteered payload wants 36,330 passes against 15,990 orbits before merger.
+**The binary merges with the payload still aboard.**
 
-**One route is left and it is open.** The theorem assumes the payload turns around by *falling
-back*. A **backscatter** (δ ~ π, periapsis at the photon sphere) turns it around with no binding at
-all, so γ *compounds* instead of resetting — **1.99 bounces to γ = 2**, not 1,090 passes. The
-question that decides it, and it is asked nowhere in this tree: a slingshot gains only off a hole
-whose motion has a component along the payload's momentum change — the **leading face**. In a
-circular binary the components move oppositely at constant separation, so a payload bouncing along
-the A–B axis meets both faces broadside and gains nothing. Whether a rotating dumbbell admits a
-converging-mirror geometry is three-body geometry, and it is the next thing to ask.
+> **Steering is not an optimisation of this architecture. It is the mechanism.**
+
+`navigate.py`'s braid word finally has a job description: hold the first-order branch. And the open
+item is no longer a fuel number but **ν, Zhang's per-pass vanquish probability** — the chance of
+being swallowed by a hole or leaving early. For a *population* he estimates trajectories reaching
+N = 1000 are suppressed by `(1−ν)⁹⁰⁰` (10⁻²⁷¹ at ν = ½), and argues ν *declines* as the payload
+becomes more light-like. For a *vehicle* nobody has computed it — not here, and not in a literature
+that is about cosmic rays rather than crews.
+
+Two independent figures from the older three-body literature bracket the regime and neither
+contradicts it. Aarseth's classical slingshot condition (arXiv:astro-ph/0511565, Eq. 3) is
+`v_f = √(G M_t / 2a)`, which in this tree's variables is exactly `√2 β_A` — 0.289 c at the tightest
+binary that can exist — and he notes close-pericentre encounters exceed it *"by a considerable
+amount"*, which is precisely the optimised branch. Mikkola & Valtonen (1990) put the limiting
+ejection speed for *black hole pairs* at ~10,000 km/s = 0.0334 c, an empirical ceiling from
+galactic-nucleus mergers where GW inspiral caps how hard the binary gets — the same merger clock,
+seen from the other end.
 
 **A recorded fault, kept executable.** A first pass at this fixed the pass distance at a constant
 fraction of the binary *separation* (`r_p = a/3`) and read off `M ∝ β³` — a person at 51 M☉ and
