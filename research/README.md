@@ -1462,3 +1462,66 @@ a ferrite being a ferrite — but `WALL-NONRADIAL` fails, and it was this sessio
 That is the first thing the shape has actually caught rather than been fitted to: not a prediction
 landing, but a false escape found. `index3.py` regrades `DENSITY-CEILING` from (0,+1,+1) to (0,−1,+1)
 and seats `CORNER-EXITS` at (−1,−1,−1) beside `EM-GAP` and `ONE-AXIS-FLAT`.
+
+## `bench.py` — the one thing here that goes on a table
+
+Everything above is a closure or a bound. This is the piece someone could build.
+
+### The problem it solves
+
+`device.py` measured 2,146° of non-reciprocity and this project recorded it as `RELABEL-ONLY`:
+enormous, real, and a property of the medium rather than of any metric. What was missing was an
+observable that **cannot be relabelled**. There is one, and it is old:
+
+> A stationary metric is **static** exactly when the clock-synchronisation gap around every closed loop
+> vanishes. That gap is `∮w·dl` with `w_i = −g₀ᵢ/g₀₀` — Plebanski's magnetoelectric vector — and by
+> Stokes it is nonzero iff `curl w` is, which is the twist.
+
+**Measure the loop, not the line.** A one-way phase is a synchronisation convention. A closed-loop
+phase is not, and no re-clocking removes it.
+
+### The experiment: one rig, two samples
+
+| sample | grading | predicted loop phase |
+|---|---|---|
+| **A (control)** | longitudinal only, `w = w_x(x)` | **exactly 0** |
+| **B** | longitudinal **+ transverse** | `2k₀∮w·dl` |
+
+The null is not a small number — it is a dimension theorem, and it holds at any β, any grading depth,
+any frequency. A *uniform* w also gives zero, being curl-free, so a bulk offset in the sample cannot
+fake the signal. **Two independent reasons for the null; one for the signal.**
+
+### The signal budget, at the corrected operating point
+
+8.1418 GHz, λ = 1.649 cm in medium, the same `2k₀` that gives device.py's 2,146° over 9.89 cm:
+
+| loop side | transverse contrast | phase | vs a 1 mdeg VNA |
+|---|---|---|---|
+| 1 cm | 1.00 | 195.5° | 2.0×10⁵ |
+| 1 cm | 0.01 | 2.0° | 2.0×10³ |
+| 5 cm | 0.10 | 97.8° | 9.8×10⁴ |
+| 9 cm | 0.01 | 17.6° | 1.8×10⁴ |
+
+**It is not signal-limited.** Even one per cent of transverse contrast over a one-centimetre loop is
+three orders above a commercial network analyser. The limit is whether the sample can be built with a
+clean transverse grade, which is fabrication with a known answer. The rig is a dilution refrigerator
+and a VNA — equipment that exists in a few hundred laboratories.
+
+### What it would settle, and what it would not
+
+It settles `ANALOGUE-2D`, the only route left open, by measuring the one thing that distinguishes it
+from `ANALOGUE-1D`. A nonzero loop phase in B against a zero in A is the first laboratory demonstration
+that an engineered medium carries an **irremovable** shift — the property `twist.py` identified as the
+entire content of a warp metric, and the property no 1+1D analogue can have.
+
+**It transports nothing. It violates no energy condition in real spacetime. It does not make a warp
+drive nearer.** It measures, on a bench, the quantity thirty-seven instruments were needed to identify
+as the only one that mattered.
+
+And it tests three corrections to a published literature at once — a null in A confirms that
+Smolyaninov-class 1+1D analogues emulate Minkowski; the operating point depends on the BHS bound being
+static and therefore misapplied; and the sample is built from Plebanski's 3+1D mapping. All three are
+cheap to check and all three are wrong in the literature as it stands.
+
+> **That is the practical output of this project: one bench experiment, three corrections, and a
+> catalogue of things not to spend money on.**

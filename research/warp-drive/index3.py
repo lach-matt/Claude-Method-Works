@@ -344,6 +344,11 @@ FINDINGS = [
  # The shape as an instrument: cheap, because it is math and not a material.
  ("THE-SHAPE",      +1, +1,  0, "shape.py",
   "a no-go built on a static positivity condition loosens when the dynamics is restored: four closures moved by that one move"),
+ # The one thing here that goes on a bench.
+ ("LOOP-OBSERVABLE",+1, +1, +1, "bench.py",
+  "measure the loop, not the line: the closed-loop phase 2k_0 INT w.dl is gauge-invariant exactly where the twist is nonzero"),
+ ("HARD-NULL",       0, +1, +1, "bench.py",
+  "the control is a dimension theorem, not a small number: a longitudinally graded sample gives exactly zero, and a uniform w does too"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twelve obstructions three dissolved, three relocated, four closed negative, two conditional and none untested"),
 ]
@@ -460,7 +465,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 119)
+    chk("number of findings indexed", len(FINDINGS), 121)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -478,11 +483,11 @@ def selftest():
     chk("cells sitting on all three axes", sorted(triple),
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
                 "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
-                "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL"]))
+                "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
-                "THE-DOOR","EC-TAKEN","NO-EXOTIC","STIFF-WALL"]))
+                "THE-DOOR","EC-TAKEN","NO-EXOTIC","STIFF-WALL","LOOP-OBSERVABLE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
