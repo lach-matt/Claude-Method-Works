@@ -34,7 +34,7 @@
 
 == §2 F.2 clause (iii) on the periodic ground — "the values admitted at a proton number and charge are a function of the electron count alone, on every pair the coordinate file carries and with no exception (register 1779)"
   Register 1779 heading: True; body sentences carrying "electron":
-    R6569: Both rows now state what the file states.* **Every other figure in that account was measured against the file and every one stands:** *7,260 (Z, charge) pairs; 13,104 keys of (Z, charge, 2S+1); δ from −0.2367 to 6.0207; the bound nonzero on 36,917 cells; grades at 929 exact, 358 measured, 103,545 computed; and the claim that the multiplicities admitted at a pair are a function of the electron count Z − charge alone, 
+    R6570: Both rows now state what the file states.* **Every other figure in that account was measured against the file and every one stands:** *7,260 (Z, charge) pairs; 13,104 keys of (Z, charge, 2S+1); δ from −0.2367 to 6.0207; the bound nonzero on 36,917 cells; grades at 929 exact, 358 measured, 103,545 computed; and the claim that the multiplicities admitted at a pair are a function of the electron count Z − charge alone, 
   1779 tokens: "electron count" 1, "function of" 1, "multiplicit" 1, "(iii)" 0, "7,260" 2
   file COORDINATES-2_13.csv: 104832 rows; columns ['Z', 'charge', 'l', 'mult', 'delta', 'grade', 'source', 'B', 'witness', 'bound']
   CONVENTION: a "pair" is a distinct (Z, charge); the file's charge column is the spectroscopic stage (Z = 1, charge = 1 is H I, one electron: row 1 says so), so N = Z − charge + 1 (fault 3: first scored as Z − charge, a bijection — the equal-set test is unchanged, the parity test was not); "values admitted at a pair" = the set of mult over its rows; the claim holds iff every two pairs with equal N admit equal sets
@@ -72,28 +72,29 @@
   witness: the 20a-01 / 21a-04 / 16z-01 figures and Chapter 34's are printed nowhere in the unit; the WARNING lines 1309 / 1350 / 1401 / 1403 / 1461 are not engaged by any figure here
 
 == §4 Register entries the unit cites or that name it — heading present, first body line, WARNING lines in the entry
-  Register entries naming Appendix F / F.n: {296: [1115], 367: [1367], 371: [1379], 372: [1383], 388: [1447], 390: [1455], 392: [1463], 1729: [6453], 1734: [6461], 1755: [6497], 1762: [6509], 1780: [6573], 1781: [6576], 1786: [6595], 1818: [6716], 1854: [6860]}
-  296: heading R1113; WARNING lines none; body: **TWO MEASUREMENTS OF THE BOOK'S OWN SHAPE NAMED AT F.4.1 — THE WITHDRAWAL RATIO AND THE METHOD RATIO.** *Appendix F indexes every number this book pr
-  297: heading R1117; WARNING lines none; body: **THE IDEAL WITHDRAWAL RATIO DERIVED AS 1 : 1 — AT PARITY A CLAIM'S SURVIVAL CARRIES EXACTLY ONE BIT — AND FOUND UNMEASURABLE: THE DENOMINATOR SPANS A
-  320: heading R1193; WARNING lines none; body: **THE BOOK IS PROCEDURAL RATHER THAN EXPLORATORY, AND THE CHANGE IS MEASURABLE** *: defects found by hand fall 88% to 55% while defects found by instr
-  321: heading R1197; WARNING lines none; body: **THE BOOK REARRANGED TO AGREE WITH WHAT IT IS.** *The procedure was Appendix B, behind the mathematics it governs; it is now PART I, and the lattice,
-  367: heading R1365; WARNING lines none; body: **ITEM M'S SECOND ROUTE SUCCEEDED AT THE THIRD ATTEMPT, AND E FALLS FROM 38 TO 24.** *The constraint the coordinates were missing is not a judgement a
-  371: heading R1377; WARNING lines none; body: **ITEM M IS WITHDRAWN RATHER THAN CLOSED.** *It asked for E(G) = 33 to be* *resolved**, meaning driven to zero, and register 370 shows the count was n
-  372: heading R1381; WARNING lines none; body: **E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER.** *Stated as nought fibred and one unfibred, it is 4 unfibred on the table as it now stands — 
-  388: heading R1445; WARNING lines none; body: **ITEM M CLOSED BY STATING ONE NUMBER TO THE STANDARD NO NUMBER IN THIS BOOK HAD REACHED.** *Register 387 found ten of eleven admitted cells dominated
-  390: heading R1453; WARNING lines none; body: **THE MEASUREMENT FIBRE'S TOP CELL OCCUPIED AT §6.2.1, AND THE RECOMPUTATION IS A RESULT.** *§6.2 reported E = 9 on the measured nuclide chart at one 
-  392: heading R1461; WARNING lines none; body: **ITEM M CLOSED. ALL SIX FIBRES NOW CARRY A NUMBER AT THE HIGHEST STANDARD THE COORDINATES ALLOW.** *The last was* *rate**, occupied at §12.11.1.2 by 
-  1729: heading R6451; WARNING lines none; body: **Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED.** *The four
-  1734: heading R6459; WARNING lines none; body: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPT
-  1755: heading R6495; WARNING lines none; body: **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: what a closure cannot supply is e
-  1762: heading R6507; WARNING lines none; body: **RULING 25: A SURVIVING CLAIM IS DEFINED, THE MOVE §D.5.3 MADE FOR *ELEMENT* — AND F.4.2'S WITHDRAWAL RATIO, IN Q SINCE REGISTER 297, HAS A VALUE: 4.
-  1779: heading R6567; WARNING lines none; body: **THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET.** *The Spectra Co
-  1780: heading R6571; WARNING lines none; body: **APPENDIX F REBUILT ON A DIFFERENT DOMAIN: THE KINDS OF QUANTITY AND THE GROUNDS THEY ARE CARRIED OVER, NOT THE NUMBERS THIS BOOK PRINTS ABOUT ITSELF
-  1781: heading R6575; WARNING lines none; body: **THE FOUR CITATION FIGURES ARE DRIVEN TO THEIR FIXED POINT, AND THE FRONT MATTER'S OWN SHAPE WITH THEM.** *Register 1780 cites register 1779, and App
-  1786: heading R6594; WARNING lines none; body: **APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. 
-  1818: heading R6714; WARNING lines none; body: **THE CLOSURE RULE IS PRINTED ONE-SIDED AT FOUR SITES REGISTER 402 CORRECTS, AND EACH NOW POINTS AT THE CORRECTION.** *Register 402: the closure rule 
-  1854: heading R6858; WARNING lines none; body: **THE UNPRINTED-INPUT CLASS IS NOT "SIXTY MEMBERS, UNCHANGED": TWO OF ITS NAMED SEVEN ARE REPAIRED, AND WHERE IT STILL HOLDS IN §22 THE TABLE IS RIGHT
-  entries later than 1780 (the rebuild) naming the appendix: [1781, 1786, 1818, 1854]
+  Register entries naming Appendix F / F.n: {296: [1116], 367: [1368], 371: [1380], 372: [1384], 388: [1448], 390: [1456], 392: [1464], 1729: [6454], 1734: [6462], 1755: [6498], 1762: [6510], 1780: [6574], 1781: [6577], 1786: [6596], 1818: [6717], 1854: [6861], 1859: [6881]}
+  296: heading R1114; WARNING lines none; body: **TWO MEASUREMENTS OF THE BOOK'S OWN SHAPE NAMED AT F.4.1 — THE WITHDRAWAL RATIO AND THE METHOD RATIO.** *Appendix F indexes every number this book pr
+  297: heading R1118; WARNING lines none; body: **THE IDEAL WITHDRAWAL RATIO DERIVED AS 1 : 1 — AT PARITY A CLAIM'S SURVIVAL CARRIES EXACTLY ONE BIT — AND FOUND UNMEASURABLE: THE DENOMINATOR SPANS A
+  320: heading R1194; WARNING lines none; body: **THE BOOK IS PROCEDURAL RATHER THAN EXPLORATORY, AND THE CHANGE IS MEASURABLE** *: defects found by hand fall 88% to 55% while defects found by instr
+  321: heading R1198; WARNING lines none; body: **THE BOOK REARRANGED TO AGREE WITH WHAT IT IS.** *The procedure was Appendix B, behind the mathematics it governs; it is now PART I, and the lattice,
+  367: heading R1366; WARNING lines none; body: **ITEM M'S SECOND ROUTE SUCCEEDED AT THE THIRD ATTEMPT, AND E FALLS FROM 38 TO 24.** *The constraint the coordinates were missing is not a judgement a
+  371: heading R1378; WARNING lines none; body: **ITEM M IS WITHDRAWN RATHER THAN CLOSED.** *It asked for E(G) = 33 to be* *resolved**, meaning driven to zero, and register 370 shows the count was n
+  372: heading R1382; WARNING lines none; body: **E(Q) WAS MAKING F.3.3's MISTAKE ONE APPENDIX EARLIER.** *Stated as nought fibred and one unfibred, it is 4 unfibred on the table as it now stands — 
+  388: heading R1446; WARNING lines none; body: **ITEM M CLOSED BY STATING ONE NUMBER TO THE STANDARD NO NUMBER IN THIS BOOK HAD REACHED.** *Register 387 found ten of eleven admitted cells dominated
+  390: heading R1454; WARNING lines none; body: **THE MEASUREMENT FIBRE'S TOP CELL OCCUPIED AT §6.2.1, AND THE RECOMPUTATION IS A RESULT.** *§6.2 reported E = 9 on the measured nuclide chart at one 
+  392: heading R1462; WARNING lines none; body: **ITEM M CLOSED. ALL SIX FIBRES NOW CARRY A NUMBER AT THE HIGHEST STANDARD THE COORDINATES ALLOW.** *The last was* *rate**, occupied at §12.11.1.2 by 
+  1729: heading R6452; WARNING lines none; body: **Q RE-CLOSED AT FOURTEEN — THE DOMAIN COLUMN PRINTED FOR THE FIRST TIME, AND ITEM R KILLED THE CONSTRAINT THE CODE HAD CARRIED UNPRINTED.** *The four
+  1734: heading R6460; WARNING lines none; body: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPT
+  1755: heading R6496; WARNING lines none; body: **SECOND TIER READ IN PLACE: TWO CLOSE FROM THE RECORD, TWO ARE STATED AS OWED.** *"Chapter 27 said what that costs: what a closure cannot supply is e
+  1762: heading R6508; WARNING lines none; body: **RULING 25: A SURVIVING CLAIM IS DEFINED, THE MOVE §D.5.3 MADE FOR *ELEMENT* — AND F.4.2'S WITHDRAWAL RATIO, IN Q SINCE REGISTER 297, HAS A VALUE: 4.
+  1779: heading R6568; WARNING lines none; body: **THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET.** *The Spectra Co
+  1780: heading R6572; WARNING lines none; body: **APPENDIX F REBUILT ON A DIFFERENT DOMAIN: THE KINDS OF QUANTITY AND THE GROUNDS THEY ARE CARRIED OVER, NOT THE NUMBERS THIS BOOK PRINTS ABOUT ITSELF
+  1781: heading R6576; WARNING lines none; body: **THE FOUR CITATION FIGURES ARE DRIVEN TO THEIR FIXED POINT, AND THE FRONT MATTER'S OWN SHAPE WITH THEM.** *Register 1780 cites register 1779, and App
+  1786: heading R6595; WARNING lines none; body: **APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. 
+  1818: heading R6715; WARNING lines none; body: **THE CLOSURE RULE IS PRINTED ONE-SIDED AT FOUR SITES REGISTER 402 CORRECTS, AND EACH NOW POINTS AT THE CORRECTION.** *Register 402: the closure rule 
+  1854: heading R6859; WARNING lines none; body: **THE UNPRINTED-INPUT CLASS IS NOT "SIXTY MEMBERS, UNCHANGED": TWO OF ITS NAMED SEVEN ARE REPAIRED, AND WHERE IT STILL HOLDS IN §22 THE TABLE IS RIGHT
+  1859: heading R6879; WARNING lines none; body: **REGISTER 1786 SAYS THERE WAS NEVER AN F.3.1 OR AN F.3.2 AND THE ORIGINAL INPUT CARRIES BOTH, AS HEADINGS.** *1786 renumbers Appendix F and states it
+  entries later than 1780 (the rebuild) naming the appendix: [1781, 1786, 1818, 1854, 1859]
 
 == §5 F.3's rule in the Register ("refuted by its own extent" — "several of the corrections the Register carries are exactly this rule firing")
   Register entries matching: 0 {}
@@ -109,7 +110,7 @@
   F.4.3 body (L11390–L11407) carries "#P": 0; "complete": 0
 
 == §7 24b-05 re-take: F.3.3 / F.3.2 / F.3.1 tokens, main and Register (Register 1786 renumbered F.3.3 → F.3.1)
-  F.3.3: main []; Register (line, entry) [(1379, 371), (1383, 372), (6573, 1780), (6595, 1786)]
-  F.3.2: main []; Register (line, entry) [(6595, 1786)]
-  F.3.1: main [1082, 1093, 1097, 11002, 11012, 11030, 11348]; Register (line, entry) [(6595, 1786)]
+  F.3.3: main []; Register (line, entry) [(1380, 371), (1384, 372), (6574, 1780), (6596, 1786), (6881, 1859)]
+  F.3.2: main []; Register (line, entry) [(6596, 1786), (6881, 1859)]
+  F.3.1: main [1082, 1093, 1097, 11002, 11012, 11030, 11348]; Register (line, entry) [(6596, 1786), (6881, 1859)]
   1786 body: **APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. There was never an F.3.1 or an F.3.2 — F.3 carried a single child and that child was numbered third, a numeral inherited across the rebuild without being read.* **Nothing anywhere 

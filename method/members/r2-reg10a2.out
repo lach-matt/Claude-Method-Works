@@ -1,21 +1,21 @@
 
 == 0  THE UNIT
-   unit opens at entry 327                                  1217                       OK
-   entry 362 opens the next unit                            1353                       OK
-   unit = L1217-L1352, 136 lines; 27 bare entries 327..361; 7 grouped headings
+   unit opens at entry 327                                  1218                       OK
+   entry 362 opens the next unit                            1354                       OK
+   unit = L1218-L1353, 136 lines; 27 bare entries 327..361; 7 grouped headings
    the grouped block is whole in this unit                  7                          OK
 
 == 1  THE GROUPED BLOCK, AND THE MECHANISM EACH HEADING NAMES
    all seven stand after entry 361                          True                       OK
    numbers the seven headings hold                          32                         OK
    their range                                              (203, 354)                 OK
-   L1325  4.2        **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the
-   L1329  4.1        **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a
-   L1333  4.6        **§4.6 — A TEST THAT COULD NOT FAIL.** *A summary line hardcoded one line belo
-   L1337  4.7        **§4.7 — A DETECTOR ARTIFACT TAKEN FOR A DEFECT.** *A count of lines read as a
-   L1341  4.3        **§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written a
-   L1345  (unnumbered) **An INSTRUMENT NARROWED BY A LITERAL IT CARRIED, CONTINUED.** *A spelled refe
-   L1349  (unnumbered) **A CHECK THAT PASSED ON A DEFECT IT WAS BUILT TO CATCH.** *Five sections abse
+   L1326  4.2        **§4.2 — WROTE INTO A STRUCTURE WITHOUT READING IT.** *§28.8 placed inside the
+   L1330  4.1        **§4.1 — ATTRIBUTED OUTWARD BEFORE CHECKING INWARD.** *The book said to face a
+   L1334  4.6        **§4.6 — A TEST THAT COULD NOT FAIL.** *A summary line hardcoded one line belo
+   L1338  4.7        **§4.7 — A DETECTOR ARTIFACT TAKEN FOR A DEFECT.** *A count of lines read as a
+   L1342  4.3        **§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written a
+   L1346  (unnumbered) **An INSTRUMENT NARROWED BY A LITERAL IT CARRIED, CONTINUED.** *A spelled refe
+   L1350  (unnumbered) **A CHECK THAT PASSED ON A DEFECT IT WAS BUILT TO CATCH.** *Five sections abse
    five headings name a §4.x mechanism: ['4.2', '4.1', '4.6', '4.7', '4.3']
    two name a mechanism without a §4.x number.
    4.2    located in the volume at [1446]
@@ -48,9 +48,9 @@
 
 == 5  CENSUS
    census rows in range: 3
-     1241	C9-OVERGENERALISATION-WORD	reg	1239	never	**ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, 
-     1242	C9-OVERGENERALISATION-WORD	reg	1311	never	**PAST, PRESENT AND FUTURE.** *Treated as free the three parts overcount by 130%;* **the balance h
-     1243	C9-OVERGENERALISATION-WORD	reg	1343	never	**§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written as kept in the pass t
+     1241	C9-OVERGENERALISATION-WORD	reg	1240	never	**ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, 
+     1242	C9-OVERGENERALISATION-WORD	reg	1312	never	**PAST, PRESENT AND FUTURE.** *Treated as free the three parts overcount by 130%;* **the balance h
+     1243	C9-OVERGENERALISATION-WORD	reg	1344	never	**§4.3 — CLAIMED COMPLETION THAT HAD NOT HAPPENED.** *Three promises written as kept in the pass t
 
 == SUMMARY
    instrument checks failed : 0 

@@ -71,7 +71,7 @@ C-33	6	OPEN	M	no	yes	Drive reconciliation owed: Drive at BUILD184, repository at
 C-34	6	OPEN	S	no	yes	gate.py manifest's MAIN constant names BUILD90; --main must always be passed	method/HANDOFF-152-RESUME.md L72–74
 C-35	3	OPEN	S	yes	yes	MV-DEF-01: §10.4 leaf subscripts vs one-based coordinates, held to the prose run	method/DEF-153O-PENDING.md L91–92; DOCKET.md L483; WORKING-REGISTER.md L8299
 C-36	3	OPEN	S	yes	yes	Reader draft 14A keeps 'a coupling axis costs more', withdrawn by register 504	method/DEF-153O-PENDING.md L103–104; method/DRAFT-Q5-06-owed-expansions.md L13–14; DOCKET.md L487
-C-37	2	OPEN	S	yes	yes	The seed's lower bound 5 (§14.5.9's table) is stated in no Register entry	method/DRAFT-Q5-06-owed-expansions.md L35, L13
+C-37	2	DONE - register 1862	S	yes	yes	The seed's lower bound 5 (§14.5.9's table) is stated in no Register entry	method/DRAFT-Q5-06-owed-expansions.md L35, L13
 C-38	3	OPEN	S	yes	yes	§14.6.3 prints 'six modular objects await two unread sources' against register 527's eight	method/DRAFT-Q5-06-owed-expansions.md L40
 C-39	3	OPEN	M	yes	yes	§14.5.12–§14.5.14: 13j-01's false heading, and no pointers to 1833–1835	method/DRAFT-Q5-06-owed-expansions.md L98–101, L12, L81, L85
 C-40	6	OPEN	L	yes	yes	Register 1835's d-shell seed 10 (no 9-cover) and p→p 'forced at exact minimum only' not re-derived	method/DRAFT-Q5-06-owed-expansions.md L67–69, L85
@@ -86,7 +86,7 @@ D-06	3	OPEN	L	yes	yes	Ruling 45 class: first-person and session-narrating prose,
 D-07	4	OPEN	L	yes	yes	Ruling 46 class: build, file, chat and instrument handles in reader-facing text	method/members/DOCKET.md L71-72 (item 6); L180 (17e-01); L298 (27b-01); L313 (chat 142 MC site); L373 (26b-10); L419 (re
 D-08	3	OPEN	L	yes	yes	Pointer class (a): forty-five off-by-one / wrong-target citations plus additions	method/members/DOCKET.md L74-79 (item 9(a)); L198, L237, L250, L259, L267-268, L277, L287, L296, L304, L338 (deltas)
 D-09	3	OPEN	L	yes	yes	Pointer class (b): citations whose target says nothing of the claim	method/members/DOCKET.md L74-79 (item 9(b)); L180, L209, L238, L267, L277-278, L287-288, L296, L298, L304, L370, L380-38
-D-10	2	OPEN	M	yes	yes	Pointer class (c): cited Register numbers with no entry, unheaded numbers	method/members/DOCKET.md L74-79 (item 9(c)); L180 (17e-01); L262, L268, L304 (28a-01); L312 (chat 142); L328 (scf-A-03);
+D-10	2	DONE - register 1863	M	yes	yes	Pointer class (c): cited Register numbers with no entry, unheaded numbers	method/members/DOCKET.md L74-79 (item 9(c)); L180 (17e-01); L262, L268, L304 (28a-01); L312 (chat 142); L328 (scf-A-03);
 D-11	3	OPEN	S	yes	yes	Pointer class (d): an event with four attributed homes; §11.7's self-citation	method/members/DOCKET.md L74-79 (item 9(d))
 D-12	1	DONE — register 1854	L	yes	yes	Unprinted-input class: sixty figures printed without their inputs	method/members/DOCKET.md L80 (item 10); L279 (91.338 eV); L340 (14z-15); L354 (chat 147)
 D-13	0	OPEN	M	yes	yes	The 32/11 scope docket (14j-01) against 4ν/3	method/members/DOCKET.md L81-82 (item 11); L225, L242, L251, L263 (added sites)
@@ -255,7 +255,7 @@ E-107	3	OPEN	S	yes	yes	§25.6 residue: 7s bracket edge from estimated δ(6s), un
 E-108	3	OPEN	S	yes	yes	Chapter 26: spliced sentence at L7156, 'Bracket 66 of 66' without population, cost law never stated (15b-01/02/10/11)	DEFERRED.md L1353–1362, L1382–1394 (chat 104)
 E-109	0	OPEN	M	yes	yes	Ruling: what §26.2 may claim — σ₂ is a tautology presented as a measurement; Aitken table and σ₁ unreproducible (15b-03/05/06)	DEFERRED.md L1363–1381 (chat 104)
 E-110	1	CLOSED — unverifiable here (E-075; CLAUDE.md §5)	S	yes	yes	Rounded-table truncations: T(20)/3 = 91.4477 and §27.2's 0.337 (ln(126/90) = 0.336), which falsifies §27.6's universal (docket 12)	DEFERRED.md L1376–1380, L1440–1442 (chats 104–105)
-E-111	2	OPEN	M	yes	yes	§9.2 and §27.5.1 are one passage printed in two chapters (Registers 438, 446); duplicate-passage sweep (15d-01)	DEFERRED.md L1413–1425, L1447–1450 (chat 105)
+E-111	2	DONE - already repaired: 9.2 and 27.5.1 now share one sentence	M	yes	yes	§9.2 and §27.5.1 are one passage printed in two chapters (Registers 438, 446); duplicate-passage sweep (15d-01)	DEFERRED.md L1413–1425, L1447–1450 (chat 105)
 E-112	3	OPEN	M	yes	yes	L7301 and Register 446 credit §27.2 with a proof it does not contain (15d-05, docket 23)	DEFERRED.md L1426–1429 (chat 105)
 E-113	8	OPEN	M	yes	yes	Table/formatting class: space-aligned Chapter 27 tables, shattered headers, mid-sentence breaks, thirty lower-case section openers (docket 2	DEFERRED.md L1433–1439, L1531–1533, L1553–1555, L1607–1609 (chats 105–108)
 E-114	6	OPEN	S	no	yes	R4: incoming §-pointer count per section never measured (§27.1/27.3/27.5/27.5.1/27.6 have zero)	DEFERRED.md L1451–1453 (chat 105)
@@ -268,8 +268,8 @@ E-120	0	OPEN	M	yes	yes	Ruling: 'the first forty-eight' has no printed antecedent
 E-121	3	OPEN	S	yes	yes	§28.6's distribution table sums to 20 against no stated population and carries '~3' inside a count table (15g-03)	DEFERRED.md L1569–1570 (chat 107)
 E-122	3	OPEN	M	yes	yes	L7636–37 says §31.1 never carried the Hill-radius correlation; §31.1 L8626–8633 prints it (15h-10)	DEFERRED.md L1592–1598 (chat 108)
 E-123	3	OPEN	M	yes	yes	Heading-only sections §2.22, §28.7.6 and §28.9 (docket 1) still unauthored; M's to write	DEFERRED.md L1623–1630, L1690–1696 (chats 109–110)
-E-124	2	OPEN	M	yes	yes	§2.19.1 declares the false-heading-count repair done citing the wrong entry (286, not 289) and a heading name the volume does not print (15i	DEFERRED.md L1637–1645 (chat 109)
-E-125	2	OPEN	S	yes	yes	Citations of non-existent Register entries: 571 at L7719 and L9274; list begins 344, 571, 1002, 1149, 1223, 1257 (15i-09)	DEFERRED.md L1646–1647 (chat 109)
+E-124	2	DONE - register 1860	M	yes	yes	§2.19.1 declares the false-heading-count repair done citing the wrong entry (286, not 289) and a heading name the volume does not print (15i	DEFERRED.md L1637–1645 (chat 109)
+E-125	2	DONE - register 1863	S	yes	yes	Citations of non-existent Register entries: 571 at L7719 and L9274; list begins 344, 571, 1002, 1149, 1223, 1257 (15i-09)	DEFERRED.md L1646–1647 (chat 109)
 E-126	3	OPEN	S	yes	yes	Two of the ten mechanism names used are the Register's, not §4's printed names (15i-12)	DEFERRED.md L1654–1656 (chat 109)
 E-127	3	OPEN	S	yes	yes	The anchoring error lives at §28.4 L7444 but is attributed to §25.6 and §28.6 at three other sites (15j-08)	DEFERRED.md L1701–1706 (chat 110)
 E-128	3	OPEN	S	yes	yes	Withdrawals register: PROCEDURE fibre never printed, OBJECT's cell count missing; 147 of 248/319 accounted for (15j-13)	DEFERRED.md L1748–1751 (chat 110)
@@ -450,7 +450,7 @@ F-173	0	OPEN	S	yes	yes	A.12 Consequence and §22.3 (word-for-word twins) point a
 F-174	3	OPEN	S	yes	yes	A.13 Statement 'fails iff |ΔT| > 2Z²R/ν³' vs its proof's 'to leading order' (0.656–0.811 gap)	DEFERRED.md L3045–3048 (Chat 131 item 3, 18a-03)
 F-175	1	CARRIED TO PHASE 3 — prose-class	S	yes	yes	A.10 'leaves 2S and g' wording; L10051 'anticorrelated in nature' has no population; failure-regime claim single-witness	DEFERRED.md L3050–3052 (Chat 131 item 4)
 F-176	1	CARRIED TO PHASE 3 — prose-class	M	yes	yes	Appendix A standing items 13l-01 (A.8 preorder), 13t-04/05 (A.11's 86 vs 9,894/384), 12a-01 ('24 of 70'); single-witness counts 120/274/47/e	DEFERRED.md L3054–3058 (Chat 131 item 5)
-F-177	2	OPEN	S	yes	yes	A.15 Remark cites Register 230 for a ledger correction that 230 does not carry	DEFERRED.md L3074–3077 (Chat 132 item 1, 19a-01)
+F-177	2	DONE - register 1861	S	yes	yes	A.15 Remark cites Register 230 for a ledger correction that 230 does not carry	DEFERRED.md L3074–3077 (Chat 132 item 1, 19a-01)
 F-178	3	OPEN	M	yes	yes	§14.4 is a heading and a colon lead-in with no list, yet cited as the admissibility theorem at seven sites	DEFERRED.md L3079–3082 (Chat 132 item 2, 19a-02)
 F-179	1	CARRIED TO PHASE 3 — prose-class	S	yes	yes	Appendix A part 2 Ruling 45 candidates (L10069, L10155, L10111, L10162, L10094–95); L10148 'eleven'; axis-13 band single witness	DEFERRED.md L3084–3087 (Chat 132 item 3)
 F-180	3	OPEN	S	yes	yes	L10171 'the 763 cells … Chapter 24 state the union' — 763 is no cell count and Chapter 24 has no union	DEFERRED.md L3113–3115 (Chat 133 item 2, 20a-02)
@@ -466,7 +466,7 @@ F-189	3	OPEN	S	yes	yes	L10287 'the multi-target failure counts of §16.3' — §
 F-190	3	OPEN	S	yes	yes	'30,000 ambient points' (C.1/C.2, §3.3) and D.5.4 'A.5 sampled, not proved' after Register 222/248 retired sampling for the exhaustive 6,912	DEFERRED.md L3168–3170 (Chat 134 item 7, 21a-07); L3214 (23a-01)
 F-191	1	DONE — W-250 work matter	S	yes	yes	§10.2 'seventeenfold range' / '2.17-fold spread' vs Figure 10.1 caption 'hundredfold'; L10254, L10257 figures single-site	DEFERRED.md L3175–3177 (Chat 134 item 9)
 F-192	3	OPEN	S	yes	yes	Appendix C Ruling 45/46 candidates (figure.dpi f01–f18, Python 3/NumPy, L10270–L10295); '200 constructions' vs '200/200 covers'	DEFERRED.md L3179–3181 (Chat 134 item 10)
-F-193	2	OPEN	M	yes	yes	Cited Register numbers without bare headings: 344, 571, 1257, 1710 absent; 219/220/221/305/239/256 only under grouped headings	DEFERRED.md L3299–3300 (Chat 141 item 1, 28a-01); L3318–3320 (Chat 142 warn-04); L3218 (23b-03); L3232 (24b-03)
+F-193	2	DONE - register 1863	M	yes	yes	Cited Register numbers without bare headings: 344, 571, 1257, 1710 absent; 219/220/221/305/239/256 only under grouped headings	DEFERRED.md L3299–3300 (Chat 141 item 1, 28a-01); L3318–3320 (Chat 142 warn-04); L3218 (23b-03); L3232 (24b-03)
 F-194	3	OPEN	S	yes	yes	L11615 '§§12.11.1, 22.9' — §22.9 has no heading	DEFERRED.md L3302–3303 (Chat 141 item 2, 28a-02)
 F-195	3	OPEN	M	yes	yes	Seven References pointers (→§12.11.4, §14.5.9, §14.5.3, §26.6, §23.1, §32.2 ×2) do not carry the claim	DEFERRED.md L3305–3307 (Chat 141 item 3, 28a-03)
 F-196	1	CLOSED — unverifiable here (E-075; CLAUDE.md §5)	S	yes	yes	Muon paper figures L11600–02 'recomputed here and reproduces' have one site and no instrument; Register 319 carries none	DEFERRED.md L3309–3311 (Chat 141 item 4, 28a-04)
@@ -479,7 +479,7 @@ F-202	8	OPEN	M	yes	yes	References misfilings (Kimura under R.1; Dunz, Janet, Van
 F-203	-	DONE	S	yes	yes	R.7 Löwdin block scope closed by entry 1810's lead-in rewording; 1721's ten/seven stays engaged	DEFERRED.md L3334–3336 (Chat 141 item 12, 28b-06); L3456–3459 (Chat 151-B fourth, items 4, 9)
 F-204	5	OPEN	L	yes	yes	R2 source-order class sweeps of the Mathematical, Physics, Index of Indices and Spectra compendia	DEFERRED.md L3340–3342 (Chat 141 item 15); L3466 (Chat 151-R item 1)
 F-205	4	OPEN	S	yes	yes	IoI L1861 cites 1385 without its WARNING qualification; IoI L2074 row 10.4c not regenerated from G	DEFERRED.md L3317–3318 (Chat 142 item 1, warn-02/03)
-F-206	2	OPEN	S	yes	yes	Register 1779 'the electron count Z − charge alone' and SC L126 'mult' row — the count is Z − charge + 1	DEFERRED.md L3321 (Chat 142 warn-05); L3266 (26a-02)
+F-206	2	DONE - register 1858	S	yes	yes	Register 1779 'the electron count Z − charge alone' and SC L126 'mult' row — the count is Z − charge + 1	DEFERRED.md L3321 (Chat 142 warn-05); L3266 (26a-02)
 F-207	8	OPEN	S	yes	yes	Reader-facing register spans (1249–1357, 1249–1429, 1524–1677) name withdrawn or absent entries	DEFERRED.md L3322 (Chat 142 warn-06)
 F-208	5	OPEN	S	yes	yes	1396's MC citer (L3716's section) unread for the six-and-five split against the twelve donor steps	DEFERRED.md L3323 (Chat 142 item 5)
 F-209	4	OPEN	S	yes	yes	MC work matter: 'Corrected at register 1426', 'first reported as 47 / 11', `ground.py` (L3671–3716), `mathverify.py` and 'a build task' (L31	DEFERRED.md L3326 (Chat 142 item 8); L3348 (Chat 144 item 5)
@@ -501,7 +501,7 @@ F-224	3	OPEN	S	yes	yes	Chapter 28: §28.7 'Six … two printed here' counts noth
 F-225	5	OPEN	S	yes	yes	Chapter 28's descriptions of entries 150–164 single-witness (Register says SUPERSEDED; see 313); §28.7.5 'Thirty-one of the forty' uncensusa	DEFERRED.md L3394–3395 (Chat 148 items 5–6, 25b-10)
 F-226	3	OPEN	S	yes	no	L962 '§28.7 states a count in its title — Eight, Twelve, Fifteen, Forty' names no 'Fifteen more' heading; L7614 repeats L7599 almost verbati	DEFERRED.md L3396 (Chat 148 item 7)
 F-227	3	OPEN	S	yes	no	F.3's rule printed as headline (L11295) and elaboration (L11296–98) with different extents; E.1.5 L11024 / Register 1729 cite it for item R,	DEFERRED.md L3404 (Chat 150 item 2, 26b-11)
-F-228	2	OPEN	S	yes	no	Register defects: L3113 '§784' (Register number with § sigil); L6299 'Thm 11.1' printed nowhere; L6507 (entry 1763) names run489.py, ruled_b	DEFERRED.md L3405–3407 (Chat 150 items 3–5, 26b-08/09/10)
+F-228	2	DONE - register 1861 and the C2 census rows	S	yes	no	Register defects: L3113 '§784' (Register number with § sigil); L6299 'Thm 11.1' printed nowhere; L6507 (entry 1763) names run489.py, ruled_b	DEFERRED.md L3405–3407 (Chat 150 items 3–5, 26b-08/09/10)
 F-229	3	OPEN	S	yes	no	L11298 'The work applies this without exception' — register 333 is the nearest exception (criterion weakened, not declared dead)	DEFERRED.md L3408 (Chat 150 item 6)
 F-230	3	OPEN	S	yes	no	§32.1.3 L8961 and §32.1.4.1 L9023 cite F.4.1 for the withdrawal/method ratios F.4.1 withdrew as content	DEFERRED.md L3415 (Chat 151-B item 1, 26b-02)
 F-231	3	OPEN	S	yes	no	§32.1.4 L8974 row 'Appendix F, the numbers 3 33 thirty-three' and L9023's 'counts of Appendices D, E and F' were computed on the withdrawn a	DEFERRED.md L3416 (Chat 151-B item 2, 26b-03); L3520 (Chat 153-R item 1)
@@ -517,7 +517,7 @@ F-240	3	OPEN	S	yes	no	Index L11419 'The previous index (57 terms, 139 entries, 4
 F-241	3	OPEN	S	yes	no	L11417 'a down-set condition in §16.4 form' — §16.4 carries no down-set; the condition is §2.23 L1162; '§16.4 form' idiom at six other sites	DEFERRED.md L3292 (Chat 140 item 10, 27b-04)
 F-242	3	OPEN	S	yes	no	F.3 L11292–93 'Chapters 6, 12 and 24 state their central measurements to this standard' — Chapter 24 carries none; F.3 is cited from §22	DEFERRED.md L3265 (Chat 139 item 1, 26a-01)
 F-243	3	OPEN	S	yes	no	E.1.2 L10955, E.3 L11119 'nine stable cells, named at F.3.1' — rebuilt F.3.1 names no cell; cells live in Register 371/372/388/392	DEFERRED.md L3267 (Chat 139 item 3, 26b-01); L3232 (24b-05); L3252 (Chat 138 item 10)
-F-244	2	OPEN	S	yes	no	Register 1786 'There was never an F.3.1 or an F.3.2' — PP carries both; history sentence false	DEFERRED.md L3272 (Chat 139 item 8, 26b-06)
+F-244	2	DONE - register 1859	S	yes	no	Register 1786 'There was never an F.3.1 or an F.3.2' — PP carries both; history sentence false	DEFERRED.md L3272 (Chat 139 item 8, 26b-06)
 F-245	3	OPEN	M	yes	no	F.4.1 / F.4.2 entire are build narration (Ruling 45: L11225–27, L11291, L11332–34, L11340–41); 'the ruling that separates the record of the 	DEFERRED.md L3273 (Chat 139 item 9, 26b-07)
 F-246	3	OPEN	S	yes	no	E.3 lists A B C D F G H I P; E.1.2 is open at those plus R — R has no E.3 entry against L11055 'the two must list the same items'	DEFERRED.md L3245 (Chat 138 item 1, 25a-01)
 F-247	3	OPEN	S	yes	no	E.4.1 L11133 '§32.2 asserted |Q| = 7' — §32.2 carries no Q, seven, assert	DEFERRED.md L3246 (Chat 138 item 2, 25a-02)
@@ -683,10 +683,10 @@ I-066	3	OPEN	M	yes	no	Appendix F: 'Chapters 6, 12 and 24' (22); §32.1.3/§32.1.
 I-067	3	OPEN	S	yes	no	F.3 prints two forms of one rule (RULE-H headline, RULE-E elaboration) with different extents; the one named instance (E.1.5/1729, item R) s	READ-26b.md 26b-11 / READ-26b.md C (register 333)
 I-068	2	OPEN	M	yes	no	The withdrawn Appendix F's data: 'method ratio' was never established by any entry; 19 of 38 substantive figures (incl. 24,162 : 54,241 = 0.	READ-26c.md 26c-01,26c-03
 I-069	-	DONE	M	yes	no	§32.1.4's three totals (55 / 48 / 47): only 55 reproduces; §32.1.4's 'Appendix F, the numbers 3 33' row counts the withdrawn appendix; regis	READ-26c.md 26c-02 / READ-32a.md 32a-02,32a-04 / READ-ch26a.md 26b-03 / READ-ch16o.md B7
-I-070	2	OPEN	S	yes	no	Register entries cite '§784' (a register number with a § sigil) and Theorems 11.1, 11.2, 12.1 that are printed in no volume	READ-26b.md 26b-08,26b-09 / READ-reg12.md reg12-02
+I-070	2	DONE - register 1861 and the C2 census rows	S	yes	no	Register entries cite '§784' (a register number with a § sigil) and Theorems 11.1, 11.2, 12.1 that are printed in no volume	READ-26b.md 26b-08,26b-09 / READ-reg12.md reg12-02
 I-071	4	OPEN	L	yes	no	Object-handle and build-handle leaks in reader-facing volumes: Register L6507 (BUILD-10 + four file names), ten 3B.* sites at L6403–L6467, t	READ-26b.md 26b-10 / READ-reg12.md reg12-03 / READ-bib.md bib-01 / READ-ch23a.md census 1536–1545 / READ-28b2.md census 
-I-072	2	OPEN	S	yes	no	Register 1779's formula 'a function of Z − charge alone' is off by one (Nₑ = Z − charge + 1); Spectra Compendium L126 restates it	READ-ch26a.md 26a-02 / READ-warn.md warn-05
-I-073	2	OPEN	S	no	no	Register 1786 'There was never an F.3.1 or an F.3.2' is false as history (PP carried both)	READ-ch26a.md 26b-06
+I-072	2	DONE - register 1858	S	yes	no	Register 1779's formula 'a function of Z − charge alone' is off by one (Nₑ = Z − charge + 1); Spectra Compendium L126 restates it	READ-ch26a.md 26a-02 / READ-warn.md warn-05
+I-073	2	DONE - register 1859	S	no	no	Register 1786 'There was never an F.3.1 or an F.3.2' is false as history (PP carried both)	READ-ch26a.md 26b-06
 I-074	4	OPEN	S	yes	no	Appendix G and the Index: IoI row §1.7 truncated at `\|X\|`; 'Chapter 12' in rows 8.2/8.4 (§14.6.6); 'thirty-seven objects' reproduces from 	READ-ch27a.md 27a-01,27a-03,27a-04,27a-05,27a-06 / READ-warn.md warn-03
 I-075	3	OPEN	M	yes	no	References unit: §22.9 has no heading; seven pointers carry none of the claim (§12.11.4, §14.5.9, §14.5.3 heading-only, §26.6, §23.1, §32.2 	READ-ch28a.md 28a-02,28a-03,28a-05,28a-07,28b-04
 I-076	-	DONE	S	yes	no	'Fifty-nine of them are the works listed above' measures 52 by author-and-year on the 162 rows (1736 matched at 172); Register 1736's 'never	READ-ch28a.md 28a-06 / READ-28a2.md 28a-06,28a-09 / READ-succ-153R.md
@@ -699,7 +699,7 @@ I-082	0	OPEN	M	yes	no	Register numbers cited with no heading: 344 (L11609), 571 
 I-083	0	OPEN	M	yes	no	The Register cites entries it withdrew: front matter → 1725/1732/1744/1756 (the volume's own machinery), body → 1000 (entry) and 1002 (R 100	READ-reg1.md reg1-05 / READ-reg8.md reg8-01,reg8-02,reg8-03 / READ-reg12.md reg12-01
 I-084	3	OPEN	S	yes	no	Register front matter says 'the ten grouped headings' where there are seven	READ-reg1.md reg1-03 / READ-reg1g.md (reg1-E)
 I-085	3	OPEN	L	yes	no	The Register's emphasis class: 275 entries at 429 sites where split `**` leaves emphasis unrendered; 11 entries with a literal asterisk on t	READ-reg3.md reg3-01 / READ-reg7.md reg7-01,reg7-02 / READ-regsweep.md / READ-reg13.md reg13-01 / READ-reg8.md reg8-03
-I-086	2	OPEN	S	yes	no	Genesis entries 43 and 50 state unbounded-lattice capacities (2n²; Madelung pairing) as counts of the bounded genesis lattice; no entry corr	READ-reg2.md reg2-01
+I-086	2	DONE - register 1864	S	yes	no	Genesis entries 43 and 50 state unbounded-lattice capacities (2n²; Madelung pairing) as counts of the bounded genesis lattice; no entry corr	READ-reg2.md reg2-01
 I-087	6	OPEN	M	no	no	Instrument successors owed or held: r2-26b's successor is a reading (its 69-entry pool moved under 1332's WARNING and entries 1795/1803); r2	READ-reg104.md / READ-succ2-153R.md
 I-088	6	OPEN	L	no	no	Docket 38: instruments the volumes' figures rest on that are not members (numbers-index.py, densities.py, indices.py, appendix_audit.py, mat	READ-32a.md 32a-03 / READ-bib.md / READ-reg13.md / READ-26c.md C / READ-24a.md A-03 / READ-23a.md C / READ-ch3.md 3-30 /
 I-089	1	CLOSED — unverifiable here (E-075; CLAUDE.md §5)	L	yes	no	Löwdin deliveries pending: REQUEST-LOWDIN items 1, 2, 4–10 (LOWDIN-HANDOFF-103.tgz), 11 (pack104 never sealed, FOUNDATIONAL), 12 (paper copy	READ-intake1.md / READ-scf.md C / READ-ch17a.md C5 / READ-ch34re.md

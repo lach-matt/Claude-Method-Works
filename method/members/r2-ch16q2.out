@@ -40,14 +40,14 @@ Appendix B span: (10199, 10264) '## Appendix B — Data and provenance'
   numeral 2,269 sites in Appendix B span: [10231]
   the channel table ARBITER (spectra member, section II L293-L934), totals line L900:
     **596 channel rows across 28 elements · 2,269 interior cells parsed.**
-  numeral   153 sites, all six volumes: {'main': [641, 1485, 2526, 3411, 8194, 9170, 10203, 10239, 10311, 11739], 'reg': [689, 2363, 4695, 6716, 6728, 6732, 6736, 6740, 6744, 6748, 6752, 6756, 6760, 6764, 6768, 6772, 6776, 6780, 6784], 'ioi': [533], 'sc': [995]}
-  numeral   596 sites, all six volumes: {'main': [4013, 10229], 'reg': [2229, 2247, 3983, 3987, 4211, 4295, 6221, 6584, 6780], 'pc': [30], 'ioi': [278, 316, 976], 'sc': [900, 994, 995]}
+  numeral   153 sites, all six volumes: {'main': [641, 1485, 2526, 3411, 8194, 9170, 10203, 10239, 10311, 11739], 'reg': [690, 2364, 4696, 6717, 6729, 6733, 6737, 6741, 6745, 6749, 6753, 6757, 6761, 6765, 6769, 6773, 6777, 6781, 6785], 'ioi': [533], 'sc': [995]}
+  numeral   596 sites, all six volumes: {'main': [4013, 10229], 'reg': [2230, 2248, 3984, 3988, 4212, 4296, 6222, 6585, 6781], 'pc': [30], 'ioi': [278, 316, 976], 'sc': [900, 994, 995]}
 
 ================================================================================================
 4.  32.5.2 -- "Every bracket in this book is recomputable from this book. All 1,061."
 ================================================================================================
   1,061 in main: [60, 6522, 6688, 6963, 9193, 9360, 10300, 10311]
-  1,061 in reg: [3945, 6493]
+  1,061 in reg: [3946, 6494]
   25.5 body_range (6967, 6996)  section_span (6967, 6996) -> COINCIDE (no subsections)
   "bracket" word-form sites in main: 182
 

@@ -20,7 +20,7 @@
 2  PRINCIPLE 8 -- READ THE CITED CRITERION IN FULL AT ITS TARGET, ALL SIX VOLUMES
 ================================================================================================
   sites of "Principle N" (any N), all volumes: {'main': [7952, 9322]}
-  sites of an enumerated principles list ("Principle 1"/"Principles"): {'main': [114, 233, 239, 241, 374, 558, 716, 3520, 5099], 'reg': [1935, 1939], 'ioi': [1924]}
+  sites of an enumerated principles list ("Principle 1"/"Principles"): {'main': [114, 233, 239, 241, 374, 558, 716, 3520, 5099], 'reg': [1936, 1940], 'ioi': [1924]}
    main L7952 **And the second is the weaker word doing the honest work.** It carries its own qualification: a precedent found tomorrow does not make the sentence false, only superseded — **which is exact
    main L9322 **This is Principle 8 in its ordinary form: any true answer, good or bad, is a bound.** A verification that misses its target does not merely fail; it locates the target by missing it.
 
@@ -88,7 +88,7 @@
 ================================================================================================
 7  DEFECT-CENSUS ROWS IN RANGE -- classes main AND all, keyed on the column named member
 ================================================================================================
-  census rows 1621; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
+  census rows 1625; member values ['all', 'ioi', 'main', 'mc', 'pc', 'reg', 'sc']
   rows in L9313-L9398: 0
 
 ================================================================================================
@@ -110,7 +110,7 @@
   22 of 60             {'main': [9332]}
   22 / 60 loose        {'main': [9332]}
   d-dimensional        {'main': [3848, 4999, 8541, 9999], 'mc': [646]}
-  one-dimensional      {'main': [4231, 5984], 'reg': [183, 291, 5499, 5507, 5607, 5707, 5719], 'ioi': [2032]}
+  one-dimensional      {'main': [4231, 5984], 'reg': [184, 292, 5500, 5508, 5608, 5708, 5720], 'ioi': [2032]}
   closure criterion    {'main': [9332]}
 
   the two that DO trace, read at their sources:
@@ -156,7 +156,7 @@
 13  4ν/3 SITE COUNT RE-MEASURED, EMPHASIS-NORMALISED, ALL SIX VOLUMES (docket 11 carries 24)
 ================================================================================================
    main   22 [1979, 4354, 4371, 6188, 6237, 6242, 6386, 6502, 7313, 7516, 7954, 7958, 8090, 8582]
-   reg     2 [6824, 6848]
+   reg     2 [6825, 6849]
    mc      1 [1898]
    pc      0 []
    ioi     0 []
@@ -175,7 +175,7 @@
    main L716 ### 2.15.3 Why it belongs here rather than among the principles
    main L3520 withdrawals, twenty-two prime audits, twenty principles and twenty-four protocols — and the demonstration
    main L5099 §1 requires before anything joins the formalised principles.
-   reg  L1935 **THREE PRINCIPLE NUMBERS HAVE NEVER EXISTED AND THE COUNT SAID TWENTY-THREE.** *P10, P12 and P18 appear nowhere — not
+   reg  L1936 **THREE PRINCIPLE NUMBERS HAVE NEVER EXISTED AND THE COUNT SAID TWENTY-THREE.** *P10, P12 and P18 appear nowhere — not
    ioi  L1924 **Role for Λ.** It supplies, from first principles, the one thing Chapter 6
    any numbered principle other than 8, all six volumes: NONE
 
@@ -192,14 +192,14 @@
 ================================================================================================
 15  RESOLVING "Principle 8" TO THE BOOK'S OWN P-NUMBERING (P1-P23, less P10/P12/P18)
 ================================================================================================
-   sites of the token P8: {'main': [662, 663, 666, 832, 1489], 'reg': [1935, 6281]}
+   sites of the token P8: {'main': [662, 663, 666, 832, 1489], 'reg': [1936, 6282]}
     main L662 ### 2.15 Apply P8 to every failure
     main L663 Every failed attempt is a true answer, and by P8 a true answer is a bound. Record what
     main L666 P8 says any true answer, good or bad, is a bound. A failed attempt is a true answer about
     main L832 It is P8 with a count attached. Every failure is a bound; three bounds on one object are a
     main L1489 §2.15 apply P8 to every failure a failure discarded rather than banked ten bounds on §30.3
-    reg L1935 **THREE PRINCIPLE NUMBERS HAVE NEVER EXISTED AND THE COUNT SAID TWENTY-THREE.** *P10, P12 and P18 appear nowhere — not in this book, not in the compan
-    reg L6281 **T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge named three candidates —
+    reg L1936 **THREE PRINCIPLE NUMBERS HAVE NEVER EXISTED AND THE COUNT SAID TWENTY-THREE.** *P10, P12 and P18 appear nowhere — not in this book, not in the compan
+    reg L6282 **T9 DIAGNOSED: THE RESIDUE WAS THE GENERATOR READING ONE LANGUAGE, AND THE THREE NAMED CAUSES ARE ALL REFUSED.** *The bridge named three candidates —
 
    the principles block read at its target (main L233-L245):
     233 Serving PART III — THE LAW. The twenty principles — numbered P1–P23 with P10, P12 and P18

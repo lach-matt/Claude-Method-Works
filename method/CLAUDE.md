@@ -70,10 +70,10 @@ no longer on the read path.
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD119 main** (2,091,944 B ·
-  `658e149bedad9fff98ee2596d2a8cc30` · 18,780 lines · 2 members) and **BUILD252 compendia** (16,157,996 B ·
-  `ff071e03a5ea1bcba70e672a3d182d84` · 139,221 lines · 736 members). **738 members in all.** **The Register runs
-  1 to 1857, 1,699 seated** (1,692 numbered + 7 grouped). **W-257 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD120 main** (2,099,282 B ·
+  `addfb824ea550ca7753766641c107757` · 18,810 lines · 2 members) and **BUILD254 compendia** (16,168,120 B ·
+  `ea9eb1eb4082692de9a38e02bb16ce2b` · 139,257 lines · 736 members). **738 members in all.** **The Register runs
+  1 to 1864, 1,706 seated** (1,699 numbered + 7 grouped). **W-259 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -82,7 +82,7 @@ no longer on the read path.
   asserting its predecessor's md5** — which is what the reverse guard is for.
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 7 September: `python3 method/verify.py`
   VERIFY OK (738 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
-  `gate.py manifest --main ../The_Method_1_6_BUILD119_main_and_register.md` **OK**, 737 listed / 739 extracted;
+  `gate.py manifest --main ../The_Method_1_6_BUILD120_main_and_register.md` **OK**, 737 listed / 739 extracted;
   `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,621 rows, 3 carried retired, 1,618
   regenerated exactly, 0 NEW, 0 GONE, md5 `31c462f3d47f9e02e289598c28604ae1` equal to the seated member);
   `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL** at BUILD118/BUILD250 (87 OK counting the

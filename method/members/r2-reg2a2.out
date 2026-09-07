@@ -1,10 +1,10 @@
 
 == 0  THE UNIT, BOUNDED BY ITS OWN SCAN
-   genesis block first line                                 81                             OK
-   entry 95 opens the next block                            457                            OK
+   genesis block first line                                 82                             OK
+   entry 95 opens the next block                            458                            OK
    entries in the block                                     94                             OK
    numbered 1..94 with no gap                               True                           OK
-   unit = L81-L456, 376 lines, 47844 B
+   unit = L82-L457, 376 lines, 47844 B
 
 == 1  THE GENESIS LATTICE, BUILT FROM THE ENTRIES' OWN CONSTRAINTS
    the box (7 x 5 x 18)                                     630                            as printed
