@@ -8,53 +8,53 @@ THE TWENTY-FIVE AUDITS, RUN OVER THIS PAPER
 
    no  audit                    reads     against        costs       verdict
     1  LATTICE                  object    a computation  wrong       PASS  ·index
-       126 cited DERIVED rows recomputed from their instruments
+       141 cited DERIVED rows recomputed from their instruments
     2  EQUATIONS                source    a computation  wrong       PASS  ·index
        5 printed identities re-derived
     3  CONSISTENCY              source    other places   unreadable  PASS
-       165 distinct quantities cited, each at one value
+       175 distinct quantities cited, each at one value
     4  REDUNDANCY               source    other places   unreadable  PASS
-       8 summary/table overlaps, 0 withdrawn rows cited and each carries its status
+       14 summary/table overlaps, 0 withdrawn rows cited and each carries its status
     5  ARTEFACT                 artefact  itself         unusable    PASS
-       18 pages, 136,436 bytes, text layer reads back
+       19 pages, 140,480 bytes, text layer reads back
     6  COHERENCE                source    other places   unusable    PASS
-       21 cross-references, 38 numbered sections
+       23 cross-references, 39 numbered sections
     7  ATTRIBUTION              outside   other places   dishonest   PASS
        30 measured or sourced rows cited, 30 with provenance
     8  CELL                     object    itself         wrong       PASS  ·index
-       173 distinct claim ids cited, all present in the ledger
+       188 distinct claim ids cited, all present in the ledger
     9  DISTINCTNESS             object    other places   wrong       PASS  ·index
-       171 distinct (value, unit) pairs over 173 cited ids
+       186 distinct (value, unit) pairs over 188 cited ids
    10  SCOPE                    source    itself         wrong       PASS  ·index
        6 cited rows carry a status that must be printed, and each is
    11  ANTECEDENT               source    itself         unreadable  PASS
-       17 figures in the abstract, 17 of them carried in the body
+       21 figures in the abstract, 21 of them carried in the body
    12  MARKUP                   source    itself         unusable    PASS
-       12 tables rectangular and ruled, 147 paragraphs with closed emphasis
+       13 tables rectangular and ruled, 157 paragraphs with closed emphasis
    13  AGREEMENT                source    other places   wrong       PASS  ·index
-       127 of 173 cited rows carry a hook, and each agrees with it
+       142 of 188 cited rows carry a hook, and each agrees with it
    14  ARITHMETIC               source    a computation  unreadable  PASS  ·index
-       8 table relations recomputed
+       15 table relations recomputed
    15  ENUMERATION              source    a computation  unusable    PASS
        2 enumerations checked against what they count
    16  FIDELITY                 artefact  other places   unusable    PASS
        60 distinctive values probed in both artefacts, all present
    17  MEASURE                  artefact  a computation  unusable    PASS
-       18 pages, 8,281 words, 460 words per page
+       19 pages, 9,030 words, 475 words per page
    18  REPRODUCTION             outside   a computation  dishonest   PASS  ·index
        5 headline figures reproduced from the instruments
    19  SEQUENCE                 source    a computation  unusable    PASS
-       38 numbered headings, 15 at top level, in order
+       39 numbered headings, 15 at top level, in order
    20  PROJECTION               artefact  other places   unusable    PASS  ·index
-       147 paragraphs scanned for a claim of predictive power
+       157 paragraphs scanned for a claim of predictive power
    21  INPUT                    source    itself         unusable    PASS  ·index
-       136 cited DERIVED rows, each naming its inputs
+       151 cited DERIVED rows, each naming its inputs
    22  CENSUS                   source    itself         wrong       PASS
-       16 spelled self-claims counted against what they count
+       17 spelled self-claims counted against what they count
    23  PUBLISHED VALUES         outside   a computation  dishonest   PASS
        1 external reproductions, 30 published rows cited
    24  UNBACKED CLAIMS          source    a computation  dishonest   PASS
-       173 quantities, every one a citation; 0 numerals typed into the source prose
+       188 quantities, every one a citation; 0 numerals typed into the source prose
    25  UNGROUNDED COORDINATES   source    other places   wrong       DEBT
        14 technical terms traced to a first use; 0 without a definition near it
     —  TERM MATCH (external)    external  other places   dishonest   DEBT

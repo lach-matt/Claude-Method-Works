@@ -97,7 +97,13 @@ ceiling of 0.5069, and through §11's loss budget the delivered acceptance is **
 which the heat form is **0.437**. **The self-sustaining criterion is _not_ met without leaving the
 device.** At the delivered figure every heat form, every work form and bred fuel at demonstrated
 cycles fall below unity; **what survives is bred fuel through an optimised production target, at
-1.480**, which is the route the specification builds for. **§5.33 then applies that restatement to
+1.480**, which is the route the specification builds for. **`machine.py --alteration` then asks the
+question §5.24 had put to the bred-fuel route alone**: the optimised production target moves
+`E_binder` and so multiplies *every* balance by **2.373**, and through it the **heat** form on the
+bound-case service life reaches **1.036** delivered and **1.231** at the wider bore. **A
+device-internal route therefore clears unity** — conditionally on Stage C, on a service-life model
+the companion says over-predicts, and on the reading of "inside the device" that counts the blanket;
+counting the neutron at its bare heat the same alteration reaches only **0.3344**. **§5.33 then applies that restatement to
 every figure rather than to the one table §5.31 caught**: `machine.py --census` grades **57 sites**
 across all three live papers — 10 CONDITIONAL (the site states its own assumption and stands), **38
 RESTATED**, 3 REQUIREMENT, 4 NOT-LINEAR, **1 WITHDRAWN** and 1 SELF-WITHDRAWN, that last being §5.21's *"comfortably
@@ -276,7 +282,7 @@ corrected, and `docfigures.py` now reads the prose rather than trusting a litera
 directives as three index axes — every substantive result in the three papers graded on each, and the
 cell where all three coincide computed rather than claimed; the X axis carries a *sign*, so a result
 that forbids self-sustaining operation is never counted as progress toward it, and `--selftest`
-matches all 75 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
+matches all 76 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
 **`tools/render_paper.py`** (the publication renderer, and the repair of the
 §9.9 weakness `verify_paper.py` records: **the paper's source carries no numerals at all** — it
 carries `[[C044]]` citations, which this program resolves against `CLAIMS.tsv` at render time, so a

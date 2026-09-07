@@ -15,7 +15,9 @@ That reaction is witnessed. What has never been witnessed is a configuration of 
 
 An **eighth condition** is added to the seven: a binder is worth making only if `E_binder < Q_fus · f_work / ω_s`. Against a sourced production-and-capture cost of 37.0 GeV per captured μ⁻ the figure of merit is 0.203 as heat and 0.102 as work. Integrating the measured double-differential pion production cross sections puts **production alone** at 11.13 GeV per pion, so **collection efficiency cannot satisfy condition 8 on its own**: a perfect collector still leaves the heat form short. Three results move the balance and one closes it. Sticking is **binder-mass independent**, so condition 8 is a specification rather than a search. The convertible fraction is 0.795 rather than 0.501 once the alpha is counted at the operating point the design already requires. And priced as **bred fuel** rather than as heat, the fusion neutron is worth 146.06 MeV per fusion against 26.06 MeV.
 
-The paper then does to its own figures what it does to the literature's. Every balance it states is stated *at* some collection efficiency, and an acceptance is not a delivered efficiency. Computing every loss between a produced pion and a stopped binder gives a budget of 0.7127, and the solenoid's own stopping ceiling is 0.5069; the delivered acceptance is therefore 31.66 percent and not the 90 percent [DESIGN] the balances were read at. **At the delivered figure every heat form, every work form, and bred fuel at the demonstrated cycle count fall below unity.** What survives is bred fuel through an optimised production target, at 1.480. **The self-sustaining criterion is not met inside the device**, and this paper says so where earlier drafts of it did not.
+The paper then does to its own figures what it does to the literature's. Every balance it states is stated *at* some collection efficiency, and an acceptance is not a delivered efficiency. Computing every loss between a produced pion and a stopped binder gives a budget of 0.7127, and the solenoid's own stopping ceiling is 0.5069; the delivered acceptance is therefore 31.66 percent and not the 90 percent [DESIGN] the balances were read at. **At the delivered figure, and with the machine as built, nothing clears unity** — every heat form, every work form, and bred fuel at the demonstrated cycle count fall below it. **This paper says so where earlier drafts of it did not.**
+
+**The machine is not required to be left as built, and §5.4 prices the alterations against every balance rather than against one.** The optimised production target this paper specifies is worth 2.373 on any of them. It takes bred fuel at the demonstrated cycle count to 1.480 — the route §10 measures first — and it takes the **heat** form, on the bound-case service life, to 1.036 and to 1.231 at the wider bore. **A device-internal route therefore clears unity, conditionally**: on Stage C confirming that target, on a service-life model §11 says over-predicts, and on the reading of "inside the device" that counts the blanket. Counting the neutron at its bare heat instead, the same alteration reaches only 0.3344, and nothing here clears.
 
 One configuration is net-positive on witnessed numbers alone, and it is not the standalone one. Pions are a byproduct of spallation: a facility already running a proton driver for neutrons or isotopes is making binders and discarding them, so the marginal beam energy per binder is **zero** and any positive heat is gain. At the reachable capture of 0.2438 that is 85.6 kW of fusion heat on a one-megawatt driver. **It is the one result here that a loss factor rescales without deciding**, because it was never a ratio against unity.
 
@@ -167,9 +169,38 @@ The balance is **linear** in collection, so the restatement is exact rather than
 | bred fuel, demonstrated cycles | 1.772 | 0.623 | 0.741 |
 | bred fuel, bound-case service life | 6.96 | **2.449** | 2.909 |
 
-> **The self-sustaining criterion is not met inside the device.** At the delivered acceptance every heat form, every work form, and bred fuel at the demonstrated cycle count fall below unity. An earlier reading of this work said otherwise, and that reading is withdrawn here.
+> **At the delivered acceptance, and with the machine left as it is, nothing clears unity.** Every heat form, every work form and bred fuel at the demonstrated cycle count fall below it. An earlier reading of this work said otherwise, and that reading is withdrawn here.
 
-**What survives is one route.** Bred fuel through an **optimised production target** drops the requirement from 50.8 percent to 21.4 percent, against 31.66 percent delivered — a balance of 1.480. That route is met by every configuration computed, and §10 runs its measurement first.
+**But the machine is not required to be left as it is**, and §5.4 asks what the alterations this paper specifies do to the same table. That question was put to the bred-fuel route and to nothing else, which was an omission rather than a finding.
+
+
+### 5.4 What the specified alterations do to every balance
+
+§5.3 states the balances for the machine as built. This paper specifies two alterations to it — an **optimised production target**, and a **wider bore** — and prices the first of them against the bred-fuel route only. **It multiplies every balance by the same factor**, because a balance is `N · V · η / E_binder` and the target moves `E_binder` alone: from 11.13 GeV to 4.69 GeV, worth 2.373.
+
+> **The factor checks against the requirement it moves.** §4.2 puts bred fuel at demonstrated cycles at 50.8 percent collection; through the optimised target that requirement is 21.4 percent, and 50.8 ÷ 2.373 returns it. The same factor applied to that route's delivered balance of 0.623 gives 1.480, which is §5.3's own figure reached from the other side.
+
+| balance | delivered | + optimised target | + target and wider bore |
+|---|
+| heat, demonstrated cycles | 0.111 | 0.264 | 0.313 |
+| **heat, bound-case service life** | 0.437 | **1.036** | **1.231** |
+| heat, φ = 3 | 0.356 | 0.844 | **1.003** |
+| work, demonstrated cycles | 0.083 | 0.198 | 0.235 |
+| work, bound-case service life | 0.328 | 0.777 | 0.924 |
+| bred fuel, demonstrated cycles | 0.623 | **1.480** | **1.758** |
+| bred fuel, bound-case service life | 2.449 | **5.811** | — |
+
+> **The answer is conditional, and it is not no.** With the optimised production target in, the heat form on the bound-case service life reaches **1.036** at today's aperture and **1.231** at the wider bore, and the φ = 3 case reaches **1.003** with both. **Those clear unity, and they are not bred fuel** — nothing leaves the device to earn them.
+
+**Three conditions travel with that, and every one of them is this paper's own.**
+
+**First, it is the bound-case service life and not the demonstrated one.** At 150 cycles per binder, which is what has actually been measured, the optimised target takes heat only to 0.264 and work to 0.198. **Nothing device-internal clears at a witnessed cycle count under any alteration specified here.**
+
+**Second, the bound case rests on a service-life model this work says over-predicts.** §11 records that the model returns more cycles than were measured at the one point where a comparison is possible. Every figure in the two bound-case rows inherits that; the bred-fuel row at demonstrated cycles does not.
+
+**Third, the factor itself is unmeasured.** 4.69 GeV is a published optimisation §11 declines to adopt and §10 Stage C measures. **The whole of this section is conditional on that stage**, which is the second reason it runs early.
+
+> **And "inside the device" has two readings that do not agree.** The heat forms above count the blanket's multiplication and its fissile heat, which is heat recovered on site. Counting the neutron at its **bare** heat instead — no blanket, no fissile credit — the delivered figure is 0.1409, and the optimised target takes it only to 0.3344. **On the narrow reading the criterion is not met by anything in this paper.** On the wider one it is met by a specified machine, conditionally, and §10 is what decides between them.
 
 
 ---
@@ -463,7 +494,8 @@ Four staged measurements on apparatus that exists. **The acceptance measurement 
 1. **An eighth condition decides whether it is worth running**, and every term in it is measured.
 1. **No configuration of it is self-sustaining inside the device**, at the collection efficiency the machine actually delivers. That is stated here against this paper's own earlier readings.
 1. **One configuration is net-positive on witnessed numbers alone** — as a co-product of a beam already running, where the marginal energy per binder is zero — and it returns 85.6 kW on a one-megawatt driver.
-1. **One route clears unity for a device built for the purpose**, and it is bred fuel through an optimised production target, at 1.480. Whether that target's gain is real is Stage C.
+1. **One route clears unity at a witnessed cycle count for a device built for the purpose**, and it is bred fuel through an optimised production target, at 1.480. Whether that target's gain is real is Stage C.
+1. **A device-internal route clears unity too, and only conditionally.** With the same optimised target, the heat form on the bound-case service life reaches 1.036, and 1.231 at the wider bore. It is conditional on Stage C and on a service-life model §11 says over-predicts, and it is met on the reading of "inside the device" that counts the blanket. On the reading that counts the neutron at its bare heat, nothing here clears.
 1. **The materials are specified and the machine is designed**, to a bill of materials and a build package rather than to a sketch.
 1. **The procedure that would witness the unwitnessed configuration is stated**, with its predictions committed in advance and a rule that a disagreement is a refusal rather than an average.
 > **The reaction is proved from what has been witnessed. The net-positive configuration is specified and unwitnessed. The instructions for witnessing it are §8 and §10.** That is the whole of the claim, and no part of it is larger than the ledger behind it.

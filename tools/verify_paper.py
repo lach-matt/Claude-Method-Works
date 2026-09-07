@@ -2739,6 +2739,64 @@ def p90_bredbound():
     return _at90(6)
 
 
+# ---- the specified alteration, applied to every balance and not only one ----
+def opt_factor():
+    return _mach.optimised_target_factor()
+
+
+def _ob(i, br=1.50):
+    return _mach.balance_with_optimised_target(i, br)
+
+
+def opt_heat150():
+    return _ob(0)
+
+
+def opt_heat150_w():
+    return _ob(0, 2.60)
+
+
+def opt_heatbound():
+    return _ob(1)
+
+
+def opt_heatbound_w():
+    return _ob(1, 2.60)
+
+
+def opt_heatphi3():
+    return _ob(2)
+
+
+def opt_heatphi3_w():
+    return _ob(2, 2.60)
+
+
+def opt_work150():
+    return _ob(3)
+
+
+def opt_work150_w():
+    return _ob(3, 2.60)
+
+
+def opt_workbound():
+    return _ob(4)
+
+
+def opt_workbound_w():
+    return _ob(4, 2.60)
+
+
+def opt_bredbound():
+    return _ob(6)
+
+
+def opt_internal_heat():
+    """The strictly device-internal heat form, with the optimised target."""
+    return cen_523_heat() * opt_factor()
+
+
 def budget_transport_term():
     """The budget's fifth term: unity BY DESIGN, conditional on the bore schedule."""
     for name, fn, _note in _mach.BUDGET_TERMS:

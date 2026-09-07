@@ -1106,6 +1106,66 @@ def balance_at_delivered(index, br=1.50):
     return BALANCES_AT_90[index][2] * delivered_eta(br) / 0.90
 
 
+# ---- what the SPECIFIED alteration does to every balance -------------------
+# sec.5.24 prices the optimised production target against the bred-fuel route
+# and against nothing else. The same alteration multiplies EVERY balance by the
+# same factor, because a balance is N x V x eta / E_binder and the target moves
+# E_binder alone. Asking what it does to the HEAT forms is a question this work
+# did not put to itself until it was asked.
+E_PION_MEASURED_GEV = 11.13        # [1] sec.5.1, integrated from the cross sections
+E_PION_OPTIMISED_GEV = 4.69        # a published optimisation, [1] sec.5.26
+
+
+def optimised_target_factor():
+    """The factor the optimised production target is worth, on any balance."""
+    return E_PION_MEASURED_GEV / E_PION_OPTIMISED_GEV
+
+
+def balance_with_optimised_target(index, br=1.50):
+    return balance_at_delivered(index, br) * optimised_target_factor()
+
+
+def report_alteration():
+    """Every balance under the alterations this work specifies, not just one."""
+    f = optimised_target_factor()
+    print("  WHAT THE SPECIFIED ALTERATIONS DO TO EVERY BALANCE")
+    print("    sec.5.24 prices the optimised production target against the")
+    print("    BRED-FUEL route and against nothing else. It multiplies every")
+    print("    balance by the same factor, because it moves E_binder alone.")
+    print()
+    print(f"    the factor: E per pion {E_PION_MEASURED_GEV} -> "
+          f"{E_PION_OPTIMISED_GEV} GeV, worth {f:.4f}")
+    print(f"    checked against the requirement it moves: 50.8 -> "
+          f"{50.8 / f:.2f} percent, which is sec.5.24's 21.4")
+    print()
+    print(f"      {'balance':<34}{'delivered':>10}{'+ target':>11}"
+          f"{'+ target & bore':>17}")
+    for i, (lab, _lo, _hi) in enumerate(BALANCES_AT_90):
+        d = balance_at_delivered(i, 1.50)
+        o = balance_with_optimised_target(i, 1.50)
+        w = balance_with_optimised_target(i, 2.60)
+        mark = "  <-- clears" if o > 1.0 else ("  <-- clears at the bore" if w > 1.0 else "")
+        print(f"      {lab:<34}{d:10.3f}{o:11.3f}{w:17.3f}{mark}")
+    print()
+    print("    THE ANSWER IS CONDITIONAL AND IT IS NOT NO.")
+    print("      At the DEMONSTRATED cycle count nothing device-internal clears:")
+    print(f"      heat {balance_with_optimised_target(0):.3f}, work "
+          f"{balance_with_optimised_target(3):.3f}. On the BOUND-CASE service life the heat")
+    print(f"      form clears at {balance_with_optimised_target(1):.3f}, and "
+          f"{balance_with_optimised_target(1, 2.60):.3f} at the wider bore.")
+    print("      That case rests on the service-life model the companion says")
+    print("      over-predicts its one checkable point by 2.24, and the factor")
+    print("      itself is the one sec.5.26 declines to adopt and sec.10 Stage C")
+    print("      measures. Both conditions are the paper's own, and both hold.")
+    print()
+    print("    AND THE STRICTLY DEVICE-INTERNAL FORM DOES NOT CLEAR ON ANY OF IT.")
+    print("      Counting the neutron at its bare heat, with no blanket")
+    print("      multiplication and no fissile credit, the delivered figure is")
+    print(f"      0.1409 and the optimised target takes it to {0.1409 * f:.4f}.")
+    print("      'Inside the device' has two readings and they do not agree:")
+    print("      one counts the blanket, the other does not.")
+
+
 def optimised_target_balance(br=1.50):
     return 100.0 * delivered_eta(br) / OPTIMISED_TARGET_REQUIREMENT
 
@@ -1896,6 +1956,7 @@ def main():
                      ("cell", report_cell),
                      ("budget", report_budget),
                      ("balances", report_balances), ("census", report_census),
+                     ("alteration", report_alteration),
                      ("coherence", report_coherence),
                      ("integration", report_integration)):
         ap.add_argument("--" + name, action="store_true", help=fn.__doc__ or name)
@@ -1909,6 +1970,7 @@ def main():
                      ("cell", report_cell),
                      ("budget", report_budget),
                      ("balances", report_balances), ("census", report_census),
+                     ("alteration", report_alteration),
                      ("coherence", report_coherence),
                      ("integration", report_integration)):
         if getattr(a, name):

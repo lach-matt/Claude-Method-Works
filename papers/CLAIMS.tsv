@@ -822,3 +822,16 @@ C825	winding current at the design point	20	kA	DESIGN	machine.py --circuit; the 
 C826	winding current, the low option	10	kA	DESIGN	machine.py --circuit	none
 C827	winding current, the high option	30	kA	DESIGN	machine.py --circuit	none
 C828	winding pack density used for the cold mass	8000	kg/m^3	SOURCED	standard for a copper-stabilised superconducting winding	none
+C829	the optimised production target as a factor on any balance	2.373	ratio	DERIVED	C100 / C290; checked against the requirement it moves, 50.8 -> C392	fn:opt_factor
+C830	heat at demonstrated cycles, delivered, with the optimised target	0.264	ratio	DERIVED	machine.py --alteration	fn:opt_heat150
+C831	the same at the wider bore	0.313	ratio	DERIVED	machine.py --alteration	fn:opt_heat150_w
+C832	heat on the bound-case service life, delivered, with the optimised target	1.036	ratio	DERIVED	machine.py --alteration; the device-internal form that clears unity	fn:opt_heatbound
+C833	the same at the wider bore	1.231	ratio	DERIVED	machine.py --alteration	fn:opt_heatbound_w
+C834	heat at phi = 3, delivered, with the optimised target	0.844	ratio	DERIVED	machine.py --alteration	fn:opt_heatphi3
+C835	the same at the wider bore	1.003	ratio	DERIVED	machine.py --alteration	fn:opt_heatphi3_w
+C836	work at demonstrated cycles, delivered, with the optimised target	0.198	ratio	DERIVED	machine.py --alteration	fn:opt_work150
+C837	work on the bound-case service life, delivered, with the optimised target	0.777	ratio	DERIVED	machine.py --alteration	fn:opt_workbound
+C838	the same at the wider bore	0.924	ratio	DERIVED	machine.py --alteration	fn:opt_workbound_w
+C839	bred fuel on the bound-case service life, with the optimised target	5.811	ratio	DERIVED	machine.py --alteration	fn:opt_bredbound
+C840	the strictly device-internal heat form with the optimised target	0.3344	ratio	DERIVED	machine.py --alteration; the neutron at its bare heat, no blanket credit	fn:opt_internal_heat
+C841	work at demonstrated cycles, wider bore, with the optimised target	0.235	ratio	DERIVED	machine.py --alteration	fn:opt_work150_w

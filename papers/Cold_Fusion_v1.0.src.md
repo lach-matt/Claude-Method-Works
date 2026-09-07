@@ -30,10 +30,18 @@ The paper then does to its own figures what it does to the literature's. Every b
 stated *at* some collection efficiency, and an acceptance is not a delivered efficiency. Computing
 every loss between a produced pion and a stopped binder gives a budget of [[C742]], and the
 solenoid's own stopping ceiling is [[C506]]; the delivered acceptance is therefore [[C753]] and not
-the [[C260!]] the balances were read at. **At the delivered figure every heat form, every
-work form, and bred fuel at the demonstrated cycle count fall below unity.** What survives is bred
-fuel through an optimised production target, at [[C771]]. **The self-sustaining criterion is not met
-inside the device**, and this paper says so where earlier drafts of it did not.
+the [[C260!]] the balances were read at. **At the delivered figure, and with the machine as
+built, nothing clears unity** — every heat form, every work form, and bred fuel at the demonstrated
+cycle count fall below it. **This paper says so where earlier drafts of it did not.**
+
+**The machine is not required to be left as built, and §5.4 prices the alterations against every
+balance rather than against one.** The optimised production target this paper specifies is worth
+[[C829]] on any of them. It takes bred fuel at the demonstrated cycle count to [[C771]] — the route
+§10 measures first — and it takes the **heat** form, on the bound-case service life, to [[C832]] and
+to [[C833]] at the wider bore. **A device-internal route therefore clears unity, conditionally**: on
+Stage C confirming that target, on a service-life model §11 says over-predicts, and on the reading of
+"inside the device" that counts the blanket. Counting the neutron at its bare heat instead, the same
+alteration reaches only [[C840]], and nothing here clears.
 
 One configuration is net-positive on witnessed numbers alone, and it is not the standalone one. Pions
 are a byproduct of spallation: a facility already running a proton driver for neutrons or isotopes is
@@ -265,13 +273,64 @@ The balance is **linear** in collection, so the restatement is exact rather than
 | bred fuel, demonstrated cycles | [[C818]] | [[C767]] | [[C768]] |
 | bred fuel, bound-case service life | [[C819]] | **[[C769]]** | [[C770]] |
 
-> **The self-sustaining criterion is not met inside the device.** At the delivered acceptance every
-> heat form, every work form, and bred fuel at the demonstrated cycle count fall below unity. An
-> earlier reading of this work said otherwise, and that reading is withdrawn here.
+> **At the delivered acceptance, and with the machine left as it is, nothing clears unity.** Every
+> heat form, every work form and bred fuel at the demonstrated cycle count fall below it. An earlier
+> reading of this work said otherwise, and that reading is withdrawn here.
 
-**What survives is one route.** Bred fuel through an **optimised production target** drops the
-requirement from [[C257]] to [[C392]], against [[C753]] delivered — a balance of [[C771]]. That route
-is met by every configuration computed, and §10 runs its measurement first.
+**But the machine is not required to be left as it is**, and §5.4 asks what the alterations this
+paper specifies do to the same table. That question was put to the bred-fuel route and to nothing
+else, which was an omission rather than a finding.
+
+### 5.4 What the specified alterations do to every balance
+
+§5.3 states the balances for the machine as built. This paper specifies two alterations to it — an
+**optimised production target**, and a **wider bore** — and prices the first of them against the
+bred-fuel route only. **It multiplies every balance by the same factor**, because a balance is
+`N · V · η / E_binder` and the target moves `E_binder` alone: from [[C100]] to [[C290]], worth
+[[C829]].
+
+> **The factor checks against the requirement it moves.** §4.2 puts bred fuel at demonstrated cycles
+> at [[C257]] collection; through the optimised target that requirement is [[C392]], and
+> [[C257#]] ÷ [[C829#]] returns it. The same factor applied to that route's delivered balance of
+> [[C767]] gives [[C771]], which is §5.3's own figure reached from the other side.
+
+| balance | delivered | + optimised target | + target and wider bore |
+|---|---|---|---|
+| heat, demonstrated cycles | [[C757]] | [[C830]] | [[C831]] |
+| **heat, bound-case service life** | [[C759]] | **[[C832]]** | **[[C833]]** |
+| heat, φ = 3 | [[C761]] | [[C834]] | **[[C835]]** |
+| work, demonstrated cycles | [[C763]] | [[C836]] | [[C841]] |
+| work, bound-case service life | [[C765]] | [[C837]] | [[C838]] |
+| bred fuel, demonstrated cycles | [[C767]] | **[[C771]]** | **[[C772]]** |
+| bred fuel, bound-case service life | [[C769]] | **[[C839]]** | — |
+
+> **The answer is conditional, and it is not no.** With the optimised production target in, the heat
+> form on the bound-case service life reaches **[[C832]]** at today's aperture and **[[C833]]** at the
+> wider bore, and the φ = 3 case reaches **[[C835]]** with both. **Those clear unity, and they are not
+> bred fuel** — nothing leaves the device to earn them.
+
+**Three conditions travel with that, and every one of them is this paper's own.**
+
+**First, it is the bound-case service life and not the demonstrated one.** At [[C44]] per binder,
+which is what has actually been measured, the optimised target takes heat only to [[C830]] and work to
+[[C836]]. **Nothing device-internal clears at a witnessed cycle count under any alteration specified
+here.**
+
+**Second, the bound case rests on a service-life model this work says over-predicts.** §11 records
+that the model returns more cycles than were measured at the one point where a comparison is possible.
+Every figure in the two bound-case rows inherits that; the bred-fuel row at demonstrated cycles does
+not.
+
+**Third, the factor itself is unmeasured.** [[C290]] is a published optimisation §11 declines to adopt
+and §10 Stage C measures. **The whole of this section is conditional on that stage**, which is the
+second reason it runs early.
+
+> **And "inside the device" has two readings that do not agree.** The heat forms above count the
+> blanket's multiplication and its fissile heat, which is heat recovered on site. Counting the neutron
+> at its **bare** heat instead — no blanket, no fissile credit — the delivered figure is [[C781]], and
+> the optimised target takes it only to [[C840]]. **On the narrow reading the criterion is not met by
+> anything in this paper.** On the wider one it is met by a specified machine, conditionally, and §10
+> is what decides between them.
 
 ---
 
@@ -680,8 +739,14 @@ the last word on whether this document is fit to be read.
 4. **One configuration is net-positive on witnessed numbers alone** — as a co-product of a beam
    already running, where the marginal energy per binder is zero — and it returns [[C810]] on a
    one-megawatt driver.
-5. **One route clears unity for a device built for the purpose**, and it is bred fuel through an
-   optimised production target, at [[C771]]. Whether that target's gain is real is Stage C.
+5. **One route clears unity at a witnessed cycle count for a device built for the purpose**, and it is
+   bred fuel through an optimised production target, at [[C771]]. Whether that target's gain is real
+   is Stage C.
+6. **A device-internal route clears unity too, and only conditionally.** With the same optimised
+   target, the heat form on the bound-case service life reaches [[C832]], and [[C833]] at the wider
+   bore. It is conditional on Stage C and on a service-life model §11 says over-predicts, and it is
+   met on the reading of "inside the device" that counts the blanket. On the reading that counts the
+   neutron at its bare heat, nothing here clears.
 6. **The materials are specified and the machine is designed**, to a bill of materials and a build
    package rather than to a sketch.
 7. **The procedure that would witness the unwitnessed configuration is stated**, with its predictions

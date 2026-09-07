@@ -573,6 +573,29 @@ def a14_arithmetic(P):
             if not _close(want, _num(C[delivered]["value"]), 0.01):
                 bad.append(f"{printed}->{delivered}: {want:.4f} against "
                            f"{C[delivered]['value']}")
+    # sec.5.4's table: every cell is the delivered figure through one factor, and
+    # a cell citing the RIGHT-shaped but WRONG row is the one defect the citation
+    # mechanism cannot catch by itself. This recomputes each.
+    if "C829" in C:
+        f = _num(C["C829"]["value"])
+        alt = [("C757", "C830", "C831"), ("C759", "C832", "C833"),
+               ("C761", "C834", "C835"), ("C763", "C836", "C841"),
+               ("C765", "C837", "C838"), ("C767", "C771", "C772"),
+               ("C769", "C839", None)]
+        eta_w = _num(C["C754"]["value"]) / _num(C["C753"]["value"]) if "C754" in C else None
+        for delivered, withopt, withbore in alt:
+            if delivered not in C or withopt not in C:
+                continue
+            ran.append(f"{delivered} x {f:.3f} -> {withopt}")
+            want = _num(C[delivered]["value"]) * f
+            if not _close(want, _num(C[withopt]["value"]), 0.01):
+                bad.append(f"{delivered}->{withopt}: {want:.4f} against "
+                           f"{C[withopt]['value']}")
+            if withbore and withbore in C and eta_w:
+                want_w = _num(C[delivered]["value"]) * f * eta_w
+                if not _close(want_w, _num(C[withbore]["value"]), 0.015):
+                    bad.append(f"{delivered}->{withbore} at the wider bore: "
+                               f"{want_w:.4f} against {C[withbore]['value']}")
     # the co-product table: two corrections, applied in order
     if all(k in C for k in ("C474", "C503", "C809", "C804", "C810")):
         ran.append("the co-product heat at its two corrections")

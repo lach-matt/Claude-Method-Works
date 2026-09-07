@@ -160,6 +160,40 @@ against 31.66 delivered — a balance of **1.480**, and 1.758 at the wider bore.
 whether the optimised target's gain is real, which is what `--budget` answers on geometry. Everything
 else falls below unity.
 
+## What the specified alterations do to every balance — `--alteration`
+
+**`--balances` and `--census` both answer "what does this machine deliver?". Neither asks "what does
+this work's own specified alteration do about it?"** [1] §5.24 prices the optimised production target
+against the **bred-fuel** route and against nothing else, and the omission was invisible because the
+bred-fuel answer was the one being looked for.
+
+The target moves `E_binder` alone — [1] §5.1's **11.13 GeV** per pion against a published
+optimisation's **4.69** — so it multiplies **every** balance by the same **2.373**. The factor checks
+against the requirement it moves: 50.8 percent through it is 21.41, which is §5.24's own 21.4.
+
+| balance | delivered | + optimised target | + target and wider bore |
+|---|---|---|---|
+| heat, demonstrated cycles | 0.111 | 0.264 | 0.313 |
+| **heat, bound-case service life** | 0.437 | **1.036** | **1.231** |
+| heat, φ = 3 | 0.356 | 0.844 | **1.003** |
+| work, demonstrated cycles | 0.083 | 0.198 | 0.235 |
+| work, bound-case service life | 0.328 | 0.777 | 0.924 |
+| bred fuel, demonstrated cycles | 0.623 | **1.479** | **1.758** |
+| bred fuel, bound-case service life | 2.449 | **5.811** | **6.904** |
+
+**The answer is conditional and it is not no.** A **device-internal** form clears unity: heat on the
+bound-case service life, at 1.036, and 1.231 at the wider bore. Nothing leaves the device to earn it.
+
+**Three conditions travel with it, and each is the corpus's own.** It is the bound case and not the
+demonstrated one — at 150 cycles the same alteration reaches only 0.264. The bound case rests on the
+service-life model the companion says over-predicts its one checkable point by 2.24. And the factor
+itself is the figure §5.26 declines to adopt and §10 Stage C measures.
+
+**And "inside the device" has two readings that do not agree.** The heat rows above count the
+blanket's multiplication and its fissile heat. Counting the neutron at its **bare** heat instead, the
+delivered figure is 0.1409 and the optimised target takes it to **0.3344**. On the narrow reading
+nothing in this work clears; on the wider one a specified machine does, conditionally.
+
 ## The acceptance census — `--census`
 
 `--balances` restated **one** table. The same question belongs to every figure the two live papers
@@ -255,6 +289,7 @@ python3 tools/machine.py --coherence      # the spec sheet the procedure must qu
 python3 tools/machine.py --budget         # every loss term, and the two questions it couples
 python3 tools/machine.py --balances       # the balances at the acceptance actually delivered
 python3 tools/machine.py --census         # every figure stated at an assumed acceptance, graded
+python3 tools/machine.py --alteration     # every balance under the alterations this work specifies
 python3 tools/machine.py
 python3 tools/collector.py --magnet
 python3 tools/verify_paper.py papers/Cold_Fusion_Specification_and_Procedure_v1.0.md
