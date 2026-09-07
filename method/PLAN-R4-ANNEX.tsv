@@ -80,7 +80,7 @@ C-42	3	OPEN	L	yes	yes	The prose pass (RUL-128 item 1) has not run; many findings
 D-01	3	OPEN	L	yes	yes	Heading-only sections: §14.5.2–§14.5.7, §2.22, §14.4 and kin	method/members/DOCKET.md L57-62 (item 1); L147 (chat 128); L209 (chat 132); L304 (chat 141, 28a-03)
 D-02	-	DONE	L	yes	yes	Withdrawn-law class HELD; r3-wl re-take	method/members/DOCKET.md L147-148 (chat 128 delta); L452-453 (chat 151-R third delta)
 D-03	2	DONE - register 1865 (18.5 and 18.4.1); Thm 11.1 at 1861	M	yes	yes	Missing Register entries: §18.4.1 refinement, §18.5 pole correction, L9326, Thm 11.1	method/members/DOCKET.md L63-64 (item 2); L372 (chat 150, 26b-09)
-D-04	2	OPEN	S	yes	yes	No Register entry for the correction §23.10.2 cites (14n-A3)	method/members/DOCKET.md L65 (item 3)
+D-04	2	DONE - register 1871	S	yes	yes	No Register entry for the correction §23.10.2 cites (14n-A3)	method/members/DOCKET.md L65 (item 3)
 D-05	1	DONE — register 1846	M	yes	yes	The σ collision: Rule 4 L6047 vs §22.5 L6168	method/members/DOCKET.md L66 (item 4)
 D-06	3	OPEN	L	yes	yes	Ruling 45 class: first-person and session-narrating prose, 133+ members	method/members/DOCKET.md L67-70 (item 5); L167, L183, L212, L224, L241, L262, L271, L282, L291, L297, L307, L328, L451 (
 D-07	4	OPEN	L	yes	yes	Ruling 46 class: build, file, chat and instrument handles in reader-facing text	method/members/DOCKET.md L71-72 (item 6); L180 (17e-01); L298 (27b-01); L313 (chat 142 MC site); L373 (26b-10); L419 (re
@@ -156,7 +156,7 @@ E-008	3	OPEN	S	yes	yes	Chapter 6 L1673–1674 (12f-01/02, 'Register 348') and §
 E-009	3	OPEN	S	yes	yes	Chapter 12 ordering: 'fourth' (L2779) printed before 'third' (L2838)	DEFERRED.md L7, L18 (chat 75)
 E-010	6	OPEN	L	no	yes	The r2lib lift debt: some forty functions copied verbatim, never lifted; r2-ch12c unbanked	DEFERRED.md L11–12, L19, L29, L48, L62, L97, L112, L133, L159, L200–208, L262–270, L347, L385, L448, L497, L557, L614, L
 E-011	4	OPEN	S	yes	yes	MC L1736 'The axis density' inherits 12q-01/12r-01; MC L1244 may inherit 12q-04	DEFERRED.md L24–25 (chat 76)
-E-012	2	OPEN	S	yes	yes	Successor entries for Registers 434 (12q-03), 241 (12s-02), 1790/L3152 (12q-04, 12s-04)	DEFERRED.md L26 (chat 76)
+E-012	2	PART - register 1874 seats 12s-02; 12q-03 and 12q-04/12s-04 remain	S	yes	yes	Successor entries for Registers 434 (12q-03), 241 (12s-02), 1790/L3152 (12q-04, 12s-04)	DEFERRED.md L26 (chat 76)
 E-013	3	OPEN	S	yes	yes	Three sites misdirect the four-cap sweep to §12.11.2/§12.11.5 (it is §12.11.1 L3121–3124)	DEFERRED.md L27, L57 (chat 76 §32.1.1; chat 79 13c-02)
 E-014	1	CLOSED — unverifiable here (E-075; CLAUDE.md §5)	M	yes	yes	12t-03 ('recomputed under variation') further sites §6.2.1, §22.1.1.1, L9150; Registers 388/389	DEFERRED.md L33 (chat 77)
 E-015	2	OPEN	S	yes	yes	Successor entries for Registers 392/393 (12u-01..03) and 625's broken chain to 623 (12v-02)	DEFERRED.md L34–35 (chat 77)
@@ -431,7 +431,7 @@ F-154	-	DONE	M	yes	yes	Memoryless '104 of 106' dropped at BUILD96 (entries 1803/
 F-155	8	OPEN	S	no	yes	build.py's Register SUBS carry five dead anchors (a sixth moved) — the Register press would assert-fail	DEFERRED.md L2899–2900 (Chat 128 item 1, pre-existing states)
 F-156	-	DONE	S	no	yes	census.py hard-coded n>1792; gate.py MAIN default names BUILD90	DEFERRED.md L2900 (Chat 128 item 1)
 F-157	-	DONE	S	yes	yes	Register front-matter load-bearing table and extent line stale at BUILD90	DEFERRED.md L2900–2901 (Chat 128 item 1)
-F-158	2	OPEN	S	yes	yes	Ordering-law clause 2 'exceptions exactly La, Ac and Th' holds only under 'rival never yet opened' — convention unstated at main L9750, 1701	DEFERRED.md L2903–2905 (Chat 128 item 2, 17a-01); L3344 (scf-A-01)
+F-158	2	DONE - register 1873	S	yes	yes	Ordering-law clause 2 'exceptions exactly La, Ac and Th' holds only under 'rival never yet opened' — convention unstated at main L9750, 1701	DEFERRED.md L2903–2905 (Chat 128 item 2, 17a-01); L3344 (scf-A-01)
 F-159	4	OPEN	M	yes	yes	SO clearance 0.058 − 0.083 = −0.025 Ha false under plain reading at L9749–50, 1701, 1712, MC L3162	DEFERRED.md L2904–2905 (17a-03); L3345 (Chat 144 item 2)
 F-160	3	OPEN	S	yes	yes	Measured-ground edge Z = 2–108 (L9746) and 'twelve unwitnessed rows' (L9867) vs register 1446's edge at 102	DEFERRED.md L2907–2909 (Chat 128 item 3, 17a-02); L2946–2947 (17c-02)
 F-161	-	DUP of F-193	S	yes	yes	Register 1710 named only by the range 1701–1712; 1725 absent though front matter L10/L68 name it	DEFERRED.md L2913–2914 (Chat 128 item 5); L3319 (warn-04); L3299 (28a-01)
@@ -483,7 +483,7 @@ F-206	2	DONE - register 1858	S	yes	yes	Register 1779 'the electron count Z − c
 F-207	8	OPEN	S	yes	yes	Reader-facing register spans (1249–1357, 1249–1429, 1524–1677) name withdrawn or absent entries	DEFERRED.md L3322 (Chat 142 warn-06)
 F-208	5	OPEN	S	yes	yes	1396's MC citer (L3716's section) unread for the six-and-five split against the twelve donor steps	DEFERRED.md L3323 (Chat 142 item 5)
 F-209	4	OPEN	S	yes	yes	MC work matter: 'Corrected at register 1426', 'first reported as 47 / 11', `ground.py` (L3671–3716), `mathverify.py` and 'a build task' (L31	DEFERRED.md L3326 (Chat 142 item 8); L3348 (Chat 144 item 5)
-F-210	2	OPEN	S	yes	yes	'Never resets mid-subshell' (L9626; Register 1333/1350) fails at Mo 42 and Rh 45 per 1401's forced resets	DEFERRED.md L3332 (Chat 143 item 3, 34re-03)
+F-210	2	DONE - register 1872	S	yes	yes	'Never resets mid-subshell' (L9626; Register 1333/1350) fails at Mo 42 and Rh 45 per 1401's forced resets	DEFERRED.md L3332 (Chat 143 item 3, 34re-03)
 F-211	4	OPEN	S	yes	yes	MC L3202 'Proved — M §35;.' cites no entry for the exact-quartic decomposition; L3208 prints 1708's ratios outside the chain	DEFERRED.md L3346 (Chat 144 item 3, scf-A-03)
 F-212	4	OPEN	M	yes	yes	Five of eight MC LS objects lack the R-FORM prior-art blockquote (C11 rows at mc 3160, 3196)	DEFERRED.md L3347 (Chat 144 item 4, scf-A-04)
 F-213	-	DONE	S	no	yes	Sandbox-unverifiable goldens (r2-ch16n/s/t/u, r2-ch17c) and COORDINATES for r2-ch20a/26a	DEFERRED.md L3349 (Chat 144 item 6)

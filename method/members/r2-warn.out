@@ -1,7 +1,7 @@
 
 == §0 CONVENTIONS AND FRESH COUNTS
-Register member lines 6926 | main 11904 | MC 3813 | PC 914 | IoI 2094 | SC 1160
-Heading convention A (bare `^#{1,4}\s*N\s*$`): 1705 entries; max 1870
+Register member lines 6941 | main 11904 | MC 3813 | PC 914 | IoI 2094 | SC 1160
+Heading convention A (bare `^#{1,4}\s*N\s*$`): 1709 entries; max 1874
 Heading convention B (grouped `^#{1,4}\s*N, N, …\s*$`): 32 numbers on 7 lines: [1326, 1330, 1334, 1338, 1342, 1346, 1350]
 Absent under A (1..1792): 164 | absent under A and B: 132
 WARNING marker convention: raw case-sensitive `WARNING:` (the colon excludes headline words such as 1463's FISHBURN'S WARNING); raw `WARNING` lines: 41 | `WARNING:` lines: 39 | markers: 40
@@ -78,9 +78,10 @@ Qualification probe (token, stated as such): stems /withdraw|deactivat|supersed|
   reg L6833 CARRIES (correct) | "PALINDROMIC IF AND ONLY IF SELF-DUAL" IS FALSE IN ONE DIRECTION, AND THE BOOK'S ARGUMENT USES THE OTHER ONE. §11.7's caption to Figure 11.2 and §11.8's opening line both state: "A rank polynomial is palindromic if and only if the
   ioi L1893 SILENT | register 1341 supposed. The index runs to the last available species and stops: 98 cells, E = 58, of which 38 need more electrons than any atom has. The
 
--- Register 1350 (2 citer line(s); corrector(s) [1460])
+-- Register 1350 (3 citer line(s); corrector(s) [1460])
   reg L6637 CARRIES (CORRECT +corrector [1460]) | CHAPTER 34'S STATUS CORRECTED TO THE RECORD'S. The chapter printed ν as the law and its walk as exceptionless on 106 elements; registers 1437, 1438, 1445 and 1460 had measured 99 in sample and 90 held out against Madelung's 96 and
   reg L6789 CARRIES (QUALIF) | §34.4 SAID "NO PARAMETER IS FITTED" AND §34.8 SAID IT WITH THE QUALIFIER FIVE LINES LATER; THE RULE'S OWN SECTION NOW CARRIES IT TOO. §34.4 closes its derivation with No parameter is fitted unqualified, and §34.8 — the provenance 
+  reg L6931 CARRIES (wrong) | §34.6 SAYS EACH SUBSHELL FILLS AT CONSTANT a AND THREE SUBSHELLS DO NOT; THE DOCKET'S OWN INSTANCE OF THE FAULT IS AT AN ELEMENT WHERE NOTHING MOVES. §34.6 states both halves in one breath: "It never resets mid-subshell, which is 
 
 -- Register 1366 (1 citer line(s); corrector(s) [1460])
   reg L5496 CARRIES (DEACTIVAT) | ν IS DEACTIVATED AS A LAW AND RETAINED AS A FORM; THE CORRIDOR IS THE INSTRUMENT AND IT SURVIVES INTACT. The person's reading: the law was created to find the rule, and now that the rule is found the law must be deactivated withou
@@ -198,7 +199,7 @@ Qualification probe (token, stated as such): stems /withdraw|deactivat|supersed|
 -- Register 1633 (1 citer line(s); corrector(s) [1635])
   reg L6142 CARRIES (RECONSTRUCT) | THE UNKNOWN PARAMETER IS order=0, WHICH BELONGS TO ie.pl — I INVENTED ONE PARAMETER AND DROPPED FOUR. Four rejected URLs in a row, and the cause was one parameter the whole time. Found by differencing my URL against M's ORIGINAL e
 
-Tally by volume: {('ioi', 'SILENT'): 2, ('main', 'CARRIES'): 1, ('mc', 'SILENT'): 2, ('reg', 'CARRIES'): 38, ('reg', 'SILENT'): 16, ('sc', 'SILENT'): 1}
+Tally by volume: {('ioi', 'SILENT'): 2, ('main', 'CARRIES'): 1, ('mc', 'SILENT'): 2, ('reg', 'CARRIES'): 39, ('reg', 'SILENT'): 16, ('sc', 'SILENT'): 1}
 A-CLASS (SILENT citers OUTSIDE the Register — the reader-facing restatements): [(1341, 'ioi', 1893), (1385, 'ioi', 1861), (1395, 'mc', 3726), (1396, 'mc', 3726), (1539, 'sc', 1122)]
   outside-Register citer main L9766 cites (phrase set ∩ WARNING'd): [1332]
   outside-Register citer ioi L1893 cites (phrase set ∩ WARNING'd): [1341]
@@ -207,7 +208,7 @@ A-CLASS (SILENT citers OUTSIDE the Register — the reader-facing restatements):
   outside-Register citer mc L3726 cites (phrase set ∩ WARNING'd): [1395, 1396]
   outside-Register citer sc L1122 cites (phrase set ∩ WARNING'd): [1539]
 
-Tally over all citer lines: {'SILENT': 21, 'CARRIES': 39} | SILENT share 35.0 % (ROUND_HALF_UP, 1 dp)
+Tally over all citer lines: {'SILENT': 21, 'CARRIES': 40} | SILENT share 34.4 % (ROUND_HALF_UP, 1 dp)
 Entries with ≥ 1 SILENT citer: [1293, 1341, 1385, 1390, 1391, 1395, 1396, 1401, 1403, 1413, 1415, 1466, 1499, 1515, 1539, 1567, 1602]
 
 == §3 THE UNHEADED-ENTRY CLASS UNDER BOTH CONVENTIONS, AND EVERY ABSENT NUMBER A REGISTER PHRASE CITES
@@ -275,4 +276,4 @@ Grouped-heading numbers cited in a register phrase (headed under B only): {209: 
    1710: main:L11854 main:L11902 reg:L6685 mc:L3150 pc:L194 pc:L333 ioi:L1900 | named as bare token in Register lines: [6897]
 
 == §5 TALLY
-WARNING'd entries 39 | citer lines 60 | entries with no citer 7 | absent-under-both cited 5 | grouped-only cited 15
+WARNING'd entries 39 | citer lines 61 | entries with no citer 7 | absent-under-both cited 5 | grouped-only cited 15

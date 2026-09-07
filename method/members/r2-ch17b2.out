@@ -110,7 +110,7 @@
   106 transitions                main:1[9781] reg:0 mc:0 pc:0 ioi:0 sc:0
   106 steps                      main:6[9617,9620,9657,9666,9697,10894] reg:13[4992,5008,5268,5296,5300,5448…] mc:1[3664] pc:2[286,293] ioi:0 sc:0
   three elements wide            main:1[9791] reg:0 mc:0 pc:0 ioi:0 sc:0
-  collapse condition             main:6[9787,9827,9897,9920,10838,11859] reg:2[6362,6701] mc:2[3162,3168] pc:2[309,391] ioi:0 sc:1[228]
+  collapse condition             main:6[9787,9827,9897,9920,10838,11859] reg:3[6362,6701,6935] mc:2[3162,3168] pc:2[309,391] ioi:0 sc:1[228]
   double-well                    main:1[9787] reg:1[6362] mc:1[3170] pc:0 ioi:0 sc:0
   "unwitnessed" as the book's own vocabulary: first Index-of-Indices site: ['**This is not the coordinate index, and the two were once both called Λ_spectra.** Λ_spectra proper is the four-coordina']
 

@@ -171,7 +171,7 @@
   L9702-L9703 "recorded four separate times — as the gate, the collapse switch, the barrier and Seaton's ratio":
     literal phrases in main: "Seaton's ratio" [9737] ; "collapse switch" [9737] ; "the barrier" [9737]  (a literal phrase is NOT a test)
     Seaton       word-bounded sites: main 1 | reg 33 | mc 28 | pc 14 | ioi 5 | sc 2
-    collapse     word-bounded sites: main 17 | reg 53 | mc 22 | pc 11 | ioi 2 | sc 8
+    collapse     word-bounded sites: main 17 | reg 54 | mc 22 | pc 11 | ioi 2 | sc 8
     centrifugal  word-bounded sites: main 3 | reg 13 | mc 2 | pc 2 | ioi 1 | sc 0
     barrier      word-bounded sites: main 1 | reg 11 | mc 1 | pc 1 | ioi 0 | sc 0
     gate         word-bounded sites: main 1 | reg 31 | mc 1 | pc 1 | ioi 0 | sc 0
@@ -200,12 +200,12 @@
 11  ELEMENTS NAMED IN THE UNIT (docket 20, notation-tolerant) across six volumes: symbol | name
 ================================================================================================
   Tc technetium  main 1|0  reg 7|7  mc 0|0  pc 0|0  ioi 0|0  sc 0|0
-  Mo molybdenum  main 1|0  reg 8|5  mc 0|0  pc 1|0  ioi 0|0  sc 0|0
+  Mo molybdenum  main 1|0  reg 9|6  mc 0|0  pc 1|0  ioi 0|0  sc 0|0
   Tb terbium     main 1|0  reg 7|2  mc 1|0  pc 0|0  ioi 0|0  sc 0|0
   Gd gadolinium  main 1|0  reg 9|4  mc 1|0  pc 1|0  ioi 0|0  sc 0|0
   Bk berkelium   main 1|0  reg 12|8  mc 1|0  pc 0|0  ioi 0|0  sc 0|2
   Cm curium      main 1|0  reg 15|11  mc 1|0  pc 1|0  ioi 0|0  sc 0|2
-  Hg mercury     main 6|1  reg 21|9  mc 2|0  pc 1|0  ioi 0|0  sc 10|0
+  Hg mercury     main 6|1  reg 22|9  mc 2|0  pc 1|0  ioi 0|0  sc 10|0
   Au gold        main 1|0  reg 7|2  mc 0|0  pc 1|0  ioi 0|1  sc 0|0
 
 ================================================================================================

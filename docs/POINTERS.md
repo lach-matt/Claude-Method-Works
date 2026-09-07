@@ -117,13 +117,20 @@ for lowercase `register NNN` is no longer owed. Both are bundle members and neit
 
 ## What it reports
 
-Over `--roster with-companion`, 2,120 pointer tokens:
+Over `--roster with-companion`, 2,124 pointer tokens:
 
 ```
-RESOLVED-HERE 438  RESOLVED 1573  AMBIGUOUS 65  PARTIAL 19
+RESOLVED-HERE 438  RESOLVED 1577  AMBIGUOUS 65  PARTIAL 19
 PREFIX-ONLY 3  UNRESOLVED 21  KIND-MISMATCH 1
 44 findings  (APPSEC 2, FIGURE 2, REGISTER 4, REGISTER-RANGE 19, SECTION 8, THEOREM 9)
 ```
+
+*A class this audit deliberately does not score, named at BUILD122: a citation can RESOLVE and still be
+wrong, because `pointers.py` asks whether an address exists and not what stands at it. Registers 1861, 1871
+and 1874 are three measured instances — A.15's "Register 230", §23.10.2's "recorded at 96–98", and §12.11.1
+citing itself for a nominal value it never states. All three score RESOLVED and all three are correct to.
+Where a citation names WHAT its target establishes, that description is checkable against the target's own
+words, so a successor could score the claim as well as the address. Not built; named so it is a decision.*
 
 *Re-measured again at BUILD117, where registers 1849–1852 added **six pointer tokens, all six RESOLVED** —
 findings stayed at 44, every class of them unmoved, and `PARTIAL` stayed at 19. Four entries that correct
@@ -156,7 +163,7 @@ hypothesis until read and measured* — and this measures them.
 
 ## `--extent`
 
-The Register's extent is stated as 1 to 1870; 1,737 of those numbers carry a `###` entry and 133 do
+The Register's extent is stated as 1 to 1874; 1,741 of those numbers carry a `###` entry and 133 do
 not. **An uncited absence is not a pointer failure**, so `--extent` lists only the absences
 something cites:
 

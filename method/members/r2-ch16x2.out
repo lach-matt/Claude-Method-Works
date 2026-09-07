@@ -136,10 +136,10 @@
 ================================================================================================
 11  ELEMENT NAMES OF THE UNIT (docket 20, notation-tolerant) across six volumes
 ================================================================================================
-  lanthanum     main name 2 sym 1 | reg name 14 sym 20 | mc name 1 sym 2 | pc name 0 sym 3 | ioi name 0 sym 0 | sc name 0 sym 6
-  cerium        main name 1 sym 0 | reg name 7 sym 15 | mc name 0 sym 1 | pc name 0 sym 1 | ioi name 0 sym 0 | sc name 0 sym 4
-  actinium      main name 1 sym 1 | reg name 8 sym 13 | mc name 0 sym 3 | pc name 0 sym 3 | ioi name 0 sym 0 | sc name 0 sym 2
-  protactinium  main name 1 sym 0 | reg name 6 sym 9 | mc name 0 sym 1 | pc name 0 sym 1 | ioi name 0 sym 0 | sc name 0 sym 0
+  lanthanum     main name 2 sym 1 | reg name 14 sym 21 | mc name 1 sym 2 | pc name 0 sym 3 | ioi name 0 sym 0 | sc name 0 sym 6
+  cerium        main name 1 sym 0 | reg name 7 sym 17 | mc name 0 sym 1 | pc name 0 sym 1 | ioi name 0 sym 0 | sc name 0 sym 4
+  actinium      main name 1 sym 1 | reg name 8 sym 14 | mc name 0 sym 3 | pc name 0 sym 3 | ioi name 0 sym 0 | sc name 0 sym 2
+  protactinium  main name 1 sym 0 | reg name 6 sym 11 | mc name 0 sym 1 | pc name 0 sym 1 | ioi name 0 sym 0 | sc name 0 sym 0
 
 ================================================================================================
 12  WRAPPED SENTENCES read on the normalised JOIN, not the line

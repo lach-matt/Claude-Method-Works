@@ -110,7 +110,7 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
         L513    register records what was added and withdrawn. Enumeration is finite work and this book does
         L643    ### 2.12 Withdrawal
         L720    A register of withdrawals is a list of bounds. Read it that way and it stops being a
-  withdraw         reg   64 site(s)
+  withdraw         reg   65 site(s)
         L27     | **a withdrawal** | 34 | 61 | a claim removed, with the reason |
         L31     *The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cit
         L74     Every correction, withdrawal and finding in the order it happened. **The book cites entries 

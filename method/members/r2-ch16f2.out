@@ -330,7 +330,7 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
 ## 10  CENSUS ROWS IN RANGE, measured from DEFECT-CENSUS.tsv on the `member` column
    3 rows in L8580-L8704
    709  C7-WITHDRAWAL-LINE-NUMBER-SURVIVES  L8683  item '23.10'
-        detail: other sites: main=15 reg=2 mc=2 | sign, not a positive one (§23.10.1), so the channel stands and
+        detail: other sites: main=15 reg=6 mc=2 | sign, not a positive one (§23.10.1), so the channel stands and
         line  : sign, not a positive one (§23.10.1), so the channel stands and the word is corrected; recorded a
    1182  C9-OVERGENERALISATION-WORD  L8586  item 'never'
         detail: structure admitting cells its keeper never enumerated.
