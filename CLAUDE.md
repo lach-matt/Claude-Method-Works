@@ -334,8 +334,20 @@ recovered energy and all of the neutrons, so the device is a **fusion-driven sub
 reactor and not a fusion power plant**. Its `--selftest` asserts that solving for a term and
 substituting it back returns exactly unity, that the two closed axes are closed, and constructs the
 requirement that *would* need k ≥ 1, so the result is a fact about the numbers rather than a
-tautology. **The deciding comparison it refuses to make** — against a spallation-driven subcritical
-system on the same beam — is now the largest open item in the paper. See `docs/POWERSOURCE.md`),
+tautology. **`--spallation` then makes the comparison that had been the paper's largest open
+item** — the same beam spent on a spallation-driven subcritical system — and finds the question was
+posed wrongly. **The muon channel does not replace spallation**: the same protons strike the same
+target and make both, in the same collisions, which is the premise the co-product argument already
+rests on. It is therefore **additive in neutrons** and there is no *instead* to price. What it can
+cost is the target, since one the pions can escape from is narrower than a facility would choose, and
+that reduces to `f < w·Y_fus/Y` with `Y_fus` = **52.41** neutrons per proton already in the ledger:
+even against a very productive spallation target, transparency may cost up to **21 %** before the
+channel stops paying. Three conservatisms all run the same way — a 14.1 MeV neutron counted as worth
+one spallation neutron when a fast blanket makes it worth more, the alpha uncounted, and transparency
+treated as a straight loss when in a **blanket-coupled** system an escaping neutron enters the blanket
+rather than being lost. What stays open is narrower and stated as such: what a spallation-optimised
+target at 8 GeV yields, and what transparency costs it — both ordinary target-design calculations
+outside this corpus. See `docs/POWERSOURCE.md`),
 **`tools/window.py`** (the binder admissibility scan behind the paper's Theorem 1 — four tests over
 the charged spectrum, run in the order that constrains. Its point is *which* set the theorem closes
 on: the lifetime cut is a published number against a fixed threshold, so the **five** charged

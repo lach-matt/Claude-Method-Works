@@ -894,3 +894,9 @@ C898	the fusion's share of the recovered energy, as built	7.5	percent	DERIVED	po
 C899	the same with all three alterations	27.4	percent	DERIVED	powersource.py; (C58 + C59) / C892	fn:ps_share_all3
 C900	energy per source neutron at the ADS design point	1310.3	MeV	DERIVED	powersource.py; F = k/(nu(1-k)) fissions per source neutron	fn:ps_e_ads
 C901	the k_eff an accelerator-driven subcritical system is designed around	0.95	k_eff	SOURCED	MYRRHA and comparable ADS designs	fn:ps_k_ads
+C902	neutrons the muon channel adds per proton, as built	34.14	per proton	DERIVED	powersource.py; C99 x eta x C44	fn:sp_add_asbuilt
+C903	the same with both collector alterations	52.41	per proton	DERIVED	powersource.py; C99 x eta x C44	fn:sp_add_bore
+C904	transparency penalty the target may take, at 100 spallation n per proton	52.4	percent	DERIVED	powersource.py; C903 / 100	fn:sp_be_100
+C905	the same at 150	34.9	percent	DERIVED	powersource.py; C903 / 150	fn:sp_be_150
+C906	the same at 250	21.0	percent	DERIVED	powersource.py; C903 / 250	fn:sp_be_250
+C907	the beam energy the production integral is taken at	8	GeV	SOURCED	the HARP column sec.4.1 integrates	fn:beam_gev

@@ -463,7 +463,7 @@ with `ν` = 2.9 per fission and `E_f` = 200 MeV. Two sourced inputs, one identit
 
 **The fusion supplies a minority of the energy.** At the least demanding configuration it is 27.4 percent; at the most demanding, 7.5 percent. What the fusion supplies in full is the **neutrons** — every one of them, at 14.1 MeV, which is the energy at which they drive fast fission in fertile material that a fission spectrum does not reach. **The device is a fusion-driven subcritical fission reactor**, and calling it a fusion power plant would be false. It is a self-sustaining power source on this paper's own criterion, which is the criterion that was asked for: it returns more energy than the beam that drives it, as heat, on site.
 
-**And the deciding comparison for a builder is not made here.** The same beam spent on a **spallation**-driven subcritical system would also multiply, and this paper does not compare the two. §11 records that as unmade and §10 Stage D is where it would be settled, on one apparatus, because it is the same beam and the same blanket with the fuel cell in and out.
+**And the comparison a builder will ask for first is made, in §9.4.** The same beam spent on a **spallation**-driven subcritical system would also multiply, and the answer turns out to rest on the structure rather than on the arithmetic: the muon channel is *additive* to spallation rather than an alternative to it, because the same protons make both in the same target. What it can cost is the target's own yield, and §9.4 states how much of that it may cost before it stops paying.
 
 
 ### 9.3 How the specification is measured
@@ -478,7 +478,35 @@ with `ν` = 2.9 per fission and `E_f` = 200 MeV. Two sourced inputs, one identit
 **The prediction is committed in advance.** For a blanket built to the specification above, the measured `k` must lie between 0.469 and 0.770 according to which alterations the machine carries, and the energy multiplication read from the assembly's own heat balance must agree with `F = k/(ν(1 − k))` at the `ν` of its fuel. **A measured `k` below 0.469 falsifies the power-source configuration** and leaves the bred-fuel route of §5.4 standing, which needs no fission at all.
 
 
-### 9.4 But the binder does not have to be bought
+### 9.4 Against spallation on the same beam
+
+A reader who has followed §9.2 will ask the obvious question, and it is the right one: **the same protons could drive a subcritical blanket by spallation alone, without any of this.** Why buy a capture solenoid, a fuel cell and a tritium inventory to make neutrons a spallation target makes for nothing?
+
+**The question has a structure worth stating before any number is put to it.** The muon channel does not *replace* spallation. The same protons strike the same target and make **both** — pions and spallation neutrons, in the same collisions, as §9.2's whole argument depends on. So the muon channel is **additive in neutrons**, and there is no *instead* to price. Adding it cannot reduce what spallation already delivers.
+
+**What it can reduce is the target.** A target the pions can escape from is narrow — §7.3's transparency argument fixes its radius, and the machine's bore constrains it further — and a narrow target is a poorer spallation source than the thick one a facility would otherwise choose. **That is the whole of the trade**, and it reduces to a single question: how much spallation yield does transparency cost?
+
+Set the two side by side. A spallation-optimised target returns `Y` neutrons per proton. A pion-transparent one returns `Y(1 − f)`, and adds the muon channel's fusion neutrons on top. The muon channel is a net gain whenever
+
+
+$$f \;<\; \dfrac{w\,Y_{fus}}{Y}, \qquad Y_{fus} \;=\; Y_{\pi}\,\eta\,N$$
+
+and the left-hand side is what §4.1's pion yield, §5.3's collection and the measured cycle count already fix: **52.41 per proton** with both collector alterations, 34.14 per proton with the machine as built.
+
+| what a spallation-optimised target returns | transparency may cost up to |
+|---|---|
+| 100 neutrons per proton | 52.4 percent |
+| 150 neutrons per proton | 34.9 percent |
+| 250 neutrons per proton | 21.0 percent |
+
+> **Read that as a requirement on the target, because that is what it is.** The muon channel adds neutrons unless making the target transparent to pions costs more than the figure beside the yield — and even against a very productive spallation target the requirement is only that transparency stay under 21.0 percent.
+
+**The estimate is conservative in three places, and each runs the same way.** It counts a 14.1 MeV neutron as worth exactly one spallation neutron, where in a fast blanket it is worth more, because 14.1 MeV drives fast fission in fertile material and (n,2n) that a spallation spectrum reaches less of. It does not count the alpha, which the muon route returns as heat directly. And it treats the transparency penalty as a straightforward loss, which in a **blanket-coupled** system it is not: a neutron or a secondary that escapes a narrow target is not lost, it enters the blanket. A narrow target costs a *neutron source* its yield because the neutrons must reach moderators; it costs a blanket-coupled system much less, because the blanket is what surrounds the target in the first place.
+
+> **So the comparison that §11 recorded as unmade is now made, and it does not go against the muon channel.** What remains open is narrower and is stated as such: **what a spallation-optimised target at 8 GeV actually yields, and what transparency actually costs it.** Neither figure is derived in this paper, both are ordinary target-design calculations, and §10 Stage D measures the pair on one apparatus — the same beam and the same blanket, with the fuel cell in and out.
+
+
+### 9.5 But the binder does not have to be bought
 
 There is, however, a configuration in which the binder costs nothing, and it turns on a fact about the cycle that has been in view since §3. The catalytic cycle has no input per event: the binder is not consumed, and no energy is supplied to bring the nuclei together. Its only input is the binder itself, so the whole of the negative balance sits in a single question — what the binder costs.
 
@@ -496,7 +524,7 @@ On that accounting the marginal beam energy attributable to one binder is zero, 
 **That last row is withdrawn.** A capture efficiency here means a muon that *stops in the fuel*, and a stopping target is one muon range deep, so it stops only the part of the accepted spectrum below its range. The bound is not the collector's: it is the solenoid's acceptance, 0.5069, which no target depth exceeds. **That row compared a collector's acceptance with a fuel target's stopping fraction, which are different quantities.**
 
 
-### 9.5 What that returns, at the capture actually reachable
+### 9.6 What that returns, at the capture actually reachable
 
 **And the headline figures must carry the same correction, plus §5.2's loss budget.** Both, applied:
 
@@ -515,12 +543,12 @@ On that accounting the marginal beam energy attributable to one binder is zero, 
 > **This is a net-positive cold fusion reaction.** No input per event, no input for the binder, and real energy out. It is provable from witnessed quantities and needs no number that has not been measured.
 
 
-### 9.6 And it dissolves the flux gap
+### 9.7 And it dissolves the flux gap
 
 The requirement has always been stated against **delivered** muon beams — about 1.0 × 10^8 s^-1 today and 1.0 × 10^10 s^-1 planned — which gives a shortfall of five orders of magnitude. Those are *momentum-selected, transported* beams, which discard almost everything the target makes. In-situ capture at the production target is 2.80 × 10^4 times the best planned delivered beam, or 1.37 × 10^4 at the delivered capture above, **because nothing is transported and nothing is selected.** The flux gap is an artefact of buying muons rather than making them where they are used.
 
 
-### 9.7 Committed predictions for the net-positive run
+### 9.8 Committed predictions for the net-positive run
 
 Stated before the run, at 1 MW on target and the witnessed cycle count of 150 cycles, **computed from the machine of §7 and not from a hypothetical one:**
 
@@ -551,7 +579,7 @@ The programme is four staged measurements, all on apparatus that already exists.
 
 **Stage C — the production target, measured rather than simulated.** A normalisation measurement: pions per beam particle against pions per interaction, on one target. This is the open half of the factor between 11.13 GeV and the optimised figure of 4.69 GeV, and it decides whether the one route that survives §5.3 exists.
 
-**Stage D — the integrated demonstration.** The net-positive configuration of §9, on a spallation driver already running, against the committed predictions of §9.7.
+**Stage D — the integrated demonstration.** The net-positive configuration of §9, on a spallation driver already running, against the committed predictions of §9.8.
 
 > The order is not arbitrary, and each stage earns its place. Stage A multiplies everything downstream of it. Stage C decides whether the route that clears unity at the delivered acceptance exists at all. Stage B decides a factor *within* a route rather than whether the route is there. And Stage D is the demonstration itself, which cannot be interpreted before Stage A has run.
 
@@ -573,7 +601,7 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 
 **Every modelled service life here rests on a density no experiment has reached**, and after §5.3's correction it buys very little. The model itself is in good order — at the density that *has* been reached it returns 152.8 cycles against the 150 cycles measured, a ratio of 1.019 — but the rows that use it assume 8.5 times liquid where 1.2 has been held, and even granted that they return only 190.1 cycles against 150 cycles measured. **The model is worth a factor of about a quarter and an unreached density to obtain it**, which is why every result this paper offers is stated at the measured count, and why §5.3's surviving route uses the model nowhere.
 
-**The bred-fuel balance is net-positive against beam energy, and this paper does not compare it against the alternative use of that beam.** The same protons make spallation neutrons in the same target, and those breed too. Whether the muon channel repays its own capture solenoid, its fuel cell and its tritium *at the margin* — against simply running the spallation target and breeding from it — is a comparison this paper has not made and does not claim. It is measurable on one apparatus, because it is the same beam and the same blanket with the fuel cell in and out, and §10 Stage D is where a specific design would settle it. **What is claimed is the balance itself**: the configuration returns more energy than the beam it consumes. **What is not claimed is that it is the best use of that beam.**
+**Two target figures the comparison against spallation turns on are not derived here.** §9.4 makes that comparison and finds it does not go against the muon channel — the channel is additive rather than alternative, and the only trade is what pion-transparency costs the target's spallation yield. But the two numbers that would close it are ordinary target-design calculations this paper does not perform: **what a spallation-optimised target at 8 GeV actually yields**, and **what transparency actually costs it**. §9.4 states the requirement in the form a target designer can check, and §10 Stage D measures the pair on one apparatus.
 
 **The tritium inventory a plant would hold is very large, and this paper does not price holding it.** Because the target must be one muon range deep, and because Proposition 9 shows that compression does not reduce the requirement, the standing inventory is 5.13 kg at the designed bore, 10.79 kg at the wider one, and about 45 kg to approach the acceptance ceiling. Those are kilogrammes of tritium in one target, against 2.41 mg in the demonstration cell of §6.3 — a step of six orders of magnitude between the experiment this paper specifies and the plant its balances describe. An inventory at that scale is a licensing, supply and containment problem of a different kind from anything in §7, and one this paper neither solves nor costs. It bears asymmetrically on the routes: the bred-fuel configuration breeds its own tritium once running and so needs the inventory only to start, while the heat and work forms need it throughout and earn nothing back. **Nothing in §10 measures it**, because §10 runs at the milligramme scale, and it should be read as a condition on any plant built from these results rather than as a term in any balance stated here.
 
@@ -639,7 +667,7 @@ And the second is the size of what is left open.
 
 ### 12.4 Not claimed
 
-**That the bred-fuel configuration is the best use of the beam.** It returns more than it consumes; whether it beats spending the same protons on spallation breeding alone is a marginal comparison §11 records as unmade.
+**That either configuration is the best use of the beam.** §9.4 shows the muon channel is additive rather than alternative, and states what transparency may cost before it stops paying — but the two target figures that would close the comparison are not derived here, and §11 says which.
 
 **That a plant follows from the demonstration.** The step from the cell of §6.3 to the inventory of §11 is six orders of magnitude in tritium, and this paper prices none of it.
 

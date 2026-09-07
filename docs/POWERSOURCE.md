@@ -60,12 +60,45 @@ Against **0.95** for an accelerator-driven subcritical system and **1.000** for 
 requirement is met with a very large margin to criticality, which is a safety property as much as an
 engineering one.
 
-## What it refuses
+## The spallation comparison — `--spallation`
 
-**It does not compare the configuration against spending the same beam on a spallation-driven
-subcritical system.** That is the deciding comparison for a builder, no number in this repository
-settles it, and it is measurable on one apparatus because it is the same beam and the same blanket
-with the fuel cell in and out. §11 of the consolidated paper records it as unmade.
+The obvious objection to §9.2 is that the same protons could drive a subcritical blanket by spallation
+alone, without a solenoid, a fuel cell or a tritium inventory. The answer turns on the structure
+rather than on the arithmetic.
+
+**The muon channel does not replace spallation.** The same protons strike the same target and make
+both — pions *and* spallation neutrons, in the same collisions, which is the premise §9.2 rests on.
+The channel is therefore **additive in neutrons**, and there is no *instead* to price.
+
+**What it can cost is the target.** A target the pions can escape from is narrow, and a narrow target
+is a poorer spallation source than the thick one a facility would otherwise choose. That is the whole
+of the trade. Setting a spallation-optimised target's yield `Y` against a transparent one's `Y(1−f)`
+plus the muon channel's fusion neutrons, the channel gains whenever
+
+    f  <  w · Y_fus / Y,      Y_fus = Y_π · η · N
+
+and `Y_fus` is fixed by figures already in the ledger: **52.41 neutrons per proton** with both
+collector alterations, 34.14 as built. So:
+
+| spallation-optimised yield | transparency may cost up to |
+|---|---|
+| 100 n/proton | 52.4 % |
+| 150 n/proton | 34.9 % |
+| 250 n/proton | 21.0 % |
+
+**Conservative in three places, all the same way.** It counts a 14.1 MeV neutron as worth exactly one
+spallation neutron, where in a fast blanket it is worth more. It does not count the alpha. And it
+treats transparency as a straightforward loss, which in a **blanket-coupled** system it is not — a
+neutron or secondary escaping a narrow target is not lost, it enters the blanket. A narrow target
+costs a *neutron source* its yield because the neutrons must reach moderators; it costs a
+blanket-coupled system much less.
+
+## What it still refuses
+
+**What a spallation-optimised target at 8 GeV actually yields, and what transparency actually costs
+it.** Neither is in this repository, both are ordinary target-design calculations, and §10 Stage D
+measures the pair on one apparatus — the same beam and the same blanket with the fuel cell in and
+out. The instrument states the requirement in the form a target designer can check and stops there.
 
 **It does not predict a blanket's yield.** Proposition 10 is point kinetics: one multiplication factor
 for the whole assembly, no source position, no leakage, no spectrum. A real blanket's source is

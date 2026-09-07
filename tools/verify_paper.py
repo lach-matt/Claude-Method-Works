@@ -2909,6 +2909,35 @@ def bal_c880():
 def bal_c881():
     return _mach.balance("bred", _mach.service_life(8.5), 2.6, 400.0, target=True)
 
+def beam_gev():
+    return _ps().BEAM_GEV
+
+
+def sp_add_asbuilt():
+    return _ps().fusion_neutrons_per_proton(_mach.delivered_eta_window(1.50, 265.0))
+
+
+def sp_add_bore():
+    return _ps().fusion_neutrons_per_proton(_mach.delivered_eta_window(2.60, 400.0))
+
+
+def _sp_be(y):
+    return 100.0 * _ps().transparency_breakeven(
+        y, _mach.delivered_eta_window(2.60, 400.0))
+
+
+def sp_be_100():
+    return _sp_be(100.0)
+
+
+def sp_be_150():
+    return _sp_be(150.0)
+
+
+def sp_be_250():
+    return _sp_be(250.0)
+
+
 def _ps():
     import importlib
     return importlib.import_module("powersource")

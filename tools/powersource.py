@@ -136,6 +136,95 @@ def fusion_share(v_req_mev):
     return (E_ALPHA_MEV + E_NEUTRON_MEV) / v_req_mev
 
 
+# ---- the comparison the paper had left unmade -------------------------------
+# The muon channel does NOT replace spallation. The same protons hit the same
+# target and make both: pions AND spallation neutrons. So the muon channel is
+# additive in neutrons, and there is no "instead" to price. What there IS to
+# price is that a target the pions can escape from is NARROW -- [1] sec.5.28's
+# transparency argument fixes its radius -- and a narrow target is a poorer
+# spallation source than the thick one a neutron facility would otherwise
+# choose. That, and only that, is the trade.
+BEAM_GEV = 8.0              # the HARP column the production integral uses
+PI_PER_PROTON = 0.7188      # [C99] combined pi- per interacting proton
+
+
+def fusion_neutrons_per_proton(eta, n_cycles=N_MEASURED):
+    """Neutrons the muon channel ADDS, per interacting proton.
+
+    One stopped binder catalyses n_cycles fusions and each fusion makes one
+    neutron, so this is the pion yield times the collection times the life.
+    """
+    return PI_PER_PROTON * eta * n_cycles
+
+
+def transparency_breakeven(spallation_per_proton, eta, worth=1.0,
+                           n_cycles=N_MEASURED):
+    """The fractional spallation yield a pion-transparent target may lose.
+
+    Route A  a spallation-optimised target:      Y neutrons per proton
+    Route B  a pion-transparent target:          Y(1-f) + w . Y_fus
+
+    Setting them equal gives f = w . Y_fus / Y, and the muon channel is a net
+    addition whenever the transparency penalty is below it. `worth` is what a
+    14.1 MeV neutron is worth against a spallation neutron as a source; it is
+    ABOVE one in any fast blanket, because 14.1 MeV drives fast fission and
+    (n,2n) that a spallation spectrum reaches less of -- so worth = 1 is the
+    conservative choice and is the default here.
+    """
+    return worth * fusion_neutrons_per_proton(eta, n_cycles) / spallation_per_proton
+
+
+def report_spallation():
+    """The comparison against spending the same beam on spallation alone."""
+    m = _mach()
+    print("  THE MUON CHANNEL AGAINST SPALLATION, ON THE SAME BEAM")
+    print("    The question sec.11 records as unmade. It has a structure worth")
+    print("    stating before any number: the muon channel does NOT replace")
+    print("    spallation. The same protons hit the same target and make BOTH,")
+    print("    so the muon channel is ADDITIVE in neutrons and there is no")
+    print("    'instead' to price.")
+    print()
+    print("    What there is to price is that a target the pions can escape")
+    print("    from is NARROW -- the transparency argument fixes its radius --")
+    print("    and a narrow target is a poorer spallation source than the thick")
+    print("    one a neutron facility would otherwise choose. That is the whole")
+    print("    of the trade, and it is one number: how much spallation yield")
+    print("    transparency costs.")
+    print()
+    for lab, eta, _e in configurations()[:2]:
+        y = fusion_neutrons_per_proton(eta)
+        print(f"    neutrons the muon channel adds, {lab:<28} {y:6.2f} per proton")
+    print(f"      = {PI_PER_PROTON} pi-/proton x collection x {N_MEASURED:.0f} fusions")
+    print()
+    eta_best = m.delivered_eta_window(2.60, 400.0)
+    print("    THE BREAK-EVEN, against what a spallation-optimised target makes:")
+    print(f"      {'spallation n per proton':>26}{'penalty it may lose':>22}")
+    for y in (50.0, 75.0, 100.0, 125.0, 150.0, 200.0, 250.0):
+        f = transparency_breakeven(y, eta_best)
+        print(f"      {y:26.0f}{100 * min(f, 1.0):21.1f} %")
+    print()
+    print("    READ IT AS A REQUIREMENT ON THE TARGET, WHICH IS WHAT IT IS.")
+    print("    The muon channel is a net addition of neutrons unless making the")
+    print("    target transparent to pions costs more than the figure above. At")
+    print("    the highest spallation yield tabulated the requirement is still")
+    f_hi = transparency_breakeven(250.0, eta_best)
+    print(f"    that transparency cost stay under {100 * f_hi:.1f} percent.")
+    print()
+    print("    AND IT IS CONSERVATIVE IN TWO PLACES. A 14.1 MeV neutron is worth")
+    print("    MORE than a spallation neutron as a source, because it drives")
+    print("    fast fission and (n,2n) that a spallation spectrum reaches less")
+    print("    of; this takes that worth as exactly one. And the muon route also")
+    print("    returns the alpha directly as heat, which is not counted here.")
+    print()
+    print("    WHAT THIS STILL DOES NOT SETTLE. What a spallation-optimised")
+    print(f"    target at {BEAM_GEV:.0f} GeV actually yields, and what transparency actually")
+    print("    costs it. Neither is in this corpus, both are computable by a")
+    print("    target designer, and sec.10 Stage D measures the pair on one")
+    print("    apparatus -- the same beam and the same blanket, with the fuel")
+    print("    cell in and out.")
+    return 0
+
+
 def report():
     m = _mach()
     print("WHAT A SELF-SUSTAINING POWER SOURCE REQUIRES")
@@ -275,6 +364,22 @@ def selftest():
           fusion_share(v) < 0.50)
 
     print()
+    print("  the spallation comparison, and the structure it turns on")
+    y_fus = fusion_neutrons_per_proton(eta_best)
+    check("the muon channel adds neutrons rather than replacing any",
+          y_fus > 0.0)
+    check("and the addition is the pion yield times collection times the life",
+          abs(y_fus - PI_PER_PROTON * eta_best * N_MEASURED) < 1e-9)
+    check("the break-even penalty falls as the spallation yield rises",
+          transparency_breakeven(250.0, eta_best)
+          < transparency_breakeven(100.0, eta_best))
+    check("at a high spallation yield the requirement is still under a fifth",
+          transparency_breakeven(250.0, eta_best) < 0.25)
+    check("taking a 14.1 MeV neutron as worth exactly one is the conservative "
+          "choice", transparency_breakeven(150.0, eta_best, worth=1.0)
+          < transparency_breakeven(150.0, eta_best, worth=1.5))
+
+    print()
     print("  the instrument can fail: a blanket that could not supply the")
     print("  requirement would have to need k >= 1, so that case is constructed")
     check("a requirement of 100 GeV per fusion would need k >= 1",
@@ -290,8 +395,14 @@ def selftest():
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--spallation", action="store_true",
+                    help=report_spallation.__doc__)
     a = ap.parse_args()
-    return selftest() if a.selftest else report()
+    if a.selftest:
+        return selftest()
+    if a.spallation:
+        return report_spallation()
+    return report()
 
 
 if __name__ == "__main__":

@@ -166,6 +166,7 @@ ROWS = [
     ("D87", "CF", "9.2", "the self-sustaining POWER source specified: k between 0.469 and 0.770, heat on site, nothing leaving the device", 3, 1, 3, 2),
     ("D88", "CF", "9.3", "and how k is measured: pulsed neutron, source jerk and Rossi-alpha, two of which must agree", 3, 0, 2, 3),
     ("D89", "CF", "9.2", "what it costs to say it: the fusion supplies 7.5 to 27.4 percent, so it is a fusion-driven subcritical fission reactor", 3, -1, 2, 1),
+    ("D90", "CF", "9.4", "the spallation comparison made: the muon channel is ADDITIVE, not alternative, and the only trade is what transparency costs the target", 3, 1, 2, 2),
 ]
 
 ON_AXIS = 2          # a datum "sits on" an axis at this grade or better

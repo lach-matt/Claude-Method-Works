@@ -263,3 +263,33 @@ selftest asserts that solving for a term and substituting it back returns exactl
 closed axes are closed, that the relation reproduces the sourced blanket's regime, and that the
 requirement lands deeply subcritical — plus the constructed case where it would not, so the result is
 a fact about the numbers rather than a tautology.
+
+## The comparison that dissolved
+
+§11 had recorded, correctly, that the bred-fuel and power-source balances were never compared against
+spending the same beam on a spallation-driven subcritical system — and that this was the largest open
+item in the paper, because a simpler machine doing better would make the result true but pointless.
+
+Making it found that the question was posed wrongly. **The muon channel does not replace spallation.**
+The same protons strike the same target and make both, in the same collisions — which is the premise
+§9.2 depends on in the first place. So the channel is *additive in neutrons* and there is no
+alternative to price. What remains is one number: what pion-transparency costs the target's own
+spallation yield, since a target the pions can escape from is narrower than a facility would otherwise
+choose.
+
+That reduces to `f < w·Y_fus/Y`, and `Y_fus` is already in the ledger — 52.41 neutrons per proton with
+both collector alterations. Even against a very productive spallation target the requirement is only
+that transparency cost stay under 21 %.
+
+Three conservatisms all run the same way: a 14.1 MeV neutron counted as worth one spallation neutron
+when it is worth more in a fast blanket; the alpha not counted; and transparency treated as a
+straightforward loss, which in a blanket-coupled system it is not — an escaping neutron enters the
+blanket rather than being lost.
+
+**What survives as open is narrower and is stated as such**: what a spallation-optimised target at
+8 GeV yields, and what transparency costs it. Both are ordinary target-design calculations outside
+this corpus, and §10 Stage D measures the pair on one apparatus.
+
+`tools/powersource.py --spallation` is the instrument; the selftest asserts the additive structure,
+that the break-even falls as the spallation yield rises, and that taking the 14.1 MeV neutron at
+worth one is the conservative choice rather than the flattering one.
