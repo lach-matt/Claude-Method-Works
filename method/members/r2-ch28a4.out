@@ -121,7 +121,7 @@
   1736 heading L6466     WARNING none       body: **THE MATHEMATICAL COMPENDIUM'S BIBLIOGRAPHY CARRIED TEN ROWS THAT WERE NOT WORKS, AND THE MAIN
   1809 heading L6681     WARNING none       body: **FIFTY-NINE WAS A 172-ROW DATUM PRINTED BESIDE A 162-ROW COUNT; RE-TAKEN ON THE LIST IT SITS B
   1810 heading L6685     WARNING none       body: **§R.7's TWO LEAD-INS SAID THE CHAPTERS REST ON THE BLOCKS; THEY NOW SAY WHAT IS TRUE AS PRINTE
-  `Register 344` / `344` sites in the six volumes: main [7244, 9936, 11656] reg [5022, 6412, 6583, 6899] mc [3278]
+  `Register 344` / `344` sites in the six volumes: main [7244, 9936, 11656] reg [5022, 6412, 6583, 6899, 6974] mc [3278]
 
 == §3 computable figures: recomputed where the data is in the bundle; otherwise located at their source (a location is not a re-derivation)
   L11607 "739 of 1,089 joined pairs" with "33 objects": 33² = 1089 (ordered pairs incl. diagonal); C(33,2) = 528; 739/1089 = 67.9 %

@@ -57,7 +57,7 @@
   "a fourth open object outside the book's own five" — the three earlier outside objects are not named in the unit; sites of "open object" + "outside" in main: [9942] (only the unit itself: count word without a witness in the volume — INCIDENTAL, docket 17 single-witness)
   L9948 "§31.1.1 had already named the brackets: zero-velocity surfaces, Hill regions, KAM tori" — in §31.1.1 (L8623–L8655): {'zero-velocity': 0, 'Hill': 3, 'KAM': 0} (Hill = "Hill stability" L8626, "Hill radius" L8628, L8633)
   where the three brackets ARE named together: KAM sites [5161, 9948, 11879] ; zero-velocity sites [5160, 9948] ; those inside §18.4.1 L5004–L5252: [5161, 5160] — L5155–L5156 "Jacobi's zero-velocity surfaces, Hill spheres and KAM tori are all brackets"; L11879 is R.7. DEVIATION: the pointer's target says nothing of two of the three; the claim lives in §18.4.1 (docket 9b)
-  Routh / 0.0385209 / "threshold" in §31.1.1: [0, 1, 1] (L8642–L8644: the threshold IS there, Routh unnamed) ; "0.0385209" sites all volumes: {'main': [8647, 9952], 'pc': [367]}
+  Routh / 0.0385209 / "threshold" in §31.1.1: [0, 1, 1] (L8642–L8644: the threshold IS there, Routh unnamed) ; "0.0385209" sites all volumes: {'main': [8647, 9952], 'reg': [6982], 'pc': [367]}
   §E.5 heading hits: [11190] (body = last); "audit 7": §3 body L1003–L1081 has "seven" audits described (17c B5): 1
 
 ================================================================================================
@@ -100,5 +100,5 @@
   Jacobi      unit  2  main   6  References-body  0  R.7  1  reg   2
   Maupertuis  unit  1  main   3  References-body  0  R.7  1  reg   1
   Hill        unit  1  main  13  References-body  2  R.7  3  reg   3
-  Routh       unit  0  main   0  References-body  0  R.7  0  reg   0
+  Routh       unit  0  main   0  References-body  0  R.7  0  reg   2
   absent from the References body (convention: word-bounded, case-insensitive, body L11550–L11852): ['Saari', 'Painlevé', 'Brudno', 'Montgomery', 'Xia', 'Chenciner', 'Jacobi', 'Maupertuis', 'Routh']

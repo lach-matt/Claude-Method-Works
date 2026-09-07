@@ -2,8 +2,8 @@
 ====================================================================================================
 §0 members and the unit (lettered headings; body = LAST hit; a `### D.x` unit ends at the next heading of any rank)
 ====================================================================================================
-   main The_Method_1_6-2.md                                  md5 e19fb47b  11904 lines
-   reg  The_Method_1_6___The_Register-2.md                   md5 88997c19  6961 lines
+   main The_Method_1_6-2.md                                  md5 f0e52c59  11904 lines
+   reg  The_Method_1_6___The_Register-2.md                   md5 3f6aaeef  6984 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 9426a6b6  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
@@ -37,8 +37,8 @@
     1726 heading L6446 body L6446–L6449 WARNING lines [] :: **APPENDIX D RE-CLOSED AFTER CHAPTERS 35 AND 36 — FORTY-EIGHT ELEMENTS BECOME SIXTY-FIVE OVER TWENTY-TWO FIBRES, AND THE COMPARISON, NOT THE AUTHOR, D
     1734 heading L6462 body L6462–L6465 WARNING lines [] :: **THE MATHEMATICS OF THE LÖWDIN CHALLENGE ENTERED IN APPENDIX D AT LAST — SEVENTY-SEVEN ELEMENTS, TWENTY-FOUR FIBRES, E = 0 — AND THE COMPENDIA'S DEPT
    register pointers inside D.5.9: [1718, 1249, 1726]
-   'E = 4'              {'main': (2, [10861, 10863]), 'reg': (5, [3154, 3574, 6015, 6448, 6944]), 'pc': (1, [61])}
-   'E = 2'              {'main': (2, [5758, 10865]), 'reg': (9, [1294, 1906, 1994, 5186, 5847, 6667]), 'mc': (2, [870, 1870])}
+   'E = 4'              {'main': (2, [10861, 10863]), 'reg': (6, [3154, 3574, 6015, 6448, 6944, 6966]), 'pc': (1, [61])}
+   'E = 2'              {'main': (2, [5758, 10865]), 'reg': (10, [1294, 1906, 1994, 5186, 5847, 6667]), 'mc': (2, [870, 1870])}
    'sixty-five'         {'main': (4, [6688, 9276, 10854, 10882]), 'reg': (7, [2230, 5346, 5350, 6448, 6464, 6472])}
    'twenty-two fibres'  {'main': (2, [10854, 10883]), 'reg': (4, [6464, 6472, 6667, 6944])}
    '3B.five'            {'main': (2, [10849, 10860]), 'reg': (2, [6448, 6944]), 'mc': (3, [3391, 3393, 3534])}

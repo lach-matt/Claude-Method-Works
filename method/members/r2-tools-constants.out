@@ -3,7 +3,7 @@
    2,535 |Λ10|    sites   17 {'main': 8, 'reg': 4, 'mc': 3, 'ioi': 2}
   13,585 |Λ11|    sites   13 {'main': 8, 'reg': 2, 'mc': 2, 'ioi': 1}
   70,905 |Λ12|    sites   20 {'main': 8, 'reg': 7, 'mc': 3, 'ioi': 2}
- 199,130 |Λ13|    sites   32 {'main': 14, 'reg': 4, 'mc': 12, 'ioi': 2}
+ 199,130 |Λ13|    sites   33 {'main': 14, 'reg': 5, 'mc': 12, 'ioi': 2}
  475,800 C(976,2) sites   23 {'main': 10, 'reg': 5, 'mc': 7, 'ioi': 1}
 VARIANT '975': 3 sites [('reg', 1738), ('reg', 3636), ('ioi', 1355)]
 VARIANT '977': 2 sites [('reg', 3644), ('reg', 3894)]

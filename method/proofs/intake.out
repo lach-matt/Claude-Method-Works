@@ -1,0 +1,49 @@
+THE FOUR INTAKE DRAFTS, RE-RUN FROM THE SEATED DELIVERIES
+
+md5 on the file draft 1795 names on its face
+  LW1-ground.py                    236975ac23aa29960d4f7c2a4d200cd6   as drafted
+
+every delivered script re-run, output against its banked log
+  LW1-ground.py                    -> LW1-ground-run.log                    294 B   byte-for-byte
+  TB1-audit.py                     -> TB1-audit.log                        1620 B   byte-for-byte
+  TB1-audit_state1_failing.py      -> TB1-audit_state1_failing.log         1633 B   byte-for-byte
+  TB1-caps_table.py                -> TB1-caps_table.log                    271 B   every column but wall-clock `seconds`
+  TB1-n8_check.py                  -> TB1-n8_check.log                     1221 B   byte-for-byte
+  TB1-routh_check.py               -> TB1-routh_check.log                    90 B   byte-for-byte
+
+1795  ground.py
+   108 elements · electron count checks: 108/108
+   19 subshells opened across Z = 1 to 108
+   the sequence read from the configurations, in 19 subshells
+   Madelung order would give 4f before 5d and 5f before 6d; the sequence has
+   ... 6s 5d 4f 6p 7s 6d 5f 7p -- the two adjacent transpositions.
+
+1796  the three-body audit
+   labelled mass cases in the table          : 13
+   checks per case (A..F)                    : 6
+   so the audit is                           : 78 of 78
+   column A on the first-run script          : False, 13 of 13
+   labels naming a tie                       : 7
+   labels naming one total order             : 4  (x<y, y<z, x>y, y>z, x<z, z<y, x>z, z>y)
+   labels leaving a pair open                : 2  (x<y, y>z, x>y, y<z)
+   The draft says the thirteen realise TWELVE orderings and that the
+   thirteenth, z<x<y, passes all six checks when added.  That is a claim
+   about the audit's own enumeration, not about these labels, and it is
+   NOT re-derived here -- the two open labels above are where it would
+   have to be settled.
+   cap 8: cells 344, meet failures 8385, join failures 0, two-body chain 0
+   caps present                              : 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+
+1797(draft)  N8 and the withdrawn polynomial
+   N8 compact form matches norm: True
+   N8 at u=(3,5,7), V=15: 0
+   withdrawn U^4 coeff - true U^4 coeff = -4*(u1**4 - 4*u1**2*u2**2 - 4*u1**2*u3**2 + u2**4 - 4*u2**2*u3**2 + u3**4)
+   withdrawn U^2 coeff - true U^2 coeff = -4*(u1**6 + 3*u1**4*u2**2 + 3*u1**4*u3**2 + 3*u1**2*u2**4 - 4*u1**2*u2**2*u3**2 + 3*u1**2*u3**4 + u2**6 + 3*u2*
+
+1798(draft)  Routh's threshold
+   root of 27mu(1-mu) = 1 below one half : 0.0385208965
+   (9 - sqrt 69)/18                      : 0.0385208965
+   the two agree                         : True
+   Routh mu_1 = (9-sqrt(69))/18 = 0.0385208965; record prints 0.0385209; agree to 1e-7: True
+
+RECORDED, NOT REPAIRED.

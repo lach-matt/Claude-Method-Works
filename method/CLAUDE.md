@@ -70,10 +70,10 @@ no longer on the read path.
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD124 main** (2,120,971 B ·
-  `0790075ae2a72859809e9ec3486ad9d2` · 18,868 lines · 2 members) and **BUILD265 compendia** (16,263,849 B ·
-  `15f386f2fc8785a818e82f2427f09438` · 140,535 lines · 740 members). **742 members in all.** **The Register runs
-  1 to 1879, 1,721 seated** (1,714 numbered + 7 grouped). **W-270 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD125 main** (2,128,800 B ·
+  `9c03bd27fa8c8f6d384d5341260d1874` · 18,891 lines · 2 members) and **BUILD269 compendia** (16,317,908 B ·
+  `5d415b7e9228c33f28ac2f2ea8255f76` · 141,371 lines · 744 members). **746 members in all.** **The Register runs
+  1 to 1885, 1,727 seated** (1,720 numbered + 7 grouped). **W-274 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -82,14 +82,30 @@ no longer on the read path.
   asserting its predecessor's md5** — which is what the reverse guard is for.
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 7 September: `python3 method/verify.py`
   VERIFY OK (742 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
-  `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,634 rows, 3 carried retired, 1,631
-  regenerated exactly, 0 NEW, 0 GONE, md5 `f5e30751d4b32f37a0852af98d52abdc` equal to the seated member);
+  `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,638 rows, 3 carried retired, 1,635
+  regenerated exactly, 0 NEW, 0 GONE, md5 `dbc3d6d6a8d6d925b64a7bfd2037aa49` equal to the seated member);
   **The live set is 85 from BUILD121**: `r2-26c2` is held with successor `r2-26c3` owed, because register 1868
   names the method ratio and so joins 296 in that instrument's pinned list — a record outgrowing a pin, which is
   `r2-26b`'s shape and takes a successor rather than an edit (W-260).
-  `gate.py manifest --main … --comp …` **OK**, 741 listed / 743 extracted;
-  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD124/BUILD265 counting the census
-  step, register 1876-1879's **64** moved goldens having been censused and then re-banked by running (W-270).
+  `gate.py manifest --main … --comp …` **OK**;
+  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD125/BUILD268 counting the census
+  step, register 1880-1885's **36** moved goldens having been censused and then re-banked by running (W-272).
+  **That census needed no shift window at all** — the first of this leg for which the shift class was ruled
+  out STRUCTURALLY rather than checked: of 6,961 Register lines exactly nine differ in the common range, all
+  of them front-matter counts, and nothing before the append moved. **One residue fell and is the same
+  numerator over a larger denominator**: 16.0 % → 15.9 %, the split-headline class at 275 entries before and
+  after, while the same instrument's pinned odd-asterisk class held at 22 — the emphasis-parity guard doing
+  its work on six new entries. **And one residue is a consequence of seating**: entry 1885 carries *Prior art:
+  Routh 1875* and the References have no Routh, so this build added one to the standing cited-but-
+  unbibliographed class the prose pass owns. **The census close came AFTER the re-bank here and that is the
+  wrong order, and it cost a cycle** (W-273, corrected by W-274). **W-273 claimed no live golden reads the
+  census and that the confirming gate proved it. Both halves are false**: `r2-bib2` prints the census md5 and
+  `r2-ch16t3` its row count, and the gate passed only BECAUSE the re-bank had just aligned both sides of a
+  stale census. **A gate that passes is not evidence a dependency is absent when the re-bank has aligned both
+  sides of it.** The two were re-banked at BUILD269 and the order — census first, then the re-bank — now has a
+  measured instance behind it rather than an argument.
+  The previous verdict: **86 OK, 0 FAIL** at BUILD124/BUILD265,
+  register 1876-1879's 64 moved goldens censused and re-banked by running (W-270).
   **That census is the largest of this leg and every one of its thirty residues was read**, because the ≥ 7
   table grew by two rows at L47 and shifted every Register line below it by two. One residue is worth keeping:
   `r2-ch16f2`'s six-volume count for the token `18` FELL, 140 → 139, with nothing deleted from any volume — the
@@ -184,10 +200,28 @@ no longer on the read path.
   written to run from `method/proofs/`; each is checked by its own `--selftest` instead. `CLAUDE.md`,
   `README.md`, `MEMBER-INDEX.tsv`, `verify.py`, the `W-*.md` files and R3's `DEF-153*` / `DRAFT-*` notes to
   M stay outside the bundles, as the store already had them.
-- **PHASE 2 OF THE PUBLICATION PLAN IS COMPLETE TO THE LIMIT OF WHAT MAY BE DECIDED WITHOUT M: 36 DONE, 1
-  REFUTED, 1 PART, 8 OPEN, and every one of the eight reduces to a ruling that has not been given** — register
-  1836's bracket result, register 1797's seating, and Phase 0 ruling 7 over the chat-witnessed retractions and
-  the spent intake drafts 1795–1798. **No measurable row remains.** BUILD124 seats **1876–1879** (`r4-b9.py`,
+- **PHASE 2 OF THE PUBLICATION PLAN HAS NO OPEN ROW LEFT: 43 DONE, 1 REFUTED, 1 PART, and one row RULED with
+  its pass owed.** M gave the three rulings on 7 September and `RULINGS-R4g.md` is seated with them. BUILD125
+  seats **1880–1885** (`r4-c1.py`, W-271): the Request-3 bracket result, whose reserved number 1836 a later
+  build had spent — **a Register number is assigned at seating**; the agreement theorem's counterexample staged
+  as 1797 and never seated, where **1797 stays a hole because a number is not reused**; and the four
+  `READ-intake1.md` drafts. **M ruled entry 1880's kind is BOTH, and the mechanism is the absence of a tag**:
+  `kinds.py` collapses an entry to one kind only where a trailing tag is present, and 1880 measures as
+  `['a finding', 'a measurement']`. Only 105 of the seated entries carry a tag at all. Two instruments were
+  built for the pass and are seated — `intake.py` (44/44), which re-runs all six delivered scripts against
+  their banked logs, and `agreement.py` (17/17), which requires ℛ to return the printed **E = 36** for the
+  periodic table before trusting it — and **`factor.py` is seated byte-exact** at md5 `55c518c9…`, closing the
+  seated `r3-br-measure.py`'s pre-seating fallback to the mirror.
+- **AND M's REASON FOR ONE OF THE THREE REORDERS THE PLAN.** *"the compendiums must be finished before the
+  prose work, so the main volume pointers can be fixed during the prose phase."* The compendia close **before**
+  Phase 3 opens; the main volume's pointers into them are repaired inside the prose pass rather than ahead of
+  it. `RULINGS-R4g.md` §1(c) carries it.
+- **THE ONE ROW LEFT IS A PASS, NOT A SEATING, AND NONE OF IT IS DONE.** M ruled that **a chat transcript IS a
+  source a repair may be made from** — *"but the chat must be reviewed exhaustively because context frames the
+  object in question; and usually they are also a lead with an attached instrument for verification"* — and
+  that **findings are recorded AND repaired**. Twelve entries (230, 314, 500, 502, 599, 602, 807, 1148, 1450,
+  1461, 1595, 1628) assert what a chat withdrew with no withdrawal marker; 1395 carries `WARNING`. Each repair
+  is a new appended entry citing the superseded one, and each is owed that exhaustive review first. BUILD124 seats **1876–1879** (`r4-b9.py`,
   W-268): the Compendium's equality-case gloss, register 1517's corridor census with its two wrong citations,
   §12.11.1.2's three faults, and registers 623/625 read as one fault. Three measurement instruments were built
   for it and are seated as members — `geodesic.py` (17/17), `corridors.py` (32/32), `consshare.py` (36/36) —

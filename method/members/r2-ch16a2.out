@@ -110,8 +110,8 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
         L513    register records what was added and withdrawn. Enumeration is finite work and this book does
         L643    ### 2.12 Withdrawal
         L720    A register of withdrawals is a list of bounds. Read it that way and it stops being a
-  withdraw         reg   66 site(s)
-        L27     | **a withdrawal** | 34 | 61 | a claim removed, with the reason |
+  withdraw         reg   68 site(s)
+        L27     | **a withdrawal** | 35 | 61 | a claim removed, with the reason |
         L31     *The kinds overlap: a correction is usually also a measurement, and a withdrawal usually cit
         L76     Every correction, withdrawal and finding in the order it happened. **The book cites entries 
         L106    **THE FOUNDING CONCLUSION: THE RESERVED CELLS TRANSFORM ELEMENTAL DISCOVERY INTO A BOUNDED S
@@ -232,7 +232,7 @@ r2-ch16a  PROSE  chat 116  main L8352-L8455  (§30.2 - §30.3.2)
   landscape      {'main': [693, 805, 8399], 'reg': [3758], 'ioi': [76]}
   potential      {'main': [8400, 9787, 9944, 9956, 10847, 10864, 10868, 11447], 'reg': [2574, 2618, 4682, 4722, 5046, 5234, 5458, 5462], 'mc': [73, 1024, 2376, 2378, 2384, 2394, 3250], 'pc': [72, 95, 106, 358, 365, 391, 502, 674], 'ioi': [2074], 'sc': [1130]}
   descent        {'main': [392, 686, 693, 8401, 8546, 9712], 'reg': [4534, 4950, 4954, 4958, 4962, 5070, 5086, 5110], 'ioi': [1660, 1667, 1873]}
-  transposition  {'main': [693, 3709, 8400], 'reg': [5278, 5819]}
+  transposition  {'main': [693, 3709, 8400], 'reg': [5278, 5819, 6970]}
   stall          {'main': [686, 8401], 'reg': [5622]}
 
 ## 14  FIGURE REFERENCES vs FIGURE MEMBERS (production, not authoring)

@@ -1,0 +1,46 @@
+REGISTER 1176's AGREEMENT THEOREM, AND THE COUNTEREXAMPLE STAGED AS 1797
+
+THE OBJECT
+  dclose.py's own element lists : 65 + 12 = 77
+  coordinates                   : status, verification, precedent
+  values observed on each axis  : [4, 2, 2]
+  so the box is                 : 16 cells
+  distinct gradings held        : 11
+  value order declared, so no lexicographic fallback: True
+  the run's only warning        : ['66 duplicate cells collapsed']
+
+WHAT EACH LANGUAGE ADMITS
+  order          admits 13
+  algebra        admits 13
+  geometry       admits 13
+  information    admits 13
+  statistics     admits 13
+  documentary    special row: returns a citation, not a binary
+  analysis       special row: declared-only; returns a magnitude, not a cell decision
+
+THE TEST
+  the five operator-bearing languages return IDENTICAL sets: True
+  each admits                                             : 13
+  the index holds                                         : 11
+  so E = admitted - held                                  : 2
+
+  the cells R admits and the index lacks:
+    measured · exhaustive · found
+    verified · sampled · found
+
+  Each is a grading a mathematical object could carry, and neither occurs
+  among the 77.  So the languages agree in the strongest sense available
+  -- identical admitted sets -- and E is not zero.
+
+WHICH HALF OF 1176 THIS TOUCHES
+  the 'if' half   -- E = 0 implies agreement          : NOT TESTED HERE, untouched
+  the 'only if'   -- agreement implies E = 0          : REFUTED by this object
+
+THE OTHER TWO READINGS OF THE SAME ELEMENTS, NEITHER A DEFECT
+  with kind and discipline on axes the object is wide open -- register 1356's
+  fault, not a finding here.
+  fibres by kind·discipline                : 24
+  fibres closing at E = 0 under R          : 24
+  which is dclose.py's own '24 fibres, E: 0' for the 77.
+
+RECORDED, NOT REPAIRED.

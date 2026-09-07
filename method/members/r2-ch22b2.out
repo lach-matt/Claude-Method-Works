@@ -67,13 +67,13 @@ r2-ch22b — Appendix D part 1 (D.1–D.4.4.3), prose and pointers
    R45 candidates: [] ; R46 candidates: []
    never been checked here  unit [] ; main-elsewhere 0; mc 0; reg 0
    no precedent found       unit [10443] ; main-elsewhere 0; mc 0; reg 1
-   exhaustive               unit [10381, 10398, 10399, 10402, 10407, 10443] ; main-elsewhere 103; mc 17; reg 23
+   exhaustive               unit [10381, 10398, 10399, 10402, 10407, 10443] ; main-elsewhere 103; mc 17; reg 24
    idempotent               unit [10450] ; main-elsewhere 4; mc 4; reg 3
    caterpillar              unit [10435, 10473] ; main-elsewhere 11; mc 8; reg 6
    pendant                  unit [10473] ; main-elsewhere 9; mc 5; reg 1
    normal form              unit [10454, 10467] ; main-elsewhere 2; mc 0; reg 0
    canonical form           unit [10451] ; main-elsewhere 2; mc 0; reg 0
-   MONOTONE                 unit [10367, 10370, 10394] ; main-elsewhere 112; mc 81; reg 84
+   MONOTONE                 unit [10367, 10370, 10394] ; main-elsewhere 112; mc 81; reg 85
    INTERCHANGEABLE          unit [10489] ; main-elsewhere 2; mc 0; reg 0
    Register 230 body: **APPENDIX D'S *KIND* COORDINATE DISAGREES WITH PART III'S TITLE — THE PART IS CALLED THE LAW AND ITS CONTENTS ARE THEOREMS.** *Recorded rather than r
    Register 385 WARNING line: none
