@@ -436,7 +436,20 @@ tails **32,933**, an upper bound of **559 years of world electricity**. What tai
 **start** the plant — U-238 is fertile and reaching k = 0.95 needs separated fissile. The
 mass-energy bookkeeping then closes independently: the mass converted over the life is **0.00093**
 of the uranium consumed, which is the fission mass defect, and the selftest pins it as such rather
-than as a magnitude. See `docs/MATERIALS.md`)
+than as a magnitude. **`--fertile` then asks the consequent question** — the tails are finite, so
+what is the ladder below them, and *does the design still work on each rung?* Tails (**31,365**
+station-lifetimes), spent LWR fuel (7,841), natural uranium (156,825), thorium (125,460) and
+seawater uranium (88 million). **The first three rungs are the same fuel** — all U-238 with different
+amounts of U-235 attached, and the design burns the U-238 either way, so only the provenance changes
+and the first two are wastes. **The fourth does not simply substitute**: thorium breeds U-233 at
+ν = 2.50 against Pu-239's 2.90, which costs twice over — fission takes more of the budget *and* `f_b`
+rises from 0.4872 to **0.6129** — leaving **0.800** free per source neutron at the loose leakage
+allowance against a tritium demand of 1.373. **Thorium closes at L = 0.10 with 1.427 to spare and
+fails at L = 0.20 by 0.573**, so the fallback is *conditional* on the one term this work has never
+measured: on uranium the leakage band decides nothing, **on thorium it decides whether the fuel
+works**. And a self-tritiating deuterium cell demands essentially no ⁶Li, at which point thorium
+closes on both — **the fuel question and the fertile question are the same question**. See
+`docs/MATERIALS.md`)
 and **`tools/buildpackage.py`** (**phase 3: everything but the drawings** — specification,
 sequence, commissioning, interfaces, envelope, acceptance and gaps. It computes almost nothing of
 its own and its selftest asserts the refusal: **no drawing library may be imported and the file may
@@ -482,7 +495,29 @@ Review of Particle Physics without judgement, and everything else is excluded be
 consulted. Two of the five lie in the structural window, one survives the hadron test, and
 `robustness()` prices how far the window's endpoints may move without changing that — **×207** at the
 lower bound, **×3.54** at the upper. Its `--selftest` also constructs the particle that *would* break
-uniqueness, so the theorem's content is a fact about the spectrum rather than a tautology),
+uniqueness, so the theorem's content is a fact about the spectrum rather than a tautology.
+**`--fuels` then runs the same argument on the other side**: Theorem 1 closes what may *hold* a
+mesomolecule and says nothing about what the mesomolecule holds, and the design had assumed d–t
+throughout without asking. The candidate set closes the same way — a fuel is a *pair* of light
+nuclei and the hydrogen isotopes give exactly six, with the helium pairs listed beside them and
+excluded by the same arithmetic. **The figure of merit is not Q**: a muon is a reusable catalyst with
+two ways of being lost, so what one is worth is `N = 1/(ω_s + λ₀/λ_c)` — a slow cycle is punished by
+decay and a sticky one by sticking. **d–t is first by 78× on energy per muon, and the second is t–t,
+which uses *more* tritium**; against d–d, the only tritium-free pair with any rate at all, it is 231×
+on energy and 96× on neutrons. The model returns 113 cycles where **150** were measured, a fidelity
+of 0.754, so it is used for *ratios* between fuels and never for an absolute N. **So d–t is not a
+preference — it is the only pair whose cycle outruns the muon and whose sticking lets it repeat.**
+**And then the scan finds what it had almost hidden: a D₂ cell does not stay a D₂ cell.** One d–d
+branch is `d + d → t + p`, and dtμ forms some eighty times faster than ddμ, so a deuterium cell
+**tritiates itself** until production balances burn — `0.5·f_dd = f_dt` gives `f_dt = 1/3` at a
+tritium fraction of **0.62 %**. Such a cell holds **65× less tritium** (0.52 kg against 33.71 across
+the station), needs no lithium, no breeder zone, no tritium plant, no staged charging and no fleet
+doubling time, **and it is still muon-catalysed fusion** — at the price of a fusion channel 48×
+weaker, which at the station costs **1.080×** in beam, the *same* as deleting the channel entirely.
+Not computed and running against it: the other d–d branch makes ³He, muon transfer to ³He is fast,
+and ³He is a known poison in deuterium cells. The equilibrium is **first order** and stated as a
+requirement to measure — see `environment.py --tradeoff`, which prices all three routes and chooses
+none),
 **`tools/render_paper.py`** (the publication renderer, and the repair of the
 §9.9 weakness `verify_paper.py` records: **the paper's source carries no numerals at all** — it
 carries `[[C044]]` citations, which this program resolves against `CLAIMS.tsv` at render time, so a

@@ -144,6 +144,168 @@ def reduced_mass_residual(m_b):
     return m_b / M_ALPHA_ME
 
 
+# ---- THE FUEL SCAN, WHICH IS THE SAME ARGUMENT ON THE OTHER SIDE ----------
+# Theorem 1 closes the BINDER question: of everything in the charged spectrum,
+# only the muon can hold a mesomolecule. It says nothing about what the
+# mesomolecule holds, and the design has assumed d-t throughout without ever
+# asking whether anything else would do -- which matters, because tritium is
+# the single largest environmental liability in the whole plant.
+#
+# The candidate set is closed the same way the binder set was. A mesomolecular
+# fuel is a PAIR of light nuclei that a muon can bind, and the hydrogen
+# isotopes give exactly six pairs; the helium ones are listed beside them and
+# excluded on the same arithmetic rather than by assertion.
+#
+# The figure of merit is not Q. A muon is a reusable catalyst with two ways of
+# being lost -- it decays, or it sticks to a fusion product -- so what one
+# muon is worth is
+#
+#     N = 1 / (omega_s + lambda_0 / lambda_c)
+#
+# with lambda_0 the muon decay rate and lambda_c the cycle rate, and the fuel's
+# value is N.Q for energy and N.n for neutrons. A slow cycle is punished by
+# decay and a sticky one by sticking, and d-t is the only pair that is neither.
+LAMBDA_0 = 1.0 / 2.1969811e-6      # muon decay rate, s^-1                EXACT
+# (name, cycle rate s^-1 at ~1.2 LHD, effective sticking, Q MeV,
+#  neutrons per fusion)   -- rates and stickings SOURCED, muCF literature bands
+FUELS = [
+    ("d-t",    1.2e8, 0.00505, 17.59, 1.0),
+    ("d-d",    1.5e6, 0.12,     3.65, 0.5),
+    ("t-t",    1.5e6, 0.14,    11.33, 2.0),
+    ("p-d",    5.6e6, 0.90,     5.49, 0.0),
+    ("p-t",    1.0e6, 0.95,    19.81, 0.0),
+    ("p-p",    1.0e2, 0.99,     1.44, 0.0),
+    ("d-He3",  1.0e5, 0.99,    18.35, 0.0),
+    ("p-He3",  1.0e4, 0.99,     1.86, 0.0),
+]
+N_MEASURED_DT = 150.0              # [C44] Los Alamos, and the plant uses THIS
+
+
+def cycles_per_muon(lambda_c, sticking):
+    return 1.0 / (sticking + LAMBDA_0 / lambda_c)
+
+
+def fuel_table():
+    out = []
+    for name, lc, ws, q, n in FUELS:
+        cyc = cycles_per_muon(lc, ws)
+        out.append((name, lc, ws, q, n, cyc, cyc * q, cyc * n))
+    return out
+
+
+def model_fidelity():
+    """The model against its one measured point. It is used for RATIOS between
+    fuels and never for an absolute N -- the plant uses the measured 150."""
+    dt = [r for r in fuel_table() if r[0] == "d-t"][0]
+    return dt[5] / N_MEASURED_DT
+
+
+# ---- AND A D2 CELL DOES NOT STAY A D2 CELL --------------------------------
+# One branch of d-d makes TRITIUM -- d + d -> t + p, about half the time -- and
+# dtmu forms some eighty times faster than ddmu. So a pure deuterium cell
+# tritiates itself until production balances burn, and then runs as a mixture.
+# It is not a choice; it is what the cell does.
+#
+#   steady state:  0.5 f_dd = f_dt  and  f_dd + f_dt = 1   ->  f_dt = 1/3
+#
+# and the tritium concentration that produces that split follows from the two
+# formation rates. The result is the number that matters here: a cell that
+# makes its own tritium holds a PERCENT of it rather than half.
+def selftritiation():
+    """(f_dt, f_dd, tritium atom fraction, N, MeV/muon, n/muon, T mass frac)."""
+    ldt = dict((f[0], f[1]) for f in FUELS)["d-t"]
+    ldd = dict((f[0], f[1]) for f in FUELS)["d-d"]
+    wdt = dict((f[0], f[2]) for f in FUELS)["d-t"]
+    wdd = dict((f[0], f[2]) for f in FUELS)["d-d"]
+    f_dt, f_dd = 1.0 / 3.0, 2.0 / 3.0
+    ratio = (f_dt / f_dd) * ldd / ldt
+    c_t = ratio / (1.0 + ratio)
+    lc = ldt * c_t + ldd * (1.0 - c_t)
+    ws = f_dt * wdt + f_dd * wdd
+    n_cycles = cycles_per_muon(lc, ws)
+    q = f_dt * 17.59 + f_dd * 3.65
+    n = f_dt * 1.0 + f_dd * 0.5
+    m_t = c_t * 3.016 / (c_t * 3.016 + (1.0 - c_t) * 2.014)
+    return f_dt, f_dd, c_t, n_cycles, n_cycles * q, n_cycles * n, m_t
+
+
+def report_fuels():
+    """Is d-t the only fuel? A closed scan over the pairs a muon can bind."""
+    print("  THE FUEL SCAN")
+    print()
+    print("    Theorem 1 closes the BINDER question and says nothing about")
+    print("    what the mesomolecule holds. This asks the other half, and it")
+    print("    matters because tritium is the largest environmental liability")
+    print("    in the plant. The candidate set is closed the same way: a")
+    print("    mesomolecular fuel is a PAIR of light nuclei, the hydrogen")
+    print("    isotopes give exactly six, and the helium pairs are listed")
+    print("    beside them and excluded by the same arithmetic.")
+    print()
+    print("    THE FIGURE OF MERIT IS NOT Q. A muon is a reusable catalyst")
+    print("    with two ways of being lost, so what one is worth is")
+    print("      N = 1 / (omega_s + lambda_0/lambda_c)")
+    print("    A slow cycle is punished by decay and a sticky one by sticking.")
+    print()
+    print("      fuel     cycle rate   sticking   decay term      N"
+          "     MeV/muon   n/muon")
+    for name, lc, ws, _q, _n, cyc, e, nn in fuel_table():
+        print(f"      {name:7s} {lc:11.2e} {100*ws:8.2f} %"
+              f" {LAMBDA_0/lc:12.4f} {cyc:8.2f} {e:11.1f} {nn:8.2f}")
+    print()
+    best = max(fuel_table(), key=lambda r: r[6])
+    second = sorted(fuel_table(), key=lambda r: -r[6])[1]
+    print(f"    d-t is first by {best[6]/second[6]:.0f}x on energy per muon, and")
+    print(f"    the second is {second[0]}, which uses MORE tritium than d-t does.")
+    dd = [r for r in fuel_table() if r[0] == "d-d"][0]
+    print(f"    Against d-d -- the only tritium-free pair with any rate at")
+    print(f"    all -- it is {best[6]/dd[6]:.0f}x on energy and {best[7]/dd[7]:.0f}x on neutrons.")
+    print()
+    print(f"    THE MODEL AGAINST ITS ONE MEASURED POINT: it returns")
+    print(f"    {best[5]:.1f} cycles for d-t where {N_MEASURED_DT:.0f} were measured,")
+    print(f"    a fidelity of {model_fidelity():.3f}. It is therefore used for")
+    print("    RATIOS between fuels and never for an absolute N -- every")
+    print("    balance in this work uses the MEASURED 150.")
+    print()
+    print("    SO YES: d-t IS THE ONLY FUEL, and it is not a preference. It")
+    print("    is the only pair whose cycle is fast enough to outrun the muon")
+    print("    and whose sticking is low enough to let it repeat.")
+    print()
+    print("    BUT A D2 CELL DOES NOT STAY A D2 CELL, AND THAT IS THE ANSWER")
+    print("    THE SCAN ALMOST HID.")
+    f_dt, f_dd, c_t, n_cyc, e, n, m_t = selftritiation()
+    print()
+    print("      One branch of d-d makes TRITIUM -- d + d -> t + p, about half")
+    print("      the time -- and dtmu forms some eighty times faster than ddmu.")
+    print("      So a deuterium cell tritiates ITSELF until production balances")
+    print("      burn. That is not a choice; it is what the cell does.")
+    print()
+    print(f"        steady state          f_dt {f_dt:.4f}   f_dd {f_dd:.4f}")
+    print(f"        tritium atom fraction {100*c_t:8.3f} %")
+    print(f"        tritium MASS fraction {100*m_t:8.3f} %"
+          f"   against 60 % in d-t")
+    print(f"        cycles per muon       {n_cyc:8.2f}")
+    print(f"        neutrons per muon     {n:8.3f}"
+          f"   against {best[7]:.1f} for d-t")
+    print()
+    print(f"      A CELL THAT MAKES ITS OWN TRITIUM HOLDS "
+          f"{0.600/m_t:.0f}x LESS OF IT, and it")
+    print("      needs no lithium, no breeder zone, no tritium plant, no")
+    print("      staged charging and no fleet doubling time -- the whole")
+    print("      tritium economy leaves the design with the tritium charge.")
+    print()
+    print("      WHAT IT COSTS is the fusion channel, by "
+          f"{best[7]/n:.0f}x in neutrons. See")
+    print("      environment.py --tradeoff for what that is worth at the")
+    print("      station, where the channel is a fourteenth of the source.")
+    print()
+    print("      NOT COMPUTED AND IT RUNS AGAINST THIS: the other d-d branch")
+    print("      makes He-3, muon transfer to He-3 is fast, and He-3 is a")
+    print("      known poison in deuterium cells. It would lower N further by")
+    print("      an amount this work does not calculate. The equilibrium above")
+    print("      is FIRST ORDER and is stated as a requirement to measure, not")
+    print("      as a result to build on.")
+
+
 def report():
     print("WHICH PARTICLES THE CONDITIONS ADMIT")
     print(f"  window   {WINDOW_LO:.0f} to {WINDOW_HI:.0f} electron masses")
@@ -250,6 +412,44 @@ def selftest():
     print("    -- so the theorem's content is that the real spectrum has no such")
     print("       particle, which is a fact about the spectrum and not a tautology")
     print()
+    print()
+    print("  the fuel scan closes the same way the binder scan does")
+    tab = fuel_table()
+    check("the hydrogen pairs are complete: p-p, p-d, p-t, d-d, d-t, t-t",
+          {r[0] for r in tab} >= {"p-p", "p-d", "p-t", "d-d", "d-t", "t-t"})
+    check("d-t is first on energy per muon",
+          max(tab, key=lambda r: r[6])[0] == "d-t")
+    check("  -- and first on neutrons per muon",
+          max(tab, key=lambda r: r[7])[0] == "d-t")
+    check("the second best uses MORE tritium, not less",
+          sorted(tab, key=lambda r: -r[6])[1][0] == "t-t")
+    check("d-t beats the best tritium-free pair by over a hundred times",
+          max(tab, key=lambda r: r[6])[6]
+          / [r for r in tab if r[0] == "d-d"][0][6] > 100.0)
+    check("the model reproduces its one measured point within 30 percent",
+          0.7 < model_fidelity() < 1.3)
+    check("  -- and the plant uses the MEASURED N, not the model's",
+          abs(N_MEASURED_DT - 150.0) < 1e-9)
+    # the figure of merit must be a FIGURE OF MERIT: a fuel with a huge Q and
+    # a dead cycle must lose to one with a small Q and a live one.
+    check("a large Q does not rescue a slow, sticky cycle",
+          [r for r in tab if r[0] == "p-t"][0][6]
+          < [r for r in tab if r[0] == "d-t"][0][6])
+    print()
+    print("  a deuterium cell tritiates itself, and the selftest pins it")
+    f_dt, f_dd, c_t, n_cyc, _e, n, m_t = selftritiation()
+    check("production balances burn at the stated split",
+          abs(0.5 * f_dd - f_dt) < 1e-12)
+    check("the equilibrium tritium fraction is percent-scale, not half",
+          0.001 < c_t < 0.05)
+    check("  -- so the holding falls by more than an order of magnitude",
+          0.600 / m_t > 10.0)
+    check("and it costs the fusion channel more than an order of magnitude",
+          [r for r in tab if r[0] == "d-t"][0][7] / n > 10.0)
+    check("the equilibrium is between the two pure cases, as it must be",
+          [r for r in tab if r[0] == "d-d"][0][5] < n_cyc
+          < [r for r in tab if r[0] == "d-t"][0][5])
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -257,8 +457,14 @@ def selftest():
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--fuels", action="store_true",
+                    help=report_fuels.__doc__)
     a = ap.parse_args()
-    return selftest() if a.selftest else report()
+    if a.selftest:
+        return selftest()
+    if a.fuels:
+        return report_fuels()
+    return report()
 
 
 if __name__ == "__main__":

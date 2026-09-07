@@ -364,6 +364,132 @@ def shield_mass_kg(thick_m=None, rho=CONCRETE_RHO):
     return rho * math.pi * ((r + t) ** 2 * (h + 2 * t) - r ** 2 * h)
 
 
+# ---- WHEN THE TAILS RUN OUT, AND WHAT COMES AFTER -------------------------
+# --uranium answers "is there enough" for the tails alone. This asks the
+# consequent question: the tails are finite, so what is the ladder below them,
+# and does the DESIGN still work on each rung? The second half is the one that
+# is usually skipped -- a resource is not a fuel until the neutron budget says
+# so, and one rung of this ladder fails that test.
+FERTILE_RESOURCES = [
+    ("enrichment tails (DU), world", 1.6e6, "SOURCED band", "U-238"),
+    ("spent LWR fuel, heavy metal", 4.0e5, "SOURCED order", "U-238"),
+    ("identified natural uranium", 8.0e6, "SOURCED, at recoverable cost",
+     "U-238"),
+    ("thorium, identified resources", 6.4e6, "SOURCED order", "Th-232"),
+    ("uranium in seawater", 4.5e9, "SOURCED, dissolved inventory", "U-238"),
+]
+NU_U233_FAST = 2.50          # SOURCED: neutrons per fast fission, U-233
+NU_PU239_FAST = 2.90         # SOURCED, and it is powersource's own NU_FAST
+
+
+def fertile_lifetimes(stock_t):
+    return stock_t / uranium_life_charge_t()
+
+
+def budget_on(nu, k_eff=None, leak=None):
+    """Does the neutron budget close on a fertile cycle of this nu?
+
+    The whole design rests on nu = 2.90, which is Pu-239 fast. A thorium cycle
+    breeds U-233 at nu = 2.50, and the difference is not cosmetic: f_b rises,
+    fission takes more of the budget, and what is left for Li-6 shrinks twice
+    over. Returns (f_b, fissions, non-fission fates, free for Li-6).
+    """
+    P = _ps()
+    k = P.K_SAFE if k_eff is None else k_eff
+    L = P.LEAK_PARASITIC_HI if leak is None else leak
+    n_tot = 1.0 / (1.0 - k)
+    f = k / (nu * (1.0 - k))
+    a = n_tot - f
+    return k / (nu - k), f, a, a - f - L * n_tot
+
+
+def tritium_per_source_neutron():
+    return _ps().tritium_per_source_neutron()
+
+
+def _capture_local(fn):
+    import contextlib as _c
+    import io as _io
+    b = _io.StringIO()
+    with _c.redirect_stdout(b):
+        fn()
+    return b.getvalue()
+
+
+def report_fertile():
+    """The ladder below the tails, and whether the design works on each rung."""
+    P = _ps()
+    trit = tritium_per_source_neutron()
+    print("  THE FERTILE LADDER")
+    print()
+    print("    --uranium asks whether there is enough. This asks what comes")
+    print("    after, and then the question that is usually skipped: A")
+    print("    RESOURCE IS NOT A FUEL UNTIL THE NEUTRON BUDGET SAYS SO.")
+    print()
+    print(f"    The station eats {uranium_feed_t_per_year():.3f} t/yr,"
+          f" a {uranium_life_charge_t():.0f} t life charge.")
+    print()
+    print("      resource                          tonnes   station-lifetimes"
+          "   world-yr")
+    for name, t, note, iso in FERTILE_RESOURCES:
+        print(f"      {name:32s} {t:9.2e} {fertile_lifetimes(t):17,.0f}"
+              f" {stock_electricity_twh(t)/WORLD_ELECTRICITY_TWH_YR:10,.0f}")
+    print()
+    print("      (world-yr is years of TODAY'S world electricity at complete")
+    print("       fission and this plant's own thermal efficiency -- an upper")
+    print("       bound on the resource, not a prediction of recovery.)")
+    print()
+    print("    THE FIRST THREE RUNGS ARE THE SAME FUEL. Tails, spent fuel and")
+    print("    natural uranium are all U-238 with different amounts of U-235")
+    print("    attached, and the design does not care which: it burns the")
+    print("    U-238. Nothing changes but the provenance -- and the first two")
+    print("    are wastes, so the design's environmental case survives them.")
+    print()
+    print("    THE FOURTH RUNG IS A DIFFERENT FUEL AND IT DOES NOT SIMPLY")
+    print("    SUBSTITUTE. Thorium breeds U-233, which fissions at"
+          f" nu = {NU_U233_FAST:.2f}")
+    print(f"    against Pu-239's {NU_PU239_FAST:.2f}, and the whole neutron budget"
+          " is built on")
+    print("    that number. It costs twice over -- fission takes more of the")
+    print("    budget AND f_b rises -- so what is left for Li-6 shrinks:")
+    print()
+    print("      cycle                nu      f_b       F        A    free"
+          "   tritium   verdict")
+    for label, nu in (("U-238 -> Pu-239", NU_PU239_FAST),
+                      ("Th-232 -> U-233", NU_U233_FAST)):
+        for L in (P.LEAK_PARASITIC_LO, P.LEAK_PARASITIC_HI):
+            f_b, f, a, free = budget_on(nu, leak=L)
+            ok = "CLOSES" if free > trit else "DOES NOT CLOSE"
+            print(f"      {label:16s} L={L:.2f} {nu:5.2f} {f_b:8.4f}"
+                  f" {f:8.3f} {a:8.3f} {free:7.3f} {trit:9.3f}   {ok}")
+    print()
+    print("    SO THE THORIUM FALLBACK IS CONDITIONAL, and the condition is")
+    print("    the one term this work has never measured. At the tight")
+    print(f"    leakage allowance (L = {P.LEAK_PARASITIC_LO:.2f}) thorium closes with")
+    _fb, _f, _a, free_lo = budget_on(NU_U233_FAST, leak=P.LEAK_PARASITIC_LO)
+    _fb2, _f2, _a2, free_hi = budget_on(NU_U233_FAST, leak=P.LEAK_PARASITIC_HI)
+    print(f"    {free_lo-trit:.3f} to spare; at the loose one it is short by"
+          f" {trit-free_hi:.3f}.")
+    print("    L is leakage plus parasitic capture and it is an ASSUMED band")
+    print("    everywhere in this work. On uranium the band does not decide")
+    print("    anything; ON THORIUM IT DECIDES WHETHER THE FUEL WORKS.")
+    print()
+    print("    AND ONE ROUTE MAKES THE QUESTION GO AWAY. The tritium demand")
+    print(f"    of {trit:.3f} per source neutron is what thorium cannot afford. A")
+    print("    cell that makes its own tritium from deuterium -- see")
+    print("    window.py --fuels -- demands essentially none, and thorium then")
+    print("    closes on both budgets with room. The fuel question and the")
+    print("    fertile question turn out to be the same question.")
+    print()
+    print("    THE HONEST BOTTOM LINE ON DEPLETION. The tails alone are")
+    print(f"    {fertile_lifetimes(1.6e6):,.0f} station-lifetimes, so 'when the DU runs out' is")
+    print("    not a planning horizon -- it is past the point where the")
+    print("    question is about a different civilisation. What the ladder")
+    print("    shows is that there is no cliff at the end of it: the next")
+    print("    rung up is the same fuel from a different pile, and the rung")
+    print("    after that is an ocean.")
+
+
 # ---- THE THERMAL BUFFER, WHICH IS A MITIGATION AND ALSO A PLANT ITEM ------
 # A high-power linac trips often, and buildpackage.py's envelope carried that
 # as an open item. It closes with a store: a nitrate-salt thermal buffer on the
@@ -1011,10 +1137,33 @@ def selftest():
           mass_converted_kg() > 0.0
           and mass_converted_kg() < uranium_life_charge_t() * 1000.0)
     print()
+    print("  the fertile ladder, and the rung that does not simply substitute")
+    check("every rung is stated in station-lifetimes, not in tonnes alone",
+          all(fertile_lifetimes(t) > 0 for _n, t, _q, _i in FERTILE_RESOURCES))
+    check("the tails alone are thousands of station-lifetimes",
+          fertile_lifetimes(1.6e6) > 1000.0)
+    check("thorium's f_b is HIGHER than uranium's, so it is not a swap",
+          budget_on(NU_U233_FAST)[0] > budget_on(NU_PU239_FAST)[0])
+    check("  -- and fission takes more of the budget too, which is the second cost",
+          budget_on(NU_U233_FAST)[1] > budget_on(NU_PU239_FAST)[1])
+    trit = tritium_per_source_neutron()
+    check("uranium closes the tritium balance on BOTH leakage budgets",
+          all(budget_on(NU_PU239_FAST, leak=L)[3] > trit
+              for L in (P.LEAK_PARASITIC_LO, P.LEAK_PARASITIC_HI)))
+    check("thorium closes on the tight budget and NOT on the loose one",
+          budget_on(NU_U233_FAST, leak=P.LEAK_PARASITIC_LO)[3] > trit
+          and budget_on(NU_U233_FAST, leak=P.LEAK_PARASITIC_HI)[3] < trit)
+    check("  -- so the thorium fallback is CONDITIONAL and is said to be",
+          "CONDITIONAL" in _capture_local(report_fertile))
+    check("and with no tritium demand thorium closes on both",
+          all(budget_on(NU_U233_FAST, leak=L)[3] > 0.0
+              for L in (P.LEAK_PARASITIC_LO, P.LEAK_PARASITIC_HI)))
+    print()
     print("  every section renders -- which is how a stale call is caught")
     import contextlib as _c, io as _io
     for _name, _fn in (("bill", report), ("storage", report_storage),
-                       ("supply", report_supply), ("uranium", report_uranium)):
+                       ("supply", report_supply), ("uranium", report_uranium),
+                       ("fertile", report_fertile)):
         try:
             _b = _io.StringIO()
             with _c.redirect_stdout(_b):
@@ -1049,6 +1198,8 @@ def main():
     ap.add_argument("--supply", action="store_true", help=report_supply.__doc__)
     ap.add_argument("--uranium", action="store_true",
                     help=report_uranium.__doc__)
+    ap.add_argument("--fertile", action="store_true",
+                    help=report_fertile.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -1058,6 +1209,8 @@ def main():
         return report_supply()
     if a.uranium:
         return report_uranium()
+    if a.fertile:
+        return report_fertile()
     return report()
 
 

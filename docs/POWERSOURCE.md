@@ -254,3 +254,10 @@ and is not reported as the same one.
 loop still closes down to **k = 0.756**, which at first order saves 20 % of the charge and costs
 **5.4×** in output while it breeds. A fifth off the charge for four fifths off the power is not a
 lever.
+
+## A note on where the fuel question is answered
+
+Whether d-t is the only mesomolecular fuel is `window.py --fuels`, not this file — it is the same
+*shape* of argument as Theorem 1's binder scan (a closed candidate set, tested in the order that
+constrains) and it belongs beside it. Whether the fertile feed has a successor is
+`materials.py --fertile`. Both bear on figures this file computes, and neither is restated here.

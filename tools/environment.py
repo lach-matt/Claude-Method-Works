@@ -214,9 +214,13 @@ def register():
        f"of {M.CELL_B_T:.0f} would cut the holding to "
        f"{r['modules']*C.tritium_inventory_kg(r['window'], M.channel_beam_radius_cm(25.0)):.1f} kg, "
        "and it is left as a requirement because it changes a seated design "
-       "parameter. THE ONLY THING THAT MAKES THIS ROW NEGLIGIBLE IS DELETING "
-       "THE MUON CHANNEL -- see --tradeoff, where that is priced rather than "
-       "argued.", "DESIGNED", "MIT-1 modular cells"))
+       "parameter. WHAT WOULD CLEAR THIS ROW IS A DIFFERENT FUEL, NOT A "
+       "BETTER CONTAINMENT: window.py --fuels finds that a deuterium cell "
+       "tritiates itself to about half a percent and holds some sixty times "
+       "less, at the cost of a fusion channel fifty times weaker -- which is "
+       "the same eight percent of beam that deleting the channel costs. "
+       "--tradeoff prices all three routes. This file does not choose among "
+       "them.", "DESIGNED", "MIT-1 modular cells"))
     A(("radiological", "tritium routine release", 0.0, "-", "MAJOR", "MINOR",
        "public", "continuous",
        "Double-walled all-metal primary, secondary containment held BELOW "
@@ -553,13 +557,45 @@ def report_tradeoff():
     print(f"      lithium, {r['modules']:.0f} capture solenoids, "
           f"{r['modules']:.0f} fuel cells, and the Pb-Li breeder loop.")
     print()
-    _w("SO THE TRADE IS THIS: the muon channel costs about eight percent more "
-       "beam if removed, buys about fifteen hundred pcm of extra subcritical "
-       "margin, and is the sole cause of the register's only MAJOR row. It is "
-       "also the whole subject of this work -- the fission is the amplifier "
-       "and the fusion is the point. THIS FILE DOES NOT DECIDE IT. It states "
-       "the number so that whoever does decide is deciding rather than "
-       "assuming.", indent=4)
+    print("    AND THERE ARE THREE OPTIONS, NOT TWO. window.py --fuels found")
+    print("    the third, and it was hiding inside the fuel question.")
+    print()
+    sys.path.insert(0, HERE)
+    import window as W
+    _fdt, _fdd, c_t, n_cyc, _e, n_per_mu, m_t = W.selftritiation()
+    dt = [r for r in W.fuel_table() if r[0] == "d-t"][0]
+    y_dd = P.PI_PER_PROTON * M.delivered_eta_window(1.50, r["window"]) * n_per_mu
+    g_dd = P.plant_gain(P.K_SAFE, r["y_spall"], y_dd)
+    print(f"      {'route':<26} {'station T':>10} {'y_fus':>8} {'G':>8}"
+          f" {'beam':>8}")
+    print(f"      {'1  d-t, as designed':<26} {r['tritium_total_kg']:9.2f} kg"
+          f" {r['y_fus']:8.2f} {g_with:8.2f} {'--':>8}")
+    print(f"      {'2  d-d, self-tritiating':<26}"
+          f" {r['tritium_total_kg']*m_t/0.600:9.2f} kg"
+          f" {y_dd:8.2f} {g_dd:8.2f} {g_with/g_dd:7.3f}x")
+    print(f"      {'3  no muon channel':<26} {0.0:9.2f} kg"
+          f" {0.0:8.2f} {g_without:8.2f} {g_with/g_without:7.3f}x")
+    print()
+    _w("Route 2 is the one that was not obvious. A deuterium cell makes its "
+       "own tritium -- one d-d branch is d + d -> t + p -- and dtmu forms far "
+       "faster than ddmu, so the cell tritiates ITSELF to an equilibrium of "
+       f"about {100*c_t:.2f} % and runs as a mixture. It holds "
+       f"{0.600/m_t:.0f}x less tritium than the design does, it needs no "
+       "lithium, no breeder zone, no tritium plant, no staged charging and no "
+       "fleet doubling time, and IT IS STILL MUON-CATALYSED FUSION. It costs "
+       f"{g_with/g_dd:.3f}x in beam -- which is what route 3 costs too.",
+       indent=4)
+    print()
+    _w("SO THE TRADE IS THIS. Removing the fusion channel entirely costs "
+       f"{100*(g_with/g_without-1):.1f} % more beam and about "
+       f"{P.subcritical_margin(kw)[1]-P.subcritical_margin(kwo)[1]:,.0f} pcm "
+       "of subcritical margin. Keeping it on deuterium costs the SAME beam "
+       "and keeps the subject, at the price of a fusion channel "
+       f"{dt[7]/n_per_mu:.0f}x weaker and an equilibrium this work computes to "
+       "first order and does not measure. Keeping it on d-t is the design as "
+       "it stands, and it is the only route that carries a MAJOR row. THIS "
+       "FILE DOES NOT DECIDE IT. It states the numbers so that whoever does "
+       "decide is deciding rather than assuming.", indent=4)
 
 
 def _k_for_loop(y_spall, y_fus, eta_acc=0.30):
@@ -828,11 +864,22 @@ def selftest():
     check("the muon-channel trade is priced rather than argued",
           f"{P.plant_gain(P.K_SAFE, r2['y_spall'], r2['y_fus'])/P.plant_gain(P.K_SAFE, r2['y_spall'], 0.0):.3f}"
           in _capture(report_tradeoff))
+    sys.path.insert(0, HERE)
+    import window as _W
+    _f1, _f2, _ct, _nc, _e, _npm, _mt = _W.selftritiation()
+    _dt = [q for q in _W.fuel_table() if q[0] == "d-t"][0]
+    check("the tradeoff offers three routes, not two",
+          "no muon channel" in _capture(report_tradeoff)
+          and "self-tritiating" in _capture(report_tradeoff))
+    check("  -- and the deuterium route really holds far less tritium",
+          0.600 / _mt > 10.0)
+    check("  -- at a fusion channel really that much weaker",
+          _dt[7] / _npm > 10.0)
+    check("  -- and this file chooses none of them",
+          "DOES NOT DECIDE" in _capture(report_tradeoff))
     check("  -- and removing it really would cost only single-digit percent",
           1.0 < P.plant_gain(P.K_SAFE, r2["y_spall"], r2["y_fus"])
           / P.plant_gain(P.K_SAFE, r2["y_spall"], 0.0) < 1.10)
-    check("  -- and this file does not decide it",
-       "THIS FILE DOES NOT DECIDE IT" in _capture(report_tradeoff))
     check("the construction carbon figure is stated as a floor",
           "FLOOR" in _capture(report_benefit))
     check("  -- and the report says how far below the sourced rows it sits",
