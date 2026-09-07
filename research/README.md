@@ -1864,3 +1864,78 @@ only ever gets credit is not an instrument.
 `nullbound.py` and `designpoint.py` are kept executable with their conclusions struck, per this tree's
 practice; `paper/CLAIMS.md` strikes H1 and H2 in place rather than deleting them, and **H3 — the
 two kind-not-amount objections — becomes the headline.**
+
+## `universal.py` — not which element, but which state
+
+The question *"what element permits warp travel"* has no answer, and the reason is now precise: **both
+surviving obstructions quantify over all matter.** Type IV says no substance has the required algebra;
+ANEC says no substance makes the integral positive. Neither mentions an element, so neither can be
+answered by naming one.
+
+> The question with a shape is: **what physics makes an ordinary Type-I element behave as the geometry
+> requires?** That is a question about *states*, and every element has the same states available to its
+> fields.
+
+### Type IV is already realized — by a state
+
+Not hypothetically. Martín-Moruno & Visser (Phys. Rev. D 103, 124003): *"For test fields it is not too
+difficult to get a type IV stress-energy via quantum vacuum polarization effects — for example, the
+**Unruh quantum vacuum state** for a massless scalar field in the Schwarzschild background."*
+Abdolrahimi, Page & Tzounis showed it is Type IV **everywhere outside the horizon**.
+
+Reproduced here from their Appendix B, the (1+1) Schwarzschild Unruh state with `z = 2m/r`:
+
+| z | Γ | type |
+|---|---|---|
+| 0.2 | −0.819 | **IV** |
+| 0.5 | −2.438 | **IV** |
+| 0.8 | +7.05 | I |
+| 1.05 | −288.9 | **IV** |
+| 1.20 | +67.3 | I |
+
+Sign changes at exactly **1/√3, 1, 2/√3**, matching their published intervals.
+
+> **A vacuum *state*, belonging to no element and to every element's fields.** That is the universal
+> answer's shape: Type IV is not a substance anyone must find.
+
+### But back-reaction is where it bites — and that is the real result
+
+The same paper proves that once the stress-energy must **source** its geometry self-consistently,
+Type I is forced in four cases. A warp drive must source its own geometry, so this is the list that
+matters — **and the bubble is outside every entry on it:**
+
+| MMV forces Type I when… | bubble? | why not |
+|---|---|---|
+| static, domain of outer communication | **no** | their proof needs block-diagonalisability, which is **zero twist** |
+| on any Killing horizon | **no** | subluminal drives have none |
+| axis of a **circular** stationary axisymmetric spacetime | **no** | `g_tx = −v` flips under t → −t while x does not — **not circular**, verified at three points |
+| Bianchi I, FLRW, single-mode Bianchi | **no** | a localised bubble is not homogeneous |
+
+That third row also resolves what looked like a contradiction: `typefour.py` measures Type IV **on the
+axis**, h-converged to six figures, where their axis theorem would say Type I. **Non-circularity is
+why** — and it is not a loophole.
+
+### The universal statement
+
+Put it together with BBV's Theorem III.15 — a vorticity-free Alcubierre drive **is** Minkowski:
+
+> **twist = 0** ⟹ Minkowski (BBV) **and** block-diagonalisable ⟹ Type I (MMV)
+> **twist ≠ 0** ⟹ it transports **and** it is outside every Type-I theorem
+
+**Type IV is not an accident of Alcubierre's ansatz. It is forced by the same geometric property that
+makes the object a warp drive at all.** A warp drive that were Type I would have zero twist and would
+be flat space.
+
+That is element-independent in both directions, which is what was asked for. It says nothing about
+materials because there is nothing about materials to say.
+
+### What is open, and what this does not touch
+
+**Open, and it is one sharp question:** whether a *self-consistent* Type IV solution exists — Type IV
+that sources its own geometry rather than riding a fixed background. MMV close with *"This list is not
+necessarily exhaustive, and we are actively seeking further examples,"* so the warp case is **unsettled
+rather than excluded.** No theorem covers it; no construction exhibits it.
+
+**Not touched:** the Unruh result is a **test field** on a fixed background — precisely the case MMV
+distinguish from back-reaction, and that distinction is the whole content of their paper. And **ANEC is
+independent and still violated.** Its element-independent escape (achronality) has not been examined.

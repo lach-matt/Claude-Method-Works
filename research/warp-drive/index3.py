@@ -384,6 +384,15 @@ FINDINGS = [
   "SNEC must hold for EVERY sampling function; nullbound.py used one, the loosest, and it fails above w ~ 0.93 bubble radii"),
  ("D-IRRELEVANT",   +1, -1,  0, "anec.py",
   "the thickness really does drop out -- into prohibition, not permission: ANEC is violated at every D, so the 10^62 kg was the wrong statement"),
+ # The inversion: not which element, but which state.
+ ("STATE-NOT-ELEMENT",+1, +1, +1, "universal.py",
+  "Type IV is realized by a quantum STATE -- the Unruh vacuum, Type IV outside the horizon -- which belongs to no element and to every element's fields"),
+ ("ESCAPES-TYPE-I",  +1, +1, +1, "universal.py",
+  "MMV force Type I in four back-reacting cases and the bubble is outside all four: not static, no Killing horizon, NOT CIRCULAR, not homogeneous"),
+ ("TWIST-IS-WHY",    +1,  0, +1, "universal.py",
+  "one reason for all four: twist = 0 gives Minkowski (BBV) and Type I (MMV), so Type IV is forced by the same property that makes it transport"),
+ ("SELF-CONSISTENT-OPEN", 0, -1,  0, "universal.py",
+  "whether a Type IV solution can SOURCE its own geometry is unsettled: MMV's list is explicitly not exhaustive, and no construction exhibits one"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twelve obstructions three dissolved, three relocated, four closed negative, two conditional and none untested"),
 ]
@@ -502,7 +511,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 136)
+    chk("number of findings indexed", len(FINDINGS), 140)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -531,12 +540,14 @@ def selftest():
                 "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
                 "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE",
                 "AREA-OVER-THICK","NO-NULL-QI","D-CANCELS",
-                "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE","ANEC-VIOLATED"]))
+                "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE","ANEC-VIOLATED",
+                "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
                 "THE-DOOR","EC-TAKEN","NO-EXOTIC","STIFF-WALL","LOOP-OBSERVABLE",
-                "NO-NULL-QI","D-CANCELS","DESIGN-EQUATION","CHANGE-OF-KIND"]))
+                "NO-NULL-QI","D-CANCELS","DESIGN-EQUATION","CHANGE-OF-KIND",
+                "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
