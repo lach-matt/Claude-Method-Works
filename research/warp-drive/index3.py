@@ -255,6 +255,13 @@ FINDINGS = [
   "eps = mu forces d = S w/c: the ring gap is a CONSTRAINT, and every free knob became derived"),
  ("FERRITE-EPS",  0, -1, +1, "device.py",
   "YIG's own eps_r = 15 caps the fill at 8.8%, pulling the operating point from 1869 to 128 linewidths"),
+ # Three more, and the first says the drawn geometry was wrong.
+ ("ONE-AXIS",     0,  0, +1, "device.py",
+  "Smolyaninov's mapping is 1+1D: y and z are flat spectators, so it is a graded STACK, not a bubble"),
+ ("FERRITE-RULES",0,  0, +1, "device.py",
+  "Polder gives mu-1 = g_x, so one inclusion carries 90% of eps, mu and g_x -- the rings are the margin"),
+ ("FERRITE-FOM",  0, -1, +1, "device.py",
+  "loss is invariant under n by exact cancellation; the only knob is Ms/((eps_r-1) dH)"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -275,6 +282,8 @@ SUPPORT = [
  ("SMOL-GAP",  "neclab.py",         "Smolyaninov asserts energy conditions are not a problem and never computes it; neclab.py does"),
  ("BOUNDARY",  "device.py",         "safe_beta bisects to ZERO margin; a bisected boundary is not a design point, so a 5% safety factor"),
  ("CASCADE",   "device.py",         "TEST 4 failed AGAIN when the cell shrank; ring radius and substrate are now derived, not assumed"),
+ ("SPHERE-FIX","device.py",         "the figure drew a spherical bubble; the mapping is 1+1D and the geometry is a stack"),
+ ("LOSS-FIX",  "device.py",         "a single Q for the whole block was the wrong model; the ferrite carries 90% and dominates the loss"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -355,7 +364,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 82)
+    chk("number of findings indexed", len(FINDINGS), 85)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 

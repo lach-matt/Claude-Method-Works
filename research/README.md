@@ -433,11 +433,53 @@ invalidated a part that had already passed.
 | ring r / gap / substrate | 0.555 mm / 0.167 mm / ε_r 20 at 0.353 mm |
 | **device span** | **16.3 cm** |
 
-> **What testing parts during the design bought: one part replaced twice, one derating, one safety
-> factor, and four "chosen" dimensions turned out to be determined — all before anything was drawn.**
+**TEST 8 FAILED, AND THE GEOMETRY WAS WRONG.** Smolyaninov's Eq (2) is explicitly **1+1
+dimensional** — y and z are flat spectators and the shift is carried by x alone. The device is a
+**stack graded along one axis**, not a spherical bubble. The first figure drew a sphere and was wrong.
+Transverse extent is free, set by beam aperture.
+
+**TEST 9 REFRAMED WHAT THE DEVICE IS.** A magnetised ferrite's Polder tensor gives
+`μ − 1 = ω_m ω₀/(ω₀²−ω²)` — **the same expression as g_x**. So one inclusion supplies all three
+responses, and at 8% fill the ferrite carries **90% of ε−1, μ−1 and all of g_x**. The split rings
+supply ~10%. This is a **graded magnetised-YIG composite with rings as a stabilising correction**, not
+an SRR metamaterial with ferrite inclusions. The ferrite alone has only 1.2% stability margin —
+**the rings are what supply the margin**. And because one physical inclusion carries all three,
+they cannot mis-register against each other, which removes most of TEST 5's failure mode.
+
+**TEST 12: the loss model was wrong, and the fix isn't where I expected.** A single Q for the whole
+block gave 6%. Weighting by actual share gives **20.6%** — ferrite-dominated, and *better rings don't
+help* (Q = 100 → 27%, Q = 1000 → 20.6%). Raising the background index n doesn't help either: the fill
+ceiling rises as (ε−1) and the required g_x rises with it, so the bulk g_x and the detuning are
+**invariant under n — an exact cancellation**. What's left is a single figure of merit:
+
+> **FOM = M_s / ((ε_r − 1) ΔH)** — high saturation magnetisation, low permittivity, narrow linewidth.
+
+| ferrite | μ₀M_s | ε_r | ΔH | tan δ | FOM |
+|---|---|---|---|---|---|
+| YIG, standard | 0.175 T | 15 | 0.50 Oe | 0.0088 | 250 |
+| **YIG, premium sphere** | 0.175 T | 15 | **0.20 Oe** | **0.0035** | **625** |
+| Li ferrite | 0.370 T | 16 | 2.0 Oe | 0.0178 | 123 |
+| NiZn spinel | 0.400 T | 12 | 5.0 Oe | 0.0302 | 73 |
+
+Premium YIG spheres (ΔH ≤ 0.2 Oe) are catalogue parts. With those and a shorter interior:
+**5.8% loss.**
+
+**The design as it now stands:**
+
+| | |
+|---|---|
+| v₀ / ε=μ / g_x | 0.2224 c / 2.2331 / 1.1093 |
+| operating frequency | 8.221 GHz, **320** YIG linewidths off FMR |
+| ferrite fill / bulk g_x / share | 8.0% / 13.84 / **90%** |
+| cell / wall / ring r / gap | 1.633 mm / 1.633 cm / 0.555 mm / 0.167 mm |
+| **geometry** | **bar, 9.8 × 8.2 × 8.2 cm** — graded along x only |
+| loss across the stack | **5.8%** |
+
+> **Across two passes: one part replaced twice, one derating, one safety factor, four "chosen"
+> dimensions that turned out to be determined, one geometry withdrawn, and one loss model replaced.**
 
 `device.py --figure` emits `figures/device-scale.svg` from `design()`, so the drawing cannot drift
-from the sheet.
+from the sheet — it now draws the stack.
 
 ## `warp-drive/`
 

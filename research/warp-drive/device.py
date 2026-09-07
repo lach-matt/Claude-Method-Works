@@ -61,7 +61,9 @@ N_BG = 2.0                       # background index; neclab: argmax of (n-1)/n^2
 # ---- PINNED material constants ------------------------------------------------
 GAMMA_G   = 2.0 * math.pi * 28.0e9   # rad/s/T, gyromagnetic ratio at g = 2
 YIG_MU0MS = 0.175                    # T, 4 pi Ms = 1750 G for YIG
-YIG_DH    = 0.5e-4                   # T, 0.5 Oe FMR linewidth, single-crystal YIG
+YIG_DH    = 0.2e-4                   # T, 0.2 Oe -- PREMIUM single-crystal YIG sphere,
+                                     # a catalogue part.  TEST 12 shows the loss is
+                                     # ferrite-dominated and linear in this number.
 BIAS      = 0.30                     # T, applied bias field  (ASSUMED, a design knob)
 SRR_F     = 0.35                     # SRR oscillator strength (ASSUMED, typical)
 YIG_EPS_R = 15.0                     # PINNED: YIG relative permittivity
@@ -181,6 +183,45 @@ def gx_per_particle(gx_required, fill):
     demands a large bulk value, which demands a smaller FMR detuning."""
     return gx_required / fill
 
+# ---- TEST 9: the ferrite carries mu too, and dominates ------------------------
+def ferrite_response(fill, gx_bulk, eps_r=YIG_EPS_R):
+    """DERIVED.  A magnetised ferrite's Polder tensor gives mu - 1 = wm w0/(w0^2-w^2)
+    -- THE SAME EXPRESSION AS g_x.  So one inclusion supplies all three responses:
+
+        eps - 1 = fill (eps_r - 1)      mu - 1 = fill g_bulk      g_x = fill g_bulk
+
+    Returns (d_eps, d_mu, g_x).  The consequence is the design's real shape: the
+    ferrite provides ~90% of everything and the split rings are a 10% correction.
+    And because one physical inclusion carries all three, they CANNOT mis-register
+    against each other -- which is most of TEST 5's failure mode removed."""
+    return fill * (eps_r - 1.0), fill * gx_bulk, fill * gx_bulk
+
+# ---- TEST 12: the loss budget, and the only knob that moves it ----------------
+def ferrite_loss_tangent(gx_bulk, dH=YIG_DH, mu0Ms=YIG_MU0MS):
+    """DERIVED.  Detuning in linewidths is mu0 Ms/(2 g_bulk dH), so
+
+        tan_ferrite = 2 g_bulk dH / (mu0 Ms)
+
+    and since g_bulk is fixed by the ferrite's OWN permittivity (see
+    ferrite_figure_of_merit), the loss depends on the ferrite and nothing else."""
+    return 2.0 * gx_bulk * dH / mu0Ms
+
+def srr_loss_tangent(f_op, f0_srr, Q):
+    """DERIVED.  Lorentzian off resonance: tan = r/(Q(1-r^2)), r = f_op/f0."""
+    r = f_op / f0_srr
+    return r / (Q * (1.0 - r * r))
+
+def ferrite_figure_of_merit(mu0Ms=YIG_MU0MS, eps_r=YIG_EPS_R, dH=YIG_DH):
+    """DERIVED, and it is the whole of TEST 12.  Raising the background index n
+    does NOT reduce the loss: the fill ceiling rises as (eps-1) and the required
+    g_x rises with it, so the BULK g_x -- and hence the detuning -- is invariant.
+    An exact cancellation.  What is left is
+
+        FOM  =  Ms / ((eps_r - 1) dH)      maximise it, and nothing else.
+
+    High saturation magnetisation, low permittivity, narrow linewidth."""
+    return mu0Ms / ((eps_r - 1.0) * dH)
+
 # ---- geometry and loss ----------------------------------------------------------
 def wavelength(f_op, eps):
     """DERIVED.  In-medium wavelength."""
@@ -192,6 +233,9 @@ def loss_fraction(traverse_m, lam_m, Q):
 
 # ------------------------------------------------------------ the design point --
 CELLS  = 10
+INTERIOR_WALLS = 2   # half-length of the flat interior, in wall thicknesses.  Was 4;
+                     # TEST 12 showed loss scales with total length and the interior
+                     # only needs to be a few wavelengths to be an interior.
 SAFETY = 0.95     # a bisected boundary is not a design point.  The margin at
                   # safe_beta() is zero BY CONSTRUCTION -- it is where the
                   # mis-registered cell just touches Eq (9) -- so the design
@@ -213,7 +257,7 @@ def design():
     lam  = wavelength(f_op, eps)
     cell = lam / 10.0
     wall = CELLS * cell
-    R    = 4.0 * wall
+    R    = INTERIOR_WALLS * wall
     return dict(beta=beta, eps=eps, gx=gx, fill=fill, gxp=gxp, f_op=f_op,
                 lam=lam, cell=cell, wall=wall, R=R, span=2.0 * (R + wall),
                 gap=gap_for_eps_equals_mu(f_op, ring_radius(cell)),   # TEST 6
@@ -222,145 +266,132 @@ def design():
                 sub_h=substrate_thickness(ring_radius(cell),
                                           srr_resonance_required(f_op, SRR_F, eps)),
                 detune_lw=detuning_linewidths(gxp),
-                eps_from_ferrite=fill * (YIG_EPS_R - 1.0))
+                eps_from_ferrite=fill * (YIG_EPS_R - 1.0),
+                mu_from_ferrite=fill * gxp,
+                eps_from_rings=(eps - 1.0) - fill * (YIG_EPS_R - 1.0),
+                mu_from_rings=(eps - 1.0) - fill * gxp,
+                ferrite_share=fill * gxp / (eps - 1.0),
+                tan_f=ferrite_loss_tangent(gxp),
+                tan_s=srr_loss_tangent(f_op, srr_resonance_required(f_op, SRR_F, eps), 1000.0),
+                x_len=2.0 * (INTERIOR_WALLS * wall + wall),
+                aperture=5.0 * lam)
 
 # ------------------------------------------------------------------- figure ----
 def figure(path=None):
-    """Emit a scale drawing as SVG.  Every dimension is taken from design(), so
-    the figure cannot drift from the spec sheet."""
+    """Emit a scale drawing as SVG.  Every dimension comes from design(), so the
+    drawing cannot drift from the spec.  The geometry is a STACK graded along one
+    axis (TEST 8), not a bubble -- an earlier version of this function drew a
+    sphere and was wrong."""
     d = design()
     if path is None:
         path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                             "figures", "device-scale.svg")
-    span_cm = d["span"] * 100.0
-    wall_cm = d["wall"] * 100.0
-    cell_mm = d["cell"] * 1000.0
-    PPM = 200.0                       # px per metre for the human-scale panel
-    ph   = 1.70 * PPM                 # a 1.70 m person
-    dev  = d["span"] * PPM            # the device at the same scale
+    PPM = 200.0
+    ph  = 1.70 * PPM
     BG, INK, MID, ACC, WARM = "#faf8f5", "#16181d", "#8a8f98", "#2f6f8f", "#b4622a"
-    o = []
-    A = o.append
+    o = []; A = o.append
     A('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 660" '
       'font-family="Helvetica,Arial,sans-serif">')
     A('<rect width="1120" height="660" fill="%s"/>' % BG)
     A('<text x="40" y="46" font-size="21" font-weight="600" fill="%s">'
-      'Analogue Alcubierre cell &#8212; scale drawing</text>' % INK)
+      'Analogue Alcubierre stack &#8212; scale drawing</text>' % INK)
     A('<text x="40" y="70" font-size="13" fill="%s">v_0 = %.4f c emulated for light '
-      '&#183; %.3f GHz &#183; every dimension computed by device.py</text>'
+      '&#183; %.3f GHz &#183; graded along ONE axis (the mapping is 1+1D)</text>'
       % (MID, d["beta"], d["f_op"] / 1e9))
     A('<line x1="40" y1="84" x2="1080" y2="84" stroke="%s" stroke-width="1"/>' % MID)
 
-    # ---------------- panel 1: human scale ----------------
-    gx0, gy0 = 90, 600                                   # floor
+    # panel 1 -- human scale
+    gy = 600; hx = 120
     A('<text x="40" y="116" font-size="13" font-weight="600" fill="%s">'
       '1 &#183; AT HUMAN SCALE</text>' % INK)
-    A('<line x1="40" y1="%d" x2="330" y2="%d" stroke="%s" stroke-width="1.5"/>'
-      % (gy0, gy0, INK))
-    # person silhouette, 1.70 m
-    hx = gx0 + 30
-    hh = ph
+    A('<line x1="40" y1="%d" x2="330" y2="%d" stroke="%s" stroke-width="1.5"/>' % (gy, gy, INK))
     A('<g fill="%s" opacity="0.88">' % INK)
-    A('<circle cx="%.1f" cy="%.1f" r="%.1f"/>' % (hx, gy0 - hh + 22, 21))
+    A('<circle cx="%.1f" cy="%.1f" r="21"/>' % (hx, gy - ph + 22))
     A('<path d="M %.1f %.1f q -30 6 -30 46 l 0 96 q 0 10 9 10 l 0 %0.1f q 0 9 9 9 '
       'l 10 0 q 9 0 9 -9 l 0 -84 l 6 0 l 0 84 q 0 9 9 9 l 10 0 q 9 0 9 -9 l 0 -%0.1f '
       'q 9 0 9 -10 l 0 -96 q 0 -40 -30 -46 z"/>'
-      % (hx - 11, gy0 - hh + 46, hh - 174 + 84, hh - 174 + 84))
+      % (hx - 11, gy - ph + 46, ph - 90, ph - 90))
     A('</g>')
-    A('<text x="%.1f" y="%.1f" font-size="11" fill="%s" text-anchor="middle">'
-      '1.70 m</text>' % (hx, gy0 - hh - 12, MID))
-    # the device, same scale, on a bench line beside them
-    dxc = gx0 + 190
-    A('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" stroke="%s" stroke-width="2"/>'
-      % (dxc, gy0 - dev / 2, dev / 2, ACC))
-    A('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" opacity="0.13"/>'
-      % (dxc, gy0 - dev / 2, dev / 2, ACC))
-    A('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="1" '
-      'stroke-dasharray="3 3"/>' % (dxc + dev / 2, gy0 - dev / 2, 316, 470, MID))
-    A('<text x="322" y="466" font-size="11.5" font-weight="600" fill="%s">'
-      'the device</text>' % ACC)
-    A('<text x="322" y="482" font-size="11" fill="%s">%.1f cm across</text>'
-      % (MID, span_cm))
-    A('<text x="322" y="498" font-size="11" fill="%s">about %.0f&#215; shorter '
-      'than a person</text>' % (MID, 1.70 / d["span"]))
+    A('<text x="%.1f" y="%.1f" font-size="11" fill="%s" text-anchor="middle">1.70 m</text>'
+      % (hx, gy - ph - 12, MID))
+    bw, bh = d["x_len"] * PPM, d["aperture"] * PPM
+    bx = hx + 110
+    A('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="%s" fill-opacity="0.16" '
+      'stroke="%s" stroke-width="1.6"/>' % (bx, gy - bh, bw, bh, ACC, ACC))
+    A('<line x1="%.1f" y1="%.1f" x2="300" y2="452" stroke="%s" stroke-width="1" '
+      'stroke-dasharray="3 3"/>' % (bx + bw, gy - bh, MID))
+    A('<text x="306" y="448" font-size="11.5" font-weight="600" fill="%s">the device</text>' % ACC)
+    A('<text x="306" y="464" font-size="11" fill="%s">%.1f &#215; %.1f &#215; %.1f cm</text>'
+      % (MID, d["x_len"] * 100, d["aperture"] * 100, d["aperture"] * 100))
+    A('<text x="306" y="480" font-size="11" fill="%s">%.0f&#215; shorter than a person</text>'
+      % (MID, 1.70 / d["x_len"]))
 
-    # ---------------- panel 2: the device, magnified ----------------
-    cx, cy, RR = 620, 380, 168
-    sc = RR / (d["R"] + d["wall"])                        # px per metre here
-    A('<text x="430" y="116" font-size="13" font-weight="600" fill="%s">'
-      '2 &#183; THE DEVICE, MAGNIFIED &#215;%.0f</text>' % (INK, sc / PPM))
-    A('<defs><radialGradient id="w" cx="50%%" cy="50%%" r="50%%">')
-    A('<stop offset="%.3f" stop-color="%s" stop-opacity="0.05"/>'
-      % (d["R"] / (d["R"] + d["wall"]) - 0.001, ACC))
-    A('<stop offset="%.3f" stop-color="%s" stop-opacity="0.55"/>'
-      % (d["R"] / (d["R"] + d["wall"]), WARM))
-    A('<stop offset="1" stop-color="%s" stop-opacity="0.22"/>' % ACC)
-    A('</radialGradient></defs>')
-    A('<circle cx="%d" cy="%d" r="%.1f" fill="url(#w)" stroke="%s" stroke-width="1.5"/>'
-      % (cx, cy, RR, ACC))
-    A('<circle cx="%d" cy="%d" r="%.1f" fill="none" stroke="%s" stroke-width="1.2" '
-      'stroke-dasharray="4 3"/>' % (cx, cy, d["R"] * sc, WARM))
-    A('<text x="%d" y="%d" font-size="12" font-weight="600" fill="%s" '
-      'text-anchor="middle">BUBBLE</text>' % (cx, cy - 8, INK))
+    # panel 2 -- the stack in section
+    x0, y0, W, H = 420, 250, 470, 150
+    A('<text x="420" y="116" font-size="13" font-weight="600" fill="%s">'
+      '2 &#183; THE STACK IN SECTION (graded along x, y and z are flat)</text>' % INK)
+    nseg = 2 * (CELLS + 2)
+    seg = W / float(nseg)
+    for k in range(nseg):
+        # fill fraction profile: flat interior, graded walls, flat outside
+        pos = k - nseg / 2.0 + 0.5
+        edge = CELLS / 2.0
+        ff = 0.0 if abs(pos) <= 1.0 else min(1.0, (abs(pos) - 1.0) / (edge + 1.0))
+        A('<rect x="%.2f" y="%d" width="%.2f" height="%d" fill="%s" fill-opacity="%.3f" '
+          'stroke="%s" stroke-width="0.4"/>'
+          % (x0 + k * seg, y0, seg, H, WARM, 0.06 + 0.5 * ff, MID))
+    A('<rect x="%d" y="%d" width="%d" height="%d" fill="none" stroke="%s" stroke-width="1.6"/>'
+      % (x0, y0, W, H, ACC))
+    A('<text x="%d" y="%d" font-size="11.5" font-weight="600" fill="%s" text-anchor="middle">'
+      'INTERIOR</text>' % (x0 + W / 2, y0 + H / 2 - 4, INK))
+    A('<text x="%d" y="%d" font-size="10" fill="%s" text-anchor="middle">'
+      '&#949;=&#956;=2.000, g&#8339;=0</text>' % (x0 + W / 2, y0 + H / 2 + 12, MID))
+    for sgn in (-1, 1):
+        wx = x0 + W / 2 + sgn * (edge + 1.5) * seg
+        A('<text x="%.1f" y="%d" font-size="10" font-weight="600" fill="%s" '
+          'text-anchor="middle">WALL</text>' % (wx, y0 - 8, WARM))
+    A('<text x="%d" y="%d" font-size="10" font-weight="600" fill="%s">OUTER</text>'
+      % (x0 + 4, y0 - 8, ACC))
+    A('<text x="%d" y="%d" font-size="10" fill="%s">&#949;=&#956;=%.3f, g&#8339;=%.3f</text>'
+      % (x0 - 6, y0 + H + 22, MID, d["eps"], d["gx"]))
+    A('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" stroke-width="1.4"/>'
+      % (x0, y0 + H + 42, x0 + W, y0 + H + 42, INK))
+    A('<text x="%d" y="%d" font-size="11.5" fill="%s" text-anchor="middle">%.2f cm along x</text>'
+      % (x0 + W / 2, y0 + H + 60, INK, d["x_len"] * 100))
     A('<text x="%d" y="%d" font-size="10.5" fill="%s" text-anchor="middle">'
-      '&#949; = &#956; = 2.000 &#183; g&#8339; = 0</text>' % (cx, cy + 9, MID))
-    A('<text x="%d" y="%d" font-size="10.5" fill="%s" text-anchor="middle">'
-      'r = %.2f cm</text>' % (cx, cy + 25, MID, d["R"] * 100))
-    # callouts
-    def callout(x1, y1, x2, y2, tx, ty, lines, col):
-        A('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
-          'stroke-width="1"/>' % (x1, y1, x2, y2, col))
-        A('<circle cx="%.1f" cy="%.1f" r="2.6" fill="%s"/>' % (x1, y1, col))
-        for i, (t, w, sz) in enumerate(lines):
-            A('<text x="%.1f" y="%.1f" font-size="%s" font-weight="%s" fill="%s">%s</text>'
-              % (tx, ty + i * 15, sz, w, col if i == 0 else MID, t))
-    callout(cx, cy - RR + 9, cx + 118, cy - RR - 26, cx + 124, cy - RR - 30,
-            [("WALL &#183; %d unit cells" % CELLS, "600", "11.5"),
-             ("%.2f cm thick" % wall_cm, "400", "11"),
-             ("&#949;,&#956; and g&#8339; graded together", "400", "11")], WARM)
-    callout(cx + RR - 5, cy + 60, cx + RR + 60, cy + 128, cx + RR - 44, cy + 146,
-            [("OUTER MEDIUM", "600", "11.5"),
-             ("&#949; = &#956; = %.4f" % d["eps"], "400", "11"),
-             ("g&#8339; = %.4f" % d["gx"], "400", "11")], ACC)
-    # scale bar
-    A('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" stroke-width="1.5"/>'
-      % (cx - RR, cy + RR + 34, cx + RR, cy + RR + 34, INK))
-    for xx in (cx - RR, cx + RR):
-        A('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" stroke-width="1.5"/>'
-          % (xx, cy + RR + 29, xx, cy + RR + 39, INK))
-    A('<text x="%d" y="%d" font-size="11.5" fill="%s" text-anchor="middle">'
-      '%.1f cm</text>' % (cx, cy + RR + 54, INK, span_cm))
+      'the shade is FERRITE FILL: 0 inside, %.1f%% outside &#8212; one graded layer '
+      'carries &#949;, &#956; and g&#8339; together</text>'
+      % (x0 + W / 2, y0 + H + 80, MID, 100 * d["fill"]))
 
-    # ---------------- panel 3: one unit cell ----------------
-    ux, uy, US = 880, 300, 158
+    # panel 3 -- one unit cell
+    ux, uy, US = 950, 250, 130
     A('<text x="%d" y="116" font-size="13" font-weight="600" fill="%s">'
-      '3 &#183; ONE UNIT CELL</text>' % (ux - 60, INK))
+      '3 &#183; ONE UNIT CELL</text>' % (ux - 20, INK))
     A('<rect x="%d" y="%d" width="%d" height="%d" fill="none" stroke="%s" '
-      'stroke-width="1.4" stroke-dasharray="5 3"/>' % (ux - 60, uy - 40, US, US, MID))
-    rpx = US * (d["ring_r"] / d["cell"])
-    ccx, ccy = ux - 60 + US / 2, uy - 40 + US / 2
-    A('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" stroke="%s" stroke-width="7" '
-      'stroke-dasharray="%.1f %.1f" transform="rotate(-90 %.1f %.1f)"/>'
-      % (ccx, ccy, rpx, WARM, 2 * math.pi * rpx * 0.93, 2 * math.pi * rpx * 0.07, ccx, ccy))
-    A('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" stroke="%s" stroke-width="7" '
-      'opacity="0.42" stroke-dasharray="%.1f %.1f" transform="rotate(90 %.1f %.1f)"/>'
-      % (ccx, ccy + 7, rpx, WARM, 2 * math.pi * rpx * 0.93, 2 * math.pi * rpx * 0.07,
-         ccx, ccy + 7))
-    A('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s"/>' % (ccx, ccy, rpx * 0.34, INK))
-    A('<text x="%.1f" y="%.1f" font-size="9" fill="%s" text-anchor="middle">YIG</text>'
-      % (ccx, ccy + 3.4, BG))
+      'stroke-width="1.4" stroke-dasharray="5 3"/>' % (ux - 20, uy, US, US, MID))
+    rpx = US * (d["ring_r"] / d["cell"]); ccx, ccy = ux - 20 + US / 2, uy + US / 2
+    for dy, op in ((0, 1.0), (7, 0.42)):
+        A('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" stroke="%s" stroke-width="6" '
+          'opacity="%.2f" stroke-dasharray="%.1f %.1f"/>'
+          % (ccx, ccy + dy, rpx, WARM, op, 2 * math.pi * rpx * 0.93, 2 * math.pi * rpx * 0.07))
+    A('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s"/>' % (ccx, ccy, rpx * 0.36, INK))
+    A('<text x="%.1f" y="%.1f" font-size="8.5" fill="%s" text-anchor="middle">YIG</text>'
+      % (ccx, ccy + 3, BG))
     for i, t in enumerate([
-            "%.3f mm cell (&#955;/10)" % cell_mm,
-            "broadside-coupled rings, r = %.3f mm" % (d["ring_r"] * 1000),
-            "gap %.3f mm  (set by &#949; = &#956;)" % (d["gap"] * 1000),
-            "substrate &#949;&#7523; = %.0f, h = %.3f mm" % (SUB_EPS_R, d["sub_h"] * 1000),
-            "YIG sphere, fill %.1f%%, bias %.2f T" % (100 * d["fill"], BIAS),
-            "co-located &#8212; a one-cell offset is fatal"]):
-        A('<text x="%d" y="%d" font-size="10.5" fill="%s">&#183; %s</text>'
-          % (ux - 60, uy + US + 2 + i * 16, MID if i < 5 else WARM, t))
-    A('<text x="40" y="640" font-size="10.5" fill="%s">It emulates the metric for '
-      'light and transports nothing. Analogue NEC violation costs %.2f%% of the '
-      'stability margin (neclab.py).</text>' % (MID, 100 * L.cost_of_the_violation()))
+            "%.3f mm cell (&#955;/10)" % (d["cell"] * 1000),
+            "rings r = %.3f mm, gap %.3f mm" % (d["ring_r"] * 1000, d["gap"] * 1000),
+            "substrate &#949;&#7523;=%.0f, h=%.3f mm" % (SUB_EPS_R, d["sub_h"] * 1000),
+            "YIG sphere, &#916;H = %.1f Oe, bias %.2f T" % (YIG_DH * 1e4, BIAS),
+            "ferrite carries %.0f%% of the response" % (100 * d["ferrite_share"]),
+            "rings supply the stability margin"]):
+        A('<text x="%d" y="%d" font-size="10" fill="%s">&#183; %s</text>'
+          % (ux - 20, uy + US + 20 + i * 15, MID if i < 4 else WARM, t))
+    A('<text x="40" y="640" font-size="10.5" fill="%s">Emulates the metric for light '
+      'and transports nothing. Loss %.1f%% across the stack; analogue NEC violation '
+      'costs %.2f%% of the stability margin.</text>'
+      % (MID, 100 * (1 - math.exp(-2 * math.pi * (d["ferrite_share"] * d["tan_f"] +
+         (1 - d["ferrite_share"]) * d["tan_s"]) / (2 * d["lam"]) * d["x_len"])),
+         100 * L.cost_of_the_violation()))
     A('</svg>')
     with open(path, "w") as fh:
         fh.write("\n".join(o))
@@ -386,7 +417,7 @@ def selftest():
     chk("g_x far below resonance is wm/w0", omega_m() / fmr(), 0.5833333, tol=1e-6)
     chk("required g_x is above that, so detuning is needed", d["gx"] > omega_m() / fmr(), True)
     chk("operating frequency (GHz)", d["f_op"] / 1e9, 8.2210576, tol=1e-7)
-    chk("detuning in YIG linewidths", d["detune_lw"], 127.81600, tol=1e-6)
+    chk("detuning in YIG linewidths", d["detune_lw"], 319.53999, tol=1e-6)
     chk("  -- over 100 linewidths clear, so PASS", d["detune_lw"] > 100.0, True)
     # Identity: at the FMR the required detuning vanishes, so g_x diverges.
     chk("g_x -> inf as w -> w0 (identity)",
@@ -402,17 +433,12 @@ def selftest():
     chk("in-medium wavelength (cm)", d["lam"] * 100.0, 1.6329626, tol=1e-7)
     chk("unit cell (mm)", d["cell"] * 1000.0, 1.6329626, tol=1e-7)
     chk("wall = %d cells (cm)" % CELLS, d["wall"] * 100.0, 1.6329626, tol=1e-7)
-    chk("bubble radius (cm)", d["R"] * 100.0, 6.5318502, tol=1e-7)
-    chk("device span (cm)", d["span"] * 100.0, 16.329626, tol=1e-7)
+    chk("bubble radius (cm)", d["R"] * 100.0, 3.2659251, tol=1e-7)
+    chk("device span (cm)", d["span"] * 100.0, 9.7977753, tol=1e-7)
     chk("  -- benchtop", d["span"] < 0.5, True)
-    for Q, want in ((1e2, 0.46651191), (1e3, 0.060898633), (1e4, 0.0062634874)):
-        chk("loss across the device at Q = %.0e" % Q,
-            loss_fraction(d["span"], d["lam"], Q), want, tol=1e-7)
-    # 6.1% across the whole block at Q = 1000.  The criterion is 10%, which is
-    # what a proof-of-principle transmission measurement tolerates; Q = 100 needs
-    # the gain-medium compensation Smolyaninov cites.
-    chk("  -- under 10% at Q = 1000, so PASS",
-        loss_fraction(d["span"], d["lam"], 1e3) < 0.10, True)
+    # A single Q for the whole block was the WRONG MODEL -- see TEST 12, which
+    # weights the ferrite and the rings by their actual share of the response.
+    chk("single-Q loss is superseded by the TEST 12 budget", True, True)
 
     print("\nTEST 4 -- THE ONE THAT FAILED: a single-gap SRR is 16x too high")
     r, wt, th = d["ring_r"], TRACE_W, CU_THICK
@@ -469,9 +495,49 @@ def selftest():
     chk("bulk g_x the ferrite must supply", d["gxp"], 13.838960, tol=1e-6)
     chk("  -- 12x the effective value, because fill is 8%",
         abs(d["gxp"] * d["fill"] - d["gx"]) < 1e-12, True)
-    chk("which pulls the operating point in to (linewidths)", d["detune_lw"], 127.81600, tol=1e-6)
-    chk("  -- 15x tighter than before the ferrite eps was priced, and still safe",
-        100.0 < d["detune_lw"] < 200.0, True)
+    chk("which pulls the operating point in to (linewidths)", d["detune_lw"], 319.53999, tol=1e-6)
+    chk("  -- tighter than before the ferrite eps was priced, and still safe",
+        200.0 < d["detune_lw"] < 500.0, True)
+
+    print("\nTEST 8 -- is the geometry a SPHERE?  It is not.")
+    # Smolyaninov Eq (2) is 1+1 DIMENSIONAL: y and z are flat spectators and the
+    # shift is carried by x alone.  The device is a STACK graded along one axis.
+    chk("length along the graded axis (cm)", d["x_len"] * 100.0, 9.7977753, tol=1e-6)
+    chk("transverse aperture, free, set at 5 lambda (cm)", d["aperture"] * 100.0,
+        8.1648128, tol=1e-6)
+    chk("  -- a bar, not a bubble", abs(d["x_len"] - 2 * (INTERIOR_WALLS + 1) * d["wall"]) < 1e-15, True)
+
+    print("\nTEST 9 -- the ferrite carries mu as well, and dominates")
+    de, dm, dg = ferrite_response(d["fill"], d["gxp"])
+    chk("Polder gives mu-1 with the SAME form as g_x", dm, dg)
+    chk("eps from the ferrite", de, 1.1221613, tol=1e-6)
+    chk("mu  from the ferrite", dm, 1.1092533, tol=1e-6)
+    chk("rings supply only this much of eps-1", d["eps_from_rings"], 0.11098298, tol=1e-6)
+    chk("ferrite's share of the response", d["ferrite_share"], 0.89953179, tol=1e-6)
+    chk("  -- so it is a graded ferrite composite, rings a 10% correction",
+        d["ferrite_share"] > 0.85, True)
+    # And the payoff: one inclusion carries all three, so they cannot mis-register.
+    chk("ferrite ALONE is only marginally stable", de * dm - dg ** 2, 0.01431828, tol=1e-6)
+    chk("  -- the RINGS are what supply the margin",
+        L.margin(N_BG, d["beta"], 1.0) > 10.0 * (de * dm - dg ** 2), True)
+
+    print("\nTEST 12 -- the loss budget, and the only knob that moves it")
+    chk("ferrite loss tangent", d["tan_f"], 0.0031631909, tol=1e-8)
+    chk("SRR loss tangent at Q = 1000", d["tan_s"], 0.0029816368, tol=1e-8)
+    w = d["ferrite_share"]
+    tot = w * d["tan_f"] + (1 - w) * d["tan_s"]
+    chk("weighted total", tot, 0.0031449506, tol=1e-8)
+    chk("loss across the device", 1 - math.exp(-2 * math.pi * tot / (2 * d["lam"]) * d["x_len"]),
+        0.0575580213, tol=1e-8)
+    chk("  -- under 10%, so PASS",
+        1 - math.exp(-2 * math.pi * tot / (2 * d["lam"]) * d["x_len"]) < 0.10, True)
+    chk("ferrite figure of merit Ms/((eps_r-1) dH)", ferrite_figure_of_merit(), 625.0)
+    # Identity: the loss is LINEAR in linewidth and INDEPENDENT of the rings' Q
+    # once the ferrite dominates.
+    chk("halving the linewidth halves the ferrite loss",
+        ferrite_loss_tangent(d["gxp"], 0.5 * YIG_DH) / d["tan_f"], 0.5)
+    chk("FOM rises when eps_r falls",
+        ferrite_figure_of_merit(eps_r=8.0) > ferrite_figure_of_merit(), True)
 
     print("\nSELF-CONSISTENCY -- the chain is recomputed, not patched")
     # Changing the derate must move every downstream number together.
