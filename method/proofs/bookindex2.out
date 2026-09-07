@@ -1,0 +1,17 @@
+§32.1.1's self-index, and the instrument that computed it
+
+  the volume's extent, from its own headings: 36 chapters (1 to 36) and 7 appendices (ABCDEFG)
+  §32.1.1 says: 'the 35-chapter and 6-appendix book' — thirty-five and six, printed with the date 2026-08-24
+  the seated bookindex.py cannot see the difference: APP='ABCDEF', the filter 1<=r<=35,
+  and n=41 '# 35 chapters + 6 appendices' are three constants, not a reading
+
+                           printed  seated bounds  true extent
+  claims                      1021           1014         1021
+  cells                        400            402          410
+  box                         1681           1681         1849
+  E(book)                     1265           1302         1407
+  box side n                    41             41           43
+
+  The printed row is a dated reading and says so. What it cannot say, and what this
+  measures, is that the extent it names is no longer the book's: Chapter 36 and Appendix G
+  are outside every bound the instrument carries, so no re-run of it can ever count them.
