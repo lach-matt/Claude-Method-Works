@@ -1,0 +1,20 @@
+§14.3's bundling claim, and the experiment it cites
+
+  the paragraph's evidence: "80/80 agreement, bundled and decomposed" — a test in which bundling changed NOTHING
+  the paragraph's conclusion: "the theorem survives, but only when the presentation
+  respects it" — which requires a case in which bundling changes SOMETHING.
+
+  A three-cell counterexample on the 2×2×2 box: [(0, 0, 0), (0, 1, 1), (1, 0, 1)]
+    presented decomposed, three chain coordinates:  E = 1
+    presented bundled, coordinates 1 and 2 folded:  E = 0
+    the cell the decomposed closure adds and the bundled one cannot see: [(0, 0, 1)]
+
+  So the claim is TRUE and the cited experiment does not show it.
+
+  The reason is general, and it is one line: with two coordinates the only pairwise
+  projection is the set itself, so R(X) = X for EVERY X. Any presentation bundled down
+  to two coordinates reports closure whatever it contains. Bundling does not hide a
+  defect by accident; at two coordinates it cannot do anything else.
+
+  RECORDED, NOT REPAIRED. The chapter is right about the mechanism; the sentence that
+  supports it needs an experiment that exhibits it, and one is printed above.
