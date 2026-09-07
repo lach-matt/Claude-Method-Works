@@ -306,3 +306,40 @@ against 1, 4, 10, 21, 37, 57 backwards — **therefore not self-dual**, which is
 the direction that holds*. **What does not stand is "if and only if", and with it §11.8's "they are
 the same statement"**: an asymmetric rank sequence *implies* non-self-duality and is not equivalent
 to it.
+
+### D-21 · the false-universal class, and its named instance — already measured, and against the docket
+
+The plan names one instance: *"the false-universal class (**§34.6's 'never resets' fails at Mo**)"*.
+**It does not fail at Mo**, and the instrument that settles it was already banked.
+
+`walkresets.py` separates the eighteen recalibrations by what they do to `a`: **9 real moves, 8
+boundary touches where the value is unchanged, 1 initial placement.** Molybdenum's is a **boundary
+touch** — `a` before 1.0000, after 1.0000, move −0.000002 — as are Tc, Rh, Gd, Tb, Cm, Bk and Rf.
+**Eight of the nine real moves are at the opening of the entering subshell**, and the ninth is
+Hg 80, §34.6's own *"return from an exception"*. So **`a` never moves inside the filling of the
+subshell that is entering**, which is what the claim says.
+
+**The docket's instance counts a boundary touch as a reset.** What *is* true is subtler and is
+`FINDING-R4-08`'s: the reset condition is a statement about **intervals** — `a` is held while the
+corridors seen since the last reset still share a point — and **nothing in it mentions a subshell**,
+so *"it never resets mid-subshell"* was never a consequence of the rule but an observation about
+where the rule happens to fire. **A true sentence resting on a reason it does not have** is a
+different defect from a false universal, and it is the one this class actually contains here.
+
+The other 541 `C9-OVERGENERALISATION-WORD` census rows are a reading class, not a measuring one, and
+the standing precedent (678, 680–687, 1067, 1069) is that a row whose flagged token is the cited
+section's own claim is a regex artefact.
+
+---
+
+## Where Phase 1 stands
+
+**Sixteen of the forty-one rows are disposed** — J-20, D-60, F-191, H-23, D-05, G-01, F-147, D-61,
+E-033, J-12, E-042, D-14, E-089, D-23, D-16, I-021, D-21 — and the rest are triaged above.
+**Thirteen instruments** were built for it, each stdlib-only with a `--selftest` whose fixtures are
+the corpus's own recorded numbers: `bookindex2`, `voidrange`, `sigmacollision`, `bundling`, `pcrest`,
+`withdrawncite`, `vprice`, `endrule`, `nreached`, `palindromic`, `emptysections`, and (from the R3
+close) `coupling`, `composab`, `cgraph`.
+
+**Nothing is repaired in any volume by this leg.** What each instrument settles is what the Register
+entry for its class will record, and the entries are the next act.
