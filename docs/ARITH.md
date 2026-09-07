@@ -53,7 +53,7 @@ HALF_EVEN`; `--conventions` takes any of `HALF_UP, HALF_EVEN, HALF_DOWN, DOWN, U
 
 **2. It never reports `DISAGREE` for a co-located pair.** A fraction and a percentage on one line
 are not a claim unless the text *binds* them. This is the regex-artefact discipline of the C7/C9
-precedents, and it is most of the work: of 269 claims in the reader-facing members, **202 are
+precedents, and it is most of the work: of 273 claims in the reader-facing members, **206 are
 `NOT-BOUND`** — three quarters. The Mathematical Compendium's
 
 > `floor(delta) ≤ B for 311 of 311 measured channels. As an equality it is right 57%`
@@ -118,11 +118,15 @@ softened, because counts carry no interval.
 
 ## The findings
 
-Over `--roster reader-facing` (the six volumes and the two papers), 269 claims:
+Over `--roster reader-facing` (the six volumes and the two papers), 273 claims:
 
 ```
-AGREE 63   WITHIN-INPUT-PRECISION 2   DISAGREE 2   NOT-BOUND 202
+AGREE 63   WITHIN-INPUT-PRECISION 2   DISAGREE 2   NOT-BOUND 206
 ```
+
+*Re-measured again at BUILD117, where registers 1849–1852 brought **four further claims under the tool and
+all four are `NOT-BOUND`** — `AGREE`, `DISAGREE` and `WITHIN-INPUT-PRECISION` are each exactly as they were.
+The four correcting entries introduced no arithmetic claim the tool can bind, let alone one it disputes.*
 
 *Re-measured 2026-09-07 at BUILD116. This block read 235 / 57 / 1 / 175 when written and went stale
 across the R4 leg; `tools/docfigures.py` caught it. **`DISAGREE` did not move.** Thirty-four further

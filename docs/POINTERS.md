@@ -117,13 +117,17 @@ for lowercase `register NNN` is no longer owed. Both are bundle members and neit
 
 ## What it reports
 
-Over `--roster with-companion`, 2,086 pointer tokens:
+Over `--roster with-companion`, 2,092 pointer tokens:
 
 ```
-RESOLVED-HERE 438  RESOLVED 1539  AMBIGUOUS 65  PARTIAL 19
+RESOLVED-HERE 438  RESOLVED 1545  AMBIGUOUS 65  PARTIAL 19
 PREFIX-ONLY 3  UNRESOLVED 21  KIND-MISMATCH 1
 44 findings  (APPSEC 2, FIGURE 2, REGISTER 4, REGISTER-RANGE 19, SECTION 8, THEOREM 9)
 ```
+
+*Re-measured again at BUILD117, where registers 1849–1852 added **six pointer tokens, all six RESOLVED** —
+findings stayed at 44, every class of them unmoved, and `PARTIAL` stayed at 19. Four entries that correct
+statements about the volumes added no pointer defect of any kind, which is what a correction should do.*
 
 *Re-measured 2026-09-07 at BUILD116. This block read 1,932 / 1387 / 17 / 42 when written and went
 stale across the R4 leg as entries were seated; `tools/docfigures.py` caught it. **Read what moved and
@@ -152,7 +156,7 @@ hypothesis until read and measured* — and this measures them.
 
 ## `--extent`
 
-The Register's extent is stated as 1 to 1848; 1,715 of those numbers carry a `###` entry and 133 do
+The Register's extent is stated as 1 to 1852; 1,719 of those numbers carry a `###` entry and 133 do
 not. **An uncited absence is not a pointer failure**, so `--extent` lists only the absences
 something cites:
 
