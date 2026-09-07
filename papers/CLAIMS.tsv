@@ -766,3 +766,24 @@ C769	bred fuel bound case, delivered	2.449	ratio	DERIVED	machine.py --balances; 
 C770	the same at the wider bore	2.909	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_bredbound_w
 C771	bred fuel through an optimised target, delivered	1.480	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_optimised
 C772	the same at the wider bore	1.758	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_optimised_w
+C773	acceptance census: sites across both live papers	38	count	DERIVED	machine.py --census; each row asserted against the file that prints it	fn:cen_sites
+C774	census rows graded CONDITIONAL	8	count	DERIVED	machine.py --census; the site states its own assumption	fn:cen_conditional
+C775	census rows graded RESTATED	23	count	DERIVED	machine.py --census; read as end-to-end, restated at delivered	fn:cen_restated
+C776	census rows graded REQUIREMENT	3	count	DERIVED	machine.py --census; sec.5.22's inverse question	fn:cen_requirement
+C777	census rows graded NOT-LINEAR	3	count	DERIVED	machine.py --census; a density or a sticking boundary	fn:cen_notlinear
+C778	census rows graded WITHDRAWN	1	count	DERIVED	machine.py --census; a sentence rather than a number	fn:cen_withdrawn
+C779	sec.5.18's 1.97 at the delivered acceptance	0.693	ratio	DERIVED	machine.py --census; 1.97 x delivered / 0.90	fn:cen_518
+C780	sec.5.18's 6.30 at the delivered acceptance	2.217	ratio	DERIVED	machine.py --census; 6.30 x delivered / 0.90	fn:cen_518_dens
+C781	sec.5.23's heat balance delivered	0.1409	ratio	DERIVED	machine.py --census; 0.4006 x delivered / 0.90	fn:cen_523_heat
+C782	sec.5.23's heat balance at phi = 3, delivered	0.1313	ratio	DERIVED	machine.py --census; 0.3731 x delivered / 0.90	fn:cen_523_phi3
+C783	sec.5.23's work balance delivered	0.1174	ratio	DERIVED	machine.py --census; 0.3338 x delivered / 0.90	fn:cen_523_work
+C784	sec.5.24 bred fuel, no momentum requirement, through the budget	0.855	ratio	DERIVED	machine.py --census; 1.199 x the sec.11 loss budget	fn:cen_524_nocut
+C785	the same through a 400 MeV/c window	0.690	ratio	DERIVED	machine.py --census; 0.968 x the sec.11 loss budget	fn:cen_524_400
+C786	the same through a 265 MeV/c window	0.6236	ratio	DERIVED	machine.py --census; 0.875 x the sec.11 loss budget	fn:cen_524_265
+C787	the same at the wider bore, 400 MeV/c	0.957	ratio	DERIVED	machine.py --census; 1.343 x the sec.11 loss budget	fn:cen_524_wb400
+C788	the same at the wider bore, 265 MeV/c	0.740	ratio	DERIVED	machine.py --census; 1.039 x the sec.11 loss budget	fn:cen_524_wb265
+C789	companion sec.2.6 heat at today's aperture, through the budget	0.600	ratio	DERIVED	machine.py --census; 0.842 x the sec.11 loss budget	fn:cen_26_heat
+C790	the same rescaled to the moved sticking datum	0.649	ratio	DERIVED	machine.py --census; 0.911 x the sec.11 loss budget	fn:cen_26_resc
+C791	sec.5.24's no-cut acceptance through the budget	43.42	percent	DERIVED	machine.py --census; 60.92 x the sec.11 loss budget	fn:cen_acc_nocut
+C792	the two census routes to bred fuel at 150 cycles, agreeing	1.0003	ratio	DERIVED	machine.py --census; an acceptance-over-requirement against a balance-at-0.90	fn:cen_agreement
+C793	the same bred-fuel figure by sec.5.19's route	0.6234	ratio	DERIVED	machine.py --balances; 1.772 x delivered / 0.90	fn:bal_bred150

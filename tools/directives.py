@@ -90,7 +90,7 @@ ROWS = [
     ("D24", "BE", "5.19", "the blanket on sourced ground: the heat form reaches 1.241 AT 90 percent, withdrawn end-to-end by 5.31", 3, 0, 3, 1),
     ("D25", "BE", "5.20", "the in-flight escape closes; the stripping route opens, capped at 1.39", 2, 1, 2, 1),
     ("D26", "BE", "5.21", "the collector's constraint is shielding, not the magnet", 2, 0, 3, 1),
-    ("D27", "BE", "5.22", "what each product asks of the collector: 96.7 / 72.5 / 50.8 percent", 3, 0, 2, 1),
+    ("D27", "BE", "5.22", "what each product asks of the collector: 299.6 / 72.5 / 50.8 percent", 3, 0, 2, 1),
     ("D28", "BE", "5.23", "two routes, one shared dependency", 3, 0, 1, 1),
     ("D29", "BE", "5.24", "the acceptance model reproduces the built machine's MARS15 to 0.982", 3, 0, 3, 2),
     ("D30", "BE", "5.25", "the stopping window is bought with tritium, and it saturates", 2, -1, 3, 1),
@@ -131,6 +131,7 @@ ROWS = [
     # what this row adds is the apparatus, the gating and the committed rate.
     ("D72", "BE", "5.31", "every balance restated at the delivered acceptance: the 1.241 does not survive", 3, -1, 1, 1),
     ("D73", "BE", "5.32", "what that withdraws and what survives: one route, bred fuel through an optimised target", 3, 1, 2, 1),
+    ("D74", "BE", "5.33", "the acceptance census: 38 sites graded, one sentence withdrawn, two routes agreeing to 1.0003", 3, -1, 2, 1),
     ("D71", "SP", "11", "the end-to-end loss budget: Q6 closed on geometry, Q1 narrowed to a number, and the two coupled", 3, 0, 2, 2),
     ("D70", "SP", "6", "the procedure repointed at the designed machine; the prediction moves by 6 percent", 3, 1, 3, 3),
     ("D69", "SP", "10", "the fuel cell designed: the decay channel, recompression, and one loop for two requirements", 2, 1, 3, 3),

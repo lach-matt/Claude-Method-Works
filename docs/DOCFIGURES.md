@@ -10,7 +10,7 @@ python3 tools/docfigures.py               # the drift report; exit 1 if anything
 python3 tools/docfigures.py -v            # same, every row printed
 ```
 
-**59 pinned figures, ~3 s, stdlib only.** Fast enough to run at the top of a session.
+**65 pinned figures, ~5 s, stdlib only.** Fast enough to run at the top of a session.
 
 ## Why it exists
 
@@ -48,6 +48,12 @@ counts and ranges; the `__<driveFileId>` count; and the row counts and headline 
 
 The last fourteen rows come from `pointers.py --json` and `arith.py --json`: 1,932 pointer tokens
 across seven verdicts with 42 findings, and 235 arithmetic claims across four verdicts with 2.
+
+**The last six pin `machine.py --census`.** That instrument grades 38 sites across the two live
+papers where a figure is stated at an assumed collection efficiency — 8 CONDITIONAL, 23 RESTATED, 3
+REQUIREMENT, 3 NOT-LINEAR, 1 WITHDRAWN — and its own selftest asserts each **site** against the paper
+that prints it, exactly the shape that lets a change in the **totals** through. `CLAUDE.md` and
+`docs/MACHINE.md` both state those totals in prose, so they are pinned here.
 
 **Their own selftests do not cover these.** `pointers.py --selftest` checks 53 fixtures and
 `arith.py --selftest` checks 42, and every one of them is an individual **site** — this token

@@ -437,6 +437,11 @@ instead:
 | heat balance, bound case, perfect collection | 1.379 | **1.492** |
 | heat balance, bound case at today's aperture | 0.842 | **0.911** |
 
+The second row is stated at the aperture *model*, not at what the aperture delivers: through the
+companion's §11 loss budget it is **0.600**, and rescaled **0.649**. The direction of this section's
+correction is unchanged by that; its distance from unity is not. The companion's §5.33 censuses every
+such figure in both papers.
+
 The direction is favourable and the size is modest — about nine percent in sticking, eight in service
 life — and it does not change any conclusion in §5.23 or §2.5. It is recorded because a paper that
 prices a binder should say when the field's best number for that binder has moved, and because it runs

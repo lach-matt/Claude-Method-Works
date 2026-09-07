@@ -24,9 +24,12 @@ cannot be made exactly is not made.
 It also refuses to measure anything requiring the 393 MB chat export, so it stays
 fast enough to run at the top of a session. `coverage.py --chats` owns that.
 
-The last fourteen rows come from `pointers.py --json` and `arith.py --json`. Their
+Fourteen rows come from `pointers.py --json` and `arith.py --json`. Their
 own selftests pin individual SITES -- 53 and 42 fixtures -- so a change in a
 corpus-wide TOTAL passes them without a word. These rows are that missing check.
+The last six pin `machine.py --census`'s grades, for the same reason: that
+instrument's selftest asserts each SITE against the paper printing it, so a
+change in the totals CLAUDE.md and MACHINE.md quote would pass it silently.
 
 stdlib only.  python3 tools/docfigures.py [--selftest] [-v]
 """
@@ -340,6 +343,19 @@ def _governance_prose_only():
     return 0 if seen > 100 else 1
 
 
+
+def _census_counts():
+    """machine.py's acceptance census, counted rather than quoted."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    try:
+        import machine as _m
+    except Exception:
+        return None
+    c = dict(_m.census_counts())
+    c["sites"] = len(_m.ACCEPTANCE_SITES)
+    return c
+
+
 def _instrument_rows():
     """Totals the instruments report, which their per-site selftests do not pin."""
     sites = _pointer_sites()
@@ -363,6 +379,21 @@ def _instrument_rows():
         ("docs/ARITH.md", "WITHIN-INPUT-PRECISION", 1, av("WITHIN-INPUT-PRECISION")),
         ("docs/ARITH.md", "DISAGREE (the findings)", 2, av("DISAGREE")),
         ("docs/ARITH.md", "NOT-BOUND", 175, av("NOT-BOUND")),
+    ] + _census_rows()
+
+
+def _census_rows():
+    """The acceptance census's grades. CLAUDE.md and MACHINE.md both state them."""
+    c = _census_counts()
+    if c is None:
+        return [("docs/MACHINE.md", "machine.py could not be imported (rows skipped)", 0, 1)]
+    return [
+        ("docs/MACHINE.md", "acceptance census, sites", 38, c["sites"]),
+        ("docs/MACHINE.md", "census CONDITIONAL", 8, c.get("CONDITIONAL", 0)),
+        ("docs/MACHINE.md", "census RESTATED", 23, c.get("RESTATED", 0)),
+        ("docs/MACHINE.md", "census REQUIREMENT", 3, c.get("REQUIREMENT", 0)),
+        ("docs/MACHINE.md", "census NOT-LINEAR", 3, c.get("NOT-LINEAR", 0)),
+        ("docs/MACHINE.md", "census WITHDRAWN", 1, c.get("WITHDRAWN", 0)),
     ]
 
 

@@ -160,6 +160,46 @@ against 31.66 delivered — a balance of **1.480**, and 1.758 at the wider bore.
 whether the optimised target's gain is real, which is what `--budget` answers on geometry. Everything
 else falls below unity.
 
+## The acceptance census — `--census`
+
+`--balances` restated **one** table. The same question belongs to every figure the two live papers
+state at an assumed collection, and asking it by eye is not a method, so `--census` asks it against
+the files. **38 sites**, each carrying the figure the paper prints, the acceptance it prints it at,
+and a grade — and `--selftest` asserts that every one of the 38 still occurs in the file that prints
+it and that every section named is still a heading there. The census cannot drift away from what it
+censuses without failing.
+
+| grade | rows | what it means |
+|---|---|---|
+| CONDITIONAL | 8 | the site states its assumption in the same sentence — it stands as printed |
+| RESTATED | 23 | a reader would carry it away as end-to-end; every one falls |
+| REQUIREMENT | 3 | [1] §5.22's inverse question — a requirement does not move |
+| NOT-LINEAR | 3 | a break-even density or a sticking boundary; restating is not a multiplication |
+| WITHDRAWN | 1 | a sentence rather than a number |
+
+**The census does not find that the papers are wrong.** Most rows are conditionals stated as
+conditionals, and those stand. What it finds is the reading.
+
+**Two routes reach the same number and that is the check.** §5.24's 0.875 is an *acceptance over a
+requirement* and takes the loss budget as a factor of 0.7127; §5.19's 1.772 is a *balance at an
+assumed efficiency* and takes delivered ÷ 0.90. Different arithmetic, different rows, different
+sections — **0.6236** against **0.6234**, agreeing to **1.0003**, and neither built from the other.
+
+**The one row graded WITHDRAWN** is [1] §5.21's *"comfortably inside the §5.9 collector … not an open
+physical question"*. The stopping ceiling is 0.5069, so the §5.9 collector is not a shielding trade
+away — it is unreachable. The sentence is withdrawn; the route survives only through the optimised
+production target, at 1.480.
+
+**One row the census corrected outside the papers.** Asked what [1] §5.22 prints for the electricity
+requirement, the file says **299.6 percent**; this repository's `CLAUDE.md` had carried **96.7** from
+an earlier draft, and so had `directives.py`'s D27. The papers were right and the summaries were
+stale — which is the case for censusing files rather than memory, and the reason `docfigures.py`
+exists.
+
+**What the census refuses.** Three rows are a break-even density and a boundary on sticking. The
+balance is not linear in either, so the census names them rather than scaling them. **An un-restated
+row is a finding, not an omission.**
+
 ## What is not done
 
 Nothing in the physics. What is not here is a **fabrication package**: drawings, tolerances, weld and
@@ -182,6 +222,7 @@ python3 tools/machine.py --channel --cell
 python3 tools/machine.py --coherence      # the spec sheet the procedure must quote
 python3 tools/machine.py --budget         # every loss term, and the two questions it couples
 python3 tools/machine.py --balances       # the balances at the acceptance actually delivered
+python3 tools/machine.py --census         # every figure stated at an assumed acceptance, graded
 python3 tools/machine.py
 python3 tools/collector.py --magnet
 python3 tools/verify_paper.py papers/Cold_Fusion_Specification_and_Procedure_v1.0.md

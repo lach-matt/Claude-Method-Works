@@ -108,7 +108,10 @@ that its tritium inventory is therefore areal density times beam area and does n
 compression, and that widening the window from 265 to 400 MeV/c costs **1.93** in inventory for
 **1.11** in delivered muons. The route therefore needs one of two things, and both are already in this
 paper: the wider bore, which restores it to 1.343, or the optimised production target, which drops the
-requirement from 50.8 to 21.4 percent and is met by every configuration computed. The second is the
+requirement from 50.8 to 21.4 percent and is met by every configuration computed. **Every figure in that
+sequence is an aperture-model acceptance**, and §5.33 restates all of them at what the machine
+delivers: 1.199 becomes **0.855**, 0.968 becomes **0.690**, 1.343 becomes **0.957**, and the optimised
+production target is the only one of them that still clears unity, at **1.480**. The second is the
 cheaper and §10 runs it first — but its figure is a **discrepancy this paper cannot explain**, three
 candidate mechanisms having been examined and bounded, so what §10 runs first is a test of whether
 that lever exists at all.
@@ -845,6 +848,10 @@ Recomputing the balance on that basis:
 > **At the cycle count demonstrated at Los Alamos in the 1980s, with the collector §5.9 specifies and
 > nothing else, the balance exceeds unity by about two.** No sticking improvement. No polarisation. No
 > extreme density. No new physics of any kind.
+>
+> **That reading is withdrawn by §5.33 and the figure is not.** 1.97 is what the balance is *at the
+> §5.9 collector*, and the §5.9 collector is above the stopping ceiling. At the acceptance actually
+> delivered the same row is **0.693**, and the 6.30 beneath it is **2.217**.
 
 **This is a change of the question, and the paper says so rather than concealing it.** The 200 MeV is
 realised downstream, in a separate fission reactor, and is an energy *credit* rather than device
@@ -913,7 +920,9 @@ fusion **146.06 MeV**, against §5.18's reconstructed 162.4:
 | bound case, perfect collection | 190.1 | 11.13 GeV | **7.73** |
 
 The conclusion of §5.18 is unchanged and now rests on sourced figures throughout: **at the cycle count
-demonstrated in the 1980s, with the collector and nothing else, the breeding balance is near two.**
+demonstrated in the 1980s, with the collector and nothing else, the breeding balance is near two** —
+which §5.31 restates at the acceptance the collector actually delivers, where it is 0.623 and closes
+only through an optimised production target.
 
 ### 5.20 The in-flight escape closes, and the stripping route opens
 
@@ -1049,6 +1058,13 @@ and a satisfied one, on the product the definition permits and at a cycle count 
 in a laboratory. It is an engineering figure with a named trade behind it (§5.21), not an open
 physical question.
 
+> **That paragraph is withdrawn, and it is the only prose §5.33's census withdraws outright.** The
+> §5.9 collector's 90 percent sits above the companion's stopping ceiling of **0.5069**, so it is not
+> a shielding trade away — it is unreachable at any shielding. The delivered acceptance is 31.66
+> percent and the bred-fuel case at demonstrated cycles is **0.623** there, not above unity. What
+> stands between the eighth condition and a satisfied one is therefore *not* 1.69 in collection; it
+> is the optimised production target, which §5.24 prices and §10.5 runs first.
+
 **The caution this table does not remove.** η here is *collection*, and collection is only one factor
 of a real front end: the model of §5.9 is an acceptance calculation, and a machine must also transport,
 cool and stop what it accepts. The 30 percent reference is likewise a capture fraction, not a
@@ -1077,10 +1093,11 @@ Three readings, and the third is the one that matters.
 
 **First: the breeding credit is not load-bearing for the heat form.** At the §5.9 collector, the heat
 balance reaches **0.4006** on the bound-case service life and **0.3731** at φ = 3, counting the
-neutron at its heat and taking no fissile credit at all. §5.18's change of question was therefore the
+neutron at its heat and taking no fissile credit at all — **0.1409** and **0.1313** at the delivered
+acceptance, per §5.33. §5.18's change of question was therefore the
 *only* escape, not one of two: **the device-internal form does not clear unity**, and the paper's
 scope — a *self-sustaining* reaction — is not met inside the device on witnessed numbers. The work
-form is further off still: **0.3338** at the collector, and is a
+form is further off still: **0.3338** at the collector — **0.1174** delivered — and is a
 statement that electricity remains the demanding product exactly as §5.22 found.
 
 **Second: nothing passes on today's front end at demonstrated cycle counts.** The best row in that
@@ -1175,21 +1192,30 @@ must stop in the fuel, so a reactor front end substitutes a *range* window for t
 does not choose that window — it is a design variable of the target's areal density — so it states the
 sensitivity:
 
-| delivered, per π⁻ produced | p < 200 | p < 265 | p < 400 | no cut |
+| **model acceptance**, per π⁻ produced | p < 200 | p < 265 | p < 400 | no cut |
 |---|---|---|---|---|
 | 1.50 T·m, both hemispheres | 36.48 % | **44.43 %** | **49.16 %** | **60.92 %** |
 | 2.60 T·m, both hemispheres | 38.68 % | **52.79 %** | **68.20 %** | **89.88 %** |
 
+**That header read "delivered" until §5.33 asked it to say what it computes.** These are the aperture
+model's numbers and they carry no loss but the aperture's own; §11 of the companion prices the rest at
+**0.7127**, which takes the 44.43 to the 31.66 §5.31 uses and the 60.92 to **43.42**.
+
 against the **50.8 %** §5.22 shows bred fuel needs at demonstrated cycle counts. Carried into the
 balance:
 
-| bred fuel at 150 cycles | balance |
-|---|---|
-| today's aperture, both hemispheres, no momentum requirement | **1.199** |
-| today's aperture, both hemispheres, p < 400 MeV/c | **0.968** |
-| today's aperture, both hemispheres, p < 265 MeV/c | **0.875** |
-| wider bore, both hemispheres, p < 400 MeV/c | **1.343** |
-| wider bore, both hemispheres, p < 265 MeV/c | **1.039** |
+| bred fuel at 150 cycles | at model acceptance | through the loss budget |
+|---|---|---|
+| today's aperture, both hemispheres, no momentum requirement | **1.199** | **0.855** |
+| today's aperture, both hemispheres, p < 400 MeV/c | **0.968** | **0.690** |
+| today's aperture, both hemispheres, p < 265 MeV/c | **0.875** | **0.623** |
+| wider bore, both hemispheres, p < 400 MeV/c | **1.343** | **0.957** |
+| wider bore, both hemispheres, p < 265 MeV/c | **1.039** | **0.740** |
+
+**The second column is §5.33's, and it is the one to read.** The 0.623 in it is reached here as an
+acceptance over a requirement and in §5.31 as a balance at an assumed efficiency — two routes that
+share no arithmetic, agreeing to 1.0003. **Nothing in this table clears unity once the budget is
+applied**, which is §5.32's conclusion arriving by the other road.
 
 > **The number closes, and it does not close favourably at today's aperture.** With no momentum
 > requirement at all the balance is 1.199 — which is the 1.203 this section previously reported, now
@@ -1263,8 +1289,9 @@ window cannot be widened into a positive balance: reaching unity at today's aper
 essentially the whole spectrum, an inventory several times the table above, and the return curve is
 against it the whole way. The route closes on the other two axes instead — the production target,
 which drops the requirement to 21.4 percent and is met at *every* window in §5.24's table, or the
-wider bore, which holds at **1.039** through a 265 MeV/c window. **Both are cheaper in tritium than
-widening the window, and the production target is cheaper than either.**
+wider bore, which holds at **1.039** through a 265 MeV/c window — **0.740** through the loss budget,
+so on the delivered figure the wider bore does *not* hold and only the production target does. **Both
+are cheaper in tritium than widening the window, and the production target is cheaper than either.**
 
 **The beam radius is not a free parameter either, and deriving it is what makes the kilograms real.**
 A particle born on the axis with transverse momentum p_T spirals on a circle of radius r whose centre
@@ -1725,6 +1752,66 @@ as an independent route.
 work form, and bred fuel at the demonstrated cycle count without the optimised target. That is the
 honest end-to-end state of the balance, and it is narrower than any earlier section of this paper
 implies.
+
+### 5.33 The acceptance census
+
+§5.31 restated one table. The question it asks belongs to **every** figure this paper states at an
+assumed collection, and asking it by eye is not a method. `python3 tools/machine.py --census` asks it
+mechanically: **38** sites across this paper and the companion, each named with the figure it prints,
+the acceptance it prints it at, and a grade. That instrument's `--selftest` asserts every one of the
+38 still occurs in the file that prints it and that every section named is still a heading there, so
+the census cannot quietly drift away from the papers it censuses.
+
+**The census does not find that the papers are wrong**, and the grades are what say so.
+
+| grade | rows | what it means |
+|---|---|---|
+| CONDITIONAL | **8** | the site states its assumption in the same sentence as the number — it stands as printed |
+| RESTATED | **23** | a reader would carry it away as end-to-end; restated below, and every one falls |
+| REQUIREMENT | **3** | §5.22's inverse question — a requirement does not move when the acceptance does |
+| NOT-LINEAR | **3** | a break-even density or a sticking boundary, where restating is not a multiplication |
+| WITHDRAWN | **1** | a sentence rather than a number |
+
+**The restatements, at the delivered 31.66 percent.**
+
+| site | as printed | delivered |
+|---|---|---|
+| §5.18, bred fuel at the §5.9 collector | 1.97 | **0.693** |
+| §5.18, the same at §5.11's density | 6.30 | **2.217** |
+| §5.23, heat on the bound-case service life | 0.4006 | **0.1409** |
+| §5.23, heat at φ = 3 | 0.3731 | **0.1313** |
+| §5.23, work at the same collector | 0.3338 | **0.1174** |
+| §5.24, bred fuel, no momentum requirement | 1.199 | **0.855** |
+| §5.24, through a 400 MeV/c window | 0.968 | **0.690** |
+| §5.24, through 265 MeV/c | 0.875 | **0.623** |
+| §5.24, wider bore at 400 MeV/c | 1.343 | **0.957** |
+| §5.24, wider bore at 265 MeV/c | 1.039 | **0.740** |
+| companion §2.6, heat at today's aperture | 0.842 | **0.600** |
+
+**Two routes reach the same bred-fuel figure, and that agreement is the check on both.** §5.24's
+0.875 is an *acceptance over a requirement*, and the loss budget enters it as a factor of 0.7127.
+§5.19's 1.772 is a *balance at an assumed efficiency*, and the budget enters it as delivered ÷ 0.90.
+Different arithmetic, different rows, different sections — and they land at **0.6236** and **0.6234**,
+agreeing to **1.0003**. Neither was constructed from the other.
+
+> **The one sentence graded WITHDRAWN.** §5.21 says the bred-fuel case is *"comfortably inside the
+> §5.9 collector"* and calls the remaining factor of 1.69 *"an engineering figure with a named trade
+> behind it, not an open physical question."* The companion's stopping ceiling is **0.5069** and the
+> delivered acceptance is 31.66 percent, so the §5.9 collector is not merely unreached — **it is
+> unreachable**, and no shielding trade reaches it. That sentence is withdrawn. What survives of the
+> route it describes is the optimised production target, at **1.480**.
+
+**One row the census corrected outside the papers.** Asked for §5.22's electricity requirement, the
+file it censuses prints **299.6 percent**; this repository's own `CLAUDE.md` had carried **96.7**
+since an earlier draft of that table. The papers were right and the summary was stale. That is what a
+census over files rather than over memory is for, and it is the second time in this work that a
+figure quoted about the corpus outran the corpus.
+
+**What the census refuses to do, and the refusal is the point.** Three rows are a break-even density
+(0.222 times liquid, at perfect collection) and a boundary on sticking (0.143 percent, at today's
+aperture). The balance is not linear in either, so restating them is not a multiplication, and the
+census names them rather than scaling them. **An un-restated row is a finding, not an omission** — it
+says which instrument owns the question, and neither of those is this one.
 
 ## 6. What the definition excludes
 

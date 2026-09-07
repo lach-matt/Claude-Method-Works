@@ -24,6 +24,7 @@ Stdlib only.  python3 tools/machine.py [--all|--circuit|--conductor|--target
                                         |--radiation|--plant|--selftest]
 """
 import argparse
+import functools
 import math
 import os
 import sys
@@ -966,6 +967,7 @@ BUDGET_TERMS = (
 )
 
 
+@functools.lru_cache(maxsize=None)
 def budget_product():
     p = 1.0
     for _, fn, _ in BUDGET_TERMS:
@@ -1089,6 +1091,7 @@ BALANCES_AT_90 = (
 OPTIMISED_TARGET_REQUIREMENT = 21.4     # percent, [1] sec.5.24
 
 
+@functools.lru_cache(maxsize=None)
 def delivered_eta(br=1.50):
     return C.delivered_fraction_mirrored(br, (0.0, 265.0)) * budget_product()
 
@@ -1150,6 +1153,230 @@ def report_balances():
     print("    So the co-product configuration of the specification's sec.5.2 and the")
     print("    bred-fuel route through an optimised target are what is left, and they")
     print("    are the two the specification already builds for. Nothing else passes.")
+
+
+# ---- the acceptance census -------------------------------------------------
+# [1] sec.5.31 settles the principle and settles it for one table: a figure
+# stated AT an acceptance was never wrong, and what is withdrawn is reading one
+# as delivered. The principle then has to be applied to EVERY such figure and
+# not only to the ones a reader happens to notice, so this is the census.
+#
+# It is mechanical in both directions. Each row names its site and the figure
+# the paper prints; --selftest asserts that figure still occurs in that file and
+# that the section still exists as a heading; and the restatement is computed
+# here rather than typed. A row is never repaired in the paper by this file --
+# it is graded, and the grade is the finding.
+ETA_PERFECT = 1.0                    # "perfect collection"
+ETA_COLLECTOR_59 = 0.90              # "the sec.5.9 collector", [1] sec.5.19
+ETA_TODAY_APERTURE = 0.6092          # "today's aperture, both hemispheres"
+
+PAPER_ECONOMY = "Cold_Fusion_Binder_Economy_v1.0.md"
+PAPER_RECONCILIATION = "Independent_Reconciliation_v1.0.md"
+
+# kind decides both the grade and the arithmetic:
+#
+#   "balance"     a balance stated at an ASSUMED efficiency (0.90 or perfect).
+#                 Linear in collection, so restated as printed * delivered/at.
+#   "acceptance"  an acceptance computed from the aperture model. It already
+#                 carries the aperture; what it lacks is the loss budget, so it
+#                 is restated as printed * budget_product().
+#   "ratio"       an aperture acceptance over a requirement -- same factor.
+#   "labelled"    the site states its own assumption in the same sentence and
+#                 draws no end-to-end conclusion from it. CONDITIONAL: stands.
+#   "requirement" the inverse question. A requirement does not move; what moves
+#                 is whether the delivered figure meets it.
+#   "claim"       a sentence rather than a number, and one sec.5.31 withdraws.
+#   "nonlinear"   a density or a sticking boundary, where the restatement is not
+#                 a multiplication. NOT-LINEAR: named here, not computed.
+#
+# (paper, section, printed, value, kind, at, note)
+ACCEPTANCE_SITES = (
+    (PAPER_ECONOMY, "abstract", "0.464", 0.464, "labelled", ETA_PERFECT,
+     "'at perfect collection and unlimited density' -- said in the sentence"),
+    (PAPER_ECONOMY, "abstract", "0.313", 0.313, "labelled", ETA_PERFECT,
+     "the same sentence"),
+    (PAPER_ECONOMY, "5.4", "0.675", 0.675, "labelled", ETA_PERFECT,
+     "'Suppose collection were perfect' -- the paragraph IS the condition"),
+    (PAPER_ECONOMY, "5.4", "0.338", 0.338, "labelled", ETA_PERFECT,
+     "the same paragraph"),
+    (PAPER_ECONOMY, "5.10", "1.17", 1.17, "labelled", ETA_PERFECT,
+     "the residual above the break-point, stated at perfect collection"),
+    (PAPER_ECONOMY, "5.18", "1.97", 1.97, "balance", ETA_COLLECTOR_59,
+     "the pull-quote reads it as a result: 'exceeds unity by about two'"),
+    (PAPER_ECONOMY, "5.18", "6.30", 6.30, "balance", ETA_COLLECTOR_59,
+     "sec.5.11's density on the same collector"),
+    (PAPER_ECONOMY, "5.19", "1.77", 1.77, "balance", ETA_COLLECTOR_59,
+     "the same reading on sourced blanket figures"),
+    (PAPER_ECONOMY, "5.19", "7.73", 7.73, "labelled", ETA_PERFECT,
+     "the row's own label is 'bound case, perfect collection'"),
+    (PAPER_ECONOMY, "5.19", "1.034", 1.034, "labelled", ETA_PERFECT,
+     "'it still assumes perfect collection' -- the paper says so itself"),
+    (PAPER_ECONOMY, "5.21", "1.69", 1.69, "claim", ETA_COLLECTOR_59,
+     "'comfortably inside the sec.5.9 collector ... not an open physical "
+     "question'. The stopping ceiling is 0.5069, so it is OUTSIDE it"),
+    (PAPER_ECONOMY, "5.22", "299.6", 299.6, "requirement", None,
+     "electricity on the bound case. CLAUDE.md still said 96.7 here until this "
+     "census asked the file what it prints"),
+    (PAPER_ECONOMY, "5.22", "72.5", 72.5, "requirement", None,
+     "heat, bound-case service life"),
+    (PAPER_ECONOMY, "5.22", "50.8", 50.8, "requirement", None,
+     "bred fuel at the demonstrated 150 cycles"),
+    (PAPER_ECONOMY, "5.23", "0.4006", 0.4006, "balance", ETA_COLLECTOR_59,
+     "heat on the bound-case service life; the abstract quotes it"),
+    (PAPER_ECONOMY, "5.23", "0.3731", 0.3731, "balance", ETA_COLLECTOR_59,
+     "heat at phi = 3"),
+    (PAPER_ECONOMY, "5.23", "0.3338", 0.3338, "balance", ETA_COLLECTOR_59,
+     "work at the same collector"),
+    (PAPER_ECONOMY, "5.24", "36.48", 36.48, "acceptance", None,
+     "1.50 T.m, p < 200 MeV/c"),
+    (PAPER_ECONOMY, "5.24", "44.43", 44.43, "acceptance", None,
+     "1.50 T.m, p < 265 MeV/c -- this is the row sec.5.31's delivered figure "
+     "comes from, so its restatement had better be 31.66"),
+    (PAPER_ECONOMY, "5.24", "49.16", 49.16, "acceptance", None,
+     "1.50 T.m, p < 400 MeV/c"),
+    (PAPER_ECONOMY, "5.24", "60.92", 60.92, "acceptance", None,
+     "1.50 T.m, no cut. The table's header reads 'delivered' and THAT is the "
+     "labelling fault this census fixes: it is model acceptance"),
+    (PAPER_ECONOMY, "5.24", "38.68", 38.68, "acceptance", None,
+     "2.60 T.m, p < 200 MeV/c"),
+    (PAPER_ECONOMY, "5.24", "52.79", 52.79, "acceptance", None,
+     "2.60 T.m, p < 265 MeV/c -- the wider bore's 37.62"),
+    (PAPER_ECONOMY, "5.24", "68.20", 68.20, "acceptance", None,
+     "2.60 T.m, p < 400 MeV/c"),
+    (PAPER_ECONOMY, "5.24", "89.88", 89.88, "acceptance", None,
+     "2.60 T.m, no cut"),
+    (PAPER_ECONOMY, "5.24", "1.199", 1.199, "ratio", ETA_TODAY_APERTURE,
+     "bred fuel at 150 cycles, today's aperture, no momentum requirement"),
+    (PAPER_ECONOMY, "5.24", "0.968", 0.968, "ratio", ETA_TODAY_APERTURE,
+     "the same through a 400 MeV/c window"),
+    (PAPER_ECONOMY, "5.24", "0.875", 0.875, "ratio", ETA_TODAY_APERTURE,
+     "the same through 265 -- and its restatement is the cross-check on "
+     "sec.5.31, which reaches the same figure by the other route"),
+    (PAPER_ECONOMY, "5.24", "1.343", 1.343, "ratio", ETA_TODAY_APERTURE,
+     "wider bore, 400 MeV/c -- the abstract quotes this one as a route"),
+    (PAPER_ECONOMY, "5.24", "1.039", 1.039, "ratio", ETA_TODAY_APERTURE,
+     "wider bore, 265 MeV/c; sec.5.25 quotes it again as what 'holds'"),
+    (PAPER_RECONCILIATION, "2.5", "1.203", 1.203, "ratio", ETA_TODAY_APERTURE,
+     "'today's magnet', carried as a headline"),
+    (PAPER_RECONCILIATION, "2.5", "1.772", 1.772, "balance", ETA_COLLECTOR_59,
+     "'with the sec.5.9 collector', carried as a headline"),
+    (PAPER_RECONCILIATION, "2.5", "0.143 %", 0.143, "nonlinear", ETA_TODAY_APERTURE,
+     "a boundary ON sticking: the budget moves the boundary, not the balance"),
+    (PAPER_RECONCILIATION, "2.5", "0.222 LHD", 0.222, "nonlinear", ETA_PERFECT,
+     "a break-even DENSITY; the balance is not linear in it"),
+    (PAPER_RECONCILIATION, "2.5", "0.604", 0.604, "nonlinear", ETA_TODAY_APERTURE,
+     "the same, at the aperture"),
+    (PAPER_RECONCILIATION, "2.6", "0.842", 0.842, "ratio", ETA_TODAY_APERTURE,
+     "heat, bound case, at today's aperture"),
+    (PAPER_RECONCILIATION, "2.6", "0.911", 0.911, "ratio", ETA_TODAY_APERTURE,
+     "the same rescaled to the moved sticking datum"),
+    (PAPER_RECONCILIATION, "2.6", "1.379", 1.379, "labelled", ETA_PERFECT,
+     "the row's own label is 'perfect collection'"),
+)
+
+GRADE_OF_KIND = {
+    "balance": "RESTATED", "acceptance": "RESTATED", "ratio": "RESTATED",
+    "labelled": "CONDITIONAL", "requirement": "REQUIREMENT",
+    "claim": "WITHDRAWN", "nonlinear": "NOT-LINEAR",
+}
+
+
+def restate(value, kind, at, br=1.50):
+    """The delivered form of one printed figure, or None where there is none."""
+    if kind == "balance":
+        return value * delivered_eta(br) / at
+    if kind in ("acceptance", "ratio"):
+        return value * budget_product()
+    return None
+
+
+def census_rows(br=1.50):
+    for paper, sec, printed, value, kind, at, note in ACCEPTANCE_SITES:
+        yield (paper, sec, printed, value, kind, at,
+               GRADE_OF_KIND[kind], restate(value, kind, at, br), note)
+
+
+def census_counts():
+    c = {}
+    for row in census_rows():
+        c[row[6]] = c.get(row[6], 0) + 1
+    return c
+
+
+def _paper_path(name):
+    return os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        "papers", name)
+
+
+def _paper_text(name, _cache={}):
+    if name not in _cache:
+        with open(_paper_path(name), encoding="utf-8") as fh:
+            _cache[name] = fh.read()
+    return _cache[name]
+
+
+def report_census():
+    """Every figure in the two live papers stated at an assumed acceptance."""
+    print("  THE ACCEPTANCE CENSUS")
+    print("    sec.5.31 restated ONE table at the delivered acceptance. The same")
+    print("    question has to be asked of every figure the papers state at an")
+    print("    assumed collection, and asked mechanically rather than by eye.")
+    print("    This is that census. A figure stated AT an acceptance is not")
+    print("    wrong; reading one as delivered is. The grade is which it is.")
+    print()
+    print(f"    delivered: {100 * delivered_eta():.2f} % at 1.50 T.m through the"
+          f" 265 MeV/c window,")
+    print(f"    which is the aperture model's {100 * C.delivered_fraction_mirrored(1.50, (0.0, 265.0)):.2f} %"
+          f" times the {budget_product():.4f} loss budget.")
+    print()
+    hdr = f"      {'site':<26} {'printed':>9} {'delivered':>10}  grade"
+    print(hdr)
+    last = None
+    for paper, sec, printed, value, kind, at, grade, new, note in census_rows():
+        tag = "[1]" if paper == PAPER_ECONOMY else "[2]"
+        site = f"{tag} sec.{sec}"
+        if site != last:
+            print()
+            last = site
+        shown = f"{new:10.4f}" if new is not None else f"{'--':>10}"
+        print(f"      {site:<26} {printed:>9} {shown}  {grade}")
+        print(f"      {'':<26} {'':>9} {'':>10}  {note}")
+    print()
+    counts = census_counts()
+    print("    " + ", ".join(f"{k} {v}" for k, v in sorted(counts.items())))
+    print()
+    print("    WHAT THE CENSUS FINDS, AND IT IS NOT THAT THE PAPERS ARE WRONG.")
+    print("    Most of these rows are CONDITIONAL: the site says 'at perfect")
+    print("    collection' in the same breath as the number, and a conditional")
+    print("    stated as one stands. The RESTATED rows are the ones a reader")
+    print("    would carry away as end-to-end, and every one of them falls.")
+    print()
+    print("    TWO ROUTES REACH THE SAME BRED-FUEL FIGURE, AND THAT IS THE CHECK.")
+    a = restate(0.875, "ratio", ETA_TODAY_APERTURE)
+    b = balance_at_delivered(5)
+    print(f"      sec.5.24's 0.875 through the loss budget      {a:.4f}")
+    print(f"      sec.5.19's 1.772 through delivered/0.90       {b:.4f}")
+    print(f"      agreeing to                                   {a / b:.4f}")
+    print("      -- an acceptance over a requirement and a balance over an")
+    print("      assumed efficiency are different arithmetic on different rows,")
+    print("      and they land on the same number.")
+    print()
+    print("    THE ONE ROW GRADED WITHDRAWN.")
+    print("      sec.5.21 says the bred-fuel case is 'comfortably inside the")
+    print("      sec.5.9 collector' and calls the remaining factor 'an")
+    print("      engineering figure ... not an open physical question'. The")
+    print("      sec.9 stopping ceiling is 0.5069 and the delivered figure is")
+    print(f"      {100 * delivered_eta():.2f} percent, so the sec.5.9 collector is not merely")
+    print("      unreached, it is unreachable. The sentence is withdrawn; the")
+    print("      route it was describing survives only through the optimised")
+    print(f"      production target, at {optimised_target_balance():.3f}.")
+    print()
+    print("    WHAT THE CENSUS REFUSES TO DO.")
+    print("      The NOT-LINEAR rows are a break-even density and a sticking")
+    print("      boundary. Restating those is not a multiplication -- the")
+    print("      balance is not linear in either -- so they are named and left")
+    print("      to the instrument that owns them rather than scaled here. An")
+    print("      un-restated row is a finding, not an omission.")
 
 
 def report_all():
@@ -1408,6 +1635,49 @@ def selftest():
     print("       peak-to-mean factor is not wildly wrong in either direction")
 
     print()
+    print("  the acceptance census is measured against the papers on disk")
+    missing = [f"{s} {p}" for pa, s, p, _, _, _, _, _, _ in census_rows()
+               if p not in _paper_text(pa)]
+    ok = not missing
+    fail += 0 if ok else 1
+    print(f"    all {len(ACCEPTANCE_SITES)} printed figures still occur in the file"
+          f" that prints them   {'PASS' if ok else 'FAIL'}")
+    if missing:
+        print("      missing: " + ", ".join(missing))
+    nosec = sorted({f"{'[1]' if pa == PAPER_ECONOMY else '[2]'} {s}"
+                    for pa, s, *_ in ACCEPTANCE_SITES
+                    if s != "abstract" and f"# {s} " not in _paper_text(pa)
+                    and f"#{s} " not in _paper_text(pa)})
+    ok = not nosec
+    fail += 0 if ok else 1
+    print(f"    and every section named is still a heading in it"
+          f"   {'PASS' if ok else 'FAIL'}")
+    if nosec:
+        print("      not found: " + ", ".join(nosec))
+    over = [p for _, _, p, v, k, _, g, new, _ in census_rows()
+            if new is not None and new > v + 1e-9]
+    ok = not over
+    fail += 0 if ok else 1
+    print(f"    no restatement is LARGER than the figure it restates -- the loss")
+    print(f"    budget only ever costs   {'PASS' if ok else 'FAIL'}")
+    a = restate(0.875, "ratio", ETA_TODAY_APERTURE)
+    b = balance_at_delivered(5)
+    ok = abs(a / b - 1.0) < 0.005
+    fail += 0 if ok else 1
+    print(f"    two independent routes to bred fuel at 150 cycles agree to"
+          f" {a / b:.4f}:")
+    print(f"      {a:.4f} from sec.5.24's ratio, {b:.4f} from sec.5.19's balance"
+          f"   {'PASS' if ok else 'FAIL'}")
+    ok = abs(restate(44.43, "acceptance", None) / 100.0 - delivered_eta()) < 5e-4
+    fail += 0 if ok else 1
+    print(f"    and sec.5.24's 44.43 restates to {restate(44.43, 'acceptance', None):.2f} percent, which is the")
+    print(f"    delivered figure sec.5.31 uses   {'PASS' if ok else 'FAIL'}")
+    ok = census_counts().get("WITHDRAWN", 0) == 1
+    fail += 0 if ok else 1
+    print(f"    exactly one row is graded WITHDRAWN, and it is a sentence rather")
+    print(f"    than a number   {'PASS' if ok else 'FAIL'}")
+
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -1421,7 +1691,8 @@ def main():
                      ("plant", report_plant), ("channel", report_channel),
                      ("cell", report_cell),
                      ("budget", report_budget),
-                     ("balances", report_balances), ("coherence", report_coherence),
+                     ("balances", report_balances), ("census", report_census),
+                     ("coherence", report_coherence),
                      ("integration", report_integration)):
         ap.add_argument("--" + name, action="store_true", help=fn.__doc__ or name)
     a = ap.parse_args()
@@ -1433,7 +1704,8 @@ def main():
                      ("plant", report_plant), ("channel", report_channel),
                      ("cell", report_cell),
                      ("budget", report_budget),
-                     ("balances", report_balances), ("coherence", report_coherence),
+                     ("balances", report_balances), ("census", report_census),
+                     ("coherence", report_coherence),
                      ("integration", report_integration)):
         if getattr(a, name):
             fn()

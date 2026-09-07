@@ -2666,6 +2666,98 @@ def bal_optimised_w():
     return _mach.optimised_target_balance(2.60)
 
 
+# ---- the acceptance census, [1] sec.5.33 -----------------------------------
+def _cen(printed, paper=None):
+    for pa, _s, p, _v, _k, _at, _g, new, _n in _mach.census_rows():
+        if p == printed and (paper is None or paper in pa):
+            return new
+    raise KeyError(printed)
+
+
+def _cen_count(grade):
+    return float(_mach.census_counts().get(grade, 0))
+
+
+def cen_sites():
+    return float(len(_mach.ACCEPTANCE_SITES))
+
+
+def cen_conditional():
+    return _cen_count("CONDITIONAL")
+
+
+def cen_restated():
+    return _cen_count("RESTATED")
+
+
+def cen_requirement():
+    return _cen_count("REQUIREMENT")
+
+
+def cen_notlinear():
+    return _cen_count("NOT-LINEAR")
+
+
+def cen_withdrawn():
+    return _cen_count("WITHDRAWN")
+
+
+def cen_518():
+    return _cen("1.97")
+
+
+def cen_518_dens():
+    return _cen("6.30")
+
+
+def cen_523_heat():
+    return _cen("0.4006")
+
+
+def cen_523_phi3():
+    return _cen("0.3731")
+
+
+def cen_523_work():
+    return _cen("0.3338")
+
+
+def cen_524_nocut():
+    return _cen("1.199")
+
+
+def cen_524_400():
+    return _cen("0.968")
+
+
+def cen_524_265():
+    return _cen("0.875")
+
+
+def cen_524_wb400():
+    return _cen("1.343")
+
+
+def cen_524_wb265():
+    return _cen("1.039")
+
+
+def cen_26_heat():
+    return _cen("0.842")
+
+
+def cen_26_resc():
+    return _cen("0.911")
+
+
+def cen_acc_nocut():
+    return _cen("60.92")
+
+
+def cen_agreement():
+    return _cen("0.875") / _mach.balance_at_delivered(5)
+
+
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 
 

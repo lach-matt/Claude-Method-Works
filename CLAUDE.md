@@ -86,7 +86,7 @@ target, a disagreement being a refusal rather than an average — now decides it
 **The balance then closes, and on one product rather than on all of them.** Priced as bred fuel rather
 than as heat, the fusion neutron is worth **146.06 MeV** per fusion against 26.06, and solving each
 balance for the collection efficiency at which it breaks even separates the products: electricity
-needs **96.7 %** collection *and* the bound-case density *and* the favourable sticking branch
+needs **299.6 %** collection *and* the bound-case density *and* the favourable sticking branch
 together, heat needs 72.5 %, and bred fuel needs **50.8 %** at the demonstrated 150 cycles and nothing
 else. Stated at the two collection efficiencies §5.19 used, the heat form reaches **1.241** at 90 percent
 collection — **and §5.31 withdraws that as an end-to-end result.** 90 percent is above the stopping
@@ -94,8 +94,16 @@ ceiling of 0.5069, and through §11's loss budget the delivered acceptance is **
 which the heat form is **0.437**. **The self-sustaining criterion is _not_ met without leaving the
 device.** At the delivered figure every heat form, every work form and bred fuel at demonstrated
 cycles fall below unity; **what survives is bred fuel through an optimised production target, at
-1.480**, which is the route the specification builds for. The collector specification then splits into two
-physically independent halves. **§5.24 then closes the acceptance number as a calculation rather than
+1.480**, which is the route the specification builds for. **§5.33 then applies that restatement to
+every figure rather than to the one table §5.31 caught**: `machine.py --census` grades **38 sites**
+across both live papers — 8 CONDITIONAL (the site states its own assumption and stands), **23
+RESTATED**, 3 REQUIREMENT, 3 NOT-LINEAR and **1 WITHDRAWN**, that last being §5.21's *"comfortably
+inside the §5.9 collector … not an open physical question"*, which the stopping ceiling makes
+unreachable rather than merely unreached. Two routes with no shared arithmetic — an acceptance over a
+requirement, and a balance at an assumed efficiency — reach the same bred-fuel figure, **0.6236
+against 0.6234**. The census also found this file stating **96.7 %** where §5.22 prints **299.6**;
+both are corrected, and the six grades are now pinned in `docfigures.py`. The collector specification
+then splits into two physically independent halves. **§5.24 then closes the acceptance number as a calculation rather than
 an assumption** — production, transverse cap, the two-body decay integrated over the pion rest frame,
 then a momentum requirement — and it **reproduces the built front end's own MARS15 simulation to
 0.982**, which costs the paper two earlier claims. The front end captures the **forward** hemisphere,
@@ -250,16 +258,21 @@ graded conductor, the production target, radiation lifetime, failure modes, plan
 *imports* the design from `collector.py` and never restates it, and its `--selftest` asserts the
 aperture product before computing anything from it. One finding is why it exists: the target must sit
 inside a 10.7 cm bore, which excludes the rotating solid target every megawatt-class facility uses, by
-3.3× — see `docs/MACHINE.md`),
+3.3×. Its **`--census`** is the other direction: **38 sites** across the two live papers where a
+figure is stated at an assumed collection efficiency, each graded — 8 CONDITIONAL, 23 RESTATED, 3
+REQUIREMENT, 3 NOT-LINEAR and 1 WITHDRAWN — with `--selftest` asserting every printed figure still
+occurs in the file that prints it. It found that this file had carried **96.7** for §5.22's
+electricity requirement where the paper prints **299.6**; both are corrected — see `docs/MACHINE.md`),
 **`tools/directives.py`** (the project's three
 directives as three index axes — every substantive result in the three papers graded on each, and the
 cell where all three coincide computed rather than claimed; the X axis carries a *sign*, so a result
 that forbids self-sustaining operation is never counted as progress toward it, and `--selftest`
-matches all 73 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
+matches all 74 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
-**Run it after any pass that changes a count** — 59 pinned figures, ~3 s, exits 1 on drift. The
-last fourteen are the totals `pointers.py` and `arith.py` report, which their own selftests do not
+**Run it after any pass that changes a count** — 65 pinned figures, ~5 s, exits 1 on drift. Fourteen
+are the totals `pointers.py` and `arith.py` report, and the last six the grades `machine.py --census`
+reports, all of which their own selftests do not
 cover: those pin individual sites, so a change in a corpus-wide total passes them silently. It exists
 because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true figures were 702 and
 4; four other figures had gone stale the same way. A `STALE` row means the tree is right and the
