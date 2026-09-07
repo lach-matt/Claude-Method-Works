@@ -1,0 +1,25 @@
+§10.2's range in cell count, against every family the record names
+
+  the tower's own sizes: Λ8 976, Λ9 1,654, Λ10 2,535, Λ11 13,585, Λ12 70,905, Λ13 199,130
+
+  family                                       from        to    ratio   17x?  100x?
+  the tower Λ8 to Λ13                           976   199,130    204.0   no    no
+  Λ8 to Λ12                                     976    70,905     72.6   no    no
+  Λ8 to Λ11                                     976    13,585     13.9   no    no
+  Λ8 to Λ10                                     976     2,535      2.6   no    no
+  register 1830's six sampled settings          976   234,340    240.1   no    no
+
+  §10.2 prints a 17-fold range; Figure 10.1's caption and the
+  appendix row print a 100-fold one, of the same measurement.
+  NO family the record names gives either number.
+
+  Register 1830 already recorded why: the base-cap pair population is 475,800,
+  no one-parameter cap family from the base sums to the 776,000,000 pairs
+  both sentences claim, and the six sampled settings reach 234,340 cells — a 240-fold
+  range, not seventeen and not a hundred. The population is not named anywhere.
+
+  So this is not a choice between a right number and a wrong one. Both are unsupported,
+  and what the volume owes is the cap family, after which the ratio is arithmetic.
+
+  NOT part of this collision: main L3538's '2.17-fold spread in cell count' is a
+  different object — one transition said four ways — and is named here so it is not swept in.

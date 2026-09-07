@@ -1,0 +1,24 @@
+The σ collision: Rule 4 against §22.5, decided from the two formulas
+
+  Rule 4   σ(ν) = 2R Z_eff² · SE_pred / ν³      an OUTPUT of the local Ritz fit
+  §22.5    r(ν) = 2Z²R / (ν³ σ) ≥ 5, and 'r falls as ν⁻³'   σ an INPUT
+
+  With Z = 3.0, Z_eff = 2.6, SE_pred = 0.004:
+
+       ν    σ from Rule 4 (cm⁻¹)   r with THAT σ   r with σ = 0.01 fixed
+       5                 47.4768          332.84             1.58022e+06
+      10                 5.93459          332.84                  197527
+      20                0.741824          332.84                 24690.9
+      40                0.092728          332.84                 3086.36
+      80                0.011591          332.84                 385.795
+
+  The third column is CONSTANT in ν — the ν³ cancels exactly, leaving
+  Z² / (Z_eff² · SE_pred) = 332.84. The fourth falls as ν⁻³, which is
+  what §22.5 says of it. So §22.5's σ cannot be Rule 4's σ.
+
+  And the chapter says so in prose two lines above Rule 4: 'This book's tightest bracket
+  is 1.398 cm⁻¹; limit uncertainties in the collection run
+  0.001 to 0.4 cm⁻¹' — measured level uncertainties in cm⁻¹,
+  constants of the channel, which is exactly what makes r fall as ν⁻³.
+
+  RECORDED, NOT REPAIRED. Which symbol is renamed and where is prose, and prose is M's.
