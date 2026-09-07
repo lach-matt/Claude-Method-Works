@@ -2408,3 +2408,84 @@ this interpretation"*). The right one is **Olum, PRL 81, 3567 (1998)**, which th
 - `index3.py` — 164 findings: `WEYL-IS-SIGNBLIND`, `SEATS-AND-EARLY`, `THE-WINDOW`, `DROPPED-TERM`, `VACUUM-PATH`.
 - `obstruct.py` — 18 rows. New `SEAT-MEETS-TRANSPORT`, **DISSOLVED** — the fourth dissolution, and the first since `EXOTIC-MATTER`. `TURN-ADVANTAGE` amended: reopened and answered.
 - `paper/CLAIMS.md` — **H8**, the paper's central result.
+
+---
+
+## Pass 17 — `corridor.py`: both readings of the vacuum corridor, compared
+
+M proposed the corridor itself is a vacuum, and when the phrase turned out to read two ways, asked
+for both to be explored and compared rather than one chosen.
+
+### First, a correction to the framing
+
+The measured advances are **0.03%–0.2%** of the transit. That is **not near-instantaneous** — it is a
+Shapiro-scale effect with the sign reversed, comparable in size to the solar time-delay measurements.
+**The result's value is entirely in the sign flip**: no prior configuration both seats and leads.
+Within linearised gravity the lead is bounded and small, and H8's window closes before it grows. The
+paper should say *"a measurable negative Shapiro lead in a configuration that also seats"*, never
+"near instantaneous" — a referee ends the paper on that sentence.
+
+### What the constraint forces
+
+`T_kk = 0` makes Einstein's equations set `R_kk = 0`, so **Ricci focusing is identically zero and Weyl
+is the only focusing available.** M's constraint therefore *selects* `composite.py`'s sign-blind
+mechanism and **rules out the Alcubierre architecture outright** — that one needs matter exactly where
+the rays go. And it quarantines every energy-condition objection into a region the payload never
+enters: along the corridor NEC, WEC, DEC and ANEC hold with equality.
+
+### The comparison, and it has a closed form
+
+| | | focusing available |
+|---|---|---|
+| **classical vacuum** | `T_kk = 0` exactly | **Weyl only** |
+| **quantum vacuum** | a vacuum *state*: `⟨T_kk⟩ ≠ 0`, Unruh-like, Type IV | Weyl **+ Ricci** |
+
+For a source of mass `μ` (Planck units) at `z = 2m/r`: Weyl goes as `z³/8μ²`, quantum Ricci as
+`8πf(z)/μ⁴` with APT's `f(z) = αz²/16π(1−z)`. The ratio collapses to
+
+**`RICCI / WEYL = 4α / (z(1−z)μ²)`**
+
+— no `z³`, no `16π`, **symmetric about `z = ½`**, verified to machine precision at five values of `z`.
+**Where in the corridor you stand does not matter; only the mass does.** Setting it to one:
+
+**`μ_cross = 4√α = 2.4486×10⁻² M_Planck = 5.3293×10⁻¹⁰ kg`** — half a nanogram, at its largest.
+
+| mass | corridor |
+|---|---|
+| 1 femtogram | QUANTUM |
+| 1 microgram | classical |
+| **1.1263×10⁹ kg** (the design point) | **classical, by 18.3 orders** |
+| Earth | classical |
+
+**M's instinct — *"I was referring to the classic vacuum, which may be the correct form when we
+finish"* — is confirmed by computation rather than adopted by preference.**
+
+### What the quantum corridor would do, where it applies
+
+Recorded rather than pursued, because a result you decline to use should still be known. The Unruh
+`⟨T_kk⟩` is **negative throughout** and grows toward the horizon (`−8.8×10⁻²` at `z = 0.1` to
+`−2.5×10¹` at `z = 0.9`). Negative Ricci **defocuses**, so a quantum corridor would **hurt the seat
+and help the lead** — H8's window pushed both ways at once. Whether it survives is **`NOT-RUN`**, and
+not worth running for a sub-nanogram device.
+
+**A normalisation caution, enforced in the file:** the *sign* comes from `universal.py`, the
+*magnitude* ratio from `selfconsistent.py`. Different normalisations; no mixed quantity is reported.
+
+### Also measured: how the window scales with corridor radius
+
+| `b` | `M = −2×10⁻³` | `M = −1×10⁻²` |
+|---|---|---|
+| 0.15 | **BOTH** | seats, late |
+| 0.30 | **BOTH** | **BOTH** |
+| 0.60 | early, no seat | **BOTH** |
+| 1.00 | early, no seat | early, no seat |
+
+The band tracks `b²` as the lens equation demands — the control parameter is **`L/f`, `f = b²/4M`** —
+and a **wider corridor buys more advance** (`−0.153` at `b = 0.6` vs `−0.080` at `b = 0.3`, same mass)
+**but demands proportionally more mass to still seat.** Eight points, so the scale-free reading is
+indicated, not established.
+
+### Seated
+
+- `index3.py` — 168 findings: `VACUUM-FORCES-WEYL`, `CORRIDOR-CLOSED-FORM`, `CLASSICAL-WINS`, `QUANTUM-DEFOCUSES`.
+- `paper/CLAIMS.md` — **H9**, plus an explicit "not claimed" entry retiring "near instantaneous".

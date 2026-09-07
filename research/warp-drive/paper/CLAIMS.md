@@ -389,6 +389,59 @@ is **`NOT-RUN`**; this establishes that its enabling mechanism is real, not that
 
 ---
 
+## ★ HEADLINE — flagged for the abstract
+
+**H9. A classical vacuum corridor *forces* the Weyl mechanism, and it is the correct description for
+any device by eighteen orders of magnitude.**
+
+> Requiring the traversed corridor to be vacuum is not a modelling convenience — it is a constraint
+> with a forced consequence. `T_kk = 0` makes Einstein's equations set `R_kk = 0`, so **Ricci focusing
+> is identically zero and Weyl is the only focusing available.** The constraint therefore *selects*
+> H8's sign-blind mechanism and **rules out the Alcubierre architecture outright**, which requires
+> matter exactly where the rays travel. It also quarantines every energy-condition objection into a
+> source region the payload never enters: along the corridor NEC, WEC, DEC and ANEC hold with equality.
+>
+> **"Vacuum corridor" reads two ways and they are different physics**, so both were compared rather
+> than one chosen:
+>
+> | | | focusing available |
+> |---|---|---|
+> | **classical vacuum** | `T_kk = 0` exactly | **Weyl only** |
+> | **quantum vacuum** | a vacuum *state*: `⟨T_kk⟩ ≠ 0`, Unruh-like, Type IV | Weyl **+ Ricci** |
+>
+> The comparison has a closed form, which is why it settles. For a source of mass `μ` (Planck units)
+> at `z = 2m/r`, Weyl goes as `z³/8μ²` and the quantum Ricci as `8πf(z)/μ⁴` with APT's
+> `f(z) = αz²/16π(1−z)`. Their ratio collapses:
+>
+> **`RICCI / WEYL = 4α / (z(1−z)μ²)`**
+>
+> — no `z³`, no `16π`, **symmetric about `z = ½`**, verified against the numerics to machine precision
+> at five values of `z`. *Where* in the corridor you stand does not matter; only the mass does. Setting
+> it to one gives, at its largest,
+>
+> **`μ_cross = 4√α = 2.4486×10⁻² M_Planck = 5.3293×10⁻¹⁰ kg`** — half a nanogram.
+>
+> Against `selfconsistent.py`'s matched design point of `1.1263×10⁹ kg`, that is **18.3 orders of
+> magnitude.** For any device the classical vacuum corridor is correct, and not marginally.
+>
+> **What the quantum corridor would do where it applies**, recorded rather than pursued: its Unruh
+> `⟨T_kk⟩` is **negative throughout** and grows toward the horizon, so its Ricci term **defocuses** —
+> it would *hurt* the seat and *help* the lead, pushing H8's window both ways at once. Whether the
+> window survives is **`NOT-RUN`**, and not worth running for a sub-nanogram device.
+
+| | `corridor.py` |
+|---|---|
+| status | **PROVEN** (the closed form, exactly) + **MEASURED** (the crossover, the Unruh sign) |
+| new? | the ratio's collapse and the crossover mass, yes |
+| falsified by | an error in APT's `f(z)`, or a corridor geometry where the Weyl tidal scale `μ/r³` is wrong by 18 orders |
+| **not** claimed | that the quantum window was re-run (it was not); the Weyl estimate is a **scale**, not an integrated focusing — good to an order of magnitude, which is all an 18-order gap needs |
+
+**A normalisation caution, enforced in the file:** the *sign* of the Unruh term comes from
+`universal.py` and the *magnitude* ratio from `selfconsistent.py`. Those are different normalisations;
+no mixed quantity is reported.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -448,6 +501,10 @@ is **`NOT-RUN`**; this establishes that its enabling mechanism is real, not that
 - Any figure carrying the SNEC's four O(1) exposures as if it were exact.
 - **That H5 escapes ANEC.** It does the opposite: it closes the one escape and shows the closure is
   structural. What it buys is precision about where the prohibition actually rests.
+- **That the lead is "near instantaneous."** It is **0.03%–0.2%** early over the measured transits —
+  a Shapiro-scale effect with the sign reversed. The result's value is the **sign flip**, not the
+  magnitude: no prior configuration both seats and leads. Within linearised gravity the lead is
+  bounded and small, and the window closes before it grows.
 - **That H8 builds a drive.** It exhibits the mechanism by which seating and advance can coexist,
   in a window, under five stated idealisations. The device is not built and the payload is not carried.
 - **That H7's universal seating is universal transport.** It is universal *seating*: the conjugate

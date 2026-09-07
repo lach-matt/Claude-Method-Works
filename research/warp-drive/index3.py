@@ -450,6 +450,15 @@ FINDINGS = [
   "achronal.py, transit.py and seatindex.py all wrote u'' = -(R_kk/2)u, dropping shear as conservative. Conservative for an EXISTENCE claim about one ray; FATAL FOR A SEARCH"),
  ("VACUUM-PATH",     +1, +1, +1, "composite.py",
   "the early ray travels entirely through vacuum -- T_kk = 0 on the whole path, ANEC not violated along it -- and past its conjugate point it is not achronal, so Graham-Olum does not reach it"),
+ # The corridor: M's vacuum, and the two readings of it compared.
+ ("VACUUM-FORCES-WEYL",+1,+1,+1, "corridor.py",
+  "a classical vacuum corridor has T_kk = 0, so Einstein forces R_kk = 0 and WEYL is the only focusing available: M's constraint SELECTS composite.py's mechanism and rules out Alcubierre, which needs matter where the rays go"),
+ ("CORRIDOR-CLOSED-FORM",+1, 0,+1, "corridor.py",
+  "RICCI/WEYL = 4 alpha/(z(1-z) mu^2) exactly -- no z^3, no 16 pi, symmetric about z = 1/2 -- so WHERE in the corridor you stand does not matter, only the mass"),
+ ("CLASSICAL-WINS",  +1, +1, +1, "corridor.py",
+  "crossover mu = 4 sqrt(alpha) = 5.3293e-10 kg, half a nanogram, against a 1.1263e9 kg design point: the classical vacuum corridor is right by 18.3 orders of magnitude"),
+ ("QUANTUM-DEFOCUSES", 0, -1,  0, "corridor.py",
+  "where the quantum corridor does apply its Unruh T_kk is NEGATIVE throughout, growing toward the horizon, so it DEFOCUSES: it would hurt the seat and help the lead. Recorded, not pursued"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of eighteen obstructions four dissolved, three relocated, six closed negative, three conditional, two open and none untested"),
 ]
@@ -568,7 +577,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 164)
+    chk("number of findings indexed", len(FINDINGS), 168)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -600,6 +609,7 @@ def selftest():
                 "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE","ANEC-VIOLATED","ACHRONAL",
                 "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
                 "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH",
+                "VACUUM-FORCES-WEYL","CLASSICAL-WINS",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -608,7 +618,8 @@ def selftest():
                 "NO-NULL-QI","D-CANCELS","DESIGN-EQUATION","CHANGE-OF-KIND",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I",
                 "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
-                "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH"]))
+                "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH",
+                "VACUUM-FORCES-WEYL","CLASSICAL-WINS"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
