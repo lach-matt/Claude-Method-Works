@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 660" font-family="Helvetica,Arial,sans-serif">
+<rect width="1120" height="660" fill="#faf8f5"/>
+<text x="40" y="46" font-size="21" font-weight="600" fill="#16181d">Analogue Alcubierre cell &#8212; scale drawing</text>
+<text x="40" y="70" font-size="13" fill="#8a8f98">v_0 = 0.2224 c emulated for light &#183; 8.221 GHz &#183; every dimension computed by device.py</text>
+<line x1="40" y1="84" x2="1080" y2="84" stroke="#8a8f98" stroke-width="1"/>
+<text x="40" y="116" font-size="13" font-weight="600" fill="#16181d">1 &#183; AT HUMAN SCALE</text>
+<line x1="40" y1="600" x2="330" y2="600" stroke="#16181d" stroke-width="1.5"/>
+<g fill="#16181d" opacity="0.88">
+<circle cx="120.0" cy="282.0" r="21.0"/>
+<path d="M 109.0 306.0 q -30 6 -30 46 l 0 96 q 0 10 9 10 l 0 250.0 q 0 9 9 9 l 10 0 q 9 0 9 -9 l 0 -84 l 6 0 l 0 84 q 0 9 9 9 l 10 0 q 9 0 9 -9 l 0 -250.0 q 9 0 9 -10 l 0 -96 q 0 -40 -30 -46 z"/>
+</g>
+<text x="120.0" y="248.0" font-size="11" fill="#8a8f98" text-anchor="middle">1.70 m</text>
+<circle cx="280.0" cy="583.7" r="16.3" fill="none" stroke="#2f6f8f" stroke-width="2"/>
+<circle cx="280.0" cy="583.7" r="16.3" fill="#2f6f8f" opacity="0.13"/>
+<line x1="296.3" y1="583.7" x2="316.0" y2="470.0" stroke="#8a8f98" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="322" y="466" font-size="11.5" font-weight="600" fill="#2f6f8f">the device</text>
+<text x="322" y="482" font-size="11" fill="#8a8f98">16.3 cm across</text>
+<text x="322" y="498" font-size="11" fill="#8a8f98">about 10&#215; shorter than a person</text>
+<text x="430" y="116" font-size="13" font-weight="600" fill="#16181d">2 &#183; THE DEVICE, MAGNIFIED &#215;10</text>
+<defs><radialGradient id="w" cx="50%%" cy="50%%" r="50%%">
+<stop offset="0.799" stop-color="#2f6f8f" stop-opacity="0.05"/>
+<stop offset="0.800" stop-color="#b4622a" stop-opacity="0.55"/>
+<stop offset="1" stop-color="#2f6f8f" stop-opacity="0.22"/>
+</radialGradient></defs>
+<circle cx="620" cy="380" r="168.0" fill="url(#w)" stroke="#2f6f8f" stroke-width="1.5"/>
+<circle cx="620" cy="380" r="134.4" fill="none" stroke="#b4622a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="620" y="372" font-size="12" font-weight="600" fill="#16181d" text-anchor="middle">BUBBLE</text>
+<text x="620" y="389" font-size="10.5" fill="#8a8f98" text-anchor="middle">&#949; = &#956; = 2.000 &#183; g&#8339; = 0</text>
+<text x="620" y="405" font-size="10.5" fill="#8a8f98" text-anchor="middle">r = 6.53 cm</text>
+<line x1="620.0" y1="221.0" x2="738.0" y2="186.0" stroke="#b4622a" stroke-width="1"/>
+<circle cx="620.0" cy="221.0" r="2.6" fill="#b4622a"/>
+<text x="744.0" y="182.0" font-size="11.5" font-weight="600" fill="#b4622a">WALL &#183; 10 unit cells</text>
+<text x="744.0" y="197.0" font-size="11" font-weight="400" fill="#8a8f98">1.63 cm thick</text>
+<text x="744.0" y="212.0" font-size="11" font-weight="400" fill="#8a8f98">&#949;,&#956; and g&#8339; graded together</text>
+<line x1="783.0" y1="440.0" x2="848.0" y2="508.0" stroke="#2f6f8f" stroke-width="1"/>
+<circle cx="783.0" cy="440.0" r="2.6" fill="#2f6f8f"/>
+<text x="744.0" y="526.0" font-size="11.5" font-weight="600" fill="#2f6f8f">OUTER MEDIUM</text>
+<text x="744.0" y="541.0" font-size="11" font-weight="400" fill="#8a8f98">&#949; = &#956; = 2.2331</text>
+<text x="744.0" y="556.0" font-size="11" font-weight="400" fill="#8a8f98">g&#8339; = 1.1093</text>
+<line x1="452" y1="582" x2="788" y2="582" stroke="#16181d" stroke-width="1.5"/>
+<line x1="452" y1="577" x2="452" y2="587" stroke="#16181d" stroke-width="1.5"/>
+<line x1="788" y1="577" x2="788" y2="587" stroke="#16181d" stroke-width="1.5"/>
+<text x="620" y="602" font-size="11.5" fill="#16181d" text-anchor="middle">16.3 cm</text>
+<text x="820" y="116" font-size="13" font-weight="600" fill="#16181d">3 &#183; ONE UNIT CELL</text>
+<rect x="820" y="260" width="158" height="158" fill="none" stroke="#8a8f98" stroke-width="1.4" stroke-dasharray="5 3"/>
+<circle cx="899.0" cy="339.0" r="53.7" fill="none" stroke="#b4622a" stroke-width="7" stroke-dasharray="313.7 23.6" transform="rotate(-90 899.0 339.0)"/>
+<circle cx="899.0" cy="346.0" r="53.7" fill="none" stroke="#b4622a" stroke-width="7" opacity="0.42" stroke-dasharray="313.7 23.6" transform="rotate(90 899.0 346.0)"/>
+<circle cx="899.0" cy="339.0" r="18.3" fill="#16181d"/>
+<text x="899.0" y="342.4" font-size="9" fill="#faf8f5" text-anchor="middle">YIG</text>
+<text x="820" y="460" font-size="10.5" fill="#8a8f98">&#183; 1.633 mm cell (&#955;/10)</text>
+<text x="820" y="476" font-size="10.5" fill="#8a8f98">&#183; broadside-coupled rings, r = 0.555 mm</text>
+<text x="820" y="492" font-size="10.5" fill="#8a8f98">&#183; gap 0.167 mm  (set by &#949; = &#956;)</text>
+<text x="820" y="508" font-size="10.5" fill="#8a8f98">&#183; substrate &#949;&#7523; = 20, h = 0.353 mm</text>
+<text x="820" y="524" font-size="10.5" fill="#8a8f98">&#183; YIG sphere, fill 8.0%, bias 0.30 T</text>
+<text x="820" y="540" font-size="10.5" fill="#b4622a">&#183; co-located &#8212; a one-cell offset is fatal</text>
+<text x="40" y="640" font-size="10.5" fill="#8a8f98">It emulates the metric for light and transports nothing. Analogue NEC violation costs 3.15% of the stability margin (neclab.py).</text>
+</svg>

@@ -54,7 +54,7 @@ a report.
 | **`warp-drive/RESTATUS`** | **`warp-drive/restatus.py`** | **every architecture regraded by *how* it closed — of six this project reasoned to itself, zero are closed by measurement** |
 | **`warp-drive/THE-DOOR`** | **`warp-drive/door.py`** | **"does not couple to real spacetime" withdrawn: it is h ≈ 4.5×10⁻²⁴, and §17.1's door — a construction is closed from *outside*, by measurement** |
 | **`warp-drive/NEC-LAB`** | **`warp-drive/neclab.py`** | **the measurement, taken: the medium *can* carry the analogue NEC violation, at 3.15% of its stability margin — and the reason is structural** |
-| **`warp-drive/DEVICE`** | **`warp-drive/device.py`** | **the parts list, every field tested as written: a 23 cm YIG-and-copper block at 5.78 GHz, v₀ = 0.222 c — and two tests failed and changed the design** |
+| **`warp-drive/DEVICE`** | **`warp-drive/device.py`** | **the parts list, every field tested as written: a 16.3 cm YIG-and-copper block at 8.22 GHz, v₀ = 0.222 c — four tests failed and changed the design; `--figure` draws it to scale** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ### The rung this project has been standing on
@@ -405,8 +405,39 @@ and a one-cell offset between two lithography layers is close to undiagnosable a
 mis-registered cell just touches the bound. The selftest refused to call zero positive, which is the
 discipline working: **a bisected boundary is not a design point.** The design now sits 5% inside it.
 
-> **What testing parts during the design bought: one part replaced, one derating, and one safety
-> factor — all before anything was drawn.**
+**TEST 6 FAILED: ε = μ is a constraint on the ring gap.** Smolyaninov's Eq (11) has `ε−1 ∝ d²` and
+`μ−1 ∝ S²ω²/c²`, so ε = μ **iff `d = Sω/c`**. The gap is not a design knob — it is fixed by the ring
+area and the operating frequency. Every geometry I had "chosen" was actually determined.
+
+**TEST 7 FAILED, AND MOVED THE WHOLE DESIGN.** The ferrite must be graded, and grading the *bias*
+would drift the FMR across the block — so grade the **fill** at constant bias. But YIG's own
+`ε_r = 15` drags each cell's permittivity up by `14f`, and the ε budget is only 1.233. **Fill ≤ 8.8%.**
+That forces the ferrite to supply a *bulk* g_x of 13.8 rather than 1.11, which pulls the operating
+point from 5.78 GHz to **8.22 GHz** and from 1,869 linewidths off FMR to **128**. Still safe, 15×
+tighter, and the whole geometry chain moved with it.
+
+**And then TEST 4 failed a second time.** The higher frequency shrank the unit cell from 2.32 mm to
+1.63 mm, and the 2 mm ring carried over from the first pass no longer fit. **Ring radius and substrate
+thickness are now derived, not assumed** — `r = 0.9(cell/2 − w)` and `h` solved so the broadside
+resonance lands exactly on target. That is the cascade the discipline is for: one upstream change
+invalidated a part that had already passed.
+
+**The design point as it now stands:**
+
+| | |
+|---|---|
+| v₀ / ε=μ / g_x | 0.2224 c / 2.2331 / 1.1093 |
+| operating frequency | **8.221 GHz**, 128 YIG linewidths off FMR |
+| ferrite fill / bulk g_x | 8.0% / 13.84 |
+| cell / wall / radius | 1.633 mm / 1.633 cm / 6.53 cm |
+| ring r / gap / substrate | 0.555 mm / 0.167 mm / ε_r 20 at 0.353 mm |
+| **device span** | **16.3 cm** |
+
+> **What testing parts during the design bought: one part replaced twice, one derating, one safety
+> factor, and four "chosen" dimensions turned out to be determined — all before anything was drawn.**
+
+`device.py --figure` emits `figures/device-scale.svg` from `design()`, so the drawing cannot drift
+from the sheet.
 
 ## `warp-drive/`
 

@@ -250,6 +250,11 @@ FINDINGS = [
   "a single-gap ring of the required size resonates at 118 GHz, 16x too high: broadside coupling or nothing"),
  ("REGISTRATION", 0, -1, +1, "device.py",
   "one cell of layer mis-registration gives margin -0.355 at the outer wall; derate 9.5% or co-locate"),
+ # Two more parts tests, and a cascade they set off.
+ ("GAP-DERIVED",  0,  0, +1, "device.py",
+  "eps = mu forces d = S w/c: the ring gap is a CONSTRAINT, and every free knob became derived"),
+ ("FERRITE-EPS",  0, -1, +1, "device.py",
+  "YIG's own eps_r = 15 caps the fill at 8.8%, pulling the operating point from 1869 to 128 linewidths"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -269,6 +274,7 @@ SUPPORT = [
  ("COUPLE-FIX","door.py",           "'does not couple to real spacetime' withdrawn: it is h ~ 4.5e-24, and Sec 17.1 was written past"),
  ("SMOL-GAP",  "neclab.py",         "Smolyaninov asserts energy conditions are not a problem and never computes it; neclab.py does"),
  ("BOUNDARY",  "device.py",         "safe_beta bisects to ZERO margin; a bisected boundary is not a design point, so a 5% safety factor"),
+ ("CASCADE",   "device.py",         "TEST 4 failed AGAIN when the cell shrank; ring radius and substrate are now derived, not assumed"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -349,7 +355,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 80)
+    chk("number of findings indexed", len(FINDINGS), 82)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
