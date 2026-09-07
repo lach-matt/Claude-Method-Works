@@ -35,6 +35,7 @@ requirement and the margin, not the choice.
 
 Stdlib only.  python3 tools/powersource.py [--selftest]
 """
+import math
 import argparse
 import os
 import sys
@@ -819,6 +820,260 @@ def report_scale():
     return 0
 
 
+# ---- TRITIUM, WHICH IS THE ONE CONSUMABLE THE GEOMETRY WILL NOT SHRINK -----
+# Criterion 4 -- nothing supplied after ignition -- is settled for the fissile
+# inventory by fertile_capture_required() above. It is NOT settled by that for
+# tritium, and tritium is the harder of the two, for a reason that is geometric
+# rather than nuclear: the fuel cell must be one muon range deep (collector.py
+# report_stopping), so its tritium inventory is areal density times beam area
+# and DOES NOT FALL WITH POWER. A bigger plant burns more tritium but holds the
+# same amount, and what a fixed holding does is decay: 5.48 % of it a year, at
+# a 12.32 y half-life, whether the machine runs or not.
+#
+# THE ACCOUNTING TRAP, AND IT IS THE ONE THIS SECTION EXISTS TO CLOSE. A fusion
+# reactor breeds tritium from its own neutrons and prices the balance as a
+# breeding ratio -- TBR times the fusion neutron yield. Applied here that is
+# wrong by the whole spallation channel, and wrong by a factor near twenty:
+# the blanket is driven by every neutron the target makes, not by the fusion
+# neutrons alone, and at k = 0.95 each source neutron becomes 1/(1-k) = 20. The
+# supply is therefore a share of the BLANKET's neutron economy, and the question
+# is whether that economy has room for it once fission and fertile capture are
+# paid.
+#
+# Per source neutron the assembly makes n_tot = 1/(1-k) neutrons; F of them
+# cause fission; A = n_tot - F meet a non-fission fate; f_b.A = F must land in
+# fertile material or the fissile inventory is a consumable again. What is left,
+# less an allowance L.n_tot for leakage and parasitic capture in structure,
+# coolant and fission products, is what may be spent on Li-6:
+#
+#     avail  =  A - F - L . n_tot          per source neutron
+#
+# and the requirement is one Li-6 capture per triton consumed. L is ASSUMED and
+# banded; the result below is therefore a REQUIREMENT on the blanket's neutron
+# budget, not a prediction of it -- Stage D measures it.
+T_HALFLIFE_Y = 12.32          # SOURCED
+T_AMU = 3.016
+N_AVOGADRO = 6.02214076e23
+SEC_PER_YEAR = 3.15576e7
+BEAM_RADIUS_CM = 7.5          # [C_geom] the base collector's own derived radius
+REF_BEAM_MW = 5.0             # THE REFERENCE PLANT, and tritium is what sets it
+REF_STANDBY_KW = 1000.0       # mid-band driver fixed load
+LEAK_PARASITIC_LO = 0.10      # ASSUMED band: leakage + parasitic capture, as a
+LEAK_PARASITIC_HI = 0.20      # share of the whole neutron population
+F_LI_CEILING = 1.00           # every free neutron reaches Li-6; a ceiling, not a design
+F_LI_DESIGN = 0.60            # ASSUMED: what a blanket that is also breeding fissile
+                              # and also cooling actually routes into Li-6
+
+
+def _coll():
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import collector
+    return collector
+
+
+def tritium_inventory_kg(p_window_mev, beam_r_cm=BEAM_RADIUS_CM):
+    """The cell's holding. IMPORTED from collector.py, never restated."""
+    return _coll().tritium_inventory_kg(float(p_window_mev), beam_r_cm)
+
+
+def tritium_decay_g_per_year(inventory_kg, half_life_y=T_HALFLIFE_Y):
+    lam = math.log(2.0) / half_life_y
+    return inventory_kg * 1000.0 * (1.0 - math.exp(-lam))
+
+
+def protons_per_second(p_beam_mw, e_beam_gev=BEAM_GEV):
+    return p_beam_mw * 1e6 / (e_beam_gev * 1e9 * 1.602176634e-19)
+
+
+def fusions_per_proton(p_window_mev):
+    """One fusion consumes one triton, so this is also tritons burnt per proton."""
+    return PI_PER_PROTON * _mach().delivered_eta_window(1.50, float(p_window_mev)) \
+        * N_MEASURED
+
+
+def tritium_demand_per_second(p_window_mev, p_beam_mw, beam_r_cm=BEAM_RADIUS_CM):
+    """Decay of a fixed holding plus burn that scales with the beam."""
+    inv = tritium_inventory_kg(p_window_mev, beam_r_cm)
+    decay_s = tritium_decay_g_per_year(inv) / SEC_PER_YEAR / T_AMU * N_AVOGADRO
+    burn_s = fusions_per_proton(p_window_mev) * protons_per_second(p_beam_mw)
+    return decay_s, burn_s
+
+
+def free_neutrons_per_source(k_eff=K_SAFE, leak=LEAK_PARASITIC_HI, nu=NU_FAST):
+    """What the blanket's economy has left for Li-6, per source neutron."""
+    n_tot = neutrons_per_source(k_eff)
+    f = fissions_per_source(k_eff, nu)
+    return (n_tot - f) - f - leak * n_tot
+
+
+def tritium_supply_per_second(p_window_mev, p_beam_mw, k_eff=K_SAFE,
+                              leak=LEAK_PARASITIC_HI, y_spall=None,
+                              f_li=F_LI_CEILING):
+    """Tritons a second the neutron economy makes, at a stated Li-6 capture
+    share f_li of the free neutrons. f_li = 1 is the ceiling; the design point
+    is F_LI_DESIGN, because a blanket also breeding fissile and also cooled
+    does not route everything spare into lithium."""
+    if y_spall is None:
+        y_spall = 0.5 * sum(spallation_yield())
+    src_p = y_spall + fusions_per_proton(p_window_mev)
+    return (f_li * free_neutrons_per_source(k_eff, leak)
+            * src_p * protons_per_second(p_beam_mw))
+
+
+def tritium_balance(p_window_mev, p_beam_mw, k_eff=K_SAFE,
+                    leak=LEAK_PARASITIC_HI, beam_r_cm=BEAM_RADIUS_CM,
+                    f_li=F_LI_CEILING):
+    """Supply over demand. Above one, criterion 4 holds on tritium."""
+    d, b = tritium_demand_per_second(p_window_mev, p_beam_mw, beam_r_cm)
+    return tritium_supply_per_second(p_window_mev, p_beam_mw, k_eff, leak,
+                                     f_li=f_li) / (d + b)
+
+
+def beam_mw_for_tritium(p_window_mev, k_eff=K_SAFE, leak=LEAK_PARASITIC_HI,
+                        beam_r_cm=BEAM_RADIUS_CM, f_li=F_LI_CEILING):
+    """The beam power at which the tritium balance closes.
+
+    Demand is decay (fixed) plus burn (linear in P); supply is linear in P; so
+    the balance is monotone in P and solves in closed form.
+    """
+    inv = tritium_inventory_kg(p_window_mev, beam_r_cm)
+    decay_s = tritium_decay_g_per_year(inv) / SEC_PER_YEAR / T_AMU * N_AVOGADRO
+    per_mw = protons_per_second(1.0)
+    burn_per_mw = fusions_per_proton(p_window_mev) * per_mw
+    sup_per_mw = tritium_supply_per_second(p_window_mev, 1.0, k_eff, leak,
+                                           f_li=f_li)
+    if sup_per_mw <= burn_per_mw:
+        return float("inf")
+    return decay_s / (sup_per_mw - burn_per_mw)
+
+
+def _beam_for_halflife(half_life_y, p_window_mev=265.0):
+    """Only the decay term moves, so this isolates it: the requirement is a
+    statement about the half-life and not about the reaction."""
+    inv = tritium_inventory_kg(p_window_mev)
+    decay_s = (tritium_decay_g_per_year(inv, half_life_y) / SEC_PER_YEAR
+               / T_AMU * N_AVOGADRO)
+    burn_per_mw = fusions_per_proton(p_window_mev) * protons_per_second(1.0)
+    sup_per_mw = tritium_supply_per_second(p_window_mev, 1.0)
+    return decay_s / (sup_per_mw - burn_per_mw)
+
+
+def report_tritium():
+    """Tritium: the consumable geometry will not shrink, and whether it closes."""
+    print("  TRITIUM, THE ONE CONSUMABLE THE GEOMETRY WILL NOT SHRINK")
+    print()
+    print("    The fissile inventory is settled by --fuel: breed what you burn")
+    print("    and the fuel, after the first charge, costs nothing. Tritium is")
+    print("    not settled by that argument and is the harder of the two.")
+    print()
+    print("    The cell is one muon range deep, so its holding is areal density")
+    print("    times beam area and DOES NOT FALL WITH POWER. A fixed holding")
+    print(f"    decays: {100*(1-math.exp(-math.log(2)/T_HALFLIFE_Y)):.2f} %"
+          f" a year at a {T_HALFLIFE_Y} y half-life, running or idle.")
+    print()
+    print("    A CORRECTION FIRST, AND IT IS THIS SECTION'S REASON TO EXIST.")
+    print("    Priced the way a fusion reactor prices it -- a breeding ratio")
+    print("    times the FUSION neutron yield -- the balance fails, and that")
+    print("    accounting is wrong here: the blanket is driven by every neutron")
+    print("    the target makes, not by the fusion neutrons alone.")
+    m = _mach()
+    y_s = 0.5 * sum(spallation_yield())
+    eta_265 = m.delivered_eta_window(1.50, 265.0)
+    y_f = PI_PER_PROTON * eta_265 * N_MEASURED
+    print(f"      spallation neutrons per proton      {y_s:8.1f}")
+    print(f"      fusion neutrons per proton          {y_f:8.2f}"
+          f"   (delivered eta {eta_265:.4f})")
+    print(f"      the fusion channel is               {y_f/(y_s+y_f)*100:8.1f} %"
+          "  of the source")
+    print()
+    n_tot = neutrons_per_source(K_SAFE)
+    f = fissions_per_source(K_SAFE)
+    print(f"    THE BLANKET'S NEUTRON BUDGET at k = {K_SAFE}, per source neutron:")
+    print(f"      neutrons in all      1/(1-k)          {n_tot:8.3f}")
+    print(f"      cause fission        F                {f:8.3f}")
+    print(f"      non-fission fates    A = n_tot - F    {n_tot-f:8.3f}")
+    print(f"      MUST breed fissile   f_b . A = F      {f:8.3f}"
+          f"   (f_b = {fertile_capture_required(K_SAFE):.4f})")
+    for lab, L in (("low ", LEAK_PARASITIC_LO), ("high", LEAK_PARASITIC_HI)):
+        print(f"      leak + parasitic     L . n_tot  ({lab})  {L*n_tot:8.3f}"
+              f"   ASSUMED L = {L:.2f}")
+        print(f"      FREE for Li-6                         "
+              f"{free_neutrons_per_source(K_SAFE, L):8.3f}")
+    print()
+    print("    THE WINDOW SETS THE HOLDING, AND SO SETS THE PLANT. Tritium goes")
+    print("    as the muon range and fusions as the acceptance, so a narrower")
+    print("    stopping window is a smaller holding and a smaller balance both.")
+    print()
+    print("      window   range   delivered   holding   decay    burn    supply"
+          "   ratio   closes at, MW")
+    print("      MeV/c    g/cm2      eta        kg      g/yr     g/yr     g/yr"
+          "          ceiling design")
+    C = _coll()
+    for p in (150.0, 175.0, 200.0, 225.0, 265.0, 300.0, 400.0):
+        inv = tritium_inventory_kg(p)
+        d, b = tritium_demand_per_second(p, 1.0)
+        sup = tritium_supply_per_second(p, 1.0)
+        g = SEC_PER_YEAR * T_AMU / N_AVOGADRO
+        print(f"      {p:5.0f}  {C.csda_range(p):7.2f}   {m.delivered_eta_window(1.50,p):8.5f}"
+              f" {inv:8.3f} {d*g:8.1f} {b*g:8.1f} {sup*g:9.1f}"
+              f" {sup/(d+b):7.3f}  {beam_mw_for_tritium(p):7.2f}"
+              f" {beam_mw_for_tritium(p, f_li=F_LI_DESIGN):7.2f}")
+    print()
+    print("      (at 1 MW of beam, k = 0.95, L = 0.20, base collector 1.50 T.m,")
+    print("       7.5 cm beam radius; supply is a CEILING -- every free neutron")
+    print("       captured in Li-6 -- so the ratio is an upper bound and the")
+    print("       closing power a lower one.)")
+    print()
+    print("    THE FINDING, AND IT RESIZES THE PLANT. Supply above is a ceiling")
+    print(f"    -- every free neutron into Li-6. At the design share f_li ="
+          f" {F_LI_DESIGN:.2f}")
+    print(f"    the base 265 MeV/c window closes at"
+          f" {beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN):.2f} MW of beam, not at the 1 MW")
+    print("    the loop and the scale arguments alone would have allowed.")
+    print("    TRITIUM, NOT THE LOOP AND NOT THE DRIVER OVERHEAD, IS WHAT SETS")
+    print("    THE SIZE OF THIS PLANT -- and it sets it four times higher.")
+    print()
+    g = plant_gain(K_SAFE, y_s, y_f)
+    print(f"      REFERENCE PLANT   8 GeV, {REF_BEAM_MW:.0f} MW beam, k = {K_SAFE},"
+          f" base collector")
+    print(f"        plant gain G                    {g:10.2f}")
+    print(f"        thermal                         {REF_BEAM_MW*g:10.2f} MW")
+    net = net_electric_kw(REF_BEAM_MW * 1000.0, REF_STANDBY_KW)
+    print(f"        net electric, driver fed        {net/1000.0:10.2f} MW")
+    print(f"        homes at {HOUSEHOLD_KW:.2f} kW               {homes(net):10.0f}")
+    print(f"        tritium balance at f_li = {F_LI_DESIGN:.2f}  "
+          f"{tritium_balance(265.0, REF_BEAM_MW, f_li=F_LI_DESIGN):10.3f}")
+    print(f"        tritium holding                 "
+          f"{tritium_inventory_kg(265.0):10.3f} kg")
+    print()
+    print("    WHAT IT COSTS TO NARROW THE WINDOW. Acceptance falls with it, so")
+    lo, hi = m.delivered_eta_window(1.50, 150.0), m.delivered_eta_window(1.50, 265.0)
+    print(f"    the fusion channel's own yield falls {hi/lo:.3f}x -- from"
+          f" {y_f:.1f} to {PI_PER_PROTON*lo*N_MEASURED:.1f}")
+    print("    neutrons per proton. Against a spallation source of"
+          f" {y_s:.0f} that is")
+    y_f150 = PI_PER_PROTON * lo * N_MEASURED
+    print(f"    a {(y_s+y_f)/(y_s+y_f150):.3f}x cut in the total source, and so in the plant's")
+    print("    output at fixed beam. THE TRITIUM BALANCE IS BOUGHT WITH POWER,")
+    print("    and the two ways of buying it -- narrow the window, or raise the")
+    print("    beam -- are the same trade seen from two ends.")
+    print()
+    print("    NOT COUNTED, AND EACH RUNS IN OUR FAVOUR: Li-7(n,n'a)T is a")
+    print("    threshold reaction that MULTIPLIES as it breeds, U-238 (n,2n)")
+    print("    likewise, and a reflector returns part of L. Against that, the")
+    print("    supply figure assumes every free neutron reaches Li-6, which no")
+    print("    blanket achieves. The band is wide and it is stated as a")
+    print("    REQUIREMENT on the neutron budget. Stage D measures it.")
+    print()
+    print("    LITHIUM IS THEN A CONSUMABLE TOO, one Li-6 per triton, but it is")
+    print("    a different kind: it is stockpiled, not bred, and the quantity is")
+    dR, bR = tritium_demand_per_second(265.0, REF_BEAM_MW)
+    li_kg_yr = (dR + bR) * SEC_PER_YEAR * 6.015 / N_AVOGADRO / 1000.0
+    print(f"    {li_kg_yr*1000:.0f} g of Li-6 a year at the reference plant -- a")
+    print(f"    {li_kg_yr*40:.1f} kg lifetime charge over forty years, which is a")
+    print("    first charge and not a supply line.")
+
+
 def report():
     m = _mach()
     print("WHAT A SELF-SUSTAINING POWER SOURCE REQUIRES")
@@ -1100,6 +1355,53 @@ def selftest():
     print("       DEEPLY subcritical, which is a fact about the numbers")
 
     print()
+
+    print()
+    print("  tritium: the balance is a fact about the blanket, not about fusion")
+    check("the holding is geometric -- same at 1 MW and at 100 MW",
+          abs(tritium_inventory_kg(265.0) - tritium_inventory_kg(265.0)) == 0.0
+          and tritium_demand_per_second(265.0, 1.0)[0]
+              == tritium_demand_per_second(265.0, 100.0)[0])
+    check("so demand per source neutron FALLS with power and the balance rises",
+          tritium_balance(265.0, 10.0) > tritium_balance(265.0, 1.0))
+    check("a narrower window lowers the holding faster than it lowers supply",
+          tritium_balance(150.0, 1.0) > tritium_balance(400.0, 1.0))
+    # the correction this section exists to record: the fusion-reactor
+    # convention, TBR x fusion neutrons, against the blanket's own economy
+    y_s = 0.5 * sum(spallation_yield())
+    y_f = fusions_per_proton(265.0)
+    fusion_only = 1.15 * y_f * protons_per_second(1.0)
+    blanket = tritium_supply_per_second(265.0, 1.0)
+    check("the fusion-reactor accounting understates supply by over 10x",
+          blanket / fusion_only > 10.0)
+    check("  -- by 18.8x at the reference window, stated rather than rounded",
+          abs(blanket / fusion_only - 18.8) < 0.1)
+    check("because the fusion channel is under a fifth of the source",
+          y_f / (y_s + y_f) < 0.20)
+    check("free neutrons are what is left AFTER fission and fertile capture",
+          abs(free_neutrons_per_source(K_SAFE, 0.0)
+              - (neutrons_per_source(K_SAFE) - 2 * fissions_per_source(K_SAFE)))
+          < 1e-12)
+    check("and a leakage allowance only ever reduces them",
+          free_neutrons_per_source(K_SAFE, LEAK_PARASITIC_HI)
+          < free_neutrons_per_source(K_SAFE, LEAK_PARASITIC_LO))
+    check("the design Li-6 share is BELOW the ceiling, so the design is dearer",
+          beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN)
+          > beam_mw_for_tritium(265.0, f_li=F_LI_CEILING))
+    check("the reference plant closes on tritium at the design share",
+          tritium_balance(265.0, REF_BEAM_MW, f_li=F_LI_DESIGN) > 1.0)
+    check("  -- and 1 MW, which the loop alone would have allowed, does not",
+          tritium_balance(265.0, 1.0, f_li=F_LI_DESIGN) < 1.0)
+    # so the constraint is BINDING: it is not slack the other arguments left
+    check("so tritium, not the loop, sets the plant's size",
+          beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN)
+          > minimum_beam_kw(REF_STANDBY_KW) / 1000.0)
+    # and it is not a tautology: a hypothetical stable triton needs no beam
+    check("a longer-lived triton would need proportionately less beam",
+          _beam_for_halflife(123.2) < beam_mw_for_tritium(265.0) / 5.0)
+    check("  -- so the plant's size is a statement about the half-life",
+          abs(_beam_for_halflife(123.2) * 10.0
+              / beam_mw_for_tritium(265.0) - 1.0) < 0.05)
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -1115,6 +1417,8 @@ def main():
                     help=report_stability.__doc__)
     ap.add_argument("--fuel", action="store_true", help=report_fuel.__doc__)
     ap.add_argument("--scale", action="store_true", help=report_scale.__doc__)
+    ap.add_argument("--tritium", action="store_true",
+                    help=report_tritium.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -1130,6 +1434,8 @@ def main():
         return report_fuel()
     if a.scale:
         return report_scale()
+    if a.tritium:
+        return report_tritium()
     return report()
 
 
