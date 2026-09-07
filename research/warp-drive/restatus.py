@@ -119,7 +119,8 @@ ARCH = [
   "OPEN", "Smolyaninov PRB 84 113103 (2011): g_x^2 <= (eps-1)(mu-1)",
   "a MATERIAL bound from thermodynamic stability, not a no-go.  Rodal's "
   "measured closure explicitly does not reach analogue models.  Transports "
-  "nothing; PROVES the metric as a wave structure on a bench."),
+  "nothing; measures.  See door.py: four of its claims have ALREADY passed "
+  "Sec. 17.1's door in a BEC, and one that passes is untaken."),
 ]
 
 KINDS = ("MEASURED", "STRUCTURAL", "HYPOTHETICAL", "COSTED", "OPEN")
@@ -262,9 +263,14 @@ closed it?
        the warp state exists from a solver.  An analogue makes the assertion a
        measurement, which is the one thing directive 1 has never had.
 
-  What it does NOT do: couple to real spacetime.  The analogue proves the
-  KINEMATICS, not the gravitation.  Saying otherwise is exactly the error Rodal
-  killed.  Recorded as OPEN, with that boundary drawn.
+  THE BOUNDARY, CORRECTED -- see door.py.  This file first said the analogue
+  "does not couple to real spacetime".  Withdrawn.  It does: its stress-energy
+  gravitates like anything else's, at h ~ 4.5e-24 for a 3 tonne apparatus, which
+  is a number and not a nothing.  And methodologically the sentence wrote past
+  the corpus's own ruling -- Sec. 17.1's door, where a construction is closed
+  from OUTSIDE by an independent measurement.  What stays true is narrower and
+  worth keeping: an analogue does not GRAVITATE the emulated shift, so claiming
+  propulsion from one is the error Rodal killed.  It measures.  Recorded OPEN.
 """ % (len(h["MEASURED"]), len(h["STRUCTURAL"]), len(h["HYPOTHETICAL"]),
        len(h["COSTED"]), len(h["OPEN"])))
     return 0

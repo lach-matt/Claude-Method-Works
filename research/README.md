@@ -52,6 +52,7 @@ a report.
 | **`warp-drive/NEC-LADDER`** | **`warp-drive/necladder.py`** | **the NEC is not a boolean: five rungs, the world measured at rung 1 (Casimir), the index's core at rung 3 — and every no-go here was graded at rung 0** |
 | **`warp-drive/BEAMED`** | **`warp-drive/beamed.py`** | **the coupling source is *built*, not found: 1000 t to 0.700 c is a published point design, and the roadblock is a bill (208 world-years) not a bound** |
 | **`warp-drive/RESTATUS`** | **`warp-drive/restatus.py`** | **every architecture regraded by *how* it closed — of six this project reasoned to itself, zero are closed by measurement** |
+| **`warp-drive/THE-DOOR`** | **`warp-drive/door.py`** | **"does not couple to real spacetime" withdrawn: it is h ≈ 4.5×10⁻²⁴, and §17.1's door — a construction is closed from *outside*, by measurement** |
 | `warp-drive/paper/PAPER.md` | — | ⚠ WITHDRAWN draft of the shell paper, kept as the record of what did not stand |
 
 ### The rung this project has been standing on
@@ -239,9 +240,61 @@ Three things make it the next move rather than a curiosity:
    *from a solver*. An analogue makes the assertion a measurement — the one thing directive 1 has
    never had.
 
-What it does **not** do is couple to real spacetime. The analogue proves the *kinematics*, not the
-gravitation; saying otherwise is precisely the error Rodal killed. Recorded OPEN, with that boundary
-drawn.
+### The sentence I got wrong
+
+I wrote: *"What it does not do is couple to real spacetime. The analogue proves the kinematics, not
+the gravitation."* **Withdrawn.** It was wrong twice.
+
+**Wrong dynamically — I never computed it.** An analogue is real matter in real spacetime and its
+stress-energy gravitates like anything else's. For a 1 m³, 3-tonne metamaterial slab: `h ≈ 4.46×10⁻²⁴`;
+the pump field at 1 GW/m² weighs 3.7×10⁻¹⁷ kg; the apparatus would need 6.7×10²⁶ kg (≈6.6 Neptunes)
+for `h ~ 1`; the emulated shift exceeds the real one by 5.6×10²². So the coupling is tiny and
+dominated by rest mass — but *"does not couple"* was never a statement about the world. It was a
+number I declined to compute.
+
+**Wrong methodologically, and this is worse — the corpus rules on it and I wrote past the ruling.**
+BUILD180's tower-limit argument:
+
+> *"closure cannot tell a measurement from a relabel … **What distinguishes them is the door (§17.1):
+> an axis must be an independent degree of freedom**, and a relabel, being dependent, fails it. …
+> **That is the step inside lacks and outside supplies**, and it decides L."*
+> — and its close: *"The existence of the limit is the law's; **its value is the world's**."*
+
+A construction cannot certify itself. My sentence dismissed the one mechanism the corpus says decides,
+and this project has spent a session deriving values that are the world's to supply.
+
+Where I'd state the principle more narrowly, once: a system couples through `T_μν` whether or not
+anyone looks — the slab gravitates unobserved, and decoherence entangles systems with environments
+with no observer. What observation is *uniquely* necessary for is **closing a construction from
+outside it**, which is §17.1's door exactly, and on that the correction stands unqualified.
+
+**The test that replaces the sentence:**
+
+> A result from an analogue is a **MEASUREMENT** iff it tests a consequence derived from the
+> *background-field structure* that was **not built into the medium's construction**. Otherwise it is
+> a **RELABEL**.
+
+Five of seven analogue claims pass that door, and **four are already done**. Steinhauer's sonic
+horizon in a rubidium BEC (Nature **569**, 688) emits an approximately thermal spectrum **at the
+temperature Hawking's formula sets from the surface gravity**, its Hawking pair is **entangled**, and
+an inner horizon **stimulates emission** as predicted. None of that is built into a BEC — you engineer
+a flow profile. The door was passed, for gravitational physics derived on a background.
+
+> **The analogue is not a simulation of the math. It is where the math is answerable by the world
+> rather than by the solver.**
+
+**The one that passes the door and has not been taken:** whether the medium can carry the analogue of
+the NEC violation, and at what cost. The geometry demands it; the material has never been asked. It is
+the same quantity this project has argued about from a solver all session.
+
+**And the entanglement thread closes.** The QNEC says `⟨T_kk⟩ ≥ (ℏ/2π) S″_out` — entanglement entropy
+outside a null cut is what licenses negative energy, and the corpus files it in an appendix, out of the
+index. **Steinhauer measured the Hawking pair entangled across the horizon. That is the same `S_out`.**
+The quantity the QNEC says pays for negative energy has already been measured, in an analogue, across
+a horizon.
+
+What stays true, narrowly: an analogue does not *gravitate* the emulated shift, so claiming propulsion
+from one is the error Rodal killed. It measures.
 
 ## `warp-drive/`
 

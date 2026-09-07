@@ -231,6 +231,13 @@ FINDINGS = [
   "Rodal 2025 closes kappa(x) by MEASUREMENT -- Bianchi, MICROSCOPE, Cassini, PSR J0337: no escape"),
  ("ANALOGUE",    +1,  0, +1, "restatus.py",
   "the Alcubierre metric maps onto eps, mu, g_x with g_x^2 <= (eps-1)(mu-1): a bench proof at v <= c/4"),
+ # door.py -- M's correction.  "Does not couple to real spacetime" is withdrawn.
+ ("THE-DOOR",    +1, +1, +1, "door.py",
+  "Sec 17.1: a construction is closed from OUTSIDE by measurement -- 5 of 7 analogue claims pass, 4 are done"),
+ ("S-OUT-SEEN",  +1,  0,  0, "door.py",
+  "the QNEC's S_out has been MEASURED: Steinhauer's Hawking pair is entangled across the horizon"),
+ ("EC-UNTAKEN",   0,  0, +1, "door.py",
+  "the one door-passing measurement not taken: can the medium carry the analogue NEC violation, at what cost"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -247,6 +254,7 @@ SUPPORT = [
  ("EDGE-LIST", "necladder.py",      "the edge list the compendium says is printed nowhere is in extracted/; it gives 2,370"),
  ("SAIL-FIX",  "beamed.py",         "the sail integrated in distance is singular at beta=0 and gave efficiency > 100%; time-domain"),
  ("CARVE-OUT", "restatus.py",       "Rodal's own Sec 3.3 excludes analogue models from his no-go; the one hard closure carves it out"),
+ ("COUPLE-FIX","door.py",           "'does not couple to real spacetime' withdrawn: it is h ~ 4.5e-24, and Sec 17.1 was written past"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -327,7 +335,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 72)
+    chk("number of findings indexed", len(FINDINGS), 75)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -344,10 +352,11 @@ def selftest():
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
-                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE"]))
+                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
-        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE"]))
+        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
+                "THE-DOOR"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
