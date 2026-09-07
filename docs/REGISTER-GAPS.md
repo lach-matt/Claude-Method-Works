@@ -1,8 +1,14 @@
 # REGISTER-GAPS — the Register's numbering, and what accounts for every hole
 
-The Register seats **1,660 entries** numbered 1–1792. **132 numbers in that span have no entry.**
-This asks what accounts for each, and the answer is mostly reassuring: **119 of the 132 are seated
-in the Working Register**, moved there on purpose. **13 are seated in neither.**
+The Register seats **1,715 entries** numbered 1–1848. **133 numbers in that span have no entry.**
+This asks what accounts for each, and the answer is mostly reassuring: **119 of the 133 are seated
+in the Working Register**, moved there on purpose. **14 are seated in neither** — and **the fourteenth
+is not a hole of the same kind as the other thirteen**: see below.
+
+*Figures re-measured 2026-09-07 at BUILD116, where the Register runs to 1848. They read 1,660 / 1–1792 /
+132 / 13 when this file was written and went stale as the R4 leg seated entries; `tools/docfigures.py`
+is what caught the drift. The finding itself is unchanged: every gap but the fourteenth is still a
+relocation.*
 
 `REGISTER-GAPS.tsv` is the standing list — one row per gap. **Nothing has been repaired.** Filed for R3.
 
@@ -14,12 +20,12 @@ closes:
 
 | | entries |
 |---|---:|
-| `The_Method_1_6___The_Register-2.md` | 1,660 |
+| `The_Method_1_6___The_Register-2.md` | 1,715 |
 | `WORKING-REGISTER.md` | 119 |
 | **overlap** | **0** |
-| **sum** | **1,779** |
-| span 1–1792 | 1,792 |
-| **unaccounted** | **13** |
+| **sum** | **1,834** |
+| span 1–1848 | 1,848 |
+| **unaccounted** | **14** (thirteen holes and one reservation, 1797) |
 
 Every one of the 119 Working Register entries falls in a gap of The Register, and no number is
 seated twice. That is worth stating because it is checkable in one command and because it means
@@ -42,7 +48,7 @@ in the section the entry cites."*
 marker names an entry The Register still seats, and none names one of the 13. That is the strongest
 evidence here that the relocation was carried out deliberately and completely.
 
-## The 13 seated in neither register
+## The 14 seated in neither register
 
 | number | neighbours | what still names it |
 |---:|---|---|
@@ -51,6 +57,13 @@ evidence here that the relocation was carried out deliberately and completely.
 | **682, 683** | 681 / 684 | the collection log, `spectra_raw/` |
 | **687, 688** | 686 / 689 | the collection log |
 | **1138** | 1137 / 1139 | six chat mentions; a Claude-project export |
+| **1797** | 1796 / 1798 | **`REGISTER-QUEUE-APPEND-cypher-audit.md`, where it is staged and waiting** |
+
+**1797 is not lost and is not in the class of the other thirteen.** It is a number *reserved* by the
+cypher audit and queued for seating, held open by Phase 0 ruling 4 — a decision not yet taken, not a
+record that went missing. `r2-regsweep2` names it in as many words: *"numbers absent above 1792, in
+1..1848: [1797] (staged, not seated)"*. It leaves this list the moment that ruling is given, and it is
+counted here only because the arithmetic of the span cannot tell a reservation from a hole.
 
 The ten in the 661–688 range are the interesting ones, because a data-collection log **quotes one as
 a live instruction**:
@@ -71,7 +84,7 @@ Recorded because either one silently produces a wrong number, and the first is a
 own finding.
 
 1. **Grouping, in two different places.** Entries are headed in groups — `### 219, 220, 221`. A bare
-   `### N` read gives 1,628 entries and 164 gaps; honouring grouped headings gives **1,660 and 132**.
+   `### N` read gives 1,683 entries and 165 gaps; honouring grouped headings gives **1,715 and 133**.
    The bare read invents 32 gaps that are not gaps. `DEFERRED.md` docket 9(c)/30 records exactly
    this: *"219 / 220 / 221 (L1323), 305 (L1327), 239 / 256 (L1335) ARE headed under grouped
    headings; every prior recording used the bare convention alone."* **The excision markers are

@@ -85,12 +85,13 @@ no longer on the read path.
   `gate.py manifest --main ../The_Method_1_6_BUILD116_main_and_register.md` **OK**, 737 listed / 739 extracted;
   `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,621 rows, 3 carried retired, 1,618
   regenerated exactly, 0 NEW, 0 GONE, md5 `31c462f3d47f9e02e289598c28604ae1` equal to the seated member);
-  `tools/gate_live.py` over the 86 live goldens at BUILD116/BUILD245 **49 OK, 37 FAIL**, and the 37 are exactly
-  the set the diff census had already traced to registers 1842-1848; all 37 were then re-banked at BUILD246 by
+  `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL** at BUILD116/BUILD246 (87 OK counting the
+  census step). At BUILD116/BUILD245, before the re-bank, it read **49 OK, 37 FAIL**, and the 37 were exactly
+  the set the diff census had already traced to registers 1842-1848; all 37 were re-banked at BUILD246 by
   RUNNING their instruments, under `close_rebank.py`'s guards — change set proved to be
   `{MANIFEST.tsv, WORKING-REGISTER.md, the 37 goldens}` and nothing else, reverse guard recovering BUILD245's
-  own md5 (W-251). **The confirming full walk at BUILD246 is not pinned here until it has been run**, which is
-  the rule this section exists to keep.
+  own md5 (W-251). **This line was left unpinned for one commit** while that confirming walk ran, and says so
+  because a verdict this section has not measured is not a verdict it may carry.
 - **RUN THE GATE WITH `method/bin` ON PATH, and this is not advice.** `gate.py` runs every instrument as
   **`python3 NAME.py`, hard-coded**, and ten seated members do not parse before 3.12. Without the shim four
   goldens — `archive-split`, `r2-ch16n3`, `r2-ch16u4`, `r2-tools-constants` — differ from their banked output

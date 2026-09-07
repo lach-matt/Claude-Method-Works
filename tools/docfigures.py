@@ -140,7 +140,7 @@ def checks():
     gaps = [n for n in range(min(R), max(R) + 1) if n not in R]
 
     return [
-        ("CLAUDE.md", "members extracted from the bundles", 343,
+        ("CLAUDE.md", "members extracted from the bundles", 738,
          len(_rows("method/MEMBER-INDEX.tsv"))),
         ("CLAUDE.md", "drive/ MANIFEST rows", 819, len(man)),
         ("CLAUDE.md", "drive/ manifest-tree bijection (orphans, both ways)", 0,
@@ -190,11 +190,11 @@ def checks():
         ("docs/RETRACTION-AUDIT.md", "LIVE-SUPERSEDED", 25,
          sum(1 for r in _rows("RETRACTION-AUDIT.tsv")
              if r["verdict"] == "LIVE-SUPERSEDED")),
-        ("docs/REGISTER-GAPS.md", "The Register entries", 1660, len(R)),
+        ("docs/REGISTER-GAPS.md", "The Register entries", 1715, len(R)),
         ("docs/REGISTER-GAPS.md", "Working Register entries", 119, len(W)),
         ("docs/REGISTER-GAPS.md", "registers seated in both (must be 0)", 0, len(R & W)),
-        ("docs/REGISTER-GAPS.md", "numbering gaps", 132, len(gaps)),
-        ("docs/REGISTER-GAPS.md", "seated in neither register", 13,
+        ("docs/REGISTER-GAPS.md", "numbering gaps", 133, len(gaps)),
+        ("docs/REGISTER-GAPS.md", "seated in neither register", 14,
          len([n for n in gaps if n not in W])),
         ("docs/HANDOFF-GAP.md", "handoffs by number, unheld before the recovery", 26,
          len(_rows("HANDOFF-GAP.tsv"))),
@@ -217,10 +217,12 @@ def checks():
          _governance_prose_only()),
         ("CLAUDE.md", "standing artefacts CLAUDE.md does not name", 0,
          len(unreferenced_artefacts())),
-        ("CLAUDE.md", "seated members needing Python >= 3.12", 10,
+        ("CLAUDE.md", "seated members needing Python >= 3.12", 23,
          _members_needing_312()),
         ("CLAUDE.md", ".py files that parse under NO available interpreter", 6,
          _unparseable_anywhere()),
+        ("CLAUDE.md", "tools/ instruments ahead of their seated member", 4,
+         len(_tools_ahead_of_their_members())),
     ] + _instrument_rows()
 
 
@@ -291,6 +293,29 @@ def _unparseable_anywhere():
     return _parse_census(_newest_python())
 
 
+def _tools_ahead_of_their_members():
+    """Working instruments under tools/ that have moved ahead of their seated snapshot.
+
+    Thirty tools/ programs are also seated members. The two are NOT kept in
+    lockstep: the member is the snapshot at its seating build, the tools/ copy is
+    what a chat actually runs, and a pass that improves an instrument moves only
+    the working copy. Nothing reported that until 2026-09-07, and nothing else
+    can: verify.py checks members against the bundles, never against tools/, and
+    none of the four is in the live golden set, so gate_live.py never runs the
+    seated copy either. A seated instrument could therefore answer with logic
+    years old and no step would say so.
+
+    A nonzero count is NOT a fault. It is the list of instruments whose next
+    seating is owed. The pin is what is known about; a NEW name trips this row.
+    """
+    out = []
+    for f in sorted((ROOT / "tools").glob("*.py")):
+        m = ROOT / "method" / "members" / f.name
+        if m.exists() and f.read_bytes() != m.read_bytes():
+            out.append(f.name)
+    return out
+
+
 def unreferenced_artefacts():
     """Every standing artefact must be named in CLAUDE.md.
 
@@ -349,20 +374,20 @@ def _instrument_rows():
     pv = lambda v: sum(1 for s in sites if s["verdict"] == v)
     av = lambda v: sum(1 for c in claims if c["verdict"] == v)
     return [
-        ("docs/POINTERS.md", "pointer tokens, --roster with-companion", 1932, len(sites)),
-        ("docs/POINTERS.md", "findings", 42, sum(1 for s in sites if _is_finding(s))),
-        ("docs/POINTERS.md", "RESOLVED", 1387, pv("RESOLVED")),
+        ("docs/POINTERS.md", "pointer tokens, --roster with-companion", 2086, len(sites)),
+        ("docs/POINTERS.md", "findings", 44, sum(1 for s in sites if _is_finding(s))),
+        ("docs/POINTERS.md", "RESOLVED", 1539, pv("RESOLVED")),
         ("docs/POINTERS.md", "RESOLVED-HERE", 438, pv("RESOLVED-HERE")),
         ("docs/POINTERS.md", "AMBIGUOUS", 65, pv("AMBIGUOUS")),
-        ("docs/POINTERS.md", "PARTIAL", 17, pv("PARTIAL")),
+        ("docs/POINTERS.md", "PARTIAL", 19, pv("PARTIAL")),
         ("docs/POINTERS.md", "PREFIX-ONLY", 3, pv("PREFIX-ONLY")),
         ("docs/POINTERS.md", "UNRESOLVED", 21, pv("UNRESOLVED")),
         ("docs/POINTERS.md", "KIND-MISMATCH", 1, pv("KIND-MISMATCH")),
-        ("docs/ARITH.md", "claims checked, --roster reader-facing", 235, len(claims)),
-        ("docs/ARITH.md", "AGREE", 57, av("AGREE")),
-        ("docs/ARITH.md", "WITHIN-INPUT-PRECISION", 1, av("WITHIN-INPUT-PRECISION")),
+        ("docs/ARITH.md", "claims checked, --roster reader-facing", 269, len(claims)),
+        ("docs/ARITH.md", "AGREE", 63, av("AGREE")),
+        ("docs/ARITH.md", "WITHIN-INPUT-PRECISION", 2, av("WITHIN-INPUT-PRECISION")),
         ("docs/ARITH.md", "DISAGREE (the findings)", 2, av("DISAGREE")),
-        ("docs/ARITH.md", "NOT-BOUND", 175, av("NOT-BOUND")),
+        ("docs/ARITH.md", "NOT-BOUND", 202, av("NOT-BOUND")),
     ]
 
 
@@ -420,11 +445,11 @@ def selftest():
     sites = _pointer_sites()
     if sites:
         check("pointers: census_class alone under-counts findings",
-              sum(1 for s in sites if s.get("census_class")), 40)
+              sum(1 for s in sites if s.get("census_class")), 42)
         check("pointers: finding verdicts alone under-count findings",
               sum(1 for s in sites if s.get("verdict") in _FINDING_VERDICTS), 25)
         check("pointers: their union is the reported total",
-              sum(1 for s in sites if _is_finding(s)), 42)
+              sum(1 for s in sites if _is_finding(s)), 44)
     print("\n%s" % ("SELFTEST OK" if ok else "SELFTEST FAILED"))
     return 0 if ok else 1
 

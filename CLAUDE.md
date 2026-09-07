@@ -4,10 +4,12 @@
 
 Two things, and they are not the same kind of thing.
 
-**`method/` is the store of record for The Method 1.6.** Both live bundles, all 343 members
+**`method/` is the store of record for The Method 1.6.** Both live bundles, all **738 members**
 extracted from them byte-exact, `MEMBER-INDEX.tsv`, and the §0 gate in `method/CLAUDE.md`. Every
 chat opens by reading this tree — `python3 method/verify.py` asserts every member md5 and recovers
-both bundles. Start here. See `method/README.md`.
+both bundles. Start here. See `method/README.md`. **The live pair is named in `method/CLAUDE.md` §3
+and nowhere else**, so that a build moves one sentence rather than several; this line carries only the
+count, and it read 343 until 2026-09-07, when `tools/docfigures.py` measured 738.
 
 **`drive/` is a read-only mirror** of two Google Drive folders — the archive and the original-input
 witness, not the read path. **819 files, ~842 MB**, and `drive/MANIFEST.tsv` inventories every one of
@@ -84,13 +86,22 @@ No build, no linter, no package manager. Do not offer to add CI, and do not try 
 up". The `.py` files under `drive/` are mirrored Drive artifacts, not a codebase to maintain or
 execute.
 
-**Ten seated members need Python 3.12 or newer, and the default `python3` here is 3.11.** They use
-a backslash inside an f-string expression — `gate.py`'s `t.count(b"\n")` — which is a `SyntaxError`
-before 3.12 and legal from it (PEP 701). **They are not corrupt.** The ten are `gate.py`, `close.py`,
-`archive-split.py`, `r2-tools.py`, `r3-wl.py`, `r2-ch16n/s/t/u.py` and `r2-ch17c.py` — which includes
-the §0 gate and the close routine, so **run them with `python3.12`**, not the bare `python3`, or a
-`SyntaxError` will look like a damaged member. `method/verify.py` and every `tools/` instrument run
-fine on 3.11. Under 3.12 **all 117 seated members parse.**
+**Twenty-three seated members need Python 3.12 or newer, and the default `python3` here is 3.11.** They
+use a backslash inside an f-string expression — `gate.py`'s `t.count(b"\n")` — which is a `SyntaxError`
+before 3.12 and legal from it (PEP 701). **They are not corrupt.** They are `gate.py`, the four close
+routines (`close.py`, `close_census.py`, `close_census2.py`, `close_rebank.py`), `archive-split.py`,
+`r2-tools.py`, `r3-wl.py`, `r2-ch16m2.py`, every seated generation of `r2-ch16n` (n, n2, n3), `r2-ch16s`
+(s, s2), `r2-ch16t` (t, t2, t3), `r2-ch16u` (u, u2, u3, u4) and `r2-ch17c` (c, c2). **This paragraph said
+"ten" until 2026-09-07 and named a list that had not grown with the store**: each successor instrument
+inherited its predecessor's f-string, and the close family was seated later. `tools/docfigures.py` is what
+caught it.
+**The route is `method/bin`, not a habit of typing `python3.12`.** `gate.py` runs every instrument as
+**`python3 NAME.py`, hard-coded**, so the interpreter has to be `python3` — `export PATH="$PWD/method/bin:$PATH"`
+puts a 3.12 in front, and the gate must be run that way. Without it four live goldens differ from their banked
+output **by a `SyntaxError` traceback and read as FAIL**, and since `close_rebank.py` regenerates a golden by
+RUNNING it, a re-bank taken from such a run **banks the traceback as the golden** — after which `verify.py` and
+the census both still pass. `method/verify.py` and every `tools/` instrument run fine on 3.11. Under 3.12
+**all 316 seated `.py` members parse, and none is rejected.**
 
 **Six `.py` files in the whole tree parse under no available interpreter**, and all six are
 recovered or extracted chat fragments rather than members: `recovered/l-ch1.py` (four lines, ending
@@ -205,6 +216,33 @@ before any pass that spans more than one file.
 ## Skills
 
 - **graphify** (`.claude/skills/graphify/SKILL.md`) — any input to knowledge graph. Trigger: `/graphify`
+
+**Thirty `tools/` programs are also seated members, and the two copies are NOT in lockstep.** The
+member is the **snapshot at its seating build**; the `tools/` copy is what a chat actually runs, so a
+pass that improves an instrument moves the working copy and leaves the member where it was. **Four are
+ahead of their member right now** — `docfigures.py`, `drive_sync.py` (304 diff lines), `shiftcheck.py`
+(70) and `slopeaxis.py` (80) — and until 2026-09-07 **nothing in the store reported it**: `verify.py`
+checks members against the bundles and never against `tools/`, and none of the four is in the live
+golden set, so `gate_live.py` does not run the seated copy either. A seated instrument could answer
+with logic a leg out of date and no step would say so. `tools/docfigures.py` now carries the row that
+measures it. **A nonzero count is not a fault** — it is the list of instruments whose next seating is
+owed; the pin is what is known about, and a new name trips the row.
+
+**Eleven more `tools/` programs are the R2–R4 build machinery, and this file did not name one of them
+until 2026-09-07** — which broke its own "nothing in the tree is unaccounted for", since three of the
+eleven are what a build actually runs. `tools/docfigures.py` is what caught the omission. They fall in
+four groups. **The build and the gate**: `close_main.py` (the guarded build of the MAIN bundle, for
+Register entries and their counts — `close.py`'s opposite number), `restage.py` (re-extract both bundles
+into `method/members/` and retarget `verify.py`, which is what makes the mirror current after any close),
+and `gate_live.py` (the gate over the LIVE goldens only, plus a `--census` step; run it with
+`method/bin` first on PATH). **Keeping a count honest**: `register_counts.py`. **Triaging a golden that
+moved**: `shiftinv.py` (shift-invariant, a finding, or a literal read), `shiftcheck.py` (did it move for a
+declared reason, or is it a finding) and `shiftcheck2.py` (its successor for a Register line shift, where
+the window applies only in a line-reference context). **Re-anchoring a successor instrument**:
+`reanchor.py` (write a successor that resolves a predecessor's literal main-volume line numbers by
+CONTENT) and `proveanchor.py` (prove that successor reproduces its predecessor on the OLD bytes — the
+guard that makes re-anchoring safe). **Two audits**: `audit_lambda.py` (every reconstructible numeric
+claim about Λ) and `audit_math.py` (the book's mathematical objects read as an index, in five languages).
 
 Two more programs exist and are named here so nothing in the tree is unaccounted for:
 `tools/colab_land_chats.py` shards the Claude Chats export and lands it in the repository (**Colab
