@@ -14,7 +14,7 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of fifteen obstructions, three dissolved, three relocated, four
+THE HEADLINE: of sixteen obstructions, three dissolved, three relocated, five
 closed negative, three are conditional, two are OPEN, and NONE is untested.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -161,7 +161,18 @@ LEDGER = [
   "-0.344, and QNEC -- a THEOREM, not a conjecture -- integrates to it. "
   "D-independent, so freeing the wall thickness buys nothing. WITHDRAWS this "
   "session's headline: nullbound.py evaluated SNEC at one sampling width, the "
-  "loosest, and SNEC fails above w ~ 0.93 bubble radii", "anec.py"),
+  "loosest, and SNEC fails above w ~ 0.93 bubble radii. HARDENED, not softened, "
+  "by ACHRONALITY below: the one escape is closed and what remains is a single "
+  "unproven condition", "anec.py"),
+ ("ACHRONALITY", "the ANEC-violating rays might be non-achronal, putting the "
+  "bubble outside Graham-Olum", "CLOSED-NEGATIVE",
+  "THEY ARE ACHRONAL. 25 ANEC-violating rays over v_s = 0.3/0.5/0.8 c, ZERO "
+  "with a conjugate point. And the anti-correlation is Raychaudhuri itself -- "
+  "u'' = -4 pi T_kk u, so the negative T_kk that violates ANEC is what "
+  "defocuses the congruence and prevents the conjugate point that would break "
+  "achronality. PROVED where T_kk <= 0 throughout, measured where the signs "
+  "mix. The prohibition now rests entirely on the achronal ANEC in 4D CURVED "
+  "spacetime -- unproven for nineteen years, and load-bearing", "achronal.py"),
 ]
 
 def by_status():
@@ -219,6 +230,14 @@ def check_typeiv_sources_conditional():
             and not selfconsistent.SCOPE["exact self-consistent"]
             and not selfconsistent.SCOPE["configuration matched"])
 
+def check_achronality_closed():
+    import achronal
+    rows = achronal.survey()
+    viol = [r for r in rows if r["anec_violated"]]
+    # closed negative means: the escape was looked for and is not there
+    return (len(viol) > 0 and achronal.escapes(rows) == []
+            and rows[0]["proved"])          # and the axial case is proved, not fitted
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -235,10 +254,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 15)
+    chk("obstructions tracked", len(LEDGER), 16)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 3)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 4)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 5)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 3)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
@@ -259,6 +278,8 @@ def selftest():
         check_mapping_dissolved(), True)
     chk("TYPEIV-SOURCES: yes at first order, open at exact",
         check_typeiv_sources_conditional(), True)
+    chk("ACHRONALITY: the escape was looked for and is not there",
+        check_achronality_closed(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",

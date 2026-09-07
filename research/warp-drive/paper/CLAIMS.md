@@ -162,6 +162,57 @@ black hole.**
 
 ---
 
+## ★ HEADLINE — flagged for the abstract
+
+**H5. ANEC violation *protects* achronality, so the one escape from the achronal ANEC is
+structurally unavailable.**
+
+> The theorem that forbids warp drives is Graham–Olum's **achronal** ANEC, and it has two hypotheses:
+> a negative null-energy integral **and** an achronal geodesic. The first is an **analysis** statement
+> and returns a magnitude; the second is an **order** statement — achronality is an *antichain*
+> condition on the chronology relation. We had run only the first.
+>
+> Run properly, the order operator is the Raychaudhuri equation with the `θ²` absorbed:
+> `u″ = −4πT_kk·u`, `u(0)=0`, `u′(0)=1`, a conjugate point being the next zero of `u`. Along **true
+> null geodesics** of the metric (RK4, `g(k,k)` held below 10⁻⁶), scanning impact parameter at
+> `v_s = 0.3`, `0.5` and `0.8 c`:
+>
+> **25 ANEC-violating rays. Zero with a conjugate point. Every one of them achronal.**
+>
+> And the anti-correlation is not a coincidence — it is the equation itself. **Where `T_kk < 0` the
+> Jacobi equation is defocusing**, so `u` is convex and is pushed *away* from the zero a conjugate
+> point requires. The very quantity that violates ANEC is the quantity that protects achronality.
+> **You cannot buy one with the other.**
+>
+> **Lemma (exact).** If `T_kk ≤ 0` along a null geodesic it has no conjugate point, hence is achronal.
+> *Proof.* `u″ = −4πT_kk·u ≥ 0` wherever `u ≥ 0`; with `u(0)=0`, `u′(0)=1`, `u` is positive and convex,
+> so `u′ ≥ 1` and `u ≥ λ > 0`. No zero. ∎ This is the whole story for `y ≲ 0.3`, where `T_kk ≤ 0`
+> throughout. Further out the rays cross **both** signs (`T_kk` reaches `+0.24` while the integral is
+> still `−0.14`), and there the result is **measured, not proved** — though not marginally: the exit
+> slope runs `5.9` to `10.4` where a conjugate point needs it to reach `0`.
+
+| | `achronal.py` |
+|---|---|
+| status | **PROVEN** where `T_kk ≤ 0`; **MEASURED** (25/25, three speeds) where the signs mix |
+| new? | the anti-correlation, and its mechanism, yes. The lemma is elementary once posed. |
+| falsified by | a ray family with mixed-sign `T_kk`, negative integral, and a conjugate point; the scan is over impact parameter of `+x` rays and is **not** a proof over all null geodesics |
+| **not** claimed | that the bubble is forbidden. One escape is closed; see H5′. |
+
+**H5′ (what this leaves standing, and it is sharper than what it removed).** With no configurational
+dodge available, the prohibition rests **entirely** on the achronal ANEC in **4D curved** spacetime —
+and that condition is **unproven**. Graham & Olum proved it in flat spacetime in 2007; the
+self-consistent curved-space version has stood **nineteen years with no proof and no counterexample**.
+Recorded in `WARP-DRIVE.md` §6 before this pass; **load-bearing** after it.
+
+**A methodological finding, and it is reportable.** Register 1173 of the source corpus separates
+*binary*, *language* and *logic*, and by its test `analysis` returns a **magnitude**, not a cell
+decision — so an analysis statement cannot yield a prohibition alone. `anec.py`'s verdict crossed a
+language boundary with the order half never run. Under the corpus's own cypher discipline
+(register 1172) that is `NOT-RUN`, not `SILENT`. **The error was caught by an instrument from the
+corpus, applied to this project's own bookkeeping.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -219,3 +270,7 @@ black hole.**
 - That QNEC has been applied. `shape.py` predicted the energy-condition family would loosen and named
   QNEC; what landed was timelike-QI → null-SNEC. **Right family, wrong member — scored 0.5, not 1.**
 - Any figure carrying the SNEC's four O(1) exposures as if it were exact.
+- **That H5 escapes ANEC.** It does the opposite: it closes the one escape and shows the closure is
+  structural. What it buys is precision about where the prohibition actually rests.
+- That the achronality scan is exhaustive. It covers impact parameter for `+x` rays at three speeds.
+  A ray family it does not contain is reported `NOT-RUN`, never as absent.

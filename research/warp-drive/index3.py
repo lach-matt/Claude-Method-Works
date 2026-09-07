@@ -403,8 +403,20 @@ FINDINGS = [
   "the hole's Type IV is a spherically symmetric RADIAL flux and the bubble needs a twisted one: same type, same strength, different shape, and a magnitude match is not a construction"),
  ("EXACT-ORDER-OPEN", 0, -1,  0, "selfconsistent.py",
   "APT compute <T> on the UNPERTURBED background and do not iterate to a fixed point; MMV's theorems are about exact solutions, so neither refutes the other and exact order stays open"),
+ # The order language, run on the ANEC obstruction.  It closes the escape
+ # I proposed, and it closes it against us -- which is still an answer.
+ ("ACHRONAL",       +1, -1, -1, "achronal.py",
+  "every ANEC-violating ray of the bubble is ACHRONAL: 25 violating rays over v_s = 0.3/0.5/0.8 c and ZERO escapes, so Graham-Olum's hypothesis is met"),
+ ("DEFOCUS-PROTECTS",+1, -1,  0, "achronal.py",
+  "the anti-correlation is Raychaudhuri itself -- u'' = -4 pi T_kk u, so negative T_kk defocuses and defocusing is what prevents the conjugate point: you cannot buy achronality-failure with ANEC violation"),
+ ("ACHRONAL-LEMMA", +1,  0,  0, "achronal.py",
+  "PROVED where T_kk <= 0 throughout: u convex with u(0)=0, u'(0)=1 gives u >= lambda > 0, no zero, no conjugate point. Exact on the axial ray; measured where the signs are mixed"),
+ ("UNPROVEN-LOAD",   0, -1,  0, "achronal.py",
+  "with no configurational dodge left, the prohibition rests ENTIRELY on the achronal ANEC in 4D CURVED spacetime -- unproven for nineteen years, and now load-bearing rather than a footnote"),
+ ("LANGUAGE-BOUNDARY",0, -1, 0, "achronal.py",
+  "register 1173: analysis returns a magnitude, the prohibition is a binary. anec.py's verdict crossed a language boundary with the ORDER half NOT-RUN -- a sixth instance of register 1172's fault, in our own tree"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of fifteen obstructions three dissolved, three relocated, four closed negative, three conditional, two open and none untested"),
+  "of sixteen obstructions three dissolved, three relocated, five closed negative, three conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -521,7 +533,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 144)
+    chk("number of findings indexed", len(FINDINGS), 149)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -531,7 +543,7 @@ def selftest():
     # identified, and what identifies it is what forbids the build and the spec.
     chk("the cell TYPE-IV opened now holds both surviving objections",
         sorted(f[0] for f in FINDINGS if coords(f) == (1, -1, -1)),
-        ["ANEC-VIOLATED", "TYPE-IV"])
+        ["ACHRONAL", "ANEC-VIOLATED", "TYPE-IV"])
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
@@ -550,7 +562,7 @@ def selftest():
                 "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
                 "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE",
                 "AREA-OVER-THICK","NO-NULL-QI","D-CANCELS",
-                "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE","ANEC-VIOLATED",
+                "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE","ANEC-VIOLATED","ACHRONAL",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),

@@ -2029,3 +2029,90 @@ above is drawn tight for exactly the same reason.
   exact, with the boundary named. `TYPE-IV` itself stays **OPEN**: what survives is the configuration.
   The verdict block is now computed from the ledger rather than transcribed.
 - `paper/CLAIMS.md` — **H4**, flagged for the abstract, with its four-item scope.
+
+---
+
+## Pass 13 — `achronal.py`: the order language, and it closes the escape against us
+
+The previous pass ended by naming one item worth doing: whether the ANEC-violating rays are
+**achronal**. The instrument is built, it ran, and the answer is no escape — with a mechanism that
+makes the closure worth more than the escape would have been.
+
+### The corpus named the error before the physics did
+
+Register 1173 of The Method 1.6 states the hierarchy:
+
+> **LOGIC IS NOT A LANGUAGE. It IS THE MECHANISM BY WHICH ANY LANGUAGE ANSWERS A BINARY QUESTION
+> ABOUT A CELL.** *Three levels, not one list: **binary** is the type; a **language** is a coordinate
+> system with a closure operator; **logic** is binary → language → binary.* **A language earns its row
+> when logic can operate on it and get a binary back.**
+
+By that test `analysis` does not earn a row — it has a mechanism but returns a **magnitude**, not a
+cell decision. ANEC is an analysis statement, and `anec.py` duly returned magnitudes. But **the
+obstruction is a binary**: *this spacetime is forbidden*. The theorem that supplies the binary —
+Graham & Olum 2007 — has a second hypothesis, **achronality**, and achronality is an **order**
+statement: a set is achronal iff it is an **antichain** in the chronology relation.
+
+Three of the corpus's rules land on the same spot:
+
+| rule | what it said about our ANEC row |
+|---|---|
+| register 1173 | analysis returns a magnitude; the prohibition is a binary |
+| register 1172 / `cypher.py` refusal #1 | *never print a verdict for a language nobody ran.* The **order** language was `NOT-RUN`. 1172 found five such pairs; this was a sixth, in **our** tree |
+| §33.5 | *"Never fit across a language boundary"* — the rule the book says is enforced in code and blocks the most |
+
+### The order operator, concretely
+
+A null geodesic is achronal exactly up to its first **conjugate point**. For a shear-free congruence
+Raychaudhuri collapses to a Sturm–Liouville problem with no `θ²` in it:
+
+`u″ = −(R_kk/2)·u = −4πT_kk·u`,  `u(0) = 0`,  `u′(0) = 1`
+
+a conjugate point being the next zero of `u`. Dropping shear is **conservative** — `σ² ≥ 0` only helps
+focusing, so a ray called achronal here stays achronal with shear restored. `T_kk` is the same field
+`anec.py` integrates, but along **true null geodesics** (RK4, `g(k,k)` held below 10⁻⁶) rather than the
+fixed-`y` coordinate lines `anec.py` sampled. That difference is real: on the `y = 0.3` ray the
+coordinate line gives `−0.0946` and the geodesic `−0.0603`. Both negative; not the same number.
+
+### The result
+
+| `v_s` | ANEC-violating rays | of those, non-achronal |
+|---|---|---|
+| 0.3 c | 9 | **0** |
+| 0.5 c | 8 | **0** |
+| 0.8 c | 8 | **0** |
+
+**25 violating rays, zero escapes.** And the anti-correlation is the equation itself: where
+`T_kk < 0` the Jacobi equation is **defocusing**, `u` is convex, and it is pushed *away* from the zero
+a conjugate point requires. **The quantity that violates ANEC is the quantity that protects
+achronality. You cannot buy one with the other.**
+
+On the inner rays it is not even a measurement:
+
+> **Lemma.** If `T_kk ≤ 0` along a null geodesic then it has no conjugate point, hence is achronal.
+> *Proof.* `u″ = −4πT_kk·u ≥ 0` wherever `u ≥ 0`. With `u(0) = 0`, `u′(0) = 1`, `u` is initially
+> positive and convex, so `u′` is non-decreasing, so `u′ ≥ 1` and `u ≥ λ > 0`. No zero. ∎
+
+Exact for `y ≲ 0.3`, where `max T_kk` is `0` on the axis and `+9.3×10⁻¹²` at `y = 0.3` — noise. It is
+**not** the whole story further out: at `y = 0.6, 0.7, 0.75` the ray crosses both signs — `T_kk` reaches
+`+0.24` while the integral is still `−0.05` to `−0.14` — so there the verdict is **measured**. Not
+marginal: exit slope `5.9` to `10.4` against a threshold of `0`.
+
+### What survives, and it is sharper than what was removed
+
+**The prohibition now rests entirely on the achronal ANEC in 4D *curved* spacetime, with no
+configurational dodge left — and that condition is unproven.** Graham & Olum proved it in flat
+spacetime in 2007; the self-consistent curved-space version has stood **nineteen years, no proof, no
+counterexample**. `WARP-DRIVE.md` §6 recorded that before this pass. It is load-bearing after it.
+
+Two limits stated rather than buried: shear is dropped (conservative) and vorticity is zero; and the
+scan covers impact parameter for `+x` rays at three speeds — it is **not** a proof over all null
+geodesics. A ray family the scan does not contain is `NOT-RUN`, never absent.
+
+### Seated
+
+- `index3.py` — 149 findings, still 15 cells. `ACHRONAL` joins `TYPE-IV` and `ANEC-VIOLATED` in
+  (+1,−1,−1); plus `DEFOCUS-PROTECTS`, `ACHRONAL-LEMMA`, `UNPROVEN-LOAD`, `LANGUAGE-BOUNDARY`.
+- `obstruct.py` — 16 rows. New `ACHRONALITY`, **CLOSED-NEGATIVE**: the escape was looked for and is
+  not there. The `ANEC` row is amended to say it **hardened**, not softened.
+- `paper/CLAIMS.md` — **H5** and **H5′**, flagged for the abstract, plus the methodological finding.
