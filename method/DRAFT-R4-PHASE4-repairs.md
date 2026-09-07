@@ -1,6 +1,24 @@
 # DRAFT-R4-PHASE4 — the compendia repairs, one item at a time
 
-**NOTHING IN THIS FILE HAS BEEN DONE.** The chat-67 hold stands and a plan is not a repair. Every
+**M RULED ON ALL THREE QUESTIONS ON 7 SEPTEMBER AND SIX OF THESE ITEMS ARE NOW SEATED.** The file is kept as
+it was written, and what has since happened is recorded here rather than edited into the items:
+
+| item | disposition |
+|---|---|
+| **C1** Spectra L562, `41–5` → `41–55` | **SEATED**, BUILD278, `W-283` |
+| **C2** Index of Indices L2021, the truncated row restored | **SEATED**, BUILD278, `W-283` — and `r2-ch27a4` had banked this defect as a golden before the census found it; the repair takes it from *29 of 30* to *30 of 30* |
+| **D1** Ruling 46, script names, stamps, the rebuild command | **SEATED**, BUILD279 and BUILD281, `W-284` and `W-286` — thirty substitutions, then one more the pass missed |
+| **D2** Ruling 45, six interface disclosures | **SEATED with D1**; three are refused with their reason, being a verbatim quotation of a stored row and two descriptions of the column it comes from |
+| **D3** the handle vocabulary | **MEASURED, NOT EXECUTED** — `method/HANDLE-MAP.tsv`, `W-287`. M's ruling stands; the map it needs is not held, and 178 of the bibliography's 407 sites have a title the volumes support |
+| **D4** the 285-of-431 channel sentence | **OPEN** — deliberately untouched by the Ruling 46 pass, which does not license fixing a figure in passing |
+| **D5** seven files named to a reader and held nowhere | **THREE SEATED with D1** (the two `MECHANISMS.md` sites and `LITERATURE.md` repointed at the volume that answers); the rest went with their sentences |
+| **E1** the three register counts | **OPEN**; the generation stamps are gone, the counts are untouched |
+| **E2** the bracket-system object | **OPEN**; writing it is an editorial act |
+
+**Seventeen Ruling 46 sites remain and are refused, not owed**: they are figure image paths, and removing them
+would remove the figures. `W-286` records that.
+
+**NOTHING ELSE IN THIS FILE HAS BEEN DONE.** The chat-67 hold stands and a plan is not a repair. Every
 figure below is measured by `method/proofs/compendia.py` (25/25, BUILD275) or its successor
 `method/proofs/compendia2.py` (57/57, BUILD276), and `W-280` and `W-281` are their closes. Each item
 names its site, what stands there, what a repair would put there, and a grade. **A `MEDIUM` names

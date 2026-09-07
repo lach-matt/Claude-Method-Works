@@ -246,7 +246,7 @@ Grouped-heading numbers cited in a register phrase (headed under B only): {209: 
    main L10231: and 70 species; 3,342 levels, 2,269 interior cells; the bracket at 1,577 of 1,738 cells
    reg L3926: THE JOINT FIT GAINS AN OBJECTIVE SELECTION RULE: USE THE SERIES WITH THE LOWEST OWN RMS. P III's six series give limits from 242,259 to 244,007 — a spread of 1,748 — but its nh fits itself to an rms o
    reg L6528: THE SIX CAPTURES RUN UNDER RULING 26 AND THE FORTY-FIVE-ROW ITEM CLOSES: ALL 45 ROWS RECONCILE MEMBER-FOR-MEMBER, 35 CLOSE WITH CELLS — 75 OF 81 PASS, 6 FAIL, 0 REFUSED — AND 10 CLOSE NO-TRIPLE. The s
-   sc L994: THE METHOD 1.6 — SPECTRA COMPENDIUM, counted from the table above rather than from the source that once generated it. 596 channel rows — 477 series of three or more members and 119 two-member channels
+   sc L994: THE METHOD 1.6 — SPECTRA COMPENDIUM, counted from the table above rather than from what once generated it. 596 channel rows — 477 series of three or more members and 119 two-member channels (starred) 
 (b) Register 1779 (heading 6570): **THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET.** *The Spectra Compendium sets out* COORDINATES-2.13 *column by column with the alphabet each admits, and two of the ten rows misdescribe what the file holds. The* `so
    `Z − charge` reg L6067: THE PROXY OF THE PROXY: RANK NEVER TRACKED THE DEFECT AT ALL — IT TRACKS DISTANCE FROM THE BOX'S ORIGIN, AND THE DISAGREEMENT SAYS SO. M: stop looking at proxies and look at the proxy OF the proxy. Ea
    `Z − charge` reg L6204: THE d120 FAILS ON GEOMETRY AND THE JANET GRADING IS ALREADY INSIDE THE INDEX — AS A FIBRATION, NOT A COORDINATE. M stopped the index write to have the 120-sided uniperiodic material looked at properly
@@ -263,7 +263,7 @@ Grouped-heading numbers cited in a register phrase (headed under B only): {209: 
    `copied unchanged` reg L6568: THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT USE ARE NAMED FOR THE FIRST TIME. Register 1770 set t
    G row §1.7 main [11425] | IoI row §1.7 [2021]
    main L11425: | 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \|X\| stays fixed. | `A.derived` |
-   ioi  L2021: | 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \ | **rests on it** — Appendix G |
+   ioi  L2021: | 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \|X\| stays fixed. | **rests on it** — Appendix G |
    byte-identical: [False]
 (e) 1403 at G 10.4c — rows naming 10.4c in main Appendix G and the IoI:
    main L11447: | 10.4c | C1, computed. The presymplectic potential on a null surface contains no transverse derivative, so Ω is block diagonal and the algebra factorises over generators. | M.C1; Register 549, 550 | | 10.4d | C2, the open condition — whether the state respects the decomposition. Independent of the 

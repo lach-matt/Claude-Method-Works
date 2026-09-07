@@ -1513,7 +1513,7 @@ id	class	member	line	item	detail
 1512	C9-OVERGENERALISATION-WORD	pc	135	never	**Above ℓ = 4 the electron never enters the core and only the polarisability matters — one number, and Seaton's formula follows. At ℓ ≤ 1 with Nₑ ≥ 9 penetration is statistical and Thomas-Fermi govern
 1513	C9-OVERGENERALISATION-WORD	pc	153	always	**The practical consequence.** Register 879's Li III fault was a Coulomb expression used where a relativistic one was required: the limit was written as 9R∞ and was low by 26.45 cm⁻¹, showing as a spu
 1514	C9-OVERGENERALISATION-WORD	pc	170	never	**The trade-off, stated.** §22.1's bracket is a genuine deduction and carries no information. §25.6.1's carries information and is not a deduction. **Chapter 22's modesty is exactly what buys the 100%
-1515	C9-OVERGENERALISATION-WORD	pc	186	never	**The bracket's own inputs.** `channels.py` writes `bracket = "untested"` for every channel it builds, because running the bracketing method needs measured neighbours and a tolerance and the script su
+1515	C9-OVERGENERALISATION-WORD	pc	186	never	**The bracket's own inputs.** The channel table is built with its bracket column set to *untested* throughout, because running the bracketing method needs measured neighbours and a tolerance and the b
 1516	C9-OVERGENERALISATION-WORD	pc	242	never	fallback ordering anywhere; its role is the counterfactual, and it must never be
 1517	C9-OVERGENERALISATION-WORD	pc	362	never	**The point of observability.** What Λ₃ delivers for a given state: the stratum, the family within it (torus / braid word / symbolic sequence / distribution P(ε)), and the geodesic as far as the natur
 1518	C9-OVERGENERALISATION-WORD	pc	426	never	> **Where it fails.** never within non-relativistic quantum mechanics.

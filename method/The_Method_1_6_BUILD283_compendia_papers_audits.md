@@ -4497,12 +4497,12 @@ Owed to others: nearly everything else, and the debts are the best part of the s
 
 # THE METHOD 1.6 — MATHEMATICAL COMPENDIUM
 
-Generated from `mathreg.py` on 2026-08-12; the counts below were recounted from this file on 2026-08-29. **299 objects · 18 roots · 297 settled · 2 unfinished.**
+The counts below are taken from this document itself. **299 objects · 18 roots · 297 settled · 2 unfinished.**
 
-**Verification coverage, stated rather than implied.** `mathverify.py` makes **103 assertions naming 46 of these objects** and recomputes each stated value against the register; **no verifier touches the other 167**. Of the check fields, **85 state a finding, 91 repeat the object's own key, 19 name a function, and 18 are empty** — so a check field present is not a verification performed. `check_audit.py` classifies them on any build. Register 849.
+**Verification coverage, stated rather than implied.** The book's verifier makes **103 assertions naming 46 of these objects** and recomputes each stated value against the register; **no verifier touches the other 167**. Of the check fields, **85 state a finding, 91 repeat the object's own key, 19 name a function, and 18 are empty** — so a check field present is not a verification performed. The classification is recomputed whenever the book is rebuilt. Register 849.
 
-Rebuild with `python3 compendium.py > COMPENDIUM.md`. It reads the register, so it cannot
-drift from what the book actually holds.
+This compendium is written from the register itself, so it cannot drift from what the book
+actually holds.
 
 ---
 
@@ -5221,7 +5221,7 @@ multiplicity from Hund on the core: 24 of 24 electron counts, exact containment.
 
 *branch and bound over 102 elements*
 
-Computed — M §14.5.9 / twoheur.py; Karp 1972; Johnson 1974.
+Computed — M §14.5.9 / the two-heuristic comparison; Karp 1972; Johnson 1974.
 
 > **Prior art: the seed problem is minimum set cover, NP-complete (Karp 1972), with a greedy ln n approximation (Johnson 1974). Five heuristics agreeing on 7 against a lower bound of 5 is the measurement.**
 
@@ -5367,7 +5367,7 @@ Proved — M §14.6.1; Kolmogorov 1965.
 
 *eight rows of a first attempt were coordinate systems entered as constraints; the two that no operator carried were both of those*
 
-Computed — M §21.5.5 / allcons.py; Freuder 1978.
+Computed — M §21.5.5 / the all-constraints computation; Freuder 1978.
 
 > **Prior art: indexing constraints by the coordinates they name is the constraint-hypergraph view — Freuder, CACM 21 (1978) 958-966.**
 
@@ -5417,7 +5417,7 @@ Computed — M §21.5.2; Berge 1962.
 
 *§2.24 is §2.8 specialised to heuristics*
 
-Computed — protindex.py; Freuder 1978.
+Computed — the protocol index; Freuder 1978.
 
 > **Prior art: as the index of all constraints (§21.5.5), applied to the protocol index.**
 
@@ -5457,7 +5457,7 @@ Computed — M §21.5.4; Freuder 1982; Dechter & Pearl 1989.
 
 *its signature matches the information language, not order/geometry/analysis; the five split three-two between absorbing and growing*
 
-Computed — M §20 / stat_lang.py; Deming & Stephan 1940; Csiszar 1975.
+Computed — M §20 / the statistical language; Deming & Stephan 1940; Csiszar 1975.
 
 > **Prior art: the max-entropy distribution matching given marginals is reached by iterative proportional fitting — Deming & Stephan, Ann. Math. Stat. 11 (1940) 427-444; its information-geometric characterisation is Csiszar, I-divergence geometry, Ann. Prob. 3 (1975) 146-158.**
 
@@ -6081,7 +6081,7 @@ Computed — M §11.1; Stanley 1986.
 
 *IUPAC ground states*
 
-Computed — close_L.py; Madelung 1936; NIST.
+Computed — over Λ's closure on the observed subshells; Madelung 1936; NIST.
 
 > **Prior art: the 247 real subshells across 118 elements are the observed ground configurations, tabulated by NIST; the ordering is Janet-Madelung. Testing Λ constraints against them checks the index, not the table.**
 
@@ -6631,7 +6631,7 @@ on the same elements, Z≤16: (Z,charge,l) gives 0% redundancy, +multiplicity gi
 
 *register 334's sentence — a bracket, not a map — proved stage-by-stage down the whole tower; the proof carries at full resolution with no bit-encoding, the connection's native language the bracket, the house currency; provenance: the build reproduced seven of seven Λ₈ fingerprints and every printed tower count before anything was measured on it*
 
-Proved — M §12.11.0.11; 03-1D-lands-inside-14D; tower.py, tower3.py, factor.py.
+Proved — M §12.11.0.11, on the rebuilt tower and its bracket system.
 
 > **Prior art: §22's outward rule — composition pays a bounded, priced slack — appearing inside the tower; no external attribution claimed, the exhaustive stage census is the measurement.**
 
@@ -6845,7 +6845,7 @@ Computed — M §12.11; Shannon 1948.
 
 Computed — M §12.11.1.3; Mac Lane 1971.
 
-> **Prior art: an index has a composition structure exactly when its cells are morphisms rather than objects — the distinction is the category axioms. Mac Lane (1971). CORRECTED 2026-08-11: this statement printed Λ₈ as 976/491. It is 976/0. The generated table in INDICES.md gives 0 with fraction 0.0000, indices.py says 'Λ₈ composes not at all — four source coordinates against three target', and the composable window states the reason as a dependency: 'Λ₈ target has 3 coordinates against 4', so tgt(a) = src(b) is not even askable at Λ₈ and Λ₉ is the FIRST composable level. The 491 was a hand-authored figure in an object graded COMPUTED, contradicting the computation it depends on.**
+> **Prior art: an index has a composition structure exactly when its cells are morphisms rather than objects — the distinction is the category axioms. Mac Lane (1971). CORRECTED 2026-08-11: this statement printed Λ₈ as 976/491. It is 976/0. The Index of Indices gives 0 with fraction 0.0000 and states the reason — Λ₈ composes not at all, four source coordinates against three target — and the composable window carries it as a dependency: 'Λ₈ target has 3 coordinates against 4', so tgt(a) = src(b) is not even askable at Λ₈ and Λ₉ is the FIRST composable level. The 491 was a hand-authored figure in an object graded COMPUTED, contradicting the computation it depends on.**
 
 ### The composable window
 
@@ -6981,7 +6981,7 @@ Computed — T 7.1 (App. G); Chinneck & Dravnieks 1991.
 
 Computed — T 5.3 (App. G); Chinneck & Dravnieks 1991.
 
-cell count RECOMPUTED: the 17 rules of vi_best.json applied to the 4·3·3·3·5·2·2·3·3 box give exactly 2,370. E=30 is the arity-4 CONSTRAINT-LANGUAGE defect (NEC≥3 -> IC v U v X), not the envelope defect of the cell set, which is 3,040 (R 1009)
+cell count RECOMPUTED: the 17 rules of the best-fit violation index applied to the 4·3·3·3·5·2·2·3·3 box give exactly 2,370. E=30 is the arity-4 CONSTRAINT-LANGUAGE defect (NEC≥3 -> IC v U v X), not the envelope defect of the cell set, which is 3,040 (R 1009)
 
 > **Prior art: a minimal set of conditions whose joint failure is irreducible is a MINIMAL UNSATISFIABLE SUBSET — Chinneck & Dravnieks, Locating minimal infeasible constraint sets in linear programs, ORSA J. Comput. 3 (1991) 157-168; in SAT the same object is the MUS. The conditions themselves are physics: the null energy condition (Penrose 1965), ghost states (Pais & Uhlenbeck 1950) and the equations of motion.**
 
@@ -7643,7 +7643,7 @@ Measured — R 1193-1194; Theodosiou, Inokuti & Manson 1986.
 
 ## LS. The Löwdin solution — the order derived from the equation — 8 objects
 
-*Chapter 35 and its companion paper; register 1701–1712. These objects are verified by the solution's own sealed instruments and receipts, not yet by `mathverify.py`; wiring them into the book's verifier is a build task, and until it is done this page states the verification that exists rather than implying one that does not. The mathematics of the challenge (Chapter 34, registers 1249–1357) is stated separately below under THE MATHEMATICS OF THE LÖWDIN WORK.*
+*Chapter 35 and its companion paper; register 1701–1712. These objects are verified by the solution's own sealed instruments and receipts, not yet by the book's own verifier; until they are wired into it this page states the verification that exists rather than implying one that does not. The mathematics of the challenge (Chapter 34, registers 1249–1357) is stated separately below under THE MATHEMATICS OF THE LÖWDIN WORK.*
 
 ### The entrant operator
 
@@ -8186,7 +8186,7 @@ than any atom has** — 6f¹ through 6f¹⁴ and beyond, needing Z past the tabl
 Past the limit, not defects. Applying the limit:
 
 *Corrected at register 1426: the split was first reported as 47 / 11, using
-`ground.py`'s own edge of Z = 108 as the limit while the synthesised table runs
+the observed table's own edge of Z = 108 as the limit while the synthesised table runs
 to 118. The nine cells between — 6d⁷–6d¹⁰ and 7p²–7p⁶ — are real elements, not
 absences. The eleven named exceptions below are unaffected; only the count of
 beyond-limit cells was wrong.*
@@ -8328,7 +8328,7 @@ This compendium supplies the book with coordinates. Its subject is Λ_spectra; i
 
 **δ** is the quantum defect: E = −Z_c²R/(n−δ)², so a channel's whole Rydberg series follows from one number and the core charge.
 
-**DECLARATION — the stored δ is the MEDIAN over a cell's members (T2, closed).** This was measured, not chosen: of 433 series whose member count reproduces exactly from raw, the stored value equals the median in 430 (99.3%); the 18 mean-agreements are series where median and mean coincide and distinguish nothing (R 1673, 1675, enlarged sample R 1679). The mean and asymptotic perspectives are carried alongside per cell, as perspectives of one definition (T6, M's ruling, session 1.7.3).
+**DECLARATION — the stored δ is the MEDIAN over a cell's members (T2, closed).** This was measured, not chosen: of 433 series whose member count reproduces exactly from raw, the stored value equals the median in 430 (99.3%); the 18 mean-agreements are series where median and mean coincide and distinguish nothing (R 1673, 1675, enlarged sample R 1679). The mean and asymptotic perspectives are carried alongside per cell, as perspectives of one definition (T6, M's ruling).
 
 ## The grades
 
@@ -8423,7 +8423,7 @@ Where no capture reaches, the channel equation supplies the value:
 
 **Two readings a reader should take from the shape.** *The first: the observation runs out at ℓ = 5. One cell above g has ever been measured, and none above h; everything the compendium says about high-ℓ channels is the channel equation speaking, and §* The filler, and its domain *states the domain it speaks within. The second: δ narrows as ℓ rises — the s channels span six units, the g channels a twelfth of one — which is the core's reach falling away, and it is why the Pauli bound of §* The bound, which needs no measurement at all *costs nothing to state at high ℓ and everything at low.*
 
-*Every figure in this table is read from* `COORDINATES-2.13` *at build by* `coords.py`*, which fails the press if one of them drifts from the file.*
+*Every figure in this table is read from the coordinate file itself, and a figure that drifts from it fails the press.*
 
 ## The file
 
@@ -8870,7 +8870,7 @@ Three marks state a limitation. An **asterisk** on the species marks a two-membe
 | Fe XVI | ns 2S J=1/2 | 3–7 | 5 | 3 | 3/3 | 2.7–6.7 | +0.3174 | 0.0152 | 16 | 3,946,570.000 |
 | Ga I | 4s²ns ²S | 5–28 | 24 | 22 | 22/22 | 2.2–25.2 | +2.8013 | 0.0535 | 1 | 48,387.634 |
 | Ga I | 4s²nd ²D | 4–27 | 23 | 21 | 21/21 | 2.8–25.7 | +1.2926 | 0.1920 | 1 | 48,387.634 |
-| Ga I | 4s²np ²P° high | 41–5 | 15 | 13 | 13/13 | 38.8–52.7 | +2.2107 | 0.1209 | 1 | 48,387.634 |
+| Ga I | 4s²np ²P° high | 41–55 | 15 | 13 | 13/13 | 38.8–52.7 | +2.2107 | 0.1209 | 1 | 48,387.634 |
 | Ga I | 4s²nf ²F° | 4–8 | 5 | 3 | 3/3 | 4.0–8.0 | +0.0252 | 0.0057 | 1 | 48,387.634 |
 | Ga I | 4s²np ²P° low | 4–7 | 4 | 2 | 2/2 | 1.5–4.7 | +2.3450 | 0.2026 | 1 | 48,387.634 |
 | Ga II | nd 1D J=2 | 4–7 | 4 | 2 | 2/2 | 3.3–6.1 | +0.8475 | 0.1127 | 2 | 165,465.800 |
@@ -9302,8 +9302,8 @@ Three marks state a limitation. An **asterisk** on the species marks a two-membe
   channel, n-range, level count, interior cells, bracket, ν range, mean quantum defect, its
   spread, Z_eff and the series limit. *The main volume reproduces one only where it carries an
   argument; the rest are data, and this is where data belongs.*
-  **THE METHOD 1.6 — SPECTRA COMPENDIUM, counted from the table above rather than from the source that once generated it.** 596 channel rows — 477 series of three or more members and 119 two-member channels (starred) — across 28 elements and 70 species; 3,342 levels, 2,269 interior cells. The bracket stands at **1,577 of 1,738 cells across 392 rows** — the first collection's 844 of 844 on 107 rows; 658 of 813 on 250 rows run under ruling 26 (register 1763); and 75 of 81 on 35 rows run by the same sealed instrument on the six captures the delivering bank's cut carried, each verified against that cut's MANIFEST by hash before a cell was computed (register 1768) — throughout, the sealed test of register 796 at strict interval membership, the only ε the quotation floor — half a unit in the last quoted decimal of the measured level — and admissibility per §22.5, r = 2Z²R/(ν³σ) ≥ 5 with σ the quotation floor. **Cells refused: 0.** The 161 failing cells sit in 98 rows and are results, not defects of the test (register 784: no failures would itself be suspect); five of those rows carry a failing bracket narrower than twice the floor, named in 1763 for the author's eye — none of the six cells failing at this build is among them, each missing a bracket wider than twice its floor. 78 rows read `no-triple`: their members, matching the row exactly, contain no three consecutive n, so the sealed test — true neighbours only — defines no cell there; the ten added at this build are the ten starred two-member rows of the six delivered species. 126 rows remain `untested`, and the reason is data, not definition: the parent-term and coupling selection that built them is not reproducible blind (register 1578's wall), and the delivered selection record covers none of their eight species (register 1767). All bracket figures in this paragraph are recomputed from the table by `spectra_count.py`.
- *The earlier statement of this paragraph — 133 rows, 23 elements, 869 interior cells, bracket 869/869, with a twenty-channel gap disclosed against a total of 153 — was true at registers 630–631 and was overtaken by the parent-term wall (register 1578) and the J-resolved rows of T8-J (registers 1699–1700). It claimed the table could not drift from* `spectra.py`; *the table did drift, so* `spectra.py` *is retired: the table above is the source, and every count in the paragraph above it is taken from the table by* `spectra_count.py` * — 596, 477, 119, 28, 70, 3,342 and 2,269 agree to the row. The exotic and collective sources named above still carry sources and no rows, and that remains disclosed rather than reconciled.* Registers 630–631; 1578; 1699–1700.
+  **THE METHOD 1.6 — SPECTRA COMPENDIUM, counted from the table above rather than from what once generated it.** 596 channel rows — 477 series of three or more members and 119 two-member channels (starred) — across 28 elements and 70 species; 3,342 levels, 2,269 interior cells. The bracket stands at **1,577 of 1,738 cells across 392 rows** — the first collection's 844 of 844 on 107 rows; 658 of 813 on 250 rows run under ruling 26 (register 1763); and 75 of 81 on 35 rows run by the same sealed instrument on the six captures the delivering bank's cut carried, each verified against that cut's MANIFEST by hash before a cell was computed (register 1768) — throughout, the sealed test of register 796 at strict interval membership, the only ε the quotation floor — half a unit in the last quoted decimal of the measured level — and admissibility per §22.5, r = 2Z²R/(ν³σ) ≥ 5 with σ the quotation floor. **Cells refused: 0.** The 161 failing cells sit in 98 rows and are results, not defects of the test (register 784: no failures would itself be suspect); five of those rows carry a failing bracket narrower than twice the floor, named in 1763 for the author's eye — none of the six cells failing at this build is among them, each missing a bracket wider than twice its floor. 78 rows read `no-triple`: their members, matching the row exactly, contain no three consecutive n, so the sealed test — true neighbours only — defines no cell there; the ten added at this build are the ten starred two-member rows of the six delivered species. 126 rows remain `untested`, and the reason is data, not definition: the parent-term and coupling selection that built them is not reproducible blind (register 1578's wall), and the delivered selection record covers none of their eight species (register 1767). All bracket figures in this paragraph are recomputed from the table itself.
+ *The earlier statement of this paragraph — 133 rows, 23 elements, 869 interior cells, bracket 869/869, with a twenty-channel gap disclosed against a total of 153 — was true at registers 630–631 and was overtaken by the parent-term wall (register 1578) and the J-resolved rows of T8-J (registers 1699–1700). It claimed the table could not drift from the generator that once wrote it; the table did drift, so that generator is retired: the table above is the source, and every count in the paragraph above it is taken from the table — 596, 477, 119, 28, 70, 3,342 and 2,269 agree to the row. The exotic and collective sources named above still carry sources and no rows, and that remains disclosed rather than reconciled.* Registers 630–631; 1578; 1699–1700.
 ## B.3 Flagged channels
  Channels whose δ spread exceeds 0.25 or whose V departs from 4ν/3 by more than 5% are flagged.
  Every flag in this collection has an identified cause; none is unexplained.
@@ -9330,7 +9330,7 @@ Three marks state a limitation. An **asterisk** on the species marks a two-membe
 | arXiv:2502.20961 | Cs⁺ dipole and quadrupole polarisabilities |
 | ARC Alkali Rydberg Calculator | an independent check on K I |
 
-*The full bibliography, with what each source was used for, is in `LITERATURE.md`.*
+*The full bibliography, with what each source was used for, is in the Mathematical Compendium.*
 
 
 ---
@@ -9388,7 +9388,7 @@ On the raw grade column they carry 18 `measured` cells of 4,696 - Cd/In thirteen
 
 **The row total and the family total differ, and the difference is the point.** *The staged cells are not an outside compilation — they are this work's retrievals staged in the index's own schema, and they are listed here because register 1649 named them as the source of a figure the compendium prints. The outside supply proper is 1,262 rows.*
 
-**Two of the eighteen bodies the register names are not held here, and their absence is stated rather than papered over.** *`MEASUREMENTS.tsv` and the rows recovered at register 652 are stores this work built, not captures it took; register 1674 records that the first has no generator and survives only as data. Neither is an outside compilation, and neither is reproduced in this supply.*
+**Two of the eighteen bodies the register names are not held here, and their absence is stated rather than papered over.** *The measurements store and the rows recovered at register 652 are stores this work built, not captures it took; register 1674 records that the first has no generator and survives only as data. Neither is an outside compilation, and neither is reproduced in this supply.*
 
 ## The X-ray transition energies
 
@@ -9474,7 +9474,7 @@ H I   Z=1   charge 0   sequence H   ground 1s   2S<1/2>   109678.77174307 cm⁻�
 
 # THE METHOD 1.6 — THE INDEX OF INDICES
 
-Generated on 2026-08-15 by `indices.py`. **Every index this work builds
+**Every index this work builds
 on or beside the atomic index — what it holds, whether it closes, whether it carries time, and
 what role it plays for Λ.** Measured where measurable; where an index is named and never built,
 that is stated rather than filled in.
@@ -9657,7 +9657,7 @@ source end is a before, its target end an after, and q is what changed between t
 Λ₁₀ 2,535/2,050 — and the periodic table and the calendar **cannot have one**, because a state
 cell has one position and there is nothing to compose.
 
-**What Λ lacks is not a clock but a denominator** — claims per session — which §12.11.1.1 now
+**What Λ lacks is not a clock but a denominator** — claims per unit of work — which §12.11.1.1 now
 supplies. *A date must never enter Λ: a transition is a type, and types are not dated.*
 
 ## The space index
@@ -10994,7 +10994,7 @@ months' 31sts. **365 = 5 · 73, and 73 exceeds every rung**, so it is genuinely 
 
 ## The book's own indexes
 
-**What they are.** The book at chapter resolution (E = 578) and at part resolution (E = 0); the register (E = 6 at 68.8% density); the reference index (38 cells, E = 0, and not a tree); the term index at the back of the main volume (57 terms over 44 specialisation relations, 311 locations, E = 0 as a down-set — regenerated from the text at this build).
+**What they are.** The book at chapter resolution (E = 578) and at part resolution (E = 0); the register (E = 6 at 68.8% density); the reference index (38 cells, E = 0, and not a tree); the term index at the back of the main volume (57 terms over 44 specialisation relations, 311 locations, E = 0 as a down-set — taken from the text itself).
 
 **What only they contribute.** *The method self-applied.* **This is the only place where E > 0 is a theorem about SHAPE rather than a gap in collection** — the book's chapters do not close because chapters are not a coordinate system, and saying so with a number is the point.
 
@@ -11152,7 +11152,7 @@ closing grid is a staircase and the diagonal is the whole content: CODATA
 constants are universal, this work's numbers hold on a region or all elements and
 never universally. **A pooled fit across regions asserts a universal parameter,
 which the closed index says does not exist — that is a structural prohibition,
-not a stylistic preference, and it is what `domain_protocol.py` enforces.**
+not a stylistic preference, and the domain protocol enforces it.**
 
 **Rebuilt on three rulings**: `kind` is the same axis as `source`; `arity` is a
 property of the book, not the parameter; and parameters that are artefacts of the
@@ -11491,7 +11491,7 @@ origin and is named as such throughout; this table and Appendix G are the addres
 | 1.4 | R is the closure of a binary constraint network under monotone binary projections, and E(X) = 0 exactly when the network is globally consistent. | **rests on it** — Appendix G |
 | 1.5 | X ⊆ BPC(X) ⊆ R(X), so E > 0 is in principle ambiguous between genuine inconsistency and envelope coarseness. Computed for every object in the paper, R = BPC exactly and the ambiguity does not arise. | not used |
 | 1.6 | The two failure modes — order and arity — and the third case: a vocabulary may not be indexable at all. | **rests on it** — Appendix G |
-| 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \ | **rests on it** — Appendix G |
+| 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \|X\| stays fixed. | **rests on it** — Appendix G |
 | 1.8 | The closure rule. A tightening preserves E = 0 if and only if it binds one coordinate by a monotone function of one other. One-sided as stated; the operator is two-sided (§2.15.2; register 402). | **rests on it** — Appendix G |
 | 1.9 | E requires density, asymmetrically. E = 0 is informative at any density; E > 0 at low density measures sparsity and nothing else. | **rests on it** — Appendix G |
 | 1.10 | The two named theorems covering Λ — Freuder 1982 and Montanari 1974. Neither reaches either violation index. | **rests on it** — Appendix G |
@@ -11570,11 +11570,11 @@ means no object cites it, and carries no judgement on the section: §12.5's exte
 
 # THE PHYSICS COMPENDIUM
 
-Generated from `mathreg.py` and `SPECTRA-DATA.tsv` on 2026-08-12. **248 registered objects, 17 of them physical mechanisms.**
+**248 registered objects, 17 of them physical mechanisms.**
 
-This compendium states the **interface** between a physical quantity and the index that holds it. It is not a list of mechanisms — those are in `MECHANISMS.md` and the Mathematical Compendium, and a third copy would drift as register 778's list did. It states, for each index, what the cells stand for, what number is attached to them, the rule taking one to the other, which constants that rule requires, **what must be measured rather than computed**, and what physics does and does not do.
+This compendium states the **interface** between a physical quantity and the index that holds it. It is not a list of mechanisms — those are in the Mathematical Compendium, and a third copy would drift as register 778's list did. It states, for each index, what the cells stand for, what number is attached to them, the rule taking one to the other, which constants that rule requires, **what must be measured rather than computed**, and what physics does and does not do.
 
-Four faults in a single session were transitions performed without their rule written down: register 868 used R∞ for every species where the reduced-mass constant is correct; register 879 wrote Li III's ionisation limit as a formula where a measurement was required; register 766 passed atomic numbers where the core's charge is needed; register 782 set a verification column equal to its own denominator. **This document exists because those four share one cause.**
+Four faults in this work were transitions performed without their rule written down: register 868 used R∞ for every species where the reduced-mass constant is correct; register 879 wrote Li III's ionisation limit as a formula where a measurement was required; register 766 passed atomic numbers where the core's charge is needed; register 782 set a verification column equal to its own denominator. **This document exists because those four share one cause.**
 
 ---
 
@@ -11632,7 +11632,7 @@ Li III's residual went as n³ and the limit was the fault. This is published and
 
 **A factor of fifty between them, and all three close when complete.** Closure is a result about ℛ; the E that accompanies it is a result about the cap. At the physical cap the compendium holds **0.413%** — Λ holds 100% within its own (registers 959–962).
 
-**What physics does.** It sets δ through core penetration, and the sixteen mechanisms in `MECHANISMS.md` describe how. **What it does NOT do:** make δ an integer, or give the index predictive power over cells it does not contain. Of 624 cells, 160 are measured and **193 are fully isolated** — no measured channel adjacent in ℓ or in an isoelectronic sequence, so no bound reaches them (register 890).
+**What physics does.** It sets δ through core penetration, and the sixteen mechanisms of the Mathematical Compendium describe how. **What it does NOT do:** make δ an integer, or give the index predictive power over cells it does not contain. Of 624 cells, 160 are measured and **193 are fully isolated** — no measured channel adjacent in ℓ or in an isoelectronic sequence, so no bound reaches them (register 890).
 
 ---
 
@@ -11752,7 +11752,7 @@ and **caesium's nF series is measured with δ₂ = −0.2014(16) — negative �
 
 **Uncertainties.** Five of 49 species files carry a quoted uncertainty column. The monotonicity law is testable only where a step can be distinguished from its own error, and **44 of 49 species do not supply what that needs** (register 807).
 
-**The bracket's own inputs.** `channels.py` writes `bracket = "untested"` for every channel it builds, because running the bracketing method needs measured neighbours and a tolerance and the script supplies neither. **285 of 431 channels are unverified on the compendium's central claim**, and the column says so rather than asserting a verification that never ran (register 782).
+**The bracket's own inputs.** The channel table is built with its bracket column set to *untested* throughout, because running the bracketing method needs measured neighbours and a tolerance and the build supplies neither. **285 of 431 channels are unverified on the compendium's central claim**, and the column says so rather than asserting a verification that never ran (register 782).
 
 **Appendix B's inputs.** 133 channels were lifted with their values and without their levels. `spectra_raw/` holds no He I file, so when register 868 corrected the Rydberg constant those channels **could not be recomputed**. *A result kept without its inputs cannot be corrected when its method is* (register 871).
 
@@ -11957,7 +11957,7 @@ mathematics. **The fault ledger's two reclassifications live here.**
 
 *The speed of light c (measured constant, universal) joins the second row with Chapter 35; the four three-body inputs are the problem's, not this work's, and are entered as the last two rows.*
 
-*"Objects rest on it" is counted from the Mathematical Compendium at this build, on one rule for all twenty-seven (register 1740): the seeds are the objects whose statement or title names the parameter — its symbol, its value or its name — and the count is the seeds plus every object that depends on one of them, transitively, in the compendium's own dependency graph. Seeds and counts: subshell capacity: Pauli, k ≤ 4ℓ + 2 (§7.1), the generating function (§11.3), the membership function (§11.1), the first factor (§12.7), the second factor (§12.7), parastatistics → 66; angular momentum bound: node counting, ℓ ≤ n − 1 (§7.1), the generating function, the membership function, the first factor → 72; Rydberg constant: the five-sigma admissibility threshold — where the bracket may be applied at all (§22.5), when the bracket fails (§23.3), what silence implies (§23.5), the value-one crossing — where the bracket's price V passes unity (§23.15) → 5; proton-electron mass ratio: none → 0; Cs I np defect: none → 0; ionisation limit: the refusal map (§6.2), constructed limit (register 711), self-determined limit (register 684), the precision lens (register 749) → 4; aufbau ordering: the Pauli bound (register 1141), the ordering law, five clauses (§35) → 18; Janet block boundary: orbital collapse (register 719), the Janet collapse (register 1187), the collapse condition (§35) → 13; Hund's first rule: none → 0; core dipole polarisability: the polarisation formula, core polarisation (register 731), the polarisability index (register 1165), Seaton's term (register 1165) → 18; actinide defects: none → 0; Seaton polarisation constant: the polarisation formula, Seaton's term → 16; reduced-mass Rydberg: none → 0; bracket yardstick: the five-sigma admissibility threshold — where the bracket may be applied at all, when the bracket fails, what silence implies → 4; channel equation, a: the channel equation, final form (register 1205) → 9; channel equation, e0: the channel equation, final form → 9; channel equation, e1: the channel equation, final form → 9; channel equation, k: the channel equation, final form → 9; channel equation, h: the channel equation, final form → 9; isoelectronic ladder, B: the isoelectronic ladder (register 708), the channel equation, final form → 11; five-sigma admissibility: the five-sigma admissibility threshold — where the bracket may be applied at all → 2; exchange coefficient: the exchange factor (register 987), the channel equation, first form (register 1145) → 15; speed of light: the entrant operator (§35), the ordering law, five clauses, the twin operator, c → ∞ (§35) → 8; three-body masses: the potential on shape space (§11), the algebraic variety, the five fixed points (§D.5.9) → 5; three-body energy: the Jacobi–Maupertuis metric, the index Λ₃ (§36) → 2; three-body angular momentum: the index Λ₃ → 1; gravitational constant: none → 0. A parameter no statement names — the proton–electron mass ratio, the caesium defect, the actinide defects, the reduced-mass Rydberg, Hund's first rule — counts 0 on this rule: it enters through a value the objects use, not through a statement, and the rule says so rather than guessing. Prior counts, generated on a rule this volume did not print and standing to register 1739 where they differ: subshell capacity 12, angular momentum bound 12, Rydberg constant 9, proton-electron mass ratio 9, Cs I np defect 2, ionisation limit 25, aufbau ordering 19, Janet block boundary 15, Hund's first rule 12, core dipole polarisability 10, actinide defects 2, Seaton polarisation constant 10, reduced-mass Rydberg 9, channel equation, a 8, channel equation, e0 8, channel equation, e1 8, channel equation, k 8, channel equation, h 8, isoelectronic ladder, B 3, five-sigma admissibility 3, exchange coefficient 1.*
+*"Objects rest on it" is counted from the Mathematical Compendium, on one rule for all twenty-seven (register 1740): the seeds are the objects whose statement or title names the parameter — its symbol, its value or its name — and the count is the seeds plus every object that depends on one of them, transitively, in the compendium's own dependency graph. Seeds and counts: subshell capacity: Pauli, k ≤ 4ℓ + 2 (§7.1), the generating function (§11.3), the membership function (§11.1), the first factor (§12.7), the second factor (§12.7), parastatistics → 66; angular momentum bound: node counting, ℓ ≤ n − 1 (§7.1), the generating function, the membership function, the first factor → 72; Rydberg constant: the five-sigma admissibility threshold — where the bracket may be applied at all (§22.5), when the bracket fails (§23.3), what silence implies (§23.5), the value-one crossing — where the bracket's price V passes unity (§23.15) → 5; proton-electron mass ratio: none → 0; Cs I np defect: none → 0; ionisation limit: the refusal map (§6.2), constructed limit (register 711), self-determined limit (register 684), the precision lens (register 749) → 4; aufbau ordering: the Pauli bound (register 1141), the ordering law, five clauses (§35) → 18; Janet block boundary: orbital collapse (register 719), the Janet collapse (register 1187), the collapse condition (§35) → 13; Hund's first rule: none → 0; core dipole polarisability: the polarisation formula, core polarisation (register 731), the polarisability index (register 1165), Seaton's term (register 1165) → 18; actinide defects: none → 0; Seaton polarisation constant: the polarisation formula, Seaton's term → 16; reduced-mass Rydberg: none → 0; bracket yardstick: the five-sigma admissibility threshold — where the bracket may be applied at all, when the bracket fails, what silence implies → 4; channel equation, a: the channel equation, final form (register 1205) → 9; channel equation, e0: the channel equation, final form → 9; channel equation, e1: the channel equation, final form → 9; channel equation, k: the channel equation, final form → 9; channel equation, h: the channel equation, final form → 9; isoelectronic ladder, B: the isoelectronic ladder (register 708), the channel equation, final form → 11; five-sigma admissibility: the five-sigma admissibility threshold — where the bracket may be applied at all → 2; exchange coefficient: the exchange factor (register 987), the channel equation, first form (register 1145) → 15; speed of light: the entrant operator (§35), the ordering law, five clauses, the twin operator, c → ∞ (§35) → 8; three-body masses: the potential on shape space (§11), the algebraic variety, the five fixed points (§D.5.9) → 5; three-body energy: the Jacobi–Maupertuis metric, the index Λ₃ (§36) → 2; three-body angular momentum: the index Λ₃ → 1; gravitational constant: none → 0. A parameter no statement names — the proton–electron mass ratio, the caesium defect, the actinide defects, the reduced-mass Rydberg, Hund's first rule — counts 0 on this rule: it enters through a value the objects use, not through a statement, and the rule says so rather than guessing. Prior counts, generated on a rule this volume did not print and standing to register 1739 where they differ: subshell capacity 12, angular momentum bound 12, Rydberg constant 9, proton-electron mass ratio 9, Cs I np defect 2, ionisation limit 25, aufbau ordering 19, Janet block boundary 15, Hund's first rule 12, core dipole polarisability 10, actinide defects 2, Seaton polarisation constant 10, reduced-mass Rydberg 9, channel equation, a 8, channel equation, e0 8, channel equation, e1 8, channel equation, k 8, channel equation, h 8, isoelectronic ladder, B 3, five-sigma admissibility 3, exchange coefficient 1.*
 
 **8 of the 27 parameters are this work's own.** *Of those, **0 are universal**, 1 hold across all elements, and **7 hold only in a region or for one species.** No number this work fitted claims wide validity.*
 
@@ -23816,6 +23816,73 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **FOUR MORE DETECTOR PREMISES WERE CAUGHT BY THIS INSTRUMENT'S OWN SELFTEST BEFORE ANYTHING WAS SEATED, AND ALL FOUR ARE RECORDED IN ITS SOURCE.** A first draft called **13** channel rows faulty where twelve carry the volume's **dagger marker** and are not faults. A second split table rows on **every** pipe and reported **23** truncations, where 22 are the compendia writing mathematics as `\|X\|`. The same premise cost Appendix G one handle — a pipe-split read loses row 1.7's `A.derived` and reports 28 where there are 29. And the tower-table reader written with `Λ\d` returned **an empty class**, because the volume writes the stage as a **subscript**; the instrument now refuses to report an empty tower table rather than print a clean nothing. **Every one of these had the same shape as the 571 W-280 records: a count of the detector's premise, taken for a count of a defect.**
 - **NOTHING IS REPAIRED BY THIS BUILD EITHER.** The two questions W-280 put to M stand, with their sizes corrected: **the handle ruling** — a printed key against the standing content standard's *"no object handles or workshop jargon in reader-facing volumes"*, now sized at 265 handles over two tables and 47 bare prose sites rather than 221 scattered — and **confirmation for the Ruling 46 / 45 pass**, which spans four reader-facing volumes and, with the main volume's bare handles, reaches a fifth.
 
+### W-282 — a repair M approved had no route, and this is the fourth time
+
+- **M RULED ON THE COMPENDIA ON 7 SEPTEMBER AND THE STORE COULD NOT EXECUTE ANY OF IT.** Three answers came back: **the standing content standard governs the handles** — the ruling stands, so a handle is replaced by the object's descriptive title and no key is printed; **the Ruling 46 / 45 pass is confirmed, and each site GAINS A DESCRIPTIVE SUBSTITUTE** rather than merely losing a name; and **the two determinate corrections may be seated now**. Every one of the three is a change to a **reader-facing volume**, and **no tool in this store could write one**.
+- **THE FOUR CLOSE ROUTES, AND THE HOLE BETWEEN THEM.** `close.py` builds the compendia bundle and its change-set assertion refuses, **by design**, to let any seated member change: the only members that may differ are `WORKING-REGISTER.md`, `MANIFEST.tsv` and the `--append` targets, and each must equal old body **plus** appended text. `close_main.py` writes the MAIN bundle's Register and its counts. `close_rebank.py` regenerates a golden **by running** its instrument. `close_census.py` regenerates the derived census. **None of the four writes a compendium.**
+- **AND THE REASON IS THE ONE THE STORE HAS RECORDED THREE TIMES ALREADY.** A Register entry had no route until chat 152 built `close_main.py`; a golden had none until `close_rebank.py`; the derived census had none until `close_census.py`. Each exists because **the store was built on the assumption that the volumes do not move** — true while the chat-67 hold froze them, false the moment M approves a repair. **This is the fourth, and it is the first one where the thing that could not move is a volume a reader reads.**
+- **`tools/close_vol.py` IS THAT ROUTE, and it refuses more than it permits.** Every substitution **carries its own occurrence count**, asserted before a byte moves; an anchor that is absent, or present a different number of times, refuses the whole build. **A substitution that changes nothing refuses it too**, because rewriting a member to the bytes it already had hides that nothing happened. **It adds and removes no member** and the member list is asserted unmoved. **It never writes the main bundle** — it reads it only for the manifest, exactly as `close.py` does. **The W text is appended in the same build**, so no volume may move without the Working Register recording it: *no silent change*, for volumes. `MANIFEST.tsv` is regenerated because a volume's md5 has moved. **The change set is exactly the named volumes, the Working Register and the manifest**, and **the reverse guard restores every substitution, strips the W text and restores the old manifest body, and must reproduce the old bundle's own md5** before a byte is written.
+- **THE REFUSALS WERE RUN, NOT ASSERTED.** Five were exercised against the live BUILD276 bundle before this tool was seated, each to a scratch path since removed: a spec stamped with the **wrong bundle md5**; a substitution whose **count says two where the anchor occurs once**; a substitution whose **replacement equals its anchor**; a spec naming **`WORKING-REGISTER.md`** as a volume; and a spec naming **no substitution at all**. All five refused, and the one good run reported the change set exactly and recovered `2d5fe4f1…` on reverse.
+- **WHAT IT DOES NOT DO, AND WILL NOT BE EXTENDED TO DO.** **It does not decide what a repair is.** The substitutions are data in a spec a human reads, and the tool never derives one — which is the same line `close_rebank.py` holds when it regenerates a golden by running rather than by copying. It does not re-bank a golden: a volume that moves may move a golden, and that is `close_rebank.py`'s route, run **after** this one and after the moved goldens are triaged. It does not regenerate the census; **W-274 records that the census close comes BEFORE the golden re-bank**, and that order is unchanged. It does not seat a Register entry.
+- **IT PARSES UNDER PYTHON 3.11, DELIBERATELY.** `close.py`'s manifest line writes a newline inside an f-string expression, which is what puts twenty-three seated members out of reach of 3.11 and what makes `method/bin` mandatory. **A new tool had no reason to join that list**, so the newline is bound to a name and every f-string in it is clean. The count of members needing 3.12 is unchanged at twenty-three.
+- **NOTHING IS REPAIRED BY THIS BUILD.** It seats the route and no more. The two determinate corrections M approved are seated by the next build, through this tool, with their spec and their own W text.
+
+### W-283 — the first repair to a reader-facing volume since the chat-67 hold
+
+- **M APPROVED THESE TWO ON 7 SEPTEMBER, AND THEY ARE THE WHOLE OF THIS BUILD.** `DRAFT-R4-PHASE4-repairs.md` Batch C, both graded **HIGH** because neither is a judgement: in each case **two other columns of the same record fix the answer**, and the instrument that found them is seated. Seated through `close_vol.py`, the route W-282 built, with the substitution spec `method/SUBS-BUILD278.json` stamped against BUILD277's own md5.
+- **C1 — SPECTRA COMPENDIUM L562: AN n-RANGE THAT RAN BACKWARDS.** The Ga I `4s²np ²P° high` row printed **`41–5`**. **`41–55`** now stands. *Two columns of that row determine it independently:* the **levels** column reads **15**, and 41 … 55 is the only range opening at 41 with fifteen members; the **n\* range** column reads **38.8–52.7**, and at this row's mean defect of 2.2107 an upper n of 55 gives 52.79 where 54 gives 51.79 and 53 gives 50.79 — **only 55 reaches the printed value**. This is the one row in 596 whose range ran backwards, and the twelve rows a first detector called unparsable carry the volume's dagger marker and were never faults.
+- **C2 — INDEX OF INDICES L2021: A ROW TRUNCATED WHERE AN ESCAPED PIPE LOST WHAT IT ESCAPED.** Row 1.7 of the *Transitions* table ended at *"the box grows by that coordinate's value count while \\"*. It now reads *"… value count while \\|X\\| stays fixed."* **This is a restoration and not a reconstruction**: the main volume prints the same row whole at `The_Method_1_6-2.md` L11425, and the repair is that text. It is the one such row in the four volumes; the 22 others a pipe-splitting read reports are the compendia writing mathematics as `\\|X\\|`.
+- **NEITHER REPAIR MOVES A LINE.** Both are in-place substitutions inside one line each: the Spectra Compendium grows by **one byte** and the Index of Indices by **seventeen**, and **neither volume's line count changes**. **The shift class is therefore ruled out structurally** — nothing is inserted before anything, so no line reference in any instrument can have moved, and a golden that differs differs on content and not on position.
+- **WHAT IS NOT REPAIRED HERE, AND WHY.** The **nine duplicated (species, series) keys** are untouched: which of each pair survives is a question about the spectroscopic data, not about the text, and that adjudication is M's. **The Ruling 46 / 45 pass is not in this build** — M has confirmed it and confirmed that each site gains a descriptive substitute, and it is drafted before it is executed because writing the substitute is writing for a reader. **The handle repair is not in this build either**, and W-284 will record what the ruling costs to execute: the descriptive titles a handle resolves to are held in `mathreg.py`, which this repository does not hold, so the mapping has to be established from the volumes before a single site can be rewritten.
+- **THE COUNT CLASSES ARE UNAFFECTED.** No count in any volume states anything about either site: the Spectra Compendium's *596 channel rows — 477 series of three or more members and 119 two-member channels* is unchanged, and it is re-measured after the build rather than assumed. The Register is untouched, so `kinds.py`, `register_cites.py` and `register_counts.py` are not re-taken.
+
+### W-284 — the Ruling 46 / 45 pass, executed on M's confirmation
+
+- **M CONFIRMED THE PASS ON 7 SEPTEMBER AND RULED ON ITS FORM: each site GAINS A DESCRIPTIVE SUBSTITUTE** rather than merely losing a name. **Thirty substitutions over the four reader-facing compendia**, applied by `close_vol.py` under the spec `method/SUBS-BUILD279.json`, and every one of them is set out with its before, its after and its reason in `method/DRAFT-R4-RULING46-pass.md` — **generated from the same spec the tool applied, so the record cannot disagree with what was seated.**
+- **AFTER THE PASS THE FOUR VOLUMES PRINT NO SCRIPT NAME, NO DATA-FILE NAME AND NO BUILD STAMP.** Where the census counted 23 script sites over 18 distinct scripts, 8 sites naming 7 held-nowhere files, 7 "generated from … on" stamps and a printed rebuild command, the sweep now returns **zero** in the Mathematical Compendium, the Physics Compendium and the Index of Indices, and zero scripts, files and stamps in the Spectra Compendium.
+- **THE SUBSTITUTES SAY WHAT THE NAME SAID.** `mathverify.py` becomes **the book's own verifier**; `compendium.py`'s printed rebuild command becomes the guarantee it carried — *"This compendium is written from the register itself, so it cannot drift from what the book actually holds"*; `coords.py` and its coordinate file become *"read from the coordinate file itself, and a figure that drifts from it fails the press"*; `twoheur.py`, `allcons.py`, `protindex.py` and `stat_lang.py` become the comparison, the constraint set, the protocol index and the statistical language they compute over; `ground.py` becomes **the observed table**; `domain_protocol.py` becomes **the domain protocol**. **Not one guarantee is dropped in the exchange**, which is what a descriptive substitute is for.
+- **TWO SITES POINTED A READER AT A FILE HELD NOWHERE, AND THE REPAIR REPOINTS THEM AT A VOLUME THAT ANSWERS.** The Physics Compendium said the mechanisms are *"in `MECHANISMS.md` and the Mathematical Compendium"* and again that *"the sixteen mechanisms in `MECHANISMS.md` describe how"*; `MECHANISMS.md` is not a member and not a row in the Drive manifest. **Both now name the Mathematical Compendium**, which holds them. The Spectra Compendium's *"The full bibliography … is in `LITERATURE.md`"* now names the Mathematical Compendium's 162-work bibliography, for the same reason. **This was found by hand and not by the census** — `compendia.py`'s Ruling 46 sweep matches `.py` names only, and `DRAFT-R4-PHASE4-repairs.md` D5 records that the class has no instrument.
+- **FIVE SITES ARE LEFT, AND EACH REFUSAL IS RECORDED RATHER THAN QUIET.** Three are in the Spectra Compendium's provenance apparatus: one is a **verbatim quotation of a stored row**, printed under *"One row, as it stands in the file"*, where `session 1.8 queue` is inside the record and editing it would falsify the quotation; the other two **describe the content of the stored `source` column** — that thirty-two strings are twenty-five retrievals each carrying its own session — which is a fact about the data and not about how the book was made. One is the Physics Compendium's *"Prior counts, generated on a rule this volume did not print"*, **a false positive of the stamp pattern**: it is prose about how earlier counts were produced, and register 1739 turns on it. And one is the **285-of-431 sentence**, which is stale in both numbers and is a repair — `DRAFT-R4-PHASE4-repairs.md` D4 — not a substitution. **Ruling 46 does not license fixing a figure in passing.**
+- **THE 248 IS LEFT EXACTLY AS IT STANDS.** The Physics Compendium's generation stamp is removed and its count is not touched. `DRAFT-R4-PHASE4-repairs.md` E1 records that **nothing in this repository corroborates 248**, because the generator is not held; changing it under cover of a Ruling 46 substitution would be a decision, and it is M's.
+- **A FIRST DRAFT OF THIS PASS WAS DISCARDED AND REBUILT AT SOURCE, AND THE CENSUS IS WHAT CAUGHT IT.** Four provenance lines read *"Computed — M §20 / stat_lang.py"* and the draft rewrote them as *"Computed — M §20, in the statistical language"* — **dropping the `/` separator, after which §20 read as a bare unsourced number**. `close_census2.py --dry` reported census row **130 growing from 7 of 8 to 8 of 9** on the object *Statistics as a language*: a repair that had created a defect. **The separator is the volume's house form and it is the form the instruments read**, so all four substitutes keep it, and the build was thrown away and remade from BUILD276 rather than seated with the regression. **The rebuild reproduced BUILD278 byte for byte at `93cd71e2…`**, which is what makes discarding cheap. This is BUILD124's and BUILD263's discipline, and it is the third time in this leg.
+- **AFTER THE REBUILD THE CENSUS MOVES ON ONE ROW ONLY**, id **1515**, `C9-OVERGENERALISATION-WORD` at Physics Compendium L186 — the `channels.py` substitution — matched **by item**, which is the tier that means *the same defect, its quoted text changed*. **W-274's order stands**: the census closes before the goldens are re-banked.
+- **NO VOLUME'S LINE COUNT MOVES.** All thirty substitutions are inside a line, and the two-line rebuild sentence is replaced by two lines. **The shift class is ruled out structurally across BUILD278 and BUILD279 together** — nothing is inserted before anything in either build, so no line reference in any instrument can have moved, and a golden that differs differs on content.
+
+### W-285 — the census closed against the repaired volumes, before any golden is re-banked
+
+- **THE ORDER IS W-274'S AND IT IS NOT NEGOTIABLE HERE.** `r2-bib2` prints the census md5 and `r2-ch16t3` its row count, so **the census must close before the goldens are re-banked**; a re-bank taken first would align both sides of a stale census and the gate would go green over it. W-273 claimed no live golden reads the census and was wrong in both halves; W-274 corrected it by appending, and this build follows the corrected order.
+- **ONE ROW MOVES, AND IT IS THE ONE THE REPAIR DECLARED.** `close_census2.py` regenerates 1,636 rows against 1,639 seated (3 carried retired): **1,635 exact, 1 by item, 0 by text, 0 by run, 0 NEW, 0 GONE.** The single moved row is **id 1515**, `C9-OVERGENERALISATION-WORD` at Physics Compendium L186, whose quoted line is the `channels.py` sentence W-284 substituted. **Matched by item** — the tier that means *the same defect, its quoted text changed* — so **the id survives**, which is what every `CENSUS-CLOSURES-*.tsv` that cites it needs.
+- **AND THAT IS THE WHOLE COST OF TWO VOLUME BUILDS.** BUILD278 repaired two lines and BUILD279 substituted thirty sites across all four compendia; **the census moves on one row, gains none and loses none.** A repair that removed a script name from a passage did not remove the defect the passage carries — the overgeneralisation word *never* is still there and still counted — which is the right outcome: **Ruling 46 is about who the book names, not about what it claims.**
+- **NOTHING IS RETIRED.** `close_census2.py` will carry a row whose defect no longer measures only under a typed `--retire`, which is a ruling; none is passed here, and no row needed one.
+
+### W-286 — one Ruling 46 site the pass missed, and seventeen it must not touch
+
+- **THE GATE FOUND WHAT MY CENSUS COULD NOT SEE, AND THE STORE ALREADY HAD THE INSTRUMENT.** `r2-ch16r2`'s section 11 is titled *"Ruling 46 — script names, build numbers and internal file references"* and **has been carrying this class since chat 123**. The pass of BUILD279 dropped its four-compendia count from **41 sites to 18**, which is the pass measured from outside itself. `compendia.py` rediscovered the class independently and W-280 sized it; **the seated instrument's pattern is the wider of the two and it is what caught the residue.**
+- **ONE OF THE EIGHTEEN IS A REAL SITE AND IT IS SEATED HERE.** Mathematical Compendium L1588 read *"Computed — close_L.py; Madelung 1936; NIST."* and now reads *"Computed — over Λ's closure on the observed subshells; Madelung 1936; NIST."* — the provenance line of the object that tests Λ's eight constraints against 247 real subshells across all 118 elements.
+- **AND THE REASON IT SURVIVED THE PASS IS A THIRD FAULT IN `compendia.py`'s PATTERNS.** Its `SCRIPT` regex is `[a-z_][a-z0-9_]*\.py`, which requires the whole stem to be lower case; **`close_L.py` carries a capital L and the pattern cannot match it at all** — there is no word boundary inside `close_L`, so no backtracking saves it. Measured against a case-insensitive pattern, this is **the only name of that shape in the four volumes**, so the residue is one site and not a class. **This is the third fault in that instrument's patterns**, after the row count and the handle prefix, and like both of those it is recorded rather than quietly repaired: `compendia.py` and `compendia2.py` both stand as seated.
+- **SEVENTEEN OF THE EIGHTEEN ARE FIGURE IMAGE PATHS AND THEY ARE REFUSED.** `![Closure defect against cap](figures/fig2_closure_defect.png)` and sixteen like it are **not workshop jargon printed to a reader** — they are the mechanism by which a figure appears on the page, and in the pressed book they become the image and not text. **Removing them would remove the figures.** Ruling 46 is about what a reader is shown, and a reader is shown a figure. Recorded as a refusal so that a future sweep does not read the count as unfinished work.
+- **THE COUNT THAT REMAINS IS THEREFORE 17, ALL OF THEM IMAGES.** `r2-ch16r2`'s pattern also matches `BUILD\d+` and the bare word *markdown*; neither occurs in any of the four volumes after this build.
+
+### W-287 — M's handle ruling meets the fact that the map is not held
+
+- **THE RULING IS PLAIN AND IT NEEDS ONE THING THE RULING DOES NOT SUPPLY.** M ruled on 7 September that the standing content standard governs: **no object handles or workshop jargon in reader-facing volumes; a cross-reference names the object by its descriptive title.** Executing it needs the map from `A.gc` to the title it stands for. **The word "handle" occurs zero times in the four volumes and not one of them resolves a single id.** The map lived in the generator the front matter used to name, and this repository does not hold it. `method/proofs/handlemap.py` (26/26) is seated with this build to measure what can be resolved without it.
+- **THE OBVIOUS METHOD IS FALSE, AND THE VOLUME REFUTES IT WITHOUT LEAVING A FAMILY WHOSE COUNTS AGREE.** The obvious method is to assume that within a family the objects are printed in the order their handles sort. **Family 3B has nine objects and nine handles and its objects are printed in MEANING order** — shape space, the shape metric, the Jacobi–Maupertuis metric, the potential, the variety, the five points — so that assumption pairs `3B.JM` with *"Shape space and the shape sphere"* and `3B.five` with the Jacobi–Maupertuis metric. **Family W is nine and nine and IS in handle order and pairs perfectly.** Measured across the fourteen equal-count families, **nine are in handle order, five are not — 3B, LS, M, Q and W — and twelve resolutions sit somewhere position does not predict.** *Nothing in the volumes says which a family is*, so the ordering cannot be used to resolve a single handle. **A first draft of this instrument used it and would have proposed 175 titles on it.**
+- **THE RESOLUTION IS THEREFORE ORDER-FREE, AND THERE ARE ONLY TWO KINDS OF EVIDENCE HELD HERE.** For each handle the whole family is searched for objects its own evidence fits. **SUFFIX**: the suffix, digits stripped, occurs in the title or is the run of its word-initials — `A.gc` against *"Global consistency (CSP)"*. **ANCHOR**: the main volume's **Appendix G prints 29 handles against the statements they carry**, the only handle-to-content evidence this repository holds, and the title shares a distinctive word with the statement or the statement names the suffix outright — which is how `M.C1` is corroborated, its statement opening *"C1, computed. The presymplectic potential …"*.
+- **THE MEASUREMENT: 112 RESOLVED, 55 AMBIGUOUS, 98 UNRESOLVED, of 265.** 110 of the resolutions rest on the handle's own suffix and 2 on an Appendix G anchor. **By site in the bibliography's objects column — which is 407 of the 417 — a title is supported for 178 and is not for 229.** In the main volume's 76 sites the split is 28 / 33 / 15.
+- **AN AMBIGUOUS ROW NAMES ITS CANDIDATES AND CHOOSES NONE; AN UNRESOLVED ROW OFFERS NOTHING.** `3B.metric` fits both *The shape metric* and *The Jacobi–Maupertuis metric*, and `3B.shape` fits three; the instrument prints all of them and picks none. **A title invented to fill the column would be reconstructed content seated in a reader-facing volume**, and the store's rule is that a reconstructed value carries its status and is never flattened.
+- **`method/HANDLE-MAP.tsv` IS THE 265 ROWS FOR M TO APPROVE OR REFUSE.** Family, handle, the title where one is supported, the status, and the evidence. **It is written for approval, not applied.** Nothing in a volume moves on account of it.
+- **WHAT THE RULING COSTS, STATED PLAINLY.** Roughly **44 % of the bibliography's sites** can be rewritten from evidence held here. The rest need either the generator, or a family-by-family reading that M signs off object by object — and the second is a reading, not a mechanical pass, which is why it is put back rather than performed.
+
+### W-288 — eleven goldens re-banked, each by running its instrument, and what each one measured
+
+- **THE ORDER IS W-274'S AND IT WAS KEPT.** The census closed at BUILD280 and is a fixed point against the repaired volumes; only then are the goldens re-banked. `close_rebank.py` regenerates each one **by RUNNING its instrument here** — never copied, never hand-edited — refuses the whole build on a non-zero exit, and refuses it again if any named golden did not move.
+- **ELEVEN MOVED ACROSS FOUR VOLUME BUILDS**, and they fall in four kinds. **Seven print the md5 of a member the builds deliberately changed**: `r2-21a2`, `r2-23a2`, `r2-24a`, `r2-scf` and `r2-bib2` on the Index of Indices and the Spectra Compendium, `r2-27a3` and `r2-28a4` on the Mathematical Compendium. Nothing else in those seven differs, and their line counts are unchanged.
+- **`r2-warn` PRINTS THE REPAIRED LINE ITSELF.** Its golden carried Index of Indices L2021 ending at *"value count while \\"*; it now carries the whole row. The instrument was reporting the truncation as a warning site all along.
+- **`r2-ch27a4` HAD ALREADY BANKED THE C2 FINDING, AND THE REPAIR CLOSES IT.** Its golden read *"statements identical to Appendix G's: 29 of 30; differing: 1"* and named L2021, **with the diagnosis**: *"the `\\|X\\|` of G's row was split as cell boundaries when the IoI row was generated: the statement is truncated at while, the tail |X| stays fixed. lost"*. It now reads **30 of 30; differing: 0**. **The store found this defect before I did**, banked it as a golden, and the repair M approved is what closes it — which is the strongest corroboration C2 could have.
+- **`r2-ch16f2` FALLS BY ONE SITE ON THE TOKEN 14**, 114 to 113, because W-284 removed the internal document name `03-1D-lands-inside-14D` from a Mathematical Compendium provenance line. **A Ruling 46 substitution moving a number census is expected and is not a finding**; the token left with the file name it was part of.
+- **`r2-ch16r2` IS THE ONE THAT MEASURED THE WHOLE PASS FROM OUTSIDE IT.** Its section 11 is *"Ruling 46 — script names, build numbers and internal file references"*, seated since chat 123. Across the four compendia it read **mc 15, pc 6, ioi 10, sc 10 — 41 sites**; it now reads **mc 2, pc 2, ioi 8, sc 5 — 17**, and **all seventeen are figure image paths**, refused with their reason at W-286. `compendia.py` rediscovered this class independently and sized it; the seated instrument's pattern is the wider of the two and is what caught `close_L.py`.
+- **NOTHING WAS RE-BANKED THAT DID NOT MOVE, AND NO INSTRUMENT WAS EDITED TO MAKE A DIFFERENCE GO AWAY.** Every one of the eleven differs for a reason named above, each reason is a change this leg made deliberately and recorded in the build that made it, and **the reverse guard restores all eleven goldens, the manifest and the W text and reproduces the old bundle's own md5** before a byte is written.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -29791,7 +29858,7 @@ id	class	member	line	item	detail
 1512	C9-OVERGENERALISATION-WORD	pc	135	never	**Above ℓ = 4 the electron never enters the core and only the polarisability matters — one number, and Seaton's formula follows. At ℓ ≤ 1 with Nₑ ≥ 9 penetration is statistical and Thomas-Fermi govern
 1513	C9-OVERGENERALISATION-WORD	pc	153	always	**The practical consequence.** Register 879's Li III fault was a Coulomb expression used where a relativistic one was required: the limit was written as 9R∞ and was low by 26.45 cm⁻¹, showing as a spu
 1514	C9-OVERGENERALISATION-WORD	pc	170	never	**The trade-off, stated.** §22.1's bracket is a genuine deduction and carries no information. §25.6.1's carries information and is not a deduction. **Chapter 22's modesty is exactly what buys the 100%
-1515	C9-OVERGENERALISATION-WORD	pc	186	never	**The bracket's own inputs.** `channels.py` writes `bracket = "untested"` for every channel it builds, because running the bracketing method needs measured neighbours and a tolerance and the script su
+1515	C9-OVERGENERALISATION-WORD	pc	186	never	**The bracket's own inputs.** The channel table is built with its bracket column set to *untested* throughout, because running the bracketing method needs measured neighbours and a tolerance and the b
 1516	C9-OVERGENERALISATION-WORD	pc	242	never	fallback ordering anywhere; its role is the counterfactual, and it must never be
 1517	C9-OVERGENERALISATION-WORD	pc	362	never	**The point of observability.** What Λ₃ delivers for a given state: the stratum, the family within it (torus / braid word / symbolic sequence / distribution P(ε)), and the geodesic as far as the natur
 1518	C9-OVERGENERALISATION-WORD	pc	426	never	> **Where it fails.** never within non-relativistic quantum mechanics.
@@ -36376,7 +36443,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
-compendia	DEFECT-CENSUS.tsv	253221	010f17caff062f0f175eb74cf4f3508e	1640
+compendia	DEFECT-CENSUS.tsv	253221	574ac029bb52b5be4104054aa836a2b3	1640
 compendia	DEFERRED.md	445264	2b46ec0747c8c1923ecfbdf3bb06936f	3556
 compendia	DOCKET.md	82784	123594d2918d8c02727b8a6d065c0c0d	488
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
@@ -36541,14 +36608,14 @@ compendia	TB1-n8_check.py	1719	ab823f22180baa476b623e0f55ae8c06	24
 compendia	TB1-routh_check.log	90	3fa04ee0f0b05e8246bd9eb119d8dd1d	1
 compendia	TB1-routh_check.py	366	23842800b311327175ecdd0ef311473b	5
 compendia	THE-LOWDIN-SOLUTION-2.md	38046	cce968defbb021e4fd6e05172fc1bb79	260
-compendia	The_Method_1_6___Mathematical_Compendium-2.md	310325	9426a6b66d37c571ebae69f8d064baa4	3812
-compendia	The_Method_1_6___Spectra_Compendium-2.md	100790	5ba7f61cf031c02b5a0226d2aed8dc4d	1159
-compendia	The_Method_1_6___The_Index_of_Indices-2.md	118446	43a28121d4fc690a3cba9f65cfdb9c67	2093
-compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958972631a243bec	913
+compendia	The_Method_1_6___Mathematical_Compendium-2.md	310321	0976507ba0f7b22e1dd99edfb8d332fa	3812
+compendia	The_Method_1_6___Spectra_Compendium-2.md	100730	389c8e05b846b018768dd10a0ccd060b	1159
+compendia	The_Method_1_6___The_Index_of_Indices-2.md	118405	d19416dd0fa82c68ec7b9da834e004c4	2093
+compendia	The_Method_1_6___The_Physics_Compendium-2.md	63248	2f9d3a2b20ae79d7c3914f8cc1c2d3b2	913
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23058	07487abe7350880412c0cb0dfcade421	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1260679	2a57dfad55dc4fe7429c9d6b83fad5e1	8823
+compendia	WORKING-REGISTER.md	1285075	3c6bbc572204314a73342f643daa7d1f	8890
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	agreement.py	10752	f6e1601813de956af99ee93f44364827	254
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
@@ -36575,6 +36642,7 @@ compendia	close_census.py	7590	6fcae92b5827e15cd8851db148e2fef1	124
 compendia	close_census2.py	15218	fe776f23646888a8203d09bb9a5eab5a	189
 compendia	close_main.py	10111	e75d871c0ad0f4af7791b148ac662b81	215
 compendia	close_rebank.py	8261	722f8dc7c876c47e69c5aefe3bb33e76	139
+compendia	close_vol.py	8818	c85ef8d79b7cc011cea2120759c3187d	190
 compendia	colab_land_chats.py	9567	a807f5ee1b236508b42eac687679daf3	212
 compendia	compendia.py	16182	c906d4c08efa8ff9c72fa6187a023cfd	352
 compendia	compendia2.py	29847	5577a4263b3f5c5f3f03fafca55bedb8	612
@@ -36610,6 +36678,7 @@ compendia	gate.py	9377	a01ef15a7920b7a11f3f2e9168d5d130	147
 compendia	gate_live.py	4786	4f711385bb8d2c48d85495521c7c1720	68
 compendia	gchannel.py	19972	60bf70cad6e61cc07004dd08ff190334	446
 compendia	geodesic.py	11647	650839e7f9f73d4bf535372a1df4b30c	275
+compendia	handlemap.py	13537	3cfc95849b393522157fc8342426cb9d	303
 compendia	heii.py	2344	049919c10cd77f97dff1aae0466a4df3	41
 compendia	heii_levels.txt	2187	dda9699248cdea825d4367237fcd8490	89
 compendia	heii_series.json	606	980b9052236962e11ed754749100c4d0	1
@@ -36639,13 +36708,13 @@ compendia	proveanchor.py	5401	84275f94ea87f8218178fd1415d21bb0	116
 compendia	qgraph.py	828	5aac43b570de45fe5215e2ca17ef5244	17
 compendia	r2-21a.out	25222	5edba63b729984297869173c17b88f47	281
 compendia	r2-21a.py	21177	b98f2c83d3005ff6bff41d3b361ff2de	181
-compendia	r2-21a2.out	25255	2a8afdf158d0d16a444de78f2dae3f91	281
+compendia	r2-21a2.out	25255	f0af046c9ad8599332fa340106f5ba28	281
 compendia	r2-21a2.py	24527	aecdb52c18a98462020266d70479b41f	196
 compendia	r2-23a.out	37448	028f44ed38c23683ad9f6fbf7134bf3d	268
 compendia	r2-23a.py	20065	85bd124a1e6cd5dcd5e6198e15259782	222
-compendia	r2-23a2.out	45807	e01ff7b83d2e04c81659f3029749724a	269
+compendia	r2-23a2.out	45807	d6e379dec538a462a044afdeb6b22c32	269
 compendia	r2-23a2.py	21230	9ec2bf76d5eaa6b7626a67aab0db5357	235
-compendia	r2-24a.out	24274	1586292f77d4a5f5b7ff1902674ad2d7	227
+compendia	r2-24a.out	24274	092566cf80c92ffc5da6cf5f419e2ae2	227
 compendia	r2-24a.py	28685	b905b44fd84c599626c8ef3118c701d5	286
 compendia	r2-25b.out	16449	7c86b6a75bdc62e867b2314c13886f6e	169
 compendia	r2-25b.py	21612	2387c3a5291d209a0bbf048913568cac	293
@@ -36659,13 +36728,13 @@ compendia	r2-27a.out	10142	1c050f9a69f02d213fecfc53d779d72f	125
 compendia	r2-27a.py	15219	103078f4bf922ce6b9e9d5cad1b30224	218
 compendia	r2-27a2.out	10142	000939f9c8009ae8f41601378b7e6238	125
 compendia	r2-27a2.py	16080	f789a55122470886ac112e6e07314972	227
-compendia	r2-27a3.out	14116	b2add48d14fbef2e8bf1be7a17406603	164
+compendia	r2-27a3.out	14116	f4d78b7259357c3be8d5b700b202b1d1	164
 compendia	r2-27a3.py	18218	534753c50df14a47ed546c3fa825dc6f	224
 compendia	r2-28a2.out	12319	7e58b2bf026973b3e0523d7ed623c083	184
 compendia	r2-28a2.py	16676	c7eafbaf76e9ddc908a3cc8af1423a32	223
 compendia	r2-28a3.out	12319	f96b01bd298a69644ffc37b2301c192a	184
 compendia	r2-28a3.py	17716	02fe220d752f043b3dc001792999d709	234
-compendia	r2-28a4.out	11369	0eccaf90695ee62674cd69574aa7376d	173
+compendia	r2-28a4.out	11369	3ebe5ebf63c790646b02491b4259f809	173
 compendia	r2-28a4.py	17331	e08007a8f225b8729169d3962c259b0f	229
 compendia	r2-28b2.out	14026	0bd7f8b2946821179e351053382fe1c3	165
 compendia	r2-28b2.py	17057	ccb9fc499e8d20e953936f472dab34b2	229
@@ -36675,7 +36744,7 @@ compendia	r2-32a.out	16599	45d39ed3d26fe560bafa3aa3b7164351	179
 compendia	r2-32a.py	22360	15a9047af4a637eb7bdb05d0ea982878	306
 compendia	r2-bib.out	7712	6505f5280dd4f6928f6a62f0b52f0823	67
 compendia	r2-bib.py	11246	8d53e12dd6d84b00e6fbb145ae9cfd5a	141
-compendia	r2-bib2.out	7715	56c9186beab7161b544962904297652f	67
+compendia	r2-bib2.out	7715	d4c43ddd8173dd7cdcedffaed7f4671d	67
 compendia	r2-bib2.py	12497	1ee17f0becc1497a4b43160c729482e9	152
 compendia	r2-ch1.py	2940	172fb73dacbf30d5d85eb04f4463c064	48
 compendia	r2-ch10.py	5035	f1603d3f2310ed33583d01f67eb7020c	61
@@ -36698,7 +36767,7 @@ compendia	r2-ch16e2.out	9894	42cca5fcf50f0e20dba60beed8ad2595	145
 compendia	r2-ch16e2.py	19497	37dec7c387c8a049d2be65353ade7133	354
 compendia	r2-ch16f.out	30931	581eaa258081560315dce68f5ee02bcd	343
 compendia	r2-ch16f.py	17508	300dd46f4dd1dbc1501a5dc19cfecc39	328
-compendia	r2-ch16f2.out	31054	4c29a8d0ab00c749fd2231066a89b55e	343
+compendia	r2-ch16f2.out	31054	e8463e215ab40a1f981cb3f122d7cd0a	343
 compendia	r2-ch16f2.py	20479	a79c623c9f7669140b72e3584a4b83a6	344
 compendia	r2-ch16h.out	7780	6063a7c10ac234f7c3980e68e880660b	112
 compendia	r2-ch16h.py	14923	971c053d890738aecb33746c50ab78a1	251
@@ -36744,7 +36813,7 @@ compendia	r2-ch16q2.out	14842	11981d97d187c65943667476482fa73f	187
 compendia	r2-ch16q2.py	20629	67de823ab5dc0aac0089d567683ec9ec	334
 compendia	r2-ch16r.out	39054	98059f5a0b4ba8167a8dc51440e07d4f	547
 compendia	r2-ch16r.py	13585	6d2d618560d4b2603f986b9ce82126ce	240
-compendia	r2-ch16r2.out	39151	0cbfa7620e26e75de95fb927d9fb17fd	549
+compendia	r2-ch16r2.out	39148	711c496330061ffbe505a17bb2d828da	549
 compendia	r2-ch16r2.py	17457	ac826376e3850cd687e1e8dfd26f27c1	255
 compendia	r2-ch16s.out	13116	4955d7fef772f507929616497f517208	175
 compendia	r2-ch16s.py	10902	ae6c788602776d0169b69381beb7954c	190
@@ -36881,7 +36950,7 @@ compendia	r2-ch26b2.out	13171	dbc0fc70baa90ee4bffc3ef46cdbb741	112
 compendia	r2-ch26b2.py	18256	5aa683156d950b626fbe0c27389409dc	150
 compendia	r2-ch27a.out	19325	09865804eb88a3fafdd82098a78f666f	169
 compendia	r2-ch27a.py	27415	17aa0bcaa17f60a2709b73862d1b4841	255
-compendia	r2-ch27a4.out	19351	85cf31f29e59ac9edd63e9c7952b9249	169
+compendia	r2-ch27a4.out	18681	b5880ee41ced126e638504a347e180fb	166
 compendia	r2-ch27a4.py	28708	9afc81b28abf3013d45c1839e8cac0ea	270
 compendia	r2-ch27b.out	11973	cf3d9d819f394ec4240e9fe46e83c92d	95
 compendia	r2-ch27b.py	13345	a0f817be782095b921ccf3c3b1d1b465	109
@@ -36962,13 +37031,13 @@ compendia	r2-regsweep.out	4641	d23a87ed1143ef3442ff0d60e7c1b858	85
 compendia	r2-regsweep.py	10087	c8f400118dbe57bcf8914d37e9522fe6	163
 compendia	r2-regsweep2.out	4978	0d84ccfc7d1f15c015f903f39755da3f	87
 compendia	r2-regsweep2.py	11409	7bf329ed357a77811bdc4e4ae71bbf2b	174
-compendia	r2-scf.out	30503	11a674c99235abe4f6063e4e288b44f6	337
+compendia	r2-scf.out	30503	cd269e08080909906331093aa4b80ef0	337
 compendia	r2-scf.py	19583	70292ea5151a9fe086aab6639529a3d7	220
 compendia	r2-tb1.out	10827	7f79293d9c4f790eae0da949ee9c493a	120
 compendia	r2-tb1.py	14072	a97e9548c5aa4adf885682ed76fc299d	145
 compendia	r2-tools-constants.out	1032	3b5a322d20111a5f780bf22b66fbd9e8	14
 compendia	r2-tools.py	6529	4702f5f937087b1e806e4bc78b17f3c3	98
-compendia	r2-warn.out	41476	d4d88b1226c62163de506ca9c6e46186	279
+compendia	r2-warn.out	41493	c48d156f805ec90d20d211bc18af5e9c	279
 compendia	r2-warn.py	13763	228d883a25bfce317cd8a8bd9abd5c2d	185
 compendia	r2lib.py	21022	580d2ea2e43c2ddf78018afcba2f7de7	453
 compendia	r3-arith-01.py	10030	3a4385d819ff24f3fe4c48e43d0e22f4	154
@@ -63140,7 +63209,7 @@ Grouped-heading numbers cited in a register phrase (headed under B only): {209: 
    main L10231: and 70 species; 3,342 levels, 2,269 interior cells; the bracket at 1,577 of 1,738 cells
    reg L3926: THE JOINT FIT GAINS AN OBJECTIVE SELECTION RULE: USE THE SERIES WITH THE LOWEST OWN RMS. P III's six series give limits from 242,259 to 244,007 — a spread of 1,748 — but its nh fits itself to an rms o
    reg L6528: THE SIX CAPTURES RUN UNDER RULING 26 AND THE FORTY-FIVE-ROW ITEM CLOSES: ALL 45 ROWS RECONCILE MEMBER-FOR-MEMBER, 35 CLOSE WITH CELLS — 75 OF 81 PASS, 6 FAIL, 0 REFUSED — AND 10 CLOSE NO-TRIPLE. The s
-   sc L994: THE METHOD 1.6 — SPECTRA COMPENDIUM, counted from the table above rather than from the source that once generated it. 596 channel rows — 477 series of three or more members and 119 two-member channels
+   sc L994: THE METHOD 1.6 — SPECTRA COMPENDIUM, counted from the table above rather than from what once generated it. 596 channel rows — 477 series of three or more members and 119 two-member channels (starred) 
 (b) Register 1779 (heading 6570): **THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET.** *The Spectra Compendium sets out* COORDINATES-2.13 *column by column with the alphabet each admits, and two of the ten rows misdescribe what the file holds. The* `so
    `Z − charge` reg L6067: THE PROXY OF THE PROXY: RANK NEVER TRACKED THE DEFECT AT ALL — IT TRACKS DISTANCE FROM THE BOX'S ORIGIN, AND THE DISAGREEMENT SAYS SO. M: stop looking at proxies and look at the proxy OF the proxy. Ea
    `Z − charge` reg L6204: THE d120 FAILS ON GEOMETRY AND THE JANET GRADING IS ALREADY INSIDE THE INDEX — AS A FIBRATION, NOT A COORDINATE. M stopped the index write to have the 120-sided uniperiodic material looked at properly
@@ -63157,7 +63226,7 @@ Grouped-heading numbers cited in a register phrase (headed under B only): {209: 
    `copied unchanged` reg L6568: THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT USE ARE NAMED FOR THE FIRST TIME. Register 1770 set t
    G row §1.7 main [11425] | IoI row §1.7 [2021]
    main L11425: | 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \|X\| stays fixed. | `A.derived` |
-   ioi  L2021: | 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \ | **rests on it** — Appendix G |
+   ioi  L2021: | 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \|X\| stays fixed. | **rests on it** — Appendix G |
    byte-identical: [False]
 (e) 1403 at G 10.4c — rows naming 10.4c in main Appendix G and the IoI:
    main L11447: | 10.4c | C1, computed. The presymplectic potential on a null surface contains no transverse derivative, so Ω is block diagonal and the algebra factorises over generators. | M.C1; Register 549, 550 | | 10.4d | C2, the open condition — whether the state respects the decomposition. Independent of the 
@@ -64049,10 +64118,10 @@ for tag, name, sp_, ep_ in (('MC', MC, r'^## LS\. ', r'^## 3B\. '), ('PC', PC, r
 ====================================================================================================
   The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
   The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
-  The_Method_1_6___Mathematical_Compendium-2.md        md5 9426a6b6  3813 lines
-  The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
-  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
-  The_Method_1_6___Spectra_Compendium-2.md             md5 5ba7f61c  1160 lines
+  The_Method_1_6___Mathematical_Compendium-2.md        md5 0976507b  3813 lines
+  The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
+  The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
+  The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
   LW1-ground.py                                        md5 236975ac  130 lines
   r2lib.py                                             md5 580d2ea2  454 lines
   tower-2.py                                           md5 c0bce27a  31 lines
@@ -65778,10 +65847,10 @@ print('\nEND r2-24a')
 ====================================================================================================
    main The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
    reg  The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
-   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 9426a6b6  3813 lines
-   pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
-   ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
-   sc   The_Method_1_6___Spectra_Compendium-2.md             md5 5ba7f61c  1160 lines
+   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 0976507b  3813 lines
+   pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
+   ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
+   sc   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
    E.1    hits [10955]  body L10955–L10967 (13 lines)  ### E.1 The coordinates
    E.1.1  hits [10968]  body L10968–L10986 (19 lines)  ### E.1.1 The lineage of this index, and why only one section states it
    E.1.2  hits [10987]  body L10987–L11010 (24 lines)  ### E.1.2 The open set as this session leaves it — ten open of 14, liste
@@ -81761,7 +81830,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-27a3.out>>>
 r2-27a3.py — 27a-02 under ruling (a): the Register pointers of Appendix G rows 8.2, 8.4, 10.4c re-taken under CONVENTION DEP
-members: The_Method_1_6-2.md f4d01315 | The_Method_1_6___The_Register-2.md 1864bd62 | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md 9426a6b6
+members: The_Method_1_6-2.md f4d01315 | The_Method_1_6___The_Register-2.md 1864bd62 | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md 0976507b
 
 == §1 THE ROWS, located by scan — pointers are read OUT of the rows, never carried in
    Appendix G body L11408–L11453 (46 lines)
@@ -84037,7 +84106,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-28a4.out>>>
 r2-28a4.py — 28a-06 after ruling (a): does the author-and-year match on the 162 rows give the figure the sentence prints?
-members: The_Method_1_6-2.md f4d01315 | The_Method_1_6___The_Register-2.md 1864bd62 | The_Method_1_6___Mathematical_Compendium-2.md 9426a6b6
+members: The_Method_1_6-2.md f4d01315 | The_Method_1_6___The_Register-2.md 1864bd62 | The_Method_1_6___Mathematical_Compendium-2.md 0976507b
 
 == §1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about
    main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it) [173, 11550]             OK
@@ -84889,10 +84958,10 @@ except Exception as ex: print('   census read:', ex)
 ====================================================================================================
    main The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
    reg  The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
-   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 9426a6b6  3813 lines
-   pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
-   ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
-   sc   The_Method_1_6___Spectra_Compendium-2.md             md5 5ba7f61c  1160 lines
+   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 0976507b  3813 lines
+   pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
+   ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
+   sc   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
    D.2    hits [10376]  body L10376–L10385 (10 lines)  ### D.2 The structure
    D.3    hits [10386]  body L10386–L10396 (11 lines)  ### D.3 The two constraints, found by closing
    D.5    hits [10496]  body L10496–L10546 (51 lines)  ### D.5 The closed index
@@ -85387,10 +85456,10 @@ print('  the family\'s Register home: NONE (§1) — every figure of §25.6 / §
 ====================================================================================================
   The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
   The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
-  The_Method_1_6___Mathematical_Compendium-2.md        md5 9426a6b6  3813 lines
-  The_Method_1_6___The_Physics_Compendium-2.md         md5 6e904d82  914 lines
-  The_Method_1_6___The_Index_of_Indices-2.md           md5 43a28121  2094 lines
-  The_Method_1_6___Spectra_Compendium-2.md             md5 5ba7f61c  1160 lines
+  The_Method_1_6___Mathematical_Compendium-2.md        md5 0976507b  3813 lines
+  The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
+  The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
+  The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
   r2lib.py                                             md5 580d2ea2  454 lines
   tower-2.py                                           md5 c0bce27a  31 lines
   tower-2 loaded via r2lib.load_tower(): True
@@ -88559,7 +88628,7 @@ r2-ch16f  PROSE  chat 118  main L8580-L8704  (§30.4 - §31.2.5)
    0.03       six-volume sites 8      main outside unit [7964]   other volumes {'reg': [2718, 2722, 3954, 4770, 5803]}
    15,        six-volume sites 34     main outside unit [2283, 2393, 2403, 2429, 11717, 11763]   other volumes {'reg': [270, 378, 1798, 1954, 3466], 'mc': [1044, 1204, 1214, 1554, 1604], 'pc': [391], 'ioi': [324, 1365, 1366, 1367, 1368]}
    147        six-volume sites 12     main outside unit [4099, 4133]   other volumes {'reg': [668, 1910, 2950, 6348, 6601], 'mc': [838, 2512], 'ioi': [527]}
-   14         six-volume sites 114    main outside unit [130, 219, 291, 353, 1016, 1133, 3122, 3684]   other volumes {'reg': [98, 130, 136, 270, 378], 'mc': [322, 620, 778, 900, 1024], 'pc': [737], 'ioi': [245, 345, 394, 1365, 1366], 'sc': [136, 147, 402, 406, 419]}
+   14         six-volume sites 113    main outside unit [130, 219, 291, 353, 1016, 1133, 3122, 3684]   other volumes {'reg': [98, 130, 136, 270, 378], 'mc': [322, 620, 778, 900, 1024], 'pc': [737], 'ioi': [245, 345, 394, 1365, 1366], 'sc': [136, 147, 402, 406, 419]}
    23.10      six-volume sites 7      main outside unit [6439, 7587, 11085, 11089, 11091, 11473, 11475]   other volumes {}
    1787       six-volume sites 2      main outside unit []   other volumes {'reg': [6600]}
    24         six-volume sites 113    main outside unit [144, 564, 2240, 2333, 3377, 4262, 4727, 5784]   other volumes {'reg': [26, 68, 176, 1370, 1374], 'mc': [384, 718, 750, 752, 754], 'pc': [554], 'ioi': [33, 242, 245, 404], 'sc': [247, 267, 560, 581, 813]}
@@ -93688,10 +93757,10 @@ for rid, l, tok in ((713, _L('### 32.5.1 The prediction, recomputed from the tex
   main: 43 sites; in the unit: 1
     L9174 [''] :: Parsing δ(4s), δ(5s), the limit and Z out of this book's own markdown and running the
   reg: 184 sites; in the unit: 0
-  mc: 15 sites; in the unit: 0
-  pc: 6 sites; in the unit: 0
-  ioi: 10 sites; in the unit: 0
-  sc: 10 sites; in the unit: 0
+  mc: 2 sites; in the unit: 0
+  pc: 2 sites; in the unit: 0
+  ioi: 8 sites; in the unit: 0
+  sc: 5 sites; in the unit: 0
   PP sites: 7
 
 ================================================================================================
@@ -102460,10 +102529,7 @@ print('  `Index` / `*this page*` locators: the index\'s own heading `## Index` L
   header: | § | what it states | in this work |
   DATA rows 77 == 77: True
   rows marked load-bearing / Appendix G: 30 == 30: True; marked "not used": 47 == 47: True; both/neither: 0 / 0
-  statements identical to Appendix G's: 29 of 30; differing: 1
-    L2021 §1.7 | IoI: Six blindnesses of the closure. A derived coordinate cannot repair it: the box g | G: Six blindnesses of the closure. A derived coordinate cannot repair it: the box g
-    §1.7 first difference at char 125: IoI 'ount while \\' | G 'ount while \\|X\\| stays fixed.' (G L11425); IoI raw cell count 3 (the `\|X\|` of G's row was split as cell boundaries when the IoI row was generated: the statement is truncated at *while*, the tail *|X| stays fixed.* lost)
-    IoI L2021 raw: "| 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \\ | **rests on it** — Appendix G |"
+  statements identical to Appendix G's: 30 of 30; differing: 0
   IoI § set == Transitions § set: True (only-IoI []; only-T [])
 
 == §7 the Index as DATA: terms, entries, relations, the down-set test (L11419 "57 terms, 311 entries, 44 specialisation relations, 0 violations")
@@ -108521,7 +108587,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-bib2.out>>>
 r2-bib.py — census mc 387–672 (the bibliography's `objects` column) and mc 293 (the modular ledger's numerals)
-members: The_Method_1_6___Mathematical_Compendium-2.md 9426a6b6 | main f4d01315 | reg 1864bd62 | pc 6e904d82 | sc 5ba7f61c | ioi 43a28121 | census 010f17ca
+members: The_Method_1_6___Mathematical_Compendium-2.md 0976507b | main f4d01315 | reg 1864bd62 | pc 2f9d3a2b | sc 389c8e05 | ioi d19416dd | census 574ac029
 
 == §1 THE TABLE, located by scan — the census rows point into it and every one of them is a handle
    exactly one bibliography table header                                  1                        OK
@@ -142909,3 +142975,502 @@ if __name__ == "__main__":
     a = a.parse_args()
     selftest() if a.selftest else report()
 <<<END FILE: compendia2.py>>>
+
+<<<FILE: close_vol.py>>>
+#!/usr/bin/env python3
+"""close_vol.py — the guarded repair of a reader-facing VOLUME in the compendia bundle.
+
+    python3 tools/close_vol.py --old OLD --new NEW --w W-NNN.md --subs SUBS.json
+                              [--main MAIN_BUNDLE]
+
+THE FOURTH MISSING ROUTE, and it exists for the reason the other three did.
+
+`close.py` builds the compendia bundle and its change-set assertion refuses, BY DESIGN, to let any
+seated member change: the only members that may differ are `WORKING-REGISTER.md`, `MANIFEST.tsv`
+and the `--append` targets, and each of those must equal old body PLUS appended text. That is *no
+silent change* and it is right. It also assumed a reader-facing volume never moves, which was true
+while the chat-67 hold froze them and false the moment M approves a repair.
+
+`close_main.py` writes the MAIN bundle's Register and its counts. `close_rebank.py` regenerates a
+golden BY RUNNING its instrument. `close_census.py` regenerates the derived census. **None of the
+four writes a compendium.** So a repair M has approved had no way into the store of record, exactly
+as a Register entry had none before chat 152 and a golden had none before W-2xx.
+
+This is that route, to the same discipline, and it refuses more than it permits:
+
+  1  NEW must not exist, and the old bundle's md5 is asserted against `--subs`'s own `old_md5`.
+  2  EVERY SUBSTITUTION CARRIES ITS OWN OCCURRENCE COUNT and the count is asserted before any byte
+     moves.  A substitution whose anchor is absent, or present a different number of times, refuses
+     the whole build.  A substitution that is a no-op refuses it too, because rewriting a member to
+     the bytes it already had hides that nothing happened.
+  3  IT ADDS AND REMOVES NO MEMBER, and it never touches the main bundle — that is `close_main.py`'s
+     contract and this tool reads main only to compute the manifest, as `close.py` does.
+  4  THE W TEXT IS APPENDED to `WORKING-REGISTER.md`, so no volume may move without the working
+     register recording it in the same build.  That is *no silent change* for volumes.
+  5  MANIFEST.tsv is regenerated, because a volume's md5 and line count have moved.
+  6  CHANGE SET: exactly the named volumes, `WORKING-REGISTER.md` and `MANIFEST.tsv`.  Any other
+     member differing refuses the build.
+  7  REVERSE GUARD: every substitution is reversed, the W text stripped and the old manifest body
+     restored, and the result must reproduce the OLD BUNDLE'S OWN md5.  Nothing is written until it
+     does.
+  8  Only then is NEW written.
+
+WHAT IT DOES NOT DO, and will not be extended to do.  It does not decide what a repair is: the
+substitutions are data, written by hand into a spec a human reads, and the tool never derives one.
+It does not re-bank a golden — a volume that moves may move a golden, and `close_rebank.py` is that
+route, run AFTER this one and after the moved goldens are triaged.  It does not regenerate the
+census; `close_census2.py` is that route, and W-274 records that the census close must come BEFORE
+the golden re-bank.  It does not add a Register entry: if the repair is one the Register must
+record, `close_main.py` runs beside it.
+
+THE SPEC.  `--subs` is JSON:
+
+    {"old_md5": "…",
+     "subs": {"MEMBER-NAME.md": [[count, "old text", "new text"], …], …}}
+
+`count` is the number of occurrences of `old text` the member must hold.  Text is exact and may
+span lines.  A member named here must be a member of the old bundle and must not be
+`WORKING-REGISTER.md` or `MANIFEST.tsv`.
+"""
+import hashlib
+import json
+import os
+import re
+import sys
+
+MEMBER = re.compile(rb'^<<<FILE: (.+?)>>>\n(.*?)<<<END FILE: \1>>>\n', re.S | re.M)
+# A newline as a NAME, so no f-string in this file needs a backslash in its
+# expression part.  That is the whole of what puts twenty-three seated members
+# out of reach of Python 3.11, and there is no reason for a new tool to join them.
+NL = b'\n'
+md5 = lambda b: hashlib.md5(b).hexdigest()
+
+
+def arg(k, default=None):
+    return sys.argv[sys.argv.index(k) + 1] if k in sys.argv else default
+
+
+def parse(t):
+    ms = [(m.group(1).decode(), m.group(2)) for m in MEMBER.finditer(t)]
+    assert len(set(n for n, _ in ms)) == len(ms), 'duplicate member name'
+    return ms
+
+
+def manifest_text(main_members, comp_members):
+    rows = ['bundle\tname\tbytes\tmd5\tlines']
+    for tag, ms in (('main', main_members), ('compendia', comp_members)):
+        for n, b in sorted(ms):
+            if n == 'MANIFEST.tsv':
+                continue
+            rows.append('%s\t%s\t%d\t%s\t%d' % (tag, n, len(b), md5(b), b.count(NL)))
+    return ('\n'.join(rows) + '\n').encode('utf-8')
+
+
+def block(name, body):
+    return b'<<<FILE: ' + name.encode() + b'>>>\n' + body + b'<<<END FILE: ' + name.encode() + b'>>>\n'
+
+
+old_p, new_p, w_p, subs_p = arg('--old'), arg('--new'), arg('--w'), arg('--subs')
+main_p = arg('--main')
+assert old_p and new_p and w_p and subs_p, 'need --old --new --w --subs'
+assert main_p, 'need --main: the manifest records the main bundle rows'
+assert not os.path.exists(new_p), f'{new_p} exists — never overwrite'
+
+old = open(old_p, 'rb').read()
+old_ms = parse(old)
+od = dict(old_ms)
+main_ms = parse(open(main_p, 'rb').read())
+
+spec = json.load(open(subs_p, encoding='utf-8'))
+assert md5(old) == spec['old_md5'], \
+    f"the spec is against md5 {spec['old_md5']}, this bundle is {md5(old)}"
+
+W = open(w_p, 'rb').read()
+assert W.startswith(b'### W-') and W.endswith(b'\n\n'), \
+    'W text must begin "### W-" and end with a blank line'
+
+# (2) every substitution asserted before a byte moves
+SUBS = spec['subs']
+assert SUBS, 'the spec names no substitution — refusing an empty build'
+newbodies = {}
+for name, rules in SUBS.items():
+    assert name in od, f'{name} is not a member of the old bundle'
+    assert name not in ('WORKING-REGISTER.md', 'MANIFEST.tsv'), \
+        f'{name} is not a volume — close.py owns it'
+    body = od[name].decode('utf-8')
+    for count, a, b in rules:
+        assert a != b, f'{name}: a substitution that changes nothing — REFUSED'
+        got = body.count(a)
+        assert got == count, f'{name}: anchor occurs {got}x, spec says {count}x: {a[:60]!r}'
+        body = body.replace(a, b)
+    nb = body.encode('utf-8')
+    assert nb != od[name], f'{name}: the member did not change — REFUSED'
+    newbodies[name] = nb
+    print('%s  %s -> %s B  lines %+d  %d substitution(s)'
+          % (name, format(len(od[name]), ','), format(len(nb), ','),
+             nb.count(NL) - od[name].count(NL), len(rules)))
+
+# (3) apply: the volumes, then the W text, then the manifest
+new = old
+for name, nb in newbodies.items():
+    b0 = block(name, od[name])
+    assert new.count(b0) == 1, f'{name}: member block not unique'
+    new = new.replace(b0, block(name, nb))
+
+end = b'<<<END FILE: WORKING-REGISTER.md>>>\n'
+assert new.count(end) == 1
+i = new.index(end)
+assert new[i - 2:i] == b'\n\n', 'WR body must end with a blank line'
+new = new[:i] + W + new[i:]
+
+had_manifest = 'MANIFEST.tsv' in od
+assert had_manifest, 'the old bundle has no MANIFEST.tsv — close.py seats it'
+man_old = od['MANIFEST.tsv']
+man = manifest_text(main_ms, parse(new))
+ob = block('MANIFEST.tsv', man_old)
+assert new.count(ob) == 1
+new = new.replace(ob, block('MANIFEST.tsv', man))
+
+# (5) measure
+new_ms = parse(new)
+nd = dict(new_ms)
+print('old %s  %s B  md5 %s  %s lines  %d members'
+      % (os.path.basename(old_p), format(len(old), ','), md5(old),
+         format(old.count(NL), ','), len(old_ms)))
+print('new %s  %s B  md5 %s  %s lines  %d members'
+      % (os.path.basename(new_p), format(len(new), ','), md5(new),
+         format(new.count(NL), ','), len(new_ms)))
+print(f'MANIFEST.tsv  {len(man):,} B  md5 {md5(man)};  '
+      f'WORKING-REGISTER.md  {len(nd["WORKING-REGISTER.md"]):,} B  '
+      f'md5 {md5(nd["WORKING-REGISTER.md"])}')
+
+# (6) change set
+changed = [n for n, _ in old_ms if nd[n] != od[n]]
+expect = set(SUBS) | {'WORKING-REGISTER.md', 'MANIFEST.tsv'}
+assert set(changed) == expect, f'change set is {sorted(changed)}, expected {sorted(expect)}'
+assert [n for n, _ in new_ms] == [n for n, _ in old_ms], 'the member list moved — REFUSED'
+assert nd['WORKING-REGISTER.md'] == od['WORKING-REGISTER.md'] + W, 'WR is not old + W'
+print(f'changed members: {sorted(changed)};  added/removed: none')
+
+# (7) reverse guard
+rev = new
+rev = rev.replace(block('MANIFEST.tsv', man), block('MANIFEST.tsv', man_old))
+assert rev.count(W + end) == 1
+rev = rev.replace(W + end, end)
+for name, nb in newbodies.items():
+    b1 = block(name, nb)
+    assert rev.count(b1) == 1
+    rev = rev.replace(b1, block(name, od[name]))
+print(f'reverse recovers md5 {md5(rev)}  == old: {md5(rev) == md5(old)}')
+assert md5(rev) == md5(old), 'REVERSE GUARD FAILED — nothing written'
+
+# (8) write
+open(new_p, 'wb').write(new)
+print('written', new_p)
+<<<END FILE: close_vol.py>>>
+
+<<<FILE: handlemap.py>>>
+r"""handlemap.py — can a handle be resolved to a descriptive title from the volumes alone?
+
+M RULED ON 7 SEPTEMBER THAT THE STANDING CONTENT STANDARD GOVERNS: no object handles
+or workshop jargon in reader-facing volumes, and a cross-reference names the object by
+its DESCRIPTIVE TITLE.  Executing that ruling needs one thing the ruling does not
+supply -- the map from `A.gc` to the title it stands for.
+
+THE MAP IS NOT PRINTED ANYWHERE.  The word "handle" occurs zero times in the four
+compendia.  `compendia2.py` measures 265 distinct handles at 417 sites, 407 of them in
+one column of one table, and not one of the four volumes resolves a single id.  The map
+lived in the generator the front matter used to name, which this repository does not
+hold.
+
+WHAT THIS INSTRUMENT DOES, AND WHY IT DOES NOT USE THE OBVIOUS METHOD.  The obvious
+method is to assume that within a family the objects are printed in the order their
+handles sort, so the k-th handle names the k-th object.  THAT HYPOTHESIS IS FALSE, and
+the volume refutes it without leaving the family whose counts agree: family 3B has nine
+objects and nine handles, and its objects are printed in MEANING order -- shape space,
+the shape metric, the Jacobi-Maupertuis metric, the potential, the variety, the five
+points -- so `3B.JM` would be paired with "Shape space and the shape sphere" and
+`3B.five` with the Jacobi-Maupertuis metric.  Family W, also nine and nine, IS in handle
+order and pairs perfectly.  NOTHING IN THE VOLUMES SAYS WHICH FAMILIES ARE WHICH.
+
+So the resolution here is ORDER-FREE.  For each handle it searches the WHOLE family for
+objects whose title its own evidence fits, and reports what it finds:
+
+  RESOLVED    exactly one object in the family is corroborated -- the pairing does not
+              depend on any ordering, and it is a measurement.
+  AMBIGUOUS   more than one is.  Named, never chosen.
+  UNRESOLVED  none is.  No title is offered at all.
+
+THE EVIDENCE, and there are only two kinds held here.  SUFFIX: the handle's own suffix,
+digits stripped, occurs in the title, or is the run of the title's word-initials --
+`A.gc` against "Global consistency (CSP)".  ANCHOR: the main volume's Appendix G prints
+29 handles against the statements they carry, the only handle-to-content evidence this
+repository holds, and the title shares a distinctive word with the statement or the
+statement names the suffix outright -- which is how `M.C1` is corroborated, its statement
+opening "C1, computed.  The presymplectic potential ...".
+
+THE ORDERING IS REPORTED AS A FINDING, NOT USED AS A METHOD.  Where a family's counts
+agree, the instrument prints how many of its order-free resolutions sit where position
+would have predicted.  Ten families agree completely, and 3B and LS do not -- which is
+the measurement that refutes the hypothesis rather than an opinion about it.
+
+WHAT IT REFUSES.  It does not write a volume and it does not propose one.  It emits
+`method/HANDLE-MAP.tsv` for a human to approve or refuse row by row, and a row's status
+travels with it.  An AMBIGUOUS row names its candidates and chooses none.  An UNRESOLVED
+row offers nothing: there is no evidence here, and a title invented to fill the column
+would be reconstructed content seated in a reader-facing volume, which is the one thing
+the store's rule about status forbids.
+
+stdlib only.  --selftest asserts the corpus's own recorded numbers.
+"""
+import argparse
+import collections
+import os
+import re
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import compendia2 as C   # a seated member; imported, never copied
+
+
+def handle_index():
+    """{family: [handle, ...]} sorted, and {family: [object title, ...]} as printed."""
+    tk, br = C.handles(C.VOLS[0][1])
+    H = collections.defaultdict(list)
+    for h in sorted({h for _, h in tk} | {h for _, h in br}):
+        H[h.split(".")[0]].append(h)
+    return H, C.family_objects()
+
+
+def anchors():
+    """{handle: the statement Appendix G attaches to it} -- the only handle-to-content
+    evidence this repository holds."""
+    rows, _, _, _, _ = C.appendix_g()
+    tick, _ = C.handle_rx()
+    out = {}
+    for l in rows:
+        cells = re.split(r"(?<!\\)\|", l.strip().strip("|"))
+        if len(cells) >= 3:
+            for h in tick.findall(cells[2]):
+                out[h] = cells[1].strip()
+    return out
+
+
+_STOP = set("the and that with from which their there these those about into over than "
+            "then when what where whole this each been have does not are its".split())
+
+
+def _toks(s):
+    return {w.rstrip("s") for w in re.findall(r"[a-z]{5,}", s.lower())} - _STOP
+
+
+def corroborated(handle, title, statement):
+    """Does anything here support pairing this handle with this title?
+
+    Two tests, and either suffices.  SUFFIX: the handle's own suffix, digits stripped,
+    occurs in the title, or is the run of initials of the title's words -- `A.gc` against
+    "Global consistency (CSP)".  ANCHOR: the title and Appendix G's statement for this
+    handle share a distinctive word, or the statement names the suffix outright, which is
+    how `M.C1` is corroborated ("C1, computed.  The presymplectic potential ...")."""
+    suf = handle.split(".", 1)[1]
+    bare = suf.rstrip("0123456789").lower()
+    t = title.lower()
+    if len(bare) >= 3 and bare in t:
+        return "SUFFIX"
+    inits = "".join(w[0] for w in re.findall(r"[A-Za-z]+", title)).lower()
+    if len(bare) >= 2 and bare in inits:
+        return "SUFFIX"
+    if statement:
+        if re.search(r"\b%s\b" % re.escape(suf), statement):
+            return "ANCHOR"
+        if _toks(title) & _toks(statement):
+            return "ANCHOR"
+    return ""
+
+
+def candidates(handle, fam, H, O, A):
+    """Every object in the family whose title this handle's own evidence fits.
+
+    ORDER-FREE BY CONSTRUCTION: the whole family is searched, so no assumption about
+    the order objects are printed in enters the result."""
+    out = []
+    for t in O[fam]:
+        ev = corroborated(handle, t, A.get(handle, ""))
+        if ev:
+            out.append((t, ev))
+    return out
+
+
+def rows():
+    """One row per handle: family, handle, resolution, status, evidence."""
+    H, O = handle_index()
+    A = anchors()
+    out = []
+    for fam in sorted(H):
+        for h in H[fam]:
+            c = candidates(h, fam, H, O, A)
+            if len(c) == 1:
+                out.append((fam, h, c[0][0], "RESOLVED", c[0][1]))
+            elif c:
+                out.append((fam, h, "", "AMBIGUOUS",
+                            "%d candidates: %s" % (len(c), " | ".join(t for t, _ in c))))
+            else:
+                out.append((fam, h, "", "UNRESOLVED", "no evidence in the volumes"))
+    return out
+
+
+def report():
+    H, O = handle_index()
+    A = anchors()
+    R = rows()
+    n = collections.Counter(r[3] for r in R)
+    print("handlemap -- can M's ruling be executed from the volumes alone?")
+    print("=" * 78)
+
+    print("\n1  THE MAP THE VOLUMES SUPPORT, order-free")
+    for k in ("RESOLVED", "AMBIGUOUS", "UNRESOLVED"):
+        print("   %-12s %4d of %d handles" % (k, n[k], len(R)))
+    _, occ, _ = C.bibliography()
+    st = {r[1]: r[3] for r in R}
+    sites = collections.Counter(st[h] for h in occ)
+    print("   and by site in the bibliography's objects column (%d sites over %d rows):"
+          % (len(occ), len(C.bibliography()[0])))
+    for k in ("RESOLVED", "AMBIGUOUS", "UNRESOLVED"):
+        print("   %-12s %4d" % (k, sites[k]))
+    mt, mb = C.handles(C.MAIN)
+    mh = [h for _, h in mt] + [h for _, h in mb]
+    ms = collections.Counter(st[h] for h in mh if h in st)
+    print("   and in the main volume (%d sites): %s" % (len(mh), dict(ms)))
+
+    print("\n2  THE ORDERING HYPOTHESIS, REPORTED AS A FINDING AND NOT USED AS A METHOD")
+    print("   %-4s %8s %8s  %s" % ("fam", "objects", "handles", "resolutions where position predicts"))
+    agree = dis = 0
+    for f in sorted(H):
+        if len(H[f]) != len(O[f]):
+            print("   %-4s %8d %8d  -- counts differ, position is not even defined"
+                  % (f, len(O[f]), len(H[f])))
+            continue
+        tot = a = 0
+        for i, h in enumerate(H[f]):
+            c = candidates(h, f, H, O, A)
+            if len(c) == 1:
+                tot += 1
+                a += c[0][0] == O[f][i]
+        agree += a
+        dis += tot - a
+        print("   %-4s %8d %8d  %d of %d%s" % (f, len(O[f]), len(H[f]), a, tot,
+                                               "" if a == tot else "   <-- NOT in handle order"))
+    print("   across the equal-count families: %d agree, %d do not." % (agree, dis))
+    print("   3B is nine objects and nine handles and its objects are in MEANING order;")
+    print("   W is nine and nine and is in handle order.  Nothing in the volumes says which")
+    print("   a family is, so the ordering cannot be used to resolve a single handle.")
+
+    print("\n3  WHAT THE APPENDIX G ANCHORS CONTRIBUTE")
+    print("   anchors held: %d, over %d families" % (len(A), len({h.split('.')[0] for h in A})))
+    byev = collections.Counter(r[4] for r in R if r[3] == "RESOLVED")
+    print("   resolutions whose evidence is the handle's own suffix: %d" % byev["SUFFIX"])
+    print("   resolutions whose evidence is an Appendix G anchor   : %d" % byev["ANCHOR"])
+
+    print("\n4  WHAT THIS MEANS FOR THE RULING")
+    print("   M ruled that a handle is replaced by the object's descriptive title.")
+    print("   %d of %d handles have a title the volumes support." % (n["RESOLVED"], len(R)))
+    print("   %d name several objects and this instrument chooses none." % n["AMBIGUOUS"])
+    print("   %d have no evidence here at all." % n["UNRESOLVED"])
+    print("   By site, %d of the bibliography's %d can be written and %d cannot."
+          % (sites["RESOLVED"], len(occ), sites["AMBIGUOUS"] + sites["UNRESOLVED"]))
+    print("   THE TABLE IS WRITTEN FOR APPROVAL, NOT APPLIED.")
+
+
+def write_tsv(path):
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write("family\thandle\tproposed_title\tstatus\tevidence\n")
+        for r in rows():
+            fh.write("\t".join(r) + "\n")
+    print("written %s (%d rows)" % (path, len(rows())))
+
+
+def selftest():
+    ok = 0
+
+    def chk(label, got, exp):
+        nonlocal ok
+        good = got == exp
+        print("  %s  %-58s %s" % ("ok " if good else "FAIL", label, got))
+        assert good, (label, got, exp)
+        ok += 1
+
+    H, O = handle_index()
+    A = anchors()
+    R = rows()
+    n = collections.Counter(r[3] for r in R)
+
+    chk("handles in the Mathematical Compendium", sum(len(v) for v in H.values()), 265)
+    chk("objects it holds", sum(len(v) for v in O.values()), 299)
+    chk("objects carrying no handle", 299 - 265, 34)
+
+    # the order-free resolution
+    chk("RESOLVED", n["RESOLVED"], 112)
+    chk("AMBIGUOUS", n["AMBIGUOUS"], 55)
+    chk("UNRESOLVED", n["UNRESOLVED"], 98)
+    chk("and they partition the handles", sum(n.values()), 265)
+    chk("no AMBIGUOUS row names a title", [r for r in R if r[3] == "AMBIGUOUS" and r[2]], [])
+    chk("no UNRESOLVED row names a title", [r for r in R if r[3] == "UNRESOLVED" and r[2]], [])
+    chk("every RESOLVED row names its evidence kind",
+        sorted({r[4] for r in R if r[3] == "RESOLVED"}), ["ANCHOR", "SUFFIX"])
+    byev = collections.Counter(r[4] for r in R if r[3] == "RESOLVED")
+    chk("resolutions resting on the suffix", byev["SUFFIX"], 110)
+    chk("resolutions resting on an Appendix G anchor", byev["ANCHOR"], 2)
+
+    # the ordering hypothesis, refuted where its counts are defined
+    def agree(f):
+        t = a = 0
+        for i, h in enumerate(H[f]):
+            c = candidates(h, f, H, O, A)
+            if len(c) == 1:
+                t += 1
+                a += c[0][0] == O[f][i]
+        return a, t
+    eq = sorted(f for f in H if len(H[f]) == len(O[f]))
+    chk("families whose counts agree", len(eq), 14)
+    chk("family 3B holds nine objects and nine handles",
+        (len(O["3B"]), len(H["3B"])), (9, 9))
+    chk("and NOT ONE of its resolutions sits where position predicts", agree("3B"), (0, 5))
+    chk("family W holds nine and nine too", (len(O["W"]), len(H["W"])), (9, 9))
+    chk("and its resolutions do sit there", agree("W")[0], 4)
+    chk("families in handle order", sorted(f for f in eq if agree(f)[0] == agree(f)[1]),
+        ["A", "B", "C", "E", "F", "G", "I", "P", "T"])
+    chk("families demonstrably NOT in handle order",
+        sorted(f for f in eq if agree(f)[0] != agree(f)[1]), ["3B", "LS", "M", "Q", "W"])
+    chk("so the ordering resolves nothing on its own",
+        sum(agree(f)[1] - agree(f)[0] for f in eq), 12)
+
+    # the sites the ruling has to reach
+    _, occ, _ = C.bibliography()
+    st = {r[1]: r[3] for r in R}
+    sites = collections.Counter(st[h] for h in occ)
+    chk("bibliography sites", len(occ), 407)
+    chk("of which a title is supported for", sites["RESOLVED"], 178)
+    chk("and is not for", sites["AMBIGUOUS"] + sites["UNRESOLVED"], 229)
+    mt, mb = C.handles(C.MAIN)
+    chk("main-volume sites", len(mt) + len(mb), 76)
+
+    chk("Appendix G anchors held", len(A), 29)
+    chk("K.girth and K.helly sit in a family whose counts differ",
+        len(O["K"]) - len(H["K"]), 1)
+
+    print("\nselftest: %d/%d" % (ok, ok))
+
+
+if __name__ == "__main__":
+    a = argparse.ArgumentParser()
+    a.add_argument("--selftest", action="store_true")
+    a.add_argument("--write", metavar="PATH")
+    a = a.parse_args()
+    if a.selftest:
+        selftest()
+    elif a.write:
+        write_tsv(a.write)
+    else:
+        report()
+<<<END FILE: handlemap.py>>>

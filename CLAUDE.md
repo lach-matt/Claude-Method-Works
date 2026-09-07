@@ -4,7 +4,7 @@
 
 Two things, and they are not the same kind of thing.
 
-**`method/` is the store of record for The Method 1.6.** Both live bundles, all **750 members**
+**`method/` is the store of record for The Method 1.6.** Both live bundles, all **752 members**
 extracted from them byte-exact, `MEMBER-INDEX.tsv`, and the §0 gate in `method/CLAUDE.md`. Every
 chat opens by reading this tree — `python3 method/verify.py` asserts every member md5 and recovers
 both bundles. Start here. See `method/README.md`. **The live pair is named in `method/CLAUDE.md` §3
@@ -217,7 +217,7 @@ before any pass that spans more than one file.
 
 - **graphify** (`.claude/skills/graphify/SKILL.md`) — any input to knowledge graph. Trigger: `/graphify`
 
-**Thirty `tools/` programs are also seated members, and the two copies are NOT in lockstep.** The
+**Thirty-one `tools/` programs are also seated members, and the two copies are NOT in lockstep.** The
 member is the **snapshot at its seating build**; the `tools/` copy is what a chat actually runs, so a
 pass that improves an instrument moves the working copy and leaves the member where it was. **Five are
 ahead of their member right now** — `docfigures.py`, `drive_sync.py` (304 diff lines), `shiftcheck.py`
@@ -228,11 +228,17 @@ with logic a leg out of date and no step would say so. `tools/docfigures.py` now
 measures it. **A nonzero count is not a fault** — it is the list of instruments whose next seating is
 owed; the pin is what is known about, and a new name trips the row.
 
-**Eleven more `tools/` programs are the R2–R4 build machinery, and this file did not name one of them
+**Twelve more `tools/` programs are the R2–R4 build machinery, and this file did not name one of them
 until 2026-09-07** — which broke its own "nothing in the tree is unaccounted for", since three of the
 eleven are what a build actually runs. `tools/docfigures.py` is what caught the omission. They fall in
 four groups. **The build and the gate**: `close_main.py` (the guarded build of the MAIN bundle, for
-Register entries and their counts — `close.py`'s opposite number), `restage.py` (re-extract both bundles
+Register entries and their counts — `close.py`'s opposite number), **`close_vol.py`** (the guarded repair of a
+reader-facing VOLUME in the compendia bundle — the fourth close route, built 2026-09-07 because M approved a
+compendium repair and **no tool here could write one**: `close.py` refuses any change to a seated member,
+`close_main.py` writes only the Register, `close_rebank.py` only a golden, `close_census.py` only the census.
+Every substitution carries its own occurrence count, it adds and removes no member, the W text is appended in
+the same build so no volume moves unrecorded, and the reverse guard must reproduce the old bundle's md5. See
+`method/W-282.md`), `restage.py` (re-extract both bundles
 into `method/members/` and retarget `verify.py`, which is what makes the mirror current after any close),
 and `gate_live.py` (the gate over the LIVE goldens only, plus a `--census` step; run it with
 `method/bin` first on PATH). **Keeping a count honest**: `register_counts.py`. **Triaging a golden that

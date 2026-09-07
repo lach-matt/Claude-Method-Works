@@ -1,0 +1,50 @@
+handlemap -- can M's ruling be executed from the volumes alone?
+==============================================================================
+
+1  THE MAP THE VOLUMES SUPPORT, order-free
+   RESOLVED      112 of 265 handles
+   AMBIGUOUS      55 of 265 handles
+   UNRESOLVED     98 of 265 handles
+   and by site in the bibliography's objects column (407 sites over 162 rows):
+   RESOLVED      178
+   AMBIGUOUS      81
+   UNRESOLVED    148
+   and in the main volume (76 sites): {'AMBIGUOUS': 33, 'RESOLVED': 28, 'UNRESOLVED': 15}
+
+2  THE ORDERING HYPOTHESIS, REPORTED AS A FINDING AND NOT USED AS A METHOD
+   fam   objects  handles  resolutions where position predicts
+   3B          9        9  0 of 5   <-- NOT in handle order
+   A          43       43  12 of 12
+   B          21       21  7 of 7
+   C           9        9  3 of 3
+   E           4        4  2 of 2
+   EM         10        7  -- counts differ, position is not even defined
+   F           4        4  2 of 2
+   G          12       12  10 of 10
+   I           3        3  2 of 2
+   K          25       24  -- counts differ, position is not even defined
+   L          68       41  -- counts differ, position is not even defined
+   LS          8        8  2 of 6   <-- NOT in handle order
+   M           9        9  3 of 4   <-- NOT in handle order
+   P          17       17  6 of 6
+   Q          11       11  6 of 7   <-- NOT in handle order
+   S          21       18  -- counts differ, position is not even defined
+   T          16       16  5 of 5
+   W           9        9  4 of 5   <-- NOT in handle order
+   across the equal-count families: 64 agree, 12 do not.
+   3B is nine objects and nine handles and its objects are in MEANING order;
+   W is nine and nine and is in handle order.  Nothing in the volumes says which
+   a family is, so the ordering cannot be used to resolve a single handle.
+
+3  WHAT THE APPENDIX G ANCHORS CONTRIBUTE
+   anchors held: 29, over 5 families
+   resolutions whose evidence is the handle's own suffix: 110
+   resolutions whose evidence is an Appendix G anchor   : 2
+
+4  WHAT THIS MEANS FOR THE RULING
+   M ruled that a handle is replaced by the object's descriptive title.
+   112 of 265 handles have a title the volumes support.
+   55 name several objects and this instrument chooses none.
+   98 have no evidence here at all.
+   By site, 178 of the bibliography's 407 can be written and 229 cannot.
+   THE TABLE IS WRITTEN FOR APPROVAL, NOT APPLIED.

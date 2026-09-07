@@ -17,7 +17,7 @@ This compendium supplies the book with coordinates. Its subject is Λ_spectra; i
 
 **δ** is the quantum defect: E = −Z_c²R/(n−δ)², so a channel's whole Rydberg series follows from one number and the core charge.
 
-**DECLARATION — the stored δ is the MEDIAN over a cell's members (T2, closed).** This was measured, not chosen: of 433 series whose member count reproduces exactly from raw, the stored value equals the median in 430 (99.3%); the 18 mean-agreements are series where median and mean coincide and distinguish nothing (R 1673, 1675, enlarged sample R 1679). The mean and asymptotic perspectives are carried alongside per cell, as perspectives of one definition (T6, M's ruling, session 1.7.3).
+**DECLARATION — the stored δ is the MEDIAN over a cell's members (T2, closed).** This was measured, not chosen: of 433 series whose member count reproduces exactly from raw, the stored value equals the median in 430 (99.3%); the 18 mean-agreements are series where median and mean coincide and distinguish nothing (R 1673, 1675, enlarged sample R 1679). The mean and asymptotic perspectives are carried alongside per cell, as perspectives of one definition (T6, M's ruling).
 
 ## The grades
 
@@ -112,7 +112,7 @@ Where no capture reaches, the channel equation supplies the value:
 
 **Two readings a reader should take from the shape.** *The first: the observation runs out at ℓ = 5. One cell above g has ever been measured, and none above h; everything the compendium says about high-ℓ channels is the channel equation speaking, and §* The filler, and its domain *states the domain it speaks within. The second: δ narrows as ℓ rises — the s channels span six units, the g channels a twelfth of one — which is the core's reach falling away, and it is why the Pauli bound of §* The bound, which needs no measurement at all *costs nothing to state at high ℓ and everything at low.*
 
-*Every figure in this table is read from* `COORDINATES-2.13` *at build by* `coords.py`*, which fails the press if one of them drifts from the file.*
+*Every figure in this table is read from the coordinate file itself, and a figure that drifts from it fails the press.*
 
 ## The file
 
@@ -559,7 +559,7 @@ Three marks state a limitation. An **asterisk** on the species marks a two-membe
 | Fe XVI | ns 2S J=1/2 | 3–7 | 5 | 3 | 3/3 | 2.7–6.7 | +0.3174 | 0.0152 | 16 | 3,946,570.000 |
 | Ga I | 4s²ns ²S | 5–28 | 24 | 22 | 22/22 | 2.2–25.2 | +2.8013 | 0.0535 | 1 | 48,387.634 |
 | Ga I | 4s²nd ²D | 4–27 | 23 | 21 | 21/21 | 2.8–25.7 | +1.2926 | 0.1920 | 1 | 48,387.634 |
-| Ga I | 4s²np ²P° high | 41–5 | 15 | 13 | 13/13 | 38.8–52.7 | +2.2107 | 0.1209 | 1 | 48,387.634 |
+| Ga I | 4s²np ²P° high | 41–55 | 15 | 13 | 13/13 | 38.8–52.7 | +2.2107 | 0.1209 | 1 | 48,387.634 |
 | Ga I | 4s²nf ²F° | 4–8 | 5 | 3 | 3/3 | 4.0–8.0 | +0.0252 | 0.0057 | 1 | 48,387.634 |
 | Ga I | 4s²np ²P° low | 4–7 | 4 | 2 | 2/2 | 1.5–4.7 | +2.3450 | 0.2026 | 1 | 48,387.634 |
 | Ga II | nd 1D J=2 | 4–7 | 4 | 2 | 2/2 | 3.3–6.1 | +0.8475 | 0.1127 | 2 | 165,465.800 |
@@ -991,8 +991,8 @@ Three marks state a limitation. An **asterisk** on the species marks a two-membe
   channel, n-range, level count, interior cells, bracket, ν range, mean quantum defect, its
   spread, Z_eff and the series limit. *The main volume reproduces one only where it carries an
   argument; the rest are data, and this is where data belongs.*
-  **THE METHOD 1.6 — SPECTRA COMPENDIUM, counted from the table above rather than from the source that once generated it.** 596 channel rows — 477 series of three or more members and 119 two-member channels (starred) — across 28 elements and 70 species; 3,342 levels, 2,269 interior cells. The bracket stands at **1,577 of 1,738 cells across 392 rows** — the first collection's 844 of 844 on 107 rows; 658 of 813 on 250 rows run under ruling 26 (register 1763); and 75 of 81 on 35 rows run by the same sealed instrument on the six captures the delivering bank's cut carried, each verified against that cut's MANIFEST by hash before a cell was computed (register 1768) — throughout, the sealed test of register 796 at strict interval membership, the only ε the quotation floor — half a unit in the last quoted decimal of the measured level — and admissibility per §22.5, r = 2Z²R/(ν³σ) ≥ 5 with σ the quotation floor. **Cells refused: 0.** The 161 failing cells sit in 98 rows and are results, not defects of the test (register 784: no failures would itself be suspect); five of those rows carry a failing bracket narrower than twice the floor, named in 1763 for the author's eye — none of the six cells failing at this build is among them, each missing a bracket wider than twice its floor. 78 rows read `no-triple`: their members, matching the row exactly, contain no three consecutive n, so the sealed test — true neighbours only — defines no cell there; the ten added at this build are the ten starred two-member rows of the six delivered species. 126 rows remain `untested`, and the reason is data, not definition: the parent-term and coupling selection that built them is not reproducible blind (register 1578's wall), and the delivered selection record covers none of their eight species (register 1767). All bracket figures in this paragraph are recomputed from the table by `spectra_count.py`.
- *The earlier statement of this paragraph — 133 rows, 23 elements, 869 interior cells, bracket 869/869, with a twenty-channel gap disclosed against a total of 153 — was true at registers 630–631 and was overtaken by the parent-term wall (register 1578) and the J-resolved rows of T8-J (registers 1699–1700). It claimed the table could not drift from* `spectra.py`; *the table did drift, so* `spectra.py` *is retired: the table above is the source, and every count in the paragraph above it is taken from the table by* `spectra_count.py` * — 596, 477, 119, 28, 70, 3,342 and 2,269 agree to the row. The exotic and collective sources named above still carry sources and no rows, and that remains disclosed rather than reconciled.* Registers 630–631; 1578; 1699–1700.
+  **THE METHOD 1.6 — SPECTRA COMPENDIUM, counted from the table above rather than from what once generated it.** 596 channel rows — 477 series of three or more members and 119 two-member channels (starred) — across 28 elements and 70 species; 3,342 levels, 2,269 interior cells. The bracket stands at **1,577 of 1,738 cells across 392 rows** — the first collection's 844 of 844 on 107 rows; 658 of 813 on 250 rows run under ruling 26 (register 1763); and 75 of 81 on 35 rows run by the same sealed instrument on the six captures the delivering bank's cut carried, each verified against that cut's MANIFEST by hash before a cell was computed (register 1768) — throughout, the sealed test of register 796 at strict interval membership, the only ε the quotation floor — half a unit in the last quoted decimal of the measured level — and admissibility per §22.5, r = 2Z²R/(ν³σ) ≥ 5 with σ the quotation floor. **Cells refused: 0.** The 161 failing cells sit in 98 rows and are results, not defects of the test (register 784: no failures would itself be suspect); five of those rows carry a failing bracket narrower than twice the floor, named in 1763 for the author's eye — none of the six cells failing at this build is among them, each missing a bracket wider than twice its floor. 78 rows read `no-triple`: their members, matching the row exactly, contain no three consecutive n, so the sealed test — true neighbours only — defines no cell there; the ten added at this build are the ten starred two-member rows of the six delivered species. 126 rows remain `untested`, and the reason is data, not definition: the parent-term and coupling selection that built them is not reproducible blind (register 1578's wall), and the delivered selection record covers none of their eight species (register 1767). All bracket figures in this paragraph are recomputed from the table itself.
+ *The earlier statement of this paragraph — 133 rows, 23 elements, 869 interior cells, bracket 869/869, with a twenty-channel gap disclosed against a total of 153 — was true at registers 630–631 and was overtaken by the parent-term wall (register 1578) and the J-resolved rows of T8-J (registers 1699–1700). It claimed the table could not drift from the generator that once wrote it; the table did drift, so that generator is retired: the table above is the source, and every count in the paragraph above it is taken from the table — 596, 477, 119, 28, 70, 3,342 and 2,269 agree to the row. The exotic and collective sources named above still carry sources and no rows, and that remains disclosed rather than reconciled.* Registers 630–631; 1578; 1699–1700.
 ## B.3 Flagged channels
  Channels whose δ spread exceeds 0.25 or whose V departs from 4ν/3 by more than 5% are flagged.
  Every flag in this collection has an identified cause; none is unexplained.
@@ -1019,7 +1019,7 @@ Three marks state a limitation. An **asterisk** on the species marks a two-membe
 | arXiv:2502.20961 | Cs⁺ dipole and quadrupole polarisabilities |
 | ARC Alkali Rydberg Calculator | an independent check on K I |
 
-*The full bibliography, with what each source was used for, is in `LITERATURE.md`.*
+*The full bibliography, with what each source was used for, is in the Mathematical Compendium.*
 
 
 ---
@@ -1077,7 +1077,7 @@ On the raw grade column they carry 18 `measured` cells of 4,696 - Cd/In thirteen
 
 **The row total and the family total differ, and the difference is the point.** *The staged cells are not an outside compilation — they are this work's retrievals staged in the index's own schema, and they are listed here because register 1649 named them as the source of a figure the compendium prints. The outside supply proper is 1,262 rows.*
 
-**Two of the eighteen bodies the register names are not held here, and their absence is stated rather than papered over.** *`MEASUREMENTS.tsv` and the rows recovered at register 652 are stores this work built, not captures it took; register 1674 records that the first has no generator and survives only as data. Neither is an outside compilation, and neither is reproduced in this supply.*
+**Two of the eighteen bodies the register names are not held here, and their absence is stated rather than papered over.** *The measurements store and the rows recovered at register 652 are stores this work built, not captures it took; register 1674 records that the first has no generator and survives only as data. Neither is an outside compilation, and neither is reproduced in this supply.*
 
 ## The X-ray transition energies
 

@@ -1,0 +1,163 @@
+{
+ "old_md5": "93cd71e2190282ef66a9b1fa95d505f9",
+ "subs": {
+  "The_Method_1_6___Mathematical_Compendium-2.md": [
+   [
+    1,
+    "Generated from `mathreg.py` on 2026-08-12; the counts below were recounted from this file on 2026-08-29. **299 objects",
+    "The counts below are taken from this document itself. **299 objects"
+   ],
+   [
+    1,
+    "`mathverify.py` makes **103 assertions naming 46 of these objects**",
+    "The book's verifier makes **103 assertions naming 46 of these objects**"
+   ],
+   [
+    1,
+    "so a check field present is not a verification performed. `check_audit.py` classifies them on any build. Register 849.",
+    "so a check field present is not a verification performed. The classification is recomputed whenever the book is rebuilt. Register 849."
+   ],
+   [
+    1,
+    "Rebuild with `python3 compendium.py > COMPENDIUM.md`. It reads the register, so it cannot\ndrift from what the book actually holds.\n",
+    "This compendium is written from the register itself, so it cannot drift from what the book\nactually holds.\n"
+   ],
+   [
+    1,
+    "Computed — M §14.5.9 / twoheur.py; Karp 1972; Johnson 1974.",
+    "Computed — M §14.5.9 / the two-heuristic comparison; Karp 1972; Johnson 1974."
+   ],
+   [
+    1,
+    "Computed — M §21.5.5 / allcons.py; Freuder 1978.",
+    "Computed — M §21.5.5 / the all-constraints computation; Freuder 1978."
+   ],
+   [
+    1,
+    "Computed — protindex.py; Freuder 1978.",
+    "Computed — the protocol index; Freuder 1978."
+   ],
+   [
+    1,
+    "Computed — M §20 / stat_lang.py; Deming & Stephan 1940; Csiszar 1975.",
+    "Computed — M §20 / the statistical language; Deming & Stephan 1940; Csiszar 1975."
+   ],
+   [
+    1,
+    "Proved — M §12.11.0.11; 03-1D-lands-inside-14D; tower.py, tower3.py, factor.py.",
+    "Proved — M §12.11.0.11, on the rebuilt tower and its bracket system."
+   ],
+   [
+    1,
+    "The generated table in INDICES.md gives 0 with fraction 0.0000, indices.py says 'Λ₈ composes not at all — four source coordinates against three target', and the composable window states the reason as a dependency",
+    "The Index of Indices gives 0 with fraction 0.0000 and states the reason — Λ₈ composes not at all, four source coordinates against three target — and the composable window carries it as a dependency"
+   ],
+   [
+    1,
+    "the 17 rules of vi_best.json applied to the 4·3·3·3·5·2·2·3·3 box",
+    "the 17 rules of the best-fit violation index applied to the 4·3·3·3·5·2·2·3·3 box"
+   ],
+   [
+    1,
+    "not yet by `mathverify.py`; wiring them into the book's verifier is a build task, and until it is done this page states the verification that exists rather than implying one that does not.",
+    "not yet by the book's own verifier; until they are wired into it this page states the verification that exists rather than implying one that does not."
+   ],
+   [
+    1,
+    "`ground.py`'s own edge of Z = 108 as the limit while the synthesised table runs",
+    "the observed table's own edge of Z = 108 as the limit while the synthesised table runs"
+   ]
+  ],
+  "The_Method_1_6___The_Physics_Compendium-2.md": [
+   [
+    1,
+    "Generated from `mathreg.py` and `SPECTRA-DATA.tsv` on 2026-08-12. **248 registered objects, 17 of them physical mechanisms.**",
+    "**248 registered objects, 17 of them physical mechanisms.**"
+   ],
+   [
+    1,
+    "It is not a list of mechanisms — those are in `MECHANISMS.md` and the Mathematical Compendium, and a third copy would drift as register 778's list did.",
+    "It is not a list of mechanisms — those are in the Mathematical Compendium, and a third copy would drift as register 778's list did."
+   ],
+   [
+    1,
+    "Four faults in a single session were transitions performed without their rule written down:",
+    "Four faults in this work were transitions performed without their rule written down:"
+   ],
+   [
+    1,
+    "It sets δ through core penetration, and the sixteen mechanisms in `MECHANISMS.md` describe how.",
+    "It sets δ through core penetration, and the sixteen mechanisms of the Mathematical Compendium describe how."
+   ],
+   [
+    1,
+    "`channels.py` writes `bracket = \"untested\"` for every channel it builds, because running the bracketing method needs measured neighbours and a tolerance and the script supplies neither.",
+    "The channel table is built with its bracket column set to *untested* throughout, because running the bracketing method needs measured neighbours and a tolerance and the build supplies neither."
+   ],
+   [
+    1,
+    "*\"Objects rest on it\" is counted from the Mathematical Compendium at this build, on one rule for all twenty-seven (register 1740):",
+    "*\"Objects rest on it\" is counted from the Mathematical Compendium, on one rule for all twenty-seven (register 1740):"
+   ]
+  ],
+  "The_Method_1_6___The_Index_of_Indices-2.md": [
+   [
+    1,
+    "Generated on 2026-08-15 by `indices.py`. **Every index this work builds",
+    "**Every index this work builds"
+   ],
+   [
+    1,
+    "**What Λ lacks is not a clock but a denominator** — claims per session — which §12.11.1.1 now",
+    "**What Λ lacks is not a clock but a denominator** — claims per unit of work — which §12.11.1.1 now"
+   ],
+   [
+    1,
+    "311 locations, E = 0 as a down-set — regenerated from the text at this build).",
+    "311 locations, E = 0 as a down-set — taken from the text itself)."
+   ],
+   [
+    1,
+    "not a stylistic preference, and it is what `domain_protocol.py` enforces.**",
+    "not a stylistic preference, and the domain protocol enforces it.**"
+   ]
+  ],
+  "The_Method_1_6___Spectra_Compendium-2.md": [
+   [
+    1,
+    "as perspectives of one definition (T6, M's ruling, session 1.7.3).",
+    "as perspectives of one definition (T6, M's ruling)."
+   ],
+   [
+    1,
+    "*Every figure in this table is read from* `COORDINATES-2.13` *at build by* `coords.py`*, which fails the press if one of them drifts from the file.*",
+    "*Every figure in this table is read from the coordinate file itself, and a figure that drifts from it fails the press.*"
+   ],
+   [
+    1,
+    "*The full bibliography, with what each source was used for, is in `LITERATURE.md`.*",
+    "*The full bibliography, with what each source was used for, is in the Mathematical Compendium.*"
+   ],
+   [
+    1,
+    "*`MEASUREMENTS.tsv` and the rows recovered at register 652 are stores this work built,",
+    "*The measurements store and the rows recovered at register 652 are stores this work built,"
+   ],
+   [
+    1,
+    "counted from the table above rather than from the source that once generated it.**",
+    "counted from the table above rather than from what once generated it.**"
+   ],
+   [
+    1,
+    "It claimed the table could not drift from* `spectra.py`; *the table did drift, so* `spectra.py` *is retired: the table above is the source, and every count in the paragraph above it is taken from the table by* `spectra_count.py` * — 596, 477, 119, 28, 70, 3,342 and 2,269 agree to the row.",
+    "It claimed the table could not drift from the generator that once wrote it; the table did drift, so that generator is retired: the table above is the source, and every count in the paragraph above it is taken from the table — 596, 477, 119, 28, 70, 3,342 and 2,269 agree to the row."
+   ],
+   [
+    1,
+    "All bracket figures in this paragraph are recomputed from the table by `spectra_count.py`.",
+    "All bracket figures in this paragraph are recomputed from the table itself."
+   ]
+  ]
+ }
+}

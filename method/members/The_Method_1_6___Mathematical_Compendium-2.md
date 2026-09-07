@@ -1,12 +1,12 @@
 
 # THE METHOD 1.6 — MATHEMATICAL COMPENDIUM
 
-Generated from `mathreg.py` on 2026-08-12; the counts below were recounted from this file on 2026-08-29. **299 objects · 18 roots · 297 settled · 2 unfinished.**
+The counts below are taken from this document itself. **299 objects · 18 roots · 297 settled · 2 unfinished.**
 
-**Verification coverage, stated rather than implied.** `mathverify.py` makes **103 assertions naming 46 of these objects** and recomputes each stated value against the register; **no verifier touches the other 167**. Of the check fields, **85 state a finding, 91 repeat the object's own key, 19 name a function, and 18 are empty** — so a check field present is not a verification performed. `check_audit.py` classifies them on any build. Register 849.
+**Verification coverage, stated rather than implied.** The book's verifier makes **103 assertions naming 46 of these objects** and recomputes each stated value against the register; **no verifier touches the other 167**. Of the check fields, **85 state a finding, 91 repeat the object's own key, 19 name a function, and 18 are empty** — so a check field present is not a verification performed. The classification is recomputed whenever the book is rebuilt. Register 849.
 
-Rebuild with `python3 compendium.py > COMPENDIUM.md`. It reads the register, so it cannot
-drift from what the book actually holds.
+This compendium is written from the register itself, so it cannot drift from what the book
+actually holds.
 
 ---
 
@@ -725,7 +725,7 @@ multiplicity from Hund on the core: 24 of 24 electron counts, exact containment.
 
 *branch and bound over 102 elements*
 
-Computed — M §14.5.9 / twoheur.py; Karp 1972; Johnson 1974.
+Computed — M §14.5.9 / the two-heuristic comparison; Karp 1972; Johnson 1974.
 
 > **Prior art: the seed problem is minimum set cover, NP-complete (Karp 1972), with a greedy ln n approximation (Johnson 1974). Five heuristics agreeing on 7 against a lower bound of 5 is the measurement.**
 
@@ -871,7 +871,7 @@ Proved — M §14.6.1; Kolmogorov 1965.
 
 *eight rows of a first attempt were coordinate systems entered as constraints; the two that no operator carried were both of those*
 
-Computed — M §21.5.5 / allcons.py; Freuder 1978.
+Computed — M §21.5.5 / the all-constraints computation; Freuder 1978.
 
 > **Prior art: indexing constraints by the coordinates they name is the constraint-hypergraph view — Freuder, CACM 21 (1978) 958-966.**
 
@@ -921,7 +921,7 @@ Computed — M §21.5.2; Berge 1962.
 
 *§2.24 is §2.8 specialised to heuristics*
 
-Computed — protindex.py; Freuder 1978.
+Computed — the protocol index; Freuder 1978.
 
 > **Prior art: as the index of all constraints (§21.5.5), applied to the protocol index.**
 
@@ -961,7 +961,7 @@ Computed — M §21.5.4; Freuder 1982; Dechter & Pearl 1989.
 
 *its signature matches the information language, not order/geometry/analysis; the five split three-two between absorbing and growing*
 
-Computed — M §20 / stat_lang.py; Deming & Stephan 1940; Csiszar 1975.
+Computed — M §20 / the statistical language; Deming & Stephan 1940; Csiszar 1975.
 
 > **Prior art: the max-entropy distribution matching given marginals is reached by iterative proportional fitting — Deming & Stephan, Ann. Math. Stat. 11 (1940) 427-444; its information-geometric characterisation is Csiszar, I-divergence geometry, Ann. Prob. 3 (1975) 146-158.**
 
@@ -1585,7 +1585,7 @@ Computed — M §11.1; Stanley 1986.
 
 *IUPAC ground states*
 
-Computed — close_L.py; Madelung 1936; NIST.
+Computed — over Λ's closure on the observed subshells; Madelung 1936; NIST.
 
 > **Prior art: the 247 real subshells across 118 elements are the observed ground configurations, tabulated by NIST; the ordering is Janet-Madelung. Testing Λ constraints against them checks the index, not the table.**
 
@@ -2135,7 +2135,7 @@ on the same elements, Z≤16: (Z,charge,l) gives 0% redundancy, +multiplicity gi
 
 *register 334's sentence — a bracket, not a map — proved stage-by-stage down the whole tower; the proof carries at full resolution with no bit-encoding, the connection's native language the bracket, the house currency; provenance: the build reproduced seven of seven Λ₈ fingerprints and every printed tower count before anything was measured on it*
 
-Proved — M §12.11.0.11; 03-1D-lands-inside-14D; tower.py, tower3.py, factor.py.
+Proved — M §12.11.0.11, on the rebuilt tower and its bracket system.
 
 > **Prior art: §22's outward rule — composition pays a bounded, priced slack — appearing inside the tower; no external attribution claimed, the exhaustive stage census is the measurement.**
 
@@ -2349,7 +2349,7 @@ Computed — M §12.11; Shannon 1948.
 
 Computed — M §12.11.1.3; Mac Lane 1971.
 
-> **Prior art: an index has a composition structure exactly when its cells are morphisms rather than objects — the distinction is the category axioms. Mac Lane (1971). CORRECTED 2026-08-11: this statement printed Λ₈ as 976/491. It is 976/0. The generated table in INDICES.md gives 0 with fraction 0.0000, indices.py says 'Λ₈ composes not at all — four source coordinates against three target', and the composable window states the reason as a dependency: 'Λ₈ target has 3 coordinates against 4', so tgt(a) = src(b) is not even askable at Λ₈ and Λ₉ is the FIRST composable level. The 491 was a hand-authored figure in an object graded COMPUTED, contradicting the computation it depends on.**
+> **Prior art: an index has a composition structure exactly when its cells are morphisms rather than objects — the distinction is the category axioms. Mac Lane (1971). CORRECTED 2026-08-11: this statement printed Λ₈ as 976/491. It is 976/0. The Index of Indices gives 0 with fraction 0.0000 and states the reason — Λ₈ composes not at all, four source coordinates against three target — and the composable window carries it as a dependency: 'Λ₈ target has 3 coordinates against 4', so tgt(a) = src(b) is not even askable at Λ₈ and Λ₉ is the FIRST composable level. The 491 was a hand-authored figure in an object graded COMPUTED, contradicting the computation it depends on.**
 
 ### The composable window
 
@@ -2485,7 +2485,7 @@ Computed — T 7.1 (App. G); Chinneck & Dravnieks 1991.
 
 Computed — T 5.3 (App. G); Chinneck & Dravnieks 1991.
 
-cell count RECOMPUTED: the 17 rules of vi_best.json applied to the 4·3·3·3·5·2·2·3·3 box give exactly 2,370. E=30 is the arity-4 CONSTRAINT-LANGUAGE defect (NEC≥3 -> IC v U v X), not the envelope defect of the cell set, which is 3,040 (R 1009)
+cell count RECOMPUTED: the 17 rules of the best-fit violation index applied to the 4·3·3·3·5·2·2·3·3 box give exactly 2,370. E=30 is the arity-4 CONSTRAINT-LANGUAGE defect (NEC≥3 -> IC v U v X), not the envelope defect of the cell set, which is 3,040 (R 1009)
 
 > **Prior art: a minimal set of conditions whose joint failure is irreducible is a MINIMAL UNSATISFIABLE SUBSET — Chinneck & Dravnieks, Locating minimal infeasible constraint sets in linear programs, ORSA J. Comput. 3 (1991) 157-168; in SAT the same object is the MUS. The conditions themselves are physics: the null energy condition (Penrose 1965), ghost states (Pais & Uhlenbeck 1950) and the equations of motion.**
 
@@ -3147,7 +3147,7 @@ Measured — R 1193-1194; Theodosiou, Inokuti & Manson 1986.
 
 ## LS. The Löwdin solution — the order derived from the equation — 8 objects
 
-*Chapter 35 and its companion paper; register 1701–1712. These objects are verified by the solution's own sealed instruments and receipts, not yet by `mathverify.py`; wiring them into the book's verifier is a build task, and until it is done this page states the verification that exists rather than implying one that does not. The mathematics of the challenge (Chapter 34, registers 1249–1357) is stated separately below under THE MATHEMATICS OF THE LÖWDIN WORK.*
+*Chapter 35 and its companion paper; register 1701–1712. These objects are verified by the solution's own sealed instruments and receipts, not yet by the book's own verifier; until they are wired into it this page states the verification that exists rather than implying one that does not. The mathematics of the challenge (Chapter 34, registers 1249–1357) is stated separately below under THE MATHEMATICS OF THE LÖWDIN WORK.*
 
 ### The entrant operator
 
@@ -3690,7 +3690,7 @@ than any atom has** — 6f¹ through 6f¹⁴ and beyond, needing Z past the tabl
 Past the limit, not defects. Applying the limit:
 
 *Corrected at register 1426: the split was first reported as 47 / 11, using
-`ground.py`'s own edge of Z = 108 as the limit while the synthesised table runs
+the observed table's own edge of Z = 108 as the limit while the synthesised table runs
 to 118. The nine cells between — 6d⁷–6d¹⁰ and 7p²–7p⁶ — are real elements, not
 absences. The eleven named exceptions below are unaffected; only the count of
 beyond-limit cells was wrong.*

@@ -1,0 +1,266 @@
+family	handle	proposed_title	status	evidence
+3B	3B.JM	The Jacobi–Maupertuis metric	RESOLVED	SUFFIX
+3B	3B.def	The deficit	RESOLVED	SUFFIX
+3B	3B.five	The five fixed points	RESOLVED	SUFFIX
+3B	3B.index	The index Λ₃	RESOLVED	SUFFIX
+3B	3B.metric		AMBIGUOUS	2 candidates: The shape metric | The Jacobi–Maupertuis metric
+3B	3B.norm		UNRESOLVED	no evidence in the volumes
+3B	3B.pot	The potential on shape space	RESOLVED	SUFFIX
+3B	3B.shape		AMBIGUOUS	3 candidates: Shape space and the shape sphere | The shape metric | The potential on shape space
+3B	3B.tri		AMBIGUOUS	3 candidates: The shape metric | The Jacobi–Maupertuis metric | The triangle form on K₃
+A	A.E		UNRESOLVED	no evidence in the volumes
+A	A.EW		UNRESOLVED	no evidence in the volumes
+A	A.R		UNRESOLVED	no evidence in the volumes
+A	A.S		UNRESOLVED	no evidence in the volumes
+A	A.W		UNRESOLVED	no evidence in the volumes
+A	A.alph		UNRESOLVED	no evidence in the volumes
+A	A.anchor	The anchor	RESOLVED	SUFFIX
+A	A.blind	The three blindnesses	RESOLVED	SUFFIX
+A	A.bound		AMBIGUOUS	2 candidates: The defect bounds | Monotone upper envelope / staircase bound
+A	A.bpc		AMBIGUOUS	2 candidates: Binary path consistency / 2-decomposability (Kimura et al. 2024) | The binary-projection criterion
+A	A.cert	The certificate condition	RESOLVED	SUFFIX
+A	A.clos		AMBIGUOUS	8 candidates: Closure defect | The recovery operator | The step operator | Closure operator (Moore family) | Monotone upper envelope / staircase bound | The product rule for closure | The four-orientation operator | The statistics operator
+A	A.dechter	Dechter 1992	RESOLVED	SUFFIX
+A	A.define		UNRESOLVED	no evidence in the volumes
+A	A.dens	Density and informativeness	RESOLVED	SUFFIX
+A	A.derived		AMBIGUOUS	43 candidates: Closure defect | The metric defect | The recovery operator | The step operator | The walk | Projection onto coordinate i | The anchor | The three blindnesses | The defect bounds | Binary path consistency / 2-decomposability (Kimura et al. 2024) | The certificate condition | Closure operator (Moore family) | Dechter 1992 | The defining letter | Density and informativeness | Adjunction never repairs (M Thm 10.1) | Description length | Monotone upper envelope / staircase bound | E is coordinate-relative | The expression always exists | Extensivity | Bergman double-projection; Baker–Pixley 1975 (majority term) | Freuder 1982 | Global consistency (CSP) | Interior and exterior | The logic level | Failure mode A — ordering | Failure mode B — arity | Montanari 1974 | The cap as a morphism | Orientation cost | The product rule for closure | The product rule for the defect | The four-orientation operator | ℛ as a relaxation | The tightening rule | The polarisation formula | Slack | Staircase / connected row-convex | The one-corner characterisation | The statistics operator | The three populations | The binary-projection criterion
+A	A.ebits		UNRESOLVED	no evidence in the volumes
+A	A.env	Monotone upper envelope / staircase bound	RESOLVED	SUFFIX
+A	A.erel		UNRESOLVED	no evidence in the volumes
+A	A.expr	The expression always exists	RESOLVED	SUFFIX
+A	A.ext		AMBIGUOUS	2 candidates: Extensivity | Interior and exterior
+A	A.fix		UNRESOLVED	no evidence in the volumes
+A	A.freuder		AMBIGUOUS	2 candidates: Freuder 1982 | Montanari 1974
+A	A.gc		AMBIGUOUS	9 candidates: Closure defect | Projection onto coordinate i | Binary path consistency / 2-decomposability (Kimura et al. 2024) | Closure operator (Moore family) | Monotone upper envelope / staircase bound | Bergman double-projection; Baker–Pixley 1975 (majority term) | Global consistency (CSP) | The product rule for closure | The binary-projection criterion
+A	A.intext		UNRESOLVED	no evidence in the volumes
+A	A.logic	The logic level	RESOLVED	SUFFIX
+A	A.modeA		AMBIGUOUS	2 candidates: Failure mode A — ordering | Failure mode B — arity
+A	A.modeB		AMBIGUOUS	2 candidates: Failure mode A — ordering | Failure mode B — arity
+A	A.montanari		AMBIGUOUS	2 candidates: Freuder 1982 | Montanari 1974
+A	A.morph	The cap as a morphism	RESOLVED	SUFFIX
+A	A.orient		AMBIGUOUS	2 candidates: Orientation cost | The four-orientation operator
+A	A.prod		AMBIGUOUS	2 candidates: The product rule for closure | The product rule for the defect
+A	A.prodE		UNRESOLVED	no evidence in the volumes
+A	A.r4		UNRESOLVED	no evidence in the volumes
+A	A.relax	ℛ as a relaxation	RESOLVED	SUFFIX
+A	A.rule		AMBIGUOUS	43 candidates: Closure defect | The metric defect | The recovery operator | The step operator | The walk | Projection onto coordinate i | The anchor | The three blindnesses | The defect bounds | Binary path consistency / 2-decomposability (Kimura et al. 2024) | The certificate condition | Closure operator (Moore family) | Dechter 1992 | The defining letter | Density and informativeness | Adjunction never repairs (M Thm 10.1) | Description length | Monotone upper envelope / staircase bound | E is coordinate-relative | The expression always exists | Extensivity | Bergman double-projection; Baker–Pixley 1975 (majority term) | Freuder 1982 | Global consistency (CSP) | Interior and exterior | The logic level | Failure mode A — ordering | Failure mode B — arity | Montanari 1974 | The cap as a morphism | Orientation cost | The product rule for closure | The product rule for the defect | The four-orientation operator | ℛ as a relaxation | The tightening rule | The polarisation formula | Slack | Staircase / connected row-convex | The one-corner characterisation | The statistics operator | The three populations | The binary-projection criterion
+A	A.seaton		UNRESOLVED	no evidence in the volumes
+A	A.slack	Slack	RESOLVED	SUFFIX
+A	A.stair		AMBIGUOUS	2 candidates: Monotone upper envelope / staircase bound | Staircase / connected row-convex
+A	A.staircls		UNRESOLVED	no evidence in the volumes
+A	A.stat2	The statistics operator	RESOLVED	SUFFIX
+A	A.three		AMBIGUOUS	2 candidates: The three blindnesses | The three populations
+A	A.two		UNRESOLVED	no evidence in the volumes
+B	B.V		UNRESOLVED	no evidence in the volumes
+B	B.V43		UNRESOLVED	no evidence in the volumes
+B	B.Vexact		UNRESOLVED	no evidence in the volumes
+B	B.adm		AMBIGUOUS	2 candidates: The five-sigma admissibility threshold — where the bracket may be applied at all | The admissible order
+B	B.aitken	Aitken Δ² / Seki Kōwa	RESOLVED	SUFFIX
+B	B.brk		UNRESOLVED	no evidence in the volumes
+B	B.coll		UNRESOLVED	no evidence in the volumes
+B	B.fail	When the bracket fails	RESOLVED	SUFFIX
+B	B.floor2		AMBIGUOUS	2 candidates: The floor at two | The Rydberg floor
+B	B.floor32		AMBIGUOUS	2 candidates: The floor at two | The Rydberg floor
+B	B.frac	The fractional widths	RESOLVED	SUFFIX
+B	B.hstar		UNRESOLVED	no evidence in the volumes
+B	B.newton	Newton decrement, Nesterov–Nemirovskii 1994	RESOLVED	SUFFIX
+B	B.nuV		UNRESOLVED	no evidence in the volumes
+B	B.ordbr		UNRESOLVED	no evidence in the volumes
+B	B.ordk		UNRESOLVED	no evidence in the volumes
+B	B.pareto		UNRESOLVED	no evidence in the volumes
+B	B.pole	The linear pole	RESOLVED	SUFFIX
+B	B.rank1	The rank-one factorisation	RESOLVED	SUFFIX
+B	B.selfconc		UNRESOLVED	no evidence in the volumes
+B	B.silence	What silence implies	RESOLVED	SUFFIX
+C	C.Aq		UNRESOLVED	no evidence in the volumes
+C	C.Bq		UNRESOLVED	no evidence in the volumes
+C	C.box	The box generating function	RESOLVED	SUFFIX
+C	C.compare		UNRESOLVED	no evidence in the volumes
+C	C.cut	Every cut closes	RESOLVED	SUFFIX
+C	C.fib		AMBIGUOUS	2 candidates: The fibred count | The fibre trade
+C	C.local	Local closure is not implied	RESOLVED	SUFFIX
+C	C.pareto		UNRESOLVED	no evidence in the volumes
+C	C.qmean		UNRESOLVED	no evidence in the volumes
+E	E.ioniz		UNRESOLVED	no evidence in the volumes
+E	E.layout	The price of a layout	RESOLVED	SUFFIX
+E	E.nuclide	The nuclide chart's defect	RESOLVED	SUFFIX
+E	E.table		UNRESOLVED	no evidence in the volumes
+EM	EM.cross	The selection-rule crossing	RESOLVED	SUFFIX
+EM	EM.image		UNRESOLVED	no evidence in the volumes
+EM	EM.map		UNRESOLVED	no evidence in the volumes
+EM	EM.notcomp		UNRESOLVED	no evidence in the volumes
+EM	EM.parity		AMBIGUOUS	2 candidates: The parity hole | The multipole is fixed by the orbital jump and the parity
+EM	EM.quotient	The electromagnetic quotient	RESOLVED	SUFFIX
+EM	EM.spin	The spin diagonal	RESOLVED	SUFFIX
+F	F.exact	The family's defect, exactly	RESOLVED	SUFFIX
+F	F.moore		UNRESOLVED	no evidence in the volumes
+F	F.open		UNRESOLVED	no evidence in the volumes
+F	F.unstatable	The unstatable family	RESOLVED	SUFFIX
+G	G.allcons		UNRESOLVED	no evidence in the volumes
+G	G.book	The book as an index	RESOLVED	SUFFIX
+G	G.cons		AMBIGUOUS	3 candidates: The index of all constraints | The constraint index | The constraint graph
+G	G.graph	The constraint graph	RESOLVED	SUFFIX
+G	G.near	The seven near-misses	RESOLVED	SUFFIX
+G	G.prot	The protocol index	RESOLVED	SUFFIX
+G	G.ref	The reference index	RESOLVED	SUFFIX
+G	G.reg	The register as an index	RESOLVED	SUFFIX
+G	G.shape	Shape decides the seed	RESOLVED	SUFFIX
+G	G.stat	Statistics as a language	RESOLVED	SUFFIX
+G	G.tower	The cycle rank of the tower	RESOLVED	SUFFIX
+G	G.trip	Independence is a triple property	RESOLVED	SUFFIX
+I	I.convex	The convexity criterion	RESOLVED	SUFFIX
+I	I.interval		AMBIGUOUS	2 candidates: The interval map | The shape of an interval
+I	I.shape	The shape of an interval	RESOLVED	SUFFIX
+K	K.arrow	The arrow index	RESOLVED	SUFFIX
+K	K.axis	The axis test	RESOLVED	SUFFIX
+K	K.cat		AMBIGUOUS	2 candidates: The tower is a category | The categorial jump
+K	K.clock		AMBIGUOUS	2 candidates: The composition clock | The clock that does not tick
+K	K.clockfail		UNRESOLVED	no evidence in the volumes
+K	K.comp		AMBIGUOUS	6 candidates: The composition clock | Composition | The composability peak | The composition quiver | Space is what an index holds, time is what it composes | The composable window
+K	K.corner	Corners and faces	RESOLVED	SUFFIX
+K	K.coupling		UNRESOLVED	no evidence in the volumes
+K	K.deadend		UNRESOLVED	no evidence in the volumes
+K	K.decay		UNRESOLVED	no evidence in the volumes
+K	K.girth	The girth is four	RESOLVED	SUFFIX
+K	K.helly		AMBIGUOUS	2 candidates: Helly number | The transit profile
+K	K.jump	The categorial jump	RESOLVED	SUFFIX
+K	K.langclose		UNRESOLVED	no evidence in the volumes
+K	K.markov	The Markov property	RESOLVED	SUFFIX
+K	K.peak	The composability peak	RESOLVED	SUFFIX
+K	K.produce		UNRESOLVED	no evidence in the volumes
+K	K.quiver		AMBIGUOUS	25 candidates: The arrow index | The axis test | The tower's two ends joined | The tower is a category | The composition clock | The clock that does not tick | Composition | Corners and faces | The refuted conjecture | The dead ends, defined | Data-processing inequality + Pinsker | The girth is four | Helly number | The categorial jump | Closure as agreement | The Markov property | The composability peak | The production rule | The composition quiver | The projection ladder | The three-coordinate rule | The transit profile | Space is what an index holds, time is what it composes | The composable window | The periodic table as a coordinate
+K	K.redun		UNRESOLVED	no evidence in the volumes
+K	K.three	The three-coordinate rule	RESOLVED	SUFFIX
+K	K.transit	The transit profile	RESOLVED	SUFFIX
+K	K.twocol		UNRESOLVED	no evidence in the volumes
+K	K.window		AMBIGUOUS	3 candidates: The dead ends, defined | The transit profile | The composable window
+K	K.zcross		UNRESOLVED	no evidence in the volumes
+L	L.E0		UNRESOLVED	no evidence in the volumes
+L	L.F		UNRESOLVED	no evidence in the volumes
+L	L.F1		UNRESOLVED	no evidence in the volumes
+L	L.Fm1		UNRESOLVED	no evidence in the volumes
+L	L.alpha		UNRESOLVED	no evidence in the volumes
+L	L.amp		AMBIGUOUS	2 candidates: The amplification | Join-prime and meet-prime
+L	L.arith		UNRESOLVED	no evidence in the volumes
+L	L.birk		AMBIGUOUS	2 candidates: The Birkhoff representation | Birkhoff / product of chains
+L	L.bits		UNRESOLVED	no evidence in the volumes
+L	L.box	The box factorises	RESOLVED	SUFFIX
+L	L.c1		UNRESOLVED	no evidence in the volumes
+L	L.c2		UNRESOLVED	no evidence in the volumes
+L	L.c3		UNRESOLVED	no evidence in the volumes
+L	L.c4		UNRESOLVED	no evidence in the volumes
+L	L.c5		UNRESOLVED	no evidence in the volumes
+L	L.c6		UNRESOLVED	no evidence in the volumes
+L	L.c7		UNRESOLVED	no evidence in the volumes
+L	L.c8		UNRESOLVED	no evidence in the volumes
+L	L.chains	Birkhoff / product of chains	RESOLVED	SUFFIX
+L	L.chi		UNRESOLVED	no evidence in the volumes
+L	L.circuit	The implication circuit	RESOLVED	SUFFIX
+L	L.closed		AMBIGUOUS	4 candidates: The fibres, in closed form | Which selection rules a closed index will accept | Adjunction never repairs a closed index | Why a closed expression exists
+L	L.def		AMBIGUOUS	2 candidates: The occupancy clock, and definability is not reachability | The definition of Λ
+L	L.dim	Order dimension (Dushnik–Miller)	RESOLVED	SUFFIX
+L	L.dist		AMBIGUOUS	3 candidates: The arrows decay with distance | Möbius function of a distributive lattice | Distinct-prime-counting function
+L	L.metric	The lattice metric	RESOLVED	SUFFIX
+L	L.mobius		UNRESOLVED	no evidence in the volumes
+L	L.modular	Modularity (equality, not submodularity)	RESOLVED	SUFFIX
+L	L.occ		AMBIGUOUS	2 candidates: The occupancy floor | The occupancy clock, and definability is not reachability
+L	L.omega		UNRESOLVED	no evidence in the volumes
+L	L.pal	Palindromic rank polynomial ⟺ self-dual	RESOLVED	SUFFIX
+L	L.pushback		UNRESOLVED	no evidence in the volumes
+L	L.rankpoly		UNRESOLVED	no evidence in the volumes
+L	L.real	The index against the real subshells	RESOLVED	SUFFIX
+L	L.skew	The rank skew	RESOLVED	SUFFIX
+L	L.sperner	The Sperner property	RESOLVED	SUFFIX
+L	L.step	The interval-removal step	RESOLVED	SUFFIX
+L	L.total	The membership function is total	RESOLVED	SUFFIX
+L	L.tree	The constraint tree	RESOLVED	SUFFIX
+L	L.void		AMBIGUOUS	2 candidates: The void | The void-free fraction
+L	L.voidfrac		UNRESOLVED	no evidence in the volumes
+LS	LS.asym		UNRESOLVED	no evidence in the volumes
+LS	LS.chord	The defect closed: chord = rot + perp	RESOLVED	SUFFIX
+LS	LS.coll	The collapse condition	RESOLVED	SUFFIX
+LS	LS.ent		AMBIGUOUS	2 candidates: The entrant operator | The state-dependent multiplier identity
+LS	LS.law	The ordering law, five clauses	RESOLVED	SUFFIX
+LS	LS.pin	The pinned-channel theorem (no g block)	RESOLVED	SUFFIX
+LS	LS.quart	The exact-quartic decomposition	RESOLVED	SUFFIX
+LS	LS.twin	The twin operator, c → ∞	RESOLVED	SUFFIX
+M	M.C1		AMBIGUOUS	9 candidates: The presymplectic potential | Half-sided modular inclusion on a non-expanding horizon | Borchers 1992 / Wiesbrock 1993 | The modular ledger | Reeh–Schlieder | Semifinite carries a trace | Sorce 2024 | Takesaki duality 1973 | Tomita–Takesaki
+M	M.C2		AMBIGUOUS	9 candidates: The presymplectic potential | Half-sided modular inclusion on a non-expanding horizon | Borchers 1992 / Wiesbrock 1993 | The modular ledger | Reeh–Schlieder | Semifinite carries a trace | Sorce 2024 | Takesaki duality 1973 | Tomita–Takesaki
+M	M.hsmi	Half-sided modular inclusion on a non-expanding horizon	RESOLVED	SUFFIX
+M	M.ledger		AMBIGUOUS	3 candidates: Half-sided modular inclusion on a non-expanding horizon | Borchers 1992 / Wiesbrock 1993 | The modular ledger
+M	M.rs	Reeh–Schlieder	RESOLVED	SUFFIX
+M	M.semi	Semifinite carries a trace	RESOLVED	SUFFIX
+M	M.sorce		AMBIGUOUS	2 candidates: Half-sided modular inclusion on a non-expanding horizon | Sorce 2024
+M	M.takesaki		AMBIGUOUS	2 candidates: Takesaki duality 1973 | Tomita–Takesaki
+M	M.tt	Tomita–Takesaki	RESOLVED	SUFFIX
+P	P.buildlimit		UNRESOLVED	no evidence in the volumes
+P	P.charge		UNRESOLVED	no evidence in the volumes
+P	P.converge		UNRESOLVED	no evidence in the volumes
+P	P.coreblind		UNRESOLVED	no evidence in the volumes
+P	P.dcollapse		UNRESOLVED	no evidence in the volumes
+P	P.iso	The isoelectronic ladder	RESOLVED	SUFFIX
+P	P.jj		UNRESOLVED	no evidence in the volumes
+P	P.jsplit		UNRESOLVED	no evidence in the volumes
+P	P.lcollapse		UNRESOLVED	no evidence in the volumes
+P	P.lens	The precision lens	RESOLVED	SUFFIX
+P	P.mono	The monotonicity of the defect	RESOLVED	SUFFIX
+P	P.perturb	Series perturbation	RESOLVED	SUFFIX
+P	P.polar	Core polarisation	RESOLVED	SUFFIX
+P	P.qdt		UNRESOLVED	no evidence in the volumes
+P	P.selfsame		UNRESOLVED	no evidence in the volumes
+P	P.termsplit		UNRESOLVED	no evidence in the volumes
+P	P.trunc	Truncation loss	RESOLVED	SUFFIX
+Q	Q.alpha		UNRESOLVED	no evidence in the volumes
+Q	Q.anchor	The two-ended anchor	RESOLVED	SUFFIX
+Q	Q.bound	The Pauli bound	RESOLVED	SUFFIX
+Q	Q.bridge	The bridge equation	RESOLVED	SUFFIX
+Q	Q.collapse	The Janet collapse	RESOLVED	SUFFIX
+Q	Q.delta		UNRESOLVED	no evidence in the volumes
+Q	Q.exch	The exchange factor	RESOLVED	SUFFIX
+Q	Q.final	The channel equation, final form	RESOLVED	SUFFIX
+Q	Q.pen		UNRESOLVED	no evidence in the volumes
+Q	Q.pol	The polarisability index	RESOLVED	SUFFIX
+Q	Q.region		UNRESOLVED	no evidence in the volumes
+S	S.bits		UNRESOLVED	no evidence in the volumes
+S	S.bounds	The bounds are recoverable	RESOLVED	SUFFIX
+S	S.box	The box seed law, d + c − 2	RESOLVED	SUFFIX
+S	S.car	The Carathéodory lower bound	RESOLVED	SUFFIX
+S	S.channel	The channel curve	RESOLVED	SUFFIX
+S	S.core		UNRESOLVED	no evidence in the volumes
+S	S.cover		AMBIGUOUS	2 candidates: The bounds are recoverable | The seed is a set cover
+S	S.down	The down-set seed law, d + c − 1	RESOLVED	SUFFIX
+S	S.erasure	The seed is an erasure structure	RESOLVED	SUFFIX
+S	S.ground	The ground-state derivation	RESOLVED	SUFFIX
+S	S.lam		UNRESOLVED	no evidence in the volumes
+S	S.open	The open-index form, seed + E	RESOLVED	SUFFIX
+S	S.parent	The parent-term wall	RESOLVED	SUFFIX
+S	S.regime	The regime coordinate	RESOLVED	SUFFIX
+S	S.ritz		UNRESOLVED	no evidence in the volumes
+S	S.seed		AMBIGUOUS	9 candidates: The seed as binary, corrected | The box seed law, d + c − 2 | The seed's forced set, corrected | The seed is a set cover | The down-set seed law, d + c − 1 | The seed is an erasure structure | Λ's seed — seven cells | The open-index form, seed + E | A seed
+S	S.status		UNRESOLVED	no evidence in the volumes
+S	S.unit	The unit template, corrected	RESOLVED	SUFFIX
+T	T.a10		UNRESOLVED	no evidence in the volumes
+T	T.a11		UNRESOLVED	no evidence in the volumes
+T	T.a12		UNRESOLVED	no evidence in the volumes
+T	T.a13		UNRESOLVED	no evidence in the volumes
+T	T.a9		UNRESOLVED	no evidence in the volumes
+T	T.a9p		AMBIGUOUS	3 candidates: The admissible Pauli cut | Basis independence of the level set | Constraint tightness as a count
+T	T.dens	The axis density	RESOLVED	SUFFIX
+T	T.dich	The counting-coupling dichotomy	RESOLVED	SUFFIX
+T	T.excl	The three excluded forms	RESOLVED	SUFFIX
+T	T.invariant		UNRESOLVED	no evidence in the volumes
+T	T.para		AMBIGUOUS	3 candidates: Basis independence of the level set | Parastatistics | The tower
+T	T.real	The bounds against real terms	RESOLVED	SUFFIX
+T	T.scheme		AMBIGUOUS	16 candidates: Racah 1943 seniority | The parent bound | The recoupling bound | The spin-half bound | The seniority floor | The admissible Pauli cut | The axis density | The counting-coupling dichotomy | The three excluded forms | Basis independence of the level set | Parastatistics | The bounds against real terms | The four coupling schemes | Constraint tightness as a count | The tower | The tree or the tightness
+T	T.tight		AMBIGUOUS	2 candidates: Constraint tightness as a count | The tree or the tightness
+T	T.tower	The tower	RESOLVED	SUFFIX
+T	T.trad		AMBIGUOUS	2 candidates: The counting-coupling dichotomy | The four coupling schemes
+W	W.core15		AMBIGUOUS	4 candidates: The core at fifteen letters | The core at nine letters | The frontier metric — distance and status on the fifteen-letter alphabet | The core is minimal
+W	W.core9		AMBIGUOUS	3 candidates: The core at fifteen letters | The core at nine letters | The core is minimal
+W	W.face	The null surface is a face	RESOLVED	SUFFIX
+W	W.frontier	The frontier metric — distance and status on the fifteen-letter alphabet	RESOLVED	SUFFIX
+W	W.jur	Jurisdiction does not change the defect	RESOLVED	SUFFIX
+W	W.onehot		AMBIGUOUS	2 candidates: The frontier metric — distance and status on the fifteen-letter alphabet | The one-hot partition
+W	W.rel	The one-hot partition	RESOLVED	ANCHOR
+W	W.scale		AMBIGUOUS	9 candidates: The core at fifteen letters | The core at nine letters | The null surface is a face | The frontier metric — distance and status on the fifteen-letter alphabet | Jurisdiction does not change the defect | The one-hot partition | Brunetti–Fredenhagen–Verch 2003 | The defect does not scale | The core is minimal
+W	W.supp	The core is minimal	RESOLVED	ANCHOR

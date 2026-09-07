@@ -138,10 +138,7 @@
   header: | § | what it states | in this work |
   DATA rows 77 == 77: True
   rows marked load-bearing / Appendix G: 30 == 30: True; marked "not used": 47 == 47: True; both/neither: 0 / 0
-  statements identical to Appendix G's: 29 of 30; differing: 1
-    L2021 §1.7 | IoI: Six blindnesses of the closure. A derived coordinate cannot repair it: the box g | G: Six blindnesses of the closure. A derived coordinate cannot repair it: the box g
-    §1.7 first difference at char 125: IoI 'ount while \\' | G 'ount while \\|X\\| stays fixed.' (G L11425); IoI raw cell count 3 (the `\|X\|` of G's row was split as cell boundaries when the IoI row was generated: the statement is truncated at *while*, the tail *|X| stays fixed.* lost)
-    IoI L2021 raw: "| 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \\ | **rests on it** — Appendix G |"
+  statements identical to Appendix G's: 30 of 30; differing: 0
   IoI § set == Transitions § set: True (only-IoI []; only-T [])
 
 == §7 the Index as DATA: terms, entries, relations, the down-set test (L11419 "57 terms, 311 entries, 44 specialisation relations, 0 violations")

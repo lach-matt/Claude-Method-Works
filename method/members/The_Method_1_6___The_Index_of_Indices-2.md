@@ -1,7 +1,7 @@
 
 # THE METHOD 1.6 — THE INDEX OF INDICES
 
-Generated on 2026-08-15 by `indices.py`. **Every index this work builds
+**Every index this work builds
 on or beside the atomic index — what it holds, whether it closes, whether it carries time, and
 what role it plays for Λ.** Measured where measurable; where an index is named and never built,
 that is stated rather than filled in.
@@ -184,7 +184,7 @@ source end is a before, its target end an after, and q is what changed between t
 Λ₁₀ 2,535/2,050 — and the periodic table and the calendar **cannot have one**, because a state
 cell has one position and there is nothing to compose.
 
-**What Λ lacks is not a clock but a denominator** — claims per session — which §12.11.1.1 now
+**What Λ lacks is not a clock but a denominator** — claims per unit of work — which §12.11.1.1 now
 supplies. *A date must never enter Λ: a transition is a type, and types are not dated.*
 
 ## The space index
@@ -1521,7 +1521,7 @@ months' 31sts. **365 = 5 · 73, and 73 exceeds every rung**, so it is genuinely 
 
 ## The book's own indexes
 
-**What they are.** The book at chapter resolution (E = 578) and at part resolution (E = 0); the register (E = 6 at 68.8% density); the reference index (38 cells, E = 0, and not a tree); the term index at the back of the main volume (57 terms over 44 specialisation relations, 311 locations, E = 0 as a down-set — regenerated from the text at this build).
+**What they are.** The book at chapter resolution (E = 578) and at part resolution (E = 0); the register (E = 6 at 68.8% density); the reference index (38 cells, E = 0, and not a tree); the term index at the back of the main volume (57 terms over 44 specialisation relations, 311 locations, E = 0 as a down-set — taken from the text itself).
 
 **What only they contribute.** *The method self-applied.* **This is the only place where E > 0 is a theorem about SHAPE rather than a gap in collection** — the book's chapters do not close because chapters are not a coordinate system, and saying so with a number is the point.
 
@@ -1679,7 +1679,7 @@ closing grid is a staircase and the diagonal is the whole content: CODATA
 constants are universal, this work's numbers hold on a region or all elements and
 never universally. **A pooled fit across regions asserts a universal parameter,
 which the closed index says does not exist — that is a structural prohibition,
-not a stylistic preference, and it is what `domain_protocol.py` enforces.**
+not a stylistic preference, and the domain protocol enforces it.**
 
 **Rebuilt on three rulings**: `kind` is the same axis as `source`; `arity` is a
 property of the book, not the parameter; and parameters that are artefacts of the
@@ -2018,7 +2018,7 @@ origin and is named as such throughout; this table and Appendix G are the addres
 | 1.4 | R is the closure of a binary constraint network under monotone binary projections, and E(X) = 0 exactly when the network is globally consistent. | **rests on it** — Appendix G |
 | 1.5 | X ⊆ BPC(X) ⊆ R(X), so E > 0 is in principle ambiguous between genuine inconsistency and envelope coarseness. Computed for every object in the paper, R = BPC exactly and the ambiguity does not arise. | not used |
 | 1.6 | The two failure modes — order and arity — and the third case: a vocabulary may not be indexable at all. | **rests on it** — Appendix G |
-| 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \ | **rests on it** — Appendix G |
+| 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \|X\| stays fixed. | **rests on it** — Appendix G |
 | 1.8 | The closure rule. A tightening preserves E = 0 if and only if it binds one coordinate by a monotone function of one other. One-sided as stated; the operator is two-sided (§2.15.2; register 402). | **rests on it** — Appendix G |
 | 1.9 | E requires density, asymmetrically. E = 0 is informative at any density; E > 0 at low density measures sparsity and nothing else. | **rests on it** — Appendix G |
 | 1.10 | The two named theorems covering Λ — Freuder 1982 and Montanari 1974. Neither reaches either violation index. | **rests on it** — Appendix G |
