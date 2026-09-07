@@ -293,6 +293,22 @@ FINDINGS = [
   "m_f/m_0 = e^{-3 eta} = the relativistic Doppler factor cubed; 8/27 to reach 0.2 c and stop"),
  ("MARGINAL-WALL",    0, -1, -1, "warpshell.py",
   "the realized wall sits on the Poisson-Visser marginal curve; a habitable 1 g, 10 m design misses the burn criterion by 1.8e14"),
+ # Stability is structural, so the fix is the equation of state.  wall.py.
+ ("STIFF-WALL",      +1, +1, +1, "wall.py",
+  "strictly stable iff beta^2 > (1-s)(3s^2+2s+1)/(4s^2(1+3s)): 0.0793 at x=0.3, and subluminal through all of x < 0.8437"),
+ ("DEC-DECOUPLED",    0,  0, +1, "wall.py",
+  "the junction fixes sigma_0 and p_0 with no beta^2 in them, so V(R_0)=V'(R_0)=0 identically: stiffness is free in dominant energy"),
+ ("BASIN-THEOREM",   +1,  0,  0, "wall.py",
+  "beta^2_crit - p_0/sigma_0 = x/(4s^2(1+3s)) > 0 exactly: strict stability IMPLIES an unbounded dec basin"),
+ ("BURN-INVERTS",     0, +1, +1, "wall.py",
+  "a stable wall oscillates, so the burn must be adiabatic not fast: the 1.8e14 shortfall becomes a 2.2e14 margin"),
+ # The method equation's metric half, run on spacetime.  Sec 12.11.1.3 routes it.
+ ("JACOBI-IS-GR",     0,  0, +1, "pathmetric.py",
+  "the metric half applied to a static spacetime IS the geodesic equation: Jacobi orbit == Schwarzschild to 1.6e-15"),
+ ("HORIZON-IS-HILL",  0, -1, +1, "pathmetric.py",
+  "the horizon is V=0, where the optical metric blows up; V=E/m is Hill's 1878 zero-velocity surface: classical degeneracies, not warp pathologies"),
+ ("SHIFT-COSTS",      0, -1, -1, "pathmetric.py",
+  "round trip = INTEGRAL 2c dx/(c^2-v^2), longer by 2v^2/(c(c^2-v^2)) > 0: any 1+1D shift strictly increases the invariant distance"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -319,6 +335,8 @@ SUPPORT = [
  ("HORIZON-FIX","twist.py",         "TEST 16 was read as the wall; the horizon was never required, and the real wall is that 1+1D is flat"),
  ("BBV-CHECK",  "twist.py",         "this tree's twist reproduces BBV Eq (3.47c) to ten digits and their Thm III.15 independently"),
  ("SSV-ERRATA", "warpshell.py",     "BBV report minor errors in Santiago-Schuster-Visser itself, at their Errors 9 and 29"),
+ ("GEODESIC-VERTEX","pathmetric.py",  "M's lattice metric misglosses st=0 as betweenness; the geodesic set is the box's VERTICES, up to 6,561x smaller"),
+ ("NOT-LENGTH-SPACE","pathmetric.py", "log(|D|+1) is concave, so an index penalises subdivision and its first step costs log 2: not a length space"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -399,7 +417,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 96)
+    chk("number of findings indexed", len(FINDINGS), 103)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -417,11 +435,11 @@ def selftest():
     chk("cells sitting on all three axes", sorted(triple),
         sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
                 "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
-                "NO-EXOTIC","ONE-AXIS-FLAT"]))
+                "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
         sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
-                "THE-DOOR","EC-TAKEN","NO-EXOTIC"]))
+                "THE-DOOR","EC-TAKEN","NO-EXOTIC","STIFF-WALL"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

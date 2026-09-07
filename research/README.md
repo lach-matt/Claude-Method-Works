@@ -902,3 +902,131 @@ and the first that carries no negative energy at any point. `ONE-AXIS-FLAT` is `
 > buys is an exactly tidally flat cabin. Its open problem is marginal linear stability of the
 > realized wall — which, on the light-crossing criterion, excludes the habitable regime by fourteen
 > orders of magnitude. That is the wall now, and it is a stability problem, not an energy problem.
+
+## Stability was structural, so the fix was — and then the method equation was asked what it is for
+
+### `wall.py` — how much stiffer, and is that matter causal
+
+Le's own escape clause is one sentence: *"A slightly stiffer, still-admissible wall is strictly
+stable at no cost in the surface dec margin, which is junction-fixed and independent of the
+equation-of-state slope, so strict stability and strict dominant energy decouple."* He does not price
+it. `wall.py` does, from the Poisson–Visser thin-shell linearisation built from scratch — Minkowski
+inside, Schwarzschild outside, Lanczos junction, `V(R) = 1 − [m_s/2R + m/m_s]²`.
+
+The derivation validates before it concludes: the static surface stress it returns reproduces **Le's
+Eq (17)** — `8πR(σ₀−p₀) = −(5s−1)(s−1)/(2s)` — at five values of x, with the surface-DEC root landing
+on **24/25 to 9×10⁻¹⁶**. Then, with `β² = dp/dσ` the surface equation-of-state slope:
+
+> **strictly stable ⟺ β² > β²_crit(x) = (1−s)(3s²+2s+1) / (4s²(1+3s))**, `s = √(1−x)`
+
+exactly the zero of `V″(R₀)`. It is cheap, and two values are exact closed forms:
+
+| x = 2m/R | β²_crit | c_s | which limit |
+|---|---|---|---|
+| 0.3 | 0.079332 | 0.282 c | Le's operating point |
+| 2/3 | **(√3−1)/2** = 0.366025 | 0.605 c | Einstein–Vlasov |
+| 4/5 | **√5 − 3/2** = 0.736068 | 0.858 c | the wall's own limit |
+| 0.843742 | 1 | c | causal ceiling, root of `15s³+3s²−s−1` |
+
+**The entire operative window `x < 4/5` lies below the causal ceiling.** Strict stability is available
+everywhere the wall is realizable, with subluminal sound. And the decoupling is not taken on faith:
+`σ₀` and `p₀` come out of the junction as functions of `(s, R)` alone — `β²` does not appear until the
+second derivative — so `V(R₀) = 0` and `V′(R₀) = 0` hold identically in `β²`, checked at four values.
+
+**Then the constraint inverts.** A marginal wall runs away, so the burn must *beat* it. A stable wall
+oscillates at `ω = √(V″/2)`, so the burn must merely not *resonate* with it — and the period is
+checked by integrating `R̈ = −V′/2` directly and timing it, matching `2π/√(V″/2)` to 2×10⁻⁵.
+
+| design | marginal wall (needs ≤ 1) | stiff wall (needs ≫ 1) |
+|---|---|---|
+| Le App. K worked burn | fails by 2.0 | adiabatic by only 2.4 |
+| 1 g, 1 km cavity | fails by 1.8×10¹² | adiabatic by 2.2×10¹² |
+| **1 g, 10 m cavity** | **fails by 1.8×10¹⁴** | **adiabatic by 2.2×10¹⁴** |
+
+The same ratio, times `W`, on the other side. The habitable regime was never near the boundary — it
+was fourteen orders from it, and which side depends entirely on the sign of `V″`. The corollary is
+the sanity check: the relativistic corner a marginal wall handles best is the one a stiff wall
+handles worst. It also lines up with Le's Prop. 6, which proves the time-evolved assembly for **slow**
+fixed-axis burns — the stiff wall and the dynamical existence proof want the same regime.
+
+**A bonus theorem, and it is the opposite of what I went looking for.** Since
+`d(σ−p)/dR = (1−β²)σ′ < 0`, the margin falls as the shell expands, so I expected a finite amplitude
+at which a swinging shell breaks dominant energy. There is none:
+
+> **β²_crit − p₀/σ₀ = x / (4s²(1+3s)) > 0** exactly, for every `x ∈ (0,1)`, checked to 10⁻¹³.
+
+Any strictly stable wall automatically sits above `p₀/σ₀`, which is precisely the threshold for the
+DEC basin to be unbounded. **Stability does not merely cost nothing in dominant energy; it buys it.**
+
+Still open, and stated as such: exhibiting admissible matter (Vlasov below 2/3, anisotropic elastic
+on 2/3–4/5) that actually realizes `β² ≥ β²_crit`; and the flux-coupled dynamic stability of the
+*radiating* shell, which Le leaves open. What is closed here is the frozen-background linear radial
+mode — the one he identifies as marginal, and no more.
+
+### `pathmetric.py` — the method equation, run on spacetime
+
+The equation has two halves and the corpus names both: structurally `E(X) = |ℛ(X)| − |X|`, metrically
+`E_W(X) = |W(X)| − |X|` with `W` the least-cost reachable set under a step set — prior art **Dijkstra
+1959, Freuder 1978**. `M` states the job outright: *"the Method equation partitions an index into
+three populations: interior captures, the working overlap, and exterior predictions."*
+
+**And the corpus also names which half spacetime gets.** §12.11.1.3: *an index has a time column
+exactly when its cells are moves.* Events are configurations, so the time column goes and — the
+corpus's own words — *"the flow becomes the geodesic flow of the Jacobi–Maupertuis metric. Time
+returns as a quadrature carrying the transcendental part."* §12.11.4's *"precision is path-dependent;
+physics is not"* is named there as the geodesic equation itself. So "spacetime is an index" is not an
+analogy to argue; it is a selector the corpus already applies. Which makes the first job checking the
+tool, not using it.
+
+**It checks out exactly.** For static `ds² = −V²dt² + g_ij dx^i dx^j` the Jacobi metric is
+`J_ij = (E² − m²V²)/V² · g_ij`, and its orbit equation reproduces Schwarzschild's at 3,000 random
+`(r, E, L)` to **1.6×10⁻¹⁵** against the natural scale, with the Jacobi conserved quantity equal to
+`L` exactly. Its two degeneracies are surfaces physics already knows — `V = E/m`, the turning point,
+which for the three-body index is **Hill's 1878 zero-velocity surface where the corpus says the
+geodesic flow stops**; and `V = 0`, where the massless (optical) metric `E²g/V²` blows up.
+
+> **The horizon this project kept hitting is the zero-velocity surface of the method equation's own
+> metric half.** Not a warp pathology — a Jacobi degeneracy, classical since Hill.
+
+**And then it measures the shift, and the answer is negative.** `twist.py` proved the 1+1D warp metric
+is static, so the metric half applies directly. Light in the original Painlevé–Gullstrand time obeys
+`dt = dx/(c+v)` forward and `dx/(c−v)` back:
+
+| measure | with shift | flat | |
+|---|---|---|---|
+| forward one-way | 5.205581 | 6.000000 | **shorter by 13.2%** |
+| backward one-way | 8.660476 | 6.000000 | longer |
+| **round trip** | **13.866057** | **12.000000** | **LONGER by 15.6%** |
+
+and the round trip equals the optical length `∫2c dx/(c²−v²)` to 10⁻⁶. The excess is a strict
+pointwise inequality with a closed form:
+
+> **2c/(c²−v²) − 2/c = 2v²/(c(c²−v²)) > 0** for every `v ≠ 0`
+
+So on the gauge-invariant measure — the only one the metric half offers — **any 1+1D shift makes the
+path strictly longer**, and the one-way saving is exactly the simultaneity convention `twist.py`
+already showed to be a global gauge choice. Three instruments now say the same thing about 1+1D by
+three unrelated routes: the shift is gauge, it carries no twist, and it costs distance. In 3+1D the
+metric is not static, so there is no global `T`, no optical metric of this form, and no round-trip
+theorem — the third time the same dimensional boundary has decided a question in this series.
+
+**A fault in the corpus, recorded and not repaired.** Checking the lattice half against its own
+statement turned one up. `M`'s "The lattice metric" (proved M §9.2; Monjardet 1981) defines
+`d(x,y) = Π(|xᵢ−yᵢ|+1)` and writes: *"Equality holds on an axis iff st = 0, i.e. y lies between x and
+z there, so global equality iff y ∈ [x∧z, x∨z] — y on a geodesic."* The first clause is right and the
+gloss after *"i.e."* is strictly weaker. Per-axis equality needs `|a−c| = st+s+t`, and `|a−c| ≤ s+t`
+always, so it forces `st = 0` — `yᵢ` **equals** `xᵢ` or `zᵢ`, not merely lies between. One dimension
+suffices: `x=0, y=1, z=2` has `y` between, and `d(x,z) = 3` against `d(x,y)d(y,z) = 4`.
+
+> **The geodesic set is the vertex set of the box spanned by x and z, not the interval.**
+
+On Λ's eight axes, two cells three apart on each have an interval of 65,536 cells and a geodesic set
+of 256 — and 6,561× at five apart. The corpus's own check could not have caught it: it reports *"4,000
+of 4,000 sampled triples satisfy the **inequality**"*, and the inequality is not in question — zero
+violations here too, over all 2,744 triples of `index3`'s cells and 4,000 random 8-tuples. Nothing
+sampled the equality condition. No member is edited.
+
+The reason is worth stating because it bears on the question asked. `log(|Δ|+1)` is **strictly
+concave**, so the metric rewards one long step and penalises subdivision: an index of this kind is
+**not a length space**, and its first step costs `log 2` however fine you try to make it. A continuum
+has no such quantum — which is exactly why §12.11.1.3 routes spacetime to the other half.

@@ -68,6 +68,13 @@ delta_eta = 0.24, and 1 - e^{-0.72} = 51.32%, reproducing his "about half".
    factor 2, consistent with his statement that the safe corner is "restricted".
    A slightly stiffer wall is strictly stable at no cost in dec margin, but is
    "a nearby model, not the realized one".
+   *** wall.py NOW PRICES THAT CLAUSE.  The wall is strictly stable iff
+   beta^2 > beta^2_crit(x) = (1-s)(3s^2+2s+1)/(4s^2(1+3s)), which is 0.0793 at
+   x = 0.3 and subluminal throughout x < 0.8437 -- so through the whole operative
+   window.  The criterion below then INVERTS: a stable wall oscillates rather
+   than runs away, so the burn must be slow, not fast, and the same 1.8e14
+   becomes an adiabatic margin instead of a shortfall.  Read that file before
+   quoting the shortfall table below as a bound. ***
 
 So the warp feature is exactly one thing: a tidally flat cabin, bought for a
 factor 3 in the rocket exponent.  That is the honest trade, and it is the first
@@ -405,9 +412,11 @@ def report():
     print("  it is a rocket, and it costs the cube of an ideal photon rocket's")
     print("  mass ratio.  CM-THEOREM is not refuted -- it is paid, in radiation.")
     print("  What it buys is one thing: an exactly tidally flat cabin.")
-    print("  Open against it: marginal linear stability of the realized wall, which")
-    print("  on the light-crossing criterion excludes the habitable regime by 14")
-    print("  orders of magnitude.  THAT, not the energy budget, is the wall.")
+    print("  Open against it WAS marginal linear stability of the realized wall.")
+    print("  wall.py stiffens it: beta^2 > 0.0793 at x = 0.3, subluminal through")
+    print("  the whole operative window, free in dec margin -- and the criterion")
+    print("  inverts.  What remains open is exhibiting admissible matter at that")
+    print("  stiffness, and the flux-coupled stability of the radiating shell.")
     return 0
 
 if __name__ == "__main__":

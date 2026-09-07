@@ -143,8 +143,13 @@ ARCH = [
   "CM-THEOREM is not refuted but PAID -- Le's Theorem 1 is its exact GR form.  "
   "It is a rocket: three times the rapidity exponent of an ideal photon rocket, "
   "70.4% of rest mass to reach 0.2 c and stop.  The real wall is not the budget "
-  "but MARGINAL LINEAR STABILITY of the realized wall: on the light-crossing "
-  "criterion a habitable 1 g, 10 m design misses by 1.8e14.")
+  "but WAS marginal linear stability of the realized wall.  wall.py prices the "
+  "stiffer wall Le names: strictly stable iff beta^2 > beta^2_crit(x), which is "
+  "0.0793 at x = 0.3 and subluminal through the whole operative window x < 4/5, "
+  "free in dec margin -- and strict stability provably IMPLIES an unbounded dec "
+  "basin.  The burn criterion then inverts from fast to adiabatic and the same "
+  "1.8e14 becomes a margin.  Open: admissible matter at that stiffness, and the "
+  "flux-coupled stability of the radiating shell, which Le leaves open.")
 ]
 
 KINDS = ("MEASURED", "STRUCTURAL", "HYPOTHETICAL", "COSTED", "OPEN")
