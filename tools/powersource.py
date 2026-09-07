@@ -855,8 +855,12 @@ T_HALFLIFE_Y = 12.32          # SOURCED
 T_AMU = 3.016
 N_AVOGADRO = 6.02214076e23
 SEC_PER_YEAR = 3.15576e7
-BEAM_RADIUS_CM = 7.5          # [C_geom] the base collector's own derived radius
-REF_BEAM_MW = 5.0             # THE REFERENCE PLANT, and tritium is what sets it
+# The cell's radius is NOT a free parameter and is not restated here: it is
+# machine.py's, set by adiabatic recompression to CELL_B_T from the channel
+# field, and imported. A wider guess understates the holding and so understates
+# the plant. (7.5 cm -- a published channel geometry at a different field -- was
+# used here in an earlier pass and is wrong for the CELL by 1.43x in mass.)
+REF_BEAM_MW = 7.0             # THE REFERENCE PLANT, and tritium is what sets it
 REF_STANDBY_KW = 1000.0       # mid-band driver fixed load
 LEAK_PARASITIC_LO = 0.10      # ASSUMED band: leakage + parasitic capture, as a
 LEAK_PARASITIC_HI = 0.20      # share of the whole neutron population
@@ -871,9 +875,11 @@ def _coll():
     return collector
 
 
-def tritium_inventory_kg(p_window_mev, beam_r_cm=BEAM_RADIUS_CM):
-    """The cell's holding. IMPORTED from collector.py, never restated."""
-    return _coll().tritium_inventory_kg(float(p_window_mev), beam_r_cm)
+def tritium_inventory_kg(p_window_mev, b_cell=None):
+    """The cell's holding. IMPORTED from machine.py's own cell geometry."""
+    m = _mach()
+    return m.cell_tritium_kg(m.CELL_B_T if b_cell is None else b_cell,
+                             float(p_window_mev))
 
 
 def tritium_decay_g_per_year(inventory_kg, half_life_y=T_HALFLIFE_Y):
@@ -891,9 +897,9 @@ def fusions_per_proton(p_window_mev):
         * N_MEASURED
 
 
-def tritium_demand_per_second(p_window_mev, p_beam_mw, beam_r_cm=BEAM_RADIUS_CM):
+def tritium_demand_per_second(p_window_mev, p_beam_mw, b_cell=None):
     """Decay of a fixed holding plus burn that scales with the beam."""
-    inv = tritium_inventory_kg(p_window_mev, beam_r_cm)
+    inv = tritium_inventory_kg(p_window_mev, b_cell)
     decay_s = tritium_decay_g_per_year(inv) / SEC_PER_YEAR / T_AMU * N_AVOGADRO
     burn_s = fusions_per_proton(p_window_mev) * protons_per_second(p_beam_mw)
     return decay_s, burn_s
@@ -921,22 +927,22 @@ def tritium_supply_per_second(p_window_mev, p_beam_mw, k_eff=K_SAFE,
 
 
 def tritium_balance(p_window_mev, p_beam_mw, k_eff=K_SAFE,
-                    leak=LEAK_PARASITIC_HI, beam_r_cm=BEAM_RADIUS_CM,
+                    leak=LEAK_PARASITIC_HI, b_cell=None,
                     f_li=F_LI_CEILING):
     """Supply over demand. Above one, criterion 4 holds on tritium."""
-    d, b = tritium_demand_per_second(p_window_mev, p_beam_mw, beam_r_cm)
+    d, b = tritium_demand_per_second(p_window_mev, p_beam_mw, b_cell)
     return tritium_supply_per_second(p_window_mev, p_beam_mw, k_eff, leak,
                                      f_li=f_li) / (d + b)
 
 
 def beam_mw_for_tritium(p_window_mev, k_eff=K_SAFE, leak=LEAK_PARASITIC_HI,
-                        beam_r_cm=BEAM_RADIUS_CM, f_li=F_LI_CEILING):
+                        b_cell=None, f_li=F_LI_CEILING):
     """The beam power at which the tritium balance closes.
 
     Demand is decay (fixed) plus burn (linear in P); supply is linear in P; so
     the balance is monotone in P and solves in closed form.
     """
-    inv = tritium_inventory_kg(p_window_mev, beam_r_cm)
+    inv = tritium_inventory_kg(p_window_mev, b_cell)
     decay_s = tritium_decay_g_per_year(inv) / SEC_PER_YEAR / T_AMU * N_AVOGADRO
     per_mw = protons_per_second(1.0)
     burn_per_mw = fusions_per_proton(p_window_mev) * per_mw
@@ -1019,8 +1025,9 @@ def report_tritium():
               f" {sup/(d+b):7.3f}  {beam_mw_for_tritium(p):7.2f}"
               f" {beam_mw_for_tritium(p, f_li=F_LI_DESIGN):7.2f}")
     print()
-    print("      (at 1 MW of beam, k = 0.95, L = 0.20, base collector 1.50 T.m,")
-    print("       7.5 cm beam radius; supply is a CEILING -- every free neutron")
+    print(f"      (at 1 MW of beam, k = 0.95, L = 0.20, base collector 1.50 T.m,")
+    print(f"       cell radius {m.cell_radius_cm():.2f} cm at {m.CELL_B_T:.0f} T recompression, IMPORTED;")
+    print("       supply is a CEILING -- every free neutron")
     print("       captured in Li-6 -- so the ratio is an upper bound and the")
     print("       closing power a lower one.)")
     print()
@@ -1031,7 +1038,8 @@ def report_tritium():
           f" {beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN):.2f} MW of beam, not at the 1 MW")
     print("    the loop and the scale arguments alone would have allowed.")
     print("    TRITIUM, NOT THE LOOP AND NOT THE DRIVER OVERHEAD, IS WHAT SETS")
-    print("    THE SIZE OF THIS PLANT -- and it sets it four times higher.")
+    print(f"    THE SIZE OF THIS PLANT -- and it sets it"
+          f" {beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN):.2f}x higher.")
     print()
     g = plant_gain(K_SAFE, y_s, y_f)
     print(f"      REFERENCE PLANT   8 GeV, {REF_BEAM_MW:.0f} MW beam, k = {K_SAFE},"
