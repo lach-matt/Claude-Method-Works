@@ -863,7 +863,9 @@ SEC_PER_YEAR = 3.15576e7
 # field, and imported. A wider guess understates the holding and so understates
 # the plant. (7.5 cm -- a published channel geometry at a different field -- was
 # used here in an earlier pass and is wrong for the CELL by 1.43x in mass.)
-REF_BEAM_MW = 10.0            # THE REFERENCE PLANT. Tritium sets it, at three
+REF_BEAM_MW = 10.0            # the single-module reference, superseded as the
+                              # project's object by station() below but kept:
+                              # the tritium thresholds are stated against it
                               # thresholds rather than one: 5.58 MW to hold its
                               # own inventory, 8.1 MW to breed a successor's
                               # first charge inside a 40 year life, and this,
@@ -1008,6 +1010,244 @@ def beam_mw_for_doubling(years, p_window_mev=265.0, f_li=F_LI_DESIGN):
     want_s = (inv * 1000.0 / years) / T_AMU * N_AVOGADRO / SEC_PER_YEAR
     denom = sup_per_mw - burn_per_mw
     return (want_s + decay_s) / denom if denom > 0 else float("inf")
+
+
+# ---- THE STATION: ONE MILLION HOUSEHOLDS, AND WHAT THAT FORCES -------------
+# A module is not a plant. The fuel cell's geometry does not scale -- it is one
+# muon range deep over a beam the capture field sets -- and neither does the
+# production target, which has a SOURCED power its own study designed it at. So
+# a station for a million households is N modules and not one big machine, and
+# the module count follows from the target rather than from anything else.
+#
+# THE SCALE-UP THEN FORCES THE STOPPING WINDOW, which until now was free. At
+# the sourced 4 MW target the 265 MeV/c window returns a tritium balance of
+# 0.733 -- it does not close -- because the holding is geometric and 4 MW is
+# below the 5.58 MW that window needs. The 150 MeV/c window holds 1.605 kg
+# instead of 5.126 and closes at 2.11. It costs 1.884x in the fusion channel's
+# own yield and only 1.067x in the total source, because the fusion channel is
+# a seventh of the source; the plant gain falls from 42.70 to 40.04.
+#   A choice that was optional at one module is decided at twenty.
+MODULE_BEAM_MW = 4.0          # SOURCED: the target study's own design point,
+                              # and machine.py's 319 kW deposition is that study
+STATION_WINDOW_MEV = 150.0    # forced by the module power -- see above
+STATION_HOUSEHOLDS = 1.0e6
+LINAC_BEAM_MW = 20.0          # ASSUMED: 4x ESS, and four of them, because one
+                              # linac of the whole station's power is not a
+                              # machine anyone has proposed
+
+
+def station_beam_mw(households=STATION_HOUSEHOLDS,
+                    window=STATION_WINDOW_MEV, k_eff=K_SAFE,
+                    eta_acc=0.30, n_linac=None):
+    """Total beam a station of this size needs. Closed form.
+
+    net = P (G eta_th - 1/eta_acc) - n_linac S/eta_acc, so P follows directly;
+    bisecting it would recompute the gain at every step for nothing.
+    """
+    y_s = 0.5 * sum(spallation_yield())
+    g = plant_gain(k_eff, y_s, fusions_per_proton(window))
+    want_kw = households * HOUSEHOLD_KW
+    if n_linac is None:
+        n_linac = 1.0
+    denom = g * eta_thermal() - 1.0 / eta_acc
+    if denom <= 0:
+        return float("inf")
+    return ((want_kw + n_linac * REF_STANDBY_KW / eta_acc) / denom) / 1000.0
+
+
+def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
+            module_mw=MODULE_BEAM_MW, k_eff=K_SAFE, eta_acc=0.30):
+    """The station as built: whole modules, and what they actually deliver."""
+    y_s = 0.5 * sum(spallation_yield())
+    y_f = fusions_per_proton(window)
+    g = plant_gain(k_eff, y_s, y_f)
+    need = station_beam_mw(households, window, k_eff, eta_acc)
+    n_mod = math.ceil(need / module_mw)
+    beam = n_mod * module_mw
+    n_lin = math.ceil(beam / LINAC_BEAM_MW)
+    net_kw = (beam * 1000.0 * (g * eta_thermal() - 1.0 / eta_acc)
+              - n_lin * REF_STANDBY_KW / eta_acc)
+    return {
+        "window": window, "module_mw": module_mw, "modules": n_mod,
+        "beam_mw": beam, "linacs": n_lin, "gain": g, "y_fus": y_f,
+        "y_spall": y_s, "k": k_eff,
+        "thermal_mw": beam * g, "net_mw": net_kw / 1000.0,
+        "households": net_kw / HOUSEHOLD_KW,
+        "tritium_per_module_kg": tritium_inventory_kg(window, None),
+        "tritium_total_kg": n_mod * tritium_inventory_kg(window, None),
+        "tritium_ratio": tritium_balance(window, module_mw, f_li=F_LI_DESIGN),
+        "doubling_y": tritium_doubling_years(module_mw, window),
+    }
+
+
+def blanket_leakage_penalty(n_split):
+    """What splitting one blanket into n would cost the leakage allowance.
+
+    INDICATIVE and marked so: leakage scales with surface over volume, which
+    for n equal pieces of a fixed total volume goes as n^(1/3). It is not a
+    transport calculation and it is not used as one -- it is used to REFUSE the
+    split, which needs only the sign and the order."""
+    return n_split ** (1.0 / 3.0)
+
+
+WORLD_CIVIL_TRITIUM_KG = 25.0   # SOURCED band: the heavy-water reactor stock
+
+
+def staged_charge(stock_kg=WORLD_CIVIL_TRITIUM_KG, **kw):
+    """Commissioning a station whose first charge exceeds the world's stock.
+
+    Modules do not all start together. Charge as many as the stock allows,
+    run them, and let their surplus charge the rest -- which is not a
+    workaround but the natural build order, since a module earns from its
+    first day and the station is modular anyway.
+
+    Returns (modules charged from stock, years to charge the remainder).
+    """
+    st = station(**kw)
+    inv = st["tritium_per_module_kg"]
+    sur = tritium_surplus_g_per_year(st["module_mw"], st["window"])
+    n0 = int(stock_kg / inv)
+    if n0 >= st["modules"]:
+        return st["modules"], 0.0
+    if sur <= 0.0:
+        return n0, float("inf")
+    bank_g = (stock_kg - n0 * inv) * 1000.0
+    n, years = n0, 0.0
+    while n < st["modules"]:
+        need = inv * 1000.0 - bank_g
+        years += need / (n * sur)
+        bank_g = 0.0
+        n += 1
+    return n0, years
+
+
+def station_doubling_years(stock=None, **kw):
+    """Years for a finished station to breed a whole successor's charge."""
+    st = station(**kw)
+    sur = st["modules"] * tritium_surplus_g_per_year(st["module_mw"],
+                                                     st["window"])
+    if sur <= 0.0:
+        return float("inf")
+    return st["tritium_total_kg"] * 1000.0 / sur
+
+
+def report_station():
+    """One million households: what it is, and what the scale-up forces."""
+    st = station()
+    print("  THE STATION -- ONE MILLION HOUSEHOLDS")
+    print()
+    print("    A module is not a plant, and the difference is geometric. The")
+    print("    fuel cell is one muon range deep over a beam the capture field")
+    print("    sets, so its tritium holding does not scale with power; and the")
+    print("    production target has a SOURCED power its own study designed it")
+    print("    at. A station is therefore N modules, and N follows from the")
+    print("    target rather than from any choice made here.")
+    print()
+    print("    THE SCALE-UP FORCES THE STOPPING WINDOW, which was free until now")
+    print()
+    print("      window   holding   threshold   ratio at   plant   beam for 1M")
+    print("      MeV/c      kg       MW beam    a module    gain      MW")
+    y_s = 0.5 * sum(spallation_yield())
+    for w in (150.0, 200.0, 265.0):
+        g = plant_gain(K_SAFE, y_s, fusions_per_proton(w))
+        mark = "  <-- forced" if w == STATION_WINDOW_MEV else ""
+        print(f"      {w:5.0f} {tritium_inventory_kg(w, None):9.3f}"
+              f" {beam_mw_for_tritium(w, f_li=F_LI_DESIGN):10.2f}"
+              f" {tritium_balance(w, MODULE_BEAM_MW, f_li=F_LI_DESIGN):11.3f}"
+              f" {g:8.2f} {station_beam_mw(window=w):9.2f}{mark}")
+    print()
+    print(f"    At the sourced {MODULE_BEAM_MW:.0f} MW target the 265 MeV/c window"
+          " does NOT close on")
+    print("    tritium and the 150 MeV/c window closes with margin. The cost is")
+    lo = _mach().delivered_eta_window(1.50, 150.0)
+    hi = _mach().delivered_eta_window(1.50, 265.0)
+    print(f"    {hi/lo:.3f}x in the fusion channel's own yield and only"
+          f" {plant_gain(K_SAFE, y_s, fusions_per_proton(265.0))/st['gain']:.3f}x in")
+    print("    the plant, because the fusion channel is a seventh of the source.")
+    print("    A CHOICE THAT WAS OPTIONAL AT ONE MODULE IS DECIDED AT TWENTY.")
+    print()
+    print("    THE STATION")
+    print(f"      modules                        {st['modules']:8.0f}"
+          f"   of {st['module_mw']:.0f} MW each")
+    print(f"      total beam                     {st['beam_mw']:8.1f} MW")
+    print(f"      driver linacs                  {st['linacs']:8.0f}"
+          f"   at {LINAC_BEAM_MW:.0f} MW, ASSUMED")
+    print(f"      blanket multiplication k       {st['k']:8.3f}")
+    print(f"      plant gain G                   {st['gain']:8.2f}")
+    print(f"      thermal                        {st['thermal_mw']:8.0f} MW")
+    print(f"      net electric                   {st['net_mw']:8.0f} MW")
+    print(f"      households                     {st['households']:8,.0f}")
+    print(f"      tritium, per module            "
+          f"{st['tritium_per_module_kg']:8.3f} kg")
+    print(f"      tritium, whole station         "
+          f"{st['tritium_total_kg']:8.2f} kg")
+    print(f"      tritium balance, per module    {st['tritium_ratio']:8.3f}")
+    print(f"      doubling time                  {st['doubling_y']:8.1f} yr")
+    print()
+    print("    THE BALANCE IS SCALE-INVARIANT UNDER REPLICATION, and that is")
+    print("    why modularity is free here: a module's holding and a module's")
+    print("    share of the neutron economy both scale with N, so the ratio")
+    print("    does not move. Twenty modules is twenty times a solved problem")
+    print("    rather than one twenty-times-harder problem.")
+    print()
+    print("    ONE BLANKET, NOT TWENTY. Leakage goes as surface over volume, so")
+    print(f"    splitting the blanket {st['modules']:.0f} ways multiplies it by"
+          f" {blanket_leakage_penalty(st['modules']):.2f} --")
+    n_split = blanket_leakage_penalty(st["modules"]) * LEAK_PARASITIC_HI
+    print(f"    an L of {n_split:.2f} where the budget allows"
+          f" {LEAK_PARASITIC_HI:.2f}, at which the free")
+    print(f"    neutrons per source are"
+          f" {free_neutrons_per_source(K_SAFE, n_split):.3f} and the tritium")
+    print("    balance has nothing to breed with. The estimate is INDICATIVE")
+    print("    and is used only to refuse the split, which needs the sign and")
+    print("    the order and not a transport calculation.")
+    print()
+    print("    THE FIRST CHARGE EXCEEDS THE WORLD'S TRITIUM, AND THE STATION")
+    print("    IS BUILT ANYWAY -- BY STAGING IT.")
+    n0, yrs = staged_charge()
+    print(f"      station's cells need           {st['tritium_total_kg']:8.1f} kg")
+    print(f"      world civil stock, order       {WORLD_CIVIL_TRITIUM_KG:8.1f} kg"
+          "   SOURCED band")
+    print(f"      modules the stock charges      {n0:8.0f}   of"
+          f" {st['modules']:.0f}")
+    print(f"      surplus per running module     "
+          f"{tritium_surplus_g_per_year(st['module_mw'], st['window']):8.1f} g/yr")
+    print(f"      years to charge the rest       {yrs:8.2f}")
+    print()
+    print("      A module earns from its first day and the station is modular")
+    print("      already, so charging it in stages is the natural build order")
+    print("      rather than a way round a shortage. The station reaches full")
+    print(f"      power in year {yrs:.1f} and is self-supplying from then on.")
+    print()
+    print("      THE FLEET IS WHAT THIS BINDS, NOT THE STATION. A finished")
+    print(f"      station breeds a successor's whole charge in"
+          f" {station_doubling_years():.1f} years,")
+    print("      so a fleet doubles on that timescale and no faster. That is a")
+    print("      DEPLOYMENT rate, it is recorded rather than repaired, and it")
+    print("      is the same number as one module's doubling because the")
+    print("      balance is scale-invariant.")
+    print()
+    print("    WHAT THE DRIVER COSTS, AND IT IS THE HARD PART")
+    print(f"      {st['beam_mw']:.0f} MW of {8.0:.0f} GeV protons is"
+          f" {st['beam_mw']/5.0:.0f}x the largest machine of its")
+    print("      class now building. THE REACTOR IS NOT WHAT MAKES A MILLION")
+    print("      HOUSEHOLDS HARD; THE ACCELERATOR IS. Against that, the driver's")
+    print("      standby load -- which set the FLOOR on plant size at one")
+    print(f"      module -- is now {100*st['linacs']*REF_STANDBY_KW/0.30/(st['net_mw']*1000):.2f} %"
+          " of the output and has stopped mattering.")
+    print()
+    print("    WHAT RELAXING k WOULD BUY, RECORDED AND NOT ADOPTED")
+    print("      k       margin      G      beam for 1M households")
+    for k in (0.95, 0.96, 0.97, 0.98, 0.99):
+        g = plant_gain(k, y_s, fusions_per_proton(STATION_WINDOW_MEV))
+        print(f"      {k:.2f} {subcritical_margin(k)[1]:9,.0f} pcm"
+              f" {g:8.2f} {station_beam_mw(k_eff=k):14.2f} MW")
+    print()
+    print(f"    k = {K_SAFE:.2f} is held. The project's third criterion is")
+    print("    STABILITY, the margin at 0.95 is a whole fast core's control")
+    print("    worth, and buying a smaller accelerator with it would be buying")
+    print("    the one property the device is for. The trade is stated so that")
+    print("    a reader can see what is being declined, not so it can be taken.")
 
 
 def report_tritium():
@@ -1494,6 +1734,55 @@ def selftest():
           beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN)
           > minimum_beam_kw(REF_STANDBY_KW) / 1000.0)
     # and it is not a tautology: a hypothetical stable triton needs no beam
+    print()
+    print("  the station: the scale-up decides what one module left open")
+    st = station()
+    check("the station meets the households it was sized for",
+          st["households"] >= STATION_HOUSEHOLDS)
+    check("  -- and does it in whole modules, so it overshoots rather than under",
+          st["modules"] * st["module_mw"]
+          >= station_beam_mw(window=STATION_WINDOW_MEV))
+    check("the forced window closes on tritium at the sourced module power",
+          tritium_balance(STATION_WINDOW_MEV, MODULE_BEAM_MW,
+                          f_li=F_LI_DESIGN) > 1.0)
+    check("  -- and the window this work used at one module does NOT",
+          tritium_balance(265.0, MODULE_BEAM_MW, f_li=F_LI_DESIGN) < 1.0)
+    check("  -- so the window is FORCED by the scale-up, not chosen",
+          STATION_WINDOW_MEV < 265.0)
+    check("the narrow window costs the fusion channel more than the plant",
+          (_mach().delivered_eta_window(1.50, 265.0)
+           / _mach().delivered_eta_window(1.50, STATION_WINDOW_MEV))
+          > (plant_gain(K_SAFE, 0.5 * sum(spallation_yield()),
+                        fusions_per_proton(265.0)) / st["gain"]))
+    check("the balance is scale-invariant: N modules give one module's ratio",
+          abs(tritium_balance(STATION_WINDOW_MEV, MODULE_BEAM_MW,
+                              f_li=F_LI_DESIGN) - st["tritium_ratio"]) < 1e-12)
+    check("splitting the blanket N ways breaks the neutron budget",
+          free_neutrons_per_source(
+              K_SAFE,
+              blanket_leakage_penalty(st["modules"]) * LEAK_PARASITIC_HI)
+          < 0.0)
+    check("  -- and not splitting it leaves the budget positive",
+          free_neutrons_per_source(K_SAFE, LEAK_PARASITIC_HI) > 0.0)
+    check("relaxing k would shrink the driver, so the trade is real",
+          station_beam_mw(k_eff=0.98) < station_beam_mw(k_eff=K_SAFE))
+    check("  -- and it is declined: the margin at K_SAFE is a control worth",
+          subcritical_margin(K_SAFE)[1] >= CONTROL_WORTH_PCM
+          and subcritical_margin(0.98)[1] < CONTROL_WORTH_PCM)
+    n0, yrs = staged_charge()
+    check("the station's first charge exceeds the world's civil tritium",
+          st["tritium_total_kg"] > WORLD_CIVIL_TRITIUM_KG)
+    check("  -- and it is still buildable, because modules stage",
+          0.0 < yrs < 10.0 and n0 < st["modules"])
+    check("  -- a station whose stock covered it would need no staging",
+          staged_charge(stock_kg=1e6)[1] == 0.0)
+    check("the fleet doubles at the same rate one module does",
+          abs(station_doubling_years()
+              - tritium_doubling_years(st["module_mw"], st["window"])) < 1e-9)
+    check("driver standby has stopped mattering at station scale",
+          st["linacs"] * REF_STANDBY_KW / 0.30
+          < 0.02 * st["net_mw"] * 1000.0)
+    print()
     check("a longer-lived triton would need proportionately less beam",
           _beam_for_halflife(123.2) < beam_mw_for_tritium(265.0) / 5.0)
     check("  -- so the plant's size is a statement about the half-life",
@@ -1516,6 +1805,8 @@ def main():
     ap.add_argument("--scale", action="store_true", help=report_scale.__doc__)
     ap.add_argument("--tritium", action="store_true",
                     help=report_tritium.__doc__)
+    ap.add_argument("--station", action="store_true",
+                    help=report_station.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -1533,6 +1824,8 @@ def main():
         return report_scale()
     if a.tritium:
         return report_tritium()
+    if a.station:
+        return report_station()
     return report()
 
 

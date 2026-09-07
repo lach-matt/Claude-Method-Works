@@ -84,9 +84,17 @@ def report_spec():
        "holds a figure at a status other than measured, the status travels "
        "with it.")
     print()
-    print("    PLANT")
+    print("    STATION")
+    _row("modules", f"{r['modules']:.0f}", "",
+         f"of {r['module_mw']:.0f} MW each -- the target's")
+    _row("", "", "", "  own sourced design point")
+    _row("driver linacs", f"{r['linacs']:.0f}", "",
+         f"at {P.LINAC_BEAM_MW:.0f} MW, ASSUMED")
     _row("beam energy", f"{r['beam_gev']:.1f}", "GeV", "powersource")
-    _row("beam power", f"{r['beam_mw']:.1f}", "MW", "powersource, and see 4")
+    _row("beam power, whole station", f"{r['beam_mw']:.1f}", "MW",
+         "powersource")
+    _row("stopping window", f"{r['window']:.0f}", "MeV/c",
+         "FORCED by the module power")
     _row("protons on target", f"{r['protons_s']:.3e}", "/s", "derived")
     _row("blanket multiplication k", f"{P.K_SAFE:.3f}", "", "powersource")
     _row("plant gain G", f"{r['gain']:.2f}", "", "powersource")
@@ -96,10 +104,16 @@ def report_spec():
          "x", "and it is the whole design")
     _row("thermal power", f"{r['thermal_mw']:.1f}", "MW", "powersource")
     _row("net electric", f"{r['net_mw']:.1f}", "MW", "after the driver is fed")
-    _row("households served", f"{P.homes(r['net_mw']*1000.0):,.0f}", "",
+    _row("households served", f"{r['households']:,.0f}", "",
          f"at {P.HOUSEHOLD_KW:.2f} kW each")
+    _row("tritium, per module", f"{r['tritium_per_module_kg']:.3f}", "kg",
+         "geometric; does not scale")
+    _row("tritium, whole station", f"{r['tritium_total_kg']:.2f}", "kg",
+         "and see 3 -- it exceeds the")
+    _row("", "", "", "  world's civil stock")
     print()
-    print("    PRODUCTION TARGET AND CAPTURE")
+    print("    PRODUCTION TARGET AND CAPTURE   (one module; built"
+          f" {r['modules']:.0f} times)")
     _row("target", "mercury jet", "", "machine: a solid rotating target")
     _row("", "", "", "  does not fit the bore, by 3.3x")
     _row("jet radius", f"{M.SRC_JET_RADIUS_MM:.1f}", "mm", "machine, SOURCED")
@@ -107,8 +121,11 @@ def report_spec():
          "machine, SOURCED")
     _row("target length", f"{M.target_length_cm():.1f}", "cm",
          f"{M.TARGET_LENGTHS:.0f} interaction lengths")
-    _row("power into the target", f"{M.target_power_w(r['beam_mw'])/1e3:.0f}",
-         "kW", "machine, SOURCED split")
+    _row("power into the target",
+         f"{M.target_power_w(r['module_mw'])/1e3:.0f}", "kW",
+         "machine -- and the SOURCED study")
+    _row("", "", "", "  is 319 kW at 4 MW, so the")
+    _row("", "", "", "  module IS that study's machine")
     _row("jet mass flow", f"{X.mercury_flow_kg_s():.0f}", "kg/s", "materials")
     _row("capture field at target", f"{C.DES_B_TARGET:.2f}", "T", "collector")
     _row("solenoid bore radius", f"{C.des_coil_inner_m():.2f}", "m",
@@ -120,16 +137,17 @@ def report_spec():
     _row("cold mass", f"{M.cold_mass_kg()/1e3:.1f}", "t", "machine")
     _row("stored energy dump time", f"{M.dump_time_s():.2f}", "s",
          f"hot-spot margin {M.hotspot_margin():.2f}x")
-    _row("shield thickness", f"{X.shield_thickness_m():.3f}", "m",
-         f"sized for the {X.PLANT_LIFE_Y:.0f} yr plant life")
+    _row("coil shield thickness", f"{X.shield_thickness_m():.3f}", "m",
+         f"per module, for {X.PLANT_LIFE_Y:.0f} yr")
     _row("coil life at that shield",
-         f"{M.coil_life_years(r['beam_mw']):.1f}", "yr",
-         "AND THE COIL IS LIFE-LIMITING:")
-    _row("", "", "", f"  it reaches its dose limit AT the")
-    _row("", "", "", f"  plant's life, so the two are one")
-    _row("", "", "", f"  number and power buys against it")
+         f"{M.coil_life_years(r['module_mw']):.1f}", "yr",
+         "AND MODULARISATION FIXED THIS:")
+    _row("", "", "", "  at one 10 MW machine the coil")
+    _row("", "", "", "  limited AT the plant's life; at")
+    _row("", "", "", f"  {r['module_mw']:.0f} MW it does not limit at all")
     print()
-    print("    DECAY CHANNEL AND FUEL CELL")
+    print(f"    DECAY CHANNEL AND FUEL CELL   (one module; built"
+          f" {r['modules']:.0f} times)")
     _row("channel length", f"{M.channel_length_m():.1f}", "m",
          f"{100*M.DECAY_FRACTION_WANTED:.0f} % of pions decay")
     _row("channel field", "1.50", "T", "the base collector")
@@ -140,17 +158,18 @@ def report_spec():
          f"one muon range at phi = {M.CELL_PHI:.2f}")
     _row("cell pressure", f"{M.cell_pressure_mpa():.0f}", "MPa", "machine")
     _row("cell temperature", f"{M.CELL_T_K:.0f}", "K", "the Vesman point")
-    _row("stopping window", "265", "MeV/c", "the base collector")
-    _row("delivered acceptance", f"{M.delivered_eta_window(1.50, 265.0):.4f}",
-         "", "through the loss budget")
+    _row("delivered acceptance",
+         f"{M.delivered_eta_window(1.50, r['window']):.4f}", "",
+         "at the forced window")
     _row("muon service life", f"{P.N_MEASURED:.0f}", "cycles",
          "MEASURED, Los Alamos")
-    _row("cell heat load", f"{M.cell_heat_w(r['beam_mw'])/1e6:.2f}", "MW",
-         f"{M.cell_flow_kg_s(r['beam_mw']):.2f} kg/s of coolant")
-    _row("He-3 steady state", f"{M.he3_steady_ppm(r['beam_mw']):.4f}", "ppm",
+    _row("cell heat load", f"{M.cell_heat_w(r['module_mw'])/1e6:.3f}", "MW",
+         f"{M.cell_flow_kg_s(r['module_mw']):.3f} kg/s of coolant")
+    _row("He-3 steady state", f"{M.he3_steady_ppm(r['module_mw']):.4f}", "ppm",
          "swept continuously")
     print()
-    print("    BLANKET")
+    print("    BLANKET   (one, shared by every module -- see powersource"
+          " --station)")
     _row("fuel salt", "NaCl-UCl3", "", "fast spectrum forces it -- materials")
     _row("salt inventory", f"{X.salt_inventory_kg()/1e3:.1f}", "t",
          f"{X.salt_volume_m3():.1f} m3")
@@ -174,19 +193,18 @@ def report_spec():
          "", "per source neutron")
     print()
     print("    TRITIUM")
-    _row("cell holding", f"{X.tritium_holding_kg():.3f}", "kg",
+    _row("cell holding, per module", f"{X.tritium_holding_kg():.3f}", "kg",
          f"{C.tritium_curies(X.tritium_holding_kg()*1000)/1e6:.1f} MCi")
-    _row("working store", f"{2*X.tritium_holding_kg():.2f}", "kg",
-         "hydride beds")
-    _row("balance at design Li-6 share",
-         f"{P.tritium_balance(265.0, r['beam_mw'], f_li=P.F_LI_DESIGN):.3f}",
-         "", "above one, so it is bred")
-    _row("surplus",
-         f"{P.tritium_surplus_g_per_year(r['beam_mw']):.0f}", "g/yr",
-         "what lights the next plant")
-    _row("doubling time",
-         f"{P.tritium_doubling_years(r['beam_mw']):.1f}", "yr",
-         "inside a 40 year life")
+    _row("station total", f"{r['tritium_total_kg']:.2f}", "kg",
+         f"{r['modules']*C.tritium_curies(X.tritium_holding_kg()*1000)/1e6:.0f}"
+         " MCi")
+    _row("balance at design Li-6 share", f"{r['tritium_ratio']:.3f}", "",
+         "above one, so it is bred")
+    _row("surplus, per module",
+         f"{P.tritium_surplus_g_per_year(r['module_mw'], r['window']):.0f}",
+         "g/yr", "what charges the next module")
+    _row("doubling time", f"{r['doubling_y']:.1f}", "yr",
+         "station and module alike")
 
 
 # ---- 2. BUILD SEQUENCE -----------------------------------------------------
@@ -307,13 +325,14 @@ def report_commissioning():
          "processing plant on it. Nothing here is radioactive and everything "
          "here is reversible."),
         ("C2", "BEAM TO DUMP",
-         f"Commission the driver to full {r['beam_mw']:.0f} MW on its own "
-         "dump. This is a linac problem and it is solved in the linac's own "
-         "terms. The target hall stays cold."),
+         f"Commission each of the {r['linacs']:.0f} linacs to full "
+         f"{P.LINAC_BEAM_MW:.0f} MW on its own dump. This is a linac problem "
+         "and it is solved in the linac's own terms. The target halls stay "
+         "cold."),
         ("C3", "TARGET AND CHANNEL, LOW POWER",
          "Beam on the mercury jet at a percent of power. Measure the muon "
          f"yield against the acceptance model's "
-         f"{M.delivered_eta_window(1.50, 265.0):.4f}. THIS IS THE FIRST "
+         f"{M.delivered_eta_window(1.50, r['window']):.4f}. THIS IS THE FIRST "
          "PLACE THE PLANT CAN REFUSE: if the acceptance is low the balance "
          "is low in exact proportion, and Stage A should already have said "
          "so years earlier."),
@@ -325,20 +344,25 @@ def report_commissioning():
          "the paper specifies and it is made with the beam as the source, so "
          "it needs nothing the plant does not have."),
         ("C5", "TRITIUM CHARGE",
-         f"Load {X.tritium_holding_kg():.2f} kg into the cell from the "
-         f"hydride beds and hold {2*X.tritium_holding_kg():.2f} kg in store. "
-         "This is the operation the whole containment case is written for "
-         "and it is done once."),
+         f"Load {X.tritium_holding_kg():.2f} kg into each cell. THE STATION "
+         f"NEEDS {r['tritium_total_kg']:.1f} kg AND THE WORLD'S CIVIL STOCK IS "
+         f"ABOUT {P.WORLD_CIVIL_TRITIUM_KG:.0f} kg, so the modules are charged "
+         f"in stages: {P.staged_charge()[0]:.0f} from stock, the rest bred by "
+         f"those already running, and the station is at full power in year "
+         f"{P.staged_charge()[1]:.1f}. A module earns from its first day, so "
+         "staging costs schedule and not revenue."),
         ("C6", "POWER ASCENSION",
-         f"To {r['thermal_mw']:.0f} MW thermal in steps, with the loop "
+         f"To {r['thermal_mw']:.0f} MW thermal as modules come up, with the "
+         "loop "
          "regulated against MEASURED power from the first step -- see 5. The "
          "loop's gain at the operating point is exactly one, so it is "
          "marginally stable, so it is never fed a fixed share of its own "
          "output."),
         ("C7", "BREEDING DEMONSTRATION",
          f"Close the tritium accountancy over a full year. The design says "
-         f"{P.tritium_balance(265.0, r['beam_mw'], f_li=P.F_LI_DESIGN):.3f} "
-         f"and a surplus of {P.tritium_surplus_g_per_year(r['beam_mw']):.0f} "
+         f"{r['tritium_ratio']:.3f} "
+         f"and a surplus of "
+         f"{P.tritium_surplus_g_per_year(r['module_mw'], r['window']):.0f} "
          "g/yr; the plant is not self-sufficient until an instrument says "
          "so. UNTIL C7 CLOSES, THE PLANT IS AN ORDINARY MACHINE WITH A "
          "TRITIUM SUPPLY LINE, and the criterion it was built for is "
@@ -384,11 +408,12 @@ def report_interfaces():
          "excludes a rotating solid target by 3.3x, so the interface "
          "constrains the target and not the magnet"),
         ("target", "shielding",
-         f"{r['beam_mw']*1e6*M.F_INTO_SHIELDING/1e3:.0f} kW of beam power",
+         f"{r['module_mw']*1e6*M.F_INTO_SHIELDING/1e3:.0f} kW of beam power"
+         " per module",
          "actively cooled, not passive; this is the largest single heat load "
          "in the plant that does nothing useful"),
         ("capture", "channel",
-         f"muons at {M.delivered_eta_window(1.50, 265.0):.4f} delivered "
+         f"muons at {M.delivered_eta_window(1.50, r['window']):.4f} delivered "
          "acceptance",
          "adiabatic field taper from "
          f"{C.DES_B_TARGET:.1f} T to 1.50 T without loss; a step in the "
@@ -399,7 +424,7 @@ def report_interfaces():
          "field. A weaker recompression is a wider cell is more tritium is a "
          "bigger plant -- this interface sets the plant's size"),
         ("cell", "blanket",
-         f"{P.fusions_per_proton(265.0):.1f} fusion neutrons per proton",
+         f"{P.fusions_per_proton(r['window']):.1f} fusion neutrons per proton",
          "14.1 MeV, isotropic, and the cell must be transparent to them; a "
          "cell that moderates its own neutrons hands the blanket a softer "
          "spectrum than nu = 2.9 assumes"),
@@ -414,7 +439,7 @@ def report_interfaces():
          "fertile share. THIS IS THE TIGHTEST INTERFACE IN THE PLANT: the "
          "tritium balance, and so criterion 4, is decided here"),
         ("breeder zone", "tritium plant",
-         f"{P.tritium_supply_per_second(265.0, r['beam_mw'], f_li=P.F_LI_DESIGN)*P.SEC_PER_YEAR*P.T_AMU/P.N_AVOGADRO:.0f} g/yr bred",
+         f"{P.tritium_supply_per_second(r['window'], r['beam_mw'], f_li=P.F_LI_DESIGN)*P.SEC_PER_YEAR*P.T_AMU/P.N_AVOGADRO:.0f} g/yr bred",
          "extracted from FLOWING Pb-Li continuously; a batch process cannot "
          "hold the cell's inventory against a 5.47 %/yr decay"),
         ("blanket", "conversion",
@@ -475,10 +500,10 @@ def report_envelope():
     print()
     print("    LIMITS")
     lims = [
-        ("beam power", f"<= {r['beam_mw']:.0f} MW",
-         "above it the target and the coil shield are both outside their "
-         "sourced envelopes"),
-        ("beam power", f">= {P.beam_mw_for_tritium(265.0, f_li=P.F_LI_DESIGN):.2f} MW time-averaged",
+        ("beam power per module", f"<= {r['module_mw']:.0f} MW",
+         "the target's own study designed it here, and above it the jet is "
+         "an extrapolation rather than a design"),
+        ("beam power per module", f">= {P.beam_mw_for_tritium(r['window'], f_li=P.F_LI_DESIGN):.2f} MW time-averaged",
          "BELOW THIS THE TRITIUM BALANCE OPENS. It is not an instantaneous "
          "limit -- the cell holds years of inventory -- but a plant that "
          "runs at half power for a decade has quietly acquired a supply line"),
@@ -492,13 +517,14 @@ def report_envelope():
          "the Vesman resonance point; the fusion rate is a function of it "
          "and the service life is measured there"),
         ("coil integrated dose", f"<= {M.INSULATION_LIMIT_GY[0]/1e6:.0f} MGy",
-         f"reached in {M.coil_life_years(r['beam_mw']):.1f} years at the "
-         f"design {X.shield_thickness_m():.3f} m of shield. THE COIL IS THE "
-         "LIFE-LIMITING COMPONENT AND IT LIMITS AT EXACTLY THE PLANT'S LIFE, "
-         "which is not a coincidence -- the shield was sized to it. Dose is "
-         "linear in beam power, so any power increase shortens the plant "
-         "inversely unless the shield grows with it"),
-        ("He-3 in the cell", f"~{M.he3_steady_ppm(r['beam_mw']):.4f} ppm",
+         f"reached in {M.coil_life_years(r['module_mw']):.0f} years at the "
+         f"design {X.shield_thickness_m():.3f} m of shield -- comfortably past "
+         f"the {X.PLANT_LIFE_Y:.0f} year plant. At one 10 MW machine this was "
+         "the LIFE-LIMITING component, reaching its limit at exactly the "
+         "plant's life; dose is linear in beam power and modularising to "
+         f"{r['module_mw']:.0f} MW lifted it clear. The module count bought "
+         "this, and it was not what the module count was chosen for"),
+        ("He-3 in the cell", f"~{M.he3_steady_ppm(r['module_mw']):.4f} ppm",
          "swept continuously; it is a poison and it doubles in "
          f"{M.he3_ppm_doubling_minutes():.0f} minutes if the sweep stops"),
     ]
@@ -542,10 +568,11 @@ def report_acceptance():
        "an acceptance test.")
     print()
     tests = [
-        ("driver", f"{r['beam_mw']:.0f} MW on dump, availability over 30 days",
+        ("driver", f"{P.LINAC_BEAM_MW:.0f} MW on dump per linac,"
+         " availability over 30 days",
          "a shortfall in POWER is linear in everything; a shortfall in "
          "AVAILABILITY is not priced anywhere in this work"),
-        ("target", f"{M.target_power_w(r['beam_mw'])/1e3:.0f} kW removed, jet "
+        ("target", f"{M.target_power_w(r['module_mw'])/1e3:.0f} kW removed, jet "
          "stable under beam",
          "jet break-up under a 10 MW beam is unmeasured above the MERIT "
          "experiment's scale and it would cap the plant's power directly"),
@@ -554,7 +581,7 @@ def report_acceptance():
          "the acceptance is what the profile delivers; a 1 % field error is "
          "not a 1 % acceptance error and the relation is not linear"),
         ("channel + cell", "muon stopping rate against "
-         f"{M.delivered_eta_window(1.50, 265.0):.4f}",
+         f"{M.delivered_eta_window(1.50, r['window']):.4f}",
          "THE SINGLE MOST CONSEQUENTIAL MEASUREMENT IN THE PLANT. Every "
          "balance is linear in it, which is why Section 10 Stage A runs it "
          "years before anything is built"),
@@ -569,7 +596,7 @@ def report_acceptance():
          "k is the gain; an error here is an error in the plant's whole "
          "output and in its safety margin at once"),
         ("breeder", "tritium production rate against "
-         f"{P.tritium_supply_per_second(265.0, r['beam_mw'], f_li=P.F_LI_DESIGN)*P.SEC_PER_YEAR*P.T_AMU/P.N_AVOGADRO:.0f} g/yr",
+         f"{P.tritium_supply_per_second(r['window'], r['beam_mw'], f_li=P.F_LI_DESIGN)*P.SEC_PER_YEAR*P.T_AMU/P.N_AVOGADRO:.0f} g/yr",
          "below the demand and criterion 4 fails; this is the test the whole "
          "self-sufficiency claim rests on and it takes a year to run"),
         ("salt processing", "fission-product removal rate sustaining "
@@ -600,11 +627,14 @@ def report_gaps():
        "far this is from a construction project.")
     print()
     gaps = [
-        (f"{r['beam_mw']:.0f} MW, {r['beam_gev']:.0f} GeV proton linac",
+        (f"{P.LINAC_BEAM_MW:.0f} MW, {r['beam_gev']:.0f} GeV proton linac,"
+         f" {r['linacs']:.0f} of them",
          "ESS: 5 MW at 2 GeV, building",
-         "a factor of two in power and four in energy above the largest "
-         "machine of its class. The least novel item here and still not an "
-         "off-the-shelf purchase"),
+         f"four times the power and four times the energy of the largest "
+         f"machine of its class, {r['linacs']:.0f} times over -- "
+         f"{r['beam_mw']:.0f} MW in all, which is {r['beam_mw']/5.0:.0f}x the "
+         "world's largest. THE REACTOR IS NOT WHAT MAKES A MILLION HOUSEHOLDS "
+         "HARD; THE ACCELERATOR IS"),
         (f"{C.DES_B_TARGET:.1f} T capture solenoid over a "
          f"{2*C.des_coil_inner_m():.1f} m bore",
          "MuSIC and the Mu2e/COMET solenoids, at a fraction of the power",
@@ -649,7 +679,7 @@ def report_gaps():
         print()
     _w("AND THE ONE THAT IS NOT AN ENGINEERING GAP AT ALL. The plant breeds "
        "its own tritium and cannot start on it, so a FLEET is rate-limited "
-       f"by a {P.tritium_doubling_years(r['beam_mw']):.0f} year doubling "
+       f"by a {r['doubling_y']:.0f} year doubling "
        "time and by the world's civil tritium stock. That is a deployment "
        "constraint, it is recorded rather than repaired, and no amount of "
        "engineering removes it.")
@@ -660,10 +690,12 @@ def report():
     r = X.ref()
     print("  BUILD PACKAGE -- THE REFERENCE PLANT")
     print("  " + "=" * 36)
-    _w(f"{r['beam_gev']:.0f} GeV, {r['beam_mw']:.0f} MW of beam, "
-       f"k = {P.K_SAFE:.2f}, base collector. {r['thermal_mw']:.0f} MW "
-       f"thermal, {r['net_mw']:.1f} MW net electric, "
-       f"{P.homes(r['net_mw']*1000.0):,.0f} households.", indent=2)
+    _w(f"{r['modules']:.0f} modules of {r['module_mw']:.0f} MW,"
+       f" {r['linacs']:.0f} linacs, {r['beam_mw']:.0f} MW of"
+       f" {r['beam_gev']:.0f} GeV beam in all, k = {P.K_SAFE:.2f}, base"
+       f" collector at a {r['window']:.0f} MeV/c stopping window."
+       f" {r['thermal_mw']:.0f} MW thermal, {r['net_mw']:.0f} MW net"
+       f" electric, {r['households']:,.0f} households.", indent=2)
     for fn in (report_spec, report_sequence, report_commissioning,
                report_interfaces, report_envelope, report_acceptance,
                report_gaps):
@@ -682,9 +714,9 @@ def selftest():
     P, M, C, X = _mods()
     r = X.ref()
     print("  the package states the design and never restates it")
-    check("the plant is materials'/powersource's, not this file's",
-          r["beam_mw"] == P.REF_BEAM_MW and r["thermal_mw"]
-          == P.REF_BEAM_MW * r["gain"])
+    check("the station is materials'/powersource's, not this file's",
+          r["modules"] == P.station()["modules"]
+          and abs(r["thermal_mw"] - r["beam_mw"] * r["gain"]) < 1e-9)
     check("this file defines no design constant of its own",
           all(not (k.isupper() and isinstance(v, (int, float)))
               for k, v in globals().items()))
@@ -704,12 +736,13 @@ def selftest():
               for p in (5.0, 10.0, 20.0, 40.0)]
     check("  -- and inverting the coil life returns one thickness at any power",
           len(set(thicks)) == 1)
-    check("  -- so the coil is life-limiting exactly at the reference power",
-          abs(M.coil_life_years(r["beam_mw"]) / X.PLANT_LIFE_Y - 1.0) < 0.01)
+    check("  -- and modularisation lifted the coil off the life limit",
+          M.coil_life_years(r["module_mw"]) > 2.0 * X.PLANT_LIFE_Y
+          and M.coil_life_years(10.0) < X.PLANT_LIFE_Y * 1.01)
     check("the tritium balance closes at the reference beam power",
-          P.tritium_balance(265.0, r["beam_mw"], f_li=P.F_LI_DESIGN) > 1.0)
+          r["tritium_ratio"] > 1.0)
     check("  -- and the plant can breed a successor inside its own life",
-          P.tritium_doubling_years(r["beam_mw"]) < X.PLANT_LIFE_Y)
+          r["doubling_y"] < X.PLANT_LIFE_Y)
     print()
     print("  the sequence and the gaps are consistent with the bill")
     bill_mats = " ".join(m for _s, m, *_ in X.bill()).lower()

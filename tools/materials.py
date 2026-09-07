@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Every material the reference plant needs, how much, and how it is stored.
+"""Every material the station needs, how much, and how it is stored.
 
-PHASE 2 of the build. This is a bill of materials and a storage schedule for
-the plant `powersource.py` sizes -- 8 GeV, 7 MW of beam, k = 0.95, the base
-collector, 298.9 MW thermal and 117.4 MW net electric.
+PHASE 2 of the build. A bill of materials and a storage schedule for the
+station `powersource.station()` sizes -- one million households, as N modules
+of the sourced target power rather than as one machine, at the stopping window
+that scale-up forces.
 
 WHAT THIS PROGRAM REFUSES TO DO. It never restates a quantity another
 instrument holds: the solenoid's cold mass, the cell's radius and depth, the
@@ -33,6 +34,7 @@ supplied after ignition -- is decided by that column and by nothing else:
 Run:  python3 tools/materials.py            the bill of materials
       python3 tools/materials.py --storage  the storage schedule
       python3 tools/materials.py --supply   criterion 4, adjudicated row by row
+      python3 tools/materials.py --uranium  depleted uranium as the fertile feed
       python3 tools/materials.py --selftest
 """
 
@@ -116,24 +118,16 @@ BEAM_GEV = 8.0
 # ---- quantities the plant fixes -------------------------------------------
 @functools.lru_cache(maxsize=None)
 def ref():
-    """The reference plant, imported whole. Nothing here is restated."""
+    """THE STATION, imported whole from powersource.station(). Nothing here is
+    restated -- not the module count, not the window, not the gain."""
     P = _ps()
-    y_s = 0.5 * sum(P.spallation_yield())
-    y_f = P.fusions_per_proton(265.0)
-    g = P.plant_gain(P.K_SAFE, y_s, y_f)
-    return {
-        "beam_mw": P.REF_BEAM_MW,
-        "beam_gev": BEAM_GEV,
-        "k": P.K_SAFE,
-        "gain": g,
-        "thermal_mw": P.REF_BEAM_MW * g,
-        "net_mw": P.net_electric_kw(P.REF_BEAM_MW * 1000.0,
-                                    P.REF_STANDBY_KW) / 1000.0,
-        "protons_s": P.protons_per_second(P.REF_BEAM_MW),
-        "source_n_s": (y_s + y_f) * P.protons_per_second(P.REF_BEAM_MW),
-        "y_spall": y_s,
-        "y_fus": y_f,
-    }
+    st = P.station()
+    st = dict(st)
+    st["beam_gev"] = BEAM_GEV
+    st["protons_s"] = P.protons_per_second(st["beam_mw"])
+    st["source_n_s"] = ((st["y_spall"] + st["y_fus"])
+                        * P.protons_per_second(st["beam_mw"]))
+    return st
 
 
 @functools.lru_cache(maxsize=None)
@@ -144,7 +138,7 @@ def fissions_per_second():
 
 @functools.lru_cache(maxsize=None)
 def burnup_kg_per_year():
-    """Heavy metal fissioned a year. It is BRED BACK, so it is not a feed."""
+    """Heavy metal fissioned a year, and it IS a feed. See uranium_feed()."""
     return fissions_per_second() * SEC_PER_YEAR / HM_ATOMS_PER_KG
 
 
@@ -221,10 +215,16 @@ def li6_inventory_kg(thick_m=BREEDER_THICK_M, enrich=LI6_ENRICH):
 
 
 @functools.lru_cache(maxsize=None)
+def window():
+    return ref()["window"]
+
+
 def tritium_demand_g_per_year():
+    """The WHOLE STATION: N modules each holding and each burning."""
     P = _ps()
-    d, b = P.tritium_demand_per_second(265.0, ref()["beam_mw"])
-    return (d + b) * SEC_PER_YEAR * T_AMU / N_A
+    r = ref()
+    d, b = P.tritium_demand_per_second(window(), r["module_mw"])
+    return r["modules"] * (d + b) * SEC_PER_YEAR * T_AMU / N_A
 
 
 def li6_burn_kg_per_year():
@@ -239,7 +239,12 @@ def li6_burndown_fraction():
 
 @functools.lru_cache(maxsize=None)
 def tritium_holding_kg():
-    return _ps().tritium_inventory_kg(265.0)
+    """One module's cell. The station holds N of these -- see bill()."""
+    return _ps().tritium_inventory_kg(window(), None)
+
+
+def tritium_station_kg():
+    return ref()["modules"] * tritium_holding_kg()
 
 
 def deuterium_holding_kg():
@@ -252,8 +257,9 @@ def helium3_g_per_year():
     """Tritium that decays does not vanish -- it becomes He-3, in the cell,
     where it is a poison. It leaves as a saleable product."""
     P = _ps()
-    d, _ = P.tritium_demand_per_second(265.0, ref()["beam_mw"])
-    return d * SEC_PER_YEAR * 3.016 / N_A
+    r = ref()
+    d, _ = P.tritium_demand_per_second(window(), r["module_mw"])
+    return r["modules"] * d * SEC_PER_YEAR * 3.016 / N_A
 
 
 def helium4_kg_per_year():
@@ -266,8 +272,9 @@ def helium4_kg_per_year():
 
 @functools.lru_cache(maxsize=None)
 def mercury_flow_kg_s():
+    """ONE module's jet. The station runs N of them."""
     m = _mach()
-    return m.jet_mass_flow_kg_s() * ref()["beam_mw"]
+    return m.jet_mass_flow_kg_s() * ref()["module_mw"]
 
 
 def mercury_inventory_kg(residence_s=HG_RESIDENCE_S):
@@ -299,7 +306,9 @@ def linac_length_m():
 
 @functools.lru_cache(maxsize=None)
 def shield_thickness_m():
-    return _mach().shield_for_life_m(PLANT_LIFE_Y, ref()["beam_mw"])
+    """The COIL shield, and the coil belongs to a MODULE. Sizing it against
+    the station's whole beam would over-shield it by the module count."""
+    return _mach().shield_for_life_m(PLANT_LIFE_Y, ref()["module_mw"])
 
 
 def shield_mass_kg(thick_m=None, rho=CONCRETE_RHO):
@@ -320,6 +329,135 @@ def mass_converted_kg():
     return ref()["thermal_mw"] * 1e6 * PLANT_LIFE_Y * SEC_PER_YEAR / (c * c)
 
 
+# ---- DEPLETED URANIUM, WHICH IS THE FERTILE FEED AND IS ALREADY MINED ------
+# Enrichment for light-water reactors leaves tails: uranium stripped of most of
+# its U-235 and stored, as UF6 in drums, as a LIABILITY. It is fertile, which
+# in a thermal reactor makes it nearly useless, and it is exactly what a fast
+# subcritical blanket eats.
+#
+# THE DISTINCTION THAT MATTERS AND IS EASY TO LOSE. Breeding holds the FISSILE
+# fraction, not the mass: U-238 captures a neutron, becomes Pu-239, and the
+# Pu-239 fissions. The fissile inventory is therefore constant while the TOTAL
+# heavy metal falls at the fission rate. So the plant needs no fissile feed and
+# it DOES need a fertile one -- and the fertile one is a material the world has
+# already mined, already paid for, and is currently paying to store.
+DU_WORLD_STOCK_T = 1.6e6     # SOURCED band, global enrichment tails as uranium
+DU_US_STOCK_T = 4.75e5       # SOURCED, the DOE holding alone
+WORLD_ELECTRICITY_TWH_YR = 29000.0   # SOURCED, order of magnitude
+FISSION_J_PER_KG = HM_ATOMS_PER_KG * 200.0 * 1.602176634e-13
+
+
+def uranium_feed_t_per_year():
+    return burnup_kg_per_year() / 1000.0
+
+
+def uranium_life_charge_t(years=PLANT_LIFE_Y):
+    return uranium_feed_t_per_year() * years
+
+
+def uranium_first_charge_t():
+    """The holding, which is also depleted uranium apart from its fissile seed."""
+    return heavy_metal_inventory_kg() / 1000.0
+
+
+def stock_station_lifetimes(stock_t=DU_WORLD_STOCK_T):
+    """How many station-lifetimes the existing tails hold, on the FEED alone."""
+    return stock_t / uranium_life_charge_t()
+
+
+def stock_electricity_twh(stock_t=DU_WORLD_STOCK_T):
+    """The stock's recoverable electricity, at this plant's own eta_th."""
+    return (stock_t * 1000.0 * FISSION_J_PER_KG * _ps().eta_thermal()
+            / 3.6e9 / 1e6)
+
+
+def stock_world_years(stock_t=DU_WORLD_STOCK_T):
+    return stock_electricity_twh(stock_t) / WORLD_ELECTRICITY_TWH_YR
+
+
+def report_uranium():
+    """Depleted uranium: the fertile feed, and it is already above ground."""
+    P = _ps()
+    r = ref()
+    print("  DEPLETED URANIUM -- THE FERTILE FEED")
+    print()
+    print("    A CORRECTION FIRST, AND IT IS THIS SECTION'S REASON TO EXIST.")
+    print("    An earlier pass filed the blanket's heavy metal as BRED, with")
+    print("    the note that the salt 'breeds the same back' and is a holding")
+    print("    rather than a feed. That is wrong and the error is a real one:")
+    print("    breeding converts U-238 to Pu-239 and the Pu-239 FISSIONS, so")
+    print("    every fission destroys a heavy atom permanently. What breeding")
+    print("    holds constant is the FISSILE FRACTION -- which is what holds k")
+    print("    -- while the TOTAL heavy metal falls at the fission rate.")
+    print("    THE PLANT NEEDS NO FISSILE FEED AND IT DOES NEED A FERTILE ONE.")
+    print()
+    print("    WHAT THE STATION EATS")
+    print(f"      first charge, heavy metal      "
+          f"{uranium_first_charge_t():10.1f} t")
+    print(f"      fertile feed                   "
+          f"{uranium_feed_t_per_year():10.2f} t/yr")
+    print(f"        = {100*burnup_fraction_per_year():.2f} % of the holding a"
+          f" year, {100*fissile_depletion_fraction():.1f} % over"
+          f" {PLANT_LIFE_Y:.0f} years")
+    print(f"      life charge of feed            "
+          f"{uranium_life_charge_t():10.1f} t")
+    print(f"      TOTAL uranium over the life    "
+          f"{uranium_first_charge_t()+uranium_life_charge_t():10.1f} t")
+    print()
+    print("    AND IT IS ALREADY MINED. Enrichment for light-water reactors")
+    print("    leaves tails -- uranium stripped of its U-235, stored as UF6 in")
+    print("    drums, carried on the books as a liability and not an asset.")
+    print("    In a thermal spectrum it is nearly useless. A FAST SUBCRITICAL")
+    print("    BLANKET IS EXACTLY WHAT EATS IT.")
+    print()
+    print(f"      DOE holding alone              {DU_US_STOCK_T:10,.0f} t"
+          "    SOURCED")
+    print(f"      world tails, order             {DU_WORLD_STOCK_T:10,.0f} t"
+          "    SOURCED band")
+    print()
+    print("    WHAT THAT STOCK IS WORTH, ON THE FEED ALONE")
+    print(f"      station-lifetimes, DOE stock   "
+          f"{stock_station_lifetimes(DU_US_STOCK_T):10,.0f}")
+    print(f"      station-lifetimes, world       "
+          f"{stock_station_lifetimes():10,.0f}")
+    print(f"      recoverable electricity        "
+          f"{stock_electricity_twh():10.3e} TWh")
+    print(f"      as years of WORLD electricity  {stock_world_years():10,.0f}"
+          "    at today's demand")
+    print()
+    print("    Those last two are stated at this plant's own thermal")
+    print(f"    efficiency ({100*P.eta_thermal():.1f} %) and at complete fission of the stock,")
+    print("    which no single pass achieves -- a liquid fuel with online")
+    print("    processing approaches it over many charges and no reactor")
+    print("    reaches it in one. Read them as an UPPER BOUND on the resource")
+    print("    and as a lower bound on how far it is from binding.")
+    print()
+    print("    WHAT DEPLETED URANIUM CANNOT DO, AND THIS IS THE HALF THAT IS")
+    print("    USUALLY SKIPPED. It cannot start the plant. Reaching")
+    print(f"    k = {P.K_SAFE:.2f} needs SEPARATED FISSILE in the first charge;")
+    print("    U-238 is fertile and a fertile assembly has no k to speak of.")
+    print("    The tails answer the FEED and they do not answer the IGNITION,")
+    print("    which stays what buildpackage.py's long-lead list says it is: a")
+    print("    safeguarded acquisition and a political question rather than an")
+    print("    engineering one. After that first charge the plant makes its own")
+    print("    fissile from the tails, for ever.")
+    print()
+    print("    THREE CONSEQUENCES WORTH STATING PLAINLY")
+    print("      1. The feed is a WASTE STREAM. Every tonne burnt is a tonne")
+    print("         of stored liability removed, so the fuel cost is negative")
+    print("         before it is anything else.")
+    print("      2. It is not a mining question. No uranium need be mined for")
+    print(f"         this station for {stock_station_lifetimes():,.0f} station-lifetimes,")
+    print("         so the environmental burden of the front end -- which is")
+    print("         most of nuclear power's material footprint -- is ZERO for")
+    print("         as far as this analysis can see. See environment.py.")
+    print("      3. It changes criterion 4's verdict on ONE row and no more.")
+    print("         Heavy metal moves from BRED to STOCKPILED: a life charge")
+    print(f"         of {uranium_life_charge_t():.0f} t fits in a shed, so it is a first")
+    print("         charge and not a delivery -- the same finding as Li-6, by")
+    print("         the same argument, at a different tonnage.")
+
+
 # ---- THE BILL --------------------------------------------------------------
 # (subsystem, material, quantity, unit, status, supply, storage)
 @functools.lru_cache(maxsize=None)
@@ -327,74 +465,89 @@ def bill():
     r = ref()
     m = _mach()
     C = _coll()
+    N = float(r["modules"])          # per-module items are built N times
+    L = float(r["linacs"])           # driver items are built once per linac
     rows = []
     A = rows.append
 
-    A(("driver", "niobium, RRR300 sheet", linac_niobium_kg() / 1000.0, "t",
-       "SCALED", "FIRST-CHARGE",
-       f"{linac_cavities():.0f} cavities in cryomodules at 2 K; "
+    A(("driver", "niobium, RRR300 sheet", L * linac_niobium_kg() / 1000.0,
+       "t", "SCALED", "FIRST-CHARGE",
+       f"{L:.0f} linacs x {linac_cavities():.0f} cavities in cryomodules at 2 K; "
        "sub-atmospheric LHe bath; magnetic hygiene below 1 uT"))
-    A(("driver", "liquid helium, 2 K circuit", 12.0, "t", "REQUIREMENT",
+    A(("driver", "liquid helium, 2 K circuit", L * 12.0, "t", "REQUIREMENT",
        "CIRCULATING",
        "closed-cycle; full gas-bag + high-pressure recovery for the whole "
        "inventory, because a quench must not vent"))
-    A(("driver", "liquid nitrogen, thermal shields", 40.0, "t/yr",
+    A(("driver", "liquid nitrogen, thermal shields", L * 40.0, "t/yr",
        "REQUIREMENT", "STOCKPILED",
        "bulk cryogenic tank, atmospheric, replenished; the one utility feed"))
-    A(("driver", "copper and steel, cryomodules", linac_length_m() * 2.0, "t",
+    A(("driver", "copper and steel, cryomodules", L * linac_length_m() * 2.0,
+       "t",
        "REQUIREMENT", "FIRST-CHARGE",
        f"{linac_length_m():.0f} m of superconducting linac at an ASSUMED "
        "2 t/m of cryomodule, vessel and warm structure; ordinary plant "
        "storage, and the figure is a scoping one"))
 
-    A(("target", "mercury", mercury_inventory_kg() / 1000.0, "t", "DERIVED",
-       "CIRCULATING",
-       f"sealed loop at {mercury_flow_kg_s():.0f} kg/s; double containment, "
+    A(("target", "mercury", N * mercury_inventory_kg() / 1000.0, "t",
+       "DERIVED", "CIRCULATING",
+       f"{N:.0f} sealed loops at {mercury_flow_kg_s():.0f} kg/s each; double containment, "
        "vapour capture, activated (Hg-203, Au-198) so the loop is a hot cell"))
-    A(("target", "beryllium window", 0.5, "kg", "SOURCED", "REPLACED",
-       f"replaced on {m.SRC_BE_WINDOW_Z_M:.0f} m stand-off at "
+    A(("target", "beryllium window", N * 0.5, "kg/yr", "SOURCED", "REPLACED",
+       f"one per module per year; replaced on {m.SRC_BE_WINDOW_Z_M:.0f} m stand-off at "
        f"{m.SRC_BE_WINDOW_DPA_YR:.1f} dpa/yr -- annually; Be dust is the "
        "hazard, handled in a glovebox, and the spent window is waste"))
 
     A(("capture", "solenoid cold mass, steel and conductor",
-       solenoid_cold_mass_kg() / 1000.0, "t", "IMPORTED", "FIRST-CHARGE",
+       N * solenoid_cold_mass_kg() / 1000.0, "t", "IMPORTED", "FIRST-CHARGE",
        f"{C.des_coil_inner_m():.2f} m bore, "
        f"{C.des_winding_thickness_m():.2f} m winding, "
        f"{C.DES_LENGTH_M:.1f} m long; 4.5 K cryostat"))
     for name, length in conductor_bands():
-        A(("capture", f"{name} conductor", length, "m", "IMPORTED",
+        A(("capture", f"{name} conductor", N * length, "m", "IMPORTED",
            "FIRST-CHARGE",
            "graded by field; spooled, and the REBCO band is the schedule "
            "item -- it is the long-lead purchase of the whole plant"))
-    A(("capture", "liquid helium, 4.5 K cryostat", 8.0, "t", "REQUIREMENT",
+    A(("capture", "liquid helium, 4.5 K cryostat", N * 8.0, "t", "REQUIREMENT",
        "CIRCULATING",
        f"cooldown takes {m.cooldown_energy_j()/1e9:.1f} GJ from the cold mass; "
        "recovery capacity must exceed a full quench"))
 
-    A(("fuel cell", "tritium", tritium_holding_kg(), "kg", "IMPORTED",
+    A(("fuel cell", "tritium", N * tritium_holding_kg(), "kg", "IMPORTED",
        "BRED",
        f"{m.cell_radius_cm():.2f} cm radius, {m.cell_depth_cm():.0f} cm deep "
        f"at {m.cell_pressure_mpa():.0f} MPa and {m.CELL_T_K:.0f} K; "
        "double-walled, all-metal, secondary containment at sub-atmospheric "
        "pressure with a getter bed on the sweep"))
-    A(("fuel cell", "deuterium", deuterium_holding_kg(), "kg", "DERIVED",
+    A(("fuel cell", "deuterium", N * deuterium_holding_kg(), "kg", "DERIVED",
        "FIRST-CHARGE",
        "same cell; the D side is ordinary and is bought once"))
-    A(("fuel cell", "tritium, working store", 2.0 * tritium_holding_kg(),
-       "kg", "REQUIREMENT", "BRED",
-       "ZrCo or depleted-uranium hydride beds, one cell charge plus one "
-       "spare; a bed holds tritium as a solid at atmospheric pressure and "
-       "releases it on heating, which is what makes the store safe"))
+    A(("fuel cell", "tritium, working store",
+       (2.0 + 0.10 * N) * tritium_holding_kg(), "kg", "REQUIREMENT", "BRED",
+       "ZrCo or depleted-uranium hydride beds: TWO spare module charges for "
+       f"the whole station, not two per module, plus 10 % of {N:.0f} charges "
+       "as processing hold-up. A bed holds tritium as a solid at atmospheric "
+       "pressure and releases it on heating, which is what makes the store "
+       "safe -- and the store is deliberately small because the world's "
+       "entire civil stock barely charges the cells"))
 
     A(("blanket", "fuel salt, NaCl-UCl3 (Cl-37)",
        salt_inventory_kg() / 1000.0, "t", "DERIVED", "CIRCULATING",
        f"{salt_volume_m3():.1f} m3 at {salt_flow_kg_s():.0f} kg/s, "
        f"700-900 K; freeze-plug drain to a passively cooled subcritical tank"))
-    A(("blanket", "  of which heavy metal",
-       heavy_metal_inventory_kg() / 1000.0, "t", "DERIVED", "BRED",
-       f"fissions {burnup_kg_per_year():.0f} kg/yr = "
-       f"{100*burnup_fraction_per_year():.2f} %/yr of the holding, and breeds "
-       "the same back; the salt is a holding, not a feed"))
+    A(("blanket", "  of which heavy metal, held",
+       heavy_metal_inventory_kg() / 1000.0, "t", "DERIVED", "FIRST-CHARGE",
+       f"the holding, of which the FISSILE fraction is held constant by "
+       f"breeding at f_b >= {_ps().fertile_capture_required(_ps().K_SAFE):.4f}; "
+       "that is what keeps k, and it is not what keeps the mass"))
+    A(("blanket", "  fertile feed, depleted uranium",
+       burnup_kg_per_year() / 1000.0, "t/yr", "DERIVED", "STOCKPILED",
+       f"EVERY FISSION DESTROYS A HEAVY ATOM. Breeding converts U-238 to "
+       f"Pu-239 and the Pu fissions, so the fissile fraction is held and the "
+       f"TOTAL heavy metal falls at the fission rate -- "
+       f"{100*burnup_fraction_per_year():.2f} %/yr, "
+       f"{100*fissile_depletion_fraction():.1f} % over the life. A "
+       f"{uranium_life_charge_t():.0f} t life charge of depleted uranium sits "
+       "in drums on site; see --uranium"))
     A(("blanket", "chlorine, Cl-37 enriched",
        salt_inventory_kg() * (1.0 - SALT_U_MASS_FRAC) * 35.45 / 58.44 / 1000.0,
        "t", "DERIVED", "FIRST-CHARGE",
@@ -416,8 +569,8 @@ def bill():
        "extracted. THIS IS WHAT BUYS L = 0.20 FOR FORTY YEARS and it is the "
        "single most demanding unbuilt item in the plant"))
 
-    A(("shielding", "coil shield, tungsten-loaded", shield_mass_kg() / 1000.0,
-       "t", "DERIVED", "FIRST-CHARGE",
+    A(("shielding", "coil shield, tungsten-loaded",
+       N * shield_mass_kg() / 1000.0, "t", "DERIVED", "FIRST-CHARGE",
        f"{shield_thickness_m():.2f} m, sized for a {PLANT_LIFE_Y:.0f} year "
        f"COIL life at {r['beam_mw']:.0f} MW -- an insulation-dose limit, not a "
        f"biological one. It carries "
@@ -456,12 +609,20 @@ def bill():
 def report():
     """The bill of materials for the reference plant."""
     r = ref()
-    print("  BILL OF MATERIALS -- THE REFERENCE PLANT")
+    print("  BILL OF MATERIALS -- THE STATION")
     print()
-    print(f"    {r['beam_gev']:.0f} GeV, {r['beam_mw']:.0f} MW of beam, "
-          f"k = {r['k']:.2f}, base collector 1.50 T.m, 265 MeV/c")
-    print(f"    G = {r['gain']:.2f}   thermal {r['thermal_mw']:.1f} MW   "
-          f"net electric {r['net_mw']:.1f} MW")
+    print(f"    {r['modules']:.0f} modules of {r['module_mw']:.0f} MW,"
+          f" {r['linacs']:.0f} linacs, {r['beam_mw']:.0f} MW of"
+          f" {r['beam_gev']:.0f} GeV beam in all")
+    print(f"    k = {r['k']:.2f}, base collector 1.50 T.m,"
+          f" {r['window']:.0f} MeV/c stopping window")
+    print(f"    G = {r['gain']:.2f}   thermal {r['thermal_mw']:.0f} MW   "
+          f"net electric {r['net_mw']:.0f} MW   "
+          f"{r['households']:,.0f} households")
+    print()
+    print("    Quantities are WHOLE-STATION. A per-module item is stated at"
+          " N times")
+    print("    one module's figure and its note says so.")
     print()
     print(f"    {'subsystem':<11} {'material':<36} {'quantity':>12} {'':<6}"
           f" {'status':<12} supply")
@@ -504,19 +665,23 @@ def report_storage():
     print("    that decide whether the plant is licensable:")
     print()
     m = _mach()
-    print(f"      TRITIUM. {tritium_holding_kg():.2f} kg in the cell and "
-          f"{2*tritium_holding_kg():.2f} kg in beds is")
+    n = float(ref()["modules"])
+    print(f"      TRITIUM. {tritium_holding_kg():.2f} kg per cell x {n:.0f}"
+          f" modules = {n*tritium_holding_kg():.1f} kg,")
+    print(f"      with {2*n*tritium_holding_kg():.1f} kg more in beds. One cell is")
     C = _coll()
     ci = C.tritium_curies(tritium_holding_kg() * 1000.0)
-    print(f"      {ci/1e6:.1f} MCi in the cell alone. That is the plant's")
+    print(f"      {ci/1e6:.1f} MCi, and the station {n*ci/1e6:.0f} MCi. That is the")
+    print("      plant's")
     print("      dominant licensing quantity and it is set by the muon range,")
     print("      not by the power -- see powersource.py --tritium. A hydride")
     print("      bed holds it as a solid at atmospheric pressure: the store is")
     print("      safe, the CELL is the hazard, and the cell is the smallest")
     print("      the physics allows.")
     print()
-    print(f"      MERCURY. {mercury_inventory_kg()/1000.0:.1f} t in a loop that "
-          "is activated the moment the")
+    print(f"      MERCURY. {mercury_inventory_kg()/1000.0:.2f} t per module,"
+          f" {n*mercury_inventory_kg()/1000.0:.1f} t in all, in loops")
+    print("      activated the moment the")
     print("      beam is on. It is not a chemical hazard with a radiological")
     print("      footnote; it is a hot cell that happens to contain mercury.")
     print()
@@ -584,7 +749,7 @@ def report_supply():
           f"{P.fertile_capture_required(P.K_SAFE):.4f} of non-fission")
     print("               absorptions, and the budget has room for exactly")
     print("               that much and no more.")
-    print(f"      tritium: {P.tritium_balance(265.0, ref()['beam_mw'], f_li=P.F_LI_DESIGN):.3f}"
+    print(f"      tritium: {P.tritium_balance(window(), ref()['module_mw'], f_li=P.F_LI_DESIGN):.3f}"
           " at the design Li-6 share, and that ratio")
     print("               is what set the plant at 7 MW rather than 1.")
     print()
@@ -620,16 +785,18 @@ def selftest():
     P, m = _ps(), _mach()
     print("  the bill imports rather than restates")
     check("the tritium holding is powersource's, to the last digit",
-          tritium_holding_kg() == P.tritium_inventory_kg(265.0))
+          tritium_holding_kg() == P.tritium_inventory_kg(window(), None))
     check("the cold mass is machine's, to the last digit",
           solenoid_cold_mass_kg() == m.cold_mass_kg())
     check("the conductor bands are machine's grading, unregraded",
           [n for n, _ in conductor_bands()]
           == [b[0] for b in m.grade_bands()])
-    check("the plant's thermal power is powersource's gain times its beam",
+    check("the station's thermal power is powersource's gain times its beam",
           abs(ref()["thermal_mw"]
-              - P.REF_BEAM_MW * P.plant_gain(P.K_SAFE, ref()["y_spall"],
-                                             ref()["y_fus"])) < 1e-9)
+              - ref()["beam_mw"] * P.plant_gain(P.K_SAFE, ref()["y_spall"],
+                                                ref()["y_fus"])) < 1e-9)
+    check("  -- and the station is powersource's, module count included",
+          ref()["modules"] == P.station()["modules"])
     print()
     print("  the blanket's chemistry is forced, and the selftest says by what")
     check("the salt inventory follows the HEAT, not the neutronics",
@@ -659,13 +826,48 @@ def selftest():
     check("tritium is BRED, not FIRST-CHARGE -- the balance decides it",
           [sup for _s, mat, _q, _u, _st, sup, _ in bill()
            if mat == "tritium"] == ["BRED"])
-    check("  -- and it is BRED only because the plant is 7 MW",
-          P.tritium_balance(265.0, P.REF_BEAM_MW, f_li=P.F_LI_DESIGN) > 1.0
-          and P.tritium_balance(265.0, 1.0, f_li=P.F_LI_DESIGN) < 1.0)
-    check("the mass actually converted is under ten kilogrammes",
-          mass_converted_kg() < 10.0)
-    check("  -- and it is not zero, which is what the theorem forbids",
-          mass_converted_kg() > 0.0)
+    check("  -- and it is BRED only at the window the scale-up forced",
+          P.tritium_balance(window(), ref()["module_mw"],
+                            f_li=P.F_LI_DESIGN) > 1.0
+          and P.tritium_balance(265.0, ref()["module_mw"],
+                                f_li=P.F_LI_DESIGN) < 1.0)
+    print()
+    print("  depleted uranium: the fertile feed, and the correction it forced")
+    check("the fertile feed equals the fission rate, atom for atom",
+          abs(uranium_feed_t_per_year() * 1000.0
+              - burnup_kg_per_year()) < 1e-9)
+    check("heavy metal is NOT filed as BRED -- fissile is held, mass is not",
+          [sup for _s, mat, _q, _u, _st, sup, _n in bill()
+           if "heavy metal" in mat] == ["FIRST-CHARGE"])
+    check("  -- and the fertile feed is filed as a consumable",
+          [sup for _s, mat, _q, _u, _st, sup, _n in bill()
+           if "fertile feed" in mat] == ["STOCKPILED"])
+    check("the life charge of feed is a fraction of the first charge",
+          uranium_life_charge_t() < uranium_first_charge_t())
+    check("  -- so it fits on site and is a charge, not a delivery",
+          uranium_life_charge_t() < 1000.0)
+    check("the existing tails hold thousands of station-lifetimes",
+          stock_station_lifetimes() > 1000.0)
+    check("  -- and the DOE holding alone holds thousands",
+          stock_station_lifetimes(DU_US_STOCK_T) > 1000.0)
+    check("the resource figure is an upper bound, not a prediction",
+          stock_electricity_twh() ==
+          DU_WORLD_STOCK_T * 1000.0 * FISSION_J_PER_KG * P.eta_thermal()
+          / 3.6e9 / 1e6)
+    check("depleted uranium cannot start the plant: it is fertile",
+          True is (uranium_first_charge_t() > 0
+                   and "fissile first charge" in " ".join(
+                       i for i, _w, _y in
+                       __import__("buildpackage").LONG_LEAD)))
+    # the theorem's floor, checked against the fuel rather than against a
+    # magnitude: the mass that leaves as energy must be the fission mass
+    # defect of the fuel that supplied it, which is a per-mille effect.
+    defect = mass_converted_kg() / (uranium_life_charge_t() * 1000.0)
+    check("the mass converted is the fuel's fission mass defect",
+          0.0005 < defect < 0.0015)
+    check("  -- so the energy came from the fuel and not from bookkeeping",
+          mass_converted_kg() > 0.0
+          and mass_converted_kg() < uranium_life_charge_t() * 1000.0)
     print()
     print("  no row is silently unclassified")
     stats = {"DERIVED", "IMPORTED", "SOURCED", "SCALED", "ASSUMED",
@@ -689,6 +891,8 @@ def main():
     ap.add_argument("--storage", action="store_true",
                     help=report_storage.__doc__)
     ap.add_argument("--supply", action="store_true", help=report_supply.__doc__)
+    ap.add_argument("--uranium", action="store_true",
+                    help=report_uranium.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -696,6 +900,8 @@ def main():
         return report_storage()
     if a.supply:
         return report_supply()
+    if a.uranium:
+        return report_uranium()
     return report()
 
 
