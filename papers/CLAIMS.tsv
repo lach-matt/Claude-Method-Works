@@ -766,9 +766,9 @@ C769	bred fuel bound case, delivered	2.449	ratio	DERIVED	machine.py --balances; 
 C770	the same at the wider bore	2.909	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_bredbound_w
 C771	bred fuel through an optimised target, delivered	1.480	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_optimised
 C772	the same at the wider bore	1.758	ratio	DERIVED	machine.py --balances; sec.5.19 restated at the delivered figure	fn:bal_optimised_w
-C773	acceptance census: sites across both live papers	46	count	DERIVED	machine.py --census; each row asserted against the file that prints it	fn:cen_sites
-C774	census rows graded CONDITIONAL	9	count	DERIVED	machine.py --census; the site states its own assumption	fn:cen_conditional
-C775	census rows graded RESTATED	29	count	DERIVED	machine.py --census; read as end-to-end, restated at delivered	fn:cen_restated
+C773	acceptance census: sites across both live papers	57	count	DERIVED	machine.py --census; each row asserted against the file that prints it	fn:cen_sites
+C774	census rows graded CONDITIONAL	10	count	DERIVED	machine.py --census; the site states its own assumption	fn:cen_conditional
+C775	census rows graded RESTATED	38	count	DERIVED	machine.py --census; read as end-to-end, restated at delivered	fn:cen_restated
 C776	census rows graded REQUIREMENT	3	count	DERIVED	machine.py --census; sec.5.22's inverse question	fn:cen_requirement
 C777	census rows graded NOT-LINEAR	4	count	DERIVED	machine.py --census; a density or a sticking boundary	fn:cen_notlinear
 C778	census rows graded WITHDRAWN	1	count	DERIVED	machine.py --census; a sentence rather than a number	fn:cen_withdrawn
@@ -796,3 +796,13 @@ C799	acceptance census residue after the completeness scan	0	count	DERIVED	machi
 C800	forward hemisphere alone at today's aperture	50.69	percent	PINNED	stated by sec.5.9; censused as an aperture-model acceptance	none
 C801	backward hemisphere alone	10.23	percent	PINNED	stated by sec.5.9; censused as an aperture-model acceptance	none
 C802	companion sec.2.5's sticking boundary at the front end as built	0.394	percent	PINNED	stated by the companion; censused NOT-LINEAR	none
+C803	census rows graded SELF-WITHDRAWN	1	count	DERIVED	machine.py --census; a row the paper withdraws in place	fn:cen_selfwithdrawn
+C804	sec.5.2's reachable capture, its own ceiling through the loss budget	0.2438	fraction	DERIVED	collector.stopping_capture(265) x machine.budget_product()	fn:cop_capture_delivered
+C805	co-product fusion heat at that capture	8.56	percent	DERIVED	collector.insitu_heat_fraction at C804	fn:cop_heat_pct_delivered
+C806	the same at today's front end through the budget	7.51	percent	DERIVED	collector.insitu_heat_fraction(0.30 x budget)	fn:cop_heat_pct_30_delivered
+C807	binders per second at sec.5.2's own ceiling	1.918e14	s^-1	DERIVED	C473 x 0.342 / 0.50	fn:cop_binders_ceiling_e14
+C808	binders per second delivered	1.367e14	s^-1	DERIVED	C473 x C804 / 0.50	fn:cop_binders_delivered_e14
+C809	fusion heat at sec.5.2's own ceiling	120.1	kW	DERIVED	C474 x 0.342 / 0.50	fn:cop_kw_ceiling
+C810	fusion heat delivered	85.6	kW	DERIVED	C474 x C804 / 0.50	fn:cop_kw_delivered
+C811	in-situ over the best planned delivered beam, delivered	1.37e4	x	DERIVED	C475 x C804 / 0.50	fn:cop_over_delivered_e4
+C812	the census's scaling of the printed 176 against the instrument's chain	1.002	ratio	DERIVED	machine.py --census restatement / verify_paper's own recomputation	fn:cop_census_agreement

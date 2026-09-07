@@ -10,7 +10,7 @@ python3 tools/docfigures.py               # the drift report; exit 1 if anything
 python3 tools/docfigures.py -v            # same, every row printed
 ```
 
-**66 pinned figures, ~5 s, stdlib only.** Fast enough to run at the top of a session.
+**68 pinned figures, ~5 s, stdlib only.** Fast enough to run at the top of a session.
 
 ## Why it exists
 
@@ -49,12 +49,29 @@ counts and ranges; the `__<driveFileId>` count; and the row counts and headline 
 The last fourteen rows come from `pointers.py --json` and `arith.py --json`: 1,932 pointer tokens
 across seven verdicts with 42 findings, and 235 arithmetic claims across four verdicts with 2.
 
-**The last seven pin `machine.py --census`.** That instrument grades 46 sites across the two live
-papers where a figure is stated at an assumed collection efficiency — 9 CONDITIONAL, 29 RESTATED, 3
-REQUIREMENT, 4 NOT-LINEAR, 1 WITHDRAWN — and its own selftest asserts each **site** against the paper
+**The last seven pin `machine.py --census`.** That instrument grades 57 sites across all three live
+papers where a figure is stated at an assumed collection efficiency — 10 CONDITIONAL, 38 RESTATED, 3
+REQUIREMENT, 4 NOT-LINEAR, 1 WITHDRAWN, 1 SELF-WITHDRAWN — and its own selftest asserts each **site** against the paper
 that prints it, exactly the shape that lets a change in the **totals** through. `CLAUDE.md` and
 `docs/MACHINE.md` both state those totals in prose, so they are pinned here. The seventh is that
-instrument’s **residue**, which must stay 0: it is the measurement that the census is complete.
+instrument's **residue**, which must stay 0: it is the measurement that the census is complete.
+
+**The eighth reads the prose itself, and it exists because of a fault this file had.** Every other
+row here pins a literal *in this program's own source* against the tree, and then trusts that the
+same literal was copied into the sentence. It was not: `CLAUDE.md` stated the census at one total in
+one paragraph and an older, smaller one in the next, and every pin passed, because the pins were never
+looking at the sentences. So the eighth row reads all four documents that state the census's grades — `CLAUDE.md`,
+this file, `docs/MACHINE.md` and the paper's §5.33 — pulls every `N GRADE` pair out of the prose and
+the tables, and requires each to equal what the instrument reports. **Mismatches must be 0.** Its own
+failure mode is a regex that matches nothing and passes, so `--selftest` asserts that it reads all
+five grades out of every one of the four documents, and that a deliberately wrong count *is* caught.
+A check that cannot fail is not a check.
+
+**Its one limit, and it is why the sentence above no longer quotes the two stale totals.** The scan
+reads a number beside a grade; it cannot tell a *claim* from a *narrative about an old claim*. Writing
+"it said 38 where the census says 38 is wrong" would be flagged as a mismatch, correctly by the
+regex and wrongly by any reader. So the history is told without the figures, and the figures live in
+the commit that changed them. A scan that cannot distinguish those two is a scan to keep narrow.
 
 **Their own selftests do not cover these.** `pointers.py --selftest` checks 53 fixtures and
 `arith.py --selftest` checks 42, and every one of them is an individual **site** — this token

@@ -1173,6 +1173,12 @@ ETA_TODAY_APERTURE = 0.6092          # "today's aperture, both hemispheres"
 
 PAPER_ECONOMY = "Cold_Fusion_Binder_Economy_v1.0.md"
 PAPER_RECONCILIATION = "Independent_Reconciliation_v1.0.md"
+PAPER_SPECIFICATION = "Cold_Fusion_Specification_and_Procedure_v1.0.md"
+# the capture the co-product headline was computed at, and the ceiling that
+# same section says is reachable. [3] sec.5.2 states both and restates neither.
+ETA_COPRODUCT_PRINTED = 0.50
+ETA_COPRODUCT_CEILING = 0.3420
+ETA_TODAY_FRONT_END = 0.30          # "today's measured front end"
 
 # kind decides both the grade and the arithmetic:
 #
@@ -1292,14 +1298,54 @@ ACCEPTANCE_SITES = (
      "bred fuel at today's aperture through the tightest window WITH the "
      "optimised production target -- and its restatement is 1.480, which is "
      "the optimised-target balance reached by a third route"),
+    # ---- [3], the specification. Its sec.5.2 is the co-product configuration,
+    # and it is the one place in this work where the loss budget moves a figure
+    # WITHOUT deciding it: that balance is not a ratio against unity.
+    (PAPER_SPECIFICATION, "5.2", "10.5", 10.5, "ratio", None,
+     "heat as a fraction of beam energy at today's front end, percent"),
+    (PAPER_SPECIFICATION, "5.2", "12.0", 12.0, "ratio", None,
+     "the same at this section's own stopping ceiling -- the row it says survives"),
+    (PAPER_SPECIFICATION, "5.2", "17.6", 17.6, "ratio", None,
+     "the same at a capture reachable only at ~45 kg of tritium"),
+    (PAPER_SPECIFICATION, "5.2", "31.6", 31.6, "self-withdrawn", ETA_COLLECTOR_59,
+     "the 90 percent row. THE PAPER WITHDRAWS THIS ITSELF, in the paragraph "
+     "beneath it: it compared a collector's acceptance with a fuel target's "
+     "stopping fraction. Censused so the withdrawal is on the record rather "
+     "than restated -- a status is never flattened"),
+    (PAPER_SPECIFICATION, "5.2", "2.80 × 10¹⁴", 2.80, "coproduct",
+     ETA_COPRODUCT_PRINTED,
+     "binders per second, computed at 0.50 -- which the correction two lines "
+     "below it demotes. 1.918 at this section's ceiling, 1.367 delivered"),
+    (PAPER_SPECIFICATION, "5.2", "176 kW", 176.0, "coproduct",
+     ETA_COPRODUCT_PRINTED,
+     "the fusion heat from it, and the banner's headline figure"),
+    (PAPER_SPECIFICATION, "5.2", "2.80 × 10⁴", 2.80, "coproduct",
+     ETA_COPRODUCT_PRINTED,
+     "in-situ capture over the best planned delivered beam"),
+    (PAPER_SPECIFICATION, "5.2", "0.3420", 0.3420, "labelled", None,
+     "the stopping ceiling at the committed 3.59 kg -- an acceptance being "
+     "named, and the correction this section already made"),
+    (PAPER_SPECIFICATION, "8.1", "60.92", 60.92, "acceptance", None,
+     "[1] sec.10.1's committed band, restated here as the mirror's own"),
+    (PAPER_SPECIFICATION, "8.1", "49.16", 49.16, "acceptance", None,
+     "the same at 400 MeV/c"),
+    (PAPER_SPECIFICATION, "8.1", "44.43", 44.43, "acceptance", None,
+     "the same at 265 MeV/c"),
 )
 
 GRADE_OF_KIND = {
     "balance": "RESTATED", "acceptance": "RESTATED", "ratio": "RESTATED",
-    "divisor": "RESTATED",
+    "divisor": "RESTATED", "coproduct": "RESTATED",
+    "self-withdrawn": "SELF-WITHDRAWN",
     "labelled": "CONDITIONAL", "requirement": "REQUIREMENT",
     "claim": "WITHDRAWN", "nonlinear": "NOT-LINEAR",
 }
+
+
+@functools.lru_cache(maxsize=None)
+def coproduct_delivered_capture():
+    """[3] sec.5.2's reachable capture: its own stopping ceiling, through sec.11."""
+    return C.stopping_capture(265.0) * budget_product()
 
 
 def restate(value, kind, at, br=1.50):
@@ -1310,6 +1356,10 @@ def restate(value, kind, at, br=1.50):
         return value * budget_product()
     if kind == "divisor":
         return value / budget_product()
+    if kind == "coproduct":
+        # printed at 0.50; the section's own ceiling is 0.342, and the budget
+        # sits under that. Two corrections, and neither was carried.
+        return value * coproduct_delivered_capture() / at
     return None
 
 
@@ -1424,7 +1474,7 @@ def census_residue():
     """Numbers on acceptance-bearing lines that the census does not account for."""
     owned = _census_accounted() | set(CENSUS_EXEMPT)
     out = []
-    for paper in (PAPER_ECONOMY, PAPER_RECONCILIATION):
+    for paper in (PAPER_ECONOMY, PAPER_RECONCILIATION, PAPER_SPECIFICATION):
         for n, line in enumerate(_paper_text(paper).split("\n"), 1):
             if not any(ph in line for ph in ACCEPTANCE_PHRASES):
                 continue
@@ -1437,8 +1487,9 @@ def report_census():
     """Every figure in the two live papers stated at an assumed acceptance."""
     print("  THE ACCEPTANCE CENSUS")
     print("    sec.5.31 restated ONE table at the delivered acceptance. The same")
-    print("    question has to be asked of every figure the papers state at an")
-    print("    assumed collection, and asked mechanically rather than by eye.")
+    print("    question has to be asked of every figure the THREE live papers")
+    print("    state at an assumed collection, and asked mechanically rather")
+    print("    than by eye.")
     print("    This is that census. A figure stated AT an acceptance is not")
     print("    wrong; reading one as delivered is. The grade is which it is.")
     print()
@@ -1451,7 +1502,7 @@ def report_census():
     print(hdr)
     last = None
     for paper, sec, printed, value, kind, at, grade, new, note in census_rows():
-        tag = "[1]" if paper == PAPER_ECONOMY else "[2]"
+        tag = {PAPER_ECONOMY: "[1]", PAPER_RECONCILIATION: "[2]"}.get(paper, "[3]")
         site = f"{tag} sec.{sec}"
         if site != last:
             print()
@@ -1498,7 +1549,7 @@ def report_census():
     print()
     print("    IS THE CENSUS COMPLETE? MEASURED, NOT CLAIMED.")
     res = census_residue()
-    print(f"      Every line in either paper naming a collection assumption, every")
+    print(f"      Every line in any of the three naming a collection assumption, every")
     print(f"      number on it, each one censused above or exempt for a stated")
     print(f"      reason. Residue: {len(res)}.")
     for paper, n, v, line in res[:10]:
@@ -1814,8 +1865,13 @@ def selftest():
     res = census_residue()
     ok = not res
     fail += 0 if ok else 1
-    print(f"    and the census is COMPLETE rather than merely long: every number")
-    print(f"    on every acceptance-bearing line in either paper is censused,")
+    covered = {r[0] for r in ACCEPTANCE_SITES}
+    ok3 = covered == {PAPER_ECONOMY, PAPER_RECONCILIATION, PAPER_SPECIFICATION}
+    fail += 0 if ok3 else 1
+    print(f"    the census covers all three live papers, not the two it started")
+    print(f"    with   {'PASS' if ok3 else 'FAIL'}")
+    print(f"    and it is COMPLETE rather than merely long: every number")
+    print(f"    on every acceptance-bearing line in any of them is censused,")
     print(f"    computed by the census, or exempt for a stated reason --")
     print(f"    residue {len(res)}   {'PASS' if ok else 'FAIL'}")
     for paper, n, v, line in res[:8]:

@@ -164,18 +164,20 @@ else falls below unity.
 
 `--balances` restated **one** table. The same question belongs to every figure the two live papers
 state at an assumed collection, and asking it by eye is not a method, so `--census` asks it against
-the files. **46 sites**, each carrying the figure the paper prints, the acceptance it prints it at,
-and a grade — and `--selftest` asserts that every one of the 46 still occurs in the file that prints
-it and that every section named is still a heading there. The census cannot drift away from what it
+the files. **57 sites** over all three, each carrying the figure the paper prints, the acceptance it
+prints it at, and a grade — and `--selftest` asserts that every one of the 57 still occurs in the file
+that prints it, that every section named is still a heading there, and that all three papers are
+covered. The census cannot drift away from what it
 censuses without failing.
 
 | grade | rows | what it means |
 |---|---|---|
-| CONDITIONAL | 9 | the site states its assumption in the same sentence — it stands as printed |
-| RESTATED | 29 | a reader would carry it away as end-to-end; every one falls |
+| CONDITIONAL | 10 | the site states its assumption in the same sentence — it stands as printed |
+| RESTATED | 38 | a reader would carry it away as end-to-end. Every one that is a ratio against unity falls; [3] §5.2's co-product rows are not ratios, and do not |
 | REQUIREMENT | 3 | [1] §5.22's inverse question — a requirement does not move |
 | NOT-LINEAR | 4 | a break-even density or a sticking boundary; restating is not a multiplication |
 | WITHDRAWN | 1 | a sentence rather than a number |
+| SELF-WITHDRAWN | 1 | a row the paper printing it withdraws in place |
 
 **Three of the RESTATED rows are divisors and grow.** The companion's §2.2 converts another group's
 figure of merit into this paper's coordinates by *dividing* — 1.64, 2.25, 3.33 — and a lower delivered
@@ -183,11 +185,20 @@ acceptance makes those **2.30, 3.16, 4.67**. A restatement running the other way
 hand pass gets wrong, which is why the kind exists.
 
 **Completeness is measured, not claimed.** A hand-built census has one failure mode: the site nobody
-noticed. So `--census` reads every line in either paper naming a collection assumption, takes every
-number on it, and requires each to be censused, computed by the census, or exempt for a stated reason.
-**Residue 0** — and it was not 0 when the check was written. It added the last eight rows (§5.9's
-50.69 and 10.23, the three divisors, §5.25's 2.076) and caught a rounding: 0.854, not the 0.855 first
+noticed. So `--census` reads every line in any of the three papers naming a collection assumption,
+takes every number on it, and requires each to be censused, computed by the census, or exempt for a
+stated reason. **Residue 0** — and it was not 0 when the check was written. It added §5.9's 50.69 and
+10.23, the three divisors and §5.25's 2.076, and caught a rounding: 0.854, not the 0.855 first
 printed.
+
+**The same question asked of the census itself found a whole paper.** *Which* documents does it read?
+It read two, and there are three live: the specification's §5.2 — the co-product configuration — had
+been outside every pass. Its headline of **176 kW** is computed at a capture of 0.50 while the
+correction two lines beneath it puts the reachable ceiling at **0.342**; through the budget the
+delivered capture is **0.2438** and the figure is **85.6 kW**. **That conclusion does not move**: the
+balance is not a ratio against unity — the marginal beam energy per binder is zero — so it is the one
+figure here the budget rescales without deciding. Its 90 percent row is graded `SELF-WITHDRAWN`,
+because that paper retracted it in place and a status is never flattened.
 
 **The census does not find that the papers are wrong.** Most rows are conditionals stated as
 conditionals, and those stand. What it finds is the reading.
@@ -203,11 +214,19 @@ physical question"*. The stopping ceiling is 0.5069, so the §5.9 collector is n
 away — it is unreachable. The sentence is withdrawn; the route survives only through the optimised
 production target, at 1.480.
 
-**One row the census corrected outside the papers.** Asked what [1] §5.22 prints for the electricity
+**Two rows the census corrected outside the papers.** Asked what [1] §5.22 prints for the electricity
 requirement, the file says **299.6 percent**; this repository's `CLAUDE.md` had carried **96.7** from
 an earlier draft, and so had `directives.py`'s D27. The papers were right and the summaries were
 stale — which is the case for censusing files rather than memory, and the reason `docfigures.py`
 exists.
+
+**And then the census's own summary went stale the same way, one pass later.** `CLAUDE.md` states the
+census twice, in two paragraphs; the completeness scan grew it, one paragraph was updated and the
+other was not, and **every `docfigures` pin passed**. They pin a literal in `docfigures.py` against
+the tree and never look at the sentence. `docfigures.py` now reads the prose of all four documents
+that quote these grades — `CLAUDE.md`, `docs/DOCFIGURES.md`, this file and the paper's §5.33 — and
+requires every `N GRADE` pair in them to equal what the instrument reports. That is the eighth census
+pin, and it is the one that would have caught this.
 
 **What the census refuses.** Four rows are a break-even density and two boundaries on sticking. The
 balance is not linear in either, so the census names them rather than scaling them. **An un-restated

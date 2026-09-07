@@ -50,9 +50,12 @@ each paper carries its own abstract and its own references, states its relation 
 takes no part in the main paper's subject matter.
 
 **`Cold_Fusion_Binder_Economy_v1.0.md` is the current paper**, with
-**`Independent_Reconciliation_v1.0.md`** as its companion — the two were split for readability and
-share one ledger, so **`verify_paper.py` must be run over both** — it takes several paths and checks
-each on its own. It supersedes and retires three
+**`Independent_Reconciliation_v1.0.md`** as its companion and
+**`Cold_Fusion_Specification_and_Procedure_v1.0.md`** as the executable half — **three live papers**,
+split for readability and sharing one ledger, so **`verify_paper.py` must be run over all three** — it
+takes several paths and checks each on its own. The specification is where the machine, the loss
+budget and the co-product configuration live, and it was outside the acceptance census until §5.33's
+completeness scan asked which papers the census reads. It supersedes and retires three
 others held beside it under banners: `Muon_Catalysed_Fusion_v1.1.md`, `Corrigendum_MuCF_v1_0.md` and
 `Muon_Collection_Budget_v1.0.md`. The v1.0 those descend from lives in `recovered/`, is md5-pinned in
 `recovered/LEDGER.tsv`, and is **never hand-edited** — which is why each successor is a new document
@@ -95,9 +98,9 @@ which the heat form is **0.437**. **The self-sustaining criterion is _not_ met w
 device.** At the delivered figure every heat form, every work form and bred fuel at demonstrated
 cycles fall below unity; **what survives is bred fuel through an optimised production target, at
 1.480**, which is the route the specification builds for. **§5.33 then applies that restatement to
-every figure rather than to the one table §5.31 caught**: `machine.py --census` grades **46 sites**
-across both live papers — 9 CONDITIONAL (the site states its own assumption and stands), **29
-RESTATED**, 3 REQUIREMENT, 4 NOT-LINEAR and **1 WITHDRAWN**, that last being §5.21's *"comfortably
+every figure rather than to the one table §5.31 caught**: `machine.py --census` grades **57 sites**
+across all three live papers — 10 CONDITIONAL (the site states its own assumption and stands), **38
+RESTATED**, 3 REQUIREMENT, 4 NOT-LINEAR, **1 WITHDRAWN** and 1 SELF-WITHDRAWN, that last being §5.21's *"comfortably
 inside the §5.9 collector … not an open physical question"*, which the stopping ceiling makes
 unreachable rather than merely unreached. Three routes with no shared arithmetic reach the same two
 numbers — **0.6236 against 0.6234**, and **1.4795 against 1.480**. **Completeness is measured rather
@@ -261,21 +264,24 @@ graded conductor, the production target, radiation lifetime, failure modes, plan
 *imports* the design from `collector.py` and never restates it, and its `--selftest` asserts the
 aperture product before computing anything from it. One finding is why it exists: the target must sit
 inside a 10.7 cm bore, which excludes the rotating solid target every megawatt-class facility uses, by
-3.3×. Its **`--census`** is the other direction: **38 sites** across the two live papers where a
-figure is stated at an assumed collection efficiency, each graded — 8 CONDITIONAL, 23 RESTATED, 3
-REQUIREMENT, 3 NOT-LINEAR and 1 WITHDRAWN — with `--selftest` asserting every printed figure still
-occurs in the file that prints it. It found that this file had carried **96.7** for §5.22's
-electricity requirement where the paper prints **299.6**; both are corrected — see `docs/MACHINE.md`),
+3.3×. Its **`--census`** is the other direction: **57 sites** across all three live papers where a
+figure is stated at an assumed collection efficiency, each graded — 10 CONDITIONAL, 38 RESTATED, 3
+REQUIREMENT, 4 NOT-LINEAR, 1 WITHDRAWN and 1 SELF-WITHDRAWN — with `--selftest` asserting every printed figure still
+occurs in the file that prints it and that the completeness **residue is 0**. It found that this file
+had carried **96.7** for §5.22's electricity requirement where the paper prints **299.6**, and — one
+pass later — that this very sentence still said 38 while the paragraph above it said 46. Both are
+corrected, and `docfigures.py` now reads the prose rather than trusting a literal in its own source
+— see `docs/MACHINE.md`),
 **`tools/directives.py`** (the project's three
 directives as three index axes — every substantive result in the three papers graded on each, and the
 cell where all three coincide computed rather than claimed; the X axis carries a *sign*, so a result
 that forbids self-sustaining operation is never counted as progress toward it, and `--selftest`
-matches all 74 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
+matches all 75 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
-**Run it after any pass that changes a count** — 66 pinned figures, ~5 s, exits 1 on drift. Fourteen
-are the totals `pointers.py` and `arith.py` report, and the last seven the grades and residue
-`machine.py --census` reports, all of which their own selftests do not
+**Run it after any pass that changes a count** — 68 pinned figures, ~5 s, exits 1 on drift. Fourteen
+are the totals `pointers.py` and `arith.py` report, and the last eight the grades, the residue and
+the **prose** of `machine.py --census`, all of which their own selftests do not
 cover: those pin individual sites, so a change in a corpus-wide total passes them silently. It exists
 because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true figures were 702 and
 4; four other figures had gone stale the same way. A `STALE` row means the tree is right and the

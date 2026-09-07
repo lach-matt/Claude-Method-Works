@@ -2702,6 +2702,10 @@ def cen_withdrawn():
     return _cen_count("WITHDRAWN")
 
 
+def cen_selfwithdrawn():
+    return _cen_count("SELF-WITHDRAWN")
+
+
 def cen_518():
     return _cen("1.97")
 
@@ -2776,6 +2780,49 @@ def cen_525():
 
 def cen_residue():
     return float(len(_mach.census_residue()))
+
+
+# ---- [3] sec.5.2's co-product figures at the capture actually reachable ------
+def _cop_scale():
+    """From the 0.50 the headline was printed at, to what sec.5.2 can reach."""
+    return _mach.coproduct_delivered_capture() / 0.50
+
+
+def cop_capture_delivered():
+    return _mach.coproduct_delivered_capture()
+
+
+def cop_heat_pct_delivered():
+    return 100.0 * collector.insitu_heat_fraction(_mach.coproduct_delivered_capture())
+
+
+def cop_heat_pct_30_delivered():
+    return 100.0 * collector.insitu_heat_fraction(0.30 * _mach.budget_product())
+
+
+def cop_binders_ceiling_e14():
+    return coproduct_binders_per_second_1mw() * (collector.stopping_capture(265.0) / 0.50)
+
+
+def cop_binders_delivered_e14():
+    return coproduct_binders_per_second_1mw() * _cop_scale()
+
+
+def cop_kw_ceiling():
+    return coproduct_kw_1mw() * (collector.stopping_capture(265.0) / 0.50)
+
+
+def cop_kw_delivered():
+    return coproduct_kw_1mw() * _cop_scale()
+
+
+def cop_over_delivered_e4():
+    return insitu_over_delivered() * _cop_scale()
+
+
+def cop_census_agreement():
+    """The census's scaling of the PRINTED 176 against the instrument's chain."""
+    return _cen("176 kW") / cop_kw_delivered()
 
 
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}

@@ -27,7 +27,7 @@ fast enough to run at the top of a session. `coverage.py --chats` owns that.
 Fourteen rows come from `pointers.py --json` and `arith.py --json`. Their
 own selftests pin individual SITES -- 53 and 42 fixtures -- so a change in a
 corpus-wide TOTAL passes them without a word. These rows are that missing check.
-The last seven pin `machine.py --census`'s grades and its residue, for the same reason: that
+The last eight pin `machine.py --census`'s grades, its residue and the prose that quotes them, for the same reason: that
 instrument's selftest asserts each SITE against the paper printing it, so a
 change in the totals CLAUDE.md and MACHINE.md quote would pass it silently.
 
@@ -357,6 +357,54 @@ def _census_counts():
     return c
 
 
+
+# Every document that states the census's grades in prose. A docfigures row pins
+# a literal in THIS file against the tree; nothing until now checked that the
+# prose actually carries that literal, and a second site stating the same figure
+# drifted silently -- CLAUDE.md said 38 in one paragraph and 46 in the next.
+# These read the sentences instead.
+_CENSUS_PROSE_DOCS = ("CLAUDE.md", "docs/MACHINE.md", "docs/DOCFIGURES.md",
+                      "papers/Cold_Fusion_Binder_Economy_v1.0.md")
+# SELF-WITHDRAWN is the newest grade and only two documents state it, so the
+# "all grades in every document" fixture is asserted against the five older ones.
+_GRADES_EVERYWHERE = 5
+_GRADES = ("CONDITIONAL", "RESTATED", "REQUIREMENT", "NOT-LINEAR", "WITHDRAWN",
+           "SELF-WITHDRAWN")
+
+
+def _census_stated_in(rel):
+    """Every (grade, number) the document states, in either order it writes them."""
+    try:
+        txt = (ROOT / rel).read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return None
+    out = []
+    for g in _GRADES:
+        for m in re.finditer(r"(\d+)\s*\**\s*" + re.escape(g) + r"\b", txt):
+            out.append((g, int(m.group(1))))
+        for m in re.finditer(r"\|\s*" + re.escape(g) + r"\s*\|\s*\**(\d+)\**\s*\|", txt):
+            out.append((g, int(m.group(1))))
+    for m in re.finditer(r"\*{0,2}(\d+)\*{0,2} sites\b", txt):
+        out.append(("sites", int(m.group(1))))
+    return out
+
+
+def _census_prose_mismatches(counts):
+    """Numbers a document states for a census grade that the census does not report."""
+    want = {g: counts.get(g, 0) for g in _GRADES}
+    want["sites"] = counts["sites"]
+    bad = []
+    for rel in _CENSUS_PROSE_DOCS:
+        stated = _census_stated_in(rel)
+        if stated is None:
+            bad.append((rel, "unreadable", 0, 0))
+            continue
+        for g, n in stated:
+            if n != want[g]:
+                bad.append((rel, g, n, want[g]))
+    return bad
+
+
 def _instrument_rows():
     """Totals the instruments report, which their per-site selftests do not pin."""
     sites = _pointer_sites()
@@ -389,13 +437,16 @@ def _census_rows():
     if c is None:
         return [("docs/MACHINE.md", "machine.py could not be imported (rows skipped)", 0, 1)]
     return [
-        ("docs/MACHINE.md", "acceptance census, sites", 46, c["sites"]),
-        ("docs/MACHINE.md", "census CONDITIONAL", 9, c.get("CONDITIONAL", 0)),
-        ("docs/MACHINE.md", "census RESTATED", 29, c.get("RESTATED", 0)),
+        ("docs/MACHINE.md", "acceptance census, sites", 57, c["sites"]),
+        ("docs/MACHINE.md", "census CONDITIONAL", 10, c.get("CONDITIONAL", 0)),
+        ("docs/MACHINE.md", "census RESTATED", 38, c.get("RESTATED", 0)),
         ("docs/MACHINE.md", "census REQUIREMENT", 3, c.get("REQUIREMENT", 0)),
         ("docs/MACHINE.md", "census NOT-LINEAR", 4, c.get("NOT-LINEAR", 0)),
         ("docs/MACHINE.md", "census WITHDRAWN", 1, c.get("WITHDRAWN", 0)),
+        ("docs/MACHINE.md", "census SELF-WITHDRAWN", 1, c.get("SELF-WITHDRAWN", 0)),
         ("docs/MACHINE.md", "census residue (must be 0)", 0, c["residue"]),
+        ("(prose)", "census grades misstated in prose (must be 0)", 0,
+         len(_census_prose_mismatches(c))),
     ]
 
 
@@ -435,6 +486,22 @@ def selftest():
     check("every row carries a document, a claim and a measurement",
           sum(1 for r in rows if len(r) == 4 and r[0] and r[1]), len(rows))
     check("no label is pinned twice", len({(r[0], r[1]) for r in rows}), len(rows))
+    # the prose scan's own failure mode is matching NOTHING and passing. Assert
+    # it reads real sentences out of every document, and that a wrong count is
+    # actually caught -- a check that cannot fail is not a check.
+    c = _census_counts() or {}
+    check("the prose scan reads census grades from every document it names",
+          sum(1 for d in _CENSUS_PROSE_DOCS if _census_stated_in(d)),
+          len(_CENSUS_PROSE_DOCS))
+    check("and each document states at least the five older grades",
+          min(len({g for g, _ in (_census_stated_in(d) or [])}
+                  - {"sites", "SELF-WITHDRAWN"})
+              for d in _CENSUS_PROSE_DOCS) >= _GRADES_EVERYWHERE, True)
+    if c:
+        wrong = dict(c)
+        wrong["RESTATED"] = c.get("RESTATED", 0) + 1
+        check("a wrong count IS caught (the scan can fail)",
+              len(_census_prose_mismatches(wrong)) > 0, True)
     # the grouped-heading trap: a bare read must give a DIFFERENT, smaller count
     t = (ROOT / "method/members/The_Method_1_6___The_Register-2.md").read_text(
         encoding="utf-8", errors="replace")

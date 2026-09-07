@@ -23,9 +23,12 @@ bundle.*
 > co-product it is net-positive** (§5.2): pions are made by the same collisions that make a
 > spallation target's neutrons, so a facility already running a proton driver is making binders and
 > discarding them. Captured, they return **10.5** to **31.6 percent** of the beam energy as fusion
-> heat at zero marginal beam cost — **176 kW** on a one-megawatt driver. That is a net-positive
-> reaction with no input per event and no input for the binder, and it is the only configuration
-> found that is.
+> heat at zero marginal beam cost — **176 kW** on a one-megawatt driver. **§5.2's own correction and
+> §11's loss budget both bear on those two figures**: the reachable capture is **0.342**, not the
+> 0.50 the 176 kW was computed at, and the budget takes it to **0.2438**, so the delivered figures
+> are **8.56 percent** and **85.6 kW**. **The conclusion is untouched and only the magnitude moves** —
+> the marginal beam energy is zero, so any positive number is gain. It is a net-positive reaction with
+> no input per event and no input for the binder, and it is the only configuration found that is.
 
 ---
 
@@ -43,7 +46,8 @@ measurement. As a co-product of a beam running for another reason, it pays for i
 because its only input is a binder that facility is already making and throwing away. The same
 observation dissolves this corpus's own flux gap, which compared against *delivered* muon beams:
 in-situ capture is **2.80 × 10⁴** times the best planned delivered beam, since nothing is transported
-and nothing is selected.
+and nothing is selected — **1.37 × 10⁴** at the delivered capture of §5.2, which is the same argument
+with the same conclusion.
 
 **§1** states the reaction and fixes every free parameter from witnessed measurement: fuel, ratio,
 purity, density, temperature, binder, and the two observables that verify it. **§2** is the bill of
@@ -309,6 +313,24 @@ heat**, at an inventory this specification had already committed to.
 On a one-megawatt, 8 GeV driver that is **2.80 × 10¹⁴** binders per second and **176 kW** of fusion
 heat, delivered at the target where the facility's cooling loop already is.
 
+**Those two figures are stated at a capture of 0.50, and this section has just said 0.50 is not the
+reachable one.** The correction above them is not carried into them, and §11's loss budget is not
+carried into either. Both, applied:
+
+| capture | binders per second | fusion heat |
+|---|---|---|
+| **0.50**, as printed above | 2.80 × 10¹⁴ | **176 kW** |
+| **0.342**, this section's own ceiling at 3.59 kg | 1.918 × 10¹⁴ | **120.1 kW** |
+| **0.2438**, that ceiling through §11's loss budget | 1.367 × 10¹⁴ | **85.6 kW** |
+
+> **The conclusion is untouched and only the magnitude moves, and that asymmetry is the whole point of
+> this configuration.** Every other balance in this work is a ratio against unity, so a factor of
+> 0.7127 decides it. This one is not a ratio at all: the marginal beam energy per binder is **zero**,
+> so *any* positive heat is gain and no loss factor can take it below unity. **85.6 kW of fusion heat
+> at zero marginal beam cost is the same result as 176 kW**, reached by the same argument and arriving
+> at a smaller number. It is the one figure in this work the acceptance census cannot falsify, because
+> it was never conditional on an acceptance clearing a threshold.
+
 > **This is a net-positive cold fusion reaction.** No input per event, no input for the binder, and
 > real energy out. It is provable from witnessed quantities and it needs no number that has not been
 > measured.
@@ -317,19 +339,23 @@ heat, delivered at the target where the facility's cooling loop already is.
 muon beams — about **1.0 × 10⁸** per second today and **1.0 × 10¹⁰** planned — and finds a shortfall
 of **1.2 × 10⁵**. Those are *momentum-selected, transported* beams, which discard almost everything
 the target makes. In-situ capture at the production target is **2.80 × 10⁴** times the best planned
-delivered beam, because nothing is transported and nothing is selected. **The flux gap is an artefact
-of buying muons rather than making them where they are used.**
+delivered beam — **1.37 × 10⁴** at the delivered capture above — because nothing is transported and
+nothing is selected. **The flux gap is an artefact of buying muons rather than making them where they
+are used**, and it stays dissolved by four orders of magnitude at either capture.
 
 ### 5.3 What this is, and what it is not
 
 **It is a net-positive reaction.** Marginal energy in: zero. Energy out: **10.5 to 12.0 percent** of
-the host beam, on the corrected ceiling above. That satisfies the project's criterion —
-self-sustaining, no input per event — and it is the only configuration found that does.
+the host beam on the corrected ceiling above, and **7.51 to 8.56 percent** through §11's loss budget.
+That satisfies the project's criterion — self-sustaining, no input per event — at either figure, and
+it is the only configuration found that does. **The criterion is the sign of the balance, not its
+size**, which is why this is the one result the loss budget moves without deciding.
 
 **It is not a standalone power plant, and §5.1 says why it cannot be.** The host beam still costs more
 at the wall than the fusion returns, and no arrangement of a non-fissioning blanket changes that. What
-the fusion does is **recover 10.5 to 12.0 percent of the beam**, which on an accelerator-driven system
-attacks that machine's dominant economic problem — the recirculating power its accelerator consumes.
+the fusion does is **recover 10.5 to 12.0 percent of the beam** — 7.51 to 8.56 delivered — which on an
+accelerator-driven system attacks that machine's dominant economic problem: the recirculating power
+its accelerator consumes.
 
 **Three costs are real and are not beam.** The collector, priced in [1] §5.21 as a shielding trade of
 about 2.7 in coil heating. The tritium, **3.59 kg** at a 265 MeV/c stopping window, which is a

@@ -1757,20 +1757,22 @@ implies.
 
 §5.31 restated one table. The question it asks belongs to **every** figure this paper states at an
 assumed collection, and asking it by eye is not a method. `python3 tools/machine.py --census` asks it
-mechanically: **46** sites across this paper and the companion, each named with the figure it prints,
-the acceptance it prints it at, and a grade. That instrument's `--selftest` asserts every one of the
-46 still occurs in the file that prints it and that every section named is still a heading there, so
-the census cannot drift away from the papers it censuses.
+mechanically: **57** sites across all three live papers — this one, the companion and the
+specification — each named with the figure it prints, the acceptance it prints it at, and a grade.
+That instrument's `--selftest` asserts every one of the 57 still occurs in the file that prints it,
+that every section named is still a heading there, and that all three papers are covered, so the
+census cannot drift away from what it censuses.
 
 **The census does not find that the papers are wrong**, and the grades are what say so.
 
 | grade | rows | what it means |
 |---|---|---|
-| CONDITIONAL | **9** | the site states its assumption in the same sentence as the number — it stands as printed |
-| RESTATED | **29** | a reader would carry it away as end-to-end; restated below, and every one falls |
+| CONDITIONAL | **10** | the site states its assumption in the same sentence as the number — it stands as printed |
+| RESTATED | **38** | a reader would carry it away as end-to-end; restated below. Every one that is a ratio against unity falls; the specification's co-product rows are not ratios, and do not |
 | REQUIREMENT | **3** | §5.22's inverse question — a requirement does not move when the acceptance does |
 | NOT-LINEAR | **4** | a break-even density or a sticking boundary, where restating is not a multiplication |
 | WITHDRAWN | **1** | a sentence rather than a number |
+| SELF-WITHDRAWN | **1** | a row the paper printing it withdraws in place, two lines below it |
 
 **The restatements, at the delivered 31.66 percent.**
 
@@ -1809,14 +1811,25 @@ tightest window *with* the optimised production target — restates to **1.4795*
 > unreachable**, and no shielding trade reaches it. That sentence is withdrawn. What survives of the
 > route it describes is the optimised production target, at **1.480**.
 
+**The specification is the third paper, and it was the last to be censused.** Its §5.2 — the
+co-product configuration — is where the census does *not* overturn a result. Its headline of **176 kW**
+is computed at a capture of 0.50 while the correction two lines beneath it puts the reachable ceiling
+at 0.342; through §11's budget the delivered capture is **0.2438**, and the figure is **85.6 kW**.
+**The conclusion is untouched.** That balance is not a ratio against unity — the marginal beam energy
+per binder is zero, so any positive heat is gain — so it is the one figure here a loss factor moves
+without deciding. Its 90 percent row is graded `SELF-WITHDRAWN`: that paper retracted it itself, and a
+status is never flattened.
+
 **Is the census complete? Measured, not claimed.** A hand-built census has one failure mode, and it
 is the site nobody noticed. So the instrument reads every line in either paper that names a
 collection assumption, takes every number on it, and requires each to be censused, produced by the
 census itself, or exempt for a stated reason — an acceptance being *named* rather than read off, a
-service life, a tritium inventory in kilograms. **The residue is 0**, and it was not 0 when the check
-was written: it is what added the last eight rows, among them §5.9's forward-hemisphere **50.69** and
+service life, a tritium inventory in kilograms. **The residue is 0 across all three papers**, and it
+was not 0 when the check was written: it is what added §5.9's forward-hemisphere **50.69** and
 backward **10.23**, the companion's three divisors, and §5.25's 2.076. It also caught a rounding: the
-no-momentum-requirement row is **0.854**, not the 0.855 first printed here.
+no-momentum-requirement row is **0.854**, not the 0.855 first printed here. **And the same question
+asked of the census itself — which papers does it read? — is what found the specification, whose §5.2
+had been outside every pass until now.**
 
 **One row the census corrected outside the papers.** Asked for §5.22's electricity requirement, the
 file it censuses prints **299.6 percent**; this repository's own `CLAUDE.md` had carried **96.7**

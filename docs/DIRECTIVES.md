@@ -15,7 +15,7 @@ The project has three directives and they are not one question:
 | **Z** | lay out the laboratory **procedure** that would witness it |
 
 Prose can answer one of those while sounding like it answered three, and for most of this project's
-life it did. An index cannot. Each of the 74 rows carries a grade 0–3 on each axis, so a result that
+life it did. An index cannot. Each of the 75 rows carries a grade 0–3 on each axis, so a result that
 settles the balance but names no apparatus is visibly a one-axis result, and the cell where all three
 meet is a computation rather than a claim.
 
@@ -39,7 +39,7 @@ that *would* decide and has not.
 
 The grade is a judgement. Three things are not:
 
-1. **Every row names a section that exists.** `--selftest` matches all 74 rows against the headings of
+1. **Every row names a section that exists.** `--selftest` matches all 75 rows against the headings of
    the three papers as they are on disk. A row cannot cite a section that is not there.
 2. **The sign discipline.** A sign is carried only at grade ≥ 2 — nothing that merely bears on the
    balance is allowed a direction.
@@ -145,7 +145,7 @@ zero.
 ## Re-verify
 
 ```
-python3 tools/directives.py --selftest     # 74 rows against the papers on disk
+python3 tools/directives.py --selftest     # 75 rows against the papers on disk
 python3 tools/directives.py                # the whole reading
 python3 tools/collector.py --insitu        # the apparatus and its ceiling
 python3 tools/collector.py --open          # every open question, and what it can move

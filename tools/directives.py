@@ -131,7 +131,8 @@ ROWS = [
     # what this row adds is the apparatus, the gating and the committed rate.
     ("D72", "BE", "5.31", "every balance restated at the delivered acceptance: the 1.241 does not survive", 3, -1, 1, 1),
     ("D73", "BE", "5.32", "what that withdraws and what survives: one route, bred fuel through an optimised target", 3, 1, 2, 1),
-    ("D74", "BE", "5.33", "the acceptance census: 46 sites graded, one sentence withdrawn, completeness measured at residue 0", 3, -1, 2, 1),
+    ("D74", "BE", "5.33", "the acceptance census: 57 sites over three papers, completeness measured at residue 0", 3, -1, 2, 1),
+    ("D75", "SP", "5.2", "the co-product headline restated: 176 kW at 0.50 is 85.6 delivered, and the sign of the balance does not move", 3, 1, 3, 2),
     ("D71", "SP", "11", "the end-to-end loss budget: Q6 closed on geometry, Q1 narrowed to a number, and the two coupled", 3, 0, 2, 2),
     ("D70", "SP", "6", "the procedure repointed at the designed machine; the prediction moves by 6 percent", 3, 1, 3, 3),
     ("D69", "SP", "10", "the fuel cell designed: the decay channel, recompression, and one loop for two requirements", 2, 1, 3, 3),
