@@ -137,6 +137,23 @@ class Paper:
         return [p for k, p in self.blocks if k == "table"]
 
 
+def block_text(kind, payload):
+    """One block's readable text, whatever kind of block it is.
+
+    A table's payload is rows, and a figure's is a number -- so an audit that
+    assumes every payload is a string dies on the first figure. This is the one
+    place that knows the difference."""
+    if kind == "table":
+        return " ".join(" ".join(r) for r in payload if r != "SEP")
+    if kind == "figure":
+        import figures as FG
+        for f in FG.manifest():
+            if f["num"] == payload:
+                return f["caption"]
+        return ""
+    return payload if isinstance(payload, str) else ""
+
+
 def _fnvalue(row):
     """Recompute a row from its own named hook. None when it has no hook."""
     tgt = (row.get("verify") or "").strip()
@@ -257,8 +274,7 @@ def a04_redundancy(P):
         if kind.startswith("h"):
             section = payload
             continue
-        cites = RP.CITE.findall(payload if isinstance(payload, str)
-                                else " ".join(" ".join(r) for r in payload if r != "SEP"))
+        cites = RP.CITE.findall(block_text(kind, payload))
         for _q, cid, _m in cites:
             (intable if kind == "table" else inpara).setdefault(cid, set()).add(section)
     for cid in set(intable) & set(inpara):
@@ -295,9 +311,21 @@ def a05_artefact(P):
         if probe and not all(w in txt for w in probe):
             bad.append(f"heading not found in the PDF text layer: {h[:44]}")
             break
+    # A LIMIT OF THIS READER, recorded rather than repaired. Where two embedded
+    # font subsets both carry a code, nothing here says which font a given run
+    # was set in -- that needs the page's resource dictionary -- so a symbol
+    # from the second subset may not decode. The glyph IS in the file: reportlab
+    # writes a ToUnicode entry only for a glyph it actually embedded, and the
+    # Greek and the operators are all present in the maps. So this audit checks
+    # Latin words and numerals, which decode unambiguously, and does not claim
+    # to have read the mathematics.
+    cmaps = _pdf_cmaps(raw)
+    greek = sum(1 for cm in cmaps for ch in cm.values()
+                if ch and 0x370 <= ord(ch[0]) <= 0x3ff)
     v = "FAIL" if bad else "PASS"
     return Result(5, "ARTEFACT", v,
-                  f"{pages} pages, {len(raw):,} bytes, text layer reads back", bad)
+                  f"{pages} pages, {len(raw):,} bytes, text layer reads back; "
+                  f"{greek} Greek glyphs embedded", bad)
 
 
 def _pdf_streams(raw):
@@ -392,10 +420,16 @@ def pdf_text(path):
                 if t.group(1) is not None:                 # a hex string
                     hexs = re.sub(rb"\s", b"", t.group(1)).decode("ascii")
                     codes = [int(hexs[k:k + 2], 16) for k in range(0, len(hexs) - 1, 2)]
-                    best, bestscore = "", -1.0
+                    # prefer the font map that decodes EVERY code in this run,
+                    # then the one whose result reads as text. Scoring on
+                    # printability alone picked a map that dropped the Greek and
+                    # kept the Latin, which is how omega and alpha came out of
+                    # this reader as control characters.
+                    best, bestscore = "", (-1.0, -1.0)
                     for cm in cmaps:
+                        hit = sum(1 for c in codes if c in cm)
                         cand = "".join(cm.get(c, "") for c in codes)
-                        sc = _score(cand) * (len(cand) / max(len(codes), 1))
+                        sc = (hit / max(len(codes), 1), _score(cand))
                         if sc > bestscore:
                             best, bestscore = cand, sc
                     run.append(best)
@@ -502,8 +536,7 @@ def a11_antecedent(P):
         if kind.startswith("h"):
             inabs = payload.strip().lower().startswith("abstract")
             continue
-        s = payload if isinstance(payload, str) else " ".join(
-            " ".join(r) for r in payload if r != "SEP")
+        s = block_text(kind, payload)
         for _q, cid, _m in RP.CITE.findall(s):
             (absr if inabs else body).add(cid)
     for cid in sorted(absr - body):
@@ -854,7 +887,13 @@ NUMERAL = re.compile(r"(?<![\w.])\d+(?:[.,]\d+)?(?![\w])")
 # marker, an isotope, a date, a ratio written in words. Each is a place where a
 # digit is a LABEL rather than a QUANTITY.
 NUMERAL_EXEMPT = (
-    r"`[^`]*`",                      # a formula: symbols, not quantities
+    r"`[^`]*`",                      # a formula in code marks: symbols, not quantities
+    r"\$[^$]*\$",                    # inline mathematics: an exponent, an index
+    r"[Tt]heorem\s+\d+(\.\d+)?",     # a theorem by number
+    r"[Pp]ropositions?\s+\d+(\.\d+)?(\s+and\s+\d+(\.\d+)?)?",
+    r"[Cc]orollary\s+\d+(\.\d+)?",
+    r"[Ll]emma\s+\d+(\.\d+)?",
+    r"[Ff]igure\s+\d+",              # a figure by number
     r"§\s?\d+(\.\d+)*",             # a section label
     r"^\d+\.\s",                    # an ordered-list marker
     r"[Cc]ondition[s]?\s+\d+(\s+and\s+\d+)?",   # a condition by number
@@ -1002,8 +1041,7 @@ def a_workshop(P):
     fails here."""
     hits = []
     for kind, payload in P.src_blocks:
-        text = payload if isinstance(payload, str) else " ".join(
-            " ".join(r) for r in payload if r != "SEP")
+        text = block_text(kind, payload)
         for term, why in WORKSHOP_TERMS:
             for m in re.finditer(re.escape(term), text, re.I):
                 frag = text[max(0, m.start() - 40):m.start() + 50].strip()

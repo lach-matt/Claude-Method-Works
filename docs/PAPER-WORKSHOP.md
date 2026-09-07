@@ -56,9 +56,37 @@ from its own row and the factor that produces it, and returning FAIL with the ce
 disagrees. What remains open is a citation in *prose* rather than in a table, where no arithmetic
 relation constrains it. **That is a recorded limit, not a repaired one.**
 
+## The figures, and why they are generated
+
+A figure is a claim in a different notation. Drawn by hand it could disagree with the prose beside it,
+and nothing would catch that — the same weakness the citation mechanism closes for sentences. So
+`tools/figures.py` draws every figure from `papers/CLAIMS.tsv` by claim id, exactly as the prose reads
+it, and each figure **declares** the ids it uses. Its `--selftest` parses its own source, takes every
+string passed to a text call, removes what a citation fills in, and requires **no quantity to
+survive**: a figure cannot print a number it did not read from the ledger. Drawing coordinates are
+exempt by construction, because they are not in strings.
+
+They are emitted as PNG rather than SVG because PNG is the one raster form all four outputs embed the
+same way, which is what lets audit 16 FIDELITY compare those outputs against each other.
+
+## The mathematics, and how it is set
+
+Two mechanisms, split by what each output can honestly do. **Inline** `$…$` is demoted to Unicode in
+the one shared inline model, so all four outputs show the same symbols and none prints raw LaTeX at a
+reader; a script converts only if *every* character can, because a half-converted subscript reads
+worse than none. **Display** equations — a line that is nothing but a formula — are typeset by
+matplotlib's mathtext and embedded as images, because an integral with limits and a sum over indices
+cannot be built out of Unicode without lying about it.
+
+One bug is worth recording because it was invisible in isolation: the brace form and the
+single-character form of a subscript were applied in two passes, so a brace group that correctly fell
+back to plain text was then picked up again by the second rule — turning `\lambda_{abs}` into a
+half-converted `λₐbs`. They are one left-to-right pass now.
+
 ## Reproducing the paper
 
 ```
+python3 tools/figures.py
 python3 tools/render_paper.py papers/Cold_Fusion_v1.0.src.md --all
 python3 tools/audit_paper.py
 python3 tools/verify_paper.py papers/out/Cold_Fusion_v1.0.md
@@ -66,6 +94,7 @@ python3 tools/machine.py --selftest
 python3 tools/collector.py --selftest
 python3 tools/mucf.py --selftest
 python3 tools/render_paper.py --selftest
+python3 tools/figures.py --selftest
 python3 tools/audit_paper.py --selftest
 ```
 

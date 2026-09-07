@@ -283,6 +283,14 @@ directives as three index axes — every substantive result in the three papers 
 cell where all three coincide computed rather than claimed; the X axis carries a *sign*, so a result
 that forbids self-sustaining operation is never counted as progress toward it, and `--selftest`
 matches all 76 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
+**`tools/figures.py`** (the paper's figures, **drawn from the ledger rather than by hand** — a figure
+is a claim in a different notation, so every number in one is read from `CLAIMS.tsv` by claim id
+exactly as the prose reads it, and each figure declares the ids it uses. Its `--selftest` parses its
+own source, takes every string passed to a text call, and requires **no quantity to survive**: a
+figure cannot print a number it did not read from the ledger. Seven figures — the cycle, the machine
+with its three proposed alterations called out, the bore that excludes a rotating target, the range
+every balance falls in, the loss budget as a waterfall, the co-product line, and the measurement with
+both observables on one sample volume),
 **`tools/render_paper.py`** (the publication renderer, and the repair of the
 §9.9 weakness `verify_paper.py` records: **the paper's source carries no numerals at all** — it
 carries `[[C044]]` citations, which this program resolves against `CLAIMS.tsv` at render time, so a
@@ -290,7 +298,10 @@ sentence cannot acquire a figure the mathematics does not produce because a sent
 figure. It refuses an unknown id, a malformed citation, and any `WITHDRAWN`, `RECONSTRUCTED`,
 `PROJECTED`, `ASSUMED` or `DESIGN` row cited without its status printed beside it. Markdown, HTML,
 `.docx` and PDF are emitted from that **one** resolved source, which is what makes audit 16 FIDELITY
-hold by construction rather than by care), **`tools/audit_paper.py`** (**the twenty-five audits The
+hold by construction rather than by care. It also **sets the mathematics**: inline `$…$` is demoted to
+Unicode in the one shared inline model so no output prints raw LaTeX at a reader, and a display
+equation is typeset by matplotlib's mathtext and embedded as an image, because an integral with limits
+cannot be built out of Unicode without lying about it), **`tools/audit_paper.py`** (**the twenty-five audits The
 Method runs over its own volumes, run over a paper**: the twenty-two prime audits of the main volume's
 §3 with their four coordinates quoted verbatim — what each reads, what it compares against, what a
 failure costs, what it presupposes — plus 23 PUBLISHED VALUES, 24 UNBACKED CLAIMS and 25 UNGROUNDED

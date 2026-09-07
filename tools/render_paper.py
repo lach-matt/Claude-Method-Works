@@ -81,6 +81,9 @@ def display_unit(u):
     return u
 
 CITE = re.compile(r"\[\[(\?)?(C\d+)([#~!])?\]\]")
+# A figure is placed by number; its file and its caption come from figures.py,
+# so a figure cannot be captioned one way here and drawn another way there.
+FIGREF = re.compile(r"^!!fig:(\d+)!!$")
 
 
 def load_claims(path=LEDGER):
@@ -153,6 +156,99 @@ def resolve(text, claims, unicode_sup=False, seen=None):
     return out, missing
 
 
+# ---- mathematics -------------------------------------------------------------
+# A paper that states theorems has to set them. Two mechanisms, and the split is
+# by what each output can do:
+#
+#   INLINE  $...$ becomes Unicode. Every output can show a Greek letter and a
+#           subscript, and a symbol set in the run of the text should not be an
+#           image -- it would not reflow, and it would not be selectable.
+#   DISPLAY a line that is only an equation is typeset by matplotlib's mathtext
+#           and embedded as an image, because an integral with limits and a sum
+#           over indices cannot be built out of Unicode without lying about it.
+MATH_INLINE = re.compile(r"\$([^$]+)\$")
+
+GREEK = {
+    "alpha": "α", "beta": "β", "gamma": "γ", "delta": "δ", "epsilon": "ε",
+    "zeta": "ζ", "eta": "η", "theta": "θ", "iota": "ι", "kappa": "κ",
+    "lambda": "λ", "mu": "μ", "nu": "ν", "xi": "ξ", "pi": "π", "rho": "ρ",
+    "sigma": "σ", "tau": "τ", "upsilon": "υ", "phi": "φ", "varphi": "φ",
+    "chi": "χ", "psi": "ψ", "omega": "ω", "Omega": "Ω", "Phi": "Φ",
+    "Sigma": "Σ", "Delta": "Δ", "Lambda": "Λ",
+}
+OPS = {
+    "propto": "∝", "le": "≤", "ge": "≥", "ll": "≪", "gg": "≫", "approx": "≈",
+    "times": "×", "cdot": "·", "in": "∈", "to": "→", "rightarrow": "→",
+    "pm": "±", "sim": "∼", "neq": "≠", "sum": "Σ", "int": "∫", "sqrt": "√",
+    "partial": "∂", "infty": "∞", "ell": "ℓ", "hat": "", "mathbf": "",
+    "mathrm": "",
+    "left": "", "right": "", "!": "", ",": " ", ";": " ", "\\": " ",
+}
+SUB = str.maketrans("0123456789+-=()aeoxhklmnpstijr",
+                    "₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₒₓₕₖₗₘₙₚₛₜᵢⱼᵣ")
+SUP_M = str.maketrans("0123456789+-=()n", "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ")
+
+
+def _script(body, table, fallback):
+    """Convert to a real sub/superscript only if EVERY character can be.
+
+    A half-converted script reads worse than none at all -- "Q_fus" is clear,
+    "Qբus" is not -- so the fallback keeps the underscore and the plain letters."""
+    if not body or any(ord(ch) not in table for ch in body):
+        return fallback + body
+    return body.translate(table)
+
+
+def unicode_math(tex):
+    """A readable Unicode rendering of simple inline mathematics."""
+    t = tex
+    t = re.sub(r"\\([A-Za-z]+)", lambda m: GREEK.get(m.group(1),
+                                                     OPS.get(m.group(1),
+                                                             m.group(1))), t)
+    # one pass, left to right, so a brace group that falls back to plain text
+    # is not then picked up again by the single-character rule -- which turned
+    # "lambda_{abs}" into a half-converted "λₐbs".
+    t = re.sub(r"_(?:\{([^{}]*)\}|(\w))",
+               lambda m: _script(m.group(1) if m.group(1) is not None
+                                 else m.group(2), SUB, "_"), t)
+    t = re.sub(r"\^(?:\{([^{}]*)\}|(\w))",
+               lambda m: _script(m.group(1) if m.group(1) is not None
+                                 else m.group(2), SUP_M, "^"), t)
+    t = t.replace("{", "").replace("}", "")
+    t = re.sub(r"\s+", " ", t)
+    return t.strip()
+
+
+def demote_inline_math(text):
+    return MATH_INLINE.sub(lambda m: unicode_math(m.group(1)), text)
+
+
+_EQ_CACHE = {}
+
+
+def display_equation_png(tex, outdir=None):
+    """Typeset one display equation, cached by its own text."""
+    import hashlib
+    key = hashlib.md5(tex.encode("utf-8")).hexdigest()[:12]
+    outdir = outdir or os.path.join(ROOT, "papers", "figures", "eq")
+    os.makedirs(outdir, exist_ok=True)
+    path = os.path.join(outdir, f"eq-{key}.png")
+    if os.path.exists(path):
+        return path
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    fig = plt.figure(figsize=(0.01, 0.01))
+    fig.text(0, 0, f"${tex}$", fontsize=15, color="#15140f")
+    fig.savefig(path, dpi=260, bbox_inches="tight", pad_inches=0.10,
+                facecolor="#fbfaf7")
+    plt.close(fig)
+    return path
+
+
+DISPLAY = re.compile(r"^\s*\$(.+)\$\s*$", re.S)
+
+
 # ---- the document model ----------------------------------------------------
 # A deliberately small Markdown subset. Anything richer would be a second thing
 # to keep true across four outputs, and audit 16 FIDELITY is easier to hold than
@@ -198,6 +294,12 @@ def parse(src):
             flush_para()
             last_list = None
             continue
+        m = FIGREF.match(s.strip())
+        if m:
+            flush_para()
+            blocks.append(("figure", int(m.group(1))))
+            last_list = None
+            continue
         m = re.match(r"^(#{1,4})\s+(.*)$", s)
         if m:
             flush_para()
@@ -237,7 +339,17 @@ def parse(src):
         para.append(s.strip())
     flush_para()
     flush_table()
-    return front, blocks
+    # a paragraph or quote whose whole content is one formula is a DISPLAY
+    # equation, and is typeset rather than demoted
+    out = []
+    for kind, payload in blocks:
+        if kind in ("p", "quote") and isinstance(payload, str):
+            m = DISPLAY.match(payload.strip())
+            if m:
+                out.append(("equation", m.group(1).strip()))
+                continue
+        out.append((kind, payload))
+    return front, out
 
 
 INLINE = re.compile(r"(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)")
@@ -260,10 +372,14 @@ def _split_sup(text, b, i, c):
 def inline_runs(text):
     """[(text, bold, italic, code, sup)] -- the one inline model all outputs share.
 
+    Inline mathematics is demoted to Unicode here, so all four outputs show the
+    same symbols and none of them prints raw LaTeX at a reader.
+
     Superscripts are carried as a FLAG, not as Unicode characters, because the
     four outputs mark them up four different ways and only one of them can rely
     on a font having the glyph."""
     out = []
+    text = demote_inline_math(text)
     for piece in INLINE.split(text):
         if not piece:
             continue
@@ -279,6 +395,26 @@ def inline_runs(text):
 
 
 # ---- emitters --------------------------------------------------------------
+_FIGS = {}
+
+
+def figures_index():
+    """figure number -> {file, caption}, from figures.py rather than from here."""
+    if not _FIGS:
+        sys.path.insert(0, os.path.join(ROOT, "tools"))
+        import figures as FG
+        for f in FG.manifest():
+            _FIGS[f["num"]] = f
+    return _FIGS
+
+
+def figure_for(num):
+    fg = figures_index().get(num)
+    if fg is None:
+        raise SystemExit(f"render_paper: no figure {num} is defined")
+    return fg
+
+
 def emit_md(front, blocks):
     out = []
     if front.get("TITLE"):
@@ -302,6 +438,12 @@ def emit_md(front, blocks):
             out.append("1. " + payload)
         elif kind == "rule":
             out += ["", "---", ""]
+        elif kind == "figure":
+            fg = figure_for(payload)
+            out += [f"![Figure {fg['num']}]({fg['file']})", "",
+                    f"**Figure {fg['num']}.** {fg['caption']}", ""]
+        elif kind == "equation":
+            out += ["", "$$" + payload + "$$", ""]
         elif kind == "table":
             for row in payload:
                 out.append("|---|" if row == "SEP" else "| " + " | ".join(row) + " |")
@@ -335,6 +477,13 @@ table{border-collapse:collapse;width:100%;font-size:.92rem}
 th,td{border:1px solid var(--rule);padding:.42rem .6rem;text-align:left;vertical-align:top}
 th{background:#efeade;font-weight:600}
 hr{border:0;border-top:1px solid var(--rule);margin:2.2rem 0}
+p.eq{margin:1.3rem 0;text-align:center}
+p.eq img{max-height:4.6rem;width:auto}
+figure{margin:1.8rem 0;padding:0}
+figure img{width:100%;height:auto;border:1px solid var(--rule);border-radius:4px;
+ background:#fff}
+figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.5;color:var(--mut)}
+
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
  --ink:#eae5da;--mut:#a29a8c;--rule:#3a352d;--bg:#141310;--acc:#c9743f}
  :root:not([data-theme="light"]) blockquote{background:#1e1b16}
@@ -396,6 +545,21 @@ def emit_html(front, blocks):
                 o.append(f"<{want}>")
                 mode = want
             o.append(f"<li>{_h_inline(payload)}</li>")
+        elif kind == "figure":
+            fg = figure_for(payload)
+            import base64
+            with open(os.path.join(ROOT, fg["file"]), "rb") as fh:
+                b64 = base64.b64encode(fh.read()).decode("ascii")
+            o.append('<figure><img alt="Figure %d" src="data:image/png;base64,%s">'
+                     '<figcaption><strong>Figure %d.</strong> %s</figcaption>'
+                     '</figure>' % (fg["num"], b64, fg["num"],
+                                    _h_inline(fg["caption"])))
+        elif kind == "equation":
+            import base64
+            with open(display_equation_png(payload), "rb") as fh:
+                b64 = base64.b64encode(fh.read()).decode("ascii")
+            o.append('<p class="eq"><img alt="equation" '
+                     'src="data:image/png;base64,%s"></p>' % b64)
         elif kind == "rule":
             o.append("<hr>")
         elif kind == "table":
@@ -483,6 +647,29 @@ def emit_docx(front, blocks, path):
         elif kind in ("li", "oli"):
             style = "List Bullet" if kind == "li" else "List Number"
             runs(doc.add_paragraph(style=style), payload)
+        elif kind == "figure":
+            fg = figure_for(payload)
+            doc.add_picture(os.path.join(ROOT, fg["file"]), width=Inches(6.0))
+            doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+            cap = doc.add_paragraph()
+            r = cap.add_run(f"Figure {fg['num']}. ")
+            r.bold = True
+            r.font.size = Pt(9)
+            runs(cap, fg["caption"])
+            for rr in cap.runs[1:]:
+                rr.font.size = Pt(9)
+                rr.font.color.rgb = RGBColor(0x5D, 0x58, 0x50)
+            cap.paragraph_format.space_after = Pt(12)
+        elif kind == "equation":
+            from PIL import Image as _PILImage
+            path_ = display_equation_png(payload)
+            with _PILImage.open(path_) as im:
+                w_px, h_px = im.size
+            w_in = min(5.4, w_px / 260.0)
+            doc.add_picture(path_, width=Inches(w_in))
+            doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+            doc.paragraphs[-1].paragraph_format.space_before = Pt(6)
+            doc.paragraphs[-1].paragraph_format.space_after = Pt(8)
         elif kind == "rule":
             p = doc.add_paragraph()
             runs(p, "———")
@@ -554,9 +741,9 @@ def emit_pdf(front, blocks, path):
     from reportlab.lib.units import mm
     from reportlab.pdfbase import pdfmetrics
     from reportlab.pdfbase.ttfonts import TTFont
-    from reportlab.platypus import (BaseDocTemplate, Frame, PageTemplate,
-                                    Paragraph, Spacer, Table, TableStyle,
-                                    HRFlowable)
+    from reportlab.platypus import (BaseDocTemplate, Frame, KeepTogether,
+                                    PageTemplate, Paragraph, Spacer, Table,
+                                    TableStyle, HRFlowable)
 
     _register_fonts(pdfmetrics, TTFont)
 
@@ -585,6 +772,7 @@ def emit_pdf(front, blocks, path):
                     backColor=colors.HexColor("#f3efe6")),
         "li": st("li", 9.9, 14.2, leftIndent=13, bulletIndent=3, spaceAfter=2),
         "cell": st("cell", 8.7, 11.6, spaceAfter=0),
+        "cap": st("cap", 8.4, 11.4, colour=MUT, spaceAfter=0),
         "cellh": st("cellh", 8.7, 11.6, font="Serif-Bold", spaceAfter=0),
     }
 
@@ -644,6 +832,27 @@ def emit_pdf(front, blocks, path):
             flow.append(Paragraph(rl(payload), S["li"], bulletText="•"))
         elif kind == "oli":
             flow.append(Paragraph(rl(payload), S["li"], bulletText="–"))
+        elif kind == "figure":
+            from reportlab.lib.utils import ImageReader
+            from reportlab.platypus import Image as RLImage
+            fg = figure_for(payload)
+            path_ = os.path.join(ROOT, fg["file"])
+            iw, ih = ImageReader(path_).getSize()
+            w = min(avail, avail)
+            img = RLImage(path_, width=w, height=w * ih / iw)
+            cap = Paragraph(f"<b>Figure {fg['num']}.</b> {rl(fg['caption'])}",
+                            S["cap"])
+            flow += [Spacer(1, 8), KeepTogether([img, Spacer(1, 4), cap]),
+                     Spacer(1, 10)]
+        elif kind == "equation":
+            from reportlab.lib.utils import ImageReader
+            from reportlab.platypus import Image as RLImage
+            path_ = display_equation_png(payload)
+            iw, ih = ImageReader(path_).getSize()
+            w = min(avail * 0.92, iw * 72.0 / 260.0)
+            eq = RLImage(path_, width=w, height=w * ih / iw)
+            eq.hAlign = "CENTER"
+            flow += [Spacer(1, 6), eq, Spacer(1, 8)]
         elif kind == "rule":
             flow.append(Spacer(1, 5))
             flow.append(HRFlowable(width="100%", color=RULE, thickness=0.6))
@@ -796,3 +1005,6 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+

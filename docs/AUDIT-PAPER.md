@@ -111,6 +111,20 @@ into a cell went straight through; and its selftest mutated the source text with
 blocks the audit actually reads, so the injected fault was invisible to the very check meant to prove
 the audit works. Both are now fixtures.
 
+## A limit of the PDF reader, recorded rather than repaired
+
+Audit 5 reads the built PDF's own text layer. The paper's fonts are **embedded subsets**, and where
+two subsets both carry a given code, nothing in this reader says which font a particular run was set
+in — that needs the page's resource dictionary, which it does not parse. A symbol drawn from the
+second subset may therefore fail to decode, and Greek letters and operators are the ones affected.
+
+**The glyphs are in the file.** reportlab writes a `ToUnicode` entry only for a glyph it has actually
+embedded, and audit 5 counts those: the Greek is present. So the audit checks **Latin words and
+numerals**, which decode unambiguously, reports the count of embedded Greek glyphs, and **does not
+claim to have read the mathematics.** Saying so is the point: an audit that reported "the text layer
+reads back" while silently failing on every symbol in §13 would be worse than one that names what it
+did not check.
+
 ## Three faults the suite found in itself before it found any in the paper
 
 An audit has to be right before its verdict means anything, and three of these were wrong first.
