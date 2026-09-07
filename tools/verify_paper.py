@@ -2706,6 +2706,47 @@ def cen_selfwithdrawn():
     return _cen_count("SELF-WITHDRAWN")
 
 
+# ---- [1] sec.5.19's table AS PRINTED, so the paper can cite what it withdraws
+def _at90(i):
+    return _mach.BALANCES_AT_90[i][2]
+
+
+def p90_heat150():
+    return _at90(0)
+
+
+def p90_heatbound():
+    return _at90(1)
+
+
+def p90_heatphi3():
+    return _at90(2)
+
+
+def p90_work150():
+    return _at90(3)
+
+
+def p90_workbound():
+    return _at90(4)
+
+
+def p90_bred150():
+    return _at90(5)
+
+
+def p90_bredbound():
+    return _at90(6)
+
+
+def budget_transport_term():
+    """The budget's fifth term: unity BY DESIGN, conditional on the bore schedule."""
+    for name, fn, _note in _mach.BUDGET_TERMS:
+        if "transport" in name:
+            return fn()
+    raise KeyError("transport")
+
+
 def cen_518():
     return _cen("1.97")
 
@@ -2963,7 +3004,10 @@ def _one(paper):
     text = open(paper, encoding="utf-8").read()
     # The reference list is bibliographic data -- volume, page and arXiv numbers
     # are not claims and the ledger rightly does not carry them.
-    text = re.split(r"^##\s+References\s*$", text, flags=re.M)[0]
+    # a numbered References heading is still a References heading. Without the
+    # optional number a numbered paper's bibliography is read as prose and every
+    # volume, page and arXiv id is reported unbacked.
+    text = re.split(r"^##\s+(?:\d+\.\s*)?References\s*$", text, flags=re.M)[0]
     text = re.sub(r"```.*?```", " ", text, flags=re.S)          # code blocks
     text = re.sub(r"`[^`]*`", " ", text)                         # inline code
     # Tables are prose for this purpose -- most of the paper's quantities live in

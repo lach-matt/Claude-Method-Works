@@ -806,3 +806,19 @@ C809	fusion heat at sec.5.2's own ceiling	120.1	kW	DERIVED	C474 x 0.342 / 0.50	f
 C810	fusion heat delivered	85.6	kW	DERIVED	C474 x C804 / 0.50	fn:cop_kw_delivered
 C811	in-situ over the best planned delivered beam, delivered	1.37e4	x	DERIVED	C475 x C804 / 0.50	fn:cop_over_delivered_e4
 C812	the census's scaling of the printed 176 against the instrument's chain	1.002	ratio	DERIVED	machine.py --census restatement / verify_paper's own recomputation	fn:cop_census_agreement
+C813	heat at 150 cycles, as printed at the sec.5.9 collector	0.316	ratio	DERIVED	machine.py BALANCES_AT_90; the figure sec.5.3 restates	fn:p90_heat150
+C814	heat, bound-case service life, as printed	1.241	ratio	DERIVED	machine.py BALANCES_AT_90; the withdrawn end-to-end reading	fn:p90_heatbound
+C815	heat at phi = 3, as printed	1.011	ratio	DERIVED	machine.py BALANCES_AT_90	fn:p90_heatphi3
+C816	work at 150 cycles, as printed	0.237	ratio	DERIVED	machine.py BALANCES_AT_90	fn:p90_work150
+C817	work, bound-case service life, as printed	0.931	ratio	DERIVED	machine.py BALANCES_AT_90	fn:p90_workbound
+C818	bred fuel at 150 cycles, as printed	1.772	ratio	DERIVED	machine.py BALANCES_AT_90	fn:p90_bred150
+C819	bred fuel, bound-case service life, as printed	6.96	ratio	DERIVED	machine.py BALANCES_AT_90	fn:p90_bredbound
+C820	adiabatic transport term in the loss budget	1.000	fraction	DESIGN	machine.py --budget; unity by design, conditional on the bore schedule	fn:budget_transport_term
+C821	fuel mass in the demonstration cell	4	mg	SOURCED	MuFusE gas delivery system, the fill this procedure is written around	none
+C822	reference proton driver power the balances are quoted at	1	MW	DEFINITION	the reference point every co-product figure is stated at	none
+C823	the wider stopping window this paper prices	400	MeV/c	DERIVED	collector.py --stopping; the window whose inventory cost is C402	none
+C824	high-Z purity specification for the fuel	1	ppm	DESIGN	set below C319, the contamination at which impurity loss equals decay	none
+C825	winding current at the design point	20	kA	DESIGN	machine.py --circuit; the point the inductance and dump are quoted at	none
+C826	winding current, the low option	10	kA	DESIGN	machine.py --circuit	none
+C827	winding current, the high option	30	kA	DESIGN	machine.py --circuit	none
+C828	winding pack density used for the cold mass	8000	kg/m^3	SOURCED	standard for a copper-stabilised superconducting winding	none

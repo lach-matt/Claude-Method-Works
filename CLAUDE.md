@@ -277,6 +277,22 @@ directives as three index axes — every substantive result in the three papers 
 cell where all three coincide computed rather than claimed; the X axis carries a *sign*, so a result
 that forbids self-sustaining operation is never counted as progress toward it, and `--selftest`
 matches all 75 rows against the papers' own headings on disk — see `docs/DIRECTIVES.md`)
+**`tools/render_paper.py`** (the publication renderer, and the repair of the
+§9.9 weakness `verify_paper.py` records: **the paper's source carries no numerals at all** — it
+carries `[[C044]]` citations, which this program resolves against `CLAIMS.tsv` at render time, so a
+sentence cannot acquire a figure the mathematics does not produce because a sentence cannot hold a
+figure. It refuses an unknown id, a malformed citation, and any `WITHDRAWN`, `RECONSTRUCTED`,
+`PROJECTED`, `ASSUMED` or `DESIGN` row cited without its status printed beside it. Markdown, HTML,
+`.docx` and PDF are emitted from that **one** resolved source, which is what makes audit 16 FIDELITY
+hold by construction rather than by care), **`tools/audit_paper.py`** (**the twenty-five audits The
+Method runs over its own volumes, run over a paper**: the twenty-two prime audits of the main volume's
+§3 with their four coordinates quoted verbatim — what each reads, what it compares against, what a
+failure costs, what it presupposes — plus 23 PUBLISHED VALUES, 24 UNBACKED CLAIMS and 25 UNGROUNDED
+COORDINATES from the compendia intake. A `DEBT` is never reported as a `PASS` and never counted as a
+`FAIL`, which is how audit 25 and the external TERM MATCH return. **The 22 CENSUS / 22 TERM MATCH
+numbering collision is recorded and not resolved** — the live table's CENSUS is run as 22 and TERM
+MATCH beside it, unnumbered. Its `--selftest` breaks the paper on purpose, once per audit, because an
+audit that passes on clean text proves nothing — see `docs/AUDIT-PAPER.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 68 pinned figures, ~5 s, exits 1 on drift. Fourteen
