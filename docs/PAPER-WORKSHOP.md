@@ -327,3 +327,45 @@ convenient.
 Proposition 10's blanket relation is point kinetics. Both are used as requirements rather than as
 predictions, both say so where they appear, and §10 Stage D measures what they estimate — on one
 apparatus, the same beam and the same blanket with the fuel cell in and out.
+
+## The criterion the paper had never stated
+
+Every balance in this work priced the reaction against the **beam**. That is the eighth condition's
+question and it is correct for a *reaction*. It is wrong for a *power source*, and the reason is one
+sentence: **the beam does not stop.** A machine that returns more than its beam is an amplifier — it
+needs feeding for as long as it runs. Nothing in the paper had counted the two conversions that
+separate an amplifier from a power source:
+
+    G > 1/(η_th · η_acc)
+
+`η_th` was in the ledger already, but only as **Carnot** (C174 = 0.750) — a ceiling used as though it
+were a realised efficiency in the "work form". A real cycle reaches about 0.60 of Carnot. `η_acc`, wall
+plug to beam, had never appeared at all. Together they make the requirement **7.41** at a mid-range
+accelerator rather than 1 — nearly an order of magnitude heavier, and no configuration in §5 comes
+close to it.
+
+**The loop still closes**, because the accounting also changes with the question: for a plant, every
+neutron the beam makes counts, not only the fusion ones. At k = 0.728 the loop closes; at 0.924 a plant
+sells three quarters of its output. Both subcritical, both below the ADS design point.
+
+**And the finding that cost the most to write down**: the muon channel is *not* what closes it.
+Spallation alone closes the loop at 0.772. The channel is worth 24 % more source neutrons and 4,339 pcm
+of subcriticality margin — stability rather than energy. The selftest asserts the loop closes *without*
+the channel, deliberately, so the instrument cannot report the channel as necessary when the arithmetic
+says otherwise.
+
+## Stability, which had never been asked at all
+
+Two questions with opposite answers.
+
+The **neutronics** are stable by construction: subcritical, so cut the beam and it stops, with 7,609 pcm
+of margin at the plant point against a fast core's whole control worth of 5,000.
+
+The **loop** is not. Its gain at the operating point is *exactly one* — that is what "closed" means — so
+a fixed-fraction feedback is marginally stable and the machine walks off its point on any drift. The
+loop cannot be closed passively; the beam must be regulated against a measured power. That is an
+ordinary control problem, but "the loop closes" sounds passive and is not, so the paper says it.
+
+Doppler supplies the restoring term with the right sign, worth one percent of gain in 112 K. Beam trips
+are named and unbounded — an ADS's characteristic problem is interruption rather than runaway, and trip
+rate rather than trip depth limits component life.

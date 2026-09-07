@@ -341,6 +341,252 @@ def report_target():
     return 0
 
 
+# ---- THE CRITERION THE PROJECT ACTUALLY ASKED FOR ---------------------------
+# Everything above prices the reaction against the BEAM. That is the eighth
+# condition's question and it is the right one to ask of a reaction. It is not
+# the question to ask of a POWER SOURCE, because the beam does not stop. A
+# machine that returns more than its beam is an amplifier; a machine that runs
+# on nothing after it is lit is a power source, and the difference between them
+# is two conversion efficiencies nothing in this work had counted.
+#
+#   heat out  ->  electricity      at eta_th
+#   electricity -> beam            at eta_acc
+#
+# so the loop closes when  G > 1 / (eta_th . eta_acc), and that is a far
+# heavier requirement than G > 1.
+CARNOT_AT_BLANKET = 0.750    # [C174] Carnot at the advanced blanket temperature
+CARNOT_REALISED = 0.60       # a real cycle against its Carnot ceiling; SOURCED
+ETA_ACC_LO = 0.20            # wall plug to beam, high-power proton linac; SOURCED
+ETA_ACC_HI = 0.50            # the design target for a superconducting one
+Q_FUS_MEV = 17.59            # [C01]
+E_ALPHA_MEV_ = E_ALPHA_MEV
+
+
+def eta_thermal(realised=CARNOT_REALISED):
+    """Heat to electricity. Bounded above by Carnot at the blanket temperature."""
+    return CARNOT_AT_BLANKET * realised
+
+
+def loop_requirement(eta_acc, realised=CARNOT_REALISED):
+    """The balance a closed loop needs: G > 1 / (eta_th . eta_acc)."""
+    return 1.0 / (eta_thermal(realised) * eta_acc)
+
+
+def plant_energy_per_proton(k_eff, y_spall, y_fus, e_beam_mev=None):
+    """Everything the beam returns, per interacting proton.
+
+    The beam's own energy is deposited in the assembly and recovered as heat.
+    On top of that: the fusion energy the muon channel makes, which is new, and
+    the fission energy EVERY source neutron drives -- the spallation neutrons
+    and the fusion neutrons alike, because the blanket does not know which is
+    which.
+    """
+    e_beam = (BEAM_GEV * 1000.0) if e_beam_mev is None else e_beam_mev
+    return (e_beam
+            + y_fus * Q_FUS_MEV
+            + (y_spall + y_fus) * energy_per_source_neutron(k_eff))
+
+
+def plant_gain(k_eff, y_spall, y_fus):
+    return plant_energy_per_proton(k_eff, y_spall, y_fus) / (BEAM_GEV * 1000.0)
+
+
+def k_for_plant_gain(g, y_spall, y_fus):
+    """The k a closed loop needs, counting every neutron the beam makes."""
+    e_beam = BEAM_GEV * 1000.0
+    need = (g * e_beam - e_beam - y_fus * Q_FUS_MEV) / (y_spall + y_fus)
+    return k_for_energy(max(0.0, need))
+
+
+def report_plant():
+    """The closed loop: what runs on nothing after it is lit."""
+    m = _mach()
+    eta_w = m.delivered_eta_window(2.60, 400.0)
+    y_fus = fusion_neutrons_per_proton(eta_w)
+    y_sp = 0.5 * sum(spallation_yield())
+    print("  THE CLOSED LOOP -- A POWER SOURCE, NOT AN AMPLIFIER")
+    print("    Everything before this prices the reaction against the BEAM, which")
+    print("    is the eighth condition's question and the right one to ask of a")
+    print("    REACTION. It is the wrong one to ask of a POWER SOURCE, because")
+    print("    the beam does not stop. A machine that returns more than its beam")
+    print("    is an amplifier. A machine that runs on nothing once it is lit is")
+    print("    a power source, and the difference is two conversions this work")
+    print("    had never counted:")
+    print()
+    print(f"      heat -> electricity   at eta_th, ceiling Carnot = {CARNOT_AT_BLANKET}")
+    print(f"                            realised at {CARNOT_REALISED:.2f} of it -> {eta_thermal():.3f}")
+    print(f"      electricity -> beam   at eta_acc = {ETA_ACC_LO:.2f} to {ETA_ACC_HI:.2f}")
+    print()
+    print("    So the loop closes at  G > 1 / (eta_th . eta_acc):")
+    print(f"      {'eta_acc':>10}{'G required':>14}")
+    for ea in (ETA_ACC_HI, 0.40, 0.30, ETA_ACC_LO):
+        print(f"      {ea:10.2f}{loop_requirement(ea):14.2f}")
+    print()
+    print("    AND THE ACCOUNTING CHANGES WITH THE QUESTION. Against the beam, only")
+    print("    the fusion neutrons counted. For the PLANT, everything the beam")
+    print("    makes counts -- the beam energy itself is deposited and recovered,")
+    print("    the muon channel's fusions are new energy, and the blanket does not")
+    print("    know which neutron is which:")
+    print()
+    print("      E = E_beam + Y_fus . Q_fus + (Y_sp + Y_fus) . E(k)")
+    print()
+    print(f"      Y_sp  = {y_sp:.0f} spallation neutrons per proton  (sec.9.4)")
+    print(f"      Y_fus = {y_fus:.2f} fusion neutrons per proton     (the muon channel)")
+    print()
+    print("    THE SUBCRITICAL k A CLOSED LOOP NEEDS")
+    print(f"      {'eta_acc':>8}{'G needed':>10}{'k with muons':>14}{'k without':>12}{'margin':>9}")
+    for ea in (ETA_ACC_HI, 0.40, 0.30, ETA_ACC_LO):
+        g = loop_requirement(ea)
+        kw = k_for_plant_gain(g, y_sp, y_fus)
+        ko = k_for_plant_gain(g, y_sp, 0.0)
+        print(f"      {ea:8.2f}{g:10.2f}{kw:14.3f}{ko:12.3f}{ko - kw:+9.3f}")
+    print()
+    print("    EVERY ONE IS SUBCRITICAL, and every one is below the 0.95 an")
+    print("    accelerator-driven system is designed around. THE LOOP CLOSES.")
+    print()
+    print("    AND A PLANT WANTS MORE THAN BREAK-EVEN. At the loop requirement")
+    print("    all of the output recirculates and none is sold. For a net")
+    print("    electrical fraction of 1 - G_req/G:")
+    g_req = loop_requirement(0.30)
+    print(f"      {'net electric':>14}{'G needed':>10}{'k needed':>10}")
+    for net in (0.0, 0.50, 0.75, 0.90):
+        g = g_req / max(1e-9, (1.0 - net)) if net < 1.0 else float("inf")
+        print(f"      {100 * net:13.0f} %{g:10.2f}{k_for_plant_gain(g, y_sp, y_fus):10.3f}")
+    print()
+    print("    WHAT THE MUON CHANNEL ACTUALLY CONTRIBUTES, STATED PLAINLY.")
+    print("    Not the loop. A subcritical assembly driven by spallation alone")
+    print("    closes it too, and has been proposed for that purpose for decades.")
+    ea = 0.30
+    g = loop_requirement(ea)
+    kw, ko = k_for_plant_gain(g, y_sp, y_fus), k_for_plant_gain(g, y_sp, 0.0)
+    print(f"    What the muon channel adds is {100 * y_fus / y_sp:.0f} percent more source neutrons and so")
+    print(f"    the SAME loop at a k lower by {ko - kw:.3f} -- {kw:.3f} against {ko:.3f}. That is")
+    print("    subcriticality margin, which is a safety property before it is an")
+    print("    energy one, and it is what the channel is worth here.")
+    print()
+    print("    WHAT IT CONSUMES AFTER IGNITION.")
+    print("      electricity   none -- the loop is closed")
+    print("      tritium       none -- the blanket breeds at 1.15 per fusion")
+    print("      fissile fuel  fertile feed, bred in place; NOT free, and this")
+    print("                    work does not price the fuel cycle")
+    return 0
+
+
+# ---- STABILITY, which is a separate requirement and has two halves ----------
+# A power source that closes its loop and then runs away, or drifts off its
+# operating point, is not a power source. Stability here is two questions that
+# happen to have opposite answers, and conflating them is the error to avoid.
+#
+#   THE NEUTRONICS are stable by construction. The assembly is subcritical, so
+#   the power is set by the source rather than by a chain that sustains itself.
+#   There is no prompt-critical excursion available at any k < 1.
+#
+#   THE LOOP is NOT stable by construction. At the operating point its gain is
+#   exactly one -- that is what "closed" means -- so a fixed-fraction feedback
+#   is MARGINALLY stable and any perturbation persists. The beam has to be
+#   regulated against a measured power, not simply fed a share of the output.
+DOPPLER_K_LO = 0.005        # |T dk/dT|, fertile-loaded fast system; SOURCED
+DOPPLER_K_HI = 0.010        # the other end of the same band
+T_BLANKET_K = 800.0         # [C76] blanket operating temperature
+CONTROL_WORTH_PCM = 5000.0  # total control worth of a fast reactor; SOURCED
+
+
+def power_sensitivity(k_eff):
+    """d(power)/power per unit dk. E(k) ~ k/(1-k), so this is 1/(k(1-k))."""
+    return 1.0 / (k_eff * (1.0 - k_eff))
+
+
+def subcritical_margin(k_eff):
+    """Margin to criticality, in dk and in pcm."""
+    return 1.0 - k_eff, 1e5 * (1.0 - k_eff)
+
+
+def doppler_dk_per_k(kd=DOPPLER_K_LO, t_k=T_BLANKET_K):
+    """Reactivity per kelvin from Doppler broadening. Negative: it restores."""
+    return -kd / t_k
+
+
+def restoring_delta_t(k_eff, margin=0.01, kd=DOPPLER_K_LO):
+    """The temperature rise that pulls the loop gain `margin` below unity."""
+    per_k = abs(doppler_dk_per_k(kd)) * power_sensitivity(k_eff)
+    return margin / per_k
+
+
+def report_stability():
+    """Stability: the neutronics by construction, the loop by regulation."""
+    m = _mach()
+    eta_w = m.delivered_eta_window(2.60, 400.0)
+    y_f = fusion_neutrons_per_proton(eta_w)
+    y_s = 0.5 * sum(spallation_yield())
+    k_loop = k_for_plant_gain(loop_requirement(0.30), y_s, y_f)
+    k_plant = k_for_plant_gain(loop_requirement(0.30) / 0.25, y_s, y_f)
+    print("  STABILITY, WHICH IS TWO QUESTIONS WITH OPPOSITE ANSWERS")
+    print()
+    print("  ONE -- THE NEUTRONICS ARE STABLE BY CONSTRUCTION")
+    print("    The assembly is subcritical. Its power is set by the SOURCE and")
+    print("    not by a chain that sustains itself, so there is no prompt-critical")
+    print("    excursion available at any k < 1: cut the beam and it stops. The")
+    print("    margin to criticality is what a reactivity insertion would have to")
+    print("    cross, and it is large:")
+    print()
+    print(f"      {'operating point':<34}{'k':>8}{'margin':>10}{'pcm':>10}")
+    for lab, k in (("the loop only closing", k_loop),
+                   ("a plant selling three quarters", k_plant),
+                   ("an accelerator-driven system", 0.95)):
+        dk, pcm = subcritical_margin(k)
+        print(f"      {lab:<34}{k:8.3f}{dk:10.3f}{pcm:10.0f}")
+    dk_p, pcm_p = subcritical_margin(k_plant)
+    print()
+    print(f"    Against a total control worth of about {CONTROL_WORTH_PCM:.0f} pcm for a fast")
+    print(f"    system, the plant's margin of {pcm_p:.0f} pcm is {pcm_p / CONTROL_WORTH_PCM:.1f} times the whole")
+    print("    reactivity a comparable core can hold. No credible insertion")
+    print("    reaches criticality. THAT IS THE SAFETY CASE, and it is why the")
+    print("    subcritical route is worth its accelerator.")
+    print()
+    print("  TWO -- THE LOOP IS NOT STABLE BY CONSTRUCTION, AND THIS IS THE FINDING")
+    print("    At the operating point the recirculating loop's gain is EXACTLY")
+    print("    one. That is what 'closed' means. So a fixed-fraction feedback --")
+    print("    take a share of the output, make beam with it -- is MARGINALLY")
+    print("    stable: a perturbation neither grows nor decays, and the machine")
+    print("    walks off its operating point on any drift.")
+    print()
+    print("    THE LOOP CANNOT BE CLOSED PASSIVELY. The beam must be regulated")
+    print("    against a MEASURED power to a setpoint, so that the loop is closed")
+    print("    by a controller rather than by the physics. That is an ordinary")
+    print("    control problem with an ordinary solution, but it has to be said,")
+    print("    because 'the loop closes' sounds passive and is not.")
+    print()
+    print("  AND THE PHYSICS DOES SUPPLY THE RESTORING TERM")
+    print("    Power amplifies reactivity as 1/(k(1-k)), so the closer to")
+    print("    criticality the sharper the response:")
+    print()
+    print(f"      {'k':>8}{'dP/P per dk':>14}{'dT to restore 1 %':>20}")
+    for k in (k_loop, 0.85, k_plant, 0.95):
+        print(f"      {k:8.3f}{power_sensitivity(k):14.1f}{restoring_delta_t(k):17.0f} K")
+    print()
+    print("    Doppler broadening in the fertile loading gives a NEGATIVE")
+    print(f"    coefficient of about {DOPPLER_K_LO:.3f} to {DOPPLER_K_HI:.3f} in |T dk/dT|, so a rise in")
+    print(f"    temperature lowers k, lowers the gain, and lowers the power. At the")
+    print(f"    plant point that restores one percent of gain in {restoring_delta_t(k_plant):.0f} K, which")
+    print("    is inside an ordinary operating swing. The feedback is adequate and")
+    print("    it has the right sign.")
+    print()
+    print("  WHAT THE MUON CHANNEL DOES FOR STABILITY")
+    k_no = k_for_plant_gain(loop_requirement(0.30), y_s, 0.0)
+    print(f"    It lets the same loop close at k = {k_loop:.3f} instead of {k_no:.3f}, which is")
+    print(f"    {1e5 * (k_no - k_loop):.0f} pcm of extra margin to criticality and a power")
+    print(f"    sensitivity lower by {power_sensitivity(k_no) / power_sensitivity(k_loop):.2f}. Both are stability, and")
+    print("    both are what the channel is worth here -- not the loop itself.")
+    print()
+    print("  WHAT THIS DOES NOT SETTLE.")
+    print("    Beam trips. An accelerator-driven system's characteristic problem")
+    print("    is not runaway but INTERRUPTION: every trip is a thermal cycle")
+    print("    through the whole assembly, and trip rate rather than trip depth")
+    print("    is what limits component life. No figure here bounds it, and it")
+    print("    is a driver requirement rather than a physics one.")
+    return 0
+
+
 def report():
     m = _mach()
     print("WHAT A SELF-SUSTAINING POWER SOURCE REQUIRES")
@@ -517,6 +763,64 @@ def selftest():
     print("       being WORSE than the target it replaces")
 
     print()
+    print("  the closed loop, which is a heavier criterion than beating the beam")
+    y_f = fusion_neutrons_per_proton(eta_best)
+    y_s = 0.5 * sum(spallation_yield())
+    check("the loop requirement is far above unity",
+          loop_requirement(0.30) > 5.0)
+    check("and it tightens as the accelerator gets worse",
+          loop_requirement(0.20) > loop_requirement(0.50))
+    check("the thermal efficiency stays under its Carnot ceiling",
+          eta_thermal() < CARNOT_AT_BLANKET)
+    for ea in (ETA_ACC_LO, 0.30, ETA_ACC_HI):
+        g = loop_requirement(ea)
+        check(f"the loop closes subcritically at eta_acc = {ea:.2f}",
+              k_for_plant_gain(g, y_s, y_f) < 1.0)
+    check("and below the accelerator-driven design point in every case",
+          k_for_plant_gain(loop_requirement(ETA_ACC_LO), y_s, y_f) < 0.95)
+    check("the muon channel LOWERS the k the loop needs",
+          k_for_plant_gain(loop_requirement(0.30), y_s, y_f)
+          < k_for_plant_gain(loop_requirement(0.30), y_s, 0.0))
+    check("but spallation alone still closes it, so the channel is margin "
+          "rather than enablement",
+          k_for_plant_gain(loop_requirement(0.30), y_s, 0.0) < 1.0)
+    check("substituting a solved k back reproduces the gain it was solved for",
+          abs(plant_gain(k_for_plant_gain(6.0, y_s, y_f), y_s, y_f) - 6.0)
+          < 1e-6)
+    print("    -- the loop closing WITHOUT the muon channel is asserted here on")
+    print("       purpose: the instrument must not be able to report the channel")
+    print("       as necessary when the arithmetic says it is not")
+
+    print()
+    print("  stability, which is two questions with opposite answers")
+    y_f2 = fusion_neutrons_per_proton(eta_best)
+    y_s2 = 0.5 * sum(spallation_yield())
+    k_loop = k_for_plant_gain(loop_requirement(0.30), y_s2, y_f2)
+    k_plant = k_for_plant_gain(loop_requirement(0.30) / 0.25, y_s2, y_f2)
+    check("every operating point keeps a positive margin to criticality",
+          min(subcritical_margin(k_loop)[0], subcritical_margin(k_plant)[0]) > 0)
+    check("the plant's margin exceeds a fast core's whole control worth",
+          subcritical_margin(k_plant)[1] > CONTROL_WORTH_PCM)
+    check("power amplifies reactivity more sharply nearer criticality",
+          power_sensitivity(0.95) > power_sensitivity(k_plant)
+          > power_sensitivity(k_loop))
+    check("the Doppler coefficient is negative, so it restores",
+          doppler_dk_per_k() < 0.0)
+    check("and restores one percent of gain inside an ordinary swing",
+          restoring_delta_t(k_plant) < 300.0)
+    check("the muon channel widens the margin to criticality",
+          k_for_plant_gain(loop_requirement(0.30), y_s2, 0.0) > k_loop)
+    check("and lowers the power sensitivity with it",
+          power_sensitivity(k_for_plant_gain(loop_requirement(0.30), y_s2, 0.0))
+          > power_sensitivity(k_loop))
+    g_op = loop_requirement(0.30)
+    check("the recirculating loop's gain at the operating point is EXACTLY one",
+          abs(eta_thermal() * 0.30 * g_op - 1.0) < 1e-12)
+    print("    -- that last one is the finding, not a formality: a loop whose")
+    print("       gain is exactly one is MARGINALLY stable, so it cannot be")
+    print("       closed by feeding back a fixed share and must be regulated")
+
+    print()
     print("  the instrument can fail: a blanket that could not supply the")
     print("  requirement would have to need k >= 1, so that case is constructed")
     check("a requirement of 100 GeV per fusion would need k >= 1",
@@ -535,6 +839,9 @@ def main():
     ap.add_argument("--spallation", action="store_true",
                     help=report_spallation.__doc__)
     ap.add_argument("--target", action="store_true", help=report_target.__doc__)
+    ap.add_argument("--plant", action="store_true", help=report_plant.__doc__)
+    ap.add_argument("--stability", action="store_true",
+                    help=report_stability.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -542,6 +849,10 @@ def main():
         return report_spallation()
     if a.target:
         return report_target()
+    if a.plant:
+        return report_plant()
+    if a.stability:
+        return report_stability()
     return report()
 
 

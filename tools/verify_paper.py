@@ -2909,6 +2909,133 @@ def bal_c880():
 def bal_c881():
     return _mach.balance("bred", _mach.service_life(8.5), 2.6, 400.0, target=True)
 
+def doppler_lo():
+    return _ps().DOPPLER_K_LO
+
+
+def doppler_hi():
+    return _ps().DOPPLER_K_HI
+
+
+def control_worth():
+    return _ps().CONTROL_WORTH_PCM
+
+
+def _k_ops():
+    ps = _ps()
+    ys, yf = _yfs()
+    g = ps.loop_requirement(0.30)
+    return (ps.k_for_plant_gain(g, ys, yf), ps.k_for_plant_gain(g / 0.25, ys, yf),
+            ps.k_for_plant_gain(g, ys, 0.0))
+
+
+def margin_loop():
+    return _ps().subcritical_margin(_k_ops()[0])[1]
+
+
+def margin_plant():
+    return _ps().subcritical_margin(_k_ops()[1])[1]
+
+
+def margin_vs_worth():
+    return margin_plant() / _ps().CONTROL_WORTH_PCM
+
+
+def psens_plant():
+    return _ps().power_sensitivity(_k_ops()[1])
+
+
+def restore_dt():
+    return _ps().restoring_delta_t(_k_ops()[1])
+
+
+def margin_gain():
+    kl, _kp, kn = _k_ops()
+    return 1e5 * (kn - kl)
+
+
+def psens_gain():
+    kl, _kp, kn = _k_ops()
+    ps = _ps()
+    return ps.power_sensitivity(kn) / ps.power_sensitivity(kl)
+
+
+def carnot_realised():
+    return _ps().CARNOT_REALISED
+
+
+def eta_th():
+    return _ps().eta_thermal()
+
+
+def eta_acc_mid():
+    return 0.30
+
+
+def eta_acc_lo():
+    return _ps().ETA_ACC_LO
+
+
+def eta_acc_hi():
+    return _ps().ETA_ACC_HI
+
+
+def _yfs():
+    ps = _ps()
+    return (0.5 * sum(ps.spallation_yield()),
+            ps.fusion_neutrons_per_proton(_mach.delivered_eta_window(2.60, 400.0)))
+
+
+def loop_g30():
+    return _ps().loop_requirement(0.30)
+
+
+def loop_g50():
+    return _ps().loop_requirement(_ps().ETA_ACC_HI)
+
+
+def loop_g20():
+    return _ps().loop_requirement(_ps().ETA_ACC_LO)
+
+
+def loop_k30():
+    ys, yf = _yfs()
+    return _ps().k_for_plant_gain(loop_g30(), ys, yf)
+
+
+def loop_k30_nomu():
+    ys, _ = _yfs()
+    return _ps().k_for_plant_gain(loop_g30(), ys, 0.0)
+
+
+def loop_margin():
+    return loop_k30_nomu() - loop_k30()
+
+
+def loop_k50():
+    ys, yf = _yfs()
+    return _ps().k_for_plant_gain(loop_g50(), ys, yf)
+
+
+def loop_k20():
+    ys, yf = _yfs()
+    return _ps().k_for_plant_gain(loop_g20(), ys, yf)
+
+
+def loop_k75():
+    ys, yf = _yfs()
+    return _ps().k_for_plant_gain(loop_g30() / 0.25, ys, yf)
+
+
+def mu_share():
+    ys, yf = _yfs()
+    return 100.0 * yf / ys
+
+
+def sp_mid():
+    return _yfs()[0]
+
+
 def n_per_gev_lo():
     return _ps().N_PER_GEV_PB_LO
 

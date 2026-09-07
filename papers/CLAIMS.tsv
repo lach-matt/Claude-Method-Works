@@ -914,3 +914,29 @@ C918	primaries interacting in the published jet	86.5	percent	DERIVED	1 - exp(-C9
 C919	the cascade the published jet retains	2.6	percent	DERIVED	1 - exp(-C917)	fn:jet_retained
 C920	depleted uranium over lead, neutrons per GeV deposited	1.5	x	SOURCED	the cascade fast-fissions in it	fn:u_over_pb
 C921	the transparency penalty, blanket-coupled	-48.7	percent	DERIVED	(1 - C919)(1 - C920); NEGATIVE, a gain	fn:trans_penalty
+C922	a real cycle against its Carnot ceiling	0.60	fraction	SOURCED	high-temperature thermal cycles	fn:carnot_realised
+C923	heat to electricity, realised	0.450	fraction	DERIVED	C174 x C922	fn:eta_th
+C924	wall plug to beam, low	0.20	fraction	SOURCED	high-power proton linac	fn:eta_acc_lo
+C925	the same, a superconducting design target	0.50	fraction	SOURCED	the same	fn:eta_acc_hi
+C926	the balance a closed loop needs, mid accelerator	7.41	ratio	DERIVED	1 / (C923 x 0.30)	fn:loop_g30
+C927	the same at the design-target accelerator	4.44	ratio	DERIVED	1 / (C923 x C925)	fn:loop_g50
+C928	the same at the low accelerator	11.11	ratio	DERIVED	1 / (C923 x C924)	fn:loop_g20
+C929	subcritical k the closed loop needs, mid accelerator	0.728	k_eff	DERIVED	powersource.py --plant	fn:loop_k30
+C930	the same without the muon channel	0.772	k_eff	DERIVED	the same, Y_fus = 0	fn:loop_k30_nomu
+C931	the subcriticality margin the muon channel buys	0.043	k_eff	DERIVED	C930 - C929	fn:loop_margin
+C932	subcritical k the closed loop needs, design-target accelerator	0.586	k_eff	DERIVED	powersource.py --plant	fn:loop_k50
+C933	the same at the low accelerator	0.810	k_eff	DERIVED	the same	fn:loop_k20
+C934	subcritical k for a plant selling three quarters of its output	0.924	k_eff	DERIVED	powersource.py --plant	fn:loop_k75
+C935	the muon channel's share of the source neutrons	24	percent	DERIVED	C903 / C936	fn:mu_share
+C936	spallation neutrons per proton, midpoint of the band	220	per proton	DERIVED	midpoint of C913 and C914	fn:sp_mid
+C937	Doppler constant of a fertile-loaded fast system, low	0.005	|T dk/dT|	SOURCED	standard fast-reactor range	fn:doppler_lo
+C938	the same, high	0.010	|T dk/dT|	SOURCED	the same	fn:doppler_hi
+C939	total control worth of a comparable fast core	5000	pcm	SOURCED	standard fast-reactor figure	fn:control_worth
+C940	margin to criticality where the loop only closes	27178	pcm	DERIVED	1e5 (1 - C929)	fn:margin_loop
+C941	the same for a plant selling three quarters	7609	pcm	DERIVED	1e5 (1 - C934)	fn:margin_plant
+C942	that margin against a fast core's whole control worth	1.5	x	DERIVED	C941 / C939	fn:margin_vs_worth
+C943	power amplification of reactivity at the plant point	14.2	per dk	DERIVED	1 / (k(1-k)) at C934	fn:psens_plant
+C944	temperature rise restoring one percent of loop gain	112	K	DERIVED	0.01 / (|dk/dT| x C943)	fn:restore_dt
+C945	extra margin to criticality the muon channel buys	4339	pcm	DERIVED	1e5 (C930 - C929)	fn:margin_gain
+C946	and the factor it lowers the power sensitivity by	1.12	x	DERIVED	sensitivity at C930 over C929	fn:psens_gain
+C947	wall plug to beam, the mid-range accelerator the loop is stated at	0.30	fraction	ASSUMED	between C924 and C925; the figure the tables are read at	fn:eta_acc_mid

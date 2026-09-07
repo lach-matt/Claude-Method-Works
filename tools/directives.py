@@ -168,6 +168,12 @@ ROWS = [
     ("D89", "CF", "9.2", "what it costs to say it: the fusion supplies 7.5 to 27.4 percent, so it is a fusion-driven subcritical fission reactor", 3, -1, 2, 1),
     ("D90", "CF", "9.4", "the spallation comparison made: the muon channel is ADDITIVE, not alternative, and the only trade is what transparency costs the target", 3, 1, 2, 2),
     ("D91", "CF", "9.4", "and both target figures closed: 200-240 n/proton, and a transparency penalty of -48.7 percent because the jet is a production foil and the blanket is the spallation target", 3, 1, 3, 2),
+    # THE CRITERION THE PROJECT ASKED FOR. Beating the beam is an amplifier;
+    # running the drive from the output is a power source, and the two
+    # conversions between them had never been counted anywhere in this work.
+    ("D92", "CF", "9.5", "the CLOSED LOOP: G > 1/(eta_th eta_acc) = 7.41, met subcritically at k = 0.728, and 0.924 for a plant selling three quarters", 3, 1, 3, 2),
+    ("D93", "CF", "9.5", "and the muon channel is NOT what closes it: spallation alone closes at 0.772, so the channel is margin rather than enablement", 3, -1, 1, 1),
+    ("D94", "CF", "9.6", "stability: the neutronics stable by construction at 7609 pcm of margin, the LOOP marginally stable and needing regulation", 3, 0, 2, 3),
 ]
 
 ON_AXIS = 2          # a datum "sits on" an axis at this grade or better

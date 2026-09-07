@@ -150,3 +150,72 @@ reactor**, and calling it a fusion power plant would be false. It is a self-sust
 the project's own criterion — it returns more energy than the beam that drives it, as heat, on site,
 with nothing leaving the device — and both halves of that are stated in §9.2 because neither stands
 alone.
+
+## The criterion the project asked for — `--plant`
+
+Everything above prices the reaction against the **beam**. That is the eighth condition's question and
+the right one to ask of a *reaction*. It is the wrong one to ask of a *power source*, and the reason is
+easy to walk past: **the beam does not stop.** A machine that returns more than its beam is an
+**amplifier** — it needs feeding for as long as it runs. A machine that needs nothing after start-up is
+a **power source**. The difference is two conversions nothing in this work had counted:
+
+    G_loop = G · η_th · η_acc > 1      ⟺      G > 1/(η_th · η_acc)
+
+`η_th` is bounded above by Carnot at the blanket temperature (0.750, already in the ledger); a real
+cycle reaches about 0.60 of its ceiling, so 0.450. `η_acc` — wall plug to beam for a high-power proton
+linac — runs 0.20 to 0.50. So the loop needs **G between 4.44 and 11.11**, not 1.
+
+**And the accounting changes with the question.** Against the beam only the fusion neutrons counted;
+they are what the *reaction* makes. For the **plant**, everything the beam makes counts, because the
+blanket does not know which neutron is which:
+
+    E = E_beam + Y_fus·Q_fus + (Y_sp + Y_fus)·E(k)
+
+| η_acc | G needed | k with the muon channel | k without | margin |
+|---|---|---|---|---|
+| 0.50 | 4.44 | **0.586** | 0.645 | +0.059 |
+| 0.30 | 7.41 | **0.728** | 0.772 | +0.043 |
+| 0.20 | 11.11 | **0.810** | 0.842 | +0.032 |
+
+**The loop closes, subcritically, in every case** — every k below the 0.95 an accelerator-driven system
+is designed around. A plant selling three quarters of its output closes at **0.924**, which lands
+almost exactly on that design point, for the same reason it exists.
+
+**What the muon channel contributes, plainly: not the loop.** A subcritical assembly driven by
+spallation alone closes it too — that is what an ADS is, and it has been proposed for decades. What the
+channel adds is **24 % more source neutrons** and with them the same loop at a k lower by 0.043. The
+selftest asserts the loop closes *without* the channel, on purpose: the instrument must not be able to
+report the channel as necessary when the arithmetic says it is not.
+
+**After start-up it consumes:** no electricity (the loop is closed), no tritium (bred at 1.15 per
+fusion, above replacement), and fertile fuel bred in place — **not free**, and the fuel cycle is not
+priced here.
+
+## Stability — `--stability`
+
+Two questions with opposite answers, and conflating them is the error to avoid.
+
+**The neutronics are stable by construction.** The assembly is subcritical, so power is set by the
+source rather than by a self-sustaining chain: no prompt-critical excursion is available at any k < 1,
+and cutting the beam stops it. The margin a reactivity insertion would have to cross is **27,178 pcm**
+where the loop only closes and **7,609 pcm** at the plant point — the latter being **1.5×** the entire
+control worth of a comparable fast core. No credible insertion reaches criticality.
+
+**The loop is not stable by construction, and that is the finding.** At the operating point its gain is
+*exactly one* — that is what "closed" means — so a fixed-fraction feedback is **marginally stable**: a
+perturbation neither grows nor decays and the machine walks off its point on any drift. **The loop
+cannot be closed passively.** The beam must be regulated against a measured power to a setpoint, so the
+loop is closed by a controller rather than by the physics. Ordinary problem, ordinary solution — but it
+must be said, because "the loop closes" sounds passive and is not.
+
+**The physics does supply the restoring term.** Power amplifies reactivity as `1/(k(1−k))` — 14.2 per
+unit k at the plant point — and Doppler broadening in the fertile loading is negative, 0.005 to 0.010
+in `|T dk/dT|`. That restores one percent of loop gain in **112 K**, inside an ordinary swing. Adequate,
+and the right sign.
+
+**What the muon channel does for stability:** the same loop at 0.728 instead of 0.772 — **4,339 pcm** of
+extra margin and a power sensitivity lower by 1.12. That is what it is worth here.
+
+**Unbounded: beam trips.** An ADS's characteristic problem is interruption rather than runaway. Every
+trip is a thermal cycle through the assembly, and trip *rate* limits component life. No figure here
+bounds it; it is a driver requirement, not a physics one.

@@ -535,7 +535,108 @@ so the penalty against a fully-containing target of the same material is `(1 −
 > **The comparison is made, and closed.** The muon channel is additive rather than alternative; the target it needs is a production foil rather than a spallation target; and the cascade it does not keep is not thrown away but handed to the material that converts it best. §10 Stage D still measures the pair on one apparatus, because a first-order geometric model is not a transport calculation — but it measures a margin, not a question.
 
 
-### 9.5 But the binder does not have to be bought
+### 9.5 The closed loop: a power source rather than an amplifier
+
+Everything to this point prices the reaction against the **beam**. That is the eighth condition's question and it is the right one to ask of a *reaction*. **It is the wrong one to ask of a power source**, and the reason is simple enough that it is easy to walk past: the beam does not stop. A machine that returns more energy than its beam is an **amplifier** — it needs feeding for as long as it runs. A machine that needs nothing after it is started is a **power source**. The difference between them is two conversions, and nothing in this paper has counted either.
+
+
+$$G_{loop} \;=\; G\;\eta_{th}\;\eta_{acc} \;>\; 1 \qquad\Longleftrightarrow\qquad G \;>\; \frac{1}{\eta_{th}\,\eta_{acc}}$$
+
+**Heat becomes electricity at `η_th`.** Its ceiling is Carnot at the blanket's temperature, which §4.2 already carries as 0.750; a real cycle reaches about 0.60 of its ceiling, so 0.450. **Electricity becomes beam at `η_acc`.** A high-power proton linac runs between 0.20 and 0.50, the upper figure being a superconducting design target rather than a built machine.
+
+| accelerator, wall plug to beam | the balance the loop requires |
+|---|---|
+| 0.50 | 4.44 |
+| 0.30 [ASSUMED] | **7.41** |
+| 0.20 | 11.11 |
+
+> **That is a far heavier requirement than beating the beam**, by nearly an order of magnitude, and no configuration in §5 approaches it. It is also the requirement the project asked for, so it is the one that decides.
+
+
+#### The accounting changes with the question
+
+Against the beam, only the muon channel's fusion neutrons counted — they are what the *reaction* produces. For the **plant**, everything the beam makes counts, because the blanket does not know which neutron is which. The beam's own energy is deposited in the assembly and recovered as heat; the muon channel's fusions are energy that was not there before; and every source neutron, spallation or fusion, drives fission:
+
+
+$$E \;=\; E_{beam} \;+\; Y_{fus}\,Q_{fus} \;+\; (Y_{sp} + Y_{fus})\;E(k)$$
+
+with `Y_sp` = 220 per proton from §9.4 and `Y_fus` = 52.41 per proton from the muon channel.
+
+| accelerator | balance needed | `k` with the muon channel | `k` without it | margin |
+|---|---|---|---|---|
+| 0.50 | 4.44 | **0.586 k_eff** | — | — |
+| 0.30 [ASSUMED] | 7.41 | **0.728 k_eff** | 0.772 k_eff | 0.043 k_eff |
+| 0.20 | 11.11 | **0.810 k_eff** | — | — |
+
+> **The loop closes, and it closes subcritically in every case.** Every `k` above is below the 0.95 k_eff an accelerator-driven system is designed around, and far below unity. **After start-up the device requires no external energy**: its own heat runs its own accelerator, with surplus.
+
+**And a plant wants more than break-even.** At the loop requirement every joule recirculates and none is sold. Selling a fraction `1 − G_req/G` of the output:
+
+| net electrical output | balance needed | `k` needed |
+|---|---|---|
+| none — the loop only closes | 7.41 | 0.728 k_eff |
+| three quarters | — | **0.924 k_eff** |
+
+which lands almost exactly on the 0.95 k_eff such systems are already designed around, and for the same reason they are designed around it.
+
+
+#### What the muon channel contributes, stated plainly
+
+**Not the loop.** A subcritical assembly driven by spallation alone closes it too — that is what an accelerator-driven system is, and it has been proposed for that purpose for decades. Setting the muon channel to nothing, the same loop closes at 0.772 k_eff instead of 0.728 k_eff.
+
+> **What the muon channel adds is 24 percent more source neutrons, and with them 0.043 k_eff of subcriticality margin.** That is a safety property before it is an energy one, and it is what the channel is worth in this configuration. **This paper does not claim the muon channel makes the power source possible.** It claims the reaction is real, unique, specified and measurable; that it adds neutrons to a loop that closes; and that the margin those neutrons buy is stated rather than implied.
+
+
+#### What it consumes after start-up
+
+| electricity | **none** — the loop is closed |
+|---|---|
+| tritium | **none** — the blanket breeds at 1.15 per fusion, above replacement |
+| fissile fuel | fertile feed, bred in place. **Not free**, and this paper does not price the fuel cycle |
+
+> **One distinction must not be blurred, and the paper draws it here.** *Self-sustaining* in this section means the **energy loop** closes — the device runs its own drive from its own output. It does **not** mean the neutron chain sustains itself: the assembly is subcritical by design, so cut the beam and it stops. Those are different properties, and the second is a safety property this configuration has precisely because it does not have the first in the reactor-physics sense.
+
+
+### 9.6 Stability, which is two questions with opposite answers
+
+A power source that closes its loop and then runs away, or drifts off its operating point, is not a power source. **Stability here divides into two questions, and they have opposite answers** — the neutronics are stable by construction, the loop is not. Conflating them is the mistake to avoid, so the paper separates them.
+
+
+#### The neutronics are stable by construction
+
+The assembly is **subcritical**. Its power is set by the source rather than by a chain that sustains itself, so **no prompt-critical excursion is available at any `k` below unity**: cut the beam and it stops. What a reactivity insertion would have to cross is the margin to criticality, and it is large.
+
+| operating point | `k` | margin to criticality |
+|---|---|---|
+| the loop only closing | 0.728 k_eff | 27178 pcm |
+| **a plant selling three quarters of its output** | **0.924 k_eff** | **7609 pcm** |
+| an accelerator-driven system, for comparison | 0.95 k_eff | 5000 pcm |
+
+> Against a total control worth of about 5000 pcm for a comparable fast core, the plant's margin is **1.5 the entire reactivity such a core can hold**. No credible insertion reaches criticality. **That is the safety case, and it is what the subcritical route buys for the price of an accelerator.**
+
+
+#### The loop is not stable by construction, and that is the finding
+
+At the operating point the recirculating loop's gain is **exactly one** — that is what "closed" means. A loop whose gain is exactly one is **marginally stable**: a perturbation neither grows nor decays, and the machine walks off its operating point on any drift at all.
+
+> **So the loop cannot be closed passively.** Feeding a fixed share of the output back into the accelerator does not produce a stable plant. The beam must be **regulated against a measured power to a setpoint**, so that the loop is closed by a controller rather than by the physics. That is an ordinary control problem with an ordinary solution — but it must be stated, because "the loop closes" sounds passive and is not.
+
+
+#### And the physics supplies the restoring term
+
+Power amplifies reactivity as `1/(k(1 − k))`, so the response sharpens toward criticality: at the plant point a unit of `k` moves the power by 14.2 per dk. Doppler broadening in the fertile loading gives a **negative** coefficient — 0.005 |T dk/dT| to 0.010 |T dk/dT| in `|T dk/dT|` — so a rise in temperature lowers `k`, lowers the gain, and lowers the power.
+
+> At the plant point that restores one percent of loop gain in **112 K**, which is inside an ordinary operating swing. **The feedback is adequate and it has the right sign**, and it acts on the quantity the controller is regulating rather than against it.
+
+
+#### What the muon channel does for stability
+
+It lets the same loop close at 0.728 k_eff instead of 0.772 k_eff — **4339 pcm of extra margin to criticality**, and a power sensitivity lower by 1.12. Both of those are stability, and both are what the channel is worth in this configuration. **It is not what closes the loop**, and §9.5 says so; what it does is let the loop close further from criticality than it otherwise would.
+
+> **What this does not settle: beam trips.** An accelerator-driven system's characteristic problem is not runaway but **interruption**. Every trip is a thermal cycle through the whole assembly, and it is trip *rate* rather than trip depth that limits component life. No figure in this paper bounds it. It is a driver requirement rather than a physics one, and it belongs with the plant items §11 records rather than with the balance.
+
+
+### 9.7 But the binder does not have to be bought
 
 There is, however, a configuration in which the binder costs nothing, and it turns on a fact about the cycle that has been in view since §3. The catalytic cycle has no input per event: the binder is not consumed, and no energy is supplied to bring the nuclei together. Its only input is the binder itself, so the whole of the negative balance sits in a single question — what the binder costs.
 
@@ -553,7 +654,7 @@ On that accounting the marginal beam energy attributable to one binder is zero, 
 **That last row is withdrawn.** A capture efficiency here means a muon that *stops in the fuel*, and a stopping target is one muon range deep, so it stops only the part of the accepted spectrum below its range. The bound is not the collector's: it is the solenoid's acceptance, 0.5069, which no target depth exceeds. **That row compared a collector's acceptance with a fuel target's stopping fraction, which are different quantities.**
 
 
-### 9.6 What that returns, at the capture actually reachable
+### 9.8 What that returns, at the capture actually reachable
 
 **And the headline figures must carry the same correction, plus §5.2's loss budget.** Both, applied:
 
@@ -572,12 +673,12 @@ On that accounting the marginal beam energy attributable to one binder is zero, 
 > **This is a net-positive cold fusion reaction.** No input per event, no input for the binder, and real energy out. It is provable from witnessed quantities and needs no number that has not been measured.
 
 
-### 9.7 And it dissolves the flux gap
+### 9.9 And it dissolves the flux gap
 
 The requirement has always been stated against **delivered** muon beams — about 1.0 × 10^8 s^-1 today and 1.0 × 10^10 s^-1 planned — which gives a shortfall of five orders of magnitude. Those are *momentum-selected, transported* beams, which discard almost everything the target makes. In-situ capture at the production target is 2.80 × 10^4 times the best planned delivered beam, or 1.37 × 10^4 at the delivered capture above, **because nothing is transported and nothing is selected.** The flux gap is an artefact of buying muons rather than making them where they are used.
 
 
-### 9.8 Committed predictions for the net-positive run
+### 9.10 Committed predictions for the net-positive run
 
 Stated before the run, at 1 MW on target and the witnessed cycle count of 150 cycles, **computed from the machine of §7 and not from a hypothetical one:**
 
@@ -608,7 +709,7 @@ The programme is four staged measurements, all on apparatus that already exists.
 
 **Stage C — the production target, measured rather than simulated.** A normalisation measurement: pions per beam particle against pions per interaction, on one target. This is the open half of the factor between 11.13 GeV and the optimised figure of 4.69 GeV, and it decides whether the one route that survives §5.3 exists.
 
-**Stage D — the integrated demonstration.** The net-positive configuration of §9, on a spallation driver already running, against the committed predictions of §9.8.
+**Stage D — the integrated demonstration.** The net-positive configuration of §9, on a spallation driver already running, against the committed predictions of §9.10.
 
 > The order is not arbitrary, and each stage earns its place. Stage A multiplies everything downstream of it. Stage C decides whether the route that clears unity at the delivered acceptance exists at all. Stage B decides a factor *within* a route rather than whether the route is there. And Stage D is the demonstration itself, which cannot be interpreted before Stage A has run.
 
@@ -663,7 +764,13 @@ Each of these is a theorem or a derivation from measured inputs, and no measurem
 
 **Two configurations return more energy than they cost. The first is a power source and the second is a breeder, and they are not the same claim.**
 
-**The power source.** Setting the balance to unity and solving, the value recovered per fusion must reach 152.7 MeV with both collector alterations, or 64.3 MeV with the optimised production target as well. A non-fissioning blanket cannot supply that. A **subcritical** blanket driven by the same fusion neutrons supplies it at a multiplication factor between 0.469 and 0.770 — deeply subcritical, against 0.95 for an accelerator-driven system and unity for a power reactor. **The energy is heat, recovered on site, with nothing leaving the device.** The fusion supplies between 7.5 percent and 27.4 percent of it and all of the neutrons, so the device is a fusion-driven subcritical fission reactor rather than a fusion power plant, and §9.2 says so in those words. What is unwitnessed is the assembly; the quantity it turns on is `k`, which §9.3 measures by three routes that share no instrument.
+**The reaction pays for its own binders.** Setting the balance to unity and solving, the value recovered per fusion must reach 152.7 MeV with both collector alterations. A non-fissioning blanket cannot supply that; a **subcritical** one driven by the same neutrons supplies it between 0.469 and 0.770. **The energy is heat, recovered on site, with nothing leaving the device**, and §9.2 carries it.
+
+**But that is an amplifier, not a power source, and the difference decides.** The beam does not stop. A self-sustaining device runs its own drive from its own output, which needs `G > 1/(η_th η_acc)` — 7.41 at a mid-range accelerator rather than unity. Counting everything the beam makes, that closes at a subcritical 0.728 k_eff, and a plant selling three quarters of its output at 0.924 k_eff. **After start-up it takes no electricity and breeds its own tritium at 1.15 per fusion.** §9.5 carries the accounting.
+
+**It is stable, and stability is two questions with opposite answers.** The neutronics are stable by construction — the assembly is subcritical, so cut the beam and it stops, and the margin to criticality at the plant point is 7609 pcm, which is 1.5 a comparable fast core's entire control worth. **The loop is not**: its gain at the operating point is exactly one, so it is marginally stable and must be regulated against a measured power rather than fed a fixed share. Doppler supplies a restoring term of the right sign, worth one percent of gain in 112 K. §9.6 separates the two.
+
+**And the muon channel is not what closes the loop.** A subcritical assembly driven by spallation alone closes it at 0.772 k_eff. What the channel adds is 24 percent more source neutrons and with them 4339 pcm of extra margin to criticality — stability rather than energy, and the paper claims it as that. What is unwitnessed is the assembly; the quantity it turns on is `k`, which §9.3 measures by three routes that share no instrument.
 
 **The breeder, which needs no fission at all.** Its balance is 1.480 through an optimised production target, 2.271 with the two collector alterations as well, and 0.957 with no target factor at all. Every term in it is set out below, with what is known about each.
 

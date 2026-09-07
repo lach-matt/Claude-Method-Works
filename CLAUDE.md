@@ -357,7 +357,23 @@ penalty `(1−φ)(1−y_blanket/y_target)` is **negative for any blanket that ou
 so it survives both sourced inputs being wrong by anything short of reversing that inequality. What is
 left is a margin rather than a question: the retention is geometry rather than transport and the
 blanket relation is point kinetics, both are used as requirements rather than predictions, and §10
-Stage D measures what they estimate. See `docs/POWERSOURCE.md`),
+Stage D measures what they estimate. **`--plant` then states the criterion the project actually asked
+for and that nothing here had counted**: beating the beam is an *amplifier*, because the beam does not
+stop; a *power source* runs its own drive from its own output, which needs `G > 1/(η_th·η_acc)` —
+**7.41** at a mid-range accelerator rather than unity, with `η_th` bounded by Carnot at the blanket
+temperature and `η_acc` the wall-plug-to-beam figure. Counting everything the beam makes rather than
+only the fusion neutrons, that loop closes at a subcritical **k = 0.728**, and a plant selling three
+quarters of its output at **0.924** — and after start-up it takes no electricity and breeds its own
+tritium. **The muon channel is not what closes it**: spallation alone closes at 0.772, so what the
+channel adds is **24 %** more source neutrons and **4,339 pcm** of margin — stability rather than
+energy, and the instrument's selftest asserts the loop closes *without* the channel so it cannot
+report the channel as necessary when the arithmetic says otherwise. **`--stability` then splits the
+last requirement in two**: the neutronics are stable by construction — subcritical, so cut the beam
+and it stops, with **7,609 pcm** of margin at the plant point against a fast core's whole control
+worth of 5,000 — while **the loop is not**, its gain at the operating point being *exactly one* and so
+marginally stable, which means it must be regulated against a measured power rather than fed a fixed
+share. Doppler supplies the restoring term, worth one percent of gain in **112 K**. Beam trips are
+named and unbounded. See `docs/POWERSOURCE.md`),
 **`tools/window.py`** (the binder admissibility scan behind the paper's Theorem 1 — four tests over
 the charged spectrum, run in the order that constrains. Its point is *which* set the theorem closes
 on: the lifetime cut is a published number against a fixed threshold, so the **five** charged
