@@ -34,6 +34,7 @@ PAPERS = {
     "BE": "papers/Cold_Fusion_Binder_Economy_v1.0.md",
     "SP": "papers/Cold_Fusion_Specification_and_Procedure_v1.0.md",
     "IR": "papers/Independent_Reconciliation_v1.0.md",
+    "CF": "papers/out/Cold_Fusion_v1.0.md",
 }
 
 # ---- the rubric, stated once and applied to every row ----------------------
@@ -133,7 +134,11 @@ ROWS = [
     ("D73", "BE", "5.32", "what that withdraws and what survives: one route, bred fuel through an optimised target", 3, 1, 2, 1),
     ("D74", "BE", "5.33", "the acceptance census: 57 sites over three papers, completeness measured at residue 0", 3, -1, 2, 1),
     ("D75", "SP", "5.2", "the co-product headline restated: 176 kW at 0.50 is 85.6 delivered, and the sign of the balance does not move", 3, 1, 3, 2),
-    ("D76", "BE", "5.24", "the optimised target applied to every balance and not only bred fuel: the heat form clears at 1.036 delivered", 3, 1, 2, 2),
+    # D76 CORRECTED. It read "the heat form clears at 1.036 delivered", which
+    # was the balance table run at the RETIRED 0.1487 % sticking. Recomputed,
+    # no heat form clears anywhere. What sec.5.24 actually supports is the
+    # bred-fuel route, and the row is returned to that.
+    ("D76", "BE", "5.24", "the optimised target priced against the bred-fuel route: 50.8 percent becomes 21.4", 3, 1, 2, 2),
     ("D71", "SP", "11", "the end-to-end loss budget: Q6 closed on geometry, Q1 narrowed to a number, and the two coupled", 3, 0, 2, 2),
     ("D70", "SP", "6", "the procedure repointed at the designed machine; the prediction moves by 6 percent", 3, 1, 3, 3),
     ("D69", "SP", "10", "the fuel cell designed: the decay channel, recompression, and one loop for two requirements", 2, 1, 3, 3),
@@ -143,6 +148,17 @@ ROWS = [
     ("D65", "BE", "5.29", "one measurement settles four: the sticking inverted, the 2.24, the purity bound, the wedge", 3, 0, 2, 1),
     ("D66", "BE", "5.30", "the acceptance model's scope limit: one validation, two withdrawn claims, no mirror term", 2, 0, 2, 2),
     ("D63", "SP", "6", "the procedure for the net-positive configuration: 2.41 mg, 2.528e10 n/s committed", 3, 1, 3, 3),
+    # ---- the consolidated paper, which is the deliverable ------------------
+    ("D77", "CF", "5.3", "every balance recomputed at the corrected sticking: the printed bound case was 588.9 cycles, high by 3.10", 3, -1, 1, 1),
+    ("D78", "CF", "5.4", "no heat form and no work form clears unity in any configuration: the largest is 0.513", 3, -1, 1, 1),
+    ("D79", "CF", "5.4", "bred fuel at the MEASURED cycle count clears: 1.480 through the target, 2.271 with all three alterations", 3, 1, 2, 2),
+    ("D80", "CF", "5.3", "and with no unmeasured multiplier at all it reaches 0.957, short by 1.045", 3, -1, 1, 2),
+    ("D81", "CF", "12", "what is proved sorted from what is unwitnessed: two unmeasured terms, each with the measurement that closes it", 3, 0, 2, 2),
+    ("D82", "CF", "13", "Theorem 1 closed on a checkable set: five charged particles outlive the mesomolecular formation time", 3, -1, 3, 0),
+    ("D83", "CF", "11", "the bred-fuel balance is not compared against spallation breeding on the same beam", 2, 0, 0, 2),
+    ("D84", "CF", "11", "the plant tritium inventory is unpriced: 5.13 kg against the 2.41 mg demonstrated", 2, -1, 3, 1),
+    ("D85", "CF", "6", "the reaction specified to the last free parameter, as a bill of materials", 1, 0, 3, 2),
+    ("D86", "CF", "8", "the procedure, with predictions committed in advance and a disagreement read as a refusal", 1, 0, 2, 3),
 ]
 
 ON_AXIS = 2          # a datum "sits on" an axis at this grade or better
