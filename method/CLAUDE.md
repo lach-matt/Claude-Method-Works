@@ -71,9 +71,9 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD117 main** (2,082,493 B ·
-  `c0a35567749e531873c46f7c9eb544c1` · 18,760 lines · 2 members) and **BUILD247 compendia** (16,138,476 B ·
-  `27a5f289f7ed99b6499f558e67edd6af` · 139,158 lines · 736 members). **738 members in all.** **The Register runs
-  1 to 1852, 1,694 seated** (1,687 numbered + 7 grouped). **W-252 seated.**
+  `c0a35567749e531873c46f7c9eb544c1` · 18,760 lines · 2 members) and **BUILD248 compendia** (16,142,043 B ·
+  `cb1a0f2b7ad7fb3adebfccd0da2d53a2` · 139,168 lines · 736 members). **738 members in all.** **The Register runs
+  1 to 1852, 1,694 seated** (1,687 numbered + 7 grouped). **W-253 seated.**
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -85,9 +85,17 @@ no longer on the read path.
   `gate.py manifest --main ../The_Method_1_6_BUILD117_main_and_register.md` **OK**, 737 listed / 739 extracted;
   `tools/gate_live.py --census` **OK**, the seated census a fixed point (1,621 rows, 3 carried retired, 1,618
   regenerated exactly, 0 NEW, 0 GONE, md5 `31c462f3d47f9e02e289598c28604ae1` equal to the seated member);
-  `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL** at BUILD116/BUILD246 (87 OK counting the
-  census step). At BUILD116/BUILD245, before the re-bank, it read **49 OK, 37 FAIL**, and the 37 were exactly
-  the set the diff census had already traced to registers 1842-1848; all 37 were re-banked at BUILD246 by
+  `tools/gate_live.py` over the 86 live goldens **86 OK, 0 FAIL** at BUILD117/BUILD248 (87 OK counting the
+  census step). At BUILD117/BUILD247, before this leg's second re-bank, it read **56 OK, 30 FAIL**, and the 30
+  were exactly the set the diff census had already traced to registers 1849-1852 — every one of them, with the
+  new entries' own site tallies landing only at Register lines 6844 and 6848, which are 1851 and 1852
+  themselves; all 30 were re-banked at BUILD248 by RUNNING their instruments, change set proved to be
+  `{MANIFEST.tsv, WORKING-REGISTER.md, the 30 goldens}` and the reverse guard recovering BUILD247's md5 (W-253).
+  **The main volume's md5 moves on a Batch B append and its byte count does not**, because §28 carries the
+  Register's own counts and they are re-taken in the same build: a build that seated entries and left the main
+  md5 alone would mean the counts had NOT been re-taken. The earlier figures for the first re-bank: at
+  BUILD116/BUILD245 it read **49 OK, 37 FAIL**, and the 37 were exactly the set the census had traced to
+  registers 1842-1848; all 37 were re-banked at BUILD246 by
   RUNNING their instruments, under `close_rebank.py`'s guards — change set proved to be
   `{MANIFEST.tsv, WORKING-REGISTER.md, the 37 goldens}` and nothing else, reverse guard recovering BUILD245's
   own md5 (W-251). **This line was left unpinned for one commit** while that confirming walk ran, and says so

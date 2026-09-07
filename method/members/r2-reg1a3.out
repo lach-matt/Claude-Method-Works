@@ -1,31 +1,31 @@
 
 == 0  PROVENANCE
-   The_Method_1_6___The_Register-2.md              1292993 B  md5 6fde1682
-   The_Method_1_6-2.md                              784466 B  md5 75db2c30
+   The_Method_1_6___The_Register-2.md              1297860 B  md5 fe39bb72
+   The_Method_1_6-2.md                              784466 B  md5 315a07c2
    kinds.py                                           3370 B  md5 4262f7c5
    register_cites.py                                  2403 B  md5 c38ad7ee
-   register lines: 6837
+   register lines: 6853
 
 == 1  THE UNIT, BOUNDED BY ITS OWN SCAN
    front matter runs L1 to the line before the first entry (### 1 is the first heading) 81                         OK
    unit = L1-L80, 80 lines, 8261 B
-   printed, read as data: total 1690 to 1848 | mature 165-1848 at 1526 (back matter 165-1848) | kinds over 1620 | cited-by-entries 681 | table 17 rows | cited 411 / 883 / 1093
+   printed, read as data: total 1694 to 1852 | mature 165-1852 at 1530 (back matter 165-1852) | kinds over 1624 | cited-by-entries 685 | table 17 rows | cited 411 / 883 / 1097
 
 == 2  THE ENTRY POPULATION (docket 30 convention)
-   heading lines = bare + grouped                             1690                       OK
-   entries (headings)                                         1690                       as printed
-   bare 1683, grouped 7, distinct numbers 1715, min 1, max 1848
+   heading lines = bare + grouped                             1694                       OK
+   entries (headings)                                         1694                       as printed
+   bare 1687, grouped 7, distinct numbers 1719, min 1, max 1852
    extent low                                                 1                          as printed
-   extent high                                                1848                       as printed
+   extent high                                                1852                       as printed
    genesis block 1-94 (headings)                              94                         as printed
    superseded block 95-164 (headings)                         70                         as printed
    NOTE the front matter does not print a count for 95-164; 70 is the full range and is measured, not scored.
 
-== 3  THE MATURE RECORD: 165-1848 / 1,526  AGAINST THE CLOSING LINE 165-1848
-   headings 165-1848 1526 | headings 165-1848 1526
-   numbers  165-1848 1551 | numbers  165-1848 1551   (numbers are NOT what the book counts)
-   mature record 165-1848, headings                           1526                       as printed
-   "165 to 1848" at L[6] ; "165-1848" at L[71]
+== 3  THE MATURE RECORD: 165-1852 / 1,530  AGAINST THE CLOSING LINE 165-1852
+   headings 165-1852 1530 | headings 165-1852 1530
+   numbers  165-1852 1555 | numbers  165-1852 1555   (numbers are NOT what the book counts)
+   mature record 165-1852, headings                           1530                       as printed
+   "165 to 1852" at L[6] ; "165-1852" at L[71]
    READING: 1,470 is EXACT on the heading convention for 165-1791. The closing line names
    165-1792 for the same block while the count printed beside it excludes 1792, which is
    itself an entry. The defective half is the RANGE in the closing line, not the count.
@@ -40,20 +40,20 @@
    entry 361 at L1321; grouped headings at L[1325, 1329, 1333, 1337, 1341, 1345, 1349]
 
 == 5  THE KINDS TABLE, RECOMPUTED BY kinds.py (the book's own operator)
-   kinds.py heading population                                1620                       as printed
+   kinds.py heading population                                1624                       as printed
    kinds: a finding                                           1363                       as printed
-   kinds: a correction                                        196                        as printed
+   kinds: a correction                                        200                        as printed
    kinds: a measurement                                       502                        as printed
    kinds: prior art                                           61                         as printed
    kinds: a new protocol                                      24                         as printed
    kinds: a withdrawal                                        34                         as printed
    kinds: a fault of mine                                     16                         as printed
    kinds: an open question                                    23                         as printed
-   NOTE kinds.py counts 1,620 headings, not the 1,690 of section 2: it drops the 95-164
-   supersession stubs under the chat-52 ruling. 1690 - 70 = 1620, and that reconciles.
+   NOTE kinds.py counts 1,624 headings, not the 1,694 of section 2: it drops the 95-164
+   supersession stubs under the chat-52 ruling. 1694 - 70 = 1624, and that reconciles.
 
 == 6  THE LOAD-BEARING TABLE, RECOMPUTED BY register_cites.py (the book's own operator)
-   entries cited by other entries                             681                        as printed
+   entries cited by other entries                             685                        as printed
    load-bearing 1460                                          21                         as printed
    load-bearing 1445                                          17                         as printed
    load-bearing 1475                                          10                         as printed
@@ -77,7 +77,7 @@
 == 7  THE THREE CITATION FIGURES
    cited in the main volume                                   411                        as printed
    counting compendia and papers                              883                        as printed
-   counting citations by other entries                        1093                       as printed
+   counting citations by other entries                        1097                       as printed
 
 == 8  POINTERS IN THE FRONT MATTER, EVERY ONE RESOLVED TO ITS CLAIM
    register 1725  the settled entry form           ABSENT
