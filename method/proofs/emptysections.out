@@ -1,0 +1,23 @@
+The nine heading-only sections, against the original-input witness
+
+  witness: PP_The_Method_1_6.md, md5 49900cf41f818ab789bb90fc596ac977 (Ruling 56)
+
+    section  witness L  body   live L  body   citations
+       2.22       1154     0     1148     0    5  {'main': 4, 'reg': 1}
+     14.5.2       3764     0     3803     0    4  {'reg': 3, 'mc': 1}
+     14.5.3       3766     0     3805     0    1  {'main': 1}
+     14.5.4       3768     0     3807     0    4  {'reg': 1, 'mc': 3}
+     14.5.5       3770     0     3809     0    4  {'mc': 4}
+     14.5.6       3772     0     3811     0    3  {'main': 2, 'ioi': 1}
+     14.5.7       3774     0     3813     0   23  {'main': 11, 'reg': 8, 'mc': 4}
+     28.7.6       7600     0     7682     0    2  {'main': 2}
+       28.9       7694     0     7777     0    5  {'main': 2, 'reg': 2, 'mc': 1}
+
+  EVERY ONE is empty in the witness as well as in the live volume. Nothing was lost;
+  nothing was ever written. Chat 95B measured this for the six in §14.5 and said so:
+  'an AUTHORING GAP, not a production loss ... the text never existed at the input.'
+
+  And 51 citations across the volumes resolve to a heading with nothing under it.
+  §14.5.7 alone carries 23, 8 of them from the Register — and Register
+  entries are append-only, so that section must be written to what those entries
+  already say, not the other way round.

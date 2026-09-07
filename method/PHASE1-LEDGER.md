@@ -176,3 +176,38 @@ doubt; the two-term asymptotic is low by **0.69 %** at ν = 2, which is the volu
 **bare form is low by 8.33 %**, twelve times that. **One site states the approximation and its error;
 twenty-two state an identity**, and a reader who meets any of the twenty-two first has no way to know.
 The defect is not that 4ν/3 is wrong — it is the equals sign. Which sites take a qualifier is prose.
+
+---
+
+## Phase 0 ruling 3's evidence — why the nine sections are empty
+
+M, 7 September 2026: *"why are they empty?"* — `emptysections.py`, selftest 9 of 9.
+
+**They were never written.** Measured against `PP_The_Method_1_6.md`, md5 `49900cf41f818ab789bb90fc596ac977`
+— the Prints & Proofs original-input witness under Ruling 56 — **all nine are empty there too**, and empty in
+every archived build from BUILD9 to BUILD90, and consecutive on one page of the pressed PDF's contents,
+which is what consecutive empty headings look like when they are typeset.
+
+**Six of the nine were already measured and recorded.** `recovered/DEF-95B.md` (chat 95B):
+*"§14.5.2–§14.5.7 are an **authoring gap, not a production loss** … the text never existed at the input, so
+no print carries it. **Do not re-derive this and do not search for an earlier print.**"* This extends that
+reading to §2.22, §28.7.6 and §28.9.
+
+| section | witness | body | live | body | citations |
+|---|---|---|---|---|---|
+| §2.22 | L1154 | 0 | L1148 | 0 | 5 — main 4, Register 1 |
+| §14.5.2 | L3764 | 0 | L3803 | 0 | 4 — Register 3, Maths 1 |
+| §14.5.3 | L3766 | 0 | L3805 | 0 | 1 — main |
+| §14.5.4 | L3768 | 0 | L3807 | 0 | 4 — Register 1, Maths 3 |
+| §14.5.5 | L3770 | 0 | L3809 | 0 | 4 — Maths 4 |
+| §14.5.6 | L3772 | 0 | L3811 | 0 | 3 — main 2, IoI 1 |
+| **§14.5.7** | L3774 | 0 | L3813 | 0 | **23 — main 11, Register 8, Maths 4** |
+| §28.7.6 | L7600 | 0 | L7682 | 0 | 2 — main |
+| §28.9 | L7694 | 0 | L7777 | 0 | 5 — main 2, Register 2, Maths 1 |
+
+**Fifty-one citations across the volumes resolve to a heading with nothing under it**, and the surrounding
+prose speaks of what they say: §14.5.8 opens *"§14.5.7 measures the seed on scattered shapes"* and §14.5.9
+opens *"Everything §14.5.7 and §14.5.8 report about seed SIZES came from one heuristic"*. **§14.5.7 alone
+carries 23 citations, eight of them from the Register** — and Register entries are append-only, so that
+section has to be written to what those eight already say, not the other way round. That is chat 95B's
+order-of-work point and it still holds.
