@@ -109,6 +109,10 @@ FINDINGS = [
  # The theorem the loop produced, which neither visit gave alone.
  # The object is what is shifted, so the object's measured density decides the
  # magnitude -- and f <= 1 caps the whole sourcing branch at 7.1% of light.
+ ("KERR-FLYBY",  +1, +1, +1, "shipspec.py",
+  "spin buys 1.612x in dv (b_crit 5.196 -> 2) at 27x tides, i.e. 5.2x deflector mass"),
+ ("VEHICLE-SPEC", 0, -1, +1, "shipspec.py",
+  "35 fields, 11 open: fully specified, and the engine is a found object nobody has found"),
  ("OBJ-CEILING", +1, -1, +1, "elements.py",
   "v_warp <= Phi/k_hat = 0.0713 c for ANY object: f = r_s/R and f <= 1"),
  ("PERIODIC",    +1,  0, +1, "elements.py",
@@ -247,7 +251,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 43)
+    chk("number of findings indexed", len(FINDINGS), 45)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
@@ -263,10 +267,10 @@ def selftest():
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
-        sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING"]))
+        sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
-        sorted(["FLYBY","SLINGSHOT"]))
+        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
