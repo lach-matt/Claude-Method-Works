@@ -37,6 +37,7 @@ Stdlib only.  python3 tools/powersource.py [--selftest]
 """
 import math
 import argparse
+import functools
 import os
 import sys
 
@@ -55,6 +56,7 @@ N_MEASURED = 150.0          # [C44]  cycles per binder, Los Alamos
 V_HEAT_MEV = 26.06          # [C214] the sourced fission-SUPPRESSED blanket
 
 
+@functools.lru_cache(maxsize=None)
 def _mach():
     import machine
     return machine
@@ -243,6 +245,7 @@ JET_RADIUS_CM = 0.40        # [1] the published 8 mm jet
 JET_LENGTH_CM = 30.0        # the same jet
 
 
+@functools.lru_cache(maxsize=None)
 def spallation_yield(e_gev=BEAM_GEV, n_per_gev=None):
     """Neutrons per proton from a target thick enough to contain the cascade."""
     lo = e_gev * N_PER_GEV_PB_LO
@@ -860,7 +863,11 @@ SEC_PER_YEAR = 3.15576e7
 # field, and imported. A wider guess understates the holding and so understates
 # the plant. (7.5 cm -- a published channel geometry at a different field -- was
 # used here in an earlier pass and is wrong for the CELL by 1.43x in mass.)
-REF_BEAM_MW = 7.0             # THE REFERENCE PLANT, and tritium is what sets it
+REF_BEAM_MW = 10.0            # THE REFERENCE PLANT. Tritium sets it, at three
+                              # thresholds rather than one: 5.58 MW to hold its
+                              # own inventory, 8.1 MW to breed a successor's
+                              # first charge inside a 40 year life, and this,
+                              # which clears both with margin.
 REF_STANDBY_KW = 1000.0       # mid-band driver fixed load
 LEAK_PARASITIC_LO = 0.10      # ASSUMED band: leakage + parasitic capture, as a
 LEAK_PARASITIC_HI = 0.20      # share of the whole neutron population
@@ -869,12 +876,14 @@ F_LI_DESIGN = 0.60            # ASSUMED: what a blanket that is also breeding fi
                               # and also cooling actually routes into Li-6
 
 
+@functools.lru_cache(maxsize=None)
 def _coll():
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import collector
     return collector
 
 
+@functools.lru_cache(maxsize=None)
 def tritium_inventory_kg(p_window_mev, b_cell=None):
     """The cell's holding. IMPORTED from machine.py's own cell geometry."""
     m = _mach()
@@ -887,10 +896,12 @@ def tritium_decay_g_per_year(inventory_kg, half_life_y=T_HALFLIFE_Y):
     return inventory_kg * 1000.0 * (1.0 - math.exp(-lam))
 
 
+@functools.lru_cache(maxsize=None)
 def protons_per_second(p_beam_mw, e_beam_gev=BEAM_GEV):
     return p_beam_mw * 1e6 / (e_beam_gev * 1e9 * 1.602176634e-19)
 
 
+@functools.lru_cache(maxsize=None)
 def fusions_per_proton(p_window_mev):
     """One fusion consumes one triton, so this is also tritons burnt per proton."""
     return PI_PER_PROTON * _mach().delivered_eta_window(1.50, float(p_window_mev)) \
@@ -962,6 +973,41 @@ def _beam_for_halflife(half_life_y, p_window_mev=265.0):
     burn_per_mw = fusions_per_proton(p_window_mev) * protons_per_second(1.0)
     sup_per_mw = tritium_supply_per_second(p_window_mev, 1.0)
     return decay_s / (sup_per_mw - burn_per_mw)
+
+
+def tritium_surplus_g_per_year(p_beam_mw, p_window_mev=265.0,
+                               f_li=F_LI_DESIGN):
+    """What is left after the plant's own decay and burn are paid."""
+    d, b = tritium_demand_per_second(p_window_mev, p_beam_mw)
+    sup = tritium_supply_per_second(p_window_mev, p_beam_mw, f_li=f_li)
+    return (sup - d - b) * SEC_PER_YEAR * T_AMU / N_AVOGADRO
+
+
+def tritium_doubling_years(p_beam_mw, p_window_mev=265.0, f_li=F_LI_DESIGN):
+    """Years to breed a SECOND plant's first charge out of the surplus.
+
+    This is the fleet question and it is not the same as the self-sufficiency
+    question. A plant can hold its own inventory for ever and still never
+    accumulate enough to light another, because the holding is fixed by
+    geometry and the surplus is what the beam buys over it.
+    """
+    sur = tritium_surplus_g_per_year(p_beam_mw, p_window_mev, f_li)
+    if sur <= 0.0:
+        return float("inf")
+    return tritium_inventory_kg(p_window_mev, None) * 1000.0 / sur
+
+
+def beam_mw_for_doubling(years, p_window_mev=265.0, f_li=F_LI_DESIGN):
+    """The beam power at which a plant breeds a successor's charge in the
+    stated time. Closed form: supply and burn are linear in P and decay is
+    not, so P (sup' - burn') = inv/years + decay."""
+    inv = tritium_inventory_kg(p_window_mev, None)
+    decay_s = tritium_decay_g_per_year(inv) / SEC_PER_YEAR / T_AMU * N_AVOGADRO
+    burn_per_mw = fusions_per_proton(p_window_mev) * protons_per_second(1.0)
+    sup_per_mw = tritium_supply_per_second(p_window_mev, 1.0, f_li=f_li)
+    want_s = (inv * 1000.0 / years) / T_AMU * N_AVOGADRO / SEC_PER_YEAR
+    denom = sup_per_mw - burn_per_mw
+    return (want_s + decay_s) / denom if denom > 0 else float("inf")
 
 
 def report_tritium():
@@ -1053,6 +1099,39 @@ def report_tritium():
           f"{tritium_balance(265.0, REF_BEAM_MW, f_li=F_LI_DESIGN):10.3f}")
     print(f"        tritium holding                 "
           f"{tritium_inventory_kg(265.0):10.3f} kg")
+    print()
+    print("    AND A SECOND QUESTION THE FIRST DOES NOT ANSWER: CAN A PLANT")
+    print("    LIGHT THE NEXT ONE? Self-sufficiency says the holding is held.")
+    print("    A FLEET needs a SURPLUS, and the holding is fixed by geometry")
+    print("    while the surplus is only what the beam buys over it.")
+    print()
+    print("        beam MW   surplus g/yr   doubling years")
+    scan = sorted({round(beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN), 2),
+                   round(beam_mw_for_doubling(40.0), 2),
+                   REF_BEAM_MW, 14.0, 20.0, 30.0})
+    for mw in scan:
+        dt = tritium_doubling_years(mw)
+        shown = "never" if dt > 1e4 else f"{dt:.1f}"
+        print(f"        {mw:7.2f}   {tritium_surplus_g_per_year(mw):12.1f}"
+              f"   {shown:>14}")
+    print()
+    mw40 = beam_mw_for_doubling(40.0)
+    print("    SELF-SUFFICIENT IS NOT SELF-REPLICATING, and the two were never")
+    print("    the same claim. There are THREE thresholds on this axis, not one:")
+    print(f"      {beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN):5.2f} MW"
+          "   the plant holds its own inventory")
+    print(f"      {mw40:5.2f} MW   it breeds a successor's first charge inside"
+          " a 40 year life")
+    print(f"      {REF_BEAM_MW:5.2f} MW   the reference, clearing both with"
+          " margin")
+    print(f"    At {REF_BEAM_MW:.0f} MW the doubling time is"
+          f" {tritium_doubling_years(REF_BEAM_MW):.1f} years. Below"
+          f" {mw40:.1f} MW a plant")
+    print("    is self-sufficient and STILL cannot start another, so a fleet")
+    print("    would have to be lit from outside -- and the world's civil")
+    print("    tritium is tens of kilogrammes, which lights a few plants and")
+    print("    not a hundred. THE FLEET CONSTRAINT, NOT THE PLANT CONSTRAINT,")
+    print("    IS WHAT PUTS THE REFERENCE ABOVE 8 MW.")
     print()
     print("    WHAT IT COSTS TO NARROW THE WINDOW. Acceptance falls with it, so")
     lo, hi = m.delivered_eta_window(1.50, 150.0), m.delivered_eta_window(1.50, 265.0)
@@ -1396,6 +1475,16 @@ def selftest():
     check("the design Li-6 share is BELOW the ceiling, so the design is dearer",
           beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN)
           > beam_mw_for_tritium(265.0, f_li=F_LI_CEILING))
+    check("self-sufficiency and self-replication are different thresholds",
+          beam_mw_for_doubling(40.0)
+          > beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN))
+    check("  -- a plant exactly self-sufficient can never breed a successor",
+          tritium_doubling_years(
+              beam_mw_for_tritium(265.0, f_li=F_LI_DESIGN)) > 1e3)
+    check("the reference clears the FLEET threshold, not just its own",
+          tritium_doubling_years(REF_BEAM_MW) < 40.0)
+    check("  -- and 7 MW, which clears self-sufficiency, does not",
+          tritium_doubling_years(7.0) > 40.0)
     check("the reference plant closes on tritium at the design share",
           tritium_balance(265.0, REF_BEAM_MW, f_li=F_LI_DESIGN) > 1.0)
     check("  -- and 1 MW, which the loop alone would have allowed, does not",
