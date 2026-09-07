@@ -71,11 +71,13 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD127 main** (2,136,245 B ·
-  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD275 compendia** (16,374,890 B ·
-  `b11e822aa1d03f579e60e96232a0e78f` · 142,282 lines · 747 members). **749 members in all.** **The Register runs
-  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-280 seated.** BUILD275 seats one member and no
-  Register entry: `proofs/compendia.py`, the Phase 4 census over the four compendia. **No volume changed**, so
-  no golden moved and none was re-banked.
+  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD276 compendia** (16,411,327 B ·
+  `2d5fe4f104769b7d67d8549f143beb37` · 142,911 lines · 748 members). **750 members in all.** **The Register runs
+  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-281 seated.** Neither build seats a Register
+  entry: BUILD275 seats `proofs/compendia.py`, the Phase 4 census over the four compendia, and BUILD276 seats
+  `proofs/compendia2.py`, its successor — **two of the census's figures were wrong and a seated member is never
+  edited**, so the corrected instrument sits beside it and W-280 stands. **No volume changed at either build**,
+  so no golden moved and none was re-banked.
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -83,7 +85,7 @@ no longer on the read path.
   15,193,022 B / `4ff7ccaa…`, and W-245's close supersedes it. **The stale figure was caught by the next close
   asserting its predecessor's md5** — which is what the reverse guard is for.
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 7 September: `python3 method/verify.py`
-  VERIFY OK (749 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
+  VERIFY OK (750 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
   **That figure read 742 for several builds and no instrument pinned it** — `docfigures.py` pins the member
   count against `MEMBER-INDEX.tsv` from CLAUDE.md at the repository root and not from this line, so this one
   drifted silently through three closes. Corrected here rather than quietly.
@@ -94,7 +96,7 @@ no longer on the read path.
   names the method ratio and so joins 296 in that instrument's pinned list — a record outgrowing a pin, which is
   `r2-26b`'s shape and takes a successor rather than an edit (W-260).
   `gate.py manifest --main … --comp …` **OK**;
-  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD275 counting the census
+  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD276 counting the census
   step, registers 1886-1889's **33** moved goldens having been censused and then re-banked by running (W-279).
   **Two builds were seated before one re-bank**, which is the cheaper order when neither moves a line reference:
   BUILD126 and BUILD127 both append only, so of the Register's 6,984 lines exactly eight differ in the common

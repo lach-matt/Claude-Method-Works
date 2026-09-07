@@ -1,0 +1,93 @@
+compendia2 -- the successor's corrections, and the volumes' own defects
+==============================================================================
+
+1  THE SPECTRA TABLE: THE PREDECESSOR COUNTED THE HEADER AS A ROW
+   eleven-cell non-separator rows           597   <- compendia.py's figure
+   of which the header, L299               ['species', 'series', 'n', 'levels']
+   DATA rows                                596   <- the volume's own figure
+   two-member (starred) / three-or-more     119 / 477
+   duplicated (species, series) keys        9  -- UNCHANGED by the correction
+        Ba III     nd 2[3/2]* J=2             L417, L419
+        Ca II      ns 2S J=1/2                L524, L530
+        Si I       nd (1/2,3/2)* J=1          L836, L837
+        Si I       nd (3/2,3/2)* J=0          L838, L842
+        Si I       nd (3/2,3/2)* J=1          L811, L839
+        Si I       nd (3/2,5/2)* J=1          L840, L843
+        Si I       nd (3/2,5/2)* J=3          L812, L841
+        Si I       ns (1/2,1/2)* J=0          L832, L834
+        Si I       ns (1/2,1/2)* J=1          L833, L835
+
+2  THE HANDLE CLASS, ON THE VOLUME'S OWN FAMILY CODES
+   families / stated objects                18 / 299
+   families whose count is not what it holds 0 
+   MC   backticked  409 | bare   8 | distinct 265
+   main backticked   29 | bare  47 | distinct  59   <- the class is not only
+        the compendia's: the main volume prints handles BARE in running prose,
+        'L.c8 is k >= 1', where no backtick even marks them as ids.
+   DISTINCT HANDLES ACROSS THE FOUR         265   (compendia.py reported 221)
+   SITES ACROSS THE FOUR                    417   (compendia.py reported 326)
+   of which the bibliography's objects column 407 sites over 162 rows, 265 distinct
+   so OUTSIDE that one column the compendia print 10
+   a key resolving one of them is printed in NONE of the four:
+        the word 'handle' occurs 0 times in the four volumes
+
+3  RULING 11 -- THREE COUNTS OF ONE REGISTER, IN READER-FACING FRONT MATTER
+   MC front matter  mathreg.py   2026-08-12    299  objects
+   MC cycle table   —            —             265  closure
+   PC front matter  mathreg.py   2026-08-12    248  registered objects
+   the eighteen roots table is printed against a seed of 17
+   AND 265 IS THE BIBLIOGRAPHY'S COVERAGE, NOT THE REGISTER'S HOLDING:
+        distinct handles the objects column names   265
+        objects the compendium holds                299
+        so objects that name no work                34
+        against the section's opening sentence: 'Every object of this
+        compendium names a work.'  FALSE BY 34.
+
+4  SPECTRA L562 -- AN n-RANGE THAT DOES NOT SPAN ITS LEVEL COUNT
+   rows carrying the volume's dagger marker 12 -- NOT defects
+   L562    Ga I     4s²np ²P° high         n-range 41–5     levels 15    range runs backwards
+
+5  A ROW TRUNCATED WHERE AN ESCAPED PIPE LOST WHAT IT ESCAPED
+   (splitting on every pipe rather than on unescaped ones reports 23 of
+    these; 22 are the compendia writing mathematics as \|X\| and are not
+    defects.  The splitter's premise, not a fault of the volumes.)
+   IoI  L2021   ...r it: the box grows by that coordinate's value count while \
+   the main volume's own copy of that row is whole:
+        y that coordinate's value count while \|X\| stays fixed. | `A.derived` |
+
+6  APPENDIX G -- THE PLAN'S THREE DEAD POINTERS DO NOT REPRODUCE
+   table rows                               30
+   handles in the third column              29, distinct 29
+   of those, printed nowhere in the MC      0
+   Register entries cited                   12
+   of those, not seated                     0
+   § pointers                               ['2.15.2'], unresolved 0
+   VERDICT: CLEAN.  A plan row that does not reproduce is not a finding.
+
+7  THE BRACKET-SYSTEM OBJECT -- REGISTER 1880'S CLAIM, TESTED
+   register 1880 states the compendium prints no such object   True
+   objects in families B and T naming one                      0 
+   VERDICT: the expansion is owed, exactly as 1880 records.  Writing it
+   is an editorial act and is not done here.
+
+8  THE INDEX OF INDICES' TOWER ROWS, AGAINST THE SEATED GENERATORS
+   Λ8   printed      976  measured      976  OK | fraction 0.0000 printed 0.0000 OK
+   Λ9   printed    1,654  measured    1,654  OK | fraction 0.7068 printed 0.7068 OK
+   Λ10  printed    2,535  measured    2,535  OK | fraction 0.8087 printed 0.8087 OK
+   Λ11  printed   13,585  measured   13,585  OK | fraction 0.6956 printed 0.6956 OK
+   Λ12  printed   70,905  measured   70,905  OK | fraction 0.6592 printed 0.6592 OK
+   Λ13  printed  199,130  measured  199,130  OK | fraction 0.6381 printed 0.6381 OK
+   the composable column is NOT judged: the composition rule is stated in
+   no member this instrument can import, and a figure it cannot derive it
+   does not grade.
+
+9  THE 285-OF-431 CHANNEL SENTENCE, AGAINST THE TABLE THAT ANSWERS IT
+   the Physics Compendium states           285 of 431 channels unverified
+   the Spectra Compendium's table holds    126 of 596 rows reading 'untested'
+   and states its own extent as            596 rows = 477 + 119
+   BOTH NUMBERS OF THE SENTENCE ARE OVERTAKEN.  The denominator moved when
+   the parent-term wall and the J-resolved rows landed -- which the Spectra
+   Compendium records against itself in the same paragraph as its own count
+   -- and the Physics Compendium was not re-taken with it.
+
+RECORDED, NOT REPAIRED.
