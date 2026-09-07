@@ -903,3 +903,14 @@ C907	the beam energy the production integral is taken at	8	GeV	SOURCED	the HARP 
 C908	spallation yield scanned against, low	100	per proton	ASSUMED	an input the reader supplies; this paper derives no spallation yield	fn:sp_scan_lo
 C909	the same, middle	150	per proton	ASSUMED	the same	fn:sp_scan_mid
 C910	the same, high	250	per proton	ASSUMED	the same	fn:sp_scan_hi
+C911	neutron yield per GeV deposited, lead or mercury, low	25	per GeV	SOURCED	standard spallation engineering figure for a heavy-metal target	fn:n_per_gev_lo
+C912	the same, high	30	per GeV	SOURCED	the same	fn:n_per_gev_hi
+C913	spallation yield of a containing target at this beam energy, low	200	per proton	DERIVED	C907 x C911	fn:sp_yield_lo
+C914	the same, high	240	per proton	DERIVED	C907 x C912	fn:sp_yield_hi
+C915	inelastic interaction length of mercury	15	cm	SOURCED	the published jet is two of them	fn:lam_hg
+C916	the published jet, in interaction lengths along the beam	2.00	count	DERIVED	30 cm / C915	fn:jet_long
+C917	the same across it	0.027	count	DERIVED	0.40 cm / C915	fn:jet_across
+C918	primaries interacting in the published jet	86.5	percent	DERIVED	1 - exp(-C916)	fn:jet_primaries
+C919	the cascade the published jet retains	2.6	percent	DERIVED	1 - exp(-C917)	fn:jet_retained
+C920	depleted uranium over lead, neutrons per GeV deposited	1.5	x	SOURCED	the cascade fast-fissions in it	fn:u_over_pb
+C921	the transparency penalty, blanket-coupled	-48.7	percent	DERIVED	(1 - C919)(1 - C920); NEGATIVE, a gain	fn:trans_penalty

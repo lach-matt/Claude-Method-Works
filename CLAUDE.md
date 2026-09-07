@@ -345,9 +345,19 @@ even against a very productive spallation target, transparency may cost up to **
 channel stops paying. Three conservatisms all run the same way — a 14.1 MeV neutron counted as worth
 one spallation neutron when a fast blanket makes it worth more, the alpha uncounted, and transparency
 treated as a straight loss when in a **blanket-coupled** system an escaping neutron enters the blanket
-rather than being lost. What stays open is narrower and stated as such: what a spallation-optimised
-target at 8 GeV yields, and what transparency costs it — both ordinary target-design calculations
-outside this corpus. See `docs/POWERSOURCE.md`),
+rather than being lost. **`--target` then closes both of the figures that comparison reads
+against.** The yield per GeV *deposited* is a flat material property — **25 to 30** for a heavy metal,
+so **200 to 240 neutrons per proton** at 8 GeV. And the transparency question turns out to be posed
+wrongly too: mercury's interaction length is 15 cm and the published jet is **2.00** of them long but
+**0.027** across, so it stops **86.5 %** of primaries and retains **2.6 %** of the cascade they start.
+**It is a production foil, not a spallation target.** In a bare neutron source that would be the whole
+loss; in a **blanket-coupled** system the cascade crosses into the blanket and develops there, and the
+penalty `(1−φ)(1−y_blanket/y_target)` is **negative for any blanket that out-yields the target per GeV**
+— **−48.7 %** at depleted uranium's 1.5, a gain rather than a cost. **The conclusion holds at parity**,
+so it survives both sourced inputs being wrong by anything short of reversing that inequality. What is
+left is a margin rather than a question: the retention is geometry rather than transport and the
+blanket relation is point kinetics, both are used as requirements rather than predictions, and §10
+Stage D measures what they estimate. See `docs/POWERSOURCE.md`),
 **`tools/window.py`** (the binder admissibility scan behind the paper's Theorem 1 — four tests over
 the charged spectrum, run in the order that constrains. Its point is *which* set the theorem closes
 on: the lifetime cut is a published number against a fixed threshold, so the **five** charged

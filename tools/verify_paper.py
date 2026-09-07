@@ -2909,6 +2909,50 @@ def bal_c880():
 def bal_c881():
     return _mach.balance("bred", _mach.service_life(8.5), 2.6, 400.0, target=True)
 
+def n_per_gev_lo():
+    return _ps().N_PER_GEV_PB_LO
+
+
+def n_per_gev_hi():
+    return _ps().N_PER_GEV_PB_HI
+
+
+def sp_yield_lo():
+    return _ps().spallation_yield()[0]
+
+
+def sp_yield_hi():
+    return _ps().spallation_yield()[1]
+
+
+def lam_hg():
+    return _ps().LAMBDA_HG_CM
+
+
+def jet_long():
+    return _ps().JET_LENGTH_CM / _ps().LAMBDA_HG_CM
+
+
+def jet_across():
+    return _ps().JET_RADIUS_CM / _ps().LAMBDA_HG_CM
+
+
+def jet_primaries():
+    return 100.0 * _ps().primary_interacting()
+
+
+def jet_retained():
+    return 100.0 * _ps().cascade_retained()
+
+
+def u_over_pb():
+    return _ps().U_OVER_PB
+
+
+def trans_penalty():
+    return 100.0 * _ps().transparency_penalty()
+
+
 def sp_scan_lo():
     return 100.0
 

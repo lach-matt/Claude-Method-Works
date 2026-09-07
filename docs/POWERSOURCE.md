@@ -93,12 +93,46 @@ neutron or secondary escaping a narrow target is not lost, it enters the blanket
 costs a *neutron source* its yield because the neutrons must reach moderators; it costs a
 blanket-coupled system much less.
 
-## What it still refuses
+## The two target figures — `--target`
 
-**What a spallation-optimised target at 8 GeV actually yields, and what transparency actually costs
-it.** Neither is in this repository, both are ordinary target-design calculations, and §10 Stage D
-measures the pair on one apparatus — the same beam and the same blanket with the fuel cell in and
-out. The instrument states the requirement in the form a target designer can check and stops there.
+**One: what a spallation-optimised target returns.** A target thick enough to contain the cascade
+degrades essentially all of the beam into it, and the neutron yield *per unit of energy deposited* is
+a flat property of the material rather than of the machine — **25 to 30 neutrons per GeV** for lead or
+mercury. At 8 GeV that is **200 to 240 neutrons per proton**, the top of the `--spallation` scan and
+the place where the requirement on transparency is tightest.
+
+**Two: what transparency costs it — and here the question changes.** The production target this work
+specifies is the published mercury jet. Mercury's inelastic interaction length is 15 cm, and the jet
+is **2.00** of them long and **0.027** across:
+
+| along the beam | 2.00 λ | 86.5 % of primaries interact |
+|---|---|---|
+| **across it** | **0.027 λ** | **2.6 % of the cascade is kept** |
+
+**It is not a narrow spallation target. It is a production foil.** It stops the primary and retains
+almost none of the cascade that primary starts. In a bare neutron source that would be the whole loss,
+because the neutrons must be made in the target — there is nowhere else. In a **blanket-coupled**
+system there is somewhere else: the cascade crosses into the blanket and develops there. Writing `y`
+for neutrons per GeV deposited and `φ` for what the target retains,
+
+    Y = E [ φ·y_target + (1−φ)·y_blanket ]
+
+so the penalty against a fully-containing target of the same material is `(1−φ)(1−y_blanket/y_target)`
+— **negative for any blanket that out-yields the target per GeV**, and a fissile one does. Depleted
+uranium out-yields lead by about 1.5, so the penalty is **−48.7 %: a gain, not a cost.**
+
+**The conclusion does not rest on that figure.** The penalty is *exactly zero at parity* and turns
+positive only for a blanket **worse** per GeV than the target it replaces — a low-Z or non-fissile
+one, which is not what §9.2 specifies. It would survive both inputs being wrong by any amount short of
+reversing that inequality, and the selftest asserts the sign turns at parity rather than anywhere
+convenient.
+
+## What is left, and it is a margin rather than a question
+
+`--target`'s retention is **geometry, not transport**: `1 − exp(−r/λ)` does not follow a cascade
+through the assembly, and Proposition 10's blanket relation is point kinetics. Both are used as
+**requirements rather than predictions**, both say so where they appear, and §10 Stage D measures what
+they estimate — on one apparatus, the same beam and the same blanket with the fuel cell in and out.
 
 **It does not predict a blanket's yield.** Proposition 10 is point kinetics: one multiplication factor
 for the whole assembly, no source position, no leakage, no spectrum. A real blanket's source is

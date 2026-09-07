@@ -293,3 +293,37 @@ this corpus, and §10 Stage D measures the pair on one apparatus.
 `tools/powersource.py --spallation` is the instrument; the selftest asserts the additive structure,
 that the break-even falls as the spallation yield rises, and that taking the 14.1 MeV neutron at
 worth one is the conservative choice rather than the flattering one.
+
+## Closing the last two figures, and finding the second question was also posed wrongly
+
+The spallation comparison left two target figures open, and they were the paper's last open items.
+Both close, and the second closes by dissolving the way the first one did.
+
+**What a spallation-optimised target returns** is not a mystery. A target thick enough to contain the
+cascade degrades essentially all of the beam into it, and the neutron yield *per unit of energy
+deposited* is a flat property of the material rather than of the machine — 25 to 30 per GeV for a
+heavy metal. At 8 GeV: 200 to 240 neutrons per proton, which is the top of `--spallation`'s scan and
+the place where the requirement on transparency is tightest.
+
+**What transparency costs it** was the question that changed. The production target this work
+specifies is the published mercury jet, and its two dimensions differ by two orders of magnitude
+against the interaction length: 2.00 λ along the beam, 0.027 λ across. It stops 86.5 % of primaries
+and retains 2.6 % of the cascade they start.
+
+**So it is not a narrow spallation target — it is a production foil.** In a bare neutron source that
+would be the whole of the loss, because the neutrons must be made in the target; there is nowhere
+else. In a blanket-coupled system there is somewhere else. The cascade crosses into the blanket and
+develops there, so the yield of the assembly is `E[φ·y_target + (1−φ)·y_blanket]` and the penalty
+against a fully-containing target is `(1−φ)(1−y_blanket/y_target)` — **negative** for any blanket that
+out-yields the target per GeV. Depleted uranium does, by about 1.5, giving −48.7 %: a gain.
+
+**The load-bearing part is the sign, not the magnitude.** The penalty is exactly zero at parity and
+turns positive only for a blanket *worse* per GeV than the target it replaces, which is not the
+blanket §9.2 specifies. So the conclusion survives both sourced inputs being wrong by any amount short
+of reversing that inequality — and the selftest asserts the sign turns at parity rather than anywhere
+convenient.
+
+**What is left is a margin rather than a question.** `--target`'s retention is geometry, not transport;
+Proposition 10's blanket relation is point kinetics. Both are used as requirements rather than as
+predictions, both say so where they appear, and §10 Stage D measures what they estimate — on one
+apparatus, the same beam and the same blanket with the fuel cell in and out.

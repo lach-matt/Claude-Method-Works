@@ -225,6 +225,122 @@ def report_spallation():
     return 0
 
 
+# ---- the two target figures the comparison had left open --------------------
+# THE FIRST is what a spallation-optimised target returns at this beam energy.
+# It is not a mystery: a thick heavy-metal target degrades essentially all of
+# the beam into a cascade, and the cascade's neutron yield per unit of energy
+# DEPOSITED is a flat, measured property of the material. So the yield is the
+# beam energy times that figure, and the figure is what is sourced.
+#
+# THE SECOND is what pion-transparency costs it. That one turns out to be the
+# wrong question in a blanket-coupled system, and the geometry says why.
+N_PER_GEV_PB_LO = 25.0      # neutrons per GeV DEPOSITED, lead/mercury, low end
+N_PER_GEV_PB_HI = 30.0      # the high end of the same engineering figure
+U_OVER_PB = 1.5             # depleted uranium against lead, per GeV deposited
+LAMBDA_HG_CM = 15.0         # inelastic interaction length; the repo's jet is 2 of them
+JET_RADIUS_CM = 0.40        # [1] the published 8 mm jet
+JET_LENGTH_CM = 30.0        # the same jet
+
+
+def spallation_yield(e_gev=BEAM_GEV, n_per_gev=None):
+    """Neutrons per proton from a target thick enough to contain the cascade."""
+    lo = e_gev * N_PER_GEV_PB_LO
+    hi = e_gev * N_PER_GEV_PB_HI
+    return (lo, hi) if n_per_gev is None else (e_gev * n_per_gev,)
+
+
+def primary_interacting(length_cm=JET_LENGTH_CM, lam=LAMBDA_HG_CM):
+    """Fraction of the primary beam that interacts inside the target."""
+    import math
+    return 1.0 - math.exp(-length_cm / lam)
+
+
+def cascade_retained(radius_cm=JET_RADIUS_CM, lam=LAMBDA_HG_CM):
+    """Fraction of the CASCADE the transparent target keeps after the first
+    interaction.
+
+    A secondary born on the axis of a cylinder of radius r escapes sideways
+    unless it interacts within that path, so the retention is 1 - exp(-r/lam).
+    For the published jet r/lam is small and the retention is nearly nothing:
+    the target is a production foil, not a spallation target.
+    """
+    import math
+    return 1.0 - math.exp(-radius_cm / lam)
+
+
+def transparency_penalty(u_over_pb=U_OVER_PB, radius_cm=JET_RADIUS_CM,
+                         lam=LAMBDA_HG_CM):
+    """What transparency costs the spallation yield, blanket-coupled.
+
+    The cascade energy the narrow target does not keep is not lost: it crosses
+    into the blanket and develops there. So the yield is
+
+        Y  =  E [ phi . y_target  +  (1 - phi) . y_blanket ]
+
+    with phi the fraction retained. The penalty against a fully-containing
+    target of the SAME material is (1 - phi)(1 - y_blanket/y_target), which is
+    NEGATIVE -- a gain -- whenever the blanket out-yields the target per unit
+    of energy deposited. Depleted uranium out-yields lead, so it does.
+    """
+    phi = cascade_retained(radius_cm, lam)
+    return (1.0 - phi) * (1.0 - u_over_pb)
+
+
+def report_target():
+    """The two target figures: the spallation yield, and transparency's cost."""
+    print("  THE TWO TARGET FIGURES, CLOSED")
+    print()
+    print("  ONE -- WHAT A SPALLATION-OPTIMISED TARGET RETURNS")
+    print("    A target thick enough to contain the cascade degrades essentially")
+    print("    all of the beam into it, and the neutron yield per unit of energy")
+    print("    DEPOSITED is a flat property of the material rather than of the")
+    print(f"    machine: {N_PER_GEV_PB_LO:.0f} to {N_PER_GEV_PB_HI:.0f} neutrons per GeV for lead or mercury.")
+    lo, hi = spallation_yield()
+    print(f"    At {BEAM_GEV:.0f} GeV that is {lo:.0f} to {hi:.0f} neutrons per proton.")
+    print()
+    print("  TWO -- WHAT TRANSPARENCY COSTS IT, AND WHY THE QUESTION CHANGES")
+    print(f"    The published jet is {2 * JET_RADIUS_CM:.1f} cm across and {JET_LENGTH_CM:.0f} cm long, against an")
+    print(f"    interaction length of {LAMBDA_HG_CM:.0f} cm. Those are different by two orders:")
+    print(f"      along the beam   {JET_LENGTH_CM / LAMBDA_HG_CM:>6.2f} interaction lengths"
+          f"  -> {100 * primary_interacting():.1f} % of primaries interact")
+    print(f"      across it        {JET_RADIUS_CM / LAMBDA_HG_CM:>6.3f} interaction lengths"
+          f"  -> {100 * cascade_retained():.1f} % of the cascade is kept")
+    print()
+    print("    SO IT IS NOT A NARROW SPALLATION TARGET. It is a production foil.")
+    print("    It stops the primary and it keeps almost none of the cascade the")
+    print("    primary starts. In a bare neutron source that would be the whole")
+    print("    loss. In a BLANKET-COUPLED system it is not a loss at all: the")
+    print("    cascade crosses into the blanket and develops there.")
+    print()
+    print("    Writing y for neutrons per GeV deposited and phi for what the")
+    print("    target keeps,")
+    print()
+    print("      Y = E [ phi . y_target + (1 - phi) . y_blanket ]")
+    print()
+    print(f"    and the penalty against a fully-containing target of the same")
+    print(f"    material is (1 - phi)(1 - y_blanket/y_target). Depleted uranium")
+    print(f"    out-yields lead by about {U_OVER_PB:.1f} per GeV deposited, because the")
+    print(f"    cascade fast-fissions in it. So the penalty is")
+    f = transparency_penalty()
+    print()
+    print(f"      transparency penalty  =  {100 * f:+.1f} %   -- a GAIN, not a cost")
+    print()
+    print("    THE BREAK-EVEN IS THEREFORE NOT MERELY MET. sec.9.4 asked how much")
+    print("    transparency may cost before the muon channel stops paying, and")
+    print("    the answer is that it costs nothing: the cascade is not thrown")
+    print("    away, it is handed to the material that converts it best.")
+    print()
+    print("    WHAT WOULD OVERTURN THIS. A blanket that out-yields the target by")
+    print("    LESS than one -- a low-Z or non-fissile blanket. The penalty is")
+    print("    then positive and sec.9.4's table applies as written:")
+    print(f"      {'y_blanket / y_target':>22}{'penalty':>12}")
+    for r in (0.5, 0.75, 1.0, 1.25, U_OVER_PB, 2.0):
+        print(f"      {r:22.2f}{100 * transparency_penalty(r):+11.1f} %")
+    print("    Even at parity the penalty is zero. It is positive only for a")
+    print("    blanket WORSE than the target per GeV, which a fissile one is not.")
+    return 0
+
+
 def report():
     m = _mach()
     print("WHAT A SELF-SUSTAINING POWER SOURCE REQUIRES")
@@ -380,6 +496,27 @@ def selftest():
           < transparency_breakeven(150.0, eta_best, worth=1.5))
 
     print()
+    print("  the two target figures, and the geometry that decides the second")
+    lo, hi = spallation_yield()
+    check("a containing target at this beam energy yields hundreds per proton",
+          150.0 < lo < hi < 300.0)
+    check("the published jet stops most primaries",
+          primary_interacting() > 0.80)
+    check("and keeps almost none of the cascade they start",
+          cascade_retained() < 0.05)
+    check("so it is a production foil rather than a spallation target",
+          cascade_retained() < primary_interacting() / 10.0)
+    check("the transparency penalty is NEGATIVE for a fissile blanket",
+          transparency_penalty() < 0.0)
+    check("it is exactly zero at parity, which is where the sign turns",
+          abs(transparency_penalty(1.0)) < 1e-12)
+    check("and positive only for a blanket worse than the target per GeV",
+          transparency_penalty(0.5) > 0.0)
+    print("    -- the conclusion holds at PARITY, so it does not rest on the")
+    print("       uranium-over-lead figure being right, only on the blanket not")
+    print("       being WORSE than the target it replaces")
+
+    print()
     print("  the instrument can fail: a blanket that could not supply the")
     print("  requirement would have to need k >= 1, so that case is constructed")
     check("a requirement of 100 GeV per fusion would need k >= 1",
@@ -397,11 +534,14 @@ def main():
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--spallation", action="store_true",
                     help=report_spallation.__doc__)
+    ap.add_argument("--target", action="store_true", help=report_target.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
     if a.spallation:
         return report_spallation()
+    if a.target:
+        return report_target()
     return report()
 
 

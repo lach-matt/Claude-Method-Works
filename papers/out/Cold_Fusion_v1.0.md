@@ -503,7 +503,36 @@ and the numerator on the right is what §4.1's pion yield, §5.3's collection an
 
 **The estimate is conservative in three places, and each runs the same way.** It counts a 14.1 MeV neutron as worth exactly one spallation neutron, where in a fast blanket it is worth more, because that energy drives fast fission in fertile material, and (n,2n), that a spallation spectrum reaches less of. It does not count the alpha, which the muon route returns as heat directly. And it treats the transparency penalty as a straightforward loss, which in a **blanket-coupled** system it is not: a neutron or a secondary that escapes a narrow target is not lost, it enters the blanket. A narrow target costs a *neutron source* its yield because the neutrons must reach moderators; it costs a blanket-coupled system much less, because the blanket is what surrounds the target in the first place.
 
-> **So the comparison that §11 recorded as unmade is now made, and it does not go against the muon channel.** What remains open is narrower and is stated as such: **what a spallation-optimised target at 8 GeV actually yields, and what transparency actually costs it.** Neither figure is derived in this paper, both are ordinary target-design calculations, and §10 Stage D measures the pair on one apparatus — the same beam and the same blanket, with the fuel cell in and out.
+**The two figures that table is read against are supplied below**, and the second of them changes the question rather than answering it.
+
+
+#### What a spallation-optimised target returns
+
+A target thick enough to contain the cascade degrades essentially all of the beam into it, and the neutron yield **per unit of energy deposited** is a flat property of the material rather than of the machine: 25 per GeV to 30 per GeV for lead or mercury. At 8 that is **200 per proton to 240 per proton** — the top of §9.4's scan, where the requirement on transparency is tightest.
+
+
+#### What transparency costs, and why the question changes
+
+The production target this work specifies is the published mercury jet: 15 cm is its material's inelastic interaction length, and the jet is **2.00** of them long and **0.027** across. Those two numbers differ by two orders of magnitude, and everything follows from that.
+
+| along the beam | 2.00 interaction lengths | 86.5 percent of primaries interact |
+|---|---|---|
+| **across it** | **0.027 interaction lengths** | **2.6 percent of the cascade is kept** |
+
+> **So it is not a narrow spallation target. It is a production foil.** It stops the primary and retains almost none of the cascade that primary starts. In a bare neutron source that would be the whole of the loss — the neutrons must be made in the target because there is nowhere else. **In a blanket-coupled system there is somewhere else**: the cascade crosses into the blanket and develops there.
+
+Writing `y` for neutrons per GeV deposited and `φ` for what the target retains, the yield of the whole assembly is
+
+
+$$Y \;=\; E\left[\,\varphi\,y_{target} \;+\; (1-\varphi)\,y_{blanket}\,\right]$$
+
+so the penalty against a fully-containing target of the same material is `(1 − φ)(1 − y_blanket/y_target)`. **It is negative — a gain — for any blanket that out-yields the target per unit of energy deposited**, and a fissile one does: depleted uranium out-yields lead by about 1.5, because the cascade fast-fissions in it. The penalty is therefore
+
+> **-48.7 percent — a gain, not a cost.**
+
+**And the conclusion does not rest on that figure being right.** The penalty is *exactly zero* at parity and turns positive only for a blanket that is **worse** per GeV than the target it replaces — a low-Z or non-fissile one, which is not the blanket §9.2 specifies. The requirement §9.4 states is therefore not merely met; it is met with the sign on the favourable side, and it would survive the uranium-over-lead figure being wrong by any amount short of reversing it.
+
+> **The comparison is made, and closed.** The muon channel is additive rather than alternative; the target it needs is a production foil rather than a spallation target; and the cascade it does not keep is not thrown away but handed to the material that converts it best. §10 Stage D still measures the pair on one apparatus, because a first-order geometric model is not a transport calculation — but it measures a margin, not a question.
 
 
 ### 9.5 But the binder does not have to be bought
@@ -601,7 +630,7 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 
 **Every modelled service life here rests on a density no experiment has reached**, and after §5.3's correction it buys very little. The model itself is in good order — at the density that *has* been reached it returns 152.8 cycles against the 150 cycles measured, a ratio of 1.019 — but the rows that use it assume 8.5 times liquid where 1.2 has been held, and even granted that they return only 190.1 cycles against 150 cycles measured. **The model is worth a factor of about a quarter and an unreached density to obtain it**, which is why every result this paper offers is stated at the measured count, and why §5.3's surviving route uses the model nowhere.
 
-**Two target figures the comparison against spallation turns on are not derived here.** §9.4 makes that comparison and finds it does not go against the muon channel — the channel is additive rather than alternative, and the only trade is what pion-transparency costs the target's spallation yield. But the two numbers that would close it are ordinary target-design calculations this paper does not perform: **what a spallation-optimised target at 8 GeV actually yields**, and **what transparency actually costs it**. §9.4 states the requirement in the form a target designer can check, and §10 Stage D measures the pair on one apparatus.
+**The spallation comparison is closed, and what it rests on is two sourced material properties and a first-order geometric model.** §9.4 supplies both target figures rather than leaving them open: the yield per GeV deposited is 25 per GeV to 30 per GeV for a heavy metal, and the retention of a cylinder is taken as `1 − exp(−r/λ)`. That model is geometry, not transport — it does not follow a cascade through the assembly — so §10 Stage D measures what it estimates. **What makes the residual small is that the conclusion holds at parity**: the transparency penalty turns positive only for a blanket *worse* per GeV than the target it replaces, so the result would survive both inputs being wrong by any amount short of reversing that inequality.
 
 **The tritium inventory a plant would hold is very large, and this paper does not price holding it.** Because the target must be one muon range deep, and because Proposition 9 shows that compression does not reduce the requirement, the standing inventory is 5.13 kg at the designed bore, 10.79 kg at the wider one, and about 45 kg to approach the acceptance ceiling. Those are kilogrammes of tritium in one target, against 2.41 mg in the demonstration cell of §6.3 — a step of six orders of magnitude between the experiment this paper specifies and the plant its balances describe. An inventory at that scale is a licensing, supply and containment problem of a different kind from anything in §7, and one this paper neither solves nor costs. It bears asymmetrically on the routes: the bred-fuel configuration breeds its own tritium once running and so needs the inventory only to start, while the heat and work forms need it throughout and earn nothing back. **Nothing in §10 measures it**, because §10 runs at the milligramme scale, and it should be read as a condition on any plant built from these results rather than as a term in any balance stated here.
 
@@ -667,7 +696,7 @@ And the second is the size of what is left open.
 
 ### 12.4 Not claimed
 
-**That either configuration is the best use of the beam.** §9.4 shows the muon channel is additive rather than alternative, and states what transparency may cost before it stops paying — but the two target figures that would close the comparison are not derived here, and §11 says which.
+**That the assembly has been modelled by neutron transport.** §9.4's retention is a geometric estimate and §13.9's blanket relation is point kinetics. Both are used as requirements rather than as predictions, both are stated as such where they appear, and §10 Stage D measures what they estimate.
 
 **That a plant follows from the demonstration.** The step from the cell of §6.3 to the inventory of §11 is six orders of magnitude in tritium, and this paper prices none of it.
 
