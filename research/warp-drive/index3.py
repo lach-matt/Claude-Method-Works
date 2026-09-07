@@ -49,8 +49,10 @@ FINDINGS = [
   "the source-vacuum transition band is clean and converged; outer negatives fall 8x"),
  ("AXIAL-TERM",   0, -1,  0, "gatespec.py",
   "the shift must taper to zero along the bore axis, in vacuum: unchecked"),
- ("OPEN-GATE",   +1, +1, +1, "torus.py",
-  "hoop tension holds the bore open inside DEC: margin 5.89x at gate scale"),
+ # The hoop bound stands as a necessary condition and is not sufficient: the ring
+ # can hold its hole open, and the hole cannot hold a shift.
+ ("OPEN-GATE",   +1, -1, +1, "torus.py",
+  "hoop tension holds the bore open (5.89x) but the bore cannot carry a shift"),
  ("RELAX-OK",     0, +1, +1, "residue.py",
   "relaxation permits the flow and the switching: launch is 0.256 dynamical times"),
  ("NO-BORE",       0, -1, -1, "residue.py",
@@ -94,8 +96,19 @@ FINDINGS = [
  # The structural answer to the structural limit: the theorem forbids moving
  # YOURSELF, so the object stops being a vehicle and becomes infrastructure.
  # First cell on (+1,+1,+1) that is a CONSTRUCTED object rather than a found one.
- ("LAUNCHER",    +1, +1, +1, "launcher.py",
-  "geodesic launcher: 0 g on the payload, 6.5e-18 m/s recoil, 1.1e26 launches"),
+ # SUPERSEDED by NO-TAPER: the launcher's physics stands (TARGET-1 verified the
+ # boosted flat interior) but it can be neither loaded nor unloaded, so it is not
+ # buildable.  Y falls from +1 to -1; X and Z stand.
+ ("LAUNCHER",    +1, -1, +1, "GATE-CLOSED.md",
+  "geodesic launcher: physics sound, 0 g, but it can be neither loaded nor unloaded"),
+ # Both predicted by the closure the moment the gate died, and both already held
+ # in substance -- the fourth and fifth time the defect has named a real finding.
+ ("SPEC-SHEET",   0, -1, +1, "gatespec.py",
+  "the gate is fully specified and unbuildable: 44 fields, 9 open, 3 invalidated"),
+ ("SOURCING-DEAD",+1, -1,  0, "GATE-CLOSED.md",
+  "the verdict on the manufactured branch: energy known, device impossible, nothing to draw"),
+ ("NO-TAPER",     0, -1, -1, "GATE-CLOSED.md",
+  "a shift cannot terminate in vacuum: Type IV in every cell, at every speed"),
  ("NO-EXOTIC",   +1,  0,  0, "TARGET-1-RESULT.md",
   "the warp source is ordinary matter: there is no distinct species of warp energy"),
  ("FREE-FALL",    0, +1,  0, "COUPLING.md",
@@ -190,8 +203,8 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 25)
-    chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 11)
+    chk("number of findings indexed", len(FINDINGS), 28)
+    chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
@@ -206,10 +219,10 @@ def selftest():
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple),
-        sorted(["EM-GAP", "FLYBY", "SLINGSHOT", "LAUNCHER", "OPEN-GATE"]))
+        sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
-        sorted(["FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE"]))
+        sorted(["FLYBY","SLINGSHOT"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
