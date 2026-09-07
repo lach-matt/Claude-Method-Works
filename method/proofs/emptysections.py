@@ -45,7 +45,8 @@ not the other way round. That is chat 95B's order-of-work point and it still hol
 
 TWO ATTRIBUTIONS HAVE NO HOME IN THE MAIN VOLUME, and they are the exception that has to be said:
 "anti-exchange" and "NP-hard" occur NOWHERE in it, and both are cited to §14.5.7 from the
-Mathematical Compendium. The NP-hardness is seated at register 2071.
+Mathematical Compendium. Neither is lost: the Register seats the NP-hardness at 551 and the
+anti-exchange failure at 483, both measured here rather than asserted.
 
 SO THE REPAIR IS RE-POINTING, NOT AUTHORING. Fifty-one citations name a heading with nothing under
 it while the material they want is in the book under other numbers. That is Phase 3's pointer class,
@@ -136,9 +137,11 @@ def report():
         print(f"  {name:34} in §{', §'.join(w[:6]) if w else 'NOWHERE in these families'}")
     print(f"\n  (scope: the §{', §'.join(SCOPE)} families the citations themselves name — a bare word")
     print("   like 'forced' matches half the book, and half the book is not a measurement.)")
+    np_, ax = reg_entry_of(r"NP-hard"), reg_entry_of(r"anti-exchange")
     print("\n  Two attributions have no home in the main volume at all — 'anti-exchange' and")
-    print("  'NP-hard', both cited to §14.5.7 from the Mathematical Compendium; the NP-hardness is")
-    print("  seated at register 2071.")
+    print("  'NP-hard', both cited to §14.5.7 from the Mathematical Compendium. Neither is lost:")
+    print(f"  the Register seats NP-hardness at {', '.join(np_)} and anti-exchange at {', '.join(ax)},")
+    print("  and register 565 corrects 551's Q-item closure while leaving the seed result standing.")
     print("\n  §28.9 is a parent heading with one child, §28.9.1, and is not a gap. §28.7.6's")
     print("  eighty-six entries were moved to §28.7.7 by a repair the volume describes, which says")
     print("  §28.7.6 'is now four' — and it is zero.")
@@ -175,6 +178,24 @@ def where(pat):
     return [n for n, (a, b) in sp.items() if re.search(pat, "\n".join(L[a:b]))]
 
 
+def reg_entry_of(pat):
+    """the Register entry numbers whose bodies match pat, measured from the headings above them.
+
+    This replaces a hard-coded "register 2071" that an earlier draft of this instrument printed.
+    2071 is a LINE of the Register, not an entry of it: the Register's highest number is 1848 and
+    2071 is seated nowhere. A line number printed in a register number's place reads as a citation
+    and resolves to nothing, which is the very defect this instrument was written to census. It is
+    recorded as a fault of mine in the working register; the number is now measured, not asserted.
+    """
+    L = load(os.path.join(MEM, VOLUMES["reg"]))
+    head, out = None, []
+    for l in L:
+        m = re.match(r"^#{1,4}\s*([\d,\s\-]+?)\s*$", l)
+        if m: head = m.group(1).strip()
+        elif head and re.search(pat, l) and head not in out: out.append(head)
+    return out
+
+
 def selftest():
     ok = fail = 0
     def eq(name, got, want):
@@ -196,6 +217,12 @@ def selftest():
     eq("the nine carry 51 citations in all", sum(r["total"] for r in rows), 51)
     eq("every one of the nine is cited at least once",
        min(r["total"] for r in rows) >= 1, True)
+    eq("NP-hardness is seated at register 551, not at 2071, which is a Register LINE",
+       reg_entry_of(r"NP-hard"), ["551", "565"])
+    eq("anti-exchange is seated at 483 and re-stated in the 605 withdrawal",
+       reg_entry_of(r"anti-exchange")[0], "483")
+    eq("2071 is above the Register's highest entry and is seated nowhere",
+       reg_entry_of(r"NP-hard") and all(int(x) <= 1848 for x in reg_entry_of(r"NP-hard")), True)
     eq("the seed definition §14.5.9 attributes to §14.5.7 is in §14.5.9",
        "14.5.9" in where(MATERIAL["the seed definition ℛ(G) = X"][0]), True)
     eq("'zero cells are forced' is in §14.5.10", "14.5.10" in where(r"forced"), True)

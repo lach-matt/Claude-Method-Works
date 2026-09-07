@@ -673,25 +673,25 @@ id	class	member	line	item	detail
 672	C13-HANDLE-LEAK	mc	3545	3B.index	back matter: | 2026 | Lach, *The Three-Body Problem for Unknown Masses* | `3B.tri` `3B.def` `3B.index` |
 673	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	203	28,	other sites: main=1 reg=10 sc=1 | withdrawn. They are listed in Chapter 28, with what replaced them. Several were caught not by the author
 674	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	333	16.6	other sites: main=7 reg=3 mc=1 | ungrounded in the sense §16.6's ⅅ_gro names. The corrected form carries no N: *following the bounds
-675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=30 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
+675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=31 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 676	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	150	other sites: main=13 reg=7 mc=8 pc=1 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=8 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 678	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	2.21	other sites: main=3 reg=9 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 679	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	374	other sites: main=3 reg=2 ioi=2 sc=5 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
-680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1686	6.2	other sites: main=13 reg=11 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
+680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1686	6.2	other sites: main=13 reg=12 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
 681	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.070	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 682	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.094	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 683	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.199	other sites: reg=2 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 684	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.227	other sites: main=1 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=115 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=143 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=120 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=145 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3210	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
 689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	2,475	other sites: main=2 reg=4 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 690	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	21.4	other sites: main=1 reg=1 mc=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 691	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	22.8	other sites: reg=3 mc=1 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 692	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	45,450	other sites: reg=1 mc=3 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
-693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=6 ioi=2 | mis-citation is corrected here and recorded at register 400.
+693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=8 ioi=2 | mis-citation is corrected here and recorded at register 400.
 694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=30 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	7,	other sites: main=16 reg=30 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 696	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	497	other sites: main=3 reg=3 ioi=1 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
@@ -1560,9 +1560,9 @@ id	class	member	line	item	detail
 1559	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	914	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | 2,475 cells (the figure §12.11.5 withdraws; register 1819). A two-parent *decision* is the same shape: **no ea
 1560	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	914	2,475	other sites: main=2 reg=4 | 2,475 cells (the figure §12.11.5 withdraws; register 1819). A two-parent *decision* is the same shape: **no ea
 1561	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
-1562	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	3.5	other sites: main=10 reg=7 mc=1 sc=2 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
+1562	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	3.5	other sites: main=10 reg=8 mc=1 sc=2 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
 1563	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
-1564	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	3.5	other sites: main=10 reg=7 mc=1 sc=2 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
+1564	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	3.5	other sites: main=10 reg=8 mc=1 sc=2 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
 1565	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3439	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | it costs, 2,475 cells of the cylinder (the figure §12.11.5 withdraws; register 1819). The book substitutes f_m
 1566	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3439	2,475	other sites: main=2 reg=4 | it costs, 2,475 cells of the cylinder (the figure §12.11.5 withdraws; register 1819). The book substitutes f_m
 1567	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	4019	24,585	other sites: reg=9 mc=5 pc=1 | in every one.** *(A sample: exact enumeration gives 24,585 minimum covers with one cell common to all — Mathem
@@ -1618,3 +1618,5 @@ id	class	member	line	item	detail
 1617	C8-NAMED-STATEMENT	all	0	superseded bound	sites=1 in reg | bold/heading statement in main: NO
 1618	C9-OVERGENERALISATION-WORD	reg	6796	never	**THE BOUND WAS WIDENED IN §35 AND THE COMPANION AND THE COMPENDIUM STILL PRINTED THE OLD ONE; THE CENSUS FOUND THAT BEFORE ANYONE ASKED.** *Register 1837 widened §35's g-block absence from* **below Z
 1619	C9-OVERGENERALISATION-WORD	reg	6804	at every cap	**"NOT A LATTICE" IS THE WRONG PHRASE FOR A COMPONENTWISE MEET FAILURE, AND THE CHAPTER PROVES IT ON ITS OWN NEXT PARAGRAPH.** *§12.11.2 prints* **"The exact coupling region is not a lattice in any pr
+1620	C9-OVERGENERALISATION-WORD	reg	6812	never	**§32.1.1'S SELF-INDEX NAMES AN EXTENT THE BOOK HAS OUTGROWN, AND THE INSTRUMENT THAT COMPUTED IT CANNOT SEE THE DIFFERENCE.** *§32.1.1 prints its index as* **"Recomputed at this build (2026-08-24, bo
+1621	C9-OVERGENERALISATION-WORD	reg	6820	always	**§24.13 MEASURES BOTH ENDS OF ITS SEQUENCES AND ONLY ONE OF THEM FAILS, AND THE SECTION SAYS SO CORRECTLY TWICE AND INCORRECTLY TWICE ON ONE PAGE.** *Holding each member of two isoelectronic sequence

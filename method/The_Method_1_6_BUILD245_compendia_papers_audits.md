@@ -23481,6 +23481,23 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **Nothing else in `method/` is seated by this close, and the exclusions are the store's own.** `CLAUDE.md` is a project instruction and is never added to a build. `README.md`, `MEMBER-INDEX.tsv`, `verify.py` and the two bundles are the tree's apparatus, not its contents. The `W-*.md` files are appended into `WORKING-REGISTER.md` and are not members in their own right. `DEF-153*-PENDING.md`, `RUL-153-PENDING.md` and the `DRAFT-*.md` files are R3's notes to M, which `README.md` records as living in `method/` rather than in a bundle.
 - **No volume changes at this close.** The change set is `WORKING-REGISTER.md`, `MANIFEST.tsv` and the seventy-one new members; `python3 method/verify.py` VERIFY OK before and after.
 
+### W-250 — Phase 1's first seven entries seated: the subject matter its instruments settled, and the work matter kept out of the volumes
+
+- **M, 7 September 2026: *"if it is work matter, it does not belong in the volumes. if it is subject, it must be included."*** Sixteen of Phase 1's forty-one rows are disposed (`PHASE1-LEDGER.md`); **seven of them are subject matter and are seated as registers 1842 to 1848**, and the rest are work matter and are recorded here.
+- **1842 · §32.1.1's extent.** The section prints its index *"over the thirty-five chapters and six appendices the book now has"*. It has **thirty-six chapters, 1 to 36 with no gap, and seven appendices, A to G** — and `bookindex.py` is bounded by the same two numbers three times over: `APP='ABCDEF'`, the filter `1<=r<=35`, and `n=41  # 35 chapters + 6 appendices`. **Three constants, not a reading**, so no re-run of it can count Chapter 36 or Appendix G. Measured by a successor that reads the extent as data: **the claim count is 1,021 — the printed figure, current — while cells move 400 → 410, the box 1,681 → 1,849 and E 1,265 → 1,407.** The sentence's claim count is right; the three figures that depend on the box are stale because the box is.
+- **1843 · K I nd's reach.** §23 prints **45.7**; the Spectra Compendium's own K I nd row runs **n = 3 to 13**. The table's other two rows fix the reading — Al I nf's 55.0 matches both, **Na I ns's 20.0 matches the n range and not the ν range** — so the entry is 13, or 12.7 under the other reading, and **neither is 45.7**. Docket 14 said to resolve this member first; it resolves from the book's own collection with no outside data. **And the thesis is strengthened**: a channel reaching 13 is further from its ν_V of 160 than one reaching 45.7.
+- **1844 · §24.13's end rule.** The table measures both ends and only the neutral fails — **6.2× and 9.4×** worse than the upper end, which sits **inside the interior's own worst case** on one sequence. The prose and the caption say *"the neutral"* and are right; the summary row and the blockquote say *"an end"* and *"the ends"*. **All four sit on one page**, and the two that are right are named so a repair does not touch them.
+- **1845 · V = 4ν/3.** Twenty-four occurrences on twenty-two lines print it as an identity; **one site states it as asymptotic with its error**. All five printed rationals reproduce exactly from the closed form; the two-term asymptotic is low by **0.69 %** at ν = 2, the book's own figure, and the **bare form by 8.33 %** — twelve times that.
+- **1846 · the σ collision, decided by the two formulas and no data.** Substituting Rule 4's σ into §22.5's r **cancels the ν³ exactly**, leaving a constant. If they were one quantity, §22.5's own next sentence — *"Every channel eventually leaves the domain"* — would be false. Rule 4's σ is a fit's prediction standard error; §22.5's is the levels' measurement uncertainty, a constant of the channel, which the chapter's own *"0.001 to 0.4 cm⁻¹"* corroborates.
+- **1847 · "palindromic iff self-dual".** False in one direction, stated twice. **A six-element counterexample is printed in the entry** — 0 < 1, 0 < 2, 0 < 3, 4 < 1, 5 < 2, level sizes (3, 3), not self-dual because element 0 has three above it and nothing has three below — found by exhaustive search over strictly graded posets and the smallest there is. **§11.8's conclusion stands**, because it uses the contrapositive of the direction that holds; what falls is the *"if and only if"* and with it *"they are the same statement"*.
+- **1848 · §14.3's bundling.** The claim is true and **the experiment it cites does not show it** — eighty of eighty both ways is a report that bundling changed nothing. Three cells demonstrate it: {(0,0,0), (0,1,1), (1,0,1)} has **E = 1 decomposed and E = 0 bundled**. And the reason is general: **with two coordinates ℛ(X) = X for every X**, so any presentation bundled that far reports closure whatever it contains.
+- **THE WORK MATTER, RECORDED HERE AND NOT IN THE REGISTER.** §10.2's *"seventeenfold"* against Figure 10.1's *"hundredfold"*: **no cap family the record names gives either** — the tower is 204×, 72.6×, 13.9× and 2.6×, and register 1830's six sampled settings 240× — and 1830 already recorded that the population is not named, so both printed ranges are unsupported and what the volume owes is the family. The Physics Compendium's twenty-seven *"objects rest on it"* counts are **record-carried**: the Mathematical Compendium's 299 objects carry **no dependency field**, and the natural title-naming graph gives 7 and 6 against the printed 66 and 72, so *"at this build"* is what cannot stand. **Register 497 is withdrawn at main L3883 and rested on at L3920 and L3951, and its entry carries no `WARNING`** — a class of one, and the complement of `r2-warn`, which censuses only the entries that do carry a marker. And **the docket's own instance of the false-universal class is wrong**: §34.6's *"never resets mid-subshell"* does **not** fail at molybdenum, whose recalibration is a boundary touch with `a` unchanged; eight of the nine real moves are at the entering subshell's opening and the ninth is the return from an exception.
+- **Built by `r4-b1.py`, BUILD115 → BUILD116 main.** No volume changes — a Batch B pass. Reverse recovers `1fab5b05f6c9c09f075013eefac4de1f`; new pair **2,077,626 B, md5 `dc67f10fee116d39f8fe2336f8b1a6af`, 18,744 lines**. Counts re-taken: **1,683 → 1,690 entries, 1 to 1848**, mature 165–1848 at 1,526, the front matter summing to itself (94 + 70 + 1,526 = 1,690).
+- **THE FIRST DRAFT OF THIS BUILD WAS DISCARDED AND REBUILT, AND THE INSTRUMENT THAT CAUGHT IT IS THE ONE THAT WAS ASKED TO STAY WRONG.** Entries 1844 and 1846 were seated with **a `**`-opened quotation closed by a single `*`** — 43 and 39 asterisks, one delimiter short each, so on the page the emphasis does not close where it was meant to. Nothing in the store printed the defect; **`r2-reg7a2` refused**, because its pinned count of *entries with an odd asterisk total* is **22**, measured over the corpus, and my two lines made it 24 — `INSTRUMENT FAULT — STOP`. The tempting repair was to bump 22 to 24. **G0c forbids it**, and it would have been the wrong number besides: 22 is a finding about the Register, not about me. The build was discarded, the two closing delimiters repaired at source, and the build re-made — **the Register is two bytes larger than the discarded draft and nothing else about it moved**, the census included (both regenerate to `31c462f3d47f9e02e289598c28604ae1`). `r4-b1.py` now **asserts even asterisk parity on every entry body before seating**, so the class is unreachable from this instrument rather than merely absent from it. This is the third discard-and-rebuild of this leg (BUILD111's missing recount, BUILD238's miscounted W text, this) and they share one shape: **the defect was mine, the build was not yet banked, and the store's own guard found it.**
+- **THE THIRTY-SEVEN MOVED GOLDENS, ACCOUNTED FOR BEFORE ANY RE-BANK.** Every one traces to the seven entries: the two members' md5s, the count classes (1,683 → 1,690 headings, 1,841 → 1,848 extent, kinds 1,613 → 1,620 with *a finding* 1,361 → 1,363 and *a correction* 191 → 196), the Register's +28 lines and +9,828 B, the census md5, and the new entries' own words raising site tallies wherever a numeral or a term they use is censused. **Two needed reading rather than counting.** `r2-reg7a2` is the emphasis-parity refusal above, now back to **22 OK**. And `r2-reg8a2`'s reg8-B — *"front-matter provenance pointers that were withdrawn"* — grew from `[411, 1725, 1732, 1744, 1756]` to include **196 and 363**, which are **not pointers**: the recomputed kinds table now prints `| **a correction** | 196 |` and `| **a finding** | 1,363 |`, and the instrument's bare-number scan reads `196` and the `363` inside `1,363`. **Digit coincidence, the class the retraction audit named**, and the finding's own prose still says *"the remaining four"* and still itemises four. Recorded here; the instrument is not touched.
+- **The census regenerates to 1,618 rows from 1,619 seated (3 carried as retired): 1,609 exact, 5 by item, 2 by text, 2 NEW, 0 GONE.** Both NEW rows are `C9-OVERGENERALISATION-WORD` **on words the new entries themselves quote** — *"never"* in 1842's quotation of the instrument's three constants and *"always"* in 1844's quotation of the blockquote it corrects — which is the precedent artefact class (678, 680–687, 1067, 1069) and not a defect in the entries.
+- **One piece of my own detritus was found and removed by this close.** `vprice.out` had been written into `members/` by a command that ran from the wrong directory, and `gate_live.py` enrols every `.out` there: it tried to run a `vprice.py` that is not a member and reported ERROR. **The gate caught it, which is what it is for.** Deleted; `members/` is back to one file in no bundle, `r2-28b3.py`, which is there by ruling.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -28616,25 +28633,25 @@ id	class	member	line	item	detail
 672	C13-HANDLE-LEAK	mc	3545	3B.index	back matter: | 2026 | Lach, *The Three-Body Problem for Unknown Masses* | `3B.tri` `3B.def` `3B.index` |
 673	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	203	28,	other sites: main=1 reg=10 sc=1 | withdrawn. They are listed in Chapter 28, with what replaced them. Several were caught not by the author
 674	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	333	16.6	other sites: main=7 reg=3 mc=1 | ungrounded in the sense §16.6's ⅅ_gro names. The corrected form carries no N: *following the bounds
-675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=30 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
+675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=31 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 676	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	150	other sites: main=13 reg=7 mc=8 pc=1 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=8 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 678	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	2.21	other sites: main=3 reg=9 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 679	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	374	other sites: main=3 reg=2 ioi=2 sc=5 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
-680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1686	6.2	other sites: main=13 reg=11 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
+680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1686	6.2	other sites: main=13 reg=12 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
 681	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.070	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 682	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.094	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 683	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.199	other sites: reg=2 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 684	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.227	other sites: main=1 mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 685	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	0.353	other sites: mc=1 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=115 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
-687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=143 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+686	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	1,	other sites: main=86 reg=120 mc=81 pc=7 ioi=14 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
+687	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2832	2,	other sites: main=95 reg=145 mc=26 pc=5 ioi=19 sc=2 | Mutual information, recomputed: **0.353 · 0.227 · 0.199** at d = 1, **0.094 · 0.070** at d = 2,
 688	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3210	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | ### 12.11.1.2 The conservative share, recomputed under variation
 689	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	2,475	other sites: main=2 reg=4 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 690	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	21.4	other sites: main=1 reg=1 mc=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 691	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	22.8	other sites: reg=3 mc=1 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 692	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	45,450	other sites: reg=1 mc=3 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
-693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=6 ioi=2 | mis-citation is corrected here and recorded at register 400.
+693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=8 ioi=2 | mis-citation is corrected here and recorded at register 400.
 694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=30 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	7,	other sites: main=16 reg=30 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 696	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	497	other sites: main=3 reg=3 ioi=1 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
@@ -29503,9 +29520,9 @@ id	class	member	line	item	detail
 1559	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	914	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | 2,475 cells (the figure §12.11.5 withdraws; register 1819). A two-parent *decision* is the same shape: **no ea
 1560	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	914	2,475	other sites: main=2 reg=4 | 2,475 cells (the figure §12.11.5 withdraws; register 1819). A two-parent *decision* is the same shape: **no ea
 1561	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
-1562	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	3.5	other sites: main=10 reg=7 mc=1 sc=2 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
+1562	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	2538	3.5	other sites: main=10 reg=8 mc=1 sc=2 | dashed and priced at 3.5% (the price §12.11.5 withdraws; register 1819).
 1563	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
-1564	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	3.5	other sites: main=10 reg=7 mc=1 sc=2 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
+1564	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3072	3.5	other sites: main=10 reg=8 mc=1 sc=2 | the same bound written with the cell's f has two parents and breaks the factorisation by 3.5% (the figure §12.
 1565	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3439	12.11	other sites: main=158 reg=44 mc=87 pc=1 ioi=7 sc=1 | it costs, 2,475 cells of the cylinder (the figure §12.11.5 withdraws; register 1819). The book substitutes f_m
 1566	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3439	2,475	other sites: main=2 reg=4 | it costs, 2,475 cells of the cylinder (the figure §12.11.5 withdraws; register 1819). The book substitutes f_m
 1567	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	4019	24,585	other sites: reg=9 mc=5 pc=1 | in every one.** *(A sample: exact enumeration gives 24,585 minimum covers with one cell common to all — Mathem
@@ -29561,6 +29578,8 @@ id	class	member	line	item	detail
 1617	C8-NAMED-STATEMENT	all	0	superseded bound	sites=1 in reg | bold/heading statement in main: NO
 1618	C9-OVERGENERALISATION-WORD	reg	6796	never	**THE BOUND WAS WIDENED IN §35 AND THE COMPANION AND THE COMPENDIUM STILL PRINTED THE OLD ONE; THE CENSUS FOUND THAT BEFORE ANYONE ASKED.** *Register 1837 widened §35's g-block absence from* **below Z
 1619	C9-OVERGENERALISATION-WORD	reg	6804	at every cap	**"NOT A LATTICE" IS THE WRONG PHRASE FOR A COMPONENTWISE MEET FAILURE, AND THE CHAPTER PROVES IT ON ITS OWN NEXT PARAGRAPH.** *§12.11.2 prints* **"The exact coupling region is not a lattice in any pr
+1620	C9-OVERGENERALISATION-WORD	reg	6812	never	**§32.1.1'S SELF-INDEX NAMES AN EXTENT THE BOOK HAS OUTGROWN, AND THE INSTRUMENT THAT COMPUTED IT CANNOT SEE THE DIFFERENCE.** *§32.1.1 prints its index as* **"Recomputed at this build (2026-08-24, bo
+1621	C9-OVERGENERALISATION-WORD	reg	6820	always	**§24.13 MEASURES BOTH ENDS OF ITS SEQUENCES AND ONLY ONE OF THEM FAILS, AND THE SECTION SAYS SO CORRECTLY TWICE AND INCORRECTLY TWICE ON ONE PAGE.** *Holding each member of two isoelectronic sequence
 <<<END FILE: DEFECT-CENSUS.tsv>>>
 
 <<<FILE: minmax.py>>>
@@ -35948,8 +35967,8 @@ extent from Register L6: 1 to 1841
 
 <<<FILE: MANIFEST.tsv>>>
 bundle	name	bytes	md5	lines
-main	The_Method_1_6-2.md	784466	f00f24ff7b682976ebec21a3cd373c8e	11903
-main	The_Method_1_6___The_Register-2.md	1283165	d71b78d32c66009a0943034592515c81	6808
+main	The_Method_1_6-2.md	784466	75db2c30fffef1dd53b96c6050d48ed4	11903
+main	The_Method_1_6___The_Register-2.md	1292993	6fde168224bf553c2ae2327ea2c20578	6836
 compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -36021,7 +36040,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
-compendia	DEFECT-CENSUS.tsv	248949	7e04e6f8135799a587f9890a10e018c5	1620
+compendia	DEFECT-CENSUS.tsv	249449	31c462f3d47f9e02e289598c28604ae1	1622
 compendia	DEFERRED.md	445264	2b46ec0747c8c1923ecfbdf3bb06936f	3556
 compendia	DOCKET.md	82784	123594d2918d8c02727b8a6d065c0c0d	488
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
@@ -36192,7 +36211,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63336	6e904d82ffd2a06a958
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23058	07487abe7350880412c0cb0dfcade421	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1136624	6cbc8c476ab19b0bb1e11db0d15bcefa	8488
+compendia	WORKING-REGISTER.md	1145694	727e633dbe642c230f217a207fbda2fc	8505
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
 compendia	appf.py	9888	0bb90faf9d837a5f289c509b852a8822	140
