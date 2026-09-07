@@ -133,7 +133,11 @@ ARCH = [
   "is a function of f alone, worst at f -> 1, and twist.py measures the twist "
   "peaking at f = 0.623 where the margin is +0.756: the two extrema are "
   "disjoint, exactly as the NEC violation and the margin were.  This is the "
-  "only OPEN row on this sheet with a stated experiment attached."),
+  "only OPEN row on this sheet with a stated experiment attached.  UPGRADED: "
+  "plebanski.py supplies the 3+1D mapping (Plebanski 1960, anisotropic by "
+  "construction) and dispersive.py withdraws the BHS objection to it, since "
+  "that bound is static and the device is dispersive.  The c/4 ceiling goes "
+  "with it -- beta 0.825 at under 1% ferrite loss."),
 
  ("WARPSHELL",
   "radiative momentum warpshell (Le 2026)", "tidally flat cabin, subluminal",

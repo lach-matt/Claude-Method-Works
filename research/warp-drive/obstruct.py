@@ -120,12 +120,19 @@ LEDGER = [
   "is self-gravitational, ~0.6 sqrt(GM/R^3), so N < 1 is a ceiling on MEAN "
   "DENSITY: 2.66e-4 kg/m^3 for a 1 g burn to delta_eta = 0.2. Corner is BIG AND "
   "DIFFUSE -- 1,000 tonnes at R > 965 m, comfortably at R > 4.48 km", "wall.py"),
- ("MAPPING-2D", "a 2+1D analogue mapping exists", "CLOSED-NEGATIVE",
-  "IT ALWAYS DID -- Plebanski 1960 gives it in full 3+1D and returns exactly the "
-  "transverse anisotropy twist.py demanded. What is forbidden is the MEDIUM: "
-  "eps_xx = 1 exactly, so BHS admits it only for |v| >= c. Conformal freedom is "
-  "no escape (eps and w are conformally invariant). Smolyaninov's admissible "
-  "1+1D medium is an index-n substitution, not this mapping", "plebanski.py"),
+ ("MAPPING-2D", "a 2+1D analogue mapping exists", "DISSOLVED",
+  "Plebanski 1960 gives it in full 3+1D and returns exactly the transverse "
+  "anisotropy twist.py demanded. Briefly closed on BHS -- eps_xx = 1 exactly, so "
+  "the static bound admitted it only for |v| >= c -- and REOPENED by "
+  "dispersive.py: BHS is a static bound and this is a dispersive device. The "
+  "mapping stands; only its BHS verdict fell", "plebanski.py"),
+ ("STATIC-BOUND", "BHS applies at a working frequency", "CLOSED-NEGATIVE",
+  "IT DOES NOT. A Polder ferrite above resonance has |kappa| > |mu-1|, violating "
+  "BHS by factors up to 5, and above-resonance ferrites are ordinary passive "
+  "components. The Brillouin condition that replaces it is satisfied identically, "
+  "saturating only at resonance. Cost of the error: beta capped at c/4 when the "
+  "real ceiling is the analogue horizon -- 0.825 c at 0.95% ferrite loss",
+  "dispersive.py"),
 ]
 
 def by_status():
@@ -163,12 +170,12 @@ def check_analogue_closed():
             and twist.energy_density_bbv(0.9, 0.0) == 0.0
             and abs(twist.wedge_txy_closed(0.9, 0.3)) > 1e-3)
 
-def check_mapping_closed():
-    import plebanski
-    # the mapping exists and is anisotropic; the medium is forbidden subluminally
+def check_mapping_dissolved():
+    import plebanski, dispersive
+    # the mapping stands and is anisotropic; the STATIC bound that closed it does not
     return (plebanski.anisotropy(0.5) > 1.0
-            and not plebanski.bhs_admissible(0.5)
-            and plebanski.bhs_admissible(1.5))
+            and not dispersive.static_ok(2.0)      # BHS forbids a real ferrite
+            and dispersive.dispersive_ok(2.0))     # the right condition does not
 
 def check_nonradial_conditional():
     import wall
@@ -192,8 +199,8 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 11)
-    chk("actually DISSOLVED", len(h["DISSOLVED"]), 2)
+    chk("obstructions tracked", len(LEDGER), 12)
+    chk("actually DISSOLVED", len(h["DISSOLVED"]), 3)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 4)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 2)
@@ -212,16 +219,18 @@ def selftest():
     chk("SHIFT-SHORTENS is closed negative", check_shift_costs(), True)
     chk("NONRADIAL is fatal at 10 m and survivable at 5 km",
         check_nonradial_conditional(), True)
-    chk("MAPPING-2D: mapping exists, medium forbidden", check_mapping_closed(), True)
+    chk("MAPPING-2D: mapping stands, static bound does not",
+        check_mapping_dissolved(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",
         sorted(build_ready()), [])
     chk("is a build blocked on an untested row?", len(untested()) > 0, False)
-    print("""      Both are now asked.  NONRADIAL nearly closed the warpshell and left a
-      mean-density corner.  MAPPING-2D closed the analogue outright: the
-      mapping was never missing, the medium is.  Nothing is left UNTESTED --
-      which does not mean everything is open, it means nothing is unexamined.""")
+    print("""      Both were asked, and MAPPING-2D then reopened: it had been closed on a
+      STATIC bound applied to a dispersive device, and the bound is
+      demonstrably wrong there.  NONRADIAL nearly closed the warpshell and
+      left a mean-density corner.  Nothing is UNTESTED -- and one row moved
+      from closed back to open, which is what a ledger is for.""")
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1

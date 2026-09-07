@@ -330,8 +330,15 @@ FINDINGS = [
   "the exact medium is anisotropic wherever the shift is nonzero: the transverse structure twist.py demanded, present by construction"),
  ("BHS-3D",          0, -1, -1, "plebanski.py",
   "w^2 <= (eps_yy-1)^2 requires v^2 <= v^4: the exact 3+1D medium is forbidden at EVERY subluminal shift, and conformal freedom is invariant"),
+ # The exemption, tested -- and it was staticity, not passivity.
+ ("STATIC-WRONG",    0, +1, +1, "dispersive.py",
+  "a Polder ferrite above resonance violates BHS by up to 5x and is an ordinary passive component: the static bound does not apply here"),
+ ("BRILLOUIN",      +1,  0, +1, "dispersive.py",
+  "the dispersive condition is d(w kappa)/dw <= d(w mu)/dw - 1, whose ratio is 2 w w0/(w0^2+w^2) <= 1 identically, saturating at resonance"),
+ ("C4-WITHDRAWN",    0, +1, +1, "dispersive.py",
+  "the c/4 ceiling was a static bound on a dispersive device: beta reaches 0.825 at 0.95% ferrite loss, a 3.7x gain for 4.3x the loss"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of eleven obstructions two dissolved, three relocated, four closed negative, two conditional and none now untested"),
+  "of twelve obstructions three dissolved, three relocated, four closed negative, two conditional and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -363,6 +370,7 @@ SUPPORT = [
  ("RADIAL-CONFIRMED","wall.py",       "this tree's beta^2_crit converts to LeMaitre-Poisson's Gamma_1 to 1e-15 at every x: independent derivation, same answer"),
  ("HUND-CHECK", "materials.py",     "Hund's rules against the 108 seated NIST ground terms: 74/78 term symbols, 78/78 on J -- the four differ in notation only"),
  ("SUBSTRATE",  "materials.py",     "a linewidth table alone picks the wrong substrate: YSGG beats GGG on dB and loses on merit, because Ms is halved"),
+ ("GAIN-MOOT",  "dispersive.py",    "the gain exemption was not needed: passivity was never the problem, staticity was, and passive dispersion is free"),
 ]
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
@@ -443,7 +451,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 113)
+    chk("number of findings indexed", len(FINDINGS), 116)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 14)
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 

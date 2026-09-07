@@ -1278,3 +1278,74 @@ must also become anisotropic.
 **The ledger now has no UNTESTED row.** Of eleven obstructions: two dissolved, three relocated, **four
 closed negative**, two conditional, none unexamined. That is not the same as everything being open —
 it means nothing is left where a build could be surprised from behind.
+
+## `dispersive.py` — the exemption, tested, and it was the wrong exemption
+
+The question was whether **gain** lifts Brown–Hornreich–Shtrikman, since BHS assumes passivity. The
+answer is that **passivity was never the problem. Staticity was.**
+
+BHS 1968 bounds the *equilibrium* magnetoelectric susceptibility by requiring the free energy
+`F = ½(εE² + μH²) + αEH` to be positive definite. That is a thermodynamic statement about a **static**
+response. `neclab.py`, `device.py` and `plebanski.py` all apply it at a working frequency to a
+magnetised ferrite, which is dispersive — and it is the wrong bound there.
+
+### It is demonstrably the wrong bound, and the refutation is a catalogue
+
+A magnetised ferrite has the Polder response `μ−1 = ω_mω₀/(ω₀²−ω²)`, `κ = ω_mω/(ω₀²−ω²)`. **Above
+resonance, |κ| > |μ−1|** — violating BHS by factors of 1.0005, 1.2, 2.0 and 5.0 at ω/ω₀ = 1.001, 1.2,
+2, 5. Above-resonance ferrites are ordinary, stable, passive components sold by the reel. The static
+bound forbids a regime that exists.
+
+### What replaces it is satisfied identically
+
+At a working frequency the positivity that matters is of the **Brillouin stored energy**, which carries
+`d(ωε)/dω` rather than `ε` (Landau & Lifshitz §80). Generalised to the bianisotropic case — marked
+`RECONSTRUCTED`, since BHS's own derivation is static:
+
+> `|d(ωα)/dω|² ≤ (d(ωε)/dω − 1)(d(ωμ)/dω − 1)`
+
+For Polder both sides are closed-form and checked against finite differences at six frequencies:
+`d(ωμ)/dω − 1 = ω_mω₀(ω₀²+ω²)/D²` and `d(ωκ)/dω = 2ωω_mω₀²/D²`, whose ratio is
+
+> **2ωω₀/(ω₀²+ω²) ≤ 1 ⟺ 0 ≤ (ω₀−ω)²**
+
+**True at every frequency, with equality exactly at resonance.** The dispersive condition is never
+violated by a real ferrite and saturates only where the medium is lossy anyway. The static one is
+violated by half the spectrum.
+
+### What that costs this project's two closures
+
+Both rested on the static bound: `neclab`'s **c/4 ceiling** (β ≤ 0.245826 at n = 2), and
+`plebanski`'s **3+1D subluminal prohibition** (`v² ≤ v⁴`, which was the whole of `MAPPING-2D`'s
+negative closure). Priced against `device.py`'s own ferrite at the corrected cold magnetization:
+
+| | β | g_x bulk | detuning | ferrite loss |
+|---|---|---|---|---|
+| current design | 0.2224 | 13.84 | 461 lw | 0.00220 |
+| n = 2.0, 99% of horizon | 0.4950 | 99.50 | 126 lw | 0.01584 |
+| **n = 1.2, 99% of horizon** | **0.8250** | 59.70 | 211 lw | **0.00950** |
+
+> **A factor 3.7 in β for a factor 4.3 in ferrite loss — and the loss is still under one per cent.**
+> The c/4 ceiling was not a material limit. It was a static bound applied to a dispersive device.
+
+### What does *not* reopen, and this matters more than what does
+
+**`twist.py` is untouched.** In 1+1D the shift is pure gauge, `E = −Ω²/(8πG)` vanishes on the axis, and
+the emulated geometry is Minkowski **at any β**. A faster 1+1D analogue emulates flat spacetime faster.
+`ANALOGUE-1D` stays CLOSED-NEGATIVE and nothing here revives it.
+
+What reopens is the **3+1D route** — exactly where `twist.py` said the content is. `plebanski.py`'s
+mapping stands (it is Plebanski 1960, not a bound) and its anisotropy stands; only its BHS verdict
+falls. `MAPPING-2D` moves UNTESTED → CLOSED-NEGATIVE → **DISSOLVED**, and `ANALOGUE-2D` is upgraded on
+the architecture sheet with a mapping and a ceiling instead of an aspiration.
+
+**And the gain question is moot.** Gain would exempt the medium from a bound that does not apply to it,
+at the cost of noise and of converting a thermodynamic condition into a dynamical one — the trade
+`wall.py` already made twice. Passive dispersion is free and sufficient.
+
+### The shape worth noticing
+
+Both live routes were closed by a **static positivity condition**, and both loosen when the dynamics is
+put in. The warpshell: the centre-of-mass theorem forbids self-acceleration for an *isolated* system,
+and the escape is to radiate. The analogue: BHS forbids the coupling for an *equilibrium* medium, and
+the escape is to disperse. Same shape, different physics — **and neither one is a material.**
