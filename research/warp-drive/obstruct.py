@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of thirty-four obstructions, SIX dissolved, three relocated,
-SIXTEEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
+THE HEADLINE: of thirty-five obstructions, SIX dissolved, three relocated,
+SEVENTEEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -363,6 +363,19 @@ LEDGER = [
   "rather than quoted, with the coefficient pi^2/192. A cheaper currency does "
   "not help when the thing being bought is out of stock",
   "shaping.py"),
+ ("SNEC-LOOPHOLE", "the SNEC is weaker than ANEC, so an ANEC-violating "
+  "configuration might still satisfy it and be permitted", "CLOSED-NEGATIVE",
+  "IT CANNOT, AND THIS IS A THEOREM RATHER THAN A MEASUREMENT. At large "
+  "smearing the SNEC's left-hand side tends to I/(w sqrt(2 pi)), falling as "
+  "1/w, while its bound falls as 1/w^2. So whenever I = INTEGRAL T_kk dl is "
+  "negative -- whenever ANEC is violated -- SNEC fails for every "
+  "w > w_crit = B sqrt(2 pi)/|I|, and the violation grows without limit "
+  "thereafter. Measured on the static corridor: I = -2.46486e-06, predicted "
+  "w_crit = 1.0116e4, and the scan crosses at exactly that width. SNEC IS NOT "
+  "AN INDEPENDENT WEAKER CONDITION -- it is a finer statement that inherits "
+  "ANEC's prohibition. This generalises nullbound.py's withdrawal from the "
+  "Alcubierre wall, which phase1 excluded by D4, to EVERY ANEC-violating "
+  "configuration", "smearing.py"),
  ("THE-LEAD", "a device must beat light to be worth building", "DISSOLVED",
   "NOT UNDER M's SCOPING: the matter must exist at both ends under the same "
   "physics, nothing more. That removes the requirement Olum, Ford-Roman and "
@@ -542,10 +555,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 34)
+    chk("obstructions tracked", len(LEDGER), 35)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 16)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 17)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",

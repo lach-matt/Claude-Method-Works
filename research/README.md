@@ -4148,3 +4148,74 @@ field, non-Gaussian states outside the squeezed family.
 ### Seated
 - `shaping.py` — new. `currency.py`'s `NOT-RUN` → **`CLOSED-NEGATIVE`**, struck in place.
 - `index3.py` — **297 findings**. `obstruct.py` — **34 rows**, new `CHEAPER-CURRENCY`, CLOSED-NEGATIVE.
+
+---
+
+## `smearing.py` — the three `NOT-RUN`s audited, and SNEC cannot be a loophole around ANEC
+
+`shaping.py` closed the currency question and left three things named rather than run. Running them
+closed two, left one open, and turned up a general result the tree did not have.
+
+### The new theorem
+
+`nullbound.py` withdrew its own headline for the right reason — *"SNEC must hold for EVERY sampling
+function, and this file evaluated it at ONE width."* But that withdrawal was about the **Alcubierre
+wall**, which `phase1.py` has since excluded by D4. Does the static corridor escape it? No, and the
+reason is general:
+
+> At large `w` the smeared quantity tends to **`I/(w√2π)`**, falling as `1/w`, while the SNEC bound falls
+> as `1/w²`. So whenever `I = ∫T_kk dl < 0` — whenever **ANEC** is violated — SNEC fails for every
+> **`w > w_crit = B√(2π)/|I|`**, and the violation grows without limit thereafter.
+
+Measured on the static corridor: `I = −2.46486e-06`, predicted `w_crit = 1.0116×10⁴`:
+
+| w | LHS | RHS | LHS/RHS | |
+|---|---|---|---|---|
+| 1e3 | −9.835e-10 | −9.947e-09 | 0.0988 | ok |
+| 9e3 | −1.091e-10 | −1.228e-10 | 0.8884 | ok |
+| **1.0116e4** | −9.721e-11 | −9.721e-11 | **1.0000** | **VIOLATED** |
+| 1e5 | −9.833e-12 | −9.947e-13 | 9.886 | VIOLATED |
+
+> **SNEC is not an independent, weaker condition an ANEC-violating configuration might slip through. It
+> is a finer statement that inherits ANEC's prohibition at large smearing.**
+
+This generalises `nullbound.py`'s withdrawal from one architecture to **every** ANEC-violating one. It
+also **cross-checks `achronal.py` by a different route**: that file measured ANEC violation on 25 rays
+by integrating `R_kk` along geodesics; this one gets `I < 0` from a closed-form line integral of the
+source density. Same sign, no shared algebra.
+
+### The three `NOT-RUN`s
+
+**1. Non-Gaussian states — CLOSED.** `shaping.py`'s mode counting was Gaussian, which limits *that
+derivation*, not the conclusion: QEIs and SNEC are **state-independent** theorems over all Hadamard
+states — as `nullbound.py` already records. A non-Gaussian state cannot evade a bound never conditioned
+on the state.
+
+**2. Interacting / non-minimally coupled fields — CLOSED, CONDITIONALLY.** This was the live one.
+`ξRφ²` is *the* standard example of classical energy-condition violation, used to claim traversable
+wormholes with no quantum effects at all. Fliss, Freivogel, Kontou & Pardo Santos (arXiv:2309.10848):
+
+> *"the average null energy condition, whose violation is necessary to allow traversable wormholes, is
+> obeyed both classically and in the context of quantum field theory"*
+
+Their §III.C is titled, exactly, **"Large negative null energies require large field values."** The
+negative energy scales with particle number; a cutoff on `⟨:φ²:⟩` caps it. **The condition is the EFT
+assumption** — motivated by asking when the gravity+matter path integral stays semiclassically
+controlled — and it is named rather than buried.
+
+**3. Curved backgrounds, self-consistent — STILL OPEN, and not new.** QEIs are proved on *fixed* curved
+backgrounds; matter that curves the spacetime it is bounded in is not covered. That is `obstruct.py`'s
+**ANEC** row, unproven in the literature for nineteen years.
+
+### What this changes
+
+Nothing in the cost, one thing in the structure. **SNEC was the last energy condition weak enough to
+look like a door, and it closes whenever ANEC does.**
+
+> **The obstacle has one name again.**
+
+### Seated
+- `smearing.py` — new. `index3.py` — **304 findings** (+ a `QUAD-CAUGHT` support row: widening the
+  integration window coarsened the grid until the answer flipped sign; short window, fine grid,
+  convergence now asserted against the closed form).
+- `obstruct.py` — **35 rows**, new `SNEC-LOOPHOLE`, CLOSED-NEGATIVE.
