@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of forty-one obstructions, SIX dissolved, FOUR relocated,
-TWENTY-THREE closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
+THE HEADLINE: of forty-two obstructions, SIX dissolved, FOUR relocated,
+TWENTY-FOUR closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -304,6 +304,22 @@ LEDGER = [
   "irreversible operations and the Bekenstein argument is static and survives "
   "reversibility. Complements CHEAPER-CURRENCY, which never priced this "
   "denomination", "nopath.py"),
+ ("SPECTRAL-CURRENCY", "the bill can be paid in the SPECTRA of a charge "
+  "state rather than in the charge, or in mass", "CLOSED-NEGATIVE",
+  "THE CARRIER IS CORRECTLY IDENTIFIED AND THE DIRECTION IS WRONG. Right: "
+  "electric charge is SUPERSELECTED -- no coherent superposition across "
+  "sectors -- and permute.py already forced total Q = 0 in a closed index, so "
+  "the charge carries log2(1) = 0 bits and the spectrum is the ONLY carrier "
+  "left. Right again: Bekenstein's S bounds the number of DISTINGUISHABLE "
+  "QUANTUM STATES of energy E in radius R -- spectral multiplicity, never "
+  "charge -- so the prediction names the bound's own variable. WRONG: a "
+  "spectrum is a LOGARITHM. One hydrogenic charge holds 385/338,350/333,833,500 "
+  "states to n = 10/100/1000, which is 8.6/18.4/28.3 bits; reaching 9.9736e101 "
+  "bits takes 5.4298e100 atoms at 9.0870e73 kg against 5.1048e42 kg supplied "
+  "directly, THIRTY-ONE AND A QUARTER ORDERS WORSE. And the gap is not about "
+  "hydrogen: black-hole bits go as M^2 and saturate the bound, so an OPTIMISED "
+  "spectral currency IS A BLACK HOLE -- dichotomy.py's RICCI route, closed by "
+  "COLLAPSE. Leaves H14 standing: a multiplicity has no sign", "spectra.py"),
  ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
   "CLOSED-NEGATIVE",
   "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
@@ -648,10 +664,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 41)
+    chk("obstructions tracked", len(LEDGER), 42)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 23)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 24)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",

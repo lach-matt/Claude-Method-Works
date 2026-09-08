@@ -1231,6 +1231,52 @@ cost**.
 
 ---
 
+## ⚠ H23 — information rides the **spectrum**, not the charge; and the optimal spectrum is a horizon
+
+**H23. In a spatially closed index the charge carries exactly zero bits — superselection removes the
+quantum information, and Gauss's law fixes the value — so the spectrum is not the preferred carrier but
+the only one left. Bekenstein's `S` counts precisely that carrier. And a spectrum is a logarithm, so the
+optimal one is a black hole.**
+
+**Two things the prediction gets right, and they are not small.**
+
+| | |
+|---|---|
+| **the carrier** | Electric charge is **superselected**: no coherent superposition across total-charge sectors exists as a physical state, so the value labels a sector and carries nothing inside one. And `permute.py` already forced total `Q = 0` in a closed universe — a quantity fixed to one value carries `log₂(1) = 0` bits. **The spectrum is the only carrier left**, by a theorem this tree derived two passes ago. |
+| **the variable** | `S ≤ 2πRE/(ℏc)` bounds the number of **distinguishable quantum states** of energy `E` in radius `R`. It counts **spectral multiplicity** and never mentions charge. The prediction names the bound's own variable. |
+
+**And one thing it gets wrong, on arithmetic rather than principle.**
+
+| hydrogenic `n_max` | states | bits |
+|---|---|---|
+| 10 | 385 | 8.589 |
+| 100 | 338,350 | 18.368 |
+| 1000 | 333,833,500 | 28.315 |
+
+> **A spectrum is a logarithm.** Ten times the levels buys ten bits. Reaching the `9.9736e101` bits of
+> **H22** takes `5.4298e100` atoms at `9.0870e73 kg`, against `5.1048e42 kg` supplied directly —
+> **31.25 orders worse**; `1.0976e28` bits/kg against `1.9538e59`.
+
+**And that gap is not a fact about hydrogen.** It is the distance from ordinary matter to the bound, and
+the bound is saturated by exactly one object. Black-hole bits go as `M²` — doubling the mass quadruples
+the count — so information density *rises* with mass and the optimum at every scale is a horizon.
+
+> **"Pay in spectra", optimised, is "build a black hole"** — `dichotomy.py`'s RICCI route, closed by
+> COLLAPSE. **Three denominations of one route**: mass, information and spectra are not three routes, and
+> the route ends in a horizon.
+
+**It leaves H14 standing.** A charge state supplies the **seat** and not the **lead**; a multiplicity has
+no sign, and the split turns on the sign of `ρ`. Enriching a spectrum does not make an energy density
+negative.
+
+| | `spectra.py` |
+|---|---|
+| status | **PROVEN** (superselection; the closed-index charge count from `permute.py`; `M²` scaling and saturation) + **MEASURED** (the hydrogenic bit counts; the 31.25-order comparison) |
+| new? | that the closed index leaves the spectrum as the *only* carrier, and that the optimised spectral currency is a horizon, yes |
+| **not** claimed | that the refinement is wrong about the carrier — it is right, twice; that hydrogen is the best possible spectrum — it is an instance, and the bound is the general statement; that anything in **H14** moves |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1346,3 +1392,7 @@ cost**.
   the energy; the bits are the mass in other units.
 - **That the transition is an instance of the method equation.** A shared shape is not a correspondence,
   and none is asserted.
+- **That the spectral refinement escapes the Bekenstein bound.** It names the bound's own variable; the
+  bound counts spectral multiplicity. See **H23**.
+- **That a richer spectrum is a cheaper spectrum.** A spectrum is a logarithm, and the optimal one is a
+  black hole.

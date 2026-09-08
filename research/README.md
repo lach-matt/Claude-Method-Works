@@ -5635,3 +5635,99 @@ structure, none established, **and none asserted here.**
 - `nopath.py` — new. `obstruct.py` — **41 rows**, new `NO-PATH-IS-CHEAPER` and `INFORMATION-CURRENCY`,
   **23 closed-negative**, one still OPEN (TYPE-IV). `index3.py` — **422 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H22** and three additions to the not-claimed list.
+
+---
+
+## `spectra.py` — information as the spectrum of a charge state, not the charge
+
+> **M:** *"I predict that information as currency is not specifically a charge state but rather the
+> different spectra of a single charge state."*
+
+**The distinction is correct, it is the right one to draw, and it is backed by two theorems this tree
+already holds.** It also makes `nopath.py`'s refutation sharper rather than weaker — and the sharpening
+ends somewhere the project has already been.
+
+### 1. Charge is superselected — and in a closed index it carries zero bits
+
+Electric charge is **superselected**: no coherent superposition across total-charge sectors exists as a
+physical state. The charge *value* labels a sector and carries no quantum information inside one. Inside
+a sector, levels superpose and interfere — **that is where the bits are.**
+
+And `permute.py` already closed the other half, on M's own closed index:
+
+> In a spatially closed universe Gauss's law forces **total `Q = 0` exactly**. A quantity fixed by
+> topology to a single value has one state. `log₂(1) = 0`.
+
+**The charge carries zero bits, forced.** So the refinement is not a preference between two carriers — in
+a closed index **the spectrum is the only carrier left**, and the theorem that removes the other one is
+one this tree derived two passes ago.
+
+### 2. And the carrier named is exactly what Bekenstein counts
+
+`S ≤ 2πRE/(ℏc)` bounds **the number of distinguishable quantum states** of a system of energy `E`
+confined to radius `R`. It counts **spectral multiplicity**. It says nothing whatever about charge.
+
+> **The prediction names the bound's own variable** — a point in its favour, not against it. What it does
+> not do is turn the inequality round: the spectrum is bounded **by** the energy.
+
+### 3. Priced on a real spectrum
+
+| hydrogenic `n_max` | states | bits |
+|---|---|---|
+| 10 | 385 | 8.589 |
+| 100 | 338,350 | 18.368 |
+| 1000 | 333,833,500 | 28.315 |
+
+> **A spectrum is a logarithm.** Widening it tenfold buys ten bits. That is not an unfair small effect —
+> it is what a spectrum *is*.
+
+| | |
+|---|---|
+| bits required (`nopath.py`) | `9.9736e101` |
+| atoms at `n_max = 100` | `5.4298e100`, massing **`9.0870e73 kg`** |
+| against simply supplying | **`5.1048e42 kg`** |
+| | **31.25 orders worse** |
+
+Per kilogram: `1.0976e28` bits/kg hydrogenic, against `1.9538e59` saturating the bound.
+
+### 4. And the optimal spectrum is a horizon
+
+That gap is not a fact about hydrogen — it is the distance from *any* ordinary matter to the bound, and
+the bound is saturated by exactly one object. Black-hole bits go as `M²` (verified: doubling the mass
+quadruples the count), so information density **rises** with mass and the optimum at every scale is a
+horizon.
+
+> **"Pay in spectra", optimised, is "build a black hole"** — which `dichotomy.py` closed long ago from
+> the other side: the RICCI route seats a conjugate point with ordinary positive energy and exceeds the
+> collapse bound by `2π²/3` at every scale.
+
+| denomination | where it lands |
+|---|---|
+| mass | `2.5666e12` solar masses |
+| information | the Bekenstein bound, `9.9736e101` bits |
+| spectra, optimised | **the same horizon** |
+
+**Three denominations of one route, and the route ends in a horizon.**
+
+### 5. What it does not move
+
+`charge.py`'s H14 — *a charge state supplies the seat and not the lead* — stands unchanged. A spectrum is
+a multiplicity of states, and **a multiplicity has no sign**, while the split turns on the sign of `ρ`.
+Enriching a spectrum does not make an energy density negative. The seat stays free; the lead stays the
+whole cost.
+
+### The score
+
+| | | |
+|---|---|---|
+| the carrier | **RIGHT** | charge is superselected, and closed-index zero |
+| the variable | **RIGHT** | Bekenstein counts spectral multiplicity |
+| the direction | **WRONG** | bounded *by* energy; a spectrum is a logarithm |
+
+> A better-aimed version of the same currency, landing in the same place — and worth having, because it
+> names what the bound is actually about.
+
+### Seated
+- `spectra.py` — new. `obstruct.py` — **42 rows**, new `SPECTRAL-CURRENCY`, **24 closed-negative**, one
+  still OPEN (TYPE-IV). `index3.py` — **427 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H23** and two
+  additions to the not-claimed list.
