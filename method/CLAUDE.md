@@ -71,7 +71,7 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD130 main** (2,143,575 B ·
-  `8c82e16f99d2f279cb381b13dc085603` · 18,918 lines · 2 members) and **BUILD308 compendia** · 763 members.
+  `8c82e16f99d2f279cb381b13dc085603` · 18,918 lines · 2 members) and **BUILD310 compendia** · 763 members.
   **765 members in all.** **The Register runs 1 to 1891, 1,733 seated** (1,726 numbered + 7 grouped).
   **W-310 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
@@ -336,6 +336,29 @@ no longer on the read path.
   rather than loses** — `[1725, 1732, 1744, 1756]` becomes `[570, 664, …]`, where **664** is inside *"the 1,664
   entry headings"* and **570** inside *"1,570 entries … the mature record"*. **MEASURED at BUILD130/BUILD308:
   verify OK, census a fixed point (0 NEW, 0 GONE), 86 OK / 0 FAIL.**
+- **AND THE LAST QUEUED ITEM DISSOLVED, THEN YIELDED A DIFFERENT FAULT (W-314, W-315).** The standing note
+  was that family L's *Three excluded forms* and family T's *The three excluded forms* are an article apart,
+  so a descriptive title alone does not identify them. **That is not a fault.** The two do different work —
+  family L the argument for why the tower requires a third form, with its measured join-closure and
+  meet-failure counts; family T the naming with its standard attributions — and **the same subject indexed in
+  two families is what a compendium is for.** **The ambiguity also has no site**: every citation of the phrase
+  across the six volumes points at **§12.11.2** — the main volume's own section heading, its three prose
+  citations, two Register entries and the compendium's own cross-reference — and **not one names either object
+  by its descriptive title.**
+- **READING THE TWO PRIOR-ART QUOTES SIDE BY SIDE IS WHAT FOUND THE FAULT**, and both halves of it are settled
+  by the corpus against itself. **`*Phys. Rev.* 61 (1942)` → `62`**: the main References give *Phys. Rev. 62,
+  438–462*, the compendium gives 62 at another object, and **"Phys. Rev. 61" occurs nowhere else in the six
+  volumes**. **`Wigner, *Gruppentheorie* (1927)` → `(1931)`**: the compendium names that book **three times**,
+  1931, 1931 and this one. **Wigner 1927 is a real and separately cited work** with its own bibliography row
+  serving `EM.image` and `EM.parity`, so the year is not spurious — **it was attached to the wrong title at
+  this one site**, which is why the repair moves the year and not the row.
+- **AND THE CONTRAST WITH THE CO-AUTHOR CORRECTION IS THE LESSON OF BOTH.** There, three volumes printed the
+  wrong name against one printing the right one and **the majority was the wrong guide**; here the majority and
+  the external record agree. **In neither case was the count the evidence.** **BUILD309 seats the two
+  substitutions** — no Register entry owed, on BUILD278's precedent — and **BUILD310 re-banks seven goldens
+  whose diff census is one line**: the Mathematical Compendium's md5 alone, its line count unchanged at 3,807,
+  because both substitutions are same-length and not even a byte count moves. **MEASURED at BUILD130/BUILD310:
+  verify OK, census a fixed point (0 NEW, 0 GONE), 86 OK / 0 FAIL, all 60 docfigures figures hold.**
 - **`proofs/compendia3.py` DISCHARGES TWO OF THE FIVE HELD INSTRUMENTS.** `compendia.py` pinned 23 script sites
   over 18 distinct scripts and 7 stamps; measured now the four volumes print **zero scripts, zero data-file
   names and one stamp match, which is W-284's recorded refusal**. `compendia2.py` raised rather than reported.

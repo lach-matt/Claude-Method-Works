@@ -9145,3 +9145,10 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **AND THE CONTRAST WITH THE CO-AUTHOR CORRECTION IS WORTH KEEPING.** There, three volumes printed the wrong name against one printing the right one, and **the majority was the wrong guide**; only the published record settled it. Here the majority and the external record agree. **In neither case was the count the evidence** — which is the whole reason both were checked against something other than the count.
 - **NO REGISTER ENTRY IS OWED**, on BUILD278's precedent: a compendium correction is recorded by the working register in the same build, and this text is that record. The bibliography's objects column is untouched — neither the `1927 | Wigner` nor the `1942 | Racah` row carries this object's handle.
 
+### W-315 — the seven goldens the two-number correction moved, re-banked by running
+
+- **THE DIFF CENSUS IS THE SMALLEST OF THIS LEG AND HAS ONE LINE IN IT.** Every one of the seven — `r2-21a2`, `r2-23a2`, `r2-24a`, `r2-27a3`, `r2-28a5`, `r2-bib3` and `r2-scf` — differs by **the Mathematical Compendium's md5 alone**, `af9da920` → `b961e9e7`, with **its line count unchanged at 3,807**. There is no second class and no residue.
+- **THE MEMBER'S BYTE COUNT DOES NOT MOVE EITHER.** Both substitutions are same-length — `61` → `62` and `(1927)` → `(1931)` — so the only measurable consequence anywhere in the store is the hash. **A correction that changes two digits and nothing else is what a count-asserted substitution is for**, and this is the first in the leg where the diff census had nothing to explain.
+- **THE CENSUS NEEDED NO CLOSE**: regenerated over BUILD309 it reads 1,629 rows exact, **0 NEW, 0 GONE**, md5 equal to the seated member. No census row quotes the corrected line.
+- **RE-BANKED BY RUNNING**, under `close_rebank.py`'s guards, with `method/bin` first on PATH.
+
