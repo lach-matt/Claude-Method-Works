@@ -4959,3 +4959,84 @@ theorems closes it. Live constructive literature (arXiv:2505.02210, nucleation v
 
 ### Seated
 - `create.py` — new. `phase1.py` — scoped in place. `index3.py` — **366 findings**, seven new.
+
+---
+
+## `detect.py` — how to identify one
+
+`create.py` turned the target from *build* into *find*. This asks what finding one would look like — and
+the discriminator turns out to be **qualitative**, with the search needing **no new instrument**.
+
+### 1. One discriminator, and it's topological
+
+> *"−∞ < r_T < +∞ in case of BH represents the **event horizon and the one side** of the asymptotic
+> region, while... a WH **[has] two asymptotically flat space-time regions with no horizon**."*
+> — Chakraborty & Chakraborty, arXiv:2509.13715
+
+**A black hole absorbs. A wormhole transmits.** Every signature is that fact through a different
+instrument.
+
+### 2. Which channels work — and the famous one that doesn't
+
+| channel | discriminates? | |
+|---|---|---|
+| **shadow** | **NO** | *"wormholes can mimic black hole shadows"* — **EHT alone cannot settle it** |
+| QNM spectrum | yes | no horizon to set the boundary condition |
+| **echoes** | yes | no horizon → no absorption → the cavity rings again |
+| grey body factors | yes | *more* robust to near-throat deformation than QNM overtones |
+| lensing | yes | weak and strong deflection |
+| negative-mass microlensing | yes | a negative mass **de-magnifies** — no positive lens imitates that |
+
+### 3. The smoking gun is qualitative
+
+`Im(ω) = √((b₁−1)(b₀Φ₁−1))/(√2 r_sh)` — as flare-out becomes marginal (`b'(r₀) → 1`), the ringing
+becomes **undamped**: *"standing waves of an oscillating string with fixed ends at the throat."*
+
+> **A black hole always damps, at every parameter**, because energy falls through the horizon.
+
+And better than yes/no: **the damping inverts for `b'(r₀)`** — an observable that measures a metric
+function of the throat.
+
+### 4. Two instruments locked together — so it's falsifiable
+
+`Re(ω) = (l+½)/r_sh`. **EHT measures `r_sh`; LIGO measures `Re(ω)`.** One object, one relation, and a
+disagreement **kills** it. That's the property this project has demanded of its own results throughout.
+
+### 5. Our design carries a surprise: no photon sphere
+
+The photon sphere needs `rΦ'(r) = 1`. Kuhfittig's **zero-tidal-force** design has `Φ' = 0` identically →
+`rΦ' = 0`, never 1. **No photon sphere at all** — the throat itself is the boundary, `r_sh = r₀`.
+
+| r₀ | f (l=2) | LIGO band | exotic mass |
+|---|---|---|---|
+| 2 m | 5.96e+07 Hz | above | 5.4e-05 M☉ |
+| 3 km | 3.98e+04 Hz | above | 0.081 M☉ |
+| **1193 km** | **1.00e+02 Hz** | **YES** | **32.1 M☉** |
+
+**Both of our design points ring above the band.** Neither is findable that way.
+
+### 6. But inverting it gives the search target — and it needs no new detector
+
+> A wormhole ringing at 100 Hz has a **1193 km throat and 32.1 solar masses** — **exactly the
+> stellar-mass range LIGO already observes.**
+
+The search wants the right **discriminator** applied to an existing catalogue: echoes and QNM spectrum,
+not mass and not shadow.
+
+**And that reframes the second half.** A LIGO-band find is **400× Kuhfittig's tension-viable 3 km**. If
+one is found there, **it is already large enough** — "enlarge it" may be the wrong question.
+
+### 7. Provenance agrees with `create.py` from the other side
+
+> *"primordial microscopic WHs evolve to macroscopic size"* during inflation
+
+**A relic, not a construction** — which the topology theorems forced independently. Two routes, one
+conclusion: **look for something old.**
+
+### Limits, stated
+Source is an **essay** (GRF 2025, Honorable Mention) — a summary, not primary derivations. Everything is
+model-dependent in `b(r)`, `Φ(r)`. Echo searches exist and are **contested**; not adjudicated here.
+**No wormhole has been observed.**
+
+### Seated
+- `detect.py` — new. `index3.py` — **375 findings**, nine new.
