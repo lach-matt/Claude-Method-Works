@@ -71,9 +71,9 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD127 main** (2,136,245 B ·
-  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD295 compendia** (16,554,812 B ·
-  `9ea76247929411c5faf60ee41ac367bc` · 144,800 lines · 754 members). **756 members in all.** **The Register runs
-  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-300 seated.**
+  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD296 compendia** (16,579,795 B ·
+  `cd849e40fdd37acb8828c38b1fa356b7` · 145,236 lines · 756 members). **758 members in all.** **The Register runs
+  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-301 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
   change to a seated member, `close_main.py` writes only the Register, `close_rebank.py` only a golden and
@@ -199,6 +199,33 @@ no longer on the read path.
   finds none. **The census needed no close**, W-274's order holding: 1,636 exact, 0 NEW, 0 GONE, md5 equal to
   the seated member. **MEASURED at BUILD127/BUILD295: verify OK, `gate_live.py --census` OK, the 85 live
   goldens 86 OK / 0 FAIL, all 60 `docfigures.py` figures hold.**
+- **AND BUILD296 SEATS THE FOUR HELD INSTRUMENTS' SUCCESSORS, LEAVING NONE HELD (W-301).**
+  **`proofs/bibindex4.py` (25/25)** is the common successor to all three `bibindex` generations —
+  one instrument because the three are **one derivation chain**, which is `compendia3.py`'s own shape.
+  **The whole chain had moved, not the one figure the hold named**: DERIVED 127 → 143, YEAR-DIFFERS
+  12 → 8, NAME-FORM 7 → 3, NOT-ATTRIBUTED 16 → 8; ATTRIBUTED 127 → 143, COMPANION 15 → 9, **LEDGER
+  2 → 0**, NAMED-NOT-DATED 18 → 10; OBJECT 127 → 143, CITED-FULLER 5 → 2, IMPORT-OWED **21 → 8**.
+  **The rows reachable only beyond the published six were seventeen and are nine**, both
+  ledger-only rows are seated, and **`NO-ATTRIBUTION-FOUND` is still zero** — M's ruling re-confirmed
+  against a corpus that moved under it. **The eight owed rows are read, not counted**: four pair an
+  author with a co-cited author's year (`1913 Pauli` from Bohr, `1958 Pauli` from Seaton, `1982 Racah`
+  from Freuder, `1964 Moebius` from the *title* of Rota's paper) and in each the correct row already
+  carries the same handle; one is the first author of a split paper, which the instrument proves
+  rather than asserts — **`1999 Hentenryck` resolves as OBJECT to the very objects `1999 Deville` is
+  owed against**; one prints a Shannon year the volumes never print. **Repairing any of the six moves
+  the printed *162 works* and is M's.**
+- **AND `proofs/compendia4.py` (19/19) CORRECTS A COUNT THE STORE HAS BEEN QUOTING.**
+  `compendia3.py`'s parent test is the **dotted form only**, so it never saw `(³P)ns ⁴P J=5/2` or
+  `2s22p5(2P*3/2)nd …`: **its "only 14 of 596 rows name their parent" was an undercount, and the
+  figure was 73** — now 139 after the relabel, with the dotted test still seeing 80. **A count wrong
+  because the pattern was narrower than the material**, which is the fault M named on 8 September,
+  in the instrument rather than in the question. It also **measures** the four notation duplicates
+  instead of asserting them — normalise away the parent prefix and superscript typography and a
+  repeat on (species, series, n-range) is one series printed twice: **exactly four over 596 rows, all
+  Ar II.** **The looser test reports eight**, and the other four are degenerate *terms* (B V's and
+  Be IV's `np ²P°` against `ns ²S`, C V's and Mg I's singlet against triplet `nf F°`) — **not
+  duplicates, and a pattern would have called them one.** **MEASURED at BUILD127/BUILD296: verify OK,
+  census a fixed point, 86 OK / 0 FAIL, all 60 docfigures figures hold. No instrument is held.**
 - **`proofs/compendia3.py` DISCHARGES TWO OF THE FIVE HELD INSTRUMENTS.** `compendia.py` pinned 23 script sites
   over 18 distinct scripts and 7 stamps; measured now the four volumes print **zero scripts, zero data-file
   names and one stamp match, which is W-284's recorded refusal**. `compendia2.py` raised rather than reported.
