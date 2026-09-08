@@ -4495,3 +4495,36 @@ core" is not a component specification. It is the edge of the map, wearing a com
 
 ### Seated
 - `contain.py` — new. `index3.py` — **329 findings**, seven new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `achronal.py` — the flat-space control, hardened and corrected
+
+A background task was lost to a container restart; recovering what it was for turned up a live
+inconsistency rather than just a weak fixture.
+
+`anecscope.py` struck `achronal.py`'s shear claim and showed the lemma is **wrong in vacuum** — yet
+that file's own selftest still asserted, as a passing check, *"the lemma applies trivially to vacuum."*
+**Header and selftest disagreed.**
+
+**Two fixes:**
+
+1. **The control was a spot check.** It ran one affine length (400 steps × 0.01 = 4.0) and read *"no
+   conjugate point"* off it. In genuinely flat space `u″ = 0` gives `u = λ` **exactly**, so the absence
+   is analytic and **length-independent** — a stronger fact than one run can show. Now asserted at
+   400 / 4000 / 40000 steps.
+
+2. **The distinction the lemma cannot see.**
+
+> **FLAT** means `Riemann = 0` — no Ricci *and* no Weyl — and there is genuinely no conjugate point, for
+> either treatment, at any length.
+> **VACUUM** means only `R_kk = 0`, which **includes the exterior of a mass**, where Weyl is nonzero and
+> focuses.
+> **The lemma cannot tell them apart, because it only ever sees `T_kk`.**
+
+`composite.py` at `M = −2e-3` has `R_kk = 0` identically: the scalar equation says no conjugate point,
+and **the full matrix finds one at 56.50.**
+
+### Seated
+- `achronal.py` — control hardened, contradiction removed. `index3.py` — support row `FLAT-VS-VACUUM`
+  (329 findings, 34 support rows).

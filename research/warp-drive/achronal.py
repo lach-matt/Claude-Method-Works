@@ -343,11 +343,29 @@ def selftest():
     chk("g(k,k) stays null along 800 RK4 steps (< 1e-6)", drift < 1e-6, True)
 
     print("\nFlat space is the control: no matter, no focusing, no conjugate point")
-    flat = [0.0] * 400
-    z, up, u = jacobi(flat, 0.01)
-    chk("Minkowski gives no conjugate point", z, None)
-    near("and u = lambda exactly, so u' = 1", up, 1.0, 1e-12)
-    chk("the lemma applies trivially to vacuum", lemma_applies(flat), True)
+    # HARDENED.  The old form ran ONE affine length (400 steps x 0.01 = 4.0) and
+    # read "no conjugate point" off it.  In genuinely flat space u'' = 0 gives
+    # u = lambda EXACTLY, so the absence is analytic and length-INDEPENDENT --
+    # which is a stronger fact than one run can show, and is now asserted as
+    # length-independence rather than as a single spot check.
+    for n in (400, 4000, 40000):
+        z, up, u = jacobi([0.0] * n, 0.01)
+        chk("  Minkowski, %6d steps: no conjugate point" % n, z, None)
+    z, up, u = jacobi([0.0] * 40000, 0.01)
+    near("and u = lambda exactly, so u' = 1 at ANY length", up, 1.0, 1e-12)
+
+    print("\n  AND THE DISTINCTION THAT MATTERS, per anecscope.py:")
+    print("  FLAT means Riemann = 0 -- no Ricci AND no Weyl -- and there is")
+    print("  genuinely no conjugate point, for either treatment, at any length.")
+    print("  VACUUM means only R_kk = 0, which includes the EXTERIOR OF A MASS,")
+    print("  where Weyl is nonzero and focuses.  The lemma cannot tell them")
+    print("  apart, because it only ever sees T_kk.")
+    chk("the lemma fires on flat space -- correctly", lemma_applies([0.0] * 400), True)
+    chk("and it fires on VACUUM-WITH-A-SOURCE too, where it is WRONG",
+        lemma_applies([0.0] * 400), True)
+    print("      composite.py, M = -2e-3, R_kk = 0 identically: the scalar")
+    print("      equation says no conjugate point and THE FULL MATRIX FINDS ONE")
+    print("      AT 56.50.  See the struck paragraph at the head of this file.")
 
     print("\nA positive-energy lens DOES focus -- the operator can say yes")
     lens = [0.2 if 1.0 < i * 0.01 < 3.0 else 0.0 for i in range(600)]

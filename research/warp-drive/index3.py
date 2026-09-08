@@ -847,6 +847,7 @@ SUPPORT = [
  ("HEADLINE-OUT","nullbound.py",    "this session's headline is withdrawn -- one sampling width is not a scan, and the loosest one was chosen"),
  ("QUAD-CAUGHT", "smearing.py",     "widening the integration window COARSENED the uniform grid until the core was sampled by under one point; the answer drifted and then flipped SIGN at X=3e5. Short window, fine grid, convergence asserted against the closed form"),
  ("OVERWRITE-CAUGHT","anecscope.py",  "this file was first written as selfconsistent.py, silently overwriting a tracked 251-line instrument of that name; obstruct.py's import of its SCOPE dict failed and exposed it. Restored byte-exact from git and renamed. Check the tree before claiming a filename"),
+ ("FLAT-VS-VACUUM","achronal.py",  "its flat-space control read 'no conjugate point' off ONE affine length and then asserted the lemma 'applies trivially to vacuum' -- which anecscope.py had just shown is where the lemma is WRONG. Hardened to length-independence (400/4000/40000 steps) and corrected: FLAT means Riemann = 0, VACUUM means only R_kk = 0 and includes the exterior of a mass where Weyl focuses. The lemma cannot tell them apart because it only ever sees T_kk"),
  ("NULL-CAUGHT","shape.py",         "NO-EVIDENCE was first seated as a finding at (0,0,0); the index refused it, because the null cell is declared not a finding"),
 ]
 
