@@ -71,9 +71,9 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD127 main** (2,136,245 B ·
-  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD292 compendia** (16,532,358 B ·
-  `35536ed8d5b8222715f1bed64c7469c8` · 144,558 lines · 753 members). **755 members in all.** **The Register runs
-  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-297 seated.**
+  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD293 compendia** (16,545,825 B ·
+  `688c725c2c547098bfb91bbaa709da13` · 144,778 lines · 754 members). **756 members in all.** **The Register runs
+  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-298 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
   change to a seated member, `close_main.py` writes only the Register, `close_rebank.py` only a golden and
@@ -154,9 +154,22 @@ no longer on the read path.
   too**: `unwitnessed` is a `witness` value over cells counted at 104,474, so printing 126 under it would have
   replaced a false figure with a false term. `r2-ch16q2` reports the repair from outside it — the numeral 596
   now sits at `pc: [30, 186]`.
-- **FIVE SEATED INSTRUMENTS ARE HELD WITH SUCCESSORS OWED**, each for a recorded reason: `compendia.py` and
-  `compendia2.py` since BUILD279, whose fixtures measure the Ruling 46 material that pass removed; `bibindex.py`,
-  `bibindex2.py` and `bibindex3.py` since BUILD288, whose derivation figure the imports moved.
+- **AND M CORRECTED THE METHOD, WHICH MATTERS MORE THAN THE ITEM (W-298).** The Spectra Compendium's nine
+  duplicated keys were put to M sorted by the SHAPE of their disagreement. M: *"you are trying to identify error
+  by pattern and that fails here because your questions are answered by reading and comprehending the actual
+  material of the objects in question."* **Read, one of the nine was never a duplicate**: Ba III
+  `nd 2[3/2]* J=2` is printed at two limits **17,550 cm⁻¹ apart, the 5p⁵ ²P° splitting** — two parents, so two
+  series, under the volume's own rule that *an open-shell core gives one series per parent, converging on
+  different limits*. **Ten sibling rows print the parent in the label and these do not**, and only **14 of 596
+  rows** name a parent at all, with **Ar II and Ba III each using both conventions**. M ruled the key: **both
+  rows, with the n-range added.** On (species, series, n-range) the nine fall to **two** — the Si I pairs at
+  20–50 and 20–56, which agree in every printed cell but the bracket and δ's fourth decimal. **The volume
+  asserts no key**, so the ruling corrected the instrument and not a byte of a volume.
+- **`proofs/compendia3.py` DISCHARGES TWO OF THE FIVE HELD INSTRUMENTS.** `compendia.py` pinned 23 script sites
+  over 18 distinct scripts and 7 stamps; measured now the four volumes print **zero scripts, zero data-file
+  names and one stamp match, which is W-284's recorded refusal**. `compendia2.py` raised rather than reported.
+  **Three remain held**: `bibindex.py`, `bibindex2.py` and `bibindex3.py`, whose derivation figure the imports
+  moved.
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -175,7 +188,7 @@ no longer on the read path.
   names the method ratio and so joins 296 in that instrument's pinned list — a record outgrowing a pin, which is
   `r2-26b`'s shape and takes a successor rather than an edit (W-260).
   `gate.py manifest --main … --comp …` **OK**;
-  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD292 counting the census
+  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD293 counting the census
   step, registers 1886-1889's **33** moved goldens having been censused and then re-banked by running (W-279).
   **Two builds were seated before one re-bank**, which is the cheaper order when neither moves a line reference:
   BUILD126 and BUILD127 both append only, so of the Register's 6,984 lines exactly eight differ in the common

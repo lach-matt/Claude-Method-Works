@@ -1,0 +1,37 @@
+compendia3 -- the key M ruled, and the state after the repairs
+==============================================================================
+
+1  THE KEY, AS RULED: (species, series, n-range)
+   duplicated on (species, series)            9   <- compendia2.py's figure
+   duplicated on (species, series, n-range)   2   <- M's key
+   so the shorter key could not separate      7 distinct rows
+      Si I       nd (3/2,3/2)* J=1        20–50      L811, L839
+      Si I       nd (3/2,5/2)* J=3        20–56      L812, L841
+   Both remaining pairs agree in EVERY printed cell but the bracket and the
+   fourth decimal of delta.  Nothing printed separates them.
+
+2  THE ONE THAT WAS NEVER A DUPLICATE, READ FROM THE VOLUME'S OWN RULE
+   Ba III | nd 2[3/2]* J=2
+   limits printed              289,100.000 and 306,650.000
+   apart                       17,550 cm-1
+   the volume's rule: one series per parent, converging on different limits.
+   Two parents, two series -- and the label omits the parent.
+
+3  AND THE LABEL FAULT IS WIDER THAN THAT ROW
+   rows whose series label names its parent   14
+   rows whose label does not                  582
+   species that use BOTH conventions          ['Ar II', 'Ba III']
+   Recorded, not repaired: which convention the volume prints is M's.
+
+4  THE RULING 46 MATERIAL, AFTER THE PASS
+   volume  scripts    files   stamps
+   MC            0        0        0
+   PC            0        0        1
+   IoI           0        0        0
+   SC            0        0        0
+   the one stamp match left is W-284's recorded refusal -- "Prior counts,
+   generated on a rule this volume did not print" is prose about how earlier
+   counts were produced, and register 1739 turns on it.
+   compendia.py pinned 23 script sites over 18 distinct scripts and 7 stamps;
+   the pass of BUILD279 and BUILD281 removed them.  Figure image paths are
+   excluded here, as W-286 refuses them: removing one removes a figure.
