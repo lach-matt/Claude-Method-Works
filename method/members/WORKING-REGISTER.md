@@ -9061,3 +9061,10 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **AND ONE DIFF IS WORTH KEEPING BECAUSE IT PROVES THE REACH.** `r2-ch16m2` reports the main member at **769,446 → 769,448**, a rise of two, while the member's byte size is unchanged at 784,466. That instrument counts **characters**: `Barták` is six characters and `Barette` is seven, so **+2 is exactly the two main-volume sites and nothing else moved in that volume.** The one figure that looked unexplained is the tightest confirmation in the set.
 - **RE-BANKED BY RUNNING**, under `close_rebank.py`'s guards, with `method/bin` first on PATH. **The census closed at BUILD298, before this build**, which is W-274's order.
 
+### W-305 — `r4-a6.py` seated, as the five build instruments before it were
+
+- **THE INSTRUMENT THAT WRITES A BUILD IS A MEMBER OF THE BUILD IT WRITES**, which is why `r4-a1` … `r4-a5` are seated and why this one is. Without it the store carries a repair whose derivation it cannot re-run.
+- **`r4-a6.py` IS THE SIXTH, AND THE FIRST TO CORRECT AN ATTRIBUTION RATHER THAN A BOUND OR A COUNT.** It moved both bundles in one build — five volume sites and register 1890 — under the rule that a volume may not change unless a Register entry in the same build records it. Its guards are its predecessors': every substitution count-asserted **in its own member** rather than in the bundle, `build.py`'s SUBS anchors re-checked on all five touched members and none moved, the Register's counts re-taken from the seated tools on the members as they would stand, the front matter proved to sum to itself, and each bundle reverse-guarded to its own predecessor's md5.
+- **IT CARRIES ONE ASSERTION THE OTHERS DID NOT NEED**: that register 401's line is **byte-identical after the write**. The entry this build seats supersedes 401, and an instrument that could edit the entry it supersedes would break the record it is repairing.
+- **AND IT CARRIES THE EVIDENCE IN ITS OWN DOCSTRING**, with the shard path, the conversation's md5 and the three captured reference lists, so the correction can be re-verified from the store without a network.
+

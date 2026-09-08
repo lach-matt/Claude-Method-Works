@@ -70,10 +70,10 @@ no longer on the read path.
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD127 main** (2,136,245 B ·
-  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD296 compendia** (16,579,795 B ·
-  `cd849e40fdd37acb8828c38b1fa356b7` · 145,236 lines · 756 members). **758 members in all.** **The Register runs
-  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-301 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD128 main** (2,138,652 B ·
+  `a17ab9dbc9971a63f6cc1466ff96db30` · 18,908 lines · 2 members) and **BUILD300 compendia** (16,608,192 B ·
+  `dad1a278ba0d116c4eb2b367f3e3d8dc` · 145,514 lines · 757 members). **759 members in all.** **The Register runs
+  1 to 1890, 1,732 seated** (1,725 numbered + 7 grouped). **W-305 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
   change to a seated member, `close_main.py` writes only the Register, `close_rebank.py` only a golden and
@@ -226,6 +226,43 @@ no longer on the read path.
   Be IV's `np ²P°` against `ns ²S`, C V's and Mg I's singlet against triplet `nf F°`) — **not
   duplicates, and a pattern would have called them one.** **MEASURED at BUILD127/BUILD296: verify OK,
   census a fixed point, 86 OK / 0 FAIL, all 60 docfigures figures hold. No instrument is held.**
+- **AND A CO-AUTHOR'S NAME IS CORRECTED AT FIVE SITES, THE SIXTH SUPERSEDED (W-302 to W-305).** The corpus cited
+  *Constraint satisfaction over connected row-convex constraints*, **Artificial Intelligence 109(1-2) (1999)
+  243-271**, under **two different second authors** — sixteen sites *Barette*, six *Barták*, who is a different
+  worker in the same field. The two full bibliographic records agree in title, journal, volume, issue, year and
+  pages, so they name one paper. **M's instruction was *"search the repo"*, and the repository already held the
+  answer three times over**: `drive/chats/2026-08/764406b9-…json` (conversation *transitions*, 777 messages, md5
+  `3cf127ea…`, captured **2026-08-02**) carries three independently captured reference lists — Springer's *On
+  tree-preserving constraints* (Ann. Math. AI 2017), Zhang & Freuder's *Tractable Tree Convex Constraint Networks*
+  (AAAI-04) and arXiv 1708.05522 — in three typesettings, **every one giving Barette, O.** and the same volume,
+  issue and pages. **Searched over all 352 conversations, not one captured source anywhere here gives Barták for
+  this paper**; every occurrence in the export is this work's own prose. **Three sources to zero.**
+- **THE COUNT POINTED THE WRONG WAY AND THAT IS THE LESSON.** Three volumes printed the wrong form against one
+  printing the right one, and that one contradicted itself, so **by weight of sites the correct volume looked like
+  the outlier.** A majority of citations is not a fact about a name. **Why nothing caught it**: every pass that
+  touched these sites verified the **internal triangle** — text, References, Register — and none checked the author
+  list. `READ-ch13g` records only that the citation *"is in the References and cited for the staircase class;
+  Register 401 records it"*; two bullets earlier in that same reading, **Freuder 1982 was found credited with
+  Dechter 1992's theorem and corrected at register 400** — the corpus corrected the wrong theorem attributed to the
+  right paper and never checked the right theorem's authors. **BUILD12 already carries both spellings**, and the
+  imports of W-292 to W-295 propagated the **correct** form.
+- **BUILD128/BUILD297 (`r4-a6.py`, both bundles in one build) SEATS IT, AND THE FIRST ATTEMPT WAS DISCARDED.**
+  Five sites corrected, each count-asserted **in its own member**; the References entry takes the initial the
+  sources give, **Barette, O.**; `Barták` now occurs in no volume of this store except The Register. **Register
+  401 is superseded by entry 1890 and not edited**, and the instrument asserts its line is byte-identical after
+  the write. **The census caught the fault in the first attempt**: entry 1890 had narrated *why nothing caught it*
+  and so cited `W-117` and `READ-ch13g` inside The Register — internal references **Ruling 46** forbids in a
+  reader-facing volume, in a passage of editorial process **Ruling 45** forbids and the two-registers rule sends to
+  the working register instead. `close_census2.py --dry` reported it as `C13-HANDLE-LEAK`, beside two `C9` rows and
+  a `C8` row my own prose had made. **A census run before a re-bank is what makes a discard cheap**, and this is
+  its second instance in this leg. BUILD298 closes the census (**1,636 rows, 0 NEW, 0 GONE**, three by-item and all
+  declared); BUILD299 re-banks **thirty** goldens by running; BUILD300 seats the instrument.
+- **TWO RESIDUES ARE KEPT.** `reg8-B` recurs a **fourth** time and in the other direction — the
+  withdrawn-numbers-in-front-matter list **loses 1731**, because that token existed only inside *"1,731 entries"*.
+  And `r2-ch16m2`'s main figure rises by exactly **two** while the member's byte size is unchanged at 784,466: that
+  instrument counts **characters**, `Barták` is six and `Barette` seven, so **+2 is precisely the two main-volume
+  sites and nothing else moved in that volume.** The one figure that looked unexplained is the tightest
+  confirmation in the set. **MEASURED at BUILD128/BUILD300: verify OK, census a fixed point, 86 OK / 0 FAIL.**
 - **`proofs/compendia3.py` DISCHARGES TWO OF THE FIVE HELD INSTRUMENTS.** `compendia.py` pinned 23 script sites
   over 18 distinct scripts and 7 stamps; measured now the four volumes print **zero scripts, zero data-file
   names and one stamp match, which is W-284's recorded refusal**. `compendia2.py` raised rather than reported.
