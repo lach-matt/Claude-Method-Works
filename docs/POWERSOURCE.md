@@ -598,23 +598,34 @@ it into a wall-plug load is a standard figure. Two machines carry both.
 
 | machine | GeV | beam MW | W at 2 K | wall plug MW | MW per MW of beam | status |
 |---|---:|---:|---:|---|---|---|
-| SNS | 1.0 | 1.40 | 2,500 | 1.86 – 2.48 | 1.33 – 1.77 | OPERATED |
-| ESS | 2.0 | 5.00 | 3,000 | 2.23 – 2.98 | 0.45 – 0.60 | BUILDING |
+| SNS | 1.0 | 1.40 | 2,500 | 2.12 – 2.82 | 1.51 – 2.02 | OPERATED |
+| ESS | 2.0 | 5.00 | 3,000 | 2.54 – 3.39 | 0.51 – 0.68 | BUILDING |
 
-at **745–993 W of wall plug per W removed at 2 K** — Carnot from 300 K is 149 and a real plant reaches
-15–20 % of it.
+**A cryoplant has two circuits and the first pass counted one.** That is a correction this section
+owes itself, and it came out of a question about the shields. ESS's plant covers **3.0 kW at 2 K
+*and* 10.8 kW at 40–50 K** for the thermal shields; the shield circuit was simply missing. The figures
+above now carry both, with the shield scaled from ESS's in proportion to the 2 K duty — an assumption,
+and a small one: the shield is a seventh of the total.
 
-**The cross-check does more than pass.** ESS states its cryoplant's electrical consumption at about
-**3.0 MW**; the band above spans 2.23–2.98 MW from a capacity and a specific power that share nothing
-with that figure — and the stated value sits at the **top**, so a built plant is at the **plain** end
-of the efficiency band, not the good end. The band is kept and the upper end used.
+**And putting both in turns the cross-check into a measurement.** Capacity and consumption together
+*determine* the plant's realised fraction of Carnot; neither alone does:
+
+| | |
+|---|---:|
+| ESS states | 3.0 MW electrical |
+| its two duties cost, at Carnot | 0.508 MW |
+| so the plant realises | **16.9 % of Carnot** |
+
+That lands inside the independently sourced 15–20 % band — **the corroboration the first pass thought
+it already had, and now actually has**. The magnitude did not move and every conclusion below
+survives; what moved is why the number is trusted.
 
 ### One candidate law is refuted outright
 
 | | SNS → ESS | |
 |---|---|---:|
 | beam power | 1.40 → 5.00 MW | **×3.57** |
-| standby | 2.48 → 2.98 MW | **×1.20** |
+| standby | 2.82 → 3.39 MW | **×1.20** |
 
 **The standby does not track beam power.** A 3.6× larger beam carries a 1.2× larger cryoplant. So
 `--linac`'s **SCALED** branch — the one on which dividing the beam into more, smaller drivers was free

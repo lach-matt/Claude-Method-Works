@@ -491,18 +491,25 @@ and **nothing arrives at the gate** — **the beryllium window left the design w
 the summary prose that still listed it was corrected against the row it reads from. **`--criterion3`
 is the pass that closed it, and it closed it by changing the plant.** Two streams had arrived for
 ever and both were design choices rather than laws. **Liquid nitrogen**, 200 t/yr, which the file
-itself called *"the one utility feed"* — nitrogen is 78 % of the air at the site, so the plant
-**liquefies its own** and runs the shield circuit closed, at a sourced 0.357 kWh/kg and **8.1 kW**,
-**0.00071 %** of net output (0.0051 % at the pessimistic end of the band); the feedstock is the
-atmosphere, which is not a delivery. And **the salt-processing reagents**, named but never specified
+itself called *"the one utility feed"* — first closed by liquefying it on site (78 % of the air here)
+at **8.1 kW**, and then **deleted outright**, because a supply line is better removed than fed: the
+shields run on the **helium cryoplant at 45 K**, as the reference machine's do, which takes out a
+fluid, a plant and an inventory. **Two things had to be computed before that was a design change
+rather than a preference.** The row was **never a cooling duty** — run 200 t/yr back through
+nitrogen's latent heat and it is **1,261 W** against a reference machine's **10.8 kW** shield load, so
+it could only have been makeup on a loop already closed, and **the shield heat had never been in the
+inventory at all**. And **77 K loses to 45 K, which is not obvious**: nitrogen is the cheaper
+refrigerant per watt, but a hotter shield radiates at the cold mass, radiation goes as T⁴, and a watt
+at 2 K costs some fifty times a watt at 45 K — the two trade exactly at **0.88 %** of the 2 K load
+being shield radiation, and a real cryomodule is above that. **A break-even, not a preference.** And **the salt-processing reagents**, named but never specified
 and so never priced, are replaced by an **electrical** cleanup — helium sparge on the recirculating
 inventory, noble metals plated out, vacuum distillation for the alkali and alkaline-earth chlorides,
 electrowinning for the lanthanides, any chemical reductant regenerated electrolytically on site —
 whose cost is **bounded rather than designed**: distilling the *whole* 505 t inventory three times a
 year, far more than a slipstream cleanup needs, comes to **0.15 MW**, **0.013 %** of net. A bound is
 computed because the process is not the instrument's to choose, and a negligible bound means the
-choice need not be made to proceed. **A chemical line became an electricity line and the plant makes
-electricity** — 0.16 MW against 1,141 MW net, **0.0137 %**, so nothing else in the design moves.
+choice need not be made to proceed. **One line was deleted and the other became electricity, which the plant makes** — what is left is
+0.15 MW against 1,141 MW net, **0.013 %**, so nothing else in the design moves.
 **What remains is two rows and both are parts**: the fission-product removal system and the
 krypton-85 capture bed. **The criterion now holds on every material stream and fails on parts
 alone** — and the pass is **not claimed complete**: the consumables were a design choice and were
@@ -744,10 +751,14 @@ limit** — each a property of a design rather than of a class.
 **`--standby` then makes the measurement `explore.py` ordered first, and it is published in the
 *cryogenics* literature rather than the accelerator one — which is why looking for it beside a beam
 power never found it.** Two machines state a cryoplant capacity beside a beam power: **SNS, 2.5 kW at
-2 K on a 1 GeV / 1.4 MW machine**, and **ESS, 3.0 kW at 2 K on 2 GeV / 5 MW** — **1.86–2.98 MW** of
-wall plug at the sourced 745–993 W per W removed at 2 K. **The cross-check does more than pass**: ESS's
-own stated ~3.0 MW sits at the *top* of a band built from a capacity and a specific power that share
-nothing with it, so a built plant is at the **plain** end of the efficiency band. **And one candidate
+2 K on a 1 GeV / 1.4 MW machine**, and **ESS, 3.0 kW at 2 K on 2 GeV / 5 MW**. **A cryoplant has two
+circuits and the first pass counted one** — ESS's covers 3.0 kW at 2 K *and* **10.8 kW at 40–50 K** for
+the thermal shields, and the shield circuit was missing; the correction came out of a question about
+the shields and takes the band to **2.12–3.39 MW**. **Putting both in turns the cross-check into a
+measurement**: capacity and consumption together *determine* the plant's realised fraction of
+Carnot — **16.9 %**, inside the independently sourced 15–20 % band, which is the corroboration the
+first pass thought it already had. **The magnitude did not move and every conclusion below survives**;
+what moved is why the number is trusted. **And one candidate
 law is refuted outright** — ESS's beam is **3.57×** SNS's and its cryoplant **1.20×**, so the standby
 does **not** track beam power and `--linac`'s SCALED branch, the one on which dividing the beam was
 free, is gone. What two points cannot do is settle the *exponent*: 0.26 is what the pair implies and is

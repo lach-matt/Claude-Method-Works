@@ -117,8 +117,22 @@ choice rather than a law**, and this is the pass that changed the design.
 | | |
 |---|---|
 | was | **200 t/yr** in a tanker — the file called it *"the one utility feed"* |
-| now | liquefied **on site**. Nitrogen is 78 % of the air here, so the shield circuit runs **closed** and the feedstock is the atmosphere, which is not a delivery. |
-| cost | **8.1 kW** at a sourced **0.357 kWh/kg** — **0.00071 %** of net output. At the pessimistic 2.56 kWh/kg, 0.0051 %. |
+| then | liquefied **on site** (nitrogen is 78 % of the air here) at **8.1 kW**, 0.00071 % of net. That closed the gate line by **adding a plant**. |
+| now | **DELETED.** The shields run on the helium cryoplant at **45 K**, as the reference machine's do. One fewer fluid, one fewer plant, one fewer inventory. **A supply line is better removed than fed.** |
+
+**Two things had to be computed before that was a design change rather than a preference.**
+
+**The row was never a cooling duty.** Run 200 t/yr back through nitrogen's latent heat and it is
+**1,261 W**. The reference machine's shield load is **10.8 kW**. A figure three orders below the duty
+it names could only ever have been **makeup on a loop already closed** — so *"the one utility feed"*
+was leakage top-up, and **the shield heat itself had never been in the inventory at all**. It is in
+the cryoplant, and the cryoplant is in `powersource --standby`, **which had to be corrected for it**.
+
+**And 77 K loses to 45 K, which is not obvious.** Nitrogen is the cheaper refrigerant per watt — about
+half what 45 K costs — but a hotter shield radiates at the cold mass, radiation goes as T⁴, and a watt
+at 2 K costs some fifty times a watt at 45 K. The two trade exactly when **0.88 %** of the 2 K load is
+shield radiation, and in any real cryomodule it is more than that. **The answer is a break-even rather
+than a preference**, and helium wins.
 
 **Salt-processing reagents, for fission-product removal.**
 
@@ -131,8 +145,10 @@ choice rather than a law**, and this is the pass that changed the design.
 **A bound is computed because the process is not this file's to choose**, and if the bound is
 negligible the choice does not have to be made to proceed.
 
-**A chemical line becomes an electricity line, and the plant makes electricity.** Together the two
-draw **0.16 MW against 1,141 MW net — 0.0137 %** — so nothing else in the plant moves.
+**One line was deleted and the other became electricity, which the plant makes.** What is left of the
+two is **0.15 MW against 1,141 MW net — 0.013 %** — so nothing else in the plant moves. The nitrogen's
+own cost is not in that figure **because there is no nitrogen**: the shield heat it was carrying is
+inside the cryoplant, where it always was and where it is now counted.
 
 ### What remains, read from the inventory rather than remembered
 

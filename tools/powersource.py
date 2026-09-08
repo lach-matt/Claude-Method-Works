@@ -2012,28 +2012,92 @@ CRYOPLANT = {                  # (energy GeV, beam MW, W at 2 K, status)
     "SNS": (1.00, 1.40, 2500.0, "OPERATED"),     # SOURCED: 2.1 K, 2.5 kW
     "ESS": (2.00, 5.00, 3000.0, "BUILDING"),     # SOURCED: 3.0 kW at 2 K
 }
-# SOURCED, and a BAND rather than a point: Carnot from 300 K to 2 K is 149 W
-# per W and a real plant reaches 15 to 20 percent of it, which is 745 at the
-# good end and 993 at the plain one.
-SPECIFIC_POWER_2K_LO = 149.0 / 0.20
-SPECIFIC_POWER_2K_HI = 149.0 / 0.15
+# A CORRECTION THIS SECTION OWES ITSELF, and it came out of a question about
+# the shields. The first pass built the standby from the 2 K circuit ALONE,
+# at 15 to 20 percent of Carnot, and got 2.23 to 2.98 MW for ESS against its
+# own stated ~3.0 MW. That looked like a clean cross-check and it was the
+# right total for the wrong reason: A CRYOPLANT HAS TWO CIRCUITS. ESS's
+# covers 3.0 kW at 2 K AND 10.8 kW at 40-50 K for the thermal shields, and
+# the shield circuit was simply missing.
+#
+# Put both in and the two published numbers stop being a check and become a
+# MEASUREMENT: capacity and consumption together DETERMINE the plant's
+# realised fraction of Carnot, and it lands at 16.9 percent -- inside the
+# independently sourced 15 to 20 percent band, which is the corroboration the
+# first pass thought it already had.
+T_AMBIENT_K = 300.0
+T_CAVITY_K = 2.0
+T_SHIELD_K = 45.0              # SOURCED band 40-50; the shield stage
+T_LN2_K = 77.0                 # nitrogen's boiling point, for the comparison
+                               # materials.py --criterion3 makes
+ESS_SHIELD_W = 10800.0         # SOURCED: ESS thermal shields, 40-50 K
 ESS_CRYOPLANT_MW_STATED = 3.0  # SOURCED: the plant's own stated electrical
-                               # consumption. It is the CHECK on the two
-                               # lines above and it does more than pass -- it
-                               # says which end of the efficiency band a
-                               # built plant sits at, which is the plain one.
+                               # consumption
+CARNOT_FRACTION_LO = 0.15      # SOURCED band for a real 2 K plant
+CARNOT_FRACTION_HI = 0.20
 
 
-def cryoplant_electric_mw(name, specific=None):
-    """A published cryoplant's wall-plug load, from its 2 K capacity."""
+def carnot_w_per_w(t_cold, t_hot=T_AMBIENT_K):
+    """The thermodynamic floor: wall-plug W per W lifted from t_cold."""
+    if not 0.0 < t_cold < t_hot:
+        raise ValueError(f"a cold temperature is in (0, {t_hot}), got {t_cold}")
+    return (t_hot - t_cold) / t_cold
+
+
+def specific_power(t_cold, fraction):
+    """Wall-plug W per W removed, at a stated fraction of Carnot."""
+    if not 0.0 < fraction <= 1.0:
+        raise ValueError(f"a fraction of Carnot is in (0,1], got {fraction}")
+    return carnot_w_per_w(t_cold) / fraction
+
+
+def realised_carnot_fraction():
+    """What ESS's own two published numbers say its plant achieves.
+
+    Capacity and consumption together determine it; neither alone does. This
+    is a MEASUREMENT rather than an assumption, and the selftest checks it
+    lands inside the independently sourced band."""
+    w = (ESS_SHIELD_W * carnot_w_per_w(T_SHIELD_K)
+         + CRYOPLANT["ESS"][2] * carnot_w_per_w(T_CAVITY_K))
+    return w / (ESS_CRYOPLANT_MW_STATED * 1e6)
+
+
+def cryoplant_electric_mw(name, fraction=None):
+    """A published cryoplant's wall-plug load, BOTH circuits.
+
+    The shield circuit is scaled from ESS's in proportion to the 2 K duty,
+    because no other machine here publishes one -- an assumption, and marked
+    as one, but a small term: the shield is a seventh of the total."""
     _e, _b, w2k, _s = CRYOPLANT[name]
-    sp = SPECIFIC_POWER_2K_HI if specific is None else specific
-    return w2k * sp / 1e6
+    f = CARNOT_FRACTION_LO if fraction is None else fraction
+    w_shield = ESS_SHIELD_W * w2k / CRYOPLANT["ESS"][2]
+    return (w2k * specific_power(T_CAVITY_K, f)
+            + w_shield * specific_power(T_SHIELD_K, f)) / 1e6
 
 
 def cryoplant_band_mw(name):
-    return (cryoplant_electric_mw(name, SPECIFIC_POWER_2K_LO),
-            cryoplant_electric_mw(name, SPECIFIC_POWER_2K_HI))
+    return (cryoplant_electric_mw(name, CARNOT_FRACTION_HI),
+            cryoplant_electric_mw(name, CARNOT_FRACTION_LO))
+
+
+def shield_breakeven_fraction(name="ESS"):
+    """Below what share of the 2 K load being shield RADIATION does a 77 K
+    nitrogen shield beat a 45 K helium one?
+
+    Nitrogen is the cheaper refrigerant per watt -- 77 K costs about half
+    what 45 K does -- but it leaves a hotter shield radiating at the cold
+    mass, and radiation goes as T^4 while a watt at 2 K costs some fifty
+    times a watt at 45 K. This returns the share at which the two exactly
+    trade, so the comparison is a computed break-even rather than a
+    preference."""
+    f = realised_carnot_fraction()
+    _e, _b, w2k, _s = CRYOPLANT[name]
+    w_shield = ESS_SHIELD_W * w2k / CRYOPLANT["ESS"][2]
+    saving = w_shield * (specific_power(T_SHIELD_K, f)
+                         - specific_power(T_LN2_K, f))
+    worse = (T_LN2_K / T_SHIELD_K) ** 4 - 1.0
+    cost_per_unit = w2k * worse * specific_power(T_CAVITY_K, f)
+    return saving / cost_per_unit
 
 
 def standby_law(e_gev, exponent, ref="ESS"):
@@ -2088,22 +2152,35 @@ def report_standby():
         print(f"      {n:<9} {e:4.1f} {b:9.2f} {w:10.0f}"
               f" {lo:7.2f} to {hi:.2f} {lo / b:10.2f} to {hi / b:.2f}   {st}")
     print()
-    print(f"      at {SPECIFIC_POWER_2K_LO:.0f} to {SPECIFIC_POWER_2K_HI:.0f}"
-          " W of wall plug per W removed at 2 K --")
-    print("      Carnot from 300 K is 149 and a real plant reaches 15 to 20")
-    print("      percent of it.")
+    print("    A CRYOPLANT HAS TWO CIRCUITS AND THE FIRST PASS COUNTED ONE.")
+    print("    That is a correction this section owes itself, and it came out")
+    print("    of a question about the shields. ESS's plant covers")
+    print(f"    {CRYOPLANT['ESS'][2] / 1000.0:.1f} kW at"
+          f" {T_CAVITY_K:.0f} K AND {ESS_SHIELD_W / 1000.0:.1f} kW at"
+          f" {T_SHIELD_K:.0f} K for the thermal shields; the shield")
+    print("    circuit was simply missing. The figures above now carry both,")
+    print("    with the shield scaled from ESS's in proportion to the 2 K")
+    print("    duty, which is an ASSUMPTION and a small one -- the shield is")
+    print("    a seventh of the total.")
     print()
-    print("    THE ARITHMETIC IS CHECKED BEFORE IT IS USED, AND THE CHECK")
-    print("    DOES MORE THAN PASS. ESS states its cryoplant's electrical")
-    print(f"    consumption at about {ESS_CRYOPLANT_MW_STATED:.1f} MW. The"
-          " band above spans")
-    print(f"    {cryoplant_band_mw('ESS')[0]:.2f} to"
-          f" {cryoplant_band_mw('ESS')[1]:.2f} MW from a capacity and a"
-          " specific power that share")
-    print("    nothing with that figure, and the stated value sits at the")
-    print("    TOP of it -- so a built plant is at the plain end of the")
-    print("    efficiency band, not the good end. The band is kept and the")
-    print("    upper end is used.")
+    print("    AND PUTTING BOTH IN TURNS THE CROSS-CHECK INTO A MEASUREMENT.")
+    print("    Capacity and consumption together DETERMINE the plant's")
+    print("    realised fraction of Carnot; neither alone does:")
+    print()
+    print(f"      ESS states                       "
+          f"{ESS_CRYOPLANT_MW_STATED:.1f} MW electrical")
+    print(f"      its two duties cost, at Carnot   "
+          f"{(ESS_SHIELD_W * carnot_w_per_w(T_SHIELD_K) + CRYOPLANT['ESS'][2] * carnot_w_per_w(T_CAVITY_K)) / 1e6:.3f} MW")
+    print(f"      so the plant realises            "
+          f"{100.0 * realised_carnot_fraction():.1f} % of Carnot")
+    print()
+    print(f"    That lands inside the independently sourced"
+          f" {100 * CARNOT_FRACTION_LO:.0f} to"
+          f" {100 * CARNOT_FRACTION_HI:.0f} percent")
+    print("    band -- which is the corroboration the first pass thought it")
+    print("    already had, and now actually has. THE MAGNITUDE DID NOT MOVE")
+    print("    and every conclusion below survives; what moved is why the")
+    print("    number is trusted.")
     print()
     print("    AND THE FIRST RESULT REFUTES A CANDIDATE LAW OUTRIGHT.")
     print()
@@ -3595,10 +3672,34 @@ def selftest():
     # sits at the TOP of a band built from a capacity and a specific power
     # that share nothing with it, which says which end of the efficiency
     # band a built plant is at.
-    check("the band reproduces ESS's own stated cryoplant consumption",
-          _ess[0] <= ESS_CRYOPLANT_MW_STATED <= _ess[1] * 1.02)
-    check("  -- at the top of it, so a built plant is at the plain end",
-          abs(_ess[1] - ESS_CRYOPLANT_MW_STATED) < 0.1)
+    check("the band brackets ESS's own stated cryoplant consumption",
+          _ess[0] <= ESS_CRYOPLANT_MW_STATED <= _ess[1])
+    # THE CORRECTION: a cryoplant has TWO circuits and the first pass counted
+    # one. With both in, the two published numbers DETERMINE the realised
+    # fraction of Carnot instead of merely agreeing with an assumed one.
+    check("both circuits are counted, so the realised Carnot fraction is"
+          " determined",
+          CARNOT_FRACTION_LO < realised_carnot_fraction()
+          < CARNOT_FRACTION_HI)
+    check("  -- and the shield is a real but minor share of it",
+          0.05 < (ESS_SHIELD_W * carnot_w_per_w(T_SHIELD_K))
+          / (ESS_SHIELD_W * carnot_w_per_w(T_SHIELD_K)
+             + CRYOPLANT["ESS"][2] * carnot_w_per_w(T_CAVITY_K)) < 0.25)
+    check("  -- and the magnitude did not move: the assumed 1 MW is still low",
+          REF_STANDBY_KW / 1000.0 < min(_sns[0], _ess[0]))
+    # THE SHIELD TRADE, computed rather than preferred.
+    check("a 77 K nitrogen shield loses to a 45 K helium one above a tiny"
+          " radiative share",
+          0.0 < shield_breakeven_fraction() < 0.05)
+    check("  -- because 2 K is dearer per watt than 45 K by a large factor",
+          specific_power(T_CAVITY_K, realised_carnot_fraction())
+          / specific_power(T_SHIELD_K, realised_carnot_fraction()) > 20.0)
+    check("a cold temperature outside (0, ambient) is refused",
+          _raises_value(lambda: carnot_w_per_w(0.0))
+          and _raises_value(lambda: carnot_w_per_w(400.0)))
+    check("a fraction of Carnot outside (0,1] is refused",
+          _raises_value(lambda: specific_power(2.0, 0.0))
+          and _raises_value(lambda: specific_power(2.0, 1.5)))
     # THE REFUTATION. --linac offered two candidate laws and could not
     # choose; two measured machines choose.
     check("beam power differs between the two machines by more than three",

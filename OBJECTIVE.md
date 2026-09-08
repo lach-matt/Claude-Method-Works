@@ -212,11 +212,20 @@ Two streams arrived at the gate for ever, and both were design choices rather
 than laws:
 
 - **Liquid nitrogen**, 200 t/yr, which the file itself called *"the one utility
-  feed"*. Nitrogen is 78 % of the air at the site, so the plant **liquefies its
-  own** and runs the shield circuit closed. At a sourced 0.357 kWh/kg that is
-  **8.1 kW**, or **0.00071 %** of net output — 0.0051 % even at the pessimistic
-  end of the published band. The feedstock is the atmosphere, which is not a
-  delivery.
+  feed"*. First closed by liquefying it on site — nitrogen is 78 % of the air
+  here — at **8.1 kW**, 0.00071 % of net. **Then deleted outright**: the shields
+  run on the **helium cryoplant at 45 K**, as the reference machine's do, which
+  removes a fluid, a plant and an inventory rather than adding one to feed a
+  line. **A supply line is better removed than fed.** Two things were computed
+  first. The row was **never a cooling duty** — 200 t/yr through nitrogen's
+  latent heat is **1,261 W** against a reference machine's **10.8 kW** shield
+  load, so it was makeup on a loop already closed and **the shield heat had
+  never been in the inventory at all**. And **77 K loses to 45 K**: nitrogen is
+  the cheaper refrigerant per watt, but a hotter shield radiates at the cold
+  mass, radiation goes as T⁴, and a watt at 2 K costs fifty times a watt at
+  45 K — they trade exactly at **0.88 %** of the 2 K load being shield
+  radiation, and a real cryomodule is above that. **A break-even, not a
+  preference.**
 - **Salt-processing reagents**, which had been named but never specified and so
   never priced. The fission-product removal is now specified **electrical** —
   helium sparge on the recirculating inventory, noble metals plated out, vacuum
@@ -228,9 +237,11 @@ than laws:
   process is not the instrument's to choose, and a negligible bound means the
   choice need not be made to proceed.
 
-**A chemical line became an electricity line, and the plant makes electricity.**
-Together the two draw **0.16 MW against 1,141 MW net — 0.0137 %** — so nothing
-else in the design moves.
+**One line was deleted and the other became electricity, which the plant makes.**
+What is left is **0.15 MW against 1,141 MW net — 0.013 %** — so nothing else in
+the design moves. And the deletion had a second consequence: the shield heat it
+was carrying is inside the cryoplant, which sent `powersource --standby` back to
+count a circuit it had missed.
 
 **What remains is two rows and both are parts**: the fission-product removal
 system (still the single most demanding unbuilt item here) and the krypton-85

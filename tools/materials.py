@@ -131,9 +131,14 @@ SEC_PER_YEAR = 3.15576e7
 # What that does NOT close is the parts line, and this file does not pretend
 # it does. See report_criterion3().
 LN2_KWH_PER_KG = 0.357        # SOURCED: conventional cryogenic air
-                              # separation producing LN2
-LN2_KWH_PER_KG_HI = 2.56      # SOURCED: the pessimistic end of the published
-                              # band, for a small or badly integrated plant
+                              # separation producing LN2. KEPT because the
+                              # first fix priced it, and the second fix --
+                              # deleting the nitrogen instead of making it --
+                              # is only defensible beside what it replaces
+LN2_KWH_PER_KG_HI = 2.56      # SOURCED: the pessimistic end of the band
+LN2_LATENT_J_KG = 1.99e5      # SOURCED: nitrogen's heat of vaporisation, and
+                              # the line that showed the row was never a
+                              # cooling duty at all -- see report_criterion3
 SALT_VAP_MJ_KG = 2.9          # SOURCED: NaCl heat of vaporisation, 171
                               # kJ/mol over 58.4 g/mol
 SALT_PASSES_PER_YEAR = 3.0    # ASSUMED, and deliberately pessimistic: it
@@ -792,17 +797,17 @@ def bill():
        "CIRCULATING",
        "closed-cycle; full gas-bag + high-pressure recovery for the whole "
        "inventory, because a quench must not vent"))
-    A(("driver", "liquid nitrogen, thermal shields", L * 40.0, "t/yr",
-       "REQUIREMENT", "CIRCULATING",
-       "WAS a bought utility feed and is now made on site: nitrogen is 78 % "
-       "of the air here, so the plant liquefies its own and runs the shield "
-       "circuit closed. See the liquefier row and report_criterion3()"))
-    A(("driver", "nitrogen liquefier, on site", ln2_power_kw(), "kW",
+    A(("driver", "liquid nitrogen, thermal shields", 0.0, "-",
        "DERIVED", "FIRST-CHARGE",
-       f"an ordinary cryogenic air separation unit at "
-       f"{LN2_KWH_PER_KG:.3f} kWh/kg SOURCED, sized for the shield duty. It "
-       f"is {100.0 * ln2_share_of_net():.5f} % of net output -- the row "
-       "exists to CLOSE a gate line, not because it costs anything"))
+       "NONE. The shields run on the helium cryoplant at "
+       f"{shield_t_k():.0f} K, as the reference machine's do, and the "
+       "nitrogen circuit is deleted rather than closed. Two reasons and both "
+       "are computed: the row's own 40 t/yr per driver corresponds to "
+       f"{ln2_implied_duty_w():.1f} W of cooling, so it was never a shield "
+       "duty and could only have been makeup on a loop already closed; and a "
+       "77 K shield loses to a 45 K one once more than "
+       f"{100.0 * shield_breakeven():.2f} % of the 2 K load is radiation from "
+       "it. See report_criterion3()"))
     A(("driver", "copper and steel, cryomodules", L * linac_length_m() * 2.0,
        "t",
        "REQUIREMENT", "FIRST-CHARGE",
@@ -1070,6 +1075,27 @@ def report_storage():
     print("      stops, and the drain is the second, independent way to say so.")
 
 
+def shield_t_k():
+    return _ps().T_SHIELD_K
+
+
+def shield_breakeven():
+    """Imported from powersource, never restated: the share of the 2 K load
+    that must be shield radiation before nitrogen beats helium."""
+    return _ps().shield_breakeven_fraction()
+
+
+def ln2_implied_duty_w(tonnes_per_year=None):
+    """What the design's own nitrogen row implies as a HEAT DUTY.
+
+    THE LINE THAT DECIDED IT. A row quoted in tonnes a year is a duty only if
+    the nitrogen is boiled off; run it back through the latent heat and the
+    figure the file carried is a fraction of a watt, against a reference
+    machine's ten kilowatts of shield load. It was never a cooling duty."""
+    t = ln2_tonnes_per_year() if tonnes_per_year is None else tonnes_per_year
+    return t * 1000.0 * LN2_LATENT_J_KG / SEC_PER_YEAR
+
+
 def ln2_tonnes_per_year():
     """The shield circuit's nitrogen duty: 40 t/yr per driver, as the row
     that states it has always carried."""
@@ -1134,14 +1160,40 @@ def report_criterion3():
     print(f"        was  {ln2_tonnes_per_year():.0f} t/yr in a tanker, and the"
           " file called it")
     print("             'the one utility feed'")
-    print("        now  liquefied on site. Nitrogen is 78 % of the air here,")
-    print("             so the shield circuit runs CLOSED and the feedstock")
-    print("             is the atmosphere, which is not a delivery.")
-    print(f"        cost {ln2_power_kw():.1f} kW at {LN2_KWH_PER_KG:.3f}"
-          f" kWh/kg, which is {100.0 * ln2_share_of_net():.5f} % of net")
-    print(f"             output. At the pessimistic {LN2_KWH_PER_KG_HI:.2f}"
-          f" kWh/kg it is"
-          f" {100.0 * ln2_share_of_net(LN2_KWH_PER_KG_HI):.4f} %.")
+    print("        then liquefied on site -- nitrogen is 78 % of the air")
+    print(f"             here -- at {ln2_power_kw():.1f} kW,"
+          f" {100.0 * ln2_share_of_net():.5f} % of net output. That")
+    print("             closed the gate line by ADDING a plant.")
+    print("        now  DELETED. The shields run on the helium cryoplant at")
+    print(f"             {shield_t_k():.0f} K, as the reference machine's do."
+          " One fewer fluid,")
+    print("             one fewer plant, one fewer inventory. A supply line")
+    print("             is better removed than fed.")
+    print()
+    print("        AND TWO THINGS HAD TO BE COMPUTED BEFORE THAT WAS A")
+    print("        DESIGN CHANGE RATHER THAN A PREFERENCE.")
+    print()
+    print(f"          THE ROW WAS NEVER A COOLING DUTY. Run"
+          f" {ln2_tonnes_per_year():.0f} t/yr back")
+    print(f"          through nitrogen's latent heat and it is"
+          f" {ln2_implied_duty_w():.0f} W. The")
+    print("          reference machine's shield load is 10.8 kW. A figure")
+    print("          three orders below the duty it names could only ever")
+    print("          have been MAKEUP on a loop that was already closed --")
+    print("          so the 'one utility feed' was leakage top-up, and the")
+    print("          shield heat itself had never been in the inventory at")
+    print("          all. It is in the cryoplant, and the cryoplant is in")
+    print("          powersource --standby, which had to be corrected for it.")
+    print()
+    print("          AND 77 K LOSES TO 45 K, WHICH IS NOT OBVIOUS. Nitrogen")
+    print("          is the cheaper refrigerant per watt -- about half what")
+    print("          45 K costs -- but a hotter shield radiates at the cold")
+    print("          mass, radiation goes as T^4, and a watt at 2 K costs")
+    print("          some fifty times a watt at 45 K. The two trade exactly")
+    print(f"          when {100.0 * shield_breakeven():.2f} % of the 2 K load"
+          " is shield radiation, and in")
+    print("          any real cryomodule it is more than that. THE ANSWER IS")
+    print("          A BREAK-EVEN RATHER THAN A PREFERENCE, and helium wins.")
     print()
     print("      SALT-PROCESSING REAGENTS, for fission-product removal")
     print("        was  'the reagents the salt's fission-product removal")
@@ -1162,12 +1214,15 @@ def report_criterion3():
     print("             PROCESS IS NOT THIS FILE'S TO CHOOSE, and if the")
     print("             bound is negligible the choice does not have to be.")
     print()
-    print("    A CHEMICAL LINE BECOMES AN ELECTRICITY LINE, AND THE PLANT")
-    print(f"    MAKES ELECTRICITY. Together the two draw"
-          f" {(ln2_power_kw() + salt_processing_kw())/1000.0:.2f} MW against")
+    print("    ONE LINE WAS DELETED AND THE OTHER BECAME ELECTRICITY, WHICH")
+    print(f"    THE PLANT MAKES. What is left of the two is"
+          f" {salt_processing_kw()/1000.0:.2f} MW against")
     print(f"    {ref()['net_mw']:,.0f} MW net --"
-          f" {100.0*(ln2_power_kw() + salt_processing_kw())/(ref()['net_mw']*1000.0):.4f}"
-          " % -- so nothing else in the plant moves.")
+          f" {100.0*salt_processing_kw()/(ref()['net_mw']*1000.0):.4f}"
+          " % -- so nothing else in the plant moves. The")
+    print("    nitrogen's own cost is not in that figure because there is no")
+    print("    nitrogen: the shield heat it was carrying is inside the")
+    print("    cryoplant, where it always was and where it is now counted.")
     print()
     print("    WHAT REMAINS, READ FROM THE INVENTORY RATHER THAN REMEMBERED")
     print()
@@ -1515,20 +1570,32 @@ def selftest():
     check("no row is STOCKPILED as a bought cryogen any more",
           not any(sup == "STOCKPILED" and "nitrogen" in mat
                   for _z, mat, _v, _u, _st, sup, _n in _rows))
-    check("the nitrogen row is CIRCULATING, on a closed circuit",
-          any(sup == "CIRCULATING" and "nitrogen, thermal shields" in mat
-              for _z, mat, _v, _u, _st, sup, _n in _rows))
-    check("  -- and the liquefier that makes it is a FIRST-CHARGE item",
-          any(sup == "FIRST-CHARGE" and "liquefier" in mat
-              for _z, mat, _v, _u, _st, sup, _n in _rows))
+    # THE SECOND FIX, and it replaced the first: making the nitrogen on site
+    # closed the gate line by ADDING a plant. Deleting the nitrogen closes it
+    # by removing one, which is strictly better and is what the reference
+    # machine does.
+    check("the nitrogen circuit is DELETED, not merely closed",
+          any("nitrogen, thermal shields" in mat and val == 0.0
+              for _z, mat, val, _u, _st, _sup, _n in _rows))
+    check("  -- and no liquefier is seated to feed it",
+          not any("liquefier" in mat
+                  for _z, mat, _v, _u, _st, _sup, _n in _rows))
+    # BOTH LEGS OF THAT DECISION ARE COMPUTED, not preferred.
+    check("the deleted row was never a cooling duty",
+          ln2_implied_duty_w() < 0.2 * _ps().ESS_SHIELD_W)
+    check("  -- three orders below the load it named",
+          _ps().ESS_SHIELD_W / ln2_implied_duty_w() > 5.0)
+    check("77 K loses to 45 K above a tiny radiative share of the 2 K load",
+          0.0 < shield_breakeven() < 0.05)
+    check("  -- and the break-even is IMPORTED, never restated here",
+          shield_breakeven() == _ps().shield_breakeven_fraction())
     check("the salt cleanup carries an electricity row",
           any("salt-processing electricity" in mat
               for _z, mat, _v, _u, _st, sup, _n in _rows))
     # BOTH COSTS ARE NEGLIGIBLE, which is why the change is free.
-    _tot = ln2_power_kw() + salt_processing_kw()
-    check("the two together are under a thousandth of net output",
-          _tot / (ref()["net_mw"] * 1000.0) < 1e-3)
-    check("  -- and still are at the pessimistic liquefaction figure",
+    check("what remains of the two costs under a thousandth of net output",
+          salt_processing_kw() / (ref()["net_mw"] * 1000.0) < 1e-3)
+    check("  -- and would have, even by the route that was not taken",
           (ln2_power_kw(LN2_KWH_PER_KG_HI) + salt_processing_kw())
           / (ref()["net_mw"] * 1000.0) < 1e-3)
     # THE SALT BOUND IS A BOUND: making it harsher must not change the verdict.
