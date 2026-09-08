@@ -38,7 +38,26 @@ HOSTILE OUTSIDE -- the combination a fixed approach hides, and the reason the
 first version of this test was wrong.  Sufficiency is a theorem; the exact
 frontier of universality is NOT-RUN, never absent.
 
-Lyapunov's condition is universal the other way: below it nothing seats, ever.
+~~Lyapunov's condition is universal the other way: below it nothing seats,
+ever.~~
+
+    *** STRUCK.  FALSE ONCE SHEAR IS PRESENT, AND THE TREE HOLDS THE
+        COUNTEREXAMPLE. ***
+
+    Both bounds in this file are theorems about the SCALAR Sturm-Liouville
+    problem u'' = -q u -- that is, RICCI focusing with shear dropped.  Sturm
+    SUFFICIENCY survives unharmed: enough q still seats.  LYAPUNOV NECESSITY
+    does not, because it can only ever see q, and Weyl focuses without it.
+
+    In vacuum q = 4 pi T_kk = 0 identically, so INT q+ dl = 0, Lyapunov's
+    number is 0 and lyapunov_excluded() returns True -- "excludes seating for
+    ANY shape".  composite.py, in that same vacuum, MEASURES A CONJUGATE POINT
+    AT 56.50.  Weyl is traceless and focuses one eigendirection whatever q
+    does.
+
+    The honest statement is narrower: BELOW LYAPUNOV NOTHING SEATS BY RICCI
+    FOCUSING ALONE.  See dichotomy.py and anecscope.py; this is the third
+    instance in this tree of a Ricci-only result asserted universally.
 
     THE THREE POPULATIONS ARE M'S OWN, AND THEY ARE NOT FORCED ONTO THIS.
     Register 1206: "the Method equation partitions an index into three
@@ -148,12 +167,22 @@ def sturm_sufficient(m, l):
 
 
 def lyapunov_number(m, l, L):
-    """L * INT q+ / 4.  <= 1 excludes seating for ANY shape."""
+    """L * INT q+ / 4.  <= 1 excludes seating BY RICCI FOCUSING for any shape.
+
+    NOT seating in general: Weyl seats with q = 0 (composite.py, 56.50).  The
+    unqualified reading is struck at the head of this file.
+    """
     return L * max(m, 0.0) * l / 4.0
 
 
 def lyapunov_excluded(m, l, L):
+    """Excluded BY RICCI.  Weyl is not covered -- see the note above."""
     return lyapunov_number(m, l, L) <= 1.0
+
+
+def lyapunov_excludes_weyl():
+    """No.  The counterexample is in this tree: vacuum q = 0 seats at 56.50."""
+    return False
 
 
 def population(m, l, L):

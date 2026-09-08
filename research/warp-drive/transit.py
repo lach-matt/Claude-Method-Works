@@ -53,6 +53,26 @@ observers disagree about where B is and agree about L.
     Then v(x) := u(L - x) satisfies v'' + q~ v = 0 with v(0) = u(L) = 0 and
     v(L) = u(0) = 0.  The SAME pair is conjugate.  QED
 
+    *** SCOPE, ADDED BY reversal.py: EVERYTHING BELOW IS THE SCALAR PROBLEM. ***
+
+    This file solves u'' = -4 pi T_kk u, with SHEAR DROPPED.  composite.py
+    later restored shear and called dropping it "conservative for an EXISTENCE
+    claim about one ray, FATAL FOR A SEARCH".  Three files had dropped it --
+    achronal.py, seatindex.py and this one -- and the correction never swept
+    here.  THE RESULT BELOW IS CORRECT ABOUT THE PROBLEM IT SOLVES and its
+    1.1e-14 stands; what it does NOT establish is the reversal theorem for the
+    FULL MATRIX.
+
+    reversal.py attempted that and could not resolve it: on an asymmetric ray
+    the forward conjugate point converges cleanly to 116.20 while the
+    forward/backward gap sits near 1.6 % and does NOT fall over an eightfold
+    refinement in h -- because the transverse screen is parallel-transported
+    with a first-order Euler step whose traceless leak along that ray is 7.2 %,
+    and first-order transport is O(1) globally.  A 1.6 % effect cannot be
+    resolved with a 7.2 % error bar.
+
+    MATRIX REVERSAL IS THEREFORE NOT-RUN, NOT REFUTED.  See reversal.py.
+
 The operator is self-adjoint -- no first-derivative term survives the theta^2
 absorption -- so departure and arrival are interchangeable and the turn is one
 object seen from two ends.  Measured by bisecting the conjugate length on the

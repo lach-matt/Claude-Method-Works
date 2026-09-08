@@ -4528,3 +4528,62 @@ and **the full matrix finds one at 56.50.**
 ### Seated
 - `achronal.py` — control hardened, contradiction removed. `index3.py` — support row `FLAT-VS-VACUUM`
   (329 findings, 34 support rows).
+
+---
+
+## `reversal.py` — the supersession sweep, and a `NOT-RUN` with a named cause
+
+### The pattern, now four deep
+
+`composite.py` restored shear and called dropping it *"conservative for an existence claim about one
+ray, **fatal for a search**."* Three files had dropped it — `achronal.py`, `transit.py`,
+`seatindex.py` — and **only `achronal.py` was ever corrected.** Neither of the other two mentions shear
+at all: *silent, which is worse than wrong, because nothing signals the scope.*
+
+> **When a file corrects another, the corrected file's *dependents* are not swept.** `currency.py`'s
+> `ONE_STATEMENT`, `achronal.py`'s shear claim, `spec.py`'s ANEC line and `achronal.py`'s control were
+> all found one at a time and incidentally. This sweeps the remaining two deliberately.
+
+### `seatindex.py` — struck, and it's the third of its kind
+
+> *"Lyapunov's condition is universal the other way: below it nothing seats, ever."*
+
+**False with shear, and the counterexample was already in the tree.** In vacuum `q = 4πT_kk = 0`
+identically, so `lyapunov_excluded()` returns True — *"excludes seating for ANY shape"* — while
+`composite.py` **measures a conjugate point at 56.50 in that same vacuum.** Narrowed to *"by Ricci
+focusing alone."* Third Ricci-only result in this tree asserted universally.
+
+### `transit.py` — the reversal theorem, attempted with shear and not resolved
+
+| n | h | forward | backward | gap |
+|---|---|---|---|---|
+| 3500 | 0.1200 | 116.11683 | 118.17984 | 2.063 |
+| 7000 | 0.0600 | 116.16060 | 118.76657 | 2.606 |
+| 14000 | 0.0300 | 116.18280 | 117.91674 | 1.734 |
+| 28000 | 0.0150 | 116.19399 | 118.07267 | 1.879 |
+
+**The forward value converges cleanly** — settling near 116.20. **The gap does not** — it sits near
+1.6% and will not fall over an **eightfold** refinement.
+
+### And the cause is measured, not guessed
+
+The transverse screen is parallel-transported with a **first-order Euler step**, whose traceless leak
+along this ray is **7.2301×10⁻²**. First-order transport is `O(h)` per step over `L/h` steps — hence
+**`O(1)` globally** — so refining `h` converges the geodesic and the Jacobi integration and leaves the
+screen exactly where it was. That is precisely the signature observed.
+
+> **A 1.6% effect cannot be resolved with a 7.2% error bar.**
+
+### The verdict
+
+**`NOT-RUN`, not refuted.** `transit.py`'s scalar 1.1e-14 stands and is correct about the problem it
+solved. The analytic argument is sound as far as it goes — `T` is symmetric, so conjugacy is a
+**symmetric relation** — but the measured quantity needs *"no conjugate point in between,"* which is
+itself `NOT-RUN`.
+
+**And the fix is specific: RK4 rather than Euler on the screen** — a contained change to `composite.py`
+that would sharpen every matrix result here, not just this one.
+
+### Seated
+- `reversal.py` — new. `seatindex.py` — Lyapunov claim struck. `transit.py` — scope added in place.
+- `index3.py` — **335 findings**, six new. Still 15 cells, `E(X) = 0`.
