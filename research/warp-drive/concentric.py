@@ -131,6 +131,11 @@ At b = 1, a = 0.02, R_s = 200, a run of 300 from x = -150 (n = 2500):
     negative energy density is forced by the design's own M_ADM = 0, by a
     theorem, with no appeal to any magnitude.  What follows below stands
     unchanged; only the word ASSUMED does not.
+    AND NARROWED BY apply.py: M_ADM is a FREE PARAMETER here -- letting the
+    shell mass float free of the core's still seats and still leads at
+    M_ADM > 0, while a POSITIVE core seats and arrives LATE.  So the exotic
+    matter belongs to THE LEAD, locally, and rigidity is a second proof of it
+    rather than its source.
  2. LINEARISED WEAK FIELD, as composite.py.  Phi_max ~ m/a = 0.25 at the
     design point, which is NOT small.  The window's edges are INDICATIVE and a
     strong-field treatment could move them.  This is the weakest point here.

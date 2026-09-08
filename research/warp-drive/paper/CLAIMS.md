@@ -1113,6 +1113,70 @@ problem; it does not solve it, and no observation separates the theories.
 
 ---
 
+## ★★★ H21 — `M_ADM` is a free parameter; the **lead** is the whole cost, and the DEC branch is exhausted
+
+**H21. Letting the shell mass float free of the core's, `M_ADM = 0`, `+5.0e−3` and `+1.5e−2` all seat
+and all lead, while a positive core — ordinary matter throughout — seats and arrives *late*. `M_ADM` is
+a free parameter of the design. The exotic matter is required by the **lead**, locally, whatever the ADM
+mass.**
+
+| configuration | `M_ADM` | seats | leads |
+|---|---|---|---|
+| the device | 0 | ✓ | ✓ |
+| heavier shell | +5.0e−3 | ✓ | ✓ |
+| much heavier shell | +1.5e−2 | ✓ | ✓ |
+| **positive core** (ordinary matter) | +1.0e−2 | ✓ | **✗** |
+
+**This narrows H19's own phrasing, and the narrowing matters.** H19 said the exotic matter is derived
+from the design's own `M_ADM = 0`. True — and it invites a false reading: that a *bookkeeping choice*
+created the requirement, so another choice could remove it. It could not. `Φ > 0` needs `ρ < 0`
+pointwise, whatever the ADM mass. **Rigidity is a second, independent proof of a requirement that was
+never about `M_ADM`** — it tightens nothing, and removes only the hope that bookkeeping could dodge it.
+`pair.py` and `concentric.py` narrowed in place.
+
+> **The seat is free. The lead is the whole cost.**
+
+**And that makes the dichotomy exhaustive rather than enumerated.**
+
+| case | verdict | by |
+|---|---|---|
+| `M_ADM < 0`, DEC holds | **forbidden** | positive mass theorem, the inequality |
+| `M_ADM = 0`, DEC holds | **Minkowski** | positive mass theorem, the **rigidity clause** |
+| `M_ADM > 0`, DEC holds | **collapse** | Sturm density exceeds it by `2π²/3` |
+| DEC fails | the device | everything this tree has built |
+
+> **Under the dominant energy condition there is no seat-and-lead** — a statement about every case,
+> not about the ones somebody thought to try. It is the strongest negative result the project holds.
+
+**One line closes five proposed routes at once.** A sign-blind quantity pairs, balances and is
+constrained by closure; a sign-committed one is not; and **energy is sign-committed** by the positive
+mass theorem. So balance (`pair.py`), closure and permutation (`permute.py`), entanglement symmetry
+(`entsym.py`) and the binary chain's geometry (`chain.py`) all die — *not case by case*, but because the
+class of quantity they act on does not include energy.
+
+> **Exactly one proposed route survives it, which is why it is the one to push.** GJW's external causal
+> path is an **order** question, not an energy question: it asks whether a non-achronal connection *may
+> exist*, not what it costs. Order is the row that admits, it governs **speed**, and it is the only row
+> this project has ever moved.
+
+**Containment is a boundary now, not a risk.** Earnshaw permits no stable static configuration of point
+masses whatever their signs, and its one escape — constant potential — is exactly what the shell theorem
+hands the device. Neutral is optimal, so drift to contact is the **Newtonian ceiling**, and what remains
+is one named `NOT-RUN` about whether GR moves it.
+
+**What is left is three doors, and they are the only three:** **outside GR** (f(R), noncommutative
+geometry — where the DEC and the positive mass theorem are not the governing theorems; scope still
+unchosen); **not an energy question** (order, causal structure, chronology protection); **a relic rather
+than a construction** (`create.py`'s topology theorems and `detect.py`'s search already agree).
+
+| | `apply.py` |
+|---|---|
+| status | **MEASURED** (four surveys on `concentric.py`'s own machinery) + **PROVEN** (the DEC-branch exhaustion, from three named theorems) |
+| new? | that `M_ADM` is free of the mechanism, and the exhaustion of the DEC branch, yes |
+| **not** claimed | that anything moved — `expand.py` still reads `E = 1` with the dissent in INFORMATION alone, recomputed here and said first; that the exhaustion extends beyond GR-with-matter, which is precisely door one; that three doors means three routes — none of them is open, they are the only places left to look |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1218,3 +1282,7 @@ problem; it does not solve it, and no observation separates the theories.
   the scale ratio it moves is dimensionless. See **H20**.
 - **That unimodular gravity buys a prediction.** It is classically equivalent to GR; what it changes is
   what `Λ` *is*, not what is observed.
+- **That `M_ADM = 0` is what creates the exotic-matter requirement.** It is a free parameter; the
+  requirement is local and belongs to the **lead**. See **H21**, which narrows **H19**.
+- **That anything in the last four passes moved the verdict.** `expand.py` still reads `E = 1`,
+  dissent in INFORMATION alone. What changed is the *kind* of the refusal, not the refusal.

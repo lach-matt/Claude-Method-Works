@@ -5429,3 +5429,113 @@ cosmological-constant problem, does not solve it, and no observation separates t
   **39 rows**, new `EXPANSION-IS-A-RELABELLING`, **21 closed-negative**, one still OPEN (TYPE-IV).
   `index3.py` — **405 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H20** and two additions to the
   not-claimed list.
+
+---
+
+## `apply.py` — what the three passes do to the transition project
+
+Three passes ran on M's own principles rather than on the device: the binary chain, the balance ledger,
+and the closed index against the expansion. **None of them was asked what it does to the project.**
+
+### 0. The honest headline: nothing moved
+
+`expand.py`'s four rows, recomputed from the instruments that own them:
+
+| | |
+|---|---|
+| ORDER | **ADMITS** — GJW's external causal path |
+| GEOMETRY | **ADMITS** — no throat, no horizon, `M_ADM = 0` |
+| ALGEBRA | **ADMITS** — junction closes, DEC on the shell, stable |
+| INFORMATION | **REFUSES** — `ρ < 0` not available at magnitude |
+
+> `E = 1`. **TRANSITION-POSSIBLE is still not admitted.** Said first so nothing below reads as progress
+> it is not. What changed is the *kind* of the refusal.
+
+### 1. A correction to `pair.py`'s own phrasing — and it matters
+
+`pair.py` concluded the exotic matter is *derived from the design's own `M_ADM = 0`*. True, and it
+invites a false reading: that a **bookkeeping choice** created the requirement, so another could remove
+it. Measured here by letting the shell mass float free of the core's, on `concentric.py`'s own machinery:
+
+| configuration | `M_ADM` | seats | leads |
+|---|---|---|---|
+| the device | 0 | ✓ | ✓ |
+| heavier shell | +5.0e−3 | ✓ | ✓ |
+| much heavier shell | +1.5e−2 | ✓ | ✓ |
+| **positive core** — ordinary matter | +1.0e−2 | ✓ | **✗** |
+
+> **`M_ADM` is a free parameter of the design, not a requirement of the mechanism.** Raising it escapes
+> the rigidity proof and changes nothing physical — because **the exotic matter is required by the lead,
+> not by the bookkeeping.** The last row is the proof: swap the core's sign and the ray still seats, and
+> arrives *late*.
+
+**The seat is free. The lead is the whole cost, and it is local.** So rigidity is a *second, independent*
+proof of a requirement that was never about `M_ADM`. It tightens nothing; it removes the last hope that
+bookkeeping could dodge it. `pair.py` and `concentric.py` narrowed in place — in the direction of being
+less impressive and more true.
+
+### 2. Which makes the dichotomy exhaustive rather than enumerated
+
+`dichotomy.py` had two routes and two blockers, found by trying them. Rigidity closes the branch nobody
+had tried, and these four cases are now the **whole** DEC-respecting space:
+
+| case | verdict | by |
+|---|---|---|
+| `M_ADM < 0`, DEC holds | **FORBIDDEN** | positive mass theorem, the inequality |
+| `M_ADM = 0`, DEC holds | **MINKOWSKI** | positive mass theorem, the rigidity clause |
+| `M_ADM > 0`, DEC holds | **COLLAPSE** | Sturm density exceeds it by `2π²/3` |
+| DEC fails | the device | everything this tree has built |
+
+> **Under the dominant energy condition there is no seat-and-lead.** A statement about every case rather
+> than about the ones somebody thought to try — the strongest negative result the project holds. And
+> exactly as far as it goes: it says nothing about theories where the DEC is not the right condition.
+
+### 3. And one line closes a whole class of routes at once
+
+Three independent arrivals this session at the same discriminator — Wheeler's charge-without-charge
+(`pair.py`), Weyl against Ricci (`dichotomy.py`), Gauss on a boundaryless manifold (`permute.py`):
+
+> **A sign-blind quantity pairs, balances and is constrained by closure. A sign-committed one is not.**
+
+**Energy is sign-committed**, by the positive mass theorem. So:
+
+| route | dies in | on |
+|---|---|---|
+| balance across a pair | `pair.py` | the negative member cannot exist |
+| a closed index, no defect | `permute.py` | closure constrains charge, not `E` |
+| expansion as rearrangement | `permute.py` | `θ` is invariant and non-zero |
+| entanglement symmetry | `entsym.py` | QNEC has no Weyl term |
+| a binary chain's geometry | `chain.py` | the citation gives it, at `2^ℓ` cost |
+
+Not case by case — **because the class of quantity they act on does not include energy.**
+
+> **Exactly one proposed route is untouched, which is why it is the one to push.** GJW's external causal
+> path is an **order** question, not an energy question: it asks whether a non-achronal connection *may
+> exist*, not what it costs. Order is the row that admits, it governs **speed**, and it is the only row
+> this project has ever moved.
+
+### 4. Containment is a boundary now, not a risk
+
+Earnshaw permits no stable static configuration whatever the signs, and its one escape — constant
+potential — is exactly what Newton's shell theorem hands the device. **Neutral is optimal.** So drift to
+contact moves from *an unbounded worry* to *the Newtonian ceiling*, and what remains is one named
+`NOT-RUN` about whether GR moves it.
+
+### 5. What is left: three doors
+
+| kind | where | why it survives |
+|---|---|---|
+| **OUTSIDE GR** | f(R), noncommutative geometry | the DEC and the positive mass theorem are theorems *of* GR with matter |
+| **NOT AN ENERGY QUESTION** | order, causal structure, chronology protection | sign-commitment has no purchase |
+| **A RELIC, NOT A CONSTRUCTION** | find one and enlarge it | `create.py`'s topology theorems and `detect.py`'s search agree |
+
+`obstruct.py`'s remaining OPEN rows, taken from the ledger rather than typed: **`TYPE-IV`**, and one
+only. The modified-gravity scope is still M's decision and still unchosen.
+
+> **Every other route is now closed by a theorem rather than by a magnitude. That is a better place to
+> be standing. It is not a better answer.**
+
+### Seated
+- `apply.py` — new. `pair.py` and `concentric.py` — narrowed in place on the `M_ADM` reading.
+  `index3.py` — **413 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H21** and two additions to the
+  not-claimed list.

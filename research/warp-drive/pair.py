@@ -131,6 +131,17 @@ device the tree already built.  And then rigidity fires:
     NEGATIVE ENERGY IS NOT AN ASSUMPTION OF THIS DESIGN.  IT IS FORCED BY THE
     DESIGN'S OWN M_ADM = 0, BY A THEOREM, WITH NO APPEAL TO ANY MAGNITUDE.
 
+    *** NARROWED BY apply.py, AND THE NARROWING MATTERS ***
+    That sentence invites a false reading: that a BOOKKEEPING CHOICE created
+    the requirement, so another choice could remove it.  It could not.
+    apply.py lets the shell mass float free of the core's and measures
+    M_ADM = 0, +5.0e-3 and +1.5e-2 ALL seating and ALL leading, while a
+    POSITIVE core seats and arrives LATE.  M_ADM IS A FREE PARAMETER OF THE
+    DESIGN; the exotic matter is required by THE LEAD, locally, whatever the
+    ADM mass.  So rigidity is a SECOND AND INDEPENDENT proof of a requirement
+    that was never about M_ADM -- it tightens nothing, and what it removes is
+    only the hope that bookkeeping could dodge it.
+
 concentric.py's caution 1 says "NEGATIVE MASS IS STILL ASSUMED."  That is now
 too weak, and this file supersedes it: it is DERIVED.  Every statement in this
 tree of the form "the positive mass theorem has nothing to object to" was also
@@ -505,6 +516,13 @@ def report():
         CONDITION.  NEGATIVE ENERGY IS NOT AN ASSUMPTION OF THIS DESIGN
         -- IT IS DERIVED FROM THE DESIGN'S OWN M_ADM = 0, BY A THEOREM,
         WITH NO APPEAL TO ANY MAGNITUDE.
+
+  NARROWED BY apply.py: M_ADM is a FREE PARAMETER, measured -- raising
+  it above zero still seats and still leads, and a positive core seats
+  and arrives late.  The requirement is LOCAL and belongs to the LEAD,
+  whatever the ADM mass.  Rigidity is a second, independent proof of it
+  on the M_ADM = 0 branch, and removes only the hope that bookkeeping
+  could dodge it.
 
   concentric.py's caution 1 said negative mass was STILL ASSUMED.  It is
   not an assumption any more, and this file supersedes that line.
