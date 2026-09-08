@@ -457,10 +457,16 @@ no mixed quantity is reported.
 
 ---
 
-## ★★ HEADLINE — the device
+## ★★ HEADLINE — the device *(the LEAD half WITHDRAWN, see H17)*
 
-**H10. The two-region device seats and leads with `M_ADM = 0` exactly, so the positive mass theorem
-has no objection to it — and respecting the theorem is nearly free.**
+**H10. The two-region device seats with `M_ADM = 0` exactly, so the positive mass theorem has no
+objection to it — and respecting the theorem is nearly free.**
+
+> **~~and leads~~ — WITHDRAWN.** Every lead figure in this section was measured with **both endpoints
+> inside the device's own shell** (`x₀ = ±150`, `R_s = 200`), where the metric is not asymptotically
+> flat and `t − |dx|` is not a causal statement. Outside the shell the sign reverses at `X ≈ 277`. The
+> **seating**, `M_ADM = 0`, the vacuum corridor and the shell's ordinariness are all untouched — none
+> of them is a statement about arrival time. See **H17**, and `chronology.py`.
 
 > H8's result needed a **bare negative mass**, which the positive mass theorem forbids, and a result
 > that needs one is not a device. The construction that fixes it is a compact **negative core inside a
@@ -911,6 +917,55 @@ every span. **One concentrated source wins, by the logarithm.**
 
 ---
 
+## ⚠ H17 — THE HARD RESULT: the advance is short-range, and that is a theorem, not a shell
+
+**H17. In the weak field a negative Shapiro term buys time at most *logarithmically* in the baseline,
+while the deflection it necessarily produces costs path length *linearly*. Log against linear has
+exactly one crossing, so every configuration has a finite range beyond which it makes you late.**
+
+> **Measured on two independent architectures.** The `M_ADM = 0` device crosses over at `X ≈ 277`
+> (closed form 249.6); a **bare negative mass with no shell anywhere** crosses at `X ≈ 350` (closed form
+> 324). **The same order.** The shell does not cause the failure — it moves the crossing *in*, by
+> turning the logarithm into a constant.
+>
+> **The device's saving is baseline-independent**, measured by quadrature with no geodesic integrator
+> in the way: `−3.969054e-01` at `X = 400` and the same five digits at `X = 20000`. Closed form,
+> agreeing to 0.15%:
+>
+> **`SAVING = 4m[ln(2R_s/√(b²+a²)) − 1]`** — with no baseline in it at all.
+>
+> **Why the deflection survives:** a ray at `b ≪ R_s` passes wholly *inside* the shell, where a
+> spherical shell has no field (Newton), and exits nearly *radially*, where a radial field cannot bend
+> it back. It keeps the core's full `4m/b` and pays `4m²X/b²`.
+
+**What it costs.** One second of saving needs `1.502e7 m` of geometric mass — **2.022e34 kg, ten
+thousand solar masses** of negative mass — and buys that same one second whether the trip is a metre or
+a thousand light years. Over four light years it is **7.92×10⁻⁹** of the crossing.
+
+> **A saving that does not scale with the journey is not a faster journey.** This is the answer to
+> "faster", and it is negative.
+
+**And on time machines, the conclusion was right and the machine was wrong.** Morris–Thorne–Yurtsever
+is **not** available to this device, and it fails on *structure*: MTY needs a persistent **identification
+of two ends**, and `transition.py` measures the areal radius monotone at every radius — no throat, so
+not two ends to identify. `transit.py`'s gate re-declares `A` and `B` every use, so nothing accumulates.
+
+**The Everett route is open, and needs no identification** — two devices and a boost. Shoshany &
+Snodgrass (arXiv:2309.10072) eq. (3.11), `u > (v₁+v₂)/(1+v₁v₂)` with both legs required superluminal,
+reduces exactly to **`γ > 1/ε`** — quadratic in the advance. At `ε = 2.297×10⁻⁴` that is **γ > 4354**:
+finite, and below the LHC's proton γ.
+
+> **The device is not protected by chronology. It is protected by not working at range** — a much
+> weaker kind of safety, and it should be stated as the weaker one.
+
+| | `chronology.py` |
+|---|---|
+| status | **MEASURED** (saturation, both architectures) + **PROVEN** (`γ = 1/ε`, exact from eq. 3.11) + **WITHDRAWN** (H10's lead half) |
+| new? | the log-against-linear crossing as a general statement about weak-field advances, yes |
+| **not** claimed | that the device is CTC-safe — it is not; that the two-term crossover model is exact — it lands within 11%, and the **measured** crossover is the finding; that a bare negative mass fails this way for a *different* reason — it fails the same way, only 30% later; **Hawking's Cauchy-horizon divergence is `NOT-RUN`** (Kim–Thorne vs Hawking is unresolved in the literature) and nothing here rests on it |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -981,6 +1036,13 @@ every span. **One concentrated source wins, by the logarithm.**
   late. The index is the right index; it is not yet the index of transport.
 - **That H6's three-part structure delivers transport.** It delivers a *frame* that is coherent,
   gated and computable, plus two exclusions. A conjugate point is a light focus, not a payload.
+- **That H10's device leads.** The lead half is **withdrawn**: it was measured with both endpoints
+  inside the device's own shell. The seating, `M_ADM = 0`, the vacuum corridor and the shell's
+  ordinariness stand. See **H17**.
+- **That any configuration here produces a time advance at useful range.** None does, and H17 says why
+  it is structural rather than a defect of this construction.
+- **That the device cannot be used to build closed timelike curves.** It can, at `γ > 4354`, by a
+  route explicit in the literature. What fails is the *usefulness*, not the causality.
 - **That the `B·ℓ` invariant specifies anything.** It is arithmetically correct and **withdrawn**: any
   Sturm-seating region is inside its own Schwarzschild radius by `2π²/3` at every scale, and the
   magnetar figure compared a dipole's peak against a length it does not sustain — short by 25 orders.

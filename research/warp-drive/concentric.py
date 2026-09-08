@@ -8,6 +8,36 @@ Shapiro delay is linear.  But a BARE negative mass violates the positive mass
 theorem, and a result that needs one is not a device.  This file builds the
 two-region version M asked about and measures it.
 
+-- WITHDRAWN: THE LEAD MEASURED HERE IS INTERIOR-ONLY -------------------------
+
+    READ THIS BEFORE QUOTING ANY LEAD FROM THIS FILE.
+
+Every ray below runs x0 = -150 to +150 with the shell at R_s = 200, so BOTH
+ENDPOINTS SIT INSIDE THE SHELL.  In there the metric is not asymptotically
+flat, and "t - |dx|" compares a coordinate time against a coordinate distance
+in a region where neither is the asymptotic one.  It is not a statement about
+causal structure.  Move the endpoints out past R_s and THE SIGN REVERSES:
+
+        X = 150 (inside)   -1.785e-01   early     <-- what this file reports
+        X = 210 (outside)  -9.635e-02   early
+        X = 260 (outside)  -2.532e-02   early
+        X = 280 (outside)  +3.117e-03   LATE
+        X = 1000 (outside) +1.026e+00   LATE
+
+The reason is the one composite.py already wrote down and nobody applied here:
+M_ADM = 0 makes the Shapiro gain CONVERGE (constant to five digits over three
+decades of baseline) while the deflection the shell does NOT cancel -- a ray at
+b << R_s passes wholly inside, where a shell has no field, and exits nearly
+radially, where a radial field cannot bend it back -- costs path length
+LINEARLY.  Bounded gain, unbounded loss, crossover at X_c ~ 250.
+
+    THE LEAD SURVIVES ONLY AS A BOUNDED, SHORT-RANGE CLAIM: 200 < X < 277.
+    IT IS WITHDRAWN AS A GLOBAL ONE.
+
+Nothing else in this file moves.  The conjugate point, M_ADM = 0, the vacuum
+corridor and the shell's ordinariness are all unaffected -- they are not
+statements about arrival time.  See chronology.py, which measured this.
+
 -- THE CONSTRUCTION -----------------------------------------------------------
 A compact NEGATIVE core inside a POSITIVE shell of the same magnitude:
 
@@ -180,6 +210,19 @@ def survey(m, b=B_RAY, a=A_CORE, Rs=R_SHELL, x0=X0, lam=LAM, n=NSTEP):
             "relative": (dt - dx) / dt}
 
 
+LEAD_IS_INTERIOR_ONLY = True     # see the withdrawal at the top of this file
+LEAD_WINDOW = (200.0, 277.0)     # (R_s, measured crossover): outside this, LATE
+
+
+def lead_is_global():
+    """Does the measured lead hold at any baseline?  NO -- withdrawn.
+
+    Kept as an executable assertion so the retraction cannot be walked past by
+    someone reading only the numbers below.
+    """
+    return not LEAD_IS_INTERIOR_ONLY
+
+
 def works(m, **kw):
     r = survey(m, **kw)
     return r["seats"] and r["leads"] and r["inside_shell"]
@@ -187,6 +230,10 @@ def works(m, **kw):
 
 def selftest():
     ok = True
+    print("WITHDRAWAL -- the lead below is INTERIOR-ONLY; see the file header")
+    print("  lead_is_global() = %s   window = %s" % (lead_is_global(), LEAD_WINDOW))
+    assert lead_is_global() is False, "the retraction must not be silently reversed"
+
 
     def chk(label, got, want):
         nonlocal ok

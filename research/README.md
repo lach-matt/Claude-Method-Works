@@ -3616,3 +3616,111 @@ withdraw.
 - `index3.py` — **247 findings**: `SPACE-TIME-ONE`, `TIME-CHEAPER-METRIC`, `REGISTER-INVERSION`,
   `PAID-IN-ADVANCE`, `CHAIN-COSTS-MORE`, `EIGHT-IS-A-COUNT`. Still 15 occupied cells, `E(X) = 0`.
 - `obstruct.py` — **29 rows**. New `COLLECTION-IN-TRANSIT`, **CLOSED-NEGATIVE**.
+
+---
+
+## Pass 31 — `chronology.py`: MTY taken apart, and a withdrawal found on the way in
+
+Pass 30 wrote a sentence it had not measured — *"the intersection is the Morris–Thorne–Yurtsever time
+machine."* Testing it turned up something else first.
+
+### The withdrawal: the device's lead was measured inside its own shell
+
+`concentric.py` ran every ray from `x0 = −150` to `+150` with the shell at `R_s = 200`. **Both
+endpoints sit inside it.** In there the metric is not asymptotically flat, so `t − |dx|` compares a
+coordinate time against a coordinate distance in a region where neither is the asymptotic one — it is
+not a statement about causal structure. Push the endpoints out past `R_s` and **the sign reverses**:
+
+| half-baseline X | endpoints | `t − \|dx\|` | verdict |
+|---|---|---|---|
+| 150 | inside | −1.785e-01 | early *(ambiguous)* |
+| 210 | **outside** | −9.635e-02 | early |
+| 260 | **outside** | −2.532e-02 | early |
+| 280 | **outside** | +3.117e-03 | **LATE** |
+| 1000 | **outside** | +1.026e+00 | **LATE** |
+
+### Why: the gain saturates and the loss does not
+
+`composite.py` had already written the decomposition and nobody applied it to the device —
+`t − |dx| = (Shapiro, ~m, flips) + (path lengthening, ~m², never)`. **`M_ADM = 0` is what the shell is
+*for*, and cancelling the monopole is exactly what makes the Shapiro term converge.** By quadrature,
+with no geodesic integrator in the way:
+
+| half-baseline | device (`M_ADM = 0`) | bare mass (`M_ADM < 0`) |
+|---|---|---|
+| 200 | −3.969054e-01 | −4.768334e-01 |
+| 1000 | −3.969054e-01 | −6.055816e-01 |
+| 20000 | −3.969054e-01 | −8.452386e-01 |
+| 100000 | −3.967683e-01 | −9.738562e-01 |
+
+**Constant to five digits over three decades of baseline.** Closed form, derived then checked to 0.15%:
+
+> **`SAVING = 4m[ln(2R_s/√(b²+a²)) − 1]`** — and there is **no baseline in it.**
+
+The deflection, meanwhile, is *not* cancelled: a ray at `b ≪ R_s` passes wholly **inside** the shell,
+where a spherical shell has no field (Newton), and exits nearly **radially**, where a radial field
+cannot bend it back. So it keeps the core's full `4m/b` and pays `4m²X/b²` — **linear in baseline**.
+Bounded gain, unbounded loss, crossover at `X_c = b²[ln(2R_s/b) − 1]/m` = **249.6** against a measured
+**277**.
+
+### And it is not the shell — it is general
+
+| X | bare negative mass, no shell | verdict |
+|---|---|---|
+| 250 | −1.370e-01 | early |
+| 320 | −5.724e-02 | early |
+| 400 | +3.860e-02 | **LATE** |
+
+Predicted 324, measured ~350. **The device crosses at ~250 and a bare negative mass at ~324 — the same
+order.** In the weak field a negative Shapiro term buys time at most **logarithmically** in the
+baseline while the deflection it necessarily produces costs path length **linearly**, and log against
+linear has exactly one crossing whatever the configuration. The shell does not cause the failure; it
+moves the crossing in by turning the logarithm into a constant.
+
+> **The time advance is intrinsically short-range, for every weak-field configuration this project has
+> built or can build.**
+
+### So: does it build a time machine? Not MTY — and the reason is structural
+
+MTY needs four things, and the wormhole was only how 1988 supplied the second:
+
+| | requirement | device |
+|---|---|---|
+| 1 | two paths between the same events | **has it** |
+| 2 | the short path elapsing less | **has it**, bounded |
+| 3 | a persistent **identification** of two ends | **does not** — `transition.py` measures the areal radius monotone at every radius, so there is no throat and there are not two ends to identify |
+| 4 | differential aging across that identification | blocked by 3 |
+
+`transit.py`'s gate re-declares `A` and `B` every use, so nothing **accumulates** — the same payment GJW
+make, made again, every time. **Paid in advance, per use, never banked.**
+
+### But the Everett route is open, and it needs no identification
+
+Shoshany & Snodgrass (arXiv:2309.10072) give the condition explicitly — their eq. (3.11),
+`u > (v₁+v₂)/(1+v₁v₂)`, with the standing requirement in their own words that *"if either v₁ or v₂ are
+less than 1, we cannot have T_finish < 0."* For two legs of fractional advance `ε` this reduces —
+exactly, checked in the file rather than assumed — to
+
+> **`γ > 1/ε`** — quadratic, not linear: a small advance is punished twice.
+
+At this device's best unambiguous `ε = 2.297e-4`, that is **γ > 4354**. Finite, explicit, and **below
+the LHC's proton γ**. *The device is not protected by chronology. It is protected by not working at
+range,* which is a much weaker kind of safety.
+
+### What a second costs
+
+One second of saving needs a geometric mass of `1.502e7 m` — **2.022e34 kg, ten thousand solar masses**
+of negative mass — and buys that same one second whether the trip is a metre or a thousand light years.
+Over four light years it is **7.92e-9** of the crossing.
+
+> **A saving that does not scale with the journey is not a faster journey.**
+
+### Seated
+
+- `chronology.py` — new, stdlib only, `--selftest`.
+- `concentric.py` — the lead **struck in place**, with `lead_is_global()` asserting `False` in its own
+  selftest so the retraction cannot be walked past.
+- `unified.py` — the MTY sentence corrected in place: right conclusion, wrong machine.
+- `index3.py` — **257 findings**. `DEVICE-SEATS-LEADS` moved to `(+1,−1,+1)`; ten new, of which
+  `LOG-AGAINST-LINEAR` and `SAVING-DOESNT-SCALE` are the load-bearing ones.
+- `obstruct.py` — **33 rows**, four new, all **CLOSED-NEGATIVE**.

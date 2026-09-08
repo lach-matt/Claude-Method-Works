@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of twenty-nine obstructions, SIX dissolved, three relocated,
-ELEVEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
+THE HEADLINE: of thirty-three obstructions, SIX dissolved, three relocated,
+FIFTEEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -293,6 +293,56 @@ LEDGER = [
   "SEATING IS NOT-RUN, not refuted -- paying at the destination is not a "
   "well-posed computation without a model of dynamical payment, and none is "
   "invented here", "unified.py"),
+ ("TIME-ADVANCE-AT-RANGE", "the measured lead is a genuine time advance that "
+  "holds over a useful distance", "CLOSED-NEGATIVE",
+  "IT IS NOT, AND THE MEASUREMENT THAT SAID SO WAS TAKEN IN THE WRONG PLACE. "
+  "concentric.py ran every ray between endpoints INSIDE its own shell, where "
+  "the metric is not asymptotically flat and 't - |dx|' is not a causal "
+  "statement. Outside the shell the lead shrinks and then reverses at X ~ 277. "
+  "The mechanism is general: M_ADM = 0 makes the Shapiro gain CONVERGE -- "
+  "-3.969054e-01 at X = 400 and the same five digits at X = 20000, closed form "
+  "4m[ln(2R_s/b) - 1] with no baseline in it -- while the deflection the shell "
+  "cannot cancel, because a ray at b << R_s passes wholly inside where a shell "
+  "has no field and exits nearly radially where a radial field cannot bend it "
+  "back, costs path length LINEARLY. Bounded gain against unbounded loss. "
+  "DEVICE-SEATS-LEADS is withdrawn as a global claim", "chronology.py"),
+ ("SHORT-RANGE-IS-THE-SHELL", "the range limit is an artefact of this "
+  "particular two-region construction and a better one escapes it",
+  "CLOSED-NEGATIVE",
+  "IT IS NOT THE SHELL. In the weak field a negative Shapiro term buys time at "
+  "most LOGARITHMICALLY in the baseline while the deflection it necessarily "
+  "produces costs path length LINEARLY, and log against linear has exactly one "
+  "crossing whatever the configuration. Measured on a BARE negative mass with "
+  "no shell anywhere: early at X = 320, LATE at X = 400, predicted crossover "
+  "324 against a measured 350. The device crosses at ~250 and the bare mass at "
+  "~324 -- THE SAME ORDER. The shell does not cause the failure; it moves the "
+  "crossing in by turning the logarithm into a constant, and a bare negative "
+  "mass buys 30 % more range and needs to be a bare negative mass to do it",
+  "chronology.py"),
+ ("MTY-CONSTRUCTION", "the device admits the Morris-Thorne-Yurtsever time "
+  "machine, so chronology protection applies to it directly", "CLOSED-NEGATIVE",
+  "IT DOES NOT, AND IT FAILS ON STRUCTURE RATHER THAN MAGNITUDE. MTY needs "
+  "four things and the wormhole was only how 1988 supplied the second: two "
+  "paths between the same events (HAS), the short one elapsing less (HAS, "
+  "bounded), A PERSISTENT IDENTIFICATION OF TWO ENDS (DOES NOT -- "
+  "transition.py measures the areal radius monotone at every radius, so there "
+  "is no throat and there are not two ends to identify), and differential "
+  "aging across that identification (blocked by the third). transit.py's gate "
+  "re-declares A and B every use, so nothing accumulates -- the same payment "
+  "GJW make, made again, every time. unified.py named this machine and that "
+  "was an assertion", "chronology.py"),
+ ("CTC-SAFE", "the device is therefore safe from closed timelike curves",
+  "CLOSED-NEGATIVE",
+  "NO. The Everett route, made explicit by Shoshany & Snodgrass "
+  "(arXiv:2309.10072), needs NO identification -- two devices and a boost. "
+  "Their eq. (3.11), u > (v1+v2)/(1+v1 v2) with both legs required "
+  "superluminal, reduces exactly to gamma > 1/eps, quadratic rather than "
+  "linear in the advance. At this device's best unambiguous eps = 2.297e-4 "
+  "that is gamma > 4354 -- FINITE, and below the LHC's proton gamma. The "
+  "device is not protected by chronology. What protects it is that it does not "
+  "work at range, which is a different and much weaker kind of safety. "
+  "Hawking's Cauchy-horizon divergence is NOT-RUN and nothing here rests on "
+  "it", "chronology.py"),
  ("THE-LEAD", "a device must beat light to be worth building", "DISSOLVED",
   "NOT UNDER M's SCOPING: the matter must exist at both ends under the same "
   "physics, nothing more. That removes the requirement Olum, Ford-Roman and "
@@ -472,10 +522,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 29)
+    chk("obstructions tracked", len(LEDGER), 33)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 11)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 15)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",

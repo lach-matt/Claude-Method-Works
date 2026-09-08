@@ -443,9 +443,9 @@ FINDINGS = [
  ("WEYL-IS-SIGNBLIND",+1,+1, +1, "composite.py",
   "Ricci focusing is LINEAR in the source and needs positive energy; WEYL focusing is QUADRATIC and does not. A negative mass shears a congruence exactly as hard as a positive one"),
  ("SEATS-AND-EARLY", +1, +1, +1, "composite.py",
-  "MEASURED: M = -2e-3 gives a conjugate point at lambda 56.5 AND arrives early (-3.76e-2), while +2e-3 seats at 55.2 and arrives late. Both signs seat; only the arrival flips"),
+  "MEASURED: M = -2e-3 gives a conjugate point at lambda 56.5 AND arrives early (-3.76e-2), while +2e-3 seats at 55.2 and arrives late. Both signs seat; only the arrival flips. TRUE AT ITS OWN BASELINE and not beyond it: the same bare mass at b=1 turns LATE past X ~ 350"),
  ("THE-WINDOW",      +1, +1, +1, "composite.py",
-  "bounded on both sides: below, the focal length exceeds the run and it does not seat; above, the M^2 path lengthening beats the linear Shapiro. About a decade wide at b=0.3, L=75"),
+  "bounded on both sides: below, the focal length exceeds the run and it does not seat; above, the M^2 path lengthening beats the linear Shapiro. About a decade wide at b=0.3, L=75. A THIRD BOUND was found later and it is on RANGE, not on mass -- chronology.py's LOG-AGAINST-LINEAR"),
  ("DROPPED-TERM",     0, -1, +1, "composite.py",
   "achronal.py, transit.py and seatindex.py all wrote u'' = -(R_kk/2)u, dropping shear as conservative. Conservative for an EXISTENCE claim about one ray; FATAL FOR A SEARCH"),
  ("VACUUM-PATH",     +1, +1, +1, "composite.py",
@@ -471,8 +471,8 @@ FINDINGS = [
  # The two-region device, built and measured.  The last structural item.
  ("ZERO-ADM-DEVICE",+1, +1, +1, "concentric.py",
   "a compact NEGATIVE core inside a POSITIVE shell of equal magnitude: the monopoles cancel so M_ADM = 0 EXACTLY, and the positive mass theorem has no objection to the configuration"),
- ("DEVICE-SEATS-LEADS",+1,+1,+1, "concentric.py",
-  "MEASURED: it seats and leads over m = 5e-3 to 4e-2, most of a decade, conjugate point 228.45 +- 0.04 over a sixfold refinement, best relative lead -6.0e-4"),
+ ("DEVICE-SEATS-LEADS",+1,-1,+1, "concentric.py",
+  "MEASURED AND THEN WITHDRAWN AS A GLOBAL CLAIM: the seating stands (conjugate point 228.45 +- 0.04 over a sixfold refinement) but the LEAD was measured with both endpoints INSIDE the shell at R_s = 200, where the metric is not asymptotically flat. Push them out and the sign reverses at X ~ 277. It survives as a bounded short-range statement, 200 < X < 277, and as nothing wider"),
  ("THEOREM-IS-FREE", +1, +1, +1, "concentric.py",
   "respecting the positive mass theorem costs almost nothing: shell delay/core advance ~ (L/R_s)/(2 ln(L/a)) = 8%, because the core's advance carries a logarithm of its compactness and the shell's delay does not"),
  ("SHELL-THEOREM-SPLIT",+1,+1,+1, "concentric.py",
@@ -633,8 +633,29 @@ FINDINGS = [
   "collection in transit measured FALSE: the same total mass spread over N static sources gives 1.000 / 0.976 / 0.954 / 0.950 of one concentrated source at N = 1/2/10/50. Splitting the path shortens every span and eps goes as asinh(L/2b), so the logarithm punishes it. Deferral to seating is NOT-RUN"),
  ("EIGHT-IS-A-COUNT",    0,  0, +1, "unified.py",
   "the device really does take eight free parameters -- m, a, b, R_s, L, A, B, beta^2 -- two of them the endpoints transit.py gates on. EIGHT IS THE COUNT AND NOTHING MORE: Lambda_8's eight are physical quantities under seven Heaviside constraints, these are device parameters, and no correspondence is asserted"),
+ # Pass 31 -- MTY taken apart, and a withdrawal found on the way in.
+ ("LEAD-IS-INTERIOR",  +1, -1, +1, "chronology.py",
+  "THE WITHDRAWAL: concentric.py ran every ray from -150 to +150 with the shell at R_s = 200, so BOTH ENDPOINTS SAT INSIDE IT. There 't - |dx|' compares a coordinate time against a coordinate distance in a region that is not asymptotically flat, which is not a statement about causal structure at all. Outside the shell the sign reverses"),
+ ("GAIN-SATURATES",    +1, -1, +1, "chronology.py",
+  "and the reason is what M_ADM = 0 is FOR: cancelling the monopole makes the Shapiro gain CONVERGE. Measured by quadrature, -3.969054e-01 at X = 400 and the same five digits at X = 20000. Closed form 4m[ln(2R_s/sqrt(b^2+a^2)) - 1], which contains no baseline, agreeing to 0.15% at m = 5e-3"),
+ ("LOG-AGAINST-LINEAR",+1, -1, +1, "chronology.py",
+  "THE GENERAL RESULT, and it is not about this device: in the weak field a negative Shapiro term buys time at most LOGARITHMICALLY in the baseline while the deflection it necessarily produces costs path length LINEARLY, so every configuration crosses over exactly once. The device crosses at ~250, a BARE negative mass at ~324 -- the same order. The shell does not cause the failure; it moves the crossing in"),
+ ("CROSSOVER-RANGE",    0, -1, +1, "chronology.py",
+  "X_c = b^2[ln(2R_s/sqrt(b^2+a^2)) - 1]/m predicts 249.6 against a measured crossover near 277, and the bare-mass form ln(2X/b) = mX/b^2 predicts 324 against a measured 350. Two independent configurations, both within 11% of a two-term model"),
+ ("NARROW-WINDOW",      0, -1, +1, "chronology.py",
+  "so the window where the advance is BOTH unambiguous and positive is bounded at both ends -- 200 < X < 277, a factor of 1.39 in baseline -- and the best fractional advance inside it is 2.297e-4, at the near edge"),
+ ("SAVING-DOESNT-SCALE",+1, -1, +1, "chronology.py",
+  "AND THIS IS THE ANSWER TO 'FASTER': the saving is a fixed offset that does not grow with the journey, so as a fraction of the trip it dies like 1/L -- 7.92e-9 of a four-light-year crossing. A saving that does not scale with the journey is not a faster journey"),
+ ("SECOND-COSTS-1E4-SUNS",+1,-1,+1, "chronology.py",
+  "priced: one second of saving needs a geometric mass of 1.502e7 m, which is 2.022e34 kg, TEN THOUSAND SOLAR MASSES of negative mass -- and buys that same one second whether the trip is a metre or a thousand light years"),
+ ("MTY-CLOSED",         0, +1, +1, "chronology.py",
+  "the Morris-Thorne-Yurtsever construction is NOT available to this device, and it fails on STRUCTURE rather than magnitude: MTY needs a persistent identification of two ends, transition.py measures the areal radius monotone at every radius, so there is no throat and there are not two ends to identify"),
+ ("GAMMA-CRIT",         0, -1, +1, "chronology.py",
+  "but the Everett / Shoshany-Snodgrass route needs no identification -- two devices and a boost. Their eq. (3.11) reduces exactly to gamma > 1/eps, and at the best unambiguous advance that is gamma > 4354: FINITE, below the LHC's proton gamma, and not a prohibition. The device is not protected by chronology, it is protected by not working at range"),
+ ("WRONG-MACHINE",      0,  0, +1, "chronology.py",
+  "unified.py named Morris-Thorne-Yurtsever and that was an assertion, not a measurement. Right conclusion -- the intersection is a time machine -- wrong machine, and the correction is struck in place there"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twenty-nine obstructions six dissolved, three relocated, eleven closed negative, seven conditional, two open and none untested"),
+  "of thirty-three obstructions six dissolved, three relocated, fifteen closed negative, seven conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -751,7 +772,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 247)
+    chk("number of findings indexed", len(FINDINGS), 257)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -781,10 +802,10 @@ def selftest():
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple), sorted([
-                "ACHRONAL","ANEC-VIOLATED","AREA-OVER-THICK","BANK-LOAN-THEOREM","BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CLASSICAL-WINS","CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DEVICE-SEATS-LEADS","DISSENT-IS-VALUE","EC-TAKEN","EM-GAP","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GAP-WIDENS","GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LAUNCHER","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","OBJ-CEILING","OBSERVED-ENGINE","ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD","SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-NOT-POWER","SIGN-STRUCTURE-3","SLINGSHOT","SPACE-TIME-ONE","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STIFF-WALL","STURM-IMPLIES-COLLAPSE","THE-DOOR","THE-SPLIT","THE-TRADE","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TIME-CHEAPER-METRIC","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","TYPE-IV","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
+                "ACHRONAL","ANEC-VIOLATED","AREA-OVER-THICK","BANK-LOAN-THEOREM","BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CLASSICAL-WINS","CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DEVICE-SEATS-LEADS","DISSENT-IS-VALUE","EC-TAKEN","EM-GAP","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GAIN-SATURATES","GAP-WIDENS","GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LAUNCHER","LEAD-IS-INTERIOR","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-AGAINST-LINEAR","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","OBJ-CEILING","OBSERVED-ENGINE","ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SAVING-DOESNT-SCALE","SCOPE-DROPS-LEAD","SEATS-AND-EARLY","SECOND-COSTS-1E4-SUNS","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-NOT-POWER","SIGN-STRUCTURE-3","SLINGSHOT","SPACE-TIME-ONE","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STIFF-WALL","STURM-IMPLIES-COLLAPSE","THE-DOOR","THE-SPLIT","THE-TRADE","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TIME-CHEAPER-METRIC","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","TYPE-IV","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff), sorted([
-                "BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CLASSICAL-WINS","CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DEVICE-SEATS-LEADS","DISSENT-IS-VALUE","EC-TAKEN","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","OBSERVED-ENGINE","ONE-SIGN-EXOTIC","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD","SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3","SLINGSHOT","SPACE-TIME-ONE","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STIFF-WALL","THE-DOOR","THE-SPLIT","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TIME-CHEAPER-METRIC","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
+                "BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CLASSICAL-WINS","CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DISSENT-IS-VALUE","EC-TAKEN","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","OBSERVED-ENGINE","ONE-SIGN-EXOTIC","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD","SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3","SLINGSHOT","SPACE-TIME-ONE","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STIFF-WALL","THE-DOOR","THE-SPLIT","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TIME-CHEAPER-METRIC","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
