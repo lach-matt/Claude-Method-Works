@@ -620,8 +620,21 @@ FINDINGS = [
   "their footnote 2 declines the TIME-INDEPENDENT interaction to keep the state regular on the past horizon -- a stated technical reason, not a failure. A standing channel is exactly what amortisation needs and exactly what nobody has tested"),
  ("ONE-DOOR",            0,  0, +1, "amortize.py",
   "so the ORDER row is not open everywhere: it is open at ONE point, named in the source with the authors' own reason for not opening it. Narrow, real, and untested by anyone"),
+ # Pass 30 -- space and time as ONE index, M's four claims, each measured.
+ ("SPACE-TIME-ONE",    +1, +1, +1, "unified.py",
+  "space and time are ONE quantity, measured: the two savings share a sign at every Phi tested, positive and negative, and their ratio is 2.000 throughout -- e^{-Phi} for proper distance against e^{-2Phi} for light time. One Phi moves both, never separately"),
+ ("TIME-CHEAPER-METRIC",+1, +1, +1, "unified.py",
+  "and in the METRIC register time is CHEAPER by exactly two: Phi = eps buys a fractional space saving, Phi = eps/2 buys the same fractional time saving. Half the source for the same gain -- the opposite of the intuition that time costs more"),
+ ("REGISTER-INVERSION",  0, -1, +1, "unified.py",
+  "but in the CAUSAL register the ordering inverts and is severe: a spatial shortcut is not forbidden as such, a temporal displacement is, and the INTERSECTION is the Morris-Thorne-Yurtsever time machine. The cheap one to build is the forbidden one to use"),
+ ("PAID-IN-ADVANCE",     0, +1, +1, "unified.py",
+  "GJW pay in advance literally: their coupling breaks the H_L - H_R Killing symmetry and so 'fixes the relative time coordinate between them, excluding the possibility of having closed time-like curves'. Causal consistency bought at the moment of coupling, and what it costs is the intersection"),
+ ("CHAIN-COSTS-MORE",    0, -1, +1, "unified.py",
+  "collection in transit measured FALSE: the same total mass spread over N static sources gives 1.000 / 0.976 / 0.954 / 0.950 of one concentrated source at N = 1/2/10/50. Splitting the path shortens every span and eps goes as asinh(L/2b), so the logarithm punishes it. Deferral to seating is NOT-RUN"),
+ ("EIGHT-IS-A-COUNT",    0,  0, +1, "unified.py",
+  "the device really does take eight free parameters -- m, a, b, R_s, L, A, B, beta^2 -- two of them the endpoints transit.py gates on. EIGHT IS THE COUNT AND NOTHING MORE: Lambda_8's eight are physical quantities under seven Heaviside constraints, these are device parameters, and no correspondence is asserted"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twenty-eight obstructions six dissolved, three relocated, ten closed negative, seven conditional, two open and none untested"),
+  "of twenty-nine obstructions six dissolved, three relocated, eleven closed negative, seven conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -738,7 +751,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 241)
+    chk("number of findings indexed", len(FINDINGS), 247)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -768,47 +781,10 @@ def selftest():
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple), sorted([
-                "ACHRONAL","ANEC-VIOLATED","AREA-OVER-THICK","BANK-LOAN-THEOREM","BUILT-SOURCE",
-                "CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CLASSICAL-WINS",
-                "CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS",
-                "DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED",
-                "DEVICE-SEATS-LEADS","DISSENT-IS-VALUE","EC-TAKEN","EM-GAP","EM-IS-ORDINARY",
-                "ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY",
-                "GAP-WIDENS","GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LAUNCHER",
-                "LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK",
-                "LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL",
-                "NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT",
-                "NOT-POWERED","NOTHING-STRUCTURAL","OBJ-CEILING","OBSERVED-ENGINE",
-                "ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE","ORDER-MOVED","ORDINARY-MATTER",
-                "PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED",
-                "PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD",
-                "SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-NOT-POWER",
-                "SIGN-STRUCTURE-3","SLINGSHOT","STABLE-FOR-FREE","STANDING-COUPLING",
-                "STATE-NOT-ELEMENT","STIFF-WALL","STURM-IMPLIES-COLLAPSE","THE-DOOR",
-                "THE-SPLIT","THE-TRADE","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT",
-                "TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","TYPE-IV",
-                "UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH",
-                "WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
+                "ACHRONAL","ANEC-VIOLATED","AREA-OVER-THICK","BANK-LOAN-THEOREM","BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CLASSICAL-WINS","CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DEVICE-SEATS-LEADS","DISSENT-IS-VALUE","EC-TAKEN","EM-GAP","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GAP-WIDENS","GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LAUNCHER","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","OBJ-CEILING","OBSERVED-ENGINE","ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD","SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-NOT-POWER","SIGN-STRUCTURE-3","SLINGSHOT","SPACE-TIME-ONE","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STIFF-WALL","STURM-IMPLIES-COLLAPSE","THE-DOOR","THE-SPLIT","THE-TRADE","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TIME-CHEAPER-METRIC","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","TYPE-IV","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff), sorted([
-                "BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CLASSICAL-WINS",
-                "CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS",
-                "DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED",
-                "DEVICE-SEATS-LEADS","DISSENT-IS-VALUE","EC-TAKEN","EM-IS-ORDINARY",
-                "ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY",
-                "GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES",
-                "LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED",
-                "NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI",
-                "NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","OBSERVED-ENGINE",
-                "ONE-SIGN-EXOTIC","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FOURTH-TIME",
-                "PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE",
-                "PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD","SEATS-AND-EARLY",
-                "SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3","SLINGSHOT",
-                "STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STIFF-WALL",
-                "THE-DOOR","THE-SPLIT","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT",
-                "TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE",
-                "UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH",
-                "WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
+                "BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CLASSICAL-WINS","CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DEVICE-SEATS-LEADS","DISSENT-IS-VALUE","EC-TAKEN","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","OBSERVED-ENGINE","ONE-SIGN-EXOTIC","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD","SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3","SLINGSHOT","SPACE-TIME-ONE","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STIFF-WALL","THE-DOOR","THE-SPLIT","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TIME-CHEAPER-METRIC","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

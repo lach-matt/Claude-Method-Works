@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of twenty-eight obstructions, SIX dissolved, three relocated,
-TEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
+THE HEADLINE: of twenty-nine obstructions, SIX dissolved, three relocated,
+ELEVEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -281,6 +281,18 @@ LEDGER = [
   "which is INSIDE THE HORIZON at every charge, and Q <= M is the "
   "Einstein-Maxwell positive energy theorem. Charge reduces the delay by up to "
   "25% at r = 2M and never reverses it", "charge.py"),
+ ("COLLECTION-IN-TRANSIT", "the cost of the transition can be collected en "
+  "route from static neighbours rather than paid in advance", "CLOSED-NEGATIVE",
+  "MEASURED FALSE, and the mechanism is the logarithm. Spreading the same total "
+  "mass over N static sources along the path gives 1.000 / 0.976 / 0.960 / 0.954 "
+  "/ 0.950 of one concentrated source at N = 1/2/5/10/50 -- monotonically WORSE, "
+  "converging near 95 %. The contraction goes as asinh(L/2b), so splitting the "
+  "path shortens every span and the sum of the parts is less than the whole. One "
+  "concentrated source wins. This closes the cheap route and leaves the price "
+  "where GJW put it: paid in advance, at the moment of coupling. DEFERRAL TO "
+  "SEATING IS NOT-RUN, not refuted -- paying at the destination is not a "
+  "well-posed computation without a model of dynamical payment, and none is "
+  "invented here", "unified.py"),
  ("THE-LEAD", "a device must beat light to be worth building", "DISSOLVED",
   "NOT UNDER M's SCOPING: the matter must exist at both ends under the same "
   "physics, nothing more. That removes the requirement Olum, Ford-Roman and "
@@ -460,10 +472,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 28)
+    chk("obstructions tracked", len(LEDGER), 29)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 10)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 11)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",

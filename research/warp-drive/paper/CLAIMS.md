@@ -765,10 +765,14 @@ the boundary between matter that satisfies the energy conditions and matter that
 
 ---
 
-## ★★★ HEADLINE — the specification
+## ~~★★★ HEADLINE — the specification~~ *(the `B·ℓ` invariant WITHDRAWN, see H15′)*
 
-**H15. Under the correct scoping the lead is not required, the seat is achievable with ordinary matter,
-and the whole specification is one invariant: `B·ℓ = 1.5456×10¹⁹ T·m`.**
+**~~H15. Under the correct scoping the lead is not required, the seat is achievable with ordinary matter,
+and the whole specification is one invariant: `B·ℓ = 1.5456×10¹⁹ T·m`.~~**
+
+> **WITHDRAWN in `spec.py`, twice over and independently.** The scoping half of H15 stands and is
+> restated as **H15′** below; the *specification* half does not. Kept here struck rather than deleted,
+> because the retraction is itself the finding.
 
 > Every theorem that blocked this work — Olum, Ford–Roman, `Q ≤ M` — is a theorem about **beating
 > light**. If the requirement is only that the transported matter exist at both ends under the same
@@ -827,6 +831,83 @@ Schwarzschild exactly; ergosphere at `x = √(4+a²)`, matching `r = 2M`), and t
 place a positive-potential region sits outside a horizon in vacuum**. The integrator hit the ring
 singularity and the test was **halted by scoping** — it was a hunt for a lead, which is no longer
 required. **`NOT-RUN`, with a reason, and it is the one untested door if the lead is ever reopened.**
+
+---
+
+## ⚠ H15′ — what survives the withdrawal, and what replaced it
+
+**The scoping result stands.** Every theorem that blocked this work — Olum, Ford–Roman, `Q ≤ M` — is a
+theorem about **beating light**. If the requirement is only that the transported matter exist at both
+ends under the same physics, that demand is never made, and every blocking result is attached to a
+requirement no longer posed. `transit.py`'s Part 1 and Part 3 are unchanged; Part 2 needs `T_kk > 0`,
+which is what ordinary matter has. **None of that depended on `B·ℓ`.**
+
+**The specification does not stand, and it failed in two independent ways.**
+
+1. **Any Sturm-seating region is inside its own Schwarzschild radius.** `spec.py`'s
+   `seat_over_collapse(ℓ)` is the constant `2π²/3 = 6.579` **at every scale** — the energy density that
+   seats a conjugate point over `ℓ` exceeds the collapse bound `3c⁴/8πGℓ²` by that factor, always. The
+   `B·ℓ` invariant is arithmetically correct and describes **a black hole**, not a device.
+2. **The magnetar figure compared a peak against a length it does not sustain.** A dipole falls as
+   `(R/r)³`; the table quoted the surface field against `1.546×10⁸ m` of path. Short by **25 orders**.
+   `charge.py` carried the same error and is struck there too.
+
+**What actually seats, and it is ordinary:** cumulative weak-field lensing, `f = b²c²/4GM`, validated
+against the solar gravitational focus at **547.6 AU** against the published ~550 AU. Known since 1919.
+
+> **The honest description survives the withdrawal intact: a controlled gravitational focus at a chosen
+> range, addressed by declaring both endpoints, built from fields that satisfy every energy condition.
+> What is withdrawn is the claim that one number specifies it.**
+
+| | `spec.py` |
+|---|---|
+| status | **WITHDRAWN** (the invariant) + **PROVEN** (the `2π²/3` obstruction that withdrew it) + **MEASURED** (solar focus to 0.4%) |
+| new? | the scale-invariance of the seat-over-collapse ratio, yes |
+| **not** claimed | that the scoping argument fell with the specification — it did not; that lensing is the *warp* quantity — it is not, and `transition.py` shows a lens has the **wrong sign** for proper distance |
+
+---
+
+## ★★ HEADLINE — space and time are one quantity
+
+**H16. Proper distance and light time are not two things that correlate; they are one Φ read in two
+exponents, and their ratio is exactly 2.**
+
+> Measured over six source strengths spanning both signs of Φ:
+>
+> | m | Φ at b | space saving | time saving | ratio |
+> |---|---|---|---|---|
+> | −8e-2 | −8.000e-2 | −3.076e-3 | −6.222e-3 | 2.0229 |
+> | −2e-2 | −2.000e-2 | −7.626e-4 | −1.529e-3 | 2.0055 |
+> | −5e-3 | −5.000e-3 | −1.903e-4 | −3.808e-4 | 2.0014 |
+> | +5e-3 | +4.974e-3 | +1.650e-4 | +3.297e-4 | 1.9985 |
+> | +2e-2 | +1.990e-2 | +6.585e-4 | +1.313e-3 | 1.9940 |
+> | +8e-2 | +7.958e-2 | +2.610e-3 | +5.159e-3 | 1.9765 |
+>
+> **Same sign in every case**, and the ratio is 2.000 throughout: `∫e^{−Φ}dl` against `∫e^{−2Φ}dl`. A
+> configuration cannot buy one without the other, in either direction.
+
+**And which is costlier inverts between registers — both readings are true.** Metrically **time is
+cheaper by exactly two**: a fractional saving `ε` costs `Φ = ε` in space and `Φ = ε/2` in time. Causally
+the ordering reverses and is severe: a spatial shortcut is not forbidden as such, a temporal
+displacement is, and the **intersection** is the Morris–Thorne–Yurtsever time machine.
+
+> **The cheap one to build is the forbidden one to use.**
+
+**The price is paid in advance, and Gao–Jafferis–Wall pay it literally.** Their coupling breaks the
+`H_L − H_R` Killing symmetry and so *"fixes the relative time coordinate between them, excluding the
+possibility of having closed time-like curves."* Causal consistency bought at the moment of coupling;
+what it costs is the intersection.
+
+**Collection in transit is measured FALSE.** The same total mass spread over `N` static sources gives
+1.000 / 0.976 / 0.960 / 0.954 / 0.950 of one concentrated source at `N = 1/2/5/10/50` — monotonically
+**worse**, converging near 95 %. The contraction goes as `asinh(L/2b)`, so splitting the path shortens
+every span. **One concentrated source wins, by the logarithm.**
+
+| | `unified.py` |
+|---|---|
+| status | **MEASURED** (the ratio, both signs) + **PROVEN** (`Φ = ε` vs `Φ = ε/2`, closed form) + **MEASURED** (the chain, N to 50) |
+| new? | the exponent ratio as an exact structural statement, and the register inversion, yes |
+| **not** claimed | that *"deferred to seating"* is refuted — it is **`NOT-RUN`**, and paying at the destination is not well-posed here without a model of dynamical payment; that the eight device parameters correspond to Λ₈ — **same cardinality, no established correspondence**; that the metric cheapness of time is usable — the causal register forbids exactly the thing it makes cheap |
 
 ---
 
@@ -900,5 +981,14 @@ required. **`NOT-RUN`, with a reason, and it is the one untested door if the lea
   late. The index is the right index; it is not yet the index of transport.
 - **That H6's three-part structure delivers transport.** It delivers a *frame* that is coherent,
   gated and computable, plus two exclusions. A conjugate point is a light focus, not a payload.
+- **That the `B·ℓ` invariant specifies anything.** It is arithmetically correct and **withdrawn**: any
+  Sturm-seating region is inside its own Schwarzschild radius by `2π²/3` at every scale, and the
+  magnetar figure compared a dipole's peak against a length it does not sustain — short by 25 orders.
+  See **H15′**.
+- **That H16's metric cheapness of time is exploitable.** It is not: the register that makes time cheap
+  to buy is not the register that permits spending it, and the intersection of the two is a time
+  machine.
+- **That the eight device parameters are Λ₈.** Same cardinality, nothing more. Λ₈'s eight are physical
+  quantities under seven Heaviside constraints; these are device parameters.
 - That the achronality scan is exhaustive. It covers impact parameter for `+x` rays at three speeds.
   A ray family it does not contain is reported `NOT-RUN`, never as absent.

@@ -3527,3 +3527,92 @@ not opening it.**
 - `index3.py` — 241 findings: `TIMESCALES-INDEPENDENT`, `AMORTISATION-CLOSED`, `STANDING-COUPLING`,
   `ONE-DOOR`.
 - `obstruct.py` — 28 rows. New `STANDING-COUPLING`, **CONDITIONAL**.
+
+---
+
+## Pass 30 — `unified.py`: space and time are one index, and the price is paid in advance
+
+M's claim, in full:
+
+> *"time index travel and space index travel are not two separate things, but are one, and have to be.
+> The conjugate mechanism then transports the payload along the cheapest plane with time being the more
+> costly of the two, and the intersection of both planes being the most expensive. This allows for the
+> complete 8 value coordinate as a standard input. But the seated output will always be based on what is
+> paid in advance for the transport, unless the price can be deferred to seating or collection in transit
+> from a static neighbor."*
+
+Four testable claims. **Three measured true, one measured false, and one of the true ones inverts
+depending on which register you ask in.**
+
+### 1. They are one — and it is exact
+
+| m | Φ at b | space saving | time saving | ratio |
+|---|---|---|---|---|
+| −8e-2 | −8.000e-2 | −3.076e-3 | −6.222e-3 | 2.0229 |
+| −2e-2 | −2.000e-2 | −7.626e-4 | −1.529e-3 | 2.0055 |
+| −5e-3 | −5.000e-3 | −1.903e-4 | −3.808e-4 | 2.0014 |
+| +5e-3 | +4.974e-3 | +1.650e-4 | +3.297e-4 | 1.9985 |
+| +2e-2 | +1.990e-2 | +6.585e-4 | +1.313e-3 | 1.9940 |
+| +8e-2 | +7.958e-2 | +2.610e-3 | +5.159e-3 | 1.9765 |
+
+**Same sign in every case**, positive Φ and negative, and the ratio is **2.000** throughout. Proper
+distance carries `e^{−Φ}`, light time carries `e^{−2Φ}` — one quantity read in two exponents. They
+cannot move separately, and M's *"have to be"* is structural rather than incidental.
+
+### 2. But which is costlier inverts between registers
+
+**Metrically, time is cheaper by exactly two.** A fractional saving `ε` costs `Φ = ε` in space and
+`Φ = ε/2` in time. Half the source for the same fractional gain — the opposite of the intuition.
+
+**Causally, M's ordering holds and is severe.** A shorter spatial path is not forbidden as such; a
+temporal displacement is, by chronology protection; and the **intersection** — a spatial shortcut that
+also displaces in time — is the Morris–Thorne–Yurtsever time machine, the most constrained object in
+the subject.
+
+> **Both readings are true and they run opposite ways. The cheap one to build is the forbidden one to
+> use, and that is the tension this whole problem sits on.**
+
+### 3. GJW pay in advance, literally
+
+> *"since the coupling we add breaks the Killing symmetry `H_L − H_R`, there is no way to boost her back
+> to a time before she entered the worm hole. Thus the way we glue the two boundaries **fixes the
+> relative time coordinate** between them, excluding the possibility of having closed time-like curves."*
+
+They buy causal consistency at the moment of coupling, and what it costs them is the intersection — no
+time displacement, ever, by construction. M's *"paid in advance"* is not a metaphor here; it is what
+the coupling does.
+
+### 4. Collection in transit — measured FALSE
+
+The same total mass spread over `N` static sources along the path:
+
+| N | space saving | vs one source |
+|---|---|---|
+| 1 | 7.5843e-4 | 1.00000 |
+| 2 | 7.4024e-4 | 0.97602 |
+| 5 | 7.2810e-4 | 0.96001 |
+| 10 | 7.2382e-4 | 0.95436 |
+| 50 | 7.2034e-4 | 0.94977 |
+
+**Distributing makes it worse, monotonically**, converging near 95 %. The contraction goes as
+`asinh(L/2b)`, so splitting the path shortens every span and the sum of the parts is less than the
+whole. **One concentrated source wins, by the logarithm.**
+
+`"Deferred to seating"` is **`NOT-RUN`** — paying at the destination is not a well-posed computation
+without a model of what dynamical payment means, and this file does not invent one.
+
+### 5. The eight-value coordinate, counted honestly
+
+`m`, `a`, `b`, `R_s`, `L`, `A`, `B`, `β²` — **eight**, two of them the endpoints `transit.py` gates
+on, which is M's *"standard input"* and the reason part 2 cannot initialise without both.
+
+**A caution the file will not skip:** eight is the *count*, and that is all it is. Λ₈'s eight are
+physical quantities under seven Heaviside constraints; these are device parameters. **Same cardinality,
+no established correspondence**, and asserting one would be the kind of thing this tree keeps having to
+withdraw.
+
+### Seated
+
+- `index3.py` — **247 findings**: `SPACE-TIME-ONE`, `TIME-CHEAPER-METRIC`, `REGISTER-INVERSION`,
+  `PAID-IN-ADVANCE`, `CHAIN-COSTS-MORE`, `EIGHT-IS-A-COUNT`. Still 15 occupied cells, `E(X) = 0`.
+- `obstruct.py` — **29 rows**. New `COLLECTION-IN-TRANSIT`, **CLOSED-NEGATIVE**.
