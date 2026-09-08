@@ -1,0 +1,62 @@
+bibindex3 -- what the six published volumes must import
+==============================================================================
+
+1  THE 162 ROWS AGAINST THE SIX THAT WILL BE PUBLISHED
+   OBJECT            127
+   CITED               9
+   CITED-FULLER        5
+   IMPORT-OWED        21
+   and they sum to 162
+
+   bibindex2.py resolved 15 rows into a COMPANION tier.  Under M's scope
+   correction that tier is void: Transitions, The Löwdin Solution and The
+   Three-Body Problem are not published, so a reader of the six gets nothing
+   from them.  Those rows are work owed, not rows resolved.
+
+2  CITED-FULLER — THE ROW ABBREVIATES A LONGER AUTHOR LIST, AND IS NOT MISSING
+   1969  Andrew & Cowan             -> andrew cowan griffin                         [indices, mathematical,]
+   1970  Fano                       -> fano lu                                      [mathematical]
+   1983  Maier & Yannakakis         -> beeri fagin maier yannakakis                 [mathematical]
+   1986  Inokuti & Manson           -> inokuti manson theodosiou                    [mathematical, register]
+   2003  Fredenhagen & Verch        -> brunetti fredenhagen verch                   [mathematical]
+
+3  CITED BUT CARRYING NO OBJECT — the reader can follow it, the column cannot
+   1842  Jacobi                             physics
+   1878  Hill                               main, physics
+   1890  Poincaré                           main
+   1954  Kolmogorov                         main
+   1963  Arnold                             main
+   1968  Ireland and Kullback               mathematical, register
+   1971  Griffin, Andrew & Cowan            main
+   1982  Marchal & Bozis                    main, physics
+   1991  Kay-Wald                           mathematical, register
+
+4  IMPORT OWED — 21 ROWS, AND WHERE EACH CONTRIBUTION IS ALREADY WRITTEN
+   A hit AT THE ROW'S OWN YEAR is a pinned source.  A hit on the author at
+   another year is weaker and is marked as such: a first draft of this counted
+   both alike and reported Shannon 1937 held, when what it had found was
+   Shannon 1948.
+   1968  Alekseev                         held in ledger-threebody, thre -> Mathematical Compendium, family 3B (three bodies)
+   1974  McGehee                          held in ledger-threebody       -> Mathematical Compendium, family 3B (three bodies)
+   1975  Marchal & Saari                  held in ledger-threebody       -> Mathematical Compendium, family 3B (three bodies)
+   1976  Monaghan                         held in ledger-threebody, thre -> Mathematical Compendium, family 3B (three bodies)
+   1998  Montgomery                       held in ledger-threebody, thre -> Mathematical Compendium, family 3B (three bodies)
+   2000  Chenciner & Montgomery           held in ledger-threebody, thre -> Mathematical Compendium, family 3B (three bodies)
+   2002  Montgomery                       held in ledger-threebody, thre -> Mathematical Compendium, family 3B (three bodies)
+   2019  Fleischer & Knauf                held in ledger-threebody       -> Mathematical Compendium, family 3B (three bodies)
+   2021  Kol                              held in ledger-threebody, thre -> Mathematical Compendium, family 3B (three bodies)
+
+   AND WITH NO CONTRIBUTION WRITTEN ANYWHERE HELD HERE:
+      1913  Pauli                            the author is named in transitions, generator, at another year
+      1937  Shannon                          the author is named in generator, at another year
+      1958  Pauli                            the author is named in transitions, generator, at another year
+      1964  Moebius                          the author is named in generator, at another year
+      1973  Saari                            the author is named in threebody-paper, ledger-threebody, at another year
+      1982  Racah                            the author is named in transitions, generator, at another year
+      1989  Nouguier & Vilarem               the author is named in generator, at another year
+      1995  Beek & Dechter                   the author is named in transitions, generator, at another year
+      2006  Hsiang & Straume                 the author is named in threebody-paper, ledger-threebody, at another year
+      2023  Kol                              the author is named in threebody-paper, ledger-threebody, at another year
+      2026  Lach, *The Löwdin Solution*      the author is named in lowdin-paper, at another year
+      2026  Lach, *The Three-Body Problem fo the author is named in threebody-paper, at another year
+   These need the outside search M directed before an import can be written.

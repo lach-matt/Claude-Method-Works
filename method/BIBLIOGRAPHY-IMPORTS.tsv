@@ -1,0 +1,163 @@
+year	work	class	where	note	contribution_held_in	proposed_target
+1669	Newton	OBJECT	the object's own apparatus	Newton decrement, Nesterov–Nemirovskii 1994		
+1682	Leibniz	OBJECT	the object's own apparatus	Monotone interpolation bracket		
+1687	Newton	OBJECT	the object's own apparatus	The ordered bracket | The two-body separation		
+1715	Taylor	OBJECT	the object's own apparatus	The fractional widths | The linear pole		
+1736	Euler	OBJECT	the object's own apparatus	The constraint graph		
+1744	Maupertuis	OBJECT	the object's own apparatus	The Jacobi–Maupertuis metric		
+1748	Euler	OBJECT	the object's own apparatus	The alternating specialisation | The box generating function | The cardinality | The detachable leaf | The fibres, in closed form | The first factor | The generating function | The product rule for the defect | The second factor		
+1767	Euler	OBJECT	the object's own apparatus	The five fixed points		
+1770	Lagrange	OBJECT	the object's own apparatus	The algebraic variety		
+1772	Lagrange	OBJECT	the object's own apparatus	The five fixed points		
+1797	Lagrange	OBJECT	the object's own apparatus	The optimal step		
+1809	Gauss	OBJECT	the object's own apparatus	The anchor | The five-sigma admissibility threshold — where the bracket may be applied at all | The rank skew | The transfer distribution		
+1837	Jacobi	OBJECT	the object's own apparatus	The Jacobi–Maupertuis metric		
+1842	Jacobi	CITED	physics			
+1854	Boole	OBJECT	the object's own apparatus	The logic level		
+1869	Mendeleev	OBJECT	the object's own apparatus	The refusal map | The thirty-six decomposed		
+1878	Hill	CITED	main, physics			
+1890	Rydberg	OBJECT	the object's own apparatus	Self-determined limit | The Rydberg floor | The exact price | The four-thirds law | The precision lens | The value-one crossing — where the bracket's price V passes unity | What silence implies | When the bracket fails		
+1890	Poincaré	CITED	main			
+1893	Heaviside	OBJECT	the object's own apparatus	The language combinations | The membership function		
+1896	Pareto	OBJECT	the object's own apparatus	Four numbers, five facts | The bridge equation | The fibre trade | The width-price front		
+1900	Dedekind	OBJECT	the object's own apparatus	Four numbers, five facts | Modularity (equality, not submodularity) | Two indices, and the one that does not exist		
+1903	Ritz	OBJECT	the object's own apparatus	Self-determined limit | Series self-consistency | The channel curve | The monotonicity of the defect | The regime coordinate		
+1904	Spearman	OBJECT	the object's own apparatus	The bridge equation		
+1906	Jensen	OBJECT	the object's own apparatus	The Rydberg floor | The floor at two		
+1907	Fubini	OBJECT	the object's own apparatus	The fibred count		
+1910	Moore	OBJECT	the object's own apparatus	A seed | An index whose one prediction is false | Bergman double-projection; Baker–Pixley 1975 (majority term) | Closure defect | Closure operator (Moore family) | Extensivity | Law versus extent, and what E measures | The bounds are recoverable | The closure theorem | The defect bounds | The expression always exists | The family of closed sets | The family's defect, exactly | The open-index form, seed + E | The recovery operator		
+1911	Caratheodory	OBJECT	the object's own apparatus	The Carathéodory lower bound		
+1913	Bohr	OBJECT	the object's own apparatus	Node counting, f ≤ e − 1 | Node counting, ℓ ≤ n − 1 | The assembly rule — a composite observable's scaling exponent is 2a + 3b | The definition of Λ		
+1913	Pauli	IMPORT-OWED				
+1916	Sommerfeld	OBJECT	the object's own apparatus	The j-splitting		
+1918	Noether	OBJECT	the object's own apparatus	The electromagnetic index is a quotient, not an extension | The electromagnetic quotient		
+1922	Chazy	OBJECT	the object's own apparatus	The index Λ₃		
+1923	Helly	OBJECT	the object's own apparatus	Helly number		
+1924	Born & Heisenberg	OBJECT	the object's own apparatus	Core polarisation | Seaton's term | The polarisability index		
+1924	Laporte	OBJECT	the object's own apparatus	Electric/magnetic multipole selection rules | The multipole is fixed by the orbital jump and the parity | The parity hole | The selection-rule crossing | Which selection rules a closed index will accept		
+1924	Stoner	OBJECT	the object's own apparatus	Pauli, g ≤ 4f + 2 | Pauli, k ≤ 4ℓ + 2		
+1925	Hund	OBJECT	the object's own apparatus	The ground-state derivation | Vector coupling		
+1925	Pauli	OBJECT	the object's own apparatus	Pauli, g ≤ 4f + 2 | Pauli, k ≤ 4ℓ + 2 | The Pauli bound | The admissible Pauli cut | The arrow is a property of the assumption | The channel equation, final form | The channel equation, first form | The definition of Λ | The occupancy floor | The second transfer bound | The transfer bound | Three excluded forms | Vector coupling		
+1925	Russell & Saunders	OBJECT	the object's own apparatus	Intercombination lines: the index admits what LS coupling forbids | The spin diagonal | Which selection rules a closed index will accept		
+1926	Aitken	OBJECT	the object's own apparatus	Aitken Δ² / Seki Kōwa		
+1926	Schroedinger	OBJECT	the object's own apparatus	Node counting, ℓ ≤ n − 1		
+1927	Wigner	OBJECT	the object's own apparatus	An index whose one prediction is false | The complete rectangle | The electromagnetic index is a quotient, not an extension | The parity hole | Three excluded forms | Which selection rules a closed index will accept		
+1928	Dirac	OBJECT	the object's own apparatus	The j-splitting		
+1928	Fermi	OBJECT	the object's own apparatus	The channel equation, final form | The channel equation, first form | The deficit term		
+1928	Hartree	OBJECT	the object's own apparatus	The channel curve | The deficit term | The l-collapse		
+1928	Sperner	OBJECT	the object's own apparatus	Every other shape the lattice contains | The Sperner property		
+1929	Janet	OBJECT	the object's own apparatus	The Pauli bound | The channel equation, final form | The ground-state derivation | The price of a layout | The thirty-six decomposed		
+1931	Wigner	OBJECT	the object's own apparatus	Basis independence of the level set | The axis density | The four coupling schemes as physical recoupling chains | The recoupling bound | The spin diagonal | The three excluded forms		
+1931	Hopf	OBJECT	the object's own apparatus	Shape space and the shape sphere		
+1933	Mayer & Mayer	OBJECT	the object's own apparatus	The polarisability index		
+1933	Milne-Thomson	OBJECT	the object's own apparatus	Monotone interpolation bracket | The admissible order | The linear pole | The ordered bracket | The price V — the bracket's width against its error		
+1935	Condon & Shortley	OBJECT	the object's own apparatus	Core angular structure | Electric/magnetic multipole selection rules | Intercombination lines: the index admits what LS coupling forbids | The bounds against real terms | The coupling-scheme marker | The envelope-step law | The four coupling schemes | The fourteenth axis, and the tower's last stage | The multipole is fixed by the orbital jump and the parity | The parent bound | The parent-term wall | The six axes of the tower | The spin-half bound | The tower		
+1936	Eckart & Young	OBJECT	the object's own apparatus	The rank-one factorisation		
+1936	Madelung	OBJECT	the object's own apparatus	The ground-state derivation | The index against the real subshells		
+1936	Tarski	OBJECT	the object's own apparatus	The comparison audit | The logic level		
+1936	Murray & von Neumann	OBJECT	the object's own apparatus	Semifinite carries a trace		
+1937	Birkhoff	OBJECT	the object's own apparatus	A seed | Birkhoff / product of chains | Distinct-prime-counting function | Divisor lattice embedding | E is coordinate-relative | Every other shape the lattice contains | Four numbers, five facts | How Λ enters a larger index | Join-prime and meet-prime | The Birkhoff representation | The Boolean representation | The arrow index | The box seed law, d + c − 2 | The convexity criterion | The defining letter | The fourteenth axis, and the tower's last stage | The implication circuit | The interval-removal step | The join-irreducible count | The language combinations | The occupancy clock, and definability is not reachability | The production rule		
+1937	Shannon	IMPORT-OWED				
+1938	Shannon	OBJECT	the object's own apparatus	The Boolean representation | The implication circuit | The language combinations | The one-hot partition | The seed as binary, corrected		
+1939	Inglis & Teller	OBJECT	the object's own apparatus	Truncation loss		
+1940	Birkhoff	OBJECT	the object's own apparatus	Adjunction never repairs (M Thm 10.1) | Adjunction never repairs a closed index | E is coordinate-relative | Every stage of the tower in one table | Modularity (equality, not submodularity) | Sublattice of a product | The arrow is a property of the assumption | The cap as a morphism | The fourteenth axis, and the tower's last stage | The interval map | The languages are one statement, and E is what translation costs | The membership function is total | The most active constraint is the coupling itself | The product rule for closure | The shape of an interval | The six axes of the tower | Two indices, and the one that does not exist		
+1940	Deming & Stephan	OBJECT	the object's own apparatus	Statistics as a language		
+1941	Dushnik & Miller	OBJECT	the object's own apparatus	E is coordinate-relative | Order dimension (Dushnik–Miller) | The axis test		
+1941	Goeppert-Mayer	OBJECT	the object's own apparatus	Orbital collapse | The Janet collapse		
+1942	Racah	OBJECT	the object's own apparatus	Basis independence of the level set | Four coupling schemes price four routes to one object | The axis density | The counting-coupling dichotomy | The four coupling schemes | The four coupling schemes as physical recoupling chains | The parent bound | The recoupling bound | The tower | The tree or the tightness | Three excluded forms		
+1942	Ward	OBJECT	the object's own apparatus	Closure operator (Moore family) | The family of closed sets | The family theorem		
+1943	Racah	OBJECT	the object's own apparatus	Law versus extent, and what E measures | Racah 1943 seniority | The admissible Pauli cut | The parent-term wall | The seniority floor | The six axes of the tower | The three excluded forms		
+1945	Segre	OBJECT	the object's own apparatus	The nuclide chart's defect		
+1948	Coxeter	OBJECT	the object's own apparatus	The null surface is a face		
+1948	Shannon	OBJECT	the object's own apparatus	Description length | Every stage of the tower in one table | How Λ enters a larger index | Selection and composition are unrelated | Slack | The axis test | The electromagnetic index is a quotient, not an extension | The fourteenth axis, and the tower's last stage | The projection ladder | The register as an index | The three blindnesses | The transit profile		
+1950	Dilworth	OBJECT	the object's own apparatus	Every other shape the lattice contains | How Λ enters a larger index | Order dimension (Dushnik–Miller) | The Sperner property | The box seed law, d + c − 2 | The down-set seed law, d + c − 1		
+1950	Hamming	OBJECT	the object's own apparatus	The frontier metric — distance and status on the fifteen-letter alphabet		
+1950	Pais & Uhlenbeck	OBJECT	the object's own apparatus	The core at nine letters		
+1950	Löwdin	OBJECT	the object's own apparatus	The state-dependent multiplier identity		
+1953	Green	OBJECT	the object's own apparatus	Parastatistics		
+1954	Kolmogorov	CITED	main			
+1955	Tarski	OBJECT	the object's own apparatus	The certificate condition | The family theorem		
+1957	Bethe & Salpeter	OBJECT	the object's own apparatus	The assembly rule — a composite observable's scaling exponent is 2a + 3b		
+1958	Pauli	IMPORT-OWED				
+1958	Seaton	OBJECT	the object's own apparatus	Core penetration | Core polarisation | Parent-term independence | Seaton's term | The channel equation, final form | The channel equation, first form | The l-collapse | The polarisation formula		
+1959	Dijkstra	OBJECT	the object's own apparatus	Interior and exterior | The metric defect | The three populations | The walk		
+1960	Erdos & Renyi	OBJECT	the object's own apparatus	Density and informativeness		
+1961	Fano	OBJECT	the object's own apparatus	Series perturbation		
+1961	Reeh & Schlieder	OBJECT	the object's own apparatus	Reeh–Schlieder		
+1962	Berge	OBJECT	the object's own apparatus	The composability peak | The cycle rank of the tower | The girth is four | The seven near-misses		
+1963	Arnold	CITED	main			
+1964	Edlen	OBJECT	the object's own apparatus	Constructed limit | The channel equation, final form | The periodic table as a coordinate | The same-element ladder | The step operator		
+1964	Moebius	IMPORT-OWED				
+1964	Rota	OBJECT	the object's own apparatus	Local closure is not implied | Möbius function of a distributive lattice | The amplification | The book as an index | The box factorises | The void | The void-free fraction | Why a closed expression exists		
+1965	Kolmogorov	OBJECT	the object's own apparatus	The unstatable family		
+1965	Penrose	OBJECT	the object's own apparatus	The core at nine letters		
+1967	Floyd	OBJECT	the object's own apparatus	The clock that does not tick | The composition clock		
+1967	Tomita	OBJECT	the object's own apparatus	Tomita–Takesaki		
+1968	Ireland and Kullback	CITED	mathematical, register			
+1968	Alekseev	IMPORT-OWED			ledger-threebody, threebody-paper	Mathematical Compendium, family 3B (three bodies)
+1968	Gerratt & Mills	OBJECT	the object's own apparatus	The defect closed: chord = rot + perp		
+1969	Andrew & Cowan	CITED-FULLER	indices, mathematical, physics, register	andrew cowan griffin		
+1969	Griffin, Andrew & Cowan	OBJECT	the object's own apparatus	Orbital collapse | The Janet collapse | The channel equation, final form | The collapse condition		
+1969	Pulay	OBJECT	the object's own apparatus	The defect closed: chord = rot + perp		
+1970	Codd	OBJECT	the object's own apparatus	Projection onto coordinate i		
+1970	Fano	CITED-FULLER	mathematical	fano lu		
+1970	Takesaki	OBJECT	the object's own apparatus	Tomita–Takesaki		
+1971	Lane	OBJECT	the object's own apparatus	Composition | Space is what an index holds, time is what it composes | The categorial jump | The dead ends, defined | The tower is a category | Transitions compose		
+1971	Griffin, Andrew & Cowan	CITED	main			
+1971	Saari	OBJECT	the object's own apparatus	The index Λ₃		
+1972	Gabriel	OBJECT	the object's own apparatus	The composition quiver		
+1972	Karp	OBJECT	the object's own apparatus	The seed is a set cover | The seed is an erasure structure | The seed's forced set, corrected | Λ's seed — seven cells		
+1973	Takesaki	OBJECT	the object's own apparatus	Takesaki duality 1973		
+1973	Saari	IMPORT-OWED				
+1974	Curtis & Reid	OBJECT	the object's own apparatus	The optimal step		
+1974	Johnson	OBJECT	the object's own apparatus	The seed is a set cover | Λ's seed — seven cells		
+1974	Montanari	OBJECT	the object's own apparatus	Montanari 1974		
+1974	McGehee	IMPORT-OWED			ledger-threebody	Mathematical Compendium, family 3B (three bodies)
+1975	Baker & Pixley	OBJECT	the object's own apparatus	Bergman double-projection; Baker–Pixley 1975 (majority term) | The binary-projection criterion | The fourteenth axis, and the tower's last stage		
+1975	Csiszar	OBJECT	the object's own apparatus	Statistics as a language		
+1975	Marchal & Saari	IMPORT-OWED			ledger-threebody	Mathematical Compendium, family 3B (three bodies)
+1976	Monaghan	IMPORT-OWED			ledger-threebody, threebody-paper	Mathematical Compendium, family 3B (three bodies)
+1978	Freuder	OBJECT	the object's own apparatus	Corners and faces | Failure mode A — ordering | Failure mode B — arity | Global consistency (CSP) | Jurisdiction does not change the defect | The index of all constraints | The protocol index | The three blindnesses | The three populations		
+1978	Gratzer	OBJECT	the object's own apparatus	Join-prime and meet-prime | The interval-removal step		
+1978	Rissanen	OBJECT	the object's own apparatus	Description length		
+1979	Chvatal	OBJECT	the object's own apparatus	The seed's forced set, corrected | The unit template, corrected		
+1979	Dawid	OBJECT	the object's own apparatus	Independence is a triple property		
+1980	Stanley	OBJECT	the object's own apparatus	The Sperner property		
+1981	Monjardet	OBJECT	the object's own apparatus	The interval measure | The lattice metric | The shape of an interval		
+1982	Freuder	OBJECT	the object's own apparatus	Every cut closes | Every other shape the lattice contains | Exactness proves the three parts are not a triangle | Freuder 1982 | Shape decides the seed | The arrow is a property of the assumption | The arrows decay with distance | The box factorises | The closure theorem | The constraint index | The constraint tree | The deficit | The reference index | The six axes of the tower | The surface is a cylinder | The tree or the tightness | Why a closed expression exists		
+1982	Racah	IMPORT-OWED				
+1982	Marchal & Bozis	CITED	main, physics			
+1983	Beeri, Fagin, Maier & Yannakakis	OBJECT	the object's own apparatus	Closure as agreement | Interior and exterior | The comparison audit | The composable window | The three-coordinate rule | ℛ as a relaxation		
+1983	Maier & Yannakakis	CITED-FULLER	mathematical	beeri fagin maier yannakakis		
+1986	Inokuti & Manson	CITED-FULLER	mathematical, register, spectra	inokuti manson theodosiou		
+1986	Stanley	OBJECT	the object's own apparatus	Every other shape the lattice contains | Palindromic rank polynomial ⟺ self-dual | The alternating specialisation | The cardinality | The fibres, in closed form | The first factor | The generating function | The language combinations | The rank polynomial | The second factor		
+1988	Pearl	OBJECT	the object's own apparatus	Data-processing inequality + Pinsker | Independence is a triple property | The Markov property		
+1989	Cooper	OBJECT	the object's own apparatus	Binary path consistency / 2-decomposability (Kimura et al. 2024)		
+1989	Dechter & Pearl	OBJECT	the object's own apparatus	Exactness proves the three parts are not a triangle | Shape decides the seed | The constraint index | The refuted conjecture		
+1989	Nouguier & Vilarem	IMPORT-OWED				
+1991	Chinneck & Dravnieks	OBJECT	the object's own apparatus	The core at fifteen letters | The core at nine letters | The core is minimal | The defect does not scale		
+1991	Cover & Thomas	OBJECT	the object's own apparatus	The arrows decay with distance		
+1991	Drake & Swainson	OBJECT	the object's own apparatus	The polarisation formula		
+1991	Kay-Wald	CITED	mathematical, register			
+1992	Borchers	OBJECT	the object's own apparatus	Borchers 1992 / Wiesbrock 1993 | The modular ledger		
+1992	Dechter	OBJECT	the object's own apparatus	Dechter 1992 | Global consistency (CSP)		
+1993	Wiesbrock	OBJECT	the object's own apparatus	Borchers 1992 / Wiesbrock 1993 | The modular ledger		
+1994	Nesterov & Nemirovskii	OBJECT	the object's own apparatus	Newton decrement, Nesterov–Nemirovskii 1994 | Self-concordance		
+1995	Beek & Dechter	IMPORT-OWED				
+1996	Lauritzen	OBJECT	the object's own apparatus	Data-processing inequality + Pinsker | Past, present and future | The Markov property | The arrows decay with distance | The box factorises | The detachable leaf | The fibres, in closed form | The two-body separation | The void-free fraction | Why a closed expression exists		
+1998	Montgomery	IMPORT-OWED			ledger-threebody, threebody-paper	Mathematical Compendium, family 3B (three bodies)
+1999	Deville	OBJECT	the object's own apparatus	Constraint tightness as a count | Monotone upper envelope / staircase bound | Orientation cost | The four-orientation operator | The recovery operator | The tightening rule		
+1999	Hentenryck	OBJECT	the object's own apparatus	Constraint tightness as a count | Monotone upper envelope / staircase bound | Orientation cost | Staircase / connected row-convex | The four-orientation operator | The generation criterion | The one-corner characterisation | The tightening rule		
+2000	Wald & Zoupas	OBJECT	the object's own apparatus	The presymplectic potential		
+2000	Chenciner & Montgomery	IMPORT-OWED			ledger-threebody, threebody-paper	Mathematical Compendium, family 3B (three bodies)
+2002	Montgomery	IMPORT-OWED			ledger-threebody, threebody-paper	Mathematical Compendium, family 3B (three bodies)
+2003	Fredenhagen & Verch	CITED-FULLER	mathematical	brunetti fredenhagen verch		
+2006	Hsiang & Straume	IMPORT-OWED				
+2014	Montgomery	OBJECT	the object's own apparatus	Shape space and the shape sphere | The potential on shape space | The shape metric		
+2017	Diestel	OBJECT	the object's own apparatus	The constraint graph		
+2019	Fleischer & Knauf	IMPORT-OWED			ledger-threebody	Mathematical Compendium, family 3B (three bodies)
+2021	Kol	IMPORT-OWED			ledger-threebody, threebody-paper	Mathematical Compendium, family 3B (three bodies)
+2023	Kol	IMPORT-OWED				
+2024	Sorce	OBJECT	the object's own apparatus	Sorce 2024		
+2026	Lach, *The Löwdin Solution*	IMPORT-OWED				
+2026	Lach, *The Three-Body Problem for Unknown Masses*	IMPORT-OWED				

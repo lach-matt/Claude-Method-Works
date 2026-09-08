@@ -15,6 +15,15 @@ it was written, and what has since happened is recorded here rather than edited 
 | **E1** the three register counts | **RESOLVED AS A MEASUREMENT** (`W-290`): all three are correct counts of three different things. **299** is the objects the compendium holds, family by family; **265** is the handles its bibliography prints; **248** is the `R()` entries in `mathreg.py`, which is **held** at `extracted/archives/restore-point-2-13/` — so E1's "corroborated by nothing here" is corrected. What is left is not a count but a **labelling** question, and it is M's. The *false universal* beside it is corrected too: `W-281` said false by 34; `W-289` measures **12** |
 | **E2** the bracket-system object | **OPEN**; writing it is an editorial act |
 
+**AND THE SCOPE CORRECTION OPENS A NEW ITEM, D6 (`W-291`).** Only the six volumes are published, so a
+bibliography reference whose only correspondent is *Transitions*, *The Löwdin Solution* or *The Three-Body
+Problem for Unknown Masses* must have its work **imported into the appropriate compendium**. Measured:
+**OBJECT 127, CITED 9, CITED-FULLER 5, IMPORT-OWED 21** (`method/BIBLIOGRAPHY-IMPORTS.tsv`). Nine of the 21
+are pinned to their own year in the three-body paper or its ledger and are a move rather than an invention;
+twelve are held only by author at another year; two are the unpublished papers themselves. **CITED-FULLER is
+a separate and smaller repair**: five rows abbreviate a longer author list and need the row corrected, not an
+import.
+
 **One finding is owed a ruling and is new**: family L prints *Three excluded forms* and family T *The three
 excluded forms*, so under the handle ruling a descriptive title alone does not identify those two objects.
 They need their family printed with them, or one needs renaming (`W-290`).
