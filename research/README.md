@@ -4295,3 +4295,70 @@ It **RELOCATES**: no longer answerable by a prohibition, so it becomes a magnitu
 - `index3.py` — **310 findings**, plus an `OVERWRITE-CAUGHT` support row: this file was first written
   as `selfconsistent.py`, silently clobbering a tracked 251-line instrument of that name. `obstruct.py`'s
   import of its `SCOPE` dict failed and exposed it; restored byte-exact from git and renamed.
+
+---
+
+## `dichotomy.py` — "so we need a miniature contained black hole?" No
+
+The question is worth a file, because the tree **does** contain a "you need a black hole" result,
+`currency.py` states it in one line, and **that line is too broad — our own corridor is the
+counterexample.**
+
+### 1. Wrong sign, maximally
+
+A black hole is **positive mass**, and positive mass **stretches** proper distance — the quantity
+phase 1 proved a transition acts on:
+
+| source | Φ at b=1 | proper length |
+|---|---|---|
+| ordinary +M | −8.00000e-02 | **LONGER** |
+| negative −M | +7.95840e-02 | SHORTER |
+
+> **A black hole is not a weak version of what this needs. It is the opposite sign, at maximum
+> strength.** Put one in the corridor and the corridor gets longer.
+
+### 2. "Contained" buys nothing — Birkhoff
+
+The exterior of any spherically symmetric mass is Schwarzschild with that mass, whatever the interior
+does. A contained black hole and an uncontained one of equal mass curve the corridor identically.
+
+### 3. The black-hole result prices the **Sturm** seat, which is Ricci
+
+`spec.py`'s `2π²/3 = 6.5797` compares the **Sturm** density against the collapse bound — and Sturm is
+`qℓ² ≥ π²` with `q = 4πT_kk`, requiring `q > 0`: **positive energy, Ricci focusing.** Our corridor's
+core `T_kk` is **negative**. It does not meet Sturm, is not trying to, and the collapse result does not
+reach it.
+
+### 4. Measured: the corridor seats, and is not a black hole
+
+| | |
+|---|---|
+| conjugate point | **165.36** |
+| throat | False |
+| horizon | False |
+| `M_ADM` residual | **−4.000e-15** |
+
+It focuses through **Weyl** — quadratic, sign-blind, no density requirement at all.
+
+### The dichotomy — the cleanest structure this project has
+
+| route | mechanism | blocked by |
+|---|---|---|
+| **Ricci** | ordinary matter, positive energy, needs Sturm density, exceeds collapse by `2π²/3` | **COLLAPSE** — you get a black hole, not a device |
+| **Weyl** | negative mass, sign-blind, no density requirement, `M_ADM = 0` | **THE SOURCE** — `ρ < 0`, closed from four directions |
+
+> **The intuition is right about a route this project is not on.** With ordinary matter, *"you need a
+> black hole"* is true — **as a prohibition, not a recipe.** You don't get a device; you get a black hole.
+>
+> **A collapse problem exchanged for a source problem.** Neither is solved, they are not the same
+> obstacle, and this project has been on the second one throughout.
+
+### The correction this question forced
+
+`currency.py` asserted flatly that *"a region that seats a conjugate point is a black hole."* **Our own
+corridor is the counterexample.** The hypothesis is now attached in place there: **BY RICCI FOCUSING.**
+The over-broad version had stood untested against the device this tree itself built.
+
+### Seated
+- `dichotomy.py` — new. `currency.py` — `ONE_STATEMENT` corrected in place.
+- `index3.py` — **316 findings**, six new. Still 15 cells, `E(X) = 0`.

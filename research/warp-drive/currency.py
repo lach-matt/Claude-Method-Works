@@ -239,7 +239,13 @@ def the_factor_is_three(rtol=1e-12):
     return abs(entropy_constant() / collapse_constant() - 3.0) <= rtol * 3.0
 
 
-ONE_STATEMENT = "a region that seats a conjugate point is a black hole"
+# CORRECTED by dichotomy.py.  The unqualified version stood here and our own
+# corridor is the counterexample: it seats a conjugate point at lambda = 165.36
+# with no throat, no horizon and M_ADM = 0.  The collapse and entropy results
+# price the STURM seat, and Sturm requires q = 4 pi T_kk > 0 -- Ricci focusing,
+# positive energy.  Weyl focusing is sign-blind and carries no such requirement.
+ONE_STATEMENT = ("a region that seats a conjugate point BY RICCI FOCUSING "
+                 "is a black hole")
 
 # The honest remainder.  Bekenstein bounds what a region can HOLD given its
 # energy.  Whether SHAPING S'' in a vacuum that already carries area-law
