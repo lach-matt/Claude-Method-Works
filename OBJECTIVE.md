@@ -144,6 +144,18 @@ three are named: the driver standby's scaling law; the wall-plug-to-beam efficie
 the transport calculation on the fissile fraction, which is what actually places k. Only after those
 three is a redesign a design decision rather than a guess about a measurement.
 
+**And the constants have been censused, because the mathematics does not contain them.**
+`tools/provenance.py` reads every module-level constant in the twelve design instruments — **408** of
+them — and classifies each by what its own file says it rests on. The finding is not the count but the
+**join with the search**: three of the axes that move this plant rest on a constant carrying **no
+provenance at all**, among them the driver standby, through which the largest interaction in the whole
+design runs at 19.25×. They were invisible to an inventory of stated assumptions *because nobody wrote
+ASSUMED beside them*. Nothing was repaired — writing a status beside a constant would be choosing one,
+which is the flattening this file forbids.
+
+**Precision in the mathematics is worth 1.45×. Provenance in the constants is worth the plant.** They
+are not the same quantity, and no amount of the first supplies the second.
+
 ## The phases
 
 1. Define the math in full and prove it.

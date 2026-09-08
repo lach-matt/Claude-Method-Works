@@ -798,6 +798,29 @@ swing is an unmeasured constant is a statement about the constant. What it repor
 work in: **the standby scaling law**, **the wall-plug-to-beam efficiency measured rather than banded**,
 and **the transport calculation on the fissile fraction** — only after those three is a redesign a
 design decision rather than a guess about a measurement. See `docs/EXPLORE.md`)
+**`tools/provenance.py`** (**what every number in the design rests on**, and it exists because the
+mathematics does not contain its own constants. Every relation here is a theorem or arithmetic and
+stays exact at any precision; ν = 2.9 is a measurement, the 25–30 neutrons per GeV is a measurement,
+and the driver's standby load is not a measurement at all. It censuses **408 module-level constants
+across 12 design instruments** and classifies each by what its own file says — **82 SOURCED, 18
+ASSUMED, 1 DERIVED, 1 RECONSTRUCTED, 306 UNANNOTATED**. **`UNANNOTATED` is not a finding of absence**
+and may not be read as one: most are conversions and exact definitions, which have no provenance to
+state because they are not measurements. **The finding is the join with `explore.py`**, which neither
+file can make alone — that one ranks the axes and says nothing about what they rest on, this one says
+what they rest on and nothing about which matter. Crossed: **three of the axes that move the plant
+rest on a constant carrying no provenance at all** — `ETA_ACC_HI` at 2.00×, `STATION_WINDOW_MEV` at
+1.14×, and `REF_STANDBY_KW`, through which `explore.py`'s largest interaction runs at **19.25×**
+against a product of 1.93. They were invisible to the ASSUMED inventory **precisely because nobody
+wrote ASSUMED beside them**, which is the failure mode an inventory of stated assumptions has and
+cannot fix from the inside. The standby is the sharpest: its band's low end says `SOURCED band` and
+the value the design actually uses says only *"mid-band driver fixed load"* — **a mid-point of a
+sourced band is not itself sourced**. **Nothing is repaired**: writing `ASSUMED` beside a constant
+would be *choosing* a status, which is the flattening this project forbids. The ASSUMED inventory's
+**residue of 17** is likewise **not priced**, because most do not reach the beam and guessing which do
+is the error the census exists to stop. Two classifier faults are pinned so they cannot return — a
+constant's own words beat a paragraph above it (`SPALL_TARGET_MW`, every row `SOURCED`, came back
+`DESIGN`), and the block above is capped at four lines (`LINAC_CLASS`, every row sourced, came back
+`ASSUMED` from the paragraph introducing its neighbour). See `docs/PROVENANCE.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 68 pinned figures, ~5 s, exits 1 on drift. Fourteen
@@ -810,7 +833,7 @@ sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real c
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
 `docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md`, `docs/MATERIALS.md`,
-`docs/BUILDPACKAGE.md`, `docs/ENVIRONMENT.md`, `docs/EXPLORE.md` and `docs/DOCFIGURES.md`.
+`docs/BUILDPACKAGE.md`, `docs/ENVIRONMENT.md`, `docs/EXPLORE.md`, `docs/PROVENANCE.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
