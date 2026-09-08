@@ -611,8 +611,17 @@ FINDINGS = [
   "so nothing structural stands against faster or cheaper -- speed is an order question and order admits, cost is an algebra question and algebra admits. NOT permission to ignore the magnitude, which is measured and real"),
  ("ORDER-MOVED",       +1, +1, +1, "expand.py",
   "and ORDER moved this session from refusal to admission on GJW's external path. Before pass 27 the expansion stood at TWO refusals. It moved the row that governs SPEED -- the only structural change this project has made to that question"),
+ # Pushing the ORDER row: the escape, its closure, and the one open door.
+ ("TIMESCALES-INDEPENDENT",+1,0,+1, "amortize.py",
+  "GJW's traversal window scales with the MOUTH size R while the benefit scales with the SEPARATION D -- independent parameters. For a 1 m mouth at a light-year the window is 8.5e-15 of the ambient crossing"),
+ ("AMORTISATION-CLOSED", 0, -1, +1, "amortize.py",
+  "deploy once and transit N times would give advantage from N=10 -- but GJW's own sentence closes it: in flat space the coupling is carried by ambient propagation 'EXCEPT WITH A TIME DELAY', so it is per-use with nothing to amortise"),
+ ("STANDING-COUPLING",  +1, +1, +1, "amortize.py",
+  "their footnote 2 declines the TIME-INDEPENDENT interaction to keep the state regular on the past horizon -- a stated technical reason, not a failure. A standing channel is exactly what amortisation needs and exactly what nobody has tested"),
+ ("ONE-DOOR",            0,  0, +1, "amortize.py",
+  "so the ORDER row is not open everywhere: it is open at ONE point, named in the source with the authors' own reason for not opening it. Narrow, real, and untested by anyone"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twenty-seven obstructions six dissolved, three relocated, ten closed negative, six conditional, two open and none untested"),
+  "of twenty-eight obstructions six dissolved, three relocated, ten closed negative, seven conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -729,7 +738,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 237)
+    chk("number of findings indexed", len(FINDINGS), 241)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -774,12 +783,12 @@ def selftest():
                 "PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED",
                 "PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD",
                 "SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-NOT-POWER",
-                "SIGN-STRUCTURE-3","SLINGSHOT","STABLE-FOR-FREE","STATE-NOT-ELEMENT",
-                "STIFF-WALL","STURM-IMPLIES-COLLAPSE","THE-DOOR","THE-SPLIT","THE-TRADE",
-                "THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TWENTY-NOT-65-ORDERS",
-                "TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","TYPE-IV","UNIVERSAL-SEAT",
-                "VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND",
-                "ZERO-ADM-DEVICE"]))
+                "SIGN-STRUCTURE-3","SLINGSHOT","STABLE-FOR-FREE","STANDING-COUPLING",
+                "STATE-NOT-ELEMENT","STIFF-WALL","STURM-IMPLIES-COLLAPSE","THE-DOOR",
+                "THE-SPLIT","THE-TRADE","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT",
+                "TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","TYPE-IV",
+                "UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH",
+                "WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff), sorted([
                 "BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CLASSICAL-WINS",
@@ -795,10 +804,11 @@ def selftest():
                 "PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE",
                 "PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD","SEATS-AND-EARLY",
                 "SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3","SLINGSHOT",
-                "STABLE-FOR-FREE","STATE-NOT-ELEMENT","STIFF-WALL","THE-DOOR","THE-SPLIT",
-                "THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TWENTY-NOT-65-ORDERS",
-                "TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL",
-                "VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
+                "STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STIFF-WALL",
+                "THE-DOOR","THE-SPLIT","THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT",
+                "TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE",
+                "UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH",
+                "WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

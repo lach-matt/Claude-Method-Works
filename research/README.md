@@ -3458,3 +3458,72 @@ is the thing to push on rather than the magnitude.
 
 - `index3.py` — 237 findings: `ANALYSIS-ALL-ALONG`, `THREE-ROWS-ADMIT`, `DISSENT-IS-VALUE`,
   `NOTHING-STRUCTURAL`, `ORDER-MOVED`.
+
+---
+
+## Pass 29 — `amortize.py`: pushing the ORDER row to where it is actually open
+
+`expand.py` left order as the row that moved and the row that governs speed. This pushes on it.
+
+### The obvious escape, and it is worth testing
+
+The bank-loan theorem quantifies over **one infinite null geodesic** — a statement about a *single
+trip*. It says nothing on its face about a channel used repeatedly. So: deploy the mouths once at
+sublight, paying `D/c`, then transit `N` times.
+
+| `N` | average cost (units of `D/c`) | |
+|---|---|---|
+| 1 | 1.000001 | no advantage |
+| 10 | 0.100001 | **advantage** |
+| 10,000 | 0.000101 | **advantage** |
+
+And the two timescales really are independent, which is what makes it look plausible. GJW's window
+scales with the **mouth** size `R`; the benefit scales with the **separation** `D`:
+
+| `R` | `D` | window (s) | `D/c` (s) | ratio |
+|---|---|---|---|---|
+| 1 m | 1 AU | 2.672×10⁻⁷ | 4.990×10² | 5.4×10⁻¹⁰ |
+| 1 m | 1 light-year | 2.672×10⁻⁷ | 3.156×10⁷ | **8.5×10⁻¹⁵** |
+| 1000 km | 1 light-year | 3.133×10⁻¹ | 3.156×10⁷ | 9.9×10⁻⁹ |
+
+### And it closes on their own sentence
+
+> *"The direct boundary interaction could then be produced by propagation through the ambient
+> spacetime — this would be the same as the interaction we studied, **except with a time delay**."*
+
+**The coupling is not a one-time deployment cost.** In flat space it is mediated by ordinary
+propagation across `D`, so it carries `D/c` intrinsically, **per use**. There is nothing to amortise:
+the channel is not a thing you build once, it is a signal you send every time. **Closed by the paper,
+not by an argument of mine.**
+
+### But they leave one case, explicitly — footnote 2
+
+> *"We do not consider the case of a **time-independent** interaction, in order to prevent the quantum
+> state from becoming non-regular on the past horizon."*
+
+**They declined the standing coupling.** Not because it fails — because a time-independent `h(t,x)`
+makes *their* state irregular on the past horizon, a technical obstruction to *their* calculation in
+*their* background.
+
+**And a standing coupling is exactly what the amortisation argument needs.** A channel held open
+continuously pays its propagation delay to *establish* the state, not per transit.
+
+> **That is a `NOT-RUN` in the source, with a stated technical reason, and it is where the ORDER row is
+> actually open.**
+
+### What this does not claim
+
+- That a standing coupling **works** — the regularity obstruction is real and may be fatal.
+- That amortisation would survive even if one existed — the bank-loan theorem might extend, and this
+  file has not extended it either way.
+- Anything about the magnitude — `entangle.py`'s `2π²` and `achievable.py`'s 65 orders are unmoved, and
+  `expand.py`'s **INFORMATION row still refuses**.
+
+**One door. Narrow, real, untested by anyone, and named in the source with the authors' own reason for
+not opening it.**
+
+### Seated
+
+- `index3.py` — 241 findings: `TIMESCALES-INDEPENDENT`, `AMORTISATION-CLOSED`, `STANDING-COUPLING`,
+  `ONE-DOOR`.
+- `obstruct.py` — 28 rows. New `STANDING-COUPLING`, **CONDITIONAL**.

@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of twenty-seven obstructions, SIX dissolved, three relocated,
-TEN closed negative, SIX conditional, two are OPEN, NONE is untested.
+THE HEADLINE: of twenty-eight obstructions, SIX dissolved, three relocated,
+TEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -252,6 +252,16 @@ LEDGER = [
   "beats it. Their flat-space version, left as a remark, needs amplification "
   "4.387e71 D^2, rising with D and reaching unity at 0.093 Planck lengths",
   "gjw.py"),
+ ("STANDING-COUPLING", "the ORDER row is open somewhere useful", "CONDITIONAL",
+  "IT IS OPEN AT EXACTLY ONE POINT. The single-trip advantage is closed by the "
+  "bank-loan theorem. The amortised advantage -- deploy once, transit N times, "
+  "which the arithmetic favours from N = 10 -- is closed by GJW's own sentence: "
+  "in flat space the coupling is carried by ambient propagation 'except with a "
+  "time delay', so it is per-use with nothing to amortise. BUT THEIR FOOTNOTE 2 "
+  "DECLINES THE TIME-INDEPENDENT COUPLING, to keep the state regular on the "
+  "past horizon -- a stated technical reason, not a failure. A standing channel "
+  "is exactly what amortisation needs and exactly what nobody has tested. "
+  "Narrow, real, and named in the source", "amortize.py"),
  ("WRONG-CATEGORY", "the object is a wormhole, a black hole, or a propulsion "
   "system", "CLOSED-NEGATIVE",
   "IT IS NONE OF THE THREE, verified rather than asserted. The areal radius "
@@ -426,6 +436,14 @@ def check_gjw():
             and gjw.amplification_needed(1e6) > gjw.amplification_needed(1.0)
             and gjw.unity_separation() < gjw.L_PLANCK)
 
+def check_one_door():
+    import amortize, expand
+    st = expand.expand()
+    return (st["order"] == expand.ADMITS
+            and st["information"] == expand.REFUSES
+            and amortize.amortisation_helps(10)
+            and "TIME-INDEPENDENT" in amortize.LEAVES_IT_OPEN)
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -442,11 +460,11 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 27)
+    chk("obstructions tracked", len(LEDGER), 28)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 10)
-    chk("CONDITIONAL", len(h["CONDITIONAL"]), 6)
+    chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
         sorted(set(r[2] for r in LEDGER)),
@@ -490,6 +508,8 @@ def selftest():
         check_entanglement_route(), True)
     chk("GRAHAM-OLUM-ESCAPE: external path, not matter, and it forbids speed",
         check_gjw(), True)
+    chk("STANDING-COUPLING: one door, in the source, with their own reason",
+        check_one_door(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",
