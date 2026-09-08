@@ -631,6 +631,17 @@ stated, and this file prices the choice rather than making it. It also **records
 question forced**: `materials.py` runs the fuel loop 700 → 900 K, a cold leg of 427 °C, against a
 NaCl–UCl₃ liquidus band of 500–550 °C — **the fuel salt freezes in the cold leg in normal
 operation**. Recorded, not repaired; the selftest asserts the failure so it cannot be lost),
+**The operating point is now `k = 0.900`, adopted for intrinsic criticality safety** — see
+`OBJECTIVE.md`'s decision record. `powersource.K_DESIGN` carries it and `criticality.py`'s selftest
+asserts the two agree, because the value is *derived* there and stated here only to avoid an import
+cycle. **`powersource.py --rescale`** rebuilds the station at it: of the four constraints that set the
+4 MW module, three vanish with the muon channel and only the **spallation target's power** survives, so
+the module count runs **58 → 46** at an ESS-class 5 MW target and **23** at a 10 MW one. **The re-scale
+does not recover what the safety decision cost** — the beam is **230 MW at every row**, because it is
+set by the multiplication and the module size only decides how it is divided. Re-scaling buys
+buildability, not energy, and the selftest pins that so the hope cannot be re-asserted. Only **1.4 MW**
+has ever been operated, so every larger row is a design study.
+
 **`tools/criticality.py`** (**can handling or storing this fuel cause an accident** — asked directly,
 and answered with the discipline's own arithmetic rather than with reassurance, because nothing here
 had done any of it. **The uranium is not the hazard**: DU is an alpha emitter at **12.4 MBq/kg** whose

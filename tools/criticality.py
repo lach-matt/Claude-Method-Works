@@ -391,6 +391,20 @@ def selftest():
     check("  -- and just above it, something is",
           critical_dimension_cm(k_inf_of_fuel(thr * 1.1), "sphere", 200.0)
           is not None)
+    # THE CROSS-CHECK THAT KEEPS THE DECISION HONEST. powersource.K_DESIGN is
+    # the adopted operating point and it is DERIVED from the threshold this
+    # file computes. This file cannot be imported there without a cycle, so
+    # the value is stated once in powersource and asserted here. A change in
+    # the cross sections that moved the threshold and did not move K_DESIGN
+    # would be a test failure rather than a silent divergence.
+    k_at_thr = _fc().k_effective(thr, "Pu239", "U238", P.LEAK_PARASITIC_LO)
+    check("powersource's adopted k matches the threshold this file derives",
+          abs(k_at_thr - P.K_DESIGN) < 5e-4)
+    check("  -- and the adopted point is BELOW the ADS convention",
+          P.K_DESIGN < P.K_SAFE)
+    check("  -- and it is the highest k the property allows",
+          k_inf_of_fuel(thr * 1.02) > 1.0)
+
     check("the threshold sits between the loop floor and the k=0.95 point",
           _fc().loop_floor() < thr
           < _fc().fraction_for_k(P.K_SAFE, "Pu239", "U238",

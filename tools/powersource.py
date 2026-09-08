@@ -711,7 +711,32 @@ def report_fuel():
 # by any part of the reaction -- which is why the answer is a plant a
 # municipality adopts rather than an appliance a household buys.
 HOUSEHOLD_KW = 1.14          # 10,000 kWh/yr average electric; ASSUMED design point
-K_SAFE = 0.95                # the margin equals a fast core's whole control worth
+K_SAFE = 0.95                # the ACCELERATOR-DRIVEN-SYSTEM CONVENTION: the
+                             # margin equals a fast core's whole control worth.
+                             # It is the field's number, not this design's.
+
+# THE ADOPTED OPERATING POINT, AND IT IS LOWER THAN THE CONVENTION ALLOWS.
+# criticality.py finds that below 7.93 % fissile the fuel salt's k_inf drops
+# under one, and an assembly whose k_inf is under one cannot be made critical
+# by any amount in any shape. Holding the design there means NO ACCUMULATION OF
+# FUEL SALT ANYWHERE ON SITE CAN EVER BE CRITICAL WHEN DRY -- the hazard class
+# stops existing rather than being managed by procedure.
+#
+# That property caps k_eff at k_inf.(1 - leak) = 0.900 and there is no
+# intermediate: either k_inf < 1 and the property holds, or it does not.
+#
+# THE PRICE IS 2.76x THE DRIVER for the same output, because at lower
+# multiplication more of the plant's own electricity recirculates into its
+# accelerators. It was quoted at 2.05x when the decision was taken, corrected
+# to 2.76x before it was implemented, and re-confirmed at the true figure.
+#
+# The number is DERIVED and stated here only so that this file does not import
+# criticality.py, which imports fuelchoice.py, which imports this one.
+# criticality.py's selftest asserts the two agree, so a change there that this
+# file did not follow is a test failure rather than a silent divergence.
+K_DESIGN = 0.900             # DERIVED: criticality.always_subcritical_threshold
+K_DESIGN_MARGIN_NOTE = ("adopted for intrinsic criticality safety; "
+                        "costs 2.76x the driver")
 STANDBY_LO_KW = 200.0        # driver fixed load, low; SOURCED band
 STANDBY_HI_KW = 2000.0       # the same, high
 
@@ -1090,6 +1115,113 @@ def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
         "tritium_ratio": tritium_balance(window, module_mw, f_li=F_LI_DESIGN),
         "doubling_y": tritium_doubling_years(module_mw, window),
     }
+
+
+# ---- RE-SCALING THE STATION FOR THE ADOPTED OPERATING POINT ----------------
+# MODULE_BEAM_MW = 4.0 is "the target study's own design point", and that study
+# is a PION PRODUCTION target. Route C has no pion target, so the constraint
+# that set the module size does not exist in the plant being built. Asking what
+# replaces it is the re-scale, and the four candidates are enumerated rather
+# than guessed at:
+#
+#   1. PION PRODUCTION TARGET POWER   gone. No pion target in route C.
+#   2. CAPTURE-COIL RADIATION LIFE    gone. No capture solenoid in route C, so
+#                                     buildpackage's "modularising to 4 MW
+#                                     lifted the coil clear at 99.8 years" is
+#                                     answering a question route C does not ask.
+#   3. FUEL-CELL TRITIUM GEOMETRY     gone. No fuel cell in route C.
+#   4. SPALLATION TARGET POWER        SURVIVES, and it is now the only one.
+#
+# So route C's module is set by what one liquid-metal spallation target can
+# take, and nothing else. That is a SOURCED and narrow band, because very few
+# have been built.
+SPALL_TARGET_MW = {                 # beam power one target accepts
+    "MEGAPIE, operated 2006": 0.78,     # SOURCED: liquid Pb-Bi, PSI
+    "SNS, operating": 1.40,             # SOURCED: liquid mercury
+    "ESS, design": 5.00,                # SOURCED: rotating solid tungsten
+    "high-power study": 10.00,          # SOURCED band: proposed, unbuilt
+}
+TARGET_DEMONSTRATED_MW = 1.40       # the highest OPERATED figure above
+
+
+def rescaled_station(target_mw, k_eff=None, **kw):
+    """The station with the module set by the spallation target, not the pion
+    target. The blanket is NOT split -- modules are targets sharing one
+    blanket -- so the module count is a target count and carries no leakage
+    penalty. blanket_leakage_penalty is what refuses splitting, separately."""
+    if target_mw <= 0:
+        raise ValueError(f"target power must be positive, got {target_mw}")
+    k = K_DESIGN if k_eff is None else k_eff
+    return station(module_mw=target_mw, k_eff=k, **kw)
+
+
+def report_rescale():
+    print()
+    print("  RE-SCALING THE STATION AT THE ADOPTED OPERATING POINT")
+    print()
+    print(f"    k = {K_DESIGN:.3f} is adopted for intrinsic criticality safety")
+    print(f"    -- {K_DESIGN_MARGIN_NOTE}. The station must be rebuilt at it,")
+    print("    and the module size must be rebuilt too, because what set it")
+    print("    was a PION target and route C has no pion target.")
+    print()
+    print("    WHAT SET THE 4 MW MODULE, AND WHETHER IT SURVIVES ROUTE C")
+    print("      pion production target power    GONE -- no pion target")
+    print("      capture-coil radiation life     GONE -- no capture solenoid")
+    print("      fuel-cell tritium geometry      GONE -- no fuel cell")
+    print("      spallation target power         SURVIVES, and is now the only")
+    print("                                      constraint on module size")
+    print()
+    print("    THE BLANKET IS NOT SPLIT. Modules are targets feeding one")
+    print("    blanket, so the module count is a TARGET count and carries no")
+    print("    leakage penalty; splitting the blanket is refused separately")
+    print(f"    and would cost a factor of {blanket_leakage_penalty(20):.2f}"
+          " at twenty ways.")
+    print()
+    print("    THE STATION AT EACH TARGET POWER")
+    print()
+    print("      target                     MW    modules   linacs"
+          "   beam MW   households")
+    for label, mw in sorted(SPALL_TARGET_MW.items(), key=lambda t: t[1]):
+        st = rescaled_station(mw)
+        mark = "" if mw <= TARGET_DEMONSTRATED_MW else "   unbuilt"
+        print(f"      {label:<24} {mw:5.2f} {st['modules']:9d}"
+              f" {st['linacs']:8d} {st['beam_mw']:9.1f}"
+              f" {st['households']:12,.0f}{mark}")
+    print()
+    base = station(k_eff=K_SAFE)
+    adopted = rescaled_station(SPALL_TARGET_MW["ESS, design"])
+    print(f"    Against the design as it stood -- {base['modules']} modules of"
+          f" {base['module_mw']:.0f} MW at k = {K_SAFE:.2f} --")
+    print(f"    the adopted point at an ESS-class target is"
+          f" {adopted['modules']} modules of {adopted['module_mw']:.0f} MW.")
+    at4 = rescaled_station(4.0)
+    big = rescaled_station(SPALL_TARGET_MW["high-power study"])
+    print(f"    The module count falls from {at4['modules']} to"
+          f" {adopted['modules']}, and to {big['modules']} at a 10 MW target.")
+    print()
+    print("    AND THE RE-SCALE DOES NOT ABSORB WHAT THE SAFETY DECISION COST.")
+    print("    That was the hope it was undertaken on and it is not what the")
+    print("    arithmetic gives. The beam is")
+    print(f"    {adopted['beam_mw']:.0f} MW against {base['beam_mw']:.0f} MW"
+          f" -- a factor of {adopted['beam_mw']/base['beam_mw']:.2f} -- at EVERY"
+          " row of the table")
+    print("    above, because the beam is set by the MULTIPLICATION and the")
+    print("    module size only decides how it is divided. Re-scaling changes")
+    print("    the number of targets and changes nothing else.")
+    print()
+    print(f"    So the safety decision costs {adopted['beam_mw']/base['beam_mw']:.2f}x"
+          " the driver and keeps costing it.")
+    print("    What re-scaling buys is a plausible number of targets rather")
+    print(f"    than {at4['modules']} of them -- a buildability gain, not an"
+          " energy one.")
+    print()
+    print("    AND THE HONEST CAUTION: only the first two rows have been")
+    print(f"    built. {TARGET_DEMONSTRATED_MW:.1f} MW is the highest spallation"
+          " target ever operated,")
+    print("    and every row above it is a design study. A station at the ESS")
+    print("    row is betting on a target class that does not yet exist, which")
+    print("    is a smaller bet than the muon channel was and is still a bet.")
+    print()
 
 
 def blanket_leakage_penalty(n_split):
@@ -1892,6 +2024,14 @@ def report():
     return 0
 
 
+def _raises_value(fn):
+    try:
+        fn()
+        return False
+    except ValueError:
+        return True
+
+
 def selftest():
     fail = 0
 
@@ -2280,6 +2420,29 @@ def selftest():
             print(f"      {_name}: {type(_e).__name__}: {_e}")
         check(f"section {_name!r} renders", _ok)
     print()
+    print("  the adopted operating point, and what re-scaling does and does not do")
+    check("the adopted k is below the ADS convention", K_DESIGN < K_SAFE)
+    check("  -- so it carries more subcritical margin, not less",
+          subcritical_margin(K_DESIGN)[1] > subcritical_margin(K_SAFE)[1])
+    check("  -- and the loop still closes there",
+          station(k_eff=K_DESIGN)["gain"] > loop_requirement(0.30))
+    # THE FINDING THE RE-SCALE WAS UNDERTAKEN TO TEST, and it failed to give
+    # the hoped-for answer: the beam is set by the multiplication, so changing
+    # the module size cannot recover what the lower k costs.
+    beams = [rescaled_station(mw)["beam_mw"] for mw in SPALL_TARGET_MW.values()]
+    check("the beam is the same at every target power, to within one module",
+          max(beams) - min(beams) < max(SPALL_TARGET_MW.values()) + 1e-9)
+    check("  -- so re-scaling does NOT recover the cost of the lower k",
+          min(beams) > 2.0 * station(k_eff=K_SAFE)["beam_mw"])
+    check("what re-scaling does move is the module count",
+          rescaled_station(10.0)["modules"] < rescaled_station(1.0)["modules"])
+    check("a non-positive target power is refused",
+          _raises_value(lambda: rescaled_station(0.0)))
+    check("only the two operated rows are at or below what has been built",
+          sum(1 for mw in SPALL_TARGET_MW.values()
+              if mw <= TARGET_DEMONSTRATED_MW) == 2)
+
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -2303,6 +2466,8 @@ def main():
                     help=report_ignition.__doc__)
     ap.add_argument("--routes", action="store_true",
                     help=report_routes.__doc__)
+    ap.add_argument("--rescale", action="store_true",
+                    help="the station rebuilt at the adopted operating point")
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -2326,6 +2491,8 @@ def main():
         return report_ignition()
     if a.routes:
         return report_routes()
+    if a.rescale:
+        return report_rescale()
     return report()
 
 

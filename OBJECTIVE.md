@@ -39,6 +39,36 @@ forgotten:** 'cold' is dropped from the objective (above), and **criteria 8 and 
 new instruments before phase 4 is drafted** rather than carried into the paper as open items. A paper
 that states a criterion it cannot support is the failure mode this whole harness exists to prevent.
 
+## Decisions taken, with their reasons
+
+A refused or adopted option with its reason is a decision; one without is a gap.
+
+**The operating point is k = 0.900, not the field's 0.95, and it is adopted for
+intrinsic criticality safety.** Below **7.93 %** fissile the fuel salt's `k_inf`
+falls under one, and an assembly whose `k_inf` is under one cannot be made
+critical by any amount in any shape. Holding the design there means **no
+accumulation of fuel salt anywhere on site can ever be critical when dry** — the
+hazard class stops existing rather than being managed by procedure, and the
+property is a fact about the material rather than about the operator. The
+subcritical margin doubles to 10,000 pcm. There is no intermediate: `k_eff` is
+capped at 0.900 by the property itself.
+
+**The price is 2.76× the driver** — 84 MW to 230 MW for the same million
+households — because at lower multiplication more of the plant's own electricity
+recirculates into its accelerators. It was quoted at 2.05× when the decision was
+put, **corrected to 2.76× before implementation**, and re-confirmed at the true
+figure. The reason given for paying it: *"it's what sells a new plant to a
+community, in an age when plants and data centers are being rejected."*
+
+**Re-scaling the station does not recover that cost, and the re-scale was
+undertaken to test whether it could.** The module size was set by a *pion*
+production target, which route C does not have; of the four constraints that
+fixed it at 4 MW, three vanish with the muon channel and only the **spallation
+target's power** survives. Re-scaling to an ESS-class 5 MW target takes the
+module count from 58 to 46, and to 23 at a 10 MW target — but **the beam is
+230 MW at every row**, because it is set by the multiplication and the module
+size only decides how it is divided. Re-scaling buys buildability, not energy.
+
 ## The phases
 
 1. Define the math in full and prove it.
