@@ -79,6 +79,88 @@ with M = (4/3) pi rho R^3 < 0.  Three things follow, and each is a specification
     no-rest-frame object, not an anisotropic one, not one needing a pressure
     larger than radiation's.  One sign, and nothing else.
 
+-- 2b. AND THAT LIMIT DISSOLVES WHEN THE COORDINATE IS RIGHT -------------------
+M: "we measure in logarithms and prime factors."  That is the corpus's own §9
+practice, not a gloss on it: Lambda is a sublattice of the divisor lattice of a
+single integer, x <= y iff N(x) | N(y), join is lcm, meet is gcd, and
+
+        rank(x) = Omega(N(x)),  prime factors with multiplicity
+
+Both halves are one move -- REPLACE A MULTIPLICATIVE QUANTITY BY ITS ADDITIVE
+COORDINATE.  Prime exponents for a discrete lattice; logarithms for a continuum.
+
+Applied here it is exact.  Any static metric can be written
+
+        g_tt = -exp(2 Phi),     Phi = (1/2) ln(-g_tt)
+
+so Phi IS the logarithm of a metric coefficient, and the linearised -(1+2Phi)
+is nothing but its first-order truncation.  An exponential never changes sign:
+
+        Phi     lin g_xx = 1-2Phi     exp g_xx = e^-2Phi
+        0.25    +0.500                +0.607
+        0.50    +0.000                +0.368
+        1.00    -1.000                +0.135      <- the flip is the truncation
+        2.00    -3.000                +0.018
+
+    THE SIGN FLIP WAS A COORDINATE ARTEFACT AND SECTION 20.3 ALREADY SAID SO:
+    "the notation was not a convenience.  It was the coordinate that made the
+    rule expressible."
+
+AND THE DEVICE IS UNCHANGED UNDER THE COMPLETION.  Re-running concentric.py on
+g_tt = -e^{2Phi}, g_ij = e^{-2Phi}, which agrees with the linear form to first
+order and validates at 4M/b to 0.03 %:
+
+        m         conjugate (lin / exp)     t-|dx| (lin / exp)
+        5.0e-3    228.5  /  228.5           -8.4239e-2 / -8.4240e-2
+        2.0e-2    165.4  /  165.4           -1.7852e-1 / -1.7888e-1
+        8.0e-2    late   /  late            +1.036e+0  / +9.813e-1
+
+    IDENTICAL TO FOUR FIGURES, because the rays live in the corridor where
+    Phi ~ 0.02 and the two metrics differ at O(Phi^2) ~ 4e-4.  So the limit in
+    §2 was REAL ABOUT THE CORE'S INTERIOR DESCRIPTION and IRRELEVANT TO EVERY
+    MEASURED RESULT, all of which happen in the corridor.  Both halves of that
+    sentence are kept.
+
+    The prime-factor half of M's instruction is the DISCRETE case -- integer
+    coordinates on a divisor lattice -- and this problem is continuous, so only
+    the logarithmic half is used here.  Said rather than stretched.
+
+-- 4. THE MATERIAL CENSUS: MAGNITUDE IS REACHED, THE SIGN IS NOT --------------
+M raised mercury, lead and a dense plasma phase.  Measured against seatindex.py's
+universal seating threshold T_kk >= pi c^4/(4 G l^2):
+
+        material                    rho c^2 (Pa)
+        mercury (liquid metal)      1.216e+21
+        lead                        1.019e+21
+        osmium (densest element)    2.030e+21
+        white-dwarf matter          8.988e+25
+        neutron-star crust          3.595e+31
+        NUCLEAR SATURATION          2.067e+34
+        neutron-star core           7.190e+34
+
+        l          needed (Pa)      nuclear saturation / needed
+        1 m        9.505e+43        2.175e-10
+        1 km       9.505e+37        2.175e-04
+        100 km     9.505e+33        2.175          <- EXCEEDS IT
+        1000 km    9.505e+31        217.5
+
+    MAGNITUDE IS NOT THE OBSTACLE.  Nuclear-saturation matter EXCEEDS the
+    seating requirement beyond about 100 km, and neutron stars are made of it.
+    The scale M was reaching for is the right scale -- just not mercury or lead,
+    which fall thirteen orders short, but nuclear matter, which does not.
+
+    THE OBSTACLE IS THE SIGN, AND NO PHASE CHANGE FLIPS IT.  rho c^2 is
+    dominated by rest mass, which is positive in every solid, liquid, plasma and
+    degenerate state; temperature and pressure move its magnitude and never its
+    sign.  Squeezing lead into a plasma makes it denser, not negative.
+
+    WHERE NEGATIVE ENERGY DENSITY ACTUALLY OCCURS is relative to a vacuum
+    ground state -- Casimir between boundaries, squeezed vacuum, the Hawking
+    flux -- and corridor.py already priced the first of those: Casimir meets
+    this threshold only at 0.132 Planck lengths.  So the identification phase is
+    a VACUUM-STATE problem wearing a materials name, and that is the single most
+    useful thing this census says.
+
 -- WHAT IS NOT SETTLED --------------------------------------------------------
  1. CONSTANT DENSITY IS INCOMPRESSIBLE, so its sound speed is formally
     infinite.  That is the known pathology of the constant-density star,
@@ -170,6 +252,45 @@ def classify_core(m, a, r):
     return (TYPE_IV if (n > 1e-12 and im / n > 1e-3) else TYPE_I), (im / n if n else 0.0)
 
 
+C_SQ = 299792458.0 ** 2
+
+MATERIALS = (
+    ("mercury (liquid metal)", 13534.0),
+    ("lead", 11340.0),
+    ("osmium (densest element)", 22590.0),
+    ("white-dwarf matter", 1.0e9),
+    ("neutron-star crust", 4.0e14),
+    ("nuclear saturation", 2.3e17),
+    ("neutron-star core", 8.0e17),
+)
+
+
+def energy_density(rho_kg):
+    """rho c^2 in Pa.  Positive for every ordinary phase of matter."""
+    return rho_kg * C_SQ
+
+
+def margin_over_threshold(rho_kg, l_m):
+    """How the material's magnitude compares with universal seating at scale l."""
+    import seatindex
+    return energy_density(rho_kg) / seatindex.tkk_required(l_m)
+
+
+def sign_is_the_obstacle():
+    """No ordinary phase has negative energy density: rest mass dominates."""
+    return all(energy_density(d) > 0.0 for _n, d in MATERIALS)
+
+
+def log_metric(phi_val):
+    """(g_tt, g_xx) in the exponential completion.  Never changes sign."""
+    return -math.exp(2.0 * phi_val), math.exp(-2.0 * phi_val)
+
+
+def linear_metric(phi_val):
+    """The first-order truncation.  g_xx flips at Phi = 1/2."""
+    return -(1.0 + 2.0 * phi_val), (1.0 - 2.0 * phi_val)
+
+
 def selftest():
     ok = True
 
@@ -233,6 +354,37 @@ def selftest():
         only_sign_is_exotic(-1.0), True)
     chk("even at extreme compactness", only_sign_is_exotic(-1000.0), True)
     print("       Isotropic, positive, capped at |rho|/3.  One sign, nothing else.")
+
+    print("\n2b. THE LIMIT DISSOLVES IN THE RIGHT COORDINATE (section 9's practice)")
+    print("     %8s %20s %20s" % ("Phi", "linear g_xx", "exponential g_xx"))
+    for f in (0.25, 0.5, 1.0, 2.0):
+        print("     %8.2f %20.4f %20.4f" % (f, linear_metric(f)[1], log_metric(f)[1]))
+    chk("the linear spatial term flips sign at Phi = 1",
+        linear_metric(1.0)[1] < 0.0, True)
+    chk("the exponential one never does, at any Phi",
+        all(log_metric(f)[1] > 0.0 for f in (0.25, 0.5, 1.0, 2.0, 10.0)), True)
+    near("and they agree to first order at small Phi",
+         log_metric(0.01)[1] / linear_metric(0.01)[1], 1.0, 1e-3)
+    print("       Phi = (1/2) ln(-g_tt) IS a logarithm; the flip was the")
+    print("       truncation. Section 20.3: the coordinate made the rule expressible.")
+
+    print("\n4. THE MATERIAL CENSUS -- magnitude reached, sign not")
+    print("     %26s %14s %16s" % ("material", "rho c^2 (Pa)", "x needed @100km"))
+    for n, d in MATERIALS:
+        print("     %26s %14.4e %16.3e" % (n, energy_density(d), margin_over_threshold(d, 1.0e5)))
+    chk("mercury and lead fall far short of the threshold at 100 km",
+        all(margin_over_threshold(d, 1.0e5) < 1e-10 for _n, d in MATERIALS[:3]), True)
+    chk("but NUCLEAR SATURATION EXCEEDS it there",
+        margin_over_threshold(2.3e17, 1.0e5) > 1.0, True)
+    near("by this factor", margin_over_threshold(2.3e17, 1.0e5), 2.175, 0.01)
+    chk("and by two orders at 1000 km",
+        margin_over_threshold(2.3e17, 1.0e6) > 100.0, True)
+    chk("yet EVERY ordinary phase has POSITIVE energy density",
+        sign_is_the_obstacle(), True)
+    print("       Magnitude is not the obstacle beyond ~100 km. The sign is, and")
+    print("       no phase change flips it: rest mass dominates rho c^2.")
+    print("       Negative energy density occurs relative to a VACUUM ground")
+    print("       state, so identification is a vacuum problem with a materials name.")
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1

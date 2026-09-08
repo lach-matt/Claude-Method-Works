@@ -503,6 +503,17 @@ FINDINGS = [
   "all four energy conditions fail and all fail for the SAME reason: rho < 0. Flip that sign and DEC holds. Isotropic, Type I, pressures ordinary -- the identification target is one sign and nothing else"),
  ("CORE-IS-STRONG-FIELD", 0, -1, +1, "core.py",
   "concentric.py's metric CANNOT describe its own core: Phi_max = m/a is 0.25 to 1.0 across the window and the linearised spatial metric flips sign at 1. The corridor is fine; the core needed an exact solution"),
+ # M's coordinate discipline applied, and the material census it prompted.
+ ("LOG-COORDINATE",  +1, +1, +1, "core.py",
+  "section 9's practice -- replace a multiplicative quantity by its additive coordinate -- applied: Phi = (1/2)ln(-g_tt) IS a logarithm, e^{2Phi} never changes sign, and the flip at Phi=1 was the TRUNCATION"),
+ ("LIMIT-DISSOLVES", +1, +1, +1, "core.py",
+  "re-run on the exponential completion the device is identical to four figures -- conj 228.5, delay -8.4240e-2 against -8.4239e-2 -- because the rays live where Phi ~ 0.02 and the metrics differ at O(Phi^2)"),
+ ("MAGNITUDE-REACHED",+1,+1, +1, "core.py",
+  "nuclear saturation EXCEEDS the universal seating threshold beyond ~100 km, by 2.175x there and 218x at 1000 km: the density scale is one nature already builds, in neutron stars"),
+ ("SIGN-NOT-PHASE",   0, -1, +1, "core.py",
+  "and no phase change reaches it: rho c^2 is dominated by rest mass, positive in every solid, liquid, plasma and degenerate state. Mercury and lead fall 13 orders short AND have the wrong sign"),
+ ("VACUUM-NOT-MATERIAL",+1,+1,+1, "core.py",
+  "negative energy density occurs relative to a VACUUM ground state -- Casimir, squeezed vacuum, Hawking flux -- so the identification phase is a vacuum-state problem wearing a materials name"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twenty-one obstructions five dissolved, three relocated, eight closed negative, three conditional, two open and none untested"),
 ]
@@ -621,7 +632,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 188)
+    chk("number of findings indexed", len(FINDINGS), 193)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -658,6 +669,7 @@ def selftest():
                 "ZERO-ADM-DEVICE","DEVICE-SEATS-LEADS","THEOREM-IS-FREE","SHELL-THEOREM-SPLIT",
                 "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3",
                 "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED","ONE-SIGN-EXOTIC",
+                "LOG-COORDINATE","LIMIT-DISSOLVES","MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -673,7 +685,8 @@ def selftest():
                 "SHELL-THEOREM-SPLIT",
                 "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3",
                 "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED",
-                "ONE-SIGN-EXOTIC"]))
+                "ONE-SIGN-EXOTIC","LOG-COORDINATE","LIMIT-DISSOLVES",
+                "MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

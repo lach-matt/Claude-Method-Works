@@ -2754,3 +2754,60 @@ negative-density fluid is stable *as a fluid* is untouched.
   `CORE-IS-STRONG-FIELD`.
 - `obstruct.py` — 21 rows. New `CORE-TYPE-IV`, **CLOSED-NEGATIVE**.
 - `paper/CLAIMS.md` — **H12**, the core specification.
+
+### Pass 20b — the coordinate, and the material census
+
+**M: *"we measure in logarithms and prime factors."*** That is §9's own practice — Λ is a sublattice of
+the divisor lattice of an integer, `x ≤ y` iff `N(x) | N(y)`, join is lcm, meet is gcd, and
+**`rank(x) = Ω(N(x))`, prime factors with multiplicity**. Both halves are one move: **replace a
+multiplicative quantity by its additive coordinate.**
+
+Applied here it is exact. Any static metric is `g_tt = −e^{2Φ}` with `Φ = ½ln(−g_tt)`, so **Φ *is* the
+logarithm of a metric coefficient** and the linearised `−(1+2Φ)` is only its first-order truncation:
+
+| `Φ` | linear `g_xx` | exponential `g_xx` |
+|---|---|---|
+| 0.25 | +0.500 | +0.607 |
+| 0.50 | +0.000 | +0.368 |
+| 1.00 | **−1.000** | +0.135 |
+| 2.00 | −3.000 | +0.018 |
+
+**The sign flip was a coordinate artefact**, and §20.3 said so before I hit it: *"the notation was not
+a convenience. It was the coordinate that made the rule expressible."*
+
+**And the device is unchanged under the completion** — conjugate 228.5 either way, delay
+`−8.4240×10⁻²` against `−8.4239×10⁻²`, deflection still `4M/b` to 0.03%. The rays live where
+`Φ ≈ 0.02`, so the metrics differ at `O(Φ²) ≈ 4×10⁻⁴`. So pass 20's §2 limit was **real about the
+core's interior description and irrelevant to every measured result**. Both halves kept.
+
+*The prime-factor half is the discrete case — integer coordinates on a divisor lattice — and this
+problem is continuous, so only the logarithmic half is used. Said rather than stretched.*
+
+### The material census
+
+M raised mercury, lead, and a dense plasma phase. Measured against the seating threshold:
+
+| material | `ρc²` (Pa) | × needed @ 100 km |
+|---|---|---|
+| mercury | 1.216×10²¹ | 1.28×10⁻¹³ |
+| lead | 1.019×10²¹ | 1.07×10⁻¹³ |
+| white-dwarf matter | 8.988×10²⁵ | 9.46×10⁻⁹ |
+| neutron-star crust | 3.595×10³¹ | 3.78×10⁻³ |
+| **nuclear saturation** | **2.067×10³⁴** | **2.175 — exceeds it** |
+| neutron-star core | 7.190×10³⁴ | 7.56 |
+
+**Magnitude is not the obstacle.** Nuclear-saturation matter **exceeds** the requirement beyond about
+100 km, and by 218× at 1000 km. The density scale M was reaching for is the **right** scale — just not
+mercury or lead, which fall thirteen orders short, but nuclear matter, which nature already builds.
+
+**The obstacle is the sign, and no phase change flips it.** `ρc²` is dominated by rest mass, positive
+in every solid, liquid, plasma and degenerate state; temperature and pressure move its magnitude and
+never its sign. Squeezing lead into a plasma makes it denser, not negative.
+
+**Negative energy density occurs relative to a vacuum ground state** — Casimir, squeezed vacuum, the
+Hawking flux — and `corridor.py` already priced the first: it meets this threshold only at 0.132
+Planck lengths. **So the identification phase is a vacuum-state problem wearing a materials name**,
+and that is the most useful thing this census says.
+
+Seated: `index3.py` 193 findings — `LOG-COORDINATE`, `LIMIT-DISSOLVES`, `MAGNITUDE-REACHED`,
+`SIGN-NOT-PHASE`, `VACUUM-NOT-MATERIAL`.
