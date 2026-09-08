@@ -2890,3 +2890,71 @@ that, and pretending otherwise would be the failure mode every withdrawal in thi
   there anyway.
 - `obstruct.py` — 22 rows. New `ACHIEVABLE-CORE`, **CLOSED-NEGATIVE**, and it is the hardest one.
 - `paper/CLAIMS.md` — **H13**.
+
+---
+
+## Pass 22 — `charge.py`: the seat, not the lead
+
+M: *"the goal is to activate the conjugate... what about a charge state?"* It is the right thing to
+ask — the RN term `+Q²/r²` enters with the **opposite sign to mass**, and EM stress-energy satisfies
+**every** energy condition, so if charge could do it Ford–Roman would never apply.
+
+### The lead: no, and it is a theorem
+
+`Φ = −M/r + Q²/2r²` ⟹ `Φ > 0` iff `r < Q²/2M`, against a horizon at `r₊ = M + √(M²−Q²)`:
+
+| `Q/M` | `Φ > 0` below | horizon | hidden? |
+|---|---|---|---|
+| 0.50 | 0.125 | 1.866 | **YES** |
+| 0.90 | 0.405 | 1.436 | **YES** |
+| 1.00 | 0.500 | 1.000 | **YES** |
+
+**Inside the horizon at every charge.** And the **positive energy theorem for Einstein–Maxwell**
+(Gibbons & Hull; Witten) forces `Q ≤ M`, so no charged configuration has a *vacuum* region of positive
+potential. Charge buys a **reduction** — 25% at `2M`, 10% at `5M`, 0.5% at `100M` — never a reversal.
+
+### The seat: yes, with ordinary physics
+
+`ρ = E²/8π > 0`, `p_r = −ρ`, `p_t = +ρ` — NEC, WEC, DEC all hold. So `T_kk ≥ 0` and the field
+contributes **Ricci focusing**, the term that needs positive energy and here has it.
+
+| field | `u` (Pa) | seats beyond |
+|---|---|---|
+| lab superconducting 1 T | 3.979×10⁵ | 1.55×10¹⁹ m |
+| strongest pulsed ~1 kT | 3.979×10¹¹ | 1.55×10¹⁶ m |
+| pulsar 10⁸ T | 3.979×10²¹ | 1.55×10¹¹ m |
+| **magnetar 10¹¹ T** | **3.979×10²⁷** | **155,000 km** |
+
+Electric route: below the Schwinger limit from `ℓ ≈ 10¹⁰ m`. **Nature already builds the field that
+seats.**
+
+### The split — and it is M's own three parts
+
+| | needs | status |
+|---|---|---|
+| **Part 2, the turn** | `T_kk > 0` | **ACHIEVABLE** — ordinary EM |
+| **Parts 1 & 3, the lead** | `Φ > 0` | **FORBIDDEN** — two independent theorems |
+
+**The device is not uniformly out of reach.** Its focusing half is buildable with physics we have; its
+advantage half is blocked by `Q ≤ M` for charge and by 65 orders for negative energy — two unrelated
+results agreeing.
+
+> **A future physics would have to change not the ability to focus, only the sign of the potential.**
+
+That is a far smaller and more specific ask than "exotic matter", and stating it exactly is what this
+pass is worth.
+
+### Not claimed
+
+Seating figures are **orientation-averaged** — `T_kk` depends on the angle between `k` and `B`, and a
+full treatment is `NOT-RUN`. **No magnetar-scale apparatus is proposed**: that such a field exists in
+nature is not that one can be built or held. **Kerr–Newman** — charge *with* rotation — is not
+examined; frame dragging is a third mechanism this file does not reach. And nothing here revises
+pass 21.
+
+### Seated
+
+- `index3.py` — 203 findings: `CHARGE-NO-LEAD`, `CHARGE-REDUCES`, `EM-IS-ORDINARY`, `MAGNETAR-SEATS`,
+  `THE-SPLIT`.
+- `obstruct.py` — 23 rows. New `CHARGE-STATE`, **CONDITIONAL** — the boundary named.
+- `paper/CLAIMS.md` — **H14**.

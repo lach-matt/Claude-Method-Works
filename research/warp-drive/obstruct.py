@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of twenty-two obstructions, FIVE dissolved, three relocated,
-NINE closed negative, three are conditional, two are OPEN, NONE is untested.
+THE HEADLINE: of twenty-three obstructions, FIVE dissolved, three relocated,
+NINE closed negative, FOUR conditional, two are OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -229,6 +229,15 @@ LEDGER = [
   "and BEC effective negative mass are not exceptions. THE DEVICE IS NOT "
   "RETRACTED; the core is not buildable, and that is a theorem not a budget",
   "achievable.py"),
+ ("CHARGE-STATE", "a charge state can supply what the core supplies",
+  "CONDITIONAL",
+  "IT SUPPLIES THE SEAT AND NOT THE LEAD, and the boundary is the "
+  "energy-condition line. EM stress-energy is ORDINARY -- NEC, WEC, DEC all "
+  "hold -- so T_kk >= 0 gives Ricci focusing, and a magnetar's 1e11 T field "
+  "clears universal seating beyond 155,000 km. But Phi > 0 needs r < Q^2/2M, "
+  "which is INSIDE THE HORIZON at every charge, and Q <= M is the "
+  "Einstein-Maxwell positive energy theorem. Charge reduces the delay by up to "
+  "25% at r = 2M and never reverses it", "charge.py"),
 ]
 
 def by_status():
@@ -338,6 +347,12 @@ def check_no_achievable_core():
             and achievable.gap_widens_with_size()
             and achievable.crossing_radius()*achievable.A_OVER_B/achievable.L_PLANCK < 10.0)
 
+def check_charge_split():
+    import charge
+    return (all(charge.positive_region_is_hidden(1.0, q) for q in (0.5, 0.9, 1.0))
+            and charge.em_is_ordinary()
+            and charge.seats_beyond(1.0e11) < 2.0e8)
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -354,11 +369,11 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 22)
+    chk("obstructions tracked", len(LEDGER), 23)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 5)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 9)
-    chk("CONDITIONAL", len(h["CONDITIONAL"]), 3)
+    chk("CONDITIONAL", len(h["CONDITIONAL"]), 4)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
         sorted(set(r[2] for r in LEDGER)),
@@ -392,6 +407,8 @@ def selftest():
         check_core_type_i(), True)
     chk("ACHIEVABLE-CORE: none exists, and the gap widens with size",
         check_no_achievable_core(), True)
+    chk("CHARGE-STATE: seat yes, lead no, and the split is the EC line",
+        check_charge_split(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",

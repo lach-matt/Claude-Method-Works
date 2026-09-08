@@ -525,8 +525,19 @@ FINDINGS = [
   "dark energy has negative PRESSURE and positive energy density; effective negative mass in BECs and metamaterials is a dispersion curvature, not T_00, and does not gravitate. Named so they are not reached for later"),
  ("DEVICE-NOT-RETRACTED",+1,+1,+1, "achievable.py",
   "the device stands: seats and leads, M_ADM = 0, ordinary stable shell, Type I core. What is settled is that the CORE is not buildable with known physics, and that this is a theorem and not a budget"),
+ # M's charge state: it supplies the seat and not the lead.
+ ("CHARGE-NO-LEAD",  +1, -1, -1, "charge.py",
+  "Phi > 0 iff r < Q^2/2M and the horizon is at M + sqrt(M^2-Q^2): the positive-potential region is INSIDE THE HORIZON at every charge, and Q <= M is the Einstein-Maxwell positive energy theorem"),
+ ("CHARGE-REDUCES",   0,  0, +1, "charge.py",
+  "what charge does buy is a REDUCTION of the delay, never a reversal: 25% at r=2M, 10% at 5M, 5% at 10M, 0.5% at 100M, with Phi negative throughout"),
+ ("EM-IS-ORDINARY",  +1, +1, +1, "charge.py",
+  "electromagnetic stress-energy has rho = E^2/8pi > 0, p_r = -rho, p_t = +rho, so NEC WEC and DEC all hold and T_kk >= 0 gives RICCI focusing with positive energy"),
+ ("MAGNETAR-SEATS",  +1, +1, +1, "charge.py",
+  "a magnetar's 1e11 T field has u = 3.98e27 Pa and clears the universal seating threshold beyond 1.55e8 m = 155,000 km. Seating is not hypothetical: nature already builds the field that does it"),
+ ("THE-SPLIT",       +1, +1, +1, "charge.py",
+  "the device divides along the energy-condition line -- part 2's turn needs T_kk > 0 and is ACHIEVABLE with ordinary EM; parts 1 and 3's lead needs Phi > 0 and is forbidden by two independent theorems"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twenty-two obstructions five dissolved, three relocated, nine closed negative, three conditional, two open and none untested"),
+  "of twenty-three obstructions five dissolved, three relocated, nine closed negative, four conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -643,7 +654,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 198)
+    chk("number of findings indexed", len(FINDINGS), 203)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -658,8 +669,8 @@ def selftest():
     # anyway.
     chk("the cell TYPE-IV opened holds every hard objection, old and new",
         sorted(f[0] for f in FINDINGS if coords(f) == (1, -1, -1)),
-        ["ACHRONAL", "ANEC-VIOLATED", "GAP-WIDENS", "NO-ACHIEVABLE-CORE",
-         "TYPE-IV"])
+        ["ACHRONAL", "ANEC-VIOLATED", "CHARGE-NO-LEAD", "GAP-WIDENS",
+         "NO-ACHIEVABLE-CORE", "TYPE-IV"])
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
@@ -688,6 +699,7 @@ def selftest():
                 "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED","ONE-SIGN-EXOTIC",
                 "LOG-COORDINATE","LIMIT-DISSOLVES","MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL",
                 "NO-ACHIEVABLE-CORE","GAP-WIDENS","PLANCK-THIRD-TIME","DEVICE-NOT-RETRACTED",
+                "CHARGE-NO-LEAD","EM-IS-ORDINARY","MAGNETAR-SEATS","THE-SPLIT",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -705,7 +717,8 @@ def selftest():
                 "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED",
                 "ONE-SIGN-EXOTIC","LOG-COORDINATE","LIMIT-DISSOLVES",
                 "MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL",
-                "PLANCK-THIRD-TIME","DEVICE-NOT-RETRACTED"]))
+                "PLANCK-THIRD-TIME","DEVICE-NOT-RETRACTED",
+                "EM-IS-ORDINARY","MAGNETAR-SEATS","THE-SPLIT"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

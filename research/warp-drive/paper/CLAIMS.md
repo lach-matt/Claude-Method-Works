@@ -705,6 +705,66 @@ was about.
 
 ---
 
+## ★★ HEADLINE — the split
+
+**H14. A charge state supplies the *seat* and not the *lead*, and the boundary between them is exactly
+the boundary between matter that satisfies the energy conditions and matter that violates them.**
+
+> Charge is the most natural remaining escape: the Reissner–Nordström term `+Q²/r²` enters the metric
+> with the **opposite sign to mass**, and electromagnetic stress-energy satisfies **every** energy
+> condition — so if charge could supply what the core supplies, Ford–Roman would never apply and H13's
+> 65 orders would be irrelevant.
+>
+> **The lead: no, and it is a theorem.** `Φ = −M/r + Q²/2r²`, so `Φ > 0` iff `r < Q²/2M`, against a
+> horizon at `r₊ = M + √(M²−Q²)`:
+>
+> | `Q/M` | `Φ > 0` below | horizon `r₊` | hidden? |
+> |---|---|---|---|
+> | 0.50 | 0.125 | 1.866 | **YES** |
+> | 0.90 | 0.405 | 1.436 | **YES** |
+> | 1.00 (extremal) | 0.500 | 1.000 | **YES** |
+>
+> **The positive-potential region is inside the horizon at every charge**, and the **positive energy
+> theorem for Einstein–Maxwell** (Gibbons & Hull; Witten) forces `Q ≤ M`. So no charged configuration
+> anywhere has a *vacuum* region of positive potential. What charge does buy is a **reduction** of the
+> delay — 25% at `r = 2M`, 10% at `5M`, 0.5% at `100M` — never a reversal.
+>
+> **The seat: yes, with ordinary physics.** `ρ = E²/8π > 0`, `p_r = −ρ`, `p_t = +ρ` — NEC, WEC and DEC
+> all hold, so `T_kk ≥ 0` and the field contributes **Ricci** focusing, the term that needs positive
+> energy and here has it. Against the universal seating threshold:
+>
+> | field | `u` (Pa) | seats beyond |
+> |---|---|---|
+> | lab superconducting 1 T | 3.979×10⁵ | 1.55×10¹⁹ m |
+> | strongest pulsed ~1 kT | 3.979×10¹¹ | 1.55×10¹⁶ m |
+> | pulsar 10⁸ T | 3.979×10²¹ | 1.55×10¹¹ m |
+> | **magnetar 10¹¹ T** | **3.979×10²⁷** | **1.55×10⁸ m = 155,000 km** |
+>
+> Electric route: below the Schwinger limit from about `ℓ = 10¹⁰ m`. **Seating is not a hypothetical
+> capability — nature already builds the field that does it.**
+
+**The split, and it is M's own three-part structure:**
+
+| | needs | status |
+|---|---|---|
+| **Part 2 — the turn** | `T_kk > 0` | **ACHIEVABLE** — ordinary electromagnetism |
+| **Parts 1 & 3 — the lead and its closure** | `Φ > 0` | **FORBIDDEN** — `Q ≤ M` for charge, 65 orders for negative energy |
+
+> **The device is not uniformly out of reach. Its focusing half is buildable with physics we have, and
+> its advantage half is blocked by two independent theorems that agree.**
+>
+> **So a future physics would have to change not the ability to focus, only the sign of the potential.**
+> That is a far smaller and far more specific thing to ask for than "exotic matter", and stating it
+> exactly is what this pass is worth.
+
+| | `charge.py` |
+|---|---|
+| status | **PROVEN** (RN algebra, closed form) + **MEASURED** (the seating fields) |
+| new? | the split along the energy-condition line, and its localisation to one sign, yes |
+| **not** claimed | seating figures are **orientation-averaged** — `T_kk` depends on the angle between `k` and `B`, and a full treatment is `NOT-RUN`; **no magnetar-scale apparatus is proposed** — that such a field exists in nature is not that one can be built or held; **Kerr–Newman** (charge *with* rotation) is not examined; and nothing here revises H13. |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
