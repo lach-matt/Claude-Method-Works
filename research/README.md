@@ -4078,3 +4078,73 @@ asserted either way.
 ### Seated
 - `currency.py` — new. `entangle.py` — the "best news" reading struck in place.
 - `index3.py` — **291 findings**, seven new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `shaping.py` — the last open door, pursued and closed
+
+`currency.py` left exactly one question `NOT-RUN` and called it the only place a cheaper currency could
+still hide: **can a state be *prepared* whose `S″ < 0` where wanted, below the Bekenstein floor, in a
+vacuum that already carries area-law entanglement?**
+
+**Answered — and not the way the cost argument predicted.**
+
+### 1. The vacuum saturates QNEC
+
+`⟨T_kk⟩ ≥ (ℏc/2π)S″`, and in the vacuum **both sides are zero**. The vacuum doesn't merely satisfy
+QNEC — it sits exactly on the boundary, for free, and delivers nothing. Getting `S″ < 0` means
+**disentangling relative to the ground state**, and every deviation from a ground state raises `⟨H⟩`.
+
+> The premise that an already-entangled vacuum offers its entanglement for free is **right about the
+> entanglement and wrong about the direction**: we need *less*, not more.
+
+### 2. One mode digs exactly one zero-point energy, and no deeper
+
+| r | `\|ρ_min\|V / ℏω` | cost `sinh²r` | efficiency |
+|---|---|---|---|
+| 0.1 | 0.090635 | 1.0033e-02 | 9.0333e+00 |
+| 1.0 | 0.432332 | 1.3811e+00 | 3.1304e-01 |
+| 3.0 | 0.498761 | 1.0036e+02 | 4.9698e-03 |
+| 10.0 | **0.500000** | 1.2129e+08 | 4.1223e-09 |
+
+**It saturates at `ℏω/2` — the mode's own zero-point energy.** Squeezing by `e¹⁰` costs 1.2×10⁸ quanta
+and buys the same 0.5 that `r = 3` bought for 100. **You cannot dig a hole in the vacuum deeper than
+what is in it.**
+
+### 3. And the cost argument fails — in your favour
+
+`η(r) = (1−e^{−2r})/(2sinh²r) → 1/r`. So weak squeezing over many modes drives the preparation cost per
+joule of negative energy **to zero**, and no Bekenstein-style reasoning stops it.
+
+> **On cost alone, the cheaper currency is real.** Reported, not buried.
+
+### 4. What closes it is counting
+
+Holding `ρ < 0` across a corridor of length `L` needs a quarter-wavelength that spans it, so
+`ω ≲ πc/2L`. That caps the mode count at `Vω³/6π²c³`. Each mode yields at most `ℏω/2`. Assuming —
+optimistically — that every dip aligns:
+
+> **`|ρ|_max = ℏω⁴/(12π²c³) = (π²/192)·ℏc/L⁴ = 0.051404 ℏc/L⁴`**, scale-free across nine decades
+
+**That is Ford–Roman, derived rather than assumed.** This project quoted `|ρ| ≲ ℏc/L⁴` as an *external*
+bound for thirty passes; it is a consequence of zero-point saturation plus mode counting, with
+coefficient `π²/192`. Cross-check: the Casimir density is `π²/720` — same form, smaller by exactly
+**3.75**, as one particular boundary condition must sit below a bound over all of them.
+
+### 5. The verdict — a change of category, not a bigger number
+
+> **Preparation cost was never the obstacle. The modes do not exist.**
+> **A cheaper currency does not help when the thing being bought is out of stock.**
+
+### The three-part answer, finished
+
+1. **Entropy is a structurally better denomination** — the Planck factor genuinely cancels (`currency.py`).
+2. **Bekenstein fixes the exchange rate** — it buys permission, not discount (`currency.py`).
+3. **Shaping is cheap to attempt and leads nowhere** — closed by counting (`shaping.py`).
+
+**Still `NOT-RUN`, and named:** interacting fields, curved backgrounds beyond the corridor's own weak
+field, non-Gaussian states outside the squeezed family.
+
+### Seated
+- `shaping.py` — new. `currency.py`'s `NOT-RUN` → **`CLOSED-NEGATIVE`**, struck in place.
+- `index3.py` — **297 findings**. `obstruct.py` — **34 rows**, new `CHEAPER-CURRENCY`, CLOSED-NEGATIVE.

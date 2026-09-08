@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of thirty-three obstructions, SIX dissolved, three relocated,
-FIFTEEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
+THE HEADLINE: of thirty-four obstructions, SIX dissolved, three relocated,
+SIXTEEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -343,6 +343,26 @@ LEDGER = [
   "work at range, which is a different and much weaker kind of safety. "
   "Hawking's Cauchy-horizon divergence is NOT-RUN and nothing here rests on "
   "it", "chronology.py"),
+ ("CHEAPER-CURRENCY", "the cost can be paid in a cheaper denomination than "
+  "mass-energy -- entropy, entanglement, or shaping rather than supplying",
+  "CLOSED-NEGATIVE",
+  "PURSUED IN THREE STAGES AND CLOSED, AND THE FIRST TWO STAGES SAY THE "
+  "INSTINCT WAS RIGHT. (1) Entropy IS a structurally better denomination: "
+  "every energy comparison carries hbar G/c^3 exactly once and uncancelled -- "
+  "that factor IS the 65-to-71 orders -- while in the entropy channel both "
+  "sides carry (L/l_P)^2 and it CANCELS, giving 2 pi^2 at every scale. (2) But "
+  "Bekenstein read backwards, E >= S hbar c/2 pi R, returns (pi/4) L c^4/G, "
+  "exactly seatindex.py's T_COEFF: the denomination buys PERMISSION, not "
+  "DISCOUNT. (3) And the last door -- shaping S'' rather than supplying "
+  "magnitude -- is closed by COUNTING and not by cost. The cost argument fails "
+  "in M's favour: eta -> 1/r, so weak squeezing over many modes really does "
+  "drive preparation cost per joule to zero. What fails is availability: "
+  "holding rho < 0 over a length L caps the frequency at pi c/2L, the cap "
+  "limits the mode count, each mode yields at most its own zero-point energy, "
+  "and the product is 0.0514 hbar c/L^4 -- WHICH IS FORD-ROMAN, derived here "
+  "rather than quoted, with the coefficient pi^2/192. A cheaper currency does "
+  "not help when the thing being bought is out of stock",
+  "shaping.py"),
  ("THE-LEAD", "a device must beat light to be worth building", "DISSOLVED",
   "NOT UNDER M's SCOPING: the matter must exist at both ends under the same "
   "physics, nothing more. That removes the requirement Olum, Ford-Roman and "
@@ -522,10 +542,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 33)
+    chk("obstructions tracked", len(LEDGER), 34)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 15)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 16)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",

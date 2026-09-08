@@ -119,14 +119,17 @@ WHAT THIS DOES AND DOES NOT SETTLE
     SETTLED: entropy is a structurally better denomination, the Planck factor
              genuinely cancels, and the seat/contraction split is real.
     SETTLED: no denomination is cheaper, because Bekenstein fixes the rate.
-    NOT SETTLED, AND THE HONEST REMAINDER: whether a state can be PREPARED
-             whose S'' is negative where it is wanted, at a preparation cost
-             below the Bekenstein floor for the region it acts on.  Bekenstein
-             bounds the entropy a region can HOLD given its energy; it does not
-             obviously bound the cost of SHAPING a second derivative in a
-             vacuum that already carries area-law entanglement.  THAT is the
-             one question in this neighbourhood this file cannot close, and it
-             is recorded as NOT-RUN rather than answered either way.
+    SETTLED SINCE, BY shaping.py, AND NOT THE WAY THIS FILE EXPECTED: whether
+             a state can be PREPARED whose S'' is negative where wanted, below
+             the Bekenstein floor.  THE COST ARGUMENT FAILS -- weak squeezing
+             over many modes drives preparation cost per joule to zero, and no
+             Bekenstein-style reasoning stops it.  What closes the door is
+             COUNTING: holding rho < 0 across a length L caps the frequency at
+             pi c/2L, the cap limits the mode count, and each mode yields at
+             most its own zero-point energy.  Together: 0.0514 hbar c/L^4,
+             which IS Ford-Roman with the coefficient pi^2/192, derived here
+             rather than quoted.  A cheaper currency does not help when the
+             thing being bought is out of stock.
 
 stdlib only.  entangle.py, spec.py, seatindex.py and phase1.py supply the
 independent numbers this file reconciles.
@@ -241,7 +244,12 @@ ONE_STATEMENT = "a region that seats a conjugate point is a black hole"
 # The honest remainder.  Bekenstein bounds what a region can HOLD given its
 # energy.  Whether SHAPING S'' in a vacuum that already carries area-law
 # entanglement costs the same is a different question and is not answered here.
-SHAPING_COST = "NOT-RUN"
+SHAPING_COST = "CLOSED-NEGATIVE"    # shaping.py: closed by COUNTING, not cost.
+                                    # The cost argument fails in M's favour --
+                                    # eta -> 1/r, preparation really is cheap --
+                                    # but the modes that could hold rho < 0 over
+                                    # a length L do not exist: 0.0514 hbar c/L^4,
+                                    # which IS Ford-Roman, derived.
 
 
 # ------------------------------------------------------------------ selftest
@@ -301,10 +309,13 @@ def selftest():
     print("      area.  All three say: %s." % ONE_STATEMENT)
 
     print("\nTHE HONEST REMAINDER")
-    chk("cost of SHAPING S'' in an already-entangled vacuum", SHAPING_COST, "NOT-RUN")
-    print("      Bekenstein bounds what a region can HOLD given its energy.")
-    print("      Whether shaping a second derivative costs the same is not")
-    print("      answered here, and is not asserted either way.")
+    chk("cost of SHAPING S'' in an already-entangled vacuum", SHAPING_COST,
+        "CLOSED-NEGATIVE")
+    print("      PURSUED AND CLOSED by shaping.py, and not by a cost argument:")
+    print("      weak squeezing really does drive preparation cost to zero.")
+    print("      What closes it is COUNTING -- the modes that could hold")
+    print("      rho < 0 over a length L cap it at 0.0514 hbar c/L^4, which is")
+    print("      Ford-Roman, derived rather than assumed.")
 
     print("\n  SELFTEST " + ("OK" if ok else "FAILED"))
     return ok
@@ -342,14 +353,13 @@ def report():
   requirement and not what must be PAID, and that is a theorem rather
   than a limitation of this file.
 
-  AND ONE QUESTION IN THIS NEIGHBOURHOOD STAYS OPEN, HONESTLY.
-  Bekenstein bounds the entropy a region can HOLD given its energy.
-  Whether a state can be PREPARED whose S'' is negative where it is
-  wanted, at a cost below that floor, in a vacuum that already
-  carries area-law entanglement, is a different question.  It is
-  NOT-RUN.  It is the only place left where a cheaper currency could
-  still be hiding, and it is worth more than another order-of-
-  magnitude estimate.""")
+  AND THE ONE QUESTION THIS FILE LEFT OPEN HAS SINCE BEEN CLOSED, by
+  shaping.py, and not the way this file expected.  The cost argument
+  FAILS: weak squeezing over many modes drives the preparation cost
+  per joule of negative energy to zero.  What closes the door is
+  COUNTING -- the modes that could hold rho < 0 across a length L cap
+  it at 0.0514 hbar c/L^4, which is Ford-Roman with the coefficient
+  pi^2/192, derived rather than quoted.""")
 
 
 if __name__ == "__main__":
