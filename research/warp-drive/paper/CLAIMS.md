@@ -1058,6 +1058,61 @@ hole at the far end — **measured impassable**: the throat falls from `2M` to `
 
 ---
 
+## ⚠ H20 — the expansion is not a permutation, and one invariant scalar says so
+
+**H20. A permutation of a closed index is measure-preserving, so its expansion scalar
+`θ = ∇_μ u^μ` is exactly zero. The universe's is `3H₀ = 6.549×10⁻¹⁸ s⁻¹`, and `θ` is
+coordinate-invariant. The sharper form: `(cosmic scale)/(atomic scale)` is **dimensionless** and grew
+by **1090.92** since recombination — a relabelling has no units to hide in.**
+
+The Bohr radius is fixed by `ℏ`, `mₑ`, `e`; none contains `a`. Atoms do not expand. The ratio is read
+straight off `T_rec/T₀ = 2973.3 K / 2.7255 K`, independent of any model of `a(t)`.
+
+**What *is* a closed index here — and it is the textbook.** In FLRW a galaxy's comoving coordinate does
+not change, nothing expands *into* anything (there is no embedding space), and the count is conserved
+exactly: `n a³ = const`, measured to `2.2e−16` across a factor of 20 in `a`. All the change sits in one
+function.
+
+| claim | verdict | why |
+|---|---|---|
+| space is a closed index | **stands** | comoving coordinates do not move; `n a³` conserved |
+| the expansion is a permutation | **falsified** | `θ = 3H₀ ≠ 0`, and `θ` is invariant |
+| it is a structural relaxation | **splits** | the expansion is isentropic; the **rearrangement** relaxes |
+| self-referencing, self-defending | **exact** | the contracted Bianchi identity |
+| no defect possible in a closed index | **true for charge** | Gauss forces total `Q = 0` exactly |
+
+**"Relaxation" is the right word for the wrong term.** FLRW expansion is isentropic — `d(ρa³) = −p d(a³)`
+exactly, verified for radiation, dust, vacuum and a curvature-like fluid — so nothing dissipates. But
+the early universe had near-zero Weyl curvature (Penrose), so gravitational clumping *does* raise
+entropy: **structure formation genuinely is a relaxation, running inside an expansion that is not one.**
+
+**"Self-defending" is exact, and it is the contracted Bianchi identity.** `∇_μ G^{μν} ≡ 0` holds for
+*every* metric with no field equation assumed, and coupling it to Einstein's equation **forces**
+`∇_μ T^{μν} = 0` — you cannot write down a source that violates conservation. Measured: integrate the
+Friedmann constraint and the acceleration equation, **never impose continuity**, and continuity holds
+at `1e−16` for four fluids at three curvatures. **And the residual does not fall with step size** — flat
+from 500 to 8,000 steps. A truncation error shrinks; an identity is already exact. *The flatness is the
+evidence.*
+
+**And a closed index constrains exactly one quantity — the same one again.** Gauss's law on a manifold
+with no boundary forces **total electric charge to be exactly zero** in a spatially closed universe:
+topology, not observation. No counterpart for energy (undefined there — **H19**) or baryon number (not
+forced). **Third independent arrival** at the sign-blind split, after Wheeler's charge-without-charge
+and Weyl-against-Ricci.
+
+**The picture also has a real formulation.** *Unimodular gravity* fixes `det g` and varies only the
+volume-preserving part — a literally closed index — and is **classically equivalent** to GR. `Λ` becomes
+an integration constant rather than a Lagrangian parameter. That reframes the cosmological-constant
+problem; it does not solve it, and no observation separates the theories.
+
+| | `permute.py` |
+|---|---|
+| status | **PROVEN** (Bianchi as an identity, measured step-independent; isentropy; closed-universe charge) + **MEASURED** (`θ = 3H₀`; the 1090.92 ratio; `n a³` conservation) |
+| new? | the step-independence test as evidence of an identity rather than a numerical result, yes |
+| **not** claimed | that unimodular gravity predicts anything GR does not — it is classically equivalent, filed as **EQUIVALENT**, not better; that it solves the cosmological-constant problem; that the cube analogy fails everywhere — it is **exact on the count and absent on the scale**, and the scale is the axis we observe |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1159,3 +1214,7 @@ hole at the far end — **measured impassable**: the throat falls from `2M` to `
   infinity for the surface integral. True and empty, not true and useful.
 - **That a wormhole emits anything.** No horizon, no surface gravity, no Hawking temperature. The
   emitter is the black hole.
+- **That the cosmological expansion is a relabelling.** `θ = ∇_μ u^μ` is invariant and non-zero, and
+  the scale ratio it moves is dimensionless. See **H20**.
+- **That unimodular gravity buys a prediction.** It is classically equivalent to GR; what it changes is
+  what `Λ` *is*, not what is observed.

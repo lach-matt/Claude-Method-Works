@@ -5329,3 +5329,103 @@ routes to the same discriminator.
   `obstruct.py` — **38 rows**, new `ER-BRIDGE` and `BALANCE-EVADES-PMT`, **20 closed-negative**, one
   still OPEN (TYPE-IV). `index3.py` — **397 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H19** and
   three additions to the not-claimed list.
+
+---
+
+## `permute.py` — is the expansion a permutation of a closed index?
+
+> **M:** *"A space is a closed index. What we observe as expansion is not. It is structural relaxation
+> amidst rearrangement — essentially a Rubik cube always solving itself, which is a closed index
+> self-referencing and self-defending in action."*
+
+`pair.py` established that a spatially closed universe has no ADM mass. That is the ground this is built
+on, and it is correct. A permutation is not a metaphor — **it has a signature**, and the signature is
+measurable. **Three of the four parts land.**
+
+| claim | verdict | why |
+|---|---|---|
+| space is a closed index | **STANDS** | comoving coordinates do not move; `n a³` conserved exactly |
+| the expansion is a permutation | **FALSIFIED** | `θ = 3H₀ = 6.549×10⁻¹⁸ s⁻¹`, invariant, and a permutation has 0 |
+| it is a structural relaxation | **SPLIT** | the expansion is isentropic; the **rearrangement** relaxes |
+| self-referencing, self-defending | **EXACT** | the contracted Bianchi identity, at `1e−16` and flat in `dt` |
+| no defect possible | **TRUE FOR CHARGE** | Gauss on a boundaryless manifold forces `Q = 0` exactly |
+
+### The one falsification
+
+A measure-preserving rearrangement has expansion scalar `θ = ∇_μ u^μ = 0` exactly. `θ` is
+coordinate-invariant, so no relabelling can move it, and `θ/H = 3` — one per spatial direction. Measured
+from `cosmo.py`'s pinned Planck 2018 figure: **`θ = 6.549×10⁻¹⁸ s⁻¹`.** One scalar, and it settles it.
+
+**The sharper form.** The Bohr radius is set by `ℏ`, `mₑ`, `e` — none contains `a`. Atoms do not expand,
+nor do solar systems or bound galaxies. So `(cosmic scale)/(atomic scale)` is a **pure number**, and it
+changed by **1090.92** since recombination — read straight off `T_rec/T₀ = 2973.3 / 2.7255`, independent
+of any model of `a(t)`.
+
+> **A permutation has no units to hide in and cannot move a pure number.** That is the content of the
+> word *expansion*.
+
+### But the comoving picture is the closed index — and it is the textbook
+
+A galaxy's comoving coordinate does not change. Nothing expands *into* anything; there is no embedding
+space and none is wanted. `n a³ = const`, measured to `2.2e−16` across a factor of 20 in `a`. **That is
+the cube's own conservation law, not an analogy for it.** All the change sits in one function.
+
+### "Relaxation" is the right word for the wrong term
+
+FLRW expansion is **isentropic**: `d(ρa³) = −p d(a³)` exactly, for radiation, dust, vacuum and a
+curvature-like fluid. Nothing dissipates. But the early universe had near-zero Weyl curvature
+(Penrose), so gravitational clumping raises entropy — **structure formation genuinely is a relaxation,
+running inside an expansion that is not one.**
+
+> The phrase splits across its own two nouns. *"Amidst"* is doing the work, and what it is amidst is not
+> relaxing.
+
+### "Self-defending" is exact — it is the contracted Bianchi identity
+
+`∇_μ G^{μν} ≡ 0` is an **identity**: it holds for every metric, with no field equation assumed,
+following from the Riemann symmetries alone. Couple it to Einstein's equation and it **forces**
+`∇_μ T^{μν} = 0`. **You cannot write down a source that violates conservation** — the geometry refuses
+it identically.
+
+Measured here: integrate the Friedmann constraint and the acceleration equation, **never imposing
+continuity**. It holds anyway at `1e−16`, for four fluids at three curvatures. And:
+
+| steps | residual |
+|---|---|
+| 500 | 6.03e−16 |
+| 2000 | 5.68e−16 |
+| 8000 | 5.88e−16 |
+
+> **The residual does not fall with step size.** A truncation error shrinks; an identity is already
+> exact. *The flatness is the evidence.*
+
+### And the closed index constrains exactly one quantity — the same one again
+
+Gauss's law on a manifold with no boundary: the integral of a divergence vanishes, so **in a spatially
+closed universe the total electric charge is exactly zero.** Forced by topology, not observation. No
+counterpart for energy (not defined there) or baryon number (not forced).
+
+**Third independent arrival at the same split**, after `pair.py`'s Wheeler charge-without-charge and
+`dichotomy.py`'s Weyl-against-Ricci: **a sign-blind quantity is what a closed index can constrain.**
+
+### The formalisation exists
+
+**Unimodular gravity** fixes `det g` and varies only the volume-preserving part of the metric — a
+literally closed index — and is **classically equivalent** to general relativity. `Λ` becomes an
+integration constant rather than a Lagrangian parameter. Filed as **EQUIVALENT**: it reframes the
+cosmological-constant problem, does not solve it, and no observation separates the two.
+
+### Scoring the cube, the way `unified.py` scored *eight*
+
+| | conserves the count | conserves the scale |
+|---|---|---|
+| the cube (54 stickers, 4.325×10¹⁹ states) | ✓ | ✓ |
+| the universe (`n a³`) | ✓ | ✗ |
+
+> **Exact on one axis, absent on the other — and the scale is the axis we observe.**
+
+### Seated
+- `permute.py` — new, importing `cosmo.py`'s pinned `H₀` rather than re-typing it. `obstruct.py` —
+  **39 rows**, new `EXPANSION-IS-A-RELABELLING`, **21 closed-negative**, one still OPEN (TYPE-IV).
+  `index3.py` — **405 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H20** and two additions to the
+  not-claimed list.
