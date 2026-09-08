@@ -397,3 +397,83 @@ Nothing in this repository computes a **maximum** blanket power density, a core 
 coolant-flow limit, so nothing here can say where adding beam stops paying. **Recorded as owed, in
 the same shape as `criticality.py`'s refusal to compute a moderated `k`** — and owed before phase 4
 states a station size as achievable.
+
+## `--current` — the driver as a machine, and the correction it forces on `--routes`
+
+`--driver` asked what the drivers are *doing*. This asks what they **are**, and it was owed before
+phase 4: a station size is not achievable if its accelerator is not.
+
+The relation is exact and needs no model — one milliamp through one gigavolt is one megawatt:
+
+```
+P[MW] = I[mA] · E[GeV]
+```
+
+So **at fixed beam power the current is inversely proportional to the energy**. `--routes` concluded
+that "the 8 GeV is bought by pion production and by nothing else"; that is incomplete. The 8 GeV also
+buys a factor of **eight off the current**, and the same factor off the fractional beam loss.
+
+**What has been built, and what has been designed** (average proton current, `P/E`):
+
+| machine | GeV | MW | mA | status |
+|---|---:|---:|---:|---|
+| MYRRHA | 0.600 | 2.40 | 4.000 | DESIGN |
+| ESS | 2.000 | 5.00 | 2.500 | DESIGN |
+| PSI HIPA cyclotron | 0.590 | 1.40 | **2.373** | OPERATED |
+| SNS after PPU | 1.300 | 2.80 | 2.154 | OPERATED |
+| SNS, as built | 1.000 | 1.40 | 1.400 | OPERATED |
+| LANSCE | 0.800 | 0.64 | 0.800 | OPERATED |
+| J-PARC RCS | 3.000 | 1.00 | 0.333 | OPERATED |
+
+**The two routes as accelerators**, at the adopted operating point:
+
+| | route A (d–t) | route C (no muon channel) |
+|---|---:|---:|
+| driver energy | 8.0 GeV | 1.0 GeV |
+| station beam | 240 MW | 275 MW |
+| drivers | 12 | 14 |
+| station current | 30.0 mA | 275.0 mA |
+| **current per driver** | **2.50 mA** | **20.00 mA** |
+| — against the operated record | 1.05× | **8.43×** |
+| — against the designed record | 0.62× | **5.00×** |
+| linac length, each | 2,400 m | 300 m |
+| linac length, all drivers | 28.8 km | 4.2 km |
+| fractional loss allowed at 1 W/m | 1.20e-4 | 1.50e-5 |
+| — against SNS's 2.14e-4 | 1.79× tighter | **14.3× tighter** |
+
+**So `--routes` is corrected on its own terms.** It calls route C's driver "SNS and MYRRHA class,
+machines that exist". **That is true of the energy and false of the current.** SNS runs 1.40 mA at
+1.0 GeV; a 20 MW driver at 1 GeV is **20 mA** — 8.4× the highest average proton current ever operated
+and 5.0× the highest ever designed. The same driver at 8 GeV is 2.50 mA, **at** the operated record
+rather than past it. The `--routes` prose and its source comment now carry the qualification.
+
+**The beam-loss budget runs the same way, and that half is counter-intuitive.** At the 1 W/m
+hands-on-maintenance rule the allowance goes with *length* and the length goes with *energy*, while
+the power is fixed — so the **high-energy machine is the forgiving one**. The selftest asserts the
+ratio is exactly the energy ratio rather than trusting the algebra.
+
+**What route C actually buys is length**, and a lot of it: 4.2 km of linac against 28.8 km, a factor
+of **6.9** — the saving `startcost.py` found by another route. What it costs is a machine nobody has
+built at a current nobody has designed for. **The two do not cancel; they are not the same kind of
+quantity.**
+
+**What a current cap would do to the driver count:**
+
+| cap on one driver's current | route A | route C |
+|---|---:|---:|
+| the operated record, 2.373 mA | 13 | **116** |
+| the designed record, 4.000 mA | 8 | **69** |
+| none — as designed here | 12 | 14 |
+
+**The 20 MW driver is only buildable because of the 8 GeV.** Held to a current that has been designed
+for, route A's driver count barely moves and route C's multiplies.
+
+**And what that costs is not priced, deliberately.** `REF_STANDBY_KW` is 1,000 kW for a driver of
+*unstated* size, inside a sourced band of 200–2,000 kW, and nothing here scales it with machine size.
+`--driver` has just shown per-driver standby is a real cost — eleven unbilled ones were 36.7 MW
+electric — so multiplying the driver count by five or by ten is a large term this file cannot compute
+without inventing the scaling. **Recorded as owed, before any route is priced on its accelerator
+count.**
+
+**This file does not decide the route on it.** What it removes is the sentence that made route C's
+driver sound like an ordinary order.

@@ -662,6 +662,26 @@ downstream inventory (`materials.py`'s salt flow, salt and heavy-metal inventori
 `restart.py`'s decay heat) is derived from the **pre-decision** station's 3,364 MW. Nothing here
 computes a maximum blanket power density, a core volume or a coolant-flow limit, so nothing here can
 say where adding beam stops paying. **Owed before phase 4 states a station size as achievable.**
+**`--current` then asks what the drivers *are* rather than what they do, and corrects `--routes` on
+its own terms.** `P[MW] = I[mA]·E[GeV]` exactly, so at fixed beam power **the current is inversely
+proportional to the energy** — and the 8 GeV is therefore *not* bought by pion production alone, it
+also buys a factor of **eight off the current** and the same factor off the fractional beam loss. A
+20 MW driver at 8 GeV is **2.50 mA**, **1.05×** the highest average proton current ever operated
+(PSI's 2.373 mA) — at the record, not past it. The same machine at route C's ~1 GeV is **20 mA**:
+**8.43×** that record and **5.00×** MYRRHA's 4 mA design. So `--routes`' *"SNS and MYRRHA class,
+machines that exist"* is **true of the energy and false of the current**, and both the prose and its
+source comment now say so. The 1 W/m hands-on-maintenance budget runs the same way and that half is
+counter-intuitive — the allowance goes with *length* and the length with *energy* while the power is
+fixed, so the **high-energy machine is the forgiving one**: 1.79× tighter than SNS at 8 GeV against
+**14.3×** at 1 GeV, and the selftest asserts the ratio is *exactly* the energy ratio. **What route C
+buys is length** — 4.2 km of linac against 28.8 km, a factor of **6.9**, which is `startcost.py`'s
+saving by another route — and what it costs is a machine nobody has built at a current nobody has
+designed for; the two do not cancel because they are not the same kind of quantity. Held to a current
+that has been designed for, route A's driver count barely moves (12 → 8) and **route C's multiplies
+(14 → 69, or 116 at the operated record)**. The standby consequence is **not priced and says so**:
+`REF_STANDBY_KW` is a band for a driver of unstated size and nothing here scales it with machine
+size — owed before any route is priced on its accelerator count. **The file does not decide the route
+on it**; what it removes is the sentence that made route C's driver sound like an ordinary order.
 
 **`tools/criticality.py`** (**can handling or storing this fuel cause an accident** — asked directly,
 and answered with the discipline's own arithmetic rather than with reassurance, because nothing here

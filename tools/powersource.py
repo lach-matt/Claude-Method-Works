@@ -1089,14 +1089,16 @@ def station_beam_mw(households=STATION_HOUSEHOLDS,
 
 
 def net_electric_kw_at(beam_mw, n_linac, window=STATION_WINDOW_MEV,
-                       k_eff=K_SAFE, eta_acc=0.30):
+                       k_eff=K_SAFE, eta_acc=0.30, y_fus=None):
     """Net electricity from a beam and the drivers that carry it.
 
     THE one statement of the plant's net. station() reads it and so does the
     driver section, because a formula written twice is a formula that will
-    disagree with itself once."""
+    disagree with itself once. y_fus = 0.0 is route C -- the same plant with
+    the muon channel deleted -- and None takes it from the window."""
     y_s = 0.5 * sum(spallation_yield())
-    g = plant_gain(k_eff, y_s, fusions_per_proton(window))
+    y_f = fusions_per_proton(window) if y_fus is None else y_fus
+    g = plant_gain(k_eff, y_s, y_f)
     gross_kw = beam_mw * 1000.0 * g * eta_thermal()
     return (beam_mw * 1000.0 * (g * eta_thermal() - 1.0 / eta_acc)
             - n_linac * REF_STANDBY_KW / eta_acc
@@ -1104,20 +1106,21 @@ def net_electric_kw_at(beam_mw, n_linac, window=STATION_WINDOW_MEV,
 
 
 def built_station(n_mod, module_mw=MODULE_BEAM_MW, window=STATION_WINDOW_MEV,
-                  k_eff=K_SAFE, eta_acc=0.30):
+                  k_eff=K_SAFE, eta_acc=0.30, y_fus=None):
     """The plant that this many modules of this size actually is.
 
     Separated from station() so the driver section can ask what one more
-    module would deliver without restating a line of the plant."""
+    module would deliver without restating a line of the plant. y_fus = 0.0
+    builds the same plant with the muon channel deleted -- route C."""
     if n_mod < 1:
         raise ValueError(f"a station has at least one module, got {n_mod}")
     y_s = 0.5 * sum(spallation_yield())
-    y_f = fusions_per_proton(window)
+    y_f = fusions_per_proton(window) if y_fus is None else y_fus
     g = plant_gain(k_eff, y_s, y_f)
     beam = n_mod * module_mw
     n_lin = math.ceil(beam / LINAC_BEAM_MW)
     gross_kw = beam * 1000.0 * g * eta_thermal()
-    net_kw = net_electric_kw_at(beam, n_lin, window, k_eff, eta_acc)
+    net_kw = net_electric_kw_at(beam, n_lin, window, k_eff, eta_acc, y_fus)
     return {
         "window": window, "module_mw": module_mw, "modules": n_mod,
         "beam_mw": beam, "linacs": n_lin, "gain": g, "y_fus": y_f,
@@ -1154,7 +1157,7 @@ def station_open_loop(households=STATION_HOUSEHOLDS,
 
 def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
             module_mw=MODULE_BEAM_MW, k_eff=K_SAFE, eta_acc=0.30,
-            max_modules=100000):
+            max_modules=100000, y_fus=None):
     """The station as built: whole modules, and what they actually deliver.
 
     Sized by closing the loop -- charging the drivers the answer needs rather
@@ -1166,7 +1169,7 @@ def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
     n = max(1, station_open_loop(households, window, module_mw, k_eff,
                                  eta_acc)["modules"])
     while n <= max_modules:
-        st = built_station(n, module_mw, window, k_eff, eta_acc)
+        st = built_station(n, module_mw, window, k_eff, eta_acc, y_fus)
         if st["households"] >= households:
             return st
         n += 1
@@ -1451,6 +1454,201 @@ def report_driver():
     print("    core volume or a coolant flow limit, so nothing here can say")
     print("    where adding beam stops paying. Recorded as owed, and it is")
     print("    owed before phase 4 states a station size as achievable.")
+    print()
+
+# ---- THE DRIVER AS A MACHINE: CURRENT, LENGTH AND BEAM LOSS ---------------
+# --driver asked what the drivers are DOING. This asks what they ARE, and it
+# was owed before phase 4 because a station size is not achievable if its
+# accelerator is not.
+#
+# The relation is exact and needs no model: P[MW] = I[mA] . E[GeV], since one
+# milliamp through one gigavolt is one megawatt. So AT FIXED BEAM POWER THE
+# CURRENT IS INVERSELY PROPORTIONAL TO THE ENERGY -- and --routes' finding
+# that "the 8 GeV is bought by pion production and by nothing else" is
+# therefore incomplete. The 8 GeV also buys a factor of eight OFF the current,
+# and off the fractional beam loss, and that had not been counted.
+PROTON_MACHINES = {                 # (energy GeV, beam power MW, status)
+    "PSI HIPA cyclotron": (0.590, 1.40, "OPERATED"),   # SOURCED: highest
+    "LANSCE": (0.800, 0.64, "OPERATED"),               # average proton
+    "SNS, as built": (1.00, 1.40, "OPERATED"),         # current operated is
+    "SNS after PPU": (1.30, 2.80, "OPERATED"),         # PSI's
+    "J-PARC RCS": (3.00, 1.00, "OPERATED"),
+    "MYRRHA": (0.600, 2.40, "DESIGN"),                 # SOURCED: the ADS one
+    "ESS": (2.00, 5.00, "DESIGN"),
+}
+LOSS_W_PER_M = 1.0            # SOURCED: the hands-on-maintenance rule that
+                              # sets every high-power proton linac's loss
+                              # budget -- above it the machine is remote
+                              # handling and a different plant
+LINAC_M_PER_GEV = 300.0       # INDICATIVE: SNS is 335 m to 1.0 GeV and ESS
+                              # about 600 m to 2.0 GeV. Used for the ORDER of
+                              # the length and of the loss budget, never for
+                              # a machine layout
+ROUTE_C_GEV = 1.0             # what --routes states the route C driver at
+
+
+def beam_current_ma(p_mw, e_gev):
+    """P[MW] = I[mA] . E[GeV]. Exact, not a fit."""
+    if e_gev <= 0:
+        raise ValueError(f"beam energy must be positive, got {e_gev}")
+    return p_mw / e_gev
+
+
+def linac_length_m(e_gev):
+    return LINAC_M_PER_GEV * e_gev
+
+
+def allowed_loss_w(e_gev):
+    """What the 1 W/m rule permits a machine of this energy to lose."""
+    return LOSS_W_PER_M * linac_length_m(e_gev)
+
+
+def fractional_loss_requirement(p_mw, e_gev):
+    """The fraction of the beam that may be lost, at 1 W/m.
+
+    LONGER IS EASIER: the allowance goes with length and the length goes with
+    energy, while the power is fixed. So the high-energy machine is the
+    forgiving one, which is the opposite of the intuition that made 8 GeV
+    look like the expensive choice."""
+    return allowed_loss_w(e_gev) / (p_mw * 1e6)
+
+
+def record_current_ma(status="OPERATED"):
+    """(machine, current) at the largest average proton current of that
+    status. A band is not wanted here -- the question is what the record IS."""
+    rows = [(n, beam_current_ma(p, e))
+            for n, (e, p, st) in PROTON_MACHINES.items() if st == status]
+    if not rows:
+        raise ValueError(f"no machine with status {status!r}")
+    return max(rows, key=lambda t: t[1])
+
+
+def drivers_at_current_cap(beam_mw, e_gev, cap_ma):
+    """How many drivers a station needs if no driver may exceed cap_ma."""
+    if cap_ma <= 0:
+        raise ValueError(f"a current cap must be positive, got {cap_ma}")
+    return math.ceil(beam_mw / (cap_ma * e_gev))
+
+
+def report_current():
+    """the driver as a machine: current, length and the beam-loss budget"""
+    print()
+    print("  THE DRIVER AS A MACHINE")
+    print()
+    print("    P[MW] = I[mA] . E[GeV] exactly, so at fixed beam power the")
+    print("    CURRENT IS INVERSELY PROPORTIONAL TO THE ENERGY. Nothing here")
+    print("    had counted that, and it changes what --routes concluded.")
+    print()
+    print("    WHAT HAS BEEN BUILT AND WHAT HAS BEEN DESIGNED")
+    print()
+    print("      machine                    GeV      MW        mA   status")
+    for n, (e, p, st) in sorted(PROTON_MACHINES.items(),
+                               key=lambda t: -t[1][1] / t[1][0]):
+        print(f"      {n:<24} {e:6.3f} {p:7.2f} {beam_current_ma(p, e):9.3f}"
+              f"   {st}")
+    rec_n, rec_i = record_current_ma("OPERATED")
+    des_n, des_i = record_current_ma("DESIGN")
+    print()
+    print(f"      the record, operated  {rec_i:6.3f} mA   ({rec_n})")
+    print(f"      the record, designed  {des_i:6.3f} mA   ({des_n})")
+    print()
+    a = station(module_mw=SPALL_TARGET_MW["ESS, design"], k_eff=K_DESIGN)
+    c = station(module_mw=SPALL_TARGET_MW["ESS, design"], k_eff=K_DESIGN,
+                y_fus=0.0)
+    print("    THE TWO ROUTES AS ACCELERATORS")
+    print()
+    print("      route                        A d-t        C no muon channel")
+    print(f"      driver energy               {BEAM_GEV:5.1f} GeV"
+          f"          {ROUTE_C_GEV:5.1f} GeV")
+    print(f"      station beam                {a['beam_mw']:5.0f} MW"
+          f"           {c['beam_mw']:5.0f} MW")
+    print(f"      drivers                     {a['linacs']:5d}"
+          f"              {c['linacs']:5d}")
+    print(f"      station current             {beam_current_ma(a['beam_mw'], BEAM_GEV):5.1f} mA"
+          f"           {beam_current_ma(c['beam_mw'], ROUTE_C_GEV):5.1f} mA")
+    i_a = beam_current_ma(LINAC_BEAM_MW, BEAM_GEV)
+    i_c = beam_current_ma(LINAC_BEAM_MW, ROUTE_C_GEV)
+    print(f"      CURRENT PER DRIVER          {i_a:5.2f} mA"
+          f"           {i_c:5.2f} mA")
+    print(f"        against the operated record {i_a / rec_i:6.2f}x"
+          f"            {i_c / rec_i:6.2f}x")
+    print(f"        against the designed one    {i_a / des_i:6.2f}x"
+          f"            {i_c / des_i:6.2f}x")
+    print(f"      linac length, each          {linac_length_m(BEAM_GEV):5.0f} m"
+          f"            {linac_length_m(ROUTE_C_GEV):5.0f} m")
+    tot_a = a["linacs"] * linac_length_m(BEAM_GEV) / 1000.0
+    tot_c = c["linacs"] * linac_length_m(ROUTE_C_GEV) / 1000.0
+    print(f"      linac length, all drivers   {tot_a:5.1f} km"
+          f"           {tot_c:5.1f} km")
+    f_a = fractional_loss_requirement(LINAC_BEAM_MW, BEAM_GEV)
+    f_c = fractional_loss_requirement(LINAC_BEAM_MW, ROUTE_C_GEV)
+    sns_e, sns_p, _ = PROTON_MACHINES["SNS, as built"]
+    f_sns = fractional_loss_requirement(sns_p, sns_e)
+    print(f"      fractional loss allowed   {f_a:8.2e}         {f_c:8.2e}")
+    print(f"        against SNS's {f_sns:.2e}     {f_sns / f_a:6.2f}x tighter"
+          f"      {f_sns / f_c:6.2f}x tighter")
+    print("        (SNS is priced through the SAME length model, so the")
+    print("         ratio is like for like and carries no claim about its")
+    print("         real layout)")
+    print()
+    print("    SO --ROUTES IS CORRECTED, AND ON ITS OWN TERMS. It says the")
+    print("    route C driver is 'SNS and MYRRHA class, machines that exist'.")
+    print("    THAT IS TRUE OF THE ENERGY AND FALSE OF THE CURRENT. SNS runs")
+    print(f"    {beam_current_ma(sns_p, sns_e):.2f} mA at"
+          f" {sns_e:.1f} GeV; a {LINAC_BEAM_MW:.0f} MW driver at"
+          f" {ROUTE_C_GEV:.0f} GeV is {i_c:.0f} mA --")
+    print(f"    {i_c / rec_i:.1f}x the highest average proton current ever"
+          " operated and")
+    print(f"    {i_c / des_i:.1f}x the highest ever designed. The same driver at"
+          f" {BEAM_GEV:.0f} GeV is")
+    print(f"    {i_a:.2f} mA, which is {i_a / rec_i:.2f}x the operated record --"
+          " AT it, not past it.")
+    print()
+    print("    AND THE BEAM-LOSS BUDGET RUNS THE SAME WAY. At 1 W/m the")
+    print("    allowance goes with LENGTH and the length goes with ENERGY,")
+    print("    while the power is fixed, so the high-energy machine is the")
+    print(f"    forgiving one: {f_sns / f_a:.1f}x tighter than SNS at"
+          f" {BEAM_GEV:.0f} GeV against"
+          f" {f_sns / f_c:.0f}x at {ROUTE_C_GEV:.0f} GeV.")
+    print()
+    print("    WHAT ROUTE C ACTUALLY BUYS IS LENGTH, AND IT IS A LOT OF IT:")
+    print(f"    {tot_c:.1f} km of linac against {tot_a:.1f} km, a factor of"
+          f" {tot_a / tot_c:.1f}. That is the")
+    print("    saving startcost.py already found by another route. What it")
+    print("    costs is a machine nobody has built at a current nobody has")
+    print("    designed for -- and the two do not cancel, because they are")
+    print("    not the same kind of quantity.")
+    print()
+    print("    WHAT A CURRENT CAP WOULD DO TO THE DRIVER COUNT")
+    print()
+    print("      cap on one driver's current           route A     route C")
+    for lab, cap in ((f"the operated record, {rec_i:.3f} mA", rec_i),
+                     (f"the designed record, {des_i:.3f} mA", des_i)):
+        na = drivers_at_current_cap(a["beam_mw"], BEAM_GEV, cap)
+        nc = drivers_at_current_cap(c["beam_mw"], ROUTE_C_GEV, cap)
+        print(f"      {lab:<36} {na:5d}       {nc:5d}")
+    print(f"      {'none -- as designed here':<36} {a['linacs']:5d}"
+          f"       {c['linacs']:5d}")
+    print()
+    print("    THE 20 MW DRIVER IS ONLY BUILDABLE BECAUSE OF THE 8 GeV. Held")
+    print("    to a current that has been designed for, route A's driver count")
+    print("    barely moves and route C's multiplies.")
+    print()
+    print("    AND WHAT THAT COSTS IS NOT PRICED HERE, DELIBERATELY.")
+    print(f"    REF_STANDBY_KW is {REF_STANDBY_KW:,.0f} kW for a driver of"
+          " UNSTATED size, inside a")
+    print(f"    sourced band of {STANDBY_LO_KW:,.0f} to {STANDBY_HI_KW:,.0f}"
+          " kW, and nothing here scales it with")
+    print("    machine size. --driver has just shown that per-driver standby")
+    print("    is a real cost -- eleven unbilled ones were 36.7 MW electric --")
+    print("    so multiplying the driver count by five or by ten is a large")
+    print("    term that this file cannot compute without inventing the")
+    print("    scaling. RECORDED AS OWED, and owed before any route is priced")
+    print("    on its accelerator count.")
+    print()
+    print("    THIS FILE DOES NOT DECIDE THE ROUTE ON IT. What it removes is")
+    print("    the sentence that made route C's driver sound like an ordinary")
+    print("    order.")
     print()
 
 WORLD_CIVIL_TRITIUM_KG = 25.0   # SOURCED band: the heavy-water reactor stock
@@ -1855,7 +2053,9 @@ def report_ignition():
 # so a 0.6 GeV driver and a 12 GeV driver give the same G. THE 8 GeV IS BOUGHT
 # BY PION PRODUCTION AND BY NOTHING ELSE: HARP's own columns make 3 GeV/c
 # 1.63x dearer per pion than 8. Delete the muon channel and the driver drops to
-# about 1 GeV -- SNS and MYRRHA class, machines that exist -- and 21 capture
+# about 1 GeV -- SNS and MYRRHA class ON ENERGY ONLY; --current corrects the
+# "machines that exist" reading, because at that energy the same beam power is
+# eight times the current -- and 21 capture
 # solenoids, 42 km of REBCO and every fuel cell go with it.
 ROUTES = ("A d-t", "B d-d self-tritiating", "C no muon channel")
 
@@ -1944,7 +2144,9 @@ def report_routes():
     print("    SO THE 8 GeV IS BOUGHT BY PION PRODUCTION AND BY NOTHING ELSE.")
     print("    HARP's own columns make 3 GeV/c 1.63x dearer per pion than 8.")
     print("    Delete the muon channel and the driver drops to about 1 GeV --")
-    print("    SNS and MYRRHA class, machines that exist -- and with it go")
+    print("    SNS and MYRRHA class ON ENERGY, and NOT on current: see")
+    print("    --current, which prices what a 1 GeV driver of this power")
+    print("    actually is. With the channel go")
     print(f"    {st['modules']:.0f} capture solenoids,"
           f" {st['modules']*1990.986/1000:.0f} km of REBCO and every fuel cell.")
     print()
@@ -2630,7 +2832,8 @@ def selftest():
                        ("ignition", report_ignition),
                        ("routes", report_routes),
                        ("rescale", report_rescale),
-                       ("driver", report_driver)):
+                       ("driver", report_driver),
+                       ("current", report_current)):
         try:
             _b = _io.StringIO()
             with _c.redirect_stdout(_b):
@@ -2730,6 +2933,71 @@ def selftest():
           _raises_value(lambda: marginal_net_mw(1)))
 
     print()
+    print("  the driver as a machine -- current, length and beam loss")
+    # THE RELATION IS EXACT, not a fit: one milliamp through one gigavolt is
+    # one megawatt. Pinned so the whole section cannot drift off arithmetic.
+    check("P[MW] = I[mA] . E[GeV] exactly",
+          abs(beam_current_ma(240.0, 8.0) - 30.0) < 1e-12)
+    check("  -- so at fixed power the current is inverse in the energy",
+          abs(beam_current_ma(20.0, 1.0)
+              / beam_current_ma(20.0, 8.0) - 8.0) < 1e-12)
+    _rec_n, _rec_i = record_current_ma("OPERATED")
+    _des_n, _des_i = record_current_ma("DESIGN")
+    check("the operated current record is PSI's",
+          _rec_n == "PSI HIPA cyclotron")
+    check("  -- and no OPERATED machine beats it",
+          all(beam_current_ma(p, e) <= _rec_i + 1e-12
+              for e, p, st in PROTON_MACHINES.values() if st == "OPERATED"))
+    check("the designed record is above the operated one",
+          _des_i > _rec_i)
+    _ia = beam_current_ma(LINAC_BEAM_MW, BEAM_GEV)
+    _ic = beam_current_ma(LINAC_BEAM_MW, ROUTE_C_GEV)
+    # THE FINDING. --routes called route C's driver "machines that exist".
+    # True of the energy, false of the current.
+    check("route A's driver sits AT the operated current record",
+          _ia < 1.2 * _rec_i)
+    check("  -- and route C's is far past even the designed one",
+          _ic > 4.0 * _des_i)
+    check("  -- so 'machines that exist' is true of the energy, not the"
+          " current",
+          _ic / _ia > 7.9)
+    check("and --routes now says so where it made the claim",
+          "ON ENERGY, and NOT on current" in _capture_ps(report_routes))
+    # THE LOSS BUDGET RUNS THE SAME WAY, and that is the counter-intuitive
+    # half: longer is easier, because the allowance goes with length.
+    check("the 1 W/m budget is looser at the higher energy",
+          fractional_loss_requirement(LINAC_BEAM_MW, BEAM_GEV)
+          > fractional_loss_requirement(LINAC_BEAM_MW, ROUTE_C_GEV))
+    check("  -- by exactly the energy ratio, since power is fixed",
+          abs(fractional_loss_requirement(LINAC_BEAM_MW, BEAM_GEV)
+              / fractional_loss_requirement(LINAC_BEAM_MW, ROUTE_C_GEV)
+              - BEAM_GEV / ROUTE_C_GEV) < 1e-9)
+    # AND WHAT ROUTE C BUYS, so the section cannot be read as refuting it.
+    _a = station(module_mw=SPALL_TARGET_MW["ESS, design"], k_eff=K_DESIGN)
+    _c = station(module_mw=SPALL_TARGET_MW["ESS, design"], k_eff=K_DESIGN,
+                 y_fus=0.0)
+    check("route C is the shorter accelerator, and by a lot",
+          _a["linacs"] * linac_length_m(BEAM_GEV)
+          > 5.0 * _c["linacs"] * linac_length_m(ROUTE_C_GEV))
+    check("  -- and it needs MORE beam, not less, having no fusion channel",
+          _c["beam_mw"] > _a["beam_mw"])
+    check("a current cap multiplies route C's driver count and not route A's",
+          drivers_at_current_cap(_c["beam_mw"], ROUTE_C_GEV, _des_i)
+          > 4 * _c["linacs"]
+          and drivers_at_current_cap(_a["beam_mw"], BEAM_GEV, _des_i)
+          <= _a["linacs"])
+    check("the standby consequence of that is recorded as owed, not priced",
+          "RECORDED AS OWED" in _capture_ps(report_current))
+    check("  -- and the file refuses to decide the route on it",
+          "DOES NOT DECIDE THE ROUTE" in _capture_ps(report_current))
+    check("a zero or negative beam energy is refused",
+          _raises_value(lambda: beam_current_ma(20.0, 0.0)))
+    check("a non-positive current cap is refused",
+          _raises_value(lambda: drivers_at_current_cap(240.0, 8.0, 0.0)))
+    check("a status no machine carries is refused",
+          _raises_value(lambda: record_current_ma("IMAGINED")))
+
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -2756,6 +3024,8 @@ def main():
     ap.add_argument("--rescale", action="store_true",
                     help="the station rebuilt at the adopted operating point")
     ap.add_argument("--driver", action="store_true", help=report_driver.__doc__)
+    ap.add_argument("--current", action="store_true",
+                    help=report_current.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -2783,6 +3053,8 @@ def main():
         return report_rescale()
     if a.driver:
         return report_driver()
+    if a.current:
+        return report_current()
     return report()
 
 

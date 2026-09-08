@@ -93,6 +93,25 @@ safety**: k is composition, so more source neutrons leave the 10,000 pcm margin
 and the always-subcritical property untouched. And it is **bounded** — worth
 exactly the 10 MW that was stranded and not one MW more.
 
+**The route C driver is SNS and MYRRHA class on energy and on nothing else,
+and the sentence that said otherwise is corrected.** `P[MW] = I[mA]·E[GeV]`
+exactly, so at fixed beam power the current is inversely proportional to the
+energy. A 20 MW driver at 8 GeV is **2.50 mA** — 1.05× the highest average
+proton current ever operated, at the record rather than past it. The same
+machine at route C's ~1 GeV is **20 mA**: **8.4×** that record and **5.0×** the
+highest ever designed. The 1 W/m beam-loss budget runs the same way, the
+allowance going with length and the length with energy, so the 8 GeV machine is
+the forgiving one — 1.8× tighter than SNS against 14.3× at 1 GeV. **What route C
+buys is length**, 4.2 km of linac against 28.8 km, a factor of 6.9; what it
+costs is a machine nobody has built at a current nobody has designed for, and
+the two do not cancel because they are not the same kind of quantity. Held to a
+current that has been designed for, route A's driver count barely moves (12 → 8)
+and route C's multiplies (14 → 69). **The standby cost of that is not priced**:
+`REF_STANDBY_KW` is a band for a driver of unstated size and nothing here scales
+it with machine size — owed before any route is priced on its accelerator count.
+The route decision is **not** reopened on this; what is removed is the sentence
+that made route C's driver sound like an ordinary order.
+
 **The ceiling on adding beam is owed, not computed, and that is recorded rather
 than filled.** Net is *exactly* linear in beam at a fixed driver count, so the
 model will return more output for more beam without limit; that is a property of
