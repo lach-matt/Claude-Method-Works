@@ -2608,3 +2608,73 @@ shell holds together, and `wall.py`'s history is a warning about assuming it wou
   `SHELL-THEOREM-SPLIT`, `VACUUM-NEEDS-COMPACT`, `HARNESS-NOT-SKETCH`.
 - `obstruct.py` — 19 rows. New `BARE-NEGATIVE-MASS`, **DISSOLVED** — the fifth.
 - `paper/CLAIMS.md` — **H10**, the device.
+
+---
+
+## Pass 19 — `stability.py`: does it hold together?
+
+The core's identification is deferred by instruction. What is not deferred is whether the thing is a
+device at all — and `wall.py`'s history is the warning: the warpshell was radially stable, structurally
+fixable, and then died to a non-radial mode nobody had posed. So the shell gets asked first, and asked
+the way that killed the last one.
+
+### The setup is unusually clean
+
+`M_ADM = 0` makes the Israel junction sit between **interior Schwarzschild with `M_in = −m`** and
+**exterior flat Minkowski**. That is the mirror of the textbook shell, and every result below is the
+textbook one with its sign reversed.
+
+### The shell is ordinary matter
+
+`σ = (1/4πR)[√(1+2m/R) − 1] > 0` for every `m`, with a small tension `O((m/R)²)`:
+
+| `m/R` | `σ` | `p` | NEC | DEC |
+|---|---|---|---|---|
+| 0.01 | +7.918×10⁻⁴ | −1.950×10⁻⁶ | yes | yes |
+| 0.10 | +7.595×10⁻³ | −1.654×10⁻⁴ | yes | yes |
+| 0.50 | +3.296×10⁻² | −2.414×10⁻³ | yes | yes |
+| 2.00 | +9.836×10⁻² | −1.359×10⁻² | yes | yes |
+
+**The dominant energy condition holds at every compactness tested.** All the exoticism is in the core.
+
+### And it is radially stable for free
+
+Validation first, because the sign is the whole claim. Same machinery, `β² = 0`:
+
+| ordinary shell `M/R` | `V″(0)` | our device `m/R` | `V″(0)` |
+|---|---|---|---|
+| 0.01 | **−3.036×10⁻²** unstable | 0.01 | **+2.965×10⁻²** stable |
+| 0.10 | −3.424×10⁻¹ | 0.10 | +2.700×10⁻¹ |
+| 0.20 | −8.169×10⁻¹ | 0.50 | +1.018 |
+
+**Near mirror images.** `β²_crit` is **negative** everywhere measured (−0.0037 to −0.132), so any
+non-negative stiffness — dust included — clears it. The textbook shell needs stiffness; this one
+does not.
+
+**Third appearance of one sign structure:** Weyl focusing without positive energy, a lead instead of a
+lag, and now a reversed potential curvature. One sign, three consequences, none of them arranged.
+
+### The core's position is neutral, exactly
+
+Newton's shell theorem makes the interior field vanish at *every* point, so the core feels no force
+wherever it sits. Neither stable nor unstable, and recorded as neither.
+
+### Not run — and the first is the top remaining risk
+
+1. **`ℓ ≥ 2` non-radial modes. This killed the warpshell.** PSP find an unstable even-parity mode for
+   all `ℓ ≥ 2`, all compactness, all `Γ`. Their shells have `M_in ≥ 0` and `M_out > 0`; ours has
+   `M_in < 0` and `M_out = 0`, and the **radial** mode already flipped under exactly that exchange.
+   **A reason to expect, never a reason to assume.**
+2. **`ℓ = 1`** — a displaced core presents an asymmetric field *to* the shell.
+3. **The core's own stability** — deferred with the identification phase, named so it is deferred
+   rather than forgotten.
+4. The linearised-field caution from `concentric.py`, unchanged.
+
+**Radially stable is not stable**, and this pass does not claim otherwise.
+
+### Seated
+
+- `index3.py` — 183 findings: `SHELL-IS-ORDINARY`, `STABLE-FOR-FREE`, `SIGN-STRUCTURE-3`,
+  `CORE-NEUTRAL`, `L2-IS-THE-RISK`.
+- `obstruct.py` — 20 rows. New `DEVICE-SHELL`, **CLOSED-NEGATIVE**.
+- `paper/CLAIMS.md` — **H11**.

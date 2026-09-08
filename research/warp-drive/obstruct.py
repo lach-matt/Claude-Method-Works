@@ -14,7 +14,7 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of nineteen obstructions, FIVE dissolved, three relocated, six
+THE HEADLINE: of twenty obstructions, FIVE dissolved, three relocated, SEVEN
 closed negative, three are conditional, two are OPEN, and NONE is untested.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -201,6 +201,15 @@ LEDGER = [
   "does not. The corridor is vacuum only for b/a >~ 50. Negative LOCAL energy "
   "density is unchanged, the field is linearised, and NOTHING here shows the "
   "configuration is stable", "concentric.py"),
+ ("DEVICE-SHELL", "the shell holding the device needs exotic matter or "
+  "stiffness it cannot have", "CLOSED-NEGATIVE",
+  "IT NEEDS NEITHER. With M_in = -m and M_out = 0 the Israel junction gives "
+  "sigma > 0 and a small tension, DOMINANT energy condition satisfied to "
+  "m/R = 2; and V'' > 0 at beta^2 = 0 with beta2_crit NEGATIVE everywhere, so "
+  "it is radially stable with no pressure response at all -- where the textbook "
+  "shell on the same machinery is unstable. The core's position is neutral by "
+  "the shell theorem. l >= 2 IS NOT RUN and is the top remaining risk",
+  "stability.py"),
 ]
 
 def by_status():
@@ -289,6 +298,14 @@ def check_bare_mass_needed():
     return (concentric.works(5.0e-3)
             and abs(concentric.adm_residual(5.0e-3)) < 1e-10)
 
+def check_device_shell_ordinary():
+    import stability
+    # the shell holding the device is ordinary matter AND radially stable free
+    return (all(stability.dec_holds(*stability.device(m)) for m in (0.01, 0.5, 2.0))
+            and all(stability.V_second(*stability.device(m), beta2=0.0) > 0
+                    for m in (0.01, 0.1, 0.5))
+            and stability.V_second(*stability.ordinary(0.1), beta2=0.0) < 0)
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -305,10 +322,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 19)
+    chk("obstructions tracked", len(LEDGER), 20)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 5)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 6)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 7)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 3)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
@@ -337,6 +354,8 @@ def selftest():
         check_seat_meets_transport(), True)
     chk("BARE-NEGATIVE-MASS: not needed -- M_ADM = 0 works",
         check_bare_mass_needed(), True)
+    chk("DEVICE-SHELL: ordinary matter, stable free, and the control is unstable",
+        check_device_shell_ordinary(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",

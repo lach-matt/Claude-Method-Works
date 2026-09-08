@@ -481,8 +481,19 @@ FINDINGS = [
   "the corridor is vacuum only if the core is compact against the impact parameter: trace ratio 3.99e-1 at b/a = 2 against 7.55e-4 at b/a = 50. A design constraint, not a numerical detail"),
  ("HARNESS-NOT-SKETCH", 0, -1, +1, "concentric.py",
   "the first window was measured with a scratch driver that silently reset the potential to its own defaults, reporting a five-times-narrower window and a lead two orders too small. WITHDRAWN. Run the instrument, not the sketch"),
+ # Does the device hold together?  The shell, asked the way that killed the last one.
+ ("SHELL-IS-ORDINARY",+1,+1,+1, "stability.py",
+  "Israel junction with M_in = -m and M_out = 0 gives sigma > 0 and a small tension, and the DOMINANT energy condition holds at every compactness to m/R = 2: all the exoticism is in the core"),
+ ("STABLE-FOR-FREE", +1, +1, +1, "stability.py",
+  "V'' > 0 at beta^2 = 0 and beta2_crit NEGATIVE everywhere measured, so the shell is radially stable with no pressure response at all -- where the textbook shell on the same machinery comes out unstable"),
+ ("SIGN-STRUCTURE-3",+1, +1, +1, "stability.py",
+  "third appearance of one sign flip: Weyl focusing without positive energy, a lead instead of a lag, and now a reversed potential curvature. V''(ordinary) = -3.036e-2 against V''(device) = +2.965e-2, mirror images"),
+ ("CORE-NEUTRAL",     0,  0, +1, "stability.py",
+  "Newton's shell theorem makes the field vanish at EVERY interior point, so the core feels no force wherever it sits: its position is neutrally stable, recorded as neither stable nor unstable"),
+ ("L2-IS-THE-RISK",   0, -1,  0, "stability.py",
+  "l >= 2 is NOT RUN and it is what killed the warpshell. PSP's shells have M_in >= 0 and M_out > 0 where ours has M_in < 0 and M_out = 0, and the radial mode already flipped under that exchange -- a reason to expect, never to assume"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of nineteen obstructions five dissolved, three relocated, six closed negative, three conditional, two open and none untested"),
+  "of twenty obstructions five dissolved, three relocated, seven closed negative, three conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -599,7 +610,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 178)
+    chk("number of findings indexed", len(FINDINGS), 183)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -634,6 +645,7 @@ def selftest():
                 "VACUUM-FORCES-WEYL","CLASSICAL-WINS",
                 "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL",
                 "ZERO-ADM-DEVICE","DEVICE-SEATS-LEADS","THEOREM-IS-FREE","SHELL-THEOREM-SPLIT",
+                "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -646,7 +658,8 @@ def selftest():
                 "VACUUM-FORCES-WEYL","CLASSICAL-WINS",
                 "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL",
                 "ZERO-ADM-DEVICE","DEVICE-SEATS-LEADS","THEOREM-IS-FREE",
-                "SHELL-THEOREM-SPLIT"]))
+                "SHELL-THEOREM-SPLIT",
+                "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

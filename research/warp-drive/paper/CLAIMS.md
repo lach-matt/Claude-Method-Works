@@ -524,6 +524,67 @@ which is the argument for running the instrument rather than the sketch.
 
 ---
 
+## ★ HEADLINE — flagged for the abstract
+
+**H11. The shell that holds the device is ordinary matter, and it is radially stable with no pressure
+response at all — because the same sign flip does it a third time.**
+
+> With `M_ADM = 0` the Israel junction is unusually clean: interior Schwarzschild with `M_in = −m`,
+> exterior **flat Minkowski**. That is the mirror of the textbook shell, and every result is the
+> textbook one reversed.
+>
+> **The shell is ordinary matter.** `σ = (1/4πR)[√(1+2m/R) − 1] > 0` for every `m`, with a small
+> tension `O((m/R)²)`:
+>
+> | `m/R` | `σ` | `p` | NEC | DEC |
+> |---|---|---|---|---|
+> | 0.01 | +7.918×10⁻⁴ | −1.950×10⁻⁶ | yes | yes |
+> | 0.10 | +7.595×10⁻³ | −1.654×10⁻⁴ | yes | yes |
+> | 0.50 | +3.296×10⁻² | −2.414×10⁻³ | yes | yes |
+> | 2.00 | +9.836×10⁻² | −1.359×10⁻² | yes | yes |
+>
+> **The dominant energy condition holds at every compactness tested.** All the exoticism in the device
+> is in the core; the structure holding it is not exotic at all.
+>
+> **And it is radially stable for free.** Validation first, since the sign is the whole claim — the
+> **ordinary** shell (flat inside, mass outside), same machinery, `β² = 0`:
+>
+> | `M/R` | `V″(0)` | | `m/R` | `V″(0)` |
+> |---|---|---|---|---|
+> | 0.01 | **−3.036×10⁻²** unstable | | 0.01 | **+2.965×10⁻²** stable |
+> | 0.10 | −3.424×10⁻¹ | | 0.10 | +2.700×10⁻¹ |
+> | 0.20 | −8.169×10⁻¹ | | 0.50 | +1.018 |
+>
+> **Near mirror images.** `β²_crit` is **negative** at every compactness measured (−0.0037 to −0.132),
+> so **any** non-negative stiffness — dust included — clears it. Where the textbook shell needs
+> stiffness to survive, this one does not.
+>
+> **THIRD APPEARANCE OF ONE SIGN STRUCTURE.** The negative source focuses through Weyl without needing
+> positive energy (H8); it leads instead of lagging because the Shapiro term is linear (H8); and it now
+> stabilises the shell by reversing the effective potential's curvature. **One sign, three
+> consequences, none of them arranged.**
+>
+> **The core's position is neutral, exactly.** Newton's shell theorem makes the interior field vanish
+> at *every* point, so the core feels no force wherever it sits — neither stable nor unstable, and
+> recorded as neither.
+
+| | `stability.py` |
+|---|---|
+| status | **PROVEN** (junction conditions, closed form) + **MEASURED** (`V″`, validated against the unstable control) |
+| new? | the negative-interior junction and its stability reversal, yes |
+| falsified by | an `ℓ ≥ 2` instability — see below |
+| **not** claimed | that the device is stable. **Radially** stable is not stable. |
+
+**The top remaining risk, named rather than buried.** `ℓ ≥ 2` non-radial modes are **`NOT-RUN`**, and
+they are **what killed the warpshell** — Pitre–Schneider–Poisson find an unstable even-parity mode for
+all `ℓ ≥ 2`, all compactness, all `Γ`, on self-gravitating thin shells. Their configuration has
+`M_in ≥ 0` and `M_out > 0`; ours has `M_in < 0` and `M_out = 0`, and the **radial** mode already
+flipped under exactly that exchange. That is **a reason to expect, never a reason to assume.** Also
+`NOT-RUN`: `ℓ = 1` (a displaced core deforming the shell), and the core's own stability, which is
+deferred with the identification phase by instruction rather than by oversight.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
