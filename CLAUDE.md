@@ -2,6 +2,17 @@
 
 ## What this repository is
 
+**`OBJECTIVE.md` is the authoritative statement of what the project is for**, recorded verbatim from
+the author, together with the **nine criteria** it sets and the **five phases** of the work. Read it
+before drafting anything. It exists because four criteria were referenced *by number* across three
+instruments and **no file stated them** — `materials.py` adjudicated "criterion 4", `powersource.py`
+called stability "the project's third criterion" — which is how a paper comes to be graded against
+criteria nobody can read. **Two of the nine are computed by nothing**: restart after shutdown, and
+cost. Criterion 3 — no input beyond the initial ignition — is the one the objective turns on, and
+`materials.py --supply` says outright that it **holds on fuel and fails on consumables and parts**,
+"and it is not what was asked for". That verdict stands; no paper may quote its first half alone.
+
+
 Two things, and they are not the same kind of thing.
 
 **`method/` is the store of record for The Method 1.6.** Both live bundles, all 343 members
