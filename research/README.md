@@ -4747,3 +4747,74 @@ something in a **different theory**. The file states it and sets `SCOPE_CHOSEN_H
 
 ### Seated
 - `wormhole.py` — new. `index3.py` — **347 findings**, six new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `gate.py` — "bigger inside", and projected against gate
+
+### 1. Is a wormhole bigger inside? Measured: no
+
+Morris–Thorne with `b(r) = r₀`, closed form and confirmed by substituted quadrature:
+
+> `l(r) = √(r(r−r₀)) + r₀·ln[(√(r−r₀)+√r)/√r₀]`
+
+| r/r₀ | proper l | coord | ratio | excess |
+|---|---|---|---|---|
+| 2 | 2.29559 | 1.00 | 2.2956 | 1.296 r₀ |
+| 1000 | 1003.64665 | 999.00 | 1.0047 | 4.647 r₀ |
+| 10⁶ | 1000007.10 | 999999 | **1.000008** | **8.101 r₀** |
+
+Asymptotically the excess is `r₀[½ + ln2 + ½ln(r/r₀)]` — **logarithmic.** At a million throat radii the
+interior is longer by **0.0008%**, and the ratio tends to one. **Not factorial.**
+
+**And it would cut the wrong way if it were true** — a bigger interior is *more* to cross. What a
+wormhole sells is the **shortcut**, and that doesn't depend on the interior being large.
+
+### 2. The throat is a hard bottleneck, and it sets the design
+
+A payload must fit through `4πr₀²`. So the payload picks `r₀` — and then:
+
+| | scaling | wants |
+|---|---|---|
+| mass | `M ~ r₀c²/8πG` | **small** |
+| tension | `τ = c⁴/8πGr₀²` | **large** |
+
+| r₀ | M_exotic | τ (Pa) |
+|---|---|---|
+| 2 m (human) | 1.072e+26 kg = **17.9 Earth masses** | 1.204e+42 |
+| 3 km (Kuhfittig) | 1.607e+29 kg = 0.081 M☉ | 5.351e+35 |
+
+Going from 2 m to 3 km costs **1500× in mass** and buys **2.25×10⁶ in tension**. Quadratic punishment
+for small, linear reward. **No optimum — only a choice of which requirement to break.**
+
+### 3. Projected against gate — not close
+
+**PROJECTED loses by definition.** Carrying one mouth relative to the other **is** the
+Morris–Thorne–Yurtsever construction, as its *operating principle*. `anecscope.py` closed MTY on "no
+throat"; `wormhole.py` recorded that closure is gone. **Projection reopens it maximally.** It also
+can't be established ahead of a signal (phase 1, Theorem 4).
+
+**GATE wins on both counts.** Both mouths at rest → no differential aging, nothing accumulates, MTY has
+nothing to work with — the same payment GJW make. And being **static** it amortises, which phase 1's
+Theorem 5 identified as the only place value was ever going to live.
+
+### 4. But the gate decides what this is *for*
+
+The far mouth has to get there conventionally — **4 ly at 0.1c is 40 years**, and nothing in the
+wormhole moves it. After that every crossing is free forever; amortised over 1000 transits, 0.04 years
+each.
+
+> **A gate makes the second trip free and does nothing for the first. A gate network reaches exactly as
+> far as conventional travel already has.** A return ticket and a supply line, not an exploration tool.
+
+Worth having — and a **different product** from what this project has been calling warp transition.
+
+### A fault caught, twice over, in one measurement
+The first integral ran a **uniform grid across an integrable singularity** at the throat and overstated
+the interior by **2.7×** — which would have made the claim look partly true. The substituted check then
+used **n = 20001, an odd interval count**, mis-weighting Simpson's last interval by `h·f(U)/3 = 0.034`.
+Both fixed, an even-`n` assert added, and the tree's other Simpson calls audited — **unharmed**, because
+their integrands vanish at the limit (`smearing.py` 1.9e-21, `phase1.py` 0.0).
+
+### Seated
+- `gate.py` — new. `index3.py` — **353 findings**, six new plus support row `SIMPSON-ODD`.
