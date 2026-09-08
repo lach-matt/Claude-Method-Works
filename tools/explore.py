@@ -85,10 +85,16 @@ AXES = (
          (0.80, 0.85, 0.875, 0.89, P.K_DESIGN), DECIDED, "criticality.py",
          "capped at 0.900 by the always-subcritical property; above it the "
          "hazard class comes back"),
+    # MEASURED SINCE, and the measurement is unwelcome: the band's LOW end
+    # is every machine ever operated and its high end is a target. The axis
+    # keeps its full range because the design may still specify a better
+    # accelerator -- but see report_basis(), which no longer calls that a
+    # purchase.
     Axis("accelerator efficiency", "eta_acc",
          (0.20, 0.30, 0.40, 0.50), DESIGN, "powersource.py",
-         "SOURCED band, wall plug to beam; the high end is the design target "
-         "for a superconducting machine"),
+         "the 0.20 end is MEASURED and is every machine ever operated "
+         "(ESS 20.0 %, PSI 18.3 %); the 0.50 end is a target for a machine "
+         "class nobody has built -- see powersource --efficiency"),
     Axis("driver power", "linac_mw",
          (1.40, 4.00, 5.00, 10.00, 15.00, 20.00), ASSUMED, "powersource.py",
          "LINAC_BEAM_MW is ASSUMED at 20; the low end is the largest ever "
@@ -553,15 +559,32 @@ def report_basis():
           " accelerator comes in at the")
     print("                      bottom of its band.")
     print()
-    print("    AND THE SECOND REQUIREMENT IS A PURCHASE RATHER THAN A")
-    print("    DISCOVERY, WHICH IS WHY IT IS THE USEFUL ONE.")
+    print("    AND THE SECOND REQUIREMENT WAS WRITTEN AS A PURCHASE RATHER")
+    print("    THAN A DISCOVERY. THE MEASUREMENT HAS SINCE ARRIVED AND IT IS")
+    print("    NOT ONE.")
     print()
     e_double = eta_for_margin(2.0 * K_MODEL_UNCERTAINTY * P.K_DESIGN)
+    _best = max(P.eta_measured(n) for n in P.ETA_MEASURED)
     print(f"      REQUIREMENT 2   eta_acc >= {e_double:.3f} buys a k margin of"
           f" {k_margin(e_double):.4f},")
-    print("                      which is TWICE the model's uncertainty. Not")
-    print("                      knowing k precisely is answered by")
-    print("                      specifying a better accelerator.")
+    print("                      which is TWICE the model's uncertainty. The")
+    print("                      arithmetic stands.")
+    print()
+    print(f"    But powersource --efficiency finds that the best grid-to-beam")
+    print(f"    any machine has ever returned is {100 * _best:.1f} %, and"
+          f" {e_double:.3f} is")
+    print(f"    {e_double / _best:.2f}x that. It is above even the component")
+    print("    model's projected top end for a machine of the class this")
+    print("    design wants and nobody has built. SO REQUIREMENT 2 IS A")
+    print("    PROJECTION AND NOT A PURCHASE, and calling it a purchase was")
+    print("    this section's error.")
+    print()
+    print(f"    At the measured {100 * _best:.1f} % the k floor is"
+          f" {k_floor(_best):.4f} and the margin at")
+    print(f"    {P.K_DESIGN:.3f} is {k_margin(_best):.4f} -- LESS THAN HALF"
+          f" the {K_MODEL_UNCERTAINTY * P.K_DESIGN:.4f} the model needs.")
+    print("    The design basis does not have two escape routes. It has one")
+    print("    requirement, and REQUIREMENT 1 IS THE GATE.")
     print()
     print("    WHAT THE OTHER UNKNOWNS COST, AND IT IS NEVER CLOSURE")
     print()
@@ -764,6 +787,14 @@ def selftest():
     check("  -- enough of it to double the model's uncertainty",
           k_margin(_e) >= 2.0 * _u - 1e-6)
     check("  -- and it is inside a physically possible efficiency", _e < 1.0)
+    # AND THE MEASUREMENT THAT MAKES IT A PROJECTION RATHER THAN A PURCHASE.
+    _best_eta = max(P.eta_measured(n) for n in P.ETA_MEASURED)
+    check("  -- but it is far above anything ever operated",
+          _e > 2.0 * _best_eta)
+    check("  -- so the section no longer calls it a purchase",
+          "PROJECTION AND NOT A PURCHASE" in out_of(report_basis))
+    check("at the measured efficiency the margin is under half the model's",
+          k_margin(_best_eta) < 0.5 * _u)
     check("the floor rises as the accelerator worsens",
           k_floor(0.20) > k_floor(0.30) > k_floor(0.40) > k_floor(0.50))
     # 0.01 is not a plausible accelerator; the point of the check is that

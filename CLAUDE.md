@@ -788,6 +788,31 @@ cancels the other and the file does not net them.** `explore.py`'s exposure acco
 it changed kind** — driver power against the *measured* standby is now a **no-closure** pair. The soft
 unknown became a hard requirement, which is what measuring something does.
 
+**`--efficiency` then makes the second measurement `explore.py` ordered, and it closes an escape route
+rather than opening one.** η_acc was the largest genuinely *open* axis (2.00×) and `--basis` had made
+it the answer to not knowing k — *specify a better accelerator*, a purchase rather than a discovery.
+**Two facilities publish an end-to-end grid-to-beam figure and both sit at the BOTTOM of the band the
+design carries**: **ESS at 20.0 %** (5 MW beam on 25 MW from the grid, pulsed at 4 % duty) and **PSI
+HIPA at 18.3 %** counting only the subsystems minimally needed for the beam — **10.4 %** on the
+facility's whole 12.5 MW bill, and both readings are kept because η_acc appears in a *plant balance*,
+where what matters is the bill. **The design assumes 0.30, which is above everything measured**;
+`ETA_ACC_LO = 0.20` is essentially these machines and `ETA_ACC_HI = 0.50` is *"the design target for a
+superconducting one"*, which `provenance.py` had already graded **UNANNOTATED** — **the band's low end
+is a measurement and its high end is a hope.** The fair counter-argument is stated and is real:
+neither machine is this one — PSI is **normal-conducting** (5.3 MW of RF for a 1.3 MW beam is mostly
+copper, and 3.6 MW of magnet is a cyclotron's iron) and ESS is **pulsed** (150 MW of peak RF for 5 MW
+average, idle 96 % of the time). So a component model is built for the machine actually wanted, CW and
+superconducting: klystron **0.63–0.66 SOURCED**, RF-to-beam 0.95 assumed (cavity dissipation *is* the
+2 K load, measured at 3 kW on a 5 MW beam), auxiliaries 10–20 % assumed, cryoplant from `--standby` —
+**projecting 37.3–52.0 %**, which is **2.60× the best any machine has returned**, a gap of two to
+three this work cannot close. **And what it does to the design basis is the point**: at the measured
+0.20 the k floor is **0.8385** and the margin at 0.900 is **0.0615 — less than half** the one-group
+model's own 0.135; at the assumed 0.30 it is 0.1330, about equal to it. **Requirement 2's 0.516 is
+2.58× anything ever operated and above even the projection's top end — a projection, not a purchase,
+and calling it a purchase was that section's error.** So **Requirement 1 is not one of three, it is
+the gate**: the transport calculation on the fissile fraction decides whether the plant exists, and no
+accelerator anyone has built takes that decision away from it.
+
 **`tools/criticality.py`** (**can handling or storing this fuel cause an accident** — asked directly,
 and answered with the discipline's own arithmetic rather than with reassurance, because nothing here
 had done any of it. **The uranium is not the hazard**: DU is an alpha emitter at **12.4 MBq/kg** whose

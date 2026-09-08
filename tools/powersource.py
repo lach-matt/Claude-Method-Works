@@ -2245,6 +2245,190 @@ def report_standby():
     print("    RESULT CANCELS THE OTHER AND THIS FILE DOES NOT NET THEM.")
     print()
 
+# ---- THE SECOND MEASUREMENT: WALL PLUG TO BEAM ---------------------------
+# explore.py ranked eta_acc the largest genuinely OPEN axis in the design --
+# 2.00x on its own -- and --basis then made it the escape route: not knowing
+# k precisely was to be answered by SPECIFYING A BETTER ACCELERATOR, a
+# purchase rather than a discovery. That was the second of the three
+# measurements the search ordered, and this is it.
+#
+# IT DOES NOT COME BACK THE WAY THE DESIGN NEEDED. Two facilities publish an
+# end-to-end grid-to-beam number and both sit at the BOTTOM of the band the
+# design carries, not the top.
+# NOTE ON THE PSI ROWS. Two figures are published for the same machine and
+# they are not the same quantity: 18.3 % counts only the subsystems minimally
+# required to make the beam, and 10.4 % counts the facility's 12.5 MW bill.
+# BOTH ARE KEPT. The favourable one is the fair comparison for a component
+# model; the whole-facility one is what a grid connection actually sees, and
+# the design's own eta_acc appears in a plant balance, where it is the bill.
+ETA_MEASURED = {                 # (beam MW, grid MW, kind, note)
+    "PSI HIPA, minimal": (1.30, 1.30 / 0.183,
+                          "CW, normal-conducting cyclotron",
+                          "SOURCED as 18.3 % grid-to-beam counting only the "
+                          "subsystems minimally required for the beam; the "
+                          "grid figure here is that percentage inverted"),
+    "PSI HIPA, facility": (1.30, 12.50, "the same machine, whole bill",
+                           "SOURCED: 12.5 MW total facility at 2.2 mA -- RF "
+                           "5.3, magnets 3.6, cooling 1.65, auxiliaries 1.95"),
+    "ESS": (5.00, 25.00, "pulsed 4 % duty, superconducting linac",
+            "SOURCED: 25 MW from the grid to run the accelerator, 5 MW "
+            "average beam"),
+}
+# THE COMPONENT MODEL, built from sourced pieces, for the machine this design
+# actually wants: CONTINUOUS-WAVE and SUPERCONDUCTING, which is neither of
+# the two above. It is a projection and is labelled one everywhere it is used.
+KLYSTRON_ETA_LO = 0.63           # SOURCED: ESS klystrons, worst case
+KLYSTRON_ETA_HI = 0.66           # SOURCED: ESS klystrons, best case
+RF_TO_BEAM_CW = 0.95             # ASSUMED: in a CW superconducting linac the
+                                 # cavity dissipation IS the 2 K load, and
+                                 # --standby measures that at 3 kW against a
+                                 # 5 MW beam. What is left is couplers,
+                                 # waveguide and control margin
+AUX_SHARE_LO = 0.10              # ASSUMED band: magnets, cooling, controls
+AUX_SHARE_HI = 0.20              # and site services, as a share of RF wall
+                                 # plug. PSI's own split is far worse and its
+                                 # magnets are a cyclotron's
+
+
+def eta_measured(name):
+    b, g, _k, _n = ETA_MEASURED[name]
+    return b / g
+
+
+def eta_component_model(beam_mw=None, e_gev=None, klystron=None,
+                        aux_share=None, standby_exponent=0.0):
+    """Projected grid-to-beam for a CW superconducting linac of this size.
+
+    A PROJECTION AND NOT A MEASUREMENT. It is built from a sourced klystron
+    efficiency, a sourced cryoplant and two assumed terms, and it describes a
+    machine nobody has operated."""
+    p = LINAC_BEAM_MW if beam_mw is None else beam_mw
+    e = BEAM_GEV if e_gev is None else e_gev
+    k = KLYSTRON_ETA_LO if klystron is None else klystron
+    a = AUX_SHARE_HI if aux_share is None else aux_share
+    rf_wall = p / (k * RF_TO_BEAM_CW)
+    cryo = standby_law(e, standby_exponent) / 1000.0
+    return p / (rf_wall * (1.0 + a) + cryo)
+
+
+def eta_component_band(**kw):
+    hi = eta_component_model(klystron=KLYSTRON_ETA_HI, aux_share=AUX_SHARE_LO,
+                             standby_exponent=0.0, **kw)
+    lo = eta_component_model(klystron=KLYSTRON_ETA_LO, aux_share=AUX_SHARE_HI,
+                             standby_exponent=1.0, **kw)
+    return lo, hi
+
+
+def eta_model_over_measured():
+    """How far the projection sits above everything ever measured."""
+    best = max(eta_measured(n) for n in ETA_MEASURED)
+    return eta_component_band()[1] / best
+
+
+def report_efficiency():
+    """wall plug to beam, measured -- and the escape route it closes"""
+    print()
+    print("  WALL PLUG TO BEAM, MEASURED")
+    print()
+    print("    explore.py ranked this the largest genuinely OPEN axis in the")
+    print("    design, and --basis then made it the escape route: not knowing")
+    print("    k precisely was to be answered by SPECIFYING A BETTER")
+    print("    ACCELERATOR, a purchase rather than a discovery. This is that")
+    print("    measurement, and IT DOES NOT COME BACK THE WAY THE DESIGN")
+    print("    NEEDED IT TO.")
+    print()
+    print("    WHAT HAS BEEN MEASURED END TO END")
+    print()
+    print("      facility             beam MW   grid MW   grid-to-beam"
+          "   machine")
+    for n, (b, g, kind, _note) in sorted(ETA_MEASURED.items(),
+                                         key=lambda t: -t[1][0] / t[1][1]):
+        print(f"      {n:<20} {b:7.2f} {g:9.2f} {100 * b / g:13.1f} %"
+              f"   {kind}")
+    print()
+    print("      TWO FIGURES ARE PUBLISHED FOR PSI AND THEY ARE NOT THE SAME")
+    print("      QUANTITY. 18.3 % counts only the subsystems minimally needed")
+    print("      to make the beam; 10.4 % counts the facility's 12.5 MW bill.")
+    print("      Both are kept. The design's eta_acc appears in a PLANT")
+    print("      BALANCE, where what matters is the bill.")
+    print()
+    print("    BOTH SIT AT THE BOTTOM OF THE BAND THIS DESIGN CARRIES, and")
+    print(f"    the design ASSUMES {0.30:.2f}. ETA_ACC_LO ="
+          f" {ETA_ACC_LO:.2f} is SOURCED and is")
+    print("    essentially these two machines; ETA_ACC_HI = "
+          f"{ETA_ACC_HI:.2f} is 'the design")
+    print("    target for a superconducting one' and provenance.py already")
+    print("    graded it UNANNOTATED. THE BAND'S LOW END IS A MEASUREMENT AND")
+    print("    ITS HIGH END IS A HOPE.")
+    print()
+    print("    AND THE FAIR COUNTER-ARGUMENT, WHICH IS REAL. Neither machine")
+    print("    is the machine this design wants:")
+    print("      PSI is a NORMAL-CONDUCTING cyclotron -- 5.3 MW of RF for a")
+    print("        1.3 MW beam is mostly copper losses, and 3.6 MW of magnet")
+    print("        is a cyclotron's iron. A superconducting linac has neither.")
+    print("      ESS is PULSED at 4 % duty -- 150 MW of peak RF delivers 5 MW")
+    print("        average, so the plant is sized 25x its useful output and")
+    print("        idles for 96 % of the time. A CW machine is not.")
+    print()
+    print("    SO THE COMPONENT MODEL, FOR THE MACHINE ACTUALLY WANTED --")
+    print("    continuous-wave and superconducting, which is neither of the")
+    print("    two above:")
+    print()
+    lo, hi = eta_component_band()
+    print(f"      klystron            {KLYSTRON_ETA_LO:.2f} to"
+          f" {KLYSTRON_ETA_HI:.2f}   SOURCED, ESS's own")
+    print(f"      RF to beam          {RF_TO_BEAM_CW:.2f}          ASSUMED;"
+          " cavity dissipation IS")
+    print("                                        the 2 K load and --standby")
+    print("                                        measures it at 3 kW on a")
+    print("                                        5 MW beam")
+    print(f"      auxiliaries         {AUX_SHARE_LO:.2f} to"
+          f" {AUX_SHARE_HI:.2f}   ASSUMED share of RF wall plug")
+    print(f"      cryoplant           from --standby, both scaling laws")
+    print()
+    print(f"      PROJECTED grid-to-beam   {100 * lo:.1f} to {100 * hi:.1f} %")
+    print()
+    print(f"    THAT IS {eta_model_over_measured():.2f}x THE BEST FIGURE ANY"
+          " MACHINE HAS EVER RETURNED, and")
+    print("    the gap is a factor of two to three that this work cannot")
+    print("    close. The model omits whatever the difference is between a")
+    print("    component sum and a facility bill -- and the one facility that")
+    print("    publishes both shows that difference is large.")
+    print()
+    print("    WHAT THAT DOES TO THE DESIGN BASIS, AND IT IS THE POINT.")
+    print()
+    print("      eta_acc   k floor   margin at k = "
+          f"{K_DESIGN:.3f}   against the model's 0.135")
+    sys.path.insert(0, HERE)
+    import explore as E
+    for e, lab in ((0.20, "every machine measured"),
+                   (0.30, "the design's assumption"),
+                   (0.516, "--basis REQUIREMENT 2"),
+                   (0.50, "the band's UNANNOTATED top")):
+        f = E.k_floor(e)
+        m = K_DESIGN - f
+        verdict = "COVERED" if m >= 0.135 else "NOT COVERED"
+        print(f"      {e:6.3f} {f:9.4f} {m:16.4f}   {verdict:<12} {lab}")
+    print()
+    print("    AT THE MEASURED EFFICIENCY THE DESIGN HAS LESS THAN HALF THE")
+    print("    MARGIN ITS OWN MODEL'S UNCERTAINTY NEEDS. That is the finding,")
+    print("    it is unwelcome, and it is what the measurement was for.")
+    print()
+    print("    AND IT CLOSES --basis's ESCAPE ROUTE RATHER THAN OPENING IT.")
+    print("    REQUIREMENT 2 said a better accelerator BUYS k margin, and it")
+    print("    still does arithmetically. What this measurement shows is that")
+    print(f"    the accelerator it asks for -- {0.516:.3f} grid-to-beam -- is"
+          f" {0.516 / max(eta_measured(n) for n in ETA_MEASURED):.2f}x")
+    print("    anything ever operated, and above even the projection's top")
+    print("    end. IT IS A PROJECTION, NOT A PURCHASE, and calling it a")
+    print("    purchase was this file's error.")
+    print()
+    print("    SO REQUIREMENT 1 IS NOT ONE OF THREE. IT IS THE GATE. The")
+    print("    transport calculation on the fissile fraction decides whether")
+    print("    the plant exists, and no accelerator anyone has built takes")
+    print("    that decision away from it.")
+    print()
+
 WORLD_CIVIL_TRITIUM_KG = 25.0   # SOURCED band: the heavy-water reactor stock
 
 
@@ -3430,7 +3614,8 @@ def selftest():
                        ("current", report_current),
                        ("linac", report_linac),
                        ("blanket", report_blanket),
-                       ("standby", report_standby)):
+                       ("standby", report_standby),
+                       ("efficiency", report_efficiency)):
         try:
             _b = _io.StringIO()
             with _c.redirect_stdout(_b):
@@ -3742,6 +3927,48 @@ def selftest():
           "DOES NOT NET THEM" in _capture_ps(report_standby))
 
     print()
+    print("  wall plug to beam, measured -- and the escape route it closes")
+    _best = max(eta_measured(n) for n in ETA_MEASURED)
+    # THE MEASUREMENT, and it is the unwelcome direction.
+    check("no machine has ever returned more than the band's LOW end",
+          _best <= ETA_ACC_LO + 0.01)
+    check("  -- so the design's assumed 0.30 is above everything measured",
+          0.30 > _best)
+    check("  -- and the band's own top is a target, not a machine",
+          ETA_ACC_HI > 2.0 * _best)
+    check("both PSI readings are kept, and they differ by a lot",
+          eta_measured("PSI HIPA, minimal")
+          / eta_measured("PSI HIPA, facility") > 1.5)
+    # THE PROJECTION, and that it is labelled one.
+    _lo, _hi = eta_component_band()
+    check("the component model projects above every measured machine",
+          _lo > _best)
+    check("  -- by a factor the file states rather than hides",
+          eta_model_over_measured() > 2.0)
+    _eff = _capture_ps(report_efficiency)
+    check("  -- and it is called a projection and not a measurement",
+          "PROJECTION, NOT A PURCHASE" in _eff)
+    check("the fair counter-argument is stated: neither machine is this one",
+          "NORMAL-CONDUCTING cyclotron" in _eff and "PULSED at 4 % duty"
+          in _eff)
+    # WHAT IT DOES TO THE BASIS, which is the point of running it.
+    sys.path.insert(0, HERE)
+    import explore as _E
+    _m_meas = K_DESIGN - _E.k_floor(_best)
+    _m_assumed = K_DESIGN - _E.k_floor(0.30)
+    check("at the MEASURED efficiency the k margin is under half the model's",
+          _m_meas < 0.5 * _E.K_MODEL_UNCERTAINTY * K_DESIGN)
+    check("  -- while at the assumed one it is about equal to it",
+          abs(_m_assumed / (_E.K_MODEL_UNCERTAINTY * K_DESIGN) - 1.0) < 0.1)
+    check("  -- so the efficiency assumption is carrying the design basis",
+          _m_assumed > 2.0 * _m_meas)
+    check("the file records that calling REQUIREMENT 2 a purchase was an"
+          " error",
+          "was this file's error" in _eff)
+    check("  -- and that REQUIREMENT 1 is therefore the gate",
+          "IT IS THE GATE" in _eff)
+
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -3775,6 +4002,8 @@ def main():
                     help=report_blanket.__doc__)
     ap.add_argument("--standby", action="store_true",
                     help=report_standby.__doc__)
+    ap.add_argument("--efficiency", action="store_true",
+                    help=report_efficiency.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -3810,6 +4039,8 @@ def main():
         return report_blanket()
     if a.standby:
         return report_standby()
+    if a.efficiency:
+        return report_efficiency()
     return report()
 
 

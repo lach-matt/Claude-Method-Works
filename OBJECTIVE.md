@@ -195,11 +195,22 @@ rather than three measurements:
 
 1. **k_eff ≥ 0.767** at η_acc = 0.30, transport-grade — and ≥ 0.838 if the accelerator comes in at the
    bottom of its band.
-2. **η_acc ≥ 0.516** buys twice the model's uncertainty in margin. **Not knowing k precisely is
-   answered by specifying a better accelerator** — a purchase rather than a discovery.
+2. **η_acc ≥ 0.516** buys twice the model's uncertainty in margin — **and the measurement has since
+   arrived, and it is not a purchase.** The best grid-to-beam any machine has ever returned is
+   **20.0 %** (ESS, pulsed SRF) and **18.3 %** (PSI, CW normal-conducting); 0.516 is **2.58×** that,
+   above even a component model's projection for a CW superconducting machine nobody has built. **At
+   the measured 20 % the margin at k = 0.900 is 0.0615 — less than half the model's own 0.135.** The
+   design's assumed 0.30 is above everything measured. **Requirement 2 is a projection, not a
+   purchase.**
 3. **The driver shall be 20 MW at 8 GeV.** A requirement, not a preference: at the measured standby a
    station of drivers of the largest class ever operated does not close. **No machine of this class
    exists.**
+
+**So the design basis has one gate rather than three items, and it is Requirement 1.** Two of the
+three measurements `explore.py` ordered have been made. The first (driver standby) turned a soft
+unknown into a hard requirement. The second (wall-plug-to-beam) came back at the *bottom* of its band
+and **closed the escape route the basis had leaned on**. What is left is the transport calculation on
+the fissile fraction, and it now decides whether the plant exists, with nothing standing behind it.
 
 **And the price is stated rather than hidden: a design basis is not a witness.** It says the
 mathematics closes across the range the constants could take and that these requirements are what make

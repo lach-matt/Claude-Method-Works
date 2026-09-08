@@ -192,9 +192,13 @@ the transport calculation has to meet, and it is a number rather than a hope.
 **REQUIREMENT 1** — `k_eff ≥ 0.767` at η_acc = 0.30, transport-grade; and `≥ 0.838` if the accelerator
 comes in at the bottom of its band.
 
-**REQUIREMENT 2** — `η_acc ≥ 0.516` buys a k margin of **0.2700**, twice the model's uncertainty.
-**Not knowing k precisely is answered by specifying a better accelerator** — a purchase rather than a
-discovery, which is why it is the useful one.
+**REQUIREMENT 2** — `η_acc ≥ 0.516` buys a k margin of **0.2700**, twice the model's uncertainty. The
+arithmetic stands — but **the measurement has since arrived and it is not a purchase.** The best
+grid-to-beam any machine has ever returned is **20.0 %** (ESS; PSI 18.3 %), and 0.516 is **2.58×**
+that — above even the component model's projected top end for a machine class nobody has built. **A
+projection, not a purchase, and calling it a purchase was this section's error.** At the measured 20 %
+the k floor is 0.8385 and the margin at 0.900 is **0.0615 — less than half** what the model needs.
+**The design basis has one gate, not two escape routes.** See `docs/POWERSOURCE.md` `--efficiency`.
 
 **REQUIREMENT 3** — the driver shall be **20 MW at 8 GeV**. A requirement, not a preference: at the
 measured standby a station of drivers of the largest class ever operated does not close. **No machine

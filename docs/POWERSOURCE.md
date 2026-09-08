@@ -663,3 +663,72 @@ measured rather than assumed.
 A cryoplant load that goes with cryomodule length goes with **energy**, and route A's driver is 8×
 route C's. On current and on beam loss the 8 GeV machine was the forgiving one; on standby it is the
 expensive one. **Neither result cancels the other and this file does not net them.**
+
+## `--efficiency` — the second measurement, and it closes an escape route
+
+`explore.py` ranked η_acc the largest genuinely **open** axis (2.00× on its own), and `--basis` made
+it the escape route: not knowing k precisely was to be answered by **specifying a better
+accelerator** — a purchase rather than a discovery. This is that measurement. **It does not come back
+the way the design needed it to.**
+
+### What has been measured end to end
+
+| facility | beam MW | grid MW | grid-to-beam | machine |
+|---|---:|---:|---:|---|
+| ESS | 5.00 | 25.00 | **20.0 %** | pulsed 4 % duty, superconducting linac |
+| PSI HIPA, minimal | 1.30 | 7.10 | **18.3 %** | CW, normal-conducting cyclotron |
+| PSI HIPA, facility | 1.30 | 12.50 | **10.4 %** | the same machine, whole bill |
+
+Two figures are published for PSI and they are not the same quantity — 18.3 % counts only the
+subsystems minimally needed to make the beam; 10.4 % counts the facility's 12.5 MW bill (RF 5.3,
+magnets 3.6, cooling 1.65, auxiliaries 1.95). **Both are kept**: the design's η_acc appears in a
+*plant balance*, where what matters is the bill.
+
+**Both sit at the bottom of the band this design carries, and the design assumes 0.30.** `ETA_ACC_LO`
+= 0.20 is SOURCED and is essentially these machines; `ETA_ACC_HI` = 0.50 is *"the design target for a
+superconducting one"* and `provenance.py` already graded it **UNANNOTATED**. **The band's low end is a
+measurement and its high end is a hope.**
+
+### The fair counter-argument, which is real
+
+Neither machine is the machine this design wants:
+
+- **PSI is normal-conducting** — 5.3 MW of RF for a 1.3 MW beam is mostly copper losses, and 3.6 MW of
+  magnet is a cyclotron's iron. A superconducting linac has neither.
+- **ESS is pulsed at 4 % duty** — 150 MW of peak RF delivers 5 MW average, so the plant is sized 25×
+  its useful output and idles 96 % of the time. A CW machine is not.
+
+### So the component model, for the machine actually wanted
+
+| term | value | status |
+|---|---|---|
+| klystron | 0.63 – 0.66 | **SOURCED**, ESS's own |
+| RF to beam | 0.95 | ASSUMED; cavity dissipation *is* the 2 K load, measured at 3 kW on a 5 MW beam |
+| auxiliaries | 0.10 – 0.20 of RF wall plug | ASSUMED |
+| cryoplant | from `--standby`, both scaling laws | SOURCED + one assumption |
+
+**Projected grid-to-beam: 37.3 – 52.0 %.** That is **2.60× the best figure any machine has ever
+returned**, and the gap is a factor of two to three this work cannot close: the model omits whatever
+lies between a component sum and a facility bill, and the one facility publishing both shows that
+difference is large.
+
+### What it does to the design basis, and it is the point
+
+| η_acc | k floor | margin at k = 0.900 | vs the model's 0.135 | |
+|---:|---:|---:|---|---|
+| **0.200** | 0.8385 | **0.0615** | **NOT COVERED** | every machine measured |
+| 0.300 | 0.7670 | 0.1330 | NOT COVERED | the design's assumption |
+| 0.516 | 0.6299 | 0.2701 | COVERED | `--basis` Requirement 2 |
+| 0.500 | 0.6393 | 0.2607 | COVERED | the band's UNANNOTATED top |
+
+**At the measured efficiency the design has less than half the margin its own model's uncertainty
+needs.** That is the finding, it is unwelcome, and it is what the measurement was for.
+
+**And it closes `--basis`'s escape route rather than opening it.** Requirement 2 still holds
+arithmetically — a better accelerator does buy k margin. But the accelerator it asks for, 0.516
+grid-to-beam, is **2.58× anything ever operated** and above even the projection's top end. **It is a
+projection, not a purchase, and calling it a purchase was that section's error.**
+
+**So Requirement 1 is not one of three — it is the gate.** The transport calculation on the fissile
+fraction decides whether the plant exists, and no accelerator anyone has built takes that decision
+away from it.
