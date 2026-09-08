@@ -476,8 +476,14 @@ blanket's chemistry is forced rather than chosen — ν = 2.9 is Pu-239 *fast* s
 L = 0.20 must cover fission products for forty years so the fuel must be *liquid*, and a liquid
 fast salt is a chloride — giving NaCl–UCl₃ with a Pb–15.7Li breeding and reflecting zone at 90 %
 ⁶Li. One distinction the inventory hides and the selftest pins: the first charge outlasts the plant
-**on mass**, so breeding looks optional, but what depletes is **reactivity** — k falls from 0.950
-to 0.710 and the gain from 42.70 to 6.4. **Breeding holds k, not the inventory.** Criterion 4 then
+**on mass**, so breeding looks optional — **and that comparison is against the wrong denominator.**
+`fissile_depletion_fraction` divided by the **heavy metal** for as long as the file existed, which is
+the one thing its name says it does not do, and it understated the depletion by the fissile fraction
+— five to eight times. What fissions is the fissile, a 12–20 % slice: **24.2–40.4 t against a 51.0 t
+burn**, so unbred the charge is **126–211 % depleted** and **exhausted between year 19 and year 32**.
+k falls to **zero**, not to 0.710, and the gain to **1.0** — the beam back and nothing else.
+**The unbred plant does not degrade, it stops**, and that is why `f_b` is a requirement rather than an
+optimisation. Criterion 4 then
 resolves: tritium is bred, **⁶Li is consumed** at about two percent of its holding over the life,
 and what arrives at the gate for ever is nitrogen and the
 salt-processing reagents — **the beryllium window left the design with the mercury**, and the

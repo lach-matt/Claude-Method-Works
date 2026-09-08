@@ -193,25 +193,68 @@ def burnup_fraction_per_year():
     return burnup_kg_per_year() / heavy_metal_inventory_kg()
 
 
-def fissile_depletion_fraction(years=PLANT_LIFE_Y):
-    """Share of the fissile holding fissioned over the life, unbred."""
+def heavy_metal_depletion_fraction(years=PLANT_LIFE_Y):
+    """Share of the HEAVY METAL fissioned over the life, unbred.
+
+    This is the number that makes the charge look comfortable: a quarter of
+    the heavy metal in forty years. It is not the number that decides whether
+    the plant runs -- see below, and see what this function used to be called.
+    """
     return burnup_kg_per_year() * years / heavy_metal_inventory_kg()
 
 
-def k_without_breeding(years=PLANT_LIFE_Y):
-    """First order, and stated as first order: for a fixed geometry the
-    reactivity of a subcritical assembly falls with the fissile density, so
-    dk/k ~ dN/N. A transport calculation would refine this; the CONCLUSION --
-    that the collapse is large -- survives any refinement, which is why it is
-    reported as a requirement on breeding rather than as a prediction of k."""
+def fissile_depletion_fraction(years=PLANT_LIFE_Y, fraction=None):
+    """Share of the FISSILE holding fissioned over the life, unbred.
+
+    THIS FUNCTION USED TO DIVIDE BY THE HEAVY METAL, which is what its name
+    has always said it does not. The heavy metal is 201.8 t and the fissile
+    holding is 12 to 20 percent of it; dividing by the wrong one understated
+    the depletion by a factor of five to eight, and made a charge that is
+    exhausted inside the plant's life look like one that loses a quarter of
+    itself. Returns (low, high) over the fissile band, because the band is
+    what the design carries.
+    """
     P = _ps()
-    return P.K_SAFE * (1.0 - fissile_depletion_fraction(years))
+    lo, hi = P.FISSILE_FRACTION if fraction is None else (fraction, fraction)
+    burn = burnup_kg_per_year() * years
+    hm = heavy_metal_inventory_kg()
+    return burn / (hm * hi), burn / (hm * lo)
 
 
-def gain_without_breeding(years=PLANT_LIFE_Y):
+def fissile_exhaustion_years(fraction=None):
+    """When the fissile charge is gone if nothing breeds it back. (lo, hi)."""
+    P = _ps()
+    lo, hi = P.FISSILE_FRACTION if fraction is None else (fraction, fraction)
+    hm = heavy_metal_inventory_kg()
+    b = burnup_kg_per_year()
+    return hm * lo / b, hm * hi / b
+
+
+def k_without_breeding(years=PLANT_LIFE_Y, fraction=None):
+    """First order, and stated as first order: for a fixed geometry the
+    reactivity of a subcritical assembly falls with the FISSILE density, so
+    dk/k ~ dN/N -- N being the fissile density and not the heavy metal's.
+    A transport calculation would refine this; the CONCLUSION -- that the
+    assembly stops rather than degrades -- survives any refinement, which is
+    why it is reported as a requirement on breeding rather than a prediction.
+
+    Returns (low, high) across the fissile band. A floor of zero is applied
+    because a negative k is not a physical statement: it means the charge ran
+    out before the year asked about.
+    """
+    P = _ps()
+    d_lo, d_hi = fissile_depletion_fraction(years, fraction)
+    return (max(0.0, P.K_SAFE * (1.0 - d_hi)),
+            max(0.0, P.K_SAFE * (1.0 - d_lo)))
+
+
+def gain_without_breeding(years=PLANT_LIFE_Y, fraction=None):
+    """(low, high) plant gain at the unbred k. Both ends, never one."""
     P = _ps()
     r = ref()
-    return P.plant_gain(k_without_breeding(years), r["y_spall"], r["y_fus"])
+    k_lo, k_hi = k_without_breeding(years, fraction)
+    return (P.plant_gain(k_lo, r["y_spall"], r["y_fus"]),
+            P.plant_gain(k_hi, r["y_spall"], r["y_fus"]))
 
 
 def fuel_zone_cylinder(residence_s=SALT_RESIDENCE_S, aspect=2.0):
@@ -626,7 +669,7 @@ def report_uranium():
     print(f"      fertile feed                   "
           f"{uranium_feed_t_per_year():10.2f} t/yr")
     print(f"        = {100*burnup_fraction_per_year():.2f} % of the holding a"
-          f" year, {100*fissile_depletion_fraction():.1f} % over"
+          f" year, {100*heavy_metal_depletion_fraction():.1f} % over"
           f" {PLANT_LIFE_Y:.0f} years")
     print(f"      life charge of feed            "
           f"{uranium_life_charge_t():10.1f} t")
@@ -782,7 +825,7 @@ def bill():
        f"Pu-239 and the Pu fissions, so the fissile fraction is held and the "
        f"TOTAL heavy metal falls at the fission rate -- "
        f"{100*burnup_fraction_per_year():.2f} %/yr, "
-       f"{100*fissile_depletion_fraction():.1f} % over the life. A "
+       f"{100*heavy_metal_depletion_fraction():.1f} % over the life. A "
        f"{uranium_life_charge_t():.0f} t life charge of depleted uranium sits "
        "in drums on site; see --uranium"))
     A(("blanket", "chlorine, Cl-37 enriched",
@@ -1004,14 +1047,27 @@ def report_supply():
           f" of heavy metal and the plant")
     print(f"    fissions {burnup_kg_per_year()*PLANT_LIFE_Y/1000.0:.2f} t in "
           f"{PLANT_LIFE_Y:.0f} years -- "
-          f"{100*fissile_depletion_fraction():.1f} % of it. On MASS alone")
+          f"{100*heavy_metal_depletion_fraction():.1f} % of it. On MASS alone")
     print("    the charge outlasts the plant and no breeding is needed at all.")
-    print("    What runs out is not mass but REACTIVITY: at first order k falls")
-    print(f"    with the fissile density, from {_ps().K_SAFE:.3f} to "
-          f"{k_without_breeding():.3f}, and the plant gain")
-    print(f"    with it, from {ref()['gain']:.1f} to "
-          f"{gain_without_breeding():.1f}. BREEDING HOLDS k, NOT THE")
-    print("    INVENTORY, and that is the whole of why f_b is a requirement.")
+    print("    THAT COMPARISON IS AGAINST THE WRONG DENOMINATOR, and it is the")
+    print("    one this file made until it was checked. What fissions is the")
+    print("    FISSILE, not the heavy metal, and the fissile is a 12-20 %")
+    e_lo, e_hi = fissile_exhaustion_years()
+    d_lo, d_hi = fissile_depletion_fraction()
+    print(f"    slice of it -- {heavy_metal_inventory_kg()*_ps().FISSILE_FRACTION[0]/1000:.1f}"
+          f" to {heavy_metal_inventory_kg()*_ps().FISSILE_FRACTION[1]/1000:.1f} t against a"
+          f" {burnup_kg_per_year()*PLANT_LIFE_Y/1000:.1f} t burn.")
+    print(f"    Unbred, the charge is {100*d_lo:.0f}-{100*d_hi:.0f} % depleted"
+          f" over the life, which is")
+    print(f"    to say IT IS GONE -- exhausted between year {e_lo:.0f} and year"
+          f" {e_hi:.0f}.")
+    k_lo, k_hi = k_without_breeding()
+    g_lo, g_hi = gain_without_breeding()
+    print(f"    k falls from {_ps().K_SAFE:.3f} to {k_lo:.3f}-{k_hi:.3f} and the"
+          f" gain from {ref()['gain']:.1f} to {g_lo:.1f}-{g_hi:.1f}.")
+    print("    THE UNBRED PLANT DOES NOT DEGRADE, IT STOPS. Breeding holds k,")
+    print("    and that is the whole of why f_b is a requirement rather than")
+    print("    an optimisation.")
     print()
     print("    THE VERDICT, AND IT IS NOT THE ONE ASKED FOR. Two things the")
     print("    plant would have needed a feed for -- fissile material and")
@@ -1102,7 +1158,27 @@ def selftest():
     check("  -- and the FIRST CHARGE alone outlasts the plant on inventory",
           burnup_kg_per_year() * PLANT_LIFE_Y < heavy_metal_inventory_kg())
     check("  -- yet breeding is still required, because REACTIVITY depletes",
-          gain_without_breeding() < ref()["gain"] / 2.0)
+          max(gain_without_breeding()) < ref()["gain"] / 2.0)
+    # THE DENOMINATOR BUG, PINNED. fissile_depletion_fraction divided by the
+    # heavy metal for as long as this file existed, which is the one thing its
+    # name says it does not do. The two must differ by the fissile fraction,
+    # and the fissile one must exceed unity -- the charge is exhausted.
+    P = _ps()
+    d_lo, d_hi = fissile_depletion_fraction()
+    hm_frac = heavy_metal_depletion_fraction()
+    check("the fissile and heavy-metal depletions are NOT the same number",
+          abs(d_lo - hm_frac) > 0.5)
+    check("  -- they differ by exactly the fissile fraction",
+          abs(d_lo * P.FISSILE_FRACTION[1] - hm_frac) < 1e-9
+          and abs(d_hi * P.FISSILE_FRACTION[0] - hm_frac) < 1e-9)
+    check("the fissile charge is MORE than fully depleted, unbred", d_lo > 1.0)
+    e_lo, e_hi = fissile_exhaustion_years()
+    check("  -- so it is exhausted inside the plant's life, at both ends",
+          e_hi < PLANT_LIFE_Y)
+    check("  -- and k therefore reaches zero rather than merely falling",
+          max(k_without_breeding()) == 0.0)
+    check("exhaustion is later with a richer charge, as it must be",
+          fissile_exhaustion_years(0.20)[0] > fissile_exhaustion_years(0.12)[0])
     print("    (the second and third are not in tension and the distinction is")
     print("     the point: the charge is big enough, and it is the FISSILE")
     print("     FRACTION that runs out, not the mass. Breeding holds k, not")
