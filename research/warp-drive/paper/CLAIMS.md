@@ -1440,6 +1440,57 @@ refusal is the bank-loan theorem: traversability needs non-achronality, non-achr
 
 ---
 
+## ★★ H27 — compressed bits are spendable on exactly one door, and not as density
+
+**H27. A compression argument is a *statistics* argument. Door three is the door decided by statistics.
+For the first time in this project the proposed currency and a door's deciding language are the same
+language — and that, not the tool, is why it lands.**
+
+| door | decided by | verdict |
+|---|---|---|
+| **2** | order | **NO — immune by form.** The bank-loan theorem has no information term |
+| **1** | algebra | **RIGHT KIND, WRONG RESULT** — entropy stability does not imply dynamical stability |
+| **3** | statistics | **YES — as a detection statistic** |
+
+**Door one is the interesting no.** An entropy argument is *not* categorically wrong for a stability row —
+thermodynamic stability is `d²S < 0`, the same *type* of condition as a dynamical one, and both are
+defined for a wormhole. **The currency is spendable there.** But it has already been spent, in print, on
+exactly this object: Eiroa, Figueroa-Aguirre, Peñafiel & Perez Bergliaffa (arXiv:2408.14328) compute both
+for a charged thin-shell wormhole and find
+
+- Hawking-type entropy: **no configurations both dynamically and thermodynamically stable**;
+- power-law entropy: **thermodynamically stable but dynamically *unstable* configurations exist**.
+
+> **Entropy stability does not imply dynamical stability.** The bridge exists, has been crossed, and lands
+> somewhere else — so it is not a shortcut past the stability calculation **H25** named. Their entropy
+> function is also an *ansatz*, carrying free parameters the dynamical side lacks: that is the slack.
+
+**Door three is the yes, and the connection is an identity.** Arithmetic coding gives `ℓ = −log₂P`, so for
+two hypotheses on the same data:
+
+> **`log₂ B = ℓ₀ − ℓ₁`, exactly** — the evidence in bits *is* the compression saving in bits.
+
+A signal is present exactly when the data is cheaper to describe with it than without (Rissanen's MDL).
+Thresholds are small: 3σ = **8.53 bits**, **5σ = 20.73 bits**, 8σ = **49.51 bits**, each verified by a
+round trip through `2^−bits` back to the p-value.
+
+**And the objection that killed the density use does not reach this one.** `H26`'s fatal number was the
+adjusted rate — 140 GB of parameters turning 8.3% into 14008.3%. Detection compares two hypotheses on the
+*same* data with the *same* model, so `L(M)` appears on both sides and **cancels exactly** (verified at a
+model size of `1.12e12` bits).
+
+> **Density needs an absolute code length, where the codebook is fatal. Detection needs a difference,
+> where the codebook cancels.** That one distinction is why the same tool fails one door and works for
+> another.
+
+| | `bits.py` |
+|---|---|
+| status | **PROVEN** (the `log₂B = ℓ₀−ℓ₁` identity; the codebook cancellation) + **CITED** (arXiv:2408.14328, arXiv:2309.10668) |
+| new? | the routing of a currency by language-match, and the codebook-cancellation distinction, yes |
+| **not** claimed | that it supplies the **number density** — a statistic is how you would *look*, not how many there are, and door three's silent row is still silent; that the cancellation is unconditional — it needs a **shared** model, and a template library leaves a real Occam penalty; that door one is immune — it is not, which is why the citation was needed |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1573,3 +1624,7 @@ refusal is the bank-loan theorem: traversability needs non-achronality, non-achr
   compressed bits. See **H26**.
 - **That there is a dense form other than a black hole.** A non-horizon holds exactly its compactness
   fraction; the maximum is the horizon.
+- **That a detection statistic supplies door three's number density.** It is how you would look, not how
+  many there are. The silent row is still silent. See **H27**.
+- **That an entropy argument can substitute for a dynamical stability calculation.** Measured on a
+  wormhole: entropy stability does not imply dynamical stability.

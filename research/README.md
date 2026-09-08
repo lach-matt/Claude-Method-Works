@@ -6028,3 +6028,94 @@ and at magnitude. **No bit count supplies a sign.**
 - `compress.py` — new. `obstruct.py` — **46 rows**, new `COMPRESSION-IS-DENSITY` and `A-SECOND-DENSE-FORM`,
   **27 closed-negative**. `index3.py` — **448 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H26** and two
   additions to the not-claimed list.
+
+---
+
+## `bits.py` — where compressed bits can be spent, and it is exactly one door
+
+> **M:** *"can we use compressed binary as currency for any other door?"*
+
+**Yes — for exactly one, and not as density.** The first affirmative answer in the whole currency thread,
+and the index is what explains it.
+
+| door | decided by | verdict |
+|---|---|---|
+| **2** | order | **NO — immune by form.** The bank-loan theorem has no information term |
+| **1** | algebra | **RIGHT KIND, WRONG RESULT** |
+| **3** | statistics | **YES — as a detection statistic** |
+
+### Door one — the interesting no
+
+An entropy argument is **not** categorically the wrong kind for a stability row. Thermodynamic stability is
+`d²S < 0` — the same *type* of condition as a dynamical one — and both are defined for a wormhole. **The
+currency is spendable here.**
+
+**But it has already been spent, in print, on exactly this object.** Eiroa, Figueroa-Aguirre, Peñafiel &
+Perez Bergliaffa (arXiv:2408.14328) compute both stabilities for a charged thin-shell wormhole:
+
+| entropy | result |
+|---|---|
+| Hawking-type | **no configurations both dynamically and thermodynamically stable** |
+| power-law | **thermodynamically stable but dynamically *unstable* configurations are possible** |
+| where they overlap | a small zone; every completely stable configuration is **overcharged**, `Q > m` |
+| the entropy function itself | an **ansatz**, not derived — free parameters the dynamical side lacks |
+
+> **Entropy stability does not imply dynamical stability.** The bridge exists, it has been crossed, and it
+> lands somewhere else. **Not a shortcut past the stability calculation `doors.py` named.**
+
+### Door three — the yes, and it is an identity
+
+Arithmetic coding gives `ℓ = −log₂P`. For two hypotheses on the same data:
+
+> **`log₂ B = ℓ₀ − ℓ₁`, exactly.** The evidence in bits **is** the compression saving in bits.
+
+A signal is present exactly when the data is **cheaper to describe with it than without** — Rissanen's
+minimum description length, a rigorous framework rather than a metaphor.
+
+| | bits of evidence |
+|---|---|
+| 3σ | 8.53 |
+| **5σ** | **20.73** |
+| 8σ | 49.51 |
+
+Each verified by a round trip through `2^−bits` back to the p-value. **A discovery is twenty-one bits of
+compression saving.**
+
+### And the objection that killed the density use does not reach this one
+
+`compress.py`'s fatal number was the **adjusted rate** — 140 GB of parameters turning 8.3% into 14008.3%.
+But detection compares two hypotheses on the **same data with the same model**:
+
+```
+ℓ₀ − ℓ₁ = [L(M) + L(d|M,H₀)] − [L(M) + L(d|M,H₁)]
+```
+
+**`L(M)` cancels exactly** — verified at a model size of `1.12e12` bits, difference unchanged to the last
+digit.
+
+> **Density needs an absolute code length, where the codebook is fatal. Detection needs a difference,
+> where the codebook cancels.** That single distinction is why the same tool fails one door and works for
+> another.
+
+*Caution, recorded:* the cancellation needs a **shared** model — one noise model, with and without an
+added signal. A template library makes the sizes differ and leaves a real Occam penalty.
+
+### Why it works there and nowhere else
+
+A compression argument is a **statistics** argument. Door three is the door decided by **statistics**.
+
+> For the first time in this thread, **the currency and the deciding language are the same language** —
+> and that, not the cleverness of the tool, is the whole reason it lands.
+
+### What it does not buy
+
+`doors.py` named door three's next measurement as **a number density**: how many relic wormholes are
+there, and does the existing catalogue cover enough volume to have seen one?
+
+> **A detection statistic is how you would look, not how many there are.** The method for the silent row
+> is now named. **The silent row is still silent.**
+
+### Seated
+- `bits.py` — new. `obstruct.py` — **47 rows**, new `ENTROPY-AS-STABILITY`, **28 closed-negative**.
+  `index3.py` — **453 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H27** and two additions to the
+  not-claimed list.

@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of forty-six obstructions, SIX dissolved, FOUR relocated,
-TWENTY-SEVEN closed negative, EIGHT conditional, ONE is OPEN, NONE is untested.
+THE HEADLINE: of forty-seven obstructions, SIX dissolved, FOUR relocated,
+TWENTY-EIGHT closed negative, EIGHT conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -376,6 +376,20 @@ LEDGER = [
   "FLAGGED NOT CLAIMED: core.py's negative core has no Buchdahl limit, 2|M|/R "
   "to 8378 with no horizon, and Bekenstein is not stated for E < 0. NOT-RUN",
   "compress.py"),
+ ("ENTROPY-AS-STABILITY", "an entropy argument can settle a stability row "
+  "without doing the dynamical calculation", "CLOSED-NEGATIVE",
+  "IT IS THE RIGHT KIND OF ARGUMENT AND IT LANDS SOMEWHERE ELSE, which is a "
+  "sharper answer than 'no'. Thermodynamic stability is d2S < 0, a condition "
+  "of the same TYPE as a dynamical one, and both are defined for a wormhole -- "
+  "so unlike door two this is not immune by form. But Eiroa, Figueroa-Aguirre, "
+  "Penafiel & Perez Bergliaffa (arXiv:2408.14328) compute BOTH for a charged "
+  "thin-shell wormhole: for a Hawking-type entropy THERE ARE NO CONFIGURATIONS "
+  "BOTH DYNAMICALLY AND THERMODYNAMICALLY STABLE, and for a power-law entropy "
+  "there are THERMODYNAMICALLY STABLE BUT DYNAMICALLY UNSTABLE ones. ENTROPY "
+  "STABILITY DOES NOT IMPLY DYNAMICAL STABILITY, measured, on a wormhole. "
+  "Their entropy function is an ANSATZ carrying free parameters the dynamical "
+  "side lacks, which is the slack. Not a shortcut past doors.py's named "
+  "stability calculation", "bits.py"),
  ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
   "CLOSED-NEGATIVE",
   "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
@@ -725,10 +739,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 46)
+    chk("obstructions tracked", len(LEDGER), 47)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 27)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 28)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 8)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
