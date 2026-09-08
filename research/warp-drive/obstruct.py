@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of forty-four obstructions, SIX dissolved, FOUR relocated,
-TWENTY-FIVE closed negative, EIGHT conditional, ONE is OPEN, NONE is untested.
+THE HEADLINE: of forty-six obstructions, SIX dissolved, FOUR relocated,
+TWENTY-SEVEN closed negative, EIGHT conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -350,6 +350,32 @@ LEDGER = [
   "MODE THAT USES IT WAS NEVER ASKED -- in two literatures, neither found by "
   "looking for it. Any stability claim here must now name which coordinates it "
   "held fixed", "doors.py"),
+ ("COMPRESSION-IS-DENSITY", "compressing the description supplies the "
+  "information density the transition needs", "CLOSED-NEGATIVE",
+  "IT DOES NOT, AND THE PAPER IT RESTS ON SAYS SO THREE TIMES. Deletang et al. "
+  "(arXiv:2309.10668) is real -- Chinchilla 70B compresses ImageNet to 48.0% "
+  "and LibriSpeech to 21.0%, beating PNG and FLAC. But (a) they state the "
+  "PIGEONHOLE PRINCIPLE outright, a lossless compressor is INJECTIVE and buys "
+  "on some inputs by paying on others; (b) their RANDOM DATA row is 100.8%, "
+  "the model EXPANDS incompressible input; (c) counting the 140 GB of "
+  "parameters the ADJUSTED rate on 1 GB is 14008.3%, 1687 times worse than "
+  "raw, breaking even only near 0.95 TB. AND THE PHYSICS CLOSES IT: Bekenstein "
+  "bounds the number of DISTINGUISHABLE STATES, naming one of N costs log2(N) "
+  "in ANY code, and entropy is what survives redundancy removal -- SO THE "
+  "BOUND IS ALREADY DENOMINATED IN COMPRESSED BITS. Nothing left to squeeze, "
+  "which is why random data does not compress", "compress.py"),
+ ("A-SECOND-DENSE-FORM", "there is a form other than a black hole that reaches "
+  "the required information density", "CLOSED-NEGATIVE",
+  "THERE IS NONE, AND THE ANSWER IS EXACT. Not being a black hole means "
+  "compactness C = 2GM/(Rc^2) < 1; substituting into Bekenstein gives "
+  "S_max(C) = C * A/(4 l_P^2) = C * S_BLACK-HOLE exactly, verified at C = "
+  "0.99, 0.5, 0.1, 0.01 and 1e-6 with worst relative residual 1.39e-16. A "
+  "NON-HORIZON HOLDS EXACTLY ITS COMPACTNESS FRACTION of a horizon's capacity: "
+  "the bound is continuous and its maximum IS the horizon, so want 99% of the "
+  "density and you must be 99% of the way to being a black hole. ONE EXCEPTION "
+  "FLAGGED NOT CLAIMED: core.py's negative core has no Buchdahl limit, 2|M|/R "
+  "to 8378 with no horizon, and Bekenstein is not stated for E < 0. NOT-RUN",
+  "compress.py"),
  ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
   "CLOSED-NEGATIVE",
   "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
@@ -699,10 +725,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 44)
+    chk("obstructions tracked", len(LEDGER), 46)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 25)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 27)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 8)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",

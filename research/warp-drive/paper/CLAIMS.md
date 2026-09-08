@@ -1390,6 +1390,56 @@ run twice with opposite answers. By register 1173 a contested row returns no bin
 
 ---
 
+## ⚠ H26 — compression is not density; and a non-horizon holds exactly its compactness fraction
+
+**H26. The Bekenstein bound is already denominated in compressed bits — it counts *distinguishable
+states*, and naming one of N costs `log₂ N` in any code. And the best non-horizon carrier is exact:
+`S_max(C) = C · S_BH`, so a non-black-hole holds exactly its compactness fraction of a horizon's
+capacity.**
+
+**The compression result is real.** Delétang et al. (DeepMind, ICLR 2024, arXiv:2309.10668): Chinchilla
+70B compresses ImageNet to **48.0%** and LibriSpeech to **21.0%**, beating PNG (58.5%) and FLAC (30.9%)
+— a text model beating domain-specific compressors on modalities it never saw.
+
+**And the same paper refutes the use, three times.**
+
+| | |
+|---|---|
+| **pigeonhole** | the authors state it: a lossless compressor is **injective** — it buys on some inputs by paying on others |
+| **random data** | Chinchilla 70B: **100.8%**. gzip 100.0%, FLAC 107.8%. The models *expand* it |
+| **the model is the code** | 70B params × 2 bytes = 140 GB → adjusted rate on 1 GB is **14008.3%**, 1687× worse than raw; break-even near **0.95 TB** |
+
+> **Bekenstein counts distinguishable states; compression removes redundancy; entropy is what survives
+> redundancy removal.** The bound is stated on the post-compression quantity already — which is precisely
+> why random data does not compress.
+
+**But "the only form other than a black hole" is the right question, and it has an exact answer nobody
+here had computed.** Not being a black hole means compactness `C = 2GM/(Rc²) < 1`:
+
+> `S_max(C) = C · A/(4ℓ_P²) = C · S_BH` — verified at `C = 0.99, 0.5, 0.1, 0.01, 1e−6`, worst relative
+> residual `1.39e−16`.
+
+**There is no second form.** The bound is continuous and its maximum *is* the horizon. Want 99% of the
+density? Be 99% of the way to being a black hole.
+
+**And door two is not refused for lack of density.** `doors.py` has it decided by **ORDER**, and its
+refusal is the bank-loan theorem: traversability needs non-achronality, non-achronality needs an
+*existing* outside causal path. **That theorem has no energy term and no density term in it.**
+
+> **A density argument is the wrong kind of argument for door two, and the index is what says so** —
+> `doors.py`'s first use since it was built, routing a proposal to the row it would have to move and
+> finding it is not that row. A density argument lands on INFORMATION, which admits on all three doors.
+> On the main question INFORMATION *does* refuse — and what is missing is **a value of `ρ`**. No bit
+> count supplies a sign.
+
+| | `compress.py` |
+|---|---|
+| status | **CITED** (the compression table, arXiv:2309.10668) + **PROVEN** (the compactness identity) + **MEASURED** (break-even, residuals) |
+| new? | the compactness identity, and the routing of a density argument through the index, yes |
+| **not** claimed | that the compression result is wrong — it is real and impressive; that the identity is bit-exact — an exact `==` was written first and **failed at two of five** on representation alone, so the claim was narrowed to one ULP; that `E < 0` is covered — `core.py`'s negative core has no Buchdahl limit and Bekenstein is not stated for negative energy: **NOT-RUN** |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1519,3 +1569,7 @@ run twice with opposite answers. By register 1173 a contested row returns no bin
   no binary. Weaker, and different.
 - **That any modified-gravity wormhole solution has been verified here.** Those rows are **CITED**, with
   arXiv numbers, not measured.
+- **That compression supplies information density.** The Bekenstein bound is already denominated in
+  compressed bits. See **H26**.
+- **That there is a dense form other than a black hole.** A non-horizon holds exactly its compactness
+  fraction; the maximum is the horizon.

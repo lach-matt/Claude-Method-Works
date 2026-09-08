@@ -5935,3 +5935,96 @@ Door three is not admitted. It is **unasked**, which is a different and better t
 - `doors.py` — new, with the literature rows marked **CITED** rather than measured. `obstruct.py` —
   **44 rows**, new `MODIFIED-GRAVITY-DOOR` (conditional) and `FROZEN-COORDINATE`, **25 closed-negative**,
   8 conditional, one still OPEN. `index3.py` — **441 findings**, `E(X) = 0`.
+
+---
+
+## `compress.py` — compression is not density, and door two is not short of density
+
+> **M:** *"door 2 — a non-achronal connection that is also a shortcut — current language models have
+> found a way to compress binary into its shortest output by volume. This gives the density required in
+> the only form acceptable other than a black hole."*
+
+Two claims, failing separately. **The second failure is the useful one: it is `doors.py` earning its keep
+on its first use.**
+
+### 1. The compression result is real
+
+Delétang, Ruoss, Duquenne et al., *Language Modeling Is Compression* (DeepMind, ICLR 2024,
+arXiv:2309.10668). Arithmetic coding on a language model's conditionals is a lossless compressor, and
+the log-loss objective **is** the compression objective.
+
+| | enwik9 | ImageNet | LibriSpeech |
+|---|---|---|---|
+| gzip | 32.3% | 70.7% | 36.4% |
+| LZMA2 | 23.0% | 57.9% | 29.9% |
+| PNG | 42.9% | **58.5%** | 32.2% |
+| FLAC | 89.5% | 61.9% | **30.9%** |
+| **Chinchilla 70B** | **8.3%** | **48.0%** | **21.0%** |
+
+A text model beating PNG on images and FLAC on audio. **Nothing here disputes it.**
+
+### 2. And the same paper refutes using it as density — three times
+
+| | |
+|---|---|
+| **(a) pigeonhole** | the authors' own words: a lossless compressor "induces an **injective** function over bit sequences, meaning that we cannot compress all sequences equally well." It buys on some inputs by paying on others — **a redistribution, not a reduction** |
+| **(b) random data** | Chinchilla 70B: **100.8%**. gzip 100.0%. FLAC 107.8%. The models **expand** it |
+| **(c) the model is part of the code** | 70B × 2 bytes = 140 GB → adjusted rate on 1 GB is **14008.3%** — 1687× worse than raw, 140× worse than not compressing. Break-even against LZMA2 near **0.95 TB**, reproducing the authors' "order of TBs" from their own two numbers |
+
+### 3. The physics closes it in one line
+
+`S ≤ 2πRE/(ℏc)` bounds **the number of distinguishable quantum states**. Naming one of N of them costs
+`log₂ N` bits **in any code** — recoding permutes names, it does not merge two states into one.
+
+> **Compression removes redundancy. Entropy is what survives redundancy removal. So the bound is stated
+> on the post-compression quantity already, and there is nothing left to squeeze.**
+
+Which is exactly why random data does not compress: it is all entropy, and that is the case the bound
+describes.
+
+### 4. But "the only form other than a black hole" is the right question
+
+`spectra.py` found the optimal carrier is a horizon. **What is the best non-horizon?** Nobody here had
+computed it. Not being a black hole means `C = 2GM/(Rc²) < 1`, and substituting into Bekenstein:
+
+> **`S_max(C) = C · A/(4ℓ_P²) = C · S_BH`, exactly.**
+
+| compactness | bits at R = 1 m | fraction of a horizon |
+|---|---|---|
+| 0.99 | 1.7177e70 | 0.99 |
+| 0.50 | 8.6751e69 | 0.50 |
+| 0.01 | 1.7350e68 | 0.01 |
+
+**There is no second form.** A non-horizon holds exactly its compactness fraction. The bound is
+continuous and its maximum **is** the horizon. Want 99% of the density? Be 99% of the way to being a
+black hole.
+
+*A fixture caught an overclaim here:* the identity was first asserted with an exact `==` and "machine
+zero, no residual at all" — and it **fails at C = 0.99 and 0.1** on floating-point representation alone.
+The identity is exact; the residual is representation; the claim was narrowed to one ULP (worst
+`1.39e−16`). **The physics did not wobble — the prose was too strong, and the test said so.**
+
+*One exception flagged, not claimed:* `core.py`'s negative core has **no Buchdahl limit** (`2|M|/R` to
+8378 with no horizon) — and Bekenstein is not stated for `E < 0`. **NOT-RUN.**
+
+### 5. And door two is not refused for lack of density
+
+`doors.py` measured door two as decided by **ORDER**, and its refusal is the bank-loan theorem:
+traversability needs non-achronality, non-achronality needs an *existing* outside causal path, so the
+wormhole never beats it.
+
+> **That theorem has no energy term and no density term in it.** You cannot move it with a better density
+> any more than with a better compressor, because neither quantity appears.
+
+**A density argument is the wrong kind of argument for door two, and the index is what says so.** That is
+`doors.py`'s first use since it was built, doing the one job an index is for: **it routed a proposal to
+the row it would have to move, and the row is not the one the proposal addresses.**
+
+A density argument lands on INFORMATION — which admits on all three doors, so it constrains none of them.
+On the main question INFORMATION *does* refuse, and what is missing there is **a value of `ρ`**, negative
+and at magnitude. **No bit count supplies a sign.**
+
+### Seated
+- `compress.py` — new. `obstruct.py` — **46 rows**, new `COMPRESSION-IS-DENSITY` and `A-SECOND-DENSE-FORM`,
+  **27 closed-negative**. `index3.py` — **448 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H26** and two
+  additions to the not-claimed list.
