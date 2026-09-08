@@ -1089,7 +1089,8 @@ def station_beam_mw(households=STATION_HOUSEHOLDS,
 
 
 def net_electric_kw_at(beam_mw, n_linac, window=STATION_WINDOW_MEV,
-                       k_eff=K_SAFE, eta_acc=0.30, y_fus=None):
+                       k_eff=K_SAFE, eta_acc=0.30, y_fus=None,
+                       standby_kw=None):
     """Net electricity from a beam and the drivers that carry it.
 
     THE one statement of the plant's net. station() reads it and so does the
@@ -1100,13 +1101,15 @@ def net_electric_kw_at(beam_mw, n_linac, window=STATION_WINDOW_MEV,
     y_f = fusions_per_proton(window) if y_fus is None else y_fus
     g = plant_gain(k_eff, y_s, y_f)
     gross_kw = beam_mw * 1000.0 * g * eta_thermal()
+    sb = REF_STANDBY_KW if standby_kw is None else standby_kw
     return (beam_mw * 1000.0 * (g * eta_thermal() - 1.0 / eta_acc)
-            - n_linac * REF_STANDBY_KW / eta_acc
+            - n_linac * sb / eta_acc
             - DRY_COOLING_PENALTY * gross_kw)
 
 
 def built_station(n_mod, module_mw=MODULE_BEAM_MW, window=STATION_WINDOW_MEV,
-                  k_eff=K_SAFE, eta_acc=0.30, y_fus=None):
+                  k_eff=K_SAFE, eta_acc=0.30, y_fus=None, linac_mw=None,
+                  standby_kw=None):
     """The plant that this many modules of this size actually is.
 
     Separated from station() so the driver section can ask what one more
@@ -1117,10 +1120,14 @@ def built_station(n_mod, module_mw=MODULE_BEAM_MW, window=STATION_WINDOW_MEV,
     y_s = 0.5 * sum(spallation_yield())
     y_f = fusions_per_proton(window) if y_fus is None else y_fus
     g = plant_gain(k_eff, y_s, y_f)
+    lin = LINAC_BEAM_MW if linac_mw is None else linac_mw
+    if lin <= 0:
+        raise ValueError(f"a driver has positive power, got {lin}")
     beam = n_mod * module_mw
-    n_lin = math.ceil(beam / LINAC_BEAM_MW)
+    n_lin = math.ceil(beam / lin)
     gross_kw = beam * 1000.0 * g * eta_thermal()
-    net_kw = net_electric_kw_at(beam, n_lin, window, k_eff, eta_acc, y_fus)
+    net_kw = net_electric_kw_at(beam, n_lin, window, k_eff, eta_acc, y_fus,
+                                standby_kw)
     return {
         "window": window, "module_mw": module_mw, "modules": n_mod,
         "beam_mw": beam, "linacs": n_lin, "gain": g, "y_fus": y_f,
@@ -1133,8 +1140,10 @@ def built_station(n_mod, module_mw=MODULE_BEAM_MW, window=STATION_WINDOW_MEV,
         "tritium_total_kg": n_mod * tritium_inventory_kg(window, None),
         "tritium_ratio": tritium_balance(window, module_mw, f_li=F_LI_DESIGN),
         "doubling_y": tritium_doubling_years(module_mw, window),
-        "driver_installed_mw": n_lin * LINAC_BEAM_MW,
-        "driver_stranded_mw": n_lin * LINAC_BEAM_MW - beam,
+        "linac_mw": lin,
+        "driver_installed_mw": n_lin * lin,
+        "driver_stranded_mw": n_lin * lin - beam,
+        "standby_kw": (REF_STANDBY_KW if standby_kw is None else standby_kw),
     }
 
 
@@ -1157,7 +1166,8 @@ def station_open_loop(households=STATION_HOUSEHOLDS,
 
 def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
             module_mw=MODULE_BEAM_MW, k_eff=K_SAFE, eta_acc=0.30,
-            max_modules=100000, y_fus=None):
+            max_modules=100000, y_fus=None, linac_mw=None,
+            standby_kw=None):
     """The station as built: whole modules, and what they actually deliver.
 
     Sized by closing the loop -- charging the drivers the answer needs rather
@@ -1169,7 +1179,8 @@ def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
     n = max(1, station_open_loop(households, window, module_mw, k_eff,
                                  eta_acc)["modules"])
     while n <= max_modules:
-        st = built_station(n, module_mw, window, k_eff, eta_acc, y_fus)
+        st = built_station(n, module_mw, window, k_eff, eta_acc, y_fus,
+                           linac_mw, standby_kw)
         if st["households"] >= households:
             return st
         n += 1
@@ -1435,8 +1446,7 @@ def report_driver():
     print("    That is a property of the model and not of the plant. The")
     print("    blanket is NOT split -- one blanket, and splitting it is")
     print(f"    refused separately at {blanket_leakage_penalty(20):.2f}x the"
-          " leakage -- so beam is")
-    print("    power density in ONE blanket. In thermal terms:")
+          " leakage. In thermal terms:")
     print()
     base = station(k_eff=K_SAFE)
     print(f"      the station the inventories are computed at "
@@ -1449,11 +1459,19 @@ def report_driver():
     print("    the salt flow, the salt inventory, the heavy-metal inventory")
     print("    and the drain tank FROM ITS THERMAL POWER -- and restart.py")
     print("    takes the decay heat from the same figure. Every one of those")
-    print("    is therefore computed at the pre-decision station. Nothing in")
-    print("    this repository computes a MAXIMUM blanket power density, a")
-    print("    core volume or a coolant flow limit, so nothing here can say")
-    print("    where adding beam stops paying. Recorded as owed, and it is")
-    print("    owed before phase 4 states a station size as achievable.")
+    print("    is therefore computed at the pre-decision station and is")
+    print(f"    understated by {est['thermal_mw'] / base['thermal_mw']:.2f}x.")
+    print()
+    print("    A CORRECTION THIS SECTION OWES, AND --blanket IS WHERE IT WAS")
+    print("    FOUND. This paragraph first read that factor as a factor on")
+    print("    the POWER DENSITY, on the reasoning that one unsplit blanket")
+    print("    taking more beam must run denser. IT DOES NOT. The blanket's")
+    print("    volume is not fixed either: the inventory is flow times loop")
+    print("    transit and the flow is set by the heat, so a bigger station")
+    print("    holds proportionally more salt and the density does not move.")
+    print("    What is understated by that factor is the INVENTORIES. See")
+    print("    --blanket, which bounds the density question against published")
+    print("    designs and lists what is still not computable here.")
     print()
 
 # ---- THE DRIVER AS A MACHINE: CURRENT, LENGTH AND BEAM LOSS ---------------
@@ -1649,6 +1667,318 @@ def report_current():
     print("    THIS FILE DOES NOT DECIDE THE ROUTE ON IT. What it removes is")
     print("    the sentence that made route C's driver sound like an ordinary")
     print("    order.")
+    print()
+
+# ---- THE DRIVER RE-SCALED, THE WAY THE MODULE WAS ------------------------
+# --rescale asked what sets the MODULE size and found the answer was a pion
+# target route C does not have. LINAC_BEAM_MW has never been asked the same
+# question: it is marked ASSUMED, "4x ESS, and four of them", and --current
+# has just shown that the assumption is doing more work than that comment
+# admits. So here is the same re-scale for the driver, against what proton
+# linacs have actually been built, are being built, and have been studied.
+#
+# The sourced set is small, because very few exist:
+LINAC_CLASS = {                # (energy GeV, beam power MW, status)
+    "PSI HIPA, CW":            (0.590, 1.40, "OPERATED"),
+    "SNS, design power":       (1.00, 1.40, "OPERATED"),
+    "ESS":                     (2.00, 5.00, "BUILDING"),
+    "Project X, 8 GeV upgrade": (8.00, 4.00, "STUDIED"),   # the muon-collider
+    "BNL HFBR SC linac":       (1.00, 10.00, "STUDIED"),   # upgrade scenario
+    "CW proton driver study":  (2.00, 15.00, "STUDIED"),   # 1.5-2.5 GeV band
+}
+# STANDBY IS THE TERM THIS SECTION CANNOT CLOSE, and it is worth more than
+# everything else here put together. REF_STANDBY_KW is a driver's fixed
+# cryogenic and rf load, sourced as a BAND for a machine of unstated size, and
+# nothing anywhere states how it scales. The two ends are not close:
+#   FIXED PER MACHINE      splitting the beam into more, smaller drivers
+#                          multiplies the load
+#   SCALING WITH THE MACHINE   the total is invariant in how it is divided
+# Which it is decides whether a station of operated-class drivers works at all.
+
+
+def standby_fixed(linac_mw):
+    """One driver's standby if the load is a property of HAVING a machine."""
+    return REF_STANDBY_KW
+
+
+def standby_scaled(linac_mw):
+    """One driver's standby if the load is a property of the machine's SIZE,
+    referenced to the assumed 20 MW driver the band was quoted for."""
+    return REF_STANDBY_KW * linac_mw / LINAC_BEAM_MW
+
+
+def station_at_driver(linac_mw, scaling=standby_fixed, **kw):
+    """The station rebuilt out of drivers of this power."""
+    kw.setdefault("module_mw", SPALL_TARGET_MW["ESS, design"])
+    kw.setdefault("k_eff", K_DESIGN)
+    return station(linac_mw=linac_mw, standby_kw=scaling(linac_mw), **kw)
+
+
+def standby_load_mw(st, eta_acc=0.30):
+    """What the drivers draw before any beam: n . S / eta_acc, in MW."""
+    return st["linacs"] * st["standby_kw"] / eta_acc / 1000.0
+
+
+def report_linac():
+    """the driver re-scaled against what has been built, and the term it opens"""
+    print()
+    print("  THE DRIVER RE-SCALED")
+    print()
+    print(f"    LINAC_BEAM_MW = {LINAC_BEAM_MW:.0f} MW is ASSUMED, and --current")
+    print("    has shown the assumption is load-bearing. --rescale asked what")
+    print("    sets the MODULE size; this asks the same of the DRIVER.")
+    print()
+    print("    WHAT PROTON LINACS ACTUALLY ARE")
+    print()
+    print("      machine                        GeV       MW        mA   status")
+    for n, (e, p, st) in sorted(LINAC_CLASS.items(), key=lambda t: t[1][1]):
+        print(f"      {n:<28} {e:6.3f} {p:8.2f} {beam_current_ma(p, e):9.3f}"
+              f"   {st}")
+    built = max(p for e, p, s in LINAC_CLASS.values() if s in ("OPERATED",))
+    building = max(p for e, p, s in LINAC_CLASS.values() if s == "BUILDING")
+    studied = max(p for e, p, s in LINAC_CLASS.values() if s == "STUDIED")
+    at_a = max(p for e, p, s in LINAC_CLASS.values() if e >= BEAM_GEV)
+    print()
+    print(f"      the largest OPERATED        {built:6.2f} MW")
+    print(f"      the largest BUILDING        {building:6.2f} MW")
+    print(f"      the largest STUDIED         {studied:6.2f} MW")
+    print(f"      the largest at {BEAM_GEV:.0f} GeV        {at_a:6.2f} MW"
+          "   -- route A's own energy")
+    print()
+    print(f"    So the assumed {LINAC_BEAM_MW:.0f} MW driver is"
+          f" {LINAC_BEAM_MW / building:.2f}x the largest under")
+    print(f"    construction, {LINAC_BEAM_MW / studied:.2f}x the largest"
+          " studied anywhere, and")
+    print(f"    {LINAC_BEAM_MW / at_a:.2f}x the largest ever studied at the"
+          " energy route A needs.")
+    print()
+    print("    THE STATION BUILT OUT OF EACH CLASS, AT BOTH ENDS OF THE")
+    print("    STANDBY QUESTION -- and the two ends are the finding.")
+    print()
+    print("                 |-- standby FIXED per machine --|"
+          "   |-- standby SCALED with size --|")
+    print("      driver MW    drivers   beam MW   standby MWe"
+          "     drivers   beam MW   standby MWe")
+    rows = sorted({p for e, p, s in LINAC_CLASS.values()} | {LINAC_BEAM_MW})
+    for mw in sorted(rows, reverse=True):
+        f = station_at_driver(mw, standby_fixed)
+        g = station_at_driver(mw, standby_scaled)
+        mark = "  <- assumed" if mw == LINAC_BEAM_MW else ""
+        print(f"      {mw:9.2f} {f['linacs']:10d} {f['beam_mw']:9.1f}"
+              f" {standby_load_mw(f):13.1f} {g['linacs']:11d}"
+              f" {g['beam_mw']:9.1f} {standby_load_mw(g):13.1f}{mark}")
+    print()
+    lo = station_at_driver(built, standby_scaled)
+    hi = station_at_driver(built, standby_fixed)
+    print("    READ THE TWO HALVES OF THAT TABLE AGAINST EACH OTHER. They are")
+    print("    the same plant. The only difference is an assumption nobody has")
+    print("    written down. At a driver of the largest power ever OPERATED,")
+    print(f"    {built:.1f} MW, the standby load is"
+          f" {standby_load_mw(lo):.0f} MW electric at one end and")
+    print(f"    {standby_load_mw(hi):.0f} MW at the other -- against a station"
+          f" that nets about")
+    print(f"    {station_at_driver(LINAC_BEAM_MW)['net_mw']:,.0f} MW. THE"
+          " DIFFERENCE IS COMPARABLE TO THE WHOLE OUTPUT.")
+    print()
+    print("    AND IT DECIDES WHETHER THAT STATION EXISTS. With the load fixed")
+    print("    per machine, a station built out of drivers that have actually")
+    print(f"    been operated needs {hi['beam_mw']:.0f} MW of beam against"
+          f" {lo['beam_mw']:.0f} -- a factor of")
+    print(f"    {hi['beam_mw'] / lo['beam_mw']:.2f} -- because every driver"
+          " added to carry the beam brings a")
+    print("    load the beam must then carry. With the load scaling, the")
+    print("    division is free and the beam does not move at all.")
+    print()
+    print("    THIS IS NOW THE LARGEST UNPRICED TERM IN THE PLANT, and it was")
+    print("    invisible while the driver size was assumed. --current recorded")
+    print("    it as owed; this prices what being owed it costs. WHAT WOULD")
+    print("    SETTLE IT IS ONE NUMBER FROM AN OPERATING MACHINE: the fixed")
+    print("    cryogenic and rf load of a superconducting proton linac, stated")
+    print("    beside that machine's beam power. It is an ordinary operating")
+    print("    quantity at every facility in the table above, and this work")
+    print("    has not found it published in any usable form.")
+    print()
+    print("    UNTIL IT IS, THE DRIVER SIZE IS NOT A FREE CHOICE AND MUST NOT")
+    print("    BE TREATED AS ONE. The design keeps its assumed"
+          f" {LINAC_BEAM_MW:.0f} MW driver")
+    print("    because changing it would be choosing an answer to the question")
+    print("    above rather than measuring it -- and the assumption is now")
+    print("    recorded with its consequence rather than carried silently.")
+    print()
+
+# ---- THE BLANKET CEILING, BOUNDED --------------------------------------
+# --driver recorded that nothing here computes a maximum blanket power
+# density, so nothing could say where adding beam stops paying. That is no
+# longer quite true: the quantity is not computable here, but it is BOUNDED,
+# because liquid-fuel fast reactors have been designed and their power
+# densities are published. A bound with its basis stated is worth more than
+# an open item.
+#
+# THE BASIS MATTERS AND IS THE EASIEST THING TO GET WRONG. A power density
+# quoted over the CORE is not the same number as one quoted over the whole
+# fuel CIRCUIT, and they differ by the fraction of the salt that is in the
+# core -- about half, in the one design that publishes both. This file's own
+# figure is a CIRCUIT figure, because materials.py sizes the inventory from
+# the loop transit and states no core volume. So the comparison is made
+# against circuit figures only, and the core rows are printed for scale and
+# explicitly not compared.
+POWER_DENSITY_REF = {           # (thermal MW, salt volume m3, basis, status)
+    "MSFR, whole fuel circuit": (3000.0, 18.0, "CIRCUIT", "DESIGN"),
+    "MSFR, core only":          (3000.0, 9.0, "CORE", "DESIGN"),
+    "MCFR, optimised":          (2500.0, 25.0, "CORE", "DESIGN"),
+}
+MSRE_DECAY_FRACTION = 0.0100    # SOURCED: 100 kW of decay power on a 10 MW
+                                # reactor at 1.5 hours -- a published MSR
+                                # figure, and the only one this work has found
+                                # that its own decay model can be checked on
+MSRE_DECAY_T_S = 5400.0
+DRACS_MW = 2.36                 # SOURCED: the passive decay-heat system, at
+                                # the largest capacity found stated for one
+
+
+def power_density_mw_m3(thermal_mw, volume_m3):
+    if volume_m3 <= 0:
+        raise ValueError(f"a volume is positive, got {volume_m3}")
+    return thermal_mw / volume_m3
+
+
+def salt_litres_per_mw(thermal_mw, volume_m3):
+    """The same quantity the other way up, which is how an inventory is felt."""
+    return 1000.0 * volume_m3 / thermal_mw
+
+
+def _mat_mod():
+    sys.path.insert(0, HERE)
+    import materials as X
+    return X
+
+
+def blanket_density(st=None):
+    """(thermal MW, circuit volume m3, MW/m3) for a station of ours.
+
+    The volume scales with the thermal power, because materials.py sizes the
+    inventory as flow x loop transit and the flow is set by the heat. So the
+    density is the SAME at every station size, and that is the first half of
+    the answer: adding beam does not make this plant denser."""
+    X = _mat_mod()
+    ref = X.ref()
+    th = ref["thermal_mw"] if st is None else st["thermal_mw"]
+    vol = X.salt_volume_m3() * th / ref["thermal_mw"]
+    return th, vol, power_density_mw_m3(th, vol)
+
+
+def beam_headroom_to(reference="MSFR, whole fuel circuit"):
+    """How much more beam before this plant is as dense as a published one."""
+    mw, vol, basis, _st = POWER_DENSITY_REF[reference]
+    if basis != "CIRCUIT":
+        raise ValueError(f"{reference!r} is a {basis} figure and this plant's"
+                         " is a CIRCUIT figure; the two are not comparable")
+    return power_density_mw_m3(mw, vol) / blanket_density()[2]
+
+
+def decay_removal_duty_mw(st, t_s=3600.0):
+    sys.path.insert(0, HERE)
+    import restart as R
+    return R.decay_fraction(t_s) * st["thermal_mw"]
+
+
+def report_blanket():
+    """the ceiling --driver left open, bounded against published designs"""
+    sys.path.insert(0, HERE)
+    import restart as R
+    print()
+    print("  THE BLANKET CEILING, BOUNDED")
+    print()
+    print("    --driver recorded that nothing here computes a maximum blanket")
+    print("    power density, so nothing could say where adding beam stops")
+    print("    paying. The quantity is still not computable here. It is")
+    print("    BOUNDED, though, because liquid-fuel fast reactors have been")
+    print("    designed and their power densities are published.")
+    print()
+    print("    FIRST, THE BASIS, WHICH IS THE EASIEST THING TO GET WRONG.")
+    print("    A density over the CORE is not a density over the whole fuel")
+    print("    CIRCUIT; in the one design that publishes both they differ by")
+    print("    two, which is the fraction of the salt in the core. This")
+    print("    plant's figure is a CIRCUIT figure, because materials.py sizes")
+    print("    the inventory from the loop transit and states NO CORE VOLUME.")
+    print()
+    print("      reference                     MWth      m3     MW/m3   basis")
+    for n, (mw, v, basis, stt) in sorted(POWER_DENSITY_REF.items(),
+                                         key=lambda t: t[1][0] / t[1][1]):
+        note = "" if basis == "CIRCUIT" else "   not compared"
+        print(f"      {n:<28} {mw:7.0f} {v:7.1f} {power_density_mw_m3(mw, v):9.1f}"
+              f"   {basis}{note}")
+    base = station(k_eff=K_SAFE)
+    fill = station(module_mw=SPALL_TARGET_MW["ESS, design"], k_eff=K_DESIGN)
+    for lab, st in (("this plant, pre-decision", base),
+                    ("this plant, baseline-meeting", fill)):
+        th, vol, d = blanket_density(st)
+        print(f"      {lab:<28} {th:7.0f} {vol:7.1f} {d:9.1f}   CIRCUIT")
+    print()
+    print("    AND THE FIRST HALF OF THE ANSWER IS THAT THE DENSITY DOES NOT")
+    print("    MOVE. The inventory is flow times loop transit and the flow is")
+    print("    set by the heat, so a bigger station holds proportionally more")
+    print("    salt. Adding beam does not make this plant denser -- it makes")
+    print("    it bigger.")
+    print()
+    hr = beam_headroom_to()
+    print(f"    Against the one CIRCUIT figure published, the headroom is"
+          f" {hr:.2f}x")
+    print("    in thermal power at equal salt. THAT IS NOT A LICENCE TO SPEND")
+    print("    IT. The headroom exists because this plant holds")
+    th, vol, d = blanket_density(fill)
+    ms_mw, ms_v, _b, _s = POWER_DENSITY_REF["MSFR, whole fuel circuit"]
+    print(f"    {salt_litres_per_mw(th, vol):.1f} litres of salt per MW against"
+          f" {salt_litres_per_mw(ms_mw, ms_v):.1f}, and that is bought")
+    print(f"    by an ASSUMED {_mat_mod().SALT_RESIDENCE_S:.0f} s loop transit."
+          " Shorten the transit and the")
+    print("    inventory falls and the density rises in exact proportion. So")
+    print("    the headroom is a property of an assumption, not of a design,")
+    print("    and it may not be quoted as margin.")
+    print()
+    print("    SECOND, THE DECAY HEAT, AND HERE THE MODEL CAN BE CHECKED.")
+    print()
+    print(f"      MSRE, published        {100 * MSRE_DECAY_FRACTION:6.3f} %"
+          f" of full power at {MSRE_DECAY_T_S / 3600.0:.1f} h")
+    got = R.decay_fraction(MSRE_DECAY_T_S)
+    print(f"      this model returns     {100 * got:6.3f} %"
+          f"   -- agreeing to {got / MSRE_DECAY_FRACTION:.3f}")
+    print()
+    print("    That is the Wigner-Way constants checked against a PUBLISHED")
+    print("    molten-salt reactor figure by a route that shares nothing with")
+    print("    it, and it is the only such check this work has found.")
+    print()
+    print("    THE TRANSIENT IS INVARIANT IN BEAM POWER, and that is the")
+    print("    second half of the answer. The decay heat goes as the power and")
+    print("    the salt mass goes as the power, so the adiabatic rise --")
+    print(f"    restart.py's {R.adiabatic_rise_k(3600.0):.0f} K in the first"
+          " hour -- is the SAME at every")
+    print("    station size. A bigger station does not have a worse transient.")
+    print("    It has a bigger duty:")
+    print()
+    for lab, st in (("pre-decision station", base),
+                    ("baseline-meeting station", fill)):
+        duty = decay_removal_duty_mw(st)
+        print(f"      {lab:<26} {duty:7.1f} MW at 1 h"
+              f"   = {duty / DRACS_MW:5.1f} passive systems")
+    print()
+    print(f"    A passive residual-heat system is sourced at"
+          f" {DRACS_MW:.2f} MW. The duty here is")
+    print(f"    {decay_removal_duty_mw(fill) / DRACS_MW:.0f} times one, so"
+          " decay-heat removal is ACTIVE and large, which")
+    print("    restart.py already says in its own words -- the plant cannot be")
+    print("    walked away from. This states the size of what cannot be walked")
+    print("    away from.")
+    print()
+    print("    WHAT IS STILL NOT COMPUTABLE HERE, AND IS NOW A SHORT LIST")
+    print("    RATHER THAN AN OPEN QUESTION:")
+    print("      the CORE volume, and so the core power density, which needs a")
+    print("        geometry this work does not have")
+    print("      the coolant velocity, pumping power and erosion limit, which")
+    print("        need that geometry too")
+    print("      the structural damage limit at the flux the blanket runs at")
+    print("    None of the three is bounded by anything published, because")
+    print("    each is a property of a design rather than of a class.")
     print()
 
 WORLD_CIVIL_TRITIUM_KG = 25.0   # SOURCED band: the heavy-water reactor stock
@@ -2833,7 +3163,9 @@ def selftest():
                        ("routes", report_routes),
                        ("rescale", report_rescale),
                        ("driver", report_driver),
-                       ("current", report_current)):
+                       ("current", report_current),
+                       ("linac", report_linac),
+                       ("blanket", report_blanket)):
         try:
             _b = _io.StringIO()
             with _c.redirect_stdout(_b):
@@ -2998,6 +3330,71 @@ def selftest():
           _raises_value(lambda: record_current_ma("IMAGINED")))
 
     print()
+    print("  the driver re-scaled, and the standby term that decides it")
+    _built = max(p for e, p, st in LINAC_CLASS.values() if st == "OPERATED")
+    _bldg = max(p for e, p, st in LINAC_CLASS.values() if st == "BUILDING")
+    _std = max(p for e, p, st in LINAC_CLASS.values() if st == "STUDIED")
+    _at8 = max(p for e, p, st in LINAC_CLASS.values() if e >= BEAM_GEV)
+    check("the assumed driver is larger than anything under construction",
+          LINAC_BEAM_MW > _bldg)
+    check("  -- and larger than anything ever studied",
+          LINAC_BEAM_MW > _std)
+    check("  -- and several times the largest studied at route A's energy",
+          LINAC_BEAM_MW / _at8 >= 4.0)
+    # THE FINDING, and it is a spread rather than a number: the standby's
+    # scaling law is not stated anywhere, and the two ends are a whole plant
+    # apart. Pinned so it cannot be quietly resolved by picking one.
+    _fix = station_at_driver(_built, standby_fixed)
+    _sca = station_at_driver(_built, standby_scaled)
+    check("at a driver of operated size the two standby readings diverge",
+          standby_load_mw(_fix) > 10.0 * standby_load_mw(_sca))
+    check("  -- by a load comparable to the whole station's net output",
+          standby_load_mw(_fix) - standby_load_mw(_sca)
+          > 0.5 * station_at_driver(LINAC_BEAM_MW)["net_mw"])
+    check("  -- and the beam follows it, at one end and not the other",
+          _fix["beam_mw"] > 1.5 * _sca["beam_mw"])
+    check("scaled standby makes the division of the beam free",
+          abs(standby_load_mw(station_at_driver(5.0, standby_scaled))
+              - standby_load_mw(station_at_driver(LINAC_BEAM_MW,
+                                                  standby_scaled))) < 1.0)
+    check("the assumed driver is kept rather than re-chosen",
+          "THE DESIGN KEEPS ITS ASSUMED" in
+          _capture_ps(report_linac).upper())
+    check("a driver of no power is refused",
+          _raises_value(lambda: built_station(1, linac_mw=0.0)))
+
+    print()
+    print("  the blanket ceiling, bounded")
+    _base = station(k_eff=K_SAFE)
+    _fill = station(module_mw=SPALL_TARGET_MW["ESS, design"], k_eff=K_DESIGN)
+    _d0 = blanket_density(_base)[2]
+    _d1 = blanket_density(_fill)[2]
+    # THE CORRECTION --driver OWED. The inventory scales with the heat, so a
+    # bigger station is bigger and not denser.
+    check("the circuit power density does not move with station size",
+          abs(_d1 / _d0 - 1.0) < 1e-9)
+    check("  -- and --driver now says so where it read it the other way",
+          "IT DOES NOT" in _capture_ps(report_driver))
+    check("the plant is less dense than the one published circuit figure",
+          beam_headroom_to() > 1.0)
+    check("  -- and a CORE figure is refused as a comparison",
+          _raises_value(lambda: beam_headroom_to("MSFR, core only")))
+    check("the headroom is stated as an assumption's doing, not as margin",
+          "may not be quoted as margin" in _capture_ps(report_blanket))
+    sys.path.insert(0, HERE)
+    import restart as _R
+    check("the decay model reproduces the published MSRE figure",
+          0.9 < _R.decay_fraction(MSRE_DECAY_T_S) / MSRE_DECAY_FRACTION < 1.2)
+    # THE TRANSIENT IS INVARIANT because both terms scale with the power.
+    check("the adiabatic rise is invariant in station size",
+          abs(decay_removal_duty_mw(_fill) / _fill["thermal_mw"]
+              - decay_removal_duty_mw(_base) / _base["thermal_mw"]) < 1e-12)
+    check("  -- while the removal DUTY is not, and is many passive systems",
+          decay_removal_duty_mw(_fill) / DRACS_MW > 10.0)
+    check("a zero volume has no power density",
+          _raises_value(lambda: power_density_mw_m3(100.0, 0.0)))
+
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -3026,6 +3423,9 @@ def main():
     ap.add_argument("--driver", action="store_true", help=report_driver.__doc__)
     ap.add_argument("--current", action="store_true",
                     help=report_current.__doc__)
+    ap.add_argument("--linac", action="store_true", help=report_linac.__doc__)
+    ap.add_argument("--blanket", action="store_true",
+                    help=report_blanket.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -3055,6 +3455,10 @@ def main():
         return report_driver()
     if a.current:
         return report_current()
+    if a.linac:
+        return report_linac()
+    if a.blanket:
+        return report_blanket()
     return report()
 
 

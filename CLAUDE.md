@@ -657,11 +657,11 @@ average, and it **spends no safety**: k is composition, so more source neutrons 
 margin and the always-subcritical property untouched. **The ceiling is not computed here, and that
 is the finding**: net is *exactly* linear in beam at a fixed driver count, so the model returns more
 output for more beam without limit, which is a property of the model and not of the plant. The
-blanket is not split, so this is **1.39×** the power density in the same blanket — and every
-downstream inventory (`materials.py`'s salt flow, salt and heavy-metal inventories and drain tank,
-`restart.py`'s decay heat) is derived from the **pre-decision** station's 3,364 MW. Nothing here
-computes a maximum blanket power density, a core volume or a coolant-flow limit, so nothing here can
-say where adding beam stops paying. **Owed before phase 4 states a station size as achievable.**
+blanket is not split, and every downstream inventory (`materials.py`'s salt flow, salt and
+heavy-metal inventories and drain tank, `restart.py`'s decay heat) is derived from the
+**pre-decision** station's 3,364 MW and is **understated by 1.39×**. That paragraph first read the
+1.39 as a factor on the *power density* — **`--blanket` corrects it**, and the correction stands in
+the section that made the error.
 **`--current` then asks what the drivers *are* rather than what they do, and corrects `--routes` on
 its own terms.** `P[MW] = I[mA]·E[GeV]` exactly, so at fixed beam power **the current is inversely
 proportional to the energy** — and the 8 GeV is therefore *not* bought by pion production alone, it
@@ -682,6 +682,40 @@ that has been designed for, route A's driver count barely moves (12 → 8) and *
 `REF_STANDBY_KW` is a band for a driver of unstated size and nothing here scales it with machine
 size — owed before any route is priced on its accelerator count. **The file does not decide the route
 on it**; what it removes is the sentence that made route C's driver sound like an ordinary order.
+**`--linac` then re-scales the driver the way `--rescale` re-scaled the module, and opens the term
+that turns out to matter most.** `LINAC_BEAM_MW = 20.0` is marked ASSUMED — *"4× ESS, and four of
+them"* — and against what proton linacs actually are it is **4.00×** the largest under construction
+(ESS, 5 MW), **1.33×** the largest ever studied (a 15 MW CW driver) and **5.00×** the largest ever
+studied at route A's own energy (Project X's 4 MW at 8 GeV). Rebuilding the station out of each class
+exposes a term nothing here states: `REF_STANDBY_KW` is a driver's fixed cryogenic and rf load,
+sourced as a band **for a machine of unstated size**, and nothing says whether it is fixed per machine
+or scales with the machine. **The two ends are a whole plant apart.** At a driver of the largest power
+ever *operated*, 1.4 MW, the standby load is **40 MW electric** if it scales and **1,037 MW** if it is
+fixed — against a station that nets 1,162 MW — and the beam follows it, **435 MW against 240**, a
+factor of **1.81**, because every driver added to carry the beam brings a load the beam must then
+carry. **This is the largest unpriced term in the plant** and it was invisible while the driver size
+was assumed. **One number from an operating machine would settle it**: a superconducting proton
+linac's fixed load stated beside its beam power — an ordinary operating quantity, not found published
+in usable form. **The design keeps its assumed 20 MW driver**, because changing it would be choosing
+an answer rather than measuring it.
+**`--blanket` then bounds the ceiling `--driver` left open, and corrects `--driver` in doing it.**
+A density over the **core** is not a density over the whole fuel **circuit** — in the one design
+publishing both they differ by two — and this plant's figure is a **circuit** figure, because
+`materials.py` sizes the inventory from the loop transit and states **no core volume**; core rows are
+printed for scale and not compared. The plant sits at **22.0 MW/m³** against the MSFR's circuit figure
+of **166.7**, and **the density does not move with station size**: the inventory is flow × loop
+transit and the flow is set by the heat, so a bigger station holds proportionally more salt. **Adding
+beam makes this plant bigger, not denser** — which withdraws `--driver`'s reading of the 1.39× as a
+factor on power density. The headroom is **7.58×** in thermal power at equal salt and **may not be
+quoted as margin**: it exists because the plant holds **45.5 litres of salt per MW against 6.0**, and
+that is bought by an *assumed* 30 s loop transit. The decay model is then checked where it can be —
+**MSRE's published 1.000 % of full power at 1.5 h against this model's 1.083 %**, the Wigner–Way
+constants against a published molten-salt figure by a route sharing nothing with it. **The transient
+is invariant in beam power** (decay heat and salt mass both scale), so `restart.py`'s 361 K rise holds
+at every size; what grows is the **duty**, **55.4 MW at 1 h** against a sourced passive system's
+2.36 MW — **23 of them**. Three things remain not computable and are now a list rather than a
+question: the **core volume**, the **coolant velocity and pumping limit**, and the **structural damage
+limit** — each a property of a design rather than of a class.
 
 **`tools/criticality.py`** (**can handling or storing this fuel cause an accident** — asked directly,
 and answered with the discipline's own arithmetic rather than with reassurance, because nothing here

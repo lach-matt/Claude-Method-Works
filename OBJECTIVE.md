@@ -120,9 +120,11 @@ density in **one** blanket, and the baseline-meeting station runs at **1.39×**
 the thermal power at which every downstream inventory is computed — `materials.py`
 derives the salt flow, the salt and heavy-metal inventories and the drain tank
 from `station()`'s thermal figure, and `restart.py` takes the decay heat from the
-same one. Nothing in this repository computes a maximum blanket power density, a
-core volume or a coolant-flow limit. **Owed before phase 4 states a station size
-as achievable.**
+same one, so all of them are understated by that factor. **The reading that the
+1.39 was a factor on the power density is withdrawn**: the salt inventory is flow
+times loop transit and the flow is set by the heat, so a bigger station holds
+proportionally more salt and the density does not move. `--blanket` carries the
+correction and the bound; the residue is named there.
 
 ## The phases
 

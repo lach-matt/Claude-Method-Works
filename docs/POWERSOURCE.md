@@ -381,8 +381,7 @@ Net is **exactly linear** in beam at a fixed driver count — the selftest asser
 is zero — so this model will hand back more output for more beam without limit. **That is a property
 of the model and not of the plant.**
 
-The blanket is **not split** (splitting is refused separately, at 2.71× the leakage for twenty ways),
-so beam is power density in **one** blanket:
+The blanket is **not split** (splitting is refused separately, at 2.71× the leakage for twenty ways):
 
 | | thermal |
 |---|---:|
@@ -391,12 +390,15 @@ so beam is power density in **one** blanket:
 
 `materials.py` takes the station whole from `station()` and derives the salt flow, the salt inventory,
 the heavy-metal inventory and the drain tank **from its thermal power**; `restart.py` takes the decay
-heat from the same figure. Every one of those is therefore computed at the pre-decision station.
+heat from the same figure. Every one of those is computed at the pre-decision station and is
+**understated by 1.39×**.
 
-Nothing in this repository computes a **maximum** blanket power density, a core volume or a
-coolant-flow limit, so nothing here can say where adding beam stops paying. **Recorded as owed, in
-the same shape as `criticality.py`'s refusal to compute a moderated `k`** — and owed before phase 4
-states a station size as achievable.
+**A correction this section owes.** It first read that factor as a factor on the *power density*, on
+the reasoning that one unsplit blanket taking more beam must run denser. **It does not** — the
+blanket's volume is not fixed either: the inventory is flow times loop transit and the flow is set by
+the heat, so a bigger station holds proportionally more salt and the density does not move. What is
+understated is the **inventories**. `--blanket` below is where that was found, and it bounds the
+density question rather than leaving it open.
 
 ## `--current` — the driver as a machine, and the correction it forces on `--routes`
 
@@ -477,3 +479,109 @@ count.**
 
 **This file does not decide the route on it.** What it removes is the sentence that made route C's
 driver sound like an ordinary order.
+
+## `--linac` — the driver re-scaled, and the term that decides it
+
+`--rescale` asked what sets the **module** size and found the answer was a pion target route C does
+not have. `LINAC_BEAM_MW = 20.0` had never been asked the same question — it is marked ASSUMED,
+*"4× ESS, and four of them"* — and `--current` showed the assumption is load-bearing.
+
+**What proton linacs actually are:**
+
+| machine | GeV | MW | mA | status |
+|---|---:|---:|---:|---|
+| PSI HIPA, CW | 0.590 | 1.40 | 2.373 | OPERATED |
+| SNS, design power | 1.000 | 1.40 | 1.400 | OPERATED |
+| Project X, 8 GeV upgrade | 8.000 | 4.00 | 0.500 | STUDIED |
+| ESS | 2.000 | 5.00 | 2.500 | BUILDING |
+| BNL HFBR SC linac | 1.000 | 10.00 | 10.000 | STUDIED |
+| CW proton driver study | 2.000 | 15.00 | 7.500 | STUDIED |
+
+The assumed 20 MW driver is **4.00×** the largest under construction, **1.33×** the largest studied
+anywhere, and **5.00×** the largest ever studied at route A's own energy.
+
+**The station built out of each class, at both ends of the standby question** — and the two ends are
+the finding:
+
+| driver MW | drivers | beam MW | standby MWe | drivers | beam MW | standby MWe |
+|---:|---:|---:|---:|---:|---:|---:|
+| | *standby FIXED per machine* | | | *standby SCALED with size* | | |
+| 20.00 | 12 | 240.0 | 40.0 | 12 | 240.0 | 40.0 |
+| 15.00 | 16 | 240.0 | 53.3 | 16 | 240.0 | 40.0 |
+| 10.00 | 25 | 245.0 | 83.3 | 24 | 240.0 | 40.0 |
+| 5.00 | 53 | 265.0 | 176.7 | 48 | 240.0 | 40.0 |
+| 4.00 | 69 | 275.0 | 230.0 | 60 | 240.0 | 40.0 |
+| **1.40** | **311** | **435.0** | **1036.7** | **172** | **240.0** | **40.1** |
+
+Both halves are the same plant. The only difference is an assumption nobody has written down.
+`REF_STANDBY_KW` is a driver's fixed cryogenic and rf load, sourced as a band for a machine of
+*unstated size*, and nothing states how it scales — fixed per machine, or with the machine's size.
+
+At a driver of the largest power ever **operated**, 1.4 MW, the standby load is **40 MW electric at
+one end and 1,037 MW at the other**, against a station that nets about 1,162 MW. **The difference is
+comparable to the whole output.** It also decides whether that station exists: with the load fixed
+per machine, a station of operated-class drivers needs **435 MW** of beam against 240 — a factor of
+**1.81**, because every driver added to carry the beam brings a load the beam must then carry. With
+the load scaling, the division is free and the beam does not move at all.
+
+**This is now the largest unpriced term in the plant**, and it was invisible while the driver size was
+assumed. **What would settle it is one number from an operating machine**: the fixed cryogenic and rf
+load of a superconducting proton linac, stated beside that machine's beam power — an ordinary
+operating quantity at every facility in the table, not found published in usable form.
+
+**Until it is, the driver size is not a free choice.** The design keeps its assumed 20 MW driver,
+because changing it would be choosing an answer to that question rather than measuring it. The
+assumption is now recorded with its consequence rather than carried silently.
+
+## `--blanket` — the ceiling `--driver` left open, bounded
+
+**The basis matters and is the easiest thing to get wrong.** A power density over the **core** is not
+one over the whole fuel **circuit**; in the one design that publishes both they differ by two, the
+fraction of the salt in the core. This plant's figure is a **circuit** figure, because `materials.py`
+sizes the inventory from the loop transit and states **no core volume** — so core rows are printed for
+scale and explicitly not compared.
+
+| reference | MWth | m³ | MW/m³ | basis |
+|---|---:|---:|---:|---|
+| MCFR, optimised | 2,500 | 25.0 | 100.0 | CORE (not compared) |
+| MSFR, whole fuel circuit | 3,000 | 18.0 | **166.7** | CIRCUIT |
+| MSFR, core only | 3,000 | 9.0 | 333.3 | CORE (not compared) |
+| this plant, pre-decision | 3,364 | 152.9 | **22.0** | CIRCUIT |
+| this plant, baseline-meeting | 4,684 | 212.9 | **22.0** | CIRCUIT |
+
+**The density does not move with station size.** The inventory is flow × loop transit and the flow is
+set by the heat, so a bigger station holds proportionally more salt. Adding beam does not make this
+plant denser — it makes it bigger. **That corrects `--driver`**, which had read the 1.39× thermal
+factor as a factor on power density.
+
+Against the one published circuit figure the headroom is **7.58×** in thermal power at equal salt.
+**That is not a licence to spend it.** The headroom exists because this plant holds **45.5 litres of
+salt per MW against 6.0**, and that is bought by an **assumed** 30 s loop transit. Shorten the transit
+and the inventory falls and the density rises in exact proportion. **The headroom is a property of an
+assumption, not of a design, and may not be quoted as margin.**
+
+**The decay model can be checked, and this is the only place it can be.**
+
+| | |
+|---|---:|
+| MSRE, published | 1.000 % of full power at 1.5 h |
+| this model returns | 1.083 % — agreeing to **1.083** |
+
+That is the Wigner–Way constants checked against a *published* molten-salt reactor figure by a route
+sharing nothing with it.
+
+**The transient is invariant in beam power.** Decay heat goes as the power and the salt mass goes as
+the power, so `restart.py`'s 361 K adiabatic rise in the first hour is the same at every station size.
+A bigger station does not have a worse transient — it has a bigger **duty**: 39.8 MW at 1 h
+pre-decision, **55.4 MW** at the baseline-meeting station, against a sourced passive residual-heat
+system's 2.36 MW. **23 of those**, so decay-heat removal is active and large — which is the size of
+what `restart.py` means when it says the plant cannot be walked away from.
+
+**What is still not computable here** — a short list now rather than an open question:
+
+- the **core volume**, and so the core power density, which needs a geometry this work does not have;
+- the **coolant velocity, pumping power and erosion limit**, which need that geometry too;
+- the **structural damage limit** at the flux the blanket runs at.
+
+None of the three is bounded by anything published, because each is a property of a design rather than
+of a class.
