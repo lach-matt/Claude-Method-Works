@@ -4432,3 +4432,66 @@ Graham–Olum is structurally unavailable"* — overturned by `anecscope.py`, st
 ### Seated
 - `reverse.py` — new. `spec.py` — stale ANEC line struck.
 - `index3.py` — **322 findings**, six new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `contain.py` — what must be contained in miniature, and what that buys
+
+**A negative-energy core.** That's the whole answer to the first half, and the tree already specifies
+it end to end:
+
+| | file | |
+|---|---|---|
+| **contents** | `core.py` | exact interior Schwarzschild with `ρ < 0`; Hawking–Ellis **Type I** measured at `\|Im\|/‖T‖` 1e-7 to 1e-8; `p(0)/\|ρ\| → 1/3` from below; **no Buchdahl limit** — a negative mass has none |
+| **container** | `concentric.py` | a positive shell of equal magnitude at `R_s`, cancelling the monopole so `M_ADM = 0` exactly |
+| **it holds** | `stability.py` | `V″ = +2.965e-2` against an ordinary shell's `−3.036e-2`; stable for free at `β² = 0` |
+
+> **The container was never the problem. It is the contents.**
+
+### Miniature is the right instinct — and it is forced
+
+`shaping.py`'s derived ceiling, `|ρ| ≤ (π²/192)ℏc/a⁴`, means a region of radius `a` may hold
+
+> **`M ≤ 0.215321 ℏ/(ac)`** — which **rises** as the core shrinks
+
+and `scale.py`'s shortfall falls as `(a/ℓ_P)²`. **Shrinking is the only direction in which the vacuum
+ever catches up.** At any larger scale the density the corridor needs simply is not permitted — so
+miniature is not a preference, it's a **necessity**.
+
+### And it buys exactly nothing, because `a` cancels
+
+| a (m) | `M_max` (kg) | `Δd_max` (m) | in ℓ_P |
+|---|---|---|---|
+| 1e-9 | 7.5743e-35 | 5.6150e-61 | 3.47e-26 |
+| 1e-15 | 7.5743e-29 | 5.6150e-55 | 3.47e-20 |
+| ℓ_P | 4.6863e-09 | 3.4741e-35 | **2.1495** |
+
+Both scale as `1/a`. The mass allowed rises as the core shrinks and the contraction delivered rises in
+**exactly the same proportion**, so
+
+> **`M/Δd = c²/(GΛ)`** — no length in it, and no trace of `ℏ`
+
+Checked by a route sharing no algebra with phase 1:
+
+| | |
+|---|---|
+| Planck-sized cores per metre | **2.8785×10³⁴** |
+| each of mass | 0.2153 `m_Planck` |
+| total | **1.3489×10²⁶ kg/m** |
+| phase 1's exchange rate | **1.3489×10²⁶ kg/m** |
+| **ratio** | **1.000000** |
+
+**The containment question and the cost question are the same question from opposite ends** — the
+reversal rule landing a third time.
+
+### The answer, and the caveat
+
+> **You do not need to contain anything in miniature. You need to contain 1.349×10²⁶ kg of negative mass
+> per metre of contraction, and the packaging is free to choose.** Miniature is forced by the ceiling
+> and changes the bill by nothing — you simply need 2.9×10³⁴ of them.
+
+And at `a = ℓ_P` all five of `scale.py`'s approximations fail at once. **"A Planck-sized negative-energy
+core" is not a component specification. It is the edge of the map, wearing a component's name.**
+
+### Seated
+- `contain.py` — new. `index3.py` — **329 findings**, seven new. Still 15 cells, `E(X) = 0`.
