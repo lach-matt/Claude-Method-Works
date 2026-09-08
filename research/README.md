@@ -4818,3 +4818,72 @@ their integrands vanish at the limit (`smearing.py` 1.9e-21, `phase1.py` 0.0).
 
 ### Seated
 - `gate.py` — new. `index3.py` — **353 findings**, six new plus support row `SIMPSON-ODD`.
+
+---
+
+## `bothways.py` — a device for both space *and* time: yes, and it's a third mode
+
+### The capability difference: the knobs come apart
+
+`unified.py` measured the corridor **locked** — one Φ, two exponents, **ratio exactly 2**, space and
+time unmovable separately at any strength or sign. A wormhole has **two independent parameters**:
+
+| | sets | |
+|---|---|---|
+| **throat** | the spatial shortcut | mouth separation |
+| **mouth offset** | the temporal displacement | differential aging |
+
+**Neither constrains the other.** That decoupling is the whole capability gain, and the corridor could
+not do it at all.
+
+### And the time half costs no exotic matter
+
+The throat needs `ρ < 0` and is bought once. The offset is bought with **kinematics** —
+`Δt = τ(γ − 1)`:
+
+| β | γ | τ to bank 4 years | exotic matter |
+|---|---|---|---|
+| 0.500 | 1.155 | 25.86 yr | **none** |
+| 0.866 | 2.000 | 4.00 yr | **none** |
+| 0.999 | 22.37 | 0.19 yr | **none** |
+
+Propellant to accelerate a mouth's ADM mass — an ordinary bill, at any magnitude.
+
+### Three operating modes, and the middle one is the answer
+
+| mode | offset | space | time | CTC | status |
+|---|---|---|---|---|---|
+| **GATE** | 0 | yes | no | no | safest; amortises |
+| **SHIFTED** | `0 < Δt < D/c` | **yes** | **YES** | **no** | **both, and legal** |
+| TIME MACHINE | `Δt > D/c` | yes | yes | **YES** | unresolved |
+
+Below `D/c` the spacetime stays **chronology-respecting** — no closed timelike curves, nothing for
+chronology protection to act against — and you still get a genuine time displacement on top of the
+spatial shortcut.
+
+> **The usable window is `D/c`: four years for a four-light-year gate, a century for a hundred.
+> The window GROWS with separation** — the opposite of every other scaling in this project, and the
+> first quantity here that improves with distance.
+
+### The one limit no device beats
+
+The offset is **accumulated**, so it cannot exceed the gate's own age.
+
+> **You can never reach back before the gate was built.**
+
+A property of the construction, not of technology — the quantity is a sum over elapsed time and the sum
+starts at construction. Nothing to improve.
+
+### Only mode three is open
+
+Past `D/c`: Kim–Thorne (the Cauchy-horizon divergence is cut off at the Planck scale) against Hawking
+(it is not, and the machine is destroyed as it forms) — **unresolved since 1991**, and already carried
+`NOT-RUN` in `scale.py`. **The shifted mode never enters that regime**, so nothing here rests on it.
+
+### And what does not move
+
+The throat still needs `ρ < 0` — 17.9 Earth masses at human scale, 0.081 M☉ at three kilometres — and
+the far mouth must still be carried there at sublight first. **This adds capability, not permission.**
+
+### Seated
+- `bothways.py` — new. `index3.py` — **359 findings**, six new. Still 15 cells, `E(X) = 0`.
