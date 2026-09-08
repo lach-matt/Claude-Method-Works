@@ -964,3 +964,25 @@ C968	the same as electricity	10133	MWh	DERIVED	C967 x C923	fn:kg_electric
 C969	fertile a household burns in a year	0.99	g	DERIVED	powersource.py --scale	fn:grams_home_year
 C970	years one kilogramme runs one household	1013	years	DERIVED	C968 / 10,000 kWh	fn:home_years_kg
 C971	aluminium's pion yield against lead's, per interaction	0.752	x	DERIVED	HARP large-angle, same spectrometer; sigma_inel by A^2/3 from lead	fn:al_over_pb
+C972	free muon decay rate	4.5517e5	s^-1	MEASURED	PDG mean life 2.1969811 us	fn:q_lambda_0_free
+C973	hydrogen-isotope pairs a muon can bind	6	count	DERIVED	p,d,t taken two at a time with repetition	fn:q_pairs_scanned
+C974	cycles per muon, d-t, from the two-loss model	113.08	cycles	DERIVED	1/(omega_s + lambda_0/lambda_c)	fn:q_cycles_dt_model
+C975	cycles per muon, d-d	2.36	cycles	DERIVED	the same model at d-d's rate and sticking	fn:q_cycles_dd
+C976	cycles per muon, t-t	2.26	cycles	DERIVED	the same model at t-t's rate and sticking	fn:q_cycles_tt
+C977	energy per muon, d-t	1989.1	MeV	DERIVED	cycles x Q for the pair	fn:q_energy_per_muon_dt
+C978	energy per muon, t-t	25.55	MeV	DERIVED	the same	fn:q_energy_per_muon_tt
+C979	energy per muon, d-d	8.62	MeV	DERIVED	the same	fn:q_energy_per_muon_dd
+C980	d-t over the second-best pair, energy per muon	77.85	x	DERIVED	C977 / C978	fn:q_dt_over_second
+C981	d-t over d-d, energy per muon	230.76	x	DERIVED	C977 / C979	fn:q_dt_over_dd_energy
+C982	d-t over d-d, neutrons per muon	95.77	x	DERIVED	the same ratio on neutron yield	fn:q_dt_over_dd_neutrons
+C983	fuel model against its one measured point	0.7539	ratio	DERIVED	C974 / C44	fn:q_fuel_model_fidelity
+C984	d-t share of fusions at the deuterium equilibrium	0.3333	fraction	DERIVED	0.5 f_dd = f_dt with f_dd + f_dt = 1	fn:q_selftrit_f_dt
+C985	d-d share of fusions at the same equilibrium	0.6667	fraction	DERIVED	the complement	fn:q_selftrit_f_dd
+C986	equilibrium tritium atom fraction in a deuterium cell	0.6211	percent	DERIVED	the concentration that produces C984	fn:q_selftrit_atom_pct
+C987	equilibrium tritium mass fraction	0.9273	percent	DERIVED	C986 by mass	fn:q_selftrit_mass_pct
+C988	cycles per muon at the deuterium equilibrium	3.51	cycles	DERIVED	the two-loss model at the mixed rate and sticking	fn:q_selftrit_cycles
+C989	energy per fusion at the deuterium equilibrium	8.297	MeV	DERIVED	the branch-weighted Q	fn:q_selftrit_q_per_fusion
+C990	energy per muon at the deuterium equilibrium	29.09	MeV	DERIVED	C988 x C989	fn:q_selftrit_energy_per_muon
+C991	neutrons per muon at the deuterium equilibrium	2.337	neutrons	DERIVED	C988 x the branch-weighted neutron yield	fn:q_selftrit_neutrons_per_muon
+C992	tritium holding of a deuterium cell against a d-t cell	64.71	x	DERIVED	0.600 / C987	fn:q_selftrit_holding_factor
+C993	fusion channel of a deuterium cell against a d-t cell	48.38	x	DERIVED	d-t neutrons per muon / C991	fn:q_selftrit_channel_factor

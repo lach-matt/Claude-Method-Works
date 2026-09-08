@@ -53,6 +53,7 @@ sys.path.insert(0, HERE)
 
 import collector  # noqa: E402
 import mucf       # noqa: E402
+import window     # noqa: E402
 
 ALPHA = 1 / 137.036
 
@@ -3519,6 +3520,104 @@ def cop_over_delivered_e4():
 def cop_census_agreement():
     """The census's scaling of the PRINTED 176 against the instrument's chain."""
     return _cen("176 kW") / cop_kw_delivered()
+
+
+
+# ---- Theorem 2, the fuel scan, and the self-tritiation equilibrium ---------
+# All of these read window.py, which owns the scan. Nothing is restated here.
+def _fuel(name):
+    return [r for r in window.fuel_table() if r[0] == name][0]
+
+
+def q_lambda_0_free():
+    return window.LAMBDA_0
+
+
+def q_pairs_scanned():
+    return float(len([r for r in window.fuel_table()
+                      if set(r[0].split("-")) <= {"p", "d", "t"}]))
+
+
+def q_cycles_dt_model():
+    return _fuel("d-t")[5]
+
+
+def q_cycles_dd():
+    return _fuel("d-d")[5]
+
+
+def q_cycles_tt():
+    return _fuel("t-t")[5]
+
+
+def q_energy_per_muon_dt():
+    return _fuel("d-t")[6]
+
+
+def q_energy_per_muon_tt():
+    return _fuel("t-t")[6]
+
+
+def q_energy_per_muon_dd():
+    return _fuel("d-d")[6]
+
+
+def q_dt_over_second():
+    tab = sorted(window.fuel_table(), key=lambda r: -r[6])
+    return tab[0][6] / tab[1][6]
+
+
+def q_dt_over_dd_energy():
+    return _fuel("d-t")[6] / _fuel("d-d")[6]
+
+
+def q_dt_over_dd_neutrons():
+    return _fuel("d-t")[7] / _fuel("d-d")[7]
+
+
+def q_fuel_model_fidelity():
+    return window.model_fidelity()
+
+
+def q_selftrit_f_dt():
+    return window.selftritiation()[0]
+
+
+def q_selftrit_f_dd():
+    return window.selftritiation()[1]
+
+
+def q_selftrit_atom_pct():
+    return 100.0 * window.selftritiation()[2]
+
+
+def q_selftrit_cycles():
+    return window.selftritiation()[3]
+
+
+def q_selftrit_energy_per_muon():
+    return window.selftritiation()[4]
+
+
+def q_selftrit_neutrons_per_muon():
+    return window.selftritiation()[5]
+
+
+def q_selftrit_mass_pct():
+    return 100.0 * window.selftritiation()[6]
+
+
+def q_selftrit_holding_factor():
+    return 0.600 / window.selftritiation()[6]
+
+
+def q_selftrit_channel_factor():
+    return _fuel("d-t")[7] / window.selftritiation()[5]
+
+
+def q_selftrit_q_per_fusion():
+    f_dt, f_dd = window.selftritiation()[0], window.selftritiation()[1]
+    return f_dt * 17.59 + f_dd * 3.65
 
 
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
