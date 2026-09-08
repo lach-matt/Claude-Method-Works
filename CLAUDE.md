@@ -820,6 +820,27 @@ swing is an unmeasured constant is a statement about the constant. What it repor
 work in: **the standby scaling law**, **the wall-plug-to-beam efficiency measured rather than banded**,
 and **the transport calculation on the fissile fraction** — only after those three is a redesign a
 design decision rather than a guess about a measurement. See `docs/EXPLORE.md`)
+**`--basis` then answers the half of the question the search left open, and the author supplied the
+correction that forced it**: "measure first" is right for a term that *can* be measured first, and a
+first-of-a-kind has terms that cannot — nobody has run a 20 MW proton linac, so waiting for its
+standby is waiting for the machine the measurement is for, **which is circular**. So the design basis
+bounds the terms and designs through them. **It is one inequality, per unit of beam** —
+`G(k)·η_th·(1−dry) > 1/η_acc` — and **standby, driver size and module size do not appear in it**: they
+set how much beam a station needs and cannot set whether beam helps, so **of the unmeasured terms only
+two can decide whether the plant exists** and the rest decide only its size. The closure floor in k is
+therefore a function of the accelerator alone: **0.8385 at η_acc = 0.20, 0.7670 at 0.30, 0.6393 at
+0.50**. **And the finding it was built to get**: the design's margin at 0.900 is **0.1330** in k and
+the one-group model's own uncertainty is **0.1350** — **the same number**, so the whole margin against
+non-existence is the uncertainty of the model that placed it. That yields **three requirements rather
+than three measurements**: k_eff ≥ **0.767** transport-grade (≥ 0.838 at the bottom of the accelerator
+band); **η_acc ≥ 0.516**, which buys twice the model's uncertainty and makes not knowing k a
+*purchase* rather than a discovery; and a **20 MW, 8 GeV driver**, a requirement because at the
+measured standby a station of operated-class drivers does not close — **and no machine of this class
+exists**. The cost table then separates the two kinds of unknown: down a column (worse standby, worse
+accelerator) costs **beam**; across a row (worse k) **runs out of plant**. **The price is stated and
+not hidden — a design basis is not a witness.** It says the mathematics closes across the range the
+constants could take; it does not say the machine has been seen to.
+
 **`tools/provenance.py`** (**what every number in the design rests on**, and it exists because the
 mathematics does not contain its own constants. Every relation here is a theorem or arithmetic and
 stays exact at any precision; ν = 2.9 is a measurement, the 25–30 neutrons per GeV is a measurement,

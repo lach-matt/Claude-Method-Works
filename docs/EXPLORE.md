@@ -142,3 +142,83 @@ That the design point reproduces `powersource`'s own re-scaled station; that k i
 it is approached; that redesign buys less than 2× while the owed axes cost more than an order of
 magnitude more; that every pair is scanned rather than asserted about and that the pairs reaching no
 closure all pair two of the three largest axes; and that the report states it reports no optimum.
+
+## `--basis` — the design basis: what must be *true*, not what must be measured
+
+The section above reads *"measure first, then design"*, and for a term that **can** be measured first
+that is right — the driver standby was, and it took a morning. **But a first-of-a-kind has terms that
+cannot be.** Nobody has run a 20 MW proton linac, so nobody has published what one's fixed load does,
+and waiting for that measurement is waiting for the machine the measurement is for. **That is
+circular**, and treating every unmeasured constant as a blocker would stop every first article ever
+built.
+
+So bound it and design through it. The question is not what the constants *are*; it is whether the
+plant exists across the whole range they could take, and **what must be true for it to**.
+
+### The basis is one inequality, and it is per unit of beam
+
+```
+G(k) · η_th · (1 − dry)  >  1 / η_acc
+```
+
+Positive and the plant delivers net electricity. Zero or below and **no station of any size does**,
+because building more beam multiplies both sides.
+
+**Standby, driver size and module size do not appear in it.** They set how much beam a station needs;
+they cannot set whether beam helps. That is the section's first result and its most useful one: **of
+the terms nobody here has measured, only two can decide whether the plant exists** — and the rest
+decide only its size.
+
+| η_acc | k must exceed | margin at k = 0.900 |
+|---:|---:|---:|
+| 0.20 | 0.8385 | 0.0615 |
+| 0.30 | **0.7670** | **0.1330** |
+| 0.40 | 0.7008 | 0.1992 |
+| 0.50 | 0.6393 | 0.2607 |
+
+### The finding the section was built to get
+
+| | |
+|---|---:|
+| margin at the design point | **0.1330** in k |
+| the one-group model's own uncertainty on an absolute k | **0.1350** |
+
+**They are the same number.** The design's whole margin against non-existence is exactly the
+uncertainty of the model that placed it there. That is not a reason to stop — it is the specification
+the transport calculation has to meet, and it is a number rather than a hope.
+
+### Three requirements
+
+**REQUIREMENT 1** — `k_eff ≥ 0.767` at η_acc = 0.30, transport-grade; and `≥ 0.838` if the accelerator
+comes in at the bottom of its band.
+
+**REQUIREMENT 2** — `η_acc ≥ 0.516` buys a k margin of **0.2700**, twice the model's uncertainty.
+**Not knowing k precisely is answered by specifying a better accelerator** — a purchase rather than a
+discovery, which is why it is the useful one.
+
+**REQUIREMENT 3** — the driver shall be **20 MW at 8 GeV**. A requirement, not a preference: at the
+measured standby a station of drivers of the largest class ever operated does not close. **No machine
+of this class exists.**
+
+### What the other unknowns cost, and it is never closure
+
+beam MW to serve the baseline; `--` means past 400 modules and therefore not a station
+
+| standby MW | η_acc | k=.900 | k=.875 | k=.850 | k=.800 |
+|---:|---:|---:|---:|---:|---:|
+| 2.98 | 0.20 | 440 | 1,360 | -- | -- |
+| 2.98 | 0.30 | **255** | 415 | 720 | -- |
+| 2.98 | 0.50 | 190 | 270 | 370 | 690 |
+| 4.29 | 0.30 | 270 | 455 | 840 | -- |
+| 11.92 | 0.30 | 380 | 900 | -- | -- |
+| 11.92 | 0.50 | 225 | 340 | 515 | 1,500 |
+
+**Read the columns, not the rows.** Moving *down* a column — worse standby, worse accelerator — costs
+beam. Moving *across* a row — worse k — runs out of plant. The two unknowns are not the same kind of
+unknown and the design must not treat them alike.
+
+### The price, stated and not hidden
+
+**A design basis is not a witness.** It says the mathematics closes across the range the constants
+could take, and that the requirements above are what make it close. **It does not say the machine has
+been seen to.** Every first article is built on exactly this, and the honest ones say so.

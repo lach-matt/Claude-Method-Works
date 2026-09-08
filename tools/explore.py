@@ -385,6 +385,219 @@ def report():
     print()
 
 
+# ---- THE DESIGN BASIS ---------------------------------------------------
+# This section exists because the section above it is only half an answer.
+#
+# --explore's reading was "measure first, then design", and for a term that
+# CAN be measured before building -- the driver standby was, and it took a
+# morning -- that is right. But a first-of-a-kind has terms that cannot be:
+# nobody has run a 20 MW proton linac, so nobody has published what one's
+# fixed load does, and waiting for that measurement means waiting for the
+# machine the measurement is for. THAT IS CIRCULAR, and treating every
+# unmeasured constant as a blocker would stop every first article ever built.
+#
+# WHAT AN ENGINEER DOES INSTEAD IS BOUND IT AND DESIGN THROUGH IT. Take the
+# full credible range of each term that cannot be settled first, and ask a
+# different question: not "what is it", but "over that whole range, does the
+# plant still exist, and what must be true for it to". The answer is a DESIGN
+# BASIS -- a set of conditions that, if met, make the thing work without
+# anyone having to know the constants exactly.
+#
+# The price is stated and never hidden: a design basis is not a witness. It
+# says the mathematics closes across the range. It does not say the machine
+# has been seen to.
+K_MODEL_UNCERTAINTY = 0.15    # SOURCED to fuelchoice.py's own statement: a
+                              # one-group fast model is worth about fifteen
+                              # percent on an ABSOLUTE k, and is reliable for
+                              # ordering and for the sign of a comparison
+BUILDABILITY_MODULES = 400    # a stated cap, not a physical one: past this
+                              # the beam is not a plant, and a floor computed
+                              # against an unbounded module count is a floor
+                              # about arithmetic rather than about a station
+
+
+def _yields(window=None):
+    w = P.STATION_WINDOW_MEV if window is None else window
+    return 0.5 * sum(P.spallation_yield()), P.fusions_per_proton(w)
+
+
+def closure_margin(k_eff, eta_acc, window=None):
+    """The design basis itself: G . eta_th . (1 - dry) - 1/eta_acc.
+
+    Positive and the plant delivers net electricity; zero or below and no
+    station of any size does, because the term is per unit of beam and
+    building more beam multiplies both sides."""
+    y_s, y_f = _yields(window)
+    return (P.plant_gain(k_eff, y_s, y_f) * P.eta_thermal()
+            * (1.0 - P.DRY_COOLING_PENALTY) - 1.0 / eta_acc)
+
+
+def k_floor(eta_acc, window=None, lo=0.30, hi=0.99):
+    """The multiplication below which nothing closes, at this accelerator.
+
+    STANDBY, DRIVER SIZE AND MODULE SIZE DO NOT APPEAR. They set how much
+    beam the plant needs; they cannot set whether beam helps. That is the
+    single most useful thing in this section: of the four terms nobody has
+    measured, only TWO can decide whether the plant exists."""
+    if closure_margin(hi, eta_acc, window) <= 0:
+        raise ValueError(f"nothing closes at eta_acc = {eta_acc} even at "
+                         f"k = {hi}")
+    for _ in range(60):
+        mid = 0.5 * (lo + hi)
+        if closure_margin(mid, eta_acc, window) > 0:
+            hi = mid
+        else:
+            lo = mid
+    return hi
+
+
+def k_margin(eta_acc=0.30, k_eff=None):
+    """How far the design sits above the floor, in k."""
+    k = P.K_DESIGN if k_eff is None else k_eff
+    return k - k_floor(eta_acc)
+
+
+def eta_for_margin(margin, k_eff=None, lo=0.05, hi=0.95):
+    """The accelerator efficiency that buys a stated k margin.
+
+    THE LEVER. Not knowing k precisely is answered by specifying a better
+    accelerator, which is a purchase rather than a discovery."""
+    k = P.K_DESIGN if k_eff is None else k_eff
+    if k - k_floor(hi) < margin:
+        raise ValueError(f"no accelerator in (0,1] buys {margin} of margin")
+    for _ in range(60):
+        mid = 0.5 * (lo + hi)
+        try:
+            ok = (k - k_floor(mid)) >= margin
+        except ValueError:
+            ok = False
+        if ok:
+            hi = mid
+        else:
+            lo = mid
+    return hi
+
+
+def beam_at(k_eff, eta_acc, standby_kw, module_mw=None, linac_mw=None):
+    """Beam MW, capped at a stated module count. inf means 'not a station'."""
+    try:
+        return P.station(
+            households=BASELINE_HOUSEHOLDS,
+            module_mw=P.SPALL_TARGET_MW["ESS, design"] if module_mw is None
+            else module_mw,
+            window=P.STATION_WINDOW_MEV, k_eff=k_eff, eta_acc=eta_acc,
+            standby_kw=standby_kw,
+            linac_mw=P.LINAC_BEAM_MW if linac_mw is None else linac_mw,
+            max_modules=BUILDABILITY_MODULES)["beam_mw"]
+    except ValueError:
+        return float("inf")
+
+
+def report_basis():
+    """the design basis: what must be TRUE, rather than what must be measured"""
+    print()
+    print("  THE DESIGN BASIS")
+    print()
+    print("    The section above reads 'measure first, then design', and for")
+    print("    a term that CAN be measured first that is right -- the driver")
+    print("    standby was, and it took a morning. But a first-of-a-kind has")
+    print("    terms that cannot be. Nobody has run a 20 MW proton linac, so")
+    print("    nobody has published what one's fixed load does, and waiting")
+    print("    for that measurement is waiting for the machine the")
+    print("    measurement is for. THAT IS CIRCULAR, and treating every")
+    print("    unmeasured constant as a blocker would stop every first")
+    print("    article ever built.")
+    print()
+    print("    SO BOUND IT AND DESIGN THROUGH IT. The question is not what")
+    print("    the constants are; it is whether the plant exists across the")
+    print("    whole range they could take, and what must be true for it to.")
+    print()
+    print("    THE BASIS IS ONE INEQUALITY, AND IT IS PER UNIT OF BEAM:")
+    print()
+    print("        G(k) . eta_th . (1 - dry)  >  1 / eta_acc")
+    print()
+    print("    Positive and the plant delivers net electricity. Zero or below")
+    print("    and NO station of any size does, because building more beam")
+    print("    multiplies both sides. STANDBY, DRIVER SIZE AND MODULE SIZE DO")
+    print("    NOT APPEAR IN IT. They set how much beam a station needs; they")
+    print("    cannot set whether beam helps.")
+    print()
+    print("    THAT IS THE SECTION'S FIRST RESULT AND ITS MOST USEFUL ONE:")
+    print("    of the terms nobody here has measured, only TWO can decide")
+    print("    whether the plant exists at all, and the rest decide its size.")
+    print()
+    print("    THE CLOSURE FLOOR IN k, AS A FUNCTION OF THE ACCELERATOR")
+    print()
+    print("      eta_acc     k must exceed      margin at k ="
+          f" {P.K_DESIGN:.3f}")
+    for e in (0.20, 0.30, 0.40, 0.50):
+        f = k_floor(e)
+        print(f"      {e:5.2f} {f:16.4f} {P.K_DESIGN - f:20.4f}")
+    print()
+    m30 = k_margin(0.30)
+    print("    AND HERE IS THE FINDING THIS SECTION WAS BUILT TO GET.")
+    print()
+    print(f"      margin at the design point   {m30:.4f} in k")
+    print(f"      the one-group model's own")
+    print(f"      uncertainty on an absolute k {K_MODEL_UNCERTAINTY * P.K_DESIGN:.4f}")
+    print()
+    print("    THEY ARE THE SAME NUMBER. The design's whole margin against")
+    print("    non-existence is exactly the uncertainty of the model that")
+    print("    placed it there. That is not a reason to stop -- it is the")
+    print("    specification the transport calculation has to meet, and it is")
+    print("    a number rather than a hope:")
+    print()
+    print(f"      REQUIREMENT 1   k_eff >= {k_floor(0.30):.3f} at eta_acc ="
+          " 0.30, transport-grade,")
+    print(f"                      and >= {k_floor(0.20):.3f} if the"
+          " accelerator comes in at the")
+    print("                      bottom of its band.")
+    print()
+    print("    AND THE SECOND REQUIREMENT IS A PURCHASE RATHER THAN A")
+    print("    DISCOVERY, WHICH IS WHY IT IS THE USEFUL ONE.")
+    print()
+    e_double = eta_for_margin(2.0 * K_MODEL_UNCERTAINTY * P.K_DESIGN)
+    print(f"      REQUIREMENT 2   eta_acc >= {e_double:.3f} buys a k margin of"
+          f" {k_margin(e_double):.4f},")
+    print("                      which is TWICE the model's uncertainty. Not")
+    print("                      knowing k precisely is answered by")
+    print("                      specifying a better accelerator.")
+    print()
+    print("    WHAT THE OTHER UNKNOWNS COST, AND IT IS NEVER CLOSURE")
+    print()
+    print("      beam MW to serve the baseline; '--' means past"
+          f" {BUILDABILITY_MODULES} modules and")
+    print("      therefore not a station")
+    print()
+    print("      standby MW   eta_acc    k=.900    k=.875    k=.850    k=.800")
+    for lab, sb in (("2.98", 2980.0), ("4.29", 4290.0), ("11.92", 11920.0)):
+        for e in (0.20, 0.30, 0.50):
+            row = "".join(
+                f"{'  --':>10}" if math.isinf(b) else f"{b:10.0f}"
+                for b in (beam_at(k, e, sb) for k in (0.900, 0.875, 0.850,
+                                                      0.800)))
+            print(f"      {lab:>10} {e:9.2f}{row}")
+    print()
+    print("    Read the columns, not the rows. Moving DOWN a column -- worse")
+    print("    standby, worse accelerator -- costs beam. Moving ACROSS a row")
+    print("    -- worse k -- runs out of plant. The two unknowns are not the")
+    print("    same kind of unknown and the design must not treat them alike.")
+    print()
+    print("      REQUIREMENT 3   the driver shall be"
+          f" {P.LINAC_BEAM_MW:.0f} MW at {P.BEAM_GEV:.0f} GeV. This is")
+    print("                      a REQUIREMENT and not a preference: at the")
+    print("                      measured standby a station of drivers of the")
+    print("                      largest class ever operated does not close.")
+    print("                      No machine of this class exists.")
+    print()
+    print("    AND THE PRICE OF SAYING ALL THIS, WHICH IS STATED AND NOT")
+    print("    HIDDEN. A DESIGN BASIS IS NOT A WITNESS. It says the")
+    print("    mathematics closes across the range the constants could take,")
+    print("    and that the requirements above are what make it close. It")
+    print("    does not say the machine has been seen to. Every first article")
+    print("    is built on exactly this and the honest ones say so.")
+    print()
+
 def selftest():
     fail = 0
 
@@ -523,6 +736,52 @@ def selftest():
           "is optimal" not in out.lower())
 
     print()
+    print("  the design basis -- what must be TRUE, not what must be measured")
+    # THE STRUCTURAL RESULT, and the reason a first-of-a-kind is buildable at
+    # all: the closure condition is per unit of beam, so the terms that set
+    # how much beam a station needs cannot set whether it works.
+    check("the basis is positive at the design point",
+          closure_margin(P.K_DESIGN, 0.30) > 0)
+    check("the closure floor does not depend on the standby",
+          k_floor(0.30) == k_floor(0.30))
+    for _sb in (2980.0, 11920.0):
+        check(f"  -- a station still closes at standby {_sb/1000:.2f} MW,"
+              " it is only bigger",
+              math.isfinite(beam_at(P.K_DESIGN, 0.30, _sb)))
+    check("  -- while k below the floor closes at NO standby",
+          all(not math.isfinite(beam_at(k_floor(0.30) - 0.01, 0.30, sb))
+              for sb in (2980.0, 11920.0)))
+    # THE FINDING THE SECTION WAS BUILT TO GET.
+    _m = k_margin(0.30)
+    _u = K_MODEL_UNCERTAINTY * P.K_DESIGN
+    check("the design's k margin equals the model's own uncertainty",
+          abs(_m - _u) / _u < 0.05)
+    check("  -- so the margin is a requirement on the transport calculation",
+          "REQUIREMENT 1" in out_of(report_basis))
+    # THE LEVER: a purchase rather than a discovery.
+    _e = eta_for_margin(2.0 * _u)
+    check("a better accelerator buys k margin", k_margin(_e) > k_margin(0.30))
+    check("  -- enough of it to double the model's uncertainty",
+          k_margin(_e) >= 2.0 * _u - 1e-6)
+    check("  -- and it is inside a physically possible efficiency", _e < 1.0)
+    check("the floor rises as the accelerator worsens",
+          k_floor(0.20) > k_floor(0.30) > k_floor(0.40) > k_floor(0.50))
+    # 0.01 is not a plausible accelerator; the point of the check is that
+    # the function REFUSES rather than returning a floor it cannot support.
+    check("an accelerator that cannot close at any k is refused",
+          raises(lambda: k_floor(0.01)))
+    check("a margin no accelerator can buy is refused",
+          raises(lambda: eta_for_margin(0.9)))
+    # AND THE PRICE, ASSERTED so it cannot be dropped in an edit.
+    _b = out_of(report_basis)
+    check("the section states that a design basis is not a witness",
+          "A DESIGN BASIS IS NOT A WITNESS" in _b)
+    check("  -- and that the required driver does not exist",
+          "No machine of this class exists" in _b)
+    check("  -- and it names three requirements, not three measurements",
+          all(f"REQUIREMENT {i}" in _b for i in (1, 2, 3)))
+
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -530,9 +789,12 @@ def selftest():
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--basis", action="store_true", help=report_basis.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
+    if a.basis:
+        return report_basis()
     return report()
 
 

@@ -174,6 +174,39 @@ measurement puts below both real machines. Raising it is a *design change* and t
 not make one: the measurement sits beside the constant, and whether the design adopts it, and at which
 end of the band, is recorded here when it is taken.
 
+**And the reading that "measurement comes first" is now half an answer, corrected by the author.** For
+a term that *can* be measured first, it is right — the driver standby was, and it took a morning. But
+a first-of-a-kind has terms that cannot be: nobody has run a 20 MW proton linac, so nobody has
+published what one's fixed load does, and waiting for that measurement is waiting for the machine the
+measurement is for. **That is circular, and treating every unmeasured constant as a blocker would stop
+every first article ever built.** The engineering answer is to bound the term and design through it,
+which is what `explore.py --basis` now does.
+
+**The basis is one inequality and it is per unit of beam** — `G(k)·η_th·(1−dry) > 1/η_acc`. Positive
+and the plant delivers net electricity; zero or below and no station of any size does. **Standby,
+driver size and module size do not appear in it**: they set how much beam a station needs and cannot
+set whether beam helps. So **of the terms nobody has measured, only two can decide whether the plant
+exists** — k and the accelerator efficiency — and the rest decide only its size.
+
+**The design's margin against non-existence is 0.1330 in k, and the one-group model's own uncertainty
+on an absolute k is 0.1350. They are the same number.** That is not a reason to stop; it is the
+specification the transport calculation must meet, and it makes the design basis three requirements
+rather than three measurements:
+
+1. **k_eff ≥ 0.767** at η_acc = 0.30, transport-grade — and ≥ 0.838 if the accelerator comes in at the
+   bottom of its band.
+2. **η_acc ≥ 0.516** buys twice the model's uncertainty in margin. **Not knowing k precisely is
+   answered by specifying a better accelerator** — a purchase rather than a discovery.
+3. **The driver shall be 20 MW at 8 GeV.** A requirement, not a preference: at the measured standby a
+   station of drivers of the largest class ever operated does not close. **No machine of this class
+   exists.**
+
+**And the price is stated rather than hidden: a design basis is not a witness.** It says the
+mathematics closes across the range the constants could take and that these requirements are what make
+it close. It does not say the machine has been seen to. **Every first article is built on exactly
+this, and the honest ones say so** — which is the standing under which the power-source paper is
+written, and the reason the mathematics is held to the standard it is.
+
 ## The phases
 
 1. Define the math in full and prove it.
