@@ -966,6 +966,44 @@ finite, and below the LHC's proton γ.
 
 ---
 
+## ⚠ H18 — a binary chain is a function, and it is the *citation* that carries the geometry
+
+**H18. A binary chain is a map `c : {0..n−1} → {+1,−1}`; its geometry is the pushforward moment
+spectrum `M_ℓ = Σᵢ c(i) z(i)^ℓ`. The two-element codomain contributes nothing geometric — cite any
+code at a single point and every moment above the monopole is identically zero. What carries the
+geometry is the *placement*.**
+
+Register 1173 supplies the codomain (a cell is admitted or it is not); the chain supplies the domain;
+neither is geometric without a placement. The correspondence is exact rather than a match of counts —
+the failure `unified.py` caught on *eight*.
+
+**Three consequences, each measured.**
+
+| | |
+|---|---|
+| **the device is a binary cited at zero separation** | A negative core inside a positive shell *is* two signs. What it lacks is a **separation** — concentric means coincident centroids. That single fact is why it does not run away (no dipole for Bondi) **and** why it cannot be seen (no dipole radiation, `M_ADM = 0` kills the monopole). `negmass.py` reported those as two findings. **They are one finding.** |
+| **the code does choose the geometry** | Thue–Morse, `c(i) = (−1)^popcount(i)` — the parity of the bits of the index and nothing else, a **pure logic citation of the binary** — suppresses every moment below ℓ at length `2^ℓ`. Asserted in **exact integer arithmetic** for k = 1..8, and shown **optimal by exhaustive search** over all `2ⁿ` codes at n = 2, 4, 8, 16 (65,536 at the top). |
+| **and symmetry beats it exponentially** | Read the optimum backwards: suppression through order ℓ costs `2^ℓ` elements. A **symmetric pair kills moments 1,3,5,7,9 with two elements** where the best possible code needs **512**, and Newton's shell theorem kills the interior field outright. Symmetry and code are the two mechanisms for quieting a configuration, and symmetry is exponentially cheaper. |
+
+**And Earnshaw closes the ℓ = 1 mode `negmass.py` opened.** The Hessian of `1/r` is traceless away
+from the source, so the potential of any point sources is harmonic **whatever their signs** — negating
+`m` flips `U = mφ`, and `−φ` is harmonic too — and a harmonic function has no strict minimum.
+**No static configuration of point masses is stably in equilibrium: any signs, any code, any
+placement.** Its one escape is the *degenerate* case, constant potential, and Newton's shell theorem
+hands the device exactly that.
+
+> **"Drift to contact" is not a defect of this design to engineer out. It is the Newtonian ceiling, and
+> the device is already sitting in the only seat Earnshaw leaves.** Any restoring force must come from
+> outside Newtonian statics: GR, time dependence, or a non-gravitational channel.
+
+| | `chain.py` |
+|---|---|
+| status | **PROVEN** (the pushforward identity; Prouhet in exact integers; Earnshaw from the traceless Hessian) + **MEASURED** (Thue–Morse optimality, exhaustive to n = 16) |
+| new? | the moment-spectrum reading of the binary chain, and the identification of the device as a binary at zero separation, yes |
+| **not** claimed | that "information can only be transported as binary" — untested here, and nothing above depends on it; that binary is **necessary** — q-ary Prouhet does the same job, verified for q = 3, so binary is *minimal and sufficient*, not necessary; that the transportation code **is** a chain — what is shown is what a chain would and would not buy if it were; the **GR** version of ℓ = 1 remains `NOT-RUN` |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1054,3 +1092,10 @@ finite, and below the LHC's proton γ.
   quantities under seven Heaviside constraints; these are device parameters.
 - That the achronality scan is exhaustive. It covers impact parameter for `+x` rays at three speeds.
   A ray family it does not contain is reported `NOT-RUN`, never as absent.
+- **That the binary is what gives the geometry.** It is not — the *citation* is. A code with no
+  placement has no geometry at all, not a small one. See **H18**.
+- **That a binary chain is the only code, or that binary is necessary.** q-ary Prouhet does the same
+  job, and concentric symmetry does it exponentially cheaper. Binary is minimal and sufficient.
+- **That Earnshaw makes the device unstable.** It does the opposite: it shows the device holds the one
+  seat Earnshaw leaves, and that neutral is the Newtonian optimum rather than an oversight. What it
+  refuses is any *Newtonian* fix.

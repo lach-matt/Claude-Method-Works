@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of thirty-five obstructions, SIX dissolved, FOUR relocated,
-SEVENTEEN closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
+THE HEADLINE: of thirty-six obstructions, SIX dissolved, FOUR relocated,
+EIGHTEEN closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -223,8 +223,23 @@ LEDGER = [
   "m/R = 2; and V'' > 0 at beta^2 = 0 with beta2_crit NEGATIVE everywhere, so "
   "it is radially stable with no pressure response at all -- where the textbook "
   "shell on the same machinery is unstable. The core's position is neutral by "
-  "the shell theorem. l >= 2 IS NOT RUN and is the top remaining risk",
+  "the shell theorem -- and by Earnshaw that is the CEILING, not an oversight; "
+  "see TRANSLATION. l >= 2 IS NOT RUN and is the top remaining risk",
   "stability.py"),
+ ("TRANSLATION", "the core drifts to contact -- the l = 1 mode nobody posed",
+  "CLOSED-NEGATIVE",
+  "IT STANDS, AND IT IS PROVABLY THE CEILING. negmass.py found the interior "
+  "force zero at any displacement (so no Bondi runaway) but NEUTRAL rather than "
+  "restoring, leaving drift to contact. chain.py then generalises it: the "
+  "Hessian of 1/r is traceless, so the potential of ANY point sources is "
+  "harmonic whatever their signs -- negating m flips U = m phi and -phi is "
+  "harmonic too -- and a harmonic function has no strict minimum. EARNSHAW: no "
+  "static configuration is stably in equilibrium, for any signs, any code, any "
+  "placement. Its ONE escape is the degenerate constant-potential case, and "
+  "Newton's shell theorem hands the device exactly that. So neutral is optimal "
+  "and drift to contact is not a defect to engineer out. A restoring force must "
+  "come from OUTSIDE Newtonian statics: GR, time dependence, or a "
+  "non-gravitational channel. The GR version is NOT-RUN", "chain.py"),
  ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
   "CLOSED-NEGATIVE",
   "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
@@ -569,10 +584,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 35)
+    chk("obstructions tracked", len(LEDGER), 36)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 17)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 18)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",

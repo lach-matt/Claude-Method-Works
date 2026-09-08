@@ -110,6 +110,17 @@ generalises to a negative interior; concentric.py supplies the device.
     exponential runaway -- slower than the literature's, and still a failure.
     The GR version, with the junction conditions rather than Newton, is
     NOT-RUN.  See negmass.py.
+
+    AND CLOSED IN NEWTONIAN GRAVITY BY chain.py.  Earnshaw's theorem: the
+    potential of any point sources is harmonic away from them whatever their
+    signs -- the Hessian of 1/r is traceless -- so a harmonic function has no
+    strict minimum and NO static configuration is stably in equilibrium, for
+    any signs, any code, any placement.  The one escape Earnshaw permits is the
+    DEGENERATE case, constant potential, and Newton's shell theorem hands the
+    device exactly that.  So neutral is not an oversight here, it is the
+    Newtonian CEILING, and drift to contact is not a defect to engineer out.
+    A restoring force must come from outside Newtonian statics: GR, time
+    dependence, or a non-gravitational channel.  The GR version stays NOT-RUN.
 """
 import math, sys
 

@@ -5115,3 +5115,106 @@ Which separates two objects the project had been treating as one:
 
 ### Seated
 - `negmass.py` — new. `stability.py` — annotated with the unnamed ℓ=1 mode. `index3.py` — **382 findings**.
+
+---
+
+## `chain.py` — the binary chain, and what a binary can and cannot give a geometry
+
+> **M:** *"It doesn't run away, and the reason is geometry. Their case is a binary — a dipole. This is
+> my underlying idea that the transportation code is a binary chain, and only a binary chain, because
+> information can only be transported as binary. A logic citation of the binary is what gives the
+> geometry."*
+
+`negmass.py` used **binary** in the astronomer's sense — two bodies, a dipole. Register 1173 uses it in
+the logician's sense — a cell is admitted or it is not. This tree has been burned before by a match
+that was only a match of counts (`unified.py`, on *eight*: **"same cardinality, no established
+correspondence"**), so the first job was to refuse the analogy or earn it.
+
+**It earns it — and then falsifies half the sentence.**
+
+### 1. The three binaries, stated apart
+
+| | what it is | geometric? |
+|---|---|---|
+| register 1173's | a **codomain** of size two, `{admitted, refused}` | no placement |
+| `negmass.py`'s | a **configuration** of two bodies at a separation | yes |
+| M's chain | a **sequence** of two-valued cells | yes |
+
+> **A binary chain is a function `c : {0..n−1} → {+1,−1}`.** 1173 supplies the **codomain**, the chain
+> supplies the **domain**, and the geometry is the **pushforward**: `M_ℓ = Σᵢ c(i) z(i)^ℓ`.
+
+Exact rather than suggestive — and immediately falsifiable.
+
+### 2. The binary alone gives no geometry
+
+Cite any code at one point and every moment above `ℓ = 0` vanishes identically — measured for
+alternating, for Thue–Morse and for an arbitrary code. **A code with no citation has no geometry. Not
+a small one — none.** M's own word, *citation*, is the operative one, and the noun it attaches to is not.
+
+Which settles what `negmass.py` actually found. The device **has** the binary — a negative core inside
+a positive shell is two signs. What it lacks is a **separation**, because concentric means coincident
+centroids.
+
+> **The device is a binary cited at zero separation** — and that single fact is why it does not run
+> away (no dipole to drive Bondi) *and* why it cannot be seen (no dipole radiation, and `M_ADM = 0`
+> kills the monopole). Safe and invisible were reported as two findings. **They are one finding.**
+
+### 3. But the code really does choose the geometry — provably
+
+Place the chain on the uniform lattice and the leading moment becomes a property of the code alone.
+
+| code | leading moment |
+|---|---|
+| alternating `+−+−…` | **ℓ = 1 at every length** — the naive chain is a dipole however long you make it |
+| **Thue–Morse**, `c(i) = (−1)^popcount(i)` | **ℓ = k at length 2^k**, exactly |
+
+Thue–Morse is not chosen for its geometry. It is defined by **the parity of the bits of the index and
+nothing else** — a purely logical citation of the binary — and what falls out of it is a multipole
+spectrum. **That is M's sentence, measured, and it is true.**
+
+Verified two ways: the vanishing asserted in **exact integer arithmetic** for k = 1..8 (no floats, no
+tolerance), and Thue–Morse shown **optimal by exhaustive search** over all `2ⁿ` codes at n = 2, 4, 8,
+16 — 65,536 codes at the top. Prouhet's theorem, 1851.
+
+### 4. And the refusal is the word *only* — the cost is exponential
+
+Read the optimum backwards: suppressing through order ℓ needs a chain of `2^ℓ` elements.
+
+| | elements |
+|---|---|
+| best possible code, moments 1–9 killed | **512** |
+| a symmetric pair, moments 1–9 killed | **2** |
+
+> **Symmetry and code are the two mechanisms for quieting a configuration, and symmetry is
+> exponentially cheaper.** A code earns its place where symmetry is unavailable. Here it is available.
+
+A second, smaller refusal: **q-ary Prouhet does the same job** (verified for q = 3), and Shannon says
+it from the other side — any alphabet encodes in binary. So *"only binary"* is a **normalisation, not a
+physical restriction**. Binary is **minimal and sufficient, not necessary**. The physical content was
+never in the alphabet; it is in the placement.
+
+### 5. Earnshaw closes the ℓ = 1 mode `negmass.py` opened
+
+The Hessian of `1/r` is **traceless** away from the source — `(3rᵢrⱼ − δᵢⱼr²)/r⁵` has trace zero — so
+the potential of any point sources is harmonic **whatever their signs**: negating `m` flips `U = mφ`,
+and `−φ` is harmonic too. A harmonic function has no strict local minimum.
+
+> **No static configuration of point masses is stably in equilibrium — for any signs, any code, any
+> placement.**
+
+And that **explains** `negmass.py` rather than contradicting it. Earnshaw permits exactly one escape:
+the **degenerate** case, constant potential, Hessian identically zero. Newton's shell theorem delivers
+precisely that inside a uniform shell.
+
+> **The concentric device is sitting in the only seat Earnshaw leaves.** So *"drift to contact"* is not
+> a defect of this design to engineer out — **it is the Newtonian ceiling.** Any restoring force must
+> come from outside Newtonian statics: GR, time dependence, or a non-gravitational channel.
+
+ℓ = 1 is **closed in Newtonian gravity** with the answer *"neutral is optimal."* The GR version stays
+`NOT-RUN`.
+
+### Seated
+- `chain.py` — new. `stability.py` and `negmass.py` — swept for the closed ℓ=1 result.
+  `obstruct.py` — **36 rows**, new `TRANSLATION` row, **18 closed-negative**, one still OPEN (TYPE-IV).
+  `index3.py` — **390 findings**, still `E(X) = 0`. `paper/CLAIMS.md` — **H18** and three additions to
+  the not-claimed list.

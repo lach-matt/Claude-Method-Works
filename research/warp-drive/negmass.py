@@ -242,6 +242,12 @@ L1_WAS_NAMED = False               # stability.py measured radial; flagged l>=2
 FAILURE_MODE = "drift to contact"
 GR_VERSION = "NOT-RUN"
 
+# chain.py, later: this is the NEWTONIAN CEILING and not a defect of the design.
+# Earnshaw -- the potential of any point sources is harmonic whatever the signs,
+# so nothing static is stable -- leaves exactly one escape, the degenerate
+# constant-potential case, and the shell theorem hands the device that seat.
+L1_NEWTONIAN_CEILING = "neutral is optimal"    # chain.py
+
 
 # ------------------------------- 6: the detection problem we made for ourselves
 
