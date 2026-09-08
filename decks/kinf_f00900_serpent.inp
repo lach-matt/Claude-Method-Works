@@ -1,0 +1,20 @@
+% k_inf of the design fuel salt, fissile fraction 0.09000
+% UCl3 mol fraction 0.18910, density 3.3000 g/cm3, 900 K
+% one-group prediction, registered in advance: k_inf = 1.0367
+
+set title "NaCl-UCl3 fuel salt, infinite medium"
+
+mat salt sum tmp 900.0
+17035.09c  2.39010751e-04
+17037.09c  2.36620643e-02
+11023.09c  1.40629213e-02
+94239.09c  2.95144614e-04
+92238.09c  2.98423998e-03
+
+surf 1 cube 0.0 0.0 0.0 50.0
+cell 1 0 salt -1
+cell 2 0 outside 1
+set bc 2                 % reflective on every face: infinite medium
+
+set pop 100000 250 50
+set gcu -1

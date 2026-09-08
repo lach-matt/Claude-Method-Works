@@ -968,6 +968,40 @@ is the error the census exists to stop. Two classifier faults are pinned so they
 constant's own words beat a paragraph above it (`SPALL_TARGET_MW`, every row `SOURCED`, came back
 `DESIGN`), and the block above is capped at four lines (`LINAC_CLASS`, every row sourced, came back
 `ASSUMED` from the paragraph introducing its neighbour). See `docs/PROVENANCE.md`)
+**`tools/deck.py`** (**the transport calculation, written out so it can be run** — the project's one
+remaining uncertainty is whether a one-group collapse of *this* composition puts `k_inf` where
+transport puts it, and `criticality.py`'s always-subcritical property, the adopted `k = 0.900` and the
+whole hazard-class argument rest on the answer. It writes **OpenMC and Serpent decks** for a
+**reflective-boundary k_inf** — an infinite medium has no geometry, no leakage, no blanket and no
+reflector, which are every place two calculations differ for reasons that are not the question — over
+a scan of fissile fractions, with **the one-group prediction registered in each deck's header before
+the run**. Every atom density is derived from the design's own density and stoichiometry and the
+selftest sums them back into a mass density and requires the input back: *a deck whose densities do
+not reproduce the density they came from computes a different material.* **Writing a deck for the real
+material bought a finding before it bought an answer**: `criticality.py` publishes the
+always-subcritical threshold at **7.93 %**, computed at the **eutectic** (34 mol % UCl₃), and the
+design's salt is **18.9 mol %** — a more dilute salt carries more sodium and chlorine per heavy atom
+to absorb, so the threshold on the material the design actually holds is **8.35 %**. **The safety
+property was published for a material the design does not use**, which is the same error the fluoride
+benchmark was withdrawn for, one level further down; it runs the *safe* way (the band is wider, not
+narrower) and that is luck rather than design, and `k = 0.900` survives untouched because it is
+`k_inf = 1` through the leakage allowance rather than a fissile fraction. **`--provenance` then sets
+the registered prediction beside what is published ON THIS MATERIAL, and it does not agree.** The
+commercial MCFR states that **first plants start with 12 % enrichment**; a power reactor is *critical*,
+so its `k_inf = 1` crossing lies **below** that — **10.80–11.64 %** across a 3–10 % leakage band —
+while this model puts the U-235 crossing at **14.66 %** in the same salt. **So the model demands
+1.26–1.36× more fissile than published practice does**: the *safe* direction for a reactor and the
+**unsafe** direction for a criticality-safety *threshold*. Scaled by that, the Pu-239 threshold would
+be **6.15–6.63 %** against the design's operating **8.35 %** — **the design would sit above its own
+threshold** — and **the two claims may not be simultaneously satisfiable**: at 6.15 % the plant **does
+not close**, at 6.63 % it needs **2,010 MW** of beam against 240. **It is a FLAG and not a result**,
+and its three cautions are load-bearing: the MCFR's own composition is unstated, 12 % is a *start-up*
+figure whose geometry and leakage are unpublished, and scaling the Pu-239 threshold by the U-235
+conservatism **assumes the model errs by the same multiple on both nuclides**, which is the weakest
+link. **What the flag is worth is its direction, not its number**: it says the transport calculation
+is not a formality but decides whether the design as it stands is internally consistent. The decks are
+**not run here** — no transport code, no evaluated library, and OpenMC is not installable from this
+package index — and the studies that would settle it are named. See `docs/DECK.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 68 pinned figures, ~5 s, exits 1 on drift. Fourteen
@@ -980,7 +1014,7 @@ sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real c
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
 `docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md`, `docs/MATERIALS.md`,
-`docs/BUILDPACKAGE.md`, `docs/ENVIRONMENT.md`, `docs/EXPLORE.md`, `docs/PROVENANCE.md` and `docs/DOCFIGURES.md`.
+`docs/BUILDPACKAGE.md`, `docs/ENVIRONMENT.md`, `docs/EXPLORE.md`, `docs/PROVENANCE.md`, `docs/DECK.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and

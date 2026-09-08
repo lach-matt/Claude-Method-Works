@@ -249,8 +249,32 @@ accelerator. **The method is, and it is still asserted.**
 
 **So the project has exactly one uncertainty left and it is precisely named: the one-group method
 error on this composition.** What closes it is a **transport calculation on this salt** — a
-*computation*, not an experiment, and a day's work for anyone with Serpent or MCNP and an evaluated
-library. **Phase 4 proceeds when that calculation is done.**
+*computation*, not an experiment. `tools/deck.py` writes the OpenMC and Serpent decks for it, from the
+design's own numbers, with **the prediction registered in each deck's header before the run**.
+
+**Writing that deck found a fault, and then a flag.**
+
+**The fault.** `criticality.py` publishes the always-subcritical threshold at **7.93 %**, computed at
+the **eutectic** (34 mol % UCl₃). The design's salt is **18.9 mol %**. The threshold on the material
+the design actually holds is **8.35 %**. **The safety property was published for a material the design
+does not use** — the same error the fluoride benchmark was withdrawn for, one level down. It runs the
+safe way (the band is wider, not narrower), and `k = 0.900` survives untouched because it is
+`k_inf = 1` through the leakage allowance rather than a fissile fraction.
+
+**The flag, and it is on the right material.** The commercial MCFR states that **first plants start
+with 12 % enrichment**. A power reactor is *critical*, so its `k_inf = 1` crossing lies **below** that
+— 10.80–11.64 % across a wide leakage band — while this model puts the U-235 crossing at **14.66 %** in
+the same salt. **The model demands 1.26–1.36× more fissile than published practice does**: the safe
+direction for a reactor, the **unsafe** direction for a criticality-safety *threshold*. Scaled by that,
+the Pu-239 threshold would be **6.15–6.63 %** against the design's operating **8.35 %** — **the design
+would sit above its own threshold** — and **the two claims may not be simultaneously satisfiable**: at
+6.15 % the plant does not close, at 6.63 % it needs 2,010 MW of beam against 240.
+
+**It is a flag and not a result**, and its three cautions are load-bearing — the MCFR's composition is
+unstated, 12 % is a start-up figure whose geometry and leakage are unpublished, and scaling the Pu-239
+threshold by the U-235 conservatism assumes the model errs by the same multiple on both nuclides.
+**What it is worth is its direction**: the transport calculation is not a formality. It decides whether
+the design as it stands is internally consistent, and **phase 4 proceeds when it is done.**
 
 ## The phases
 
