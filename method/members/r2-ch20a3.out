@@ -78,7 +78,7 @@
 ================================================================================================
   heading_line(M, "B.1") (numeric-only resolver): None — lettered resolver used: B.1 L10207, B.2 L10224
   species listed in B.1: 26 ['Al I', 'Al II', 'Be I', 'Ar II', 'Be II', 'Bi I', 'C II', 'Ca II', 'Cd II', 'Ga I', 'He I', 'He II', 'Hg II', 'K II', 'Li I', 'Li II', 'Mg II', 'N II', 'Na II', 'Ne I', 'Ne I', 'Si I', 'Si II', 'Zn II', 'Na I', 'K I']; distinct 25; elements 18 ['Al', 'Ar', 'Be', 'Bi', 'C', 'Ca', 'Cd', 'Ga', 'He', 'Hg', 'K', 'Li', 'Mg', 'N', 'Na', 'Ne', 'Si', 'Zn']
-  B.1 species with NO row in the Part II table: []; Ne I rows in the table: [(712, '2s22p5(2P*3/2)nd 2[3/2]* J=1'), (713, '2s22p5(2P*3/2)ns 2[3/2]* J=1'), (714, 'nd 2[3/2]* J=1'), (715, 'ns 2[1/2]* J=1'), (716, 'np 1P* J=1'), (717, '2p5(2P°3/2)nd 2[7/2]° J=4')]
+  B.1 species with NO row in the Part II table: []; Ne I rows in the table: [(712, '2s22p5(2P*3/2)nd 2[3/2]* J=1'), (713, '2s22p5(2P*3/2)ns 2[3/2]* J=1'), (714, '2s2.2p5.(2P*<1/2>).nd 2[3/2]* J=1'), (715, '2s2.2p5.(2P*<1/2>).ns 2[1/2]* J=1'), (716, '2s.2p6.(2S).np 1P* J=1'), (717, '2p5(2P°3/2)nd 2[7/2]° J=4')]
   main B.1 body non-blank lines 13 vs SC B.1 body 13; differing: []
   main B.3 body vs SC B.3 body: 8 vs 8 lines; differing: []
   References body (`## References` L11550 to end): author hits — {'Kaufman': 1, 'Martin': 2, 'Kramida': 2, 'Sansonetti': 2, 'Hori': 1, 'Korobov': 1, 'Singer': 1, 'Stanojevic': 1, 'Weidemüller': 1, 'Côté': 1, 'Sugar': 2, 'Corliss': 1, 'Musgrove': 1}
