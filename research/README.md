@@ -4362,3 +4362,73 @@ The over-broad version had stood untested against the device this tree itself bu
 ### Seated
 - `dichotomy.py` — new. `currency.py` — `ONE_STATEMENT` corrected in place.
 - `index3.py` — **316 findings**, six new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `reverse.py` — the dichotomy read backwards, and the obstacle splits in two
+
+> *"the corridor was built specifically to go the other way — but should still be able to read it
+> backwards."*
+
+`transit.py` proved that for rays: `v(x) := u(L−x)` solves the reversed potential with the **same
+conjugate pair**, to 1.1e-14. This applies it to the **dichotomy** instead.
+
+### The invariant visible from both ends: Weyl is sign-blind
+
+- **Forward** (`dichotomy.py`): a *negative* mass focuses through Weyl, carries no Sturm density
+  requirement, escapes collapse.
+- **Backward**: the same sentence with the sign flipped — a **positive** mass focuses exactly as hard,
+  carries no Sturm requirement either, and **escapes collapse for the same reason.**
+
+| M | conjugate | `t−\|dx\|` | `r_s = 2M` | inside `r_s`? |
+|---|---|---|---|---|
+| −2.0e-3 | 56.50 | −3.762e-02 | 0.004 | no |
+| **+2.0e-3** | **55.17** | +5.123e-02 | 0.004 | **no** |
+| −4.0e-3 | 47.17 | −6.317e-02 | 0.008 | no |
+| **+4.0e-3** | **46.17** | +1.179e-01 | 0.008 | **no** |
+
+**Both signs seat, within 2.4% of the same affine parameter, and neither is anywhere near its own
+Schwarzschild radius — the region is 75× `r_s`.** Only the **arrival** flips. `composite.py` wrote that
+down and nobody turned it around.
+
+### And the positive-mass seat is observed
+
+> **solar gravitational focus `f = b²c²/4GM` = 547.6 AU**, against a published ~550.
+
+The Sun has seated a conjugate point for four and a half billion years — violating no energy condition,
+collapsing nothing, requiring no engineering.
+
+### So the device splits, and the halves do not cost the same
+
+| half | cost | |
+|---|---|---|
+| **the seat** | **FREE** | ordinary matter, every energy condition satisfied, no collapse, an existing example at 550 AU |
+| **the contraction** | **ALL OF IT** | needs `Φ > 0` hence `ρ < 0`; ordinary matter gives a proper ratio of **1.003076 — LONGER** |
+
+> **The obstacle was never "the device." It was always one half of it, and the other half is a solved
+> problem with a working example.**
+
+### What that vindicates
+
+*"A controlled gravitational focus at a chosen range, addressed by declaring both endpoints, built from
+fields that satisfy every energy condition"* — **survives intact.** What `spec.py` withdrew was the
+`B·ℓ` invariant, which was the **Sturm** route to the seat, the one that collapses. The **Weyl** route
+to the same seat is gravitational lensing, and it is fine. `spec.py` said so itself, and the tree kept
+quoting the withdrawal as though it had taken the seat with it.
+
+### What it does not change — no number at all
+
+**A free seat is not a free transition.** The seat alone is a **lens**: it focuses light at a range,
+carries no payload, shortens nothing. Every figure in phase 1, `supply.py`, `scale.py`, `currency.py`
+and `shaping.py` prices the **contraction**, and not one moves. **1.349×10²⁶ kg per metre stands exactly
+where it was.**
+
+> **A lens is not a transition, and the Sun is not a warp drive.**
+
+### Also struck
+`spec.py`'s inventory line *"ANEC violation protects achronality, so the obvious escape from
+Graham–Olum is structurally unavailable"* — overturned by `anecscope.py`, struck in place.
+
+### Seated
+- `reverse.py` — new. `spec.py` — stale ANEC line struck.
+- `index3.py` — **322 findings**, six new. Still 15 cells, `E(X) = 0`.

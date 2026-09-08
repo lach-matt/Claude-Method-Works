@@ -84,8 +84,10 @@ Not the seat.  What this project established that was not already known:
   * THE SEAT/LEAD SPLIT falls exactly on the energy-condition line (charge.py).
   * REVERSAL INVARIANCE of the conjugate pair, proved and measured to 1e-14
     (transit.py) -- M's own prediction.
-  * ANEC VIOLATION PROTECTS ACHRONALITY (achronal.py), so the obvious escape
-    from Graham-Olum is structurally unavailable.
+  * ~~ANEC VIOLATION PROTECTS ACHRONALITY (achronal.py), so the obvious escape
+    from Graham-Olum is structurally unavailable.~~  STRUCK -- anecscope.py
+    overturned this.  achronal.py's shear claim was INVERTED, and with it
+    corrected no ray of the corridor is both ANEC-violating and achronal.
   * THE LEAD IS SHORT BY 65 ORDERS against Ford-Roman and THE GAP WIDENS WITH
     SCALE (achievable.py).
   * AND NOW: STURM-UNIVERSAL SEATING IMPLIES COLLAPSE, at 2 pi^2/3 exactly, at
