@@ -3724,3 +3724,94 @@ Over four light years it is **7.92e-9** of the crossing.
 - `index3.py` — **257 findings**. `DEVICE-SEATS-LEADS` moved to `(+1,−1,+1)`; ten new, of which
   `LOG-AGAINST-LINEAR` and `SAVING-DOESNT-SCALE` are the load-bearing ones.
 - `obstruct.py` — **33 rows**, four new, all **CLOSED-NEGATIVE**.
+
+---
+
+# PHASE 1 — `phase1.py`: the transition, defined and proved
+
+Thirty-one passes produced 257 findings. This adds none. It steps back, states what a **transition**
+is, proves what can be proved, prices it, and ranks the candidates on the two criteria asked for:
+**the fastest operator and the lowest cost.**
+
+## The definition
+
+A transition between declared endpoints `A`, `B` is a one-parameter family of metrics `g_s` on a
+**fixed** manifold satisfying five conditions:
+
+| | condition | content |
+|---|---|---|
+| **D1** | endpoints are labels, not worldlines | `A` and `B` are the same manifold points at every `s` |
+| **D2** | compact support | `g_s = g_0` outside a compact corridor `K` |
+| **D3** | the proper distance falls | `d_s(A,B)` decreasing — the only thing the operator does |
+| **D4** | no momentum: `T^{0i} = 0` | no thrust, no exhaust, no reaction mass |
+| **D5** | both endpoints declared at onset | `transit.py`'s gate |
+
+**A construction violating D4 is propulsion and out of scope.** Alcubierre's shift vector violates it
+by construction — that is *why* it is a different object, and now it is excluded by definition rather
+than by argument.
+
+## The five theorems
+
+**T1 — the quantity is proper distance.** A payload at rest measures `∫e^{−Φ}dl`; light measures
+`∫e^{−2Φ}dl`. Ratio exactly **2**, measured. A transition acts on the *first*, so `chronology.py`'s
+LATE verdict is an answer about the *second* and does not touch it.
+
+**T2 — no momentum, and it is structural.** `T^{0i} = 0` **exactly** (measured 0.0, not to a
+tolerance) for any static Φ, and impossible with a shift vector.
+> **The static/dynamic split *is* the transition/propulsion split.**
+
+**T3 — holding it is free.** Not powered (`budget.py`), radially stable (`stability.py`, `V″ = +2.97e-2`
+against an ordinary shell's `−3.04e-2`). *The corridor is not a machine that runs; it is a shape that
+stays.*
+
+**T4 — a single transition can never beat light.** A compactly supported metric change is causal, so a
+corridor of length `L` is not complete before `L/2c`. Computed, not asserted: one establishment plus
+one traversal costs **1.5 L/c** against a signal's `L/c`. **A single transition is 50% worse than just
+sending the signal.**
+
+**T5 — so all the value is amortised, and here that route is open.** GJW's coupling is **per use** by
+their own *"except with a time delay."* A static shape is not a signal: it holds itself, and the
+establishment share falls as `L/2Nc`. **This is the one place the amortisation argument that failed for
+GJW succeeds — and the reason is exactly the time-independence their footnote 2 declined to consider.**
+
+## The transition equation
+
+> **`Δd = (G/c²)·M·Λ`,  `Λ = 2[ln(2R_s/b) − 1] = 9.9825`**
+
+- **Saturates** — identical to **nine digits** at half-baselines 400, 2000 and 20000.
+- **Linear in mass** — 9.975 / 9.967 / 9.952 / 9.923 / 9.864 per unit `m` over a sixteenfold range.
+- Closed form against measurement: **0.08%**.
+
+**No free parameter is left.** `Λ` improves only logarithmically: `Λ = 20` needs `R_s/b = 2.99×10⁴`,
+`Λ = 100` needs `7.05×10²¹`.
+
+## The price
+
+| | |
+|---|---|
+| exchange rate | **1.349×10²⁶ kg per metre contracted** |
+| one solar mass buys | 14.7 km |
+| 4 ly contracted by 1% | **2.57×10¹⁰ solar masses** |
+| 4 ly contracted by 50% | 1.28×10¹² solar masses |
+
+**A galaxy of negative mass to shave one percent off Alpha Centauri.**
+
+## The ranking
+
+Only one candidate is both **reusable** and **permitted**: the static concentric corridor. GJW is
+per-use; Alcubierre fails D4; a charge state gives zero contraction; Casimir is `4.39×10⁷¹` short; a
+bare negative mass is *strictly better physics* and forbidden by the positive mass theorem.
+**It wins by being the only entry left standing, and that is a weak kind of winning.**
+
+## What phase 1 settles
+
+**The transition is defined. It is not propulsion. It is not forbidden. It is never a lead. Its value
+is entirely amortised. And it costs 1.349×10²⁶ kg per metre.**
+
+The mathematics is finished — the contraction is proportional to mass with a coefficient fixed by
+`c²/G` and a logarithm, and nothing in the geometry is left to optimise. **Every line above needs
+`M < 0`. That is phase 2, and it is not a mathematics problem.**
+
+### Seated
+- `phase1.py` — new, stdlib only, `--selftest`.
+- `index3.py` — **267 findings**, ten new, `PHASE-1-CLOSES` among them. Still 15 cells, `E(X) = 0`.
